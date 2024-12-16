@@ -37373,10 +37373,8 @@ if.then:                                          ; preds = %_ZN5ImStbL18stb_tex
 if.then4:                                         ; preds = %if.then
   %sub = sub nsw i32 %5, %6
   %call.i.i = tail call fastcc noundef ptr @_ZN5ImStbL19stb_text_createundoEPNS_12StbUndoStateEiii(ptr noundef nonnull %undostate.i.i, i32 noundef %6, i32 noundef %sub, i32 noundef 0)
-  %tobool.not.i.i = icmp ne ptr %call.i.i, null
-  %cmp7.i.i = icmp sgt i32 %sub, 0
-  %or.cond.i.i = and i1 %cmp7.i.i, %tobool.not.i.i
-  br i1 %or.cond.i.i, label %for.body.lr.ph.i.i, label %entry._ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit_crit_edge.i
+  %tobool.not.i.i.not = icmp eq ptr %call.i.i, null
+  br i1 %tobool.not.i.i.not, label %entry._ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit_crit_edge.i, label %for.body.lr.ph.i.i
 
 entry._ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit_crit_edge.i: ; preds = %if.then4
   %.pre.i = sext i32 %6 to i64

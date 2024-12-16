@@ -25413,9 +25413,7 @@ if.else:                                          ; preds = %_ZStplRKSt15_Deque_
   %_M_node5.i.i42.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i.i.i.i.i314, i64 24
   %40 = load ptr, ptr %_M_node5.i.i42.i.i.i.i.i.i.i, align 8, !tbaa !1104, !noalias !1252
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i.i.i.i314), !noalias !1233
-  %sub.ptr.lhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr.i.i294 to i64
-  %cmp20.i.i.i.i.i.i.i = icmp sgt i64 %sub, 0
-  br i1 %cmp20.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %invoke.cont38
+  br label %while.body.i.i.i.i.i.i.i
 
 while.body.i.i.i.i.i.i.i:                         ; preds = %.noexc, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i.i.i.i.i.i.i
   %agg.tmp2.sroa.0.0.i.i.i.i.i.i = phi ptr [ %storemerge.i.i.i.i.i.i.i.i, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i.i.i.i.i.i.i ], [ %37, %.noexc ]
@@ -25478,7 +25476,8 @@ _ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i.i.i.i.i.i.i: ; preds = %cond.end.i.i.i.
   %cmp.i.i.i.i.i.i.i = icmp sgt i64 %sub.i.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %invoke.cont38, !llvm.loop !1268
 
-invoke.cont38:                                    ; preds = %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i.i.i.i.i.i.i, %.noexc
+invoke.cont38:                                    ; preds = %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i.i.i.i.i.i.i
+  %sub.ptr.lhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr.i.i294 to i64
   store ptr %storemerge.i.i.i.i, ptr %_M_start, align 8, !tbaa !22
   store ptr %__new_start.sroa.8.0, ptr %_M_first.i166, align 8, !tbaa !22
   store ptr %__new_start.sroa.12.0, ptr %_M_last.i, align 8, !tbaa !22

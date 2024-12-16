@@ -802,10 +802,7 @@ if.else.i.i:                                      ; preds = %if.end32
   %shr.i.i.i = sext i16 %15 to i32
   %cond.i.i = select i1 %cmp.i.i.i, i32 %14, i32 %shr.i.i.i
   %spec.select.i.i = call i32 @llvm.smin.i32(i32 %cond.i6.i, i32 0)
-  %cmp5.i.i.i = icmp slt i32 %cond.i6.i, 0
-  %sub.i.i.i = sub nsw i32 %cond.i6.i, %spec.select.i.i
-  %spec.select9.i.i = call i32 @llvm.smin.i32(i32 %cond.i6.i, i32 %sub.i.i.i)
-  %srcLength.addr.0.i.i = select i1 %cmp5.i.i.i, i32 0, i32 %spec.select9.i.i
+  %srcLength.addr.0.i.i = call i32 @llvm.smax.i32(i32 %cond.i6.i, i32 0)
   %16 = and i16 %9, 2
   %tobool.not.i.i.i = icmp eq i16 %16, 0
   %fBuffer.i.i.i = getelementptr inbounds nuw i8, ptr %bp.128, i64 10
@@ -1088,10 +1085,7 @@ if.else.i.i:                                      ; preds = %if.end34
   %shr.i.i.i = sext i16 %14 to i32
   %cond.i.i = select i1 %cmp.i.i.i, i32 %13, i32 %shr.i.i.i
   %spec.select.i.i = call i32 @llvm.smin.i32(i32 %cond.i6.i, i32 0)
-  %cmp5.i.i.i = icmp slt i32 %cond.i6.i, 0
-  %sub.i.i.i = sub nsw i32 %cond.i6.i, %spec.select.i.i
-  %spec.select9.i.i = call i32 @llvm.smin.i32(i32 %cond.i6.i, i32 %sub.i.i.i)
-  %srcLength.addr.0.i.i = select i1 %cmp5.i.i.i, i32 0, i32 %spec.select9.i.i
+  %srcLength.addr.0.i.i = call i32 @llvm.smax.i32(i32 %cond.i6.i, i32 0)
   %15 = and i16 %8, 2
   %tobool.not.i.i.i = icmp eq i16 %15, 0
   %fBuffer.i.i.i = getelementptr inbounds nuw i8, ptr %bs.141, i64 10
@@ -2660,14 +2654,14 @@ declare void @_ZN6icu_7513UnicodeString7unBogusEv(ptr noundef nonnull align 8 de
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #7
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #7
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #7
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

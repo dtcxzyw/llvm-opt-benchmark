@@ -3343,9 +3343,9 @@ if.then19.i:                                      ; preds = %if.else.i
   br label %return
 
 if.then22.i:                                      ; preds = %if.else.i
+  %add = add nuw nsw i64 %i, 1
   %ob_item.i = getelementptr inbounds nuw i8, ptr %a, i64 24
   %4 = load ptr, ptr %ob_item.i, align 8
-  %add = add nuw nsw i64 %i, 1
   %ob_descr.i = getelementptr inbounds nuw i8, ptr %a, i64 40
   %5 = load ptr, ptr %ob_descr.i, align 8
   %itemsize.i = getelementptr inbounds nuw i8, ptr %5, i64 4

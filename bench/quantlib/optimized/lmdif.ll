@@ -594,16 +594,15 @@ L40:                                              ; preds = %for.body18, %for.en
   %29 = trunc nsw i64 %28 to i32
   %conv.i163 = sitofp i32 %29 to double
   %div.i164 = fdiv double 1.304000e+19, %conv.i163
-  %cmp55.i165 = icmp sgt i64 %28, 0
-  br i1 %cmp55.i165, label %for.body.i174, label %if.else45.i166
+  br label %for.body.i174
 
-for.body.i174:                                    ; preds = %L40, %for.inc.i190
-  %indvars.iv.i175 = phi i64 [ %indvars.iv.next.i196, %for.inc.i190 ], [ 0, %L40 ]
-  %x3max.061.i176 = phi double [ %x3max.1.i195, %for.inc.i190 ], [ 0.000000e+00, %L40 ]
-  %x1max.060.i177 = phi double [ %x1max.1.i194, %for.inc.i190 ], [ 0.000000e+00, %L40 ]
-  %s3.059.i178 = phi double [ %s3.1.i193, %for.inc.i190 ], [ 0.000000e+00, %L40 ]
-  %s2.058.i179 = phi double [ %s2.1.i192, %for.inc.i190 ], [ 0.000000e+00, %L40 ]
-  %s1.057.i180 = phi double [ %s1.1.i191, %for.inc.i190 ], [ 0.000000e+00, %L40 ]
+for.body.i174:                                    ; preds = %for.inc.i190, %L40
+  %indvars.iv.i175 = phi i64 [ 0, %L40 ], [ %indvars.iv.next.i196, %for.inc.i190 ]
+  %x3max.061.i176 = phi double [ 0.000000e+00, %L40 ], [ %x3max.1.i195, %for.inc.i190 ]
+  %x1max.060.i177 = phi double [ 0.000000e+00, %L40 ], [ %x1max.1.i194, %for.inc.i190 ]
+  %s3.059.i178 = phi double [ 0.000000e+00, %L40 ], [ %s3.1.i193, %for.inc.i190 ]
+  %s2.058.i179 = phi double [ 0.000000e+00, %L40 ], [ %s2.1.i192, %for.inc.i190 ]
+  %s1.057.i180 = phi double [ 0.000000e+00, %L40 ], [ %s1.1.i191, %for.inc.i190 ]
   %arrayidx.i181 = getelementptr inbounds nuw double, ptr %arrayidx74, i64 %indvars.iv.i175
   %30 = load double, ptr %arrayidx.i181, align 8, !tbaa !3
   %31 = tail call double @llvm.fabs.f64(double %30)
@@ -701,11 +700,9 @@ if.end43.i208:                                    ; preds = %if.else39.i211, %if
   %call44.i210 = tail call double @sqrt(double noundef %temp.0.i209) #10, !tbaa !9
   br label %_ZN8QuantLib7MINPACK5enormEiPd.exit233
 
-if.else45.i166:                                   ; preds = %if.end30.i200, %L40
-  %s3.0.lcssa7481.i167 = phi double [ %s3.1.i193, %if.end30.i200 ], [ 0.000000e+00, %L40 ]
-  %x3max.0.lcssa7580.i168 = phi double [ %x3max.1.i195, %if.end30.i200 ], [ 0.000000e+00, %L40 ]
-  %call46.i169 = tail call double @sqrt(double noundef %s3.0.lcssa7481.i167) #10, !tbaa !9
-  %mul47.i170 = fmul double %x3max.0.lcssa7580.i168, %call46.i169
+if.else45.i166:                                   ; preds = %if.end30.i200
+  %call46.i169 = tail call double @sqrt(double noundef %s3.1.i193) #10, !tbaa !9
+  %mul47.i170 = fmul double %x3max.1.i195, %call46.i169
   br label %_ZN8QuantLib7MINPACK5enormEiPd.exit233
 
 _ZN8QuantLib7MINPACK5enormEiPd.exit233:           ; preds = %if.then26.i214, %if.end43.i208, %if.else45.i166

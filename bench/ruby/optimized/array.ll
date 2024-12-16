@@ -16255,12 +16255,12 @@ rb_array_const_ptr.exit69:                        ; preds = %128
   %132 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %133 = load ptr, ptr %132, align 8
   %134 = icmp sgt i64 %129, 16
-  br i1 %134, label %137, label %rb_ary_ptr_use_start.exit24.i.i71
+  br i1 %134, label %137, label %.lr.ph.i.i73
 
 rb_array_const_ptr.exit69.thread:                 ; preds = %128
   %135 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %136 = icmp sgt i64 %129, 16
-  br i1 %136, label %137, label %rb_ary_ptr_use_start.exit24.i.i71
+  br i1 %136, label %137, label %.lr.ph.i.i73
 
 137:                                              ; preds = %rb_array_const_ptr.exit69.thread, %rb_array_const_ptr.exit69
   %.0.i6895 = phi ptr [ %135, %rb_array_const_ptr.exit69.thread ], [ %133, %rb_array_const_ptr.exit69 ]
@@ -16294,40 +16294,36 @@ rbimpl_size_mul_or_raise.exit.i.i79:              ; preds = %rb_ary_ptr_use_star
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %147, ptr readonly align 1 %.0.i6895, i64 %148, i1 false)
   br label %ary_memcpy.exit80
 
-rb_ary_ptr_use_start.exit24.i.i71:                ; preds = %rb_array_const_ptr.exit69, %rb_array_const_ptr.exit69.thread
+.lr.ph.i.i73:                                     ; preds = %rb_array_const_ptr.exit69, %rb_array_const_ptr.exit69.thread
   %.0.i689498 = phi ptr [ %135, %rb_array_const_ptr.exit69.thread ], [ %133, %rb_array_const_ptr.exit69 ]
-  %149 = icmp sgt i64 %129, 0
-  br i1 %149, label %.lr.ph.i.i73, label %ary_memcpy.exit80
+  %149 = getelementptr i64, ptr %.0.i689498, i64 %.040.lcssa
+  br label %150
 
-.lr.ph.i.i73:                                     ; preds = %rb_ary_ptr_use_start.exit24.i.i71
-  %150 = getelementptr i64, ptr %.0.i689498, i64 %.040.lcssa
-  br label %151
+150:                                              ; preds = %rb_obj_write.exit.i.i75, %.lr.ph.i.i73
+  %151 = phi i64 [ 0, %.lr.ph.i.i73 ], [ %161, %rb_obj_write.exit.i.i75 ]
+  %.025.i.i74 = phi i32 [ 0, %.lr.ph.i.i73 ], [ %160, %rb_obj_write.exit.i.i75 ]
+  %152 = getelementptr i64, ptr %149, i64 %151
+  %153 = getelementptr i64, ptr %.0.i689498, i64 %151
+  %154 = load i64, ptr %153, align 8
+  store i64 %154, ptr %152, align 8
+  %155 = and i64 %154, 7
+  %156 = icmp ne i64 %155, 0
+  %157 = icmp eq i64 %154, 0
+  %158 = or i1 %157, %156
+  br i1 %158, label %rb_obj_write.exit.i.i75, label %159
 
-151:                                              ; preds = %rb_obj_write.exit.i.i75, %.lr.ph.i.i73
-  %152 = phi i64 [ 0, %.lr.ph.i.i73 ], [ %162, %rb_obj_write.exit.i.i75 ]
-  %.025.i.i74 = phi i32 [ 0, %.lr.ph.i.i73 ], [ %161, %rb_obj_write.exit.i.i75 ]
-  %153 = getelementptr i64, ptr %150, i64 %152
-  %154 = getelementptr i64, ptr %.0.i689498, i64 %152
-  %155 = load i64, ptr %154, align 8
-  store i64 %155, ptr %153, align 8
-  %156 = and i64 %155, 7
-  %157 = icmp ne i64 %156, 0
-  %158 = icmp eq i64 %155, 0
-  %159 = or i1 %158, %157
-  br i1 %159, label %rb_obj_write.exit.i.i75, label %160
-
-160:                                              ; preds = %151
-  tail call void @rb_gc_writebarrier(i64 noundef %38, i64 noundef %155) #21
+159:                                              ; preds = %150
+  tail call void @rb_gc_writebarrier(i64 noundef %38, i64 noundef %154) #21
   br label %rb_obj_write.exit.i.i75
 
-rb_obj_write.exit.i.i75:                          ; preds = %160, %151
-  %161 = add i32 %.025.i.i74, 1
-  %162 = sext i32 %161 to i64
-  %163 = icmp sgt i64 %129, %162
-  br i1 %163, label %151, label %ary_memcpy.exit80, !llvm.loop !13
+rb_obj_write.exit.i.i75:                          ; preds = %159, %150
+  %160 = add i32 %.025.i.i74, 1
+  %161 = sext i32 %160 to i64
+  %162 = icmp sgt i64 %129, %161
+  br i1 %162, label %150, label %ary_memcpy.exit80, !llvm.loop !13
 
-ary_memcpy.exit80:                                ; preds = %rb_obj_write.exit.i.i75, %rb_ary_ptr_use_start.exit24.i.i71, %rbimpl_size_mul_or_raise.exit.i.i79, %rb_array_len.exit50.thread, %14, %._crit_edge, %rb_array_len.exit50, %5
-  %.0 = phi i64 [ %6, %5 ], [ %16, %14 ], [ %38, %._crit_edge ], [ %38, %rb_array_len.exit50 ], [ %38, %rb_array_len.exit50.thread ], [ %38, %rbimpl_size_mul_or_raise.exit.i.i79 ], [ %38, %rb_ary_ptr_use_start.exit24.i.i71 ], [ %38, %rb_obj_write.exit.i.i75 ]
+ary_memcpy.exit80:                                ; preds = %rb_obj_write.exit.i.i75, %rbimpl_size_mul_or_raise.exit.i.i79, %rb_array_len.exit50.thread, %14, %._crit_edge, %rb_array_len.exit50, %5
+  %.0 = phi i64 [ %6, %5 ], [ %16, %14 ], [ %38, %._crit_edge ], [ %38, %rb_array_len.exit50 ], [ %38, %rb_array_len.exit50.thread ], [ %38, %rbimpl_size_mul_or_raise.exit.i.i79 ], [ %38, %rb_obj_write.exit.i.i75 ]
   ret i64 %.0
 }
 

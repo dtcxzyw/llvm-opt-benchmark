@@ -100,7 +100,7 @@ define noundef i32 @_ZN5ZXing6QRCode8MaskUtil20CalculateMaskPenaltyERKNS_6Matrix
 63:                                               ; preds = %60
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %65 = load ptr, ptr %64, align 8, !tbaa !21
-  br label %234
+  br label %226
 
 66:                                               ; preds = %60
   %67 = icmp sgt i32 %8, 0
@@ -118,8 +118,8 @@ define noundef i32 @_ZN5ZXing6QRCode8MaskUtil20CalculateMaskPenaltyERKNS_6Matrix
   br label %79
 
 79:                                               ; preds = %.loopexit34, %66
-  %80 = phi i64 [ 0, %66 ], [ %103, %.loopexit34 ]
-  %81 = phi i32 [ 0, %66 ], [ %102, %.loopexit34 ]
+  %80 = phi i64 [ 0, %66 ], [ %102, %.loopexit34 ]
+  %81 = phi i32 [ 0, %66 ], [ %101, %.loopexit34 ]
   br i1 %67, label %82, label %.loopexit34
 
 82:                                               ; preds = %79
@@ -130,256 +130,248 @@ define noundef i32 @_ZN5ZXing6QRCode8MaskUtil20CalculateMaskPenaltyERKNS_6Matrix
   %87 = sub i32 0, %86
   %88 = sext i32 %87 to i64
   %89 = icmp eq i64 %80, 0
-  %90 = sub nsw i64 %78, %80
-  %91 = trunc nsw i64 %90 to i32
-  %92 = tail call i32 @llvm.smin.i32(i32 %91, i32 11)
-  %93 = add nsw i32 %92, -7
-  %94 = mul nsw i32 %93, %8
-  %95 = sext i32 %94 to i64
-  %96 = icmp slt i64 %90, 7
-  %97 = mul i32 %8, %84
-  %98 = zext i32 %97 to i64
-  %99 = getelementptr %"class.ZXing::Trit", ptr %69, i64 %98
-  br label %105
+  %90 = sub i32 %6, %84
+  %91 = tail call i32 @llvm.smin.i32(i32 %90, i32 11)
+  %92 = add nsw i32 %91, -7
+  %93 = mul nsw i32 %92, %8
+  %94 = sext i32 %93 to i64
+  %95 = mul i32 %8, %84
+  %96 = zext i32 %95 to i64
+  %97 = getelementptr %"class.ZXing::Trit", ptr %69, i64 %96
+  %98 = icmp sgt i32 %93, 0
+  br label %104
 
-100:                                              ; preds = %.loopexit34
-  %101 = mul nsw i32 %102, 40
-  br label %234
+99:                                               ; preds = %.loopexit34
+  %100 = mul nsw i32 %101, 40
+  br label %226
 
 .loopexit34:                                      ; preds = %.loopexit, %79
-  %102 = phi i32 [ %81, %79 ], [ %231, %.loopexit ]
-  %103 = add nuw nsw i64 %80, 1
-  %104 = icmp eq i64 %103, %78
-  br i1 %104, label %100, label %79, !llvm.loop !22
+  %101 = phi i32 [ %81, %79 ], [ %223, %.loopexit ]
+  %102 = add nuw nsw i64 %80, 1
+  %103 = icmp eq i64 %102, %78
+  br i1 %103, label %99, label %79, !llvm.loop !22
 
-105:                                              ; preds = %.loopexit, %82
-  %106 = phi i64 [ 0, %82 ], [ %232, %.loopexit ]
-  %107 = phi i32 [ %81, %82 ], [ %231, %.loopexit ]
-  %108 = getelementptr %"class.ZXing::Trit", ptr %99, i64 %106
-  %109 = icmp sgt i64 %106, %76
-  br i1 %109, label %.loopexit29, label %110
+104:                                              ; preds = %.loopexit, %82
+  %105 = phi i64 [ 0, %82 ], [ %224, %.loopexit ]
+  %106 = phi i32 [ %81, %82 ], [ %223, %.loopexit ]
+  %107 = getelementptr %"class.ZXing::Trit", ptr %97, i64 %105
+  %108 = icmp sgt i64 %105, %76
+  br i1 %108, label %.loopexit29, label %109
 
-110:                                              ; preds = %105
-  %111 = getelementptr inbounds nuw i8, ptr %108, i64 7
-  br label %112
+109:                                              ; preds = %104
+  %110 = getelementptr inbounds nuw i8, ptr %107, i64 7
+  br label %111
 
-112:                                              ; preds = %121, %110
-  %113 = phi i64 [ 0, %110 ], [ %122, %121 ]
-  %114 = getelementptr inbounds nuw i8, ptr %108, i64 %113
-  %115 = getelementptr inbounds nuw i8, ptr @__const._ZN5ZXing6QRCode8MaskUtilL21ApplyMaskPenaltyRule3ERKNS_6MatrixINS_4TritEEE.finder, i64 %113
-  %116 = load i8, ptr %114, align 1, !tbaa !18
-  %117 = icmp eq i8 %116, 1
-  %118 = load i8, ptr %115, align 1, !tbaa !23, !range !25, !noundef !26
-  %119 = zext i1 %117 to i8
-  %120 = icmp eq i8 %118, %119
-  br i1 %120, label %121, label %.loopexit29
+111:                                              ; preds = %120, %109
+  %112 = phi i64 [ 0, %109 ], [ %121, %120 ]
+  %113 = getelementptr inbounds nuw i8, ptr %107, i64 %112
+  %114 = getelementptr inbounds nuw i8, ptr @__const._ZN5ZXing6QRCode8MaskUtilL21ApplyMaskPenaltyRule3ERKNS_6MatrixINS_4TritEEE.finder, i64 %112
+  %115 = load i8, ptr %113, align 1, !tbaa !18
+  %116 = icmp eq i8 %115, 1
+  %117 = load i8, ptr %114, align 1, !tbaa !23, !range !25, !noundef !26
+  %118 = zext i1 %116 to i8
+  %119 = icmp eq i8 %117, %118
+  br i1 %119, label %120, label %.loopexit29
 
-121:                                              ; preds = %112
-  %122 = add nuw nsw i64 %113, 1
-  %123 = icmp eq i64 %122, 7
-  br i1 %123, label %124, label %112, !llvm.loop !27
+120:                                              ; preds = %111
+  %121 = add nuw nsw i64 %112, 1
+  %122 = icmp eq i64 %121, 7
+  br i1 %122, label %123, label %111, !llvm.loop !27
 
-124:                                              ; preds = %121
-  %125 = trunc nuw nsw i64 %106 to i32
-  %126 = tail call i32 @llvm.umin.i32(i32 %125, i32 4)
-  %127 = sub nsw i32 0, %126
-  %128 = sext i32 %127 to i64
-  %129 = getelementptr inbounds %"class.ZXing::Trit", ptr %108, i64 %128
-  %130 = icmp eq i64 %106, 0
-  %131 = select i1 %130, ptr %99, ptr %129
-  %132 = select i1 %130, ptr %129, ptr %108
-  %133 = icmp ult ptr %131, %132
-  br i1 %133, label %.preheader31, label %.loopexit30
+123:                                              ; preds = %120
+  %124 = trunc i64 %105 to i32
+  %125 = tail call i32 @llvm.umin.i32(i32 %124, i32 4)
+  %126 = sub nsw i32 0, %125
+  %127 = sext i32 %126 to i64
+  %128 = getelementptr inbounds %"class.ZXing::Trit", ptr %107, i64 %127
+  %129 = icmp eq i64 %105, 0
+  %130 = select i1 %129, ptr %97, ptr %128
+  %131 = select i1 %129, ptr %128, ptr %107
+  %132 = icmp ult ptr %130, %131
+  br i1 %132, label %.preheader31, label %.loopexit30
 
-.preheader31:                                     ; preds = %124, %142
-  %134 = phi i64 [ %144, %142 ], [ 0, %124 ]
-  %135 = phi ptr [ %143, %142 ], [ %131, %124 ]
-  %136 = getelementptr inbounds nuw i8, ptr %2, i64 %134
-  %137 = load i8, ptr %135, align 1, !tbaa !18
-  %138 = icmp eq i8 %137, 1
-  %139 = load i8, ptr %136, align 1, !tbaa !23, !range !25, !noundef !26
-  %140 = zext i1 %138 to i8
-  %141 = icmp eq i8 %139, %140
-  br i1 %141, label %142, label %148
+.preheader31:                                     ; preds = %123, %141
+  %133 = phi i64 [ %143, %141 ], [ 0, %123 ]
+  %134 = phi ptr [ %142, %141 ], [ %130, %123 ]
+  %135 = getelementptr inbounds nuw i8, ptr %2, i64 %133
+  %136 = load i8, ptr %134, align 1, !tbaa !18
+  %137 = icmp eq i8 %136, 1
+  %138 = load i8, ptr %135, align 1, !tbaa !23, !range !25, !noundef !26
+  %139 = zext i1 %137 to i8
+  %140 = icmp eq i8 %138, %139
+  br i1 %140, label %141, label %147
 
-142:                                              ; preds = %.preheader31
-  %143 = getelementptr inbounds nuw i8, ptr %135, i64 1
-  %144 = add nuw nsw i64 %134, 1
-  %145 = icmp uge ptr %143, %132
-  %146 = icmp eq i64 %144, 4
-  %147 = select i1 %145, i1 true, i1 %146
-  br i1 %147, label %.loopexit30, label %.preheader31, !llvm.loop !28
+141:                                              ; preds = %.preheader31
+  %142 = getelementptr inbounds nuw i8, ptr %134, i64 1
+  %143 = add nuw nsw i64 %133, 1
+  %144 = icmp uge ptr %142, %131
+  %145 = icmp eq i64 %143, 4
+  %146 = select i1 %144, i1 true, i1 %145
+  br i1 %146, label %.loopexit30, label %.preheader31, !llvm.loop !28
 
-148:                                              ; preds = %.preheader31
-  %149 = sub nsw i64 %75, %106
-  %150 = trunc nsw i64 %149 to i32
-  %151 = tail call i32 @llvm.smin.i32(i32 %150, i32 11)
-  %152 = sext i32 %151 to i64
-  %153 = getelementptr %"class.ZXing::Trit", ptr %111, i64 %152
-  %154 = getelementptr i8, ptr %153, i64 -7
-  %155 = icmp slt i64 %149, 7
-  %156 = select i1 %155, ptr %154, ptr %111
-  %157 = select i1 %155, ptr %111, ptr %154
-  %158 = icmp ult ptr %156, %157
-  br i1 %158, label %.preheader28, label %.loopexit30
+147:                                              ; preds = %.preheader31
+  %148 = sub i32 %8, %124
+  %149 = tail call i32 @llvm.smin.i32(i32 %148, i32 11)
+  %150 = sext i32 %149 to i64
+  %151 = getelementptr %"class.ZXing::Trit", ptr %110, i64 %150
+  %152 = getelementptr i8, ptr %151, i64 -7
+  %153 = icmp ult ptr %110, %152
+  br i1 %153, label %.preheader28, label %.loopexit30
 
-.preheader28:                                     ; preds = %148, %167
-  %159 = phi i64 [ %169, %167 ], [ 0, %148 ]
-  %160 = phi ptr [ %168, %167 ], [ %156, %148 ]
-  %161 = getelementptr inbounds nuw i8, ptr %2, i64 %159
-  %162 = load i8, ptr %160, align 1, !tbaa !18
-  %163 = icmp eq i8 %162, 1
-  %164 = load i8, ptr %161, align 1, !tbaa !23, !range !25, !noundef !26
-  %165 = zext i1 %163 to i8
-  %166 = icmp eq i8 %164, %165
-  br i1 %166, label %167, label %.loopexit29
+.preheader28:                                     ; preds = %147, %162
+  %154 = phi i64 [ %164, %162 ], [ 0, %147 ]
+  %155 = phi ptr [ %163, %162 ], [ %110, %147 ]
+  %156 = getelementptr inbounds nuw i8, ptr %2, i64 %154
+  %157 = load i8, ptr %155, align 1, !tbaa !18
+  %158 = icmp eq i8 %157, 1
+  %159 = load i8, ptr %156, align 1, !tbaa !23, !range !25, !noundef !26
+  %160 = zext i1 %158 to i8
+  %161 = icmp eq i8 %159, %160
+  br i1 %161, label %162, label %.loopexit29
 
-167:                                              ; preds = %.preheader28
-  %168 = getelementptr inbounds nuw i8, ptr %160, i64 1
-  %169 = add nuw nsw i64 %159, 1
-  %170 = icmp uge ptr %168, %157
-  %171 = icmp eq i64 %169, 4
-  %172 = select i1 %170, i1 true, i1 %171
-  br i1 %172, label %.loopexit30, label %.preheader28, !llvm.loop !28
+162:                                              ; preds = %.preheader28
+  %163 = getelementptr inbounds nuw i8, ptr %155, i64 1
+  %164 = add nuw nsw i64 %154, 1
+  %165 = icmp uge ptr %163, %152
+  %166 = icmp eq i64 %164, 4
+  %167 = select i1 %165, i1 true, i1 %166
+  br i1 %167, label %.loopexit30, label %.preheader28, !llvm.loop !28
 
-.loopexit30:                                      ; preds = %142, %167, %148, %124
-  %173 = add nsw i32 %107, 1
+.loopexit30:                                      ; preds = %141, %162, %147, %123
+  %168 = add nsw i32 %106, 1
   br label %.loopexit29
 
-.loopexit29:                                      ; preds = %112, %.preheader28, %.loopexit30, %105
-  %174 = phi i32 [ %173, %.loopexit30 ], [ %107, %105 ], [ %107, %.preheader28 ], [ %107, %112 ]
-  br i1 %83, label %.loopexit, label %175
+.loopexit29:                                      ; preds = %111, %.preheader28, %.loopexit30, %104
+  %169 = phi i32 [ %168, %.loopexit30 ], [ %106, %104 ], [ %106, %.preheader28 ], [ %106, %111 ]
+  br i1 %83, label %.loopexit, label %170
 
-175:                                              ; preds = %.loopexit29
-  %176 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %108, i64 %73
-  br label %177
+170:                                              ; preds = %.loopexit29
+  %171 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %107, i64 %73
+  br label %172
 
-177:                                              ; preds = %186, %175
-  %178 = phi i64 [ 0, %175 ], [ %188, %186 ]
-  %179 = phi ptr [ %108, %175 ], [ %187, %186 ]
-  %180 = getelementptr inbounds nuw i8, ptr @__const._ZN5ZXing6QRCode8MaskUtilL21ApplyMaskPenaltyRule3ERKNS_6MatrixINS_4TritEEE.finder, i64 %178
-  %181 = load i8, ptr %179, align 1, !tbaa !18
-  %182 = icmp eq i8 %181, 1
-  %183 = load i8, ptr %180, align 1, !tbaa !23, !range !25, !noundef !26
-  %184 = zext i1 %182 to i8
-  %185 = icmp eq i8 %183, %184
-  br i1 %185, label %186, label %.loopexit
+172:                                              ; preds = %181, %170
+  %173 = phi i64 [ 0, %170 ], [ %183, %181 ]
+  %174 = phi ptr [ %107, %170 ], [ %182, %181 ]
+  %175 = getelementptr inbounds nuw i8, ptr @__const._ZN5ZXing6QRCode8MaskUtilL21ApplyMaskPenaltyRule3ERKNS_6MatrixINS_4TritEEE.finder, i64 %173
+  %176 = load i8, ptr %174, align 1, !tbaa !18
+  %177 = icmp eq i8 %176, 1
+  %178 = load i8, ptr %175, align 1, !tbaa !23, !range !25, !noundef !26
+  %179 = zext i1 %177 to i8
+  %180 = icmp eq i8 %178, %179
+  br i1 %180, label %181, label %.loopexit
 
-186:                                              ; preds = %177
-  %187 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %179, i64 %74
-  %188 = add nuw nsw i64 %178, 1
-  %189 = icmp uge ptr %187, %176
-  %190 = icmp eq i64 %188, 7
-  %191 = select i1 %189, i1 true, i1 %190
-  br i1 %191, label %192, label %177, !llvm.loop !27
+181:                                              ; preds = %172
+  %182 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %174, i64 %74
+  %183 = add nuw nsw i64 %173, 1
+  %184 = icmp uge ptr %182, %171
+  %185 = icmp eq i64 %183, 7
+  %186 = select i1 %184, i1 true, i1 %185
+  br i1 %186, label %187, label %172, !llvm.loop !27
 
-192:                                              ; preds = %186
-  %193 = getelementptr inbounds %"class.ZXing::Trit", ptr %108, i64 %88
-  %194 = select i1 %89, ptr %108, ptr %193
-  %195 = select i1 %89, ptr %193, ptr %108
-  %196 = icmp ult ptr %194, %195
-  br i1 %196, label %.preheader25, label %.loopexit24
+187:                                              ; preds = %181
+  %188 = getelementptr inbounds %"class.ZXing::Trit", ptr %107, i64 %88
+  %189 = select i1 %89, ptr %107, ptr %188
+  %190 = select i1 %89, ptr %188, ptr %107
+  %191 = icmp ult ptr %189, %190
+  br i1 %191, label %.preheader25, label %.loopexit24
 
-.preheader25:                                     ; preds = %192, %205
-  %197 = phi i64 [ %207, %205 ], [ 0, %192 ]
-  %198 = phi ptr [ %206, %205 ], [ %194, %192 ]
-  %199 = getelementptr inbounds nuw i8, ptr %2, i64 %197
-  %200 = load i8, ptr %198, align 1, !tbaa !18
-  %201 = icmp eq i8 %200, 1
-  %202 = load i8, ptr %199, align 1, !tbaa !23, !range !25, !noundef !26
-  %203 = zext i1 %201 to i8
-  %204 = icmp eq i8 %202, %203
-  br i1 %204, label %205, label %211
+.preheader25:                                     ; preds = %187, %200
+  %192 = phi i64 [ %202, %200 ], [ 0, %187 ]
+  %193 = phi ptr [ %201, %200 ], [ %189, %187 ]
+  %194 = getelementptr inbounds nuw i8, ptr %2, i64 %192
+  %195 = load i8, ptr %193, align 1, !tbaa !18
+  %196 = icmp eq i8 %195, 1
+  %197 = load i8, ptr %194, align 1, !tbaa !23, !range !25, !noundef !26
+  %198 = zext i1 %196 to i8
+  %199 = icmp eq i8 %197, %198
+  br i1 %199, label %200, label %206
 
-205:                                              ; preds = %.preheader25
-  %206 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %198, i64 %75
-  %207 = add nuw nsw i64 %197, 1
-  %208 = icmp uge ptr %206, %195
-  %209 = icmp eq i64 %207, 4
-  %210 = select i1 %208, i1 true, i1 %209
-  br i1 %210, label %.loopexit24, label %.preheader25, !llvm.loop !28
+200:                                              ; preds = %.preheader25
+  %201 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %193, i64 %75
+  %202 = add nuw nsw i64 %192, 1
+  %203 = icmp uge ptr %201, %190
+  %204 = icmp eq i64 %202, 4
+  %205 = select i1 %203, i1 true, i1 %204
+  br i1 %205, label %.loopexit24, label %.preheader25, !llvm.loop !28
 
-211:                                              ; preds = %.preheader25
-  %212 = getelementptr inbounds %"class.ZXing::Trit", ptr %176, i64 %95
-  %213 = select i1 %96, ptr %212, ptr %176
-  %214 = select i1 %96, ptr %176, ptr %212
-  %215 = icmp ult ptr %213, %214
-  br i1 %215, label %.preheader23, label %.loopexit24
+206:                                              ; preds = %.preheader25
+  %207 = getelementptr inbounds %"class.ZXing::Trit", ptr %171, i64 %94
+  br i1 %98, label %.preheader23, label %.loopexit24
 
-.preheader23:                                     ; preds = %211, %224
-  %216 = phi i64 [ %226, %224 ], [ 0, %211 ]
-  %217 = phi ptr [ %225, %224 ], [ %213, %211 ]
-  %218 = getelementptr inbounds nuw i8, ptr %2, i64 %216
-  %219 = load i8, ptr %217, align 1, !tbaa !18
-  %220 = icmp eq i8 %219, 1
-  %221 = load i8, ptr %218, align 1, !tbaa !23, !range !25, !noundef !26
-  %222 = zext i1 %220 to i8
-  %223 = icmp eq i8 %221, %222
-  br i1 %223, label %224, label %.loopexit
+.preheader23:                                     ; preds = %206, %216
+  %208 = phi i64 [ %218, %216 ], [ 0, %206 ]
+  %209 = phi ptr [ %217, %216 ], [ %171, %206 ]
+  %210 = getelementptr inbounds nuw i8, ptr %2, i64 %208
+  %211 = load i8, ptr %209, align 1, !tbaa !18
+  %212 = icmp eq i8 %211, 1
+  %213 = load i8, ptr %210, align 1, !tbaa !23, !range !25, !noundef !26
+  %214 = zext i1 %212 to i8
+  %215 = icmp eq i8 %213, %214
+  br i1 %215, label %216, label %.loopexit
 
-224:                                              ; preds = %.preheader23
-  %225 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %217, i64 %75
-  %226 = add nuw nsw i64 %216, 1
-  %227 = icmp uge ptr %225, %214
-  %228 = icmp eq i64 %226, 4
-  %229 = select i1 %227, i1 true, i1 %228
-  br i1 %229, label %.loopexit24, label %.preheader23, !llvm.loop !28
+216:                                              ; preds = %.preheader23
+  %217 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %209, i64 %75
+  %218 = add nuw nsw i64 %208, 1
+  %219 = icmp uge ptr %217, %207
+  %220 = icmp eq i64 %218, 4
+  %221 = select i1 %219, i1 true, i1 %220
+  br i1 %221, label %.loopexit24, label %.preheader23, !llvm.loop !28
 
-.loopexit24:                                      ; preds = %205, %224, %211, %192
-  %230 = add nsw i32 %174, 1
+.loopexit24:                                      ; preds = %200, %216, %206, %187
+  %222 = add nsw i32 %169, 1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %177, %.preheader23, %.loopexit24, %.loopexit29
-  %231 = phi i32 [ %230, %.loopexit24 ], [ %174, %.loopexit29 ], [ %174, %.preheader23 ], [ %174, %177 ]
-  %232 = add nuw nsw i64 %106, 1
-  %233 = icmp eq i64 %232, %74
-  br i1 %233, label %.loopexit34, label %105, !llvm.loop !29
+.loopexit:                                        ; preds = %172, %.preheader23, %.loopexit24, %.loopexit29
+  %223 = phi i32 [ %222, %.loopexit24 ], [ %169, %.loopexit29 ], [ %169, %.preheader23 ], [ %169, %172 ]
+  %224 = add nuw nsw i64 %105, 1
+  %225 = icmp eq i64 %224, %74
+  br i1 %225, label %.loopexit34, label %104, !llvm.loop !29
 
-234:                                              ; preds = %100, %63
-  %235 = phi ptr [ %65, %63 ], [ %69, %100 ]
-  %236 = phi i32 [ 0, %63 ], [ %101, %100 ]
+226:                                              ; preds = %99, %63
+  %227 = phi ptr [ %65, %63 ], [ %69, %99 ]
+  %228 = phi i32 [ 0, %63 ], [ %100, %99 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #4
-  %237 = mul nsw i32 %8, %6
-  %238 = sext i32 %237 to i64
-  %239 = getelementptr inbounds %"class.ZXing::Trit", ptr %235, i64 %238
-  %240 = icmp eq i32 %237, 0
-  br i1 %240, label %251, label %.preheader
+  %229 = mul nsw i32 %8, %6
+  %230 = sext i32 %229 to i64
+  %231 = getelementptr inbounds %"class.ZXing::Trit", ptr %227, i64 %230
+  %232 = icmp eq i32 %229, 0
+  br i1 %232, label %243, label %.preheader
 
-.preheader:                                       ; preds = %234, %.preheader
-  %241 = phi i64 [ %246, %.preheader ], [ 0, %234 ]
-  %242 = phi ptr [ %247, %.preheader ], [ %235, %234 ]
-  %243 = load i8, ptr %242, align 1, !tbaa !14
-  %244 = icmp eq i8 %243, 1
-  %245 = zext i1 %244 to i64
-  %246 = add nuw nsw i64 %241, %245
-  %247 = getelementptr inbounds nuw i8, ptr %242, i64 1
-  %248 = icmp eq ptr %247, %239
-  br i1 %248, label %249, label %.preheader, !llvm.loop !30
+.preheader:                                       ; preds = %226, %.preheader
+  %233 = phi i64 [ %238, %.preheader ], [ 0, %226 ]
+  %234 = phi ptr [ %239, %.preheader ], [ %227, %226 ]
+  %235 = load i8, ptr %234, align 1, !tbaa !14
+  %236 = icmp eq i8 %235, 1
+  %237 = zext i1 %236 to i64
+  %238 = add nuw nsw i64 %233, %237
+  %239 = getelementptr inbounds nuw i8, ptr %234, i64 1
+  %240 = icmp eq ptr %239, %231
+  br i1 %240, label %241, label %.preheader, !llvm.loop !30
 
-249:                                              ; preds = %.preheader
-  %250 = shl nuw nsw i64 %246, 1
-  br label %251
+241:                                              ; preds = %.preheader
+  %242 = shl nuw nsw i64 %238, 1
+  br label %243
 
-251:                                              ; preds = %249, %234
-  %252 = phi i64 [ 0, %234 ], [ %250, %249 ]
-  %253 = add nsw i32 %4, %3
-  %254 = add nsw i32 %253, %61
-  %255 = add nsw i32 %254, %236
-  %256 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %257 = load ptr, ptr %256, align 8, !tbaa !31
-  %258 = ptrtoint ptr %257 to i64
-  %259 = ptrtoint ptr %235 to i64
-  %260 = sub i64 %258, %259
-  %261 = shl i64 %260, 32
-  %262 = ashr exact i64 %261, 32
-  %263 = sub nsw i64 %252, %262
-  %264 = tail call noundef i64 @llvm.abs.i64(i64 %263, i1 true)
-  %265 = mul nuw nsw i64 %264, 10
-  %266 = sdiv i64 %265, %262
-  %267 = trunc i64 %266 to i32
-  %268 = mul i32 %267, 10
-  %269 = add nsw i32 %255, %268
-  ret i32 %269
+243:                                              ; preds = %241, %226
+  %244 = phi i64 [ 0, %226 ], [ %242, %241 ]
+  %245 = add nsw i32 %4, %3
+  %246 = add nsw i32 %245, %61
+  %247 = add nsw i32 %246, %228
+  %248 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %249 = load ptr, ptr %248, align 8, !tbaa !31
+  %250 = ptrtoint ptr %249 to i64
+  %251 = ptrtoint ptr %227 to i64
+  %252 = sub i64 %250, %251
+  %253 = shl i64 %252, 32
+  %254 = ashr exact i64 %253, 32
+  %255 = sub nsw i64 %244, %254
+  %256 = tail call noundef i64 @llvm.abs.i64(i64 %255, i1 true)
+  %257 = mul nuw nsw i64 %256, 10
+  %258 = sdiv i64 %257, %254
+  %259 = trunc i64 %258 to i32
+  %260 = mul i32 %259, 10
+  %261 = add nsw i32 %247, %260
+  ret i32 %261
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind optsize willreturn memory(read, inaccessiblemem: none) uwtable

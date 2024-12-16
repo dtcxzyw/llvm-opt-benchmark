@@ -4613,26 +4613,19 @@ while.end.i.i:                                    ; preds = %cond.end32.i.i
   %cmp63158.i.i = icmp sgt i64 %104, 0
   br i1 %cmp63158.i.i, label %while.body64.i.i, label %while.end108.i.i
 
-land.rhsthread-pre-split.i.i:                     ; preds = %if.end104.i.i
-  %written.3.i.i = add i64 %call.i111.i.i, %written.2159.i.i
-  %.pr.i86.i = load i64, ptr %read_end.i101.i.i, align 8
-  %105 = load i64, ptr %buffer_size.i.i, align 8
-  %cmp63.i.i = icmp slt i64 %.pr.i86.i, %105
-  br i1 %cmp63.i.i, label %while.body64.i.i, label %while.end108.i.i
-
-while.body64.i.i:                                 ; preds = %while.end.i.i, %land.rhsthread-pre-split.i.i
-  %106 = phi i64 [ %105, %land.rhsthread-pre-split.i.i ], [ %104, %while.end.i.i ]
-  %remaining.2160.i.i = phi i64 [ %sub93.i.i, %land.rhsthread-pre-split.i.i ], [ %remaining.1157.i.i, %while.end.i.i ]
-  %written.2159.i.i = phi i64 [ %written.3.i.i, %land.rhsthread-pre-split.i.i ], [ %written.1156.i.i, %while.end.i.i ]
-  %107 = phi i64 [ %.pr.i86.i, %land.rhsthread-pre-split.i.i ], [ 0, %while.end.i.i ]
-  %108 = load i32, ptr %readable.i42.i, align 8
-  %tobool.not.i103.i.i = icmp eq i32 %108, 0
-  %cmp.not.i106.i.i = icmp eq i64 %107, -1
+while.body64.i.i:                                 ; preds = %while.end.i.i, %if.end104.i.i
+  %105 = phi i64 [ %117, %if.end104.i.i ], [ %104, %while.end.i.i ]
+  %remaining.2160.i.i = phi i64 [ %sub93.i.i, %if.end104.i.i ], [ %remaining.1157.i.i, %while.end.i.i ]
+  %written.2159.i.i = phi i64 [ %written.3.i.i, %if.end104.i.i ], [ %written.1156.i.i, %while.end.i.i ]
+  %106 = phi i64 [ %.pr.i86.i, %if.end104.i.i ], [ 0, %while.end.i.i ]
+  %107 = load i32, ptr %readable.i42.i, align 8
+  %tobool.not.i103.i.i = icmp eq i32 %107, 0
+  %cmp.not.i106.i.i = icmp eq i64 %106, -1
   %or.cond.i.i = or i1 %cmp.not.i106.i.i, %tobool.not.i103.i.i
-  %start.0.i.i.i = select i1 %or.cond.i.i, i64 0, i64 %107
-  %sub.i108.i.i = sub i64 %106, %start.0.i.i.i
-  %109 = load ptr, ptr %buffer.i, align 8
-  %add.ptr.i110.i.i = getelementptr i8, ptr %109, i64 %start.0.i.i.i
+  %start.0.i.i.i = select i1 %or.cond.i.i, i64 0, i64 %106
+  %sub.i108.i.i = sub i64 %105, %start.0.i.i.i
+  %108 = load ptr, ptr %buffer.i, align 8
+  %add.ptr.i110.i.i = getelementptr i8, ptr %108, i64 %start.0.i.i.i
   %call.i111.i.i = call fastcc i64 @_bufferedreader_raw_read(ptr noundef nonnull %self, ptr noundef %add.ptr.i110.i.i, i64 noundef %sub.i108.i.i)
   %cmp2.i.i.i = icmp slt i64 %call.i111.i.i, 1
   br i1 %cmp2.i.i.i, label %_bufferedreader_fill_buffer.exit.i.i, label %_bufferedreader_fill_buffer.exit.thread.i.i
@@ -4643,9 +4636,9 @@ _bufferedreader_fill_buffer.exit.thread.i.i:      ; preds = %while.body64.i.i
   store i64 %add.i112.i.i, ptr %raw_pos.i.i, align 8
   %cmp84.i.i = icmp sgt i64 %remaining.2160.i.i, %call.i111.i.i
   %add.ptr86.i.i = getelementptr i8, ptr %ob_sval.i.i.i, i64 %written.2159.i.i
-  %110 = load ptr, ptr %buffer.i, align 8
-  %111 = load i64, ptr %pos57.i.i, align 8
-  %add.ptr89.i.i = getelementptr i8, ptr %110, i64 %111
+  %109 = load ptr, ptr %buffer.i, align 8
+  %110 = load i64, ptr %pos57.i.i, align 8
+  %add.ptr89.i.i = getelementptr i8, ptr %109, i64 %110
   br i1 %cmp84.i.i, label %if.end104.i.i, label %if.end104.thread.i.i
 
 _bufferedreader_fill_buffer.exit.i.i:             ; preds = %while.body64.i.i
@@ -4664,43 +4657,46 @@ if.then77.i.i:                                    ; preds = %if.then73.i87.i
   br i1 %tobool79.not.i.i, label %if.end81.i.i, label %error.i.i
 
 if.end81.i.i:                                     ; preds = %if.then77.i.i
-  %112 = load ptr, ptr %res.i.i, align 8
+  %111 = load ptr, ptr %res.i.i, align 8
   br label %_bufferedreader_read_generic.exit.i
 
 if.end82.i.i:                                     ; preds = %if.then73.i87.i
-  %113 = load ptr, ptr %res.i.i, align 8
-  %114 = load i64, ptr %113, align 8
-  %115 = and i64 %114, 2147483648
-  %cmp.i135.not.i.i = icmp eq i64 %115, 0
+  %112 = load ptr, ptr %res.i.i, align 8
+  %113 = load i64, ptr %112, align 8
+  %114 = and i64 %113, 2147483648
+  %cmp.i135.not.i.i = icmp eq i64 %114, 0
   br i1 %cmp.i135.not.i.i, label %if.end.i.i88.i, label %_bufferedreader_read_generic.exit.i
 
 if.end.i.i88.i:                                   ; preds = %if.end82.i.i
-  %dec.i.i89.i = add i64 %114, -1
-  store i64 %dec.i.i89.i, ptr %113, align 8
+  %dec.i.i89.i = add i64 %113, -1
+  store i64 %dec.i.i89.i, ptr %112, align 8
   %cmp.i.i90.i = icmp eq i64 %dec.i.i89.i, 0
   br i1 %cmp.i.i90.i, label %if.then1.i.i91.i, label %_bufferedreader_read_generic.exit.i
 
 if.then1.i.i91.i:                                 ; preds = %if.end.i.i88.i
-  call void @_Py_Dealloc(ptr noundef nonnull %113) #10
+  call void @_Py_Dealloc(ptr noundef nonnull %112) #10
   br label %_bufferedreader_read_generic.exit.i
 
 if.end104.thread.i.i:                             ; preds = %_bufferedreader_fill_buffer.exit.thread.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr86.i.i, ptr noundef nonnull align 1 dereferenceable(1) %add.ptr89.i.i, i64 %remaining.2160.i.i, i1 false)
-  %116 = load i64, ptr %pos57.i.i, align 8
-  %add102.i.i = add i64 %116, %remaining.2160.i.i
+  %115 = load i64, ptr %pos57.i.i, align 8
+  %add102.i.i = add i64 %115, %remaining.2160.i.i
   store i64 %add102.i.i, ptr %pos57.i.i, align 8
   br label %while.end108.i.i
 
 if.end104.i.i:                                    ; preds = %_bufferedreader_fill_buffer.exit.thread.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr86.i.i, ptr align 1 %add.ptr89.i.i, i64 %call.i111.i.i, i1 false)
-  %117 = load i64, ptr %pos57.i.i, align 8
-  %add92.i.i = add i64 %117, %call.i111.i.i
+  %116 = load i64, ptr %pos57.i.i, align 8
+  %add92.i.i = add i64 %116, %call.i111.i.i
   store i64 %add92.i.i, ptr %pos57.i.i, align 8
   %sub93.i.i = sub nsw i64 %remaining.2160.i.i, %call.i111.i.i
-  %cmp60.i.i = icmp sgt i64 %sub93.i.i, 0
-  br i1 %cmp60.i.i, label %land.rhsthread-pre-split.i.i, label %while.end108.i.i, !llvm.loop !11
+  %written.3.i.i = add i64 %call.i111.i.i, %written.2159.i.i
+  %.pr.i86.i = load i64, ptr %read_end.i101.i.i, align 8
+  %117 = load i64, ptr %buffer_size.i.i, align 8
+  %cmp63.i.i = icmp slt i64 %.pr.i86.i, %117
+  br i1 %cmp63.i.i, label %while.body64.i.i, label %while.end108.i.i
 
-while.end108.i.i:                                 ; preds = %if.end104.i.i, %land.rhsthread-pre-split.i.i, %if.end104.thread.i.i, %while.end.i.i, %while.end.thread.i.i
+while.end108.i.i:                                 ; preds = %if.end104.i.i, %if.end104.thread.i.i, %while.end.i.i, %while.end.thread.i.i
   %118 = load ptr, ptr %res.i.i, align 8
   br label %_bufferedreader_read_generic.exit.i
 
@@ -4726,7 +4722,7 @@ if.then1.i.i120.i.i:                              ; preds = %if.end.i.i117.i.i
   br label %_bufferedreader_read_generic.exit.i
 
 _bufferedreader_read_generic.exit.i:              ; preds = %if.then1.i.i120.i.i, %if.end.i.i117.i.i, %if.then.i115.i.i, %error.i.i, %while.end108.i.i, %if.then1.i.i91.i, %if.end.i.i88.i, %if.end82.i.i, %if.end81.i.i, %if.then1.i115.i.i, %if.end.i112.i.i, %if.end53.i.i, %if.end52.i.i, %if.end.i69.i, %if.then8.i.i.i, %if.then.i.i65.i
-  %retval.0.i68.i = phi ptr [ %112, %if.end81.i.i ], [ %118, %while.end108.i.i ], [ %100, %if.end52.i.i ], [ @_Py_NoneStruct, %if.end53.i.i ], [ @_Py_NoneStruct, %if.then1.i115.i.i ], [ @_Py_NoneStruct, %if.end.i112.i.i ], [ @_Py_NoneStruct, %if.end82.i.i ], [ @_Py_NoneStruct, %if.then1.i.i91.i ], [ @_Py_NoneStruct, %if.end.i.i88.i ], [ %call.i.i66.i, %if.then8.i.i.i ], [ null, %if.then.i.i65.i ], [ null, %error.i.i ], [ null, %if.then.i115.i.i ], [ null, %if.end.i.i117.i.i ], [ null, %if.then1.i.i120.i.i ], [ null, %if.end.i69.i ]
+  %retval.0.i68.i = phi ptr [ %111, %if.end81.i.i ], [ %118, %while.end108.i.i ], [ %100, %if.end52.i.i ], [ @_Py_NoneStruct, %if.end53.i.i ], [ @_Py_NoneStruct, %if.then1.i115.i.i ], [ @_Py_NoneStruct, %if.end.i112.i.i ], [ @_Py_NoneStruct, %if.end82.i.i ], [ @_Py_NoneStruct, %if.then1.i.i91.i ], [ @_Py_NoneStruct, %if.end.i.i88.i ], [ %call.i.i66.i, %if.then8.i.i.i ], [ null, %if.then.i.i65.i ], [ null, %error.i.i ], [ null, %if.then.i115.i.i ], [ null, %if.end.i.i117.i.i ], [ null, %if.then1.i.i120.i.i ], [ null, %if.end.i69.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %res.i.i)
   br label %do.body.i
 
@@ -6539,7 +6535,7 @@ for.inc:                                          ; preds = %if.end126, %if.then
   %add131 = add i64 %n.2, %written.1118
   %sub132 = sub nsw i64 %remaining.0119, %n.2
   %cmp78 = icmp sgt i64 %sub132, 0
-  br i1 %cmp78, label %for.body, label %for.end, !llvm.loop !12
+  br i1 %cmp78, label %for.body, label %for.end, !llvm.loop !11
 
 for.end:                                          ; preds = %for.inc, %lor.lhs.false110, %if.end107, %if.else84, %if.end74, %if.then128
   %written.2 = phi i64 [ %add129, %if.then128 ], [ %written.0, %if.end74 ], [ %add131, %for.inc ], [ %written.1118, %lor.lhs.false110 ], [ %written.1118, %if.end107 ], [ %written.1118, %if.else84 ]
@@ -6789,7 +6785,7 @@ for.cond:                                         ; preds = %for.cond, %if.end20
   %and = and i64 %n.0, 1
   %tobool22.not = icmp eq i64 %and, 0
   %shr = ashr i64 %n.0, 1
-  br i1 %tobool22.not, label %for.end, label %for.cond, !llvm.loop !13
+  br i1 %tobool22.not, label %for.end, label %for.cond, !llvm.loop !12
 
 for.end:                                          ; preds = %for.cond
   %cmp23 = icmp eq i64 %n.0, 0
@@ -7450,7 +7446,7 @@ if.end206.i:                                      ; preds = %while.body.i
   %sub208.i = sub i64 %remaining.0.i, %call169.i
   %call209.i = call i32 @PyErr_CheckSignals() #10
   %cmp210.i = icmp slt i32 %call209.i, 0
-  br i1 %cmp210.i, label %do.body244.i, label %while.cond.i, !llvm.loop !14
+  br i1 %cmp210.i, label %do.body244.i, label %while.cond.i, !llvm.loop !13
 
 while.end.i:                                      ; preds = %while.cond.i, %if.end204.i
   %73 = load i32, ptr %readable.i, align 8
@@ -8942,4 +8938,3 @@ attributes #13 = { nounwind willreturn memory(none) }
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}

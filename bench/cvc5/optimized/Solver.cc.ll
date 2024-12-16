@@ -2191,7 +2191,7 @@ _ZN4cvc58internal7Minisat3vecIcE6shrinkEi.exit.i: ; preds = %for.body.lr.ph.i9.i
   %sz.i11.i = getelementptr inbounds nuw i8, ptr %this, i64 456
   %7 = load i32, ptr %sz.i11.i, align 8
   %cmp24.i = icmp sgt i32 %7, 0
-  br i1 %cmp24.i, label %for.body.lr.ph.i, label %_ZN4cvc58internal7Minisat8OccListsINS1_3LitENS1_3vecINS1_6Solver7WatcherEEENS5_14WatcherDeletedEE8resizeToERKS3_.exit
+  br i1 %cmp24.i, label %for.body.lr.ph.i, label %for.body.lr.ph.i44
 
 for.body.lr.ph.i:                                 ; preds = %_ZN4cvc58internal7Minisat3vecIcE6shrinkEi.exit.i
   %dirties.i = getelementptr inbounds nuw i8, ptr %this, i64 448
@@ -2228,18 +2228,14 @@ for.end.i:                                        ; preds = %for.inc.i
   %13 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   %14 = sub nsw i32 %13, %j.1.i
   %cmp2.i19.i = icmp sgt i32 %14, 0
-  br i1 %cmp2.i19.i, label %for.body.lr.ph.i20.i, label %_ZN4cvc58internal7Minisat8OccListsINS1_3LitENS1_3vecINS1_6Solver7WatcherEEENS5_14WatcherDeletedEE8resizeToERKS3_.exit
+  br i1 %cmp2.i19.i, label %for.body.lr.ph.i20.i, label %for.body.lr.ph.i44
 
 for.body.lr.ph.i20.i:                             ; preds = %for.end.i
   %15 = sub i32 %11, %14
   store i32 %15, ptr %sz.i11.i, align 8
-  br label %_ZN4cvc58internal7Minisat8OccListsINS1_3LitENS1_3vecINS1_6Solver7WatcherEEENS5_14WatcherDeletedEE8resizeToERKS3_.exit
+  br label %for.body.lr.ph.i44
 
-_ZN4cvc58internal7Minisat8OccListsINS1_3LitENS1_3vecINS1_6Solver7WatcherEEENS5_14WatcherDeletedEE8resizeToERKS3_.exit: ; preds = %_ZN4cvc58internal7Minisat3vecIcE6shrinkEi.exit.i, %for.end.i, %for.body.lr.ph.i20.i
-  %cmp2.i = icmp sgt i32 %sub, 0
-  br i1 %cmp2.i, label %for.body.lr.ph.i44, label %if.end25
-
-for.body.lr.ph.i44:                               ; preds = %_ZN4cvc58internal7Minisat8OccListsINS1_3LitENS1_3vecINS1_6Solver7WatcherEEENS5_14WatcherDeletedEE8resizeToERKS3_.exit
+for.body.lr.ph.i44:                               ; preds = %for.body.lr.ph.i20.i, %for.end.i, %_ZN4cvc58internal7Minisat3vecIcE6shrinkEi.exit.i
   %sz.i = getelementptr inbounds nuw i8, ptr %this, i64 480
   %sz.promoted.i = load i32, ptr %sz.i, align 8
   %16 = sub i32 %sz.promoted.i, %sub
@@ -2269,7 +2265,7 @@ for.body.lr.ph.i44:                               ; preds = %_ZN4cvc58internal7M
   store i32 %22, ptr %sz.i45, align 8
   br label %if.end25
 
-if.end25:                                         ; preds = %_ZN4cvc58internal7Minisat8OccListsINS1_3LitENS1_3vecINS1_6Solver7WatcherEEENS5_14WatcherDeletedEE8resizeToERKS3_.exit, %entry, %for.body.lr.ph.i44
+if.end25:                                         ; preds = %entry, %for.body.lr.ph.i44
   ret void
 }
 

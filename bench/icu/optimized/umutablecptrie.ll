@@ -3550,15 +3550,11 @@ if.else382.i.i.i:                                 ; preds = %for.body373.i.i.i
   br i1 %cmp.not14.i.i.i.i, label %if.else391.i.i.i, label %while.body.lr.ph.i.i.i.i
 
 while.body.lr.ph.i.i.i.i:                         ; preds = %if.else382.i.i.i
-  %cmp5.i.i.i.i.i = icmp sgt i32 %sub375.i.i.i, 0
-  br i1 %cmp5.i.i.i.i.i, label %while.body.us.preheader.i.i.i.i, label %while.body.lr.ph.split.i.i.i.i
-
-while.body.us.preheader.i.i.i.i:                  ; preds = %while.body.lr.ph.i.i.i.i
   %252 = add i32 %sub.i272.i.i.i, 1
   br label %while.body.us.i.i.i.i
 
-while.body.us.i.i.i.i:                            ; preds = %if.end.loopexit.us.i.i.i.i, %while.body.us.preheader.i.i.i.i
-  %indvars.iv.i276.i.i.i = phi i64 [ %249, %while.body.us.preheader.i.i.i.i ], [ %indvars.iv.next.i277.i.i.i, %if.end.loopexit.us.i.i.i.i ]
+while.body.us.i.i.i.i:                            ; preds = %if.end.loopexit.us.i.i.i.i, %while.body.lr.ph.i.i.i.i
+  %indvars.iv.i276.i.i.i = phi i64 [ %249, %while.body.lr.ph.i.i.i.i ], [ %indvars.iv.next.i277.i.i.i, %if.end.loopexit.us.i.i.i.i ]
   %add.ptr2.us.i.i.i.i = getelementptr inbounds i16, ptr %251, i64 %indvars.iv.i276.i.i.i
   br label %land.rhs.i.us.i.i.i.i
 
@@ -3584,22 +3580,18 @@ if.end.loopexit.us.i.i.i.i:                       ; preds = %land.rhs.i.us.i.i.i
   %exitcond.not.i.i151.i.i = icmp eq i32 %252, %lftr.wideiv.i.i.i.i
   br i1 %exitcond.not.i.i151.i.i, label %if.else391.i.i.i, label %while.body.us.i.i.i.i, !llvm.loop !52
 
-while.body.lr.ph.split.i.i.i.i:                   ; preds = %while.body.lr.ph.i.i.i.i
-  %cmp4.i.i.i.i.i = icmp eq i32 %sub375.i.i.i, 0
-  br i1 %cmp4.i.i.i.i.i, label %if.end388.i.i.i, label %if.else391.i.i.i
-
 return.loopexit.i.i.i.i:                          ; preds = %while.body.i.us.i.i.i.i
   %255 = trunc nsw i64 %indvars.iv.i276.i.i.i to i32
   br label %if.end388.i.i.i
 
-if.end388.i.i.i:                                  ; preds = %return.loopexit.i.i.i.i, %while.body.lr.ph.split.i.i.i.i, %if.then377.i.i.i
-  %blockLength.1.i149.i.i = phi i32 [ %blockLength.0355.i.i.i, %if.then377.i.i.i ], [ %sub375.i.i.i, %return.loopexit.i.i.i.i ], [ 0, %while.body.lr.ph.split.i.i.i.i ]
-  %n374.0.i.i.i = phi i32 [ %call381.i.i.i, %if.then377.i.i.i ], [ %255, %return.loopexit.i.i.i.i ], [ %add92.i.i.i, %while.body.lr.ph.split.i.i.i.i ]
+if.end388.i.i.i:                                  ; preds = %return.loopexit.i.i.i.i, %if.then377.i.i.i
+  %blockLength.1.i149.i.i = phi i32 [ %blockLength.0355.i.i.i, %if.then377.i.i.i ], [ %sub375.i.i.i, %return.loopexit.i.i.i.i ]
+  %n374.0.i.i.i = phi i32 [ %call381.i.i.i, %if.then377.i.i.i ], [ %255, %return.loopexit.i.i.i.i ]
   %cmp389.i.i.i = icmp sgt i32 %n374.0.i.i.i, -1
   br i1 %cmp389.i.i.i, label %if.end416.i.i.i, label %if.else391.i.i.i
 
-if.else391.i.i.i:                                 ; preds = %if.end.loopexit.us.i.i.i.i, %if.end388.i.i.i, %while.body.lr.ph.split.i.i.i.i, %if.else382.i.i.i
-  %blockLength.1313.i.i.i = phi i32 [ %blockLength.1.i149.i.i, %if.end388.i.i.i ], [ %sub375.i.i.i, %if.else382.i.i.i ], [ %sub375.i.i.i, %while.body.lr.ph.split.i.i.i.i ], [ %sub375.i.i.i, %if.end.loopexit.us.i.i.i.i ]
+if.else391.i.i.i:                                 ; preds = %if.end.loopexit.us.i.i.i.i, %if.end388.i.i.i, %if.else382.i.i.i
+  %blockLength.1313.i.i.i = phi i32 [ %blockLength.1.i149.i.i, %if.end388.i.i.i ], [ %sub375.i.i.i, %if.else382.i.i.i ], [ %sub375.i.i.i, %if.end.loopexit.us.i.i.i.i ]
   %cmp392.i.i.i = icmp eq i32 %indexLength.5354.i.i.i, %add92.i.i.i
   br i1 %cmp392.i.i.i, label %if.end399.i.i.i, label %if.else394.i.i.i
 

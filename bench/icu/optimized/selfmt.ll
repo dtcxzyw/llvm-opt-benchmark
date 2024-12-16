@@ -792,8 +792,8 @@ invoke.cont:                                      ; preds = %if.end
   %fArray.i.i.i.i = getelementptr inbounds nuw i8, ptr %keyword, i64 24
   %fUnion.i.i.i.i16 = getelementptr inbounds nuw i8, ptr %other, i64 8
   %fLength.i.i.i31 = getelementptr inbounds nuw i8, ptr %other, i64 12
-  %fBuffer.i.i.i.i40 = getelementptr inbounds nuw i8, ptr %other, i64 10
-  %fArray.i.i.i.i41 = getelementptr inbounds nuw i8, ptr %other, i64 24
+  %fBuffer.i.i.i.i37 = getelementptr inbounds nuw i8, ptr %other, i64 10
+  %fArray.i.i.i.i38 = getelementptr inbounds nuw i8, ptr %other, i64 24
   %.pre = load ptr, ptr %parts.i, align 8
   br label %do.body
 
@@ -846,10 +846,7 @@ if.else.i.i.i:                                    ; preds = %if.end9
   %shr.i.i.i.i = sext i16 %15 to i32
   %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %14, i32 %shr.i.i.i.i
   %spec.select.i.i.i = call i32 @llvm.smin.i32(i32 %cond.i.i.i, i32 0)
-  %cmp5.i.i.i.i = icmp slt i32 %cond.i.i.i, 0
-  %sub.i.i.i.i = sub nsw i32 %cond.i.i.i, %spec.select.i.i.i
-  %spec.select9.i.i.i = call i32 @llvm.smin.i32(i32 %cond.i.i.i, i32 %sub.i.i.i.i)
-  %srcLength.addr.0.i.i.i = select i1 %cmp5.i.i.i.i, i32 0, i32 %spec.select9.i.i.i
+  %srcLength.addr.0.i.i.i = call i32 @llvm.smax.i32(i32 %cond.i.i.i, i32 0)
   %16 = and i16 %8, 2
   %tobool.not.i.i.i.i = icmp eq i16 %16, 0
   %17 = load ptr, ptr %fArray.i.i.i.i, align 8
@@ -891,19 +888,16 @@ if.else.i.i.i25:                                  ; preds = %land.lhs.true
   %shr.i.i.i.i32 = sext i16 %25 to i32
   %cond.i.i.i33 = select i1 %cmp.i.i.i.i30, i32 %24, i32 %shr.i.i.i.i32
   %spec.select.i.i.i34 = call i32 @llvm.smin.i32(i32 %cond.i.i.i33, i32 0)
-  %cmp5.i.i.i.i35 = icmp slt i32 %cond.i.i.i33, 0
-  %sub.i.i.i.i36 = sub nsw i32 %cond.i.i.i33, %spec.select.i.i.i34
-  %spec.select9.i.i.i37 = call i32 @llvm.smin.i32(i32 %cond.i.i.i33, i32 %sub.i.i.i.i36)
-  %srcLength.addr.0.i.i.i38 = select i1 %cmp5.i.i.i.i35, i32 0, i32 %spec.select9.i.i.i37
+  %srcLength.addr.0.i.i.i35 = call i32 @llvm.smax.i32(i32 %cond.i.i.i33, i32 0)
   %26 = and i16 %18, 2
-  %tobool.not.i.i.i.i39 = icmp eq i16 %26, 0
-  %27 = load ptr, ptr %fArray.i.i.i.i41, align 8
-  %cond.i.i.i.i42 = select i1 %tobool.not.i.i.i.i39, ptr %27, ptr %fBuffer.i.i.i.i40
-  %call5.i.i.i44 = invoke noundef signext i8 @_ZNK6icu_7513UnicodeString9doCompareEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %msg.i, i32 noundef %23, i32 noundef %conv.i28, ptr noundef %cond.i.i.i.i42, i32 noundef %spec.select.i.i.i34, i32 noundef %srcLength.addr.0.i.i.i38)
+  %tobool.not.i.i.i.i36 = icmp eq i16 %26, 0
+  %27 = load ptr, ptr %fArray.i.i.i.i38, align 8
+  %cond.i.i.i.i39 = select i1 %tobool.not.i.i.i.i36, ptr %27, ptr %fBuffer.i.i.i.i37
+  %call5.i.i.i41 = invoke noundef signext i8 @_ZNK6icu_7513UnicodeString9doCompareEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %msg.i, i32 noundef %23, i32 noundef %conv.i28, ptr noundef %cond.i.i.i.i39, i32 noundef %spec.select.i.i.i34, i32 noundef %srcLength.addr.0.i.i.i35)
           to label %invoke.cont15 unwind label %lpad1
 
 invoke.cont15:                                    ; preds = %if.then.i.i.i19, %if.else.i.i.i25
-  %retval.0.i.i.i22 = phi i8 [ %conv.i.i.i21, %if.then.i.i.i19 ], [ %call5.i.i.i44, %if.else.i.i.i25 ]
+  %retval.0.i.i.i22 = phi i8 [ %conv.i.i.i21, %if.then.i.i.i19 ], [ %call5.i.i.i41, %if.else.i.i.i25 ]
   %cmp.i23.not = icmp eq i8 %retval.0.i.i.i22, 0
   %spec.select = select i1 %cmp.i23.not, i32 %inc, i32 0
   br label %if.end20

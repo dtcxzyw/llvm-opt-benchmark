@@ -2508,10 +2508,7 @@ if.else.i.i:                                      ; preds = %entry
   %shr.i.i.i = sext i16 %7 to i32
   %cond.i.i = select i1 %cmp.i.i.i, i32 %6, i32 %shr.i.i.i
   %spec.select.i.i = tail call i32 @llvm.smin.i32(i32 %cond.i6.i, i32 0)
-  %cmp5.i.i.i = icmp slt i32 %cond.i6.i, 0
-  %sub.i.i.i = sub nsw i32 %cond.i6.i, %spec.select.i.i
-  %spec.select9.i.i = tail call i32 @llvm.smin.i32(i32 %cond.i6.i, i32 %sub.i.i.i)
-  %srcLength.addr.0.i.i = select i1 %cmp5.i.i.i, i32 0, i32 %spec.select9.i.i
+  %srcLength.addr.0.i.i = tail call i32 @llvm.smax.i32(i32 %cond.i6.i, i32 0)
   %8 = and i16 %1, 2
   %tobool.not.i.i.i = icmp eq i16 %8, 0
   %fBuffer.i.i.i = getelementptr inbounds nuw i8, ptr %t2.coerce, i64 10
@@ -2564,6 +2561,9 @@ declare i32 @llvm.smin.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #12
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #13

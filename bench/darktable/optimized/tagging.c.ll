@@ -8488,7 +8488,7 @@ define internal fastcc void @_size_recent_tags_list() unnamed_addr #1 {
   %1 = tail call ptr @dt_conf_get_string_const(ptr noundef nonnull @.str.84) #16
   %2 = load i8, ptr %1, align 1, !tbaa !26
   %3 = icmp eq i8 %2, 0
-  br i1 %3, label %32, label %4
+  br i1 %3, label %31, label %4
 
 4:                                                ; preds = %0
   %5 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.87) #16
@@ -8500,7 +8500,7 @@ define internal fastcc void @_size_recent_tags_list() unnamed_addr #1 {
 
 10:                                               ; preds = %4
   tail call void @dt_conf_set_string(ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.4) #16
-  br label %32
+  br label %31
 
 .preheader4:                                      ; preds = %4, %16
   %11 = phi ptr [ %18, %16 ], [ %1, %4 ]
@@ -8522,35 +8522,34 @@ define internal fastcc void @_size_recent_tags_list() unnamed_addr #1 {
 
 19:                                               ; preds = %.preheader4
   %20 = icmp sgt i32 %12, %9
-  br i1 %20, label %21, label %32
+  br i1 %20, label %.preheader, label %31
 
-21:                                               ; preds = %19
-  %22 = sub nsw i32 %12, %9
-  %23 = tail call noalias ptr @g_strdup(ptr noundef nonnull %1) #16
-  %24 = icmp sgt i32 %22, 0
-  br i1 %24, label %.preheader, label %.loopexit
+.preheader:                                       ; preds = %19
+  %21 = sub nsw i32 %12, %9
+  %22 = tail call noalias ptr @g_strdup(ptr noundef nonnull %1) #16
+  br label %23
 
-.preheader:                                       ; preds = %21, %29
-  %25 = phi i32 [ %30, %29 ], [ %22, %21 ]
-  %26 = tail call ptr @g_strrstr(ptr noundef %23, ptr noundef nonnull @.str.85) #16
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %29, label %28
+23:                                               ; preds = %.preheader, %28
+  %24 = phi i32 [ %29, %28 ], [ %21, %.preheader ]
+  %25 = tail call ptr @g_strrstr(ptr noundef %22, ptr noundef nonnull @.str.85) #16
+  %26 = icmp eq ptr %25, null
+  br i1 %26, label %28, label %27
 
-28:                                               ; preds = %.preheader
-  store i8 0, ptr %26, align 1, !tbaa !26
-  br label %29
+27:                                               ; preds = %23
+  store i8 0, ptr %25, align 1, !tbaa !26
+  br label %28
 
-29:                                               ; preds = %28, %.preheader
-  %30 = add nsw i32 %25, -1
-  %31 = icmp sgt i32 %25, 1
-  br i1 %31, label %.preheader, label %.loopexit
+28:                                               ; preds = %27, %23
+  %29 = add nsw i32 %24, -1
+  %30 = icmp sgt i32 %24, 1
+  br i1 %30, label %23, label %.loopexit
 
-.loopexit:                                        ; preds = %29, %21
-  tail call void @dt_conf_set_string(ptr noundef nonnull @.str.84, ptr noundef %23) #16
-  tail call void @g_free(ptr noundef %23) #16
-  br label %32
+.loopexit:                                        ; preds = %28
+  tail call void @dt_conf_set_string(ptr noundef nonnull @.str.84, ptr noundef %22) #16
+  tail call void @g_free(ptr noundef %22) #16
+  br label %31
 
-32:                                               ; preds = %.loopexit, %19, %10, %0
+31:                                               ; preds = %.loopexit, %19, %10, %0
   ret void
 }
 

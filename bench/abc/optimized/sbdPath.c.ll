@@ -150,7 +150,7 @@ define void @Sbc_ManAddInternalToPath(ptr noundef %0, ptr nocapture noundef read
   br i1 %.not20, label %45, label %22
 
 22:                                               ; preds = %13
-  tail call void @Gia_ManIncrementTravId(ptr noundef nonnull %0) #9
+  tail call void @Gia_ManIncrementTravId(ptr noundef nonnull %0) #8
   %.val2328 = load ptr, ptr %5, align 8
   %23 = getelementptr i8, ptr %.val2328, i64 8
   %.val23.val29 = load ptr, ptr %23, align 8
@@ -254,7 +254,7 @@ define void @Sbc_ManCriticalPath_rec(ptr noundef %0, ptr noundef %1, i32 noundef
 
 .lr.ph:                                           ; preds = %.preheader
   %32 = add nsw i32 %3, -1
-  br label %69
+  br label %68
 
 33:                                               ; preds = %12
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 736
@@ -266,13 +266,13 @@ define void @Sbc_ManCriticalPath_rec(ptr noundef %0, ptr noundef %1, i32 noundef
   %37 = lshr i64 %.val76, 32
   %38 = trunc nuw i64 %37 to i32
   %39 = and i32 %38, 536870911
-  %40 = tail call i32 @Tim_ManBoxForCi(ptr noundef nonnull %35, i32 noundef %39) #9
+  %40 = tail call i32 @Tim_ManBoxForCi(ptr noundef nonnull %35, i32 noundef %39) #8
   %41 = icmp sgt i32 %40, -1
   br i1 %41, label %42, label %.critedge
 
 42:                                               ; preds = %36
-  %43 = tail call i32 @Tim_ManBoxInputFirst(ptr noundef nonnull %35, i32 noundef %40) #9
-  %44 = tail call i32 @Tim_ManBoxInputNum(ptr noundef nonnull %35, i32 noundef %40) #9
+  %43 = tail call i32 @Tim_ManBoxInputFirst(ptr noundef nonnull %35, i32 noundef %40) #8
+  %44 = tail call i32 @Tim_ManBoxInputNum(ptr noundef nonnull %35, i32 noundef %40) #8
   %45 = icmp sgt i32 %44, 0
   br i1 %45, label %.lr.ph89, label %.critedge
 
@@ -283,8 +283,8 @@ define void @Sbc_ManCriticalPath_rec(ptr noundef %0, ptr noundef %1, i32 noundef
   %wide.trip.count = zext nneg i32 %44 to i64
   br label %49
 
-49:                                               ; preds = %.lr.ph89, %68
-  %indvars.iv92 = phi i64 [ 0, %.lr.ph89 ], [ %indvars.iv.next93, %68 ]
+49:                                               ; preds = %.lr.ph89, %67
+  %indvars.iv92 = phi i64 [ 0, %.lr.ph89 ], [ %indvars.iv.next93, %67 ]
   %.val81 = load ptr, ptr %13, align 8
   %.val82 = load ptr, ptr %46, align 8
   %50 = getelementptr i8, ptr %.val82, i64 8
@@ -305,55 +305,53 @@ define void @Sbc_ManCriticalPath_rec(ptr noundef %0, ptr noundef %1, i32 noundef
   %63 = icmp sge i32 %62, %47
   %64 = icmp ne i32 %53, %57
   %or.cond = and i1 %63, %64
-  br i1 %or.cond, label %65, label %68
+  br i1 %or.cond, label %65, label %67
 
 65:                                               ; preds = %49
   %66 = sub nsw i32 %62, %47
-  %67 = tail call noundef range(i32 0, -2147483648) i32 @llvm.smax.i32(i32 %66, i32 0)
-  tail call void @Sbc_ManCriticalPath_rec(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %58, i32 noundef %61, ptr noundef %4, i32 noundef %67)
-  br label %68
+  tail call void @Sbc_ManCriticalPath_rec(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %58, i32 noundef %61, ptr noundef %4, i32 noundef %66)
+  br label %67
 
-68:                                               ; preds = %49, %65
+67:                                               ; preds = %49, %65
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next93, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %49, !llvm.loop !8
 
-69:                                               ; preds = %.lr.ph, %81
-  %.val7795 = phi ptr [ %.val7785, %.lr.ph ], [ %.val77, %81 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %81 ]
-  %70 = phi ptr [ %29, %.lr.ph ], [ %86, %81 ]
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 4
-  %72 = getelementptr inbounds nuw i32, ptr %71, i64 %indvars.iv
-  %73 = load i32, ptr %72, align 4
-  %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds i32, ptr %1, i64 %74
-  %76 = load i32, ptr %75, align 4
-  %77 = add nsw i32 %76, %5
-  %.not70 = icmp slt i32 %77, %32
-  br i1 %.not70, label %81, label %78
+68:                                               ; preds = %.lr.ph, %79
+  %.val7795 = phi ptr [ %.val7785, %.lr.ph ], [ %.val77, %79 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %79 ]
+  %69 = phi ptr [ %29, %.lr.ph ], [ %84, %79 ]
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
+  %71 = getelementptr inbounds nuw i32, ptr %70, i64 %indvars.iv
+  %72 = load i32, ptr %71, align 4
+  %73 = sext i32 %72 to i64
+  %74 = getelementptr inbounds i32, ptr %1, i64 %73
+  %75 = load i32, ptr %74, align 4
+  %76 = add nsw i32 %75, %5
+  %.not70 = icmp slt i32 %76, %32
+  br i1 %.not70, label %79, label %77
 
-78:                                               ; preds = %69
-  %79 = sub nsw i32 %77, %32
-  %80 = tail call noundef range(i32 0, -2147483648) i32 @llvm.smax.i32(i32 %79, i32 0)
-  tail call void @Sbc_ManCriticalPath_rec(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %73, i32 noundef %76, ptr noundef %4, i32 noundef %80)
+77:                                               ; preds = %68
+  %78 = sub nsw i32 %76, %32
+  tail call void @Sbc_ManCriticalPath_rec(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %72, i32 noundef %75, ptr noundef %4, i32 noundef %78)
   %.val77.pre = load ptr, ptr %24, align 8
-  br label %81
+  br label %79
 
-81:                                               ; preds = %69, %78
-  %.val77 = phi ptr [ %.val7795, %69 ], [ %.val77.pre, %78 ]
+79:                                               ; preds = %68, %77
+  %.val77 = phi ptr [ %.val7795, %68 ], [ %.val77.pre, %77 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %82 = getelementptr i8, ptr %.val77, i64 8
-  %.val77.val = load ptr, ptr %82, align 8
-  %83 = getelementptr inbounds i32, ptr %.val77.val, i64 %9
-  %84 = load i32, ptr %83, align 4
-  %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds i32, ptr %.val77.val, i64 %85
-  %87 = load i32, ptr %86, align 4
-  %88 = sext i32 %87 to i64
-  %89 = icmp slt i64 %indvars.iv.next, %88
-  br i1 %89, label %69, label %.critedge, !llvm.loop !9
+  %80 = getelementptr i8, ptr %.val77, i64 8
+  %.val77.val = load ptr, ptr %80, align 8
+  %81 = getelementptr inbounds i32, ptr %.val77.val, i64 %9
+  %82 = load i32, ptr %81, align 4
+  %83 = sext i32 %82 to i64
+  %84 = getelementptr inbounds i32, ptr %.val77.val, i64 %83
+  %85 = load i32, ptr %84, align 4
+  %86 = sext i32 %85 to i64
+  %87 = icmp slt i64 %indvars.iv.next, %86
+  br i1 %87, label %68, label %.critedge, !llvm.loop !9
 
-.critedge:                                        ; preds = %81, %68, %.preheader, %42, %33, %36, %6
+.critedge:                                        ; preds = %79, %67, %.preheader, %42, %33, %36, %6
   ret void
 }
 
@@ -373,11 +371,11 @@ define noundef ptr @Sbc_ManCriticalPath(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %1
-  %6 = tail call i32 @Gia_ManLutLevelWithBoxes(ptr noundef nonnull %0) #9
+  %6 = tail call i32 @Gia_ManLutLevelWithBoxes(ptr noundef nonnull %0) #8
   br label %9
 
 7:                                                ; preds = %1
-  %8 = call i32 @Gia_ManLutLevel(ptr noundef nonnull %0, ptr noundef nonnull %2) #9
+  %8 = call i32 @Gia_ManLutLevel(ptr noundef nonnull %0, ptr noundef nonnull %2) #8
   br label %9
 
 9:                                                ; preds = %7, %5
@@ -389,7 +387,7 @@ define noundef ptr @Sbc_ManCriticalPath(ptr noundef %0) local_unnamed_addr #1 {
   %14 = icmp ne i32 %13, 0
   %15 = zext i1 %14 to i32
   %16 = add nsw i32 %12, %15
-  %17 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #10
+  %17 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #9
   %18 = shl nsw i32 %16, 5
   store i32 %18, ptr %17, align 8
   %.not.i.i = icmp eq i32 %16, 0
@@ -398,7 +396,7 @@ define noundef ptr @Sbc_ManCriticalPath(ptr noundef %0) local_unnamed_addr #1 {
 19:                                               ; preds = %9
   %20 = sext i32 %16 to i64
   %21 = shl nsw i64 %20, 2
-  %22 = call noalias ptr @malloc(i64 noundef %21) #10
+  %22 = call noalias ptr @malloc(i64 noundef %21) #9
   br label %Vec_BitStart.exit
 
 Vec_BitStart.exit:                                ; preds = %9, %19
@@ -422,7 +420,7 @@ Vec_BitStart.exit:                                ; preds = %9, %19
   br label %31
 
 31:                                               ; preds = %27, %Vec_BitStart.exit
-  call void @Gia_ManIncrementTravId(ptr noundef nonnull %0) #9
+  call void @Gia_ManIncrementTravId(ptr noundef nonnull %0) #8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr i8, ptr %33, i64 4
@@ -480,7 +478,7 @@ Vec_BitStart.exit:                                ; preds = %9, %19
   br i1 %or.cond3, label %63, label %64
 
 63:                                               ; preds = %.critedge
-  call void @free(ptr noundef nonnull %61) #9
+  call void @free(ptr noundef nonnull %61) #8
   store ptr null, ptr %2, align 8
   br label %64
 
@@ -520,7 +518,7 @@ Vec_BitStart.exit:                                ; preds = %9, %19
   br i1 %.not20.i, label %105, label %82
 
 82:                                               ; preds = %73
-  call void @Gia_ManIncrementTravId(ptr noundef nonnull %0) #9
+  call void @Gia_ManIncrementTravId(ptr noundef nonnull %0) #8
   %.val2328.i = load ptr, ptr %66, align 8
   %83 = getelementptr i8, ptr %.val2328.i, i64 8
   %.val23.val29.i = load ptr, ptr %83, align 8
@@ -598,7 +596,7 @@ define void @Sbc_ManDelayTrace(ptr noundef %0) local_unnamed_addr #1 {
 9:                                                ; preds = %1
   %10 = sext i32 %8 to i64
   %11 = shl nsw i64 %10, 2
-  %12 = tail call noalias ptr @malloc(i64 noundef %11) #10
+  %12 = tail call noalias ptr @malloc(i64 noundef %11) #9
   br label %Vec_BitStart.exit
 
 Vec_BitStart.exit:                                ; preds = %1, %9
@@ -615,7 +613,7 @@ Vec_BitStart.exit:                                ; preds = %1, %9
   br label %143
 
 16:                                               ; preds = %Vec_BitStart.exit
-  %17 = call i32 @Gia_ManLutLevel(ptr noundef nonnull %0, ptr noundef nonnull %2) #9
+  %17 = call i32 @Gia_ManLutLevel(ptr noundef nonnull %0, ptr noundef nonnull %2) #8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr i8, ptr %19, i64 4
@@ -840,7 +838,7 @@ Vec_BitStart.exit:                                ; preds = %1, %9
   br i1 %.not74, label %131, label %130
 
 130:                                              ; preds = %._crit_edge
-  call void @free(ptr noundef nonnull %129) #9
+  call void @free(ptr noundef nonnull %129) #8
   store ptr null, ptr %2, align 8
   br label %131
 
@@ -849,7 +847,7 @@ Vec_BitStart.exit:                                ; preds = %1, %9
   br i1 %.not.i, label %Vec_BitFree.exit, label %132
 
 132:                                              ; preds = %131
-  call void @free(ptr noundef nonnull %13) #9
+  call void @free(ptr noundef nonnull %13) #8
   br label %Vec_BitFree.exit
 
 Vec_BitFree.exit:                                 ; preds = %131, %132
@@ -880,11 +878,8 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #7
-
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #8
+declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #7
 
 attributes #0 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -893,10 +888,9 @@ attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argm
 attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nofree nounwind }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind allocsize(0) }
+attributes #7 = { nofree nounwind }
+attributes #8 = { nounwind }
+attributes #9 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -607,23 +607,19 @@ while.end:                                        ; preds = %cond.false97, %cond
   br i1 %cmp191, label %if.then192, label %if.end199
 
 if.then192:                                       ; preds = %while.end
-  %sub193 = sub nsw i32 %titleStart.2, %prev.0194
   %20 = load i32, ptr %errorCode, align 4
   %cmp.i.i144 = icmp slt i32 %20, 1
-  br i1 %cmp.i.i144, label %if.end.i146, label %while.end254
+  br i1 %cmp.i.i144, label %if.then1.i148, label %while.end254
 
-if.end.i146:                                      ; preds = %if.then192
-  %cmp.i147 = icmp sgt i32 %sub193, 0
-  br i1 %cmp.i147, label %if.then1.i148, label %if.end199
-
-if.then1.i148:                                    ; preds = %if.end.i146
+if.then1.i148:                                    ; preds = %if.then192
+  %sub193 = sub nsw i32 %titleStart.2, %prev.0194
   call void @_ZN6icu_7512ByteSinkUtil23appendNonEmptyUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsE(ptr noundef nonnull %arrayidx, i32 noundef %sub193, ptr noundef nonnull align 8 dereferenceable(8) %sink, i32 noundef %options, ptr noundef %edits)
   br label %if.end199
 
-if.end199:                                        ; preds = %if.end.i146, %if.then1.i148, %while.end, %do.end
-  %titleStart.0 = phi i32 [ %titleStart.2, %while.end ], [ %prev.0194, %do.end ], [ %titleStart.2, %if.then1.i148 ], [ %titleStart.2, %if.end.i146 ]
-  %titleLimit.4 = phi i32 [ %titleLimit.5.lcssa, %while.end ], [ %titleLimit.3, %do.end ], [ %titleLimit.5.lcssa, %if.then1.i148 ], [ %titleLimit.5.lcssa, %if.end.i146 ]
-  %c.3 = phi i32 [ %c.4, %while.end ], [ %c.2, %do.end ], [ %c.4, %if.then1.i148 ], [ %c.4, %if.end.i146 ]
+if.end199:                                        ; preds = %if.then1.i148, %while.end, %do.end
+  %titleStart.0 = phi i32 [ %titleStart.2, %while.end ], [ %prev.0194, %do.end ], [ %titleStart.2, %if.then1.i148 ]
+  %titleLimit.4 = phi i32 [ %titleLimit.5.lcssa, %while.end ], [ %titleLimit.3, %do.end ], [ %titleLimit.5.lcssa, %if.then1.i148 ]
+  %c.3 = phi i32 [ %c.4, %while.end ], [ %c.2, %do.end ], [ %c.4, %if.then1.i148 ]
   %cmp200 = icmp slt i32 %titleStart.0, %titleLimit.4
   br i1 %cmp200, label %if.then201, label %if.end253
 
@@ -669,23 +665,19 @@ _ZN12_GLOBAL__N_112appendResultEiiPKDsRN6icu_758ByteSinkEjPNS2_5EditsER10UErrorC
   br i1 %tobool207.not, label %while.end254, label %if.end218
 
 if.else210:                                       ; preds = %if.then201
-  %idx.ext211 = sext i32 %titleStart.0 to i64
-  %add.ptr212 = getelementptr inbounds i8, ptr %src, i64 %idx.ext211
-  %sub213 = sub nsw i32 %titleLimit.4, %titleStart.0
   %22 = load i32, ptr %errorCode, align 4
   %cmp.i.i155 = icmp slt i32 %22, 1
-  br i1 %cmp.i.i155, label %if.end.i157, label %while.end254
+  br i1 %cmp.i.i155, label %if.then1.i159, label %while.end254
 
-if.end.i157:                                      ; preds = %if.else210
-  %cmp.i158 = icmp sgt i32 %sub213, 0
-  br i1 %cmp.i158, label %if.then1.i159, label %if.end218
-
-if.then1.i159:                                    ; preds = %if.end.i157
+if.then1.i159:                                    ; preds = %if.else210
+  %sub213 = sub nsw i32 %titleLimit.4, %titleStart.0
+  %idx.ext211 = sext i32 %titleStart.0 to i64
+  %add.ptr212 = getelementptr inbounds i8, ptr %src, i64 %idx.ext211
   call void @_ZN6icu_7512ByteSinkUtil23appendNonEmptyUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsE(ptr noundef %add.ptr212, i32 noundef %sub213, ptr noundef nonnull align 8 dereferenceable(8) %sink, i32 noundef %options, ptr noundef %edits)
   br label %if.end218
 
-if.end218:                                        ; preds = %if.end.i157, %if.then1.i159, %if.else8.i, %if.then4.i, %if.end.i152, %_ZN12_GLOBAL__N_112appendResultEiiPKDsRN6icu_758ByteSinkEjPNS2_5EditsER10UErrorCode.exit
-  %c.8 = phi i32 [ %call204, %_ZN12_GLOBAL__N_112appendResultEiiPKDsRN6icu_758ByteSinkEjPNS2_5EditsER10UErrorCode.exit ], [ %call204, %if.end.i152 ], [ %call204, %if.then4.i ], [ %call204, %if.else8.i ], [ %c.3, %if.then1.i159 ], [ %c.3, %if.end.i157 ]
+if.end218:                                        ; preds = %if.then1.i159, %if.else8.i, %if.then4.i, %if.end.i152, %_ZN12_GLOBAL__N_112appendResultEiiPKDsRN6icu_758ByteSinkEjPNS2_5EditsER10UErrorCode.exit
+  %c.8 = phi i32 [ %call204, %_ZN12_GLOBAL__N_112appendResultEiiPKDsRN6icu_758ByteSinkEjPNS2_5EditsER10UErrorCode.exit ], [ %call204, %if.end.i152 ], [ %call204, %if.then4.i ], [ %call204, %if.else8.i ], [ %c.3, %if.then1.i159 ]
   %cmp219 = icmp slt i32 %titleLimit.4, %index.1
   %or.cond = and i1 %cmp221, %cmp219
   br i1 %or.cond, label %if.then222, label %if.end232
@@ -956,22 +948,18 @@ if.then237:                                       ; preds = %if.then234
   br i1 %or.cond195, label %while.body.backedge, label %while.end254
 
 if.else242:                                       ; preds = %if.then234
-  %idx.ext243 = sext i32 %titleLimit.10 to i64
-  %add.ptr244 = getelementptr inbounds i8, ptr %src, i64 %idx.ext243
-  %sub245 = sub nsw i32 %index.1, %titleLimit.10
   %39 = load i32, ptr %errorCode, align 4
   %cmp.i.i170 = icmp slt i32 %39, 1
-  br i1 %cmp.i.i170, label %if.end.i172, label %while.end254
+  br i1 %cmp.i.i170, label %if.then1.i174, label %while.end254
 
-if.end.i172:                                      ; preds = %if.else242
-  %cmp.i173 = icmp sgt i32 %sub245, 0
-  br i1 %cmp.i173, label %if.then1.i174, label %if.end253
-
-if.then1.i174:                                    ; preds = %if.end.i172
+if.then1.i174:                                    ; preds = %if.else242
+  %sub245 = sub nsw i32 %index.1, %titleLimit.10
+  %idx.ext243 = sext i32 %titleLimit.10 to i64
+  %add.ptr244 = getelementptr inbounds i8, ptr %src, i64 %idx.ext243
   call void @_ZN6icu_7512ByteSinkUtil23appendNonEmptyUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsE(ptr noundef %add.ptr244, i32 noundef %sub245, ptr noundef nonnull align 8 dereferenceable(8) %sink, i32 noundef %options, ptr noundef %edits)
   br label %if.end253
 
-if.end253:                                        ; preds = %if.end.i172, %if.then1.i174, %if.end199, %if.end232, %while.body
+if.end253:                                        ; preds = %if.then1.i174, %if.end199, %if.end232, %while.body
   %cmp.old = icmp slt i32 %index.1, %srcLength
   br i1 %cmp.old, label %while.body.backedge, label %while.end254
 

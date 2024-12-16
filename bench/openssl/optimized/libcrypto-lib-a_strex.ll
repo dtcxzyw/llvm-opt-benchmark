@@ -215,13 +215,12 @@ if.end79:                                         ; preds = %if.end73
 
 if.then84:                                        ; preds = %if.end79
   %sub85 = sub nsw i32 %fld_len.0, %conv75
-  %cmp2.i71 = icmp sgt i32 %sub85, 0
-  br i1 %cmp2.i71, label %for.body.i73, label %if.end89
+  br label %for.body.i73
 
 for.cond.i77:                                     ; preds = %for.body.i73
   %inc.i78 = add nuw nsw i32 %i.03.i74, 1
   %exitcond.not.i79 = icmp eq i32 %inc.i78, %sub85
-  br i1 %exitcond.not.i79, label %if.end89, label %for.body.i73, !llvm.loop !4
+  br i1 %exitcond.not.i79, label %if.end89.loopexit, label %for.body.i73, !llvm.loop !4
 
 for.body.i73:                                     ; preds = %if.then84, %for.cond.i77
   %i.03.i74 = phi i32 [ %inc.i78, %for.cond.i77 ], [ 0, %if.then84 ]
@@ -229,12 +228,12 @@ for.body.i73:                                     ; preds = %if.then84, %for.con
   %tobool.not.i76 = icmp eq i32 %call.i75, 0
   br i1 %tobool.not.i76, label %return, label %for.cond.i77
 
-if.end89:                                         ; preds = %for.cond.i77, %if.then84
+if.end89.loopexit:                                ; preds = %for.cond.i77
   %add91 = add nsw i32 %sub85, %outlen.1
   br label %if.end92
 
-if.end92:                                         ; preds = %if.end89, %if.end79
-  %outlen.3 = phi i32 [ %add91, %if.end89 ], [ %outlen.1, %if.end79 ]
+if.end92:                                         ; preds = %if.end89.loopexit, %if.end79
+  %outlen.3 = phi i32 [ %add91, %if.end89.loopexit ], [ %outlen.1, %if.end79 ]
   %call93 = call i32 %io_ch(ptr noundef %arg, ptr noundef nonnull %.str.7..str.6, i32 noundef %.) #8, !callees !6
   %tobool94.not = icmp eq i32 %call93, 0
   br i1 %tobool94.not, label %return, label %if.end96

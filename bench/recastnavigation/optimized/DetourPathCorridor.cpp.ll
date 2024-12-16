@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 $__clang_call_terminate = comdat any
 
-@.str = private unnamed_addr constant [22 x i8] c"ppos+count <= maxPath\00", align 1
 @.str.1 = private unnamed_addr constant [153 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/recastnavigation/recastnavigation/DetourCrowd/Source/DetourPathCorridor.cpp\00", align 1
 @.str.2 = private unnamed_addr constant [8 x i8] c"!m_path\00", align 1
 @.str.3 = private unnamed_addr constant [7 x i8] c"m_path\00", align 1
@@ -77,53 +76,52 @@ define noundef i32 @_Z25dtMergeCorridorStartMovedPjiiPKji(ptr nocapture noundef 
   %24 = add nuw nsw i32 %.us-phi66, 1
   %25 = tail call noundef i32 @llvm.smin.i32(i32 %24, i32 %1)
   %26 = sub nsw i32 %1, %25
-  %27 = tail call noundef i32 @llvm.smax.i32(i32 %26, i32 0)
-  %28 = add nsw i32 %27, %23
-  %29 = icmp sgt i32 %28, %2
-  %30 = sub nsw i32 %2, %23
-  %spec.select = select i1 %29, i32 %30, i32 %27
-  %31 = icmp sgt i32 %spec.select, 0
-  br i1 %31, label %32, label %39
+  %27 = add nsw i32 %26, %23
+  %28 = icmp sgt i32 %27, %2
+  %29 = sub nsw i32 %2, %23
+  %spec.select = select i1 %28, i32 %29, i32 %26
+  %30 = icmp sgt i32 %spec.select, 0
+  br i1 %30, label %31, label %38
 
-32:                                               ; preds = %22
-  %33 = sext i32 %23 to i64
-  %34 = getelementptr inbounds i32, ptr %0, i64 %33
-  %35 = sext i32 %25 to i64
-  %36 = getelementptr inbounds i32, ptr %0, i64 %35
-  %37 = zext nneg i32 %spec.select to i64
-  %38 = shl nuw nsw i64 %37, 2
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %34, ptr align 4 %36, i64 %38, i1 false)
-  br label %39
+31:                                               ; preds = %22
+  %32 = sext i32 %23 to i64
+  %33 = getelementptr inbounds i32, ptr %0, i64 %32
+  %34 = sext i32 %25 to i64
+  %35 = getelementptr inbounds i32, ptr %0, i64 %34
+  %36 = zext nneg i32 %spec.select to i64
+  %37 = shl nuw nsw i64 %36, 2
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %33, ptr align 4 %35, i64 %37, i1 false)
+  br label %38
 
-39:                                               ; preds = %32, %22
-  %40 = tail call noundef i32 @llvm.smin.i32(i32 %23, i32 %2)
-  %41 = icmp sgt i32 %40, 0
-  br i1 %41, label %.lr.ph.preheader, label %._crit_edge
+38:                                               ; preds = %31, %22
+  %39 = tail call noundef i32 @llvm.smin.i32(i32 %23, i32 %2)
+  %40 = icmp sgt i32 %39, 0
+  br i1 %40, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %39
-  %wide.trip.count = zext nneg i32 %40 to i64
+.lr.ph.preheader:                                 ; preds = %38
+  %wide.trip.count = zext nneg i32 %39 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv72 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next73, %.lr.ph ]
-  %42 = trunc i64 %indvars.iv72 to i32
-  %43 = xor i32 %42, -1
-  %44 = add i32 %4, %43
-  %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds i32, ptr %3, i64 %45
-  %47 = load i32, ptr %46, align 4
-  %48 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv72
-  store i32 %47, ptr %48, align 4
+  %41 = trunc i64 %indvars.iv72 to i32
+  %42 = xor i32 %41, -1
+  %43 = add i32 %4, %42
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr inbounds i32, ptr %3, i64 %44
+  %46 = load i32, ptr %45, align 4
+  %47 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv72
+  store i32 %46, ptr %47, align 4
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next73, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %.lr.ph, %39
-  %49 = add nsw i32 %spec.select, %23
+._crit_edge:                                      ; preds = %.lr.ph, %38
+  %48 = add nsw i32 %spec.select, %23
   br label %.split65.us.thread
 
 .split65.us.thread:                               ; preds = %5, %.split65.us, %._crit_edge
-  %.0 = phi i32 [ %49, %._crit_edge ], [ %1, %.split65.us ], [ %1, %5 ]
+  %.0 = phi i32 [ %48, %._crit_edge ], [ %1, %.split65.us ], [ %1, %5 ]
   ret i32 %.0
 }
 
@@ -134,8 +132,8 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 define noundef i32 @_Z23dtMergeCorridorEndMovedPjiiPKji(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = icmp sgt i32 %1, 0
   %7 = icmp sgt i32 %4, 0
-  %or.cond76 = and i1 %6, %7
-  br i1 %or.cond76, label %.preheader.us.preheader, label %._crit_edge58.thread
+  %or.cond75 = and i1 %6, %7
+  br i1 %or.cond75, label %.preheader.us.preheader, label %._crit_edge58.thread
 
 .preheader.us.preheader:                          ; preds = %5
   %8 = zext nneg i32 %4 to i64
@@ -143,12 +141,12 @@ define noundef i32 @_Z23dtMergeCorridorEndMovedPjiiPKji(ptr nocapture noundef %0
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
-  %indvars.iv70 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next71, %._crit_edge.us ]
+  %indvars.iv69 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next70, %._crit_edge.us ]
   %.03657.us = phi i32 [ -1, %.preheader.us.preheader ], [ %.3.us, %._crit_edge.us ]
   %.03756.us = phi i32 [ -1, %.preheader.us.preheader ], [ %.340.us, %._crit_edge.us ]
-  %10 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv70
+  %10 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv69
   %11 = load i32, ptr %10, align 4
-  %12 = trunc nuw nsw i64 %indvars.iv70 to i32
+  %12 = trunc nuw nsw i64 %indvars.iv69 to i32
   br label %13
 
 13:                                               ; preds = %.preheader.us, %13
@@ -168,8 +166,8 @@ define noundef i32 @_Z23dtMergeCorridorEndMovedPjiiPKji(ptr nocapture noundef %0
   br i1 %18, label %13, label %._crit_edge.us, !llvm.loop !8
 
 ._crit_edge.us:                                   ; preds = %13
-  %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
-  %19 = icmp samesign uge i64 %indvars.iv.next71, %9
+  %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
+  %19 = icmp samesign uge i64 %indvars.iv.next70, %9
   %or.cond67.not = select i1 %.144.us, i1 true, i1 %19
   br i1 %or.cond67.not, label %._crit_edge58, label %.preheader.us, !llvm.loop !9
 
@@ -186,32 +184,22 @@ define noundef i32 @_Z23dtMergeCorridorEndMovedPjiiPKji(ptr nocapture noundef %0
   %26 = sub nsw i32 %2, %23
   %27 = tail call noundef i32 @llvm.smin.i32(i32 %25, i32 %26)
   %28 = tail call noundef ptr @_Z21dtAssertFailGetCustomv()
-  %29 = icmp ne ptr %28, null
-  %30 = add nsw i32 %27, %23
-  %.not = icmp sgt i32 %30, %2
-  %or.cond48 = select i1 %29, i1 %.not, i1 false
-  br i1 %or.cond48, label %31, label %32
-
-31:                                               ; preds = %22
-  tail call void %28(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 103)
-  br label %32
-
-32:                                               ; preds = %31, %22
+  %29 = add nsw i32 %27, %23
   %.not47 = icmp eq i32 %27, 0
-  br i1 %.not47, label %._crit_edge58.thread, label %33
+  br i1 %.not47, label %._crit_edge58.thread, label %30
 
-33:                                               ; preds = %32
-  %34 = sext i32 %23 to i64
-  %35 = getelementptr inbounds i32, ptr %0, i64 %34
-  %36 = zext nneg i32 %24 to i64
-  %37 = getelementptr inbounds nuw i32, ptr %3, i64 %36
-  %38 = sext i32 %27 to i64
-  %39 = shl nsw i64 %38, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %35, ptr nonnull align 4 %37, i64 %39, i1 false)
+30:                                               ; preds = %22
+  %31 = sext i32 %23 to i64
+  %32 = getelementptr inbounds i32, ptr %0, i64 %31
+  %33 = zext nneg i32 %24 to i64
+  %34 = getelementptr inbounds nuw i32, ptr %3, i64 %33
+  %35 = sext i32 %27 to i64
+  %36 = shl nsw i64 %35, 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %32, ptr nonnull align 4 %34, i64 %36, i1 false)
   br label %._crit_edge58.thread
 
-._crit_edge58.thread:                             ; preds = %5, %32, %33, %._crit_edge58
-  %.0 = phi i32 [ %1, %._crit_edge58 ], [ %30, %33 ], [ %30, %32 ], [ %1, %5 ]
+._crit_edge58.thread:                             ; preds = %5, %22, %30, %._crit_edge58
+  %.0 = phi i32 [ %1, %._crit_edge58 ], [ %29, %30 ], [ %29, %22 ], [ %1, %5 ]
   ret i32 %.0
 }
 
@@ -1066,7 +1054,7 @@ define noundef zeroext i1 @_ZN14dtPathCorridor12movePositionEPKfP14dtNavMeshQuer
   %23 = call noundef i32 @_ZNK14dtNavMeshQuery16moveAlongSurfaceEjPKfS1_PK13dtQueryFilterPfPjPii(ptr noundef nonnull align 8 dereferenceable(104) %2, i32 noundef %22, ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 16)
   %24 = and i32 %23, 1073741824
   %25 = icmp ne i32 %24, 0
-  br i1 %25, label %26, label %86
+  br i1 %25, label %26, label %85
 
 26:                                               ; preds = %20
   %27 = load ptr, ptr %11, align 8
@@ -1130,72 +1118,71 @@ define noundef zeroext i1 @_ZN14dtPathCorridor12movePositionEPKfP14dtNavMeshQuer
   %50 = add nuw nsw i32 %.us-phi66.i, 1
   %51 = call noundef i32 @llvm.smin.i32(i32 %50, i32 %28)
   %52 = sub nsw i32 %28, %51
-  %53 = call noundef i32 @llvm.smax.i32(i32 %52, i32 0)
-  %54 = add nsw i32 %53, %49
-  %55 = icmp sgt i32 %54, %30
-  %56 = sub nsw i32 %30, %49
-  %spec.select.i = select i1 %55, i32 %56, i32 %53
-  %57 = icmp sgt i32 %spec.select.i, 0
-  br i1 %57, label %58, label %65
+  %53 = add nsw i32 %52, %49
+  %54 = icmp sgt i32 %53, %30
+  %55 = sub nsw i32 %30, %49
+  %spec.select.i = select i1 %54, i32 %55, i32 %52
+  %56 = icmp sgt i32 %spec.select.i, 0
+  br i1 %56, label %57, label %64
 
-58:                                               ; preds = %48
-  %59 = sext i32 %49 to i64
-  %60 = getelementptr inbounds i32, ptr %27, i64 %59
-  %61 = sext i32 %51 to i64
-  %62 = getelementptr inbounds i32, ptr %27, i64 %61
-  %63 = zext nneg i32 %spec.select.i to i64
-  %64 = shl nuw nsw i64 %63, 2
-  call void @llvm.memmove.p0.p0.i64(ptr align 4 %60, ptr align 4 %62, i64 %64, i1 false)
-  br label %65
+57:                                               ; preds = %48
+  %58 = sext i32 %49 to i64
+  %59 = getelementptr inbounds i32, ptr %27, i64 %58
+  %60 = sext i32 %51 to i64
+  %61 = getelementptr inbounds i32, ptr %27, i64 %60
+  %62 = zext nneg i32 %spec.select.i to i64
+  %63 = shl nuw nsw i64 %62, 2
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %59, ptr align 4 %61, i64 %63, i1 false)
+  br label %64
 
-65:                                               ; preds = %58, %48
-  %66 = call noundef i32 @llvm.smin.i32(i32 %49, i32 %30)
-  %67 = icmp sgt i32 %66, 0
-  br i1 %67, label %.lr.ph.preheader.i, label %._crit_edge.i
+64:                                               ; preds = %57, %48
+  %65 = call noundef i32 @llvm.smin.i32(i32 %49, i32 %30)
+  %66 = icmp sgt i32 %65, 0
+  br i1 %66, label %.lr.ph.preheader.i, label %._crit_edge.i
 
-.lr.ph.preheader.i:                               ; preds = %65
-  %wide.trip.count.i = zext nneg i32 %66 to i64
+.lr.ph.preheader.i:                               ; preds = %64
+  %wide.trip.count.i = zext nneg i32 %65 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv72.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next73.i, %.lr.ph.i ]
-  %68 = trunc i64 %indvars.iv72.i to i32
-  %69 = xor i32 %68, -1
-  %70 = add i32 %31, %69
-  %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds nuw i32, ptr %6, i64 %71
-  %73 = load i32, ptr %72, align 4
-  %74 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv72.i
-  store i32 %73, ptr %74, align 4
+  %67 = trunc i64 %indvars.iv72.i to i32
+  %68 = xor i32 %67, -1
+  %69 = add i32 %31, %68
+  %70 = sext i32 %69 to i64
+  %71 = getelementptr inbounds nuw i32, ptr %6, i64 %70
+  %72 = load i32, ptr %71, align 4
+  %73 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv72.i
+  store i32 %72, ptr %73, align 4
   %indvars.iv.next73.i = add nuw nsw i64 %indvars.iv72.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next73.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %65
-  %75 = add nsw i32 %spec.select.i, %49
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %64
+  %74 = add nsw i32 %spec.select.i, %49
   %.pre = load ptr, ptr %11, align 8
   br label %_Z25dtMergeCorridorStartMovedPjiiPKji.exit
 
 _Z25dtMergeCorridorStartMovedPjiiPKji.exit:       ; preds = %26, %.split65.us.i, %._crit_edge.i
-  %76 = phi ptr [ %.pre, %._crit_edge.i ], [ %27, %.split65.us.i ], [ %27, %26 ]
-  %.0.i = phi i32 [ %75, %._crit_edge.i ], [ %28, %.split65.us.i ], [ %28, %26 ]
+  %75 = phi ptr [ %.pre, %._crit_edge.i ], [ %27, %.split65.us.i ], [ %27, %26 ]
+  %.0.i = phi i32 [ %74, %._crit_edge.i ], [ %28, %.split65.us.i ], [ %28, %26 ]
   store i32 %.0.i, ptr %17, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %78 = load float, ptr %77, align 4
-  store float %78, ptr %8, align 4
-  %79 = load i32, ptr %76, align 4
-  %80 = call noundef i32 @_ZNK14dtNavMeshQuery13getPolyHeightEjPKfPf(ptr noundef nonnull align 8 dereferenceable(104) %2, i32 noundef %79, ptr noundef nonnull %5, ptr noundef nonnull %8)
-  %81 = load float, ptr %8, align 4
-  %82 = load float, ptr %5, align 4
-  store float %82, ptr %0, align 8
-  store float %81, ptr %77, align 4
-  %83 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %84 = load float, ptr %83, align 4
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %84, ptr %85, align 8
-  br label %86
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %77 = load float, ptr %76, align 4
+  store float %77, ptr %8, align 4
+  %78 = load i32, ptr %75, align 4
+  %79 = call noundef i32 @_ZNK14dtNavMeshQuery13getPolyHeightEjPKfPf(ptr noundef nonnull align 8 dereferenceable(104) %2, i32 noundef %78, ptr noundef nonnull %5, ptr noundef nonnull %8)
+  %80 = load float, ptr %8, align 4
+  %81 = load float, ptr %5, align 4
+  store float %81, ptr %0, align 8
+  store float %80, ptr %76, align 4
+  %82 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %83 = load float, ptr %82, align 4
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %83, ptr %84, align 8
+  br label %85
 
-86:                                               ; preds = %20, %_Z25dtMergeCorridorStartMovedPjiiPKji.exit
+85:                                               ; preds = %20, %_Z25dtMergeCorridorStartMovedPjiiPKji.exit
   ret i1 %25
 }
 
@@ -1246,7 +1233,7 @@ define noundef zeroext i1 @_ZN14dtPathCorridor18moveTargetPositionEPKfP14dtNavMe
   %27 = call noundef i32 @_ZNK14dtNavMeshQuery16moveAlongSurfaceEjPKfS1_PK13dtQueryFilterPfPjPii(ptr noundef nonnull align 8 dereferenceable(104) %2, i32 noundef %25, ptr noundef nonnull %26, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 16)
   %28 = and i32 %27, 1073741824
   %29 = icmp ne i32 %28, 0
-  br i1 %29, label %30, label %77
+  br i1 %29, label %30, label %74
 
 30:                                               ; preds = %19
   %31 = load ptr, ptr %10, align 8
@@ -1256,8 +1243,8 @@ define noundef zeroext i1 @_ZN14dtPathCorridor18moveTargetPositionEPKfP14dtNavMe
   %35 = load i32, ptr %7, align 4
   %36 = icmp sgt i32 %32, 0
   %37 = icmp sgt i32 %35, 0
-  %or.cond76.i = and i1 %36, %37
-  br i1 %or.cond76.i, label %.preheader.us.preheader.i, label %_Z23dtMergeCorridorEndMovedPjiiPKji.exit
+  %or.cond75.i = and i1 %36, %37
+  br i1 %or.cond75.i, label %.preheader.us.preheader.i, label %_Z23dtMergeCorridorEndMovedPjiiPKji.exit
 
 .preheader.us.preheader.i:                        ; preds = %30
   %38 = zext nneg i32 %35 to i64
@@ -1265,12 +1252,12 @@ define noundef zeroext i1 @_ZN14dtPathCorridor18moveTargetPositionEPKfP14dtNavMe
   br label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
-  %indvars.iv70.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next71.i, %._crit_edge.us.i ]
+  %indvars.iv69.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next70.i, %._crit_edge.us.i ]
   %.03657.us.i = phi i32 [ -1, %.preheader.us.preheader.i ], [ %.3.us.i, %._crit_edge.us.i ]
   %.03756.us.i = phi i32 [ -1, %.preheader.us.preheader.i ], [ %.340.us.i, %._crit_edge.us.i ]
-  %40 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv70.i
+  %40 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv69.i
   %41 = load i32, ptr %40, align 4
-  %42 = trunc nuw nsw i64 %indvars.iv70.i to i32
+  %42 = trunc nuw nsw i64 %indvars.iv69.i to i32
   br label %43
 
 43:                                               ; preds = %43, %.preheader.us.i
@@ -1290,8 +1277,8 @@ define noundef zeroext i1 @_ZN14dtPathCorridor18moveTargetPositionEPKfP14dtNavMe
   br i1 %48, label %43, label %._crit_edge.us.i, !llvm.loop !8
 
 ._crit_edge.us.i:                                 ; preds = %43
-  %indvars.iv.next71.i = add nuw nsw i64 %indvars.iv70.i, 1
-  %49 = icmp samesign uge i64 %indvars.iv.next71.i, %39
+  %indvars.iv.next70.i = add nuw nsw i64 %indvars.iv69.i, 1
+  %49 = icmp samesign uge i64 %indvars.iv.next70.i, %39
   %or.cond67.not.i = select i1 %.144.us.i, i1 true, i1 %49
   br i1 %or.cond67.not.i, label %._crit_edge58.i, label %.preheader.us.i, !llvm.loop !9
 
@@ -1308,46 +1295,36 @@ define noundef zeroext i1 @_ZN14dtPathCorridor18moveTargetPositionEPKfP14dtNavMe
   %56 = sub nsw i32 %34, %53
   %57 = call noundef i32 @llvm.smin.i32(i32 %55, i32 %56)
   %58 = call noundef ptr @_Z21dtAssertFailGetCustomv()
-  %59 = icmp ne ptr %58, null
-  %60 = add nsw i32 %57, %53
-  %.not.i = icmp sgt i32 %60, %34
-  %or.cond48.i = select i1 %59, i1 %.not.i, i1 false
-  br i1 %or.cond48.i, label %61, label %62
-
-61:                                               ; preds = %52
-  call void %58(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 103)
-  br label %62
-
-62:                                               ; preds = %61, %52
+  %59 = add nsw i32 %57, %53
   %.not47.i = icmp eq i32 %57, 0
-  br i1 %.not47.i, label %_Z23dtMergeCorridorEndMovedPjiiPKji.exit, label %63
+  br i1 %.not47.i, label %_Z23dtMergeCorridorEndMovedPjiiPKji.exit, label %60
 
-63:                                               ; preds = %62
-  %64 = sext i32 %53 to i64
-  %65 = getelementptr inbounds i32, ptr %31, i64 %64
-  %66 = zext nneg i32 %54 to i64
-  %67 = getelementptr inbounds nuw i32, ptr %6, i64 %66
-  %68 = sext i32 %57 to i64
-  %69 = shl nsw i64 %68, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %65, ptr nonnull readonly align 4 %67, i64 %69, i1 false)
+60:                                               ; preds = %52
+  %61 = sext i32 %53 to i64
+  %62 = getelementptr inbounds i32, ptr %31, i64 %61
+  %63 = zext nneg i32 %54 to i64
+  %64 = getelementptr inbounds nuw i32, ptr %6, i64 %63
+  %65 = sext i32 %57 to i64
+  %66 = shl nsw i64 %65, 2
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %62, ptr nonnull readonly align 4 %64, i64 %66, i1 false)
   br label %_Z23dtMergeCorridorEndMovedPjiiPKji.exit
 
-_Z23dtMergeCorridorEndMovedPjiiPKji.exit:         ; preds = %30, %._crit_edge58.i, %62, %63
-  %.0.i = phi i32 [ %32, %._crit_edge58.i ], [ %60, %63 ], [ %60, %62 ], [ %32, %30 ]
+_Z23dtMergeCorridorEndMovedPjiiPKji.exit:         ; preds = %30, %._crit_edge58.i, %52, %60
+  %.0.i = phi i32 [ %32, %._crit_edge58.i ], [ %59, %60 ], [ %59, %52 ], [ %32, %30 ]
   store i32 %.0.i, ptr %16, align 8
-  %70 = load float, ptr %5, align 4
-  store float %70, ptr %26, align 4
-  %71 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %67 = load float, ptr %5, align 4
+  store float %67, ptr %26, align 4
+  %68 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %69 = load float, ptr %68, align 4
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store float %69, ptr %70, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %72 = load float, ptr %71, align 4
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %72, ptr %73, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %75 = load float, ptr %74, align 4
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store float %75, ptr %76, align 4
-  br label %77
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store float %72, ptr %73, align 4
+  br label %74
 
-77:                                               ; preds = %19, %_Z23dtMergeCorridorEndMovedPjiiPKji.exit
+74:                                               ; preds = %19, %_Z23dtMergeCorridorEndMovedPjiiPKji.exit
   ret i1 %29
 }
 

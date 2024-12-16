@@ -596,11 +596,8 @@ if.else.i.i:                                      ; preds = %invoke.cont
   br i1 %tobool4.not.i.i, label %land.rhs.i.i, label %invoke.cont2
 
 land.rhs.i.i:                                     ; preds = %if.else.i.i
-  %cmp5.i.i.i = icmp slt i32 %cond.i.i, 0
   %spec.select10.i.i = call i32 @llvm.smin.i32(i32 %cond.i.i, i32 0)
-  %sub.i.i.i = sub nsw i32 %cond.i.i, %spec.select10.i.i
-  %spec.select11.i.i = call i32 @llvm.smin.i32(i32 %cond.i.i, i32 %sub.i.i.i)
-  %srcLength.addr.0.i.i = select i1 %cmp5.i.i.i, i32 0, i32 %spec.select11.i.i
+  %srcLength.addr.0.i.i = call i32 @llvm.smax.i32(i32 %cond.i.i, i32 0)
   %6 = and i16 %1, 2
   %tobool.not.i.i.i = icmp eq i16 %6, 0
   %fBuffer.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 10
@@ -2915,6 +2912,9 @@ declare void @_ZN6icu_7513UnicodeStringC1EOS0_(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #10
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #10
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

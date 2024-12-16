@@ -1153,11 +1153,8 @@ if.else.i.i:                                      ; preds = %invoke.cont15
   br i1 %tobool4.not.i.i, label %land.rhs.i.i, label %if.end30.critedge
 
 land.rhs.i.i:                                     ; preds = %if.else.i.i
-  %cmp5.i.i.i = icmp slt i32 %cond.i.i, 0
   %spec.select10.i.i = call i32 @llvm.smin.i32(i32 %cond.i.i, i32 0)
-  %sub.i.i.i = sub nsw i32 %cond.i.i, %spec.select10.i.i
-  %spec.select11.i.i = call i32 @llvm.smin.i32(i32 %cond.i.i, i32 %sub.i.i.i)
-  %srcLength.addr.0.i.i = select i1 %cmp5.i.i.i, i32 0, i32 %spec.select11.i.i
+  %srcLength.addr.0.i.i = call i32 @llvm.smax.i32(i32 %cond.i.i, i32 0)
   %18 = and i16 %13, 2
   %tobool.not.i.i.i143 = icmp eq i16 %18, 0
   %fBuffer.i.i.i144 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 10

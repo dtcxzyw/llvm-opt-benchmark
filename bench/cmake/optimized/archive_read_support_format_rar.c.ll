@@ -3327,7 +3327,7 @@ define internal fastcc range(i32 -30, 1) i32 @copy_from_lzss_window_to_unp(ptr n
 
 16:                                               ; preds = %10
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.36) #19
-  br label %70
+  br label %66
 
 17:                                               ; preds = %10, %4
   %18 = phi ptr [ %14, %10 ], [ %9, %4 ]
@@ -3351,11 +3351,11 @@ define internal fastcc range(i32 -30, 1) i32 @copy_from_lzss_window_to_unp(ptr n
   %32 = getelementptr inbounds i8, ptr %30, i64 %31
   %33 = sext i32 %3 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %29, ptr align 1 %32, i64 %33, i1 false)
-  br label %61
+  br label %57
 
 34:                                               ; preds = %17
   %.not50 = icmp sgt i32 %3, %24
-  br i1 %.not50, label %60, label %35
+  br i1 %.not50, label %56, label %35
 
 35:                                               ; preds = %34
   %36 = sub nsw i32 %24, %22
@@ -3364,63 +3364,54 @@ define internal fastcc range(i32 -30, 1) i32 @copy_from_lzss_window_to_unp(ptr n
 
 38:                                               ; preds = %35
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.37) #19
-  br label %70
+  br label %66
 
 39:                                               ; preds = %35
-  %40 = icmp slt i32 %36, %3
-  %41 = getelementptr inbounds nuw i8, ptr %7, i64 212
-  %42 = load i32, ptr %41, align 4
-  %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw i8, ptr %18, i64 %43
-  %45 = load ptr, ptr %19, align 8
-  %46 = sext i32 %22 to i64
-  %47 = getelementptr inbounds i8, ptr %45, i64 %46
-  br i1 %40, label %48, label %58
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 212
+  %41 = load i32, ptr %40, align 4
+  %42 = zext i32 %41 to i64
+  %43 = getelementptr inbounds nuw i8, ptr %18, i64 %42
+  %44 = load ptr, ptr %19, align 8
+  %45 = sext i32 %22 to i64
+  %46 = getelementptr inbounds i8, ptr %44, i64 %45
+  %47 = zext nneg i32 %36 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %43, ptr align 1 %46, i64 %47, i1 false)
+  %48 = load ptr, ptr %8, align 8
+  %49 = load i32, ptr %40, align 4
+  %50 = add i32 %49, %36
+  %51 = zext i32 %50 to i64
+  %52 = getelementptr inbounds nuw i8, ptr %48, i64 %51
+  %53 = load ptr, ptr %19, align 8
+  %54 = sub nsw i32 %3, %36
+  %55 = sext i32 %54 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %52, ptr align 1 %53, i64 %55, i1 false)
+  br label %57
 
-48:                                               ; preds = %39
-  %49 = zext nneg i32 %36 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %44, ptr align 1 %47, i64 %49, i1 false)
-  %50 = load ptr, ptr %8, align 8
-  %51 = load i32, ptr %41, align 4
-  %52 = add i32 %51, %36
-  %53 = zext i32 %52 to i64
-  %54 = getelementptr inbounds nuw i8, ptr %50, i64 %53
-  %55 = load ptr, ptr %19, align 8
-  %56 = sub nsw i32 %3, %36
-  %57 = sext i32 %56 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %54, ptr align 1 %55, i64 %57, i1 false)
-  br label %61
-
-58:                                               ; preds = %39
-  %59 = sext i32 %3 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %44, ptr align 1 %47, i64 %59, i1 false)
-  br label %61
-
-60:                                               ; preds = %34
+56:                                               ; preds = %34
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.37) #19
-  br label %70
+  br label %66
 
-61:                                               ; preds = %58, %48, %25
-  %62 = getelementptr inbounds nuw i8, ptr %7, i64 212
-  %63 = load i32, ptr %62, align 4
-  %64 = add i32 %63, %3
-  store i32 %64, ptr %62, align 4
-  %65 = getelementptr inbounds nuw i8, ptr %7, i64 216
-  %66 = load i32, ptr %65, align 8
-  %.not51 = icmp ult i32 %64, %66
-  br i1 %.not51, label %69, label %67
+57:                                               ; preds = %39, %25
+  %58 = getelementptr inbounds nuw i8, ptr %7, i64 212
+  %59 = load i32, ptr %58, align 4
+  %60 = add i32 %59, %3
+  store i32 %60, ptr %58, align 4
+  %61 = getelementptr inbounds nuw i8, ptr %7, i64 216
+  %62 = load i32, ptr %61, align 8
+  %.not51 = icmp ult i32 %60, %62
+  br i1 %.not51, label %65, label %63
 
-67:                                               ; preds = %61
-  %68 = load ptr, ptr %8, align 8
-  br label %69
+63:                                               ; preds = %57
+  %64 = load ptr, ptr %8, align 8
+  br label %65
 
-69:                                               ; preds = %61, %67
-  %storemerge = phi ptr [ %68, %67 ], [ null, %61 ]
+65:                                               ; preds = %57, %63
+  %storemerge = phi ptr [ %64, %63 ], [ null, %57 ]
   store ptr %storemerge, ptr %1, align 8
-  br label %70
+  br label %66
 
-70:                                               ; preds = %69, %60, %38, %16
-  %.0 = phi i32 [ 0, %69 ], [ -30, %38 ], [ -30, %60 ], [ -30, %16 ]
+66:                                               ; preds = %65, %56, %38, %16
+  %.0 = phi i32 [ 0, %65 ], [ -30, %38 ], [ -30, %56 ], [ -30, %16 ]
   ret i32 %.0
 }
 

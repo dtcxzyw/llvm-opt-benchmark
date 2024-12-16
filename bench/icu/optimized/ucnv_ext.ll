@@ -280,17 +280,13 @@ if.then20.i:                                      ; preds = %if.end18.i
 
 if.end25.i:                                       ; preds = %if.then20.i
   %inc.i = add nsw i32 %start.044.i, 1
-  %cmp26.i = icmp slt i32 %inc.i, %limit.045.i
-  br i1 %cmp26.i, label %land.lhs.true.i, label %if.end31.i
-
-land.lhs.true.i:                                  ; preds = %if.end25.i
   %idxprom27.i = sext i32 %inc.i to i64
   %arrayidx28.i = getelementptr inbounds i32, ptr %incdec.ptr, i64 %idxprom27.i
   %10 = load i32, ptr %arrayidx28.i, align 4
   %cmp29.not.i = icmp ugt i32 %shl.i, %10
   br i1 %cmp29.not.i, label %if.end31.i, label %for.end.i
 
-if.end31.i:                                       ; preds = %land.lhs.true.i, %if.end25.i
+if.end31.i:                                       ; preds = %if.end25.i
   %inc32.i = add nsw i32 %start.044.i, 2
   %cmp33.i = icmp slt i32 %inc32.i, %limit.045.i
   br i1 %cmp33.i, label %land.lhs.true34.i, label %if.end39.i
@@ -319,9 +315,9 @@ if.end41.i:                                       ; preds = %if.end18.i
   %cmp16.i = icmp slt i32 %sub15.i, 2
   br i1 %cmp16.i, label %for.end.i, label %if.end18.i, !llvm.loop !7
 
-for.end.i:                                        ; preds = %if.end41.i, %if.end39.i, %land.lhs.true34.i, %land.lhs.true.i, %if.then20.i, %if.end12.i
-  %limit.041.i = phi i32 [ %limit.045.i, %if.then20.i ], [ %limit.045.i, %land.lhs.true.i ], [ %limit.045.i, %land.lhs.true34.i ], [ %limit.045.i, %if.end39.i ], [ %shr, %if.end12.i ], [ %div.limit.0.i, %if.end41.i ]
-  %start.1.i = phi i32 [ %start.044.i, %if.then20.i ], [ %inc.i, %land.lhs.true.i ], [ %inc32.i, %land.lhs.true34.i ], [ %inc40.i, %if.end39.i ], [ 0, %if.end12.i ], [ %start.0.div.i, %if.end41.i ]
+for.end.i:                                        ; preds = %if.end41.i, %if.end39.i, %land.lhs.true34.i, %if.end25.i, %if.then20.i, %if.end12.i
+  %limit.041.i = phi i32 [ %limit.045.i, %if.then20.i ], [ %limit.045.i, %if.end25.i ], [ %limit.045.i, %land.lhs.true34.i ], [ %limit.045.i, %if.end39.i ], [ %shr, %if.end12.i ], [ %div.limit.0.i, %if.end41.i ]
+  %start.1.i = phi i32 [ %start.044.i, %if.then20.i ], [ %inc.i, %if.end25.i ], [ %inc32.i, %land.lhs.true34.i ], [ %inc40.i, %if.end39.i ], [ 0, %if.end12.i ], [ %start.0.div.i, %if.end41.i ]
   %cmp48.i = icmp slt i32 %start.1.i, %limit.041.i
   br i1 %cmp48.i, label %land.lhs.true49.i, label %for.end
 
@@ -809,7 +805,7 @@ if.then27:                                        ; preds = %if.end25
   %11 = add i32 %firstCP, -1114112
   %cmp5.i = icmp ult i32 %11, -131072
   %invariant.op = and i1 %tobool.i, %cmp2.i
-  %invariant.op165 = and i1 %invariant.op, %cmp5.i
+  %invariant.op164 = and i1 %invariant.op, %cmp5.i
   br label %for.cond
 
 for.cond:                                         ; preds = %if.else66, %if.then27
@@ -831,10 +827,10 @@ for.cond:                                         ; preds = %if.else66, %if.then
 
 land.lhs.true:                                    ; preds = %for.cond
   %cmp.i = icmp ult i32 %13, 1073741824
-  %or.cond4.i.not85.reass.reass.reass = and i1 %cmp.i, %invariant.op165
+  %or.cond4.i.not84.reass.reass.reass = and i1 %cmp.i, %invariant.op164
   %and6.i = and i32 %13, 536870912
   %cmp7.i = icmp ne i32 %and6.i, 0
-  %narrow.i.not = or i1 %cmp7.i, %or.cond4.i.not85.reass.reass.reass
+  %narrow.i.not = or i1 %cmp7.i, %or.cond4.i.not84.reass.reass.reass
   br i1 %narrow.i.not, label %if.end44, label %if.then41
 
 if.then41:                                        ; preds = %land.lhs.true
@@ -900,17 +896,13 @@ if.then2.i:                                       ; preds = %if.end.i
 
 if.end6.i:                                        ; preds = %if.then2.i
   %inc.i = add nsw i32 %start.031.i, 1
-  %cmp7.i53 = icmp slt i32 %inc.i, %limit.032.i
-  br i1 %cmp7.i53, label %land.lhs.true.i, label %if.end14.i
-
-land.lhs.true.i:                                  ; preds = %if.end6.i
   %idxprom9.i = sext i32 %inc.i to i64
   %arrayidx10.i = getelementptr inbounds i16, ptr %incdec.ptr, i64 %idxprom9.i
   %15 = load i16, ptr %arrayidx10.i, align 2
   %cmp12.not.i = icmp ugt i16 %c.0, %15
   br i1 %cmp12.not.i, label %if.end14.i, label %for.end.i
 
-if.end14.i:                                       ; preds = %land.lhs.true.i, %if.end6.i
+if.end14.i:                                       ; preds = %if.end6.i
   %inc15.i = add nsw i32 %start.031.i, 2
   %cmp16.i = icmp slt i32 %inc15.i, %limit.032.i
   br i1 %cmp16.i, label %land.lhs.true17.i, label %if.end24.i
@@ -939,9 +931,9 @@ if.end26.i:                                       ; preds = %if.end.i
   %cmp.i52 = icmp slt i32 %sub.i51, 2
   br i1 %cmp.i52, label %for.end.i, label %if.end.i, !llvm.loop !11
 
-for.end.i:                                        ; preds = %if.end26.i, %if.end24.i, %land.lhs.true17.i, %land.lhs.true.i, %if.then2.i, %if.end62
-  %limit.028.i = phi i32 [ %limit.032.i, %if.then2.i ], [ %limit.032.i, %land.lhs.true.i ], [ %limit.032.i, %land.lhs.true17.i ], [ %limit.032.i, %if.end24.i ], [ %conv38, %if.end62 ], [ %div.limit.0.i, %if.end26.i ]
-  %start.1.i = phi i32 [ %start.031.i, %if.then2.i ], [ %inc.i, %land.lhs.true.i ], [ %inc15.i, %land.lhs.true17.i ], [ %inc25.i, %if.end24.i ], [ 0, %if.end62 ], [ %start.0.div.i, %if.end26.i ]
+for.end.i:                                        ; preds = %if.end26.i, %if.end24.i, %land.lhs.true17.i, %if.end6.i, %if.then2.i, %if.end62
+  %limit.028.i = phi i32 [ %limit.032.i, %if.then2.i ], [ %limit.032.i, %if.end6.i ], [ %limit.032.i, %land.lhs.true17.i ], [ %limit.032.i, %if.end24.i ], [ %conv38, %if.end62 ], [ %div.limit.0.i, %if.end26.i ]
+  %start.1.i = phi i32 [ %start.031.i, %if.then2.i ], [ %inc.i, %if.end6.i ], [ %inc15.i, %land.lhs.true17.i ], [ %inc25.i, %if.end24.i ], [ 0, %if.end62 ], [ %start.0.div.i, %if.end26.i ]
   %cmp34.i = icmp slt i32 %start.1.i, %limit.028.i
   br i1 %cmp34.i, label %land.lhs.true35.i, label %for.end
 
@@ -962,14 +954,14 @@ if.else66:                                        ; preds = %land.lhs.true35.i
   br i1 %cmp70, label %for.cond, label %if.else72, !llvm.loop !12
 
 if.else72:                                        ; preds = %if.else66
-  %cmp.i54 = icmp ult i32 %19, 1073741824
-  %or.cond.i56.not90 = and i1 %tobool.i, %cmp.i54
-  %or.cond3.i59.not89 = and i1 %cmp2.i, %or.cond.i56.not90
-  %or.cond4.i62.not88 = and i1 %cmp5.i, %or.cond3.i59.not89
-  %and6.i63 = and i32 %19, 536870912
-  %cmp7.i64 = icmp ne i32 %and6.i63, 0
-  %narrow.i65.not = or i1 %cmp7.i64, %or.cond4.i62.not88
-  br i1 %narrow.i65.not, label %for.end, label %if.then75
+  %cmp.i53 = icmp ult i32 %19, 1073741824
+  %or.cond.i55.not89 = and i1 %tobool.i, %cmp.i53
+  %or.cond3.i58.not88 = and i1 %cmp2.i, %or.cond.i55.not89
+  %or.cond4.i61.not87 = and i1 %cmp5.i, %or.cond3.i58.not88
+  %and6.i62 = and i32 %19, 536870912
+  %cmp7.i63 = icmp ne i32 %and6.i62, 0
+  %narrow.i64.not = or i1 %cmp7.i63, %or.cond4.i61.not87
+  br i1 %narrow.i64.not, label %for.end, label %if.then75
 
 if.then75:                                        ; preds = %if.else72
   %add76 = add nsw i32 %i.1, 2
@@ -983,19 +975,19 @@ for.end:                                          ; preds = %land.lhs.true35.i, 
   br i1 %cmp82, label %return, label %if.end91
 
 if.else85:                                        ; preds = %if.end25
-  %cmp.i67 = icmp ult i32 %7, 1073741824
-  %tobool.i68 = icmp eq i8 %useFallback, 0
-  %or.cond.i69.not84 = and i1 %tobool.i68, %cmp.i67
+  %cmp.i66 = icmp ult i32 %7, 1073741824
+  %tobool.i67 = icmp eq i8 %useFallback, 0
+  %or.cond.i68.not83 = and i1 %tobool.i67, %cmp.i66
   %20 = add i32 %firstCP, -63744
-  %cmp2.i71 = icmp ult i32 %20, -6400
-  %or.cond3.i72.not83 = and i1 %cmp2.i71, %or.cond.i69.not84
+  %cmp2.i70 = icmp ult i32 %20, -6400
+  %or.cond3.i71.not82 = and i1 %cmp2.i70, %or.cond.i68.not83
   %21 = add i32 %firstCP, -1114112
-  %cmp5.i74 = icmp ult i32 %21, -131072
-  %or.cond4.i75.not82 = and i1 %cmp5.i74, %or.cond3.i72.not83
-  %and6.i76 = and i32 %7, 536870912
-  %cmp7.i77 = icmp ne i32 %and6.i76, 0
-  %narrow.i78.not = or i1 %cmp7.i77, %or.cond4.i75.not82
-  br i1 %narrow.i78.not, label %return, label %if.end91
+  %cmp5.i73 = icmp ult i32 %21, -131072
+  %or.cond4.i74.not81 = and i1 %cmp5.i73, %or.cond3.i71.not82
+  %and6.i75 = and i32 %7, 536870912
+  %cmp7.i76 = icmp ne i32 %and6.i75, 0
+  %narrow.i77.not = or i1 %cmp7.i76, %or.cond4.i74.not81
+  br i1 %narrow.i77.not, label %return, label %if.end91
 
 if.end91:                                         ; preds = %if.else85, %for.end
   %matchValue.3 = phi i32 [ %matchValue.2, %for.end ], [ %7, %if.else85 ]

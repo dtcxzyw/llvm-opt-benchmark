@@ -227,17 +227,13 @@ while.end:                                        ; preds = %while.body38, %do.e
 
 if.then68:                                        ; preds = %while.end
   %sub69 = sub nsw i32 %.us-phi168, %prev.0199
-  %cmp.i102 = icmp slt i32 %sub69, 1
-  br i1 %cmp.i102, label %_ZN6icu_7512_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit, label %if.end.i103
-
-if.end.i103:                                      ; preds = %if.then68
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
-if.then.i.i:                                      ; preds = %if.end.i103
+if.then.i.i:                                      ; preds = %if.then68
   call void @_ZN6icu_755Edits12addUnchangedEi(ptr noundef nonnull align 8 dereferenceable(232) %edits, i32 noundef range(i32 1, -2147483648) %sub69)
   br label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %if.then.i.i, %if.end.i103
+if.end.i.i:                                       ; preds = %if.then.i.i, %if.then68
   br i1 %tobool.not.i.i, label %if.end2.i.i, label %_ZN6icu_7512_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit
 
 if.end2.i.i:                                      ; preds = %if.end.i.i
@@ -256,8 +252,8 @@ if.then7.i.i:                                     ; preds = %if.end5.i.i
   %call.i.i = call ptr @u_memcpy_75(ptr noundef %add.ptr.i.i, ptr noundef nonnull %arrayidx, i32 noundef range(i32 1, -2147483648) %sub69)
   br label %_ZN6icu_7512_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit
 
-_ZN6icu_7512_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit: ; preds = %if.then68, %if.end.i.i, %if.end5.i.i, %if.then7.i.i
-  %retval.0.i104 = phi i32 [ %destIndex.0197, %if.then68 ], [ %destIndex.0197, %if.end.i.i ], [ %add.i.i, %if.then7.i.i ], [ %add.i.i, %if.end5.i.i ]
+_ZN6icu_7512_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit: ; preds = %if.end.i.i, %if.end5.i.i, %if.then7.i.i
+  %retval.0.i104 = phi i32 [ %destIndex.0197, %if.end.i.i ], [ %add.i.i, %if.then7.i.i ], [ %add.i.i, %if.end5.i.i ]
   %cmp71 = icmp slt i32 %retval.0.i104, 0
   br i1 %cmp71, label %if.then72, label %if.end75
 
@@ -537,17 +533,13 @@ if.else122:                                       ; preds = %if.then101
   %idx.ext123 = sext i32 %titleLimit.4 to i64
   %add.ptr124 = getelementptr inbounds i16, ptr %src, i64 %idx.ext123
   %sub125 = sub nsw i32 %index.1, %titleLimit.4
-  %cmp.i118 = icmp slt i32 %sub125, 1
-  br i1 %cmp.i118, label %_ZN6icu_7512_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit136, label %if.end.i119
-
-if.end.i119:                                      ; preds = %if.else122
   br i1 %cmp.not.i.i, label %if.end.i.i122, label %if.then.i.i121
 
-if.then.i.i121:                                   ; preds = %if.end.i119
+if.then.i.i121:                                   ; preds = %if.else122
   call void @_ZN6icu_755Edits12addUnchangedEi(ptr noundef nonnull align 8 dereferenceable(232) %edits, i32 noundef range(i32 1, -2147483648) %sub125)
   br label %if.end.i.i122
 
-if.end.i.i122:                                    ; preds = %if.then.i.i121, %if.end.i119
+if.end.i.i122:                                    ; preds = %if.then.i.i121, %if.else122
   br i1 %tobool.not.i.i, label %if.end2.i.i126, label %_ZN6icu_7512_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit136
 
 if.end2.i.i126:                                   ; preds = %if.end.i.i122
@@ -566,7 +558,7 @@ if.then7.i.i132:                                  ; preds = %if.end5.i.i129
   %call.i.i135 = call ptr @u_memcpy_75(ptr noundef %add.ptr.i.i134, ptr noundef %add.ptr124, i32 noundef range(i32 1, -2147483648) %sub125)
   br label %if.end133
 
-_ZN6icu_7512_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit136: ; preds = %if.else122, %if.end.i.i122
+_ZN6icu_7512_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit136: ; preds = %if.end.i.i122
   %cmp127 = icmp slt i32 %destIndex.3, 0
   br i1 %cmp127, label %if.then128, label %if.end133
 

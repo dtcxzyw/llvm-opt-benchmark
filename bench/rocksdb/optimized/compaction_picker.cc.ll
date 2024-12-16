@@ -152,7 +152,6 @@ $_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits = comdat any
 @_ZN7rocksdb12perf_contextE = external thread_local local_unnamed_addr global %"struct.rocksdb::PerfContext", align 8
 @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits = linkonce_odr local_unnamed_addr constant [201 x i8] c"00010203040506070809101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899\00", comdat, align 16
 @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits = linkonce_odr local_unnamed_addr constant [201 x i8] c"00010203040506070809101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899\00", comdat, align 16
-@.str.24 = private unnamed_addr constant [49 x i8] c"cannot create std::vector larger than max_size()\00", align 1
 @.str.25 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
 @.str.26 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 @.str.27 = private unnamed_addr constant [26 x i8] c"vector::_M_default_append\00", align 1
@@ -3242,21 +3241,13 @@ if.then9:                                         ; preds = %if.end
   br label %return
 
 if.end10:                                         ; preds = %if.end
-  %sub = sub nsw i32 %4, %8
-  %conv = sext i32 %sub to i64
-  %cmp.i.i133 = icmp slt i32 %sub, 0
-  br i1 %cmp.i.i133, label %if.then.i.i, label %_ZNSt6vectorIN7rocksdb20CompactionInputFilesESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
-
-if.then.i.i:                                      ; preds = %if.end10
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.24) #27
-  unreachable
-
-_ZNSt6vectorIN7rocksdb20CompactionInputFilesESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %if.end10
   store i64 0, ptr %inputs, align 8
   %cmp.not.i.i.i.i = icmp eq i32 %4, %8
   br i1 %cmp.not.i.i.i.i, label %invoke.cont, label %for.body.preheader.i.i.i.i.i
 
-for.body.preheader.i.i.i.i.i:                     ; preds = %_ZNSt6vectorIN7rocksdb20CompactionInputFilesESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
+for.body.preheader.i.i.i.i.i:                     ; preds = %if.end10
+  %sub = sub nsw i32 %4, %8
+  %conv = sext i32 %sub to i64
   %mul.i.i.i.i.i.i = mul nuw nsw i64 %conv, 56
   %call5.i.i.i.i2.i.i134 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #28
   store ptr %call5.i.i.i.i2.i.i134, ptr %inputs, align 8
@@ -3265,10 +3256,10 @@ for.body.preheader.i.i.i.i.i:                     ; preds = %_ZNSt6vectorIN7rock
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i134, i64 %mul.i.i.i.i.i.i
   br label %invoke.cont
 
-invoke.cont:                                      ; preds = %_ZNSt6vectorIN7rocksdb20CompactionInputFilesESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i, %for.body.preheader.i.i.i.i.i
-  %10 = phi ptr [ %call5.i.i.i.i2.i.i134, %for.body.preheader.i.i.i.i.i ], [ null, %_ZNSt6vectorIN7rocksdb20CompactionInputFilesESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ]
-  %add.ptr.i.i.sink.i = phi ptr [ %add.ptr.i.i.i, %for.body.preheader.i.i.i.i.i ], [ null, %_ZNSt6vectorIN7rocksdb20CompactionInputFilesESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ]
-  %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i, %for.body.preheader.i.i.i.i.i ], [ null, %_ZNSt6vectorIN7rocksdb20CompactionInputFilesESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ]
+invoke.cont:                                      ; preds = %if.end10, %for.body.preheader.i.i.i.i.i
+  %10 = phi ptr [ %call5.i.i.i.i2.i.i134, %for.body.preheader.i.i.i.i.i ], [ null, %if.end10 ]
+  %add.ptr.i.i.sink.i = phi ptr [ %add.ptr.i.i.i, %for.body.preheader.i.i.i.i.i ], [ null, %if.end10 ]
+  %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i, %for.body.preheader.i.i.i.i.i ], [ null, %if.end10 ]
   %_M_finish.i.i7.i = getelementptr inbounds nuw i8, ptr %inputs, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %inputs, i64 16
   store ptr %add.ptr.i.i.sink.i, ptr %11, align 8

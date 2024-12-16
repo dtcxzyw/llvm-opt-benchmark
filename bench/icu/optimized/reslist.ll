@@ -4585,11 +4585,8 @@ if.else.i.i:                                      ; preds = %for.body32
   br i1 %tobool4.not.i.i, label %land.rhs.i.i, label %for.end81.loopexit
 
 land.rhs.i.i:                                     ; preds = %if.else.i.i
-  %cmp5.i.i.i = icmp slt i32 %cond.i8.i, 0
   %spec.select10.i.i = call i32 @llvm.smin.i32(i32 %cond.i8.i, i32 0)
-  %sub.i.i.i = sub nsw i32 %cond.i8.i, %spec.select10.i.i
-  %spec.select11.i.i = call i32 @llvm.smin.i32(i32 %cond.i8.i, i32 %sub.i.i.i)
-  %srcLength.addr.0.i.i = select i1 %cmp5.i.i.i, i32 0, i32 %spec.select11.i.i
+  %srcLength.addr.0.i.i = call i32 @llvm.smax.i32(i32 %cond.i8.i, i32 0)
   %22 = and i16 %18, 2
   %tobool.not.i.i.i = icmp eq i16 %22, 0
   %fBuffer.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 66
@@ -6408,10 +6405,7 @@ if.then.i.i:                                      ; preds = %if.end14
 if.else.i.i:                                      ; preds = %if.end14
   %fString = getelementptr inbounds nuw i8, ptr %1, i64 56
   %spec.select.i.i = tail call i32 @llvm.smin.i32(i32 %cond.i.i16, i32 0)
-  %cmp5.i.i.i = icmp slt i32 %cond.i.i16, 0
-  %sub.i.i.i = sub nsw i32 %cond.i.i16, %spec.select.i.i
-  %spec.select9.i.i = tail call i32 @llvm.smin.i32(i32 %cond.i.i16, i32 %sub.i.i.i)
-  %srcLength.addr.0.i.i = select i1 %cmp5.i.i.i, i32 0, i32 %spec.select9.i.i
+  %srcLength.addr.0.i.i = tail call i32 @llvm.smax.i32(i32 %cond.i.i16, i32 0)
   %15 = and i16 %8, 2
   %tobool.not.i.i.i = icmp eq i16 %15, 0
   %fBuffer.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 66
@@ -6938,6 +6932,9 @@ declare i32 @llvm.scmp.i32.i32(i32, i32) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #28
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #28
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -3864,10 +3864,7 @@ if.else.i:                                        ; preds = %entry
   %shr.i.i = sext i16 %7 to i32
   %cond.i = select i1 %cmp.i.i, i32 %6, i32 %shr.i.i
   %spec.select.i = tail call i32 @llvm.smin.i32(i32 %cond.i6, i32 0)
-  %cmp5.i.i = icmp slt i32 %cond.i6, 0
-  %sub.i.i = sub nsw i32 %cond.i6, %spec.select.i
-  %spec.select9.i = tail call i32 @llvm.smin.i32(i32 %cond.i6, i32 %sub.i.i)
-  %srcLength.addr.0.i = select i1 %cmp5.i.i, i32 0, i32 %spec.select9.i
+  %srcLength.addr.0.i = tail call i32 @llvm.smax.i32(i32 %cond.i6, i32 0)
   %8 = and i16 %1, 2
   %tobool.not.i.i = icmp eq i16 %8, 0
   %fBuffer.i.i = getelementptr inbounds nuw i8, ptr %text, i64 10
@@ -4646,6 +4643,9 @@ declare noundef zeroext i1 @_ZNK6icu_756LocaleeqERKS0_(ptr noundef nonnull align
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #18
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19

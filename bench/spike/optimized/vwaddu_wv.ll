@@ -399,8 +399,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 167:                                              ; preds = %163
   %168 = add nsw i32 %150, %148
   %.sroa.speculated.i15.i = tail call i32 @llvm.smax.i32(i32 %149, i32 %168)
-  %.sroa.speculated12.i16.i = tail call i32 @llvm.smin.i32(i32 %150, i32 %96)
-  %169 = sub nsw i32 %.sroa.speculated.i15.i, %.sroa.speculated12.i16.i
+  %169 = sub nsw i32 %.sroa.speculated.i15.i, %96
   %170 = icmp slt i32 %169, %165
   br i1 %170, label %_ZL19is_overlapped_wideniiii.exit, label %_ZL19is_overlapped_wideniiii.exit.thread
 
@@ -1103,8 +1102,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 167:                                              ; preds = %163
   %168 = add nsw i32 %150, %148
   %.sroa.speculated.i15.i = tail call i32 @llvm.smax.i32(i32 %149, i32 %168)
-  %.sroa.speculated12.i16.i = tail call i32 @llvm.smin.i32(i32 %150, i32 %96)
-  %169 = sub nsw i32 %.sroa.speculated.i15.i, %.sroa.speculated12.i16.i
+  %169 = sub nsw i32 %.sroa.speculated.i15.i, %96
   %170 = icmp slt i32 %169, %165
   br i1 %170, label %_ZL19is_overlapped_wideniiii.exit, label %_ZL19is_overlapped_wideniiii.exit.thread
 
@@ -1771,8 +1769,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 167:                                              ; preds = %163
   %168 = add nsw i32 %150, %148
   %.sroa.speculated.i15.i = tail call i32 @llvm.smax.i32(i32 %149, i32 %168)
-  %.sroa.speculated12.i16.i = tail call i32 @llvm.smin.i32(i32 %150, i32 %96)
-  %169 = sub nsw i32 %.sroa.speculated.i15.i, %.sroa.speculated12.i16.i
+  %169 = sub nsw i32 %.sroa.speculated.i15.i, %96
   %170 = icmp slt i32 %169, %165
   br i1 %170, label %_ZL19is_overlapped_wideniiii.exit, label %_ZL19is_overlapped_wideniiii.exit.thread
 
@@ -2441,8 +2438,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 167:                                              ; preds = %163
   %168 = add nsw i32 %150, %148
   %.sroa.speculated.i15.i = tail call i32 @llvm.smax.i32(i32 %149, i32 %168)
-  %.sroa.speculated12.i16.i = tail call i32 @llvm.smin.i32(i32 %150, i32 %96)
-  %169 = sub nsw i32 %.sroa.speculated.i15.i, %.sroa.speculated12.i16.i
+  %169 = sub nsw i32 %.sroa.speculated.i15.i, %96
   %170 = icmp slt i32 %169, %165
   br i1 %170, label %_ZL19is_overlapped_wideniiii.exit, label %_ZL19is_overlapped_wideniiii.exit.thread
 
@@ -3109,8 +3105,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 167:                                              ; preds = %163
   %168 = add nsw i32 %150, %148
   %.sroa.speculated.i15.i = tail call i32 @llvm.smax.i32(i32 %149, i32 %168)
-  %.sroa.speculated12.i16.i = tail call i32 @llvm.smin.i32(i32 %150, i32 %96)
-  %169 = sub nsw i32 %.sroa.speculated.i15.i, %.sroa.speculated12.i16.i
+  %169 = sub nsw i32 %.sroa.speculated.i15.i, %96
   %170 = icmp slt i32 %169, %165
   br i1 %170, label %_ZL19is_overlapped_wideniiii.exit, label %_ZL19is_overlapped_wideniiii.exit.thread
 
@@ -3779,8 +3774,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 167:                                              ; preds = %163
   %168 = add nsw i32 %150, %148
   %.sroa.speculated.i15.i = tail call i32 @llvm.smax.i32(i32 %149, i32 %168)
-  %.sroa.speculated12.i16.i = tail call i32 @llvm.smin.i32(i32 %150, i32 %96)
-  %169 = sub nsw i32 %.sroa.speculated.i15.i, %.sroa.speculated12.i16.i
+  %169 = sub nsw i32 %.sroa.speculated.i15.i, %96
   %170 = icmp slt i32 %169, %165
   br i1 %170, label %_ZL19is_overlapped_wideniiii.exit, label %_ZL19is_overlapped_wideniiii.exit.thread
 
@@ -4447,8 +4441,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 167:                                              ; preds = %163
   %168 = add nsw i32 %150, %148
   %.sroa.speculated.i15.i = tail call i32 @llvm.smax.i32(i32 %149, i32 %168)
-  %.sroa.speculated12.i16.i = tail call i32 @llvm.smin.i32(i32 %150, i32 %96)
-  %169 = sub nsw i32 %.sroa.speculated.i15.i, %.sroa.speculated12.i16.i
+  %169 = sub nsw i32 %.sroa.speculated.i15.i, %96
   %170 = icmp slt i32 %169, %165
   br i1 %170, label %_ZL19is_overlapped_wideniiii.exit, label %_ZL19is_overlapped_wideniiii.exit.thread
 
@@ -5117,8 +5110,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 167:                                              ; preds = %163
   %168 = add nsw i32 %150, %148
   %.sroa.speculated.i15.i = tail call i32 @llvm.smax.i32(i32 %149, i32 %168)
-  %.sroa.speculated12.i16.i = tail call i32 @llvm.smin.i32(i32 %150, i32 %96)
-  %169 = sub nsw i32 %.sroa.speculated.i15.i, %.sroa.speculated12.i16.i
+  %169 = sub nsw i32 %.sroa.speculated.i15.i, %96
   %170 = icmp slt i32 %169, %165
   br i1 %170, label %_ZL19is_overlapped_wideniiii.exit, label %_ZL19is_overlapped_wideniiii.exit.thread
 
@@ -5869,9 +5861,6 @@ declare i32 @llvm.umax.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #15
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #15

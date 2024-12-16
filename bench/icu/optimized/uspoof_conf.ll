@@ -257,10 +257,7 @@ if.then.i.i:                                      ; preds = %if.else8
 
 if.else.i.i:                                      ; preds = %if.else8
   %spec.select.i.i = tail call i32 @llvm.smin.i32(i32 %cond.i9, i32 0)
-  %cmp5.i.i.i = icmp slt i32 %cond.i9, 0
-  %sub.i.i.i = sub nsw i32 %cond.i9, %spec.select.i.i
-  %spec.select9.i.i = tail call i32 @llvm.smin.i32(i32 %cond.i9, i32 %sub.i.i.i)
-  %srcLength.addr.0.i.i = select i1 %cmp5.i.i.i, i32 0, i32 %spec.select9.i.i
+  %srcLength.addr.0.i.i = tail call i32 @llvm.smax.i32(i32 %cond.i9, i32 0)
   %10 = and i16 %5, 2
   %tobool.not.i.i.i = icmp eq i16 %10, 0
   %fBuffer.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 10
@@ -1395,6 +1392,9 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #10
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

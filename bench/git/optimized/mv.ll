@@ -332,7 +332,7 @@ if.then132:                                       ; preds = %if.end128
   call void @free(ptr noundef %retval.0.i) #11
   br label %for.body.lr.ph
 
-for.body.lr.ph:                                   ; preds = %if.end128, %if.then132
+for.body.lr.ph:                                   ; preds = %if.then132, %if.end128
   %st_mode219 = getelementptr inbounds nuw i8, ptr %st, i64 24
   %buf.i = getelementptr inbounds nuw i8, ptr %submodule_dotgit.i, i64 16
   br label %for.body
@@ -962,21 +962,13 @@ remove_entry:                                     ; preds = %if.end415.thread, %
   br i1 %cmp428, label %if.then430, label %for.inc459
 
 if.then430:                                       ; preds = %remove_entry
-  %sub432 = sub nsw i32 %dec427, %i.0534
-  %add.ptr437 = getelementptr inbounds nuw i8, ptr %arrayidx136, i64 8
-  %conv438 = sext i32 %sub432 to i64
   %tobool.not.i361 = icmp eq i32 %dec427, %i.0534
   br i1 %tobool.not.i361, label %move_array.exit391, label %if.then.i362
 
 if.then.i362:                                     ; preds = %if.then430
-  %mul.ov.i.i = icmp slt i32 %sub432, 0
-  br i1 %mul.ov.i.i, label %if.then.i.i364, label %if.then.i366
-
-if.then.i.i364:                                   ; preds = %if.then.i362
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.36, i64 noundef range(i64 4, 9) 8, i64 noundef range(i64 -2147483646, 2147483648) %conv438) #12
-  unreachable
-
-if.then.i366:                                     ; preds = %if.then.i362
+  %sub432 = sub nsw i32 %dec427, %i.0534
+  %conv438 = sext i32 %sub432 to i64
+  %add.ptr437 = getelementptr inbounds nuw i8, ptr %arrayidx136, i64 8
   %mul.i.i = shl nuw nsw i64 %conv438, 3
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %arrayidx136, ptr nonnull readonly align 1 %add.ptr437, i64 %mul.i.i, i1 false)
   %add.ptr443 = getelementptr inbounds nuw i8, ptr %arrayidx138, i64 8
@@ -990,7 +982,7 @@ if.then.i366:                                     ; preds = %if.then.i362
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr452, ptr nonnull readonly align 1 %add.ptr455, i64 %mul.i.i, i1 false)
   br label %move_array.exit391
 
-move_array.exit391:                               ; preds = %if.then430, %if.then.i366
+move_array.exit391:                               ; preds = %if.then430, %if.then.i362
   %dec457 = add nsw i32 %i.0534, -1
   br label %for.inc459
 
@@ -1026,7 +1018,7 @@ if.end467:                                        ; preds = %if.then463, %for.en
 
 for.body471.lr.ph:                                ; preds = %if.end467
   %force483 = getelementptr inbounds nuw i8, ptr %state, i64 120
-  %wide.trip.count577 = zext nneg i32 %argc.addr.3 to i64
+  %wide.trip.count575 = zext nneg i32 %argc.addr.3 to i64
   br label %for.body471
 
 for.cond606.preheader.loopexit:                   ; preds = %for.inc603
@@ -1041,17 +1033,17 @@ for.cond606.preheader:                            ; preds = %for.cond606.prehead
 for.body609.lr.ph:                                ; preds = %for.cond606.preheader
   %buf = getelementptr inbounds nuw i8, ptr %a_src_dir, i64 16
   %len = getelementptr inbounds nuw i8, ptr %a_src_dir, i64 8
-  %wide.trip.count582 = zext nneg i32 %src_dir_nr.3 to i64
+  %wide.trip.count580 = zext nneg i32 %src_dir_nr.3 to i64
   br label %for.body609
 
 for.body471:                                      ; preds = %for.body471.lr.ph, %for.inc603
-  %indvars.iv574 = phi i64 [ 0, %for.body471.lr.ph ], [ %indvars.iv.next575, %for.inc603 ]
+  %indvars.iv572 = phi i64 [ 0, %for.body471.lr.ph ], [ %indvars.iv.next573, %for.inc603 ]
   %gitmodules_modified.0544 = phi i32 [ 0, %for.body471.lr.ph ], [ %gitmodules_modified.1, %for.inc603 ]
-  %arrayidx474 = getelementptr inbounds nuw ptr, ptr %source.3, i64 %indvars.iv574
+  %arrayidx474 = getelementptr inbounds nuw ptr, ptr %source.3, i64 %indvars.iv572
   %83 = load ptr, ptr %arrayidx474, align 8
-  %arrayidx477 = getelementptr inbounds nuw ptr, ptr %destination.4, i64 %indvars.iv574
+  %arrayidx477 = getelementptr inbounds nuw ptr, ptr %destination.4, i64 %indvars.iv572
   %84 = load ptr, ptr %arrayidx477, align 8
-  %arrayidx479 = getelementptr inbounds nuw i32, ptr %modes.3, i64 %indvars.iv574
+  %arrayidx479 = getelementptr inbounds nuw i32, ptr %modes.3, i64 %indvars.iv572
   %85 = load i32, ptr %arrayidx479, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %state, ptr noundef nonnull align 8 dereferenceable(128) @__const.cmd_mv.state, i64 128, i1 false)
   store ptr @the_index, ptr %state, align 8
@@ -1109,7 +1101,7 @@ if.end507:                                        ; preds = %if.then504
   unreachable
 
 if.end509:                                        ; preds = %if.end494, %land.lhs.true500
-  %arrayidx511 = getelementptr inbounds nuw ptr, ptr %submodule_gitfile.3, i64 %indvars.iv574
+  %arrayidx511 = getelementptr inbounds nuw ptr, ptr %submodule_gitfile.3, i64 %indvars.iv572
   %91 = load ptr, ptr %arrayidx511, align 8
   %tobool512.not = icmp eq ptr %91, null
   br i1 %tobool512.not, label %if.end526, label %if.then513
@@ -1233,13 +1225,13 @@ if.else592:                                       ; preds = %if.then579
 
 for.inc603:                                       ; preds = %land.lhs.true552, %if.else570, %if.end543, %land.lhs.true576, %if.else592, %if.then588, %if.then555, %if.end526, %if.then504, %if.end491
   %gitmodules_modified.1 = phi i32 [ %gitmodules_modified.0544, %if.end491 ], [ %gitmodules_modified.2, %if.end526 ], [ %gitmodules_modified.2, %if.then555 ], [ %gitmodules_modified.2, %land.lhs.true576 ], [ %gitmodules_modified.2, %if.else592 ], [ %gitmodules_modified.2, %if.then588 ], [ %gitmodules_modified.2, %if.else570 ], [ %gitmodules_modified.2, %if.end543 ], [ %gitmodules_modified.0544, %if.then504 ], [ %gitmodules_modified.2, %land.lhs.true552 ]
-  %indvars.iv.next575 = add nuw nsw i64 %indvars.iv574, 1
-  %exitcond578.not = icmp eq i64 %indvars.iv.next575, %wide.trip.count577
-  br i1 %exitcond578.not, label %for.cond606.preheader.loopexit, label %for.body471, !llvm.loop !8
+  %indvars.iv.next573 = add nuw nsw i64 %indvars.iv572, 1
+  %exitcond576.not = icmp eq i64 %indvars.iv.next573, %wide.trip.count575
+  br i1 %exitcond576.not, label %for.cond606.preheader.loopexit, label %for.body471, !llvm.loop !8
 
 for.body609:                                      ; preds = %for.body609.lr.ph, %strbuf_setlen.exit
-  %indvars.iv579 = phi i64 [ 0, %for.body609.lr.ph ], [ %indvars.iv.next580, %strbuf_setlen.exit ]
-  %arrayidx611 = getelementptr inbounds nuw ptr, ptr %src_dir.4, i64 %indvars.iv579
+  %indvars.iv577 = phi i64 [ 0, %for.body609.lr.ph ], [ %indvars.iv.next578, %strbuf_setlen.exit ]
+  %arrayidx611 = getelementptr inbounds nuw ptr, ptr %src_dir.4, i64 %indvars.iv577
   %105 = load ptr, ptr %arrayidx611, align 8
   %call.i399 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %105) #13
   call void @strbuf_add(ptr noundef nonnull %a_src_dir, ptr noundef %105, i64 noundef %call.i399) #11
@@ -1265,9 +1257,9 @@ if.then4.i:                                       ; preds = %if.end618
   br label %strbuf_setlen.exit
 
 strbuf_setlen.exit:                               ; preds = %if.end618, %if.then4.i
-  %indvars.iv.next580 = add nuw nsw i64 %indvars.iv579, 1
-  %exitcond583.not = icmp eq i64 %indvars.iv.next580, %wide.trip.count582
-  br i1 %exitcond583.not, label %for.end621, label %for.body609, !llvm.loop !9
+  %indvars.iv.next578 = add nuw nsw i64 %indvars.iv577, 1
+  %exitcond581.not = icmp eq i64 %indvars.iv.next578, %wide.trip.count580
+  br i1 %exitcond581.not, label %for.end621, label %for.body609, !llvm.loop !9
 
 for.end621:                                       ; preds = %strbuf_setlen.exit, %for.cond606.preheader
   call void @strbuf_release(ptr noundef nonnull %a_src_dir) #11

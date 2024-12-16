@@ -1227,17 +1227,9 @@ if.then6:                                         ; preds = %if.end4
   %usingBytes.i6 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %4 = load i8, ptr %usingBytes.i6, align 8
   %tobool.i7 = trunc i8 %4 to i1
-  br i1 %tobool.i7, label %if.then.i9, label %if.else.i
+  br i1 %tobool.i7, label %for.body.lr.ph.i, label %if.else.i
 
-if.then.i9:                                       ; preds = %if.then6
-  %cmp.not.not6.i = icmp sgt i32 %sub, -1
-  br i1 %cmp.not.not6.i, label %for.body.lr.ph.i, label %if.then.if.end_crit_edge.i
-
-if.then.if.end_crit_edge.i:                       ; preds = %if.then.i9
-  %.pre9.i = sub nsw i32 %0, %add
-  br label %_ZN6icu_756number4impl15DecimalQuantity11popFromLeftEi.exit
-
-for.body.lr.ph.i:                                 ; preds = %if.then.i9
+for.body.lr.ph.i:                                 ; preds = %if.then6
   %fBCD.i10 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %5 = sext i32 %0 to i64
   br label %for.body.i
@@ -1266,8 +1258,8 @@ if.else.i:                                        ; preds = %if.then6
   store i64 %and.i, ptr %fBCD7.i, align 8
   br label %_ZN6icu_756number4impl15DecimalQuantity11popFromLeftEi.exit
 
-_ZN6icu_756number4impl15DecimalQuantity11popFromLeftEi.exit: ; preds = %for.body.i, %if.then.if.end_crit_edge.i, %if.else.i
-  %sub9.pre-phi.i = phi i32 [ %.pre9.i, %if.then.if.end_crit_edge.i ], [ %sub5.i, %if.else.i ], [ %sub3.i, %for.body.i ]
+_ZN6icu_756number4impl15DecimalQuantity11popFromLeftEi.exit: ; preds = %for.body.i, %if.else.i
+  %sub9.pre-phi.i = phi i32 [ %sub5.i, %if.else.i ], [ %sub3.i, %for.body.i ]
   store i32 %sub9.pre-phi.i, ptr %precision, align 8
   tail call void @_ZN6icu_756number4impl15DecimalQuantity7compactEv(ptr noundef nonnull align 8 dereferenceable(66) %this)
   br label %if.end7

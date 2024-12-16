@@ -3245,10 +3245,7 @@ if.else.i.i:                                      ; preds = %invoke.cont62
   %shr.i.i.i = sext i16 %28 to i32
   %cond.i.i = select i1 %cmp.i.i.i, i32 %27, i32 %shr.i.i.i
   %spec.select.i.i = call i32 @llvm.smin.i32(i32 %cond.i6.i, i32 0)
-  %cmp5.i.i.i = icmp slt i32 %cond.i6.i, 0
-  %sub.i.i.i = sub nsw i32 %cond.i6.i, %spec.select.i.i
-  %spec.select9.i.i = call i32 @llvm.smin.i32(i32 %cond.i6.i, i32 %sub.i.i.i)
-  %srcLength.addr.0.i.i = select i1 %cmp5.i.i.i, i32 0, i32 %spec.select9.i.i
+  %srcLength.addr.0.i.i = call i32 @llvm.smax.i32(i32 %cond.i6.i, i32 0)
   %29 = and i16 %22, 2
   %tobool.not.i.i.i = icmp eq i16 %29, 0
   %fBuffer.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 10
@@ -3316,21 +3313,18 @@ if.else.i.i35:                                    ; preds = %invoke.cont77
   %shr.i.i.i42 = sext i16 %40 to i32
   %cond.i.i43 = select i1 %cmp.i.i.i40, i32 %39, i32 %shr.i.i.i42
   %spec.select.i.i44 = call i32 @llvm.smin.i32(i32 %cond.i6.i39, i32 0)
-  %cmp5.i.i.i45 = icmp slt i32 %cond.i6.i39, 0
-  %sub.i.i.i46 = sub nsw i32 %cond.i6.i39, %spec.select.i.i44
-  %spec.select9.i.i47 = call i32 @llvm.smin.i32(i32 %cond.i6.i39, i32 %sub.i.i.i46)
-  %srcLength.addr.0.i.i48 = select i1 %cmp5.i.i.i45, i32 0, i32 %spec.select9.i.i47
+  %srcLength.addr.0.i.i45 = call i32 @llvm.smax.i32(i32 %cond.i6.i39, i32 0)
   %41 = and i16 %34, 2
-  %tobool.not.i.i.i49 = icmp eq i16 %41, 0
-  %fBuffer.i.i.i50 = getelementptr inbounds nuw i8, ptr %ref.tmp76, i64 10
-  %fArray.i.i.i51 = getelementptr inbounds nuw i8, ptr %ref.tmp76, i64 24
-  %42 = load ptr, ptr %fArray.i.i.i51, align 8
-  %cond.i.i.i52 = select i1 %tobool.not.i.i.i49, ptr %42, ptr %fBuffer.i.i.i50
-  %call5.i.i54 = invoke noundef signext i8 @_ZNK6icu_7513UnicodeString9doCompareEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %val1, i32 noundef 0, i32 noundef %cond.i.i43, ptr noundef %cond.i.i.i52, i32 noundef %spec.select.i.i44, i32 noundef %srcLength.addr.0.i.i48)
+  %tobool.not.i.i.i46 = icmp eq i16 %41, 0
+  %fBuffer.i.i.i47 = getelementptr inbounds nuw i8, ptr %ref.tmp76, i64 10
+  %fArray.i.i.i48 = getelementptr inbounds nuw i8, ptr %ref.tmp76, i64 24
+  %42 = load ptr, ptr %fArray.i.i.i48, align 8
+  %cond.i.i.i49 = select i1 %tobool.not.i.i.i46, ptr %42, ptr %fBuffer.i.i.i47
+  %call5.i.i51 = invoke noundef signext i8 @_ZNK6icu_7513UnicodeString9doCompareEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %val1, i32 noundef 0, i32 noundef %cond.i.i43, ptr noundef %cond.i.i.i49, i32 noundef %spec.select.i.i44, i32 noundef %srcLength.addr.0.i.i45)
           to label %invoke.cont79 unwind label %lpad78
 
 invoke.cont79:                                    ; preds = %if.then.i.i32, %if.else.i.i35
-  %retval.0.i.i34 = phi i8 [ %conv.i.i33, %if.then.i.i32 ], [ %call5.i.i54, %if.else.i.i35 ]
+  %retval.0.i.i34 = phi i8 [ %conv.i.i33, %if.then.i.i32 ], [ %call5.i.i51, %if.else.i.i35 ]
   %cmp82 = icmp eq i8 %retval.0.i.i34, 0
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp76) #19
   br i1 %cmp82, label %if.then83, label %if.else85
@@ -9381,6 +9375,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #16
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

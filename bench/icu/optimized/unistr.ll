@@ -111,10 +111,7 @@ entry:
 
 if.end.i.i:                                       ; preds = %entry
   %spec.select.i.i = call i32 @llvm.smin.i32(i32 %cond.i.i, i32 0)
-  %cmp5.i.i.i = icmp slt i32 %cond.i.i, 0
-  %sub.i.i.i = sub nsw i32 %cond.i.i, %spec.select.i.i
-  %spec.select5.i.i = call i32 @llvm.smin.i32(i32 %cond.i.i, i32 %sub.i.i.i)
-  %srcLength.addr.0.i.i = select i1 %cmp5.i.i.i, i32 0, i32 %spec.select5.i.i
+  %srcLength.addr.0.i.i = call i32 @llvm.smax.i32(i32 %cond.i.i, i32 0)
   %9 = and i16 %6, 2
   %tobool.not.i.i.i = icmp eq i16 %9, 0
   %fBuffer.i.i.i = getelementptr inbounds nuw i8, ptr %s1, i64 10
@@ -137,22 +134,19 @@ invoke.cont:                                      ; preds = %entry, %if.end.i.i
 
 if.end.i.i16:                                     ; preds = %invoke.cont
   %spec.select.i.i17 = call i32 @llvm.smin.i32(i32 %cond.i.i14, i32 0)
-  %cmp5.i.i.i18 = icmp slt i32 %cond.i.i14, 0
-  %sub.i.i.i19 = sub nsw i32 %cond.i.i14, %spec.select.i.i17
-  %spec.select5.i.i20 = call i32 @llvm.smin.i32(i32 %cond.i.i14, i32 %sub.i.i.i19)
-  %srcLength.addr.0.i.i21 = select i1 %cmp5.i.i.i18, i32 0, i32 %spec.select5.i.i20
+  %srcLength.addr.0.i.i18 = call i32 @llvm.smax.i32(i32 %cond.i.i14, i32 0)
   %14 = and i16 %11, 2
-  %tobool.not.i.i.i22 = icmp eq i16 %14, 0
-  %fBuffer.i.i.i23 = getelementptr inbounds nuw i8, ptr %s2, i64 10
-  %fArray.i.i.i24 = getelementptr inbounds nuw i8, ptr %s2, i64 24
-  %15 = load ptr, ptr %fArray.i.i.i24, align 8
-  %cond.i.i.i25 = select i1 %tobool.not.i.i.i22, ptr %15, ptr %fBuffer.i.i.i23
-  %call2.i.i28 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %retval.0.i.i, ptr noundef %cond.i.i.i25, i32 noundef %spec.select.i.i17, i32 noundef %srcLength.addr.0.i.i21)
+  %tobool.not.i.i.i19 = icmp eq i16 %14, 0
+  %fBuffer.i.i.i20 = getelementptr inbounds nuw i8, ptr %s2, i64 10
+  %fArray.i.i.i21 = getelementptr inbounds nuw i8, ptr %s2, i64 24
+  %15 = load ptr, ptr %fArray.i.i.i21, align 8
+  %cond.i.i.i22 = select i1 %tobool.not.i.i.i19, ptr %15, ptr %fBuffer.i.i.i20
+  %call2.i.i25 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %retval.0.i.i, ptr noundef %cond.i.i.i22, i32 noundef %spec.select.i.i17, i32 noundef %srcLength.addr.0.i.i18)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont, %if.end.i.i16
-  %retval.0.i.i26 = phi ptr [ %retval.0.i.i, %invoke.cont ], [ %call2.i.i28, %if.end.i.i16 ]
-  invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %retval.0.i.i26)
+  %retval.0.i.i23 = phi ptr [ %retval.0.i.i, %invoke.cont ], [ %call2.i.i25, %if.end.i.i16 ]
+  invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %retval.0.i.i23)
           to label %invoke.cont6 unwind label %lpad
 
 invoke.cont6:                                     ; preds = %invoke.cont4
@@ -5920,10 +5914,7 @@ entry:
   %2 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i = select i1 %cmp.i.i.i, i32 %2, i32 %shr.i.i.i
   %spec.select.i.i = tail call i32 @llvm.smin.i32(i32 %cond.i.i, i32 0)
-  %cmp5.i.i.i = icmp slt i32 %cond.i.i, 0
-  %sub.i.i.i = sub nsw i32 %cond.i.i, %spec.select.i.i
-  %spec.select5.i.i = tail call i32 @llvm.smin.i32(i32 %cond.i.i, i32 %sub.i.i.i)
-  %srcLength.addr.0.i.i = select i1 %cmp5.i.i.i, i32 0, i32 %spec.select5.i.i
+  %srcLength.addr.0.i.i = tail call i32 @llvm.smax.i32(i32 %cond.i.i, i32 0)
   %3 = and i16 %0, 2
   %tobool.not.i.i.i = icmp eq i16 %3, 0
   %fBuffer.i.i.i = getelementptr inbounds nuw i8, ptr %text, i64 10

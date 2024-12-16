@@ -1397,9 +1397,7 @@ land.rhs.i104:                                    ; preds = %land.lhs.true2.i102
   br i1 %cmp7.i106, label %rtp_write_body_junk.exit111, label %if.end90
 
 rtp_write_body_junk.exit111:                      ; preds = %land.rhs.i104
-  %sub.i108 = sub nsw i64 %21, %22
-  %spec.select.i109 = tail call i64 @llvm.smin.i64(i64 %sub.i108, i64 1)
-  %call.i110 = tail call i32 @Curl_client_write(ptr noundef nonnull %data, i32 noundef 1, ptr noundef %call85, i64 noundef %spec.select.i109) #7
+  %call.i110 = tail call i32 @Curl_client_write(ptr noundef nonnull %data, i32 noundef 1, ptr noundef %call85, i64 noundef 1) #7
   %tobool87.not = icmp eq i32 %call.i110, 0
   br i1 %tobool87.not, label %if.end90, label %return
 

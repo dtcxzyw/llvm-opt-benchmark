@@ -69114,24 +69114,20 @@ _ZN3fmt3v106detail18to_nonnegative_intIliTnNSt9enable_ifIXsr3std11is_integralIT_
   br i1 %cmp, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %_ZN3fmt3v106detail18to_nonnegative_intIliTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
-  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp.i8 = icmp eq i32 %pad, 1
   br i1 %cmp.i8, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then6
+  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp1.i = icmp eq i32 %pad, 3
   %cond.i = select i1 %cmp1.i, i8 32, i8 48
-  %cmp2.i.i.i.i = icmp sgt i32 %sub, 0
-  br i1 %cmp2.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit
-
-for.body.lr.ph.i.i.i.i:                           ; preds = %if.end.i
   %size_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 16
   %capacity_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 24
   %ptr_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 8
   br label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %for.body.lr.ph.i.i.i.i
-  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %for.body.lr.ph.i.i.i.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
+for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.end.i
+  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %if.end.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
   %9 = load i64, ptr %size_.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i = add i64 %9, 1
   %10 = load i64, ptr %capacity_.i.i.i.i.i.i.i, align 8
@@ -69157,7 +69153,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
   %cmp.i.i.i.i9 = icmp sgt i32 %__n.addr.03.i.i.i.i, 1
   br i1 %cmp.i.i.i.i9, label %for.body.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, !llvm.loop !2223
 
-_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6, %if.end.i
+_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %out, align 8
   br label %if.end10
 
@@ -71233,24 +71229,20 @@ _ZN3fmt3v106detail18to_nonnegative_intIiiTnNSt9enable_ifIXsr3std11is_integralIT_
   br i1 %cmp, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %_ZN3fmt3v106detail18to_nonnegative_intIiiTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
-  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp.i8 = icmp eq i32 %pad, 1
   br i1 %cmp.i8, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then6
+  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp1.i = icmp eq i32 %pad, 3
   %cond.i = select i1 %cmp1.i, i8 32, i8 48
-  %cmp2.i.i.i.i = icmp sgt i32 %sub, 0
-  br i1 %cmp2.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit
-
-for.body.lr.ph.i.i.i.i:                           ; preds = %if.end.i
   %size_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 16
   %capacity_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 24
   %ptr_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 8
   br label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %for.body.lr.ph.i.i.i.i
-  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %for.body.lr.ph.i.i.i.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
+for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.end.i
+  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %if.end.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
   %9 = load i64, ptr %size_.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i = add i64 %9, 1
   %10 = load i64, ptr %capacity_.i.i.i.i.i.i.i, align 8
@@ -71276,7 +71268,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
   %cmp.i.i.i.i9 = icmp sgt i32 %__n.addr.03.i.i.i.i, 1
   br i1 %cmp.i.i.i.i9, label %for.body.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, !llvm.loop !2223
 
-_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6, %if.end.i
+_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %out, align 8
   br label %if.end10
 
@@ -73692,24 +73684,20 @@ _ZN3fmt3v106detail18to_nonnegative_intIiiTnNSt9enable_ifIXsr3std11is_integralIT_
   br i1 %cmp, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %_ZN3fmt3v106detail18to_nonnegative_intIiiTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
-  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp.i8 = icmp eq i32 %pad, 1
   br i1 %cmp.i8, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then6
+  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp1.i = icmp eq i32 %pad, 3
   %cond.i = select i1 %cmp1.i, i8 32, i8 48
-  %cmp2.i.i.i.i = icmp sgt i32 %sub, 0
-  br i1 %cmp2.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit
-
-for.body.lr.ph.i.i.i.i:                           ; preds = %if.end.i
   %size_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 16
   %capacity_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 24
   %ptr_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 8
   br label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %for.body.lr.ph.i.i.i.i
-  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %for.body.lr.ph.i.i.i.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
+for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.end.i
+  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %if.end.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
   %9 = load i64, ptr %size_.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i = add i64 %9, 1
   %10 = load i64, ptr %capacity_.i.i.i.i.i.i.i, align 8
@@ -73735,7 +73723,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
   %cmp.i.i.i.i9 = icmp sgt i32 %__n.addr.03.i.i.i.i, 1
   br i1 %cmp.i.i.i.i9, label %for.body.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, !llvm.loop !2223
 
-_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6, %if.end.i
+_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %out, align 8
   br label %if.end10
 
@@ -76074,24 +76062,20 @@ _ZN3fmt3v106detail18to_nonnegative_intIiiTnNSt9enable_ifIXsr3std11is_integralIT_
   br i1 %cmp, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %_ZN3fmt3v106detail18to_nonnegative_intIiiTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
-  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp.i8 = icmp eq i32 %pad, 1
   br i1 %cmp.i8, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then6
+  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp1.i = icmp eq i32 %pad, 3
   %cond.i = select i1 %cmp1.i, i8 32, i8 48
-  %cmp2.i.i.i.i = icmp sgt i32 %sub, 0
-  br i1 %cmp2.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit
-
-for.body.lr.ph.i.i.i.i:                           ; preds = %if.end.i
   %size_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 16
   %capacity_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 24
   %ptr_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 8
   br label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %for.body.lr.ph.i.i.i.i
-  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %for.body.lr.ph.i.i.i.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
+for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.end.i
+  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %if.end.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
   %9 = load i64, ptr %size_.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i = add i64 %9, 1
   %10 = load i64, ptr %capacity_.i.i.i.i.i.i.i, align 8
@@ -76117,7 +76101,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
   %cmp.i.i.i.i9 = icmp sgt i32 %__n.addr.03.i.i.i.i, 1
   br i1 %cmp.i.i.i.i9, label %for.body.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, !llvm.loop !2223
 
-_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6, %if.end.i
+_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %out, align 8
   br label %if.end10
 
@@ -78467,24 +78451,20 @@ _ZN3fmt3v106detail18to_nonnegative_intIliTnNSt9enable_ifIXsr3std11is_integralIT_
   br i1 %cmp, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %_ZN3fmt3v106detail18to_nonnegative_intIliTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
-  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp.i8 = icmp eq i32 %pad, 1
   br i1 %cmp.i8, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then6
+  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp1.i = icmp eq i32 %pad, 3
   %cond.i = select i1 %cmp1.i, i8 32, i8 48
-  %cmp2.i.i.i.i = icmp sgt i32 %sub, 0
-  br i1 %cmp2.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit
-
-for.body.lr.ph.i.i.i.i:                           ; preds = %if.end.i
   %size_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 16
   %capacity_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 24
   %ptr_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 8
   br label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %for.body.lr.ph.i.i.i.i
-  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %for.body.lr.ph.i.i.i.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
+for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.end.i
+  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %if.end.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
   %9 = load i64, ptr %size_.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i = add i64 %9, 1
   %10 = load i64, ptr %capacity_.i.i.i.i.i.i.i, align 8
@@ -78510,7 +78490,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
   %cmp.i.i.i.i9 = icmp sgt i32 %__n.addr.03.i.i.i.i, 1
   br i1 %cmp.i.i.i.i9, label %for.body.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, !llvm.loop !2223
 
-_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6, %if.end.i
+_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %out, align 8
   br label %if.end10
 
@@ -80861,24 +80841,20 @@ _ZN3fmt3v106detail18to_nonnegative_intIliTnNSt9enable_ifIXsr3std11is_integralIT_
   br i1 %cmp, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %_ZN3fmt3v106detail18to_nonnegative_intIliTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
-  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp.i8 = icmp eq i32 %pad, 1
   br i1 %cmp.i8, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then6
+  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp1.i = icmp eq i32 %pad, 3
   %cond.i = select i1 %cmp1.i, i8 32, i8 48
-  %cmp2.i.i.i.i = icmp sgt i32 %sub, 0
-  br i1 %cmp2.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit
-
-for.body.lr.ph.i.i.i.i:                           ; preds = %if.end.i
   %size_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 16
   %capacity_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 24
   %ptr_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 8
   br label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %for.body.lr.ph.i.i.i.i
-  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %for.body.lr.ph.i.i.i.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
+for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.end.i
+  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %if.end.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
   %9 = load i64, ptr %size_.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i = add i64 %9, 1
   %10 = load i64, ptr %capacity_.i.i.i.i.i.i.i, align 8
@@ -80904,7 +80880,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
   %cmp.i.i.i.i9 = icmp sgt i32 %__n.addr.03.i.i.i.i, 1
   br i1 %cmp.i.i.i.i9, label %for.body.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, !llvm.loop !2223
 
-_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6, %if.end.i
+_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %out, align 8
   br label %if.end10
 
@@ -83255,24 +83231,20 @@ _ZN3fmt3v106detail18to_nonnegative_intIliTnNSt9enable_ifIXsr3std11is_integralIT_
   br i1 %cmp, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %_ZN3fmt3v106detail18to_nonnegative_intIliTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
-  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp.i8 = icmp eq i32 %pad, 1
   br i1 %cmp.i8, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then6
+  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp1.i = icmp eq i32 %pad, 3
   %cond.i = select i1 %cmp1.i, i8 32, i8 48
-  %cmp2.i.i.i.i = icmp sgt i32 %sub, 0
-  br i1 %cmp2.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit
-
-for.body.lr.ph.i.i.i.i:                           ; preds = %if.end.i
   %size_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 16
   %capacity_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 24
   %ptr_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 8
   br label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %for.body.lr.ph.i.i.i.i
-  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %for.body.lr.ph.i.i.i.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
+for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.end.i
+  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %if.end.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
   %9 = load i64, ptr %size_.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i = add i64 %9, 1
   %10 = load i64, ptr %capacity_.i.i.i.i.i.i.i, align 8
@@ -83298,7 +83270,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
   %cmp.i.i.i.i9 = icmp sgt i32 %__n.addr.03.i.i.i.i, 1
   br i1 %cmp.i.i.i.i9, label %for.body.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, !llvm.loop !2223
 
-_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6, %if.end.i
+_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %out, align 8
   br label %if.end10
 
@@ -85631,24 +85603,20 @@ _ZN3fmt3v106detail18to_nonnegative_intIiiTnNSt9enable_ifIXsr3std11is_integralIT_
   br i1 %cmp, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %_ZN3fmt3v106detail18to_nonnegative_intIiiTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
-  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp.i8 = icmp eq i32 %pad, 1
   br i1 %cmp.i8, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then6
+  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp1.i = icmp eq i32 %pad, 3
   %cond.i = select i1 %cmp1.i, i8 32, i8 48
-  %cmp2.i.i.i.i = icmp sgt i32 %sub, 0
-  br i1 %cmp2.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit
-
-for.body.lr.ph.i.i.i.i:                           ; preds = %if.end.i
   %size_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 16
   %capacity_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 24
   %ptr_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 8
   br label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %for.body.lr.ph.i.i.i.i
-  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %for.body.lr.ph.i.i.i.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
+for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.end.i
+  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %if.end.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
   %9 = load i64, ptr %size_.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i = add i64 %9, 1
   %10 = load i64, ptr %capacity_.i.i.i.i.i.i.i, align 8
@@ -85674,7 +85642,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
   %cmp.i.i.i.i9 = icmp sgt i32 %__n.addr.03.i.i.i.i, 1
   br i1 %cmp.i.i.i.i9, label %for.body.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, !llvm.loop !2223
 
-_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6, %if.end.i
+_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %out, align 8
   br label %if.end10
 
@@ -88019,24 +87987,20 @@ _ZN3fmt3v106detail18to_nonnegative_intIiiTnNSt9enable_ifIXsr3std11is_integralIT_
   br i1 %cmp, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %_ZN3fmt3v106detail18to_nonnegative_intIiiTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
-  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp.i8 = icmp eq i32 %pad, 1
   br i1 %cmp.i8, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then6
+  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp1.i = icmp eq i32 %pad, 3
   %cond.i = select i1 %cmp1.i, i8 32, i8 48
-  %cmp2.i.i.i.i = icmp sgt i32 %sub, 0
-  br i1 %cmp2.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit
-
-for.body.lr.ph.i.i.i.i:                           ; preds = %if.end.i
   %size_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 16
   %capacity_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 24
   %ptr_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 8
   br label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %for.body.lr.ph.i.i.i.i
-  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %for.body.lr.ph.i.i.i.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
+for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.end.i
+  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %if.end.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
   %9 = load i64, ptr %size_.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i = add i64 %9, 1
   %10 = load i64, ptr %capacity_.i.i.i.i.i.i.i, align 8
@@ -88062,7 +88026,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
   %cmp.i.i.i.i9 = icmp sgt i32 %__n.addr.03.i.i.i.i, 1
   br i1 %cmp.i.i.i.i9, label %for.body.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, !llvm.loop !2223
 
-_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6, %if.end.i
+_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %out, align 8
   br label %if.end10
 
@@ -90534,24 +90498,20 @@ _ZN3fmt3v106detail18to_nonnegative_intIiiTnNSt9enable_ifIXsr3std11is_integralIT_
   br i1 %cmp, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %_ZN3fmt3v106detail18to_nonnegative_intIiiTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
-  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp.i8 = icmp eq i32 %pad, 1
   br i1 %cmp.i8, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then6
+  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp1.i = icmp eq i32 %pad, 3
   %cond.i = select i1 %cmp1.i, i8 32, i8 48
-  %cmp2.i.i.i.i = icmp sgt i32 %sub, 0
-  br i1 %cmp2.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit
-
-for.body.lr.ph.i.i.i.i:                           ; preds = %if.end.i
   %size_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 16
   %capacity_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 24
   %ptr_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 8
   br label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %for.body.lr.ph.i.i.i.i
-  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %for.body.lr.ph.i.i.i.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
+for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.end.i
+  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %if.end.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
   %9 = load i64, ptr %size_.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i = add i64 %9, 1
   %10 = load i64, ptr %capacity_.i.i.i.i.i.i.i, align 8
@@ -90577,7 +90537,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
   %cmp.i.i.i.i9 = icmp sgt i32 %__n.addr.03.i.i.i.i, 1
   br i1 %cmp.i.i.i.i9, label %for.body.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, !llvm.loop !2223
 
-_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6, %if.end.i
+_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %out, align 8
   br label %if.end10
 
@@ -92587,24 +92547,20 @@ _ZN3fmt3v106detail18to_nonnegative_intIiiTnNSt9enable_ifIXsr3std11is_integralIT_
   br i1 %cmp, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %_ZN3fmt3v106detail18to_nonnegative_intIiiTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
-  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp.i8 = icmp eq i32 %pad, 1
   br i1 %cmp.i8, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then6
+  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp1.i = icmp eq i32 %pad, 3
   %cond.i = select i1 %cmp1.i, i8 32, i8 48
-  %cmp2.i.i.i.i = icmp sgt i32 %sub, 0
-  br i1 %cmp2.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit
-
-for.body.lr.ph.i.i.i.i:                           ; preds = %if.end.i
   %size_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 16
   %capacity_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 24
   %ptr_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 8
   br label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %for.body.lr.ph.i.i.i.i
-  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %for.body.lr.ph.i.i.i.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
+for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.end.i
+  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %if.end.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
   %9 = load i64, ptr %size_.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i = add i64 %9, 1
   %10 = load i64, ptr %capacity_.i.i.i.i.i.i.i, align 8
@@ -92630,7 +92586,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
   %cmp.i.i.i.i9 = icmp sgt i32 %__n.addr.03.i.i.i.i, 1
   br i1 %cmp.i.i.i.i9, label %for.body.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, !llvm.loop !2223
 
-_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6, %if.end.i
+_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %out, align 8
   br label %if.end10
 
@@ -94640,24 +94596,20 @@ _ZN3fmt3v106detail18to_nonnegative_intIiiTnNSt9enable_ifIXsr3std11is_integralIT_
   br i1 %cmp, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %_ZN3fmt3v106detail18to_nonnegative_intIiiTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
-  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp.i8 = icmp eq i32 %pad, 1
   br i1 %cmp.i8, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then6
+  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp1.i = icmp eq i32 %pad, 3
   %cond.i = select i1 %cmp1.i, i8 32, i8 48
-  %cmp2.i.i.i.i = icmp sgt i32 %sub, 0
-  br i1 %cmp2.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit
-
-for.body.lr.ph.i.i.i.i:                           ; preds = %if.end.i
   %size_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 16
   %capacity_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 24
   %ptr_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 8
   br label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %for.body.lr.ph.i.i.i.i
-  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %for.body.lr.ph.i.i.i.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
+for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.end.i
+  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %if.end.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
   %9 = load i64, ptr %size_.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i = add i64 %9, 1
   %10 = load i64, ptr %capacity_.i.i.i.i.i.i.i, align 8
@@ -94683,7 +94635,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
   %cmp.i.i.i.i9 = icmp sgt i32 %__n.addr.03.i.i.i.i, 1
   br i1 %cmp.i.i.i.i9, label %for.body.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, !llvm.loop !2223
 
-_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6, %if.end.i
+_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %out, align 8
   br label %if.end10
 
@@ -96693,24 +96645,20 @@ _ZN3fmt3v106detail18to_nonnegative_intIiiTnNSt9enable_ifIXsr3std11is_integralIT_
   br i1 %cmp, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %_ZN3fmt3v106detail18to_nonnegative_intIiiTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
-  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp.i8 = icmp eq i32 %pad, 1
   br i1 %cmp.i8, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then6
+  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp1.i = icmp eq i32 %pad, 3
   %cond.i = select i1 %cmp1.i, i8 32, i8 48
-  %cmp2.i.i.i.i = icmp sgt i32 %sub, 0
-  br i1 %cmp2.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit
-
-for.body.lr.ph.i.i.i.i:                           ; preds = %if.end.i
   %size_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 16
   %capacity_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 24
   %ptr_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 8
   br label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %for.body.lr.ph.i.i.i.i
-  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %for.body.lr.ph.i.i.i.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
+for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.end.i
+  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %if.end.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
   %9 = load i64, ptr %size_.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i = add i64 %9, 1
   %10 = load i64, ptr %capacity_.i.i.i.i.i.i.i, align 8
@@ -96736,7 +96684,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
   %cmp.i.i.i.i9 = icmp sgt i32 %__n.addr.03.i.i.i.i, 1
   br i1 %cmp.i.i.i.i9, label %for.body.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, !llvm.loop !2223
 
-_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6, %if.end.i
+_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %out, align 8
   br label %if.end10
 
@@ -98746,24 +98694,20 @@ _ZN3fmt3v106detail18to_nonnegative_intIiiTnNSt9enable_ifIXsr3std11is_integralIT_
   br i1 %cmp, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %_ZN3fmt3v106detail18to_nonnegative_intIiiTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
-  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp.i8 = icmp eq i32 %pad, 1
   br i1 %cmp.i8, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then6
+  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp1.i = icmp eq i32 %pad, 3
   %cond.i = select i1 %cmp1.i, i8 32, i8 48
-  %cmp2.i.i.i.i = icmp sgt i32 %sub, 0
-  br i1 %cmp2.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit
-
-for.body.lr.ph.i.i.i.i:                           ; preds = %if.end.i
   %size_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 16
   %capacity_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 24
   %ptr_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 8
   br label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %for.body.lr.ph.i.i.i.i
-  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %for.body.lr.ph.i.i.i.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
+for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.end.i
+  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %if.end.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
   %9 = load i64, ptr %size_.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i = add i64 %9, 1
   %10 = load i64, ptr %capacity_.i.i.i.i.i.i.i, align 8
@@ -98789,7 +98733,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
   %cmp.i.i.i.i9 = icmp sgt i32 %__n.addr.03.i.i.i.i, 1
   br i1 %cmp.i.i.i.i9, label %for.body.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, !llvm.loop !2223
 
-_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6, %if.end.i
+_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %out, align 8
   br label %if.end10
 
@@ -100694,24 +100638,20 @@ _ZN3fmt3v106detail18to_nonnegative_intIiiTnNSt9enable_ifIXsr3std11is_integralIT_
   br i1 %cmp, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %_ZN3fmt3v106detail18to_nonnegative_intIiiTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
-  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp.i8 = icmp eq i32 %pad, 1
   br i1 %cmp.i8, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then6
+  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp1.i = icmp eq i32 %pad, 3
   %cond.i = select i1 %cmp1.i, i8 32, i8 48
-  %cmp2.i.i.i.i = icmp sgt i32 %sub, 0
-  br i1 %cmp2.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit
-
-for.body.lr.ph.i.i.i.i:                           ; preds = %if.end.i
   %size_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 16
   %capacity_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 24
   %ptr_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 8
   br label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %for.body.lr.ph.i.i.i.i
-  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %for.body.lr.ph.i.i.i.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
+for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.end.i
+  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %if.end.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
   %9 = load i64, ptr %size_.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i = add i64 %9, 1
   %10 = load i64, ptr %capacity_.i.i.i.i.i.i.i, align 8
@@ -100737,7 +100677,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
   %cmp.i.i.i.i9 = icmp sgt i32 %__n.addr.03.i.i.i.i, 1
   br i1 %cmp.i.i.i.i9, label %for.body.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, !llvm.loop !2223
 
-_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6, %if.end.i
+_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %out, align 8
   br label %if.end10
 
@@ -102757,24 +102697,20 @@ _ZN3fmt3v106detail18to_nonnegative_intIiiTnNSt9enable_ifIXsr3std11is_integralIT_
   br i1 %cmp, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %_ZN3fmt3v106detail18to_nonnegative_intIiiTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
-  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp.i8 = icmp eq i32 %pad, 1
   br i1 %cmp.i8, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then6
+  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp1.i = icmp eq i32 %pad, 3
   %cond.i = select i1 %cmp1.i, i8 32, i8 48
-  %cmp2.i.i.i.i = icmp sgt i32 %sub, 0
-  br i1 %cmp2.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit
-
-for.body.lr.ph.i.i.i.i:                           ; preds = %if.end.i
   %size_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 16
   %capacity_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 24
   %ptr_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 8
   br label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %for.body.lr.ph.i.i.i.i
-  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %for.body.lr.ph.i.i.i.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
+for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.end.i
+  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %if.end.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
   %9 = load i64, ptr %size_.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i = add i64 %9, 1
   %10 = load i64, ptr %capacity_.i.i.i.i.i.i.i, align 8
@@ -102800,7 +102736,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
   %cmp.i.i.i.i9 = icmp sgt i32 %__n.addr.03.i.i.i.i, 1
   br i1 %cmp.i.i.i.i9, label %for.body.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, !llvm.loop !2223
 
-_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6, %if.end.i
+_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %out, align 8
   br label %if.end10
 
@@ -104820,24 +104756,20 @@ _ZN3fmt3v106detail18to_nonnegative_intIiiTnNSt9enable_ifIXsr3std11is_integralIT_
   br i1 %cmp, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %_ZN3fmt3v106detail18to_nonnegative_intIiiTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
-  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp.i8 = icmp eq i32 %pad, 1
   br i1 %cmp.i8, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then6
+  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp1.i = icmp eq i32 %pad, 3
   %cond.i = select i1 %cmp1.i, i8 32, i8 48
-  %cmp2.i.i.i.i = icmp sgt i32 %sub, 0
-  br i1 %cmp2.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit
-
-for.body.lr.ph.i.i.i.i:                           ; preds = %if.end.i
   %size_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 16
   %capacity_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 24
   %ptr_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 8
   br label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %for.body.lr.ph.i.i.i.i
-  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %for.body.lr.ph.i.i.i.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
+for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.end.i
+  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %if.end.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
   %9 = load i64, ptr %size_.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i = add i64 %9, 1
   %10 = load i64, ptr %capacity_.i.i.i.i.i.i.i, align 8
@@ -104863,7 +104795,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
   %cmp.i.i.i.i9 = icmp sgt i32 %__n.addr.03.i.i.i.i, 1
   br i1 %cmp.i.i.i.i9, label %for.body.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, !llvm.loop !2223
 
-_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6, %if.end.i
+_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %out, align 8
   br label %if.end10
 
@@ -106894,24 +106826,20 @@ _ZN3fmt3v106detail18to_nonnegative_intIliTnNSt9enable_ifIXsr3std11is_integralIT_
   br i1 %cmp, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %_ZN3fmt3v106detail18to_nonnegative_intIliTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
-  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp.i8 = icmp eq i32 %pad, 1
   br i1 %cmp.i8, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then6
+  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp1.i = icmp eq i32 %pad, 3
   %cond.i = select i1 %cmp1.i, i8 32, i8 48
-  %cmp2.i.i.i.i = icmp sgt i32 %sub, 0
-  br i1 %cmp2.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit
-
-for.body.lr.ph.i.i.i.i:                           ; preds = %if.end.i
   %size_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 16
   %capacity_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 24
   %ptr_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 8
   br label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %for.body.lr.ph.i.i.i.i
-  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %for.body.lr.ph.i.i.i.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
+for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.end.i
+  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %if.end.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
   %9 = load i64, ptr %size_.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i = add i64 %9, 1
   %10 = load i64, ptr %capacity_.i.i.i.i.i.i.i, align 8
@@ -106937,7 +106865,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
   %cmp.i.i.i.i9 = icmp sgt i32 %__n.addr.03.i.i.i.i, 1
   br i1 %cmp.i.i.i.i9, label %for.body.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, !llvm.loop !2223
 
-_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6, %if.end.i
+_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %out, align 8
   br label %if.end10
 
@@ -108947,24 +108875,20 @@ _ZN3fmt3v106detail18to_nonnegative_intIliTnNSt9enable_ifIXsr3std11is_integralIT_
   br i1 %cmp, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %_ZN3fmt3v106detail18to_nonnegative_intIliTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
-  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp.i8 = icmp eq i32 %pad, 1
   br i1 %cmp.i8, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then6
+  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp1.i = icmp eq i32 %pad, 3
   %cond.i = select i1 %cmp1.i, i8 32, i8 48
-  %cmp2.i.i.i.i = icmp sgt i32 %sub, 0
-  br i1 %cmp2.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit
-
-for.body.lr.ph.i.i.i.i:                           ; preds = %if.end.i
   %size_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 16
   %capacity_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 24
   %ptr_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 8
   br label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %for.body.lr.ph.i.i.i.i
-  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %for.body.lr.ph.i.i.i.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
+for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.end.i
+  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %if.end.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
   %9 = load i64, ptr %size_.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i = add i64 %9, 1
   %10 = load i64, ptr %capacity_.i.i.i.i.i.i.i, align 8
@@ -108990,7 +108914,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
   %cmp.i.i.i.i9 = icmp sgt i32 %__n.addr.03.i.i.i.i, 1
   br i1 %cmp.i.i.i.i9, label %for.body.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, !llvm.loop !2223
 
-_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6, %if.end.i
+_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %out, align 8
   br label %if.end10
 
@@ -111000,24 +110924,20 @@ _ZN3fmt3v106detail18to_nonnegative_intIliTnNSt9enable_ifIXsr3std11is_integralIT_
   br i1 %cmp, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %_ZN3fmt3v106detail18to_nonnegative_intIliTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
-  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp.i8 = icmp eq i32 %pad, 1
   br i1 %cmp.i8, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then6
+  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp1.i = icmp eq i32 %pad, 3
   %cond.i = select i1 %cmp1.i, i8 32, i8 48
-  %cmp2.i.i.i.i = icmp sgt i32 %sub, 0
-  br i1 %cmp2.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit
-
-for.body.lr.ph.i.i.i.i:                           ; preds = %if.end.i
   %size_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 16
   %capacity_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 24
   %ptr_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 8
   br label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %for.body.lr.ph.i.i.i.i
-  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %for.body.lr.ph.i.i.i.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
+for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.end.i
+  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %if.end.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
   %9 = load i64, ptr %size_.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i = add i64 %9, 1
   %10 = load i64, ptr %capacity_.i.i.i.i.i.i.i, align 8
@@ -111043,7 +110963,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
   %cmp.i.i.i.i9 = icmp sgt i32 %__n.addr.03.i.i.i.i, 1
   br i1 %cmp.i.i.i.i9, label %for.body.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, !llvm.loop !2223
 
-_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6, %if.end.i
+_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %out, align 8
   br label %if.end10
 
@@ -113193,24 +113113,20 @@ _ZN3fmt3v106detail18to_nonnegative_intIiiTnNSt9enable_ifIXsr3std11is_integralIT_
   br i1 %cmp, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %_ZN3fmt3v106detail18to_nonnegative_intIiiTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
-  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp.i8 = icmp eq i32 %pad, 1
   br i1 %cmp.i8, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then6
+  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp1.i = icmp eq i32 %pad, 3
   %cond.i = select i1 %cmp1.i, i8 32, i8 48
-  %cmp2.i.i.i.i = icmp sgt i32 %sub, 0
-  br i1 %cmp2.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit
-
-for.body.lr.ph.i.i.i.i:                           ; preds = %if.end.i
   %size_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 16
   %capacity_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 24
   %ptr_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 8
   br label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %for.body.lr.ph.i.i.i.i
-  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %for.body.lr.ph.i.i.i.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
+for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.end.i
+  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %if.end.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
   %9 = load i64, ptr %size_.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i = add i64 %9, 1
   %10 = load i64, ptr %capacity_.i.i.i.i.i.i.i, align 8
@@ -113236,7 +113152,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
   %cmp.i.i.i.i9 = icmp sgt i32 %__n.addr.03.i.i.i.i, 1
   br i1 %cmp.i.i.i.i9, label %for.body.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, !llvm.loop !2223
 
-_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6, %if.end.i
+_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %out, align 8
   br label %if.end10
 
@@ -115286,24 +115202,20 @@ _ZN3fmt3v106detail18to_nonnegative_intIiiTnNSt9enable_ifIXsr3std11is_integralIT_
   br i1 %cmp, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %_ZN3fmt3v106detail18to_nonnegative_intIiiTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
-  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp.i8 = icmp eq i32 %pad, 1
   br i1 %cmp.i8, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then6
+  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp1.i = icmp eq i32 %pad, 3
   %cond.i = select i1 %cmp1.i, i8 32, i8 48
-  %cmp2.i.i.i.i = icmp sgt i32 %sub, 0
-  br i1 %cmp2.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit
-
-for.body.lr.ph.i.i.i.i:                           ; preds = %if.end.i
   %size_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 16
   %capacity_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 24
   %ptr_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 8
   br label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %for.body.lr.ph.i.i.i.i
-  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %for.body.lr.ph.i.i.i.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
+for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.end.i
+  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %if.end.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
   %9 = load i64, ptr %size_.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i = add i64 %9, 1
   %10 = load i64, ptr %capacity_.i.i.i.i.i.i.i, align 8
@@ -115329,7 +115241,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
   %cmp.i.i.i.i9 = icmp sgt i32 %__n.addr.03.i.i.i.i, 1
   br i1 %cmp.i.i.i.i9, label %for.body.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, !llvm.loop !2223
 
-_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6, %if.end.i
+_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %out, align 8
   br label %if.end10
 
@@ -131337,24 +131249,20 @@ _ZN3fmt3v106detail18to_nonnegative_intIfiTnNSt9enable_ifIXntsr3std11is_integralI
   br i1 %cmp, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %_ZN3fmt3v106detail18to_nonnegative_intIfiTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
-  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp.i9 = icmp eq i32 %pad, 1
   br i1 %cmp.i9, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then6
+  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp1.i10 = icmp eq i32 %pad, 3
   %cond.i = select i1 %cmp1.i10, i8 32, i8 48
-  %cmp2.i.i.i.i = icmp sgt i32 %sub, 0
-  br i1 %cmp2.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit
-
-for.body.lr.ph.i.i.i.i:                           ; preds = %if.end.i
   %size_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 16
   %capacity_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 24
   %ptr_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 8
   br label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %for.body.lr.ph.i.i.i.i
-  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %for.body.lr.ph.i.i.i.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
+for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.end.i
+  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %if.end.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
   %15 = load i64, ptr %size_.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i = add i64 %15, 1
   %16 = load i64, ptr %capacity_.i.i.i.i.i.i.i, align 8
@@ -131380,7 +131288,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
   %cmp.i.i.i.i11 = icmp sgt i32 %__n.addr.03.i.i.i.i, 1
   br i1 %cmp.i.i.i.i11, label %for.body.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, !llvm.loop !2223
 
-_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6, %if.end.i
+_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %out, align 8
   br label %if.end10
 
@@ -133826,24 +133734,20 @@ _ZN3fmt3v106detail18to_nonnegative_intIfiTnNSt9enable_ifIXntsr3std11is_integralI
   br i1 %cmp, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %_ZN3fmt3v106detail18to_nonnegative_intIfiTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
-  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp.i9 = icmp eq i32 %pad, 1
   br i1 %cmp.i9, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then6
+  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp1.i10 = icmp eq i32 %pad, 3
   %cond.i = select i1 %cmp1.i10, i8 32, i8 48
-  %cmp2.i.i.i.i = icmp sgt i32 %sub, 0
-  br i1 %cmp2.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit
-
-for.body.lr.ph.i.i.i.i:                           ; preds = %if.end.i
   %size_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 16
   %capacity_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 24
   %ptr_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 8
   br label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %for.body.lr.ph.i.i.i.i
-  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %for.body.lr.ph.i.i.i.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
+for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.end.i
+  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %if.end.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
   %15 = load i64, ptr %size_.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i = add i64 %15, 1
   %16 = load i64, ptr %capacity_.i.i.i.i.i.i.i, align 8
@@ -133869,7 +133773,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
   %cmp.i.i.i.i11 = icmp sgt i32 %__n.addr.03.i.i.i.i, 1
   br i1 %cmp.i.i.i.i11, label %for.body.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, !llvm.loop !2223
 
-_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6, %if.end.i
+_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %out, align 8
   br label %if.end10
 
@@ -136625,24 +136529,20 @@ _ZN3fmt3v106detail18to_nonnegative_intIdiTnNSt9enable_ifIXntsr3std11is_integralI
   br i1 %cmp, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %_ZN3fmt3v106detail18to_nonnegative_intIdiTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
-  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp.i9 = icmp eq i32 %pad, 1
   br i1 %cmp.i9, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then6
+  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp1.i10 = icmp eq i32 %pad, 3
   %cond.i = select i1 %cmp1.i10, i8 32, i8 48
-  %cmp2.i.i.i.i = icmp sgt i32 %sub, 0
-  br i1 %cmp2.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit
-
-for.body.lr.ph.i.i.i.i:                           ; preds = %if.end.i
   %size_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 16
   %capacity_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 24
   %ptr_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 8
   br label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %for.body.lr.ph.i.i.i.i
-  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %for.body.lr.ph.i.i.i.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
+for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.end.i
+  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %if.end.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
   %15 = load i64, ptr %size_.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i = add i64 %15, 1
   %16 = load i64, ptr %capacity_.i.i.i.i.i.i.i, align 8
@@ -136668,7 +136568,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
   %cmp.i.i.i.i11 = icmp sgt i32 %__n.addr.03.i.i.i.i, 1
   br i1 %cmp.i.i.i.i11, label %for.body.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, !llvm.loop !2223
 
-_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6, %if.end.i
+_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %out, align 8
   br label %if.end10
 
@@ -139112,24 +139012,20 @@ _ZN3fmt3v106detail18to_nonnegative_intIdiTnNSt9enable_ifIXntsr3std11is_integralI
   br i1 %cmp, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %_ZN3fmt3v106detail18to_nonnegative_intIdiTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
-  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp.i9 = icmp eq i32 %pad, 1
   br i1 %cmp.i9, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then6
+  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp1.i10 = icmp eq i32 %pad, 3
   %cond.i = select i1 %cmp1.i10, i8 32, i8 48
-  %cmp2.i.i.i.i = icmp sgt i32 %sub, 0
-  br i1 %cmp2.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit
-
-for.body.lr.ph.i.i.i.i:                           ; preds = %if.end.i
   %size_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 16
   %capacity_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 24
   %ptr_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 8
   br label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %for.body.lr.ph.i.i.i.i
-  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %for.body.lr.ph.i.i.i.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
+for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.end.i
+  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %if.end.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
   %15 = load i64, ptr %size_.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i = add i64 %15, 1
   %16 = load i64, ptr %capacity_.i.i.i.i.i.i.i, align 8
@@ -139155,7 +139051,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
   %cmp.i.i.i.i11 = icmp sgt i32 %__n.addr.03.i.i.i.i, 1
   br i1 %cmp.i.i.i.i11, label %for.body.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, !llvm.loop !2223
 
-_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6, %if.end.i
+_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %out, align 8
   br label %if.end10
 
@@ -141382,24 +141278,20 @@ _ZN3fmt3v106detail18to_nonnegative_intIaiTnNSt9enable_ifIXsr3std11is_integralIT_
   br i1 %cmp, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %_ZN3fmt3v106detail18to_nonnegative_intIaiTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
-  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp.i8 = icmp eq i32 %pad, 1
   br i1 %cmp.i8, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then6
+  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp1.i = icmp eq i32 %pad, 3
   %cond.i = select i1 %cmp1.i, i8 32, i8 48
-  %cmp2.i.i.i.i = icmp sgt i32 %sub, 0
-  br i1 %cmp2.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit
-
-for.body.lr.ph.i.i.i.i:                           ; preds = %if.end.i
   %size_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 16
   %capacity_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 24
   %ptr_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 8
   br label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %for.body.lr.ph.i.i.i.i
-  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %for.body.lr.ph.i.i.i.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
+for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.end.i
+  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %if.end.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
   %9 = load i64, ptr %size_.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i = add i64 %9, 1
   %10 = load i64, ptr %capacity_.i.i.i.i.i.i.i, align 8
@@ -141425,7 +141317,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
   %cmp.i.i.i.i9 = icmp sgt i32 %__n.addr.03.i.i.i.i, 1
   br i1 %cmp.i.i.i.i9, label %for.body.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, !llvm.loop !2223
 
-_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6, %if.end.i
+_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %out, align 8
   br label %if.end10
 
@@ -143841,24 +143733,20 @@ _ZN3fmt3v106detail18to_nonnegative_intIiiTnNSt9enable_ifIXsr3std11is_integralIT_
   br i1 %cmp, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %_ZN3fmt3v106detail18to_nonnegative_intIiiTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
-  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp.i8 = icmp eq i32 %pad, 1
   br i1 %cmp.i8, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then6
+  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp1.i = icmp eq i32 %pad, 3
   %cond.i = select i1 %cmp1.i, i8 32, i8 48
-  %cmp2.i.i.i.i = icmp sgt i32 %sub, 0
-  br i1 %cmp2.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit
-
-for.body.lr.ph.i.i.i.i:                           ; preds = %if.end.i
   %size_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 16
   %capacity_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 24
   %ptr_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 8
   br label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %for.body.lr.ph.i.i.i.i
-  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %for.body.lr.ph.i.i.i.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
+for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.end.i
+  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %if.end.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
   %9 = load i64, ptr %size_.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i = add i64 %9, 1
   %10 = load i64, ptr %capacity_.i.i.i.i.i.i.i, align 8
@@ -143884,7 +143772,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
   %cmp.i.i.i.i9 = icmp sgt i32 %__n.addr.03.i.i.i.i, 1
   br i1 %cmp.i.i.i.i9, label %for.body.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, !llvm.loop !2223
 
-_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6, %if.end.i
+_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %out, align 8
   br label %if.end10
 
@@ -146246,24 +146134,20 @@ _ZN3fmt3v106detail18to_nonnegative_intIfiTnNSt9enable_ifIXntsr3std11is_integralI
   br i1 %cmp, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %_ZN3fmt3v106detail18to_nonnegative_intIfiTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
-  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp.i9 = icmp eq i32 %pad, 1
   br i1 %cmp.i9, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then6
+  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp1.i10 = icmp eq i32 %pad, 3
   %cond.i = select i1 %cmp1.i10, i8 32, i8 48
-  %cmp2.i.i.i.i = icmp sgt i32 %sub, 0
-  br i1 %cmp2.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit
-
-for.body.lr.ph.i.i.i.i:                           ; preds = %if.end.i
   %size_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 16
   %capacity_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 24
   %ptr_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 8
   br label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %for.body.lr.ph.i.i.i.i
-  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %for.body.lr.ph.i.i.i.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
+for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.end.i
+  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %if.end.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
   %15 = load i64, ptr %size_.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i = add i64 %15, 1
   %16 = load i64, ptr %capacity_.i.i.i.i.i.i.i, align 8
@@ -146289,7 +146173,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
   %cmp.i.i.i.i11 = icmp sgt i32 %__n.addr.03.i.i.i.i, 1
   br i1 %cmp.i.i.i.i11, label %for.body.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, !llvm.loop !2223
 
-_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6, %if.end.i
+_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %out, align 8
   br label %if.end10
 
@@ -148718,24 +148602,20 @@ _ZN3fmt3v106detail18to_nonnegative_intIfiTnNSt9enable_ifIXntsr3std11is_integralI
   br i1 %cmp, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %_ZN3fmt3v106detail18to_nonnegative_intIfiTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
-  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp.i9 = icmp eq i32 %pad, 1
   br i1 %cmp.i9, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then6
+  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp1.i10 = icmp eq i32 %pad, 3
   %cond.i = select i1 %cmp1.i10, i8 32, i8 48
-  %cmp2.i.i.i.i = icmp sgt i32 %sub, 0
-  br i1 %cmp2.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit
-
-for.body.lr.ph.i.i.i.i:                           ; preds = %if.end.i
   %size_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 16
   %capacity_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 24
   %ptr_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 8
   br label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %for.body.lr.ph.i.i.i.i
-  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %for.body.lr.ph.i.i.i.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
+for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.end.i
+  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %if.end.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
   %15 = load i64, ptr %size_.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i = add i64 %15, 1
   %16 = load i64, ptr %capacity_.i.i.i.i.i.i.i, align 8
@@ -148761,7 +148641,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
   %cmp.i.i.i.i11 = icmp sgt i32 %__n.addr.03.i.i.i.i, 1
   br i1 %cmp.i.i.i.i11, label %for.body.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, !llvm.loop !2223
 
-_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6, %if.end.i
+_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %out, align 8
   br label %if.end10
 
@@ -150901,24 +150781,20 @@ _ZN3fmt3v106detail18to_nonnegative_intIciTnNSt9enable_ifIXsr3std11is_integralIT_
   br i1 %cmp, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %_ZN3fmt3v106detail18to_nonnegative_intIciTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
-  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp.i8 = icmp eq i32 %pad, 1
   br i1 %cmp.i8, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then6
+  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp1.i = icmp eq i32 %pad, 3
   %cond.i = select i1 %cmp1.i, i8 32, i8 48
-  %cmp2.i.i.i.i = icmp sgt i32 %sub, 0
-  br i1 %cmp2.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit
-
-for.body.lr.ph.i.i.i.i:                           ; preds = %if.end.i
   %size_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 16
   %capacity_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 24
   %ptr_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 8
   br label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %for.body.lr.ph.i.i.i.i
-  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %for.body.lr.ph.i.i.i.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
+for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.end.i
+  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %if.end.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
   %9 = load i64, ptr %size_.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i = add i64 %9, 1
   %10 = load i64, ptr %capacity_.i.i.i.i.i.i.i, align 8
@@ -150944,7 +150820,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
   %cmp.i.i.i.i9 = icmp sgt i32 %__n.addr.03.i.i.i.i, 1
   br i1 %cmp.i.i.i.i9, label %for.body.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, !llvm.loop !2223
 
-_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6, %if.end.i
+_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %out, align 8
   br label %if.end10
 
@@ -153191,24 +153067,20 @@ _ZN3fmt3v106detail18to_nonnegative_intIfiTnNSt9enable_ifIXntsr3std11is_integralI
   br i1 %cmp, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %_ZN3fmt3v106detail18to_nonnegative_intIfiTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
-  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp.i9 = icmp eq i32 %pad, 1
   br i1 %cmp.i9, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then6
+  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp1.i10 = icmp eq i32 %pad, 3
   %cond.i = select i1 %cmp1.i10, i8 32, i8 48
-  %cmp2.i.i.i.i = icmp sgt i32 %sub, 0
-  br i1 %cmp2.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit
-
-for.body.lr.ph.i.i.i.i:                           ; preds = %if.end.i
   %size_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 16
   %capacity_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 24
   %ptr_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 8
   br label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %for.body.lr.ph.i.i.i.i
-  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %for.body.lr.ph.i.i.i.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
+for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.end.i
+  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %if.end.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
   %15 = load i64, ptr %size_.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i = add i64 %15, 1
   %16 = load i64, ptr %capacity_.i.i.i.i.i.i.i, align 8
@@ -153234,7 +153106,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
   %cmp.i.i.i.i11 = icmp sgt i32 %__n.addr.03.i.i.i.i, 1
   br i1 %cmp.i.i.i.i11, label %for.body.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, !llvm.loop !2223
 
-_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6, %if.end.i
+_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %out, align 8
   br label %if.end10
 
@@ -155345,24 +155217,20 @@ _ZN3fmt3v106detail18to_nonnegative_intIjiTnNSt9enable_ifIXsr3std11is_integralIT_
   br i1 %cmp, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %_ZN3fmt3v106detail18to_nonnegative_intIjiTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
-  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp.i = icmp eq i32 %pad, 1
   br i1 %cmp.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then6
+  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp1.i = icmp eq i32 %pad, 3
   %cond.i = select i1 %cmp1.i, i8 32, i8 48
-  %cmp2.i.i.i.i = icmp sgt i32 %sub, 0
-  br i1 %cmp2.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit
-
-for.body.lr.ph.i.i.i.i:                           ; preds = %if.end.i
   %size_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 16
   %capacity_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 24
   %ptr_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 8
   br label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %for.body.lr.ph.i.i.i.i
-  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %for.body.lr.ph.i.i.i.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
+for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.end.i
+  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %if.end.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
   %9 = load i64, ptr %size_.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i = add i64 %9, 1
   %10 = load i64, ptr %capacity_.i.i.i.i.i.i.i, align 8
@@ -155388,7 +155256,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
   %cmp.i.i.i.i8 = icmp sgt i32 %__n.addr.03.i.i.i.i, 1
   br i1 %cmp.i.i.i.i8, label %for.body.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, !llvm.loop !2223
 
-_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6, %if.end.i
+_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %out, align 8
   br label %if.end10
 
@@ -157826,24 +157694,20 @@ _ZN3fmt3v106detail18to_nonnegative_intIxiTnNSt9enable_ifIXsr3std11is_integralIT_
   br i1 %cmp, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %_ZN3fmt3v106detail18to_nonnegative_intIxiTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
-  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp.i8 = icmp eq i32 %pad, 1
   br i1 %cmp.i8, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then6
+  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp1.i = icmp eq i32 %pad, 3
   %cond.i = select i1 %cmp1.i, i8 32, i8 48
-  %cmp2.i.i.i.i = icmp sgt i32 %sub, 0
-  br i1 %cmp2.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit
-
-for.body.lr.ph.i.i.i.i:                           ; preds = %if.end.i
   %size_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 16
   %capacity_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 24
   %ptr_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 8
   br label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %for.body.lr.ph.i.i.i.i
-  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %for.body.lr.ph.i.i.i.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
+for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.end.i
+  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %if.end.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
   %9 = load i64, ptr %size_.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i = add i64 %9, 1
   %10 = load i64, ptr %capacity_.i.i.i.i.i.i.i, align 8
@@ -157869,7 +157733,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
   %cmp.i.i.i.i9 = icmp sgt i32 %__n.addr.03.i.i.i.i, 1
   br i1 %cmp.i.i.i.i9, label %for.body.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, !llvm.loop !2223
 
-_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6, %if.end.i
+_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %out, align 8
   br label %if.end10
 
@@ -161115,24 +160979,20 @@ _ZN3fmt3v106detail18to_nonnegative_intIdiTnNSt9enable_ifIXntsr3std11is_integralI
   br i1 %cmp, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %_ZN3fmt3v106detail18to_nonnegative_intIdiTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
-  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp.i9 = icmp eq i32 %pad, 1
   br i1 %cmp.i9, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then6
+  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp1.i10 = icmp eq i32 %pad, 3
   %cond.i = select i1 %cmp1.i10, i8 32, i8 48
-  %cmp2.i.i.i.i = icmp sgt i32 %sub, 0
-  br i1 %cmp2.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit
-
-for.body.lr.ph.i.i.i.i:                           ; preds = %if.end.i
   %size_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 16
   %capacity_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 24
   %ptr_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 8
   br label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %for.body.lr.ph.i.i.i.i
-  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %for.body.lr.ph.i.i.i.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
+for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.end.i
+  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %if.end.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
   %15 = load i64, ptr %size_.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i = add i64 %15, 1
   %16 = load i64, ptr %capacity_.i.i.i.i.i.i.i, align 8
@@ -161158,7 +161018,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
   %cmp.i.i.i.i11 = icmp sgt i32 %__n.addr.03.i.i.i.i, 1
   br i1 %cmp.i.i.i.i11, label %for.body.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, !llvm.loop !2223
 
-_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6, %if.end.i
+_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %out, align 8
   br label %if.end10
 
@@ -163365,24 +163225,20 @@ _ZN3fmt3v106detail18to_nonnegative_intIxiTnNSt9enable_ifIXsr3std11is_integralIT_
   br i1 %cmp, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %_ZN3fmt3v106detail18to_nonnegative_intIxiTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
-  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp.i8 = icmp eq i32 %pad, 1
   br i1 %cmp.i8, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then6
+  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp1.i = icmp eq i32 %pad, 3
   %cond.i = select i1 %cmp1.i, i8 32, i8 48
-  %cmp2.i.i.i.i = icmp sgt i32 %sub, 0
-  br i1 %cmp2.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit
-
-for.body.lr.ph.i.i.i.i:                           ; preds = %if.end.i
   %size_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 16
   %capacity_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 24
   %ptr_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 8
   br label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %for.body.lr.ph.i.i.i.i
-  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %for.body.lr.ph.i.i.i.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
+for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.end.i
+  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %if.end.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
   %9 = load i64, ptr %size_.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i = add i64 %9, 1
   %10 = load i64, ptr %capacity_.i.i.i.i.i.i.i, align 8
@@ -163408,7 +163264,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
   %cmp.i.i.i.i9 = icmp sgt i32 %__n.addr.03.i.i.i.i, 1
   br i1 %cmp.i.i.i.i9, label %for.body.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, !llvm.loop !2223
 
-_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6, %if.end.i
+_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %out, align 8
   br label %if.end10
 
@@ -165822,24 +165678,20 @@ _ZN3fmt3v106detail18to_nonnegative_intIxiTnNSt9enable_ifIXsr3std11is_integralIT_
   br i1 %cmp, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %_ZN3fmt3v106detail18to_nonnegative_intIxiTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
-  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp.i8 = icmp eq i32 %pad, 1
   br i1 %cmp.i8, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then6
+  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp1.i = icmp eq i32 %pad, 3
   %cond.i = select i1 %cmp1.i, i8 32, i8 48
-  %cmp2.i.i.i.i = icmp sgt i32 %sub, 0
-  br i1 %cmp2.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit
-
-for.body.lr.ph.i.i.i.i:                           ; preds = %if.end.i
   %size_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 16
   %capacity_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 24
   %ptr_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 8
   br label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %for.body.lr.ph.i.i.i.i
-  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %for.body.lr.ph.i.i.i.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
+for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.end.i
+  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %if.end.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
   %9 = load i64, ptr %size_.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i = add i64 %9, 1
   %10 = load i64, ptr %capacity_.i.i.i.i.i.i.i, align 8
@@ -165865,7 +165717,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
   %cmp.i.i.i.i9 = icmp sgt i32 %__n.addr.03.i.i.i.i, 1
   br i1 %cmp.i.i.i.i9, label %for.body.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, !llvm.loop !2223
 
-_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6, %if.end.i
+_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %out, align 8
   br label %if.end10
 
@@ -168222,24 +168074,20 @@ _ZN3fmt3v106detail18to_nonnegative_intIaiTnNSt9enable_ifIXsr3std11is_integralIT_
   br i1 %cmp, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %_ZN3fmt3v106detail18to_nonnegative_intIaiTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
-  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp.i8 = icmp eq i32 %pad, 1
   br i1 %cmp.i8, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then6
+  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp1.i = icmp eq i32 %pad, 3
   %cond.i = select i1 %cmp1.i, i8 32, i8 48
-  %cmp2.i.i.i.i = icmp sgt i32 %sub, 0
-  br i1 %cmp2.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit
-
-for.body.lr.ph.i.i.i.i:                           ; preds = %if.end.i
   %size_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 16
   %capacity_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 24
   %ptr_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 8
   br label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %for.body.lr.ph.i.i.i.i
-  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %for.body.lr.ph.i.i.i.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
+for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.end.i
+  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %if.end.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
   %9 = load i64, ptr %size_.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i = add i64 %9, 1
   %10 = load i64, ptr %capacity_.i.i.i.i.i.i.i, align 8
@@ -168265,7 +168113,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
   %cmp.i.i.i.i9 = icmp sgt i32 %__n.addr.03.i.i.i.i, 1
   br i1 %cmp.i.i.i.i9, label %for.body.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, !llvm.loop !2223
 
-_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6, %if.end.i
+_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %out, align 8
   br label %if.end10
 
@@ -170161,24 +170009,20 @@ _ZN3fmt3v106detail18to_nonnegative_intIsiTnNSt9enable_ifIXsr3std11is_integralIT_
   br i1 %cmp, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %_ZN3fmt3v106detail18to_nonnegative_intIsiTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
-  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp.i8 = icmp eq i32 %pad, 1
   br i1 %cmp.i8, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then6
+  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp1.i = icmp eq i32 %pad, 3
   %cond.i = select i1 %cmp1.i, i8 32, i8 48
-  %cmp2.i.i.i.i = icmp sgt i32 %sub, 0
-  br i1 %cmp2.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit
-
-for.body.lr.ph.i.i.i.i:                           ; preds = %if.end.i
   %size_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 16
   %capacity_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 24
   %ptr_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 8
   br label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %for.body.lr.ph.i.i.i.i
-  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %for.body.lr.ph.i.i.i.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
+for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.end.i
+  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %if.end.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
   %9 = load i64, ptr %size_.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i = add i64 %9, 1
   %10 = load i64, ptr %capacity_.i.i.i.i.i.i.i, align 8
@@ -170204,7 +170048,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
   %cmp.i.i.i.i9 = icmp sgt i32 %__n.addr.03.i.i.i.i, 1
   br i1 %cmp.i.i.i.i9, label %for.body.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, !llvm.loop !2223
 
-_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6, %if.end.i
+_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %out, align 8
   br label %if.end10
 
@@ -219600,24 +219444,20 @@ _ZN3fmt3v106detail18to_nonnegative_intImiTnNSt9enable_ifIXsr3std11is_integralIT_
   br i1 %cmp, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %_ZN3fmt3v106detail18to_nonnegative_intImiTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
-  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp.i = icmp eq i32 %pad, 1
   br i1 %cmp.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then6
+  %sub = sub nsw i32 %width, %conv1.i.i
   %cmp1.i = icmp eq i32 %pad, 3
   %cond.i = select i1 %cmp1.i, i8 32, i8 48
-  %cmp2.i.i.i.i = icmp sgt i32 %sub, 0
-  br i1 %cmp2.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit
-
-for.body.lr.ph.i.i.i.i:                           ; preds = %if.end.i
   %size_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 16
   %capacity_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 24
   %ptr_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 8
   br label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %for.body.lr.ph.i.i.i.i
-  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %for.body.lr.ph.i.i.i.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
+for.body.i.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.end.i
+  %__n.addr.03.i.i.i.i = phi i32 [ %sub, %if.end.i ], [ %dec.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i ]
   %9 = load i64, ptr %size_.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i = add i64 %9, 1
   %10 = load i64, ptr %capacity_.i.i.i.i.i.i.i, align 8
@@ -219643,7 +219483,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
   %cmp.i.i.i.i8 = icmp sgt i32 %__n.addr.03.i.i.i.i, 1
   br i1 %cmp.i.i.i.i8, label %for.body.i.i.i.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit, !llvm.loop !2223
 
-_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6, %if.end.i
+_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeEi.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i, %if.then6
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %out, align 8
   br label %if.end10
 

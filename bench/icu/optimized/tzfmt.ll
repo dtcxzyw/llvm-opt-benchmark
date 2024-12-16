@@ -5843,10 +5843,7 @@ if.else.i.i:                                      ; preds = %if.end15
   %shr.i.i = sext i16 %12 to i32
   %cond.i = select i1 %cmp.i.i, i32 %11, i32 %shr.i.i
   %spec.select.i.i = tail call i32 @llvm.smin.i32(i32 %cond.i, i32 0)
-  %cmp5.i.i.i = icmp slt i32 %cond.i, 0
-  %sub.i.i.i = sub nsw i32 %cond.i, %spec.select.i.i
-  %spec.select9.i.i = tail call i32 @llvm.smin.i32(i32 %cond.i, i32 %sub.i.i.i)
-  %srcLength.addr.0.i.i = select i1 %cmp5.i.i.i, i32 0, i32 %spec.select9.i.i
+  %srcLength.addr.0.i.i = tail call i32 @llvm.smax.i32(i32 %cond.i, i32 0)
   %13 = and i16 %7, 2
   %tobool.not.i.i.i = icmp eq i16 %13, 0
   %fBuffer.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 1074
@@ -7746,33 +7743,33 @@ if.then.i.i18:                                    ; preds = %land.lhs.true12
   %14 = trunc i16 %13 to i8
   %15 = and i8 %14, 1
   %conv.i.i20 = xor i8 %15, 1
-  br label %_ZNK6icu_7513UnicodeString11caseCompareEiiRKS0_j.exit37
+  br label %_ZNK6icu_7513UnicodeString11caseCompareEiiRKS0_j.exit34
 
 if.else.i.i22:                                    ; preds = %land.lhs.true12
   %16 = and i16 %10, 2
-  %tobool.not.i.i.i32 = icmp eq i16 %16, 0
-  %fBuffer.i.i.i33 = getelementptr inbounds nuw i8, ptr %this, i64 1210
-  %fArray.i.i.i34 = getelementptr inbounds nuw i8, ptr %this, i64 1224
-  %17 = load ptr, ptr %fArray.i.i.i34, align 8
-  %cond.i.i.i35 = select i1 %tobool.not.i.i.i32, ptr %17, ptr %fBuffer.i.i.i33
-  %call5.i.i36 = tail call noundef signext i8 @_ZNK6icu_7513UnicodeString13doCaseCompareEiiPKDsiij(ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %add9, i32 noundef %cond.i14, ptr noundef %cond.i.i.i35, i32 noundef 0, i32 noundef %cond.i14, i32 noundef 0)
-  br label %_ZNK6icu_7513UnicodeString11caseCompareEiiRKS0_j.exit37
+  %tobool.not.i.i.i29 = icmp eq i16 %16, 0
+  %fBuffer.i.i.i30 = getelementptr inbounds nuw i8, ptr %this, i64 1210
+  %fArray.i.i.i31 = getelementptr inbounds nuw i8, ptr %this, i64 1224
+  %17 = load ptr, ptr %fArray.i.i.i31, align 8
+  %cond.i.i.i32 = select i1 %tobool.not.i.i.i29, ptr %17, ptr %fBuffer.i.i.i30
+  %call5.i.i33 = tail call noundef signext i8 @_ZNK6icu_7513UnicodeString13doCaseCompareEiiPKDsiij(ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %add9, i32 noundef %cond.i14, ptr noundef %cond.i.i.i32, i32 noundef 0, i32 noundef %cond.i14, i32 noundef 0)
+  br label %_ZNK6icu_7513UnicodeString11caseCompareEiiRKS0_j.exit34
 
-_ZNK6icu_7513UnicodeString11caseCompareEiiRKS0_j.exit37: ; preds = %if.then.i.i18, %if.else.i.i22
-  %retval.0.i.i21 = phi i8 [ %conv.i.i20, %if.then.i.i18 ], [ %call5.i.i36, %if.else.i.i22 ]
+_ZNK6icu_7513UnicodeString11caseCompareEiiRKS0_j.exit34: ; preds = %if.then.i.i18, %if.else.i.i22
+  %retval.0.i.i21 = phi i8 [ %conv.i.i20, %if.then.i.i18 ], [ %call5.i.i33, %if.else.i.i22 ]
   %cmp16.not = icmp eq i8 %retval.0.i.i21, 0
   br i1 %cmp16.not, label %do.end, label %18
 
-do.end:                                           ; preds = %if.end8, %_ZNK6icu_7513UnicodeString11caseCompareEiiRKS0_j.exit37
+do.end:                                           ; preds = %if.end8, %_ZNK6icu_7513UnicodeString11caseCompareEiiRKS0_j.exit34
   %add19 = add i32 %9, %cond.i
   %sub = add i32 %add19, %cond.i14
   br label %18
 
-18:                                               ; preds = %_ZNK6icu_7513UnicodeString11caseCompareEiiRKS0_j.exit37, %if.end, %_ZNK6icu_7513UnicodeString11caseCompareEiiRKS0_j.exit, %do.end
-  %offset.042 = phi i32 [ %call5, %do.end ], [ %call5, %_ZNK6icu_7513UnicodeString11caseCompareEiiRKS0_j.exit37 ], [ %call5, %if.end ], [ 0, %_ZNK6icu_7513UnicodeString11caseCompareEiiRKS0_j.exit ]
-  %19 = phi i32 [ %sub, %do.end ], [ 0, %_ZNK6icu_7513UnicodeString11caseCompareEiiRKS0_j.exit37 ], [ 0, %if.end ], [ 0, %_ZNK6icu_7513UnicodeString11caseCompareEiiRKS0_j.exit ]
+18:                                               ; preds = %_ZNK6icu_7513UnicodeString11caseCompareEiiRKS0_j.exit34, %if.end, %_ZNK6icu_7513UnicodeString11caseCompareEiiRKS0_j.exit, %do.end
+  %offset.039 = phi i32 [ %call5, %do.end ], [ %call5, %_ZNK6icu_7513UnicodeString11caseCompareEiiRKS0_j.exit34 ], [ %call5, %if.end ], [ 0, %_ZNK6icu_7513UnicodeString11caseCompareEiiRKS0_j.exit ]
+  %19 = phi i32 [ %sub, %do.end ], [ 0, %_ZNK6icu_7513UnicodeString11caseCompareEiiRKS0_j.exit34 ], [ 0, %if.end ], [ 0, %_ZNK6icu_7513UnicodeString11caseCompareEiiRKS0_j.exit ]
   store i32 %19, ptr %parsedLen, align 4
-  ret i32 %offset.042
+  ret i32 %offset.039
 }
 
 ; Function Attrs: mustprogress uwtable
