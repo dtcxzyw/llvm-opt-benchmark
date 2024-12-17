@@ -10669,10 +10669,10 @@ default.unreachable:                              ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 792
   %15 = load i64, ptr %14, align 8, !alias.scope !2585, !noundef !4
   %storemerge.i = tail call i64 @llvm.usub.sat.i64(i64 %15, i64 %3)
-  %.0.i = tail call i64 @llvm.umin.i64(i64 %15, i64 %3)
   store i64 %storemerge.i, ptr %14, align 8, !alias.scope !2585
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
+  %.0.i = tail call i64 @llvm.umin.i64(i64 %15, i64 %3)
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %2, ptr %16, align 8, !alias.scope !2588, !noalias !2591
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 16

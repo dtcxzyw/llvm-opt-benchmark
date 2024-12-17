@@ -30466,6 +30466,7 @@ define hidden noundef zeroext i1 @_ZN3ide11inlay_hints13closing_brace5hints17hd9
   %trunc = trunc nuw i64 %70 to i1
   %71 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %72 = load i64, ptr %71, align 8
+  %.sroa.6.0 = select i1 %trunc, i64 %72, i64 undef
   br i1 %trunc, label %73, label %1093
 
 73:                                               ; preds = %5
@@ -33168,7 +33169,7 @@ _ZN5rowan11syntax_text10SyntaxText15try_fold_chunks17h0b0e7de83f1be303E.llvm.168
 "_ZN4core3ptr51drop_in_place$LT$rowan..syntax_text..SyntaxText$GT$17h1328efa0683cd8a6E.exit582": ; preds = %995, %1001
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   %1002 = load i64, ptr %15, align 8, !noundef !22
-  %1003 = icmp ugt i64 %72, %1002
+  %1003 = icmp ult i64 %1002, %.sroa.6.0
   br i1 %1003, label %1004, label %1005
 
 1004:                                             ; preds = %"_ZN4core3ptr51drop_in_place$LT$rowan..syntax_text..SyntaxText$GT$17h1328efa0683cd8a6E.exit582"
