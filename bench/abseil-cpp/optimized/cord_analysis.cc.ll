@@ -143,14 +143,14 @@ if.end.i:                                         ; preds = %if.then.i
   %shr.i.i.i.i = ashr i32 %5, 1
   %conv.i.i.i.i = sext i32 %shr.i.i.i.i to i64
   %conv.i2.i.i.i = uitofp i64 %conv.i.i.i.i to double
-  %div.i.i.i.i = fdiv double %div.i.i.i, %conv.i2.i.i.i
+  %cond.i.i.i.i = fdiv double %div.i.i.i, %conv.i2.i.i.i
   %tag.i.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %4, i64 12
   %.pre.i = load i8, ptr %tag.i.phi.trans.insert.i, align 4
   br label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.end.i, %entry
   %6 = phi i8 [ %.pre.i, %if.end.i ], [ %1, %entry ]
-  %repref.sroa.8.0.i = phi double [ %div.i.i.i.i, %if.end.i ], [ %div.i.i.i, %entry ]
+  %repref.sroa.8.0.i = phi double [ %cond.i.i.i.i, %if.end.i ], [ %div.i.i.i, %entry ]
   %repref.sroa.0.0.i = phi ptr [ %4, %if.end.i ], [ %rep, %entry ]
   %or.cond.i.i = icmp ugt i8 %6, 4
   br i1 %or.cond.i.i, label %if.end.i3.i, label %if.end.i.i
@@ -177,26 +177,28 @@ if.then.i.i:                                      ; preds = %_ZN4absl13cord_inte
   %11 = load atomic i32, ptr %refcount.i.i.i.i acquire, align 4
   %shr.i.i.i.i.i = ashr i32 %11, 1
   %conv.i.i.i.i.i = sext i32 %shr.i.i.i.i.i to i64
+  %cmp.i.i.i.i.i = icmp eq i32 %shr.i.i.i.i.i, 1
   %conv.i2.i.i.i.i = uitofp i64 %conv.i.i.i.i.i to double
   %div.i.i.i.i.i = fdiv double %repref.sroa.8.0.i, %conv.i2.i.i.i.i
-  %.pre.i7.i = load i8, ptr %tag9.phi.trans.insert.i.i, align 4
+  %cond.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, double %repref.sroa.8.0.i, double %div.i.i.i.i.i
+  %.pre.i8.i = load i8, ptr %tag9.phi.trans.insert.i.i, align 4
   br label %if.end.i3.i
 
 if.end.i3.i:                                      ; preds = %if.then.i.i, %if.end10.i
-  %12 = phi i8 [ %.pre.i7.i, %if.then.i.i ], [ %6, %if.end10.i ]
-  %rep.sroa.4.0.i.i = phi double [ %div.i.i.i.i.i, %if.then.i.i ], [ %repref.sroa.8.0.i, %if.end10.i ]
+  %12 = phi i8 [ %.pre.i8.i, %if.then.i.i ], [ %6, %if.end10.i ]
+  %rep.sroa.4.0.i.i = phi double [ %cond.i.i.i.i.i, %if.then.i.i ], [ %repref.sroa.8.0.i, %if.end10.i ]
   %rep.sroa.0.0.i.i = phi ptr [ %7, %if.then.i.i ], [ %repref.sroa.0.0.i, %if.end10.i ]
   %cmp7.i.i = icmp ugt i8 %12, 5
   br i1 %cmp7.i.i, label %cond.true.i.i, label %cond.false.i.i
 
 cond.true.i.i:                                    ; preds = %if.end.i3.i
   %conv.i.i.i5.i = zext i8 %12 to i32
-  %cmp.i.i.i.i = icmp ult i8 %12, 67
+  %cmp.i.i.i6.i = icmp ult i8 %12, 67
   %cmp3.i.i.i.i = icmp ult i8 %12, -69
   %..i.i.i.i = select i1 %cmp3.i.i.i.i, i32 6, i32 12
   %.6.i.i.i.i = select i1 %cmp3.i.i.i.i, i32 -3712, i32 -753664
-  %.sink5.i.i.i.i = select i1 %cmp.i.i.i.i, i32 3, i32 %..i.i.i.i
-  %.sink.i.i.i.i = select i1 %cmp.i.i.i.i, i32 -16, i32 %.6.i.i.i.i
+  %.sink5.i.i.i.i = select i1 %cmp.i.i.i6.i, i32 3, i32 %..i.i.i.i
+  %.sink.i.i.i.i = select i1 %cmp.i.i.i6.i, i32 -16, i32 %.6.i.i.i.i
   %mul6.i.i.i.i = shl nuw nsw i32 %conv.i.i.i5.i, %.sink5.i.i.i.i
   %sub8.i.i.i.i = add nsw i32 %mul6.i.i.i.i, %.sink.i.i.i.i
   %conv17.i.i.i.i = sext i32 %sub8.i.i.i.i to i64
@@ -538,11 +540,11 @@ entry:
   %4 = load i8, ptr %arrayidx.i.i.i19, align 1
   %conv.i.i.i20 = zext i8 %4 to i64
   %add.ptr.i25 = getelementptr inbounds nuw ptr, ptr %edges_.i15, i64 %conv.i.i.i20
-  %cmp17.not42 = icmp eq i8 %3, %4
+  %cmp17.not45 = icmp eq i8 %3, %4
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  br i1 %cmp17.not42, label %if.end, label %for.body.preheader
+  br i1 %cmp17.not45, label %if.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %if.then
   %conv.i.i = zext i8 %3 to i64
@@ -550,21 +552,23 @@ for.body.preheader:                               ; preds = %if.then
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
-  %__begin4.041 = phi ptr [ %incdec.ptr, %for.body ], [ %add.ptr.i, %for.body.preheader ]
-  %5 = load ptr, ptr %__begin4.041, align 8
+  %__begin4.044 = phi ptr [ %incdec.ptr, %for.body ], [ %add.ptr.i, %for.body.preheader ]
+  %5 = load ptr, ptr %__begin4.044, align 8
   %refcount.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %6 = load atomic i32, ptr %refcount.i.i acquire, align 4
   %shr.i.i.i = ashr i32 %6, 1
   %conv.i.i.i12 = sext i32 %shr.i.i.i to i64
+  %cmp.i.i.i = icmp eq i32 %shr.i.i.i, 1
   %conv.i2.i.i = uitofp i64 %conv.i.i.i12 to double
   %div.i.i.i = fdiv double %rep.coerce1, %conv.i2.i.i
-  tail call fastcc void @_ZN4absl13cord_internal12_GLOBAL__N_112AnalyzeBtreeILNS1_4ModeE0EEEvNS1_10CordRepRefIXT_EEERNS1_8RawUsageIXT_EEE(ptr %5, double %div.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %raw_usage)
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin4.041, i64 8
+  %cond.i.i.i = select i1 %cmp.i.i.i, double %rep.coerce1, double %div.i.i.i
+  tail call fastcc void @_ZN4absl13cord_internal12_GLOBAL__N_112AnalyzeBtreeILNS1_4ModeE0EEEvNS1_10CordRepRefIXT_EEERNS1_8RawUsageIXT_EEE(ptr %5, double %cond.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %raw_usage)
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin4.044, i64 8
   %cmp6.not = icmp eq ptr %incdec.ptr, %add.ptr.i25
   br i1 %cmp6.not, label %if.end, label %for.body
 
 if.else:                                          ; preds = %entry
-  br i1 %cmp17.not42, label %if.end, label %for.body18.preheader
+  br i1 %cmp17.not45, label %if.end, label %for.body18.preheader
 
 for.body18.preheader:                             ; preds = %if.else
   %conv.i.i17 = zext i8 %3 to i64
@@ -572,14 +576,16 @@ for.body18.preheader:                             ; preds = %if.else
   br label %for.body18
 
 for.body18:                                       ; preds = %for.body18.preheader, %_ZN4absl13cord_internal12_GLOBAL__N_115AnalyzeDataEdgeILNS1_4ModeE0EEEvNS1_10CordRepRefIXT_EEERNS1_8RawUsageIXT_EEE.exit
-  %__begin412.043 = phi ptr [ %incdec.ptr23, %_ZN4absl13cord_internal12_GLOBAL__N_115AnalyzeDataEdgeILNS1_4ModeE0EEEvNS1_10CordRepRefIXT_EEERNS1_8RawUsageIXT_EEE.exit ], [ %add.ptr.i18, %for.body18.preheader ]
-  %7 = load ptr, ptr %__begin412.043, align 8
+  %__begin412.046 = phi ptr [ %incdec.ptr23, %_ZN4absl13cord_internal12_GLOBAL__N_115AnalyzeDataEdgeILNS1_4ModeE0EEEvNS1_10CordRepRefIXT_EEERNS1_8RawUsageIXT_EEE.exit ], [ %add.ptr.i18, %for.body18.preheader ]
+  %7 = load ptr, ptr %__begin412.046, align 8
   %refcount.i.i27 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %8 = load atomic i32, ptr %refcount.i.i27 acquire, align 4
   %shr.i.i.i28 = ashr i32 %8, 1
   %conv.i.i.i29 = sext i32 %shr.i.i.i28 to i64
-  %conv.i2.i.i30 = uitofp i64 %conv.i.i.i29 to double
-  %div.i.i.i31 = fdiv double %rep.coerce1, %conv.i2.i.i30
+  %cmp.i.i.i30 = icmp eq i32 %shr.i.i.i28, 1
+  %conv.i2.i.i31 = uitofp i64 %conv.i.i.i29 to double
+  %div.i.i.i32 = fdiv double %rep.coerce1, %conv.i2.i.i31
+  %cond.i.i.i33 = select i1 %cmp.i.i.i30, double %rep.coerce1, double %div.i.i.i32
   %tag.i = getelementptr inbounds nuw i8, ptr %7, i64 12
   %9 = load i8, ptr %tag.i, align 4
   %cmp.i = icmp eq i8 %9, 1
@@ -587,7 +593,7 @@ for.body18:                                       ; preds = %for.body18.preheade
 
 if.then.i:                                        ; preds = %for.body18
   %10 = load double, ptr %raw_usage, align 8
-  %11 = tail call double @llvm.fmuladd.f64(double %div.i.i.i31, double 3.200000e+01, double %10)
+  %11 = tail call double @llvm.fmuladd.f64(double %cond.i.i.i33, double 3.200000e+01, double %10)
   store double %11, ptr %raw_usage, align 8
   %child.i = getelementptr inbounds nuw i8, ptr %7, i64 24
   %12 = load ptr, ptr %child.i, align 8
@@ -595,28 +601,30 @@ if.then.i:                                        ; preds = %for.body18
   %13 = load atomic i32, ptr %refcount.i.i.i acquire, align 4
   %shr.i.i.i.i = ashr i32 %13, 1
   %conv.i.i.i.i = sext i32 %shr.i.i.i.i to i64
+  %cmp.i.i.i.i = icmp eq i32 %shr.i.i.i.i, 1
   %conv.i2.i.i.i = uitofp i64 %conv.i.i.i.i to double
-  %div.i.i.i.i = fdiv double %div.i.i.i31, %conv.i2.i.i.i
+  %div.i.i.i.i = fdiv double %cond.i.i.i33, %conv.i2.i.i.i
+  %cond.i.i.i.i = select i1 %cmp.i.i.i.i, double %cond.i.i.i33, double %div.i.i.i.i
   %tag5.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %12, i64 12
   %.pre.i = load i8, ptr %tag5.phi.trans.insert.i, align 4
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %for.body18
   %14 = phi i8 [ %.pre.i, %if.then.i ], [ %9, %for.body18 ]
-  %rep.sroa.4.0.i = phi double [ %div.i.i.i.i, %if.then.i ], [ %div.i.i.i31, %for.body18 ]
+  %rep.sroa.4.0.i = phi double [ %cond.i.i.i.i, %if.then.i ], [ %cond.i.i.i33, %for.body18 ]
   %rep.sroa.0.0.i = phi ptr [ %12, %if.then.i ], [ %7, %for.body18 ]
   %cmp7.i = icmp ugt i8 %14, 5
   br i1 %cmp7.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %if.end.i
-  %conv.i.i.i35 = zext i8 %14 to i32
-  %cmp.i.i.i = icmp ult i8 %14, 67
+  %conv.i.i.i37 = zext i8 %14 to i32
+  %cmp.i.i.i38 = icmp ult i8 %14, 67
   %cmp3.i.i.i = icmp ult i8 %14, -69
   %..i.i.i = select i1 %cmp3.i.i.i, i32 6, i32 12
   %.6.i.i.i = select i1 %cmp3.i.i.i, i32 -3712, i32 -753664
-  %.sink5.i.i.i = select i1 %cmp.i.i.i, i32 3, i32 %..i.i.i
-  %.sink.i.i.i = select i1 %cmp.i.i.i, i32 -16, i32 %.6.i.i.i
-  %mul6.i.i.i = shl nuw nsw i32 %conv.i.i.i35, %.sink5.i.i.i
+  %.sink5.i.i.i = select i1 %cmp.i.i.i38, i32 3, i32 %..i.i.i
+  %.sink.i.i.i = select i1 %cmp.i.i.i38, i32 -16, i32 %.6.i.i.i
+  %mul6.i.i.i = shl nuw nsw i32 %conv.i.i.i37, %.sink5.i.i.i
   %sub8.i.i.i = add nsw i32 %mul6.i.i.i, %.sink.i.i.i
   %conv17.i.i.i = sext i32 %sub8.i.i.i to i64
   br label %_ZN4absl13cord_internal12_GLOBAL__N_115AnalyzeDataEdgeILNS1_4ModeE0EEEvNS1_10CordRepRefIXT_EEERNS1_8RawUsageIXT_EEE.exit
@@ -628,11 +636,11 @@ cond.false.i:                                     ; preds = %if.end.i
 
 _ZN4absl13cord_internal12_GLOBAL__N_115AnalyzeDataEdgeILNS1_4ModeE0EEEvNS1_10CordRepRefIXT_EEERNS1_8RawUsageIXT_EEE.exit: ; preds = %cond.true.i, %cond.false.i
   %cond.i = phi i64 [ %conv17.i.i.i, %cond.true.i ], [ %add.i, %cond.false.i ]
-  %conv.i.i34 = uitofp i64 %cond.i to double
+  %conv.i.i36 = uitofp i64 %cond.i to double
   %16 = load double, ptr %raw_usage, align 8
-  %17 = tail call double @llvm.fmuladd.f64(double %conv.i.i34, double %rep.sroa.4.0.i, double %16)
+  %17 = tail call double @llvm.fmuladd.f64(double %conv.i.i36, double %rep.sroa.4.0.i, double %16)
   store double %17, ptr %raw_usage, align 8
-  %incdec.ptr23 = getelementptr inbounds nuw i8, ptr %__begin412.043, i64 8
+  %incdec.ptr23 = getelementptr inbounds nuw i8, ptr %__begin412.046, i64 8
   %cmp17.not = icmp eq ptr %incdec.ptr23, %add.ptr.i25
   br i1 %cmp17.not, label %if.end, label %for.body18
 

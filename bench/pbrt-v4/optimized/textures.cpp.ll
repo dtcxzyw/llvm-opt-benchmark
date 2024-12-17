@@ -11905,13 +11905,17 @@ entry:
   %arrayidx.i33 = getelementptr inbounds nuw i8, ptr %30, i64 12
   %31 = load float, ptr %arrayidx.i33, align 4
   %add93 = fadd float %add88, %31
+  %cmp = fcmp oeq float %add93, 1.000000e+00
   %div.i = fdiv float %add18, %add93
   %div2.i = fdiv float %add43, %add93
   %div3.i = fdiv float %add68, %add93
-  %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %div.i, i64 0
-  %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %div2.i, i64 1
+  %div.i.sink = select i1 %cmp, float %add18, float %div.i
+  %div2.i.sink = select i1 %cmp, float %add43, float %div2.i
+  %retval.sroa.4.0 = select i1 %cmp, float %add68, float %div3.i
+  %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %div.i.sink, i64 0
+  %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %div2.i.sink, i64 1
   %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %retval.sroa.0.4.vec.insert.i, 0
-  %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %div3.i, 1
+  %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %retval.sroa.4.0, 1
   ret { <2 x float>, float } %.fca.1.insert
 }
 
