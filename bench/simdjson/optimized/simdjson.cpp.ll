@@ -10791,12 +10791,12 @@ while.body:                                       ; preds = %while.body.backedge
   store <2 x i64> %.val, ptr %dst.addr.0, align 1
   %add.ptr1.i = getelementptr inbounds nuw i8, ptr %dst.addr.0, i64 16
   store <2 x i64> %.val8, ptr %add.ptr1.i, align 1
-  %1 = bitcast <2 x i64> %.val to <16 x i8>
-  %2 = bitcast <2 x i64> %.val8 to <16 x i8>
-  %3 = shufflevector <16 x i8> %1, <16 x i8> %2, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
-  %4 = icmp eq <32 x i8> %3, splat (i8 92)
-  %or.i.i = bitcast <32 x i1> %4 to i32
-  %5 = shufflevector <16 x i8> %1, <16 x i8> %2, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
+  %1 = shufflevector <2 x i64> %.val, <2 x i64> %.val8, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %2 = bitcast <4 x i64> %1 to <32 x i8>
+  %3 = icmp eq <32 x i8> %2, splat (i8 92)
+  %or.i.i = bitcast <32 x i1> %3 to i32
+  %4 = shufflevector <2 x i64> %.val, <2 x i64> %.val8, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %5 = bitcast <4 x i64> %4 to <32 x i8>
   %6 = icmp eq <32 x i8> %5, splat (i8 34)
   %bs_quote.sroa.4.0.extract.trunc = bitcast <32 x i1> %6 to i32
   %sub.i = add i32 %or.i.i, -1
@@ -11048,12 +11048,12 @@ while.body.i:                                     ; preds = %while.body.i.backed
   store <2 x i64> %.val.i, ptr %dst.addr.0.i, align 1
   %add.ptr1.i.i = getelementptr inbounds nuw i8, ptr %dst.addr.0.i, i64 16
   store <2 x i64> %.val8.i, ptr %add.ptr1.i.i, align 1
-  %1 = bitcast <2 x i64> %.val.i to <16 x i8>
-  %2 = bitcast <2 x i64> %.val8.i to <16 x i8>
-  %3 = shufflevector <16 x i8> %1, <16 x i8> %2, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
-  %4 = icmp eq <32 x i8> %3, splat (i8 92)
-  %or.i.i.i = bitcast <32 x i1> %4 to i32
-  %5 = shufflevector <16 x i8> %1, <16 x i8> %2, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
+  %1 = shufflevector <2 x i64> %.val.i, <2 x i64> %.val8.i, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %2 = bitcast <4 x i64> %1 to <32 x i8>
+  %3 = icmp eq <32 x i8> %2, splat (i8 92)
+  %or.i.i.i = bitcast <32 x i1> %3 to i32
+  %4 = shufflevector <2 x i64> %.val.i, <2 x i64> %.val8.i, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %5 = bitcast <4 x i64> %4 to <32 x i8>
   %6 = icmp eq <32 x i8> %5, splat (i8 34)
   %bs_quote.sroa.4.0.extract.trunc.i = bitcast <32 x i1> %6 to i32
   %sub.i.i = add i32 %or.i.i.i, -1
