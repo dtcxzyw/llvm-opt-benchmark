@@ -2125,7 +2125,7 @@ define range(i32 0, 21) i32 @cli_get_filepath_from_filedesc(i32 noundef %0, ptr 
   br label %20
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds nuw [4096 x i8], ptr %3, i64 0, i64 %10
+  %14 = getelementptr inbounds [4096 x i8], ptr %3, i64 0, i64 %10
   store i8 0, ptr %14, align 1
   %15 = call i64 @strnlen(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 4096) #23
   %16 = call noalias ptr @strndup(ptr noundef nonnull %3, i64 noundef %15) #22

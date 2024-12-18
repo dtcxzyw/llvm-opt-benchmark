@@ -103,7 +103,7 @@ define hidden i32 @SharpYuvGammaToLinear(i16 noundef zeroext %0, i32 noundef %1,
   %9 = sub nsw i32 10, %1
   %10 = shl i32 %7, %9
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds nuw [1026 x i32], ptr @kGammaToLinearTabS, i64 0, i64 %11
+  %12 = getelementptr inbounds [1026 x i32], ptr @kGammaToLinearTabS, i64 0, i64 %11
   %13 = load i32, ptr %12, align 4
   br label %ToLinearSrgb.exit
 

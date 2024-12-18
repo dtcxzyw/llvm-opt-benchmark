@@ -581,7 +581,7 @@ switch.lookup:
   %3 = load i8, ptr %2, align 1, !range !102, !alias.scope !99, !noalias !103, !noundef !30
   %switch.tableidx = add nsw i8 %3, -1
   %4 = sext i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @"switch.table._ZN65_$LT$pulldown_cmark..HeadingLevel$u20$as$u20$core..fmt..Debug$GT$3fmt17h344646bda2f138f5E", i64 0, i64 %4
+  %switch.gep = getelementptr inbounds [6 x ptr], ptr @"switch.table._ZN65_$LT$pulldown_cmark..HeadingLevel$u20$as$u20$core..fmt..Debug$GT$3fmt17h344646bda2f138f5E", i64 0, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef 2), !noalias !99
   ret i1 %5
@@ -4219,7 +4219,7 @@ switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !102, !noundef !30
   %switch.tableidx = add nsw i8 %2, -1
   %3 = sext i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @"switch.table._ZN65_$LT$pulldown_cmark..HeadingLevel$u20$as$u20$core..fmt..Debug$GT$3fmt17h344646bda2f138f5E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds [6 x ptr], ptr @"switch.table._ZN65_$LT$pulldown_cmark..HeadingLevel$u20$as$u20$core..fmt..Debug$GT$3fmt17h344646bda2f138f5E", i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef 2)
   ret i1 %4

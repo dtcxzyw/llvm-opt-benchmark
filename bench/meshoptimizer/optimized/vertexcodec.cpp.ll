@@ -75,7 +75,7 @@ for.body.lr.ph.split.us.i:                        ; preds = %for.body.lr.ph.i
 for.body.us.us.i:                                 ; preds = %for.body.lr.ph.split.us.i, %for.cond.us.us.i
   %k.033.us.us.i = phi i64 [ %inc14.us.us.i, %for.cond.us.us.i ], [ 0, %for.body.lr.ph.split.us.i ]
   %data.addr.032.us.us.i = phi ptr [ %add.ptr.i.us.us.i, %for.cond.us.us.i ], [ %data.060, %for.body.lr.ph.split.us.i ]
-  %arrayidx.us.us.i = getelementptr inbounds nuw i8, ptr %last_vertex, i64 %k.033.us.us.i
+  %arrayidx.us.us.i = getelementptr inbounds i8, ptr %last_vertex, i64 %k.033.us.us.i
   %p.0.us.us.pre.i = load i8, ptr %arrayidx.us.us.i, align 1
   br label %for.body3.us.us.i
 
@@ -96,7 +96,7 @@ for.body3.us.us.i:                                ; preds = %for.body3.us.us.i, 
   %7 = ashr i8 %sub.us.us.i, 7
   %shl.i.us.us.i = shl i8 %sub.us.us.i, 1
   %xor.i.us.us.i = xor i8 %shl.i.us.us.i, %7
-  %arrayidx7.us.us.i = getelementptr inbounds nuw [256 x i8], ptr %buffer.i, i64 0, i64 %i.030.us.us.i
+  %arrayidx7.us.us.i = getelementptr inbounds [256 x i8], ptr %buffer.i, i64 0, i64 %i.030.us.us.i
   store i8 %xor.i.us.us.i, ptr %arrayidx7.us.us.i, align 1
   %add.us.us.i = add i64 %vertex_offset.028.us.us.i, %vertex_size
   %inc.us.us.i = add nuw i64 %i.030.us.us.i, 1
@@ -143,7 +143,7 @@ for.body.i:                                       ; preds = %for.body.lr.ph.i, %
   br i1 %cmp227.not.i, label %for.end.i, label %for.body3.preheader.i
 
 for.body3.preheader.i:                            ; preds = %for.body.i
-  %arrayidx.i = getelementptr inbounds nuw i8, ptr %last_vertex, i64 %k.033.i
+  %arrayidx.i = getelementptr inbounds i8, ptr %last_vertex, i64 %k.033.i
   %p.0.pre.i = load i8, ptr %arrayidx.i, align 1
   br label %for.body3.i
 
@@ -157,7 +157,7 @@ for.body3.i:                                      ; preds = %for.body3.i, %for.b
   %9 = ashr i8 %sub.i, 7
   %shl.i.i = shl i8 %sub.i, 1
   %xor.i.i = xor i8 %shl.i.i, %9
-  %arrayidx7.i = getelementptr inbounds nuw [256 x i8], ptr %buffer.i, i64 0, i64 %i.030.i
+  %arrayidx7.i = getelementptr inbounds [256 x i8], ptr %buffer.i, i64 0, i64 %i.030.i
   store i8 %xor.i.i, ptr %arrayidx7.i, align 1
   %add.i = add i64 %vertex_offset.028.i, %vertex_size
   %inc.i = add nuw i64 %i.030.i, 1
@@ -184,7 +184,7 @@ for.body.i.i:                                     ; preds = %_ZN7meshoptL16encod
   br i1 %cmp6.i.i, label %_ZN7meshoptL17encodeVertexBlockEPhS0_PKhmmS0_.exit.thread, label %if.end8.i.i
 
 if.end8.i.i:                                      ; preds = %for.body.i.i
-  %add.ptr9.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %i.044.i.i
+  %add.ptr9.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %i.044.i.i
   br label %for.body12.i.i
 
 for.body12.i.i:                                   ; preds = %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i.i, %if.end8.i.i
@@ -521,7 +521,7 @@ for.body3:                                        ; preds = %for.cond1.preheader
   %data.addr.1156 = phi ptr [ %data.addr.0163, %for.cond1.preheader ], [ %retval.0.i, %for.cond1 ]
   %j.0155 = phi i64 [ 0, %for.cond1.preheader ], [ %inc, %for.cond1 ]
   %mul = mul i64 %j.0155, %and
-  %add.ptr = getelementptr inbounds nuw i8, ptr %buffer, i64 %mul
+  %add.ptr = getelementptr inbounds i8, ptr %buffer, i64 %mul
   %sub.ptr.rhs.cast.i = ptrtoint ptr %data.addr.1156 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp.i = icmp ult i64 %sub.ptr.sub.i, %div136.i
@@ -1249,14 +1249,14 @@ for.body11.preheader:                             ; preds = %for.end
   %196 = load i32, ptr %add.ptr4, align 4
   %vecinit3.i = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %196, i64 0
   %197 = bitcast <4 x i32> %vecinit3.i to <16 x i8>
-  %add.ptr7 = getelementptr inbounds nuw i8, ptr %transposed, i64 %k.0162
+  %add.ptr7 = getelementptr inbounds i8, ptr %transposed, i64 %k.0162
   br label %for.body11
 
 for.body11:                                       ; preds = %for.body11.preheader, %for.body11
   %j8.0160 = phi i64 [ %add100, %for.body11 ], [ 0, %for.body11.preheader ]
   %savep.0159 = phi ptr [ %add.ptr98, %for.body11 ], [ %add.ptr7, %for.body11.preheader ]
   %pi.0158 = phi <16 x i8> [ %add.i, %for.body11 ], [ %197, %for.body11.preheader ]
-  %add.ptr13 = getelementptr inbounds nuw i8, ptr %buffer, i64 %j8.0160
+  %add.ptr13 = getelementptr inbounds i8, ptr %buffer, i64 %j8.0160
   %198 = load <2 x i64>, ptr %add.ptr13, align 16
   %add.ptr20 = getelementptr inbounds i8, ptr %add.ptr13, i64 %and
   %199 = load <2 x i64>, ptr %add.ptr20, align 16
@@ -1415,7 +1415,7 @@ for.end104:                                       ; preds = %for.inc102, %entry
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %vertex_data, ptr nonnull align 16 %transposed, i64 %mul106, i1 false)
   %sub107 = add i64 %vertex_count, -1
   %mul108 = mul i64 %vertex_size, %sub107
-  %arrayidx = getelementptr inbounds nuw [8192 x i8], ptr %transposed, i64 0, i64 %mul108
+  %arrayidx = getelementptr inbounds [8192 x i8], ptr %transposed, i64 0, i64 %mul108
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %last_vertex, ptr nonnull align 1 %arrayidx, i64 %vertex_size, i1 false)
   br label %return
 
@@ -1470,14 +1470,14 @@ for.body3.us.us:                                  ; preds = %if.end.us.us, %for.
   %i.029.us.us = phi i64 [ 0, %if.end.us.us ], [ %inc.us.us, %for.body3.us.us ]
   %p.028.us.us = phi i8 [ %1, %if.end.us.us ], [ %add7.us.us, %for.body3.us.us ]
   %vertex_offset.027.us.us = phi i64 [ %k.032.us.us, %if.end.us.us ], [ %add10.us.us, %for.body3.us.us ]
-  %arrayidx4.us.us = getelementptr inbounds nuw [256 x i8], ptr %buffer, i64 0, i64 %i.029.us.us
+  %arrayidx4.us.us = getelementptr inbounds [256 x i8], ptr %buffer, i64 0, i64 %i.029.us.us
   %2 = load i8, ptr %arrayidx4.us.us, align 1
   %and.i18.us.us = and i8 %2, 1
   %sub.i.us.us = sub nsw i8 0, %and.i18.us.us
   %shr.i19.us.us = lshr i8 %2, 1
   %xor.i.us.us = xor i8 %shr.i19.us.us, %sub.i.us.us
   %add7.us.us = add i8 %xor.i.us.us, %p.028.us.us
-  %arrayidx9.us.us = getelementptr inbounds nuw [8192 x i8], ptr %transposed, i64 0, i64 %vertex_offset.027.us.us
+  %arrayidx9.us.us = getelementptr inbounds [8192 x i8], ptr %transposed, i64 0, i64 %vertex_offset.027.us.us
   store i8 %add7.us.us, ptr %arrayidx9.us.us, align 1
   %add10.us.us = add i64 %vertex_offset.027.us.us, %vertex_size
   %inc.us.us = add nuw i64 %i.029.us.us, 1
@@ -1535,7 +1535,7 @@ if.end8.i:                                        ; preds = %for.body.i
   %sh_prom.i = and i32 %5, 6
   %shr.i = lshr i32 %conv.i, %sh_prom.i
   %and.i = and i32 %shr.i, 3
-  %add.ptr11.i = getelementptr inbounds nuw i8, ptr %buffer, i64 %i.018.i
+  %add.ptr11.i = getelementptr inbounds i8, ptr %buffer, i64 %i.018.i
   switch i32 %and.i, label %default.unreachable [
     i32 0, label %sw.bb.i.i
     i32 1, label %sw.bb1.i.i
@@ -1869,14 +1869,14 @@ for.body3:                                        ; preds = %for.body3.preheader
   %i.029 = phi i64 [ %inc, %for.body3 ], [ 0, %for.body3.preheader ]
   %p.028 = phi i8 [ %add7, %for.body3 ], [ %58, %for.body3.preheader ]
   %vertex_offset.027 = phi i64 [ %add10, %for.body3 ], [ %k.032, %for.body3.preheader ]
-  %arrayidx4 = getelementptr inbounds nuw [256 x i8], ptr %buffer, i64 0, i64 %i.029
+  %arrayidx4 = getelementptr inbounds [256 x i8], ptr %buffer, i64 0, i64 %i.029
   %59 = load i8, ptr %arrayidx4, align 1
   %and.i18 = and i8 %59, 1
   %sub.i = sub nsw i8 0, %and.i18
   %shr.i19 = lshr i8 %59, 1
   %xor.i = xor i8 %shr.i19, %sub.i
   %add7 = add i8 %xor.i, %p.028
-  %arrayidx9 = getelementptr inbounds nuw [8192 x i8], ptr %transposed, i64 0, i64 %vertex_offset.027
+  %arrayidx9 = getelementptr inbounds [8192 x i8], ptr %transposed, i64 0, i64 %vertex_offset.027
   store i8 %add7, ptr %arrayidx9, align 1
   %add10 = add i64 %vertex_offset.027, %vertex_size
   %inc = add nuw i64 %i.029, 1
@@ -1894,7 +1894,7 @@ for.end13:                                        ; preds = %for.inc11, %for.con
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %vertex_data, ptr nonnull align 16 %transposed, i64 %mul, i1 false)
   %sub15 = add i64 %vertex_count, -1
   %mul16 = mul i64 %vertex_size, %sub15
-  %arrayidx17 = getelementptr inbounds nuw [8192 x i8], ptr %transposed, i64 0, i64 %mul16
+  %arrayidx17 = getelementptr inbounds [8192 x i8], ptr %transposed, i64 0, i64 %mul16
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %last_vertex, ptr nonnull align 1 %arrayidx17, i64 %vertex_size, i1 false)
   br label %return
 

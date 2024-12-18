@@ -22812,13 +22812,13 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_19PackedEnumParserArgIN
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(26) %7, i8 0, i64 26, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 1 dereferenceable(16) %47, i64 16, i1 false)
   %54 = sext i32 %51 to i64
-  %55 = getelementptr inbounds nuw i8, ptr %7, i64 %54
+  %55 = getelementptr inbounds i8, ptr %7, i64 %54
   %sext34 = shl i64 %50, 32
   %56 = ashr exact i64 %sext34, 32
-  %57 = getelementptr inbounds nuw i8, ptr %7, i64 %56
+  %57 = getelementptr inbounds i8, ptr %7, i64 %56
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %58 = icmp samesign ult i64 %56, %54
+  %58 = icmp slt i64 %56, %54
   br i1 %58, label %.lr.ph.i37, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_19PackedEnumParserArgINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcPvSB_PNS1_12ParseContextEPFbPKviESG_PNS1_16InternalMetadataEiEUlmE_EESB_SB_SB_T_.exit45
 
 .lr.ph.i37:                                       ; preds = %53, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i42

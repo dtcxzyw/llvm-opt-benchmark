@@ -69,7 +69,7 @@ define hidden void @_ZNK8Location8print_onEP12outputStream(ptr nocapture noundef
 
 23:                                               ; preds = %14
   %24 = sext i32 %20 to i64
-  %25 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN9VMRegImpl7regNameE, i64 0, i64 %24
+  %25 = getelementptr inbounds [0 x ptr], ptr @_ZN9VMRegImpl7regNameE, i64 0, i64 %24
   %26 = load ptr, ptr %25, align 8
   br label %_ZN9VMRegImpl4nameEv.exit
 

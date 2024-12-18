@@ -1098,7 +1098,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %17, %35, %48, %_ZNS
 _ZN10open_spiel5twixt5BoardaSERKS1_.exit:         ; preds = %.noexc10, %_ZNSt6vectorIlSaIlEED2Ev.exit.i
   %.idx.i = phi i64 [ %.add.i, %_ZNSt6vectorIlSaIlEED2Ev.exit.i ], [ 104, %.noexc10 ]
   %.add.i = add nsw i64 %.idx.i, -24
-  %.ptr1.i = getelementptr inbounds nuw i8, ptr %4, i64 %.add.i
+  %.ptr1.i = getelementptr inbounds i8, ptr %4, i64 %.add.i
   %74 = load ptr, ptr %.ptr1.i, align 8
   %.not.i.i.i.i11 = icmp eq ptr %74, null
   br i1 %.not.i.i.i.i11, label %_ZNSt6vectorIlSaIlEED2Ev.exit.i, label %75

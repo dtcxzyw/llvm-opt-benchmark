@@ -253,7 +253,7 @@ if.then14.i.i:                                    ; preds = %for.body12.i.i
 if.then19.i.i:                                    ; preds = %if.then14.i.i
   %div.i.i = sdiv i32 %nybbles.017.i.i, 2
   %idxprom20.i.i = sext i32 %div.i.i to i64
-  %arrayidx21.i.i = getelementptr inbounds nuw [64 x i8], ptr %entropy.i.i, i64 0, i64 %idxprom20.i.i
+  %arrayidx21.i.i = getelementptr inbounds [64 x i8], ptr %entropy.i.i, i64 0, i64 %idxprom20.i.i
   %11 = load i8, ptr %arrayidx21.i.i, align 1
   %conv23.i.i = or i8 %11, %call17.tr.i.i
   store i8 %conv23.i.i, ptr %arrayidx21.i.i, align 1
@@ -262,7 +262,7 @@ if.then19.i.i:                                    ; preds = %if.then14.i.i
 if.else.i.i:                                      ; preds = %if.then14.i.i
   %div24.i.i = ashr exact i32 %nybbles.017.i.i, 1
   %idxprom25.i.i = sext i32 %div24.i.i to i64
-  %arrayidx26.i.i = getelementptr inbounds nuw [64 x i8], ptr %entropy.i.i, i64 0, i64 %idxprom25.i.i
+  %arrayidx26.i.i = getelementptr inbounds [64 x i8], ptr %entropy.i.i, i64 0, i64 %idxprom25.i.i
   %12 = load i8, ptr %arrayidx26.i.i, align 1
   %13 = shl i8 %call17.tr.i.i, 4
   %conv29.i.i = or i8 %12, %13

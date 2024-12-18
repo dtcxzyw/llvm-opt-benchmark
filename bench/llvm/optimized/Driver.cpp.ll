@@ -11598,7 +11598,7 @@ switch.lookup:                                    ; preds = %26, %23
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load i32, ptr %28, align 8
   %30 = sext i32 %29 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN5clang6driver6Driver26getExecutableForDriverModeENS1_10DriverModeE, i64 0, i64 %30
+  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN5clang6driver6Driver26getExecutableForDriverModeENS1_10DriverModeE, i64 0, i64 %30
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #30
   %31 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #30
@@ -11845,7 +11845,7 @@ declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #8
 define dso_local noundef nonnull ptr @_ZN5clang6driver6Driver26getExecutableForDriverModeENS1_10DriverModeE(i32 noundef %0) local_unnamed_addr #9 align 2 {
 switch.lookup:
   %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN5clang6driver6Driver26getExecutableForDriverModeENS1_10DriverModeE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN5clang6driver6Driver26getExecutableForDriverModeENS1_10DriverModeE, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }

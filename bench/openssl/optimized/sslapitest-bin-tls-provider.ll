@@ -226,7 +226,7 @@ for.end.i:                                        ; preds = %if.end.i19, %for.co
   %inc5.i = add nsw i32 %1, 1
   store i32 %inc5.i, ptr @randomize_tls_alg_id.in_mem, align 4
   %idxprom6.i = sext i32 %1 to i64
-  %arrayidx7.i = getelementptr inbounds nuw [10 x i32], ptr @randomize_tls_alg_id.mem, i64 0, i64 %idxprom6.i
+  %arrayidx7.i = getelementptr inbounds [10 x i32], ptr @randomize_tls_alg_id.mem, i64 0, i64 %idxprom6.i
   store i32 %add.i, ptr %arrayidx7.i, align 4
   br label %randomize_tls_alg_id.exit
 
@@ -273,7 +273,7 @@ for.end.i30:                                      ; preds = %if.end.i26, %for.co
   %inc5.i31 = add nsw i32 %4, 1
   store i32 %inc5.i31, ptr @randomize_tls_alg_id.in_mem, align 4
   %idxprom6.i32 = sext i32 %4 to i64
-  %arrayidx7.i33 = getelementptr inbounds nuw [10 x i32], ptr @randomize_tls_alg_id.mem, i64 0, i64 %idxprom6.i32
+  %arrayidx7.i33 = getelementptr inbounds [10 x i32], ptr @randomize_tls_alg_id.mem, i64 0, i64 %idxprom6.i32
   store i32 %add.i28, ptr %arrayidx7.i33, align 4
   br label %randomize_tls_alg_id.exit47
 
@@ -320,7 +320,7 @@ for.end.i55:                                      ; preds = %if.end.i51, %for.co
   %inc5.i56 = add nsw i32 %7, 1
   store i32 %inc5.i56, ptr @randomize_tls_alg_id.in_mem, align 4
   %idxprom6.i57 = sext i32 %7 to i64
-  %arrayidx7.i58 = getelementptr inbounds nuw [10 x i32], ptr @randomize_tls_alg_id.mem, i64 0, i64 %idxprom6.i57
+  %arrayidx7.i58 = getelementptr inbounds [10 x i32], ptr @randomize_tls_alg_id.mem, i64 0, i64 %idxprom6.i57
   store i32 %add.i53, ptr %arrayidx7.i58, align 4
   br label %randomize_tls_alg_id.exit72
 
@@ -367,7 +367,7 @@ for.end.i80:                                      ; preds = %if.end.i76, %for.co
   %inc5.i81 = add nsw i32 %10, 1
   store i32 %inc5.i81, ptr @randomize_tls_alg_id.in_mem, align 4
   %idxprom6.i82 = sext i32 %10 to i64
-  %arrayidx7.i83 = getelementptr inbounds nuw [10 x i32], ptr @randomize_tls_alg_id.mem, i64 0, i64 %idxprom6.i82
+  %arrayidx7.i83 = getelementptr inbounds [10 x i32], ptr @randomize_tls_alg_id.mem, i64 0, i64 %idxprom6.i82
   store i32 %add.i78, ptr %arrayidx7.i83, align 4
   br label %randomize_tls_alg_id.exit97
 

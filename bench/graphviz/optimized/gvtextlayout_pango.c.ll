@@ -144,7 +144,7 @@ gv_strdup.exit:                                   ; preds = %32
   %57 = load ptr, ptr %56, align 8
   %58 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @pango_psfontResolve.buf, ptr noundef nonnull dereferenceable(1) %57) #14
   %strlen.i = tail call i64 @strlen(ptr nonnull dereferenceable(1) @pango_psfontResolve.buf)
-  %endptr.i = getelementptr inbounds nuw i8, ptr @pango_psfontResolve.buf, i64 %strlen.i
+  %endptr.i = getelementptr inbounds i8, ptr @pango_psfontResolve.buf, i64 %strlen.i
   store i16 44, ptr %endptr.i, align 1
   %59 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %60 = load ptr, ptr %59, align 8
@@ -153,7 +153,7 @@ gv_strdup.exit:                                   ; preds = %32
 
 61:                                               ; preds = %55
   %strlen7.i = tail call i64 @strlen(ptr nonnull dereferenceable(1) @pango_psfontResolve.buf)
-  %endptr8.i = getelementptr inbounds nuw i8, ptr @pango_psfontResolve.buf, i64 %strlen7.i
+  %endptr8.i = getelementptr inbounds i8, ptr @pango_psfontResolve.buf, i64 %strlen7.i
   store i16 32, ptr %endptr8.i, align 1
   %62 = load ptr, ptr %59, align 8
   %63 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) @pango_psfontResolve.buf, ptr noundef nonnull dereferenceable(1) %62) #14
@@ -167,7 +167,7 @@ gv_strdup.exit:                                   ; preds = %32
 
 67:                                               ; preds = %64
   %strlen10.i = tail call i64 @strlen(ptr nonnull dereferenceable(1) @pango_psfontResolve.buf)
-  %endptr11.i = getelementptr inbounds nuw i8, ptr @pango_psfontResolve.buf, i64 %strlen10.i
+  %endptr11.i = getelementptr inbounds i8, ptr @pango_psfontResolve.buf, i64 %strlen10.i
   store i16 32, ptr %endptr11.i, align 1
   %68 = load ptr, ptr %65, align 8
   %69 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) @pango_psfontResolve.buf, ptr noundef nonnull dereferenceable(1) %68) #14
@@ -181,7 +181,7 @@ gv_strdup.exit:                                   ; preds = %32
 
 73:                                               ; preds = %70
   %strlen13.i = tail call i64 @strlen(ptr nonnull dereferenceable(1) @pango_psfontResolve.buf)
-  %endptr14.i = getelementptr inbounds nuw i8, ptr @pango_psfontResolve.buf, i64 %strlen13.i
+  %endptr14.i = getelementptr inbounds i8, ptr @pango_psfontResolve.buf, i64 %strlen13.i
   store i16 32, ptr %endptr14.i, align 1
   %74 = load ptr, ptr %71, align 8
   %75 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) @pango_psfontResolve.buf, ptr noundef nonnull dereferenceable(1) %74) #14
@@ -221,30 +221,30 @@ pango_psfontResolve.exit:                         ; preds = %73, %70, %48, %76
 
 91:                                               ; preds = %87
   %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) @pango_textlayout.buf)
-  %endptr = getelementptr inbounds nuw i8, ptr @pango_textlayout.buf, i64 %strlen
+  %endptr = getelementptr inbounds i8, ptr @pango_textlayout.buf, i64 %strlen
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %endptr, ptr noundef nonnull align 1 dereferenceable(12) @.str.1, i64 12, i1 false)
   %92 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) @pango_textlayout.buf, ptr noundef nonnull dereferenceable(1) %.057) #14
   %strlen73 = tail call i64 @strlen(ptr nonnull dereferenceable(1) @pango_textlayout.buf)
-  %endptr74 = getelementptr inbounds nuw i8, ptr @pango_textlayout.buf, i64 %strlen73
+  %endptr74 = getelementptr inbounds i8, ptr @pango_textlayout.buf, i64 %strlen73
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %endptr74, ptr noundef nonnull align 1 dereferenceable(3) @.str.2, i64 3, i1 false)
   br label %93
 
 93:                                               ; preds = %91, %87
   %strlen75 = tail call i64 @strlen(ptr nonnull dereferenceable(1) @pango_textlayout.buf)
-  %endptr76 = getelementptr inbounds nuw i8, ptr @pango_textlayout.buf, i64 %strlen75
+  %endptr76 = getelementptr inbounds i8, ptr @pango_textlayout.buf, i64 %strlen75
   store i16 40, ptr %endptr76, align 1
   %94 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) @pango_textlayout.buf, ptr noundef nonnull dereferenceable(1) %90) #14
   %strlen77 = tail call i64 @strlen(ptr nonnull dereferenceable(1) @pango_textlayout.buf)
-  %endptr78 = getelementptr inbounds nuw i8, ptr @pango_textlayout.buf, i64 %strlen77
+  %endptr78 = getelementptr inbounds i8, ptr @pango_textlayout.buf, i64 %strlen77
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %endptr78, ptr noundef nonnull align 1 dereferenceable(3) @.str.2, i64 3, i1 false)
   %95 = tail call ptr @pango_font_describe(ptr noundef nonnull %86) #14
   %96 = tail call ptr @pango_font_description_to_string(ptr noundef %95) #14
   %strlen79 = tail call i64 @strlen(ptr nonnull dereferenceable(1) @pango_textlayout.buf)
-  %endptr80 = getelementptr inbounds nuw i8, ptr @pango_textlayout.buf, i64 %strlen79
+  %endptr80 = getelementptr inbounds i8, ptr @pango_textlayout.buf, i64 %strlen79
   store i16 34, ptr %endptr80, align 1
   %97 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) @pango_textlayout.buf, ptr noundef nonnull dereferenceable(1) %96) #14
   %strlen81 = tail call i64 @strlen(ptr nonnull dereferenceable(1) @pango_textlayout.buf)
-  %endptr82 = getelementptr inbounds nuw i8, ptr @pango_textlayout.buf, i64 %strlen81
+  %endptr82 = getelementptr inbounds i8, ptr @pango_textlayout.buf, i64 %strlen81
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %endptr82, ptr noundef nonnull align 1 dereferenceable(3) @.str.5, i64 3, i1 false)
   tail call void @g_free(ptr noundef %96) #14
   store ptr @pango_textlayout.buf, ptr %1, align 8

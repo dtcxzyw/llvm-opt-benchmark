@@ -240,7 +240,7 @@ while.body.i:                                     ; preds = %while.body.i, %if.e
   %shr.i = lshr i32 %probe.013.i, 1
   %add.i = add nsw i32 %shr.i, %pairIndex.114.i
   %idxprom2.i = sext i32 %add.i to i64
-  %arrayidx3.i = getelementptr inbounds nuw [34 x i32], ptr @_ZL11pairedChars, i64 0, i64 %idxprom2.i
+  %arrayidx3.i = getelementptr inbounds [34 x i32], ptr @_ZL11pairedChars, i64 0, i64 %idxprom2.i
   %10 = load i32, ptr %arrayidx3.i, align 4
   %cmp4.not.i = icmp slt i32 %ch.0, %10
   %spec.select12.i = select i1 %cmp4.not.i, i32 %pairIndex.114.i, i32 %add.i
@@ -249,7 +249,7 @@ while.body.i:                                     ; preds = %while.body.i, %if.e
 
 _ZL12getPairIndexi.exit:                          ; preds = %while.body.i
   %idxprom8.i = sext i32 %spec.select12.i to i64
-  %arrayidx9.i = getelementptr inbounds nuw [34 x i32], ptr @_ZL11pairedChars, i64 0, i64 %idxprom8.i
+  %arrayidx9.i = getelementptr inbounds [34 x i32], ptr @_ZL11pairedChars, i64 0, i64 %idxprom8.i
   %11 = load i32, ptr %arrayidx9.i, align 4
   %cmp10.not.i = icmp eq i32 %11, %ch.0
   %spec.store.select.i = select i1 %cmp10.not.i, i32 %spec.select12.i, i32 -1

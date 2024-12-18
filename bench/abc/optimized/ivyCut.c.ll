@@ -180,7 +180,7 @@ Ivy_NodeGetLeafCostOne.exit:                      ; preds = %13, %22, %23, %Vec_
 71:                                               ; preds = %69
   %72 = add nsw i32 %.0118, 1
   %73 = sext i32 %.0118 to i64
-  %74 = getelementptr inbounds nuw [10 x i32], ptr %5, i64 0, i64 %73
+  %74 = getelementptr inbounds [10 x i32], ptr %5, i64 0, i64 %73
   store i32 %15, ptr %74, align 4
   br label %.thread
 
@@ -213,7 +213,7 @@ Ivy_NodeGetLeafCostOne.exit:                      ; preds = %13, %22, %23, %Vec_
   %83 = tail call i32 @rand() #18
   %84 = srem i32 %83, %.1103
   %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds nuw [10 x i32], ptr %5, i64 0, i64 %85
+  %86 = getelementptr inbounds [10 x i32], ptr %5, i64 0, i64 %85
   %87 = load i32, ptr %86, align 4
   %88 = load i32, ptr %6, align 4
   %89 = icmp sgt i32 %88, 0

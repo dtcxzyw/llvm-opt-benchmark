@@ -329,7 +329,7 @@ define void @_ZN7RSCoder6EncodeEPhiS0_(ptr nocapture noundef nonnull readonly al
 .lr.ph33:                                         ; preds = %.preheader26
   %12 = add i32 %7, -1
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %13
+  %14 = getelementptr inbounds [256 x i32], ptr %5, i64 0, i64 %13
   %15 = icmp sgt i32 %7, 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 3072
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 2048
@@ -467,7 +467,7 @@ _ZN7RSCoder6gfMultEii.exit25:                     ; preds = %.lr.ph33.split.spli
   %80 = xor i32 %79, -1
   %81 = add i32 %78, %80
   %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %82
+  %83 = getelementptr inbounds [256 x i32], ptr %5, i64 0, i64 %82
   %84 = load i32, ptr %83, align 4
   %85 = trunc i32 %84 to i8
   %86 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv60

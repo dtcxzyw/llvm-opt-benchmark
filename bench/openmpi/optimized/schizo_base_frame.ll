@@ -620,7 +620,7 @@ define noundef zeroext i1 @prte_schizo_base_check_directives(ptr noundef %0, ptr
 
 83:                                               ; preds = %87
   %84 = add i64 %.1103, 1
-  %85 = getelementptr inbounds nuw [10 x ptr], ptr %7, i64 0, i64 %84
+  %85 = getelementptr inbounds [10 x ptr], ptr %7, i64 0, i64 %84
   %86 = load ptr, ptr %85, align 8
   %.not80.not = icmp eq ptr %86, null
   br i1 %.not80.not, label %.critedge, label %87, !llvm.loop !12

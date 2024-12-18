@@ -129,7 +129,7 @@ if.end11:                                         ; preds = %if.end3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %myTarget.i6)
   store ptr %result, ptr %mySource.i5, align 8
   %idx.ext.i9 = sext i32 %call7 to i64
-  %add.ptr.i10 = getelementptr inbounds nuw i16, ptr %result, i64 %idx.ext.i9
+  %add.ptr.i10 = getelementptr inbounds i16, ptr %result, i64 %idx.ext.i9
   store ptr %buf.i4, ptr %myTarget.i6, align 8
   %call.i11 = call ptr @ucnv_open_75(ptr noundef null, ptr noundef nonnull %err) #8
   %8 = load i32, ptr %err, align 4

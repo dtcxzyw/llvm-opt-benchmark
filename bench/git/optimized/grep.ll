@@ -3255,7 +3255,7 @@ while.end.i:                                      ; preds = %while.body.i, %whil
 
 if.end:                                           ; preds = %while.end.i
   %idxprom.i = sext i32 %.lcssa.i to i64
-  %arrayidx.i = getelementptr inbounds nuw [128 x %struct.work_item], ptr @todo, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [128 x %struct.work_item], ptr @todo, i64 0, i64 %idxprom.i
   %add.i = add nsw i32 %.lcssa.i, 1
   %6 = and i32 %add.i, 127
   store i32 %6, ptr @todo_start, align 4
@@ -3269,7 +3269,7 @@ if.end:                                           ; preds = %while.end.i
   store i8 1, ptr %done.i, align 16
   %7 = load i32, ptr @todo_done, align 4
   %idxprom11.i = sext i32 %7 to i64
-  %arrayidx12.i = getelementptr inbounds nuw [128 x %struct.work_item], ptr @todo, i64 0, i64 %idxprom11.i
+  %arrayidx12.i = getelementptr inbounds [128 x %struct.work_item], ptr @todo, i64 0, i64 %idxprom11.i
   %done113.i = getelementptr inbounds nuw i8, ptr %arrayidx12.i, i64 64
   %8 = load i8, ptr %done113.i, align 16
   %tobool14.i = icmp ne i8 %8, 0
@@ -3514,11 +3514,11 @@ while.end:                                        ; preds = %while.body, %if.end
   %.lcssa4 = phi i32 [ %3, %if.end ], [ %6, %while.body ]
   %.lcssa = phi i32 [ %4, %if.end ], [ %7, %while.body ]
   %idxprom = sext i32 %.lcssa4 to i64
-  %arrayidx = getelementptr inbounds nuw [128 x %struct.work_item], ptr @todo, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [128 x %struct.work_item], ptr @todo, i64 0, i64 %idxprom
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %arrayidx, ptr noundef nonnull align 8 dereferenceable(64) %gs, i64 64, i1 false)
-  %done = getelementptr inbounds nuw [128 x %struct.work_item], ptr @todo, i64 0, i64 %idxprom, i32 1
+  %done = getelementptr inbounds [128 x %struct.work_item], ptr @todo, i64 0, i64 %idxprom, i32 1
   store i8 0, ptr %done, align 16
-  %out = getelementptr inbounds nuw [128 x %struct.work_item], ptr @todo, i64 0, i64 %idxprom, i32 2
+  %out = getelementptr inbounds [128 x %struct.work_item], ptr @todo, i64 0, i64 %idxprom, i32 2
   %len2.i = getelementptr inbounds nuw i8, ptr %out, i64 8
   store i64 0, ptr %len2.i, align 16
   %buf.i = getelementptr inbounds nuw i8, ptr %out, i64 16

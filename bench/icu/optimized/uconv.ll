@@ -1334,7 +1334,7 @@ do.body463:                                       ; preds = %_ZN6icu_7513Unicode
   %151 = phi i8 [ %.pre337, %_ZN6icu_7513UnicodeString6appendEDs.exit236 ], [ %150, %for.body455 ]
   %inc464 = add nsw i8 %i391.0326, 1
   %idxprom465 = sext i8 %i391.0326 to i64
-  %arrayidx466 = getelementptr inbounds nuw [4 x i16], ptr %errorUChars, i64 0, i64 %idxprom465
+  %arrayidx466 = getelementptr inbounds [4 x i16], ptr %errorUChars, i64 0, i64 %idxprom465
   %152 = load i16, ptr %arrayidx466, align 2
   %conv467 = zext i16 %152 to i32
   %and = and i32 %conv467, 64512
@@ -1345,7 +1345,7 @@ do.body463:                                       ; preds = %_ZN6icu_7513Unicode
 
 land.lhs.true473:                                 ; preds = %do.body463
   %idxprom474 = sext i8 %inc464 to i64
-  %arrayidx475 = getelementptr inbounds nuw [4 x i16], ptr %errorUChars, i64 0, i64 %idxprom474
+  %arrayidx475 = getelementptr inbounds [4 x i16], ptr %errorUChars, i64 0, i64 %idxprom474
   %153 = load i16, ptr %arrayidx475, align 2
   %conv476 = zext i16 %153 to i32
   %and477 = and i32 %conv476, 64512
@@ -1675,10 +1675,10 @@ if.then8:                                         ; preds = %if.end
   %call12 = call ptr @u_getDataDirectory_75()
   %call13 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %dataPath, ptr noundef nonnull dereferenceable(1) %call12) #21
   %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) %dataPath)
-  %endptr = getelementptr inbounds nuw i8, ptr %dataPath, i64 %strlen
+  %endptr = getelementptr inbounds i8, ptr %dataPath, i64 %strlen
   store i16 47, ptr %endptr, align 1
   %strlen5 = call i64 @strlen(ptr nonnull dereferenceable(1) %dataPath)
-  %endptr6 = getelementptr inbounds nuw i8, ptr %dataPath, i64 %strlen5
+  %endptr6 = getelementptr inbounds i8, ptr %dataPath, i64 %strlen5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %endptr6, ptr noundef nonnull align 1 dereferenceable(9) @.str.60, i64 9, i1 false)
   %call19 = call ptr @u_wmsg_setPath(ptr noundef nonnull %dataPath, ptr noundef nonnull %err)
   store ptr %call19, ptr @_ZL7gBundle, align 8

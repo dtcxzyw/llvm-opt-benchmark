@@ -1780,7 +1780,7 @@ if.then319.i:                                     ; preds = %if.then315.i
 
 if.end320.i:                                      ; preds = %if.then315.i
   %idxprom.i = sext i32 %call316.i to i64
-  %arrayidx.i109 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i
+  %arrayidx.i109 = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i
   store ptr %arrayidx.i109, ptr getelementptr inbounds nuw (i8, ptr @options, i64 120), align 8
   br label %if.end82
 
@@ -2616,7 +2616,7 @@ detect_hash_algo.exit.thread.i:                   ; preds = %if.end.i.i
 
 detect_hash_algo.exit.thread33.i:                 ; preds = %if.end.i.i
   %idxprom.i.i = sext i32 %call2.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.i
   store ptr %arrayidx.i.i, ptr getelementptr inbounds nuw (i8, ptr @options, i64 120), align 8
   br label %if.end.i69
 

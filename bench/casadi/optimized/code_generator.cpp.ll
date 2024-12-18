@@ -26618,7 +26618,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %93 = load ptr, ptr %4, align 8
   %94 = getelementptr i8, ptr %93, i64 -24
   %95 = load i64, ptr %94, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %4, i64 %95
+  %96 = getelementptr inbounds i8, ptr %4, i64 %95
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 24
   %98 = load i32, ptr %97, align 8
   %99 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -26637,7 +26637,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %106 = load ptr, ptr %4, align 8
   %107 = getelementptr i8, ptr %106, i64 -24
   %108 = load i64, ptr %107, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %4, i64 %108
+  %109 = getelementptr inbounds i8, ptr %4, i64 %108
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 24
   store i32 %98, ptr %110, align 8
   br label %111

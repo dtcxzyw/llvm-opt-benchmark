@@ -370,7 +370,7 @@ define void @Amap_LibWritePin(ptr nocapture noundef %0, ptr nocapture noundef re
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds nuw [10 x ptr], ptr @__const.Amap_LibWritePin.pPhaseNames, i64 0, i64 %8
+  %9 = getelementptr inbounds [10 x ptr], ptr @__const.Amap_LibWritePin.pPhaseNames, i64 0, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef %10) #22
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16

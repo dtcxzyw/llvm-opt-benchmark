@@ -24945,7 +24945,7 @@ lpad4:                                            ; preds = %arrayctor.loop
 arraydestroy.body:                                ; preds = %lpad4, %_ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit
   %arraydestroy.elementPast.idx = phi i64 [ %arraydestroy.elementPast.add, %_ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit ], [ %arrayctor.cur.idx, %lpad4 ]
   %arraydestroy.elementPast.add = add nsw i64 %arraydestroy.elementPast.idx, -4
-  %arraydestroy.element.ptr = getelementptr inbounds nuw i8, ptr %array_buf, i64 %arraydestroy.elementPast.add
+  %arraydestroy.element.ptr = getelementptr inbounds i8, ptr %array_buf, i64 %arraydestroy.elementPast.add
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull align 4 dereferenceable(4) %arraydestroy.element.ptr)
           to label %_ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit unwind label %terminate.lpad.i.i
 

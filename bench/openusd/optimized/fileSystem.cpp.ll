@@ -765,7 +765,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__15ArchGetFileNameB5cxx11EP8_IO
   br i1 %.not, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignIPcvEERS4_T_S8_.exit, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 %8
+  %10 = getelementptr inbounds i8, ptr %3, i64 %8
   %11 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   %12 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   %13 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEN9__gnu_cxx17__normal_iteratorIPKcS4_EES9_PcSA_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %11, ptr %12, ptr noundef nonnull %3, ptr noundef nonnull %10)

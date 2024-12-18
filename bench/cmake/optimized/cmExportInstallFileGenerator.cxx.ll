@@ -1753,7 +1753,7 @@ define dso_local noundef zeroext i1 @_ZN28cmExportInstallFileGenerator44Generate
   %83 = load ptr, ptr %16, align 8
   %84 = getelementptr i8, ptr %83, i64 -24
   %85 = load i64, ptr %84, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %16, i64 %85
+  %86 = getelementptr inbounds i8, ptr %16, i64 %85
   %87 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %86)
           to label %88 unwind label %.loopexit.split-lp
 
@@ -2665,7 +2665,7 @@ define dso_local noundef zeroext i1 @_ZN28cmExportInstallFileGenerator24Generate
   %53 = load ptr, ptr %8, align 8
   %54 = getelementptr i8, ptr %53, i64 -24
   %55 = load i64, ptr %54, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %8, i64 %55
+  %56 = getelementptr inbounds i8, ptr %8, i64 %55
   %57 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %56)
           to label %58 unwind label %72
 

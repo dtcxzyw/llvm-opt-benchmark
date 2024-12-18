@@ -454,7 +454,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
   %63 = select i1 %62, i32 %51, i32 0
   %spec.select = add nsw i32 %63, %61
   %64 = sext i32 %spec.select to i64
-  %65 = getelementptr inbounds nuw [4 x i32], ptr %49, i64 0, i64 %64
+  %65 = getelementptr inbounds [4 x i32], ptr %49, i64 0, i64 %64
   store i32 1, ptr %65, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

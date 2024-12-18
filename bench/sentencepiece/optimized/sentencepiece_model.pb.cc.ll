@@ -395,7 +395,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN13sentencepiece26Trai
 
 16:                                               ; preds = %9
   %17 = sext i32 %10 to i64
-  %18 = getelementptr inbounds nuw [4 x %"class.google::protobuf::internal::ExplicitlyConstructed.7"], ptr @_ZN13sentencepieceL29TrainerSpec_ModelType_stringsB5cxx11E, i64 0, i64 %17
+  %18 = getelementptr inbounds [4 x %"class.google::protobuf::internal::ExplicitlyConstructed.7"], ptr @_ZN13sentencepieceL29TrainerSpec_ModelType_stringsB5cxx11E, i64 0, i64 %17
   br label %_ZN6google8protobuf8internal14GetEmptyStringB5cxx11Ev.exit
 
 _ZN6google8protobuf8internal14GetEmptyStringB5cxx11Ev.exit: ; preds = %15, %12, %16
@@ -485,7 +485,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN13sentencepiece34Mode
 
 16:                                               ; preds = %9
   %17 = sext i32 %10 to i64
-  %18 = getelementptr inbounds nuw [6 x %"class.google::protobuf::internal::ExplicitlyConstructed.7"], ptr @_ZN13sentencepieceL37ModelProto_SentencePiece_Type_stringsB5cxx11E, i64 0, i64 %17
+  %18 = getelementptr inbounds [6 x %"class.google::protobuf::internal::ExplicitlyConstructed.7"], ptr @_ZN13sentencepieceL37ModelProto_SentencePiece_Type_stringsB5cxx11E, i64 0, i64 %17
   br label %_ZN6google8protobuf8internal14GetEmptyStringB5cxx11Ev.exit
 
 _ZN6google8protobuf8internal14GetEmptyStringB5cxx11Ev.exit: ; preds = %15, %12, %16

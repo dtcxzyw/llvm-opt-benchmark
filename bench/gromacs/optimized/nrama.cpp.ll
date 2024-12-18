@@ -392,7 +392,7 @@ _ZL7get_dihP7t_xramaPK7t_atoms.exit:              ; preds = %.loopexit.i, %_ZL6a
   %140 = getelementptr inbounds i32, ptr %138, i64 %139
   %141 = load i32, ptr %140, align 4
   %142 = sext i32 %141 to i64
-  %143 = getelementptr inbounds nuw [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %142, i32 2
+  %143 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %142, i32 2
   %144 = load i32, ptr %143, align 16
   %.not.i22 = icmp eq i32 %141, 19
   br i1 %.not.i22, label %157, label %145

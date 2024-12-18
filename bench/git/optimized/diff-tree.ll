@@ -313,7 +313,7 @@ lor.lhs.false.i:                                  ; preds = %if.else105
   %sub.i = shl i64 %call.i23, 32
   %sext.i = add i64 %sub.i, -4294967296
   %idxprom.i = ashr exact i64 %sext.i, 32
-  %arrayidx.i = getelementptr inbounds nuw i8, ptr %line, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds i8, ptr %line, i64 %idxprom.i
   %29 = load i8, ptr %arrayidx.i, align 1
   %cmp.not.i = icmp eq i8 %29, 10
   br i1 %cmp.not.i, label %if.end.i26, label %diff_tree_stdin.exit

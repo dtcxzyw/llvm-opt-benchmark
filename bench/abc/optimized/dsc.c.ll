@@ -1139,7 +1139,7 @@ Abc_TtXor.exit:                                   ; preds = %.lr.ph.i190
   store i8 0, ptr %142, align 1
   %143 = add nsw i32 %.0155448, 1
   %144 = sext i32 %.0155448 to i64
-  %145 = getelementptr inbounds nuw [16 x ptr], ptr %6, i64 0, i64 %144
+  %145 = getelementptr inbounds [16 x ptr], ptr %6, i64 0, i64 %144
   store ptr %74, ptr %145, align 8
   br label %Abc_TtEqual.exit.thread
 
@@ -1351,7 +1351,7 @@ dsc_xor_test.exit.us:                             ; preds = %.lr.ph.i.i226.us
 .split.us:                                        ; preds = %197
   %202 = getelementptr inbounds nuw [16 x ptr], ptr %7, i64 0, i64 %indvars.iv514
   %203 = sext i32 %.1141483 to i64
-  %204 = getelementptr inbounds nuw [16 x %struct.Dsc_node_t_], ptr %8, i64 0, i64 %203
+  %204 = getelementptr inbounds [16 x %struct.Dsc_node_t_], ptr %8, i64 0, i64 %203
   call void @dsc_xor_group(ptr noundef nonnull %204, ptr noundef nonnull %165, ptr noundef nonnull %171, i32 poison, i32 noundef %12)
   br label %dsc_and_test.exit.thread367
 
@@ -1372,7 +1372,7 @@ dsc_xor_test.exit.us:                             ; preds = %.lr.ph.i.i226.us
   %209 = phi ptr [ %205, %.lr.ph461.split ], [ %171, %.thread.loopexit ], [ %171, %.thread.loopexit541 ]
   %.4337.ph.ph = phi i32 [ 1, %.lr.ph461.split ], [ 0, %.thread.loopexit ], [ 1, %.thread.loopexit541 ]
   %210 = sext i32 %.1141483 to i64
-  %211 = getelementptr inbounds nuw [16 x %struct.Dsc_node_t_], ptr %8, i64 0, i64 %210
+  %211 = getelementptr inbounds [16 x %struct.Dsc_node_t_], ptr %8, i64 0, i64 %210
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 160
   %213 = getelementptr inbounds nuw i8, ptr %211, i64 161
   store i8 40, ptr %212, align 16
@@ -1382,7 +1382,7 @@ dsc_xor_test.exit.us:                             ; preds = %.lr.ph.i.i226.us
   %.4337.ph = phi i32 [ 0, %198 ], [ 1, %199 ]
   %214 = getelementptr inbounds nuw [16 x ptr], ptr %7, i64 0, i64 %indvars.iv514
   %215 = sext i32 %.1141483 to i64
-  %216 = getelementptr inbounds nuw [16 x %struct.Dsc_node_t_], ptr %8, i64 0, i64 %215
+  %216 = getelementptr inbounds [16 x %struct.Dsc_node_t_], ptr %8, i64 0, i64 %215
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 160
   %218 = getelementptr inbounds nuw i8, ptr %216, i64 161
   store i8 40, ptr %217, align 16
@@ -1967,7 +1967,7 @@ dsc_and_test.exit.thread367:                      ; preds = %.lr.ph.i104.i, %cub
   %.5.ph = add nsw i32 %.1141483, 1
   %447 = add nsw i32 %.1149476, -1
   %448 = sext i32 %447 to i64
-  %449 = getelementptr inbounds nuw [16 x ptr], ptr %7, i64 0, i64 %448
+  %449 = getelementptr inbounds [16 x ptr], ptr %7, i64 0, i64 %448
   %450 = load ptr, ptr %449, align 8
   store ptr %450, ptr %446, align 8
   %451 = add nsw i32 %.0146479, 1
@@ -1985,7 +1985,7 @@ dsc_and_test.exit.thread367:                      ; preds = %.lr.ph.i104.i, %cub
   %.3151 = phi i32 [ %447, %dsc_and_test.exit.thread367 ], [ %452, %._crit_edge462.split.us ]
   %.1147 = phi i32 [ %451, %dsc_and_test.exit.thread367 ], [ %.0146479, %._crit_edge462.split.us ]
   %454 = sext i32 %.0146479.sink to i64
-  %455 = getelementptr inbounds nuw [16 x ptr], ptr %.sink562, i64 0, i64 %454
+  %455 = getelementptr inbounds [16 x ptr], ptr %.sink562, i64 0, i64 %454
   store ptr %.3.ph.sink, ptr %455, align 8
   %indvars.iv.next525 = add nuw nsw i64 %indvars.iv524, 1
   %exitcond528.not = icmp eq i64 %indvars.iv.next525, %wide.trip.count527
@@ -2199,7 +2199,7 @@ define noundef nonnull ptr @Dsc_ComputeMatches(ptr nocapture noundef readonly %0
 9:                                                ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %10 = add nsw i32 %.027, -1
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %11
+  %12 = getelementptr inbounds [16 x i32], ptr %2, i64 0, i64 %11
   %13 = load i32, ptr %12, align 4
   br label %.sink.split
 
@@ -2208,7 +2208,7 @@ define noundef nonnull ptr @Dsc_ComputeMatches(ptr nocapture noundef readonly %0
   %.sink = phi ptr [ %2, %7 ], [ @Dsc_ComputeMatches.pMatches, %9 ]
   %.1.ph = phi i32 [ %8, %7 ], [ %10, %9 ]
   %14 = sext i32 %.027.sink to i64
-  %15 = getelementptr inbounds nuw [16 x i32], ptr %.sink, i64 0, i64 %14
+  %15 = getelementptr inbounds [16 x i32], ptr %.sink, i64 0, i64 %14
   %16 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %16, ptr %15, align 4
   br label %17
@@ -2400,7 +2400,7 @@ define i32 @Dsc_CountAnds(ptr noundef %0) local_unnamed_addr #11 {
 14:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
   %15 = add nsw i32 %.027.i, -1
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %16
+  %17 = getelementptr inbounds [16 x i32], ptr %2, i64 0, i64 %16
   %18 = load i32, ptr %17, align 4
   br label %.sink.split.i
 
@@ -2409,7 +2409,7 @@ define i32 @Dsc_CountAnds(ptr noundef %0) local_unnamed_addr #11 {
   %.sink.i = phi ptr [ %2, %12 ], [ @Dsc_ComputeMatches.pMatches, %14 ]
   %.1.ph.i = phi i32 [ %13, %12 ], [ %15, %14 ]
   %19 = sext i32 %.027.sink.i to i64
-  %20 = getelementptr inbounds nuw [16 x i32], ptr %.sink.i, i64 0, i64 %19
+  %20 = getelementptr inbounds [16 x i32], ptr %.sink.i, i64 0, i64 %19
   %21 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %21, ptr %20, align 4
   br label %22

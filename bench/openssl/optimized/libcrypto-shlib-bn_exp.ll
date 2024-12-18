@@ -613,7 +613,7 @@ for.body:                                         ; preds = %if.end77, %for.cond
 
 lor.lhs.false82:                                  ; preds = %for.body
   %3 = add nsw i64 %indvars.iv, -1
-  %arrayidx87 = getelementptr inbounds nuw [32 x ptr], ptr %val, i64 0, i64 %3
+  %arrayidx87 = getelementptr inbounds [32 x ptr], ptr %val, i64 0, i64 %3
   %4 = load ptr, ptr %arrayidx87, align 8
   %call88 = tail call i32 @bn_mul_mont_fixed_top(ptr noundef nonnull %call79, ptr noundef %4, ptr noundef %call20, ptr noundef nonnull %mont.1, ptr noundef %ctx) #5
   %tobool89.not = icmp eq i32 %call88, 0
@@ -763,7 +763,7 @@ for.body169:                                      ; preds = %for.end164, %for.co
   br i1 %tobool171.not, label %err, label %for.cond167
 
 if.end177:                                        ; preds = %for.cond167, %for.end164
-  %arrayidx179 = getelementptr inbounds nuw [32 x ptr], ptr %val, i64 0, i64 %wvalue.0.lcssa
+  %arrayidx179 = getelementptr inbounds [32 x ptr], ptr %val, i64 0, i64 %wvalue.0.lcssa
   %18 = load ptr, ptr %arrayidx179, align 8
   %call180 = tail call i32 @bn_mul_mont_fixed_top(ptr noundef %call21, ptr noundef %call21, ptr noundef %18, ptr noundef nonnull %mont.1, ptr noundef %ctx) #5
   %tobool181.not = icmp eq i32 %call180, 0
@@ -935,7 +935,7 @@ for.body:                                         ; preds = %if.end67, %for.cond
 
 lor.lhs.false72:                                  ; preds = %for.body
   %2 = add nsw i64 %indvars.iv, -1
-  %arrayidx77 = getelementptr inbounds nuw [32 x ptr], ptr %val, i64 0, i64 %2
+  %arrayidx77 = getelementptr inbounds [32 x ptr], ptr %val, i64 0, i64 %2
   %3 = load ptr, ptr %arrayidx77, align 8
   %call78 = call i32 @BN_mod_mul_reciprocal(ptr noundef nonnull %call69, ptr noundef %3, ptr noundef %call14, ptr noundef nonnull %recp, ptr noundef %ctx) #5
   %tobool79.not = icmp eq i32 %call78, 0
@@ -1053,7 +1053,7 @@ for.body134:                                      ; preds = %for.end129, %for.co
   br i1 %tobool136.not, label %err, label %for.cond132
 
 if.end142:                                        ; preds = %for.cond132, %for.end129
-  %arrayidx144 = getelementptr inbounds nuw [32 x ptr], ptr %val, i64 0, i64 %wvalue.0.lcssa
+  %arrayidx144 = getelementptr inbounds [32 x ptr], ptr %val, i64 0, i64 %wvalue.0.lcssa
   %6 = load ptr, ptr %arrayidx144, align 8
   %call145 = call i32 @BN_mod_mul_reciprocal(ptr noundef %r, ptr noundef %r, ptr noundef %6, ptr noundef nonnull %recp, ptr noundef %ctx) #5
   %tobool146.not = icmp eq i32 %call145, 0
@@ -2273,7 +2273,7 @@ for.body:                                         ; preds = %if.end53, %for.cond
 
 lor.lhs.false58:                                  ; preds = %for.body
   %1 = add nsw i64 %indvars.iv, -1
-  %arrayidx63 = getelementptr inbounds nuw [32 x ptr], ptr %val, i64 0, i64 %1
+  %arrayidx63 = getelementptr inbounds [32 x ptr], ptr %val, i64 0, i64 %1
   %2 = load ptr, ptr %arrayidx63, align 8
   %call64 = tail call i32 @BN_mod_mul(ptr noundef nonnull %call55, ptr noundef %2, ptr noundef %call17, ptr noundef %m, ptr noundef %ctx) #5
   %tobool65.not = icmp eq i32 %call64, 0
@@ -2391,7 +2391,7 @@ for.body120:                                      ; preds = %for.end115, %for.co
   br i1 %tobool122.not, label %err, label %for.cond118
 
 if.end128:                                        ; preds = %for.cond118, %for.end115
-  %arrayidx130 = getelementptr inbounds nuw [32 x ptr], ptr %val, i64 0, i64 %wvalue.0.lcssa
+  %arrayidx130 = getelementptr inbounds [32 x ptr], ptr %val, i64 0, i64 %wvalue.0.lcssa
   %5 = load ptr, ptr %arrayidx130, align 8
   %call131 = tail call i32 @BN_mod_mul(ptr noundef %r, ptr noundef %r, ptr noundef %5, ptr noundef %m, ptr noundef %ctx) #5
   %tobool132.not = icmp eq i32 %call131, 0

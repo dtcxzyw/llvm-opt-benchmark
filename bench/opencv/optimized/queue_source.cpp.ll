@@ -390,14 +390,14 @@ define linkonce_odr hidden void @_ZN2cv4gapi3wip15QueueSourceBase4PrivC2ERKNS_4u
   br i1 %.not.i, label %20, label %12
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds nuw [6 x ptr], ptr @constinit, i64 0, i64 %9
+  %13 = getelementptr inbounds [6 x ptr], ptr @constinit, i64 0, i64 %9
   %14 = load ptr, ptr %13, align 8
   invoke void %14(ptr noundef nonnull %11)
           to label %.noexc unwind label %27
 
 .noexc:                                           ; preds = %12
   %15 = load i64, ptr %1, align 8
-  %16 = getelementptr inbounds nuw [6 x ptr], ptr @constinit.4, i64 0, i64 %15
+  %16 = getelementptr inbounds [6 x ptr], ptr @constinit.4, i64 0, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   invoke void %17(ptr noundef nonnull %11, ptr noundef nonnull %18)
@@ -409,7 +409,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi3wip15QueueSourceBase4PrivC2ERKNS_4u
   br label %_ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEaSERKS8_.exit
 
 20:                                               ; preds = %4
-  %21 = getelementptr inbounds nuw [6 x ptr], ptr @constinit.5, i64 0, i64 %9
+  %21 = getelementptr inbounds [6 x ptr], ptr @constinit.5, i64 0, i64 %9
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   invoke void %22(ptr noundef nonnull %11, ptr noundef nonnull %23)
@@ -434,7 +434,7 @@ _ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDes
 29:                                               ; preds = %27, %25
   %.pn = phi { ptr, i32 } [ %28, %27 ], [ %26, %25 ]
   %30 = load i64, ptr %0, align 8
-  %31 = getelementptr inbounds nuw [6 x ptr], ptr @constinit, i64 0, i64 %30
+  %31 = getelementptr inbounds [6 x ptr], ptr @constinit, i64 0, i64 %30
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke void %32(ptr noundef nonnull %33)
@@ -953,7 +953,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv4util3anyESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit.i: ; preds = %26, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N2cv4util3anyEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i
   %27 = load i64, ptr %2, align 8
-  %28 = getelementptr inbounds nuw [8 x ptr], ptr @constinit.6, i64 0, i64 %27
+  %28 = getelementptr inbounds [8 x ptr], ptr @constinit.6, i64 0, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
   invoke void %29(ptr noundef nonnull %30)
@@ -1027,7 +1027,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv4util3anyESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit: ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N2cv4util3anyEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, %19
   %20 = load i64, ptr %0, align 8
-  %21 = getelementptr inbounds nuw [8 x ptr], ptr @constinit.6, i64 0, i64 %20
+  %21 = getelementptr inbounds [8 x ptr], ptr @constinit.6, i64 0, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke void %22(ptr noundef nonnull %23)
@@ -1050,7 +1050,7 @@ define void @_ZNK2cv4gapi3wip15QueueSourceBase8descr_ofEv(ptr dead_on_unwind noa
   %4 = load ptr, ptr %3, align 8
   %5 = load i64, ptr %4, align 8
   store i64 %5, ptr %0, align 8
-  %6 = getelementptr inbounds nuw [6 x ptr], ptr @constinit.4, i64 0, i64 %5
+  %6 = getelementptr inbounds [6 x ptr], ptr @constinit.4, i64 0, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1353,7 +1353,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv4util3anyESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit.i.i: ; preds = %53, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N2cv4util3anyEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i.i
   %54 = load i64, ptr %5, align 8
-  %55 = getelementptr inbounds nuw [8 x ptr], ptr @constinit.6, i64 0, i64 %54
+  %55 = getelementptr inbounds [8 x ptr], ptr @constinit.6, i64 0, i64 %54
   %56 = load ptr, ptr %55, align 8
   invoke void %56(ptr noundef nonnull %27)
           to label %_ZN2cv4gapi3wip4DataD2Ev.exit unwind label %57
@@ -1439,7 +1439,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv4util3anyESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit.i: ; preds = %19, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N2cv4util3anyEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i
   %20 = load i64, ptr %0, align 8
-  %21 = getelementptr inbounds nuw [8 x ptr], ptr @constinit.6, i64 0, i64 %20
+  %21 = getelementptr inbounds [8 x ptr], ptr @constinit.6, i64 0, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke void %22(ptr noundef nonnull %23)
@@ -1554,7 +1554,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowE
   %46 = landingpad { ptr, i32 }
           cleanup
   %47 = load i64, ptr %4, align 8
-  %48 = getelementptr inbounds nuw [8 x ptr], ptr @constinit.6, i64 0, i64 %47
+  %48 = getelementptr inbounds [8 x ptr], ptr @constinit.6, i64 0, i64 %47
   %49 = load ptr, ptr %48, align 8
   invoke void %49(ptr noundef nonnull %16)
           to label %.body unwind label %50
@@ -1631,7 +1631,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv4util3anyESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit.i: ; preds = %73, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N2cv4util3anyEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i
   %74 = load i64, ptr %4, align 8
-  %75 = getelementptr inbounds nuw [8 x ptr], ptr @constinit.6, i64 0, i64 %74
+  %75 = getelementptr inbounds [8 x ptr], ptr @constinit.6, i64 0, i64 %74
   %76 = load ptr, ptr %75, align 8
   invoke void %76(ptr noundef nonnull %16)
           to label %_ZN2cv7GRunArgD2Ev.exit unwind label %77
@@ -2806,7 +2806,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv4util3anyESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit.i.i.i: ; preds = %27, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N2cv4util3anyEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i.i.i
   %28 = load i64, ptr %.05.i.ptr, align 8
-  %29 = getelementptr inbounds nuw [8 x ptr], ptr @constinit.6, i64 0, i64 %28
+  %29 = getelementptr inbounds [8 x ptr], ptr @constinit.6, i64 0, i64 %28
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %.05.i.ptr, i64 8
   invoke void %30(ptr noundef nonnull %31)
@@ -2910,7 +2910,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv4util3anyESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit.i.i: ; preds = %20, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N2cv4util3anyEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i.i
   %21 = load i64, ptr %.05, align 8
-  %22 = getelementptr inbounds nuw [8 x ptr], ptr @constinit.6, i64 0, i64 %21
+  %22 = getelementptr inbounds [8 x ptr], ptr @constinit.6, i64 0, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %.05, i64 8
   invoke void %23(ptr noundef nonnull %24)
@@ -3409,7 +3409,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi3wip15QueueSourceBase4PrivD2Ev(ptr n
   tail call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #19
   tail call void @_ZNSt5dequeIN2cv7GRunArgESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(224) %2) #19
   %5 = load i64, ptr %0, align 8
-  %6 = getelementptr inbounds nuw [6 x ptr], ptr @constinit, i64 0, i64 %5
+  %6 = getelementptr inbounds [6 x ptr], ptr @constinit, i64 0, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke void %7(ptr noundef nonnull %8)
@@ -3452,7 +3452,7 @@ define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN2cv4gapi3wip15QueueSou
   tail call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #19
   tail call void @_ZNSt5dequeIN2cv7GRunArgESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(224) %6) #19
   %9 = load i64, ptr %3, align 8
-  %10 = getelementptr inbounds nuw [6 x ptr], ptr @constinit, i64 0, i64 %9
+  %10 = getelementptr inbounds [6 x ptr], ptr @constinit, i64 0, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   invoke void %11(ptr noundef nonnull %12)
@@ -4213,7 +4213,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv4util3anyESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit.i.i.i: ; preds = %25, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N2cv4util3anyEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i.i.i
   %26 = load i64, ptr %3, align 8
-  %27 = getelementptr inbounds nuw [8 x ptr], ptr @constinit.6, i64 0, i64 %26
+  %27 = getelementptr inbounds [8 x ptr], ptr @constinit.6, i64 0, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
   invoke void %28(ptr noundef nonnull %29)
@@ -4289,7 +4289,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv4util3anyESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit.i.i: ; preds = %20, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N2cv4util3anyEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i.i
   %21 = load i64, ptr %1, align 8
-  %22 = getelementptr inbounds nuw [8 x ptr], ptr @constinit.6, i64 0, i64 %21
+  %22 = getelementptr inbounds [8 x ptr], ptr @constinit.6, i64 0, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   invoke void %23(ptr noundef nonnull %24)
@@ -4357,7 +4357,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv4util3anyESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit.i.i.i: ; preds = %21, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N2cv4util3anyEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i.i.i
   %22 = load i64, ptr %3, align 8
-  %23 = getelementptr inbounds nuw [8 x ptr], ptr @constinit.6, i64 0, i64 %22
+  %23 = getelementptr inbounds [8 x ptr], ptr @constinit.6, i64 0, i64 %22
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
   invoke void %24(ptr noundef nonnull %25)

@@ -1489,7 +1489,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17_
   %88 = add nuw nsw i8 %.2, 1
   %89 = srem i8 %88, 8
   %90 = sext i8 %89 to i64
-  %91 = getelementptr inbounds nuw [8 x %"class.cv::Point_"], ptr @_ZN2cvL15chainCodeDeltasE, i64 0, i64 %90
+  %91 = getelementptr inbounds [8 x %"class.cv::Point_"], ptr @_ZN2cvL15chainCodeDeltasE, i64 0, i64 %90
   %.sroa.2.0..sroa_idx.i66 = getelementptr inbounds nuw i8, ptr %91, i64 4
   %.sroa.2.0.copyload.i67 = load i32, ptr %.sroa.2.0..sroa_idx.i66, align 4
   %92 = mul nsw i32 %.sroa.2.0.copyload.i67, %31
@@ -2140,7 +2140,7 @@ define hidden noundef i32 @_ZN15ContourScanner_24findFirstBoundingContourERKN2cv
   %.cmp.i = icmp samesign ult i8 %.261.i, 7
   %90 = select i1 %.cmp.i, i8 %89, i8 %.urem.i
   %91 = sext i8 %90 to i64
-  %92 = getelementptr inbounds nuw [8 x %"class.cv::Point_"], ptr @_ZN2cvL15chainCodeDeltasE, i64 0, i64 %91
+  %92 = getelementptr inbounds [8 x %"class.cv::Point_"], ptr @_ZN2cvL15chainCodeDeltasE, i64 0, i64 %91
   %.sroa.0.0.copyload.i74.i = load i32, ptr %92, align 8
   %.sroa.2.0..sroa_idx.i75.i = getelementptr inbounds nuw i8, ptr %92, i64 4
   %.sroa.2.0.copyload.i76.i = load i32, ptr %.sroa.2.0..sroa_idx.i75.i, align 4
@@ -2243,7 +2243,7 @@ _ZN12_GLOBAL__N_115icvTraceContourIiEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit: ; p
   %.cmp.i36 = icmp samesign ult i8 %.261.i34, 7
   %143 = select i1 %.cmp.i36, i8 %142, i8 %.urem.i35
   %144 = sext i8 %143 to i64
-  %145 = getelementptr inbounds nuw [8 x %"class.cv::Point_"], ptr @_ZN2cvL15chainCodeDeltasE, i64 0, i64 %144
+  %145 = getelementptr inbounds [8 x %"class.cv::Point_"], ptr @_ZN2cvL15chainCodeDeltasE, i64 0, i64 %144
   %.sroa.0.0.copyload.i71.i = load i32, ptr %145, align 8
   %.sroa.2.0..sroa_idx.i72.i = getelementptr inbounds nuw i8, ptr %145, i64 4
   %.sroa.2.0.copyload.i73.i = load i32, ptr %.sroa.2.0..sroa_idx.i72.i, align 4

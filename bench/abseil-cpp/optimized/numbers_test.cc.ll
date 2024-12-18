@@ -3598,7 +3598,7 @@ if.end:                                           ; preds = %entry, %_ZNK7testin
   %vtable = load ptr, ptr %lhs_ss, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %lhs_ss, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %lhs_ss, i64 %vbase.offset
   %_M_precision.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   store i64 17, ptr %_M_precision.i, align 8
   %add.ptr2 = getelementptr inbounds nuw i8, ptr %lhs_ss, i64 16
@@ -3613,7 +3613,7 @@ invoke.cont5:                                     ; preds = %invoke.cont3
   %vtable6 = load ptr, ptr %rhs_ss, align 8
   %vbase.offset.ptr7 = getelementptr i8, ptr %vtable6, i64 -24
   %vbase.offset8 = load i64, ptr %vbase.offset.ptr7, align 8
-  %add.ptr9 = getelementptr inbounds nuw i8, ptr %rhs_ss, i64 %vbase.offset8
+  %add.ptr9 = getelementptr inbounds i8, ptr %rhs_ss, i64 %vbase.offset8
   %_M_precision.i4 = getelementptr inbounds nuw i8, ptr %add.ptr9, i64 8
   store i64 17, ptr %_M_precision.i4, align 8
   %add.ptr13 = getelementptr inbounds nuw i8, ptr %rhs_ss, i64 16
@@ -76970,7 +76970,7 @@ call.i.noexc.i:                                   ; preds = %invoke.cont91
 
 .noexc.i:                                         ; preds = %call.i.noexc.i
   %call.i.i.i75 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %buffer.i) #29, !noalias !1460
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %call.i.i.i75
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %call.i.i.i75
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp93, ptr noundef nonnull %buffer.i, ptr noundef nonnull %add.ptr.i.i)
           to label %invoke.cont94 unwind label %lpad.i.i
 
@@ -86628,7 +86628,7 @@ while.body:                                       ; preds = %if.then, %while.bod
   %sub = add nsw i64 %dst.022, -4
   %shr = lshr exact i64 %sub, 1
   %dec = add nsw i64 %dst.022, -5
-  %arrayidx = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec
+  %arrayidx = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec
   %dec9 = add nsw i64 %shr, -1
   %arrayidx10 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec9
   %0 = load i32, ptr %arrayidx, align 4
@@ -86636,7 +86636,7 @@ while.body:                                       ; preds = %if.then, %while.bod
   store i32 %1, ptr %arrayidx, align 4
   store i32 %0, ptr %arrayidx10, align 4
   %dec11 = add nsw i64 %dst.022, -6
-  %arrayidx12 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec11
+  %arrayidx12 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec11
   %dec13 = add nsw i64 %shr, -2
   %arrayidx14 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec13
   %2 = load i32, ptr %arrayidx12, align 8
@@ -86644,17 +86644,17 @@ while.body:                                       ; preds = %if.then, %while.bod
   store i32 %3, ptr %arrayidx12, align 8
   store i32 %2, ptr %arrayidx14, align 8
   %dec15 = add nsw i64 %dst.022, -7
-  %arrayidx16 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec15
+  %arrayidx16 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec15
   %dec17 = add nsw i64 %shr, -3
-  %arrayidx18 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec17
+  %arrayidx18 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec17
   %4 = load i32, ptr %arrayidx16, align 4
   %5 = load i32, ptr %arrayidx18, align 4
   store i32 %5, ptr %arrayidx16, align 4
   store i32 %4, ptr %arrayidx18, align 4
   %dec19 = add nsw i64 %dst.022, -8
-  %arrayidx20 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec19
+  %arrayidx20 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec19
   %dec21 = add nsw i64 %shr, -4
-  %arrayidx22 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec21
+  %arrayidx22 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec21
   %6 = load i32, ptr %arrayidx20, align 16
   %7 = load i32, ptr %arrayidx22, align 8
   store i32 %7, ptr %arrayidx20, align 16

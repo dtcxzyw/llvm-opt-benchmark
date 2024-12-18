@@ -5434,7 +5434,7 @@ create_filter.exit.i.i:                           ; preds = %418, %417
   %603 = lshr i64 %600, %602
   %604 = trunc i64 %603 to i32
   %605 = sext i32 %595 to i64
-  %606 = getelementptr inbounds nuw [36 x i32], ptr @cache_masks, i64 0, i64 %605
+  %606 = getelementptr inbounds [36 x i32], ptr @cache_masks, i64 0, i64 %605
   %607 = load i32, ptr %606, align 4
   %608 = and i32 %607, %604
   %609 = shl i32 %608, 4
@@ -6765,7 +6765,7 @@ define internal fastcc i32 @read_next_symbol(ptr noundef %0, ptr nocapture nound
   %36 = lshr i64 %33, %35
   %37 = trunc i64 %36 to i32
   %38 = sext i32 %31 to i64
-  %39 = getelementptr inbounds nuw [36 x i32], ptr @cache_masks, i64 0, i64 %38
+  %39 = getelementptr inbounds [36 x i32], ptr @cache_masks, i64 0, i64 %38
   %40 = load i32, ptr %39, align 4
   %41 = and i32 %40, %37
   %42 = load ptr, ptr %3, align 8

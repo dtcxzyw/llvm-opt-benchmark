@@ -2770,7 +2770,7 @@ define hidden void @_ZN12PhaseChaitin45check_for_high_pressure_transition_at_fat
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(96) %8, i64 96, i1 false)
   %9 = sext i32 %5 to i64
-  %10 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN7Matcher16idealreg2regmaskE, i64 0, i64 %9
+  %10 = getelementptr inbounds [0 x ptr], ptr @_ZN7Matcher16idealreg2regmaskE, i64 0, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %13 = load i32, ptr %12, align 8

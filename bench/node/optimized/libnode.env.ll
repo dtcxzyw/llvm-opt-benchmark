@@ -62690,7 +62690,7 @@ do.end6:                                          ; preds = %do.body
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #24
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %cwd) #24
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %cwd, i64 %call.i.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %cwd, i64 %call.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %cwd, ptr noundef nonnull %add.ptr.i)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #24
   br label %return

@@ -511,7 +511,7 @@ _ZN5ZXing7IndexOfIA44_iiEEiRKT_RKT0_.exit.i.i72:  ; preds = %135, %132, %129, %_
 144:                                              ; preds = %_ZN5ZXing7IndexOfIA44_iiEEiRKT_RKT0_.exit.i.i72
   %sext.i.i74 = shl i64 %.028.i.i.i.i.idx15.i.i.i73, 30
   %145 = ashr i64 %sext.i.i74, 32
-  %146 = getelementptr inbounds nuw [45 x i8], ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 0, i64 %145
+  %146 = getelementptr inbounds [45 x i8], ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 0, i64 %145
   %147 = load i8, ptr %146, align 1
   br label %_ZN5ZXing4OneD9RowReader23DecodeNarrowWidePatternIA44_iA45_cEEcRKNS_11PatternViewERKT_RKT0_.exit76
 
@@ -656,7 +656,7 @@ _ZNK5ZXing11PatternView17hasQuietZoneAfterILb1EEEbf.exit.thread: ; preds = %189,
   %218 = call fastcc noundef i32 @"_ZN5ZXing15TransformReduceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiZNKS_4OneD12Code39Reader13decodePatternEiRNS_11PatternViewERSt10unique_ptrINS7_9RowReader13DecodingStateESt14default_deleteISD_EEE3$_1EET0_RKT_SJ_T1_"(ptr noundef nonnull align 8 dereferenceable(32) %8)
   %219 = srem i32 %218, 43
   %220 = sext i32 %219 to i64
-  %221 = getelementptr inbounds nuw [45 x i8], ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 0, i64 %220
+  %221 = getelementptr inbounds [45 x i8], ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 0, i64 %220
   %222 = load i8, ptr %221, align 1
   %223 = icmp eq i8 %217, %222
   br i1 %223, label %225, label %224

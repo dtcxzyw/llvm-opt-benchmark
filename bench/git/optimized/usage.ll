@@ -194,7 +194,7 @@ for.cond.backedge:                                ; preds = %if.then15, %for.bod
 
 for.end:                                          ; preds = %for.cond.backedge, %if.end, %entry
   %conv2.lcssa = phi i64 [ 0, %entry ], [ %conv212, %if.end ], [ %conv2, %for.cond.backedge ]
-  %arrayidx21 = getelementptr inbounds nuw [256 x i8], ptr %str_error, i64 0, i64 %conv2.lcssa
+  %arrayidx21 = getelementptr inbounds [256 x i8], ptr %str_error, i64 0, i64 %conv2.lcssa
   store i8 0, ptr %arrayidx21, align 1
   %call23 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf, i64 noundef 1024, ptr noundef nonnull @.str.12, ptr noundef %fmt, ptr noundef nonnull %str_error) #17
   ret ptr %buf
@@ -271,7 +271,7 @@ for.cond.backedge.i:                              ; preds = %if.then15.i, %for.b
 
 fmt_with_err.exit:                                ; preds = %if.end.i, %for.cond.backedge.i, %entry
   %conv2.lcssa.i = phi i64 [ 0, %entry ], [ %conv2.i, %for.cond.backedge.i ], [ %conv212.i, %if.end.i ]
-  %arrayidx21.i = getelementptr inbounds nuw [256 x i8], ptr %str_error.i, i64 0, i64 %conv2.lcssa.i
+  %arrayidx21.i = getelementptr inbounds [256 x i8], ptr %str_error.i, i64 0, i64 %conv2.lcssa.i
   store i8 0, ptr %arrayidx21.i, align 1
   %call23.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf, i64 noundef 1024, ptr noundef nonnull @.str.12, ptr noundef %fmt, ptr noundef nonnull %str_error.i) #17
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %str_error.i)
@@ -342,7 +342,7 @@ for.cond.backedge.i:                              ; preds = %if.then15.i, %for.b
 
 fmt_with_err.exit:                                ; preds = %if.end.i, %for.cond.backedge.i, %entry
   %conv2.lcssa.i = phi i64 [ 0, %entry ], [ %conv2.i, %for.cond.backedge.i ], [ %conv212.i, %if.end.i ]
-  %arrayidx21.i = getelementptr inbounds nuw [256 x i8], ptr %str_error.i, i64 0, i64 %conv2.lcssa.i
+  %arrayidx21.i = getelementptr inbounds [256 x i8], ptr %str_error.i, i64 0, i64 %conv2.lcssa.i
   store i8 0, ptr %arrayidx21.i, align 1
   %call23.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf, i64 noundef 1024, ptr noundef nonnull @.str.12, ptr noundef %fmt, ptr noundef nonnull %str_error.i) #17
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %str_error.i)
@@ -413,7 +413,7 @@ for.cond.backedge.i:                              ; preds = %if.then15.i, %for.b
 
 fmt_with_err.exit:                                ; preds = %if.end.i, %for.cond.backedge.i, %entry
   %conv2.lcssa.i = phi i64 [ 0, %entry ], [ %conv2.i, %for.cond.backedge.i ], [ %conv212.i, %if.end.i ]
-  %arrayidx21.i = getelementptr inbounds nuw [256 x i8], ptr %str_error.i, i64 0, i64 %conv2.lcssa.i
+  %arrayidx21.i = getelementptr inbounds [256 x i8], ptr %str_error.i, i64 0, i64 %conv2.lcssa.i
   store i8 0, ptr %arrayidx21.i, align 1
   %call23.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf, i64 noundef 1024, ptr noundef nonnull @.str.12, ptr noundef %warn, ptr noundef nonnull %str_error.i) #17
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %str_error.i)

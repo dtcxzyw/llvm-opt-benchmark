@@ -175,7 +175,7 @@ entry:
   %tx_buf.i = alloca [128 x i8], align 16
   %num_processed.i = alloca i64, align 8
   %idxprom = sext i32 %idx to i64
-  %arrayidx = getelementptr inbounds nuw [4 x %struct.bio_dgram_case], ptr @bio_dgram_cases, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [4 x %struct.bio_dgram_case], ptr @bio_dgram_cases, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 8
   %local = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   %1 = load i32, ptr %local, align 4

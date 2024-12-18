@@ -210,7 +210,7 @@ call.i.noexc:                                     ; preds = %while.body
 
 .noexc:                                           ; preds = %call.i.noexc
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %type) #27
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %type, i64 %call.i.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %type, i64 %call.i.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %type, ptr noundef nonnull %add.ptr.i)
           to label %invoke.cont unwind label %lpad.i
 
@@ -244,7 +244,7 @@ call.i.noexc14:                                   ; preds = %if.end
 
 .noexc16:                                         ; preds = %call.i.noexc14
   %call.i.i11 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %type) #27
-  %add.ptr.i12 = getelementptr inbounds nuw i8, ptr %type, i64 %call.i.i11
+  %add.ptr.i12 = getelementptr inbounds i8, ptr %type, i64 %call.i.i11
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9, ptr noundef nonnull %type, ptr noundef nonnull %add.ptr.i12)
           to label %invoke.cont13 unwind label %lpad.i13
 
@@ -423,7 +423,7 @@ call.i.noexc:                                     ; preds = %while.body
 
 .noexc:                                           ; preds = %call.i.noexc
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %type) #27
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %type, i64 %call.i.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %type, i64 %call.i.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull %type, ptr noundef nonnull %add.ptr.i)
           to label %invoke.cont unwind label %lpad.i
 
@@ -671,7 +671,7 @@ call.i.noexc:                                     ; preds = %while.body
 
 .noexc:                                           ; preds = %call.i.noexc
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %type) #27
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %type, i64 %call.i.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %type, i64 %call.i.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull %type, ptr noundef nonnull %add.ptr.i)
           to label %invoke.cont unwind label %lpad.i
 
@@ -1147,7 +1147,7 @@ call.i.noexc:                                     ; preds = %invoke.cont9
 
 .noexc:                                           ; preds = %call.i.noexc
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %type) #27
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %type, i64 %call.i.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %type, i64 %call.i.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %type, ptr noundef nonnull %add.ptr.i)
           to label %invoke.cont13 unwind label %lpad.i
 
@@ -1201,7 +1201,7 @@ call.i.noexc47:                                   ; preds = %if.end17
 
 .noexc49:                                         ; preds = %call.i.noexc47
   %call.i.i44 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %type) #27
-  %add.ptr.i45 = getelementptr inbounds nuw i8, ptr %type, i64 %call.i.i44
+  %add.ptr.i45 = getelementptr inbounds i8, ptr %type, i64 %call.i.i44
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18, ptr noundef nonnull %type, ptr noundef nonnull %add.ptr.i45)
           to label %invoke.cont22 unwind label %lpad.i46
 

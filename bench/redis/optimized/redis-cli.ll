@@ -6647,7 +6647,7 @@ while.body:                                       ; preds = %while.cond
   %sext35 = shl i64 %sub.ptr.sub, 32
   %conv21 = ashr exact i64 %sext35, 32
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf, ptr nonnull align 1 %p.0, i64 %conv21, i1 false)
-  %arrayidx23 = getelementptr inbounds nuw [255 x i8], ptr %buf, i64 0, i64 %conv21
+  %arrayidx23 = getelementptr inbounds [255 x i8], ptr %buf, i64 0, i64 %conv21
   store i8 0, ptr %arrayidx23, align 1
   br label %for.body27
 
@@ -10479,7 +10479,7 @@ while.body65.i:                                   ; preds = %if.end60.i, %if.end
   br i1 %cmp66.not.i, label %if.end93.i, label %if.then68.i
 
 if.then68.i:                                      ; preds = %while.body65.i
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %obuf.i, i64 %obuf_pos.2.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %obuf.i, i64 %obuf_pos.2.i
   %call70.i = call i64 @cliWriteConn(ptr noundef %.pre91.i, ptr noundef nonnull %add.ptr.i, i64 noundef %obuf_len.2.i) #34
   %cmp71.i = icmp eq i64 %call70.i, -1
   br i1 %cmp71.i, label %if.then73.i, label %if.end87.i
@@ -14590,7 +14590,7 @@ for.cond.preheader.i:                             ; preds = %hi_sdslen.exit.i, %
   %shl.i = shl nuw i64 1, %sh_prom.i
   %div.i83 = sdiv i32 %81, 64
   %idxprom27.i = sext i32 %div.i83 to i64
-  %arrayidx28.i84 = getelementptr inbounds nuw [16 x i64], ptr %readfds.i, i64 0, i64 %idxprom27.i
+  %arrayidx28.i84 = getelementptr inbounds [16 x i64], ptr %readfds.i, i64 0, i64 %idxprom27.i
   %82 = load i64, ptr %arrayidx28.i84, align 8
   %or.i = or i64 %shl.i, %82
   store i64 %or.i, ptr %arrayidx28.i84, align 8
@@ -14653,7 +14653,7 @@ if.else.i85:                                      ; preds = %if.end51.i
   %91 = load i32, ptr %fd60.i, align 4
   %div61.i = sdiv i32 %91, 64
   %idxprom62.i = sext i32 %div61.i to i64
-  %arrayidx63.i = getelementptr inbounds nuw [16 x i64], ptr %readfds.i, i64 0, i64 %idxprom62.i
+  %arrayidx63.i = getelementptr inbounds [16 x i64], ptr %readfds.i, i64 0, i64 %idxprom62.i
   %92 = load i64, ptr %arrayidx63.i, align 8
   %rem65.i = srem i32 %91, 64
   %sh_prom66.i = zext nneg i32 %rem65.i to i64
@@ -17226,7 +17226,7 @@ if.then:                                          ; preds = %entry
   %call = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.198)
   %switch.tableidx = add nsw i32 %level, -1
   %1 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.clusterManagerLog, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.clusterManagerLog, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call7 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %switch.load)
   call void @llvm.va_start.p0(ptr nonnull %ap)

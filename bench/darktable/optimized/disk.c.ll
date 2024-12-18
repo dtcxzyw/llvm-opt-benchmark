@@ -397,7 +397,7 @@ define noundef range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 no
 
 31:                                               ; preds = %.preheader2
   %32 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #16
-  %33 = getelementptr inbounds nuw i8, ptr %17, i64 %32
+  %33 = getelementptr inbounds i8, ptr %17, i64 %32
   %34 = sub i64 4096, %32
   %35 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %33, i64 noundef %34, ptr noundef nonnull @.str.14) #13
   br label %36
@@ -474,7 +474,7 @@ define noundef range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 no
   %73 = load ptr, ptr %72, align 8, !tbaa !52
   %74 = call ptr %73(ptr noundef nonnull %4) #13
   %75 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #16
-  %76 = getelementptr inbounds nuw i8, ptr %15, i64 %75
+  %76 = getelementptr inbounds i8, ptr %15, i64 %75
   %77 = sub i64 4096, %75
   %78 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %76, i64 noundef %77, ptr noundef nonnull @.str.21, ptr noundef %74) #13
   call void @g_free(ptr noundef %65) #13

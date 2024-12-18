@@ -3959,7 +3959,7 @@ define linkonce_odr hidden void @_Z20find_syllables_indicP11hb_buffer_t(ptr noun
   %14 = getelementptr inbounds nuw [138 x i16], ptr @_ZL37_indic_syllable_machine_index_offsets, i64 0, i64 %8
   %15 = load i16, ptr %14, align 2
   %16 = sext i16 %15 to i64
-  %17 = getelementptr inbounds nuw i8, ptr @_ZL32_indic_syllable_machine_indicies, i64 %16
+  %17 = getelementptr inbounds i8, ptr @_ZL32_indic_syllable_machine_indicies, i64 %16
   %18 = getelementptr inbounds nuw [138 x i8], ptr @_ZL33_indic_syllable_machine_key_spans, i64 0, i64 %8
   %19 = load i8, ptr %18, align 1
   %20 = sext i8 %19 to i64

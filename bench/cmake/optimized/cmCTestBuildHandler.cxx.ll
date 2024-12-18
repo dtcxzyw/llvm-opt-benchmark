@@ -2578,7 +2578,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit189: ;
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRPKcEEERS5_DpOT_.exit: ; preds = %245, %.noexc190
   %246 = add i64 %.0101353, 1
-  %247 = getelementptr inbounds nuw [57 x ptr], ptr @_ZL19cmCTestErrorMatches, i64 0, i64 %246
+  %247 = getelementptr inbounds [57 x ptr], ptr @_ZL19cmCTestErrorMatches, i64 0, i64 %246
   %248 = load ptr, ptr %247, align 8
   %.not115 = icmp eq ptr %248, null
   br i1 %.not115, label %.preheader342, label %238, !llvm.loop !21
@@ -2618,7 +2618,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRPKcEEERS5_DpOT_.exit196: ; preds = %260, %.noexc194
   %261 = add i64 %.1102355, 1
-  %262 = getelementptr inbounds nuw [13 x ptr], ptr @_ZL22cmCTestErrorExceptions, i64 0, i64 %261
+  %262 = getelementptr inbounds [13 x ptr], ptr @_ZL22cmCTestErrorExceptions, i64 0, i64 %261
   %263 = load ptr, ptr %262, align 8
   %.not116 = icmp eq ptr %263, null
   br i1 %.not116, label %.preheader338, label %253, !llvm.loop !22
@@ -2658,7 +2658,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRPKcEEERS5_DpOT_.exit201: ; preds = %275, %.noexc199
   %276 = add i64 %.2103358, 1
-  %277 = getelementptr inbounds nuw [23 x ptr], ptr @_ZL21cmCTestWarningMatches, i64 0, i64 %276
+  %277 = getelementptr inbounds [23 x ptr], ptr @_ZL21cmCTestWarningMatches, i64 0, i64 %276
   %278 = load ptr, ptr %277, align 8
   %.not117 = icmp eq ptr %278, null
   br i1 %.not117, label %.preheader, label %268, !llvm.loop !23
@@ -2687,7 +2687,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRPKcEEERS5_DpOT_.exit206: ; preds = %286, %.noexc204
   %287 = add i64 %.3104361, 1
-  %288 = getelementptr inbounds nuw [17 x ptr], ptr @_ZL24cmCTestWarningExceptions, i64 0, i64 %287
+  %288 = getelementptr inbounds [17 x ptr], ptr @_ZL24cmCTestWarningExceptions, i64 0, i64 %287
   %289 = load ptr, ptr %288, align 8
   %.not118 = icmp eq ptr %289, null
   br i1 %.not118, label %._crit_edge, label %279, !llvm.loop !24

@@ -1618,7 +1618,7 @@ define internal fastcc range(i32 -1, 1) i32 @dset_write(i32 noundef range(i32 -2
   %5 = alloca [32 x i64], align 16
   %6 = alloca [32 x i64], align 16
   %7 = sext i32 %0 to i64
-  %8 = getelementptr inbounds nuw [32 x i32], ptr @order, i64 0, i64 %7
+  %8 = getelementptr inbounds [32 x i32], ptr @order, i64 0, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = add nsw i32 %9, -1
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -1629,8 +1629,8 @@ define internal fastcc range(i32 -1, 1) i32 @dset_write(i32 noundef range(i32 -2
   br i1 %.not58, label %.loopexit51, label %.lr.ph57
 
 .lr.ph57:                                         ; preds = %4
-  %15 = getelementptr inbounds nuw [32 x i64], ptr @h5offset, i64 0, i64 %12
-  %16 = getelementptr inbounds nuw [32 x i64], ptr @offset, i64 0, i64 %12
+  %15 = getelementptr inbounds [32 x i64], ptr @h5offset, i64 0, i64 %12
+  %16 = getelementptr inbounds [32 x i64], ptr @offset, i64 0, i64 %12
   %17 = icmp sgt i32 %0, 0
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 952
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 956
@@ -1810,7 +1810,7 @@ define internal fastcc void @posix_buffer_write(i32 noundef %0, ptr nocapture no
   %.not = icmp eq i32 %0, %8
   %or.cond = select i1 %7, i1 true, i1 %.not
   %9 = sext i32 %0 to i64
-  %10 = getelementptr inbounds nuw [32 x i64], ptr @buf_offset, i64 0, i64 %9
+  %10 = getelementptr inbounds [32 x i64], ptr @buf_offset, i64 0, i64 %9
   br i1 %or.cond, label %22, label %.preheader
 
 .preheader:                                       ; preds = %3
@@ -1937,7 +1937,7 @@ declare i64 @H5Dopen2(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @dset_read(i32 noundef range(i32 -2147483648, 2147483647) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef readonly %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds nuw [32 x i32], ptr @order, i64 0, i64 %5
+  %6 = getelementptr inbounds [32 x i32], ptr @order, i64 0, i64 %5
   %7 = load i32, ptr %6, align 4
   %8 = add nsw i32 %7, -1
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -1948,8 +1948,8 @@ define internal fastcc range(i32 -1, 1) i32 @dset_read(i32 noundef range(i32 -21
   br i1 %.not, label %.loopexit, label %.lr.ph7
 
 .lr.ph7:                                          ; preds = %4
-  %13 = getelementptr inbounds nuw [32 x i64], ptr @h5offset, i64 0, i64 %10
-  %14 = getelementptr inbounds nuw [32 x i64], ptr @offset, i64 0, i64 %10
+  %13 = getelementptr inbounds [32 x i64], ptr @h5offset, i64 0, i64 %10
+  %14 = getelementptr inbounds [32 x i64], ptr @offset, i64 0, i64 %10
   %15 = icmp sgt i32 %0, 0
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %17 = add nsw i32 %0, -1
@@ -2048,7 +2048,7 @@ define internal fastcc range(i32 -1, 1) i32 @posix_buffer_read(i32 noundef %0, p
   %.not = icmp eq i32 %0, %8
   %or.cond = select i1 %7, i1 true, i1 %.not
   %9 = sext i32 %0 to i64
-  %10 = getelementptr inbounds nuw [32 x i64], ptr @buf_offset, i64 0, i64 %9
+  %10 = getelementptr inbounds [32 x i64], ptr @buf_offset, i64 0, i64 %9
   br i1 %or.cond, label %23, label %.preheader
 
 .preheader:                                       ; preds = %3

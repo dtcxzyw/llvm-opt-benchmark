@@ -638,7 +638,7 @@ define void @Lpk_ComposeSets(ptr nocapture noundef readonly %0, ptr nocapture no
   %80 = trunc i32 %38 to i16
   %81 = add nsw i32 %.1113.us, 1
   %82 = sext i32 %.1113.us to i64
-  %83 = getelementptr inbounds nuw [65536 x i16], ptr @Lpk_ComposeSets.Used, i64 0, i64 %82
+  %83 = getelementptr inbounds [65536 x i16], ptr @Lpk_ComposeSets.Used, i64 0, i64 %82
   store i16 %80, ptr %83, align 2
   store i32 %12, ptr %77, align 4
   %84 = trunc nsw i32 %72 to i8

@@ -2482,7 +2482,7 @@ define ptr @_php_math_zvaltobase(ptr nocapture noundef readonly %0, i32 noundef 
   %24 = call double @fmod(double noundef %.085, double noundef %22) #15
   %25 = fptosi double %24 to i32
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds nuw [37 x i8], ptr @_php_math_longtobase_pwr2.digits, i64 0, i64 %26
+  %27 = getelementptr inbounds [37 x i8], ptr @_php_math_longtobase_pwr2.digits, i64 0, i64 %26
   %28 = load i8, ptr %27, align 1
   %29 = getelementptr inbounds i8, ptr %.084, i64 -1
   store i8 %28, ptr %29, align 1

@@ -36930,7 +36930,7 @@ define internal noundef range(i32 0, 5) i32 @_ZNK12_GLOBAL__N_126ParsedAttrInfoO
 switch.lookup:                                    ; preds = %9, %6
   %11 = phi i32 [ %8, %6 ], [ %10, %9 ]
   %12 = sext i32 %11 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZNK12_GLOBAL__N_126ParsedAttrInfoOpenCLAccess31spellingIndexToSemanticSpellingERKN5clang10ParsedAttrE, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZNK12_GLOBAL__N_126ParsedAttrInfoOpenCLAccess31spellingIndexToSemanticSpellingERKN5clang10ParsedAttrE, i64 0, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -36966,7 +36966,7 @@ define internal noundef range(i32 0, 5) i32 @_ZNK12_GLOBAL__N_140ParsedAttrInfoO
 switch.lookup:                                    ; preds = %9, %6
   %11 = phi i32 [ %8, %6 ], [ %10, %9 ]
   %12 = sext i32 %11 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZNK12_GLOBAL__N_139ParsedAttrInfoOpenCLPrivateAddressSpace31spellingIndexToSemanticSpellingERKN5clang10ParsedAttrE, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZNK12_GLOBAL__N_139ParsedAttrInfoOpenCLPrivateAddressSpace31spellingIndexToSemanticSpellingERKN5clang10ParsedAttrE, i64 0, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -37002,7 +37002,7 @@ define internal noundef range(i32 0, 5) i32 @_ZNK12_GLOBAL__N_139ParsedAttrInfoO
 switch.lookup:                                    ; preds = %9, %6
   %11 = phi i32 [ %8, %6 ], [ %10, %9 ]
   %12 = sext i32 %11 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZNK12_GLOBAL__N_139ParsedAttrInfoOpenCLPrivateAddressSpace31spellingIndexToSemanticSpellingERKN5clang10ParsedAttrE, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZNK12_GLOBAL__N_139ParsedAttrInfoOpenCLPrivateAddressSpace31spellingIndexToSemanticSpellingERKN5clang10ParsedAttrE, i64 0, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -37038,7 +37038,7 @@ define internal noundef range(i32 0, 5) i32 @_ZNK12_GLOBAL__N_138ParsedAttrInfoO
 switch.lookup:                                    ; preds = %9, %6
   %11 = phi i32 [ %8, %6 ], [ %10, %9 ]
   %12 = sext i32 %11 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZNK12_GLOBAL__N_139ParsedAttrInfoOpenCLPrivateAddressSpace31spellingIndexToSemanticSpellingERKN5clang10ParsedAttrE, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZNK12_GLOBAL__N_139ParsedAttrInfoOpenCLPrivateAddressSpace31spellingIndexToSemanticSpellingERKN5clang10ParsedAttrE, i64 0, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -37301,7 +37301,7 @@ define internal noundef range(i32 0, 5) i32 @_ZNK12_GLOBAL__N_137ParsedAttrInfoO
 switch.lookup:                                    ; preds = %9, %6
   %11 = phi i32 [ %8, %6 ], [ %10, %9 ]
   %12 = sext i32 %11 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZNK12_GLOBAL__N_139ParsedAttrInfoOpenCLPrivateAddressSpace31spellingIndexToSemanticSpellingERKN5clang10ParsedAttrE, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZNK12_GLOBAL__N_139ParsedAttrInfoOpenCLPrivateAddressSpace31spellingIndexToSemanticSpellingERKN5clang10ParsedAttrE, i64 0, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -37437,7 +37437,7 @@ define internal noundef range(i32 0, 5) i32 @_ZNK12_GLOBAL__N_139ParsedAttrInfoO
 switch.lookup:                                    ; preds = %9, %6
   %11 = phi i32 [ %8, %6 ], [ %10, %9 ]
   %12 = sext i32 %11 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZNK12_GLOBAL__N_139ParsedAttrInfoOpenCLPrivateAddressSpace31spellingIndexToSemanticSpellingERKN5clang10ParsedAttrE, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZNK12_GLOBAL__N_139ParsedAttrInfoOpenCLPrivateAddressSpace31spellingIndexToSemanticSpellingERKN5clang10ParsedAttrE, i64 0, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }

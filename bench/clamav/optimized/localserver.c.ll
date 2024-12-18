@@ -100,7 +100,7 @@ define dso_local i32 @localserver(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %37
   %.053.idx79 = phi i64 [ %.053.add, %37 ], [ %.add, %.lr.ph.preheader ]
   %.05478 = phi i32 [ %38, %37 ], [ 0, %.lr.ph.preheader ]
-  %.053.ptr = getelementptr inbounds nuw i8, ptr %2, i64 %.053.idx79
+  %.053.ptr = getelementptr inbounds i8, ptr %2, i64 %.053.idx79
   %31 = load i8, ptr %.053.ptr, align 1
   %32 = icmp eq i8 %31, 47
   br i1 %32, label %33, label %37

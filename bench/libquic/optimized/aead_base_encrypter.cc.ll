@@ -213,7 +213,7 @@ if.end:                                           ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %nonce_buffer, ptr nonnull align 8 %nonce_prefix_, i64 %1, i1 false)
   %call5 = call noundef i64 @_ZN3net9QuicUtils25PackPathIdAndPacketNumberEhm(i8 noundef zeroext %path_id, i64 noundef %packet_number)
   %2 = load i64, ptr %nonce_prefix_size_, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %nonce_buffer, i64 %2
+  %add.ptr = getelementptr inbounds i8, ptr %nonce_buffer, i64 %2
   store i64 %call5, ptr %add.ptr, align 1
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull %nonce_buffer, i64 noundef %add)
   %3 = load ptr, ptr %agg.tmp, align 8

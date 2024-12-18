@@ -905,7 +905,7 @@ thread-pre-split76:                               ; preds = %433, %443
 575:                                              ; preds = %563, %559
   %576 = add nsw i32 %.pre164, -1
   %577 = sext i32 %576 to i64
-  %578 = getelementptr inbounds nuw [128 x i32], ptr %31, i64 0, i64 %577
+  %578 = getelementptr inbounds [128 x i32], ptr %31, i64 0, i64 %577
   store i32 0, ptr %578, align 4, !tbaa !3
   br label %.loopexit117
 
@@ -1534,10 +1534,10 @@ thread-pre-split81:                               ; preds = %748, %758
 .loopexit118:                                     ; preds = %1010, %996
   %1016 = add nsw i32 %.pre162, -2
   %1017 = sext i32 %1016 to i64
-  %1018 = getelementptr inbounds nuw [128 x i32], ptr %31, i64 0, i64 %1017
+  %1018 = getelementptr inbounds [128 x i32], ptr %31, i64 0, i64 %1017
   store i32 1, ptr %1018, align 4, !tbaa !3
   %1019 = sext i32 %1000 to i64
-  %1020 = getelementptr inbounds nuw [128 x i32], ptr %31, i64 0, i64 %1019
+  %1020 = getelementptr inbounds [128 x i32], ptr %31, i64 0, i64 %1019
   store i32 -1, ptr %1020, align 4, !tbaa !3
   store i32 %1000, ptr %33, align 4, !tbaa !3
   br label %.loopexit117
@@ -1583,7 +1583,7 @@ thread-pre-split81:                               ; preds = %748, %758
 1046:                                             ; preds = %1103, %1044
   %1047 = phi i64 [ %1045, %1044 ], [ %1109, %1103 ]
   %1048 = add nsw i64 %1047, -1
-  %1049 = getelementptr inbounds nuw [128 x i32], ptr %31, i64 0, i64 %1048
+  %1049 = getelementptr inbounds [128 x i32], ptr %31, i64 0, i64 %1048
   %1050 = load i32, ptr %1049, align 4, !tbaa !3
   switch i32 %1050, label %._crit_edge [
     i32 0, label %1051
@@ -2278,7 +2278,7 @@ thread-pre-split81:                               ; preds = %748, %758
 1536:                                             ; preds = %1529, %1526
   %1537 = add nsw i32 %1444, -1
   %1538 = sext i32 %1537 to i64
-  %1539 = getelementptr inbounds nuw [128 x i32], ptr %31, i64 0, i64 %1538
+  %1539 = getelementptr inbounds [128 x i32], ptr %31, i64 0, i64 %1538
   store i32 0, ptr %1539, align 4, !tbaa !3
   br label %.loopexit111
 
@@ -3100,10 +3100,10 @@ thread-pre-split81:                               ; preds = %748, %758
   %.pre-phi217 = phi i32 [ %.pre216, %..loopexit112_crit_edge ], [ %2143, %2150 ]
   %2156 = add nsw i32 %1949, -1
   %2157 = sext i32 %2156 to i64
-  %2158 = getelementptr inbounds nuw [128 x i32], ptr %31, i64 0, i64 %2157
+  %2158 = getelementptr inbounds [128 x i32], ptr %31, i64 0, i64 %2157
   store i32 1, ptr %2158, align 4, !tbaa !3
   %2159 = sext i32 %1949 to i64
-  %2160 = getelementptr inbounds nuw [128 x i32], ptr %31, i64 0, i64 %2159
+  %2160 = getelementptr inbounds [128 x i32], ptr %31, i64 0, i64 %2159
   store i32 -1, ptr %2160, align 4, !tbaa !3
   store i32 %.pre-phi217, ptr %33, align 4, !tbaa !3
   br label %.loopexit111
@@ -3147,7 +3147,7 @@ thread-pre-split81:                               ; preds = %748, %758
 .preheader:                                       ; preds = %2169, %2243
   %2185 = phi i64 [ %2249, %2243 ], [ 1, %2169 ]
   %2186 = add nsw i64 %2185, -1
-  %2187 = getelementptr inbounds nuw [128 x i32], ptr %31, i64 0, i64 %2186
+  %2187 = getelementptr inbounds [128 x i32], ptr %31, i64 0, i64 %2186
   %2188 = load i32, ptr %2187, align 4, !tbaa !3
   switch i32 %2188, label %.preheader._crit_edge [
     i32 0, label %2189

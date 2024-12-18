@@ -501,7 +501,7 @@ dist_n.exit41.i:                                  ; preds = %dist_n.exit41.loope
 
 244:                                              ; preds = %.lr.ph179.i.i.i
   %245 = sext i32 %.0142177.i.i.i to i64
-  %246 = getelementptr inbounds nuw double, ptr %12, i64 %245
+  %246 = getelementptr inbounds double, ptr %12, i64 %245
   store double %241, ptr %246, align 8
   %247 = add nsw i32 %.0142177.i.i.i, 1
   br label %addroot.exit.i.i.i
@@ -553,7 +553,7 @@ addroot.exit.i.i.i:                               ; preds = %244, %.lr.ph179.i.i
 
 258:                                              ; preds = %.lr.ph163.split.us.us.i.i.i
   %259 = sext i32 %.4161.us.us.i.i.i to i64
-  %260 = getelementptr inbounds nuw double, ptr %12, i64 %259
+  %260 = getelementptr inbounds double, ptr %12, i64 %259
   store double %252, ptr %260, align 8
   %261 = add nsw i32 %.4161.us.us.i.i.i, 1
   br label %addroot.exit125.us.us.i.i.i
@@ -583,7 +583,7 @@ addroot.exit125.us.us.i.i.i:                      ; preds = %258, %.lr.ph163.spl
 
 266:                                              ; preds = %.lr.ph175.i.i.i
   %267 = sext i32 %.2144173.i.i.i to i64
-  %268 = getelementptr inbounds nuw double, ptr %12, i64 %267
+  %268 = getelementptr inbounds double, ptr %12, i64 %267
   store double %263, ptr %268, align 8
   %269 = add nsw i32 %.2144173.i.i.i, 1
   br label %addroot.exit123.i.i.i
@@ -627,7 +627,7 @@ addroot.exit123.i.i.i:                            ; preds = %266, %.lr.ph175.i.i
 
 addroot.exit127.i.i.i:                            ; preds = %278
   %286 = sext i32 %.6157.i.i.i to i64
-  %287 = getelementptr inbounds nuw double, ptr %12, i64 %286
+  %287 = getelementptr inbounds double, ptr %12, i64 %286
   store double %275, ptr %287, align 8
   %288 = add nsw i32 %.6157.i.i.i, 1
   br label %289
@@ -693,7 +693,7 @@ addroot.exit127.i.i.i:                            ; preds = %278
 
 addroot.exit129.i.i.i:                            ; preds = %315
   %323 = sext i32 %.8155.i.i.i to i64
-  %324 = getelementptr inbounds nuw double, ptr %12, i64 %323
+  %324 = getelementptr inbounds double, ptr %12, i64 %323
   store double %312, ptr %324, align 8
   %325 = add nsw i32 %.8155.i.i.i, 1
   br label %326

@@ -3346,12 +3346,12 @@ define internal fastcc void @_ZN2cvL23FarnebackUpdateMatricesERKNS_3MatES2_S2_RS
   %52 = add i32 %51, -5
   %.not196.us = icmp uge i32 %52, %27
   %53 = icmp slt i64 %indvars.iv208, 5
-  %54 = getelementptr inbounds nuw [5 x float], ptr @_ZZN2cvL23FarnebackUpdateMatricesERKNS_3MatES2_S2_RS0_iiE6border, i64 0, i64 %indvars.iv208
+  %54 = getelementptr inbounds [5 x float], ptr @_ZZN2cvL23FarnebackUpdateMatricesERKNS_3MatES2_S2_RS0_iiE6border, i64 0, i64 %indvars.iv208
   %.not198.us = icmp slt i64 %indvars.iv208, %33
   %55 = xor i32 %49, -1
   %56 = add i32 %10, %55
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds nuw [5 x float], ptr @_ZZN2cvL23FarnebackUpdateMatricesERKNS_3MatES2_S2_RS0_iiE6border, i64 0, i64 %57
+  %58 = getelementptr inbounds [5 x float], ptr @_ZZN2cvL23FarnebackUpdateMatricesERKNS_3MatES2_S2_RS0_iiE6border, i64 0, i64 %57
   br label %59
 
 59:                                               ; preds = %.lr.ph.us, %224
@@ -3524,7 +3524,7 @@ define internal fastcc void @_ZN2cvL23FarnebackUpdateMatricesERKNS_3MatES2_S2_RS
 201:                                              ; preds = %199
   %202 = xor i64 %indvars.iv, -1
   %203 = add nsw i64 %31, %202
-  %204 = getelementptr inbounds nuw [5 x float], ptr @_ZZN2cvL23FarnebackUpdateMatricesERKNS_3MatES2_S2_RS0_iiE6border, i64 0, i64 %203
+  %204 = getelementptr inbounds [5 x float], ptr @_ZZN2cvL23FarnebackUpdateMatricesERKNS_3MatES2_S2_RS0_iiE6border, i64 0, i64 %203
   %205 = load float, ptr %204, align 4
   br label %206
 

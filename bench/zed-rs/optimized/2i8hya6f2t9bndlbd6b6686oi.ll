@@ -10771,9 +10771,9 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !1044
   %5 = tail call { i64, i64 } @_ZN8wasmtime7runtime9component9resources19AtomicResourceState3get17h6a4ccdf0a144833cE(ptr noundef nonnull align 8 %4), !noalias !1044
   %6 = extractvalue { i64, i64 } %5, 0
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfa80e7ddf6d9c01bE", i64 0, i64 %6
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfa80e7ddf6d9c01bE", i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %switch.gep1 = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfa80e7ddf6d9c01bE.170", i64 0, i64 %6
+  %switch.gep1 = getelementptr inbounds [4 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfa80e7ddf6d9c01bE.170", i64 0, i64 %6
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %switch.load, ptr %3, align 8, !noalias !1044
@@ -10854,9 +10854,9 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !1064
   %5 = tail call { i64, i64 } @_ZN8wasmtime7runtime9component9resources19AtomicResourceState3get17h6a4ccdf0a144833cE(ptr noundef nonnull align 8 %4), !noalias !1064
   %6 = extractvalue { i64, i64 } %5, 0
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfa80e7ddf6d9c01bE", i64 0, i64 %6
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfa80e7ddf6d9c01bE", i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %switch.gep1 = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfa80e7ddf6d9c01bE.170", i64 0, i64 %6
+  %switch.gep1 = getelementptr inbounds [4 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfa80e7ddf6d9c01bE.170", i64 0, i64 %6
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %switch.load, ptr %3, align 8, !noalias !1064
@@ -10881,9 +10881,9 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !1067
   %5 = tail call { i64, i64 } @_ZN8wasmtime7runtime9component9resources19AtomicResourceState3get17h6a4ccdf0a144833cE(ptr noundef nonnull align 8 %4), !noalias !1067
   %6 = extractvalue { i64, i64 } %5, 0
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfa80e7ddf6d9c01bE", i64 0, i64 %6
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfa80e7ddf6d9c01bE", i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %switch.gep1 = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfa80e7ddf6d9c01bE.170", i64 0, i64 %6
+  %switch.gep1 = getelementptr inbounds [4 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfa80e7ddf6d9c01bE.170", i64 0, i64 %6
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %switch.load, ptr %3, align 8, !noalias !1067
@@ -10908,9 +10908,9 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !1070
   %5 = tail call { i64, i64 } @_ZN8wasmtime7runtime9component9resources19AtomicResourceState3get17h6a4ccdf0a144833cE(ptr noundef nonnull align 8 %4), !noalias !1070
   %6 = extractvalue { i64, i64 } %5, 0
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfa80e7ddf6d9c01bE", i64 0, i64 %6
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfa80e7ddf6d9c01bE", i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %switch.gep1 = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfa80e7ddf6d9c01bE.170", i64 0, i64 %6
+  %switch.gep1 = getelementptr inbounds [4 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfa80e7ddf6d9c01bE.170", i64 0, i64 %6
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %switch.load, ptr %3, align 8, !noalias !1070
@@ -10973,9 +10973,9 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !1079
   %5 = tail call { i64, i64 } @_ZN8wasmtime7runtime9component9resources19AtomicResourceState3get17h6a4ccdf0a144833cE(ptr noundef nonnull align 8 %4), !noalias !1079
   %6 = extractvalue { i64, i64 } %5, 0
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfa80e7ddf6d9c01bE", i64 0, i64 %6
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfa80e7ddf6d9c01bE", i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %switch.gep1 = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfa80e7ddf6d9c01bE.170", i64 0, i64 %6
+  %switch.gep1 = getelementptr inbounds [4 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfa80e7ddf6d9c01bE.170", i64 0, i64 %6
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %switch.load, ptr %3, align 8, !noalias !1079
@@ -11000,9 +11000,9 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !1082
   %5 = tail call { i64, i64 } @_ZN8wasmtime7runtime9component9resources19AtomicResourceState3get17h6a4ccdf0a144833cE(ptr noundef nonnull align 8 %4), !noalias !1082
   %6 = extractvalue { i64, i64 } %5, 0
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfa80e7ddf6d9c01bE", i64 0, i64 %6
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfa80e7ddf6d9c01bE", i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %switch.gep1 = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfa80e7ddf6d9c01bE.170", i64 0, i64 %6
+  %switch.gep1 = getelementptr inbounds [4 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfa80e7ddf6d9c01bE.170", i64 0, i64 %6
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %switch.load, ptr %3, align 8, !noalias !1082
@@ -11269,9 +11269,9 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !1124
   %5 = tail call { i64, i64 } @_ZN8wasmtime7runtime9component9resources19AtomicResourceState3get17h6a4ccdf0a144833cE(ptr noundef nonnull align 8 %4), !noalias !1124
   %6 = extractvalue { i64, i64 } %5, 0
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfa80e7ddf6d9c01bE", i64 0, i64 %6
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfa80e7ddf6d9c01bE", i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %switch.gep1 = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfa80e7ddf6d9c01bE.170", i64 0, i64 %6
+  %switch.gep1 = getelementptr inbounds [4 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfa80e7ddf6d9c01bE.170", i64 0, i64 %6
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %switch.load, ptr %3, align 8, !noalias !1124
@@ -11296,9 +11296,9 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !1127
   %5 = tail call { i64, i64 } @_ZN8wasmtime7runtime9component9resources19AtomicResourceState3get17h6a4ccdf0a144833cE(ptr noundef nonnull align 8 %4), !noalias !1127
   %6 = extractvalue { i64, i64 } %5, 0
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfa80e7ddf6d9c01bE", i64 0, i64 %6
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfa80e7ddf6d9c01bE", i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %switch.gep1 = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfa80e7ddf6d9c01bE.170", i64 0, i64 %6
+  %switch.gep1 = getelementptr inbounds [4 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfa80e7ddf6d9c01bE.170", i64 0, i64 %6
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %switch.load, ptr %3, align 8, !noalias !1127
@@ -11323,9 +11323,9 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !1130
   %5 = tail call { i64, i64 } @_ZN8wasmtime7runtime9component9resources19AtomicResourceState3get17h6a4ccdf0a144833cE(ptr noundef nonnull align 8 %4), !noalias !1130
   %6 = extractvalue { i64, i64 } %5, 0
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfa80e7ddf6d9c01bE", i64 0, i64 %6
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfa80e7ddf6d9c01bE", i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %switch.gep1 = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfa80e7ddf6d9c01bE.170", i64 0, i64 %6
+  %switch.gep1 = getelementptr inbounds [4 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfa80e7ddf6d9c01bE.170", i64 0, i64 %6
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %switch.load, ptr %3, align 8, !noalias !1130
@@ -11372,9 +11372,9 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !1136
   %5 = tail call { i64, i64 } @_ZN8wasmtime7runtime9component9resources19AtomicResourceState3get17h6a4ccdf0a144833cE(ptr noundef nonnull align 8 %4), !noalias !1136
   %6 = extractvalue { i64, i64 } %5, 0
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfa80e7ddf6d9c01bE", i64 0, i64 %6
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfa80e7ddf6d9c01bE", i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %switch.gep1 = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfa80e7ddf6d9c01bE.170", i64 0, i64 %6
+  %switch.gep1 = getelementptr inbounds [4 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfa80e7ddf6d9c01bE.170", i64 0, i64 %6
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %switch.load, ptr %3, align 8, !noalias !1136
@@ -11399,9 +11399,9 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !1139
   %5 = tail call { i64, i64 } @_ZN8wasmtime7runtime9component9resources19AtomicResourceState3get17h6a4ccdf0a144833cE(ptr noundef nonnull align 8 %4), !noalias !1139
   %6 = extractvalue { i64, i64 } %5, 0
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfa80e7ddf6d9c01bE", i64 0, i64 %6
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfa80e7ddf6d9c01bE", i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %switch.gep1 = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfa80e7ddf6d9c01bE.170", i64 0, i64 %6
+  %switch.gep1 = getelementptr inbounds [4 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfa80e7ddf6d9c01bE.170", i64 0, i64 %6
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %switch.load, ptr %3, align 8, !noalias !1139
@@ -11483,9 +11483,9 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !1149
   %5 = tail call { i64, i64 } @_ZN8wasmtime7runtime9component9resources19AtomicResourceState3get17h6a4ccdf0a144833cE(ptr noundef nonnull align 8 %4), !noalias !1149
   %6 = extractvalue { i64, i64 } %5, 0
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfa80e7ddf6d9c01bE", i64 0, i64 %6
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfa80e7ddf6d9c01bE", i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %switch.gep1 = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfa80e7ddf6d9c01bE.170", i64 0, i64 %6
+  %switch.gep1 = getelementptr inbounds [4 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfa80e7ddf6d9c01bE.170", i64 0, i64 %6
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %switch.load, ptr %3, align 8, !noalias !1149
@@ -11510,9 +11510,9 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !1152
   %5 = tail call { i64, i64 } @_ZN8wasmtime7runtime9component9resources19AtomicResourceState3get17h6a4ccdf0a144833cE(ptr noundef nonnull align 8 %4), !noalias !1152
   %6 = extractvalue { i64, i64 } %5, 0
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfa80e7ddf6d9c01bE", i64 0, i64 %6
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfa80e7ddf6d9c01bE", i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %switch.gep1 = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfa80e7ddf6d9c01bE.170", i64 0, i64 %6
+  %switch.gep1 = getelementptr inbounds [4 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfa80e7ddf6d9c01bE.170", i64 0, i64 %6
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %switch.load, ptr %3, align 8, !noalias !1152
@@ -11537,9 +11537,9 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !1155
   %5 = tail call { i64, i64 } @_ZN8wasmtime7runtime9component9resources19AtomicResourceState3get17h6a4ccdf0a144833cE(ptr noundef nonnull align 8 %4), !noalias !1155
   %6 = extractvalue { i64, i64 } %5, 0
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfa80e7ddf6d9c01bE", i64 0, i64 %6
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfa80e7ddf6d9c01bE", i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %switch.gep1 = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfa80e7ddf6d9c01bE.170", i64 0, i64 %6
+  %switch.gep1 = getelementptr inbounds [4 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfa80e7ddf6d9c01bE.170", i64 0, i64 %6
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %switch.load, ptr %3, align 8, !noalias !1155

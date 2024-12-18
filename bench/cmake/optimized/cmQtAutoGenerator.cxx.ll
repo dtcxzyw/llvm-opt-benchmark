@@ -1161,7 +1161,7 @@ define dso_local noundef zeroext i1 @_ZN17cmQtAutoGenerator8FileReadERNSt7__cxx1
   %13 = load ptr, ptr %5, align 8
   %14 = getelementptr i8, ptr %13, i64 -24
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %5, i64 %15
+  %16 = getelementptr inbounds i8, ptr %5, i64 %15
   %17 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %16)
           to label %.noexc unwind label %39
 
@@ -1180,7 +1180,7 @@ define dso_local noundef zeroext i1 @_ZN17cmQtAutoGenerator8FileReadERNSt7__cxx1
   %20 = load ptr, ptr %5, align 8
   %21 = getelementptr i8, ptr %20, i64 -24
   %22 = load i64, ptr %21, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %5, i64 %22
+  %23 = getelementptr inbounds i8, ptr %5, i64 %22
   %24 = invoke noundef ptr @_ZNKSt9basic_iosIcSt11char_traitsIcEE5rdbufEv(ptr noundef nonnull align 8 dereferenceable(264) %23)
           to label %_ZNSt19istreambuf_iteratorIcSt11char_traitsIcEEC2ERSi.exit.i unwind label %25
 
@@ -1206,7 +1206,7 @@ _ZNSt19istreambuf_iteratorIcSt11char_traitsIcEEC2ERSi.exit.i: ; preds = %.noexc1
   %31 = load ptr, ptr %5, align 8
   %32 = getelementptr i8, ptr %31, i64 -24
   %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %5, i64 %33
+  %34 = getelementptr inbounds i8, ptr %5, i64 %33
   %35 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %34)
           to label %.noexc15 unwind label %39
 
@@ -1309,7 +1309,7 @@ _ZN17cmQtAutoGenerator19MakeParentDirectoryERKNSt7__cxx1112basic_stringIcSt11cha
   %19 = load ptr, ptr %5, align 8
   %20 = getelementptr i8, ptr %19, i64 -24
   %21 = load i64, ptr %20, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %5, i64 %21
+  %22 = getelementptr inbounds i8, ptr %5, i64 %21
   %23 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %22)
           to label %.noexc unwind label %35
 
@@ -1328,7 +1328,7 @@ _ZN17cmQtAutoGenerator19MakeParentDirectoryERKNSt7__cxx1112basic_stringIcSt11cha
   %27 = load ptr, ptr %5, align 8
   %28 = getelementptr i8, ptr %27, i64 -24
   %29 = load i64, ptr %28, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %5, i64 %29
+  %30 = getelementptr inbounds i8, ptr %5, i64 %29
   %31 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %30)
           to label %.noexc12 unwind label %35
 
@@ -3035,7 +3035,7 @@ define dso_local noundef zeroext i1 @_ZN17cmQtAutoGenerator3RunESt17basic_string
   %100 = load ptr, ptr %24, align 8
   %101 = getelementptr i8, ptr %100, i64 -24
   %102 = load i64, ptr %101, align 8
-  %103 = getelementptr inbounds nuw i8, ptr %24, i64 %102
+  %103 = getelementptr inbounds i8, ptr %24, i64 %102
   %104 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %103)
           to label %105 unwind label %126
 

@@ -51,7 +51,7 @@ define dso_local noundef i32 @pg_open_tzfile(ptr noundef %0, ptr noundef %1) loc
   br i1 %12, label %16, label %13
 
 13:                                               ; preds = %6
-  %endptr = getelementptr inbounds nuw i8, ptr %3, i64 %8
+  %endptr = getelementptr inbounds i8, ptr %3, i64 %8
   store i16 47, ptr %endptr, align 1
   %14 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %0) #13
   %15 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %3, i32 noundef 0, i32 noundef 0) #13

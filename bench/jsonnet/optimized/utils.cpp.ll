@@ -663,7 +663,7 @@ define dso_local noundef zeroext i1 @_Z18read_input_contentNSt7__cxx1112basic_st
   %11 = load ptr, ptr @_ZSt3cin, align 8
   %12 = getelementptr i8, ptr %11, i64 -24
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds nuw i8, ptr @_ZSt3cin, i64 %13
+  %14 = getelementptr inbounds i8, ptr @_ZSt3cin, i64 %13
   %15 = invoke noundef ptr @_ZNKSt9basic_iosIcSt11char_traitsIcEE5rdbufEv(ptr noundef nonnull align 8 dereferenceable(264) %14)
           to label %_ZNSt19istreambuf_iteratorIcSt11char_traitsIcEEC2ERSi.exit unwind label %16
 
@@ -694,7 +694,7 @@ _ZNSt19istreambuf_iteratorIcSt11char_traitsIcEEC2ERSi.exit: ; preds = %10
   %24 = load ptr, ptr %5, align 8
   %25 = getelementptr i8, ptr %24, i64 -24
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %5, i64 %26
+  %27 = getelementptr inbounds i8, ptr %5, i64 %26
   %28 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %27)
           to label %29 unwind label %31
 
@@ -715,7 +715,7 @@ _ZNSt19istreambuf_iteratorIcSt11char_traitsIcEEC2ERSi.exit: ; preds = %10
   %34 = load ptr, ptr %5, align 8
   %35 = getelementptr i8, ptr %34, i64 -24
   %36 = load i64, ptr %35, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %5, i64 %36
+  %37 = getelementptr inbounds i8, ptr %5, i64 %36
   %38 = invoke noundef ptr @_ZNKSt9basic_iosIcSt11char_traitsIcEE5rdbufEv(ptr noundef nonnull align 8 dereferenceable(264) %37)
           to label %_ZNSt19istreambuf_iteratorIcSt11char_traitsIcEEC2ERSi.exit6 unwind label %39
 
@@ -741,7 +741,7 @@ _ZNSt19istreambuf_iteratorIcSt11char_traitsIcEEC2ERSi.exit6: ; preds = %33
   %46 = load ptr, ptr %5, align 8
   %47 = getelementptr i8, ptr %46, i64 -24
   %48 = load i64, ptr %47, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %5, i64 %48
+  %49 = getelementptr inbounds i8, ptr %5, i64 %48
   %50 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %49)
           to label %51 unwind label %31
 
@@ -891,7 +891,7 @@ define dso_local noundef zeroext i1 @_Z17write_output_filePKcRKNSt7__cxx1112basi
   %10 = load ptr, ptr %3, align 8
   %11 = getelementptr i8, ptr %10, i64 -24
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 %12
+  %13 = getelementptr inbounds i8, ptr %3, i64 %12
   %14 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %13)
           to label %15 unwind label %17
 
@@ -929,7 +929,7 @@ define dso_local noundef zeroext i1 @_Z17write_output_filePKcRKNSt7__cxx1112basi
   %27 = load ptr, ptr %3, align 8
   %28 = getelementptr i8, ptr %27, i64 -24
   %29 = load i64, ptr %28, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %3, i64 %29
+  %30 = getelementptr inbounds i8, ptr %3, i64 %29
   %31 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %30)
           to label %32 unwind label %17
 

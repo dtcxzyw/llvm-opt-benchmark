@@ -2237,7 +2237,7 @@ do.body.i:                                        ; preds = %do.cond.i, %if.end
   %4 = load ptr, ptr @con, align 8
   %write.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %write.i, align 8
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %buffer, i64 %offset.0.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buffer, i64 %offset.0.i
   %sub.i = sub i64 %call.i6, %offset.0.i
   %call1.i = call i64 %5(ptr noundef %4, ptr noundef nonnull %add.ptr.i, i64 noundef %sub.i) #20
   %cmp.i7 = icmp eq i64 %call1.i, -1
@@ -2333,7 +2333,7 @@ do.body.i17:                                      ; preds = %do.cond.i26, %while
   %14 = load ptr, ptr @con, align 8
   %write.i19 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %15 = load ptr, ptr %write.i19, align 8
-  %add.ptr.i20 = getelementptr inbounds nuw i8, ptr %buffer, i64 %offset.0.i18
+  %add.ptr.i20 = getelementptr inbounds i8, ptr %buffer, i64 %offset.0.i18
   %sub.i21 = sub i64 %call.i16, %offset.0.i18
   %call1.i22 = call i64 %15(ptr noundef %14, ptr noundef nonnull %add.ptr.i20, i64 noundef %sub.i21) #20
   %cmp.i23 = icmp eq i64 %call1.i22, -1
@@ -2419,7 +2419,7 @@ do.body.i57:                                      ; preds = %do.cond.i66, %if.en
   %22 = load ptr, ptr @con, align 8
   %write.i59 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %23 = load ptr, ptr %write.i59, align 8
-  %add.ptr.i60 = getelementptr inbounds nuw i8, ptr %buffer, i64 %offset.0.i58
+  %add.ptr.i60 = getelementptr inbounds i8, ptr %buffer, i64 %offset.0.i58
   %sub.i61 = sub i64 %call.i56, %offset.0.i58
   %call1.i62 = call i64 %23(ptr noundef %22, ptr noundef nonnull %add.ptr.i60, i64 noundef %sub.i61) #20
   %cmp.i63 = icmp eq i64 %call1.i62, -1
@@ -2509,7 +2509,7 @@ do.body.i97:                                      ; preds = %do.cond.i106, %if.e
   %30 = load ptr, ptr @con, align 8
   %write.i99 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %31 = load ptr, ptr %write.i99, align 8
-  %add.ptr.i100 = getelementptr inbounds nuw i8, ptr %buffer, i64 %offset.0.i98
+  %add.ptr.i100 = getelementptr inbounds i8, ptr %buffer, i64 %offset.0.i98
   %sub.i101 = sub i64 %call.i96, %offset.0.i98
   %call1.i102 = call i64 %31(ptr noundef %30, ptr noundef nonnull %add.ptr.i100, i64 noundef %sub.i101) #20
   %cmp.i103 = icmp eq i64 %call1.i102, -1
@@ -5102,7 +5102,7 @@ do.body.us.i.us:                                  ; preds = %do.cond.us.i.us, %d
   %1 = load ptr, ptr @con, align 8
   %write.us.i.us = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load ptr, ptr %write.us.i.us, align 8
-  %add.ptr.us.i.us = getelementptr inbounds nuw i8, ptr %send, i64 %offset.0.us.i.us
+  %add.ptr.us.i.us = getelementptr inbounds i8, ptr %send, i64 %offset.0.us.i.us
   %call3.us.i.us = call i64 %2(ptr noundef %1, ptr noundef nonnull %add.ptr.us.i.us, i64 noundef %sub.us.i.us) #20
   %cmp4.us.i.us = icmp eq i64 %call3.us.i.us, -1
   br i1 %cmp4.us.i.us, label %if.then6.us.i.us, label %if.else.us.i.us
@@ -5156,7 +5156,7 @@ do.body.us.i:                                     ; preds = %do.body.us.i.prehea
   %7 = load ptr, ptr @con, align 8
   %write.us.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   %8 = load ptr, ptr %write.us.i, align 8
-  %add.ptr.us.i = getelementptr inbounds nuw i8, ptr %send, i64 %offset.0.us.i
+  %add.ptr.us.i = getelementptr inbounds i8, ptr %send, i64 %offset.0.us.i
   %call3.us.i = call i64 %8(ptr noundef %7, ptr noundef nonnull %add.ptr.us.i, i64 noundef %sub.us.i) #20
   %cmp4.us.i = icmp eq i64 %call3.us.i, -1
   br i1 %cmp4.us.i, label %if.then6.us.i, label %if.else.us.i
@@ -5206,7 +5206,7 @@ do.body.us.i13:                                   ; preds = %do.cond.us.i22, %if
   %12 = load ptr, ptr @con, align 8
   %write.us.i16 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %13 = load ptr, ptr %write.us.i16, align 8
-  %add.ptr.us.i17 = getelementptr inbounds nuw i8, ptr %send, i64 %offset.0.us.i14
+  %add.ptr.us.i17 = getelementptr inbounds i8, ptr %send, i64 %offset.0.us.i14
   %call3.us.i18 = call i64 %13(ptr noundef %12, ptr noundef nonnull %add.ptr.us.i17, i64 noundef %sub.us.i15) #20
   %cmp4.us.i19 = icmp eq i64 %call3.us.i18, -1
   br i1 %cmp4.us.i19, label %if.then6.us.i25, label %if.else.us.i20
@@ -5330,7 +5330,7 @@ do.body.us.i.us:                                  ; preds = %do.cond.us.i.us, %d
   %1 = load ptr, ptr @con, align 8
   %write.us.i.us = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load ptr, ptr %write.us.i.us, align 8
-  %add.ptr.us.i.us = getelementptr inbounds nuw i8, ptr %send, i64 %offset.0.us.i.us
+  %add.ptr.us.i.us = getelementptr inbounds i8, ptr %send, i64 %offset.0.us.i.us
   %call3.us.i.us = call i64 %2(ptr noundef %1, ptr noundef nonnull %add.ptr.us.i.us, i64 noundef %sub.us.i.us) #20
   %cmp4.us.i.us = icmp eq i64 %call3.us.i.us, -1
   br i1 %cmp4.us.i.us, label %if.then6.us.i.us, label %if.else.us.i.us
@@ -5386,7 +5386,7 @@ do.body.us.i:                                     ; preds = %do.body.us.i.prehea
   %7 = load ptr, ptr @con, align 8
   %write.us.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   %8 = load ptr, ptr %write.us.i, align 8
-  %add.ptr.us.i = getelementptr inbounds nuw i8, ptr %send, i64 %offset.0.us.i
+  %add.ptr.us.i = getelementptr inbounds i8, ptr %send, i64 %offset.0.us.i
   %call3.us.i = call i64 %8(ptr noundef %7, ptr noundef nonnull %add.ptr.us.i, i64 noundef %sub.us.i) #20
   %cmp4.us.i = icmp eq i64 %call3.us.i, -1
   br i1 %cmp4.us.i, label %if.then6.us.i, label %if.else.us.i
@@ -5497,7 +5497,7 @@ do.body.us.i:                                     ; preds = %do.cond.us.i, %stor
   %1 = load ptr, ptr @con, align 8
   %write.us.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load ptr, ptr %write.us.i, align 8
-  %add.ptr.us.i = getelementptr inbounds nuw i8, ptr %send, i64 %offset.0.us.i
+  %add.ptr.us.i = getelementptr inbounds i8, ptr %send, i64 %offset.0.us.i
   %call3.us.i = call i64 %2(ptr noundef %1, ptr noundef nonnull %add.ptr.us.i, i64 noundef %sub.us.i) #20
   %cmp4.us.i = icmp eq i64 %call3.us.i, -1
   br i1 %cmp4.us.i, label %if.then6.us.i, label %if.else.us.i
@@ -5583,7 +5583,7 @@ do.body.us.i35:                                   ; preds = %do.cond.us.i44, %st
   %9 = load ptr, ptr @con, align 8
   %write.us.i38 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %10 = load ptr, ptr %write.us.i38, align 8
-  %add.ptr.us.i39 = getelementptr inbounds nuw i8, ptr %send, i64 %offset.0.us.i36
+  %add.ptr.us.i39 = getelementptr inbounds i8, ptr %send, i64 %offset.0.us.i36
   %call3.us.i40 = call i64 %10(ptr noundef %9, ptr noundef nonnull %add.ptr.us.i39, i64 noundef %sub.us.i37) #20
   %cmp4.us.i41 = icmp eq i64 %call3.us.i40, -1
   br i1 %cmp4.us.i41, label %if.then6.us.i47, label %if.else.us.i42
@@ -5678,7 +5678,7 @@ do.body.us.i85.us:                                ; preds = %do.cond.us.i94.us, 
   %17 = load ptr, ptr @con, align 8
   %write.us.i88.us = getelementptr inbounds nuw i8, ptr %17, i64 16
   %18 = load ptr, ptr %write.us.i88.us, align 8
-  %add.ptr.us.i89.us = getelementptr inbounds nuw i8, ptr %send, i64 %offset.0.us.i86.us
+  %add.ptr.us.i89.us = getelementptr inbounds i8, ptr %send, i64 %offset.0.us.i86.us
   %call3.us.i90.us = call i64 %18(ptr noundef %17, ptr noundef nonnull %add.ptr.us.i89.us, i64 noundef %sub.us.i87.us) #20
   %cmp4.us.i91.us = icmp eq i64 %call3.us.i90.us, -1
   br i1 %cmp4.us.i91.us, label %if.then6.us.i97.us, label %if.else.us.i92.us
@@ -5732,7 +5732,7 @@ do.body.us.i85:                                   ; preds = %do.body.us.i85.preh
   %23 = load ptr, ptr @con, align 8
   %write.us.i88 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %24 = load ptr, ptr %write.us.i88, align 8
-  %add.ptr.us.i89 = getelementptr inbounds nuw i8, ptr %send, i64 %offset.0.us.i86
+  %add.ptr.us.i89 = getelementptr inbounds i8, ptr %send, i64 %offset.0.us.i86
   %call3.us.i90 = call i64 %24(ptr noundef %23, ptr noundef nonnull %add.ptr.us.i89, i64 noundef %sub.us.i87) #20
   %cmp4.us.i91 = icmp eq i64 %call3.us.i90, -1
   br i1 %cmp4.us.i91, label %if.then6.us.i97, label %if.else.us.i92
@@ -5823,7 +5823,7 @@ do.body.us.i:                                     ; preds = %do.body.us.i.prehea
   %0 = load ptr, ptr @con, align 8
   %write.us.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load ptr, ptr %write.us.i, align 8
-  %add.ptr.us.i = getelementptr inbounds nuw i8, ptr %send, i64 %offset.0.us.i
+  %add.ptr.us.i = getelementptr inbounds i8, ptr %send, i64 %offset.0.us.i
   %call3.us.i = call i64 %1(ptr noundef %0, ptr noundef nonnull %add.ptr.us.i, i64 noundef %sub.us.i) #20
   %cmp4.us.i = icmp eq i64 %call3.us.i, -1
   br i1 %cmp4.us.i, label %if.then6.us.i, label %if.else.us.i
@@ -5911,7 +5911,7 @@ do.body.us.i17:                                   ; preds = %do.cond.us.i26, %st
   %8 = load ptr, ptr @con, align 8
   %write.us.i20 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %9 = load ptr, ptr %write.us.i20, align 8
-  %add.ptr.us.i21 = getelementptr inbounds nuw i8, ptr %send, i64 %offset.0.us.i18
+  %add.ptr.us.i21 = getelementptr inbounds i8, ptr %send, i64 %offset.0.us.i18
   %call3.us.i22 = call i64 %9(ptr noundef %8, ptr noundef nonnull %add.ptr.us.i21, i64 noundef %sub.us.i19) #20
   %cmp4.us.i23 = icmp eq i64 %call3.us.i22, -1
   br i1 %cmp4.us.i23, label %if.then6.us.i29, label %if.else.us.i24
@@ -5997,7 +5997,7 @@ do.body.us.i65:                                   ; preds = %do.body.us.i65.preh
   %15 = load ptr, ptr @con, align 8
   %write.us.i68 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %16 = load ptr, ptr %write.us.i68, align 8
-  %add.ptr.us.i69 = getelementptr inbounds nuw i8, ptr %send, i64 %offset.0.us.i66
+  %add.ptr.us.i69 = getelementptr inbounds i8, ptr %send, i64 %offset.0.us.i66
   %call3.us.i70 = call i64 %16(ptr noundef %15, ptr noundef nonnull %add.ptr.us.i69, i64 noundef %sub.us.i67) #20
   %cmp4.us.i71 = icmp eq i64 %call3.us.i70, -1
   br i1 %cmp4.us.i71, label %if.then6.us.i77, label %if.else.us.i72
@@ -6063,7 +6063,7 @@ do.body.us.i97:                                   ; preds = %do.body.us.i97.preh
   %22 = load ptr, ptr @con, align 8
   %write.us.i100 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %23 = load ptr, ptr %write.us.i100, align 8
-  %add.ptr.us.i101 = getelementptr inbounds nuw i8, ptr %send, i64 %offset.0.us.i98
+  %add.ptr.us.i101 = getelementptr inbounds i8, ptr %send, i64 %offset.0.us.i98
   %call3.us.i102 = call i64 %23(ptr noundef %22, ptr noundef nonnull %add.ptr.us.i101, i64 noundef %sub.us.i99) #20
   %cmp4.us.i103 = icmp eq i64 %call3.us.i102, -1
   br i1 %cmp4.us.i103, label %if.then6.us.i109, label %if.else.us.i104
@@ -6188,7 +6188,7 @@ do.body.us.i:                                     ; preds = %do.body.us.i.prehea
   %0 = load ptr, ptr @con, align 8
   %write.us.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load ptr, ptr %write.us.i, align 8
-  %add.ptr.us.i = getelementptr inbounds nuw i8, ptr %send, i64 %offset.0.us.i
+  %add.ptr.us.i = getelementptr inbounds i8, ptr %send, i64 %offset.0.us.i
   %call3.us.i = call i64 %1(ptr noundef %0, ptr noundef nonnull %add.ptr.us.i, i64 noundef %sub.us.i) #20
   %cmp4.us.i = icmp eq i64 %call3.us.i, -1
   br i1 %cmp4.us.i, label %if.then6.us.i, label %if.else.us.i
@@ -6275,7 +6275,7 @@ do.body.us.i39:                                   ; preds = %do.cond.us.i48, %st
   %8 = load ptr, ptr @con, align 8
   %write.us.i42 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %9 = load ptr, ptr %write.us.i42, align 8
-  %add.ptr.us.i43 = getelementptr inbounds nuw i8, ptr %send, i64 %offset.0.us.i40
+  %add.ptr.us.i43 = getelementptr inbounds i8, ptr %send, i64 %offset.0.us.i40
   %call3.us.i44 = call i64 %9(ptr noundef %8, ptr noundef nonnull %add.ptr.us.i43, i64 noundef %sub.us.i41) #20
   %cmp4.us.i45 = icmp eq i64 %call3.us.i44, -1
   br i1 %cmp4.us.i45, label %if.then6.us.i51, label %if.else.us.i46
@@ -6377,7 +6377,7 @@ if.then23.i92:                                    ; preds = %if.end20.i90
   br label %ext_command.exit94
 
 ext_command.exit94:                               ; preds = %if.end20.i90, %if.then23.i92
-  %add.ptr = getelementptr inbounds nuw i8, ptr %send, i64 %len.0130
+  %add.ptr = getelementptr inbounds i8, ptr %send, i64 %len.0130
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr nonnull align 8 %temp, i64 %add1.i72, i1 false)
   %add = add i64 %add1.i72, %len.0130
   %inc = add nuw nsw i32 %ii.0131, 1
@@ -6390,7 +6390,7 @@ do.body.us.i95:                                   ; preds = %ext_command.exit94,
   %15 = load ptr, ptr @con, align 8
   %write.us.i98 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %16 = load ptr, ptr %write.us.i98, align 8
-  %add.ptr.us.i99 = getelementptr inbounds nuw i8, ptr %send, i64 %offset.0.us.i96
+  %add.ptr.us.i99 = getelementptr inbounds i8, ptr %send, i64 %offset.0.us.i96
   %call3.us.i100 = call i64 %16(ptr noundef %15, ptr noundef nonnull %add.ptr.us.i99, i64 noundef %sub.us.i97) #20
   %cmp4.us.i101 = icmp eq i64 %call3.us.i100, -1
   br i1 %cmp4.us.i101, label %if.then6.us.i107, label %if.else.us.i102
@@ -6584,7 +6584,7 @@ do.body.us.i:                                     ; preds = %do.cond.us.i, %ext_
   %2 = load ptr, ptr @con, align 8
   %write.us.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   %3 = load ptr, ptr %write.us.i, align 8
-  %add.ptr.us.i = getelementptr inbounds nuw i8, ptr %send, i64 %offset.0.us.i
+  %add.ptr.us.i = getelementptr inbounds i8, ptr %send, i64 %offset.0.us.i
   %call3.us.i = call i64 %3(ptr noundef %2, ptr noundef nonnull %add.ptr.us.i, i64 noundef %sub.us.i) #20
   %cmp4.us.i = icmp eq i64 %call3.us.i, -1
   br i1 %cmp4.us.i, label %if.then6.us.i, label %if.else.us.i
@@ -6722,7 +6722,7 @@ do.body.us.i.us:                                  ; preds = %do.cond.us.i.us, %d
   %1 = load ptr, ptr @con, align 8
   %write.us.i.us = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load ptr, ptr %write.us.i.us, align 8
-  %add.ptr.us.i.us = getelementptr inbounds nuw i8, ptr %send, i64 %offset.0.us.i.us
+  %add.ptr.us.i.us = getelementptr inbounds i8, ptr %send, i64 %offset.0.us.i.us
   %call3.us.i.us = call i64 %2(ptr noundef %1, ptr noundef nonnull %add.ptr.us.i.us, i64 noundef %sub.us.i.us) #20
   %cmp4.us.i.us = icmp eq i64 %call3.us.i.us, -1
   br i1 %cmp4.us.i.us, label %if.then6.us.i.us, label %if.else.us.i.us
@@ -6782,7 +6782,7 @@ do.body.us.i:                                     ; preds = %do.body.us.i.prehea
   %8 = load ptr, ptr @con, align 8
   %write.us.i = getelementptr inbounds nuw i8, ptr %8, i64 16
   %9 = load ptr, ptr %write.us.i, align 8
-  %add.ptr.us.i = getelementptr inbounds nuw i8, ptr %send, i64 %offset.0.us.i
+  %add.ptr.us.i = getelementptr inbounds i8, ptr %send, i64 %offset.0.us.i
   %call3.us.i = call i64 %9(ptr noundef %8, ptr noundef nonnull %add.ptr.us.i, i64 noundef %sub.us.i) #20
   %cmp4.us.i = icmp eq i64 %call3.us.i, -1
   br i1 %cmp4.us.i, label %if.then6.us.i, label %if.else.us.i
@@ -6896,7 +6896,7 @@ do.body.us.i.us:                                  ; preds = %do.cond.us.i.us, %d
   %1 = load ptr, ptr @con, align 8
   %write.us.i.us = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load ptr, ptr %write.us.i.us, align 8
-  %add.ptr.us.i.us = getelementptr inbounds nuw i8, ptr %send, i64 %offset.0.us.i.us
+  %add.ptr.us.i.us = getelementptr inbounds i8, ptr %send, i64 %offset.0.us.i.us
   %call3.us.i.us = call i64 %2(ptr noundef %1, ptr noundef nonnull %add.ptr.us.i.us, i64 noundef %sub.us.i.us) #20
   %cmp4.us.i.us = icmp eq i64 %call3.us.i.us, -1
   br i1 %cmp4.us.i.us, label %if.then6.us.i.us, label %if.else.us.i.us
@@ -6960,7 +6960,7 @@ do.body.us.i:                                     ; preds = %do.body.us.i.prehea
   %8 = load ptr, ptr @con, align 8
   %write.us.i = getelementptr inbounds nuw i8, ptr %8, i64 16
   %9 = load ptr, ptr %write.us.i, align 8
-  %add.ptr.us.i = getelementptr inbounds nuw i8, ptr %send, i64 %offset.0.us.i
+  %add.ptr.us.i = getelementptr inbounds i8, ptr %send, i64 %offset.0.us.i
   %call3.us.i = call i64 %9(ptr noundef %8, ptr noundef nonnull %add.ptr.us.i, i64 noundef %sub.us.i) #20
   %cmp4.us.i = icmp eq i64 %call3.us.i, -1
   br i1 %cmp4.us.i, label %if.then6.us.i, label %if.else.us.i
@@ -7003,7 +7003,7 @@ do.body.us.i15:                                   ; preds = %do.body.us.i15.preh
   %12 = load ptr, ptr @con, align 8
   %write.us.i18 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %13 = load ptr, ptr %write.us.i18, align 8
-  %add.ptr.us.i19 = getelementptr inbounds nuw i8, ptr %send, i64 %offset.0.us.i16
+  %add.ptr.us.i19 = getelementptr inbounds i8, ptr %send, i64 %offset.0.us.i16
   %call3.us.i20 = call i64 %13(ptr noundef %12, ptr noundef nonnull %add.ptr.us.i19, i64 noundef %sub.us.i17) #20
   %cmp4.us.i21 = icmp eq i64 %call3.us.i20, -1
   br i1 %cmp4.us.i21, label %if.then6.us.i27, label %if.else.us.i22
@@ -7116,7 +7116,7 @@ do.body.us.i:                                     ; preds = %do.cond.us.i, %stor
   %1 = load ptr, ptr @con, align 8
   %write.us.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load ptr, ptr %write.us.i, align 8
-  %add.ptr.us.i = getelementptr inbounds nuw i8, ptr %send, i64 %offset.0.us.i
+  %add.ptr.us.i = getelementptr inbounds i8, ptr %send, i64 %offset.0.us.i
   %call3.us.i = call i64 %2(ptr noundef %1, ptr noundef nonnull %add.ptr.us.i, i64 noundef %sub.us.i) #20
   %cmp4.us.i = icmp eq i64 %call3.us.i, -1
   br i1 %cmp4.us.i, label %if.then6.us.i, label %if.else.us.i
@@ -7277,7 +7277,7 @@ do.body.us.i63:                                   ; preds = %do.body.us.i63.preh
   %15 = load ptr, ptr @con, align 8
   %write.us.i66 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %16 = load ptr, ptr %write.us.i66, align 8
-  %add.ptr.us.i67 = getelementptr inbounds nuw i8, ptr %send, i64 %offset.0.us.i64
+  %add.ptr.us.i67 = getelementptr inbounds i8, ptr %send, i64 %offset.0.us.i64
   %call3.us.i68 = call i64 %16(ptr noundef %15, ptr noundef nonnull %add.ptr.us.i67, i64 noundef %sub.us.i65) #20
   %cmp4.us.i69 = icmp eq i64 %call3.us.i68, -1
   br i1 %cmp4.us.i69, label %if.then6.us.i75, label %if.else.us.i70
@@ -7337,7 +7337,7 @@ do.body.us.i95:                                   ; preds = %do.cond.us.i104, %s
   %22 = load ptr, ptr @con, align 8
   %write.us.i98 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %23 = load ptr, ptr %write.us.i98, align 8
-  %add.ptr.us.i99 = getelementptr inbounds nuw i8, ptr %send, i64 %offset.0.us.i96
+  %add.ptr.us.i99 = getelementptr inbounds i8, ptr %send, i64 %offset.0.us.i96
   %call3.us.i100 = call i64 %23(ptr noundef %22, ptr noundef nonnull %add.ptr.us.i99, i64 noundef %sub.us.i97) #20
   %cmp4.us.i101 = icmp eq i64 %call3.us.i100, -1
   br i1 %cmp4.us.i101, label %if.then6.us.i107, label %if.else.us.i102
@@ -7429,7 +7429,7 @@ do.body.us.i143:                                  ; preds = %do.cond.us.i152, %s
   %30 = load ptr, ptr @con, align 8
   %write.us.i146 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %31 = load ptr, ptr %write.us.i146, align 8
-  %add.ptr.us.i147 = getelementptr inbounds nuw i8, ptr %send, i64 %offset.0.us.i144
+  %add.ptr.us.i147 = getelementptr inbounds i8, ptr %send, i64 %offset.0.us.i144
   %call3.us.i148 = call i64 %31(ptr noundef %30, ptr noundef nonnull %add.ptr.us.i147, i64 noundef %sub.us.i145) #20
   %cmp4.us.i149 = icmp eq i64 %call3.us.i148, -1
   br i1 %cmp4.us.i149, label %if.then6.us.i155, label %if.else.us.i150
@@ -7499,7 +7499,7 @@ do.body.us.i182:                                  ; preds = %do.cond.us.i191, %f
   %37 = load ptr, ptr @con, align 8
   %write.us.i185 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %38 = load ptr, ptr %write.us.i185, align 8
-  %add.ptr.us.i186 = getelementptr inbounds nuw i8, ptr %send, i64 %offset.0.us.i183
+  %add.ptr.us.i186 = getelementptr inbounds i8, ptr %send, i64 %offset.0.us.i183
   %call3.us.i187 = call i64 %38(ptr noundef %37, ptr noundef nonnull %add.ptr.us.i186, i64 noundef %sub.us.i184) #20
   %cmp4.us.i188 = icmp eq i64 %call3.us.i187, -1
   br i1 %cmp4.us.i188, label %if.then6.us.i194, label %if.else.us.i189
@@ -7586,7 +7586,7 @@ do.body.us.i230:                                  ; preds = %do.body.us.i230.pre
   %44 = load ptr, ptr @con, align 8
   %write.us.i233 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %45 = load ptr, ptr %write.us.i233, align 8
-  %add.ptr.us.i234 = getelementptr inbounds nuw i8, ptr %send, i64 %offset.0.us.i231
+  %add.ptr.us.i234 = getelementptr inbounds i8, ptr %send, i64 %offset.0.us.i231
   %call3.us.i235 = call i64 %45(ptr noundef %44, ptr noundef nonnull %add.ptr.us.i234, i64 noundef %sub.us.i232) #20
   %cmp4.us.i236 = icmp eq i64 %call3.us.i235, -1
   br i1 %cmp4.us.i236, label %if.then6.us.i242, label %if.else.us.i237
@@ -7689,7 +7689,7 @@ do.body.us.i:                                     ; preds = %do.cond.us.i, %raw_
   %2 = load ptr, ptr @con, align 8
   %write.us.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   %3 = load ptr, ptr %write.us.i, align 8
-  %add.ptr.us.i = getelementptr inbounds nuw i8, ptr %send, i64 %offset.0.us.i
+  %add.ptr.us.i = getelementptr inbounds i8, ptr %send, i64 %offset.0.us.i
   %call3.us.i = call i64 %3(ptr noundef %2, ptr noundef nonnull %add.ptr.us.i, i64 noundef %sub.us.i) #20
   %cmp4.us.i = icmp eq i64 %call3.us.i, -1
   br i1 %cmp4.us.i, label %if.then6.us.i, label %if.else.us.i
@@ -7779,7 +7779,7 @@ do.body.us.i45:                                   ; preds = %do.cond.us.i54, %st
   %10 = load ptr, ptr @con, align 8
   %write.us.i48 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %11 = load ptr, ptr %write.us.i48, align 8
-  %add.ptr.us.i49 = getelementptr inbounds nuw i8, ptr %send, i64 %offset.0.us.i46
+  %add.ptr.us.i49 = getelementptr inbounds i8, ptr %send, i64 %offset.0.us.i46
   %call3.us.i50 = call i64 %11(ptr noundef %10, ptr noundef nonnull %add.ptr.us.i49, i64 noundef %sub.us.i47) #20
   %cmp4.us.i51 = icmp eq i64 %call3.us.i50, -1
   br i1 %cmp4.us.i51, label %if.then6.us.i57, label %if.else.us.i52
@@ -7869,7 +7869,7 @@ do.body.us.i96:                                   ; preds = %do.cond.us.i105, %r
   %19 = load ptr, ptr @con, align 8
   %write.us.i99 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %20 = load ptr, ptr %write.us.i99, align 8
-  %add.ptr.us.i100 = getelementptr inbounds nuw i8, ptr %send, i64 %offset.0.us.i97
+  %add.ptr.us.i100 = getelementptr inbounds i8, ptr %send, i64 %offset.0.us.i97
   %call3.us.i101 = call i64 %20(ptr noundef %19, ptr noundef nonnull %add.ptr.us.i100, i64 noundef %sub.us.i98) #20
   %cmp4.us.i102 = icmp eq i64 %call3.us.i101, -1
   br i1 %cmp4.us.i102, label %if.then6.us.i108, label %if.else.us.i103
@@ -8009,7 +8009,7 @@ do.body.us.i185:                                  ; preds = %do.body.us.i185.pre
   %30 = load ptr, ptr @con, align 8
   %write.us.i188 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %31 = load ptr, ptr %write.us.i188, align 8
-  %add.ptr.us.i189 = getelementptr inbounds nuw i8, ptr %send, i64 %offset.0.us.i186
+  %add.ptr.us.i189 = getelementptr inbounds i8, ptr %send, i64 %offset.0.us.i186
   %call3.us.i190 = call i64 %31(ptr noundef %30, ptr noundef nonnull %add.ptr.us.i189, i64 noundef %sub.us.i187) #20
   %cmp4.us.i191 = icmp eq i64 %call3.us.i190, -1
   br i1 %cmp4.us.i191, label %if.then6.us.i197, label %if.else.us.i192

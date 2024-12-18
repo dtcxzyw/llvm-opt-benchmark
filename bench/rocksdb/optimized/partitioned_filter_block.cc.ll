@@ -2011,7 +2011,7 @@ if.end25:                                         ; preds = %invoke.cont21
           to label %invoke.cont28 unwind label %lpad18
 
 invoke.cont28:                                    ; preds = %if.end25
-  %20 = getelementptr inbounds nuw i8, ptr %filter_partition, i64 %filter_function.unpack11
+  %20 = getelementptr inbounds i8, ptr %filter_partition, i64 %filter_function.unpack11
   %21 = and i64 %filter_function.unpack, 1
   %memptr.isvirtual.not = icmp eq i64 %21, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -3324,7 +3324,7 @@ if.end:                                           ; preds = %invoke.cont5
           to label %invoke.cont9 unwind label %lpad4
 
 invoke.cont9:                                     ; preds = %if.end
-  %14 = getelementptr inbounds nuw i8, ptr %filter_partition, i64 %filter_function.unpack6
+  %14 = getelementptr inbounds i8, ptr %filter_partition, i64 %filter_function.unpack6
   %15 = and i64 %filter_function.unpack, 1
   %memptr.isvirtual.not = icmp eq i64 %15, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual

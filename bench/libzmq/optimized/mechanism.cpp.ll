@@ -1336,7 +1336,7 @@ if.then:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry, %if.then
   %idxprom = sext i32 %socket_type_ to i64
-  %arrayidx = getelementptr inbounds nuw [21 x ptr], ptr @_ZZN3zmq11mechanism_t18socket_type_stringEiE5names, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [21 x ptr], ptr @_ZZN3zmq11mechanism_t18socket_type_stringEiE5names, i64 0, i64 %idxprom
   %3 = load ptr, ptr %arrayidx, align 8
   ret ptr %3
 }
@@ -1446,7 +1446,7 @@ if.then.i:                                        ; preds = %entry
 
 _ZN3zmq11mechanism_t18socket_type_stringEi.exit:  ; preds = %entry, %if.then.i
   %idxprom.i = sext i8 %0 to i64
-  %arrayidx.i = getelementptr inbounds nuw [21 x ptr], ptr @_ZZN3zmq11mechanism_t18socket_type_stringEiE5names, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [21 x ptr], ptr @_ZZN3zmq11mechanism_t18socket_type_stringEiE5names, i64 0, i64 %idxprom.i
   %4 = load ptr, ptr %arrayidx.i, align 8
   %call2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #31
   %call3 = tail call noundef i64 @_ZN3zmq11mechanism_t12add_propertyEPhmPKcPKvm(ptr noundef %ptr_, i64 noundef %ptr_capacity_, ptr noundef nonnull @.str.7, ptr noundef %4, i64 noundef %call2)
@@ -1529,7 +1529,7 @@ if.then.i:                                        ; preds = %entry
 
 _ZN3zmq11mechanism_t18socket_type_stringEi.exit:  ; preds = %entry, %if.then.i
   %idxprom.i = sext i8 %0 to i64
-  %arrayidx.i = getelementptr inbounds nuw [21 x ptr], ptr @_ZZN3zmq11mechanism_t18socket_type_stringEiE5names, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [21 x ptr], ptr @_ZZN3zmq11mechanism_t18socket_type_stringEiE5names, i64 0, i64 %idxprom.i
   %4 = load ptr, ptr %arrayidx.i, align 8
   %_M_left.i.i = getelementptr inbounds nuw i8, ptr %this, i64 1048
   %5 = load ptr, ptr %_M_left.i.i, align 8

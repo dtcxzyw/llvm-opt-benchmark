@@ -5926,7 +5926,7 @@ entry:
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTN8QuantLib8Swaption9argumentsE, i64 24), align 8
   %vbase.offset.ptr.i.i.i = getelementptr i8, ptr %1, i64 -40
   %vbase.offset.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %args, i64 %vbase.offset.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %args, i64 %vbase.offset.i.i.i
   store ptr %2, ptr %add.ptr.i.i.i, align 8, !tbaa !35
   %legs.i.i.i = getelementptr inbounds nuw i8, ptr %args, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %legs.i.i.i, i8 0, i64 48, i1 false)
@@ -5934,7 +5934,7 @@ entry:
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTN8QuantLib8Swaption9argumentsE, i64 32), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %3, i64 -40
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %args, i64 %vbase.offset.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %args, i64 %vbase.offset.i.i
   store ptr %4, ptr %add.ptr.i.i, align 8, !tbaa !35
   %type.i.i = getelementptr inbounds nuw i8, ptr %args, i64 56
   store i32 -1, ptr %type.i.i, align 8, !tbaa !123
@@ -5974,7 +5974,7 @@ cast.end:                                         ; preds = %.noexc, %entry
   %9 = phi ptr [ %8, %entry ], [ %.pre.i, %.noexc ]
   %vbase.offset.ptr = getelementptr i8, ptr %vtable2, i64 -40
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %args, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %args, i64 %vbase.offset
   %vtable3 = load ptr, ptr %9, align 8, !tbaa !35
   %vfn4 = getelementptr inbounds nuw i8, ptr %vtable3, i64 48
   %10 = load ptr, ptr %vfn4, align 8

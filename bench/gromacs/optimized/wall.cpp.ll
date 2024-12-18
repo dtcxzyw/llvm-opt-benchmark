@@ -187,7 +187,7 @@ _ZNSt6vectorIS_ISt10unique_ptrI12t_forcetableSt14default_deleteIS1_EESaIS4_EESaI
 65:                                               ; preds = %55
   %strcpy.us = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %2)
   %66 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #19
-  %67 = getelementptr inbounds nuw i8, ptr %6, i64 %66
+  %67 = getelementptr inbounds i8, ptr %6, i64 %66
   %68 = call noundef ptr @_Z7ftp2exti(i32 noundef 20)
   %69 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %68) #19
   %70 = sub i64 0, %69

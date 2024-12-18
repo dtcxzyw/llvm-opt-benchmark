@@ -319,7 +319,7 @@ define dso_local noundef zeroext i1 @_ZN15rcMeshLoaderObj4loadERKNSt7__cxx1112ba
 45:                                               ; preds = %43, %.lr.ph.i
   %46 = add nsw i32 %.01526.i, 1
   %47 = sext i32 %.01526.i to i64
-  %48 = getelementptr inbounds nuw i8, ptr %3, i64 %47
+  %48 = getelementptr inbounds i8, ptr %3, i64 %47
   store i8 %39, ptr %48, align 1
   %49 = icmp sgt i32 %.01526.i, 509
   br label %50
@@ -334,7 +334,7 @@ define dso_local noundef zeroext i1 @_ZN15rcMeshLoaderObj4loadERKNSt7__cxx1112ba
 
 _ZL8parseRowPcS_S_i.exit:                         ; preds = %50
   %52 = sext i32 %.1.i to i64
-  %53 = getelementptr inbounds nuw i8, ptr %3, i64 %52
+  %53 = getelementptr inbounds i8, ptr %3, i64 %52
   store i8 0, ptr %53, align 1
   %54 = load i8, ptr %3, align 16
   %.fr = freeze i8 %54

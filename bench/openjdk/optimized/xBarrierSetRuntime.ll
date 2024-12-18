@@ -1296,7 +1296,7 @@ _ZN9ZIterator11oop_iterateI22ZLoadBarrierOopClosureEEvP7oopDescPT_.exit: ; preds
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   %39 = load i32, ptr %38, align 4
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI22ZLoadBarrierOopClosureE6_tableE, i64 0, i64 %40
+  %41 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI22ZLoadBarrierOopClosureE6_tableE, i64 0, i64 %40
   %42 = load ptr, ptr %41, align 8
   call void %42(ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %.0.i.i.i) #8
   %43 = load i32, ptr @MinObjAlignment, align 4
@@ -1336,7 +1336,7 @@ _ZN9ZIterator11oop_iterateI25ZColorStoreGoodOopClosureEEvP7oopDescPT_.exit: ; pr
   %65 = getelementptr inbounds nuw i8, ptr %.0.i.i.i8, i64 12
   %66 = load i32, ptr %65, align 4
   %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI25ZColorStoreGoodOopClosureE6_tableE, i64 0, i64 %67
+  %68 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI25ZColorStoreGoodOopClosureE6_tableE, i64 0, i64 %67
   %69 = load ptr, ptr %68, align 8
   call void %69(ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %.0.i.i.i8) #8
   br label %70
@@ -1713,7 +1713,7 @@ _ZN9ZIterator11oop_iterateI22ZLoadBarrierOopClosureEEvP7oopDescPT_.exit: ; preds
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   %39 = load i32, ptr %38, align 4
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI22ZLoadBarrierOopClosureE6_tableE, i64 0, i64 %40
+  %41 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI22ZLoadBarrierOopClosureE6_tableE, i64 0, i64 %40
   %42 = load ptr, ptr %41, align 8
   call void %42(ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %.0.i.i.i) #8
   %43 = load i32, ptr @MinObjAlignment, align 4
@@ -1753,7 +1753,7 @@ _ZN9ZIterator11oop_iterateI25ZColorStoreGoodOopClosureEEvP7oopDescPT_.exit: ; pr
   %65 = getelementptr inbounds nuw i8, ptr %.0.i.i.i8, i64 12
   %66 = load i32, ptr %65, align 4
   %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI25ZColorStoreGoodOopClosureE6_tableE, i64 0, i64 %67
+  %68 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI25ZColorStoreGoodOopClosureE6_tableE, i64 0, i64 %67
   %69 = load ptr, ptr %68, align 8
   call void %69(ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %.0.i.i.i8) #8
   br label %70

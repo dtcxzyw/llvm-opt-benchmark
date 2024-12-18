@@ -95,7 +95,7 @@ define internal fastcc void @opal_best_effort_write(i64 noundef range(i64 -21474
 
 .lr.ph:                                           ; preds = %1, %10
   %.0132 = phi i64 [ %11, %10 ], [ 0, %1 ]
-  %2 = getelementptr inbounds nuw i8, ptr @msg, i64 %.0132
+  %2 = getelementptr inbounds i8, ptr @msg, i64 %.0132
   %3 = sub i64 %0, %.0132
   %4 = tail call i64 @write(i32 noundef 2, ptr noundef nonnull %2, i64 noundef %3) #7
   %5 = icmp slt i64 %4, 0

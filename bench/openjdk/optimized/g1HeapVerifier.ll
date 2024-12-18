@@ -2162,7 +2162,7 @@ _ZN7oopDesc11oop_iterateI24VerifyLivenessOopClosureEEvPT_.exit: ; preds = %82, %
   %94 = getelementptr inbounds nuw i8, ptr %.0.i.i6, i64 12
   %95 = load i32, ptr %94, align 4
   %96 = sext i32 %95 to i64
-  %97 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI24VerifyLivenessOopClosureE6_tableE, i64 0, i64 %96
+  %97 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI24VerifyLivenessOopClosureE6_tableE, i64 0, i64 %96
   %98 = load ptr, ptr %97, align 8
   call void %98(ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %.0.i.i6) #13
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 24

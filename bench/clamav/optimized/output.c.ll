@@ -263,7 +263,7 @@ define i32 @mdprintf(i32 noundef %0, ptr nocapture noundef readonly %1, ...) loc
   %96 = shl nuw i64 1, %95
   %97 = sdiv i32 %0, 64
   %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds nuw [16 x i64], ptr %6, i64 0, i64 %98
+  %99 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 %98
   %100 = add nsw i32 %0, 1
   br label %101
 
@@ -780,7 +780,7 @@ thread-pre-split:                                 ; preds = %165, %174, %163
   %190 = call ptr @cli_ctime(ptr noundef nonnull %8, ptr noundef nonnull %10, i64 noundef 32) #17
   %191 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #15
   %192 = add i64 %191, -1
-  %193 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 0, i64 %192
+  %193 = getelementptr inbounds [32 x i8], ptr %10, i64 0, i64 %192
   store i8 0, ptr %193, align 1
   %194 = load ptr, ptr @logg_fp, align 8
   %195 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %194, ptr noundef nonnull @.str.4, ptr noundef nonnull %10) #17
@@ -834,7 +834,7 @@ thread-pre-split:                                 ; preds = %165, %174, %163
   %212 = call ptr @cli_ctime(ptr noundef nonnull %8, ptr noundef nonnull %11, i64 noundef 32) #17
   %213 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #15
   %214 = add i64 %213, -1
-  %215 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 0, i64 %214
+  %215 = getelementptr inbounds [32 x i8], ptr %11, i64 0, i64 %214
   store i8 0, ptr %215, align 1
   call void (i32, ptr, ...) @mprintf(i32 noundef %0, ptr noundef nonnull @.str.8, ptr noundef nonnull %11, ptr noundef nonnull %.085)
   br label %217

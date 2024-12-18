@@ -1881,7 +1881,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit169.i:     ; preds = %_ZNSt6vectorIiSaIiE
 
 .noexc171.i:                                      ; preds = %.noexc170.i
   %544 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #22
-  %545 = getelementptr inbounds nuw i8, ptr %17, i64 %544
+  %545 = getelementptr inbounds i8, ptr %17, i64 %544
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   store i64 %544, ptr %9, align 8
@@ -6356,7 +6356,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %12, %15
 
 .noexc24:                                         ; preds = %.noexc
   %29 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #22
-  %30 = getelementptr inbounds nuw i8, ptr %5, i64 %29
+  %30 = getelementptr inbounds i8, ptr %5, i64 %29
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull %5, ptr noundef nonnull %30)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %31
 

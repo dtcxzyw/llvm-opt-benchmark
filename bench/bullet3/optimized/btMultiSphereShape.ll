@@ -445,7 +445,7 @@ for.end.loopexit.i:                               ; preds = %for.body.i
 
 if.then44:                                        ; preds = %for.end.loopexit.i
   %21 = sext i32 %ptIndex.1.i to i64
-  %arrayidx45 = getelementptr inbounds nuw [128 x %class.btVector3], ptr %temp, i64 0, i64 %21
+  %arrayidx45 = getelementptr inbounds [128 x %class.btVector3], ptr %temp, i64 0, i64 %21
   %retval.sroa.0.0.copyload = load <2 x float>, ptr %arrayidx45, align 16
   %retval.sroa.4.0.arrayidx45.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx45, i64 8
   %retval.sroa.4.0.copyload = load <2 x float>, ptr %retval.sroa.4.0.arrayidx45.sroa_idx, align 8
@@ -616,7 +616,7 @@ for.end.loopexit.i:                               ; preds = %for.body.i
 
 if.then:                                          ; preds = %for.end.loopexit.i
   %30 = sext i32 %ptIndex.1.i to i64
-  %arrayidx38 = getelementptr inbounds nuw [128 x %class.btVector3], ptr %temp, i64 0, i64 %30
+  %arrayidx38 = getelementptr inbounds [128 x %class.btVector3], ptr %temp, i64 0, i64 %30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx40, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx38, i64 16, i1 false)
   br label %for.inc41
 

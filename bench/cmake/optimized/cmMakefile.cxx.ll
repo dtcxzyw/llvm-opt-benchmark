@@ -4189,7 +4189,7 @@ define dso_local void @_ZNK10cmMakefile14GetDirectoryIdEv(ptr dead_on_unwind noa
 
 .noexc3:                                          ; preds = %.noexc
   %8 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #31
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 %8
+  %9 = getelementptr inbounds i8, ptr %3, i64 %8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull %3, ptr noundef nonnull %9)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %10
 
@@ -39528,7 +39528,7 @@ _ZN10cmMakefile18AddCMakeOutputFileERKNSt7__cxx1112basic_stringIcSt11char_traits
   %160 = load ptr, ptr %23, align 8
   %161 = getelementptr i8, ptr %160, i64 -24
   %162 = load i64, ptr %161, align 8
-  %163 = getelementptr inbounds nuw i8, ptr %23, i64 %162
+  %163 = getelementptr inbounds i8, ptr %23, i64 %162
   %164 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %163)
           to label %165 unwind label %171
 
@@ -39573,7 +39573,7 @@ _ZN10cmMakefile18AddCMakeOutputFileERKNSt7__cxx1112basic_stringIcSt11char_traits
   %178 = load ptr, ptr %25, align 8
   %179 = getelementptr i8, ptr %178, i64 -24
   %180 = load i64, ptr %179, align 8
-  %181 = getelementptr inbounds nuw i8, ptr %25, i64 %180
+  %181 = getelementptr inbounds i8, ptr %25, i64 %180
   %182 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %181)
           to label %183 unwind label %187
 

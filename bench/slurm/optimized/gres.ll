@@ -5973,7 +5973,7 @@ define noundef nonnull ptr @gres_flags2str(i32 noundef %0) local_unnamed_addr #1
 
 4:                                                ; preds = %1
   %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) @gres_flags2str.flag_str)
-  %endptr = getelementptr inbounds nuw i8, ptr @gres_flags2str.flag_str, i64 %strlen
+  %endptr = getelementptr inbounds i8, ptr @gres_flags2str.flag_str, i64 %strlen
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %endptr, ptr noundef nonnull align 1 dereferenceable(10) @.str.27, i64 10, i1 false)
   br label %5
 
@@ -5986,7 +5986,7 @@ define noundef nonnull ptr @gres_flags2str(i32 noundef %0) local_unnamed_addr #1
 7:                                                ; preds = %5
   %8 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) @gres_flags2str.flag_str, ptr noundef nonnull dereferenceable(1) %.0) #25
   %strlen24 = tail call i64 @strlen(ptr nonnull dereferenceable(1) @gres_flags2str.flag_str)
-  %endptr25 = getelementptr inbounds nuw i8, ptr @gres_flags2str.flag_str, i64 %strlen24
+  %endptr25 = getelementptr inbounds i8, ptr @gres_flags2str.flag_str, i64 %strlen24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %endptr25, ptr noundef nonnull align 1 dereferenceable(9) @.str.98, i64 9, i1 false)
   br label %9
 
@@ -5999,7 +5999,7 @@ define noundef nonnull ptr @gres_flags2str(i32 noundef %0) local_unnamed_addr #1
 11:                                               ; preds = %9
   %12 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) @gres_flags2str.flag_str, ptr noundef nonnull dereferenceable(1) %.1) #25
   %strlen27 = tail call i64 @strlen(ptr nonnull dereferenceable(1) @gres_flags2str.flag_str)
-  %endptr28 = getelementptr inbounds nuw i8, ptr @gres_flags2str.flag_str, i64 %strlen27
+  %endptr28 = getelementptr inbounds i8, ptr @gres_flags2str.flag_str, i64 %strlen27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %endptr28, ptr noundef nonnull align 1 dereferenceable(9) @.str.99, i64 9, i1 false)
   br label %13
 
@@ -6012,7 +6012,7 @@ define noundef nonnull ptr @gres_flags2str(i32 noundef %0) local_unnamed_addr #1
 15:                                               ; preds = %13
   %16 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) @gres_flags2str.flag_str, ptr noundef nonnull dereferenceable(1) %.2) #25
   %strlen30 = tail call i64 @strlen(ptr nonnull dereferenceable(1) @gres_flags2str.flag_str)
-  %endptr31 = getelementptr inbounds nuw i8, ptr @gres_flags2str.flag_str, i64 %strlen30
+  %endptr31 = getelementptr inbounds i8, ptr @gres_flags2str.flag_str, i64 %strlen30
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %endptr31, ptr noundef nonnull align 1 dereferenceable(7) @.str.100, i64 7, i1 false)
   br label %17
 
@@ -6025,7 +6025,7 @@ define noundef nonnull ptr @gres_flags2str(i32 noundef %0) local_unnamed_addr #1
 19:                                               ; preds = %17
   %20 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) @gres_flags2str.flag_str, ptr noundef nonnull dereferenceable(1) %.3) #25
   %strlen33 = tail call i64 @strlen(ptr nonnull dereferenceable(1) @gres_flags2str.flag_str)
-  %endptr34 = getelementptr inbounds nuw i8, ptr @gres_flags2str.flag_str, i64 %strlen33
+  %endptr34 = getelementptr inbounds i8, ptr @gres_flags2str.flag_str, i64 %strlen33
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %endptr34, ptr noundef nonnull align 1 dereferenceable(9) @.str.101, i64 9, i1 false)
   br label %21
 
@@ -6038,7 +6038,7 @@ define noundef nonnull ptr @gres_flags2str(i32 noundef %0) local_unnamed_addr #1
 23:                                               ; preds = %21
   %24 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) @gres_flags2str.flag_str, ptr noundef nonnull dereferenceable(1) %.4) #25
   %strlen36 = tail call i64 @strlen(ptr nonnull dereferenceable(1) @gres_flags2str.flag_str)
-  %endptr37 = getelementptr inbounds nuw i8, ptr @gres_flags2str.flag_str, i64 %strlen36
+  %endptr37 = getelementptr inbounds i8, ptr @gres_flags2str.flag_str, i64 %strlen36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %endptr37, ptr noundef nonnull align 1 dereferenceable(9) @.str.102, i64 9, i1 false)
   br label %25
 
@@ -6051,7 +6051,7 @@ define noundef nonnull ptr @gres_flags2str(i32 noundef %0) local_unnamed_addr #1
 27:                                               ; preds = %25
   %28 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) @gres_flags2str.flag_str, ptr noundef nonnull dereferenceable(1) %.5) #25
   %strlen39 = tail call i64 @strlen(ptr nonnull dereferenceable(1) @gres_flags2str.flag_str)
-  %endptr40 = getelementptr inbounds nuw i8, ptr @gres_flags2str.flag_str, i64 %strlen39
+  %endptr40 = getelementptr inbounds i8, ptr @gres_flags2str.flag_str, i64 %strlen39
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %endptr40, ptr noundef nonnull align 1 dereferenceable(9) @.str.103, i64 9, i1 false)
   br label %29
 
@@ -6064,7 +6064,7 @@ define noundef nonnull ptr @gres_flags2str(i32 noundef %0) local_unnamed_addr #1
 31:                                               ; preds = %29
   %32 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) @gres_flags2str.flag_str, ptr noundef nonnull dereferenceable(1) %.6) #25
   %strlen42 = tail call i64 @strlen(ptr nonnull dereferenceable(1) @gres_flags2str.flag_str)
-  %endptr43 = getelementptr inbounds nuw i8, ptr @gres_flags2str.flag_str, i64 %strlen42
+  %endptr43 = getelementptr inbounds i8, ptr @gres_flags2str.flag_str, i64 %strlen42
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %endptr43, ptr noundef nonnull align 1 dereferenceable(11) @.str.104, i64 11, i1 false)
   br label %33
 
@@ -6077,7 +6077,7 @@ define noundef nonnull ptr @gres_flags2str(i32 noundef %0) local_unnamed_addr #1
 35:                                               ; preds = %33
   %36 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) @gres_flags2str.flag_str, ptr noundef nonnull dereferenceable(1) %.7) #25
   %strlen45 = tail call i64 @strlen(ptr nonnull dereferenceable(1) @gres_flags2str.flag_str)
-  %endptr46 = getelementptr inbounds nuw i8, ptr @gres_flags2str.flag_str, i64 %strlen45
+  %endptr46 = getelementptr inbounds i8, ptr @gres_flags2str.flag_str, i64 %strlen45
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %endptr46, ptr noundef nonnull align 1 dereferenceable(11) @.str.105, i64 11, i1 false)
   br label %37
 
@@ -6090,7 +6090,7 @@ define noundef nonnull ptr @gres_flags2str(i32 noundef %0) local_unnamed_addr #1
 39:                                               ; preds = %37
   %40 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) @gres_flags2str.flag_str, ptr noundef nonnull dereferenceable(1) %.8) #25
   %strlen48 = tail call i64 @strlen(ptr nonnull dereferenceable(1) @gres_flags2str.flag_str)
-  %endptr49 = getelementptr inbounds nuw i8, ptr @gres_flags2str.flag_str, i64 %strlen48
+  %endptr49 = getelementptr inbounds i8, ptr @gres_flags2str.flag_str, i64 %strlen48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %endptr49, ptr noundef nonnull align 1 dereferenceable(12) @.str.106, i64 12, i1 false)
   br label %41
 
@@ -6103,7 +6103,7 @@ define noundef nonnull ptr @gres_flags2str(i32 noundef %0) local_unnamed_addr #1
 43:                                               ; preds = %41
   %44 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) @gres_flags2str.flag_str, ptr noundef nonnull dereferenceable(1) %.9) #25
   %strlen51 = tail call i64 @strlen(ptr nonnull dereferenceable(1) @gres_flags2str.flag_str)
-  %endptr52 = getelementptr inbounds nuw i8, ptr @gres_flags2str.flag_str, i64 %strlen51
+  %endptr52 = getelementptr inbounds i8, ptr @gres_flags2str.flag_str, i64 %strlen51
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %endptr52, ptr noundef nonnull align 1 dereferenceable(7) @.str.107, i64 7, i1 false)
   br label %45
 
@@ -6116,7 +6116,7 @@ define noundef nonnull ptr @gres_flags2str(i32 noundef %0) local_unnamed_addr #1
 47:                                               ; preds = %45
   %48 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) @gres_flags2str.flag_str, ptr noundef nonnull dereferenceable(1) %.10) #25
   %strlen54 = tail call i64 @strlen(ptr nonnull dereferenceable(1) @gres_flags2str.flag_str)
-  %endptr55 = getelementptr inbounds nuw i8, ptr @gres_flags2str.flag_str, i64 %strlen54
+  %endptr55 = getelementptr inbounds i8, ptr @gres_flags2str.flag_str, i64 %strlen54
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %endptr55, ptr noundef nonnull align 1 dereferenceable(12) @.str.108, i64 12, i1 false)
   br label %49
 

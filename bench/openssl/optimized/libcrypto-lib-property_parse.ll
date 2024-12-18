@@ -273,7 +273,7 @@ if.end24:                                         ; preds = %if.end17, %if.then2
   br i1 %tobool.not, label %if.then, label %do.body.preheader
 
 for.end:                                          ; preds = %do.end
-  %arrayidx26 = getelementptr inbounds nuw [100 x i8], ptr %name, i64 0, i64 %i.2
+  %arrayidx26 = getelementptr inbounds [100 x i8], ptr %name, i64 0, i64 %i.2
   store i8 0, ptr %arrayidx26, align 1
   %tobool27.not = icmp eq i32 %err.2, 0
   br i1 %tobool27.not, label %while.cond.i, label %if.then28
@@ -381,7 +381,7 @@ if.then11.i:                                      ; preds = %while.end.i, %while
 
 if.end13.i:                                       ; preds = %while.end.loopexit.i
   %5 = icmp eq i32 %err.1.i, 0
-  %arrayidx14.i = getelementptr inbounds nuw [1000 x i8], ptr %v.i, i64 0, i64 %i.1.i
+  %arrayidx14.i = getelementptr inbounds [1000 x i8], ptr %v.i, i64 0, i64 %i.1.i
   store i8 0, ptr %arrayidx14.i, align 1
   br i1 %5, label %if.else16.i, label %if.then15.i
 
@@ -750,7 +750,7 @@ if.then30.i:                                      ; preds = %land.lhs.true22.i
   br label %parse_unquoted.exit
 
 if.end31.i:                                       ; preds = %land.lhs.true22.i, %land.lhs.true22.i, %while.end.i57
-  %arrayidx32.i = getelementptr inbounds nuw [1000 x i8], ptr %v.i50, i64 0, i64 %i.0.lcssa.i
+  %arrayidx32.i = getelementptr inbounds [1000 x i8], ptr %v.i50, i64 0, i64 %i.0.lcssa.i
   store i8 0, ptr %arrayidx32.i, align 1
   br i1 %err.0.lcssa.i, label %if.else35.i, label %if.then34.i
 

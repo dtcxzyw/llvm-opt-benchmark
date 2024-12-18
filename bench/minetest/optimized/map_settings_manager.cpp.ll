@@ -343,7 +343,7 @@ entry:
   %vtable = load ptr, ptr %is, align 8, !tbaa !26
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %is, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %is, i64 %vbase.offset
   %_M_streambuf_state.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 32
   %1 = load i32, ptr %_M_streambuf_state.i.i, align 8, !tbaa !28
   %cmp.i = icmp eq i32 %1, 0

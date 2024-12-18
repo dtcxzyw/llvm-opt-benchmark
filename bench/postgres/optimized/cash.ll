@@ -1203,7 +1203,7 @@ define dso_local i64 @cash_words(ptr nocapture noundef readonly %0) local_unname
   %24 = tail call fastcc ptr @num_word(i64 noundef %23)
   %25 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %24) #12
   %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) %2)
-  %endptr = getelementptr inbounds nuw i8, ptr %2, i64 %strlen
+  %endptr = getelementptr inbounds i8, ptr %2, i64 %strlen
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %endptr, ptr noundef nonnull align 1 dereferenceable(14) @.str.15, i64 14, i1 false)
   br label %26
 
@@ -1215,7 +1215,7 @@ define dso_local i64 @cash_words(ptr nocapture noundef readonly %0) local_unname
   %28 = call fastcc ptr @num_word(i64 noundef %.zext52)
   %29 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %28) #12
   %strlen36 = call i64 @strlen(ptr nonnull dereferenceable(1) %2)
-  %endptr37 = getelementptr inbounds nuw i8, ptr %2, i64 %strlen36
+  %endptr37 = getelementptr inbounds i8, ptr %2, i64 %strlen36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %endptr37, ptr noundef nonnull align 1 dereferenceable(11) @.str.16, i64 11, i1 false)
   br label %30
 
@@ -1227,7 +1227,7 @@ define dso_local i64 @cash_words(ptr nocapture noundef readonly %0) local_unname
   %32 = call fastcc ptr @num_word(i64 noundef %.zext)
   %33 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %32) #12
   %strlen39 = call i64 @strlen(ptr nonnull dereferenceable(1) %2)
-  %endptr40 = getelementptr inbounds nuw i8, ptr %2, i64 %strlen39
+  %endptr40 = getelementptr inbounds i8, ptr %2, i64 %strlen39
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %endptr40, ptr noundef nonnull align 1 dereferenceable(10) @.str.17, i64 10, i1 false)
   br label %34
 
@@ -1239,7 +1239,7 @@ define dso_local i64 @cash_words(ptr nocapture noundef readonly %0) local_unname
   %36 = call fastcc ptr @num_word(i64 noundef %17)
   %37 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %36) #12
   %strlen42 = call i64 @strlen(ptr nonnull dereferenceable(1) %2)
-  %endptr43 = getelementptr inbounds nuw i8, ptr %2, i64 %strlen42
+  %endptr43 = getelementptr inbounds i8, ptr %2, i64 %strlen42
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %endptr43, ptr noundef nonnull align 1 dereferenceable(10) @.str.18, i64 10, i1 false)
   br label %38
 
@@ -1251,7 +1251,7 @@ define dso_local i64 @cash_words(ptr nocapture noundef readonly %0) local_unname
   %40 = call fastcc ptr @num_word(i64 noundef %15)
   %41 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %40) #12
   %strlen45 = call i64 @strlen(ptr nonnull dereferenceable(1) %2)
-  %endptr46 = getelementptr inbounds nuw i8, ptr %2, i64 %strlen45
+  %endptr46 = getelementptr inbounds i8, ptr %2, i64 %strlen45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %endptr46, ptr noundef nonnull align 1 dereferenceable(11) @.str.19, i64 11, i1 false)
   br label %42
 
@@ -1271,7 +1271,7 @@ define dso_local i64 @cash_words(ptr nocapture noundef readonly %0) local_unname
 
 48:                                               ; preds = %46
   %strlen49 = call i64 @strlen(ptr nonnull dereferenceable(1) %2)
-  %endptr50 = getelementptr inbounds nuw i8, ptr %2, i64 %strlen49
+  %endptr50 = getelementptr inbounds i8, ptr %2, i64 %strlen49
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %endptr50, ptr noundef nonnull align 1 dereferenceable(5) @.str.20, i64 5, i1 false)
   br label %49
 

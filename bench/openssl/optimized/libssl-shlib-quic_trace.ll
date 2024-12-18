@@ -496,7 +496,7 @@ sw.bb43.i:                                        ; preds = %if.end.i66, %if.end
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %frame_data.i.i)
   %call.i66.i = call i32 @BIO_puts(ptr noundef %arg, ptr noundef nonnull @.str.64) #3
   %switch.tableidx87 = add nsw i64 %15, -8
-  %switch.gep88 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.ossl_quic_trace.2, i64 0, i64 %switch.tableidx87
+  %switch.gep88 = getelementptr inbounds [8 x ptr], ptr @switch.table.ossl_quic_trace.2, i64 0, i64 %switch.tableidx87
   %switch.load89 = load ptr, ptr %switch.gep88, align 8
   %call15.i.i = call i32 @BIO_puts(ptr noundef %arg, ptr noundef nonnull %switch.load89) #3
   %call16.i.i = call i32 @ossl_quic_wire_decode_frame_stream(ptr noundef nonnull %pkt, i32 noundef 1, ptr noundef nonnull %frame_data.i.i) #3

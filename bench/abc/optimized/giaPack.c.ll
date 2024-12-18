@@ -918,7 +918,7 @@ Vec_IntAlloc.exit:                                ; preds = %Vec_IntStart.exit13
   %73 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv38.i
   %74 = load i32, ptr %73, align 4
   %75 = sext i32 %.03132.i to i64
-  %76 = getelementptr inbounds nuw i32, ptr %6, i64 %75
+  %76 = getelementptr inbounds i32, ptr %6, i64 %75
   %77 = load i32, ptr %76, align 4
   %78 = icmp sgt i32 %74, %77
   %79 = trunc nuw nsw i64 %indvars.iv38.i to i32
@@ -932,13 +932,13 @@ Vec_IntAlloc.exit:                                ; preds = %Vec_IntStart.exit13
   %80 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv41.i
   %81 = load i32, ptr %80, align 4
   %82 = sext i32 %spec.select.i to i64
-  %83 = getelementptr inbounds nuw i32, ptr %7, i64 %82
+  %83 = getelementptr inbounds i32, ptr %7, i64 %82
   %84 = load i32, ptr %83, align 4
   store i32 %84, ptr %80, align 4
   store i32 %81, ptr %83, align 4
   %85 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv41.i
   %86 = load i32, ptr %85, align 4
-  %87 = getelementptr inbounds nuw i32, ptr %6, i64 %82
+  %87 = getelementptr inbounds i32, ptr %6, i64 %82
   %88 = load i32, ptr %87, align 4
   store i32 %88, ptr %85, align 4
   store i32 %86, ptr %87, align 4

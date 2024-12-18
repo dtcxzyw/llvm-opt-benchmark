@@ -1637,7 +1637,7 @@ if.end15:                                         ; preds = %ma_malloc.exit
 
 if.end.i:                                         ; preds = %if.end21, %if.end15
   %i.0.lcssa = phi i64 [ 0, %if.end15 ], [ %add24, %if.end21 ]
-  %arrayidx20 = getelementptr inbounds nuw [32 x i8], ptr %pOpenModeMB, i64 0, i64 %i.0.lcssa
+  %arrayidx20 = getelementptr inbounds [32 x i8], ptr %pOpenModeMB, i64 0, i64 %i.0.lcssa
   store i8 0, ptr %arrayidx20, align 1
   %call25 = call noalias ptr @fopen(ptr noundef nonnull %retval.0.i, ptr noundef nonnull %pOpenModeMB)
   store ptr %call25, ptr %ppFile, align 8
@@ -1668,7 +1668,7 @@ if.end21:                                         ; preds = %if.end15, %if.end21
   %7 = phi i32 [ %8, %if.end21 ], [ %3, %if.end15 ]
   %i.035 = phi i64 [ %add24, %if.end21 ], [ 0, %if.end15 ]
   %conv = trunc i32 %7 to i8
-  %arrayidx23 = getelementptr inbounds nuw [32 x i8], ptr %pOpenModeMB, i64 0, i64 %i.035
+  %arrayidx23 = getelementptr inbounds [32 x i8], ptr %pOpenModeMB, i64 0, i64 %i.035
   store i8 %conv, ptr %arrayidx23, align 1
   %add24 = add i64 %i.035, 1
   %arrayidx = getelementptr inbounds i32, ptr %pOpenMode, i64 %add24
@@ -9020,7 +9020,7 @@ land.rhs.i.i276:                                  ; preds = %if.end3.i.i, %for.b
   br i1 %cmp13.not.i.i, label %for.end.i.i, label %for.body.i.i278
 
 for.body.i.i278:                                  ; preds = %land.rhs.i.i276
-  %arrayidx16.i.i279 = getelementptr inbounds nuw i8, ptr %clientName.i, i64 %i.024.i.i
+  %arrayidx16.i.i279 = getelementptr inbounds i8, ptr %clientName.i, i64 %i.024.i.i
   store i8 %43, ptr %arrayidx16.i.i279, align 1
   %inc.i.i280 = add nuw i64 %i.024.i.i, 1
   %exitcond.not.i.i281 = icmp eq i64 %inc.i.i280, %sub.i.i
@@ -9028,7 +9028,7 @@ for.body.i.i278:                                  ; preds = %land.rhs.i.i276
 
 for.end.i.i:                                      ; preds = %for.body.i.i278, %land.rhs.i.i276, %if.end3.i.i
   %i.0.lcssa.i.i = phi i64 [ 0, %if.end3.i.i ], [ %sub.i.i, %for.body.i.i278 ], [ %i.024.i.i, %land.rhs.i.i276 ]
-  %arrayidx28.i.i = getelementptr inbounds nuw i8, ptr %clientName.i, i64 %i.0.lcssa.i.i
+  %arrayidx28.i.i = getelementptr inbounds i8, ptr %clientName.i, i64 %i.0.lcssa.i.i
   store i8 0, ptr %arrayidx28.i.i, align 1
   br label %ma_strncpy_s.exit.i
 
@@ -12643,7 +12643,7 @@ if.then7.i.i:                                     ; preds = %while.body.i172.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %136, i64 %mul.i.i178.i
   %conv27.i.i = zext i32 %totalFramesProcessed.0223.i.i to i64
   %mul.i86.i.i = mul nuw i64 %conv.i81.i.i, %conv27.i.i
-  %add.ptr.i87.i.i = getelementptr inbounds nuw i8, ptr %pFramesInClientFormat.i.i, i64 %mul.i86.i.i
+  %add.ptr.i87.i.i = getelementptr inbounds i8, ptr %pFramesInClientFormat.i.i, i64 %mul.i86.i.i
   %conv33.i.i = zext i32 %spec.select.i176.i to i64
   %cmp.i88.i.i = icmp eq ptr %add.ptr.i.i.i, %add.ptr.i87.i.i
   %mul.i94.i.i = mul nuw i64 %conv.i81.i.i, %conv33.i.i
@@ -53332,7 +53332,7 @@ if.then.i21.i:                                    ; preds = %if.end29.i
 for.body.i.i.i:                                   ; preds = %if.then.i21.i, %for.body.i.i.i
   %pOut.addr.09.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %pBufferOut.addr.031.i, %if.then.i21.i ]
   %i.08.i.i.i = phi i64 [ %inc.i.i.i, %for.body.i.i.i ], [ 0, %if.then.i21.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %sampleData.i, i64 %i.08.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %sampleData.i, i64 %i.08.i.i.i
   %9 = load i8, ptr %arrayidx.i.i.i, align 1
   %conv.i.i.i = uitofp i8 %9 to float
   %mul.i.i.i = fmul float %conv.i.i.i, 0x3F80101020000000
@@ -53350,7 +53350,7 @@ if.then2.i.i:                                     ; preds = %if.end29.i
 for.body.i28.i.i:                                 ; preds = %if.then2.i.i, %for.body.i28.i.i
   %i.07.i.i.i = phi i64 [ %inc.i32.i.i, %for.body.i28.i.i ], [ 0, %if.then2.i.i ]
   %pOut.addr.06.i.i.i = phi ptr [ %incdec.ptr.i31.i.i, %for.body.i28.i.i ], [ %pBufferOut.addr.031.i, %if.then2.i.i ]
-  %arrayidx.i29.i.i = getelementptr inbounds nuw i16, ptr %sampleData.i, i64 %i.07.i.i.i
+  %arrayidx.i29.i.i = getelementptr inbounds i16, ptr %sampleData.i, i64 %i.07.i.i.i
   %10 = load i16, ptr %arrayidx.i29.i.i, align 2
   %conv3.i.i.i = sitofp i16 %10 to float
   %mul.i30.i.i = fmul float %conv3.i.i.i, 0x3F00000000000000
@@ -53368,7 +53368,7 @@ for.body.i34.i.i:                                 ; preds = %if.then5.i.i, %for.
   %pOut.addr.011.i.i.i = phi ptr [ %incdec.ptr.i37.i.i, %for.body.i34.i.i ], [ %pBufferOut.addr.031.i, %if.then5.i.i ]
   %i.010.i.i.i = phi i64 [ %inc.i38.i.i, %for.body.i34.i.i ], [ 0, %if.then5.i.i ]
   %mul.i35.i.i = mul i64 %i.010.i.i.i, 3
-  %arrayidx.i36.i.i = getelementptr inbounds nuw i8, ptr %sampleData.i, i64 %mul.i35.i.i
+  %arrayidx.i36.i.i = getelementptr inbounds i8, ptr %sampleData.i, i64 %mul.i35.i.i
   %11 = load i16, ptr %arrayidx.i36.i.i, align 1
   %12 = zext i16 %11 to i32
   %13 = shl nuw nsw i32 %12, 8
@@ -53394,7 +53394,7 @@ if.then8.i.i:                                     ; preds = %if.end29.i
 for.body.i41.i.i:                                 ; preds = %if.then8.i.i, %for.body.i41.i.i
   %i.07.i42.i.i = phi i64 [ %inc.i48.i.i, %for.body.i41.i.i ], [ 0, %if.then8.i.i ]
   %pOut.addr.06.i43.i.i = phi ptr [ %incdec.ptr.i47.i.i, %for.body.i41.i.i ], [ %pBufferOut.addr.031.i, %if.then8.i.i ]
-  %arrayidx.i44.i.i = getelementptr inbounds nuw i32, ptr %sampleData.i, i64 %i.07.i42.i.i
+  %arrayidx.i44.i.i = getelementptr inbounds i32, ptr %sampleData.i, i64 %i.07.i42.i.i
   %15 = load i32, ptr %arrayidx.i44.i.i, align 4
   %conv.i45.i.i = sitofp i32 %15 to double
   %div.i.i.i = fmul double %conv.i45.i.i, 0x3E00000000000000
@@ -53488,7 +53488,7 @@ if.end.i30:                                       ; preds = %while.body.i28
 for.body.i.i32:                                   ; preds = %if.end.i30, %for.body.i.i32
   %i.07.i.i = phi i64 [ %inc.i.i36, %for.body.i.i32 ], [ 0, %if.end.i30 ]
   %pOut.addr.06.i.i = phi ptr [ %incdec.ptr.i.i35, %for.body.i.i32 ], [ %pBufferOut.addr.015.i, %if.end.i30 ]
-  %arrayidx.i.i33 = getelementptr inbounds nuw i16, ptr %samples16.i, i64 %i.07.i.i
+  %arrayidx.i.i33 = getelementptr inbounds i16, ptr %samples16.i, i64 %i.07.i.i
   %20 = load i16, ptr %arrayidx.i.i33, align 2
   %conv3.i.i = sitofp i16 %20 to float
   %mul.i.i34 = fmul float %conv3.i.i, 0x3F00000000000000
@@ -53639,7 +53639,7 @@ if.end39.us47.i:                                  ; preds = %if.end31.us42.i
 for.body.i.i.us.i:                                ; preds = %if.end39.us47.i, %for.body.i.i.us.i
   %i.07.i.i.us.i = phi i64 [ %inc.i.i.us.i, %for.body.i.i.us.i ], [ 0, %if.end39.us47.i ]
   %pOut.addr.06.i.i.us.i = phi ptr [ %incdec.ptr.i.i.us.i, %for.body.i.i.us.i ], [ %pBufferOut.addr.032.us37.i, %if.end39.us47.i ]
-  %arrayidx.i.i.us.i = getelementptr inbounds nuw double, ptr %sampleData.i41, i64 %i.07.i.i.us.i
+  %arrayidx.i.i.us.i = getelementptr inbounds double, ptr %sampleData.i41, i64 %i.07.i.i.us.i
   %29 = load double, ptr %arrayidx.i.i.us.i, align 8
   %conv.i.i.us.i = fptrunc double %29 to float
   %incdec.ptr.i.i.us.i = getelementptr inbounds nuw i8, ptr %pOut.addr.06.i.i.us.i, i64 4
@@ -53761,7 +53761,7 @@ if.end29.i113:                                    ; preds = %if.end21.i108
 for.body.i.i115:                                  ; preds = %if.end29.i113, %for.body.i.i115
   %i.07.i.i116 = phi i64 [ %inc.i.i123, %for.body.i.i115 ], [ 0, %if.end29.i113 ]
   %pOut.addr.06.i.i117 = phi ptr [ %incdec.ptr.i.i122, %for.body.i.i115 ], [ %pBufferOut.addr.024.i, %if.end29.i113 ]
-  %arrayidx.i.i118 = getelementptr inbounds nuw i8, ptr %sampleData.i78, i64 %i.07.i.i116
+  %arrayidx.i.i118 = getelementptr inbounds i8, ptr %sampleData.i78, i64 %i.07.i.i116
   %36 = load i8, ptr %arrayidx.i.i118, align 1
   %idxprom.i.i.i = zext i8 %36 to i64
   %arrayidx.i.i.i119 = getelementptr inbounds nuw [256 x i16], ptr @g_ma_dr_wavAlawTable, i64 0, i64 %idxprom.i.i.i
@@ -53861,7 +53861,7 @@ if.end29.i178:                                    ; preds = %if.end21.i173
 for.body.i.i180:                                  ; preds = %if.end29.i178, %for.body.i.i180
   %i.07.i.i181 = phi i64 [ %inc.i.i189, %for.body.i.i180 ], [ 0, %if.end29.i178 ]
   %pOut.addr.06.i.i182 = phi ptr [ %incdec.ptr.i.i188, %for.body.i.i180 ], [ %pBufferOut.addr.024.i168, %if.end29.i178 ]
-  %arrayidx.i.i183 = getelementptr inbounds nuw i8, ptr %sampleData.i140, i64 %i.07.i.i181
+  %arrayidx.i.i183 = getelementptr inbounds i8, ptr %sampleData.i140, i64 %i.07.i.i181
   %43 = load i8, ptr %arrayidx.i.i183, align 1
   %idxprom.i.i.i184 = zext i8 %43 to i64
   %arrayidx.i.i.i185 = getelementptr inbounds nuw [256 x i16], ptr @g_ma_dr_wavMulawTable, i64 0, i64 %idxprom.i.i.i184
@@ -54036,7 +54036,7 @@ if.then.i29.i:                                    ; preds = %if.end42.i
 
 for.body.i.i.i:                                   ; preds = %if.then.i29.i, %for.body.i.i.i
   %i.06.i.i.i = phi i64 [ %inc.i.i.i, %for.body.i.i.i ], [ 0, %if.then.i29.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %sampleData.i, i64 %i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %sampleData.i, i64 %i.06.i.i.i
   %11 = load i8, ptr %arrayidx.i.i.i, align 1
   %conv.i.i.i = zext i8 %11 to i16
   %shl.i.i.i = shl nuw i16 %conv.i.i.i, 8
@@ -54068,7 +54068,7 @@ if.then9.i.i:                                     ; preds = %if.end42.i
 
 for.body.i34.i.i:                                 ; preds = %if.then9.i.i, %for.body.i34.i.i
   %i.05.i.i.i = phi i64 [ %inc.i37.i.i, %for.body.i34.i.i ], [ 0, %if.then9.i.i ]
-  %arrayidx.i35.i.i = getelementptr inbounds nuw i32, ptr %sampleData.i, i64 %i.05.i.i.i
+  %arrayidx.i35.i.i = getelementptr inbounds i32, ptr %sampleData.i, i64 %i.05.i.i.i
   %13 = load i32, ptr %arrayidx.i35.i.i, align 4
   %shr.i.i.i = lshr i32 %13, 16
   %conv.i36.i.i = trunc nuw i32 %shr.i.i.i to i16
@@ -54204,7 +54204,7 @@ if.end33.us.i:                                    ; preds = %if.end25.us.i
 
 for.body.i.i.us.i:                                ; preds = %if.end33.us.i, %cond.end5.i.i.us.i
   %i.09.i.i.us.i = phi i64 [ %inc.i.i.us.i, %cond.end5.i.i.us.i ], [ 0, %if.end33.us.i ]
-  %arrayidx.i.i.us.i = getelementptr inbounds nuw float, ptr %sampleData.i30, i64 %i.09.i.i.us.i
+  %arrayidx.i.i.us.i = getelementptr inbounds float, ptr %sampleData.i30, i64 %i.09.i.i.us.i
   %20 = load float, ptr %arrayidx.i.i.us.i, align 4
   %cmp1.i.i.us.i = fcmp olt float %20, -1.000000e+00
   br i1 %cmp1.i.i.us.i, label %cond.end5.i.i.us.i, label %cond.false.i.i.us.i
@@ -54257,7 +54257,7 @@ if.end33.us45.i:                                  ; preds = %if.end25.us40.i
 
 for.body.i8.i.us.i:                               ; preds = %if.end33.us45.i, %cond.end5.i15.i.us.i
   %i.09.i9.i.us.i = phi i64 [ %inc.i18.i.us.i, %cond.end5.i15.i.us.i ], [ 0, %if.end33.us45.i ]
-  %arrayidx.i10.i.us.i = getelementptr inbounds nuw double, ptr %sampleData.i30, i64 %i.09.i9.i.us.i
+  %arrayidx.i10.i.us.i = getelementptr inbounds double, ptr %sampleData.i30, i64 %i.09.i9.i.us.i
   %27 = load double, ptr %arrayidx.i10.i.us.i, align 8
   %cmp1.i11.i.us.i = fcmp olt double %27, -1.000000e+00
   br i1 %cmp1.i11.i.us.i, label %cond.end5.i15.i.us.i, label %cond.false.i12.i.us.i
@@ -54392,7 +54392,7 @@ if.end33.i96:                                     ; preds = %if.end25.i91
 
 for.body.i.i:                                     ; preds = %if.end33.i96, %for.body.i.i
   %i.05.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.end33.i96 ]
-  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %sampleData.i61, i64 %i.05.i.i
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %sampleData.i61, i64 %i.05.i.i
   %39 = load i8, ptr %arrayidx.i.i, align 1
   %idxprom.i.i.i = zext i8 %39 to i64
   %arrayidx.i.i.i97 = getelementptr inbounds nuw [256 x i16], ptr @g_ma_dr_wavAlawTable, i64 0, i64 %idxprom.i.i.i
@@ -54489,7 +54489,7 @@ if.end33.i151:                                    ; preds = %if.end25.i146
 
 for.body.i.i153:                                  ; preds = %if.end33.i151, %for.body.i.i153
   %i.05.i.i154 = phi i64 [ %inc.i.i159, %for.body.i.i153 ], [ 0, %if.end33.i151 ]
-  %arrayidx.i.i155 = getelementptr inbounds nuw i8, ptr %sampleData.i113, i64 %i.05.i.i154
+  %arrayidx.i.i155 = getelementptr inbounds i8, ptr %sampleData.i113, i64 %i.05.i.i154
   %46 = load i8, ptr %arrayidx.i.i155, align 1
   %idxprom.i.i.i156 = zext i8 %46 to i64
   %arrayidx.i.i.i157 = getelementptr inbounds nuw [256 x i16], ptr @g_ma_dr_wavMulawTable, i64 0, i64 %idxprom.i.i.i156
@@ -54665,7 +54665,7 @@ if.then.i27.i:                                    ; preds = %if.end39.i
 for.body.i.i.i:                                   ; preds = %if.then.i27.i, %for.body.i.i.i
   %i.07.i.i.i = phi i64 [ %inc.i.i.i, %for.body.i.i.i ], [ 0, %if.then.i27.i ]
   %pOut.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %pBufferOut.addr.039.i, %if.then.i27.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %sampleData.i, i64 %i.07.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %sampleData.i, i64 %i.07.i.i.i
   %9 = load i8, ptr %arrayidx.i.i.i, align 1
   %conv.i.i.i = zext i8 %9 to i32
   %sub.i.i.i = shl nuw i32 %conv.i.i.i, 24
@@ -54683,7 +54683,7 @@ if.then2.i.i:                                     ; preds = %if.end39.i
 for.body.i32.i.i:                                 ; preds = %if.then2.i.i, %for.body.i32.i.i
   %i.07.i33.i.i = phi i64 [ %inc.i39.i.i, %for.body.i32.i.i ], [ 0, %if.then2.i.i ]
   %pOut.addr.06.i34.i.i = phi ptr [ %incdec.ptr.i38.i.i, %for.body.i32.i.i ], [ %pBufferOut.addr.039.i, %if.then2.i.i ]
-  %arrayidx.i35.i.i = getelementptr inbounds nuw i16, ptr %sampleData.i, i64 %i.07.i33.i.i
+  %arrayidx.i35.i.i = getelementptr inbounds i16, ptr %sampleData.i, i64 %i.07.i33.i.i
   %10 = load i16, ptr %arrayidx.i35.i.i, align 2
   %conv.i36.i.i = sext i16 %10 to i32
   %shl.i37.i.i = shl nsw i32 %conv.i36.i.i, 16
@@ -54701,7 +54701,7 @@ for.body.i41.i.i:                                 ; preds = %if.then5.i.i, %for.
   %pOut.addr.011.i.i.i = phi ptr [ %incdec.ptr.i43.i.i, %for.body.i41.i.i ], [ %pBufferOut.addr.039.i, %if.then5.i.i ]
   %i.010.i.i.i = phi i64 [ %inc.i44.i.i, %for.body.i41.i.i ], [ 0, %if.then5.i.i ]
   %mul.i.i.i = mul i64 %i.010.i.i.i, 3
-  %arrayidx.i42.i.i = getelementptr inbounds nuw i8, ptr %sampleData.i, i64 %mul.i.i.i
+  %arrayidx.i42.i.i = getelementptr inbounds i8, ptr %sampleData.i, i64 %mul.i.i.i
   %11 = load i16, ptr %arrayidx.i42.i.i, align 1
   %12 = zext i16 %11 to i32
   %13 = shl nuw nsw i32 %12, 8
@@ -54811,7 +54811,7 @@ if.end.i32:                                       ; preds = %while.body.i28
 for.body.i.i35:                                   ; preds = %if.end.i32, %for.body.i.i35
   %i.07.i.i = phi i64 [ %inc.i.i40, %for.body.i.i35 ], [ 0, %if.end.i32 ]
   %pOut.addr.06.i.i = phi ptr [ %incdec.ptr.i.i39, %for.body.i.i35 ], [ %pBufferOut.addr.015.i, %if.end.i32 ]
-  %arrayidx.i.i36 = getelementptr inbounds nuw i16, ptr %samples16.i, i64 %i.07.i.i
+  %arrayidx.i.i36 = getelementptr inbounds i16, ptr %samples16.i, i64 %i.07.i.i
   %20 = load i16, ptr %arrayidx.i.i36, align 2
   %conv.i.i37 = sext i16 %20 to i32
   %shl.i.i38 = shl nsw i32 %conv.i.i37, 16
@@ -54913,7 +54913,7 @@ if.end29.us.i:                                    ; preds = %if.end21.us.i
 for.body.i.i.us.i:                                ; preds = %if.end29.us.i, %for.body.i.i.us.i
   %i.07.i.i.us.i = phi i64 [ %inc.i.i.us.i, %for.body.i.i.us.i ], [ 0, %if.end29.us.i ]
   %pOut.addr.06.i.i.us.i = phi ptr [ %incdec.ptr.i.i.us.i, %for.body.i.i.us.i ], [ %pBufferOut.addr.027.us.i, %if.end29.us.i ]
-  %arrayidx.i.i.us.i = getelementptr inbounds nuw float, ptr %sampleData.i45, i64 %i.07.i.i.us.i
+  %arrayidx.i.i.us.i = getelementptr inbounds float, ptr %sampleData.i45, i64 %i.07.i.i.us.i
   %27 = load float, ptr %arrayidx.i.i.us.i, align 4
   %conv.i.i.us.i = fpext float %27 to double
   %mul.i.i.us.i = fmul double %conv.i.i.us.i, 0x41E0000000000000
@@ -54955,7 +54955,7 @@ if.end29.us42.i:                                  ; preds = %if.end21.us37.i
 for.body.i8.i.us.i:                               ; preds = %if.end29.us42.i, %for.body.i8.i.us.i
   %i.07.i9.i.us.i = phi i64 [ %inc.i15.i.us.i, %for.body.i8.i.us.i ], [ 0, %if.end29.us42.i ]
   %pOut.addr.06.i10.i.us.i = phi ptr [ %incdec.ptr.i14.i.us.i, %for.body.i8.i.us.i ], [ %pBufferOut.addr.027.us32.i, %if.end29.us42.i ]
-  %arrayidx.i11.i.us.i = getelementptr inbounds nuw double, ptr %sampleData.i45, i64 %i.07.i9.i.us.i
+  %arrayidx.i11.i.us.i = getelementptr inbounds double, ptr %sampleData.i45, i64 %i.07.i9.i.us.i
   %29 = load double, ptr %arrayidx.i11.i.us.i, align 8
   %mul.i12.i.us.i = fmul double %29, 0x41E0000000000000
   %conv.i13.i.us.i = fptosi double %mul.i12.i.us.i to i32
@@ -55078,7 +55078,7 @@ if.end29.i114:                                    ; preds = %if.end21.i109
 for.body.i.i116:                                  ; preds = %if.end29.i114, %for.body.i.i116
   %i.07.i.i117 = phi i64 [ %inc.i.i123, %for.body.i.i116 ], [ 0, %if.end29.i114 ]
   %pOut.addr.06.i.i118 = phi ptr [ %incdec.ptr.i.i122, %for.body.i.i116 ], [ %pBufferOut.addr.025.i, %if.end29.i114 ]
-  %arrayidx.i.i119 = getelementptr inbounds nuw i8, ptr %sampleData.i79, i64 %i.07.i.i117
+  %arrayidx.i.i119 = getelementptr inbounds i8, ptr %sampleData.i79, i64 %i.07.i.i117
   %36 = load i8, ptr %arrayidx.i.i119, align 1
   %idxprom.i.i.i = zext i8 %36 to i64
   %arrayidx.i.i.i120 = getelementptr inbounds nuw [256 x i16], ptr @g_ma_dr_wavAlawTable, i64 0, i64 %idxprom.i.i.i
@@ -55178,7 +55178,7 @@ if.end29.i178:                                    ; preds = %if.end21.i173
 for.body.i.i180:                                  ; preds = %if.end29.i178, %for.body.i.i180
   %i.07.i.i181 = phi i64 [ %inc.i.i189, %for.body.i.i180 ], [ 0, %if.end29.i178 ]
   %pOut.addr.06.i.i182 = phi ptr [ %incdec.ptr.i.i188, %for.body.i.i180 ], [ %pBufferOut.addr.025.i168, %if.end29.i178 ]
-  %arrayidx.i.i183 = getelementptr inbounds nuw i8, ptr %sampleData.i140, i64 %i.07.i.i181
+  %arrayidx.i.i183 = getelementptr inbounds i8, ptr %sampleData.i140, i64 %i.07.i.i181
   %43 = load i8, ptr %arrayidx.i.i183, align 1
   %idxprom.i.i.i184 = zext i8 %43 to i64
   %arrayidx.i.i.i185 = getelementptr inbounds nuw [256 x i16], ptr @g_ma_dr_wavMulawTable, i64 0, i64 %idxprom.i.i.i184
@@ -56483,7 +56483,7 @@ if.end.i631:                                      ; preds = %for.cond.i630
 if.else:                                          ; preds = %while.body
   %6 = load i8, ptr %channelAssignment, align 2
   %idxprom.i = sext i8 %6 to i64
-  %arrayidx.i = getelementptr inbounds nuw [11 x i8], ptr @__const.ma_dr_flac__get_channel_count_from_channel_assignment.lookup, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [11 x i8], ptr @__const.ma_dr_flac__get_channel_count_from_channel_assignment.lookup, i64 0, i64 %idxprom.i
   %7 = load i8, ptr %arrayidx.i, align 1
   %8 = load i16, ptr %blockSizeInPCMFrames, align 8
   %conv18 = zext i16 %8 to i32
@@ -57693,7 +57693,7 @@ if.end.i616:                                      ; preds = %for.cond.i615
 if.else:                                          ; preds = %while.body
   %6 = load i8, ptr %channelAssignment, align 2
   %idxprom.i = sext i8 %6 to i64
-  %arrayidx.i = getelementptr inbounds nuw [11 x i8], ptr @__const.ma_dr_flac__get_channel_count_from_channel_assignment.lookup, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [11 x i8], ptr @__const.ma_dr_flac__get_channel_count_from_channel_assignment.lookup, i64 0, i64 %idxprom.i
   %7 = load i8, ptr %arrayidx.i, align 1
   %8 = load i16, ptr %blockSizeInPCMFrames, align 8
   %conv18 = zext i16 %8 to i32
@@ -58888,7 +58888,7 @@ if.end.i563:                                      ; preds = %for.cond.i562
 if.else:                                          ; preds = %while.body
   %6 = load i8, ptr %channelAssignment, align 2
   %idxprom.i = sext i8 %6 to i64
-  %arrayidx.i = getelementptr inbounds nuw [11 x i8], ptr @__const.ma_dr_flac__get_channel_count_from_channel_assignment.lookup, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [11 x i8], ptr @__const.ma_dr_flac__get_channel_count_from_channel_assignment.lookup, i64 0, i64 %idxprom.i
   %7 = load i8, ptr %arrayidx.i, align 1
   %8 = load i16, ptr %blockSizeInPCMFrames, align 8
   %conv18 = zext i16 %8 to i32
@@ -61849,7 +61849,7 @@ while.body.i:                                     ; preds = %while.body, %if.end
   %4 = load i32, ptr %channels, align 4
   %conv8.i = zext i32 %4 to i64
   %mul9.i = mul i64 %mul.i, %conv8.i
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %pTempS16, i64 %mul9.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %pTempS16, i64 %mul9.i
   %5 = load i32, ptr %pcmFramesConsumedInMP3Frame21.i, align 8
   %conv10.i = zext i32 %5 to i64
   %mul11.i = shl nuw nsw i64 %conv10.i, 1
@@ -61893,7 +61893,7 @@ if.end10:                                         ; preds = %ma_dr_mp3_read_pcm_
 
 for.body.i:                                       ; preds = %if.end10, %for.body.i
   %i.06.i = phi i64 [ %add.i17, %for.body.i ], [ 0, %if.end10 ]
-  %arrayidx.i = getelementptr inbounds nuw i16, ptr %pTempS16, i64 %i.06.i
+  %arrayidx.i = getelementptr inbounds i16, ptr %pTempS16, i64 %i.06.i
   %9 = load i16, ptr %arrayidx.i, align 2
   %conv.i15 = sitofp i16 %9 to float
   %mul.i16 = fmul float %conv.i15, 0x3F00000000000000
@@ -96426,7 +96426,7 @@ for.body264:                                      ; preds = %if.end257, %for.bod
   %37 = lshr i8 %36, 4
   %38 = load i32, ptr %arrayidx278, align 4
   %idxprom279 = sext i32 %38 to i64
-  %arrayidx280 = getelementptr inbounds nuw [89 x i32], ptr @ma_dr_wav_read_pcm_frames_s16__ima.stepTable, i64 0, i64 %idxprom279
+  %arrayidx280 = getelementptr inbounds [89 x i32], ptr @ma_dr_wav_read_pcm_frames_s16__ima.stepTable, i64 0, i64 %idxprom279
   %39 = load i32, ptr %arrayidx280, align 4
   %40 = load i32, ptr %arrayidx285, align 4
   %shr286 = ashr i32 %39, 3
@@ -96473,7 +96473,7 @@ for.body264:                                      ; preds = %if.end257, %for.bod
   store i32 %cond333, ptr %arrayidx406, align 4
   %47 = load i32, ptr %arrayidx278, align 4
   %idxprom411 = sext i32 %47 to i64
-  %arrayidx412 = getelementptr inbounds nuw [89 x i32], ptr @ma_dr_wav_read_pcm_frames_s16__ima.stepTable, i64 0, i64 %idxprom411
+  %arrayidx412 = getelementptr inbounds [89 x i32], ptr @ma_dr_wav_read_pcm_frames_s16__ima.stepTable, i64 0, i64 %idxprom411
   %48 = load i32, ptr %arrayidx412, align 4
   %49 = load i32, ptr %arrayidx285, align 4
   %shr417 = ashr i32 %48, 3
@@ -103927,7 +103927,7 @@ if.end.i169:                                      ; preds = %ma_dr_mp3_bs_get_bi
   %main_data_begin.0.i = phi i32 [ %shr24.i, %ma_dr_mp3_bs_get_bits.exit152.i ], [ %retval.0.i.i, %ma_dr_mp3_bs_get_bits.exit.i ], [ %retval.0.i.i, %while.body.i107.preheader.i ]
   %gr_count.0.i = phi i32 [ %cond.i152, %ma_dr_mp3_bs_get_bits.exit152.i ], [ %mul19.i, %ma_dr_mp3_bs_get_bits.exit.i ], [ %mul19.i, %while.body.i107.preheader.i ]
   %idxprom.i170 = sext i32 %sub.i158 to i64
-  %arrayidx54.i = getelementptr inbounds nuw [8 x [23 x i8]], ptr @ma_dr_mp3_L3_read_side_info.g_scf_long, i64 0, i64 %idxprom.i170
+  %arrayidx54.i = getelementptr inbounds [8 x [23 x i8]], ptr @ma_dr_mp3_L3_read_side_info.g_scf_long, i64 0, i64 %idxprom.i170
   %114 = and i8 %.fr592, 8
   %tobool50.not.i = icmp eq i8 %114, 0
   %cond51.i = select i1 %tobool50.not.i, i32 9, i32 4
@@ -104219,7 +104219,7 @@ if.end100.sink.split.i:                           ; preds = %if.then73.i, %if.th
   %and74.i554 = phi i32 [ %and74.i555, %if.then77.i ], [ %and74.i, %if.then73.i ]
   %.sink758.i = phi i8 [ 0, %if.then77.i ], [ %conv96.i, %if.then73.i ]
   %.sink.i = phi i8 [ 39, %if.then77.i ], [ 30, %if.then73.i ]
-  %storemerge = getelementptr inbounds nuw [8 x [40 x i8]], ptr %ma_dr_mp3_L3_read_side_info.g_scf_mixed.pn, i64 0, i64 %idxprom.i170
+  %storemerge = getelementptr inbounds [8 x [40 x i8]], ptr %ma_dr_mp3_L3_read_side_info.g_scf_mixed.pn, i64 0, i64 %idxprom.i170
   store ptr %storemerge, ptr %gr.addr.0.i, align 8
   store i8 %.sink758.i, ptr %n_long_sfb.i, align 1
   store i8 %.sink.i, ptr %n_short_sfb.i, align 2
@@ -105123,7 +105123,7 @@ while.body.i.i:                                   ; preds = %if.end207.i.i, %whi
   %arrayidx23.i.i = getelementptr inbounds nuw [32 x i16], ptr @ma_dr_mp3_L3_huffman.tabindex, i64 0, i64 %idxprom22.i.i
   %235 = load i16, ptr %arrayidx23.i.i, align 2
   %idx.ext25.i.i = sext i16 %235 to i64
-  %add.ptr26.i.i = getelementptr inbounds nuw i16, ptr @ma_dr_mp3_L3_huffman.tabs, i64 %idx.ext25.i.i
+  %add.ptr26.i.i = getelementptr inbounds i16, ptr @ma_dr_mp3_L3_huffman.tabs, i64 %idx.ext25.i.i
   %arrayidx28.i.i = getelementptr inbounds nuw [32 x i8], ptr @ma_dr_mp3_L3_huffman.g_linbits, i64 0, i64 %idxprom22.i.i
   %236 = load i8, ptr %arrayidx28.i.i, align 1
   %conv29.i.i = zext i8 %236 to i32
@@ -105256,7 +105256,7 @@ while.end77.i.i:                                  ; preds = %while.end77.i.loope
 if.then.i.i65.i:                                  ; preds = %while.end77.i.i
   %add.i.i.i = add i32 %shr65.i.i, 31
   %idxprom.i.i66.i = sext i32 %add.i.i.i to i64
-  %arrayidx.i.i67.i = getelementptr inbounds nuw [145 x float], ptr @g_ma_dr_mp3_pow43, i64 0, i64 %idxprom.i.i66.i
+  %arrayidx.i.i67.i = getelementptr inbounds [145 x float], ptr @g_ma_dr_mp3_pow43, i64 0, i64 %idxprom.i.i66.i
   %249 = load float, ptr %arrayidx.i.i67.i, align 4
   br label %ma_dr_mp3_L3_pow_43.exit.i.i
 
@@ -106938,7 +106938,7 @@ ma_dr_mp3_bs_get_bits.exit.i.i:                   ; preds = %while.end.i.i.i, %i
   %rem1516.i.i = urem i16 %retval.0.i.i.i352, 3
   %rem15.zext.i.i = zext nneg i16 %rem1516.i.i to i64
   %add7.i.i353 = add nsw i64 %sub.i115.i, %rem15.zext.i.i
-  %arrayidx9.i.i354 = getelementptr inbounds nuw [54 x float], ptr @ma_dr_mp3_L12_read_scalefactors.g_deq_L12, i64 0, i64 %add7.i.i353
+  %arrayidx9.i.i354 = getelementptr inbounds [54 x float], ptr @ma_dr_mp3_L12_read_scalefactors.g_deq_L12, i64 0, i64 %add7.i.i353
   %450 = load float, ptr %arrayidx9.i.i354, align 4
   %div1718.i.i = udiv i16 %retval.0.i.i.i352, 3
   %div17.zext.i.i = zext nneg i16 %div1718.i.i to i32
@@ -109292,7 +109292,7 @@ while.body.i:                                     ; preds = %for.cond, %if.end31
   %4 = load i32, ptr %channels, align 4
   %conv8.i = zext i32 %4 to i64
   %mul9.i = mul i64 %mul.i, %conv8.i
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %temp, i64 %mul9.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %temp, i64 %mul9.i
   %5 = load i32, ptr %pcmFramesConsumedInMP3Frame21.i, align 8
   %conv10.i = zext i32 %5 to i64
   %mul11.i = shl nuw nsw i64 %conv10.i, 1
@@ -113794,7 +113794,7 @@ if.end.i2.i396:                                   ; preds = %ma_device_get_conte
 switch.lookup688:                                 ; preds = %if.end.i2.i396, %ma_device_get_context.exit.i394
   %retval.0.i3.i398 = phi ptr [ %117, %if.end.i2.i396 ], [ null, %ma_device_get_context.exit.i394 ]
   %118 = sext i32 %retval.0.i387617 to i64
-  %switch.gep689 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.ma_device_init__pulse.63, i64 0, i64 %118
+  %switch.gep689 = getelementptr inbounds [6 x ptr], ptr @switch.table.ma_device_init__pulse.63, i64 0, i64 %118
   %switch.load690 = load ptr, ptr %switch.gep689, align 8
   %call204 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %retval.0.i3.i398, i32 noundef 1, ptr noundef nonnull @.str.280, ptr noundef nonnull %switch.load690, i32 noundef %conv183620, i32 noundef %115)
   br label %on_error4
@@ -114308,7 +114308,7 @@ if.end.i2.i556:                                   ; preds = %ma_device_get_conte
 switch.lookup712:                                 ; preds = %if.end.i2.i556, %ma_device_get_context.exit.i554
   %retval.0.i3.i558 = phi ptr [ %213, %if.end.i2.i556 ], [ null, %ma_device_get_context.exit.i554 ]
   %214 = sext i32 %retval.0.i547652 to i64
-  %switch.gep713 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.ma_device_init__pulse.63, i64 0, i64 %214
+  %switch.gep713 = getelementptr inbounds [6 x ptr], ptr @switch.table.ma_device_init__pulse.63, i64 0, i64 %214
   %switch.load714 = load ptr, ptr %switch.gep713, align 8
   %call450 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %retval.0.i3.i558, i32 noundef 1, ptr noundef nonnull @.str.288, ptr noundef nonnull %switch.load714, i32 noundef %conv429655, i32 noundef %211)
   br label %on_error4
@@ -114473,7 +114473,7 @@ if.then580:                                       ; preds = %on_error4, %on_erro
 switch.lookup697:                                 ; preds = %ma_device_get_log.exit508
   %switch.tableidx698 = add nsw i32 %call390, -1
   %239 = sext i32 %switch.tableidx698 to i64
-  %switch.gep699 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.ma_device_init__pulse.60, i64 0, i64 %239
+  %switch.gep699 = getelementptr inbounds [5 x i32], ptr @switch.table.ma_device_init__pulse.60, i64 0, i64 %239
   %switch.load700 = load i32, ptr %switch.gep699, align 4
   br label %on_error3thread-pre-split
 
@@ -114518,7 +114518,7 @@ if.then603:                                       ; preds = %on_error2
 switch.lookup674:                                 ; preds = %ma_device_get_log.exit353
   %switch.tableidx = add nsw i32 %call145, -1
   %249 = sext i32 %switch.tableidx to i64
-  %switch.gep675 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.ma_device_init__pulse.60, i64 0, i64 %249
+  %switch.gep675 = getelementptr inbounds [5 x i32], ptr @switch.table.ma_device_init__pulse.60, i64 0, i64 %249
   %switch.load676 = load i32, ptr %switch.gep675, align 4
   br label %on_error1
 
@@ -116570,7 +116570,7 @@ land.rhs.i55.i:                                   ; preds = %if.else.i, %for.bod
   br i1 %cmp13.not.i58.i, label %for.end.i.i, label %for.body.i59.i
 
 for.body.i59.i:                                   ; preds = %land.rhs.i55.i
-  %arrayidx16.i60.i = getelementptr inbounds nuw i8, ptr %card.i, i64 %i.024.i56.i
+  %arrayidx16.i60.i = getelementptr inbounds i8, ptr %card.i, i64 %i.024.i56.i
   store i8 %39, ptr %arrayidx16.i60.i, align 1
   %inc.i61.i = add nuw i64 %i.024.i56.i, 1
   %exitcond.not.i62.i = icmp eq i64 %inc.i61.i, %maxcount.0.i.i
@@ -116587,7 +116587,7 @@ for.end.i.i:                                      ; preds = %for.body.i59.i, %la
   br i1 %or.cond22.i.i, label %if.then27.i.i, label %if.end29.i.i
 
 if.then27.i.i:                                    ; preds = %for.end.i.i
-  %arrayidx28.i69.i = getelementptr inbounds nuw i8, ptr %card.i, i64 %i.0.lcssa.i63.i
+  %arrayidx28.i69.i = getelementptr inbounds i8, ptr %card.i, i64 %i.0.lcssa.i63.i
   store i8 0, ptr %arrayidx28.i69.i, align 1
   br label %if.end22.i
 
@@ -121105,7 +121105,7 @@ land.rhs.i.i:                                     ; preds = %if.end3.i.i, %for.b
   br i1 %cmp13.not.i.i, label %for.end.i.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %land.rhs.i.i
-  %arrayidx16.i.i = getelementptr inbounds nuw i8, ptr %clientName.i, i64 %i.024.i.i
+  %arrayidx16.i.i = getelementptr inbounds i8, ptr %clientName.i, i64 %i.024.i.i
   store i8 %6, ptr %arrayidx16.i.i, align 1
   %inc.i.i = add nuw i64 %i.024.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, %sub.i.i
@@ -121113,7 +121113,7 @@ for.body.i.i:                                     ; preds = %land.rhs.i.i
 
 for.end.i.i:                                      ; preds = %for.body.i.i, %land.rhs.i.i, %if.end3.i.i
   %i.0.lcssa.i.i = phi i64 [ 0, %if.end3.i.i ], [ %sub.i.i, %for.body.i.i ], [ %i.024.i.i, %land.rhs.i.i ]
-  %arrayidx28.i.i = getelementptr inbounds nuw i8, ptr %clientName.i, i64 %i.0.lcssa.i.i
+  %arrayidx28.i.i = getelementptr inbounds i8, ptr %clientName.i, i64 %i.0.lcssa.i.i
   store i8 0, ptr %arrayidx28.i.i, align 1
   br label %ma_strncpy_s.exit.i
 
@@ -121434,7 +121434,7 @@ land.rhs.i.i:                                     ; preds = %if.end3.i.i, %for.b
   br i1 %cmp13.not.i.i, label %for.end.i.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %land.rhs.i.i
-  %arrayidx16.i.i = getelementptr inbounds nuw i8, ptr %clientName.i, i64 %i.024.i.i
+  %arrayidx16.i.i = getelementptr inbounds i8, ptr %clientName.i, i64 %i.024.i.i
   store i8 %37, ptr %arrayidx16.i.i, align 1
   %inc.i.i = add nuw i64 %i.024.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, %sub.i.i
@@ -121442,7 +121442,7 @@ for.body.i.i:                                     ; preds = %land.rhs.i.i
 
 for.end.i.i:                                      ; preds = %for.body.i.i, %land.rhs.i.i, %if.end3.i.i
   %i.0.lcssa.i.i = phi i64 [ 0, %if.end3.i.i ], [ %sub.i.i, %for.body.i.i ], [ %i.024.i.i, %land.rhs.i.i ]
-  %arrayidx28.i.i = getelementptr inbounds nuw i8, ptr %clientName.i, i64 %i.0.lcssa.i.i
+  %arrayidx28.i.i = getelementptr inbounds i8, ptr %clientName.i, i64 %i.0.lcssa.i.i
   store i8 0, ptr %arrayidx28.i.i, align 1
   br label %ma_strncpy_s.exit.i
 
@@ -121770,7 +121770,7 @@ if.end35.i:                                       ; preds = %if.end30.i
 
 if.end40.i:                                       ; preds = %if.end35.i, %if.end30.i
   %dstEnd.137.i.idx = phi i64 [ %dstEnd.0.i.add417, %if.end35.i ], [ %dstEnd.0.i.add, %if.end30.i ]
-  %dstEnd.137.i.ptr = getelementptr inbounds nuw i8, ptr %name, i64 %dstEnd.137.i.idx
+  %dstEnd.137.i.ptr = getelementptr inbounds i8, ptr %name, i64 %dstEnd.137.i.idx
   store i8 0, ptr %dstEnd.137.i.ptr, align 1
   %cmp4239.i = icmp sgt i64 %dstEnd.137.i.idx, 8
   br i1 %cmp4239.i, label %while.body.i.preheader, label %ma_itoa_s.exit
@@ -122085,7 +122085,7 @@ if.end35.i360:                                    ; preds = %if.end30.i347
 
 if.end40.i349:                                    ; preds = %if.end35.i360, %if.end30.i347
   %dstEnd.137.i350.idx = phi i64 [ %dstEnd.0.i337.add416, %if.end35.i360 ], [ %dstEnd.0.i337.add, %if.end30.i347 ]
-  %dstEnd.137.i350.ptr = getelementptr inbounds nuw i8, ptr %name206, i64 %dstEnd.137.i350.idx
+  %dstEnd.137.i350.ptr = getelementptr inbounds i8, ptr %name206, i64 %dstEnd.137.i350.idx
   store i8 0, ptr %dstEnd.137.i350.ptr, align 1
   %cmp4239.i352 = icmp sgt i64 %dstEnd.137.i350.idx, 9
   br i1 %cmp4239.i352, label %while.body.i354.preheader, label %ma_itoa_s.exit363
@@ -134755,7 +134755,7 @@ if.end:                                           ; preds = %entry
   %channelAssignment = getelementptr inbounds nuw i8, ptr %pFlac, i64 90
   %2 = load i8, ptr %channelAssignment, align 2
   %idxprom.i = sext i8 %2 to i64
-  %arrayidx.i = getelementptr inbounds nuw [11 x i8], ptr @__const.ma_dr_flac__get_channel_count_from_channel_assignment.lookup, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [11 x i8], ptr @__const.ma_dr_flac__get_channel_count_from_channel_assignment.lookup, i64 0, i64 %idxprom.i
   %3 = load i8, ptr %arrayidx.i, align 1
   %channels = getelementptr inbounds nuw i8, ptr %pFlac, i64 52
   %4 = load i8, ptr %channels, align 4
@@ -136734,7 +136734,7 @@ if.end16:                                         ; preds = %if.end10
   %channelAssignment = getelementptr inbounds nuw i8, ptr %pInit, i64 4282
   %7 = load i8, ptr %channelAssignment, align 2
   %idxprom.i = sext i8 %7 to i64
-  %arrayidx.i = getelementptr inbounds nuw [11 x i8], ptr @__const.ma_dr_flac__get_channel_count_from_channel_assignment.lookup, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [11 x i8], ptr @__const.ma_dr_flac__get_channel_count_from_channel_assignment.lookup, i64 0, i64 %idxprom.i
   %8 = load i8, ptr %arrayidx.i, align 1
   %channels = getelementptr inbounds nuw i8, ptr %pInit, i64 52
   store i8 %8, ptr %channels, align 4
@@ -149912,7 +149912,7 @@ for.body.lr.ph:
   %channelAssignment = getelementptr inbounds nuw i8, ptr %pFlac, i64 90
   %0 = load i8, ptr %channelAssignment, align 2
   %idxprom.i = sext i8 %0 to i64
-  %arrayidx.i = getelementptr inbounds nuw [11 x i8], ptr @__const.ma_dr_flac__get_channel_count_from_channel_assignment.lookup, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [11 x i8], ptr @__const.ma_dr_flac__get_channel_count_from_channel_assignment.lookup, i64 0, i64 %idxprom.i
   %1 = load i8, ptr %arrayidx.i, align 1
   %bs = getelementptr inbounds nuw i8, ptr %pFlac, i64 304
   %subframes.i = getelementptr inbounds nuw i8, ptr %pFlac, i64 104

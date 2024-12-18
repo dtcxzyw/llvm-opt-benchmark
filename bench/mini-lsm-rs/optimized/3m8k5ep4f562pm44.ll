@@ -8114,7 +8114,7 @@ define internal fastcc noalias noundef align 8 ptr @"_ZN5serde3ser5impls57_$LT$i
   %11 = zext nneg i16 %10 to i64
   %12 = add i64 %.02836.i.i.i, -4
   %13 = getelementptr inbounds nuw i8, ptr @anon.0f4c0c09fe5df6088e9fdb7cb0c7e3e9.35, i64 %8
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 %12
+  %14 = getelementptr inbounds i8, ptr %1, i64 %12
   %15 = load i16, ptr %13, align 1, !noalias !999
   store i16 %15, ptr %14, align 1, !alias.scope !999
   %16 = getelementptr inbounds nuw i8, ptr @anon.0f4c0c09fe5df6088e9fdb7cb0c7e3e9.35, i64 %11
@@ -8133,7 +8133,7 @@ define internal fastcc noalias noundef align 8 ptr @"_ZN5serde3ser5impls57_$LT$i
   %.zext35.i.i.i = zext nneg i16 %23 to i64
   %24 = add i64 %.028.lcssa.i.i.i, -2
   %25 = getelementptr inbounds nuw i8, ptr @anon.0f4c0c09fe5df6088e9fdb7cb0c7e3e9.35, i64 %22
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 %24
+  %26 = getelementptr inbounds i8, ptr %1, i64 %24
   %27 = load i16, ptr %25, align 1, !noalias !999
   store i16 %27, ptr %26, align 1, !alias.scope !999
   br label %28
@@ -8148,7 +8148,7 @@ define internal fastcc noalias noundef align 8 ptr @"_ZN5serde3ser5impls57_$LT$i
   %31 = shl nuw nsw i64 %.027.i.i.i, 1
   %32 = add i64 %.129.i.i.i, -2
   %33 = getelementptr inbounds nuw i8, ptr @anon.0f4c0c09fe5df6088e9fdb7cb0c7e3e9.35, i64 %31
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 %32
+  %34 = getelementptr inbounds i8, ptr %1, i64 %32
   %35 = load i16, ptr %33, align 1, !noalias !999
   store i16 %35, ptr %34, align 1, !alias.scope !999
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h79281af73e3980a4E.exit.i.i"
@@ -8156,7 +8156,7 @@ define internal fastcc noalias noundef align 8 ptr @"_ZN5serde3ser5impls57_$LT$i
 36:                                               ; preds = %28
   %37 = add i64 %.129.i.i.i, -1
   %38 = trunc nuw nsw i64 %.027.i.i.i to i8
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 %37
+  %39 = getelementptr inbounds i8, ptr %1, i64 %37
   %40 = or disjoint i8 %38, 48
   store i8 %40, ptr %39, align 1, !alias.scope !999
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h79281af73e3980a4E.exit.i.i"
@@ -8183,7 +8183,7 @@ define internal fastcc noalias noundef align 8 ptr @"_ZN5serde3ser5impls57_$LT$i
 
 "_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_u6417h79ed241eedb4d398E.exit": ; preds = %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h79281af73e3980a4E.exit.i.i", %48
   %49 = phi i64 [ %44, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h79281af73e3980a4E.exit.i.i" ], [ %.pre.i.i.i.i.i.i, %48 ]
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 %.2.i.i.i
+  %50 = getelementptr inbounds i8, ptr %1, i64 %.2.i.i.i
   %51 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
   %52 = load ptr, ptr %51, align 8, !alias.scope !1019, !noalias !1014, !nonnull !21, !noundef !21
   %53 = getelementptr inbounds i8, ptr %52, i64 %49

@@ -546,7 +546,7 @@ while.body:                                       ; preds = %land.rhs21.while.bo
 
 while.end:                                        ; preds = %land.lhs.true, %while.body, %lor.rhs, %land.rhs21, %land.lhs.true.preheader, %while.cond.preheader
   %x.1.lcssa = phi ptr [ %x.052, %while.cond.preheader ], [ %x.052, %land.lhs.true.preheader ], [ %x.14158, %land.rhs21 ], [ %x.14158, %lor.rhs ], [ %9, %while.body ], [ %9, %land.lhs.true ]
-  %arrayidx34 = getelementptr inbounds nuw [32 x ptr], ptr %update, i64 0, i64 %indvars.iv.next
+  %arrayidx34 = getelementptr inbounds [32 x ptr], ptr %update, i64 0, i64 %indvars.iv.next
   store ptr %x.1.lcssa, ptr %arrayidx34, align 8
   %cmp = icmp sgt i64 %indvars.iv, 1
   br i1 %cmp, label %while.cond.preheader, label %for.end, !llvm.loop !8

@@ -38,7 +38,7 @@ if.then.i:                                        ; preds = %if.then
 
 if.else.i:                                        ; preds = %if.then
   %idxprom.i = sext i32 %0 to i64
-  %arrayidx.i = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -56,7 +56,7 @@ if.then.i15:                                      ; preds = %if.end
 
 if.else.i5:                                       ; preds = %if.end
   %idxprom.i6 = sext i32 %3 to i64
-  %arrayidx.i7 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i6
+  %arrayidx.i7 = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i6
   br label %return
 
 return:                                           ; preds = %if.else.i5, %if.then.i15, %if.else.i, %if.then.i

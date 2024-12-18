@@ -44,7 +44,7 @@ define noundef nonnull ptr @osqp_version() local_unnamed_addr #2 {
 define ptr @osqp_error_message(i64 noundef %0) local_unnamed_addr #3 {
   %2 = icmp sgt i64 %0, 11
   %3 = add nsw i64 %0, -1
-  %4 = getelementptr inbounds nuw [0 x ptr], ptr @OSQP_ERROR_MESSAGE, i64 0, i64 %3
+  %4 = getelementptr inbounds [0 x ptr], ptr @OSQP_ERROR_MESSAGE, i64 0, i64 %3
   %.0.in = select i1 %2, ptr getelementptr inbounds nuw (i8, ptr @OSQP_ERROR_MESSAGE, i64 88), ptr %4
   %.0 = load ptr, ptr %.0.in, align 8
   ret ptr %.0

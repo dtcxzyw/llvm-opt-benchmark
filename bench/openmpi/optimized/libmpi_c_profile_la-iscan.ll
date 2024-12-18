@@ -108,7 +108,7 @@ ompi_comm_invalid.exit.thread:                    ; preds = %16, %ompi_comm_inva
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 200
   %38 = load i32, ptr %37, align 8
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds nuw [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 %39
+  %40 = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 %39
   %41 = load i32, ptr %40, align 4
   %42 = icmp eq i32 %41, -1
   br i1 %42, label %49, label %43

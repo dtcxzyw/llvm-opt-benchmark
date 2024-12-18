@@ -363,11 +363,11 @@ entry:
   %key = alloca %struct.bf_key_st, align 4
   %data = alloca [2 x i32], align 4
   %idxprom = sext i32 %n to i64
-  %arrayidx = getelementptr inbounds nuw [2 x [30 x i8]], ptr @bf_key, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [2 x [30 x i8]], ptr @bf_key, i64 0, i64 %idxprom
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %arrayidx) #8
   %conv = trunc i64 %call to i32
   call void @BF_set_key(ptr noundef nonnull %key, i32 noundef %conv, ptr noundef nonnull %arrayidx) #7
-  %arrayidx5 = getelementptr inbounds nuw [2 x [2 x i32]], ptr @bf_plain, i64 0, i64 %idxprom
+  %arrayidx5 = getelementptr inbounds [2 x [2 x i32]], ptr @bf_plain, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx5, align 8
   store i32 %0, ptr %data, align 4
   %arrayidx10 = getelementptr inbounds nuw i8, ptr %arrayidx5, i64 4
@@ -375,7 +375,7 @@ entry:
   %arrayidx11 = getelementptr inbounds nuw i8, ptr %data, i64 4
   store i32 %1, ptr %arrayidx11, align 4
   call void @BF_encrypt(ptr noundef nonnull %data, ptr noundef nonnull %key) #7
-  %arrayidx14 = getelementptr inbounds nuw [2 x [2 x i32]], ptr @bf_cipher, i64 0, i64 %idxprom
+  %arrayidx14 = getelementptr inbounds [2 x [2 x i32]], ptr @bf_cipher, i64 0, i64 %idxprom
   %call17 = call i32 @test_mem_eq(ptr noundef nonnull @.str.40, i32 noundef 304, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42, ptr noundef nonnull %arrayidx14, i64 noundef 8, ptr noundef nonnull %data, i64 noundef 8) #7
   %tobool.not = icmp ne i32 %call17, 0
   call void @BF_decrypt(ptr noundef nonnull %data, ptr noundef nonnull %key) #7
@@ -392,11 +392,11 @@ entry:
   %key = alloca %struct.bf_key_st, align 4
   %out = alloca [8 x i8], align 1
   %idxprom = sext i32 %n to i64
-  %arrayidx = getelementptr inbounds nuw [34 x [8 x i8]], ptr @ecb_data, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [34 x [8 x i8]], ptr @ecb_data, i64 0, i64 %idxprom
   call void @BF_set_key(ptr noundef nonnull %key, i32 noundef 8, ptr noundef nonnull %arrayidx) #7
-  %arrayidx2 = getelementptr inbounds nuw [34 x [8 x i8]], ptr @plain_data, i64 0, i64 %idxprom
+  %arrayidx2 = getelementptr inbounds [34 x [8 x i8]], ptr @plain_data, i64 0, i64 %idxprom
   call void @BF_ecb_encrypt(ptr noundef nonnull %arrayidx2, ptr noundef nonnull %out, ptr noundef nonnull %key, i32 noundef 1) #7
-  %arrayidx6 = getelementptr inbounds nuw [34 x [8 x i8]], ptr @cipher_data, i64 0, i64 %idxprom
+  %arrayidx6 = getelementptr inbounds [34 x [8 x i8]], ptr @cipher_data, i64 0, i64 %idxprom
   %call = call i32 @test_mem_eq(ptr noundef nonnull @.str.40, i32 noundef 323, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.45, ptr noundef nonnull %arrayidx6, i64 noundef 8, ptr noundef nonnull %out, i64 noundef 8) #7
   %tobool.not = icmp ne i32 %call, 0
   call void @BF_ecb_encrypt(ptr noundef nonnull %out, ptr noundef nonnull %out, ptr noundef nonnull %key, i32 noundef 0) #7
@@ -416,7 +416,7 @@ entry:
   call void @BF_set_key(ptr noundef nonnull %key, i32 noundef %add, ptr noundef nonnull @key_test) #7
   call void @BF_ecb_encrypt(ptr noundef nonnull @key_data, ptr noundef nonnull %out, ptr noundef nonnull %key, i32 noundef 1) #7
   %idxprom = sext i32 %n to i64
-  %arrayidx = getelementptr inbounds nuw [25 x [8 x i8]], ptr @key_out, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [25 x [8 x i8]], ptr @key_out, i64 0, i64 %idxprom
   %call = call i32 @test_mem_eq(ptr noundef nonnull @.str.40, i32 noundef 342, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.47, ptr noundef nonnull %out, i64 noundef 8, ptr noundef nonnull %arrayidx, i64 noundef 8) #7
   %tobool.not = icmp ne i32 %call, 0
   %spec.select = zext i1 %tobool.not to i32

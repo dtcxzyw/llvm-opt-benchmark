@@ -438,7 +438,7 @@ select.unfold.preheader.i72:                      ; preds = %80
   %89 = load ptr, ptr %88, align 8
   %90 = xor i64 %indvars.iv96, -1
   %91 = add nsw i64 %86, %90
-  %92 = getelementptr inbounds nuw [8 x [8 x i32]], ptr @Hop_ManConvertAigToTruth.uTruths, i64 0, i64 %91
+  %92 = getelementptr inbounds [8 x [8 x i32]], ptr @Hop_ManConvertAigToTruth.uTruths, i64 0, i64 %91
   store ptr %92, ptr %89, align 8
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count99
@@ -565,7 +565,7 @@ define i64 @Hop_ManComputeTruth6_rec(ptr noundef %0, ptr nocapture noundef reado
 common.ret:                                       ; preds = %2
   %5 = load i32, ptr %1, align 8
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds nuw [8 x i64], ptr @Truth, i64 0, i64 %6
+  %7 = getelementptr inbounds [8 x i64], ptr @Truth, i64 0, i64 %6
   %8 = load i64, ptr %7, align 8
   br label %common.ret21
 

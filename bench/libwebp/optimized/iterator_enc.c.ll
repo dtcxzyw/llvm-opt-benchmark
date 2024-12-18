@@ -1730,7 +1730,7 @@ define hidden range(i32 0, 2) i32 @VP8IteratorRotateI4(ptr noundef %0, ptr nocap
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load i32, ptr %3, align 8
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds nuw [16 x i16], ptr @VP8Scan, i64 0, i64 %5
+  %6 = getelementptr inbounds [16 x i16], ptr @VP8Scan, i64 0, i64 %5
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 %8
@@ -1784,7 +1784,7 @@ define hidden range(i32 0, 2) i32 @VP8IteratorRotateI4(ptr noundef %0, ptr nocap
 30:                                               ; preds = %.loopexit
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %32 = sext i32 %28 to i64
-  %33 = getelementptr inbounds nuw [16 x i8], ptr @VP8TopLeftI4, i64 0, i64 %32
+  %33 = getelementptr inbounds [16 x i8], ptr @VP8TopLeftI4, i64 0, i64 %32
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i64
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 %35

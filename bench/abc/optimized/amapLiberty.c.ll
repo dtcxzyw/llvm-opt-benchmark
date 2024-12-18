@@ -951,7 +951,7 @@ define noundef nonnull ptr @Amap_LibertyGetString(ptr nocapture noundef readonly
   %.sroa.4.0.extract.shift5 = mul i64 %1, -4294967295
   %7 = ashr i64 %.sroa.4.0.extract.shift5, 32
   %8 = tail call ptr @strncpy(ptr noundef nonnull @Amap_LibertyGetString.Buffer, ptr noundef %6, i64 noundef %7) #23
-  %9 = getelementptr inbounds nuw [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %7
+  %9 = getelementptr inbounds [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %7
   store i8 0, ptr %9, align 1
   ret ptr @Amap_LibertyGetString.Buffer
 }
@@ -971,7 +971,7 @@ define noundef nonnull ptr @Amap_LibertyGetStringFormula(ptr nocapture noundef r
   %sext4 = add i64 %.sroa.4.0.extract.shift5, -8589934592
   %8 = ashr i64 %sext4, 32
   %9 = tail call ptr @strncpy(ptr noundef nonnull @Amap_LibertyGetStringFormula.Buffer, ptr noundef nonnull %7, i64 noundef %8) #23
-  %10 = getelementptr inbounds nuw [5000 x i8], ptr @Amap_LibertyGetStringFormula.Buffer, i64 0, i64 %8
+  %10 = getelementptr inbounds [5000 x i8], ptr @Amap_LibertyGetStringFormula.Buffer, i64 0, i64 %8
   store i8 0, ptr %10, align 1
   ret ptr @Amap_LibertyGetStringFormula.Buffer
 }
@@ -1020,7 +1020,7 @@ Amap_LibertyItem.exit:                            ; preds = %8, %6
   %.sroa.4.0.extract.shift5.i = mul i64 %22, -4294967295
   %27 = ashr i64 %.sroa.4.0.extract.shift5.i, 32
   %28 = call ptr @strncpy(ptr noundef nonnull @Amap_LibertyGetString.Buffer, ptr noundef %26, i64 noundef %27) #23
-  %29 = getelementptr inbounds nuw [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %27
+  %29 = getelementptr inbounds [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %27
   store i8 0, ptr %29, align 1
   %30 = load ptr, ptr %0, align 8
   %31 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.094, ptr noundef nonnull @.str.16, ptr noundef nonnull @Amap_LibertyGetString.Buffer, ptr noundef %30) #23
@@ -1112,7 +1112,7 @@ Amap_LibertyCellIsFlop.exit:                      ; preds = %66, %.lr.ph.i
   %.sroa.4.0.extract.shift5.i123 = mul i64 %74, -4294967295
   %77 = ashr i64 %.sroa.4.0.extract.shift5.i123, 32
   %78 = call ptr @strncpy(ptr noundef nonnull @Amap_LibertyGetString.Buffer, ptr noundef %76, i64 noundef %77) #23
-  %79 = getelementptr inbounds nuw [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %77
+  %79 = getelementptr inbounds [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %77
   store i8 0, ptr %79, align 1
   %80 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, ptr noundef nonnull @Amap_LibertyGetString.Buffer)
   br label %270
@@ -1150,7 +1150,7 @@ Amap_LibertyCellIsDontUse.exit:                   ; preds = %.lr.ph.i126
   %.sroa.4.0.extract.shift5.i132 = mul i64 %93, -4294967295
   %96 = ashr i64 %.sroa.4.0.extract.shift5.i132, 32
   %97 = call ptr @strncpy(ptr noundef nonnull @Amap_LibertyGetString.Buffer, ptr noundef %95, i64 noundef %96) #23
-  %98 = getelementptr inbounds nuw [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %96
+  %98 = getelementptr inbounds [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %96
   store i8 0, ptr %98, align 1
   %99 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, ptr noundef nonnull @Amap_LibertyGetString.Buffer)
   br label %270
@@ -1226,7 +1226,7 @@ Amap_LibertyCellCountOutputs.exit.thread:         ; preds = %Amap_LibertyItem.ex
   %.sroa.4.0.extract.shift5.i141 = mul i64 %127, -4294967295
   %130 = ashr i64 %.sroa.4.0.extract.shift5.i141, 32
   %131 = call ptr @strncpy(ptr noundef nonnull @Amap_LibertyGetString.Buffer, ptr noundef %129, i64 noundef %130) #23
-  %132 = getelementptr inbounds nuw [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %130
+  %132 = getelementptr inbounds [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %130
   store i8 0, ptr %132, align 1
   %133 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.31, ptr noundef nonnull @Amap_LibertyGetString.Buffer)
   br label %270
@@ -1264,7 +1264,7 @@ Amap_LibertyCellCountOutputs.exit.thread:         ; preds = %Amap_LibertyItem.ex
   %.sroa.4.0.extract.shift5.i151 = mul i64 %146, -4294967295
   %149 = ashr i64 %.sroa.4.0.extract.shift5.i151, 32
   %150 = call ptr @strncpy(ptr noundef nonnull @Amap_LibertyGetString.Buffer, ptr noundef %148, i64 noundef %149) #23
-  %151 = getelementptr inbounds nuw [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %149
+  %151 = getelementptr inbounds [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %149
   store i8 0, ptr %151, align 1
   %152 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.32, ptr noundef nonnull @Amap_LibertyGetString.Buffer)
   br label %270
@@ -1336,7 +1336,7 @@ Amap_LibertyPinFunction.exit:                     ; preds = %Amap_LibertyItem.ex
   %sext4.i = add i64 %.sroa.4.0.extract.shift5.i164, -8589934592
   %187 = ashr i64 %sext4.i, 32
   %188 = call ptr @strncpy(ptr noundef nonnull @Amap_LibertyGetStringFormula.Buffer, ptr noundef nonnull %186, i64 noundef %187) #23
-  %189 = getelementptr inbounds nuw [5000 x i8], ptr @Amap_LibertyGetStringFormula.Buffer, i64 0, i64 %187
+  %189 = getelementptr inbounds [5000 x i8], ptr @Amap_LibertyGetStringFormula.Buffer, i64 0, i64 %187
   store i8 0, ptr %189, align 1
   %lhsv = load i16, ptr @Amap_LibertyGetStringFormula.Buffer, align 16
   %190 = and i16 %lhsv, -2
@@ -1355,7 +1355,7 @@ Amap_LibertyPinFunction.exit:                     ; preds = %Amap_LibertyItem.ex
   %.sroa.4.0.extract.shift5.i166 = mul i64 %193, -4294967295
   %197 = ashr i64 %.sroa.4.0.extract.shift5.i166, 32
   %198 = call ptr @strncpy(ptr noundef nonnull @Amap_LibertyGetString.Buffer, ptr noundef %196, i64 noundef %197) #23
-  %199 = getelementptr inbounds nuw [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %197
+  %199 = getelementptr inbounds [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %197
   store i8 0, ptr %199, align 1
   %200 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.35, ptr noundef nonnull @Amap_LibertyGetString.Buffer, ptr noundef nonnull @Amap_LibertyGetStringFormula.Buffer)
   br label %.loopexit
@@ -1370,7 +1370,7 @@ Amap_LibertyPinFunction.exit:                     ; preds = %Amap_LibertyItem.ex
   %.sroa.4.0.extract.shift5.i168 = mul i64 %203, -4294967295
   %207 = ashr i64 %.sroa.4.0.extract.shift5.i168, 32
   %208 = call ptr @strncpy(ptr noundef nonnull @Amap_LibertyGetString.Buffer, ptr noundef %206, i64 noundef %207) #23
-  %209 = getelementptr inbounds nuw [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %207
+  %209 = getelementptr inbounds [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %207
   store i8 0, ptr %209, align 1
   %210 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.094, ptr noundef nonnull @.str.19, ptr noundef nonnull @Amap_LibertyGetString.Buffer) #23
   %211 = load i64, ptr %158, align 4
@@ -1381,7 +1381,7 @@ Amap_LibertyPinFunction.exit:                     ; preds = %Amap_LibertyItem.ex
   %.sroa.4.0.extract.shift5.i170 = mul i64 %211, -4294967295
   %215 = ashr i64 %.sroa.4.0.extract.shift5.i170, 32
   %216 = call ptr @strncpy(ptr noundef nonnull @Amap_LibertyGetString.Buffer, ptr noundef %214, i64 noundef %215) #23
-  %217 = getelementptr inbounds nuw [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %215
+  %217 = getelementptr inbounds [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %215
   store i8 0, ptr %217, align 1
   %218 = call double @atof(ptr noundef nonnull @Amap_LibertyGetString.Buffer) #24
   %219 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.094, ptr noundef nonnull @.str.21, double noundef %218) #23
@@ -1394,7 +1394,7 @@ Amap_LibertyPinFunction.exit:                     ; preds = %Amap_LibertyItem.ex
   %.sroa.4.0.extract.shift5.i172 = mul i64 %221, -4294967295
   %225 = ashr i64 %.sroa.4.0.extract.shift5.i172, 32
   %226 = call ptr @strncpy(ptr noundef nonnull @Amap_LibertyGetString.Buffer, ptr noundef %224, i64 noundef %225) #23
-  %227 = getelementptr inbounds nuw [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %225
+  %227 = getelementptr inbounds [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %225
   store i8 0, ptr %227, align 1
   %228 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.094, ptr noundef nonnull @.str.22, ptr noundef nonnull @Amap_LibertyGetString.Buffer) #23
   %229 = load i64, ptr %182, align 4
@@ -1407,7 +1407,7 @@ Amap_LibertyPinFunction.exit:                     ; preds = %Amap_LibertyItem.ex
   %sext4.i175 = add i64 %.sroa.4.0.extract.shift5.i174, -8589934592
   %234 = ashr i64 %sext4.i175, 32
   %235 = call ptr @strncpy(ptr noundef nonnull @Amap_LibertyGetStringFormula.Buffer, ptr noundef nonnull %233, i64 noundef %234) #23
-  %236 = getelementptr inbounds nuw [5000 x i8], ptr @Amap_LibertyGetStringFormula.Buffer, i64 0, i64 %234
+  %236 = getelementptr inbounds [5000 x i8], ptr @Amap_LibertyGetStringFormula.Buffer, i64 0, i64 %234
   store i8 0, ptr %236, align 1
   %237 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.094, ptr noundef nonnull @.str.24, ptr noundef nonnull @Amap_LibertyGetStringFormula.Buffer) #23
   %238 = load i32, ptr %56, align 4
@@ -1462,7 +1462,7 @@ Vec_PtrFind.exit.thread:                          ; preds = %247
   %.sroa.4.0.extract.shift5.i182 = mul i64 %256, -4294967295
   %259 = ashr i64 %.sroa.4.0.extract.shift5.i182, 32
   %260 = call ptr @strncpy(ptr noundef nonnull @Amap_LibertyGetString.Buffer, ptr noundef %258, i64 noundef %259) #23
-  %261 = getelementptr inbounds nuw [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %259
+  %261 = getelementptr inbounds [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %259
   store i8 0, ptr %261, align 1
   %262 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.094, ptr noundef nonnull @.str.36, ptr noundef nonnull @Amap_LibertyGetString.Buffer) #23
   br label %Vec_PtrFind.exit
@@ -1619,7 +1619,7 @@ Amap_LibertyCellIsFlop.exit:                      ; preds = %32, %.lr.ph.i
   %.sroa.4.0.extract.shift5.i = mul i64 %40, -4294967295
   %43 = ashr i64 %.sroa.4.0.extract.shift5.i, 32
   %44 = tail call ptr @strncpy(ptr noundef nonnull @Amap_LibertyGetString.Buffer, ptr noundef %42, i64 noundef %43) #23
-  %45 = getelementptr inbounds nuw [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %43
+  %45 = getelementptr inbounds [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %43
   store i8 0, ptr %45, align 1
   %46 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, ptr noundef nonnull @Amap_LibertyGetString.Buffer)
   br label %232
@@ -1657,7 +1657,7 @@ Amap_LibertyCellIsDontUse.exit:                   ; preds = %.lr.ph.i107
   %.sroa.4.0.extract.shift5.i113 = mul i64 %59, -4294967295
   %62 = ashr i64 %.sroa.4.0.extract.shift5.i113, 32
   %63 = tail call ptr @strncpy(ptr noundef nonnull @Amap_LibertyGetString.Buffer, ptr noundef %61, i64 noundef %62) #23
-  %64 = getelementptr inbounds nuw [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %62
+  %64 = getelementptr inbounds [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %62
   store i8 0, ptr %64, align 1
   %65 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, ptr noundef nonnull @Amap_LibertyGetString.Buffer)
   br label %232
@@ -1733,7 +1733,7 @@ Amap_LibertyCellCountOutputs.exit.thread:         ; preds = %Amap_LibertyItem.ex
   %.sroa.4.0.extract.shift5.i122 = mul i64 %93, -4294967295
   %96 = ashr i64 %.sroa.4.0.extract.shift5.i122, 32
   %97 = tail call ptr @strncpy(ptr noundef nonnull @Amap_LibertyGetString.Buffer, ptr noundef %95, i64 noundef %96) #23
-  %98 = getelementptr inbounds nuw [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %96
+  %98 = getelementptr inbounds [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %96
   store i8 0, ptr %98, align 1
   %99 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.31, ptr noundef nonnull @Amap_LibertyGetString.Buffer)
   br label %232
@@ -1771,7 +1771,7 @@ Amap_LibertyCellCountOutputs.exit.thread:         ; preds = %Amap_LibertyItem.ex
   %.sroa.4.0.extract.shift5.i132 = mul i64 %112, -4294967295
   %115 = ashr i64 %.sroa.4.0.extract.shift5.i132, 32
   %116 = tail call ptr @strncpy(ptr noundef nonnull @Amap_LibertyGetString.Buffer, ptr noundef %114, i64 noundef %115) #23
-  %117 = getelementptr inbounds nuw [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %115
+  %117 = getelementptr inbounds [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %115
   store i8 0, ptr %117, align 1
   %118 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.32, ptr noundef nonnull @Amap_LibertyGetString.Buffer)
   br label %232
@@ -1843,7 +1843,7 @@ Amap_LibertyPinFunction.exit:                     ; preds = %Amap_LibertyItem.ex
   %sext4.i = add i64 %.sroa.4.0.extract.shift5.i145, -8589934592
   %153 = ashr i64 %sext4.i, 32
   %154 = tail call ptr @strncpy(ptr noundef nonnull @Amap_LibertyGetStringFormula.Buffer, ptr noundef nonnull %152, i64 noundef %153) #23
-  %155 = getelementptr inbounds nuw [5000 x i8], ptr @Amap_LibertyGetStringFormula.Buffer, i64 0, i64 %153
+  %155 = getelementptr inbounds [5000 x i8], ptr @Amap_LibertyGetStringFormula.Buffer, i64 0, i64 %153
   store i8 0, ptr %155, align 1
   %lhsv = load i16, ptr @Amap_LibertyGetStringFormula.Buffer, align 16
   %156 = and i16 %lhsv, -2
@@ -1862,7 +1862,7 @@ Amap_LibertyPinFunction.exit:                     ; preds = %Amap_LibertyItem.ex
   %.sroa.4.0.extract.shift5.i147 = mul i64 %159, -4294967295
   %163 = ashr i64 %.sroa.4.0.extract.shift5.i147, 32
   %164 = tail call ptr @strncpy(ptr noundef nonnull @Amap_LibertyGetString.Buffer, ptr noundef %162, i64 noundef %163) #23
-  %165 = getelementptr inbounds nuw [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %163
+  %165 = getelementptr inbounds [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %163
   store i8 0, ptr %165, align 1
   %166 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.35, ptr noundef nonnull @Amap_LibertyGetString.Buffer, ptr noundef nonnull @Amap_LibertyGetStringFormula.Buffer)
   br label %.loopexit
@@ -1877,7 +1877,7 @@ Amap_LibertyPinFunction.exit:                     ; preds = %Amap_LibertyItem.ex
   %.sroa.4.0.extract.shift5.i149 = mul i64 %168, -4294967295
   %172 = ashr i64 %.sroa.4.0.extract.shift5.i149, 32
   %173 = tail call ptr @strncpy(ptr noundef nonnull @Amap_LibertyGetString.Buffer, ptr noundef %171, i64 noundef %172) #23
-  %174 = getelementptr inbounds nuw [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %172
+  %174 = getelementptr inbounds [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %172
   store i8 0, ptr %174, align 1
   tail call fastcc void @Vec_StrPrintStr(ptr noundef %3, ptr noundef nonnull @Amap_LibertyGetString.Buffer)
   tail call fastcc void @Vec_StrPrintStr(ptr noundef %3, ptr noundef nonnull @.str.40)
@@ -1889,7 +1889,7 @@ Amap_LibertyPinFunction.exit:                     ; preds = %Amap_LibertyItem.ex
   %.sroa.4.0.extract.shift5.i151 = mul i64 %175, -4294967295
   %179 = ashr i64 %.sroa.4.0.extract.shift5.i151, 32
   %180 = tail call ptr @strncpy(ptr noundef nonnull @Amap_LibertyGetString.Buffer, ptr noundef %178, i64 noundef %179) #23
-  %181 = getelementptr inbounds nuw [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %179
+  %181 = getelementptr inbounds [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %179
   store i8 0, ptr %181, align 1
   %182 = tail call double @atof(ptr noundef nonnull @Amap_LibertyGetString.Buffer) #24
   %183 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.41, double noundef %182) #23
@@ -1904,7 +1904,7 @@ Amap_LibertyPinFunction.exit:                     ; preds = %Amap_LibertyItem.ex
   %.sroa.4.0.extract.shift5.i153 = mul i64 %185, -4294967295
   %189 = ashr i64 %.sroa.4.0.extract.shift5.i153, 32
   %190 = tail call ptr @strncpy(ptr noundef nonnull @Amap_LibertyGetString.Buffer, ptr noundef %188, i64 noundef %189) #23
-  %191 = getelementptr inbounds nuw [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %189
+  %191 = getelementptr inbounds [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %189
   store i8 0, ptr %191, align 1
   tail call fastcc void @Vec_StrPrintStr(ptr noundef %3, ptr noundef nonnull @Amap_LibertyGetString.Buffer)
   tail call fastcc void @Vec_StrPrintStr(ptr noundef %3, ptr noundef nonnull @.str.42)
@@ -1918,7 +1918,7 @@ Amap_LibertyPinFunction.exit:                     ; preds = %Amap_LibertyItem.ex
   %sext4.i156 = add i64 %.sroa.4.0.extract.shift5.i155, -8589934592
   %197 = ashr i64 %sext4.i156, 32
   %198 = tail call ptr @strncpy(ptr noundef nonnull @Amap_LibertyGetStringFormula.Buffer, ptr noundef nonnull %196, i64 noundef %197) #23
-  %199 = getelementptr inbounds nuw [5000 x i8], ptr @Amap_LibertyGetStringFormula.Buffer, i64 0, i64 %197
+  %199 = getelementptr inbounds [5000 x i8], ptr @Amap_LibertyGetStringFormula.Buffer, i64 0, i64 %197
   store i8 0, ptr %199, align 1
   tail call fastcc void @Vec_StrPrintStr(ptr noundef %3, ptr noundef nonnull @Amap_LibertyGetStringFormula.Buffer)
   tail call fastcc void @Vec_StrPrintStr(ptr noundef %3, ptr noundef nonnull @.str.4)
@@ -1976,7 +1976,7 @@ Vec_PtrFind.exit.thread:                          ; preds = %209
   %.sroa.4.0.extract.shift5.i163 = mul i64 %218, -4294967295
   %222 = ashr i64 %.sroa.4.0.extract.shift5.i163, 32
   %223 = tail call ptr @strncpy(ptr noundef nonnull @Amap_LibertyGetString.Buffer, ptr noundef %221, i64 noundef %222) #23
-  %224 = getelementptr inbounds nuw [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %222
+  %224 = getelementptr inbounds [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %222
   store i8 0, ptr %224, align 1
   tail call fastcc void @Vec_StrPrintStr(ptr noundef %3, ptr noundef nonnull @Amap_LibertyGetString.Buffer)
   tail call fastcc void @Vec_StrPrintStr(ptr noundef %3, ptr noundef nonnull @.str.44)
@@ -2715,7 +2715,7 @@ Amap_LibertySkipSpaces.exit178:                   ; preds = %50, %Amap_LibertyCh
   %.sroa.4.0.extract.shift5.i = mul i64 %.sroa.051.0.insert.insert, -4294967295
   %177 = ashr i64 %.sroa.4.0.extract.shift5.i, 32
   %178 = tail call ptr @strncpy(ptr noundef nonnull @Amap_LibertyGetString.Buffer, ptr noundef %176, i64 noundef %177) #23
-  %179 = getelementptr inbounds nuw [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %177
+  %179 = getelementptr inbounds [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %177
   store i8 0, ptr %179, align 1
   %180 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %171, ptr noundef nonnull dereferenceable(1) @.str.48, ptr noundef %172, i32 noundef %173, ptr noundef nonnull @Amap_LibertyGetString.Buffer) #23
   br label %181

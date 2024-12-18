@@ -5648,12 +5648,12 @@ _ZNK10open_spiel7oh_hell14DeckProperties8CardRankEi.exit.i241.i.i: ; preds = %18
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %29), !noalias !17
   %1789 = srem i32 %1788, 4
   %1790 = sext i32 %1789 to i64
-  %1791 = getelementptr inbounds nuw [5 x i8], ptr @_ZN10open_spiel7oh_hellL9kSuitCharE, i64 0, i64 %1790
+  %1791 = getelementptr inbounds [5 x i8], ptr @_ZN10open_spiel7oh_hellL9kSuitCharE, i64 0, i64 %1790
   %1792 = load i8, ptr %1791, align 1, !noalias !47
   store i8 %1792, ptr %28, align 1, !noalias !47
   %1793 = sdiv i32 %1788, 4
   %1794 = sext i32 %1793 to i64
-  %1795 = getelementptr inbounds nuw [14 x i8], ptr @_ZN10open_spiel7oh_hellL9kRankCharE, i64 0, i64 %1794
+  %1795 = getelementptr inbounds [14 x i8], ptr @_ZN10open_spiel7oh_hellL9kRankCharE, i64 0, i64 %1794
   %1796 = load i8, ptr %1795, align 1, !noalias !47
   store i8 %1796, ptr %1491, align 1, !noalias !47
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %29) #21, !noalias !50

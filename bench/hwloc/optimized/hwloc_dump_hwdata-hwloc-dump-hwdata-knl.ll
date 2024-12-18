@@ -149,7 +149,7 @@ sub_2:                                            ; preds = %sub_1
 
 44:                                               ; preds = %38
   %45 = sext i32 %40 to i64
-  %46 = getelementptr inbounds nuw i8, ptr %6, i64 %45
+  %46 = getelementptr inbounds i8, ptr %6, i64 %45
   %47 = load i8, ptr %6, align 16
   %.not.i.i = icmp eq i8 %47, 14
   br i1 %.not.i.i, label %.preheader.i.i, label %48
@@ -201,7 +201,7 @@ sub_2:                                            ; preds = %sub_1
 
 is_phi_group.exit.i:                              ; preds = %60
   %puts25.i = call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
-  %.not26.i = icmp ugt i32 %40, 5
+  %.not26.i = icmp sgt i32 %40, 5
   br i1 %.not26.i, label %73, label %70
 
 70:                                               ; preds = %is_phi_group.exit.i
@@ -323,7 +323,7 @@ process_smbios_group.exit:                        ; preds = %73, %._crit_edge.lo
 
 125:                                              ; preds = %119
   %126 = sext i32 %121 to i64
-  %127 = getelementptr inbounds nuw i8, ptr %4, i64 %126
+  %127 = getelementptr inbounds i8, ptr %4, i64 %126
   %128 = load i16, ptr %93, align 4
   %129 = zext i16 %128 to i32
   %130 = and i32 %129, 1

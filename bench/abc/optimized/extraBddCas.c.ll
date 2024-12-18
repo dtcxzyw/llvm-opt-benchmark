@@ -409,7 +409,7 @@ define internal fastcc noundef ptr @CreateTheCodes_rec(ptr noundef %0, ptr nound
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %49 = load ptr, ptr %48, align 8
   %50 = sext i32 %2 to i64
-  %51 = getelementptr inbounds nuw [32 x i32], ptr @s_VarOrderBest, i64 0, i64 %50
+  %51 = getelementptr inbounds [32 x i32], ptr @s_VarOrderBest, i64 0, i64 %50
   %52 = load i32, ptr %51, align 4
   %53 = sext i32 %52 to i64
   %54 = getelementptr inbounds ptr, ptr %49, i64 %53

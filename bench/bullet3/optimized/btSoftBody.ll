@@ -24328,7 +24328,7 @@ _ZN10btSoftBody10appendFaceEiPNS_8MaterialE.exit: ; preds = %if.then78, %if.then
   %arrayidx.i109 = getelementptr inbounds nuw %"struct.btSoftBody::Face", ptr %42, i64 %indvars.iv273
   %idxprom.i112 = sext i32 %41 to i64
   %idxprom89 = sext i32 %retval.0.i105 to i64
-  %arrayidx90 = getelementptr inbounds nuw [2 x ptr], ptr %pn, i64 0, i64 %idxprom89
+  %arrayidx90 = getelementptr inbounds [2 x ptr], ptr %pn, i64 0, i64 %idxprom89
   %43 = load ptr, ptr %arrayidx90, align 8
   %m_n92 = getelementptr inbounds nuw i8, ptr %arrayidx.i109, i64 16
   %arrayidx94 = getelementptr inbounds nuw [3 x ptr], ptr %m_n92, i64 0, i64 %indvars.iv268
@@ -27756,7 +27756,7 @@ for.body94:                                       ; preds = %for.body84, %for.bo
   %arrayidx.i94 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv208
   %65 = load i32, ptr %arrayidx.i94, align 4
   %66 = sext i32 %65 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN10btSoftBody11staticSolveEi, i64 0, i64 %66
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN10btSoftBody11staticSolveEi, i64 0, i64 %66
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void %switch.load(ptr noundef nonnull %this, float noundef 1.000000e+00, float noundef %div88), !callees !343
   %indvars.iv.next209 = add nuw nsw i64 %indvars.iv208, 1
@@ -27887,7 +27887,7 @@ for.body163:                                      ; preds = %for.cond159.prehead
   %arrayidx.i131 = getelementptr inbounds nuw i32, ptr %91, i64 %indvars.iv221
   %92 = load i32, ptr %arrayidx.i131, align 4
   %93 = sext i32 %92 to i64
-  %switch.gep239 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN10btSoftBody11staticSolveEi, i64 0, i64 %93
+  %switch.gep239 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN10btSoftBody11staticSolveEi, i64 0, i64 %93
   %switch.load240 = load ptr, ptr %switch.gep239, align 8
   tail call void %switch.load240(ptr noundef nonnull %this, float noundef 1.000000e+00, float noundef 0.000000e+00), !callees !343
   %indvars.iv.next222 = add nuw nsw i64 %indvars.iv221, 1
@@ -28533,7 +28533,7 @@ for.body4:                                        ; preds = %for.cond2.preheader
   %arrayidx.i = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   %4 = load i32, ptr %arrayidx.i, align 4
   %5 = sext i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN10btSoftBody11staticSolveEi, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN10btSoftBody11staticSolveEi, i64 0, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void %switch.load(ptr noundef nonnull %this, float noundef 1.000000e+00, float noundef 0.000000e+00), !callees !343
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

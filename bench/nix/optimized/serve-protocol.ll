@@ -24887,7 +24887,7 @@ _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i.i.i.i: ; preds = %42
   %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTN3nix6FdSinkE, i64 16), align 8, !noalias !140
   %53 = getelementptr i8, ptr %51, i64 -48
   %54 = load i64, ptr %53, align 8, !noalias !140
-  %55 = getelementptr inbounds nuw i8, ptr %9, i64 %54
+  %55 = getelementptr inbounds i8, ptr %9, i64 %54
   store ptr %52, ptr %55, align 8, !noalias !140
   %56 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 32768, ptr %56, align 8, !noalias !140
@@ -45454,7 +45454,7 @@ define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZZN3nix3
   %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTN3nix6FdSinkE, i64 16), align 8
   %13 = getelementptr i8, ptr %11, i64 -48
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %2, i64 %14
+  %15 = getelementptr inbounds i8, ptr %2, i64 %14
   store ptr %12, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 32768, ptr %16, align 8

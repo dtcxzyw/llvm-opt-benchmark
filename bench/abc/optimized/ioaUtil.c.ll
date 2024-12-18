@@ -93,7 +93,7 @@ define nonnull ptr @Ioa_FileNameGenericAppend(ptr noundef readonly %0, ptr nocap
 10:                                               ; preds = %9, %6
   %11 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) @Ioa_FileNameGenericAppend.Buffer, ptr noundef nonnull dereferenceable(1) %1) #12
   %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @Ioa_FileNameGenericAppend.Buffer) #10
-  %13 = getelementptr inbounds nuw i8, ptr @Ioa_FileNameGenericAppend.Buffer, i64 %12
+  %13 = getelementptr inbounds i8, ptr @Ioa_FileNameGenericAppend.Buffer, i64 %12
   %.029 = getelementptr inbounds i8, ptr %13, i64 -1
   %.not2430 = icmp ult ptr %.029, @Ioa_FileNameGenericAppend.Buffer
   br i1 %.not2430, label %.loopexit, label %.lr.ph

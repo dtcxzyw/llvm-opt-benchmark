@@ -549,7 +549,7 @@ for.body97:                                       ; preds = %if.end93, %for.inc2
   %arrayidx98 = getelementptr inbounds %struct.tls_rl_record_st, ptr %recs, i64 %ctr.1237
   %length = getelementptr inbounds nuw i8, ptr %arrayidx98, i64 8
   %9 = load i64, ptr %length, align 8
-  %arrayidx99 = getelementptr inbounds nuw [32 x i64], ptr %reclen, i64 0, i64 %ctr.1237
+  %arrayidx99 = getelementptr inbounds [32 x i64], ptr %reclen, i64 0, i64 %ctr.1237
   store i64 %9, ptr %arrayidx99, align 8
   %call100 = call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef nonnull %2) #4
   %call101 = call i64 @EVP_CIPHER_get_flags(ptr noundef %call100) #4
@@ -567,7 +567,7 @@ if.then108:                                       ; preds = %if.then105
   %shr = lshr i16 %11, 8
   %conv112 = trunc nuw i16 %shr to i8
   %conv117 = trunc i16 %11 to i8
-  %arrayidx120 = getelementptr inbounds nuw [32 x [13 x i8]], ptr %buf, i64 0, i64 %ctr.1237
+  %arrayidx120 = getelementptr inbounds [32 x [13 x i8]], ptr %buf, i64 0, i64 %ctr.1237
   store i8 %conv112, ptr %arrayidx120, align 1
   %dtlsseq.sroa.2.0.arraydecay121.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx120, i64 1
   store i8 %conv117, ptr %dtlsseq.sroa.2.0.arraydecay121.sroa_idx, align 1
@@ -576,7 +576,7 @@ if.then108:                                       ; preds = %if.then105
   br label %if.end130
 
 if.else123:                                       ; preds = %if.then105
-  %arrayidx124 = getelementptr inbounds nuw [32 x [13 x i8]], ptr %buf, i64 0, i64 %ctr.1237
+  %arrayidx124 = getelementptr inbounds [32 x [13 x i8]], ptr %buf, i64 0, i64 %ctr.1237
   %12 = load i64, ptr %sequence, align 1
   store i64 %12, ptr %arrayidx124, align 1
   %call126 = call i32 @tls_increment_sequence_ctr(ptr noundef nonnull %rl) #4
@@ -587,7 +587,7 @@ if.end130:                                        ; preds = %if.else123, %if.the
   %type = getelementptr inbounds nuw i8, ptr %arrayidx98, i64 4
   %13 = load i32, ptr %type, align 4
   %conv132 = trunc i32 %13 to i8
-  %arrayidx133 = getelementptr inbounds nuw [32 x [13 x i8]], ptr %buf, i64 0, i64 %ctr.1237
+  %arrayidx133 = getelementptr inbounds [32 x [13 x i8]], ptr %buf, i64 0, i64 %ctr.1237
   %arrayidx134 = getelementptr inbounds nuw i8, ptr %arrayidx133, i64 8
   store i8 %conv132, ptr %arrayidx134, align 1
   %14 = load i32, ptr %version135, align 4
@@ -706,7 +706,7 @@ for.body229:                                      ; preds = %for.end222, %for.bo
   %ctr.2240 = phi i64 [ %inc234, %for.body229 ], [ 0, %for.end222 ]
   %data231 = getelementptr inbounds %struct.tls_rl_record_st, ptr %recs, i64 %ctr.2240, i32 5
   %23 = load ptr, ptr %data231, align 8
-  %arrayidx232 = getelementptr inbounds nuw [32 x ptr], ptr %data, i64 0, i64 %ctr.2240
+  %arrayidx232 = getelementptr inbounds [32 x ptr], ptr %data, i64 0, i64 %ctr.2240
   store ptr %23, ptr %arrayidx232, align 8
   %inc234 = add nuw i64 %ctr.2240, 1
   %exitcond247.not = icmp eq i64 %inc234, %umax245
@@ -728,7 +728,7 @@ for.body246:                                      ; preds = %for.end235, %for.bo
   %ctr.3241 = phi i64 [ %inc251, %for.body246 ], [ 0, %for.end235 ]
   %input248 = getelementptr inbounds %struct.tls_rl_record_st, ptr %recs, i64 %ctr.3241, i32 6
   %24 = load ptr, ptr %input248, align 8
-  %arrayidx249 = getelementptr inbounds nuw [32 x ptr], ptr %data, i64 0, i64 %ctr.3241
+  %arrayidx249 = getelementptr inbounds [32 x ptr], ptr %data, i64 0, i64 %ctr.3241
   store ptr %24, ptr %arrayidx249, align 8
   %inc251 = add nuw i64 %ctr.3241, 1
   %exitcond248.not = icmp eq i64 %inc251, %umax245

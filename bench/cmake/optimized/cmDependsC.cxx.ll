@@ -1222,7 +1222,7 @@ define dso_local void @_ZN10cmDependsC13ReadCacheFileEv(ptr noundef nonnull alig
   %11 = load ptr, ptr %2, align 8
   %12 = getelementptr i8, ptr %11, i64 -24
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %2, i64 %13
+  %14 = getelementptr inbounds i8, ptr %2, i64 %13
   %15 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %14)
           to label %16 unwind label %17
 
@@ -1671,7 +1671,7 @@ define dso_local void @_ZNK10cmDependsC14WriteCacheFileEv(ptr noundef nonnull al
   %7 = load ptr, ptr %2, align 8
   %8 = getelementptr i8, ptr %7, i64 -24
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %2, i64 %9
+  %10 = getelementptr inbounds i8, ptr %2, i64 %9
   %11 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %10)
           to label %12 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -2683,7 +2683,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10cmDependsC14cmI
   %308 = load ptr, ptr %20, align 8
   %309 = getelementptr i8, ptr %308, i64 -24
   %310 = load i64, ptr %309, align 8
-  %311 = getelementptr inbounds nuw i8, ptr %20, i64 %310
+  %311 = getelementptr inbounds i8, ptr %20, i64 %310
   %312 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %311)
           to label %313 unwind label %322
 

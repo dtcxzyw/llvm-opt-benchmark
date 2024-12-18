@@ -12061,7 +12061,7 @@ define noundef nonnull ptr @slurm_bb_flags2str(i32 noundef %0) local_unnamed_add
 
 3:                                                ; preds = %1
   %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) @slurm_bb_flags2str.bb_str)
-  %endptr = getelementptr inbounds nuw i8, ptr @slurm_bb_flags2str.bb_str, i64 %strlen
+  %endptr = getelementptr inbounds i8, ptr @slurm_bb_flags2str.bb_str, i64 %strlen
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %endptr, ptr noundef nonnull align 1 dereferenceable(18) @.str.615, i64 18, i1 false)
   br label %4
 
@@ -12077,13 +12077,13 @@ define noundef nonnull ptr @slurm_bb_flags2str(i32 noundef %0) local_unnamed_add
 
 8:                                                ; preds = %6
   %strlen7 = tail call i64 @strlen(ptr nonnull dereferenceable(1) @slurm_bb_flags2str.bb_str)
-  %endptr8 = getelementptr inbounds nuw i8, ptr @slurm_bb_flags2str.bb_str, i64 %strlen7
+  %endptr8 = getelementptr inbounds i8, ptr @slurm_bb_flags2str.bb_str, i64 %strlen7
   store i16 44, ptr %endptr8, align 1
   br label %9
 
 9:                                                ; preds = %8, %6
   %strlen9 = tail call i64 @strlen(ptr nonnull dereferenceable(1) @slurm_bb_flags2str.bb_str)
-  %endptr10 = getelementptr inbounds nuw i8, ptr @slurm_bb_flags2str.bb_str, i64 %strlen9
+  %endptr10 = getelementptr inbounds i8, ptr @slurm_bb_flags2str.bb_str, i64 %strlen9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %endptr10, ptr noundef nonnull align 1 dereferenceable(12) @.str.616, i64 12, i1 false)
   br label %10
 
@@ -12099,13 +12099,13 @@ define noundef nonnull ptr @slurm_bb_flags2str(i32 noundef %0) local_unnamed_add
 
 14:                                               ; preds = %12
   %strlen13 = tail call i64 @strlen(ptr nonnull dereferenceable(1) @slurm_bb_flags2str.bb_str)
-  %endptr14 = getelementptr inbounds nuw i8, ptr @slurm_bb_flags2str.bb_str, i64 %strlen13
+  %endptr14 = getelementptr inbounds i8, ptr @slurm_bb_flags2str.bb_str, i64 %strlen13
   store i16 44, ptr %endptr14, align 1
   br label %15
 
 15:                                               ; preds = %14, %12
   %strlen15 = tail call i64 @strlen(ptr nonnull dereferenceable(1) @slurm_bb_flags2str.bb_str)
-  %endptr16 = getelementptr inbounds nuw i8, ptr @slurm_bb_flags2str.bb_str, i64 %strlen15
+  %endptr16 = getelementptr inbounds i8, ptr @slurm_bb_flags2str.bb_str, i64 %strlen15
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %endptr16, ptr noundef nonnull align 1 dereferenceable(17) @.str.617, i64 17, i1 false)
   br label %16
 
@@ -12121,13 +12121,13 @@ define noundef nonnull ptr @slurm_bb_flags2str(i32 noundef %0) local_unnamed_add
 
 20:                                               ; preds = %18
   %strlen19 = tail call i64 @strlen(ptr nonnull dereferenceable(1) @slurm_bb_flags2str.bb_str)
-  %endptr20 = getelementptr inbounds nuw i8, ptr @slurm_bb_flags2str.bb_str, i64 %strlen19
+  %endptr20 = getelementptr inbounds i8, ptr @slurm_bb_flags2str.bb_str, i64 %strlen19
   store i16 44, ptr %endptr20, align 1
   br label %21
 
 21:                                               ; preds = %20, %18
   %strlen21 = tail call i64 @strlen(ptr nonnull dereferenceable(1) @slurm_bb_flags2str.bb_str)
-  %endptr22 = getelementptr inbounds nuw i8, ptr @slurm_bb_flags2str.bb_str, i64 %strlen21
+  %endptr22 = getelementptr inbounds i8, ptr @slurm_bb_flags2str.bb_str, i64 %strlen21
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %endptr22, ptr noundef nonnull align 1 dereferenceable(12) @.str.618, i64 12, i1 false)
   br label %22
 
@@ -12143,13 +12143,13 @@ define noundef nonnull ptr @slurm_bb_flags2str(i32 noundef %0) local_unnamed_add
 
 26:                                               ; preds = %24
   %strlen25 = tail call i64 @strlen(ptr nonnull dereferenceable(1) @slurm_bb_flags2str.bb_str)
-  %endptr26 = getelementptr inbounds nuw i8, ptr @slurm_bb_flags2str.bb_str, i64 %strlen25
+  %endptr26 = getelementptr inbounds i8, ptr @slurm_bb_flags2str.bb_str, i64 %strlen25
   store i16 44, ptr %endptr26, align 1
   br label %27
 
 27:                                               ; preds = %26, %24
   %strlen27 = tail call i64 @strlen(ptr nonnull dereferenceable(1) @slurm_bb_flags2str.bb_str)
-  %endptr28 = getelementptr inbounds nuw i8, ptr @slurm_bb_flags2str.bb_str, i64 %strlen27
+  %endptr28 = getelementptr inbounds i8, ptr @slurm_bb_flags2str.bb_str, i64 %strlen27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %endptr28, ptr noundef nonnull align 1 dereferenceable(16) @.str.619, i64 16, i1 false)
   br label %28
 

@@ -981,7 +981,7 @@ define dso_local void @_ZN10cmCTestCVS17ComputeBranchFlagERKNSt7__cxx1112basic_s
   %22 = load ptr, ptr %7, align 8
   %23 = getelementptr i8, ptr %22, i64 -24
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %7, i64 %24
+  %25 = getelementptr inbounds i8, ptr %7, i64 %24
   %26 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %25)
           to label %27 unwind label %53
 

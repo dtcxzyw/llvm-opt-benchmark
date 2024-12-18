@@ -1135,7 +1135,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi1ELi2E
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %225, label %221
 
 221:                                              ; preds = %216
-  %222 = getelementptr inbounds nuw double, ptr %9, i64 %220
+  %222 = getelementptr inbounds double, ptr %9, i64 %220
   %223 = load double, ptr %.021.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.phi, align 8
   %224 = load double, ptr %222, align 8
   store double %224, ptr %.021.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.phi, align 8
@@ -1192,8 +1192,8 @@ _ZN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEaSINS_7ProductINS_14TranspositionsILi2ELi
   br i1 %.not.i.i.i.i.i.i.i.i19.i.i.i.i.i.i.i, label %255, label %250
 
 250:                                              ; preds = %246
-  %251 = getelementptr inbounds nuw double, ptr %9, i64 %.020.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %252 = getelementptr inbounds nuw double, ptr %9, i64 %249
+  %251 = getelementptr inbounds double, ptr %9, i64 %.020.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %252 = getelementptr inbounds double, ptr %9, i64 %249
   %253 = load double, ptr %251, align 8
   %254 = load double, ptr %252, align 8
   store double %254, ptr %251, align 8
@@ -2293,7 +2293,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi1ELi3E
 
 251:                                              ; preds = %247
   %252 = getelementptr inbounds nuw double, ptr %9, i64 %.021.i.i.i.i.i.i.i.i.i
-  %253 = getelementptr inbounds nuw double, ptr %9, i64 %250
+  %253 = getelementptr inbounds double, ptr %9, i64 %250
   %254 = load double, ptr %252, align 8
   %255 = load double, ptr %253, align 8
   store double %255, ptr %252, align 8
@@ -2371,8 +2371,8 @@ _ZN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEaSINS_7ProductINS_14TranspositionsILi3ELi
   br i1 %.not.i.i.i.i.i.i.i.i19.i, label %303, label %298
 
 298:                                              ; preds = %294
-  %299 = getelementptr inbounds nuw double, ptr %9, i64 %.020.i.i.i.i.i.i.i.i.i
-  %300 = getelementptr inbounds nuw double, ptr %9, i64 %297
+  %299 = getelementptr inbounds double, ptr %9, i64 %.020.i.i.i.i.i.i.i.i.i
+  %300 = getelementptr inbounds double, ptr %9, i64 %297
   %301 = load double, ptr %299, align 8
   %302 = load double, ptr %300, align 8
   store double %302, ptr %299, align 8

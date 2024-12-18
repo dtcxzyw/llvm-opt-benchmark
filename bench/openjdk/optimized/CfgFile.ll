@@ -979,7 +979,7 @@ define hidden void @_ZN7CfgFile4loadERKNSt7__cxx1112basic_stringIcSt11char_trait
   %24 = load ptr, ptr %4, align 8
   %25 = getelementptr i8, ptr %24, i64 -24
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %4, i64 %26
+  %27 = getelementptr inbounds i8, ptr %4, i64 %26
   %28 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %27)
           to label %29 unwind label %42
 
@@ -1374,7 +1374,7 @@ _ZN12_GLOBAL__N_114getSectionNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   %158 = load ptr, ptr %4, align 8
   %159 = getelementptr i8, ptr %158, i64 -24
   %160 = load i64, ptr %159, align 8
-  %161 = getelementptr inbounds nuw i8, ptr %4, i64 %160
+  %161 = getelementptr inbounds i8, ptr %4, i64 %160
   %162 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv(ptr noundef nonnull align 8 dereferenceable(264) %161)
           to label %163 unwind label %.loopexit.split-lp
 

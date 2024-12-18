@@ -2721,7 +2721,7 @@ invoke.cont1:
   %vtable = load ptr, ptr %oss, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %oss, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %oss, i64 %vbase.offset
   %_M_precision.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   store i64 7, ptr %_M_precision.i, align 8
   %0 = load double, ptr %params, align 8
@@ -2787,7 +2787,7 @@ entry:
   %vtable = load ptr, ptr %oss, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %oss, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %oss, i64 %vbase.offset
   %_M_precision.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   store i64 7, ptr %_M_precision.i, align 8
   %m_saturation = getelementptr inbounds nuw i8, ptr %this, i64 248
@@ -3141,7 +3141,7 @@ if.end:                                           ; preds = %invoke.cont7, %invo
   %vtable = load ptr, ptr %cacheIDStream, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %cacheIDStream, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %cacheIDStream, i64 %vbase.offset
   %_M_precision.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   store i64 7, ptr %_M_precision.i, align 8
   %m_style.i = getelementptr inbounds nuw i8, ptr %this, i64 168
@@ -3229,7 +3229,7 @@ invoke.cont39:                                    ; preds = %invoke.cont37
   %vtable.i = load ptr, ptr %oss.i, align 8, !noalias !46
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8, !noalias !46
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %oss.i, i64 %vbase.offset.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %oss.i, i64 %vbase.offset.i
   %_M_precision.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   store i64 7, ptr %_M_precision.i.i, align 8, !noalias !46
   %m_saturation.i = getelementptr inbounds nuw i8, ptr %this, i64 248

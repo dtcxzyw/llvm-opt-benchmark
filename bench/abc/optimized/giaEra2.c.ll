@@ -80,7 +80,7 @@ define void @Gia_ManCountMintermsInCube(ptr nocapture noundef readonly %0, i32 n
 22:                                               ; preds = %16
   %23 = add nsw i32 %.036, 1
   %24 = sext i32 %.036 to i64
-  %25 = getelementptr inbounds nuw [32 x i32], ptr %4, i64 0, i64 %24
+  %25 = getelementptr inbounds [32 x i32], ptr %4, i64 0, i64 %24
   store i32 %.02735, ptr %25, align 4
   br label %26
 
@@ -233,7 +233,7 @@ define i32 @Gia_ManCountMinterms(ptr nocapture noundef readonly %0) local_unname
 45:                                               ; preds = %39
   %46 = add nsw i32 %.036.i.us, 1
   %47 = sext i32 %.036.i.us to i64
-  %48 = getelementptr inbounds nuw [32 x i32], ptr %2, i64 0, i64 %47
+  %48 = getelementptr inbounds [32 x i32], ptr %2, i64 0, i64 %47
   store i32 %.02735.i.us, ptr %48, align 4
   br label %49
 

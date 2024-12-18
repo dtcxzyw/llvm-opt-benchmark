@@ -359,7 +359,7 @@ do.body.us.preheader.i:                           ; preds = %if.then23.us.i
 do.body.us.i:                                     ; preds = %do.body.us.i, %do.body.us.preheader.i
   %indvars.iv.i = phi i64 [ %32, %do.body.us.preheader.i ], [ %indvars.iv.next.i, %do.body.us.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %arrayidx.us.i = getelementptr inbounds nuw [2 x %struct.CmpEquivLevel], ptr %stack1.i, i64 0, i64 %indvars.iv.next.i
+  %arrayidx.us.i = getelementptr inbounds [2 x %struct.CmpEquivLevel], ptr %stack1.i, i64 0, i64 %indvars.iv.next.i
   %33 = load ptr, ptr %arrayidx.us.i, align 8
   %cmp29.us.i = icmp eq ptr %33, null
   br i1 %cmp29.us.i, label %do.body.us.i, label %do.end.us.i, !llvm.loop !4
@@ -408,7 +408,7 @@ if.else27.i:                                      ; preds = %lor.lhs.false.us.i,
 do.body.i:                                        ; preds = %do.body.i, %do.body.preheader.i
   %indvars.iv212.i = phi i64 [ %38, %do.body.preheader.i ], [ %indvars.iv.next213.i, %do.body.i ]
   %indvars.iv.next213.i = add nsw i64 %indvars.iv212.i, -1
-  %arrayidx.i = getelementptr inbounds nuw [2 x %struct.CmpEquivLevel], ptr %stack1.i, i64 0, i64 %indvars.iv.next213.i
+  %arrayidx.i = getelementptr inbounds [2 x %struct.CmpEquivLevel], ptr %stack1.i, i64 0, i64 %indvars.iv.next213.i
   %39 = load ptr, ptr %arrayidx.i, align 8
   %cmp29.i = icmp eq ptr %39, null
   br i1 %cmp29.i, label %do.body.i, label %do.end.i, !llvm.loop !4
@@ -462,7 +462,7 @@ if.else51.i:                                      ; preds = %lor.lhs.false39.i
 do.body54.i:                                      ; preds = %do.body54.i, %do.body54.preheader.i
   %indvars.iv215.i = phi i64 [ %44, %do.body54.preheader.i ], [ %indvars.iv.next216.i, %do.body54.i ]
   %indvars.iv.next216.i = add nsw i64 %indvars.iv215.i, -1
-  %arrayidx57.i = getelementptr inbounds nuw [2 x %struct.CmpEquivLevel], ptr %stack2.i, i64 0, i64 %indvars.iv.next216.i
+  %arrayidx57.i = getelementptr inbounds [2 x %struct.CmpEquivLevel], ptr %stack2.i, i64 0, i64 %indvars.iv.next216.i
   %45 = load ptr, ptr %arrayidx57.i, align 8
   %cmp60.i = icmp eq ptr %45, null
   br i1 %cmp60.i, label %do.body54.i, label %do.end61.i, !llvm.loop !7
@@ -667,7 +667,7 @@ do.end199.i:                                      ; preds = %if.else186.i, %if.t
 if.end200.i:                                      ; preds = %do.end199.i, %call177.i.noexc
   %58 = phi i32 [ %i.0.i, %do.end199.i ], [ %.pre.i, %call177.i.noexc ]
   %idx.ext203.i = sext i32 %58 to i64
-  %add.ptr204.i = getelementptr inbounds nuw i16, ptr %fold1.i, i64 %idx.ext203.i
+  %add.ptr204.i = getelementptr inbounds i16, ptr %fold1.i, i64 %idx.ext203.i
   br label %for.cond.i.backedge
 
 if.end205.i:                                      ; preds = %call153.i.noexc, %if.end147.i
@@ -750,7 +750,7 @@ do.end262.i:                                      ; preds = %if.else247.i, %if.t
 if.end263.i:                                      ; preds = %do.end262.i, %call237.i.noexc
   %64 = phi i32 [ %i239.0.i, %do.end262.i ], [ %.pre218.i, %call237.i.noexc ]
   %idx.ext266.i = sext i32 %64 to i64
-  %add.ptr267.i = getelementptr inbounds nuw i16, ptr %fold2.i, i64 %idx.ext266.i
+  %add.ptr267.i = getelementptr inbounds i16, ptr %fold2.i, i64 %idx.ext266.i
   br label %for.cond.i.backedge
 
 if.end268.i:                                      ; preds = %call211.i.noexc, %if.end205.i
@@ -790,7 +790,7 @@ if.end290.i:                                      ; preds = %if.else285.i, %if.t
   %s1.addr.5.i = phi ptr [ %incdec.ptr284.i, %if.then283.i ], [ %s1.addr.1.i, %if.else285.i ], [ %s1.addr.1.i, %if.then277.i ]
   %c2.3.i = phi i32 [ %c2.1.i, %if.then283.i ], [ %conv288.i, %if.else285.i ], [ %c2.1.i, %if.then277.i ]
   %idxprom291.i = sext i32 %level1.1.i to i64
-  %arrayidx292.i = getelementptr inbounds nuw [2 x %struct.CmpEquivLevel], ptr %stack1.i, i64 0, i64 %idxprom291.i
+  %arrayidx292.i = getelementptr inbounds [2 x %struct.CmpEquivLevel], ptr %stack1.i, i64 0, i64 %idxprom291.i
   store ptr %start1.1.i, ptr %arrayidx292.i, align 8
   %s296.i = getelementptr inbounds nuw i8, ptr %arrayidx292.i, i64 8
   store ptr %s1.addr.5.i, ptr %s296.i, align 8
@@ -803,7 +803,7 @@ if.then302.i:                                     ; preds = %if.end290.i
   %inc300.i = add nsw i32 %level1.1.i, 1
   %inc303.i = add nsw i32 %level1.1.i, 2
   %idxprom304.i = sext i32 %inc300.i to i64
-  %arrayidx305.i = getelementptr inbounds nuw [2 x %struct.CmpEquivLevel], ptr %stack1.i, i64 0, i64 %idxprom304.i
+  %arrayidx305.i = getelementptr inbounds [2 x %struct.CmpEquivLevel], ptr %stack1.i, i64 0, i64 %idxprom304.i
   store ptr null, ptr %arrayidx305.i, align 8
   br label %if.end307.i
 
@@ -851,7 +851,7 @@ if.end332.i:                                      ; preds = %if.else327.i, %if.t
   %s1.addr.6.i = phi ptr [ %s1.addr.1.i, %if.then325.i ], [ %incdec.ptr328.i, %if.else327.i ], [ %s1.addr.1.i, %if.then319.i ]
   %c1.3.i = phi i32 [ %c1.1.i, %if.then325.i ], [ %conv330.i, %if.else327.i ], [ %c1.1.i, %if.then319.i ]
   %idxprom333.i = sext i32 %level2.1.i to i64
-  %arrayidx334.i = getelementptr inbounds nuw [2 x %struct.CmpEquivLevel], ptr %stack2.i, i64 0, i64 %idxprom333.i
+  %arrayidx334.i = getelementptr inbounds [2 x %struct.CmpEquivLevel], ptr %stack2.i, i64 0, i64 %idxprom333.i
   store ptr %start2.1.i, ptr %arrayidx334.i, align 8
   %s338.i = getelementptr inbounds nuw i8, ptr %arrayidx334.i, i64 8
   store ptr %s2.addr.6.i, ptr %s338.i, align 8
@@ -864,7 +864,7 @@ if.then344.i:                                     ; preds = %if.end332.i
   %inc342.i = add nsw i32 %level2.1.i, 1
   %inc345.i = add nsw i32 %level2.1.i, 2
   %idxprom346.i = sext i32 %inc342.i to i64
-  %arrayidx347.i = getelementptr inbounds nuw [2 x %struct.CmpEquivLevel], ptr %stack2.i, i64 0, i64 %idxprom346.i
+  %arrayidx347.i = getelementptr inbounds [2 x %struct.CmpEquivLevel], ptr %stack2.i, i64 0, i64 %idxprom346.i
   store ptr null, ptr %arrayidx347.i, align 8
   br label %if.end349.i
 

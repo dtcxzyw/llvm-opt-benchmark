@@ -52,14 +52,14 @@ define noundef ptr @php_std_date(i64 noundef %0) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %8 = load i32, ptr %7, align 8
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds nuw [7 x ptr], ptr @day_short_names, i64 0, i64 %9
+  %10 = getelementptr inbounds [7 x ptr], ptr @day_short_names, i64 0, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %13 = load i32, ptr %12, align 4
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %15 = load i32, ptr %14, align 8
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds nuw [12 x ptr], ptr @mon_short_names, i64 0, i64 %16
+  %17 = getelementptr inbounds [12 x ptr], ptr @mon_short_names, i64 0, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %20 = load i32, ptr %19, align 4

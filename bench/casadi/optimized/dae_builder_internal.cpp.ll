@@ -3851,7 +3851,7 @@ _ZSt22__uninitialized_copy_aIPKxPxxET0_T_S4_S3_RSaIT1_E.exit.i: ; preds = %35
   %41 = ptrtoint ptr %37 to i64
   %42 = sub i64 %41, %27
   %gepdiff = sub nsw i64 8, %42
-  %.sink.i.i25.i.ptr = getelementptr inbounds nuw i8, ptr %6, i64 %42
+  %.sink.i.i25.i.ptr = getelementptr inbounds i8, ptr %6, i64 %42
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %37, ptr nonnull align 8 %.sink.i.i25.i.ptr, i64 %gepdiff, i1 false)
   %43 = getelementptr inbounds i8, ptr %37, i64 %gepdiff
   store ptr %43, ptr %36, align 8
@@ -24352,7 +24352,7 @@ define void @_ZN6casadi18DaeBuilderInternal13generate_guidB5cxx11Ev(ptr dead_on_
   %17 = call i32 @rand() #26
   %18 = srem i32 %17, 16
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds nuw [17 x i8], ptr @__const._ZN6casadi18DaeBuilderInternal13generate_guidB5cxx11Ev.h, i64 0, i64 %19
+  %20 = getelementptr inbounds [17 x i8], ptr @__const._ZN6casadi18DaeBuilderInternal13generate_guidB5cxx11Ev.h, i64 0, i64 %19
   %21 = load i8, ptr %20, align 1
   %22 = load ptr, ptr %3, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %.08

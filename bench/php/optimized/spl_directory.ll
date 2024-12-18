@@ -3690,7 +3690,7 @@ define hidden void @zim_SplFileInfo_getLinkTarget(ptr nocapture noundef readonly
   br label %58
 
 47:                                               ; preds = %35
-  %48 = getelementptr inbounds nuw [4096 x i8], ptr %3, i64 0, i64 %36
+  %48 = getelementptr inbounds [4096 x i8], ptr %3, i64 0, i64 %36
   store i8 0, ptr %48, align 1
   %49 = and i64 %36, -8
   %50 = add i64 %49, 32

@@ -12772,7 +12772,7 @@ invoke.cont:                                      ; preds = %entry
   %vtable = load ptr, ptr %ofs, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %ofs, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %ofs, i64 %vbase.offset
   %call = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr)
           to label %invoke.cont2 unwind label %terminate.lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -13541,7 +13541,7 @@ for.body45:                                       ; preds = %for.body45.preheade
   %type = getelementptr inbounds nuw i8, ptr %add.ptr.i89, i64 32
   %20 = load i32, ptr %type, align 8
   %conv = sext i32 %20 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw [6 x %"struct.tf::TFProfObserver::TaskSummary"], ptr %summary, i64 0, i64 %conv
+  %arrayidx.i.i = getelementptr inbounds [6 x %"struct.tf::TFProfObserver::TaskSummary"], ptr %summary, i64 0, i64 %conv
   %21 = load i64, ptr %arrayidx.i.i, align 8
   %add = add i64 %21, 1
   store i64 %add, ptr %arrayidx.i.i, align 8
@@ -15167,7 +15167,7 @@ entry:
   %call = call noundef i32 %__convf(ptr noundef nonnull %0, i64 noundef %__n, ptr noundef %__fmt, ptr noundef nonnull %__args)
   call void @llvm.va_end.p0(ptr nonnull %__args)
   %idx.ext = sext i32 %call to i64
-  %add.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i8, ptr %0, i64 %idx.ext
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #30
   %call.i4 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
           to label %call.i.noexc unwind label %lpad

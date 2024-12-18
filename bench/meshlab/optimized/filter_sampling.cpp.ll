@@ -29342,13 +29342,13 @@ _ZNSt6vectorIN3vcg3tri14UpdateTopologyI6CMeshOE5PEdgeESaIS5_EED2Ev.exit: ; preds
   %78 = fmul float %69, %77
   %79 = load i32, ptr %70, align 8
   %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds nuw [3 x float], ptr %6, i64 0, i64 %80
+  %81 = getelementptr inbounds [3 x float], ptr %6, i64 0, i64 %80
   store float %78, ptr %81, align 4
   %82 = fsub float 1.000000e+00, %78
   %83 = add nsw i32 %79, 1
   %84 = srem i32 %83, 3
   %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds nuw [3 x float], ptr %6, i64 0, i64 %85
+  %86 = getelementptr inbounds [3 x float], ptr %6, i64 0, i64 %85
   store float %82, ptr %86, align 4
   %87 = load ptr, ptr %71, align 8
   %.sroa.01.0.copyload = load <2 x float>, ptr %6, align 8
@@ -29713,13 +29713,13 @@ _ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE23SamplingRandomGeneratorEv.ex
   %109 = getelementptr inbounds nuw i8, ptr %92, i64 24
   %110 = load i32, ptr %109, align 8
   %111 = sext i32 %110 to i64
-  %112 = getelementptr inbounds nuw [3 x float], ptr %5, i64 0, i64 %111
+  %112 = getelementptr inbounds [3 x float], ptr %5, i64 0, i64 %111
   store float %108, ptr %112, align 4
   %113 = fsub float 1.000000e+00, %108
   %114 = add nsw i32 %110, 1
   %115 = srem i32 %114, 3
   %116 = sext i32 %115 to i64
-  %117 = getelementptr inbounds nuw [3 x float], ptr %5, i64 0, i64 %116
+  %117 = getelementptr inbounds [3 x float], ptr %5, i64 0, i64 %116
   store float %113, ptr %117, align 4
   %.sroa.0.0.copyload.i = load <2 x float>, ptr %5, align 8
   %.sroa.2.0.copyload.i = load float, ptr %66, align 8
@@ -33933,13 +33933,13 @@ _ZNSt6vectorIN3vcg3tri14UpdateTopologyI6CMeshOE5PEdgeESaIS5_EED2Ev.exit: ; preds
   %79 = fmul float %72, %78
   %80 = load i32, ptr %74, align 8
   %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds nuw [3 x float], ptr %8, i64 0, i64 %81
+  %82 = getelementptr inbounds [3 x float], ptr %8, i64 0, i64 %81
   store float %79, ptr %82, align 4
   %83 = fsub float 1.000000e+00, %79
   %84 = add nsw i32 %80, 1
   %85 = srem i32 %84, 3
   %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds nuw [3 x float], ptr %8, i64 0, i64 %86
+  %87 = getelementptr inbounds [3 x float], ptr %8, i64 0, i64 %86
   store float %83, ptr %87, align 4
   %88 = load ptr, ptr %75, align 8
   %.sroa.01.0.copyload = load <2 x float>, ptr %8, align 8

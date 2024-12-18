@@ -6355,7 +6355,7 @@ entry:
   %conv33 = sitofp i32 %.sroa.speculated to float
   %sub34 = fsub float %mul26, %conv33
   %idx.ext = sext i32 %.sroa.speculated to i64
-  %add.ptr = getelementptr inbounds nuw %"class.pbrt::RGB", ptr %colors, i64 %idx.ext
+  %add.ptr = getelementptr inbounds %"class.pbrt::RGB", ptr %colors, i64 %idx.ext
   %agg.tmp.sroa.0.0.copyload.i.i = load <2 x float>, ptr %add.ptr, align 4
   %agg.tmp.sroa.2.0.call.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i = load float, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i.i, align 4
@@ -7955,11 +7955,11 @@ sw.bb.i.i.i:                                      ; preds = %for.end
 
 for.body.i.i.i.i.i:                               ; preds = %sw.bb.i.i.i, %for.body.i.i.i.i.i
   %i.06.i.i.i.i.i = phi i64 [ %inc.i.i.i.i.i, %for.body.i.i.i.i.i ], [ 0, %sw.bb.i.i.i ]
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %result8, i64 %i.06.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %result8, i64 %i.06.i.i.i.i.i
   %21 = load i8, ptr %arrayidx.i.i.i.i.i.i, align 1
   %conv3.i.i.i.i.i = uitofp i8 %21 to float
   %div.i.i.i.i.i = fdiv float %conv3.i.i.i.i.i, 2.550000e+02
-  %arrayidx.i4.i.i.i.i.i = getelementptr inbounds nuw float, ptr %fResult, i64 %i.06.i.i.i.i.i
+  %arrayidx.i4.i.i.i.i.i = getelementptr inbounds float, ptr %fResult, i64 %i.06.i.i.i.i.i
   store float %div.i.i.i.i.i, ptr %arrayidx.i4.i.i.i.i.i, align 4
   %inc.i.i.i.i.i = add nuw i64 %i.06.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %inc.i.i.i.i.i, %conv36

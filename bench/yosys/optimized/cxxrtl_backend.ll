@@ -2870,7 +2870,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %438 = load ptr, ptr %60, align 8
   %439 = getelementptr i8, ptr %438, i64 -24
   %440 = load i64, ptr %439, align 8
-  %441 = getelementptr inbounds nuw i8, ptr %60, i64 %440
+  %441 = getelementptr inbounds i8, ptr %60, i64 %440
   %442 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %441)
           to label %443 unwind label %429
 

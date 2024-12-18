@@ -3491,7 +3491,7 @@ invoke.cont:                                      ; preds = %entry
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %0, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %is, i64 %vbase.offset.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %is, i64 %vbase.offset.i.i
   store ptr %1, ptr %add.ptr.i.i, align 8, !tbaa !4
   %_M_stringbuf.i.i = getelementptr inbounds nuw i8, ptr %is, i64 16
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
@@ -3521,7 +3521,7 @@ _ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
   %vbase.offset.ptr.i.i.i = getelementptr i8, ptr %5, i64 -24
   %vbase.offset.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %is, i64 %vbase.offset.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %is, i64 %vbase.offset.i.i.i
   store ptr %6, ptr %add.ptr.i.i.i, align 8, !tbaa !4
   %_M_gcount.i.i.i = getelementptr inbounds nuw i8, ptr %is, i64 8
   store i64 0, ptr %_M_gcount.i.i.i, align 8, !tbaa !104
@@ -3609,7 +3609,7 @@ invoke.cont2:                                     ; preds = %if.else.i.i, %if.th
   %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %7, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %os, i64 %vbase.offset.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %os, i64 %vbase.offset.i.i
   store ptr %8, ptr %add.ptr.i.i, align 8, !tbaa !4
   %_M_stringbuf.i.i = getelementptr inbounds nuw i8, ptr %os, i64 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
@@ -4064,7 +4064,7 @@ invoke.cont27:                                    ; preds = %_ZNSt7__cxx1112basi
   %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %23, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %sstr, i64 %vbase.offset.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %sstr, i64 %vbase.offset.i.i
   store ptr %24, ptr %add.ptr.i.i, align 8, !tbaa !4
   %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   %add.ptr3.i.i = getelementptr inbounds nuw i8, ptr %sstr, i64 16
@@ -4097,7 +4097,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i.i.i = getelementptr i8, ptr %29, i64 -24
   %vbase.offset.i.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %sstr, i64 %vbase.offset.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %sstr, i64 %vbase.offset.i.i.i.i
   store ptr %30, ptr %add.ptr.i.i.i.i, align 8, !tbaa !4
   %_M_gcount.i.i.i.i = getelementptr inbounds nuw i8, ptr %sstr, i64 8
   store i64 0, ptr %_M_gcount.i.i.i.i, align 8, !tbaa !104
@@ -6696,7 +6696,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit251: ; preds = %if
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %name) #29
   store ptr %3, ptr %iss, align 8, !tbaa !4
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %iss, i64 %vbase.offset.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %iss, i64 %vbase.offset.i.i
   store ptr %4, ptr %add.ptr.i.i, align 8, !tbaa !4
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
   %56 = load ptr, ptr %_M_string.i.i.i, align 8, !tbaa !11
@@ -6718,7 +6718,7 @@ _ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #29
   store ptr %6, ptr %iss, align 8, !tbaa !4
   %vbase.offset.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %iss, i64 %vbase.offset.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %iss, i64 %vbase.offset.i.i.i
   store ptr %7, ptr %add.ptr.i.i.i, align 8, !tbaa !4
   store i64 0, ptr %_M_gcount.i.i.i, align 8, !tbaa !104
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %8) #29
@@ -11554,7 +11554,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %name) #29
   store ptr %8, ptr %iss, align 8, !tbaa !4
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i439, align 8
-  %add.ptr.i.i234 = getelementptr inbounds nuw i8, ptr %iss, i64 %vbase.offset.i.i
+  %add.ptr.i.i234 = getelementptr inbounds i8, ptr %iss, i64 %vbase.offset.i.i
   store ptr %9, ptr %add.ptr.i.i234, align 8, !tbaa !4
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i442, align 8, !tbaa !4
   %57 = load ptr, ptr %_M_string.i.i.i443, align 8, !tbaa !11
@@ -11576,7 +11576,7 @@ _ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i446) #29
   store ptr %11, ptr %iss, align 8, !tbaa !4
   %vbase.offset.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i447, align 8
-  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %iss, i64 %vbase.offset.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %iss, i64 %vbase.offset.i.i.i
   store ptr %12, ptr %add.ptr.i.i.i, align 8, !tbaa !4
   store i64 0, ptr %_M_gcount.i.i.i450, align 8, !tbaa !104
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %13) #29
@@ -12227,7 +12227,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit438: ; preds = %if
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %name) #29
   store ptr %8, ptr %iss, align 8, !tbaa !4
   %vbase.offset.i.i440 = load i64, ptr %vbase.offset.ptr.i.i439, align 8
-  %add.ptr.i.i441 = getelementptr inbounds nuw i8, ptr %iss, i64 %vbase.offset.i.i440
+  %add.ptr.i.i441 = getelementptr inbounds i8, ptr %iss, i64 %vbase.offset.i.i440
   store ptr %9, ptr %add.ptr.i.i441, align 8, !tbaa !4
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i442, align 8, !tbaa !4
   %116 = load ptr, ptr %_M_string.i.i.i443, align 8, !tbaa !11
@@ -12249,7 +12249,7 @@ _ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev.exit454: ; pred
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i446) #29
   store ptr %11, ptr %iss, align 8, !tbaa !4
   %vbase.offset.i.i.i448 = load i64, ptr %vbase.offset.ptr.i.i.i447, align 8
-  %add.ptr.i.i.i449 = getelementptr inbounds nuw i8, ptr %iss, i64 %vbase.offset.i.i.i448
+  %add.ptr.i.i.i449 = getelementptr inbounds i8, ptr %iss, i64 %vbase.offset.i.i.i448
   store ptr %12, ptr %add.ptr.i.i.i449, align 8, !tbaa !4
   store i64 0, ptr %_M_gcount.i.i.i450, align 8, !tbaa !104
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %13) #29

@@ -394,7 +394,7 @@ define internal void @finish_pass_gather(ptr noundef %0) #0 {
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 20
   %16 = load i32, ptr %15, align 4
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds nuw [4 x i32], ptr %2, i64 0, i64 %17
+  %18 = getelementptr inbounds [4 x i32], ptr %2, i64 0, i64 %17
   %19 = load i32, ptr %18, align 4
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %20, label %30

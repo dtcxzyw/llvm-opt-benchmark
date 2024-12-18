@@ -1195,7 +1195,7 @@ _ZN7oopDesc11oop_iterateIN17ArchiveHeapWriter20EmbeddedOopRelocatorEEEvPT_.exit:
   %122 = getelementptr inbounds nuw i8, ptr %.0.i.i32, i64 12
   %123 = load i32, ptr %122, align 4
   %124 = sext i32 %123 to i64
-  %125 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchIN17ArchiveHeapWriter20EmbeddedOopRelocatorEE6_tableE, i64 0, i64 %124
+  %125 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchIN17ArchiveHeapWriter20EmbeddedOopRelocatorEE6_tableE, i64 0, i64 %124
   %126 = load ptr, ptr %125, align 8
   call void %126(ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(16) %106, ptr noundef %.0.i.i32) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

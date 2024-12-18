@@ -1159,7 +1159,7 @@ define internal fastcc i32 @Render_Single_Pass(ptr noundef nonnull initializes((
   %272 = ashr i32 %271, 1
   %273 = add nsw i32 %.0, 1
   %274 = sext i32 %.0 to i64
-  %275 = getelementptr inbounds nuw [32 x i32], ptr %7, i64 0, i64 %274
+  %275 = getelementptr inbounds [32 x i32], ptr %7, i64 0, i64 %274
   store i32 %.027, ptr %275, align 4
   %276 = add nsw i32 %272, 1
   br label %36

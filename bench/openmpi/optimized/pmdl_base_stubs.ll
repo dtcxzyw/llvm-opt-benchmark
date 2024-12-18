@@ -763,7 +763,7 @@ define noundef zeroext i1 @pmix_pmdl_base_check_pmix_param(ptr noundef %0) local
 
 10:                                               ; preds = %.lr.ph
   %11 = add i64 %.01013, 1
-  %12 = getelementptr inbounds nuw [0 x ptr], ptr @pmix_framework_names, i64 0, i64 %11
+  %12 = getelementptr inbounds [0 x ptr], ptr @pmix_framework_names, i64 0, i64 %11
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !12

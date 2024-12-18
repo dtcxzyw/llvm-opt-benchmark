@@ -469,7 +469,7 @@ define void @_ZN8Rijndael8keySchedEPA4_h(ptr nocapture noundef nonnull align 4 d
 .lr.ph:                                           ; preds = %.critedge.preheader
   %28 = add nsw i32 %5, -7
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds nuw [8 x [4 x i8]], ptr %3, i64 0, i64 %29
+  %30 = getelementptr inbounds [8 x [4 x i8]], ptr %3, i64 0, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 1
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 2
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 1

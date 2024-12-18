@@ -2844,7 +2844,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
 
 switch.lookup:                                    ; preds = %_ZN4llvm9AAManagerD2Ev.exit.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i
   %487 = sext i32 %100 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4llvm3lto3optERKNS0_6ConfigEPNS_13TargetMachineEjRNS_6ModuleEbPNS_18ModuleSummaryIndexEPKS8_RKSt6vectorIhSaIhEE, i64 0, i64 %487
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN4llvm3lto3optERKNS0_6ConfigEPNS_13TargetMachineEjRNS_6ModuleEbPNS_18ModuleSummaryIndexEPKS8_RKSt6vectorIhSaIhEE, i64 0, i64 %487
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.sroa.7.0.in.in.i = load i64, ptr %switch.load, align 4
   %488 = getelementptr inbounds nuw i8, ptr %0, i64 544
@@ -4855,7 +4855,7 @@ _ZNK4llvm20iterator_facade_baseINS_15concat_iteratorINS_11GlobalValueEJNS_14ilis
   %.fca.0.load.i.i.i = load i64, ptr %.0.ptr.i.i.i, align 16
   %.fca.1.gep.i.i.i = getelementptr inbounds nuw i8, ptr %.0.ptr.i.i.i, i64 8
   %.fca.1.load.i.i.i = load i64, ptr %.fca.1.gep.i.i.i, align 8
-  %189 = getelementptr inbounds nuw i8, ptr %18, i64 %.fca.1.load.i.i.i
+  %189 = getelementptr inbounds i8, ptr %18, i64 %.fca.1.load.i.i.i
   %190 = and i64 %.fca.0.load.i.i.i, 1
   %.not.i.i.i = icmp eq i64 %190, 0
   br i1 %.not.i.i.i, label %196, label %191
@@ -5020,7 +5020,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfo
   %.fca.0.load.i.i18.i = load i64, ptr %.0.ptr.i.i17.i, align 16
   %.fca.1.gep.i.i19.i = getelementptr inbounds nuw i8, ptr %.0.ptr.i.i17.i, i64 8
   %.fca.1.load.i.i20.i = load i64, ptr %.fca.1.gep.i.i19.i, align 8
-  %258 = getelementptr inbounds nuw i8, ptr %18, i64 %.fca.1.load.i.i20.i
+  %258 = getelementptr inbounds i8, ptr %18, i64 %.fca.1.load.i.i20.i
   %259 = and i64 %.fca.0.load.i.i18.i, 1
   %.not.i.i21.i = icmp eq i64 %259, 0
   br i1 %.not.i.i21.i, label %265, label %260

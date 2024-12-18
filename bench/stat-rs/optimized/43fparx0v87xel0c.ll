@@ -146,14 +146,14 @@ define internal fastcc noundef double @"_ZN4core3ops9try_trait26NeverShortCircui
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store i64 %12, ptr %8, align 8
   %15 = icmp ult i64 %12, 171
-  %16 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %12
+  %16 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %12
   %.sroa.0.0.i.i.i.i = select i1 %15, ptr %16, ptr null
   %17 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store i64 %1, ptr %7, align 8
   %18 = icmp ult i64 %1, 171
-  %19 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %1
+  %19 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %1
   %.sroa.0.0.i.i2.i.i = select i1 %18, ptr %19, ptr null
   %20 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i2.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
@@ -162,7 +162,7 @@ define internal fastcc noundef double @"_ZN4core3ops9try_trait26NeverShortCircui
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store i64 %22, ptr %6, align 8
   %23 = icmp ult i64 %22, 171
-  %24 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %22
+  %24 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %22
   %.sroa.0.0.i.i3.i.i = select i1 %23, ptr %24, ptr null
   %25 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i3.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -188,14 +188,14 @@ _ZN6statrs8function9factorial11ln_binomial17hdf622f93e4434b6cE.exit.i: ; preds =
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i64 %30, ptr %5, align 8
   %36 = icmp ult i64 %30, 171
-  %37 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %30
+  %37 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %30
   %.sroa.0.0.i.i.i1.i = select i1 %36, ptr %37, ptr null
   %38 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i.i1.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i64 %33, ptr %4, align 8
   %39 = icmp ult i64 %33, 171
-  %40 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %33
+  %40 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %33
   %.sroa.0.0.i.i2.i2.i = select i1 %39, ptr %40, ptr null
   %41 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i2.i2.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -204,7 +204,7 @@ _ZN6statrs8function9factorial11ln_binomial17hdf622f93e4434b6cE.exit.i: ; preds =
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i64 %43, ptr %3, align 8
   %44 = icmp ult i64 %43, 171
-  %45 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %43
+  %45 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %43
   %.sroa.0.0.i.i3.i3.i = select i1 %44, ptr %45, ptr null
   %46 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i3.i3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -1047,14 +1047,14 @@ define noundef double @"_ZN123_$LT$statrs..distribution..hypergeometric..Hyperge
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   store i64 %17, ptr %11, align 8
   %24 = icmp ult i64 %17, 171
-  %25 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %17
+  %25 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %17
   %.sroa.0.0.i.i.i = select i1 %24, ptr %25, ptr null
   %26 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   store i64 %13, ptr %10, align 8
   %27 = icmp ult i64 %13, 171
-  %28 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %13
+  %28 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %13
   %.sroa.0.0.i.i2.i = select i1 %27, ptr %28, ptr null
   %29 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i2.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
@@ -1063,7 +1063,7 @@ define noundef double @"_ZN123_$LT$statrs..distribution..hypergeometric..Hyperge
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store i64 %31, ptr %9, align 8
   %32 = icmp ult i64 %31, 171
-  %33 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %31
+  %33 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %31
   %.sroa.0.0.i.i3.i = select i1 %32, ptr %33, ptr null
   %34 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
@@ -1073,11 +1073,11 @@ define noundef double @"_ZN123_$LT$statrs..distribution..hypergeometric..Hyperge
 .lr.ph.i:                                         ; preds = %23, %21
   %.sroa.0.0.i = phi double [ %35, %23 ], [ 0xFFF0000000000000, %21 ]
   %36 = icmp ult i64 %15, 171
-  %37 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %15
+  %37 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %15
   %.sroa.0.0.i.i.i.i.i = select i1 %36, ptr %37, ptr null
   %38 = sub i64 %17, %15
   %39 = icmp ult i64 %38, 171
-  %40 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %38
+  %40 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %38
   %.sroa.0.0.i.i.i1.i.i = select i1 %39, ptr %40, ptr null
   br label %41
 
@@ -1096,7 +1096,7 @@ define noundef double @"_ZN123_$LT$statrs..distribution..hypergeometric..Hyperge
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !211
   store i64 %.sroa.0.01016.i, ptr %7, align 8, !noalias !211
   %46 = icmp ult i64 %.sroa.0.01016.i, 171
-  %47 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %.sroa.0.01016.i
+  %47 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %.sroa.0.01016.i
   %.sroa.0.0.i.i2.i.i.i = select i1 %46, ptr %47, ptr null
   %48 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i2.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %7), !noalias !211
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !211
@@ -1105,7 +1105,7 @@ define noundef double @"_ZN123_$LT$statrs..distribution..hypergeometric..Hyperge
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !211
   store i64 %50, ptr %6, align 8, !noalias !211
   %51 = icmp ult i64 %50, 171
-  %52 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %50
+  %52 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %50
   %.sroa.0.0.i.i3.i.i.i = select i1 %51, ptr %52, ptr null
   %53 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i3.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6), !noalias !211
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !211
@@ -1126,7 +1126,7 @@ _ZN6statrs8function9factorial11ln_binomial17hdf622f93e4434b6cE.exit.i.i: ; preds
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !211
   store i64 %55, ptr %4, align 8, !noalias !211
   %59 = icmp ult i64 %55, 171
-  %60 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %55
+  %60 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %55
   %.sroa.0.0.i.i2.i2.i.i = select i1 %59, ptr %60, ptr null
   %61 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i2.i2.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4), !noalias !211
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !211
@@ -1135,7 +1135,7 @@ _ZN6statrs8function9factorial11ln_binomial17hdf622f93e4434b6cE.exit.i.i: ; preds
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !211
   store i64 %63, ptr %3, align 8, !noalias !211
   %64 = icmp ult i64 %63, 171
-  %65 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %63
+  %65 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %63
   %.sroa.0.0.i.i3.i3.i.i = select i1 %64, ptr %65, ptr null
   %66 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i3.i3.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3), !noalias !211
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !211
@@ -1188,14 +1188,14 @@ define noundef double @"_ZN123_$LT$statrs..distribution..hypergeometric..Hyperge
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i64 %13, ptr %5, align 8
   %20 = icmp ult i64 %13, 171
-  %21 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %13
+  %21 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %13
   %.sroa.0.0.i.i.i = select i1 %20, ptr %21, ptr null
   %22 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i64 %9, ptr %4, align 8
   %23 = icmp ult i64 %9, 171
-  %24 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %9
+  %24 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %9
   %.sroa.0.0.i.i2.i = select i1 %23, ptr %24, ptr null
   %25 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i2.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -1204,7 +1204,7 @@ define noundef double @"_ZN123_$LT$statrs..distribution..hypergeometric..Hyperge
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i64 %27, ptr %3, align 8
   %28 = icmp ult i64 %27, 171
-  %29 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %27
+  %29 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %27
   %.sroa.0.0.i.i3.i = select i1 %28, ptr %29, ptr null
   %30 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -1409,14 +1409,14 @@ define noundef double @"_ZN120_$LT$statrs..distribution..hypergeometric..Hyperge
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   store i64 %17, ptr %11, align 8
   %20 = icmp ult i64 %17, 171
-  %21 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %17
+  %21 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %17
   %.sroa.0.0.i.i.i = select i1 %20, ptr %21, ptr null
   %22 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   store i64 %1, ptr %10, align 8
   %23 = icmp ult i64 %1, 171
-  %24 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %1
+  %24 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %1
   %.sroa.0.0.i.i3.i = select i1 %23, ptr %24, ptr null
   %25 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
@@ -1425,7 +1425,7 @@ define noundef double @"_ZN120_$LT$statrs..distribution..hypergeometric..Hyperge
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store i64 %27, ptr %9, align 8
   %28 = icmp ult i64 %27, 171
-  %29 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %27
+  %29 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %27
   %.sroa.0.0.i.i4.i = select i1 %28, ptr %29, ptr null
   %30 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i4.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
@@ -1447,14 +1447,14 @@ _ZN6statrs8function9factorial8binomial17h272bdd00f4307cf6E.exit: ; preds = %15, 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store i64 %36, ptr %8, align 8
   %40 = icmp ult i64 %36, 171
-  %41 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %36
+  %41 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %36
   %.sroa.0.0.i.i.i2 = select i1 %40, ptr %41, ptr null
   %42 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i.i2, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store i64 %37, ptr %7, align 8
   %43 = icmp ult i64 %37, 171
-  %44 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %37
+  %44 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %37
   %.sroa.0.0.i.i3.i3 = select i1 %43, ptr %44, ptr null
   %45 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i3.i3, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
@@ -1463,7 +1463,7 @@ _ZN6statrs8function9factorial8binomial17h272bdd00f4307cf6E.exit: ; preds = %15, 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store i64 %47, ptr %6, align 8
   %48 = icmp ult i64 %47, 171
-  %49 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %47
+  %49 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %47
   %.sroa.0.0.i.i4.i4 = select i1 %48, ptr %49, ptr null
   %50 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i4.i4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -1483,14 +1483,14 @@ _ZN6statrs8function9factorial8binomial17h272bdd00f4307cf6E.exit6: ; preds = %_ZN
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i64 %35, ptr %5, align 8
   %58 = icmp ult i64 %35, 171
-  %59 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %35
+  %59 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %35
   %.sroa.0.0.i.i.i7 = select i1 %58, ptr %59, ptr null
   %60 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i.i7, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i64 %13, ptr %4, align 8
   %61 = icmp ult i64 %13, 171
-  %62 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %13
+  %62 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %13
   %.sroa.0.0.i.i3.i8 = select i1 %61, ptr %62, ptr null
   %63 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i3.i8, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -1499,7 +1499,7 @@ _ZN6statrs8function9factorial8binomial17h272bdd00f4307cf6E.exit6: ; preds = %_ZN
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i64 %65, ptr %3, align 8
   %66 = icmp ult i64 %65, 171
-  %67 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %65
+  %67 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %65
   %.sroa.0.0.i.i4.i9 = select i1 %66, ptr %67, ptr null
   %68 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i4.i9, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -1539,14 +1539,14 @@ define noundef double @"_ZN120_$LT$statrs..distribution..hypergeometric..Hyperge
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   store i64 %13, ptr %11, align 8
   %16 = icmp ult i64 %13, 171
-  %17 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %13
+  %17 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %13
   %.sroa.0.0.i.i.i = select i1 %16, ptr %17, ptr null
   %18 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   store i64 %1, ptr %10, align 8
   %19 = icmp ult i64 %1, 171
-  %20 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %1
+  %20 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %1
   %.sroa.0.0.i.i2.i = select i1 %19, ptr %20, ptr null
   %21 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i2.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
@@ -1555,7 +1555,7 @@ define noundef double @"_ZN120_$LT$statrs..distribution..hypergeometric..Hyperge
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store i64 %23, ptr %9, align 8
   %24 = icmp ult i64 %23, 171
-  %25 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %23
+  %25 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %23
   %.sroa.0.0.i.i3.i = select i1 %24, ptr %25, ptr null
   %26 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
@@ -1576,14 +1576,14 @@ _ZN6statrs8function9factorial11ln_binomial17hdf622f93e4434b6cE.exit: ; preds = %
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store i64 %29, ptr %8, align 8
   %35 = icmp ult i64 %29, 171
-  %36 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %29
+  %36 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %29
   %.sroa.0.0.i.i.i1 = select i1 %35, ptr %36, ptr null
   %37 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i.i1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store i64 %32, ptr %7, align 8
   %38 = icmp ult i64 %32, 171
-  %39 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %32
+  %39 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %32
   %.sroa.0.0.i.i2.i2 = select i1 %38, ptr %39, ptr null
   %40 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i2.i2, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
@@ -1592,7 +1592,7 @@ _ZN6statrs8function9factorial11ln_binomial17hdf622f93e4434b6cE.exit: ; preds = %
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store i64 %42, ptr %6, align 8
   %43 = icmp ult i64 %42, 171
-  %44 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %42
+  %44 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %42
   %.sroa.0.0.i.i3.i3 = select i1 %43, ptr %44, ptr null
   %45 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i3.i3, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -1608,14 +1608,14 @@ _ZN6statrs8function9factorial11ln_binomial17hdf622f93e4434b6cE.exit5: ; preds = 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i64 %28, ptr %5, align 8
   %49 = icmp ult i64 %28, 171
-  %50 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %28
+  %50 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %28
   %.sroa.0.0.i.i.i6 = select i1 %49, ptr %50, ptr null
   %51 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i.i6, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i64 %31, ptr %4, align 8
   %52 = icmp ult i64 %31, 171
-  %53 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %31
+  %53 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %31
   %.sroa.0.0.i.i2.i7 = select i1 %52, ptr %53, ptr null
   %54 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i2.i7, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -1624,7 +1624,7 @@ _ZN6statrs8function9factorial11ln_binomial17hdf622f93e4434b6cE.exit5: ; preds = 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i64 %56, ptr %3, align 8
   %57 = icmp ult i64 %56, 171
-  %58 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %56
+  %58 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %56
   %.sroa.0.0.i.i3.i8 = select i1 %57, ptr %58, ptr null
   %59 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i3.i8, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)

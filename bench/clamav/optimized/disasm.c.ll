@@ -1760,7 +1760,7 @@ default.unreachable.i:                            ; preds = %.backedge.i
   %599 = load ptr, ptr %598, align 8
   %600 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %599) #10
   %601 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #11
-  %602 = getelementptr inbounds nuw i8, ptr %7, i64 %601
+  %602 = getelementptr inbounds i8, ptr %7, i64 %601
   br label %603
 
 603:                                              ; preds = %698, %596

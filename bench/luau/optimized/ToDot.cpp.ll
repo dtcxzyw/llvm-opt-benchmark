@@ -2235,7 +2235,7 @@ _ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.exit35.thread
   %177 = load ptr, ptr %6, align 8
   %178 = load i32, ptr %177, align 8
   %179 = sext i32 %178 to i64
-  %180 = getelementptr inbounds nuw [20 x ptr], ptr @"_ZZN4Luau5visitIRZNS_12_GLOBAL__N_18StateDot13visitChildrenEPKNS_4TypeEiE3$_0JNS_9Unifiable5BoundIS5_EENS8_5ErrorENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_22TypeFamilyInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit", i64 0, i64 %179
+  %180 = getelementptr inbounds [20 x ptr], ptr @"_ZZN4Luau5visitIRZNS_12_GLOBAL__N_18StateDot13visitChildrenEPKNS_4TypeEiE3$_0JNS_9Unifiable5BoundIS5_EENS8_5ErrorENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_22TypeFamilyInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit", i64 0, i64 %179
   %181 = load ptr, ptr %180, align 8
   %182 = getelementptr inbounds nuw i8, ptr %177, i64 8
   call void %181(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull %182)

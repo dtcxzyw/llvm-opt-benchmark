@@ -1956,7 +1956,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %2, %32
 
 45:                                               ; preds = %42
   %46 = sext i32 %44 to i64
-  %47 = getelementptr inbounds nuw [6 x %"struct.cv::pam_format"], ptr @_ZN2cvL7formatsE, i64 0, i64 %46
+  %47 = getelementptr inbounds [6 x %"struct.cv::pam_format"], ptr @_ZN2cvL7formatsE, i64 0, i64 %46
   br label %54
 
 48:                                               ; preds = %42

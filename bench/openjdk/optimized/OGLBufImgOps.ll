@@ -210,15 +210,15 @@ OGLBufImgOps_CreateConvolveProgram.exit:          ; preds = %44
   %.17280 = phi ptr [ %.07185, %.lr.ph ], [ %100, %94 ]
   %95 = sitofp i32 %.06781 to float
   %96 = fmul float %.073, %95
-  %97 = getelementptr inbounds nuw [75 x float], ptr %9, i64 0, i64 %indvars.iv
+  %97 = getelementptr inbounds [75 x float], ptr %9, i64 0, i64 %indvars.iv
   store float %96, ptr %97, align 4
   %98 = add nsw i64 %indvars.iv, 1
-  %99 = getelementptr inbounds nuw [75 x float], ptr %9, i64 0, i64 %98
+  %99 = getelementptr inbounds [75 x float], ptr %9, i64 0, i64 %98
   store float %92, ptr %99, align 4
   %100 = getelementptr inbounds nuw i8, ptr %.17280, i64 4
   %101 = load float, ptr %.17280, align 4
   %102 = add nsw i64 %indvars.iv, 2
-  %103 = getelementptr inbounds nuw [75 x float], ptr %9, i64 0, i64 %102
+  %103 = getelementptr inbounds [75 x float], ptr %9, i64 0, i64 %102
   store float %101, ptr %103, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 3
   %104 = add i32 %.06781, 1

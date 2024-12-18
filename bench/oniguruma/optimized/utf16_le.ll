@@ -239,7 +239,7 @@ define internal range(i32 -2147483648, 1) i32 @init() #3 {
   %2 = alloca [4 x %union.OnigValue], align 16
   %3 = tail call i32 @onigenc_str_bytelen_null(ptr noundef nonnull @OnigEncodingUTF16_LE, ptr noundef nonnull @.str.1) #7
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds nuw i8, ptr @.str.1, i64 %4
+  %5 = getelementptr inbounds i8, ptr @.str.1, i64 %4
   %6 = tail call i32 @onig_set_callout_of_name(ptr noundef nonnull @OnigEncodingUTF16_LE, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull @onig_builtin_fail, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null) #7
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %45, label %8
@@ -247,7 +247,7 @@ define internal range(i32 -2147483648, 1) i32 @init() #3 {
 8:                                                ; preds = %0
   %9 = tail call i32 @onigenc_str_bytelen_null(ptr noundef nonnull @OnigEncodingUTF16_LE, ptr noundef nonnull @.str.2) #7
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %10
+  %11 = getelementptr inbounds i8, ptr @.str.2, i64 %10
   %12 = tail call i32 @onig_set_callout_of_name(ptr noundef nonnull @OnigEncodingUTF16_LE, i32 noundef 0, ptr noundef nonnull @.str.2, ptr noundef nonnull %11, i32 noundef 1, ptr noundef nonnull @onig_builtin_mismatch, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null) #7
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %45, label %14
@@ -259,7 +259,7 @@ define internal range(i32 -2147483648, 1) i32 @init() #3 {
   store i32 88, ptr %2, align 16
   %16 = tail call i32 @onigenc_str_bytelen_null(ptr noundef nonnull @OnigEncodingUTF16_LE, ptr noundef nonnull @.str.3) #7
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds nuw i8, ptr @.str.3, i64 %17
+  %18 = getelementptr inbounds i8, ptr @.str.3, i64 %17
   %19 = call i32 @onig_set_callout_of_name(ptr noundef nonnull @OnigEncodingUTF16_LE, i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull %18, i32 noundef 3, ptr noundef nonnull @onig_builtin_max, ptr noundef null, i32 noundef 2, ptr noundef nonnull %1, i32 noundef 1, ptr noundef nonnull %2) #7
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %45, label %21
@@ -269,7 +269,7 @@ define internal range(i32 -2147483648, 1) i32 @init() #3 {
   store i64 -3, ptr %2, align 16
   %22 = call i32 @onigenc_str_bytelen_null(ptr noundef nonnull @OnigEncodingUTF16_LE, ptr noundef nonnull @.str.4) #7
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds nuw i8, ptr @.str.4, i64 %23
+  %24 = getelementptr inbounds i8, ptr @.str.4, i64 %23
   %25 = call i32 @onig_set_callout_of_name(ptr noundef nonnull @OnigEncodingUTF16_LE, i32 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull %24, i32 noundef 1, ptr noundef nonnull @onig_builtin_error, ptr noundef null, i32 noundef 1, ptr noundef nonnull %1, i32 noundef 1, ptr noundef nonnull %2) #7
   %26 = icmp slt i32 %25, 0
   br i1 %26, label %45, label %27
@@ -279,7 +279,7 @@ define internal range(i32 -2147483648, 1) i32 @init() #3 {
   store i32 62, ptr %2, align 16
   %28 = call i32 @onigenc_str_bytelen_null(ptr noundef nonnull @OnigEncodingUTF16_LE, ptr noundef nonnull @.str.5) #7
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds nuw i8, ptr @.str.5, i64 %29
+  %30 = getelementptr inbounds i8, ptr @.str.5, i64 %29
   %31 = call i32 @onig_set_callout_of_name(ptr noundef nonnull @OnigEncodingUTF16_LE, i32 noundef 0, ptr noundef nonnull @.str.5, ptr noundef nonnull %30, i32 noundef 3, ptr noundef nonnull @onig_builtin_count, ptr noundef null, i32 noundef 1, ptr noundef nonnull %1, i32 noundef 1, ptr noundef nonnull %2) #7
   %32 = icmp slt i32 %31, 0
   br i1 %32, label %45, label %33
@@ -289,7 +289,7 @@ define internal range(i32 -2147483648, 1) i32 @init() #3 {
   store i32 62, ptr %2, align 16
   %34 = call i32 @onigenc_str_bytelen_null(ptr noundef nonnull @OnigEncodingUTF16_LE, ptr noundef nonnull @.str.6) #7
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds nuw i8, ptr @.str.6, i64 %35
+  %36 = getelementptr inbounds i8, ptr @.str.6, i64 %35
   %37 = call i32 @onig_set_callout_of_name(ptr noundef nonnull @OnigEncodingUTF16_LE, i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull %36, i32 noundef 3, ptr noundef nonnull @onig_builtin_total_count, ptr noundef null, i32 noundef 1, ptr noundef nonnull %1, i32 noundef 1, ptr noundef nonnull %2) #7
   %38 = icmp slt i32 %37, 0
   br i1 %38, label %45, label %39
@@ -301,7 +301,7 @@ define internal range(i32 -2147483648, 1) i32 @init() #3 {
   store i32 17, ptr %40, align 8
   %41 = call i32 @onigenc_str_bytelen_null(ptr noundef nonnull @OnigEncodingUTF16_LE, ptr noundef nonnull @.str.7) #7
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds nuw i8, ptr @.str.7, i64 %42
+  %43 = getelementptr inbounds i8, ptr @.str.7, i64 %42
   %44 = call i32 @onig_set_callout_of_name(ptr noundef nonnull @OnigEncodingUTF16_LE, i32 noundef 0, ptr noundef nonnull @.str.7, ptr noundef nonnull %43, i32 noundef 1, ptr noundef nonnull @onig_builtin_cmp, ptr noundef null, i32 noundef 3, ptr noundef nonnull %1, i32 noundef 0, ptr noundef null) #7
   %. = call i32 @llvm.smin.i32(i32 %44, i32 0)
   br label %45

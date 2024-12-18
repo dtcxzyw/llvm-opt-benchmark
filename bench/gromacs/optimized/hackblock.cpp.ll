@@ -130,7 +130,7 @@ $_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE = co
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef ptr @_Z17enumValueToString11BondedTypes(i32 noundef %0) local_unnamed_addr #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [6 x ptr], ptr @__const._Z17enumValueToString11BondedTypes.bondedTypeNames, i64 0, i64 %2
+  %3 = getelementptr inbounds [6 x ptr], ptr @__const._Z17enumValueToString11BondedTypes.bondedTypeNames, i64 0, i64 %2
   %4 = load ptr, ptr %3, align 8
   ret ptr %4
 }
@@ -141,7 +141,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef i32 @_Z20enumValueToNumIAtoms11BondedTypes(i32 noundef %0) local_unnamed_addr #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [6 x i32], ptr @__const._Z20enumValueToNumIAtoms11BondedTypes.bondedTypeIAtoms, i64 0, i64 %2
+  %3 = getelementptr inbounds [6 x i32], ptr @__const._Z20enumValueToNumIAtoms11BondedTypes.bondedTypeIAtoms, i64 0, i64 %2
   %4 = load i32, ptr %3, align 4
   ret i32 %4
 }

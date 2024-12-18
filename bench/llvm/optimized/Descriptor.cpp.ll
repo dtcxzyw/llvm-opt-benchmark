@@ -195,13 +195,13 @@ switch.lookup:
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i8 0, ptr %34, align 4
   %35 = sext i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [15 x ptr], ptr @switch.table._ZN5clang6interp10DescriptorC2ERKN4llvm12PointerUnionIJPKNS_4DeclEPKNS_4ExprEEEENS0_8PrimTypeESt8optionalIjEbNS1_11UnknownSizeE, i64 0, i64 %35
+  %switch.gep = getelementptr inbounds [15 x ptr], ptr @switch.table._ZN5clang6interp10DescriptorC2ERKN4llvm12PointerUnionIJPKNS_4DeclEPKNS_4ExprEEEENS0_8PrimTypeESt8optionalIjEbNS1_11UnknownSizeE, i64 0, i64 %35
   %switch.load = load ptr, ptr %switch.gep, align 8
   %36 = sext i32 %2 to i64
-  %switch.gep67 = getelementptr inbounds nuw [15 x ptr], ptr @switch.table._ZN5clang6interp10DescriptorC2ERKN4llvm12PointerUnionIJPKNS_4DeclEPKNS_4ExprEEEENS0_8PrimTypeESt8optionalIjEbNS1_11UnknownSizeE.3, i64 0, i64 %36
+  %switch.gep67 = getelementptr inbounds [15 x ptr], ptr @switch.table._ZN5clang6interp10DescriptorC2ERKN4llvm12PointerUnionIJPKNS_4DeclEPKNS_4ExprEEEENS0_8PrimTypeESt8optionalIjEbNS1_11UnknownSizeE.3, i64 0, i64 %36
   %switch.load68 = load ptr, ptr %switch.gep67, align 8
   %37 = sext i32 %2 to i64
-  %switch.gep69 = getelementptr inbounds nuw [15 x ptr], ptr @switch.table._ZN5clang6interp10DescriptorC2ERKN4llvm12PointerUnionIJPKNS_4DeclEPKNS_4ExprEEEENS0_8PrimTypeESt8optionalIjEbNS1_11UnknownSizeE.4, i64 0, i64 %37
+  %switch.gep69 = getelementptr inbounds [15 x ptr], ptr @switch.table._ZN5clang6interp10DescriptorC2ERKN4llvm12PointerUnionIJPKNS_4DeclEPKNS_4ExprEEEENS0_8PrimTypeESt8optionalIjEbNS1_11UnknownSizeE.4, i64 0, i64 %37
   %switch.load70 = load ptr, ptr %switch.gep69, align 8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -248,13 +248,13 @@ switch.lookup:
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i8 0, ptr %21, align 4
   %22 = sext i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [15 x ptr], ptr @switch.table._ZN5clang6interp10DescriptorC2ERKN4llvm12PointerUnionIJPKNS_4DeclEPKNS_4ExprEEEENS0_8PrimTypeESt8optionalIjEbNS1_11UnknownSizeE, i64 0, i64 %22
+  %switch.gep = getelementptr inbounds [15 x ptr], ptr @switch.table._ZN5clang6interp10DescriptorC2ERKN4llvm12PointerUnionIJPKNS_4DeclEPKNS_4ExprEEEENS0_8PrimTypeESt8optionalIjEbNS1_11UnknownSizeE, i64 0, i64 %22
   %switch.load = load ptr, ptr %switch.gep, align 8
   %23 = sext i32 %2 to i64
-  %switch.gep63 = getelementptr inbounds nuw [15 x ptr], ptr @switch.table._ZN5clang6interp10DescriptorC2ERKN4llvm12PointerUnionIJPKNS_4DeclEPKNS_4ExprEEEENS0_8PrimTypeESt8optionalIjEbNS1_11UnknownSizeE.3, i64 0, i64 %23
+  %switch.gep63 = getelementptr inbounds [15 x ptr], ptr @switch.table._ZN5clang6interp10DescriptorC2ERKN4llvm12PointerUnionIJPKNS_4DeclEPKNS_4ExprEEEENS0_8PrimTypeESt8optionalIjEbNS1_11UnknownSizeE.3, i64 0, i64 %23
   %switch.load64 = load ptr, ptr %switch.gep63, align 8
   %24 = sext i32 %2 to i64
-  %switch.gep65 = getelementptr inbounds nuw [15 x ptr], ptr @switch.table._ZN5clang6interp10DescriptorC2ERKN4llvm12PointerUnionIJPKNS_4DeclEPKNS_4ExprEEEENS0_8PrimTypeESt8optionalIjEbNS1_11UnknownSizeE.4, i64 0, i64 %24
+  %switch.gep65 = getelementptr inbounds [15 x ptr], ptr @switch.table._ZN5clang6interp10DescriptorC2ERKN4llvm12PointerUnionIJPKNS_4DeclEPKNS_4ExprEEEENS0_8PrimTypeESt8optionalIjEbNS1_11UnknownSizeE.4, i64 0, i64 %24
   %switch.load66 = load ptr, ptr %switch.gep65, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 56

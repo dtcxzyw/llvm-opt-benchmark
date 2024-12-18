@@ -8053,7 +8053,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL20tdefl_compress_blockP16
   %indvars.iv144.i.i = phi i64 [ 2, %.loopexit.loopexit119.i.i ], [ %indvars.iv.next145.i.i, %21 ]
   %.271112.i.i = phi i32 [ 0, %.loopexit.loopexit119.i.i ], [ %26, %21 ]
   %22 = add nsw i64 %indvars.iv144.i.i, -1
-  %23 = getelementptr inbounds nuw [33 x i32], ptr %7, i64 0, i64 %22
+  %23 = getelementptr inbounds [33 x i32], ptr %7, i64 0, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = add nsw i32 %24, %.271112.i.i
   %26 = shl i32 %25, 1
@@ -8132,7 +8132,7 @@ _ZL28tdefl_optimize_huffman_tableP16tdefl_compressoriiii.exit.i: ; preds = %48
   %indvars.iv144.i36.i = phi i64 [ 2, %.loopexit.loopexit119.i35.i ], [ %indvars.iv.next145.i38.i, %56 ]
   %.271112.i37.i = phi i32 [ 0, %.loopexit.loopexit119.i35.i ], [ %61, %56 ]
   %57 = add nsw i64 %indvars.iv144.i36.i, -1
-  %58 = getelementptr inbounds nuw [33 x i32], ptr %5, i64 0, i64 %57
+  %58 = getelementptr inbounds [33 x i32], ptr %5, i64 0, i64 %57
   %59 = load i32, ptr %58, align 4
   %60 = add nsw i32 %59, %.271112.i37.i
   %61 = shl i32 %60, 1
@@ -8284,7 +8284,7 @@ _ZL28tdefl_optimize_huffman_tableP16tdefl_compressoriiii.exit47.i: ; preds = %80
   %.0261.lcssa.i = phi i32 [ %121, %.split.loop.exit463.i ], [ 1, %116 ]
   %122 = sext i32 %.0.lcssa.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull align 2 %108, i64 %122, i1 false)
-  %123 = getelementptr inbounds nuw i8, ptr %3, i64 %122
+  %123 = getelementptr inbounds i8, ptr %3, i64 %122
   %124 = sext i32 %.0261.lcssa.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %123, ptr nonnull align 2 %115, i64 %124, i1 false)
   %125 = add nsw i32 %.0261.lcssa.i, %.0.lcssa.i
@@ -9476,7 +9476,7 @@ define internal fastcc void @_ZL28tdefl_optimize_huffman_tableP16tdefl_compresso
 
 27:                                               ; preds = %24
   %28 = sext i32 %.072102 to i64
-  %29 = getelementptr inbounds nuw [288 x %struct.tdefl_sym_freq], ptr %10, i64 0, i64 %28
+  %29 = getelementptr inbounds [288 x %struct.tdefl_sym_freq], ptr %10, i64 0, i64 %28
   store i16 %26, ptr %29, align 4
   %30 = trunc i64 %indvars.iv125 to i16
   %31 = add nsw i32 %.072102, 1
@@ -9990,7 +9990,7 @@ _ZL35tdefl_huffman_enforce_max_code_sizePiii.exit: ; preds = %.loopexit.i, %_ZL2
   %indvars.iv144 = phi i64 [ 2, %.loopexit ], [ %indvars.iv.next145, %221 ]
   %.271112 = phi i32 [ 0, %.loopexit ], [ %226, %221 ]
   %222 = add nsw i64 %indvars.iv144, -1
-  %223 = getelementptr inbounds nuw [33 x i32], ptr %8, i64 0, i64 %222
+  %223 = getelementptr inbounds [33 x i32], ptr %8, i64 0, i64 %222
   %224 = load i32, ptr %223, align 4
   %225 = add nsw i32 %224, %.271112
   %226 = shl i32 %225, 1
@@ -10535,7 +10535,7 @@ tdefl_init.exit:                                  ; preds = %_ZL26tdefl_output_b
   store i8 8, ptr %140, align 8
   %141 = getelementptr inbounds nuw i8, ptr %13, i64 25
   %142 = sext i32 %3 to i64
-  %143 = getelementptr inbounds nuw [5 x i8], ptr @_ZZ42tdefl_write_image_to_png_file_in_memory_exE5chans, i64 0, i64 %142
+  %143 = getelementptr inbounds [5 x i8], ptr @_ZZ42tdefl_write_image_to_png_file_in_memory_exE5chans, i64 0, i64 %142
   %144 = load i8, ptr %143, align 1
   store i8 %144, ptr %141, align 1
   %145 = getelementptr inbounds nuw i8, ptr %13, i64 26

@@ -3574,7 +3574,7 @@ _ZN5clang7CodeGen28ConstantAggregateBuilderBase3addEPN4llvm8ConstantE.exit28.i: 
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 352
   %148 = load i32, ptr %147, align 4, !noalias !22
   %149 = sext i32 %148 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN12_GLOBAL__N_115CGObjCCommonMac22GenerateConstantStringEPKN5clang13StringLiteralE, i64 0, i64 %149
+  %switch.gep = getelementptr inbounds [7 x ptr], ptr @switch.table._ZN12_GLOBAL__N_115CGObjCCommonMac22GenerateConstantStringEPKN5clang13StringLiteralE, i64 0, i64 %149
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @_ZN4llvm12GlobalObject10setSectionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(56) %143, ptr nonnull %switch.load, i64 45) #25, !noalias !22
   store ptr %143, ptr %35, align 8, !noalias !22

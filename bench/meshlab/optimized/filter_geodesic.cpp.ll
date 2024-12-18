@@ -4661,7 +4661,7 @@ _ZN3vcg3tri11UpdateFlagsI6CMeshOE10FaceClearBERS2_.exit: ; preds = %12, %1
   br i1 %.not67, label %138, label %132
 
 132:                                              ; preds = %128
-  %133 = getelementptr inbounds nuw [3 x i32], ptr @__const._ZN3vcg3tri11UpdateFlagsI6CMeshOE16FaceBorderFromVFERS2_.BORDERFLAG, i64 0, i64 %119
+  %133 = getelementptr inbounds [3 x i32], ptr @__const._ZN3vcg3tri11UpdateFlagsI6CMeshOE16FaceBorderFromVFERS2_.BORDERFLAG, i64 0, i64 %119
   %134 = load i32, ptr %133, align 4
   %135 = getelementptr inbounds nuw i8, ptr %.sroa.0.080, i64 32
   %136 = load i32, ptr %135, align 4
@@ -4688,7 +4688,7 @@ _ZN3vcg3tri11UpdateFlagsI6CMeshOE10FaceClearBERS2_.exit: ; preds = %12, %1
   br i1 %.not68, label %156, label %150
 
 150:                                              ; preds = %146
-  %151 = getelementptr inbounds nuw [3 x i32], ptr @__const._ZN3vcg3tri11UpdateFlagsI6CMeshOE16FaceBorderFromVFERS2_.BORDERFLAG, i64 0, i64 %142
+  %151 = getelementptr inbounds [3 x i32], ptr @__const._ZN3vcg3tri11UpdateFlagsI6CMeshOE16FaceBorderFromVFERS2_.BORDERFLAG, i64 0, i64 %142
   %152 = load i32, ptr %151, align 4
   %153 = getelementptr inbounds nuw i8, ptr %.sroa.0.080, i64 32
   %154 = load i32, ptr %153, align 4

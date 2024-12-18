@@ -196,7 +196,7 @@ define hidden noundef zeroext i1 @_ZN11StringUtils13is_star_matchEPKcS1_(ptr nou
   %8 = ptrtoint ptr %.02145 to i64
   %9 = sub i64 %7, %8
   %10 = call ptr @strncpy(ptr noundef nonnull %4, ptr noundef nonnull %.02145, i64 noundef %9) #11
-  %11 = getelementptr inbounds nuw [1000 x i8], ptr %4, i64 0, i64 %9
+  %11 = getelementptr inbounds [1000 x i8], ptr %4, i64 0, i64 %9
   store i8 0, ptr %11, align 1
   %.pr = load i8, ptr %4, align 16
   %12 = icmp eq i8 %.pr, 0

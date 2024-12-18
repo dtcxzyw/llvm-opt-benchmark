@@ -2591,7 +2591,7 @@ if.end16:                                         ; preds = %if.then7, %if.end4,
 
 if.then56:                                        ; preds = %if.end16
   %conv57 = sext i32 %axis to i64
-  %arrayidx.i = getelementptr inbounds nuw float, ptr %bb, i64 %conv57
+  %arrayidx.i = getelementptr inbounds float, ptr %bb, i64 %conv57
   %17 = load float, ptr %arrayidx.i, align 4
   %MousePos = getelementptr inbounds nuw i8, ptr %0, i64 3656
   %arrayidx.i100 = getelementptr inbounds float, ptr %MousePos, i64 %conv57
@@ -4514,7 +4514,7 @@ if.then14:                                        ; preds = %if.end12
   %retval.sroa.0.4.vec.insert.i44 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i43, float %sub3.i42, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i44, ptr %ref.tmp15, align 8
   %conv = sext i32 %axis to i64
-  %arrayidx.i = getelementptr inbounds nuw float, ptr %ref.tmp15, i64 %conv
+  %arrayidx.i = getelementptr inbounds float, ptr %ref.tmp15, i64 %conv
   %15 = load float, ptr %arrayidx.i, align 4
   %16 = load float, ptr %size1, align 4
   %sub = fsub float %16, %min_size1
@@ -6583,7 +6583,7 @@ entry:
 define noundef nonnull ptr @_ZN5ImGui15DataTypeGetInfoEi(i32 noundef %data_type) local_unnamed_addr #11 {
 entry:
   %idxprom = sext i32 %data_type to i64
-  %arrayidx = getelementptr inbounds nuw [10 x %struct.ImGuiDataTypeInfo], ptr @_ZL13GDataTypeInfo, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [10 x %struct.ImGuiDataTypeInfo], ptr @_ZL13GDataTypeInfo, i64 0, i64 %idxprom
   ret ptr %arrayidx
 }
 
@@ -7063,7 +7063,7 @@ while.body:                                       ; preds = %while.cond, %while.
 
 if.end:                                           ; preds = %while.cond
   %idxprom.i = sext i32 %data_type to i64
-  %arrayidx.i = getelementptr inbounds nuw [10 x %struct.ImGuiDataTypeInfo], ptr @_ZL13GDataTypeInfo, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [10 x %struct.ImGuiDataTypeInfo], ptr @_ZL13GDataTypeInfo, i64 0, i64 %idxprom.i
   %1 = load i64, ptr %arrayidx.i, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %data_backup, ptr align 1 %p_data, i64 %1, i1 false)
   %2 = and i32 %data_type, -2
@@ -11334,7 +11334,7 @@ if.end21:                                         ; preds = %cond.end
 
 if.then23:                                        ; preds = %if.end21
   %idxprom.i = sext i32 %data_type to i64
-  %PrintFmt = getelementptr inbounds nuw [10 x %struct.ImGuiDataTypeInfo], ptr @_ZL13GDataTypeInfo, i64 0, i64 %idxprom.i, i32 2
+  %PrintFmt = getelementptr inbounds [10 x %struct.ImGuiDataTypeInfo], ptr @_ZL13GDataTypeInfo, i64 0, i64 %idxprom.i, i32 2
   %15 = load ptr, ptr %PrintFmt, align 16
   br label %if.end25
 
@@ -11597,7 +11597,7 @@ if.then143:                                       ; preds = %if.end127
 if.end144:                                        ; preds = %if.then143, %if.end127
   %call146 = call noundef i32 @_ZN5ImGui20DataTypeFormatStringEPciiPKvPKc(ptr noundef nonnull %value_buf, i32 noundef 64, i32 noundef %data_type, ptr noundef %p_data, ptr noundef %format.addr.0)
   %idx.ext = sext i32 %call146 to i64
-  %add.ptr = getelementptr inbounds nuw i8, ptr %value_buf, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i8, ptr %value_buf, i64 %idx.ext
   %LogEnabled = getelementptr inbounds nuw i8, ptr %0, i64 24488
   %44 = load i8, ptr %LogEnabled, align 8
   %tobool147 = trunc i8 %44 to i1
@@ -11643,7 +11643,7 @@ entry:
   %data_buf = alloca [32 x i8], align 16
   %data_backup = alloca %struct.ImGuiDataTypeTempStorage, align 1
   %idxprom.i = sext i32 %data_type to i64
-  %arrayidx.i = getelementptr inbounds nuw [10 x %struct.ImGuiDataTypeInfo], ptr @_ZL13GDataTypeInfo, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [10 x %struct.ImGuiDataTypeInfo], ptr @_ZL13GDataTypeInfo, i64 0, i64 %idxprom.i
   %0 = load i8, ptr %format, align 1
   %tobool.not8.i.i = icmp eq i8 %0, 0
   br i1 %tobool.not8.i.i, label %_Z28ImParseFormatTrimDecorationsPKcPcm.exit, label %while.body.i.i
@@ -11930,7 +11930,7 @@ if.end:                                           ; preds = %entry
   %call1 = tail call noundef float @_ZN5ImGui13CalcItemWidthEv()
   tail call void @_ZN5ImGui20PushMultiItemsWidthsEif(i32 noundef %components, float noundef %call1)
   %idxprom = sext i32 %data_type to i64
-  %arrayidx = getelementptr inbounds nuw [10 x %struct.ImGuiDataTypeInfo], ptr @_ZL13GDataTypeInfo, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [10 x %struct.ImGuiDataTypeInfo], ptr @_ZL13GDataTypeInfo, i64 0, i64 %idxprom
   %4 = load i64, ptr %arrayidx, align 16
   %cmp14 = icmp sgt i32 %components, 0
   br i1 %cmp14, label %for.body.lr.ph, label %for.end
@@ -16601,7 +16601,7 @@ if.end21:                                         ; preds = %cond.end
 
 if.then23:                                        ; preds = %if.end21
   %idxprom.i = sext i32 %data_type to i64
-  %PrintFmt = getelementptr inbounds nuw [10 x %struct.ImGuiDataTypeInfo], ptr @_ZL13GDataTypeInfo, i64 0, i64 %idxprom.i, i32 2
+  %PrintFmt = getelementptr inbounds [10 x %struct.ImGuiDataTypeInfo], ptr @_ZL13GDataTypeInfo, i64 0, i64 %idxprom.i, i32 2
   %15 = load ptr, ptr %PrintFmt, align 16
   br label %if.end25
 
@@ -16728,7 +16728,7 @@ if.then105:                                       ; preds = %if.end99
 if.end112:                                        ; preds = %if.then105, %if.end99
   %call114 = call noundef i32 @_ZN5ImGui20DataTypeFormatStringEPciiPKvPKc(ptr noundef nonnull %value_buf, i32 noundef 64, i32 noundef %data_type, ptr noundef %p_data, ptr noundef %format.addr.0)
   %idx.ext = sext i32 %call114 to i64
-  %add.ptr = getelementptr inbounds nuw i8, ptr %value_buf, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i8, ptr %value_buf, i64 %idx.ext
   %LogEnabled = getelementptr inbounds nuw i8, ptr %0, i64 24488
   %32 = load i8, ptr %LogEnabled, align 8
   %tobool115 = trunc i8 %32 to i1
@@ -16784,7 +16784,7 @@ if.end:                                           ; preds = %entry
   %call1 = tail call noundef float @_ZN5ImGui13CalcItemWidthEv()
   tail call void @_ZN5ImGui20PushMultiItemsWidthsEif(i32 noundef %components, float noundef %call1)
   %idxprom = sext i32 %data_type to i64
-  %arrayidx = getelementptr inbounds nuw [10 x %struct.ImGuiDataTypeInfo], ptr @_ZL13GDataTypeInfo, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [10 x %struct.ImGuiDataTypeInfo], ptr @_ZL13GDataTypeInfo, i64 0, i64 %idxprom
   %4 = load i64, ptr %arrayidx, align 16
   %cmp14 = icmp sgt i32 %components, 0
   br i1 %cmp14, label %for.body.lr.ph, label %for.end
@@ -17030,7 +17030,7 @@ if.end13:                                         ; preds = %cond.end
 
 if.then15:                                        ; preds = %if.end13
   %idxprom.i = sext i32 %data_type to i64
-  %PrintFmt = getelementptr inbounds nuw [10 x %struct.ImGuiDataTypeInfo], ptr @_ZL13GDataTypeInfo, i64 0, i64 %idxprom.i, i32 2
+  %PrintFmt = getelementptr inbounds [10 x %struct.ImGuiDataTypeInfo], ptr @_ZL13GDataTypeInfo, i64 0, i64 %idxprom.i, i32 2
   %14 = load ptr, ptr %PrintFmt, align 16
   br label %if.end17
 
@@ -17111,7 +17111,7 @@ if.then52:                                        ; preds = %if.end46
 if.end59:                                         ; preds = %if.then52, %if.end46
   %call61 = call noundef i32 @_ZN5ImGui20DataTypeFormatStringEPciiPKvPKc(ptr noundef nonnull %value_buf, i32 noundef 64, i32 noundef %data_type, ptr noundef %p_data, ptr noundef %format.addr.0)
   %idx.ext = sext i32 %call61 to i64
-  %add.ptr = getelementptr inbounds nuw i8, ptr %value_buf, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i8, ptr %value_buf, i64 %idx.ext
   %25 = load float, ptr %frame_bb, align 8
   %26 = load float, ptr %frame_bb.sroa_idx, align 4
   %27 = load float, ptr %y, align 4
@@ -21086,7 +21086,7 @@ if.end:                                           ; preds = %entry
 
 if.then1:                                         ; preds = %if.end
   %idxprom.i = sext i32 %data_type to i64
-  %PrintFmt = getelementptr inbounds nuw [10 x %struct.ImGuiDataTypeInfo], ptr @_ZL13GDataTypeInfo, i64 0, i64 %idxprom.i, i32 2
+  %PrintFmt = getelementptr inbounds [10 x %struct.ImGuiDataTypeInfo], ptr @_ZL13GDataTypeInfo, i64 0, i64 %idxprom.i, i32 2
   %4 = load ptr, ptr %PrintFmt, align 16
   br label %if.end3
 
@@ -21297,7 +21297,7 @@ if.end:                                           ; preds = %entry
   %call1 = tail call noundef float @_ZN5ImGui13CalcItemWidthEv()
   tail call void @_ZN5ImGui20PushMultiItemsWidthsEif(i32 noundef %components, float noundef %call1)
   %idxprom = sext i32 %data_type to i64
-  %arrayidx = getelementptr inbounds nuw [10 x %struct.ImGuiDataTypeInfo], ptr @_ZL13GDataTypeInfo, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [10 x %struct.ImGuiDataTypeInfo], ptr @_ZL13GDataTypeInfo, i64 0, i64 %idxprom
   %4 = load i64, ptr %arrayidx, align 16
   %cmp14 = icmp sgt i32 %components, 0
   br i1 %cmp14, label %for.body.lr.ph, label %for.end

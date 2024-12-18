@@ -3809,7 +3809,7 @@ _ZNK18ResolvedFieldEntry11is_resolvedEN9Bytecodes4CodeE.exit: ; preds = %22, %25
   %48 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %48, align 1
   %49 = sext i32 %2 to i64
-  %50 = getelementptr inbounds nuw [239 x ptr], ptr @_ZN9Bytecodes5_nameE, i64 0, i64 %49
+  %50 = getelementptr inbounds [239 x ptr], ptr @_ZN9Bytecodes5_nameE, i64 0, i64 %49
   %51 = load ptr, ptr %50, align 8
   tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str.14, i32 noundef 778, ptr noundef nonnull @.str.17, ptr noundef %51) #18
   unreachable

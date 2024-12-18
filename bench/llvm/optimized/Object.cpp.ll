@@ -191,7 +191,7 @@ switch.lookup:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i32, ptr %1, align 8
   %3 = sext i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [23 x i32], ptr @switch.table.LLVMBinaryGetType, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds [23 x i32], ptr @switch.table.LLVMBinaryGetType, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }

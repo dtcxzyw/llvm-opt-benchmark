@@ -7941,7 +7941,7 @@ switch.lookup:                                    ; preds = %4, %11
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %41 = load i32, ptr %40, align 8
   %42 = sext i32 %41 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN12_GLOBAL__N_120PragmaMessageHandler12HandlePragmaERN5clang12PreprocessorENS1_16PragmaIntroducerERNS1_5TokenE, i64 0, i64 %42
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN12_GLOBAL__N_120PragmaMessageHandler12HandlePragmaERN5clang12PreprocessorENS1_16PragmaIntroducerERNS1_5TokenE, i64 0, i64 %42
   %switch.load = load ptr, ptr %switch.gep, align 8
   %43 = call noundef zeroext i1 @_ZN5clang12Preprocessor22FinishLexStringLiteralERNS_5TokenERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcb(ptr noundef nonnull align 8 dereferenceable(3288) %1, ptr noundef nonnull align 8 dereferenceable(20) %3, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull %switch.load, i1 noundef zeroext true) #19
   br i1 %43, label %44, label %164

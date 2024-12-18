@@ -200,7 +200,7 @@ entry:
   %vtable.i = load ptr, ptr %config_stream.i, align 8
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %config_stream.i, i64 %vbase.offset.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %config_stream.i, i64 %vbase.offset.i
   %call.i = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr.i) #16
   br i1 %call.i, label %if.end.i, label %_ZN4node12_GLOBAL__N_129IsTransparentHugePagesEnabledEv.exit.thread
 

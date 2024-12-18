@@ -1434,7 +1434,7 @@ for.inc.i.i:                                      ; preds = %land.rhs.i.i, %land
 
 strip_line_ends.exit.i:                           ; preds = %for.inc.i.i, %land.rhs.i.i, %if.end34.i
   %i.0.lcssa.i.i = phi i64 [ 0, %if.end34.i ], [ %i.09.i.i, %land.rhs.i.i ], [ 0, %for.inc.i.i ]
-  %arrayidx8.i.i = getelementptr inbounds nuw i8, ptr %buf1.i, i64 %i.0.lcssa.i.i
+  %arrayidx8.i.i = getelementptr inbounds i8, ptr %buf1.i, i64 %i.0.lcssa.i.i
   store i8 0, ptr %arrayidx8.i.i, align 1
   %call.i14.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf2.i) #10
   %cmp.not8.i16.i = icmp eq i64 %call.i14.i, 0
@@ -1456,7 +1456,7 @@ for.inc.i20.i:                                    ; preds = %land.rhs.i17.i, %la
 
 strip_line_ends.exit25.i:                         ; preds = %for.inc.i20.i, %land.rhs.i17.i, %strip_line_ends.exit.i
   %i.0.lcssa.i23.i = phi i64 [ 0, %strip_line_ends.exit.i ], [ %i.09.i18.i, %land.rhs.i17.i ], [ 0, %for.inc.i20.i ]
-  %arrayidx8.i24.i = getelementptr inbounds nuw i8, ptr %buf2.i, i64 %i.0.lcssa.i23.i
+  %arrayidx8.i24.i = getelementptr inbounds i8, ptr %buf2.i, i64 %i.0.lcssa.i23.i
   store i8 0, ptr %arrayidx8.i24.i, align 1
   %call38.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf1.i) #10
   %call40.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf2.i) #10
@@ -1475,13 +1475,13 @@ if.then43.i:                                      ; preds = %strip_line_ends.exi
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.inc.i
   %i.027.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %for.cond.preheader.i ]
-  %arrayidx.i = getelementptr inbounds nuw [512 x i8], ptr %buf1.i, i64 0, i64 %i.027.i
+  %arrayidx.i = getelementptr inbounds [512 x i8], ptr %buf1.i, i64 0, i64 %i.027.i
   %11 = load i8, ptr %arrayidx.i, align 1
   %cmp52.i = icmp eq i8 %11, 63
   br i1 %cmp52.i, label %if.then54.i, label %for.inc.i
 
 if.then54.i:                                      ; preds = %for.body.i
-  %arrayidx55.i = getelementptr inbounds nuw [512 x i8], ptr %buf2.i, i64 0, i64 %i.027.i
+  %arrayidx55.i = getelementptr inbounds [512 x i8], ptr %buf2.i, i64 0, i64 %i.027.i
   store i8 63, ptr %arrayidx55.i, align 1
   br label %for.inc.i
 
@@ -3224,7 +3224,7 @@ entry:
   store ptr null, ptr %s, align 8
   store ptr null, ptr %qtf, align 8
   %idxprom = sext i32 %idx to i64
-  %arrayidx = getelementptr inbounds nuw [76 x %struct.tparam_test], ptr @tparam_tests, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [76 x %struct.tparam_test], ptr @tparam_tests, i64 0, i64 %idxprom
   store ptr %arrayidx, ptr %ctx, align 8
   %0 = load ptr, ptr @libctx, align 8
   %call = tail call ptr @OSSL_QUIC_client_method() #9

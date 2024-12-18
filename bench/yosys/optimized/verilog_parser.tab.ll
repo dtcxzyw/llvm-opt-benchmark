@@ -1618,7 +1618,7 @@ define noundef range(i32 0, 3) i32 @_Z24frontend_verilog_yyparsev() local_unname
 
 283:                                              ; preds = %281
   %284 = sext i32 %.01683 to i64
-  %285 = getelementptr inbounds nuw [1357 x i16], ptr @_ZL6yypact, i64 0, i64 %284
+  %285 = getelementptr inbounds [1357 x i16], ptr @_ZL6yypact, i64 0, i64 %284
   %286 = load i16, ptr %285, align 2
   %287 = sext i16 %286 to i32
   %288 = icmp eq i16 %286, -1086
@@ -1803,7 +1803,7 @@ define noundef range(i32 0, 3) i32 @_Z24frontend_verilog_yyparsev() local_unname
 375:                                              ; preds = %339, %330, %283
   %.21729 = phi i32 [ %.01727, %283 ], [ 1, %330 ], [ 1, %339 ]
   %.4 = phi i32 [ %.01677, %283 ], [ %.6, %330 ], [ %.6, %339 ]
-  %376 = getelementptr inbounds nuw [1357 x i16], ptr @_ZL8yydefact, i64 0, i64 %284
+  %376 = getelementptr inbounds [1357 x i16], ptr @_ZL8yydefact, i64 0, i64 %284
   %377 = load i16, ptr %376, align 2
   %378 = sext i16 %377 to i32
   %379 = icmp eq i16 %377, 0
@@ -1888,7 +1888,7 @@ define noundef range(i32 0, 3) i32 @_Z24frontend_verilog_yyparsev() local_unname
   %.51732 = phi i32 [ %.21729, %375 ], [ 1, %346 ], [ 1, %356 ]
   %.9 = phi i32 [ %.4, %375 ], [ %.6, %346 ], [ %.6, %356 ]
   %400 = sext i32 %.01737 to i64
-  %401 = getelementptr inbounds nuw [702 x i8], ptr @_ZL4yyr2, i64 0, i64 %400
+  %401 = getelementptr inbounds [702 x i8], ptr @_ZL4yyr2, i64 0, i64 %400
   %402 = load i8, ptr %401, align 1
   %403 = sext i8 %402 to i64
   %404 = sub nsw i64 1, %403
@@ -15827,7 +15827,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5254
   br i1 %.not2222, label %.loopexit2711._crit_edge, label %7726
 
 .loopexit2711._crit_edge:                         ; preds = %.loopexit2711
-  %.phi.trans.insert7591 = getelementptr inbounds nuw [702 x i16], ptr @_ZL4yyr1, i64 0, i64 %400
+  %.phi.trans.insert7591 = getelementptr inbounds [702 x i16], ptr @_ZL4yyr1, i64 0, i64 %400
   %.pre7592 = load i16, ptr %.phi.trans.insert7591, align 2
   br label %7734
 
@@ -15835,7 +15835,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5254
   %7727 = load ptr, ptr @stderr, align 8
   %7728 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7727, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.111) #34
   %7729 = load ptr, ptr @stderr, align 8
-  %7730 = getelementptr inbounds nuw [702 x i16], ptr @_ZL4yyr1, i64 0, i64 %400
+  %7730 = getelementptr inbounds [702 x i16], ptr @_ZL4yyr1, i64 0, i64 %400
   %7731 = load i16, ptr %7730, align 2
   %7732 = sext i16 %7731 to i32
   call fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPK24FRONTEND_VERILOG_YYSTYPEPK24FRONTEND_VERILOG_YYLTYPE(ptr noundef %7729, i32 noundef %7732, ptr noundef %9)
@@ -15856,7 +15856,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5254
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7742, ptr noundef nonnull align 4 dereferenceable(16) %9, i64 16, i1 false)
   %7743 = sext i16 %7735 to i64
   %7744 = add nsw i64 %7743, -174
-  %7745 = getelementptr inbounds nuw [309 x i16], ptr @_ZL7yypgoto, i64 0, i64 %7744
+  %7745 = getelementptr inbounds [309 x i16], ptr @_ZL7yypgoto, i64 0, i64 %7744
   %7746 = load i16, ptr %7745, align 2
   %7747 = sext i16 %7746 to i32
   %7748 = load i16, ptr %7738, align 2
@@ -15877,7 +15877,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5254
   br label %7760
 
 7758:                                             ; preds = %7751, %7734
-  %7759 = getelementptr inbounds nuw [309 x i16], ptr @_ZL9yydefgoto, i64 0, i64 %7744
+  %7759 = getelementptr inbounds [309 x i16], ptr @_ZL9yydefgoto, i64 0, i64 %7744
   br label %7760
 
 7760:                                             ; preds = %7758, %7756
@@ -16012,7 +16012,7 @@ _ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILO
   br label %7819
 
 _ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit2287: ; preds = %7805
-  %7809 = getelementptr inbounds nuw [1357 x i16], ptr @_ZL6yystos, i64 0, i64 %7791
+  %7809 = getelementptr inbounds [1357 x i16], ptr @_ZL6yystos, i64 0, i64 %7791
   %7810 = load i16, ptr %7809, align 2
   %7811 = sext i16 %7810 to i32
   %7812 = load ptr, ptr @stderr, align 8
@@ -16038,7 +16038,7 @@ _ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILO
   %7822 = getelementptr inbounds i8, ptr %.51724, i64 -16
   %7823 = sext i16 %.in2708 to i32
   %.phi.trans.insert7593 = sext i16 %.in2708 to i64
-  %.phi.trans.insert7594 = getelementptr inbounds nuw [1357 x i16], ptr @_ZL6yypact, i64 0, i64 %.phi.trans.insert7593
+  %.phi.trans.insert7594 = getelementptr inbounds [1357 x i16], ptr @_ZL6yypact, i64 0, i64 %.phi.trans.insert7593
   %.pre7595 = load i16, ptr %.phi.trans.insert7594, align 2
   br label %7789, !llvm.loop !20
 
@@ -16179,7 +16179,7 @@ _ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILO
 7864:                                             ; preds = %.lr.ph5140.split
   %7865 = load i16, ptr %.717065139, align 2
   %7866 = sext i16 %7865 to i64
-  %7867 = getelementptr inbounds nuw [1357 x i16], ptr @_ZL6yystos, i64 0, i64 %7866
+  %7867 = getelementptr inbounds [1357 x i16], ptr @_ZL6yystos, i64 0, i64 %7866
   %7868 = load i16, ptr %7867, align 2
   %7869 = sext i16 %7868 to i32
   %7870 = load ptr, ptr @stderr, align 8
@@ -16273,7 +16273,7 @@ define internal fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPK24
   %4 = icmp slt i32 %1, 174
   %.str.122..str.123 = select i1 %4, ptr @.str.122, ptr @.str.123
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds nuw [484 x ptr], ptr @_ZL7yytname, i64 0, i64 %5
+  %6 = getelementptr inbounds [484 x ptr], ptr @_ZL7yytname, i64 0, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.121, ptr noundef nonnull %.str.122..str.123, ptr noundef %7) #30
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 12
@@ -16340,7 +16340,7 @@ define internal fastcc noundef range(i32 -2, 2) i32 @_ZL6yy_lacPsPS_PlS_15yysymb
 7:                                                ; preds = %5
   %8 = load ptr, ptr @stderr, align 8
   %9 = sext i32 %4 to i64
-  %10 = getelementptr inbounds nuw [484 x ptr], ptr @_ZL7yytname, i64 0, i64 %9
+  %10 = getelementptr inbounds [484 x ptr], ptr @_ZL7yytname, i64 0, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.612, ptr noundef %11) #34
   br label %13
@@ -16364,7 +16364,7 @@ define internal fastcc noundef range(i32 -2, 2) i32 @_ZL6yy_lacPsPS_PlS_15yysymb
   %.047 = phi ptr [ %.1, %.preheader.backedge ], [ %3, %13 ]
   %20 = load i16, ptr %.077, align 2
   %21 = sext i16 %20 to i64
-  %22 = getelementptr inbounds nuw [1357 x i16], ptr @_ZL6yypact, i64 0, i64 %21
+  %22 = getelementptr inbounds [1357 x i16], ptr @_ZL6yypact, i64 0, i64 %21
   %23 = load i16, ptr %22, align 2
   %24 = icmp eq i16 %23, -1086
   br i1 %24, label %33, label %25
@@ -16384,7 +16384,7 @@ define internal fastcc noundef range(i32 -2, 2) i32 @_ZL6yy_lacPsPS_PlS_15yysymb
   br i1 %.not60, label %42, label %33
 
 33:                                               ; preds = %28, %25, %.preheader
-  %34 = getelementptr inbounds nuw [1357 x i16], ptr @_ZL8yydefact, i64 0, i64 %21
+  %34 = getelementptr inbounds [1357 x i16], ptr @_ZL8yydefact, i64 0, i64 %21
   %35 = load i16, ptr %34, align 2
   %36 = sext i16 %35 to i32
   %37 = icmp eq i16 %35, 0
@@ -16436,7 +16436,7 @@ define internal fastcc noundef range(i32 -2, 2) i32 @_ZL6yy_lacPsPS_PlS_15yysymb
 
 60:                                               ; preds = %54, %56
   %61 = sext i32 %.048 to i64
-  %62 = getelementptr inbounds nuw [702 x i8], ptr @_ZL4yyr2, i64 0, i64 %61
+  %62 = getelementptr inbounds [702 x i8], ptr @_ZL4yyr2, i64 0, i64 %61
   %63 = load i8, ptr %62, align 1
   %64 = sext i8 %63 to i64
   %.not63 = icmp eq ptr %.077, %.047
@@ -16475,11 +16475,11 @@ define internal fastcc noundef range(i32 -2, 2) i32 @_ZL6yy_lacPsPS_PlS_15yysymb
 79:                                               ; preds = %.thread, %76, %75
   %.2 = phi ptr [ %.178, %75 ], [ %78, %76 ], [ %72, %.thread ]
   %.1 = phi ptr [ %.047, %75 ], [ %78, %76 ], [ %.047, %.thread ]
-  %80 = getelementptr inbounds nuw [702 x i16], ptr @_ZL4yyr1, i64 0, i64 %61
+  %80 = getelementptr inbounds [702 x i16], ptr @_ZL4yyr1, i64 0, i64 %61
   %81 = load i16, ptr %80, align 2
   %82 = sext i16 %81 to i64
   %83 = add nsw i64 %82, -174
-  %84 = getelementptr inbounds nuw [309 x i16], ptr @_ZL7yypgoto, i64 0, i64 %83
+  %84 = getelementptr inbounds [309 x i16], ptr @_ZL7yypgoto, i64 0, i64 %83
   %85 = load i16, ptr %84, align 2
   %86 = sext i16 %85 to i32
   %87 = load i16, ptr %.2, align 2
@@ -16500,7 +16500,7 @@ define internal fastcc noundef range(i32 -2, 2) i32 @_ZL6yy_lacPsPS_PlS_15yysymb
   br label %99
 
 97:                                               ; preds = %90, %79
-  %98 = getelementptr inbounds nuw [309 x i16], ptr @_ZL9yydefgoto, i64 0, i64 %83
+  %98 = getelementptr inbounds [309 x i16], ptr @_ZL9yydefgoto, i64 0, i64 %83
   br label %99
 
 99:                                               ; preds = %97, %95
@@ -16605,10 +16605,10 @@ _ZL20yy_lac_stack_reallocPllPKcS1_PPsS2_S3_S2_.exit: ; preds = %126, %105
 ; Function Attrs: cold mustprogress nofree nounwind uwtable
 define internal fastcc void @_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, i32 noundef range(i32 -32768, 32769) %2) unnamed_addr #7 {
   %4 = sext i32 %2 to i64
-  %5 = getelementptr inbounds nuw [702 x i16], ptr @_ZL7yyrline, i64 0, i64 %4
+  %5 = getelementptr inbounds [702 x i16], ptr @_ZL7yyrline, i64 0, i64 %4
   %6 = load i16, ptr %5, align 2
   %7 = sext i16 %6 to i32
-  %8 = getelementptr inbounds nuw [702 x i8], ptr @_ZL4yyr2, i64 0, i64 %4
+  %8 = getelementptr inbounds [702 x i8], ptr @_ZL4yyr2, i64 0, i64 %4
   %9 = load i8, ptr %8, align 1
   %10 = load ptr, ptr @stderr, align 8
   %11 = add nsw i32 %2, -1
@@ -16632,7 +16632,7 @@ define internal fastcc void @_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP2
   %20 = getelementptr inbounds i16, ptr %0, i64 %19
   %21 = load i16, ptr %20, align 2
   %22 = sext i16 %21 to i64
-  %23 = getelementptr inbounds nuw [1357 x i16], ptr @_ZL6yystos, i64 0, i64 %22
+  %23 = getelementptr inbounds [1357 x i16], ptr @_ZL6yystos, i64 0, i64 %22
   %24 = load i16, ptr %23, align 2
   %25 = sext i16 %24 to i32
   %26 = getelementptr inbounds %struct.FRONTEND_VERILOG_YYLTYPE, ptr %1, i64 %19
@@ -20293,7 +20293,7 @@ _ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread7: 
   %49 = getelementptr inbounds nuw [5 x i32], ptr %3, i64 0, i64 %indvars.iv
   %50 = load i32, ptr %49, align 4
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds nuw [484 x ptr], ptr @_ZL7yytname, i64 0, i64 %51
+  %52 = getelementptr inbounds [484 x ptr], ptr @_ZL7yytname, i64 0, i64 %51
   %53 = load ptr, ptr %52, align 8
   %54 = load i8, ptr %53, align 1
   %55 = icmp eq i8 %54, 34
@@ -20369,10 +20369,10 @@ _ZL9yytnamerrPcPKc.exit.thread:                   ; preds = %.preheader.split.us
 75:                                               ; preds = %70
   %76 = add nsw i32 %.0, 1
   %77 = sext i32 %.0 to i64
-  %78 = getelementptr inbounds nuw [5 x i32], ptr %3, i64 0, i64 %77
+  %78 = getelementptr inbounds [5 x i32], ptr %3, i64 0, i64 %77
   %79 = load i32, ptr %78, align 4
   %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds nuw [484 x ptr], ptr @_ZL7yytname, i64 0, i64 %80
+  %81 = getelementptr inbounds [484 x ptr], ptr @_ZL7yytname, i64 0, i64 %80
   %82 = load ptr, ptr %81, align 8
   %83 = load i8, ptr %82, align 1
   %84 = icmp eq i8 %83, 34

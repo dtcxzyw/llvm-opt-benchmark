@@ -7088,7 +7088,7 @@ switch.lookup:                                    ; preds = %6
   %786 = load i16, ptr %785, align 2
   %switch.tableidx = add nsw i16 %786, -343
   %787 = sext i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.zend_ast_export_ex, i64 0, i64 %787
+  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table.zend_ast_export_ex, i64 0, i64 %787
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.loopexit5585
 
@@ -7098,7 +7098,7 @@ switch.lookup7079:                                ; preds = %6
   %790 = and i16 %789, -257
   %switch.tableidx7080 = add nsw i16 %790, -7
   %791 = sext i16 %switch.tableidx7080 to i64
-  %switch.gep7081 = getelementptr inbounds nuw [10 x ptr], ptr @switch.table.zend_ast_export_ex.2, i64 0, i64 %791
+  %switch.gep7081 = getelementptr inbounds [10 x ptr], ptr @switch.table.zend_ast_export_ex.2, i64 0, i64 %791
   %switch.load7082 = load ptr, ptr %switch.gep7081, align 8
   br label %.loopexit5585
 
@@ -7862,7 +7862,7 @@ switch.lookup7083:                                ; preds = %6
   %1144 = load i16, ptr %1143, align 2
   %switch.tableidx7084 = add nsw i16 %1144, -1
   %1145 = sext i16 %switch.tableidx7084 to i64
-  %switch.gep7085 = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.zend_ast_export_ex.3, i64 0, i64 %1145
+  %switch.gep7085 = getelementptr inbounds [12 x ptr], ptr @switch.table.zend_ast_export_ex.3, i64 0, i64 %1145
   %switch.load7086 = load ptr, ptr %switch.gep7085, align 8
   br label %2868
 

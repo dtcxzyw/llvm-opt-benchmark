@@ -670,7 +670,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   %148 = and i64 %147, 2147483646
   %149 = or disjoint i64 %148, %144
   %150 = add nsw i64 %.01822.i.i75.i.i, -227
-  %151 = getelementptr inbounds nuw [624 x i64], ptr %9, i64 0, i64 %150
+  %151 = getelementptr inbounds [624 x i64], ptr %9, i64 0, i64 %150
   %152 = load i64, ptr %151, align 8, !noalias !23
   %153 = lshr exact i64 %149, 1
   %154 = xor i64 %153, %152
@@ -768,7 +768,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %213 = and i64 %212, 2147483646
   %214 = or disjoint i64 %213, %209
   %215 = add nsw i64 %.01822.i.i.i.i, -227
-  %216 = getelementptr inbounds nuw [624 x i64], ptr %9, i64 0, i64 %215
+  %216 = getelementptr inbounds [624 x i64], ptr %9, i64 0, i64 %215
   %217 = load i64, ptr %216, align 8, !noalias !23
   %218 = lshr exact i64 %214, 1
   %219 = xor i64 %218, %217
@@ -889,7 +889,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %292 = and i64 %291, 2147483646
   %293 = or disjoint i64 %292, %288
   %294 = add nsw i64 %.01822.i.i103.i.i, -227
-  %295 = getelementptr inbounds nuw [624 x i64], ptr %9, i64 0, i64 %294
+  %295 = getelementptr inbounds [624 x i64], ptr %9, i64 0, i64 %294
   %296 = load i64, ptr %295, align 8, !noalias !23
   %297 = lshr exact i64 %293, 1
   %298 = xor i64 %297, %296
@@ -1005,7 +1005,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %368 = and i64 %367, 2147483646
   %369 = or disjoint i64 %368, %364
   %370 = add nsw i64 %.01822.i.i89.i.i, -227
-  %371 = getelementptr inbounds nuw [624 x i64], ptr %9, i64 0, i64 %370
+  %371 = getelementptr inbounds [624 x i64], ptr %9, i64 0, i64 %370
   %372 = load i64, ptr %371, align 8, !noalias !23
   %373 = lshr exact i64 %369, 1
   %374 = xor i64 %373, %372
@@ -1173,7 +1173,7 @@ _ZN4absl7debian27UniformIiRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm
   %467 = and i64 %466, 2147483646
   %468 = or disjoint i64 %467, %463
   %469 = add nsw i64 %.01822.i.i131.i.i, -227
-  %470 = getelementptr inbounds nuw [624 x i64], ptr %9, i64 0, i64 %469
+  %470 = getelementptr inbounds [624 x i64], ptr %9, i64 0, i64 %469
   %471 = load i64, ptr %470, align 8, !noalias !23
   %472 = lshr exact i64 %468, 1
   %473 = xor i64 %472, %471
@@ -1289,7 +1289,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %543 = and i64 %542, 2147483646
   %544 = or disjoint i64 %543, %539
   %545 = add nsw i64 %.01822.i.i117.i.i, -227
-  %546 = getelementptr inbounds nuw [624 x i64], ptr %9, i64 0, i64 %545
+  %546 = getelementptr inbounds [624 x i64], ptr %9, i64 0, i64 %545
   %547 = load i64, ptr %546, align 8, !noalias !23
   %548 = lshr exact i64 %544, 1
   %549 = xor i64 %548, %547
@@ -1658,7 +1658,7 @@ _ZN4absl7debian26c_findISt6vectorIiSaIiEERiEEDTcl5beginclsr3stdE7declvalIRT_EEEE
   %713 = and i64 %712, 2147483646
   %714 = or disjoint i64 %713, %709
   %715 = add nsw i64 %.01822.i.i159.i.i, -227
-  %716 = getelementptr inbounds nuw [624 x i64], ptr %9, i64 0, i64 %715
+  %716 = getelementptr inbounds [624 x i64], ptr %9, i64 0, i64 %715
   %717 = load i64, ptr %716, align 8, !noalias !23
   %718 = lshr exact i64 %714, 1
   %719 = xor i64 %718, %717
@@ -1768,7 +1768,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %785 = and i64 %784, 2147483646
   %786 = or disjoint i64 %785, %781
   %787 = add nsw i64 %.01822.i.i145.i.i, -227
-  %788 = getelementptr inbounds nuw [624 x i64], ptr %9, i64 0, i64 %787
+  %788 = getelementptr inbounds [624 x i64], ptr %9, i64 0, i64 %787
   %789 = load i64, ptr %788, align 8, !noalias !23
   %790 = lshr exact i64 %786, 1
   %791 = xor i64 %790, %789

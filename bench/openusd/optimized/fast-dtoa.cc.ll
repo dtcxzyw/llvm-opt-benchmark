@@ -231,12 +231,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Single20Normalized
   %152 = ashr i32 %151, 12
   %153 = add nsw i32 %152, 1
   %154 = sext i32 %153 to i64
-  %155 = getelementptr inbounds nuw [11 x i32], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17kSmallPowersOfTenE, i64 0, i64 %154
+  %155 = getelementptr inbounds [11 x i32], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17kSmallPowersOfTenE, i64 0, i64 %154
   %156 = load i32, ptr %155, align 4
   %157 = icmp ugt i32 %156, %147
   %spec.select.i.i.i = select i1 %157, i32 %152, i32 %153
   %158 = sext i32 %spec.select.i.i.i to i64
-  %159 = getelementptr inbounds nuw [11 x i32], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17kSmallPowersOfTenE, i64 0, i64 %158
+  %159 = getelementptr inbounds [11 x i32], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17kSmallPowersOfTenE, i64 0, i64 %158
   %160 = load i32, ptr %159, align 4
   store i32 0, ptr %5, align 4
   %161 = icmp sgt i32 %spec.select.i.i.i, 0
@@ -491,12 +491,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Double17AsNormaliz
   %302 = ashr i32 %301, 12
   %303 = add nsw i32 %302, 1
   %304 = sext i32 %303 to i64
-  %305 = getelementptr inbounds nuw [11 x i32], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17kSmallPowersOfTenE, i64 0, i64 %304
+  %305 = getelementptr inbounds [11 x i32], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17kSmallPowersOfTenE, i64 0, i64 %304
   %306 = load i32, ptr %305, align 4
   %307 = icmp ugt i32 %306, %297
   %spec.select.i.i.i17 = select i1 %307, i32 %302, i32 %303
   %308 = sext i32 %spec.select.i.i.i17 to i64
-  %309 = getelementptr inbounds nuw [11 x i32], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17kSmallPowersOfTenE, i64 0, i64 %308
+  %309 = getelementptr inbounds [11 x i32], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17kSmallPowersOfTenE, i64 0, i64 %308
   %310 = load i32, ptr %309, align 4
   store i32 0, ptr %5, align 4
   %311 = icmp sgt i32 %spec.select.i.i.i17, 0

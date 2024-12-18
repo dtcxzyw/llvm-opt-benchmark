@@ -1330,7 +1330,7 @@ _ZN7oopDesc11oop_iterateI32VerifyLoadedHeapEmbeddedPointersEEvPT_.exit: ; preds 
   %124 = getelementptr inbounds nuw i8, ptr %.0.i.i18, i64 12
   %125 = load i32, ptr %124, align 4
   %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI32VerifyLoadedHeapEmbeddedPointersE6_tableE, i64 0, i64 %126
+  %127 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI32VerifyLoadedHeapEmbeddedPointersE6_tableE, i64 0, i64 %126
   %128 = load ptr, ptr %127, align 8
   call void %128(ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(16) %.01433, ptr noundef %.0.i.i18) #12
   %129 = load i8, ptr @UseCompressedClassPointers, align 1

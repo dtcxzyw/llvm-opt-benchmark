@@ -597,7 +597,7 @@ define internal i32 @odls_default_fork_local_proc(ptr noundef %0) #1 {
 178:                                              ; preds = %164
   %179 = load i32, ptr %55, align 4
   %180 = sext i32 %179 to i64
-  %181 = getelementptr inbounds nuw [512 x i8], ptr %4, i64 0, i64 %180
+  %181 = getelementptr inbounds [512 x i8], ptr %4, i64 0, i64 %180
   store i8 0, ptr %181, align 1
   br label %182
 
@@ -634,7 +634,7 @@ define internal i32 @odls_default_fork_local_proc(ptr noundef %0) #1 {
 199:                                              ; preds = %185
   %200 = load i32, ptr %56, align 4
   %201 = sext i32 %200 to i64
-  %202 = getelementptr inbounds nuw [512 x i8], ptr %5, i64 0, i64 %201
+  %202 = getelementptr inbounds [512 x i8], ptr %5, i64 0, i64 %201
   store i8 0, ptr %202, align 1
   br label %203
 

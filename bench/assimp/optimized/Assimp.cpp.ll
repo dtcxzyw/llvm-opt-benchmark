@@ -8355,7 +8355,7 @@ if.then19.i.i:                                    ; preds = %if.end17.i.i
   %conv20.i.i = trunc nuw nsw i32 %call12.i.i to i8
   %inc21.i.i = add nsw i32 %n.0222.i.i, 1
   %idxprom22.i.i = sext i32 %n.0222.i.i to i64
-  %arrayidx23.i.i = getelementptr inbounds nuw [455 x i8], ptr %lencodes.i.i, i64 0, i64 %idxprom22.i.i
+  %arrayidx23.i.i = getelementptr inbounds [455 x i8], ptr %lencodes.i.i, i64 0, i64 %idxprom22.i.i
   store i8 %conv20.i.i, ptr %arrayidx23.i.i, align 1
   br label %if.end58.i.i
 
@@ -8421,7 +8421,7 @@ if.end31.i.i:                                     ; preds = %_ZL14stbi__zreceive
   %add27.i.i = add nuw nsw i32 %and.i116.i.i, 3
   %sub.i78.i = add nsw i32 %n.0222.i.i, -1
   %idxprom32.i.i = sext i32 %sub.i78.i to i64
-  %arrayidx33.i.i = getelementptr inbounds nuw [455 x i8], ptr %lencodes.i.i, i64 0, i64 %idxprom32.i.i
+  %arrayidx33.i.i = getelementptr inbounds [455 x i8], ptr %lencodes.i.i, i64 0, i64 %idxprom32.i.i
   %95 = load i8, ptr %arrayidx33.i.i, align 1
   br label %if.end48.i.i
 
@@ -8534,7 +8534,7 @@ if.end48.i.i:                                     ; preds = %_ZL14stbi__zreceive
 
 if.end53.i.i:                                     ; preds = %if.end48.i.i
   %idx.ext.i74.i = sext i32 %n.0222.i.i to i64
-  %add.ptr.i75.i = getelementptr inbounds nuw i8, ptr %lencodes.i.i, i64 %idx.ext.i74.i
+  %add.ptr.i75.i = getelementptr inbounds i8, ptr %lencodes.i.i, i64 %idx.ext.i74.i
   %conv56.i.i = zext nneg i32 %c.0.i.i to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i75.i, i8 %fill.0.i.i, i64 %conv56.i.i, i1 false)
   %add57.i.i = add nsw i32 %c.0.i.i, %n.0222.i.i
@@ -13454,7 +13454,7 @@ for.body225:                                      ; preds = %for.cond222.prehead
   %call226 = tail call fastcc noundef i32 @_ZL13stbi__get16beP13stbi__context(ptr noundef nonnull %0)
   %169 = load i32, ptr %depth207, align 8
   %idxprom231 = sext i32 %169 to i64
-  %arrayidx232 = getelementptr inbounds nuw [9 x i8], ptr @_ZL23stbi__depth_scale_table, i64 0, i64 %idxprom231
+  %arrayidx232 = getelementptr inbounds [9 x i8], ptr @_ZL23stbi__depth_scale_table, i64 0, i64 %idxprom231
   %170 = load i8, ptr %arrayidx232, align 1
   %171 = trunc i32 %call226 to i8
   %conv235 = mul i8 %170, %171
@@ -15374,7 +15374,7 @@ for.body547.lr.ph:                                ; preds = %for.end542
   %idx.neg561 = sub nsw i64 0, %idx.ext560
   %cmp563 = icmp eq i32 %color, 0
   %idxprom564 = sext i32 %depth to i64
-  %arrayidx565 = getelementptr inbounds nuw [9 x i8], ptr @_ZL23stbi__depth_scale_table, i64 0, i64 %idxprom564
+  %arrayidx565 = getelementptr inbounds [9 x i8], ptr @_ZL23stbi__depth_scale_table, i64 0, i64 %idxprom564
   %cmp671655 = icmp sgt i32 %mul.i, 7
   %cmp605662 = icmp sgt i32 %mul.i, 3
   %cmp573669 = icmp sgt i32 %mul.i, 1

@@ -143,7 +143,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #1
 define dso_local void @do_item_stats_add_crawl(i32 noundef %i, i64 noundef %reclaimed, i64 noundef %unfetched, i64 noundef %checked) local_unnamed_addr #3 {
 entry:
   %idxprom = sext i32 %i to i64
-  %arrayidx = getelementptr inbounds nuw [256 x %struct.itemstats_t], ptr @itemstats, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [256 x %struct.itemstats_t], ptr @itemstats, i64 0, i64 %idxprom
   %crawler_reclaimed = getelementptr inbounds nuw i8, ptr %arrayidx, i64 64
   %0 = load i64, ptr %crawler_reclaimed, align 8
   %add = add i64 %0, %reclaimed
@@ -305,22 +305,22 @@ entry:
 if.end:                                           ; preds = %entry
   %or = or i32 %cur_lru, %orig_id
   %idxprom = sext i32 %or to i64
-  %arrayidx = getelementptr inbounds nuw [256 x %union.pthread_mutex_t], ptr @lru_locks, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [256 x %union.pthread_mutex_t], ptr @lru_locks, i64 0, i64 %idxprom
   %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %arrayidx) #18
-  %arrayidx2 = getelementptr inbounds nuw [256 x ptr], ptr @tails, i64 0, i64 %idxprom
+  %arrayidx2 = getelementptr inbounds [256 x ptr], ptr @tails, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx2, align 8
   %cmp4378.not = icmp eq ptr %0, null
   br i1 %cmp4378.not, label %for.end.thread, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %arrayidx38 = getelementptr inbounds nuw [256 x %struct.itemstats_t], ptr @itemstats, i64 0, i64 %idxprom
+  %arrayidx38 = getelementptr inbounds [256 x %struct.itemstats_t], ptr @itemstats, i64 0, i64 %idxprom
   %lrutail_reflocked = getelementptr inbounds nuw i8, ptr %arrayidx38, i64 80
   %tailrepairs = getelementptr inbounds nuw i8, ptr %arrayidx38, i64 32
   %reclaimed = getelementptr inbounds nuw i8, ptr %arrayidx38, i64 16
   %expired_unfetched = getelementptr inbounds nuw i8, ptr %arrayidx38, i64 40
   %1 = tail call i32 @llvm.fshl.i32(i32 %cur_lru, i32 %cur_lru, i32 26)
   %cmp97 = icmp eq i32 %cur_lru, 64
-  %moves_within_lru = getelementptr inbounds nuw [256 x %struct.itemstats_t], ptr @itemstats, i64 0, i64 %idxprom, i32 13
+  %moves_within_lru = getelementptr inbounds [256 x %struct.itemstats_t], ptr @itemstats, i64 0, i64 %idxprom, i32 13
   %2 = and i8 %flags, 2
   %tobool.not = icmp eq i8 %2, 0
   br label %for.body
@@ -759,7 +759,7 @@ do_item_remove.exit137:                           ; preds = %do_item_link_q.exit
   br label %for.inc
 
 if.else:                                          ; preds = %if.then91
-  %moves_to_warm = getelementptr inbounds nuw [256 x %struct.itemstats_t], ptr @itemstats, i64 0, i64 %idxprom, i32 12
+  %moves_to_warm = getelementptr inbounds [256 x %struct.itemstats_t], ptr @itemstats, i64 0, i64 %idxprom, i32 12
   %92 = load i64, ptr %moves_to_warm, align 8
   %inc105 = add i64 %92, 1
   store i64 %inc105, ptr %moves_to_warm, align 8
@@ -855,7 +855,7 @@ if.else.i170:                                     ; preds = %if.end19.i154
   br label %if.then223.thread
 
 if.else107:                                       ; preds = %if.end85
-  %arrayidx109 = getelementptr inbounds nuw [256 x i64], ptr @sizes_bytes, i64 0, i64 %idxprom
+  %arrayidx109 = getelementptr inbounds [256 x i64], ptr @sizes_bytes, i64 0, i64 %idxprom
   %117 = load i64, ptr %arrayidx109, align 8
   %cmp110 = icmp ugt i64 %117, %limit.4
   br i1 %cmp110, label %if.then116, label %lor.lhs.false112
@@ -869,7 +869,7 @@ lor.lhs.false112:                                 ; preds = %if.else107
   br i1 %cmp114, label %if.then116, label %if.then223
 
 if.then116:                                       ; preds = %lor.lhs.false112, %if.else107
-  %moves_to_cold = getelementptr inbounds nuw [256 x %struct.itemstats_t], ptr @itemstats, i64 0, i64 %idxprom, i32 11
+  %moves_to_cold = getelementptr inbounds [256 x %struct.itemstats_t], ptr @itemstats, i64 0, i64 %idxprom, i32 11
   %120 = load i64, ptr %moves_to_cold, align 8
   %inc119 = add i64 %120, 1
   store i64 %inc119, ptr %moves_to_cold, align 8
@@ -1076,7 +1076,7 @@ land.lhs.true197:                                 ; preds = %if.else191
   br i1 %tobool198, label %if.then200, label %if.then223
 
 if.then200:                                       ; preds = %land.lhs.true197
-  %moves_to_warm203 = getelementptr inbounds nuw [256 x %struct.itemstats_t], ptr @itemstats, i64 0, i64 %idxprom, i32 12
+  %moves_to_warm203 = getelementptr inbounds [256 x %struct.itemstats_t], ptr @itemstats, i64 0, i64 %idxprom, i32 12
   %164 = load i64, ptr %moves_to_warm203, align 8
   %inc204 = add i64 %164, 1
   store i64 %inc204, ptr %moves_to_warm203, align 8
@@ -2924,9 +2924,9 @@ for.body3:                                        ; preds = %for.cond1.preheader
   %0 = load i32, ptr %arrayidx, align 4
   %or = or i32 %0, %n.092
   %idxprom4 = sext i32 %or to i64
-  %arrayidx5 = getelementptr inbounds nuw [256 x %union.pthread_mutex_t], ptr @lru_locks, i64 0, i64 %idxprom4
+  %arrayidx5 = getelementptr inbounds [256 x %union.pthread_mutex_t], ptr @lru_locks, i64 0, i64 %idxprom4
   %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %arrayidx5) #18
-  %arrayidx7 = getelementptr inbounds nuw [256 x %struct.itemstats_t], ptr @itemstats, i64 0, i64 %idxprom4
+  %arrayidx7 = getelementptr inbounds [256 x %struct.itemstats_t], ptr @itemstats, i64 0, i64 %idxprom4
   %expired_unfetched = getelementptr inbounds nuw i8, ptr %arrayidx7, i64 40
   %1 = load i64, ptr %expired_unfetched, align 8
   %add = add i64 %1, %totals.sroa.721.169
@@ -3078,9 +3078,9 @@ for.body3:                                        ; preds = %for.cond1.preheader
   %0 = load i32, ptr %arrayidx, align 4
   %or = or i32 %0, %n.0288
   %idxprom4 = sext i32 %or to i64
-  %arrayidx5 = getelementptr inbounds nuw [256 x %union.pthread_mutex_t], ptr @lru_locks, i64 0, i64 %idxprom4
+  %arrayidx5 = getelementptr inbounds [256 x %union.pthread_mutex_t], ptr @lru_locks, i64 0, i64 %idxprom4
   %call = call i32 @pthread_mutex_lock(ptr noundef nonnull %arrayidx5) #18
-  %arrayidx7 = getelementptr inbounds nuw [256 x %struct.itemstats_t], ptr @itemstats, i64 0, i64 %idxprom4
+  %arrayidx7 = getelementptr inbounds [256 x %struct.itemstats_t], ptr @itemstats, i64 0, i64 %idxprom4
   %1 = load i64, ptr %arrayidx7, align 8
   %add = add i64 %1, %totals.sroa.0.1287
   %evicted_nonzero = getelementptr inbounds nuw i8, ptr %arrayidx7, i64 8
@@ -3125,10 +3125,10 @@ for.body3:                                        ; preds = %for.cond1.preheader
   %direct_reclaims = getelementptr inbounds nuw i8, ptr %arrayidx7, i64 112
   %15 = load i64, ptr %direct_reclaims, align 8
   %add64 = add i64 %15, %totals.sroa.43.1273
-  %arrayidx66 = getelementptr inbounds nuw [256 x i64], ptr @sizes_bytes, i64 0, i64 %idxprom4
+  %arrayidx66 = getelementptr inbounds [256 x i64], ptr @sizes_bytes, i64 0, i64 %idxprom4
   %16 = load i64, ptr %arrayidx66, align 8
   %add67 = add i64 %16, %totals.sroa.54.1278
-  %arrayidx69 = getelementptr inbounds nuw [256 x i32], ptr @sizes, i64 0, i64 %idxprom4
+  %arrayidx69 = getelementptr inbounds [256 x i32], ptr @sizes, i64 0, i64 %idxprom4
   %17 = load i32, ptr %arrayidx69, align 4
   %add70 = add i32 %17, %size.0283
   %arrayidx74 = getelementptr inbounds nuw [4 x i32], ptr %lru_size_map, i64 0, i64 %indvars.iv
@@ -3141,7 +3141,7 @@ for.body3:                                        ; preds = %for.cond1.preheader
   ]
 
 land.lhs.true:                                    ; preds = %for.body3
-  %arrayidx79 = getelementptr inbounds nuw [256 x ptr], ptr @tails, i64 0, i64 %idxprom4
+  %arrayidx79 = getelementptr inbounds [256 x ptr], ptr @tails, i64 0, i64 %idxprom4
   %19 = load ptr, ptr %arrayidx79, align 8
   %cmp80.not = icmp eq ptr %19, null
   br i1 %cmp80.not, label %if.then113, label %if.then
@@ -3154,7 +3154,7 @@ if.then:                                          ; preds = %land.lhs.true
   br label %if.then113
 
 land.lhs.true86:                                  ; preds = %for.body3
-  %arrayidx88 = getelementptr inbounds nuw [256 x ptr], ptr @tails, i64 0, i64 %idxprom4
+  %arrayidx88 = getelementptr inbounds [256 x ptr], ptr @tails, i64 0, i64 %idxprom4
   %22 = load ptr, ptr %arrayidx88, align 8
   %cmp89.not = icmp eq ptr %22, null
   br i1 %cmp89.not, label %if.end117, label %if.then90
@@ -3167,7 +3167,7 @@ if.then90:                                        ; preds = %land.lhs.true86
   br label %if.end117
 
 land.lhs.true99:                                  ; preds = %for.body3
-  %arrayidx101 = getelementptr inbounds nuw [256 x ptr], ptr @tails, i64 0, i64 %idxprom4
+  %arrayidx101 = getelementptr inbounds [256 x ptr], ptr @tails, i64 0, i64 %idxprom4
   %25 = load ptr, ptr %arrayidx101, align 8
   %cmp102.not = icmp eq ptr %25, null
   br i1 %cmp102.not, label %if.end117, label %if.then103

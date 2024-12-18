@@ -1040,7 +1040,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i3
   %159 = shl nuw i64 1, %158
   %160 = sdiv i32 %23, 64
   %161 = sext i32 %160 to i64
-  %162 = getelementptr inbounds nuw [16 x i64], ptr %7, i64 0, i64 %161
+  %162 = getelementptr inbounds [16 x i64], ptr %7, i64 0, i64 %161
   %163 = load i64, ptr %162, align 8
   %164 = or i64 %163, %159
   store i64 %164, ptr %162, align 8

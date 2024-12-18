@@ -76420,10 +76420,10 @@ define hidden noundef zeroext i1 @"_ZN72_$LT$typst..layout..spacing..Spacing$u20
 define { ptr, i64 } @_ZN5typst6layout5stack1_6Fields6to_str17h0affe60fc7d1fb3cE(i8 noundef %0) unnamed_addr #18 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN70_$LT$typst..layout..stack.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h31e627e5dac855deE", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN70_$LT$typst..layout..stack.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h31e627e5dac855deE", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN70_$LT$typst..layout..stack.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h31e627e5dac855deE.507", i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds [3 x i64], ptr @"switch.table._ZN70_$LT$typst..layout..stack.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h31e627e5dac855deE.507", i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -80995,10 +80995,10 @@ define void @"_ZN85_$LT$unicode_math_class..MathClass$u20$as$u20$typst..foundati
 switch.lookup:
   %2 = alloca { i8, [16 x i8] }, align 1
   %3 = sext i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [15 x ptr], ptr @"switch.table._ZN85_$LT$unicode_math_class..MathClass$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h30b17140f4805748E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds [15 x ptr], ptr @"switch.table._ZN85_$LT$unicode_math_class..MathClass$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h30b17140f4805748E", i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = sext i8 %1 to i64
-  %switch.gep1 = getelementptr inbounds nuw [15 x i64], ptr @"switch.table._ZN85_$LT$unicode_math_class..MathClass$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h30b17140f4805748E.508", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds [15 x i64], ptr @"switch.table._ZN85_$LT$unicode_math_class..MathClass$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h30b17140f4805748E.508", i64 0, i64 %4
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14618)
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %2), !noalias !14621

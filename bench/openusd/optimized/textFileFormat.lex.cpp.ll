@@ -484,7 +484,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
   %.2365 = phi ptr [ %304, %301 ], [ %.2365.ph, %.outer ]
   %.2313 = phi i32 [ %305, %301 ], [ %.2313.ph, %.outer ]
   %293 = sext i32 %.2313 to i64
-  %294 = getelementptr inbounds nuw [404 x i16], ptr @_ZL9yy_accept, i64 0, i64 %293
+  %294 = getelementptr inbounds [404 x i16], ptr @_ZL9yy_accept, i64 0, i64 %293
   %295 = load i16, ptr %294, align 2
   %296 = sext i16 %295 to i32
   store ptr %.1368.ph, ptr %249, align 8
@@ -2825,7 +2825,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit529: ;
   %1108 = tail call fastcc noundef i32 @_ZL21yy_get_previous_statePv(ptr noundef nonnull %1)
   %1109 = load ptr, ptr %246, align 8
   %1110 = sext i32 %1108 to i64
-  %1111 = getelementptr inbounds nuw [404 x [61 x i16]], ptr @_ZL6yy_nxt, i64 0, i64 %1110, i64 1
+  %1111 = getelementptr inbounds [404 x [61 x i16]], ptr @_ZL6yy_nxt, i64 0, i64 %1110, i64 1
   %1112 = load i16, ptr %1111, align 2
   %1113 = icmp slt i16 %1112, 1
   br i1 %1113, label %.outer.backedge, label %1114
@@ -3477,7 +3477,7 @@ define internal fastcc noundef i32 @_ZL21yy_get_previous_statePv(ptr nocapture n
   %22 = load i16, ptr %21, align 2
   %23 = sext i16 %22 to i32
   %24 = sext i16 %22 to i64
-  %25 = getelementptr inbounds nuw [404 x i16], ptr @_ZL9yy_accept, i64 0, i64 %24
+  %25 = getelementptr inbounds [404 x i16], ptr @_ZL9yy_accept, i64 0, i64 %24
   %26 = load i16, ptr %25, align 2
   %.not16 = icmp eq i16 %26, 0
   br i1 %.not16, label %28, label %27

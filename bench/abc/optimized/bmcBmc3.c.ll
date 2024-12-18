@@ -4449,7 +4449,7 @@ define internal fastcc void @Saig_ManBmcAddClauses(ptr nocapture noundef readonl
   %.sink = phi i32 [ %35, %32 ], [ %31, %29 ]
   %36 = add nsw i32 %.046, 1
   %37 = sext i32 %.046 to i64
-  %38 = getelementptr inbounds nuw [5 x i32], ptr %5, i64 0, i64 %37
+  %38 = getelementptr inbounds [5 x i32], ptr %5, i64 0, i64 %37
   store i32 %.sink, ptr %38, align 4
   br label %39
 
@@ -4480,7 +4480,7 @@ define internal fastcc void @Saig_ManBmcAddClauses(ptr nocapture noundef readonl
 48:                                               ; preds = %44
   %49 = load ptr, ptr %10, align 8
   %50 = sext i32 %.1 to i64
-  %51 = getelementptr inbounds nuw i32, ptr %5, i64 %50
+  %51 = getelementptr inbounds i32, ptr %5, i64 %50
   %52 = call i32 @sat_solver_addclause(ptr noundef %49, ptr noundef nonnull %5, ptr noundef nonnull %51) #23
   br label %53
 

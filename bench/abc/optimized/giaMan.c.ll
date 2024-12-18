@@ -3051,7 +3051,7 @@ define void @Gia_ManPrintInitClasses(ptr nocapture noundef readonly %0) local_un
   %7 = getelementptr inbounds nuw i32, ptr %.val34, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds nuw [6 x i32], ptr %2, i64 0, i64 %9
+  %10 = getelementptr inbounds [6 x i32], ptr %2, i64 0, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = add nsw i32 %11, 1
   store i32 %12, ptr %10, align 4
@@ -3112,7 +3112,7 @@ define void @Gia_ManPrintInitClasses(ptr nocapture noundef readonly %0) local_un
   %40 = getelementptr inbounds nuw i32, ptr %.val33, i64 %indvars.iv45
   %41 = load i32, ptr %40, align 4
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds nuw [6 x i32], ptr %2, i64 0, i64 %42
+  %43 = getelementptr inbounds [6 x i32], ptr %2, i64 0, i64 %42
   %44 = load i32, ptr %43, align 4
   %45 = add nsw i32 %44, 1
   store i32 %45, ptr %43, align 4
@@ -4308,7 +4308,7 @@ Vec_IntPush.exit293:                              ; preds = %.Vec_IntGrow.exit10
   %112 = load i32, ptr %111, align 4
   %113 = tail call i32 @Dar_LibReturnClass(i32 noundef %112) #25
   %114 = sext i32 %113 to i64
-  %115 = getelementptr inbounds nuw [222 x i32], ptr %2, i64 0, i64 %114
+  %115 = getelementptr inbounds [222 x i32], ptr %2, i64 0, i64 %114
   %116 = load i32, ptr %115, align 4
   %117 = add nsw i32 %116, 1
   store i32 %117, ptr %115, align 4
@@ -12487,7 +12487,7 @@ Gia_ManStopP.exit.i110:                           ; preds = %63, %.lr.ph.i108
   %77 = add i32 %.val81.val, %76
   %78 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %56, ptr noundef nonnull @.str.169, i32 noundef %77) #25
   %79 = sext i32 %7 to i64
-  %80 = getelementptr inbounds nuw [16 x ptr], ptr %4, i64 0, i64 %79
+  %80 = getelementptr inbounds [16 x ptr], ptr %4, i64 0, i64 %79
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr i8, ptr %81, i64 16
   %.val86 = load i32, ptr %82, align 8

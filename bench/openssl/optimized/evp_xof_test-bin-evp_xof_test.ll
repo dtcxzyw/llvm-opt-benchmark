@@ -419,7 +419,7 @@ lor.lhs.false10:                                  ; preds = %lor.lhs.false5
 
 if.end:                                           ; preds = %lor.lhs.false10
   %idxprom.i = sext i32 %tst to i64
-  %arrayidx.i = getelementptr inbounds nuw [7 x i64], ptr @dupoffset_tests, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [7 x i64], ptr @dupoffset_tests, i64 0, i64 %idxprom.i
   %0 = load i64, ptr %arrayidx.i, align 8
   %call.i = call fastcc ptr @shake_setup(ptr noundef nonnull @.str.36)
   %call1.i = call i32 @test_ptr(ptr noundef nonnull @.str.7, i32 noundef 429, ptr noundef nonnull @.str.37, ptr noundef %call.i) #4
@@ -583,7 +583,7 @@ declare i32 @test_uchar_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i
 define internal fastcc range(i32 0, 2) i32 @do_shake_squeeze_test(i32 noundef %tst, ptr noundef %in, i64 noundef range(i64 16, 33) %inlen, ptr noundef %expected_out, i64 noundef range(i64 250, 2001) %expected_outlen) unnamed_addr #0 {
 entry:
   %idxprom = sext i32 %tst to i64
-  %arrayidx = getelementptr inbounds nuw [32 x %struct.anon], ptr @stride_tests, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [32 x %struct.anon], ptr @stride_tests, i64 0, i64 %idxprom
   %0 = load i64, ptr %arrayidx, align 16
   %call = tail call fastcc ptr @shake_setup(ptr noundef nonnull @.str.9)
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.7, i32 noundef 358, ptr noundef nonnull @.str.8, ptr noundef %call) #4

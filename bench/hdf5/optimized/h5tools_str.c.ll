@@ -2234,7 +2234,7 @@ switch.lookup831:                                 ; preds = %498
   %571 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %572 = add nsw i32 %558, -1
   %573 = sext i32 %572 to i64
-  %574 = getelementptr inbounds nuw [32 x i64], ptr %13, i64 0, i64 %573
+  %574 = getelementptr inbounds [32 x i64], ptr %13, i64 0, i64 %573
   %575 = getelementptr inbounds nuw i8, ptr %5, i64 572
   %576 = getelementptr inbounds nuw i8, ptr %1, i64 352
   br label %577

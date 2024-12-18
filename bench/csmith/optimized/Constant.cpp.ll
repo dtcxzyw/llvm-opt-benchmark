@@ -390,7 +390,7 @@ define dso_local void @_Z11HexToBinaryNSt7__cxx1112basic_stringIcSt11char_traits
   %60 = load i8, ptr %.sink68, align 1
   %61 = sext i8 %60 to i64
   %62 = add nsw i64 %.sink67, %61
-  %63 = getelementptr inbounds nuw [16 x %"class.std::__cxx11::basic_string"], ptr %4, i64 0, i64 %62
+  %63 = getelementptr inbounds [16 x %"class.std::__cxx11::basic_string"], ptr %4, i64 0, i64 %62
   %64 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(32) %63)
           to label %118 unwind label %.loopexit61
 

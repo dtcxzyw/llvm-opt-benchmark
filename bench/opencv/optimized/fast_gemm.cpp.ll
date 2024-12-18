@@ -1519,7 +1519,7 @@ _ZN2cv3dnn12cpu_baselineL13fast_gemm_f32EiPKcS3_Pcif.exit.us.i: ; preds = %369
 376:                                              ; preds = %.lr.ph.us.i, %376
   %indvars.iv.i87 = phi i64 [ 0, %.lr.ph.us.i ], [ %indvars.iv.next.i88, %376 ]
   %377 = mul nsw i64 %indvars.iv.i87, %324
-  %378 = getelementptr inbounds nuw i8, ptr %3, i64 %377
+  %378 = getelementptr inbounds i8, ptr %3, i64 %377
   %379 = mul nsw i64 %indvars.iv.i87, %325
   %380 = getelementptr inbounds i8, ptr %gep.i86, i64 %379
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %378, ptr align 1 %380, i64 %381, i1 false)
@@ -2265,7 +2265,7 @@ _ZN2cv3dnn12cpu_baselineL13fast_gemm_f32EiPKcS3_Pcif.exit.us.i: ; preds = %258
 265:                                              ; preds = %.lr.ph.us.i, %265
   %indvars.iv.i71 = phi i64 [ 0, %.lr.ph.us.i ], [ %indvars.iv.next.i72, %265 ]
   %266 = mul nsw i64 %indvars.iv.i71, %213
-  %267 = getelementptr inbounds nuw i8, ptr %3, i64 %266
+  %267 = getelementptr inbounds i8, ptr %3, i64 %266
   %268 = mul nsw i64 %indvars.iv.i71, %214
   %269 = getelementptr inbounds i8, ptr %gep.i70, i64 %268
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %267, ptr align 1 %269, i64 %270, i1 false)
@@ -6191,7 +6191,7 @@ _ZN2cv3dnn12cpu_baselineL13fast_gemm_f32EiPKcS3_Pcif.exit.us.i: ; preds = %397
 404:                                              ; preds = %.lr.ph.us.i, %404
   %indvars.iv.i96 = phi i64 [ 0, %.lr.ph.us.i ], [ %indvars.iv.next.i97, %404 ]
   %405 = mul nsw i64 %indvars.iv.i96, %352
-  %406 = getelementptr inbounds nuw i8, ptr %3, i64 %405
+  %406 = getelementptr inbounds i8, ptr %3, i64 %405
   %407 = mul nsw i64 %indvars.iv.i96, %353
   %408 = getelementptr inbounds i8, ptr %gep.i95, i64 %407
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %406, ptr align 1 %408, i64 %409, i1 false)
@@ -6841,7 +6841,7 @@ _ZN2cv3dnn12cpu_baselineL13fast_gemm_f32EiPKcS3_Pcif.exit.us.i: ; preds = %286
 293:                                              ; preds = %.lr.ph.us.i, %293
   %indvars.iv.i79 = phi i64 [ 0, %.lr.ph.us.i ], [ %indvars.iv.next.i80, %293 ]
   %294 = mul nsw i64 %indvars.iv.i79, %241
-  %295 = getelementptr inbounds nuw i8, ptr %3, i64 %294
+  %295 = getelementptr inbounds i8, ptr %3, i64 %294
   %296 = mul nsw i64 %indvars.iv.i79, %242
   %297 = getelementptr inbounds i8, ptr %gep.i78, i64 %296
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %295, ptr align 1 %297, i64 %298, i1 false)

@@ -348,7 +348,7 @@ if.then.i.i41.i:                                  ; preds = %for.body.i.i
 
 if.else.i.i.i:                                    ; preds = %for.body.i.i
   %idxprom.i.i.i = sext i32 %10 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.i.i
   br label %oideq.exit.i.i
 
 oideq.exit.i.i:                                   ; preds = %if.else.i.i.i, %if.then.i.i41.i
@@ -374,7 +374,7 @@ if.then.i22.i.i:                                  ; preds = %if.end.i.i
 
 if.else.i12.i.i:                                  ; preds = %if.end.i.i
   %idxprom.i13.i.i = sext i32 %13 to i64
-  %arrayidx.i14.i.i = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i13.i.i
+  %arrayidx.i14.i.i = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i13.i.i
   br label %oideq.exit24.i.i
 
 oideq.exit24.i.i:                                 ; preds = %if.else.i12.i.i, %if.then.i22.i.i
@@ -474,7 +474,7 @@ for.body.i.us:                                    ; preds = %for.inc.i.us, %whil
 
 if.else.i.i.us:                                   ; preds = %for.body.i.us
   %idxprom.i33.i.us = sext i32 %22 to i64
-  %arrayidx.i34.i.us = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i33.i.us
+  %arrayidx.i34.i.us = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i33.i.us
   br label %oideq.exit.i.us
 
 if.then.i.i.us:                                   ; preds = %for.body.i.us
@@ -656,7 +656,7 @@ for.body.us28.i:                                  ; preds = %for.inc.us31.i, %fo
 
 if.else.i.us.i:                                   ; preds = %for.body.us28.i
   %idxprom.i.us.i = sext i32 %39 to i64
-  %arrayidx.i.us.i = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.us.i
+  %arrayidx.i.us.i = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.us.i
   br label %oideq.exit.us.i
 
 if.then.i.us.i:                                   ; preds = %for.body.us28.i

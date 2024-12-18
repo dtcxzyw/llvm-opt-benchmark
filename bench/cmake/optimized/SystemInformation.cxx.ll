@@ -1297,7 +1297,7 @@ define dso_local noundef range(i32 -3, 1) i32 @_ZN5cmsys31SystemInformationImple
 
 .noexc37:                                         ; preds = %.noexc
   %29 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #31
-  %30 = getelementptr inbounds nuw i8, ptr %5, i64 %29
+  %30 = getelementptr inbounds i8, ptr %5, i64 %29
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull %5, ptr noundef nonnull %30)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %31
 
@@ -2233,7 +2233,7 @@ _ZNK5cmsys12_GLOBAL__N_116SymbolProperties11GetFunctionB5cxx11Ev.exit.i: ; preds
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   store i32 %2, ptr %24, align 8
-  %44 = getelementptr inbounds nuw [256 x ptr], ptr %13, i64 0, i64 %indvars.iv
+  %44 = getelementptr inbounds [256 x ptr], ptr %13, i64 0, i64 %indvars.iv
   %45 = load ptr, ptr %44, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %45, ptr %25, align 8

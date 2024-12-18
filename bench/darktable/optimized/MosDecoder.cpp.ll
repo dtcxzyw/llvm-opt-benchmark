@@ -2709,7 +2709,7 @@ define hidden void @_ZN8rawspeed10MosDecoder22decodeMetaDataInternalEPKNS_14Came
   %173 = load ptr, ptr %7, align 8, !tbaa !21
   %174 = getelementptr i8, ptr %173, i64 -24
   %175 = load i64, ptr %174, align 8
-  %176 = getelementptr inbounds nuw i8, ptr %7, i64 %175
+  %176 = getelementptr inbounds i8, ptr %7, i64 %175
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 32
   %178 = load i32, ptr %177, align 8, !tbaa !63
   %179 = and i32 %178, 5
@@ -2776,7 +2776,7 @@ define hidden void @_ZN8rawspeed10MosDecoder22decodeMetaDataInternalEPKNS_14Came
   %215 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %216 = getelementptr i8, ptr %214, i64 -24
   %217 = load i64, ptr %216, align 8
-  %218 = getelementptr inbounds nuw i8, ptr %7, i64 %217
+  %218 = getelementptr inbounds i8, ptr %7, i64 %217
   store ptr %215, ptr %218, align 8, !tbaa !21
   %219 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %219, align 8, !tbaa !21
@@ -2806,7 +2806,7 @@ define hidden void @_ZN8rawspeed10MosDecoder22decodeMetaDataInternalEPKNS_14Came
   %232 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
   %233 = getelementptr i8, ptr %231, i64 -24
   %234 = load i64, ptr %233, align 8
-  %235 = getelementptr inbounds nuw i8, ptr %7, i64 %234
+  %235 = getelementptr inbounds i8, ptr %7, i64 %234
   store ptr %232, ptr %235, align 8, !tbaa !21
   %236 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %236, align 8, !tbaa !71

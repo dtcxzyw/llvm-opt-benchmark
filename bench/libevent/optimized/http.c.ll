@@ -9418,7 +9418,7 @@ if.else51:                                        ; preds = %if.end
 if.end55:                                         ; preds = %if.else51
   %sub = add nsw i64 %sub.ptr.sub, -2
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf, ptr nonnull align 1 %arrayidx, i64 %sub, i1 false)
-  %arrayidx57 = getelementptr inbounds nuw [64 x i8], ptr %buf, i64 0, i64 %sub
+  %arrayidx57 = getelementptr inbounds [64 x i8], ptr %buf, i64 0, i64 %sub
   store i8 0, ptr %arrayidx57, align 1
   %call59 = call i32 @evutil_inet_pton(i32 noundef 10, ptr noundef nonnull %buf, ptr noundef nonnull %in6) #19
   %cmp60 = icmp eq i32 %call59, 1

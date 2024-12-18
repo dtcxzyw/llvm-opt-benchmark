@@ -707,7 +707,7 @@ if.then15.i77:                                    ; preds = %if.else11.i
 
 if.end.i75:                                       ; preds = %if.else11.i
   %54 = load i64, ptr %tpass_len.i, align 8
-  %arrayidx.i = getelementptr inbounds nuw i8, ptr %tpass.i, i64 %54
+  %arrayidx.i = getelementptr inbounds i8, ptr %tpass.i, i64 %54
   store i8 0, ptr %arrayidx.i, align 1
   %conv.i = trunc i64 %54 to i32
   %call17.i76 = call i32 @PKCS12_verify_mac(ptr noundef nonnull %call.i67, ptr noundef nonnull %tpass.i, i32 noundef %conv.i) #5

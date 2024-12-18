@@ -576,7 +576,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   %101 = and i64 %100, 2147483646
   %102 = or disjoint i64 %101, %97
   %103 = add nsw i64 %.01822.i.i62.i.i, -227
-  %104 = getelementptr inbounds nuw [624 x i64], ptr %10, i64 0, i64 %103
+  %104 = getelementptr inbounds [624 x i64], ptr %10, i64 0, i64 %103
   %105 = load i64, ptr %104, align 8, !noalias !23
   %106 = lshr exact i64 %102, 1
   %107 = xor i64 %106, %105
@@ -672,7 +672,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %164 = and i64 %163, 2147483646
   %165 = or disjoint i64 %164, %160
   %166 = add nsw i64 %.01822.i.i.i.i, -227
-  %167 = getelementptr inbounds nuw [624 x i64], ptr %10, i64 0, i64 %166
+  %167 = getelementptr inbounds [624 x i64], ptr %10, i64 0, i64 %166
   %168 = load i64, ptr %167, align 8, !noalias !23
   %169 = lshr exact i64 %165, 1
   %170 = xor i64 %169, %168
@@ -824,7 +824,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET0_T_S8_S
   %246 = and i64 %245, 2147483646
   %247 = or disjoint i64 %246, %242
   %248 = add nsw i64 %.01822.i.i90.i.i, -227
-  %249 = getelementptr inbounds nuw [624 x i64], ptr %10, i64 0, i64 %248
+  %249 = getelementptr inbounds [624 x i64], ptr %10, i64 0, i64 %248
   %250 = load i64, ptr %249, align 8, !noalias !23
   %251 = lshr exact i64 %247, 1
   %252 = xor i64 %251, %250
@@ -920,7 +920,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %309 = and i64 %308, 2147483646
   %310 = or disjoint i64 %309, %305
   %311 = add nsw i64 %.01822.i.i76.i.i, -227
-  %312 = getelementptr inbounds nuw [624 x i64], ptr %10, i64 0, i64 %311
+  %312 = getelementptr inbounds [624 x i64], ptr %10, i64 0, i64 %311
   %313 = load i64, ptr %312, align 8, !noalias !23
   %314 = lshr exact i64 %310, 1
   %315 = xor i64 %314, %313
@@ -1041,7 +1041,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %385 = getelementptr inbounds nuw i32, ptr %384, i64 %indvars.iv123.i.i
   %386 = load i32, ptr %385, align 4
   %387 = mul nsw i32 %386, %378
-  %388 = getelementptr inbounds nuw [2 x i32], ptr %4, i64 0, i64 %382
+  %388 = getelementptr inbounds [2 x i32], ptr %4, i64 0, i64 %382
   %389 = load i32, ptr %388, align 4, !noalias !23
   %390 = add nsw i32 %389, %387
   store i32 %390, ptr %388, align 4, !noalias !23

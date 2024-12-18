@@ -105949,7 +105949,7 @@ define hidden { i32, ptr } @_ZN6hir_ty5utils25detect_variant_from_bytes17heb27b2
 switch.lookup:                                    ; preds = %28
   %30 = shl i64 %.sroa.3.0.copyload, 48
   %31 = ashr i64 %30, 56
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN6hir_ty5utils25detect_variant_from_bytes17heb27b297ab69ceb2E, i64 0, i64 %31
+  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZN6hir_ty5utils25detect_variant_from_bytes17heb27b297ab69ceb2E, i64 0, i64 %31
   %switch.load = load i32, ptr %switch.gep, align 4
   %32 = tail call noundef i64 @_ZN15ra_ap_rustc_abi4Size10from_bytes17heb11e23b166dd232E.llvm.10169251571672223956(i32 noundef %switch.load), !noalias !20241
   br label %_ZN15ra_ap_rustc_abi6Scalar4size17h0f15ca3752f633fbE.exit

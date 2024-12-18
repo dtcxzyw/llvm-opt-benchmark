@@ -5708,7 +5708,7 @@ define void @_ZNK3gmx18QMMMInputGenerator18generateDFTSectionB5cxx11Ev(ptr dead_
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 112
   %87 = load i32, ptr %86, align 8
   %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds nuw [3 x ptr], ptr @_ZN3gmxL19c_qmmmQMMethodNamesE, i64 0, i64 %88
+  %89 = getelementptr inbounds [3 x ptr], ptr @_ZN3gmxL19c_qmmmQMMethodNamesE, i64 0, i64 %88
   %90 = load ptr, ptr %89, align 8
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull @.str.156, ptr noundef %90)
           to label %91 unwind label %26
@@ -6576,7 +6576,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc32, %_ZNSt6ve
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 112
   %161 = load i32, ptr %160, align 8
   %162 = sext i32 %161 to i64
-  %163 = getelementptr inbounds nuw [3 x ptr], ptr @_ZN3gmxL19c_qmmmQMMethodNamesE, i64 0, i64 %162
+  %163 = getelementptr inbounds [3 x ptr], ptr @_ZN3gmxL19c_qmmmQMMethodNamesE, i64 0, i64 %162
   %164 = load ptr, ptr %163, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #21
   %165 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %12)

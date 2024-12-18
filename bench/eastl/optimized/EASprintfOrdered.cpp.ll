@@ -83,12 +83,12 @@ if.then.i:                                        ; preds = %for.cond.i
   br i1 %cmp4.i, label %if.then5.i, label %if.else.i
 
 if.then5.i:                                       ; preds = %if.then.i
-  %mbEscapePresent.i = getelementptr inbounds nuw [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom.i, i32 9
+  %mbEscapePresent.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom.i, i32 9
   store i8 1, ptr %mbEscapePresent.i, align 8, !noalias !8
   br label %for.inc99.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %arrayidx8.i = getelementptr inbounds nuw [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom.i
+  %arrayidx8.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom.i
   %mpEnd.i = getelementptr inbounds nuw i8, ptr %arrayidx8.i, i64 8
   store ptr %p.0.i, ptr %mpEnd.i, align 8, !noalias !8
   %mFormat.i = getelementptr inbounds nuw i8, ptr %arrayidx8.i, i64 48
@@ -119,7 +119,7 @@ for.body32.preheader.i:                           ; preds = %if.end24.i
 if.end38.i:                                       ; preds = %for.body32.preheader.i, %if.end24.i
   %startIndex.1.i = phi i32 [ %startIndex.0.i, %if.end24.i ], [ 0, %for.body32.preheader.i ]
   %idxprom39.i = sext i32 %inc.i to i64
-  %arrayidx40.i = getelementptr inbounds nuw [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom39.i
+  %arrayidx40.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom39.i
   store ptr %p.0.i, ptr %arrayidx40.i, align 16, !noalias !8
   %mFormat44.i = getelementptr inbounds nuw i8, ptr %arrayidx40.i, i64 48
   store i8 37, ptr %mFormat44.i, align 16, !noalias !8
@@ -127,7 +127,7 @@ if.end38.i:                                       ; preds = %for.body32.preheade
   store i32 %sub.i, ptr %mUserIndex48.i, align 4, !noalias !8
   %sub49.i = sub nsw i32 %sub.i, %startIndex.1.i
   %idxprom50.i = sext i32 %sub49.i to i64
-  %arrayidx51.i = getelementptr inbounds nuw [10 x i32], ptr %spanArgOrder.i, i64 0, i64 %idxprom50.i
+  %arrayidx51.i = getelementptr inbounds [10 x i32], ptr %spanArgOrder.i, i64 0, i64 %idxprom50.i
   store i32 %inc.i, ptr %arrayidx51.i, align 4, !noalias !8
   %arrayidx53.i = getelementptr inbounds nuw i8, ptr %p.0.i, i64 2
   %3 = load i8, ptr %arrayidx53.i, align 1, !alias.scope !5, !noalias !10
@@ -147,7 +147,7 @@ if.then61.i:                                      ; preds = %if.else59.i
 
 if.then63.i:                                      ; preds = %if.then61.i
   %idxprom64.i = sext i32 %spanIndex.0.i to i64
-  %arrayidx65.i = getelementptr inbounds nuw [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom64.i
+  %arrayidx65.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom64.i
   %mFormat66.i = getelementptr inbounds nuw i8, ptr %arrayidx65.i, i64 48
   %inc67.i = add nsw i32 %nFormatLength.0.i, 1
   %idxprom68.i = sext i32 %nFormatLength.0.i to i64
@@ -194,7 +194,7 @@ sw.bb.i:                                          ; preds = %if.then63.i, %if.th
 
 if.end89.i:                                       ; preds = %sw.bb.i
   %idxprom91.i = sext i32 %inc86.i to i64
-  %arrayidx92.i = getelementptr inbounds nuw [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom91.i
+  %arrayidx92.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom91.i
   store ptr %add.ptr73.i, ptr %arrayidx92.i, align 16, !noalias !8
   %mUserIndex96.i = getelementptr inbounds nuw i8, ptr %arrayidx92.i, i64 68
   store i32 -1, ptr %mUserIndex96.i, align 4, !noalias !8
@@ -213,7 +213,7 @@ for.inc99.i:                                      ; preds = %if.end89.i, %sw.bb.
 if.end106.i:                                      ; preds = %for.cond.i
   %.pre.i = sext i32 %nFormatLength.0.i to i64
   %idxprom107.i = sext i32 %spanIndex.0.i to i64
-  %arrayidx108.i = getelementptr inbounds nuw [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom107.i
+  %arrayidx108.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom107.i
   %mpEnd109.i = getelementptr inbounds nuw i8, ptr %arrayidx108.i, i64 8
   store ptr %p.0.i, ptr %mpEnd109.i, align 8, !noalias !8
   %mFormat112.i = getelementptr inbounds nuw i8, ptr %arrayidx108.i, i64 48
@@ -249,7 +249,7 @@ for.body119.i:                                    ; preds = %for.inc332.i, %for.
   %arrayidx121.i = getelementptr inbounds nuw [10 x i32], ptr %spanArgOrder.i, i64 0, i64 %indvars.iv.i
   %5 = load i32, ptr %arrayidx121.i, align 4, !noalias !8
   %idxprom122.i = sext i32 %5 to i64
-  %arrayidx123.i = getelementptr inbounds nuw [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom122.i
+  %arrayidx123.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom122.i
   store i32 1, ptr %formatData.i, align 4, !noalias !8
   store i32 1, ptr %mSign.i.i, align 4, !noalias !8
   store i8 0, ptr %mbAlternativeForm.i.i, align 4, !noalias !8
@@ -1290,12 +1290,12 @@ if.then.i:                                        ; preds = %for.cond.i
   br i1 %cmp4.i, label %if.then5.i, label %if.else.i
 
 if.then5.i:                                       ; preds = %if.then.i
-  %mbEscapePresent.i = getelementptr inbounds nuw [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom.i, i32 9
+  %mbEscapePresent.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom.i, i32 9
   store i8 1, ptr %mbEscapePresent.i, align 8, !noalias !37
   br label %for.inc99.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %arrayidx8.i = getelementptr inbounds nuw [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom.i
+  %arrayidx8.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom.i
   %mpEnd.i = getelementptr inbounds nuw i8, ptr %arrayidx8.i, i64 8
   store ptr %p.0.i, ptr %mpEnd.i, align 8, !noalias !37
   %mFormat.i = getelementptr inbounds nuw i8, ptr %arrayidx8.i, i64 48
@@ -1326,7 +1326,7 @@ for.body32.preheader.i:                           ; preds = %if.end24.i
 if.end38.i:                                       ; preds = %for.body32.preheader.i, %if.end24.i
   %startIndex.1.i = phi i32 [ %startIndex.0.i, %if.end24.i ], [ 0, %for.body32.preheader.i ]
   %idxprom39.i = sext i32 %inc.i to i64
-  %arrayidx40.i = getelementptr inbounds nuw [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom39.i
+  %arrayidx40.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom39.i
   store ptr %p.0.i, ptr %arrayidx40.i, align 16, !noalias !37
   %mFormat44.i = getelementptr inbounds nuw i8, ptr %arrayidx40.i, i64 48
   store i16 37, ptr %mFormat44.i, align 16, !noalias !37
@@ -1334,7 +1334,7 @@ if.end38.i:                                       ; preds = %for.body32.preheade
   store i32 %sub.i, ptr %mUserIndex48.i, align 4, !noalias !37
   %sub49.i = sub nsw i32 %sub.i, %startIndex.1.i
   %idxprom50.i = sext i32 %sub49.i to i64
-  %arrayidx51.i = getelementptr inbounds nuw [10 x i32], ptr %spanArgOrder.i, i64 0, i64 %idxprom50.i
+  %arrayidx51.i = getelementptr inbounds [10 x i32], ptr %spanArgOrder.i, i64 0, i64 %idxprom50.i
   store i32 %inc.i, ptr %arrayidx51.i, align 4, !noalias !37
   %arrayidx53.i = getelementptr inbounds nuw i8, ptr %p.0.i, i64 4
   %3 = load i16, ptr %arrayidx53.i, align 2, !alias.scope !34, !noalias !39
@@ -1354,7 +1354,7 @@ if.then61.i:                                      ; preds = %if.else59.i
 
 if.then63.i:                                      ; preds = %if.then61.i
   %idxprom64.i = sext i32 %spanIndex.0.i to i64
-  %arrayidx65.i = getelementptr inbounds nuw [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom64.i
+  %arrayidx65.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom64.i
   %mFormat66.i = getelementptr inbounds nuw i8, ptr %arrayidx65.i, i64 48
   %inc67.i = add nsw i32 %nFormatLength.0.i, 1
   %idxprom68.i = sext i32 %nFormatLength.0.i to i64
@@ -1401,7 +1401,7 @@ sw.bb.i:                                          ; preds = %if.then63.i, %if.th
 
 if.end89.i:                                       ; preds = %sw.bb.i
   %idxprom91.i = sext i32 %inc86.i to i64
-  %arrayidx92.i = getelementptr inbounds nuw [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom91.i
+  %arrayidx92.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom91.i
   store ptr %add.ptr73.i, ptr %arrayidx92.i, align 16, !noalias !37
   %mUserIndex96.i = getelementptr inbounds nuw i8, ptr %arrayidx92.i, i64 84
   store i32 -1, ptr %mUserIndex96.i, align 4, !noalias !37
@@ -1420,7 +1420,7 @@ for.inc99.i:                                      ; preds = %if.end89.i, %sw.bb.
 if.end106.i:                                      ; preds = %for.cond.i
   %.pre.i = sext i32 %nFormatLength.0.i to i64
   %idxprom107.i = sext i32 %spanIndex.0.i to i64
-  %arrayidx108.i = getelementptr inbounds nuw [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom107.i
+  %arrayidx108.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom107.i
   %mpEnd109.i = getelementptr inbounds nuw i8, ptr %arrayidx108.i, i64 8
   store ptr %p.0.i, ptr %mpEnd109.i, align 8, !noalias !37
   %mFormat112.i = getelementptr inbounds nuw i8, ptr %arrayidx108.i, i64 48
@@ -1456,7 +1456,7 @@ for.body119.i:                                    ; preds = %for.inc332.i, %for.
   %arrayidx121.i = getelementptr inbounds nuw [10 x i32], ptr %spanArgOrder.i, i64 0, i64 %indvars.iv.i
   %5 = load i32, ptr %arrayidx121.i, align 4, !noalias !37
   %idxprom122.i = sext i32 %5 to i64
-  %arrayidx123.i = getelementptr inbounds nuw [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom122.i
+  %arrayidx123.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom122.i
   store i32 1, ptr %formatData.i, align 4, !noalias !37
   store i32 1, ptr %mSign.i.i, align 4, !noalias !37
   store i8 0, ptr %mbAlternativeForm.i.i, align 4, !noalias !37
@@ -2489,12 +2489,12 @@ if.then.i:                                        ; preds = %for.cond.i
   br i1 %cmp3.i, label %if.then4.i, label %if.else.i
 
 if.then4.i:                                       ; preds = %if.then.i
-  %mbEscapePresent.i = getelementptr inbounds nuw [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom.i, i32 8
+  %mbEscapePresent.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom.i, i32 8
   store i8 1, ptr %mbEscapePresent.i, align 8, !noalias !65
   br label %for.inc93.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %arrayidx7.i = getelementptr inbounds nuw [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom.i
+  %arrayidx7.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom.i
   %mpEnd.i = getelementptr inbounds nuw i8, ptr %arrayidx7.i, i64 8
   store ptr %p.0.i, ptr %mpEnd.i, align 8, !noalias !65
   %mFormat.i = getelementptr inbounds nuw i8, ptr %arrayidx7.i, i64 48
@@ -2524,7 +2524,7 @@ for.body28.preheader.i:                           ; preds = %if.end21.i
 if.end34.i:                                       ; preds = %for.body28.preheader.i, %if.end21.i
   %startIndex.1.i = phi i32 [ %startIndex.0.i, %if.end21.i ], [ 0, %for.body28.preheader.i ]
   %idxprom35.i = sext i32 %inc.i to i64
-  %arrayidx36.i = getelementptr inbounds nuw [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom35.i
+  %arrayidx36.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom35.i
   store ptr %p.0.i, ptr %arrayidx36.i, align 16, !noalias !65
   %mFormat40.i = getelementptr inbounds nuw i8, ptr %arrayidx36.i, i64 48
   store i32 37, ptr %mFormat40.i, align 16, !noalias !65
@@ -2532,7 +2532,7 @@ if.end34.i:                                       ; preds = %for.body28.preheade
   store i32 %sub.i, ptr %mUserIndex44.i, align 4, !noalias !65
   %sub45.i = sub nsw i32 %sub.i, %startIndex.1.i
   %idxprom46.i = sext i32 %sub45.i to i64
-  %arrayidx47.i = getelementptr inbounds nuw [10 x i32], ptr %spanArgOrder.i, i64 0, i64 %idxprom46.i
+  %arrayidx47.i = getelementptr inbounds [10 x i32], ptr %spanArgOrder.i, i64 0, i64 %idxprom46.i
   store i32 %inc.i, ptr %arrayidx47.i, align 4, !noalias !65
   %arrayidx49.i = getelementptr inbounds nuw i8, ptr %p.0.i, i64 8
   %3 = load i32, ptr %arrayidx49.i, align 4, !alias.scope !62, !noalias !67
@@ -2552,7 +2552,7 @@ if.then56.i:                                      ; preds = %if.else54.i
 
 if.then58.i:                                      ; preds = %if.then56.i
   %idxprom59.i = sext i32 %spanIndex.0.i to i64
-  %arrayidx60.i = getelementptr inbounds nuw [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom59.i
+  %arrayidx60.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom59.i
   %mFormat61.i = getelementptr inbounds nuw i8, ptr %arrayidx60.i, i64 48
   %inc62.i = add nsw i32 %nFormatLength.0.i, 1
   %idxprom63.i = sext i32 %nFormatLength.0.i to i64
@@ -2599,7 +2599,7 @@ sw.bb.i:                                          ; preds = %if.then58.i, %if.th
 
 if.end83.i:                                       ; preds = %sw.bb.i
   %idxprom85.i = sext i32 %inc80.i to i64
-  %arrayidx86.i = getelementptr inbounds nuw [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom85.i
+  %arrayidx86.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom85.i
   store ptr %add.ptr67.i, ptr %arrayidx86.i, align 16, !noalias !65
   %mUserIndex90.i = getelementptr inbounds nuw i8, ptr %arrayidx86.i, i64 116
   store i32 -1, ptr %mUserIndex90.i, align 4, !noalias !65
@@ -2618,7 +2618,7 @@ for.inc93.i:                                      ; preds = %if.end83.i, %sw.bb.
 if.end100.i:                                      ; preds = %for.cond.i
   %.pre.i = sext i32 %nFormatLength.0.i to i64
   %idxprom101.i = sext i32 %spanIndex.0.i to i64
-  %arrayidx102.i = getelementptr inbounds nuw [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom101.i
+  %arrayidx102.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom101.i
   %mpEnd103.i = getelementptr inbounds nuw i8, ptr %arrayidx102.i, i64 8
   store ptr %p.0.i, ptr %mpEnd103.i, align 8, !noalias !65
   %mFormat106.i = getelementptr inbounds nuw i8, ptr %arrayidx102.i, i64 48
@@ -2654,7 +2654,7 @@ for.body113.i:                                    ; preds = %for.inc323.i, %for.
   %arrayidx115.i = getelementptr inbounds nuw [10 x i32], ptr %spanArgOrder.i, i64 0, i64 %indvars.iv.i
   %5 = load i32, ptr %arrayidx115.i, align 4, !noalias !65
   %idxprom116.i = sext i32 %5 to i64
-  %arrayidx117.i = getelementptr inbounds nuw [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom116.i
+  %arrayidx117.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom116.i
   store i32 1, ptr %formatData.i, align 4, !noalias !65
   store i32 1, ptr %mSign.i.i, align 4, !noalias !65
   store i8 0, ptr %mbAlternativeForm.i.i, align 4, !noalias !65

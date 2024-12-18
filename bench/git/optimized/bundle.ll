@@ -254,7 +254,7 @@ _.exit.i:                                         ; preds = %if.end3.i.i, %if.th
 
 if.end.i:                                         ; preds = %if.then.i18
   %idxprom.i = sext i32 %call1.i to i64
-  %arrayidx.i20 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i
+  %arrayidx.i20 = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i
   store ptr %arrayidx.i20, ptr %hash_algo10, align 8
   br label %while.cond.backedge
 
@@ -1251,7 +1251,7 @@ if.then.i.i:                                      ; preds = %if.end46.i
 
 if.else.i.i:                                      ; preds = %if.end46.i
   %idxprom.i.i = sext i32 %52 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.i
   br label %oideq.exit.i
 
 oideq.exit.i:                                     ; preds = %if.else.i.i, %if.then.i.i

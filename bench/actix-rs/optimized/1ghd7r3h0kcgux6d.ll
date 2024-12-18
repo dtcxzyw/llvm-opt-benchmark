@@ -7842,7 +7842,7 @@ _ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit269: ; pre
 
 switch.lookup:                                    ; preds = %_ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit269
   %switch.tableidx = add nsw i64 %682, -1
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN6brotli3enc6encode10EncodeData17hb4e5ac7467e8e92fE, i64 0, i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds [10 x i64], ptr @switch.table._ZN6brotli3enc6encode10EncodeData17hb4e5ac7467e8e92fE, i64 0, i64 %switch.tableidx
   %switch.load = load i64, ptr %switch.gep, align 8
   %688 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %689 = getelementptr inbounds nuw i8, ptr %688, i64 40
@@ -9252,7 +9252,7 @@ _ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit269: ; pre
 
 switch.lookup:                                    ; preds = %_ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit269
   %switch.tableidx = add nsw i64 %682, -1
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN6brotli3enc6encode10EncodeData17hb4e5ac7467e8e92fE, i64 0, i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds [10 x i64], ptr @switch.table._ZN6brotli3enc6encode10EncodeData17hb4e5ac7467e8e92fE, i64 0, i64 %switch.tableidx
   %switch.load = load i64, ptr %switch.gep, align 8
   %688 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %689 = getelementptr inbounds nuw i8, ptr %688, i64 40

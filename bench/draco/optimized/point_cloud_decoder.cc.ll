@@ -130,7 +130,7 @@ _ZN5draco13DecoderBuffer6DecodeEPvm.exit:         ; preds = %3
 
 .noexc36:                                         ; preds = %.noexc
   %25 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #19
-  %26 = getelementptr inbounds nuw i8, ptr %4, i64 %25
+  %26 = getelementptr inbounds i8, ptr %4, i64 %25
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull %4, ptr noundef nonnull %26)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %27
 
@@ -231,7 +231,7 @@ _ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit:     ; preds = %48
 
 .noexc46:                                         ; preds = %.noexc45
   %52 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #19
-  %53 = getelementptr inbounds nuw i8, ptr %4, i64 %52
+  %53 = getelementptr inbounds i8, ptr %4, i64 %52
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull %4, ptr noundef nonnull %53)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit49 unwind label %54
 
@@ -288,7 +288,7 @@ _ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit52:   ; preds = %61
 
 .noexc54:                                         ; preds = %.noexc53
   %71 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #19
-  %72 = getelementptr inbounds nuw i8, ptr %4, i64 %71
+  %72 = getelementptr inbounds i8, ptr %4, i64 %71
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull %4, ptr noundef nonnull %72)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit57 unwind label %73
 
@@ -345,7 +345,7 @@ _ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit60:   ; preds = %80
 
 .noexc62:                                         ; preds = %.noexc61
   %90 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #19
-  %91 = getelementptr inbounds nuw i8, ptr %4, i64 %90
+  %91 = getelementptr inbounds i8, ptr %4, i64 %90
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull %4, ptr noundef nonnull %91)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit65 unwind label %92
 

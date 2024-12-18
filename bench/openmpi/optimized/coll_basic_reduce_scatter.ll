@@ -619,7 +619,7 @@ define internal fastcc void @ompi_op_reduce(ptr nocapture noundef readonly %0, p
   %.pn.in.in = getelementptr inbounds nuw i8, ptr %.pn44, i64 200
   %.pn.in = load i32, ptr %.pn.in.in, align 8
   %.pn = sext i32 %.pn.in to i64
-  %.038.in = getelementptr inbounds nuw [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 %.pn
+  %.038.in = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 %.pn
   %.038 = load i32, ptr %.038.in, align 4
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %39 = sext i32 %.038 to i64

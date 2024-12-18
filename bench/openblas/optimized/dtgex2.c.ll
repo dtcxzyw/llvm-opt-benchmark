@@ -399,16 +399,16 @@ define void @dtgex2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %283 = load i32, ptr %12, align 4, !tbaa !3
   %284 = shl i32 %283, 2
   %285 = sext i32 %284 to i64
-  %286 = getelementptr inbounds nuw [16 x double], ptr %32, i64 0, i64 %285
+  %286 = getelementptr inbounds [16 x double], ptr %32, i64 0, i64 %285
   call void @dlacpy_(ptr noundef nonnull @.str, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %286, ptr noundef nonnull @c__4, ptr noundef nonnull %41, ptr noundef nonnull @c__4) #5
   %287 = load i32, ptr %12, align 4, !tbaa !3
   %288 = shl i32 %287, 2
   %289 = sext i32 %288 to i64
-  %290 = getelementptr inbounds nuw [16 x double], ptr %31, i64 0, i64 %289
+  %290 = getelementptr inbounds [16 x double], ptr %31, i64 0, i64 %289
   %291 = load i32, ptr %13, align 4, !tbaa !3
   %292 = add i32 %291, %288
   %293 = sext i32 %292 to i64
-  %294 = getelementptr inbounds nuw [16 x double], ptr %43, i64 0, i64 %293
+  %294 = getelementptr inbounds [16 x double], ptr %43, i64 0, i64 %293
   call void @dlacpy_(ptr noundef nonnull @.str, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %290, ptr noundef nonnull @c__4, ptr noundef nonnull %294, ptr noundef nonnull @c__4) #5
   %295 = load i32, ptr %12, align 4, !tbaa !3
   %296 = add nsw i32 %295, 1
@@ -416,13 +416,13 @@ define void @dtgex2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %298 = mul i32 %296, 5
   %299 = add nsw i32 %298, -5
   %300 = sext i32 %299 to i64
-  %301 = getelementptr inbounds nuw [16 x double], ptr %31, i64 0, i64 %300
+  %301 = getelementptr inbounds [16 x double], ptr %31, i64 0, i64 %300
   %302 = load i32, ptr %13, align 4, !tbaa !3
   %303 = add i32 %302, -4
   %304 = add i32 %303, %297
   %305 = sext i32 %304 to i64
-  %306 = getelementptr inbounds nuw [16 x double], ptr %43, i64 0, i64 %305
-  %307 = getelementptr inbounds nuw [16 x double], ptr %32, i64 0, i64 %300
+  %306 = getelementptr inbounds [16 x double], ptr %43, i64 0, i64 %305
+  %307 = getelementptr inbounds [16 x double], ptr %32, i64 0, i64 %300
   call void @dtgsy2_(ptr noundef nonnull @.str.3, ptr noundef nonnull @c__0, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %31, ptr noundef nonnull @c__4, ptr noundef nonnull %301, ptr noundef nonnull @c__4, ptr noundef nonnull %306, ptr noundef nonnull @c__4, ptr noundef nonnull %32, ptr noundef nonnull @c__4, ptr noundef nonnull %307, ptr noundef nonnull @c__4, ptr noundef nonnull %41, ptr noundef nonnull @c__4, ptr noundef nonnull %33, ptr noundef nonnull %23, ptr noundef nonnull %42, ptr noundef nonnull %37, ptr noundef nonnull %21, ptr noundef nonnull %35) #5
   %308 = load i32, ptr %13, align 4, !tbaa !3
   store i32 %308, ptr %18, align 4, !tbaa !3
@@ -434,7 +434,7 @@ define void @dtgex2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %311 = shl i32 %310, 2
   %312 = add nsw i32 %311, -4
   %313 = sext i32 %312 to i64
-  %314 = getelementptr inbounds nuw [16 x double], ptr %41, i64 0, i64 %313
+  %314 = getelementptr inbounds [16 x double], ptr %41, i64 0, i64 %313
   call void @dscal_(ptr noundef nonnull %12, ptr noundef nonnull @c_b48, ptr noundef nonnull %314, ptr noundef nonnull @c__1) #5
   %315 = load double, ptr %33, align 8, !tbaa !7
   %316 = load i32, ptr %12, align 4, !tbaa !3
@@ -442,7 +442,7 @@ define void @dtgex2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %318 = add i32 %317, %310
   %319 = add i32 %318, %311
   %320 = sext i32 %319 to i64
-  %321 = getelementptr inbounds nuw [16 x double], ptr %41, i64 0, i64 %320
+  %321 = getelementptr inbounds [16 x double], ptr %41, i64 0, i64 %320
   store double %315, ptr %321, align 8, !tbaa !7
   %322 = add nuw nsw i32 %310, 1
   %323 = load i32, ptr %18, align 4, !tbaa !3
@@ -482,7 +482,7 @@ define void @dtgex2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %342 = add i32 %337, %340
   %343 = add i32 %342, %341
   %344 = sext i32 %343 to i64
-  %345 = getelementptr inbounds nuw [16 x double], ptr %43, i64 0, i64 %344
+  %345 = getelementptr inbounds [16 x double], ptr %43, i64 0, i64 %344
   store double %334, ptr %345, align 8, !tbaa !7
   %346 = add nuw nsw i64 %339, 1
   %347 = icmp eq i64 %346, %336
@@ -492,7 +492,7 @@ define void @dtgex2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %348 = phi i32 [ 1, %330 ], [ %335, %338 ]
   store i32 %348, ptr %29, align 4, !tbaa !3
   %349 = sext i32 %.pre to i64
-  %350 = getelementptr inbounds nuw [16 x double], ptr %43, i64 0, i64 %349
+  %350 = getelementptr inbounds [16 x double], ptr %43, i64 0, i64 %349
   call void @dgerq2_(ptr noundef nonnull %12, ptr noundef nonnull %30, ptr noundef nonnull %350, ptr noundef nonnull @c__4, ptr noundef nonnull %24, ptr noundef %14, ptr noundef nonnull %35) #5
   %351 = load i32, ptr %35, align 4, !tbaa !3
   %352 = icmp eq i32 %351, 0
@@ -545,7 +545,7 @@ define void @dtgex2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %371 = add i32 %370, -4
   %372 = add i32 %371, %369
   %373 = sext i32 %372 to i64
-  %374 = getelementptr inbounds nuw [16 x double], ptr %31, i64 0, i64 %373
+  %374 = getelementptr inbounds [16 x double], ptr %31, i64 0, i64 %373
   call void @dlassq_(ptr noundef nonnull %12, ptr noundef nonnull %374, ptr noundef nonnull @c__1, ptr noundef nonnull %42, ptr noundef nonnull %23) #5
   %375 = add nuw nsw i32 %368, 1
   %376 = load i32, ptr %18, align 4, !tbaa !3
@@ -590,7 +590,7 @@ define void @dtgex2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %393 = add i32 %392, -4
   %394 = add i32 %393, %391
   %395 = sext i32 %394 to i64
-  %396 = getelementptr inbounds nuw [16 x double], ptr %25, i64 0, i64 %395
+  %396 = getelementptr inbounds [16 x double], ptr %25, i64 0, i64 %395
   call void @dlassq_(ptr noundef nonnull %12, ptr noundef nonnull %396, ptr noundef nonnull @c__1, ptr noundef nonnull %42, ptr noundef nonnull %23) #5
   %397 = add nuw nsw i32 %390, 1
   store i32 %397, ptr %29, align 4, !tbaa !3
@@ -691,7 +691,7 @@ define void @dtgex2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 457:                                              ; preds = %410
   %458 = load i32, ptr %13, align 4, !tbaa !3
   %459 = sext i32 %458 to i64
-  %460 = getelementptr inbounds nuw [16 x double], ptr %31, i64 0, i64 %459
+  %460 = getelementptr inbounds [16 x double], ptr %31, i64 0, i64 %459
   call void @dlaset_(ptr noundef nonnull @.str, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull @c_b5, ptr noundef nonnull @c_b5, ptr noundef nonnull %460, ptr noundef nonnull @c__4) #5
   %461 = load i32, ptr %11, align 4, !tbaa !3
   %462 = mul i32 %461, %91
@@ -742,7 +742,7 @@ define void @dtgex2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %495 = mul i32 %494, 5
   %496 = add nsw i32 %495, -5
   %497 = sext i32 %496 to i64
-  %498 = getelementptr inbounds nuw [16 x double], ptr %32, i64 0, i64 %497
+  %498 = getelementptr inbounds [16 x double], ptr %32, i64 0, i64 %497
   store double %493, ptr %498, align 8, !tbaa !7
   %499 = load double, ptr %413, align 8, !tbaa !7
   %500 = fneg double %499
@@ -761,7 +761,7 @@ define void @dtgex2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %507 = mul i32 %504, 5
   %508 = add nsw i32 %507, -5
   %509 = sext i32 %508 to i64
-  %510 = getelementptr inbounds nuw [16 x double], ptr %32, i64 0, i64 %509
+  %510 = getelementptr inbounds [16 x double], ptr %32, i64 0, i64 %509
   store double 1.000000e+00, ptr %510, align 8, !tbaa !7
   %511 = load i32, ptr %12, align 4, !tbaa !3
   %512 = icmp sgt i32 %511, 1
@@ -785,12 +785,12 @@ define void @dtgex2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %528 = getelementptr i8, ptr %526, i64 16
   %529 = mul i32 %503, 5
   %530 = sext i32 %529 to i64
-  %531 = getelementptr inbounds nuw [16 x double], ptr %32, i64 0, i64 %530
+  %531 = getelementptr inbounds [16 x double], ptr %32, i64 0, i64 %530
   %532 = shl i32 %504, 2
   %533 = add i32 %504, -9
   %534 = add i32 %533, %532
   %535 = sext i32 %534 to i64
-  %536 = getelementptr inbounds nuw [16 x double], ptr %32, i64 0, i64 %535
+  %536 = getelementptr inbounds [16 x double], ptr %32, i64 0, i64 %535
   call void @dlagv2_(ptr noundef %518, ptr noundef nonnull %4, ptr noundef %521, ptr noundef nonnull %6, ptr noundef nonnull %24, ptr noundef nonnull %22, ptr noundef %522, ptr noundef %527, ptr noundef %528, ptr noundef nonnull %531, ptr noundef nonnull %536) #5
   %537 = load i32, ptr %13, align 4, !tbaa !3
   %538 = load i32, ptr %30, align 4, !tbaa !3
@@ -811,26 +811,26 @@ define void @dtgex2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   store double %550, ptr %551, align 8, !tbaa !7
   %552 = mul i32 %537, 5
   %553 = sext i32 %552 to i64
-  %554 = getelementptr inbounds nuw [16 x double], ptr %32, i64 0, i64 %553
+  %554 = getelementptr inbounds [16 x double], ptr %32, i64 0, i64 %553
   %555 = load double, ptr %554, align 8, !tbaa !7
   %556 = mul i32 %538, 5
   %557 = add nsw i32 %556, -5
   %558 = sext i32 %557 to i64
-  %559 = getelementptr inbounds nuw [16 x double], ptr %32, i64 0, i64 %558
+  %559 = getelementptr inbounds [16 x double], ptr %32, i64 0, i64 %558
   store double %555, ptr %559, align 8, !tbaa !7
   %560 = add nsw i32 %538, -1
   %561 = shl i32 %560, 2
   %562 = add i32 %538, -5
   %563 = add i32 %562, %561
   %564 = sext i32 %563 to i64
-  %565 = getelementptr inbounds nuw [16 x double], ptr %32, i64 0, i64 %564
+  %565 = getelementptr inbounds [16 x double], ptr %32, i64 0, i64 %564
   %566 = load double, ptr %565, align 8, !tbaa !7
   %567 = fneg double %566
   %568 = shl i32 %538, 2
   %569 = add i32 %568, -5
   %570 = add i32 %569, %560
   %571 = sext i32 %570 to i64
-  %572 = getelementptr inbounds nuw [16 x double], ptr %32, i64 0, i64 %571
+  %572 = getelementptr inbounds [16 x double], ptr %32, i64 0, i64 %571
   store double %567, ptr %572, align 8, !tbaa !7
   br label %573
 
@@ -906,7 +906,7 @@ define void @dtgex2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %635 = getelementptr inbounds double, ptr %47, i64 %634
   %636 = mul i32 %630, 5
   %637 = sext i32 %636 to i64
-  %638 = getelementptr inbounds nuw [16 x double], ptr %32, i64 0, i64 %637
+  %638 = getelementptr inbounds [16 x double], ptr %32, i64 0, i64 %637
   call void @dgemm_(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.3, ptr noundef nonnull %13, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull @c_b42, ptr noundef %635, ptr noundef nonnull %4, ptr noundef nonnull %638, ptr noundef nonnull @c__4, ptr noundef nonnull @c_b5, ptr noundef nonnull %14, ptr noundef nonnull %13) #5
   %639 = load i32, ptr %11, align 4, !tbaa !3
   %640 = load i32, ptr %13, align 4, !tbaa !3
@@ -925,7 +925,7 @@ define void @dtgex2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %652 = getelementptr inbounds double, ptr %51, i64 %651
   %653 = mul i32 %647, 5
   %654 = sext i32 %653 to i64
-  %655 = getelementptr inbounds nuw [16 x double], ptr %32, i64 0, i64 %654
+  %655 = getelementptr inbounds [16 x double], ptr %32, i64 0, i64 %654
   call void @dgemm_(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.3, ptr noundef nonnull %13, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull @c_b42, ptr noundef %652, ptr noundef nonnull %6, ptr noundef nonnull %655, ptr noundef nonnull @c__4, ptr noundef nonnull @c_b5, ptr noundef nonnull %14, ptr noundef nonnull %13) #5
   %656 = load i32, ptr %11, align 4, !tbaa !3
   %657 = load i32, ptr %13, align 4, !tbaa !3

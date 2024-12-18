@@ -1828,13 +1828,13 @@ define void @_ZNK10open_spiel6bridge11BridgeState14ActionToStringB5cxx11Eil(ptr 
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   %10 = srem i32 %8, 4
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds nuw [5 x i8], ptr @_ZN10open_spiel6bridge12_GLOBAL__N_19kSuitCharE, i64 0, i64 %11
+  %12 = getelementptr inbounds [5 x i8], ptr @_ZN10open_spiel6bridge12_GLOBAL__N_19kSuitCharE, i64 0, i64 %11
   %13 = load i8, ptr %12, align 1, !noalias !7
   store i8 %13, ptr %5, align 1, !noalias !7
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %15 = sdiv i32 %8, 4
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds nuw [14 x i8], ptr @_ZN10open_spiel6bridge12_GLOBAL__N_19kRankCharE, i64 0, i64 %16
+  %17 = getelementptr inbounds [14 x i8], ptr @_ZN10open_spiel6bridge12_GLOBAL__N_19kRankCharE, i64 0, i64 %16
   %18 = load i8, ptr %17, align 1, !noalias !7
   store i8 %18, ptr %14, align 1, !noalias !7
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #28, !noalias !7
@@ -1952,7 +1952,7 @@ define internal fastcc void @_ZN10open_spiel6bridge12_GLOBAL__N_19BidStringB5cxx
   %28 = sdiv i32 %27, 5
   %29 = add nsw i32 %28, 1
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds nuw [9 x i8], ptr @_ZN10open_spiel6bridge12_GLOBAL__N_110kLevelCharE, i64 0, i64 %30
+  %31 = getelementptr inbounds [9 x i8], ptr @_ZN10open_spiel6bridge12_GLOBAL__N_110kLevelCharE, i64 0, i64 %30
   %32 = load i8, ptr %31, align 1
   store i8 %32, ptr %6, align 1
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 1
@@ -3153,12 +3153,12 @@ _ZN10open_spiel6bridge5Trick4PlayEii.exit:        ; preds = %.sink.split.i, %100
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   %105 = sext i32 %.pre-phi to i64
-  %106 = getelementptr inbounds nuw [5 x i8], ptr @_ZN10open_spiel6bridge12_GLOBAL__N_19kSuitCharE, i64 0, i64 %105
+  %106 = getelementptr inbounds [5 x i8], ptr @_ZN10open_spiel6bridge12_GLOBAL__N_19kSuitCharE, i64 0, i64 %105
   %107 = load i8, ptr %106, align 1, !noalias !24
   store i8 %107, ptr %3, align 1, !noalias !24
   %108 = sdiv i32 %88, 4
   %109 = sext i32 %108 to i64
-  %110 = getelementptr inbounds nuw [14 x i8], ptr @_ZN10open_spiel6bridge12_GLOBAL__N_19kRankCharE, i64 0, i64 %109
+  %110 = getelementptr inbounds [14 x i8], ptr @_ZN10open_spiel6bridge12_GLOBAL__N_19kRankCharE, i64 0, i64 %109
   %111 = load i8, ptr %110, align 1, !noalias !24
   store i8 %111, ptr %47, align 1, !noalias !24
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #28, !noalias !24
@@ -5703,7 +5703,7 @@ _ZSt11make_uniqueI11TransTableLJEENSt8__detail9_MakeUniqIT_E15__single_objectEDp
   %.sroa.0151.0202 = phi ptr [ %76, %_ZNSt3setIiSt4lessIiESaIiEE7emplaceIJRKN10open_spiel6bridge12DenominationEEEESt4pairISt23_Rb_tree_const_iteratorIiEbEDpOT_.exit ], [ %56, %49 ]
   %59 = load i32, ptr %.sroa.0151.0202, align 4
   %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds nuw [421 x %"struct.open_spiel::bridge::Contract"], ptr @_ZN10open_spiel6bridge13kAllContractsE, i64 0, i64 %60
+  %61 = getelementptr inbounds [421 x %"struct.open_spiel::bridge::Contract"], ptr @_ZN10open_spiel6bridge13kAllContractsE, i64 0, i64 %60
   %62 = load i32, ptr %61, align 4
   %63 = icmp sgt i32 %62, 0
   br i1 %63, label %64, label %_ZNSt3setIiSt4lessIiESaIiEE7emplaceIJRKN10open_spiel6bridge12DenominationEEEESt4pairISt23_Rb_tree_const_iteratorIiEbEDpOT_.exit
@@ -5858,7 +5858,7 @@ _ZNSt3setIiSt4lessIiESaIiEE7emplaceIJRKN10open_spiel6bridge12DenominationEEEESt4
   %.sroa.0143.0207 = phi ptr [ %151, %_ZNSt3setIiSt4lessIiESaIiEE7emplaceIJRKiEEESt4pairISt23_Rb_tree_const_iteratorIiEbEDpOT_.exit ], [ %116, %115 ]
   %118 = load i32, ptr %.sroa.0143.0207, align 4
   %119 = sext i32 %118 to i64
-  %120 = getelementptr inbounds nuw [421 x %"struct.open_spiel::bridge::Contract"], ptr @_ZN10open_spiel6bridge13kAllContractsE, i64 0, i64 %119
+  %120 = getelementptr inbounds [421 x %"struct.open_spiel::bridge::Contract"], ptr @_ZN10open_spiel6bridge13kAllContractsE, i64 0, i64 %119
   %121 = load i32, ptr %120, align 4
   %122 = icmp sgt i32 %121, 0
   br i1 %122, label %123, label %_ZNSt3setIiSt4lessIiESaIiEE7emplaceIJRKiEEESt4pairISt23_Rb_tree_const_iteratorIiEbEDpOT_.exit
@@ -5964,7 +5964,7 @@ _ZNSt3setIiSt4lessIiESaIiEE7emplaceIJRKiEEESt4pairISt23_Rb_tree_const_iteratorIi
 
 .lr.ph218:                                        ; preds = %._crit_edge210
   %152 = sext i32 %111 to i64
-  %153 = getelementptr inbounds nuw [5 x %"struct.std::array.34"], ptr %5, i64 0, i64 %152
+  %153 = getelementptr inbounds [5 x %"struct.std::array.34"], ptr %5, i64 0, i64 %152
   br label %154
 
 154:                                              ; preds = %.lr.ph218, %207
@@ -6244,7 +6244,7 @@ _ZNSt6vectorIiSaIiEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
   %246 = phi ptr [ %.promoted233, %.lr.ph239 ], [ %295, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit ]
   %247 = load i32, ptr %.sroa.0111.0238, align 4
   %248 = sext i32 %247 to i64
-  %249 = getelementptr inbounds nuw [421 x %"struct.open_spiel::bridge::Contract"], ptr @_ZN10open_spiel6bridge13kAllContractsE, i64 0, i64 %248
+  %249 = getelementptr inbounds [421 x %"struct.open_spiel::bridge::Contract"], ptr @_ZN10open_spiel6bridge13kAllContractsE, i64 0, i64 %248
   %250 = load i32, ptr %249, align 4
   %251 = icmp eq i32 %250, 0
   br i1 %251, label %._crit_edge273, label %252
@@ -9544,7 +9544,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK10open_spiel6bridge10BridgeGame14ContractStringB5cxx11Ei(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(280) %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = sext i32 %2 to i64
-  %5 = getelementptr inbounds nuw [421 x %"struct.open_spiel::bridge::Contract"], ptr @_ZN10open_spiel6bridge13kAllContractsE, i64 0, i64 %4
+  %5 = getelementptr inbounds [421 x %"struct.open_spiel::bridge::Contract"], ptr @_ZN10open_spiel6bridge13kAllContractsE, i64 0, i64 %4
   tail call void @_ZNK10open_spiel6bridge8Contract8ToStringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 4 dereferenceable(16) %5)
   ret void
 }

@@ -1065,7 +1065,7 @@ define void @_ZN3gmx20NoseHooverChainsDataC2EifiNS_8ArrayRefIKfEES3_S3_NS_8NhcUs
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx20NoseHooverChainsDataE, i64 16), ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = sext i32 %8 to i64
-  %16 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN3gmxL13nhcUsageNamesE, i64 0, i64 %15
+  %16 = getelementptr inbounds [2 x ptr], ptr @_ZN3gmxL13nhcUsageNamesE, i64 0, i64 %15
   %17 = load ptr, ptr %16, align 8
   tail call void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %14, ptr noundef nonnull @.str.1, ptr noundef %17)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2166,7 +2166,7 @@ define void @_ZN3gmx20NoseHooverChainsData5buildENS_8NhcUsageEPNS_19LegacySimula
 
 50:                                               ; preds = %4
   %51 = sext i32 %0 to i64
-  %52 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN3gmxL13nhcUsageNamesE, i64 0, i64 %51
+  %52 = getelementptr inbounds [2 x ptr], ptr @_ZN3gmxL13nhcUsageNamesE, i64 0, i64 %51
   %53 = load ptr, ptr %52, align 8, !noalias !36
   call void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull @.str.40, ptr noundef %53)
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -2268,7 +2268,7 @@ _ZNOSt8optionalIPN3gmx20NoseHooverChainsDataEE5valueEv.exit: ; preds = %_ZN3gmx3
 
 _ZNSt8functionIFvN3gmx8ArrayRefIKfEENS0_35ReferenceTemperatureChangeAlgorithmEEED2Ev.exit: ; preds = %88, %90
   %95 = sext i32 %0 to i64
-  %96 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN3gmxL13nhcUsageNamesE, i64 0, i64 %95
+  %96 = getelementptr inbounds [2 x ptr], ptr @_ZN3gmxL13nhcUsageNamesE, i64 0, i64 %95
   %97 = load ptr, ptr %96, align 8, !noalias !39
   call void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %15, ptr noundef nonnull @.str.40, ptr noundef %97)
   %98 = load ptr, ptr %2, align 8
@@ -2380,7 +2380,7 @@ _ZNSt8functionIFvN3gmx8ArrayRefIKfEENS0_35ReferenceTemperatureChangeAlgorithmEEE
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx20NoseHooverChainsData6dataIDB5cxx11ENS_8NhcUsageE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN3gmxL13nhcUsageNamesE, i64 0, i64 %3
+  %4 = getelementptr inbounds [2 x ptr], ptr @_ZN3gmxL13nhcUsageNamesE, i64 0, i64 %3
   %5 = load ptr, ptr %4, align 8
   tail call void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull @.str.40, ptr noundef %5)
   ret void
@@ -8687,7 +8687,7 @@ define noundef ptr @_ZN3gmx23NoseHooverChainsElement21getElementPointerImplEPNS_
   %21 = alloca %class.anon.510, align 8
   %22 = alloca %"struct.gmx::PropagatorTag", align 8
   %23 = sext i32 %7 to i64
-  %24 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN3gmxL13nhcUsageNamesE, i64 0, i64 %23
+  %24 = getelementptr inbounds [2 x ptr], ptr @_ZN3gmxL13nhcUsageNamesE, i64 0, i64 %23
   %25 = load ptr, ptr %24, align 8, !noalias !146
   call void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %16, ptr noundef nonnull @.str.40, ptr noundef %25)
   %26 = load ptr, ptr %1, align 8

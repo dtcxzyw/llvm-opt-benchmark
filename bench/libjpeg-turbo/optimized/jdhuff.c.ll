@@ -117,7 +117,7 @@ define void @jpeg_make_d_derived_tbl(ptr noundef %0, i32 noundef %1, i32 noundef
 
 56:                                               ; preds = %._crit_edge
   %57 = sext i32 %.1.lcssa to i64
-  %58 = getelementptr inbounds nuw [257 x i8], ptr %5, i64 0, i64 %57
+  %58 = getelementptr inbounds [257 x i8], ptr %5, i64 0, i64 %57
   store i8 0, ptr %58, align 1
   %59 = load i8, ptr %5, align 16
   %.not117138 = icmp eq i8 %59, 0
@@ -148,10 +148,10 @@ define void @jpeg_make_d_derived_tbl(ptr noundef %0, i32 noundef %1, i32 noundef
   %indvars.iv168 = phi i64 [ %64, %.lr.ph134.preheader ], [ %indvars.iv.next169, %.lr.ph134 ]
   %.1106132 = phi i32 [ %.0105140, %.lr.ph134.preheader ], [ %67, %.lr.ph134 ]
   %indvars.iv.next169 = add nsw i64 %indvars.iv168, 1
-  %66 = getelementptr inbounds nuw [257 x i32], ptr %6, i64 0, i64 %indvars.iv168
+  %66 = getelementptr inbounds [257 x i32], ptr %6, i64 0, i64 %indvars.iv168
   store i32 %.1106132, ptr %66, align 4
   %67 = add i32 %.1106132, 1
-  %68 = getelementptr inbounds nuw [257 x i8], ptr %5, i64 0, i64 %indvars.iv.next169
+  %68 = getelementptr inbounds [257 x i8], ptr %5, i64 0, i64 %indvars.iv.next169
   %69 = load i8, ptr %68, align 1
   %70 = sext i8 %69 to i32
   %71 = icmp eq i32 %.0113139, %70
@@ -183,7 +183,7 @@ define void @jpeg_make_d_derived_tbl(ptr noundef %0, i32 noundef %1, i32 noundef
   %82 = shl i32 %.1106.lcssa, 1
   %83 = add nsw i32 %.0113139, 1
   %84 = sext i32 %.3.lcssa to i64
-  %85 = getelementptr inbounds nuw [257 x i8], ptr %5, i64 0, i64 %84
+  %85 = getelementptr inbounds [257 x i8], ptr %5, i64 0, i64 %84
   %86 = load i8, ptr %85, align 1
   %.not117 = icmp eq i8 %86, 0
   br i1 %.not117, label %.preheader125, label %.preheader126, !llvm.loop !7
@@ -198,7 +198,7 @@ define void @jpeg_make_d_derived_tbl(ptr noundef %0, i32 noundef %1, i32 noundef
 
 90:                                               ; preds = %87
   %91 = sext i32 %.4143 to i64
-  %92 = getelementptr inbounds nuw [257 x i32], ptr %6, i64 0, i64 %91
+  %92 = getelementptr inbounds [257 x i32], ptr %6, i64 0, i64 %91
   %93 = load i32, ptr %92, align 4
   %94 = zext i32 %93 to i64
   %95 = sub nsw i64 %91, %94
@@ -209,7 +209,7 @@ define void @jpeg_make_d_derived_tbl(ptr noundef %0, i32 noundef %1, i32 noundef
   %99 = add nsw i32 %.4143, %98
   %100 = add nsw i32 %99, -1
   %101 = sext i32 %100 to i64
-  %102 = getelementptr inbounds nuw [257 x i32], ptr %6, i64 0, i64 %101
+  %102 = getelementptr inbounds [257 x i32], ptr %6, i64 0, i64 %101
   %103 = load i32, ptr %102, align 4
   %104 = zext i32 %103 to i64
   br label %105
@@ -263,7 +263,7 @@ define void @jpeg_make_d_derived_tbl(ptr noundef %0, i32 noundef %1, i32 noundef
 .lr.ph148.us:                                     ; preds = %.lr.ph148.us.preheader, %._crit_edge149.us
   %indvars.iv182 = phi i64 [ %119, %.lr.ph148.us.preheader ], [ %indvars.iv.next183, %._crit_edge149.us ]
   %.2111151.us = phi i32 [ 1, %.lr.ph148.us.preheader ], [ %133, %._crit_edge149.us ]
-  %121 = getelementptr inbounds nuw [257 x i32], ptr %6, i64 0, i64 %indvars.iv182
+  %121 = getelementptr inbounds [257 x i32], ptr %6, i64 0, i64 %indvars.iv182
   %122 = load i32, ptr %121, align 4
   %123 = shl i32 %122, %117
   %124 = getelementptr inbounds [256 x i8], ptr %111, i64 0, i64 %indvars.iv182
@@ -1417,7 +1417,7 @@ process_restart.exit.thread:                      ; preds = %._crit_edge.i, %40,
   %299 = getelementptr inbounds nuw [10 x i32], ptr %72, i64 0, i64 %indvars.iv869.i
   %300 = load i32, ptr %299, align 4
   %301 = sext i32 %300 to i64
-  %302 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %301
+  %302 = getelementptr inbounds [4 x i32], ptr %5, i64 0, i64 %301
   %303 = load i32, ptr %302, align 4
   %304 = add nsw i32 %303, %.2665.i
   store i32 %304, ptr %302, align 4
@@ -1826,7 +1826,7 @@ process_restart.exit.thread:                      ; preds = %._crit_edge.i, %40,
   %530 = add nsw i32 %529, %525
   %531 = trunc nsw i32 %530 to i16
   %532 = sext i32 %444 to i64
-  %533 = getelementptr inbounds nuw [0 x i32], ptr @jpeg_natural_order, i64 0, i64 %532
+  %533 = getelementptr inbounds [0 x i32], ptr @jpeg_natural_order, i64 0, i64 %532
   %534 = load i32, ptr %533, align 4
   %535 = sext i32 %534 to i64
   %536 = getelementptr inbounds [64 x i16], ptr %79, i64 0, i64 %535
@@ -2417,7 +2417,7 @@ decode_mcu_fast.exit:                             ; preds = %60, %._crit_edge842
   %839 = getelementptr inbounds nuw [10 x i32], ptr %777, i64 0, i64 %indvars.iv.i33
   %840 = load i32, ptr %839, align 4
   %841 = sext i32 %840 to i64
-  %842 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %841
+  %842 = getelementptr inbounds [4 x i32], ptr %4, i64 0, i64 %841
   %843 = load i32, ptr %842, align 4
   %844 = add nsw i32 %843, %.1171.i
   store i32 %844, ptr %842, align 4
@@ -2537,7 +2537,7 @@ decode_mcu_fast.exit:                             ; preds = %60, %._crit_edge842
   %902 = add nsw i32 %901, %897
   %903 = trunc nsw i32 %902 to i16
   %904 = sext i32 %884 to i64
-  %905 = getelementptr inbounds nuw [0 x i32], ptr @jpeg_natural_order, i64 0, i64 %904
+  %905 = getelementptr inbounds [0 x i32], ptr @jpeg_natural_order, i64 0, i64 %904
   %906 = load i32, ptr %905, align 4
   %907 = sext i32 %906 to i64
   %908 = getelementptr inbounds [64 x i16], ptr %784, i64 0, i64 %907

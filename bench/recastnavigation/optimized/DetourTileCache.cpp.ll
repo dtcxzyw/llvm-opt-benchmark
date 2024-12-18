@@ -1276,7 +1276,7 @@ _ZNK11dtTileCache10getTileRefEPK16dtCompressedTile.exit.i: ; preds = %69
   %80 = or i32 %79, %77
   %81 = add nsw i32 %.01621.i, 1
   %82 = sext i32 %.01621.i to i64
-  %83 = getelementptr inbounds nuw i32, ptr %7, i64 %82
+  %83 = getelementptr inbounds i32, ptr %7, i64 %82
   store i32 %80, ptr %83, align 4
   br label %84
 
@@ -2508,7 +2508,7 @@ _ZNK11dtTileCache10getTileRefEPK16dtCompressedTile.exit.i: ; preds = %28
   %39 = or i32 %38, %36
   %40 = add nsw i32 %.01621.i, 1
   %41 = sext i32 %.01621.i to i64
-  %42 = getelementptr inbounds nuw i32, ptr %5, i64 %41
+  %42 = getelementptr inbounds i32, ptr %5, i64 %41
   store i32 %39, ptr %42, align 4
   br label %43
 

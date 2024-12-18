@@ -349,7 +349,7 @@ _ZN2cv10AutoBufferI9_CvPtInfoLm50EEC2Em.exit:     ; preds = %4, %31
   %125 = phi i8 [ %.pre462, %._crit_edge461 ], [ %114, %111 ]
   %reass.sub = sub nsw i64 %.pre-phi, %100
   %126 = add nsw i64 %reass.sub, 7
-  %127 = getelementptr inbounds nuw [15 x i32], ptr @_ZZ23icvApproximateChainTC89P7CvChainiP12CvMemStorageiE8abs_diff, i64 0, i64 %126
+  %127 = getelementptr inbounds [15 x i32], ptr @_ZZ23icvApproximateChainTC89P7CvChainiP12CvMemStorageiE8abs_diff, i64 0, i64 %126
   %128 = load i32, ptr %127, align 4
   br i1 %93, label %129, label %139
 

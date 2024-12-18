@@ -4832,7 +4832,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
   %vtable = load ptr, ptr %stream, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %stream, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %stream, i64 %vbase.offset
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE10exceptionsESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr, i32 noundef 1)
           to label %invoke.cont16 unwind label %lpad4
 
@@ -4840,13 +4840,15 @@ invoke.cont16:                                    ; preds = %invoke.cont3
   %vtable6 = load ptr, ptr %stream, align 8
   %vbase.offset.ptr7 = getelementptr i8, ptr %vtable6, i64 -24
   %vbase.offset8 = load i64, ptr %vbase.offset.ptr7, align 8
-  %add.ptr9 = getelementptr inbounds nuw i8, ptr %stream, i64 %vbase.offset8
+  %add.ptr9 = getelementptr inbounds i8, ptr %stream, i64 %vbase.offset8
   %_M_flags.i = getelementptr inbounds nuw i8, ptr %add.ptr9, i64 24
   %3 = load i32, ptr %_M_flags.i, align 4
   %and.i.i.i = and i32 %3, -4097
   store i32 %and.i.i.i, ptr %_M_flags.i, align 4
-  %vbase.offset14 = load i64, ptr %vbase.offset.ptr7, align 8
-  %add.ptr15 = getelementptr inbounds nuw i8, ptr %stream, i64 %vbase.offset14
+  %vtable12 = load ptr, ptr %stream, align 8
+  %vbase.offset.ptr13 = getelementptr i8, ptr %vtable12, i64 -24
+  %vbase.offset14 = load i64, ptr %vbase.offset.ptr13, align 8
+  %add.ptr15 = getelementptr inbounds i8, ptr %stream, i64 %vbase.offset14
   %_M_precision.i.i = getelementptr inbounds nuw i8, ptr %add.ptr15, i64 8
   store i64 17, ptr %_M_precision.i.i, align 8
   %call18 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSirsERd(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull align 8 dereferenceable(8) %output)

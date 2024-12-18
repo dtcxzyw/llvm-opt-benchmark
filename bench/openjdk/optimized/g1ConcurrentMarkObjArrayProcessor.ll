@@ -467,7 +467,7 @@ _ZN8G1CMTask13scan_objArrayEP15objArrayOopDesc9MemRegion.exit: ; preds = %46, %5
   %59 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   %60 = load i32, ptr %59, align 4
   %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN28OopOopIterateBoundedDispatchI14G1CMOopClosureE6_tableE, i64 0, i64 %61
+  %62 = getelementptr inbounds [7 x ptr], ptr @_ZN28OopOopIterateBoundedDispatchI14G1CMOopClosureE6_tableE, i64 0, i64 %61
   %63 = load ptr, ptr %62, align 8
   tail call void %63(ptr noundef %42, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %.0.i.i.i, ptr %2, i64 %58) #8
   ret i64 %58
@@ -641,7 +641,7 @@ _ZN21G1CMObjArrayProcessor19process_array_sliceEP15objArrayOopDescPP12HeapWordIm
   %111 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
   %112 = load i32, ptr %111, align 4
   %113 = sext i32 %112 to i64
-  %114 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN28OopOopIterateBoundedDispatchI14G1CMOopClosureE6_tableE, i64 0, i64 %113
+  %114 = getelementptr inbounds [7 x ptr], ptr @_ZN28OopOopIterateBoundedDispatchI14G1CMOopClosureE6_tableE, i64 0, i64 %113
   %115 = load ptr, ptr %114, align 8
   tail call void %115(ptr noundef %95, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %.0.i.i.i.i, ptr nonnull %1, i64 %110) #8
   ret i64 %110
@@ -901,7 +901,7 @@ _ZN21G1CMObjArrayProcessor19process_array_sliceEP15objArrayOopDescPP12HeapWordIm
   %171 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
   %172 = load i32, ptr %171, align 4
   %173 = sext i32 %172 to i64
-  %174 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN28OopOopIterateBoundedDispatchI14G1CMOopClosureE6_tableE, i64 0, i64 %173
+  %174 = getelementptr inbounds [7 x ptr], ptr @_ZN28OopOopIterateBoundedDispatchI14G1CMOopClosureE6_tableE, i64 0, i64 %173
   %175 = load ptr, ptr %174, align 8
   tail call void %175(ptr noundef %155, ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef %.0.i.i.i.i, ptr %1, i64 %170) #8
   ret i64 %170

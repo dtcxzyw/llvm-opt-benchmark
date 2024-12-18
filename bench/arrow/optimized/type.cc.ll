@@ -22745,7 +22745,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %idxprom = sext i32 %precision to i64
-  %arrayidx = getelementptr inbounds nuw [77 x i32], ptr @__const._ZN5arrow11DecimalType11DecimalSizeEi.kBytes, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [77 x i32], ptr @__const._ZN5arrow11DecimalType11DecimalSizeEi.kBytes, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4
   br label %return
 
@@ -24155,7 +24155,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZL24XXH3_accumulat
   %add.ptr1.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 320
   tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i.i.i.i.i, i32 0, i32 3, i32 1), !noalias !784
   %mul2.i.i.i.i.i = shl i64 %n.06.i.i.i.i.i, 3
-  %add.ptr3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr @_ZZN5arrow8internal17ComputeStringHashILm0EEEmPKvlE12kXxh3Secrets, i64 %mul2.i.i.i.i.i
+  %add.ptr3.i.i.i.i.i = getelementptr inbounds i8, ptr @_ZZN5arrow8internal17ComputeStringHashILm0EEEmPKvlE12kXxh3Secrets, i64 %mul2.i.i.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !785)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !788)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !790)
@@ -24239,7 +24239,7 @@ for.body.i37.i.i.i.i:                             ; preds = %for.end.i.i.i.i, %_
   %add.ptr1.i41.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i40.i.i.i.i, i64 320
   tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i41.i.i.i.i, i32 0, i32 3, i32 1), !noalias !818
   %mul2.i42.i.i.i.i = shl i64 %n.06.i38.i.i.i.i, 3
-  %add.ptr3.i43.i.i.i.i = getelementptr inbounds nuw i8, ptr @_ZZN5arrow8internal17ComputeStringHashILm0EEEmPKvlE12kXxh3Secrets, i64 %mul2.i42.i.i.i.i
+  %add.ptr3.i43.i.i.i.i = getelementptr inbounds i8, ptr @_ZZN5arrow8internal17ComputeStringHashILm0EEEmPKvlE12kXxh3Secrets, i64 %mul2.i42.i.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !819)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !822)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !824)

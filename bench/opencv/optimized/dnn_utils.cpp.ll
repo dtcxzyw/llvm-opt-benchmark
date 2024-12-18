@@ -5636,7 +5636,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt6vectorIN
   %86 = getelementptr inbounds nuw i32, ptr %74, i64 %indvars.iv.i
   %87 = load i32, ptr %86, align 4, !noalias !50
   %88 = add nsw i64 %indvars.iv.i, -2
-  %89 = getelementptr inbounds nuw [32 x i32], ptr %5, i64 0, i64 %88
+  %89 = getelementptr inbounds [32 x i32], ptr %5, i64 0, i64 %88
   store i32 %87, ptr %89, align 4, !noalias !50
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i

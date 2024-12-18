@@ -13365,7 +13365,7 @@ invoke.cont4:                                     ; preds = %if.else
   %vtable = load ptr, ptr %ss, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %ss, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset
   invoke void @_ZN4cvc58internal7options7ioutils19applyOutputLanguageERSt8ios_baseNS0_8LanguageE(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr, i32 noundef 0)
           to label %invoke.cont6 unwind label %lpad5
 
@@ -13373,7 +13373,7 @@ invoke.cont6:                                     ; preds = %invoke.cont4
   %vtable7 = load ptr, ptr %ss, align 8
   %vbase.offset.ptr8 = getelementptr i8, ptr %vtable7, i64 -24
   %vbase.offset9 = load i64, ptr %vbase.offset.ptr8, align 8
-  %add.ptr10 = getelementptr inbounds nuw i8, ptr %ss, i64 %vbase.offset9
+  %add.ptr10 = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset9
   invoke void @_ZN4cvc58internal7options7ioutils14applyDagThreshERSt8ios_basel(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr10, i64 noundef 0)
           to label %invoke.cont11 unwind label %lpad5
 
@@ -27318,7 +27318,7 @@ invoke.cont348:                                   ; preds = %invoke.cont345
   %vtable = load ptr, ptr %ss347, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr349 = getelementptr inbounds nuw i8, ptr %ss347, i64 %vbase.offset
+  %add.ptr349 = getelementptr inbounds i8, ptr %ss347, i64 %vbase.offset
   invoke void @_ZN4cvc58internal7options7ioutils19applyOutputLanguageERSt8ios_baseNS0_8LanguageE(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr349, i32 noundef 0)
           to label %invoke.cont351 unwind label %lpad350
 

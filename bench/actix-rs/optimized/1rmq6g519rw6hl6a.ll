@@ -7054,7 +7054,7 @@ default.unreachable:                              ; preds = %1
 
 switch.lookup:                                    ; preds = %1
   %4 = ashr i64 %2, 32
-  %switch.gep = getelementptr inbounds nuw [41 x i16], ptr @"switch.table._ZN89_$LT$std..io..error..Error$u20$as$u20$actix_web..error..response_error..ResponseError$GT$11status_code17h02dbffcc2bd2e242E", i64 0, i64 %4
+  %switch.gep = getelementptr inbounds [41 x i16], ptr @"switch.table._ZN89_$LT$std..io..error..Error$u20$as$u20$actix_web..error..response_error..ResponseError$GT$11status_code17h02dbffcc2bd2e242E", i64 0, i64 %4
   %switch.load = load i16, ptr %switch.gep, align 2
   br label %.thread
 

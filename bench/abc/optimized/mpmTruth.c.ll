@@ -1837,7 +1837,7 @@ define internal fastcc void @Abc_TtSwapVars(ptr noundef %0, i32 noundef %1, i32 
   %62 = shl nuw nsw i32 1, %61
   %63 = shl nuw nsw i32 1, %spec.select117
   %64 = sext i32 %spec.select117 to i64
-  %65 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %64
+  %65 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %64
   %66 = load i64, ptr %65, align 8
   %67 = zext nneg i32 %63 to i64
   %68 = xor i64 %66, -1

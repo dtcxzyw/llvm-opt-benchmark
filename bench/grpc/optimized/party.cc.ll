@@ -828,7 +828,7 @@ if.end.us.i:                                      ; preds = %for.body.us.i
   %4 = trunc nuw i32 %shl.us.i to i16
   %conv7.us.i = or i16 %wakeup_mask.051.us.i, %4
   %inc.us.i = add nuw i64 %n.052.us.i, 1
-  %arrayidx.us.i = getelementptr inbounds nuw [16 x i64], ptr %slots.i, i64 0, i64 %n.052.us.i
+  %arrayidx.us.i = getelementptr inbounds [16 x i64], ptr %slots.i, i64 0, i64 %n.052.us.i
   store i64 %bit.053.us.i, ptr %arrayidx.us.i, align 8
   %or11.us.i = or i64 %allocated.050.us.i, %conv.us.i
   br label %for.inc.us.i
@@ -874,7 +874,7 @@ for.body.lr.ph.i.i:                               ; preds = %do.end23.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
   %i.05.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %inc.i.i, %for.body.i.i ]
-  %arrayidx.i.i = getelementptr inbounds nuw i64, ptr %slots.i, i64 %i.05.i.i
+  %arrayidx.i.i = getelementptr inbounds i64, ptr %slots.i, i64 %i.05.i.i
   %11 = load i64, ptr %arrayidx.i.i, align 8
   %arrayidx2.i.i = getelementptr inbounds [16 x %"struct.std::atomic.2"], ptr %participants_.i.i, i64 0, i64 %11
   %arrayidx3.i.i = getelementptr inbounds ptr, ptr %participants, i64 %i.05.i.i

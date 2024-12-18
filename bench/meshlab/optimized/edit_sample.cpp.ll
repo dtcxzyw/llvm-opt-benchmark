@@ -1036,7 +1036,7 @@ define void @_ZN16SampleEditPlugin8decorateER9MeshModelP6GLAreaP8QPainter(ptr no
   %44 = getelementptr inbounds nuw [16 x float], ptr %14, i64 0, i64 %43
   %45 = shl i64 %indvars.iv.i.i.i, 2
   %46 = add nuw nsw i64 %45, %indvars.iv15.i.i.i
-  %47 = getelementptr inbounds nuw [16 x float], ptr %14, i64 0, i64 %46
+  %47 = getelementptr inbounds [16 x float], ptr %14, i64 0, i64 %46
   %48 = load float, ptr %44, align 4, !alias.scope !10
   %49 = load float, ptr %47, align 4, !alias.scope !10
   store float %49, ptr %44, align 4, !alias.scope !10
@@ -1752,7 +1752,7 @@ _ZN7QStringD2Ev.exit137:                          ; preds = %_ZN7QStringD2Ev.exi
   %256 = getelementptr inbounds nuw [16 x float], ptr %6, i64 0, i64 %255
   %257 = shl i64 %indvars.iv.i.i.i140, 2
   %258 = add nuw nsw i64 %257, %indvars.iv15.i.i.i139
-  %259 = getelementptr inbounds nuw [16 x float], ptr %6, i64 0, i64 %258
+  %259 = getelementptr inbounds [16 x float], ptr %6, i64 0, i64 %258
   %260 = load float, ptr %256, align 4, !alias.scope !15
   %261 = load float, ptr %259, align 4, !alias.scope !15
   store float %261, ptr %256, align 4, !alias.scope !15
@@ -1966,7 +1966,7 @@ _ZN3vcg8glVertexERKNS_6Point3IfEE.exit160:        ; preds = %299
   %329 = getelementptr inbounds nuw [16 x float], ptr %5, i64 0, i64 %328
   %330 = shl i64 %indvars.iv.i.i.i163, 2
   %331 = add nuw nsw i64 %330, %indvars.iv15.i.i.i162
-  %332 = getelementptr inbounds nuw [16 x float], ptr %5, i64 0, i64 %331
+  %332 = getelementptr inbounds [16 x float], ptr %5, i64 0, i64 %331
   %333 = load float, ptr %329, align 4, !alias.scope !18
   %334 = load float, ptr %332, align 4, !alias.scope !18
   store float %334, ptr %329, align 4, !alias.scope !18

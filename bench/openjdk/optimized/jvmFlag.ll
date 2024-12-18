@@ -3203,7 +3203,7 @@ define hidden void @_ZNK7JVMFlag10print_kindEP12outputStreamj(ptr nocapture noun
   br i1 %.027, label %21, label %16
 
 16:                                               ; preds = %15
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 %.01826
+  %17 = getelementptr inbounds i8, ptr %4, i64 %.01826
   %18 = sub i64 64, %.01826
   %19 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %17, i64 noundef %18, ptr noundef nonnull @.str.34) #13
   %20 = add i64 %.01826, 1
@@ -3212,7 +3212,7 @@ define hidden void @_ZNK7JVMFlag10print_kindEP12outputStreamj(ptr nocapture noun
 21:                                               ; preds = %15, %16
   %.119 = phi i64 [ %20, %16 ], [ %.01826, %15 ]
   %22 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sroa.21.0.copyload) #12
-  %23 = getelementptr inbounds nuw i8, ptr %4, i64 %.119
+  %23 = getelementptr inbounds i8, ptr %4, i64 %.119
   %24 = sub i64 64, %.119
   %25 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %23, i64 noundef %24, ptr noundef nonnull @.str.9, ptr noundef %.sroa.21.0.copyload) #13
   %26 = add i64 %22, %.119
@@ -3228,7 +3228,7 @@ define hidden void @_ZNK7JVMFlag10print_kindEP12outputStreamj(ptr nocapture noun
   br i1 %exitcond, label %30, label %10, !llvm.loop !8
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds nuw i8, ptr %4, i64 %.220
+  %31 = getelementptr inbounds i8, ptr %4, i64 %.220
   %32 = sub i64 64, %.220
   %33 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %31, i64 noundef %32, ptr noundef nonnull @.str.35) #13
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.8, i32 noundef %2, ptr noundef nonnull %4) #13
@@ -3634,7 +3634,7 @@ define hidden void @_ZN7JVMFlag13printSetFlagsEP12outputStream(ptr noundef %0) l
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.01921 = phi i64 [ %8, %.lr.ph ], [ 0, %1 ]
-  %6 = getelementptr inbounds nuw [1224 x %class.JVMFlag], ptr @_ZL9flagTable, i64 0, i64 %.01921
+  %6 = getelementptr inbounds [1224 x %class.JVMFlag], ptr @_ZL9flagTable, i64 0, i64 %.01921
   %7 = getelementptr inbounds ptr, ptr %5, i64 %.01921
   store ptr %6, ptr %7, align 8
   %8 = add nuw i64 %.01921, 1
@@ -3714,7 +3714,7 @@ define hidden void @_ZN7JVMFlag10printFlagsEP12outputStreambbb(ptr noundef nonnu
 
 .lr.ph:                                           ; preds = %.preheader49, %.lr.ph
   %.03750 = phi i64 [ %11, %.lr.ph ], [ 0, %.preheader49 ]
-  %9 = getelementptr inbounds nuw [1224 x %class.JVMFlag], ptr @_ZL9flagTable, i64 0, i64 %.03750
+  %9 = getelementptr inbounds [1224 x %class.JVMFlag], ptr @_ZL9flagTable, i64 0, i64 %.03750
   %10 = getelementptr inbounds ptr, ptr %8, i64 %.03750
   store ptr %9, ptr %10, align 8
   %11 = add nuw i64 %.03750, 1
@@ -3804,7 +3804,7 @@ _ZNK7JVMFlag11is_unlockedEv.exit.thread:          ; preds = %34, %31, %_ZNK7JVMF
 
 .lr.ph56:                                         ; preds = %.preheader, %57
   %.055 = phi i64 [ %58, %57 ], [ 0, %.preheader ]
-  %43 = getelementptr inbounds nuw [1224 x %class.JVMFlag], ptr @_ZL9flagTable, i64 0, i64 %.055
+  %43 = getelementptr inbounds [1224 x %class.JVMFlag], ptr @_ZL9flagTable, i64 0, i64 %.055
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load i32, ptr %44, align 8
   %46 = and i32 %45, 64

@@ -331,7 +331,7 @@ define void @_ZN9CryptData8SetKey20EPKc(ptr noundef nonnull align 8 dereferencea
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.051 = phi i64 [ %42, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %41 = getelementptr inbounds nuw i8, ptr %3, i64 %.051
+  %41 = getelementptr inbounds i8, ptr %3, i64 %.051
   call void @_ZN9CryptData14EncryptBlock20EPh(ptr noundef nonnull align 8 dereferenceable(2516) %0, ptr noundef nonnull %41)
   %42 = add i64 %.051, 16
   %43 = icmp ult i64 %42, %5
@@ -817,7 +817,7 @@ define void @_ZN9CryptData8SetKey30EbP11SecPasswordPKwPKh(ptr noundef nonnull al
   br i1 %36, label %37, label %41
 
 37:                                               ; preds = %.critedge
-  %38 = getelementptr inbounds nuw i8, ptr %8, i64 %34
+  %38 = getelementptr inbounds i8, ptr %8, i64 %34
   %39 = load i64, ptr %4, align 1
   store i64 %39, ptr %38, align 2
   %40 = add i64 %34, 8
@@ -973,16 +973,16 @@ define void @_Z6pbkdf2PKhmS0_mPhS1_S1_j(ptr noundef %0, i64 noundef %1, ptr noca
   %18 = alloca [32 x i8], align 16
   %19 = tail call i64 @llvm.umin.i64(i64 %3, i64 64)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %9, ptr align 1 %2, i64 %19, i1 false)
-  %20 = getelementptr inbounds nuw [68 x i8], ptr %9, i64 0, i64 %3
+  %20 = getelementptr inbounds [68 x i8], ptr %9, i64 0, i64 %3
   store i8 0, ptr %20, align 1
   %21 = add i64 %3, 1
-  %22 = getelementptr inbounds nuw [68 x i8], ptr %9, i64 0, i64 %21
+  %22 = getelementptr inbounds [68 x i8], ptr %9, i64 0, i64 %21
   store i8 0, ptr %22, align 1
   %23 = add i64 %3, 2
-  %24 = getelementptr inbounds nuw [68 x i8], ptr %9, i64 0, i64 %23
+  %24 = getelementptr inbounds [68 x i8], ptr %9, i64 0, i64 %23
   store i8 0, ptr %24, align 1
   %25 = add i64 %3, 3
-  %26 = getelementptr inbounds nuw [68 x i8], ptr %9, i64 0, i64 %25
+  %26 = getelementptr inbounds [68 x i8], ptr %9, i64 0, i64 %25
   store i8 1, ptr %26, align 1
   %27 = add i64 %3, 4
   call fastcc void @_ZL11hmac_sha256PKhmS0_mPhP14sha256_contextPbS3_S4_(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %9, i64 noundef %27, ptr noundef %10, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
@@ -1791,7 +1791,7 @@ define noundef zeroext i1 @_ZN9CryptData12SetCryptKeysEb12CRYPT_METHODP11SecPass
   %33 = add i8 %30, %27
   %34 = call i8 @llvm.fshl.i8(i8 %33, i8 %33, i8 1)
   %35 = add i64 %.011.i, 1
-  %36 = getelementptr inbounds nuw i8, ptr %11, i64 %35
+  %36 = getelementptr inbounds i8, ptr %11, i64 %35
   %37 = load i8, ptr %36, align 1
   %.not.i = icmp eq i8 %37, 0
   br i1 %.not.i, label %_ZN9CryptData8SetKey13EPKc.exit.loopexit, label %.lr.ph.i, !llvm.loop !4
@@ -1832,7 +1832,7 @@ define noundef zeroext i1 @_ZN9CryptData12SetCryptKeysEb12CRYPT_METHODP11SecPass
   %61 = trunc i32 %60 to i16
   %62 = add i16 %52, %61
   %63 = add i64 %.015.i, 1
-  %64 = getelementptr inbounds nuw i8, ptr %11, i64 %63
+  %64 = getelementptr inbounds i8, ptr %11, i64 %63
   %65 = load i8, ptr %64, align 1
   %.not.i18 = icmp eq i8 %65, 0
   br i1 %.not.i18, label %_ZN9CryptData8SetKey13EPKc.exit.loopexit19, label %.lr.ph.i17, !llvm.loop !6

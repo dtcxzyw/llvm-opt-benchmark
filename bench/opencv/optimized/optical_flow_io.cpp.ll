@@ -61,7 +61,7 @@ define void @_ZN2cv15readOpticalFlowERKNSt7__cxx1112basic_stringIcSt11char_trait
   %14 = load ptr, ptr %4, align 8
   %15 = getelementptr i8, ptr %14, i64 -24
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 %16
+  %17 = getelementptr inbounds i8, ptr %4, i64 %16
   %18 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %17)
           to label %19 unwind label %.loopexit.split-lp
 
@@ -148,7 +148,7 @@ _ZN2cv4Mat_INS_6Point_IfEEE6createEii.exit.preheader: ; preds = %32
   %51 = load ptr, ptr %4, align 8
   %52 = getelementptr i8, ptr %51, i64 -24
   %53 = load i64, ptr %52, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %4, i64 %53
+  %54 = getelementptr inbounds i8, ptr %4, i64 %53
   %55 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %54)
           to label %56 unwind label %.loopexit
 
@@ -281,7 +281,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %8, %11
   %22 = load ptr, ptr %4, align 8
   %23 = getelementptr i8, ptr %22, i64 -24
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %4, i64 %24
+  %25 = getelementptr inbounds i8, ptr %4, i64 %24
   %26 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %25)
           to label %27 unwind label %.loopexit.split-lp
 
@@ -323,7 +323,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %8, %11
   %41 = load ptr, ptr %4, align 8
   %42 = getelementptr i8, ptr %41, i64 -24
   %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %4, i64 %43
+  %44 = getelementptr inbounds i8, ptr %4, i64 %43
   %45 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %44)
           to label %46 unwind label %.loopexit.split-lp
 
@@ -362,7 +362,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %8, %11
   %62 = load ptr, ptr %4, align 8
   %63 = getelementptr i8, ptr %62, i64 -24
   %64 = load i64, ptr %63, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %4, i64 %64
+  %65 = getelementptr inbounds i8, ptr %4, i64 %64
   %66 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %65)
           to label %67 unwind label %.loopexit
 

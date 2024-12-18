@@ -42097,7 +42097,7 @@ define internal fastcc void @_ZN13rustc_apfloat4ieee3sig3mul17h2972bef38cb3a0e9E
 
 51:                                               ; preds = %.lr.ph.split.i.i.us
   %52 = sub nuw i64 %49, %43
-  %53 = getelementptr inbounds nuw [0 x i128], ptr %11, i64 0, i64 %52
+  %53 = getelementptr inbounds [0 x i128], ptr %11, i64 0, i64 %52
   %54 = load i128, ptr %53, align 16, !alias.scope !13371, !noalias !13374, !noundef !4
   %55 = shl i128 %54, %45
   %.not19.not.i.i.us = icmp ugt i64 %49, %43
@@ -42105,7 +42105,7 @@ define internal fastcc void @_ZN13rustc_apfloat4ieee3sig3mul17h2972bef38cb3a0e9E
 
 56:                                               ; preds = %51
   %57 = add nsw i64 %52, -1
-  %58 = getelementptr inbounds nuw [0 x i128], ptr %11, i64 0, i64 %57
+  %58 = getelementptr inbounds [0 x i128], ptr %11, i64 0, i64 %57
   %59 = load i128, ptr %58, align 16, !alias.scope !13371, !noalias !13374, !noundef !4
   %60 = lshr i128 %59, %48
   %61 = or disjoint i128 %60, %55
@@ -42113,7 +42113,7 @@ define internal fastcc void @_ZN13rustc_apfloat4ieee3sig3mul17h2972bef38cb3a0e9E
 
 62:                                               ; preds = %56, %51, %.lr.ph.split.i.i.us
   %.0.i.i54.us = phi i128 [ %61, %56 ], [ %55, %51 ], [ 0, %.lr.ph.split.i.i.us ]
-  %63 = getelementptr inbounds nuw [0 x i128], ptr %11, i64 0, i64 %49
+  %63 = getelementptr inbounds [0 x i128], ptr %11, i64 0, i64 %49
   store i128 %.0.i.i54.us, ptr %63, align 16, !alias.scope !13371, !noalias !13374
   %.not26.i.i.us = icmp eq i64 %49, 0
   br i1 %.not26.i.i.us, label %_ZN13rustc_apfloat4ieee3sig10shift_left17h48b081f070e555d2E.exit.i.us, label %.lr.ph.split.i.i.us
@@ -42126,13 +42126,13 @@ define internal fastcc void @_ZN13rustc_apfloat4ieee3sig3mul17h2972bef38cb3a0e9E
 
 66:                                               ; preds = %.lr.ph.split.us.i.i.us
   %67 = sub nuw i64 %64, %43
-  %68 = getelementptr inbounds nuw [0 x i128], ptr %11, i64 0, i64 %67
+  %68 = getelementptr inbounds [0 x i128], ptr %11, i64 0, i64 %67
   %69 = load i128, ptr %68, align 16, !alias.scope !13371, !noalias !13374, !noundef !4
   br label %70
 
 70:                                               ; preds = %66, %.lr.ph.split.us.i.i.us
   %.0.us.i.i.us = phi i128 [ %69, %66 ], [ 0, %.lr.ph.split.us.i.i.us ]
-  %71 = getelementptr inbounds nuw [0 x i128], ptr %11, i64 0, i64 %64
+  %71 = getelementptr inbounds [0 x i128], ptr %11, i64 0, i64 %64
   store i128 %.0.us.i.i.us, ptr %71, align 16, !alias.scope !13371, !noalias !13374
   %.not26.us.i.i.us = icmp eq i64 %64, 0
   br i1 %.not26.us.i.i.us, label %_ZN13rustc_apfloat4ieee3sig10shift_left17h48b081f070e555d2E.exit.i.us, label %.lr.ph.split.us.i.i.us
@@ -68482,7 +68482,7 @@ default.unreachable32:                            ; preds = %16, %11
 
 41:                                               ; preds = %40
   %42 = add nsw i64 %.sroa.11.0.i.i.i, -1
-  %43 = getelementptr inbounds nuw i128, ptr %3, i64 %42
+  %43 = getelementptr inbounds i128, ptr %3, i64 %42
   %44 = getelementptr inbounds i128, ptr %1, i64 %42
   %45 = load i128, ptr %43, align 16, !alias.scope !19391, !noalias !19392, !noundef !4
   %46 = load i128, ptr %44, align 16, !alias.scope !19393, !noalias !19394, !noundef !4
@@ -68623,7 +68623,7 @@ default.unreachable32:                            ; preds = %16, %11
 
 41:                                               ; preds = %40
   %42 = add nsw i64 %.sroa.11.0.i.i.i, -1
-  %43 = getelementptr inbounds nuw i128, ptr %3, i64 %42
+  %43 = getelementptr inbounds i128, ptr %3, i64 %42
   %44 = getelementptr inbounds i128, ptr %1, i64 %42
   %45 = load i128, ptr %43, align 16, !alias.scope !19415, !noalias !19416, !noundef !4
   %46 = load i128, ptr %44, align 16, !alias.scope !19417, !noalias !19418, !noundef !4

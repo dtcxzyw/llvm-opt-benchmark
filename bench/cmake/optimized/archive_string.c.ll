@@ -3741,7 +3741,7 @@ define internal range(i32 -1, 1) i32 @archive_string_normalize_D(ptr noundef %0,
   %290 = add nsw i32 %.03339.i, %.03240.i
   %291 = sdiv i32 %290, 2
   %292 = sext i32 %291 to i64
-  %293 = getelementptr inbounds nuw [931 x %struct.unicode_decomposition_table], ptr @u_decomposition_table, i64 0, i64 %292
+  %293 = getelementptr inbounds [931 x %struct.unicode_decomposition_table], ptr @u_decomposition_table, i64 0, i64 %292
   %294 = load i32, ptr %293, align 4
   %295 = icmp ult i32 %294, %289
   br i1 %295, label %296, label %298
@@ -3891,9 +3891,9 @@ get_nfd.exit:                                     ; preds = %298
 
 .lr.ph660:                                        ; preds = %.lr.ph660.preheader, %.lr.ph660
   %indvars.iv1008 = phi i64 [ %indvars.iv1006, %.lr.ph660.preheader ], [ %indvars.iv.next1009, %.lr.ph660 ]
-  %368 = getelementptr inbounds nuw [10 x %struct.anon], ptr %7, i64 0, i64 %indvars.iv1008
+  %368 = getelementptr inbounds [10 x %struct.anon], ptr %7, i64 0, i64 %indvars.iv1008
   %indvars.iv.next1009 = add nsw i64 %indvars.iv1008, -1
-  %369 = getelementptr inbounds nuw [10 x %struct.anon], ptr %7, i64 0, i64 %indvars.iv.next1009
+  %369 = getelementptr inbounds [10 x %struct.anon], ptr %7, i64 0, i64 %indvars.iv.next1009
   %370 = load i64, ptr %369, align 8
   store i64 %370, ptr %368, align 8
   %371 = icmp sgt i64 %indvars.iv.next1009, %366
@@ -4810,7 +4810,7 @@ define internal range(i32 -1, 1) i32 @archive_string_normalize_C(ptr noundef %0,
   %350 = add nsw i32 %.01925.i, %.01826.i
   %351 = sdiv i32 %350, 2
   %352 = sext i32 %351 to i64
-  %353 = getelementptr inbounds nuw [931 x %struct.unicode_composition_table], ptr @u_composition_table, i64 0, i64 %352
+  %353 = getelementptr inbounds [931 x %struct.unicode_composition_table], ptr @u_composition_table, i64 0, i64 %352
   %354 = load i32, ptr %353, align 4
   %355 = icmp ult i32 %354, %186
   br i1 %355, label %356, label %358
@@ -5132,7 +5132,7 @@ get_nfc.exit.thread:                              ; preds = %get_nfc.exit, %372
   %514 = add nsw i32 %.01925.i770, %.01826.i769
   %515 = sdiv i32 %514, 2
   %516 = sext i32 %515 to i64
-  %517 = getelementptr inbounds nuw [931 x %struct.unicode_composition_table], ptr @u_composition_table, i64 0, i64 %516
+  %517 = getelementptr inbounds [931 x %struct.unicode_composition_table], ptr @u_composition_table, i64 0, i64 %516
   %518 = load i32, ptr %517, align 4
   %519 = icmp ult i32 %518, %507
   br i1 %519, label %520, label %522
@@ -5202,11 +5202,11 @@ get_nfc.exit775.thread:                           ; preds = %536, %get_nfc.exit7
   %547 = load i32, ptr %546, align 4
   %sext = shl i64 %.05861086, 32
   %548 = ashr exact i64 %sext, 32
-  %549 = getelementptr inbounds nuw [10 x i32], ptr %7, i64 0, i64 %548
+  %549 = getelementptr inbounds [10 x i32], ptr %7, i64 0, i64 %548
   store i32 %547, ptr %549, align 4
   %550 = getelementptr inbounds nuw [10 x i32], ptr %8, i64 0, i64 %indvars.iv1387
   %551 = load i32, ptr %550, align 4
-  %552 = getelementptr inbounds nuw [10 x i32], ptr %8, i64 0, i64 %548
+  %552 = getelementptr inbounds [10 x i32], ptr %8, i64 0, i64 %548
   store i32 %551, ptr %552, align 4
   %indvars.iv.next1388 = add nsw i64 %indvars.iv1387, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next1388 to i32
@@ -5237,13 +5237,13 @@ get_nfc.exit775.thread:                           ; preds = %536, %get_nfc.exit7
 .lr.ph1096.preheader:                             ; preds = %559
   %sext1399 = shl i64 %indvars.iv1381, 32
   %565 = ashr exact i64 %sext1399, 32
-  %566 = getelementptr inbounds nuw [10 x i32], ptr %7, i64 0, i64 %565
+  %566 = getelementptr inbounds [10 x i32], ptr %7, i64 0, i64 %565
   %567 = call i32 %.0660(ptr noundef nonnull %566, ptr noundef %.4594.ph1125, i64 noundef %.4.ph1126) #23, !callees !17
   %568 = icmp slt i32 %567, 1
   br i1 %568, label %._crit_edge1097.loopexit, label %.lr.ph1901
 
 .lr.ph1096:                                       ; preds = %598
-  %569 = getelementptr inbounds nuw [10 x i32], ptr %7, i64 0, i64 %indvars.iv.next1392
+  %569 = getelementptr inbounds [10 x i32], ptr %7, i64 0, i64 %indvars.iv.next1392
   %570 = call i32 %.0660(ptr noundef nonnull %569, ptr noundef nonnull %600, i64 noundef %601) #23, !callees !17
   %571 = icmp slt i32 %570, 1
   br i1 %571, label %._crit_edge1097.loopexit, label %.lr.ph1901, !llvm.loop !48
@@ -5291,7 +5291,7 @@ get_nfc.exit775.thread:                           ; preds = %536, %get_nfc.exit7
   %599 = zext nneg i32 %572 to i64
   %600 = getelementptr inbounds nuw i8, ptr %.659610921899, i64 %599
   %601 = sub i64 %.610931898, %599
-  %602 = getelementptr inbounds nuw [10 x i32], ptr %8, i64 0, i64 %indvars.iv13911897
+  %602 = getelementptr inbounds [10 x i32], ptr %8, i64 0, i64 %indvars.iv13911897
   store i32 %594, ptr %602, align 4
   %indvars.iv.next1392 = add nsw i64 %indvars.iv13911897, 1
   %exitcond1394.not = icmp eq i64 %indvars.iv.next1392, 10

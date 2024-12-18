@@ -602,7 +602,7 @@ entry:
   %tobool3.not = icmp eq i32 %generate_seed, 0
   %cmp11 = icmp sgt i32 %call.fr, %qsize
   %idx.ext = sext i32 %call.fr to i64
-  %add.ptr = getelementptr inbounds nuw i8, ptr %md, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i8, ptr %md, i64 %idx.ext
   %idx.ext14 = sext i32 %qsize to i64
   %idx.neg = sub nsw i64 0, %idx.ext14
   %add.ptr15 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.neg
@@ -1285,7 +1285,7 @@ for.cond.preheader:                               ; preds = %if.end113
   %conv.i = trunc nuw i64 %shr to i32
   %cmp291.i = icmp sgt i32 %conv.i, 0
   %sub45.i = add nsw i64 %shr, -1
-  %arrayidx46.i = getelementptr inbounds nuw [64 x i8], ptr %md.i, i64 0, i64 %sub45.i
+  %arrayidx46.i = getelementptr inbounds [64 x i8], ptr %md.i, i64 0, i64 %sub45.i
   %div142 = udiv i64 %sub, 160
   %conv143 = trunc i64 %div142 to i32
   %div139.tr = trunc i64 %div139 to i32

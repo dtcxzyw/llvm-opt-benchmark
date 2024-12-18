@@ -418,13 +418,13 @@ define float @Gia_ObjComputeArrival(ptr nocapture noundef readonly %0, i32 nound
   %119 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv71.i
   %120 = load i32, ptr %119, align 4
   %121 = sext i32 %120 to i64
-  %122 = getelementptr inbounds nuw float, ptr %5, i64 %121
+  %122 = getelementptr inbounds float, ptr %5, i64 %121
   %123 = load float, ptr %122, align 4
   %124 = sext i32 %.04559.i to i64
-  %125 = getelementptr inbounds nuw i32, ptr %4, i64 %124
+  %125 = getelementptr inbounds i32, ptr %4, i64 %124
   %126 = load i32, ptr %125, align 4
   %127 = sext i32 %126 to i64
-  %128 = getelementptr inbounds nuw float, ptr %5, i64 %127
+  %128 = getelementptr inbounds float, ptr %5, i64 %127
   %129 = load float, ptr %128, align 4
   %130 = fcmp ogt float %123, %129
   %131 = trunc nuw nsw i64 %indvars.iv71.i to i32
@@ -443,7 +443,7 @@ define float @Gia_ObjComputeArrival(ptr nocapture noundef readonly %0, i32 nound
   %135 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv74.i
   %136 = load i32, ptr %135, align 4
   %137 = sext i32 %.045.lcssa.i to i64
-  %138 = getelementptr inbounds nuw i32, ptr %4, i64 %137
+  %138 = getelementptr inbounds i32, ptr %4, i64 %137
   %139 = load i32, ptr %138, align 4
   store i32 %139, ptr %135, align 4
   store i32 %136, ptr %138, align 4
@@ -724,13 +724,13 @@ define float @Gia_ObjPropagateRequired(ptr nocapture noundef readonly %0, i32 no
   %117 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv71.i
   %118 = load i32, ptr %117, align 4
   %119 = sext i32 %118 to i64
-  %120 = getelementptr inbounds nuw float, ptr %5, i64 %119
+  %120 = getelementptr inbounds float, ptr %5, i64 %119
   %121 = load float, ptr %120, align 4
   %122 = sext i32 %.04559.i to i64
-  %123 = getelementptr inbounds nuw i32, ptr %4, i64 %122
+  %123 = getelementptr inbounds i32, ptr %4, i64 %122
   %124 = load i32, ptr %123, align 4
   %125 = sext i32 %124 to i64
-  %126 = getelementptr inbounds nuw float, ptr %5, i64 %125
+  %126 = getelementptr inbounds float, ptr %5, i64 %125
   %127 = load float, ptr %126, align 4
   %128 = fcmp ogt float %121, %127
   %129 = trunc nuw nsw i64 %indvars.iv71.i to i32
@@ -749,7 +749,7 @@ define float @Gia_ObjPropagateRequired(ptr nocapture noundef readonly %0, i32 no
   %133 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv74.i
   %134 = load i32, ptr %133, align 4
   %135 = sext i32 %.045.lcssa.i to i64
-  %136 = getelementptr inbounds nuw i32, ptr %4, i64 %135
+  %136 = getelementptr inbounds i32, ptr %4, i64 %135
   %137 = load i32, ptr %136, align 4
   store i32 %137, ptr %133, align 4
   store i32 %134, ptr %136, align 4
@@ -1696,13 +1696,13 @@ define i32 @Gia_LutDelayTraceTCEdges(ptr nocapture noundef readonly %0, i32 noun
   %100 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv71.i
   %101 = load i32, ptr %100, align 4
   %102 = sext i32 %101 to i64
-  %103 = getelementptr inbounds nuw float, ptr %5, i64 %102
+  %103 = getelementptr inbounds float, ptr %5, i64 %102
   %104 = load float, ptr %103, align 4
   %105 = sext i32 %.04559.i to i64
-  %106 = getelementptr inbounds nuw i32, ptr %4, i64 %105
+  %106 = getelementptr inbounds i32, ptr %4, i64 %105
   %107 = load i32, ptr %106, align 4
   %108 = sext i32 %107 to i64
-  %109 = getelementptr inbounds nuw float, ptr %5, i64 %108
+  %109 = getelementptr inbounds float, ptr %5, i64 %108
   %110 = load float, ptr %109, align 4
   %111 = fcmp ogt float %104, %110
   %112 = trunc nuw nsw i64 %indvars.iv71.i to i32
@@ -1721,7 +1721,7 @@ define i32 @Gia_LutDelayTraceTCEdges(ptr nocapture noundef readonly %0, i32 noun
   %116 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv74.i
   %117 = load i32, ptr %116, align 4
   %118 = sext i32 %.045.lcssa.i to i64
-  %119 = getelementptr inbounds nuw i32, ptr %4, i64 %118
+  %119 = getelementptr inbounds i32, ptr %4, i64 %118
   %120 = load i32, ptr %119, align 4
   store i32 %120, ptr %116, align 4
   store i32 %117, ptr %119, align 4
@@ -2145,9 +2145,9 @@ Vec_IntFree.exit140:                              ; preds = %._crit_edge, %92
   %114 = shl nsw i32 %113, 1
   %115 = or disjoint i32 %114, %105
   %116 = add nsw i64 %indvars.iv188, %108
-  %117 = getelementptr inbounds nuw [32 x i32], ptr %6, i64 0, i64 %116
+  %117 = getelementptr inbounds [32 x i32], ptr %6, i64 0, i64 %116
   %118 = load i32, ptr %117, align 4
-  %119 = getelementptr inbounds nuw [32 x i32], ptr %6, i64 0, i64 %indvars.iv188
+  %119 = getelementptr inbounds [32 x i32], ptr %6, i64 0, i64 %indvars.iv188
   %120 = load i32, ptr %119, align 8
   %121 = tail call i32 @Gia_ManHashMux(ptr noundef %0, i32 noundef %115, i32 noundef %118, i32 noundef %120) #13
   store i32 %121, ptr %119, align 8

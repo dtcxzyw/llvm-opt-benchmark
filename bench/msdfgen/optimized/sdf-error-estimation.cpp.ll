@@ -600,7 +600,7 @@ if.then128:                                       ; preds = %invoke.cont123
 
 invoke.cont132:                                   ; preds = %if.then128
   %idxprom134 = sext i32 %newIntersectionCount.0256 to i64
-  %arrayidx135 = getelementptr inbounds nuw [4 x %"struct.msdfgen::Scanline::Intersection"], ptr %newIntersections, i64 0, i64 %idxprom134
+  %arrayidx135 = getelementptr inbounds [4 x %"struct.msdfgen::Scanline::Intersection"], ptr %newIntersections, i64 0, i64 %idxprom134
   store double %call133, ptr %arrayidx135, align 16
   %cmp.i200 = fcmp ogt float %sub104, 0.000000e+00
   %conv.i201 = zext i1 %cmp.i200 to i32
@@ -1114,7 +1114,7 @@ if.then128:                                       ; preds = %invoke.cont123
 
 invoke.cont132:                                   ; preds = %if.then128
   %idxprom134 = sext i32 %newIntersectionCount.0256 to i64
-  %arrayidx135 = getelementptr inbounds nuw [4 x %"struct.msdfgen::Scanline::Intersection"], ptr %newIntersections, i64 0, i64 %idxprom134
+  %arrayidx135 = getelementptr inbounds [4 x %"struct.msdfgen::Scanline::Intersection"], ptr %newIntersections, i64 0, i64 %idxprom134
   store double %call133, ptr %arrayidx135, align 16
   %cmp.i200 = fcmp ogt float %sub104, 0.000000e+00
   %conv.i201 = zext i1 %cmp.i200 to i32

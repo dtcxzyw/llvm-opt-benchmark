@@ -33924,7 +33924,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit26:  ; preds = %95
 define noundef range(i8 0, 8) i8 @"_ZN118_$LT$ide..moniker..MonikerDescriptorKind$u20$as$u20$core..convert..From$LT$ide..moniker..SymbolInformationKind$GT$$GT$4from17hc16419c39b7dd772E"(i8 noundef %0) unnamed_addr #12 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [22 x i8], ptr @"switch.table._ZN3ide7moniker14def_to_moniker28_$u7b$$u7b$closure$u7d$$u7d$17h48cc748c4862ac81E.llvm.3835216717863518526", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [22 x i8], ptr @"switch.table._ZN3ide7moniker14def_to_moniker28_$u7b$$u7b$closure$u7d$$u7d$17h48cc748c4862ac81E.llvm.3835216717863518526", i64 0, i64 %1
   %switch.load = load i8, ptr %switch.gep, align 1
   ret i8 %switch.load
 }

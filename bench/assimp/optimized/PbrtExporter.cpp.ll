@@ -1212,7 +1212,7 @@ invoke.cont64:                                    ; preds = %invoke.cont62
   %vtable65 = load ptr, ptr %filestream, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable65, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %filestream, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %filestream, i64 %vbase.offset
   %call68 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr)
           to label %invoke.cont67 unwind label %lpad66
 
@@ -6346,7 +6346,7 @@ entry:
   %call = call noundef i32 %__convf(ptr noundef nonnull %0, i64 noundef %__n, ptr noundef %__fmt, ptr noundef nonnull %__args)
   call void @llvm.va_end.p0(ptr nonnull %__args)
   %idx.ext = sext i32 %call to i64
-  %add.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i8, ptr %0, i64 %idx.ext
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #24
   %call.i4 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
           to label %call.i.noexc unwind label %lpad

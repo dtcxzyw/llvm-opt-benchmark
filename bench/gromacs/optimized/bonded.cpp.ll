@@ -1176,19 +1176,19 @@ _ZN12_GLOBAL__N_121cmap_setup_grid_indexEiiPiS0_S0_.exit285: ; preds = %333, %33
   %486 = fmul float %458, %.0256376
   %487 = fpext float %486 to double
   %488 = sext i32 %464 to i64
-  %489 = getelementptr inbounds nuw [16 x float], ptr %38, i64 0, i64 %488
+  %489 = getelementptr inbounds [16 x float], ptr %38, i64 0, i64 %488
   %490 = load float, ptr %489, align 4
   %491 = fpext float %490 to double
   %492 = fmul double %491, 3.000000e+00
   %493 = sext i32 %466 to i64
-  %494 = getelementptr inbounds nuw [16 x float], ptr %38, i64 0, i64 %493
+  %494 = getelementptr inbounds [16 x float], ptr %38, i64 0, i64 %493
   %495 = load float, ptr %494, align 4
   %496 = fpext float %495 to double
   %497 = fmul double %496, 2.000000e+00
   %498 = call double @llvm.fmuladd.f64(double %492, double %459, double %497)
   %499 = call double @llvm.fmuladd.f64(double %498, double %459, double %487)
   %500 = sext i32 %468 to i64
-  %501 = getelementptr inbounds nuw [16 x float], ptr %38, i64 0, i64 %500
+  %501 = getelementptr inbounds [16 x float], ptr %38, i64 0, i64 %500
   %502 = load float, ptr %501, align 4
   %503 = fpext float %502 to double
   %504 = fadd double %499, %503
@@ -1486,7 +1486,7 @@ declare float @asinf(float noundef) local_unnamed_addr #9
 define noundef float @_Z19calculateSimpleBondiiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS4_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi18BondedKernelFlavor(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, float noundef %8, ptr noundef %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef") align 8 %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14, i32 noundef %15) local_unnamed_addr #4 {
   %17 = alloca %"class.gmx::ArrayRef", align 8
   %18 = sext i32 %15 to i64
-  %19 = getelementptr inbounds nuw [4 x %"struct.std::array.43"], ptr @_ZN12_GLOBAL__N_137c_bondedInteractionFunctionsPerFlavorE, i64 0, i64 %18
+  %19 = getelementptr inbounds [4 x %"struct.std::array.43"], ptr @_ZN12_GLOBAL__N_137c_bondedInteractionFunctionsPerFlavorE, i64 0, i64 %18
   %20 = sext i32 %0 to i64
   %21 = getelementptr inbounds [94 x %"struct.(anonymous namespace)::BondedInteractions"], ptr %19, i64 0, i64 %20
   %22 = load ptr, ptr %21, align 8
@@ -25039,7 +25039,7 @@ _ZL9cos_anglePKfS0_.exit:                         ; preds = %92, %95
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef i32 @_Z9nrnbIndexi(i32 noundef %0) local_unnamed_addr #19 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [94 x %"struct.(anonymous namespace)::BondedInteractions"], ptr @_ZN12_GLOBAL__N_128c_bondedInteractionFunctionsIL18BondedKernelFlavor2EEE, i64 0, i64 %2, i32 1
+  %3 = getelementptr inbounds [94 x %"struct.(anonymous namespace)::BondedInteractions"], ptr @_ZN12_GLOBAL__N_128c_bondedInteractionFunctionsIL18BondedKernelFlavor2EEE, i64 0, i64 %2, i32 1
   %4 = load i32, ptr %3, align 8
   ret i32 %4
 }

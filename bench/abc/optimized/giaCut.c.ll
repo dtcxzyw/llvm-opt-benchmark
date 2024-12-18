@@ -613,7 +613,7 @@ Abc_TtCopy.exit69.i.us:                           ; preds = %.lr.ph.i58.i.us, %.
   %257 = add nsw i32 %256, -1
   %258 = zext nneg i32 %206 to i64
   %259 = sext i32 %208 to i64
-  %260 = getelementptr inbounds nuw i64, ptr %4, i64 %259
+  %260 = getelementptr inbounds i64, ptr %4, i64 %259
   %smax.i220.us = call i32 @llvm.smax.i32(i32 %208, i32 1)
   %wide.trip.count149.i221.us = zext nneg i32 %smax.i220.us to i64
   br label %.lr.ph.i71.i.us
@@ -799,7 +799,7 @@ Abc_TtExpand.exit.i.us:                           ; preds = %346, %Abc_TtCopy.ex
   %354 = add nsw i32 %353, -1
   %355 = zext nneg i32 %206 to i64
   %356 = sext i32 %208 to i64
-  %357 = getelementptr inbounds nuw i64, ptr %5, i64 %356
+  %357 = getelementptr inbounds i64, ptr %5, i64 %356
   %smax.i187.us = call i32 @llvm.smax.i32(i32 %208, i32 1)
   %wide.trip.count149.i188.us = zext nneg i32 %smax.i187.us to i64
   br label %.lr.ph.i75.i.us
@@ -1087,7 +1087,7 @@ Abc_TtXor.exit.i.us:                              ; preds = %.lr.ph.i84.i.us, %.
 
 .lr.ph.i105.i.us:                                 ; preds = %484
   %485 = sext i32 %208 to i64
-  %486 = getelementptr inbounds nuw i64, ptr %3, i64 %485
+  %486 = getelementptr inbounds i64, ptr %3, i64 %485
   %smax.i.i.i.us = call i32 @llvm.smax.i32(i32 %208, i32 1)
   %wide.trip.count54.i.i.i.us = zext nneg i32 %smax.i.i.i.us to i64
   br i1 %.not115.i107.us, label %Abc_TtMinBase.exit.i.us, label %.lr.ph.split.split.i.i.us
@@ -1225,7 +1225,7 @@ Abc_TtHasVar.exit.i.i.us:                         ; preds = %506, %494
 .preheader.lr.ph.i.us:                            ; preds = %521
   %543 = shl nuw nsw i32 1, %spec.select117.i.us
   %544 = sext i32 %spec.select117.i.us to i64
-  %545 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %544
+  %545 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %544
   %546 = load i64, ptr %545, align 8
   %547 = zext nneg i32 %543 to i64
   %548 = xor i64 %546, -1
@@ -6813,7 +6813,7 @@ define i32 @Gia_ManFindSatDcs(ptr nocapture noundef readonly %0, ptr nocapture n
 
 ..critedge_crit_edge.us:                          ; preds = %23
   %33 = sext i32 %.1.us to i64
-  %34 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %33
+  %34 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = add nsw i32 %35, 1
   store i32 %36, ptr %34, align 4
@@ -7205,7 +7205,7 @@ Gia_ManCountRefs.exit:                            ; preds = %27, %12
 
 ..critedge_crit_edge.us.i:                        ; preds = %48
   %58 = sext i32 %.1.us.i to i64
-  %59 = getelementptr inbounds nuw [256 x i32], ptr %3, i64 0, i64 %58
+  %59 = getelementptr inbounds [256 x i32], ptr %3, i64 0, i64 %58
   %60 = load i32, ptr %59, align 4
   %61 = add nsw i32 %60, 1
   store i32 %61, ptr %59, align 4

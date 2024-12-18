@@ -4949,7 +4949,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail5floffINS1_15m
   %340 = xor i32 %301, -1
   %341 = add i32 %.0956, %340
   %342 = sext i32 %341 to i64
-  %343 = getelementptr inbounds nuw [8 x i32], ptr @_ZN5boost8charconv6detail34additional_static_data_holder_implILb1EE37fractional_part_rounding_thresholds32E, i64 0, i64 %342
+  %343 = getelementptr inbounds [8 x i32], ptr @_ZN5boost8charconv6detail34additional_static_data_holder_implILb1EE37fractional_part_rounding_thresholds32E, i64 0, i64 %342
   %344 = load i32, ptr %343, align 4, !tbaa !32
   %.not.i = icmp ugt i32 %344, %339
   br i1 %.not.i, label %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit, label %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit.thread
@@ -5176,7 +5176,7 @@ _ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_ne
   %458 = xor i32 %.6923, -1
   %459 = add i32 %.2958, %458
   %460 = sext i32 %459 to i64
-  %461 = getelementptr inbounds nuw [8 x i32], ptr @_ZN5boost8charconv6detail34additional_static_data_holder_implILb1EE37fractional_part_rounding_thresholds32E, i64 0, i64 %460
+  %461 = getelementptr inbounds [8 x i32], ptr @_ZN5boost8charconv6detail34additional_static_data_holder_implILb1EE37fractional_part_rounding_thresholds32E, i64 0, i64 %460
   %462 = load i32, ptr %461, align 4, !tbaa !32
   %.not.i1143 = icmp ugt i32 %462, %457
   br i1 %.not.i1143, label %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1145, label %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1145.thread
@@ -6376,7 +6376,7 @@ _ZN5boost8charconv6detail18has_further_digitsILj1ELj0ENS1_24extended_cache_long_
   %.0.i.i1376 = phi i32 [ %1173, %1170 ], [ 1, %1158 ], [ 0, %1168 ]
   %1174 = add nsw i32 %1162, -1
   %1175 = sext i32 %1174 to i64
-  %1176 = getelementptr inbounds nuw [8 x i32], ptr @_ZN5boost8charconv6detail34additional_static_data_holder_implILb1EE37fractional_part_rounding_thresholds32E, i64 0, i64 %1175
+  %1176 = getelementptr inbounds [8 x i32], ptr @_ZN5boost8charconv6detail34additional_static_data_holder_implILb1EE37fractional_part_rounding_thresholds32E, i64 0, i64 %1175
   %1177 = load i32, ptr %1176, align 4, !tbaa !32
   %.not.i1152 = icmp ugt i32 %1177, %1164
   br i1 %.not.i1152, label %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1154, label %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1154.thread
@@ -6818,7 +6818,7 @@ _ZN5boost8charconv6detail18has_further_digitsILj1ELj16ENS1_24extended_cache_long
   %.0.i.i1418 = phi i32 [ %1395, %1392 ], [ 1, %1382 ], [ 0, %1390 ]
   %1396 = add nsw i32 %.4992, -1
   %1397 = sext i32 %1396 to i64
-  %1398 = getelementptr inbounds nuw [8 x i32], ptr @_ZN5boost8charconv6detail34additional_static_data_holder_implILb1EE37fractional_part_rounding_thresholds32E, i64 0, i64 %1397
+  %1398 = getelementptr inbounds [8 x i32], ptr @_ZN5boost8charconv6detail34additional_static_data_holder_implILb1EE37fractional_part_rounding_thresholds32E, i64 0, i64 %1397
   %1399 = load i32, ptr %1398, align 4, !tbaa !32
   %.not.i1155 = icmp ugt i32 %1399, %1386
   br i1 %.not.i1155, label %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1157, label %_ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj7ELb1EEEbJETnNSt9enable_ifIXsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_S6_DpT1_.exit.thread
@@ -7255,7 +7255,7 @@ _ZN5boost8charconv6detail18has_further_digitsILj1ELj9ENS1_24extended_cache_long_
   %.0.i.i1459 = phi i32 [ %1608, %1605 ], [ 1, %1595 ], [ 0, %1603 ]
   %1609 = add nsw i32 %.51006, -1
   %1610 = sext i32 %1609 to i64
-  %1611 = getelementptr inbounds nuw [8 x i32], ptr @_ZN5boost8charconv6detail34additional_static_data_holder_implILb1EE37fractional_part_rounding_thresholds32E, i64 0, i64 %1610
+  %1611 = getelementptr inbounds [8 x i32], ptr @_ZN5boost8charconv6detail34additional_static_data_holder_implILb1EE37fractional_part_rounding_thresholds32E, i64 0, i64 %1610
   %1612 = load i32, ptr %1611, align 4, !tbaa !32
   %.not.i1158 = icmp ugt i32 %1612, %1599
   br i1 %.not.i1158, label %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1160, label %.thread2227
@@ -8242,7 +8242,7 @@ _ZN5boost8charconv6detail18has_further_digitsILj1ELj6ENS1_24extended_cache_long_
   %.0.i.i1524 = phi i32 [ %2188, %2185 ], [ 1, %2175 ], [ 0, %2183 ]
   %2189 = sub nsw i32 15, %.28945
   %2190 = sext i32 %2189 to i64
-  %2191 = getelementptr inbounds nuw [8 x i32], ptr @_ZN5boost8charconv6detail34additional_static_data_holder_implILb1EE37fractional_part_rounding_thresholds32E, i64 0, i64 %2190
+  %2191 = getelementptr inbounds [8 x i32], ptr @_ZN5boost8charconv6detail34additional_static_data_holder_implILb1EE37fractional_part_rounding_thresholds32E, i64 0, i64 %2190
   %2192 = load i32, ptr %2191, align 4, !tbaa !32
   %.not.i1176 = icmp ugt i32 %2192, %2179
   br i1 %.not.i1176, label %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1178, label %.thread1988.sink.split
@@ -8438,7 +8438,7 @@ _ZN5boost8charconv6detail18has_further_digitsILj1ELj14ENS1_24extended_cache_long
   %.0.i.i1537 = phi i32 [ %2295, %2292 ], [ 1, %2282 ], [ 0, %2290 ]
   %2296 = sub i32 7, %.28945
   %2297 = sext i32 %2296 to i64
-  %2298 = getelementptr inbounds nuw [8 x i32], ptr @_ZN5boost8charconv6detail34additional_static_data_holder_implILb1EE37fractional_part_rounding_thresholds32E, i64 0, i64 %2297
+  %2298 = getelementptr inbounds [8 x i32], ptr @_ZN5boost8charconv6detail34additional_static_data_holder_implILb1EE37fractional_part_rounding_thresholds32E, i64 0, i64 %2297
   %2299 = load i32, ptr %2298, align 4, !tbaa !32
   %.not.i1182 = icmp ugt i32 %2299, %2286
   br i1 %.not.i1182, label %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1184, label %.thread1988.sink.split
@@ -9739,7 +9739,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZZN5boost8charconv6detail5floffI
   %7 = load i32, ptr %6, align 4, !tbaa !32
   %8 = add nsw i32 %7, -3
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds nuw [8 x i32], ptr @_ZN5boost8charconv6detail34additional_static_data_holder_implILb1EE37fractional_part_rounding_thresholds32E, i64 0, i64 %9
+  %10 = getelementptr inbounds [8 x i32], ptr @_ZN5boost8charconv6detail34additional_static_data_holder_implILb1EE37fractional_part_rounding_thresholds32E, i64 0, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !32
   %12 = and i32 %11, 2147483647
   %.not = icmp ugt i32 %12, %4

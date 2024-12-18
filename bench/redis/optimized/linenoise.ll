@@ -1503,7 +1503,7 @@ if.end:                                           ; preds = %if.then4
 land.rhs:                                         ; preds = %if.end, %while.body
   %len.025 = phi i64 [ %sub, %while.body ], [ %call10, %if.end ]
   %sub = add i64 %len.025, -1
-  %arrayidx = getelementptr inbounds nuw [4096 x i8], ptr %buf, i64 0, i64 %sub
+  %arrayidx = getelementptr inbounds [4096 x i8], ptr %buf, i64 0, i64 %sub
   %5 = load i8, ptr %arrayidx, align 1
   switch i8 %5, label %while.end [
     i8 10, label %while.body
@@ -2256,7 +2256,7 @@ sw.bb173.i.i:                                     ; preds = %if.end41.i.i
 
 sw.bb177.i.i:                                     ; preds = %if.end41.i.i
   %104 = load i64, ptr %pos.i.i, align 8
-  %arrayidx179.i.i = getelementptr inbounds nuw i8, ptr %buf, i64 %104
+  %arrayidx179.i.i = getelementptr inbounds i8, ptr %buf, i64 %104
   store i8 0, ptr %arrayidx179.i.i, align 1
   store i64 %104, ptr %len.i.i, align 8
   call fastcc void @refreshLine(ptr noundef nonnull %l.i.i)

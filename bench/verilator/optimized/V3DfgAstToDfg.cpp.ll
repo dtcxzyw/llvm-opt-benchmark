@@ -47820,7 +47820,7 @@ define linkonce_odr dso_local { ptr, i64 } @_ZNK18DfgVertexWithArityILm2EE11sour
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK9DfgConcat7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK9DfgConcat7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK9DfgConcat7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -50005,7 +50005,7 @@ define linkonce_odr dso_local void @_ZN8DfgAcosD6acceptER10DfgVisitor(ptr nounde
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK8DfgAcosD7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [1 x ptr], ptr @_ZZNK8DfgAcosD7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [1 x ptr], ptr @_ZZNK8DfgAcosD7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -50078,7 +50078,7 @@ define linkonce_odr dso_local void @_ZN9DfgAcoshD6acceptER10DfgVisitor(ptr nound
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK9DfgAcoshD7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [1 x ptr], ptr @_ZZNK9DfgAcoshD7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [1 x ptr], ptr @_ZZNK9DfgAcoshD7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -50151,7 +50151,7 @@ define linkonce_odr dso_local void @_ZN6DfgAdd6acceptER10DfgVisitor(ptr noundef 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK6DfgAdd7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK6DfgAdd7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK6DfgAdd7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -50224,7 +50224,7 @@ define linkonce_odr dso_local void @_ZN7DfgAddD6acceptER10DfgVisitor(ptr noundef
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK7DfgAddD7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK7DfgAddD7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK7DfgAddD7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -51541,7 +51541,7 @@ define linkonce_odr dso_local void @_ZN6DfgAnd6acceptER10DfgVisitor(ptr noundef 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK6DfgAnd7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK6DfgAnd7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK6DfgAnd7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -51614,7 +51614,7 @@ define linkonce_odr dso_local void @_ZN11DfgArraySel6acceptER10DfgVisitor(ptr no
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK11DfgArraySel7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK11DfgArraySel7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK11DfgArraySel7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -51687,7 +51687,7 @@ define linkonce_odr dso_local void @_ZN8DfgAsinD6acceptER10DfgVisitor(ptr nounde
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK8DfgAsinD7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [1 x ptr], ptr @_ZZNK8DfgAsinD7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [1 x ptr], ptr @_ZZNK8DfgAsinD7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -51760,7 +51760,7 @@ define linkonce_odr dso_local void @_ZN9DfgAsinhD6acceptER10DfgVisitor(ptr nound
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK9DfgAsinhD7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [1 x ptr], ptr @_ZZNK9DfgAsinhD7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [1 x ptr], ptr @_ZZNK9DfgAsinhD7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -51854,7 +51854,7 @@ define linkonce_odr dso_local void @_ZN11DfgAssocSel6acceptER10DfgVisitor(ptr no
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK11DfgAssocSel7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK11DfgAssocSel7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK11DfgAssocSel7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -51927,7 +51927,7 @@ define linkonce_odr dso_local void @_ZN9DfgAtan2D6acceptER10DfgVisitor(ptr nound
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK9DfgAtan2D7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK9DfgAtan2D7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK9DfgAtan2D7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -52000,7 +52000,7 @@ define linkonce_odr dso_local void @_ZN8DfgAtanD6acceptER10DfgVisitor(ptr nounde
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK8DfgAtanD7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [1 x ptr], ptr @_ZZNK8DfgAtanD7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [1 x ptr], ptr @_ZZNK8DfgAtanD7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -52073,7 +52073,7 @@ define linkonce_odr dso_local void @_ZN9DfgAtanhD6acceptER10DfgVisitor(ptr nound
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK9DfgAtanhD7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [1 x ptr], ptr @_ZZNK9DfgAtanhD7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [1 x ptr], ptr @_ZZNK9DfgAtanhD7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -52146,7 +52146,7 @@ define linkonce_odr dso_local void @_ZN14DfgBitsToRealD6acceptER10DfgVisitor(ptr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK14DfgBitsToRealD7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [1 x ptr], ptr @_ZZNK14DfgBitsToRealD7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [1 x ptr], ptr @_ZZNK14DfgBitsToRealD7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -52219,7 +52219,7 @@ define linkonce_odr dso_local void @_ZN9DfgBufIf16acceptER10DfgVisitor(ptr nound
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK9DfgBufIf17srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK9DfgBufIf17srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK9DfgBufIf17srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -52292,7 +52292,7 @@ define linkonce_odr dso_local void @_ZN9DfgCAwait6acceptER10DfgVisitor(ptr nound
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK9DfgCAwait7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [1 x ptr], ptr @_ZZNK9DfgCAwait7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [1 x ptr], ptr @_ZZNK9DfgCAwait7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -52365,7 +52365,7 @@ define linkonce_odr dso_local void @_ZN8DfgCLog26acceptER10DfgVisitor(ptr nounde
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK8DfgCLog27srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [1 x ptr], ptr @_ZZNK8DfgCLog27srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [1 x ptr], ptr @_ZZNK8DfgCLog27srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -52438,7 +52438,7 @@ define linkonce_odr dso_local void @_ZN14DfgCastDynamic6acceptER10DfgVisitor(ptr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK14DfgCastDynamic7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK14DfgCastDynamic7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK14DfgCastDynamic7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -52511,7 +52511,7 @@ define linkonce_odr dso_local void @_ZN11DfgCastWrap6acceptER10DfgVisitor(ptr no
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK11DfgCastWrap7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [1 x ptr], ptr @_ZZNK11DfgCastWrap7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [1 x ptr], ptr @_ZZNK11DfgCastWrap7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -52584,7 +52584,7 @@ define linkonce_odr dso_local void @_ZN8DfgCeilD6acceptER10DfgVisitor(ptr nounde
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK8DfgCeilD7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [1 x ptr], ptr @_ZZNK8DfgCeilD7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [1 x ptr], ptr @_ZZNK8DfgCeilD7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -52657,7 +52657,7 @@ define linkonce_odr dso_local void @_ZN10DfgConcatN6acceptER10DfgVisitor(ptr nou
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK10DfgConcatN7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK10DfgConcatN7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK10DfgConcatN7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -52746,7 +52746,7 @@ define linkonce_odr dso_local { ptr, i64 } @_ZNK18DfgVertexWithArityILm3EE11sour
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK7DfgCond7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(168) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [3 x ptr], ptr @_ZZNK7DfgCond7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [3 x ptr], ptr @_ZZNK7DfgCond7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -52819,7 +52819,7 @@ define linkonce_odr dso_local void @_ZN12DfgCondBound6acceptER10DfgVisitor(ptr n
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK12DfgCondBound7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(168) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [3 x ptr], ptr @_ZZNK12DfgCondBound7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [3 x ptr], ptr @_ZZNK12DfgCondBound7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -53060,7 +53060,7 @@ define linkonce_odr dso_local void @_ZN7DfgCosD6acceptER10DfgVisitor(ptr noundef
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK7DfgCosD7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [1 x ptr], ptr @_ZZNK7DfgCosD7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [1 x ptr], ptr @_ZZNK7DfgCosD7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -53133,7 +53133,7 @@ define linkonce_odr dso_local void @_ZN8DfgCoshD6acceptER10DfgVisitor(ptr nounde
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK8DfgCoshD7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [1 x ptr], ptr @_ZZNK8DfgCoshD7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [1 x ptr], ptr @_ZZNK8DfgCoshD7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -53206,7 +53206,7 @@ define linkonce_odr dso_local void @_ZN12DfgCountOnes6acceptER10DfgVisitor(ptr n
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK12DfgCountOnes7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [1 x ptr], ptr @_ZZNK12DfgCountOnes7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [1 x ptr], ptr @_ZZNK12DfgCountOnes7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -53279,7 +53279,7 @@ define linkonce_odr dso_local void @_ZN16DfgCvtPackString6acceptER10DfgVisitor(p
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK16DfgCvtPackString7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [1 x ptr], ptr @_ZZNK16DfgCvtPackString7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [1 x ptr], ptr @_ZZNK16DfgCvtPackString7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -53352,7 +53352,7 @@ define linkonce_odr dso_local void @_ZN16DfgDistChiSquare6acceptER10DfgVisitor(p
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK16DfgDistChiSquare7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK16DfgDistChiSquare7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK16DfgDistChiSquare7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -53425,7 +53425,7 @@ define linkonce_odr dso_local void @_ZN13DfgDistErlang6acceptER10DfgVisitor(ptr 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK13DfgDistErlang7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(168) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [3 x ptr], ptr @_ZZNK13DfgDistErlang7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [3 x ptr], ptr @_ZZNK13DfgDistErlang7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -53498,7 +53498,7 @@ define linkonce_odr dso_local void @_ZN18DfgDistExponential6acceptER10DfgVisitor
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK18DfgDistExponential7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK18DfgDistExponential7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK18DfgDistExponential7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -53571,7 +53571,7 @@ define linkonce_odr dso_local void @_ZN13DfgDistNormal6acceptER10DfgVisitor(ptr 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK13DfgDistNormal7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(168) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [3 x ptr], ptr @_ZZNK13DfgDistNormal7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [3 x ptr], ptr @_ZZNK13DfgDistNormal7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -53644,7 +53644,7 @@ define linkonce_odr dso_local void @_ZN14DfgDistPoisson6acceptER10DfgVisitor(ptr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK14DfgDistPoisson7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK14DfgDistPoisson7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK14DfgDistPoisson7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -53717,7 +53717,7 @@ define linkonce_odr dso_local void @_ZN8DfgDistT6acceptER10DfgVisitor(ptr nounde
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK8DfgDistT7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK8DfgDistT7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK8DfgDistT7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -53790,7 +53790,7 @@ define linkonce_odr dso_local void @_ZN14DfgDistUniform6acceptER10DfgVisitor(ptr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK14DfgDistUniform7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(168) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [3 x ptr], ptr @_ZZNK14DfgDistUniform7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [3 x ptr], ptr @_ZZNK14DfgDistUniform7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -53863,7 +53863,7 @@ define linkonce_odr dso_local void @_ZN6DfgDiv6acceptER10DfgVisitor(ptr noundef 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK6DfgDiv7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK6DfgDiv7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK6DfgDiv7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -53936,7 +53936,7 @@ define linkonce_odr dso_local void @_ZN7DfgDivD6acceptER10DfgVisitor(ptr noundef
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK7DfgDivD7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK7DfgDivD7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK7DfgDivD7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -54009,7 +54009,7 @@ define linkonce_odr dso_local void @_ZN7DfgDivS6acceptER10DfgVisitor(ptr noundef
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK7DfgDivS7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK7DfgDivS7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK7DfgDivS7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -54082,7 +54082,7 @@ define linkonce_odr dso_local void @_ZN5DfgEq6acceptER10DfgVisitor(ptr noundef n
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK5DfgEq7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK5DfgEq7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK5DfgEq7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -54155,7 +54155,7 @@ define linkonce_odr dso_local void @_ZN9DfgEqCase6acceptER10DfgVisitor(ptr nound
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK9DfgEqCase7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK9DfgEqCase7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK9DfgEqCase7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -54228,7 +54228,7 @@ define linkonce_odr dso_local void @_ZN6DfgEqD6acceptER10DfgVisitor(ptr noundef 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK6DfgEqD7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK6DfgEqD7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK6DfgEqD7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -54301,7 +54301,7 @@ define linkonce_odr dso_local void @_ZN6DfgEqN6acceptER10DfgVisitor(ptr noundef 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK6DfgEqN7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK6DfgEqN7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK6DfgEqN7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -54374,7 +54374,7 @@ define linkonce_odr dso_local void @_ZN6DfgEqT6acceptER10DfgVisitor(ptr noundef 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK6DfgEqT7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK6DfgEqT7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK6DfgEqT7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -54447,7 +54447,7 @@ define linkonce_odr dso_local void @_ZN9DfgEqWild6acceptER10DfgVisitor(ptr nound
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK9DfgEqWild7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK9DfgEqWild7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK9DfgEqWild7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -54520,7 +54520,7 @@ define linkonce_odr dso_local void @_ZN7DfgExpD6acceptER10DfgVisitor(ptr noundef
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK7DfgExpD7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [1 x ptr], ptr @_ZZNK7DfgExpD7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [1 x ptr], ptr @_ZZNK7DfgExpD7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -54593,7 +54593,7 @@ define linkonce_odr dso_local void @_ZN9DfgExtend6acceptER10DfgVisitor(ptr nound
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK9DfgExtend7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [1 x ptr], ptr @_ZZNK9DfgExtend7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [1 x ptr], ptr @_ZZNK9DfgExtend7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -54666,7 +54666,7 @@ define linkonce_odr dso_local void @_ZN10DfgExtendS6acceptER10DfgVisitor(ptr nou
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK10DfgExtendS7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [1 x ptr], ptr @_ZZNK10DfgExtendS7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [1 x ptr], ptr @_ZZNK10DfgExtendS7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -54739,7 +54739,7 @@ define linkonce_odr dso_local void @_ZN7DfgFEof6acceptER10DfgVisitor(ptr noundef
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK7DfgFEof7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [1 x ptr], ptr @_ZZNK7DfgFEof7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [1 x ptr], ptr @_ZZNK7DfgFEof7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -54812,7 +54812,7 @@ define linkonce_odr dso_local void @_ZN8DfgFGetC6acceptER10DfgVisitor(ptr nounde
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK8DfgFGetC7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [1 x ptr], ptr @_ZZNK8DfgFGetC7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [1 x ptr], ptr @_ZZNK8DfgFGetC7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -54885,7 +54885,7 @@ define linkonce_odr dso_local void @_ZN8DfgFGetS6acceptER10DfgVisitor(ptr nounde
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK8DfgFGetS7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK8DfgFGetS7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK8DfgFGetS7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -54958,7 +54958,7 @@ define linkonce_odr dso_local void @_ZN10DfgFUngetC6acceptER10DfgVisitor(ptr nou
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK10DfgFUngetC7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK10DfgFUngetC7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK10DfgFUngetC7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -55031,7 +55031,7 @@ define linkonce_odr dso_local void @_ZN9DfgFloorD6acceptER10DfgVisitor(ptr nound
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK9DfgFloorD7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [1 x ptr], ptr @_ZZNK9DfgFloorD7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [1 x ptr], ptr @_ZZNK9DfgFloorD7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -55104,7 +55104,7 @@ define linkonce_odr dso_local void @_ZN8DfgGetcN6acceptER10DfgVisitor(ptr nounde
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK8DfgGetcN7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK8DfgGetcN7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK8DfgGetcN7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -55177,7 +55177,7 @@ define linkonce_odr dso_local void @_ZN11DfgGetcRefN6acceptER10DfgVisitor(ptr no
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK11DfgGetcRefN7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK11DfgGetcRefN7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK11DfgGetcRefN7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -55250,7 +55250,7 @@ define linkonce_odr dso_local void @_ZN5DfgGt6acceptER10DfgVisitor(ptr noundef n
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK5DfgGt7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK5DfgGt7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK5DfgGt7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -55323,7 +55323,7 @@ define linkonce_odr dso_local void @_ZN6DfgGtD6acceptER10DfgVisitor(ptr noundef 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK6DfgGtD7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK6DfgGtD7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK6DfgGtD7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -55396,7 +55396,7 @@ define linkonce_odr dso_local void @_ZN6DfgGtN6acceptER10DfgVisitor(ptr noundef 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK6DfgGtN7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK6DfgGtN7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK6DfgGtN7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -55469,7 +55469,7 @@ define linkonce_odr dso_local void @_ZN6DfgGtS6acceptER10DfgVisitor(ptr noundef 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK6DfgGtS7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK6DfgGtS7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK6DfgGtS7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -55542,7 +55542,7 @@ define linkonce_odr dso_local void @_ZN6DfgGte6acceptER10DfgVisitor(ptr noundef 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK6DfgGte7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK6DfgGte7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK6DfgGte7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -55615,7 +55615,7 @@ define linkonce_odr dso_local void @_ZN7DfgGteD6acceptER10DfgVisitor(ptr noundef
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK7DfgGteD7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK7DfgGteD7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK7DfgGteD7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -55688,7 +55688,7 @@ define linkonce_odr dso_local void @_ZN7DfgGteN6acceptER10DfgVisitor(ptr noundef
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK7DfgGteN7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK7DfgGteN7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK7DfgGteN7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -55761,7 +55761,7 @@ define linkonce_odr dso_local void @_ZN7DfgGteS6acceptER10DfgVisitor(ptr noundef
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK7DfgGteS7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK7DfgGteS7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK7DfgGteS7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -55834,7 +55834,7 @@ define linkonce_odr dso_local void @_ZN9DfgHypotD6acceptER10DfgVisitor(ptr nound
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK9DfgHypotD7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK9DfgHypotD7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK9DfgHypotD7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -55907,7 +55907,7 @@ define linkonce_odr dso_local void @_ZN9DfgISToRD6acceptER10DfgVisitor(ptr nound
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK9DfgISToRD7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [1 x ptr], ptr @_ZZNK9DfgISToRD7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [1 x ptr], ptr @_ZZNK9DfgISToRD7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -55980,7 +55980,7 @@ define linkonce_odr dso_local void @_ZN8DfgIToRD6acceptER10DfgVisitor(ptr nounde
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK8DfgIToRD7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [1 x ptr], ptr @_ZZNK8DfgIToRD7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [1 x ptr], ptr @_ZZNK8DfgIToRD7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -56053,7 +56053,7 @@ define linkonce_odr dso_local void @_ZN14DfgIsUnbounded6acceptER10DfgVisitor(ptr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK14DfgIsUnbounded7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [1 x ptr], ptr @_ZZNK14DfgIsUnbounded7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [1 x ptr], ptr @_ZZNK14DfgIsUnbounded7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -56126,7 +56126,7 @@ define linkonce_odr dso_local void @_ZN12DfgIsUnknown6acceptER10DfgVisitor(ptr n
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK12DfgIsUnknown7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [1 x ptr], ptr @_ZZNK12DfgIsUnknown7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [1 x ptr], ptr @_ZZNK12DfgIsUnknown7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -56199,7 +56199,7 @@ define linkonce_odr dso_local void @_ZN7DfgLenN6acceptER10DfgVisitor(ptr noundef
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK7DfgLenN7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [1 x ptr], ptr @_ZZNK7DfgLenN7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [1 x ptr], ptr @_ZZNK7DfgLenN7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -56272,7 +56272,7 @@ define linkonce_odr dso_local void @_ZN9DfgLog10D6acceptER10DfgVisitor(ptr nound
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK9DfgLog10D7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [1 x ptr], ptr @_ZZNK9DfgLog10D7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [1 x ptr], ptr @_ZZNK9DfgLog10D7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -56345,7 +56345,7 @@ define linkonce_odr dso_local void @_ZN9DfgLogAnd6acceptER10DfgVisitor(ptr nound
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK9DfgLogAnd7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK9DfgLogAnd7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK9DfgLogAnd7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -56418,7 +56418,7 @@ define linkonce_odr dso_local void @_ZN7DfgLogD6acceptER10DfgVisitor(ptr noundef
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK7DfgLogD7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [1 x ptr], ptr @_ZZNK7DfgLogD7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [1 x ptr], ptr @_ZZNK7DfgLogD7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -56491,7 +56491,7 @@ define linkonce_odr dso_local void @_ZN8DfgLogEq6acceptER10DfgVisitor(ptr nounde
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK8DfgLogEq7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK8DfgLogEq7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK8DfgLogEq7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -56564,7 +56564,7 @@ define linkonce_odr dso_local void @_ZN8DfgLogIf6acceptER10DfgVisitor(ptr nounde
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK8DfgLogIf7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK8DfgLogIf7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK8DfgLogIf7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -56637,7 +56637,7 @@ define linkonce_odr dso_local void @_ZN9DfgLogNot6acceptER10DfgVisitor(ptr nound
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK9DfgLogNot7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [1 x ptr], ptr @_ZZNK9DfgLogNot7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [1 x ptr], ptr @_ZZNK9DfgLogNot7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -56710,7 +56710,7 @@ define linkonce_odr dso_local void @_ZN8DfgLogOr6acceptER10DfgVisitor(ptr nounde
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK8DfgLogOr7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK8DfgLogOr7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK8DfgLogOr7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -56783,7 +56783,7 @@ define linkonce_odr dso_local void @_ZN5DfgLt6acceptER10DfgVisitor(ptr noundef n
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK5DfgLt7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK5DfgLt7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK5DfgLt7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -56856,7 +56856,7 @@ define linkonce_odr dso_local void @_ZN6DfgLtD6acceptER10DfgVisitor(ptr noundef 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK6DfgLtD7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK6DfgLtD7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK6DfgLtD7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -56929,7 +56929,7 @@ define linkonce_odr dso_local void @_ZN6DfgLtN6acceptER10DfgVisitor(ptr noundef 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK6DfgLtN7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK6DfgLtN7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK6DfgLtN7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -57002,7 +57002,7 @@ define linkonce_odr dso_local void @_ZN6DfgLtS6acceptER10DfgVisitor(ptr noundef 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK6DfgLtS7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK6DfgLtS7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK6DfgLtS7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -57075,7 +57075,7 @@ define linkonce_odr dso_local void @_ZN6DfgLte6acceptER10DfgVisitor(ptr noundef 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK6DfgLte7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK6DfgLte7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK6DfgLte7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -57148,7 +57148,7 @@ define linkonce_odr dso_local void @_ZN7DfgLteD6acceptER10DfgVisitor(ptr noundef
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK7DfgLteD7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK7DfgLteD7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK7DfgLteD7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -57221,7 +57221,7 @@ define linkonce_odr dso_local void @_ZN7DfgLteN6acceptER10DfgVisitor(ptr noundef
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK7DfgLteN7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK7DfgLteN7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK7DfgLteN7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -57294,7 +57294,7 @@ define linkonce_odr dso_local void @_ZN7DfgLteS6acceptER10DfgVisitor(ptr noundef
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK7DfgLteS7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK7DfgLteS7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK7DfgLteS7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -57367,7 +57367,7 @@ define linkonce_odr dso_local void @_ZN9DfgModDiv6acceptER10DfgVisitor(ptr nound
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK9DfgModDiv7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK9DfgModDiv7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK9DfgModDiv7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -57440,7 +57440,7 @@ define linkonce_odr dso_local void @_ZN10DfgModDivS6acceptER10DfgVisitor(ptr nou
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK10DfgModDivS7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK10DfgModDivS7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK10DfgModDivS7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -57513,7 +57513,7 @@ define linkonce_odr dso_local void @_ZN6DfgMul6acceptER10DfgVisitor(ptr noundef 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK6DfgMul7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK6DfgMul7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK6DfgMul7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -57586,7 +57586,7 @@ define linkonce_odr dso_local void @_ZN7DfgMulD6acceptER10DfgVisitor(ptr noundef
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK7DfgMulD7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK7DfgMulD7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK7DfgMulD7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -57659,7 +57659,7 @@ define linkonce_odr dso_local void @_ZN7DfgMulS6acceptER10DfgVisitor(ptr noundef
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK7DfgMulS7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK7DfgMulS7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK7DfgMulS7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -57732,7 +57732,7 @@ define linkonce_odr dso_local void @_ZN7DfgNToI6acceptER10DfgVisitor(ptr noundef
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK7DfgNToI7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [1 x ptr], ptr @_ZZNK7DfgNToI7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [1 x ptr], ptr @_ZZNK7DfgNToI7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -57805,7 +57805,7 @@ define linkonce_odr dso_local void @_ZN9DfgNegate6acceptER10DfgVisitor(ptr nound
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK9DfgNegate7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [1 x ptr], ptr @_ZZNK9DfgNegate7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [1 x ptr], ptr @_ZZNK9DfgNegate7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -57878,7 +57878,7 @@ define linkonce_odr dso_local void @_ZN10DfgNegateD6acceptER10DfgVisitor(ptr nou
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK10DfgNegateD7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [1 x ptr], ptr @_ZZNK10DfgNegateD7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [1 x ptr], ptr @_ZZNK10DfgNegateD7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -57951,7 +57951,7 @@ define linkonce_odr dso_local void @_ZN6DfgNeq6acceptER10DfgVisitor(ptr noundef 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK6DfgNeq7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK6DfgNeq7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK6DfgNeq7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -58024,7 +58024,7 @@ define linkonce_odr dso_local void @_ZN10DfgNeqCase6acceptER10DfgVisitor(ptr nou
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK10DfgNeqCase7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK10DfgNeqCase7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK10DfgNeqCase7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -58097,7 +58097,7 @@ define linkonce_odr dso_local void @_ZN7DfgNeqD6acceptER10DfgVisitor(ptr noundef
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK7DfgNeqD7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK7DfgNeqD7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK7DfgNeqD7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -58170,7 +58170,7 @@ define linkonce_odr dso_local void @_ZN7DfgNeqN6acceptER10DfgVisitor(ptr noundef
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK7DfgNeqN7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK7DfgNeqN7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK7DfgNeqN7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -58243,7 +58243,7 @@ define linkonce_odr dso_local void @_ZN7DfgNeqT6acceptER10DfgVisitor(ptr noundef
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK7DfgNeqT7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK7DfgNeqT7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK7DfgNeqT7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -58316,7 +58316,7 @@ define linkonce_odr dso_local void @_ZN10DfgNeqWild6acceptER10DfgVisitor(ptr nou
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK10DfgNeqWild7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK10DfgNeqWild7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK10DfgNeqWild7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -58389,7 +58389,7 @@ define linkonce_odr dso_local void @_ZN6DfgNot6acceptER10DfgVisitor(ptr noundef 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK6DfgNot7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [1 x ptr], ptr @_ZZNK6DfgNot7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [1 x ptr], ptr @_ZZNK6DfgNot7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -58462,7 +58462,7 @@ define linkonce_odr dso_local void @_ZN12DfgNullCheck6acceptER10DfgVisitor(ptr n
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK12DfgNullCheck7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [1 x ptr], ptr @_ZZNK12DfgNullCheck7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [1 x ptr], ptr @_ZZNK12DfgNullCheck7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -58535,7 +58535,7 @@ define linkonce_odr dso_local void @_ZN9DfgOneHot6acceptER10DfgVisitor(ptr nound
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK9DfgOneHot7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [1 x ptr], ptr @_ZZNK9DfgOneHot7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [1 x ptr], ptr @_ZZNK9DfgOneHot7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -58608,7 +58608,7 @@ define linkonce_odr dso_local void @_ZN10DfgOneHot06acceptER10DfgVisitor(ptr nou
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK10DfgOneHot07srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [1 x ptr], ptr @_ZZNK10DfgOneHot07srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [1 x ptr], ptr @_ZZNK10DfgOneHot07srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -58681,7 +58681,7 @@ define linkonce_odr dso_local void @_ZN5DfgOr6acceptER10DfgVisitor(ptr noundef n
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK5DfgOr7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK5DfgOr7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK5DfgOr7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -58754,7 +58754,7 @@ define linkonce_odr dso_local void @_ZN10DfgPostAdd6acceptER10DfgVisitor(ptr nou
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK10DfgPostAdd7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(168) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [3 x ptr], ptr @_ZZNK10DfgPostAdd7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [3 x ptr], ptr @_ZZNK10DfgPostAdd7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -58827,7 +58827,7 @@ define linkonce_odr dso_local void @_ZN10DfgPostSub6acceptER10DfgVisitor(ptr nou
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK10DfgPostSub7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(168) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [3 x ptr], ptr @_ZZNK10DfgPostSub7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [3 x ptr], ptr @_ZZNK10DfgPostSub7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -58900,7 +58900,7 @@ define linkonce_odr dso_local void @_ZN6DfgPow6acceptER10DfgVisitor(ptr noundef 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK6DfgPow7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK6DfgPow7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK6DfgPow7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -58973,7 +58973,7 @@ define linkonce_odr dso_local void @_ZN7DfgPowD6acceptER10DfgVisitor(ptr noundef
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK7DfgPowD7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK7DfgPowD7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK7DfgPowD7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -59046,7 +59046,7 @@ define linkonce_odr dso_local void @_ZN8DfgPowSS6acceptER10DfgVisitor(ptr nounde
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK8DfgPowSS7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK8DfgPowSS7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK8DfgPowSS7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -59119,7 +59119,7 @@ define linkonce_odr dso_local void @_ZN8DfgPowSU6acceptER10DfgVisitor(ptr nounde
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK8DfgPowSU7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK8DfgPowSU7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK8DfgPowSU7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -59192,7 +59192,7 @@ define linkonce_odr dso_local void @_ZN8DfgPowUS6acceptER10DfgVisitor(ptr nounde
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK8DfgPowUS7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK8DfgPowUS7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK8DfgPowUS7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -59265,7 +59265,7 @@ define linkonce_odr dso_local void @_ZN9DfgPreAdd6acceptER10DfgVisitor(ptr nound
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK9DfgPreAdd7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(168) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [3 x ptr], ptr @_ZZNK9DfgPreAdd7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [3 x ptr], ptr @_ZZNK9DfgPreAdd7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -59338,7 +59338,7 @@ define linkonce_odr dso_local void @_ZN9DfgPreSub6acceptER10DfgVisitor(ptr nound
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK9DfgPreSub7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(168) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [3 x ptr], ptr @_ZZNK9DfgPreSub7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [3 x ptr], ptr @_ZZNK9DfgPreSub7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -59411,7 +59411,7 @@ define linkonce_odr dso_local void @_ZN8DfgPutcN6acceptER10DfgVisitor(ptr nounde
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK8DfgPutcN7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(168) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [3 x ptr], ptr @_ZZNK8DfgPutcN7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [3 x ptr], ptr @_ZZNK8DfgPutcN7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -59484,7 +59484,7 @@ define linkonce_odr dso_local void @_ZN13DfgRToIRoundS6acceptER10DfgVisitor(ptr 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK13DfgRToIRoundS7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [1 x ptr], ptr @_ZZNK13DfgRToIRoundS7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [1 x ptr], ptr @_ZZNK13DfgRToIRoundS7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -59557,7 +59557,7 @@ define linkonce_odr dso_local void @_ZN8DfgRToIS6acceptER10DfgVisitor(ptr nounde
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK8DfgRToIS7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [1 x ptr], ptr @_ZZNK8DfgRToIS7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [1 x ptr], ptr @_ZZNK8DfgRToIS7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -59630,7 +59630,7 @@ define linkonce_odr dso_local void @_ZN13DfgRealToBits6acceptER10DfgVisitor(ptr 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK13DfgRealToBits7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [1 x ptr], ptr @_ZZNK13DfgRealToBits7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [1 x ptr], ptr @_ZZNK13DfgRealToBits7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -59703,7 +59703,7 @@ define linkonce_odr dso_local void @_ZN9DfgRedAnd6acceptER10DfgVisitor(ptr nound
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK9DfgRedAnd7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [1 x ptr], ptr @_ZZNK9DfgRedAnd7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [1 x ptr], ptr @_ZZNK9DfgRedAnd7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -59776,7 +59776,7 @@ define linkonce_odr dso_local void @_ZN8DfgRedOr6acceptER10DfgVisitor(ptr nounde
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK8DfgRedOr7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [1 x ptr], ptr @_ZZNK8DfgRedOr7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [1 x ptr], ptr @_ZZNK8DfgRedOr7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -59849,7 +59849,7 @@ define linkonce_odr dso_local void @_ZN9DfgRedXor6acceptER10DfgVisitor(ptr nound
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK9DfgRedXor7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [1 x ptr], ptr @_ZZNK9DfgRedXor7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [1 x ptr], ptr @_ZZNK9DfgRedXor7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -59922,7 +59922,7 @@ define linkonce_odr dso_local void @_ZN12DfgReplicate6acceptER10DfgVisitor(ptr n
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK12DfgReplicate7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK12DfgReplicate7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK12DfgReplicate7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -59995,7 +59995,7 @@ define linkonce_odr dso_local void @_ZN13DfgReplicateN6acceptER10DfgVisitor(ptr 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK13DfgReplicateN7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK13DfgReplicateN7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK13DfgReplicateN7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -60068,7 +60068,7 @@ define linkonce_odr dso_local void @_ZN15DfgResizeLValue6acceptER10DfgVisitor(pt
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK15DfgResizeLValue7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [1 x ptr], ptr @_ZZNK15DfgResizeLValue7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [1 x ptr], ptr @_ZZNK15DfgResizeLValue7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -60203,7 +60203,7 @@ define linkonce_odr dso_local void @_ZN9DfgShiftL6acceptER10DfgVisitor(ptr nound
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK9DfgShiftL7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK9DfgShiftL7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK9DfgShiftL7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -60276,7 +60276,7 @@ define linkonce_odr dso_local void @_ZN12DfgShiftLOvr6acceptER10DfgVisitor(ptr n
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK12DfgShiftLOvr7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK12DfgShiftLOvr7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK12DfgShiftLOvr7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -60349,7 +60349,7 @@ define linkonce_odr dso_local void @_ZN9DfgShiftR6acceptER10DfgVisitor(ptr nound
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK9DfgShiftR7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK9DfgShiftR7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK9DfgShiftR7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -60422,7 +60422,7 @@ define linkonce_odr dso_local void @_ZN12DfgShiftROvr6acceptER10DfgVisitor(ptr n
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK12DfgShiftROvr7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK12DfgShiftROvr7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK12DfgShiftROvr7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -60495,7 +60495,7 @@ define linkonce_odr dso_local void @_ZN10DfgShiftRS6acceptER10DfgVisitor(ptr nou
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK10DfgShiftRS7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK10DfgShiftRS7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK10DfgShiftRS7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -60568,7 +60568,7 @@ define linkonce_odr dso_local void @_ZN13DfgShiftRSOvr6acceptER10DfgVisitor(ptr 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK13DfgShiftRSOvr7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK13DfgShiftRSOvr7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK13DfgShiftRSOvr7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -60641,7 +60641,7 @@ define linkonce_odr dso_local void @_ZN9DfgSigned6acceptER10DfgVisitor(ptr nound
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK9DfgSigned7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [1 x ptr], ptr @_ZZNK9DfgSigned7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [1 x ptr], ptr @_ZZNK9DfgSigned7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -60714,7 +60714,7 @@ define linkonce_odr dso_local void @_ZN7DfgSinD6acceptER10DfgVisitor(ptr noundef
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK7DfgSinD7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [1 x ptr], ptr @_ZZNK7DfgSinD7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [1 x ptr], ptr @_ZZNK7DfgSinD7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -60787,7 +60787,7 @@ define linkonce_odr dso_local void @_ZN8DfgSinhD6acceptER10DfgVisitor(ptr nounde
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK8DfgSinhD7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [1 x ptr], ptr @_ZZNK8DfgSinhD7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [1 x ptr], ptr @_ZZNK8DfgSinhD7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -60860,7 +60860,7 @@ define linkonce_odr dso_local void @_ZN8DfgSqrtD6acceptER10DfgVisitor(ptr nounde
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK8DfgSqrtD7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [1 x ptr], ptr @_ZZNK8DfgSqrtD7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [1 x ptr], ptr @_ZZNK8DfgSqrtD7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -60933,7 +60933,7 @@ define linkonce_odr dso_local void @_ZN10DfgStreamL6acceptER10DfgVisitor(ptr nou
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK10DfgStreamL7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK10DfgStreamL7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK10DfgStreamL7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -61006,7 +61006,7 @@ define linkonce_odr dso_local void @_ZN10DfgStreamR6acceptER10DfgVisitor(ptr nou
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK10DfgStreamR7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK10DfgStreamR7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK10DfgStreamR7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -61079,7 +61079,7 @@ define linkonce_odr dso_local void @_ZN6DfgSub6acceptER10DfgVisitor(ptr noundef 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK6DfgSub7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK6DfgSub7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK6DfgSub7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -61152,7 +61152,7 @@ define linkonce_odr dso_local void @_ZN7DfgSubD6acceptER10DfgVisitor(ptr noundef
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK7DfgSubD7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK7DfgSubD7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK7DfgSubD7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -61225,7 +61225,7 @@ define linkonce_odr dso_local void @_ZN10DfgSubstrN6acceptER10DfgVisitor(ptr nou
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK10DfgSubstrN7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(168) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [3 x ptr], ptr @_ZZNK10DfgSubstrN7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [3 x ptr], ptr @_ZZNK10DfgSubstrN7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -61298,7 +61298,7 @@ define linkonce_odr dso_local void @_ZN7DfgTanD6acceptER10DfgVisitor(ptr noundef
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK7DfgTanD7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [1 x ptr], ptr @_ZZNK7DfgTanD7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [1 x ptr], ptr @_ZZNK7DfgTanD7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -61371,7 +61371,7 @@ define linkonce_odr dso_local void @_ZN8DfgTanhD6acceptER10DfgVisitor(ptr nounde
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK8DfgTanhD7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [1 x ptr], ptr @_ZZNK8DfgTanhD7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [1 x ptr], ptr @_ZZNK8DfgTanhD7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -61444,7 +61444,7 @@ define linkonce_odr dso_local void @_ZN13DfgTimeImport6acceptER10DfgVisitor(ptr 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK13DfgTimeImport7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [1 x ptr], ptr @_ZZNK13DfgTimeImport7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [1 x ptr], ptr @_ZZNK13DfgTimeImport7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -61517,7 +61517,7 @@ define linkonce_odr dso_local void @_ZN11DfgToLowerN6acceptER10DfgVisitor(ptr no
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK11DfgToLowerN7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [1 x ptr], ptr @_ZZNK11DfgToLowerN7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [1 x ptr], ptr @_ZZNK11DfgToLowerN7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -61590,7 +61590,7 @@ define linkonce_odr dso_local void @_ZN11DfgToUpperN6acceptER10DfgVisitor(ptr no
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK11DfgToUpperN7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [1 x ptr], ptr @_ZZNK11DfgToUpperN7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [1 x ptr], ptr @_ZZNK11DfgToUpperN7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -61663,7 +61663,7 @@ define linkonce_odr dso_local void @_ZN15DfgURandomRange6acceptER10DfgVisitor(pt
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK15DfgURandomRange7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK15DfgURandomRange7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK15DfgURandomRange7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -61736,7 +61736,7 @@ define linkonce_odr dso_local void @_ZN11DfgUnsigned6acceptER10DfgVisitor(ptr no
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK11DfgUnsigned7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [1 x ptr], ptr @_ZZNK11DfgUnsigned7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [1 x ptr], ptr @_ZZNK11DfgUnsigned7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -61871,7 +61871,7 @@ define linkonce_odr dso_local void @_ZN14DfgWildcardSel6acceptER10DfgVisitor(ptr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK14DfgWildcardSel7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK14DfgWildcardSel7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK14DfgWildcardSel7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -61944,7 +61944,7 @@ define linkonce_odr dso_local void @_ZN10DfgWordSel6acceptER10DfgVisitor(ptr nou
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK10DfgWordSel7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK10DfgWordSel7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK10DfgWordSel7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -62017,7 +62017,7 @@ define linkonce_odr dso_local void @_ZN6DfgXor6acceptER10DfgVisitor(ptr noundef 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK6DfgXor7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK6DfgXor7srcNameB5cxx11EmE5names, i64 0, i64 %2
+  %5 = getelementptr inbounds [2 x ptr], ptr @_ZZNK6DfgXor7srcNameB5cxx11EmE5names, i64 0, i64 %2
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)

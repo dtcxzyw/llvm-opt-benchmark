@@ -4363,7 +4363,7 @@ define internal fastcc i32 @phar_open_from_fp(ptr noundef nonnull %0, ptr nounde
 .lr.ph.lr.ph:                                     ; preds = %31
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 18
   %35 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %36 = getelementptr inbounds nuw i8, ptr %21, i64 -1
+  %36 = getelementptr inbounds i8, ptr %21, i64 -1
   %37 = ptrtoint ptr %21 to i64
   %38 = getelementptr inbounds nuw i8, ptr %21, i64 1024
   br label %.lr.ph

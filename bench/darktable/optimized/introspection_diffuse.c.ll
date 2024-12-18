@@ -1955,7 +1955,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noal
   %1080 = select i1 %1078, ptr %758, ptr %759
   %1081 = icmp eq i64 %1053, 0
   %1082 = select i1 %1081, ptr %663, ptr %1080
-  %1083 = getelementptr inbounds nuw ptr, ptr %19, i64 %1053
+  %1083 = getelementptr inbounds ptr, ptr %19, i64 %1053
   %1084 = load ptr, ptr %1083, align 8, !tbaa !12, !noalias !88
   call void @llvm.experimental.noalias.scope.decl(metadata !131)
   call void @llvm.experimental.noalias.scope.decl(metadata !134)

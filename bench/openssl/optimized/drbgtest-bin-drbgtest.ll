@@ -471,7 +471,7 @@ if.then82.i:                                      ; preds = %for.body69.i
   %private85.i = getelementptr inbounds nuw i8, ptr %arrayidx71.i, i64 24
   %11 = load i32, ptr %private85.i, align 8
   %idxprom86.i = sext i32 %11 to i64
-  %arrayidx87.i = getelementptr inbounds nuw [2 x i32], ptr %duplicate.i, i64 0, i64 %idxprom86.i
+  %arrayidx87.i = getelementptr inbounds [2 x i32], ptr %duplicate.i, i64 0, i64 %idxprom86.i
   %12 = load i32, ptr %arrayidx87.i, align 4
   %inc88.i = add nsw i32 %12, 1
   store i32 %inc88.i, ptr %arrayidx87.i, align 4

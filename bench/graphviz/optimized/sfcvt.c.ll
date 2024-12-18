@@ -33,7 +33,7 @@ define nonnull ptr @_sfcvt(ptr nocapture noundef readonly %0, i32 noundef %1, pt
   %.0266 = phi i64 [ %.1267, %29 ], [ 5, %8 ]
   %.2 = phi double [ %.3, %29 ], [ %.0251, %8 ]
   %13 = fpext double %.2 to x86_fp80
-  %14 = getelementptr inbounds nuw [6 x x86_fp80], ptr @_Sftable, i64 0, i64 %.0266
+  %14 = getelementptr inbounds [6 x x86_fp80], ptr @_Sftable, i64 0, i64 %.0266
   %15 = load x86_fp80, ptr %14, align 16
   %16 = fcmp ogt x86_fp80 %15, %13
   br i1 %16, label %17, label %19

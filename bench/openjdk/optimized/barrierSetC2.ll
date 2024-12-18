@@ -501,7 +501,7 @@ define hidden void @_ZN13BarrierStubC28preserveE8Register(ptr nocapture noundef 
 15:                                               ; preds = %2
   %16 = sub i32 %12, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds nuw [609 x i32], ptr @_ZN7OptoReg7vm2optoE, i64 0, i64 %17
+  %18 = getelementptr inbounds [609 x i32], ptr @_ZN7OptoReg7vm2optoE, i64 0, i64 %17
   %19 = load i32, ptr %18, align 4
   br label %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
 
@@ -571,7 +571,7 @@ define hidden void @_ZN13BarrierStubC213dont_preserveE8Register(ptr nocapture no
 
 19:                                               ; preds = %17
   %20 = sext i32 %18 to i64
-  %21 = getelementptr inbounds nuw [609 x i32], ptr @_ZN7OptoReg7vm2optoE, i64 0, i64 %20
+  %21 = getelementptr inbounds [609 x i32], ptr @_ZN7OptoReg7vm2optoE, i64 0, i64 %20
   %22 = load i32, ptr %21, align 4
   br label %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
 

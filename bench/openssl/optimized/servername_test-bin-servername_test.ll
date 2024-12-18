@@ -94,7 +94,7 @@ declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) 
 define internal i32 @test_servername(i32 noundef %test) #0 {
 entry:
   %idxprom = sext i32 %test to i64
-  %arrayidx = getelementptr inbounds nuw [3 x ptr], ptr @sni_test_fns, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [3 x ptr], ptr @sni_test_fns, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
   %call = tail call i32 %0() #3
   ret i32 %call

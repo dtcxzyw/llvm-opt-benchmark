@@ -10002,7 +10002,7 @@ define dso_local void @_ZN53ParserTest_DuplicateEdgeWithMultipleOutputsError_Tes
 
 .noexc18:                                         ; preds = %.noexc
   %17 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #16
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 %17
+  %18 = getelementptr inbounds i8, ptr %2, i64 %17
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull %2, ptr noundef nonnull %18)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %19
 
@@ -10403,7 +10403,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit30: ; 
 
 .noexc32:                                         ; preds = %.noexc31
   %28 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #16
-  %29 = getelementptr inbounds nuw i8, ptr %6, i64 %28
+  %29 = getelementptr inbounds i8, ptr %6, i64 %28
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull %6, ptr noundef nonnull %29)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit35 unwind label %30
 
@@ -10930,7 +10930,7 @@ define dso_local void @_ZN38ParserTest_PhonySelfReferenceKept_Test8TestBodyEv(pt
 
 .noexc35:                                         ; preds = %.noexc
   %26 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #16
-  %27 = getelementptr inbounds nuw i8, ptr %2, i64 %26
+  %27 = getelementptr inbounds i8, ptr %2, i64 %26
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull %2, ptr noundef nonnull %27)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %28
 
@@ -26908,7 +26908,7 @@ define dso_local void @_ZN39ParserTest_ImplicitOutputDupeError_Test8TestBodyEv(p
 
 .noexc18:                                         ; preds = %.noexc
   %17 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #16
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 %17
+  %18 = getelementptr inbounds i8, ptr %2, i64 %17
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull %2, ptr noundef nonnull %18)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %19
 
@@ -27196,7 +27196,7 @@ define dso_local void @_ZN40ParserTest_ImplicitOutputDupesError_Test8TestBodyEv(
 
 .noexc18:                                         ; preds = %.noexc
   %17 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #16
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 %17
+  %18 = getelementptr inbounds i8, ptr %2, i64 %17
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull %2, ptr noundef nonnull %18)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %19
 

@@ -27989,7 +27989,7 @@ findSecLabels.exit.i.i:                           ; preds = %1250, %1247, %.lr.p
 switch.lookup:                                    ; preds = %1284
   %switch.tableidx = add nsw i32 %1267, 6
   %1288 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.dumpConstraint.12, i64 0, i64 %1288
+  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table.dumpConstraint.12, i64 0, i64 %1288
   br label %getAttrName.exit.i.i
 
 getAttrName.exit.i.i:                             ; preds = %switch.lookup, %1279
@@ -28400,7 +28400,7 @@ define internal fastcc void @dumpConstraint(ptr noundef %0, ptr nocapture nounde
 switch.lookup:                                    ; preds = %88
   %switch.tableidx = add nsw i32 %79, 6
   %92 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.dumpConstraint.12, i64 0, i64 %92
+  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table.dumpConstraint.12, i64 0, i64 %92
   br label %getAttrName.exit
 
 getAttrName.exit:                                 ; preds = %switch.lookup, %83
@@ -28491,7 +28491,7 @@ getAttrName.exit:                                 ; preds = %switch.lookup, %83
 switch.lookup265:                                 ; preds = %132
   %switch.tableidx266 = add nsw i32 %121, 6
   %136 = sext i32 %switch.tableidx266 to i64
-  %switch.gep267 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.dumpConstraint.12, i64 0, i64 %136
+  %switch.gep267 = getelementptr inbounds [6 x ptr], ptr @switch.table.dumpConstraint.12, i64 0, i64 %136
   br label %getAttrName.exit229
 
 getAttrName.exit229:                              ; preds = %switch.lookup265, %127

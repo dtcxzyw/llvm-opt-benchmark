@@ -105595,7 +105595,7 @@ invoke.cont11:                                    ; preds = %invoke.cont8
   %vtable = load ptr, ptr %is, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %is, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %is, i64 %vbase.offset
   %meta = getelementptr inbounds nuw i8, ptr %4, i64 32
   invoke void @_ZN7openvdb5v11_02io20setStreamMetadataPtrERSt8ios_baseRSt10shared_ptrINS1_14StreamMetadataEEb(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr, ptr noundef nonnull align 8 dereferenceable(16) %meta, i1 noundef zeroext true)
           to label %invoke.cont15 unwind label %lpad13
@@ -105621,7 +105621,7 @@ invoke.cont25:                                    ; preds = %invoke.cont21
   %vtable27 = load ptr, ptr %is, align 8
   %vbase.offset.ptr28 = getelementptr i8, ptr %vtable27, i64 -24
   %vbase.offset29 = load i64, ptr %vbase.offset.ptr28, align 8
-  %add.ptr30 = getelementptr inbounds nuw i8, ptr %is, i64 %vbase.offset29
+  %add.ptr30 = getelementptr inbounds i8, ptr %is, i64 %vbase.offset29
   %call32 = invoke noundef zeroext i1 @_ZN7openvdb5v11_02io12getHalfFloatERSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr30)
           to label %invoke.cont31 unwind label %lpad17
 
@@ -109238,8 +109238,8 @@ entry:
   store i32 0, ptr %arrayinit.element.i, align 4
   %arrayinit.element2.i = getelementptr inbounds nuw i8, ptr %offset, i64 8
   store i32 0, ptr %arrayinit.element2.i, align 4
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i32], ptr %offset, i64 0, i64 %axis1
-  %arrayidx.i.i.i18 = getelementptr inbounds nuw [3 x i32], ptr %offset, i64 0, i64 %axis2
+  %arrayidx.i.i.i = getelementptr inbounds [3 x i32], ptr %offset, i64 0, i64 %axis1
+  %arrayidx.i.i.i18 = getelementptr inbounds [3 x i32], ptr %offset, i64 0, i64 %axis2
   %arrayidx.i.i.i19 = getelementptr inbounds nuw i8, ptr %ijk, i64 4
   %arrayidx.i.i3.i = getelementptr inbounds nuw i8, ptr %ijk, i64 8
   %mNeighbors.i = getelementptr inbounds nuw i8, ptr %op, i64 96
@@ -112966,8 +112966,8 @@ entry:
   store i32 0, ptr %arrayinit.element.i, align 4
   %arrayinit.element2.i = getelementptr inbounds nuw i8, ptr %offset, i64 8
   store i32 0, ptr %arrayinit.element2.i, align 4
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i32], ptr %offset, i64 0, i64 %axis1
-  %arrayidx.i.i.i16 = getelementptr inbounds nuw [3 x i32], ptr %offset, i64 0, i64 %axis2
+  %arrayidx.i.i.i = getelementptr inbounds [3 x i32], ptr %offset, i64 0, i64 %axis1
+  %arrayidx.i.i.i16 = getelementptr inbounds [3 x i32], ptr %offset, i64 0, i64 %axis2
   %arrayidx.i.i.i17 = getelementptr inbounds nuw i8, ptr %ijk, i64 4
   %arrayidx.i.i3.i = getelementptr inbounds nuw i8, ptr %ijk, i64 8
   %tmp.coerce.sroa.2.0.coerce.dive7.sroa_idx = getelementptr inbounds nuw i8, ptr %childijk, i64 8
@@ -143668,7 +143668,7 @@ invoke.cont11:                                    ; preds = %invoke.cont8
   %vtable = load ptr, ptr %is, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %is, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %is, i64 %vbase.offset
   %meta = getelementptr inbounds nuw i8, ptr %4, i64 32
   invoke void @_ZN7openvdb5v11_02io20setStreamMetadataPtrERSt8ios_baseRSt10shared_ptrINS1_14StreamMetadataEEb(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr, ptr noundef nonnull align 8 dereferenceable(16) %meta, i1 noundef zeroext true)
           to label %invoke.cont15 unwind label %lpad13
@@ -143694,7 +143694,7 @@ invoke.cont25:                                    ; preds = %invoke.cont21
   %vtable27 = load ptr, ptr %is, align 8
   %vbase.offset.ptr28 = getelementptr i8, ptr %vtable27, i64 -24
   %vbase.offset29 = load i64, ptr %vbase.offset.ptr28, align 8
-  %add.ptr30 = getelementptr inbounds nuw i8, ptr %is, i64 %vbase.offset29
+  %add.ptr30 = getelementptr inbounds i8, ptr %is, i64 %vbase.offset29
   %call32 = invoke noundef zeroext i1 @_ZN7openvdb5v11_02io12getHalfFloatERSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr30)
           to label %invoke.cont31 unwind label %lpad17
 
@@ -146584,8 +146584,8 @@ entry:
   store i32 0, ptr %arrayinit.element.i, align 4
   %arrayinit.element2.i = getelementptr inbounds nuw i8, ptr %offset, i64 8
   store i32 0, ptr %arrayinit.element2.i, align 4
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i32], ptr %offset, i64 0, i64 %axis1
-  %arrayidx.i.i.i18 = getelementptr inbounds nuw [3 x i32], ptr %offset, i64 0, i64 %axis2
+  %arrayidx.i.i.i = getelementptr inbounds [3 x i32], ptr %offset, i64 0, i64 %axis1
+  %arrayidx.i.i.i18 = getelementptr inbounds [3 x i32], ptr %offset, i64 0, i64 %axis2
   %arrayidx.i.i.i19 = getelementptr inbounds nuw i8, ptr %ijk, i64 4
   %arrayidx.i.i3.i = getelementptr inbounds nuw i8, ptr %ijk, i64 8
   %mNeighbors.i = getelementptr inbounds nuw i8, ptr %op, i64 96
@@ -149332,8 +149332,8 @@ entry:
   store i32 0, ptr %arrayinit.element.i, align 4
   %arrayinit.element2.i = getelementptr inbounds nuw i8, ptr %offset, i64 8
   store i32 0, ptr %arrayinit.element2.i, align 4
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i32], ptr %offset, i64 0, i64 %axis1
-  %arrayidx.i.i.i16 = getelementptr inbounds nuw [3 x i32], ptr %offset, i64 0, i64 %axis2
+  %arrayidx.i.i.i = getelementptr inbounds [3 x i32], ptr %offset, i64 0, i64 %axis1
+  %arrayidx.i.i.i16 = getelementptr inbounds [3 x i32], ptr %offset, i64 0, i64 %axis2
   %arrayidx.i.i.i17 = getelementptr inbounds nuw i8, ptr %ijk, i64 4
   %arrayidx.i.i3.i = getelementptr inbounds nuw i8, ptr %ijk, i64 8
   %tmp.coerce.sroa.2.0.coerce.dive7.sroa_idx = getelementptr inbounds nuw i8, ptr %childijk, i64 8

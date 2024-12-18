@@ -1242,7 +1242,7 @@ _ZN7oopDesc11oop_iterateI15G1AdjustClosureEEvPT_9MemRegion.exit: ; preds = %26, 
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
   %39 = load i32, ptr %38, align 4
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN28OopOopIterateBoundedDispatchI15G1AdjustClosureE6_tableE, i64 0, i64 %40
+  %41 = getelementptr inbounds [7 x ptr], ptr @_ZN28OopOopIterateBoundedDispatchI15G1AdjustClosureE6_tableE, i64 0, i64 %40
   %42 = load ptr, ptr %41, align 8
   call void %42(ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef %.0.i.i, ptr %16, i64 %22) #9
   br label %49
@@ -1385,7 +1385,7 @@ _ZN19G1AdjustLiveClosure5applyEP7oopDesc.exit:    ; preds = %51, %54, %61, %81
   %86 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   %87 = load i32, ptr %86, align 4
   %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI15G1AdjustClosureE6_tableE, i64 0, i64 %88
+  %89 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI15G1AdjustClosureE6_tableE, i64 0, i64 %88
   %90 = load ptr, ptr %89, align 8
   tail call void %90(ptr noundef %30, ptr noundef nonnull align 8 dereferenceable(16) %.018, ptr noundef nonnull %.0.i.i.i) #9
   %91 = getelementptr inbounds ptr, ptr %.018, i64 %.0.i4.i.i

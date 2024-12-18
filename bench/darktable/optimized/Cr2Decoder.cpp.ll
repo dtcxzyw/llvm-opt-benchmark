@@ -2552,7 +2552,7 @@ define hidden noundef zeroext i1 @_ZNK8rawspeed10Cr2Decoder20decodeCanonColorDat
   %.4..4..4..4. = load i64, ptr %.4..4..4..4..sroa_idx, align 4
   %33 = shl i64 %.0..0..0..0., 32
   %34 = ashr exact i64 %33, 32
-  %35 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZNK8rawspeed10Cr2Decoder20decodeCanonColorDataEv, i64 0, i64 %34
+  %35 = getelementptr inbounds [8 x i32], ptr @switch.table._ZNK8rawspeed10Cr2Decoder20decodeCanonColorDataEv, i64 0, i64 %34
   %36 = load i32, ptr %35, align 4
   %37 = tail call noundef zeroext i16 @_ZNK8rawspeed9TiffEntry6getU16Ej(ptr noundef nonnull align 8 dereferenceable(52) %6, i32 noundef %36)
   %38 = uitofp i16 %37 to float

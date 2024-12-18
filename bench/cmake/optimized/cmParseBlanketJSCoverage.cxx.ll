@@ -327,7 +327,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN24cmParseBlanketJSCoverage1
   %13 = load ptr, ptr %7, align 8
   %14 = getelementptr i8, ptr %13, i64 -24
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %7, i64 %15
+  %16 = getelementptr inbounds i8, ptr %7, i64 %15
   %17 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %16)
           to label %18 unwind label %.loopexit.split-lp
 

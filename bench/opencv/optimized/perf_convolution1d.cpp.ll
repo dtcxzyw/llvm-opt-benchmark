@@ -1112,7 +1112,7 @@ _ZN7testing15AssertionResultD2Ev.exit139:         ; preds = %_ZN7testing7Message
 .lr.ph.i:                                         ; preds = %_ZN7testing15AssertionResultD2Ev.exit139
   %177 = load i32, ptr %2, align 4
   %178 = sext i32 %177 to i64
-  %179 = getelementptr inbounds nuw [3 x %"struct.opencv_test::Conv1DParam_t"], ptr @_ZN11opencv_testL24testConvolution1DConfigsE, i64 0, i64 %178
+  %179 = getelementptr inbounds [3 x %"struct.opencv_test::Conv1DParam_t"], ptr @_ZN11opencv_testL24testConvolution1DConfigsE, i64 0, i64 %178
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 56
   %181 = load double, ptr %180, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !8)

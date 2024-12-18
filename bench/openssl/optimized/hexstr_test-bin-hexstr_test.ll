@@ -46,7 +46,7 @@ entry:
   %len = alloca i64, align 8
   store i64 0, ptr %len, align 8
   %idxprom = sext i32 %test_index to i64
-  %arrayidx = getelementptr inbounds nuw [6 x %struct.testdata], ptr @tbl_testdata, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [6 x %struct.testdata], ptr @tbl_testdata, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 16
   %sep = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   %1 = load i8, ptr %sep, align 8
@@ -92,7 +92,7 @@ entry:
   %len = alloca i64, align 8
   store i64 0, ptr %len, align 8
   %idxprom = sext i32 %test_index to i64
-  %arrayidx = getelementptr inbounds nuw [6 x %struct.testdata], ptr @tbl_testdata, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [6 x %struct.testdata], ptr @tbl_testdata, i64 0, i64 %idxprom
   %sep = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   %0 = load i8, ptr %sep, align 8
   %cmp.not = icmp eq i8 %0, 95
@@ -161,7 +161,7 @@ entry:
   %buf = alloca [64 x i8], align 16
   store i64 0, ptr %len, align 8
   %idxprom = sext i32 %test_index to i64
-  %arrayidx = getelementptr inbounds nuw [6 x %struct.testdata], ptr @tbl_testdata, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [6 x %struct.testdata], ptr @tbl_testdata, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 16
   %call = call i32 @OPENSSL_hexstr2buf_ex(ptr noundef nonnull %buf, i64 noundef 64, ptr noundef nonnull %len, ptr noundef %0, i8 noundef signext 58) #2
   %cmp = icmp ne i32 %call, 0

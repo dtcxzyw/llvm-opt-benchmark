@@ -2759,7 +2759,7 @@ define zeroext i16 @Extra_TruthPerm4One(i32 noundef %0, i32 noundef %1) local_un
   br label %28
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds nuw [16 x i16], ptr @Extra_TruthPerm4One.Cases, i64 0, i64 %3
+  %9 = getelementptr inbounds [16 x i16], ptr @Extra_TruthPerm4One.Cases, i64 0, i64 %3
   %10 = load i16, ptr %9, align 2
   %11 = and i64 %4, 276
   %.not25 = icmp eq i64 %11, 0
@@ -2818,7 +2818,7 @@ define i32 @Extra_TruthPerm5One(i32 noundef %0, i32 noundef %1) local_unnamed_ad
   br i1 %.not, label %6, label %.loopexit
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw [32 x i32], ptr @Extra_TruthPerm5One.Cases, i64 0, i64 %3
+  %7 = getelementptr inbounds [32 x i32], ptr @Extra_TruthPerm5One.Cases, i64 0, i64 %3
   %8 = load i32, ptr %7, align 4
   %9 = and i64 %4, 65812
   %.not25 = icmp eq i64 %9, 0
@@ -2867,7 +2867,7 @@ define i32 @Extra_TruthPerm5One(i32 noundef %0, i32 noundef %1) local_unnamed_ad
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @Extra_TruthPerm6One(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #8 {
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds nuw [64 x i32], ptr @Extra_TruthPerm6One.Cases, i64 0, i64 %4
+  %5 = getelementptr inbounds [64 x i32], ptr @Extra_TruthPerm6One.Cases, i64 0, i64 %4
   %6 = load i32, ptr %5, align 4
   %7 = shl nuw i64 1, %4
   %8 = and i64 %7, -9223372034707259253
@@ -4342,7 +4342,7 @@ define noundef i64 @Extra_Truth6MinimumExact(i64 noundef %0, ptr nocapture nound
   %10 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds nuw [6 x i64], ptr @Extra_Truth6ChangePhase.Truth6, i64 0, i64 %12
+  %13 = getelementptr inbounds [6 x i64], ptr @Extra_Truth6ChangePhase.Truth6, i64 0, i64 %12
   %14 = load i64, ptr %13, align 8
   %15 = xor i64 %14, -1
   %16 = and i64 %.12324, %15
@@ -4360,7 +4360,7 @@ define noundef i64 @Extra_Truth6MinimumExact(i64 noundef %0, ptr nocapture nound
   %24 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv34
   %25 = load i32, ptr %24, align 4
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 0, i64 %26
+  %27 = getelementptr inbounds [5 x [3 x i64]], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 0, i64 %26
   %28 = load i64, ptr %27, align 8
   %29 = and i64 %28, %22
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -4702,7 +4702,7 @@ Extra_GreyCodeSchedule.exit:                      ; preds = %._crit_edge.i
   %23 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i9
   %24 = load i32, ptr %23, align 4
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds nuw [6 x i64], ptr @Extra_Truth6ChangePhase.Truth6, i64 0, i64 %25
+  %26 = getelementptr inbounds [6 x i64], ptr @Extra_Truth6ChangePhase.Truth6, i64 0, i64 %25
   %27 = load i64, ptr %26, align 8
   %28 = xor i64 %27, -1
   %29 = and i64 %.12324.i, %28
@@ -4720,7 +4720,7 @@ Extra_GreyCodeSchedule.exit:                      ; preds = %._crit_edge.i
   %37 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv34.i
   %38 = load i32, ptr %37, align 4
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 0, i64 %39
+  %40 = getelementptr inbounds [5 x [3 x i64]], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 0, i64 %39
   %41 = load i64, ptr %40, align 8
   %42 = and i64 %41, %35
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 8
@@ -4854,7 +4854,7 @@ Extra_GreyCodeSchedule.exit:                      ; preds = %._crit_edge.i
   %33 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i29
   %34 = load i32, ptr %33, align 4
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds nuw [6 x i64], ptr @Extra_Truth6ChangePhase.Truth6, i64 0, i64 %35
+  %36 = getelementptr inbounds [6 x i64], ptr @Extra_Truth6ChangePhase.Truth6, i64 0, i64 %35
   %37 = load i64, ptr %36, align 8
   %38 = xor i64 %37, -1
   %39 = and i64 %.12324.i, %38
@@ -4872,7 +4872,7 @@ Extra_GreyCodeSchedule.exit:                      ; preds = %._crit_edge.i
   %47 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv34.i
   %48 = load i32, ptr %47, align 4
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 0, i64 %49
+  %50 = getelementptr inbounds [5 x [3 x i64]], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 0, i64 %49
   %51 = load i64, ptr %50, align 8
   %52 = and i64 %51, %45
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 8
@@ -5254,12 +5254,12 @@ define void @Extra_BitMatrixTransposeP(ptr nocapture noundef readonly %0, i32 no
 16:                                               ; preds = %16, %.preheader.i.us
   %.02930.i.us = phi i32 [ 0, %.preheader.i.us ], [ %33, %16 ]
   %17 = sext i32 %.02930.i.us to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %5, i64 %17
+  %18 = getelementptr inbounds ptr, ptr %5, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = load i64, ptr %19, align 8
   %21 = add nsw i32 %.02930.i.us, %.02831.i.us
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %5, i64 %22
+  %23 = getelementptr inbounds ptr, ptr %5, i64 %22
   %24 = load ptr, ptr %23, align 8
   %25 = load i64, ptr %24, align 8
   %26 = lshr i64 %25, %14
@@ -5361,12 +5361,12 @@ define void @Extra_BitMatrixTransposePP(ptr nocapture noundef readonly %0, i32 n
 15:                                               ; preds = %15, %.preheader.i.us
   %.02930.i.us = phi i32 [ 0, %.preheader.i.us ], [ %32, %15 ]
   %16 = sext i32 %.02930.i.us to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %5, i64 %16
+  %17 = getelementptr inbounds ptr, ptr %5, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = load i64, ptr %18, align 8
   %20 = add nsw i32 %.02930.i.us, %.02831.i.us
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %5, i64 %21
+  %22 = getelementptr inbounds ptr, ptr %5, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = load i64, ptr %23, align 8
   %25 = lshr i64 %24, %13
@@ -5599,12 +5599,12 @@ Vec_WrdStartRandom.exit:                          ; preds = %10
 17:                                               ; preds = %17, %.preheader.i.us.i
   %.02930.i.us.i = phi i32 [ 0, %.preheader.i.us.i ], [ %34, %17 ]
   %18 = sext i32 %.02930.i.us.i to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %2, i64 %18
+  %19 = getelementptr inbounds ptr, ptr %2, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = load i64, ptr %20, align 8
   %22 = add nsw i32 %.02930.i.us.i, %.02831.i.us.i
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr %2, i64 %23
+  %24 = getelementptr inbounds ptr, ptr %2, i64 %23
   %25 = load ptr, ptr %24, align 8
   %26 = load i64, ptr %25, align 8
   %27 = lshr i64 %26, %15

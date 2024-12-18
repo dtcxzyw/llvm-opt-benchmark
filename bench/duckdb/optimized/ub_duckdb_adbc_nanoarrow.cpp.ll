@@ -674,7 +674,7 @@ sw.epilog:                                        ; preds = %sw.bb5, %if.end3
   %.str.27.sink = phi ptr [ @.str.27, %sw.bb5 ], [ @.str.26, %if.end3 ]
   %call7 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buffer, i64 noundef 64, ptr noundef nonnull %.str.27.sink, i32 noundef %fixed_size) #27
   %idxprom = sext i32 %call7 to i64
-  %arrayidx = getelementptr inbounds nuw [64 x i8], ptr %buffer, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [64 x i8], ptr %buffer, i64 0, i64 %idxprom
   store i8 0, ptr %arrayidx, align 1, !tbaa !29
   %0 = load ptr, ptr %schema, align 8, !tbaa !17
   %cmp.not.i = icmp eq ptr %0, null
@@ -752,7 +752,7 @@ sw.epilog:                                        ; preds = %sw.bb5, %if.end3
   %.str.29.sink = phi ptr [ @.str.29, %sw.bb5 ], [ @.str.28, %if.end3 ]
   %call7 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buffer, i64 noundef 64, ptr noundef nonnull %.str.29.sink, i32 noundef %decimal_precision, i32 noundef %decimal_scale) #27
   %idxprom = sext i32 %call7 to i64
-  %arrayidx = getelementptr inbounds nuw [64 x i8], ptr %buffer, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [64 x i8], ptr %buffer, i64 0, i64 %idxprom
   store i8 0, ptr %arrayidx, align 1, !tbaa !29
   %0 = load ptr, ptr %schema, align 8, !tbaa !17
   %cmp.not.i = icmp eq ptr %0, null

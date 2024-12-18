@@ -886,7 +886,7 @@ define linkonce_odr void @_ZN4dmlc10LogMessageC2EPKci(ptr noundef nonnull align 
   %21 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !45
   %22 = getelementptr i8, ptr %21, i64 -24
   %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds nuw i8, ptr @_ZSt4cerr, i64 %23
+  %24 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %26 = load i32, ptr %25, align 8, !tbaa !67
   %27 = or i32 %26, 1
@@ -2450,7 +2450,7 @@ define void @_ZNK4dmlc6Config13ToProtoStringB5cxx11Ev(ptr dead_on_unwind noalias
   %171 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %172 = getelementptr i8, ptr %170, i64 -24
   %173 = load i64, ptr %172, align 8
-  %174 = getelementptr inbounds nuw i8, ptr %4, i64 %173
+  %174 = getelementptr inbounds i8, ptr %4, i64 %173
   store ptr %171, ptr %174, align 8, !tbaa !45
   %175 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %175, align 8, !tbaa !45
@@ -3947,7 +3947,7 @@ define linkonce_odr void @_ZN4dmlc10StackTraceB5cxx11Emm(ptr dead_on_unwind noal
   %127 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %128 = getelementptr i8, ptr %126, i64 -24
   %129 = load i64, ptr %128, align 8
-  %130 = getelementptr inbounds nuw i8, ptr %4, i64 %129
+  %130 = getelementptr inbounds i8, ptr %4, i64 %129
   store ptr %127, ptr %130, align 8, !tbaa !45
   %131 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %131, align 8, !tbaa !45
@@ -4492,7 +4492,7 @@ define linkonce_odr void @_ZN4dmlc8DemangleB5cxx11EPKc(ptr dead_on_unwind noalia
   %184 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %185 = getelementptr i8, ptr %183, i64 -24
   %186 = load i64, ptr %185, align 8
-  %187 = getelementptr inbounds nuw i8, ptr %16, i64 %186
+  %187 = getelementptr inbounds i8, ptr %16, i64 %186
   store ptr %184, ptr %187, align 8, !tbaa !45
   %188 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %188, align 8, !tbaa !45

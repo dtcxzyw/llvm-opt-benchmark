@@ -8386,7 +8386,7 @@ entry:
   %vtable = load ptr, ptr %target_file, align 8, !tbaa !20
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %target_file, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %target_file, i64 %vbase.offset
   %_M_streambuf_state.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 32
   %1 = load i32, ptr %_M_streambuf_state.i.i, align 8, !tbaa !356
   %cmp.i = icmp eq i32 %1, 0
@@ -8484,7 +8484,7 @@ if.then.i:                                        ; preds = %call.i.noexc
   %vtable.i = load ptr, ptr %target_file, align 8, !tbaa !20
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %target_file, i64 %vbase.offset.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %target_file, i64 %vbase.offset.i
   %_M_streambuf_state.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 32
   %11 = load i32, ptr %_M_streambuf_state.i.i.i, align 8, !tbaa !356
   %or.i.i.i = or i32 %11, 4

@@ -1904,7 +1904,7 @@ parseAllowedPeers.exit.thread:                    ; preds = %60, %64
   %.023.i.i = phi ptr [ %.1.i.i, %83 ], [ null, %71 ]
   %85 = load i32, ptr @_peers_cnt, align 4
   %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds nuw [32 x %struct.AllowedPeerInfo], ptr @_peers, i64 0, i64 %86
+  %87 = getelementptr inbounds [32 x %struct.AllowedPeerInfo], ptr @_peers, i64 0, i64 %86
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %88 = call i32 @inet_pton(i32 noundef 10, ptr noundef nonnull %.022.i.i, ptr noundef nonnull %4) #13
@@ -1960,7 +1960,7 @@ parseAllowedPeers.exit.thread:                    ; preds = %60, %64
   %.not28.i.i = icmp eq ptr %.023.i.i, null
   %110 = load i32, ptr @_peers_cnt, align 4
   %111 = sext i32 %110 to i64
-  %112 = getelementptr inbounds nuw [32 x %struct.AllowedPeerInfo], ptr @_peers, i64 0, i64 %111, i32 1
+  %112 = getelementptr inbounds [32 x %struct.AllowedPeerInfo], ptr @_peers, i64 0, i64 %111, i32 1
   br i1 %.not28.i.i, label %162, label %113
 
 113:                                              ; preds = %109
@@ -2030,7 +2030,7 @@ parseAllowedPeers.exit.thread:                    ; preds = %60, %64
   br i1 %.not38.i.i.i, label %parseAllowedMask.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !18
 
 parseAllowedMask.exit.i.i:                        ; preds = %137, %.thread.i.i.i, %129
-  %140 = getelementptr inbounds nuw [32 x %struct.AllowedPeerInfo], ptr @_peers, i64 0, i64 %111
+  %140 = getelementptr inbounds [32 x %struct.AllowedPeerInfo], ptr @_peers, i64 0, i64 %111
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 16
   br label %155
 

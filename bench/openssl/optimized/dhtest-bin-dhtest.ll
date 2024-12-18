@@ -1293,7 +1293,7 @@ entry:
   %q = alloca ptr, align 8
   %g = alloca ptr, align 8
   %idxprom = sext i32 %index to i64
-  %arrayidx = getelementptr inbounds nuw [9 x i32], ptr @prime_groups, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [9 x i32], ptr @prime_groups, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4
   %call = tail call ptr @DH_new_by_nid(i32 noundef %0) #3
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.9, i32 noundef 737, ptr noundef nonnull @.str.115, ptr noundef %call) #3

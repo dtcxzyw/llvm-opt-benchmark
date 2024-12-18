@@ -154,7 +154,7 @@ enc_is_inited.exit.thread:                        ; preds = %10, %7, %enc_is_ini
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %18
   %28 = sext i32 %19 to i64
-  %29 = getelementptr inbounds nuw [20 x %struct.anon], ptr @InitedList, i64 0, i64 %28
+  %29 = getelementptr inbounds [20 x %struct.anon], ptr @InitedList, i64 0, i64 %28
   store ptr @OnigEncodingASCII, ptr %29, align 16
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i32 1, ptr %30, align 8
@@ -232,7 +232,7 @@ enc_is_inited.exit33.thread:                      ; preds = %37, %34, %enc_is_in
 
 ._crit_edge.thread.i34:                           ; preds = %._crit_edge.i42, %46
   %56 = sext i32 %47 to i64
-  %57 = getelementptr inbounds nuw [20 x %struct.anon], ptr @InitedList, i64 0, i64 %56
+  %57 = getelementptr inbounds [20 x %struct.anon], ptr @InitedList, i64 0, i64 %56
   store ptr %0, ptr %57, align 16
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store i32 1, ptr %58, align 8

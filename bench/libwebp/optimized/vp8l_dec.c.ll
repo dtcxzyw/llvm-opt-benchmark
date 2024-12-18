@@ -121,7 +121,7 @@ define hidden range(i32 0, 2) i32 @ReadHuffmanCodesHelper(i32 noundef %0, i32 no
   %8 = icmp sgt i32 %0, 0
   %9 = shl nuw i32 1, %0
   %10 = sext i32 %0 to i64
-  %11 = getelementptr inbounds nuw [12 x i16], ptr @kTableSize, i64 0, i64 %10
+  %11 = getelementptr inbounds [12 x i16], ptr @kTableSize, i64 0, i64 %10
   %12 = load i16, ptr %11, align 2
   %13 = zext i16 %12 to i32
   %14 = icmp eq ptr %3, null
@@ -1797,7 +1797,7 @@ GetCopyDistance.exit.i:                           ; preds = %204, %VP8LFillBitWi
 
 215:                                              ; preds = %GetCopyDistance.exit.i
   %216 = sext i32 %.0.in.i.i to i64
-  %217 = getelementptr inbounds nuw [120 x i8], ptr @kCodeToPlane, i64 0, i64 %216
+  %217 = getelementptr inbounds [120 x i8], ptr @kCodeToPlane, i64 0, i64 %216
   %218 = load i8, ptr %217, align 1
   %219 = zext i8 %218 to i32
   %220 = lshr i32 %219, 4
@@ -2810,7 +2810,7 @@ GetCopyDistance.exit:                             ; preds = %VP8LFillBitWindow.e
 
 362:                                              ; preds = %GetCopyDistance.exit
   %363 = sext i32 %.0.in.i to i64
-  %364 = getelementptr inbounds nuw [120 x i8], ptr @kCodeToPlane, i64 0, i64 %363
+  %364 = getelementptr inbounds [120 x i8], ptr @kCodeToPlane, i64 0, i64 %363
   %365 = load i8, ptr %364, align 1
   %366 = zext i8 %365 to i32
   %367 = lshr i32 %366, 4

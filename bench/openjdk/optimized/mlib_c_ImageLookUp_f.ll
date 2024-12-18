@@ -8730,7 +8730,7 @@ define hidden void @mlib_c_ImageLookUpSI_U8_U8(ptr noundef readonly %0, i32 noun
   %159 = load i8, ptr %158, align 1
   %160 = trunc nuw i32 %155 to i16
   %161 = add nsw i64 %indvars.iv780, -1
-  %162 = getelementptr inbounds nuw [256 x i16], ptr %10, i64 0, i64 %161
+  %162 = getelementptr inbounds [256 x i16], ptr %10, i64 0, i64 %161
   store i16 %160, ptr %162, align 2
   %indvars.iv.next781 = add nuw nsw i64 %indvars.iv780, 1
   %.0508 = zext i8 %159 to i32
@@ -8996,7 +8996,7 @@ define hidden void @mlib_c_ImageLookUpSI_U8_U8(ptr noundef readonly %0, i32 noun
   %323 = getelementptr inbounds nuw i8, ptr %309, i64 %indvars.iv772
   %324 = load i8, ptr %323, align 1
   %325 = add nsw i64 %indvars.iv772, -1
-  %326 = getelementptr inbounds nuw [256 x i32], ptr %11, i64 0, i64 %325
+  %326 = getelementptr inbounds [256 x i32], ptr %11, i64 0, i64 %325
   store i32 %318, ptr %326, align 4
   %indvars.iv.next773 = add nuw nsw i64 %indvars.iv772, 1
   %.0483 = zext i8 %324 to i32
@@ -9232,7 +9232,7 @@ define hidden void @mlib_c_ImageLookUpSI_U8_U8(ptr noundef readonly %0, i32 noun
   %470 = getelementptr inbounds nuw i8, ptr %452, i64 %indvars.iv
   %471 = load i8, ptr %470, align 1
   %472 = add nsw i64 %indvars.iv, -1
-  %473 = getelementptr inbounds nuw [256 x i32], ptr %12, i64 0, i64 %472
+  %473 = getelementptr inbounds [256 x i32], ptr %12, i64 0, i64 %472
   store i32 %463, ptr %473, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.0460 = zext i8 %471 to i32
@@ -11647,7 +11647,7 @@ define hidden void @mlib_c_ImageLookUpSI_U8_S16(ptr nocapture noundef readonly %
   %157 = getelementptr inbounds nuw i16, ptr %149, i64 %indvars.iv745
   %158 = load i16, ptr %157, align 2
   %159 = add nsw i64 %indvars.iv745, -1
-  %160 = getelementptr inbounds nuw [256 x i32], ptr %9, i64 0, i64 %159
+  %160 = getelementptr inbounds [256 x i32], ptr %9, i64 0, i64 %159
   store i32 %154, ptr %160, align 4
   %indvars.iv.next746 = add nuw nsw i64 %indvars.iv745, 1
   %.0490 = zext i16 %158 to i32
@@ -11856,10 +11856,10 @@ define hidden void @mlib_c_ImageLookUpSI_U8_S16(ptr nocapture noundef readonly %
   %280 = load i16, ptr %279, align 2
   %281 = shl nuw nsw i64 %indvars.iv740, 1
   %282 = add nsw i64 %281, -2
-  %283 = getelementptr inbounds nuw [512 x i32], ptr %10, i64 0, i64 %282
+  %283 = getelementptr inbounds [512 x i32], ptr %10, i64 0, i64 %282
   store i32 %272, ptr %283, align 8
   %284 = add nsw i64 %281, -1
-  %285 = getelementptr inbounds nuw [512 x i32], ptr %10, i64 0, i64 %284
+  %285 = getelementptr inbounds [512 x i32], ptr %10, i64 0, i64 %284
   store i32 %274, ptr %285, align 4
   %indvars.iv.next741 = add nuw nsw i64 %indvars.iv740, 1
   %.0472 = zext i16 %280 to i32
@@ -12063,10 +12063,10 @@ define hidden void @mlib_c_ImageLookUpSI_U8_S16(ptr nocapture noundef readonly %
   %398 = load i16, ptr %397, align 2
   %399 = shl nuw nsw i64 %indvars.iv, 1
   %400 = add nsw i64 %399, -2
-  %401 = getelementptr inbounds nuw [512 x i32], ptr %11, i64 0, i64 %400
+  %401 = getelementptr inbounds [512 x i32], ptr %11, i64 0, i64 %400
   store i32 %388, ptr %401, align 8
   %402 = add nsw i64 %399, -1
-  %403 = getelementptr inbounds nuw [512 x i32], ptr %11, i64 0, i64 %402
+  %403 = getelementptr inbounds [512 x i32], ptr %11, i64 0, i64 %402
   store i32 %390, ptr %403, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.0448 = zext i16 %398 to i32

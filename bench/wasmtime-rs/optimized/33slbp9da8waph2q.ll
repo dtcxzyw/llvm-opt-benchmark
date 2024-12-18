@@ -11787,7 +11787,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h140d3e2663f2b3
 
 .backedge.i:                                      ; preds = %17, %.lr.ph.split.i
   %.not.i = icmp ult i64 %11, 3
-  %16 = getelementptr inbounds nuw { { ptr, i64 }, i16, [3 x i16] }, ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.100.llvm.5040841037904929774, i64 %12
+  %16 = getelementptr inbounds { { ptr, i64 }, i16, [3 x i16] }, ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.100.llvm.5040841037904929774, i64 %12
   %.0.i = select i1 %.not.i, ptr %16, ptr null
   %exitcond.not.i = icmp eq i64 %12, 4
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.split.i
@@ -12084,7 +12084,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h4cecd2d93f22d3
 
 .backedge.i:                                      ; preds = %17, %.lr.ph.split.i
   %.not.i = icmp ult i64 %11, 28
-  %16 = getelementptr inbounds nuw { { ptr, i64 }, i64 }, ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.71.llvm.5040841037904929774, i64 %12
+  %16 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.71.llvm.5040841037904929774, i64 %12
   %.0.i = select i1 %.not.i, ptr %16, ptr null
   %exitcond.not.i = icmp eq i64 %12, 29
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.split.i
@@ -12205,7 +12205,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h5399ea9efc1d03
 
 .backedge.i:                                      ; preds = %17, %.lr.ph.split.i
   %.not.i = icmp ult i64 %11, 4
-  %16 = getelementptr inbounds nuw { { ptr, i64 }, i16, [3 x i16] }, ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.79.llvm.5040841037904929774, i64 %12
+  %16 = getelementptr inbounds { { ptr, i64 }, i16, [3 x i16] }, ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.79.llvm.5040841037904929774, i64 %12
   %.0.i = select i1 %.not.i, ptr %16, ptr null
   %exitcond.not.i = icmp eq i64 %12, 5
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.split.i
@@ -12414,7 +12414,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h606ec005fda8a9
 
 .backedge.i:                                      ; preds = %17, %.lr.ph.split.i
   %.not.i = icmp ult i64 %11, 29
-  %16 = getelementptr inbounds nuw { { ptr, i64 }, i64 }, ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.106.llvm.5040841037904929774, i64 %12
+  %16 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.106.llvm.5040841037904929774, i64 %12
   %.0.i = select i1 %.not.i, ptr %16, ptr null
   %exitcond.not.i = icmp eq i64 %12, 30
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.split.i
@@ -12535,7 +12535,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h6b2108370d780b
 
 .backedge.i:                                      ; preds = %17, %.lr.ph.split.i
   %.not.i = icmp ult i64 %11, 3
-  %16 = getelementptr inbounds nuw { { ptr, i64 }, i16, [3 x i16] }, ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.92.llvm.5040841037904929774, i64 %12
+  %16 = getelementptr inbounds { { ptr, i64 }, i16, [3 x i16] }, ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.92.llvm.5040841037904929774, i64 %12
   %.0.i = select i1 %.not.i, ptr %16, ptr null
   %exitcond.not.i = icmp eq i64 %12, 4
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.split.i
@@ -13400,7 +13400,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h981ba94f2b23f8
 
 .backedge.i:                                      ; preds = %17, %.lr.ph.split.i
   %.not.i = icmp ult i64 %11, 3
-  %16 = getelementptr inbounds nuw { { ptr, i64 }, i16, [3 x i16] }, ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.100.llvm.5040841037904929774, i64 %12
+  %16 = getelementptr inbounds { { ptr, i64 }, i16, [3 x i16] }, ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.100.llvm.5040841037904929774, i64 %12
   %.0.i = select i1 %.not.i, ptr %16, ptr null
   %exitcond.not.i = icmp eq i64 %12, 4
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.split.i
@@ -13969,7 +13969,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17he22b0fc84e545c
 
 .backedge.i:                                      ; preds = %17, %.lr.ph.split.i
   %.not.i = icmp ult i64 %11, 3
-  %16 = getelementptr inbounds nuw { { ptr, i64 }, i16, [3 x i16] }, ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.92.llvm.5040841037904929774, i64 %12
+  %16 = getelementptr inbounds { { ptr, i64 }, i16, [3 x i16] }, ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.92.llvm.5040841037904929774, i64 %12
   %.0.i = select i1 %.not.i, ptr %16, ptr null
   %exitcond.not.i = icmp eq i64 %12, 4
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.split.i
@@ -14090,7 +14090,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17he2f7ff7773c1cc
 
 .backedge.i:                                      ; preds = %17, %.lr.ph.split.i
   %.not.i = icmp ult i64 %11, 4
-  %16 = getelementptr inbounds nuw { { ptr, i64 }, i16, [3 x i16] }, ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.79.llvm.5040841037904929774, i64 %12
+  %16 = getelementptr inbounds { { ptr, i64 }, i16, [3 x i16] }, ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.79.llvm.5040841037904929774, i64 %12
   %.0.i = select i1 %.not.i, ptr %16, ptr null
   %exitcond.not.i = icmp eq i64 %12, 5
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.split.i

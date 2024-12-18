@@ -491,7 +491,7 @@ common.ret38:                                     ; preds = %4, %14, %._crit_edg
 
 35:                                               ; preds = %12
   %36 = sext i32 %1 to i64
-  %37 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %36
+  %37 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %36
   %38 = load i64, ptr %37, align 8
   %39 = and i64 %38, %0
   %40 = shl nuw i32 1, %1
@@ -501,7 +501,7 @@ common.ret38:                                     ; preds = %4, %14, %._crit_edg
   %44 = add nsw i32 %1, -1
   %45 = sdiv i32 %2, 2
   %46 = tail call i32 @Abc_TtCountOnesInCofsFast6_rec(i64 noundef %43, i32 noundef %44, i32 noundef %45, ptr noundef %3)
-  %47 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %36
+  %47 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %36
   %48 = load i64, ptr %47, align 8
   %49 = and i64 %48, %0
   %50 = lshr i64 %49, %41
@@ -902,7 +902,7 @@ define internal fastcc void @Abc_TtSwapVars(ptr noundef %0, i32 noundef %1, i32 
 
 .preheader.lr.ph.split.us:                        ; preds = %.preheader.lr.ph
   %67 = sext i32 %spec.select117 to i64
-  %68 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %67
+  %68 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %67
   %69 = load i64, ptr %68, align 8
   %70 = xor i64 %69, -1
   %71 = sext i32 %62 to i64
@@ -1011,7 +1011,7 @@ define range(i32 0, 8) i32 @Abc_Tt6CofactorPermNaive(ptr nocapture noundef %0, i
 
 5:                                                ; preds = %3
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %6
+  %7 = getelementptr inbounds [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %6
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, %4
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1034,7 +1034,7 @@ define range(i32 0, 8) i32 @Abc_Tt6CofactorPermNaive(ptr nocapture noundef %0, i
   %25 = zext i32 %24 to i64
   %26 = shl i64 %4, %25
   %27 = sext i32 %1 to i64
-  %28 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %27
+  %28 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %27
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %29, %26
   %31 = and i64 %29, %4
@@ -1048,7 +1048,7 @@ define range(i32 0, 8) i32 @Abc_Tt6CofactorPermNaive(ptr nocapture noundef %0, i
   %37 = zext i32 %36 to i64
   %38 = shl i64 %33, %37
   %39 = sext i32 %35 to i64
-  %40 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %39
+  %40 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %39
   %41 = load i64, ptr %40, align 8
   %42 = and i64 %38, %41
   %43 = and i64 %33, %41
@@ -1065,7 +1065,7 @@ define range(i32 0, 8) i32 @Abc_Tt6CofactorPermNaive(ptr nocapture noundef %0, i
   %52 = icmp ugt i64 %.150, %51
   %.251 = tail call i64 @llvm.umin.i64(i64 %.150, i64 %51)
   %.2 = select i1 %52, i32 2, i32 %.1
-  %53 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %27
+  %53 = getelementptr inbounds [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %27
   %54 = load i64, ptr %53, align 8
   %55 = and i64 %51, %54
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -1145,7 +1145,7 @@ Abc_TtCopy.exit:                                  ; preds = %.lr.ph18.i
 .lr.ph64.i:                                       ; preds = %Abc_TtCopy.exit
   %11 = shl nuw nsw i32 1, %1
   %12 = sext i32 %1 to i64
-  %13 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %12
+  %13 = getelementptr inbounds [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %12
   %14 = load i64, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load i64, ptr %15, align 8
@@ -1293,7 +1293,7 @@ Abc_TtCopy.exit69:                                ; preds = %.lr.ph18.i65
   %78 = zext i32 %77 to i64
   %79 = shl i64 %76, %78
   %80 = sext i32 %1 to i64
-  %81 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %80
+  %81 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %80
   %82 = load i64, ptr %81, align 8
   %83 = and i64 %79, %82
   %84 = and i64 %82, %76
@@ -1310,7 +1310,7 @@ Abc_TtCopy.exit69:                                ; preds = %.lr.ph18.i65
   %89 = shl nuw nsw i32 1, %1
   %90 = zext nneg i32 %89 to i64
   %91 = sext i32 %1 to i64
-  %92 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %91
+  %92 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %91
   %93 = load i64, ptr %92, align 8
   br label %94
 
@@ -1408,7 +1408,7 @@ Abc_TtCopy.exit91:                                ; preds = %115, %.lr.ph18.i87.
   %131 = zext i32 %130 to i64
   %132 = shl i64 %129, %131
   %133 = sext i32 %127 to i64
-  %134 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %133
+  %134 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %133
   %135 = load i64, ptr %134, align 8
   %136 = and i64 %132, %135
   %137 = and i64 %135, %129
@@ -1428,7 +1428,7 @@ Abc_TtCopy.exit91:                                ; preds = %115, %.lr.ph18.i87.
   %143 = shl nuw nsw i32 1, %127
   %144 = zext nneg i32 %143 to i64
   %145 = sext i32 %127 to i64
-  %146 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %145
+  %146 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %145
   %147 = load i64, ptr %146, align 8
   br label %148
 
@@ -1448,7 +1448,7 @@ Abc_TtCopy.exit91:                                ; preds = %115, %.lr.ph18.i87.
 
 156:                                              ; preds = %140
   %157 = sext i32 %2 to i64
-  %158 = getelementptr inbounds nuw i64, ptr @Abc_TtCofactorPermNaive.pCopy.1, i64 %157
+  %158 = getelementptr inbounds i64, ptr @Abc_TtCofactorPermNaive.pCopy.1, i64 %157
   %159 = add nsw i32 %1, -5
   %160 = shl nuw i32 1, %159
   br i1 %5, label %Abc_TtFlip.exit110.preheader, label %.preheader.lr.ph.i92
@@ -1526,7 +1526,7 @@ Abc_TtCopy.exit121:                               ; preds = %Abc_TtFlip.exit110,
   %184 = zext i32 %183 to i64
   %185 = shl i64 %182, %184
   %186 = sext i32 %1 to i64
-  %187 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %186
+  %187 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %186
   %188 = load i64, ptr %187, align 8
   %189 = and i64 %185, %188
   %190 = and i64 %188, %182
@@ -1546,7 +1546,7 @@ Abc_TtCopy.exit121:                               ; preds = %Abc_TtFlip.exit110,
   %196 = shl nuw nsw i32 1, %1
   %197 = zext nneg i32 %196 to i64
   %198 = sext i32 %1 to i64
-  %199 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %198
+  %199 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %198
   %200 = load i64, ptr %199, align 8
   br label %201
 
@@ -1566,7 +1566,7 @@ Abc_TtCopy.exit121:                               ; preds = %Abc_TtFlip.exit110,
 
 209:                                              ; preds = %193
   %210 = sext i32 %2 to i64
-  %211 = getelementptr inbounds nuw i64, ptr @Abc_TtCofactorPermNaive.pCopy.1, i64 %210
+  %211 = getelementptr inbounds i64, ptr @Abc_TtCofactorPermNaive.pCopy.1, i64 %210
   %212 = add nsw i32 %1, -6
   %213 = shl nuw i32 1, %212
   br i1 %5, label %Abc_TtFlip.exit140.preheader, label %.preheader.lr.ph.i122
@@ -1651,7 +1651,7 @@ Abc_TtCopy.exit151.thread:                        ; preds = %Abc_TtCompareRev.ex
   %.2450453 = phi i32 [ %.1, %237 ], [ 2, %Abc_TtCopy.exit151.thread448 ]
   %238 = shl nuw nsw i32 1, %1
   %239 = sext i32 %1 to i64
-  %240 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %239
+  %240 = getelementptr inbounds [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %239
   %241 = load i64, ptr %240, align 8
   %242 = getelementptr inbounds nuw i8, ptr %240, i64 8
   %243 = load i64, ptr %242, align 8
@@ -1679,7 +1679,7 @@ Abc_TtCopy.exit151.thread:                        ; preds = %Abc_TtCompareRev.ex
 257:                                              ; preds = %Abc_TtCopy.exit151
   %258 = icmp eq i32 %1, 5
   %259 = sext i32 %2 to i64
-  %260 = getelementptr inbounds nuw i64, ptr @Abc_TtCofactorPermNaive.pCopy.1, i64 %259
+  %260 = getelementptr inbounds i64, ptr @Abc_TtCofactorPermNaive.pCopy.1, i64 %259
   br i1 %258, label %267, label %275
 
 .thread454:                                       ; preds = %Abc_TtCopy.exit151.thread448
@@ -1804,7 +1804,7 @@ Abc_TtCopy.exit182:                               ; preds = %297, %.lr.ph18.i178
   %312 = zext i32 %311 to i64
   %313 = shl i64 %310, %312
   %314 = sext i32 %127 to i64
-  %315 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %314
+  %315 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %314
   %316 = load i64, ptr %315, align 8
   %317 = and i64 %313, %316
   %318 = and i64 %316, %310
@@ -1824,7 +1824,7 @@ Abc_TtCopy.exit182:                               ; preds = %297, %.lr.ph18.i178
   %324 = shl nuw nsw i32 1, %127
   %325 = zext nneg i32 %324 to i64
   %326 = sext i32 %127 to i64
-  %327 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %326
+  %327 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %326
   %328 = load i64, ptr %327, align 8
   br label %329
 
@@ -1844,7 +1844,7 @@ Abc_TtCopy.exit182:                               ; preds = %297, %.lr.ph18.i178
 
 337:                                              ; preds = %321
   %338 = sext i32 %2 to i64
-  %339 = getelementptr inbounds nuw i64, ptr @Abc_TtCofactorPermNaive.pCopy.1, i64 %338
+  %339 = getelementptr inbounds i64, ptr @Abc_TtCofactorPermNaive.pCopy.1, i64 %338
   %340 = add nsw i32 %1, -5
   %341 = shl nuw i32 1, %340
   br i1 %5, label %Abc_TtFlip.exit201.preheader, label %.preheader.lr.ph.i183
@@ -1922,7 +1922,7 @@ Abc_TtCopy.exit212:                               ; preds = %Abc_TtFlip.exit201,
   %365 = zext i32 %364 to i64
   %366 = shl i64 %363, %365
   %367 = sext i32 %1 to i64
-  %368 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %367
+  %368 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %367
   %369 = load i64, ptr %368, align 8
   %370 = and i64 %366, %369
   %371 = and i64 %369, %363
@@ -1942,7 +1942,7 @@ Abc_TtCopy.exit212:                               ; preds = %Abc_TtFlip.exit201,
   %377 = shl nuw nsw i32 1, %1
   %378 = zext nneg i32 %377 to i64
   %379 = sext i32 %1 to i64
-  %380 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %379
+  %380 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %379
   %381 = load i64, ptr %380, align 8
   br label %382
 
@@ -1962,7 +1962,7 @@ Abc_TtCopy.exit212:                               ; preds = %Abc_TtFlip.exit201,
 
 390:                                              ; preds = %374
   %391 = sext i32 %2 to i64
-  %392 = getelementptr inbounds nuw i64, ptr @Abc_TtCofactorPermNaive.pCopy.1, i64 %391
+  %392 = getelementptr inbounds i64, ptr @Abc_TtCofactorPermNaive.pCopy.1, i64 %391
   %393 = add nsw i32 %1, -6
   %394 = shl nuw i32 1, %393
   br i1 %5, label %Abc_TtFlip.exit231.preheader, label %.preheader.lr.ph.i213
@@ -2040,7 +2040,7 @@ Abc_TtCopy.exit242:                               ; preds = %Abc_TtFlip.exit231,
   %418 = zext i32 %417 to i64
   %419 = shl i64 %416, %418
   %420 = sext i32 %127 to i64
-  %421 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %420
+  %421 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %420
   %422 = load i64, ptr %421, align 8
   %423 = and i64 %419, %422
   %424 = and i64 %422, %416
@@ -2060,7 +2060,7 @@ Abc_TtCopy.exit242:                               ; preds = %Abc_TtFlip.exit231,
   %430 = shl nuw nsw i32 1, %127
   %431 = zext nneg i32 %430 to i64
   %432 = sext i32 %127 to i64
-  %433 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %432
+  %433 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %432
   %434 = load i64, ptr %433, align 8
   br label %435
 
@@ -2080,7 +2080,7 @@ Abc_TtCopy.exit242:                               ; preds = %Abc_TtFlip.exit231,
 
 443:                                              ; preds = %427
   %444 = sext i32 %2 to i64
-  %445 = getelementptr inbounds nuw i64, ptr @Abc_TtCofactorPermNaive.pCopy.1, i64 %444
+  %445 = getelementptr inbounds i64, ptr @Abc_TtCofactorPermNaive.pCopy.1, i64 %444
   %446 = add nsw i32 %1, -5
   %447 = shl nuw i32 1, %446
   br i1 %5, label %Abc_TtFlip.exit261.preheader, label %.preheader.lr.ph.i243
@@ -2159,7 +2159,7 @@ Abc_TtCopy.exit272.thread:                        ; preds = %Abc_TtCompareRev.ex
   %.6469473 = phi i32 [ %.5, %468 ], [ 4, %Abc_TtCopy.exit272.thread ]
   %469 = shl nuw nsw i32 1, %1
   %470 = sext i32 %1 to i64
-  %471 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %470
+  %471 = getelementptr inbounds [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %470
   %472 = load i64, ptr %471, align 8
   %473 = getelementptr inbounds nuw i8, ptr %471, i64 8
   %474 = load i64, ptr %473, align 8
@@ -2187,7 +2187,7 @@ Abc_TtCopy.exit272.thread:                        ; preds = %Abc_TtCompareRev.ex
 488:                                              ; preds = %Abc_TtCopy.exit272
   %489 = icmp eq i32 %1, 5
   %490 = sext i32 %2 to i64
-  %491 = getelementptr inbounds nuw i64, ptr @Abc_TtCofactorPermNaive.pCopy.1, i64 %490
+  %491 = getelementptr inbounds i64, ptr @Abc_TtCofactorPermNaive.pCopy.1, i64 %490
   br i1 %489, label %496, label %504
 
 .thread474:                                       ; preds = %Abc_TtCopy.exit272.thread
@@ -2314,7 +2314,7 @@ define internal fastcc void @Abc_TtFlip(ptr noundef %0, i32 noundef %1, i32 noun
   %8 = zext i32 %7 to i64
   %9 = shl i64 %6, %8
   %10 = sext i32 %2 to i64
-  %11 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %10
+  %11 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %10
   %12 = load i64, ptr %11, align 8
   %13 = and i64 %9, %12
   %14 = and i64 %12, %6
@@ -2335,7 +2335,7 @@ define internal fastcc void @Abc_TtFlip(ptr noundef %0, i32 noundef %1, i32 noun
   %21 = shl nuw nsw i32 1, %2
   %22 = zext nneg i32 %21 to i64
   %23 = sext i32 %2 to i64
-  %24 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %23
+  %24 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %23
   %25 = load i64, ptr %24, align 8
   %wide.trip.count59 = zext nneg i32 %1 to i64
   br label %26
@@ -2429,7 +2429,7 @@ define range(i32 0, 8) i32 @Abc_TtCofactorPermConfig(ptr noundef %0, i32 noundef
   %15 = shl nuw nsw i32 1, %1
   %16 = zext nneg i32 %15 to i64
   %17 = sext i32 %1 to i64
-  %18 = getelementptr inbounds nuw [5 x i64], ptr @s_CMasks6, i64 0, i64 %17
+  %18 = getelementptr inbounds [5 x i64], ptr @s_CMasks6, i64 0, i64 %17
   %19 = shl nuw nsw i32 2, %1
   %20 = zext nneg i32 %19 to i64
   %21 = zext i32 %2 to i64
@@ -2541,7 +2541,7 @@ Abc_TtCompare2VarCofsRev.exit:                    ; preds = %66, %45, %34
 .lr.ph64.i:                                       ; preds = %68
   %70 = shl nuw nsw i32 1, %1
   %71 = sext i32 %1 to i64
-  %72 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %71
+  %72 = getelementptr inbounds [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %71
   %73 = load i64, ptr %72, align 8
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %75 = load i64, ptr %74, align 8
@@ -2637,7 +2637,7 @@ Abc_TtCompare2VarCofsRev.exit:                    ; preds = %66, %45, %34
 
 .preheader.i144:                                  ; preds = %118
   %119 = sext i32 %1 to i64
-  %120 = getelementptr inbounds nuw [5 x i64], ptr @s_CMasks6, i64 0, i64 %119
+  %120 = getelementptr inbounds [5 x i64], ptr @s_CMasks6, i64 0, i64 %119
   %121 = shl nuw nsw i32 1, %1
   %122 = zext nneg i32 %121 to i64
   %123 = zext i32 %2 to i64
@@ -2742,7 +2742,7 @@ Abc_TtCompare2VarCofsRev.exit147:                 ; preds = %.loopexit97.i132, %
   %166 = shl nuw nsw i32 2, %1
   %167 = zext nneg i32 %166 to i64
   %168 = sext i32 %1 to i64
-  %169 = getelementptr inbounds nuw [5 x i64], ptr @s_CMasks6, i64 0, i64 %168
+  %169 = getelementptr inbounds [5 x i64], ptr @s_CMasks6, i64 0, i64 %168
   %170 = shl nuw nsw i32 3, %1
   %171 = zext nneg i32 %170 to i64
   %172 = zext i32 %2 to i64
@@ -2876,7 +2876,7 @@ Abc_TtCompare2VarCofsRev.exit147:                 ; preds = %.loopexit97.i132, %
   %223 = shl nuw nsw i32 1, %1
   %224 = zext nneg i32 %223 to i64
   %225 = sext i32 %1 to i64
-  %226 = getelementptr inbounds nuw [5 x i64], ptr @s_CMasks6, i64 0, i64 %225
+  %226 = getelementptr inbounds [5 x i64], ptr @s_CMasks6, i64 0, i64 %225
   %227 = shl nuw nsw i32 3, %1
   %228 = zext nneg i32 %227 to i64
   %229 = zext i32 %2 to i64
@@ -3080,7 +3080,7 @@ Abc_TtCompare2VarCofsRev.exit171:                 ; preds = %216, %196, %185
   %310 = shl nuw nsw i32 1, %1
   %311 = zext nneg i32 %310 to i64
   %312 = sext i32 %1 to i64
-  %313 = getelementptr inbounds nuw [5 x i64], ptr @s_CMasks6, i64 0, i64 %312
+  %313 = getelementptr inbounds [5 x i64], ptr @s_CMasks6, i64 0, i64 %312
   %314 = shl nuw nsw i32 2, %1
   %315 = zext nneg i32 %314 to i64
   %316 = zext i32 %2 to i64
@@ -3192,7 +3192,7 @@ Abc_TtCompare2VarCofsRev.exit219:                 ; preds = %361, %340, %329
 .lr.ph64.i234:                                    ; preds = %363
   %365 = shl nuw nsw i32 1, %1
   %366 = sext i32 %1 to i64
-  %367 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %366
+  %367 = getelementptr inbounds [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %366
   %368 = load i64, ptr %367, align 8
   %369 = getelementptr inbounds nuw i8, ptr %367, i64 8
   %370 = load i64, ptr %369, align 8
@@ -3301,7 +3301,7 @@ define internal fastcc range(i32 -1, 2) i32 @Abc_TtCompare2VarCofsRev(ptr nounde
   %7 = shl nuw nsw i32 %3, %2
   %8 = zext nneg i32 %7 to i64
   %9 = sext i32 %2 to i64
-  %10 = getelementptr inbounds nuw [5 x i64], ptr @s_CMasks6, i64 0, i64 %9
+  %10 = getelementptr inbounds [5 x i64], ptr @s_CMasks6, i64 0, i64 %9
   %11 = shl nuw nsw i32 %4, %2
   %12 = zext nneg i32 %11 to i64
   %13 = zext i32 %1 to i64
@@ -3572,7 +3572,7 @@ define i32 @Abc_TtCanonicize(ptr noundef %0, i32 noundef %1, ptr nocapture nound
   %10 = add i32 %1, -2
   %11 = icmp sgt i32 %1, 1
   %12 = sext i32 %1 to i64
-  %13 = getelementptr inbounds nuw [17 x i32], ptr %4, i64 0, i64 %12
+  %13 = getelementptr inbounds [17 x i32], ptr %4, i64 0, i64 %12
   %14 = icmp sgt i32 %8, 0
   %wide.trip.count24.i.i = zext i32 %8 to i64
   %15 = icmp eq i32 %8, 1
@@ -6025,7 +6025,7 @@ Abc_TtNot.exit:                                   ; preds = %.lr.ph.i181, %Abc_T
 59:                                               ; preds = %55
   call fastcc void @Abc_TtCountOnesInCofs(ptr noundef %1, i32 noundef %2, ptr noundef nonnull %6)
   %60 = sext i32 %2 to i64
-  %61 = getelementptr inbounds nuw [17 x i32], ptr %6, i64 0, i64 %60
+  %61 = getelementptr inbounds [17 x i32], ptr %6, i64 0, i64 %60
   store i32 %.0153, ptr %61, align 4
   br i1 %17, label %.lr.ph204, label %._crit_edge205
 
@@ -6176,7 +6176,7 @@ Abc_TtFlip.exit:                                  ; preds = %._crit_edge.us.i, %
   %indvars.iv256 = phi i64 [ %indvars.iv.next257, %.lr.ph209 ], [ %indvars.iv254, %.lr.ph215 ]
   %.0154207 = phi i32 [ %spec.select, %.lr.ph209 ], [ %124, %.lr.ph215 ]
   %125 = sext i32 %.0154207 to i64
-  %126 = getelementptr inbounds nuw [17 x i32], ptr %6, i64 0, i64 %125
+  %126 = getelementptr inbounds [17 x i32], ptr %6, i64 0, i64 %125
   %127 = load i32, ptr %126, align 4
   %128 = getelementptr inbounds nuw [17 x i32], ptr %6, i64 0, i64 %indvars.iv256
   %129 = load i32, ptr %128, align 4
@@ -6192,7 +6192,7 @@ Abc_TtFlip.exit:                                  ; preds = %._crit_edge.us.i, %
   %132 = getelementptr inbounds nuw [17 x i32], ptr %6, i64 0, i64 %indvars.iv261
   %133 = load i32, ptr %132, align 4
   %134 = sext i32 %.0154.lcssa to i64
-  %135 = getelementptr inbounds nuw [17 x i32], ptr %6, i64 0, i64 %134
+  %135 = getelementptr inbounds [17 x i32], ptr %6, i64 0, i64 %134
   %136 = load i32, ptr %135, align 4
   %.not174 = icmp sgt i32 %133, %136
   br i1 %.not174, label %137, label %152
@@ -6337,7 +6337,7 @@ Abc_TtFlip.exit:                                  ; preds = %._crit_edge.us.i, %
   %198 = load i32, ptr %197, align 4
   %199 = icmp eq i32 %196, %198
   %200 = sext i32 %.0232 to i64
-  %201 = getelementptr inbounds nuw [16 x i32], ptr %10, i64 0, i64 %200
+  %201 = getelementptr inbounds [16 x i32], ptr %10, i64 0, i64 %200
   %202 = load i32, ptr %201, align 4
   %203 = add nsw i32 %202, 1
   store i32 %203, ptr %201, align 4
@@ -6350,7 +6350,7 @@ Abc_TtFlip.exit:                                  ; preds = %._crit_edge.us.i, %
 206:                                              ; preds = %.lr.ph234
   %207 = add nsw i32 %.0232, 1
   %208 = sext i32 %207 to i64
-  %209 = getelementptr inbounds nuw [16 x i32], ptr %10, i64 0, i64 %208
+  %209 = getelementptr inbounds [16 x i32], ptr %10, i64 0, i64 %208
   store i32 0, ptr %209, align 4
   br label %210
 
@@ -6364,7 +6364,7 @@ Abc_TtFlip.exit:                                  ; preds = %._crit_edge.us.i, %
   %211 = phi i32 [ 1, %195 ], [ %.pre294, %210 ]
   %.0.lcssa = phi i32 [ 0, %195 ], [ %.1, %210 ]
   %212 = sext i32 %.0.lcssa to i64
-  %213 = getelementptr inbounds nuw [16 x i32], ptr %10, i64 0, i64 %212
+  %213 = getelementptr inbounds [16 x i32], ptr %10, i64 0, i64 %212
   store i32 %211, ptr %213, align 4
   %214 = add nsw i32 %.0.lcssa, 1
   %.not171237 = icmp slt i32 %2, 0
@@ -6914,7 +6914,7 @@ Abc_TgExpendSymmetry.exit:                        ; preds = %.lr.ph38.i, %._crit
   %106 = getelementptr i8, ptr %103, i64 %105
   %107 = load i8, ptr %106, align 1
   %108 = sext i8 %107 to i64
-  %109 = getelementptr inbounds nuw [17 x i32], ptr @log2fn, i64 0, i64 %108
+  %109 = getelementptr inbounds [17 x i32], ptr @log2fn, i64 0, i64 %108
   %110 = load i32, ptr %109, align 4
   %111 = add nsw i32 %110, %.sroa.3.019.i
   %indvars.iv.next.i79 = add nuw nsw i64 %indvars.iv.i78, 1
@@ -7649,7 +7649,7 @@ Abc_TtCountOnesInTruth.exit.thread:               ; preds = %1, %Abc_TtNot.exit,
   %.033 = phi i32 [ %40, %Abc_TtNot.exit ], [ %.1.i, %Abc_TtCountOnesInTruth.exit ], [ 0, %1 ]
   call fastcc void @Abc_TtCountOnesInCofs(ptr noundef %45, i32 noundef %4, ptr noundef nonnull %2)
   %46 = sext i32 %4 to i64
-  %47 = getelementptr inbounds nuw [17 x i32], ptr %2, i64 0, i64 %46
+  %47 = getelementptr inbounds [17 x i32], ptr %2, i64 0, i64 %46
   store i32 %.033, ptr %47, align 4
   %48 = icmp sgt i32 %4, 0
   br i1 %48, label %.lr.ph, label %._crit_edge
@@ -7847,7 +7847,7 @@ Abc_TtHasVar.exit.us:                             ; preds = %.lr.ph, %Abc_TtHasV
   %30 = zext nneg i32 %29 to i64
   %31 = lshr i64 %27, %30
   %32 = sext i8 %25 to i64
-  %33 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %32
+  %33 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %32
   %34 = load i64, ptr %33, align 8
   %35 = xor i64 %31, %27
   %36 = and i64 %35, %34
@@ -7890,7 +7890,7 @@ Abc_TtHasVar.exit.thread84.us:                    ; preds = %Abc_TtHasVar.exit.t
   %52 = shl nuw nsw i32 1, %48
   %53 = zext nneg i32 %52 to i64
   %54 = sext i8 %47 to i64
-  %55 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %54
+  %55 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %54
   %56 = load i64, ptr %55, align 8
   br label %58
 
@@ -8164,7 +8164,7 @@ Abc_TtHasVar.exit.thread84:                       ; preds = %58, %72, %Abc_TtHas
   %165 = shl nuw nsw i32 1, %145
   %166 = zext nneg i32 %165 to i64
   %167 = sext i8 %144 to i64
-  %168 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %167
+  %168 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %167
   %169 = load i64, ptr %168, align 8
   %wide.trip.count59.i.i.i.us.i = zext nneg i32 %142 to i64
   br label %170
@@ -8189,7 +8189,7 @@ Abc_TtHasVar.exit.thread84:                       ; preds = %58, %72, %Abc_TtHas
   %181 = zext i32 %180 to i64
   %182 = shl i64 %179, %181
   %183 = sext i8 %144 to i64
-  %184 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %183
+  %184 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %183
   %185 = load i64, ptr %184, align 8
   %186 = and i64 %182, %185
   %187 = and i64 %185, %179
@@ -8346,7 +8346,7 @@ Abc_TtEqual.exit.i90.us.i:                        ; preds = %256, %.lr.ph.i.i107
 .preheader.i.us.i:                                ; preds = %Abc_TtEqual.exit.i90.us.i
   %257 = icmp eq i32 %232, 1
   %258 = sext i32 %232 to i64
-  %259 = getelementptr inbounds nuw i64, ptr @pSymCopy, i64 %258
+  %259 = getelementptr inbounds i64, ptr @pSymCopy, i64 %258
   %wide.trip.count59.i.i.us.i = zext nneg i32 %232 to i64
   br label %260
 
@@ -9225,7 +9225,7 @@ Abc_TgManCopy.exit.i:                             ; preds = %.lr.ph18.i.i.i, %26
   %49 = add i32 %.fr76.i, -6
   %50 = shl nuw i32 1, %49
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds nuw i64, ptr @Abc_TgPhaseEnumerationScc.pCopy, i64 %51
+  %52 = getelementptr inbounds i64, ptr @Abc_TgPhaseEnumerationScc.pCopy, i64 %51
   %.not7.i.i.i = icmp eq i32 %49, 31
   %wide.trip.count59.i.i.i.i = zext nneg i32 %50 to i64
   %.promoted.i = load i32, ptr %46, align 4
@@ -9288,7 +9288,7 @@ Abc_TgFlipVar.exit.i.us.us.us.us.i:               ; preds = %.lr.ph.i.us.us.us.i
   %76 = zext i32 %75 to i64
   %77 = shl i64 %68, %76
   %78 = sext i8 %73 to i64
-  %79 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %78
+  %79 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %78
   %80 = load i64, ptr %79, align 8
   %81 = and i64 %77, %80
   %82 = and i64 %80, %68
@@ -9464,7 +9464,7 @@ Abc_TgFlipVar.exit.i.us.us.us50.us.us.us.us.i:    ; preds = %.lr.ph.i.us41.us.us
   %151 = shl nuw nsw i32 1, %138
   %152 = zext nneg i32 %151 to i64
   %153 = sext i8 %137 to i64
-  %154 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %153
+  %154 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %153
   %155 = load i64, ptr %154, align 8
   br label %156
 
@@ -9666,7 +9666,7 @@ Abc_TgSaveBest.exit.i:                            ; preds = %200, %Abc_TgManCopy
 
 .critedge.i:                                      ; preds = %.critedge.i.loopexit, %224
   %.026.lcssa.i = phi i64 [ 0, %224 ], [ %241, %.critedge.i.loopexit ]
-  %242 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 0, i64 %.026.lcssa.i
+  %242 = getelementptr inbounds [16 x i8], ptr %3, i64 0, i64 %.026.lcssa.i
   store i8 %226, ptr %242, align 1
   %indvars.iv.next.i13 = add nuw nsw i64 %indvars.iv.i11, 1
   %exitcond.not.i14 = icmp eq i64 %indvars.iv.next.i13, %wide.trip.count.i
@@ -9718,7 +9718,7 @@ grayFlip.exit.i:                                  ; preds = %245
   %267 = zext i32 %266 to i64
   %268 = shl i64 %265, %267
   %269 = sext i8 %260 to i64
-  %270 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %269
+  %270 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %269
   %271 = load i64, ptr %270, align 8
   %272 = and i64 %268, %271
   %273 = and i64 %271, %265
@@ -9739,7 +9739,7 @@ grayFlip.exit.i:                                  ; preds = %245
   %279 = shl nuw nsw i32 1, %261
   %280 = zext nneg i32 %279 to i64
   %281 = sext i8 %260 to i64
-  %282 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %281
+  %282 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %281
   %283 = load i64, ptr %282, align 8
   %wide.trip.count59.i.i.i = zext nneg i32 %258 to i64
   br label %284
@@ -9937,7 +9937,7 @@ define internal fastcc void @Abc_TgSimpleEnumeration(ptr nocapture noundef nonnu
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %12, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.052105 = phi i32 [ 0, %.lr.ph.preheader ], [ %21, %.lr.ph ]
-  %20 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds [16 x i32], ptr %2, i64 0, i64 %indvars.iv
   store i32 %13, ptr %20, align 4
   %21 = add nuw nsw i32 %.052105, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -10102,7 +10102,7 @@ Abc_TtCopy.exit.i:                                ; preds = %.lr.ph18.i.i
   %93 = zext i32 %92 to i64
   %94 = shl i64 %91, %93
   %95 = sext i8 %82 to i64
-  %96 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %95
+  %96 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %95
   %97 = load i64, ptr %96, align 8
   %98 = and i64 %94, %97
   %99 = and i64 %97, %91
@@ -10119,7 +10119,7 @@ Abc_TtCopy.exit.i:                                ; preds = %.lr.ph18.i.i
   %104 = shl nuw nsw i32 1, %83
   %105 = zext nneg i32 %104 to i64
   %106 = sext i8 %82 to i64
-  %107 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %106
+  %107 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %106
   %108 = load i64, ptr %107, align 8
   br label %109
 
@@ -10273,7 +10273,7 @@ Abc_TtCopy.exit.i78:                              ; preds = %.lr.ph18.i.i74
   %170 = zext i32 %169 to i64
   %171 = shl i64 %168, %170
   %172 = sext i8 %159 to i64
-  %173 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %172
+  %173 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %172
   %174 = load i64, ptr %173, align 8
   %175 = and i64 %171, %174
   %176 = and i64 %174, %168
@@ -10290,7 +10290,7 @@ Abc_TtCopy.exit.i78:                              ; preds = %.lr.ph18.i.i74
   %181 = shl nuw nsw i32 1, %160
   %182 = zext nneg i32 %181 to i64
   %183 = sext i8 %159 to i64
-  %184 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %183
+  %184 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %183
   %185 = load i64, ptr %184, align 8
   br label %186
 
@@ -10756,7 +10756,7 @@ define internal fastcc { i64, i32 } @Abc_TgRecordPhase(ptr noundef nonnull %0, i
 
 37:                                               ; preds = %.lr.ph.i
   %38 = sext i32 %.029.i to i64
-  %39 = getelementptr inbounds nuw [17 x i32], ptr @log2fn, i64 0, i64 %38
+  %39 = getelementptr inbounds [17 x i32], ptr @log2fn, i64 0, i64 %38
   %40 = load i32, ptr %39, align 4
   %41 = add nsw i32 %40, %.12128.i
   br label %42
@@ -10779,7 +10779,7 @@ define internal fastcc { i64, i32 } @Abc_TgRecordPhase(ptr noundef nonnull %0, i
   %.121.lcssa.i = phi i32 [ %.02034.i, %22 ], [ %.2.i, %._crit_edge.loopexit.i ]
   %.0.lcssa.i = phi i64 [ 1, %22 ], [ %46, %._crit_edge.loopexit.i ]
   %.123.lcssa.i = phi i32 [ %.12325.i, %22 ], [ %45, %._crit_edge.loopexit.i ]
-  %47 = getelementptr inbounds nuw [17 x i32], ptr @log2fn, i64 0, i64 %.0.lcssa.i
+  %47 = getelementptr inbounds [17 x i32], ptr @log2fn, i64 0, i64 %.0.lcssa.i
   %48 = load i32, ptr %47, align 4
   %49 = add nsw i32 %48, %.121.lcssa.i
   %indvars.iv.next43.i = add nuw nsw i64 %indvars.iv42.i, 1
@@ -10984,7 +10984,7 @@ Abc_TtScc.exit:                                   ; preds = %Abc_TtScc6.exit.i, 
 
 137:                                              ; preds = %.lr.ph.i77
   %138 = sext i32 %.029.i79 to i64
-  %139 = getelementptr inbounds nuw [17 x i32], ptr @log2fn, i64 0, i64 %138
+  %139 = getelementptr inbounds [17 x i32], ptr @log2fn, i64 0, i64 %138
   %140 = load i32, ptr %139, align 4
   %141 = add nsw i32 %140, %.12128.i80
   br label %142
@@ -11007,7 +11007,7 @@ Abc_TtScc.exit:                                   ; preds = %Abc_TtScc6.exit.i, 
   %.121.lcssa.i71 = phi i32 [ %.02034.i67, %122 ], [ %.2.i83, %._crit_edge.loopexit.i87 ]
   %.0.lcssa.i72 = phi i64 [ 1, %122 ], [ %146, %._crit_edge.loopexit.i87 ]
   %.123.lcssa.i73 = phi i32 [ %.12325.i69, %122 ], [ %145, %._crit_edge.loopexit.i87 ]
-  %147 = getelementptr inbounds nuw [17 x i32], ptr @log2fn, i64 0, i64 %.0.lcssa.i72
+  %147 = getelementptr inbounds [17 x i32], ptr @log2fn, i64 0, i64 %.0.lcssa.i72
   %148 = load i32, ptr %147, align 4
   %149 = add nsw i32 %148, %.121.lcssa.i71
   %indvars.iv.next43.i74 = add nuw nsw i64 %indvars.iv42.i66, 1
@@ -11264,7 +11264,7 @@ Abc_TgCompareCoef.exit157.backedge:               ; preds = %.lr.ph.i152, %Abc_T
 
 261:                                              ; preds = %.lr.ph.i130
   %262 = sext i32 %.029.i132 to i64
-  %263 = getelementptr inbounds nuw [17 x i32], ptr @log2fn, i64 0, i64 %262
+  %263 = getelementptr inbounds [17 x i32], ptr @log2fn, i64 0, i64 %262
   %264 = load i32, ptr %263, align 4
   %265 = add nsw i32 %264, %.12128.i133
   br label %266
@@ -11287,7 +11287,7 @@ Abc_TgCompareCoef.exit157.backedge:               ; preds = %.lr.ph.i152, %Abc_T
   %.121.lcssa.i124 = phi i32 [ %.02034.i120, %246 ], [ %.2.i136, %._crit_edge.loopexit.i140 ]
   %.0.lcssa.i125 = phi i64 [ 1, %246 ], [ %270, %._crit_edge.loopexit.i140 ]
   %.123.lcssa.i126 = phi i32 [ %.12325.i122, %246 ], [ %269, %._crit_edge.loopexit.i140 ]
-  %271 = getelementptr inbounds nuw [17 x i32], ptr @log2fn, i64 0, i64 %.0.lcssa.i125
+  %271 = getelementptr inbounds [17 x i32], ptr @log2fn, i64 0, i64 %.0.lcssa.i125
   %272 = load i32, ptr %271, align 4
   %273 = add nsw i32 %272, %.121.lcssa.i124
   %indvars.iv.next43.i127 = add nuw nsw i64 %indvars.iv42.i119, 1
@@ -11481,7 +11481,7 @@ ilog2.exit:                                       ; preds = %ilog2.exit.loopexit
 
 344:                                              ; preds = %.lr.ph.i183
   %345 = sext i32 %.029.i185 to i64
-  %346 = getelementptr inbounds nuw [17 x i32], ptr @log2fn, i64 0, i64 %345
+  %346 = getelementptr inbounds [17 x i32], ptr @log2fn, i64 0, i64 %345
   %347 = load i32, ptr %346, align 4
   %348 = add nsw i32 %347, %.12128.i186
   br label %349
@@ -11504,7 +11504,7 @@ ilog2.exit:                                       ; preds = %ilog2.exit.loopexit
   %.121.lcssa.i177 = phi i32 [ %.02034.i173, %329 ], [ %.2.i189, %._crit_edge.loopexit.i193 ]
   %.0.lcssa.i178 = phi i64 [ 1, %329 ], [ %353, %._crit_edge.loopexit.i193 ]
   %.123.lcssa.i179 = phi i32 [ %.12325.i175, %329 ], [ %352, %._crit_edge.loopexit.i193 ]
-  %354 = getelementptr inbounds nuw [17 x i32], ptr @log2fn, i64 0, i64 %.0.lcssa.i178
+  %354 = getelementptr inbounds [17 x i32], ptr @log2fn, i64 0, i64 %.0.lcssa.i178
   %355 = load i32, ptr %354, align 4
   %356 = add nsw i32 %355, %.121.lcssa.i177
   %indvars.iv.next43.i180 = add nuw nsw i64 %indvars.iv42.i172, 1
@@ -11648,7 +11648,7 @@ define internal fastcc void @Abc_TgResetGroup(ptr nocapture noundef nonnull %0) 
   %indvars.iv.i = phi i64 [ %28, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.022.in26.i = phi i8 [ %.022.in24.i, %.lr.ph.preheader.i ], [ %.022.in.i, %.lr.ph.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %29 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
+  %29 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
   store i8 %.022.in26.i, ptr %29, align 1
   %30 = zext nneg i8 %.022.in26.i to i64
   %31 = getelementptr inbounds nuw [17 x i8], ptr %23, i64 0, i64 %30
@@ -11685,7 +11685,7 @@ define internal fastcc void @Abc_TgResetGroup(ptr nocapture noundef nonnull %0) 
   %indvars.iv43.i = phi i64 [ %indvars.iv.next44.i, %.lr.ph38.i ], [ %.0.lcssa.i, %._crit_edge31.i ]
   %.123.in36.i = phi i8 [ %.123.in.i, %.lr.ph38.i ], [ %.123.in34.i, %._crit_edge31.i ]
   %indvars.iv.next44.i = add nsw i64 %indvars.iv43.i, 1
-  %40 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv43.i
+  %40 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv43.i
   store i8 %.123.in36.i, ptr %40, align 1
   %41 = zext nneg i8 %.123.in36.i to i64
   %.123.in.in.i = getelementptr inbounds nuw [17 x i8], ptr %35, i64 0, i64 %41
@@ -11901,7 +11901,7 @@ define internal fastcc void @Abc_TgFlipSymGroupByVar(ptr nocapture noundef nonnu
   %25 = zext i32 %24 to i64
   %26 = shl i64 %23, %25
   %27 = sext i8 %18 to i64
-  %28 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %27
+  %28 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %27
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %26, %29
   %31 = and i64 %29, %23
@@ -11922,7 +11922,7 @@ define internal fastcc void @Abc_TgFlipSymGroupByVar(ptr nocapture noundef nonnu
   %37 = shl nuw nsw i32 1, %19
   %38 = zext nneg i32 %37 to i64
   %39 = sext i8 %18 to i64
-  %40 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %39
+  %40 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %39
   %41 = load i64, ptr %40, align 8
   %wide.trip.count59.i.i = zext nneg i32 %16 to i64
   br label %42
@@ -12190,7 +12190,7 @@ Abc_TgManCopy.exit:                               ; preds = %.lr.ph18.i.i, %2
   %.012.i = phi ptr [ %30, %.lr.ph.i ], [ %.ptr.i, %20 ]
   %24 = load i8, ptr %.012.i, align 1
   %25 = sext i8 %24 to i64
-  %26 = getelementptr inbounds nuw i32, ptr %3, i64 %25
+  %26 = getelementptr inbounds i32, ptr %3, i64 %25
   %27 = call fastcc i32 @Abc_TgSplitGroup(ptr noundef nonnull %5, ptr noundef %.012.i, ptr noundef %26)
   %28 = sext i32 %27 to i64
   %29 = getelementptr inbounds %struct.TiedGroup_, ptr %.012.i, i64 %28
@@ -12229,7 +12229,7 @@ Abc_TgManCopy.exit:                               ; preds = %.lr.ph18.i.i, %2
   %indvars.iv.i.i = phi i64 [ %44, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.022.in26.i.i = phi i8 [ %.022.in24.i.i, %.lr.ph.preheader.i.i ], [ %.022.in.i.i, %.lr.ph.i.i ]
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
-  %45 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.i
+  %45 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv.i.i
   store i8 %.022.in26.i.i, ptr %45, align 1
   %46 = zext nneg i8 %.022.in26.i.i to i64
   %47 = getelementptr inbounds nuw [17 x i8], ptr %39, i64 0, i64 %46
@@ -12266,7 +12266,7 @@ Abc_TgManCopy.exit:                               ; preds = %.lr.ph18.i.i, %2
   %indvars.iv43.i.i = phi i64 [ %indvars.iv.next44.i.i, %.lr.ph38.i.i ], [ %.0.lcssa.i.i, %._crit_edge31.i.i ]
   %.123.in36.i.i = phi i8 [ %.123.in.i.i, %.lr.ph38.i.i ], [ %.123.in34.i.i, %._crit_edge31.i.i ]
   %indvars.iv.next44.i.i = add nsw i64 %indvars.iv43.i.i, 1
-  %56 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv43.i.i
+  %56 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv43.i.i
   store i8 %.123.in36.i.i, ptr %56, align 1
   %57 = zext nneg i8 %.123.in36.i.i to i64
   %.123.in.in.i.i = getelementptr inbounds nuw [17 x i8], ptr %51, i64 0, i64 %57
@@ -12428,7 +12428,7 @@ Abc_TtNormalizeSmallTruth.exit.i:                 ; preds = %.lr.ph.i.i
 
 32:                                               ; preds = %30
   %33 = sext i32 %.023.i.i to i64
-  %34 = getelementptr inbounds nuw [256 x i32], ptr @Abc_TtBitCount8, i64 0, i64 %33
+  %34 = getelementptr inbounds [256 x i32], ptr @Abc_TtBitCount8, i64 0, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = shl nuw i32 1, %35
   %37 = add nsw i32 %36, %.01622.i.i
@@ -12503,7 +12503,7 @@ Abc_TtNormalizeSmallTruth.exit.i:                 ; preds = %.lr.ph.i.i
 
 65:                                               ; preds = %63
   %66 = sext i32 %.023.i34.us.i to i64
-  %67 = getelementptr inbounds nuw [256 x i32], ptr @Abc_TtBitCount8, i64 0, i64 %66
+  %67 = getelementptr inbounds [256 x i32], ptr @Abc_TtBitCount8, i64 0, i64 %66
   %68 = load i32, ptr %67, align 4
   %69 = add nsw i32 %57, %68
   %70 = shl nuw i32 1, %69
@@ -12546,7 +12546,7 @@ Abc_TtSccInCofs6.exit45.preheader.us.i:           ; preds = %Abc_TtSccInCofs6.ex
 
 85:                                               ; preds = %Abc_TtSccInCofs6.exit45.preheader.us.i
   %86 = load i64, ptr %48, align 8
-  %87 = getelementptr inbounds nuw [10 x i32], ptr %4, i64 0, i64 %80
+  %87 = getelementptr inbounds [10 x i32], ptr %4, i64 0, i64 %80
   %88 = load i32, ptr %87, align 4
   %89 = and i32 %88, 255
   %90 = zext nneg i32 %89 to i64
@@ -12554,7 +12554,7 @@ Abc_TtSccInCofs6.exit45.preheader.us.i:           ; preds = %Abc_TtSccInCofs6.ex
   %92 = load i32, ptr %91, align 4
   %93 = ashr i32 %88, 8
   %94 = sext i32 %93 to i64
-  %95 = getelementptr inbounds nuw [256 x i32], ptr @Abc_TtBitCount8, i64 0, i64 %94
+  %95 = getelementptr inbounds [256 x i32], ptr @Abc_TtBitCount8, i64 0, i64 %94
   %96 = load i32, ptr %95, align 4
   %97 = add nsw i32 %96, %92
   %.not.i46.us.i = icmp eq i64 %86, 0
@@ -12786,7 +12786,7 @@ define internal fastcc void @Abc_TgSwapAdjacentSymGroups(ptr nocapture noundef n
   %indvars.iv.i = phi i64 [ %34, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.022.in26.i = phi i8 [ %.022.in24.i, %.lr.ph.preheader.i ], [ %.022.in.i, %.lr.ph.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %35 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
+  %35 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.i
   store i8 %.022.in26.i, ptr %35, align 1
   %36 = zext nneg i8 %.022.in26.i to i64
   %37 = getelementptr inbounds nuw [17 x i8], ptr %17, i64 0, i64 %36
@@ -12822,7 +12822,7 @@ define internal fastcc void @Abc_TgSwapAdjacentSymGroups(ptr nocapture noundef n
   %indvars.iv43.i = phi i64 [ %indvars.iv.next44.i, %.lr.ph38.i ], [ %.0.lcssa.i, %._crit_edge31.i ]
   %.123.in36.i = phi i8 [ %.123.in.i, %.lr.ph38.i ], [ %.123.in34.i, %._crit_edge31.i ]
   %indvars.iv.next44.i = add nsw i64 %indvars.iv43.i, 1
-  %45 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv43.i
+  %45 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv43.i
   store i8 %.123.in36.i, ptr %45, align 1
   %46 = zext nneg i8 %.123.in36.i to i64
   %.123.in.in.i = getelementptr inbounds nuw [17 x i8], ptr %17, i64 0, i64 %46
@@ -12856,7 +12856,7 @@ Abc_TgExpendSymmetry.exit:                        ; preds = %.lr.ph38.i, %._crit
 .lr.ph64.i:                                       ; preds = %61
   %63 = shl nuw nsw i32 1, %52
   %64 = sext i8 %51 to i64
-  %65 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %64
+  %65 = getelementptr inbounds [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %64
   %66 = load i64, ptr %65, align 8
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %68 = load i64, ptr %67, align 8

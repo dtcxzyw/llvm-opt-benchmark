@@ -2791,18 +2791,18 @@ define hidden ptr @dom_document_parser(ptr noundef readonly %0, i32 noundef %1, 
   %60 = shl i64 %59, 32
   %sext = add i64 %60, -4294967296
   %61 = ashr exact i64 %sext, 32
-  %62 = getelementptr inbounds nuw [4097 x i8], ptr %7, i64 0, i64 %61
+  %62 = getelementptr inbounds [4097 x i8], ptr %7, i64 0, i64 %61
   %63 = load i8, ptr %62, align 1
   %.not97 = icmp eq i8 %63, 47
   br i1 %.not97, label %69, label %64
 
 64:                                               ; preds = %58
   %65 = ashr exact i64 %60, 32
-  %66 = getelementptr inbounds nuw [4097 x i8], ptr %7, i64 0, i64 %65
+  %66 = getelementptr inbounds [4097 x i8], ptr %7, i64 0, i64 %65
   store i8 47, ptr %66, align 1
   %sext99 = add i64 %60, 4294967296
   %67 = ashr exact i64 %sext99, 32
-  %68 = getelementptr inbounds nuw [4097 x i8], ptr %7, i64 0, i64 %67
+  %68 = getelementptr inbounds [4097 x i8], ptr %7, i64 0, i64 %67
   store i8 0, ptr %68, align 1
   br label %69
 

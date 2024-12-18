@@ -375,7 +375,7 @@ if.then22.i:                                      ; preds = %for.body.i
 
 if.then24.i:                                      ; preds = %if.then22.i
   %strlen.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %failure_text.i)
-  %endptr.i = getelementptr inbounds nuw i8, ptr %failure_text.i, i64 %strlen.i
+  %endptr.i = getelementptr inbounds i8, ptr %failure_text.i, i64 %strlen.i
   store i16 44, ptr %endptr.i, align 1
   br label %if.end27.i
 

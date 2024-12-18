@@ -6931,7 +6931,7 @@ invoke.cont84.i.i:                                ; preds = %for.body77.i.i
   %sub.ptr.rhs.cast.i329.i.i = ptrtoint ptr %cond.i49.i556562.i.i to i64
   %sub.ptr.sub.i330.i.i = sub i64 %sub.ptr.lhs.cast.i328.i.i, %sub.ptr.rhs.cast.i329.i.i
   %sub.ptr.div.i331.i.i = sdiv exact i64 %sub.ptr.sub.i330.i.i, 40
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [64 x i8], ptr %data_select_mask.i.i, i64 0, i64 %sub.ptr.div.i331.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds [64 x i8], ptr %data_select_mask.i.i, i64 0, i64 %sub.ptr.div.i331.i.i
   store i8 %conv.i.i.i.i, ptr %arrayidx.i.i.i.i, align 1
   %71 = add nsw i64 %sub.ptr.div.i331.i.i, 128
   %cmp.not.i.i337.i.i = icmp ult i64 %71, 256

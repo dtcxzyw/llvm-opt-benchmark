@@ -2733,7 +2733,7 @@ define internal fastcc range(i32 0, 19) i32 @downloadFile(ptr noundef %0, ptr no
 
 103:                                              ; preds = %99
   %104 = add i64 %100, -1
-  %105 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %104
+  %105 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 %104
   %106 = load i8, ptr %105, align 1
   %.not84 = icmp eq i8 %106, 10
   %107 = select i1 %.not84, ptr @.str.131, ptr @.str.130
@@ -3069,7 +3069,7 @@ define internal fastcc range(i32 0, 17) i32 @remote_cvdhead(ptr noundef nonnull 
 
 89:                                               ; preds = %85
   %90 = add i64 %86, -1
-  %91 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %90
+  %91 = getelementptr inbounds [256 x i8], ptr %9, i64 0, i64 %90
   %92 = load i8, ptr %91, align 1
   %.not101 = icmp eq i8 %92, 10
   %93 = select i1 %.not101, ptr @.str.131, ptr @.str.130

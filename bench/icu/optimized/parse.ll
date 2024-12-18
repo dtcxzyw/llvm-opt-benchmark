@@ -3003,7 +3003,7 @@ if.then7:                                         ; preds = %if.end5
 
 if.then12:                                        ; preds = %if.then7
   %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) %filename)
-  %endptr = getelementptr inbounds nuw i8, ptr %filename, i64 %strlen
+  %endptr = getelementptr inbounds i8, ptr %filename, i64 %strlen
   store i16 47, ptr %endptr, align 1
   br label %if.end16
 
@@ -3308,7 +3308,7 @@ if.then7:                                         ; preds = %if.end5
 
 if.then12:                                        ; preds = %if.then7
   %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) %filename)
-  %endptr = getelementptr inbounds nuw i8, ptr %filename, i64 %strlen
+  %endptr = getelementptr inbounds i8, ptr %filename, i64 %strlen
   store i16 47, ptr %endptr, align 1
   br label %if.end16
 
@@ -3447,7 +3447,7 @@ if.then7:                                         ; preds = %if.end5
 
 if.then12:                                        ; preds = %if.then7
   %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) %filename)
-  %endptr = getelementptr inbounds nuw i8, ptr %filename, i64 %strlen
+  %endptr = getelementptr inbounds i8, ptr %filename, i64 %strlen
   store i16 47, ptr %endptr, align 1
   br label %if.end16
 
@@ -4654,7 +4654,7 @@ _ZNK6icu_7513CollationData7getCE32Ei.exit57.i:    ; preds = %_ZNK6icu_7513Collat
 if.end6.i:                                        ; preds = %_ZNK6icu_7513CollationData7getCE32Ei.exit57.i, %_ZNK6icu_7513CollationData7getCE32Ei.exit.i
   %ce32.0.i = phi i32 [ %17, %_ZNK6icu_7513CollationData7getCE32Ei.exit57.i ], [ %11, %_ZNK6icu_7513CollationData7getCE32Ei.exit.i ]
   %18 = add nsw i64 %indvars.iv.i, -4352
-  %arrayidx.i = getelementptr inbounds nuw [256 x i32], ptr %jamo.i, i64 0, i64 %18
+  %arrayidx.i = getelementptr inbounds [256 x i32], ptr %jamo.i, i64 0, i64 %18
   store i32 %ce32.0.i, ptr %arrayidx.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4608
@@ -5783,7 +5783,7 @@ if.end27:                                         ; preds = %_ZN6icu_759Collatio
 if.end29:                                         ; preds = %if.end5, %if.end27
   %secondary.0 = phi i16 [ 0, %if.end5 ], [ %conv, %if.end27 ]
   %14 = add nsw i64 %indvars.iv, -768
-  %arrayidx = getelementptr inbounds nuw [79 x i16], ptr %secondaries, i64 0, i64 %14
+  %arrayidx = getelementptr inbounds [79 x i16], ptr %secondaries, i64 0, i64 %14
   store i16 %secondary.0, ptr %arrayidx, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 847

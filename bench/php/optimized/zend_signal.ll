@@ -471,7 +471,7 @@ define hidden void @zend_signal_init() local_unnamed_addr #0 {
 7:                                                ; preds = %3
   %8 = load i32, ptr %2, align 8
   %9 = add nsw i64 %indvars.iv, -1
-  %10 = getelementptr inbounds nuw [65 x %struct._zend_signal_entry_t], ptr @global_orig_handlers, i64 0, i64 %9
+  %10 = getelementptr inbounds [65 x %struct._zend_signal_entry_t], ptr @global_orig_handlers, i64 0, i64 %9
   store i32 %8, ptr %10, align 16
   %11 = load ptr, ptr %1, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -536,7 +536,7 @@ zend_signal_globals_ctor.exit:                    ; preds = %2
 26:                                               ; preds = %22
   %27 = load i32, ptr %21, align 8
   %28 = add nsw i64 %indvars.iv.i, -1
-  %29 = getelementptr inbounds nuw [65 x %struct._zend_signal_entry_t], ptr @global_orig_handlers, i64 0, i64 %28
+  %29 = getelementptr inbounds [65 x %struct._zend_signal_entry_t], ptr @global_orig_handlers, i64 0, i64 %28
   store i32 %27, ptr %29, align 16
   %30 = load ptr, ptr %1, align 8
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8

@@ -1981,7 +1981,7 @@ define void @spank_clear_remote_options_env(ptr noundef %0) local_unnamed_addr #
   %19 = ptrtoint ptr %17 to i64
   %20 = sub i64 %18, %19
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %2, ptr align 1 %17, i64 %20, i1 false)
-  %21 = getelementptr inbounds nuw [1024 x i8], ptr %2, i64 0, i64 %20
+  %21 = getelementptr inbounds [1024 x i8], ptr %2, i64 0, i64 %20
   store i8 0, ptr %21, align 1
   %22 = call i32 @get_log_level() #19
   %23 = icmp sgt i32 %22, 4
@@ -4955,18 +4955,18 @@ _spank_conf_include.exit:                         ; preds = %73, %.loopexit
   %117 = shl i64 %113, 32
   %sext.i = add i64 %117, -4294967296
   %118 = ashr exact i64 %sext.i, 32
-  %119 = getelementptr inbounds nuw [4096 x i8], ptr %8, i64 0, i64 %118
+  %119 = getelementptr inbounds [4096 x i8], ptr %8, i64 0, i64 %118
   %120 = load i8, ptr %119, align 1
   %.not.i34 = icmp eq i8 %120, 58
   br i1 %.not.i34, label %126, label %121
 
 121:                                              ; preds = %116
   %122 = ashr exact i64 %117, 32
-  %123 = getelementptr inbounds nuw [4096 x i8], ptr %8, i64 0, i64 %122
+  %123 = getelementptr inbounds [4096 x i8], ptr %8, i64 0, i64 %122
   store i8 58, ptr %123, align 1
   %sext15.i = add i64 %117, 4294967296
   %124 = ashr exact i64 %sext15.i, 32
-  %125 = getelementptr inbounds nuw [4096 x i8], ptr %8, i64 0, i64 %124
+  %125 = getelementptr inbounds [4096 x i8], ptr %8, i64 0, i64 %124
   store i8 0, ptr %125, align 1
   br label %126
 

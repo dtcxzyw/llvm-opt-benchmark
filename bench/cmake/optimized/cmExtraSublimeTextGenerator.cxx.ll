@@ -817,7 +817,7 @@ define dso_local void @_ZN27cmExtraSublimeTextGenerator20CreateNewProjectFileERK
   %22 = load ptr, ptr %4, align 8
   %23 = getelementptr i8, ptr %22, i64 -24
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %4, i64 %24
+  %25 = getelementptr inbounds i8, ptr %4, i64 %24
   %26 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %25)
           to label %27 unwind label %28
 

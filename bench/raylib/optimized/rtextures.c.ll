@@ -2467,7 +2467,7 @@ stbi__zreceive.exit76.i.i:                        ; preds = %stbi__zget8.exit.i.
   %289 = trunc nuw nsw i32 %285 to i8
   %290 = add nsw i32 %.046147.i.i, 1
   %291 = sext i32 %.046147.i.i to i64
-  %292 = getelementptr inbounds nuw [455 x i8], ptr %7, i64 0, i64 %291
+  %292 = getelementptr inbounds [455 x i8], ptr %7, i64 0, i64 %291
   store i8 %289, ptr %292, align 1
   br label %375
 
@@ -2533,7 +2533,7 @@ stbi__zreceive.exit84.i.i:                        ; preds = %stbi__zget8.exit.i.
   %318 = add nuw nsw i32 %317, 3
   %319 = add nsw i32 %.046147.i.i, -1
   %320 = sext i32 %319 to i64
-  %321 = getelementptr inbounds nuw [455 x i8], ptr %7, i64 0, i64 %320
+  %321 = getelementptr inbounds [455 x i8], ptr %7, i64 0, i64 %320
   %322 = load i8, ptr %321, align 1
   br label %367
 
@@ -2646,7 +2646,7 @@ stbi__zreceive.exit100.i.i:                       ; preds = %stbi__zget8.exit.i.
 
 370:                                              ; preds = %367
   %371 = sext i32 %.046147.i.i to i64
-  %372 = getelementptr inbounds nuw i8, ptr %7, i64 %371
+  %372 = getelementptr inbounds i8, ptr %7, i64 %371
   %373 = zext nneg i32 %.043.i.i to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %372, i8 %.0.i42.i, i64 %373, i1 false)
   %374 = add nsw i32 %.043.i.i, %.046147.i.i
@@ -7680,7 +7680,7 @@ define hidden noundef ptr @stbi_write_png_to_mem(ptr nocapture noundef readonly 
   %93 = getelementptr inbounds nuw i8, ptr %60, i64 25
   store i8 8, ptr %92, align 1
   %94 = sext i32 %4 to i64
-  %95 = getelementptr inbounds nuw [5 x i32], ptr @__const.stbi_write_png_to_mem.ctype, i64 0, i64 %94
+  %95 = getelementptr inbounds [5 x i32], ptr @__const.stbi_write_png_to_mem.ctype, i64 0, i64 %94
   %96 = load i32, ptr %95, align 4
   %97 = trunc i32 %96 to i8
   %98 = getelementptr inbounds nuw i8, ptr %60, i64 26
@@ -8307,7 +8307,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi_write_jpg_core(ptr nocapture no
 73:                                               ; preds = %.preheader285, %73
   %indvars.iv353 = phi i64 [ %72, %.preheader285 ], [ %indvars.iv.next354, %73 ]
   %indvars.iv351 = phi i64 [ 0, %.preheader285 ], [ %indvars.iv.next352, %73 ]
-  %74 = getelementptr inbounds nuw [64 x i8], ptr @stbiw__jpg_ZigZag, i64 0, i64 %indvars.iv353
+  %74 = getelementptr inbounds [64 x i8], ptr @stbiw__jpg_ZigZag, i64 0, i64 %indvars.iv353
   %75 = load i8, ptr %74, align 1
   %76 = zext i8 %75 to i64
   %77 = getelementptr inbounds nuw [64 x i8], ptr %17, i64 0, i64 %76
@@ -8318,7 +8318,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi_write_jpg_core(ptr nocapture no
   %82 = load float, ptr %81, align 4
   %83 = fmul float %80, %82
   %84 = fdiv float 1.000000e+00, %83
-  %85 = getelementptr inbounds nuw [64 x float], ptr %15, i64 0, i64 %indvars.iv353
+  %85 = getelementptr inbounds [64 x float], ptr %15, i64 0, i64 %indvars.iv353
   store float %84, ptr %85, align 4
   %86 = getelementptr inbounds nuw [64 x i8], ptr %18, i64 0, i64 %76
   %87 = load i8, ptr %86, align 1
@@ -8326,7 +8326,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi_write_jpg_core(ptr nocapture no
   %89 = fmul float %71, %88
   %90 = fmul float %82, %89
   %91 = fdiv float 1.000000e+00, %90
-  %92 = getelementptr inbounds nuw [64 x float], ptr %16, i64 0, i64 %indvars.iv353
+  %92 = getelementptr inbounds [64 x float], ptr %16, i64 0, i64 %indvars.iv353
   store float %91, ptr %92, align 4
   %indvars.iv.next352 = add nuw nsw i64 %indvars.iv351, 1
   %indvars.iv.next354 = add nsw i64 %indvars.iv353, 1
@@ -8521,17 +8521,17 @@ define internal fastcc range(i32 0, 2) i32 @stbi_write_jpg_core(ptr nocapture no
   %185 = call float @llvm.fmuladd.f32(float %177, float 0x3FD322D0E0000000, float %184)
   %186 = call float @llvm.fmuladd.f32(float %183, float 0x3FBD2F1AA0000000, float %185)
   %187 = fadd float %186, -1.280000e+02
-  %188 = getelementptr inbounds nuw [64 x float], ptr %27, i64 0, i64 %indvars.iv363
+  %188 = getelementptr inbounds [64 x float], ptr %27, i64 0, i64 %indvars.iv363
   store float %187, ptr %188, align 4
   %189 = fmul float %180, 0xBFD5335D20000000
   %190 = call float @llvm.fmuladd.f32(float %177, float 0xBFC59945C0000000, float %189)
   %191 = call float @llvm.fmuladd.f32(float %183, float 5.000000e-01, float %190)
-  %192 = getelementptr inbounds nuw [64 x float], ptr %28, i64 0, i64 %indvars.iv363
+  %192 = getelementptr inbounds [64 x float], ptr %28, i64 0, i64 %indvars.iv363
   store float %191, ptr %192, align 4
   %193 = fmul float %180, 0xBFDACBD120000000
   %194 = call float @llvm.fmuladd.f32(float %177, float 5.000000e-01, float %193)
   %195 = call float @llvm.fmuladd.f32(float %183, float 0xBFB4D0BB60000000, float %194)
-  %196 = getelementptr inbounds nuw [64 x float], ptr %29, i64 0, i64 %indvars.iv363
+  %196 = getelementptr inbounds [64 x float], ptr %29, i64 0, i64 %indvars.iv363
   store float %195, ptr %196, align 4
   %197 = add nuw nsw i32 %.2228294.us311, 1
   %indvars.iv.next364 = add nsw i64 %indvars.iv363, 1
@@ -8593,17 +8593,17 @@ define internal fastcc range(i32 0, 2) i32 @stbi_write_jpg_core(ptr nocapture no
   %227 = call float @llvm.fmuladd.f32(float %219, float 0x3FD322D0E0000000, float %226)
   %228 = call float @llvm.fmuladd.f32(float %225, float 0x3FBD2F1AA0000000, float %227)
   %229 = fadd float %228, -1.280000e+02
-  %230 = getelementptr inbounds nuw [64 x float], ptr %27, i64 0, i64 %indvars.iv370
+  %230 = getelementptr inbounds [64 x float], ptr %27, i64 0, i64 %indvars.iv370
   store float %229, ptr %230, align 4
   %231 = fmul float %222, 0xBFD5335D20000000
   %232 = call float @llvm.fmuladd.f32(float %219, float 0xBFC59945C0000000, float %231)
   %233 = call float @llvm.fmuladd.f32(float %225, float 5.000000e-01, float %232)
-  %234 = getelementptr inbounds nuw [64 x float], ptr %28, i64 0, i64 %indvars.iv370
+  %234 = getelementptr inbounds [64 x float], ptr %28, i64 0, i64 %indvars.iv370
   store float %233, ptr %234, align 4
   %235 = fmul float %222, 0xBFDACBD120000000
   %236 = call float @llvm.fmuladd.f32(float %219, float 5.000000e-01, float %235)
   %237 = call float @llvm.fmuladd.f32(float %225, float 0xBFB4D0BB60000000, float %236)
-  %238 = getelementptr inbounds nuw [64 x float], ptr %29, i64 0, i64 %indvars.iv370
+  %238 = getelementptr inbounds [64 x float], ptr %29, i64 0, i64 %indvars.iv370
   store float %237, ptr %238, align 4
   %239 = add nuw nsw i32 %.2228294.us.us, 1
   %indvars.iv.next371 = add nsw i64 %indvars.iv370, 1
@@ -8676,7 +8676,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi_write_jpg_core(ptr nocapture no
   %274 = load float, ptr %273, align 4
   %275 = fadd float %271, %274
   %276 = fmul float %275, 2.500000e-01
-  %277 = getelementptr inbounds nuw [64 x float], ptr %25, i64 0, i64 %indvars.iv386
+  %277 = getelementptr inbounds [64 x float], ptr %25, i64 0, i64 %indvars.iv386
   store float %276, ptr %277, align 4
   %278 = getelementptr inbounds nuw [256 x float], ptr %24, i64 0, i64 %261
   %279 = load float, ptr %278, align 8
@@ -8690,7 +8690,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi_write_jpg_core(ptr nocapture no
   %287 = load float, ptr %286, align 4
   %288 = fadd float %285, %287
   %289 = fmul float %288, 2.500000e-01
-  %290 = getelementptr inbounds nuw [64 x float], ptr %26, i64 0, i64 %indvars.iv386
+  %290 = getelementptr inbounds [64 x float], ptr %26, i64 0, i64 %indvars.iv386
   store float %289, ptr %290, align 4
   %indvars.iv.next385 = add nuw nsw i64 %indvars.iv384, 1
   %indvars.iv.next387 = add nsw i64 %indvars.iv386, 1
@@ -8735,17 +8735,17 @@ define internal fastcc range(i32 0, 2) i32 @stbi_write_jpg_core(ptr nocapture no
   %317 = call float @llvm.fmuladd.f32(float %309, float 0x3FD322D0E0000000, float %316)
   %318 = call float @llvm.fmuladd.f32(float %315, float 0x3FBD2F1AA0000000, float %317)
   %319 = fadd float %318, -1.280000e+02
-  %320 = getelementptr inbounds nuw [256 x float], ptr %22, i64 0, i64 %indvars.iv376
+  %320 = getelementptr inbounds [256 x float], ptr %22, i64 0, i64 %indvars.iv376
   store float %319, ptr %320, align 4
   %321 = fmul float %312, 0xBFD5335D20000000
   %322 = call float @llvm.fmuladd.f32(float %309, float 0xBFC59945C0000000, float %321)
   %323 = call float @llvm.fmuladd.f32(float %315, float 5.000000e-01, float %322)
-  %324 = getelementptr inbounds nuw [256 x float], ptr %23, i64 0, i64 %indvars.iv376
+  %324 = getelementptr inbounds [256 x float], ptr %23, i64 0, i64 %indvars.iv376
   store float %323, ptr %324, align 4
   %325 = fmul float %312, 0xBFDACBD120000000
   %326 = call float @llvm.fmuladd.f32(float %309, float 5.000000e-01, float %325)
   %327 = call float @llvm.fmuladd.f32(float %315, float 0xBFB4D0BB60000000, float %326)
-  %328 = getelementptr inbounds nuw [256 x float], ptr %24, i64 0, i64 %indvars.iv376
+  %328 = getelementptr inbounds [256 x float], ptr %24, i64 0, i64 %indvars.iv376
   store float %327, ptr %328, align 4
   %329 = add nuw nsw i32 %.1227315.us, 1
   %indvars.iv.next377 = add nsw i64 %indvars.iv376, 1
@@ -9244,7 +9244,7 @@ define hidden noundef float @stb_perlin_noise3_wrap_nonpow2(float noundef %0, fl
   %60 = fmul float %56, %59
   %61 = fmul float %56, %60
   %62 = sext i32 %spec.select to i64
-  %63 = getelementptr inbounds nuw [512 x i8], ptr @stb__perlin_randtab, i64 0, i64 %62
+  %63 = getelementptr inbounds [512 x i8], ptr @stb__perlin_randtab, i64 0, i64 %62
   %64 = load i8, ptr %63, align 1
   %65 = zext i8 %64 to i32
   %66 = zext i8 %6 to i32
@@ -9254,7 +9254,7 @@ define hidden noundef float @stb_perlin_noise3_wrap_nonpow2(float noundef %0, fl
   %70 = load i8, ptr %69, align 1
   %71 = zext i8 %70 to i32
   %72 = sext i32 %36 to i64
-  %73 = getelementptr inbounds nuw [512 x i8], ptr @stb__perlin_randtab, i64 0, i64 %72
+  %73 = getelementptr inbounds [512 x i8], ptr @stb__perlin_randtab, i64 0, i64 %72
   %74 = load i8, ptr %73, align 1
   %75 = zext i8 %74 to i32
   %76 = add nuw nsw i32 %75, %66
@@ -9264,27 +9264,27 @@ define hidden noundef float @stb_perlin_noise3_wrap_nonpow2(float noundef %0, fl
   %80 = zext i8 %79 to i32
   %81 = add nsw i32 %.0125, %71
   %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds nuw [512 x i8], ptr @stb__perlin_randtab, i64 0, i64 %82
+  %83 = getelementptr inbounds [512 x i8], ptr @stb__perlin_randtab, i64 0, i64 %82
   %84 = load i8, ptr %83, align 1
   %85 = zext i8 %84 to i32
   %86 = add nsw i32 %38, %71
   %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds nuw [512 x i8], ptr @stb__perlin_randtab, i64 0, i64 %87
+  %88 = getelementptr inbounds [512 x i8], ptr @stb__perlin_randtab, i64 0, i64 %87
   %89 = load i8, ptr %88, align 1
   %90 = zext i8 %89 to i32
   %91 = add nsw i32 %.0125, %80
   %92 = sext i32 %91 to i64
-  %93 = getelementptr inbounds nuw [512 x i8], ptr @stb__perlin_randtab, i64 0, i64 %92
+  %93 = getelementptr inbounds [512 x i8], ptr @stb__perlin_randtab, i64 0, i64 %92
   %94 = load i8, ptr %93, align 1
   %95 = zext i8 %94 to i32
   %96 = add nsw i32 %38, %80
   %97 = sext i32 %96 to i64
-  %98 = getelementptr inbounds nuw [512 x i8], ptr @stb__perlin_randtab, i64 0, i64 %97
+  %98 = getelementptr inbounds [512 x i8], ptr @stb__perlin_randtab, i64 0, i64 %97
   %99 = load i8, ptr %98, align 1
   %100 = zext i8 %99 to i32
   %101 = add nsw i32 %.0126, %85
   %102 = sext i32 %101 to i64
-  %103 = getelementptr inbounds nuw [512 x i8], ptr @stb__perlin_randtab_grad_idx, i64 0, i64 %102
+  %103 = getelementptr inbounds [512 x i8], ptr @stb__perlin_randtab_grad_idx, i64 0, i64 %102
   %104 = load i8, ptr %103, align 1
   %105 = zext i8 %104 to i64
   %106 = getelementptr inbounds nuw [12 x [4 x float]], ptr @stb__perlin_grad.basis, i64 0, i64 %105
@@ -9298,7 +9298,7 @@ define hidden noundef float @stb_perlin_noise3_wrap_nonpow2(float noundef %0, fl
   %114 = tail call float @llvm.fmuladd.f32(float %113, float %56, float %111)
   %115 = add nsw i32 %40, %85
   %116 = sext i32 %115 to i64
-  %117 = getelementptr inbounds nuw [512 x i8], ptr @stb__perlin_randtab_grad_idx, i64 0, i64 %116
+  %117 = getelementptr inbounds [512 x i8], ptr @stb__perlin_randtab_grad_idx, i64 0, i64 %116
   %118 = load i8, ptr %117, align 1
   %119 = fadd float %56, -1.000000e+00
   %120 = zext i8 %118 to i64
@@ -9313,7 +9313,7 @@ define hidden noundef float @stb_perlin_noise3_wrap_nonpow2(float noundef %0, fl
   %129 = tail call float @llvm.fmuladd.f32(float %128, float %119, float %126)
   %130 = add nsw i32 %.0126, %90
   %131 = sext i32 %130 to i64
-  %132 = getelementptr inbounds nuw [512 x i8], ptr @stb__perlin_randtab_grad_idx, i64 0, i64 %131
+  %132 = getelementptr inbounds [512 x i8], ptr @stb__perlin_randtab_grad_idx, i64 0, i64 %131
   %133 = load i8, ptr %132, align 1
   %134 = fadd float %49, -1.000000e+00
   %135 = zext i8 %133 to i64
@@ -9328,7 +9328,7 @@ define hidden noundef float @stb_perlin_noise3_wrap_nonpow2(float noundef %0, fl
   %144 = tail call float @llvm.fmuladd.f32(float %143, float %56, float %141)
   %145 = add nsw i32 %40, %90
   %146 = sext i32 %145 to i64
-  %147 = getelementptr inbounds nuw [512 x i8], ptr @stb__perlin_randtab_grad_idx, i64 0, i64 %146
+  %147 = getelementptr inbounds [512 x i8], ptr @stb__perlin_randtab_grad_idx, i64 0, i64 %146
   %148 = load i8, ptr %147, align 1
   %149 = zext i8 %148 to i64
   %150 = getelementptr inbounds nuw [12 x [4 x float]], ptr @stb__perlin_grad.basis, i64 0, i64 %149
@@ -9342,7 +9342,7 @@ define hidden noundef float @stb_perlin_noise3_wrap_nonpow2(float noundef %0, fl
   %158 = tail call float @llvm.fmuladd.f32(float %157, float %119, float %155)
   %159 = add nsw i32 %.0126, %95
   %160 = sext i32 %159 to i64
-  %161 = getelementptr inbounds nuw [512 x i8], ptr @stb__perlin_randtab_grad_idx, i64 0, i64 %160
+  %161 = getelementptr inbounds [512 x i8], ptr @stb__perlin_randtab_grad_idx, i64 0, i64 %160
   %162 = load i8, ptr %161, align 1
   %163 = fadd float %42, -1.000000e+00
   %164 = zext i8 %162 to i64
@@ -9357,7 +9357,7 @@ define hidden noundef float @stb_perlin_noise3_wrap_nonpow2(float noundef %0, fl
   %173 = tail call float @llvm.fmuladd.f32(float %172, float %56, float %170)
   %174 = add nsw i32 %40, %95
   %175 = sext i32 %174 to i64
-  %176 = getelementptr inbounds nuw [512 x i8], ptr @stb__perlin_randtab_grad_idx, i64 0, i64 %175
+  %176 = getelementptr inbounds [512 x i8], ptr @stb__perlin_randtab_grad_idx, i64 0, i64 %175
   %177 = load i8, ptr %176, align 1
   %178 = zext i8 %177 to i64
   %179 = getelementptr inbounds nuw [12 x [4 x float]], ptr @stb__perlin_grad.basis, i64 0, i64 %178
@@ -9371,7 +9371,7 @@ define hidden noundef float @stb_perlin_noise3_wrap_nonpow2(float noundef %0, fl
   %187 = tail call float @llvm.fmuladd.f32(float %186, float %119, float %184)
   %188 = add nsw i32 %.0126, %100
   %189 = sext i32 %188 to i64
-  %190 = getelementptr inbounds nuw [512 x i8], ptr @stb__perlin_randtab_grad_idx, i64 0, i64 %189
+  %190 = getelementptr inbounds [512 x i8], ptr @stb__perlin_randtab_grad_idx, i64 0, i64 %189
   %191 = load i8, ptr %190, align 1
   %192 = zext i8 %191 to i64
   %193 = getelementptr inbounds nuw [12 x [4 x float]], ptr @stb__perlin_grad.basis, i64 0, i64 %192
@@ -9385,7 +9385,7 @@ define hidden noundef float @stb_perlin_noise3_wrap_nonpow2(float noundef %0, fl
   %201 = tail call float @llvm.fmuladd.f32(float %200, float %56, float %198)
   %202 = add nsw i32 %40, %100
   %203 = sext i32 %202 to i64
-  %204 = getelementptr inbounds nuw [512 x i8], ptr @stb__perlin_randtab_grad_idx, i64 0, i64 %203
+  %204 = getelementptr inbounds [512 x i8], ptr @stb__perlin_randtab_grad_idx, i64 0, i64 %203
   %205 = load i8, ptr %204, align 1
   %206 = zext i8 %205 to i64
   %207 = getelementptr inbounds nuw [12 x [4 x float]], ptr @stb__perlin_grad.basis, i64 0, i64 %206
@@ -27528,7 +27528,7 @@ stbi__get8.exit326:                               ; preds = %412, %415, %stbi__r
   %462 = tail call fastcc i32 @stbi__get16be(ptr noundef nonnull %8)
   %463 = load i32, ptr %58, align 8
   %464 = sext i32 %463 to i64
-  %465 = getelementptr inbounds nuw [9 x i8], ptr @stbi__depth_scale_table, i64 0, i64 %464
+  %465 = getelementptr inbounds [9 x i8], ptr @stbi__depth_scale_table, i64 0, i64 %464
   %466 = load i8, ptr %465, align 1
   %467 = trunc i32 %462 to i8
   %468 = mul i8 %466, %467
@@ -29816,7 +29816,7 @@ stbi__mad3sizes_valid.exit._crit_edge:            ; preds = %39, %stbi__mul2size
   %313 = sub nsw i64 0, %312
   %314 = icmp eq i32 %7, 0
   %315 = sext i32 %6 to i64
-  %316 = getelementptr inbounds nuw [9 x i8], ptr @stbi__depth_scale_table, i64 0, i64 %315
+  %316 = getelementptr inbounds [9 x i8], ptr @stbi__depth_scale_table, i64 0, i64 %315
   %317 = icmp sgt i32 %37, 7
   %318 = icmp sgt i32 %37, 3
   %319 = icmp sgt i32 %37, 1
@@ -33603,7 +33603,7 @@ define internal fastcc i32 @stbiw__jpg_processDU(ptr nocapture noundef nonnull r
   %.v = select i1 %147, float -5.000000e-01, float 5.000000e-01
   %148 = fadd float %146, %.v
   %149 = fptosi float %148 to i32
-  %150 = getelementptr inbounds nuw [64 x i8], ptr @stbiw__jpg_ZigZag, i64 0, i64 %indvars.iv290
+  %150 = getelementptr inbounds [64 x i8], ptr @stbiw__jpg_ZigZag, i64 0, i64 %indvars.iv290
   %151 = load i8, ptr %150, align 1
   %152 = zext i8 %151 to i64
   %153 = getelementptr inbounds nuw [64 x i32], ptr %25, i64 0, i64 %152
@@ -33869,7 +33869,7 @@ stbiw__jpg_writeBits.exit:                        ; preds = %227, %176, %stbiw__
 266:                                              ; preds = %266, %.preheader
   %indvars.iv303 = phi i32 [ %indvars.iv.next304, %266 ], [ 0, %.preheader ]
   %indvars.iv300 = phi i64 [ %indvars.iv.next301, %266 ], [ %265, %.preheader ]
-  %267 = getelementptr inbounds nuw [64 x i32], ptr %25, i64 0, i64 %indvars.iv300
+  %267 = getelementptr inbounds [64 x i32], ptr %25, i64 0, i64 %indvars.iv300
   %268 = load i32, ptr %267, align 4
   %269 = icmp eq i32 %268, 0
   %270 = icmp sle i64 %indvars.iv300, %243
@@ -34959,10 +34959,10 @@ stbir__get_max_split.exit:                        ; preds = %.lr.ph.i, %9
 
 61:                                               ; preds = %53
   %62 = sext i32 %.0319 to i64
-  %63 = getelementptr inbounds nuw [8 x i8], ptr @stbir__alloc_internal_mem_and_build_samplers.stbir_channel_count_index, i64 0, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr @stbir__alloc_internal_mem_and_build_samplers.stbir_channel_count_index, i64 0, i64 %62
   %64 = load i8, ptr %63, align 1
   %65 = sext i8 %64 to i64
-  %66 = getelementptr inbounds nuw [5 x [8 x [4 x float]]], ptr @stbir__compute_weights, i64 0, i64 %65
+  %66 = getelementptr inbounds [5 x [8 x [4 x float]]], ptr @stbir__compute_weights, i64 0, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %68 = load i32, ptr %67, align 8
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -35442,7 +35442,7 @@ stbir__should_do_vertical_first.exit:             ; preds = %81, %86, %88, %90, 
 
 361:                                              ; preds = %360
   tail call fastcc void @stbir__calculate_filters(ptr noundef %0, ptr noundef null, ptr noundef %8)
-  %362 = getelementptr inbounds nuw [8 x ptr], ptr @stbir__horizontal_gather_n_coeffs_funcs, i64 0, i64 %62
+  %362 = getelementptr inbounds [8 x ptr], ptr @stbir__horizontal_gather_n_coeffs_funcs, i64 0, i64 %62
   %363 = load ptr, ptr %362, align 8
   %364 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %365 = load i32, ptr %364, align 4
@@ -35457,7 +35457,7 @@ stbir__should_do_vertical_first.exit:             ; preds = %81, %86, %88, %90, 
   br i1 %372, label %373, label %380
 
 373:                                              ; preds = %361
-  %374 = getelementptr inbounds nuw [8 x ptr], ptr @stbir__horizontal_gather_channels_funcs, i64 0, i64 %62
+  %374 = getelementptr inbounds [8 x ptr], ptr @stbir__horizontal_gather_channels_funcs, i64 0, i64 %62
   %375 = load ptr, ptr %374, align 8
   %376 = sext i32 %371 to i64
   %377 = getelementptr ptr, ptr %375, i64 %376

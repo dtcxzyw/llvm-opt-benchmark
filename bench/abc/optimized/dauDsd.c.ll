@@ -78,7 +78,7 @@ define noundef nonnull ptr @Dau_DsdComputeMatches(ptr nocapture noundef readonly
 7:                                                ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %8 = add nsw i32 %.027, 1
   %9 = sext i32 %.027 to i64
-  %10 = getelementptr inbounds nuw [12 x i32], ptr %2, i64 0, i64 %9
+  %10 = getelementptr inbounds [12 x i32], ptr %2, i64 0, i64 %9
   %11 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %11, ptr %10, align 4
   br label %20
@@ -86,10 +86,10 @@ define noundef nonnull ptr @Dau_DsdComputeMatches(ptr nocapture noundef readonly
 12:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %13 = add nsw i32 %.027, -1
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds nuw [12 x i32], ptr %2, i64 0, i64 %14
+  %15 = getelementptr inbounds [12 x i32], ptr %2, i64 0, i64 %14
   %16 = load i32, ptr %15, align 4
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds nuw [2000 x i32], ptr @Dau_DsdComputeMatches.pMatches, i64 0, i64 %17
+  %18 = getelementptr inbounds [2000 x i32], ptr @Dau_DsdComputeMatches.pMatches, i64 0, i64 %17
   %19 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %19, ptr %18, align 4
   br label %20
@@ -225,7 +225,7 @@ Dau_DsdFindVarNum.exit:                           ; preds = %.lr.ph.i
   %16 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv23.i
   %17 = load i32, ptr %16, align 4
   %18 = sext i32 %15 to i64
-  %19 = getelementptr inbounds nuw i32, ptr %2, i64 %18
+  %19 = getelementptr inbounds i32, ptr %2, i64 %18
   %20 = load i32, ptr %19, align 4
   store i32 %20, ptr %16, align 4
   store i32 %17, ptr %19, align 4
@@ -419,7 +419,7 @@ define noundef nonnull ptr @Dau_DsdNormalizePerm(ptr noundef readonly %0, ptr no
   %indvars.iv44 = phi i64 [ %indvars.iv.next45, %Dau_DsdNormalizeCompare.exit.thread ], [ %indvars.iv42, %.lr.ph37 ]
   %.02234 = phi i32 [ %58, %Dau_DsdNormalizeCompare.exit.thread ], [ %9, %.lr.ph37 ]
   %10 = sext i32 %.02234 to i64
-  %11 = getelementptr inbounds nuw [12 x i32], ptr @Dau_DsdNormalizePerm.pPerm, i64 0, i64 %10
+  %11 = getelementptr inbounds [12 x i32], ptr @Dau_DsdNormalizePerm.pPerm, i64 0, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = getelementptr inbounds nuw [12 x i32], ptr @Dau_DsdNormalizePerm.pPerm, i64 0, i64 %indvars.iv44
   %14 = load i32, ptr %13, align 4
@@ -512,7 +512,7 @@ Dau_DsdNormalizeCompare.exit.thread:              ; preds = %45, %._crit_edge.i,
   %59 = getelementptr inbounds nuw [12 x i32], ptr @Dau_DsdNormalizePerm.pPerm, i64 0, i64 %indvars.iv49
   %60 = load i32, ptr %59, align 4
   %61 = sext i32 %.022.lcssa to i64
-  %62 = getelementptr inbounds nuw [12 x i32], ptr @Dau_DsdNormalizePerm.pPerm, i64 0, i64 %61
+  %62 = getelementptr inbounds [12 x i32], ptr @Dau_DsdNormalizePerm.pPerm, i64 0, i64 %61
   %63 = load i32, ptr %62, align 4
   store i32 %63, ptr %59, align 4
   store i32 %60, ptr %62, align 4
@@ -670,17 +670,17 @@ tailrecurse:                                      ; preds = %148, %3
   %indvars.iv44.i = phi i64 [ %indvars.iv.next45.i, %Dau_DsdNormalizeCompare.exit.thread.i ], [ %indvars.iv42.i, %.lr.ph37.i ]
   %.02234.i = phi i32 [ %112, %Dau_DsdNormalizeCompare.exit.thread.i ], [ %63, %.lr.ph37.i ]
   %64 = sext i32 %.02234.i to i64
-  %65 = getelementptr inbounds nuw [12 x i32], ptr @Dau_DsdNormalizePerm.pPerm, i64 0, i64 %64
+  %65 = getelementptr inbounds [12 x i32], ptr @Dau_DsdNormalizePerm.pPerm, i64 0, i64 %64
   %66 = load i32, ptr %65, align 4
   %67 = getelementptr inbounds nuw [12 x i32], ptr @Dau_DsdNormalizePerm.pPerm, i64 0, i64 %indvars.iv44.i
   %68 = load i32, ptr %67, align 4
   %69 = sext i32 %66 to i64
-  %70 = getelementptr inbounds nuw i32, ptr %4, i64 %69
+  %70 = getelementptr inbounds i32, ptr %4, i64 %69
   %71 = load i32, ptr %70, align 4
   %72 = sext i32 %71 to i64
   %73 = getelementptr inbounds i8, ptr %0, i64 %72
   %74 = sext i32 %68 to i64
-  %75 = getelementptr inbounds nuw i32, ptr %4, i64 %74
+  %75 = getelementptr inbounds i32, ptr %4, i64 %74
   %76 = load i32, ptr %75, align 4
   %77 = sext i32 %76 to i64
   %78 = getelementptr inbounds i8, ptr %0, i64 %77
@@ -763,7 +763,7 @@ Dau_DsdNormalizeCompare.exit.thread.i:            ; preds = %99, %Dau_DsdNormali
   %113 = getelementptr inbounds nuw [12 x i32], ptr @Dau_DsdNormalizePerm.pPerm, i64 0, i64 %indvars.iv49.i
   %114 = load i32, ptr %113, align 4
   %115 = sext i32 %.022.lcssa.i to i64
-  %116 = getelementptr inbounds nuw [12 x i32], ptr @Dau_DsdNormalizePerm.pPerm, i64 0, i64 %115
+  %116 = getelementptr inbounds [12 x i32], ptr @Dau_DsdNormalizePerm.pPerm, i64 0, i64 %115
   %117 = load i32, ptr %116, align 4
   store i32 %117, ptr %113, align 4
   store i32 %114, ptr %116, align 4
@@ -777,7 +777,7 @@ Dau_DsdNormalizeCompare.exit.thread.i:            ; preds = %99, %Dau_DsdNormali
   %118 = getelementptr inbounds nuw i32, ptr @Dau_DsdNormalizePerm.pPerm, i64 %indvars.iv132
   %119 = load i32, ptr %118, align 4
   %120 = sext i32 %119 to i64
-  %121 = getelementptr inbounds nuw i32, ptr %4, i64 %120
+  %121 = getelementptr inbounds i32, ptr %4, i64 %120
   %122 = load i32, ptr %121, align 4
   %123 = getelementptr i8, ptr %121, i64 4
   %124 = load i32, ptr %123, align 4
@@ -896,7 +896,7 @@ define void @Dau_DsdNormalize(ptr noundef %0) local_unnamed_addr #6 {
 11:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
   %12 = add nsw i32 %.027.i, 1
   %13 = sext i32 %.027.i to i64
-  %14 = getelementptr inbounds nuw [12 x i32], ptr %2, i64 0, i64 %13
+  %14 = getelementptr inbounds [12 x i32], ptr %2, i64 0, i64 %13
   %15 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %15, ptr %14, align 4
   br label %24
@@ -904,10 +904,10 @@ define void @Dau_DsdNormalize(ptr noundef %0) local_unnamed_addr #6 {
 16:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
   %17 = add nsw i32 %.027.i, -1
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds nuw [12 x i32], ptr %2, i64 0, i64 %18
+  %19 = getelementptr inbounds [12 x i32], ptr %2, i64 0, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds nuw [2000 x i32], ptr @Dau_DsdComputeMatches.pMatches, i64 0, i64 %21
+  %22 = getelementptr inbounds [2000 x i32], ptr @Dau_DsdComputeMatches.pMatches, i64 0, i64 %21
   %23 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %23, ptr %22, align 4
   br label %24
@@ -1100,7 +1100,7 @@ define i32 @Dau_DsdCountAnds(ptr noundef %0) local_unnamed_addr #6 {
 12:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
   %13 = add nsw i32 %.027.i, 1
   %14 = sext i32 %.027.i to i64
-  %15 = getelementptr inbounds nuw [12 x i32], ptr %2, i64 0, i64 %14
+  %15 = getelementptr inbounds [12 x i32], ptr %2, i64 0, i64 %14
   %16 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %16, ptr %15, align 4
   br label %25
@@ -1108,10 +1108,10 @@ define i32 @Dau_DsdCountAnds(ptr noundef %0) local_unnamed_addr #6 {
 17:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
   %18 = add nsw i32 %.027.i, -1
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds nuw [12 x i32], ptr %2, i64 0, i64 %19
+  %20 = getelementptr inbounds [12 x i32], ptr %2, i64 0, i64 %19
   %21 = load i32, ptr %20, align 4
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds nuw [2000 x i32], ptr @Dau_DsdComputeMatches.pMatches, i64 0, i64 %22
+  %23 = getelementptr inbounds [2000 x i32], ptr @Dau_DsdComputeMatches.pMatches, i64 0, i64 %22
   %24 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %24, ptr %23, align 4
   br label %25
@@ -1164,7 +1164,7 @@ tailrecurse:                                      ; preds = %tailrecurse.prehead
   %13 = shl nuw i32 1, %12
   %14 = zext nneg i32 %13 to i64
   %15 = lshr i64 %0, %14
-  %16 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv.next
+  %16 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv.next
   %17 = load i64, ptr %16, align 8
   %18 = xor i64 %15, %0
   %19 = and i64 %17, %18
@@ -1180,7 +1180,7 @@ common.ret52:                                     ; preds = %3, %6, %3, %20
   %22 = shl i64 %21, %14
   %23 = or i64 %22, %21
   %24 = tail call i64 @Dau_Dsd6TruthCompose_rec(i64 noundef %23, ptr noundef %1, i32 noundef %12)
-  %25 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv.next
+  %25 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv.next
   %26 = load i64, ptr %25, align 8
   %27 = and i64 %26, %0
   %28 = lshr i64 %27, %14
@@ -1693,7 +1693,7 @@ define i64 @Dau_Dsd6ToTruth(ptr noundef %0) local_unnamed_addr #6 {
 16:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
   %17 = add nsw i32 %.027.i, 1
   %18 = sext i32 %.027.i to i64
-  %19 = getelementptr inbounds nuw [12 x i32], ptr %2, i64 0, i64 %18
+  %19 = getelementptr inbounds [12 x i32], ptr %2, i64 0, i64 %18
   %20 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %20, ptr %19, align 4
   br label %29
@@ -1701,10 +1701,10 @@ define i64 @Dau_Dsd6ToTruth(ptr noundef %0) local_unnamed_addr #6 {
 21:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
   %22 = add nsw i32 %.027.i, -1
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds nuw [12 x i32], ptr %2, i64 0, i64 %23
+  %24 = getelementptr inbounds [12 x i32], ptr %2, i64 0, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds nuw [2000 x i32], ptr @Dau_DsdComputeMatches.pMatches, i64 0, i64 %26
+  %27 = getelementptr inbounds [2000 x i32], ptr @Dau_DsdComputeMatches.pMatches, i64 0, i64 %26
   %28 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %28, ptr %27, align 4
   br label %29
@@ -1810,7 +1810,7 @@ tailrecurse:                                      ; preds = %tailrecurse.prehead
   %28 = shl nuw i32 1, %27
   %29 = zext nneg i32 %28 to i64
   %30 = lshr i64 %0, %29
-  %31 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv.next
+  %31 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv.next
   %32 = load i64, ptr %31, align 8
   %33 = xor i64 %30, %0
   %34 = and i64 %32, %33
@@ -1822,7 +1822,7 @@ tailrecurse:                                      ; preds = %tailrecurse.prehead
   %37 = shl i64 %36, %29
   %38 = or i64 %37, %36
   call void @Dau_DsdTruth6Compose_rec(i64 noundef %38, ptr noundef %1, ptr noundef nonnull %6, i32 noundef %27, i32 noundef %4)
-  %39 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv.next
+  %39 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv.next
   %40 = load i64, ptr %39, align 8
   %41 = and i64 %40, %0
   %42 = lshr i64 %41, %29
@@ -2501,7 +2501,7 @@ Dau_DsdIsConst1.exit.thread:                      ; preds = %Dau_DsdTtElems.exit
 46:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
   %47 = add nsw i32 %.027.i, 1
   %48 = sext i32 %.027.i to i64
-  %49 = getelementptr inbounds nuw [12 x i32], ptr %3, i64 0, i64 %48
+  %49 = getelementptr inbounds [12 x i32], ptr %3, i64 0, i64 %48
   %50 = trunc nuw nsw i64 %indvars.iv.i11 to i32
   store i32 %50, ptr %49, align 4
   br label %59
@@ -2509,10 +2509,10 @@ Dau_DsdIsConst1.exit.thread:                      ; preds = %Dau_DsdTtElems.exit
 51:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
   %52 = add nsw i32 %.027.i, -1
   %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds nuw [12 x i32], ptr %3, i64 0, i64 %53
+  %54 = getelementptr inbounds [12 x i32], ptr %3, i64 0, i64 %53
   %55 = load i32, ptr %54, align 4
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds nuw [2000 x i32], ptr @Dau_DsdComputeMatches.pMatches, i64 0, i64 %56
+  %57 = getelementptr inbounds [2000 x i32], ptr @Dau_DsdComputeMatches.pMatches, i64 0, i64 %56
   %58 = trunc nuw nsw i64 %indvars.iv.i11 to i32
   store i32 %58, ptr %57, align 4
   br label %59
@@ -2561,7 +2561,7 @@ define i32 @Dau_DsdPerform_rec(i64 noundef %0, ptr noundef %1, i32 noundef %2, p
   %14 = zext nneg i32 %13 to i64
   %15 = lshr i64 %0, %14
   %16 = sext i32 %12 to i64
-  %17 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %16
+  %17 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %16
   %18 = load i64, ptr %17, align 8
   %19 = xor i64 %15, %0
   %20 = and i64 %19, %18
@@ -2571,7 +2571,7 @@ define i32 @Dau_DsdPerform_rec(i64 noundef %0, ptr noundef %1, i32 noundef %2, p
 21:                                               ; preds = %.lr.ph
   %22 = add nsw i32 %.0253329, 1
   %23 = sext i32 %.0253329 to i64
-  %24 = getelementptr inbounds nuw [6 x i32], ptr %9, i64 0, i64 %23
+  %24 = getelementptr inbounds [6 x i32], ptr %9, i64 0, i64 %23
   store i32 %12, ptr %24, align 4
   br label %25
 
@@ -2596,7 +2596,7 @@ define i32 @Dau_DsdPerform_rec(i64 noundef %0, ptr noundef %1, i32 noundef %2, p
 28:                                               ; preds = %._crit_edge
   %29 = load i32, ptr %9, align 16
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %30
+  %31 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %30
   %32 = load i64, ptr %31, align 8
   %33 = icmp eq i64 %0, %32
   br i1 %33, label %34, label %40
@@ -2641,7 +2641,7 @@ define i32 @Dau_DsdPerform_rec(i64 noundef %0, ptr noundef %1, i32 noundef %2, p
   %52 = getelementptr inbounds nuw [6 x i32], ptr %9, i64 0, i64 %indvars.iv415
   %53 = load i32, ptr %52, align 4
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %54
+  %55 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %54
   %56 = load i64, ptr %55, align 8
   %57 = and i64 %56, %0
   %58 = shl nuw i32 1, %53
@@ -2650,7 +2650,7 @@ define i32 @Dau_DsdPerform_rec(i64 noundef %0, ptr noundef %1, i32 noundef %2, p
   %61 = or i64 %60, %57
   %62 = getelementptr inbounds nuw [6 x i64], ptr %7, i64 0, i64 %indvars.iv415
   store i64 %61, ptr %62, align 8
-  %63 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %54
+  %63 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %54
   %64 = load i64, ptr %63, align 8
   %65 = and i64 %64, %0
   %66 = lshr i64 %65, %59
@@ -2800,7 +2800,7 @@ define i32 @Dau_DsdPerform_rec(i64 noundef %0, ptr noundef %1, i32 noundef %2, p
   %143 = zext nneg i32 %142 to i64
   %144 = lshr i64 %139, %143
   %145 = sext i32 %141 to i64
-  %146 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %145
+  %146 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %145
   %147 = load i64, ptr %146, align 8
   %148 = xor i64 %144, %139
   %149 = and i64 %148, %147
@@ -2854,14 +2854,14 @@ define i32 @Dau_DsdPerform_rec(i64 noundef %0, ptr noundef %1, i32 noundef %2, p
   %167 = getelementptr inbounds nuw [6 x i32], ptr %9, i64 0, i64 %indvars.iv422
   %168 = load i32, ptr %167, align 4
   %169 = sext i32 %168 to i64
-  %170 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %169
+  %170 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %169
   %171 = load i64, ptr %170, align 8
   %172 = and i64 %171, %162
   %173 = shl nuw i32 1, %168
   %174 = zext nneg i32 %173 to i64
   %175 = shl i64 %172, %174
   %176 = or i64 %175, %172
-  %177 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %169
+  %177 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %169
   %178 = load i64, ptr %177, align 8
   %179 = and i64 %178, %162
   %180 = lshr i64 %179, %174
@@ -2878,7 +2878,7 @@ define i32 @Dau_DsdPerform_rec(i64 noundef %0, ptr noundef %1, i32 noundef %2, p
   br i1 %or.cond, label %190, label %204
 
 190:                                              ; preds = %166
-  %191 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %169
+  %191 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %169
   %192 = getelementptr inbounds nuw [6 x i32], ptr %9, i64 0, i64 %indvars.iv427
   %193 = load i32, ptr %192, align 4
   %194 = add nsw i32 %193, 97
@@ -2899,7 +2899,7 @@ define i32 @Dau_DsdPerform_rec(i64 noundef %0, ptr noundef %1, i32 noundef %2, p
   br i1 %or.cond267, label %206, label %220
 
 206:                                              ; preds = %204
-  %207 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %169
+  %207 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %169
   %208 = getelementptr inbounds nuw [6 x i32], ptr %9, i64 0, i64 %indvars.iv427
   %209 = load i32, ptr %208, align 4
   %210 = add nsw i32 %209, 97
@@ -2919,7 +2919,7 @@ define i32 @Dau_DsdPerform_rec(i64 noundef %0, ptr noundef %1, i32 noundef %2, p
   br i1 %or.cond268, label %221, label %235
 
 221:                                              ; preds = %220
-  %222 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %169
+  %222 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %169
   %223 = getelementptr inbounds nuw [6 x i32], ptr %9, i64 0, i64 %indvars.iv427
   %224 = load i32, ptr %223, align 4
   %225 = add nsw i32 %224, 97
@@ -2941,7 +2941,7 @@ define i32 @Dau_DsdPerform_rec(i64 noundef %0, ptr noundef %1, i32 noundef %2, p
   br i1 %or.cond269, label %238, label %252
 
 238:                                              ; preds = %235
-  %239 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %169
+  %239 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %169
   %240 = getelementptr inbounds nuw [6 x i32], ptr %9, i64 0, i64 %indvars.iv427
   %241 = load i32, ptr %240, align 4
   %242 = add nsw i32 %241, 97
@@ -2961,7 +2961,7 @@ define i32 @Dau_DsdPerform_rec(i64 noundef %0, ptr noundef %1, i32 noundef %2, p
   br i1 %brmerge.demorgan, label %253, label %165
 
 253:                                              ; preds = %252
-  %254 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %169
+  %254 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %169
   %255 = getelementptr inbounds nuw [6 x i32], ptr %9, i64 0, i64 %indvars.iv427
   %256 = load i32, ptr %255, align 4
   %257 = add nsw i32 %256, 97
@@ -2986,17 +2986,17 @@ define i32 @Dau_DsdPerform_rec(i64 noundef %0, ptr noundef %1, i32 noundef %2, p
   %268 = sext i32 %2 to i64
   %269 = getelementptr inbounds i8, ptr %1, i64 %268
   store i8 60, ptr %269, align 1
-  %270 = getelementptr inbounds nuw [6 x i32], ptr %9, i64 0, i64 %.1247
+  %270 = getelementptr inbounds [6 x i32], ptr %9, i64 0, i64 %.1247
   %271 = load i32, ptr %270, align 4
   %272 = trunc i32 %271 to i8
   %273 = add i8 %272, 97
   %274 = add nsw i32 %2, 2
   %275 = getelementptr i8, ptr %269, i64 1
   store i8 %273, ptr %275, align 1
-  %276 = getelementptr inbounds nuw [6 x i64], ptr %8, i64 0, i64 %.1247
+  %276 = getelementptr inbounds [6 x i64], ptr %8, i64 0, i64 %.1247
   %277 = load i64, ptr %276, align 8
   %278 = call i32 @Dau_DsdPerform_rec(i64 noundef %277, ptr noundef %1, i32 noundef %274, ptr noundef nonnull %9, i32 noundef %.0253.lcssa443445447450)
-  %279 = getelementptr inbounds nuw [6 x i64], ptr %7, i64 0, i64 %.1247
+  %279 = getelementptr inbounds [6 x i64], ptr %7, i64 0, i64 %.1247
   %280 = load i64, ptr %279, align 8
   %281 = call i32 @Dau_DsdPerform_rec(i64 noundef %280, ptr noundef %1, i32 noundef %278, ptr noundef nonnull %9, i32 noundef %.0253.lcssa443445447450)
   %282 = add nsw i32 %281, 1
@@ -3077,7 +3077,7 @@ define internal fastcc i32 @Dau_DsdPerformReplace(ptr nocapture noundef %0, i32 
 .lr.ph41:                                         ; preds = %.lr.ph41.preheader, %.lr.ph41
   %indvars.iv46 = phi i64 [ %23, %.lr.ph41.preheader ], [ %indvars.iv.next47, %.lr.ph41 ]
   %24 = sub nsw i64 %indvars.iv46, %23
-  %25 = getelementptr inbounds nuw [2000 x i8], ptr @Dau_DsdPerformReplace.pTemp, i64 0, i64 %24
+  %25 = getelementptr inbounds [2000 x i8], ptr @Dau_DsdPerformReplace.pTemp, i64 0, i64 %24
   %26 = load i8, ptr %25, align 1
   %27 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv46
   store i8 %26, ptr %27, align 1
@@ -3112,7 +3112,7 @@ define noundef nonnull ptr @Dau_DsdPerform(i64 noundef %0) local_unnamed_addr #2
 
 8:                                                ; preds = %4, %5, %3
   %.0 = phi i64 [ 1, %3 ], [ 1, %4 ], [ %7, %5 ]
-  %9 = getelementptr inbounds nuw [2000 x i8], ptr @Dau_DsdPerform.pBuffer, i64 0, i64 %.0
+  %9 = getelementptr inbounds [2000 x i8], ptr @Dau_DsdPerform.pBuffer, i64 0, i64 %.0
   store i8 0, ptr %9, align 1
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
   %10 = load i8, ptr @Dau_DsdPerform.pBuffer, align 16
@@ -3139,7 +3139,7 @@ define noundef nonnull ptr @Dau_DsdPerform(i64 noundef %0) local_unnamed_addr #2
 13:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
   %14 = add nsw i32 %.027.i, 1
   %15 = sext i32 %.027.i to i64
-  %16 = getelementptr inbounds nuw [12 x i32], ptr %2, i64 0, i64 %15
+  %16 = getelementptr inbounds [12 x i32], ptr %2, i64 0, i64 %15
   %17 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %17, ptr %16, align 4
   br label %26
@@ -3147,10 +3147,10 @@ define noundef nonnull ptr @Dau_DsdPerform(i64 noundef %0) local_unnamed_addr #2
 18:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
   %19 = add nsw i32 %.027.i, -1
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds nuw [12 x i32], ptr %2, i64 0, i64 %20
+  %21 = getelementptr inbounds [12 x i32], ptr %2, i64 0, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds nuw [2000 x i32], ptr @Dau_DsdComputeMatches.pMatches, i64 0, i64 %23
+  %24 = getelementptr inbounds [2000 x i32], ptr @Dau_DsdComputeMatches.pMatches, i64 0, i64 %23
   %25 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %25, ptr %24, align 4
   br label %26
@@ -3260,7 +3260,7 @@ define i32 @Dau_DsdCheck1Step(ptr nocapture noundef readonly %0, ptr noundef %1,
   %23 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv38.i
   %24 = load i32, ptr %23, align 4
   %25 = sext i32 %.03132.i to i64
-  %26 = getelementptr inbounds nuw i32, ptr %7, i64 %25
+  %26 = getelementptr inbounds i32, ptr %7, i64 %25
   %27 = load i32, ptr %26, align 4
   %28 = icmp slt i32 %24, %27
   %29 = trunc nuw nsw i64 %indvars.iv38.i to i32
@@ -3274,13 +3274,13 @@ define i32 @Dau_DsdCheck1Step(ptr nocapture noundef readonly %0, ptr noundef %1,
   %30 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv41.i
   %31 = load i32, ptr %30, align 4
   %32 = sext i32 %spec.select.i to i64
-  %33 = getelementptr inbounds nuw i32, ptr %6, i64 %32
+  %33 = getelementptr inbounds i32, ptr %6, i64 %32
   %34 = load i32, ptr %33, align 4
   store i32 %34, ptr %30, align 4
   store i32 %31, ptr %33, align 4
   %35 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv41.i
   %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds nuw i32, ptr %7, i64 %32
+  %37 = getelementptr inbounds i32, ptr %7, i64 %32
   %38 = load i32, ptr %37, align 4
   store i32 %38, ptr %35, align 4
   store i32 %36, ptr %37, align 4
@@ -3296,7 +3296,7 @@ define i32 @Dau_DsdCheck1Step(ptr nocapture noundef readonly %0, ptr noundef %1,
   %wide.trip.count59.i = zext nneg i32 %11 to i64
   %43 = icmp samesign ult i32 %2, 7
   %44 = sext i32 %10 to i64
-  %45 = getelementptr inbounds nuw i64, ptr %5, i64 %44
+  %45 = getelementptr inbounds i64, ptr %5, i64 %44
   %smax55.i.i = tail call i32 @llvm.smax.i32(i32 %10, i32 1)
   %wide.trip.count56.i.i = zext nneg i32 %smax55.i.i to i64
   %.not47.i.i = icmp eq i32 %9, 31
@@ -3314,7 +3314,7 @@ define i32 @Dau_DsdCheck1Step(ptr nocapture noundef readonly %0, ptr noundef %1,
 49:                                               ; preds = %46
   %50 = load i64, ptr %1, align 8
   %51 = sext i32 %48 to i64
-  %52 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %51
+  %52 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %51
   %53 = load i64, ptr %52, align 8
   %54 = and i64 %53, %50
   %55 = shl nuw i32 1, %48
@@ -3334,7 +3334,7 @@ define i32 @Dau_DsdCheck1Step(ptr nocapture noundef readonly %0, ptr noundef %1,
 .lr.ph.i51:                                       ; preds = %61
   %62 = shl nuw nsw i32 1, %48
   %63 = sext i32 %48 to i64
-  %64 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %63
+  %64 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %63
   %65 = load i64, ptr %64, align 8
   %66 = zext nneg i32 %62 to i64
   br label %67
@@ -3508,7 +3508,7 @@ Abc_TtSupportSize.exit:                           ; preds = %Abc_TtHasVar.exit.t
 127:                                              ; preds = %Abc_TtSupportSize.exit
   %128 = load i64, ptr %1, align 8
   %129 = sext i32 %48 to i64
-  %130 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %129
+  %130 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %129
   %131 = load i64, ptr %130, align 8
   %132 = and i64 %131, %128
   %133 = shl nuw i32 1, %48
@@ -3528,7 +3528,7 @@ Abc_TtSupportSize.exit:                           ; preds = %Abc_TtHasVar.exit.t
 .lr.ph.i69:                                       ; preds = %139
   %140 = shl nuw nsw i32 1, %48
   %141 = sext i32 %48 to i64
-  %142 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %141
+  %142 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %141
   %143 = zext nneg i32 %140 to i64
   %144 = load i64, ptr %142, align 8
   br label %145
@@ -3810,7 +3810,7 @@ Abc_TtIsConst1.exit:                              ; preds = %.lr.ph.i39, %.lr.ph
 32:                                               ; preds = %.lr.ph.i44, %.lr.ph.i44, %.lr.ph.i44, %.lr.ph.i44
   %33 = add nsw i32 %.027.i, 1
   %34 = sext i32 %.027.i to i64
-  %35 = getelementptr inbounds nuw [12 x i32], ptr %6, i64 0, i64 %34
+  %35 = getelementptr inbounds [12 x i32], ptr %6, i64 0, i64 %34
   %36 = trunc nuw nsw i64 %indvars.iv.i45 to i32
   store i32 %36, ptr %35, align 4
   br label %45
@@ -3818,10 +3818,10 @@ Abc_TtIsConst1.exit:                              ; preds = %.lr.ph.i39, %.lr.ph
 37:                                               ; preds = %.lr.ph.i44, %.lr.ph.i44, %.lr.ph.i44, %.lr.ph.i44
   %38 = add nsw i32 %.027.i, -1
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds nuw [12 x i32], ptr %6, i64 0, i64 %39
+  %40 = getelementptr inbounds [12 x i32], ptr %6, i64 0, i64 %39
   %41 = load i32, ptr %40, align 4
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds nuw [2000 x i32], ptr @Dau_DsdComputeMatches.pMatches, i64 0, i64 %42
+  %43 = getelementptr inbounds [2000 x i32], ptr @Dau_DsdComputeMatches.pMatches, i64 0, i64 %42
   %44 = trunc nuw nsw i64 %indvars.iv.i45 to i32
   store i32 %44, ptr %43, align 4
   br label %45
@@ -4015,7 +4015,7 @@ define internal fastcc range(i32 0, 2) i32 @Dau_Dsd6DecomposeSingleVarOne(ptr no
   %7 = and i64 %6, 1
   %.not = icmp eq i64 %7, 0
   %8 = sext i32 %4 to i64
-  %9 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %8
+  %9 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %8
   %10 = load i64, ptr %9, align 8
   %11 = and i64 %10, %6
   br i1 %.not, label %32, label %12
@@ -4046,7 +4046,7 @@ define internal fastcc range(i32 0, 2) i32 @Dau_Dsd6DecomposeSingleVarOne(ptr no
 
 Dau_DsdWriteString.exit:                          ; preds = %16
   %23 = load i64, ptr %1, align 8
-  %24 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %8
+  %24 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %8
   %25 = load i64, ptr %24, align 8
   %26 = and i64 %25, %23
   %27 = shl nuw i32 1, %4
@@ -4071,7 +4071,7 @@ Dau_DsdWriteString.exit54:                        ; preds = %32
   %38 = getelementptr inbounds [2000 x i8], ptr %33, i64 0, i64 %37
   store i8 40, ptr %38, align 1
   %39 = load i64, ptr %1, align 8
-  %40 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %8
+  %40 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %8
   %41 = load i64, ptr %40, align 8
   %42 = and i64 %41, %39
   %43 = shl nuw i32 1, %4
@@ -4084,7 +4084,7 @@ Dau_DsdWriteString.exit54:                        ; preds = %32
 47:                                               ; preds = %32, %12
   %.not48 = icmp sgt i64 %6, -1
   %48 = sext i32 %4 to i64
-  %49 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %48
+  %49 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %48
   %50 = load i64, ptr %49, align 8
   %51 = and i64 %50, %6
   br i1 %.not48, label %70, label %52
@@ -5049,27 +5049,27 @@ Abc_TtSuppFindFirst.exit94.i:                     ; preds = %194, %192
   %203 = lshr i64 %202, %35
   %204 = or i64 %203, %202
   %205 = sext i32 %191 to i64
-  %206 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %205
+  %206 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %205
   %207 = load i64, ptr %206, align 8
   %208 = and i64 %200, %207
   %209 = shl nuw i32 1, %191
   %210 = zext nneg i32 %209 to i64
   %211 = shl i64 %208, %210
   %212 = or i64 %211, %208
-  %213 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %205
+  %213 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %205
   %214 = load i64, ptr %213, align 8
   %215 = and i64 %214, %200
   %216 = lshr i64 %215, %210
   %217 = or i64 %216, %215
   %218 = sext i32 %196 to i64
-  %219 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %218
+  %219 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %218
   %220 = load i64, ptr %219, align 8
   %221 = and i64 %220, %204
   %222 = shl nuw i32 1, %196
   %223 = zext nneg i32 %222 to i64
   %224 = shl i64 %221, %223
   %225 = or i64 %224, %221
-  %226 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %218
+  %226 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %218
   %227 = load i64, ptr %226, align 8
   %228 = and i64 %227, %204
   %229 = lshr i64 %228, %223
@@ -5423,7 +5423,7 @@ Dau_DsdWriteString.exit:                          ; preds = %9
 67:                                               ; preds = %Dau_DsdWriteString.exit
   %68 = load i64, ptr %1, align 8
   %69 = sext i32 %16 to i64
-  %70 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %69
+  %70 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %69
   %71 = load i64, ptr %70, align 8
   %72 = and i64 %71, %68
   %73 = shl nuw i32 1, %16
@@ -5444,7 +5444,7 @@ Dau_DsdWriteString.exit:                          ; preds = %9
 .lr.ph.i:                                         ; preds = %79
   %81 = shl nuw nsw i32 1, %16
   %82 = sext i32 %16 to i64
-  %83 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %82
+  %83 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %82
   %84 = zext nneg i32 %81 to i64
   %wide.trip.count61.i = zext nneg i32 %13 to i64
   %85 = load i64, ptr %83, align 8
@@ -5535,7 +5535,7 @@ Dau_DsdWriteString.exit54:                        ; preds = %.lr.ph.i51, %Abc_Tt
 122:                                              ; preds = %Dau_DsdWriteString.exit54
   %123 = load i64, ptr %1, align 8
   %124 = sext i32 %16 to i64
-  %125 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %124
+  %125 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %124
   %126 = load i64, ptr %125, align 8
   %127 = and i64 %126, %123
   %128 = shl nuw i32 1, %16
@@ -5556,7 +5556,7 @@ Dau_DsdWriteString.exit54:                        ; preds = %.lr.ph.i51, %Abc_Tt
 .lr.ph.i65:                                       ; preds = %134
   %136 = shl nuw nsw i32 1, %16
   %137 = sext i32 %16 to i64
-  %138 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %137
+  %138 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %137
   %139 = load i64, ptr %138, align 8
   %140 = zext nneg i32 %136 to i64
   %wide.trip.count59.i = zext nneg i32 %13 to i64
@@ -5885,7 +5885,7 @@ define internal fastcc range(i32 0, 2) i32 @Dau_DsdDecomposeSingleVarOne(ptr noc
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %15 = sext i32 %4 to i64
-  %16 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %15
+  %16 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %15
   %17 = load i64, ptr %16, align 8
   %wide.trip.count41.i = zext nneg i32 %9 to i64
   br label %19
@@ -5970,7 +5970,7 @@ Dau_DsdWriteString.exit:                          ; preds = %39
 47:                                               ; preds = %Dau_DsdWriteString.exit
   %48 = load i64, ptr %1, align 8
   %49 = sext i32 %4 to i64
-  %50 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %49
+  %50 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %49
   %51 = load i64, ptr %50, align 8
   %52 = and i64 %51, %48
   %53 = shl nuw i32 1, %4
@@ -5990,7 +5990,7 @@ Dau_DsdWriteString.exit:                          ; preds = %39
 .lr.ph.i72:                                       ; preds = %58
   %60 = shl nuw nsw i32 1, %4
   %61 = sext i32 %4 to i64
-  %62 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %61
+  %62 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %61
   %63 = zext nneg i32 %60 to i64
   %wide.trip.count51.i = zext nneg i32 %9 to i64
   br label %64
@@ -6075,7 +6075,7 @@ Abc_TtCofactor1.exit:                             ; preds = %._crit_edge.us.i71,
 
 .lr.ph.i88:                                       ; preds = %.preheader.i87
   %91 = sext i32 %4 to i64
-  %92 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %91
+  %92 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %91
   %93 = load i64, ptr %92, align 8
   %wide.trip.count40.i = zext nneg i32 %9 to i64
   br label %95
@@ -6160,7 +6160,7 @@ Abc_TtCofactor1.exit:                             ; preds = %._crit_edge.us.i71,
 127:                                              ; preds = %.loopexit257.thread292, %.loopexit257
   %128 = load i64, ptr %1, align 8
   %129 = sext i32 %4 to i64
-  %130 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %129
+  %130 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %129
   %131 = load i64, ptr %130, align 8
   %132 = and i64 %131, %128
   %133 = shl nuw i32 1, %4
@@ -6202,7 +6202,7 @@ Abc_TtCofactor1.exit:                             ; preds = %._crit_edge.us.i71,
 .lr.ph.i106:                                      ; preds = %150
   %152 = shl nuw nsw i32 1, %4
   %153 = sext i32 %4 to i64
-  %154 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %153
+  %154 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %153
   %155 = zext nneg i32 %152 to i64
   %wide.trip.count51.i107 = zext nneg i32 %9 to i64
   br label %156
@@ -6278,7 +6278,7 @@ Abc_TtCof0IsConst1.exit:                          ; preds = %32, %19, %108, %95
 
 .lr.ph.i124:                                      ; preds = %.preheader.i123
   %184 = sext i32 %4 to i64
-  %185 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %184
+  %185 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %184
   %186 = load i64, ptr %185, align 8
   %wide.trip.count43.i = zext nneg i32 %9 to i64
   br label %188
@@ -6363,7 +6363,7 @@ Dau_DsdWriteString.exit128:                       ; preds = %206
 214:                                              ; preds = %Dau_DsdWriteString.exit128
   %215 = load i64, ptr %1, align 8
   %216 = sext i32 %4 to i64
-  %217 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %216
+  %217 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %216
   %218 = load i64, ptr %217, align 8
   %219 = and i64 %218, %215
   %220 = shl nuw i32 1, %4
@@ -6383,7 +6383,7 @@ Dau_DsdWriteString.exit128:                       ; preds = %206
 .lr.ph.i142:                                      ; preds = %225
   %227 = shl nuw nsw i32 1, %4
   %228 = sext i32 %4 to i64
-  %229 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %228
+  %229 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %228
   %230 = load i64, ptr %229, align 8
   %231 = zext nneg i32 %227 to i64
   %wide.trip.count51.i143 = zext nneg i32 %9 to i64
@@ -6466,7 +6466,7 @@ Abc_TtCofactor0.exit:                             ; preds = %._crit_edge.us.i141
 
 .lr.ph.i166:                                      ; preds = %.preheader.i165
   %256 = sext i32 %4 to i64
-  %257 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %256
+  %257 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %256
   %258 = load i64, ptr %257, align 8
   %wide.trip.count42.i = zext nneg i32 %9 to i64
   br label %260
@@ -6551,7 +6551,7 @@ Dau_DsdWriteString.exit170:                       ; preds = %278
 286:                                              ; preds = %Dau_DsdWriteString.exit170
   %287 = load i64, ptr %1, align 8
   %288 = sext i32 %4 to i64
-  %289 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %288
+  %289 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %288
   %290 = load i64, ptr %289, align 8
   %291 = and i64 %290, %287
   %292 = shl nuw i32 1, %4
@@ -6571,7 +6571,7 @@ Dau_DsdWriteString.exit170:                       ; preds = %278
 .lr.ph.i184:                                      ; preds = %297
   %299 = shl nuw nsw i32 1, %4
   %300 = sext i32 %4 to i64
-  %301 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %300
+  %301 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %300
   %302 = load i64, ptr %301, align 8
   %303 = zext nneg i32 %299 to i64
   %wide.trip.count51.i185 = zext nneg i32 %9 to i64
@@ -6639,7 +6639,7 @@ Abc_TtCof1IsConst1.exit:                          ; preds = %200, %188, %272, %2
   %325 = shl nuw nsw i32 1, %4
   %326 = zext nneg i32 %325 to i64
   %327 = sext i32 %4 to i64
-  %328 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %327
+  %328 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %327
   %329 = load i64, ptr %328, align 8
   %wide.trip.count48.i = zext nneg i32 %9 to i64
   br label %331
@@ -6729,7 +6729,7 @@ Abc_TtCof1IsConst1.exit:                          ; preds = %200, %188, %272, %2
 366:                                              ; preds = %.loopexit
   %367 = load i64, ptr %1, align 8
   %368 = sext i32 %4 to i64
-  %369 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %368
+  %369 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %368
   %370 = load i64, ptr %369, align 8
   %371 = and i64 %370, %367
   %372 = shl nuw i32 1, %4
@@ -6749,7 +6749,7 @@ Abc_TtCof1IsConst1.exit:                          ; preds = %200, %188, %272, %2
 .lr.ph.i222:                                      ; preds = %377
   %379 = shl nuw nsw i32 1, %4
   %380 = sext i32 %4 to i64
-  %381 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %380
+  %381 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %380
   %382 = load i64, ptr %381, align 8
   %383 = zext nneg i32 %379 to i64
   %wide.trip.count51.i223 = zext nneg i32 %9 to i64
@@ -7071,7 +7071,7 @@ Abc_TtCofactor0p.exit.thread.i:                   ; preds = %._crit_edge.us.i.i,
 
 123:                                              ; preds = %Abc_TtCofactor0p.exit.thread.i
   %124 = sext i32 %57 to i64
-  %125 = getelementptr inbounds nuw i64, ptr %7, i64 %124
+  %125 = getelementptr inbounds i64, ptr %7, i64 %124
   %126 = trunc i64 %indvars.iv132 to i32
   %127 = add i32 %126, -6
   %128 = shl nuw i32 1, %127
@@ -7447,7 +7447,7 @@ Abc_TtCofactor0p.exit227.thread.i:                ; preds = %._crit_edge.us.i221
 
 285:                                              ; preds = %Abc_TtCofactor0p.exit227.thread.i
   %286 = sext i32 %57 to i64
-  %287 = getelementptr inbounds nuw i64, ptr %8, i64 %286
+  %287 = getelementptr inbounds i64, ptr %8, i64 %286
   %288 = trunc i64 %indvars.iv132 to i32
   %289 = add i32 %288, -6
   %290 = shl nuw i32 1, %289
@@ -7821,7 +7821,7 @@ Abc_TtCofactor0p.exit323.thread.i:                ; preds = %._crit_edge.us.i317
 
 447:                                              ; preds = %Abc_TtCofactor0p.exit323.thread.i
   %448 = sext i32 %57 to i64
-  %449 = getelementptr inbounds nuw i64, ptr %9, i64 %448
+  %449 = getelementptr inbounds i64, ptr %9, i64 %448
   %450 = trunc i64 %indvars.iv132 to i32
   %451 = add i32 %450, -6
   %452 = shl nuw i32 1, %451
@@ -8193,7 +8193,7 @@ Abc_TtCofactor0p.exit426.thread.i:                ; preds = %._crit_edge.us.i420
 
 607:                                              ; preds = %Abc_TtCofactor0p.exit426.thread.i
   %608 = sext i32 %57 to i64
-  %609 = getelementptr inbounds nuw i64, ptr %10, i64 %608
+  %609 = getelementptr inbounds i64, ptr %10, i64 %608
   %610 = trunc i64 %indvars.iv132 to i32
   %611 = add i32 %610, -6
   %612 = shl nuw i32 1, %611
@@ -8569,7 +8569,7 @@ Abc_TtCofactor1p.exit529.thread.i:                ; preds = %._crit_edge.us.i523
 
 771:                                              ; preds = %Abc_TtCofactor1p.exit529.thread.i
   %772 = sext i32 %57 to i64
-  %773 = getelementptr inbounds nuw i64, ptr %11, i64 %772
+  %773 = getelementptr inbounds i64, ptr %11, i64 %772
   %774 = trunc i64 %indvars.iv132 to i32
   %775 = add i32 %774, -6
   %776 = shl nuw i32 1, %775
@@ -9002,7 +9002,7 @@ Abc_Clock.exit:                                   ; preds = %4, %14
   %34 = icmp slt i32 %30, 1
   %wide.trip.count159.i235 = zext nneg i32 %30 to i64
   %35 = icmp slt i32 %30, 1
-  %36 = getelementptr inbounds nuw i64, ptr %6, i64 %32
+  %36 = getelementptr inbounds i64, ptr %6, i64 %32
   %37 = add nsw i32 %.038, -1
   %38 = zext nneg i32 %37 to i64
   %39 = getelementptr inbounds nuw i32, ptr %2, i64 %38
@@ -9037,7 +9037,7 @@ Abc_Clock.exit:                                   ; preds = %4, %14
   %57 = trunc nuw nsw i64 %indvars.iv.next368 to i32
   %58 = shl nuw i32 1, %57
   %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv.next368
+  %60 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv.next368
   %61 = icmp samesign ult i64 %indvars.iv367, 7
   %62 = or i1 %35, %.not136.i199
   br label %.lr.ph.i
@@ -10065,7 +10065,7 @@ Abc_TtCofactor0p.exit.thread245.i:                ; preds = %Abc_TtSuppFindFirst
   %507 = or i64 %506, %505
   store i64 %507, ptr %19, align 16
   %508 = sext i32 %492 to i64
-  %509 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %508
+  %509 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %508
   %510 = load i64, ptr %509, align 8
   %511 = and i64 %510, %502
   %512 = shl nuw i32 1, %492
@@ -10073,14 +10073,14 @@ Abc_TtCofactor0p.exit.thread245.i:                ; preds = %Abc_TtSuppFindFirst
   %514 = shl i64 %511, %513
   %515 = or i64 %514, %511
   store i64 %515, ptr %7, align 16
-  %516 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %508
+  %516 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %508
   %517 = load i64, ptr %516, align 8
   %518 = and i64 %517, %502
   %519 = lshr i64 %518, %513
   %520 = or i64 %519, %518
   store i64 %520, ptr %20, align 16
   %521 = sext i32 %497 to i64
-  %522 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %521
+  %522 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %521
   %523 = load i64, ptr %522, align 8
   %524 = and i64 %523, %507
   %525 = shl nuw i32 1, %497
@@ -10088,7 +10088,7 @@ Abc_TtCofactor0p.exit.thread245.i:                ; preds = %Abc_TtSuppFindFirst
   %527 = shl i64 %524, %526
   %528 = or i64 %527, %524
   store i64 %528, ptr %21, align 16
-  %529 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %521
+  %529 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %521
   %530 = load i64, ptr %529, align 8
   %531 = and i64 %530, %507
   %532 = lshr i64 %531, %526
@@ -10209,7 +10209,7 @@ Abc_TtCofactor1p.exit.thread.i:                   ; preds = %._crit_edge.us.i105
 .lr.ph.i121.i:                                    ; preds = %572
   %573 = shl nuw nsw i32 1, %492
   %574 = sext i32 %492 to i64
-  %575 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %574
+  %575 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %574
   %576 = load i64, ptr %575, align 8
   %577 = zext nneg i32 %573 to i64
   br label %578
@@ -10277,7 +10277,7 @@ Abc_TtCofactor0p.exit126.thread.i:                ; preds = %._crit_edge.us.i120
 .lr.ph.i139.i:                                    ; preds = %598
   %599 = shl nuw nsw i32 1, %492
   %600 = sext i32 %492 to i64
-  %601 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %600
+  %601 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %600
   %602 = zext nneg i32 %599 to i64
   %603 = load i64, ptr %601, align 8
   br label %604
@@ -10346,7 +10346,7 @@ Abc_TtCofactor1p.exit144.thread.i:                ; preds = %._crit_edge.us.i138
 .lr.ph.i159.i:                                    ; preds = %624
   %625 = shl nuw nsw i32 1, %497
   %626 = sext i32 %497 to i64
-  %627 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %626
+  %627 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %626
   %628 = load i64, ptr %627, align 8
   %629 = zext nneg i32 %625 to i64
   br label %630
@@ -10414,7 +10414,7 @@ Abc_TtCofactor0p.exit164.thread.i:                ; preds = %._crit_edge.us.i158
 .lr.ph.i177.i:                                    ; preds = %650
   %651 = shl nuw nsw i32 1, %497
   %652 = sext i32 %497 to i64
-  %653 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %652
+  %653 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %652
   %654 = zext nneg i32 %651 to i64
   %655 = load i64, ptr %653, align 8
   br label %656
@@ -11093,7 +11093,7 @@ define internal fastcc void @Abc_TtSwapVars(ptr noundef %0, i32 noundef %1, i32 
   %63 = shl nuw nsw i32 1, %spec.select117
   %.not138 = icmp eq i32 %61, 31
   %64 = sext i32 %spec.select117 to i64
-  %65 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %64
+  %65 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %64
   %66 = zext nneg i32 %63 to i64
   %67 = shl i32 2, %61
   %68 = sext i32 %67 to i64
@@ -11440,7 +11440,7 @@ Abc_TtIsConst1.exit:                              ; preds = %.lr.ph.i40, %.lr.ph
 33:                                               ; preds = %.lr.ph.i45, %.lr.ph.i45, %.lr.ph.i45, %.lr.ph.i45
   %34 = add nsw i32 %.027.i, 1
   %35 = sext i32 %.027.i to i64
-  %36 = getelementptr inbounds nuw [12 x i32], ptr %7, i64 0, i64 %35
+  %36 = getelementptr inbounds [12 x i32], ptr %7, i64 0, i64 %35
   %37 = trunc nuw nsw i64 %indvars.iv.i46 to i32
   store i32 %37, ptr %36, align 4
   br label %46
@@ -11448,10 +11448,10 @@ Abc_TtIsConst1.exit:                              ; preds = %.lr.ph.i40, %.lr.ph
 38:                                               ; preds = %.lr.ph.i45, %.lr.ph.i45, %.lr.ph.i45, %.lr.ph.i45
   %39 = add nsw i32 %.027.i, -1
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds nuw [12 x i32], ptr %7, i64 0, i64 %40
+  %41 = getelementptr inbounds [12 x i32], ptr %7, i64 0, i64 %40
   %42 = load i32, ptr %41, align 4
   %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds nuw [2000 x i32], ptr @Dau_DsdComputeMatches.pMatches, i64 0, i64 %43
+  %44 = getelementptr inbounds [2000 x i32], ptr @Dau_DsdComputeMatches.pMatches, i64 0, i64 %43
   %45 = trunc nuw nsw i64 %indvars.iv.i46 to i32
   store i32 %45, ptr %44, align 4
   br label %46
@@ -11644,7 +11644,7 @@ Abc_Clock.exit:                                   ; preds = %0, %19
 
 33:                                               ; preds = %.lr.ph, %.backedge
   %34 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #26
-  %35 = getelementptr inbounds nuw i8, ptr %14, i64 %34
+  %35 = getelementptr inbounds i8, ptr %14, i64 %34
   %36 = getelementptr inbounds i8, ptr %35, i64 -1
   %37 = load i8, ptr %36, align 1
   %38 = icmp eq i8 %37, 10
@@ -11803,7 +11803,7 @@ Dau_DsdIsConst1.exit.thread.i:                    ; preds = %Dau_DsdTtElems.exit
 82:                                               ; preds = %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i
   %83 = add nsw i32 %.027.i.i, 1
   %84 = sext i32 %.027.i.i to i64
-  %85 = getelementptr inbounds nuw [12 x i32], ptr %10, i64 0, i64 %84
+  %85 = getelementptr inbounds [12 x i32], ptr %10, i64 0, i64 %84
   %86 = trunc nuw nsw i64 %indvars.iv.i11.i to i32
   store i32 %86, ptr %85, align 4
   br label %95
@@ -11811,10 +11811,10 @@ Dau_DsdIsConst1.exit.thread.i:                    ; preds = %Dau_DsdTtElems.exit
 87:                                               ; preds = %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i
   %88 = add nsw i32 %.027.i.i, -1
   %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds nuw [12 x i32], ptr %10, i64 0, i64 %89
+  %90 = getelementptr inbounds [12 x i32], ptr %10, i64 0, i64 %89
   %91 = load i32, ptr %90, align 4
   %92 = sext i32 %91 to i64
-  %93 = getelementptr inbounds nuw [2000 x i32], ptr @Dau_DsdComputeMatches.pMatches, i64 0, i64 %92
+  %93 = getelementptr inbounds [2000 x i32], ptr @Dau_DsdComputeMatches.pMatches, i64 0, i64 %92
   %94 = trunc nuw nsw i64 %indvars.iv.i11.i to i32
   store i32 %94, ptr %93, align 4
   br label %95
@@ -11934,7 +11934,7 @@ Abc_TtIsConst1.exit.i:                            ; preds = %.lr.ph.i39.i, %.lr.
 122:                                              ; preds = %.lr.ph.i44.i, %.lr.ph.i44.i, %.lr.ph.i44.i, %.lr.ph.i44.i
   %123 = add nsw i32 %.027.i.i39, 1
   %124 = sext i32 %.027.i.i39 to i64
-  %125 = getelementptr inbounds nuw [12 x i32], ptr %7, i64 0, i64 %124
+  %125 = getelementptr inbounds [12 x i32], ptr %7, i64 0, i64 %124
   %126 = trunc nuw nsw i64 %indvars.iv.i45.i to i32
   store i32 %126, ptr %125, align 4
   br label %135
@@ -11942,10 +11942,10 @@ Abc_TtIsConst1.exit.i:                            ; preds = %.lr.ph.i39.i, %.lr.
 127:                                              ; preds = %.lr.ph.i44.i, %.lr.ph.i44.i, %.lr.ph.i44.i, %.lr.ph.i44.i
   %128 = add nsw i32 %.027.i.i39, -1
   %129 = sext i32 %128 to i64
-  %130 = getelementptr inbounds nuw [12 x i32], ptr %7, i64 0, i64 %129
+  %130 = getelementptr inbounds [12 x i32], ptr %7, i64 0, i64 %129
   %131 = load i32, ptr %130, align 4
   %132 = sext i32 %131 to i64
-  %133 = getelementptr inbounds nuw [2000 x i32], ptr @Dau_DsdComputeMatches.pMatches, i64 0, i64 %132
+  %133 = getelementptr inbounds [2000 x i32], ptr @Dau_DsdComputeMatches.pMatches, i64 0, i64 %132
   %134 = trunc nuw nsw i64 %indvars.iv.i45.i to i32
   store i32 %134, ptr %133, align 4
   br label %135
@@ -12022,7 +12022,7 @@ Abc_Clock.exit49:                                 ; preds = %Dau_DsdDecompose.ex
 154:                                              ; preds = %.lr.ph.i.i52, %.lr.ph.i.i52, %.lr.ph.i.i52, %.lr.ph.i.i52
   %155 = add nsw i32 %.027.i.i54, 1
   %156 = sext i32 %.027.i.i54 to i64
-  %157 = getelementptr inbounds nuw [12 x i32], ptr %4, i64 0, i64 %156
+  %157 = getelementptr inbounds [12 x i32], ptr %4, i64 0, i64 %156
   %158 = trunc nuw nsw i64 %indvars.iv.i.i53 to i32
   store i32 %158, ptr %157, align 4
   br label %167
@@ -12030,10 +12030,10 @@ Abc_Clock.exit49:                                 ; preds = %Dau_DsdDecompose.ex
 159:                                              ; preds = %.lr.ph.i.i52, %.lr.ph.i.i52, %.lr.ph.i.i52, %.lr.ph.i.i52
   %160 = add nsw i32 %.027.i.i54, -1
   %161 = sext i32 %160 to i64
-  %162 = getelementptr inbounds nuw [12 x i32], ptr %4, i64 0, i64 %161
+  %162 = getelementptr inbounds [12 x i32], ptr %4, i64 0, i64 %161
   %163 = load i32, ptr %162, align 4
   %164 = sext i32 %163 to i64
-  %165 = getelementptr inbounds nuw [2000 x i32], ptr @Dau_DsdComputeMatches.pMatches, i64 0, i64 %164
+  %165 = getelementptr inbounds [2000 x i32], ptr @Dau_DsdComputeMatches.pMatches, i64 0, i64 %164
   %166 = trunc nuw nsw i64 %indvars.iv.i.i53 to i32
   store i32 %166, ptr %165, align 4
   br label %167
@@ -12171,7 +12171,7 @@ Dau_DsdIsConst1.exit.thread.i73:                  ; preds = %Dau_DsdTtElems.exit
 198:                                              ; preds = %.lr.ph.i.i64, %.lr.ph.i.i64, %.lr.ph.i.i64, %.lr.ph.i.i64
   %199 = add nsw i32 %.027.i.i66, 1
   %200 = sext i32 %.027.i.i66 to i64
-  %201 = getelementptr inbounds nuw [12 x i32], ptr %2, i64 0, i64 %200
+  %201 = getelementptr inbounds [12 x i32], ptr %2, i64 0, i64 %200
   %202 = trunc nuw nsw i64 %indvars.iv.i11.i65 to i32
   store i32 %202, ptr %201, align 4
   br label %211
@@ -12179,10 +12179,10 @@ Dau_DsdIsConst1.exit.thread.i73:                  ; preds = %Dau_DsdTtElems.exit
 203:                                              ; preds = %.lr.ph.i.i64, %.lr.ph.i.i64, %.lr.ph.i.i64, %.lr.ph.i.i64
   %204 = add nsw i32 %.027.i.i66, -1
   %205 = sext i32 %204 to i64
-  %206 = getelementptr inbounds nuw [12 x i32], ptr %2, i64 0, i64 %205
+  %206 = getelementptr inbounds [12 x i32], ptr %2, i64 0, i64 %205
   %207 = load i32, ptr %206, align 4
   %208 = sext i32 %207 to i64
-  %209 = getelementptr inbounds nuw [2000 x i32], ptr @Dau_DsdComputeMatches.pMatches, i64 0, i64 %208
+  %209 = getelementptr inbounds [2000 x i32], ptr @Dau_DsdComputeMatches.pMatches, i64 0, i64 %208
   %210 = trunc nuw nsw i64 %indvars.iv.i11.i65 to i32
   store i32 %210, ptr %209, align 4
   br label %211
@@ -12394,7 +12394,7 @@ define internal fastcc range(i32 0, 2) i32 @Abc_TtCheckEqualCofs(ptr noundef rea
   %10 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %9
   %11 = load i64, ptr %10, align 8
   %12 = sext i32 %2 to i64
-  %13 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %12
+  %13 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %12
   %14 = load i64, ptr %13, align 8
   %15 = and i64 %14, %11
   %16 = lshr i32 %4, 1
@@ -12427,7 +12427,7 @@ define internal fastcc range(i32 0, 2) i32 @Abc_TtCheckEqualCofs(ptr noundef rea
   %39 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %38
   %40 = load i64, ptr %39, align 8
   %41 = sext i32 %2 to i64
-  %42 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %41
+  %42 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %41
   %43 = load i64, ptr %42, align 8
   %44 = and i64 %43, %40
   %45 = icmp sgt i32 %1, 0
@@ -12495,7 +12495,7 @@ define internal fastcc range(i32 0, 2) i32 @Abc_TtCheckEqualCofs(ptr noundef rea
 
 .preheader.lr.ph.split.us:                        ; preds = %.preheader.lr.ph
   %86 = sext i32 %2 to i64
-  %87 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %86
+  %87 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %86
   %88 = load i64, ptr %87, align 8
   %89 = sext i32 %74 to i64
   %90 = sext i32 %76 to i64

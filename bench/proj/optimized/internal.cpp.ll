@@ -513,7 +513,7 @@ define hidden noundef double @_ZN5osgeo4proj8internal13c_locale_stodERKNSt7__cxx
           to label %39 unwind label %58
 
 39:                                               ; preds = %34
-  %40 = getelementptr inbounds nuw i8, ptr %3, i64 %37
+  %40 = getelementptr inbounds i8, ptr %3, i64 %37
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale(ptr dead_on_unwind nonnull writable sret(%"class.std::locale") align 8 %4, ptr noundef nonnull align 8 dereferenceable(264) %40, ptr noundef nonnull align 8 dereferenceable(8) %38)
           to label %41 unwind label %58
 
@@ -526,7 +526,7 @@ define hidden noundef double @_ZN5osgeo4proj8internal13c_locale_stodERKNSt7__cxx
   %44 = load ptr, ptr %3, align 8
   %45 = getelementptr i8, ptr %44, i64 -24
   %46 = load i64, ptr %45, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %3, i64 %46
+  %47 = getelementptr inbounds i8, ptr %3, i64 %46
   %48 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv(ptr noundef nonnull align 8 dereferenceable(264) %47)
           to label %49 unwind label %58
 
@@ -537,7 +537,7 @@ define hidden noundef double @_ZN5osgeo4proj8internal13c_locale_stodERKNSt7__cxx
   %51 = load ptr, ptr %3, align 8
   %52 = getelementptr i8, ptr %51, i64 -24
   %53 = load i64, ptr %52, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %3, i64 %53
+  %54 = getelementptr inbounds i8, ptr %3, i64 %53
   %55 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %54)
           to label %56 unwind label %58
 

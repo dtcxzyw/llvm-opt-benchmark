@@ -5786,7 +5786,7 @@ for.body6:                                        ; preds = %for.body6.preheader
   %indvars.iv = phi i64 [ 0, %for.body6.preheader ], [ %indvars.iv.next, %for.body6 ]
   %arrayidx8 = getelementptr inbounds nuw i64, ptr %channel_map, i64 %indvars.iv
   %0 = load i64, ptr %arrayidx8, align 8
-  %arrayidx9 = getelementptr inbounds nuw ptr, ptr @input_, i64 %0
+  %arrayidx9 = getelementptr inbounds ptr, ptr @input_, i64 %0
   %1 = load ptr, ptr %arrayidx9, align 8
   %arrayidx11 = getelementptr inbounds nuw [8 x ptr], ptr %out, i64 0, i64 %indvars.iv
   store ptr %1, ptr %arrayidx11, align 8

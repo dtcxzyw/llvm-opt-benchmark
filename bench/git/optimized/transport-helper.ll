@@ -2956,7 +2956,7 @@ if.then43:                                        ; preds = %if.then39
 
 if.end45:                                         ; preds = %if.then39
   %idxprom = sext i32 %call40 to i64
-  %arrayidx46 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom
+  %arrayidx46 = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom
   store ptr %arrayidx46, ptr %hash_algo, align 8
   br label %while.body.backedge
 

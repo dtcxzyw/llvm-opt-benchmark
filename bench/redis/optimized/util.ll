@@ -3202,7 +3202,7 @@ do.body.i39:                                      ; preds = %do.body.i39, %if.en
   %buf.addr.0.i40 = phi ptr [ %incdec.ptr.i38, %if.end9.i ], [ %incdec.ptr12.i, %do.body.i39 ]
   %val.addr.2.i = phi i64 [ %val.addr.1.i, %if.end9.i ], [ %div.i42, %do.body.i39 ]
   %rem.i41 = srem i64 %val.addr.2.i, %conv10.i
-  %arrayidx11.i = getelementptr inbounds nuw [17 x i8], ptr @HEX, i64 0, i64 %rem.i41
+  %arrayidx11.i = getelementptr inbounds [17 x i8], ptr @HEX, i64 0, i64 %rem.i41
   %24 = load i8, ptr %arrayidx11.i, align 1
   %incdec.ptr12.i = getelementptr inbounds i8, ptr %buf.addr.0.i40, i64 -1
   store i8 %24, ptr %buf.addr.0.i40, align 1

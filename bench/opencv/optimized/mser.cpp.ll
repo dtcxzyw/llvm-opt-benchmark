@@ -1229,12 +1229,12 @@ _ZSt4sortIPN2cv8MSCREdgeENS0_12LessThanEdgeEEvT_S4_T0_.exit.i: ; preds = %.noexc
   %507 = sitofp i32 %506 to double
   %508 = fsub double %504, %507
   %509 = sext i32 %506 to i64
-  %510 = getelementptr inbounds nuw [400 x double], ptr @_ZL7chitab3, i64 0, i64 %509
+  %510 = getelementptr inbounds [400 x double], ptr @_ZL7chitab3, i64 0, i64 %509
   %511 = load double, ptr %510, align 8
   %512 = fsub double 1.000000e+00, %508
   %513 = add nsw i32 %506, 1
   %514 = sext i32 %513 to i64
-  %515 = getelementptr inbounds nuw [400 x double], ptr @_ZL7chitab3, i64 0, i64 %514
+  %515 = getelementptr inbounds [400 x double], ptr @_ZL7chitab3, i64 0, i64 %514
   %516 = load double, ptr %515, align 8
   %517 = fmul double %516, %508
   %518 = call double @llvm.fmuladd.f64(double %511, double %512, double %517)
@@ -2129,7 +2129,7 @@ define linkonce_odr hidden void @_ZN2cv9MSER_Impl4passERKNS_3MatERSt6vectorIS4_I
   %.096124 = phi i32 [ %100, %99 ], [ %66, %57 ]
   %.098123 = phi i32 [ %.199, %99 ], [ %65, %57 ]
   %68 = sext i32 %.096124 to i64
-  %69 = getelementptr inbounds nuw [5 x i32], ptr %12, i64 0, i64 %68
+  %69 = getelementptr inbounds [5 x i32], ptr %12, i64 0, i64 %68
   %70 = load i32, ptr %69, align 4
   %71 = sext i32 %70 to i64
   %72 = getelementptr inbounds %"struct.cv::MSER_Impl::Pixel", ptr %.1126, i64 %71
@@ -2151,7 +2151,7 @@ define linkonce_odr hidden void @_ZN2cv9MSER_Impl4passERKNS_3MatERSt6vectorIS4_I
 
 84:                                               ; preds = %75
   %85 = sext i32 %.098123 to i64
-  %86 = getelementptr inbounds nuw [256 x ptr], ptr %9, i64 0, i64 %85
+  %86 = getelementptr inbounds [256 x ptr], ptr %9, i64 0, i64 %85
   %87 = load ptr, ptr %86, align 8
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   store ptr %88, ptr %86, align 8
@@ -2169,7 +2169,7 @@ define linkonce_odr hidden void @_ZN2cv9MSER_Impl4passERKNS_3MatERSt6vectorIS4_I
 
 94:                                               ; preds = %75
   %95 = sext i32 %82 to i64
-  %96 = getelementptr inbounds nuw [256 x ptr], ptr %9, i64 0, i64 %95
+  %96 = getelementptr inbounds [256 x ptr], ptr %9, i64 0, i64 %95
   %97 = load ptr, ptr %96, align 8
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
   store ptr %98, ptr %96, align 8
@@ -2257,7 +2257,7 @@ define linkonce_odr hidden void @_ZN2cv9MSER_Impl4passERKNS_3MatERSt6vectorIS4_I
   %126 = add nsw i32 %125, 1
   store i32 %126, ptr %124, align 4
   %127 = sext i32 %.098.lcssa to i64
-  %128 = getelementptr inbounds nuw [256 x ptr], ptr %9, i64 0, i64 %127
+  %128 = getelementptr inbounds [256 x ptr], ptr %9, i64 0, i64 %127
   %129 = load ptr, ptr %128, align 8
   %130 = load ptr, ptr %129, align 8
   %.not109 = icmp eq ptr %130, null
@@ -2286,7 +2286,7 @@ define linkonce_odr hidden void @_ZN2cv9MSER_Impl4passERKNS_3MatERSt6vectorIS4_I
 
 135:                                              ; preds = %.preheader119
   %indvars.iv.next137 = add nsw i64 %indvars.iv136, 1
-  %136 = getelementptr inbounds nuw [256 x ptr], ptr %9, i64 0, i64 %indvars.iv.next137
+  %136 = getelementptr inbounds [256 x ptr], ptr %9, i64 0, i64 %indvars.iv.next137
   %137 = load ptr, ptr %136, align 8
   %138 = load ptr, ptr %137, align 8
   %.not110 = icmp eq ptr %138, null
@@ -2296,7 +2296,7 @@ define linkonce_odr hidden void @_ZN2cv9MSER_Impl4passERKNS_3MatERSt6vectorIS4_I
   %140 = trunc nsw i64 %indvars.iv.next137 to i32
   %sext143 = shl i64 %indvars.iv.next137, 32
   %141 = ashr exact i64 %sext143, 32
-  %142 = getelementptr inbounds nuw [256 x ptr], ptr %9, i64 0, i64 %141
+  %142 = getelementptr inbounds [256 x ptr], ptr %9, i64 0, i64 %141
   %143 = load ptr, ptr %142, align 8
   %144 = load ptr, ptr %143, align 8
   %145 = getelementptr inbounds i8, ptr %143, i64 -8

@@ -144,7 +144,7 @@ define internal i32 @file_do(ptr noundef %0, ptr nocapture noundef writeonly ini
   %57 = sub i64 %52, %55
   %.sink.i = select i1 %.not68.i, i64 0, i64 %56
   %.055.ph.idx.i = select i1 %.not68.i, i64 %55, i64 0
-  %.055.ph.i = getelementptr inbounds nuw i8, ptr %3, i64 %.055.ph.idx.i
+  %.055.ph.i = getelementptr inbounds i8, ptr %3, i64 %.055.ph.idx.i
   %.054.ph.i = select i1 %.not68.i, i64 %57, i64 0
   store i64 %.sink.i, ptr %23, align 8
   br label %58
@@ -263,14 +263,14 @@ file_upload.exit:                                 ; preds = %14, %19, %29, %40, 
   %110 = add nsw i32 %109, -1
   %narrow = select i1 %.not123, i32 6, i32 %110
   %111 = sext i32 %narrow to i64
-  %112 = getelementptr inbounds nuw [7 x ptr], ptr @Curl_wkday, i64 0, i64 %111
+  %112 = getelementptr inbounds [7 x ptr], ptr @Curl_wkday, i64 0, i64 %111
   %113 = load ptr, ptr %112, align 8
   %114 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %115 = load i32, ptr %114, align 4
   %116 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %117 = load i32, ptr %116, align 8
   %118 = sext i32 %117 to i64
-  %119 = getelementptr inbounds nuw [12 x ptr], ptr @Curl_month, i64 0, i64 %118
+  %119 = getelementptr inbounds [12 x ptr], ptr @Curl_month, i64 0, i64 %118
   %120 = load ptr, ptr %119, align 8
   %121 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %122 = load i32, ptr %121, align 4

@@ -3893,7 +3893,7 @@ if.end9.i191:                                     ; preds = %if.then.i219, %for.
 
 for.body12.lr.ph.i195:                            ; preds = %if.end9.i191
   %idxprom14.i196 = sext i32 %e to i64
-  %arrayidx15.i197 = getelementptr inbounds nuw [7 x [8 x [3 x i8]]], ptr @stbhw__color, i64 0, i64 0, i64 %idxprom14.i196
+  %arrayidx15.i197 = getelementptr inbounds [7 x [8 x [3 x i8]]], ptr @stbhw__color, i64 0, i64 0, i64 %idxprom14.i196
   %mul4.i.i198 = mul nsw i32 %47, %add18
   %idx.ext.i19.i199 = sext i32 %mul4.i.i198 to i64
   %add.ptr.i20.i200 = getelementptr inbounds i8, ptr %46, i64 %idx.ext.i19.i199
@@ -4081,7 +4081,7 @@ if.end9.i:                                        ; preds = %if.then.i, %for.end
 
 for.body12.lr.ph.i:                               ; preds = %if.end9.i
   %idxprom14.i = sext i32 %a to i64
-  %arrayidx15.i = getelementptr inbounds nuw [7 x [8 x [3 x i8]]], ptr @stbhw__color, i64 0, i64 0, i64 %idxprom14.i
+  %arrayidx15.i = getelementptr inbounds [7 x [8 x [3 x i8]]], ptr @stbhw__color, i64 0, i64 0, i64 %idxprom14.i
   %mul4.i.i = mul nsw i32 %3, %ypos
   %idx.ext.i19.i = sext i32 %mul4.i.i to i64
   %add.ptr.i20.i = getelementptr inbounds i8, ptr %2, i64 %idx.ext.i19.i
@@ -4957,7 +4957,7 @@ if.end9.i289:                                     ; preds = %if.then.i317, %for.
 
 for.body12.lr.ph.i293:                            ; preds = %if.end9.i289
   %idxprom14.i294 = sext i32 %52 to i64
-  %arrayidx15.i295 = getelementptr inbounds nuw [7 x [8 x [3 x i8]]], ptr @stbhw__color, i64 0, i64 0, i64 %idxprom14.i294
+  %arrayidx15.i295 = getelementptr inbounds [7 x [8 x [3 x i8]]], ptr @stbhw__color, i64 0, i64 0, i64 %idxprom14.i294
   %mul4.i.i296 = mul nsw i32 %51, %add32
   %idx.ext.i19.i297 = sext i32 %mul4.i.i296 to i64
   %add.ptr.i20.i298 = getelementptr inbounds i8, ptr %50, i64 %idx.ext.i19.i297
@@ -5704,7 +5704,7 @@ if.end117:                                        ; preds = %if.end117.loopexit,
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i586, ptr noundef nonnull readonly align 1 dereferenceable(3) %arrayidx134, i64 3, i1 false)
   %190 = load ptr, ptr %data, align 8
   %191 = load i32, ptr %stride, align 8
-  %arrayidx141 = getelementptr inbounds nuw [4 x [3 x i8]], ptr @stbhw__corner_colors, i64 0, i64 %idxprom17
+  %arrayidx141 = getelementptr inbounds [4 x [3 x i8]], ptr @stbhw__corner_colors, i64 0, i64 %idxprom17
   %mul.i587 = mul nsw i32 %191, %add32
   %idx.ext.i588 = sext i32 %mul.i587 to i64
   %add.ptr.i589 = getelementptr inbounds i8, ptr %190, i64 %idx.ext.i588
@@ -5797,7 +5797,7 @@ if.end9.i:                                        ; preds = %if.then.i, %for.end
 
 for.body12.lr.ph.i:                               ; preds = %if.end9.i
   %idxprom14.i = sext i32 %4 to i64
-  %arrayidx15.i = getelementptr inbounds nuw [7 x [8 x [3 x i8]]], ptr @stbhw__color, i64 0, i64 0, i64 %idxprom14.i
+  %arrayidx15.i = getelementptr inbounds [7 x [8 x [3 x i8]]], ptr @stbhw__color, i64 0, i64 0, i64 %idxprom14.i
   %mul4.i.i = mul nsw i32 %3, %ypos
   %idx.ext.i19.i = sext i32 %mul4.i.i to i64
   %add.ptr.i20.i = getelementptr inbounds i8, ptr %2, i64 %idx.ext.i19.i
@@ -6864,7 +6864,7 @@ if.end117.loopexit:                               ; preds = %for.inc26.i553
 if.end117:                                        ; preds = %if.end117.loopexit, %if.end103
   %187 = phi i32 [ %.pre623, %if.end117.loopexit ], [ %.pre624, %if.end103 ]
   %188 = phi ptr [ %.pre621, %if.end117.loopexit ], [ %.pre622, %if.end103 ]
-  %arrayidx121 = getelementptr inbounds nuw [4 x [3 x i8]], ptr @stbhw__corner_colors, i64 0, i64 %idxprom
+  %arrayidx121 = getelementptr inbounds [4 x [3 x i8]], ptr @stbhw__corner_colors, i64 0, i64 %idxprom
   %mul.i573 = mul nsw i32 %187, %ypos
   %idx.ext.i = sext i32 %mul.i573 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %188, i64 %idx.ext.i
@@ -6900,7 +6900,7 @@ if.end117:                                        ; preds = %if.end117.loopexit,
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i592, ptr noundef nonnull readonly align 1 dereferenceable(3) %arrayidx141, i64 3, i1 false)
   %195 = load ptr, ptr %data, align 8
   %196 = load i32, ptr %stride, align 8
-  %arrayidx149 = getelementptr inbounds nuw [4 x [3 x i8]], ptr @stbhw__corner_colors, i64 0, i64 %idxprom18
+  %arrayidx149 = getelementptr inbounds [4 x [3 x i8]], ptr @stbhw__corner_colors, i64 0, i64 %idxprom18
   %mul.i593 = mul nsw i32 %196, %add22
   %idx.ext.i594 = sext i32 %mul.i593 to i64
   %add.ptr.i595 = getelementptr inbounds i8, ptr %195, i64 %idx.ext.i594

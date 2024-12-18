@@ -667,7 +667,7 @@ define hidden void @OGLBlitLoops_Blit(ptr noundef %0, ptr noundef %1, i64 nounde
   %19 = inttoptr i64 %2 to ptr
   %20 = inttoptr i64 %3 to ptr
   %21 = sext i32 %6 to i64
-  %22 = getelementptr inbounds nuw [0 x %struct.OGLPixelFormat], ptr @PixelFormats, i64 0, i64 %21
+  %22 = getelementptr inbounds [0 x %struct.OGLPixelFormat], ptr @PixelFormats, i64 0, i64 %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %18, ptr noundef nonnull align 4 dereferenceable(16) %22, i64 16, i1 false)
   %23 = sub nsw i32 %10, %8
   %24 = sub nsw i32 %11, %9
@@ -1385,7 +1385,7 @@ define hidden void @OGLBlitLoops_SurfaceToSwBlit(ptr noundef %0, ptr noundef rea
   %14 = inttoptr i64 %2 to ptr
   %15 = inttoptr i64 %3 to ptr
   %16 = sext i32 %4 to i64
-  %17 = getelementptr inbounds nuw [0 x %struct.OGLPixelFormat], ptr @PixelFormats, i64 0, i64 %16
+  %17 = getelementptr inbounds [0 x %struct.OGLPixelFormat], ptr @PixelFormats, i64 0, i64 %16
   %.sroa.0.0.copyload = load i32, ptr %17, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 4
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4

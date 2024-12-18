@@ -11472,7 +11472,7 @@ _ZSt22__uninitialized_copy_aIPKdPddET0_T_S4_S3_RSaIT1_E.exit.i: ; preds = %365
   %368 = ptrtoint ptr %.sroa.8.0318 to i64
   %369 = sub i64 %368, %358
   %gepdiff = sub nsw i64 8, %369
-  %.sink.i.i25.i.ptr = getelementptr inbounds nuw i8, ptr %36, i64 %369
+  %.sink.i.i25.i.ptr = getelementptr inbounds i8, ptr %36, i64 %369
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %.sroa.8.0318, ptr nonnull align 8 %.sink.i.i25.i.ptr, i64 %gepdiff, i1 false)
   %370 = getelementptr inbounds i8, ptr %.sroa.8.0318, i64 %gepdiff
   br label %_ZNSt6vectorIdSaIdEEaSESt16initializer_listIdE.exit
@@ -12375,7 +12375,7 @@ _ZSt4copyIPKN2cv4MatxIdLi3ELi3EEEPS2_ET0_T_S7_S6_.exit18.i: ; preds = %288
   br i1 %.not9.i.i.i.i.i, label %_ZNSt6vectorIN2cv4MatxIdLi3ELi3EEESaIS2_EEaSESt16initializer_listIS2_E.exit, label %.lr.ph.i.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %_ZSt4copyIPKN2cv4MatxIdLi3ELi3EEEPS2_ET0_T_S7_S6_.exit18.i
-  %.sink.i.i25.i.ptr = getelementptr inbounds nuw i8, ptr %29, i64 %292
+  %.sink.i.i25.i.ptr = getelementptr inbounds i8, ptr %29, i64 %292
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i

@@ -2502,7 +2502,7 @@ invoke.cont:                                      ; preds = %if.end
   %3 = load ptr, ptr %agg.tmp, align 8
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %3) #18, !srcloc !9
   %idxprom = sext i32 %call2 to i64
-  %arrayidx = getelementptr inbounds nuw [129 x i16], ptr %tzIDKey, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [129 x i16], ptr %tzIDKey, i64 0, i64 %idxprom
   store i16 0, ptr %arrayidx, align 2
   %fLocationNamesMap = getelementptr inbounds nuw i8, ptr %this, i64 240
   %4 = load ptr, ptr %fLocationNamesMap, align 8
@@ -2555,7 +2555,7 @@ invoke.cont21:                                    ; preds = %if.then18
 
 invoke.cont28:                                    ; preds = %invoke.cont21
   %idxprom26 = sext i32 %call25 to i64
-  %arrayidx27 = getelementptr inbounds nuw [4 x i8], ptr %countryCode, i64 0, i64 %idxprom26
+  %arrayidx27 = getelementptr inbounds [4 x i8], ptr %countryCode, i64 0, i64 %idxprom26
   store i8 0, ptr %arrayidx27, align 1
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %country, align 8
   %fUnion2.i25 = getelementptr inbounds nuw i8, ptr %country, i64 8
@@ -2924,7 +2924,7 @@ invoke.cont12:                                    ; preds = %invoke.cont7
 
 invoke.cont16:                                    ; preds = %invoke.cont12
   %idxprom = sext i32 %call15 to i64
-  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr %countryCode, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [4 x i8], ptr %countryCode, i64 0, i64 %idxprom
   store i8 0, ptr %arrayidx, align 1
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %regionalGolden, align 8
   %fUnion2.i23 = getelementptr inbounds nuw i8, ptr %regionalGolden, i64 8

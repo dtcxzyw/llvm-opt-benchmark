@@ -37663,10 +37663,10 @@ switch.lookup:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %2 = load i32, ptr %1, align 4
   %3 = sext i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [87 x i64], ptr @switch.table._ZNK5clang10AtomicExpr13getOpAsStringEv, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds [87 x i64], ptr @switch.table._ZNK5clang10AtomicExpr13getOpAsStringEv, i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = sext i32 %2 to i64
-  %switch.gep1 = getelementptr inbounds nuw [87 x ptr], ptr @switch.table._ZNK5clang10AtomicExpr13getOpAsStringEv.219, i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds [87 x ptr], ptr @switch.table._ZNK5clang10AtomicExpr13getOpAsStringEv.219, i64 0, i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -40145,7 +40145,7 @@ declare noundef ptr @_ZN5clang4Decl17castToDeclContextEPKS0_(ptr noundef) local_
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clang22printOpenACCClauseKindIN4llvm11raw_ostreamEEERT_S4_NS_17OpenACCClauseKindE(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #0 comdat {
 switch.lookup:
   %2 = sext i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [51 x ptr], ptr @switch.table._ZN5clang22printOpenACCClauseKindIN4llvm11raw_ostreamEEERT_S4_NS_17OpenACCClauseKindE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds [51 x ptr], ptr @switch.table._ZN5clang22printOpenACCClauseKindIN4llvm11raw_ostreamEEERT_S4_NS_17OpenACCClauseKindE, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %3 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %switch.load)
   ret ptr %3

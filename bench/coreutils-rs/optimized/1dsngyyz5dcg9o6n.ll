@@ -783,7 +783,7 @@ _ZN7uu_head12read_n_bytes17h9c3988130e973429E.exit: ; preds = %22, %31, %35
   unreachable
 
 106:                                              ; preds = %103
-  %107 = getelementptr inbounds nuw i8, ptr %11, i64 %93
+  %107 = getelementptr inbounds i8, ptr %11, i64 %93
   %108 = load i64, ptr %12, align 8, !alias.scope !65, !noalias !72, !noundef !5
   %109 = icmp ugt i64 %1, %108
   br i1 %109, label %110, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h4b3761cdcaa34342E.exit"
@@ -1139,7 +1139,7 @@ define hidden noundef ptr @_ZN7uu_head21read_but_last_n_bytes17h9da0d1357b1e4985
   unreachable
 
 82:                                               ; preds = %79
-  %83 = getelementptr inbounds nuw i8, ptr %7, i64 %69
+  %83 = getelementptr inbounds i8, ptr %7, i64 %69
   %84 = load i64, ptr %8, align 8, !alias.scope !130, !noalias !137, !noundef !5
   %85 = icmp ugt i64 %1, %84
   br i1 %85, label %86, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h4b3761cdcaa34342E.exit"

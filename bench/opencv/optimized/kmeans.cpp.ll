@@ -440,7 +440,7 @@ _ZN2cv3Mat2atIiEERT_i.exit:                       ; preds = %178, %172, %165
   store i32 50397184, ptr %22, align 8
   store ptr %6, ptr %64, align 8
   %232 = sext i32 %191 to i64
-  %233 = getelementptr inbounds nuw [5 x %"class.cv::Scalar_"], ptr %5, i64 0, i64 %232
+  %233 = getelementptr inbounds [5 x %"class.cv::Scalar_"], ptr %5, i64 0, i64 %232
   invoke void @_ZN2cv6circleERKNS_17_InputOutputArrayENS_6Point_IiEEiRKNS_7Scalar_IdEEiii(ptr noundef nonnull align 8 dereferenceable(24) %22, i64 %.sroa.0.0.insert.insert.i, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(32) %233, i32 noundef -1, i32 noundef 16, i32 noundef 0)
           to label %234 unwind label %239
 

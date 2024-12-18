@@ -548,7 +548,7 @@ define internal void @execute(i32 %0, i16 signext %1, ptr noundef %2) #0 {
 46:                                               ; preds = %38
   %47 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #18
   %48 = add i64 %47, -1
-  %49 = getelementptr inbounds nuw [1024 x i8], ptr %5, i64 0, i64 %48
+  %49 = getelementptr inbounds [1024 x i8], ptr %5, i64 0, i64 %48
   store i8 0, ptr %49, align 1
   %50 = call noalias ptr @strdup(ptr noundef nonnull %5) #13
   br label %53

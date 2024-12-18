@@ -517,7 +517,7 @@ define internal i32 @read_statdata(ptr nocapture readnone %0, ptr noundef %1, ..
   %11 = shl i64 %8, 32
   %sext.i = add i64 %11, -4294967296
   %12 = ashr exact i64 %sext.i, 32
-  %13 = getelementptr inbounds nuw [2048 x i8], ptr %3, i64 0, i64 %12
+  %13 = getelementptr inbounds [2048 x i8], ptr %3, i64 0, i64 %12
   store i8 0, ptr %13, align 1
   %14 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %3, i32 noundef 41) #11
   %.not16.i = icmp eq ptr %14, null
@@ -526,7 +526,7 @@ define internal i32 @read_statdata(ptr nocapture readnone %0, ptr noundef %1, ..
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 2
   %17 = ashr exact i64 %11, 32
-  %18 = getelementptr inbounds nuw i8, ptr %3, i64 %17
+  %18 = getelementptr inbounds i8, ptr %3, i64 %17
   %19 = icmp ult ptr %16, %18
   br i1 %19, label %20, label %22
 

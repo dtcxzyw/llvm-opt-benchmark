@@ -17370,7 +17370,7 @@ _ZN10num_format5impls8integers14write_one_byte17hbba7601a7b3d0a2eE.exit17.i.i.i.
   %.sink = phi i64 [ %1042, %"_ZN10num_format5impls8integers78_$LT$impl$u20$num_format..to_formatted_str..ToFormattedStr$u20$for$u20$u64$GT$14read_to_buffer17h7af649475dac105cE.exit.i.i.thread" ], [ 19, %"_ZN10num_format5impls8integers78_$LT$impl$u20$num_format..to_formatted_str..ToFormattedStr$u20$for$u20$u64$GT$14read_to_buffer17h7af649475dac105cE.exit.i.i.thread.thread" ]
   %.sink349 = phi i64 [ %906, %"_ZN10num_format5impls8integers78_$LT$impl$u20$num_format..to_formatted_str..ToFormattedStr$u20$for$u20$u64$GT$14read_to_buffer17h7af649475dac105cE.exit.i.i.thread" ], [ 171, %"_ZN10num_format5impls8integers78_$LT$impl$u20$num_format..to_formatted_str..ToFormattedStr$u20$for$u20$u64$GT$14read_to_buffer17h7af649475dac105cE.exit.i.i.thread.thread" ]
   %.sink348 = phi i64 [ %1043, %"_ZN10num_format5impls8integers78_$LT$impl$u20$num_format..to_formatted_str..ToFormattedStr$u20$for$u20$u64$GT$14read_to_buffer17h7af649475dac105cE.exit.i.i.thread" ], [ 20, %"_ZN10num_format5impls8integers78_$LT$impl$u20$num_format..to_formatted_str..ToFormattedStr$u20$for$u20$u64$GT$14read_to_buffer17h7af649475dac105cE.exit.i.i.thread.thread" ]
-  %1047 = getelementptr inbounds nuw i8, ptr %28, i64 %.sink
+  %1047 = getelementptr inbounds i8, ptr %28, i64 %.sink
   %1048 = getelementptr inbounds nuw i8, ptr %846, i64 %.sink349
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1048, ptr nonnull readonly align 1 %1047, i64 %.sink348, i1 false), !alias.scope !3827, !noalias !3725
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %28), !noalias !3744

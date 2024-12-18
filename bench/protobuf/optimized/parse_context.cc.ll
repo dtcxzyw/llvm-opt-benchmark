@@ -2712,11 +2712,11 @@ while.end:                                        ; preds = %if.end7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(26) %buf, i8 0, i64 26, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %buf, ptr noundef nonnull align 1 dereferenceable(16) %17, i64 16, i1 false)
   %idx.ext = sext i32 %sub to i64
-  %add.ptr = getelementptr inbounds nuw i8, ptr %buf, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %idx.ext
   %sext18 = shl i64 %sub.ptr.sub11, 32
   %idx.ext31 = ashr exact i64 %sext18, 32
-  %add.ptr32 = getelementptr inbounds nuw i8, ptr %buf, i64 %idx.ext31
-  %cmp13.i23 = icmp samesign ult i64 %idx.ext31, %idx.ext
+  %add.ptr32 = getelementptr inbounds i8, ptr %buf, i64 %idx.ext31
+  %cmp13.i23 = icmp slt i64 %idx.ext31, %idx.ext
   br i1 %cmp13.i23, label %while.body.i28, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit65
 
 while.body.i28:                                   ; preds = %while.end, %_ZZN6google8protobuf8internal12VarintParserIiLb0EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i51
@@ -3264,11 +3264,11 @@ while.end:                                        ; preds = %if.end7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(26) %buf, i8 0, i64 26, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %buf, ptr noundef nonnull align 1 dereferenceable(16) %17, i64 16, i1 false)
   %idx.ext = sext i32 %sub to i64
-  %add.ptr = getelementptr inbounds nuw i8, ptr %buf, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %idx.ext
   %sext18 = shl i64 %sub.ptr.sub11, 32
   %idx.ext31 = ashr exact i64 %sext18, 32
-  %add.ptr32 = getelementptr inbounds nuw i8, ptr %buf, i64 %idx.ext31
-  %cmp13.i23 = icmp samesign ult i64 %idx.ext31, %idx.ext
+  %add.ptr32 = getelementptr inbounds i8, ptr %buf, i64 %idx.ext31
+  %cmp13.i23 = icmp slt i64 %idx.ext31, %idx.ext
   br i1 %cmp13.i23, label %while.body.i28, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIjLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit65
 
 while.body.i28:                                   ; preds = %while.end, %_ZZN6google8protobuf8internal12VarintParserIjLb0EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i51
@@ -3787,11 +3787,11 @@ while.end:                                        ; preds = %if.end7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(26) %buf, i8 0, i64 26, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %buf, ptr noundef nonnull align 1 dereferenceable(16) %17, i64 16, i1 false)
   %idx.ext = sext i32 %sub to i64
-  %add.ptr = getelementptr inbounds nuw i8, ptr %buf, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %idx.ext
   %sext18 = shl i64 %sub.ptr.sub11, 32
   %idx.ext31 = ashr exact i64 %sext18, 32
-  %add.ptr32 = getelementptr inbounds nuw i8, ptr %buf, i64 %idx.ext31
-  %cmp13.i22 = icmp samesign ult i64 %idx.ext31, %idx.ext
+  %add.ptr32 = getelementptr inbounds i8, ptr %buf, i64 %idx.ext31
+  %cmp13.i22 = icmp slt i64 %idx.ext31, %idx.ext
   br i1 %cmp13.i22, label %while.body.i27, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit63
 
 while.body.i27:                                   ; preds = %while.end, %_ZZN6google8protobuf8internal12VarintParserIlLb0EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i50
@@ -4307,11 +4307,11 @@ while.end:                                        ; preds = %if.end7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(26) %buf, i8 0, i64 26, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %buf, ptr noundef nonnull align 1 dereferenceable(16) %17, i64 16, i1 false)
   %idx.ext = sext i32 %sub to i64
-  %add.ptr = getelementptr inbounds nuw i8, ptr %buf, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %idx.ext
   %sext18 = shl i64 %sub.ptr.sub11, 32
   %idx.ext31 = ashr exact i64 %sext18, 32
-  %add.ptr32 = getelementptr inbounds nuw i8, ptr %buf, i64 %idx.ext31
-  %cmp13.i22 = icmp samesign ult i64 %idx.ext31, %idx.ext
+  %add.ptr32 = getelementptr inbounds i8, ptr %buf, i64 %idx.ext31
+  %cmp13.i22 = icmp slt i64 %idx.ext31, %idx.ext
   br i1 %cmp13.i22, label %while.body.i27, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserImLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit63
 
 while.body.i27:                                   ; preds = %while.end, %_ZZN6google8protobuf8internal12VarintParserImLb0EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i50
@@ -4832,11 +4832,11 @@ while.end:                                        ; preds = %if.end7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(26) %buf, i8 0, i64 26, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %buf, ptr noundef nonnull align 1 dereferenceable(16) %17, i64 16, i1 false)
   %idx.ext = sext i32 %sub to i64
-  %add.ptr = getelementptr inbounds nuw i8, ptr %buf, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %idx.ext
   %sext18 = shl i64 %sub.ptr.sub11, 32
   %idx.ext31 = ashr exact i64 %sext18, 32
-  %add.ptr32 = getelementptr inbounds nuw i8, ptr %buf, i64 %idx.ext31
-  %cmp13.i23 = icmp samesign ult i64 %idx.ext31, %idx.ext
+  %add.ptr32 = getelementptr inbounds i8, ptr %buf, i64 %idx.ext31
+  %cmp13.i23 = icmp slt i64 %idx.ext31, %idx.ext
   br i1 %cmp13.i23, label %while.body.i28, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb1EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit69
 
 while.body.i28:                                   ; preds = %while.end, %_ZZN6google8protobuf8internal12VarintParserIiLb1EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i51
@@ -5222,11 +5222,11 @@ while.end:                                        ; preds = %if.end7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(26) %buf, i8 0, i64 26, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %buf, ptr noundef nonnull align 1 dereferenceable(16) %17, i64 16, i1 false)
   %idx.ext = sext i32 %sub to i64
-  %add.ptr = getelementptr inbounds nuw i8, ptr %buf, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %idx.ext
   %sext18 = shl i64 %sub.ptr.sub11, 32
   %idx.ext31 = ashr exact i64 %sext18, 32
-  %add.ptr32 = getelementptr inbounds nuw i8, ptr %buf, i64 %idx.ext31
-  %cmp13.i22 = icmp samesign ult i64 %idx.ext31, %idx.ext
+  %add.ptr32 = getelementptr inbounds i8, ptr %buf, i64 %idx.ext31
+  %cmp13.i22 = icmp slt i64 %idx.ext31, %idx.ext
   br i1 %cmp13.i22, label %while.body.i27, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb1EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit67
 
 while.body.i27:                                   ; preds = %while.end, %_ZZN6google8protobuf8internal12VarintParserIlLb1EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i50
@@ -5608,11 +5608,11 @@ while.end:                                        ; preds = %if.end7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(26) %buf, i8 0, i64 26, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %buf, ptr noundef nonnull align 1 dereferenceable(16) %17, i64 16, i1 false)
   %idx.ext = sext i32 %sub to i64
-  %add.ptr = getelementptr inbounds nuw i8, ptr %buf, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %idx.ext
   %sext18 = shl i64 %sub.ptr.sub11, 32
   %idx.ext31 = ashr exact i64 %sext18, 32
-  %add.ptr32 = getelementptr inbounds nuw i8, ptr %buf, i64 %idx.ext31
-  %cmp13.i22 = icmp samesign ult i64 %idx.ext31, %idx.ext
+  %add.ptr32 = getelementptr inbounds i8, ptr %buf, i64 %idx.ext31
+  %cmp13.i22 = icmp slt i64 %idx.ext31, %idx.ext
   br i1 %cmp13.i22, label %while.body.i27, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIbLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit65
 
 while.body.i27:                                   ; preds = %while.end, %_ZZN6google8protobuf8internal12VarintParserIbLb0EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i50

@@ -55,7 +55,7 @@ define noundef i32 @_ZN5ZXing6QRCode16CodecModeForBitsEiNS0_4TypeE(i32 noundef %
 
 7:                                                ; preds = %5
   %8 = sext i32 %0 to i64
-  %9 = getelementptr inbounds nuw [4 x i32], ptr @__const._ZN5ZXing6QRCode16CodecModeForBitsEiNS0_4TypeE.Bits2Mode, i64 0, i64 %8
+  %9 = getelementptr inbounds [4 x i32], ptr @__const._ZN5ZXing6QRCode16CodecModeForBitsEiNS0_4TypeE.Bits2Mode, i64 0, i64 %8
   %10 = load i32, ptr %9, align 4
   br label %31
 
@@ -65,7 +65,7 @@ define noundef i32 @_ZN5ZXing6QRCode16CodecModeForBitsEiNS0_4TypeE(i32 noundef %
 
 13:                                               ; preds = %11
   %14 = sext i32 %0 to i64
-  %15 = getelementptr inbounds nuw [8 x i32], ptr @__const._ZN5ZXing6QRCode16CodecModeForBitsEiNS0_4TypeE.Bits2Mode.1, i64 0, i64 %14
+  %15 = getelementptr inbounds [8 x i32], ptr @__const._ZN5ZXing6QRCode16CodecModeForBitsEiNS0_4TypeE.Bits2Mode.1, i64 0, i64 %14
   %16 = load i32, ptr %15, align 4
   br label %31
 
@@ -224,7 +224,7 @@ define noundef i32 @_ZN5ZXing6QRCode18CharacterCountBitsENS0_9CodecModeERKNS0_7V
   store i32 6, ptr %18, align 4
   %19 = add nsw i32 %11, -1
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %20
+  %21 = getelementptr inbounds [4 x i32], ptr %3, i64 0, i64 %20
   %22 = load i32, ptr %21, align 4
   br label %90
 
@@ -236,7 +236,7 @@ define noundef i32 @_ZN5ZXing6QRCode18CharacterCountBitsENS0_9CodecModeERKNS0_7V
   store i32 5, ptr %25, align 4
   %26 = add nsw i32 %11, -2
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds nuw [3 x i32], ptr %4, i64 0, i64 %27
+  %28 = getelementptr inbounds [3 x i32], ptr %4, i64 0, i64 %27
   %29 = load i32, ptr %28, align 4
   br label %90
 
@@ -246,7 +246,7 @@ define noundef i32 @_ZN5ZXing6QRCode18CharacterCountBitsENS0_9CodecModeERKNS0_7V
   store i32 5, ptr %31, align 4
   %32 = add nsw i32 %11, -3
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds nuw [2 x i32], ptr %5, i64 0, i64 %33
+  %34 = getelementptr inbounds [2 x i32], ptr %5, i64 0, i64 %33
   %35 = load i32, ptr %34, align 4
   br label %90
 
@@ -256,7 +256,7 @@ define noundef i32 @_ZN5ZXing6QRCode18CharacterCountBitsENS0_9CodecModeERKNS0_7V
   store i32 4, ptr %37, align 4
   %38 = add nsw i32 %11, -3
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds nuw [2 x i32], ptr %6, i64 0, i64 %39
+  %40 = getelementptr inbounds [2 x i32], ptr %6, i64 0, i64 %39
   %41 = load i32, ptr %40, align 4
   br label %90
 
@@ -271,7 +271,7 @@ define noundef i32 @_ZN5ZXing6QRCode18CharacterCountBitsENS0_9CodecModeERKNS0_7V
 43:                                               ; preds = %42
   %44 = add nsw i32 %11, -1
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds nuw [32 x i8], ptr @__const._ZN5ZXing6QRCode18CharacterCountBitsENS0_9CodecModeERKNS0_7VersionE.numeric, i64 0, i64 %45
+  %46 = getelementptr inbounds [32 x i8], ptr @__const._ZN5ZXing6QRCode18CharacterCountBitsENS0_9CodecModeERKNS0_7VersionE.numeric, i64 0, i64 %45
   %47 = load i8, ptr %46, align 1
   %48 = sext i8 %47 to i32
   br label %90
@@ -279,7 +279,7 @@ define noundef i32 @_ZN5ZXing6QRCode18CharacterCountBitsENS0_9CodecModeERKNS0_7V
 49:                                               ; preds = %42
   %50 = add nsw i32 %11, -1
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds nuw [32 x i8], ptr @__const._ZN5ZXing6QRCode18CharacterCountBitsENS0_9CodecModeERKNS0_7VersionE.alphanum, i64 0, i64 %51
+  %52 = getelementptr inbounds [32 x i8], ptr @__const._ZN5ZXing6QRCode18CharacterCountBitsENS0_9CodecModeERKNS0_7VersionE.alphanum, i64 0, i64 %51
   %53 = load i8, ptr %52, align 1
   %54 = sext i8 %53 to i32
   br label %90
@@ -287,7 +287,7 @@ define noundef i32 @_ZN5ZXing6QRCode18CharacterCountBitsENS0_9CodecModeERKNS0_7V
 55:                                               ; preds = %42
   %56 = add nsw i32 %11, -1
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds nuw [32 x i8], ptr @__const._ZN5ZXing6QRCode18CharacterCountBitsENS0_9CodecModeERKNS0_7VersionE.byte, i64 0, i64 %57
+  %58 = getelementptr inbounds [32 x i8], ptr @__const._ZN5ZXing6QRCode18CharacterCountBitsENS0_9CodecModeERKNS0_7VersionE.byte, i64 0, i64 %57
   %59 = load i8, ptr %58, align 1
   %60 = sext i8 %59 to i32
   br label %90
@@ -295,7 +295,7 @@ define noundef i32 @_ZN5ZXing6QRCode18CharacterCountBitsENS0_9CodecModeERKNS0_7V
 61:                                               ; preds = %42
   %62 = add nsw i32 %11, -1
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds nuw [32 x i8], ptr @__const._ZN5ZXing6QRCode18CharacterCountBitsENS0_9CodecModeERKNS0_7VersionE.kanji, i64 0, i64 %63
+  %64 = getelementptr inbounds [32 x i8], ptr @__const._ZN5ZXing6QRCode18CharacterCountBitsENS0_9CodecModeERKNS0_7VersionE.kanji, i64 0, i64 %63
   %65 = load i8, ptr %64, align 1
   %66 = sext i8 %65 to i32
   br label %90

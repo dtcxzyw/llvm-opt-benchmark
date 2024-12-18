@@ -405,7 +405,7 @@ if.then29:                                        ; preds = %if.then24
 
 if.else32:                                        ; preds = %if.end21
   %inc = add i64 %num_codes.0.ph.ph, 1
-  %arrayidx33 = getelementptr inbounds nuw [4 x i8], ptr %codes, i64 0, i64 %num_codes.0.ph.ph
+  %arrayidx33 = getelementptr inbounds [4 x i8], ptr %codes, i64 0, i64 %num_codes.0.ph.ph
   store i8 %4, ptr %arrayidx33, align 1
   %cmp34 = icmp eq i64 %inc, 4
   br i1 %cmp34, label %if.then35, label %while.cond.outer.outer156, !llvm.loop !6

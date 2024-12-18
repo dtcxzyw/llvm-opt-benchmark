@@ -1728,7 +1728,7 @@ _ZN3gmx6copyOfINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt6vectorIT
 620:                                              ; preds = %641, %.lr.ph104.i
   %621 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #24
   %622 = add i64 %621, -1
-  %623 = getelementptr inbounds nuw [4096 x i8], ptr %3, i64 0, i64 %622
+  %623 = getelementptr inbounds [4096 x i8], ptr %3, i64 0, i64 %622
   store i8 0, ptr %623, align 1
   %624 = load i8, ptr %3, align 16
   %625 = and i8 %624, -33

@@ -358,7 +358,7 @@ sw.default:                                       ; preds = %fpclassify_not_nan.
   %vtable = load ptr, ptr %stream, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %stream, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %stream, i64 %vbase.offset
   %call5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6locale7classicEv() #10
   call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale(ptr nonnull sret(%"class.std::locale") align 8 %agg.tmp.ensured, ptr noundef nonnull align 8 dereferenceable(264) %add.ptr, ptr noundef nonnull align 8 dereferenceable(8) %call5) #10
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp.ensured) #10

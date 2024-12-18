@@ -448,7 +448,7 @@ Bal_ManPrepareSet.exit102:                        ; preds = %65, %48, %58, %.loo
 
 93:                                               ; preds = %85
   %94 = sext i32 %.6314.us to i64
-  %95 = getelementptr inbounds nuw [8 x ptr], ptr %15, i64 0, i64 %94
+  %95 = getelementptr inbounds [8 x ptr], ptr %15, i64 0, i64 %94
   %96 = load ptr, ptr %95, align 8
   %97 = load i32, ptr %82, align 4
   %98 = lshr i32 %97, 27
@@ -903,7 +903,7 @@ Bal_SetCutIsContainedOrder.exit.thread.thread.i.i202.us: ; preds = %264, %254
   br i1 %280, label %281, label %284
 
 281:                                              ; preds = %278
-  %282 = getelementptr inbounds nuw ptr, ptr %15, i64 %279
+  %282 = getelementptr inbounds ptr, ptr %15, i64 %279
   %283 = load ptr, ptr %282, align 8
   store ptr %274, ptr %282, align 8
   store ptr %283, ptr %273, align 8
@@ -1082,7 +1082,7 @@ Bal_ManPrepareSet.exit115:                        ; preds = %341, %327, %337, %.
 
 365:                                              ; preds = %355
   %366 = sext i32 %.2321.us.us.us to i64
-  %367 = getelementptr inbounds nuw [8 x ptr], ptr %15, i64 0, i64 %366
+  %367 = getelementptr inbounds [8 x ptr], ptr %15, i64 0, i64 %366
   %368 = load ptr, ptr %367, align 8
   %369 = load i32, ptr %349, align 4
   %370 = lshr i32 %369, 27
@@ -1428,7 +1428,7 @@ Bal_SetCutIsContainedOrder.exit.thread.thread.i.i.us.us.us: ; preds = %521, %511
   br i1 %537, label %538, label %541
 
 538:                                              ; preds = %535
-  %539 = getelementptr inbounds nuw ptr, ptr %15, i64 %536
+  %539 = getelementptr inbounds ptr, ptr %15, i64 %536
   %540 = load ptr, ptr %539, align 8
   store ptr %531, ptr %539, align 8
   store ptr %540, ptr %530, align 8

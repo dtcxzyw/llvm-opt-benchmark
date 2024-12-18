@@ -1265,7 +1265,7 @@ define noundef double @"_ZN128_$LT$statrs..distribution..multinomial..Multinomia
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !124
   store i64 %.sroa.04.0.i, ptr %4, align 8, !noalias !124
   %19 = icmp ult i64 %.sroa.04.0.i, 171
-  %20 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %.sroa.04.0.i
+  %20 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %.sroa.04.0.i
   %.sroa.0.0.i.i.i.i = select i1 %19, ptr %20, ptr null
   %21 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4), !noalias !124
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !124
@@ -1360,7 +1360,7 @@ define noundef double @"_ZN128_$LT$statrs..distribution..multinomial..Multinomia
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !140
   store i64 %.sroa.04.0.i, ptr %4, align 8, !noalias !140
   %19 = icmp ult i64 %.sroa.04.0.i, 171
-  %20 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %.sroa.04.0.i
+  %20 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %.sroa.04.0.i
   %.sroa.0.0.i.i.i.i = select i1 %19, ptr %20, ptr null
   %21 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4), !noalias !140
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !140

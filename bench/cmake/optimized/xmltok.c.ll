@@ -1265,7 +1265,7 @@ streqci.exit.i.i:                                 ; preds = %95
 getEncodingIndex.exit.i.i:                        ; preds = %107
   %sext.i.i = shl i64 %indvars.iv.i.i.i, 32
   %111 = ashr exact i64 %sext.i.i, 32
-  %112 = getelementptr inbounds nuw [7 x ptr], ptr @encodings, i64 0, i64 %111
+  %112 = getelementptr inbounds [7 x ptr], ptr @encodings, i64 0, i64 %111
   %113 = load ptr, ptr %112, align 8
   br label %findEncoding.exit.i
 
@@ -12081,7 +12081,7 @@ define internal fastcc i32 @initScan(ptr nocapture noundef readonly %0, i32 noun
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 125
   %83 = load i8, ptr %82, align 1
   %84 = sext i8 %83 to i64
-  %85 = getelementptr inbounds nuw ptr, ptr @encodings, i64 %84
+  %85 = getelementptr inbounds ptr, ptr @encodings, i64 %84
   %86 = load ptr, ptr %85, align 8
   store ptr %86, ptr %8, align 8
   %87 = zext nneg i32 %1 to i64

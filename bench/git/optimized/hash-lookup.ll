@@ -133,7 +133,7 @@ if.then.i51:                                      ; preds = %do.body
 
 if.else.i:                                        ; preds = %do.body
   %idxprom.i = sext i32 %12 to i64
-  %arrayidx.i50 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i
+  %arrayidx.i50 = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i
   br label %oidcmp.exit
 
 oidcmp.exit:                                      ; preds = %if.then.i51, %if.else.i

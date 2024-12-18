@@ -458,7 +458,7 @@ _ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit.preheader: ; preds = %_
   %162 = sub i32 %161, ptrtoint (ptr @_ZN5ZXing4OneDL8ALPHABETE to i32)
   %163 = sext i32 %162 to i64
   %164 = select i1 %.not.i33, i64 -1, i64 %163
-  %165 = getelementptr inbounds nuw [48 x i32], ptr @_ZN5ZXing4OneDL19CHARACTER_ENCODINGSE, i64 0, i64 %164
+  %165 = getelementptr inbounds [48 x i32], ptr @_ZN5ZXing4OneDL19CHARACTER_ENCODINGSE, i64 0, i64 %164
   %166 = load i32, ptr %165, align 4
   br label %167
 
@@ -572,7 +572,7 @@ _ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit43: ; preds = %_ZNSt14_B
 
 _ZN5ZXing4OneDL20ComputeChecksumIndexERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit: ; preds = %._crit_edge.loopexit.i, %196
   %.011.lcssa.i = phi i64 [ 0, %196 ], [ %214, %._crit_edge.loopexit.i ]
-  %215 = getelementptr inbounds nuw [48 x i32], ptr @_ZN5ZXing4OneDL19CHARACTER_ENCODINGSE, i64 0, i64 %.011.lcssa.i
+  %215 = getelementptr inbounds [48 x i32], ptr @_ZN5ZXing4OneDL19CHARACTER_ENCODINGSE, i64 0, i64 %.011.lcssa.i
   %216 = load i32, ptr %215, align 4
   %217 = and i64 %indvars.iv.next, 4294967295
   br label %218
@@ -613,7 +613,7 @@ _ZNSt14_Bit_referenceaSEb.exit.i54:               ; preds = %232, %229
 
 _ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit58: ; preds = %_ZNSt14_Bit_referenceaSEb.exit.i54
   %236 = add nuw i64 %indvars.iv, 18
-  %237 = getelementptr inbounds nuw [49 x i8], ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 0, i64 %.011.lcssa.i
+  %237 = getelementptr inbounds [49 x i8], ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 0, i64 %.011.lcssa.i
   %238 = load i8, ptr %237, align 1
   %239 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 noundef signext %238)
           to label %240 unwind label %186
@@ -657,7 +657,7 @@ _ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit58: ; preds = %_ZNSt14_B
 
 _ZN5ZXing4OneDL20ComputeChecksumIndexERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit71: ; preds = %._crit_edge.loopexit.i70, %240
   %.011.lcssa.i59 = phi i64 [ 0, %240 ], [ %257, %._crit_edge.loopexit.i70 ]
-  %258 = getelementptr inbounds nuw [48 x i32], ptr @_ZN5ZXing4OneDL19CHARACTER_ENCODINGSE, i64 0, i64 %.011.lcssa.i59
+  %258 = getelementptr inbounds [48 x i32], ptr @_ZN5ZXing4OneDL19CHARACTER_ENCODINGSE, i64 0, i64 %.011.lcssa.i59
   %259 = load i32, ptr %258, align 4
   %260 = and i64 %236, 4294967295
   br label %261

@@ -647,9 +647,9 @@ if.then204:                                       ; preds = %if.end200
 if.else208:                                       ; preds = %if.end73
   %call210 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @_ZZ20createCommonDataFileE6buffer, ptr noundef nonnull dereferenceable(1) %destDir.addr.0) #17
   %call211 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @_ZZ20createCommonDataFileE6buffer) #16
-  %add.ptr = getelementptr inbounds nuw i8, ptr @_ZZ20createCommonDataFileE6buffer, i64 %call211
-  %cmp212.not = icmp eq i64 %call211, 0
-  br i1 %cmp212.not, label %if.end219, label %land.lhs.true213
+  %add.ptr = getelementptr inbounds i8, ptr @_ZZ20createCommonDataFileE6buffer, i64 %call211
+  %cmp212 = icmp sgt i64 %call211, 0
+  br i1 %cmp212, label %land.lhs.true213, label %if.end219
 
 land.lhs.true213:                                 ; preds = %if.else208
   %add.ptr214 = getelementptr inbounds i8, ptr %add.ptr, i64 -1

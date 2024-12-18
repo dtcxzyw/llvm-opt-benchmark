@@ -547,10 +547,10 @@ define internal fastcc void @hwloc_ps_pidcmd_from_env(ptr noundef %0, i32 nounde
   br i1 %.not16, label %.loopexit18, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds nuw [65536 x i8], ptr %5, i64 0, i64 %10
+  %13 = getelementptr inbounds [65536 x i8], ptr %5, i64 0, i64 %10
   store i8 0, ptr %13, align 1
   %14 = add i64 %10, 1
-  %15 = getelementptr inbounds nuw [65536 x i8], ptr %5, i64 0, i64 %14
+  %15 = getelementptr inbounds [65536 x i8], ptr %5, i64 0, i64 %14
   store i8 0, ptr %15, align 1
   %16 = load i8, ptr %5, align 16
   %.not14.i = icmp eq i8 %16, 0
@@ -869,7 +869,7 @@ hwloc_ps_free_process.exit:                       ; preds = %37, %30
 53:                                               ; preds = %.lr.ph45
   %54 = call i64 @fread(ptr noundef nonnull %11, i64 noundef 1, i64 noundef 4095, ptr noundef nonnull %51)
   %55 = call i32 @fclose(ptr noundef nonnull %51)
-  %56 = getelementptr inbounds nuw [4096 x i8], ptr %11, i64 0, i64 %54
+  %56 = getelementptr inbounds [4096 x i8], ptr %11, i64 0, i64 %54
   store i8 0, ptr %56, align 1
   %57 = call i64 @strtoul(ptr noundef nonnull %11, ptr noundef nonnull %12, i32 noundef 10) #14
   %58 = load ptr, ptr %12, align 8

@@ -7887,7 +7887,7 @@ _ZNK4llvm20iterator_facade_baseINS_15concat_iteratorIKPNS_10BasicBlockEJSt16reve
   %.fca.0.load.i.i = load i64, ptr %.0.ptr.i.i, align 16
   %.fca.1.gep.i.i = getelementptr inbounds nuw i8, ptr %.0.ptr.i.i, i64 8
   %.fca.1.load.i.i = load i64, ptr %.fca.1.gep.i.i, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %13, i64 %.fca.1.load.i.i
+  %37 = getelementptr inbounds i8, ptr %13, i64 %.fca.1.load.i.i
   %38 = and i64 %.fca.0.load.i.i, 1
   %.not.i.i = icmp eq i64 %38, 0
   br i1 %.not.i.i, label %44, label %39
@@ -8142,7 +8142,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_9MemoryPhiEPNS_12MemoryAccessELj4E
   %.fca.0.load.i.i21 = load i64, ptr %.0.ptr.i.i20, align 16
   %.fca.1.gep.i.i22 = getelementptr inbounds nuw i8, ptr %.0.ptr.i.i20, i64 8
   %.fca.1.load.i.i23 = load i64, ptr %.fca.1.gep.i.i22, align 8
-  %159 = getelementptr inbounds nuw i8, ptr %13, i64 %.fca.1.load.i.i23
+  %159 = getelementptr inbounds i8, ptr %13, i64 %.fca.1.load.i.i23
   %160 = and i64 %.fca.0.load.i.i21, 1
   %.not.i.i24 = icmp eq i64 %160, 0
   br i1 %.not.i.i24, label %166, label %161
@@ -8219,7 +8219,7 @@ _ZNK4llvm20iterator_facade_baseINS_15concat_iteratorIKPNS_10BasicBlockEJSt16reve
   %.fca.0.load.i.i34 = load i64, ptr %.0.ptr.i.i33, align 16
   %.fca.1.gep.i.i35 = getelementptr inbounds nuw i8, ptr %.0.ptr.i.i33, i64 8
   %.fca.1.load.i.i36 = load i64, ptr %.fca.1.gep.i.i35, align 8
-  %194 = getelementptr inbounds nuw i8, ptr %14, i64 %.fca.1.load.i.i36
+  %194 = getelementptr inbounds i8, ptr %14, i64 %.fca.1.load.i.i36
   %195 = and i64 %.fca.0.load.i.i34, 1
   %.not.i.i37 = icmp eq i64 %195, 0
   br i1 %.not.i.i37, label %201, label %196
@@ -8869,7 +8869,7 @@ _ZNK4llvm9MemorySSA15getMemoryAccessEPKNS_10BasicBlockE.exit.thread: ; preds = %
   %.fca.0.load.i.i75 = load i64, ptr %.0.ptr.i.i74, align 16
   %.fca.1.gep.i.i76 = getelementptr inbounds nuw i8, ptr %.0.ptr.i.i74, i64 8
   %.fca.1.load.i.i77 = load i64, ptr %.fca.1.gep.i.i76, align 8
-  %504 = getelementptr inbounds nuw i8, ptr %14, i64 %.fca.1.load.i.i77
+  %504 = getelementptr inbounds i8, ptr %14, i64 %.fca.1.load.i.i77
   %505 = and i64 %.fca.0.load.i.i75, 1
   %.not.i.i78 = icmp eq i64 %505, 0
   br i1 %.not.i.i78, label %511, label %506

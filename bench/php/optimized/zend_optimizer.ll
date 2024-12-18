@@ -5523,7 +5523,7 @@ define i32 @zend_optimizer_register_pass(ptr noundef %0) local_unnamed_addr #11 
   %6 = add nsw i32 %3, 1
   store i32 %6, ptr getelementptr inbounds nuw (i8, ptr @zend_optimizer_registered_passes, i64 256), align 8
   %7 = sext i32 %3 to i64
-  %8 = getelementptr inbounds nuw [32 x ptr], ptr @zend_optimizer_registered_passes, i64 0, i64 %7
+  %8 = getelementptr inbounds [32 x ptr], ptr @zend_optimizer_registered_passes, i64 0, i64 %7
   store ptr %0, ptr %8, align 8
   %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @zend_optimizer_registered_passes, i64 256), align 8
   br label %10
@@ -5537,7 +5537,7 @@ define i32 @zend_optimizer_register_pass(ptr noundef %0) local_unnamed_addr #11 
 define void @zend_optimizer_unregister_pass(i32 noundef %0) local_unnamed_addr #12 {
   %2 = add nsw i32 %0, -1
   %3 = sext i32 %2 to i64
-  %4 = getelementptr inbounds nuw [32 x ptr], ptr @zend_optimizer_registered_passes, i64 0, i64 %3
+  %4 = getelementptr inbounds [32 x ptr], ptr @zend_optimizer_registered_passes, i64 0, i64 %3
   store ptr null, ptr %4, align 8
   ret void
 }

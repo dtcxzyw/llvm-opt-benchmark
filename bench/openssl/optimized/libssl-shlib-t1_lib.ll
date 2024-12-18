@@ -281,7 +281,7 @@ for.body3.us:                                     ; preds = %for.cond1.preheader
 
 if.then8.us:                                      ; preds = %for.body3.us
   %inc.us = add i64 %num_deflt_grps.022.us, 1
-  %arrayidx12.us = getelementptr inbounds nuw [17 x i16], ptr %tmp_supp_groups, i64 0, i64 %num_deflt_grps.022.us
+  %arrayidx12.us = getelementptr inbounds [17 x i16], ptr %tmp_supp_groups, i64 0, i64 %num_deflt_grps.022.us
   store i16 %3, ptr %arrayidx12.us, align 2
   br label %for.inc15.us
 
@@ -1359,7 +1359,7 @@ if.end10:                                         ; preds = %if.end6, %if.end
 if.end13:                                         ; preds = %if.end10
   %conv = sext i32 %len to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %etmp, ptr nonnull align 1 %elem, i64 %conv, i1 false)
-  %arrayidx = getelementptr inbounds nuw [64 x i8], ptr %etmp, i64 0, i64 %conv
+  %arrayidx = getelementptr inbounds [64 x i8], ptr %etmp, i64 0, i64 %conv
   store i8 0, ptr %arrayidx, align 1
   %4 = load ptr, ptr %arg, align 8
   %group_list_len.i = getelementptr inbounds nuw i8, ptr %4, i64 1608
@@ -5509,7 +5509,7 @@ if.end:                                           ; preds = %entry
 if.end6:                                          ; preds = %if.end
   %conv = sext i32 %len to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %etmp, ptr nonnull align 1 %elem, i64 %conv, i1 false)
-  %arrayidx = getelementptr inbounds nuw [40 x i8], ptr %etmp, i64 0, i64 %conv
+  %arrayidx = getelementptr inbounds [40 x i8], ptr %etmp, i64 0, i64 %conv
   store i8 0, ptr %arrayidx, align 1
   %call = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %etmp, i32 noundef 43) #16
   %cmp8 = icmp eq ptr %call, null

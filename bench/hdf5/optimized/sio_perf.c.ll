@@ -322,7 +322,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 70:                                               ; preds = %61
   %71 = add nsw i32 %.1237.i, 1
   %72 = sext i32 %.1237.i to i64
-  %73 = getelementptr inbounds nuw [10 x i8], ptr %5, i64 0, i64 %72
+  %73 = getelementptr inbounds [10 x i8], ptr %5, i64 0, i64 %72
   store i8 %60, ptr %73, align 1
   br label %74
 
@@ -398,7 +398,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 103:                                              ; preds = %94
   %104 = add nsw i32 %.3.i, 1
   %105 = sext i32 %.3.i to i64
-  %106 = getelementptr inbounds nuw [10 x i8], ptr %6, i64 0, i64 %105
+  %106 = getelementptr inbounds [10 x i8], ptr %6, i64 0, i64 %105
   store i8 %93, ptr %106, align 1
   br label %107
 
@@ -466,7 +466,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 129:                                              ; preds = %120
   %130 = add nsw i32 %.5.i, 1
   %131 = sext i32 %.5.i to i64
-  %132 = getelementptr inbounds nuw [10 x i8], ptr %7, i64 0, i64 %131
+  %132 = getelementptr inbounds [10 x i8], ptr %7, i64 0, i64 %131
   store i8 %119, ptr %132, align 1
   br label %133
 
@@ -611,7 +611,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 192:                                              ; preds = %183
   %193 = add nsw i32 %.7.i, 1
   %194 = sext i32 %.7.i to i64
-  %195 = getelementptr inbounds nuw [10 x i8], ptr %8, i64 0, i64 %194
+  %195 = getelementptr inbounds [10 x i8], ptr %8, i64 0, i64 %194
   store i8 %182, ptr %195, align 1
   br label %196
 
@@ -775,7 +775,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 253:                                              ; preds = %244
   %254 = add nsw i32 %.9.i, 1
   %255 = sext i32 %.9.i to i64
-  %256 = getelementptr inbounds nuw [10 x i8], ptr %9, i64 0, i64 %255
+  %256 = getelementptr inbounds [10 x i8], ptr %9, i64 0, i64 %255
   store i8 %243, ptr %256, align 1
   br label %257
 
@@ -844,7 +844,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 279:                                              ; preds = %270
   %280 = add nsw i32 %.11.i, 1
   %281 = sext i32 %.11.i to i64
-  %282 = getelementptr inbounds nuw [10 x i8], ptr %10, i64 0, i64 %281
+  %282 = getelementptr inbounds [10 x i8], ptr %10, i64 0, i64 %281
   store i8 %269, ptr %282, align 1
   br label %283
 

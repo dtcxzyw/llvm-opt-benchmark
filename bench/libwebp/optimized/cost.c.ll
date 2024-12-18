@@ -158,7 +158,7 @@ define internal i32 @GetResidualCost_C(i32 noundef %0, ptr nocapture noundef rea
 60:                                               ; preds = %._crit_edge
   %61 = add nsw i32 %.039.lcssa, 1
   %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds nuw [17 x i8], ptr @VP8EncBands, i64 0, i64 %62
+  %63 = getelementptr inbounds [17 x i8], ptr @VP8EncBands, i64 0, i64 %62
   %64 = load i8, ptr %63, align 1
   %65 = icmp eq i16 %47, 1
   %66 = zext i8 %64 to i64

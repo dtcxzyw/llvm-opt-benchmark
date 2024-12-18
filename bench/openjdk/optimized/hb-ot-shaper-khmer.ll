@@ -692,18 +692,18 @@ define linkonce_odr hidden void @_Z20find_syllables_khmerP11hb_buffer_t(ptr noun
   %.1137 = phi i32 [ %spec.select173, %138 ], [ 0, %1 ]
   %.1 = phi i32 [ %142, %138 ], [ 0, %1 ]
   %8 = sext i32 %.1154 to i64
-  %9 = getelementptr inbounds nuw [43 x i8], ptr @_ZL42_khmer_syllable_machine_from_state_actions, i64 0, i64 %8
+  %9 = getelementptr inbounds [43 x i8], ptr @_ZL42_khmer_syllable_machine_from_state_actions, i64 0, i64 %8
   %10 = load i8, ptr %9, align 1
   %cond = icmp eq i8 %10, 7
   %spec.select = select i1 %cond, i32 %.1, i32 %.1137
   %11 = shl nsw i32 %.1154, 1
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds nuw i8, ptr @_ZL34_khmer_syllable_machine_trans_keys, i64 %12
-  %14 = getelementptr inbounds nuw [43 x i16], ptr @_ZL37_khmer_syllable_machine_index_offsets, i64 0, i64 %8
+  %13 = getelementptr inbounds i8, ptr @_ZL34_khmer_syllable_machine_trans_keys, i64 %12
+  %14 = getelementptr inbounds [43 x i16], ptr @_ZL37_khmer_syllable_machine_index_offsets, i64 0, i64 %8
   %15 = load i16, ptr %14, align 2
   %16 = sext i16 %15 to i64
-  %17 = getelementptr inbounds nuw i8, ptr @_ZL32_khmer_syllable_machine_indicies, i64 %16
-  %18 = getelementptr inbounds nuw [43 x i8], ptr @_ZL33_khmer_syllable_machine_key_spans, i64 0, i64 %8
+  %17 = getelementptr inbounds i8, ptr @_ZL32_khmer_syllable_machine_indicies, i64 %16
+  %18 = getelementptr inbounds [43 x i8], ptr @_ZL33_khmer_syllable_machine_key_spans, i64 0, i64 %8
   %19 = load i8, ptr %18, align 1
   %20 = sext i8 %19 to i64
   %21 = load i8, ptr %13, align 2
@@ -737,7 +737,7 @@ define linkonce_odr hidden void @_Z20find_syllables_khmerP11hb_buffer_t(ptr noun
   %.0140 = phi i64 [ %149, %144 ], [ %34, %30 ]
   %.3139 = phi i32 [ %.0136, %144 ], [ %spec.select, %30 ]
   %.2 = phi i32 [ %5, %144 ], [ %.1, %30 ]
-  %36 = getelementptr inbounds nuw [49 x i8], ptr @_ZL35_khmer_syllable_machine_trans_targs, i64 0, i64 %.0140
+  %36 = getelementptr inbounds [49 x i8], ptr @_ZL35_khmer_syllable_machine_trans_targs, i64 0, i64 %.0140
   %37 = load i8, ptr %36, align 1
   %38 = sext i8 %37 to i32
   %39 = shl nuw i64 1, %.0140
@@ -746,7 +746,7 @@ define linkonce_odr hidden void @_Z20find_syllables_khmerP11hb_buffer_t(ptr noun
   br i1 %.not162, label %41, label %138
 
 41:                                               ; preds = %35
-  %42 = getelementptr inbounds nuw [49 x i8], ptr @_ZL37_khmer_syllable_machine_trans_actions, i64 0, i64 %.0140
+  %42 = getelementptr inbounds [49 x i8], ptr @_ZL37_khmer_syllable_machine_trans_actions, i64 0, i64 %.0140
   %43 = load i8, ptr %42, align 1
   switch i8 %43, label %138 [
     i8 2, label %44
@@ -1027,7 +1027,7 @@ define linkonce_odr hidden void @_Z20find_syllables_khmerP11hb_buffer_t(ptr noun
   %.3144 = phi i32 [ %.2143, %35 ], [ %.2143, %41 ], [ %137, %136 ], [ %135, %134 ], [ %.2143, %110 ], [ %.2143, %._crit_edge ], [ %.2143, %._crit_edge181 ], [ %.2143, %._crit_edge187 ], [ %.2143, %._crit_edge193 ], [ %.2, %._crit_edge199 ], [ %.2, %._crit_edge205 ], [ %.2, %._crit_edge211 ], [ %47, %._crit_edge217 ], [ %45, %44 ]
   %.3 = phi i32 [ %.2, %35 ], [ %.2, %41 ], [ %.2, %136 ], [ %.2, %134 ], [ %.2, %110 ], [ %125, %._crit_edge ], [ %112, %._crit_edge181 ], [ %98, %._crit_edge187 ], [ %89, %._crit_edge193 ], [ %79, %._crit_edge199 ], [ %66, %._crit_edge205 ], [ %57, %._crit_edge211 ], [ %.2, %._crit_edge217 ], [ %.2, %44 ]
   %139 = sext i8 %37 to i64
-  %140 = getelementptr inbounds nuw [43 x i8], ptr @_ZL40_khmer_syllable_machine_to_state_actions, i64 0, i64 %139
+  %140 = getelementptr inbounds [43 x i8], ptr @_ZL40_khmer_syllable_machine_to_state_actions, i64 0, i64 %139
   %141 = load i8, ptr %140, align 1
   %cond1 = icmp eq i8 %141, 6
   %spec.select173 = select i1 %cond1, i32 0, i32 %.3139
@@ -1046,7 +1046,7 @@ define linkonce_odr hidden void @_Z20find_syllables_khmerP11hb_buffer_t(ptr noun
 
 144:                                              ; preds = %143
   %145 = sext i32 %.0153 to i64
-  %146 = getelementptr inbounds nuw [43 x i16], ptr @_ZL33_khmer_syllable_machine_eof_trans, i64 0, i64 %145
+  %146 = getelementptr inbounds [43 x i16], ptr @_ZL33_khmer_syllable_machine_eof_trans, i64 0, i64 %145
   %147 = load i16, ptr %146, align 2
   %148 = sext i16 %147 to i64
   %149 = add nsw i64 %148, -1

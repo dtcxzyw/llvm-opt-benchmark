@@ -8268,7 +8268,7 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE12emplace_backIJRiS5_EEERS1_DpOT_.exit165.us: ; 
   %246 = getelementptr inbounds i32, ptr %245, i64 %244
   %247 = load i32, ptr %246, align 4
   %248 = sext i32 %247 to i64
-  %249 = getelementptr inbounds nuw [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %248, i32 2
+  %249 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %248, i32 2
   %250 = load i32, ptr %249, align 16
   %251 = add nsw i32 %250, 1
   %252 = sext i32 %251 to i64
@@ -8803,7 +8803,7 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE12emplace_backIJRiS5_EEERS1_DpOT_.exit165: ; pre
   %442 = getelementptr inbounds i32, ptr %441, i64 %440
   %443 = load i32, ptr %442, align 4
   %444 = sext i32 %443 to i64
-  %445 = getelementptr inbounds nuw [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %444, i32 2
+  %445 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %444, i32 2
   %446 = load i32, ptr %445, align 16
   %447 = add nsw i32 %446, 1
   %448 = sext i32 %447 to i64

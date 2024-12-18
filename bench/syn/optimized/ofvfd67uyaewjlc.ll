@@ -6098,7 +6098,7 @@ _ZN3syn6buffer6Cursor6create17h6f60e92346255650E.llvm.1271834235494842624.exit.i
   br i1 %259, label %263, label %260
 
 260:                                              ; preds = %256
-  %261 = getelementptr inbounds nuw [39 x i64], ptr @anon.498ddb5d88a3ea875d9859ed069fa2d7.21, i64 0, i64 %.0..0..0..0..0..0..pr
+  %261 = getelementptr inbounds [39 x i64], ptr @anon.498ddb5d88a3ea875d9859ed069fa2d7.21, i64 0, i64 %.0..0..0..0..0..0..pr
   %262 = load i64, ptr %261, align 8, !noundef !9
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.035, ptr nonnull align 8 %9, i64 %262, i1 false)
   %.sroa.035.176..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.035, i64 176

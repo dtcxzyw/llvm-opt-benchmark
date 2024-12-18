@@ -1540,7 +1540,7 @@ define void @_ZN24DecorateRasterProjPlugin10MeshDrawer10drawShadowEP10QGLContext
   %21 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %20
   %22 = shl i64 %indvars.iv.i.i.i, 2
   %23 = add nuw nsw i64 %22, %indvars.iv15.i.i.i
-  %24 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %23
+  %24 = getelementptr inbounds [16 x float], ptr %4, i64 0, i64 %23
   %25 = load float, ptr %21, align 4, !alias.scope !10
   %26 = load float, ptr %24, align 4, !alias.scope !10
   store float %26, ptr %21, align 4, !alias.scope !10
@@ -1841,7 +1841,7 @@ define void @_ZN24DecorateRasterProjPlugin10MeshDrawer4drawEP10QGLContextP26MLSc
   %23 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %22
   %24 = shl i64 %indvars.iv.i.i.i, 2
   %25 = add nuw nsw i64 %24, %indvars.iv15.i.i.i
-  %26 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %25
+  %26 = getelementptr inbounds [16 x float], ptr %4, i64 0, i64 %25
   %27 = load float, ptr %23, align 4, !alias.scope !15
   %28 = load float, ptr %26, align 4, !alias.scope !15
   store float %28, ptr %23, align 4, !alias.scope !15
@@ -13023,7 +13023,7 @@ _ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEE
   %119 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %118
   %120 = shl i64 %indvars.iv.i.i, 2
   %121 = add nuw nsw i64 %120, %indvars.iv15.i.i
-  %122 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %121
+  %122 = getelementptr inbounds [16 x float], ptr %4, i64 0, i64 %121
   %123 = load float, ptr %119, align 4, !alias.scope !94
   %124 = load float, ptr %122, align 4, !alias.scope !94
   store float %124, ptr %119, align 4, !alias.scope !94
@@ -24024,7 +24024,7 @@ _ZN7QStringD2Ev.exit27:                           ; preds = %36, %_ZN9QtPrivate8
   %44 = getelementptr inbounds nuw [16 x float], ptr %5, i64 0, i64 %43
   %45 = shl i64 %indvars.iv.i.i.i, 2
   %46 = add nuw nsw i64 %45, %indvars.iv15.i.i.i
-  %47 = getelementptr inbounds nuw [16 x float], ptr %5, i64 0, i64 %46
+  %47 = getelementptr inbounds [16 x float], ptr %5, i64 0, i64 %46
   %48 = load float, ptr %44, align 4, !alias.scope !188
   %49 = load float, ptr %47, align 4, !alias.scope !188
   store float %49, ptr %44, align 4, !alias.scope !188
@@ -24053,7 +24053,7 @@ _ZN7QStringD2Ev.exit27:                           ; preds = %36, %_ZN9QtPrivate8
   %55 = getelementptr inbounds nuw [16 x float], ptr %5, i64 0, i64 %54
   %56 = shl i64 %indvars.iv.i, 2
   %57 = add nuw nsw i64 %56, %indvars.iv15.i
-  %58 = getelementptr inbounds nuw [16 x float], ptr %5, i64 0, i64 %57
+  %58 = getelementptr inbounds [16 x float], ptr %5, i64 0, i64 %57
   %59 = load float, ptr %55, align 4
   %60 = load float, ptr %58, align 4
   store float %60, ptr %55, align 4
@@ -24812,7 +24812,7 @@ _ZNK3vcg8Matrix44IfEmlERKS1_.exit:                ; preds = %245
   %249 = getelementptr inbounds nuw [16 x float], ptr %24, i64 0, i64 %248
   %250 = shl i64 %indvars.iv.i.i, 2
   %251 = add nuw nsw i64 %250, %indvars.iv15.i.i
-  %252 = getelementptr inbounds nuw [16 x float], ptr %24, i64 0, i64 %251
+  %252 = getelementptr inbounds [16 x float], ptr %24, i64 0, i64 %251
   %253 = load float, ptr %249, align 4, !alias.scope !207
   %254 = load float, ptr %252, align 4, !alias.scope !207
   store float %254, ptr %249, align 4, !alias.scope !207
@@ -25654,7 +25654,7 @@ _ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE17isPrimitiveActiveENS_20GLMeshAttrib
   %556 = getelementptr inbounds nuw [16 x float], ptr %45, i64 0, i64 %555
   %557 = shl i64 %indvars.iv.i.i239, 2
   %558 = add nuw nsw i64 %557, %indvars.iv15.i.i238
-  %559 = getelementptr inbounds nuw [16 x float], ptr %45, i64 0, i64 %558
+  %559 = getelementptr inbounds [16 x float], ptr %45, i64 0, i64 %558
   %560 = load float, ptr %556, align 4, !alias.scope !210
   %561 = load float, ptr %559, align 4, !alias.scope !210
   store float %561, ptr %556, align 4, !alias.scope !210

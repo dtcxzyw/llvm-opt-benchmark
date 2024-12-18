@@ -4308,7 +4308,7 @@ define hidden void @_ZN8smol_str4Repr12new_on_stack17h5daaeaf9155c45afE.llvm.698
   br i1 %34, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i", label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i"
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i": ; preds = %33
-  %35 = getelementptr inbounds nuw i8, ptr @anon.ba08eb37b38b3e1d43162013cb88cbf4.73, i64 %31
+  %35 = getelementptr inbounds i8, ptr @anon.ba08eb37b38b3e1d43162013cb88cbf4.73, i64 %31
   %36 = load i8, ptr %35, align 1, !alias.scope !1189, !noundef !4
   %37 = icmp sgt i8 %36, -65
   br i1 %37, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i", label %42

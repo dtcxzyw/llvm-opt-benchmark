@@ -116,7 +116,7 @@ splitNames.exit:                                  ; preds = %.loopexit.i48, %29,
 
 35:                                               ; preds = %.preheader66, %47
   %indvars.iv = phi i64 [ %34, %.preheader66 ], [ %indvars.iv.next, %47 ]
-  %36 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv
+  %36 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8
   %38 = load i8, ptr %37, align 1
   %39 = icmp eq i8 %38, 46
@@ -183,7 +183,7 @@ splitNames.exit:                                  ; preds = %.loopexit.i48, %29,
   %.26063.ph = phi i32 [ %50, %62 ], [ %52, %.thread ], [ %50, %59 ]
   %sext = shl i64 %indvars.iv, 32
   %65 = ashr exact i64 %sext, 29
-  %66 = getelementptr inbounds nuw i8, ptr %26, i64 %65
+  %66 = getelementptr inbounds i8, ptr %26, i64 %65
   store ptr null, ptr %66, align 8
   br label %67
 

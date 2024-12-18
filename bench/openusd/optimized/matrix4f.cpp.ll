@@ -4252,7 +4252,7 @@ define { <2 x float>, <2 x float> } @_ZNK32pxrInternal_v0_24__pxrReserved__10GfM
   %83 = fadd float %80, %82
   %84 = fmul float %77, 4.000000e+00
   %85 = fdiv float %83, %84
-  %86 = getelementptr inbounds nuw [3 x float], ptr %2, i64 0, i64 %62
+  %86 = getelementptr inbounds [3 x float], ptr %2, i64 0, i64 %62
   store float %85, ptr %86, align 4
   %87 = getelementptr inbounds nuw float, ptr %68, i64 %16
   %88 = load float, ptr %87, align 4

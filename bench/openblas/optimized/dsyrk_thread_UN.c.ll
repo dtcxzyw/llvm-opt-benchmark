@@ -107,7 +107,7 @@ define noundef i32 @dsyrk_thread_UN(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %67, label %.preheader, label %.critedge
 
 68:                                               ; preds = %103
-  %69 = getelementptr inbounds nuw [116 x i64], ptr %10, i64 0, i64 %109
+  %69 = getelementptr inbounds [116 x i64], ptr %10, i64 0, i64 %109
   br label %121
 
 .preheader:                                       ; preds = %58, %103
@@ -163,11 +163,11 @@ define noundef i32 @dsyrk_thread_UN(ptr noundef %0, ptr noundef %1, ptr noundef 
 103:                                              ; preds = %101, %95
   %104 = phi i64 [ %102, %101 ], [ %100, %95 ]
   %105 = sub nsw i64 16, %70
-  %106 = getelementptr inbounds nuw [116 x i64], ptr %10, i64 0, i64 %105
+  %106 = getelementptr inbounds [116 x i64], ptr %10, i64 0, i64 %105
   %107 = load i64, ptr %106, align 8, !tbaa !21
   %108 = sub nsw i64 %107, %104
   %109 = sub nsw i64 15, %70
-  %110 = getelementptr inbounds nuw [116 x i64], ptr %10, i64 0, i64 %109
+  %110 = getelementptr inbounds [116 x i64], ptr %10, i64 0, i64 %109
   store i64 %108, ptr %110, align 8, !tbaa !21
   %111 = getelementptr inbounds nuw [16 x %struct.blas_queue], ptr %9, i64 0, i64 %70
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 160

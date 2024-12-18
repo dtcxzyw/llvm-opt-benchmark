@@ -358,7 +358,7 @@ agxbfree.exit:                                    ; preds = %agxbuse.exit, %77
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %98 = sdiv i32 %.079, 64
   %99 = sext i32 %98 to i64
-  %100 = getelementptr inbounds nuw [16 x i64], ptr %8, i64 0, i64 %99
+  %100 = getelementptr inbounds [16 x i64], ptr %8, i64 0, i64 %99
   %101 = srem i32 %.079, 64
   %102 = zext nneg i32 %101 to i64
   %103 = shl nuw i64 1, %102
@@ -380,7 +380,7 @@ agxbfree.exit:                                    ; preds = %agxbuse.exit, %77
   %119 = shl nuw i64 1, %118
   %120 = sdiv i32 %23, 64
   %121 = sext i32 %120 to i64
-  %122 = getelementptr inbounds nuw [16 x i64], ptr %8, i64 0, i64 %121
+  %122 = getelementptr inbounds [16 x i64], ptr %8, i64 0, i64 %121
   %123 = add nsw i32 %.078, 1
   br label %259
 

@@ -165,7 +165,7 @@ if.then.i:                                        ; preds = %if.else28
 
 if.else.i:                                        ; preds = %if.else28
   %idxprom.i = sext i32 %10 to i64
-  %arrayidx.i = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i
   br label %oideq.exit
 
 oideq.exit:                                       ; preds = %if.then.i, %if.else.i

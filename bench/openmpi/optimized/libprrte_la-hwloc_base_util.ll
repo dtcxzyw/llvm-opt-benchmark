@@ -2088,7 +2088,7 @@ hwloc_getline.exit.thread:                        ; preds = %.backedge, %.prehea
 hwloc_getline.exit:                               ; preds = %.preheader, %.backedge
   %5 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
   %6 = add i64 %5, -1
-  %7 = getelementptr inbounds nuw [1024 x i8], ptr %1, i64 0, i64 %6
+  %7 = getelementptr inbounds [1024 x i8], ptr %1, i64 0, i64 %6
   store i8 0, ptr %7, align 1
   %8 = call noalias ptr @strdup(ptr noundef nonnull %1) #16
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %1)

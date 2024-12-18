@@ -5434,7 +5434,7 @@ _ZNSt14priority_queueISt4pairIfiESt6vectorIS1_SaIS1_EESt7greaterIS1_EED2Ev.exit.
   %209 = icmp ne i8 %207, %208
   store i8 %208, ptr %206, align 1
   %210 = sext i32 %.051199.i to i64
-  %211 = getelementptr inbounds nuw [4 x i64], ptr %13, i64 0, i64 %210
+  %211 = getelementptr inbounds [4 x i64], ptr %13, i64 0, i64 %210
   store i64 %205, ptr %211, align 8, !noalias !83
   %212 = zext i1 %209 to i32
   %213 = add nsw i32 %.051199.i, %212
@@ -5918,7 +5918,7 @@ _ZNSt14priority_queueISt4pairIfiESt6vectorIS1_SaIS1_EESt4lessIS1_EE3popEv.exit.i
 
 .lr.ph205.i:                                      ; preds = %.preheader158.i, %572
   %.047204.i = phi i64 [ %573, %572 ], [ 0, %.preheader158.i ]
-  %425 = getelementptr inbounds nuw [4 x i64], ptr %13, i64 0, i64 %.047204.i
+  %425 = getelementptr inbounds [4 x i64], ptr %13, i64 0, i64 %.047204.i
   %426 = load i64, ptr %425, align 8, !noalias !83
   %427 = load ptr, ptr %2, align 8, !noalias !83
   %428 = getelementptr inbounds nuw i8, ptr %427, i64 8
@@ -7279,7 +7279,7 @@ _ZN5faiss4HNSW11MinimaxHeap11count_belowEf.exit:  ; preds = %156, %152
   %199 = icmp ne i8 %197, %198
   store i8 %198, ptr %196, align 1
   %200 = sext i32 %.089181 to i64
-  %201 = getelementptr inbounds nuw [4 x i64], ptr %9, i64 0, i64 %200
+  %201 = getelementptr inbounds [4 x i64], ptr %9, i64 0, i64 %200
   store i64 %194, ptr %201, align 8
   %202 = zext i1 %199 to i32
   %203 = add nsw i32 %.089181, %202
@@ -7513,7 +7513,7 @@ _ZN5faiss4HNSW11MinimaxHeap4pushEif.exit:         ; preds = %234, %_ZN5faiss9hea
 .lr.ph189:                                        ; preds = %.preheader, %_ZN5faiss4HNSW11MinimaxHeap4pushEif.exit140
   %.084188 = phi i64 [ %426, %_ZN5faiss4HNSW11MinimaxHeap4pushEif.exit140 ], [ 0, %.preheader ]
   %.5187 = phi float [ %.7, %_ZN5faiss4HNSW11MinimaxHeap4pushEif.exit140 ], [ %.4, %.preheader ]
-  %320 = getelementptr inbounds nuw [4 x i64], ptr %9, i64 0, i64 %.084188
+  %320 = getelementptr inbounds [4 x i64], ptr %9, i64 0, i64 %.084188
   %321 = load i64, ptr %320, align 8
   %322 = load ptr, ptr %1, align 8
   %323 = getelementptr inbounds nuw i8, ptr %322, i64 8

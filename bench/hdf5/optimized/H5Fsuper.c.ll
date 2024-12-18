@@ -465,7 +465,7 @@ define range(i32 -1, 1) i32 @H5F__super_read(ptr noundef %0, ptr noundef %1, i1 
   %117 = getelementptr inbounds nuw i8, ptr %115, i64 1432
   %118 = load i32, ptr %117, align 8
   %119 = sext i32 %118 to i64
-  %120 = getelementptr inbounds nuw [6 x i32], ptr @HDF5_superblock_ver_bounds, i64 0, i64 %119
+  %120 = getelementptr inbounds [6 x i32], ptr @HDF5_superblock_ver_bounds, i64 0, i64 %119
   %121 = load i32, ptr %120, align 4
   %122 = icmp ugt i32 %116, %121
   br i1 %122, label %123, label %127
@@ -2092,14 +2092,14 @@ define range(i32 -1, 1) i32 @H5F__super_init(ptr noundef %0) local_unnamed_addr 
   %82 = getelementptr inbounds nuw i8, ptr %80, i64 1428
   %83 = load i32, ptr %82, align 4
   %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds nuw [6 x i32], ptr @HDF5_superblock_ver_bounds, i64 0, i64 %84
+  %85 = getelementptr inbounds [6 x i32], ptr @HDF5_superblock_ver_bounds, i64 0, i64 %84
   %86 = load i32, ptr %85, align 4
   %. = call i32 @llvm.umax.i32(i32 %81, i32 %86)
   store i32 %., ptr %4, align 4
   %87 = getelementptr inbounds nuw i8, ptr %80, i64 1432
   %88 = load i32, ptr %87, align 8
   %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds nuw [6 x i32], ptr @HDF5_superblock_ver_bounds, i64 0, i64 %89
+  %90 = getelementptr inbounds [6 x i32], ptr @HDF5_superblock_ver_bounds, i64 0, i64 %89
   %91 = load i32, ptr %90, align 4
   %92 = icmp ugt i32 %., %91
   br i1 %92, label %93, label %97

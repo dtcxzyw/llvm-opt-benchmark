@@ -259,7 +259,7 @@ define void @_ZN3gmx18InMemorySerializer5doIntEPi(ptr nocapture noundef nonnull 
   %indvars.iv3.i.i = phi i64 [ 3, %12 ], [ %indvars.iv.next4.i.i, %13 ]
   %indvars.iv.i.i = phi i64 [ 0, %12 ], [ %indvars.iv.next.i.i, %13 ]
   %14 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
-  %15 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv3.i.i
+  %15 = getelementptr inbounds [4 x i8], ptr %3, i64 0, i64 %indvars.iv3.i.i
   %16 = load i8, ptr %14, align 1
   %17 = load i8, ptr %15, align 1
   store i8 %17, ptr %14, align 1
@@ -321,7 +321,7 @@ define void @_ZN3gmx18InMemorySerializer7doInt32EPi(ptr nocapture noundef nonnul
   %indvars.iv3.i.i = phi i64 [ 3, %12 ], [ %indvars.iv.next4.i.i, %13 ]
   %indvars.iv.i.i = phi i64 [ 0, %12 ], [ %indvars.iv.next.i.i, %13 ]
   %14 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
-  %15 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv3.i.i
+  %15 = getelementptr inbounds [4 x i8], ptr %3, i64 0, i64 %indvars.iv3.i.i
   %16 = load i8, ptr %14, align 1
   %17 = load i8, ptr %15, align 1
   store i8 %17, ptr %14, align 1
@@ -383,7 +383,7 @@ define void @_ZN3gmx18InMemorySerializer7doInt64EPl(ptr nocapture noundef nonnul
   %indvars.iv3.i.i = phi i64 [ 7, %12 ], [ %indvars.iv.next4.i.i, %13 ]
   %indvars.iv.i.i = phi i64 [ 0, %12 ], [ %indvars.iv.next.i.i, %13 ]
   %14 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
-  %15 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %indvars.iv3.i.i
+  %15 = getelementptr inbounds [8 x i8], ptr %3, i64 0, i64 %indvars.iv3.i.i
   %16 = load i8, ptr %14, align 1
   %17 = load i8, ptr %15, align 1
   store i8 %17, ptr %14, align 1
@@ -445,7 +445,7 @@ define void @_ZN3gmx18InMemorySerializer7doFloatEPf(ptr nocapture noundef nonnul
   %indvars.iv3.i.i = phi i64 [ 3, %12 ], [ %indvars.iv.next4.i.i, %13 ]
   %indvars.iv.i.i = phi i64 [ 0, %12 ], [ %indvars.iv.next.i.i, %13 ]
   %14 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
-  %15 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv3.i.i
+  %15 = getelementptr inbounds [4 x i8], ptr %3, i64 0, i64 %indvars.iv3.i.i
   %16 = load i8, ptr %14, align 1
   %17 = load i8, ptr %15, align 1
   store i8 %17, ptr %14, align 1
@@ -507,7 +507,7 @@ define void @_ZN3gmx18InMemorySerializer8doDoubleEPd(ptr nocapture noundef nonnu
   %indvars.iv3.i.i = phi i64 [ 7, %12 ], [ %indvars.iv.next4.i.i, %13 ]
   %indvars.iv.i.i = phi i64 [ 0, %12 ], [ %indvars.iv.next.i.i, %13 ]
   %14 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
-  %15 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %indvars.iv3.i.i
+  %15 = getelementptr inbounds [8 x i8], ptr %3, i64 0, i64 %indvars.iv3.i.i
   %16 = load i8, ptr %14, align 1
   %17 = load i8, ptr %15, align 1
   store i8 %17, ptr %14, align 1
@@ -569,7 +569,7 @@ define void @_ZN3gmx18InMemorySerializer6doRealEPf(ptr nocapture noundef nonnull
   %indvars.iv3.i.i = phi i64 [ 3, %12 ], [ %indvars.iv.next4.i.i, %13 ]
   %indvars.iv.i.i = phi i64 [ 0, %12 ], [ %indvars.iv.next.i.i, %13 ]
   %14 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
-  %15 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv3.i.i
+  %15 = getelementptr inbounds [4 x i8], ptr %3, i64 0, i64 %indvars.iv3.i.i
   %16 = load i8, ptr %14, align 1
   %17 = load i8, ptr %15, align 1
   store i8 %17, ptr %14, align 1
@@ -874,7 +874,7 @@ define void @_ZN3gmx20InMemoryDeserializer5doIntEPi(ptr nocapture noundef nonnul
   %indvars.iv3.i.i = phi i64 [ 3, %15 ], [ %indvars.iv.next4.i.i, %16 ]
   %indvars.iv.i.i = phi i64 [ 0, %15 ], [ %indvars.iv.next.i.i, %16 ]
   %17 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
-  %18 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv3.i.i
+  %18 = getelementptr inbounds [4 x i8], ptr %3, i64 0, i64 %indvars.iv3.i.i
   %19 = load i8, ptr %17, align 1
   %20 = load i8, ptr %18, align 1
   store i8 %20, ptr %17, align 1
@@ -923,7 +923,7 @@ define void @_ZN3gmx20InMemoryDeserializer7doInt32EPi(ptr nocapture noundef nonn
   %indvars.iv3.i.i = phi i64 [ 3, %15 ], [ %indvars.iv.next4.i.i, %16 ]
   %indvars.iv.i.i = phi i64 [ 0, %15 ], [ %indvars.iv.next.i.i, %16 ]
   %17 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
-  %18 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv3.i.i
+  %18 = getelementptr inbounds [4 x i8], ptr %3, i64 0, i64 %indvars.iv3.i.i
   %19 = load i8, ptr %17, align 1
   %20 = load i8, ptr %18, align 1
   store i8 %20, ptr %17, align 1
@@ -972,7 +972,7 @@ define void @_ZN3gmx20InMemoryDeserializer7doInt64EPl(ptr nocapture noundef nonn
   %indvars.iv3.i.i = phi i64 [ 7, %15 ], [ %indvars.iv.next4.i.i, %16 ]
   %indvars.iv.i.i = phi i64 [ 0, %15 ], [ %indvars.iv.next.i.i, %16 ]
   %17 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
-  %18 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %indvars.iv3.i.i
+  %18 = getelementptr inbounds [8 x i8], ptr %3, i64 0, i64 %indvars.iv3.i.i
   %19 = load i8, ptr %17, align 1
   %20 = load i8, ptr %18, align 1
   store i8 %20, ptr %17, align 1
@@ -1021,7 +1021,7 @@ define void @_ZN3gmx20InMemoryDeserializer7doFloatEPf(ptr nocapture noundef nonn
   %indvars.iv3.i.i = phi i64 [ 3, %15 ], [ %indvars.iv.next4.i.i, %16 ]
   %indvars.iv.i.i = phi i64 [ 0, %15 ], [ %indvars.iv.next.i.i, %16 ]
   %17 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
-  %18 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv3.i.i
+  %18 = getelementptr inbounds [4 x i8], ptr %3, i64 0, i64 %indvars.iv3.i.i
   %19 = load i8, ptr %17, align 1
   %20 = load i8, ptr %18, align 1
   store i8 %20, ptr %17, align 1
@@ -1070,7 +1070,7 @@ define void @_ZN3gmx20InMemoryDeserializer8doDoubleEPd(ptr nocapture noundef non
   %indvars.iv3.i.i = phi i64 [ 7, %15 ], [ %indvars.iv.next4.i.i, %16 ]
   %indvars.iv.i.i = phi i64 [ 0, %15 ], [ %indvars.iv.next.i.i, %16 ]
   %17 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
-  %18 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %indvars.iv3.i.i
+  %18 = getelementptr inbounds [8 x i8], ptr %3, i64 0, i64 %indvars.iv3.i.i
   %19 = load i8, ptr %17, align 1
   %20 = load i8, ptr %18, align 1
   store i8 %20, ptr %17, align 1
@@ -1469,7 +1469,7 @@ define linkonce_odr void @_ZN3gmx18InMemorySerializer4Impl8doStringERKNSt7__cxx1
   %indvars.iv3.i.i = phi i64 [ 7, %10 ], [ %indvars.iv.next4.i.i, %11 ]
   %indvars.iv.i.i = phi i64 [ 0, %10 ], [ %indvars.iv.next.i.i, %11 ]
   %12 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
-  %13 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %indvars.iv3.i.i
+  %13 = getelementptr inbounds [8 x i8], ptr %3, i64 0, i64 %indvars.iv3.i.i
   %14 = load i8, ptr %12, align 1
   %15 = load i8, ptr %13, align 1
   store i8 %15, ptr %12, align 1
@@ -1914,7 +1914,7 @@ define linkonce_odr void @_ZN3gmx20InMemoryDeserializer4Impl8doStringEPNSt7__cxx
   %indvars.iv3.i.i = phi i64 [ 7, %15 ], [ %indvars.iv.next4.i.i, %16 ]
   %indvars.iv.i.i = phi i64 [ 0, %15 ], [ %indvars.iv.next.i.i, %16 ]
   %17 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
-  %18 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %indvars.iv3.i.i
+  %18 = getelementptr inbounds [8 x i8], ptr %3, i64 0, i64 %indvars.iv3.i.i
   %19 = load i8, ptr %17, align 1
   %20 = load i8, ptr %18, align 1
   store i8 %20, ptr %17, align 1

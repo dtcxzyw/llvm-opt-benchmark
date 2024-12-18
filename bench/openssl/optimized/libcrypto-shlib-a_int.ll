@@ -648,7 +648,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.th
   %off.0.i.i = phi i64 [ 8, %if.then.i ], [ %dec.i.i, %do.body.i.i ]
   %conv.i.i = trunc i64 %r.addr.0.i.i to i8
   %dec.i.i = add nsw i64 %off.0.i.i, -1
-  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %tbuf.i, i64 %dec.i.i
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %tbuf.i, i64 %dec.i.i
   store i8 %conv.i.i, ptr %arrayidx.i.i, align 1
   %shr.i.i = lshr i64 %r.addr.0.i.i, 8
   %tobool.not.i.i = icmp ult i64 %r.addr.0.i.i, 256
@@ -659,7 +659,7 @@ do.body.i7.i:                                     ; preds = %entry, %do.body.i7.
   %off.0.i9.i = phi i64 [ %dec.i11.i, %do.body.i7.i ], [ 8, %entry ]
   %conv.i10.i = trunc i64 %r.addr.0.i8.i to i8
   %dec.i11.i = add nsw i64 %off.0.i9.i, -1
-  %arrayidx.i12.i = getelementptr inbounds nuw i8, ptr %tbuf.i, i64 %dec.i11.i
+  %arrayidx.i12.i = getelementptr inbounds i8, ptr %tbuf.i, i64 %dec.i11.i
   store i8 %conv.i10.i, ptr %arrayidx.i12.i, align 1
   %shr.i13.i = lshr i64 %r.addr.0.i8.i, 8
   %tobool.not.i14.i = icmp samesign ult i64 %r.addr.0.i8.i, 256
@@ -670,7 +670,7 @@ asn1_string_set_int64.exit:                       ; preds = %do.body.i7.i, %do.b
   %off.0.i = phi i64 [ %dec.i.i, %do.body.i.i ], [ %dec.i11.i, %do.body.i7.i ]
   %type.i = getelementptr inbounds nuw i8, ptr %a, i64 4
   store i32 %storemerge.i, ptr %type.i, align 4
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %tbuf.i, i64 %off.0.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %tbuf.i, i64 %off.0.i
   %0 = trunc i64 %off.0.i to i32
   %conv.i = sub i32 8, %0
   %call7.i = call i32 @ASN1_STRING_set(ptr noundef %a, ptr noundef nonnull %add.ptr.i, i32 noundef %conv.i) #6
@@ -771,14 +771,14 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %entry
   %off.0.i.i = phi i64 [ 8, %entry ], [ %dec.i.i, %do.body.i.i ]
   %conv.i.i = trunc i64 %r.addr.0.i.i to i8
   %dec.i.i = add nsw i64 %off.0.i.i, -1
-  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %tbuf.i, i64 %dec.i.i
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %tbuf.i, i64 %dec.i.i
   store i8 %conv.i.i, ptr %arrayidx.i.i, align 1
   %shr.i.i = lshr i64 %r.addr.0.i.i, 8
   %tobool.not.i.i = icmp ult i64 %r.addr.0.i.i, 256
   br i1 %tobool.not.i.i, label %asn1_string_set_uint64.exit, label %do.body.i.i, !llvm.loop !9
 
 asn1_string_set_uint64.exit:                      ; preds = %do.body.i.i
-  %arrayidx.i.i.le = getelementptr inbounds nuw i8, ptr %tbuf.i, i64 %dec.i.i
+  %arrayidx.i.i.le = getelementptr inbounds i8, ptr %tbuf.i, i64 %dec.i.i
   %0 = trunc i64 %dec.i.i to i32
   %conv.i = sub i32 8, %0
   %call2.i = call i32 @ASN1_STRING_set(ptr noundef %a, ptr noundef nonnull %arrayidx.i.i.le, i32 noundef %conv.i) #6
@@ -803,7 +803,7 @@ do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %if.
   %off.0.i.i.i = phi i64 [ 8, %if.then.i.i ], [ %dec.i.i.i, %do.body.i.i.i ]
   %conv.i.i.i = trunc i64 %r.addr.0.i.i.i to i8
   %dec.i.i.i = add nsw i64 %off.0.i.i.i, -1
-  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %tbuf.i.i, i64 %dec.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %tbuf.i.i, i64 %dec.i.i.i
   store i8 %conv.i.i.i, ptr %arrayidx.i.i.i, align 1
   %shr.i.i.i = lshr i64 %r.addr.0.i.i.i, 8
   %tobool.not.i.i.i = icmp ult i64 %r.addr.0.i.i.i, 256
@@ -814,7 +814,7 @@ do.body.i7.i.i:                                   ; preds = %entry, %do.body.i7.
   %off.0.i9.i.i = phi i64 [ %dec.i11.i.i, %do.body.i7.i.i ], [ 8, %entry ]
   %conv.i10.i.i = trunc i64 %r.addr.0.i8.i.i to i8
   %dec.i11.i.i = add nsw i64 %off.0.i9.i.i, -1
-  %arrayidx.i12.i.i = getelementptr inbounds nuw i8, ptr %tbuf.i.i, i64 %dec.i11.i.i
+  %arrayidx.i12.i.i = getelementptr inbounds i8, ptr %tbuf.i.i, i64 %dec.i11.i.i
   store i8 %conv.i10.i.i, ptr %arrayidx.i12.i.i, align 1
   %shr.i13.i.i = lshr i64 %r.addr.0.i8.i.i, 8
   %tobool.not.i14.i.i = icmp samesign ult i64 %r.addr.0.i8.i.i, 256
@@ -825,7 +825,7 @@ ASN1_INTEGER_set_int64.exit:                      ; preds = %do.body.i7.i.i, %do
   %off.0.i.i = phi i64 [ %dec.i.i.i, %do.body.i.i.i ], [ %dec.i11.i.i, %do.body.i7.i.i ]
   %type.i.i = getelementptr inbounds nuw i8, ptr %a, i64 4
   store i32 %storemerge.i.i, ptr %type.i.i, align 4
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %tbuf.i.i, i64 %off.0.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %tbuf.i.i, i64 %off.0.i.i
   %0 = trunc i64 %off.0.i.i to i32
   %conv.i.i = sub i32 8, %0
   %call7.i.i = call i32 @ASN1_STRING_set(ptr noundef %a, ptr noundef nonnull %add.ptr.i.i, i32 noundef %conv.i.i) #6
@@ -1018,7 +1018,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.th
   %off.0.i.i = phi i64 [ 8, %if.then.i ], [ %dec.i.i, %do.body.i.i ]
   %conv.i.i = trunc i64 %r.addr.0.i.i to i8
   %dec.i.i = add nsw i64 %off.0.i.i, -1
-  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %tbuf.i, i64 %dec.i.i
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %tbuf.i, i64 %dec.i.i
   store i8 %conv.i.i, ptr %arrayidx.i.i, align 1
   %shr.i.i = lshr i64 %r.addr.0.i.i, 8
   %tobool.not.i.i = icmp ult i64 %r.addr.0.i.i, 256
@@ -1029,7 +1029,7 @@ do.body.i7.i:                                     ; preds = %entry, %do.body.i7.
   %off.0.i9.i = phi i64 [ %dec.i11.i, %do.body.i7.i ], [ 8, %entry ]
   %conv.i10.i = trunc i64 %r.addr.0.i8.i to i8
   %dec.i11.i = add nsw i64 %off.0.i9.i, -1
-  %arrayidx.i12.i = getelementptr inbounds nuw i8, ptr %tbuf.i, i64 %dec.i11.i
+  %arrayidx.i12.i = getelementptr inbounds i8, ptr %tbuf.i, i64 %dec.i11.i
   store i8 %conv.i10.i, ptr %arrayidx.i12.i, align 1
   %shr.i13.i = lshr i64 %r.addr.0.i8.i, 8
   %tobool.not.i14.i = icmp samesign ult i64 %r.addr.0.i8.i, 256
@@ -1040,7 +1040,7 @@ asn1_string_set_int64.exit:                       ; preds = %do.body.i7.i, %do.b
   %off.0.i = phi i64 [ %dec.i.i, %do.body.i.i ], [ %dec.i11.i, %do.body.i7.i ]
   %type.i = getelementptr inbounds nuw i8, ptr %a, i64 4
   store i32 %storemerge.i, ptr %type.i, align 4
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %tbuf.i, i64 %off.0.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %tbuf.i, i64 %off.0.i
   %0 = trunc i64 %off.0.i to i32
   %conv.i = sub i32 8, %0
   %call7.i = call i32 @ASN1_STRING_set(ptr noundef %a, ptr noundef nonnull %add.ptr.i, i32 noundef %conv.i) #6
@@ -1065,7 +1065,7 @@ do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %if.
   %off.0.i.i.i = phi i64 [ 8, %if.then.i.i ], [ %dec.i.i.i, %do.body.i.i.i ]
   %conv.i.i.i = trunc i64 %r.addr.0.i.i.i to i8
   %dec.i.i.i = add nsw i64 %off.0.i.i.i, -1
-  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %tbuf.i.i, i64 %dec.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %tbuf.i.i, i64 %dec.i.i.i
   store i8 %conv.i.i.i, ptr %arrayidx.i.i.i, align 1
   %shr.i.i.i = lshr i64 %r.addr.0.i.i.i, 8
   %tobool.not.i.i.i = icmp ult i64 %r.addr.0.i.i.i, 256
@@ -1076,7 +1076,7 @@ do.body.i7.i.i:                                   ; preds = %entry, %do.body.i7.
   %off.0.i9.i.i = phi i64 [ %dec.i11.i.i, %do.body.i7.i.i ], [ 8, %entry ]
   %conv.i10.i.i = trunc i64 %r.addr.0.i8.i.i to i8
   %dec.i11.i.i = add nsw i64 %off.0.i9.i.i, -1
-  %arrayidx.i12.i.i = getelementptr inbounds nuw i8, ptr %tbuf.i.i, i64 %dec.i11.i.i
+  %arrayidx.i12.i.i = getelementptr inbounds i8, ptr %tbuf.i.i, i64 %dec.i11.i.i
   store i8 %conv.i10.i.i, ptr %arrayidx.i12.i.i, align 1
   %shr.i13.i.i = lshr i64 %r.addr.0.i8.i.i, 8
   %tobool.not.i14.i.i = icmp samesign ult i64 %r.addr.0.i8.i.i, 256
@@ -1087,7 +1087,7 @@ ASN1_ENUMERATED_set_int64.exit:                   ; preds = %do.body.i7.i.i, %do
   %off.0.i.i = phi i64 [ %dec.i.i.i, %do.body.i.i.i ], [ %dec.i11.i.i, %do.body.i7.i.i ]
   %type.i.i = getelementptr inbounds nuw i8, ptr %a, i64 4
   store i32 %storemerge.i.i, ptr %type.i.i, align 4
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %tbuf.i.i, i64 %off.0.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %tbuf.i.i, i64 %off.0.i.i
   %0 = trunc i64 %off.0.i.i to i32
   %conv.i.i = sub i32 8, %0
   %call7.i.i = call i32 @ASN1_STRING_set(ptr noundef %a, ptr noundef nonnull %add.ptr.i.i, i32 noundef %conv.i.i) #6
@@ -1196,14 +1196,14 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   %off.0.i = phi i64 [ 8, %entry ], [ %dec.i, %do.body.i ]
   %conv.i = trunc i64 %r.addr.0.i to i8
   %dec.i = add nsw i64 %off.0.i, -1
-  %arrayidx.i = getelementptr inbounds nuw i8, ptr %buf, i64 %dec.i
+  %arrayidx.i = getelementptr inbounds i8, ptr %buf, i64 %dec.i
   store i8 %conv.i, ptr %arrayidx.i, align 1
   %shr.i = lshr i64 %r.addr.0.i, 8
   %tobool.not.i = icmp ult i64 %r.addr.0.i, 256
   br i1 %tobool.not.i, label %asn1_put_uint64.exit, label %do.body.i, !llvm.loop !9
 
 asn1_put_uint64.exit:                             ; preds = %do.body.i
-  %arrayidx.i.le = getelementptr inbounds nuw i8, ptr %buf, i64 %dec.i
+  %arrayidx.i.le = getelementptr inbounds i8, ptr %buf, i64 %dec.i
   %sub = sub i64 9, %off.0.i
   %tobool.i.not = icmp eq i64 %off.0.i, 9
   br i1 %tobool.i.not, label %if.end28.i.thread, label %if.then.i

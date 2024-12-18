@@ -147,7 +147,7 @@ lor.lhs.false:                                    ; preds = %for.body11
   br i1 %cmp18.not, label %for.inc42, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %for.body11
-  %arrayidx19 = getelementptr inbounds nuw [0 x i16], ptr @grpc_setting_id_to_wire_id, i64 0, i64 %i.140
+  %arrayidx19 = getelementptr inbounds [0 x i16], ptr @grpc_setting_id_to_wire_id, i64 0, i64 %i.140
   %9 = load i16, ptr %arrayidx19, align 2
   %10 = lshr i16 %9, 8
   %conv21 = trunc nuw i16 %10 to i8

@@ -70,7 +70,7 @@ for.body.i.i.i:                                   ; preds = %init.check.i.i, %fo
 _ZN8facebook5velox9functions3kll6detail13levelCapacityEjhh.exit: ; preds = %for.body, %init.check.i.i, %"_ZZN8facebook5velox9functions3kll6detail12_GLOBAL__N_116powerOfTwoThirdsEiENK3$_0clEv.exit.i.i"
   %3 = xor i64 %indvars.iv, -1
   %sub4.i = add nsw i64 %3, %conv2.i
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [60 x double], ptr @_ZZN8facebook5velox9functions3kll6detail12_GLOBAL__N_116powerOfTwoThirdsEiE5kMemo, i64 0, i64 %sub4.i
+  %arrayidx.i.i.i.i = getelementptr inbounds [60 x double], ptr @_ZZN8facebook5velox9functions3kll6detail12_GLOBAL__N_116powerOfTwoThirdsEiE5kMemo, i64 0, i64 %sub4.i
   %4 = load double, ptr %arrayidx.i.i.i.i, align 8
   %mul.i = fmul double %4, %conv.i
   %conv5.i = fptoui double %mul.i to i32
@@ -118,7 +118,7 @@ _ZN8facebook5velox9functions3kll6detail12_GLOBAL__N_116powerOfTwoThirdsEi.exit: 
   %conv2 = zext i8 %numLevels to i64
   %sub4 = add nsw i64 %3, %conv2
   %conv = uitofp i32 %k to double
-  %arrayidx.i.i.i = getelementptr inbounds nuw [60 x double], ptr @_ZZN8facebook5velox9functions3kll6detail12_GLOBAL__N_116powerOfTwoThirdsEiE5kMemo, i64 0, i64 %sub4
+  %arrayidx.i.i.i = getelementptr inbounds [60 x double], ptr @_ZZN8facebook5velox9functions3kll6detail12_GLOBAL__N_116powerOfTwoThirdsEiE5kMemo, i64 0, i64 %sub4
   %4 = load double, ptr %arrayidx.i.i.i, align 8
   %mul = fmul double %4, %conv
   %conv5 = fptoui double %mul to i32

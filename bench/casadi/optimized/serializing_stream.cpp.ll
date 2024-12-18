@@ -8011,7 +8011,7 @@ _ZN6casadi17SerializingStream4packEm.exit:        ; preds = %27
 
 .lr.ph:                                           ; preds = %.lr.ph17, %.lr.ph
   %.015 = phi i64 [ %48, %.lr.ph ], [ 0, %.lr.ph17 ]
-  %39 = getelementptr inbounds nuw [1024 x i8], ptr %4, i64 0, i64 %.015
+  %39 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 %.015
   %40 = load i8, ptr %39, align 1
   %41 = load ptr, ptr %26, align 8
   %42 = and i8 %40, 15

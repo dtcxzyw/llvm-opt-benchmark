@@ -1187,7 +1187,7 @@ _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit.i: ; preds = %454, %449, %448
 
 .noexc117:                                        ; preds = %.noexc
   %474 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #21
-  %475 = getelementptr inbounds nuw i8, ptr %15, i64 %474
+  %475 = getelementptr inbounds i8, ptr %15, i64 %474
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull %15, ptr noundef nonnull %475)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %476
 

@@ -6221,10 +6221,10 @@ switch.lookup:
   %7 = load ptr, ptr %6, align 8, !nonnull !7, !noundef !7
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = sext i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN2ui10components6button11button_like9TintColor17button_like_style17h0cb046d9d114355cE.llvm.1407927494119257398, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZN2ui10components6button11button_like9TintColor17button_like_style17h0cb046d9d114355cE.llvm.1407927494119257398, i64 0, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   %10 = sext i8 %1 to i64
-  %switch.gep9 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN2ui10components6button11button_like9TintColor17button_like_style17h0cb046d9d114355cE.llvm.1407927494119257398.38, i64 0, i64 %10
+  %switch.gep9 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN2ui10components6button11button_like9TintColor17button_like_style17h0cb046d9d114355cE.llvm.1407927494119257398.38, i64 0, i64 %10
   %switch.load10 = load i64, ptr %switch.gep9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 %switch.load
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false)
@@ -6419,7 +6419,7 @@ define hidden void @_ZN2ui10components6button11button_like11ButtonStyle6active17
 define noundef float @_ZN2ui10components6button11button_like10ButtonSize4rems17ha426d520920881eeE(i8 noundef %0) unnamed_addr #3 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x float], ptr @"switch.table._ZN93_$LT$ui..components..button..button_like..ButtonLike$u20$as$u20$gpui..element..RenderOnce$GT$6render17hb1f8f6526f01a02aE", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [4 x float], ptr @"switch.table._ZN93_$LT$ui..components..button..button_like..ButtonLike$u20$as$u20$gpui..element..RenderOnce$GT$6render17hb1f8f6526f01a02aE", i64 0, i64 %1
   %switch.load = load float, ptr %switch.gep, align 4
   %2 = tail call noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef %switch.load)
   ret float %2

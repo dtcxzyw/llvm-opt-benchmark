@@ -1876,7 +1876,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit380: ;
   %757 = call noundef ptr @_Z17enumValueToString22SwapGroupSplittingType(i32 noundef %756)
   %758 = load i32, ptr %46, align 8
   %759 = sext i32 %758 to i64
-  %760 = getelementptr inbounds nuw [4 x ptr], ptr @_ZL6DimStr, i64 0, i64 %759
+  %760 = getelementptr inbounds [4 x ptr], ptr @_ZL6DimStr, i64 0, i64 %759
   %761 = load ptr, ptr %760, align 8
   %762 = getelementptr inbounds [3 x float], ptr %753, i64 0, i64 %759
   %763 = load float, ptr %762, align 4
@@ -3211,7 +3211,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
 .split186.us.i:                                   ; preds = %._crit_edge.i429, %1305
   %1417 = load i32, ptr %73, align 8
   %1418 = sext i32 %1417 to i64
-  %1419 = getelementptr inbounds nuw [4 x ptr], ptr @_ZL7SwapStr, i64 0, i64 %1418
+  %1419 = getelementptr inbounds [4 x ptr], ptr @_ZL7SwapStr, i64 0, i64 %1418
   %1420 = load ptr, ptr %1419, align 8
   %1421 = load ptr, ptr %47, align 8
   %1422 = getelementptr inbounds nuw i8, ptr %1421, i64 64
@@ -3242,7 +3242,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #23
   %1432 = load i32, ptr %73, align 8
   %1433 = sext i32 %1432 to i64
-  %1434 = getelementptr inbounds nuw [4 x ptr], ptr @_ZL7SwapStr, i64 0, i64 %1433
+  %1434 = getelementptr inbounds [4 x ptr], ptr @_ZL7SwapStr, i64 0, i64 %1433
   %1435 = load ptr, ptr %1434, align 8
   %1436 = load ptr, ptr %47, align 8
   %1437 = getelementptr inbounds nuw i8, ptr %1436, i64 304
@@ -4200,7 +4200,7 @@ _ZL11add_to_listiP16swap_compartmentf.exit:       ; preds = %108, %111
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10)
   call void @_Z6pbc_dxPK5t_pbcPKfS3_Pf(ptr noundef %154, ptr noundef %142, ptr noundef nonnull %151, ptr noundef nonnull %10)
   %155 = sext i32 %149 to i64
-  %156 = getelementptr inbounds nuw [3 x float], ptr %10, i64 0, i64 %155
+  %156 = getelementptr inbounds [3 x float], ptr %10, i64 0, i64 %155
   %157 = load float, ptr %156, align 4
   %158 = fcmp ogt float %157, %152
   %159 = fneg float %153
@@ -4214,10 +4214,10 @@ _ZL11add_to_listiP16swap_compartmentf.exit:       ; preds = %108, %111
   %164 = add nsw i32 %149, 1
   %165 = srem i32 %164, 3
   %166 = sext i32 %165 to i64
-  %167 = getelementptr inbounds nuw [3 x float], ptr %10, i64 0, i64 %166
+  %167 = getelementptr inbounds [3 x float], ptr %10, i64 0, i64 %166
   %168 = load float, ptr %167, align 4
   %169 = sext i32 %163 to i64
-  %170 = getelementptr inbounds nuw [3 x float], ptr %10, i64 0, i64 %169
+  %170 = getelementptr inbounds [3 x float], ptr %10, i64 0, i64 %169
   %171 = load float, ptr %170, align 4
   %172 = fmul float %171, %171
   %173 = call float @llvm.fmuladd.f32(float %168, float %168, float %172)
@@ -4234,7 +4234,7 @@ _ZL13is_in_channelPfS_fffP5t_pbci.exit.i:         ; preds = %161, %135
   %179 = load ptr, ptr %39, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9)
   call void @_Z6pbc_dxPK5t_pbcPKfS3_Pf(ptr noundef %179, ptr noundef %142, ptr noundef nonnull %176, ptr noundef nonnull %9)
-  %180 = getelementptr inbounds nuw [3 x float], ptr %9, i64 0, i64 %155
+  %180 = getelementptr inbounds [3 x float], ptr %9, i64 0, i64 %155
   %181 = load float, ptr %180, align 4
   %182 = fcmp ogt float %181, %177
   %183 = fneg float %178
@@ -4248,10 +4248,10 @@ _ZL13is_in_channelPfS_fffP5t_pbci.exit71.i:       ; preds = %_ZL13is_in_channelP
   %187 = add nsw i32 %149, 1
   %188 = srem i32 %187, 3
   %189 = sext i32 %188 to i64
-  %190 = getelementptr inbounds nuw [3 x float], ptr %9, i64 0, i64 %189
+  %190 = getelementptr inbounds [3 x float], ptr %9, i64 0, i64 %189
   %191 = load float, ptr %190, align 4
   %192 = sext i32 %186 to i64
-  %193 = getelementptr inbounds nuw [3 x float], ptr %9, i64 0, i64 %192
+  %193 = getelementptr inbounds [3 x float], ptr %9, i64 0, i64 %192
   %194 = load float, ptr %193, align 4
   %195 = fmul float %194, %194
   %196 = call float @llvm.fmuladd.f32(float %191, float %191, float %195)
@@ -4339,11 +4339,11 @@ _ZL13is_in_channelPfS_fffP5t_pbci.exit71.i:       ; preds = %_ZL13is_in_channelP
   %224 = call noundef ptr @_Z12gmx_step_strlPc(i64 noundef %5, ptr noundef nonnull %11)
   %225 = load i32, ptr %146, align 4
   %226 = sext i32 %225 to i64
-  %227 = getelementptr inbounds nuw [3 x ptr], ptr @_ZL12DomainString, i64 0, i64 %226
+  %227 = getelementptr inbounds [3 x ptr], ptr @_ZL12DomainString, i64 0, i64 %226
   %228 = load ptr, ptr %227, align 8
   %229 = load i32, ptr %144, align 4
   %230 = sext i32 %229 to i64
-  %231 = getelementptr inbounds nuw [3 x ptr], ptr @_ZL12DomainString, i64 0, i64 %230
+  %231 = getelementptr inbounds [3 x ptr], ptr @_ZL12DomainString, i64 0, i64 %230
   %232 = load ptr, ptr %231, align 8
   %233 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %222, ptr noundef nonnull @.str.82, ptr noundef %223, ptr noundef %224, i32 noundef range(i32 -2147483647, -2147483648) %140, ptr noundef %228, ptr noundef %232) #27
   %234 = load ptr, ptr @stderr, align 8
@@ -4359,11 +4359,11 @@ _ZL13is_in_channelPfS_fffP5t_pbci.exit71.i:       ; preds = %_ZL13is_in_channelP
   %240 = call noundef ptr @_Z12gmx_step_strlPc(i64 noundef %5, ptr noundef nonnull %11)
   %241 = load i32, ptr %146, align 4
   %242 = sext i32 %241 to i64
-  %243 = getelementptr inbounds nuw [3 x ptr], ptr @_ZL12DomainString, i64 0, i64 %242
+  %243 = getelementptr inbounds [3 x ptr], ptr @_ZL12DomainString, i64 0, i64 %242
   %244 = load ptr, ptr %243, align 8
   %245 = load i32, ptr %144, align 4
   %246 = sext i32 %245 to i64
-  %247 = getelementptr inbounds nuw [3 x ptr], ptr @_ZL12DomainString, i64 0, i64 %246
+  %247 = getelementptr inbounds [3 x ptr], ptr @_ZL12DomainString, i64 0, i64 %246
   %248 = load ptr, ptr %247, align 8
   %249 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %239, ptr noundef nonnull @.str.85, ptr noundef %240, i32 noundef range(i32 -2147483647, -2147483648) %140, ptr noundef %244, ptr noundef %248) #23
   br label %266
@@ -4379,7 +4379,7 @@ _ZL13is_in_channelPfS_fffP5t_pbci.exit71.i:       ; preds = %_ZL13is_in_channelP
   store i32 %255, ptr %253, align 4
   %256 = load i32, ptr %148, align 4
   %257 = sext i32 %256 to i64
-  %258 = getelementptr inbounds nuw [3 x ptr], ptr @_ZL13ChannelString, i64 0, i64 %257
+  %258 = getelementptr inbounds [3 x ptr], ptr @_ZL13ChannelString, i64 0, i64 %257
   %259 = load ptr, ptr %258, align 8
   %260 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.86, i32 noundef range(i32 -2147483647, -2147483648) %140, ptr noundef %259) #23
   br label %266

@@ -441,15 +441,15 @@ zend_accel_blacklist_loadone.exit:                ; preds = %25, %._crit_edge77.
 
 .preheader.i:                                     ; preds = %139
   %150 = icmp ne i8 %149, 0
-  %151 = icmp samesign ult i64 %.062.idx89.i, 12279
-  %152 = select i1 %150, i1 %151, i1 false
+  %151 = icmp slt i64 %.062.idx89.i, 12279
+  %152 = and i1 %151, %150
   br i1 %152, label %.lr.ph.i13, label %.loopexit.i
 
 .lr.ph.i13:                                       ; preds = %.preheader.i, %175
   %153 = phi i8 [ %176, %175 ], [ %149, %.preheader.i ]
   %.15886.i = phi ptr [ %.259.i, %175 ], [ %144, %.preheader.i ]
   %.264.idx85.i = phi i64 [ %.4.idx.i, %175 ], [ %.062.idx89.i, %.preheader.i ]
-  %.264.ptr87.i = getelementptr inbounds nuw i8, ptr %6, i64 %.264.idx85.i
+  %.264.ptr87.i = getelementptr inbounds i8, ptr %6, i64 %.264.idx85.i
   switch i8 %153, label %172 [
     i8 63, label %154
     i8 42, label %159
@@ -476,7 +476,7 @@ zend_accel_blacklist_loadone.exit:                ; preds = %25, %._crit_edge77.
   store i8 47, ptr %157, align 1
   %158 = getelementptr inbounds nuw i8, ptr %.264.ptr87.i, i64 3
   store i8 93, ptr %158, align 1
-  %.264.add.i = add nuw nsw i64 %.264.idx85.i, 4
+  %.264.add.i = add nsw i64 %.264.idx85.i, 4
   br label %175
 
 159:                                              ; preds = %.lr.ph.i13
@@ -490,7 +490,7 @@ zend_accel_blacklist_loadone.exit:                ; preds = %25, %._crit_edge77.
   store i8 46, ptr %.264.ptr87.i, align 1
   %165 = getelementptr inbounds nuw i8, ptr %.264.ptr87.i, i64 1
   store i8 42, ptr %165, align 1
-  %.264.add69.i = add nuw nsw i64 %.264.idx85.i, 2
+  %.264.add69.i = add nsw i64 %.264.idx85.i, 2
   br label %175
 
 166:                                              ; preds = %159
@@ -503,11 +503,11 @@ zend_accel_blacklist_loadone.exit:                ; preds = %25, %._crit_edge77.
   store i8 93, ptr %169, align 1
   %170 = getelementptr inbounds nuw i8, ptr %.264.ptr87.i, i64 4
   store i8 42, ptr %170, align 1
-  %.264.add68.i = add nuw nsw i64 %.264.idx85.i, 5
+  %.264.add68.i = add nsw i64 %.264.idx85.i, 5
   br label %175
 
 171:                                              ; preds = %.lr.ph.i13, %.lr.ph.i13, %.lr.ph.i13, %.lr.ph.i13, %.lr.ph.i13, %.lr.ph.i13, %.lr.ph.i13, %.lr.ph.i13, %.lr.ph.i13, %.lr.ph.i13, %.lr.ph.i13, %.lr.ph.i13
-  %.264.add70.i = add nuw nsw i64 %.264.idx85.i, 1
+  %.264.add70.i = add nsw i64 %.264.idx85.i, 1
   store i8 92, ptr %.264.ptr87.i, align 1
   %.pre.i14 = load i8, ptr %.15886.i, align 1
   br label %172
@@ -515,9 +515,9 @@ zend_accel_blacklist_loadone.exit:                ; preds = %25, %._crit_edge77.
 172:                                              ; preds = %171, %.lr.ph.i13
   %173 = phi i8 [ %153, %.lr.ph.i13 ], [ %.pre.i14, %171 ]
   %.3.idx.i = phi i64 [ %.264.idx85.i, %.lr.ph.i13 ], [ %.264.add70.i, %171 ]
-  %.3.ptr.i = getelementptr inbounds nuw i8, ptr %6, i64 %.3.idx.i
+  %.3.ptr.i = getelementptr inbounds i8, ptr %6, i64 %.3.idx.i
   %174 = getelementptr inbounds nuw i8, ptr %.15886.i, i64 1
-  %.3.add.i = add nuw nsw i64 %.3.idx.i, 1
+  %.3.add.i = add nsw i64 %.3.idx.i, 1
   store i8 %173, ptr %.3.ptr.i, align 1
   br label %175
 
@@ -526,14 +526,14 @@ zend_accel_blacklist_loadone.exit:                ; preds = %25, %._crit_edge77.
   %.259.i = phi ptr [ %174, %172 ], [ %164, %163 ], [ %160, %166 ], [ %155, %154 ]
   %176 = load i8, ptr %.259.i, align 1
   %177 = icmp ne i8 %176, 0
-  %178 = icmp samesign ult i64 %.4.idx.i, 12279
+  %178 = icmp slt i64 %.4.idx.i, 12279
   %179 = select i1 %177, i1 %178, i1 false
   br i1 %179, label %.lr.ph.i13, label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %175, %.preheader.i, %139
   %180 = phi i8 [ %149, %.preheader.i ], [ %149, %139 ], [ %176, %175 ]
   %.163.idx.i = phi i64 [ %.062.idx89.i, %.preheader.i ], [ %.062.idx89.i, %139 ], [ %.4.idx.i, %175 ]
-  %.163.ptr.i = getelementptr inbounds nuw i8, ptr %6, i64 %.163.idx.i
+  %.163.ptr.i = getelementptr inbounds i8, ptr %6, i64 %.163.idx.i
   %.not.i10 = icmp eq i8 %180, 0
   br i1 %.not.i10, label %181, label %184
 

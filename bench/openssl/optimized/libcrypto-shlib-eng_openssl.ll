@@ -179,7 +179,7 @@ if.then1.i:                                       ; preds = %if.then.i
   %inc.i = add nsw i32 %0, 1
   store i32 %inc.i, ptr @test_cipher_nids.pos, align 4
   %idxprom.i = sext i32 %0 to i64
-  %arrayidx.i = getelementptr inbounds nuw [4 x i32], ptr @test_cipher_nids.cipher_nids, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [4 x i32], ptr @test_cipher_nids.cipher_nids, i64 0, i64 %idxprom.i
   store i32 %call2.i, ptr %arrayidx.i, align 4
   br label %if.end.i
 
@@ -198,14 +198,14 @@ if.then5.i:                                       ; preds = %if.end.i
   %inc7.i = add nsw i32 %1, 1
   store i32 %inc7.i, ptr @test_cipher_nids.pos, align 4
   %idxprom8.i = sext i32 %1 to i64
-  %arrayidx9.i = getelementptr inbounds nuw [4 x i32], ptr @test_cipher_nids.cipher_nids, i64 0, i64 %idxprom8.i
+  %arrayidx9.i = getelementptr inbounds [4 x i32], ptr @test_cipher_nids.cipher_nids, i64 0, i64 %idxprom8.i
   store i32 %call6.i, ptr %arrayidx9.i, align 4
   br label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.then5.i, %if.end.if.end10_crit_edge.i
   %2 = phi i32 [ %.pre.i, %if.end.if.end10_crit_edge.i ], [ %inc7.i, %if.then5.i ]
   %idxprom11.i = sext i32 %2 to i64
-  %arrayidx12.i = getelementptr inbounds nuw [4 x i32], ptr @test_cipher_nids.cipher_nids, i64 0, i64 %idxprom11.i
+  %arrayidx12.i = getelementptr inbounds [4 x i32], ptr @test_cipher_nids.cipher_nids, i64 0, i64 %idxprom11.i
   store i32 0, ptr %arrayidx12.i, align 4
   store i1 true, ptr @test_cipher_nids.init, align 4
   br label %test_cipher_nids.exit
@@ -274,14 +274,14 @@ if.then1.i:                                       ; preds = %if.then.i
   %inc.i = add nsw i32 %0, 1
   store i32 %inc.i, ptr @test_digest_nids.pos, align 4
   %idxprom.i = sext i32 %0 to i64
-  %arrayidx.i = getelementptr inbounds nuw [2 x i32], ptr @test_digest_nids.digest_nids, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [2 x i32], ptr @test_digest_nids.digest_nids, i64 0, i64 %idxprom.i
   store i32 %call2.i, ptr %arrayidx.i, align 4
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then1.i, %if.then.if.end_crit_edge.i
   %1 = phi i32 [ %.pre.i, %if.then.if.end_crit_edge.i ], [ %inc.i, %if.then1.i ]
   %idxprom3.i = sext i32 %1 to i64
-  %arrayidx4.i = getelementptr inbounds nuw [2 x i32], ptr @test_digest_nids.digest_nids, i64 0, i64 %idxprom3.i
+  %arrayidx4.i = getelementptr inbounds [2 x i32], ptr @test_digest_nids.digest_nids, i64 0, i64 %idxprom3.i
   store i32 0, ptr %arrayidx4.i, align 4
   store i1 true, ptr @test_digest_nids.init, align 4
   br label %test_digest_nids.exit

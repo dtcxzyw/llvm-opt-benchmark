@@ -8822,7 +8822,7 @@ _ZL8fstVcdIDPcj.exit:                             ; preds = %.lr.ph.i, %221
   %.0.lcssa.i = phi ptr [ %7, %221 ], [ %229, %.lr.ph.i ]
   store i8 0, ptr %.0.lcssa.i, align 1
   %231 = sext i32 %55 to i64
-  %232 = getelementptr inbounds nuw [30 x ptr], ptr @_ZL8vartypes, i64 0, i64 %231
+  %232 = getelementptr inbounds [30 x ptr], ptr @_ZL8vartypes, i64 0, i64 %231
   %233 = load ptr, ptr %232, align 8
   %234 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.31, ptr noundef %233, i32 noundef %222, ptr noundef nonnull %7, ptr noundef %16) #37
   br label %235
@@ -8884,7 +8884,7 @@ _ZL8fstVcdIDPcj.exit:                             ; preds = %.lr.ph.i, %221
 _ZL8fstVcdIDPcj.exit273:                          ; preds = %.lr.ph.i268
   store i8 0, ptr %256, align 1
   %258 = sext i32 %55 to i64
-  %259 = getelementptr inbounds nuw [30 x ptr], ptr @_ZL8vartypes, i64 0, i64 %258
+  %259 = getelementptr inbounds [30 x ptr], ptr @_ZL8vartypes, i64 0, i64 %258
   %260 = load ptr, ptr %259, align 8
   %261 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.31, ptr noundef %260, i32 noundef %251, ptr noundef nonnull %8, ptr noundef %16) #37
   br label %262
@@ -10848,7 +10848,7 @@ _ZL17fstVcdIDForFwritePcj.exit:                   ; preds = %_ZL17fstVcdIDForFwr
   %366 = shl i64 %364, 32
   %sext1245 = add i64 %366, 4294967296
   %367 = ashr exact i64 %sext1245, 32
-  %368 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 0, i64 %367
+  %368 = getelementptr inbounds [16 x i8], ptr %22, i64 0, i64 %367
   store i8 10, ptr %368, align 1
   %369 = add nsw i32 %365, 2
   call fastcc void @_ZL9fstWritexP16fstReaderContextPvi(ptr noundef %0, ptr noundef nonnull %22, i32 noundef %369)
@@ -10947,7 +10947,7 @@ _ZL9fstWritexP16fstReaderContextPvi.exit1065:     ; preds = %_ZL17fstVcdIDForFwr
   %418 = shl i64 %398, 32
   %sext1244 = add i64 %418, 4294967296
   %419 = ashr exact i64 %sext1244, 32
-  %420 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 0, i64 %419
+  %420 = getelementptr inbounds [16 x i8], ptr %23, i64 0, i64 %419
   store i8 10, ptr %420, align 1
   %421 = add nsw i32 %399, 2
   call fastcc void @_ZL9fstWritexP16fstReaderContextPvi(ptr noundef %0, ptr noundef nonnull %23, i32 noundef %421)
@@ -12051,7 +12051,7 @@ _ZL17fstVcdIDForFwritePcj.exit1133:               ; preds = %.lr.ph.i1128
   %933 = shl i64 %931, 32
   %sext1242 = add i64 %933, 4294967296
   %934 = ashr exact i64 %sext1242, 32
-  %935 = getelementptr inbounds nuw [16 x i8], ptr %29, i64 0, i64 %934
+  %935 = getelementptr inbounds [16 x i8], ptr %29, i64 0, i64 %934
   store i8 10, ptr %935, align 1
   %936 = add nsw i32 %932, 2
   call fastcc void @_ZL9fstWritexP16fstReaderContextPvi(ptr noundef %0, ptr noundef nonnull %29, i32 noundef %936)
@@ -12233,7 +12233,7 @@ _ZL17fstVcdIDForFwritePcj.exit1157:               ; preds = %.lr.ph.i1152
   %1028 = shl i64 %1021, 32
   %sext1241 = add i64 %1028, 4294967296
   %1029 = ashr exact i64 %sext1241, 32
-  %1030 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 0, i64 %1029
+  %1030 = getelementptr inbounds [16 x i8], ptr %30, i64 0, i64 %1029
   store i8 10, ptr %1030, align 1
   %1031 = add nsw i32 %1022, 2
   call fastcc void @_ZL9fstWritexP16fstReaderContextPvi(ptr noundef %0, ptr noundef nonnull %30, i32 noundef %1031)
@@ -12592,7 +12592,7 @@ _ZL17fstVcdIDForFwritePcj.exit1177:               ; preds = %.lr.ph.i1172
   %1196 = shl i64 %1194, 32
   %sext1240 = add i64 %1196, 4294967296
   %1197 = ashr exact i64 %sext1240, 32
-  %1198 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 0, i64 %1197
+  %1198 = getelementptr inbounds [16 x i8], ptr %34, i64 0, i64 %1197
   store i8 10, ptr %1198, align 1
   %1199 = add nsw i32 %1195, 2
   %.not.i1178 = icmp eq i32 %1199, 0

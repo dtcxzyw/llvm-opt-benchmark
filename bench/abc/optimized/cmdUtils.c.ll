@@ -1603,7 +1603,7 @@ define void @Gia_ManKissatCall(ptr noundef %0, ptr nocapture noundef readonly %1
 
 sub_0:                                            ; preds = %19
   %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) %10)
-  %endptr = getelementptr inbounds nuw i8, ptr %10, i64 %strlen
+  %endptr = getelementptr inbounds i8, ptr %10, i64 %strlen
   store i16 32, ptr %endptr, align 1
   %20 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %2) #22
   %21 = load i8, ptr %2, align 1
@@ -1633,7 +1633,7 @@ sub_1:                                            ; preds = %sub_0
 
 28:                                               ; preds = %.critedge
   %strlen28 = call i64 @strlen(ptr nonnull dereferenceable(1) %10)
-  %endptr29 = getelementptr inbounds nuw i8, ptr %10, i64 %strlen28
+  %endptr29 = getelementptr inbounds i8, ptr %10, i64 %strlen28
   store i32 7417120, ptr %endptr29, align 1
   br label %29
 
@@ -1643,7 +1643,7 @@ sub_1:                                            ; preds = %sub_0
 
 30:                                               ; preds = %29
   %strlen31 = call i64 @strlen(ptr nonnull dereferenceable(1) %10)
-  %endptr32 = getelementptr inbounds nuw i8, ptr %10, i64 %strlen31
+  %endptr32 = getelementptr inbounds i8, ptr %10, i64 %strlen31
   store i32 7220512, ptr %endptr32, align 1
   br label %31
 
@@ -1653,7 +1653,7 @@ sub_1:                                            ; preds = %sub_0
 
 32:                                               ; preds = %31
   %strlen34 = call i64 @strlen(ptr nonnull dereferenceable(1) %10)
-  %endptr35 = getelementptr inbounds nuw i8, ptr %10, i64 %strlen34
+  %endptr35 = getelementptr inbounds i8, ptr %10, i64 %strlen34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %endptr35, ptr noundef nonnull align 1 dereferenceable(7) @.str.38, i64 7, i1 false)
   br label %33
 
@@ -1663,7 +1663,7 @@ sub_1:                                            ; preds = %sub_0
 
 34:                                               ; preds = %33
   %strlen37 = call i64 @strlen(ptr nonnull dereferenceable(1) %10)
-  %endptr38 = getelementptr inbounds nuw i8, ptr %10, i64 %strlen37
+  %endptr38 = getelementptr inbounds i8, ptr %10, i64 %strlen37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %endptr38, ptr noundef nonnull align 1 dereferenceable(9) @.str.39, i64 9, i1 false)
   br label %35
 
@@ -1687,7 +1687,7 @@ sub_1:                                            ; preds = %sub_0
 
 43:                                               ; preds = %40, %39
   %strlen41 = call i64 @strlen(ptr nonnull dereferenceable(1) %10)
-  %endptr42 = getelementptr inbounds nuw i8, ptr %10, i64 %strlen41
+  %endptr42 = getelementptr inbounds i8, ptr %10, i64 %strlen41
   store i16 32, ptr %endptr42, align 1
   %44 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %1) #22
   br label %45
@@ -1739,7 +1739,7 @@ define noundef nonnull ptr @Cmd_GenScript(ptr nocapture noundef readonly %0, i32
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) @Cmd_GenScript.pScript, ptr noundef nonnull dereferenceable(1) %9) #22
   %strlen4 = tail call i64 @strlen(ptr nonnull dereferenceable(1) @Cmd_GenScript.pScript)
-  %endptr5 = getelementptr inbounds nuw i8, ptr @Cmd_GenScript.pScript, i64 %strlen4
+  %endptr5 = getelementptr inbounds i8, ptr @Cmd_GenScript.pScript, i64 %strlen4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %endptr5, ptr noundef nonnull align 1 dereferenceable(3) @.str.45, i64 3, i1 false)
   %11 = add nuw nsw i32 %.06, 1
   %exitcond.not = icmp eq i32 %11, %2
@@ -1747,7 +1747,7 @@ define noundef nonnull ptr @Cmd_GenScript(ptr nocapture noundef readonly %0, i32
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) @Cmd_GenScript.pScript)
-  %endptr = getelementptr inbounds nuw i8, ptr @Cmd_GenScript.pScript, i64 %strlen
+  %endptr = getelementptr inbounds i8, ptr @Cmd_GenScript.pScript, i64 %strlen
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %endptr, ptr noundef nonnull align 1 dereferenceable(12) @.str.46, i64 12, i1 false)
   ret ptr @Cmd_GenScript.pScript
 }
@@ -1782,11 +1782,11 @@ define void @Cmd_CommandSGen(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32
   %14 = tail call i32 @rand() #22
   %15 = srem i32 %14, 6
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr @__const.Cmd_CommandSGen.pComms, i64 %16
+  %17 = getelementptr inbounds ptr, ptr @__const.Cmd_CommandSGen.pComms, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) @Cmd_GenScript.pScript, ptr noundef nonnull dereferenceable(1) %18) #22
   %strlen4.i = tail call i64 @strlen(ptr nonnull dereferenceable(1) @Cmd_GenScript.pScript)
-  %endptr5.i = getelementptr inbounds nuw i8, ptr @Cmd_GenScript.pScript, i64 %strlen4.i
+  %endptr5.i = getelementptr inbounds i8, ptr @Cmd_GenScript.pScript, i64 %strlen4.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %endptr5.i, ptr noundef nonnull align 1 dereferenceable(3) @.str.45, i64 3, i1 false)
   %20 = add nuw nsw i32 %.06.i, 1
   %exitcond.not.i = icmp eq i32 %20, %1
@@ -1794,7 +1794,7 @@ define void @Cmd_CommandSGen(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32
 
 Cmd_GenScript.exit:                               ; preds = %.lr.ph.i, %13
   %strlen.i = tail call i64 @strlen(ptr nonnull dereferenceable(1) @Cmd_GenScript.pScript)
-  %endptr.i = getelementptr inbounds nuw i8, ptr @Cmd_GenScript.pScript, i64 %strlen.i
+  %endptr.i = getelementptr inbounds i8, ptr @Cmd_GenScript.pScript, i64 %strlen.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %endptr.i, ptr noundef nonnull align 1 dereferenceable(12) @.str.46, i64 12, i1 false)
   %21 = tail call ptr @Abc_NtkDup(ptr noundef %6) #22
   tail call void @Abc_FrameSetCurrentNetwork(ptr noundef %0, ptr noundef %21) #22

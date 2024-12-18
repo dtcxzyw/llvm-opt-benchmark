@@ -15151,7 +15151,7 @@ switch.lookup:                                    ; preds = %.lr.ph4283
   %5495 = load ptr, ptr %141, align 8
   %5496 = getelementptr i8, ptr %5495, i64 -24
   %5497 = load i64, ptr %5496, align 8
-  %5498 = getelementptr inbounds nuw i8, ptr %141, i64 %5497
+  %5498 = getelementptr inbounds i8, ptr %141, i64 %5497
   %5499 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %5498)
           to label %5500 unwind label %.loopexit.split-lp3124
 

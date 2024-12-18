@@ -418,7 +418,7 @@ land.end:                                         ; preds = %entry, %land.rhs
   %inc.i = add nsw i32 %92, 1
   store i32 %inc.i, ptr %last.i, align 4
   %idx.ext.i = sext i32 %inc.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %struct.btSupportVector, ptr %simplex1, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds %struct.btSupportVector, ptr %simplex1, i64 %idx.ext.i
   store <2 x float> %retval.sroa.0.4.vec.insert.i57.i, ptr %add.ptr.i, align 4
   %last.sroa.0.sroa.0.sroa.4.0.add.ptr.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i58.i, ptr %last.sroa.0.sroa.0.sroa.4.0.add.ptr.i.sroa_idx, align 4
@@ -603,7 +603,7 @@ if.end38:                                         ; preds = %for.body
   %inc.i197 = add nsw i32 %176, 1
   store i32 %inc.i197, ptr %last.i, align 4
   %idx.ext.i198 = sext i32 %inc.i197 to i64
-  %add.ptr.i199 = getelementptr inbounds nuw %struct.btSupportVector, ptr %simplex1, i64 %idx.ext.i198
+  %add.ptr.i199 = getelementptr inbounds %struct.btSupportVector, ptr %simplex1, i64 %idx.ext.i198
   store <2 x float> %retval.sroa.0.4.vec.insert.i57.i183, ptr %add.ptr.i199, align 4
   %last.sroa.0.sroa.0.sroa.4.0.add.ptr.i199.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i199, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i58.i184, ptr %last.sroa.0.sroa.0.sroa.4.0.add.ptr.i199.sroa_idx, align 4
@@ -690,7 +690,7 @@ _ZL11btDoSimplexP9btSimplexP9btVector3.exit.thread882: ; preds = %if.then9.i.i, 
 
 if.else6.i:                                       ; preds = %if.end38
   %idxprom.i.i.i10.i = sext i32 %177 to i64
-  %arrayidx.i.i.i11.i = getelementptr inbounds nuw [4 x %struct.btSupportVector], ptr %simplex1, i64 0, i64 %idxprom.i.i.i10.i
+  %arrayidx.i.i.i11.i = getelementptr inbounds [4 x %struct.btSupportVector], ptr %simplex1, i64 0, i64 %idxprom.i.i.i10.i
   %call7.i.i = call noundef float @_Z19btVec3PointTriDist2PK9btVector3S1_S1_S1_PS_(ptr noundef nonnull %arrayidx.i.i.i11.i, ptr noundef nonnull %arrayidx.i.i.i, ptr noundef nonnull %arrayidx.i.i.i.i201, ptr noundef nonnull %simplex1, ptr noundef null)
   %199 = call noundef float @llvm.fabs.f32(float %call7.i.i)
   %cmp.i.i12.i = fcmp olt float %199, 0x3E80000000000000

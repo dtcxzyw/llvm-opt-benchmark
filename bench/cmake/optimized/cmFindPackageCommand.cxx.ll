@@ -16398,7 +16398,7 @@ define dso_local void @_ZN20cmFindPackageCommand22LoadPackageRegistryDirERKNSt7_
   %45 = load ptr, ptr %9, align 8
   %46 = getelementptr i8, ptr %45, i64 -24
   %47 = load i64, ptr %46, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %9, i64 %47
+  %48 = getelementptr inbounds i8, ptr %9, i64 %47
   %49 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %48)
           to label %50 unwind label %61
 

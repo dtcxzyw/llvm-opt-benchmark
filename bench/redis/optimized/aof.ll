@@ -3820,11 +3820,11 @@ entry:
   %add = add nsw i32 %call, 1
   %inc = add nsw i32 %call, 2
   %idxprom = sext i32 %add to i64
-  %arrayidx1 = getelementptr inbounds nuw [32 x i8], ptr %buf, i64 0, i64 %idxprom
+  %arrayidx1 = getelementptr inbounds [32 x i8], ptr %buf, i64 0, i64 %idxprom
   store i8 13, ptr %arrayidx1, align 1
   %inc2 = add nsw i32 %call, 3
   %idxprom3 = sext i32 %inc to i64
-  %arrayidx4 = getelementptr inbounds nuw [32 x i8], ptr %buf, i64 0, i64 %idxprom3
+  %arrayidx4 = getelementptr inbounds [32 x i8], ptr %buf, i64 0, i64 %idxprom3
   store i8 10, ptr %arrayidx4, align 1
   %conv6 = sext i32 %inc2 to i64
   %call7 = call ptr @sdscatlen(ptr noundef %dst, ptr noundef nonnull %buf, i64 noundef %conv6) #20
@@ -3890,11 +3890,11 @@ sdslen.exit:                                      ; preds = %for.body, %sw.bb.i,
   %add17 = add nsw i32 %call16, 1
   %inc18 = add nsw i32 %call16, 2
   %idxprom19 = sext i32 %add17 to i64
-  %arrayidx20 = getelementptr inbounds nuw [32 x i8], ptr %buf, i64 0, i64 %idxprom19
+  %arrayidx20 = getelementptr inbounds [32 x i8], ptr %buf, i64 0, i64 %idxprom19
   store i8 13, ptr %arrayidx20, align 1
   %inc21 = add nsw i32 %call16, 3
   %idxprom22 = sext i32 %inc18 to i64
-  %arrayidx23 = getelementptr inbounds nuw [32 x i8], ptr %buf, i64 0, i64 %idxprom22
+  %arrayidx23 = getelementptr inbounds [32 x i8], ptr %buf, i64 0, i64 %idxprom22
   store i8 10, ptr %arrayidx23, align 1
   %conv25 = sext i32 %inc21 to i64
   %call26 = call ptr @sdscatlen(ptr noundef %dst.addr.037, ptr noundef nonnull %buf, i64 noundef %conv25) #20

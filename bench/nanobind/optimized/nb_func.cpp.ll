@@ -1741,9 +1741,9 @@ define internal noundef ptr @_ZN8nanobind6detailL26nb_func_vectorcall_complexEP7
           to label %.preheader232.us unwind label %.loopexit.split-lp.loopexit.split.us
 
 ._crit_edge268.us:                                ; preds = %136, %.preheader232.us
-  %116 = getelementptr inbounds nuw ptr, ptr %36, i64 %58
+  %116 = getelementptr inbounds ptr, ptr %36, i64 %58
   store ptr %115, ptr %116, align 8
-  %117 = getelementptr inbounds nuw i8, ptr %37, i64 %58
+  %117 = getelementptr inbounds i8, ptr %37, i64 %58
   store i8 0, ptr %117, align 1
   %118 = load i32, ptr %5, align 8
   %119 = load i32, ptr %29, align 4
@@ -1866,10 +1866,10 @@ define internal noundef ptr @_ZN8nanobind6detailL26nb_func_vectorcall_complexEP7
   br i1 %exitcond305.not, label %._crit_edge265.us, label %165, !llvm.loop !27
 
 173:                                              ; preds = %96
-  %174 = getelementptr inbounds nuw ptr, ptr %36, i64 %.0182253.us
+  %174 = getelementptr inbounds ptr, ptr %36, i64 %.0182253.us
   store ptr %.1185.us, ptr %174, align 8
   %175 = zext i1 %.0188.in.us to i8
-  %176 = getelementptr inbounds nuw i8, ptr %37, i64 %.0182253.us
+  %176 = getelementptr inbounds i8, ptr %37, i64 %.0182253.us
   store i8 %175, ptr %176, align 1
   br label %177
 
@@ -4613,7 +4613,7 @@ define linkonce_odr hidden void @_ZN8nanobind6detail6Buffer10put_uint32Ej(ptr no
   %7 = getelementptr inbounds nuw i8, ptr @.str.38, i64 %6
   %8 = load i8, ptr %7, align 1
   %9 = add i64 %.0, -1
-  %10 = getelementptr inbounds nuw [10 x i8], ptr %3, i64 0, i64 %9
+  %10 = getelementptr inbounds [10 x i8], ptr %3, i64 0, i64 %9
   store i8 %8, ptr %10, align 1
   %11 = udiv i32 %.07, 10
   %.not = icmp ult i32 %.07, 10
@@ -4665,7 +4665,7 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i:       ; preds = %19
 
 _ZN8nanobind6detail6Buffer3putEPKcm.exit:         ; preds = %12, %_ZN8nanobind6detail6Buffer6expandEm.exit.i
   %38 = phi ptr [ %37, %_ZN8nanobind6detail6Buffer6expandEm.exit.i ], [ %15, %12 ]
-  %39 = getelementptr inbounds nuw [10 x i8], ptr %3, i64 0, i64 %9
+  %39 = getelementptr inbounds [10 x i8], ptr %3, i64 0, i64 %9
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %38, ptr nonnull align 1 %39, i64 %13, i1 false)
   %40 = load ptr, ptr %14, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 %13

@@ -1577,7 +1577,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit69: ; 
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %82 = load i32, ptr %81, align 8
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds nuw [3 x ptr], ptr @_ZN3gmxL19c_qmmmQMMethodNamesE, i64 0, i64 %83
+  %84 = getelementptr inbounds [3 x ptr], ptr @_ZN3gmxL19c_qmmmQMMethodNamesE, i64 0, i64 %83
   %85 = load ptr, ptr %84, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #25
   %86 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %18)

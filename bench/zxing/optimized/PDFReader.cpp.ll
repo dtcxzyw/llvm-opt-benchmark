@@ -2119,7 +2119,7 @@ _ZSt11max_elementIPdET_S1_S1_.exit.i.i75:         ; preds = %.lr.ph.i.i21.i.i68,
   %246 = ptrtoint ptr %spec.select.i.i23.lcssa.sink.i.i76 to i64
   %247 = sub i64 %246, %83
   %248 = ashr exact i64 %247, 3
-  %249 = getelementptr inbounds nuw [8 x i32], ptr %4, i64 0, i64 %248
+  %249 = getelementptr inbounds [8 x i32], ptr %4, i64 0, i64 %248
   %250 = load i32, ptr %249, align 4, !noalias !20
   %251 = add nsw i32 %250, %230
   store i32 %251, ptr %249, align 4, !noalias !20
@@ -2442,7 +2442,7 @@ _ZSt11max_elementIPdET_S1_S1_.exit.i.i:           ; preds = %.lr.ph.i.i21.i.i, %
   %381 = ptrtoint ptr %spec.select.i.i23.lcssa.sink.i.i to i64
   %382 = sub i64 %381, %88
   %383 = ashr exact i64 %382, 3
-  %384 = getelementptr inbounds nuw [8 x i32], ptr %9, i64 0, i64 %383
+  %384 = getelementptr inbounds [8 x i32], ptr %9, i64 0, i64 %383
   %385 = load i32, ptr %384, align 4, !noalias !27
   %386 = add nsw i32 %385, %365
   store i32 %386, ptr %384, align 4, !noalias !27
@@ -3402,7 +3402,7 @@ _ZSt11max_elementIPdET_S1_S1_.exit.i:             ; preds = %.lr.ph.i.i21.i, %.l
   %44 = ptrtoint ptr %4 to i64
   %45 = sub i64 %43, %44
   %46 = ashr exact i64 %45, 3
-  %47 = getelementptr inbounds nuw [8 x i32], ptr %3, i64 0, i64 %46
+  %47 = getelementptr inbounds [8 x i32], ptr %3, i64 0, i64 %46
   %48 = load i32, ptr %47, align 4, !noalias !36
   %49 = add nsw i32 %48, %27
   store i32 %49, ptr %47, align 4, !noalias !36

@@ -86,7 +86,7 @@ declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) 
 define internal range(i32 0, 2) i32 @test_int_ops(i32 noundef %n) #0 {
 entry:
   %idxprom = sext i32 %n to i64
-  %arrayidx = getelementptr inbounds nuw [20 x %struct.anon], ptr @test_ints, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [20 x %struct.anon], ptr @test_ints, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 16
   %b4 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   %1 = load i32, ptr %b4, align 4
@@ -411,7 +411,7 @@ return:                                           ; preds = %lor.lhs.false121, %
 define internal range(i32 0, 2) i32 @test_uint_ops(i32 noundef %n) #0 {
 entry:
   %idxprom = sext i32 %n to i64
-  %arrayidx = getelementptr inbounds nuw [9 x %struct.anon.0], ptr @test_uints, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [9 x %struct.anon.0], ptr @test_uints, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 16
   %b4 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   %1 = load i32, ptr %b4, align 4
@@ -631,7 +631,7 @@ return:                                           ; preds = %lor.lhs.false109, %
 define internal range(i32 0, 2) i32 @test_size_t_ops(i32 noundef %n) #0 {
 entry:
   %idxprom = sext i32 %n to i64
-  %arrayidx = getelementptr inbounds nuw [10 x %struct.anon.1], ptr @test_size_ts, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [10 x %struct.anon.1], ptr @test_size_ts, i64 0, i64 %idxprom
   %0 = load i64, ptr %arrayidx, align 8
   %b4 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %1 = load i64, ptr %b4, align 8
@@ -851,7 +851,7 @@ return:                                           ; preds = %lor.lhs.false110, %
 define internal range(i32 0, 2) i32 @test_int_muldiv(i32 noundef %n) #0 {
 entry:
   %idxprom = sext i32 %n to i64
-  %arrayidx = getelementptr inbounds nuw [14 x %struct.anon.2], ptr @test_muldiv_ints, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [14 x %struct.anon.2], ptr @test_muldiv_ints, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 16
   %b4 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   %1 = load i32, ptr %b4, align 4
@@ -983,7 +983,7 @@ return:                                           ; preds = %lor.lhs.false, %lan
 define internal range(i32 0, 2) i32 @test_uint_muldiv(i32 noundef %n) #0 {
 entry:
   %idxprom = sext i32 %n to i64
-  %arrayidx = getelementptr inbounds nuw [7 x %struct.anon.3], ptr @test_muldiv_uints, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [7 x %struct.anon.3], ptr @test_muldiv_uints, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 16
   %b4 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   %1 = load i32, ptr %b4, align 4

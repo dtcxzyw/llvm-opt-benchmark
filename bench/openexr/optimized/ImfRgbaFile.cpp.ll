@@ -2800,7 +2800,7 @@ for.body7.i:                                      ; preds = %for.body7.i, %_ZN9I
   %7 = add i32 %sub.i.i, %6
   %rem.i = srem i32 %7, 29
   %idxprom8.i = sext i32 %rem.i to i64
-  %arrayidx9.i = getelementptr inbounds nuw [29 x ptr], ptr %tmp.i, i64 0, i64 %idxprom8.i
+  %arrayidx9.i = getelementptr inbounds [29 x ptr], ptr %tmp.i, i64 0, i64 %idxprom8.i
   %8 = load ptr, ptr %arrayidx9.i, align 8
   %arrayidx12.i = getelementptr inbounds nuw [29 x ptr], ptr %_buf1.i, i64 0, i64 %indvars.iv.i
   store ptr %8, ptr %arrayidx12.i, align 8
@@ -2841,7 +2841,7 @@ for.body7.i43:                                    ; preds = %for.body7.i43, %_ZN
   %10 = add i32 %sub.i.i42, %9
   %rem.i45 = srem i32 %10, 3
   %idxprom8.i46 = sext i32 %rem.i45 to i64
-  %arrayidx9.i47 = getelementptr inbounds nuw [3 x ptr], ptr %tmp.i33, i64 0, i64 %idxprom8.i46
+  %arrayidx9.i47 = getelementptr inbounds [3 x ptr], ptr %tmp.i33, i64 0, i64 %idxprom8.i46
   %11 = load ptr, ptr %arrayidx9.i47, align 8
   %arrayidx12.i48 = getelementptr inbounds nuw [3 x ptr], ptr %_buf2.i, i64 0, i64 %indvars.iv.i44
   store ptr %11, ptr %arrayidx12.i48, align 8
@@ -3073,7 +3073,7 @@ for.body7:                                        ; preds = %_ZN9Imath_3_24modpE
   %1 = add i32 %sub.i, %0
   %rem = srem i32 %1, 29
   %idxprom8 = sext i32 %rem to i64
-  %arrayidx9 = getelementptr inbounds nuw [29 x ptr], ptr %tmp, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [29 x ptr], ptr %tmp, i64 0, i64 %idxprom8
   %2 = load ptr, ptr %arrayidx9, align 8
   %arrayidx12 = getelementptr inbounds nuw [29 x ptr], ptr %_buf1, i64 0, i64 %indvars.iv
   store ptr %2, ptr %arrayidx12, align 8
@@ -3116,7 +3116,7 @@ for.body7:                                        ; preds = %_ZN9Imath_3_24modpE
   %1 = add i32 %sub.i, %0
   %rem = srem i32 %1, 3
   %idxprom8 = sext i32 %rem to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x ptr], ptr %tmp, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x ptr], ptr %tmp, i64 0, i64 %idxprom8
   %2 = load ptr, ptr %arrayidx9, align 8
   %arrayidx12 = getelementptr inbounds nuw [3 x ptr], ptr %_buf2, i64 0, i64 %indvars.iv
   store ptr %2, ptr %arrayidx12, align 8

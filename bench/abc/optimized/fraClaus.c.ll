@@ -351,7 +351,7 @@ define i32 @Fra_ClausProcessClausesCut(ptr nocapture noundef readonly %0, ptr no
   %34 = load i32, ptr %33, align 4
   %35 = add nuw nsw i64 %28, %indvars.iv65
   %36 = sub nsw i64 31, %35
-  %37 = getelementptr inbounds nuw [32 x i32], ptr %5, i64 0, i64 %36
+  %37 = getelementptr inbounds [32 x i32], ptr %5, i64 0, i64 %36
   store i32 %34, ptr %37, align 4
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond69.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count68
@@ -375,11 +375,11 @@ define i32 @Fra_ClausProcessClausesCut(ptr nocapture noundef readonly %0, ptr no
 40:                                               ; preds = %40, %.preheader.i
   %.02425.i = phi i32 [ 0, %.preheader.i ], [ %59, %40 ]
   %41 = sext i32 %.02425.i to i64
-  %42 = getelementptr inbounds nuw i32, ptr %5, i64 %41
+  %42 = getelementptr inbounds i32, ptr %5, i64 %41
   %43 = load i32, ptr %42, align 4
   %44 = or i32 %.02425.i, %.027.i
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds nuw i32, ptr %5, i64 %45
+  %46 = getelementptr inbounds i32, ptr %5, i64 %45
   %47 = load i32, ptr %46, align 4
   %48 = lshr i32 %47, %.027.i
   %49 = xor i32 %48, %43
@@ -666,7 +666,7 @@ define void @Fra_ClausProcessClausesCut3(ptr nocapture noundef readonly %0, ptr 
   %43 = load i32, ptr %42, align 4
   %44 = add nuw nsw i64 %37, %indvars.iv98
   %45 = sub nsw i64 31, %44
-  %46 = getelementptr inbounds nuw [32 x i32], ptr %5, i64 0, i64 %45
+  %46 = getelementptr inbounds [32 x i32], ptr %5, i64 0, i64 %45
   store i32 %43, ptr %46, align 4
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %exitcond102.not = icmp eq i64 %indvars.iv.next99, %wide.trip.count101
@@ -690,11 +690,11 @@ define void @Fra_ClausProcessClausesCut3(ptr nocapture noundef readonly %0, ptr 
 49:                                               ; preds = %49, %.preheader.i
   %.02425.i = phi i32 [ 0, %.preheader.i ], [ %68, %49 ]
   %50 = sext i32 %.02425.i to i64
-  %51 = getelementptr inbounds nuw i32, ptr %5, i64 %50
+  %51 = getelementptr inbounds i32, ptr %5, i64 %50
   %52 = load i32, ptr %51, align 4
   %53 = or i32 %.02425.i, %.027.i
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds nuw i32, ptr %5, i64 %54
+  %55 = getelementptr inbounds i32, ptr %5, i64 %54
   %56 = load i32, ptr %55, align 4
   %57 = lshr i32 %56, %.027.i
   %58 = xor i32 %57, %52
@@ -3196,7 +3196,7 @@ Abc_Clock.exit140:                                ; preds = %106, %109
   %160 = load i32, ptr %159, align 4
   %161 = add nuw nsw i64 %154, %indvars.iv65.i
   %162 = sub nsw i64 31, %161
-  %163 = getelementptr inbounds nuw [32 x i32], ptr %10, i64 0, i64 %162
+  %163 = getelementptr inbounds [32 x i32], ptr %10, i64 0, i64 %162
   store i32 %160, ptr %163, align 4
   %indvars.iv.next66.i = add nuw nsw i64 %indvars.iv65.i, 1
   %exitcond69.not.i = icmp eq i64 %indvars.iv.next66.i, %wide.trip.count.i
@@ -3220,11 +3220,11 @@ Abc_Clock.exit140:                                ; preds = %106, %109
 166:                                              ; preds = %166, %.preheader.i.i
   %.02425.i.i = phi i32 [ 0, %.preheader.i.i ], [ %185, %166 ]
   %167 = sext i32 %.02425.i.i to i64
-  %168 = getelementptr inbounds nuw i32, ptr %10, i64 %167
+  %168 = getelementptr inbounds i32, ptr %10, i64 %167
   %169 = load i32, ptr %168, align 4
   %170 = or i32 %.02425.i.i, %.027.i.i
   %171 = sext i32 %170 to i64
-  %172 = getelementptr inbounds nuw i32, ptr %10, i64 %171
+  %172 = getelementptr inbounds i32, ptr %10, i64 %171
   %173 = load i32, ptr %172, align 4
   %174 = lshr i32 %173, %.027.i.i
   %175 = xor i32 %174, %169
@@ -3549,7 +3549,7 @@ Abc_Clock.exit148:                                ; preds = %266, %269
   %319 = load i32, ptr %318, align 4
   %320 = add nuw nsw i64 %313, %indvars.iv65.i176
   %321 = sub nsw i64 31, %320
-  %322 = getelementptr inbounds nuw [32 x i32], ptr %4, i64 0, i64 %321
+  %322 = getelementptr inbounds [32 x i32], ptr %4, i64 0, i64 %321
   store i32 %319, ptr %322, align 4
   %indvars.iv.next66.i177 = add nuw nsw i64 %indvars.iv65.i176, 1
   %exitcond69.not.i178 = icmp eq i64 %indvars.iv.next66.i177, %wide.trip.count.i153
@@ -3573,11 +3573,11 @@ Abc_Clock.exit148:                                ; preds = %266, %269
 325:                                              ; preds = %325, %.preheader.i.i183
   %.02425.i.i186 = phi i32 [ 0, %.preheader.i.i183 ], [ %344, %325 ]
   %326 = sext i32 %.02425.i.i186 to i64
-  %327 = getelementptr inbounds nuw i32, ptr %4, i64 %326
+  %327 = getelementptr inbounds i32, ptr %4, i64 %326
   %328 = load i32, ptr %327, align 4
   %329 = or i32 %.02425.i.i186, %.027.i.i184
   %330 = sext i32 %329 to i64
-  %331 = getelementptr inbounds nuw i32, ptr %4, i64 %330
+  %331 = getelementptr inbounds i32, ptr %4, i64 %330
   %332 = load i32, ptr %331, align 4
   %333 = lshr i32 %332, %.027.i.i184
   %334 = xor i32 %333, %328
@@ -5998,7 +5998,7 @@ define void @Fra_ClausPrintIndClauses(ptr nocapture noundef readonly %0) local_u
 
 17:                                               ; preds = %9
   %18 = sext i32 %12 to i64
-  %19 = getelementptr inbounds nuw [9 x i32], ptr %2, i64 0, i64 %18
+  %19 = getelementptr inbounds [9 x i32], ptr %2, i64 0, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = add nsw i32 %20, 1
   store i32 %21, ptr %19, align 4

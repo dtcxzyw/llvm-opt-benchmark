@@ -1795,7 +1795,7 @@ if.then87:                                        ; preds = %for.body
   %conv82 = trunc i32 %19 to i8
   %inc88 = add nsw i32 %choiceCount.6325, 1
   %idxprom89 = sext i32 %choiceCount.6325 to i64
-  %arrayidx90 = getelementptr inbounds nuw [10 x i8], ptr %choices, i64 0, i64 %idxprom89
+  %arrayidx90 = getelementptr inbounds [10 x i8], ptr %choices, i64 0, i64 %idxprom89
   store i8 %conv82, ptr %arrayidx90, align 1
   %20 = trunc i32 %shl84 to i16
   %21 = xor i16 %20, -1
@@ -2276,12 +2276,12 @@ if.end233:                                        ; preds = %if.then217.thread, 
 
 if.then240:                                       ; preds = %if.end233
   %idxprom241 = sext i8 %cs.0.lcssa397417 to i64
-  %arrayidx242 = getelementptr inbounds nuw [9 x i8], ptr @_ZL14escSeqCharsLen, i64 0, i64 %idxprom241
+  %arrayidx242 = getelementptr inbounds [9 x i8], ptr @_ZL14escSeqCharsLen, i64 0, i64 %idxprom241
   %65 = load i8, ptr %arrayidx242, align 1
   %conv243 = sext i8 %65 to i32
   %idx.ext = zext nneg i32 %outLen.0 to i64
   %add.ptr = getelementptr inbounds nuw i8, ptr %buffer, i64 %idx.ext
-  %arrayidx245 = getelementptr inbounds nuw [9 x [6 x i8]], ptr @_ZL11escSeqChars, i64 0, i64 %idxprom241
+  %arrayidx245 = getelementptr inbounds [9 x [6 x i8]], ptr @_ZL11escSeqChars, i64 0, i64 %idxprom241
   %conv247 = sext i8 %65 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr nonnull align 2 %arrayidx245, i64 %conv247, i1 false)
   %add248 = add nsw i32 %outLen.0, %conv243
@@ -2300,7 +2300,7 @@ if.then257:                                       ; preds = %if.end252
   %cond1 = icmp eq i8 %g.0.lcssa398416, 1
   %inc260 = add nsw i32 %outLen.1, 1
   %idxprom261 = sext i32 %outLen.1 to i64
-  %arrayidx262 = getelementptr inbounds nuw [8 x i8], ptr %buffer, i64 0, i64 %idxprom261
+  %arrayidx262 = getelementptr inbounds [8 x i8], ptr %buffer, i64 0, i64 %idxprom261
   br i1 %cond1, label %sw.bb259, label %sw.default264
 
 sw.bb259:                                         ; preds = %if.then257
@@ -2312,7 +2312,7 @@ sw.default264:                                    ; preds = %if.then257
   store i8 27, ptr %arrayidx262, align 1
   %inc268 = add nsw i32 %outLen.1, 2
   %idxprom269 = sext i32 %inc260 to i64
-  %arrayidx270 = getelementptr inbounds nuw [8 x i8], ptr %buffer, i64 0, i64 %idxprom269
+  %arrayidx270 = getelementptr inbounds [8 x i8], ptr %buffer, i64 0, i64 %idxprom269
   store i8 78, ptr %arrayidx270, align 1
   br label %if.end272
 
@@ -2326,7 +2326,7 @@ if.else279:                                       ; preds = %if.end272
   %conv280 = trunc i32 %shr to i8
   %inc281 = add nsw i32 %outLen.2, 1
   %idxprom282 = sext i32 %outLen.2 to i64
-  %arrayidx283 = getelementptr inbounds nuw [8 x i8], ptr %buffer, i64 0, i64 %idxprom282
+  %arrayidx283 = getelementptr inbounds [8 x i8], ptr %buffer, i64 0, i64 %idxprom282
   store i8 %conv280, ptr %arrayidx283, align 1
   br label %if.end291
 
@@ -2336,7 +2336,7 @@ if.end291:                                        ; preds = %if.end272, %if.else
   %conv275 = trunc i32 %targetValue.3.lcssa396418 to i8
   %inc276 = add nsw i32 %outLen.2, %.sink423
   %idxprom277 = sext i32 %outLen.2.sink to i64
-  %arrayidx278 = getelementptr inbounds nuw [8 x i8], ptr %buffer, i64 0, i64 %idxprom277
+  %arrayidx278 = getelementptr inbounds [8 x i8], ptr %buffer, i64 0, i64 %idxprom277
   store i8 %conv275, ptr %arrayidx278, align 1
   switch i32 %sourceChar.1, label %if.end298 [
     i32 13, label %if.then295
@@ -2613,7 +2613,7 @@ while.body.i:                                     ; preds = %if.end19.i, %if.end
 
 if.end5.i:                                        ; preds = %while.body.i
   %idxprom6.i = sext i32 %shr.i to i64
-  %arrayidx7.i = getelementptr inbounds nuw [74 x i32], ptr @_ZL25escSeqStateTable_Key_2022, i64 0, i64 %idxprom6.i
+  %arrayidx7.i = getelementptr inbounds [74 x i32], ptr @_ZL25escSeqStateTable_Key_2022, i64 0, i64 %idxprom6.i
   %9 = load i32, ptr %arrayidx7.i, align 4
   %cmp8.i = icmp sgt i32 %9, %add.i
   br i1 %cmp8.i, label %if.end19.i, label %if.else.i
@@ -2629,7 +2629,7 @@ if.end19.i:                                       ; preds = %if.else.i, %if.end5
   br i1 %cmp1.not.i, label %DONE.thread84, label %while.body.i, !llvm.loop !13
 
 _ZL11getKey_2022cPiS_.exit:                       ; preds = %if.else.i
-  %arrayidx16.i = getelementptr inbounds nuw [74 x i8], ptr @_ZL27escSeqStateTable_Value_2022, i64 0, i64 %idxprom6.i
+  %arrayidx16.i = getelementptr inbounds [74 x i8], ptr @_ZL27escSeqStateTable_Value_2022, i64 0, i64 %idxprom6.i
   %10 = load i8, ptr %arrayidx16.i, align 1
   switch i8 %10, label %while.cond [
     i8 2, label %DONE.thread
@@ -2662,7 +2662,7 @@ if.else10:                                        ; preds = %DONE.thread, %DONE
 
 sw.bb11:                                          ; preds = %if.else10
   %idxprom12 = sext i32 %shr.i to i64
-  %arrayidx13 = getelementptr inbounds nuw [74 x i8], ptr @_ZL20nextStateToUnicodeJP, i64 0, i64 %idxprom12
+  %arrayidx13 = getelementptr inbounds [74 x i8], ptr @_ZL20nextStateToUnicodeJP, i64 0, i64 %idxprom12
   %11 = load i8, ptr %arrayidx13, align 1
   %conv = sext i8 %11 to i32
   switch i8 %11, label %sw.default [
@@ -2729,7 +2729,7 @@ if.else51:                                        ; preds = %sw.default
 
 sw.bb58:                                          ; preds = %if.else10
   %idxprom60 = sext i32 %shr.i to i64
-  %arrayidx61 = getelementptr inbounds nuw [74 x i8], ptr @_ZL20nextStateToUnicodeCN, i64 0, i64 %idxprom60
+  %arrayidx61 = getelementptr inbounds [74 x i8], ptr @_ZL20nextStateToUnicodeCN, i64 0, i64 %idxprom60
   %18 = load i8, ptr %arrayidx61, align 1
   switch i8 %18, label %sw.default122 [
     i8 -1, label %if.then186.sink.split
@@ -4871,7 +4871,7 @@ if.then161:                                       ; preds = %if.then154
   %33 = zext nneg i8 %cs.1 to i64
   %add172 = add nsw i64 %33, -30
   %idxprom165.pn = select i1 %cmp163, i64 %idxprom165, i64 %add172
-  %storemerge131.in.in = getelementptr inbounds nuw [10 x ptr], ptr @_ZL13escSeqCharsCN, i64 0, i64 %idxprom165.pn
+  %storemerge131.in.in = getelementptr inbounds [10 x ptr], ptr @_ZL13escSeqCharsCN, i64 0, i64 %idxprom165.pn
   %storemerge131.in = load ptr, ptr %storemerge131.in.in, align 8
   %storemerge131 = load i32, ptr %storemerge131.in, align 1
   store i32 %storemerge131, ptr %buffer, align 4

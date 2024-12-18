@@ -3053,7 +3053,7 @@ _ZN8ciMethod4codeEv.exit.i:                       ; preds = %12, %8
 _ZN8ciMethod16java_code_at_bciEi.exit:            ; preds = %_ZN8ciMethod4codeEv.exit.i, %18
   %20 = phi i32 [ %19, %18 ], [ %17, %_ZN8ciMethod4codeEv.exit.i ]
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %21
+  %22 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %21
   %23 = load i32, ptr %22, align 4
   br label %24
 
@@ -4672,7 +4672,7 @@ _ZN8ciMethod4codeEv.exit.i.i:                     ; preds = %62, %58
 _ZN8ciMethod16java_code_at_bciEi.exit.i:          ; preds = %68, %_ZN8ciMethod4codeEv.exit.i.i
   %70 = phi i32 [ %69, %68 ], [ %67, %_ZN8ciMethod4codeEv.exit.i.i ]
   %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %71
+  %72 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %71
   %73 = load i32, ptr %72, align 4
   %74 = tail call noundef zeroext i1 @_ZN19TemplateInterpreter25bytecode_should_reexecuteEN9Bytecodes4CodeE(i32 noundef %73) #13
   %75 = icmp eq i32 %73, 197
@@ -5307,7 +5307,7 @@ _ZN8ciMethod4codeEv.exit.i.i:                     ; preds = %18, %14
 _ZNK8GraphKit7java_bcEv.exit:                     ; preds = %_ZN8ciMethod4codeEv.exit.i.i, %24
   %26 = phi i32 [ %25, %24 ], [ %23, %_ZN8ciMethod4codeEv.exit.i.i ]
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %27
+  %28 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %27
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %29, 196
   br i1 %30, label %31, label %50
@@ -5342,7 +5342,7 @@ _ZN8ciMethod4codeEv.exit.i:                       ; preds = %37, %31
 _ZN8ciMethod16java_code_at_bciEi.exit:            ; preds = %_ZN8ciMethod4codeEv.exit.i, %44
   %46 = phi i32 [ %45, %44 ], [ %43, %_ZN8ciMethod4codeEv.exit.i ]
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %47
+  %48 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %47
   %49 = load i32, ptr %48, align 4
   br label %50
 
@@ -5353,7 +5353,7 @@ _ZN8ciMethod16java_code_at_bciEi.exit:            ; preds = %_ZN8ciMethod4codeEv
 
 51:                                               ; preds = %50
   %52 = sext i32 %.045 to i64
-  %53 = getelementptr inbounds nuw [239 x i8], ptr @_ZN9Bytecodes6_depthE, i64 0, i64 %52
+  %53 = getelementptr inbounds [239 x i8], ptr @_ZN9Bytecodes6_depthE, i64 0, i64 %52
   %54 = load i8, ptr %53, align 1
   %55 = sext i8 %54 to i32
   store i32 %55, ptr %2, align 4
@@ -5601,7 +5601,7 @@ _ZN16ciBytecodeStream4nextEv.exit:                ; preds = %_ZN16ciBytecodeStre
   br label %.thread50
 
 164:                                              ; preds = %51
-  %165 = getelementptr inbounds nuw [239 x i8], ptr @_ZN9Bytecodes12_result_typeE, i64 0, i64 %52
+  %165 = getelementptr inbounds [239 x i8], ptr @_ZN9Bytecodes12_result_typeE, i64 0, i64 %52
   %166 = load i8, ptr %165, align 1
   %167 = icmp ult i8 %166, 19
   br i1 %167, label %168, label %"_ZZN8GraphKit21compute_stack_effectsERiS0_ENK3$_0clEv.exit"
@@ -13717,7 +13717,7 @@ _ZN8ciMethod4codeEv.exit.i.i:                     ; preds = %29, %25
 _ZNK8GraphKit7java_bcEv.exit:                     ; preds = %_ZN8ciMethod4codeEv.exit.i.i, %35
   %37 = phi i32 [ %36, %35 ], [ %34, %_ZN8ciMethod4codeEv.exit.i.i ]
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %38
+  %39 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %38
   %40 = load i32, ptr %39, align 4
   %41 = icmp eq i32 %40, 192
   %.pre50 = load ptr, ptr %7, align 8
@@ -13762,7 +13762,7 @@ _ZN8ciMethod4codeEv.exit.i.i22:                   ; preds = %50, %46
 _ZNK8GraphKit7java_bcEv.exit26:                   ; preds = %_ZN8ciMethod4codeEv.exit.i.i22, %56
   %58 = phi i32 [ %57, %56 ], [ %55, %_ZN8ciMethod4codeEv.exit.i.i22 ]
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %59
+  %60 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %59
   %61 = load i32, ptr %60, align 4
   %62 = icmp eq i32 %61, 193
   %.pre49 = load ptr, ptr %7, align 8
@@ -13807,7 +13807,7 @@ _ZN8ciMethod4codeEv.exit.i.i29:                   ; preds = %71, %67
 _ZNK8GraphKit7java_bcEv.exit33:                   ; preds = %_ZN8ciMethod4codeEv.exit.i.i29, %77
   %79 = phi i32 [ %78, %77 ], [ %76, %_ZN8ciMethod4codeEv.exit.i.i29 ]
   %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %80
+  %81 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %80
   %82 = load i32, ptr %81, align 4
   %83 = icmp eq i32 %82, 83
   br i1 %83, label %_ZNK8GraphKit7java_bcEv.exit33._crit_edge, label %_ZNK8GraphKit7java_bcEv.exit33.thread
@@ -19234,7 +19234,7 @@ _ZN8ciMethod4codeEv.exit.i.i:                     ; preds = %109, %105
 _ZNK8GraphKit7java_bcEv.exit:                     ; preds = %_ZN8ciMethod4codeEv.exit.i.i, %115
   %117 = phi i32 [ %116, %115 ], [ %114, %_ZN8ciMethod4codeEv.exit.i.i ]
   %118 = sext i32 %117 to i64
-  %119 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %118
+  %119 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %118
   %120 = load i32, ptr %119, align 4
   %121 = icmp eq i32 %120, 193
   br i1 %121, label %122, label %_ZNK8GraphKit7java_bcEv.exit.thread
@@ -20127,7 +20127,7 @@ _ZN8ciMethod4codeEv.exit.i.i:                     ; preds = %73, %69
 _ZNK8GraphKit7java_bcEv.exit:                     ; preds = %_ZN8ciMethod4codeEv.exit.i.i, %79
   %81 = phi i32 [ %80, %79 ], [ %78, %_ZN8ciMethod4codeEv.exit.i.i ]
   %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %82
+  %83 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %82
   %84 = load i32, ptr %83, align 4
   %.fr = freeze i32 %84
   %85 = icmp eq i32 %.fr, 83
@@ -20844,7 +20844,7 @@ _ZN8ciMethod4codeEv.exit.i.i114:                  ; preds = %498, %494
 _ZNK8GraphKit7java_bcEv.exit118:                  ; preds = %_ZN8ciMethod4codeEv.exit.i.i114, %504
   %506 = phi i32 [ %505, %504 ], [ %503, %_ZN8ciMethod4codeEv.exit.i.i114 ]
   %507 = sext i32 %506 to i64
-  %508 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %507
+  %508 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %507
   %509 = load i32, ptr %508, align 4
   %.fr150 = freeze i32 %509
   %510 = icmp eq i32 %.fr150, 83

@@ -1113,7 +1113,7 @@ _ZN6Square11EdgeCornersEiRiS0_.exit:              ; preds = %_ZN6Square15FactorE
   %21 = fsub double %16, %20
   %22 = fdiv double %16, %21
   %23 = sext i32 %0 to i64
-  %24 = getelementptr inbounds nuw [4 x [2 x double]], ptr @_ZN15MarchingSquares10vertexListE, i64 0, i64 %23
+  %24 = getelementptr inbounds [4 x [2 x double]], ptr @_ZN15MarchingSquares10vertexListE, i64 0, i64 %23
   store double %22, ptr %24, align 16
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store double %.020, ptr %25, align 8
@@ -1131,7 +1131,7 @@ _ZN6Square11EdgeCornersEiRiS0_.exit:              ; preds = %_ZN6Square15FactorE
   %35 = fsub double %30, %34
   %36 = fdiv double %30, %35
   %37 = sext i32 %0 to i64
-  %38 = getelementptr inbounds nuw [4 x [2 x double]], ptr @_ZN15MarchingSquares10vertexListE, i64 0, i64 %37
+  %38 = getelementptr inbounds [4 x [2 x double]], ptr @_ZN15MarchingSquares10vertexListE, i64 0, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store double %36, ptr %39, align 8
   store double %.020, ptr %38, align 16
@@ -1666,7 +1666,7 @@ define void @_ZN13MarchingCubes9SetVertexEiPKdd(i32 noundef %0, ptr nocapture no
   %21 = fsub double %15, %20
   %22 = fdiv double %15, %21
   %23 = sext i32 %0 to i64
-  %24 = getelementptr inbounds nuw [12 x [3 x double]], ptr @_ZN13MarchingCubes10vertexListE, i64 0, i64 %23
+  %24 = getelementptr inbounds [12 x [3 x double]], ptr @_ZN13MarchingCubes10vertexListE, i64 0, i64 %23
   store double %22, ptr %24, align 8
   %25 = uitofp nneg i32 %5 to double
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -1690,7 +1690,7 @@ define void @_ZN13MarchingCubes9SetVertexEiPKdd(i32 noundef %0, ptr nocapture no
   %41 = fdiv double %34, %40
   %42 = uitofp nneg i32 %5 to double
   %43 = sext i32 %0 to i64
-  %44 = getelementptr inbounds nuw [12 x [3 x double]], ptr @_ZN13MarchingCubes10vertexListE, i64 0, i64 %43
+  %44 = getelementptr inbounds [12 x [3 x double]], ptr @_ZN13MarchingCubes10vertexListE, i64 0, i64 %43
   store double %42, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store double %41, ptr %45, align 8
@@ -1712,7 +1712,7 @@ define void @_ZN13MarchingCubes9SetVertexEiPKdd(i32 noundef %0, ptr nocapture no
   %58 = fdiv double %51, %57
   %59 = uitofp nneg i32 %5 to double
   %60 = sext i32 %0 to i64
-  %61 = getelementptr inbounds nuw [12 x [3 x double]], ptr @_ZN13MarchingCubes10vertexListE, i64 0, i64 %60
+  %61 = getelementptr inbounds [12 x [3 x double]], ptr @_ZN13MarchingCubes10vertexListE, i64 0, i64 %60
   store double %59, ptr %61, align 8
   %62 = uitofp nneg i32 %7 to double
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
@@ -2291,13 +2291,13 @@ _ZN4Cube11EdgeCornersEiRiS0_.exit:                ; preds = %7, %12, %16, %2
   %.0 = phi i32 [ undef, %2 ], [ %17, %16 ], [ %15, %12 ], [ %11, %7 ]
   %18 = zext i8 %0 to i32
   %19 = sext i32 %.1 to i64
-  %20 = getelementptr inbounds nuw [8 x i32], ptr @_ZN13MarchingCubes9cornerMapE, i64 0, i64 %19
+  %20 = getelementptr inbounds [8 x i32], ptr @_ZN13MarchingCubes9cornerMapE, i64 0, i64 %19
   %21 = load i32, ptr %20, align 4
   %22 = shl nuw i32 1, %21
   %23 = and i32 %22, %18
   %.not = icmp eq i32 %23, 0
   %24 = sext i32 %.0 to i64
-  %25 = getelementptr inbounds nuw [8 x i32], ptr @_ZN13MarchingCubes9cornerMapE, i64 0, i64 %24
+  %25 = getelementptr inbounds [8 x i32], ptr @_ZN13MarchingCubes9cornerMapE, i64 0, i64 %24
   %26 = load i32, ptr %25, align 4
   %27 = shl nuw i32 1, %26
   %28 = and i32 %27, %18
@@ -2450,7 +2450,7 @@ define void @_ZN13MarchingCubes9SetVertexEiPKff(i32 noundef %0, ptr nocapture no
   %22 = fdiv float %15, %21
   %23 = fpext float %22 to double
   %24 = sext i32 %0 to i64
-  %25 = getelementptr inbounds nuw [12 x [3 x double]], ptr @_ZN13MarchingCubes10vertexListE, i64 0, i64 %24
+  %25 = getelementptr inbounds [12 x [3 x double]], ptr @_ZN13MarchingCubes10vertexListE, i64 0, i64 %24
   store double %23, ptr %25, align 8
   %26 = uitofp nneg i32 %5 to double
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -2475,7 +2475,7 @@ define void @_ZN13MarchingCubes9SetVertexEiPKff(i32 noundef %0, ptr nocapture no
   %43 = fpext float %42 to double
   %44 = uitofp nneg i32 %5 to double
   %45 = sext i32 %0 to i64
-  %46 = getelementptr inbounds nuw [12 x [3 x double]], ptr @_ZN13MarchingCubes10vertexListE, i64 0, i64 %45
+  %46 = getelementptr inbounds [12 x [3 x double]], ptr @_ZN13MarchingCubes10vertexListE, i64 0, i64 %45
   store double %44, ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store double %43, ptr %47, align 8
@@ -2498,7 +2498,7 @@ define void @_ZN13MarchingCubes9SetVertexEiPKff(i32 noundef %0, ptr nocapture no
   %61 = fpext float %60 to double
   %62 = uitofp nneg i32 %5 to double
   %63 = sext i32 %0 to i64
-  %64 = getelementptr inbounds nuw [12 x [3 x double]], ptr @_ZN13MarchingCubes10vertexListE, i64 0, i64 %63
+  %64 = getelementptr inbounds [12 x [3 x double]], ptr @_ZN13MarchingCubes10vertexListE, i64 0, i64 %63
   store double %62, ptr %64, align 8
   %65 = uitofp nneg i32 %7 to double
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 8

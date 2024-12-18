@@ -729,7 +729,7 @@ if.then.i.i.i.i:                                  ; preds = %cond.end.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %cond.end.i.i.i
   %idxprom.i.i.i.i = sext i32 %23 to i64
-  %rawsz2.i.i.i.i = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.i.i.i, i32 2
+  %rawsz2.i.i.i.i = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.i.i.i, i32 2
   br label %oidcpy_with_padding.exit.i.i.i
 
 oidcpy_with_padding.exit.i.i.i:                   ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i

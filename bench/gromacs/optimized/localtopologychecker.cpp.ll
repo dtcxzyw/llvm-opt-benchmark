@@ -1441,7 +1441,7 @@ _ZN3gmxL23flagInteractionsForTypeEiRK15InteractionListRK15reverse_ilist_tRKNS_5R
   %467 = getelementptr inbounds i32, ptr %466, i64 %465
   %468 = load i32, ptr %467, align 4, !noalias !11
   %469 = sext i32 %468 to i64
-  %470 = getelementptr inbounds nuw [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %469, i32 2
+  %470 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %469, i32 2
   %471 = load i32, ptr %470, align 16, !noalias !11
   %472 = add nsw i32 %.061148.us.i.i, %461
   %473 = sext i32 %472 to i64
@@ -1451,7 +1451,7 @@ _ZN3gmxL23flagInteractionsForTypeEiRK15InteractionListRK15reverse_ilist_tRKNS_5R
   br i1 %476, label %477, label %497
 
 477:                                              ; preds = %464
-  %478 = getelementptr inbounds nuw [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %469
+  %478 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %469
   %479 = getelementptr inbounds nuw i8, ptr %478, i64 28
   %480 = load i32, ptr %479, align 4, !noalias !11
   %481 = and i32 %480, 2

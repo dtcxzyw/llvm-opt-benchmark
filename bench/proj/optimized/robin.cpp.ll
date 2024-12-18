@@ -102,7 +102,7 @@ define internal { double, double } @_ZL15robin_s_inverse5PJ_XYP8PJconsts(double 
 
 .preheader:                                       ; preds = %19, %.preheader.backedge
   %.0 = phi i64 [ %.0.be, %.preheader.backedge ], [ %22, %19 ]
-  %24 = getelementptr inbounds nuw [19 x %"struct.(anonymous namespace)::COEFS"], ptr @_ZL1Y, i64 0, i64 %.0
+  %24 = getelementptr inbounds [19 x %"struct.(anonymous namespace)::COEFS"], ptr @_ZL1Y, i64 0, i64 %.0
   %25 = load float, ptr %24, align 16
   %26 = fpext float %25 to double
   %27 = fcmp olt double %7, %26
@@ -114,7 +114,7 @@ define internal { double, double } @_ZL15robin_s_inverse5PJ_XYP8PJconsts(double 
 
 30:                                               ; preds = %.preheader
   %31 = add nsw i64 %.0, 1
-  %32 = getelementptr inbounds nuw [19 x %"struct.(anonymous namespace)::COEFS"], ptr @_ZL1Y, i64 0, i64 %31
+  %32 = getelementptr inbounds [19 x %"struct.(anonymous namespace)::COEFS"], ptr @_ZL1Y, i64 0, i64 %31
   %33 = load float, ptr %32, align 16
   %34 = fpext float %33 to double
   %35 = fcmp ult double %7, %34
@@ -177,7 +177,7 @@ define internal { double, double } @_ZL15robin_s_inverse5PJ_XYP8PJconsts(double 
   %67 = fcmp olt double %1, 0.000000e+00
   %68 = fneg double %66
   %.sroa.9.1 = select i1 %67, double %68, double %66
-  %69 = getelementptr inbounds nuw [19 x %"struct.(anonymous namespace)::COEFS"], ptr @_ZL1X, i64 0, i64 %.0
+  %69 = getelementptr inbounds [19 x %"struct.(anonymous namespace)::COEFS"], ptr @_ZL1X, i64 0, i64 %.0
   %70 = load float, ptr %69, align 16
   %71 = fpext float %70 to double
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 4

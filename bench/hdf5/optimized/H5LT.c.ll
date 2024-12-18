@@ -3848,7 +3848,7 @@ indentation.exit:                                 ; preds = %41, %42
   %71 = add i64 %4, 4
   %72 = add i64 %4, 5
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %7, i8 32, i64 %72, i1 false)
-  %73 = getelementptr inbounds nuw [256 x i8], ptr %7, i64 0, i64 %71
+  %73 = getelementptr inbounds [256 x i8], ptr %7, i64 0, i64 %71
   store i8 0, ptr %73, align 1
   %74 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %3, ptr noundef %2, ptr noundef %70, ptr noundef nonnull %7)
   %75 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %3, ptr noundef %2, ptr noundef %74, ptr noundef nonnull @.str.81)

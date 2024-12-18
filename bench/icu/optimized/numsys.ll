@@ -428,7 +428,7 @@ if.then51:                                        ; preds = %if.end48
 if.end56:                                         ; preds = %if.then51
   %8 = load i32, ptr %count, align 4
   %idxprom54 = sext i32 %8 to i64
-  %arrayidx55 = getelementptr inbounds nuw [96 x i8], ptr %buffer, i64 0, i64 %idxprom54
+  %arrayidx55 = getelementptr inbounds [96 x i8], ptr %buffer, i64 0, i64 %idxprom54
   store i8 0, ptr %arrayidx55, align 1
   br label %cleanup
 

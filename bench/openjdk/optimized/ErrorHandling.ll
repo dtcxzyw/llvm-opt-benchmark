@@ -383,7 +383,7 @@ define hidden void @_Z17joinErrorMessagesRKNSt7__cxx1112basic_stringIcSt11char_t
   %16 = load ptr, ptr %10, align 8
   %17 = getelementptr i8, ptr %16, i64 -24
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %10, i64 %18
+  %19 = getelementptr inbounds i8, ptr %10, i64 %18
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE10exceptionsESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %19, i32 noundef 5)
           to label %20 unwind label %40
 

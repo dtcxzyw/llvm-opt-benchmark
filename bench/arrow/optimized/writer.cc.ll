@@ -9426,7 +9426,7 @@ entry:
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTN5arrow2io16MockOutputStreamE, i64 16), align 8, !noalias !224
   %vbase.offset.ptr.i.i.i = getelementptr i8, ptr %2, i64 -24
   %vbase.offset.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i, align 8, !noalias !224
-  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %dst.i, i64 %vbase.offset.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %dst.i, i64 %vbase.offset.i.i.i
   store ptr %3, ptr %add.ptr.i.i.i, align 8, !noalias !224
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow2io16MockOutputStreamE, i64 24), ptr %dst.i, align 8, !noalias !224
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow2io16MockOutputStreamE, i64 152), ptr %0, align 8, !noalias !224
@@ -9557,7 +9557,7 @@ entry:
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTN5arrow2io16MockOutputStreamE, i64 16), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %2, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %dst, i64 %vbase.offset.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %dst, i64 %vbase.offset.i.i
   store ptr %3, ptr %add.ptr.i.i, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow2io16MockOutputStreamE, i64 24), ptr %dst, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow2io16MockOutputStreamE, i64 152), ptr %0, align 8
@@ -9610,7 +9610,7 @@ entry:
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTN5arrow2io16MockOutputStreamE, i64 16), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %2, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %dst, i64 %vbase.offset.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %dst, i64 %vbase.offset.i.i
   store ptr %3, ptr %add.ptr.i.i, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow2io16MockOutputStreamE, i64 24), ptr %dst, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow2io16MockOutputStreamE, i64 152), ptr %0, align 8
@@ -11219,7 +11219,7 @@ entry:
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTN5arrow2io16MockOutputStreamE, i64 16), align 8, !noalias !311
   %vbase.offset.ptr.i.i.i = getelementptr i8, ptr %2, i64 -24
   %vbase.offset.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i, align 8, !noalias !311
-  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %dst.i, i64 %vbase.offset.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %dst.i, i64 %vbase.offset.i.i.i
   store ptr %3, ptr %add.ptr.i.i.i, align 8, !noalias !311
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow2io16MockOutputStreamE, i64 24), ptr %dst.i, align 8, !noalias !311
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow2io16MockOutputStreamE, i64 152), ptr %0, align 8, !noalias !311
@@ -12705,7 +12705,7 @@ entry:
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTN5arrow2io16MockOutputStreamE, i64 16), align 8, !noalias !353
   %vbase.offset.ptr.i.i.i = getelementptr i8, ptr %2, i64 -24
   %vbase.offset.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i, align 8, !noalias !353
-  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %dst.i, i64 %vbase.offset.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %dst.i, i64 %vbase.offset.i.i.i
   store ptr %3, ptr %add.ptr.i.i.i, align 8, !noalias !353
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow2io16MockOutputStreamE, i64 24), ptr %dst.i, align 8, !noalias !353
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow2io16MockOutputStreamE, i64 152), ptr %0, align 8, !noalias !353

@@ -2558,7 +2558,7 @@ _Z21Bytecode_invoke_checkRK12methodHandlei.exit:  ; preds = %72, %78
 
 _ZNK15Bytecode_invoke18is_invokeinterfaceEv.exit.i: ; preds = %83
   %85 = sext i32 %80 to i64
-  %86 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %85
+  %86 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %85
   %87 = load i32, ptr %86, align 4
   switch i32 %87, label %_ZNK15Bytecode_invoke8is_validEv.exit [
     i32 185, label %88
@@ -2577,7 +2577,7 @@ _ZNK15Bytecode_invoke18is_invokeinterfaceEv.exit.i: ; preds = %83
 
 _ZNK15Bytecode_invoke15is_invokestaticEv.exit.i:  ; preds = %88
   %92 = sext i32 %90 to i64
-  %93 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %92
+  %93 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %92
   %94 = load i32, ptr %93, align 4
   %95 = and i32 %94, -3
   %spec.select.i = icmp ne i32 %95, 184

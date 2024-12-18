@@ -2049,7 +2049,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit70:               ; preds = %155, %157
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 12
   %162 = load i32, ptr %161, align 4
   %163 = sext i32 %162 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZL24computeImportForFunctionRKN4llvm15FunctionSummaryERKNS_18ModuleSummaryIndexEjRKNS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS8_EEEENS_12function_refIFbmPKS7_EEERNS_15SmallVectorImplISt5tupleIJPS1_jEEEER15GlobalsImporterRNS_16FunctionImporter11ImportMapTyEPNS6_INS_9StringRefENS_8DenseSetINS_9ValueInfoENS9_ISZ_vEEEENS9_ISX_vEENSC_ISX_S11_EEEERNS6_ImSN_IJjSJ_St10unique_ptrINSU_17ImportFailureInfoESt14default_deleteIS17_EEEESA_NSC_ImS1B_EEEE, i64 0, i64 %163
+  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table._ZL24computeImportForFunctionRKN4llvm15FunctionSummaryERKNS_18ModuleSummaryIndexEjRKNS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS8_EEEENS_12function_refIFbmPKS7_EEERNS_15SmallVectorImplISt5tupleIJPS1_jEEEER15GlobalsImporterRNS_16FunctionImporter11ImportMapTyEPNS6_INS_9StringRefENS_8DenseSetINS_9ValueInfoENS9_ISZ_vEEEENS9_ISX_vEENSC_ISX_S11_EEEERNS6_ImSN_IJjSJ_St10unique_ptrINSU_17ImportFailureInfoESt14default_deleteIS17_EEEESA_NSC_ImS1B_EEEE, i64 0, i64 %163
   %switch.load = load ptr, ptr %switch.gep, align 8
   %164 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #26
   %165 = getelementptr inbounds nuw i8, ptr %.0.i.i69, i64 24
@@ -2169,7 +2169,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit83:               ; preds = %223, %225
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 8
   %230 = load i8, ptr %229, align 8
   %231 = sext i8 %230 to i64
-  %switch.gep146 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN20ModuleImportsManager22computeImportForModuleERKN4llvm8DenseMapImPNS0_18GlobalValueSummaryENS0_12DenseMapInfoImvEENS0_6detail12DenseMapPairImS3_EEEENS0_9StringRefERNS0_16FunctionImporter11ImportMapTyE.49, i64 0, i64 %231
+  %switch.gep146 = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN20ModuleImportsManager22computeImportForModuleERKN4llvm8DenseMapImPNS0_18GlobalValueSummaryENS0_12DenseMapInfoImvEENS0_6detail12DenseMapPairImS3_EEEENS0_9StringRefERNS0_16FunctionImporter11ImportMapTyE.49, i64 0, i64 %231
   %switch.load147 = load ptr, ptr %switch.gep146, align 8
   %232 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load147) #26
   %233 = getelementptr inbounds nuw i8, ptr %.0.i.i82, i64 24
@@ -2853,7 +2853,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
   %251 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull @.str.91) #26, !noalias !88
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %251) #26
   %252 = sext i32 %.034.ph47 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZL24computeImportForFunctionRKN4llvm15FunctionSummaryERKNS_18ModuleSummaryIndexEjRKNS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS8_EEEENS_12function_refIFbmPKS7_EEERNS_15SmallVectorImplISt5tupleIJPS1_jEEEER15GlobalsImporterRNS_16FunctionImporter11ImportMapTyEPNS6_INS_9StringRefENS_8DenseSetINS_9ValueInfoENS9_ISZ_vEEEENS9_ISX_vEENSC_ISX_S11_EEEERNS6_ImSN_IJjSJ_St10unique_ptrINSU_17ImportFailureInfoESt14default_deleteIS17_EEEESA_NSC_ImS1B_EEEE, i64 0, i64 %252
+  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table._ZL24computeImportForFunctionRKN4llvm15FunctionSummaryERKNS_18ModuleSummaryIndexEjRKNS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS8_EEEENS_12function_refIFbmPKS7_EEERNS_15SmallVectorImplISt5tupleIJPS1_jEEEER15GlobalsImporterRNS_16FunctionImporter11ImportMapTyEPNS6_INS_9StringRefENS_8DenseSetINS_9ValueInfoENS9_ISZ_vEEEENS9_ISX_vEENSC_ISX_S11_EEEERNS6_ImSN_IJjSJ_St10unique_ptrINSU_17ImportFailureInfoESt14default_deleteIS17_EEEESA_NSC_ImS1B_EEEE, i64 0, i64 %252
   %switch.load = load ptr, ptr %switch.gep, align 8
   %253 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull %switch.load) #26, !noalias !91
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %253) #26
@@ -7603,7 +7603,7 @@ _ZNK4llvm20iterator_facade_baseINS_15concat_iteratorINS_12GlobalObjectEJNS_14ili
   %.fca.0.load.i.i = load i64, ptr %.0.ptr.i.i, align 16
   %.fca.1.gep.i.i = getelementptr inbounds nuw i8, ptr %.0.ptr.i.i, i64 8
   %.fca.1.load.i.i = load i64, ptr %.fca.1.gep.i.i, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %6, i64 %.fca.1.load.i.i
+  %46 = getelementptr inbounds i8, ptr %6, i64 %.fca.1.load.i.i
   %47 = and i64 %.fca.0.load.i.i, 1
   %.not.i.i = icmp eq i64 %47, 0
   br i1 %.not.i.i, label %53, label %48
@@ -7696,7 +7696,7 @@ _ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit: ; preds = %_ZN4llvm1
   %.fca.0.load.i.i43 = load i64, ptr %.0.ptr.i.i42, align 16
   %.fca.1.gep.i.i44 = getelementptr inbounds nuw i8, ptr %.0.ptr.i.i42, i64 8
   %.fca.1.load.i.i45 = load i64, ptr %.fca.1.gep.i.i44, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %6, i64 %.fca.1.load.i.i45
+  %91 = getelementptr inbounds i8, ptr %6, i64 %.fca.1.load.i.i45
   %92 = and i64 %.fca.0.load.i.i43, 1
   %.not.i.i46 = icmp eq i64 %92, 0
   br i1 %.not.i.i46, label %98, label %93

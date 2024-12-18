@@ -107,7 +107,7 @@ _ZL8can_viewi.exit:                               ; preds = %.preheader
 28:                                               ; preds = %_ZL8can_viewi.exit
   %sext = shl i64 %indvars.iv.i, 32
   %29 = ashr exact i64 %sext, 32
-  %30 = getelementptr inbounds nuw [5 x ptr], ptr @__const._Z7do_viewPK16gmx_output_env_tPKcS3_.viewProgram, i64 0, i64 %29
+  %30 = getelementptr inbounds [5 x ptr], ptr @__const._Z7do_viewPK16gmx_output_env_tPKcS3_.viewProgram, i64 0, i64 %29
   %31 = load ptr, ptr %30, align 8
   br label %34
 

@@ -3582,16 +3582,16 @@ while.end:                                        ; preds = %if.end6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(26) %buf, i8 0, i64 26, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %buf, ptr noundef nonnull align 1 dereferenceable(16) %17, i64 16, i1 false)
   %idx.ext = sext i32 %sub to i64
-  %add.ptr = getelementptr inbounds nuw i8, ptr %buf, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %idx.ext
   %sext18 = shl i64 %sub.ptr.sub10, 32
   %idx.ext30 = ashr exact i64 %sext18, 32
-  %add.ptr31 = getelementptr inbounds nuw i8, ptr %buf, i64 %idx.ext30
+  %add.ptr31 = getelementptr inbounds i8, ptr %buf, i64 %idx.ext30
   %agg.tmp32.sroa.0.0.copyload = load ptr, ptr %add, align 8
   %agg.tmp32.sroa.2.0.copyload = load ptr, ptr %agg.tmp.sroa.2.0.add.sroa_idx, align 8
   %agg.tmp32.sroa.3.0.copyload = load ptr, ptr %agg.tmp.sroa.3.0.add.sroa_idx, align 8
   %agg.tmp32.sroa.4.0.copyload = load ptr, ptr %agg.tmp.sroa.4.0.add.sroa_idx, align 8
   %agg.tmp32.sroa.5.0.copyload = load i32, ptr %agg.tmp.sroa.5.0.add.sroa_idx, align 8
-  %cmp12.i27 = icmp samesign ult i64 %idx.ext30, %idx.ext
+  %cmp12.i27 = icmp slt i64 %idx.ext30, %idx.ext
   br i1 %cmp12.i27, label %while.body.i30.preheader, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_19PackedEnumParserArgINS0_15UnknownFieldSetEEEPKcPvS6_PNS1_12ParseContextEPFbPKviESB_PNS1_16InternalMetadataEiEUliE_EES6_S6_S6_T_.exit75
 
 while.body.i30.preheader:                         ; preds = %while.end

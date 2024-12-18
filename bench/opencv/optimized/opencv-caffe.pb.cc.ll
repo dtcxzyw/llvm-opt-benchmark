@@ -140007,15 +140007,15 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_16PackedEnumParserINS0_
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(26) %7, i8 0, i64 26, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 1 dereferenceable(16) %68, i64 16, i1 false)
   %75 = sext i32 %72 to i64
-  %76 = getelementptr inbounds nuw i8, ptr %7, i64 %75
+  %76 = getelementptr inbounds i8, ptr %7, i64 %75
   %sext34 = shl i64 %71, 32
   %77 = ashr exact i64 %sext34, 32
-  %78 = getelementptr inbounds nuw i8, ptr %7, i64 %77
+  %78 = getelementptr inbounds i8, ptr %7, i64 %77
   %.sroa.083.0.copyload = load ptr, ptr %2, align 8
   %.sroa.284.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.385.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.486.0.copyload = load i32, ptr %.sroa.476.0..sroa_idx, align 8
-  %79 = icmp samesign ult i64 %77, %75
+  %79 = icmp slt i64 %77, %75
   br i1 %79, label %.lr.ph.i38, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_16PackedEnumParserINS0_15UnknownFieldSetEEEPKcPvS6_PNS1_12ParseContextEPFbiEPNS1_16InternalMetadataEiEUlmE_EES6_S6_S6_T_.exit46
 
 .lr.ph.i38:                                       ; preds = %74, %_ZZN6google8protobuf8internal16PackedEnumParserINS0_15UnknownFieldSetEEEPKcPvS5_PNS1_12ParseContextEPFbiEPNS1_16InternalMetadataEiENKUlmE_clEm.exit64

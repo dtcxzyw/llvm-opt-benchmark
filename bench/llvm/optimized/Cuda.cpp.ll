@@ -547,7 +547,7 @@ define dso_local noundef range(i32 0, 20) i32 @_ZN5clang24MinVersionForOffloadAr
 switch.lookup:                                    ; preds = %3
   %switch.tableidx = add nsw i32 %0, -2
   %6 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [21 x i32], ptr @switch.table._ZN5clang24MinVersionForOffloadArchENS_11OffloadArchE, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds [21 x i32], ptr @switch.table._ZN5clang24MinVersionForOffloadArchENS_11OffloadArchE, i64 0, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %7
 

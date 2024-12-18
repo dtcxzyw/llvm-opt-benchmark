@@ -5733,7 +5733,7 @@ _ZN4pkpy10pod_vectorIcLi2EE9push_backIRKcEEvOT_.exit.i.i12: ; preds = %45, %41, 
 
 61:                                               ; preds = %59, %57
   %62 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #28
-  %63 = getelementptr inbounds nuw i8, ptr %3, i64 %62
+  %63 = getelementptr inbounds i8, ptr %3, i64 %62
   %.not6.i.i19 = icmp eq i64 %62, 0
   br i1 %.not6.i.i19, label %_ZN4pkpy7SStreamlsEPKc.exit28, label %.lr.ph.i.i20
 
@@ -5787,7 +5787,7 @@ _ZN4pkpy10pod_vectorIcLi2EE9push_backIRKcEEvOT_.exit.i.i22: ; preds = %76, %72, 
 _ZN4pkpy7SStreamlsEPKc.exit28:                    ; preds = %_ZN4pkpy10pod_vectorIcLi2EE9push_backIRKcEEvOT_.exit.i.i22, %61
   %85 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %86 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #28
-  %87 = getelementptr inbounds nuw i8, ptr %3, i64 %86
+  %87 = getelementptr inbounds i8, ptr %3, i64 %86
   %88 = ptrtoint ptr %87 to i64
   %gepdiff = add nsw i64 %86, -1
   %89 = ashr i64 %gepdiff, 2

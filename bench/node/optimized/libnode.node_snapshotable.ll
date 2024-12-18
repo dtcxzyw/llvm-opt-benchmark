@@ -6606,7 +6606,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %1 = and i8 %0, -3
   %or.cond = icmp eq i8 %1, 45
   %cond = select i1 %or.cond, i8 95, i8 %0
-  %arrayidx = getelementptr inbounds nuw [64 x i8], ptr %buf, i64 0, i64 %i.013
+  %arrayidx = getelementptr inbounds [64 x i8], ptr %buf, i64 0, i64 %i.013
   store i8 %cond, ptr %arrayidx, align 1
   %inc = add nuw i64 %i.013, 1
   %exitcond.not = icmp eq i64 %inc, %call
@@ -6617,7 +6617,7 @@ for.end:                                          ; preds = %for.body, %for.cond
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10) #23
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #23
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %buf, i64 %call.i.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %call.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %buf, ptr noundef nonnull %add.ptr.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #23
   %call.i8 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11) #23
@@ -7636,7 +7636,7 @@ _ZN4nodeL10FormatSizeB5cxx11Em.exit:              ; preds = %for.body, %if.then2
   %call.i.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %size_str) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %size_str, ptr noundef %call.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #23
   %call.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf.i) #23, !noalias !261
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 %call.i.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buf.i, i64 %call.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %size_str, ptr noundef nonnull %buf.i, ptr noundef nonnull %add.ptr.i.i)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #23
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %buf.i)
@@ -8156,7 +8156,7 @@ if.end12:                                         ; preds = %_ZNSt8optionalISt17
   %vtable = load ptr, ptr %out, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %out, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %out, i64 %vbase.offset
   %call14 = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr) #23
   br i1 %call14, label %if.then15, label %if.end16
 
@@ -8220,7 +8220,7 @@ if.end20:                                         ; preds = %_ZN4node15SnapshotB
   %vtable21 = load ptr, ptr %out, align 8
   %vbase.offset.ptr22 = getelementptr i8, ptr %vtable21, i64 -24
   %vbase.offset23 = load i64, ptr %vbase.offset.ptr22, align 8
-  %add.ptr24 = getelementptr inbounds nuw i8, ptr %out, i64 %vbase.offset23
+  %add.ptr24 = getelementptr inbounds i8, ptr %out, i64 %vbase.offset23
   %call25 = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr24) #23
   br i1 %call25, label %if.then26, label %cleanup
 

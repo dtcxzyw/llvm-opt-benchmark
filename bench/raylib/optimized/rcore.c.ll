@@ -32909,7 +32909,7 @@ define hidden range(i32 0, 2) i32 @msf_gif_frame(ptr nocapture noundef %0, ptr n
   %indvars.iv336.i = phi i64 [ %indvars.iv.next337.i, %216 ], [ %51, %._crit_edge ]
   %53 = getelementptr inbounds i32, ptr %40, i64 %indvars.iv336.i
   %54 = load i32, ptr %53, align 4
-  %55 = getelementptr inbounds nuw i32, ptr @msf_cook_frame.gdepthsArray, i64 %indvars.iv336.i
+  %55 = getelementptr inbounds i32, ptr @msf_cook_frame.gdepthsArray, i64 %indvars.iv336.i
   %56 = load i32, ptr %55, align 4
   %57 = getelementptr inbounds i32, ptr %41, i64 %indvars.iv336.i
   %58 = load i32, ptr %57, align 4
@@ -33174,7 +33174,7 @@ msf_cook_frame.exit:                              ; preds = %216, %._crit_edge31
   %218 = sext i32 %.1.i to i64
   %219 = getelementptr inbounds i32, ptr %40, i64 %218
   %220 = load i32, ptr %219, align 4
-  %221 = getelementptr inbounds nuw i32, ptr @msf_cook_frame.gdepthsArray, i64 %218
+  %221 = getelementptr inbounds i32, ptr @msf_cook_frame.gdepthsArray, i64 %218
   %222 = load i32, ptr %221, align 4
   %223 = getelementptr inbounds i32, ptr %41, i64 %218
   %224 = load i32, ptr %223, align 4
@@ -33212,7 +33212,7 @@ msf_cook_frame.exit:                              ; preds = %216, %._crit_edge31
   %238 = shl nuw i32 1, %237
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(768) %7, i8 0, i64 768, i1 false)
   %239 = sext i32 %238 to i64
-  %240 = getelementptr inbounds nuw [65537 x i8], ptr %6, i64 0, i64 %239
+  %240 = getelementptr inbounds [65537 x i8], ptr %6, i64 0, i64 %239
   store i8 0, ptr %240, align 1
   %.not84.i = icmp eq i32 %237, 31
   br i1 %.not84.i, label %._crit_edge.i45, label %.lr.ph.i40
@@ -33262,7 +33262,7 @@ msf_cook_frame.exit:                              ; preds = %216, %._crit_edge31
   %269 = or i32 %268, %259
   %270 = trunc i32 %269 to i8
   %271 = sext i32 %.011571.us.i to i64
-  %272 = getelementptr inbounds nuw [256 x %struct.Color3], ptr %7, i64 0, i64 %271
+  %272 = getelementptr inbounds [256 x %struct.Color3], ptr %7, i64 0, i64 %271
   store i8 %270, ptr %272, align 1
   %273 = lshr i32 %262, %222
   %274 = lshr i32 %262, %246
@@ -33319,7 +33319,7 @@ msf_cook_frame.exit:                              ; preds = %216, %._crit_edge31
   %309 = or i32 %308, %299
   %310 = trunc i32 %309 to i8
   %311 = sext i32 %.011571.i to i64
-  %312 = getelementptr inbounds nuw [256 x %struct.Color3], ptr %7, i64 0, i64 %311
+  %312 = getelementptr inbounds [256 x %struct.Color3], ptr %7, i64 0, i64 %311
   %313 = lshr i32 %302, %222
   %314 = lshr i32 %302, %246
   %315 = lshr i32 %302, %247
@@ -33350,7 +33350,7 @@ msf_cook_frame.exit:                              ; preds = %216, %._crit_edge31
 
 ._crit_edge.i45:                                  ; preds = %330, %290, %234
   %.0115.lcssa.i = phi i32 [ 1, %234 ], [ %.1.us.i, %290 ], [ %.1.i42, %330 ]
-  %331 = getelementptr inbounds nuw i8, ptr %8, i64 %239
+  %331 = getelementptr inbounds i8, ptr %8, i64 %239
   %332 = load i8, ptr %331, align 1
   %333 = add nsw i32 %.0115.lcssa.i, -1
   %334 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %333, i1 true)
@@ -34477,7 +34477,7 @@ sinfl_decode.exit:                                ; preds = %sinfl_refill.exit16
   %247 = trunc i32 %244 to i8
   %248 = add nsw i32 %.1129290, 1
   %249 = sext i32 %.1129290 to i64
-  %250 = getelementptr inbounds nuw [320 x i8], ptr %17, i64 0, i64 %249
+  %250 = getelementptr inbounds [320 x i8], ptr %17, i64 0, i64 %249
   store i8 %247, ptr %250, align 1
   br label %.loopexit
 
@@ -34538,7 +34538,7 @@ sinfl_get.exit172:                                ; preds = %255, %262
 280:                                              ; preds = %sinfl_get.exit172, %280
   %indvars.iv331 = phi i64 [ %279, %sinfl_get.exit172 ], [ %indvars.iv.next332, %280 ]
   %.0134282 = phi i32 [ %278, %sinfl_get.exit172 ], [ %282, %280 ]
-  %281 = getelementptr inbounds nuw [320 x i8], ptr %17, i64 0, i64 %indvars.iv331
+  %281 = getelementptr inbounds [320 x i8], ptr %17, i64 0, i64 %indvars.iv331
   store i8 %load_initial, ptr %281, align 1
   %282 = add nsw i32 %.0134282, -1
   %indvars.iv.next332 = add nsw i64 %indvars.iv331, 1
@@ -35230,7 +35230,7 @@ define internal fastcc i32 @sdefl_compr(ptr noundef initializes((8, 131080)) %0,
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 962492
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 963772
   %19 = sext i32 %4 to i64
-  %20 = getelementptr inbounds nuw [9 x i8], ptr @sdefl_compr.pref, i64 0, i64 %19
+  %20 = getelementptr inbounds [9 x i8], ptr @sdefl_compr.pref, i64 0, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 131080
   %22 = icmp sgt i32 %4, 4
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 262156
@@ -35680,7 +35680,7 @@ sdefl_fnd.exit152:                                ; preds = %124, %127, %92
   %239 = add i32 %.sroa.6.1.i, %.sroa.3.1.i
   %240 = sext i32 %.sroa.3.1.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull readonly align 1 %18, i64 %240, i1 false)
-  %241 = getelementptr inbounds nuw i8, ptr %5, i64 %240
+  %241 = getelementptr inbounds i8, ptr %5, i64 %240
   %242 = sext i32 %.sroa.6.1.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %241, ptr nonnull readonly align 1 %27, i64 %242, i1 false)
   %243 = add i32 %239, -1
@@ -35900,7 +35900,7 @@ sdefl_precode.exit.i:                             ; preds = %._crit_edge111.i.i
   %345 = getelementptr inbounds nuw [288 x i32], ptr %15, i64 0, i64 %indvars.iv60.i.i
   %346 = load i32, ptr %345, align 4
   %347 = add nsw i64 %indvars.iv60.i.i, -257
-  %348 = getelementptr inbounds nuw [29 x i8], ptr @sdefl_match.lxn, i64 0, i64 %347
+  %348 = getelementptr inbounds [29 x i8], ptr @sdefl_match.lxn, i64 0, i64 %347
   %349 = load i8, ptr %348, align 1
   %350 = zext i8 %349 to i32
   %351 = getelementptr inbounds nuw [288 x i8], ptr %18, i64 0, i64 %indvars.iv60.i.i
@@ -36473,7 +36473,7 @@ sdefl_put.exit204.i:                              ; preds = %sdefl_put.exit204.l
   %650 = getelementptr inbounds nuw i8, ptr %611, i64 4
   %651 = load i32, ptr %650, align 4
   %652 = sext i32 %651 to i64
-  %653 = getelementptr inbounds nuw [259 x i8], ptr @sdefl_match_codes.lslot, i64 0, i64 %652
+  %653 = getelementptr inbounds [259 x i8], ptr @sdefl_match_codes.lslot, i64 0, i64 %652
   %654 = load i8, ptr %653, align 1
   %655 = zext i8 %654 to i64
   %656 = add nuw nsw i64 %655, 257
@@ -38910,7 +38910,7 @@ switch.lookup:                                    ; preds = %42, %53
   %indvars.iv106 = phi i64 [ 0, %42 ], [ %indvars.iv.next107, %53 ]
   %sext = shl i64 %indvars.iv106, 32
   %45 = ashr exact i64 %sext, 32
-  %switch.gep = getelementptr inbounds nuw [15 x i32], ptr @switch.table.PollInputEvents, i64 0, i64 %45
+  %switch.gep = getelementptr inbounds [15 x i32], ptr @switch.table.PollInputEvents, i64 0, i64 %45
   %switch.load = load i32, ptr %switch.gep, align 4
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv106
   %47 = load i8, ptr %46, align 1
@@ -44226,7 +44226,7 @@ define i32 @GetFPS() local_unnamed_addr #0 {
   %17 = srem i32 %16, 30
   store i32 %17, ptr @GetFPS.index, align 4
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds nuw [30 x float], ptr @GetFPS.history, i64 0, i64 %18
+  %19 = getelementptr inbounds [30 x float], ptr @GetFPS.history, i64 0, i64 %18
   %20 = load float, ptr %19, align 4
   %21 = load float, ptr @GetFPS.average, align 4
   %22 = fsub float %21, %20
@@ -44671,7 +44671,7 @@ strprbrk.exit:                                    ; preds = %7
 31:                                               ; preds = %29, %27, %19
   %32 = phi i64 [ 0, %27 ], [ 0, %19 ], [ %30, %29 ]
   %33 = add i64 %25, %32
-  %34 = getelementptr inbounds nuw [4096 x i8], ptr @GetDirectoryPath.dirPath, i64 0, i64 %33
+  %34 = getelementptr inbounds [4096 x i8], ptr @GetDirectoryPath.dirPath, i64 0, i64 %33
   store i8 0, ptr %34, align 1
   br label %35
 
@@ -46662,7 +46662,7 @@ define internal fastcc void @sinfl_build(ptr nocapture noundef nonnull %0, ptr n
   %37 = add nsw i32 %36, 1
   store i32 %37, ptr %35, align 4
   %38 = sext i32 %36 to i64
-  %39 = getelementptr inbounds nuw i16, ptr %6, i64 %38
+  %39 = getelementptr inbounds i16, ptr %6, i64 %38
   store i16 %31, ptr %39, align 2
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond126.not = icmp eq i64 %indvars.iv.next123, %wide.trip.count125
@@ -46675,7 +46675,7 @@ define internal fastcc void @sinfl_build(ptr nocapture noundef nonnull %0, ptr n
 
 ._crit_edge100:                                   ; preds = %._crit_edge100.loopexit, %26
   %41 = phi i64 [ %40, %._crit_edge100.loopexit ], [ 0, %26 ]
-  %42 = getelementptr inbounds nuw i16, ptr %6, i64 %41
+  %42 = getelementptr inbounds i16, ptr %6, i64 %41
   %43 = shl nuw nsw i32 1, %3
   %44 = icmp slt i32 %30, %43
   br i1 %44, label %.preheader, label %48
@@ -46795,7 +46795,7 @@ define internal fastcc void @sinfl_build(ptr nocapture noundef nonnull %0, ptr n
 
 90:                                               ; preds = %85, %.preheader45.i
   %.3.i = phi i32 [ %89, %85 ], [ %.2.i, %.preheader45.i ]
-  %91 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.next128
+  %91 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv.next128
   %92 = load i32, ptr %91, align 4
   %.not44.i = icmp eq i32 %92, 0
   br i1 %.not44.i, label %.preheader45.i, label %.loopexit46.i
@@ -46857,7 +46857,7 @@ define internal fastcc void @sinfl_build(ptr nocapture noundef nonnull %0, ptr n
   %107 = trunc i64 %indvars.iv.i39 to i32
   %.reass.i = add i32 %invariant.op.i, %107
   %108 = sext i32 %.reass.i to i64
-  %109 = getelementptr inbounds nuw i32, ptr %7, i64 %108
+  %109 = getelementptr inbounds i32, ptr %7, i64 %108
   %110 = load i32, ptr %109, align 4
   %111 = add nsw i32 %110, %106
   %112 = trunc i64 %indvars.iv.next.i40 to i32
@@ -46924,7 +46924,7 @@ define internal fastcc void @sinfl_build(ptr nocapture noundef nonnull %0, ptr n
 146:                                              ; preds = %146, %.lr.ph68.i
   %indvars.iv75.i = phi i64 [ %145, %.lr.ph68.i ], [ %indvars.iv.next76.i, %146 ]
   %indvars.iv.next76.i = add nsw i64 %indvars.iv75.i, 1
-  %147 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.next76.i
+  %147 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv.next76.i
   %148 = load i32, ptr %147, align 4
   %.not62.i = icmp eq i32 %148, 0
   br i1 %.not62.i, label %146, label %.loopexit.i.loopexit

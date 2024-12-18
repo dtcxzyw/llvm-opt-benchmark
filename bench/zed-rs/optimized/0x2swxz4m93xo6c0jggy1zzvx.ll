@@ -4477,7 +4477,7 @@ _ZN4core5slice4sort6shared9smallsort25insertion_sort_shift_left17hec43b53d88a1bc
 
 37:                                               ; preds = %36
   %38 = add nsw i64 %1, -1
-  %39 = getelementptr inbounds nuw { i64, i64, i8, [7 x i8] }, ptr %4, i64 %38
+  %39 = getelementptr inbounds { i64, i64, i8, [7 x i8] }, ptr %4, i64 %38
   %40 = getelementptr inbounds { i64, i64, i8, [7 x i8] }, ptr %0, i64 %38
   %41 = getelementptr i8, ptr %11, i64 -24
   br label %.lr.ph.i12

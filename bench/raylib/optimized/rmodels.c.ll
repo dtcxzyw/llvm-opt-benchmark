@@ -11465,15 +11465,15 @@ Vox_CalcFacesVisible.exit.i:                      ; preds = %295, %288, %Vox_Get
   %317 = getelementptr inbounds nuw [6 x [4 x i32]], ptr @fv, i64 0, i64 %indvars.iv147.i, i64 %indvars.iv.i90
   %318 = load i32, ptr %317, align 4
   %319 = sext i32 %318 to i64
-  %320 = getelementptr inbounds nuw [8 x i32], ptr %5, i64 0, i64 %319
+  %320 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 %319
   %321 = load i32, ptr %320, align 4
   %322 = icmp eq i32 %321, 0
   br i1 %322, label %323, label %332
 
 323:                                              ; preds = %.preheader141.i
   store i32 1, ptr %320, align 4
-  %324 = getelementptr inbounds nuw [8 x %struct.VoxVector3], ptr %4, i64 0, i64 %319
-  %325 = getelementptr inbounds nuw [8 x %struct.VoxVector3], ptr @SolidVertex, i64 0, i64 %319
+  %324 = getelementptr inbounds [8 x %struct.VoxVector3], ptr %4, i64 0, i64 %319
+  %325 = getelementptr inbounds [8 x %struct.VoxVector3], ptr @SolidVertex, i64 0, i64 %319
   %.sroa.06.0.copyload.i.i = load <2 x float>, ptr %325, align 4
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %325, i64 8
   %.sroa.6.0.copyload.i.i = load float, ptr %.sroa.6.0..sroa_idx.i.i, align 4
@@ -11521,7 +11521,7 @@ Vox_CalcFacesVisible.exit.i:                      ; preds = %295, %288, %Vox_Get
   %346 = load i32, ptr %345, align 4
   %347 = load i32, ptr %129, align 8
   %348 = sext i32 %340 to i64
-  %349 = getelementptr inbounds nuw [8 x %struct.VoxVector3], ptr %4, i64 0, i64 %348
+  %349 = getelementptr inbounds [8 x %struct.VoxVector3], ptr %4, i64 0, i64 %348
   %.sroa.017.0.copyload.i = load <2 x float>, ptr %349, align 4
   %.sroa.218.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %349, i64 8
   %.sroa.218.0.copyload.i = load float, ptr %.sroa.218.0..sroa_idx.i, align 4
@@ -11551,7 +11551,7 @@ insertArrayVector3.exit.i:                        ; preds = %352, %338
   %.sroa.29.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %361, i64 8
   store float %.sroa.218.0.copyload.i, ptr %.sroa.29.0..sroa_idx.i.i, align 4
   %362 = sext i32 %342 to i64
-  %363 = getelementptr inbounds nuw [8 x %struct.VoxVector3], ptr %4, i64 0, i64 %362
+  %363 = getelementptr inbounds [8 x %struct.VoxVector3], ptr %4, i64 0, i64 %362
   %.sroa.015.0.copyload.i = load <2 x float>, ptr %363, align 4
   %.sroa.216.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %363, i64 8
   %.sroa.216.0.copyload.i = load float, ptr %.sroa.216.0..sroa_idx.i, align 4
@@ -11582,7 +11582,7 @@ insertArrayVector3.exit89.i:                      ; preds = %367, %insertArrayVe
   %.sroa.29.0..sroa_idx.i87.i = getelementptr inbounds nuw i8, ptr %376, i64 8
   store float %.sroa.216.0.copyload.i, ptr %.sroa.29.0..sroa_idx.i87.i, align 4
   %377 = sext i32 %344 to i64
-  %378 = getelementptr inbounds nuw [8 x %struct.VoxVector3], ptr %4, i64 0, i64 %377
+  %378 = getelementptr inbounds [8 x %struct.VoxVector3], ptr %4, i64 0, i64 %377
   %.sroa.013.0.copyload.i = load <2 x float>, ptr %378, align 4
   %.sroa.214.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %378, i64 8
   %.sroa.214.0.copyload.i = load float, ptr %.sroa.214.0..sroa_idx.i, align 4
@@ -11613,7 +11613,7 @@ insertArrayVector3.exit93.i:                      ; preds = %382, %insertArrayVe
   %.sroa.29.0..sroa_idx.i91.i = getelementptr inbounds nuw i8, ptr %391, i64 8
   store float %.sroa.214.0.copyload.i, ptr %.sroa.29.0..sroa_idx.i91.i, align 4
   %392 = sext i32 %346 to i64
-  %393 = getelementptr inbounds nuw [8 x %struct.VoxVector3], ptr %4, i64 0, i64 %392
+  %393 = getelementptr inbounds [8 x %struct.VoxVector3], ptr %4, i64 0, i64 %392
   %.sroa.011.0.copyload.i = load <2 x float>, ptr %393, align 4
   %.sroa.212.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %393, i64 8
   %.sroa.212.0.copyload.i = load float, ptr %.sroa.212.0..sroa_idx.i, align 4
@@ -12794,7 +12794,7 @@ _m3dstbi__zhuffman_decode.exit.i.i.i:             ; preds = %314, %300
   %336 = trunc nuw nsw i32 %.0.i.i47.i.i to i8
   %337 = add nsw i32 %.045142.i.i.i, 1
   %338 = sext i32 %.045142.i.i.i to i64
-  %339 = getelementptr inbounds nuw [455 x i8], ptr %7, i64 0, i64 %338
+  %339 = getelementptr inbounds [455 x i8], ptr %7, i64 0, i64 %338
   store i8 %336, ptr %339, align 1
   br label %427
 
@@ -12851,7 +12851,7 @@ _m3dstbi__zreceive.exit96.i.i.i:                  ; preds = %_m3dstbi__zget8.exi
   %365 = add nuw nsw i32 %364, 3
   %366 = add nsw i32 %.045142.i.i.i, -1
   %367 = sext i32 %366 to i64
-  %368 = getelementptr inbounds nuw [455 x i8], ptr %7, i64 0, i64 %367
+  %368 = getelementptr inbounds [455 x i8], ptr %7, i64 0, i64 %367
   %369 = load i8, ptr %368, align 1
   br label %416
 
@@ -12953,7 +12953,7 @@ _m3dstbi__zreceive.exit116.i.i.i:                 ; preds = %_m3dstbi__zget8.exi
 
 422:                                              ; preds = %416
   %423 = sext i32 %.045142.i.i.i to i64
-  %424 = getelementptr inbounds nuw i8, ptr %7, i64 %423
+  %424 = getelementptr inbounds i8, ptr %7, i64 %423
   %425 = zext nneg i32 %.042.i.i.i to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %424, i8 %.0.i49.i.i, i64 %425, i1 false)
   %426 = add nsw i32 %.042.i.i.i, %.045142.i.i.i
@@ -14615,7 +14615,7 @@ _m3dstbi__get8.exit273.i.i:                       ; preds = %254, %250
 .lr.ph537.preheader.i.i:                          ; preds = %.preheader313.i.i
   %270 = zext nneg i32 %264 to i64
   %271 = sext i32 %31 to i64
-  %272 = getelementptr inbounds nuw [9 x i8], ptr @_m3dstbi__depth_scale_table, i64 0, i64 %271
+  %272 = getelementptr inbounds [9 x i8], ptr @_m3dstbi__depth_scale_table, i64 0, i64 %271
   %273 = load i8, ptr %272, align 1
   br label %.lr.ph537.i.i
 
@@ -23360,7 +23360,7 @@ par_shapes__sort_points.exit:                     ; preds = %.lr.ph63.i, %._crit
 198:                                              ; preds = %195
   %199 = add nsw i32 %.2178215.i, 1
   %200 = sext i32 %.2178215.i to i64
-  %201 = getelementptr inbounds nuw [8 x i32], ptr %4, i64 0, i64 %200
+  %201 = getelementptr inbounds [8 x i32], ptr %4, i64 0, i64 %200
   %202 = trunc nsw i64 %192 to i32
   store i32 %202, ptr %201, align 4
   br label %203
@@ -28156,7 +28156,7 @@ allocate_perm.exit.i:                             ; preds = %8, %allocate_perm.e
   %spec.select.i = add i64 %25, %23
   %sext.i = shl i64 %spec.select.i, 32
   %26 = ashr exact i64 %sext.i, 32
-  %27 = getelementptr inbounds nuw [256 x i16], ptr %3, i64 0, i64 %26
+  %27 = getelementptr inbounds [256 x i16], ptr %3, i64 0, i64 %26
   %28 = load i16, ptr %27, align 2
   %29 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv49.i
   store i16 %28, ptr %29, align 2
@@ -63342,7 +63342,7 @@ _m3dstbi__mad3sizes_valid.exit._crit_edge:        ; preds = %39, %_m3dstbi__mul2
   %318 = sub nsw i64 0, %317
   %319 = icmp eq i32 %7, 0
   %320 = sext i32 %6 to i64
-  %321 = getelementptr inbounds nuw [9 x i8], ptr @_m3dstbi__depth_scale_table, i64 0, i64 %320
+  %321 = getelementptr inbounds [9 x i8], ptr @_m3dstbi__depth_scale_table, i64 0, i64 %320
   %322 = icmp sgt i32 %37, 7
   %323 = icmp sgt i32 %37, 3
   %324 = icmp sgt i32 %37, 1

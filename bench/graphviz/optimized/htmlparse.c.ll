@@ -127,7 +127,7 @@ define range(i32 0, 3) i32 @htmlparse() local_unnamed_addr #0 {
 
 32:                                               ; preds = %30
   %33 = sext i32 %.0 to i64
-  %34 = getelementptr inbounds nuw [116 x i16], ptr @yypact, i64 0, i64 %33
+  %34 = getelementptr inbounds [116 x i16], ptr @yypact, i64 0, i64 %33
   %35 = load i16, ptr %34, align 2
   %36 = sext i16 %35 to i32
   %37 = icmp eq i16 %35, -82
@@ -205,7 +205,7 @@ define range(i32 0, 3) i32 @htmlparse() local_unnamed_addr #0 {
   br label %3
 
 74:                                               ; preds = %57, %59, %32
-  %75 = getelementptr inbounds nuw [116 x i8], ptr @yydefact, i64 0, i64 %33
+  %75 = getelementptr inbounds [116 x i8], ptr @yydefact, i64 0, i64 %33
   %76 = load i8, ptr %75, align 1
   %77 = sext i8 %76 to i32
   %78 = icmp eq i8 %76, 0
@@ -214,7 +214,7 @@ define range(i32 0, 3) i32 @htmlparse() local_unnamed_addr #0 {
 79:                                               ; preds = %74, %69
   %.0189 = phi i32 [ %77, %74 ], [ %70, %69 ]
   %80 = sext i32 %.0189 to i64
-  %81 = getelementptr inbounds nuw [70 x i8], ptr @yyr2, i64 0, i64 %80
+  %81 = getelementptr inbounds [70 x i8], ptr @yyr2, i64 0, i64 %80
   %82 = load i8, ptr %81, align 1
   %83 = sext i8 %82 to i64
   %84 = sub nsw i64 1, %83
@@ -918,11 +918,11 @@ setCell.exit248:                                  ; preds = %gv_alloc.exit.i246,
   %411 = getelementptr inbounds i8, ptr %.2179, i64 %409
   %412 = getelementptr inbounds nuw i8, ptr %410, i64 8
   store ptr %.sroa.0.0, ptr %412, align 8
-  %413 = getelementptr inbounds nuw [70 x i8], ptr @yyr1, i64 0, i64 %80
+  %413 = getelementptr inbounds [70 x i8], ptr @yyr1, i64 0, i64 %80
   %414 = load i8, ptr %413, align 1
   %415 = sext i8 %414 to i64
   %416 = add nsw i64 %415, -41
-  %417 = getelementptr inbounds nuw [39 x i16], ptr @yypgoto, i64 0, i64 %416
+  %417 = getelementptr inbounds [39 x i16], ptr @yypgoto, i64 0, i64 %416
   %418 = load i16, ptr %417, align 2
   %419 = sext i16 %418 to i32
   %420 = load i8, ptr %411, align 1
@@ -943,7 +943,7 @@ setCell.exit248:                                  ; preds = %gv_alloc.exit.i246,
   br label %432
 
 430:                                              ; preds = %423, %407
-  %431 = getelementptr inbounds nuw [39 x i8], ptr @yydefgoto, i64 0, i64 %416
+  %431 = getelementptr inbounds [39 x i8], ptr @yydefgoto, i64 0, i64 %416
   br label %432
 
 432:                                              ; preds = %430, %428
@@ -1009,7 +1009,7 @@ setCell.exit248:                                  ; preds = %gv_alloc.exit.i246,
   %459 = load i8, ptr %458, align 1
   %460 = sext i8 %459 to i32
   %.phi.trans.insert = sext i8 %459 to i64
-  %.phi.trans.insert401 = getelementptr inbounds nuw [116 x i16], ptr @yypact, i64 0, i64 %.phi.trans.insert
+  %.phi.trans.insert401 = getelementptr inbounds [116 x i16], ptr @yypact, i64 0, i64 %.phi.trans.insert
   %.pre = load i16, ptr %.phi.trans.insert401, align 2
   br label %444
 

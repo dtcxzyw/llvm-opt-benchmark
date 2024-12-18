@@ -2108,7 +2108,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %add.ptr = getelementptr inbounds nuw i8, ptr %pretty, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %pretty, i64 %vbase.offset
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale(ptr nonnull sret(%"class.std::locale") align 8 %agg.tmp.ensured, ptr noundef nonnull align 8 dereferenceable(264) %add.ptr, ptr noundef nonnull align 8 dereferenceable(8) %call)
           to label %invoke.cont1 unwind label %lpad
 
@@ -2117,7 +2117,7 @@ invoke.cont1:                                     ; preds = %invoke.cont
   %vtable2 = load ptr, ptr %pretty, align 8
   %vbase.offset.ptr3 = getelementptr i8, ptr %vtable2, i64 -24
   %vbase.offset4 = load i64, ptr %vbase.offset.ptr3, align 8
-  %add.ptr5 = getelementptr inbounds nuw i8, ptr %pretty, i64 %vbase.offset4
+  %add.ptr5 = getelementptr inbounds i8, ptr %pretty, i64 %vbase.offset4
   %_M_precision.i = getelementptr inbounds nuw i8, ptr %add.ptr5, i64 8
   store i64 7, ptr %_M_precision.i, align 8
   %call9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %pretty, float noundef %value)
@@ -2180,7 +2180,7 @@ if.end:                                           ; preds = %entry
           to label %invoke.cont2 unwind label %lpad1.loopexit.split-lp
 
 invoke.cont2:                                     ; preds = %if.end
-  %add.ptr = getelementptr inbounds nuw i8, ptr %pretty, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %pretty, i64 %vbase.offset
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale(ptr nonnull sret(%"class.std::locale") align 8 %agg.tmp.ensured, ptr noundef nonnull align 8 dereferenceable(264) %add.ptr, ptr noundef nonnull align 8 dereferenceable(8) %call)
           to label %invoke.cont3 unwind label %lpad1.loopexit.split-lp
 
@@ -2189,7 +2189,7 @@ invoke.cont3:                                     ; preds = %invoke.cont2
   %vtable4 = load ptr, ptr %pretty, align 8
   %vbase.offset.ptr5 = getelementptr i8, ptr %vtable4, i64 -24
   %vbase.offset6 = load i64, ptr %vbase.offset.ptr5, align 8
-  %add.ptr7 = getelementptr inbounds nuw i8, ptr %pretty, i64 %vbase.offset6
+  %add.ptr7 = getelementptr inbounds i8, ptr %pretty, i64 %vbase.offset6
   %_M_precision.i = getelementptr inbounds nuw i8, ptr %add.ptr7, i64 8
   store i64 7, ptr %_M_precision.i, align 8
   %wide.trip.count = zext i32 %size to i64
@@ -2324,7 +2324,7 @@ invoke.cont6:                                     ; preds = %invoke.cont
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %invoke.cont6
-  %add.ptr = getelementptr inbounds nuw i8, ptr %i, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %i, i64 %vbase.offset
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale(ptr nonnull sret(%"class.std::locale") align 8 %agg.tmp.ensured, ptr noundef nonnull align 8 dereferenceable(264) %add.ptr, ptr noundef nonnull align 8 dereferenceable(8) %call)
           to label %invoke.cont9 unwind label %lpad7
 
@@ -2428,7 +2428,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %add.ptr = getelementptr inbounds nuw i8, ptr %pretty, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %pretty, i64 %vbase.offset
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale(ptr nonnull sret(%"class.std::locale") align 8 %agg.tmp.ensured, ptr noundef nonnull align 8 dereferenceable(264) %add.ptr, ptr noundef nonnull align 8 dereferenceable(8) %call)
           to label %invoke.cont1 unwind label %lpad
 
@@ -2437,7 +2437,7 @@ invoke.cont1:                                     ; preds = %invoke.cont
   %vtable2 = load ptr, ptr %pretty, align 8
   %vbase.offset.ptr3 = getelementptr i8, ptr %vtable2, i64 -24
   %vbase.offset4 = load i64, ptr %vbase.offset.ptr3, align 8
-  %add.ptr5 = getelementptr inbounds nuw i8, ptr %pretty, i64 %vbase.offset4
+  %add.ptr5 = getelementptr inbounds i8, ptr %pretty, i64 %vbase.offset4
   %_M_precision.i = getelementptr inbounds nuw i8, ptr %add.ptr5, i64 8
   store i64 16, ptr %_M_precision.i, align 8
   %call9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %pretty, double noundef %value)
@@ -2493,7 +2493,7 @@ if.end:                                           ; preds = %entry
           to label %invoke.cont2 unwind label %lpad1.loopexit.split-lp
 
 invoke.cont2:                                     ; preds = %if.end
-  %add.ptr = getelementptr inbounds nuw i8, ptr %pretty, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %pretty, i64 %vbase.offset
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale(ptr nonnull sret(%"class.std::locale") align 8 %agg.tmp.ensured, ptr noundef nonnull align 8 dereferenceable(264) %add.ptr, ptr noundef nonnull align 8 dereferenceable(8) %call)
           to label %invoke.cont3 unwind label %lpad1.loopexit.split-lp
 
@@ -2502,7 +2502,7 @@ invoke.cont3:                                     ; preds = %invoke.cont2
   %vtable4 = load ptr, ptr %pretty, align 8
   %vbase.offset.ptr5 = getelementptr i8, ptr %vtable4, i64 -24
   %vbase.offset6 = load i64, ptr %vbase.offset.ptr5, align 8
-  %add.ptr7 = getelementptr inbounds nuw i8, ptr %pretty, i64 %vbase.offset6
+  %add.ptr7 = getelementptr inbounds i8, ptr %pretty, i64 %vbase.offset6
   %_M_precision.i = getelementptr inbounds nuw i8, ptr %add.ptr7, i64 8
   store i64 16, ptr %_M_precision.i, align 8
   %wide.trip.count = zext i32 %size to i64

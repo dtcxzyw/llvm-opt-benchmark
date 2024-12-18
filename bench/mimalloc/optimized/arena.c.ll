@@ -704,7 +704,7 @@ for.body:                                         ; preds = %for.cond.preheader
 for.body12:                                       ; preds = %for.body, %for.inc
   %max_purge_count.012 = phi i64 [ %cond, %for.body ], [ %max_purge_count.1, %for.inc ]
   %i.011 = phi i64 [ 0, %for.body ], [ %inc, %for.inc ]
-  %arrayidx = getelementptr inbounds nuw [112 x ptr], ptr @mi_arenas, i64 0, i64 %i.011
+  %arrayidx = getelementptr inbounds [112 x ptr], ptr @mi_arenas, i64 0, i64 %i.011
   %3 = load atomic i64, ptr %arrayidx acquire, align 8
   %cmp14.not = icmp eq i64 %3, 0
   br i1 %cmp14.not, label %for.inc, label %if.then15
@@ -969,7 +969,7 @@ for.body.lr.ph.i:                                 ; preds = %entry
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %new_max_arena.019.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %new_max_arena.2.i, %for.inc.i ]
   %i.017.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.inc.i ]
-  %arrayidx.i = getelementptr inbounds nuw [112 x ptr], ptr @mi_arenas, i64 0, i64 %i.017.i
+  %arrayidx.i = getelementptr inbounds [112 x ptr], ptr @mi_arenas, i64 0, i64 %i.017.i
   %1 = load atomic i64, ptr %arrayidx.i acquire, align 8
   %2 = inttoptr i64 %1 to ptr
   %cmp2.not.i = icmp eq i64 %1, 0
@@ -1041,7 +1041,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %i.09 = phi i64 [ %inc, %for.inc ], [ 0, %entry ]
-  %arrayidx = getelementptr inbounds nuw [112 x ptr], ptr @mi_arenas, i64 0, i64 %i.09
+  %arrayidx = getelementptr inbounds [112 x ptr], ptr @mi_arenas, i64 0, i64 %i.09
   %1 = load atomic i64, ptr %arrayidx acquire, align 8
   %2 = inttoptr i64 %1 to ptr
   %cmp2.not = icmp eq i64 %1, 0
@@ -1323,7 +1323,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %mi_debug_show_bitmap.exit
   %i.010 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %mi_debug_show_bitmap.exit ]
-  %arrayidx = getelementptr inbounds nuw [112 x ptr], ptr @mi_arenas, i64 0, i64 %i.010
+  %arrayidx = getelementptr inbounds [112 x ptr], ptr @mi_arenas, i64 0, i64 %i.010
   %1 = load atomic i64, ptr %arrayidx monotonic, align 8
   %cmp2 = icmp eq i64 %1, 0
   br i1 %cmp2, label %for.end, label %if.end

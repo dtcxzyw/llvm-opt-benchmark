@@ -2059,7 +2059,7 @@ define internal range(i32 -902, 1) i32 @proxy_h2_on_frame_recv(ptr nocapture rea
 20:                                               ; preds = %15
   %21 = call fastcc i32 @proxy_h2_fr_print(ptr noundef nonnull %1, ptr noundef %4)
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %22
+  %23 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %22
   store i8 0, ptr %23, align 1
   %24 = load i64, ptr %12, align 2
   %25 = and i64 %24, 268435456
@@ -2323,7 +2323,7 @@ define internal noundef i32 @proxy_h2_on_frame_send(ptr nocapture readnone %0, p
 19:                                               ; preds = %14
   %20 = call fastcc i32 @proxy_h2_fr_print(ptr noundef %1, ptr noundef %4)
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %21
+  %22 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %21
   store i8 0, ptr %22, align 1
   %23 = load i64, ptr %11, align 2
   %24 = and i64 %23, 268435456

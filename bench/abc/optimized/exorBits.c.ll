@@ -44,7 +44,7 @@ define void @PrepareBitSetModule() local_unnamed_addr #0 {
   %12 = getelementptr inbounds nuw [163 x i32], ptr @SparseNumbers, i64 0, i64 %indvars.iv15
   %13 = load i32, ptr %12, align 4
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds nuw [65536 x i8], ptr @BitGroupNumbers, i64 0, i64 %14
+  %15 = getelementptr inbounds [65536 x i8], ptr @BitGroupNumbers, i64 0, i64 %14
   store i8 %11, ptr %15, align 1
   %indvars.iv.next16 = add nuw nsw i64 %indvars.iv15, 1
   %exitcond18.not = icmp eq i64 %indvars.iv.next16, 163

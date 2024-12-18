@@ -231,7 +231,7 @@ av1_read_uniform.exit.i:                          ; preds = %aom_read_literal_.e
 
 aom_read_symbol_.exit.us.us.i:                    ; preds = %._crit_edge.loopexit.i.i.us.us.i, %.lr.ph.us.i
   %141 = sext i32 %106 to i64
-  %142 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 0, i64 %141
+  %142 = getelementptr inbounds [8 x i8], ptr %4, i64 0, i64 %141
   %143 = load i8, ptr %142, align 1
   %144 = mul nsw i64 %100, %94
   %145 = getelementptr i8, ptr %13, i64 %indvars.iv94.i
@@ -284,7 +284,7 @@ update_cdf.exit.i.i:                              ; preds = %.lr.ph.i
 
 aom_read_symbol_.exit.i:                          ; preds = %update_cdf.exit.i.i, %.lr.ph.i
   %165 = sext i32 %158 to i64
-  %166 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 0, i64 %165
+  %166 = getelementptr inbounds [8 x i8], ptr %4, i64 0, i64 %165
   %167 = load i8, ptr %166, align 1
   %168 = mul nsw i64 %152, %94
   %169 = getelementptr i8, ptr %13, i64 %indvars.iv88.i

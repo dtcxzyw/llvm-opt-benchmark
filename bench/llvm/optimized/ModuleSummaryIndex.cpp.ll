@@ -4847,7 +4847,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
   %702 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %35) #23, !noalias !63
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef %702, ptr noundef nonnull align 1 dereferenceable(1) %28) #23, !noalias !63
   %703 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #23, !noalias !77
-  %704 = getelementptr inbounds nuw i8, ptr %27, i64 %703
+  %704 = getelementptr inbounds i8, ptr %27, i64 %703
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store i64 %703, ptr %7, align 8, !noalias !63
   %705 = icmp ugt i64 %703, 15
@@ -6893,7 +6893,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit10:               ; preds = %36, %38
   %42 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #23
   %43 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i9, ptr noundef %41, i64 noundef %42) #23
   %44 = sext i32 %9 to i64
-  %45 = getelementptr inbounds nuw [9 x ptr], ptr @"_ZZZNK4llvm18ModuleSummaryIndex11exportToDotERNS_11raw_ostreamERKNS_8DenseSetImNS_12DenseMapInfoImvEEEEENK3$_2clEPKcmmmmiE9EdgeAttrs", i64 0, i64 %44
+  %45 = getelementptr inbounds [9 x ptr], ptr @"_ZZZNK4llvm18ModuleSummaryIndex11exportToDotERNS_11raw_ostreamERKNS_8DenseSetImNS_12DenseMapInfoImvEEEEENK3$_2clEPKcmmmmiE9EdgeAttrs", i64 0, i64 %44
   %46 = load ptr, ptr %45, align 8
   %47 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %46) #23
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 24

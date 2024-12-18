@@ -892,7 +892,7 @@ if.then13:                                        ; preds = %if.end10
   br label %err
 
 if.end14:                                         ; preds = %if.end10
-  %add.ptr = getelementptr inbounds nuw i8, ptr %dhkm, i64 %2
+  %add.ptr = getelementptr inbounds i8, ptr %dhkm, i64 %2
   %sub = sub i64 132, %2
   %call17 = call fastcc i32 @generate_ecdhkm(ptr noundef %privkey2, ptr noundef %peerkey2, ptr noundef %add.ptr, i64 noundef %sub, i32 noundef %conv2)
   %tobool18.not = icmp eq i32 %call17, 0
@@ -911,16 +911,16 @@ if.end22.thread:                                  ; preds = %if.end14
 if.end26:                                         ; preds = %if.end22
   %5 = load i64, ptr %Npk, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %kemctx, ptr align 1 %sender_pub, i64 %5, i1 false)
-  %add.ptr31 = getelementptr inbounds nuw i8, ptr %kemctx, i64 %5
+  %add.ptr31 = getelementptr inbounds i8, ptr %kemctx, i64 %5
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr31, ptr nonnull align 1 %recipient_pub, i64 %5, i1 false)
   br label %if.end39
 
 if.then34:                                        ; preds = %if.end22.thread
   %6 = load i64, ptr %Npk, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %kemctx, ptr align 1 %sender_pub, i64 %6, i1 false)
-  %add.ptr3145 = getelementptr inbounds nuw i8, ptr %kemctx, i64 %6
+  %add.ptr3145 = getelementptr inbounds i8, ptr %kemctx, i64 %6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr3145, ptr nonnull align 1 %recipient_pub, i64 %6, i1 false)
-  %add.ptr37 = getelementptr inbounds nuw i8, ptr %kemctx, i64 %mul
+  %add.ptr37 = getelementptr inbounds i8, ptr %kemctx, i64 %mul
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %add.ptr37, ptr nonnull align 16 %sender_authpub, i64 %1, i1 false)
   br label %if.end39
 

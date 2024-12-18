@@ -4958,7 +4958,7 @@ if.then130:                                       ; preds = %if.else118
   %call.i200 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp131) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp131, ptr noundef %call.i200, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp132) #34
   %call.i.i202 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) @_ZN6hermes2vm6GCBase25kNaturalCauseForAnalyticsE) #34
-  %add.ptr.i203 = getelementptr inbounds nuw i8, ptr @_ZN6hermes2vm6GCBase25kNaturalCauseForAnalyticsE, i64 %call.i.i202
+  %add.ptr.i203 = getelementptr inbounds i8, ptr @_ZN6hermes2vm6GCBase25kNaturalCauseForAnalyticsE, i64 %call.i.i202
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp131, ptr noundef nonnull @_ZN6hermes2vm6GCBase25kNaturalCauseForAnalyticsE, ptr noundef nonnull %add.ptr.i203)
   call void @_ZN6hermes2vm7HadesGC16oldGenCollectionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(8152) %this, ptr noundef nonnull %agg.tmp131, i1 noundef zeroext false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp131) #34
@@ -11071,7 +11071,7 @@ entry:
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #34
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) @_ZN6hermes2vm6GCBase25kNaturalCauseForAnalyticsE) #34
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr @_ZN6hermes2vm6GCBase25kNaturalCauseForAnalyticsE, i64 %call.i.i
+  %add.ptr.i = getelementptr inbounds i8, ptr @_ZN6hermes2vm6GCBase25kNaturalCauseForAnalyticsE, i64 %call.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull @_ZN6hermes2vm6GCBase25kNaturalCauseForAnalyticsE, ptr noundef nonnull %add.ptr.i)
   call void @_ZN6hermes2vm7HadesGC18youngGenCollectionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(8152) %this, ptr noundef nonnull %agg.tmp, i1 noundef zeroext false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #34

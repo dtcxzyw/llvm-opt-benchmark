@@ -1463,11 +1463,11 @@ if.end56:                                         ; preds = %if.end55, %prepareR
   %call60 = call i32 @ll2string(ptr noundef nonnull %add.ptr, i64 noundef 23, i64 noundef %conv59) #22
   %add61 = add nsw i32 %call60, 1
   %idxprom62 = sext i32 %add61 to i64
-  %arrayidx63 = getelementptr inbounds nuw [24 x i8], ptr %aux, i64 0, i64 %idxprom62
+  %arrayidx63 = getelementptr inbounds [24 x i8], ptr %aux, i64 0, i64 %idxprom62
   store i8 13, ptr %arrayidx63, align 1
   %add64 = add nsw i32 %call60, 2
   %idxprom65 = sext i32 %add64 to i64
-  %arrayidx66 = getelementptr inbounds nuw [24 x i8], ptr %aux, i64 0, i64 %idxprom65
+  %arrayidx66 = getelementptr inbounds [24 x i8], ptr %aux, i64 0, i64 %idxprom65
   store i8 10, ptr %arrayidx66, align 1
   %add68 = add nsw i32 %call60, 3
   %conv69 = sext i32 %add68 to i64
@@ -1488,11 +1488,11 @@ for.body:                                         ; preds = %for.body.preheader,
   %call78 = call i32 @ll2string(ptr noundef nonnull %add.ptr, i64 noundef 23, i64 noundef %call74) #22
   %add79 = add nsw i32 %call78, 1
   %idxprom80 = sext i32 %add79 to i64
-  %arrayidx81 = getelementptr inbounds nuw [24 x i8], ptr %aux, i64 0, i64 %idxprom80
+  %arrayidx81 = getelementptr inbounds [24 x i8], ptr %aux, i64 0, i64 %idxprom80
   store i8 13, ptr %arrayidx81, align 1
   %add82 = add nsw i32 %call78, 2
   %idxprom83 = sext i32 %add82 to i64
-  %arrayidx84 = getelementptr inbounds nuw [24 x i8], ptr %aux, i64 0, i64 %idxprom83
+  %arrayidx84 = getelementptr inbounds [24 x i8], ptr %aux, i64 0, i64 %idxprom83
   store i8 10, ptr %arrayidx84, align 1
   %add86 = add nsw i32 %call78, 3
   %conv87 = sext i32 %add86 to i64

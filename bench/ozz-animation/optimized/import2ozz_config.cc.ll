@@ -405,7 +405,7 @@ _ZN3ozz3log6LoggerlsIA30_cEERSoRKT_.exit:         ; preds = %49
   %65 = load ptr, ptr %10, align 8
   %66 = getelementptr i8, ptr %65, i64 -24
   %67 = load i64, ptr %66, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %10, i64 %67
+  %68 = getelementptr inbounds i8, ptr %10, i64 %67
   %69 = invoke noundef ptr @_ZNKSt9basic_iosIcSt11char_traitsIcEE5rdbufEv(ptr noundef nonnull align 8 dereferenceable(264) %68)
           to label %_ZNSt19istreambuf_iteratorIcSt11char_traitsIcEEC2ERSi.exit unwind label %70
 

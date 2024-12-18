@@ -2735,7 +2735,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit: ; preds = %290
   %297 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %298 = load i32, ptr %297, align 8
   %299 = sext i32 %298 to i64
-  %300 = getelementptr inbounds nuw [8 x ptr], ptr @_ZN12_GLOBAL__N_116c_waterTypeNamesE, i64 0, i64 %299
+  %300 = getelementptr inbounds [8 x ptr], ptr @_ZN12_GLOBAL__N_116c_waterTypeNamesE, i64 0, i64 %299
   %301 = load ptr, ptr %300, align 8
   %302 = getelementptr inbounds nuw i8, ptr %0, i64 4400
   %303 = getelementptr inbounds nuw i8, ptr %0, i64 4448
@@ -3823,7 +3823,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit730: ; preds = %629
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %116)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %117)
   %638 = sext i32 %637 to i64
-  %639 = getelementptr inbounds nuw [5 x ptr], ptr @_ZN12_GLOBAL__N_141c_chainSeparationTypeNotificationMessagesE, i64 0, i64 %638
+  %639 = getelementptr inbounds [5 x ptr], ptr @_ZN12_GLOBAL__N_141c_chainSeparationTypeNotificationMessagesE, i64 0, i64 %638
   %640 = load ptr, ptr %639, align 8
   %641 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.293, ptr noundef %640)
   %642 = load i32, ptr %535, align 8
@@ -4200,7 +4200,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit751: ;
 sub_0:                                            ; preds = %784
   %787 = load i32, ptr %724, align 4
   %788 = sext i32 %787 to i64
-  %789 = getelementptr inbounds nuw [3 x ptr], ptr @_ZN12_GLOBAL__N_116c_mergeTypeNamesE, i64 0, i64 %788
+  %789 = getelementptr inbounds [3 x ptr], ptr @_ZN12_GLOBAL__N_116c_mergeTypeNamesE, i64 0, i64 %788
   %790 = load ptr, ptr %789, align 8
   %791 = load i8, ptr %790, align 1
   switch i8 %791, label %.thread1635 [
@@ -6558,7 +6558,7 @@ _ZL13gmx_snew_implIP7t_atomsEvPKcS3_iRPT_m.exit838.preheader: ; preds = %_ZL13gm
 _ZN12_GLOBAL__N_19get_lystpEiN3gmx8ArrayRefIK9RtpRenameEE.exit.i: ; preds = %1770
   %1779 = load i32, ptr %107, align 4
   %1780 = sext i32 %1779 to i64
-  %1781 = getelementptr inbounds nuw [2 x ptr], ptr @__const._ZN12_GLOBAL__N_117enumValueToStringENS_12LysineStatesE.lysineStateNames, i64 0, i64 %1780
+  %1781 = getelementptr inbounds [2 x ptr], ptr @__const._ZN12_GLOBAL__N_117enumValueToStringENS_12LysineStatesE.lysineStateNames, i64 0, i64 %1780
   %1782 = load ptr, ptr %1781, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %105)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %106)
@@ -6876,7 +6876,7 @@ _ZN12_GLOBAL__N_126renameResidueInteractivelyEP7t_atomsPKcPFS3_iN3gmx8ArrayRefIK
 _ZN12_GLOBAL__N_19get_argtpEiN3gmx8ArrayRefIK9RtpRenameEE.exit.i: ; preds = %1872
   %1881 = load i32, ptr %103, align 4
   %1882 = sext i32 %1881 to i64
-  %1883 = getelementptr inbounds nuw [2 x ptr], ptr @__const._ZN12_GLOBAL__N_117enumValueToStringENS_14ArginineStatesE.arginineStatesNames, i64 0, i64 %1882
+  %1883 = getelementptr inbounds [2 x ptr], ptr @__const._ZN12_GLOBAL__N_117enumValueToStringENS_14ArginineStatesE.arginineStatesNames, i64 0, i64 %1882
   %1884 = load ptr, ptr %1883, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %101)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %102)
@@ -7194,7 +7194,7 @@ _ZN12_GLOBAL__N_126renameResidueInteractivelyEP7t_atomsPKcPFS3_iN3gmx8ArrayRefIK
 _ZN12_GLOBAL__N_19get_glntpEiN3gmx8ArrayRefIK9RtpRenameEE.exit.i: ; preds = %1974
   %1983 = load i32, ptr %99, align 4
   %1984 = sext i32 %1983 to i64
-  %1985 = getelementptr inbounds nuw [2 x ptr], ptr @__const._ZN12_GLOBAL__N_117enumValueToStringENS_15GlutamineStatesE.glutamineStateNames, i64 0, i64 %1984
+  %1985 = getelementptr inbounds [2 x ptr], ptr @__const._ZN12_GLOBAL__N_117enumValueToStringENS_15GlutamineStatesE.glutamineStateNames, i64 0, i64 %1984
   %1986 = load ptr, ptr %1985, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %97)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %98)
@@ -7512,7 +7512,7 @@ _ZN12_GLOBAL__N_126renameResidueInteractivelyEP7t_atomsPKcPFS3_iN3gmx8ArrayRefIK
 _ZN12_GLOBAL__N_19get_asptpEiN3gmx8ArrayRefIK9RtpRenameEE.exit.i: ; preds = %2076
   %2085 = load i32, ptr %95, align 4
   %2086 = sext i32 %2085 to i64
-  %2087 = getelementptr inbounds nuw [2 x ptr], ptr @__const._ZN12_GLOBAL__N_117enumValueToStringENS_15AspartateStatesE.aspartateStateNames, i64 0, i64 %2086
+  %2087 = getelementptr inbounds [2 x ptr], ptr @__const._ZN12_GLOBAL__N_117enumValueToStringENS_15AspartateStatesE.aspartateStateNames, i64 0, i64 %2086
   %2088 = load ptr, ptr %2087, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %93)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %94)
@@ -7834,7 +7834,7 @@ _ZN12_GLOBAL__N_126renameResidueInteractivelyEP7t_atomsPKcPFS3_iN3gmx8ArrayRefIK
 _ZN12_GLOBAL__N_19get_glutpEiN3gmx8ArrayRefIK9RtpRenameEE.exit.i: ; preds = %2179
   %2188 = load i32, ptr %91, align 4
   %2189 = sext i32 %2188 to i64
-  %2190 = getelementptr inbounds nuw [2 x ptr], ptr @__const._ZN12_GLOBAL__N_117enumValueToStringENS_15GlutamateStatesE.glutamateStateNames, i64 0, i64 %2189
+  %2190 = getelementptr inbounds [2 x ptr], ptr @__const._ZN12_GLOBAL__N_117enumValueToStringENS_15GlutamateStatesE.glutamateStateNames, i64 0, i64 %2189
   %2191 = load ptr, ptr %2190, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %89)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %90)

@@ -1279,7 +1279,7 @@ if.else:                                          ; preds = %while.end
 
 if.end117:                                        ; preds = %if.else, %if.then87
   %sub113.sink = phi i32 [ %conv101, %if.then87 ], [ %sub113, %if.else ]
-  %12 = getelementptr inbounds nuw [5 x i32], ptr %fieldLen, i64 0, i64 %idxprom.lcssa
+  %12 = getelementptr inbounds [5 x i32], ptr %fieldLen, i64 0, i64 %idxprom.lcssa
   store i32 %sub113.sink, ptr %12, align 4
   %13 = load i32, ptr %fieldLen, align 16
   %cmp119 = icmp sgt i32 %13, 11

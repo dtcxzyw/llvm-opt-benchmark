@@ -269,7 +269,7 @@ define hidden noundef ptr @_ZN19PosixAttachListener12read_requestEi(i32 noundef 
   %.046 = phi i64 [ 3101, %1 ], [ %46, %._crit_edge ]
   %.045 = phi i64 [ 0, %1 ], [ %45, %._crit_edge ]
   %.044 = phi i32 [ 0, %1 ], [ %.2.lcssa, %._crit_edge ]
-  %8 = getelementptr inbounds nuw i8, ptr %3, i64 %.045
+  %8 = getelementptr inbounds i8, ptr %3, i64 %.045
   br label %9
 
 9:                                                ; preds = %13, %7
@@ -299,7 +299,7 @@ define hidden noundef ptr @_ZN19PosixAttachListener12read_requestEi(i32 noundef 
   %.293 = phi i32 [ %.3, %43 ], [ %.044, %.preheader ]
   %.04892 = phi i64 [ %44, %43 ], [ 0, %.preheader ]
   %18 = add i64 %.04892, %.045
-  %19 = getelementptr inbounds nuw [3101 x i8], ptr %3, i64 0, i64 %18
+  %19 = getelementptr inbounds [3101 x i8], ptr %3, i64 0, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = icmp eq i8 %20, 0
   br i1 %21, label %22, label %43
@@ -372,7 +372,7 @@ define hidden noundef ptr @_ZN19PosixAttachListener12read_requestEi(i32 noundef 
 
 51:                                               ; preds = %50
   %52 = sub i64 3101, %.147
-  %53 = getelementptr inbounds nuw i8, ptr %3, i64 %52
+  %53 = getelementptr inbounds i8, ptr %3, i64 %52
   %54 = getelementptr inbounds i8, ptr %53, i64 -1
   %55 = load i8, ptr %3, align 16
   %56 = icmp eq i8 %55, 0
@@ -388,7 +388,7 @@ define hidden noundef ptr @_ZN19PosixAttachListener12read_requestEi(i32 noundef 
 
 61:                                               ; preds = %51
   %strlen.i = call i64 @strlen(ptr nonnull dereferenceable(1) %3)
-  %strchr.i = getelementptr inbounds nuw i8, ptr %3, i64 %strlen.i
+  %strchr.i = getelementptr inbounds i8, ptr %3, i64 %strlen.i
   %62 = icmp ult ptr %strchr.i, %54
   %spec.select.idx.i = zext i1 %62 to i64
   %spec.select.i = getelementptr inbounds nuw i8, ptr %strchr.i, i64 %spec.select.idx.i

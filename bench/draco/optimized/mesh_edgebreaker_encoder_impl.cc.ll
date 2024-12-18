@@ -17892,7 +17892,7 @@ _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_21VertexIndex_tag_type_EEEiE9push_b
   %225 = load ptr, ptr %223, align 8
   %226 = getelementptr inbounds %"class.std::vector.28", ptr %225, i64 %224
   %227 = sext i32 %214 to i64
-  %228 = getelementptr inbounds nuw [8 x i32], ptr @_ZN5dracoL34edge_breaker_topology_to_symbol_idE, i64 0, i64 %227
+  %228 = getelementptr inbounds [8 x i32], ptr @_ZN5dracoL34edge_breaker_topology_to_symbol_idE, i64 0, i64 %227
   %229 = load i32, ptr %228, align 4
   %230 = getelementptr inbounds nuw i8, ptr %226, i64 8
   %231 = load ptr, ptr %230, align 8

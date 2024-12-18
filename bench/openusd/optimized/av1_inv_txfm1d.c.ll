@@ -12,7 +12,7 @@ define hidden void @av1_idct4(ptr noundef %0, ptr noundef initializes((0, 16)) %
   %6 = sext i8 %2 to i32
   %7 = add nsw i32 %6, -10
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds nuw [7 x [64 x i32]], ptr @av1_cospi_arr_data, i64 0, i64 %8
+  %9 = getelementptr inbounds [7 x [64 x i32]], ptr @av1_cospi_arr_data, i64 0, i64 %8
   %10 = load i32, ptr %0, align 4
   store i32 %10, ptr %1, align 4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -188,7 +188,7 @@ define hidden void @av1_idct8(ptr noundef %0, ptr noundef initializes((0, 32)) %
   %6 = sext i8 %2 to i32
   %7 = add nsw i32 %6, -10
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds nuw [7 x [64 x i32]], ptr @av1_cospi_arr_data, i64 0, i64 %8
+  %9 = getelementptr inbounds [7 x [64 x i32]], ptr @av1_cospi_arr_data, i64 0, i64 %8
   %10 = load i32, ptr %0, align 4
   store i32 %10, ptr %1, align 4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -709,7 +709,7 @@ define hidden void @av1_idct16(ptr noundef %0, ptr noundef initializes((0, 64)) 
   %6 = sext i8 %2 to i32
   %7 = add nsw i32 %6, -10
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds nuw [7 x [64 x i32]], ptr @av1_cospi_arr_data, i64 0, i64 %8
+  %9 = getelementptr inbounds [7 x [64 x i32]], ptr @av1_cospi_arr_data, i64 0, i64 %8
   %10 = load i32, ptr %0, align 4
   store i32 %10, ptr %1, align 4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2136,7 +2136,7 @@ define hidden void @av1_idct32(ptr noundef %0, ptr noundef initializes((0, 128))
   %6 = sext i8 %2 to i32
   %7 = add nsw i32 %6, -10
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds nuw [7 x [64 x i32]], ptr @av1_cospi_arr_data, i64 0, i64 %8
+  %9 = getelementptr inbounds [7 x [64 x i32]], ptr @av1_cospi_arr_data, i64 0, i64 %8
   %10 = load i32, ptr %0, align 4
   store i32 %10, ptr %1, align 4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -5801,7 +5801,7 @@ define hidden void @av1_iadst4(ptr nocapture noundef readonly %0, ptr nocapture 
   %16 = sext i8 %2 to i32
   %17 = add nsw i32 %16, -10
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds nuw [7 x [5 x i32]], ptr @av1_sinpi_arr_data, i64 0, i64 %18
+  %19 = getelementptr inbounds [7 x [5 x i32]], ptr @av1_sinpi_arr_data, i64 0, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4
   %22 = mul nsw i32 %21, %5
@@ -5871,7 +5871,7 @@ define hidden void @av1_iadst8(ptr noundef %0, ptr noundef initializes((0, 32)) 
   %6 = sext i8 %2 to i32
   %7 = add nsw i32 %6, -10
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds nuw [7 x [64 x i32]], ptr @av1_cospi_arr_data, i64 0, i64 %8
+  %9 = getelementptr inbounds [7 x [64 x i32]], ptr @av1_cospi_arr_data, i64 0, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %11 = load i32, ptr %10, align 4
   store i32 %11, ptr %1, align 4
@@ -6527,7 +6527,7 @@ define hidden void @av1_iadst16(ptr noundef %0, ptr noundef initializes((0, 64))
   %6 = sext i8 %2 to i32
   %7 = add nsw i32 %6, -10
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds nuw [7 x [64 x i32]], ptr @av1_cospi_arr_data, i64 0, i64 %8
+  %9 = getelementptr inbounds [7 x [64 x i32]], ptr @av1_cospi_arr_data, i64 0, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %11 = load i32, ptr %10, align 4
   store i32 %11, ptr %1, align 4
@@ -8367,7 +8367,7 @@ define hidden void @av1_idct64(ptr noundef %0, ptr noundef initializes((0, 256))
   %6 = sext i8 %2 to i32
   %7 = add nsw i32 %6, -10
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds nuw [7 x [64 x i32]], ptr @av1_cospi_arr_data, i64 0, i64 %8
+  %9 = getelementptr inbounds [7 x [64 x i32]], ptr @av1_cospi_arr_data, i64 0, i64 %8
   %10 = load i32, ptr %0, align 4
   store i32 %10, ptr %1, align 4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 128

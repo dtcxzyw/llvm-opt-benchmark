@@ -2999,7 +2999,7 @@ for.body:                                         ; preds = %init.end, %for.cond
   %i.01414 = phi i64 [ %inc, %for.cond ], [ 0, %init.end ]
   %add.ptr.i = getelementptr inbounds i16, ptr %138, i64 %i.01414
   %146 = load i16, ptr %add.ptr.i, align 2, !tbaa !72
-  %arrayidx = getelementptr inbounds nuw [3 x i16], ptr @_ZZN16TestNodeResolver17testNodeResolvingEP14NodeDefManagerE21expected_test_nr_list, i64 0, i64 %i.01414
+  %arrayidx = getelementptr inbounds [3 x i16], ptr @_ZZN16TestNodeResolver17testNodeResolvingEP14NodeDefManagerE21expected_test_nr_list, i64 0, i64 %i.01414
   %147 = load i16, ptr %arrayidx, align 2, !tbaa !72
   %cmp312 = icmp eq i16 %146, %147
   br i1 %cmp312, label %for.cond, label %if.then313
@@ -3241,7 +3241,7 @@ for.cond394:                                      ; preds = %invoke.cont411
 
 for.body398:                                      ; preds = %for.cond394, %for.cond394.preheader
   %i.11415 = phi i64 [ 0, %for.cond394.preheader ], [ %inc438, %for.cond394 ]
-  %arrayidx407 = getelementptr inbounds nuw [2 x i16], ptr @_ZZN16TestNodeResolver17testNodeResolvingEP14NodeDefManagerE27expected_test_nr_list_group, i64 0, i64 %i.11415
+  %arrayidx407 = getelementptr inbounds [2 x i16], ptr @_ZZN16TestNodeResolver17testNodeResolvingEP14NodeDefManagerE27expected_test_nr_list_group, i64 0, i64 %i.11415
   %.pre.i.i.i = load i16, ptr %arrayidx407, align 2, !tbaa !72
   %cmp.i67.i.i.i = icmp eq i16 %162, %.pre.i.i.i
   br i1 %cmp.i67.i.i.i, label %invoke.cont411, label %if.end36.i.i.i
@@ -3440,7 +3440,7 @@ for.body489:                                      ; preds = %init.end444, %for.c
   %i.21416 = phi i64 [ %inc535, %for.cond485 ], [ 0, %init.end444 ]
   %add.ptr.i1303 = getelementptr inbounds i16, ptr %181, i64 %i.21416
   %189 = load i16, ptr %add.ptr.i1303, align 2, !tbaa !72
-  %arrayidx494 = getelementptr inbounds nuw [3 x i16], ptr @_ZZN16TestNodeResolver17testNodeResolvingEP14NodeDefManagerE30expected_test_nr_list_required, i64 0, i64 %i.21416
+  %arrayidx494 = getelementptr inbounds [3 x i16], ptr @_ZZN16TestNodeResolver17testNodeResolvingEP14NodeDefManagerE30expected_test_nr_list_required, i64 0, i64 %i.21416
   %190 = load i16, ptr %arrayidx494, align 2, !tbaa !72
   %cmp497 = icmp eq i16 %189, %190
   br i1 %cmp497, label %for.cond485, label %if.then498

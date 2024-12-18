@@ -2267,7 +2267,7 @@ define dso_local void @_ZN9CGOptions29set_platform_specific_optionsEv() local_un
   %7 = load ptr, ptr %1, align 8
   %8 = getelementptr i8, ptr %7, i64 -24
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %9
+  %10 = getelementptr inbounds i8, ptr %1, i64 %9
   %11 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %10)
           to label %12 unwind label %14
 
@@ -2293,7 +2293,7 @@ define dso_local void @_ZN9CGOptions29set_platform_specific_optionsEv() local_un
   %18 = load ptr, ptr %1, align 8
   %19 = getelementptr i8, ptr %18, i64 -24
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 %20
+  %21 = getelementptr inbounds i8, ptr %1, i64 %20
   %22 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv(ptr noundef nonnull align 8 dereferenceable(264) %21)
           to label %23 unwind label %.loopexit
 

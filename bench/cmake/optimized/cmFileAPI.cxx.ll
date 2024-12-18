@@ -2186,7 +2186,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %30 = load ptr, ptr %8, align 8
   %31 = getelementptr i8, ptr %30, i64 -24
   %32 = load i64, ptr %31, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %8, i64 %32
+  %33 = getelementptr inbounds i8, ptr %8, i64 %32
   %34 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %33)
           to label %35 unwind label %42
 
@@ -2923,7 +2923,7 @@ _ZNSt6vectorIcSaIcEE6resizeEm.exit:               ; preds = %66, %64, %62, %_ZNS
   %75 = load ptr, ptr %6, align 8
   %76 = getelementptr i8, ptr %75, i64 -24
   %77 = load i64, ptr %76, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %6, i64 %77
+  %78 = getelementptr inbounds i8, ptr %6, i64 %77
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %78, i32 noundef 4)
           to label %79 unwind label %80
 
@@ -2945,7 +2945,7 @@ _ZNSt6vectorIcSaIcEE6resizeEm.exit:               ; preds = %66, %64, %62, %_ZNS
   %84 = load ptr, ptr %6, align 8
   %85 = getelementptr i8, ptr %84, i64 -24
   %86 = load i64, ptr %85, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %6, i64 %86
+  %87 = getelementptr inbounds i8, ptr %6, i64 %86
   %88 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %87)
           to label %89 unwind label %16
 
@@ -3253,7 +3253,7 @@ declare void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(p
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef ptr @_ZN9cmFileAPI14ObjectKindNameENS_10ObjectKindE(i32 noundef %0) local_unnamed_addr #7 align 2 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [6 x ptr], ptr @_ZZN9cmFileAPI14ObjectKindNameENS_10ObjectKindEE15objectKindNames, i64 0, i64 %2
+  %3 = getelementptr inbounds [6 x ptr], ptr @_ZZN9cmFileAPI14ObjectKindNameENS_10ObjectKindEE15objectKindNames, i64 0, i64 %2
   %4 = load ptr, ptr %3, align 8
   ret ptr %4
 }
@@ -3926,7 +3926,7 @@ define dso_local void @_ZN9cmFileAPI10BuildReplyERKNS_5QueryE(ptr dead_on_unwind
   %.sroa.030.035 = phi ptr [ %11, %.lr.ph ], [ %44, %43 ]
   %21 = load i32, ptr %.sroa.030.035, align 8, !noalias !45
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds nuw [6 x ptr], ptr @_ZZN9cmFileAPI14ObjectKindNameENS_10ObjectKindEE15objectKindNames, i64 0, i64 %22
+  %23 = getelementptr inbounds [6 x ptr], ptr @_ZZN9cmFileAPI14ObjectKindNameENS_10ObjectKindEE15objectKindNames, i64 0, i64 %22
   %24 = load ptr, ptr %23, align 8, !noalias !45
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.030.035, i64 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5), !noalias !45
@@ -4256,7 +4256,7 @@ define dso_local void @_ZN9cmFileAPI10ObjectNameB5cxx11ERKNS_6ObjectE(ptr dead_o
   %4 = alloca %class.cmAlphaNum, align 8
   %5 = load i32, ptr %1, align 8
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds nuw [6 x ptr], ptr @_ZZN9cmFileAPI14ObjectKindNameENS_10ObjectKindEE15objectKindNames, i64 0, i64 %6
+  %7 = getelementptr inbounds [6 x ptr], ptr @_ZZN9cmFileAPI14ObjectKindNameENS_10ObjectKindEE15objectKindNames, i64 0, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
@@ -4418,7 +4418,7 @@ _ZNSt3mapIN9cmFileAPI6ObjectEN4Json5ValueESt4lessIS1_ESaISt4pairIKS1_S3_EEEixERS
 51:                                               ; preds = %49
   %52 = load i32, ptr %1, align 8, !noalias !75
   %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds nuw [6 x ptr], ptr @_ZZN9cmFileAPI14ObjectKindNameENS_10ObjectKindEE15objectKindNames, i64 0, i64 %53
+  %54 = getelementptr inbounds [6 x ptr], ptr @_ZZN9cmFileAPI14ObjectKindNameENS_10ObjectKindEE15objectKindNames, i64 0, i64 %53
   %55 = load ptr, ptr %54, align 8, !noalias !75
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3), !noalias !75
@@ -4690,7 +4690,7 @@ define dso_local void @_ZN9cmFileAPI14BuildCodeModelERKNS_6ObjectE(ptr dead_on_u
   tail call void @_Z22cmFileAPICodemodelDumpR9cmFileAPIm(ptr dead_on_unwind writable sret(%"class.Json::Value") align 8 %0, ptr noundef nonnull align 8 dereferenceable(264) %1, i64 noundef %7)
   %8 = load i32, ptr %2, align 8
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds nuw [6 x ptr], ptr @_ZZN9cmFileAPI14ObjectKindNameENS_10ObjectKindEE15objectKindNames, i64 0, i64 %9
+  %10 = getelementptr inbounds [6 x ptr], ptr @_ZZN9cmFileAPI14ObjectKindNameENS_10ObjectKindEE15objectKindNames, i64 0, i64 %9
   %11 = load ptr, ptr %10, align 8
   invoke void @_ZN4Json5ValueC1EPKc(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef %11)
           to label %12 unwind label %23
@@ -4748,7 +4748,7 @@ define dso_local void @_ZN9cmFileAPI17BuildConfigureLogERKNS_6ObjectE(ptr dead_o
   tail call void @_Z25cmFileAPIConfigureLogDumpR9cmFileAPIm(ptr dead_on_unwind writable sret(%"class.Json::Value") align 8 %0, ptr noundef nonnull align 8 dereferenceable(264) %1, i64 noundef %7)
   %8 = load i32, ptr %2, align 8
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds nuw [6 x ptr], ptr @_ZZN9cmFileAPI14ObjectKindNameENS_10ObjectKindEE15objectKindNames, i64 0, i64 %9
+  %10 = getelementptr inbounds [6 x ptr], ptr @_ZZN9cmFileAPI14ObjectKindNameENS_10ObjectKindEE15objectKindNames, i64 0, i64 %9
   %11 = load ptr, ptr %10, align 8
   invoke void @_ZN4Json5ValueC1EPKc(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef %11)
           to label %12 unwind label %23
@@ -4806,7 +4806,7 @@ define dso_local void @_ZN9cmFileAPI10BuildCacheERKNS_6ObjectE(ptr dead_on_unwin
   tail call void @_Z18cmFileAPICacheDumpR9cmFileAPIm(ptr dead_on_unwind writable sret(%"class.Json::Value") align 8 %0, ptr noundef nonnull align 8 dereferenceable(264) %1, i64 noundef %7)
   %8 = load i32, ptr %2, align 8
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds nuw [6 x ptr], ptr @_ZZN9cmFileAPI14ObjectKindNameENS_10ObjectKindEE15objectKindNames, i64 0, i64 %9
+  %10 = getelementptr inbounds [6 x ptr], ptr @_ZZN9cmFileAPI14ObjectKindNameENS_10ObjectKindEE15objectKindNames, i64 0, i64 %9
   %11 = load ptr, ptr %10, align 8
   invoke void @_ZN4Json5ValueC1EPKc(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef %11)
           to label %12 unwind label %23
@@ -4864,7 +4864,7 @@ define dso_local void @_ZN9cmFileAPI15BuildCMakeFilesERKNS_6ObjectE(ptr dead_on_
   tail call void @_Z23cmFileAPICMakeFilesDumpR9cmFileAPIm(ptr dead_on_unwind writable sret(%"class.Json::Value") align 8 %0, ptr noundef nonnull align 8 dereferenceable(264) %1, i64 noundef %7)
   %8 = load i32, ptr %2, align 8
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds nuw [6 x ptr], ptr @_ZZN9cmFileAPI14ObjectKindNameENS_10ObjectKindEE15objectKindNames, i64 0, i64 %9
+  %10 = getelementptr inbounds [6 x ptr], ptr @_ZZN9cmFileAPI14ObjectKindNameENS_10ObjectKindEE15objectKindNames, i64 0, i64 %9
   %11 = load ptr, ptr %10, align 8
   invoke void @_ZN4Json5ValueC1EPKc(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef %11)
           to label %12 unwind label %23
@@ -4922,7 +4922,7 @@ define dso_local void @_ZN9cmFileAPI15BuildToolchainsERKNS_6ObjectE(ptr dead_on_
   tail call void @_Z23cmFileAPIToolchainsDumpR9cmFileAPIm(ptr dead_on_unwind writable sret(%"class.Json::Value") align 8 %0, ptr noundef nonnull align 8 dereferenceable(264) %1, i64 noundef %7)
   %8 = load i32, ptr %2, align 8
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds nuw [6 x ptr], ptr @_ZZN9cmFileAPI14ObjectKindNameENS_10ObjectKindEE15objectKindNames, i64 0, i64 %9
+  %10 = getelementptr inbounds [6 x ptr], ptr @_ZZN9cmFileAPI14ObjectKindNameENS_10ObjectKindEE15objectKindNames, i64 0, i64 %9
   %11 = load ptr, ptr %10, align 8
   invoke void @_ZN4Json5ValueC1EPKc(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef %11)
           to label %12 unwind label %23
@@ -4979,7 +4979,7 @@ define dso_local void @_ZN9cmFileAPI17BuildInternalTestERKNS_6ObjectE(ptr dead_o
   tail call void @_ZN4Json5ValueC1ENS_9ValueTypeE(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 7)
   %7 = load i32, ptr %2, align 8
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds nuw [6 x ptr], ptr @_ZZN9cmFileAPI14ObjectKindNameENS_10ObjectKindEE15objectKindNames, i64 0, i64 %8
+  %9 = getelementptr inbounds [6 x ptr], ptr @_ZZN9cmFileAPI14ObjectKindNameENS_10ObjectKindEE15objectKindNames, i64 0, i64 %8
   %10 = load ptr, ptr %9, align 8
   invoke void @_ZN4Json5ValueC1EPKc(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef %10)
           to label %11 unwind label %21

@@ -15273,7 +15273,7 @@ _ZN4pkpy2VM9TypeErrorERKNS_3StrE.exit194.unreachable: ; preds = %.noexc221
   store ptr null, ptr %322, align 8
   %sext317 = shl i64 %127, 31
   %323 = ashr i64 %sext317, 32
-  %324 = getelementptr inbounds nuw ptr, ptr %13, i64 %323
+  %324 = getelementptr inbounds ptr, ptr %13, i64 %323
   %325 = call noundef ptr @_ZN4pkpy2VM14__py_generatorEONS_5FrameENS_8ArgsViewE(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef nonnull align 8 dereferenceable(56) %28, ptr nonnull %13, ptr nonnull %324)
   br label %492
 

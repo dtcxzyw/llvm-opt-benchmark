@@ -334,7 +334,7 @@ define internal i32 @ps_unicodes_init(ptr noundef %0, ptr nocapture noundef init
   %21 = getelementptr inbounds nuw [10 x i32], ptr @ft_extra_glyph_name_offsets, i64 0, i64 %indvars.iv.i
   %22 = load i32, ptr %21, align 4
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds nuw i8, ptr @ft_extra_glyph_names, i64 %23
+  %24 = getelementptr inbounds i8, ptr @ft_extra_glyph_names, i64 %23
   %25 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull readonly dereferenceable(1) %17) #11
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %20
@@ -627,7 +627,7 @@ define internal nonnull ptr @ps_get_macintosh_name(i32 noundef %0) #4 {
   %4 = getelementptr inbounds nuw [258 x i16], ptr @ft_mac_names, i64 0, i64 %3
   %5 = load i16, ptr %4, align 2
   %6 = sext i16 %5 to i64
-  %7 = getelementptr inbounds nuw i8, ptr @ft_standard_glyph_names, i64 %6
+  %7 = getelementptr inbounds i8, ptr @ft_standard_glyph_names, i64 %6
   ret ptr %7
 }
 
@@ -641,7 +641,7 @@ define internal ptr @ps_get_standard_strings(i32 noundef %0) #4 {
   %5 = getelementptr inbounds nuw [391 x i16], ptr @ft_sid_names, i64 0, i64 %4
   %6 = load i16, ptr %5, align 2
   %7 = sext i16 %6 to i64
-  %8 = getelementptr inbounds nuw i8, ptr @ft_standard_glyph_names, i64 %7
+  %8 = getelementptr inbounds i8, ptr @ft_standard_glyph_names, i64 %7
   br label %9
 
 9:                                                ; preds = %1, %3

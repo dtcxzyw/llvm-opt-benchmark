@@ -308,7 +308,7 @@ define dso_local noundef zeroext i1 @start_postmaster(ptr noundef %0, i1 noundef
 8:                                                ; preds = %6, %2
   store i8 0, ptr %4, align 16
   %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) %4)
-  %endptr = getelementptr inbounds nuw i8, ptr %4, i64 %strlen
+  %endptr = getelementptr inbounds i8, ptr %4, i64 %strlen
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %endptr, ptr noundef nonnull align 1 dereferenceable(56) @.str.13, i64 56, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %10 = load ptr, ptr %9, align 8

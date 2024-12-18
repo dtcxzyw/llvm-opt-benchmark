@@ -1691,7 +1691,7 @@ define hidden void @lj_err_argt(ptr noundef %L, i32 noundef %narg, i32 noundef %
 entry:
   %add = add nsw i32 %tt, 1
   %idxprom = sext i32 %add to i64
-  %arrayidx = getelementptr inbounds nuw [12 x ptr], ptr @lj_obj_typename, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [12 x ptr], ptr @lj_obj_typename, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
   tail call void @lj_err_argtype(ptr noundef %L, i32 noundef %narg, ptr noundef %0) #16
   unreachable

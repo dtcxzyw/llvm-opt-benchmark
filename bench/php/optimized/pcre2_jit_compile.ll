@@ -7861,7 +7861,7 @@ sljit_set_label.exit1025:                         ; preds = %3080, %3078, %set_j
 
 3173:                                             ; preds = %3171, %3166
   %.1.i.i.i = phi ptr [ %3172, %3171 ], [ %3168, %3166 ]
-  %3174 = getelementptr inbounds nuw [17 x i8], ptr @reg_lmap, i64 0, i64 %indvars.iv85.i.i.i
+  %3174 = getelementptr inbounds [17 x i8], ptr @reg_lmap, i64 0, i64 %indvars.iv85.i.i.i
   %3175 = load i8, ptr %3174, align 1
   %3176 = add i8 %3175, 88
   store i8 %3176, ptr %.1.i.i.i, align 1
@@ -14877,7 +14877,7 @@ check_fast_forward_char_pair_simd.exit:           ; preds = %._crit_edge.i
 
 128:                                              ; preds = %124
   %129 = add nsw i64 %indvars.iv500, -1
-  %130 = getelementptr inbounds nuw [12 x %struct.fast_forward_char_data], ptr %3, i64 0, i64 %129
+  %130 = getelementptr inbounds [12 x %struct.fast_forward_char_data], ptr %3, i64 0, i64 %129
   %131 = load i8, ptr %130, align 1
   %.not176 = icmp eq i8 %131, -1
   %132 = trunc nsw i64 %129 to i32
@@ -14956,7 +14956,7 @@ check_fast_forward_char_pair_simd.exit:           ; preds = %._crit_edge.i
 .lr.ph488:                                        ; preds = %.lr.ph488.preheader, %179
   %indvars.iv505 = phi i64 [ 0, %.lr.ph488.preheader ], [ %indvars.iv.next506, %179 ]
   %161 = sub nsw i64 %160, %indvars.iv505
-  %162 = getelementptr inbounds nuw [12 x %struct.fast_forward_char_data], ptr %3, i64 0, i64 %161
+  %162 = getelementptr inbounds [12 x %struct.fast_forward_char_data], ptr %3, i64 0, i64 %161
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 2
   %164 = load i8, ptr %162, align 1
   %165 = zext i8 %164 to i64
@@ -15015,7 +15015,7 @@ check_fast_forward_char_pair_simd.exit:           ; preds = %._crit_edge.i
 
 189:                                              ; preds = %182
   %190 = sext i32 %.0161489 to i64
-  %191 = getelementptr inbounds nuw [12 x %struct.fast_forward_char_data], ptr %3, i64 0, i64 %190, i32 1
+  %191 = getelementptr inbounds [12 x %struct.fast_forward_char_data], ptr %3, i64 0, i64 %190, i32 1
   %192 = load i8, ptr %191, align 1
   %193 = getelementptr inbounds nuw [12 x %struct.fast_forward_char_data], ptr %3, i64 0, i64 %indvars.iv510, i32 1
   %194 = load i8, ptr %193, align 1
@@ -53823,7 +53823,7 @@ define internal fastcc i32 @emit_mov(ptr nocapture noundef %0, i32 noundef %1, i
   %49 = and i8 %48, 1
   %50 = or disjoint i8 %49, 72
   store i8 %50, ptr %42, align 1
-  %51 = getelementptr inbounds nuw [17 x i8], ptr @reg_lmap, i64 0, i64 %46
+  %51 = getelementptr inbounds [17 x i8], ptr @reg_lmap, i64 0, i64 %46
   %52 = load i8, ptr %51, align 1
   %53 = or i8 %52, -72
   %54 = getelementptr inbounds nuw i8, ptr %.0.i.ph.i, i64 2
@@ -53837,7 +53837,7 @@ define internal fastcc i32 @emit_mov(ptr nocapture noundef %0, i32 noundef %1, i
   %58 = shl nuw i64 1, %57
   %59 = and i64 %58, 73184
   %.not72 = icmp eq i64 %59, 0
-  %60 = getelementptr inbounds nuw [17 x i8], ptr @reg_lmap, i64 0, i64 %57
+  %60 = getelementptr inbounds [17 x i8], ptr @reg_lmap, i64 0, i64 %57
   %61 = load i8, ptr %60, align 1
   %62 = or i8 %61, -72
   %63 = select i1 %.not72, i64 5, i64 6
@@ -54442,13 +54442,13 @@ ensure_buf.exit:                                  ; preds = %161
   br i1 %.not246, label %197, label %201
 
 197:                                              ; preds = %194
-  %198 = getelementptr inbounds nuw [17 x i8], ptr @reg_lmap, i64 0, i64 %196
+  %198 = getelementptr inbounds [17 x i8], ptr @reg_lmap, i64 0, i64 %196
   %199 = load i8, ptr %198, align 1
   %200 = shl i8 %199, 3
   br label %207
 
 201:                                              ; preds = %194
-  %202 = getelementptr inbounds nuw [17 x i8], ptr @freg_lmap, i64 0, i64 %196
+  %202 = getelementptr inbounds [17 x i8], ptr @freg_lmap, i64 0, i64 %196
   %203 = load i8, ptr %202, align 1
   %204 = shl i8 %203, 3
   br label %207
@@ -54470,8 +54470,8 @@ ensure_buf.exit:                                  ; preds = %161
   %211 = and i64 %.0189, 16384
   %.not248 = icmp eq i64 %211, 0
   %212 = sext i32 %.3204 to i64
-  %213 = getelementptr inbounds nuw [17 x i8], ptr @reg_lmap, i64 0, i64 %212
-  %214 = getelementptr inbounds nuw [17 x i8], ptr @freg_lmap, i64 0, i64 %212
+  %213 = getelementptr inbounds [17 x i8], ptr @reg_lmap, i64 0, i64 %212
+  %214 = getelementptr inbounds [17 x i8], ptr @freg_lmap, i64 0, i64 %212
   %.in.in = select i1 %.not248, ptr %213, ptr %214
   %.in = load i8, ptr %.in.in, align 1
   %215 = or i8 %208, %.in
@@ -54692,7 +54692,7 @@ define internal fastcc range(i32 0, 3) i32 @emit_load_imm64(ptr nocapture nounde
   %31 = and i8 %30, 1
   %32 = or disjoint i8 %31, 72
   store i8 %32, ptr %24, align 1
-  %33 = getelementptr inbounds nuw [17 x i8], ptr @reg_lmap, i64 0, i64 %28
+  %33 = getelementptr inbounds [17 x i8], ptr @reg_lmap, i64 0, i64 %28
   %34 = load i8, ptr %33, align 1
   %35 = or i8 %34, -72
   %36 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 2
@@ -55108,7 +55108,7 @@ define internal fastcc i32 @emit_mov_int(ptr nocapture noundef initializes((152,
   %17 = shl nuw i64 1, %16
   %18 = and i64 %17, 57887
   %.not69.not = icmp eq i64 %18, 0
-  %19 = getelementptr inbounds nuw [17 x i8], ptr @reg_lmap, i64 0, i64 %16
+  %19 = getelementptr inbounds [17 x i8], ptr @reg_lmap, i64 0, i64 %16
   %20 = load i8, ptr %19, align 1
   %21 = or i8 %20, -72
   %22 = select i1 %.not69.not, i64 6, i64 5
@@ -66792,7 +66792,7 @@ define internal fastcc range(i32 0, 2) i32 @optimize_class(ptr nocapture noundef
 
 28:                                               ; preds = %26
   %29 = sext i32 %.010.i to i64
-  %30 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %29
+  %30 = getelementptr inbounds [4 x i32], ptr %8, i64 0, i64 %29
   store i32 %.01219.i, ptr %30, align 4
   %31 = add nsw i32 %.010.i, 1
   %32 = trunc nuw nsw i32 %24 to i8
@@ -66824,7 +66824,7 @@ define internal fastcc range(i32 0, 2) i32 @optimize_class(ptr nocapture noundef
 
 43:                                               ; preds = %41
   %44 = sext i32 %.1.i to i64
-  %45 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %44
+  %45 = getelementptr inbounds [4 x i32], ptr %8, i64 0, i64 %44
   store i32 256, ptr %45, align 4
   %46 = add nsw i32 %.1.i, 1
   br label %47
@@ -67635,7 +67635,7 @@ sljit_has_cpu_feature.exit.i:                     ; preds = %get_cpu_features.ex
   %425 = trunc i32 %408 to i16
   %426 = add nsw i32 %.115.i, 1
   %427 = sext i32 %.115.i to i64
-  %428 = getelementptr inbounds nuw [3 x i16], ptr %7, i64 0, i64 %427
+  %428 = getelementptr inbounds [3 x i16], ptr %7, i64 0, i64 %427
   store i16 %425, ptr %428, align 2
   br label %429
 
@@ -101519,7 +101519,7 @@ define internal ptr @do_extuni_utf_invalid(ptr nocapture noundef readonly %0, pt
 
 75:                                               ; preds = %59
   %76 = sext i32 %.0130 to i64
-  %77 = getelementptr inbounds nuw [0 x i32], ptr @_pcre2_ucp_gbtable_8, i64 0, i64 %76
+  %77 = getelementptr inbounds [0 x i32], ptr @_pcre2_ucp_gbtable_8, i64 0, i64 %76
   %78 = load i32, ptr %77, align 4
   %79 = shl nuw i32 1, %74
   %80 = and i32 %78, %79
@@ -101818,7 +101818,7 @@ define internal ptr @do_extuni_utf(ptr nocapture noundef readonly %0, ptr nounde
 
 119:                                              ; preds = %103
   %120 = sext i32 %.0102 to i64
-  %121 = getelementptr inbounds nuw [0 x i32], ptr @_pcre2_ucp_gbtable_8, i64 0, i64 %120
+  %121 = getelementptr inbounds [0 x i32], ptr @_pcre2_ucp_gbtable_8, i64 0, i64 %120
   %122 = load i32, ptr %121, align 4
   %123 = shl nuw i32 1, %118
   %124 = and i32 %122, %123

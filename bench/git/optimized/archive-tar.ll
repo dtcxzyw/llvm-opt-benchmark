@@ -361,7 +361,7 @@ if.end7.i:                                        ; preds = %if.end4.i
 if.then.i.i.i:                                    ; preds = %if.end7.i
   %sub.i.i.i = sub i64 10240, %7
   %spec.select.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i, i64 500)
-  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr @block, i64 %7
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr @block, i64 %7
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i, ptr nonnull align 1 %header.i, i64 %spec.select.i.i.i, i1 false)
   %sub2.i.i.i = sub nuw nsw i64 500, %spec.select.i.i.i
   %add.i.i.i = add i64 %spec.select.i.i.i, %7
@@ -385,7 +385,7 @@ if.then9.i.i.i:                                   ; preds = %while.end.i.i.i, %i
   %buf.1.lcssa.i.i55.i = phi ptr [ %add.ptr3.i.i.i, %while.end.i.i.i ], [ %header.i, %if.end7.i ]
   %size.addr.1.lcssa.i.i54.i = phi i64 [ %sub2.i.i.i, %while.end.i.i.i ], [ 500, %if.end7.i ]
   %.pre.i53.i = phi i64 [ %.pre.i.i, %while.end.i.i.i ], [ 0, %if.end7.i ]
-  %add.ptr10.i.i.i = getelementptr inbounds nuw i8, ptr @block, i64 %.pre.i53.i
+  %add.ptr10.i.i.i = getelementptr inbounds i8, ptr @block, i64 %.pre.i53.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr10.i.i.i, ptr nonnull align 1 %buf.1.lcssa.i.i55.i, i64 %size.addr.1.lcssa.i.i54.i, i1 false)
   %add11.i.i.i = add i64 %.pre.i53.i, %size.addr.1.lcssa.i.i54.i
   store i64 %add11.i.i.i, ptr @offset, align 8
@@ -398,7 +398,7 @@ do_write_blocked.exit.i.i:                        ; preds = %if.then9.i.i.i, %wh
   br i1 %tobool.not.i1.i.i, label %if.end.i.i.i, label %if.then.i2.i.i
 
 if.then.i2.i.i:                                   ; preds = %do_write_blocked.exit.i.i
-  %add.ptr.i3.i.i = getelementptr inbounds nuw i8, ptr @block, i64 %9
+  %add.ptr.i3.i.i = getelementptr inbounds i8, ptr @block, i64 %9
   %sub.i4.i.i = sub nuw nsw i64 512, %rem.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i3.i.i, i8 0, i64 %sub.i4.i.i, i1 false)
   %add.i5.i.i = add i64 %sub.i4.i.i, %9
@@ -429,7 +429,7 @@ write_blocked.exit.i:                             ; preds = %if.end.i.i.i
 if.then.i.i8.i:                                   ; preds = %write_blocked.exit.i
   %sub.i.i9.i = sub i64 10240, %.pr.i
   %spec.select.i.i10.i = call i64 @llvm.umin.i64(i64 %14, i64 %sub.i.i9.i)
-  %add.ptr.i.i11.i = getelementptr inbounds nuw i8, ptr @block, i64 %.pr.i
+  %add.ptr.i.i11.i = getelementptr inbounds i8, ptr @block, i64 %.pr.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i11.i, ptr align 1 %13, i64 %spec.select.i.i10.i, i1 false)
   %sub2.i.i12.i = sub i64 %14, %spec.select.i.i10.i
   %add.i.i13.i = add i64 %spec.select.i.i10.i, %.pr.i
@@ -473,7 +473,7 @@ while.end.i.i21.i:                                ; preds = %while.end.i.loopexi
   br i1 %tobool8.not.i.i25.i, label %do_write_blocked.exit.i29.i, label %if.then9.i.i26.i
 
 if.then9.i.i26.i:                                 ; preds = %while.end.i.i21.i
-  %add.ptr10.i.i27.i = getelementptr inbounds nuw i8, ptr @block, i64 %.pre.i22.i
+  %add.ptr10.i.i27.i = getelementptr inbounds i8, ptr @block, i64 %.pre.i22.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr10.i.i27.i, ptr align 1 %buf.1.lcssa.i.i24.i, i64 %size.addr.1.lcssa.i.i23.i, i1 false)
   %add11.i.i28.i = add i64 %size.addr.1.lcssa.i.i23.i, %.pre.i22.i
   store i64 %add11.i.i28.i, ptr @offset, align 8
@@ -486,7 +486,7 @@ do_write_blocked.exit.i29.i:                      ; preds = %if.then9.i.i26.i, %
   br i1 %tobool.not.i1.i31.i, label %if.end.i.i36.i, label %if.then.i2.i32.i
 
 if.then.i2.i32.i:                                 ; preds = %do_write_blocked.exit.i29.i
-  %add.ptr.i3.i33.i = getelementptr inbounds nuw i8, ptr @block, i64 %17
+  %add.ptr.i3.i33.i = getelementptr inbounds i8, ptr @block, i64 %17
   %sub.i4.i34.i = sub nuw nsw i64 512, %rem.i.i30.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i3.i33.i, i8 0, i64 %sub.i4.i34.i, i1 false)
   %add.i5.i35.i = add i64 %sub.i4.i34.i, %17
@@ -519,7 +519,7 @@ if.then:                                          ; preds = %write_global_extend
   %20 = load i64, ptr @offset, align 8
   %21 = trunc i64 %20 to i32
   %conv.i = sub i32 10240, %21
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr @block, i64 %20
+  %add.ptr.i = getelementptr inbounds i8, ptr @block, i64 %20
   %conv1.i = sext i32 %conv.i to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr.i, i8 0, i64 %conv1.i, i1 false)
   %22 = load ptr, ptr @write_block, align 8
@@ -713,7 +713,7 @@ if.then66:                                        ; preds = %if.end64
 if.then.i.i.i:                                    ; preds = %if.then66
   %sub.i.i.i = sub i64 10240, %10
   %spec.select.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i, i64 500)
-  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr @block, i64 %10
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr @block, i64 %10
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i, ptr nonnull align 1 %header.i, i64 %spec.select.i.i.i, i1 false)
   %sub2.i.i.i = sub nuw nsw i64 500, %spec.select.i.i.i
   %add.i.i.i = add i64 %spec.select.i.i.i, %10
@@ -737,7 +737,7 @@ if.then9.i.i.i:                                   ; preds = %while.end.i.i.i, %i
   %buf.1.lcssa.i.i50.i = phi ptr [ %add.ptr3.i.i.i, %while.end.i.i.i ], [ %header.i, %if.then66 ]
   %size.addr.1.lcssa.i.i49.i = phi i64 [ %sub2.i.i.i, %while.end.i.i.i ], [ 500, %if.then66 ]
   %.pre.i48.i = phi i64 [ %.pre.i.i, %while.end.i.i.i ], [ 0, %if.then66 ]
-  %add.ptr10.i.i.i = getelementptr inbounds nuw i8, ptr @block, i64 %.pre.i48.i
+  %add.ptr10.i.i.i = getelementptr inbounds i8, ptr @block, i64 %.pre.i48.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr10.i.i.i, ptr nonnull align 1 %buf.1.lcssa.i.i50.i, i64 %size.addr.1.lcssa.i.i49.i, i1 false)
   %add11.i.i.i = add i64 %.pre.i48.i, %size.addr.1.lcssa.i.i49.i
   store i64 %add11.i.i.i, ptr @offset, align 8
@@ -750,7 +750,7 @@ do_write_blocked.exit.i.i:                        ; preds = %if.then9.i.i.i, %wh
   br i1 %tobool.not.i1.i.i, label %if.end.i.i.i, label %if.then.i2.i.i
 
 if.then.i2.i.i:                                   ; preds = %do_write_blocked.exit.i.i
-  %add.ptr.i3.i.i = getelementptr inbounds nuw i8, ptr @block, i64 %12
+  %add.ptr.i3.i.i = getelementptr inbounds i8, ptr @block, i64 %12
   %sub.i4.i.i = sub nuw nsw i64 512, %rem.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i3.i.i, i8 0, i64 %sub.i4.i.i, i1 false)
   %add.i5.i.i = add i64 %sub.i4.i.i, %12
@@ -767,7 +767,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i2.i.i, %do
 if.then.i.i3.i:                                   ; preds = %if.end.i.i.i
   %sub.i.i4.i = sub i64 10240, %.pr.i
   %spec.select.i.i5.i = call i64 @llvm.umin.i64(i64 range(i64 1, 0) %8, i64 %sub.i.i4.i)
-  %add.ptr.i.i6.i = getelementptr inbounds nuw i8, ptr @block, i64 %.pr.i
+  %add.ptr.i.i6.i = getelementptr inbounds i8, ptr @block, i64 %.pr.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i6.i, ptr align 1 %9, i64 %spec.select.i.i5.i, i1 false)
   %sub2.i.i7.i = sub i64 %8, %spec.select.i.i5.i
   %add.i.i8.i = add i64 %spec.select.i.i5.i, %.pr.i
@@ -813,7 +813,7 @@ while.end.i.i16.i:                                ; preds = %while.end.i.loopexi
   br i1 %tobool8.not.i.i20.i, label %do_write_blocked.exit.i24.i, label %if.then9.i.i21.i
 
 if.then9.i.i21.i:                                 ; preds = %while.end.i.i16.i
-  %add.ptr10.i.i22.i = getelementptr inbounds nuw i8, ptr @block, i64 %.pre.i17.i
+  %add.ptr10.i.i22.i = getelementptr inbounds i8, ptr @block, i64 %.pre.i17.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr10.i.i22.i, ptr align 1 %buf.1.lcssa.i.i19.i, i64 %size.addr.1.lcssa.i.i18.i, i1 false)
   %add11.i.i23.i = add i64 %size.addr.1.lcssa.i.i18.i, %.pre.i17.i
   store i64 %add11.i.i23.i, ptr @offset, align 8
@@ -826,7 +826,7 @@ do_write_blocked.exit.i24.i:                      ; preds = %if.then9.i.i21.i, %
   br i1 %tobool.not.i1.i26.i, label %if.end.i.i31.i, label %if.then.i2.i27.i
 
 if.then.i2.i27.i:                                 ; preds = %do_write_blocked.exit.i24.i
-  %add.ptr.i3.i28.i = getelementptr inbounds nuw i8, ptr @block, i64 %15
+  %add.ptr.i3.i28.i = getelementptr inbounds i8, ptr @block, i64 %15
   %sub.i4.i29.i = sub nuw nsw i64 512, %rem.i.i25.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i3.i28.i, i8 0, i64 %sub.i4.i29.i, i1 false)
   %add.i5.i30.i = add i64 %sub.i4.i29.i, %15
@@ -857,7 +857,7 @@ if.end68:                                         ; preds = %write_extended_head
 if.then.i.i:                                      ; preds = %if.end68
   %sub.i.i = sub i64 10240, %18
   %spec.select.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 500)
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr @block, i64 %18
+  %add.ptr.i.i = getelementptr inbounds i8, ptr @block, i64 %18
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i, ptr nonnull align 1 %header, i64 %spec.select.i.i, i1 false)
   %sub2.i.i = sub nuw nsw i64 500, %spec.select.i.i
   %add.i.i = add i64 %spec.select.i.i, %18
@@ -881,7 +881,7 @@ if.then9.i.i:                                     ; preds = %if.end68, %while.en
   %buf.1.lcssa.i.i137 = phi ptr [ %add.ptr3.i.i, %while.end.i.i ], [ %header, %if.end68 ]
   %size.addr.1.lcssa.i.i136 = phi i64 [ %sub2.i.i, %while.end.i.i ], [ 500, %if.end68 ]
   %.pre.i135 = phi i64 [ %.pre.i, %while.end.i.i ], [ 0, %if.end68 ]
-  %add.ptr10.i.i = getelementptr inbounds nuw i8, ptr @block, i64 %.pre.i135
+  %add.ptr10.i.i = getelementptr inbounds i8, ptr @block, i64 %.pre.i135
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr10.i.i, ptr align 1 %buf.1.lcssa.i.i137, i64 %size.addr.1.lcssa.i.i136, i1 false)
   %add11.i.i = add i64 %.pre.i135, %size.addr.1.lcssa.i.i136
   store i64 %add11.i.i, ptr @offset, align 8
@@ -894,7 +894,7 @@ do_write_blocked.exit.i:                          ; preds = %if.then9.i.i, %whil
   br i1 %tobool.not.i1.i, label %if.end.i.i, label %if.then.i2.i
 
 if.then.i2.i:                                     ; preds = %do_write_blocked.exit.i
-  %add.ptr.i3.i = getelementptr inbounds nuw i8, ptr @block, i64 %20
+  %add.ptr.i3.i = getelementptr inbounds i8, ptr @block, i64 %20
   %sub.i4.i = sub nuw nsw i64 512, %rem.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i3.i, i8 0, i64 %sub.i4.i, i1 false)
   %add.i5.i = add i64 %sub.i4.i, %20
@@ -929,7 +929,7 @@ if.then75:                                        ; preds = %if.then73
 if.then.i.i47:                                    ; preds = %if.then75
   %sub.i.i48 = sub i64 10240, %23
   %spec.select.i.i49 = call i64 @llvm.umin.i64(i64 %size, i64 %sub.i.i48)
-  %add.ptr.i.i50 = getelementptr inbounds nuw i8, ptr @block, i64 %23
+  %add.ptr.i.i50 = getelementptr inbounds i8, ptr @block, i64 %23
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i50, ptr nonnull align 1 %buffer, i64 %spec.select.i.i49, i1 false)
   %sub2.i.i51 = sub i64 %size, %spec.select.i.i49
   %add.i.i52 = add i64 %spec.select.i.i49, %23
@@ -973,7 +973,7 @@ while.end.i.i60:                                  ; preds = %while.end.i.loopexi
   br i1 %tobool8.not.i.i64, label %do_write_blocked.exit.i68, label %if.then9.i.i65
 
 if.then9.i.i65:                                   ; preds = %while.end.i.i60
-  %add.ptr10.i.i66 = getelementptr inbounds nuw i8, ptr @block, i64 %.pre.i61
+  %add.ptr10.i.i66 = getelementptr inbounds i8, ptr @block, i64 %.pre.i61
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr10.i.i66, ptr align 1 %buf.1.lcssa.i.i63, i64 %size.addr.1.lcssa.i.i62, i1 false)
   %add11.i.i67 = add i64 %size.addr.1.lcssa.i.i62, %.pre.i61
   store i64 %add11.i.i67, ptr @offset, align 8
@@ -986,7 +986,7 @@ do_write_blocked.exit.i68:                        ; preds = %if.then9.i.i65, %wh
   br i1 %tobool.not.i1.i70, label %if.end.i.i75, label %if.then.i2.i71
 
 if.then.i2.i71:                                   ; preds = %do_write_blocked.exit.i68
-  %add.ptr.i3.i72 = getelementptr inbounds nuw i8, ptr @block, i64 %26
+  %add.ptr.i3.i72 = getelementptr inbounds i8, ptr @block, i64 %26
   %sub.i4.i73 = sub nuw nsw i64 512, %rem.i.i69
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i3.i72, i8 0, i64 %sub.i4.i73, i1 false)
   %add.i5.i74 = add i64 %sub.i4.i73, %26
@@ -1042,7 +1042,7 @@ if.end7.i:                                        ; preds = %for.cond.preheader.
 if.then.i.i91:                                    ; preds = %if.end7.i
   %sub.i.i92 = sub i64 10240, %31
   %spec.select.i.i93 = call i64 @llvm.umin.i64(i64 %call516.i, i64 %sub.i.i92)
-  %add.ptr.i.i94 = getelementptr inbounds nuw i8, ptr @block, i64 %31
+  %add.ptr.i.i94 = getelementptr inbounds i8, ptr @block, i64 %31
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i94, ptr nonnull align 16 %buf.i88, i64 %spec.select.i.i93, i1 false)
   %sub2.i.i95 = sub nsw i64 %call516.i, %spec.select.i.i93
   %add.i.i96 = add i64 %spec.select.i.i93, %31
@@ -1081,7 +1081,7 @@ while.end.i.i103:                                 ; preds = %while.body.i.i115, 
 
 if.then9.i.i107:                                  ; preds = %while.end.i.i103
   %34 = load i64, ptr @offset, align 8
-  %add.ptr10.i.i108 = getelementptr inbounds nuw i8, ptr @block, i64 %34
+  %add.ptr10.i.i108 = getelementptr inbounds i8, ptr @block, i64 %34
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr10.i.i108, ptr align 1 %buf.1.lcssa.i.i105, i64 %size.addr.1.lcssa.i.i104, i1 false)
   %add11.i.i109 = add i64 %34, %size.addr.1.lcssa.i.i104
   store i64 %add11.i.i109, ptr @offset, align 8
@@ -1105,7 +1105,7 @@ if.then11.i:                                      ; preds = %for.end.i
   br i1 %tobool.not.i7.i, label %if.end.i.i114, label %if.then.i8.i
 
 if.then.i8.i:                                     ; preds = %if.then11.i
-  %add.ptr.i9.i = getelementptr inbounds nuw i8, ptr @block, i64 %35
+  %add.ptr.i9.i = getelementptr inbounds i8, ptr @block, i64 %35
   %sub.i10.i = sub nuw nsw i64 512, %rem.i.i113
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i9.i, i8 0, i64 %sub.i10.i, i1 false)
   %add.i11.i = add i64 %sub.i10.i, %35

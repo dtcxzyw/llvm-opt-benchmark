@@ -154,7 +154,7 @@ key2048_key.exit:                                 ; preds = %if.end, %if.end.i
 
 lor.lhs.false:                                    ; preds = %key2048_key.exit
   %idxprom = sext i32 %i to i64
-  %arrayidx = getelementptr inbounds nuw [2 x ptr], ptr @test_rsa_mp.param_set, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [2 x ptr], ptr @test_rsa_mp.param_set, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
   %call5 = tail call i32 %0(ptr noundef %call) #2
   %call6 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.2, i32 noundef 271, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.12, i32 noundef %call5, i32 noundef 256) #2

@@ -328,7 +328,7 @@ define internal void @_ZN5faiss10float_randEPfml.omp_outlined(ptr noalias nocapt
   %68 = and i64 %67, 2147483646
   %69 = or disjoint i64 %68, %64
   %70 = add nsw i64 %.01822.i.i, -227
-  %71 = getelementptr inbounds nuw [624 x i64], ptr %12, i64 0, i64 %70
+  %71 = getelementptr inbounds [624 x i64], ptr %12, i64 0, i64 %70
   %72 = load i64, ptr %71, align 8
   %73 = lshr exact i64 %69, 1
   %74 = xor i64 %73, %72
@@ -566,7 +566,7 @@ define internal void @_ZN5faiss11float_randnEPfml.omp_outlined(ptr noalias nocap
   %69 = and i64 %68, 2147483646
   %70 = or disjoint i64 %69, %65
   %71 = add nsw i64 %.01822.i.i, -227
-  %72 = getelementptr inbounds nuw [624 x i64], ptr %12, i64 0, i64 %71
+  %72 = getelementptr inbounds [624 x i64], ptr %12, i64 0, i64 %71
   %73 = load i64, ptr %72, align 8
   %74 = lshr exact i64 %70, 1
   %75 = xor i64 %74, %73
@@ -659,7 +659,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %134 = and i64 %133, 2147483646
   %135 = or disjoint i64 %134, %130
   %136 = add nsw i64 %.01822.i.i51, -227
-  %137 = getelementptr inbounds nuw [624 x i64], ptr %12, i64 0, i64 %136
+  %137 = getelementptr inbounds [624 x i64], ptr %12, i64 0, i64 %136
   %138 = load i64, ptr %137, align 8
   %139 = lshr exact i64 %135, 1
   %140 = xor i64 %139, %138
@@ -889,7 +889,7 @@ define internal void @_ZN5faiss10int64_randEPlml.omp_outlined(ptr noalias nocapt
   %68 = and i64 %67, 2147483646
   %69 = or disjoint i64 %68, %64
   %70 = add nsw i64 %.01822.i.i, -227
-  %71 = getelementptr inbounds nuw [624 x i64], ptr %12, i64 0, i64 %70
+  %71 = getelementptr inbounds [624 x i64], ptr %12, i64 0, i64 %70
   %72 = load i64, ptr %71, align 8
   %73 = lshr exact i64 %69, 1
   %74 = xor i64 %73, %72
@@ -1110,7 +1110,7 @@ define internal void @_ZN5faiss14int64_rand_maxEPlmml.omp_outlined(ptr noalias n
   %69 = and i64 %68, 2147483646
   %70 = or disjoint i64 %69, %65
   %71 = add nsw i64 %.01822.i.i, -227
-  %72 = getelementptr inbounds nuw [624 x i64], ptr %13, i64 0, i64 %71
+  %72 = getelementptr inbounds [624 x i64], ptr %13, i64 0, i64 %71
   %73 = load i64, ptr %72, align 8
   %74 = lshr exact i64 %70, 1
   %75 = xor i64 %74, %73
@@ -1380,7 +1380,7 @@ define internal void @_ZN5faiss9byte_randEPhml.omp_outlined(ptr noalias nocaptur
   %68 = and i64 %67, 2147483646
   %69 = or disjoint i64 %68, %64
   %70 = add nsw i64 %.01822.i.i, -227
-  %71 = getelementptr inbounds nuw [624 x i64], ptr %12, i64 0, i64 %70
+  %71 = getelementptr inbounds [624 x i64], ptr %12, i64 0, i64 %70
   %72 = load i64, ptr %71, align 8
   %73 = lshr exact i64 %69, 1
   %74 = xor i64 %73, %72

@@ -35,7 +35,7 @@ if.then.us:                                       ; preds = %while.body.us
   store i8 0, ptr %arrayidx, align 1
   %call5.us = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buffer) #11
   %sub.us = add i64 %call5.us, -1
-  %arrayidx6.us = getelementptr inbounds nuw [1024 x i8], ptr %buffer, i64 0, i64 %sub.us
+  %arrayidx6.us = getelementptr inbounds [1024 x i8], ptr %buffer, i64 0, i64 %sub.us
   %1 = load i8, ptr %arrayidx6.us, align 1
   %cmp7.us = icmp eq i8 %1, 34
   br i1 %cmp7.us, label %if.then9.us, label %if.end.us
@@ -187,7 +187,7 @@ if.end37.us:                                      ; preds = %if.then31.us, %if.t
 
 if.then46.us:                                     ; preds = %if.end37.us
   %strlen.us = call i64 @strlen(ptr nonnull dereferenceable(1) %buffer)
-  %endptr.us = getelementptr inbounds nuw i8, ptr %buffer, i64 %strlen.us
+  %endptr.us = getelementptr inbounds i8, ptr %buffer, i64 %strlen.us
   store i16 34, ptr %endptr.us, align 1
   br label %if.end51.us61
 
@@ -236,7 +236,7 @@ if.end37:                                         ; preds = %if.then31, %if.then
 
 if.then46:                                        ; preds = %if.end37
   %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) %buffer)
-  %endptr = getelementptr inbounds nuw i8, ptr %buffer, i64 %strlen
+  %endptr = getelementptr inbounds i8, ptr %buffer, i64 %strlen
   store i16 34, ptr %endptr, align 1
   br label %if.end51
 
@@ -329,7 +329,7 @@ if.then.us:                                       ; preds = %while.body.us
 if.end.us:                                        ; preds = %if.then.us
   %call10.us = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buffer) #11
   %sub.us = add i64 %call10.us, -1
-  %arrayidx11.us = getelementptr inbounds nuw [1024 x i8], ptr %buffer, i64 0, i64 %sub.us
+  %arrayidx11.us = getelementptr inbounds [1024 x i8], ptr %buffer, i64 0, i64 %sub.us
   %2 = load i8, ptr %arrayidx11.us, align 1
   %cmp12.us = icmp eq i8 %2, 34
   br i1 %cmp12.us, label %if.then14.us, label %if.end19.us
@@ -455,7 +455,7 @@ if.end43.us:                                      ; preds = %if.then37.us, %if.e
 
 if.then52.us:                                     ; preds = %if.end43.us
   %strlen.us = call i64 @strlen(ptr nonnull dereferenceable(1) %buffer)
-  %endptr.us = getelementptr inbounds nuw i8, ptr %buffer, i64 %strlen.us
+  %endptr.us = getelementptr inbounds i8, ptr %buffer, i64 %strlen.us
   store i16 34, ptr %endptr.us, align 1
   br label %if.end57.us46
 
@@ -514,7 +514,7 @@ if.end43:                                         ; preds = %if.then37, %if.end
 
 if.then52:                                        ; preds = %if.end43
   %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) %buffer)
-  %endptr = getelementptr inbounds nuw i8, ptr %buffer, i64 %strlen
+  %endptr = getelementptr inbounds i8, ptr %buffer, i64 %strlen
   store i16 34, ptr %endptr, align 1
   br label %if.end57
 
@@ -730,7 +730,7 @@ if.then1:                                         ; preds = %if.end
 
 if.end3:                                          ; preds = %if.end
   %call7 = call ptr @strncpy(ptr noundef nonnull %aBuf, ptr noundef %strAlias, i64 noundef %sub.ptr.sub) #10
-  %arrayidx = getelementptr inbounds nuw [1024 x i8], ptr %aBuf, i64 0, i64 %sub.ptr.sub
+  %arrayidx = getelementptr inbounds [1024 x i8], ptr %aBuf, i64 0, i64 %sub.ptr.sub
   store i8 0, ptr %arrayidx, align 1
   %call2.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %aBuf, i32 noundef 47) #11
   %tobool.not3.i = icmp eq ptr %call2.i, null

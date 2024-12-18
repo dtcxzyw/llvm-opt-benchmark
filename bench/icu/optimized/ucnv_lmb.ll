@@ -191,7 +191,7 @@ if.then:                                          ; preds = %while.body
   %cond = call i64 @llvm.umin.i64(i64 %sub, i64 %sub.ptr.sub)
   %toUBytes = getelementptr inbounds nuw i8, ptr %7, i64 65
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %LMBCS, ptr nonnull align 1 %toUBytes, i64 %conv, i1 false)
-  %add.ptr = getelementptr inbounds nuw i8, ptr %LMBCS, i64 %conv
+  %add.ptr = getelementptr inbounds i8, ptr %LMBCS, i64 %conv
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr align 1 %4, i64 %cond, i1 false)
   store ptr %LMBCS, ptr %source, align 8
   %add.ptr21 = getelementptr inbounds i8, ptr %add.ptr, i64 %cond

@@ -439,10 +439,10 @@ stb_include_itoa.exit:                            ; preds = %stb_include_itoa.ex
   store i64 2319670605422534688, ptr %add.ptr5, align 2
   store i8 0, ptr %arrayidx2.i, align 2
   %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) %temp)
-  %endptr = getelementptr inbounds nuw i8, ptr %temp, i64 %strlen
+  %endptr = getelementptr inbounds i8, ptr %temp, i64 %strlen
   store i16 32, ptr %endptr, align 1
   %strlen31 = call i64 @strlen(ptr nonnull dereferenceable(1) %temp)
-  %endptr32 = getelementptr inbounds nuw i8, ptr %temp, i64 %strlen31
+  %endptr32 = getelementptr inbounds i8, ptr %temp, i64 %strlen31
   store i16 34, ptr %endptr32, align 1
   %filename12 = getelementptr inbounds nuw %struct.include_info, ptr %.pre, i64 %indvars.iv, i32 2
   %1 = load ptr, ptr %filename12, align 8
@@ -455,10 +455,10 @@ if.else:                                          ; preds = %stb_include_itoa.ex
 
 if.end:                                           ; preds = %stb_include_itoa.exit, %if.else
   %strlen33 = call i64 @strlen(ptr nonnull dereferenceable(1) %temp)
-  %endptr34 = getelementptr inbounds nuw i8, ptr %temp, i64 %strlen33
+  %endptr34 = getelementptr inbounds i8, ptr %temp, i64 %strlen33
   store i16 34, ptr %endptr34, align 1
   %strlen35 = call i64 @strlen(ptr nonnull dereferenceable(1) %temp)
-  %endptr36 = getelementptr inbounds nuw i8, ptr %temp, i64 %strlen35
+  %endptr36 = getelementptr inbounds i8, ptr %temp, i64 %strlen35
   store i16 10, ptr %endptr36, align 1
   %call28 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %temp) #17
   %add.i41 = add i64 %call28, %add.i
@@ -481,7 +481,7 @@ if.then38:                                        ; preds = %if.then35
 if.else42:                                        ; preds = %if.end
   %call44 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %temp, ptr noundef nonnull dereferenceable(1) %path_to_includes) #16
   %strlen37 = call i64 @strlen(ptr nonnull dereferenceable(1) %temp)
-  %endptr38 = getelementptr inbounds nuw i8, ptr %temp, i64 %strlen37
+  %endptr38 = getelementptr inbounds i8, ptr %temp, i64 %strlen37
   store i16 47, ptr %endptr38, align 1
   %call51 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %temp, ptr noundef nonnull dereferenceable(1) %1) #16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i)
@@ -555,7 +555,7 @@ for.body5.i58:                                    ; preds = %for.body5.i58, %if.
 
 stb_include_itoa.exit70:                          ; preds = %for.body5.i58
   %strlen39 = call i64 @strlen(ptr nonnull dereferenceable(1) %temp)
-  %endptr40 = getelementptr inbounds nuw i8, ptr %temp, i64 %strlen39
+  %endptr40 = getelementptr inbounds i8, ptr %temp, i64 %strlen39
   store i16 32, ptr %endptr40, align 1
   %call72 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %temp, ptr noundef nonnull dereferenceable(1) %cond) #16
   %call75 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %temp) #17

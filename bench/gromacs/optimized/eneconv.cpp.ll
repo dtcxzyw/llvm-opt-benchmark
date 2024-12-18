@@ -694,7 +694,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %144, %142
 246:                                              ; preds = %263, %.lr.ph79.i
   %247 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #27
   %248 = add i64 %247, -1
-  %249 = getelementptr inbounds nuw [4096 x i8], ptr %4, i64 0, i64 %248
+  %249 = getelementptr inbounds [4096 x i8], ptr %4, i64 0, i64 %248
   store i8 0, ptr %249, align 1
   %250 = load i8, ptr %4, align 16
   %251 = and i8 %250, -33

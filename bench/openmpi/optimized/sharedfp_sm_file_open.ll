@@ -141,7 +141,7 @@ define i32 @mca_sharedfp_sm_file_open(ptr noundef %0, ptr noundef %1, i32 nounde
 
 56:                                               ; preds = %65, %55
   %.01317.i = phi i64 [ 0, %55 ], [ %66, %65 ]
-  %57 = getelementptr inbounds nuw i8, ptr %7, i64 %.01317.i
+  %57 = getelementptr inbounds i8, ptr %7, i64 %.01317.i
   %58 = sub i64 40, %.01317.i
   %59 = call i64 @write(i32 noundef range(i32 0, -1) %47, ptr noundef nonnull readonly %57, i64 noundef %58) #10
   %60 = icmp slt i64 %59, 0

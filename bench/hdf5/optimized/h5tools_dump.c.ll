@@ -6275,7 +6275,7 @@ h5tools_dump_simple_dset.exit:                    ; preds = %56, %64, %68, %124,
 
 ._crit_edge228.i.i.i:                             ; preds = %.lr.ph227.i.i.i, %.lr.ph232.i.i.i
   %.0.lcssa.i.i.i = phi i64 [ 1, %.lr.ph232.i.i.i ], [ %723, %.lr.ph227.i.i.i ]
-  %725 = getelementptr inbounds nuw [32 x i64], ptr %6, i64 0, i64 %.2147230.i.i.i
+  %725 = getelementptr inbounds [32 x i64], ptr %6, i64 0, i64 %.2147230.i.i.i
   %726 = load i64, ptr %725, align 8
   %727 = mul i64 %726, %.0.lcssa.i.i.i
   %728 = add i64 %727, %storemerge229.i.i.i
@@ -6413,11 +6413,11 @@ h5tools_print_simple_subset.exit.i.i:             ; preds = %757, %.thread209.i.
   %796 = load ptr, ptr %788, align 8
   %797 = getelementptr inbounds i64, ptr %796, i64 %indvars.iv.i.i
   %798 = load i64, ptr %797, align 8
-  %799 = getelementptr inbounds nuw [32 x i64], ptr %10, i64 0, i64 %indvars.iv.i.i
+  %799 = getelementptr inbounds [32 x i64], ptr %10, i64 0, i64 %indvars.iv.i.i
   %800 = load i64, ptr %799, align 8
   %801 = add i64 %800, %798
   store i64 %801, ptr %799, align 8
-  %802 = getelementptr inbounds nuw [32 x i64], ptr %11, i64 0, i64 %indvars.iv.i.i
+  %802 = getelementptr inbounds [32 x i64], ptr %11, i64 0, i64 %indvars.iv.i.i
   %803 = load i64, ptr %802, align 8
   %.not.not.i.i = icmp ult i64 %801, %803
   br i1 %.not.not.i.i, label %.thread90.i.i, label %804

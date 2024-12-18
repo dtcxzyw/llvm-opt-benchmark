@@ -106,19 +106,19 @@ if.then14:                                        ; preds = %if.end12
 land.lhs.true.i:                                  ; preds = %if.then14
   %call2.i = call i64 @strlen(ptr nonnull dereferenceable(1) %file.i)
   %sub.i = add i64 %call2.i, -1
-  %arrayidx.i = getelementptr inbounds nuw [512 x i8], ptr %file.i, i64 0, i64 %sub.i
+  %arrayidx.i = getelementptr inbounds [512 x i8], ptr %file.i, i64 0, i64 %sub.i
   %10 = load i8, ptr %arrayidx.i, align 1
   %cmp.not.i = icmp eq i8 %10, 47
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %endptr.i = getelementptr inbounds nuw i8, ptr %file.i, i64 %call2.i
+  %endptr.i = getelementptr inbounds i8, ptr %file.i, i64 %call2.i
   store i16 47, ptr %endptr.i, align 1
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %land.lhs.true.i, %if.then14
   %strlen80.i = call i64 @strlen(ptr nonnull dereferenceable(1) %file.i)
-  %endptr81.i = getelementptr inbounds nuw i8, ptr %file.i, i64 %strlen80.i
+  %endptr81.i = getelementptr inbounds i8, ptr %file.i, i64 %strlen80.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %endptr81.i, ptr noundef nonnull align 1 dereferenceable(24) @.str.13, i64 24, i1 false)
   %call10.i = call noalias ptr @fopen(ptr noundef nonnull %file.i, ptr noundef nonnull @.str.14)
   %call12.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, ptr noundef %7, ptr noundef nonnull %file.i)

@@ -8815,7 +8815,7 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit.thread:     ; preds = %2
 
 .thread463:                                       ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit.thread
   %39 = load i64, ptr %1, align 8
-  %40 = getelementptr inbounds nuw [32 x i8], ptr @_ZZNK4llvm5APInt4sqrtEvE7results, i64 0, i64 %39
+  %40 = getelementptr inbounds [32 x i8], ptr @_ZZNK4llvm5APInt4sqrtEvE7results, i64 0, i64 %39
   %41 = load i8, ptr %40, align 1
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %11, ptr %42, align 8
@@ -8833,7 +8833,7 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit.thread:     ; preds = %2
 
 51:                                               ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit
   %52 = load i64, ptr %16, align 8
-  %53 = getelementptr inbounds nuw [32 x i8], ptr @_ZZNK4llvm5APInt4sqrtEvE7results, i64 0, i64 %52
+  %53 = getelementptr inbounds [32 x i8], ptr @_ZZNK4llvm5APInt4sqrtEvE7results, i64 0, i64 %52
   %54 = load i8, ptr %53, align 1
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %11, ptr %55, align 8
@@ -17543,7 +17543,7 @@ switch.lookup:                                    ; preds = %7
   %11 = add i32 %2, -2
   %12 = tail call i32 @llvm.fshl.i32(i32 %11, i32 %11, i32 31)
   %13 = sext i32 %12 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZNK4llvm5APInt8toStringERNS_15SmallVectorImplIcEEjbbbb, i64 0, i64 %13
+  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table._ZNK4llvm5APInt8toStringERNS_15SmallVectorImplIcEEjbbbb, i64 0, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %14
 

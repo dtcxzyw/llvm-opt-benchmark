@@ -20555,7 +20555,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_draw_retrieve_lines_from_pa
   %104 = load <8 x float>, ptr %100, align 4, !tbaa !10
   %105 = load <8 x float>, ptr %101, align 4, !tbaa !10
   %106 = load <8 x float>, ptr %102, align 4, !tbaa !10
-  %107 = getelementptr inbounds nuw [200 x float], ptr %4, i64 0, i64 %98
+  %107 = getelementptr inbounds [200 x float], ptr %4, i64 0, i64 %98
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 32
   %109 = getelementptr inbounds nuw i8, ptr %107, i64 64
   %110 = getelementptr inbounds nuw i8, ptr %107, i64 96
@@ -20612,42 +20612,42 @@ define internal fastcc noundef range(i32 0, 2) i32 @_draw_retrieve_lines_from_pa
   %140 = phi i64 [ %172, %.preheader ], [ %127, %.loopexit14 ]
   %141 = getelementptr inbounds [200 x float], ptr %87, i64 0, i64 %140
   %142 = load float, ptr %141, align 4, !tbaa !10
-  %143 = getelementptr inbounds nuw [200 x float], ptr %4, i64 0, i64 %140
+  %143 = getelementptr inbounds [200 x float], ptr %4, i64 0, i64 %140
   store float %142, ptr %143, align 4, !tbaa !10
   %144 = add nuw nsw i64 %140, 1
   %145 = getelementptr inbounds [200 x float], ptr %87, i64 0, i64 %144
   %146 = load float, ptr %145, align 4, !tbaa !10
-  %147 = getelementptr inbounds nuw [200 x float], ptr %4, i64 0, i64 %144
+  %147 = getelementptr inbounds [200 x float], ptr %4, i64 0, i64 %144
   store float %146, ptr %147, align 4, !tbaa !10
   %148 = add nuw nsw i64 %140, 2
   %149 = getelementptr inbounds [200 x float], ptr %87, i64 0, i64 %148
   %150 = load float, ptr %149, align 4, !tbaa !10
-  %151 = getelementptr inbounds nuw [200 x float], ptr %4, i64 0, i64 %148
+  %151 = getelementptr inbounds [200 x float], ptr %4, i64 0, i64 %148
   store float %150, ptr %151, align 4, !tbaa !10
   %152 = add nuw nsw i64 %140, 3
   %153 = getelementptr inbounds [200 x float], ptr %87, i64 0, i64 %152
   %154 = load float, ptr %153, align 4, !tbaa !10
-  %155 = getelementptr inbounds nuw [200 x float], ptr %4, i64 0, i64 %152
+  %155 = getelementptr inbounds [200 x float], ptr %4, i64 0, i64 %152
   store float %154, ptr %155, align 4, !tbaa !10
   %156 = add nuw nsw i64 %140, 4
   %157 = getelementptr inbounds [200 x float], ptr %87, i64 0, i64 %156
   %158 = load float, ptr %157, align 4, !tbaa !10
-  %159 = getelementptr inbounds nuw [200 x float], ptr %4, i64 0, i64 %156
+  %159 = getelementptr inbounds [200 x float], ptr %4, i64 0, i64 %156
   store float %158, ptr %159, align 4, !tbaa !10
   %160 = add nuw nsw i64 %140, 5
   %161 = getelementptr inbounds [200 x float], ptr %87, i64 0, i64 %160
   %162 = load float, ptr %161, align 4, !tbaa !10
-  %163 = getelementptr inbounds nuw [200 x float], ptr %4, i64 0, i64 %160
+  %163 = getelementptr inbounds [200 x float], ptr %4, i64 0, i64 %160
   store float %162, ptr %163, align 4, !tbaa !10
   %164 = add nuw nsw i64 %140, 6
   %165 = getelementptr inbounds [200 x float], ptr %87, i64 0, i64 %164
   %166 = load float, ptr %165, align 4, !tbaa !10
-  %167 = getelementptr inbounds nuw [200 x float], ptr %4, i64 0, i64 %164
+  %167 = getelementptr inbounds [200 x float], ptr %4, i64 0, i64 %164
   store float %166, ptr %167, align 4, !tbaa !10
   %168 = add nuw nsw i64 %140, 7
   %169 = getelementptr inbounds [200 x float], ptr %87, i64 0, i64 %168
   %170 = load float, ptr %169, align 4, !tbaa !10
-  %171 = getelementptr inbounds nuw [200 x float], ptr %4, i64 0, i64 %168
+  %171 = getelementptr inbounds [200 x float], ptr %4, i64 0, i64 %168
   store float %170, ptr %171, align 4, !tbaa !10
   %172 = add nuw nsw i64 %140, 8
   %173 = icmp eq i64 %172, %89

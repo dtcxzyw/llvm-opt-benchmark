@@ -1213,7 +1213,7 @@ _ZN7oopDesc11oop_iterateI22XMarkBarrierOopClosureILb0EEEEvPT_.exit: ; preds = %3
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
   %48 = load i32, ptr %47, align 4
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI22XMarkBarrierOopClosureILb0EEE6_tableE, i64 0, i64 %49
+  %50 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI22XMarkBarrierOopClosureILb0EEE6_tableE, i64 0, i64 %49
   %51 = load ptr, ptr %50, align 8
   call void %51(ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %.0.i.i) #17
   br label %92
@@ -1249,7 +1249,7 @@ _ZN7oopDesc11oop_iterateI22XMarkBarrierOopClosureILb1EEEEvPT_.exit: ; preds = %5
   %66 = getelementptr inbounds nuw i8, ptr %.0.i.i4, i64 12
   %67 = load i32, ptr %66, align 4
   %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI22XMarkBarrierOopClosureILb1EEE6_tableE, i64 0, i64 %68
+  %69 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI22XMarkBarrierOopClosureILb1EEE6_tableE, i64 0, i64 %68
   %70 = load ptr, ptr %69, align 8
   call void %70(ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %.0.i.i4) #17
   br label %92
@@ -1284,7 +1284,7 @@ _ZN7oopDesc11oop_iterateI22XMarkBarrierOopClosureILb0EEEEvPT_.exit6: ; preds = %
   %87 = getelementptr inbounds nuw i8, ptr %.0.i.i5, i64 12
   %88 = load i32, ptr %87, align 4
   %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI22XMarkBarrierOopClosureILb0EEE6_tableE, i64 0, i64 %89
+  %90 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI22XMarkBarrierOopClosureILb0EEE6_tableE, i64 0, i64 %89
   %91 = load ptr, ptr %90, align 8
   call void %91(ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %.0.i.i5) #17
   br label %92

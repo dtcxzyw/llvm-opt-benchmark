@@ -950,7 +950,7 @@ define hidden range(i32 0, 2) i32 @mbedtls_ecjpake_self_test(i32 noundef %0) loc
   %52 = load ptr, ptr %51, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr %5, ptr %2, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %5, i64 %43
+  %53 = getelementptr inbounds i8, ptr %5, i64 %43
   %54 = call fastcc i32 @ecjpake_kkp_read(ptr noundef %44, ptr noundef nonnull %19, i32 noundef %45, ptr noundef nonnull %46, ptr noundef nonnull %23, ptr noundef readonly %52, ptr noundef %2, ptr noundef nonnull %53)
   %.not.i.i = icmp eq i32 %54, 0
   br i1 %.not.i.i, label %55, label %mbedtls_ecjpake_read_round_one.exit.thread

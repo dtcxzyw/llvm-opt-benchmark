@@ -112378,7 +112378,7 @@ define dso_local void @_ZNK7AstCUse4dumpERSo(ptr noundef nonnull align 8 derefer
   %.sroa.0.0.copyload.i = load i8, ptr %4, align 8
   %5 = zext i8 %.sroa.0.0.copyload.i to i64
   %6 = add nsw i64 %5, -1
-  %7 = getelementptr inbounds nuw [3 x ptr], ptr @_ZZNK8VUseType5asciiEvE5names, i64 0, i64 %6
+  %7 = getelementptr inbounds [3 x ptr], ptr @_ZZNK8VUseType5asciiEvE5names, i64 0, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %8)
   %10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull @.str.315)
@@ -112414,7 +112414,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %.sroa.0.0.copyload.i = load i8, ptr %10, align 8
   %11 = zext i8 %.sroa.0.0.copyload.i to i64
   %12 = add nsw i64 %11, -1
-  %13 = getelementptr inbounds nuw [3 x ptr], ptr @_ZZNK8VUseType5asciiEvE5names, i64 0, i64 %12
+  %13 = getelementptr inbounds [3 x ptr], ptr @_ZZNK8VUseType5asciiEvE5names, i64 0, i64 %12
   %14 = load ptr, ptr %13, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #33
   %15 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5)

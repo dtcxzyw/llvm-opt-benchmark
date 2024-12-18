@@ -885,7 +885,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %1, %7
   store i64 %.sroa.2.0.copyload, ptr %18, align 8
   %25 = sdiv i32 %24, 64
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds nuw [2 x i64], ptr %2, i64 0, i64 %26
+  %27 = getelementptr inbounds [2 x i64], ptr %2, i64 0, i64 %26
   %28 = load i64, ptr %27, align 8
   %29 = srem i32 %24, 64
   %30 = zext nneg i32 %29 to i64
@@ -2433,7 +2433,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_124reduceThreadForceBuffersINS_11Basic
   %55 = load ptr, ptr %54, align 8, !noalias !45
   %56 = add nsw i32 %.04761, 1
   %57 = sext i32 %.04761 to i64
-  %58 = getelementptr inbounds nuw [256 x ptr], ptr %14, i64 0, i64 %57
+  %58 = getelementptr inbounds [256 x ptr], ptr %14, i64 0, i64 %57
   store ptr %55, ptr %58, align 8
   br label %59
 
@@ -2898,7 +2898,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %1, %7
   store i64 %.sroa.2.0.copyload, ptr %18, align 8
   %25 = sdiv i32 %24, 64
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds nuw [2 x i64], ptr %2, i64 0, i64 %26
+  %27 = getelementptr inbounds [2 x i64], ptr %2, i64 0, i64 %26
   %28 = load i64, ptr %27, align 8
   %29 = srem i32 %24, 64
   %30 = zext nneg i32 %29 to i64
@@ -4409,7 +4409,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_124reduceThreadForceBuffersIA4_fEEvNS_
   %55 = load ptr, ptr %54, align 8, !noalias !79
   %56 = add nsw i32 %.04761, 1
   %57 = sext i32 %.04761 to i64
-  %58 = getelementptr inbounds nuw [256 x ptr], ptr %14, i64 0, i64 %57
+  %58 = getelementptr inbounds [256 x ptr], ptr %14, i64 0, i64 %57
   store ptr %55, ptr %58, align 8
   br label %59
 

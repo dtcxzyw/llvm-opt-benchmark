@@ -8185,7 +8185,7 @@ default.unreachable:                              ; preds = %11
 
 switch.lookup8:                                   ; preds = %switch.lookup
   %15 = sext i32 %switch.load to i64
-  %switch.gep9 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.rb_io_stdio_file.15, i64 0, i64 %15
+  %switch.gep9 = getelementptr inbounds [3 x ptr], ptr @switch.table.rb_io_stdio_file.15, i64 0, i64 %15
   %switch.load10 = load ptr, ptr %switch.gep9, align 8
   br label %rb_io_oflags_modestr.exit
 

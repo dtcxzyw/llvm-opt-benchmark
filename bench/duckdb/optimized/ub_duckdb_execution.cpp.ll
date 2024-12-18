@@ -33883,7 +33883,7 @@ if.then:                                          ; preds = %for.body
   %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %entry_count.062
   store ptr %add.ptr, ptr %arrayidx, align 8, !tbaa !24
   %conv = trunc i64 %3 to i32
-  %arrayidx3 = getelementptr inbounds nuw [2048 x i32], ptr %group_values, i64 0, i64 %entry_count.062
+  %arrayidx3 = getelementptr inbounds [2048 x i32], ptr %group_values, i64 0, i64 %entry_count.062
   store i32 %conv, ptr %arrayidx3, align 4, !tbaa !70
   %inc = add i64 %entry_count.062, 1
   %cmp4 = icmp eq i64 %inc, 2048
@@ -33970,7 +33970,7 @@ for.body.lr.ph.i.i:                               ; preds = %for.body14
 
 for.body.i.i:                                     ; preds = %if.end.i.i, %for.body.lr.ph.i.i
   %i.014.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %inc.i.i, %if.end.i.i ]
-  %arrayidx.i.i = getelementptr inbounds nuw i32, ptr %group_values, i64 %i.014.i.i
+  %arrayidx.i.i = getelementptr inbounds i32, ptr %group_values, i64 %i.014.i.i
   %17 = load i32, ptr %arrayidx.i.i, align 4, !tbaa !70
   %shr.i.i = lshr i32 %17, %sh_prom.i.i
   %conv.i.i = zext i32 %shr.i.i to i64
@@ -34025,7 +34025,7 @@ for.body.lr.ph.i65.i:                             ; preds = %for.body14
 
 for.body.i68.i:                                   ; preds = %if.end.i78.i, %for.body.lr.ph.i65.i
   %i.014.i69.i = phi i64 [ 0, %for.body.lr.ph.i65.i ], [ %inc.i79.i, %if.end.i78.i ]
-  %arrayidx.i70.i = getelementptr inbounds nuw i32, ptr %group_values, i64 %i.014.i69.i
+  %arrayidx.i70.i = getelementptr inbounds i32, ptr %group_values, i64 %i.014.i69.i
   %25 = load i32, ptr %arrayidx.i70.i, align 4, !tbaa !70
   %shr.i71.i = lshr i32 %25, %sh_prom.i66.i
   %conv.i72.i = zext i32 %shr.i71.i to i64
@@ -34080,7 +34080,7 @@ for.body.lr.ph.i96.i:                             ; preds = %for.body14
 
 for.body.i99.i:                                   ; preds = %if.end.i109.i, %for.body.lr.ph.i96.i
   %i.014.i100.i = phi i64 [ 0, %for.body.lr.ph.i96.i ], [ %inc.i110.i, %if.end.i109.i ]
-  %arrayidx.i101.i = getelementptr inbounds nuw i32, ptr %group_values, i64 %i.014.i100.i
+  %arrayidx.i101.i = getelementptr inbounds i32, ptr %group_values, i64 %i.014.i100.i
   %33 = load i32, ptr %arrayidx.i101.i, align 4, !tbaa !70
   %shr.i102.i = lshr i32 %33, %sh_prom.i97.i
   %conv.i103.i = zext i32 %shr.i102.i to i64
@@ -34135,7 +34135,7 @@ for.body.lr.ph.i126.i:                            ; preds = %for.body14
 
 for.body.i129.i:                                  ; preds = %if.end.i136.i, %for.body.lr.ph.i126.i
   %i.012.i.i = phi i64 [ 0, %for.body.lr.ph.i126.i ], [ %inc.i137.i, %if.end.i136.i ]
-  %arrayidx.i130.i = getelementptr inbounds nuw i32, ptr %group_values, i64 %i.012.i.i
+  %arrayidx.i130.i = getelementptr inbounds i32, ptr %group_values, i64 %i.012.i.i
   %40 = load i32, ptr %arrayidx.i130.i, align 4, !tbaa !70
   %shr.i131.i = lshr i32 %40, %sh_prom.i127.i
   %conv.i132.i = zext i32 %shr.i131.i to i64
@@ -34189,7 +34189,7 @@ for.body.lr.ph.i154.i:                            ; preds = %for.body14
 
 for.body.i157.i:                                  ; preds = %if.end.i167.i, %for.body.lr.ph.i154.i
   %i.014.i158.i = phi i64 [ 0, %for.body.lr.ph.i154.i ], [ %inc.i168.i, %if.end.i167.i ]
-  %arrayidx.i159.i = getelementptr inbounds nuw i32, ptr %group_values, i64 %i.014.i158.i
+  %arrayidx.i159.i = getelementptr inbounds i32, ptr %group_values, i64 %i.014.i158.i
   %47 = load i32, ptr %arrayidx.i159.i, align 4, !tbaa !70
   %shr.i160.i = lshr i32 %47, %sh_prom.i155.i
   %conv.i161.i = zext i32 %shr.i160.i to i64
@@ -34244,7 +34244,7 @@ for.body.lr.ph.i185.i:                            ; preds = %for.body14
 
 for.body.i188.i:                                  ; preds = %if.end.i198.i, %for.body.lr.ph.i185.i
   %i.014.i189.i = phi i64 [ 0, %for.body.lr.ph.i185.i ], [ %inc.i199.i, %if.end.i198.i ]
-  %arrayidx.i190.i = getelementptr inbounds nuw i32, ptr %group_values, i64 %i.014.i189.i
+  %arrayidx.i190.i = getelementptr inbounds i32, ptr %group_values, i64 %i.014.i189.i
   %55 = load i32, ptr %arrayidx.i190.i, align 4, !tbaa !70
   %shr.i191.i = lshr i32 %55, %sh_prom.i186.i
   %conv.i192.i = zext i32 %shr.i191.i to i64
@@ -34299,7 +34299,7 @@ for.body.lr.ph.i216.i:                            ; preds = %for.body14
 
 for.body.i219.i:                                  ; preds = %if.end.i229.i, %for.body.lr.ph.i216.i
   %i.014.i220.i = phi i64 [ 0, %for.body.lr.ph.i216.i ], [ %inc.i230.i, %if.end.i229.i ]
-  %arrayidx.i221.i = getelementptr inbounds nuw i32, ptr %group_values, i64 %i.014.i220.i
+  %arrayidx.i221.i = getelementptr inbounds i32, ptr %group_values, i64 %i.014.i220.i
   %63 = load i32, ptr %arrayidx.i221.i, align 4, !tbaa !70
   %shr.i222.i = lshr i32 %63, %sh_prom.i217.i
   %conv.i223.i = zext i32 %shr.i222.i to i64
@@ -34354,7 +34354,7 @@ for.body.lr.ph.i247.i:                            ; preds = %for.body14
 
 for.body.i251.i:                                  ; preds = %if.end.i261.i, %for.body.lr.ph.i247.i
   %i.012.i252.i = phi i64 [ 0, %for.body.lr.ph.i247.i ], [ %inc.i262.i, %if.end.i261.i ]
-  %arrayidx.i253.i = getelementptr inbounds nuw i32, ptr %group_values, i64 %i.012.i252.i
+  %arrayidx.i253.i = getelementptr inbounds i32, ptr %group_values, i64 %i.012.i252.i
   %70 = load i32, ptr %arrayidx.i253.i, align 4, !tbaa !70
   %shr.i254.i = lshr i32 %70, %sh_prom.i248.i
   %conv.i255.i = zext i32 %shr.i254.i to i64

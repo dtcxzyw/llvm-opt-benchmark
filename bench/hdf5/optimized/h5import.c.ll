@@ -2242,7 +2242,7 @@ processStrHDFData.exit.i.i:                       ; preds = %668, %.preheader.i7
   %.05587.i.i.i = phi i32 [ %.156.i.i.i, %787 ], [ 0, %.preheader.i90.i.i ]
   %768 = trunc i32 %767 to i8
   %769 = sext i32 %.05587.i.i.i to i64
-  %770 = getelementptr inbounds nuw [1024 x i8], ptr %8, i64 0, i64 %769
+  %770 = getelementptr inbounds [1024 x i8], ptr %8, i64 0, i64 %769
   store i8 %768, ptr %770, align 1
   %771 = add nsw i32 %.05587.i.i.i, 1
   %772 = icmp eq i32 %767, 10

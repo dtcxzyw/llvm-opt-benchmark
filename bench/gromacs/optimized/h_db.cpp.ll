@@ -222,7 +222,7 @@ define void @_Z7read_abPcRKNSt10filesystem7__cxx114pathEP13MoleculePatch(ptr nou
   %50 = load i32, ptr %42, align 8
   %51 = load i32, ptr %30, align 4
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds nuw [12 x i32], ptr @_ZL8ncontrol, i64 0, i64 %52
+  %53 = getelementptr inbounds [12 x i32], ptr @_ZL8ncontrol, i64 0, i64 %52
   %54 = load i32, ptr %53, align 4
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %12, i32 noundef 107, ptr noundef nonnull @.str.7, ptr noundef %49, i32 noundef %50, i32 noundef %54, ptr noundef %0) #21
           to label %55 unwind label %58
@@ -695,7 +695,7 @@ _ZNSt6vectorI21MoleculePatchDatabaseSaIS0_EE12emplace_backIJS0_EEERS0_DpOT_.exit
 
 _ZNSt6vectorI21MoleculePatchDatabaseSaIS0_EE12emplace_backIJS0_EEERS0_DpOT_.exit.i: ; preds = %_ZNSt6vectorI21MoleculePatchDatabaseSaIS0_EE12emplace_backIJS0_EEERS0_DpOT_.exit.i.preheader, %_ZN21BondedInteractionListD2Ev.exit.i.i
   %.idx.i = phi i64 [ %.add.i, %_ZN21BondedInteractionListD2Ev.exit.i.i ], [ 280, %_ZNSt6vectorI21MoleculePatchDatabaseSaIS0_EE12emplace_backIJS0_EEERS0_DpOT_.exit.i.preheader ]
-  %.ptr.i = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i
+  %.ptr.i = getelementptr inbounds i8, ptr %9, i64 %.idx.i
   %.add.i = add nsw i64 %.idx.i, -32
   %109 = getelementptr inbounds i8, ptr %.ptr.i, i64 -24
   %110 = load ptr, ptr %109, align 8
@@ -823,7 +823,7 @@ _ZN21MoleculePatchDatabaseD2Ev.exit:              ; preds = %_ZSt8_DestroyIP13Mo
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #20
   %146 = load i32, ptr %8, align 4
   %147 = sext i32 %146 to i64
-  %148 = getelementptr inbounds nuw i8, ptr %5, i64 %147
+  %148 = getelementptr inbounds i8, ptr %5, i64 %147
   %149 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %148, ptr noundef nonnull @.str.11, ptr noundef nonnull %11) #20
   %150 = icmp eq i32 %149, 1
   %151 = load i32, ptr %11, align 4
@@ -1150,7 +1150,7 @@ _ZNSt6vectorI13MoleculePatchSaIS0_EE12emplace_backIJS0_EEERS0_DpOT_.exit.i.prehe
 _ZNSt6vectorI13MoleculePatchSaIS0_EE12emplace_backIJS0_EEERS0_DpOT_.exit.i: ; preds = %_ZNSt6vectorI13MoleculePatchSaIS0_EE12emplace_backIJS0_EEERS0_DpOT_.exit.i.preheader, %_ZNSt6vectorI13MoleculePatchSaIS0_EE12emplace_backIJS0_EEERS0_DpOT_.exit.i
   %.idx.i.i = phi i64 [ %.add.i.i, %_ZNSt6vectorI13MoleculePatchSaIS0_EE12emplace_backIJS0_EEERS0_DpOT_.exit.i ], [ 240, %_ZNSt6vectorI13MoleculePatchSaIS0_EE12emplace_backIJS0_EEERS0_DpOT_.exit.i.preheader ]
   %.add.i.i = add nsw i64 %.idx.i.i, -32
-  %.ptr1.i.i = getelementptr inbounds nuw i8, ptr %16, i64 %.add.i.i
+  %.ptr1.i.i = getelementptr inbounds i8, ptr %16, i64 %.add.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.ptr1.i.i) #20
   %280 = icmp eq i64 %.add.i.i, 112
   br i1 %280, label %_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm4EED2Ev.exit.i.i, label %_ZNSt6vectorI13MoleculePatchSaIS0_EE12emplace_backIJS0_EEERS0_DpOT_.exit.i
@@ -1384,7 +1384,7 @@ _ZN21MoleculePatchDatabaseC2EOS_.exit.i.backedge: ; preds = %.lr.ph.i.i.i, %._cr
 
 378:                                              ; preds = %_ZN21BondedInteractionListD2Ev.exit.i.i32, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIP21MoleculePatchDatabaseSt6vectorIS2_SaIS2_EEEENS0_5__ops14_Val_comp_iterIZL14read_h_db_fileRKNSt10filesystem7__cxx114pathEPS6_E3$_0EEEvT_T0_.exit"
   %.idx.i20 = phi i64 [ 280, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIP21MoleculePatchDatabaseSt6vectorIS2_SaIS2_EEEENS0_5__ops14_Val_comp_iterIZL14read_h_db_fileRKNSt10filesystem7__cxx114pathEPS6_E3$_0EEEvT_T0_.exit" ], [ %.add.i22, %_ZN21BondedInteractionListD2Ev.exit.i.i32 ]
-  %.ptr.i21 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i20
+  %.ptr.i21 = getelementptr inbounds i8, ptr %3, i64 %.idx.i20
   %.add.i22 = add nsw i64 %.idx.i20, -32
   %379 = getelementptr inbounds i8, ptr %.ptr.i21, i64 -24
   %380 = load ptr, ptr %379, align 8
@@ -2554,7 +2554,7 @@ _ZSt4swapI21MoleculePatchDatabaseENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tu
 
 229:                                              ; preds = %_ZN21BondedInteractionListD2Ev.exit.i.i, %_ZSt4swapI21MoleculePatchDatabaseENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS4_ESt18is_move_assignableIS4_EEE5valueEvE4typeERS4_SD_.exit
   %.idx.i = phi i64 [ 280, %_ZSt4swapI21MoleculePatchDatabaseENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS4_ESt18is_move_assignableIS4_EEE5valueEvE4typeERS4_SD_.exit ], [ %.add.i, %_ZN21BondedInteractionListD2Ev.exit.i.i ]
-  %.ptr.i = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i
+  %.ptr.i = getelementptr inbounds i8, ptr %4, i64 %.idx.i
   %.add.i = add nsw i64 %.idx.i, -32
   %230 = getelementptr inbounds i8, ptr %.ptr.i, i64 -24
   %231 = load ptr, ptr %230, align 8

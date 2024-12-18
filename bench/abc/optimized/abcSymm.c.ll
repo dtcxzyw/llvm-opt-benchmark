@@ -479,7 +479,7 @@ Abc_TtCopy.exit.split.split.us:                   ; preds = %Abc_TtCopy.exit, %A
   %30 = shl nuw nsw i32 1, %17
   %31 = zext nneg i32 %30 to i64
   %32 = sext i32 %17 to i64
-  %33 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %32
+  %33 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %32
   %34 = load i64, ptr %33, align 8
   br label %35
 
@@ -602,7 +602,7 @@ Abc_TtCopy.exit38:                                ; preds = %15, %.lr.ph18.i.pre
   %37 = zext i32 %36 to i64
   %38 = shl i64 %35, %37
   %39 = sext i32 %33 to i64
-  %40 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %39
+  %40 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %39
   %41 = load i64, ptr %40, align 8
   %42 = and i64 %38, %41
   %43 = and i64 %41, %35
@@ -622,7 +622,7 @@ Abc_TtCopy.exit38:                                ; preds = %15, %.lr.ph18.i.pre
   %49 = shl nuw nsw i32 1, %33
   %50 = zext nneg i32 %49 to i64
   %51 = sext i32 %33 to i64
-  %52 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %51
+  %52 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %51
   %53 = load i64, ptr %52, align 8
   br label %54
 

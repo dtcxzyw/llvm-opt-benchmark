@@ -5634,7 +5634,7 @@ define hidden void @_ZNK2cv36Upright_MLDB_Full_Descriptor_Invoker32Get_Upright_M
   %indvars.iv262 = phi i64 [ %indvars.iv.next263, %.preheader172.us213.us ], [ %128, %.preheader173.us.us226 ]
   %.0130206.us215.us = phi i32 [ %133, %.preheader172.us213.us ], [ %84, %.preheader173.us.us226 ]
   %129 = mul nsw i64 %indvars.iv262, 3
-  %130 = getelementptr inbounds nuw [48 x float], ptr %7, i64 0, i64 %129
+  %130 = getelementptr inbounds [48 x float], ptr %7, i64 0, i64 %129
   store float 0.000000e+00, ptr %130, align 4
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 4
   store float 0.000000e+00, ptr %131, align 4
@@ -5682,7 +5682,7 @@ define hidden void @_ZNK2cv36Upright_MLDB_Full_Descriptor_Invoker32Get_Upright_M
   %.3138.us.us.us.us = phi float [ %145, %141 ], [ %.us-phi187.us.us.us.us.us, %._crit_edge194.split.us.us.us.us.us ]
   %.3134.us.us.us.us = phi float [ %144, %141 ], [ %.us-phi188.us.us.us.us.us, %._crit_edge194.split.us.us.us.us.us ]
   %148 = mul nsw i64 %indvars.iv267, 3
-  %149 = getelementptr inbounds nuw [48 x float], ptr %7, i64 0, i64 %148
+  %149 = getelementptr inbounds [48 x float], ptr %7, i64 0, i64 %148
   store float %.3134.us.us.us.us, ptr %149, align 4
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 4
   store float %.3138.us.us.us.us, ptr %150, align 4
@@ -7140,7 +7140,7 @@ define hidden void @_ZNK2cv30MLDB_Descriptor_Subset_Invoker26Get_MLDB_Descriptor
   %.0115.lcssa = phi float [ 0.000000e+00, %123 ], [ %.2117.us, %._crit_edge.us ]
   %.0114.lcssa = phi float [ 0.000000e+00, %123 ], [ %.2.us, %._crit_edge.us ]
   %189 = mul nsw i64 %indvars.iv, %110
-  %190 = getelementptr inbounds nuw [87 x float], ptr %10, i64 0, i64 %189
+  %190 = getelementptr inbounds [87 x float], ptr %10, i64 0, i64 %189
   store float %.0118.lcssa, ptr %190, align 4
   switch i32 %54, label %194 [
     i32 2, label %.sink.split
@@ -7211,13 +7211,13 @@ define hidden void @_ZNK2cv30MLDB_Descriptor_Subset_Invoker26Get_MLDB_Descriptor
   %215 = getelementptr inbounds nuw i32, ptr %196, i64 %214
   %216 = load i32, ptr %215, align 4
   %217 = sext i32 %216 to i64
-  %218 = getelementptr inbounds nuw [87 x float], ptr %10, i64 0, i64 %217
+  %218 = getelementptr inbounds [87 x float], ptr %10, i64 0, i64 %217
   %219 = load float, ptr %218, align 4
   %220 = or disjoint i64 %214, 1
   %221 = getelementptr inbounds nuw i32, ptr %196, i64 %220
   %222 = load i32, ptr %221, align 4
   %223 = sext i32 %222 to i64
-  %224 = getelementptr inbounds nuw [87 x float], ptr %10, i64 0, i64 %223
+  %224 = getelementptr inbounds [87 x float], ptr %10, i64 0, i64 %223
   %225 = load float, ptr %224, align 4
   %226 = fcmp ogt float %219, %225
   br i1 %226, label %227, label %236
@@ -7566,7 +7566,7 @@ define hidden void @_ZNK2cv38Upright_MLDB_Descriptor_Subset_Invoker34Get_Upright
   %.096.lcssa = phi float [ 0.000000e+00, %118 ], [ %.us-phi148.us, %._crit_edge.us ]
   %.095.lcssa = phi float [ 0.000000e+00, %118 ], [ %.us-phi149.us, %._crit_edge.us ]
   %166 = mul nsw i64 %indvars.iv, %105
-  %167 = getelementptr inbounds nuw [87 x float], ptr %10, i64 0, i64 %166
+  %167 = getelementptr inbounds [87 x float], ptr %10, i64 0, i64 %166
   store float %.095.lcssa, ptr %167, align 4
   switch i32 %49, label %171 [
     i32 2, label %.sink.split
@@ -7637,13 +7637,13 @@ define hidden void @_ZNK2cv38Upright_MLDB_Descriptor_Subset_Invoker34Get_Upright
   %192 = getelementptr inbounds nuw i32, ptr %173, i64 %191
   %193 = load i32, ptr %192, align 4
   %194 = sext i32 %193 to i64
-  %195 = getelementptr inbounds nuw [87 x float], ptr %10, i64 0, i64 %194
+  %195 = getelementptr inbounds [87 x float], ptr %10, i64 0, i64 %194
   %196 = load float, ptr %195, align 4
   %197 = or disjoint i64 %191, 1
   %198 = getelementptr inbounds nuw i32, ptr %173, i64 %197
   %199 = load i32, ptr %198, align 4
   %200 = sext i32 %199 to i64
-  %201 = getelementptr inbounds nuw [87 x float], ptr %10, i64 0, i64 %200
+  %201 = getelementptr inbounds [87 x float], ptr %10, i64 0, i64 %200
   %202 = load float, ptr %201, align 4
   %203 = fcmp ogt float %196, %202
   br i1 %203, label %204, label %213
@@ -8733,7 +8733,7 @@ _ZN2cvL34Sample_Derivative_Response_Radius6ERKNS_3MatES2_iiiPfS3_.exit.i: ; pred
   %148 = add nsw i32 %147, -1
   store i32 %148, ptr %146, align 4
   %149 = sext i32 %148 to i64
-  %150 = getelementptr inbounds nuw i32, ptr %13, i64 %149
+  %150 = getelementptr inbounds i32, ptr %13, i64 %149
   %151 = trunc nuw nsw i64 %indvars.iv61.i.i to i32
   store i32 %151, ptr %150, align 4
   %indvars.iv.next62.i.i = add nuw nsw i64 %indvars.iv61.i.i, 1
@@ -8757,13 +8757,13 @@ _ZN2cvL23quantized_counting_sortEPKfifiPiS2_.exit.i: ; preds = %.preheader.i109.
   %indvars.iv.i = phi i64 [ %155, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0113.i = phi float [ 0.000000e+00, %.lr.ph.preheader.i ], [ %161, %.lr.ph.i ]
   %.082112.i = phi float [ 0.000000e+00, %.lr.ph.preheader.i ], [ %164, %.lr.ph.i ]
-  %156 = getelementptr inbounds nuw [109 x i32], ptr %13, i64 0, i64 %indvars.iv.i
+  %156 = getelementptr inbounds [109 x i32], ptr %13, i64 0, i64 %indvars.iv.i
   %157 = load i32, ptr %156, align 4
   %158 = sext i32 %157 to i64
-  %159 = getelementptr inbounds nuw [109 x float], ptr %9, i64 0, i64 %158
+  %159 = getelementptr inbounds [109 x float], ptr %9, i64 0, i64 %158
   %160 = load float, ptr %159, align 4
   %161 = fadd float %.0113.i, %160
-  %162 = getelementptr inbounds nuw [109 x float], ptr %10, i64 0, i64 %158
+  %162 = getelementptr inbounds [109 x float], ptr %10, i64 0, i64 %158
   %163 = load float, ptr %162, align 4
   %164 = fadd float %.082112.i, %163
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
@@ -8818,13 +8818,13 @@ _ZN2cvL23quantized_counting_sortEPKfifiPiS2_.exit.i: ; preds = %.preheader.i109.
   %indvars.iv153.i = phi i64 [ %183, %.lr.ph119.preheader.i ], [ %indvars.iv.next154.i, %.lr.ph119.i ]
   %.0100117.i = phi float [ 0.000000e+00, %.lr.ph119.preheader.i ], [ %189, %.lr.ph119.i ]
   %.0102115.i = phi float [ 0.000000e+00, %.lr.ph119.preheader.i ], [ %192, %.lr.ph119.i ]
-  %184 = getelementptr inbounds nuw [109 x i32], ptr %13, i64 0, i64 %indvars.iv153.i
+  %184 = getelementptr inbounds [109 x i32], ptr %13, i64 0, i64 %indvars.iv153.i
   %185 = load i32, ptr %184, align 4
   %186 = sext i32 %185 to i64
-  %187 = getelementptr inbounds nuw [109 x float], ptr %9, i64 0, i64 %186
+  %187 = getelementptr inbounds [109 x float], ptr %9, i64 0, i64 %186
   %188 = load float, ptr %187, align 4
   %189 = fadd float %.0100117.i, %188
-  %190 = getelementptr inbounds nuw [109 x float], ptr %10, i64 0, i64 %186
+  %190 = getelementptr inbounds [109 x float], ptr %10, i64 0, i64 %186
   %191 = load float, ptr %190, align 4
   %192 = fadd float %.0102115.i, %191
   %indvars.iv.next154.i = add nsw i64 %indvars.iv153.i, 1
@@ -8863,10 +8863,10 @@ _ZN2cvL23quantized_counting_sortEPKfifiPiS2_.exit.i: ; preds = %.preheader.i109.
   br i1 %203, label %204, label %211
 
 204:                                              ; preds = %198
-  %205 = getelementptr inbounds nuw [43 x i32], ptr %12, i64 0, i64 %200
+  %205 = getelementptr inbounds [43 x i32], ptr %12, i64 0, i64 %200
   %206 = load i32, ptr %205, align 4
   %207 = add nsw i64 %indvars.iv172.i, -36
-  %208 = getelementptr inbounds nuw [43 x i32], ptr %12, i64 0, i64 %207
+  %208 = getelementptr inbounds [43 x i32], ptr %12, i64 0, i64 %207
   %209 = load i32, ptr %208, align 4
   %210 = icmp eq i32 %206, %209
   br i1 %210, label %239, label %211
@@ -8882,7 +8882,7 @@ _ZN2cvL23quantized_counting_sortEPKfifiPiS2_.exit.i: ; preds = %.preheader.i109.
 .preheader.i:                                     ; preds = %.lr.ph131.i, %211
   %.092.lcssa.i = phi float [ 0.000000e+00, %211 ], [ %222, %.lr.ph131.i ]
   %.090.lcssa.i = phi float [ 0.000000e+00, %211 ], [ %225, %.lr.ph131.i ]
-  %214 = getelementptr inbounds nuw [43 x i32], ptr %12, i64 0, i64 %200
+  %214 = getelementptr inbounds [43 x i32], ptr %12, i64 0, i64 %200
   %215 = load i32, ptr %214, align 4
   %216 = icmp slt i32 %152, %215
   br i1 %216, label %.lr.ph137.preheader.i, label %._crit_edge138.i
@@ -8895,13 +8895,13 @@ _ZN2cvL23quantized_counting_sortEPKfifiPiS2_.exit.i: ; preds = %.preheader.i109.
   %indvars.iv162.i = phi i64 [ %213, %.lr.ph131.preheader.i ], [ %indvars.iv.next163.i, %.lr.ph131.i ]
   %.090128.i = phi float [ 0.000000e+00, %.lr.ph131.preheader.i ], [ %225, %.lr.ph131.i ]
   %.092127.i = phi float [ 0.000000e+00, %.lr.ph131.preheader.i ], [ %222, %.lr.ph131.i ]
-  %217 = getelementptr inbounds nuw [109 x i32], ptr %13, i64 0, i64 %indvars.iv162.i
+  %217 = getelementptr inbounds [109 x i32], ptr %13, i64 0, i64 %indvars.iv162.i
   %218 = load i32, ptr %217, align 4
   %219 = sext i32 %218 to i64
-  %220 = getelementptr inbounds nuw [109 x float], ptr %9, i64 0, i64 %219
+  %220 = getelementptr inbounds [109 x float], ptr %9, i64 0, i64 %219
   %221 = load float, ptr %220, align 4
   %222 = fadd float %.092127.i, %221
-  %223 = getelementptr inbounds nuw [109 x float], ptr %10, i64 0, i64 %219
+  %223 = getelementptr inbounds [109 x float], ptr %10, i64 0, i64 %219
   %224 = load float, ptr %223, align 4
   %225 = fadd float %.090128.i, %224
   %indvars.iv.next163.i = add nsw i64 %indvars.iv162.i, 1
@@ -8912,13 +8912,13 @@ _ZN2cvL23quantized_counting_sortEPKfifiPiS2_.exit.i: ; preds = %.preheader.i109.
   %indvars.iv167.i = phi i64 [ %168, %.lr.ph137.preheader.i ], [ %indvars.iv.next168.i, %.lr.ph137.i ]
   %.191135.i = phi float [ %.090.lcssa.i, %.lr.ph137.preheader.i ], [ %234, %.lr.ph137.i ]
   %.193134.i = phi float [ %.092.lcssa.i, %.lr.ph137.preheader.i ], [ %231, %.lr.ph137.i ]
-  %226 = getelementptr inbounds nuw [109 x i32], ptr %13, i64 0, i64 %indvars.iv167.i
+  %226 = getelementptr inbounds [109 x i32], ptr %13, i64 0, i64 %indvars.iv167.i
   %227 = load i32, ptr %226, align 4
   %228 = sext i32 %227 to i64
-  %229 = getelementptr inbounds nuw [109 x float], ptr %9, i64 0, i64 %228
+  %229 = getelementptr inbounds [109 x float], ptr %9, i64 0, i64 %228
   %230 = load float, ptr %229, align 4
   %231 = fadd float %.193134.i, %230
-  %232 = getelementptr inbounds nuw [109 x float], ptr %10, i64 0, i64 %228
+  %232 = getelementptr inbounds [109 x float], ptr %10, i64 0, i64 %228
   %233 = load float, ptr %232, align 4
   %234 = fadd float %.191135.i, %233
   %indvars.iv.next168.i = add nsw i64 %indvars.iv167.i, 1
@@ -9030,7 +9030,7 @@ define internal fastcc void @_ZZN2cvL34Sample_Derivative_Response_Radius6ERKNS_3
   %23 = getelementptr inbounds nuw [7 x [7 x float]], ptr @_ZZN2cvL34Sample_Derivative_Response_Radius6ERKNS_3MatES2_iiiPfS3_E7gauss25, i64 0, i64 %5, i64 %22
   %24 = load float, ptr %23, align 4
   %25 = sext i32 %.12 to i64
-  %26 = getelementptr inbounds nuw [109 x float], ptr @_ZZN2cvL34Sample_Derivative_Response_Radius6ERKNS_3MatES2_iiiPfS3_E1g, i64 0, i64 %25
+  %26 = getelementptr inbounds [109 x float], ptr @_ZZN2cvL34Sample_Derivative_Response_Radius6ERKNS_3MatES2_iiiPfS3_E1g, i64 0, i64 %25
   store float %24, ptr %26, align 4
   %27 = getelementptr inbounds [109 x i32], ptr getelementptr inbounds nuw (i8, ptr @_ZZN2cvL34Sample_Derivative_Response_Radius6ERKNS_3MatES2_iiiPfS3_E1g, i64 872), i64 0, i64 %25
   store i32 %.0215, ptr %27, align 4

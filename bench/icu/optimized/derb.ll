@@ -1752,14 +1752,14 @@ for.body70:                                       ; preds = %if.end67, %for.body
   %call72 = call i32 @uprv_itou_75(ptr noundef nonnull %num64, i32 noundef 20, i32 noundef %57, i32 noundef 10, i32 noundef 0)
   %inc73 = add nsw i32 %call72, 1
   %idxprom74 = sext i32 %call72 to i64
-  %arrayidx75 = getelementptr inbounds nuw [20 x i16], ptr %num64, i64 0, i64 %idxprom74
+  %arrayidx75 = getelementptr inbounds [20 x i16], ptr %num64, i64 0, i64 %idxprom74
   store i16 44, ptr %arrayidx75, align 2
   %inc76 = add nsw i32 %call72, 2
   %idxprom77 = sext i32 %inc73 to i64
-  %arrayidx78 = getelementptr inbounds nuw [20 x i16], ptr %num64, i64 0, i64 %idxprom77
+  %arrayidx78 = getelementptr inbounds [20 x i16], ptr %num64, i64 0, i64 %idxprom77
   store i16 32, ptr %arrayidx78, align 2
   %idxprom79 = sext i32 %inc76 to i64
-  %arrayidx80 = getelementptr inbounds nuw [20 x i16], ptr %num64, i64 0, i64 %idxprom79
+  %arrayidx80 = getelementptr inbounds [20 x i16], ptr %num64, i64 0, i64 %idxprom79
   store i16 0, ptr %arrayidx80, align 2
   %call83 = call i32 @u_strlen_75(ptr noundef nonnull %num64)
   %call.i241 = call i32 @u_file_write_75(ptr noundef nonnull %num64, i32 noundef %call83, ptr noundef %out)

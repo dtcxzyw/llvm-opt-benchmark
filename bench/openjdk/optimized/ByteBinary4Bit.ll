@@ -1605,7 +1605,7 @@ define hidden void @ByteBinary4BitToIntArgbAlphaMaskBlit(ptr noundef %0, ptr nou
   %21 = load i32, ptr %8, align 8
   %22 = load i32, ptr %10, align 4
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds nuw [0 x %struct.AlphaFunc], ptr @AlphaRules, i64 0, i64 %23
+  %24 = getelementptr inbounds [0 x %struct.AlphaFunc], ptr @AlphaRules, i64 0, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 1
   %26 = load i8, ptr %25, align 1
   %27 = zext i8 %26 to i32
@@ -1951,7 +1951,7 @@ define hidden void @IntArgbToByteBinary4BitAlphaMaskBlit(ptr noundef %0, ptr nou
   %21 = load i32, ptr %7, align 8
   %22 = load i32, ptr %10, align 4
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds nuw [0 x %struct.AlphaFunc], ptr @AlphaRules, i64 0, i64 %23
+  %24 = getelementptr inbounds [0 x %struct.AlphaFunc], ptr @AlphaRules, i64 0, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 1
   %26 = load i8, ptr %25, align 1
   %27 = zext i8 %26 to i32
@@ -2337,7 +2337,7 @@ define hidden void @ByteBinary4BitAlphaMaskFill(ptr noundef %0, ptr noundef %1, 
   %.0165 = phi i32 [ %25, %20 ], [ %18, %10 ]
   %34 = load i32, ptr %9, align 4
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds nuw [0 x %struct.AlphaFunc], ptr @AlphaRules, i64 0, i64 %35
+  %36 = getelementptr inbounds [0 x %struct.AlphaFunc], ptr @AlphaRules, i64 0, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 1
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i32

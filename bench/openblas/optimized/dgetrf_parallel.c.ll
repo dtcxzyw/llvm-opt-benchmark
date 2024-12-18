@@ -382,7 +382,7 @@ define i32 @dgetrf_parallel(ptr noundef %0, ptr nocapture readnone %1, ptr nound
 
 255:                                              ; preds = %254, %263
   %256 = phi i64 [ %264, %263 ], [ 0, %254 ]
-  %257 = getelementptr inbounds nuw [16 x %struct.job_t], ptr %17, i64 0, i64 %256
+  %257 = getelementptr inbounds [16 x %struct.job_t], ptr %17, i64 0, i64 %256
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge, %255
@@ -418,7 +418,7 @@ define i32 @dgetrf_parallel(ptr noundef %0, ptr nocapture readnone %1, ptr nound
 274:                                              ; preds = %281, %266
   %275 = phi i64 [ 0, %266 ], [ %282, %281 ]
   %276 = shl nsw i64 %275, 3
-  %277 = getelementptr inbounds nuw [128 x i64], ptr %18, i64 0, i64 %276
+  %277 = getelementptr inbounds [128 x i64], ptr %18, i64 0, i64 %276
   br label %278
 
 278:                                              ; preds = %278, %274

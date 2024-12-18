@@ -3997,38 +3997,38 @@ define internal noundef range(i32 0, 2) i32 @rawdenoise_button_press(ptr noundef
   %165 = phi i64 [ %193, %.preheader ], [ %159, %.loopexit23 ]
   %166 = getelementptr inbounds [20 x %struct.CurveAnchorPoint], ptr %102, i64 0, i64 %165
   %167 = load float, ptr %166, align 8, !tbaa !96
-  %168 = getelementptr inbounds nuw [20 x float], ptr %4, i64 0, i64 %165
+  %168 = getelementptr inbounds [20 x float], ptr %4, i64 0, i64 %165
   store float %167, ptr %168, align 4, !tbaa !13
   %169 = getelementptr inbounds nuw i8, ptr %166, i64 4
   %170 = load float, ptr %169, align 4, !tbaa !98
-  %171 = getelementptr inbounds nuw [20 x float], ptr %5, i64 0, i64 %165
+  %171 = getelementptr inbounds [20 x float], ptr %5, i64 0, i64 %165
   store float %170, ptr %171, align 4, !tbaa !13
   %172 = add nuw nsw i64 %165, 1
   %173 = getelementptr inbounds [20 x %struct.CurveAnchorPoint], ptr %102, i64 0, i64 %172
   %174 = load float, ptr %173, align 8, !tbaa !96
-  %175 = getelementptr inbounds nuw [20 x float], ptr %4, i64 0, i64 %172
+  %175 = getelementptr inbounds [20 x float], ptr %4, i64 0, i64 %172
   store float %174, ptr %175, align 4, !tbaa !13
   %176 = getelementptr inbounds nuw i8, ptr %173, i64 4
   %177 = load float, ptr %176, align 4, !tbaa !98
-  %178 = getelementptr inbounds nuw [20 x float], ptr %5, i64 0, i64 %172
+  %178 = getelementptr inbounds [20 x float], ptr %5, i64 0, i64 %172
   store float %177, ptr %178, align 4, !tbaa !13
   %179 = add nuw nsw i64 %165, 2
   %180 = getelementptr inbounds [20 x %struct.CurveAnchorPoint], ptr %102, i64 0, i64 %179
   %181 = load float, ptr %180, align 8, !tbaa !96
-  %182 = getelementptr inbounds nuw [20 x float], ptr %4, i64 0, i64 %179
+  %182 = getelementptr inbounds [20 x float], ptr %4, i64 0, i64 %179
   store float %181, ptr %182, align 4, !tbaa !13
   %183 = getelementptr inbounds nuw i8, ptr %180, i64 4
   %184 = load float, ptr %183, align 4, !tbaa !98
-  %185 = getelementptr inbounds nuw [20 x float], ptr %5, i64 0, i64 %179
+  %185 = getelementptr inbounds [20 x float], ptr %5, i64 0, i64 %179
   store float %184, ptr %185, align 4, !tbaa !13
   %186 = add nuw nsw i64 %165, 3
   %187 = getelementptr inbounds [20 x %struct.CurveAnchorPoint], ptr %102, i64 0, i64 %186
   %188 = load float, ptr %187, align 8, !tbaa !96
-  %189 = getelementptr inbounds nuw [20 x float], ptr %4, i64 0, i64 %186
+  %189 = getelementptr inbounds [20 x float], ptr %4, i64 0, i64 %186
   store float %188, ptr %189, align 4, !tbaa !13
   %190 = getelementptr inbounds nuw i8, ptr %187, i64 4
   %191 = load float, ptr %190, align 4, !tbaa !98
-  %192 = getelementptr inbounds nuw [20 x float], ptr %5, i64 0, i64 %186
+  %192 = getelementptr inbounds [20 x float], ptr %5, i64 0, i64 %186
   store float %191, ptr %192, align 4, !tbaa !13
   %193 = add nuw nsw i64 %165, 4
   %194 = icmp eq i64 %193, %103

@@ -505,7 +505,7 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit:  ; preds = %_Z9uiMsgBaseIRA2048
   %122 = ptrtoint ptr %25 to i64
   %123 = sub i64 %121, %122
   %124 = ashr exact i64 %123, 2
-  %125 = getelementptr inbounds nuw i8, ptr %30, i64 %123
+  %125 = getelementptr inbounds i8, ptr %30, i64 %123
   %126 = sub nsw i64 2048, %124
   invoke void @_Z8wcsncpyzPwPKwm(ptr noundef nonnull %125, ptr noundef nonnull @.str.2, i64 noundef %126)
           to label %127 unwind label %100
@@ -521,7 +521,7 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit:  ; preds = %_Z9uiMsgBaseIRA2048
 129:                                              ; preds = %128
   %130 = getelementptr inbounds nuw i8, ptr %32, i64 8208
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %130, i8 0, i64 24, i1 false)
-  %131 = getelementptr inbounds nuw i8, ptr %32, i64 %123
+  %131 = getelementptr inbounds i8, ptr %32, i64 %123
   %132 = getelementptr inbounds nuw i8, ptr %23, i64 64
   %133 = getelementptr inbounds nuw i8, ptr %23, i64 104
   %134 = getelementptr inbounds nuw i8, ptr %22, i64 64
@@ -1538,7 +1538,7 @@ _ZN10uiMsgStoreC2E14UIMESSAGE_CODE.exit.i406:     ; preds = %393
 407:                                              ; preds = %403, %.lr.ph629
   %408 = add nsw i32 %.0258626, 1
   %409 = sext i32 %.0258626 to i64
-  %410 = getelementptr inbounds nuw [256 x i32], ptr %41, i64 0, i64 %409
+  %410 = getelementptr inbounds [256 x i32], ptr %41, i64 0, i64 %409
   %411 = trunc nuw nsw i64 %indvars.iv750 to i32
   store i32 %411, ptr %410, align 4
   br label %412
@@ -1726,7 +1726,7 @@ _ZN10uiMsgStoreC2E14UIMESSAGE_CODE.exit.i406:     ; preds = %393
   %480 = getelementptr inbounds nuw i32, ptr %479, i64 %indvars.iv23.i
   %481 = load i32, ptr %480, align 4
   %482 = sext i32 %481 to i64
-  %483 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %482
+  %483 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %482
   %484 = load i8, ptr %483, align 1
   %485 = load ptr, ptr %419, align 8
   %486 = load i64, ptr %423, align 8
@@ -2089,7 +2089,7 @@ define void @_ZN8RSEncode9DecodeBufEv(ptr noundef nonnull align 8 dereferenceabl
   %28 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv23
   %29 = load i32, ptr %28, align 4
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds nuw [256 x i8], ptr %2, i64 0, i64 %30
+  %31 = getelementptr inbounds [256 x i8], ptr %2, i64 0, i64 %30
   %32 = load i8, ptr %31, align 1
   %33 = load ptr, ptr %9, align 8
   %34 = load i64, ptr %10, align 8
@@ -4518,7 +4518,7 @@ define void @_Z14RecVolumesTestP11CommandDataP7ArchivePKw(ptr noundef %0, ptr no
   %19 = ptrtoint ptr %5 to i64
   %20 = sub i64 %18, %19
   %21 = ashr exact i64 %20, 2
-  %22 = getelementptr inbounds nuw i8, ptr %6, i64 %20
+  %22 = getelementptr inbounds i8, ptr %6, i64 %20
   %23 = sub nsw i64 2048, %21
   call void @_Z8wcsncpyzPwPKwm(ptr noundef nonnull %22, ptr noundef nonnull @.str.2, i64 noundef %23)
   call void @_ZN8FindFileC1Ev(ptr noundef nonnull align 8 dereferenceable(8208) %7)

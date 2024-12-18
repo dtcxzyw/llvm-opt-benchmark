@@ -2383,7 +2383,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %835, %825
   %965 = load ptr, ptr %5, align 8
   %966 = getelementptr i8, ptr %965, i64 -24
   %967 = load i64, ptr %966, align 8
-  %968 = getelementptr inbounds nuw i8, ptr %5, i64 %967
+  %968 = getelementptr inbounds i8, ptr %5, i64 %967
   %969 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %968)
           to label %970 unwind label %980
 

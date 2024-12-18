@@ -1086,7 +1086,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %idxprom = sext i32 %call to i64
-  %arrayidx = getelementptr inbounds nuw [14 x ptr], ptr @_ZN6icu_75L28gTemporalMonthCodesForHebrewE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [14 x ptr], ptr @_ZN6icu_75L28gTemporalMonthCodesForHebrewE, i64 0, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8
   br label %return
 

@@ -47,7 +47,7 @@ define hidden noundef i32 @main(i32 noundef returned %0, ptr nocapture noundef r
   %8 = load ptr, ptr @_ZSt4cout, align 8, !tbaa !8
   %9 = getelementptr i8, ptr %8, i64 -24
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds nuw i8, ptr @_ZSt4cout, i64 %10
+  %11 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load i32, ptr %12, align 8, !tbaa !10
   %14 = or i32 %13, 1

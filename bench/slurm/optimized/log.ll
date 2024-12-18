@@ -1990,7 +1990,7 @@ _addr2fmt.exit:                                   ; preds = %._crit_edge201.thre
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %103 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 256, ptr noundef nonnull @.str.16) #19
   %104 = sext i32 %103 to i64
-  %105 = getelementptr inbounds nuw i8, ptr %8, i64 %104
+  %105 = getelementptr inbounds i8, ptr %8, i64 %104
   store ptr %105, ptr %4, align 8
   %106 = sub nsw i32 256, %103
   %107 = sext i32 %106 to i64

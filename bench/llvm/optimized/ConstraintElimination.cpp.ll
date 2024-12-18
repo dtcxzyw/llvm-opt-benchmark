@@ -10417,7 +10417,7 @@ _ZNK4llvm20iterator_facade_baseINS_15concat_iteratorIN12_GLOBAL__N_111DecompEntr
   %.fca.0.load.i.i = load i64, ptr %.0.ptr.i.i, align 16
   %.fca.1.gep.i.i = getelementptr inbounds nuw i8, ptr %.0.ptr.i.i, i64 8
   %.fca.1.load.i.i = load i64, ptr %.fca.1.gep.i.i, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %14, i64 %.fca.1.load.i.i
+  %89 = getelementptr inbounds i8, ptr %14, i64 %.fca.1.load.i.i
   %90 = and i64 %.fca.0.load.i.i, 1
   %.not.i.i = icmp eq i64 %90, 0
   br i1 %.not.i.i, label %96, label %91
@@ -10454,7 +10454,7 @@ _ZNK4llvm15concat_iteratorIN12_GLOBAL__N_111DecompEntryEJPS2_S3_EEdeEv.exit: ; p
   %.fca.0.load.i.i95 = load i64, ptr %.0.ptr.i.i94, align 16
   %.fca.1.gep.i.i96 = getelementptr inbounds nuw i8, ptr %.0.ptr.i.i94, i64 8
   %.fca.1.load.i.i97 = load i64, ptr %.fca.1.gep.i.i96, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %14, i64 %.fca.1.load.i.i97
+  %106 = getelementptr inbounds i8, ptr %14, i64 %.fca.1.load.i.i97
   %107 = and i64 %.fca.0.load.i.i95, 1
   %.not.i.i98 = icmp eq i64 %107, 0
   br i1 %.not.i.i98, label %113, label %108

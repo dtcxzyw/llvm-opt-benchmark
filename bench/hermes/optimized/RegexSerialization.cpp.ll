@@ -3362,7 +3362,7 @@ if.then:                                          ; preds = %_ZN6hermes32convert
 if.then18:                                        ; preds = %if.then
   %switch.tableidx = add nsw i32 %12, -1
   %13 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [15 x ptr], ptr @switch.table._ZN6hermes14CompiledRegExp10tryCompileEN4llvh9StringRefES2_PS2_, i64 0, i64 %13
+  %switch.gep = getelementptr inbounds [15 x ptr], ptr @switch.table._ZN6hermes14CompiledRegExp10tryCompileEN4llvh9StringRefES2_PS2_, i64 0, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #21
   store ptr %switch.load, ptr %outError, align 8

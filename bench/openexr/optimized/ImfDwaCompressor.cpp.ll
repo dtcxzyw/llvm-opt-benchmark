@@ -718,7 +718,7 @@ for.body59:                                       ; preds = %for.body59.lr.ph, %
   %25 = phi ptr [ %spec.select445, %for.body59.lr.ph ], [ %add.ptr64, %for.body59 ]
   %comp.0388 = phi i64 [ 1, %for.body59.lr.ph ], [ %inc67, %for.body59 ]
   %add.ptr64 = getelementptr inbounds i16, ptr %25, i64 %idx.ext63
-  %arrayidx65 = getelementptr inbounds nuw [3 x ptr], ptr %rowBlock, i64 0, i64 %comp.0388
+  %arrayidx65 = getelementptr inbounds [3 x ptr], ptr %rowBlock, i64 0, i64 %comp.0388
   store ptr %add.ptr64, ptr %arrayidx65, align 8
   %inc67 = add nuw i64 %comp.0388, 1
   %exitcond460.not = icmp eq i64 %inc67, %sub.ptr.div.i
@@ -1325,7 +1325,7 @@ for.body271.lr.ph:                                ; preds = %for.end237, %if.els
 
 for.body271.us:                                   ; preds = %for.body271.lr.ph, %_ZN9Imath_3_24halfC2Ef.exit.us
   %comp268.0398.us = phi i64 [ %inc313.us, %_ZN9Imath_3_24halfC2Ef.exit.us ], [ 0, %for.body271.lr.ph ]
-  %arrayidx284.us = getelementptr inbounds nuw [3 x ptr], ptr %rowBlock, i64 0, i64 %comp268.0398.us
+  %arrayidx284.us = getelementptr inbounds [3 x ptr], ptr %rowBlock, i64 0, i64 %comp268.0398.us
   %172 = load ptr, ptr %arrayidx284.us, align 8
   %arrayidx287.us = getelementptr inbounds nuw i16, ptr %172, i64 %171
   %173 = load ptr, ptr %_dctData, align 8
@@ -1434,7 +1434,7 @@ _ZN9Imath_3_24halfC2Ef.exit.us:                   ; preds = %if.end.i.i.us, %if.
 for.body271:                                      ; preds = %for.body271.lr.ph, %for.inc312
   %comp268.0398 = phi i64 [ %inc313, %for.inc312 ], [ 0, %for.body271.lr.ph ]
   %182 = load ptr, ptr @_ZN7Imf_3_212_GLOBAL__N_120convertFloatToHalf64E, align 8
-  %arrayidx274 = getelementptr inbounds nuw [3 x ptr], ptr %rowBlock, i64 0, i64 %comp268.0398
+  %arrayidx274 = getelementptr inbounds [3 x ptr], ptr %rowBlock, i64 0, i64 %comp268.0398
   %183 = load ptr, ptr %arrayidx274, align 8
   %arrayidx277 = getelementptr inbounds nuw i16, ptr %183, i64 %171
   %184 = load ptr, ptr %_dctData, align 8
@@ -1485,7 +1485,7 @@ for.body435.lr.ph:                                ; preds = %for.end338
   br i1 %cmp443410, label %for.body435.lr.ph.split.us, label %if.end500
 
 for.body435.lr.ph.split.us:                       ; preds = %for.body435.lr.ph
-  %arrayidx446 = getelementptr inbounds nuw [3 x ptr], ptr %rowBlock, i64 0, i64 %comp318.0428
+  %arrayidx446 = getelementptr inbounds [3 x ptr], ptr %rowBlock, i64 0, i64 %comp318.0428
   %191 = load ptr, ptr %arrayidx446, align 8
   br label %for.body435.us
 
@@ -1580,7 +1580,7 @@ for.cond442.for.inc497_crit_edge.us:              ; preds = %for.body444.us
   br i1 %cmp434.us, label %for.body435.us, label %if.end500, !llvm.loop !20
 
 for.body347.lr.ph:                                ; preds = %for.end338
-  %arrayidx353 = getelementptr inbounds nuw [3 x ptr], ptr %rowBlock, i64 0, i64 %comp318.0428
+  %arrayidx353 = getelementptr inbounds [3 x ptr], ptr %rowBlock, i64 0, i64 %comp318.0428
   %222 = load ptr, ptr %arrayidx353, align 8
   br label %for.body347
 
@@ -1670,7 +1670,7 @@ if.end500:                                        ; preds = %for.cond442.for.inc
   br i1 %brmerge, label %for.inc541, label %for.body509.lr.ph
 
 for.body509.lr.ph:                                ; preds = %if.end500
-  %arrayidx511 = getelementptr inbounds nuw [3 x ptr], ptr %rowBlock, i64 0, i64 %comp318.0428
+  %arrayidx511 = getelementptr inbounds [3 x ptr], ptr %rowBlock, i64 0, i64 %comp318.0428
   %259 = load ptr, ptr %arrayidx511, align 8
   br label %for.body509
 
@@ -3190,7 +3190,7 @@ for.body.i308.us:                                 ; preds = %for.body.i308.us.pr
   %arrayidx.i310.us = getelementptr inbounds nuw [64 x i32], ptr @__const._ZN7Imf_3_213DwaCompressor19LossyDctEncoderBase8toZigZagEPN9Imath_3_24halfES4_.remap, i64 0, i64 %indvars.iv.i309.us
   %134 = load i32, ptr %arrayidx.i310.us, align 4
   %idxprom2.i.us = sext i32 %134 to i64
-  %arrayidx3.i311.us = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %halfCoef, i64 %idxprom2.i.us
+  %arrayidx3.i311.us = getelementptr inbounds %"class.Imath_3_2::half", ptr %halfCoef, i64 %idxprom2.i.us
   %arrayidx5.i.us = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %halfZigCoef, i64 %indvars.iv.i309.us
   %135 = load i16, ptr %arrayidx3.i311.us, align 2
   store i16 %135, ptr %arrayidx5.i.us, align 2
@@ -3214,7 +3214,7 @@ while.body.i.us:                                  ; preds = %while.cond.backedge
   %currAcComp.3.us = phi ptr [ %currAcComp.2405.us, %for.end282.us ], [ %currAcComp.4.us, %while.cond.backedge.i.us ]
   %dctComp.030.i.us = phi i32 [ 1, %for.end282.us ], [ %dctComp.0.be.i.us, %while.cond.backedge.i.us ]
   %idxprom.i.us = sext i32 %dctComp.030.i.us to i64
-  %arrayidx.i328.us = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %halfZigCoef, i64 %idxprom.i.us
+  %arrayidx.i328.us = getelementptr inbounds %"class.Imath_3_2::half", ptr %halfZigCoef, i64 %idxprom.i.us
   %139 = load i16, ptr %arrayidx.i328.us, align 2
   %cmp3.not.i.us = icmp eq i16 %139, 0
   br i1 %cmp3.not.i.us, label %while.cond7.preheader.i.us, label %if.then.i329.us
@@ -3241,7 +3241,7 @@ land.rhs.i.us:                                    ; preds = %while.body17.i.us, 
   %indvars.iv.i332.us = phi i64 [ 1, %land.rhs.preheader.i.us ], [ %indvars.iv.next.i335.us, %while.body17.i.us ]
   %add826.i.us = phi i32 [ %add823.i.us, %land.rhs.preheader.i.us ], [ %147, %while.body17.i.us ]
   %idxprom11.i.us = sext i32 %add826.i.us to i64
-  %arrayidx12.i333.us = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %halfZigCoef, i64 %idxprom11.i.us
+  %arrayidx12.i333.us = getelementptr inbounds %"class.Imath_3_2::half", ptr %halfZigCoef, i64 %idxprom11.i.us
   %143 = load i16, ptr %arrayidx12.i333.us, align 2
   %cmp16.i.us = icmp eq i16 %143, 0
   br i1 %cmp16.i.us, label %while.body17.i.us, label %while.end.i.us
@@ -12566,7 +12566,7 @@ call.i.noexc:                                     ; preds = %invoke.cont4
 
 .noexc:                                           ; preds = %call.i.noexc
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %suffix) #36
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %suffix, i64 %call.i.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %suffix, i64 %call.i.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5, ptr noundef nonnull %suffix, ptr noundef nonnull %add.ptr.i)
           to label %invoke.cont9 unwind label %lpad.i
 

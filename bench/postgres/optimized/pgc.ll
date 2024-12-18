@@ -4246,7 +4246,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %65, label %.loopexit.thread, label %.tail.thread
 
 .tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail, %56
-  %endptr33 = getelementptr inbounds nuw i8, ptr %1, i64 %57
+  %endptr33 = getelementptr inbounds i8, ptr %1, i64 %57
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %endptr33, ptr noundef nonnull align 1 dereferenceable(3) @.str.52, i64 3, i1 false)
   %66 = call noalias ptr @fopen(ptr noundef nonnull %1, ptr noundef nonnull @.str.51)
   store ptr %66, ptr @base_yyin, align 8

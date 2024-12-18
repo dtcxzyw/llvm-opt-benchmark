@@ -540,7 +540,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @SSIMScaleChannel(ptr noca
   %.reass.reass.i.us = shl i64 %reass.sub, 32
   %sext = add i64 %.reass.reass.i.us, 12884901888
   %59 = ashr exact i64 %sext, 32
-  %60 = getelementptr inbounds nuw [7 x i32], ptr @kWeight, i64 0, i64 %59
+  %60 = getelementptr inbounds [7 x i32], ptr @kWeight, i64 0, i64 %59
   %61 = load i32, ptr %60, align 4
   br label %62
 
@@ -556,7 +556,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @SSIMScaleChannel(ptr noca
   %63 = shl i64 %reass.sub96, 32
   %sext120 = add i64 %63, 12884901888
   %64 = ashr exact i64 %sext120, 32
-  %65 = getelementptr inbounds nuw [7 x i32], ptr @kWeight, i64 0, i64 %64
+  %65 = getelementptr inbounds [7 x i32], ptr @kWeight, i64 0, i64 %64
   %66 = load i32, ptr %65, align 4
   %67 = mul i32 %66, %61
   %68 = getelementptr inbounds i8, ptr %.090.i.us, i64 %indvars.iv.i.us

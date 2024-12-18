@@ -1285,7 +1285,7 @@ define hidden void @_ZN13BootstrapInfo12print_msg_onEP12outputStreamPKc(ptr noca
   %99 = add i64 %89, 1
   %sext = shl i64 %89, 32
   %100 = ashr exact i64 %sext, 32
-  %101 = getelementptr inbounds nuw [80 x i8], ptr %5, i64 0, i64 %100
+  %101 = getelementptr inbounds [80 x i8], ptr %5, i64 0, i64 %100
   store i8 44, ptr %101, align 1
   br label %102
 
@@ -1293,7 +1293,7 @@ define hidden void @_ZN13BootstrapInfo12print_msg_onEP12outputStreamPKc(ptr noca
   %.046 = phi i64 [ %99, %98 ], [ %89, %97 ]
   %sext53 = shl i64 %.046, 32
   %103 = ashr exact i64 %sext53, 32
-  %104 = getelementptr inbounds nuw i8, ptr %5, i64 %103
+  %104 = getelementptr inbounds i8, ptr %5, i64 %103
   %105 = sub nsw i64 80, %103
   %106 = load ptr, ptr %31, align 8
   %107 = load i32, ptr %38, align 8

@@ -4083,7 +4083,7 @@ define internal fastcc void @_ZN5boost9unit_test12_GLOBAL__N_130unit_test_log_da
   %10 = load ptr, ptr @_ZSt4cout, align 8, !tbaa !33
   %11 = getelementptr i8, ptr %10, i64 -24
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds nuw i8, ptr @_ZSt4cout, i64 %12
+  %13 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %12
   store ptr %13, ptr %9, align 8, !tbaa !4
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 24
@@ -4423,7 +4423,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %32 = getelementptr i8, ptr %30, i64 -24
   %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %5, i64 %33
+  %34 = getelementptr inbounds i8, ptr %5, i64 %33
   store ptr %31, ptr %34, align 8, !tbaa !33
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %35, align 8, !tbaa !33
@@ -6987,7 +6987,7 @@ _ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit: ; pred
   %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %32 = getelementptr i8, ptr %30, i64 -24
   %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %3, i64 %33
+  %34 = getelementptr inbounds i8, ptr %3, i64 %33
   store ptr %31, ptr %34, align 8, !tbaa !33
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %35, align 8, !tbaa !33

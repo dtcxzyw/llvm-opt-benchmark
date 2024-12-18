@@ -684,7 +684,7 @@ define void @Aig_ManPackPrintStats(ptr nocapture noundef readonly %0) local_unna
   %69 = sub nsw i32 64, %67
   %spec.select = select i1 %68, i32 %69, i32 %67
   %70 = sext i32 %spec.select to i64
-  %71 = getelementptr inbounds nuw [33 x i32], ptr %2, i64 0, i64 %70
+  %71 = getelementptr inbounds [33 x i32], ptr %2, i64 0, i64 %70
   %72 = load i32, ptr %71, align 4
   %73 = add nsw i32 %72, 1
   store i32 %73, ptr %71, align 4

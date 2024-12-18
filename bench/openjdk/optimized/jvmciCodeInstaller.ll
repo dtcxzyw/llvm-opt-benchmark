@@ -9068,7 +9068,7 @@ define hidden noundef range(i32 -6, -2147483648) i32 @_ZN13CodeInstaller13map_jv
 switch.lookup:                                    ; preds = %4
   %switch.tableidx = add nsw i32 %1, 6
   %8 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN13CodeInstaller13map_jvmci_bciEi, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZN13CodeInstaller13map_jvmci_bciEi, i64 0, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %9
 
@@ -9332,7 +9332,7 @@ _ZN25HotSpotCompiledCodeStream7read_s4EPKc.exit:  ; preds = %113, %137
 switch.lookup:                                    ; preds = %143
   %switch.tableidx = add nsw i32 %140, 6
   %147 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN13CodeInstaller12record_scopeEiP25HotSpotCompiledCodeStreamhbbbP8JVMCIEnv, i64 0, i64 %147
+  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZN13CodeInstaller12record_scopeEiP25HotSpotCompiledCodeStreamhbbbP8JVMCIEnv, i64 0, i64 %147
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN13CodeInstaller13map_jvmci_bciEi.exit
 

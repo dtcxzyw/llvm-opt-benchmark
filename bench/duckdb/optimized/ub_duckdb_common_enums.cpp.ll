@@ -4329,7 +4329,7 @@ for.body.preheader:                               ; preds = %entry
 for.cond:                                         ; preds = %for.body.preheader, %for.body
   %i.03036 = phi i64 [ %inc, %for.body ], [ 0, %for.body.preheader ]
   %inc = add i64 %i.03036, 1
-  %arrayidx = getelementptr inbounds nuw [19 x %"struct.duckdb::DefaultOptimizerType"], ptr @_ZN6duckdbL24internal_optimizer_typesE, i64 0, i64 %inc
+  %arrayidx = getelementptr inbounds [19 x %"struct.duckdb::DefaultOptimizerType"], ptr @_ZN6duckdbL24internal_optimizer_typesE, i64 0, i64 %inc
   %2 = load ptr, ptr %arrayidx, align 16, !tbaa !29
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !33
@@ -4565,7 +4565,7 @@ if.then.i.i17:                                    ; preds = %invoke.cont5
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i17, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #20
   %inc = add i64 %i.026, 1
-  %arrayidx = getelementptr inbounds nuw [19 x %"struct.duckdb::DefaultOptimizerType"], ptr @_ZN6duckdbL24internal_optimizer_typesE, i64 0, i64 %inc
+  %arrayidx = getelementptr inbounds [19 x %"struct.duckdb::DefaultOptimizerType"], ptr @_ZN6duckdbL24internal_optimizer_typesE, i64 0, i64 %inc
   %17 = load ptr, ptr %arrayidx, align 16, !tbaa !29
   %tobool.not = icmp eq ptr %17, null
   br i1 %tobool.not, label %nrvo.skipdtor, label %if.end.i, !llvm.loop !34
@@ -4629,7 +4629,7 @@ for.end.thread:                                   ; preds = %entry
 for.cond:                                         ; preds = %for.body.preheader, %for.body
   %i.097108 = phi i64 [ %inc, %for.body ], [ 0, %for.body.preheader ]
   %inc = add i64 %i.097108, 1
-  %arrayidx = getelementptr inbounds nuw [19 x %"struct.duckdb::DefaultOptimizerType"], ptr @_ZN6duckdbL24internal_optimizer_typesE, i64 0, i64 %inc
+  %arrayidx = getelementptr inbounds [19 x %"struct.duckdb::DefaultOptimizerType"], ptr @_ZN6duckdbL24internal_optimizer_typesE, i64 0, i64 %inc
   %1 = load ptr, ptr %arrayidx, align 16, !tbaa !29
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !35
@@ -4661,7 +4661,7 @@ for.body10:                                       ; preds = %for.end, %for.inc13
 
 for.inc13:                                        ; preds = %for.body10
   %inc14 = add i64 %i4.0100, 1
-  %arrayidx6 = getelementptr inbounds nuw [19 x %"struct.duckdb::DefaultOptimizerType"], ptr @_ZN6duckdbL24internal_optimizer_typesE, i64 0, i64 %inc14
+  %arrayidx6 = getelementptr inbounds [19 x %"struct.duckdb::DefaultOptimizerType"], ptr @_ZN6duckdbL24internal_optimizer_typesE, i64 0, i64 %inc14
   %2 = load ptr, ptr %arrayidx6, align 16, !tbaa !29
   %tobool8.not = icmp eq ptr %2, null
   br i1 %tobool8.not, label %for.cond.cleanup9, label %for.body10, !llvm.loop !36

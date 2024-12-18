@@ -2418,11 +2418,11 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb0EEEP
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(26) %7, i8 0, i64 26, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 1 dereferenceable(16) %76, i64 16, i1 false)
   %83 = sext i32 %80 to i64
-  %84 = getelementptr inbounds nuw i8, ptr %7, i64 %83
+  %84 = getelementptr inbounds i8, ptr %7, i64 %83
   %sext37 = shl i64 %79, 32
   %85 = ashr exact i64 %sext37, 32
-  %86 = getelementptr inbounds nuw i8, ptr %7, i64 %85
-  %87 = icmp samesign ult i64 %85, %83
+  %86 = getelementptr inbounds i8, ptr %7, i64 %85
+  %87 = icmp slt i64 %85, %83
   br i1 %87, label %.lr.ph.i41, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit53
 
 .lr.ph.i41:                                       ; preds = %82, %113
@@ -2776,11 +2776,11 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIjLb0EEEP
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(26) %7, i8 0, i64 26, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 1 dereferenceable(16) %76, i64 16, i1 false)
   %83 = sext i32 %80 to i64
-  %84 = getelementptr inbounds nuw i8, ptr %7, i64 %83
+  %84 = getelementptr inbounds i8, ptr %7, i64 %83
   %sext37 = shl i64 %79, 32
   %85 = ashr exact i64 %sext37, 32
-  %86 = getelementptr inbounds nuw i8, ptr %7, i64 %85
-  %87 = icmp samesign ult i64 %85, %83
+  %86 = getelementptr inbounds i8, ptr %7, i64 %85
+  %87 = icmp slt i64 %85, %83
   br i1 %87, label %.lr.ph.i41, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIjLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit53
 
 .lr.ph.i41:                                       ; preds = %82, %113
@@ -3130,11 +3130,11 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb0EEEP
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(26) %7, i8 0, i64 26, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 1 dereferenceable(16) %75, i64 16, i1 false)
   %82 = sext i32 %79 to i64
-  %83 = getelementptr inbounds nuw i8, ptr %7, i64 %82
+  %83 = getelementptr inbounds i8, ptr %7, i64 %82
   %sext37 = shl i64 %78, 32
   %84 = ashr exact i64 %sext37, 32
-  %85 = getelementptr inbounds nuw i8, ptr %7, i64 %84
-  %86 = icmp samesign ult i64 %84, %82
+  %85 = getelementptr inbounds i8, ptr %7, i64 %84
+  %86 = icmp slt i64 %84, %82
   br i1 %86, label %.lr.ph.i41, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit53
 
 .lr.ph.i41:                                       ; preds = %81, %112
@@ -3482,11 +3482,11 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserImLb0EEEP
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(26) %7, i8 0, i64 26, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 1 dereferenceable(16) %75, i64 16, i1 false)
   %82 = sext i32 %79 to i64
-  %83 = getelementptr inbounds nuw i8, ptr %7, i64 %82
+  %83 = getelementptr inbounds i8, ptr %7, i64 %82
   %sext37 = shl i64 %78, 32
   %84 = ashr exact i64 %sext37, 32
-  %85 = getelementptr inbounds nuw i8, ptr %7, i64 %84
-  %86 = icmp samesign ult i64 %84, %82
+  %85 = getelementptr inbounds i8, ptr %7, i64 %84
+  %86 = icmp slt i64 %84, %82
   br i1 %86, label %.lr.ph.i41, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserImLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit53
 
 .lr.ph.i41:                                       ; preds = %81, %112
@@ -3839,11 +3839,11 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb1EEEP
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(26) %7, i8 0, i64 26, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 1 dereferenceable(16) %80, i64 16, i1 false)
   %87 = sext i32 %84 to i64
-  %88 = getelementptr inbounds nuw i8, ptr %7, i64 %87
+  %88 = getelementptr inbounds i8, ptr %7, i64 %87
   %sext37 = shl i64 %83, 32
   %89 = ashr exact i64 %sext37, 32
-  %90 = getelementptr inbounds nuw i8, ptr %7, i64 %89
-  %91 = icmp samesign ult i64 %89, %87
+  %90 = getelementptr inbounds i8, ptr %7, i64 %89
+  %91 = icmp slt i64 %89, %87
   br i1 %91, label %.lr.ph.i41, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb1EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit53
 
 .lr.ph.i41:                                       ; preds = %86, %117
@@ -4203,11 +4203,11 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb1EEEP
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(26) %7, i8 0, i64 26, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 1 dereferenceable(16) %79, i64 16, i1 false)
   %86 = sext i32 %83 to i64
-  %87 = getelementptr inbounds nuw i8, ptr %7, i64 %86
+  %87 = getelementptr inbounds i8, ptr %7, i64 %86
   %sext37 = shl i64 %82, 32
   %88 = ashr exact i64 %sext37, 32
-  %89 = getelementptr inbounds nuw i8, ptr %7, i64 %88
-  %90 = icmp samesign ult i64 %88, %86
+  %89 = getelementptr inbounds i8, ptr %7, i64 %88
+  %90 = icmp slt i64 %88, %86
   br i1 %90, label %.lr.ph.i41, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb1EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit53
 
 .lr.ph.i41:                                       ; preds = %85, %116
@@ -4563,11 +4563,11 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIbLb0EEEP
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(26) %7, i8 0, i64 26, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 1 dereferenceable(16) %77, i64 16, i1 false)
   %84 = sext i32 %81 to i64
-  %85 = getelementptr inbounds nuw i8, ptr %7, i64 %84
+  %85 = getelementptr inbounds i8, ptr %7, i64 %84
   %sext37 = shl i64 %80, 32
   %86 = ashr exact i64 %sext37, 32
-  %87 = getelementptr inbounds nuw i8, ptr %7, i64 %86
-  %88 = icmp samesign ult i64 %86, %84
+  %87 = getelementptr inbounds i8, ptr %7, i64 %86
+  %88 = icmp slt i64 %86, %84
   br i1 %88, label %.lr.ph.i41, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIbLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit53
 
 .lr.ph.i41:                                       ; preds = %83, %114

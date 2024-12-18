@@ -2318,7 +2318,7 @@ define void @_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl13initCellRangeEPK
   %72 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.next.i
   %73 = load i32, ptr %72, align 4
   %74 = sitofp i32 %73 to float
-  %75 = getelementptr inbounds nuw [3 x float], ptr %6, i64 0, i64 %indvars.iv.next.i
+  %75 = getelementptr inbounds [3 x float], ptr %6, i64 0, i64 %indvars.iv.next.i
   %76 = load float, ptr %75, align 4
   %77 = fsub float %74, %76
   %78 = fcmp olt float %77, -1.000000e+00
@@ -2366,7 +2366,7 @@ _ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl19computeCutoffExtentENS_11Basi
   %98 = getelementptr inbounds [3 x float], ptr %96, i64 0, i64 %97
   %99 = load float, ptr %98, align 4
   %100 = fmul float %.020.i, %99
-  %101 = getelementptr inbounds nuw [3 x float], ptr %7, i64 0, i64 %97
+  %101 = getelementptr inbounds [3 x float], ptr %7, i64 0, i64 %97
   %102 = load float, ptr %101, align 4
   %103 = fsub float %102, %100
   %104 = fadd float %102, %100
@@ -2434,7 +2434,7 @@ define noundef float @_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl19compute
   %15 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.next
   %16 = load i32, ptr %15, align 4
   %17 = sitofp i32 %16 to float
-  %18 = getelementptr inbounds nuw [3 x float], ptr %6, i64 0, i64 %indvars.iv.next
+  %18 = getelementptr inbounds [3 x float], ptr %6, i64 0, i64 %indvars.iv.next
   %19 = load float, ptr %18, align 4
   %20 = fsub float %17, %19
   %21 = fcmp olt float %20, -1.000000e+00
@@ -2709,7 +2709,7 @@ define void @_ZN3gmx8internal30AnalysisNeighborhoodSearchImpl4initENS_20Analysis
 
 27:                                               ; preds = %25
   %28 = sext i32 %26 to i64
-  %29 = getelementptr inbounds nuw [5 x %"class.std::__cxx11::basic_string"], ptr @_Z14c_pbcTypeNamesB5cxx11, i64 0, i64 %28
+  %29 = getelementptr inbounds [5 x %"class.std::__cxx11::basic_string"], ptr @_Z14c_pbcTypeNamesB5cxx11, i64 0, i64 %28
   %30 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %29) #33
   call void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull @.str.5, ptr noundef %30)
   %31 = call ptr @__cxa_allocate_exception(i64 24) #33
@@ -5387,7 +5387,7 @@ _ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl10isExcludedEi.exit: ; preds
   %294 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv.next.i.i
   %295 = load i32, ptr %294, align 4
   %296 = sitofp i32 %295 to float
-  %297 = getelementptr inbounds nuw [3 x float], ptr %3, i64 0, i64 %indvars.iv.next.i.i
+  %297 = getelementptr inbounds [3 x float], ptr %3, i64 0, i64 %indvars.iv.next.i.i
   %298 = load float, ptr %297, align 4
   %299 = fsub float %296, %298
   %300 = fcmp olt float %299, -1.000000e+00
@@ -5434,7 +5434,7 @@ _ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl19computeCutoffExtentENS_11Basi
   %318 = getelementptr inbounds [3 x float], ptr %226, i64 0, i64 %317
   %319 = load float, ptr %318, align 4
   %320 = fmul float %.020.i.i, %319
-  %321 = getelementptr inbounds nuw [3 x float], ptr %4, i64 0, i64 %317
+  %321 = getelementptr inbounds [3 x float], ptr %4, i64 0, i64 %317
   %322 = load float, ptr %321, align 4
   %323 = fsub float %322, %320
   %324 = fadd float %322, %320
@@ -6310,7 +6310,7 @@ _ZN3gmx12_GLOBAL__N_113MindistActionclEifPKf.exit: ; preds = %211, %208, %_ZN3gm
   %291 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv.next.i.i
   %292 = load i32, ptr %291, align 4
   %293 = sitofp i32 %292 to float
-  %294 = getelementptr inbounds nuw [3 x float], ptr %3, i64 0, i64 %indvars.iv.next.i.i
+  %294 = getelementptr inbounds [3 x float], ptr %3, i64 0, i64 %indvars.iv.next.i.i
   %295 = load float, ptr %294, align 4
   %296 = fsub float %293, %295
   %297 = fcmp olt float %296, -1.000000e+00
@@ -6357,7 +6357,7 @@ _ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl19computeCutoffExtentENS_11Basi
   %315 = getelementptr inbounds [3 x float], ptr %223, i64 0, i64 %314
   %316 = load float, ptr %315, align 4
   %317 = fmul float %.020.i.i, %316
-  %318 = getelementptr inbounds nuw [3 x float], ptr %4, i64 0, i64 %314
+  %318 = getelementptr inbounds [3 x float], ptr %4, i64 0, i64 %314
   %319 = load float, ptr %318, align 4
   %320 = fsub float %319, %317
   %321 = fadd float %319, %317

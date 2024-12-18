@@ -317,7 +317,7 @@ define range(i32 -1, 1) i32 @H5D__layout_set_version(ptr noundef %0, ptr nocaptu
   %4 = load i32, ptr %3, align 4
   %5 = tail call i32 @H5F_get_low_bound(ptr noundef %0) #3
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds nuw [6 x i32], ptr @H5O_layout_ver_bounds, i64 0, i64 %6
+  %7 = getelementptr inbounds [6 x i32], ptr @H5O_layout_ver_bounds, i64 0, i64 %6
   %8 = load i32, ptr %7, align 4
   %9 = icmp ugt i32 %4, %8
   br i1 %9, label %14, label %10
@@ -325,7 +325,7 @@ define range(i32 -1, 1) i32 @H5D__layout_set_version(ptr noundef %0, ptr nocaptu
 10:                                               ; preds = %2
   %11 = tail call i32 @H5F_get_low_bound(ptr noundef %0) #3
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds nuw [6 x i32], ptr @H5O_layout_ver_bounds, i64 0, i64 %12
+  %13 = getelementptr inbounds [6 x i32], ptr @H5O_layout_ver_bounds, i64 0, i64 %12
   br label %14
 
 14:                                               ; preds = %2, %10
@@ -333,7 +333,7 @@ define range(i32 -1, 1) i32 @H5D__layout_set_version(ptr noundef %0, ptr nocaptu
   %15 = load i32, ptr %.in, align 4
   %16 = tail call i32 @H5F_get_high_bound(ptr noundef %0) #3
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds nuw [6 x i32], ptr @H5O_layout_ver_bounds, i64 0, i64 %17
+  %18 = getelementptr inbounds [6 x i32], ptr @H5O_layout_ver_bounds, i64 0, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = icmp ugt i32 %15, %19
   br i1 %20, label %21, label %25

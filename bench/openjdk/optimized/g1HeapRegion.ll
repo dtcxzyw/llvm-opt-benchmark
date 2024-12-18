@@ -1643,7 +1643,7 @@ _ZN7oopDesc11oop_iterateI28G1VerifyLiveAndRemSetClosureEEvPT_.exit: ; preds = %6
   %75 = getelementptr inbounds nuw i8, ptr %.0.i.i15, i64 12
   %76 = load i32, ptr %75, align 4
   %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI28G1VerifyLiveAndRemSetClosureE6_tableE, i64 0, i64 %77
+  %78 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI28G1VerifyLiveAndRemSetClosureE6_tableE, i64 0, i64 %77
   %79 = load ptr, ptr %78, align 8
   call void %79(ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(16) %.01421, ptr noundef %.0.i.i15) #16
   %.pr = load i64, ptr %3, align 8

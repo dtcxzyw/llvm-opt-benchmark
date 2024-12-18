@@ -865,7 +865,7 @@ _ZL19impliedNumberOfAtomN3gmx8ArrayRefIK10IndexGroupEE.exit: ; preds = %._crit_e
 223:                                              ; preds = %.thread.thread.i
   %224 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #29
   %225 = add i64 %224, -1
-  %226 = getelementptr inbounds nuw [4096 x i8], ptr %6, i64 0, i64 %225
+  %226 = getelementptr inbounds [4096 x i8], ptr %6, i64 0, i64 %225
   store i8 0, ptr %226, align 1
   %putchar129.i = call i32 @putchar(i32 10)
   br label %227
@@ -1948,7 +1948,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i.i:      ; preds = %_ZNSt6vectorIiSaIiE
 
 .noexc102.i.i:                                    ; preds = %.noexc101.i.i
   %626 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #26
-  %627 = getelementptr inbounds nuw i8, ptr %3, i64 %626
+  %627 = getelementptr inbounds i8, ptr %3, i64 %626
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull %3, ptr noundef nonnull %627)
           to label %630 unwind label %628
 
@@ -2665,7 +2665,7 @@ _ZL10and_groupsiPKiiS0_PiS1_.exit.i:              ; preds = %._crit_edge.us.i.i,
 
 .noexc370.i:                                      ; preds = %.noexc.i
   %856 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #26
-  %857 = getelementptr inbounds nuw i8, ptr %8, i64 %856
+  %857 = getelementptr inbounds i8, ptr %8, i64 %856
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull %8, ptr noundef nonnull %857)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i unwind label %858
 
@@ -4249,7 +4249,7 @@ define internal fastcc void @_ZL11split_groupPK7t_atomsiPSt6vectorI10IndexGroupS
 
 .noexc43:                                         ; preds = %.noexc
   %57 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #26
-  %58 = getelementptr inbounds nuw i8, ptr %5, i64 %57
+  %58 = getelementptr inbounds i8, ptr %5, i64 %57
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull %5, ptr noundef nonnull %58)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %59
 

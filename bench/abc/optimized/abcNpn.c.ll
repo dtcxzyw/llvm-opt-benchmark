@@ -417,7 +417,7 @@ Abc_Clock.exit:                                   ; preds = %3, %13
 switch.lookup:                                    ; preds = %18
   %switch.tableidx = add nsw i32 %1, -1
   %20 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.Abc_TruthNpnPerform, i64 0, i64 %20
+  %switch.gep = getelementptr inbounds [12 x ptr], ptr @switch.table.Abc_TruthNpnPerform, i64 0, i64 %20
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %21
 

@@ -500,7 +500,7 @@ _ZN7OptoReg8as_VMRegEiii.exit:                    ; preds = %46, %51, %55
 
 165:                                              ; preds = %.loopexit
   %166 = sext i16 %160 to i64
-  %167 = getelementptr inbounds nuw [591 x ptr], ptr @_ZN7OptoReg7opto2vmE, i64 0, i64 %166
+  %167 = getelementptr inbounds [591 x ptr], ptr @_ZN7OptoReg7opto2vmE, i64 0, i64 %166
   %168 = load ptr, ptr %167, align 8
   br label %_ZN7OptoReg8as_VMRegEiii.exit120
 
@@ -621,7 +621,7 @@ _ZN7OptoReg8as_VMRegEiii.exit120:                 ; preds = %165, %169, %173, %1
 
 226:                                              ; preds = %224
   %227 = sext i16 %223 to i64
-  %228 = getelementptr inbounds nuw [591 x ptr], ptr @_ZN7OptoReg7opto2vmE, i64 0, i64 %227
+  %228 = getelementptr inbounds [591 x ptr], ptr @_ZN7OptoReg7opto2vmE, i64 0, i64 %227
   %229 = load ptr, ptr %228, align 8
   br label %_ZN7OptoReg8as_VMRegEi.exit
 

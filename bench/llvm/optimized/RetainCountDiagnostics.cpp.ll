@@ -312,10 +312,10 @@ $_ZTVN5clang4ento9BugReportE = comdat any
 define dso_local { ptr, i64 } @_ZN5clang4ento18retaincountchecker11RefCountBug13bugTypeToNameENS2_15RefCountBugKindE(i32 noundef %0) local_unnamed_addr #0 align 2 {
 switch.lookup:
   %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN5clang4ento18retaincountchecker11RefCountBugC2ENS0_14CheckerNameRefENS2_15RefCountBugKindE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [8 x i64], ptr @switch.table._ZN5clang4ento18retaincountchecker11RefCountBugC2ENS0_14CheckerNameRefENS2_15RefCountBugKindE, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = sext i32 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN5clang4ento18retaincountchecker11RefCountBugC2ENS0_14CheckerNameRefENS2_15RefCountBugKindE.8, i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN5clang4ento18retaincountchecker11RefCountBugC2ENS0_14CheckerNameRefENS2_15RefCountBugKindE.8, i64 0, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -328,10 +328,10 @@ switch.lookup:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %2 = load i32, ptr %1, align 4
   %3 = sext i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN5clang4ento18retaincountchecker13RefLeakReportC2ERKNS1_11RefCountBugERKNS_11LangOptionsEPNS0_12ExplodedNodeEPKNS0_7SymExprERNS0_14CheckerContextE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds [8 x i64], ptr @switch.table._ZN5clang4ento18retaincountchecker13RefLeakReportC2ERKNS1_11RefCountBugERKNS_11LangOptionsEPNS0_12ExplodedNodeEPKNS0_7SymExprERNS0_14CheckerContextE, i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = sext i32 %2 to i64
-  %switch.gep1 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN5clang4ento18retaincountchecker13RefLeakReportC2ERKNS1_11RefCountBugERKNS_11LangOptionsEPNS0_12ExplodedNodeEPKNS0_7SymExprERNS0_14CheckerContextE.11, i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN5clang4ento18retaincountchecker13RefLeakReportC2ERKNS1_11RefCountBugERKNS_11LangOptionsEPNS0_12ExplodedNodeEPKNS0_7SymExprERNS0_14CheckerContextE.11, i64 0, i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -343,10 +343,10 @@ define dso_local void @_ZN5clang4ento18retaincountchecker11RefCountBugC2ENS0_14C
 switch.lookup:
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = sext i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN5clang4ento18retaincountchecker11RefCountBugC2ENS0_14CheckerNameRefENS2_15RefCountBugKindE, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds [8 x i64], ptr @switch.table._ZN5clang4ento18retaincountchecker11RefCountBugC2ENS0_14CheckerNameRefENS2_15RefCountBugKindE, i64 0, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   %6 = sext i32 %3 to i64
-  %switch.gep8 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN5clang4ento18retaincountchecker11RefCountBugC2ENS0_14CheckerNameRefENS2_15RefCountBugKindE.8, i64 0, i64 %6
+  %switch.gep8 = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN5clang4ento18retaincountchecker11RefCountBugC2ENS0_14CheckerNameRefENS2_15RefCountBugKindE.8, i64 0, i64 %6
   %switch.load9 = load ptr, ptr %switch.gep8, align 8
   %7 = load ptr, ptr @_ZN5clang4ento10categories14MemoryRefCountE, align 8
   store ptr %7, ptr %4, align 8
@@ -4289,10 +4289,10 @@ switch.lookup:
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %10 = load i32, ptr %9, align 4
   %11 = sext i32 %10 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN5clang4ento18retaincountchecker13RefLeakReportC2ERKNS1_11RefCountBugERKNS_11LangOptionsEPNS0_12ExplodedNodeEPKNS0_7SymExprERNS0_14CheckerContextE, i64 0, i64 %11
+  %switch.gep = getelementptr inbounds [8 x i64], ptr @switch.table._ZN5clang4ento18retaincountchecker13RefLeakReportC2ERKNS1_11RefCountBugERKNS_11LangOptionsEPNS0_12ExplodedNodeEPKNS0_7SymExprERNS0_14CheckerContextE, i64 0, i64 %11
   %switch.load = load i64, ptr %switch.gep, align 8
   %12 = sext i32 %10 to i64
-  %switch.gep6 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN5clang4ento18retaincountchecker13RefLeakReportC2ERKNS1_11RefCountBugERKNS_11LangOptionsEPNS0_12ExplodedNodeEPKNS0_7SymExprERNS0_14CheckerContextE.11, i64 0, i64 %12
+  %switch.gep6 = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN5clang4ento18retaincountchecker13RefLeakReportC2ERKNS1_11RefCountBugERKNS_11LangOptionsEPNS0_12ExplodedNodeEPKNS0_7SymExprERNS0_14CheckerContextE.11, i64 0, i64 %12
   %switch.load7 = load ptr, ptr %switch.gep6, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 0, i64 64, i1 false)
@@ -4347,10 +4347,10 @@ switch.lookup:
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %9 = load i32, ptr %8, align 4
   %10 = sext i32 %9 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN5clang4ento18retaincountchecker13RefLeakReportC2ERKNS1_11RefCountBugERKNS_11LangOptionsEPNS0_12ExplodedNodeEPKNS0_7SymExprERNS0_14CheckerContextE, i64 0, i64 %10
+  %switch.gep = getelementptr inbounds [8 x i64], ptr @switch.table._ZN5clang4ento18retaincountchecker13RefLeakReportC2ERKNS1_11RefCountBugERKNS_11LangOptionsEPNS0_12ExplodedNodeEPKNS0_7SymExprERNS0_14CheckerContextE, i64 0, i64 %10
   %switch.load = load i64, ptr %switch.gep, align 8
   %11 = sext i32 %9 to i64
-  %switch.gep6 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN5clang4ento18retaincountchecker13RefLeakReportC2ERKNS1_11RefCountBugERKNS_11LangOptionsEPNS0_12ExplodedNodeEPKNS0_7SymExprERNS0_14CheckerContextE.11, i64 0, i64 %11
+  %switch.gep6 = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN5clang4ento18retaincountchecker13RefLeakReportC2ERKNS1_11RefCountBugERKNS_11LangOptionsEPNS0_12ExplodedNodeEPKNS0_7SymExprERNS0_14CheckerContextE.11, i64 0, i64 %11
   %switch.load7 = load ptr, ptr %switch.gep6, align 8
   %.sroa.0.0.copyload = load ptr, ptr %5, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -5140,10 +5140,10 @@ switch.lookup:
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %9 = load i32, ptr %8, align 4
   %10 = sext i32 %9 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN5clang4ento18retaincountchecker13RefLeakReportC2ERKNS1_11RefCountBugERKNS_11LangOptionsEPNS0_12ExplodedNodeEPKNS0_7SymExprERNS0_14CheckerContextE, i64 0, i64 %10
+  %switch.gep = getelementptr inbounds [8 x i64], ptr @switch.table._ZN5clang4ento18retaincountchecker13RefLeakReportC2ERKNS1_11RefCountBugERKNS_11LangOptionsEPNS0_12ExplodedNodeEPKNS0_7SymExprERNS0_14CheckerContextE, i64 0, i64 %10
   %switch.load = load i64, ptr %switch.gep, align 8
   %11 = sext i32 %9 to i64
-  %switch.gep9 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN5clang4ento18retaincountchecker13RefLeakReportC2ERKNS1_11RefCountBugERKNS_11LangOptionsEPNS0_12ExplodedNodeEPKNS0_7SymExprERNS0_14CheckerContextE.11, i64 0, i64 %11
+  %switch.gep9 = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN5clang4ento18retaincountchecker13RefLeakReportC2ERKNS1_11RefCountBugERKNS_11LangOptionsEPNS0_12ExplodedNodeEPKNS0_7SymExprERNS0_14CheckerContextE.11, i64 0, i64 %11
   %switch.load10 = load ptr, ptr %switch.gep9, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 0, i64 64, i1 false)

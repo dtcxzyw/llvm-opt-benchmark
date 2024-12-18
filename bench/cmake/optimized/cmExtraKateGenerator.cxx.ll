@@ -893,7 +893,7 @@ define dso_local void @_ZNK20cmExtraKateGenerator21CreateKateProjectFileERK16cmL
   %15 = load ptr, ptr %5, align 8
   %16 = getelementptr i8, ptr %15, i64 -24
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %5, i64 %17
+  %18 = getelementptr inbounds i8, ptr %5, i64 %17
   %19 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %18)
           to label %20 unwind label %23
 
@@ -1034,7 +1034,7 @@ define dso_local void @_ZNK20cmExtraKateGenerator26CreateDummyKateProjectFileERK
   %26 = load ptr, ptr %6, align 8
   %27 = getelementptr i8, ptr %26, i64 -24
   %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %6, i64 %28
+  %29 = getelementptr inbounds i8, ptr %6, i64 %28
   %30 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %29)
           to label %31 unwind label %34
 

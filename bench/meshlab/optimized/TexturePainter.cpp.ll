@@ -12159,7 +12159,7 @@ _ZN7QVectorI5PatchE5beginEv.exit:                 ; preds = %143, %152, %.noexc6
   %184 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %183
   %185 = shl i64 %indvars.iv.i.i.i, 2
   %186 = add nuw nsw i64 %185, %indvars.iv15.i.i.i
-  %187 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %186
+  %187 = getelementptr inbounds [16 x float], ptr %3, i64 0, i64 %186
   %188 = load float, ptr %184, align 4, !alias.scope !93
   %189 = load float, ptr %187, align 4, !alias.scope !93
   store float %189, ptr %184, align 4, !alias.scope !93

@@ -654,10 +654,10 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
   %spec.select273 = select i1 %.not241, i32 %.sroa.7.0.lcssa, i32 1
   %271 = select i1 %189, ptr @.str.38, ptr @.str.39
   %272 = sext i32 %268 to i64
-  %273 = getelementptr inbounds nuw [7 x ptr], ptr @subsampName, i64 0, i64 %272
+  %273 = getelementptr inbounds [7 x ptr], ptr @subsampName, i64 0, i64 %272
   %274 = load ptr, ptr %273, align 8
   %275 = sext i32 %269 to i64
-  %276 = getelementptr inbounds nuw [5 x ptr], ptr @colorspaceName, i64 0, i64 %275
+  %276 = getelementptr inbounds [5 x ptr], ptr @colorspaceName, i64 0, i64 %275
   %277 = load ptr, ptr %276, align 8
   %278 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.37, ptr noundef nonnull %271, i32 noundef %266, i32 noundef %267, ptr noundef %274, ptr noundef %277)
   %279 = call i32 @strcasecmp(ptr noundef nonnull %168, ptr noundef nonnull @.str.26) #14
@@ -794,7 +794,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
   %354 = icmp slt i32 %.0207.lcssa, 0
   %spec.store.select = select i1 %354, i32 95, i32 %.0207.lcssa
   %355 = sext i32 %.3 to i64
-  %356 = getelementptr inbounds nuw [7 x ptr], ptr @subsampName, i64 0, i64 %355
+  %356 = getelementptr inbounds [7 x ptr], ptr @subsampName, i64 0, i64 %355
   %357 = load ptr, ptr %356, align 8
   %358 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.49, ptr noundef %357, i32 noundef %spec.store.select)
   %359 = call i32 @tj3Set(ptr noundef nonnull %169, i32 noundef 4, i32 noundef %.3) #13

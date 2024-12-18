@@ -5411,7 +5411,7 @@ define dso_local void @_ZN8tinygltf13base64_decodeERKNSt7__cxx1112basic_stringIc
   %26 = load i8, ptr %25, align 1
   %27 = add nsw i32 %.03350, 1
   %28 = sext i32 %.03350 to i64
-  %29 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %28
+  %29 = getelementptr inbounds [4 x i8], ptr %3, i64 0, i64 %28
   store i8 %26, ptr %29, align 1
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %30 = icmp eq i32 %27, 4
@@ -5738,7 +5738,7 @@ define dso_local noundef zeroext i1 @_ZN8tinygltf13ReadWholeFileEPSt6vectorIhSaI
   %13 = load ptr, ptr %5, align 8
   %14 = getelementptr i8, ptr %13, i64 -24
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %5, i64 %15
+  %16 = getelementptr inbounds i8, ptr %5, i64 %15
   %17 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %16)
           to label %18 unwind label %25
 
@@ -6084,7 +6084,7 @@ define dso_local noundef zeroext i1 @_ZN8tinygltf14WriteWholeFileEPNSt7__cxx1112
   %11 = load ptr, ptr %5, align 8
   %12 = getelementptr i8, ptr %11, i64 -24
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %5, i64 %13
+  %14 = getelementptr inbounds i8, ptr %5, i64 %13
   %15 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %14)
           to label %16 unwind label %23
 
@@ -6154,7 +6154,7 @@ _ZNKSt6vectorIhSaIhEE2atEm.exit:                  ; preds = %30
   %40 = load ptr, ptr %5, align 8
   %41 = getelementptr i8, ptr %40, i64 -24
   %42 = load i64, ptr %41, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %5, i64 %42
+  %43 = getelementptr inbounds i8, ptr %5, i64 %42
   %44 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %43)
           to label %45 unwind label %23
 
@@ -64943,7 +64943,7 @@ define linkonce_odr dso_local void @_ZN8nlohmann6detail9dtoa_impl6grisu2EPcRiS3_
   %.lhs.trunc.i = add nsw i16 %18, 307
   %19 = sdiv i16 %.lhs.trunc.i, 8
   %20 = sext i16 %19 to i64
-  %21 = getelementptr inbounds nuw [79 x %"struct.nlohmann::detail::dtoa_impl::cached_power"], ptr @_ZZN8nlohmann6detail9dtoa_impl36get_cached_power_for_binary_exponentEiE13kCachedPowers, i64 0, i64 %20
+  %21 = getelementptr inbounds [79 x %"struct.nlohmann::detail::dtoa_impl::cached_power"], ptr @_ZZN8nlohmann6detail9dtoa_impl36get_cached_power_for_binary_exponentEiE13kCachedPowers, i64 0, i64 %20
   %.sroa.0.0.copyload.i = load i64, ptr %21, align 16
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8

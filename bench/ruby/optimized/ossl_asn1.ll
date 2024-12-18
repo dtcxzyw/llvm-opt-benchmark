@@ -3394,7 +3394,7 @@ decode_time.exit.i:                               ; preds = %270
   br i1 %.not.not.i, label %291, label %._crit_edge.i
 
 291:                                              ; preds = %288
-  %292 = getelementptr inbounds nuw [31 x %struct.ossl_asn1_info_t], ptr @ossl_asn1_info, i64 0, i64 %287, i32 1
+  %292 = getelementptr inbounds [31 x %struct.ossl_asn1_info_t], ptr @ossl_asn1_info, i64 0, i64 %287, i32 1
   %293 = load ptr, ptr %292, align 8
   %294 = load i64, ptr %293, align 8
   store i64 %.0.i71, ptr %16, align 16

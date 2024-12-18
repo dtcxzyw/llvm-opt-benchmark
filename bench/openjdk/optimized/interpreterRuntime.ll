@@ -3976,7 +3976,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %_ZN18constantPoolHa
 _ZNK17LastFrameAccessor12get_index_u2EN9Bytecodes4CodeE.exit: ; preds = %_ZN12methodHandleC2EP6ThreadP6Method.exit, %64
   %66 = getelementptr inbounds nuw i8, ptr %62, i64 1
   %67 = sext i32 %1 to i64
-  %68 = getelementptr inbounds nuw [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %67
+  %68 = getelementptr inbounds [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %67
   %69 = load i16, ptr %68, align 2
   %70 = and i16 %69, 128
   %.not.i.i = icmp eq i16 %70, 0
@@ -5148,7 +5148,7 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %_ZN12Resource
 _ZNK17LastFrameAccessor12get_index_u2EN9Bytecodes4CodeE.exit: ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit, %113
   %115 = getelementptr inbounds nuw i8, ptr %111, i64 1
   %116 = sext i32 %1 to i64
-  %117 = getelementptr inbounds nuw [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %116
+  %117 = getelementptr inbounds [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %116
   %118 = load i16, ptr %117, align 2
   %119 = and i16 %118, 128
   %.not.i.i = icmp eq i16 %119, 0
@@ -5437,7 +5437,7 @@ define hidden void @_ZN18InterpreterRuntime18cds_resolve_invokeEN9Bytecodes4Code
   %30 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %30, align 1
   %31 = sext i32 %0 to i64
-  %32 = getelementptr inbounds nuw [239 x ptr], ptr @_ZN9Bytecodes5_nameE, i64 0, i64 %31
+  %32 = getelementptr inbounds [239 x ptr], ptr @_ZN9Bytecodes5_nameE, i64 0, i64 %31
   %33 = load ptr, ptr %32, align 8
   call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 933, ptr noundef nonnull @.str.13, ptr noundef %33) #15
   unreachable
@@ -5879,7 +5879,7 @@ define hidden void @_ZN18InterpreterRuntime18resolve_from_cacheEP10JavaThreadN9B
   %9 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %9, align 1
   %10 = sext i32 %1 to i64
-  %11 = getelementptr inbounds nuw [239 x ptr], ptr @_ZN9Bytecodes5_nameE, i64 0, i64 %10
+  %11 = getelementptr inbounds [239 x ptr], ptr @_ZN9Bytecodes5_nameE, i64 0, i64 %10
   %12 = load ptr, ptr %11, align 8
   tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 1013, ptr noundef nonnull @.str.17, ptr noundef %12) #15
   unreachable
@@ -7984,7 +7984,7 @@ _ZN15Bytecode_invokeC2ERK12methodHandlei.exit:    ; preds = %_ZN12methodHandleC2
 
 _ZNK15Bytecode_invoke15is_invokestaticEv.exit.i:  ; preds = %_ZN15Bytecode_invokeC2ERK12methodHandlei.exit
   %64 = sext i32 %62 to i64
-  %65 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %64
+  %65 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %64
   %66 = load i32, ptr %65, align 4
   %67 = and i32 %66, -3
   %spec.select.i = icmp ne i32 %67, 184

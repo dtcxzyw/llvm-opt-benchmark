@@ -17215,7 +17215,7 @@ define linkonce_odr hidden noundef i32 @_ZN4llvm7RISCVZC11encodeRlistENS_10MCReg
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -44
   %2 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [27 x i32], ptr @switch.table._ZN4llvm7RISCVZC11encodeRlistENS_10MCRegisterEb, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds [27 x i32], ptr @switch.table._ZN4llvm7RISCVZC11encodeRlistENS_10MCRegisterEb, i64 0, i64 %2
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }

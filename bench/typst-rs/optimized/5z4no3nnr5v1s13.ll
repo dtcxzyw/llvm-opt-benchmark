@@ -84688,7 +84688,7 @@ define hidden noundef align 8 ptr @"_ZN91_$LT$$RF$mut$u20$serde_yaml..ser..Seria
   %15 = zext nneg i16 %14 to i64
   %16 = add i64 %.02636.i, -4
   %17 = getelementptr inbounds nuw i8, ptr @anon.53fe85e3a453dfbf0ab1e8743506e67c.286, i64 %12
-  %18 = getelementptr inbounds nuw i8, ptr %3, i64 %16
+  %18 = getelementptr inbounds i8, ptr %3, i64 %16
   %19 = load i16, ptr %17, align 1, !noalias !17188
   store i16 %19, ptr %18, align 1, !alias.scope !17188
   %20 = getelementptr inbounds nuw i8, ptr @anon.53fe85e3a453dfbf0ab1e8743506e67c.286, i64 %15
@@ -84707,7 +84707,7 @@ define hidden noundef align 8 ptr @"_ZN91_$LT$$RF$mut$u20$serde_yaml..ser..Seria
   %.zext35.i = zext nneg i16 %27 to i64
   %28 = add i64 %.026.lcssa.i, -2
   %29 = getelementptr inbounds nuw i8, ptr @anon.53fe85e3a453dfbf0ab1e8743506e67c.286, i64 %26
-  %30 = getelementptr inbounds nuw i8, ptr %3, i64 %28
+  %30 = getelementptr inbounds i8, ptr %3, i64 %28
   %31 = load i16, ptr %29, align 1, !noalias !17188
   store i16 %31, ptr %30, align 1, !alias.scope !17188
   br label %32
@@ -84722,7 +84722,7 @@ define hidden noundef align 8 ptr @"_ZN91_$LT$$RF$mut$u20$serde_yaml..ser..Seria
   %35 = shl nuw nsw i64 %.025.i, 1
   %36 = add i64 %.127.i, -2
   %37 = getelementptr inbounds nuw i8, ptr @anon.53fe85e3a453dfbf0ab1e8743506e67c.286, i64 %35
-  %38 = getelementptr inbounds nuw i8, ptr %3, i64 %36
+  %38 = getelementptr inbounds i8, ptr %3, i64 %36
   %39 = load i16, ptr %37, align 1, !noalias !17188
   store i16 %39, ptr %38, align 1, !alias.scope !17188
   br label %45
@@ -84730,7 +84730,7 @@ define hidden noundef align 8 ptr @"_ZN91_$LT$$RF$mut$u20$serde_yaml..ser..Seria
 40:                                               ; preds = %32
   %41 = add i64 %.127.i, -1
   %42 = trunc nuw nsw i64 %.025.i to i8
-  %43 = getelementptr inbounds nuw i8, ptr %3, i64 %41
+  %43 = getelementptr inbounds i8, ptr %3, i64 %41
   %44 = or disjoint i8 %42, 48
   store i8 %44, ptr %43, align 1, !alias.scope !17188
   br label %45
@@ -84741,14 +84741,14 @@ define hidden noundef align 8 ptr @"_ZN91_$LT$$RF$mut$u20$serde_yaml..ser..Seria
 
 46:                                               ; preds = %45
   %47 = add i64 %.2.i, -1
-  %48 = getelementptr inbounds nuw i8, ptr %3, i64 %47
+  %48 = getelementptr inbounds i8, ptr %3, i64 %47
   store i8 45, ptr %48, align 1, !alias.scope !17188
   br label %49
 
 49:                                               ; preds = %46, %45
   %.3.i = phi i64 [ %.2.i, %45 ], [ %47, %46 ]
   %50 = sub i64 20, %.3.i
-  %51 = getelementptr inbounds nuw i8, ptr %3, i64 %.3.i
+  %51 = getelementptr inbounds i8, ptr %3, i64 %.3.i
   store i64 -9223372036854775808, ptr %4, align 8
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %51, ptr %52, align 8
@@ -88325,7 +88325,7 @@ select.unfold.us:                                 ; preds = %.split.split.split.
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h205f938a744d1e18E.exit": ; preds = %40
-  %44 = getelementptr inbounds nuw i8, ptr %7, i64 %41
+  %44 = getelementptr inbounds i8, ptr %7, i64 %41
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %44, ptr noundef nonnull align 1 dereferenceable(3) @anon.53fe85e3a453dfbf0ab1e8743506e67c.587, i64 3, i1 false), !alias.scope !17987, !noalias !17991
   br label %45
 
@@ -115205,10 +115205,10 @@ define internal noundef zeroext i1 @"_ZN76_$LT$typst..math..underover..Overbrack
 define { ptr, i64 } @_ZN5typst5model4list1_6Fields6to_str17h7460e10d0796ced8E(i8 noundef %0) unnamed_addr #7 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @"switch.table._ZN68_$LT$typst..model..list.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h09ed61ddebc441e3E", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [7 x ptr], ptr @"switch.table._ZN68_$LT$typst..model..list.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h09ed61ddebc441e3E", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw [7 x i64], ptr @"switch.table._ZN68_$LT$typst..model..list.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h09ed61ddebc441e3E.980", i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds [7 x i64], ptr @"switch.table._ZN68_$LT$typst..model..list.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h09ed61ddebc441e3E.980", i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -120524,10 +120524,10 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.12850028421071809815.
 define { ptr, i64 } @_ZN5typst5model3par1_6Fields6to_str17ha2fb804fa0d3c5adE(i8 noundef %0) unnamed_addr #7 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @"switch.table._ZN67_$LT$typst..model..par.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h26d0872967295ae9E", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [6 x ptr], ptr @"switch.table._ZN67_$LT$typst..model..par.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h26d0872967295ae9E", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw [6 x i64], ptr @"switch.table._ZN67_$LT$typst..model..par.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h26d0872967295ae9E.982", i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds [6 x i64], ptr @"switch.table._ZN67_$LT$typst..model..par.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h26d0872967295ae9E.982", i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1

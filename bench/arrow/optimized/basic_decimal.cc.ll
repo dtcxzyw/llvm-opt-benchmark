@@ -443,7 +443,7 @@ _ZN5arrow15BasicDecimal1283AbsERKS0_.exit:        ; preds = %entry, %cond.true.i
   %result.sroa.4.0.i = phi i64 [ %ref.tmp.sroa.3.0.i.i.i, %cond.true.i.i ], [ %result.sroa.4.0.copyload.i, %entry ]
   %result.sroa.0.0.i = phi i64 [ %add.i.i.i, %cond.true.i.i ], [ %result.sroa.0.0.copyload.i, %entry ]
   %idxprom = sext i32 %precision to i64
-  %arrayidx = getelementptr inbounds nuw [39 x %"class.arrow::BasicDecimal128"], ptr @_ZN5arrowL22kDecimal128PowersOfTenE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [39 x %"class.arrow::BasicDecimal128"], ptr @_ZN5arrowL22kDecimal128PowersOfTenE, i64 0, i64 %idxprom
   %arrayidx.i.i.i5.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %0 = load i64, ptr %arrayidx.i.i.i5.i, align 8
   %cmp.i = icmp slt i64 %result.sroa.4.0.i, %0
@@ -1782,7 +1782,7 @@ return:                                           ; preds = %6, %_ZN5arrowL25Res
 define void @_ZNK5arrow15BasicDecimal12819GetWholeAndFractionEiPS0_S1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %scale, ptr nocapture noundef %whole, ptr nocapture noundef %fraction) local_unnamed_addr #6 align 2 {
 entry:
   %idxprom = sext i32 %scale to i64
-  %arrayidx = getelementptr inbounds nuw [39 x %"class.arrow::BasicDecimal128"], ptr @_ZN5arrowL22kDecimal128PowersOfTenE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [39 x %"class.arrow::BasicDecimal128"], ptr @_ZN5arrowL22kDecimal128PowersOfTenE, i64 0, i64 %idxprom
   %call = tail call noundef i32 @_ZNK5arrow15BasicDecimal1286DivideERKS0_PS0_S3_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx, ptr noundef %whole, ptr noundef %fraction)
   ret void
 }
@@ -1791,7 +1791,7 @@ entry:
 define noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal12818GetScaleMultiplierEi(i32 noundef %scale) local_unnamed_addr #7 align 2 {
 entry:
   %idxprom = sext i32 %scale to i64
-  %arrayidx = getelementptr inbounds nuw [39 x %"class.arrow::BasicDecimal128"], ptr @_ZN5arrowL22kDecimal128PowersOfTenE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [39 x %"class.arrow::BasicDecimal128"], ptr @_ZN5arrowL22kDecimal128PowersOfTenE, i64 0, i64 %idxprom
   ret ptr %arrayidx
 }
 
@@ -1799,7 +1799,7 @@ entry:
 define noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal12822GetHalfScaleMultiplierEi(i32 noundef %scale) local_unnamed_addr #7 align 2 {
 entry:
   %idxprom = sext i32 %scale to i64
-  %arrayidx = getelementptr inbounds nuw [39 x %"class.arrow::BasicDecimal128"], ptr @_ZN5arrowL26kDecimal128HalfPowersOfTenE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [39 x %"class.arrow::BasicDecimal128"], ptr @_ZN5arrowL26kDecimal128HalfPowersOfTenE, i64 0, i64 %idxprom
   ret ptr %arrayidx
 }
 
@@ -1813,7 +1813,7 @@ entry:
 define { i64, i64 } @_ZN5arrow15BasicDecimal12811GetMaxValueEi(i32 noundef %precision) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %idxprom = sext i32 %precision to i64
-  %arrayidx = getelementptr inbounds nuw [39 x %"class.arrow::BasicDecimal128"], ptr @_ZN5arrowL22kDecimal128PowersOfTenE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [39 x %"class.arrow::BasicDecimal128"], ptr @_ZN5arrowL22kDecimal128PowersOfTenE, i64 0, i64 %idxprom
   %arrayidx.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %0 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %1 = load i64, ptr %arrayidx, align 16
@@ -1830,7 +1830,7 @@ entry:
 define { i64, i64 } @_ZNK5arrow15BasicDecimal12815IncreaseScaleByEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %increase_by) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %idxprom = sext i32 %increase_by to i64
-  %arrayidx = getelementptr inbounds nuw [39 x %"class.arrow::BasicDecimal128"], ptr @_ZN5arrowL22kDecimal128PowersOfTenE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [39 x %"class.arrow::BasicDecimal128"], ptr @_ZN5arrowL22kDecimal128PowersOfTenE, i64 0, i64 %idxprom
   %arrayidx.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %1 = load i64, ptr %this, align 8
@@ -1911,14 +1911,14 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %idxprom = sext i32 %reduce_by to i64
-  %arrayidx = getelementptr inbounds nuw [39 x %"class.arrow::BasicDecimal128"], ptr @_ZN5arrowL22kDecimal128PowersOfTenE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [39 x %"class.arrow::BasicDecimal128"], ptr @_ZN5arrowL22kDecimal128PowersOfTenE, i64 0, i64 %idxprom
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %remainder, i8 0, i64 16, i1 false)
   %call = call noundef i32 @_ZNK5arrow15BasicDecimal1286DivideERKS0_PS0_S3_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx, ptr noundef nonnull %retval, ptr noundef nonnull %remainder)
   br i1 %round, label %if.then28, label %return
 
 if.then28:                                        ; preds = %if.end
-  %arrayidx30 = getelementptr inbounds nuw [39 x %"class.arrow::BasicDecimal128"], ptr @_ZN5arrowL26kDecimal128HalfPowersOfTenE, i64 0, i64 %idxprom
+  %arrayidx30 = getelementptr inbounds [39 x %"class.arrow::BasicDecimal128"], ptr @_ZN5arrowL26kDecimal128HalfPowersOfTenE, i64 0, i64 %idxprom
   %divisor_half.sroa.0.0.copyload = load i64, ptr %arrayidx30, align 16
   %divisor_half.sroa.2.0.arrayidx30.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx30, i64 8
   %divisor_half.sroa.2.0.copyload = load i64, ptr %divisor_half.sroa.2.0.arrayidx30.sroa_idx, align 8
@@ -2393,7 +2393,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %10 = load i64, ptr %arrayidx.i.i21, align 8
   %shr8 = lshr i64 %10, %sh_prom
   %11 = sub nuw nsw i64 %indvars.iv, %3
-  %arrayidx.i.i22 = getelementptr inbounds nuw [4 x i64], ptr %shifted_le, i64 0, i64 %11
+  %arrayidx.i.i22 = getelementptr inbounds [4 x i64], ptr %shifted_le, i64 0, i64 %11
   %cmp13.not = icmp eq i64 %indvars.iv, 3
   br i1 %cmp13.not, label %cond.end, label %cond.true
 
@@ -3409,7 +3409,7 @@ return:                                           ; preds = %_ZN5arrowL25Rescale
 define void @_ZNK5arrow15BasicDecimal25615IncreaseScaleByEi(ptr noalias nonnull sret(%"class.arrow::BasicDecimal256") align 8 initializes((0, 32)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %increase_by) local_unnamed_addr #6 align 2 {
 entry:
   %idxprom = sext i32 %increase_by to i64
-  %arrayidx = getelementptr inbounds nuw [77 x %"class.arrow::BasicDecimal256"], ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [77 x %"class.arrow::BasicDecimal256"], ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 0, i64 %idxprom
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(32) %this, i64 32, i1 false)
   %call.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256mLERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(32) %arrayidx)
   ret void
@@ -3437,14 +3437,14 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %idxprom = sext i32 %reduce_by to i64
-  %arrayidx = getelementptr inbounds nuw [77 x %"class.arrow::BasicDecimal256"], ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [77 x %"class.arrow::BasicDecimal256"], ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 0, i64 %idxprom
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %remainder, i8 0, i64 32, i1 false)
   %call = call noundef i32 @_ZNK5arrow15BasicDecimal2566DivideERKS0_PS0_S3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx, ptr noundef nonnull %agg.result, ptr noundef nonnull %remainder)
   br i1 %round, label %if.then28, label %return
 
 if.then28:                                        ; preds = %if.end
-  %arrayidx30 = getelementptr inbounds nuw [77 x %"class.arrow::BasicDecimal256"], ptr @_ZN5arrowL26kDecimal256HalfPowersOfTenE, i64 0, i64 %idxprom
+  %arrayidx30 = getelementptr inbounds [77 x %"class.arrow::BasicDecimal256"], ptr @_ZN5arrowL26kDecimal256HalfPowersOfTenE, i64 0, i64 %idxprom
   %divisor_half.sroa.0.0.copyload = load i64, ptr %arrayidx30, align 16
   %divisor_half.sroa.2.0.arrayidx30.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx30, i64 8
   %divisor_half.sroa.2.0.copyload = load i64, ptr %divisor_half.sroa.2.0.arrayidx30.sroa_idx, align 8
@@ -3590,7 +3590,7 @@ _ZN5arrow15BasicDecimal2563AbsERKS0_.exit:        ; preds = %_ZN5arrow15BasicDec
   %ref.tmp.sroa.3.0.copyload = load i64, ptr %ref.tmp.sroa.3.0.result.i.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %result.i)
   %idxprom = sext i32 %precision to i64
-  %arrayidx = getelementptr inbounds nuw [77 x %"class.arrow::BasicDecimal256"], ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [77 x %"class.arrow::BasicDecimal256"], ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 0, i64 %idxprom
   %arrayidx.i.i.i1.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   %3 = load i64, ptr %arrayidx.i.i.i1.i, align 8
   %cmp.not.i = icmp eq i64 %ref.tmp.sroa.4.0.copyload, %3
@@ -3634,7 +3634,7 @@ _ZN5arrowltERKNS_15BasicDecimal256ES2_.exit:      ; preds = %cond.true.i, %cond.
 define void @_ZNK5arrow15BasicDecimal25619GetWholeAndFractionEiPS0_S1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %scale, ptr nocapture noundef %whole, ptr nocapture noundef %fraction) local_unnamed_addr #6 align 2 {
 entry:
   %idxprom = sext i32 %scale to i64
-  %arrayidx = getelementptr inbounds nuw [77 x %"class.arrow::BasicDecimal256"], ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [77 x %"class.arrow::BasicDecimal256"], ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 0, i64 %idxprom
   %call = tail call noundef i32 @_ZNK5arrow15BasicDecimal2566DivideERKS0_PS0_S3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx, ptr noundef %whole, ptr noundef %fraction)
   ret void
 }
@@ -3643,7 +3643,7 @@ entry:
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal25618GetScaleMultiplierEi(i32 noundef %scale) local_unnamed_addr #7 align 2 {
 entry:
   %idxprom = sext i32 %scale to i64
-  %arrayidx = getelementptr inbounds nuw [77 x %"class.arrow::BasicDecimal256"], ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [77 x %"class.arrow::BasicDecimal256"], ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 0, i64 %idxprom
   ret ptr %arrayidx
 }
 
@@ -3651,7 +3651,7 @@ entry:
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal25622GetHalfScaleMultiplierEi(i32 noundef %scale) local_unnamed_addr #7 align 2 {
 entry:
   %idxprom = sext i32 %scale to i64
-  %arrayidx = getelementptr inbounds nuw [77 x %"class.arrow::BasicDecimal256"], ptr @_ZN5arrowL26kDecimal256HalfPowersOfTenE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [77 x %"class.arrow::BasicDecimal256"], ptr @_ZN5arrowL26kDecimal256HalfPowersOfTenE, i64 0, i64 %idxprom
   ret ptr %arrayidx
 }
 
@@ -3660,7 +3660,7 @@ define void @_ZN5arrow15BasicDecimal25611GetMaxValueEi(ptr noalias nocapture sre
 entry:
   %ref.tmp = alloca %"class.arrow::BasicDecimal256", align 8
   %idxprom = sext i32 %precision to i64
-  %arrayidx = getelementptr inbounds nuw [77 x %"class.arrow::BasicDecimal256"], ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [77 x %"class.arrow::BasicDecimal256"], ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 0, i64 %idxprom
   tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 -1, i64 32, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull readonly align 16 dereferenceable(32) %arrayidx, i64 32, i1 false)

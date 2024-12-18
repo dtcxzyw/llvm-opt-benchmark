@@ -1204,11 +1204,11 @@ define void @Rwr_ScoresClean(ptr nocapture noundef readonly %0) local_unnamed_ad
 define range(i32 -1, 2) i32 @Rwr_ScoresCompare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
   %3 = load i32, ptr %0, align 4
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds nuw [222 x i32], ptr @Gains, i64 0, i64 %4
+  %5 = getelementptr inbounds [222 x i32], ptr @Gains, i64 0, i64 %4
   %6 = load i32, ptr %5, align 4
   %7 = load i32, ptr %1, align 4
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds nuw [222 x i32], ptr @Gains, i64 0, i64 %8
+  %9 = getelementptr inbounds [222 x i32], ptr @Gains, i64 0, i64 %8
   %10 = load i32, ptr %9, align 4
   %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %10, i32 %6)
   ret i32 %.0
@@ -1288,7 +1288,7 @@ define void @Rwr_ScoresReport(ptr nocapture noundef readonly %0) local_unnamed_a
   %36 = getelementptr inbounds nuw [222 x i32], ptr %2, i64 0, i64 %indvars.iv71
   %37 = load i32, ptr %36, align 4
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds nuw [222 x i32], ptr @Gains, i64 0, i64 %38
+  %39 = getelementptr inbounds [222 x i32], ptr @Gains, i64 0, i64 %38
   %40 = load i32, ptr %39, align 4
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %._crit_edge62, label %42

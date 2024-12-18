@@ -48,14 +48,14 @@ if.end:                                           ; preds = %if.then, %while.bod
   %1 = load ptr, ptr %func, align 8
   %sext = shl i64 %call7, 32
   %idx.ext = ashr exact i64 %sext, 32
-  %add.ptr = getelementptr inbounds nuw i8, ptr %buf, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %idx.ext
   %sub = sub nsw i64 4096, %idx.ext
   call void @ossl_err_string_int(i64 noundef %call1, ptr noundef %1, ptr noundef nonnull %add.ptr, i64 noundef %sub) #4
   %call13 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %add.ptr) #5
   %add = add i64 %call13, %call7
   %sext8 = shl i64 %add, 32
   %idx.ext17 = ashr exact i64 %sext8, 32
-  %add.ptr18 = getelementptr inbounds nuw i8, ptr %buf, i64 %idx.ext17
+  %add.ptr18 = getelementptr inbounds i8, ptr %buf, i64 %idx.ext17
   %sub20 = sub nsw i64 4096, %idx.ext17
   %2 = load ptr, ptr %file, align 8
   %3 = load i32, ptr %line, align 4

@@ -2541,7 +2541,7 @@ buffer_append.exit403:                            ; preds = %dump_flush.exit.i.i
   %912 = load i64, ptr %228, align 8
   %913 = add i64 %912, 1
   store i64 %913, ptr %228, align 8
-  %914 = getelementptr inbounds nuw [6 x i64], ptr %3, i64 0, i64 %.0554
+  %914 = getelementptr inbounds [6 x i64], ptr %3, i64 0, i64 %.0554
   %915 = load i64, ptr %914, align 8
   %916 = call ptr @rb_id2name(i64 noundef %915) #10
   %917 = load i64, ptr %914, align 8
@@ -2938,20 +2938,20 @@ define internal fastcc void @dump_append_ref(ptr noundef %0, i64 noundef %1) unn
   %7 = getelementptr inbounds nuw [0 x i8], ptr @ruby_hexdigits, i64 0, i64 %6
   %8 = load i8, ptr %7, align 1
   %.011.add12.i = add nsw i64 %.011.idx16.i, -1
-  %.ptr13.i = getelementptr inbounds nuw i8, ptr %3, i64 %.011.add12.i
+  %.ptr13.i = getelementptr inbounds i8, ptr %3, i64 %.011.add12.i
   store i8 %8, ptr %.ptr13.i, align 1
   %9 = lshr i64 %.017.i, 4
   %.not.i = icmp ult i64 %.017.i, 16
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %.ptr13.i.le = getelementptr inbounds nuw i8, ptr %3, i64 %.011.add12.i
+  %.ptr13.i.le = getelementptr inbounds i8, ptr %3, i64 %.011.add12.i
   %10 = getelementptr inbounds i8, ptr %.ptr13.i.le, i64 -1
   store i8 120, ptr %10, align 1
   %11 = getelementptr inbounds i8, ptr %.ptr13.i.le, i64 -2
   store i8 48, ptr %11, align 1
   %.011.add.i = add nsw i64 %.011.idx16.i, -4
-  %.ptr.i = getelementptr inbounds nuw i8, ptr %3, i64 %.011.add.i
+  %.ptr.i = getelementptr inbounds i8, ptr %3, i64 %.011.add.i
   store i8 34, ptr %.ptr.i, align 1
   %gepdiff.i = sub nsw i64 24, %.011.idx16.i
   %.not.i.i = icmp eq i64 %.011.add.i, 20

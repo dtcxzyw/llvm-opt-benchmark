@@ -3100,7 +3100,7 @@ _Z15GetOutputStreamv.exit:                        ; preds = %5, %7
   %15 = load ptr, ptr @_ZSt3cin, align 8
   %16 = getelementptr i8, ptr %15, i64 -24
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds nuw i8, ptr @_ZSt3cin, i64 %17
+  %18 = getelementptr inbounds i8, ptr @_ZSt3cin, i64 %17
   %19 = tail call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv(ptr noundef nonnull align 8 dereferenceable(264) %18)
   br i1 %19, label %._crit_edge, label %.lr.ph
 
@@ -3141,7 +3141,7 @@ _Z15GetOutputStreamv.exit:                        ; preds = %5, %7
   %33 = load ptr, ptr @_ZSt3cin, align 8
   %34 = getelementptr i8, ptr %33, i64 -24
   %35 = load i64, ptr %34, align 8
-  %36 = getelementptr inbounds nuw i8, ptr @_ZSt3cin, i64 %35
+  %36 = getelementptr inbounds i8, ptr @_ZSt3cin, i64 %35
   %37 = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv(ptr noundef nonnull align 8 dereferenceable(264) %36)
   br i1 %37, label %._crit_edge, label %.critedge, !llvm.loop !49
 
@@ -10781,7 +10781,7 @@ define linkonce_odr dso_local void @_ZN5TCLAP12ExtractValueIbEEvRT_RKNSt7__cxx11
   %19 = load ptr, ptr %4, align 8
   %20 = getelementptr i8, ptr %19, i64 -24
   %21 = load i64, ptr %20, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %4, i64 %21
+  %22 = getelementptr inbounds i8, ptr %4, i64 %21
   %23 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %22)
           to label %24 unwind label %.loopexit
 
@@ -10834,7 +10834,7 @@ define linkonce_odr dso_local void @_ZN5TCLAP12ExtractValueIbEEvRT_RKNSt7__cxx11
   %38 = load ptr, ptr %4, align 8
   %39 = getelementptr i8, ptr %38, i64 -24
   %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %4, i64 %40
+  %41 = getelementptr inbounds i8, ptr %4, i64 %40
   %42 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %41)
           to label %43 unwind label %.loopexit.split-lp
 

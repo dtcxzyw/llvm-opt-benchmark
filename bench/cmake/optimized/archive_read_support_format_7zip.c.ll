@@ -2115,11 +2115,11 @@ read_consume.exit:                                ; preds = %230, %225, %219
   %238 = getelementptr inbounds nuw [3 x i32], ptr %9, i64 0, i64 %indvars.iv207
   %239 = load i32, ptr %238, align 4
   %240 = sext i32 %239 to i64
-  %241 = getelementptr inbounds nuw [3 x ptr], ptr %6, i64 0, i64 %240
+  %241 = getelementptr inbounds [3 x ptr], ptr %6, i64 0, i64 %240
   %242 = load ptr, ptr %241, align 8
   %243 = getelementptr inbounds nuw [3 x ptr], ptr %13, i64 0, i64 %indvars.iv207
   store ptr %242, ptr %243, align 8
-  %244 = getelementptr inbounds nuw [3 x i64], ptr %8, i64 0, i64 %240
+  %244 = getelementptr inbounds [3 x i64], ptr %8, i64 0, i64 %240
   %245 = load i64, ptr %244, align 8
   %246 = getelementptr inbounds nuw [3 x i64], ptr %158, i64 0, i64 %indvars.iv207
   store i64 %245, ptr %246, align 8

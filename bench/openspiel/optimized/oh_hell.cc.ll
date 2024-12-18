@@ -5024,7 +5024,7 @@ _ZNK10open_spiel7oh_hell14DeckProperties8CardSuitEi.exit.thread.i: ; preds = %_Z
 12:                                               ; preds = %_ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE4EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_4EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit
   %13 = srem i32 %8, %9
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds nuw [5 x i8], ptr @_ZN10open_spiel7oh_hellL9kSuitCharE, i64 0, i64 %14
+  %15 = getelementptr inbounds [5 x i8], ptr @_ZN10open_spiel7oh_hellL9kSuitCharE, i64 0, i64 %14
   %16 = load i8, ptr %15, align 1, !noalias !47
   store i8 %16, ptr %3, align 1, !noalias !47
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 1
@@ -5035,7 +5035,7 @@ _ZNK10open_spiel7oh_hell14DeckProperties8CardSuitEi.exit.thread.i: ; preds = %_Z
 _ZNK10open_spiel7oh_hell14DeckProperties8CardRankEi.exit.i: ; preds = %12, %_ZNK10open_spiel7oh_hell14DeckProperties8CardSuitEi.exit.thread.i
   %20 = phi ptr [ %17, %12 ], [ %11, %_ZNK10open_spiel7oh_hell14DeckProperties8CardSuitEi.exit.thread.i ]
   %.0.i4.i = phi i64 [ %19, %12 ], [ -1, %_ZNK10open_spiel7oh_hell14DeckProperties8CardSuitEi.exit.thread.i ]
-  %21 = getelementptr inbounds nuw [14 x i8], ptr @_ZN10open_spiel7oh_hellL9kRankCharE, i64 0, i64 %.0.i4.i
+  %21 = getelementptr inbounds [14 x i8], ptr @_ZN10open_spiel7oh_hellL9kRankCharE, i64 0, i64 %.0.i4.i
   %22 = load i8, ptr %21, align 1, !noalias !47
   store i8 %22, ptr %20, align 1, !noalias !47
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #25, !noalias !47
@@ -5332,7 +5332,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge68, %81
 90:                                               ; preds = %.lr.ph
   %91 = srem i32 %87, %88
   %92 = sext i32 %91 to i64
-  %93 = getelementptr inbounds nuw [5 x i8], ptr @_ZN10open_spiel7oh_hellL9kSuitCharE, i64 0, i64 %92
+  %93 = getelementptr inbounds [5 x i8], ptr @_ZN10open_spiel7oh_hellL9kSuitCharE, i64 0, i64 %92
   %94 = load i8, ptr %93, align 1, !noalias !57
   store i8 %94, ptr %3, align 1, !noalias !57
   %95 = sdiv i32 %87, %88
@@ -5341,7 +5341,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge68, %81
 
 _ZNK10open_spiel7oh_hell14DeckProperties8CardRankEi.exit.i: ; preds = %.lr.ph, %90
   %.0.i4.i = phi i64 [ %96, %90 ], [ -1, %.lr.ph ]
-  %97 = getelementptr inbounds nuw [14 x i8], ptr @_ZN10open_spiel7oh_hellL9kRankCharE, i64 0, i64 %.0.i4.i
+  %97 = getelementptr inbounds [14 x i8], ptr @_ZN10open_spiel7oh_hellL9kRankCharE, i64 0, i64 %.0.i4.i
   %98 = load i8, ptr %97, align 1, !noalias !57
   store i8 %98, ptr %52, align 1, !noalias !57
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #25, !noalias !57
@@ -5711,7 +5711,7 @@ _ZNK10open_spiel7oh_hell14DeckProperties8CardSuitEi.exit.thread.i: ; preds = %14
   %20 = trunc i64 %3 to i32
   %21 = srem i32 %20, %16
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds nuw [5 x i8], ptr @_ZN10open_spiel7oh_hellL9kSuitCharE, i64 0, i64 %22
+  %23 = getelementptr inbounds [5 x i8], ptr @_ZN10open_spiel7oh_hellL9kSuitCharE, i64 0, i64 %22
   %24 = load i8, ptr %23, align 1, !noalias !66
   store i8 %24, ptr %6, align 1, !noalias !66
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 1
@@ -5722,7 +5722,7 @@ _ZNK10open_spiel7oh_hell14DeckProperties8CardSuitEi.exit.thread.i: ; preds = %14
 _ZNK10open_spiel7oh_hell14DeckProperties8CardRankEi.exit.i: ; preds = %19, %_ZNK10open_spiel7oh_hell14DeckProperties8CardSuitEi.exit.thread.i
   %28 = phi ptr [ %25, %19 ], [ %18, %_ZNK10open_spiel7oh_hell14DeckProperties8CardSuitEi.exit.thread.i ]
   %.0.i4.i = phi i64 [ %27, %19 ], [ -1, %_ZNK10open_spiel7oh_hell14DeckProperties8CardSuitEi.exit.thread.i ]
-  %29 = getelementptr inbounds nuw [14 x i8], ptr @_ZN10open_spiel7oh_hellL9kRankCharE, i64 0, i64 %.0.i4.i
+  %29 = getelementptr inbounds [14 x i8], ptr @_ZN10open_spiel7oh_hellL9kRankCharE, i64 0, i64 %.0.i4.i
   %30 = load i8, ptr %29, align 1, !noalias !66
   store i8 %30, ptr %28, align 1, !noalias !66
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #25, !noalias !66

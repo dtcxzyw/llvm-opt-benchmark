@@ -11057,7 +11057,7 @@ define hidden void @_ZN10HeapDumper9dump_heapEb(i1 noundef zeroext %0) local_unn
 
 37:                                               ; preds = %32
   %38 = sub nuw i64 %36, %35
-  %39 = getelementptr inbounds nuw i8, ptr @_ZZN10HeapDumper9dump_heapEbE9base_path, i64 %38
+  %39 = getelementptr inbounds i8, ptr @_ZZN10HeapDumper9dump_heapEbE9base_path, i64 %38
   %40 = tail call noundef ptr @_ZN2os14file_separatorEv() #19
   %41 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull dereferenceable(1) %40) #21
   %.not32 = icmp eq i32 %41, 0
@@ -11070,7 +11070,7 @@ define hidden void @_ZN10HeapDumper9dump_heapEb(i1 noundef zeroext %0) local_unn
 
 .critedge:                                        ; preds = %32, %37, %42, %25, %22
   %45 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @_ZZN10HeapDumper9dump_heapEbE9base_path) #21
-  %46 = getelementptr inbounds nuw [4097 x i8], ptr @_ZZN10HeapDumper9dump_heapEbE9base_path, i64 0, i64 %45
+  %46 = getelementptr inbounds [4097 x i8], ptr @_ZZN10HeapDumper9dump_heapEbE9base_path, i64 0, i64 %45
   %47 = sub i64 4097, %45
   %48 = tail call noundef i32 @_ZN2os18current_process_idEv() #19
   %49 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %46, i64 noundef %47, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.29, i32 noundef %48, ptr noundef nonnull %5) #19

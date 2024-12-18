@@ -1105,7 +1105,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L8_PiShiftERKNS_7GfVec4dES2_d.exit117: ; pr
 
 116:                                              ; preds = %112
   %117 = sext i32 %.1 to i64
-  %118 = getelementptr inbounds nuw [4 x %"class.pxrInternal_v0_24__pxrReserved__::GfVec4d"], ptr %11, i64 0, i64 %117
+  %118 = getelementptr inbounds [4 x %"class.pxrInternal_v0_24__pxrReserved__::GfVec4d"], ptr %11, i64 0, i64 %117
   br i1 %14, label %.cont214, label %.else216
 
 .else216:                                         ; preds = %116

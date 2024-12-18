@@ -564,7 +564,7 @@ define internal noundef ptr @listen_thread(ptr nocapture readnone %0) #0 {
   %12 = shl nuw i64 1, %11
   %13 = sdiv i32 %9, 64
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds nuw [16 x i64], ptr %4, i64 0, i64 %14
+  %15 = getelementptr inbounds [16 x i64], ptr %4, i64 0, i64 %14
   %16 = load i64, ptr %15, align 8
   %17 = or i64 %12, %16
   store i64 %17, ptr %15, align 8
@@ -583,7 +583,7 @@ define internal noundef ptr @listen_thread(ptr nocapture readnone %0) #0 {
   %23 = shl nuw i64 1, %22
   %24 = sdiv i32 %20, 64
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds nuw [16 x i64], ptr %4, i64 0, i64 %25
+  %26 = getelementptr inbounds [16 x i64], ptr %4, i64 0, i64 %25
   %27 = load i64, ptr %26, align 8
   %28 = or i64 %23, %27
   store i64 %28, ptr %26, align 8
@@ -631,7 +631,7 @@ define internal noundef ptr @listen_thread(ptr nocapture readnone %0) #0 {
   %47 = load i32, ptr %46, align 4
   %48 = sdiv i32 %47, 64
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds nuw [16 x i64], ptr %4, i64 0, i64 %49
+  %50 = getelementptr inbounds [16 x i64], ptr %4, i64 0, i64 %49
   %51 = load i64, ptr %50, align 8
   %52 = srem i32 %47, 64
   %53 = zext nneg i32 %52 to i64

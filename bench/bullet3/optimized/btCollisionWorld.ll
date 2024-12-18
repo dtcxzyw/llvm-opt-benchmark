@@ -5083,7 +5083,7 @@ sw.bb80:                                          ; preds = %if.end
   %115 = getelementptr inbounds nuw i8, ptr %ref.tmp88, i64 8
   store <2 x float> %retval.sroa.6.8.vec.insert.i189, ptr %115, align 8
   %idxprom = sext i32 %110 to i64
-  %arrayidx = getelementptr inbounds nuw float, ptr %ref.tmp88, i64 %idxprom
+  %arrayidx = getelementptr inbounds float, ptr %ref.tmp88, i64 %idxprom
   %116 = load float, ptr %arrayidx, align 4
   %vtable92 = load ptr, ptr %this, align 8
   %vfn93 = getelementptr inbounds nuw i8, ptr %vtable92, i64 40

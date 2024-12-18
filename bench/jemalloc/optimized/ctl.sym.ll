@@ -8561,7 +8561,7 @@ entry:
 do.end:                                           ; preds = %entry
   %arrayidx = getelementptr inbounds nuw i8, ptr %mib, i64 16
   %0 = load i64, ptr %arrayidx, align 8
-  %arrayidx2 = getelementptr inbounds nuw [36 x %struct.bin_info_s], ptr @bin_infos, i64 0, i64 %0
+  %arrayidx2 = getelementptr inbounds [36 x %struct.bin_info_s], ptr @bin_infos, i64 0, i64 %0
   %1 = load i64, ptr %arrayidx2, align 8
   store i64 %1, ptr %oldval, align 8
   %cmp4 = icmp ne ptr %oldp, null
@@ -8601,7 +8601,7 @@ entry:
 do.end:                                           ; preds = %entry
   %arrayidx = getelementptr inbounds nuw i8, ptr %mib, i64 16
   %0 = load i64, ptr %arrayidx, align 8
-  %nregs = getelementptr inbounds nuw [36 x %struct.bin_info_s], ptr @bin_infos, i64 0, i64 %0, i32 2
+  %nregs = getelementptr inbounds [36 x %struct.bin_info_s], ptr @bin_infos, i64 0, i64 %0, i32 2
   %1 = load i32, ptr %nregs, align 8
   store i32 %1, ptr %oldval, align 4
   %cmp4 = icmp ne ptr %oldp, null
@@ -8641,7 +8641,7 @@ entry:
 do.end:                                           ; preds = %entry
   %arrayidx = getelementptr inbounds nuw i8, ptr %mib, i64 16
   %0 = load i64, ptr %arrayidx, align 8
-  %slab_size = getelementptr inbounds nuw [36 x %struct.bin_info_s], ptr @bin_infos, i64 0, i64 %0, i32 1
+  %slab_size = getelementptr inbounds [36 x %struct.bin_info_s], ptr @bin_infos, i64 0, i64 %0, i32 1
   %1 = load i64, ptr %slab_size, align 8
   store i64 %1, ptr %oldval, align 8
   %cmp4 = icmp ne ptr %oldp, null
@@ -8681,7 +8681,7 @@ entry:
 do.end:                                           ; preds = %entry
   %arrayidx = getelementptr inbounds nuw i8, ptr %mib, i64 16
   %0 = load i64, ptr %arrayidx, align 8
-  %n_shards = getelementptr inbounds nuw [36 x %struct.bin_info_s], ptr @bin_infos, i64 0, i64 %0, i32 3
+  %n_shards = getelementptr inbounds [36 x %struct.bin_info_s], ptr @bin_infos, i64 0, i64 %0, i32 3
   %1 = load i32, ptr %n_shards, align 4
   store i32 %1, ptr %oldval, align 4
   %cmp4 = icmp ne ptr %oldp, null

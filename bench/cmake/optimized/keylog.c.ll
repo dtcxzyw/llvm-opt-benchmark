@@ -162,13 +162,13 @@ define dso_local noundef zeroext i1 @Curl_tls_keylog_write(ptr nocapture noundef
   %19 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = add i64 %.034.in42, 2
-  %22 = getelementptr inbounds nuw [195 x i8], ptr %5, i64 0, i64 %.03444
+  %22 = getelementptr inbounds [195 x i8], ptr %5, i64 0, i64 %.03444
   store i8 %20, ptr %22, align 1
   %23 = and i8 %16, 15
   %24 = zext nneg i8 %23 to i64
   %25 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %24
   %26 = load i8, ptr %25, align 1
-  %27 = getelementptr inbounds nuw [195 x i8], ptr %5, i64 0, i64 %21
+  %27 = getelementptr inbounds [195 x i8], ptr %5, i64 0, i64 %21
   store i8 %26, ptr %27, align 1
   %28 = add nuw nsw i64 %.043, 1
   %.034 = add i64 %.034.in42, 3
@@ -176,7 +176,7 @@ define dso_local noundef zeroext i1 @Curl_tls_keylog_write(ptr nocapture noundef
   br i1 %exitcond.not, label %29, label %14, !llvm.loop !5
 
 29:                                               ; preds = %14
-  %30 = getelementptr inbounds nuw [195 x i8], ptr %5, i64 0, i64 %.034
+  %30 = getelementptr inbounds [195 x i8], ptr %5, i64 0, i64 %.034
   store i8 32, ptr %30, align 1
   %.13545 = add i64 %.034.in42, 4
   %.not50 = icmp eq i64 %3, 0
@@ -193,13 +193,13 @@ define dso_local noundef zeroext i1 @Curl_tls_keylog_write(ptr nocapture noundef
   %35 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %34
   %36 = load i8, ptr %35, align 1
   %37 = add i64 %.135.in46, 3
-  %38 = getelementptr inbounds nuw [195 x i8], ptr %5, i64 0, i64 %.13548
+  %38 = getelementptr inbounds [195 x i8], ptr %5, i64 0, i64 %.13548
   store i8 %36, ptr %38, align 1
   %39 = and i8 %32, 15
   %40 = zext nneg i8 %39 to i64
   %41 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %40
   %42 = load i8, ptr %41, align 1
-  %43 = getelementptr inbounds nuw [195 x i8], ptr %5, i64 0, i64 %37
+  %43 = getelementptr inbounds [195 x i8], ptr %5, i64 0, i64 %37
   store i8 %42, ptr %43, align 1
   %44 = add nuw nsw i64 %.147, 1
   %.135 = add i64 %.13548, 2
@@ -210,9 +210,9 @@ define dso_local noundef zeroext i1 @Curl_tls_keylog_write(ptr nocapture noundef
   %.135.in.lcssa = phi i64 [ %21, %29 ], [ %.13548, %.lr.ph ]
   %.135.lcssa = phi i64 [ %.13545, %29 ], [ %.135, %.lr.ph ]
   %45 = add i64 %.135.in.lcssa, 3
-  %46 = getelementptr inbounds nuw [195 x i8], ptr %5, i64 0, i64 %.135.lcssa
+  %46 = getelementptr inbounds [195 x i8], ptr %5, i64 0, i64 %.135.lcssa
   store i8 10, ptr %46, align 1
-  %47 = getelementptr inbounds nuw [195 x i8], ptr %5, i64 0, i64 %45
+  %47 = getelementptr inbounds [195 x i8], ptr %5, i64 0, i64 %45
   store i8 0, ptr %47, align 1
   %48 = call i32 @fputs(ptr noundef nonnull %5, ptr noundef nonnull %6)
   br label %49

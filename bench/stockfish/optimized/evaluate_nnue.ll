@@ -191,7 +191,7 @@ define weak_odr dso_local noundef i32 @_ZN9Stockfish4Eval4NNUE8evaluateILNS1_7Ne
 
 15:                                               ; preds = %4
   %16 = sext i32 %12 to i64
-  %17 = getelementptr inbounds nuw [8 x %"class.std::unique_ptr.4"], ptr @_ZN9Stockfish4Eval4NNUE10networkBigE, i64 0, i64 %16
+  %17 = getelementptr inbounds [8 x %"class.std::unique_ptr.4"], ptr @_ZN9Stockfish4Eval4NNUE10networkBigE, i64 0, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = load i8, ptr @_ZGVZN9Stockfish4Eval4NNUE7NetworkILj2560ELi15ELi32EE9propagateEPKhE6buffer, align 8
   %20 = icmp eq i8 %19, 0
@@ -512,7 +512,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK9Stockfish4Eval4NNUE18FeatureTran
 
 .preheader.i.i:                                   ; preds = %31
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 5120
-  %40 = getelementptr inbounds nuw i32, ptr %10, i64 %.pre100.i.i
+  %40 = getelementptr inbounds i32, ptr %10, i64 %.pre100.i.i
   %.not80.i.i = icmp eq i64 %.pre100.i.i, 0
   br i1 %.not80.i.i, label %._crit_edge.i.us.i, label %.lr.ph.i.preheader.i
 
@@ -571,7 +571,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK9Stockfish4Eval4NNUE18FeatureTran
   br i1 %exitcond99.not.i.i, label %.critedge.i.i, label %.lr.ph.i.preheader.i, !llvm.loop !13
 
 .critedge.i.i:                                    ; preds = %._crit_edge.i.loopexit.i, %._crit_edge.i.us.i, %31
-  %59 = getelementptr inbounds nuw i32, ptr %10, i64 %.pre100.i.i
+  %59 = getelementptr inbounds i32, ptr %10, i64 %.pre100.i.i
   %.not7786.i.i = icmp eq i64 %.pre100.i.i, 0
   br i1 %.not7786.i.i, label %_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEE26update_accumulator_refreshILNS_5ColorE0EEEvRKNS_8PositionEb.exit.i, label %.lr.ph89.i.i
 
@@ -669,7 +669,7 @@ _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumul
 .preheader.i.i98:                                 ; preds = %95
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 5120
   %invariant.gep.i.i = getelementptr i8, ptr %97, i64 5312
-  %104 = getelementptr inbounds nuw i32, ptr %7, i64 %.pre100.i.i97
+  %104 = getelementptr inbounds i32, ptr %7, i64 %.pre100.i.i97
   %.not80.i.i99 = icmp eq i64 %.pre100.i.i97, 0
   br i1 %.not80.i.i99, label %._crit_edge.i.us.i122, label %.lr.ph.i.preheader.i100
 
@@ -726,7 +726,7 @@ _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumul
   br i1 %exitcond99.not.i.i112, label %.critedge.i.i113, label %.lr.ph.i.preheader.i100, !llvm.loop !15
 
 .critedge.i.i113:                                 ; preds = %._crit_edge.i.loopexit.i110, %._crit_edge.i.us.i122, %95
-  %121 = getelementptr inbounds nuw i32, ptr %7, i64 %.pre100.i.i97
+  %121 = getelementptr inbounds i32, ptr %7, i64 %.pre100.i.i97
   %.not7786.i.i114 = icmp eq i64 %.pre100.i.i97, 0
   br i1 %.not7786.i.i114, label %_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEE26update_accumulator_refreshILNS_5ColorE1EEEvRKNS_8PositionEb.exit.i, label %.lr.ph89.i.i115
 
@@ -857,7 +857,7 @@ define weak_odr dso_local noundef i32 @_ZN9Stockfish4Eval4NNUE8evaluateILNS1_7Ne
 
 15:                                               ; preds = %4
   %16 = sext i32 %12 to i64
-  %17 = getelementptr inbounds nuw [8 x %"class.std::unique_ptr.23"], ptr @_ZN9Stockfish4Eval4NNUE12networkSmallE, i64 0, i64 %16
+  %17 = getelementptr inbounds [8 x %"class.std::unique_ptr.23"], ptr @_ZN9Stockfish4Eval4NNUE12networkSmallE, i64 0, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = load i8, ptr @_ZGVZN9Stockfish4Eval4NNUE7NetworkILj128ELi15ELi32EE9propagateEPKhE6buffer, align 8
   %20 = icmp eq i8 %19, 0
@@ -1179,7 +1179,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK9Stockfish4Eval4NNUE18FeatureTran
 
 .preheader80.preheader.i.i:                       ; preds = %31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %9, ptr noundef nonnull align 64 dereferenceable(6488320) %0, i64 256, i1 false)
-  %40 = getelementptr inbounds nuw i32, ptr %10, i64 %.pre.i.i
+  %40 = getelementptr inbounds i32, ptr %10, i64 %.pre.i.i
   %.not83.i.i = icmp eq i64 %.pre.i.i, 0
   br i1 %.not83.i.i, label %.preheader.i.i, label %.lr.ph.i.i
 
@@ -1217,7 +1217,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK9Stockfish4Eval4NNUE18FeatureTran
   br i1 %.not.i.i, label %.preheader.i.i, label %42
 
 .critedge.i.i:                                    ; preds = %.preheader.i.i, %31
-  %55 = getelementptr inbounds nuw i32, ptr %10, i64 %.pre.i.i
+  %55 = getelementptr inbounds i32, ptr %10, i64 %.pre.i.i
   %.not7788.i.i = icmp eq i64 %.pre.i.i, 0
   br i1 %.not7788.i.i, label %_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj128EXadL_ZNS_9StateInfo16accumulatorSmallEEEE26update_accumulator_refreshILNS_5ColorE0EEEvRKNS_8PositionEb.exit.i, label %.lr.ph90.i.i
 
@@ -1314,7 +1314,7 @@ _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj128EXadL_ZNS_9StateInfo16accumula
 
 .preheader.preheader.i.i:                         ; preds = %91
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %6, ptr noundef nonnull align 64 dereferenceable(6488320) %0, i64 256, i1 false)
-  %99 = getelementptr inbounds nuw i32, ptr %7, i64 %.pre.i.i97
+  %99 = getelementptr inbounds i32, ptr %7, i64 %.pre.i.i97
   %.not82.i.i = icmp eq i64 %.pre.i.i97, 0
   br i1 %.not82.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i98
 
@@ -1353,7 +1353,7 @@ _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj128EXadL_ZNS_9StateInfo16accumula
   br label %.critedge.i.i103
 
 .critedge.i.i103:                                 ; preds = %._crit_edge.i.i, %91
-  %115 = getelementptr inbounds nuw i32, ptr %7, i64 %.pre.i.i97
+  %115 = getelementptr inbounds i32, ptr %7, i64 %.pre.i.i97
   %.not7787.i.i = icmp eq i64 %.pre.i.i97, 0
   br i1 %.not7787.i.i, label %_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj128EXadL_ZNS_9StateInfo16accumulatorSmallEEEE26update_accumulator_refreshILNS_5ColorE1EEEvRKNS_8PositionEb.exit.i, label %.lr.ph90.i.i104
 
@@ -1642,7 +1642,7 @@ _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumul
   call void @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm21append_active_indicesILNS_5ColorE0EEEvRKNS_8PositionERNS_9ValueListIjLm32EEE(ptr noundef nonnull align 8 dereferenceable(865) %0, ptr noundef nonnull align 8 dereferenceable(136) %3) #15
   %.pre100.i.i6 = load i64, ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %17, i64 5120
-  %55 = getelementptr inbounds nuw i32, ptr %3, i64 %.pre100.i.i6
+  %55 = getelementptr inbounds i32, ptr %3, i64 %.pre100.i.i6
   %.not80.i.i7 = icmp eq i64 %.pre100.i.i6, 0
   br i1 %.not80.i.i7, label %._crit_edge.i.us.i30, label %.lr.ph.i.preheader.i8
 
@@ -1818,7 +1818,7 @@ _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumul
   %.pre100.i.i = load i64, ptr %124, align 8
   %125 = getelementptr inbounds nuw i8, ptr %17, i64 5120
   %invariant.gep.i.i = getelementptr i8, ptr %121, i64 5312
-  %126 = getelementptr inbounds nuw i32, ptr %6, i64 %.pre100.i.i
+  %126 = getelementptr inbounds i32, ptr %6, i64 %.pre100.i.i
   %.not80.i.i = icmp eq i64 %.pre100.i.i, 0
   br i1 %.not80.i.i, label %._crit_edge.i.us.i, label %.lr.ph.i.preheader.i
 
@@ -2071,7 +2071,7 @@ _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj128EXadL_ZNS_9StateInfo16accumula
 
 .preheader80.preheader.i.i:                       ; preds = %.thread17.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %7, ptr noundef nonnull align 64 dereferenceable(6488320) %0, i64 256, i1 false)
-  %78 = getelementptr inbounds nuw i32, ptr %8, i64 %.pre.i.i
+  %78 = getelementptr inbounds i32, ptr %8, i64 %.pre.i.i
   %.not83.i.i = icmp eq i64 %.pre.i.i, 0
   br i1 %.not83.i.i, label %.preheader.i.i, label %.lr.ph.i.i
 
@@ -2109,7 +2109,7 @@ _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj128EXadL_ZNS_9StateInfo16accumula
   br i1 %.not.i.i, label %.preheader.i.i, label %80
 
 .critedge.i.i:                                    ; preds = %.preheader.i.i, %.thread17.i
-  %93 = getelementptr inbounds nuw i32, ptr %8, i64 %.pre.i.i
+  %93 = getelementptr inbounds i32, ptr %8, i64 %.pre.i.i
   %.not7788.i.i = icmp eq i64 %.pre.i.i, 0
   br i1 %.not7788.i.i, label %_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj128EXadL_ZNS_9StateInfo16accumulatorSmallEEEE26update_accumulator_refreshILNS_5ColorE0EEEvRKNS_8PositionEb.exit.i, label %.lr.ph90.i.i
 
@@ -2298,7 +2298,7 @@ _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj128EXadL_ZNS_9StateInfo16accumula
 
 .preheader.preheader.i.i:                         ; preds = %.thread17.i5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %4, ptr noundef nonnull align 64 dereferenceable(6488320) %0, i64 256, i1 false)
-  %179 = getelementptr inbounds nuw i32, ptr %5, i64 %.pre.i.i6
+  %179 = getelementptr inbounds i32, ptr %5, i64 %.pre.i.i6
   %.not82.i.i = icmp eq i64 %.pre.i.i6, 0
   br i1 %.not82.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i7
 
@@ -2337,7 +2337,7 @@ _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj128EXadL_ZNS_9StateInfo16accumula
   br label %.critedge.i.i12
 
 .critedge.i.i12:                                  ; preds = %._crit_edge.i.i, %.thread17.i5
-  %195 = getelementptr inbounds nuw i32, ptr %5, i64 %.pre.i.i6
+  %195 = getelementptr inbounds i32, ptr %5, i64 %.pre.i.i6
   %.not7787.i.i = icmp eq i64 %.pre.i.i6, 0
   br i1 %.not7787.i.i, label %_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj128EXadL_ZNS_9StateInfo16accumulatorSmallEEEE26update_accumulator_refreshILNS_5ColorE1EEEvRKNS_8PositionEb.exit.i, label %.lr.ph90.i.i13
 
@@ -2488,7 +2488,7 @@ define dso_local void @_ZN9Stockfish4Eval4NNUE5traceB5cxx11ERNS_8PositionE(ptr d
   %72 = load ptr, ptr @_ZN9Stockfish4Eval4NNUE21featureTransformerBigE, align 8
   %73 = call noundef i32 @_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEE9transformERKNS_8PositionEPhib(ptr noundef nonnull align 64 dereferenceable(116069376) %72, ptr noundef nonnull align 8 dereferenceable(865) %1, ptr noundef nonnull %4, i32 noundef %71, i1 noundef zeroext false)
   %74 = sext i32 %71 to i64
-  %75 = getelementptr inbounds nuw [8 x %"class.std::unique_ptr.4"], ptr @_ZN9Stockfish4Eval4NNUE10networkBigE, i64 0, i64 %74
+  %75 = getelementptr inbounds [8 x %"class.std::unique_ptr.4"], ptr @_ZN9Stockfish4Eval4NNUE10networkBigE, i64 0, i64 %74
   %76 = load ptr, ptr %75, align 8
   %77 = load i8, ptr @_ZGVZN9Stockfish4Eval4NNUE7NetworkILj2560ELi15ELi32EE9propagateEPKhE6buffer, align 8
   %78 = icmp eq i8 %77, 0
@@ -3438,7 +3438,7 @@ _ZN9Stockfish4Eval4NNUEL11read_headerERSiPjPNSt7__cxx1112basic_stringIcSt11char_
 
 93:                                               ; preds = %_ZN9Stockfish4Eval4NNUEL11read_headerERSiPjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
   %94 = sext i32 %2 to i64
-  %95 = getelementptr inbounds nuw [2 x i32], ptr @_ZN9Stockfish4Eval4NNUEL9HashValueE, i64 0, i64 %94
+  %95 = getelementptr inbounds [2 x i32], ptr @_ZN9Stockfish4Eval4NNUEL9HashValueE, i64 0, i64 %94
   %96 = load i32, ptr %95, align 4
   %.not.i = icmp eq i32 %65, %96
   br i1 %.not.i, label %97, label %_ZN9Stockfish4Eval4NNUEL15read_parametersERSiNS1_7NetSizeERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread
@@ -3627,7 +3627,7 @@ define dso_local noundef zeroext i1 @_ZN9Stockfish4Eval4NNUE9save_evalERSoNS1_7N
 
 23:                                               ; preds = %20
   %24 = sext i32 %1 to i64
-  %25 = getelementptr inbounds nuw [2 x i32], ptr @_ZN9Stockfish4Eval4NNUEL9HashValueE, i64 0, i64 %24
+  %25 = getelementptr inbounds [2 x i32], ptr @_ZN9Stockfish4Eval4NNUEL9HashValueE, i64 0, i64 %24
   %26 = load i32, ptr %25, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)

@@ -211327,10 +211327,10 @@ js_typed_array_get_length_internal.exit:          ; preds = %get_typed_array.exi
 switch.lookup:                                    ; preds = %52
   %switch.tableidx = add nsw i16 %40, -21
   %54 = sext i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [11 x ptr], ptr @switch.table.js_typed_array_sort, i64 0, i64 %54
+  %switch.gep = getelementptr inbounds [11 x ptr], ptr @switch.table.js_typed_array_sort, i64 0, i64 %54
   %switch.load = load ptr, ptr %switch.gep, align 8
   %55 = sext i16 %switch.tableidx to i64
-  %switch.gep132 = getelementptr inbounds nuw [11 x ptr], ptr @switch.table.js_typed_array_sort.103, i64 0, i64 %55
+  %switch.gep132 = getelementptr inbounds [11 x ptr], ptr @switch.table.js_typed_array_sort.103, i64 0, i64 %55
   %switch.load133 = load ptr, ptr %switch.gep132, align 8
   %56 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %switch.load, ptr %56, align 8

@@ -326,7 +326,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z21cmDependsJava_yyparsePv(ptr no
   %.11435 = phi ptr [ %2129, %2127 ], [ %2057, %2078 ], [ %50, %49 ]
   %.1 = phi i32 [ %.6, %2127 ], [ %.7, %2078 ], [ -2, %49 ]
   %.11444.add = add nsw i64 %.11444.idx, 2
-  %.01443.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.11444.add
+  %.01443.ptr = getelementptr inbounds i8, ptr %3, i64 %.11444.add
   %11 = trunc nsw i32 %.11441 to i16
   store i16 %11, ptr %.01443.ptr, align 2
   %.not = icmp slt i64 %.11444.idx, 396
@@ -345,7 +345,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z21cmDependsJava_yyparsePv(ptr no
 
 14:                                               ; preds = %12
   %15 = sext i32 %.014401544 to i64
-  %16 = getelementptr inbounds nuw [575 x i16], ptr @_ZL6yypact, i64 0, i64 %15
+  %16 = getelementptr inbounds [575 x i16], ptr @_ZL6yypact, i64 0, i64 %15
   %17 = load i16, ptr %16, align 2
   %18 = sext i16 %17 to i32
   %19 = icmp eq i16 %17, -503
@@ -414,7 +414,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z21cmDependsJava_yyparsePv(ptr no
 
 52:                                               ; preds = %35, %37, %14
   %.3 = phi i32 [ %.014221547, %14 ], [ %.5, %35 ], [ %.5, %37 ]
-  %53 = getelementptr inbounds nuw [575 x i16], ptr @_ZL8yydefact, i64 0, i64 %15
+  %53 = getelementptr inbounds [575 x i16], ptr @_ZL8yydefact, i64 0, i64 %15
   %54 = load i16, ptr %53, align 2
   %55 = sext i16 %54 to i32
   %56 = icmp eq i16 %54, 0
@@ -424,7 +424,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z21cmDependsJava_yyparsePv(ptr no
   %.01433 = phi i32 [ %55, %52 ], [ %48, %47 ]
   %.7 = phi i32 [ %.3, %52 ], [ %.5, %47 ]
   %58 = sext i32 %.01433 to i64
-  %59 = getelementptr inbounds nuw [352 x i8], ptr @_ZL4yyr2, i64 0, i64 %58
+  %59 = getelementptr inbounds [352 x i8], ptr @_ZL4yyr2, i64 0, i64 %58
   %60 = load i8, ptr %59, align 1
   %61 = sext i8 %60 to i64
   %62 = sub nsw i64 1, %61
@@ -4450,15 +4450,15 @@ _ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc.exit1482: ; preds = %364
   %2056 = getelementptr inbounds %"struct.cmDependsJavaParserHelper::ParserType", ptr %.014341545, i64 %2055
   %.idx = shl nsw i64 %2055, 1
   %.01443.add = add nsw i64 %.idx, %.01443.idx1543
-  %.ptr1466 = getelementptr inbounds nuw i8, ptr %3, i64 %.01443.add
+  %.ptr1466 = getelementptr inbounds i8, ptr %3, i64 %.01443.add
   %2057 = getelementptr inbounds nuw i8, ptr %2056, i64 8
   %2058 = load i64, ptr %5, align 8
   store i64 %2058, ptr %2057, align 8
-  %2059 = getelementptr inbounds nuw [352 x i16], ptr @_ZL4yyr1, i64 0, i64 %58
+  %2059 = getelementptr inbounds [352 x i16], ptr @_ZL4yyr1, i64 0, i64 %58
   %2060 = load i16, ptr %2059, align 2
   %2061 = sext i16 %2060 to i64
   %2062 = add nsw i64 %2061, -106
-  %2063 = getelementptr inbounds nuw [158 x i16], ptr @_ZL7yypgoto, i64 0, i64 %2062
+  %2063 = getelementptr inbounds [158 x i16], ptr @_ZL7yypgoto, i64 0, i64 %2062
   %2064 = load i16, ptr %2063, align 2
   %2065 = sext i16 %2064 to i32
   %2066 = load i16, ptr %.ptr1466, align 2
@@ -4479,7 +4479,7 @@ _ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc.exit1482: ; preds = %364
   br label %2078
 
 2076:                                             ; preds = %2069, %2054
-  %2077 = getelementptr inbounds nuw [158 x i16], ptr @_ZL9yydefgoto, i64 0, i64 %2062
+  %2077 = getelementptr inbounds [158 x i16], ptr @_ZL9yydefgoto, i64 0, i64 %2062
   br label %2078
 
 2078:                                             ; preds = %2076, %2074
@@ -4586,16 +4586,16 @@ _ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc.exit1482: ; preds = %364
   br i1 %2121, label %2127, label %2122
 
 2122:                                             ; preds = %2112, %2118, %2109
-  %2123 = icmp samesign eq i64 %.31446.idx, 0
+  %2123 = icmp eq i64 %.31446.idx, 0
   br i1 %2123, label %.thread1512, label %2124
 
 2124:                                             ; preds = %2122
   %2125 = getelementptr inbounds i8, ptr %.31437, i64 -8
   %.31446.add = add nsw i64 %.31446.idx, -2
-  %.ptr1467 = getelementptr inbounds nuw i8, ptr %3, i64 %.31446.add
+  %.ptr1467 = getelementptr inbounds i8, ptr %3, i64 %.31446.add
   %2126 = load i16, ptr %.ptr1467, align 2
   %.phi.trans.insert = sext i16 %2126 to i64
-  %.phi.trans.insert1560 = getelementptr inbounds nuw [575 x i16], ptr @_ZL6yypact, i64 0, i64 %.phi.trans.insert
+  %.phi.trans.insert1560 = getelementptr inbounds [575 x i16], ptr @_ZL6yypact, i64 0, i64 %.phi.trans.insert
   %.pre = load i16, ptr %.phi.trans.insert1560, align 2
   br label %2109, !llvm.loop !5
 
@@ -4707,7 +4707,7 @@ define internal fastcc noundef range(i32 -2, 1) i32 @_ZL14yysyntax_errorPlPPcPK1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %.val.val.i = load i16, ptr %.0.val1, align 2
   %5 = sext i16 %.val.val.i to i64
-  %6 = getelementptr inbounds nuw [575 x i16], ptr @_ZL6yypact, i64 0, i64 %5
+  %6 = getelementptr inbounds [575 x i16], ptr @_ZL6yypact, i64 0, i64 %5
   %7 = load i16, ptr %6, align 2
   %8 = icmp eq i16 %7, -503
   br i1 %8, label %.thread.i.i, label %9
@@ -4732,7 +4732,7 @@ define internal fastcc noundef range(i32 -2, 1) i32 @_ZL14yysyntax_errorPlPPcPK1
   %indvars.iv.i.i = phi i64 [ %17, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %33 ]
   %.14.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %.2.i.i, %33 ]
   %20 = add nsw i64 %indvars.iv.i.i, %18
-  %21 = getelementptr inbounds nuw [2216 x i16], ptr @_ZL7yycheck, i64 0, i64 %20
+  %21 = getelementptr inbounds [2216 x i16], ptr @_ZL7yycheck, i64 0, i64 %20
   %22 = load i16, ptr %21, align 2
   %23 = sext i16 %22 to i32
   %24 = trunc nsw i64 %indvars.iv.i.i to i32
@@ -4811,7 +4811,7 @@ _ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread6: 
   %44 = getelementptr inbounds nuw [5 x i32], ptr %2, i64 0, i64 %indvars.iv
   %45 = load i32, ptr %44, align 4
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds nuw [265 x ptr], ptr @_ZL7yytname, i64 0, i64 %46
+  %47 = getelementptr inbounds [265 x ptr], ptr @_ZL7yytname, i64 0, i64 %46
   %48 = load ptr, ptr %47, align 8
   %49 = load i8, ptr %48, align 1
   %50 = icmp eq i8 %49, 34
@@ -4887,10 +4887,10 @@ _ZL9yytnamerrPcPKc.exit.thread:                   ; preds = %.preheader.split.us
 70:                                               ; preds = %65
   %71 = add nsw i32 %.0, 1
   %72 = sext i32 %.0 to i64
-  %73 = getelementptr inbounds nuw [5 x i32], ptr %2, i64 0, i64 %72
+  %73 = getelementptr inbounds [5 x i32], ptr %2, i64 0, i64 %72
   %74 = load i32, ptr %73, align 4
   %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds nuw [265 x ptr], ptr @_ZL7yytname, i64 0, i64 %75
+  %76 = getelementptr inbounds [265 x ptr], ptr @_ZL7yytname, i64 0, i64 %75
   %77 = load ptr, ptr %76, align 8
   %78 = load i8, ptr %77, align 1
   %79 = icmp eq i8 %78, 34

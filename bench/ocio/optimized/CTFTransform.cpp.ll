@@ -13962,7 +13962,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
   %vtable4 = load ptr, ptr %oss, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable4, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %oss, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %oss, i64 %vbase.offset
   %_M_precision.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   store i64 15, ptr %_M_precision.i, align 8
   %m_formatter = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -16427,7 +16427,7 @@ entry:
   %vtable = load ptr, ptr %oss, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %oss, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %oss, i64 %vbase.offset
   %_M_precision.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   store i64 15, ptr %_M_precision.i, align 8
   %add.ptr1 = getelementptr inbounds nuw i8, ptr %oss, i64 16
@@ -16918,7 +16918,7 @@ entry:
   %vtable = load ptr, ptr %oss, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %oss, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %oss, i64 %vbase.offset
   %_M_precision.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   store i64 15, ptr %_M_precision.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %attributes, i8 0, i64 24, i1 false)
@@ -18552,7 +18552,7 @@ invoke.cont16:                                    ; preds = %if.then
   %vtable = load ptr, ptr %ffParams, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %ffParams, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %ffParams, i64 %vbase.offset
   %_M_precision.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   store i64 15, ptr %_M_precision.i, align 8
   %10 = load double, ptr %call5.i.i.i.i2.i6.i16, align 8
@@ -19671,7 +19671,7 @@ invoke.cont:                                      ; preds = %if.then
   %vtable = load ptr, ptr %rgb, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %rgb, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %rgb, i64 %vbase.offset
   %_M_precision.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   store i64 15, ptr %_M_precision.i, align 8
   %add.ptr3 = getelementptr inbounds nuw i8, ptr %rgb, i64 16
@@ -19751,7 +19751,7 @@ invoke.cont21:                                    ; preds = %invoke.cont20
   %vtable22 = load ptr, ptr %master, align 8
   %vbase.offset.ptr23 = getelementptr i8, ptr %vtable22, i64 -24
   %vbase.offset24 = load i64, ptr %vbase.offset.ptr23, align 8
-  %add.ptr25 = getelementptr inbounds nuw i8, ptr %master, i64 %vbase.offset24
+  %add.ptr25 = getelementptr inbounds i8, ptr %master, i64 %vbase.offset24
   %_M_precision.i14 = getelementptr inbounds nuw i8, ptr %add.ptr25, i64 8
   store i64 15, ptr %_M_precision.i14, align 8
   %add.ptr27 = getelementptr inbounds nuw i8, ptr %master, i64 16
@@ -19941,7 +19941,7 @@ invoke.cont:                                      ; preds = %if.then
   %vtable = load ptr, ptr %stream, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %stream, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %stream, i64 %vbase.offset
   %_M_precision.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   store i64 15, ptr %_M_precision.i, align 8
   %add.ptr2 = getelementptr inbounds nuw i8, ptr %stream, i64 16
@@ -20099,7 +20099,7 @@ entry:
   %vtable = load ptr, ptr %master, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %master, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %master, i64 %vbase.offset
   %_M_precision.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   store i64 15, ptr %_M_precision.i, align 8
   %add.ptr2 = getelementptr inbounds nuw i8, ptr %master, i64 16
@@ -20719,7 +20719,9 @@ invoke.cont30.i:                                  ; preds = %invoke.cont26.i
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %vbase.offset.i.i
   store i64 11, ptr %gep.i, align 8
-  %vbase.offset3.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
+  %vtable1.i.i = load ptr, ptr %oss.i, align 8
+  %vbase.offset.ptr2.i.i = getelementptr i8, ptr %vtable1.i.i, i64 -24
+  %vbase.offset3.i.i = load i64, ptr %vbase.offset.ptr2.i.i, align 8
   %gep67.i = getelementptr i8, ptr %invariant.gep66.i, i64 %vbase.offset3.i.i
   store i64 8, ptr %gep67.i, align 8
   %35 = load float, ptr %call27.i, align 4
@@ -20897,7 +20899,9 @@ invoke.cont79.i:                                  ; preds = %invoke.cont72.i
   %vbase.offset.i58.i = load i64, ptr %vbase.offset.ptr.i57.i, align 8
   %gep = getelementptr i8, ptr %invariant.gep, i64 %vbase.offset.i58.i
   store i64 11, ptr %gep, align 8
-  %vbase.offset3.i63.i = load i64, ptr %vbase.offset.ptr.i57.i, align 8
+  %vtable1.i61.i = load ptr, ptr %oss77.i, align 8
+  %vbase.offset.ptr2.i62.i = getelementptr i8, ptr %vtable1.i61.i, i64 -24
+  %vbase.offset3.i63.i = load i64, ptr %vbase.offset.ptr2.i62.i, align 8
   %gep52 = getelementptr i8, ptr %invariant.gep51, i64 %vbase.offset3.i63.i
   store i64 8, ptr %gep52, align 8
   %cmp8470.not.i = icmp eq i64 %call76.i, 0
@@ -22080,7 +22084,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
   %vtable.i9 = load ptr, ptr %stream.i, align 8
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i9, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %stream.i, i64 %vbase.offset.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %stream.i, i64 %vbase.offset.i
   %_M_precision.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   store i64 15, ptr %_M_precision.i.i, align 8
   %add.ptr2.i = getelementptr inbounds nuw i8, ptr %stream.i, i64 16
@@ -22360,7 +22364,7 @@ invoke.cont:                                      ; preds = %if.then
   %vtable = load ptr, ptr %oss, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %oss, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %oss, i64 %vbase.offset
   %_M_precision.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   store i64 15, ptr %_M_precision.i, align 8
   %0 = load double, ptr %val, align 8
@@ -23594,7 +23598,7 @@ entry:
   %vtable = load ptr, ptr %stream, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %stream, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %stream, i64 %vbase.offset
   %_M_precision.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   store i64 15, ptr %_M_precision.i, align 8
   %add.ptr1 = getelementptr inbounds nuw i8, ptr %stream, i64 16
@@ -24342,7 +24346,7 @@ call.i.noexc:                                     ; preds = %invoke.cont58
   %vtable16.i = load ptr, ptr %oss.i, align 8
   %vbase.offset.ptr17.i = getelementptr i8, ptr %vtable16.i, i64 -24
   %vbase.offset18.i = load i64, ptr %vbase.offset.ptr17.i, align 8
-  %add.ptr19.i = getelementptr inbounds nuw i8, ptr %oss.i, i64 %vbase.offset18.i
+  %add.ptr19.i = getelementptr inbounds i8, ptr %oss.i, i64 %vbase.offset18.i
   %_M_width.i.i = getelementptr inbounds nuw i8, ptr %add.ptr19.i, i64 16
   store i64 5, ptr %_M_width.i.i, align 8
   %29 = ptrtoint ptr %values.sroa.0.172 to i64
@@ -24726,9 +24730,9 @@ entry:
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_4dev12XmlFormatter9getStreamEv(ptr noundef nonnull align 8 dereferenceable(16) %formatter)
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %oss)
   switch i32 %bitDepth, label %sw.epilog [
-    i32 1, label %sw.bb
+    i32 1, label %sw.epilog.sink.split
     i32 2, label %sw.bb3
-    i32 3, label %sw.bb9
+    i32 3, label %sw.bb3
     i32 5, label %sw.bb15
     i32 7, label %sw.bb21
     i32 8, label %sw.bb32
@@ -24737,31 +24741,17 @@ entry:
     i32 0, label %sw.bb37
   ]
 
-sw.bb:                                            ; preds = %entry
-  %vtable = load ptr, ptr %oss, align 8
-  %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
-  br label %sw.epilog.sink.split
-
-sw.bb3:                                           ; preds = %entry
-  %vtable4 = load ptr, ptr %oss, align 8
-  %vbase.offset.ptr5 = getelementptr i8, ptr %vtable4, i64 -24
-  br label %sw.epilog.sink.split
-
-sw.bb9:                                           ; preds = %entry
-  %vtable10 = load ptr, ptr %oss, align 8
-  %vbase.offset.ptr11 = getelementptr i8, ptr %vtable10, i64 -24
+sw.bb3:                                           ; preds = %entry, %entry
   br label %sw.epilog.sink.split
 
 sw.bb15:                                          ; preds = %entry
-  %vtable16 = load ptr, ptr %oss, align 8
-  %vbase.offset.ptr17 = getelementptr i8, ptr %vtable16, i64 -24
   br label %sw.epilog.sink.split
 
 sw.bb21:                                          ; preds = %entry
   %vtable22 = load ptr, ptr %oss, align 8
   %vbase.offset.ptr23 = getelementptr i8, ptr %vtable22, i64 -24
   %vbase.offset24 = load i64, ptr %vbase.offset.ptr23, align 8
-  %add.ptr25 = getelementptr inbounds nuw i8, ptr %oss, i64 %vbase.offset24
+  %add.ptr25 = getelementptr inbounds i8, ptr %oss, i64 %vbase.offset24
   %_M_width.i13 = getelementptr inbounds nuw i8, ptr %add.ptr25, i64 16
   store i64 11, ptr %_M_width.i13, align 8
   br label %sw.epilog.sink.split
@@ -24770,7 +24760,7 @@ sw.bb32:                                          ; preds = %entry
   %vtable.i = load ptr, ptr %oss, align 8
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %oss, i64 %vbase.offset.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %oss, i64 %vbase.offset.i
   %_M_width.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 16
   store i64 11, ptr %_M_width.i.i, align 8
   br label %sw.epilog.sink.split
@@ -24815,12 +24805,13 @@ lpad39:                                           ; preds = %sw.bb37
   call void @__cxa_free_exception(ptr %exception38) #27
   br label %ehcleanup90
 
-sw.epilog.sink.split:                             ; preds = %sw.bb, %sw.bb3, %sw.bb9, %sw.bb15, %sw.bb21, %sw.bb32
-  %vbase.offset3.i.sink.in = phi ptr [ %vbase.offset.ptr.i, %sw.bb32 ], [ %vbase.offset.ptr23, %sw.bb21 ], [ %vbase.offset.ptr17, %sw.bb15 ], [ %vbase.offset.ptr11, %sw.bb9 ], [ %vbase.offset.ptr5, %sw.bb3 ], [ %vbase.offset.ptr, %sw.bb ]
-  %.sink29 = phi i64 [ 8, %sw.bb32 ], [ 8, %sw.bb21 ], [ 16, %sw.bb15 ], [ 16, %sw.bb9 ], [ 16, %sw.bb3 ], [ 16, %sw.bb ]
-  %.sink = phi i64 [ 8, %sw.bb32 ], [ 5, %sw.bb21 ], [ 5, %sw.bb15 ], [ 4, %sw.bb9 ], [ 4, %sw.bb3 ], [ 3, %sw.bb ]
-  %vbase.offset3.i.sink = load i64, ptr %vbase.offset3.i.sink.in, align 8
-  %add.ptr4.i = getelementptr inbounds nuw i8, ptr %oss, i64 %vbase.offset3.i.sink
+sw.epilog.sink.split:                             ; preds = %entry, %sw.bb3, %sw.bb15, %sw.bb21, %sw.bb32
+  %.sink29 = phi i64 [ 8, %sw.bb32 ], [ 8, %sw.bb21 ], [ 16, %sw.bb15 ], [ 16, %sw.bb3 ], [ 16, %entry ]
+  %.sink = phi i64 [ 8, %sw.bb32 ], [ 5, %sw.bb21 ], [ 5, %sw.bb15 ], [ 4, %sw.bb3 ], [ 3, %entry ]
+  %vtable1.i = load ptr, ptr %oss, align 8
+  %vbase.offset.ptr2.i = getelementptr i8, ptr %vtable1.i, i64 -24
+  %vbase.offset3.i = load i64, ptr %vbase.offset.ptr2.i, align 8
+  %add.ptr4.i = getelementptr inbounds i8, ptr %oss, i64 %vbase.offset3.i
   %_M_precision.i.i = getelementptr inbounds nuw i8, ptr %add.ptr4.i, i64 %.sink29
   store i64 %.sink, ptr %_M_precision.i.i, align 8
   br label %sw.epilog
@@ -26414,11 +26405,13 @@ entry:
   %vtable.i = load ptr, ptr %oss, align 8
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %oss, i64 %vbase.offset.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %oss, i64 %vbase.offset.i
   %_M_width.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 16
   store i64 19, ptr %_M_width.i.i, align 8
-  %vbase.offset3.i = load i64, ptr %vbase.offset.ptr.i, align 8
-  %add.ptr4.i = getelementptr inbounds nuw i8, ptr %oss, i64 %vbase.offset3.i
+  %vtable1.i = load ptr, ptr %oss, align 8
+  %vbase.offset.ptr2.i = getelementptr i8, ptr %vtable1.i, i64 -24
+  %vbase.offset3.i = load i64, ptr %vbase.offset.ptr2.i, align 8
+  %add.ptr4.i = getelementptr inbounds i8, ptr %oss, i64 %vbase.offset3.i
   %_M_precision.i.i = getelementptr inbounds nuw i8, ptr %add.ptr4.i, i64 8
   store i64 15, ptr %_M_precision.i.i, align 8
   %invariant.gep = getelementptr inbounds nuw i8, ptr %oss, i64 16
@@ -27038,7 +27031,7 @@ entry:
   %vtable = load ptr, ptr %o, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %o, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %o, i64 %vbase.offset
   %_M_precision.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   store i64 15, ptr %_M_precision.i, align 8
   %call1 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %o, double noundef %value)

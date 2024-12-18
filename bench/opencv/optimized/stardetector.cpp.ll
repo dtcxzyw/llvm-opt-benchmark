@@ -867,7 +867,7 @@ _ZNK2cv11_InputArray6getMatEi.exit22:             ; preds = %38, %41
   %94 = getelementptr inbounds nuw [12 x [2 x i32]], ptr @_ZZN2cv11xfeatures2dL28StarDetectorComputeResponsesIdEEiRKNS_3MatERS2_S5_iiE5pairs, i64 0, i64 %indvars.iv.i
   %95 = load i32, ptr %94, align 8
   %96 = sext i32 %95 to i64
-  %97 = getelementptr inbounds nuw [18 x i32], ptr @_ZZN2cv11xfeatures2dL28StarDetectorComputeResponsesIdEEiRKNS_3MatERS2_S5_iiE6sizes0, i64 0, i64 %96
+  %97 = getelementptr inbounds [18 x i32], ptr @_ZZN2cv11xfeatures2dL28StarDetectorComputeResponsesIdEEiRKNS_3MatERS2_S5_iiE6sizes0, i64 0, i64 %96
   %98 = load i32, ptr %97, align 4
   %.not.i = icmp slt i32 %98, %77
   br i1 %.not.i, label %99, label %.critedge.split.loop.exit.i
@@ -877,7 +877,7 @@ _ZNK2cv11_InputArray6getMatEi.exit22:             ; preds = %38, %41
   %100 = getelementptr inbounds nuw [12 x [2 x i32]], ptr @_ZZN2cv11xfeatures2dL28StarDetectorComputeResponsesIdEEiRKNS_3MatERS2_S5_iiE5pairs, i64 0, i64 %indvars.iv.next.i
   %101 = load i32, ptr %100, align 8
   %102 = sext i32 %101 to i64
-  %103 = getelementptr inbounds nuw [18 x i32], ptr @_ZZN2cv11xfeatures2dL28StarDetectorComputeResponsesIdEEiRKNS_3MatERS2_S5_iiE6sizes0, i64 0, i64 %102
+  %103 = getelementptr inbounds [18 x i32], ptr @_ZZN2cv11xfeatures2dL28StarDetectorComputeResponsesIdEEiRKNS_3MatERS2_S5_iiE6sizes0, i64 0, i64 %102
   %104 = load i32, ptr %103, align 4
   %105 = sdiv i32 %104, 2
   %106 = add nsw i32 %105, %104
@@ -904,7 +904,7 @@ _ZNK2cv11_InputArray6getMatEi.exit22:             ; preds = %38, %41
   %spec.select.i = add nuw nsw i32 %.0169.lcssa.i, %113
   %114 = add nsw i32 %spec.select.i, -1
   %115 = sext i32 %114 to i64
-  %116 = getelementptr inbounds nuw [12 x [2 x i32]], ptr @_ZZN2cv11xfeatures2dL28StarDetectorComputeResponsesIdEEiRKNS_3MatERS2_S5_iiE5pairs, i64 0, i64 %115
+  %116 = getelementptr inbounds [12 x [2 x i32]], ptr @_ZZN2cv11xfeatures2dL28StarDetectorComputeResponsesIdEEiRKNS_3MatERS2_S5_iiE5pairs, i64 0, i64 %115
   %117 = load i32, ptr %116, align 8
   %118 = load i32, ptr %25, align 8
   %119 = and i32 %118, 4095
@@ -2614,11 +2614,11 @@ _ZN2cv11xfeatures2dL21computeIntegralImagesIhiEEvRKNS_3MatERS2_S5_S5_i.exit.i: ;
   %1300 = sub nsw i32 0, %1296
   store i32 %1300, ptr %1299, align 4
   %1301 = sext i32 %117 to i64
-  %1302 = getelementptr inbounds nuw [17 x i32], ptr %15, i64 0, i64 %1301
+  %1302 = getelementptr inbounds [17 x i32], ptr %15, i64 0, i64 %1301
   %1303 = load i32, ptr %1302, align 4
   %1304 = sub nsw i32 0, %1303
   store i32 %1304, ptr %1302, align 4
-  %1305 = getelementptr inbounds nuw [18 x i32], ptr @_ZZN2cv11xfeatures2dL28StarDetectorComputeResponsesIdEEiRKNS_3MatERS2_S5_iiE6sizes0, i64 0, i64 %1301
+  %1305 = getelementptr inbounds [18 x i32], ptr @_ZZN2cv11xfeatures2dL28StarDetectorComputeResponsesIdEEiRKNS_3MatERS2_S5_iiE6sizes0, i64 0, i64 %1301
   %1306 = load i32, ptr %1305, align 4
   %1307 = sdiv i32 %1306, 2
   %1308 = add i32 %1307, %1306
@@ -2650,11 +2650,11 @@ _ZN2cv11xfeatures2dL21computeIntegralImagesIhiEEvRKNS_3MatERS2_S5_S5_i.exit.i: ;
   %1318 = getelementptr inbounds nuw i8, ptr %1317, i64 4
   %1319 = load i32, ptr %1318, align 4
   %1320 = sext i32 %1319 to i64
-  %1321 = getelementptr inbounds nuw [17 x %struct.StarFeature], ptr %16, i64 0, i64 %1320
+  %1321 = getelementptr inbounds [17 x %struct.StarFeature], ptr %16, i64 0, i64 %1320
   %1322 = load i32, ptr %1321, align 8
   %1323 = load i32, ptr %1317, align 8
   %1324 = sext i32 %1323 to i64
-  %1325 = getelementptr inbounds nuw [17 x %struct.StarFeature], ptr %16, i64 0, i64 %1324
+  %1325 = getelementptr inbounds [17 x %struct.StarFeature], ptr %16, i64 0, i64 %1324
   %1326 = load i32, ptr %1325, align 8
   %1327 = sub nsw i32 %1326, %1322
   %1328 = sitofp i32 %1327 to float
@@ -2764,11 +2764,11 @@ _ZN2cv11xfeatures2dL21computeIntegralImagesIhiEEvRKNS_3MatERS2_S5_S5_i.exit.i: ;
   %1386 = getelementptr inbounds nuw i8, ptr %1385, i64 4
   %1387 = load i32, ptr %1386, align 4
   %1388 = sext i32 %1387 to i64
-  %1389 = getelementptr inbounds nuw [17 x i32], ptr %22, i64 0, i64 %1388
+  %1389 = getelementptr inbounds [17 x i32], ptr %22, i64 0, i64 %1388
   %1390 = load i32, ptr %1389, align 4
   %1391 = load i32, ptr %1385, align 8
   %1392 = sext i32 %1391 to i64
-  %1393 = getelementptr inbounds nuw [17 x i32], ptr %22, i64 0, i64 %1392
+  %1393 = getelementptr inbounds [17 x i32], ptr %22, i64 0, i64 %1392
   %1394 = load i32, ptr %1393, align 4
   %1395 = sub nsw i32 %1394, %1390
   %1396 = sitofp i32 %1390 to float
@@ -2786,7 +2786,7 @@ _ZN2cv11xfeatures2dL21computeIntegralImagesIhiEEvRKNS_3MatERS2_S5_S5_i.exit.i: ;
   br i1 %1407, label %1408, label %1411
 
 1408:                                             ; preds = %1384
-  %1409 = getelementptr inbounds nuw [17 x i32], ptr %15, i64 0, i64 %1392
+  %1409 = getelementptr inbounds [17 x i32], ptr %15, i64 0, i64 %1392
   %1410 = load i32, ptr %1409, align 4
   br label %1411
 
@@ -2880,11 +2880,11 @@ _ZN2cv11xfeatures2dL21computeIntegralImagesIhiEEvRKNS_3MatERS2_S5_S5_i.exit.i: ;
   %1458 = getelementptr inbounds nuw i8, ptr %1457, i64 4
   %1459 = load i32, ptr %1458, align 4
   %1460 = sext i32 %1459 to i64
-  %1461 = getelementptr inbounds nuw [17 x i32], ptr %22, i64 0, i64 %1460
+  %1461 = getelementptr inbounds [17 x i32], ptr %22, i64 0, i64 %1460
   %1462 = load i32, ptr %1461, align 4
   %1463 = load i32, ptr %1457, align 8
   %1464 = sext i32 %1463 to i64
-  %1465 = getelementptr inbounds nuw [17 x i32], ptr %22, i64 0, i64 %1464
+  %1465 = getelementptr inbounds [17 x i32], ptr %22, i64 0, i64 %1464
   %1466 = load i32, ptr %1465, align 4
   %1467 = sub nsw i32 %1466, %1462
   %1468 = sitofp i32 %1462 to float
@@ -2902,7 +2902,7 @@ _ZN2cv11xfeatures2dL21computeIntegralImagesIhiEEvRKNS_3MatERS2_S5_S5_i.exit.i: ;
   br i1 %1479, label %1480, label %1483
 
 1480:                                             ; preds = %.lr.ph409.i
-  %1481 = getelementptr inbounds nuw [17 x i32], ptr %15, i64 0, i64 %1464
+  %1481 = getelementptr inbounds [17 x i32], ptr %15, i64 0, i64 %1464
   %1482 = load i32, ptr %1481, align 4
   br label %1483
 
@@ -3027,7 +3027,7 @@ _ZN2cv11xfeatures2dL28StarDetectorComputeResponsesIiEEiRKNS_3MatERS2_S5_ii.exit:
   %1507 = getelementptr inbounds nuw [12 x [2 x i32]], ptr @_ZZN2cv11xfeatures2dL28StarDetectorComputeResponsesIdEEiRKNS_3MatERS2_S5_iiE5pairs, i64 0, i64 %indvars.iv.i33
   %1508 = load i32, ptr %1507, align 8
   %1509 = sext i32 %1508 to i64
-  %1510 = getelementptr inbounds nuw [18 x i32], ptr @_ZZN2cv11xfeatures2dL28StarDetectorComputeResponsesIdEEiRKNS_3MatERS2_S5_iiE6sizes0, i64 0, i64 %1509
+  %1510 = getelementptr inbounds [18 x i32], ptr @_ZZN2cv11xfeatures2dL28StarDetectorComputeResponsesIdEEiRKNS_3MatERS2_S5_iiE6sizes0, i64 0, i64 %1509
   %1511 = load i32, ptr %1510, align 4
   %.not.i35 = icmp slt i32 %1511, %1490
   br i1 %.not.i35, label %1512, label %.critedge.split.loop.exit.i36
@@ -3037,7 +3037,7 @@ _ZN2cv11xfeatures2dL28StarDetectorComputeResponsesIiEEiRKNS_3MatERS2_S5_ii.exit:
   %1513 = getelementptr inbounds nuw [12 x [2 x i32]], ptr @_ZZN2cv11xfeatures2dL28StarDetectorComputeResponsesIdEEiRKNS_3MatERS2_S5_iiE5pairs, i64 0, i64 %indvars.iv.next.i92
   %1514 = load i32, ptr %1513, align 8
   %1515 = sext i32 %1514 to i64
-  %1516 = getelementptr inbounds nuw [18 x i32], ptr @_ZZN2cv11xfeatures2dL28StarDetectorComputeResponsesIdEEiRKNS_3MatERS2_S5_iiE6sizes0, i64 0, i64 %1515
+  %1516 = getelementptr inbounds [18 x i32], ptr @_ZZN2cv11xfeatures2dL28StarDetectorComputeResponsesIdEEiRKNS_3MatERS2_S5_iiE6sizes0, i64 0, i64 %1515
   %1517 = load i32, ptr %1516, align 4
   %1518 = sdiv i32 %1517, 2
   %1519 = add nsw i32 %1518, %1517
@@ -3064,7 +3064,7 @@ _ZN2cv11xfeatures2dL28StarDetectorComputeResponsesIiEEiRKNS_3MatERS2_S5_ii.exit:
   %spec.select.i39 = add nuw nsw i32 %.0169.lcssa.i38, %1526
   %1527 = add nsw i32 %spec.select.i39, -1
   %1528 = sext i32 %1527 to i64
-  %1529 = getelementptr inbounds nuw [12 x [2 x i32]], ptr @_ZZN2cv11xfeatures2dL28StarDetectorComputeResponsesIdEEiRKNS_3MatERS2_S5_iiE5pairs, i64 0, i64 %1528
+  %1529 = getelementptr inbounds [12 x [2 x i32]], ptr @_ZZN2cv11xfeatures2dL28StarDetectorComputeResponsesIdEEiRKNS_3MatERS2_S5_iiE5pairs, i64 0, i64 %1528
   %1530 = load i32, ptr %1529, align 8
   %1531 = load i32, ptr %25, align 8
   %1532 = and i32 %1531, 4095
@@ -4446,11 +4446,11 @@ _ZN2cv11xfeatures2dL21computeIntegralImagesIhdEEvRKNS_3MatERS2_S5_S5_i.exit.i: ;
   %2469 = sub nsw i32 0, %2465
   store i32 %2469, ptr %2468, align 4
   %2470 = sext i32 %1530 to i64
-  %2471 = getelementptr inbounds nuw [17 x i32], ptr %6, i64 0, i64 %2470
+  %2471 = getelementptr inbounds [17 x i32], ptr %6, i64 0, i64 %2470
   %2472 = load i32, ptr %2471, align 4
   %2473 = sub nsw i32 0, %2472
   store i32 %2473, ptr %2471, align 4
-  %2474 = getelementptr inbounds nuw [18 x i32], ptr @_ZZN2cv11xfeatures2dL28StarDetectorComputeResponsesIdEEiRKNS_3MatERS2_S5_iiE6sizes0, i64 0, i64 %2470
+  %2474 = getelementptr inbounds [18 x i32], ptr @_ZZN2cv11xfeatures2dL28StarDetectorComputeResponsesIdEEiRKNS_3MatERS2_S5_iiE6sizes0, i64 0, i64 %2470
   %2475 = load i32, ptr %2474, align 4
   %2476 = sdiv i32 %2475, 2
   %2477 = add i32 %2476, %2475
@@ -4482,11 +4482,11 @@ _ZN2cv11xfeatures2dL21computeIntegralImagesIhdEEvRKNS_3MatERS2_S5_S5_i.exit.i: ;
   %2487 = getelementptr inbounds nuw i8, ptr %2486, i64 4
   %2488 = load i32, ptr %2487, align 4
   %2489 = sext i32 %2488 to i64
-  %2490 = getelementptr inbounds nuw [17 x %struct.StarFeature.16], ptr %7, i64 0, i64 %2489
+  %2490 = getelementptr inbounds [17 x %struct.StarFeature.16], ptr %7, i64 0, i64 %2489
   %2491 = load i32, ptr %2490, align 8
   %2492 = load i32, ptr %2486, align 8
   %2493 = sext i32 %2492 to i64
-  %2494 = getelementptr inbounds nuw [17 x %struct.StarFeature.16], ptr %7, i64 0, i64 %2493
+  %2494 = getelementptr inbounds [17 x %struct.StarFeature.16], ptr %7, i64 0, i64 %2493
   %2495 = load i32, ptr %2494, align 8
   %2496 = sub nsw i32 %2495, %2491
   %2497 = sitofp i32 %2496 to float
@@ -4596,11 +4596,11 @@ _ZN2cv11xfeatures2dL21computeIntegralImagesIhdEEvRKNS_3MatERS2_S5_S5_i.exit.i: ;
   %2555 = getelementptr inbounds nuw i8, ptr %2554, i64 4
   %2556 = load i32, ptr %2555, align 4
   %2557 = sext i32 %2556 to i64
-  %2558 = getelementptr inbounds nuw [17 x i32], ptr %13, i64 0, i64 %2557
+  %2558 = getelementptr inbounds [17 x i32], ptr %13, i64 0, i64 %2557
   %2559 = load i32, ptr %2558, align 4
   %2560 = load i32, ptr %2554, align 8
   %2561 = sext i32 %2560 to i64
-  %2562 = getelementptr inbounds nuw [17 x i32], ptr %13, i64 0, i64 %2561
+  %2562 = getelementptr inbounds [17 x i32], ptr %13, i64 0, i64 %2561
   %2563 = load i32, ptr %2562, align 4
   %2564 = sub nsw i32 %2563, %2559
   %2565 = sitofp i32 %2559 to float
@@ -4618,7 +4618,7 @@ _ZN2cv11xfeatures2dL21computeIntegralImagesIhdEEvRKNS_3MatERS2_S5_S5_i.exit.i: ;
   br i1 %2576, label %2577, label %2580
 
 2577:                                             ; preds = %2553
-  %2578 = getelementptr inbounds nuw [17 x i32], ptr %6, i64 0, i64 %2561
+  %2578 = getelementptr inbounds [17 x i32], ptr %6, i64 0, i64 %2561
   %2579 = load i32, ptr %2578, align 4
   br label %2580
 
@@ -4713,11 +4713,11 @@ _ZN2cv11xfeatures2dL21computeIntegralImagesIhdEEvRKNS_3MatERS2_S5_S5_i.exit.i: ;
   %2630 = getelementptr inbounds nuw i8, ptr %2629, i64 4
   %2631 = load i32, ptr %2630, align 4
   %2632 = sext i32 %2631 to i64
-  %2633 = getelementptr inbounds nuw [17 x i32], ptr %13, i64 0, i64 %2632
+  %2633 = getelementptr inbounds [17 x i32], ptr %13, i64 0, i64 %2632
   %2634 = load i32, ptr %2633, align 4
   %2635 = load i32, ptr %2629, align 8
   %2636 = sext i32 %2635 to i64
-  %2637 = getelementptr inbounds nuw [17 x i32], ptr %13, i64 0, i64 %2636
+  %2637 = getelementptr inbounds [17 x i32], ptr %13, i64 0, i64 %2636
   %2638 = load i32, ptr %2637, align 4
   %2639 = sub nsw i32 %2638, %2634
   %2640 = sitofp i32 %2634 to float
@@ -4735,7 +4735,7 @@ _ZN2cv11xfeatures2dL21computeIntegralImagesIhdEEvRKNS_3MatERS2_S5_S5_i.exit.i: ;
   br i1 %2651, label %2652, label %2655
 
 2652:                                             ; preds = %.lr.ph356.i
-  %2653 = getelementptr inbounds nuw [17 x i32], ptr %6, i64 0, i64 %2636
+  %2653 = getelementptr inbounds [17 x i32], ptr %6, i64 0, i64 %2636
   %2654 = load i32, ptr %2653, align 4
   br label %2655
 

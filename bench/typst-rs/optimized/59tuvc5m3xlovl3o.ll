@@ -89725,10 +89725,10 @@ define internal noundef zeroext i1 @"_ZN72_$LT$typst..math..matrix..AugmentOffse
 define { ptr, i64 } @_ZN5typst5model7outline1_6Fields6to_str17h23eda023a2c5d5f7E(i8 noundef %0) unnamed_addr #13 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN71_$LT$typst..model..outline.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h331d755398a42f6eE", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [5 x ptr], ptr @"switch.table._ZN71_$LT$typst..model..outline.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h331d755398a42f6eE", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN71_$LT$typst..model..outline.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h331d755398a42f6eE.472", i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds [5 x i64], ptr @"switch.table._ZN71_$LT$typst..model..outline.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h331d755398a42f6eE.472", i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -94367,10 +94367,10 @@ define void @"_ZN5typst5model7outline1_100_$LT$impl$u20$typst..foundations..cast
 define { ptr, i64 } @_ZN5typst5model7outline1_6Fields6to_str17he7688538d6b1dd1cE(i8 noundef %0) unnamed_addr #13 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN71_$LT$typst..model..outline.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17ha223c4e133b0cf44E", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [5 x ptr], ptr @"switch.table._ZN71_$LT$typst..model..outline.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17ha223c4e133b0cf44E", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN71_$LT$typst..model..outline.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17ha223c4e133b0cf44E.474", i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds [5 x i64], ptr @"switch.table._ZN71_$LT$typst..model..outline.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17ha223c4e133b0cf44E.474", i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -96187,10 +96187,10 @@ define void @"_ZN5typst5model7outline1_101_$LT$impl$u20$typst..foundations..cast
 define { ptr, i64 } @_ZN5typst5model5table1_6Fields6to_str17h4d9dd2fd762fd92eE(i8 noundef %0) unnamed_addr #13 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @"switch.table._ZN69_$LT$typst..model..table.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hc9c5b46eaaec1734E", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [9 x ptr], ptr @"switch.table._ZN69_$LT$typst..model..table.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hc9c5b46eaaec1734E", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw [9 x i64], ptr @"switch.table._ZN69_$LT$typst..model..table.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hc9c5b46eaaec1734E.476", i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds [9 x i64], ptr @"switch.table._ZN69_$LT$typst..model..table.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hc9c5b46eaaec1734E.476", i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -104180,14 +104180,14 @@ define void @"_ZN5typst5model5table1_99_$LT$impl$u20$typst..foundations..element
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %64)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %36)
   store <2 x i64> <i64 8, i64 144>, ptr %36, align 16
-  %79 = getelementptr inbounds nuw [2 x i64], ptr %36, i64 0, i64 %.0..0..0..0..pr
+  %79 = getelementptr inbounds [2 x i64], ptr %36, i64 0, i64 %.0..0..0..0..pr
   %80 = load i64, ptr %79, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %64, ptr nonnull align 8 %66, i64 %80, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %35)
   store <2 x i64> <i64 8, i64 144>, ptr %35, align 16
   %.0..0..0..0.218 = load i64, ptr %64, align 8
-  %81 = getelementptr inbounds nuw [2 x i64], ptr %35, i64 0, i64 %.0..0..0..0.218
+  %81 = getelementptr inbounds [2 x i64], ptr %35, i64 0, i64 %.0..0..0..0.218
   %82 = load i64, ptr %81, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %67, ptr nonnull align 8 %64, i64 %82, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35)
@@ -104251,14 +104251,14 @@ define void @"_ZN5typst5model5table1_99_$LT$impl$u20$typst..foundations..element
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %60)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34)
   store <2 x i64> <i64 8, i64 144>, ptr %34, align 16
-  %99 = getelementptr inbounds nuw [2 x i64], ptr %34, i64 0, i64 %.0..0..0..0.4.pr
+  %99 = getelementptr inbounds [2 x i64], ptr %34, i64 0, i64 %.0..0..0..0.4.pr
   %100 = load i64, ptr %99, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %60, ptr nonnull align 8 %62, i64 %100, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %33)
   store <2 x i64> <i64 8, i64 144>, ptr %33, align 16
   %.0..0..0..0.217 = load i64, ptr %60, align 8
-  %101 = getelementptr inbounds nuw [2 x i64], ptr %33, i64 0, i64 %.0..0..0..0.217
+  %101 = getelementptr inbounds [2 x i64], ptr %33, i64 0, i64 %.0..0..0..0.217
   %102 = load i64, ptr %101, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %63, ptr nonnull align 8 %60, i64 %102, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33)
@@ -104325,14 +104325,14 @@ define void @"_ZN5typst5model5table1_99_$LT$impl$u20$typst..foundations..element
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %56)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %32)
   store <2 x i64> <i64 8, i64 144>, ptr %32, align 16
-  %119 = getelementptr inbounds nuw [2 x i64], ptr %32, i64 0, i64 %.0..0..0..0.14.pr
+  %119 = getelementptr inbounds [2 x i64], ptr %32, i64 0, i64 %.0..0..0..0.14.pr
   %120 = load i64, ptr %119, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %56, ptr nonnull align 8 %58, i64 %120, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %31)
   store <2 x i64> <i64 8, i64 144>, ptr %31, align 16
   %.0..0..0..0.216 = load i64, ptr %56, align 8
-  %121 = getelementptr inbounds nuw [2 x i64], ptr %31, i64 0, i64 %.0..0..0..0.216
+  %121 = getelementptr inbounds [2 x i64], ptr %31, i64 0, i64 %.0..0..0..0.216
   %122 = load i64, ptr %121, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %59, ptr nonnull align 8 %56, i64 %122, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31)
@@ -104401,7 +104401,7 @@ define void @"_ZN5typst5model5table1_99_$LT$impl$u20$typst..foundations..element
 139:                                              ; preds = %135
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %30)
   store <2 x i64> <i64 8, i64 144>, ptr %30, align 16
-  %140 = getelementptr inbounds nuw [2 x i64], ptr %30, i64 0, i64 %.0..0..0..0.24.pr
+  %140 = getelementptr inbounds [2 x i64], ptr %30, i64 0, i64 %.0..0..0..0.24.pr
   %141 = load i64, ptr %140, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %52, ptr nonnull align 8 %54, i64 %141, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30)
@@ -104584,7 +104584,7 @@ define void @"_ZN5typst5model5table1_99_$LT$impl$u20$typst..foundations..element
 201:                                              ; preds = %197
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %29)
   store <2 x i64> <i64 8, i64 144>, ptr %29, align 16
-  %202 = getelementptr inbounds nuw [2 x i64], ptr %29, i64 0, i64 %.0..0..0..0.35.pr
+  %202 = getelementptr inbounds [2 x i64], ptr %29, i64 0, i64 %.0..0..0..0.35.pr
   %203 = load i64, ptr %202, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %48, ptr nonnull align 8 %50, i64 %203, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29)
@@ -105483,14 +105483,14 @@ define void @"_ZN5typst5model5table1_93_$LT$impl$u20$typst..foundations..element
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %59)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %30)
   store <2 x i64> <i64 8, i64 144>, ptr %30, align 16
-  %77 = getelementptr inbounds nuw [2 x i64], ptr %30, i64 0, i64 %.0..0..0..0..pr
+  %77 = getelementptr inbounds [2 x i64], ptr %30, i64 0, i64 %.0..0..0..0..pr
   %78 = load i64, ptr %77, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %59, ptr nonnull align 8 %61, i64 %78, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %29)
   store <2 x i64> <i64 8, i64 144>, ptr %29, align 16
   %.0..0..0..0.178 = load i64, ptr %59, align 8
-  %79 = getelementptr inbounds nuw [2 x i64], ptr %29, i64 0, i64 %.0..0..0..0.178
+  %79 = getelementptr inbounds [2 x i64], ptr %29, i64 0, i64 %.0..0..0..0.178
   %80 = load i64, ptr %79, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %62, ptr nonnull align 8 %59, i64 %80, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29)
@@ -105640,14 +105640,14 @@ define void @"_ZN5typst5model5table1_93_$LT$impl$u20$typst..foundations..element
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %55)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28)
   store <2 x i64> <i64 8, i64 144>, ptr %28, align 16
-  %122 = getelementptr inbounds nuw [2 x i64], ptr %28, i64 0, i64 %.0..0..0..0.4.pr
+  %122 = getelementptr inbounds [2 x i64], ptr %28, i64 0, i64 %.0..0..0..0.4.pr
   %123 = load i64, ptr %122, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %55, ptr nonnull align 8 %57, i64 %123, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %27)
   store <2 x i64> <i64 8, i64 144>, ptr %27, align 16
   %.0..0..0..0.177 = load i64, ptr %55, align 8
-  %124 = getelementptr inbounds nuw [2 x i64], ptr %27, i64 0, i64 %.0..0..0..0.177
+  %124 = getelementptr inbounds [2 x i64], ptr %27, i64 0, i64 %.0..0..0..0.177
   %125 = load i64, ptr %124, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %58, ptr nonnull align 8 %55, i64 %125, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27)
@@ -105797,14 +105797,14 @@ define void @"_ZN5typst5model5table1_93_$LT$impl$u20$typst..foundations..element
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %51)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26)
   store <2 x i64> <i64 8, i64 144>, ptr %26, align 16
-  %167 = getelementptr inbounds nuw [2 x i64], ptr %26, i64 0, i64 %.0..0..0..0.14.pr
+  %167 = getelementptr inbounds [2 x i64], ptr %26, i64 0, i64 %.0..0..0..0.14.pr
   %168 = load i64, ptr %167, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %51, ptr nonnull align 8 %53, i64 %168, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25)
   store <2 x i64> <i64 8, i64 144>, ptr %25, align 16
   %.0..0..0..0.176 = load i64, ptr %51, align 8
-  %169 = getelementptr inbounds nuw [2 x i64], ptr %25, i64 0, i64 %.0..0..0..0.176
+  %169 = getelementptr inbounds [2 x i64], ptr %25, i64 0, i64 %.0..0..0..0.176
   %170 = load i64, ptr %169, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %54, ptr nonnull align 8 %51, i64 %170, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25)
@@ -105872,7 +105872,7 @@ define void @"_ZN5typst5model5table1_93_$LT$impl$u20$typst..foundations..element
 187:                                              ; preds = %183
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24)
   store <2 x i64> <i64 8, i64 144>, ptr %24, align 16
-  %188 = getelementptr inbounds nuw [2 x i64], ptr %24, i64 0, i64 %.0..0..0..0.24.pr
+  %188 = getelementptr inbounds [2 x i64], ptr %24, i64 0, i64 %.0..0..0..0.24.pr
   %189 = load i64, ptr %188, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %48, ptr nonnull align 8 %50, i64 %189, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24)
@@ -106139,7 +106139,7 @@ define void @"_ZN5typst5model5table1_93_$LT$impl$u20$typst..foundations..element
 271:                                              ; preds = %267
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23)
   store <2 x i64> <i64 8, i64 144>, ptr %23, align 16
-  %272 = getelementptr inbounds nuw [2 x i64], ptr %23, i64 0, i64 %.0..0..0..0.35.pr
+  %272 = getelementptr inbounds [2 x i64], ptr %23, i64 0, i64 %.0..0..0..0.35.pr
   %273 = load i64, ptr %272, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %44, ptr nonnull align 8 %46, i64 %273, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23)
@@ -109797,10 +109797,10 @@ define void @"_ZN5typst5model5table1_98_$LT$impl$u20$typst..foundations..cast..I
 define { ptr, i64 } @_ZN5typst5model5table1_6Fields6to_str17h742be099511d7c14E(i8 noundef %0) unnamed_addr #13 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN69_$LT$typst..model..table.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h69eb6e6be11f6ad9E", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [5 x ptr], ptr @"switch.table._ZN69_$LT$typst..model..table.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h69eb6e6be11f6ad9E", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN69_$LT$typst..model..table.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h83c150e2a8f3da70E.480", i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds [5 x i64], ptr @"switch.table._ZN69_$LT$typst..model..table.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h83c150e2a8f3da70E.480", i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -113541,10 +113541,10 @@ define void @"_ZN5typst5model5table1_97_$LT$impl$u20$typst..foundations..cast..I
 define { ptr, i64 } @_ZN5typst5model5table1_6Fields6to_str17h254c4733e3be3f66E(i8 noundef %0) unnamed_addr #13 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN69_$LT$typst..model..table.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h83c150e2a8f3da70E", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [5 x ptr], ptr @"switch.table._ZN69_$LT$typst..model..table.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h83c150e2a8f3da70E", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN69_$LT$typst..model..table.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h83c150e2a8f3da70E.480", i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds [5 x i64], ptr @"switch.table._ZN69_$LT$typst..model..table.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h83c150e2a8f3da70E.480", i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -117300,10 +117300,10 @@ define void @"_ZN5typst5model5table1_97_$LT$impl$u20$typst..foundations..cast..I
 define { ptr, i64 } @_ZN5typst5model5table1_6Fields6to_str17h2766ae301904561cE(i8 noundef %0) unnamed_addr #13 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @"switch.table._ZN69_$LT$typst..model..table.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h0495626447a7b2a4E", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [10 x ptr], ptr @"switch.table._ZN69_$LT$typst..model..table.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h0495626447a7b2a4E", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw [10 x i64], ptr @"switch.table._ZN69_$LT$typst..model..table.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h0495626447a7b2a4E.482", i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds [10 x i64], ptr @"switch.table._ZN69_$LT$typst..model..table.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h0495626447a7b2a4E.482", i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -129351,10 +129351,10 @@ define void @"_ZN93_$LT$typst..text..font..VerticalFontMetric$u20$as$u20$typst..
 switch.lookup:
   %2 = alloca { i8, [16 x i8] }, align 1
   %3 = sext i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN93_$LT$typst..text..font..VerticalFontMetric$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h89585526d0803071E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds [5 x ptr], ptr @"switch.table._ZN93_$LT$typst..text..font..VerticalFontMetric$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h89585526d0803071E", i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = sext i8 %1 to i64
-  %switch.gep1 = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN93_$LT$typst..text..font..VerticalFontMetric$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h89585526d0803071E.483", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds [5 x i64], ptr @"switch.table._ZN93_$LT$typst..text..font..VerticalFontMetric$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h89585526d0803071E.483", i64 0, i64 %4
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27630)
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %2), !noalias !27633

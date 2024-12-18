@@ -19266,7 +19266,7 @@ define hidden void @zif_count_chars(ptr noundef %0, ptr noundef %1) local_unname
 68:                                               ; preds = %65
   %69 = trunc i64 %indvars.iv to i8
   %70 = add i64 %.0181224, 1
-  %71 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %.0181224
+  %71 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 %.0181224
   store i8 %69, ptr %71, align 1
   br label %80
 
@@ -19279,7 +19279,7 @@ define hidden void @zif_count_chars(ptr noundef %0, ptr noundef %1) local_unname
 76:                                               ; preds = %72
   %77 = trunc i64 %indvars.iv to i8
   %78 = add i64 %.0181224, 1
-  %79 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %.0181224
+  %79 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 %.0181224
   store i8 %77, ptr %79, align 1
   br label %80
 

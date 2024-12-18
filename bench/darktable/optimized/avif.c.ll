@@ -787,7 +787,7 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
 441:                                              ; preds = %434
   %442 = shl i64 %438, 32
   %443 = ashr exact i64 %442, 32
-  %444 = getelementptr inbounds nuw [64 x i32], ptr @floor_log2.floor_log2_table, i64 0, i64 %443
+  %444 = getelementptr inbounds [64 x i32], ptr @floor_log2.floor_log2_table, i64 0, i64 %443
   %445 = load i32, ptr %444, align 4, !tbaa !43
   %446 = sdiv i32 %445, 2
   br label %447
@@ -805,7 +805,7 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
 454:                                              ; preds = %447
   %455 = shl i64 %451, 32
   %456 = ashr exact i64 %455, 32
-  %457 = getelementptr inbounds nuw [64 x i32], ptr @floor_log2.floor_log2_table, i64 0, i64 %456
+  %457 = getelementptr inbounds [64 x i32], ptr @floor_log2.floor_log2_table, i64 0, i64 %456
   %458 = load i32, ptr %457, align 4, !tbaa !43
   %459 = sdiv i32 %458, 2
   br label %460

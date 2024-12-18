@@ -17467,11 +17467,11 @@ if.end:                                           ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr align 1 %name, i64 %conv2, i1 false)
   %sext4 = add i64 %sext, 4294967296
   %idxprom = ashr exact i64 %sext4, 32
-  %arrayidx3 = getelementptr inbounds nuw [256 x i8], ptr %buf, i64 0, i64 %idxprom
+  %arrayidx3 = getelementptr inbounds [256 x i8], ptr %buf, i64 0, i64 %idxprom
   store i8 44, ptr %arrayidx3, align 1
   %sext5 = add i64 %sext, 8589934592
   %idxprom5 = ashr exact i64 %sext5, 32
-  %arrayidx6 = getelementptr inbounds nuw [256 x i8], ptr %buf, i64 0, i64 %idxprom5
+  %arrayidx6 = getelementptr inbounds [256 x i8], ptr %buf, i64 0, i64 %idxprom5
   store i8 0, ptr %arrayidx6, align 1
   %call8 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %buf) #21
   %cmp9 = icmp ne ptr %call8, null
@@ -21460,7 +21460,7 @@ for.body.lr.ph.i26:                               ; preds = %if.end.i24.thread, 
   %idxprom1.i54.pn.in.in = phi ptr [ %arrayidx.i2553, %if.end.i24.thread ], [ %arrayidx.i25, %if.end.i24 ]
   %idxprom1.i54.pn.in = load i32, ptr %idxprom1.i54.pn.in.in, align 4
   %idxprom1.i54.pn = sext i32 %idxprom1.i54.pn.in to i64
-  %.in = getelementptr inbounds nuw [16384 x ptr], ptr @crc16_slot_table, i64 0, i64 %idxprom1.i54.pn
+  %.in = getelementptr inbounds [16384 x ptr], ptr @crc16_slot_table, i64 0, i64 %idxprom1.i54.pn
   %32 = load ptr, ptr %.in, align 8
   %call.i27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #21
   %conv.i28 = trunc i64 %call.i27 to i32

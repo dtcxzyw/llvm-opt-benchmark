@@ -784,7 +784,7 @@ define dso_local ptr @lua_typename(ptr nocapture noundef readnone %L, i32 nounde
 entry:
   %add = add nsw i32 %t, 1
   %idxprom = sext i32 %add to i64
-  %arrayidx = getelementptr inbounds nuw [12 x ptr], ptr @luaT_typenames_, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [12 x ptr], ptr @luaT_typenames_, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
   ret ptr %0
 }

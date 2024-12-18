@@ -2772,7 +2772,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit33.thread: ; preds = %.
   %98 = tail call i16 %97(ptr noundef nonnull align 8 dereferenceable(408123) %91, ptr noundef nonnull align 8 dereferenceable(512) %94) #27
   %99 = zext i16 %98 to i64
   %100 = add nsw i64 %99, -1
-  %101 = getelementptr inbounds nuw [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %100
+  %101 = getelementptr inbounds [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %100
   %.sroa.0.0.copyload.i.i = load i64, ptr %101, align 16
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %101, i64 8
   %.sroa.2.0.copyload.i.i = load i8, ptr %.sroa.2.0..sroa_idx.i.i, align 8
@@ -7534,7 +7534,7 @@ switch.lookup:
   %16 = icmp eq i16 %15, 96
   %switch.tableidx = add nsw i16 %15, -90
   %17 = sext i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN4llvm14CombinerHelper28applyCombineIndexedLoadStoreERNS_12MachineInstrERNS_25IndexedLoadStoreMatchInfoE, i64 0, i64 %17
+  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table._ZN4llvm14CombinerHelper28applyCombineIndexedLoadStoreERNS_12MachineInstrERNS_25IndexedLoadStoreMatchInfoE, i64 0, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %19 = load i8, ptr %18, align 4

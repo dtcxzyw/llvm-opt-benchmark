@@ -9119,7 +9119,7 @@ sw.bb:                                            ; preds = %for.cond
   %9 = load i64, ptr %7, align 8
   %inlen. = call i64 @llvm.umin.i64(i64 %inlen, i64 %9)
   %sub = sub i64 24, %9
-  %arrayidx = getelementptr inbounds nuw [25 x i8], ptr @.str.54, i64 0, i64 %sub
+  %arrayidx = getelementptr inbounds [25 x i8], ptr @.str.54, i64 0, i64 %sub
   %bcmp = call i32 @bcmp(ptr nonnull %arrayidx, ptr %in.addr.1, i64 %inlen.)
   %cmp18.not = icmp eq i32 %bcmp, 0
   br i1 %cmp18.not, label %if.end21, label %return

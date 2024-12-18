@@ -967,7 +967,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i3: ;
 
 .noexc44.i:                                       ; preds = %.noexc43.i
   %350 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %131) #22
-  %351 = getelementptr inbounds nuw i8, ptr %131, i64 %350
+  %351 = getelementptr inbounds i8, ptr %131, i64 %350
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %142, ptr noundef nonnull %131, ptr noundef nonnull %351)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit47.i unwind label %352
 
@@ -1974,7 +1974,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i15: 
 
 .noexc92.i:                                       ; preds = %.noexc91.i
   %699 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #22
-  %700 = getelementptr inbounds nuw i8, ptr %9, i64 %699
+  %700 = getelementptr inbounds i8, ptr %9, i64 %699
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull %9, ptr noundef nonnull %700)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit95.i unwind label %701
 
@@ -2415,7 +2415,7 @@ _ZN10open_spiel13GameParameterD2Ev.exit103.i:     ; preds = %_ZN10open_spiel13Ga
 
 .noexc105.i:                                      ; preds = %.noexc104.i
   %852 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #22
-  %853 = getelementptr inbounds nuw i8, ptr %10, i64 %852
+  %853 = getelementptr inbounds i8, ptr %10, i64 %852
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull %10, ptr noundef nonnull %853)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit108.i unwind label %854
 
@@ -2498,7 +2498,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 .noexc110.i:                                      ; preds = %.noexc109.i
   %879 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #22
-  %880 = getelementptr inbounds nuw i8, ptr %11, i64 %879
+  %880 = getelementptr inbounds i8, ptr %11, i64 %879
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull %11, ptr noundef nonnull %880)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit113.i unwind label %881
 

@@ -606,7 +606,7 @@ land.lhs.true:                                    ; preds = %entry
 
 land.lhs.true4:                                   ; preds = %land.lhs.true
   %idxprom = sext i32 %n to i64
-  %arrayidx = getelementptr inbounds nuw [34 x %struct.anon], ptr @parser_tests, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [34 x %struct.anon], ptr @parser_tests, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
   %call5 = tail call ptr @ossl_parse_property(ptr noundef null, ptr noundef %0) #5
   %call6 = tail call i32 @test_ptr(ptr noundef nonnull @.str.12, i32 noundef 159, ptr noundef nonnull @.str.86, ptr noundef %call5) #5
@@ -655,7 +655,7 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.end:                                           ; preds = %lor.lhs.false
   %idxprom = sext i32 %n to i64
-  %arrayidx = getelementptr inbounds nuw [17 x %struct.anon.0], ptr @parse_error_tests, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [17 x %struct.anon.0], ptr @parse_error_tests, i64 0, i64 %idxprom
   %ps4 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %0 = load ptr, ptr %ps4, align 8
   %1 = load i32, ptr %arrayidx, align 16
@@ -701,7 +701,7 @@ land.lhs.true:                                    ; preds = %entry
 
 land.lhs.true4:                                   ; preds = %land.lhs.true
   %idxprom = sext i32 %n to i64
-  %arrayidx = getelementptr inbounds nuw [14 x %struct.anon.1], ptr @merge_tests, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [14 x %struct.anon.1], ptr @merge_tests, i64 0, i64 %idxprom
   %prop5 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %0 = load ptr, ptr %prop5, align 8
   %call6 = tail call ptr @ossl_parse_property(ptr noundef null, ptr noundef %0) #5
@@ -904,7 +904,7 @@ land.lhs.true:                                    ; preds = %entry
 
 land.lhs.true4:                                   ; preds = %land.lhs.true
   %idxprom = sext i32 %n to i64
-  %arrayidx = getelementptr inbounds nuw [11 x %struct.anon.2], ptr @definition_tests, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [11 x %struct.anon.2], ptr @definition_tests, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
   %call5 = tail call ptr @ossl_parse_property(ptr noundef null, ptr noundef %0) #5
   %call6 = tail call i32 @test_ptr(ptr noundef nonnull @.str.12, i32 noundef 361, ptr noundef nonnull @.str.187, ptr noundef %call5) #5
@@ -1476,7 +1476,7 @@ err:                                              ; preds = %if.end, %land.lhs.t
 define internal range(i32 0, 2) i32 @test_property_list_to_string(i32 noundef %i) #0 {
 entry:
   %idxprom = sext i32 %i to i64
-  %arrayidx = getelementptr inbounds nuw [20 x %struct.anon.6], ptr @to_string_tests, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [20 x %struct.anon.6], ptr @to_string_tests, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 16
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true

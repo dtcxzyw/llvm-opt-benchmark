@@ -58,11 +58,11 @@ define noundef i32 @_Z11QuickTricksR3posiiiiRbRK10ThreadData(ptr noundef nonnull
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %.not = icmp eq i32 %4, 4
-  %26 = getelementptr inbounds nuw [4 x i32], ptr @partner, i64 0, i64 %11
+  %26 = getelementptr inbounds [4 x i32], ptr @partner, i64 0, i64 %11
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 1512
-  %28 = getelementptr inbounds nuw [4 x i32], ptr @lho, i64 0, i64 %11
+  %28 = getelementptr inbounds [4 x i32], ptr @lho, i64 0, i64 %11
   %29 = sext i32 %4 to i64
-  %30 = getelementptr inbounds nuw [4 x i32], ptr @rho, i64 0, i64 %11
+  %30 = getelementptr inbounds [4 x i32], ptr @rho, i64 0, i64 %11
   br i1 %.not, label %.split859.us, label %.split859.split.preheader
 
 .split859.split.preheader:                        ; preds = %23
@@ -292,7 +292,7 @@ define noundef i32 @_Z11QuickTricksR3posiiiiRbRK10ThreadData(ptr noundef nonnull
   %154 = getelementptr inbounds [50 x [4 x i16]], ptr %152, i64 0, i64 %153, i64 %29
   %155 = icmp slt i32 %.0540, 2
   %156 = sext i32 %.1535814 to i64
-  %157 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %156
+  %157 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %156
   %158 = sext i32 %.1539812 to i64
   %159 = getelementptr inbounds [50 x [4 x i16]], ptr %152, i64 0, i64 %153, i64 %158
   %160 = zext i32 %4 to i64
@@ -832,7 +832,7 @@ define noundef i32 @_Z11QuickTricksR3posiiiiRbRK10ThreadData(ptr noundef nonnull
 
 397:                                              ; preds = %393
   %398 = sext i32 %396 to i64
-  %399 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %398
+  %399 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %398
   %400 = load i16, ptr %399, align 2
   %401 = load i16, ptr %154, align 2
   %402 = or i16 %401, %400
@@ -981,7 +981,7 @@ define noundef i32 @_Z11QuickTricksR3posiiiiRbRK10ThreadData(ptr noundef nonnull
 468:                                              ; preds = %465
   %469 = load i32, ptr %461, align 4
   %470 = sext i32 %469 to i64
-  %471 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %470
+  %471 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %470
   %472 = load i16, ptr %471, align 2
   %473 = getelementptr inbounds [50 x [4 x i16]], ptr %152, i64 0, i64 %153, i64 %indvars.iv912
   store i16 %472, ptr %473, align 2
@@ -1044,7 +1044,7 @@ define noundef i32 @_Z20QtricksLeadHandTrumpiR3posiiiiiiiiiiRi(i32 noundef %0, p
   %22 = getelementptr inbounds [4 x %struct.highCardType], ptr %20, i64 0, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %24
+  %25 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %24
   %26 = load i16, ptr %25, align 2
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %28 = sext i32 %3 to i64
@@ -1090,7 +1090,7 @@ define noundef i32 @_Z20QtricksLeadHandTrumpiR3posiiiiiiiiiiRi(i32 noundef %0, p
 50:                                               ; preds = %48
   %51 = load i32, ptr %44, align 4
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %52
+  %53 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %52
   %54 = load i16, ptr %53, align 2
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %56 = sext i32 %3 to i64
@@ -1118,7 +1118,7 @@ define noundef i32 @_Z20QtricksLeadHandTrumpiR3posiiiiiiiiiiRi(i32 noundef %0, p
 
 68:                                               ; preds = %41
   %69 = sext i32 %0 to i64
-  %70 = getelementptr inbounds nuw [4 x i32], ptr @partner, i64 0, i64 %69
+  %70 = getelementptr inbounds [4 x i32], ptr @partner, i64 0, i64 %69
   %71 = load i32, ptr %70, align 4
   %72 = icmp eq i32 %46, %71
   %73 = icmp sgt i32 %8, 1
@@ -1133,7 +1133,7 @@ define noundef i32 @_Z20QtricksLeadHandTrumpiR3posiiiiiiiiiiRi(i32 noundef %0, p
 76:                                               ; preds = %68
   %77 = load i32, ptr %44, align 4
   %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %78
+  %79 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %78
   %80 = load i16, ptr %79, align 2
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %82 = sext i32 %3 to i64
@@ -1184,7 +1184,7 @@ define noundef i32 @_Z17QtricksLeadHandNTiR3posiiiiRiS1_biiiiiiS1_(i32 noundef %
   %19 = getelementptr inbounds [4 x %struct.highCardType], ptr %17, i64 0, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %21
+  %22 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %21
   %23 = load i16, ptr %22, align 2
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %25 = sext i32 %3 to i64
@@ -1238,7 +1238,7 @@ define noundef i32 @_Z17QtricksLeadHandNTiR3posiiiiRiS1_biiiiiiS1_(i32 noundef %
 49:                                               ; preds = %43
   %50 = load i32, ptr %45, align 4
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %51
+  %52 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %51
   %53 = load i16, ptr %52, align 2
   %54 = load i16, ptr %26, align 2
   %55 = or i16 %54, %53
@@ -1276,7 +1276,7 @@ define noundef i32 @_Z17QtricksLeadHandNTiR3posiiiiRiS1_biiiiiiS1_(i32 noundef %
 
 69:                                               ; preds = %43
   %70 = sext i32 %0 to i64
-  %71 = getelementptr inbounds nuw [4 x i32], ptr @partner, i64 0, i64 %70
+  %71 = getelementptr inbounds [4 x i32], ptr @partner, i64 0, i64 %70
   %72 = load i32, ptr %71, align 4
   %73 = icmp eq i32 %47, %72
   %74 = icmp sgt i32 %10, 1
@@ -1288,7 +1288,7 @@ define noundef i32 @_Z17QtricksLeadHandNTiR3posiiiiRiS1_biiiiiiS1_(i32 noundef %
 76:                                               ; preds = %69
   %77 = load i32, ptr %45, align 4
   %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %78
+  %79 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %78
   %80 = load i16, ptr %79, align 2
   %81 = load i16, ptr %26, align 2
   %82 = or i16 %81, %80
@@ -1362,7 +1362,7 @@ define noundef i32 @_Z27QuickTricksPartnerHandTrumpiR3posiiiiiiiiiiiiRiRK10Threa
   %25 = getelementptr inbounds [4 x %struct.highCardType], ptr %23, i64 0, i64 %24
   %26 = load i32, ptr %25, align 4
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %27
+  %28 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %27
   %29 = load i16, ptr %28, align 2
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %31 = sext i32 %3 to i64
@@ -1371,7 +1371,7 @@ define noundef i32 @_Z27QuickTricksPartnerHandTrumpiR3posiiiiiiiiiiiiRiRK10Threa
   %34 = or i16 %33, %29
   store i16 %34, ptr %32, align 2
   %35 = sext i32 %13 to i64
-  %36 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %35
+  %36 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %35
   %37 = load i16, ptr %36, align 2
   %38 = sext i32 %12 to i64
   %39 = getelementptr inbounds [50 x [4 x i16]], ptr %30, i64 0, i64 %31, i64 %38
@@ -1406,7 +1406,7 @@ define noundef i32 @_Z27QuickTricksPartnerHandTrumpiR3posiiiiiiiiiiiiRiRK10Threa
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %56 = load i32, ptr %55, align 4
   %57 = sext i32 %0 to i64
-  %58 = getelementptr inbounds nuw [4 x i32], ptr @partner, i64 0, i64 %57
+  %58 = getelementptr inbounds [4 x i32], ptr @partner, i64 0, i64 %57
   %59 = load i32, ptr %58, align 4
   %60 = icmp eq i32 %56, %59
   br i1 %60, label %61, label %88
@@ -1419,7 +1419,7 @@ define noundef i32 @_Z27QuickTricksPartnerHandTrumpiR3posiiiiiiiiiiiiRiRK10Threa
 63:                                               ; preds = %61
   %64 = load i32, ptr %54, align 4
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %65
+  %66 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %65
   %67 = load i16, ptr %66, align 2
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %69 = sext i32 %3 to i64
@@ -1428,7 +1428,7 @@ define noundef i32 @_Z27QuickTricksPartnerHandTrumpiR3posiiiiiiiiiiiiRiRK10Threa
   %72 = or i16 %71, %67
   store i16 %72, ptr %70, align 2
   %73 = sext i32 %13 to i64
-  %74 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %73
+  %74 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %73
   %75 = load i16, ptr %74, align 2
   %76 = sext i32 %12 to i64
   %77 = getelementptr inbounds [50 x [4 x i16]], ptr %68, i64 0, i64 %69, i64 %76
@@ -1469,7 +1469,7 @@ define noundef i32 @_Z27QuickTricksPartnerHandTrumpiR3posiiiiiiiiiiiiRiRK10Threa
 94:                                               ; preds = %92
   %95 = load i32, ptr %54, align 4
   %96 = sext i32 %95 to i64
-  %97 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %96
+  %97 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %96
   %98 = load i16, ptr %97, align 2
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %100 = sext i32 %3 to i64
@@ -1478,7 +1478,7 @@ define noundef i32 @_Z27QuickTricksPartnerHandTrumpiR3posiiiiiiiiiiiiRiRK10Threa
   %103 = or i16 %102, %98
   store i16 %103, ptr %101, align 2
   %104 = sext i32 %13 to i64
-  %105 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %104
+  %105 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %104
   %106 = load i16, ptr %105, align 2
   %107 = sext i32 %12 to i64
   %108 = getelementptr inbounds [50 x [4 x i16]], ptr %99, i64 0, i64 %100, i64 %107
@@ -1514,7 +1514,7 @@ define noundef i32 @_Z27QuickTricksPartnerHandTrumpiR3posiiiiiiiiiiiiRiRK10Threa
   br i1 %123, label %124, label %.sink.split
 
 124:                                              ; preds = %122
-  %125 = getelementptr inbounds nuw [4 x i32], ptr @lho, i64 0, i64 %57
+  %125 = getelementptr inbounds [4 x i32], ptr @lho, i64 0, i64 %57
   %126 = load i32, ptr %125, align 4
   %127 = icmp eq i32 %56, %126
   %128 = icmp sgt i32 %4, 1
@@ -1553,7 +1553,7 @@ define noundef i32 @_Z27QuickTricksPartnerHandTrumpiR3posiiiiiiiiiiiiRiRK10Threa
 144:                                              ; preds = %135
   %145 = load i8, ptr %139, align 2
   %146 = sext i8 %145 to i64
-  %147 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %146
+  %147 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %146
   %148 = load i16, ptr %147, align 2
   %149 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %150 = sext i32 %3 to i64
@@ -1562,7 +1562,7 @@ define noundef i32 @_Z27QuickTricksPartnerHandTrumpiR3posiiiiiiiiiiiiRiRK10Threa
   %153 = or i16 %152, %148
   store i16 %153, ptr %151, align 2
   %154 = sext i32 %13 to i64
-  %155 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %154
+  %155 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %154
   %156 = load i16, ptr %155, align 2
   %157 = or i16 %153, %156
   store i16 %157, ptr %151, align 2
@@ -1606,7 +1606,7 @@ define noundef i32 @_Z24QuickTricksPartnerHandNTiR3posiiiiiiiiiiRiRK10ThreadData
   %17 = getelementptr inbounds [4 x %struct.highCardType], ptr %15, i64 0, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %19
+  %20 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %19
   %21 = load i16, ptr %20, align 2
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %23 = sext i32 %3 to i64
@@ -1615,7 +1615,7 @@ define noundef i32 @_Z24QuickTricksPartnerHandNTiR3posiiiiiiiiiiRiRK10ThreadData
   %26 = or i16 %25, %21
   store i16 %26, ptr %24, align 2
   %27 = sext i32 %11 to i64
-  %28 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %27
+  %28 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %27
   %29 = load i16, ptr %28, align 2
   %30 = sext i32 %10 to i64
   %31 = getelementptr inbounds [50 x [4 x i16]], ptr %22, i64 0, i64 %23, i64 %30
@@ -1645,7 +1645,7 @@ define noundef i32 @_Z24QuickTricksPartnerHandNTiR3posiiiiiiiiiiRiRK10ThreadData
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %45 = load i32, ptr %44, align 4
   %46 = sext i32 %0 to i64
-  %47 = getelementptr inbounds nuw [4 x i32], ptr @partner, i64 0, i64 %46
+  %47 = getelementptr inbounds [4 x i32], ptr @partner, i64 0, i64 %46
   %48 = load i32, ptr %47, align 4
   %49 = icmp eq i32 %45, %48
   br i1 %49, label %50, label %64
@@ -1653,7 +1653,7 @@ define noundef i32 @_Z24QuickTricksPartnerHandNTiR3posiiiiiiiiiiRiRK10ThreadData
 50:                                               ; preds = %41
   %51 = load i32, ptr %43, align 4
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %52
+  %53 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %52
   %54 = load i16, ptr %53, align 2
   %55 = load i16, ptr %24, align 2
   %56 = or i16 %55, %54
@@ -1686,7 +1686,7 @@ define noundef i32 @_Z24QuickTricksPartnerHandNTiR3posiiiiiiiiiiRiRK10ThreadData
 68:                                               ; preds = %64
   %69 = load i32, ptr %43, align 4
   %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %70
+  %71 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %70
   %72 = load i16, ptr %71, align 2
   %73 = load i16, ptr %24, align 2
   %74 = or i16 %73, %72
@@ -1720,7 +1720,7 @@ define noundef i32 @_Z24QuickTricksPartnerHandNTiR3posiiiiiiiiiiRiRK10ThreadData
   br i1 %87, label %88, label %.sink.split
 
 88:                                               ; preds = %86
-  %89 = getelementptr inbounds nuw [4 x i32], ptr @lho, i64 0, i64 %46
+  %89 = getelementptr inbounds [4 x i32], ptr @lho, i64 0, i64 %46
   %90 = load i32, ptr %89, align 4
   %91 = icmp eq i32 %45, %90
   br i1 %91, label %.preheader, label %.sink.split
@@ -1750,7 +1750,7 @@ define noundef i32 @_Z24QuickTricksPartnerHandNTiR3posiiiiiiiiiiRiRK10ThreadData
 104:                                              ; preds = %95
   %105 = load i8, ptr %99, align 2
   %106 = sext i8 %105 to i64
-  %107 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %106
+  %107 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %106
   %108 = load i16, ptr %107, align 2
   %109 = load i16, ptr %24, align 2
   %110 = or i16 %109, %108
@@ -1800,7 +1800,7 @@ define noundef zeroext i1 @_Z21QuickTricksSecondHandR3posiiiiRK10ThreadData(ptr 
   %17 = sext i32 %15 to i64
   %18 = getelementptr inbounds [4 x i16], ptr %0, i64 %16, i64 %17
   %19 = load i16, ptr %18, align 2
-  %20 = getelementptr inbounds nuw [4 x i32], ptr @partner, i64 0, i64 %16
+  %20 = getelementptr inbounds [4 x i32], ptr @partner, i64 0, i64 %16
   %21 = load i32, ptr %20, align 4
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds [4 x i16], ptr %0, i64 %22, i64 %17
@@ -1844,7 +1844,7 @@ define noundef zeroext i1 @_Z21QuickTricksSecondHandR3posiiiiRK10ThreadData(ptr 
   br i1 %.not140, label %57, label %46
 
 46:                                               ; preds = %42, %32
-  %47 = getelementptr inbounds nuw [4 x i32], ptr @lho, i64 0, i64 %16
+  %47 = getelementptr inbounds [4 x i32], ptr @lho, i64 0, i64 %16
   %48 = load i32, ptr %47, align 4
   %49 = sext i32 %48 to i64
   %50 = getelementptr inbounds [4 x i16], ptr %0, i64 %49, i64 %17
@@ -1863,9 +1863,9 @@ define noundef zeroext i1 @_Z21QuickTricksSecondHandR3posiiiiRK10ThreadData(ptr 
   %58 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %59 = load i32, ptr %58, align 4
   %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %60
+  %61 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %60
   %62 = load i16, ptr %61, align 2
-  %63 = getelementptr inbounds nuw [4 x i32], ptr @lho, i64 0, i64 %16
+  %63 = getelementptr inbounds [4 x i32], ptr @lho, i64 0, i64 %16
   %64 = load i32, ptr %63, align 4
   %65 = sext i32 %64 to i64
   %66 = getelementptr inbounds [4 x i16], ptr %0, i64 %65, i64 %17
@@ -1891,7 +1891,7 @@ define noundef zeroext i1 @_Z21QuickTricksSecondHandR3posiiiiRK10ThreadData(ptr 
   %78 = getelementptr inbounds nuw [8192 x i32], ptr @highestRank, i64 0, i64 %77
   %79 = load i32, ptr %78, align 4
   %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %80
+  %81 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %80
   %82 = load i16, ptr %81, align 2
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %84 = getelementptr inbounds [50 x [4 x i16]], ptr %83, i64 0, i64 %25, i64 %17
@@ -1955,7 +1955,7 @@ define noundef zeroext i1 @_Z21QuickTricksSecondHandR3posiiiiRK10ThreadData(ptr 
 
 118:                                              ; preds = %114
   %119 = sext i32 %113 to i64
-  %120 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %119
+  %120 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %119
   %121 = load i16, ptr %120, align 2
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %123 = getelementptr inbounds [50 x [4 x i16]], ptr %122, i64 0, i64 %25, i64 %17
@@ -1969,9 +1969,9 @@ define noundef zeroext i1 @_Z21QuickTricksSecondHandR3posiiiiRK10ThreadData(ptr 
   %.0128 = phi i32 [ 2, %118 ], [ 1, %114 ], [ 1, %110 ], [ 1, %99 ]
   %128 = sext i32 %. to i64
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %130 = getelementptr inbounds nuw [4 x i32], ptr @lho, i64 0, i64 %128
-  %131 = getelementptr inbounds nuw [4 x i32], ptr @rho, i64 0, i64 %128
-  %132 = getelementptr inbounds nuw [4 x i32], ptr @partner, i64 0, i64 %128
+  %130 = getelementptr inbounds [4 x i32], ptr @lho, i64 0, i64 %128
+  %131 = getelementptr inbounds [4 x i32], ptr @rho, i64 0, i64 %128
+  %132 = getelementptr inbounds [4 x i32], ptr @partner, i64 0, i64 %128
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %134 = zext i32 %15 to i64
   br label %135
@@ -2037,7 +2037,7 @@ define noundef zeroext i1 @_Z21QuickTricksSecondHandR3posiiiiRK10ThreadData(ptr 
 173:                                              ; preds = %169
   %174 = add nsw i32 %.1151, 1
   %175 = sext i32 %168 to i64
-  %176 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %175
+  %176 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %175
   %177 = load i16, ptr %176, align 2
   %178 = getelementptr inbounds [50 x [4 x i16]], ptr %133, i64 0, i64 %25, i64 %indvars.iv
   %179 = load i16, ptr %178, align 2

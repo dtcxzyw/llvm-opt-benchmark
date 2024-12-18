@@ -18543,7 +18543,7 @@ define linkonce_odr hidden void @_ZN7cvflann11KDTreeIndexINS_2L2IfEEE9meanSplitE
 92:                                               ; preds = %.lr.ph34.i
   %93 = add nsw i32 %.033.i, 1
   %94 = sext i32 %.033.i to i64
-  %95 = getelementptr inbounds nuw [5 x i64], ptr %7, i64 0, i64 %94
+  %95 = getelementptr inbounds [5 x i64], ptr %7, i64 0, i64 %94
   store i64 %.02431.i, ptr %95, align 8
   %96 = icmp sgt i32 %.033.i, 0
   br i1 %96, label %.lr.ph.preheader.i, label %.critedge.i
@@ -18600,7 +18600,7 @@ _ZN7cvflann11KDTreeIndexINS_2L2IfEEE14selectDivisionEPf.exit: ; preds = %._crit_
   %122 = fmul double %.0.lcssa.i, %121
   %123 = fptosi double %122 to i32
   %124 = sext i32 %123 to i64
-  %125 = getelementptr inbounds nuw [5 x i64], ptr %7, i64 0, i64 %124
+  %125 = getelementptr inbounds [5 x i64], ptr %7, i64 0, i64 %124
   %126 = load i64, ptr %125, align 8
   %127 = trunc i64 %126 to i32
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)

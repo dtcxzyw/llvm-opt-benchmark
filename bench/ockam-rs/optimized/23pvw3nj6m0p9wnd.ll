@@ -56479,7 +56479,7 @@ define hidden void @_ZN3std2io4copy17stack_buffer_copy17h3c098c78cd3321e1E.llvm.
   %23 = load i64, ptr %12, align 8, !alias.scope !7575, !noalias !7576, !noundef !4
   %24 = load ptr, ptr %11, align 8, !alias.scope !7575, !noalias !7576, !nonnull !4, !noundef !4
   %.sroa.01.0.copyload.i.i = load i64, ptr %13, align 8, !alias.scope !7575, !noalias !7576
-  %25 = getelementptr inbounds nuw i8, ptr %6, i64 %.02335.i.i
+  %25 = getelementptr inbounds i8, ptr %6, i64 %.02335.i.i
   %26 = call noundef i64 @LZ4F_compressUpdate(i64 %.sroa.01.0.copyload.i.i, ptr noundef nonnull %24, i64 noundef %23, ptr noundef nonnull readonly %25, i64 noundef %.0.sroa.speculated.i.i.i21, ptr noundef null), !noalias !7581
   call void @_ZN3lz46liblz411check_error17hc5db508cf5c64401E(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, i64 noundef %26), !noalias !7581
   %27 = load i64, ptr %5, align 8, !range !423, !noalias !7580, !noundef !4
@@ -56750,7 +56750,7 @@ define hidden void @_ZN3std2io4copy17stack_buffer_copy17h61101bf32f39d96cE.llvm.
   br i1 %51, label %.split55.us.i.i.i.i, label %52
 
 52:                                               ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd3c10239a2ff1c21E.exit.us.i.i.i.i"
-  %53 = getelementptr inbounds nuw i8, ptr %8, i64 %.150.us.i10.i.i.i
+  %53 = getelementptr inbounds i8, ptr %8, i64 %.150.us.i10.i.i.i
   %.sroa.04.0.copyload.us.i.i.i.i = load i64, ptr %15, align 8, !alias.scope !7650, !noalias !7634
   %54 = load ptr, ptr %12, align 8, !alias.scope !7650, !noalias !7634, !nonnull !4, !align !74, !noundef !4
   %55 = getelementptr inbounds i8, ptr %54, i64 %47
@@ -140262,7 +140262,7 @@ default.unreachable3.i:                           ; preds = %"_ZN4core6option15O
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16)
   store <2 x i64> <i64 8, i64 144>, ptr %16, align 16
   %.0..0..0..0. = load i64, ptr %58, align 8
-  %413 = getelementptr inbounds nuw [2 x i64], ptr %16, i64 0, i64 %.0..0..0..0.
+  %413 = getelementptr inbounds [2 x i64], ptr %16, i64 0, i64 %.0..0..0..0.
   %414 = load i64, ptr %413, align 8, !noundef !4
   %415 = getelementptr inbounds nuw i8, ptr %1, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %415, ptr nonnull align 8 %58, i64 %414, i1 false)

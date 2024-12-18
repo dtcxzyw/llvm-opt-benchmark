@@ -3227,7 +3227,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i.i.i.i.i
   %.021.i.i.i.i.i.i.i.i.i = phi i64 [ %34, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %17, %.lr.ph.i.preheader.i.i.i.i.i.i.i.i ]
-  %30 = getelementptr inbounds nuw float, ptr %4, i64 %.021.i.i.i.i.i.i.i.i.i
+  %30 = getelementptr inbounds float, ptr %4, i64 %.021.i.i.i.i.i.i.i.i.i
   %31 = getelementptr inbounds float, ptr %9, i64 %.021.i.i.i.i.i.i.i.i.i
   %32 = load <4 x float>, ptr %31, align 1
   %33 = fmul <4 x float> %29, %32
@@ -3242,7 +3242,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i:                     ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i, %.lr.ph.i17.i.i.i.i.i.i.i.i.i
   %.05.i18.i.i.i.i.i.i.i.i.i = phi i64 [ %41, %.lr.ph.i17.i.i.i.i.i.i.i.i.i ], [ %21, %._crit_edge.i.i.i.i.i.i.i.i.i ]
-  %37 = getelementptr inbounds nuw float, ptr %4, i64 %.05.i18.i.i.i.i.i.i.i.i.i
+  %37 = getelementptr inbounds float, ptr %4, i64 %.05.i18.i.i.i.i.i.i.i.i.i
   %38 = getelementptr inbounds float, ptr %9, i64 %.05.i18.i.i.i.i.i.i.i.i.i
   %39 = load float, ptr %38, align 4
   %40 = fmul float %7, %39
@@ -3601,7 +3601,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i.i.i.i.i
   %.021.i.i.i.i.i.i.i.i.i = phi i64 [ %34, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %17, %.lr.ph.i.preheader.i.i.i.i.i.i.i.i ]
-  %30 = getelementptr inbounds nuw float, ptr %4, i64 %.021.i.i.i.i.i.i.i.i.i
+  %30 = getelementptr inbounds float, ptr %4, i64 %.021.i.i.i.i.i.i.i.i.i
   %31 = getelementptr inbounds float, ptr %9, i64 %.021.i.i.i.i.i.i.i.i.i
   %32 = load <4 x float>, ptr %31, align 1
   %33 = fmul <4 x float> %29, %32
@@ -3616,7 +3616,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i:                     ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i, %.lr.ph.i17.i.i.i.i.i.i.i.i.i
   %.05.i18.i.i.i.i.i.i.i.i.i = phi i64 [ %41, %.lr.ph.i17.i.i.i.i.i.i.i.i.i ], [ %21, %._crit_edge.i.i.i.i.i.i.i.i.i ]
-  %37 = getelementptr inbounds nuw float, ptr %4, i64 %.05.i18.i.i.i.i.i.i.i.i.i
+  %37 = getelementptr inbounds float, ptr %4, i64 %.05.i18.i.i.i.i.i.i.i.i.i
   %38 = getelementptr inbounds float, ptr %9, i64 %.05.i18.i.i.i.i.i.i.i.i.i
   %39 = load float, ptr %38, align 4
   %40 = fmul float %7, %39
@@ -3896,7 +3896,7 @@ _ZN5Eigen8internal17resize_if_allowedINS_6MatrixIfLin1ELin1ELi0ELi2ELi2EEENS2_If
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %._crit_edge.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i = phi i64 [ %85, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %74, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %82 = getelementptr inbounds nuw float, ptr %14, i64 %.05.i.i.i.i.i.i.i.i.i
+  %82 = getelementptr inbounds float, ptr %14, i64 %.05.i.i.i.i.i.i.i.i.i
   %83 = getelementptr inbounds float, ptr %64, i64 %.05.i.i.i.i.i.i.i.i.i
   %84 = load float, ptr %83, align 4
   store float %84, ptr %82, align 4
@@ -3968,7 +3968,7 @@ _ZN5Eigen8internal17resize_if_allowedINS_6MatrixIfLin1ELin1ELi0ELi2ELi2EEENS2_If
 
 .lr.ph.i.i.i.i.i.i.i.i.i18:                       ; preds = %._crit_edge.i.i.i.i.i.i.i.i17, %.lr.ph.i.i.i.i.i.i.i.i.i18
   %.05.i.i.i.i.i.i.i.i.i19 = phi i64 [ %112, %.lr.ph.i.i.i.i.i.i.i.i.i18 ], [ %101, %._crit_edge.i.i.i.i.i.i.i.i17 ]
-  %109 = getelementptr inbounds nuw float, ptr %14, i64 %.05.i.i.i.i.i.i.i.i.i19
+  %109 = getelementptr inbounds float, ptr %14, i64 %.05.i.i.i.i.i.i.i.i.i19
   %110 = getelementptr inbounds float, ptr %91, i64 %.05.i.i.i.i.i.i.i.i.i19
   %111 = load float, ptr %110, align 4
   store float %111, ptr %109, align 4

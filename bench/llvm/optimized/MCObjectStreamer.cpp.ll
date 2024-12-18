@@ -1075,7 +1075,7 @@ switch.lookup:                                    ; preds = %4
   %44 = trunc i64 %43 to i32
   %switch.tableidx = add nsw i32 %2, -1
   %45 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN4llvm16MCObjectStreamer13emitValueImplEPKNS_6MCExprEjNS_5SMLocE, i64 0, i64 %45
+  %switch.gep = getelementptr inbounds [8 x i32], ptr @switch.table._ZN4llvm16MCObjectStreamer13emitValueImplEPKNS_6MCExprEjNS_5SMLocE, i64 0, i64 %45
   %switch.load = load i32, ptr %switch.gep, align 4
   store ptr %1, ptr %8, align 8, !alias.scope !19
   %46 = getelementptr inbounds nuw i8, ptr %8, i64 8

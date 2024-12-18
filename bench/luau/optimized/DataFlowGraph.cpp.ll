@@ -11563,7 +11563,7 @@ _ZN4Luau14TypedAllocatorINS_3DefEE8unfreezeEv.exit: ; preds = %.noexc, %4
   %25 = getelementptr inbounds %"struct.Luau::Def", ptr %18, i64 %.012.i
   %26 = load i32, ptr %25, align 8
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_4CellENS_3PhiEEE9tableDtorE, i64 0, i64 %27
+  %28 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_4CellENS_3PhiEEE9tableDtorE, i64 0, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 8
   invoke void %29(ptr noundef nonnull %30)

@@ -1528,7 +1528,7 @@ _ZN2cvL17decode_ioctl_codeEm.exit103:             ; preds = %117, %118, %119, %1
   %205 = shl nuw i64 1, %204
   %206 = sdiv i32 %202, 64
   %207 = sext i32 %206 to i64
-  %208 = getelementptr inbounds nuw [16 x i64], ptr %14, i64 0, i64 %207
+  %208 = getelementptr inbounds [16 x i64], ptr %14, i64 0, i64 %207
   %209 = load i64, ptr %208, align 8
   %210 = or i64 %205, %209
   store i64 %210, ptr %208, align 8

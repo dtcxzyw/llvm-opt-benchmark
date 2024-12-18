@@ -1520,7 +1520,7 @@ translate.exit:                                   ; preds = %125, %155, %158
   %199 = getelementptr inbounds nuw i8, ptr %4, i64 63
   store i8 0, ptr %199, align 1
   %200 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #13
-  %201 = getelementptr inbounds nuw i8, ptr %4, i64 %200
+  %201 = getelementptr inbounds i8, ptr %4, i64 %200
   %202 = sub i64 63, %200
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %201, i8 0, i64 %202, i1 false)
   br label %203

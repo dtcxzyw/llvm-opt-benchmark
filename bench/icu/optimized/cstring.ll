@@ -123,14 +123,14 @@ do.body:                                          ; preds = %do.body, %if.end
   %cond = select i1 %cmp5, i32 %add, i32 %sub9
   %conv10 = trunc i32 %cond to i8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %arrayidx12 = getelementptr inbounds nuw [30 x i8], ptr %tbuf, i64 0, i64 %indvars.iv.next
+  %arrayidx12 = getelementptr inbounds [30 x i8], ptr %tbuf, i64 0, i64 %indvars.iv.next
   store i8 %conv10, ptr %arrayidx12, align 1
   %div = udiv i32 %uval.1, %radix
   %cmp13.not = icmp ugt i32 %radix, %uval.1
   br i1 %cmp13.not, label %do.end, label %do.body, !llvm.loop !7
 
 do.end:                                           ; preds = %do.body
-  %arrayidx12.le = getelementptr inbounds nuw [30 x i8], ptr %tbuf, i64 0, i64 %indvars.iv.next
+  %arrayidx12.le = getelementptr inbounds [30 x i8], ptr %tbuf, i64 0, i64 %indvars.iv.next
   %0 = trunc nsw i64 %indvars.iv to i32
   %add.ptr = getelementptr inbounds nuw i8, ptr %buffer, i64 %length.0
   %call = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %add.ptr, ptr noundef nonnull dereferenceable(1) %arrayidx12.le) #11
@@ -177,14 +177,14 @@ do.body:                                          ; preds = %do.body, %if.end
   %cond = select i1 %cmp6, i32 %add, i32 %sub10
   %conv11 = trunc i32 %cond to i8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %arrayidx13 = getelementptr inbounds nuw [30 x i8], ptr %tbuf, i64 0, i64 %indvars.iv.next
+  %arrayidx13 = getelementptr inbounds [30 x i8], ptr %tbuf, i64 0, i64 %indvars.iv.next
   store i8 %conv11, ptr %arrayidx13, align 1
   %div = udiv i64 %uval.1, %conv
   %cmp15.not = icmp ult i64 %uval.1, %conv
   br i1 %cmp15.not, label %do.end, label %do.body, !llvm.loop !8
 
 do.end:                                           ; preds = %do.body
-  %arrayidx13.le = getelementptr inbounds nuw [30 x i8], ptr %tbuf, i64 0, i64 %indvars.iv.next
+  %arrayidx13.le = getelementptr inbounds [30 x i8], ptr %tbuf, i64 0, i64 %indvars.iv.next
   %0 = trunc nsw i64 %indvars.iv to i32
   %add.ptr = getelementptr inbounds nuw i8, ptr %buffer, i64 %length.0
   %call = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %add.ptr, ptr noundef nonnull dereferenceable(1) %arrayidx13.le) #11

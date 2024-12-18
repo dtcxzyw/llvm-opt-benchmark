@@ -586,7 +586,7 @@ if.then234:                                       ; preds = %if.end230
   %59 = load double, ptr %arrayidx237, align 8
   %mul238 = fmul double %59, %56
   %idxprom239 = sext i32 %sub235 to i64
-  %arrayidx240 = getelementptr inbounds nuw [23 x double], ptr @_ZN6dmg_fpL4tensE, i64 0, i64 %idxprom239
+  %arrayidx240 = getelementptr inbounds [23 x double], ptr @_ZN6dmg_fpL4tensE, i64 0, i64 %idxprom239
   %60 = load double, ptr %arrayidx240, align 8
   %mul241 = fmul double %mul238, %60
   store double %mul241, ptr %rv, align 8
@@ -1090,7 +1090,7 @@ for.cond437:                                      ; preds = %for.cond437.backedg
 
 land.lhs.true.i:                                  ; preds = %for.cond437
   %idxprom.i = sext i32 %111 to i64
-  %arrayidx.i = getelementptr inbounds nuw [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i
   %112 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not.i316 = icmp eq ptr %112, null
   br i1 %tobool.not.i316, label %land.lhs.true9.i, label %if.then.i317
@@ -1238,7 +1238,7 @@ if.then1.i:                                       ; preds = %if.then.i338
 
 if.else.i340:                                     ; preds = %if.then.i338
   %idxprom.i341 = sext i32 %121 to i64
-  %arrayidx.i342 = getelementptr inbounds nuw [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i341
+  %arrayidx.i342 = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i341
   %122 = load ptr, ptr %arrayidx.i342, align 8
   store ptr %122, ptr %call445, align 8
   store ptr %call445, ptr %arrayidx.i342, align 8
@@ -1734,7 +1734,7 @@ if.then1.i404:                                    ; preds = %if.then.i398
 
 if.else.i401:                                     ; preds = %if.then.i398
   %idxprom.i402 = sext i32 %170 to i64
-  %arrayidx.i403 = getelementptr inbounds nuw [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i402
+  %arrayidx.i403 = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i402
   %171 = load ptr, ptr %arrayidx.i403, align 8
   store ptr %171, ptr %bb.1, align 8
   store ptr %bb.1, ptr %arrayidx.i403, align 8
@@ -1756,7 +1756,7 @@ if.then1.i413:                                    ; preds = %if.then.i407
 
 if.else.i410:                                     ; preds = %if.then.i407
   %idxprom.i411 = sext i32 %172 to i64
-  %arrayidx.i412 = getelementptr inbounds nuw [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i411
+  %arrayidx.i412 = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i411
   %173 = load ptr, ptr %arrayidx.i412, align 8
   store ptr %173, ptr %bd.1, align 8
   store ptr %bd.1, ptr %arrayidx.i412, align 8
@@ -1774,7 +1774,7 @@ if.then1.i422:                                    ; preds = %if.then.i416
 
 if.else.i419:                                     ; preds = %if.then.i416
   %idxprom.i420 = sext i32 %174 to i64
-  %arrayidx.i421 = getelementptr inbounds nuw [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i420
+  %arrayidx.i421 = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i420
   %175 = load ptr, ptr %arrayidx.i421, align 8
   store ptr %175, ptr %bs.1, align 8
   store ptr %bs.1, ptr %arrayidx.i421, align 8
@@ -1795,7 +1795,7 @@ for.cond437.backedge:                             ; preds = %if.then1.i431, %if.
 
 if.else.i428:                                     ; preds = %if.then.i425
   %idxprom.i429 = sext i32 %176 to i64
-  %arrayidx.i430 = getelementptr inbounds nuw [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i429
+  %arrayidx.i430 = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i429
   %177 = load ptr, ptr %arrayidx.i430, align 8
   store ptr %177, ptr %call507, align 8
   store ptr %call507, ptr %arrayidx.i430, align 8
@@ -1820,7 +1820,7 @@ if.then1.i440:                                    ; preds = %if.then.i434
 
 if.else.i437:                                     ; preds = %if.then.i434
   %idxprom.i438 = sext i32 %178 to i64
-  %arrayidx.i439 = getelementptr inbounds nuw [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i438
+  %arrayidx.i439 = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i438
   %179 = load ptr, ptr %arrayidx.i439, align 8
   store ptr %179, ptr %bb.1, align 8
   store ptr %bb.1, ptr %arrayidx.i439, align 8
@@ -1842,7 +1842,7 @@ if.then1.i449:                                    ; preds = %if.then.i443
 
 if.else.i446:                                     ; preds = %if.then.i443
   %idxprom.i447 = sext i32 %180 to i64
-  %arrayidx.i448 = getelementptr inbounds nuw [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i447
+  %arrayidx.i448 = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i447
   %181 = load ptr, ptr %arrayidx.i448, align 8
   store ptr %181, ptr %bd.1, align 8
   store ptr %bd.1, ptr %arrayidx.i448, align 8
@@ -1864,7 +1864,7 @@ if.then1.i458:                                    ; preds = %if.then.i452
 
 if.else.i455:                                     ; preds = %if.then.i452
   %idxprom.i456 = sext i32 %182 to i64
-  %arrayidx.i457 = getelementptr inbounds nuw [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i456
+  %arrayidx.i457 = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i456
   %183 = load ptr, ptr %arrayidx.i457, align 8
   store ptr %183, ptr %bs.1, align 8
   store ptr %bs.1, ptr %arrayidx.i457, align 8
@@ -1885,7 +1885,7 @@ if.then1.i467:                                    ; preds = %if.then.i461
 
 if.else.i464:                                     ; preds = %if.then.i461
   %idxprom.i465 = sext i32 %184 to i64
-  %arrayidx.i466 = getelementptr inbounds nuw [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i465
+  %arrayidx.i466 = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i465
   %185 = load ptr, ptr %arrayidx.i466, align 8
   store ptr %185, ptr %b.2.lcssa.i, align 8
   store ptr %b.2.lcssa.i, ptr %arrayidx.i466, align 8
@@ -1907,7 +1907,7 @@ if.then1.i476:                                    ; preds = %if.then.i470
 
 if.else.i473:                                     ; preds = %if.then.i470
   %idxprom.i474 = sext i32 %186 to i64
-  %arrayidx.i475 = getelementptr inbounds nuw [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i474
+  %arrayidx.i475 = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i474
   %187 = load ptr, ptr %arrayidx.i475, align 8
   store ptr %187, ptr %delta.0, align 8
   store ptr %delta.0, ptr %arrayidx.i475, align 8
@@ -2261,7 +2261,7 @@ if.then1.i.i:                                     ; preds = %if.then.i.i493
 
 if.else.i.i495:                                   ; preds = %if.then.i.i493
   %idxprom.i92.i = sext i32 %213 to i64
-  %arrayidx.i93.i = getelementptr inbounds nuw [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i92.i
+  %arrayidx.i93.i = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i92.i
   %214 = load ptr, ptr %arrayidx.i93.i, align 8
   store ptr %214, ptr %b.5114.i, align 8
   store ptr %b.5114.i, ptr %arrayidx.i93.i, align 8
@@ -2284,7 +2284,7 @@ if.then1.i101.i:                                  ; preds = %if.then.i95.i
 
 if.else.i98.i:                                    ; preds = %if.then.i95.i
   %idxprom.i99.i = sext i32 %215 to i64
-  %arrayidx.i100.i = getelementptr inbounds nuw [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i99.i
+  %arrayidx.i100.i = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i99.i
   %216 = load ptr, ptr %arrayidx.i100.i, align 8
   store ptr %216, ptr %d.1.i, align 8
   store ptr %d.1.i, ptr %arrayidx.i100.i, align 8
@@ -2958,7 +2958,7 @@ if.then1.i:                                       ; preds = %if.then.i
 
 if.else.i:                                        ; preds = %if.then.i
   %idxprom.i = sext i32 %5 to i64
-  %arrayidx.i = getelementptr inbounds nuw [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i
   %6 = load ptr, ptr %arrayidx.i, align 8
   store ptr %6, ptr %b.addr.1, align 8
   store ptr %b.addr.1, ptr %arrayidx.i, align 8
@@ -3012,7 +3012,7 @@ entry:
 
 land.lhs.true.i:                                  ; preds = %entry
   %idxprom.i = sext i32 %k.0 to i64
-  %arrayidx.i = getelementptr inbounds nuw [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i
   %6 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not.i = icmp eq ptr %6, null
   br i1 %tobool.not.i, label %land.lhs.true9.i, label %if.then.i
@@ -3200,7 +3200,7 @@ for.end:                                          ; preds = %for.body, %entry
 
 land.lhs.true.i:                                  ; preds = %for.end
   %idxprom.i = sext i32 %k1.0.lcssa to i64
-  %arrayidx.i = getelementptr inbounds nuw [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i
   %3 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i, label %land.lhs.true9.i, label %if.then.i
@@ -3338,7 +3338,7 @@ if.then1.i:                                       ; preds = %if.then.i31
 
 if.else.i33:                                      ; preds = %if.then.i31
   %idxprom.i34 = sext i32 %17 to i64
-  %arrayidx.i35 = getelementptr inbounds nuw [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i34
+  %arrayidx.i35 = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i34
   %18 = load ptr, ptr %arrayidx.i35, align 8
   store ptr %18, ptr %b, align 8
   store ptr %b, ptr %arrayidx.i35, align 8
@@ -3444,7 +3444,7 @@ if.end:                                           ; preds = %if.then7.i, %entry
 
 land.lhs.true.i:                                  ; preds = %if.end
   %idxprom.i = sext i32 %7 to i64
-  %arrayidx.i = getelementptr inbounds nuw [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i
   %8 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not.i43 = icmp eq ptr %8, null
   br i1 %tobool.not.i43, label %land.lhs.true9.i45, label %if.then.i44
@@ -3599,7 +3599,7 @@ if.then1.i:                                       ; preds = %entry
 
 if.else.i:                                        ; preds = %entry
   %idxprom.i = sext i32 %0 to i64
-  %arrayidx.i = getelementptr inbounds nuw [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i
   %1 = load ptr, ptr %arrayidx.i, align 8
   store ptr %1, ptr %add.ptr, align 8
   store ptr %add.ptr, ptr %arrayidx.i, align 8
@@ -3645,7 +3645,7 @@ if.then1.i.i:                                     ; preds = %if.then
 
 if.else.i.i:                                      ; preds = %if.then
   %idxprom.i.i = sext i32 %1 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i.i
   %2 = load ptr, ptr %arrayidx.i.i, align 8
   store ptr %2, ptr %add.ptr.i, align 8
   store ptr %add.ptr.i, ptr %arrayidx.i.i, align 8
@@ -4379,7 +4379,7 @@ if.end250:                                        ; preds = %fast_failed, %_ZN6d
 
 if.then254:                                       ; preds = %if.end250
   %idxprom255 = sext i32 %k.1 to i64
-  %arrayidx256 = getelementptr inbounds nuw [23 x double], ptr @_ZN6dmg_fpL4tensE, i64 0, i64 %idxprom255
+  %arrayidx256 = getelementptr inbounds [23 x double], ptr @_ZN6dmg_fpL4tensE, i64 0, i64 %idxprom255
   %62 = load double, ptr %arrayidx256, align 8
   %cmp257 = icmp slt i32 %ndigits.addr.0654, 0
   %cmp259 = icmp slt i32 %ilim.0640, 1
@@ -4584,7 +4584,7 @@ if.then1.i:                                       ; preds = %if.then.i416
 
 if.else.i:                                        ; preds = %if.then.i416
   %idxprom.i = sext i32 %76 to i64
-  %arrayidx.i = getelementptr inbounds nuw [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i
   %77 = load ptr, ptr %arrayidx.i, align 8
   store ptr %77, ptr %call22, align 8
   store ptr %call22, ptr %arrayidx.i, align 8
@@ -4882,7 +4882,7 @@ if.then447:                                       ; preds = %if.end445
 
 land.lhs.true.i:                                  ; preds = %if.then447
   %idxprom.i486 = sext i32 %94 to i64
-  %arrayidx.i487 = getelementptr inbounds nuw [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i486
+  %arrayidx.i487 = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i486
   %95 = load ptr, ptr %arrayidx.i487, align 8
   %tobool.not.i488 = icmp eq ptr %95, null
   br i1 %tobool.not.i488, label %land.lhs.true9.i, label %if.then.i489
@@ -5064,7 +5064,7 @@ if.then1.i547:                                    ; preds = %if.then.i541
 
 if.else.i544:                                     ; preds = %if.then.i541
   %idxprom.i545 = sext i32 %108 to i64
-  %arrayidx.i546 = getelementptr inbounds nuw [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i545
+  %arrayidx.i546 = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i545
   %109 = load ptr, ptr %arrayidx.i546, align 8
   store ptr %109, ptr %call462, align 8
   store ptr %call462, ptr %arrayidx.i546, align 8
@@ -5380,7 +5380,7 @@ if.then1.i604:                                    ; preds = %if.then.i598
 
 if.else.i601:                                     ; preds = %if.then.i598
   %idxprom.i602 = sext i32 %127 to i64
-  %arrayidx.i603 = getelementptr inbounds nuw [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i602
+  %arrayidx.i603 = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i602
   %128 = load ptr, ptr %arrayidx.i603, align 8
   store ptr %128, ptr %S.4, align 8
   store ptr %S.4, ptr %arrayidx.i603, align 8
@@ -5408,7 +5408,7 @@ if.then1.i613:                                    ; preds = %if.then.i607
 
 if.else.i610:                                     ; preds = %if.then.i607
   %idxprom.i611 = sext i32 %129 to i64
-  %arrayidx.i612 = getelementptr inbounds nuw [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i611
+  %arrayidx.i612 = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i611
   %130 = load ptr, ptr %arrayidx.i612, align 8
   store ptr %130, ptr %mlo.2, align 8
   store ptr %mlo.2, ptr %arrayidx.i612, align 8
@@ -5426,7 +5426,7 @@ if.then1.i622:                                    ; preds = %if.then.i616
 
 if.else.i619:                                     ; preds = %if.then.i616
   %idxprom.i620 = sext i32 %131 to i64
-  %arrayidx.i621 = getelementptr inbounds nuw [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i620
+  %arrayidx.i621 = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i620
   %132 = load ptr, ptr %arrayidx.i621, align 8
   store ptr %132, ptr %mhi.7, align 8
   store ptr %mhi.7, ptr %arrayidx.i621, align 8
@@ -5460,7 +5460,7 @@ if.then1.i631:                                    ; preds = %if.then.i625
 
 if.else.i628:                                     ; preds = %if.then.i625
   %idxprom.i629 = sext i32 %133 to i64
-  %arrayidx.i630 = getelementptr inbounds nuw [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i629
+  %arrayidx.i630 = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i629
   %134 = load ptr, ptr %arrayidx.i630, align 8
   store ptr %134, ptr %b.2, align 8
   store ptr %b.2, ptr %arrayidx.i630, align 8
@@ -5530,7 +5530,7 @@ if.then7:                                         ; preds = %if.then
 
 land.lhs.true.i:                                  ; preds = %if.then7
   %idxprom.i = sext i32 %add8 to i64
-  %arrayidx.i = getelementptr inbounds nuw [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i
   %4 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not.i = icmp eq ptr %4, null
   br i1 %tobool.not.i, label %land.lhs.true9.i, label %if.then.i
@@ -5606,7 +5606,7 @@ if.then1.i:                                       ; preds = %if.then.i19
 
 if.else.i21:                                      ; preds = %if.then.i19
   %idxprom.i22 = sext i32 %8 to i64
-  %arrayidx.i23 = getelementptr inbounds nuw [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i22
+  %arrayidx.i23 = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %idxprom.i22
   %9 = load ptr, ptr %arrayidx.i23, align 8
   store ptr %9, ptr %b, align 8
   store ptr %b, ptr %arrayidx.i23, align 8

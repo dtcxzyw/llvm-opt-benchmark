@@ -2945,7 +2945,7 @@ define dso_local noundef zeroext i1 @_Z27cmScanDepFormat_P1689_WriteRKNSt7__cxx1
   %222 = load ptr, ptr %27, align 8
   %223 = getelementptr i8, ptr %222, i64 -24
   %224 = load i64, ptr %223, align 8
-  %225 = getelementptr inbounds nuw i8, ptr %27, i64 %224
+  %225 = getelementptr inbounds i8, ptr %27, i64 %224
   %226 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %225)
           to label %227 unwind label %229
 

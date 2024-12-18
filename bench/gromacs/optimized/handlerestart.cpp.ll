@@ -1254,7 +1254,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit73.i: 
   %314 = getelementptr inbounds nuw i32, ptr %313, i64 %.046122.i
   %315 = load i32, ptr %314, align 4
   %316 = sext i32 %315 to i64
-  %317 = getelementptr inbounds nuw [3 x %"class.std::__cxx11::basic_string"], ptr %39, i64 0, i64 %316
+  %317 = getelementptr inbounds [3 x %"class.std::__cxx11::basic_string"], ptr %39, i64 0, i64 %316
   %318 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %317) #21
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %44, ptr noundef nonnull @.str.30, i64 noundef %.046122.i, ptr noundef %318)
           to label %319 unwind label %341

@@ -2497,7 +2497,7 @@ opal_dt_swap_bytes.exit134:                       ; preds = %63
   %.02730.i136 = phi i64 [ %88, %84 ], [ 0, %.preheader165 ]
   %85 = getelementptr inbounds nuw i8, ptr %.6193, i64 %.02730.i136
   %86 = load i8, ptr %85, align 1
-  %87 = getelementptr inbounds nuw i8, ptr %12, i64 %.02631.i135
+  %87 = getelementptr inbounds i8, ptr %12, i64 %.02631.i135
   store i8 %86, ptr %87, align 1
   %88 = add nuw nsw i64 %.02730.i136, 1
   %89 = add nsw i64 %.02631.i135, -1
@@ -2525,7 +2525,7 @@ opal_dt_swap_bytes.exit138:                       ; preds = %84
   %.02730.i140 = phi i64 [ %99, %95 ], [ 0, %.preheader162 ]
   %96 = getelementptr inbounds nuw i8, ptr %.7196, i64 %.02730.i140
   %97 = load i8, ptr %96, align 1
-  %98 = getelementptr inbounds nuw i8, ptr %13, i64 %.02631.i139
+  %98 = getelementptr inbounds i8, ptr %13, i64 %.02631.i139
   store i8 %97, ptr %98, align 1
   %99 = add nuw nsw i64 %.02730.i140, 1
   %100 = add nsw i64 %.02631.i139, -1
@@ -2796,7 +2796,7 @@ opal_dt_swap_bytes.exit134:                       ; preds = %63
   %.02730.i136 = phi i64 [ %88, %84 ], [ 0, %.preheader165 ]
   %85 = getelementptr inbounds nuw i8, ptr %.6193, i64 %.02730.i136
   %86 = load i8, ptr %85, align 1
-  %87 = getelementptr inbounds nuw i8, ptr %12, i64 %.02631.i135
+  %87 = getelementptr inbounds i8, ptr %12, i64 %.02631.i135
   store i8 %86, ptr %87, align 1
   %88 = add nuw nsw i64 %.02730.i136, 1
   %89 = add nsw i64 %.02631.i135, -1
@@ -2824,7 +2824,7 @@ opal_dt_swap_bytes.exit138:                       ; preds = %84
   %.02730.i140 = phi i64 [ %99, %95 ], [ 0, %.preheader162 ]
   %96 = getelementptr inbounds nuw i8, ptr %.7196, i64 %.02730.i140
   %97 = load i8, ptr %96, align 1
-  %98 = getelementptr inbounds nuw i8, ptr %13, i64 %.02631.i139
+  %98 = getelementptr inbounds i8, ptr %13, i64 %.02631.i139
   store i8 %97, ptr %98, align 1
   %99 = add nuw nsw i64 %.02730.i140, 1
   %100 = add nsw i64 %.02631.i139, -1

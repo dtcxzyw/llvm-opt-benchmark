@@ -556,7 +556,7 @@ if.then259.i:                                     ; preds = %if.end254.i
   %50 = load double, ptr %arrayidx262.i, align 8
   %mul263.i = fmul double %47, %50
   %idxprom264.i = sext i32 %sub260.i to i64
-  %arrayidx265.i = getelementptr inbounds nuw [23 x double], ptr @tens, i64 0, i64 %idxprom264.i
+  %arrayidx265.i = getelementptr inbounds [23 x double], ptr @tens, i64 0, i64 %idxprom264.i
   %51 = load double, ptr %arrayidx265.i, align 8
   %mul266.i = fmul double %mul263.i, %51
   store double %mul266.i, ptr %rv.i, align 8
@@ -3564,7 +3564,7 @@ if.end303:                                        ; preds = %fast_failed, %rv_al
 
 if.then309:                                       ; preds = %if.end303
   %idxprom310 = sext i32 %k.1 to i64
-  %arrayidx311 = getelementptr inbounds nuw [23 x double], ptr @tens, i64 0, i64 %idxprom310
+  %arrayidx311 = getelementptr inbounds [23 x double], ptr @tens, i64 0, i64 %idxprom310
   %67 = load double, ptr %arrayidx311, align 8
   %cmp312 = icmp slt i32 %ndigits.addr.0706, 0
   %cmp315 = icmp slt i32 %ilim.0692, 1
@@ -6894,7 +6894,7 @@ if.end303:                                        ; preds = %fast_failed, %rv_al
 
 if.then309:                                       ; preds = %if.end303
   %idxprom310 = sext i32 %k.1 to i64
-  %arrayidx311 = getelementptr inbounds nuw [23 x double], ptr @tens, i64 0, i64 %idxprom310
+  %arrayidx311 = getelementptr inbounds [23 x double], ptr @tens, i64 0, i64 %idxprom310
   %67 = load double, ptr %arrayidx311, align 8
   %cmp312 = icmp slt i32 %ndigits.addr.0687, 0
   %cmp315 = icmp slt i32 %ilim.0673, 1

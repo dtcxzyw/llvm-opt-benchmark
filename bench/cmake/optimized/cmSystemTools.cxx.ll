@@ -1519,7 +1519,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %24
   %33 = load ptr, ptr %7, align 8
   %34 = getelementptr i8, ptr %33, i64 -24
   %35 = load i64, ptr %34, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %7, i64 %35
+  %36 = getelementptr inbounds i8, ptr %7, i64 %35
   %37 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %36)
           to label %38 unwind label %65
 
@@ -7402,7 +7402,7 @@ _ZN13cmSystemTools26GetCurrentWorkingDirectoryB5cxx11Ev.exit: ; preds = %7
   %32 = load ptr, ptr %17, align 8
   %33 = getelementptr i8, ptr %32, i64 -24
   %34 = load i64, ptr %33, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %17, i64 %34
+  %35 = getelementptr inbounds i8, ptr %17, i64 %34
   %36 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %35)
           to label %37 unwind label %65
 
@@ -9889,7 +9889,7 @@ define dso_local noundef i32 @_ZN13cmSystemTools10RandomSeedEv() local_unnamed_a
   %9 = load ptr, ptr %2, align 8
   %10 = getelementptr i8, ptr %9, i64 -24
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %2, i64 %11
+  %12 = getelementptr inbounds i8, ptr %2, i64 %11
   %13 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %12)
           to label %14 unwind label %30
 
@@ -10459,7 +10459,7 @@ _Z18cmHasLiteralSuffixILm5EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.e
   %207 = load ptr, ptr %35, align 8
   %208 = getelementptr i8, ptr %207, i64 -24
   %209 = load i64, ptr %208, align 8
-  %210 = getelementptr inbounds nuw i8, ptr %35, i64 %209
+  %210 = getelementptr inbounds i8, ptr %35, i64 %209
   %211 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %210)
           to label %212 unwind label %227
 
@@ -10542,7 +10542,7 @@ _Z18cmHasLiteralSuffixILm5EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.e
   %242 = load ptr, ptr %39, align 8
   %243 = getelementptr i8, ptr %242, i64 -24
   %244 = load i64, ptr %243, align 8
-  %245 = getelementptr inbounds nuw i8, ptr %39, i64 %244
+  %245 = getelementptr inbounds i8, ptr %39, i64 %244
   %246 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %245)
           to label %247 unwind label %256
 
@@ -12056,7 +12056,7 @@ _ZNSt6vectorISt4pairIlmESaIS1_EED2Ev.exit81.i:    ; preds = %138
   %144 = load ptr, ptr %13, align 8
   %145 = getelementptr i8, ptr %144, i64 -24
   %146 = load i64, ptr %145, align 8
-  %147 = getelementptr inbounds nuw i8, ptr %13, i64 %146
+  %147 = getelementptr inbounds i8, ptr %13, i64 %146
   %148 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %147)
           to label %149 unwind label %.loopexit.split-lp.loopexit.split-lp.i
 
@@ -12191,7 +12191,7 @@ _ZNSt6vectorISt4pairIlmESaIS1_EED2Ev.exit.i:      ; preds = %55, %53, %21
   %195 = load ptr, ptr %13, align 8
   %196 = getelementptr i8, ptr %195, i64 -24
   %197 = load i64, ptr %196, align 8
-  %198 = getelementptr inbounds nuw i8, ptr %13, i64 %197
+  %198 = getelementptr inbounds i8, ptr %13, i64 %197
   %199 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %198)
           to label %200 unwind label %.loopexit.split-lp.loopexit.i
 
@@ -14410,7 +14410,7 @@ _ZNK5cmELFcvbEv.exit:                             ; preds = %27
   %71 = phi i64 [ %.pre175, %._crit_edge173 ], [ %68, %63 ]
   %72 = phi ptr [ %.pre, %._crit_edge173 ], [ %66, %63 ]
   %73 = sext i32 %.1154 to i64
-  %74 = getelementptr inbounds nuw [2 x %"struct.(anonymous namespace)::cmSystemToolsRPathInfo"], ptr %10, i64 0, i64 %73
+  %74 = getelementptr inbounds [2 x %"struct.(anonymous namespace)::cmSystemToolsRPathInfo"], ptr %10, i64 0, i64 %73
   store i64 %71, ptr %74, align 16
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 40
   %76 = load i64, ptr %75, align 8
@@ -14573,7 +14573,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ;
   %125 = load ptr, ptr %16, align 8
   %126 = getelementptr i8, ptr %125, i64 -24
   %127 = load i64, ptr %126, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %16, i64 %127
+  %128 = getelementptr inbounds i8, ptr %16, i64 %127
   %129 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %128)
           to label %130 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -14675,7 +14675,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ;
   %162 = load ptr, ptr %16, align 8
   %163 = getelementptr i8, ptr %162, i64 -24
   %164 = load i64, ptr %163, align 8
-  %165 = getelementptr inbounds nuw i8, ptr %16, i64 %164
+  %165 = getelementptr inbounds i8, ptr %16, i64 %164
   %166 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %165)
           to label %167 unwind label %.loopexit.split-lp.loopexit
 

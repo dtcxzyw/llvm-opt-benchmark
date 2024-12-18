@@ -961,7 +961,7 @@ _ZN8tstrings3anylsIPKcEERS0_T_.exit118:           ; preds = %260
   %286 = load ptr, ptr %58, align 8
   %287 = getelementptr i8, ptr %286, i64 -24
   %288 = load i64, ptr %287, align 8
-  %289 = getelementptr inbounds nuw i8, ptr %58, i64 %288
+  %289 = getelementptr inbounds i8, ptr %58, i64 %288
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE10exceptionsESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %289, i32 noundef 5)
           to label %290 unwind label %310
 

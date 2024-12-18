@@ -885,7 +885,7 @@ while.end:                                        ; preds = %if.end50.us173, %if
 
 if.then63:                                        ; preds = %while.end
   %idxprom64 = sext i32 %inBytes.0.fr to i64
-  %arrayidx65 = getelementptr inbounds nuw [5 x i32], ptr @_ZL15offsetsFromUTF8, i64 0, i64 %idxprom64
+  %arrayidx65 = getelementptr inbounds [5 x i32], ptr @_ZL15offsetsFromUTF8, i64 0, i64 %idxprom64
   %36 = load i32, ptr %arrayidx65, align 4
   %sub66 = sub i32 %ch.1.lcssa, %36
   %cmp67 = icmp ult i32 %sub66, 65536
@@ -1304,7 +1304,7 @@ while.end:                                        ; preds = %if.end51.us184, %if
 
 if.then65:                                        ; preds = %while.end
   %idxprom66 = sext i32 %inBytes.0.fr to i64
-  %arrayidx67 = getelementptr inbounds nuw [5 x i32], ptr @_ZL15offsetsFromUTF8, i64 0, i64 %idxprom66
+  %arrayidx67 = getelementptr inbounds [5 x i32], ptr @_ZL15offsetsFromUTF8, i64 0, i64 %idxprom66
   %37 = load i32, ptr %arrayidx67, align 4
   %sub68 = sub i32 %ch.1.lcssa, %37
   %cmp69 = icmp ult i32 %sub68, 65536

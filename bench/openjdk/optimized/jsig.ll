@@ -397,7 +397,7 @@ define ptr @JVM_get_signal_action(i32 noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @sigismember(ptr noundef nonnull @jvmsigs, i32 noundef %0) #9
   %.not = icmp eq i32 %2, 0
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds nuw [65 x %struct.sigaction], ptr @sact, i64 0, i64 %3
+  %4 = getelementptr inbounds [65 x %struct.sigaction], ptr @sact, i64 0, i64 %3
   %.0 = select i1 %.not, ptr null, ptr %4
   ret ptr %.0
 }

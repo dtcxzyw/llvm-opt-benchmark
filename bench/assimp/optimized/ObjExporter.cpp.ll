@@ -213,7 +213,7 @@ entry:
   %vtable = load ptr, ptr %exporter, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %exporter, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %exporter, i64 %vbase.offset
   %call = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr)
           to label %invoke.cont unwind label %lpad
 
@@ -683,7 +683,7 @@ entry:
   %vtable = load ptr, ptr %exporter, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %exporter, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %exporter, i64 %vbase.offset
   %call = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr)
           to label %invoke.cont unwind label %lpad
 
@@ -2360,7 +2360,7 @@ call.i6.noexc:                                    ; preds = %_ZN6Assimp13ASSIMP_
 
 .noexc:                                           ; preds = %call.i6.noexc
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %number) #22
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %number, i64 %call.i.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %number, i64 %call.i.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6, ptr noundef nonnull %number, ptr noundef nonnull %add.ptr.i)
           to label %invoke.cont10 unwind label %lpad.i
 

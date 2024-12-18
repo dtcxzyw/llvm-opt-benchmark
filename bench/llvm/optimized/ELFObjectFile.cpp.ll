@@ -4284,10 +4284,10 @@ switch.lookup:
   %trunc = trunc i32 %4 to i8
   %switch.tableidx = add nsw i8 %trunc, -1
   %5 = sext i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [89 x i64], ptr @switch.table._ZNK4llvm6object17ELFObjectFileBase16getAMDGPUCPUNameEv, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds [89 x i64], ptr @switch.table._ZNK4llvm6object17ELFObjectFileBase16getAMDGPUCPUNameEv, i64 0, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   %6 = sext i8 %switch.tableidx to i64
-  %switch.gep1 = getelementptr inbounds nuw [89 x ptr], ptr @switch.table._ZNK4llvm6object17ELFObjectFileBase16getAMDGPUCPUNameEv.19, i64 0, i64 %6
+  %switch.gep1 = getelementptr inbounds [89 x ptr], ptr @switch.table._ZNK4llvm6object17ELFObjectFileBase16getAMDGPUCPUNameEv.19, i64 0, i64 %6
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1

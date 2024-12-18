@@ -8307,7 +8307,7 @@ define hidden noundef ptr @_ZN12JVMCIRuntime13lookup_methodEP13InstanceKlassP5Kl
   %24 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %24, align 1
   %25 = sext i32 %4 to i64
-  %26 = getelementptr inbounds nuw [239 x ptr], ptr @_ZN9Bytecodes5_nameE, i64 0, i64 %25
+  %26 = getelementptr inbounds [239 x ptr], ptr @_ZN9Bytecodes5_nameE, i64 0, i64 %25
   %27 = load ptr, ptr %26, align 8
   tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 1821, ptr noundef nonnull @.str.95, ptr noundef %27) #18
   unreachable

@@ -2485,7 +2485,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h1bbe69854128154aE.exit: ; preds = 
   %.val2.i = load i64, ptr %24, align 8, !alias.scope !692, !noalias !679, !noundef !5
   store i64 %.val2.i, ptr %.val.i, align 8, !noalias !697
   %25 = sub nuw i64 %.pre43, %.pre
-  %26 = getelementptr inbounds nuw { [10 x i64] }, ptr %5, i64 %.pre
+  %26 = getelementptr inbounds { [10 x i64] }, ptr %5, i64 %.pre
   %27 = icmp eq i64 %.pre43, %.pre
   br i1 %27, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h34a7fe63e1c7df65E.exit", label %.lr.ph.i.i.i.i
 

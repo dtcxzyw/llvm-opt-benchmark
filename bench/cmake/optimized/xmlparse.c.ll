@@ -4112,7 +4112,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @startParsing(ptr nocapture nou
 
 11:                                               ; preds = %.thread.i.i, %10
   %.012.i.i = phi i64 [ 0, %10 ], [ %.11321.i.i, %.thread.i.i ]
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 %.012.i.i
+  %12 = getelementptr inbounds i8, ptr %6, i64 %.012.i.i
   %13 = sub i64 8, %.012.i.i
   %14 = call i64 @getrandom(ptr noundef nonnull %12, i64 noundef %13, i32 noundef 1) #23
   %15 = trunc i64 %14 to i32
@@ -4179,7 +4179,7 @@ getDebugLevel.exit.i.i:                           ; preds = %31
 
 .preheader.i.i:                                   ; preds = %38, %47
   %.017.i.i = phi i64 [ %.118.i.i, %47 ], [ 0, %38 ]
-  %41 = getelementptr inbounds nuw i8, ptr %6, i64 %.017.i.i
+  %41 = getelementptr inbounds i8, ptr %6, i64 %.017.i.i
   %42 = sub i64 8, %.017.i.i
   %43 = call i64 @read(i32 noundef %39, ptr noundef nonnull %41, i64 noundef %42) #23
   %44 = icmp slt i64 %43, 1

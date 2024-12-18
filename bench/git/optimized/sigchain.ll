@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local range(i32 -1, 1) i32 @sigchain_push(i32 noundef %sig, ptr noundef %f) local_unnamed_addr #0 {
 entry:
   %idx.ext = sext i32 %sig to i64
-  %add.ptr = getelementptr inbounds nuw %struct.sigchain_signal, ptr @signals, i64 %idx.ext
+  %add.ptr = getelementptr inbounds %struct.sigchain_signal, ptr @signals, i64 %idx.ext
   %0 = add i32 %sig, -32
   %or.cond.i = icmp ult i32 %0, -31
   br i1 %or.cond.i, label %if.then.i, label %check_signum.exit
@@ -83,7 +83,7 @@ declare ptr @signal(i32 noundef, ptr noundef) local_unnamed_addr #2
 define dso_local range(i32 -1, 1) i32 @sigchain_pop(i32 noundef %sig) local_unnamed_addr #0 {
 entry:
   %idx.ext = sext i32 %sig to i64
-  %add.ptr = getelementptr inbounds nuw %struct.sigchain_signal, ptr @signals, i64 %idx.ext
+  %add.ptr = getelementptr inbounds %struct.sigchain_signal, ptr @signals, i64 %idx.ext
   %0 = add i32 %sig, -32
   %or.cond.i = icmp ult i32 %0, -31
   br i1 %or.cond.i, label %if.then.i, label %check_signum.exit

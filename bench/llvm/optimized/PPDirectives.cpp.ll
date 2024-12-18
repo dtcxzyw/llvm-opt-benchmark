@@ -13838,7 +13838,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit.i:     ; preds = %.split.i, %385
   %409 = call noundef i32 @_ZNK5clang14IdentifierInfo14getPPKeywordIDEv(ptr noundef nonnull align 8 dereferenceable(24) %408) #18
   %switch.tableidx = add nsw i32 %409, -10
   %410 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN5clang12Preprocessor27HandleHeaderIncludeOrImportENS_14SourceLocationERNS_5TokenES3_S1_NS_6detail21SearchDirIteratorImplILb1EEEPKNS_9FileEntryE, i64 0, i64 %410
+  %switch.gep = getelementptr inbounds [10 x i64], ptr @switch.table._ZN5clang12Preprocessor27HandleHeaderIncludeOrImportENS_14SourceLocationERNS_5TokenES3_S1_NS_6detail21SearchDirIteratorImplILb1EEEPKNS_9FileEntryE, i64 0, i64 %410
   %switch.load = load i64, ptr %switch.gep, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !544)
   %411 = load ptr, ptr %305, align 8, !noalias !544
@@ -20902,7 +20902,7 @@ switch.lookup:                                    ; preds = %44, %.critedge2, %.
   %46 = load i16, ptr %45, align 4
   %switch.tableidx = add nsw i16 %46, -20
   %47 = sext i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i16], ptr @"switch.table._ZZN5clang12Preprocessor18LexEmbedParametersERNS_5TokenEbENK3$_3clERN4llvm15SmallVectorImplIS1_EE", i64 0, i64 %47
+  %switch.gep = getelementptr inbounds [5 x i16], ptr @"switch.table._ZZN5clang12Preprocessor18LexEmbedParametersERNS_5TokenEbENK3$_3clERN4llvm15SmallVectorImplIS1_EE", i64 0, i64 %47
   %switch.load = load i16, ptr %switch.gep, align 2
   %48 = icmp ne ptr %.sroa.029.160, %.sroa.5.059
   %.not = icmp eq i16 %17, %switch.load

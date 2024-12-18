@@ -176,7 +176,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit:            ; preds = %27, %28
   %38 = load ptr, ptr %14, align 8
   %39 = getelementptr i8, ptr %38, i64 -24
   %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %14, i64 %40
+  %41 = getelementptr inbounds i8, ptr %14, i64 %40
   %42 = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %41) #10
   br i1 %42, label %.lr.ph329, label %._crit_edge
 
@@ -1049,7 +1049,7 @@ _ZNK4llvm9StringRef10drop_whileENS_12function_refIFbcEEE.exit226: ; preds = %450
   %457 = load ptr, ptr %14, align 8
   %458 = getelementptr i8, ptr %457, i64 -24
   %459 = load i64, ptr %458, align 8
-  %460 = getelementptr inbounds nuw i8, ptr %14, i64 %459
+  %460 = getelementptr inbounds i8, ptr %14, i64 %459
   %461 = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %460) #10
   br i1 %461, label %57, label %._crit_edge
 

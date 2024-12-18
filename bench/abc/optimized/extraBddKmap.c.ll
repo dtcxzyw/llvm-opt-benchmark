@@ -380,7 +380,7 @@ define void @Extra_PrintKMap(ptr nocapture noundef %0, ptr noundef %1, ptr nound
   %fputc342 = tail call i32 @fputc(i32 43, ptr %0)
   %fputc343 = tail call i32 @fputc(i32 10, ptr %0)
   %130 = sext i32 %92 to i64
-  %131 = getelementptr inbounds nuw ptr, ptr @s_XVars, i64 %130
+  %131 = getelementptr inbounds ptr, ptr @s_XVars, i64 %130
   %132 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %133 = add nsw i32 %93, -1
   br label %.preheader420

@@ -1236,7 +1236,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr nocapture noun
 562:                                              ; preds = %559
   %563 = zext i8 %.5418191 to i64
   %564 = add nsw i64 %563, -1
-  %565 = getelementptr inbounds nuw [22 x i8], ptr %4, i64 0, i64 %564
+  %565 = getelementptr inbounds [22 x i8], ptr %4, i64 0, i64 %564
   %566 = load i8, ptr %565, align 1
   %567 = icmp eq i8 %566, 48
   br i1 %567, label %568, label %570

@@ -389,7 +389,7 @@ cond.end:                                         ; preds = %entry, %cond.true
   %vtable = load ptr, ptr %oss, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %oss, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %oss, i64 %vbase.offset
   %_M_precision.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   store i64 9, ptr %_M_precision.i, align 8
   %call4 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %oss, float noundef %cond)
@@ -463,7 +463,7 @@ cond.end:                                         ; preds = %entry, %cond.true
   %vtable = load ptr, ptr %oss, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %oss, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %oss, i64 %vbase.offset
   %_M_precision.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   store i64 17, ptr %_M_precision.i, align 8
   %call3 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %oss, double noundef %cond)
@@ -1233,7 +1233,7 @@ if.then3:                                         ; preds = %if.end
   %vtable = load ptr, ptr %oss, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %oss, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %oss, i64 %vbase.offset
   %_M_precision.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   store i64 9, ptr %_M_precision.i, align 8
   %call13 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %oss, float noundef %newVal.0)

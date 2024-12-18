@@ -363,7 +363,7 @@ define dso_local i32 @Curl_auth_create_ntlm_type3_message(ptr noundef %0, ptr no
   br label %153
 
 101:                                              ; preds = %95
-  %102 = getelementptr inbounds nuw [1024 x i8], ptr %6, i64 0, i64 %.0124
+  %102 = getelementptr inbounds [1024 x i8], ptr %6, i64 0, i64 %.0124
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %102, ptr align 1 %.0123, i64 %97, i1 false)
   %103 = load ptr, ptr @Curl_cfree, align 8
   %104 = load ptr, ptr %10, align 8
@@ -404,10 +404,10 @@ define dso_local i32 @Curl_auth_create_ntlm_type3_message(ptr noundef %0, ptr no
 unicodecpy.exit.thread:                           ; preds = %110
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %111, ptr align 1 %.0119, i64 %.0, i1 false)
   %121 = add i64 %98, %.0
-  %122 = getelementptr inbounds nuw [1024 x i8], ptr %6, i64 0, i64 %121
+  %122 = getelementptr inbounds [1024 x i8], ptr %6, i64 0, i64 %121
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %122, ptr align 1 %.1121, i64 %27, i1 false)
   %123 = add i64 %121, %27
-  %124 = getelementptr inbounds nuw [1024 x i8], ptr %6, i64 0, i64 %123
+  %124 = getelementptr inbounds [1024 x i8], ptr %6, i64 0, i64 %123
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %124, ptr noundef nonnull align 16 dereferenceable(11) %11, i64 11, i1 false)
   br label %unicodecpy.exit154
 
@@ -417,7 +417,7 @@ unicodecpy.exit:                                  ; preds = %.lr.ph.i
 
 unicodecpy.exit.thread155:                        ; preds = %112, %unicodecpy.exit
   %126 = phi i64 [ %125, %unicodecpy.exit ], [ %98, %112 ]
-  %127 = getelementptr inbounds nuw [1024 x i8], ptr %6, i64 0, i64 %126
+  %127 = getelementptr inbounds [1024 x i8], ptr %6, i64 0, i64 %126
   %128 = and i64 %27, 9223372036854775807
   %.not.i145 = icmp eq i64 %128, 0
   br i1 %.not.i145, label %unicodecpy.exit149.thread156, label %.lr.ph.i146
@@ -442,7 +442,7 @@ unicodecpy.exit149:                               ; preds = %.lr.ph.i146
 
 unicodecpy.exit149.thread156:                     ; preds = %unicodecpy.exit.thread155, %unicodecpy.exit149
   %137 = phi i64 [ %136, %unicodecpy.exit149 ], [ %126, %unicodecpy.exit.thread155 ]
-  %138 = getelementptr inbounds nuw [1024 x i8], ptr %6, i64 0, i64 %137
+  %138 = getelementptr inbounds [1024 x i8], ptr %6, i64 0, i64 %137
   br label %.lr.ph.i151
 
 .lr.ph.i151:                                      ; preds = %unicodecpy.exit149.thread156, %.lr.ph.i151

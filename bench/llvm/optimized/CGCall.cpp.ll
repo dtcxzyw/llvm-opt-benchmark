@@ -8935,10 +8935,10 @@ define internal fastcc void @_ZL35getTrivialDefaultFunctionAttributesN4llvm9Stri
 switch.lookup:                                    ; preds = %59
   %switch.tableidx = add nsw i32 %64, -1
   %65 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZL35getTrivialDefaultFunctionAttributesN4llvm9StringRefEbRKN5clang14CodeGenOptionsERKNS1_11LangOptionsEbRNS_11AttrBuilderE, i64 0, i64 %65
+  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table._ZL35getTrivialDefaultFunctionAttributesN4llvm9StringRefEbRKN5clang14CodeGenOptionsERKNS1_11LangOptionsEbRNS_11AttrBuilderE, i64 0, i64 %65
   %switch.load = load i64, ptr %switch.gep, align 8
   %66 = sext i32 %switch.tableidx to i64
-  %switch.gep260 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZL35getTrivialDefaultFunctionAttributesN4llvm9StringRefEbRKN5clang14CodeGenOptionsERKNS1_11LangOptionsEbRNS_11AttrBuilderE.131, i64 0, i64 %66
+  %switch.gep260 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZL35getTrivialDefaultFunctionAttributesN4llvm9StringRefEbRKN5clang14CodeGenOptionsERKNS1_11LangOptionsEbRNS_11AttrBuilderE.131, i64 0, i64 %66
   %switch.load261 = load ptr, ptr %switch.gep260, align 8
   %67 = tail call noundef nonnull align 8 dereferenceable(88) ptr @_ZN4llvm11AttrBuilder12addAttributeENS_9StringRefES1_(ptr noundef nonnull align 8 dereferenceable(88) %6, ptr nonnull @.str.57, i64 13, ptr nonnull %switch.load261, i64 %switch.load) #21
   br label %68

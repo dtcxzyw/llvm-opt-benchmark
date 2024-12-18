@@ -500,7 +500,7 @@ define i64 @If_Dec6Perform(i64 noundef %0, i32 noundef %1) local_unnamed_addr #3
   %.029.i = phi i64 [ %34, %.lr.ph.i ], [ %.1119, %15 ]
   %18 = add nsw i32 %17, -1
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @PMasks, i64 0, i64 %19
+  %20 = getelementptr inbounds [5 x [3 x i64]], ptr @PMasks, i64 0, i64 %19
   %21 = load i64, ptr %20, align 8
   %22 = and i64 %21, %.029.i
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -515,18 +515,18 @@ define i64 @If_Dec6Perform(i64 noundef %0, i32 noundef %1) local_unnamed_addr #3
   %32 = and i64 %31, %.029.i
   %33 = lshr i64 %32, %27
   %34 = or i64 %29, %33
-  %35 = getelementptr inbounds nuw i32, ptr %5, i64 %19
+  %35 = getelementptr inbounds i32, ptr %5, i64 %19
   %36 = load i32, ptr %35, align 4
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds nuw i32, ptr %6, i64 %37
+  %38 = getelementptr inbounds i32, ptr %6, i64 %37
   %39 = load i32, ptr %38, align 4
   %40 = add nsw i32 %39, 1
   store i32 %40, ptr %38, align 4
   %41 = sext i32 %17 to i64
-  %42 = getelementptr inbounds nuw i32, ptr %5, i64 %41
+  %42 = getelementptr inbounds i32, ptr %5, i64 %41
   %43 = load i32, ptr %42, align 4
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds nuw i32, ptr %6, i64 %44
+  %45 = getelementptr inbounds i32, ptr %6, i64 %44
   %46 = load i32, ptr %45, align 4
   %47 = add nsw i32 %46, -1
   store i32 %47, ptr %45, align 4
@@ -548,7 +548,7 @@ If_Dec6MoveTo.exit:                               ; preds = %.lr.ph.i, %15
   %.029.i50 = phi i64 [ %68, %.lr.ph.i49 ], [ %.0.lcssa.i, %If_Dec6MoveTo.exit ]
   %52 = add nsw i32 %51, -1
   %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @PMasks, i64 0, i64 %53
+  %54 = getelementptr inbounds [5 x [3 x i64]], ptr @PMasks, i64 0, i64 %53
   %55 = load i64, ptr %54, align 8
   %56 = and i64 %55, %.029.i50
   %57 = getelementptr inbounds nuw i8, ptr %54, i64 8
@@ -563,18 +563,18 @@ If_Dec6MoveTo.exit:                               ; preds = %.lr.ph.i, %15
   %66 = and i64 %65, %.029.i50
   %67 = lshr i64 %66, %61
   %68 = or i64 %63, %67
-  %69 = getelementptr inbounds nuw i32, ptr %5, i64 %53
+  %69 = getelementptr inbounds i32, ptr %5, i64 %53
   %70 = load i32, ptr %69, align 4
   %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds nuw i32, ptr %6, i64 %71
+  %72 = getelementptr inbounds i32, ptr %6, i64 %71
   %73 = load i32, ptr %72, align 4
   %74 = add nsw i32 %73, 1
   store i32 %74, ptr %72, align 4
   %75 = sext i32 %51 to i64
-  %76 = getelementptr inbounds nuw i32, ptr %5, i64 %75
+  %76 = getelementptr inbounds i32, ptr %5, i64 %75
   %77 = load i32, ptr %76, align 4
   %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds nuw i32, ptr %6, i64 %78
+  %79 = getelementptr inbounds i32, ptr %6, i64 %78
   %80 = load i32, ptr %79, align 4
   %81 = add nsw i32 %80, -1
   store i32 %81, ptr %79, align 4
@@ -793,7 +793,7 @@ If_Dec6CofCount2.exit80:                          ; preds = %.preheader
   %.phi.trans.insert.i = getelementptr inbounds nuw [6 x i32], ptr %3, i64 0, i64 %137
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
   %181 = sext i32 %.pre.i to i64
-  %182 = getelementptr inbounds nuw [6 x i32], ptr %4, i64 0, i64 %181
+  %182 = getelementptr inbounds [6 x i32], ptr %4, i64 0, i64 %181
   br label %.lr.ph.i88
 
 .lr.ph.i88:                                       ; preds = %.lr.ph.i88, %.lr.ph.preheader.i
@@ -823,7 +823,7 @@ If_Dec6CofCount2.exit80:                          ; preds = %.preheader
   %202 = getelementptr inbounds nuw [6 x i32], ptr %3, i64 0, i64 %indvars.iv.next.i90
   %203 = load i32, ptr %202, align 4
   %204 = sext i32 %203 to i64
-  %205 = getelementptr inbounds nuw [6 x i32], ptr %4, i64 0, i64 %204
+  %205 = getelementptr inbounds [6 x i32], ptr %4, i64 0, i64 %204
   %206 = load i32, ptr %205, align 4
   %207 = add nsw i32 %206, -1
   store i32 %207, ptr %205, align 4
@@ -1062,7 +1062,7 @@ define range(i64 8070450532247928832, 2) i64 @If_Dec7Perform(ptr nocapture nound
 
 38:                                               ; preds = %.lr.ph.i
   %39 = sext i32 %30 to i64
-  %40 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @PMasks, i64 0, i64 %39
+  %40 = getelementptr inbounds [5 x [3 x i64]], ptr @PMasks, i64 0, i64 %39
   %41 = load i64, ptr %40, align 8
   %42 = and i64 %41, %28
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 8
@@ -1090,18 +1090,18 @@ If_Dec7SwapAdjacent.exit.i:                       ; preds = %38, %32
   %62 = phi i64 [ %54, %38 ], [ %36, %32 ]
   %storemerge.i = phi i64 [ %61, %38 ], [ %37, %32 ]
   %.pre-phi.i = phi i64 [ %39, %38 ], [ 5, %32 ]
-  %63 = getelementptr inbounds nuw i32, ptr %4, i64 %.pre-phi.i
+  %63 = getelementptr inbounds i32, ptr %4, i64 %.pre-phi.i
   %64 = load i32, ptr %63, align 4
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds nuw i32, ptr %5, i64 %65
+  %66 = getelementptr inbounds i32, ptr %5, i64 %65
   %67 = load i32, ptr %66, align 4
   %68 = add nsw i32 %67, 1
   store i32 %68, ptr %66, align 4
   %69 = sext i32 %29 to i64
-  %70 = getelementptr inbounds nuw i32, ptr %4, i64 %69
+  %70 = getelementptr inbounds i32, ptr %4, i64 %69
   %71 = load i32, ptr %70, align 4
   %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds nuw i32, ptr %5, i64 %72
+  %73 = getelementptr inbounds i32, ptr %5, i64 %72
   %74 = load i32, ptr %73, align 4
   %75 = add nsw i32 %74, -1
   store i32 %75, ptr %73, align 4
@@ -1146,7 +1146,7 @@ If_Dec7MoveTo.exit:                               ; preds = %If_Dec7MoveTo.exit.
 
 91:                                               ; preds = %.lr.ph.i24
   %92 = sext i32 %83 to i64
-  %93 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @PMasks, i64 0, i64 %92
+  %93 = getelementptr inbounds [5 x [3 x i64]], ptr @PMasks, i64 0, i64 %92
   %94 = load i64, ptr %93, align 8
   %95 = and i64 %94, %81
   %96 = getelementptr inbounds nuw i8, ptr %93, i64 8
@@ -1174,18 +1174,18 @@ If_Dec7SwapAdjacent.exit.i25:                     ; preds = %91, %85
   %115 = phi i64 [ %107, %91 ], [ %89, %85 ]
   %storemerge.i26 = phi i64 [ %114, %91 ], [ %90, %85 ]
   %.pre-phi.i27 = phi i64 [ %92, %91 ], [ 5, %85 ]
-  %116 = getelementptr inbounds nuw i32, ptr %4, i64 %.pre-phi.i27
+  %116 = getelementptr inbounds i32, ptr %4, i64 %.pre-phi.i27
   %117 = load i32, ptr %116, align 4
   %118 = sext i32 %117 to i64
-  %119 = getelementptr inbounds nuw i32, ptr %5, i64 %118
+  %119 = getelementptr inbounds i32, ptr %5, i64 %118
   %120 = load i32, ptr %119, align 4
   %121 = add nsw i32 %120, 1
   store i32 %121, ptr %119, align 4
   %122 = sext i32 %82 to i64
-  %123 = getelementptr inbounds nuw i32, ptr %4, i64 %122
+  %123 = getelementptr inbounds i32, ptr %4, i64 %122
   %124 = load i32, ptr %123, align 4
   %125 = sext i32 %124 to i64
-  %126 = getelementptr inbounds nuw i32, ptr %5, i64 %125
+  %126 = getelementptr inbounds i32, ptr %5, i64 %125
   %127 = load i32, ptr %126, align 4
   %128 = add nsw i32 %127, -1
   store i32 %128, ptr %126, align 4
@@ -1231,7 +1231,7 @@ If_Dec7MoveTo.exit30:                             ; preds = %If_Dec7MoveTo.exit3
 
 145:                                              ; preds = %.lr.ph.i32
   %146 = sext i32 %137 to i64
-  %147 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @PMasks, i64 0, i64 %146
+  %147 = getelementptr inbounds [5 x [3 x i64]], ptr @PMasks, i64 0, i64 %146
   %148 = load i64, ptr %147, align 8
   %149 = and i64 %148, %135
   %150 = getelementptr inbounds nuw i8, ptr %147, i64 8
@@ -1259,18 +1259,18 @@ If_Dec7SwapAdjacent.exit.i33:                     ; preds = %145, %139
   %169 = phi i64 [ %161, %145 ], [ %143, %139 ]
   %storemerge.i34 = phi i64 [ %168, %145 ], [ %144, %139 ]
   %.pre-phi.i35 = phi i64 [ %146, %145 ], [ 5, %139 ]
-  %170 = getelementptr inbounds nuw i32, ptr %4, i64 %.pre-phi.i35
+  %170 = getelementptr inbounds i32, ptr %4, i64 %.pre-phi.i35
   %171 = load i32, ptr %170, align 4
   %172 = sext i32 %171 to i64
-  %173 = getelementptr inbounds nuw i32, ptr %5, i64 %172
+  %173 = getelementptr inbounds i32, ptr %5, i64 %172
   %174 = load i32, ptr %173, align 4
   %175 = add nsw i32 %174, 1
   store i32 %175, ptr %173, align 4
   %176 = sext i32 %136 to i64
-  %177 = getelementptr inbounds nuw i32, ptr %4, i64 %176
+  %177 = getelementptr inbounds i32, ptr %4, i64 %176
   %178 = load i32, ptr %177, align 4
   %179 = sext i32 %178 to i64
-  %180 = getelementptr inbounds nuw i32, ptr %5, i64 %179
+  %180 = getelementptr inbounds i32, ptr %5, i64 %179
   %181 = load i32, ptr %180, align 4
   %182 = add nsw i32 %181, -1
   store i32 %182, ptr %180, align 4
@@ -1309,7 +1309,7 @@ If_Dec7MoveTo.exit38:                             ; preds = %If_Dec7MoveTo.exit3
 
 193:                                              ; preds = %190
   %194 = sext i32 %.016.i to i64
-  %195 = getelementptr inbounds nuw i8, ptr %3, i64 %194
+  %195 = getelementptr inbounds i8, ptr %3, i64 %194
   %196 = load i8, ptr %195, align 1
   %.not.i39 = icmp eq i8 %188, %196
   br i1 %.not.i39, label %197, label %If_Dec7CofCount3.exit
@@ -1508,7 +1508,7 @@ define i64 @If_Dec6MinimumBase(i64 noundef %0, ptr noundef %1, i32 noundef %2, p
   %indvars.iv29.i = phi i64 [ %indvars.iv.i, %.lr.ph.preheader.i ], [ %indvars.iv.next30.i, %.lr.ph.i ]
   %.11619.i = phi i64 [ %.01521.i, %.lr.ph.preheader.i ], [ %57, %.lr.ph.i ]
   %indvars.iv.next30.i = add nsw i64 %indvars.iv29.i, -1
-  %42 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @PMasks, i64 0, i64 %indvars.iv.next30.i
+  %42 = getelementptr inbounds [5 x [3 x i64]], ptr @PMasks, i64 0, i64 %indvars.iv.next30.i
   %43 = load i64, ptr %42, align 8
   %44 = and i64 %43, %.11619.i
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 8
@@ -1730,7 +1730,7 @@ If_Dec7HasVar.exit.thread:                        ; preds = %If_Dec7HasVar.exit.
   br label %If_Dec7SwapAdjacent.exit.i
 
 73:                                               ; preds = %64
-  %74 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @PMasks, i64 0, i64 %indvars.iv.next23.i
+  %74 = getelementptr inbounds [5 x [3 x i64]], ptr @PMasks, i64 0, i64 %indvars.iv.next23.i
   %75 = load i64, ptr %74, align 8
   %76 = and i64 %75, %65
   %77 = getelementptr inbounds nuw i8, ptr %74, i64 8
@@ -2073,7 +2073,7 @@ define range(i64 31525197391593472, 2) i64 @If_Dec5Perform(i64 noundef %0, i32 n
   %.029.i = phi i64 [ %34, %.lr.ph.i ], [ %.02338, %.preheader ]
   %18 = add nsw i32 %17, -1
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @PMasks, i64 0, i64 %19
+  %20 = getelementptr inbounds [5 x [3 x i64]], ptr @PMasks, i64 0, i64 %19
   %21 = load i64, ptr %20, align 8
   %22 = and i64 %21, %.029.i
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -2088,18 +2088,18 @@ define range(i64 31525197391593472, 2) i64 @If_Dec5Perform(i64 noundef %0, i32 n
   %32 = and i64 %31, %.029.i
   %33 = lshr i64 %32, %27
   %34 = or i64 %29, %33
-  %35 = getelementptr inbounds nuw i32, ptr %9, i64 %19
+  %35 = getelementptr inbounds i32, ptr %9, i64 %19
   %36 = load i32, ptr %35, align 4
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds nuw i32, ptr %10, i64 %37
+  %38 = getelementptr inbounds i32, ptr %10, i64 %37
   %39 = load i32, ptr %38, align 4
   %40 = add nsw i32 %39, 1
   store i32 %40, ptr %38, align 4
   %41 = sext i32 %17 to i64
-  %42 = getelementptr inbounds nuw i32, ptr %9, i64 %41
+  %42 = getelementptr inbounds i32, ptr %9, i64 %41
   %43 = load i32, ptr %42, align 4
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds nuw i32, ptr %10, i64 %44
+  %45 = getelementptr inbounds i32, ptr %10, i64 %44
   %46 = load i32, ptr %45, align 4
   %47 = add nsw i32 %46, -1
   store i32 %47, ptr %45, align 4
@@ -2307,7 +2307,7 @@ If_Dec6MoveTo.exit:                               ; preds = %.lr.ph.i, %.prehead
 
 Abc_Tt6FirstBit.exit.i:                           ; preds = %116, %114
   %.025.i.i = phi i64 [ %133, %116 ], [ -1, %114 ]
-  %134 = getelementptr inbounds nuw [4 x i64], ptr @__const.If_Dec5CofCount2.F, i64 0, i64 %.025.i.i
+  %134 = getelementptr inbounds [4 x i64], ptr @__const.If_Dec5CofCount2.F, i64 0, i64 %.025.i.i
   %135 = load i64, ptr %134, align 8
   %136 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %indvars.iv259.i
   store i64 %135, ptr %136, align 8
@@ -2394,11 +2394,11 @@ Abc_Tt6FirstBit.exit221.i:                        ; preds = %141, %138
 
 Abc_Tt6FirstBit.exit234.i:                        ; preds = %160, %Abc_Tt6FirstBit.exit221.i
   %.025.i233.i = phi i64 [ %184, %160 ], [ -1, %Abc_Tt6FirstBit.exit221.i ]
-  %185 = getelementptr inbounds nuw [4 x i64], ptr @__const.If_Dec5CofCount2.F, i64 0, i64 %.025.i233.i
+  %185 = getelementptr inbounds [4 x i64], ptr @__const.If_Dec5CofCount2.F, i64 0, i64 %.025.i233.i
   %186 = load i64, ptr %185, align 8
   %187 = and i64 %186, -3689348814741910324
   %188 = sext i32 %.025.i220.i to i64
-  %189 = getelementptr inbounds nuw [4 x i64], ptr @__const.If_Dec5CofCount2.F, i64 0, i64 %188
+  %189 = getelementptr inbounds [4 x i64], ptr @__const.If_Dec5CofCount2.F, i64 0, i64 %188
   %190 = load i64, ptr %189, align 8
   %191 = and i64 %190, 3689348814741910323
   %192 = or disjoint i64 %191, %187

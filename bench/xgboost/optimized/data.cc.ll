@@ -12763,7 +12763,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryIN
   %74 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %75 = getelementptr i8, ptr %73, i64 -24
   %76 = load i64, ptr %75, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %5, i64 %76
+  %77 = getelementptr inbounds i8, ptr %5, i64 %76
   store ptr %74, ptr %77, align 8, !tbaa !23
   %78 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %78, align 8, !tbaa !23
@@ -12887,7 +12887,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryIN
   %31 = load ptr, ptr %4, align 8, !tbaa !23
   %32 = getelementptr i8, ptr %31, i64 -24
   %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %4, i64 %33
+  %34 = getelementptr inbounds i8, ptr %4, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load i64, ptr %35, align 8, !tbaa !217
   %37 = icmp eq i64 %36, 0
@@ -13086,7 +13086,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryIN
   %133 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %134 = getelementptr i8, ptr %132, i64 -24
   %135 = load i64, ptr %134, align 8
-  %136 = getelementptr inbounds nuw i8, ptr %4, i64 %135
+  %136 = getelementptr inbounds i8, ptr %4, i64 %135
   store ptr %133, ptr %136, align 8, !tbaa !23
   %137 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %137, align 8, !tbaa !23
@@ -13303,7 +13303,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryIN
   %12 = load ptr, ptr %4, align 8, !tbaa !23
   %13 = getelementptr i8, ptr %12, i64 -24
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %4, i64 %14
+  %15 = getelementptr inbounds i8, ptr %4, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %17 = load i32, ptr %16, align 8, !tbaa !230
   %18 = and i32 %17, 5
@@ -13328,7 +13328,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryIN
   %28 = load ptr, ptr %4, align 8, !tbaa !23
   %29 = getelementptr i8, ptr %28, i64 -24
   %30 = load i64, ptr %29, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %4, i64 %30
+  %31 = getelementptr inbounds i8, ptr %4, i64 %30
   br label %32
 
 32:                                               ; preds = %43, %27
@@ -13372,7 +13372,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryIN
   %44 = load ptr, ptr %4, align 8, !tbaa !23
   %45 = getelementptr i8, ptr %44, i64 -24
   %46 = load i64, ptr %45, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %4, i64 %46
+  %47 = getelementptr inbounds i8, ptr %4, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %49 = load i32, ptr %48, align 8, !tbaa !230
   %50 = or i32 %49, 4
@@ -13390,7 +13390,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryIN
 
 .loopexit:                                        ; preds = %51, %..loopexit_crit_edge, %20, %11
   %59 = phi i64 [ %.pre5, %..loopexit_crit_edge ], [ %14, %20 ], [ %14, %11 ], [ %54, %51 ]
-  %60 = getelementptr inbounds nuw i8, ptr %4, i64 %59
+  %60 = getelementptr inbounds i8, ptr %4, i64 %59
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %62 = load i32, ptr %61, align 8, !tbaa !230
   %63 = and i32 %62, 5
@@ -13517,7 +13517,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryIN
   %122 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %123 = getelementptr i8, ptr %121, i64 -24
   %124 = load i64, ptr %123, align 8
-  %125 = getelementptr inbounds nuw i8, ptr %4, i64 %124
+  %125 = getelementptr inbounds i8, ptr %4, i64 %124
   store ptr %122, ptr %125, align 8, !tbaa !23
   %126 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %126, align 8, !tbaa !23
@@ -13549,7 +13549,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryIN
   %141 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
   %142 = getelementptr i8, ptr %140, i64 -24
   %143 = load i64, ptr %142, align 8
-  %144 = getelementptr inbounds nuw i8, ptr %4, i64 %143
+  %144 = getelementptr inbounds i8, ptr %4, i64 %143
   store ptr %141, ptr %144, align 8, !tbaa !23
   %145 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %145, align 8, !tbaa !231
@@ -14481,7 +14481,7 @@ define linkonce_odr void @_ZN4dmlc10StackTraceB5cxx11Emm(ptr dead_on_unwind noal
   %127 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %128 = getelementptr i8, ptr %126, i64 -24
   %129 = load i64, ptr %128, align 8
-  %130 = getelementptr inbounds nuw i8, ptr %4, i64 %129
+  %130 = getelementptr inbounds i8, ptr %4, i64 %129
   store ptr %127, ptr %130, align 8, !tbaa !23
   %131 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %131, align 8, !tbaa !23
@@ -15023,7 +15023,7 @@ define linkonce_odr void @_ZN4dmlc8DemangleB5cxx11EPKc(ptr dead_on_unwind noalia
   %184 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %185 = getelementptr i8, ptr %183, i64 -24
   %186 = load i64, ptr %185, align 8
-  %187 = getelementptr inbounds nuw i8, ptr %16, i64 %186
+  %187 = getelementptr inbounds i8, ptr %16, i64 %186
   store ptr %184, ptr %187, align 8, !tbaa !23
   %188 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %188, align 8, !tbaa !23
@@ -16454,7 +16454,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter10FieldEntryIiE3SetEPvRKNSt7__cxx11
   %145 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %146 = getelementptr i8, ptr %144, i64 -24
   %147 = load i64, ptr %146, align 8
-  %148 = getelementptr inbounds nuw i8, ptr %4, i64 %147
+  %148 = getelementptr inbounds i8, ptr %4, i64 %147
   store ptr %145, ptr %148, align 8, !tbaa !23
   %149 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %149, align 8, !tbaa !23
@@ -17011,7 +17011,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryIi
   %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %46 = getelementptr i8, ptr %44, i64 -24
   %47 = load i64, ptr %46, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %4, i64 %47
+  %48 = getelementptr inbounds i8, ptr %4, i64 %47
   store ptr %45, ptr %48, align 8, !tbaa !23
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %49, align 8, !tbaa !23
@@ -17119,7 +17119,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter10FieldEntryIiE12GetFieldInfoEv(ptr
   %31 = load ptr, ptr %4, align 8, !tbaa !23
   %32 = getelementptr i8, ptr %31, i64 -24
   %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %4, i64 %33
+  %34 = getelementptr inbounds i8, ptr %4, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load i64, ptr %35, align 8, !tbaa !217
   %37 = icmp eq i64 %36, 0
@@ -17318,7 +17318,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter10FieldEntryIiE12GetFieldInfoEv(ptr
   %133 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %134 = getelementptr i8, ptr %132, i64 -24
   %135 = load i64, ptr %134, align 8
-  %136 = getelementptr inbounds nuw i8, ptr %4, i64 %135
+  %136 = getelementptr inbounds i8, ptr %4, i64 %135
   store ptr %133, ptr %136, align 8, !tbaa !23
   %137 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %137, align 8, !tbaa !23
@@ -17764,7 +17764,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryIi
   %12 = load ptr, ptr %4, align 8, !tbaa !23
   %13 = getelementptr i8, ptr %12, i64 -24
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %4, i64 %14
+  %15 = getelementptr inbounds i8, ptr %4, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %17 = load i32, ptr %16, align 8, !tbaa !230
   %18 = and i32 %17, 5
@@ -17789,7 +17789,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryIi
   %28 = load ptr, ptr %4, align 8, !tbaa !23
   %29 = getelementptr i8, ptr %28, i64 -24
   %30 = load i64, ptr %29, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %4, i64 %30
+  %31 = getelementptr inbounds i8, ptr %4, i64 %30
   br label %32
 
 32:                                               ; preds = %43, %27
@@ -17833,7 +17833,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryIi
   %44 = load ptr, ptr %4, align 8, !tbaa !23
   %45 = getelementptr i8, ptr %44, i64 -24
   %46 = load i64, ptr %45, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %4, i64 %46
+  %47 = getelementptr inbounds i8, ptr %4, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %49 = load i32, ptr %48, align 8, !tbaa !230
   %50 = or i32 %49, 4
@@ -17851,7 +17851,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryIi
 
 .loopexit:                                        ; preds = %51, %..loopexit_crit_edge, %20, %11
   %59 = phi i64 [ %.pre5, %..loopexit_crit_edge ], [ %14, %20 ], [ %14, %11 ], [ %54, %51 ]
-  %60 = getelementptr inbounds nuw i8, ptr %4, i64 %59
+  %60 = getelementptr inbounds i8, ptr %4, i64 %59
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %62 = load i32, ptr %61, align 8, !tbaa !230
   %63 = and i32 %62, 5
@@ -17978,7 +17978,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryIi
   %122 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %123 = getelementptr i8, ptr %121, i64 -24
   %124 = load i64, ptr %123, align 8
-  %125 = getelementptr inbounds nuw i8, ptr %4, i64 %124
+  %125 = getelementptr inbounds i8, ptr %4, i64 %124
   store ptr %122, ptr %125, align 8, !tbaa !23
   %126 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %126, align 8, !tbaa !23
@@ -18010,7 +18010,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryIi
   %141 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
   %142 = getelementptr i8, ptr %140, i64 -24
   %143 = load i64, ptr %142, align 8
-  %144 = getelementptr inbounds nuw i8, ptr %4, i64 %143
+  %144 = getelementptr inbounds i8, ptr %4, i64 %143
   store ptr %141, ptr %144, align 8, !tbaa !23
   %145 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %145, align 8, !tbaa !231
@@ -18090,7 +18090,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryIi
   %31 = load ptr, ptr %4, align 8, !tbaa !23
   %32 = getelementptr i8, ptr %31, i64 -24
   %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %4, i64 %33
+  %34 = getelementptr inbounds i8, ptr %4, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load i64, ptr %35, align 8, !tbaa !217
   %37 = icmp eq i64 %36, 0
@@ -18289,7 +18289,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryIi
   %133 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %134 = getelementptr i8, ptr %132, i64 -24
   %135 = load i64, ptr %134, align 8
-  %136 = getelementptr inbounds nuw i8, ptr %4, i64 %135
+  %136 = getelementptr inbounds i8, ptr %4, i64 %135
   store ptr %133, ptr %136, align 8, !tbaa !23
   %137 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %137, align 8, !tbaa !23
@@ -18645,7 +18645,7 @@ define linkonce_odr void @_ZN4dmlc14LogCheckFormatImjEESt10unique_ptrINSt7__cxx1
   %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %53 = getelementptr i8, ptr %51, i64 -24
   %54 = load i64, ptr %53, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %4, i64 %54
+  %55 = getelementptr inbounds i8, ptr %4, i64 %54
   store ptr %52, ptr %55, align 8, !tbaa !23
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %56, align 8, !tbaa !23
@@ -20380,7 +20380,7 @@ define linkonce_odr void @_ZN4dmlc2io7URISpecC2ERKNSt7__cxx1112basic_stringIcSt1
   %143 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %144 = getelementptr i8, ptr %142, i64 -24
   %145 = load i64, ptr %144, align 8
-  %146 = getelementptr inbounds nuw i8, ptr %6, i64 %145
+  %146 = getelementptr inbounds i8, ptr %6, i64 %145
   store ptr %143, ptr %146, align 8, !tbaa !23
   %147 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %147, align 8, !tbaa !23
@@ -20988,7 +20988,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit65:      ; preds = %.noexc64, %388
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %15) #19
   store ptr %251, ptr %14, align 8, !tbaa !23
   %432 = load i64, ptr %253, align 8
-  %433 = getelementptr inbounds nuw i8, ptr %14, i64 %432
+  %433 = getelementptr inbounds i8, ptr %14, i64 %432
   store ptr %252, ptr %433, align 8, !tbaa !23
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %254, align 8, !tbaa !23
   %434 = load ptr, ptr %255, align 8, !tbaa !4
@@ -21012,7 +21012,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit65:      ; preds = %.noexc64, %388
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %258) #19
   store ptr %259, ptr %14, align 8, !tbaa !23
   %443 = load i64, ptr %261, align 8
-  %444 = getelementptr inbounds nuw i8, ptr %14, i64 %443
+  %444 = getelementptr inbounds i8, ptr %14, i64 %443
   store ptr %260, ptr %444, align 8, !tbaa !23
   store i64 0, ptr %262, align 8, !tbaa !231
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %263) #19
@@ -21845,7 +21845,7 @@ define linkonce_odr void @_ZN4dmlc5SplitERKNSt7__cxx1112basic_stringIcSt11char_t
   %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %56 = getelementptr i8, ptr %54, i64 -24
   %57 = load i64, ptr %56, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %6, i64 %57
+  %58 = getelementptr inbounds i8, ptr %6, i64 %57
   store ptr %55, ptr %58, align 8, !tbaa !23
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %59, align 8, !tbaa !23
@@ -21877,7 +21877,7 @@ define linkonce_odr void @_ZN4dmlc5SplitERKNSt7__cxx1112basic_stringIcSt11char_t
   %74 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
   %75 = getelementptr i8, ptr %73, i64 -24
   %76 = load i64, ptr %75, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %6, i64 %76
+  %77 = getelementptr inbounds i8, ptr %6, i64 %76
   store ptr %74, ptr %77, align 8, !tbaa !23
   %78 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %78, align 8, !tbaa !231
@@ -29403,7 +29403,7 @@ define linkonce_odr void @_ZN4dmlc10LogMessageC2EPKci(ptr noundef nonnull align 
   %21 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !23
   %22 = getelementptr i8, ptr %21, i64 -24
   %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds nuw i8, ptr @_ZSt4cerr, i64 %23
+  %24 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %26 = load i32, ptr %25, align 8, !tbaa !230
   %27 = or i32 %26, 1
@@ -30984,7 +30984,7 @@ define linkonce_odr void @_ZN4dmlc14LogCheckFormatImmEESt10unique_ptrINSt7__cxx1
   %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %52 = getelementptr i8, ptr %50, i64 -24
   %53 = load i64, ptr %52, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %4, i64 %53
+  %54 = getelementptr inbounds i8, ptr %4, i64 %53
   store ptr %51, ptr %54, align 8, !tbaa !23
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %55, align 8, !tbaa !23
@@ -73732,7 +73732,7 @@ define linkonce_odr void @_ZN4dmlc14LogCheckFormatINSt7__cxx1112basic_stringIcSt
   %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %54 = getelementptr i8, ptr %52, i64 -24
   %55 = load i64, ptr %54, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %4, i64 %55
+  %56 = getelementptr inbounds i8, ptr %4, i64 %55
   store ptr %53, ptr %56, align 8, !tbaa !23
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %57, align 8, !tbaa !23
@@ -75459,7 +75459,7 @@ define linkonce_odr void @_ZN4dmlc14LogCheckFormatIccEESt10unique_ptrINSt7__cxx1
   %10 = load ptr, ptr %6, align 8, !tbaa !23
   %11 = getelementptr i8, ptr %10, i64 -24
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %6, i64 %12
+  %13 = getelementptr inbounds i8, ptr %6, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load i64, ptr %14, align 8, !tbaa !217
   %16 = icmp eq i64 %15, 0
@@ -75569,7 +75569,7 @@ define linkonce_odr void @_ZN4dmlc14LogCheckFormatIccEESt10unique_ptrINSt7__cxx1
   %75 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %76 = getelementptr i8, ptr %74, i64 -24
   %77 = load i64, ptr %76, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %6, i64 %77
+  %78 = getelementptr inbounds i8, ptr %6, i64 %77
   store ptr %75, ptr %78, align 8, !tbaa !23
   %79 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %79, align 8, !tbaa !23
@@ -75974,7 +75974,7 @@ define linkonce_odr void @_ZN4dmlc14LogCheckFormatIbbEESt10unique_ptrINSt7__cxx1
   %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %54 = getelementptr i8, ptr %52, i64 -24
   %55 = load i64, ptr %54, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %4, i64 %55
+  %56 = getelementptr inbounds i8, ptr %4, i64 %55
   store ptr %53, ptr %56, align 8, !tbaa !23
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %57, align 8, !tbaa !23
@@ -89887,7 +89887,7 @@ define linkonce_odr void @_ZN4dmlc14LogCheckFormatINSt7__cxx1112basic_stringIcSt
   %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %54 = getelementptr i8, ptr %52, i64 -24
   %55 = load i64, ptr %54, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %4, i64 %55
+  %56 = getelementptr inbounds i8, ptr %4, i64 %55
   store ptr %53, ptr %56, align 8, !tbaa !23
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %57, align 8, !tbaa !23
@@ -92930,7 +92930,7 @@ define linkonce_odr void @_ZN4dmlc14LogCheckFormatINSt7__cxx1112basic_stringIcSt
   %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %54 = getelementptr i8, ptr %52, i64 -24
   %55 = load i64, ptr %54, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %4, i64 %55
+  %56 = getelementptr inbounds i8, ptr %4, i64 %55
   store ptr %53, ptr %56, align 8, !tbaa !23
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %57, align 8, !tbaa !23

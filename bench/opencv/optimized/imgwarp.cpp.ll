@@ -35718,7 +35718,7 @@ define linkonce_odr hidden void @_ZNK2cv22WarpPerspectiveInvokerclERKNS_5RangeE(
   %indvars.iv213 = phi i64 [ %indvars.iv.next214, %.loopexit185.us ], [ 0, %.lr.ph192.us ]
   %78 = mul nsw i64 %indvars.iv213, %158
   %.idx = shl nsw i64 %78, 2
-  %79 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
+  %79 = getelementptr inbounds i8, ptr %3, i64 %.idx
   %80 = load double, ptr %146, align 8
   %81 = load double, ptr %148, align 8
   %82 = add nsw i64 %indvars.iv213, %indvars.iv222
@@ -35740,7 +35740,7 @@ define linkonce_odr hidden void @_ZNK2cv22WarpPerspectiveInvokerclERKNS_5RangeE(
   %98 = call double @llvm.fmuladd.f64(double %95, double %147, double %97)
   %99 = load double, ptr %155, align 8
   %100 = fadd double %99, %98
-  %101 = getelementptr inbounds nuw i16, ptr %4, i64 %78
+  %101 = getelementptr inbounds i16, ptr %4, i64 %78
   br i1 %157, label %.lr.ph.us, label %.loopexit185.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph192.split.us200, %.lr.ph.us
@@ -35826,7 +35826,7 @@ define linkonce_odr hidden void @_ZNK2cv22WarpPerspectiveInvokerclERKNS_5RangeE(
   %indvars.iv219 = phi i64 [ %indvars.iv.next220, %.loopexit.us.us ], [ 0, %.lr.ph192.us ]
   %160 = mul nsw i64 %indvars.iv219, %158
   %.idx224 = shl nsw i64 %160, 2
-  %161 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx224
+  %161 = getelementptr inbounds i8, ptr %3, i64 %.idx224
   %162 = load double, ptr %146, align 8
   %163 = load double, ptr %148, align 8
   %164 = add nsw i64 %indvars.iv219, %indvars.iv222

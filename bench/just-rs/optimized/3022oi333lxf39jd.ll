@@ -12169,7 +12169,7 @@ define hidden void @"_ZN99_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$
 define hidden noundef range(i32 40, 124) i32 @_ZN4just9delimiter9Delimiter4open17h56d5caeee82d4f6dE(i8 noundef %0) unnamed_addr #7 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN4just9delimiter9Delimiter4open17h56d5caeee82d4f6dE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZN4just9delimiter9Delimiter4open17h56d5caeee82d4f6dE, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -12178,7 +12178,7 @@ switch.lookup:
 define hidden noundef range(i32 41, 126) i32 @_ZN4just9delimiter9Delimiter5close17h49bb3dd60266221eE(i8 noundef %0) unnamed_addr #7 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN4just9delimiter9Delimiter5close17h49bb3dd60266221eE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZN4just9delimiter9Delimiter5close17h49bb3dd60266221eE, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }

@@ -373,7 +373,7 @@ define hidden void @_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4
   %15 = zext nneg i16 %14 to i64
   %16 = add i64 %.sroa.010.031.i, -4
   %17 = getelementptr inbounds nuw i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %12
-  %18 = getelementptr inbounds nuw i8, ptr %3, i64 %16
+  %18 = getelementptr inbounds i8, ptr %3, i64 %16
   %19 = load i16, ptr %17, align 1, !noalias !12
   store i16 %19, ptr %18, align 1, !alias.scope !12
   %20 = getelementptr inbounds nuw i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %15
@@ -392,7 +392,7 @@ define hidden void @_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4
   %.zext30.i = zext nneg i16 %27 to i64
   %28 = add i64 %.sroa.010.0.lcssa.i, -2
   %29 = getelementptr inbounds nuw i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %26
-  %30 = getelementptr inbounds nuw i8, ptr %3, i64 %28
+  %30 = getelementptr inbounds i8, ptr %3, i64 %28
   %31 = load i16, ptr %29, align 1, !noalias !12
   store i16 %31, ptr %30, align 1, !alias.scope !12
   br label %32
@@ -407,7 +407,7 @@ define hidden void @_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4
   %35 = shl nuw nsw i64 %.sroa.04.0.i, 1
   %36 = add i64 %.sroa.010.1.i, -2
   %37 = getelementptr inbounds nuw i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %35
-  %38 = getelementptr inbounds nuw i8, ptr %3, i64 %36
+  %38 = getelementptr inbounds i8, ptr %3, i64 %36
   %39 = load i16, ptr %37, align 1, !noalias !12
   store i16 %39, ptr %38, align 1, !alias.scope !12
   br label %45
@@ -415,7 +415,7 @@ define hidden void @_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4
 40:                                               ; preds = %32
   %41 = add i64 %.sroa.010.1.i, -1
   %42 = trunc nuw nsw i64 %.sroa.04.0.i to i8
-  %43 = getelementptr inbounds nuw i8, ptr %3, i64 %41
+  %43 = getelementptr inbounds i8, ptr %3, i64 %41
   %44 = or disjoint i8 %42, 48
   store i8 %44, ptr %43, align 1, !alias.scope !12
   br label %45
@@ -426,13 +426,13 @@ define hidden void @_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4
 
 46:                                               ; preds = %45
   %47 = add i64 %.sroa.010.2.i, -1
-  %48 = getelementptr inbounds nuw i8, ptr %3, i64 %47
+  %48 = getelementptr inbounds i8, ptr %3, i64 %47
   store i8 45, ptr %48, align 1, !alias.scope !12
   br label %_RNvXsb_CsfbvjWzJraAt_4itoalNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit
 
 _RNvXsb_CsfbvjWzJraAt_4itoalNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit: ; preds = %45, %46
   %.sroa.010.3.i = phi i64 [ %.sroa.010.2.i, %45 ], [ %47, %46 ]
-  %gepdiff = sub nuw nsw i64 11, %.sroa.010.3.i
+  %gepdiff = sub nsw i64 11, %.sroa.010.3.i
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %50 = load i64, ptr %49, align 8, !alias.scope !15, !noundef !4
   %51 = load i64, ptr %0, align 8, !alias.scope !15, !noundef !4
@@ -447,7 +447,7 @@ _RNvXsb_CsfbvjWzJraAt_4itoalNtNtB5_7private6Sealed5write.llvm.277294647238992513
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.2772946472389925136.exit: ; preds = %_RNvXsb_CsfbvjWzJraAt_4itoalNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit, %54
   %55 = phi i64 [ %.pre.i, %54 ], [ %50, %_RNvXsb_CsfbvjWzJraAt_4itoalNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit ]
-  %56 = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.010.3.i
+  %56 = getelementptr inbounds i8, ptr %3, i64 %.sroa.010.3.i
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %58 = load ptr, ptr %57, align 8, !alias.scope !15, !nonnull !4, !noundef !4
   %59 = getelementptr inbounds i8, ptr %58, i64 %55

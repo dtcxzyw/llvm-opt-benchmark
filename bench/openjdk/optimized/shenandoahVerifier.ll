@@ -2102,7 +2102,7 @@ _ZN26ShenandoahVerifyOopClosure16verify_oops_fromEP7oopDesc.exit: ; preds = %114
   %126 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   %127 = load i32, ptr %126, align 4
   %128 = sext i32 %127 to i64
-  %129 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI26ShenandoahVerifyOopClosureE6_tableE, i64 0, i64 %128
+  %129 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI26ShenandoahVerifyOopClosureE6_tableE, i64 0, i64 %128
   %130 = load ptr, ptr %129, align 8
   call void %130(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.0.copyload.i, ptr noundef %.0.i.i.i) #13
   store ptr null, ptr %82, align 8
@@ -4057,7 +4057,7 @@ _ZN26ShenandoahVerifyOopClosure16verify_oops_fromEP7oopDesc.exit: ; preds = %55,
   %67 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   %68 = load i32, ptr %67, align 4
   %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI26ShenandoahVerifyOopClosureE6_tableE, i64 0, i64 %69
+  %70 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI26ShenandoahVerifyOopClosureE6_tableE, i64 0, i64 %69
   %71 = load ptr, ptr %70, align 8
   tail call void %71(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %.0.i.i.i) #13
   store ptr null, ptr %54, align 8
@@ -4158,7 +4158,7 @@ _ZN26ShenandoahVerifyOopClosure16verify_oops_fromEP7oopDesc.exit14: ; preds = %1
   %127 = getelementptr inbounds nuw i8, ptr %.0.i.i.i13, i64 12
   %128 = load i32, ptr %127, align 4
   %129 = sext i32 %128 to i64
-  %130 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI26ShenandoahVerifyOopClosureE6_tableE, i64 0, i64 %129
+  %130 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI26ShenandoahVerifyOopClosureE6_tableE, i64 0, i64 %129
   %131 = load ptr, ptr %130, align 8
   tail call void %131(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.0.copyload.i, ptr noundef %.0.i.i.i13) #13
   store ptr null, ptr %84, align 8

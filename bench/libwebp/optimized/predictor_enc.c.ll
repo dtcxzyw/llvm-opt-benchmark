@@ -1418,7 +1418,7 @@ define internal fastcc void @GetResidual(i32 noundef %0, i32 noundef %1, ptr nou
 
 32:                                               ; preds = %26
   %33 = sext i32 %5 to i64
-  %34 = getelementptr inbounds nuw [16 x ptr], ptr @VP8LPredictorsSub, i64 0, i64 %33
+  %34 = getelementptr inbounds [16 x ptr], ptr @VP8LPredictorsSub, i64 0, i64 %33
   %35 = load ptr, ptr %34, align 8
   %36 = sext i32 %.021.i to i64
   %37 = getelementptr inbounds i32, ptr %3, i64 %36
@@ -1428,7 +1428,7 @@ define internal fastcc void @GetResidual(i32 noundef %0, i32 noundef %1, ptr nou
 
 39:                                               ; preds = %13
   %40 = sext i32 %5 to i64
-  %41 = getelementptr inbounds nuw [16 x ptr], ptr @VP8LPredictors, i64 0, i64 %40
+  %41 = getelementptr inbounds [16 x ptr], ptr @VP8LPredictors, i64 0, i64 %40
   %42 = load ptr, ptr %41, align 8
   %invariant.gep = getelementptr i8, ptr %3, i64 -4
   %43 = icmp slt i32 %6, %7

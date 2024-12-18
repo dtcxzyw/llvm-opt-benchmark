@@ -2376,10 +2376,10 @@ define void @densmatr_mixTwoQubitKrausMap(ptr nocapture noundef readonly byval(%
 12:                                               ; preds = %12, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %12 ]
   %13 = shl i64 %indvars.iv.i, 4
-  %14 = getelementptr inbounds nuw double, ptr %8, i64 %13
+  %14 = getelementptr inbounds double, ptr %8, i64 %13
   %15 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i
   store ptr %14, ptr %15, align 8, !noalias !5
-  %16 = getelementptr inbounds nuw double, ptr %9, i64 %13
+  %16 = getelementptr inbounds double, ptr %9, i64 %13
   %17 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i
   store ptr %16, ptr %17, align 8, !noalias !5
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2544,10 +2544,10 @@ define void @densmatr_mixMultiQubitKrausMap(ptr nocapture noundef readonly byval
 22:                                               ; preds = %22, %12
   %indvars.iv.i = phi i64 [ 0, %12 ], [ %indvars.iv.next.i, %22 ]
   %23 = shl i64 %indvars.iv.i, %16
-  %24 = getelementptr inbounds nuw double, ptr %18, i64 %23
+  %24 = getelementptr inbounds double, ptr %18, i64 %23
   %25 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv.i
   store ptr %24, ptr %25, align 8, !noalias !8
-  %26 = getelementptr inbounds nuw double, ptr %19, i64 %23
+  %26 = getelementptr inbounds double, ptr %19, i64 %23
   %27 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.i
   store ptr %26, ptr %27, align 8, !noalias !8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -3071,7 +3071,7 @@ define void @agnostic_applyQFT(ptr noundef byval(%struct.Qureg) align 8 %0, ptr 
   %indvars.iv.i = phi i64 [ %36, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.012.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %40, %.lr.ph.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %37 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i
+  %37 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.i
   %38 = load i32, ptr %37, align 4
   %39 = add nsw i32 %38, %8
   store i32 %39, ptr %37, align 4
@@ -3109,7 +3109,7 @@ shiftSubregIndices.exit:                          ; preds = %._crit_edge.i
   %indvars.iv.i59 = phi i64 [ %45, %.lr.ph.preheader.i57 ], [ %indvars.iv.next.i61, %.lr.ph.i58 ]
   %.012.i60 = phi i32 [ 0, %.lr.ph.preheader.i57 ], [ %49, %.lr.ph.i58 ]
   %indvars.iv.next.i61 = add nsw i64 %indvars.iv.i59, 1
-  %46 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i59
+  %46 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.i59
   %47 = load i32, ptr %46, align 4
   %48 = sub nsw i32 %47, %8
   store i32 %48, ptr %46, align 4

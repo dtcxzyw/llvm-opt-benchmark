@@ -86,7 +86,7 @@ define hidden void @VP8EncDspInit() local_unnamed_addr #1 {
   %9 = tail call i32 @llvm.umin.i32(i32 %8, i32 255)
   %10 = trunc nuw i32 %9 to i8
   %11 = add nsw i64 %indvars.iv.i.i, 255
-  %12 = getelementptr inbounds nuw [766 x i8], ptr @clip1, i64 0, i64 %11
+  %12 = getelementptr inbounds [766 x i8], ptr @clip1, i64 0, i64 %11
   store i8 %10, ptr %12, align 1
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 511
@@ -638,7 +638,7 @@ define internal void @CollectHistogram_C(ptr noundef %0, ptr noundef %1, i32 nou
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %26
   %indvars.iv17 = phi i64 [ %9, %.lr.ph.preheader ], [ %indvars.iv.next18, %26 ]
   %10 = load ptr, ptr @VP8FTransform, align 8
-  %11 = getelementptr inbounds nuw [24 x i32], ptr @VP8DspScan, i64 0, i64 %indvars.iv17
+  %11 = getelementptr inbounds [24 x i32], ptr @VP8DspScan, i64 0, i64 %indvars.iv17
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds i8, ptr %0, i64 %13

@@ -5762,7 +5762,7 @@ _ZNK4llvm20iterator_facade_baseINS_15concat_iteratorIKtJNS_16MCSubRegIteratorENS
   %.fca.0.load.i.i.i.i = load i64, ptr %.0.ptr.i.i.i.i, align 16
   %.fca.1.gep.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.ptr.i.i.i.i, i64 8
   %.fca.1.load.i.i.i.i = load i64, ptr %.fca.1.gep.i.i.i.i, align 8
-  %2628 = getelementptr inbounds nuw i8, ptr %32, i64 %.fca.1.load.i.i.i.i
+  %2628 = getelementptr inbounds i8, ptr %32, i64 %.fca.1.load.i.i.i.i
   %2629 = and i64 %.fca.0.load.i.i.i.i, 1
   %.not.i.i225.i.i = icmp eq i64 %2629, 0
   br i1 %.not.i.i225.i.i, label %2635, label %2630
@@ -5809,7 +5809,7 @@ _ZNK4llvm15concat_iteratorIKtJNS_16MCSubRegIteratorENS_18MCSuperRegIteratorEEEde
   %.fca.0.load.i.i228.i.i = load i64, ptr %.0.ptr.i.i227.i.i, align 16
   %.fca.1.gep.i.i229.i.i = getelementptr inbounds nuw i8, ptr %.0.ptr.i.i227.i.i, i64 8
   %.fca.1.load.i.i230.i.i = load i64, ptr %.fca.1.gep.i.i229.i.i, align 8
-  %2654 = getelementptr inbounds nuw i8, ptr %32, i64 %.fca.1.load.i.i230.i.i
+  %2654 = getelementptr inbounds i8, ptr %32, i64 %.fca.1.load.i.i230.i.i
   %2655 = and i64 %.fca.0.load.i.i228.i.i, 1
   %.not.i.i231.i.i = icmp eq i64 %2655, 0
   br i1 %.not.i.i231.i.i, label %2661, label %2656
@@ -6019,7 +6019,7 @@ _ZNK4llvm20iterator_facade_baseINS_15concat_iteratorIKtJNS_16MCSubRegIteratorENS
   %.fca.0.load.i.i263.i.i = load i64, ptr %.0.ptr.i.i262.i.i, align 16
   %.fca.1.gep.i.i264.i.i = getelementptr inbounds nuw i8, ptr %.0.ptr.i.i262.i.i, i64 8
   %.fca.1.load.i.i265.i.i = load i64, ptr %.fca.1.gep.i.i264.i.i, align 8
-  %2748 = getelementptr inbounds nuw i8, ptr %33, i64 %.fca.1.load.i.i265.i.i
+  %2748 = getelementptr inbounds i8, ptr %33, i64 %.fca.1.load.i.i265.i.i
   %2749 = and i64 %.fca.0.load.i.i263.i.i, 1
   %.not.i.i266.i.i = icmp eq i64 %2749, 0
   br i1 %.not.i.i266.i.i, label %2755, label %2750
@@ -6066,7 +6066,7 @@ _ZNK4llvm15concat_iteratorIKtJNS_16MCSubRegIteratorENS_18MCSuperRegIteratorEEEde
   %.fca.0.load.i.i272.i.i = load i64, ptr %.0.ptr.i.i271.i.i, align 16
   %.fca.1.gep.i.i273.i.i = getelementptr inbounds nuw i8, ptr %.0.ptr.i.i271.i.i, i64 8
   %.fca.1.load.i.i274.i.i = load i64, ptr %.fca.1.gep.i.i273.i.i, align 8
-  %2774 = getelementptr inbounds nuw i8, ptr %33, i64 %.fca.1.load.i.i274.i.i
+  %2774 = getelementptr inbounds i8, ptr %33, i64 %.fca.1.load.i.i274.i.i
   %2775 = and i64 %.fca.0.load.i.i272.i.i, 1
   %.not.i.i275.i.i = icmp eq i64 %2775, 0
   br i1 %.not.i.i275.i.i, label %2781, label %2776
@@ -6215,7 +6215,7 @@ _ZNK4llvm20iterator_facade_baseINS_15concat_iteratorIKtJNS_16MCSubRegIteratorENS
   %.fca.0.load.i.i304.i.i = load i64, ptr %.0.ptr.i.i303.i.i, align 16
   %.fca.1.gep.i.i305.i.i = getelementptr inbounds nuw i8, ptr %.0.ptr.i.i303.i.i, i64 8
   %.fca.1.load.i.i306.i.i = load i64, ptr %.fca.1.gep.i.i305.i.i, align 8
-  %2837 = getelementptr inbounds nuw i8, ptr %34, i64 %.fca.1.load.i.i306.i.i
+  %2837 = getelementptr inbounds i8, ptr %34, i64 %.fca.1.load.i.i306.i.i
   %2838 = and i64 %.fca.0.load.i.i304.i.i, 1
   %.not.i.i307.i.i = icmp eq i64 %2838, 0
   br i1 %.not.i.i307.i.i, label %2844, label %2839
@@ -6262,7 +6262,7 @@ _ZNK4llvm15concat_iteratorIKtJNS_16MCSubRegIteratorENS_18MCSuperRegIteratorEEEde
   %.fca.0.load.i.i313.i.i = load i64, ptr %.0.ptr.i.i312.i.i, align 16
   %.fca.1.gep.i.i314.i.i = getelementptr inbounds nuw i8, ptr %.0.ptr.i.i312.i.i, i64 8
   %.fca.1.load.i.i315.i.i = load i64, ptr %.fca.1.gep.i.i314.i.i, align 8
-  %2863 = getelementptr inbounds nuw i8, ptr %34, i64 %.fca.1.load.i.i315.i.i
+  %2863 = getelementptr inbounds i8, ptr %34, i64 %.fca.1.load.i.i315.i.i
   %2864 = and i64 %.fca.0.load.i.i313.i.i, 1
   %.not.i.i316.i.i = icmp eq i64 %2864, 0
   br i1 %.not.i.i316.i.i, label %2870, label %2865

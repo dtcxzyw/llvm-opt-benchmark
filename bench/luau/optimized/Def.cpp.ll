@@ -468,7 +468,7 @@ define dso_local noundef ptr @_ZN4Luau8DefArena9freshCellEb(ptr noundef nonnull 
   %17 = getelementptr inbounds %"struct.Luau::Def", ptr %16, i64 %12
   store i32 %11, ptr %17, align 8
   %18 = sext i32 %11 to i64
-  %19 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_4CellENS_3PhiEEE9tableMoveE, i64 0, i64 %18
+  %19 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_4CellENS_3PhiEEE9tableMoveE, i64 0, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
   invoke void %20(ptr noundef nonnull %21, ptr noundef nonnull %5)
@@ -480,7 +480,7 @@ define dso_local noundef ptr @_ZN4Luau8DefArena9freshCellEb(ptr noundef nonnull 
   store i64 %24, ptr %6, align 8
   %25 = load i32, ptr %3, align 8
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_4CellENS_3PhiEEE9tableDtorE, i64 0, i64 %26
+  %27 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_4CellENS_3PhiEEE9tableDtorE, i64 0, i64 %26
   %28 = load ptr, ptr %27, align 8
   invoke void %28(ptr noundef nonnull %5)
           to label %_ZN4Luau3DefD2Ev.exit unwind label %29
@@ -500,7 +500,7 @@ _ZN4Luau3DefD2Ev.exit:                            ; preds = %22
           cleanup
   %34 = load i32, ptr %3, align 8
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_4CellENS_3PhiEEE9tableDtorE, i64 0, i64 %35
+  %36 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_4CellENS_3PhiEEE9tableDtorE, i64 0, i64 %35
   %37 = load ptr, ptr %36, align 8
   invoke void %37(ptr noundef nonnull %5)
           to label %_ZN4Luau3DefD2Ev.exit4 unwind label %38
@@ -614,7 +614,7 @@ define dso_local ptr @_ZN4Luau8DefArena3phiERKSt6vectorINS_7NotNullIKNS_3DefEEES
   %32 = getelementptr inbounds %"struct.Luau::Def", ptr %31, i64 %27
   store i32 %26, ptr %32, align 8
   %33 = sext i32 %26 to i64
-  %34 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_4CellENS_3PhiEEE9tableMoveE, i64 0, i64 %33
+  %34 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_4CellENS_3PhiEEE9tableMoveE, i64 0, i64 %33
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 8
   invoke void %35(ptr noundef nonnull %36, ptr noundef nonnull %18)
@@ -626,7 +626,7 @@ define dso_local ptr @_ZN4Luau8DefArena3phiERKSt6vectorINS_7NotNullIKNS_3DefEEES
   store i64 %39, ptr %21, align 8
   %40 = load i32, ptr %4, align 8
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_4CellENS_3PhiEEE9tableDtorE, i64 0, i64 %41
+  %42 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_4CellENS_3PhiEEE9tableDtorE, i64 0, i64 %41
   %43 = load ptr, ptr %42, align 8
   invoke void %43(ptr noundef nonnull %18)
           to label %_ZNSt6vectorIN4Luau7NotNullIKNS0_3DefEEESaIS4_EED2Ev.exit unwind label %44
@@ -643,7 +643,7 @@ define dso_local ptr @_ZN4Luau8DefArena3phiERKSt6vectorINS_7NotNullIKNS_3DefEEES
           cleanup
   %49 = load i32, ptr %4, align 8
   %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_4CellENS_3PhiEEE9tableDtorE, i64 0, i64 %50
+  %51 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_4CellENS_3PhiEEE9tableDtorE, i64 0, i64 %50
   %52 = load ptr, ptr %51, align 8
   invoke void %52(ptr noundef nonnull %18)
           to label %_ZNSt6vectorIN4Luau7NotNullIKNS0_3DefEEESaIS4_EED2Ev.exit13 unwind label %53

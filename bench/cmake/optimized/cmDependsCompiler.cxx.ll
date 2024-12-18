@@ -175,7 +175,7 @@ define dso_local noundef zeroext i1 @_ZN17cmDependsCompiler17CheckDependenciesER
   %29 = load ptr, ptr %12, align 8
   %30 = getelementptr i8, ptr %29, i64 -24
   %31 = load i64, ptr %30, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %12, i64 %31
+  %32 = getelementptr inbounds i8, ptr %12, i64 %31
   %33 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %32)
           to label %34 unwind label %75
 
@@ -871,7 +871,7 @@ _ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4t
   %297 = load ptr, ptr %21, align 8
   %298 = getelementptr i8, ptr %297, i64 -24
   %299 = load i64, ptr %298, align 8
-  %300 = getelementptr inbounds nuw i8, ptr %21, i64 %299
+  %300 = getelementptr inbounds i8, ptr %21, i64 %299
   %301 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %300)
           to label %302 unwind label %303
 

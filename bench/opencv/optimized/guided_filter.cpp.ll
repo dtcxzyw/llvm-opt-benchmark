@@ -277,12 +277,12 @@ define hidden void @_ZNK2cv8ximgproc16GuidedFilterImpl24MulChannelsGuide_ParBody
   %22 = add nsw i32 %.018.us, -12
   %23 = add i32 %22, %21
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds nuw [36 x i32], ptr @_ZZN2cv8ximgproc16GuidedFilterImpl14getWalkPatternEiRiS2_E5wdata, i64 0, i64 %24
+  %25 = getelementptr inbounds [36 x i32], ptr @_ZZN2cv8ximgproc16GuidedFilterImpl14getWalkPatternEiRiS2_E5wdata, i64 0, i64 %24
   %26 = load i32, ptr %25, align 4
   %27 = add nsw i32 %.018.us, -6
   %28 = add i32 %27, %21
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds nuw [36 x i32], ptr @_ZZN2cv8ximgproc16GuidedFilterImpl14getWalkPatternEiRiS2_E5wdata, i64 0, i64 %29
+  %30 = getelementptr inbounds [36 x i32], ptr @_ZZN2cv8ximgproc16GuidedFilterImpl14getWalkPatternEiRiS2_E5wdata, i64 0, i64 %29
   %31 = load i32, ptr %30, align 4
   %32 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %33 = sext i32 %26 to i64
@@ -347,7 +347,7 @@ define hidden void @_ZN2cv8ximgproc16GuidedFilterImpl14getWalkPatternEiRiS2_(ptr
   %8 = add i32 %1, -12
   %9 = add i32 %8, %7
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds nuw [36 x i32], ptr @_ZZN2cv8ximgproc16GuidedFilterImpl14getWalkPatternEiRiS2_E5wdata, i64 0, i64 %10
+  %11 = getelementptr inbounds [36 x i32], ptr @_ZZN2cv8ximgproc16GuidedFilterImpl14getWalkPatternEiRiS2_E5wdata, i64 0, i64 %10
   %12 = load i32, ptr %11, align 4
   store i32 %12, ptr %2, align 4
   %13 = load i32, ptr %5, align 8
@@ -355,7 +355,7 @@ define hidden void @_ZN2cv8ximgproc16GuidedFilterImpl14getWalkPatternEiRiS2_(ptr
   %15 = add i32 %1, -6
   %16 = add i32 %15, %14
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds nuw [36 x i32], ptr @_ZZN2cv8ximgproc16GuidedFilterImpl14getWalkPatternEiRiS2_E5wdata, i64 0, i64 %17
+  %18 = getelementptr inbounds [36 x i32], ptr @_ZZN2cv8ximgproc16GuidedFilterImpl14getWalkPatternEiRiS2_E5wdata, i64 0, i64 %17
   %19 = load i32, ptr %18, align 4
   store i32 %19, ptr %3, align 4
   ret void
@@ -405,12 +405,12 @@ define hidden void @_ZNK2cv8ximgproc16GuidedFilterImpl38ComputeCovGuideFromChann
   %27 = add nsw i32 %.024.us, -12
   %28 = add i32 %27, %26
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds nuw [36 x i32], ptr @_ZZN2cv8ximgproc16GuidedFilterImpl14getWalkPatternEiRiS2_E5wdata, i64 0, i64 %29
+  %30 = getelementptr inbounds [36 x i32], ptr @_ZZN2cv8ximgproc16GuidedFilterImpl14getWalkPatternEiRiS2_E5wdata, i64 0, i64 %29
   %31 = load i32, ptr %30, align 4
   %32 = add nsw i32 %.024.us, -6
   %33 = add i32 %32, %26
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds nuw [36 x i32], ptr @_ZZN2cv8ximgproc16GuidedFilterImpl14getWalkPatternEiRiS2_E5wdata, i64 0, i64 %34
+  %35 = getelementptr inbounds [36 x i32], ptr @_ZZN2cv8ximgproc16GuidedFilterImpl14getWalkPatternEiRiS2_E5wdata, i64 0, i64 %34
   %36 = load i32, ptr %35, align 4
   %37 = getelementptr inbounds nuw i8, ptr %23, i64 72
   %38 = sext i32 %31 to i64

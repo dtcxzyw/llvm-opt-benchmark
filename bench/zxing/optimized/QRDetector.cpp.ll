@@ -6866,7 +6866,7 @@ _ZN5ZXing6CenterINS_6PointTIdEEEET_RKNS_13QuadrilateralIS3_EE.exit112.i: ; preds
   %273 = sext i32 %272 to i64
   %.idx.i.i = shl nsw i64 %273, 4
   %gepdiff.i.i = sub nsw i64 64, %.idx.i.i
-  %274 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i.i
+  %274 = getelementptr inbounds i8, ptr %6, i64 %.idx.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr nonnull align 8 %274, i64 %gepdiff.i.i, i1 false), !noalias !137
   %.not.i.i.i.i.i5.i.i.i = icmp eq i32 %272, 0
   br i1 %.not.i.i.i.i.i5.i.i.i, label %_ZN5ZXing14RotatedCornersINS_6PointTIdEEEENS_13QuadrilateralIT_EERKS5_ib.exit.i, label %275
@@ -6884,7 +6884,7 @@ _ZN5ZXing14RotatedCornersINS_6PointTIdEEEENS_13QuadrilateralIT_EERKS5_ib.exit.i:
   %279 = sext i32 %278 to i64
   %.idx.i123.i = shl nsw i64 %279, 4
   %gepdiff.i124.i = sub nsw i64 64, %.idx.i123.i
-  %280 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i123.i
+  %280 = getelementptr inbounds i8, ptr %12, i64 %.idx.i123.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %5, ptr nonnull align 8 %280, i64 %gepdiff.i124.i, i1 false), !noalias !137
   %.not.i.i.i.i.i5.i.i125.i = icmp eq i32 %278, 0
   br i1 %.not.i.i.i.i.i5.i.i125.i, label %_ZN5ZXing14RotatedCornersINS_6PointTIdEEEENS_13QuadrilateralIT_EERKS5_ib.exit126.i, label %281

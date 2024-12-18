@@ -49949,10 +49949,10 @@ _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.llvm.12408969533158119881.e
 switch.lookup:                                    ; preds = %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.llvm.12408969533158119881.exit29
   %switch.tableidx = add nsw i8 %10, -1
   %22 = sext i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @"switch.table._ZN77_$LT$byte_unit..adjusted_byte..AdjustedByte$u20$as$u20$core..fmt..Display$GT$3fmt17hbebe8c00963bba10E.llvm.12408969533158119881", i64 0, i64 %22
+  %switch.gep = getelementptr inbounds [10 x ptr], ptr @"switch.table._ZN77_$LT$byte_unit..adjusted_byte..AdjustedByte$u20$as$u20$core..fmt..Display$GT$3fmt17hbebe8c00963bba10E.llvm.12408969533158119881", i64 0, i64 %22
   %switch.load = load ptr, ptr %switch.gep, align 8
   %23 = sext i8 %switch.tableidx to i64
-  %switch.gep41 = getelementptr inbounds nuw [10 x i64], ptr @"switch.table._ZN77_$LT$byte_unit..adjusted_byte..AdjustedByte$u20$as$u20$core..fmt..Display$GT$3fmt17hbebe8c00963bba10E.llvm.12408969533158119881.247", i64 0, i64 %23
+  %switch.gep41 = getelementptr inbounds [10 x i64], ptr @"switch.table._ZN77_$LT$byte_unit..adjusted_byte..AdjustedByte$u20$as$u20$core..fmt..Display$GT$3fmt17hbebe8c00963bba10E.llvm.12408969533158119881.247", i64 0, i64 %23
   %switch.load42 = load i64, ptr %switch.gep41, align 8
   %24 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.load42)
   br label %25

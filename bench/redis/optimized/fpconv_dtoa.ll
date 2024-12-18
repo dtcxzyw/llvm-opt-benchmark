@@ -114,7 +114,7 @@ normalize.exit.i:                                 ; preds = %while.body.i18.i, %
 while.body.i23.i:                                 ; preds = %while.body.backedge.i.i, %normalize.exit.i
   %idx.0.i.i = phi i32 [ %div.i.i, %normalize.exit.i ], [ %inc.i.i, %while.body.backedge.i.i ]
   %idxprom.i.i = sext i32 %idx.0.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds nuw [87 x %struct.Fp], ptr @powers_ten, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds [87 x %struct.Fp], ptr @powers_ten, i64 0, i64 %idxprom.i.i
   %exp3.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 8
   %5 = load i32, ptr %exp3.i.i, align 8
   %add4.i.i = add nsw i32 %sub10.i.i, %5
@@ -226,7 +226,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
   %conv18.i.i = add i8 %12, 48
   %inc.i91.i = add nsw i32 %idx.04.i.i, 1
   %idxprom.i92.i = sext i32 %idx.04.i.i to i64
-  %arrayidx.i93.i = getelementptr inbounds nuw i8, ptr %digits, i64 %idxprom.i92.i
+  %arrayidx.i93.i = getelementptr inbounds i8, ptr %digits, i64 %idxprom.i92.i
   store i8 %conv18.i.i, ptr %arrayidx.i93.i, align 1
   br label %if.end.i85.i
 
@@ -297,7 +297,7 @@ if.then47.i.i:                                    ; preds = %while.body.i90.i
   %conv49.i.i = add i8 %16, 48
   %inc50.i.i = add nsw i32 %idx.2.i.i, 1
   %idxprom51.i.i = sext i32 %idx.2.i.i to i64
-  %arrayidx52.i.i = getelementptr inbounds nuw i8, ptr %digits, i64 %idxprom51.i.i
+  %arrayidx52.i.i = getelementptr inbounds i8, ptr %digits, i64 %idxprom51.i.i
   store i8 %conv49.i.i, ptr %arrayidx52.i.i, align 1
   br label %if.end53.i.i
 

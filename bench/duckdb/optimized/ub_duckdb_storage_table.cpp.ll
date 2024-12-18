@@ -95857,10 +95857,10 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
 while.body.i:                                     ; preds = %land.rhs.i
   %arrayidx6.i = getelementptr inbounds i8, ptr %5, i64 %update_info_offset.142.i
   %19 = load i8, ptr %arrayidx6.i, align 1, !tbaa !1074, !range !66, !noundef !67
-  %arrayidx7.i = getelementptr inbounds nuw [2048 x i8], ptr %result_values.i, i64 0, i64 %result_offset.141.i
+  %arrayidx7.i = getelementptr inbounds [2048 x i8], ptr %result_values.i, i64 0, i64 %result_offset.141.i
   store i8 %19, ptr %arrayidx7.i, align 1, !tbaa !1074
   %inc.i = add i64 %result_offset.141.i, 1
-  %arrayidx10.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.141.i
+  %arrayidx10.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.141.i
   store i32 %18, ptr %arrayidx10.i, align 4, !tbaa !51
   %inc11.i = add i64 %update_info_offset.142.i, 1
   %exitcond.not.i = icmp eq i64 %inc11.i, %conv.i
@@ -95873,9 +95873,9 @@ land.lhs.true.i:                                  ; preds = %land.rhs.i
 if.then.i:                                        ; preds = %land.lhs.true.i
   %arrayidx19.i = getelementptr inbounds i8, ptr %5, i64 %update_info_offset.142.i
   %20 = load i8, ptr %arrayidx19.i, align 1, !tbaa !1074, !range !66, !noundef !67
-  %arrayidx21.i = getelementptr inbounds nuw [2048 x i8], ptr %result_values.i, i64 0, i64 %result_offset.141.i
+  %arrayidx21.i = getelementptr inbounds [2048 x i8], ptr %result_values.i, i64 0, i64 %result_offset.141.i
   store i8 %20, ptr %arrayidx21.i, align 1, !tbaa !1074
-  %arrayidx26.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.141.i
+  %arrayidx26.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.141.i
   store i32 %18, ptr %arrayidx26.i, align 4, !tbaa !51
   %inc27.i = add nuw nsw i64 %update_info_offset.142.i, 1
   br label %cleanup.i
@@ -95931,10 +95931,10 @@ _ZNK6duckdb21TemplatedValidityMaskImE16RowIsValidUnsafeEm.exit.i.i.i: ; preds = 
 if.end59.i:                                       ; preds = %if.else.i, %_ZNK6duckdb21TemplatedValidityMaskImE16RowIsValidUnsafeEm.exit.i.i.i, %if.then49.i
   %retval.0.i.i.i.sink = phi i8 [ %24, %if.then49.i ], [ %28, %_ZNK6duckdb21TemplatedValidityMaskImE16RowIsValidUnsafeEm.exit.i.i.i ], [ 1, %if.else.i ]
   %base_info_offset.138.i = phi i64 [ %base_info_offset.145.i, %if.then49.i ], [ %base_info_offset.139.i, %_ZNK6duckdb21TemplatedValidityMaskImE16RowIsValidUnsafeEm.exit.i.i.i ], [ %base_info_offset.139.i, %if.else.i ]
-  %arrayidx57.i = getelementptr inbounds nuw [2048 x i8], ptr %result_values.i, i64 0, i64 %result_offset.136.i
+  %arrayidx57.i = getelementptr inbounds [2048 x i8], ptr %result_values.i, i64 0, i64 %result_offset.136.i
   store i8 %retval.0.i.i.i.sink, ptr %arrayidx57.i, align 1, !tbaa !1074
   %conv60.i = trunc i64 %sub.i to i32
-  %arrayidx62.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.136.i
+  %arrayidx62.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.136.i
   store i32 %conv60.i, ptr %arrayidx62.i, align 4, !tbaa !51
   br label %cleanup.i
 
@@ -96005,7 +96005,7 @@ for.body.us.i.i.prol:                             ; preds = %for.body.us.i.i.pre
   %37 = load i64, ptr %arrayidx19.us.i.i.prol, align 8, !tbaa !18
   %sub20.us.i.i.prol = sub i64 %37, %add.i
   %conv.i92.us.i.i.prol = trunc i64 %sub20.us.i.i.prol to i32
-  %arrayidx2.i93.us.i.i.prol = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.4.i
+  %arrayidx2.i93.us.i.i.prol = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.4.i
   store i32 %conv.i92.us.i.i.prol, ptr %arrayidx2.i93.us.i.i.prol, align 4, !tbaa !51
   %inc.i94.us.i.i.prol = add i64 %result_offset.4.i, 1
   %inc22.us.i.i.prol = add nuw i64 %aidx.0.lcssa.i.i, 1
@@ -96046,7 +96046,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %44 = sub <2 x i64> %wide.load42, %broadcast.splat
   %45 = trunc <2 x i64> %43 to <2 x i32>
   %46 = trunc <2 x i64> %44 to <2 x i32>
-  %47 = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %offset.idx
+  %47 = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %offset.idx
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store <2 x i32> %45, ptr %47, align 4, !tbaa !51
   store <2 x i32> %46, ptr %48, align 4, !tbaa !51
@@ -96071,7 +96071,7 @@ for.body.us.us.i.i:                               ; preds = %for.body.us.us.i.i.
   %50 = load i64, ptr %arrayidx19.us.us.i.i, align 8, !tbaa !18
   %sub20.us.us.i.i = sub i64 %50, %add.i
   %conv.i92.us.us.i.i = trunc i64 %sub20.us.us.i.i to i32
-  %arrayidx2.i93.us.us.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i9413.us.us.i.i
+  %arrayidx2.i93.us.us.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i9413.us.us.i.i
   store i32 %conv.i92.us.us.i.i, ptr %arrayidx2.i93.us.us.i.i, align 4, !tbaa !51
   %inc.i94.us.us.i.i = add i64 %inc.i9413.us.us.i.i, 1
   %inc22.us.us.i.i = add nuw i64 %aidx.211.us.us.i.i, 1
@@ -96088,7 +96088,7 @@ for.body.us.i.i:                                  ; preds = %for.body.us.i.i, %f
   %52 = load i64, ptr %arrayidx19.us.i.i, align 8, !tbaa !18
   %sub20.us.i.i = sub i64 %52, %add.i
   %conv.i92.us.i.i = trunc i64 %sub20.us.i.i to i32
-  %arrayidx2.i93.us.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i9413.us.i.i
+  %arrayidx2.i93.us.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i9413.us.i.i
   store i32 %conv.i92.us.i.i, ptr %arrayidx2.i93.us.i.i, align 4, !tbaa !51
   %inc.i94.us.i.i = add i64 %inc.i9413.us.i.i, 1
   %gep = getelementptr i32, ptr %invariant.gep, i64 %aidx.211.us.i.i
@@ -96098,7 +96098,7 @@ for.body.us.i.i:                                  ; preds = %for.body.us.i.i, %f
   %54 = load i64, ptr %arrayidx19.us.i.i.1, align 8, !tbaa !18
   %sub20.us.i.i.1 = sub i64 %54, %add.i
   %conv.i92.us.i.i.1 = trunc i64 %sub20.us.i.i.1 to i32
-  %arrayidx2.i93.us.i.i.1 = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i94.us.i.i
+  %arrayidx2.i93.us.i.i.1 = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i94.us.i.i
   store i32 %conv.i92.us.i.i.1, ptr %arrayidx2.i93.us.i.i.1, align 4, !tbaa !51
   %inc.i94.us.i.i.1 = add i64 %inc.i9413.us.i.i, 2
   %inc22.us.i.i.1 = add nuw i64 %aidx.211.us.i.i, 2
@@ -96121,10 +96121,10 @@ for.body.us14.i.i:                                ; preds = %for.body.lr.ph.spli
   %57 = lshr i64 %56, %rem.i.i.i.i.i86.us.i.i
   %58 = trunc i64 %57 to i8
   %59 = and i8 %58, 1
-  %arrayidx.i91.us22.i.i = getelementptr inbounds nuw [2048 x i8], ptr %result_values.i, i64 0, i64 %inc.i9413.us15.i.i
+  %arrayidx.i91.us22.i.i = getelementptr inbounds [2048 x i8], ptr %result_values.i, i64 0, i64 %inc.i9413.us15.i.i
   store i8 %59, ptr %arrayidx.i91.us22.i.i, align 1, !tbaa !1074
   %conv.i92.us23.i.i = trunc i64 %sub20.us21.i.i to i32
-  %arrayidx2.i93.us24.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i9413.us15.i.i
+  %arrayidx2.i93.us24.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i9413.us15.i.i
   store i32 %conv.i92.us23.i.i, ptr %arrayidx2.i93.us24.i.i, align 4, !tbaa !51
   %inc.i94.us25.i.i = add i64 %inc.i9413.us15.i.i, 1
   %inc22.us27.i.i = add nuw i64 %aidx.211.us16.i.i, 1
@@ -96169,10 +96169,10 @@ _ZNK6duckdb21TemplatedValidityMaskImE16RowIsValidUnsafeEm.exit.i.i.i.i.i.i: ; pr
 
 _ZZN6duckdbL23MergeUpdateLoopInternalIbNS_12ValidityMaskENS_20ExtractValidityEntryEEEvPNS_10UpdateInfoEPT0_S4_S6_PlmRKNS_15SelectionVectorEENKUlmmmmE_clEmmmm.exit.i.i: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE16RowIsValidUnsafeEm.exit.i.i.i.i.i.i, %if.then.i.i
   %retval.0.i.i.i.i.i.i = phi i8 [ %66, %_ZNK6duckdb21TemplatedValidityMaskImE16RowIsValidUnsafeEm.exit.i.i.i.i.i.i ], [ 1, %if.then.i.i ]
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [2048 x i8], ptr %result_values.i, i64 0, i64 %result_offset.5.i
+  %arrayidx.i.i.i.i = getelementptr inbounds [2048 x i8], ptr %result_values.i, i64 0, i64 %result_offset.5.i
   store i8 %retval.0.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i, align 1, !tbaa !1074
   %conv.i.i.i.i = trunc nuw i64 %sub.i.i to i32
-  %arrayidx2.i.i.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
+  %arrayidx2.i.i.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
   store i32 %conv.i.i.i.i, ptr %arrayidx2.i.i.i.i, align 4, !tbaa !51
   %inc.i.i = add nuw i64 %aidx.06.i.i, 1
   %inc4.i.i = add nuw nsw i64 %bidx.05.i.i, 1
@@ -96197,10 +96197,10 @@ _ZNK6duckdb21TemplatedValidityMaskImE16RowIsValidUnsafeEm.exit.i.i.i.i.i: ; pred
 
 _ZZN6duckdbL23MergeUpdateLoopInternalIbNS_12ValidityMaskENS_20ExtractValidityEntryEEEvPNS_10UpdateInfoEPT0_S4_S6_PlmRKNS_15SelectionVectorEENKUlmmmE_clEmmm.exit.i.i: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE16RowIsValidUnsafeEm.exit.i.i.i.i.i, %if.then8.i.i
   %retval.0.i.i.i.i.i = phi i8 [ %70, %_ZNK6duckdb21TemplatedValidityMaskImE16RowIsValidUnsafeEm.exit.i.i.i.i.i ], [ 1, %if.then8.i.i ]
-  %arrayidx.i71.i.i = getelementptr inbounds nuw [2048 x i8], ptr %result_values.i, i64 0, i64 %result_offset.5.i
+  %arrayidx.i71.i.i = getelementptr inbounds [2048 x i8], ptr %result_values.i, i64 0, i64 %result_offset.5.i
   store i8 %retval.0.i.i.i.i.i, ptr %arrayidx.i71.i.i, align 1, !tbaa !1074
   %conv.i72.i.i = trunc nuw i64 %sub.i.i to i32
-  %arrayidx2.i.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
+  %arrayidx2.i.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
   store i32 %conv.i72.i.i, ptr %arrayidx2.i.i.i, align 4, !tbaa !51
   %inc9.i.i = add nuw i64 %aidx.06.i.i, 1
   br label %if.end15.i.i
@@ -96208,9 +96208,9 @@ _ZZN6duckdbL23MergeUpdateLoopInternalIbNS_12ValidityMaskENS_20ExtractValidityEnt
 if.else11.i.i:                                    ; preds = %if.else.i.i
   %arrayidx.i73.i.i = getelementptr inbounds i8, ptr %4, i64 %bidx.05.i.i
   %71 = load i8, ptr %arrayidx.i73.i.i, align 1, !tbaa !1074, !range !66, !noundef !67
-  %arrayidx2.i74.i.i = getelementptr inbounds nuw [2048 x i8], ptr %result_values.i, i64 0, i64 %result_offset.5.i
+  %arrayidx2.i74.i.i = getelementptr inbounds [2048 x i8], ptr %result_values.i, i64 0, i64 %result_offset.5.i
   store i8 %71, ptr %arrayidx2.i74.i.i, align 1, !tbaa !1074
-  %arrayidx3.i.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
+  %arrayidx3.i.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
   store i32 %62, ptr %arrayidx3.i.i.i, align 4, !tbaa !51
   %inc13.i.i = add nuw nsw i64 %bidx.05.i.i, 1
   br label %if.end15.i.i
@@ -96259,10 +96259,10 @@ for.body.i.i:                                     ; preds = %for.body.lr.ph.spli
   %81 = lshr i64 %80, %rem.i.i.i.i.i86.i.i
   %82 = trunc i64 %81 to i8
   %83 = and i8 %82, 1
-  %arrayidx.i91.i.i = getelementptr inbounds nuw [2048 x i8], ptr %result_values.i, i64 0, i64 %inc.i9413.i.i
+  %arrayidx.i91.i.i = getelementptr inbounds [2048 x i8], ptr %result_values.i, i64 0, i64 %inc.i9413.i.i
   store i8 %83, ptr %arrayidx.i91.i.i, align 1, !tbaa !1074
   %conv.i92.i.i = trunc i64 %sub20.i.i to i32
-  %arrayidx2.i93.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i9413.i.i
+  %arrayidx2.i93.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i9413.i.i
   store i32 %conv.i92.i.i, ptr %arrayidx2.i93.i.i, align 4, !tbaa !51
   %inc.i94.i.i = add i64 %inc.i9413.i.i, 1
   %inc22.i.i = add nuw i64 %aidx.211.i.i, 1
@@ -96387,10 +96387,10 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
 while.body.i:                                     ; preds = %land.rhs.i
   %arrayidx6.i = getelementptr inbounds i8, ptr %7, i64 %update_info_offset.1195.i
   %21 = load i8, ptr %arrayidx6.i, align 1, !tbaa !50
-  %arrayidx7.i = getelementptr inbounds nuw [2048 x i8], ptr %result_values.i, i64 0, i64 %result_offset.1194.i
+  %arrayidx7.i = getelementptr inbounds [2048 x i8], ptr %result_values.i, i64 0, i64 %result_offset.1194.i
   store i8 %21, ptr %arrayidx7.i, align 1, !tbaa !50
   %inc.i = add i64 %result_offset.1194.i, 1
-  %arrayidx10.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1194.i
+  %arrayidx10.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1194.i
   store i32 %20, ptr %arrayidx10.i, align 4, !tbaa !51
   %inc11.i = add i64 %update_info_offset.1195.i, 1
   %exitcond.not.i = icmp eq i64 %inc11.i, %conv.i
@@ -96403,9 +96403,9 @@ land.lhs.true.i:                                  ; preds = %land.rhs.i
 if.then.i:                                        ; preds = %land.lhs.true.i
   %arrayidx19.i = getelementptr inbounds i8, ptr %7, i64 %update_info_offset.1195.i
   %22 = load i8, ptr %arrayidx19.i, align 1, !tbaa !50
-  %arrayidx20.i = getelementptr inbounds nuw [2048 x i8], ptr %result_values.i, i64 0, i64 %result_offset.1194.i
+  %arrayidx20.i = getelementptr inbounds [2048 x i8], ptr %result_values.i, i64 0, i64 %result_offset.1194.i
   store i8 %22, ptr %arrayidx20.i, align 1, !tbaa !50
-  %arrayidx24.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1194.i
+  %arrayidx24.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1194.i
   store i32 %20, ptr %arrayidx24.i, align 4, !tbaa !51
   %inc25.i = add nuw nsw i64 %update_info_offset.1195.i, 1
   br label %cleanup.i
@@ -96452,10 +96452,10 @@ if.end54.i:                                       ; preds = %if.else.i, %if.then
   %arrayidx.i146.sink.i = phi ptr [ %arrayidx.i146.i, %if.else.i ], [ %arrayidx48.i, %if.then47.i ]
   %base_info_offset.1191.i = phi i64 [ %base_info_offset.1192.i, %if.else.i ], [ %base_info_offset.1198.i, %if.then47.i ]
   %26 = load i8, ptr %arrayidx.i146.sink.i, align 1, !tbaa !50
-  %arrayidx53.i = getelementptr inbounds nuw [2048 x i8], ptr %result_values.i, i64 0, i64 %result_offset.1189.i
+  %arrayidx53.i = getelementptr inbounds [2048 x i8], ptr %result_values.i, i64 0, i64 %result_offset.1189.i
   store i8 %26, ptr %arrayidx53.i, align 1, !tbaa !50
   %conv55.i = trunc i64 %sub.i to i32
-  %arrayidx57.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1189.i
+  %arrayidx57.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1189.i
   store i32 %conv55.i, ptr %arrayidx57.i, align 4, !tbaa !51
   br label %cleanup.i
 
@@ -96519,10 +96519,10 @@ for.body.i.i.prol:                                ; preds = %for.body.i.i.prehea
   %sub20.i.i.prol = sub i64 %35, %add.i
   %arrayidx.i.i83.i.i.prol = getelementptr inbounds nuw i8, ptr %1, i64 %conv.i80.i.i.prol
   %36 = load i8, ptr %arrayidx.i.i83.i.i.prol, align 1, !tbaa !50
-  %arrayidx.i84.i.i.prol = getelementptr inbounds nuw [2048 x i8], ptr %result_values.i, i64 0, i64 %result_offset.4.i
+  %arrayidx.i84.i.i.prol = getelementptr inbounds [2048 x i8], ptr %result_values.i, i64 0, i64 %result_offset.4.i
   store i8 %36, ptr %arrayidx.i84.i.i.prol, align 1, !tbaa !50
   %conv.i85.i.i.prol = trunc i64 %sub20.i.i.prol to i32
-  %arrayidx2.i86.i.i.prol = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.4.i
+  %arrayidx2.i86.i.i.prol = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.4.i
   store i32 %conv.i85.i.i.prol, ptr %arrayidx2.i86.i.i.prol, align 4, !tbaa !51
   %inc.i87.i.i.prol = add i64 %result_offset.4.i, 1
   %inc22.i.i.prol = add nuw i64 %aidx.0.lcssa.i.i, 1
@@ -96567,7 +96567,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %44 = sub <2 x i64> %wide.load34, %broadcast.splat
   %45 = trunc <2 x i64> %43 to <2 x i32>
   %46 = trunc <2 x i64> %44 to <2 x i32>
-  %47 = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %offset.idx
+  %47 = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %offset.idx
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store <2 x i32> %45, ptr %47, align 4, !tbaa !51
   store <2 x i32> %46, ptr %48, align 4, !tbaa !51
@@ -96592,7 +96592,7 @@ for.body.i.us.i:                                  ; preds = %for.body.i.us.i.pre
   %50 = load i64, ptr %arrayidx19.i.us.i, align 8, !tbaa !18
   %sub20.i.us.i = sub i64 %50, %add.i
   %conv.i85.i.us.i = trunc i64 %sub20.i.us.i to i32
-  %arrayidx2.i86.i.us.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.8.us.i
+  %arrayidx2.i86.i.us.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.8.us.i
   store i32 %conv.i85.i.us.i, ptr %arrayidx2.i86.i.us.i, align 4, !tbaa !51
   %inc.i87.i.us.i = add i64 %result_offset.8.us.i, 1
   %inc22.i.us.i = add nuw i64 %aidx.2101.i.us.i, 1
@@ -96625,10 +96625,10 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i: ; preds = %cond.true.i.i.i, %
 if.then.i.i:                                      ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 %cond.i.i.i
   %54 = load i8, ptr %arrayidx.i.i.i.i.i, align 1, !tbaa !50
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [2048 x i8], ptr %result_values.i, i64 0, i64 %result_offset.5.i
+  %arrayidx.i.i.i.i = getelementptr inbounds [2048 x i8], ptr %result_values.i, i64 0, i64 %result_offset.5.i
   store i8 %54, ptr %arrayidx.i.i.i.i, align 1, !tbaa !50
   %conv.i.i.i.i = trunc nuw i64 %sub.i.i to i32
-  %arrayidx2.i.i.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
+  %arrayidx2.i.i.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
   store i32 %conv.i.i.i.i, ptr %arrayidx2.i.i.i.i, align 4, !tbaa !51
   %inc.i.i = add nuw i64 %aidx.096.i.i, 1
   %inc4.i.i = add nuw nsw i64 %bidx.095.i.i, 1
@@ -96636,7 +96636,7 @@ if.then.i.i:                                      ; preds = %_ZNK6duckdb15Select
 
 if.else.i.i:                                      ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i
   %cmp7.i.i = icmp ult i64 %sub.i.i, %conv.i150.i
-  %arrayidx.i72.i.i = getelementptr inbounds nuw [2048 x i8], ptr %result_values.i, i64 0, i64 %result_offset.5.i
+  %arrayidx.i72.i.i = getelementptr inbounds [2048 x i8], ptr %result_values.i, i64 0, i64 %result_offset.5.i
   br i1 %cmp7.i.i, label %if.then8.i.i, label %if.else11.i.i
 
 if.then8.i.i:                                     ; preds = %if.else.i.i
@@ -96644,7 +96644,7 @@ if.then8.i.i:                                     ; preds = %if.else.i.i
   %55 = load i8, ptr %arrayidx.i.i71.i.i, align 1, !tbaa !50
   store i8 %55, ptr %arrayidx.i72.i.i, align 1, !tbaa !50
   %conv.i73.i.i = trunc nuw i64 %sub.i.i to i32
-  %arrayidx2.i.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
+  %arrayidx2.i.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
   store i32 %conv.i73.i.i, ptr %arrayidx2.i.i.i, align 4, !tbaa !51
   %inc9.i.i = add nuw i64 %aidx.096.i.i, 1
   br label %if.end15.i.i
@@ -96653,7 +96653,7 @@ if.else11.i.i:                                    ; preds = %if.else.i.i
   %arrayidx.i74.i.i = getelementptr inbounds i8, ptr %6, i64 %bidx.095.i.i
   %56 = load i8, ptr %arrayidx.i74.i.i, align 1, !tbaa !50
   store i8 %56, ptr %arrayidx.i72.i.i, align 1, !tbaa !50
-  %arrayidx3.i.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
+  %arrayidx3.i.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
   store i32 %53, ptr %arrayidx3.i.i.i, align 4, !tbaa !51
   %inc13.i.i = add nuw nsw i64 %bidx.095.i.i, 1
   br label %if.end15.i.i
@@ -96697,10 +96697,10 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %sub20.i.i = sub i64 %64, %add.i
   %arrayidx.i.i83.i.i = getelementptr inbounds nuw i8, ptr %1, i64 %conv.i80.i.i
   %65 = load i8, ptr %arrayidx.i.i83.i.i, align 1, !tbaa !50
-  %arrayidx.i84.i.i = getelementptr inbounds nuw [2048 x i8], ptr %result_values.i, i64 0, i64 %result_offset.8.i
+  %arrayidx.i84.i.i = getelementptr inbounds [2048 x i8], ptr %result_values.i, i64 0, i64 %result_offset.8.i
   store i8 %65, ptr %arrayidx.i84.i.i, align 1, !tbaa !50
   %conv.i85.i.i = trunc i64 %sub20.i.i to i32
-  %arrayidx2.i86.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.8.i
+  %arrayidx2.i86.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.8.i
   store i32 %conv.i85.i.i, ptr %arrayidx2.i86.i.i, align 4, !tbaa !51
   %inc.i87.i.i = add i64 %result_offset.8.i, 1
   %gep = getelementptr i32, ptr %invariant.gep, i64 %aidx.2101.i.i
@@ -96711,10 +96711,10 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %sub20.i.i.1 = sub i64 %67, %add.i
   %arrayidx.i.i83.i.i.1 = getelementptr inbounds nuw i8, ptr %1, i64 %conv.i80.i.i.1
   %68 = load i8, ptr %arrayidx.i.i83.i.i.1, align 1, !tbaa !50
-  %arrayidx.i84.i.i.1 = getelementptr inbounds nuw [2048 x i8], ptr %result_values.i, i64 0, i64 %inc.i87.i.i
+  %arrayidx.i84.i.i.1 = getelementptr inbounds [2048 x i8], ptr %result_values.i, i64 0, i64 %inc.i87.i.i
   store i8 %68, ptr %arrayidx.i84.i.i.1, align 1, !tbaa !50
   %conv.i85.i.i.1 = trunc i64 %sub20.i.i.1 to i32
-  %arrayidx2.i86.i.i.1 = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i87.i.i
+  %arrayidx2.i86.i.i.1 = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i87.i.i
   store i32 %conv.i85.i.i.1, ptr %arrayidx2.i86.i.i.1, align 4, !tbaa !51
   %inc.i87.i.i.1 = add i64 %result_offset.8.i, 2
   %inc22.i.i.1 = add nuw i64 %aidx.2101.i.i, 2
@@ -96842,10 +96842,10 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
 while.body.i:                                     ; preds = %land.rhs.i
   %arrayidx6.i = getelementptr inbounds i16, ptr %7, i64 %update_info_offset.1190.i
   %24 = load i16, ptr %arrayidx6.i, align 2, !tbaa !938
-  %arrayidx7.i = getelementptr inbounds nuw [2048 x i16], ptr %result_values.i, i64 0, i64 %result_offset.1189.i
+  %arrayidx7.i = getelementptr inbounds [2048 x i16], ptr %result_values.i, i64 0, i64 %result_offset.1189.i
   store i16 %24, ptr %arrayidx7.i, align 2, !tbaa !938
   %inc.i = add i64 %result_offset.1189.i, 1
-  %arrayidx10.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1189.i
+  %arrayidx10.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1189.i
   store i32 %23, ptr %arrayidx10.i, align 4, !tbaa !51
   %inc11.i = add i64 %update_info_offset.1190.i, 1
   %exitcond.not.i = icmp eq i64 %inc11.i, %conv.i
@@ -96858,9 +96858,9 @@ land.lhs.true.i:                                  ; preds = %land.rhs.i
 if.then.i:                                        ; preds = %land.lhs.true.i
   %arrayidx19.i = getelementptr inbounds i16, ptr %7, i64 %update_info_offset.1190.i
   %25 = load i16, ptr %arrayidx19.i, align 2, !tbaa !938
-  %arrayidx20.i = getelementptr inbounds nuw [2048 x i16], ptr %result_values.i, i64 0, i64 %result_offset.1189.i
+  %arrayidx20.i = getelementptr inbounds [2048 x i16], ptr %result_values.i, i64 0, i64 %result_offset.1189.i
   store i16 %25, ptr %arrayidx20.i, align 2, !tbaa !938
-  %arrayidx24.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1189.i
+  %arrayidx24.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1189.i
   store i32 %23, ptr %arrayidx24.i, align 4, !tbaa !51
   %inc25.i = add nuw nsw i64 %update_info_offset.1190.i, 1
   br label %cleanup.i
@@ -96907,10 +96907,10 @@ if.end54.i:                                       ; preds = %if.else.i, %if.then
   %arrayidx.i146.sink.i = phi ptr [ %arrayidx.i146.i, %if.else.i ], [ %arrayidx48.i, %if.then47.i ]
   %base_info_offset.1186.i = phi i64 [ %base_info_offset.1187.i, %if.else.i ], [ %base_info_offset.1193.i, %if.then47.i ]
   %29 = load i16, ptr %arrayidx.i146.sink.i, align 2, !tbaa !938
-  %arrayidx53.i = getelementptr inbounds nuw [2048 x i16], ptr %result_values.i, i64 0, i64 %result_offset.1184.i
+  %arrayidx53.i = getelementptr inbounds [2048 x i16], ptr %result_values.i, i64 0, i64 %result_offset.1184.i
   store i16 %29, ptr %arrayidx53.i, align 2, !tbaa !938
   %conv55.i = trunc i64 %sub.i to i32
-  %arrayidx57.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1184.i
+  %arrayidx57.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1184.i
   store i32 %conv55.i, ptr %arrayidx57.i, align 4, !tbaa !51
   br label %cleanup.i
 
@@ -96974,10 +96974,10 @@ for.body.i.i.prol:                                ; preds = %for.body.i.i.prehea
   %sub20.i.i.prol = sub i64 %36, %add.i
   %arrayidx.i.i83.i.i.prol = getelementptr inbounds nuw i16, ptr %1, i64 %conv.i80.i.i.prol
   %37 = load i16, ptr %arrayidx.i.i83.i.i.prol, align 2, !tbaa !938
-  %arrayidx.i84.i.i.prol = getelementptr inbounds nuw [2048 x i16], ptr %result_values.i, i64 0, i64 %result_offset.4.i
+  %arrayidx.i84.i.i.prol = getelementptr inbounds [2048 x i16], ptr %result_values.i, i64 0, i64 %result_offset.4.i
   store i16 %37, ptr %arrayidx.i84.i.i.prol, align 2, !tbaa !938
   %conv.i85.i.i.prol = trunc i64 %sub20.i.i.prol to i32
-  %arrayidx2.i86.i.i.prol = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.4.i
+  %arrayidx2.i86.i.i.prol = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.4.i
   store i32 %conv.i85.i.i.prol, ptr %arrayidx2.i86.i.i.prol, align 4, !tbaa !51
   %inc.i87.i.i.prol = add i64 %result_offset.4.i, 1
   %inc22.i.i.prol = add nuw i64 %aidx.0.lcssa.i.i, 1
@@ -97025,7 +97025,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %48 = sub <2 x i64> %wide.load34, %broadcast.splat
   %49 = trunc <2 x i64> %47 to <2 x i32>
   %50 = trunc <2 x i64> %48 to <2 x i32>
-  %51 = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %offset.idx
+  %51 = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %offset.idx
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store <2 x i32> %49, ptr %51, align 4, !tbaa !51
   store <2 x i32> %50, ptr %52, align 4, !tbaa !51
@@ -97050,7 +97050,7 @@ for.body.us.i.i:                                  ; preds = %for.body.us.i.i.pre
   %54 = load i64, ptr %arrayidx19.us.i.i, align 8, !tbaa !18
   %sub20.us.i.i = sub i64 %54, %add.i
   %conv.i85.us.i.i = trunc i64 %sub20.us.i.i to i32
-  %arrayidx2.i86.us.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i8713.us.i.i
+  %arrayidx2.i86.us.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i8713.us.i.i
   store i32 %conv.i85.us.i.i, ptr %arrayidx2.i86.us.i.i, align 4, !tbaa !51
   %inc.i87.us.i.i = add i64 %inc.i8713.us.i.i, 1
   %inc22.us.i.i = add nuw i64 %aidx.211.us.i.i, 1
@@ -97083,10 +97083,10 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i: ; preds = %cond.true.i.i.i, %
 if.then.i.i:                                      ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i
   %arrayidx.i.i.i.i.i = getelementptr inbounds i16, ptr %1, i64 %cond.i.i.i
   %58 = load i16, ptr %arrayidx.i.i.i.i.i, align 2, !tbaa !938
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [2048 x i16], ptr %result_values.i, i64 0, i64 %result_offset.5.i
+  %arrayidx.i.i.i.i = getelementptr inbounds [2048 x i16], ptr %result_values.i, i64 0, i64 %result_offset.5.i
   store i16 %58, ptr %arrayidx.i.i.i.i, align 2, !tbaa !938
   %conv.i.i.i.i = trunc nuw i64 %sub.i.i to i32
-  %arrayidx2.i.i.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
+  %arrayidx2.i.i.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
   store i32 %conv.i.i.i.i, ptr %arrayidx2.i.i.i.i, align 4, !tbaa !51
   %inc.i.i = add nuw i64 %aidx.06.i.i, 1
   %inc4.i.i = add nuw nsw i64 %bidx.05.i.i, 1
@@ -97094,7 +97094,7 @@ if.then.i.i:                                      ; preds = %_ZNK6duckdb15Select
 
 if.else.i.i:                                      ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i
   %cmp7.i.i = icmp ult i64 %sub.i.i, %conv.i150.i
-  %arrayidx.i72.i.i = getelementptr inbounds nuw [2048 x i16], ptr %result_values.i, i64 0, i64 %result_offset.5.i
+  %arrayidx.i72.i.i = getelementptr inbounds [2048 x i16], ptr %result_values.i, i64 0, i64 %result_offset.5.i
   br i1 %cmp7.i.i, label %if.then8.i.i, label %if.else11.i.i
 
 if.then8.i.i:                                     ; preds = %if.else.i.i
@@ -97102,7 +97102,7 @@ if.then8.i.i:                                     ; preds = %if.else.i.i
   %59 = load i16, ptr %arrayidx.i.i71.i.i, align 2, !tbaa !938
   store i16 %59, ptr %arrayidx.i72.i.i, align 2, !tbaa !938
   %conv.i73.i.i = trunc nuw i64 %sub.i.i to i32
-  %arrayidx2.i.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
+  %arrayidx2.i.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
   store i32 %conv.i73.i.i, ptr %arrayidx2.i.i.i, align 4, !tbaa !51
   %inc9.i.i = add nuw i64 %aidx.06.i.i, 1
   br label %if.end15.i.i
@@ -97111,7 +97111,7 @@ if.else11.i.i:                                    ; preds = %if.else.i.i
   %arrayidx.i74.i.i = getelementptr inbounds i16, ptr %6, i64 %bidx.05.i.i
   %60 = load i16, ptr %arrayidx.i74.i.i, align 2, !tbaa !938
   store i16 %60, ptr %arrayidx.i72.i.i, align 2, !tbaa !938
-  %arrayidx3.i.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
+  %arrayidx3.i.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
   store i32 %57, ptr %arrayidx3.i.i.i, align 4, !tbaa !51
   %inc13.i.i = add nuw nsw i64 %bidx.05.i.i, 1
   br label %if.end15.i.i
@@ -97158,10 +97158,10 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %sub20.i.i = sub i64 %71, %add.i
   %arrayidx.i.i83.i.i = getelementptr inbounds nuw i16, ptr %1, i64 %conv.i80.i.i
   %72 = load i16, ptr %arrayidx.i.i83.i.i, align 2, !tbaa !938
-  %arrayidx.i84.i.i = getelementptr inbounds nuw [2048 x i16], ptr %result_values.i, i64 0, i64 %inc.i8713.i.i
+  %arrayidx.i84.i.i = getelementptr inbounds [2048 x i16], ptr %result_values.i, i64 0, i64 %inc.i8713.i.i
   store i16 %72, ptr %arrayidx.i84.i.i, align 2, !tbaa !938
   %conv.i85.i.i = trunc i64 %sub20.i.i to i32
-  %arrayidx2.i86.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i8713.i.i
+  %arrayidx2.i86.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i8713.i.i
   store i32 %conv.i85.i.i, ptr %arrayidx2.i86.i.i, align 4, !tbaa !51
   %inc.i87.i.i = add i64 %inc.i8713.i.i, 1
   %gep = getelementptr i32, ptr %invariant.gep, i64 %aidx.211.i.i
@@ -97172,10 +97172,10 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %sub20.i.i.1 = sub i64 %74, %add.i
   %arrayidx.i.i83.i.i.1 = getelementptr inbounds nuw i16, ptr %1, i64 %conv.i80.i.i.1
   %75 = load i16, ptr %arrayidx.i.i83.i.i.1, align 2, !tbaa !938
-  %arrayidx.i84.i.i.1 = getelementptr inbounds nuw [2048 x i16], ptr %result_values.i, i64 0, i64 %inc.i87.i.i
+  %arrayidx.i84.i.i.1 = getelementptr inbounds [2048 x i16], ptr %result_values.i, i64 0, i64 %inc.i87.i.i
   store i16 %75, ptr %arrayidx.i84.i.i.1, align 2, !tbaa !938
   %conv.i85.i.i.1 = trunc i64 %sub20.i.i.1 to i32
-  %arrayidx2.i86.i.i.1 = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i87.i.i
+  %arrayidx2.i86.i.i.1 = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i87.i.i
   store i32 %conv.i85.i.i.1, ptr %arrayidx2.i86.i.i.1, align 4, !tbaa !51
   %inc.i87.i.i.1 = add i64 %inc.i8713.i.i, 2
   %inc22.i.i.1 = add nuw i64 %aidx.211.i.i, 2
@@ -97301,10 +97301,10 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
 while.body.i:                                     ; preds = %land.rhs.i
   %arrayidx6.i = getelementptr inbounds i32, ptr %7, i64 %update_info_offset.1190.i
   %21 = load i32, ptr %arrayidx6.i, align 4, !tbaa !51
-  %arrayidx7.i = getelementptr inbounds nuw [2048 x i32], ptr %result_values.i, i64 0, i64 %result_offset.1189.i
+  %arrayidx7.i = getelementptr inbounds [2048 x i32], ptr %result_values.i, i64 0, i64 %result_offset.1189.i
   store i32 %21, ptr %arrayidx7.i, align 4, !tbaa !51
   %inc.i = add i64 %result_offset.1189.i, 1
-  %arrayidx10.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1189.i
+  %arrayidx10.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1189.i
   store i32 %20, ptr %arrayidx10.i, align 4, !tbaa !51
   %inc11.i = add i64 %update_info_offset.1190.i, 1
   %exitcond.not.i = icmp eq i64 %inc11.i, %conv.i
@@ -97317,9 +97317,9 @@ land.lhs.true.i:                                  ; preds = %land.rhs.i
 if.then.i:                                        ; preds = %land.lhs.true.i
   %arrayidx19.i = getelementptr inbounds i32, ptr %7, i64 %update_info_offset.1190.i
   %22 = load i32, ptr %arrayidx19.i, align 4, !tbaa !51
-  %arrayidx20.i = getelementptr inbounds nuw [2048 x i32], ptr %result_values.i, i64 0, i64 %result_offset.1189.i
+  %arrayidx20.i = getelementptr inbounds [2048 x i32], ptr %result_values.i, i64 0, i64 %result_offset.1189.i
   store i32 %22, ptr %arrayidx20.i, align 4, !tbaa !51
-  %arrayidx24.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1189.i
+  %arrayidx24.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1189.i
   store i32 %20, ptr %arrayidx24.i, align 4, !tbaa !51
   %inc25.i = add nuw nsw i64 %update_info_offset.1190.i, 1
   br label %cleanup.i
@@ -97366,10 +97366,10 @@ if.end54.i:                                       ; preds = %if.else.i, %if.then
   %arrayidx.i146.sink.i = phi ptr [ %arrayidx.i146.i, %if.else.i ], [ %arrayidx48.i, %if.then47.i ]
   %base_info_offset.1186.i = phi i64 [ %base_info_offset.1187.i, %if.else.i ], [ %base_info_offset.1193.i, %if.then47.i ]
   %26 = load i32, ptr %arrayidx.i146.sink.i, align 4, !tbaa !51
-  %arrayidx53.i = getelementptr inbounds nuw [2048 x i32], ptr %result_values.i, i64 0, i64 %result_offset.1184.i
+  %arrayidx53.i = getelementptr inbounds [2048 x i32], ptr %result_values.i, i64 0, i64 %result_offset.1184.i
   store i32 %26, ptr %arrayidx53.i, align 4, !tbaa !51
   %conv55.i = trunc i64 %sub.i to i32
-  %arrayidx57.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1184.i
+  %arrayidx57.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1184.i
   store i32 %conv55.i, ptr %arrayidx57.i, align 4, !tbaa !51
   br label %cleanup.i
 
@@ -97432,10 +97432,10 @@ for.body.i.i.prol:                                ; preds = %for.body.i.i.prehea
   %sub20.i.i.prol = sub i64 %33, %add.i
   %arrayidx.i.i83.i.i.prol = getelementptr inbounds nuw i32, ptr %1, i64 %conv.i80.i.i.prol
   %34 = load i32, ptr %arrayidx.i.i83.i.i.prol, align 4, !tbaa !51
-  %arrayidx.i84.i.i.prol = getelementptr inbounds nuw [2048 x i32], ptr %result_values.i, i64 0, i64 %result_offset.4.i
+  %arrayidx.i84.i.i.prol = getelementptr inbounds [2048 x i32], ptr %result_values.i, i64 0, i64 %result_offset.4.i
   store i32 %34, ptr %arrayidx.i84.i.i.prol, align 4, !tbaa !51
   %conv.i85.i.i.prol = trunc i64 %sub20.i.i.prol to i32
-  %arrayidx2.i86.i.i.prol = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.4.i
+  %arrayidx2.i86.i.i.prol = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.4.i
   store i32 %conv.i85.i.i.prol, ptr %arrayidx2.i86.i.i.prol, align 4, !tbaa !51
   %inc.i87.i.i.prol = add i64 %result_offset.4.i, 1
   %inc22.i.i.prol = add nuw i64 %aidx.0.lcssa.i.i, 1
@@ -97483,7 +97483,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %45 = sub <2 x i64> %wide.load34, %broadcast.splat
   %46 = trunc <2 x i64> %44 to <2 x i32>
   %47 = trunc <2 x i64> %45 to <2 x i32>
-  %48 = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %offset.idx
+  %48 = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %offset.idx
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store <2 x i32> %46, ptr %48, align 4, !tbaa !51
   store <2 x i32> %47, ptr %49, align 4, !tbaa !51
@@ -97508,7 +97508,7 @@ for.body.us.i.i:                                  ; preds = %for.body.us.i.i.pre
   %51 = load i64, ptr %arrayidx19.us.i.i, align 8, !tbaa !18
   %sub20.us.i.i = sub i64 %51, %add.i
   %conv.i85.us.i.i = trunc i64 %sub20.us.i.i to i32
-  %arrayidx2.i86.us.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i8713.us.i.i
+  %arrayidx2.i86.us.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i8713.us.i.i
   store i32 %conv.i85.us.i.i, ptr %arrayidx2.i86.us.i.i, align 4, !tbaa !51
   %inc.i87.us.i.i = add i64 %inc.i8713.us.i.i, 1
   %inc22.us.i.i = add nuw i64 %aidx.211.us.i.i, 1
@@ -97541,10 +97541,10 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i: ; preds = %cond.true.i.i.i, %
 if.then.i.i:                                      ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i
   %arrayidx.i.i.i.i.i = getelementptr inbounds i32, ptr %1, i64 %cond.i.i.i
   %55 = load i32, ptr %arrayidx.i.i.i.i.i, align 4, !tbaa !51
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_values.i, i64 0, i64 %result_offset.5.i
+  %arrayidx.i.i.i.i = getelementptr inbounds [2048 x i32], ptr %result_values.i, i64 0, i64 %result_offset.5.i
   store i32 %55, ptr %arrayidx.i.i.i.i, align 4, !tbaa !51
   %conv.i.i.i.i = trunc nuw i64 %sub.i.i to i32
-  %arrayidx2.i.i.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
+  %arrayidx2.i.i.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
   store i32 %conv.i.i.i.i, ptr %arrayidx2.i.i.i.i, align 4, !tbaa !51
   %inc.i.i = add nuw i64 %aidx.06.i.i, 1
   %inc4.i.i = add nuw nsw i64 %bidx.05.i.i, 1
@@ -97552,7 +97552,7 @@ if.then.i.i:                                      ; preds = %_ZNK6duckdb15Select
 
 if.else.i.i:                                      ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i
   %cmp7.i.i = icmp ult i64 %sub.i.i, %conv.i150.i
-  %arrayidx.i72.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_values.i, i64 0, i64 %result_offset.5.i
+  %arrayidx.i72.i.i = getelementptr inbounds [2048 x i32], ptr %result_values.i, i64 0, i64 %result_offset.5.i
   br i1 %cmp7.i.i, label %if.then8.i.i, label %if.else11.i.i
 
 if.then8.i.i:                                     ; preds = %if.else.i.i
@@ -97560,7 +97560,7 @@ if.then8.i.i:                                     ; preds = %if.else.i.i
   %56 = load i32, ptr %arrayidx.i.i71.i.i, align 4, !tbaa !51
   store i32 %56, ptr %arrayidx.i72.i.i, align 4, !tbaa !51
   %conv.i73.i.i = trunc nuw i64 %sub.i.i to i32
-  %arrayidx2.i.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
+  %arrayidx2.i.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
   store i32 %conv.i73.i.i, ptr %arrayidx2.i.i.i, align 4, !tbaa !51
   %inc9.i.i = add nuw i64 %aidx.06.i.i, 1
   br label %if.end15.i.i
@@ -97569,7 +97569,7 @@ if.else11.i.i:                                    ; preds = %if.else.i.i
   %arrayidx.i74.i.i = getelementptr inbounds i32, ptr %6, i64 %bidx.05.i.i
   %57 = load i32, ptr %arrayidx.i74.i.i, align 4, !tbaa !51
   store i32 %57, ptr %arrayidx.i72.i.i, align 4, !tbaa !51
-  %arrayidx3.i.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
+  %arrayidx3.i.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
   store i32 %54, ptr %arrayidx3.i.i.i, align 4, !tbaa !51
   %inc13.i.i = add nuw nsw i64 %bidx.05.i.i, 1
   br label %if.end15.i.i
@@ -97613,10 +97613,10 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %sub20.i.i = sub i64 %65, %add.i
   %arrayidx.i.i83.i.i = getelementptr inbounds nuw i32, ptr %1, i64 %conv.i80.i.i
   %66 = load i32, ptr %arrayidx.i.i83.i.i, align 4, !tbaa !51
-  %arrayidx.i84.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_values.i, i64 0, i64 %inc.i8713.i.i
+  %arrayidx.i84.i.i = getelementptr inbounds [2048 x i32], ptr %result_values.i, i64 0, i64 %inc.i8713.i.i
   store i32 %66, ptr %arrayidx.i84.i.i, align 4, !tbaa !51
   %conv.i85.i.i = trunc i64 %sub20.i.i to i32
-  %arrayidx2.i86.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i8713.i.i
+  %arrayidx2.i86.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i8713.i.i
   store i32 %conv.i85.i.i, ptr %arrayidx2.i86.i.i, align 4, !tbaa !51
   %inc.i87.i.i = add i64 %inc.i8713.i.i, 1
   %gep = getelementptr i32, ptr %invariant.gep, i64 %aidx.211.i.i
@@ -97627,10 +97627,10 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %sub20.i.i.1 = sub i64 %68, %add.i
   %arrayidx.i.i83.i.i.1 = getelementptr inbounds nuw i32, ptr %1, i64 %conv.i80.i.i.1
   %69 = load i32, ptr %arrayidx.i.i83.i.i.1, align 4, !tbaa !51
-  %arrayidx.i84.i.i.1 = getelementptr inbounds nuw [2048 x i32], ptr %result_values.i, i64 0, i64 %inc.i87.i.i
+  %arrayidx.i84.i.i.1 = getelementptr inbounds [2048 x i32], ptr %result_values.i, i64 0, i64 %inc.i87.i.i
   store i32 %69, ptr %arrayidx.i84.i.i.1, align 4, !tbaa !51
   %conv.i85.i.i.1 = trunc i64 %sub20.i.i.1 to i32
-  %arrayidx2.i86.i.i.1 = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i87.i.i
+  %arrayidx2.i86.i.i.1 = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i87.i.i
   store i32 %conv.i85.i.i.1, ptr %arrayidx2.i86.i.i.1, align 4, !tbaa !51
   %inc.i87.i.i.1 = add i64 %inc.i8713.i.i, 2
   %inc22.i.i.1 = add nuw i64 %aidx.211.i.i, 2
@@ -97758,10 +97758,10 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
 while.body.i:                                     ; preds = %land.rhs.i
   %arrayidx6.i = getelementptr inbounds i64, ptr %7, i64 %update_info_offset.1196.i
   %24 = load i64, ptr %arrayidx6.i, align 8, !tbaa !18
-  %arrayidx7.i = getelementptr inbounds nuw [2048 x i64], ptr %result_values.i, i64 0, i64 %result_offset.1195.i
+  %arrayidx7.i = getelementptr inbounds [2048 x i64], ptr %result_values.i, i64 0, i64 %result_offset.1195.i
   store i64 %24, ptr %arrayidx7.i, align 8, !tbaa !18
   %inc.i = add i64 %result_offset.1195.i, 1
-  %arrayidx10.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1195.i
+  %arrayidx10.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1195.i
   store i32 %23, ptr %arrayidx10.i, align 4, !tbaa !51
   %inc11.i = add i64 %update_info_offset.1196.i, 1
   %exitcond.not.i = icmp eq i64 %inc11.i, %conv.i
@@ -97774,9 +97774,9 @@ land.lhs.true.i:                                  ; preds = %land.rhs.i
 if.then.i:                                        ; preds = %land.lhs.true.i
   %arrayidx19.i = getelementptr inbounds i64, ptr %7, i64 %update_info_offset.1196.i
   %25 = load i64, ptr %arrayidx19.i, align 8, !tbaa !18
-  %arrayidx20.i = getelementptr inbounds nuw [2048 x i64], ptr %result_values.i, i64 0, i64 %result_offset.1195.i
+  %arrayidx20.i = getelementptr inbounds [2048 x i64], ptr %result_values.i, i64 0, i64 %result_offset.1195.i
   store i64 %25, ptr %arrayidx20.i, align 8, !tbaa !18
-  %arrayidx24.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1195.i
+  %arrayidx24.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1195.i
   store i32 %23, ptr %arrayidx24.i, align 4, !tbaa !51
   %inc25.i = add nuw nsw i64 %update_info_offset.1196.i, 1
   br label %cleanup.i
@@ -97823,10 +97823,10 @@ if.end54.i:                                       ; preds = %if.else.i, %if.then
   %arrayidx.i146.sink.i = phi ptr [ %arrayidx.i146.i, %if.else.i ], [ %arrayidx48.i, %if.then47.i ]
   %base_info_offset.1192.i = phi i64 [ %base_info_offset.1193.i, %if.else.i ], [ %base_info_offset.1199.i, %if.then47.i ]
   %29 = load i64, ptr %arrayidx.i146.sink.i, align 8, !tbaa !18
-  %arrayidx53.i = getelementptr inbounds nuw [2048 x i64], ptr %result_values.i, i64 0, i64 %result_offset.1190.i
+  %arrayidx53.i = getelementptr inbounds [2048 x i64], ptr %result_values.i, i64 0, i64 %result_offset.1190.i
   store i64 %29, ptr %arrayidx53.i, align 8, !tbaa !18
   %conv55.i = trunc i64 %sub.i to i32
-  %arrayidx57.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1190.i
+  %arrayidx57.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1190.i
   store i32 %conv55.i, ptr %arrayidx57.i, align 4, !tbaa !51
   br label %cleanup.i
 
@@ -97890,10 +97890,10 @@ for.body.i.i.prol:                                ; preds = %for.body.i.i.prehea
   %sub20.i.i.prol = sub i64 %36, %add.i
   %arrayidx.i.i83.i.i.prol = getelementptr inbounds nuw i64, ptr %1, i64 %conv.i80.i.i.prol
   %37 = load i64, ptr %arrayidx.i.i83.i.i.prol, align 8, !tbaa !18
-  %arrayidx.i84.i.i.prol = getelementptr inbounds nuw [2048 x i64], ptr %result_values.i, i64 0, i64 %result_offset.4.i
+  %arrayidx.i84.i.i.prol = getelementptr inbounds [2048 x i64], ptr %result_values.i, i64 0, i64 %result_offset.4.i
   store i64 %37, ptr %arrayidx.i84.i.i.prol, align 8, !tbaa !18
   %conv.i85.i.i.prol = trunc i64 %sub20.i.i.prol to i32
-  %arrayidx2.i86.i.i.prol = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.4.i
+  %arrayidx2.i86.i.i.prol = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.4.i
   store i32 %conv.i85.i.i.prol, ptr %arrayidx2.i86.i.i.prol, align 4, !tbaa !51
   %inc.i87.i.i.prol = add i64 %result_offset.4.i, 1
   %inc22.i.i.prol = add nuw i64 %aidx.0.lcssa.i.i, 1
@@ -97941,7 +97941,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %48 = sub <2 x i64> %wide.load34, %broadcast.splat
   %49 = trunc <2 x i64> %47 to <2 x i32>
   %50 = trunc <2 x i64> %48 to <2 x i32>
-  %51 = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %offset.idx
+  %51 = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %offset.idx
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store <2 x i32> %49, ptr %51, align 4, !tbaa !51
   store <2 x i32> %50, ptr %52, align 4, !tbaa !51
@@ -97966,7 +97966,7 @@ for.body.us.i.i:                                  ; preds = %for.body.us.i.i.pre
   %54 = load i64, ptr %arrayidx19.us.i.i, align 8, !tbaa !18
   %sub20.us.i.i = sub i64 %54, %add.i
   %conv.i85.us.i.i = trunc i64 %sub20.us.i.i to i32
-  %arrayidx2.i86.us.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
+  %arrayidx2.i86.us.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
   store i32 %conv.i85.us.i.i, ptr %arrayidx2.i86.us.i.i, align 4, !tbaa !51
   %inc.i87.us.i.i = add i64 %result_offset.5.i, 1
   %inc22.us.i.i = add nuw i64 %aidx.211.us.i.i, 1
@@ -97999,10 +97999,10 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i: ; preds = %cond.true.i.i.i, %
 if.then.i.i:                                      ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i
   %arrayidx.i.i.i.i.i = getelementptr inbounds i64, ptr %1, i64 %cond.i.i.i
   %58 = load i64, ptr %arrayidx.i.i.i.i.i, align 8, !tbaa !18
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [2048 x i64], ptr %result_values.i, i64 0, i64 %result_offset.6.i
+  %arrayidx.i.i.i.i = getelementptr inbounds [2048 x i64], ptr %result_values.i, i64 0, i64 %result_offset.6.i
   store i64 %58, ptr %arrayidx.i.i.i.i, align 8, !tbaa !18
   %conv.i.i.i.i = trunc nuw i64 %sub.i.i to i32
-  %arrayidx2.i.i.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.6.i
+  %arrayidx2.i.i.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.6.i
   store i32 %conv.i.i.i.i, ptr %arrayidx2.i.i.i.i, align 4, !tbaa !51
   %inc.i.i = add nuw i64 %aidx.06.i.i, 1
   %inc4.i.i = add nuw nsw i64 %bidx.05.i.i, 1
@@ -98010,7 +98010,7 @@ if.then.i.i:                                      ; preds = %_ZNK6duckdb15Select
 
 if.else.i.i:                                      ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i
   %cmp7.i.i = icmp ult i64 %sub.i.i, %conv.i150.i
-  %arrayidx.i72.i.i = getelementptr inbounds nuw [2048 x i64], ptr %result_values.i, i64 0, i64 %result_offset.6.i
+  %arrayidx.i72.i.i = getelementptr inbounds [2048 x i64], ptr %result_values.i, i64 0, i64 %result_offset.6.i
   br i1 %cmp7.i.i, label %if.then8.i.i, label %if.else11.i.i
 
 if.then8.i.i:                                     ; preds = %if.else.i.i
@@ -98018,7 +98018,7 @@ if.then8.i.i:                                     ; preds = %if.else.i.i
   %59 = load i64, ptr %arrayidx.i.i71.i.i, align 8, !tbaa !18
   store i64 %59, ptr %arrayidx.i72.i.i, align 8, !tbaa !18
   %conv.i73.i.i = trunc nuw i64 %sub.i.i to i32
-  %arrayidx2.i.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.6.i
+  %arrayidx2.i.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.6.i
   store i32 %conv.i73.i.i, ptr %arrayidx2.i.i.i, align 4, !tbaa !51
   %inc9.i.i = add nuw i64 %aidx.06.i.i, 1
   br label %if.end15.i.i
@@ -98027,7 +98027,7 @@ if.else11.i.i:                                    ; preds = %if.else.i.i
   %arrayidx.i74.i.i = getelementptr inbounds i64, ptr %6, i64 %bidx.05.i.i
   %60 = load i64, ptr %arrayidx.i74.i.i, align 8, !tbaa !18
   store i64 %60, ptr %arrayidx.i72.i.i, align 8, !tbaa !18
-  %arrayidx3.i.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.6.i
+  %arrayidx3.i.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.6.i
   store i32 %57, ptr %arrayidx3.i.i.i, align 4, !tbaa !51
   %inc13.i.i = add nuw nsw i64 %bidx.05.i.i, 1
   br label %if.end15.i.i
@@ -98074,10 +98074,10 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %sub20.i.i = sub i64 %71, %add.i
   %arrayidx.i.i83.i.i = getelementptr inbounds nuw i64, ptr %1, i64 %conv.i80.i.i
   %72 = load i64, ptr %arrayidx.i.i83.i.i, align 8, !tbaa !18
-  %arrayidx.i84.i.i = getelementptr inbounds nuw [2048 x i64], ptr %result_values.i, i64 0, i64 %result_offset.9.i
+  %arrayidx.i84.i.i = getelementptr inbounds [2048 x i64], ptr %result_values.i, i64 0, i64 %result_offset.9.i
   store i64 %72, ptr %arrayidx.i84.i.i, align 8, !tbaa !18
   %conv.i85.i.i = trunc i64 %sub20.i.i to i32
-  %arrayidx2.i86.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.9.i
+  %arrayidx2.i86.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.9.i
   store i32 %conv.i85.i.i, ptr %arrayidx2.i86.i.i, align 4, !tbaa !51
   %inc.i87.i.i = add i64 %result_offset.9.i, 1
   %gep = getelementptr i32, ptr %invariant.gep, i64 %aidx.211.i.i
@@ -98088,10 +98088,10 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %sub20.i.i.1 = sub i64 %74, %add.i
   %arrayidx.i.i83.i.i.1 = getelementptr inbounds nuw i64, ptr %1, i64 %conv.i80.i.i.1
   %75 = load i64, ptr %arrayidx.i.i83.i.i.1, align 8, !tbaa !18
-  %arrayidx.i84.i.i.1 = getelementptr inbounds nuw [2048 x i64], ptr %result_values.i, i64 0, i64 %inc.i87.i.i
+  %arrayidx.i84.i.i.1 = getelementptr inbounds [2048 x i64], ptr %result_values.i, i64 0, i64 %inc.i87.i.i
   store i64 %75, ptr %arrayidx.i84.i.i.1, align 8, !tbaa !18
   %conv.i85.i.i.1 = trunc i64 %sub20.i.i.1 to i32
-  %arrayidx2.i86.i.i.1 = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i87.i.i
+  %arrayidx2.i86.i.i.1 = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i87.i.i
   store i32 %conv.i85.i.i.1, ptr %arrayidx2.i86.i.i.1, align 4, !tbaa !51
   %inc.i87.i.i.1 = add i64 %result_offset.9.i, 2
   %inc22.i.i.1 = add nuw i64 %aidx.211.i.i, 2
@@ -98217,10 +98217,10 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
 while.body.i:                                     ; preds = %land.rhs.i
   %arrayidx6.i = getelementptr inbounds i8, ptr %7, i64 %update_info_offset.1195.i
   %21 = load i8, ptr %arrayidx6.i, align 1, !tbaa !50
-  %arrayidx7.i = getelementptr inbounds nuw [2048 x i8], ptr %result_values.i, i64 0, i64 %result_offset.1194.i
+  %arrayidx7.i = getelementptr inbounds [2048 x i8], ptr %result_values.i, i64 0, i64 %result_offset.1194.i
   store i8 %21, ptr %arrayidx7.i, align 1, !tbaa !50
   %inc.i = add i64 %result_offset.1194.i, 1
-  %arrayidx10.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1194.i
+  %arrayidx10.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1194.i
   store i32 %20, ptr %arrayidx10.i, align 4, !tbaa !51
   %inc11.i = add i64 %update_info_offset.1195.i, 1
   %exitcond.not.i = icmp eq i64 %inc11.i, %conv.i
@@ -98233,9 +98233,9 @@ land.lhs.true.i:                                  ; preds = %land.rhs.i
 if.then.i:                                        ; preds = %land.lhs.true.i
   %arrayidx19.i = getelementptr inbounds i8, ptr %7, i64 %update_info_offset.1195.i
   %22 = load i8, ptr %arrayidx19.i, align 1, !tbaa !50
-  %arrayidx20.i = getelementptr inbounds nuw [2048 x i8], ptr %result_values.i, i64 0, i64 %result_offset.1194.i
+  %arrayidx20.i = getelementptr inbounds [2048 x i8], ptr %result_values.i, i64 0, i64 %result_offset.1194.i
   store i8 %22, ptr %arrayidx20.i, align 1, !tbaa !50
-  %arrayidx24.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1194.i
+  %arrayidx24.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1194.i
   store i32 %20, ptr %arrayidx24.i, align 4, !tbaa !51
   %inc25.i = add nuw nsw i64 %update_info_offset.1195.i, 1
   br label %cleanup.i
@@ -98282,10 +98282,10 @@ if.end54.i:                                       ; preds = %if.else.i, %if.then
   %arrayidx.i146.sink.i = phi ptr [ %arrayidx.i146.i, %if.else.i ], [ %arrayidx48.i, %if.then47.i ]
   %base_info_offset.1191.i = phi i64 [ %base_info_offset.1192.i, %if.else.i ], [ %base_info_offset.1198.i, %if.then47.i ]
   %26 = load i8, ptr %arrayidx.i146.sink.i, align 1, !tbaa !50
-  %arrayidx53.i = getelementptr inbounds nuw [2048 x i8], ptr %result_values.i, i64 0, i64 %result_offset.1189.i
+  %arrayidx53.i = getelementptr inbounds [2048 x i8], ptr %result_values.i, i64 0, i64 %result_offset.1189.i
   store i8 %26, ptr %arrayidx53.i, align 1, !tbaa !50
   %conv55.i = trunc i64 %sub.i to i32
-  %arrayidx57.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1189.i
+  %arrayidx57.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1189.i
   store i32 %conv55.i, ptr %arrayidx57.i, align 4, !tbaa !51
   br label %cleanup.i
 
@@ -98349,10 +98349,10 @@ for.body.i.i.prol:                                ; preds = %for.body.i.i.prehea
   %sub20.i.i.prol = sub i64 %35, %add.i
   %arrayidx.i.i83.i.i.prol = getelementptr inbounds nuw i8, ptr %1, i64 %conv.i80.i.i.prol
   %36 = load i8, ptr %arrayidx.i.i83.i.i.prol, align 1, !tbaa !50
-  %arrayidx.i84.i.i.prol = getelementptr inbounds nuw [2048 x i8], ptr %result_values.i, i64 0, i64 %result_offset.4.i
+  %arrayidx.i84.i.i.prol = getelementptr inbounds [2048 x i8], ptr %result_values.i, i64 0, i64 %result_offset.4.i
   store i8 %36, ptr %arrayidx.i84.i.i.prol, align 1, !tbaa !50
   %conv.i85.i.i.prol = trunc i64 %sub20.i.i.prol to i32
-  %arrayidx2.i86.i.i.prol = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.4.i
+  %arrayidx2.i86.i.i.prol = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.4.i
   store i32 %conv.i85.i.i.prol, ptr %arrayidx2.i86.i.i.prol, align 4, !tbaa !51
   %inc.i87.i.i.prol = add i64 %result_offset.4.i, 1
   %inc22.i.i.prol = add nuw i64 %aidx.0.lcssa.i.i, 1
@@ -98397,7 +98397,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %44 = sub <2 x i64> %wide.load34, %broadcast.splat
   %45 = trunc <2 x i64> %43 to <2 x i32>
   %46 = trunc <2 x i64> %44 to <2 x i32>
-  %47 = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %offset.idx
+  %47 = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %offset.idx
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store <2 x i32> %45, ptr %47, align 4, !tbaa !51
   store <2 x i32> %46, ptr %48, align 4, !tbaa !51
@@ -98422,7 +98422,7 @@ for.body.i.us.i:                                  ; preds = %for.body.i.us.i.pre
   %50 = load i64, ptr %arrayidx19.i.us.i, align 8, !tbaa !18
   %sub20.i.us.i = sub i64 %50, %add.i
   %conv.i85.i.us.i = trunc i64 %sub20.i.us.i to i32
-  %arrayidx2.i86.i.us.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.8.us.i
+  %arrayidx2.i86.i.us.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.8.us.i
   store i32 %conv.i85.i.us.i, ptr %arrayidx2.i86.i.us.i, align 4, !tbaa !51
   %inc.i87.i.us.i = add i64 %result_offset.8.us.i, 1
   %inc22.i.us.i = add nuw i64 %aidx.2101.i.us.i, 1
@@ -98455,10 +98455,10 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i: ; preds = %cond.true.i.i.i, %
 if.then.i.i:                                      ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 %cond.i.i.i
   %54 = load i8, ptr %arrayidx.i.i.i.i.i, align 1, !tbaa !50
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [2048 x i8], ptr %result_values.i, i64 0, i64 %result_offset.5.i
+  %arrayidx.i.i.i.i = getelementptr inbounds [2048 x i8], ptr %result_values.i, i64 0, i64 %result_offset.5.i
   store i8 %54, ptr %arrayidx.i.i.i.i, align 1, !tbaa !50
   %conv.i.i.i.i = trunc nuw i64 %sub.i.i to i32
-  %arrayidx2.i.i.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
+  %arrayidx2.i.i.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
   store i32 %conv.i.i.i.i, ptr %arrayidx2.i.i.i.i, align 4, !tbaa !51
   %inc.i.i = add nuw i64 %aidx.096.i.i, 1
   %inc4.i.i = add nuw nsw i64 %bidx.095.i.i, 1
@@ -98466,7 +98466,7 @@ if.then.i.i:                                      ; preds = %_ZNK6duckdb15Select
 
 if.else.i.i:                                      ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i
   %cmp7.i.i = icmp ult i64 %sub.i.i, %conv.i150.i
-  %arrayidx.i72.i.i = getelementptr inbounds nuw [2048 x i8], ptr %result_values.i, i64 0, i64 %result_offset.5.i
+  %arrayidx.i72.i.i = getelementptr inbounds [2048 x i8], ptr %result_values.i, i64 0, i64 %result_offset.5.i
   br i1 %cmp7.i.i, label %if.then8.i.i, label %if.else11.i.i
 
 if.then8.i.i:                                     ; preds = %if.else.i.i
@@ -98474,7 +98474,7 @@ if.then8.i.i:                                     ; preds = %if.else.i.i
   %55 = load i8, ptr %arrayidx.i.i71.i.i, align 1, !tbaa !50
   store i8 %55, ptr %arrayidx.i72.i.i, align 1, !tbaa !50
   %conv.i73.i.i = trunc nuw i64 %sub.i.i to i32
-  %arrayidx2.i.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
+  %arrayidx2.i.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
   store i32 %conv.i73.i.i, ptr %arrayidx2.i.i.i, align 4, !tbaa !51
   %inc9.i.i = add nuw i64 %aidx.096.i.i, 1
   br label %if.end15.i.i
@@ -98483,7 +98483,7 @@ if.else11.i.i:                                    ; preds = %if.else.i.i
   %arrayidx.i74.i.i = getelementptr inbounds i8, ptr %6, i64 %bidx.095.i.i
   %56 = load i8, ptr %arrayidx.i74.i.i, align 1, !tbaa !50
   store i8 %56, ptr %arrayidx.i72.i.i, align 1, !tbaa !50
-  %arrayidx3.i.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
+  %arrayidx3.i.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
   store i32 %53, ptr %arrayidx3.i.i.i, align 4, !tbaa !51
   %inc13.i.i = add nuw nsw i64 %bidx.095.i.i, 1
   br label %if.end15.i.i
@@ -98527,10 +98527,10 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %sub20.i.i = sub i64 %64, %add.i
   %arrayidx.i.i83.i.i = getelementptr inbounds nuw i8, ptr %1, i64 %conv.i80.i.i
   %65 = load i8, ptr %arrayidx.i.i83.i.i, align 1, !tbaa !50
-  %arrayidx.i84.i.i = getelementptr inbounds nuw [2048 x i8], ptr %result_values.i, i64 0, i64 %result_offset.8.i
+  %arrayidx.i84.i.i = getelementptr inbounds [2048 x i8], ptr %result_values.i, i64 0, i64 %result_offset.8.i
   store i8 %65, ptr %arrayidx.i84.i.i, align 1, !tbaa !50
   %conv.i85.i.i = trunc i64 %sub20.i.i to i32
-  %arrayidx2.i86.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.8.i
+  %arrayidx2.i86.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.8.i
   store i32 %conv.i85.i.i, ptr %arrayidx2.i86.i.i, align 4, !tbaa !51
   %inc.i87.i.i = add i64 %result_offset.8.i, 1
   %gep = getelementptr i32, ptr %invariant.gep, i64 %aidx.2101.i.i
@@ -98541,10 +98541,10 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %sub20.i.i.1 = sub i64 %67, %add.i
   %arrayidx.i.i83.i.i.1 = getelementptr inbounds nuw i8, ptr %1, i64 %conv.i80.i.i.1
   %68 = load i8, ptr %arrayidx.i.i83.i.i.1, align 1, !tbaa !50
-  %arrayidx.i84.i.i.1 = getelementptr inbounds nuw [2048 x i8], ptr %result_values.i, i64 0, i64 %inc.i87.i.i
+  %arrayidx.i84.i.i.1 = getelementptr inbounds [2048 x i8], ptr %result_values.i, i64 0, i64 %inc.i87.i.i
   store i8 %68, ptr %arrayidx.i84.i.i.1, align 1, !tbaa !50
   %conv.i85.i.i.1 = trunc i64 %sub20.i.i.1 to i32
-  %arrayidx2.i86.i.i.1 = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i87.i.i
+  %arrayidx2.i86.i.i.1 = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i87.i.i
   store i32 %conv.i85.i.i.1, ptr %arrayidx2.i86.i.i.1, align 4, !tbaa !51
   %inc.i87.i.i.1 = add i64 %result_offset.8.i, 2
   %inc22.i.i.1 = add nuw i64 %aidx.2101.i.i, 2
@@ -98672,10 +98672,10 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
 while.body.i:                                     ; preds = %land.rhs.i
   %arrayidx6.i = getelementptr inbounds i16, ptr %7, i64 %update_info_offset.1190.i
   %24 = load i16, ptr %arrayidx6.i, align 2, !tbaa !938
-  %arrayidx7.i = getelementptr inbounds nuw [2048 x i16], ptr %result_values.i, i64 0, i64 %result_offset.1189.i
+  %arrayidx7.i = getelementptr inbounds [2048 x i16], ptr %result_values.i, i64 0, i64 %result_offset.1189.i
   store i16 %24, ptr %arrayidx7.i, align 2, !tbaa !938
   %inc.i = add i64 %result_offset.1189.i, 1
-  %arrayidx10.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1189.i
+  %arrayidx10.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1189.i
   store i32 %23, ptr %arrayidx10.i, align 4, !tbaa !51
   %inc11.i = add i64 %update_info_offset.1190.i, 1
   %exitcond.not.i = icmp eq i64 %inc11.i, %conv.i
@@ -98688,9 +98688,9 @@ land.lhs.true.i:                                  ; preds = %land.rhs.i
 if.then.i:                                        ; preds = %land.lhs.true.i
   %arrayidx19.i = getelementptr inbounds i16, ptr %7, i64 %update_info_offset.1190.i
   %25 = load i16, ptr %arrayidx19.i, align 2, !tbaa !938
-  %arrayidx20.i = getelementptr inbounds nuw [2048 x i16], ptr %result_values.i, i64 0, i64 %result_offset.1189.i
+  %arrayidx20.i = getelementptr inbounds [2048 x i16], ptr %result_values.i, i64 0, i64 %result_offset.1189.i
   store i16 %25, ptr %arrayidx20.i, align 2, !tbaa !938
-  %arrayidx24.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1189.i
+  %arrayidx24.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1189.i
   store i32 %23, ptr %arrayidx24.i, align 4, !tbaa !51
   %inc25.i = add nuw nsw i64 %update_info_offset.1190.i, 1
   br label %cleanup.i
@@ -98737,10 +98737,10 @@ if.end54.i:                                       ; preds = %if.else.i, %if.then
   %arrayidx.i146.sink.i = phi ptr [ %arrayidx.i146.i, %if.else.i ], [ %arrayidx48.i, %if.then47.i ]
   %base_info_offset.1186.i = phi i64 [ %base_info_offset.1187.i, %if.else.i ], [ %base_info_offset.1193.i, %if.then47.i ]
   %29 = load i16, ptr %arrayidx.i146.sink.i, align 2, !tbaa !938
-  %arrayidx53.i = getelementptr inbounds nuw [2048 x i16], ptr %result_values.i, i64 0, i64 %result_offset.1184.i
+  %arrayidx53.i = getelementptr inbounds [2048 x i16], ptr %result_values.i, i64 0, i64 %result_offset.1184.i
   store i16 %29, ptr %arrayidx53.i, align 2, !tbaa !938
   %conv55.i = trunc i64 %sub.i to i32
-  %arrayidx57.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1184.i
+  %arrayidx57.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1184.i
   store i32 %conv55.i, ptr %arrayidx57.i, align 4, !tbaa !51
   br label %cleanup.i
 
@@ -98804,10 +98804,10 @@ for.body.i.i.prol:                                ; preds = %for.body.i.i.prehea
   %sub20.i.i.prol = sub i64 %36, %add.i
   %arrayidx.i.i83.i.i.prol = getelementptr inbounds nuw i16, ptr %1, i64 %conv.i80.i.i.prol
   %37 = load i16, ptr %arrayidx.i.i83.i.i.prol, align 2, !tbaa !938
-  %arrayidx.i84.i.i.prol = getelementptr inbounds nuw [2048 x i16], ptr %result_values.i, i64 0, i64 %result_offset.4.i
+  %arrayidx.i84.i.i.prol = getelementptr inbounds [2048 x i16], ptr %result_values.i, i64 0, i64 %result_offset.4.i
   store i16 %37, ptr %arrayidx.i84.i.i.prol, align 2, !tbaa !938
   %conv.i85.i.i.prol = trunc i64 %sub20.i.i.prol to i32
-  %arrayidx2.i86.i.i.prol = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.4.i
+  %arrayidx2.i86.i.i.prol = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.4.i
   store i32 %conv.i85.i.i.prol, ptr %arrayidx2.i86.i.i.prol, align 4, !tbaa !51
   %inc.i87.i.i.prol = add i64 %result_offset.4.i, 1
   %inc22.i.i.prol = add nuw i64 %aidx.0.lcssa.i.i, 1
@@ -98855,7 +98855,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %48 = sub <2 x i64> %wide.load34, %broadcast.splat
   %49 = trunc <2 x i64> %47 to <2 x i32>
   %50 = trunc <2 x i64> %48 to <2 x i32>
-  %51 = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %offset.idx
+  %51 = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %offset.idx
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store <2 x i32> %49, ptr %51, align 4, !tbaa !51
   store <2 x i32> %50, ptr %52, align 4, !tbaa !51
@@ -98880,7 +98880,7 @@ for.body.us.i.i:                                  ; preds = %for.body.us.i.i.pre
   %54 = load i64, ptr %arrayidx19.us.i.i, align 8, !tbaa !18
   %sub20.us.i.i = sub i64 %54, %add.i
   %conv.i85.us.i.i = trunc i64 %sub20.us.i.i to i32
-  %arrayidx2.i86.us.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i8713.us.i.i
+  %arrayidx2.i86.us.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i8713.us.i.i
   store i32 %conv.i85.us.i.i, ptr %arrayidx2.i86.us.i.i, align 4, !tbaa !51
   %inc.i87.us.i.i = add i64 %inc.i8713.us.i.i, 1
   %inc22.us.i.i = add nuw i64 %aidx.211.us.i.i, 1
@@ -98913,10 +98913,10 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i: ; preds = %cond.true.i.i.i, %
 if.then.i.i:                                      ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i
   %arrayidx.i.i.i.i.i = getelementptr inbounds i16, ptr %1, i64 %cond.i.i.i
   %58 = load i16, ptr %arrayidx.i.i.i.i.i, align 2, !tbaa !938
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [2048 x i16], ptr %result_values.i, i64 0, i64 %result_offset.5.i
+  %arrayidx.i.i.i.i = getelementptr inbounds [2048 x i16], ptr %result_values.i, i64 0, i64 %result_offset.5.i
   store i16 %58, ptr %arrayidx.i.i.i.i, align 2, !tbaa !938
   %conv.i.i.i.i = trunc nuw i64 %sub.i.i to i32
-  %arrayidx2.i.i.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
+  %arrayidx2.i.i.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
   store i32 %conv.i.i.i.i, ptr %arrayidx2.i.i.i.i, align 4, !tbaa !51
   %inc.i.i = add nuw i64 %aidx.06.i.i, 1
   %inc4.i.i = add nuw nsw i64 %bidx.05.i.i, 1
@@ -98924,7 +98924,7 @@ if.then.i.i:                                      ; preds = %_ZNK6duckdb15Select
 
 if.else.i.i:                                      ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i
   %cmp7.i.i = icmp ult i64 %sub.i.i, %conv.i150.i
-  %arrayidx.i72.i.i = getelementptr inbounds nuw [2048 x i16], ptr %result_values.i, i64 0, i64 %result_offset.5.i
+  %arrayidx.i72.i.i = getelementptr inbounds [2048 x i16], ptr %result_values.i, i64 0, i64 %result_offset.5.i
   br i1 %cmp7.i.i, label %if.then8.i.i, label %if.else11.i.i
 
 if.then8.i.i:                                     ; preds = %if.else.i.i
@@ -98932,7 +98932,7 @@ if.then8.i.i:                                     ; preds = %if.else.i.i
   %59 = load i16, ptr %arrayidx.i.i71.i.i, align 2, !tbaa !938
   store i16 %59, ptr %arrayidx.i72.i.i, align 2, !tbaa !938
   %conv.i73.i.i = trunc nuw i64 %sub.i.i to i32
-  %arrayidx2.i.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
+  %arrayidx2.i.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
   store i32 %conv.i73.i.i, ptr %arrayidx2.i.i.i, align 4, !tbaa !51
   %inc9.i.i = add nuw i64 %aidx.06.i.i, 1
   br label %if.end15.i.i
@@ -98941,7 +98941,7 @@ if.else11.i.i:                                    ; preds = %if.else.i.i
   %arrayidx.i74.i.i = getelementptr inbounds i16, ptr %6, i64 %bidx.05.i.i
   %60 = load i16, ptr %arrayidx.i74.i.i, align 2, !tbaa !938
   store i16 %60, ptr %arrayidx.i72.i.i, align 2, !tbaa !938
-  %arrayidx3.i.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
+  %arrayidx3.i.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
   store i32 %57, ptr %arrayidx3.i.i.i, align 4, !tbaa !51
   %inc13.i.i = add nuw nsw i64 %bidx.05.i.i, 1
   br label %if.end15.i.i
@@ -98988,10 +98988,10 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %sub20.i.i = sub i64 %71, %add.i
   %arrayidx.i.i83.i.i = getelementptr inbounds nuw i16, ptr %1, i64 %conv.i80.i.i
   %72 = load i16, ptr %arrayidx.i.i83.i.i, align 2, !tbaa !938
-  %arrayidx.i84.i.i = getelementptr inbounds nuw [2048 x i16], ptr %result_values.i, i64 0, i64 %inc.i8713.i.i
+  %arrayidx.i84.i.i = getelementptr inbounds [2048 x i16], ptr %result_values.i, i64 0, i64 %inc.i8713.i.i
   store i16 %72, ptr %arrayidx.i84.i.i, align 2, !tbaa !938
   %conv.i85.i.i = trunc i64 %sub20.i.i to i32
-  %arrayidx2.i86.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i8713.i.i
+  %arrayidx2.i86.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i8713.i.i
   store i32 %conv.i85.i.i, ptr %arrayidx2.i86.i.i, align 4, !tbaa !51
   %inc.i87.i.i = add i64 %inc.i8713.i.i, 1
   %gep = getelementptr i32, ptr %invariant.gep, i64 %aidx.211.i.i
@@ -99002,10 +99002,10 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %sub20.i.i.1 = sub i64 %74, %add.i
   %arrayidx.i.i83.i.i.1 = getelementptr inbounds nuw i16, ptr %1, i64 %conv.i80.i.i.1
   %75 = load i16, ptr %arrayidx.i.i83.i.i.1, align 2, !tbaa !938
-  %arrayidx.i84.i.i.1 = getelementptr inbounds nuw [2048 x i16], ptr %result_values.i, i64 0, i64 %inc.i87.i.i
+  %arrayidx.i84.i.i.1 = getelementptr inbounds [2048 x i16], ptr %result_values.i, i64 0, i64 %inc.i87.i.i
   store i16 %75, ptr %arrayidx.i84.i.i.1, align 2, !tbaa !938
   %conv.i85.i.i.1 = trunc i64 %sub20.i.i.1 to i32
-  %arrayidx2.i86.i.i.1 = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i87.i.i
+  %arrayidx2.i86.i.i.1 = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i87.i.i
   store i32 %conv.i85.i.i.1, ptr %arrayidx2.i86.i.i.1, align 4, !tbaa !51
   %inc.i87.i.i.1 = add i64 %inc.i8713.i.i, 2
   %inc22.i.i.1 = add nuw i64 %aidx.211.i.i, 2
@@ -99131,10 +99131,10 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
 while.body.i:                                     ; preds = %land.rhs.i
   %arrayidx6.i = getelementptr inbounds i32, ptr %7, i64 %update_info_offset.1190.i
   %21 = load i32, ptr %arrayidx6.i, align 4, !tbaa !51
-  %arrayidx7.i = getelementptr inbounds nuw [2048 x i32], ptr %result_values.i, i64 0, i64 %result_offset.1189.i
+  %arrayidx7.i = getelementptr inbounds [2048 x i32], ptr %result_values.i, i64 0, i64 %result_offset.1189.i
   store i32 %21, ptr %arrayidx7.i, align 4, !tbaa !51
   %inc.i = add i64 %result_offset.1189.i, 1
-  %arrayidx10.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1189.i
+  %arrayidx10.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1189.i
   store i32 %20, ptr %arrayidx10.i, align 4, !tbaa !51
   %inc11.i = add i64 %update_info_offset.1190.i, 1
   %exitcond.not.i = icmp eq i64 %inc11.i, %conv.i
@@ -99147,9 +99147,9 @@ land.lhs.true.i:                                  ; preds = %land.rhs.i
 if.then.i:                                        ; preds = %land.lhs.true.i
   %arrayidx19.i = getelementptr inbounds i32, ptr %7, i64 %update_info_offset.1190.i
   %22 = load i32, ptr %arrayidx19.i, align 4, !tbaa !51
-  %arrayidx20.i = getelementptr inbounds nuw [2048 x i32], ptr %result_values.i, i64 0, i64 %result_offset.1189.i
+  %arrayidx20.i = getelementptr inbounds [2048 x i32], ptr %result_values.i, i64 0, i64 %result_offset.1189.i
   store i32 %22, ptr %arrayidx20.i, align 4, !tbaa !51
-  %arrayidx24.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1189.i
+  %arrayidx24.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1189.i
   store i32 %20, ptr %arrayidx24.i, align 4, !tbaa !51
   %inc25.i = add nuw nsw i64 %update_info_offset.1190.i, 1
   br label %cleanup.i
@@ -99196,10 +99196,10 @@ if.end54.i:                                       ; preds = %if.else.i, %if.then
   %arrayidx.i146.sink.i = phi ptr [ %arrayidx.i146.i, %if.else.i ], [ %arrayidx48.i, %if.then47.i ]
   %base_info_offset.1186.i = phi i64 [ %base_info_offset.1187.i, %if.else.i ], [ %base_info_offset.1193.i, %if.then47.i ]
   %26 = load i32, ptr %arrayidx.i146.sink.i, align 4, !tbaa !51
-  %arrayidx53.i = getelementptr inbounds nuw [2048 x i32], ptr %result_values.i, i64 0, i64 %result_offset.1184.i
+  %arrayidx53.i = getelementptr inbounds [2048 x i32], ptr %result_values.i, i64 0, i64 %result_offset.1184.i
   store i32 %26, ptr %arrayidx53.i, align 4, !tbaa !51
   %conv55.i = trunc i64 %sub.i to i32
-  %arrayidx57.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1184.i
+  %arrayidx57.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1184.i
   store i32 %conv55.i, ptr %arrayidx57.i, align 4, !tbaa !51
   br label %cleanup.i
 
@@ -99262,10 +99262,10 @@ for.body.i.i.prol:                                ; preds = %for.body.i.i.prehea
   %sub20.i.i.prol = sub i64 %33, %add.i
   %arrayidx.i.i83.i.i.prol = getelementptr inbounds nuw i32, ptr %1, i64 %conv.i80.i.i.prol
   %34 = load i32, ptr %arrayidx.i.i83.i.i.prol, align 4, !tbaa !51
-  %arrayidx.i84.i.i.prol = getelementptr inbounds nuw [2048 x i32], ptr %result_values.i, i64 0, i64 %result_offset.4.i
+  %arrayidx.i84.i.i.prol = getelementptr inbounds [2048 x i32], ptr %result_values.i, i64 0, i64 %result_offset.4.i
   store i32 %34, ptr %arrayidx.i84.i.i.prol, align 4, !tbaa !51
   %conv.i85.i.i.prol = trunc i64 %sub20.i.i.prol to i32
-  %arrayidx2.i86.i.i.prol = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.4.i
+  %arrayidx2.i86.i.i.prol = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.4.i
   store i32 %conv.i85.i.i.prol, ptr %arrayidx2.i86.i.i.prol, align 4, !tbaa !51
   %inc.i87.i.i.prol = add i64 %result_offset.4.i, 1
   %inc22.i.i.prol = add nuw i64 %aidx.0.lcssa.i.i, 1
@@ -99313,7 +99313,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %45 = sub <2 x i64> %wide.load34, %broadcast.splat
   %46 = trunc <2 x i64> %44 to <2 x i32>
   %47 = trunc <2 x i64> %45 to <2 x i32>
-  %48 = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %offset.idx
+  %48 = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %offset.idx
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store <2 x i32> %46, ptr %48, align 4, !tbaa !51
   store <2 x i32> %47, ptr %49, align 4, !tbaa !51
@@ -99338,7 +99338,7 @@ for.body.us.i.i:                                  ; preds = %for.body.us.i.i.pre
   %51 = load i64, ptr %arrayidx19.us.i.i, align 8, !tbaa !18
   %sub20.us.i.i = sub i64 %51, %add.i
   %conv.i85.us.i.i = trunc i64 %sub20.us.i.i to i32
-  %arrayidx2.i86.us.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i8713.us.i.i
+  %arrayidx2.i86.us.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i8713.us.i.i
   store i32 %conv.i85.us.i.i, ptr %arrayidx2.i86.us.i.i, align 4, !tbaa !51
   %inc.i87.us.i.i = add i64 %inc.i8713.us.i.i, 1
   %inc22.us.i.i = add nuw i64 %aidx.211.us.i.i, 1
@@ -99371,10 +99371,10 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i: ; preds = %cond.true.i.i.i, %
 if.then.i.i:                                      ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i
   %arrayidx.i.i.i.i.i = getelementptr inbounds i32, ptr %1, i64 %cond.i.i.i
   %55 = load i32, ptr %arrayidx.i.i.i.i.i, align 4, !tbaa !51
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_values.i, i64 0, i64 %result_offset.5.i
+  %arrayidx.i.i.i.i = getelementptr inbounds [2048 x i32], ptr %result_values.i, i64 0, i64 %result_offset.5.i
   store i32 %55, ptr %arrayidx.i.i.i.i, align 4, !tbaa !51
   %conv.i.i.i.i = trunc nuw i64 %sub.i.i to i32
-  %arrayidx2.i.i.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
+  %arrayidx2.i.i.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
   store i32 %conv.i.i.i.i, ptr %arrayidx2.i.i.i.i, align 4, !tbaa !51
   %inc.i.i = add nuw i64 %aidx.06.i.i, 1
   %inc4.i.i = add nuw nsw i64 %bidx.05.i.i, 1
@@ -99382,7 +99382,7 @@ if.then.i.i:                                      ; preds = %_ZNK6duckdb15Select
 
 if.else.i.i:                                      ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i
   %cmp7.i.i = icmp ult i64 %sub.i.i, %conv.i150.i
-  %arrayidx.i72.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_values.i, i64 0, i64 %result_offset.5.i
+  %arrayidx.i72.i.i = getelementptr inbounds [2048 x i32], ptr %result_values.i, i64 0, i64 %result_offset.5.i
   br i1 %cmp7.i.i, label %if.then8.i.i, label %if.else11.i.i
 
 if.then8.i.i:                                     ; preds = %if.else.i.i
@@ -99390,7 +99390,7 @@ if.then8.i.i:                                     ; preds = %if.else.i.i
   %56 = load i32, ptr %arrayidx.i.i71.i.i, align 4, !tbaa !51
   store i32 %56, ptr %arrayidx.i72.i.i, align 4, !tbaa !51
   %conv.i73.i.i = trunc nuw i64 %sub.i.i to i32
-  %arrayidx2.i.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
+  %arrayidx2.i.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
   store i32 %conv.i73.i.i, ptr %arrayidx2.i.i.i, align 4, !tbaa !51
   %inc9.i.i = add nuw i64 %aidx.06.i.i, 1
   br label %if.end15.i.i
@@ -99399,7 +99399,7 @@ if.else11.i.i:                                    ; preds = %if.else.i.i
   %arrayidx.i74.i.i = getelementptr inbounds i32, ptr %6, i64 %bidx.05.i.i
   %57 = load i32, ptr %arrayidx.i74.i.i, align 4, !tbaa !51
   store i32 %57, ptr %arrayidx.i72.i.i, align 4, !tbaa !51
-  %arrayidx3.i.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
+  %arrayidx3.i.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
   store i32 %54, ptr %arrayidx3.i.i.i, align 4, !tbaa !51
   %inc13.i.i = add nuw nsw i64 %bidx.05.i.i, 1
   br label %if.end15.i.i
@@ -99443,10 +99443,10 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %sub20.i.i = sub i64 %65, %add.i
   %arrayidx.i.i83.i.i = getelementptr inbounds nuw i32, ptr %1, i64 %conv.i80.i.i
   %66 = load i32, ptr %arrayidx.i.i83.i.i, align 4, !tbaa !51
-  %arrayidx.i84.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_values.i, i64 0, i64 %inc.i8713.i.i
+  %arrayidx.i84.i.i = getelementptr inbounds [2048 x i32], ptr %result_values.i, i64 0, i64 %inc.i8713.i.i
   store i32 %66, ptr %arrayidx.i84.i.i, align 4, !tbaa !51
   %conv.i85.i.i = trunc i64 %sub20.i.i to i32
-  %arrayidx2.i86.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i8713.i.i
+  %arrayidx2.i86.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i8713.i.i
   store i32 %conv.i85.i.i, ptr %arrayidx2.i86.i.i, align 4, !tbaa !51
   %inc.i87.i.i = add i64 %inc.i8713.i.i, 1
   %gep = getelementptr i32, ptr %invariant.gep, i64 %aidx.211.i.i
@@ -99457,10 +99457,10 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %sub20.i.i.1 = sub i64 %68, %add.i
   %arrayidx.i.i83.i.i.1 = getelementptr inbounds nuw i32, ptr %1, i64 %conv.i80.i.i.1
   %69 = load i32, ptr %arrayidx.i.i83.i.i.1, align 4, !tbaa !51
-  %arrayidx.i84.i.i.1 = getelementptr inbounds nuw [2048 x i32], ptr %result_values.i, i64 0, i64 %inc.i87.i.i
+  %arrayidx.i84.i.i.1 = getelementptr inbounds [2048 x i32], ptr %result_values.i, i64 0, i64 %inc.i87.i.i
   store i32 %69, ptr %arrayidx.i84.i.i.1, align 4, !tbaa !51
   %conv.i85.i.i.1 = trunc i64 %sub20.i.i.1 to i32
-  %arrayidx2.i86.i.i.1 = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i87.i.i
+  %arrayidx2.i86.i.i.1 = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i87.i.i
   store i32 %conv.i85.i.i.1, ptr %arrayidx2.i86.i.i.1, align 4, !tbaa !51
   %inc.i87.i.i.1 = add i64 %inc.i8713.i.i, 2
   %inc22.i.i.1 = add nuw i64 %aidx.211.i.i, 2
@@ -99588,10 +99588,10 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
 while.body.i:                                     ; preds = %land.rhs.i
   %arrayidx6.i = getelementptr inbounds i64, ptr %7, i64 %update_info_offset.1196.i
   %24 = load i64, ptr %arrayidx6.i, align 8, !tbaa !18
-  %arrayidx7.i = getelementptr inbounds nuw [2048 x i64], ptr %result_values.i, i64 0, i64 %result_offset.1195.i
+  %arrayidx7.i = getelementptr inbounds [2048 x i64], ptr %result_values.i, i64 0, i64 %result_offset.1195.i
   store i64 %24, ptr %arrayidx7.i, align 8, !tbaa !18
   %inc.i = add i64 %result_offset.1195.i, 1
-  %arrayidx10.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1195.i
+  %arrayidx10.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1195.i
   store i32 %23, ptr %arrayidx10.i, align 4, !tbaa !51
   %inc11.i = add i64 %update_info_offset.1196.i, 1
   %exitcond.not.i = icmp eq i64 %inc11.i, %conv.i
@@ -99604,9 +99604,9 @@ land.lhs.true.i:                                  ; preds = %land.rhs.i
 if.then.i:                                        ; preds = %land.lhs.true.i
   %arrayidx19.i = getelementptr inbounds i64, ptr %7, i64 %update_info_offset.1196.i
   %25 = load i64, ptr %arrayidx19.i, align 8, !tbaa !18
-  %arrayidx20.i = getelementptr inbounds nuw [2048 x i64], ptr %result_values.i, i64 0, i64 %result_offset.1195.i
+  %arrayidx20.i = getelementptr inbounds [2048 x i64], ptr %result_values.i, i64 0, i64 %result_offset.1195.i
   store i64 %25, ptr %arrayidx20.i, align 8, !tbaa !18
-  %arrayidx24.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1195.i
+  %arrayidx24.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1195.i
   store i32 %23, ptr %arrayidx24.i, align 4, !tbaa !51
   %inc25.i = add nuw nsw i64 %update_info_offset.1196.i, 1
   br label %cleanup.i
@@ -99653,10 +99653,10 @@ if.end54.i:                                       ; preds = %if.else.i, %if.then
   %arrayidx.i146.sink.i = phi ptr [ %arrayidx.i146.i, %if.else.i ], [ %arrayidx48.i, %if.then47.i ]
   %base_info_offset.1192.i = phi i64 [ %base_info_offset.1193.i, %if.else.i ], [ %base_info_offset.1199.i, %if.then47.i ]
   %29 = load i64, ptr %arrayidx.i146.sink.i, align 8, !tbaa !18
-  %arrayidx53.i = getelementptr inbounds nuw [2048 x i64], ptr %result_values.i, i64 0, i64 %result_offset.1190.i
+  %arrayidx53.i = getelementptr inbounds [2048 x i64], ptr %result_values.i, i64 0, i64 %result_offset.1190.i
   store i64 %29, ptr %arrayidx53.i, align 8, !tbaa !18
   %conv55.i = trunc i64 %sub.i to i32
-  %arrayidx57.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1190.i
+  %arrayidx57.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1190.i
   store i32 %conv55.i, ptr %arrayidx57.i, align 4, !tbaa !51
   br label %cleanup.i
 
@@ -99720,10 +99720,10 @@ for.body.i.i.prol:                                ; preds = %for.body.i.i.prehea
   %sub20.i.i.prol = sub i64 %36, %add.i
   %arrayidx.i.i83.i.i.prol = getelementptr inbounds nuw i64, ptr %1, i64 %conv.i80.i.i.prol
   %37 = load i64, ptr %arrayidx.i.i83.i.i.prol, align 8, !tbaa !18
-  %arrayidx.i84.i.i.prol = getelementptr inbounds nuw [2048 x i64], ptr %result_values.i, i64 0, i64 %result_offset.4.i
+  %arrayidx.i84.i.i.prol = getelementptr inbounds [2048 x i64], ptr %result_values.i, i64 0, i64 %result_offset.4.i
   store i64 %37, ptr %arrayidx.i84.i.i.prol, align 8, !tbaa !18
   %conv.i85.i.i.prol = trunc i64 %sub20.i.i.prol to i32
-  %arrayidx2.i86.i.i.prol = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.4.i
+  %arrayidx2.i86.i.i.prol = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.4.i
   store i32 %conv.i85.i.i.prol, ptr %arrayidx2.i86.i.i.prol, align 4, !tbaa !51
   %inc.i87.i.i.prol = add i64 %result_offset.4.i, 1
   %inc22.i.i.prol = add nuw i64 %aidx.0.lcssa.i.i, 1
@@ -99771,7 +99771,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %48 = sub <2 x i64> %wide.load34, %broadcast.splat
   %49 = trunc <2 x i64> %47 to <2 x i32>
   %50 = trunc <2 x i64> %48 to <2 x i32>
-  %51 = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %offset.idx
+  %51 = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %offset.idx
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store <2 x i32> %49, ptr %51, align 4, !tbaa !51
   store <2 x i32> %50, ptr %52, align 4, !tbaa !51
@@ -99796,7 +99796,7 @@ for.body.us.i.i:                                  ; preds = %for.body.us.i.i.pre
   %54 = load i64, ptr %arrayidx19.us.i.i, align 8, !tbaa !18
   %sub20.us.i.i = sub i64 %54, %add.i
   %conv.i85.us.i.i = trunc i64 %sub20.us.i.i to i32
-  %arrayidx2.i86.us.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
+  %arrayidx2.i86.us.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
   store i32 %conv.i85.us.i.i, ptr %arrayidx2.i86.us.i.i, align 4, !tbaa !51
   %inc.i87.us.i.i = add i64 %result_offset.5.i, 1
   %inc22.us.i.i = add nuw i64 %aidx.211.us.i.i, 1
@@ -99829,10 +99829,10 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i: ; preds = %cond.true.i.i.i, %
 if.then.i.i:                                      ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i
   %arrayidx.i.i.i.i.i = getelementptr inbounds i64, ptr %1, i64 %cond.i.i.i
   %58 = load i64, ptr %arrayidx.i.i.i.i.i, align 8, !tbaa !18
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [2048 x i64], ptr %result_values.i, i64 0, i64 %result_offset.6.i
+  %arrayidx.i.i.i.i = getelementptr inbounds [2048 x i64], ptr %result_values.i, i64 0, i64 %result_offset.6.i
   store i64 %58, ptr %arrayidx.i.i.i.i, align 8, !tbaa !18
   %conv.i.i.i.i = trunc nuw i64 %sub.i.i to i32
-  %arrayidx2.i.i.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.6.i
+  %arrayidx2.i.i.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.6.i
   store i32 %conv.i.i.i.i, ptr %arrayidx2.i.i.i.i, align 4, !tbaa !51
   %inc.i.i = add nuw i64 %aidx.06.i.i, 1
   %inc4.i.i = add nuw nsw i64 %bidx.05.i.i, 1
@@ -99840,7 +99840,7 @@ if.then.i.i:                                      ; preds = %_ZNK6duckdb15Select
 
 if.else.i.i:                                      ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i
   %cmp7.i.i = icmp ult i64 %sub.i.i, %conv.i150.i
-  %arrayidx.i72.i.i = getelementptr inbounds nuw [2048 x i64], ptr %result_values.i, i64 0, i64 %result_offset.6.i
+  %arrayidx.i72.i.i = getelementptr inbounds [2048 x i64], ptr %result_values.i, i64 0, i64 %result_offset.6.i
   br i1 %cmp7.i.i, label %if.then8.i.i, label %if.else11.i.i
 
 if.then8.i.i:                                     ; preds = %if.else.i.i
@@ -99848,7 +99848,7 @@ if.then8.i.i:                                     ; preds = %if.else.i.i
   %59 = load i64, ptr %arrayidx.i.i71.i.i, align 8, !tbaa !18
   store i64 %59, ptr %arrayidx.i72.i.i, align 8, !tbaa !18
   %conv.i73.i.i = trunc nuw i64 %sub.i.i to i32
-  %arrayidx2.i.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.6.i
+  %arrayidx2.i.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.6.i
   store i32 %conv.i73.i.i, ptr %arrayidx2.i.i.i, align 4, !tbaa !51
   %inc9.i.i = add nuw i64 %aidx.06.i.i, 1
   br label %if.end15.i.i
@@ -99857,7 +99857,7 @@ if.else11.i.i:                                    ; preds = %if.else.i.i
   %arrayidx.i74.i.i = getelementptr inbounds i64, ptr %6, i64 %bidx.05.i.i
   %60 = load i64, ptr %arrayidx.i74.i.i, align 8, !tbaa !18
   store i64 %60, ptr %arrayidx.i72.i.i, align 8, !tbaa !18
-  %arrayidx3.i.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.6.i
+  %arrayidx3.i.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.6.i
   store i32 %57, ptr %arrayidx3.i.i.i, align 4, !tbaa !51
   %inc13.i.i = add nuw nsw i64 %bidx.05.i.i, 1
   br label %if.end15.i.i
@@ -99904,10 +99904,10 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %sub20.i.i = sub i64 %71, %add.i
   %arrayidx.i.i83.i.i = getelementptr inbounds nuw i64, ptr %1, i64 %conv.i80.i.i
   %72 = load i64, ptr %arrayidx.i.i83.i.i, align 8, !tbaa !18
-  %arrayidx.i84.i.i = getelementptr inbounds nuw [2048 x i64], ptr %result_values.i, i64 0, i64 %result_offset.9.i
+  %arrayidx.i84.i.i = getelementptr inbounds [2048 x i64], ptr %result_values.i, i64 0, i64 %result_offset.9.i
   store i64 %72, ptr %arrayidx.i84.i.i, align 8, !tbaa !18
   %conv.i85.i.i = trunc i64 %sub20.i.i to i32
-  %arrayidx2.i86.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.9.i
+  %arrayidx2.i86.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.9.i
   store i32 %conv.i85.i.i, ptr %arrayidx2.i86.i.i, align 4, !tbaa !51
   %inc.i87.i.i = add i64 %result_offset.9.i, 1
   %gep = getelementptr i32, ptr %invariant.gep, i64 %aidx.211.i.i
@@ -99918,10 +99918,10 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %sub20.i.i.1 = sub i64 %74, %add.i
   %arrayidx.i.i83.i.i.1 = getelementptr inbounds nuw i64, ptr %1, i64 %conv.i80.i.i.1
   %75 = load i64, ptr %arrayidx.i.i83.i.i.1, align 8, !tbaa !18
-  %arrayidx.i84.i.i.1 = getelementptr inbounds nuw [2048 x i64], ptr %result_values.i, i64 0, i64 %inc.i87.i.i
+  %arrayidx.i84.i.i.1 = getelementptr inbounds [2048 x i64], ptr %result_values.i, i64 0, i64 %inc.i87.i.i
   store i64 %75, ptr %arrayidx.i84.i.i.1, align 8, !tbaa !18
   %conv.i85.i.i.1 = trunc i64 %sub20.i.i.1 to i32
-  %arrayidx2.i86.i.i.1 = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i87.i.i
+  %arrayidx2.i86.i.i.1 = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i87.i.i
   store i32 %conv.i85.i.i.1, ptr %arrayidx2.i86.i.i.1, align 4, !tbaa !51
   %inc.i87.i.i.1 = add i64 %result_offset.9.i, 2
   %inc22.i.i.1 = add nuw i64 %aidx.211.i.i, 2
@@ -100049,10 +100049,10 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
 
 while.body.i:                                     ; preds = %land.rhs.i
   %arrayidx6.i = getelementptr inbounds %"struct.duckdb::hugeint_t", ptr %7, i64 %update_info_offset.1197.i
-  %arrayidx7.i = getelementptr inbounds nuw [2048 x %"struct.duckdb::hugeint_t"], ptr %result_values.i, i64 0, i64 %result_offset.1196.i
+  %arrayidx7.i = getelementptr inbounds [2048 x %"struct.duckdb::hugeint_t"], ptr %result_values.i, i64 0, i64 %result_offset.1196.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx7.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx6.i, i64 16, i1 false), !tbaa.struct !240
   %inc.i = add i64 %result_offset.1196.i, 1
-  %arrayidx10.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1196.i
+  %arrayidx10.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1196.i
   store i32 %23, ptr %arrayidx10.i, align 4, !tbaa !51
   %inc11.i = add i64 %update_info_offset.1197.i, 1
   %exitcond.not.i = icmp eq i64 %inc11.i, %conv.i
@@ -100064,9 +100064,9 @@ land.lhs.true.i:                                  ; preds = %land.rhs.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   %arrayidx19.i = getelementptr inbounds %"struct.duckdb::hugeint_t", ptr %7, i64 %update_info_offset.1197.i
-  %arrayidx20.i = getelementptr inbounds nuw [2048 x %"struct.duckdb::hugeint_t"], ptr %result_values.i, i64 0, i64 %result_offset.1196.i
+  %arrayidx20.i = getelementptr inbounds [2048 x %"struct.duckdb::hugeint_t"], ptr %result_values.i, i64 0, i64 %result_offset.1196.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx20.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx19.i, i64 16, i1 false), !tbaa.struct !240
-  %arrayidx24.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1196.i
+  %arrayidx24.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1196.i
   store i32 %23, ptr %arrayidx24.i, align 4, !tbaa !51
   %inc25.i = add nuw nsw i64 %update_info_offset.1197.i, 1
   br label %cleanup.i
@@ -100102,14 +100102,14 @@ land.lhs.true42.i:                                ; preds = %land.rhs30.i
 
 if.then47.i:                                      ; preds = %land.lhs.true42.i
   %arrayidx48.i = getelementptr inbounds %"struct.duckdb::hugeint_t", ptr %6, i64 %base_info_offset.1200.i
-  %arrayidx49.i = getelementptr inbounds nuw [2048 x %"struct.duckdb::hugeint_t"], ptr %result_values.i, i64 0, i64 %result_offset.1191.i
+  %arrayidx49.i = getelementptr inbounds [2048 x %"struct.duckdb::hugeint_t"], ptr %result_values.i, i64 0, i64 %result_offset.1191.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx49.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx48.i, i64 16, i1 false), !tbaa.struct !240
   br label %if.end54.i
 
 if.else.i:                                        ; preds = %while.body36.i, %land.lhs.true42.i, %if.end.i
   %base_info_offset.1194.i = phi i64 [ %base_info_offset.1200.i, %land.lhs.true42.i ], [ %base_info_offset.0206.i, %if.end.i ], [ %conv28.i, %while.body36.i ]
   %arrayidx.i147.i = getelementptr inbounds %"struct.duckdb::hugeint_t", ptr %0, i64 %sub.i
-  %arrayidx53.i = getelementptr inbounds nuw [2048 x %"struct.duckdb::hugeint_t"], ptr %result_values.i, i64 0, i64 %result_offset.1191.i
+  %arrayidx53.i = getelementptr inbounds [2048 x %"struct.duckdb::hugeint_t"], ptr %result_values.i, i64 0, i64 %result_offset.1191.i
   %27 = load <2 x i64>, ptr %arrayidx.i147.i, align 8, !tbaa !18
   store <2 x i64> %27, ptr %arrayidx53.i, align 16, !tbaa !18
   br label %if.end54.i
@@ -100117,7 +100117,7 @@ if.else.i:                                        ; preds = %while.body36.i, %la
 if.end54.i:                                       ; preds = %if.else.i, %if.then47.i
   %base_info_offset.1193.i = phi i64 [ %base_info_offset.1194.i, %if.else.i ], [ %base_info_offset.1200.i, %if.then47.i ]
   %conv55.i = trunc i64 %sub.i to i32
-  %arrayidx57.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1191.i
+  %arrayidx57.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1191.i
   store i32 %conv55.i, ptr %arrayidx57.i, align 4, !tbaa !51
   br label %cleanup.i
 
@@ -100181,11 +100181,11 @@ for.body.i.i.prol:                                ; preds = %for.body.i.i.prehea
   %36 = load i64, ptr %arrayidx19.i.i.prol, align 8, !tbaa !18
   %sub20.i.i.prol = sub i64 %36, %add.i
   %arrayidx.i.i83.i.i.prol = getelementptr inbounds nuw %"struct.duckdb::hugeint_t", ptr %1, i64 %conv.i80.i.i.prol
-  %arrayidx.i87.i.i.prol = getelementptr inbounds nuw [2048 x %"struct.duckdb::hugeint_t"], ptr %result_values.i, i64 0, i64 %result_offset.4.i
+  %arrayidx.i87.i.i.prol = getelementptr inbounds [2048 x %"struct.duckdb::hugeint_t"], ptr %result_values.i, i64 0, i64 %result_offset.4.i
   %37 = load <2 x i64>, ptr %arrayidx.i.i83.i.i.prol, align 8, !tbaa !18
   store <2 x i64> %37, ptr %arrayidx.i87.i.i.prol, align 16, !tbaa !18
   %conv.i89.i.i.prol = trunc i64 %sub20.i.i.prol to i32
-  %arrayidx2.i90.i.i.prol = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.4.i
+  %arrayidx2.i90.i.i.prol = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.4.i
   store i32 %conv.i89.i.i.prol, ptr %arrayidx2.i90.i.i.prol, align 4, !tbaa !51
   %inc.i91.i.i.prol = add i64 %result_offset.4.i, 1
   %inc22.i.i.prol = add nuw i64 %aidx.0.lcssa.i.i, 1
@@ -100211,11 +100211,11 @@ for.body.us.i.i.prol:                             ; preds = %for.body.us.i.i.pre
   %40 = load i64, ptr %arrayidx19.us.i.i.prol, align 8, !tbaa !18
   %sub20.us.i.i.prol = sub i64 %40, %add.i
   %arrayidx.i.i83.us.i.i.prol = getelementptr inbounds %"struct.duckdb::hugeint_t", ptr %1, i64 %aidx.0.lcssa.i.i
-  %arrayidx.i87.us.i.i.prol = getelementptr inbounds nuw [2048 x %"struct.duckdb::hugeint_t"], ptr %result_values.i, i64 0, i64 %result_offset.4.i
+  %arrayidx.i87.us.i.i.prol = getelementptr inbounds [2048 x %"struct.duckdb::hugeint_t"], ptr %result_values.i, i64 0, i64 %result_offset.4.i
   %41 = load <2 x i64>, ptr %arrayidx.i.i83.us.i.i.prol, align 8, !tbaa !18
   store <2 x i64> %41, ptr %arrayidx.i87.us.i.i.prol, align 16, !tbaa !18
   %conv.i89.us.i.i.prol = trunc i64 %sub20.us.i.i.prol to i32
-  %arrayidx2.i90.us.i.i.prol = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.4.i
+  %arrayidx2.i90.us.i.i.prol = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.4.i
   store i32 %conv.i89.us.i.i.prol, ptr %arrayidx2.i90.us.i.i.prol, align 4, !tbaa !51
   %inc.i91.us.i.i.prol = add i64 %result_offset.4.i, 1
   %inc22.us.i.i.prol = add nuw i64 %aidx.0.lcssa.i.i, 1
@@ -100236,11 +100236,11 @@ for.body.us.i.i:                                  ; preds = %for.body.us.i.i.pro
   %44 = load i64, ptr %arrayidx19.us.i.i, align 8, !tbaa !18
   %sub20.us.i.i = sub i64 %44, %add.i
   %arrayidx.i.i83.us.i.i = getelementptr inbounds %"struct.duckdb::hugeint_t", ptr %1, i64 %aidx.2105.us.i.i
-  %arrayidx.i87.us.i.i = getelementptr inbounds nuw [2048 x %"struct.duckdb::hugeint_t"], ptr %result_values.i, i64 0, i64 %result_offset.5.i
+  %arrayidx.i87.us.i.i = getelementptr inbounds [2048 x %"struct.duckdb::hugeint_t"], ptr %result_values.i, i64 0, i64 %result_offset.5.i
   %45 = load <2 x i64>, ptr %arrayidx.i.i83.us.i.i, align 8, !tbaa !18
   store <2 x i64> %45, ptr %arrayidx.i87.us.i.i, align 16, !tbaa !18
   %conv.i89.us.i.i = trunc i64 %sub20.us.i.i to i32
-  %arrayidx2.i90.us.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
+  %arrayidx2.i90.us.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
   store i32 %conv.i89.us.i.i, ptr %arrayidx2.i90.us.i.i, align 4, !tbaa !51
   %inc.i91.us.i.i = add i64 %result_offset.5.i, 1
   %inc22.us.i.i = add nuw i64 %aidx.2105.us.i.i, 1
@@ -100248,11 +100248,11 @@ for.body.us.i.i:                                  ; preds = %for.body.us.i.i.pro
   %46 = load i64, ptr %arrayidx19.us.i.i.1, align 8, !tbaa !18
   %sub20.us.i.i.1 = sub i64 %46, %add.i
   %arrayidx.i.i83.us.i.i.1 = getelementptr inbounds %"struct.duckdb::hugeint_t", ptr %1, i64 %inc22.us.i.i
-  %arrayidx.i87.us.i.i.1 = getelementptr inbounds nuw [2048 x %"struct.duckdb::hugeint_t"], ptr %result_values.i, i64 0, i64 %inc.i91.us.i.i
+  %arrayidx.i87.us.i.i.1 = getelementptr inbounds [2048 x %"struct.duckdb::hugeint_t"], ptr %result_values.i, i64 0, i64 %inc.i91.us.i.i
   %47 = load <2 x i64>, ptr %arrayidx.i.i83.us.i.i.1, align 8, !tbaa !18
   store <2 x i64> %47, ptr %arrayidx.i87.us.i.i.1, align 16, !tbaa !18
   %conv.i89.us.i.i.1 = trunc i64 %sub20.us.i.i.1 to i32
-  %arrayidx2.i90.us.i.i.1 = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i91.us.i.i
+  %arrayidx2.i90.us.i.i.1 = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i91.us.i.i
   store i32 %conv.i89.us.i.i.1, ptr %arrayidx2.i90.us.i.i.1, align 4, !tbaa !51
   %inc.i91.us.i.i.1 = add i64 %result_offset.5.i, 2
   %inc22.us.i.i.1 = add nuw i64 %aidx.2105.us.i.i, 2
@@ -100280,7 +100280,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i: ; preds = %cond.true.i.i.i, %
   %50 = load i32, ptr %arrayidx2.i.i, align 4, !tbaa !51
   %conv.i151.i = zext i32 %50 to i64
   %cmp3.i.i = icmp eq i64 %sub.i.i, %conv.i151.i
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [2048 x %"struct.duckdb::hugeint_t"], ptr %result_values.i, i64 0, i64 %result_offset.6.i
+  %arrayidx.i.i.i.i = getelementptr inbounds [2048 x %"struct.duckdb::hugeint_t"], ptr %result_values.i, i64 0, i64 %result_offset.6.i
   br i1 %cmp3.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i
@@ -100288,7 +100288,7 @@ if.then.i.i:                                      ; preds = %_ZNK6duckdb15Select
   %51 = load <2 x i64>, ptr %arrayidx.i.i.i.i.i, align 8, !tbaa !18
   store <2 x i64> %51, ptr %arrayidx.i.i.i.i, align 16, !tbaa !18
   %conv.i.i.i.i = trunc nuw i64 %sub.i.i to i32
-  %arrayidx2.i.i.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.6.i
+  %arrayidx2.i.i.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.6.i
   store i32 %conv.i.i.i.i, ptr %arrayidx2.i.i.i.i, align 4, !tbaa !51
   %inc.i.i = add nuw i64 %aidx.0100.i.i, 1
   %inc4.i.i = add nuw nsw i64 %bidx.099.i.i, 1
@@ -100303,7 +100303,7 @@ if.then8.i.i:                                     ; preds = %if.else.i.i
   %52 = load <2 x i64>, ptr %arrayidx.i.i71.i.i, align 8, !tbaa !18
   store <2 x i64> %52, ptr %arrayidx.i.i.i.i, align 16, !tbaa !18
   %conv.i73.i.i = trunc nuw i64 %sub.i.i to i32
-  %arrayidx2.i.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.6.i
+  %arrayidx2.i.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.6.i
   store i32 %conv.i73.i.i, ptr %arrayidx2.i.i.i, align 4, !tbaa !51
   %inc9.i.i = add nuw i64 %aidx.0100.i.i, 1
   br label %if.end15.i.i
@@ -100311,7 +100311,7 @@ if.then8.i.i:                                     ; preds = %if.else.i.i
 if.else11.i.i:                                    ; preds = %if.else.i.i
   %arrayidx.i74.i.i = getelementptr inbounds %"struct.duckdb::hugeint_t", ptr %6, i64 %bidx.099.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i74.i.i, i64 16, i1 false), !tbaa.struct !240
-  %arrayidx3.i.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.6.i
+  %arrayidx3.i.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.6.i
   store i32 %50, ptr %arrayidx3.i.i.i, align 4, !tbaa !51
   %inc13.i.i = add nuw nsw i64 %bidx.099.i.i, 1
   br label %if.end15.i.i
@@ -100357,11 +100357,11 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %63 = load i64, ptr %arrayidx19.i.i, align 8, !tbaa !18
   %sub20.i.i = sub i64 %63, %add.i
   %arrayidx.i.i83.i.i = getelementptr inbounds nuw %"struct.duckdb::hugeint_t", ptr %1, i64 %conv.i80.i.i
-  %arrayidx.i87.i.i = getelementptr inbounds nuw [2048 x %"struct.duckdb::hugeint_t"], ptr %result_values.i, i64 0, i64 %result_offset.9.i
+  %arrayidx.i87.i.i = getelementptr inbounds [2048 x %"struct.duckdb::hugeint_t"], ptr %result_values.i, i64 0, i64 %result_offset.9.i
   %64 = load <2 x i64>, ptr %arrayidx.i.i83.i.i, align 8, !tbaa !18
   store <2 x i64> %64, ptr %arrayidx.i87.i.i, align 16, !tbaa !18
   %conv.i89.i.i = trunc i64 %sub20.i.i to i32
-  %arrayidx2.i90.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.9.i
+  %arrayidx2.i90.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.9.i
   store i32 %conv.i89.i.i, ptr %arrayidx2.i90.i.i, align 4, !tbaa !51
   %inc.i91.i.i = add i64 %result_offset.9.i, 1
   %gep = getelementptr i32, ptr %invariant.gep, i64 %aidx.2105.i.i
@@ -100371,11 +100371,11 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %66 = load i64, ptr %arrayidx19.i.i.1, align 8, !tbaa !18
   %sub20.i.i.1 = sub i64 %66, %add.i
   %arrayidx.i.i83.i.i.1 = getelementptr inbounds nuw %"struct.duckdb::hugeint_t", ptr %1, i64 %conv.i80.i.i.1
-  %arrayidx.i87.i.i.1 = getelementptr inbounds nuw [2048 x %"struct.duckdb::hugeint_t"], ptr %result_values.i, i64 0, i64 %inc.i91.i.i
+  %arrayidx.i87.i.i.1 = getelementptr inbounds [2048 x %"struct.duckdb::hugeint_t"], ptr %result_values.i, i64 0, i64 %inc.i91.i.i
   %67 = load <2 x i64>, ptr %arrayidx.i.i83.i.i.1, align 8, !tbaa !18
   store <2 x i64> %67, ptr %arrayidx.i87.i.i.1, align 16, !tbaa !18
   %conv.i89.i.i.1 = trunc i64 %sub20.i.i.1 to i32
-  %arrayidx2.i90.i.i.1 = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i91.i.i
+  %arrayidx2.i90.i.i.1 = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i91.i.i
   store i32 %conv.i89.i.i.1, ptr %arrayidx2.i90.i.i.1, align 4, !tbaa !51
   %inc.i91.i.i.1 = add i64 %result_offset.9.i, 2
   %inc22.i.i.1 = add nuw i64 %aidx.2105.i.i, 2
@@ -100501,10 +100501,10 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
 while.body.i:                                     ; preds = %land.rhs.i
   %arrayidx6.i = getelementptr inbounds float, ptr %7, i64 %update_info_offset.1190.i
   %21 = load float, ptr %arrayidx6.i, align 4, !tbaa !1035
-  %arrayidx7.i = getelementptr inbounds nuw [2048 x float], ptr %result_values.i, i64 0, i64 %result_offset.1189.i
+  %arrayidx7.i = getelementptr inbounds [2048 x float], ptr %result_values.i, i64 0, i64 %result_offset.1189.i
   store float %21, ptr %arrayidx7.i, align 4, !tbaa !1035
   %inc.i = add i64 %result_offset.1189.i, 1
-  %arrayidx10.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1189.i
+  %arrayidx10.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1189.i
   store i32 %20, ptr %arrayidx10.i, align 4, !tbaa !51
   %inc11.i = add i64 %update_info_offset.1190.i, 1
   %exitcond.not.i = icmp eq i64 %inc11.i, %conv.i
@@ -100517,9 +100517,9 @@ land.lhs.true.i:                                  ; preds = %land.rhs.i
 if.then.i:                                        ; preds = %land.lhs.true.i
   %arrayidx19.i = getelementptr inbounds float, ptr %7, i64 %update_info_offset.1190.i
   %22 = load float, ptr %arrayidx19.i, align 4, !tbaa !1035
-  %arrayidx20.i = getelementptr inbounds nuw [2048 x float], ptr %result_values.i, i64 0, i64 %result_offset.1189.i
+  %arrayidx20.i = getelementptr inbounds [2048 x float], ptr %result_values.i, i64 0, i64 %result_offset.1189.i
   store float %22, ptr %arrayidx20.i, align 4, !tbaa !1035
-  %arrayidx24.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1189.i
+  %arrayidx24.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1189.i
   store i32 %20, ptr %arrayidx24.i, align 4, !tbaa !51
   %inc25.i = add nuw nsw i64 %update_info_offset.1190.i, 1
   br label %cleanup.i
@@ -100566,10 +100566,10 @@ if.end54.i:                                       ; preds = %if.else.i, %if.then
   %arrayidx.i146.sink.i = phi ptr [ %arrayidx.i146.i, %if.else.i ], [ %arrayidx48.i, %if.then47.i ]
   %base_info_offset.1186.i = phi i64 [ %base_info_offset.1187.i, %if.else.i ], [ %base_info_offset.1193.i, %if.then47.i ]
   %26 = load float, ptr %arrayidx.i146.sink.i, align 4, !tbaa !1035
-  %arrayidx53.i = getelementptr inbounds nuw [2048 x float], ptr %result_values.i, i64 0, i64 %result_offset.1184.i
+  %arrayidx53.i = getelementptr inbounds [2048 x float], ptr %result_values.i, i64 0, i64 %result_offset.1184.i
   store float %26, ptr %arrayidx53.i, align 4, !tbaa !1035
   %conv55.i = trunc i64 %sub.i to i32
-  %arrayidx57.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1184.i
+  %arrayidx57.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1184.i
   store i32 %conv55.i, ptr %arrayidx57.i, align 4, !tbaa !51
   br label %cleanup.i
 
@@ -100632,10 +100632,10 @@ for.body.i.i.prol:                                ; preds = %for.body.i.i.prehea
   %sub20.i.i.prol = sub i64 %33, %add.i
   %arrayidx.i.i83.i.i.prol = getelementptr inbounds nuw float, ptr %1, i64 %conv.i80.i.i.prol
   %34 = load float, ptr %arrayidx.i.i83.i.i.prol, align 4, !tbaa !1035
-  %arrayidx.i84.i.i.prol = getelementptr inbounds nuw [2048 x float], ptr %result_values.i, i64 0, i64 %result_offset.4.i
+  %arrayidx.i84.i.i.prol = getelementptr inbounds [2048 x float], ptr %result_values.i, i64 0, i64 %result_offset.4.i
   store float %34, ptr %arrayidx.i84.i.i.prol, align 4, !tbaa !1035
   %conv.i85.i.i.prol = trunc i64 %sub20.i.i.prol to i32
-  %arrayidx2.i86.i.i.prol = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.4.i
+  %arrayidx2.i86.i.i.prol = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.4.i
   store i32 %conv.i85.i.i.prol, ptr %arrayidx2.i86.i.i.prol, align 4, !tbaa !51
   %inc.i87.i.i.prol = add i64 %result_offset.4.i, 1
   %inc22.i.i.prol = add nuw i64 %aidx.0.lcssa.i.i, 1
@@ -100683,7 +100683,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %45 = sub <2 x i64> %wide.load34, %broadcast.splat
   %46 = trunc <2 x i64> %44 to <2 x i32>
   %47 = trunc <2 x i64> %45 to <2 x i32>
-  %48 = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %offset.idx
+  %48 = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %offset.idx
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store <2 x i32> %46, ptr %48, align 4, !tbaa !51
   store <2 x i32> %47, ptr %49, align 4, !tbaa !51
@@ -100708,7 +100708,7 @@ for.body.us.i.i:                                  ; preds = %for.body.us.i.i.pre
   %51 = load i64, ptr %arrayidx19.us.i.i, align 8, !tbaa !18
   %sub20.us.i.i = sub i64 %51, %add.i
   %conv.i85.us.i.i = trunc i64 %sub20.us.i.i to i32
-  %arrayidx2.i86.us.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i8713.us.i.i
+  %arrayidx2.i86.us.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i8713.us.i.i
   store i32 %conv.i85.us.i.i, ptr %arrayidx2.i86.us.i.i, align 4, !tbaa !51
   %inc.i87.us.i.i = add i64 %inc.i8713.us.i.i, 1
   %inc22.us.i.i = add nuw i64 %aidx.211.us.i.i, 1
@@ -100741,10 +100741,10 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i: ; preds = %cond.true.i.i.i, %
 if.then.i.i:                                      ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i
   %arrayidx.i.i.i.i.i = getelementptr inbounds float, ptr %1, i64 %cond.i.i.i
   %55 = load float, ptr %arrayidx.i.i.i.i.i, align 4, !tbaa !1035
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [2048 x float], ptr %result_values.i, i64 0, i64 %result_offset.5.i
+  %arrayidx.i.i.i.i = getelementptr inbounds [2048 x float], ptr %result_values.i, i64 0, i64 %result_offset.5.i
   store float %55, ptr %arrayidx.i.i.i.i, align 4, !tbaa !1035
   %conv.i.i.i.i = trunc nuw i64 %sub.i.i to i32
-  %arrayidx2.i.i.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
+  %arrayidx2.i.i.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
   store i32 %conv.i.i.i.i, ptr %arrayidx2.i.i.i.i, align 4, !tbaa !51
   %inc.i.i = add nuw i64 %aidx.06.i.i, 1
   %inc4.i.i = add nuw nsw i64 %bidx.05.i.i, 1
@@ -100752,7 +100752,7 @@ if.then.i.i:                                      ; preds = %_ZNK6duckdb15Select
 
 if.else.i.i:                                      ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i
   %cmp7.i.i = icmp ult i64 %sub.i.i, %conv.i150.i
-  %arrayidx.i72.i.i = getelementptr inbounds nuw [2048 x float], ptr %result_values.i, i64 0, i64 %result_offset.5.i
+  %arrayidx.i72.i.i = getelementptr inbounds [2048 x float], ptr %result_values.i, i64 0, i64 %result_offset.5.i
   br i1 %cmp7.i.i, label %if.then8.i.i, label %if.else11.i.i
 
 if.then8.i.i:                                     ; preds = %if.else.i.i
@@ -100760,7 +100760,7 @@ if.then8.i.i:                                     ; preds = %if.else.i.i
   %56 = load float, ptr %arrayidx.i.i71.i.i, align 4, !tbaa !1035
   store float %56, ptr %arrayidx.i72.i.i, align 4, !tbaa !1035
   %conv.i73.i.i = trunc nuw i64 %sub.i.i to i32
-  %arrayidx2.i.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
+  %arrayidx2.i.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
   store i32 %conv.i73.i.i, ptr %arrayidx2.i.i.i, align 4, !tbaa !51
   %inc9.i.i = add nuw i64 %aidx.06.i.i, 1
   br label %if.end15.i.i
@@ -100769,7 +100769,7 @@ if.else11.i.i:                                    ; preds = %if.else.i.i
   %arrayidx.i74.i.i = getelementptr inbounds float, ptr %6, i64 %bidx.05.i.i
   %57 = load float, ptr %arrayidx.i74.i.i, align 4, !tbaa !1035
   store float %57, ptr %arrayidx.i72.i.i, align 4, !tbaa !1035
-  %arrayidx3.i.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
+  %arrayidx3.i.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
   store i32 %54, ptr %arrayidx3.i.i.i, align 4, !tbaa !51
   %inc13.i.i = add nuw nsw i64 %bidx.05.i.i, 1
   br label %if.end15.i.i
@@ -100813,10 +100813,10 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %sub20.i.i = sub i64 %65, %add.i
   %arrayidx.i.i83.i.i = getelementptr inbounds nuw float, ptr %1, i64 %conv.i80.i.i
   %66 = load float, ptr %arrayidx.i.i83.i.i, align 4, !tbaa !1035
-  %arrayidx.i84.i.i = getelementptr inbounds nuw [2048 x float], ptr %result_values.i, i64 0, i64 %inc.i8713.i.i
+  %arrayidx.i84.i.i = getelementptr inbounds [2048 x float], ptr %result_values.i, i64 0, i64 %inc.i8713.i.i
   store float %66, ptr %arrayidx.i84.i.i, align 4, !tbaa !1035
   %conv.i85.i.i = trunc i64 %sub20.i.i to i32
-  %arrayidx2.i86.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i8713.i.i
+  %arrayidx2.i86.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i8713.i.i
   store i32 %conv.i85.i.i, ptr %arrayidx2.i86.i.i, align 4, !tbaa !51
   %inc.i87.i.i = add i64 %inc.i8713.i.i, 1
   %gep = getelementptr i32, ptr %invariant.gep, i64 %aidx.211.i.i
@@ -100827,10 +100827,10 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %sub20.i.i.1 = sub i64 %68, %add.i
   %arrayidx.i.i83.i.i.1 = getelementptr inbounds nuw float, ptr %1, i64 %conv.i80.i.i.1
   %69 = load float, ptr %arrayidx.i.i83.i.i.1, align 4, !tbaa !1035
-  %arrayidx.i84.i.i.1 = getelementptr inbounds nuw [2048 x float], ptr %result_values.i, i64 0, i64 %inc.i87.i.i
+  %arrayidx.i84.i.i.1 = getelementptr inbounds [2048 x float], ptr %result_values.i, i64 0, i64 %inc.i87.i.i
   store float %69, ptr %arrayidx.i84.i.i.1, align 4, !tbaa !1035
   %conv.i85.i.i.1 = trunc i64 %sub20.i.i.1 to i32
-  %arrayidx2.i86.i.i.1 = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i87.i.i
+  %arrayidx2.i86.i.i.1 = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i87.i.i
   store i32 %conv.i85.i.i.1, ptr %arrayidx2.i86.i.i.1, align 4, !tbaa !51
   %inc.i87.i.i.1 = add i64 %inc.i8713.i.i, 2
   %inc22.i.i.1 = add nuw i64 %aidx.211.i.i, 2
@@ -100958,10 +100958,10 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
 while.body.i:                                     ; preds = %land.rhs.i
   %arrayidx6.i = getelementptr inbounds double, ptr %7, i64 %update_info_offset.1190.i
   %24 = load double, ptr %arrayidx6.i, align 8, !tbaa !1048
-  %arrayidx7.i = getelementptr inbounds nuw [2048 x double], ptr %result_values.i, i64 0, i64 %result_offset.1189.i
+  %arrayidx7.i = getelementptr inbounds [2048 x double], ptr %result_values.i, i64 0, i64 %result_offset.1189.i
   store double %24, ptr %arrayidx7.i, align 8, !tbaa !1048
   %inc.i = add i64 %result_offset.1189.i, 1
-  %arrayidx10.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1189.i
+  %arrayidx10.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1189.i
   store i32 %23, ptr %arrayidx10.i, align 4, !tbaa !51
   %inc11.i = add i64 %update_info_offset.1190.i, 1
   %exitcond.not.i = icmp eq i64 %inc11.i, %conv.i
@@ -100974,9 +100974,9 @@ land.lhs.true.i:                                  ; preds = %land.rhs.i
 if.then.i:                                        ; preds = %land.lhs.true.i
   %arrayidx19.i = getelementptr inbounds double, ptr %7, i64 %update_info_offset.1190.i
   %25 = load double, ptr %arrayidx19.i, align 8, !tbaa !1048
-  %arrayidx20.i = getelementptr inbounds nuw [2048 x double], ptr %result_values.i, i64 0, i64 %result_offset.1189.i
+  %arrayidx20.i = getelementptr inbounds [2048 x double], ptr %result_values.i, i64 0, i64 %result_offset.1189.i
   store double %25, ptr %arrayidx20.i, align 8, !tbaa !1048
-  %arrayidx24.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1189.i
+  %arrayidx24.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1189.i
   store i32 %23, ptr %arrayidx24.i, align 4, !tbaa !51
   %inc25.i = add nuw nsw i64 %update_info_offset.1190.i, 1
   br label %cleanup.i
@@ -101023,10 +101023,10 @@ if.end54.i:                                       ; preds = %if.else.i, %if.then
   %arrayidx.i146.sink.i = phi ptr [ %arrayidx.i146.i, %if.else.i ], [ %arrayidx48.i, %if.then47.i ]
   %base_info_offset.1186.i = phi i64 [ %base_info_offset.1187.i, %if.else.i ], [ %base_info_offset.1193.i, %if.then47.i ]
   %29 = load double, ptr %arrayidx.i146.sink.i, align 8, !tbaa !1048
-  %arrayidx53.i = getelementptr inbounds nuw [2048 x double], ptr %result_values.i, i64 0, i64 %result_offset.1184.i
+  %arrayidx53.i = getelementptr inbounds [2048 x double], ptr %result_values.i, i64 0, i64 %result_offset.1184.i
   store double %29, ptr %arrayidx53.i, align 8, !tbaa !1048
   %conv55.i = trunc i64 %sub.i to i32
-  %arrayidx57.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1184.i
+  %arrayidx57.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1184.i
   store i32 %conv55.i, ptr %arrayidx57.i, align 4, !tbaa !51
   br label %cleanup.i
 
@@ -101090,10 +101090,10 @@ for.body.i.i.prol:                                ; preds = %for.body.i.i.prehea
   %sub20.i.i.prol = sub i64 %36, %add.i
   %arrayidx.i.i83.i.i.prol = getelementptr inbounds nuw double, ptr %1, i64 %conv.i80.i.i.prol
   %37 = load double, ptr %arrayidx.i.i83.i.i.prol, align 8, !tbaa !1048
-  %arrayidx.i84.i.i.prol = getelementptr inbounds nuw [2048 x double], ptr %result_values.i, i64 0, i64 %result_offset.4.i
+  %arrayidx.i84.i.i.prol = getelementptr inbounds [2048 x double], ptr %result_values.i, i64 0, i64 %result_offset.4.i
   store double %37, ptr %arrayidx.i84.i.i.prol, align 8, !tbaa !1048
   %conv.i85.i.i.prol = trunc i64 %sub20.i.i.prol to i32
-  %arrayidx2.i86.i.i.prol = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.4.i
+  %arrayidx2.i86.i.i.prol = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.4.i
   store i32 %conv.i85.i.i.prol, ptr %arrayidx2.i86.i.i.prol, align 4, !tbaa !51
   %inc.i87.i.i.prol = add i64 %result_offset.4.i, 1
   %inc22.i.i.prol = add nuw i64 %aidx.0.lcssa.i.i, 1
@@ -101141,7 +101141,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %48 = sub <2 x i64> %wide.load34, %broadcast.splat
   %49 = trunc <2 x i64> %47 to <2 x i32>
   %50 = trunc <2 x i64> %48 to <2 x i32>
-  %51 = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %offset.idx
+  %51 = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %offset.idx
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store <2 x i32> %49, ptr %51, align 4, !tbaa !51
   store <2 x i32> %50, ptr %52, align 4, !tbaa !51
@@ -101166,7 +101166,7 @@ for.body.us.i.i:                                  ; preds = %for.body.us.i.i.pre
   %54 = load i64, ptr %arrayidx19.us.i.i, align 8, !tbaa !18
   %sub20.us.i.i = sub i64 %54, %add.i
   %conv.i85.us.i.i = trunc i64 %sub20.us.i.i to i32
-  %arrayidx2.i86.us.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i8713.us.i.i
+  %arrayidx2.i86.us.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i8713.us.i.i
   store i32 %conv.i85.us.i.i, ptr %arrayidx2.i86.us.i.i, align 4, !tbaa !51
   %inc.i87.us.i.i = add i64 %inc.i8713.us.i.i, 1
   %inc22.us.i.i = add nuw i64 %aidx.211.us.i.i, 1
@@ -101199,10 +101199,10 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i: ; preds = %cond.true.i.i.i, %
 if.then.i.i:                                      ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i
   %arrayidx.i.i.i.i.i = getelementptr inbounds double, ptr %1, i64 %cond.i.i.i
   %58 = load double, ptr %arrayidx.i.i.i.i.i, align 8, !tbaa !1048
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [2048 x double], ptr %result_values.i, i64 0, i64 %result_offset.5.i
+  %arrayidx.i.i.i.i = getelementptr inbounds [2048 x double], ptr %result_values.i, i64 0, i64 %result_offset.5.i
   store double %58, ptr %arrayidx.i.i.i.i, align 8, !tbaa !1048
   %conv.i.i.i.i = trunc nuw i64 %sub.i.i to i32
-  %arrayidx2.i.i.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
+  %arrayidx2.i.i.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
   store i32 %conv.i.i.i.i, ptr %arrayidx2.i.i.i.i, align 4, !tbaa !51
   %inc.i.i = add nuw i64 %aidx.06.i.i, 1
   %inc4.i.i = add nuw nsw i64 %bidx.05.i.i, 1
@@ -101210,7 +101210,7 @@ if.then.i.i:                                      ; preds = %_ZNK6duckdb15Select
 
 if.else.i.i:                                      ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i
   %cmp7.i.i = icmp ult i64 %sub.i.i, %conv.i150.i
-  %arrayidx.i72.i.i = getelementptr inbounds nuw [2048 x double], ptr %result_values.i, i64 0, i64 %result_offset.5.i
+  %arrayidx.i72.i.i = getelementptr inbounds [2048 x double], ptr %result_values.i, i64 0, i64 %result_offset.5.i
   br i1 %cmp7.i.i, label %if.then8.i.i, label %if.else11.i.i
 
 if.then8.i.i:                                     ; preds = %if.else.i.i
@@ -101218,7 +101218,7 @@ if.then8.i.i:                                     ; preds = %if.else.i.i
   %59 = load double, ptr %arrayidx.i.i71.i.i, align 8, !tbaa !1048
   store double %59, ptr %arrayidx.i72.i.i, align 8, !tbaa !1048
   %conv.i73.i.i = trunc nuw i64 %sub.i.i to i32
-  %arrayidx2.i.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
+  %arrayidx2.i.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
   store i32 %conv.i73.i.i, ptr %arrayidx2.i.i.i, align 4, !tbaa !51
   %inc9.i.i = add nuw i64 %aidx.06.i.i, 1
   br label %if.end15.i.i
@@ -101227,7 +101227,7 @@ if.else11.i.i:                                    ; preds = %if.else.i.i
   %arrayidx.i74.i.i = getelementptr inbounds double, ptr %6, i64 %bidx.05.i.i
   %60 = load double, ptr %arrayidx.i74.i.i, align 8, !tbaa !1048
   store double %60, ptr %arrayidx.i72.i.i, align 8, !tbaa !1048
-  %arrayidx3.i.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
+  %arrayidx3.i.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
   store i32 %57, ptr %arrayidx3.i.i.i, align 4, !tbaa !51
   %inc13.i.i = add nuw nsw i64 %bidx.05.i.i, 1
   br label %if.end15.i.i
@@ -101274,10 +101274,10 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %sub20.i.i = sub i64 %71, %add.i
   %arrayidx.i.i83.i.i = getelementptr inbounds nuw double, ptr %1, i64 %conv.i80.i.i
   %72 = load double, ptr %arrayidx.i.i83.i.i, align 8, !tbaa !1048
-  %arrayidx.i84.i.i = getelementptr inbounds nuw [2048 x double], ptr %result_values.i, i64 0, i64 %inc.i8713.i.i
+  %arrayidx.i84.i.i = getelementptr inbounds [2048 x double], ptr %result_values.i, i64 0, i64 %inc.i8713.i.i
   store double %72, ptr %arrayidx.i84.i.i, align 8, !tbaa !1048
   %conv.i85.i.i = trunc i64 %sub20.i.i to i32
-  %arrayidx2.i86.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i8713.i.i
+  %arrayidx2.i86.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i8713.i.i
   store i32 %conv.i85.i.i, ptr %arrayidx2.i86.i.i, align 4, !tbaa !51
   %inc.i87.i.i = add i64 %inc.i8713.i.i, 1
   %gep = getelementptr i32, ptr %invariant.gep, i64 %aidx.211.i.i
@@ -101288,10 +101288,10 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %sub20.i.i.1 = sub i64 %74, %add.i
   %arrayidx.i.i83.i.i.1 = getelementptr inbounds nuw double, ptr %1, i64 %conv.i80.i.i.1
   %75 = load double, ptr %arrayidx.i.i83.i.i.1, align 8, !tbaa !1048
-  %arrayidx.i84.i.i.1 = getelementptr inbounds nuw [2048 x double], ptr %result_values.i, i64 0, i64 %inc.i87.i.i
+  %arrayidx.i84.i.i.1 = getelementptr inbounds [2048 x double], ptr %result_values.i, i64 0, i64 %inc.i87.i.i
   store double %75, ptr %arrayidx.i84.i.i.1, align 8, !tbaa !1048
   %conv.i85.i.i.1 = trunc i64 %sub20.i.i.1 to i32
-  %arrayidx2.i86.i.i.1 = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i87.i.i
+  %arrayidx2.i86.i.i.1 = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i87.i.i
   store i32 %conv.i85.i.i.1, ptr %arrayidx2.i86.i.i.1, align 4, !tbaa !51
   %inc.i87.i.i.1 = add i64 %inc.i8713.i.i, 2
   %inc22.i.i.1 = add nuw i64 %aidx.211.i.i, 2
@@ -101419,10 +101419,10 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
 
 while.body.i:                                     ; preds = %land.rhs.i
   %arrayidx6.i = getelementptr inbounds %"struct.duckdb::interval_t", ptr %7, i64 %update_info_offset.1196.i
-  %arrayidx7.i = getelementptr inbounds nuw [2048 x %"struct.duckdb::interval_t"], ptr %result_values.i, i64 0, i64 %result_offset.1195.i
+  %arrayidx7.i = getelementptr inbounds [2048 x %"struct.duckdb::interval_t"], ptr %result_values.i, i64 0, i64 %result_offset.1195.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx7.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx6.i, i64 16, i1 false), !tbaa.struct !2116
   %inc.i = add i64 %result_offset.1195.i, 1
-  %arrayidx10.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1195.i
+  %arrayidx10.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1195.i
   store i32 %23, ptr %arrayidx10.i, align 4, !tbaa !51
   %inc11.i = add i64 %update_info_offset.1196.i, 1
   %exitcond.not.i = icmp eq i64 %inc11.i, %conv.i
@@ -101434,9 +101434,9 @@ land.lhs.true.i:                                  ; preds = %land.rhs.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   %arrayidx19.i = getelementptr inbounds %"struct.duckdb::interval_t", ptr %7, i64 %update_info_offset.1196.i
-  %arrayidx20.i = getelementptr inbounds nuw [2048 x %"struct.duckdb::interval_t"], ptr %result_values.i, i64 0, i64 %result_offset.1195.i
+  %arrayidx20.i = getelementptr inbounds [2048 x %"struct.duckdb::interval_t"], ptr %result_values.i, i64 0, i64 %result_offset.1195.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx20.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx19.i, i64 16, i1 false), !tbaa.struct !2116
-  %arrayidx24.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1195.i
+  %arrayidx24.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1195.i
   store i32 %23, ptr %arrayidx24.i, align 4, !tbaa !51
   %inc25.i = add nuw nsw i64 %update_info_offset.1196.i, 1
   br label %cleanup.i
@@ -101472,14 +101472,14 @@ land.lhs.true42.i:                                ; preds = %land.rhs30.i
 
 if.then47.i:                                      ; preds = %land.lhs.true42.i
   %arrayidx48.i = getelementptr inbounds %"struct.duckdb::interval_t", ptr %6, i64 %base_info_offset.1199.i
-  %arrayidx49.i = getelementptr inbounds nuw [2048 x %"struct.duckdb::interval_t"], ptr %result_values.i, i64 0, i64 %result_offset.1190.i
+  %arrayidx49.i = getelementptr inbounds [2048 x %"struct.duckdb::interval_t"], ptr %result_values.i, i64 0, i64 %result_offset.1190.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx49.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx48.i, i64 16, i1 false), !tbaa.struct !2116
   br label %if.end54.i
 
 if.else.i:                                        ; preds = %while.body36.i, %land.lhs.true42.i, %if.end.i
   %base_info_offset.1193.i = phi i64 [ %base_info_offset.1199.i, %land.lhs.true42.i ], [ %base_info_offset.0205.i, %if.end.i ], [ %conv28.i, %while.body36.i ]
   %arrayidx.i147.i = getelementptr inbounds %"struct.duckdb::interval_t", ptr %0, i64 %sub.i
-  %arrayidx53.i = getelementptr inbounds nuw [2048 x %"struct.duckdb::interval_t"], ptr %result_values.i, i64 0, i64 %result_offset.1190.i
+  %arrayidx53.i = getelementptr inbounds [2048 x %"struct.duckdb::interval_t"], ptr %result_values.i, i64 0, i64 %result_offset.1190.i
   %27 = load <2 x i64>, ptr %arrayidx.i147.i, align 8
   store <2 x i64> %27, ptr %arrayidx53.i, align 16
   br label %if.end54.i
@@ -101487,7 +101487,7 @@ if.else.i:                                        ; preds = %while.body36.i, %la
 if.end54.i:                                       ; preds = %if.else.i, %if.then47.i
   %base_info_offset.1192.i = phi i64 [ %base_info_offset.1193.i, %if.else.i ], [ %base_info_offset.1199.i, %if.then47.i ]
   %conv55.i = trunc i64 %sub.i to i32
-  %arrayidx57.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1190.i
+  %arrayidx57.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1190.i
   store i32 %conv55.i, ptr %arrayidx57.i, align 4, !tbaa !51
   br label %cleanup.i
 
@@ -101551,11 +101551,11 @@ for.body.i.i.prol:                                ; preds = %for.body.i.i.prehea
   %36 = load i64, ptr %arrayidx19.i.i.prol, align 8, !tbaa !18
   %sub20.i.i.prol = sub i64 %36, %add.i
   %arrayidx.i.i83.i.i.prol = getelementptr inbounds nuw %"struct.duckdb::interval_t", ptr %1, i64 %conv.i80.i.i.prol
-  %arrayidx.i87.i.i.prol = getelementptr inbounds nuw [2048 x %"struct.duckdb::interval_t"], ptr %result_values.i, i64 0, i64 %result_offset.4.i
+  %arrayidx.i87.i.i.prol = getelementptr inbounds [2048 x %"struct.duckdb::interval_t"], ptr %result_values.i, i64 0, i64 %result_offset.4.i
   %37 = load <2 x i64>, ptr %arrayidx.i.i83.i.i.prol, align 8
   store <2 x i64> %37, ptr %arrayidx.i87.i.i.prol, align 16
   %conv.i89.i.i.prol = trunc i64 %sub20.i.i.prol to i32
-  %arrayidx2.i90.i.i.prol = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.4.i
+  %arrayidx2.i90.i.i.prol = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.4.i
   store i32 %conv.i89.i.i.prol, ptr %arrayidx2.i90.i.i.prol, align 4, !tbaa !51
   %inc.i91.i.i.prol = add i64 %result_offset.4.i, 1
   %inc22.i.i.prol = add nuw i64 %aidx.0.lcssa.i.i, 1
@@ -101581,11 +101581,11 @@ for.body.i.us.i.prol:                             ; preds = %for.body.i.us.i.pre
   %40 = load i64, ptr %arrayidx19.i.us.i.prol, align 8, !tbaa !18
   %sub20.i.us.i.prol = sub i64 %40, %add.i
   %arrayidx.i.i83.i.us.i.prol = getelementptr inbounds %"struct.duckdb::interval_t", ptr %1, i64 %aidx.0.lcssa.i.i
-  %arrayidx.i87.i.us.i.prol = getelementptr inbounds nuw [2048 x %"struct.duckdb::interval_t"], ptr %result_values.i, i64 0, i64 %result_offset.4.i
+  %arrayidx.i87.i.us.i.prol = getelementptr inbounds [2048 x %"struct.duckdb::interval_t"], ptr %result_values.i, i64 0, i64 %result_offset.4.i
   %41 = load <2 x i64>, ptr %arrayidx.i.i83.i.us.i.prol, align 8
   store <2 x i64> %41, ptr %arrayidx.i87.i.us.i.prol, align 16
   %conv.i89.i.us.i.prol = trunc i64 %sub20.i.us.i.prol to i32
-  %arrayidx2.i90.i.us.i.prol = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.4.i
+  %arrayidx2.i90.i.us.i.prol = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.4.i
   store i32 %conv.i89.i.us.i.prol, ptr %arrayidx2.i90.i.us.i.prol, align 4, !tbaa !51
   %inc.i91.i.us.i.prol = add i64 %result_offset.4.i, 1
   %inc22.i.us.i.prol = add nuw i64 %aidx.0.lcssa.i.i, 1
@@ -101606,11 +101606,11 @@ for.body.i.us.i:                                  ; preds = %for.body.i.us.i.pro
   %44 = load i64, ptr %arrayidx19.i.us.i, align 8, !tbaa !18
   %sub20.i.us.i = sub i64 %44, %add.i
   %arrayidx.i.i83.i.us.i = getelementptr inbounds %"struct.duckdb::interval_t", ptr %1, i64 %aidx.2105.i.us.i
-  %arrayidx.i87.i.us.i = getelementptr inbounds nuw [2048 x %"struct.duckdb::interval_t"], ptr %result_values.i, i64 0, i64 %result_offset.8.us.i
+  %arrayidx.i87.i.us.i = getelementptr inbounds [2048 x %"struct.duckdb::interval_t"], ptr %result_values.i, i64 0, i64 %result_offset.8.us.i
   %45 = load <2 x i64>, ptr %arrayidx.i.i83.i.us.i, align 8
   store <2 x i64> %45, ptr %arrayidx.i87.i.us.i, align 16
   %conv.i89.i.us.i = trunc i64 %sub20.i.us.i to i32
-  %arrayidx2.i90.i.us.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.8.us.i
+  %arrayidx2.i90.i.us.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.8.us.i
   store i32 %conv.i89.i.us.i, ptr %arrayidx2.i90.i.us.i, align 4, !tbaa !51
   %inc.i91.i.us.i = add i64 %result_offset.8.us.i, 1
   %inc22.i.us.i = add nuw i64 %aidx.2105.i.us.i, 1
@@ -101618,11 +101618,11 @@ for.body.i.us.i:                                  ; preds = %for.body.i.us.i.pro
   %46 = load i64, ptr %arrayidx19.i.us.i.1, align 8, !tbaa !18
   %sub20.i.us.i.1 = sub i64 %46, %add.i
   %arrayidx.i.i83.i.us.i.1 = getelementptr inbounds %"struct.duckdb::interval_t", ptr %1, i64 %inc22.i.us.i
-  %arrayidx.i87.i.us.i.1 = getelementptr inbounds nuw [2048 x %"struct.duckdb::interval_t"], ptr %result_values.i, i64 0, i64 %inc.i91.i.us.i
+  %arrayidx.i87.i.us.i.1 = getelementptr inbounds [2048 x %"struct.duckdb::interval_t"], ptr %result_values.i, i64 0, i64 %inc.i91.i.us.i
   %47 = load <2 x i64>, ptr %arrayidx.i.i83.i.us.i.1, align 8
   store <2 x i64> %47, ptr %arrayidx.i87.i.us.i.1, align 16
   %conv.i89.i.us.i.1 = trunc i64 %sub20.i.us.i.1 to i32
-  %arrayidx2.i90.i.us.i.1 = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i91.i.us.i
+  %arrayidx2.i90.i.us.i.1 = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i91.i.us.i
   store i32 %conv.i89.i.us.i.1, ptr %arrayidx2.i90.i.us.i.1, align 4, !tbaa !51
   %inc.i91.i.us.i.1 = add i64 %result_offset.8.us.i, 2
   %inc22.i.us.i.1 = add nuw i64 %aidx.2105.i.us.i, 2
@@ -101650,7 +101650,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i: ; preds = %cond.true.i.i.i, %
   %50 = load i32, ptr %arrayidx2.i.i, align 4, !tbaa !51
   %conv.i151.i = zext i32 %50 to i64
   %cmp3.i.i = icmp eq i64 %sub.i.i, %conv.i151.i
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [2048 x %"struct.duckdb::interval_t"], ptr %result_values.i, i64 0, i64 %result_offset.5.i
+  %arrayidx.i.i.i.i = getelementptr inbounds [2048 x %"struct.duckdb::interval_t"], ptr %result_values.i, i64 0, i64 %result_offset.5.i
   br i1 %cmp3.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i
@@ -101658,7 +101658,7 @@ if.then.i.i:                                      ; preds = %_ZNK6duckdb15Select
   %51 = load <2 x i64>, ptr %arrayidx.i.i.i.i.i, align 8
   store <2 x i64> %51, ptr %arrayidx.i.i.i.i, align 16
   %conv.i.i.i.i = trunc nuw i64 %sub.i.i to i32
-  %arrayidx2.i.i.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
+  %arrayidx2.i.i.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
   store i32 %conv.i.i.i.i, ptr %arrayidx2.i.i.i.i, align 4, !tbaa !51
   %inc.i.i = add nuw i64 %aidx.0100.i.i, 1
   %inc4.i.i = add nuw nsw i64 %bidx.099.i.i, 1
@@ -101673,7 +101673,7 @@ if.then8.i.i:                                     ; preds = %if.else.i.i
   %52 = load <2 x i64>, ptr %arrayidx.i.i71.i.i, align 8
   store <2 x i64> %52, ptr %arrayidx.i.i.i.i, align 16
   %conv.i73.i.i = trunc nuw i64 %sub.i.i to i32
-  %arrayidx2.i.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
+  %arrayidx2.i.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
   store i32 %conv.i73.i.i, ptr %arrayidx2.i.i.i, align 4, !tbaa !51
   %inc9.i.i = add nuw i64 %aidx.0100.i.i, 1
   br label %if.end15.i.i
@@ -101681,7 +101681,7 @@ if.then8.i.i:                                     ; preds = %if.else.i.i
 if.else11.i.i:                                    ; preds = %if.else.i.i
   %arrayidx.i74.i.i = getelementptr inbounds %"struct.duckdb::interval_t", ptr %6, i64 %bidx.099.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i74.i.i, i64 16, i1 false), !tbaa.struct !2116
-  %arrayidx3.i.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
+  %arrayidx3.i.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
   store i32 %50, ptr %arrayidx3.i.i.i, align 4, !tbaa !51
   %inc13.i.i = add nuw nsw i64 %bidx.099.i.i, 1
   br label %if.end15.i.i
@@ -101727,11 +101727,11 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %63 = load i64, ptr %arrayidx19.i.i, align 8, !tbaa !18
   %sub20.i.i = sub i64 %63, %add.i
   %arrayidx.i.i83.i.i = getelementptr inbounds nuw %"struct.duckdb::interval_t", ptr %1, i64 %conv.i80.i.i
-  %arrayidx.i87.i.i = getelementptr inbounds nuw [2048 x %"struct.duckdb::interval_t"], ptr %result_values.i, i64 0, i64 %result_offset.8.i
+  %arrayidx.i87.i.i = getelementptr inbounds [2048 x %"struct.duckdb::interval_t"], ptr %result_values.i, i64 0, i64 %result_offset.8.i
   %64 = load <2 x i64>, ptr %arrayidx.i.i83.i.i, align 8
   store <2 x i64> %64, ptr %arrayidx.i87.i.i, align 16
   %conv.i89.i.i = trunc i64 %sub20.i.i to i32
-  %arrayidx2.i90.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.8.i
+  %arrayidx2.i90.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.8.i
   store i32 %conv.i89.i.i, ptr %arrayidx2.i90.i.i, align 4, !tbaa !51
   %inc.i91.i.i = add i64 %result_offset.8.i, 1
   %gep = getelementptr i32, ptr %invariant.gep, i64 %aidx.2105.i.i
@@ -101741,11 +101741,11 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %66 = load i64, ptr %arrayidx19.i.i.1, align 8, !tbaa !18
   %sub20.i.i.1 = sub i64 %66, %add.i
   %arrayidx.i.i83.i.i.1 = getelementptr inbounds nuw %"struct.duckdb::interval_t", ptr %1, i64 %conv.i80.i.i.1
-  %arrayidx.i87.i.i.1 = getelementptr inbounds nuw [2048 x %"struct.duckdb::interval_t"], ptr %result_values.i, i64 0, i64 %inc.i91.i.i
+  %arrayidx.i87.i.i.1 = getelementptr inbounds [2048 x %"struct.duckdb::interval_t"], ptr %result_values.i, i64 0, i64 %inc.i91.i.i
   %67 = load <2 x i64>, ptr %arrayidx.i.i83.i.i.1, align 8
   store <2 x i64> %67, ptr %arrayidx.i87.i.i.1, align 16
   %conv.i89.i.i.1 = trunc i64 %sub20.i.i.1 to i32
-  %arrayidx2.i90.i.i.1 = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i91.i.i
+  %arrayidx2.i90.i.i.1 = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i91.i.i
   store i32 %conv.i89.i.i.1, ptr %arrayidx2.i90.i.i.1, align 4, !tbaa !51
   %inc.i91.i.i.1 = add i64 %result_offset.8.i, 2
   %inc22.i.i.1 = add nuw i64 %aidx.2105.i.i, 2
@@ -101870,10 +101870,10 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
 
 while.body.i:                                     ; preds = %land.rhs.i
   %arrayidx6.i = getelementptr inbounds %"struct.duckdb::string_t", ptr %7, i64 %update_info_offset.1202.i
-  %arrayidx7.i = getelementptr inbounds nuw [2048 x %"struct.duckdb::string_t"], ptr %result_values.i, i64 0, i64 %result_offset.1201.i
+  %arrayidx7.i = getelementptr inbounds [2048 x %"struct.duckdb::string_t"], ptr %result_values.i, i64 0, i64 %result_offset.1201.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx7.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx6.i, i64 16, i1 false), !tbaa.struct !1211
   %inc.i = add i64 %result_offset.1201.i, 1
-  %arrayidx10.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1201.i
+  %arrayidx10.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1201.i
   store i32 %25, ptr %arrayidx10.i, align 4, !tbaa !51
   %inc11.i = add i64 %update_info_offset.1202.i, 1
   %exitcond.not.i = icmp eq i64 %inc11.i, %conv.i
@@ -101885,9 +101885,9 @@ land.lhs.true.i:                                  ; preds = %land.rhs.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   %arrayidx19.i = getelementptr inbounds %"struct.duckdb::string_t", ptr %7, i64 %update_info_offset.1202.i
-  %arrayidx20.i = getelementptr inbounds nuw [2048 x %"struct.duckdb::string_t"], ptr %result_values.i, i64 0, i64 %result_offset.1201.i
+  %arrayidx20.i = getelementptr inbounds [2048 x %"struct.duckdb::string_t"], ptr %result_values.i, i64 0, i64 %result_offset.1201.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx20.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx19.i, i64 16, i1 false), !tbaa.struct !1211
-  %arrayidx24.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1201.i
+  %arrayidx24.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1201.i
   store i32 %25, ptr %arrayidx24.i, align 4, !tbaa !51
   %inc25.i = add nuw nsw i64 %update_info_offset.1202.i, 1
   br label %cleanup.i
@@ -101923,7 +101923,7 @@ land.lhs.true42.i:                                ; preds = %land.rhs30.i
 
 if.then47.i:                                      ; preds = %land.lhs.true42.i
   %arrayidx48.i = getelementptr inbounds %"struct.duckdb::string_t", ptr %6, i64 %base_info_offset.1205.i
-  %arrayidx49.i = getelementptr inbounds nuw [2048 x %"struct.duckdb::string_t"], ptr %result_values.i, i64 0, i64 %result_offset.1196.i
+  %arrayidx49.i = getelementptr inbounds [2048 x %"struct.duckdb::string_t"], ptr %result_values.i, i64 0, i64 %result_offset.1196.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx49.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx48.i, i64 16, i1 false), !tbaa.struct !1211
   br label %if.end57.i
 
@@ -101952,7 +101952,7 @@ _ZN6duckdb19UpdateSelectElement9OperationINS_8string_tEEET_PNS_13UpdateSegmentES
   %retval.sroa.0.0.i.i = phi i64 [ %31, %cond.false.i.i ], [ %retval.sroa.0.0.copyload.i.i, %if.else.i ]
   %retval.sroa.3.0.i.i = phi ptr [ %32, %cond.false.i.i ], [ %retval.sroa.2.0.copyload.i.i, %if.else.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %element.i.i)
-  %arrayidx56.i = getelementptr inbounds nuw [2048 x %"struct.duckdb::string_t"], ptr %result_values.i, i64 0, i64 %result_offset.1196.i
+  %arrayidx56.i = getelementptr inbounds [2048 x %"struct.duckdb::string_t"], ptr %result_values.i, i64 0, i64 %result_offset.1196.i
   store i64 %retval.sroa.0.0.i.i, ptr %arrayidx56.i, align 16, !tbaa.struct !1211
   %ref.tmp.sroa.4.0.arrayidx56.sroa_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx56.i, i64 8
   store ptr %retval.sroa.3.0.i.i, ptr %ref.tmp.sroa.4.0.arrayidx56.sroa_idx.i, align 8, !tbaa !50
@@ -101961,7 +101961,7 @@ _ZN6duckdb19UpdateSelectElement9OperationINS_8string_tEEET_PNS_13UpdateSegmentES
 if.end57.i:                                       ; preds = %_ZN6duckdb19UpdateSelectElement9OperationINS_8string_tEEET_PNS_13UpdateSegmentES3_.exit.i, %if.then47.i
   %base_info_offset.1198.i = phi i64 [ %base_info_offset.1199.i, %_ZN6duckdb19UpdateSelectElement9OperationINS_8string_tEEET_PNS_13UpdateSegmentES3_.exit.i ], [ %base_info_offset.1205.i, %if.then47.i ]
   %conv58.i = trunc i64 %sub.i to i32
-  %arrayidx60.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1196.i
+  %arrayidx60.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.1196.i
   store i32 %conv58.i, ptr %arrayidx60.i, align 4, !tbaa !51
   br label %cleanup.i
 
@@ -102025,12 +102025,12 @@ for.body.i.us.i.prol:                             ; preds = %for.body.i.us.i.pre
   %retval.sroa.0.0.copyload.i.i84.i.us.i.prol = load i64, ptr %arrayidx.i.i83.i.us.i.prol, align 8, !tbaa.struct !1211
   %retval.sroa.2.0.arrayidx.sroa_idx.i.i85.i.us.i.prol = getelementptr inbounds nuw i8, ptr %arrayidx.i.i83.i.us.i.prol, i64 8
   %retval.sroa.2.0.copyload.i.i86.i.us.i.prol = load ptr, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i.i85.i.us.i.prol, align 8, !tbaa !50
-  %arrayidx.i87.i.us.i.prol = getelementptr inbounds nuw [2048 x %"struct.duckdb::string_t"], ptr %result_values.i, i64 0, i64 %result_offset.4.i
+  %arrayidx.i87.i.us.i.prol = getelementptr inbounds [2048 x %"struct.duckdb::string_t"], ptr %result_values.i, i64 0, i64 %result_offset.4.i
   store i64 %retval.sroa.0.0.copyload.i.i84.i.us.i.prol, ptr %arrayidx.i87.i.us.i.prol, align 16, !tbaa.struct !1211
   %ref.tmp.sroa.4.0.arrayidx.sroa_idx.i88.i.us.i.prol = getelementptr inbounds nuw i8, ptr %arrayidx.i87.i.us.i.prol, i64 8
   store ptr %retval.sroa.2.0.copyload.i.i86.i.us.i.prol, ptr %ref.tmp.sroa.4.0.arrayidx.sroa_idx.i88.i.us.i.prol, align 8, !tbaa !50
   %conv.i89.i.us.i.prol = trunc i64 %sub20.i.us.i.prol to i32
-  %arrayidx3.i90.i.us.i.prol = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.4.i
+  %arrayidx3.i90.i.us.i.prol = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.4.i
   store i32 %conv.i89.i.us.i.prol, ptr %arrayidx3.i90.i.us.i.prol, align 4, !tbaa !51
   %inc.i91.i.us.i.prol = add i64 %result_offset.4.i, 1
   %inc22.i.us.i.prol = add nuw i64 %aidx.0.lcssa.i.i, 1
@@ -102054,12 +102054,12 @@ for.body.i.us.i:                                  ; preds = %for.body.i.us.i.pro
   %retval.sroa.0.0.copyload.i.i84.i.us.i = load i64, ptr %arrayidx.i.i83.i.us.i, align 8, !tbaa.struct !1211
   %retval.sroa.2.0.arrayidx.sroa_idx.i.i85.i.us.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i83.i.us.i, i64 8
   %retval.sroa.2.0.copyload.i.i86.i.us.i = load ptr, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i.i85.i.us.i, align 8, !tbaa !50
-  %arrayidx.i87.i.us.i = getelementptr inbounds nuw [2048 x %"struct.duckdb::string_t"], ptr %result_values.i, i64 0, i64 %result_offset.8.us.i
+  %arrayidx.i87.i.us.i = getelementptr inbounds [2048 x %"struct.duckdb::string_t"], ptr %result_values.i, i64 0, i64 %result_offset.8.us.i
   store i64 %retval.sroa.0.0.copyload.i.i84.i.us.i, ptr %arrayidx.i87.i.us.i, align 16, !tbaa.struct !1211
   %ref.tmp.sroa.4.0.arrayidx.sroa_idx.i88.i.us.i = getelementptr inbounds nuw i8, ptr %arrayidx.i87.i.us.i, i64 8
   store ptr %retval.sroa.2.0.copyload.i.i86.i.us.i, ptr %ref.tmp.sroa.4.0.arrayidx.sroa_idx.i88.i.us.i, align 8, !tbaa !50
   %conv.i89.i.us.i = trunc i64 %sub20.i.us.i to i32
-  %arrayidx3.i90.i.us.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.8.us.i
+  %arrayidx3.i90.i.us.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.8.us.i
   store i32 %conv.i89.i.us.i, ptr %arrayidx3.i90.i.us.i, align 4, !tbaa !51
   %inc.i91.i.us.i = add i64 %result_offset.8.us.i, 1
   %inc22.i.us.i = add nuw i64 %aidx.2105.i.us.i, 1
@@ -102070,12 +102070,12 @@ for.body.i.us.i:                                  ; preds = %for.body.i.us.i.pro
   %retval.sroa.0.0.copyload.i.i84.i.us.i.1 = load i64, ptr %arrayidx.i.i83.i.us.i.1, align 8, !tbaa.struct !1211
   %retval.sroa.2.0.arrayidx.sroa_idx.i.i85.i.us.i.1 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i83.i.us.i.1, i64 8
   %retval.sroa.2.0.copyload.i.i86.i.us.i.1 = load ptr, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i.i85.i.us.i.1, align 8, !tbaa !50
-  %arrayidx.i87.i.us.i.1 = getelementptr inbounds nuw [2048 x %"struct.duckdb::string_t"], ptr %result_values.i, i64 0, i64 %inc.i91.i.us.i
+  %arrayidx.i87.i.us.i.1 = getelementptr inbounds [2048 x %"struct.duckdb::string_t"], ptr %result_values.i, i64 0, i64 %inc.i91.i.us.i
   store i64 %retval.sroa.0.0.copyload.i.i84.i.us.i.1, ptr %arrayidx.i87.i.us.i.1, align 16, !tbaa.struct !1211
   %ref.tmp.sroa.4.0.arrayidx.sroa_idx.i88.i.us.i.1 = getelementptr inbounds nuw i8, ptr %arrayidx.i87.i.us.i.1, i64 8
   store ptr %retval.sroa.2.0.copyload.i.i86.i.us.i.1, ptr %ref.tmp.sroa.4.0.arrayidx.sroa_idx.i88.i.us.i.1, align 8, !tbaa !50
   %conv.i89.i.us.i.1 = trunc i64 %sub20.i.us.i.1 to i32
-  %arrayidx3.i90.i.us.i.1 = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i91.i.us.i
+  %arrayidx3.i90.i.us.i.1 = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %inc.i91.i.us.i
   store i32 %conv.i89.i.us.i.1, ptr %arrayidx3.i90.i.us.i.1, align 4, !tbaa !51
   %inc.i91.i.us.i.1 = add i64 %result_offset.8.us.i, 2
   %inc22.i.us.i.1 = add nuw i64 %aidx.2105.i.us.i, 2
@@ -102110,12 +102110,12 @@ if.then.i.i:                                      ; preds = %_ZNK6duckdb15Select
   %retval.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %arrayidx.i.i.i.i.i, align 8, !tbaa.struct !1211
   %retval.sroa.2.0.arrayidx.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i.i, i64 8
   %retval.sroa.2.0.copyload.i.i.i.i.i = load ptr, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i.i.i.i.i, align 8, !tbaa !50
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [2048 x %"struct.duckdb::string_t"], ptr %result_values.i, i64 0, i64 %result_offset.5.i
+  %arrayidx.i.i.i.i = getelementptr inbounds [2048 x %"struct.duckdb::string_t"], ptr %result_values.i, i64 0, i64 %result_offset.5.i
   store i64 %retval.sroa.0.0.copyload.i.i.i.i.i, ptr %arrayidx.i.i.i.i, align 16, !tbaa.struct !1211
   %ref.tmp.sroa.4.0.arrayidx.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i, i64 8
   store ptr %retval.sroa.2.0.copyload.i.i.i.i.i, ptr %ref.tmp.sroa.4.0.arrayidx.sroa_idx.i.i.i.i, align 8, !tbaa !50
   %conv.i.i.i.i = trunc nuw i64 %sub.i.i to i32
-  %arrayidx3.i.i.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
+  %arrayidx3.i.i.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
   store i32 %conv.i.i.i.i, ptr %arrayidx3.i.i.i.i, align 4, !tbaa !51
   %inc.i.i = add nuw i64 %aidx.0100.i.i, 1
   %inc4.i.i = add nuw nsw i64 %bidx.099.i.i, 1
@@ -102130,21 +102130,21 @@ if.then8.i.i:                                     ; preds = %if.else.i.i
   %retval.sroa.0.0.copyload.i.i.i.i = load i64, ptr %arrayidx.i.i71.i.i, align 8, !tbaa.struct !1211
   %retval.sroa.2.0.arrayidx.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i71.i.i, i64 8
   %retval.sroa.2.0.copyload.i.i.i.i = load ptr, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i.i.i.i, align 8, !tbaa !50
-  %arrayidx.i72.i.i = getelementptr inbounds nuw [2048 x %"struct.duckdb::string_t"], ptr %result_values.i, i64 0, i64 %result_offset.5.i
+  %arrayidx.i72.i.i = getelementptr inbounds [2048 x %"struct.duckdb::string_t"], ptr %result_values.i, i64 0, i64 %result_offset.5.i
   store i64 %retval.sroa.0.0.copyload.i.i.i.i, ptr %arrayidx.i72.i.i, align 16, !tbaa.struct !1211
   %ref.tmp.sroa.4.0.arrayidx.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i72.i.i, i64 8
   store ptr %retval.sroa.2.0.copyload.i.i.i.i, ptr %ref.tmp.sroa.4.0.arrayidx.sroa_idx.i.i.i, align 8, !tbaa !50
   %conv.i73.i.i = trunc nuw i64 %sub.i.i to i32
-  %arrayidx3.i.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
+  %arrayidx3.i.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
   store i32 %conv.i73.i.i, ptr %arrayidx3.i.i.i, align 4, !tbaa !51
   %inc9.i.i = add nuw i64 %aidx.0100.i.i, 1
   br label %if.end15.i.i
 
 if.else11.i.i:                                    ; preds = %if.else.i.i
   %arrayidx.i74.i.i = getelementptr inbounds %"struct.duckdb::string_t", ptr %6, i64 %bidx.099.i.i
-  %arrayidx2.i.i.i = getelementptr inbounds nuw [2048 x %"struct.duckdb::string_t"], ptr %result_values.i, i64 0, i64 %result_offset.5.i
+  %arrayidx2.i.i.i = getelementptr inbounds [2048 x %"struct.duckdb::string_t"], ptr %result_values.i, i64 0, i64 %result_offset.5.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx2.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i74.i.i, i64 16, i1 false), !tbaa.struct !1211
-  %arrayidx3.i75.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
+  %arrayidx3.i75.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.5.i
   store i32 %47, ptr %arrayidx3.i75.i.i, align 4, !tbaa !51
   %inc13.i.i = add nuw nsw i64 %bidx.099.i.i, 1
   br label %if.end15.i.i
@@ -102193,12 +102193,12 @@ for.body.i.i:                                     ; preds = %for.body.i.preheade
   %retval.sroa.0.0.copyload.i.i84.i.i = load i64, ptr %arrayidx.i.i83.i.i, align 8, !tbaa.struct !1211
   %retval.sroa.2.0.arrayidx.sroa_idx.i.i85.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i83.i.i, i64 8
   %retval.sroa.2.0.copyload.i.i86.i.i = load ptr, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i.i85.i.i, align 8, !tbaa !50
-  %arrayidx.i87.i.i = getelementptr inbounds nuw [2048 x %"struct.duckdb::string_t"], ptr %result_values.i, i64 0, i64 %result_offset.8.i
+  %arrayidx.i87.i.i = getelementptr inbounds [2048 x %"struct.duckdb::string_t"], ptr %result_values.i, i64 0, i64 %result_offset.8.i
   store i64 %retval.sroa.0.0.copyload.i.i84.i.i, ptr %arrayidx.i87.i.i, align 16, !tbaa.struct !1211
   %ref.tmp.sroa.4.0.arrayidx.sroa_idx.i88.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i87.i.i, i64 8
   store ptr %retval.sroa.2.0.copyload.i.i86.i.i, ptr %ref.tmp.sroa.4.0.arrayidx.sroa_idx.i88.i.i, align 8, !tbaa !50
   %conv.i89.i.i = trunc i64 %sub20.i.i to i32
-  %arrayidx3.i90.i.i = getelementptr inbounds nuw [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.8.i
+  %arrayidx3.i90.i.i = getelementptr inbounds [2048 x i32], ptr %result_ids.i, i64 0, i64 %result_offset.8.i
   store i32 %conv.i89.i.i, ptr %arrayidx3.i90.i.i, align 4, !tbaa !51
   %inc.i91.i.i = add i64 %result_offset.8.i, 1
   %inc22.i.i = add nuw i64 %aidx.2105.i.i, 1

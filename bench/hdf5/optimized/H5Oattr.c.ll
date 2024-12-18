@@ -1193,7 +1193,7 @@ define internal range(i32 -1, 1) i32 @H5O__attr_pre_copy_file(ptr nocapture read
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 @H5F_get_high_bound(ptr noundef %11) #11
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds nuw [6 x i32], ptr @H5O_attr_ver_bounds, i64 0, i64 %13
+  %14 = getelementptr inbounds [6 x i32], ptr @H5O_attr_ver_bounds, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
   %16 = icmp ult i32 %15, %9
   br i1 %16, label %17, label %21

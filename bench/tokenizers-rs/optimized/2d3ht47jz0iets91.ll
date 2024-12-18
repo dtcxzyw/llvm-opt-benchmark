@@ -12882,7 +12882,7 @@ _ZN5alloc7raw_vec14handle_reserve17h2d131f4fccf45d0bE.llvm.14140520316429159617.
   %trunc.i.i = zext nneg i24 %.sroa.5.0.extract.shift.i.i to i64
   %sext = shl nuw i64 %trunc.i.i, 56
   %36 = ashr exact i64 %sext, 56
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN6base646decode13decode_config17h33c7095a5c4c3e16E, i64 0, i64 %36
+  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN6base646decode13decode_config17h33c7095a5c4c3e16E, i64 0, i64 %36
   %switch.load = load ptr, ptr %switch.gep, align 8
   %37 = and i64 %2, 7
   switch i64 %37, label %38 [

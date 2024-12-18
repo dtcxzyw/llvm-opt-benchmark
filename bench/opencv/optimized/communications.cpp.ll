@@ -3986,7 +3986,7 @@ _ZN3ade6HandleINS_4NodeEED2Ev.exit169:            ; preds = %1453, %1462, %1464
   %1524 = getelementptr inbounds nuw i8, ptr %1522, i64 48
   %1525 = load i64, ptr %1524, align 8
   store i64 %1525, ptr %1486, align 8
-  %1526 = getelementptr inbounds nuw i32, ptr %55, i64 %1525
+  %1526 = getelementptr inbounds i32, ptr %55, i64 %1525
   %.not5.i.i.i.i = icmp eq i64 %1525, 0
   br i1 %.not5.i.i.i.i, label %.loopexit993, label %.lr.ph.i.i.i.i
 
@@ -4257,8 +4257,8 @@ _ZNSt10shared_ptrIN3ade12ICommChannelEEC2ERKS2_.exit: ; preds = %.loopexit988, %
 
 .lr.ph1285:                                       ; preds = %1639, %.lr.ph1285
   %.sroa.0809.01283 = phi i64 [ %1646, %.lr.ph1285 ], [ 0, %1639 ]
-  %1641 = getelementptr inbounds nuw [6 x i32], ptr %55, i64 0, i64 %.sroa.0809.01283
-  %1642 = getelementptr inbounds nuw [6 x i32], ptr %57, i64 0, i64 %.sroa.0809.01283
+  %1641 = getelementptr inbounds [6 x i32], ptr %55, i64 0, i64 %.sroa.0809.01283
+  %1642 = getelementptr inbounds [6 x i32], ptr %57, i64 0, i64 %.sroa.0809.01283
   %1643 = load i32, ptr %1641, align 4
   %1644 = load i32, ptr %1642, align 4
   %1645 = call i32 @llvm.smax.i32(i32 %1643, i32 %1644)
@@ -4963,7 +4963,7 @@ _ZNK3ade4util5Range13IterableRangeINS1_10ChainRangeINS1_9IterRangeIN9__gnu_cxx17
   %.015.i.i = phi i64 [ %1942, %.lr.ph.i.i ], [ %1927, %1917 ]
   %.01114.i.i = phi i64 [ %.sroa.speculated.i.i, %.lr.ph.i.i ], [ %1924, %1917 ]
   %.sroa.04.013.i.i = phi i64 [ %1946, %.lr.ph.i.i ], [ 1, %1917 ]
-  %1932 = getelementptr inbounds nuw i32, ptr %55, i64 %.sroa.04.013.i.i
+  %1932 = getelementptr inbounds i32, ptr %55, i64 %.sroa.04.013.i.i
   %1933 = load i32, ptr %1932, align 4, !noalias !171
   %1934 = sext i32 %1933 to i64
   %.sroa.speculated.i.i = call i64 @llvm.umax.i64(i64 %.01114.i.i, i64 %1934)
@@ -4971,7 +4971,7 @@ _ZNK3ade4util5Range13IterableRangeINS1_10ChainRangeINS1_9IterRangeIN9__gnu_cxx17
   %1936 = add i64 %1935, %1934
   %1937 = sub nsw i64 0, %1934
   %1938 = and i64 %1936, %1937
-  %1939 = getelementptr inbounds nuw i32, ptr %62, i64 %.sroa.04.013.i.i
+  %1939 = getelementptr inbounds i32, ptr %62, i64 %.sroa.04.013.i.i
   %1940 = load i32, ptr %1939, align 4, !noalias !171
   %1941 = sext i32 %1940 to i64
   %1942 = mul i64 %1938, %1941

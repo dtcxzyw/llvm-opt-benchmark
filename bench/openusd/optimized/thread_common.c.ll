@@ -1631,7 +1631,7 @@ get_lr_job_info.exit:                             ; preds = %get_lr_job_info.exi
   %55 = load ptr, ptr %1, align 8
   %56 = load ptr, ptr %18, align 8
   call void @av1_foreach_rest_unit_in_row(ptr noundef nonnull %3, ptr noundef nonnull %47, ptr noundef %48, i32 noundef %35, i32 noundef %50, i32 noundef 0, i32 noundef %52, i32 noundef %54, i32 noundef %37, ptr noundef nonnull %39, ptr noundef %55, ptr noundef %56, ptr noundef nonnull %44, ptr noundef nonnull %46, ptr noundef nonnull %0) #7
-  %57 = getelementptr inbounds nuw [3 x ptr], ptr @loop_restoration_row_worker.copy_funs, i64 0, i64 %38
+  %57 = getelementptr inbounds [3 x ptr], ptr @loop_restoration_row_worker.copy_funs, i64 0, i64 %38
   %58 = load ptr, ptr %57, align 8
   %59 = load ptr, ptr %19, align 8
   %60 = load ptr, ptr %20, align 8

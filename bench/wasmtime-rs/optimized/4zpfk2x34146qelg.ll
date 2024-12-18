@@ -115,7 +115,7 @@ switch.lookup:
   %3 = zext nneg i32 %2 to i64
   %4 = add nsw i64 %3, -1
   %5 = select i1 %.not, i64 0, i64 %4
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN14cranelift_wasm5state17ControlStackFrame14br_destination17hd8cff4fe16f835d3E, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table._ZN14cranelift_wasm5state17ControlStackFrame14br_destination17hd8cff4fe16f835d3E, i64 0, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %.0 = load i32, ptr %6, align 4, !noundef !4

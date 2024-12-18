@@ -269,7 +269,7 @@ if.end59:                                         ; preds = %if.then56, %if.then
 if.else72:                                        ; preds = %if.else37, %land.lhs.true46
   %call74 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #16
   %sub = add i64 %call74, -1
-  %arrayidx75 = getelementptr inbounds nuw [256 x i8], ptr %buf, i64 0, i64 %sub
+  %arrayidx75 = getelementptr inbounds [256 x i8], ptr %buf, i64 0, i64 %sub
   store i8 0, ptr %arrayidx75, align 1
   %35 = load ptr, ptr @stderr, align 8
   %call76 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.5, ptr noundef nonnull %add.ptr28, i32 noundef %inc) #12

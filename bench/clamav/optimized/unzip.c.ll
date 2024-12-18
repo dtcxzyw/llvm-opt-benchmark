@@ -1254,7 +1254,7 @@ zinitkey.exit:                                    ; preds = %zinitkey.exit.loope
   %146 = lshr i32 %145, 8
   %147 = trunc i32 %146 to i8
   %148 = xor i8 %141, %147
-  %149 = getelementptr inbounds nuw [8192 x i8], ptr %13, i64 0, i64 %.010729
+  %149 = getelementptr inbounds [8192 x i8], ptr %13, i64 0, i64 %.010729
   store i8 %148, ptr %149, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
   store i8 %148, ptr %9, align 1

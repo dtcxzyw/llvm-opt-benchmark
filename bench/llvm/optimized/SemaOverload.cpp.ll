@@ -1031,7 +1031,7 @@ $_ZTVN5clang4Sema18BoundTypeDiagnoserIJPNS_4ExprEEEE = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef i32 @_ZN5clang17GetConversionRankENS_22ImplicitConversionKindE(i32 noundef %0) local_unnamed_addr #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [34 x i32], ptr @_ZZN5clang17GetConversionRankENS_22ImplicitConversionKindEE4Rank, i64 0, i64 %2
+  %3 = getelementptr inbounds [34 x i32], ptr @_ZZN5clang17GetConversionRankENS_22ImplicitConversionKindEE4Rank, i64 0, i64 %2
   %4 = load i32, ptr %3, align 4
   ret i32 %4
 }
@@ -1039,7 +1039,7 @@ define dso_local noundef i32 @_ZN5clang17GetConversionRankENS_22ImplicitConversi
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef i32 @_ZN5clang26GetDimensionConversionRankENS_22ImplicitConversionRankENS_22ImplicitConversionKindE(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds nuw [34 x i32], ptr @_ZZN5clang17GetConversionRankENS_22ImplicitConversionKindEE4Rank, i64 0, i64 %3
+  %4 = getelementptr inbounds [34 x i32], ptr @_ZZN5clang17GetConversionRankENS_22ImplicitConversionKindEE4Rank, i64 0, i64 %3
   %5 = load i32, ptr %4, align 4
   switch i32 %5, label %10 [
     i32 1, label %6
@@ -47585,13 +47585,13 @@ switch.lookup:                                    ; preds = %47
   %switch.tableidx = shl i64 %trunc.i.i.i.i.i.i.i.i, 56
   %sext = add i64 %switch.tableidx, -72057594037927936
   %53 = ashr exact i64 %sext, 56
-  %switch.gep = getelementptr inbounds nuw [17 x i32], ptr @switch.table._ZSt16__insertion_sortIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_T0_.147, i64 0, i64 %53
+  %switch.gep = getelementptr inbounds [17 x i32], ptr @switch.table._ZSt16__insertion_sortIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_T0_.147, i64 0, i64 %53
   %switch.load = load i32, ptr %switch.gep, align 4
   %trunc.i16.i.i.i.i.i.i.i = zext i16 %50 to i64
   %switch.tableidx43 = shl i64 %trunc.i16.i.i.i.i.i.i.i, 56
   %sext46 = add i64 %switch.tableidx43, -72057594037927936
   %54 = ashr exact i64 %sext46, 56
-  %switch.gep44 = getelementptr inbounds nuw [17 x i32], ptr @switch.table._ZSt16__insertion_sortIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_T0_.147, i64 0, i64 %54
+  %switch.gep44 = getelementptr inbounds [17 x i32], ptr @switch.table._ZSt16__insertion_sortIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_T0_.147, i64 0, i64 %54
   %switch.load45 = load i32, ptr %switch.gep44, align 4
   %55 = icmp samesign ult i32 %switch.load, %switch.load45
   br i1 %55, label %.lr.ph.i.backedge.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_T0_.exit.i.i.i.i.i.i
@@ -85569,7 +85569,7 @@ switch.lookup:
   %switch.tableidx = shl i64 %trunc, 56
   %sext = add i64 %switch.tableidx, -72057594037927936
   %0 = ashr exact i64 %sext, 56
-  %switch.gep = getelementptr inbounds nuw [17 x i32], ptr @switch.table._ZSt16__insertion_sortIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_T0_.147, i64 0, i64 %0
+  %switch.gep = getelementptr inbounds [17 x i32], ptr @switch.table._ZSt16__insertion_sortIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_T0_.147, i64 0, i64 %0
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -86825,13 +86825,13 @@ switch.lookup:                                    ; preds = %64
   %switch.tableidx = shl i64 %trunc.i.i34.i.i.i, 56
   %sext133 = add i64 %switch.tableidx, -72057594037927936
   %71 = ashr exact i64 %sext133, 56
-  %switch.gep = getelementptr inbounds nuw [17 x i32], ptr @switch.table._ZSt16__insertion_sortIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_T0_.147, i64 0, i64 %71
+  %switch.gep = getelementptr inbounds [17 x i32], ptr @switch.table._ZSt16__insertion_sortIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_T0_.147, i64 0, i64 %71
   %switch.load = load i32, ptr %switch.gep, align 4
   %trunc.i16.i37.i.i.i = zext i16 %68 to i64
   %switch.tableidx107 = shl i64 %trunc.i16.i37.i.i.i, 56
   %sext134 = add i64 %switch.tableidx107, -72057594037927936
   %72 = ashr exact i64 %sext134, 56
-  %switch.gep108 = getelementptr inbounds nuw [17 x i32], ptr @switch.table._ZSt16__insertion_sortIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_T0_.147, i64 0, i64 %72
+  %switch.gep108 = getelementptr inbounds [17 x i32], ptr @switch.table._ZSt16__insertion_sortIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_T0_.147, i64 0, i64 %72
   %switch.load109 = load i32, ptr %switch.gep108, align 4
   %73 = icmp samesign ult i32 %switch.load, %switch.load109
   br i1 %73, label %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit50.thread53.i.i.i, label %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit50.thread.i.i.i
@@ -86926,13 +86926,13 @@ switch.lookup86:                                  ; preds = %98
   %switch.tableidx87 = shl i64 %trunc.i.i.i.i.i, 56
   %sext135 = add i64 %switch.tableidx87, -72057594037927936
   %104 = ashr exact i64 %sext135, 56
-  %switch.gep88 = getelementptr inbounds nuw [17 x i32], ptr @switch.table._ZSt16__insertion_sortIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_T0_.147, i64 0, i64 %104
+  %switch.gep88 = getelementptr inbounds [17 x i32], ptr @switch.table._ZSt16__insertion_sortIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_T0_.147, i64 0, i64 %104
   %switch.load89 = load i32, ptr %switch.gep88, align 4
   %trunc.i16.i.i.i.i = zext i16 %101 to i64
   %switch.tableidx111 = shl i64 %trunc.i16.i.i.i.i, 56
   %sext136 = add i64 %switch.tableidx111, -72057594037927936
   %105 = ashr exact i64 %sext136, 56
-  %switch.gep112 = getelementptr inbounds nuw [17 x i32], ptr @switch.table._ZSt16__insertion_sortIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_T0_.147, i64 0, i64 %105
+  %switch.gep112 = getelementptr inbounds [17 x i32], ptr @switch.table._ZSt16__insertion_sortIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_T0_.147, i64 0, i64 %105
   %switch.load113 = load i32, ptr %switch.gep112, align 4
   %106 = icmp samesign ult i32 %switch.load89, %switch.load113
   br i1 %106, label %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread58.i.i.i, label %_ZSt13__adjust_heapIPPN5clang21TemplateSpecCandidateElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_T0_SB_T1_T2_.exit32.i.i.i
@@ -87031,13 +87031,13 @@ switch.lookup90:                                  ; preds = %136
   %switch.tableidx91 = shl i64 %trunc.i.i9.i.i, 56
   %sext137 = add i64 %switch.tableidx91, -72057594037927936
   %143 = ashr exact i64 %sext137, 56
-  %switch.gep92 = getelementptr inbounds nuw [17 x i32], ptr @switch.table._ZSt16__insertion_sortIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_T0_.147, i64 0, i64 %143
+  %switch.gep92 = getelementptr inbounds [17 x i32], ptr @switch.table._ZSt16__insertion_sortIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_T0_.147, i64 0, i64 %143
   %switch.load93 = load i32, ptr %switch.gep92, align 4
   %trunc.i16.i12.i.i = zext i16 %140 to i64
   %switch.tableidx115 = shl i64 %trunc.i16.i12.i.i, 56
   %sext138 = add i64 %switch.tableidx115, -72057594037927936
   %144 = ashr exact i64 %sext138, 56
-  %switch.gep116 = getelementptr inbounds nuw [17 x i32], ptr @switch.table._ZSt16__insertion_sortIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_T0_.147, i64 0, i64 %144
+  %switch.gep116 = getelementptr inbounds [17 x i32], ptr @switch.table._ZSt16__insertion_sortIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_T0_.147, i64 0, i64 %144
   %switch.load117 = load i32, ptr %switch.gep116, align 4
   %145 = icmp samesign ult i32 %switch.load93, %switch.load117
   br i1 %145, label %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit25.thread3.i.i, label %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit25.thread.i.i
@@ -87142,13 +87142,13 @@ switch.lookup94:                                  ; preds = %180
   %switch.tableidx95 = shl i64 %trunc.i.i.i16.i, 56
   %sext139 = add i64 %switch.tableidx95, -72057594037927936
   %186 = ashr exact i64 %sext139, 56
-  %switch.gep96 = getelementptr inbounds nuw [17 x i32], ptr @switch.table._ZSt16__insertion_sortIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_T0_.147, i64 0, i64 %186
+  %switch.gep96 = getelementptr inbounds [17 x i32], ptr @switch.table._ZSt16__insertion_sortIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_T0_.147, i64 0, i64 %186
   %switch.load97 = load i32, ptr %switch.gep96, align 4
   %trunc.i16.i.i19.i = zext i16 %183 to i64
   %switch.tableidx119 = shl i64 %trunc.i16.i.i19.i, 56
   %sext140 = add i64 %switch.tableidx119, -72057594037927936
   %187 = ashr exact i64 %sext140, 56
-  %switch.gep120 = getelementptr inbounds nuw [17 x i32], ptr @switch.table._ZSt16__insertion_sortIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_T0_.147, i64 0, i64 %187
+  %switch.gep120 = getelementptr inbounds [17 x i32], ptr @switch.table._ZSt16__insertion_sortIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_T0_.147, i64 0, i64 %187
   %switch.load121 = load i32, ptr %switch.gep120, align 4
   %188 = icmp samesign ult i32 %switch.load97, %switch.load121
   br i1 %188, label %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread8.i.i, label %_ZSt10__pop_heapIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_SA_RT0_.exit.i9.i
@@ -87305,13 +87305,13 @@ switch.lookup98:                                  ; preds = %.lr.ph.i.i
   %switch.tableidx99 = shl i64 %trunc.i.i.i.i, 56
   %sext = add i64 %switch.tableidx99, -72057594037927936
   %240 = ashr exact i64 %sext, 56
-  %switch.gep100 = getelementptr inbounds nuw [17 x i32], ptr @switch.table._ZSt16__insertion_sortIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_T0_.147, i64 0, i64 %240
+  %switch.gep100 = getelementptr inbounds [17 x i32], ptr @switch.table._ZSt16__insertion_sortIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_T0_.147, i64 0, i64 %240
   %switch.load101 = load i32, ptr %switch.gep100, align 4
   %trunc.i16.i.i.i = zext i16 %237 to i64
   %switch.tableidx123 = shl i64 %trunc.i16.i.i.i, 56
   %sext130 = add i64 %switch.tableidx123, -72057594037927936
   %241 = ashr exact i64 %sext130, 56
-  %switch.gep124 = getelementptr inbounds nuw [17 x i32], ptr @switch.table._ZSt16__insertion_sortIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_T0_.147, i64 0, i64 %241
+  %switch.gep124 = getelementptr inbounds [17 x i32], ptr @switch.table._ZSt16__insertion_sortIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_T0_.147, i64 0, i64 %241
   %switch.load125 = load i32, ptr %switch.gep124, align 4
   %242 = icmp samesign ult i32 %switch.load101, %switch.load125
   br i1 %242, label %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread.i.i, label %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit35.preheader.i.i
@@ -87383,13 +87383,13 @@ switch.lookup102:                                 ; preds = %.lr.ph61.i.i
   %switch.tableidx103 = shl i64 %trunc.i.i19.i.i, 56
   %sext131 = add i64 %switch.tableidx103, -72057594037927936
   %263 = ashr exact i64 %sext131, 56
-  %switch.gep104 = getelementptr inbounds nuw [17 x i32], ptr @switch.table._ZSt16__insertion_sortIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_T0_.147, i64 0, i64 %263
+  %switch.gep104 = getelementptr inbounds [17 x i32], ptr @switch.table._ZSt16__insertion_sortIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_T0_.147, i64 0, i64 %263
   %switch.load105 = load i32, ptr %switch.gep104, align 4
   %trunc.i16.i22.i.i = zext i16 %260 to i64
   %switch.tableidx127 = shl i64 %trunc.i16.i22.i.i, 56
   %sext132 = add i64 %switch.tableidx127, -72057594037927936
   %264 = ashr exact i64 %sext132, 56
-  %switch.gep128 = getelementptr inbounds nuw [17 x i32], ptr @switch.table._ZSt16__insertion_sortIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_T0_.147, i64 0, i64 %264
+  %switch.gep128 = getelementptr inbounds [17 x i32], ptr @switch.table._ZSt16__insertion_sortIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_T0_.147, i64 0, i64 %264
   %switch.load129 = load i32, ptr %switch.gep128, align 4
   %265 = icmp samesign ult i32 %switch.load105, %switch.load129
   br i1 %265, label %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit35.backedge.i.i, label %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit35.thread.i.i
@@ -87482,13 +87482,13 @@ switch.lookup:                                    ; preds = %4
   %switch.tableidx = shl i64 %trunc.i, 56
   %sext = add i64 %switch.tableidx, -72057594037927936
   %11 = ashr exact i64 %sext, 56
-  %switch.gep = getelementptr inbounds nuw [17 x i32], ptr @switch.table._ZSt16__insertion_sortIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_T0_.147, i64 0, i64 %11
+  %switch.gep = getelementptr inbounds [17 x i32], ptr @switch.table._ZSt16__insertion_sortIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_T0_.147, i64 0, i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
   %trunc.i16 = zext i16 %8 to i64
   %switch.tableidx19 = shl i64 %trunc.i16, 56
   %sext22 = add i64 %switch.tableidx19, -72057594037927936
   %12 = ashr exact i64 %sext22, 56
-  %switch.gep20 = getelementptr inbounds nuw [17 x i32], ptr @switch.table._ZSt16__insertion_sortIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_T0_.147, i64 0, i64 %12
+  %switch.gep20 = getelementptr inbounds [17 x i32], ptr @switch.table._ZSt16__insertion_sortIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_T0_.147, i64 0, i64 %12
   %switch.load21 = load i32, ptr %switch.gep20, align 4
   %13 = icmp samesign ult i32 %switch.load, %switch.load21
   br label %_ZL23GetLocationForCandidatePKN5clang21TemplateSpecCandidateE.exit22.thread.thread
@@ -87601,13 +87601,13 @@ switch.lookup:                                    ; preds = %23
   %switch.tableidx = shl i64 %trunc.i.i, 56
   %sext = add i64 %switch.tableidx, -72057594037927936
   %29 = ashr exact i64 %sext, 56
-  %switch.gep = getelementptr inbounds nuw [17 x i32], ptr @switch.table._ZSt16__insertion_sortIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_T0_.147, i64 0, i64 %29
+  %switch.gep = getelementptr inbounds [17 x i32], ptr @switch.table._ZSt16__insertion_sortIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_T0_.147, i64 0, i64 %29
   %switch.load = load i32, ptr %switch.gep, align 4
   %trunc.i16.i = zext i16 %26 to i64
   %switch.tableidx42 = shl i64 %trunc.i16.i, 56
   %sext45 = add i64 %switch.tableidx42, -72057594037927936
   %30 = ashr exact i64 %sext45, 56
-  %switch.gep43 = getelementptr inbounds nuw [17 x i32], ptr @switch.table._ZSt16__insertion_sortIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_T0_.147, i64 0, i64 %30
+  %switch.gep43 = getelementptr inbounds [17 x i32], ptr @switch.table._ZSt16__insertion_sortIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_T0_.147, i64 0, i64 %30
   %switch.load44 = load i32, ptr %switch.gep43, align 4
   %31 = icmp samesign ult i32 %switch.load, %switch.load44
   br i1 %31, label %.lr.ph.i.backedge, label %_ZSt25__unguarded_linear_insertIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_T0_.exit

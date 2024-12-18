@@ -1323,7 +1323,7 @@ define internal range(i32 -1, 1) i32 @H5O__pline_pre_copy_file(ptr nocapture rea
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 @H5F_get_high_bound(ptr noundef %9) #11
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds nuw [6 x i32], ptr @H5O_pline_ver_bounds, i64 0, i64 %11
+  %12 = getelementptr inbounds [6 x i32], ptr @H5O_pline_ver_bounds, i64 0, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = icmp ugt i32 %7, %13
   br i1 %14, label %15, label %19
@@ -1521,7 +1521,7 @@ define range(i32 -1, 1) i32 @H5O_pline_set_version(ptr noundef %0, ptr nocapture
   %4 = load i32, ptr %3, align 8
   %5 = tail call i32 @H5F_get_low_bound(ptr noundef %0) #11
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds nuw [6 x i32], ptr @H5O_pline_ver_bounds, i64 0, i64 %6
+  %7 = getelementptr inbounds [6 x i32], ptr @H5O_pline_ver_bounds, i64 0, i64 %6
   %8 = load i32, ptr %7, align 4
   %9 = icmp ugt i32 %4, %8
   br i1 %9, label %14, label %10
@@ -1529,7 +1529,7 @@ define range(i32 -1, 1) i32 @H5O_pline_set_version(ptr noundef %0, ptr nocapture
 10:                                               ; preds = %2
   %11 = tail call i32 @H5F_get_low_bound(ptr noundef %0) #11
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds nuw [6 x i32], ptr @H5O_pline_ver_bounds, i64 0, i64 %12
+  %13 = getelementptr inbounds [6 x i32], ptr @H5O_pline_ver_bounds, i64 0, i64 %12
   br label %14
 
 14:                                               ; preds = %2, %10
@@ -1537,7 +1537,7 @@ define range(i32 -1, 1) i32 @H5O_pline_set_version(ptr noundef %0, ptr nocapture
   %15 = load i32, ptr %.in, align 4
   %16 = tail call i32 @H5F_get_high_bound(ptr noundef %0) #11
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds nuw [6 x i32], ptr @H5O_pline_ver_bounds, i64 0, i64 %17
+  %18 = getelementptr inbounds [6 x i32], ptr @H5O_pline_ver_bounds, i64 0, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = icmp ugt i32 %15, %19
   br i1 %20, label %21, label %25

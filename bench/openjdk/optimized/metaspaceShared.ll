@@ -1562,7 +1562,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %23, %_ZN26GrowableA
 _ZN9Bytecodes7code_atEPK6MethodPh.exit.i:         ; preds = %66, %57
   %68 = phi i32 [ %67, %66 ], [ %65, %57 ]
   %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %69
+  %70 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %69
   %71 = load i32, ptr %70, align 4
   %72 = icmp ult i32 %71, 239
   br i1 %72, label %_ZN9Bytecodes10length_forENS_4CodeE.exit.i, label %_ZN14BytecodeStream4nextEv.exit.thread

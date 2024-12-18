@@ -553,7 +553,7 @@ define void @png_formatted_warning(ptr noalias noundef %0, ptr noundef readonly 
 
 .critedge:                                        ; preds = %.backedge, %.split, %.split.us, %.backedge.us
   %.us-phi = phi i64 [ 191, %.backedge.us ], [ %.03148.us, %.split.us ], [ %.031.be, %.backedge ], [ %.03148, %.split ]
-  %31 = getelementptr inbounds nuw [192 x i8], ptr %4, i64 0, i64 %.us-phi
+  %31 = getelementptr inbounds [192 x i8], ptr %4, i64 0, i64 %.us-phi
   store i8 0, ptr %31, align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
   %.not.i = icmp eq ptr %0, null
@@ -720,7 +720,7 @@ define void @png_chunk_warning(ptr noalias noundef %0, ptr noundef %1) local_unn
 
 16:                                               ; preds = %8
   %17 = sext i32 %.0382.i to i64
-  %18 = getelementptr inbounds nuw i8, ptr %3, i64 %17
+  %18 = getelementptr inbounds i8, ptr %3, i64 %17
   store i8 91, ptr %18, align 1
   %19 = lshr i32 %9, 4
   %20 = and i32 %19, 15
@@ -744,7 +744,7 @@ define void @png_chunk_warning(ptr noalias noundef %0, ptr noundef %1) local_unn
   %33 = trunc i32 %9 to i8
   %34 = add nsw i32 %.0382.i, 1
   %35 = sext i32 %.0382.i to i64
-  %36 = getelementptr inbounds nuw i8, ptr %3, i64 %35
+  %36 = getelementptr inbounds i8, ptr %3, i64 %35
   store i8 %33, ptr %36, align 1
   br label %37
 
@@ -756,7 +756,7 @@ define void @png_chunk_warning(ptr noalias noundef %0, ptr noundef %1) local_unn
 38:                                               ; preds = %37
   %39 = icmp eq ptr %1, null
   %40 = sext i32 %.1.i to i64
-  %41 = getelementptr inbounds nuw i8, ptr %3, i64 %40
+  %41 = getelementptr inbounds i8, ptr %3, i64 %40
   br i1 %39, label %42, label %43
 
 42:                                               ; preds = %38
@@ -783,7 +783,7 @@ define void @png_chunk_warning(ptr noalias noundef %0, ptr noundef %1) local_unn
 51:                                               ; preds = %48
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %indvars.iv.next6.i = add nsw i64 %indvars.iv5.i, 1
-  %52 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv5.i
+  %52 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv5.i
   store i8 %50, ptr %52, align 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 195
   br i1 %exitcond.not.i, label %.critedge.i, label %48, !llvm.loop !18
@@ -795,7 +795,7 @@ define void @png_chunk_warning(ptr noalias noundef %0, ptr noundef %1) local_unn
 .critedge.i:                                      ; preds = %51, %.critedge.split.loop.exit12.i
   %.2.lcssa.i = phi i32 [ %53, %.critedge.split.loop.exit12.i ], [ %47, %51 ]
   %54 = sext i32 %.2.lcssa.i to i64
-  %55 = getelementptr inbounds nuw i8, ptr %3, i64 %54
+  %55 = getelementptr inbounds i8, ptr %3, i64 %54
   store i8 0, ptr %55, align 1
   br label %56
 

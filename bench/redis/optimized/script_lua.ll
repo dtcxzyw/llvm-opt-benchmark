@@ -2546,7 +2546,7 @@ if.then10:                                        ; preds = %for.body
   %call13 = call i32 @fpconv_dtoa(double noundef %call12, ptr noundef nonnull %dbuf) #11
   %conv14 = sext i32 %call13 to i64
   store i64 %conv14, ptr %obj_len, align 8
-  %arrayidx = getelementptr inbounds nuw [64 x i8], ptr %dbuf, i64 0, i64 %conv14
+  %arrayidx = getelementptr inbounds [64 x i8], ptr %dbuf, i64 0, i64 %conv14
   store i8 0, ptr %arrayidx, align 1
   br label %if.end22
 

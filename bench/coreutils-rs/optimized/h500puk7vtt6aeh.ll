@@ -4379,7 +4379,7 @@ _ZN7uu_tail6chunks10LinesChunk27calculate_bytes_offset_from17h37a06c6153847714E.
 _ZN7uu_tail6chunks10LinesChunk15get_buffer_with17h836418dc76b95580E.exit.i: ; preds = %_ZN7uu_tail6chunks10LinesChunk10get_buffer17h49ad03b84d6908c1E.exit.i, %_ZN7uu_tail6chunks10LinesChunk27calculate_bytes_offset_from17h37a06c6153847714E.exit
   %.08.lcssa.i183 = phi i64 [ %169, %_ZN7uu_tail6chunks10LinesChunk27calculate_bytes_offset_from17h37a06c6153847714E.exit ], [ 0, %_ZN7uu_tail6chunks10LinesChunk10get_buffer17h49ad03b84d6908c1E.exit.i ]
   %174 = sub nuw i64 %157, %.08.lcssa.i183
-  %175 = getelementptr inbounds nuw i8, ptr %11, i64 %.08.lcssa.i183
+  %175 = getelementptr inbounds i8, ptr %11, i64 %.08.lcssa.i183
   call void @llvm.experimental.noalias.scope.decl(metadata !547)
   %176 = load i64, ptr %14, align 8, !alias.scope !550, !noalias !551, !noundef !4
   %177 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !550, !noalias !551, !noundef !4
@@ -4965,7 +4965,7 @@ _ZN7uu_tail6chunks10LinesChunk27calculate_bytes_offset_from17h37a06c6153847714E.
 _ZN7uu_tail6chunks10LinesChunk15get_buffer_with17h836418dc76b95580E.exit.i: ; preds = %_ZN7uu_tail6chunks10LinesChunk10get_buffer17h49ad03b84d6908c1E.exit.i, %_ZN7uu_tail6chunks10LinesChunk27calculate_bytes_offset_from17h37a06c6153847714E.exit
   %.08.lcssa.i192 = phi i64 [ %180, %_ZN7uu_tail6chunks10LinesChunk27calculate_bytes_offset_from17h37a06c6153847714E.exit ], [ 0, %_ZN7uu_tail6chunks10LinesChunk10get_buffer17h49ad03b84d6908c1E.exit.i ]
   %185 = sub nuw i64 %168, %.08.lcssa.i192
-  %186 = getelementptr inbounds nuw i8, ptr %11, i64 %.08.lcssa.i192
+  %186 = getelementptr inbounds i8, ptr %11, i64 %.08.lcssa.i192
   call void @llvm.experimental.noalias.scope.decl(metadata !614)
   %187 = load i64, ptr %14, align 8, !alias.scope !617, !noalias !618, !noundef !4
   %188 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !617, !noalias !618, !noundef !4

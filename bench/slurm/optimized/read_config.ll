@@ -3513,7 +3513,7 @@ slurm_conf_lock.exit:                             ; preds = %5, %6, %8
 
 _get_hash_idx.exit.i:                             ; preds = %._crit_edge.i.i, %slurm_conf_lock.exit
   %.013.i.i = phi i64 [ 0, %slurm_conf_lock.exit ], [ %22, %._crit_edge.i.i ]
-  %23 = getelementptr inbounds nuw [512 x ptr], ptr @node_to_host_hashtbl, i64 0, i64 %.013.i.i
+  %23 = getelementptr inbounds [512 x ptr], ptr @node_to_host_hashtbl, i64 0, i64 %.013.i.i
   %.09.i = load ptr, ptr %23, align 8
   %.not10.i = icmp eq ptr %.09.i, null
   br i1 %.not10.i, label %_internal_get_hostname.exit, label %.lr.ph.i
@@ -3663,7 +3663,7 @@ slurm_conf_lock.exit:                             ; preds = %5, %6, %8
 
 _get_hash_idx.exit:                               ; preds = %slurm_conf_lock.exit, %._crit_edge.i
   %.013.i = phi i64 [ 0, %slurm_conf_lock.exit ], [ %22, %._crit_edge.i ]
-  %23 = getelementptr inbounds nuw [512 x ptr], ptr @host_to_node_hashtbl, i64 0, i64 %.013.i
+  %23 = getelementptr inbounds [512 x ptr], ptr @host_to_node_hashtbl, i64 0, i64 %.013.i
   %.011 = load ptr, ptr %23, align 8
   %.not12 = icmp eq ptr %.011, null
   br i1 %.not12, label %.loopexit, label %.lr.ph
@@ -3942,7 +3942,7 @@ slurm_conf_lock.exit:                             ; preds = %6, %7, %9
 
 _get_hash_idx.exit:                               ; preds = %slurm_conf_lock.exit, %._crit_edge.i
   %.013.i = phi i64 [ 0, %slurm_conf_lock.exit ], [ %23, %._crit_edge.i ]
-  %24 = getelementptr inbounds nuw [512 x ptr], ptr @host_to_node_hashtbl, i64 0, i64 %.013.i
+  %24 = getelementptr inbounds [512 x ptr], ptr @host_to_node_hashtbl, i64 0, i64 %.013.i
   %.011 = load ptr, ptr %24, align 8
   %.not12 = icmp eq ptr %.011, null
   br i1 %.not12, label %._crit_edge, label %.lr.ph
@@ -4063,7 +4063,7 @@ slurm_conf_lock.exit:                             ; preds = %5, %6, %8
 
 _get_hash_idx.exit:                               ; preds = %slurm_conf_lock.exit, %._crit_edge.i
   %.013.i = phi i64 [ 0, %slurm_conf_lock.exit ], [ %22, %._crit_edge.i ]
-  %23 = getelementptr inbounds nuw [512 x ptr], ptr @host_to_node_hashtbl, i64 0, i64 %.013.i
+  %23 = getelementptr inbounds [512 x ptr], ptr @host_to_node_hashtbl, i64 0, i64 %.013.i
   %.01122 = load ptr, ptr %23, align 8
   %.not23 = icmp eq ptr %.01122, null
   br i1 %.not23, label %._crit_edge, label %.lr.ph
@@ -4299,7 +4299,7 @@ slurm_conf_lock.exit:                             ; preds = %5, %6, %8
 
 _get_hash_idx.exit:                               ; preds = %slurm_conf_lock.exit, %._crit_edge.i
   %.013.i = phi i64 [ 0, %slurm_conf_lock.exit ], [ %22, %._crit_edge.i ]
-  %23 = getelementptr inbounds nuw [512 x ptr], ptr @node_to_host_hashtbl, i64 0, i64 %.013.i
+  %23 = getelementptr inbounds [512 x ptr], ptr @node_to_host_hashtbl, i64 0, i64 %.013.i
   %.0917 = load ptr, ptr %23, align 8
   %.not18 = icmp eq ptr %.0917, null
   br i1 %.not18, label %.critedge11, label %.lr.ph
@@ -4411,7 +4411,7 @@ slurm_conf_lock.exit:                             ; preds = %5, %6, %8
 
 _get_hash_idx.exit:                               ; preds = %slurm_conf_lock.exit, %._crit_edge.i
   %.013.i = phi i64 [ 0, %slurm_conf_lock.exit ], [ %22, %._crit_edge.i ]
-  %23 = getelementptr inbounds nuw [512 x ptr], ptr @node_to_host_hashtbl, i64 0, i64 %.013.i
+  %23 = getelementptr inbounds [512 x ptr], ptr @node_to_host_hashtbl, i64 0, i64 %.013.i
   %.0917 = load ptr, ptr %23, align 8
   %.not18 = icmp eq ptr %.0917, null
   br i1 %.not18, label %.critedge11, label %.lr.ph
@@ -4523,7 +4523,7 @@ slurm_conf_lock.exit:                             ; preds = %7, %8, %10
 
 _get_hash_idx.exit:                               ; preds = %slurm_conf_lock.exit, %._crit_edge.i
   %.013.i = phi i64 [ 0, %slurm_conf_lock.exit ], [ %24, %._crit_edge.i ]
-  %25 = getelementptr inbounds nuw [512 x ptr], ptr @node_to_host_hashtbl, i64 0, i64 %.013.i
+  %25 = getelementptr inbounds [512 x ptr], ptr @node_to_host_hashtbl, i64 0, i64 %.013.i
   %.034 = load ptr, ptr %25, align 8
   %.not35 = icmp eq ptr %.034, null
   br i1 %.not35, label %.critedge, label %.lr.ph
@@ -4668,7 +4668,7 @@ _get_hash_idx.exit30.i:                           ; preds = %._crit_edge.i27.i, 
 
 _get_hash_idx.exit.i.i:                           ; preds = %._crit_edge.i.i.i, %69
   %.013.i.i.i = phi i64 [ 0, %69 ], [ %82, %._crit_edge.i.i.i ]
-  %83 = getelementptr inbounds nuw [512 x ptr], ptr @host_to_node_hashtbl, i64 0, i64 %.013.i.i.i
+  %83 = getelementptr inbounds [512 x ptr], ptr @host_to_node_hashtbl, i64 0, i64 %.013.i.i.i
   %.01115.i.i = load ptr, ptr %83, align 8
   %.not16.i31.i = icmp eq ptr %.01115.i.i, null
   br i1 %.not16.i31.i, label %_remove_host_to_node_link.exit.i, label %.lr.ph.i32.preheader.i
@@ -4705,7 +4705,7 @@ _remove_host_to_node_link.exit.i:                 ; preds = %.lr.ph.i22, %90, %8
   %94 = getelementptr inbounds nuw i8, ptr %.036, i64 312
   store ptr null, ptr %94, align 8
   %95 = sext i32 %.013.i29.i to i64
-  %96 = getelementptr inbounds nuw [512 x ptr], ptr @host_to_node_hashtbl, i64 0, i64 %95
+  %96 = getelementptr inbounds [512 x ptr], ptr @host_to_node_hashtbl, i64 0, i64 %95
   %97 = load ptr, ptr %96, align 8
   %.not.i23 = icmp eq ptr %97, null
   br i1 %.not.i23, label %102, label %.preheader.i24
@@ -4833,7 +4833,7 @@ _get_hash_idx.exit:                               ; preds = %9, %._crit_edge.i
 
 _get_hash_idx.exit72:                             ; preds = %_get_hash_idx.exit, %._crit_edge.i69
   %.013.i71 = phi i64 [ 0, %_get_hash_idx.exit ], [ %39, %._crit_edge.i69 ]
-  %40 = getelementptr inbounds nuw [512 x ptr], ptr @host_to_node_hashtbl, i64 0, i64 %.013.i71
+  %40 = getelementptr inbounds [512 x ptr], ptr @host_to_node_hashtbl, i64 0, i64 %.013.i71
   %.078 = load ptr, ptr %40, align 8
   %.not79 = icmp eq ptr %.078, null
   br i1 %.not79, label %._crit_edge, label %.lr.ph
@@ -4857,7 +4857,7 @@ _get_hash_idx.exit72:                             ; preds = %_get_hash_idx.exit,
   br label %90
 
 ._crit_edge:                                      ; preds = %41, %_get_hash_idx.exit72
-  %49 = getelementptr inbounds nuw [512 x ptr], ptr @node_to_host_hashtbl, i64 0, i64 %.013.i
+  %49 = getelementptr inbounds [512 x ptr], ptr @node_to_host_hashtbl, i64 0, i64 %.013.i
   %.181 = load ptr, ptr %49, align 8
   %.not5582 = icmp eq ptr %.181, null
   br i1 %.not5582, label %._crit_edge86, label %.lr.ph85
@@ -5034,7 +5034,7 @@ slurm_conf_lock.exit:                             ; preds = %7, %8, %10
 
 _get_hash_idx.exit:                               ; preds = %slurm_conf_lock.exit, %._crit_edge.i
   %.013.i = phi i64 [ 0, %slurm_conf_lock.exit ], [ %24, %._crit_edge.i ]
-  %25 = getelementptr inbounds nuw [512 x ptr], ptr @node_to_host_hashtbl, i64 0, i64 %.013.i
+  %25 = getelementptr inbounds [512 x ptr], ptr @node_to_host_hashtbl, i64 0, i64 %.013.i
   %.045 = load ptr, ptr %25, align 8
   %.not46 = icmp eq ptr %.045, null
   br i1 %.not46, label %.critedge33, label %.lr.ph
@@ -5237,7 +5237,7 @@ slurm_conf_lock.exit:                             ; preds = %6, %7, %9
 
 _get_hash_idx.exit:                               ; preds = %slurm_conf_lock.exit, %._crit_edge.i
   %.013.i = phi i64 [ 0, %slurm_conf_lock.exit ], [ %23, %._crit_edge.i ]
-  %24 = getelementptr inbounds nuw [512 x ptr], ptr @node_to_host_hashtbl, i64 0, i64 %.013.i
+  %24 = getelementptr inbounds [512 x ptr], ptr @node_to_host_hashtbl, i64 0, i64 %.013.i
   %.021 = load ptr, ptr %24, align 8
   %.not22 = icmp eq ptr %.021, null
   br i1 %.not22, label %.critedge15, label %.lr.ph
@@ -7144,7 +7144,7 @@ define ptr @slurm_conf_expand_slurmd_path(ptr noundef %0, ptr noundef %1, ptr no
 
 _get_hash_idx.exit.i:                             ; preds = %._crit_edge.i.i, %7
   %.013.i.i = phi i64 [ 0, %7 ], [ %21, %._crit_edge.i.i ]
-  %22 = getelementptr inbounds nuw [512 x ptr], ptr @node_to_host_hashtbl, i64 0, i64 %.013.i.i
+  %22 = getelementptr inbounds [512 x ptr], ptr @node_to_host_hashtbl, i64 0, i64 %.013.i.i
   %.09.i = load ptr, ptr %22, align 8
   %.not10.i = icmp eq ptr %.09.i, null
   br i1 %.not10.i, label %_internal_get_hostname.exit, label %.lr.ph.i
@@ -10056,7 +10056,7 @@ define internal fastcc void @_internal_conf_remove_node(ptr noundef %0) unnamed_
 
 _get_hash_idx.exit:                               ; preds = %1, %._crit_edge.i
   %.013.i = phi i64 [ 0, %1 ], [ %16, %._crit_edge.i ]
-  %17 = getelementptr inbounds nuw [512 x ptr], ptr @node_to_host_hashtbl, i64 0, i64 %.013.i
+  %17 = getelementptr inbounds [512 x ptr], ptr @node_to_host_hashtbl, i64 0, i64 %.013.i
   %.026 = load ptr, ptr %17, align 8
   %.not27 = icmp eq ptr %.026, null
   br i1 %.not27, label %.critedge, label %.lr.ph.preheader
@@ -10136,7 +10136,7 @@ _get_hash_idx.exit:                               ; preds = %1, %._crit_edge.i
 
 _get_hash_idx.exit.i:                             ; preds = %._crit_edge.i.i, %28
   %.013.i.i = phi i64 [ 0, %28 ], [ %44, %._crit_edge.i.i ]
-  %45 = getelementptr inbounds nuw [512 x ptr], ptr @host_to_node_hashtbl, i64 0, i64 %.013.i.i
+  %45 = getelementptr inbounds [512 x ptr], ptr @host_to_node_hashtbl, i64 0, i64 %.013.i.i
   %.01115.i = load ptr, ptr %45, align 8
   %.not16.i17 = icmp eq ptr %.01115.i, null
   br i1 %.not16.i17, label %_remove_host_to_node_link.exit, label %.lr.ph.i18.preheader

@@ -126,12 +126,12 @@ define void @_ZN7mitsuba16DefaultFormatter6formatENS_8LogLevelEPKNS_5ClassEPKNS_
   %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), align 8
   %25 = getelementptr i8, ptr %23, i64 -24
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %13, i64 %26
+  %27 = getelementptr inbounds i8, ptr %13, i64 %26
   store ptr %24, ptr %27, align 8
   %28 = load ptr, ptr %13, align 8
   %29 = getelementptr i8, ptr %28, i64 -24
   %30 = load i64, ptr %29, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %13, i64 %30
+  %31 = getelementptr inbounds i8, ptr %13, i64 %30
   invoke void @_ZNSt3__18ios_base4initEPv(ptr noundef nonnull align 8 dereferenceable(148) %31, ptr noundef nonnull %22)
           to label %32 unwind label %35
 
@@ -204,7 +204,7 @@ _ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne1900
   %61 = load ptr, ptr %14, align 8
   %62 = getelementptr i8, ptr %61, i64 -24
   %63 = load i64, ptr %62, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %14, i64 %63
+  %64 = getelementptr inbounds i8, ptr %14, i64 %63
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   invoke void @_ZNKSt3__18ios_base6getlocEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::locale") align 8 %12, ptr noundef nonnull align 8 dereferenceable(148) %64)
           to label %.noexc unwind label %.loopexit.split-lp.loopexit
@@ -563,7 +563,7 @@ _ZNKSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEE3strB8ne1
   %197 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt3__119basic_istringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), align 8
   %198 = getelementptr i8, ptr %196, i64 -24
   %199 = load i64, ptr %198, align 8
-  %200 = getelementptr inbounds nuw i8, ptr %14, i64 %199
+  %200 = getelementptr inbounds i8, ptr %14, i64 %199
   store ptr %197, ptr %200, align 8
   %201 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %201, align 8
@@ -578,7 +578,7 @@ _ZNKSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEE3strB8ne1
   %205 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), align 8
   %206 = getelementptr i8, ptr %204, i64 -24
   %207 = load i64, ptr %206, align 8
-  %208 = getelementptr inbounds nuw i8, ptr %13, i64 %207
+  %208 = getelementptr inbounds i8, ptr %13, i64 %207
   store ptr %205, ptr %208, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %22, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %40) #15

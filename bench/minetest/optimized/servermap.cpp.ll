@@ -8386,7 +8386,7 @@ if.end:                                           ; preds = %if.then, %_ZNSt7__c
   %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %17, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %o, i64 %vbase.offset.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %o, i64 %vbase.offset.i.i
   store ptr %18, ptr %add.ptr.i.i, align 8, !tbaa !15
   %_M_stringbuf.i.i = getelementptr inbounds nuw i8, ptr %o, i64 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !15
@@ -8475,7 +8475,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
   %vtable = load ptr, ptr %is, align 8, !tbaa !15
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %is, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %is, i64 %vbase.offset
   %_M_streambuf_state.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 32
   %0 = load i32, ptr %_M_streambuf_state.i.i, align 8, !tbaa !167
   %and.i.i = and i32 %0, 5
@@ -8769,7 +8769,7 @@ _ZNSt10unique_ptrI8MapBlockSt14default_deleteIS0_EED2Ev.exit176: ; preds = %_ZNK
   %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %34, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %is, i64 %vbase.offset.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %is, i64 %vbase.offset.i.i
   store ptr %35, ptr %add.ptr.i.i, align 8, !tbaa !15
   %_M_stringbuf.i.i = getelementptr inbounds nuw i8, ptr %is, i64 16
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !15
@@ -8799,7 +8799,7 @@ _ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
   %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
   %vbase.offset.ptr.i.i.i = getelementptr i8, ptr %39, i64 -24
   %vbase.offset.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %is, i64 %vbase.offset.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %is, i64 %vbase.offset.i.i.i
   store ptr %40, ptr %add.ptr.i.i.i, align 8, !tbaa !15
   %_M_gcount.i.i.i = getelementptr inbounds nuw i8, ptr %is, i64 8
   store i64 0, ptr %_M_gcount.i.i.i, align 8, !tbaa !360
@@ -10434,7 +10434,7 @@ sw.bb91:                                          ; preds = %invoke.cont82
 if.then94:                                        ; preds = %sw.bb91
   %inc95 = add nsw i32 %num_airs.02392, 1
   %idxprom96 = sext i32 %num_airs.02392 to i64
-  %arrayidx97 = getelementptr inbounds nuw [6 x %struct.NodeNeighbor], ptr %airs, i64 0, i64 %idxprom96
+  %arrayidx97 = getelementptr inbounds [6 x %struct.NodeNeighbor], ptr %airs, i64 0, i64 %idxprom96
   %nb.sroa.0.sroa.20.0.insert.ext1845 = zext i24 %nb.sroa.0.sroa.20.sroa.0.1.insert.shift to i64
   %nb.sroa.0.sroa.20.0.insert.shift1846 = shl nuw i64 %nb.sroa.0.sroa.20.0.insert.ext1845, 40
   %nb.sroa.0.sroa.14.0.insert.ext1821 = zext nneg i8 %nt.0 to i64
@@ -10622,7 +10622,7 @@ if.else143:                                       ; preds = %sw.bb129
 if.then146:                                       ; preds = %if.else143
   %inc147 = add nsw i32 %num_sources.02394, 1
   %idxprom148 = sext i32 %num_sources.02394 to i64
-  %arrayidx149 = getelementptr inbounds nuw [6 x %struct.NodeNeighbor], ptr %sources, i64 0, i64 %idxprom148
+  %arrayidx149 = getelementptr inbounds [6 x %struct.NodeNeighbor], ptr %sources, i64 0, i64 %idxprom148
   %nb.sroa.0.sroa.20.0.insert.ext1857 = zext i24 %nb.sroa.0.sroa.20.sroa.0.1.insert.shift to i64
   %nb.sroa.0.sroa.20.0.insert.shift1858 = shl nuw i64 %nb.sroa.0.sroa.20.0.insert.ext1857, 40
   %nb.sroa.0.sroa.14.0.insert.ext1833 = zext nneg i8 %nt.0 to i64
@@ -10708,7 +10708,7 @@ if.end183:                                        ; preds = %land.lhs.true174, %
 if.else192:                                       ; preds = %if.end183
   %inc193 = add nsw i32 %num_flows.02393, 1
   %idxprom194 = sext i32 %num_flows.02393 to i64
-  %arrayidx195 = getelementptr inbounds nuw [6 x %struct.NodeNeighbor], ptr %flows, i64 0, i64 %idxprom194
+  %arrayidx195 = getelementptr inbounds [6 x %struct.NodeNeighbor], ptr %flows, i64 0, i64 %idxprom194
   %nb.sroa.0.sroa.20.0.insert.ext1865 = zext i24 %nb.sroa.0.sroa.20.sroa.0.1.insert.shift to i64
   %nb.sroa.0.sroa.20.0.insert.shift1866 = shl nuw i64 %nb.sroa.0.sroa.20.0.insert.ext1865, 40
   %nb.sroa.0.sroa.14.0.insert.ext1841 = zext nneg i8 %nt.0 to i64

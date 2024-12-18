@@ -6181,7 +6181,7 @@ thread-pre-split:                                 ; preds = %1093, %1112, %_ZN19
 
 1158:                                             ; preds = %1150
   %1159 = sub nuw nsw i64 %1148, %1146
-  %1160 = getelementptr inbounds nuw i8, ptr @_ZN19brotli_decompressor10dictionary17kBrotliDictionary17hc537c62bb2bcc2a9E, i64 %1146
+  %1160 = getelementptr inbounds i8, ptr @_ZN19brotli_decompressor10dictionary17kBrotliDictionary17hc537c62bb2bcc2a9E, i64 %1146
   %1161 = icmp eq i32 %1137, 0
   %1162 = sext i32 %.sroa.060.0 to i64
   br i1 %1161, label %1163, label %1176
@@ -26155,7 +26155,7 @@ switch.lookup:                                    ; preds = %65, %"_ZN64_$LT$cor
   %.sroa.01.0.i.i.i.i.i = phi i8 [ %70, %65 ], [ %.sroa.0.0.i.i.i.i.i.i, %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h9ed347b6e22d0f96E.exit.i.i.i.i.i" ]
   %switch.tableidx = add nsw i8 %.sroa.01.0.i.i.i.i.i, 1
   %71 = sext i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17hb19776bdb7b5d54cE", i64 0, i64 %71
+  %switch.gep = getelementptr inbounds [3 x i64], ptr @"switch.table._ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17hb19776bdb7b5d54cE", i64 0, i64 %71
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %.thread.i.i.i.i.i
 

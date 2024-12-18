@@ -292,7 +292,7 @@ if.then.i82:                                      ; preds = %land.lhs.true63
 
 if.else.i80:                                      ; preds = %land.lhs.true63
   %idxprom.i = sext i32 %19 to i64
-  %arrayidx.i = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i
   br label %oideq.exit
 
 oideq.exit:                                       ; preds = %if.then.i82, %if.else.i80
@@ -505,7 +505,7 @@ if.then.i:                                        ; preds = %entry
 
 if.else.i:                                        ; preds = %entry
   %idxprom.i = sext i32 %2 to i64
-  %arrayidx.i = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i
   br label %oidcmp.exit
 
 oidcmp.exit:                                      ; preds = %if.then.i, %if.else.i
@@ -1040,7 +1040,7 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %sext7 = add i64 %conv, 21474836480
   %idxprom = ashr exact i64 %sext7, 32
-  %arrayidx = getelementptr inbounds nuw [70 x i8], ptr %packname, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [70 x i8], ptr %packname, i64 0, i64 %idxprom
   %3 = load i8, ptr %arrayidx, align 1
   %cmp5 = icmp eq i8 %3, 10
   br i1 %cmp5, label %if.then, label %if.end17

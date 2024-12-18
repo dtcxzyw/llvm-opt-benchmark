@@ -1079,7 +1079,7 @@ define range(i64 0, 4294967296) i64 @zfp_encode_partial_block_strided_double_1(p
   %.012.i = phi i64 [ %8, %.lr.ph.i ], [ 0, %4 ]
   %.0911.i = phi ptr [ %9, %.lr.ph.i ], [ %1, %4 ]
   %6 = load double, ptr %.0911.i, align 8
-  %7 = getelementptr inbounds nuw double, ptr %5, i64 %.012.i
+  %7 = getelementptr inbounds double, ptr %5, i64 %.012.i
   store double %6, ptr %7, align 8
   %8 = add nuw i64 %.012.i, 1
   %9 = getelementptr inbounds double, ptr %.0911.i, i64 %3

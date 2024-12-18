@@ -879,7 +879,7 @@ Vec_IntPush.exit119:                              ; preds = %.Vec_IntGrow.exit10
 Vec_IntFind.exit:                                 ; preds = %157, %Vec_IntPush.exit119, %._crit_edge.loopexit.split.loop.exit12.i
   %.07.i = phi i64 [ -1, %Vec_IntPush.exit119 ], [ %158, %._crit_edge.loopexit.split.loop.exit12.i ], [ -1, %157 ]
   %159 = and i32 %148, 1
-  %160 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %.07.i
+  %160 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %.07.i
   %161 = load i64, ptr %160, align 8
   %sext166 = add nsw i32 %159, -1
   %162 = sext i32 %sext166 to i64
@@ -1500,7 +1500,7 @@ define void @Sbd_ManSolverPrint(ptr nocapture noundef readonly %0) local_unnamed
 17:                                               ; preds = %12
   %18 = add i32 %.023.i, 1
   %19 = sext i32 %13 to i64
-  %20 = getelementptr inbounds nuw i32, ptr %2, i64 %19
+  %20 = getelementptr inbounds i32, ptr %2, i64 %19
   store i32 %.023.i, ptr %20, align 4
   %21 = or i64 %15, %.01522.i
   br label %22
@@ -1545,10 +1545,10 @@ Sbd_ManSolverSupp.exit:                           ; preds = %22
   %33 = sub nuw nsw i8 49, %32
   %34 = ashr i32 %28, 1
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds nuw [64 x i32], ptr %2, i64 0, i64 %35
+  %36 = getelementptr inbounds [64 x i32], ptr %2, i64 0, i64 %35
   %37 = load i32, ptr %36, align 4
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds nuw [65 x i8], ptr %3, i64 0, i64 %38
+  %39 = getelementptr inbounds [65 x i8], ptr %3, i64 0, i64 %38
   store i8 %33, ptr %39, align 1
   br label %..loopexit_crit_edge.us
 
@@ -1585,10 +1585,10 @@ Sbd_ManSolverSupp.exit:                           ; preds = %22
   %48 = sub nuw nsw i8 49, %47
   %49 = ashr i32 %43, 1
   %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds nuw [64 x i32], ptr %2, i64 0, i64 %50
+  %51 = getelementptr inbounds [64 x i32], ptr %2, i64 0, i64 %50
   %52 = load i32, ptr %51, align 4
   %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds nuw [65 x i8], ptr %3, i64 0, i64 %53
+  %54 = getelementptr inbounds [65 x i8], ptr %3, i64 0, i64 %53
   store i8 %48, ptr %54, align 1
   br label %55
 

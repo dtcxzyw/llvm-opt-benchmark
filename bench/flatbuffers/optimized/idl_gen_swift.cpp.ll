@@ -14463,7 +14463,7 @@ lpad.body:                                        ; preds = %lpad.i5, %lpad
 if.end7:                                          ; preds = %entry.if.end7_crit_edge, %if.end
   %7 = phi i32 [ %.pre, %entry.if.end7_crit_edge ], [ %4, %if.end ]
   %idxprom = sext i32 %7 to i64
-  %arrayidx = getelementptr inbounds nuw [19 x ptr], ptr @_ZZNK11flatbuffers5swift14SwiftGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEbE10swift_type, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [19 x ptr], ptr @_ZZNK11flatbuffers5swift14SwiftGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEbE10swift_type, i64 0, i64 %idxprom
   %8 = load ptr, ptr %arrayidx, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9) #20
   %call.i11 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result)

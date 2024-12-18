@@ -1560,7 +1560,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %tobool.i, label %if.else.i, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.end.i
-  %arrayidx.i.i = getelementptr inbounds nuw [0 x i32], ptr @_ZN4absl12_GLOBAL__N_112LookupTablesIiE13kVmaxOverBaseE, i64 0, i64 %idxprom.i3.i
+  %arrayidx.i.i = getelementptr inbounds [0 x i32], ptr @_ZN4absl12_GLOBAL__N_112LookupTablesIiE13kVmaxOverBaseE, i64 0, i64 %idxprom.i3.i
   %3 = load i32, ptr %arrayidx.i.i, align 4
   br i1 %cmp225.i.i, label %return.sink.split.i, label %for.body.i.i
 
@@ -1592,7 +1592,7 @@ if.end11.i.i:                                     ; preds = %if.end8.i.i
   br i1 %cmp.not.i.i, label %for.body.i.i, label %return.sink.split.i, !llvm.loop !7
 
 if.else.i:                                        ; preds = %if.end.i
-  %arrayidx.i4.i = getelementptr inbounds nuw [0 x i32], ptr @_ZN4absl12_GLOBAL__N_112LookupTablesIiE13kVminOverBaseE, i64 0, i64 %idxprom.i3.i
+  %arrayidx.i4.i = getelementptr inbounds [0 x i32], ptr @_ZN4absl12_GLOBAL__N_112LookupTablesIiE13kVminOverBaseE, i64 0, i64 %idxprom.i3.i
   %6 = load i32, ptr %arrayidx.i4.i, align 4
   br i1 %cmp225.i.i, label %return.sink.split.i, label %for.body.i6.i
 
@@ -1666,7 +1666,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %tobool.i, label %if.else.i, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.end.i
-  %arrayidx.i.i = getelementptr inbounds nuw [0 x i64], ptr @_ZN4absl12_GLOBAL__N_112LookupTablesIlE13kVmaxOverBaseE, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds [0 x i64], ptr @_ZN4absl12_GLOBAL__N_112LookupTablesIlE13kVmaxOverBaseE, i64 0, i64 %idxprom.i.i
   %3 = load i64, ptr %arrayidx.i.i, align 8
   br i1 %cmp225.i.i, label %return.sink.split.i, label %for.body.i.i
 
@@ -1698,7 +1698,7 @@ if.end12.i.i:                                     ; preds = %if.end9.i.i
   br i1 %cmp.not.i.i, label %for.body.i.i, label %return.sink.split.i, !llvm.loop !9
 
 if.else.i:                                        ; preds = %if.end.i
-  %arrayidx.i3.i = getelementptr inbounds nuw [0 x i64], ptr @_ZN4absl12_GLOBAL__N_112LookupTablesIlE13kVminOverBaseE, i64 0, i64 %idxprom.i.i
+  %arrayidx.i3.i = getelementptr inbounds [0 x i64], ptr @_ZN4absl12_GLOBAL__N_112LookupTablesIlE13kVminOverBaseE, i64 0, i64 %idxprom.i.i
   %6 = load i64, ptr %arrayidx.i3.i, align 8
   br i1 %cmp225.i.i, label %return.sink.split.i, label %for.body.i5.i
 
@@ -1776,7 +1776,7 @@ if.then2.i:                                       ; preds = %if.end.i
 for.body.lr.ph.i.i:                               ; preds = %if.then2.i
   %2 = load i32, ptr %base.addr.i, align 4
   %idxprom.i.i = sext i32 %2 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw [37 x %"class.absl::int128"], ptr @_ZN4absl12_GLOBAL__N_112LookupTablesINS_6int128EE13kVmaxOverBaseE, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds [37 x %"class.absl::int128"], ptr @_ZN4absl12_GLOBAL__N_112LookupTablesINS_6int128EE13kVmaxOverBaseE, i64 0, i64 %idxprom.i.i
   %vmax_over_base.sroa.2.0.arrayidx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 8
   %vmax_over_base.sroa.2.0.copyload.i.i = load i64, ptr %vmax_over_base.sroa.2.0.arrayidx.sroa_idx.i.i, align 8
   %vmax_over_base.sroa.0.0.copyload.i.i = load i64, ptr %arrayidx.i.i, align 16
@@ -1853,7 +1853,7 @@ if.else.i:                                        ; preds = %if.end.i
   br i1 %cmp91.i.i, label %return.sink.split.i, label %for.body.lr.ph.i8.i
 
 for.body.lr.ph.i8.i:                              ; preds = %if.else.i
-  %arrayidx.i9.i = getelementptr inbounds nuw [37 x %"class.absl::int128"], ptr @_ZN4absl12_GLOBAL__N_112LookupTablesINS_6int128EE13kVminOverBaseE, i64 0, i64 %agg.tmp2.sroa.0.0.extract.trunc.i.i
+  %arrayidx.i9.i = getelementptr inbounds [37 x %"class.absl::int128"], ptr @_ZN4absl12_GLOBAL__N_112LookupTablesINS_6int128EE13kVminOverBaseE, i64 0, i64 %agg.tmp2.sroa.0.0.extract.trunc.i.i
   %vmin_over_base.sroa.4.0.arrayidx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i9.i, i64 8
   %vmin_over_base.sroa.4.0.copyload.i.i = load i64, ptr %vmin_over_base.sroa.4.0.arrayidx.sroa_idx.i.i, align 8
   %vmin_over_base.sroa.0.0.copyload.i.i = load i64, ptr %arrayidx.i9.i, align 16
@@ -1950,7 +1950,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   %agg.tmp.sroa.2.0.copyload.i = load ptr, ptr %0, align 8
   %2 = load i32, ptr %base.addr.i, align 4
   %idxprom.i.i = sext i32 %2 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw [0 x i32], ptr @_ZN4absl12_GLOBAL__N_112LookupTablesIjE13kVmaxOverBaseE, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds [0 x i32], ptr @_ZN4absl12_GLOBAL__N_112LookupTablesIjE13kVmaxOverBaseE, i64 0, i64 %idxprom.i.i
   %3 = load i32, ptr %arrayidx.i.i, align 4
   %add.ptr.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.2.0.copyload.i, i64 %agg.tmp.sroa.0.0.copyload.i
   %cmp23.i.i = icmp slt i64 %agg.tmp.sroa.0.0.copyload.i, 1
@@ -2024,7 +2024,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   %agg.tmp.sroa.2.0.copyload.i = load ptr, ptr %0, align 8
   %2 = load i32, ptr %base.addr.i, align 4
   %conv.i.i = sext i32 %2 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw [0 x i64], ptr @_ZN4absl12_GLOBAL__N_112LookupTablesImE13kVmaxOverBaseE, i64 0, i64 %conv.i.i
+  %arrayidx.i.i = getelementptr inbounds [0 x i64], ptr @_ZN4absl12_GLOBAL__N_112LookupTablesImE13kVmaxOverBaseE, i64 0, i64 %conv.i.i
   %3 = load i64, ptr %arrayidx.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.2.0.copyload.i, i64 %agg.tmp.sroa.0.0.copyload.i
   %cmp23.i.i = icmp slt i64 %agg.tmp.sroa.0.0.copyload.i, 1
@@ -2104,7 +2104,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
 for.body.lr.ph.i.i:                               ; preds = %if.end.i
   %2 = load i32, ptr %base.addr.i, align 4
   %conv.i.i.i = sext i32 %2 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw [37 x %"class.absl::uint128"], ptr @_ZN4absl12_GLOBAL__N_112LookupTablesINS_7uint128EE13kVmaxOverBaseE, i64 0, i64 %conv.i.i.i
+  %arrayidx.i.i = getelementptr inbounds [37 x %"class.absl::uint128"], ptr @_ZN4absl12_GLOBAL__N_112LookupTablesINS_7uint128EE13kVmaxOverBaseE, i64 0, i64 %conv.i.i.i
   %vmax_over_base.sroa.2.0.arrayidx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 8
   %vmax_over_base.sroa.2.0.copyload.i.i = load i64, ptr %vmax_over_base.sroa.2.0.arrayidx.sroa_idx.i.i, align 8
   %vmax_over_base.sroa.0.0.copyload.i.i = load i64, ptr %arrayidx.i.i, align 16

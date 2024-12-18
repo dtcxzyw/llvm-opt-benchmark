@@ -1270,7 +1270,7 @@ for.inc22:                                        ; preds = %if.then16, %if.else
 
 if.else26:                                        ; preds = %entry
   %idxprom27 = sext i32 %0 to i64
-  %arrayidx28 = getelementptr inbounds nuw [4 x [26 x i8]], ptr @topath, i64 0, i64 %idxprom27
+  %arrayidx28 = getelementptr inbounds [4 x [26 x i8]], ptr @topath, i64 0, i64 %idxprom27
   %4 = load i8, ptr %arrayidx28, align 2
   %tobool30.not = icmp eq i8 %4, 0
   br i1 %tobool30.not, label %for.body45.preheader, label %if.then31

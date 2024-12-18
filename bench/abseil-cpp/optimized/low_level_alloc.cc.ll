@@ -849,7 +849,7 @@ for.cond1.i.i:                                    ; preds = %for.cond1.i.i, %for
   br i1 %12, label %for.cond1.i.i, label %for.end.i.i, !llvm.loop !9
 
 for.end.i.i:                                      ; preds = %for.cond1.i.i
-  %arrayidx6.i.i = getelementptr inbounds nuw ptr, ptr %prev, i64 %indvars.iv.next.i.i
+  %arrayidx6.i.i = getelementptr inbounds ptr, ptr %prev, i64 %indvars.iv.next.i.i
   store ptr %p.1.i.i, ptr %arrayidx6.i.i, align 8
   %cmp.i.i13 = icmp sgt i64 %indvars.iv.i.i, 1
   br i1 %cmp.i.i13, label %for.cond1.preheader.i.i, label %for.end8.i.i, !llvm.loop !10
@@ -869,7 +869,7 @@ for.body7.lr.ph.i:                                ; preds = %for.end8.i.i, %for.
 for.body.i:                                       ; preds = %for.end8.i.i, %for.body.i
   %14 = phi i32 [ %inc.i, %for.body.i ], [ %9, %for.end8.i.i ]
   %idxprom.i = sext i32 %14 to i64
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %prev, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds ptr, ptr %prev, i64 %idxprom.i
   store ptr %freelist, ptr %arrayidx.i, align 8
   %inc.i = add nsw i32 %14, 1
   store i32 %inc.i, ptr %levels.i.i, align 8
@@ -1198,7 +1198,7 @@ for.cond1.i.i:                                    ; preds = %for.cond1.i.i, %for
   br i1 %36, label %for.cond1.i.i, label %for.end.i.i, !llvm.loop !9
 
 for.end.i.i:                                      ; preds = %for.cond1.i.i
-  %arrayidx6.i.i = getelementptr inbounds nuw ptr, ptr %prev, i64 %indvars.iv.next.i.i
+  %arrayidx6.i.i = getelementptr inbounds ptr, ptr %prev, i64 %indvars.iv.next.i.i
   store ptr %p.1.i.i, ptr %arrayidx6.i.i, align 8
   %cmp.i.i83 = icmp sgt i64 %indvars.iv.i.i, 1
   br i1 %cmp.i.i83, label %for.cond1.preheader.i.i, label %for.end8.i.i, !llvm.loop !10
@@ -1431,7 +1431,7 @@ for.cond1.i.i:                                    ; preds = %for.cond1.i.i, %for
   br i1 %7, label %for.cond1.i.i, label %for.end.i.i, !llvm.loop !9
 
 for.end.i.i:                                      ; preds = %for.cond1.i.i
-  %arrayidx6.i.i = getelementptr inbounds nuw ptr, ptr %prev, i64 %indvars.iv.next.i.i
+  %arrayidx6.i.i = getelementptr inbounds ptr, ptr %prev, i64 %indvars.iv.next.i.i
   store ptr %p.1.i.i, ptr %arrayidx6.i.i, align 8
   %cmp.i.i = icmp sgt i64 %indvars.iv.i.i, 1
   br i1 %cmp.i.i, label %for.cond1.preheader.i.i, label %for.end8.i.i, !llvm.loop !10
@@ -1544,7 +1544,7 @@ for.cond1.i.i62:                                  ; preds = %for.cond1.i.i62, %f
   br i1 %22, label %for.cond1.i.i62, label %for.end.i.i68, !llvm.loop !9
 
 for.end.i.i68:                                    ; preds = %for.cond1.i.i62
-  %arrayidx6.i.i69 = getelementptr inbounds nuw ptr, ptr %prev, i64 %indvars.iv.next.i.i61
+  %arrayidx6.i.i69 = getelementptr inbounds ptr, ptr %prev, i64 %indvars.iv.next.i.i61
   store ptr %p.1.i.i63, ptr %arrayidx6.i.i69, align 8
   %cmp.i.i70 = icmp sgt i64 %indvars.iv.i.i59, 1
   br i1 %cmp.i.i70, label %for.cond1.preheader.i.i58, label %for.end8.i.i20, !llvm.loop !10
@@ -1697,7 +1697,7 @@ for.cond1.i.i92:                                  ; preds = %for.cond1.i.i92, %f
   br i1 %44, label %for.cond1.i.i92, label %for.end.i.i98, !llvm.loop !9
 
 for.end.i.i98:                                    ; preds = %for.cond1.i.i92
-  %arrayidx6.i.i99 = getelementptr inbounds nuw ptr, ptr %prev, i64 %indvars.iv.next.i.i91
+  %arrayidx6.i.i99 = getelementptr inbounds ptr, ptr %prev, i64 %indvars.iv.next.i.i91
   store ptr %p.1.i.i93, ptr %arrayidx6.i.i99, align 8
   %cmp.i.i100 = icmp sgt i64 %indvars.iv.i.i89, 1
   br i1 %cmp.i.i100, label %for.cond1.preheader.i.i88, label %for.end8.i.i79, !llvm.loop !10
@@ -1716,7 +1716,7 @@ for.body7.i.preheader:                            ; preds = %for.end8.i.i79, %fo
 for.body.i85:                                     ; preds = %for.end8.i.i79, %for.body.i85
   %45 = phi i32 [ %inc.i, %for.body.i85 ], [ %41, %for.end8.i.i79 ]
   %idxprom.i = sext i32 %45 to i64
-  %arrayidx.i86 = getelementptr inbounds nuw ptr, ptr %prev, i64 %idxprom.i
+  %arrayidx.i86 = getelementptr inbounds ptr, ptr %prev, i64 %idxprom.i
   store ptr %freelist, ptr %arrayidx.i86, align 8
   %inc.i = add nsw i32 %45, 1
   store i32 %inc.i, ptr %levels.i.i, align 8

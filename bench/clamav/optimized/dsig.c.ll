@@ -147,7 +147,7 @@ define noalias ptr @cli_getdsig(ptr noundef %0, ptr noundef %1, ptr nocapture no
   %53 = trunc i64 %52 to i32
   %sext = shl i64 %52, 32
   %54 = ashr exact i64 %sext, 32
-  %55 = getelementptr inbounds nuw i8, ptr %7, i64 %54
+  %55 = getelementptr inbounds i8, ptr %7, i64 %54
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %55, ptr align 1 %2, i64 %49, i1 false)
   %56 = add i32 %3, %53
   %57 = sext i32 %56 to i64

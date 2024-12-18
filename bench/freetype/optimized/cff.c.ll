@@ -5545,7 +5545,7 @@ cff_parse_integer.exit.i:                         ; preds = %79, %71, %43
   %.0.lcssa.i = phi i32 [ %91, %.split.loop.exit.i ], [ 10, %90 ]
   %92 = add nsw i32 %.0.lcssa.i, -5
   %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds nuw [10 x i64], ptr @power_tens, i64 0, i64 %93
+  %94 = getelementptr inbounds [10 x i64], ptr @power_tens, i64 0, i64 %93
   %95 = load i64, ptr %94, align 8
   %96 = sdiv i64 %.0.i.i, %95
   %97 = icmp sgt i64 %96, 32767
@@ -5555,7 +5555,7 @@ cff_parse_integer.exit.i:                         ; preds = %79, %71, %43
   %99 = add nsw i32 %.0.lcssa.i, -4
   %100 = sext i32 %99 to i64
   store i64 %100, ptr %19, align 8
-  %101 = getelementptr inbounds nuw [10 x i64], ptr @power_tens, i64 0, i64 %100
+  %101 = getelementptr inbounds [10 x i64], ptr @power_tens, i64 0, i64 %100
   %102 = load i64, ptr %101, align 8
   %103 = call i64 @FT_DivFix(i64 noundef %.0.i.i, i64 noundef %102) #19
   br label %cff_parse_fixed_dynamic.exit
@@ -5610,7 +5610,7 @@ cff_parse_fixed_dynamic.exit:                     ; preds = %23, %98, %104, %cff
   %117 = getelementptr inbounds nuw [6 x i64], ptr %3, i64 0, i64 %indvars.iv92
   %118 = load i64, ptr %117, align 8
   %119 = sub nsw i64 %.2, %118
-  %120 = getelementptr inbounds nuw [10 x i64], ptr @power_tens, i64 0, i64 %119
+  %120 = getelementptr inbounds [10 x i64], ptr @power_tens, i64 0, i64 %119
   %121 = load i64, ptr %120, align 8
   %122 = ashr i64 %121, 1
   %123 = icmp slt i64 %115, 0

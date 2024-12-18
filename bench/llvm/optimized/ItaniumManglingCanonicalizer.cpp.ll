@@ -13278,7 +13278,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br i1 %.not.i, label %42, label %28, !llvm.loop !32
 
 42:                                               ; preds = %.thread23.i
-  %43 = getelementptr inbounds nuw [62 x %"struct.llvm::itanium_demangle::AbstractManglingParser<llvm::itanium_demangle::ManglingParser<(anonymous namespace)::CanonicalizerAllocator>, (anonymous namespace)::CanonicalizerAllocator>::OperatorInfo"], ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E3OpsE, i64 0, i64 %40
+  %43 = getelementptr inbounds [62 x %"struct.llvm::itanium_demangle::AbstractManglingParser<llvm::itanium_demangle::ManglingParser<(anonymous namespace)::CanonicalizerAllocator>, (anonymous namespace)::CanonicalizerAllocator>::OperatorInfo"], ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E3OpsE, i64 0, i64 %40
   %.val16.i = load i8, ptr %43, align 16
   %44 = icmp eq i8 %.val16.i, %26
   br i1 %44, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E12OperatorInfoneEPKc.exit.i, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit
@@ -14600,7 +14600,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br i1 %.not.i23.i, label %702, label %688, !llvm.loop !32
 
 702:                                              ; preds = %.thread23.i.i
-  %703 = getelementptr inbounds nuw [62 x %"struct.llvm::itanium_demangle::AbstractManglingParser<llvm::itanium_demangle::ManglingParser<(anonymous namespace)::CanonicalizerAllocator>, (anonymous namespace)::CanonicalizerAllocator>::OperatorInfo"], ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E3OpsE, i64 0, i64 %700
+  %703 = getelementptr inbounds [62 x %"struct.llvm::itanium_demangle::AbstractManglingParser<llvm::itanium_demangle::ManglingParser<(anonymous namespace)::CanonicalizerAllocator>, (anonymous namespace)::CanonicalizerAllocator>::OperatorInfo"], ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E3OpsE, i64 0, i64 %700
   %.val16.i.i = load i8, ptr %703, align 16
   %704 = icmp eq i8 %.val16.i.i, %686
   br i1 %704, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E12OperatorInfoneEPKc.exit.i.i, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit
@@ -35733,14 +35733,14 @@ _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_trait
   %67 = trunc nuw nsw i64 %66 to i8
   %68 = or disjoint i8 %67, 48
   %.0.add.i.i.i = add nsw i64 %.0.idx.i.i.i, -1
-  %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %.0.add.i.i.i
+  %.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 %.0.add.i.i.i
   store i8 %68, ptr %.ptr.i.i.i, align 1
   %69 = udiv i64 %.08.i.i.i, 10
   %.not.i.i.i = icmp samesign ult i64 %.08.i.i.i, 10
   br i1 %.not.i.i.i, label %70, label %65, !llvm.loop !55
 
 70:                                               ; preds = %65
-  %.ptr.i.i.i.le = getelementptr inbounds nuw i8, ptr %3, i64 %.0.add.i.i.i
+  %.ptr.i.i.i.le = getelementptr inbounds i8, ptr %3, i64 %.0.add.i.i.i
   %gepdiff.i.i.i = sub nsw i64 22, %.0.idx.i.i.i
   %.not.i.i.i.i = icmp eq i64 %.0.add.i.i.i, 21
   br i1 %.not.i.i.i.i, label %_ZN4llvm16itanium_demangle12OutputBufferlsEj.exit, label %71
@@ -42781,10 +42781,10 @@ switch.lookup:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %2 = load i32, ptr %1, align 4
   %3 = sext i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = sext i32 %2 to i64
-  %switch.gep1 = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.570, i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds [6 x i64], ptr @switch.table._ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.570, i64 0, i64 %4
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %switch.load2, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %switch.load, 1
@@ -43103,7 +43103,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br i1 %.not.i, label %27, label %13, !llvm.loop !32
 
 27:                                               ; preds = %.thread23.i
-  %28 = getelementptr inbounds nuw [62 x %"struct.llvm::itanium_demangle::AbstractManglingParser<llvm::itanium_demangle::ManglingParser<(anonymous namespace)::CanonicalizerAllocator>, (anonymous namespace)::CanonicalizerAllocator>::OperatorInfo"], ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E3OpsE, i64 0, i64 %25
+  %28 = getelementptr inbounds [62 x %"struct.llvm::itanium_demangle::AbstractManglingParser<llvm::itanium_demangle::ManglingParser<(anonymous namespace)::CanonicalizerAllocator>, (anonymous namespace)::CanonicalizerAllocator>::OperatorInfo"], ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E3OpsE, i64 0, i64 %25
   %.val16.i = load i8, ptr %28, align 16
   %29 = icmp eq i8 %.val16.i, %11
   br i1 %29, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E12OperatorInfoneEPKc.exit.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i

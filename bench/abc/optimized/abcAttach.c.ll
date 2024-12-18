@@ -433,7 +433,7 @@ Abc_AttachCompare.exit.thread._crit_edge.i.i:     ; preds = %Abc_AttachCompare.e
   %183 = shl nuw i32 1, %182
   %184 = ashr i32 %.1.i.i.i, 5
   %185 = sext i32 %184 to i64
-  %186 = getelementptr inbounds nuw i32, ptr %2, i64 %185
+  %186 = getelementptr inbounds i32, ptr %2, i64 %185
   %187 = load i32, ptr %186, align 4
   %188 = or i32 %187, %183
   store i32 %188, ptr %186, align 4

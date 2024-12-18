@@ -2907,7 +2907,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx = getelementptr inbounds nuw [4 x i32], ptr %contactIdx, i64 0, i64 %indvars.iv
   %42 = load i32, ptr %arrayidx, align 4
   %idxprom74 = sext i32 %42 to i64
-  %arrayidx75 = getelementptr inbounds nuw [1024 x %class.b3Vector3], ptr %contactsOut, i64 0, i64 %idxprom74
+  %arrayidx75 = getelementptr inbounds [1024 x %class.b3Vector3], ptr %contactsOut, i64 0, i64 %idxprom74
   %arrayidx77 = getelementptr inbounds nuw [4 x %class.b3Vector3], ptr %arrayidx.i134, i64 0, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx77, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx75, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_worldNormalOnB, ptr noundef nonnull align 16 dereferenceable(16) %normalOnSurfaceB, i64 16, i1 false)

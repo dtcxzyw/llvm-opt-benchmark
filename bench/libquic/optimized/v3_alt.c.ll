@@ -430,7 +430,7 @@ for.inc:                                          ; preds = %if.then36, %for.inc
   %i.01828 = phi i32 [ 0, %if.then36 ], [ %inc, %for.inc ]
   %add.ptr = getelementptr inbounds nuw i8, ptr %p.01729, i64 2
   %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) %oline)
-  %endptr = getelementptr inbounds nuw i8, ptr %oline, i64 %strlen
+  %endptr = getelementptr inbounds i8, ptr %oline, i64 %strlen
   store i16 58, ptr %endptr, align 1
   %inc = add nuw nsw i32 %i.01828, 1
   %17 = load i8, ptr %add.ptr, align 1

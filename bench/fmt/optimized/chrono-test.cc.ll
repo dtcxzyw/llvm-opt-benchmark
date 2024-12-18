@@ -4551,7 +4551,7 @@ invoke.cont2:                                     ; preds = %invoke.cont
   %vtable = load ptr, ptr %os, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %os, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %os, i64 %vbase.offset
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale(ptr nonnull sret(%"class.std::locale") align 8 %agg.tmp.ensured, ptr noundef nonnull align 8 dereferenceable(264) %add.ptr, ptr noundef nonnull align 8 dereferenceable(8) %loc)
           to label %invoke.cont4 unwind label %lpad3
 
@@ -4560,7 +4560,7 @@ invoke.cont4:                                     ; preds = %invoke.cont2
   %vtable.i = load ptr, ptr %os, align 8
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %os, i64 %vbase.offset.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %os, i64 %vbase.offset.i
   %call.i = invoke noundef ptr @_ZNKSt9basic_iosIcSt11char_traitsIcEE5rdbufEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr.i)
           to label %_ZNSt19ostreambuf_iteratorIcSt11char_traitsIcEEC2ERSo.exit unwind label %terminate.lpad.i
 
@@ -4577,7 +4577,7 @@ _ZNSt19ostreambuf_iteratorIcSt11char_traitsIcEEC2ERSo.exit: ; preds = %invoke.co
   %vtable5 = load ptr, ptr %os, align 8
   %vbase.offset.ptr6 = getelementptr i8, ptr %vtable5, i64 -24
   %vbase.offset7 = load i64, ptr %vbase.offset.ptr6, align 8
-  %add.ptr8 = getelementptr inbounds nuw i8, ptr %os, i64 %vbase.offset7
+  %add.ptr8 = getelementptr inbounds i8, ptr %os, i64 %vbase.offset7
   %call9 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %format) #30
   %call10 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %format) #30
   %call11 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %format) #30
@@ -31076,7 +31076,7 @@ entry:
   %vtable = load ptr, ptr %os, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %os, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %os, i64 %vbase.offset
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale(ptr nonnull sret(%"class.std::locale") align 8 %agg.tmp.ensured, ptr noundef nonnull align 8 dereferenceable(264) %add.ptr, ptr noundef nonnull align 8 dereferenceable(8) %loc)
           to label %invoke.cont unwind label %lpad
 
@@ -31085,7 +31085,7 @@ invoke.cont:                                      ; preds = %entry
   %vtable.i = load ptr, ptr %os, align 8
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %os, i64 %vbase.offset.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %os, i64 %vbase.offset.i
   %call.i = invoke noundef ptr @_ZNKSt9basic_iosIcSt11char_traitsIcEE5rdbufEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr.i)
           to label %_ZNSt19ostreambuf_iteratorIcSt11char_traitsIcEEC2ERSo.exit unwind label %terminate.lpad.i
 
@@ -31102,7 +31102,7 @@ _ZNSt19ostreambuf_iteratorIcSt11char_traitsIcEEC2ERSo.exit: ; preds = %invoke.co
   %vtable1 = load ptr, ptr %os, align 8
   %vbase.offset.ptr2 = getelementptr i8, ptr %vtable1, i64 -24
   %vbase.offset3 = load i64, ptr %vbase.offset.ptr2, align 8
-  %add.ptr4 = getelementptr inbounds nuw i8, ptr %os, i64 %vbase.offset3
+  %add.ptr4 = getelementptr inbounds i8, ptr %os, i64 %vbase.offset3
   %add.ptr.i2 = getelementptr inbounds i8, ptr %spec.coerce0, i64 %spec.coerce1
   %call8 = invoke { ptr, i8 } @_ZNKSt8time_putIcSt19ostreambuf_iteratorIcSt11char_traitsIcEEE3putES3_RSt8ios_basecPK2tmPKcSB_(ptr noundef nonnull align 8 dereferenceable(12) %call, ptr %call.i, i8 %frombool.i, ptr noundef nonnull align 8 dereferenceable(216) %add.ptr4, i8 noundef signext 32, ptr noundef nonnull %time, ptr noundef %spec.coerce0, ptr noundef %add.ptr.i2)
           to label %invoke.cont7 unwind label %lpad
@@ -60366,7 +60366,7 @@ if.end17:                                         ; preds = %if.end, %_ZSt6fill_
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i, i8 0, i64 20, i1 false)
   %idx.ext.i.i = sext i32 %sub.i.i to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i64 %year.addr.0, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -60515,7 +60515,7 @@ invoke.cont:                                      ; preds = %entry
   %vtable = load ptr, ptr %ref.tmp1, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %ref.tmp1, i64 %vbase.offset
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale(ptr nonnull sret(%"class.std::locale") align 8 %agg.tmp.ensured, ptr noundef nonnull align 8 dereferenceable(264) %add.ptr, ptr noundef nonnull align 8 dereferenceable(8) %loc)
           to label %invoke.cont3 unwind label %lpad2
 
@@ -60528,7 +60528,7 @@ invoke.cont4:                                     ; preds = %invoke.cont3
   %vtable.i = load ptr, ptr %ref.tmp1, align 8
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 %vbase.offset.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %ref.tmp1, i64 %vbase.offset.i
   %call.i = invoke noundef ptr @_ZNKSt9basic_iosIcSt11char_traitsIcEE5rdbufEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr.i)
           to label %_ZNSt19ostreambuf_iteratorIcSt11char_traitsIcEEC2ERSo.exit unwind label %terminate.lpad.i
 
@@ -60545,7 +60545,7 @@ _ZNSt19ostreambuf_iteratorIcSt11char_traitsIcEEC2ERSo.exit: ; preds = %invoke.co
   %vtable5 = load ptr, ptr %ref.tmp1, align 8
   %vbase.offset.ptr6 = getelementptr i8, ptr %vtable5, i64 -24
   %vbase.offset7 = load i64, ptr %vbase.offset.ptr6, align 8
-  %add.ptr8 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 %vbase.offset7
+  %add.ptr8 = getelementptr inbounds i8, ptr %ref.tmp1, i64 %vbase.offset7
   %call10 = invoke { ptr, i8 } @_ZNKSt8time_putIcSt19ostreambuf_iteratorIcSt11char_traitsIcEEE3putES3_RSt8ios_basecPK2tmcc(ptr noundef nonnull align 8 dereferenceable(12) %call, ptr %call.i, i8 %frombool.i, ptr noundef nonnull align 8 dereferenceable(216) %add.ptr8, i8 noundef signext 32, ptr noundef nonnull %time, i8 noundef signext %format, i8 noundef signext %modifier)
           to label %invoke.cont9 unwind label %lpad2
 
@@ -61770,7 +61770,7 @@ for.body.i.i:                                     ; preds = %if.then.i.i, %_ZZN3
   %conv2.i.i19 = and i32 %2, 1
   %idx.ext3.i.i20 = zext nneg i32 %conv2.i.i19 to i64
   %add.ptr4.i.i21 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i18, i64 %idx.ext3.i.i20
-  %arrayidx8.i.i22 = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.masks, i64 0, i64 %idx.ext.i.i17
+  %arrayidx8.i.i22 = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.masks, i64 0, i64 %idx.ext.i.i17
   %3 = load i32, ptr %arrayidx8.i.i22, align 4
   %and.i.i23 = and i32 %3, %conv.i.i13
   %shl.i.i24 = shl nuw nsw i32 %and.i.i23, 18
@@ -61791,10 +61791,10 @@ for.body.i.i:                                     ; preds = %if.then.i.i, %_ZZN3
   %9 = and i8 %8, 63
   %and20.i.i34 = zext nneg i8 %9 to i32
   %or22.i.i35 = or disjoint i32 %or17.i.i32, %and20.i.i34
-  %arrayidx24.i.i36 = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shiftc, i64 0, i64 %idx.ext.i.i17
+  %arrayidx24.i.i36 = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shiftc, i64 0, i64 %idx.ext.i.i17
   %10 = load i32, ptr %arrayidx24.i.i36, align 4
   %shr25.i.i37 = lshr i32 %or22.i.i35, %10
-  %arrayidx27.i.i38 = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.mins, i64 0, i64 %idx.ext.i.i17
+  %arrayidx27.i.i38 = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.mins, i64 0, i64 %idx.ext.i.i17
   %11 = load i32, ptr %arrayidx27.i.i38, align 4
   %cmp.i.i39 = icmp ult i32 %shr25.i.i37, %11
   %shl29.i.i40 = select i1 %cmp.i.i39, i32 64, i32 0
@@ -61815,7 +61815,7 @@ for.body.i.i:                                     ; preds = %if.then.i.i, %_ZZN3
   %or48.i.i50 = or disjoint i32 %or43.i.i49, %shl37.i.i45
   %or52.i.i51 = or disjoint i32 %or48.i.i50, %shl33.i.i43
   %xor.i.i52 = xor i32 %or52.i.i51, 42
-  %arrayidx54.i.i53 = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shifte, i64 0, i64 %idx.ext.i.i17
+  %arrayidx54.i.i53 = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shifte, i64 0, i64 %idx.ext.i.i17
   %17 = load i32, ptr %arrayidx54.i.i53, align 4
   %shr55.i.i54 = lshr i32 %xor.i.i52, %17
   %tobool.not.i55 = icmp eq i32 %shr55.i.i54, 0
@@ -61878,7 +61878,7 @@ do.body.i.i:                                      ; preds = %_ZZN3fmt3v106detail
   %conv2.i.i = and i32 %20, 1
   %idx.ext3.i.i = zext nneg i32 %conv2.i.i to i64
   %add.ptr4.i.i8 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i7, i64 %idx.ext3.i.i
-  %arrayidx8.i.i = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.masks, i64 0, i64 %idx.ext.i.i
+  %arrayidx8.i.i = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.masks, i64 0, i64 %idx.ext.i.i
   %21 = load i32, ptr %arrayidx8.i.i, align 4
   %and.i.i = and i32 %21, %conv.i.i
   %shl.i.i = shl nuw nsw i32 %and.i.i, 18
@@ -61899,10 +61899,10 @@ do.body.i.i:                                      ; preds = %_ZZN3fmt3v106detail
   %27 = and i8 %26, 63
   %and20.i.i = zext nneg i8 %27 to i32
   %or22.i.i = or disjoint i32 %or17.i.i, %and20.i.i
-  %arrayidx24.i.i = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shiftc, i64 0, i64 %idx.ext.i.i
+  %arrayidx24.i.i = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shiftc, i64 0, i64 %idx.ext.i.i
   %28 = load i32, ptr %arrayidx24.i.i, align 4
   %shr25.i.i = lshr i32 %or22.i.i, %28
-  %arrayidx27.i.i = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.mins, i64 0, i64 %idx.ext.i.i
+  %arrayidx27.i.i = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.mins, i64 0, i64 %idx.ext.i.i
   %29 = load i32, ptr %arrayidx27.i.i, align 4
   %cmp.i.i9 = icmp ult i32 %shr25.i.i, %29
   %shl29.i.i = select i1 %cmp.i.i9, i32 64, i32 0
@@ -61923,7 +61923,7 @@ do.body.i.i:                                      ; preds = %_ZZN3fmt3v106detail
   %or48.i.i = or disjoint i32 %or43.i.i, %shl37.i.i
   %or52.i.i = or disjoint i32 %or48.i.i, %shl33.i.i
   %xor.i.i = xor i32 %or52.i.i, 42
-  %arrayidx54.i.i = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shifte, i64 0, i64 %idx.ext.i.i
+  %arrayidx54.i.i = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shifte, i64 0, i64 %idx.ext.i.i
   %35 = load i32, ptr %arrayidx54.i.i, align 4
   %shr55.i.i = lshr i32 %xor.i.i, %35
   %tobool.not.i = icmp eq i32 %shr55.i.i, 0
@@ -62331,7 +62331,7 @@ for.body:                                         ; preds = %for.cond
   %arrayidx.i.i = getelementptr inbounds nuw [32 x i8], ptr @.str.1032, i64 0, i64 %idxprom.i.i
   %1 = load i8, ptr %arrayidx.i.i, align 1
   %idx.ext.i.i = sext i8 %1 to i64
-  %arrayidx8.i.i = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.masks, i64 0, i64 %idx.ext.i.i
+  %arrayidx8.i.i = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.masks, i64 0, i64 %idx.ext.i.i
   %2 = load i32, ptr %arrayidx8.i.i, align 4
   %arrayidx9.i.i = getelementptr inbounds nuw i8, ptr %p.1, i64 1
   %3 = load i8, ptr %arrayidx9.i.i, align 1
@@ -62339,11 +62339,11 @@ for.body:                                         ; preds = %for.cond
   %4 = load i8, ptr %arrayidx13.i.i, align 1
   %arrayidx18.i.i = getelementptr inbounds nuw i8, ptr %p.1, i64 3
   %5 = load i8, ptr %arrayidx18.i.i, align 1
-  %arrayidx24.i.i = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shiftc, i64 0, i64 %idx.ext.i.i
+  %arrayidx24.i.i = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shiftc, i64 0, i64 %idx.ext.i.i
   %6 = load i32, ptr %arrayidx24.i.i, align 4
-  %arrayidx27.i.i = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.mins, i64 0, i64 %idx.ext.i.i
+  %arrayidx27.i.i = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.mins, i64 0, i64 %idx.ext.i.i
   %7 = load i32, ptr %arrayidx27.i.i, align 4
-  %arrayidx54.i.i = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shifte, i64 0, i64 %idx.ext.i.i
+  %arrayidx54.i.i = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shifte, i64 0, i64 %idx.ext.i.i
   %8 = load i32, ptr %arrayidx54.i.i, align 4
   %9 = load i64, ptr %decode.sroa.3.0.copyload, align 8
   %cmp.not.i.not.i = icmp eq i64 %9, 0
@@ -62442,11 +62442,11 @@ if.end21:                                         ; preds = %do.body
   %arrayidx.i.i21 = getelementptr inbounds nuw [32 x i8], ptr @.str.1032, i64 0, i64 %idxprom.i.i20
   %20 = load i8, ptr %arrayidx.i.i21, align 1
   %idx.ext.i.i22 = sext i8 %20 to i64
-  %arrayidx54.i.i29 = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shifte, i64 0, i64 %idx.ext.i.i22
+  %arrayidx54.i.i29 = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shifte, i64 0, i64 %idx.ext.i.i22
   %21 = load i32, ptr %arrayidx54.i.i29, align 4
-  %arrayidx27.i.i28 = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.mins, i64 0, i64 %idx.ext.i.i22
+  %arrayidx27.i.i28 = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.mins, i64 0, i64 %idx.ext.i.i22
   %22 = load i32, ptr %arrayidx27.i.i28, align 4
-  %arrayidx24.i.i27 = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shiftc, i64 0, i64 %idx.ext.i.i22
+  %arrayidx24.i.i27 = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shiftc, i64 0, i64 %idx.ext.i.i22
   %23 = load i32, ptr %arrayidx24.i.i27, align 4
   %arrayidx18.i.i26 = getelementptr inbounds nuw i8, ptr %buf_ptr.0, i64 3
   %24 = load i8, ptr %arrayidx18.i.i26, align 1
@@ -62454,7 +62454,7 @@ if.end21:                                         ; preds = %do.body
   %25 = load i8, ptr %arrayidx13.i.i25, align 1
   %arrayidx9.i.i24 = getelementptr inbounds nuw i8, ptr %buf_ptr.0, i64 1
   %26 = load i8, ptr %arrayidx9.i.i24, align 1
-  %arrayidx8.i.i23 = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.masks, i64 0, i64 %idx.ext.i.i22
+  %arrayidx8.i.i23 = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.masks, i64 0, i64 %idx.ext.i.i22
   %27 = load i32, ptr %arrayidx8.i.i23, align 4
   %dec.i.i32 = add i64 %dec.i.i3284, -1
   store i64 %dec.i.i32, ptr %decode.sroa.3.0.copyload, align 8
@@ -62682,7 +62682,7 @@ entry:
   %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr @.str.1032, i64 0, i64 %idxprom.i
   %1 = load i8, ptr %arrayidx.i, align 1
   %idx.ext.i = sext i8 %1 to i64
-  %arrayidx8.i = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.masks, i64 0, i64 %idx.ext.i
+  %arrayidx8.i = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.masks, i64 0, i64 %idx.ext.i
   %2 = load i32, ptr %arrayidx8.i, align 4
   %and.i = and i32 %2, %conv.i
   %shl.i = shl nuw nsw i32 %and.i, 18
@@ -62703,10 +62703,10 @@ entry:
   %8 = and i8 %7, 63
   %and20.i = zext nneg i8 %8 to i32
   %or22.i = or disjoint i32 %or17.i, %and20.i
-  %arrayidx24.i = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shiftc, i64 0, i64 %idx.ext.i
+  %arrayidx24.i = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shiftc, i64 0, i64 %idx.ext.i
   %9 = load i32, ptr %arrayidx24.i, align 4
   %shr25.i = lshr i32 %or22.i, %9
-  %arrayidx27.i = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.mins, i64 0, i64 %idx.ext.i
+  %arrayidx27.i = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.mins, i64 0, i64 %idx.ext.i
   %10 = load i32, ptr %arrayidx27.i, align 4
   %cmp.i = icmp ult i32 %shr25.i, %10
   %shl29.i = select i1 %cmp.i, i32 64, i32 0
@@ -62727,7 +62727,7 @@ entry:
   %or48.i = or disjoint i32 %or43.i, %shl37.i
   %or52.i = or disjoint i32 %or48.i, %shl33.i
   %xor.i = xor i32 %or52.i, 42
-  %arrayidx54.i = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shifte, i64 0, i64 %idx.ext.i
+  %arrayidx54.i = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shifte, i64 0, i64 %idx.ext.i
   %16 = load i32, ptr %arrayidx54.i, align 4
   %shr55.i = lshr i32 %xor.i, %16
   %tobool.not = icmp eq i32 %shr55.i, 0
@@ -62864,7 +62864,7 @@ for.body.i.i:                                     ; preds = %if.then.i.i, %_ZZN3
   %conv2.i.i41 = and i32 %7, 1
   %idx.ext3.i.i42 = zext nneg i32 %conv2.i.i41 to i64
   %add.ptr4.i.i43 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i40, i64 %idx.ext3.i.i42
-  %arrayidx8.i.i44 = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.masks, i64 0, i64 %idx.ext.i.i39
+  %arrayidx8.i.i44 = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.masks, i64 0, i64 %idx.ext.i.i39
   %8 = load i32, ptr %arrayidx8.i.i44, align 4
   %and.i.i45 = and i32 %8, %conv.i.i35
   %shl.i.i46 = shl nuw nsw i32 %and.i.i45, 18
@@ -62885,10 +62885,10 @@ for.body.i.i:                                     ; preds = %if.then.i.i, %_ZZN3
   %14 = and i8 %13, 63
   %and20.i.i56 = zext nneg i8 %14 to i32
   %or22.i.i57 = or disjoint i32 %or17.i.i54, %and20.i.i56
-  %arrayidx24.i.i58 = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shiftc, i64 0, i64 %idx.ext.i.i39
+  %arrayidx24.i.i58 = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shiftc, i64 0, i64 %idx.ext.i.i39
   %15 = load i32, ptr %arrayidx24.i.i58, align 4
   %shr25.i.i59 = lshr i32 %or22.i.i57, %15
-  %arrayidx27.i.i60 = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.mins, i64 0, i64 %idx.ext.i.i39
+  %arrayidx27.i.i60 = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.mins, i64 0, i64 %idx.ext.i.i39
   %16 = load i32, ptr %arrayidx27.i.i60, align 4
   %cmp.i.i61 = icmp ult i32 %shr25.i.i59, %16
   %shl29.i.i62 = select i1 %cmp.i.i61, i32 64, i32 0
@@ -62909,7 +62909,7 @@ for.body.i.i:                                     ; preds = %if.then.i.i, %_ZZN3
   %or48.i.i72 = or disjoint i32 %or43.i.i71, %shl37.i.i67
   %or52.i.i73 = or disjoint i32 %or48.i.i72, %shl33.i.i65
   %xor.i.i74 = xor i32 %or52.i.i73, 42
-  %arrayidx54.i.i75 = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shifte, i64 0, i64 %idx.ext.i.i39
+  %arrayidx54.i.i75 = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shifte, i64 0, i64 %idx.ext.i.i39
   %22 = load i32, ptr %arrayidx54.i.i75, align 4
   %shr55.i.i76 = lshr i32 %xor.i.i74, %22
   %tobool.not.i77 = icmp eq i32 %shr55.i.i76, 0
@@ -62972,7 +62972,7 @@ do.body.i.i:                                      ; preds = %_ZZN3fmt3v106detail
   %conv2.i.i = and i32 %25, 1
   %idx.ext3.i.i = zext nneg i32 %conv2.i.i to i64
   %add.ptr4.i.i29 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i28, i64 %idx.ext3.i.i
-  %arrayidx8.i.i = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.masks, i64 0, i64 %idx.ext.i.i
+  %arrayidx8.i.i = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.masks, i64 0, i64 %idx.ext.i.i
   %26 = load i32, ptr %arrayidx8.i.i, align 4
   %and.i.i = and i32 %26, %conv.i.i
   %shl.i.i = shl nuw nsw i32 %and.i.i, 18
@@ -62993,10 +62993,10 @@ do.body.i.i:                                      ; preds = %_ZZN3fmt3v106detail
   %32 = and i8 %31, 63
   %and20.i.i = zext nneg i8 %32 to i32
   %or22.i.i = or disjoint i32 %or17.i.i, %and20.i.i
-  %arrayidx24.i.i = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shiftc, i64 0, i64 %idx.ext.i.i
+  %arrayidx24.i.i = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shiftc, i64 0, i64 %idx.ext.i.i
   %33 = load i32, ptr %arrayidx24.i.i, align 4
   %shr25.i.i = lshr i32 %or22.i.i, %33
-  %arrayidx27.i.i = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.mins, i64 0, i64 %idx.ext.i.i
+  %arrayidx27.i.i = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.mins, i64 0, i64 %idx.ext.i.i
   %34 = load i32, ptr %arrayidx27.i.i, align 4
   %cmp.i.i30 = icmp ult i32 %shr25.i.i, %34
   %shl29.i.i = select i1 %cmp.i.i30, i32 64, i32 0
@@ -63017,7 +63017,7 @@ do.body.i.i:                                      ; preds = %_ZZN3fmt3v106detail
   %or48.i.i = or disjoint i32 %or43.i.i, %shl37.i.i
   %or52.i.i = or disjoint i32 %or48.i.i, %shl33.i.i
   %xor.i.i = xor i32 %or52.i.i, 42
-  %arrayidx54.i.i = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shifte, i64 0, i64 %idx.ext.i.i
+  %arrayidx54.i.i = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shifte, i64 0, i64 %idx.ext.i.i
   %40 = load i32, ptr %arrayidx54.i.i, align 4
   %shr55.i.i = lshr i32 %xor.i.i, %40
   %tobool.not.i = icmp eq i32 %shr55.i.i, 0
@@ -63426,7 +63426,7 @@ _ZN3fmt3v106detail11format_uintILj4EcjEEPT0_S4_T1_ib.exit: ; preds = %do.body.i
 while.body.i.i:                                   ; preds = %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i, %_ZN3fmt3v106detail11format_uintILj4EcjEEPT0_S4_T1_ib.exit
   %11 = phi i64 [ %.pre.i.i18, %_ZN3fmt3v106detail11format_uintILj4EcjEEPT0_S4_T1_ib.exit ], [ %add7.i.i, %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i ]
   %begin.addr.011.i.i.idx = phi i64 [ 0, %_ZN3fmt3v106detail11format_uintILj4EcjEEPT0_S4_T1_ib.exit ], [ %begin.addr.011.i.i.add, %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i ]
-  %begin.addr.011.i.i.ptr = getelementptr inbounds nuw i8, ptr %buf, i64 %begin.addr.011.i.i.idx
+  %begin.addr.011.i.i.ptr = getelementptr inbounds i8, ptr %buf, i64 %begin.addr.011.i.i.idx
   %gepdiff = sub nsw i64 2, %begin.addr.011.i.i.idx
   %add.i.i19 = add i64 %gepdiff, %11
   %12 = load i64, ptr %capacity_.i.i.i, align 8
@@ -63541,7 +63541,7 @@ _ZN3fmt3v106detail11format_uintILj4EcjEEPT0_S4_T1_ib.exit: ; preds = %do.body.i
 while.body.i.i:                                   ; preds = %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i, %_ZN3fmt3v106detail11format_uintILj4EcjEEPT0_S4_T1_ib.exit
   %11 = phi i64 [ %.pre.i.i18, %_ZN3fmt3v106detail11format_uintILj4EcjEEPT0_S4_T1_ib.exit ], [ %add7.i.i, %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i ]
   %begin.addr.011.i.i.idx = phi i64 [ 0, %_ZN3fmt3v106detail11format_uintILj4EcjEEPT0_S4_T1_ib.exit ], [ %begin.addr.011.i.i.add, %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i ]
-  %begin.addr.011.i.i.ptr = getelementptr inbounds nuw i8, ptr %buf, i64 %begin.addr.011.i.i.idx
+  %begin.addr.011.i.i.ptr = getelementptr inbounds i8, ptr %buf, i64 %begin.addr.011.i.i.idx
   %gepdiff = sub nsw i64 4, %begin.addr.011.i.i.idx
   %add.i.i19 = add i64 %gepdiff, %11
   %12 = load i64, ptr %capacity_.i.i.i, align 8
@@ -63656,7 +63656,7 @@ _ZN3fmt3v106detail11format_uintILj4EcjEEPT0_S4_T1_ib.exit: ; preds = %do.body.i
 while.body.i.i:                                   ; preds = %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i, %_ZN3fmt3v106detail11format_uintILj4EcjEEPT0_S4_T1_ib.exit
   %11 = phi i64 [ %.pre.i.i18, %_ZN3fmt3v106detail11format_uintILj4EcjEEPT0_S4_T1_ib.exit ], [ %add7.i.i, %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i ]
   %begin.addr.011.i.i.idx = phi i64 [ 0, %_ZN3fmt3v106detail11format_uintILj4EcjEEPT0_S4_T1_ib.exit ], [ %begin.addr.011.i.i.add, %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i ]
-  %begin.addr.011.i.i.ptr = getelementptr inbounds nuw i8, ptr %buf, i64 %begin.addr.011.i.i.idx
+  %begin.addr.011.i.i.ptr = getelementptr inbounds i8, ptr %buf, i64 %begin.addr.011.i.i.idx
   %gepdiff = sub nsw i64 8, %begin.addr.011.i.i.idx
   %add.i.i19 = add i64 %gepdiff, %11
   %12 = load i64, ptr %capacity_.i.i.i, align 8
@@ -69161,7 +69161,7 @@ if.end10:                                         ; preds = %_ZN3fmt3v106detail1
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buffer.i, i8 0, i64 10, i1 false)
   %idx.ext.i.i = ashr i64 %add.i.i, 32
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i64 %value, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -69349,7 +69349,7 @@ invoke.cont10:                                    ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -69618,7 +69618,7 @@ invoke.cont8:                                     ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -71276,7 +71276,7 @@ if.end10:                                         ; preds = %_ZN3fmt3v106detail1
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buffer.i, i8 0, i64 10, i1 false)
   %idx.ext.i.i = ashr i64 %add.i.i, 32
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i32 %value, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -71461,7 +71461,7 @@ invoke.cont10:                                    ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -71606,7 +71606,7 @@ _ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcE
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i, i8 0, i64 20, i1 false)
   %idx.ext.i.i = sext i32 %sub.i.i to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i32 %d.coerce, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -71771,7 +71771,7 @@ _ZN3fmt3v106detail5pow10Ej.exit:                  ; preds = %cond.false.i, %if.t
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i78)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i78, i8 0, i64 20, i1 false)
   %idx.ext.i.i79 = sext i32 %sub45 to i64
-  %add.ptr.i.i80 = getelementptr inbounds nuw i8, ptr %buffer.i78, i64 %idx.ext.i.i79
+  %add.ptr.i.i80 = getelementptr inbounds i8, ptr %buffer.i78, i64 %idx.ext.i.i79
   %cmp119.i.i81 = icmp samesign ugt i64 %div, 99
   br i1 %cmp119.i.i81, label %while.body.i.i114, label %while.end.i.i82
 
@@ -71851,7 +71851,7 @@ if.end:                                           ; preds = %_ZSt6fill_nISt20bac
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i124)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i124, i8 0, i64 20, i1 false)
   %idx.ext.i.i125 = sext i32 %sub.i.i to i64
-  %add.ptr.i.i126 = getelementptr inbounds nuw i8, ptr %buffer.i124, i64 %idx.ext.i.i125
+  %add.ptr.i.i126 = getelementptr inbounds i8, ptr %buffer.i124, i64 %idx.ext.i.i125
   %cmp119.i.i127 = icmp ugt i32 %d.coerce, 99
   br i1 %cmp119.i.i127, label %while.body.i.i160, label %while.end.i.i128
 
@@ -72073,7 +72073,7 @@ invoke.cont8:                                     ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -73731,7 +73731,7 @@ if.end10:                                         ; preds = %_ZN3fmt3v106detail1
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buffer.i, i8 0, i64 10, i1 false)
   %idx.ext.i.i = ashr i64 %add.i.i, 32
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i32 %value, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -73916,7 +73916,7 @@ invoke.cont10:                                    ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -74061,7 +74061,7 @@ _ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcE
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i, i8 0, i64 20, i1 false)
   %idx.ext.i.i = sext i32 %sub.i.i to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i32 %d.coerce, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -74226,7 +74226,7 @@ _ZN3fmt3v106detail5pow10Ej.exit:                  ; preds = %cond.false.i, %if.t
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i78)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i78, i8 0, i64 20, i1 false)
   %idx.ext.i.i79 = sext i32 %sub45 to i64
-  %add.ptr.i.i80 = getelementptr inbounds nuw i8, ptr %buffer.i78, i64 %idx.ext.i.i79
+  %add.ptr.i.i80 = getelementptr inbounds i8, ptr %buffer.i78, i64 %idx.ext.i.i79
   %cmp119.i.i81 = icmp samesign ugt i64 %div, 99
   br i1 %cmp119.i.i81, label %while.body.i.i114, label %while.end.i.i82
 
@@ -74306,7 +74306,7 @@ if.end:                                           ; preds = %_ZSt6fill_nISt20bac
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i124)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i124, i8 0, i64 20, i1 false)
   %idx.ext.i.i125 = sext i32 %sub.i.i to i64
-  %add.ptr.i.i126 = getelementptr inbounds nuw i8, ptr %buffer.i124, i64 %idx.ext.i.i125
+  %add.ptr.i.i126 = getelementptr inbounds i8, ptr %buffer.i124, i64 %idx.ext.i.i125
   %cmp119.i.i127 = icmp ugt i32 %d.coerce, 99
   br i1 %cmp119.i.i127, label %while.body.i.i160, label %while.end.i.i128
 
@@ -74528,7 +74528,7 @@ invoke.cont8:                                     ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -76109,7 +76109,7 @@ if.end10:                                         ; preds = %_ZN3fmt3v106detail1
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buffer.i, i8 0, i64 10, i1 false)
   %idx.ext.i.i = ashr i64 %add.i.i, 32
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i32 %value, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -76294,7 +76294,7 @@ invoke.cont10:                                    ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -76439,7 +76439,7 @@ _ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcE
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i, i8 0, i64 20, i1 false)
   %idx.ext.i.i = sext i32 %sub.i.i to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i32 %d.coerce, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -76604,7 +76604,7 @@ _ZN3fmt3v106detail5pow10Ej.exit:                  ; preds = %cond.false.i, %if.t
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i78)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i78, i8 0, i64 20, i1 false)
   %idx.ext.i.i79 = sext i32 %sub45 to i64
-  %add.ptr.i.i80 = getelementptr inbounds nuw i8, ptr %buffer.i78, i64 %idx.ext.i.i79
+  %add.ptr.i.i80 = getelementptr inbounds i8, ptr %buffer.i78, i64 %idx.ext.i.i79
   %cmp119.i.i81 = icmp samesign ugt i64 %div, 99
   br i1 %cmp119.i.i81, label %while.body.i.i114, label %while.end.i.i82
 
@@ -76684,7 +76684,7 @@ if.end:                                           ; preds = %_ZSt6fill_nISt20bac
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i124)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i124, i8 0, i64 20, i1 false)
   %idx.ext.i.i125 = sext i32 %sub.i.i to i64
-  %add.ptr.i.i126 = getelementptr inbounds nuw i8, ptr %buffer.i124, i64 %idx.ext.i.i125
+  %add.ptr.i.i126 = getelementptr inbounds i8, ptr %buffer.i124, i64 %idx.ext.i.i125
   %cmp119.i.i127 = icmp ugt i32 %d.coerce, 99
   br i1 %cmp119.i.i127, label %while.body.i.i160, label %while.end.i.i128
 
@@ -76906,7 +76906,7 @@ invoke.cont8:                                     ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -78498,7 +78498,7 @@ if.end10:                                         ; preds = %_ZN3fmt3v106detail1
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buffer.i, i8 0, i64 10, i1 false)
   %idx.ext.i.i = ashr i64 %add.i.i, 32
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i64 %value, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -78683,7 +78683,7 @@ invoke.cont10:                                    ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -78829,7 +78829,7 @@ _ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcE
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i, i8 0, i64 20, i1 false)
   %idx.ext.i.i = sext i32 %sub.i.i to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp samesign ugt i64 %0, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -78994,7 +78994,7 @@ _ZN3fmt3v106detail5pow10Ej.exit:                  ; preds = %cond.false.i, %if.t
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i79)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i79, i8 0, i64 20, i1 false)
   %idx.ext.i.i80 = sext i32 %sub45 to i64
-  %add.ptr.i.i81 = getelementptr inbounds nuw i8, ptr %buffer.i79, i64 %idx.ext.i.i80
+  %add.ptr.i.i81 = getelementptr inbounds i8, ptr %buffer.i79, i64 %idx.ext.i.i80
   %cmp119.i.i82 = icmp samesign ugt i64 %div, 99
   br i1 %cmp119.i.i82, label %while.body.i.i115, label %while.end.i.i83
 
@@ -79074,7 +79074,7 @@ if.end:                                           ; preds = %_ZSt6fill_nISt20bac
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i125)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i125, i8 0, i64 20, i1 false)
   %idx.ext.i.i126 = sext i32 %sub.i.i to i64
-  %add.ptr.i.i127 = getelementptr inbounds nuw i8, ptr %buffer.i125, i64 %idx.ext.i.i126
+  %add.ptr.i.i127 = getelementptr inbounds i8, ptr %buffer.i125, i64 %idx.ext.i.i126
   %cmp119.i.i128 = icmp samesign ugt i64 %0, 99
   br i1 %cmp119.i.i128, label %while.body.i.i161, label %while.end.i.i129
 
@@ -79296,7 +79296,7 @@ invoke.cont8:                                     ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -80888,7 +80888,7 @@ if.end10:                                         ; preds = %_ZN3fmt3v106detail1
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buffer.i, i8 0, i64 10, i1 false)
   %idx.ext.i.i = ashr i64 %add.i.i, 32
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i64 %value, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -81073,7 +81073,7 @@ invoke.cont10:                                    ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -81219,7 +81219,7 @@ _ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcE
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i, i8 0, i64 20, i1 false)
   %idx.ext.i.i = sext i32 %sub.i.i to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp samesign ugt i64 %0, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -81384,7 +81384,7 @@ _ZN3fmt3v106detail5pow10Ej.exit:                  ; preds = %cond.false.i, %if.t
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i79)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i79, i8 0, i64 20, i1 false)
   %idx.ext.i.i80 = sext i32 %sub45 to i64
-  %add.ptr.i.i81 = getelementptr inbounds nuw i8, ptr %buffer.i79, i64 %idx.ext.i.i80
+  %add.ptr.i.i81 = getelementptr inbounds i8, ptr %buffer.i79, i64 %idx.ext.i.i80
   %cmp119.i.i82 = icmp samesign ugt i64 %div, 99
   br i1 %cmp119.i.i82, label %while.body.i.i115, label %while.end.i.i83
 
@@ -81464,7 +81464,7 @@ if.end:                                           ; preds = %_ZSt6fill_nISt20bac
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i125)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i125, i8 0, i64 20, i1 false)
   %idx.ext.i.i126 = sext i32 %sub.i.i to i64
-  %add.ptr.i.i127 = getelementptr inbounds nuw i8, ptr %buffer.i125, i64 %idx.ext.i.i126
+  %add.ptr.i.i127 = getelementptr inbounds i8, ptr %buffer.i125, i64 %idx.ext.i.i126
   %cmp119.i.i128 = icmp samesign ugt i64 %0, 99
   br i1 %cmp119.i.i128, label %while.body.i.i161, label %while.end.i.i129
 
@@ -81686,7 +81686,7 @@ invoke.cont8:                                     ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -83278,7 +83278,7 @@ if.end10:                                         ; preds = %_ZN3fmt3v106detail1
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buffer.i, i8 0, i64 10, i1 false)
   %idx.ext.i.i = ashr i64 %add.i.i, 32
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i64 %value, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -83463,7 +83463,7 @@ invoke.cont10:                                    ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -83609,7 +83609,7 @@ _ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcE
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i, i8 0, i64 20, i1 false)
   %idx.ext.i.i = sext i32 %sub.i.i to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp samesign ugt i64 %0, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -83771,7 +83771,7 @@ _ZN3fmt3v106detail5pow10Ej.exit:                  ; preds = %cond.false.i, %if.t
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i79)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i79, i8 0, i64 20, i1 false)
   %idx.ext.i.i80 = sext i32 %sub45 to i64
-  %add.ptr.i.i81 = getelementptr inbounds nuw i8, ptr %buffer.i79, i64 %idx.ext.i.i80
+  %add.ptr.i.i81 = getelementptr inbounds i8, ptr %buffer.i79, i64 %idx.ext.i.i80
   %cmp119.i.i82 = icmp samesign ugt i64 %div, 99
   br i1 %cmp119.i.i82, label %while.body.i.i115, label %while.end.i.i83
 
@@ -83848,7 +83848,7 @@ if.end:                                           ; preds = %_ZSt6fill_nISt20bac
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i125)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i125, i8 0, i64 20, i1 false)
   %idx.ext.i.i126 = sext i32 %sub.i.i to i64
-  %add.ptr.i.i127 = getelementptr inbounds nuw i8, ptr %buffer.i125, i64 %idx.ext.i.i126
+  %add.ptr.i.i127 = getelementptr inbounds i8, ptr %buffer.i125, i64 %idx.ext.i.i126
   %cmp119.i.i128 = icmp samesign ugt i64 %0, 99
   br i1 %cmp119.i.i128, label %while.body.i.i161, label %while.end.i.i129
 
@@ -84067,7 +84067,7 @@ invoke.cont8:                                     ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -85650,7 +85650,7 @@ if.end10:                                         ; preds = %_ZN3fmt3v106detail1
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buffer.i, i8 0, i64 10, i1 false)
   %idx.ext.i.i = ashr i64 %add.i.i, 32
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i32 %value, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -85835,7 +85835,7 @@ invoke.cont10:                                    ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -85984,7 +85984,7 @@ _ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcE
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i, i8 0, i64 20, i1 false)
   %idx.ext.i.i = sext i32 %sub.i.i to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i64 %sub.i, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -86149,7 +86149,7 @@ _ZN3fmt3v106detail5pow10Ej.exit:                  ; preds = %cond.false.i, %if.t
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i78)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i78, i8 0, i64 20, i1 false)
   %idx.ext.i.i79 = sext i32 %sub45 to i64
-  %add.ptr.i.i80 = getelementptr inbounds nuw i8, ptr %buffer.i78, i64 %idx.ext.i.i79
+  %add.ptr.i.i80 = getelementptr inbounds i8, ptr %buffer.i78, i64 %idx.ext.i.i79
   %cmp119.i.i81 = icmp ugt i64 %div, 99
   br i1 %cmp119.i.i81, label %while.body.i.i114, label %while.end.i.i82
 
@@ -86229,7 +86229,7 @@ if.end:                                           ; preds = %_ZSt6fill_nISt20bac
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i124)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i124, i8 0, i64 20, i1 false)
   %idx.ext.i.i125 = sext i32 %sub.i.i to i64
-  %add.ptr.i.i126 = getelementptr inbounds nuw i8, ptr %buffer.i124, i64 %idx.ext.i.i125
+  %add.ptr.i.i126 = getelementptr inbounds i8, ptr %buffer.i124, i64 %idx.ext.i.i125
   %cmp119.i.i127 = icmp ugt i64 %sub.i, 99
   br i1 %cmp119.i.i127, label %while.body.i.i160, label %while.end.i.i128
 
@@ -86451,7 +86451,7 @@ invoke.cont8:                                     ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -88034,7 +88034,7 @@ if.end10:                                         ; preds = %_ZN3fmt3v106detail1
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buffer.i, i8 0, i64 10, i1 false)
   %idx.ext.i.i = ashr i64 %add.i.i, 32
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i32 %value, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -88219,7 +88219,7 @@ invoke.cont10:                                    ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -88368,7 +88368,7 @@ _ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcE
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i, i8 0, i64 20, i1 false)
   %idx.ext.i.i = sext i32 %sub.i.i to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i64 %sub.i, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -88533,7 +88533,7 @@ _ZN3fmt3v106detail5pow10Ej.exit:                  ; preds = %cond.false.i, %if.t
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i78)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i78, i8 0, i64 20, i1 false)
   %idx.ext.i.i79 = sext i32 %sub45 to i64
-  %add.ptr.i.i80 = getelementptr inbounds nuw i8, ptr %buffer.i78, i64 %idx.ext.i.i79
+  %add.ptr.i.i80 = getelementptr inbounds i8, ptr %buffer.i78, i64 %idx.ext.i.i79
   %cmp119.i.i81 = icmp ugt i64 %div, 99
   br i1 %cmp119.i.i81, label %while.body.i.i114, label %while.end.i.i82
 
@@ -88613,7 +88613,7 @@ if.end:                                           ; preds = %_ZSt6fill_nISt20bac
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i124)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i124, i8 0, i64 20, i1 false)
   %idx.ext.i.i125 = sext i32 %sub.i.i to i64
-  %add.ptr.i.i126 = getelementptr inbounds nuw i8, ptr %buffer.i124, i64 %idx.ext.i.i125
+  %add.ptr.i.i126 = getelementptr inbounds i8, ptr %buffer.i124, i64 %idx.ext.i.i125
   %cmp119.i.i127 = icmp ugt i64 %sub.i, 99
   br i1 %cmp119.i.i127, label %while.body.i.i160, label %while.end.i.i128
 
@@ -88835,7 +88835,7 @@ invoke.cont8:                                     ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -90545,7 +90545,7 @@ if.end10:                                         ; preds = %_ZN3fmt3v106detail1
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buffer.i, i8 0, i64 10, i1 false)
   %idx.ext.i.i = ashr i64 %add.i.i, 32
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i32 %value, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -90730,7 +90730,7 @@ invoke.cont10:                                    ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -90884,7 +90884,7 @@ invoke.cont8:                                     ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -92594,7 +92594,7 @@ if.end10:                                         ; preds = %_ZN3fmt3v106detail1
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buffer.i, i8 0, i64 10, i1 false)
   %idx.ext.i.i = ashr i64 %add.i.i, 32
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i32 %value, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -92779,7 +92779,7 @@ invoke.cont10:                                    ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -92933,7 +92933,7 @@ invoke.cont8:                                     ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -94643,7 +94643,7 @@ if.end10:                                         ; preds = %_ZN3fmt3v106detail1
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buffer.i, i8 0, i64 10, i1 false)
   %idx.ext.i.i = ashr i64 %add.i.i, 32
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i32 %value, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -94828,7 +94828,7 @@ invoke.cont10:                                    ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -94982,7 +94982,7 @@ invoke.cont8:                                     ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -96692,7 +96692,7 @@ if.end10:                                         ; preds = %_ZN3fmt3v106detail1
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buffer.i, i8 0, i64 10, i1 false)
   %idx.ext.i.i = ashr i64 %add.i.i, 32
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i32 %value, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -96877,7 +96877,7 @@ invoke.cont10:                                    ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -97031,7 +97031,7 @@ invoke.cont8:                                     ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -98741,7 +98741,7 @@ if.end10:                                         ; preds = %_ZN3fmt3v106detail1
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buffer.i, i8 0, i64 10, i1 false)
   %idx.ext.i.i = ashr i64 %add.i.i, 32
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i32 %value, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -98926,7 +98926,7 @@ invoke.cont10:                                    ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -99080,7 +99080,7 @@ invoke.cont8:                                     ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -100685,7 +100685,7 @@ if.end10:                                         ; preds = %_ZN3fmt3v106detail1
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buffer.i, i8 0, i64 10, i1 false)
   %idx.ext.i.i = ashr i64 %add.i.i, 32
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i32 %value, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -100870,7 +100870,7 @@ invoke.cont10:                                    ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -101139,7 +101139,7 @@ invoke.cont8:                                     ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -102744,7 +102744,7 @@ if.end10:                                         ; preds = %_ZN3fmt3v106detail1
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buffer.i, i8 0, i64 10, i1 false)
   %idx.ext.i.i = ashr i64 %add.i.i, 32
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i32 %value, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -102929,7 +102929,7 @@ invoke.cont10:                                    ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -103198,7 +103198,7 @@ invoke.cont8:                                     ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -104803,7 +104803,7 @@ if.end10:                                         ; preds = %_ZN3fmt3v106detail1
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buffer.i, i8 0, i64 10, i1 false)
   %idx.ext.i.i = ashr i64 %add.i.i, 32
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i32 %value, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -104988,7 +104988,7 @@ invoke.cont10:                                    ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -105257,7 +105257,7 @@ invoke.cont8:                                     ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -106873,7 +106873,7 @@ if.end10:                                         ; preds = %_ZN3fmt3v106detail1
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buffer.i, i8 0, i64 10, i1 false)
   %idx.ext.i.i = ashr i64 %add.i.i, 32
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i64 %value, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -107058,7 +107058,7 @@ invoke.cont10:                                    ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -107330,7 +107330,7 @@ invoke.cont8:                                     ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -108922,7 +108922,7 @@ if.end10:                                         ; preds = %_ZN3fmt3v106detail1
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buffer.i, i8 0, i64 10, i1 false)
   %idx.ext.i.i = ashr i64 %add.i.i, 32
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i64 %value, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -109107,7 +109107,7 @@ invoke.cont10:                                    ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -109379,7 +109379,7 @@ invoke.cont8:                                     ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -110971,7 +110971,7 @@ if.end10:                                         ; preds = %_ZN3fmt3v106detail1
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buffer.i, i8 0, i64 10, i1 false)
   %idx.ext.i.i = ashr i64 %add.i.i, 32
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i64 %value, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -111156,7 +111156,7 @@ invoke.cont10:                                    ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -111428,7 +111428,7 @@ invoke.cont8:                                     ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -113160,7 +113160,7 @@ if.end10:                                         ; preds = %_ZN3fmt3v106detail1
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buffer.i, i8 0, i64 10, i1 false)
   %idx.ext.i.i = ashr i64 %add.i.i, 32
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i32 %value, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -113345,7 +113345,7 @@ invoke.cont10:                                    ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -113499,7 +113499,7 @@ invoke.cont8:                                     ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -115249,7 +115249,7 @@ if.end10:                                         ; preds = %_ZN3fmt3v106detail1
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buffer.i, i8 0, i64 10, i1 false)
   %idx.ext.i.i = ashr i64 %add.i.i, 32
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i32 %value, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -115434,7 +115434,7 @@ invoke.cont10:                                    ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -115582,7 +115582,7 @@ _ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcE
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i, i8 0, i64 20, i1 false)
   %idx.ext.i.i = sext i32 %sub.i.i to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp4.i.i = icmp eq i32 %1, 0
   br i1 %cmp4.i.i, label %if.then.i.i, label %if.end.i.i
 
@@ -115726,7 +115726,7 @@ while.end.i.i83:                                  ; preds = %cond.false.i, %if.t
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i79)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i79, i8 0, i64 20, i1 false)
   %idx.ext.i.i80 = sext i32 %sub45 to i64
-  %add.ptr.i.i81 = getelementptr inbounds nuw i8, ptr %buffer.i79, i64 %idx.ext.i.i80
+  %add.ptr.i.i81 = getelementptr inbounds i8, ptr %buffer.i79, i64 %idx.ext.i.i80
   %cmp4.i.i86 = icmp samesign ult i64 %div, 10
   br i1 %cmp4.i.i86, label %if.then.i.i112, label %if.end.i.i87
 
@@ -115787,7 +115787,7 @@ if.end:                                           ; preds = %_ZSt6fill_nISt20bac
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i125)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i125, i8 0, i64 20, i1 false)
   %idx.ext.i.i126 = sext i32 %sub.i.i to i64
-  %add.ptr.i.i127 = getelementptr inbounds nuw i8, ptr %buffer.i125, i64 %idx.ext.i.i126
+  %add.ptr.i.i127 = getelementptr inbounds i8, ptr %buffer.i125, i64 %idx.ext.i.i126
   %cmp4.i.i132 = icmp eq i32 %1, 0
   br i1 %cmp4.i.i132, label %if.then.i.i158, label %if.end.i.i133
 
@@ -115988,7 +115988,7 @@ invoke.cont8:                                     ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -121019,7 +121019,7 @@ if.end17:                                         ; preds = %if.end, %_ZSt6fill_
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i, i8 0, i64 20, i1 false)
   %idx.ext.i.i = sext i32 %sub.i.i to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i64 %year.addr.0, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -121330,7 +121330,7 @@ _ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcE
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i, i8 0, i64 20, i1 false)
   %idx.ext.i.i = sext i32 %sub.i.i to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i64 %0, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -121495,7 +121495,7 @@ _ZN3fmt3v106detail5pow10Ej.exit:                  ; preds = %cond.false.i, %if.t
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i79)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i79, i8 0, i64 20, i1 false)
   %idx.ext.i.i80 = sext i32 %sub45 to i64
-  %add.ptr.i.i81 = getelementptr inbounds nuw i8, ptr %buffer.i79, i64 %idx.ext.i.i80
+  %add.ptr.i.i81 = getelementptr inbounds i8, ptr %buffer.i79, i64 %idx.ext.i.i80
   %cmp119.i.i82 = icmp ugt i64 %div, 99
   br i1 %cmp119.i.i82, label %while.body.i.i115, label %while.end.i.i83
 
@@ -121575,7 +121575,7 @@ if.end:                                           ; preds = %_ZSt6fill_nISt20bac
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i125)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i125, i8 0, i64 20, i1 false)
   %idx.ext.i.i126 = sext i32 %sub.i.i to i64
-  %add.ptr.i.i127 = getelementptr inbounds nuw i8, ptr %buffer.i125, i64 %idx.ext.i.i126
+  %add.ptr.i.i127 = getelementptr inbounds i8, ptr %buffer.i125, i64 %idx.ext.i.i126
   %cmp119.i.i128 = icmp ugt i64 %0, 99
   br i1 %cmp119.i.i128, label %while.body.i.i161, label %while.end.i.i129
 
@@ -124316,7 +124316,7 @@ if.end73:                                         ; preds = %_ZN3fmt3v106detail6
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buffer.i, i8 0, i64 10, i1 false)
   %idx.ext.i.i = ashr i64 %add.i.i133, 32
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp samesign ugt i32 %abs_e.0, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -124731,7 +124731,7 @@ if.then127:                                       ; preds = %if.then125.thread, 
   %conv128 = trunc i64 %prod.2309315 to i32
   %sub129 = sub nsw i32 8, %27
   %idxprom.i = sext i32 %sub129 to i64
-  %arrayidx.i120 = getelementptr inbounds nuw [9 x i32], ptr @.str.1091, i64 0, i64 %idxprom.i
+  %arrayidx.i120 = getelementptr inbounds [9 x i32], ptr @.str.1091, i64 0, i64 %idxprom.i
   %34 = load i32, ptr %arrayidx.i120, align 4
   %cmp131.not = icmp ugt i32 %34, %conv128
   br i1 %cmp131.not, label %lor.rhs, label %if.then199
@@ -125151,7 +125151,7 @@ if.end.i:                                         ; preds = %while.end.i
 if.end25:                                         ; preds = %entry, %_ZN3fmt3v106detail10to_pointerIcEEPT_NSt11conditionalIXsr3std7is_sameIS3_cEE5valueENS0_8appenderESt20back_insert_iteratorINS1_6bufferIS3_EEEE4typeEm.exit
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buffer.i, i8 0, i64 10, i1 false)
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %conv4
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %conv4
   %cmp119.i.i = icmp ugt i32 %value, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -125328,7 +125328,7 @@ if.end.i:                                         ; preds = %while.end.i
 if.end25:                                         ; preds = %entry, %_ZN3fmt3v106detail10to_pointerIcEEPT_NSt11conditionalIXsr3std7is_sameIS3_cEE5valueENS0_8appenderESt20back_insert_iteratorINS1_6bufferIS3_EEEE4typeEm.exit
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i, i8 0, i64 20, i1 false)
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %conv4
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %conv4
   %cmp119.i.i = icmp ugt i64 %value, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -131297,7 +131297,7 @@ if.end10:                                         ; preds = %_ZN3fmt3v106detail1
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buffer.i, i8 0, i64 10, i1 false)
   %idx.ext.i.i = ashr i64 %add.i.i, 32
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i32 %conv2.i, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -131527,7 +131527,7 @@ invoke.cont10:                                    ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %18 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %19 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %19, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -131730,7 +131730,7 @@ invoke.cont8:                                     ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %18 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %19 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %19, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -133782,7 +133782,7 @@ if.end10:                                         ; preds = %_ZN3fmt3v106detail1
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buffer.i, i8 0, i64 10, i1 false)
   %idx.ext.i.i = ashr i64 %add.i.i, 32
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i32 %conv2.i, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -134012,7 +134012,7 @@ invoke.cont10:                                    ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %18 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %19 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %19, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -134209,7 +134209,7 @@ invoke.cont8:                                     ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %18 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %19 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %19, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -136577,7 +136577,7 @@ if.end10:                                         ; preds = %_ZN3fmt3v106detail1
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buffer.i, i8 0, i64 10, i1 false)
   %idx.ext.i.i = ashr i64 %add.i.i, 32
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i32 %conv2.i, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -136807,7 +136807,7 @@ invoke.cont10:                                    ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %18 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %19 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %19, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -137010,7 +137010,7 @@ invoke.cont8:                                     ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %18 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %19 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %19, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -139060,7 +139060,7 @@ if.end10:                                         ; preds = %_ZN3fmt3v106detail1
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buffer.i, i8 0, i64 10, i1 false)
   %idx.ext.i.i = ashr i64 %add.i.i, 32
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i32 %conv2.i, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -139290,7 +139290,7 @@ invoke.cont10:                                    ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %18 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %19 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %19, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -139487,7 +139487,7 @@ invoke.cont8:                                     ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %18 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %19 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %19, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -141325,7 +141325,7 @@ if.end10:                                         ; preds = %_ZN3fmt3v106detail1
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buffer.i, i8 0, i64 10, i1 false)
   %idx.ext.i.i = ashr i64 %add.i.i, 32
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i8 %value, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -141507,7 +141507,7 @@ invoke.cont10:                                    ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -141656,7 +141656,7 @@ _ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcE
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i, i8 0, i64 20, i1 false)
   %idx.ext.i.i = sext i32 %sub.i.i to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i64 %sub.i, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -141821,7 +141821,7 @@ _ZN3fmt3v106detail5pow10Ej.exit:                  ; preds = %cond.false.i, %if.t
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i78)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i78, i8 0, i64 20, i1 false)
   %idx.ext.i.i79 = sext i32 %sub45 to i64
-  %add.ptr.i.i80 = getelementptr inbounds nuw i8, ptr %buffer.i78, i64 %idx.ext.i.i79
+  %add.ptr.i.i80 = getelementptr inbounds i8, ptr %buffer.i78, i64 %idx.ext.i.i79
   %cmp119.i.i81 = icmp ugt i64 %div, 99
   br i1 %cmp119.i.i81, label %while.body.i.i114, label %while.end.i.i82
 
@@ -141901,7 +141901,7 @@ if.end:                                           ; preds = %_ZSt6fill_nISt20bac
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i124)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i124, i8 0, i64 20, i1 false)
   %idx.ext.i.i125 = sext i32 %sub.i.i to i64
-  %add.ptr.i.i126 = getelementptr inbounds nuw i8, ptr %buffer.i124, i64 %idx.ext.i.i125
+  %add.ptr.i.i126 = getelementptr inbounds i8, ptr %buffer.i124, i64 %idx.ext.i.i125
   %cmp119.i.i127 = icmp ugt i64 %sub.i, 99
   br i1 %cmp119.i.i127, label %while.body.i.i160, label %while.end.i.i128
 
@@ -142123,7 +142123,7 @@ invoke.cont8:                                     ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -143780,7 +143780,7 @@ if.end10:                                         ; preds = %_ZN3fmt3v106detail1
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buffer.i, i8 0, i64 10, i1 false)
   %idx.ext.i.i = ashr i64 %add.i.i, 32
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i32 %value, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -143965,7 +143965,7 @@ invoke.cont10:                                    ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -144119,7 +144119,7 @@ invoke.cont8:                                     ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -146182,7 +146182,7 @@ if.end10:                                         ; preds = %_ZN3fmt3v106detail1
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buffer.i, i8 0, i64 10, i1 false)
   %idx.ext.i.i = ashr i64 %add.i.i, 32
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i32 %conv2.i, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -146412,7 +146412,7 @@ invoke.cont10:                                    ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %18 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %19 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %19, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -146609,7 +146609,7 @@ invoke.cont8:                                     ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %18 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %19 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %19, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -148650,7 +148650,7 @@ if.end10:                                         ; preds = %_ZN3fmt3v106detail1
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buffer.i, i8 0, i64 10, i1 false)
   %idx.ext.i.i = ashr i64 %add.i.i, 32
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i32 %conv2.i, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -148880,7 +148880,7 @@ invoke.cont10:                                    ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %18 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %19 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %19, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -149077,7 +149077,7 @@ invoke.cont8:                                     ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %18 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %19 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %19, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -150828,7 +150828,7 @@ if.end10:                                         ; preds = %_ZN3fmt3v106detail1
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buffer.i, i8 0, i64 10, i1 false)
   %idx.ext.i.i = ashr i64 %add.i.i, 32
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i8 %value, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -151010,7 +151010,7 @@ invoke.cont10:                                    ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -151164,7 +151164,7 @@ invoke.cont8:                                     ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -153115,7 +153115,7 @@ if.end10:                                         ; preds = %_ZN3fmt3v106detail1
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buffer.i, i8 0, i64 10, i1 false)
   %idx.ext.i.i = ashr i64 %add.i.i, 32
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i32 %conv2.i, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -153345,7 +153345,7 @@ invoke.cont10:                                    ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %18 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %19 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %19, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -153542,7 +153542,7 @@ invoke.cont8:                                     ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %18 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %19 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %19, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -155264,7 +155264,7 @@ if.end10:                                         ; preds = %_ZN3fmt3v106detail1
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buffer.i, i8 0, i64 10, i1 false)
   %idx.ext.i.i = ashr i64 %add.i.i, 32
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i32 %value, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -155449,7 +155449,7 @@ invoke.cont10:                                    ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -155603,7 +155603,7 @@ invoke.cont8:                                     ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -157741,7 +157741,7 @@ if.end10:                                         ; preds = %_ZN3fmt3v106detail1
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buffer.i, i8 0, i64 10, i1 false)
   %idx.ext.i.i = ashr i64 %add.i.i, 32
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i64 %value, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -157926,7 +157926,7 @@ invoke.cont10:                                    ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -158072,7 +158072,7 @@ _ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcE
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i, i8 0, i64 20, i1 false)
   %idx.ext.i.i = sext i32 %sub.i.i to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp samesign ugt i64 %0, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -158237,7 +158237,7 @@ _ZN3fmt3v106detail5pow10Ej.exit:                  ; preds = %cond.false.i, %if.t
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i79)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i79, i8 0, i64 20, i1 false)
   %idx.ext.i.i80 = sext i32 %sub45 to i64
-  %add.ptr.i.i81 = getelementptr inbounds nuw i8, ptr %buffer.i79, i64 %idx.ext.i.i80
+  %add.ptr.i.i81 = getelementptr inbounds i8, ptr %buffer.i79, i64 %idx.ext.i.i80
   %cmp119.i.i82 = icmp samesign ugt i64 %div, 99
   br i1 %cmp119.i.i82, label %while.body.i.i115, label %while.end.i.i83
 
@@ -158317,7 +158317,7 @@ if.end:                                           ; preds = %_ZSt6fill_nISt20bac
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i125)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i125, i8 0, i64 20, i1 false)
   %idx.ext.i.i126 = sext i32 %sub.i.i to i64
-  %add.ptr.i.i127 = getelementptr inbounds nuw i8, ptr %buffer.i125, i64 %idx.ext.i.i126
+  %add.ptr.i.i127 = getelementptr inbounds i8, ptr %buffer.i125, i64 %idx.ext.i.i126
   %cmp119.i.i128 = icmp samesign ugt i64 %0, 99
   br i1 %cmp119.i.i128, label %while.body.i.i161, label %while.end.i.i129
 
@@ -158539,7 +158539,7 @@ invoke.cont8:                                     ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -161027,7 +161027,7 @@ if.end10:                                         ; preds = %_ZN3fmt3v106detail1
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buffer.i, i8 0, i64 10, i1 false)
   %idx.ext.i.i = ashr i64 %add.i.i, 32
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i32 %conv2.i, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -161257,7 +161257,7 @@ invoke.cont10:                                    ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %18 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %19 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %19, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -161454,7 +161454,7 @@ invoke.cont8:                                     ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %18 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %19 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %19, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -163272,7 +163272,7 @@ if.end10:                                         ; preds = %_ZN3fmt3v106detail1
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buffer.i, i8 0, i64 10, i1 false)
   %idx.ext.i.i = ashr i64 %add.i.i, 32
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i64 %value, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -163457,7 +163457,7 @@ invoke.cont10:                                    ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -163607,7 +163607,7 @@ _ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcE
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i, i8 0, i64 20, i1 false)
   %idx.ext.i.i = sext i32 %sub.i.i to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i.not = icmp eq i64 %0, 0
   br i1 %cmp119.i.i.not, label %while.end.i.i, label %while.body.i.i
 
@@ -163772,7 +163772,7 @@ _ZN3fmt3v106detail5pow10Ej.exit:                  ; preds = %cond.false.i, %if.t
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i81)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i81, i8 0, i64 20, i1 false)
   %idx.ext.i.i82 = sext i32 %sub45 to i64
-  %add.ptr.i.i83 = getelementptr inbounds nuw i8, ptr %buffer.i81, i64 %idx.ext.i.i82
+  %add.ptr.i.i83 = getelementptr inbounds i8, ptr %buffer.i81, i64 %idx.ext.i.i82
   %cmp119.i.i84 = icmp samesign ugt i64 %div, 99
   br i1 %cmp119.i.i84, label %while.body.i.i117, label %while.end.i.i85
 
@@ -163852,7 +163852,7 @@ if.end:                                           ; preds = %_ZSt6fill_nISt20bac
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i127)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i127, i8 0, i64 20, i1 false)
   %idx.ext.i.i128 = sext i32 %sub.i.i to i64
-  %add.ptr.i.i129 = getelementptr inbounds nuw i8, ptr %buffer.i127, i64 %idx.ext.i.i128
+  %add.ptr.i.i129 = getelementptr inbounds i8, ptr %buffer.i127, i64 %idx.ext.i.i128
   %cmp119.i.i130.not = icmp eq i64 %0, 0
   br i1 %cmp119.i.i130.not, label %while.end.i.i131, label %while.body.i.i163
 
@@ -164074,7 +164074,7 @@ invoke.cont8:                                     ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -165725,7 +165725,7 @@ if.end10:                                         ; preds = %_ZN3fmt3v106detail1
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buffer.i, i8 0, i64 10, i1 false)
   %idx.ext.i.i = ashr i64 %add.i.i, 32
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i64 %value, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -165910,7 +165910,7 @@ invoke.cont10:                                    ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -166060,7 +166060,7 @@ _ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcE
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i, i8 0, i64 20, i1 false)
   %idx.ext.i.i = sext i32 %sub.i.i to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i.not = icmp eq i64 %0, 0
   br i1 %cmp119.i.i.not, label %while.end.i.i, label %while.body.i.i
 
@@ -166225,7 +166225,7 @@ _ZN3fmt3v106detail5pow10Ej.exit:                  ; preds = %cond.false.i, %if.t
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i81)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i81, i8 0, i64 20, i1 false)
   %idx.ext.i.i82 = sext i32 %sub45 to i64
-  %add.ptr.i.i83 = getelementptr inbounds nuw i8, ptr %buffer.i81, i64 %idx.ext.i.i82
+  %add.ptr.i.i83 = getelementptr inbounds i8, ptr %buffer.i81, i64 %idx.ext.i.i82
   %cmp119.i.i84 = icmp samesign ugt i64 %div, 99
   br i1 %cmp119.i.i84, label %while.body.i.i117, label %while.end.i.i85
 
@@ -166305,7 +166305,7 @@ if.end:                                           ; preds = %_ZSt6fill_nISt20bac
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i127)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i127, i8 0, i64 20, i1 false)
   %idx.ext.i.i128 = sext i32 %sub.i.i to i64
-  %add.ptr.i.i129 = getelementptr inbounds nuw i8, ptr %buffer.i127, i64 %idx.ext.i.i128
+  %add.ptr.i.i129 = getelementptr inbounds i8, ptr %buffer.i127, i64 %idx.ext.i.i128
   %cmp119.i.i130.not = icmp eq i64 %0, 0
   br i1 %cmp119.i.i130.not, label %while.end.i.i131, label %while.body.i.i163
 
@@ -166527,7 +166527,7 @@ invoke.cont8:                                     ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -168121,7 +168121,7 @@ if.end10:                                         ; preds = %_ZN3fmt3v106detail1
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buffer.i, i8 0, i64 10, i1 false)
   %idx.ext.i.i = ashr i64 %add.i.i, 32
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i8 %value, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -168303,7 +168303,7 @@ invoke.cont10:                                    ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -168457,7 +168457,7 @@ invoke.cont8:                                     ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -170056,7 +170056,7 @@ if.end10:                                         ; preds = %_ZN3fmt3v106detail1
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buffer.i, i8 0, i64 10, i1 false)
   %idx.ext.i.i = ashr i64 %add.i.i, 32
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i16 %value, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -170241,7 +170241,7 @@ invoke.cont10:                                    ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -170395,7 +170395,7 @@ invoke.cont8:                                     ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -175118,7 +175118,7 @@ if.end17:                                         ; preds = %if.end, %_ZSt6fill_
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i, i8 0, i64 20, i1 false)
   %idx.ext.i.i = sext i32 %sub.i.i to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i64 %year.addr.0, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -175429,7 +175429,7 @@ _ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcE
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i, i8 0, i64 20, i1 false)
   %idx.ext.i.i = sext i32 %sub.i.i to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i64 %0, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -175594,7 +175594,7 @@ _ZN3fmt3v106detail5pow10Ej.exit:                  ; preds = %cond.false.i, %if.t
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i79)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i79, i8 0, i64 20, i1 false)
   %idx.ext.i.i80 = sext i32 %sub45 to i64
-  %add.ptr.i.i81 = getelementptr inbounds nuw i8, ptr %buffer.i79, i64 %idx.ext.i.i80
+  %add.ptr.i.i81 = getelementptr inbounds i8, ptr %buffer.i79, i64 %idx.ext.i.i80
   %cmp119.i.i82 = icmp ugt i64 %div, 99
   br i1 %cmp119.i.i82, label %while.body.i.i115, label %while.end.i.i83
 
@@ -175674,7 +175674,7 @@ if.end:                                           ; preds = %_ZSt6fill_nISt20bac
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i125)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i125, i8 0, i64 20, i1 false)
   %idx.ext.i.i126 = sext i32 %sub.i.i to i64
-  %add.ptr.i.i127 = getelementptr inbounds nuw i8, ptr %buffer.i125, i64 %idx.ext.i.i126
+  %add.ptr.i.i127 = getelementptr inbounds i8, ptr %buffer.i125, i64 %idx.ext.i.i126
   %cmp119.i.i128 = icmp ugt i64 %0, 99
   br i1 %cmp119.i.i128, label %while.body.i.i161, label %while.end.i.i129
 
@@ -180684,7 +180684,7 @@ if.end17:                                         ; preds = %if.end, %_ZSt6fill_
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i, i8 0, i64 20, i1 false)
   %idx.ext.i.i = sext i32 %sub.i.i to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i64 %year.addr.0, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -185746,7 +185746,7 @@ if.end17:                                         ; preds = %if.end, %_ZSt6fill_
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i, i8 0, i64 20, i1 false)
   %idx.ext.i.i = sext i32 %sub.i.i to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i64 %year.addr.0, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -190808,7 +190808,7 @@ if.end17:                                         ; preds = %if.end, %_ZSt6fill_
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i, i8 0, i64 20, i1 false)
   %idx.ext.i.i = sext i32 %sub.i.i to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i64 %year.addr.0, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -195915,7 +195915,7 @@ if.end17:                                         ; preds = %if.end, %_ZSt6fill_
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i, i8 0, i64 20, i1 false)
   %idx.ext.i.i = sext i32 %sub.i.i to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i64 %year.addr.0, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -201014,7 +201014,7 @@ if.end17:                                         ; preds = %if.end, %_ZSt6fill_
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i, i8 0, i64 20, i1 false)
   %idx.ext.i.i = sext i32 %sub.i.i to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i64 %year.addr.0, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -201329,7 +201329,7 @@ _ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcE
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i, i8 0, i64 20, i1 false)
   %idx.ext.i.i = sext i32 %sub.i.i to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i32 %div.i.i28202, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -201494,7 +201494,7 @@ _ZN3fmt3v106detail5pow10Ej.exit:                  ; preds = %cond.false.i, %if.t
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i80)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i80, i8 0, i64 20, i1 false)
   %idx.ext.i.i81 = sext i32 %sub45 to i64
-  %add.ptr.i.i82 = getelementptr inbounds nuw i8, ptr %buffer.i80, i64 %idx.ext.i.i81
+  %add.ptr.i.i82 = getelementptr inbounds i8, ptr %buffer.i80, i64 %idx.ext.i.i81
   %cmp119.i.i83 = icmp ugt i64 %div, 99
   br i1 %cmp119.i.i83, label %while.body.i.i116, label %while.end.i.i84
 
@@ -201574,7 +201574,7 @@ if.end:                                           ; preds = %_ZSt6fill_nISt20bac
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i126)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i126, i8 0, i64 20, i1 false)
   %idx.ext.i.i127 = sext i32 %sub.i.i to i64
-  %add.ptr.i.i128 = getelementptr inbounds nuw i8, ptr %buffer.i126, i64 %idx.ext.i.i127
+  %add.ptr.i.i128 = getelementptr inbounds i8, ptr %buffer.i126, i64 %idx.ext.i.i127
   %cmp119.i.i129 = icmp ugt i32 %div.i.i28202, 99
   br i1 %cmp119.i.i129, label %while.body.i.i162, label %while.end.i.i130
 
@@ -206683,7 +206683,7 @@ if.end17:                                         ; preds = %if.end, %_ZSt6fill_
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i, i8 0, i64 20, i1 false)
   %idx.ext.i.i = sext i32 %sub.i.i to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i64 %year.addr.0, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -211888,7 +211888,7 @@ if.end17:                                         ; preds = %if.end, %_ZSt6fill_
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i, i8 0, i64 20, i1 false)
   %idx.ext.i.i = sext i32 %sub.i.i to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i64 %year.addr.0, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -216987,7 +216987,7 @@ if.end17:                                         ; preds = %if.end, %_ZSt6fill_
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i, i8 0, i64 20, i1 false)
   %idx.ext.i.i = sext i32 %sub.i.i to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i64 %year.addr.0, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -217298,7 +217298,7 @@ _ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcE
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i, i8 0, i64 20, i1 false)
   %idx.ext.i.i = sext i32 %sub.i.i to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i64 %0, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -217463,7 +217463,7 @@ _ZN3fmt3v106detail5pow10Ej.exit:                  ; preds = %cond.false.i, %if.t
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i79)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i79, i8 0, i64 20, i1 false)
   %idx.ext.i.i80 = sext i32 %sub45 to i64
-  %add.ptr.i.i81 = getelementptr inbounds nuw i8, ptr %buffer.i79, i64 %idx.ext.i.i80
+  %add.ptr.i.i81 = getelementptr inbounds i8, ptr %buffer.i79, i64 %idx.ext.i.i80
   %cmp119.i.i82 = icmp ugt i64 %div, 99
   br i1 %cmp119.i.i82, label %while.body.i.i115, label %while.end.i.i83
 
@@ -217543,7 +217543,7 @@ if.end:                                           ; preds = %_ZSt6fill_nISt20bac
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i125)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i125, i8 0, i64 20, i1 false)
   %idx.ext.i.i126 = sext i32 %sub.i.i to i64
-  %add.ptr.i.i127 = getelementptr inbounds nuw i8, ptr %buffer.i125, i64 %idx.ext.i.i126
+  %add.ptr.i.i127 = getelementptr inbounds i8, ptr %buffer.i125, i64 %idx.ext.i.i126
   %cmp119.i.i128 = icmp ugt i64 %0, 99
   br i1 %cmp119.i.i128, label %while.body.i.i161, label %while.end.i.i129
 
@@ -219491,7 +219491,7 @@ if.end10:                                         ; preds = %_ZN3fmt3v106detail1
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buffer.i, i8 0, i64 10, i1 false)
   %idx.ext.i.i = ashr i64 %add.i.i, 32
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i64 %value, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -219676,7 +219676,7 @@ invoke.cont10:                                    ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
@@ -219948,7 +219948,7 @@ invoke.cont8:                                     ; preds = %invoke.cont.i.i10, 
   store ptr null, ptr %subsecs_.i, align 8
   %tm_.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %time, ptr %tm_.i, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %w, i64 %cb.coerce1
+  %11 = getelementptr inbounds i8, ptr %w, i64 %cb.coerce1
   %12 = and i64 %cb.coerce0, 1
   %memptr.isvirtual.not = icmp eq i64 %12, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual

@@ -100541,7 +100541,7 @@ define void @"_ZN96_$LT$gpui..platform..linux..x11..window..X11Window$u20$as$u20
 define void @"_ZN96_$LT$gpui..platform..linux..x11..window..X11Window$u20$as$u20$gpui..platform..PlatformWindow$GT$19start_window_resize17hc082b5f05a511a8eE"(ptr noalias noundef readonly align 8 dereferenceable(32) %0, i8 noundef %1) unnamed_addr #3 {
 switch.lookup:
   %2 = sext i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @"switch.table._ZN96_$LT$gpui..platform..linux..x11..window..X11Window$u20$as$u20$gpui..platform..PlatformWindow$GT$19start_window_resize17hc082b5f05a511a8eE", i64 0, i64 %2
+  %switch.gep = getelementptr inbounds [8 x i32], ptr @"switch.table._ZN96_$LT$gpui..platform..linux..x11..window..X11Window$u20$as$u20$gpui..platform..PlatformWindow$GT$19start_window_resize17hc082b5f05a511a8eE", i64 0, i64 %2
   %switch.load = load i32, ptr %switch.gep, align 4
   tail call fastcc void @_ZN4gpui8platform5linux3x116window9X11Window15send_moveresize17h4c644aa8f5e10948E(ptr noalias noundef readonly align 8 dereferenceable(32) %0, i32 noundef %switch.load)
   ret void
@@ -102378,7 +102378,7 @@ switch.lookup:
   %..i = tail call i32 @llvm.smax.i32(i32 %1, i32 1024)
   %.sroa.01.0.i = tail call i32 @llvm.smax.i32(i32 %2, i32 1024)
   %12 = sext i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN4gpui8platform5blade11blade_atlas15BladeAtlasState12push_texture17hfef90f5aedd052e9E.llvm.12018052726552770354, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZN4gpui8platform5blade11blade_atlas15BladeAtlasState12push_texture17hfef90f5aedd052e9E.llvm.12018052726552770354, i64 0, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   %switch.cast = trunc i32 %3 to i24
   %switch.shiftamt = shl nuw nsw i24 %switch.cast, 3

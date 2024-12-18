@@ -2527,7 +2527,7 @@ if.end.i23:                                       ; preds = %_ZNSt20back_insert_
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buffer.i.i, i8 0, i64 10, i1 false)
   %idx.ext.i.i.i = ashr i64 %add.i.i, 32
-  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.i.i, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %buffer.i.i, i64 %idx.ext.i.i.i
   %cmp119.i.i.i = icmp ugt i32 %arg.i.sroa.0.0.extract.trunc, 99
   br i1 %cmp119.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i
 
@@ -3693,7 +3693,7 @@ _ZN3fmt3v106detail6fill_nINS0_8appenderEmcEET_S4_T0_RKT1_.exit: ; preds = %_ZNSt
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buffer.i.i, i8 0, i64 10, i1 false)
   %idx.ext.i.i.i = sext i32 %15 to i64
-  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.i.i, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %buffer.i.i, i64 %idx.ext.i.i.i
   %cmp119.i.i.i = icmp ugt i32 %13, 99
   br i1 %cmp119.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i
 
@@ -4160,7 +4160,7 @@ if.end.i.i:                                       ; preds = %_ZN3fmt3v106detail1
   %.pre.i.i.i.i.i = phi i64 [ %18, %_ZN3fmt3v106detail6fill_nINS0_8appenderEmcEET_S4_T0_RKT1_.exit ], [ %add.i.i.i4, %_ZN3fmt3v106detail10to_pointerIcEEPT_NSt11conditionalIXsr3std7is_sameIS3_cEE5valueENS0_8appenderESt20back_insert_iteratorINS1_6bufferIS3_EEEE4typeEm.exit.i.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %buffer.i.i, i8 0, i64 9, i1 false)
   %idx.ext.i8.i.i = sext i32 %15 to i64
-  %add.ptr.i9.i.i = getelementptr inbounds nuw i8, ptr %buffer.i.i, i64 %idx.ext.i8.i.i
+  %add.ptr.i9.i.i = getelementptr inbounds i8, ptr %buffer.i.i, i64 %idx.ext.i8.i.i
   %.str.35..str.36.i10.i.i = select i1 %tobool.i, ptr @.str.35, ptr @.str.36
   br label %do.body.i11.i.i
 
@@ -4596,7 +4596,7 @@ if.end.i.i:                                       ; preds = %_ZN3fmt3v106detail1
   %.pre.i.i.i.i.i = phi i64 [ %16, %_ZN3fmt3v106detail6fill_nINS0_8appenderEmcEET_S4_T0_RKT1_.exit ], [ %add.i.i.i4, %_ZN3fmt3v106detail10to_pointerIcEEPT_NSt11conditionalIXsr3std7is_sameIS3_cEE5valueENS0_8appenderESt20back_insert_iteratorINS1_6bufferIS3_EEEE4typeEm.exit.i.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(33) %buffer.i.i, i8 0, i64 33, i1 false)
   %idx.ext.i8.i.i = sext i32 %15 to i64
-  %add.ptr.i9.i.i = getelementptr inbounds nuw i8, ptr %buffer.i.i, i64 %idx.ext.i8.i.i
+  %add.ptr.i9.i.i = getelementptr inbounds i8, ptr %buffer.i.i, i64 %idx.ext.i8.i.i
   br label %do.body.i10.i.i
 
 do.body.i10.i.i:                                  ; preds = %do.body.i10.i.i, %if.end.i.i
@@ -5030,7 +5030,7 @@ if.end.i.i:                                       ; preds = %_ZN3fmt3v106detail1
   %.pre.i.i.i.i.i = phi i64 [ %16, %_ZN3fmt3v106detail6fill_nINS0_8appenderEmcEET_S4_T0_RKT1_.exit ], [ %add.i.i.i4, %_ZN3fmt3v106detail10to_pointerIcEEPT_NSt11conditionalIXsr3std7is_sameIS3_cEE5valueENS0_8appenderESt20back_insert_iteratorINS1_6bufferIS3_EEEE4typeEm.exit.i.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %buffer.i.i, i8 0, i64 11, i1 false)
   %idx.ext.i8.i.i = sext i32 %15 to i64
-  %add.ptr.i9.i.i = getelementptr inbounds nuw i8, ptr %buffer.i.i, i64 %idx.ext.i8.i.i
+  %add.ptr.i9.i.i = getelementptr inbounds i8, ptr %buffer.i.i, i64 %idx.ext.i8.i.i
   br label %do.body.i10.i.i
 
 do.body.i10.i.i:                                  ; preds = %do.body.i10.i.i, %if.end.i.i
@@ -5766,7 +5766,7 @@ _ZN3fmt3v106detail11format_uintILj4EcjEEPT0_S4_T1_ib.exit: ; preds = %do.body.i
 while.body.i.i:                                   ; preds = %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i, %_ZN3fmt3v106detail11format_uintILj4EcjEEPT0_S4_T1_ib.exit
   %11 = phi i64 [ %.pre.i.i18, %_ZN3fmt3v106detail11format_uintILj4EcjEEPT0_S4_T1_ib.exit ], [ %add7.i.i, %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i ]
   %begin.addr.011.i.i.idx = phi i64 [ 0, %_ZN3fmt3v106detail11format_uintILj4EcjEEPT0_S4_T1_ib.exit ], [ %begin.addr.011.i.i.add, %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i ]
-  %begin.addr.011.i.i.ptr = getelementptr inbounds nuw i8, ptr %buf, i64 %begin.addr.011.i.i.idx
+  %begin.addr.011.i.i.ptr = getelementptr inbounds i8, ptr %buf, i64 %begin.addr.011.i.i.idx
   %gepdiff = sub nsw i64 2, %begin.addr.011.i.i.idx
   %add.i.i19 = add i64 %gepdiff, %11
   %12 = load i64, ptr %capacity_.i.i.i, align 8
@@ -5881,7 +5881,7 @@ _ZN3fmt3v106detail11format_uintILj4EcjEEPT0_S4_T1_ib.exit: ; preds = %do.body.i
 while.body.i.i:                                   ; preds = %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i, %_ZN3fmt3v106detail11format_uintILj4EcjEEPT0_S4_T1_ib.exit
   %11 = phi i64 [ %.pre.i.i18, %_ZN3fmt3v106detail11format_uintILj4EcjEEPT0_S4_T1_ib.exit ], [ %add7.i.i, %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i ]
   %begin.addr.011.i.i.idx = phi i64 [ 0, %_ZN3fmt3v106detail11format_uintILj4EcjEEPT0_S4_T1_ib.exit ], [ %begin.addr.011.i.i.add, %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i ]
-  %begin.addr.011.i.i.ptr = getelementptr inbounds nuw i8, ptr %buf, i64 %begin.addr.011.i.i.idx
+  %begin.addr.011.i.i.ptr = getelementptr inbounds i8, ptr %buf, i64 %begin.addr.011.i.i.idx
   %gepdiff = sub nsw i64 4, %begin.addr.011.i.i.idx
   %add.i.i19 = add i64 %gepdiff, %11
   %12 = load i64, ptr %capacity_.i.i.i, align 8
@@ -5996,7 +5996,7 @@ _ZN3fmt3v106detail11format_uintILj4EcjEEPT0_S4_T1_ib.exit: ; preds = %do.body.i
 while.body.i.i:                                   ; preds = %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i, %_ZN3fmt3v106detail11format_uintILj4EcjEEPT0_S4_T1_ib.exit
   %11 = phi i64 [ %.pre.i.i18, %_ZN3fmt3v106detail11format_uintILj4EcjEEPT0_S4_T1_ib.exit ], [ %add7.i.i, %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i ]
   %begin.addr.011.i.i.idx = phi i64 [ 0, %_ZN3fmt3v106detail11format_uintILj4EcjEEPT0_S4_T1_ib.exit ], [ %begin.addr.011.i.i.add, %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i ]
-  %begin.addr.011.i.i.ptr = getelementptr inbounds nuw i8, ptr %buf, i64 %begin.addr.011.i.i.idx
+  %begin.addr.011.i.i.ptr = getelementptr inbounds i8, ptr %buf, i64 %begin.addr.011.i.i.idx
   %gepdiff = sub nsw i64 8, %begin.addr.011.i.i.idx
   %add.i.i19 = add i64 %gepdiff, %11
   %12 = load i64, ptr %capacity_.i.i.i, align 8

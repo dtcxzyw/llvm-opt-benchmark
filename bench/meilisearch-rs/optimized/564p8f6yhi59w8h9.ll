@@ -620,10 +620,10 @@ switch.lookup:
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx, align 8
   %2 = sext i8 %.0.val to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h3368b4ecc4e038acE", i64 0, i64 %2
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @"switch.table._ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h3368b4ecc4e038acE", i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %3 = sext i8 %.0.val to i64
-  %switch.gep3 = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h3368b4ecc4e038acE.23", i64 0, i64 %3
+  %switch.gep3 = getelementptr inbounds [4 x i64], ptr @"switch.table._ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h3368b4ecc4e038acE.23", i64 0, i64 %3
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hda35a87c04b31632E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef 0, i64 noundef %switch.load4)
           to label %6 unwind label %4

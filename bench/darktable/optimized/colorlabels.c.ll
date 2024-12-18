@@ -202,7 +202,7 @@ define internal fastcc ptr @_get_tooltip_for(i32 noundef %0) unnamed_addr #3 {
   %2 = alloca [128 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #10
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds nuw [0 x ptr], ptr @dt_colorlabels_name, i64 0, i64 %3
+  %4 = getelementptr inbounds [0 x ptr], ptr @dt_colorlabels_name, i64 0, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !13
   %6 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 128, ptr noundef nonnull @.str.8, ptr noundef %5) #10
   %7 = call ptr @dt_conf_get_string_const(ptr noundef nonnull %2) #10
@@ -519,7 +519,7 @@ define internal noundef range(i32 0, 2) i32 @_lib_colorlabels_key_press(ptr noun
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %22 = load i32, ptr %21, align 8, !tbaa !29
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr @dt_colorlabels_name, i64 0, i64 %23
+  %24 = getelementptr inbounds [0 x ptr], ptr @dt_colorlabels_name, i64 0, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !13
   %26 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 128, ptr noundef nonnull @.str.8, ptr noundef %25) #10
   call void @dt_conf_set_string(ptr noundef nonnull %4, ptr noundef %20) #10

@@ -141,7 +141,7 @@ if.else15:                                        ; preds = %_ZN7logging11CheckL
 if.end21:                                         ; preds = %_ZN7logging11CheckLTImplB5cxx11EiiPKc.exit.thread, %_ZN7logging11CheckLTImplB5cxx11EiiPKc.exit, %if.else15
   %2 = load i32, ptr %slot_, align 4
   %idxprom = sext i32 %2 to i64
-  %arrayidx = getelementptr inbounds nuw [256 x ptr], ptr @_ZN12_GLOBAL__N_117g_tls_destructorsE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [256 x ptr], ptr @_ZN12_GLOBAL__N_117g_tls_destructorsE, i64 0, i64 %idxprom
   store volatile ptr %destructor, ptr %arrayidx, align 8
   store atomic volatile i32 1, ptr %this release, align 4
   ret void
@@ -240,7 +240,7 @@ if.end13:
   %slot_ = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load i32, ptr %slot_, align 4
   %idxprom = sext i32 %0 to i64
-  %arrayidx = getelementptr inbounds nuw [256 x ptr], ptr @_ZN12_GLOBAL__N_117g_tls_destructorsE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [256 x ptr], ptr @_ZN12_GLOBAL__N_117g_tls_destructorsE, i64 0, i64 %idxprom
   store volatile ptr null, ptr %arrayidx, align 8
   store i32 0, ptr %slot_, align 4
   store atomic volatile i32 0, ptr %this release, align 4
@@ -304,7 +304,7 @@ invoke.cont:
   %slot_.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load i32, ptr %slot_.i, align 4
   %idxprom.i = sext i32 %0 to i64
-  %arrayidx.i = getelementptr inbounds nuw [256 x ptr], ptr @_ZN12_GLOBAL__N_117g_tls_destructorsE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [256 x ptr], ptr @_ZN12_GLOBAL__N_117g_tls_destructorsE, i64 0, i64 %idxprom.i
   store volatile ptr null, ptr %arrayidx.i, align 8
   store i32 0, ptr %slot_.i, align 4
   store atomic volatile i32 0, ptr %this release, align 4

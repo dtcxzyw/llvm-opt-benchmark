@@ -4889,7 +4889,7 @@ _ZN3vcg7glColorERKNS_6Color4IhEE.exit:
   %9 = getelementptr inbounds nuw [16 x float], ptr %2, i64 0, i64 %8
   %10 = shl i64 %indvars.iv.i.i.i, 2
   %11 = add nuw nsw i64 %10, %indvars.iv15.i.i.i
-  %12 = getelementptr inbounds nuw [16 x float], ptr %2, i64 0, i64 %11
+  %12 = getelementptr inbounds [16 x float], ptr %2, i64 0, i64 %11
   %13 = load float, ptr %9, align 4, !alias.scope !74
   %14 = load float, ptr %12, align 4, !alias.scope !74
   store float %14, ptr %9, align 4, !alias.scope !74
@@ -5398,7 +5398,7 @@ _ZN3vcg11glTranslateERKNS_6Point3IfEE.exit:       ; preds = %3
   %84 = getelementptr inbounds nuw [16 x float], ptr %7, i64 0, i64 %83
   %85 = shl i64 %indvars.iv.i.i.i, 2
   %86 = add nuw nsw i64 %85, %indvars.iv15.i.i.i
-  %87 = getelementptr inbounds nuw [16 x float], ptr %7, i64 0, i64 %86
+  %87 = getelementptr inbounds [16 x float], ptr %7, i64 0, i64 %86
   %88 = load float, ptr %84, align 4, !alias.scope !81
   %89 = load float, ptr %87, align 4, !alias.scope !81
   store float %89, ptr %84, align 4, !alias.scope !81
@@ -5457,7 +5457,7 @@ _ZN3vcg11glTranslateERKNS_6Point3IfEE.exit71:     ; preds = %3
   %95 = getelementptr inbounds nuw [16 x float], ptr %6, i64 0, i64 %94
   %96 = shl i64 %indvars.iv.i.i.i75, 2
   %97 = add nuw nsw i64 %96, %indvars.iv15.i.i.i74
-  %98 = getelementptr inbounds nuw [16 x float], ptr %6, i64 0, i64 %97
+  %98 = getelementptr inbounds [16 x float], ptr %6, i64 0, i64 %97
   %99 = load float, ptr %95, align 4, !alias.scope !84
   %100 = load float, ptr %98, align 4, !alias.scope !84
   store float %100, ptr %95, align 4, !alias.scope !84
@@ -5495,7 +5495,7 @@ _ZNK3vcg8Matrix44IfE9transposeEv.exit.i80:        ; preds = %101
   %106 = getelementptr inbounds nuw [16 x float], ptr %5, i64 0, i64 %105
   %107 = shl i64 %indvars.iv.i.i.i85, 2
   %108 = add nuw nsw i64 %107, %indvars.iv15.i.i.i84
-  %109 = getelementptr inbounds nuw [16 x float], ptr %5, i64 0, i64 %108
+  %109 = getelementptr inbounds [16 x float], ptr %5, i64 0, i64 %108
   %110 = load float, ptr %106, align 4, !alias.scope !87
   %111 = load float, ptr %109, align 4, !alias.scope !87
   store float %111, ptr %106, align 4, !alias.scope !87
@@ -5533,7 +5533,7 @@ _ZNK3vcg8Matrix44IfE9transposeEv.exit.i90:        ; preds = %112
   %117 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %116
   %118 = shl i64 %indvars.iv.i.i.i95, 2
   %119 = add nuw nsw i64 %118, %indvars.iv15.i.i.i94
-  %120 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %119
+  %120 = getelementptr inbounds [16 x float], ptr %4, i64 0, i64 %119
   %121 = load float, ptr %117, align 4, !alias.scope !90
   %122 = load float, ptr %120, align 4, !alias.scope !90
   store float %122, ptr %117, align 4, !alias.scope !90
@@ -6001,7 +6001,7 @@ _ZN3vcg11glTranslateERKNS_6Point3IfEE.exit:       ; preds = %141, %142
   %146 = getelementptr inbounds nuw [16 x float], ptr %10, i64 0, i64 %145
   %147 = shl i64 %indvars.iv.i.i.i, 2
   %148 = add nuw nsw i64 %147, %indvars.iv15.i.i.i
-  %149 = getelementptr inbounds nuw [16 x float], ptr %10, i64 0, i64 %148
+  %149 = getelementptr inbounds [16 x float], ptr %10, i64 0, i64 %148
   %150 = load float, ptr %146, align 4, !alias.scope !97
   %151 = load float, ptr %149, align 4, !alias.scope !97
   store float %151, ptr %146, align 4, !alias.scope !97
@@ -6126,7 +6126,7 @@ _ZN3vcg11glTranslateERKNS_6Point3IfEE.exit65:     ; preds = %171
   %178 = getelementptr inbounds nuw [16 x float], ptr %9, i64 0, i64 %177
   %179 = shl i64 %indvars.iv.i.i.i68, 2
   %180 = add nuw nsw i64 %179, %indvars.iv15.i.i.i67
-  %181 = getelementptr inbounds nuw [16 x float], ptr %9, i64 0, i64 %180
+  %181 = getelementptr inbounds [16 x float], ptr %9, i64 0, i64 %180
   %182 = load float, ptr %178, align 4, !alias.scope !100
   %183 = load float, ptr %181, align 4, !alias.scope !100
   store float %183, ptr %178, align 4, !alias.scope !100
@@ -6161,7 +6161,7 @@ _ZNK3vcg8Matrix44IfE9transposeEv.exit.i73:        ; preds = %184
   %189 = getelementptr inbounds nuw [16 x float], ptr %8, i64 0, i64 %188
   %190 = shl i64 %indvars.iv.i.i.i77, 2
   %191 = add nuw nsw i64 %190, %indvars.iv15.i.i.i76
-  %192 = getelementptr inbounds nuw [16 x float], ptr %8, i64 0, i64 %191
+  %192 = getelementptr inbounds [16 x float], ptr %8, i64 0, i64 %191
   %193 = load float, ptr %189, align 4, !alias.scope !103
   %194 = load float, ptr %192, align 4, !alias.scope !103
   store float %194, ptr %189, align 4, !alias.scope !103
@@ -6223,7 +6223,7 @@ _ZN3vcg11glTranslateERKNS_6Point3IfEE.exit85:     ; preds = %196
   %203 = getelementptr inbounds nuw [16 x float], ptr %7, i64 0, i64 %202
   %204 = shl i64 %indvars.iv.i.i.i88, 2
   %205 = add nuw nsw i64 %204, %indvars.iv15.i.i.i87
-  %206 = getelementptr inbounds nuw [16 x float], ptr %7, i64 0, i64 %205
+  %206 = getelementptr inbounds [16 x float], ptr %7, i64 0, i64 %205
   %207 = load float, ptr %203, align 4, !alias.scope !106
   %208 = load float, ptr %206, align 4, !alias.scope !106
   store float %208, ptr %203, align 4, !alias.scope !106
@@ -6258,7 +6258,7 @@ _ZNK3vcg8Matrix44IfE9transposeEv.exit.i93:        ; preds = %209
   %214 = getelementptr inbounds nuw [16 x float], ptr %6, i64 0, i64 %213
   %215 = shl i64 %indvars.iv.i.i.i97, 2
   %216 = add nuw nsw i64 %215, %indvars.iv15.i.i.i96
-  %217 = getelementptr inbounds nuw [16 x float], ptr %6, i64 0, i64 %216
+  %217 = getelementptr inbounds [16 x float], ptr %6, i64 0, i64 %216
   %218 = load float, ptr %214, align 4, !alias.scope !109
   %219 = load float, ptr %217, align 4, !alias.scope !109
   store float %219, ptr %214, align 4, !alias.scope !109
@@ -6320,7 +6320,7 @@ _ZN3vcg11glTranslateERKNS_6Point3IfEE.exit105:    ; preds = %221
   %228 = getelementptr inbounds nuw [16 x float], ptr %5, i64 0, i64 %227
   %229 = shl i64 %indvars.iv.i.i.i108, 2
   %230 = add nuw nsw i64 %229, %indvars.iv15.i.i.i107
-  %231 = getelementptr inbounds nuw [16 x float], ptr %5, i64 0, i64 %230
+  %231 = getelementptr inbounds [16 x float], ptr %5, i64 0, i64 %230
   %232 = load float, ptr %228, align 4, !alias.scope !112
   %233 = load float, ptr %231, align 4, !alias.scope !112
   store float %233, ptr %228, align 4, !alias.scope !112
@@ -6355,7 +6355,7 @@ _ZNK3vcg8Matrix44IfE9transposeEv.exit.i113:       ; preds = %234
   %239 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %238
   %240 = shl i64 %indvars.iv.i.i.i117, 2
   %241 = add nuw nsw i64 %240, %indvars.iv15.i.i.i116
-  %242 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %241
+  %242 = getelementptr inbounds [16 x float], ptr %4, i64 0, i64 %241
   %243 = load float, ptr %239, align 4, !alias.scope !115
   %244 = load float, ptr %242, align 4, !alias.scope !115
   store float %244, ptr %239, align 4, !alias.scope !115
@@ -6598,7 +6598,7 @@ _ZN3vcg11glTranslateERKNS_6Point3IfEE.exit:       ; preds = %141, %142
   %146 = getelementptr inbounds nuw [16 x float], ptr %10, i64 0, i64 %145
   %147 = shl i64 %indvars.iv.i.i.i, 2
   %148 = add nuw nsw i64 %147, %indvars.iv15.i.i.i
-  %149 = getelementptr inbounds nuw [16 x float], ptr %10, i64 0, i64 %148
+  %149 = getelementptr inbounds [16 x float], ptr %10, i64 0, i64 %148
   %150 = load float, ptr %146, align 4, !alias.scope !118
   %151 = load float, ptr %149, align 4, !alias.scope !118
   store float %151, ptr %146, align 4, !alias.scope !118
@@ -6720,7 +6720,7 @@ _ZN3vcg11glTranslateERKNS_6Point3IfEE.exit76:     ; preds = %171
   %178 = getelementptr inbounds nuw [16 x float], ptr %9, i64 0, i64 %177
   %179 = shl i64 %indvars.iv.i.i.i79, 2
   %180 = add nuw nsw i64 %179, %indvars.iv15.i.i.i78
-  %181 = getelementptr inbounds nuw [16 x float], ptr %9, i64 0, i64 %180
+  %181 = getelementptr inbounds [16 x float], ptr %9, i64 0, i64 %180
   %182 = load float, ptr %178, align 4, !alias.scope !121
   %183 = load float, ptr %181, align 4, !alias.scope !121
   store float %183, ptr %178, align 4, !alias.scope !121
@@ -6755,7 +6755,7 @@ _ZNK3vcg8Matrix44IfE9transposeEv.exit.i84:        ; preds = %184
   %189 = getelementptr inbounds nuw [16 x float], ptr %8, i64 0, i64 %188
   %190 = shl i64 %indvars.iv.i.i.i88, 2
   %191 = add nuw nsw i64 %190, %indvars.iv15.i.i.i87
-  %192 = getelementptr inbounds nuw [16 x float], ptr %8, i64 0, i64 %191
+  %192 = getelementptr inbounds [16 x float], ptr %8, i64 0, i64 %191
   %193 = load float, ptr %189, align 4, !alias.scope !124
   %194 = load float, ptr %192, align 4, !alias.scope !124
   store float %194, ptr %189, align 4, !alias.scope !124
@@ -6817,7 +6817,7 @@ _ZN3vcg11glTranslateERKNS_6Point3IfEE.exit96:     ; preds = %196
   %203 = getelementptr inbounds nuw [16 x float], ptr %7, i64 0, i64 %202
   %204 = shl i64 %indvars.iv.i.i.i99, 2
   %205 = add nuw nsw i64 %204, %indvars.iv15.i.i.i98
-  %206 = getelementptr inbounds nuw [16 x float], ptr %7, i64 0, i64 %205
+  %206 = getelementptr inbounds [16 x float], ptr %7, i64 0, i64 %205
   %207 = load float, ptr %203, align 4, !alias.scope !127
   %208 = load float, ptr %206, align 4, !alias.scope !127
   store float %208, ptr %203, align 4, !alias.scope !127
@@ -6852,7 +6852,7 @@ _ZNK3vcg8Matrix44IfE9transposeEv.exit.i104:       ; preds = %209
   %214 = getelementptr inbounds nuw [16 x float], ptr %6, i64 0, i64 %213
   %215 = shl i64 %indvars.iv.i.i.i108, 2
   %216 = add nuw nsw i64 %215, %indvars.iv15.i.i.i107
-  %217 = getelementptr inbounds nuw [16 x float], ptr %6, i64 0, i64 %216
+  %217 = getelementptr inbounds [16 x float], ptr %6, i64 0, i64 %216
   %218 = load float, ptr %214, align 4, !alias.scope !130
   %219 = load float, ptr %217, align 4, !alias.scope !130
   store float %219, ptr %214, align 4, !alias.scope !130
@@ -6914,7 +6914,7 @@ _ZN3vcg11glTranslateERKNS_6Point3IfEE.exit116:    ; preds = %221
   %228 = getelementptr inbounds nuw [16 x float], ptr %5, i64 0, i64 %227
   %229 = shl i64 %indvars.iv.i.i.i119, 2
   %230 = add nuw nsw i64 %229, %indvars.iv15.i.i.i118
-  %231 = getelementptr inbounds nuw [16 x float], ptr %5, i64 0, i64 %230
+  %231 = getelementptr inbounds [16 x float], ptr %5, i64 0, i64 %230
   %232 = load float, ptr %228, align 4, !alias.scope !133
   %233 = load float, ptr %231, align 4, !alias.scope !133
   store float %233, ptr %228, align 4, !alias.scope !133
@@ -6949,7 +6949,7 @@ _ZNK3vcg8Matrix44IfE9transposeEv.exit.i124:       ; preds = %234
   %239 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %238
   %240 = shl i64 %indvars.iv.i.i.i128, 2
   %241 = add nuw nsw i64 %240, %indvars.iv15.i.i.i127
-  %242 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %241
+  %242 = getelementptr inbounds [16 x float], ptr %4, i64 0, i64 %241
   %243 = load float, ptr %239, align 4, !alias.scope !136
   %244 = load float, ptr %242, align 4, !alias.scope !136
   store float %244, ptr %239, align 4, !alias.scope !136

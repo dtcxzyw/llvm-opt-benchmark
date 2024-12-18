@@ -137,7 +137,7 @@ pbs_getline.exit.thread.i:                        ; preds = %121, %.preheader.i
 pbs_getline.exit.i:                               ; preds = %121, %pbs_getline.exit.lr.ph.i
   %43 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #13
   %44 = add i64 %43, -1
-  %45 = getelementptr inbounds nuw [512 x i8], ptr %3, i64 0, i64 %44
+  %45 = getelementptr inbounds [512 x i8], ptr %3, i64 0, i64 %44
   store i8 0, ptr %45, align 1
   %46 = call noalias ptr @strdup(ptr noundef nonnull %3) #12
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %3)

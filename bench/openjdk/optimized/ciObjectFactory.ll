@@ -2167,7 +2167,7 @@ define hidden noundef ptr @_ZN15ciObjectFactory10get_symbolEP6Symbol(ptr noundef
 
 4:                                                ; preds = %2
   %5 = sext i32 %3 to i64
-  %6 = getelementptr inbounds nuw [1170 x ptr], ptr @_ZN15ciObjectFactory18_shared_ci_symbolsE, i64 0, i64 %5
+  %6 = getelementptr inbounds [1170 x ptr], ptr @_ZN15ciObjectFactory18_shared_ci_symbolsE, i64 0, i64 %5
   %7 = load ptr, ptr %6, align 8
   br label %33
 
@@ -2228,7 +2228,7 @@ declare noundef i32 @_ZN9vmSymbols8find_sidEPK6Symbol(ptr noundef) local_unnamed
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden noundef ptr @_ZN15ciObjectFactory12vm_symbol_atE10vmSymbolID(i32 noundef %0) local_unnamed_addr #3 align 2 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [1170 x ptr], ptr @_ZN15ciObjectFactory18_shared_ci_symbolsE, i64 0, i64 %2
+  %3 = getelementptr inbounds [1170 x ptr], ptr @_ZN15ciObjectFactory18_shared_ci_symbolsE, i64 0, i64 %2
   %4 = load ptr, ptr %3, align 8
   ret ptr %4
 }

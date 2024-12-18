@@ -3412,7 +3412,7 @@ Kit_DsdLitSupport.exit225:                        ; preds = %.lr.ph360, %193, %1
 
 .lr.ph23.i:                                       ; preds = %.preheader.i
   %221 = sext i32 %4 to i64
-  %222 = getelementptr inbounds nuw [5 x i32], ptr @__const.Kit_TruthIthVar.Masks, i64 0, i64 %221
+  %222 = getelementptr inbounds [5 x i32], ptr @__const.Kit_TruthIthVar.Masks, i64 0, i64 %221
   %223 = load i32, ptr %222, align 4
   %wide.trip.count29.i = zext nneg i32 %216 to i64
   br label %224
@@ -3599,7 +3599,7 @@ Kit_TruthAndPhase.exit243:                        ; preds = %select.unfold.i236,
 
 .lr.ph23.i264:                                    ; preds = %.preheader.i263
   %305 = sext i32 %4 to i64
-  %306 = getelementptr inbounds nuw [5 x i32], ptr @__const.Kit_TruthIthVar.Masks, i64 0, i64 %305
+  %306 = getelementptr inbounds [5 x i32], ptr @__const.Kit_TruthIthVar.Masks, i64 0, i64 %305
   %307 = load i32, ptr %306, align 4
   %wide.trip.count29.i265 = zext nneg i32 %300 to i64
   br label %308
@@ -3823,7 +3823,7 @@ Kit_TruthCopy.exit:                               ; preds = %Kit_TruthCopy.exit.
 
 .lr.ph23.i305:                                    ; preds = %.preheader.i304
   %398 = sext i32 %4 to i64
-  %399 = getelementptr inbounds nuw [5 x i32], ptr @__const.Kit_TruthIthVar.Masks, i64 0, i64 %398
+  %399 = getelementptr inbounds [5 x i32], ptr @__const.Kit_TruthIthVar.Masks, i64 0, i64 %398
   %400 = load i32, ptr %399, align 4
   %wide.trip.count29.i306 = zext nneg i32 %393 to i64
   br label %401
@@ -4302,7 +4302,7 @@ Kit_TruthCopy.exit:                               ; preds = %Kit_TruthCopy.exit.
 
 .lr.ph23.i:                                       ; preds = %.preheader.i
   %170 = sext i32 %3 to i64
-  %171 = getelementptr inbounds nuw [5 x i32], ptr @__const.Kit_TruthIthVar.Masks, i64 0, i64 %170
+  %171 = getelementptr inbounds [5 x i32], ptr @__const.Kit_TruthIthVar.Masks, i64 0, i64 %170
   %172 = load i32, ptr %171, align 4
   %wide.trip.count29.i = zext nneg i32 %165 to i64
   br label %173
@@ -9328,7 +9328,7 @@ Kit_TruthCopy.exit:                               ; preds = %select.unfold.i, %2
 ._crit_edge.thread.i:                             ; preds = %70, %._crit_edge.i
   %73 = add nsw i32 %.346.i, 1
   %74 = sext i32 %.346.i to i64
-  %75 = getelementptr inbounds nuw i32, ptr %8, i64 %74
+  %75 = getelementptr inbounds i32, ptr %8, i64 %74
   store i32 %64, ptr %75, align 4
   br label %76
 

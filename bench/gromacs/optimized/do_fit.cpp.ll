@@ -707,7 +707,7 @@ define void @_Z10calc_fit_RiiPKfPA3_S_PA3_fS4_(i32 noundef %0, i32 noundef %1, p
 
 .lr.ph198:                                        ; preds = %.lr.ph194
   %92 = sext i32 %.2134 to i64
-  %93 = getelementptr inbounds nuw [6 x double], ptr %8, i64 0, i64 %92
+  %93 = getelementptr inbounds [6 x double], ptr %8, i64 0, i64 %92
   store double -1.000000e+04, ptr %93, align 8
   br label %94
 

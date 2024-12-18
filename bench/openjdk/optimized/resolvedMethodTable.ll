@@ -4131,7 +4131,7 @@ define linkonce_odr hidden void @_ZN19ConcurrentHashTableI25ResolvedMethodTableC
 
 15:                                               ; preds = %.lr.ph
   %16 = add i64 %.02035, 1
-  %17 = getelementptr inbounds nuw [256 x ptr], ptr %5, i64 0, i64 %.02035
+  %17 = getelementptr inbounds [256 x ptr], ptr %5, i64 0, i64 %.02035
   store ptr %.02134, ptr %17, align 8
   %18 = load volatile ptr, ptr %.02134, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
@@ -4170,7 +4170,7 @@ define linkonce_odr hidden void @_ZN19ConcurrentHashTableI25ResolvedMethodTableC
 
 30:                                               ; preds = %.thread, %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE17safe_stats_removeEv.exit
   %.036 = phi i64 [ 0, %.thread ], [ %40, %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE17safe_stats_removeEv.exit ]
-  %31 = getelementptr inbounds nuw [256 x ptr], ptr %5, i64 0, i64 %.036
+  %31 = getelementptr inbounds [256 x ptr], ptr %5, i64 0, i64 %.036
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load ptr, ptr @_ZN19ResolvedMethodTable12_oop_storageE, align 8

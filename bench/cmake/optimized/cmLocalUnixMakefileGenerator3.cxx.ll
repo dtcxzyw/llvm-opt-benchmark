@@ -1825,7 +1825,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %43 = load ptr, ptr %7, align 8
   %44 = getelementptr i8, ptr %43, i64 -24
   %45 = load i64, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %7, i64 %45
+  %46 = getelementptr inbounds i8, ptr %7, i64 %45
   %47 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %46)
           to label %48 unwind label %55
 
@@ -2243,7 +2243,7 @@ define dso_local void @_ZN29cmLocalUnixMakefileGenerator329WriteDirectoryInforma
   %13 = load ptr, ptr %4, align 8
   %14 = getelementptr i8, ptr %13, i64 -24
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %4, i64 %15
+  %16 = getelementptr inbounds i8, ptr %4, i64 %15
   %17 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %16)
           to label %18 unwind label %21
 
@@ -11096,7 +11096,7 @@ define dso_local void @_ZN29cmLocalUnixMakefileGenerator318AppendCleanCommandERS
   %61 = load ptr, ptr %12, align 8
   %62 = getelementptr i8, ptr %61, i64 -24
   %63 = load i64, ptr %62, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %12, i64 %63
+  %64 = getelementptr inbounds i8, ptr %12, i64 %63
   %65 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %64)
           to label %66 unwind label %.loopexit.split-lp
 
@@ -11799,7 +11799,7 @@ _ZNKSt6vectorISt10unique_ptrI16cmLocalGeneratorSt14default_deleteIS1_EESaIS4_EE2
   %88 = load ptr, ptr %15, align 8
   %89 = getelementptr i8, ptr %88, i64 -24
   %90 = load i64, ptr %89, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %15, i64 %90
+  %91 = getelementptr inbounds i8, ptr %15, i64 %90
   %92 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %91)
           to label %93 unwind label %.loopexit.split-lp
 
@@ -13685,7 +13685,7 @@ _ZN11cmCMakePathD2Ev.exit152:                     ; preds = %_ZN11cmCMakePathD2E
   %345 = load ptr, ptr %45, align 8
   %346 = getelementptr i8, ptr %345, i64 -24
   %347 = load i64, ptr %346, align 8
-  %348 = getelementptr inbounds nuw i8, ptr %45, i64 %347
+  %348 = getelementptr inbounds i8, ptr %45, i64 %347
   %349 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %348)
           to label %350 unwind label %351
 
@@ -13713,7 +13713,7 @@ _ZN11cmCMakePathD2Ev.exit152:                     ; preds = %_ZN11cmCMakePathD2E
   %361 = load ptr, ptr %46, align 8
   %362 = getelementptr i8, ptr %361, i64 -24
   %363 = load i64, ptr %362, align 8
-  %364 = getelementptr inbounds nuw i8, ptr %46, i64 %363
+  %364 = getelementptr inbounds i8, ptr %46, i64 %363
   %365 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %364)
           to label %366 unwind label %367
 
@@ -14424,7 +14424,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit78: ; 
   %99 = load ptr, ptr %16, align 8
   %100 = getelementptr i8, ptr %99, i64 -24
   %101 = load i64, ptr %100, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %16, i64 %101
+  %102 = getelementptr inbounds i8, ptr %16, i64 %101
   %103 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %102)
           to label %104 unwind label %105
 
@@ -14452,7 +14452,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit78: ; 
   %115 = load ptr, ptr %17, align 8
   %116 = getelementptr i8, ptr %115, i64 -24
   %117 = load i64, ptr %116, align 8
-  %118 = getelementptr inbounds nuw i8, ptr %17, i64 %117
+  %118 = getelementptr inbounds i8, ptr %17, i64 %117
   %119 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %118)
           to label %120 unwind label %121
 

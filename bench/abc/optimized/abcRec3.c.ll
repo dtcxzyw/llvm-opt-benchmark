@@ -2841,12 +2841,12 @@ define void @Lms_ManPrintFuncStats(ptr nocapture noundef %0) local_unnamed_addr 
   %30 = getelementptr inbounds i8, ptr %.val34, i64 %29
   %31 = load i8, ptr %30, align 1
   %32 = sext i8 %31 to i64
-  %33 = getelementptr inbounds nuw [17 x i32], ptr %2, i64 0, i64 %32
+  %33 = getelementptr inbounds [17 x i32], ptr %2, i64 0, i64 %32
   %34 = load i32, ptr %33, align 4
   %35 = add nsw i32 %34, 1
   store i32 %35, ptr %33, align 4
   %36 = sub i32 %28, %26
-  %37 = getelementptr inbounds nuw [17 x i32], ptr %3, i64 0, i64 %32
+  %37 = getelementptr inbounds [17 x i32], ptr %3, i64 0, i64 %32
   %38 = load i32, ptr %37, align 4
   %39 = add nsw i32 %36, %38
   store i32 %39, ptr %37, align 4

@@ -5445,7 +5445,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen8in
   %38 = load ptr, ptr %4, align 8
   %39 = getelementptr i8, ptr %38, i64 -24
   %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %4, i64 %40
+  %41 = getelementptr inbounds i8, ptr %4, i64 %40
   %42 = load ptr, ptr %0, align 8
   %43 = getelementptr i8, ptr %42, i64 -24
   %44 = load i64, ptr %43, align 8

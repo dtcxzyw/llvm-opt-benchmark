@@ -8675,7 +8675,7 @@ nghttp2_session_want_read.exit:                   ; preds = %21
   %90 = load i64, ptr %31, align 8
   %. = call i64 @llvm.umin.i64(i64 %2, i64 %90)
   %91 = sub i64 24, %90
-  %92 = getelementptr inbounds nuw [25 x i8], ptr @.str.38, i64 0, i64 %91
+  %92 = getelementptr inbounds [25 x i8], ptr @.str.38, i64 0, i64 %91
   %bcmp = call i32 @bcmp(ptr nonnull %92, ptr %.0726, i64 %.)
   %.not881 = icmp eq i32 %bcmp, 0
   br i1 %.not881, label %93, label %nghttp2_session_want_read.exit.thread

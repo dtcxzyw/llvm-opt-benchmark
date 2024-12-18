@@ -283,7 +283,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   %36 = load ptr, ptr %4, align 8
   %37 = getelementptr i8, ptr %36, i64 -24
   %38 = load i64, ptr %37, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %4, i64 %38
+  %39 = getelementptr inbounds i8, ptr %4, i64 %38
   %40 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv(ptr noundef nonnull align 8 dereferenceable(264) %39)
           to label %41 unwind label %28
 
@@ -4760,7 +4760,7 @@ _ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit: ; preds = %28, %23
   %50 = load ptr, ptr %8, align 8
   %51 = getelementptr i8, ptr %50, i64 -24
   %52 = load i64, ptr %51, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %8, i64 %52
+  %53 = getelementptr inbounds i8, ptr %8, i64 %52
   %54 = load ptr, ptr %0, align 8
   %55 = getelementptr i8, ptr %54, i64 -24
   %56 = load i64, ptr %55, align 8
@@ -5749,7 +5749,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN5E
   %27 = load ptr, ptr %4, align 8
   %28 = getelementptr i8, ptr %27, i64 -24
   %29 = load i64, ptr %28, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %4, i64 %29
+  %30 = getelementptr inbounds i8, ptr %4, i64 %29
   %31 = load ptr, ptr %0, align 8
   %32 = getelementptr i8, ptr %31, i64 -24
   %33 = load i64, ptr %32, align 8

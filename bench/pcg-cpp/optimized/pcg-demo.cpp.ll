@@ -506,7 +506,7 @@ while.body.lr.ph.i:                               ; preds = %for.body.i
   store i64 0, ptr %__d.i, align 8
   store i64 1, ptr %_M_b.i.i.i, align 8
   %call.i.i = call noundef i64 @_ZNSt24uniform_int_distributionImEclIN10pcg_detail6engineIjmNS2_12xsh_rr_mixinIjmEELb1ENS2_15specific_streamImEENS2_18default_multiplierImEEEEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %__d.i, ptr noundef nonnull align 8 dereferenceable(16) %rng, ptr noundef nonnull align 8 dereferenceable(16) %__d.i)
-  %add.ptr7.i = getelementptr inbounds nuw i8, ptr %cards, i64 %call.i.i
+  %add.ptr7.i = getelementptr inbounds i8, ptr %cards, i64 %call.i.i
   %40 = load i8, ptr %add.ptr.i62, align 1
   %41 = load i8, ptr %add.ptr7.i, align 1
   store i8 %41, ptr %add.ptr.i62, align 1
@@ -719,12 +719,12 @@ for.body137:                                      ; preds = %_ZN10pcg_detailmiIj
   %call139 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.19)
   %div245 = sdiv i8 %61, 4
   %idxprom = sext i8 %div245 to i64
-  %arrayidx140 = getelementptr inbounds nuw [13 x i8], ptr @_ZZ4mainE6number, i64 0, i64 %idxprom
+  %arrayidx140 = getelementptr inbounds [13 x i8], ptr @_ZZ4mainE6number, i64 0, i64 %idxprom
   %62 = load i8, ptr %arrayidx140, align 1
   %call141 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_a(ptr noundef nonnull align 8 dereferenceable(8) %call139, i8 noundef signext %62)
   %rem143246 = srem i8 %61, 4
   %idxprom144 = sext i8 %rem143246 to i64
-  %arrayidx145 = getelementptr inbounds nuw [4 x i8], ptr @_ZZ4mainE4suit, i64 0, i64 %idxprom144
+  %arrayidx145 = getelementptr inbounds [4 x i8], ptr @_ZZ4mainE4suit, i64 0, i64 %idxprom144
   %63 = load i8, ptr %arrayidx145, align 1
   %call146 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_a(ptr noundef nonnull align 8 dereferenceable(8) %call141, i8 noundef signext %63)
   %rem147 = urem i32 %indvars, 22

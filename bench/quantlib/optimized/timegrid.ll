@@ -745,7 +745,7 @@ invoke.cont11:                                    ; preds = %do.body
   %vtable.i = load ptr, ptr %_ql_msg_stream, align 8, !tbaa !23
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
-  %add.ptr.i35 = getelementptr inbounds nuw i8, ptr %_ql_msg_stream, i64 %vbase.offset.i
+  %add.ptr.i35 = getelementptr inbounds i8, ptr %_ql_msg_stream, i64 %vbase.offset.i
   %_M_precision.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i35, i64 8
   store i64 12, ptr %_M_precision.i.i, align 8, !tbaa !29
   %call.i36 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %_ql_msg_stream, double noundef %t)
@@ -937,7 +937,7 @@ invoke.cont68:                                    ; preds = %do.body58
   %vtable.i76 = load ptr, ptr %_ql_msg_stream59, align 8, !tbaa !23
   %vbase.offset.ptr.i77 = getelementptr i8, ptr %vtable.i76, i64 -24
   %vbase.offset.i78 = load i64, ptr %vbase.offset.ptr.i77, align 8
-  %add.ptr.i79 = getelementptr inbounds nuw i8, ptr %_ql_msg_stream59, i64 %vbase.offset.i78
+  %add.ptr.i79 = getelementptr inbounds i8, ptr %_ql_msg_stream59, i64 %vbase.offset.i78
   %_M_precision.i.i80 = getelementptr inbounds nuw i8, ptr %add.ptr.i79, i64 8
   store i64 12, ptr %_M_precision.i.i80, align 8, !tbaa !29
   %call.i81 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %_ql_msg_stream59, double noundef %t)
@@ -1128,7 +1128,7 @@ invoke.cont136:                                   ; preds = %if.else120
   %vtable.i129 = load ptr, ptr %_ql_msg_stream127, align 8, !tbaa !23
   %vbase.offset.ptr.i130 = getelementptr i8, ptr %vtable.i129, i64 -24
   %vbase.offset.i131 = load i64, ptr %vbase.offset.ptr.i130, align 8
-  %add.ptr.i132 = getelementptr inbounds nuw i8, ptr %_ql_msg_stream127, i64 %vbase.offset.i131
+  %add.ptr.i132 = getelementptr inbounds i8, ptr %_ql_msg_stream127, i64 %vbase.offset.i131
   %_M_precision.i.i133 = getelementptr inbounds nuw i8, ptr %add.ptr.i132, i64 8
   store i64 12, ptr %_M_precision.i.i133, align 8, !tbaa !29
   %call.i134 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %_ql_msg_stream127, double noundef %t)

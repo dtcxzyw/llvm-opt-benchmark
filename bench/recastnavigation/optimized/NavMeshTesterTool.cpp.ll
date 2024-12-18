@@ -336,7 +336,7 @@ define dso_local void @_ZN17NavMeshTesterTool6recalcEv(ptr noundef nonnull align
   %108 = load ptr, ptr %94, align 8
   %109 = add nsw i32 %102, -1
   %110 = sext i32 %109 to i64
-  %111 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %110
+  %111 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %110
   %112 = load i32, ptr %111, align 4
   %113 = call noundef i32 @_ZNK14dtNavMeshQuery18closestPointOnPolyEjPKfPfPb(ptr noundef nonnull align 8 dereferenceable(104) %108, i32 noundef %112, ptr noundef nonnull %77, ptr noundef nonnull %8, ptr noundef null)
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 6732
@@ -2347,7 +2347,7 @@ define internal fastcc noundef i32 @_ZL14fixupShortcutsPjiP14dtNavMeshQuery(ptr 
 24:                                               ; preds = %18
   %25 = add nsw i32 %.04351, 1
   %26 = sext i32 %.04351 to i64
-  %27 = getelementptr inbounds nuw [16 x i32], ptr %4, i64 0, i64 %26
+  %27 = getelementptr inbounds [16 x i32], ptr %4, i64 0, i64 %26
   store i32 %21, ptr %27, align 4
   br label %28
 

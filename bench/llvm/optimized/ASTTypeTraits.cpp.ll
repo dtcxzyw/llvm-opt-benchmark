@@ -1351,7 +1351,7 @@ switch.lookup:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %2 = load i8, ptr %1, align 16
   %3 = sext i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [58 x i32], ptr @switch.table._ZN5clang11ASTNodeKind11getFromNodeERKNS_4TypeE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds [58 x i32], ptr @switch.table._ZN5clang11ASTNodeKind11getFromNodeERKNS_4TypeE, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -1369,7 +1369,7 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit:       ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i8, ptr %6, align 16
   %8 = sext i8 %7 to i64
-  %switch.gep = getelementptr inbounds nuw [59 x i32], ptr @switch.table._ZN5clang11ASTNodeKind11getFromNodeERKNS_7TypeLocE, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds [59 x i32], ptr @switch.table._ZN5clang11ASTNodeKind11getFromNodeERKNS_7TypeLocE, i64 0, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread
 
@@ -1384,7 +1384,7 @@ switch.lookup:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i32, ptr %1, align 4
   %3 = sext i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [111 x i32], ptr @switch.table._ZN5clang11ASTNodeKind11getFromNodeERKNS_9OMPClauseE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds [111 x i32], ptr @switch.table._ZN5clang11ASTNodeKind11getFromNodeERKNS_9OMPClauseE, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }

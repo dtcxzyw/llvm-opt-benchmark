@@ -797,13 +797,13 @@ define linkonce_odr hidden void @_ZNK20PermutohedralLatticeILi3ELi2EE5splatEPfS1
   %149 = extractelement <4 x i32> %144, i64 3
   %150 = sub nsw i32 3, %149
   %151 = sext i32 %150 to i64
-  %152 = getelementptr inbounds nuw [5 x float], ptr %6, i64 0, i64 %151
+  %152 = getelementptr inbounds [5 x float], ptr %6, i64 0, i64 %151
   %153 = load float, ptr %152, align 4, !tbaa !31
   %154 = fadd reassoc nsz arcp contract afn float %148, %153
   store float %154, ptr %152, align 4, !tbaa !31
   %155 = sub nsw i32 4, %149
   %156 = sext i32 %155 to i64
-  %157 = getelementptr inbounds nuw [5 x float], ptr %6, i64 0, i64 %156
+  %157 = getelementptr inbounds [5 x float], ptr %6, i64 0, i64 %156
   %158 = load float, ptr %157, align 4, !tbaa !31
   %159 = fsub reassoc nsz arcp contract afn float %158, %148
   store float %159, ptr %157, align 4, !tbaa !31
@@ -814,13 +814,13 @@ define linkonce_odr hidden void @_ZNK20PermutohedralLatticeILi3ELi2EE5splatEPfS1
   %164 = extractelement <4 x i32> %144, i64 2
   %165 = sub nsw i32 3, %164
   %166 = sext i32 %165 to i64
-  %167 = getelementptr inbounds nuw [5 x float], ptr %6, i64 0, i64 %166
+  %167 = getelementptr inbounds [5 x float], ptr %6, i64 0, i64 %166
   %168 = load float, ptr %167, align 4, !tbaa !31
   %169 = fadd reassoc nsz arcp contract afn float %168, %163
   store float %169, ptr %167, align 4, !tbaa !31
   %170 = sub nsw i32 4, %164
   %171 = sext i32 %170 to i64
-  %172 = getelementptr inbounds nuw [5 x float], ptr %6, i64 0, i64 %171
+  %172 = getelementptr inbounds [5 x float], ptr %6, i64 0, i64 %171
   %173 = load float, ptr %172, align 4, !tbaa !31
   %174 = fsub reassoc nsz arcp contract afn float %173, %163
   store float %174, ptr %172, align 4, !tbaa !31
@@ -831,13 +831,13 @@ define linkonce_odr hidden void @_ZNK20PermutohedralLatticeILi3ELi2EE5splatEPfS1
   %179 = extractelement <4 x i32> %144, i64 1
   %180 = sub nsw i32 3, %179
   %181 = sext i32 %180 to i64
-  %182 = getelementptr inbounds nuw [5 x float], ptr %6, i64 0, i64 %181
+  %182 = getelementptr inbounds [5 x float], ptr %6, i64 0, i64 %181
   %183 = load float, ptr %182, align 4, !tbaa !31
   %184 = fadd reassoc nsz arcp contract afn float %183, %178
   store float %184, ptr %182, align 4, !tbaa !31
   %185 = sub nsw i32 4, %179
   %186 = sext i32 %185 to i64
-  %187 = getelementptr inbounds nuw [5 x float], ptr %6, i64 0, i64 %186
+  %187 = getelementptr inbounds [5 x float], ptr %6, i64 0, i64 %186
   %188 = load float, ptr %187, align 4, !tbaa !31
   %189 = fsub reassoc nsz arcp contract afn float %188, %178
   store float %189, ptr %187, align 4, !tbaa !31
@@ -848,13 +848,13 @@ define linkonce_odr hidden void @_ZNK20PermutohedralLatticeILi3ELi2EE5splatEPfS1
   %194 = extractelement <4 x i32> %144, i64 0
   %195 = sub nsw i32 3, %194
   %196 = sext i32 %195 to i64
-  %197 = getelementptr inbounds nuw [5 x float], ptr %6, i64 0, i64 %196
+  %197 = getelementptr inbounds [5 x float], ptr %6, i64 0, i64 %196
   %198 = load float, ptr %197, align 4, !tbaa !31
   %199 = fadd reassoc nsz arcp contract afn float %198, %193
   store float %199, ptr %197, align 4, !tbaa !31
   %200 = sub nsw i32 4, %194
   %201 = sext i32 %200 to i64
-  %202 = getelementptr inbounds nuw [5 x float], ptr %6, i64 0, i64 %201
+  %202 = getelementptr inbounds [5 x float], ptr %6, i64 0, i64 %201
   %203 = load float, ptr %202, align 4, !tbaa !31
   %204 = fsub reassoc nsz arcp contract afn float %203, %193
   store float %204, ptr %202, align 4, !tbaa !31

@@ -874,10 +874,10 @@ define dso_local { ptr, i64 } @_ZN5clang23getParameterABISpellingENS_12Parameter
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -1
   %1 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN12_GLOBAL__N_111TypePrinter10printAfterEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE.43, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [6 x i64], ptr @switch.table._ZN12_GLOBAL__N_111TypePrinter10printAfterEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE.43, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = sext i32 %switch.tableidx to i64
-  %switch.gep1 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN12_GLOBAL__N_111TypePrinter10printAfterEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE.44, i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN12_GLOBAL__N_111TypePrinter10printAfterEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE.44, i64 0, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -7080,10 +7080,10 @@ _ZN4llvm11raw_ostreamlsEPKc.exit138.i:            ; preds = %883, %881
   %.0.i.i137.i = phi ptr [ %882, %881 ], [ %2, %883 ]
   %switch.tableidx = add nsw i8 %781, -1
   %886 = sext i8 %switch.tableidx to i64
-  %switch.gep47 = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN12_GLOBAL__N_111TypePrinter10printAfterEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE.43, i64 0, i64 %886
+  %switch.gep47 = getelementptr inbounds [6 x i64], ptr @switch.table._ZN12_GLOBAL__N_111TypePrinter10printAfterEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE.43, i64 0, i64 %886
   %switch.load48 = load i64, ptr %switch.gep47, align 8
   %887 = sext i8 %switch.tableidx to i64
-  %switch.gep49 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN12_GLOBAL__N_111TypePrinter10printAfterEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE.44, i64 0, i64 %887
+  %switch.gep49 = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN12_GLOBAL__N_111TypePrinter10printAfterEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE.44, i64 0, i64 %887
   %switch.load50 = load ptr, ptr %switch.gep49, align 8
   %888 = getelementptr inbounds nuw i8, ptr %.0.i.i137.i, i64 24
   %889 = load ptr, ptr %888, align 8

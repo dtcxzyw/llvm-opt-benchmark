@@ -2052,7 +2052,7 @@ if.then:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %conv = sext i32 %executor_type to i64
-  %arrayidx = getelementptr inbounds nuw [2 x ptr], ptr @_ZN9grpc_core12_GLOBAL__N_19executorsE, i64 0, i64 %conv
+  %arrayidx = getelementptr inbounds [2 x ptr], ptr @_ZN9grpc_core12_GLOBAL__N_19executorsE, i64 0, i64 %conv
   %0 = load ptr, ptr %arrayidx, align 8
   %num_threads_.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1 = load atomic i64, ptr %num_threads_.i acquire, align 8

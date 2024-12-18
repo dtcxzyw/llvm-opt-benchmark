@@ -39079,11 +39079,11 @@ define hidden noundef ptr @_ZN8wasmtime6engine13serialization16check_compatible1
 
 60:                                               ; preds = %56
   call void @llvm.lifetime.start.p0(i64 304, ptr nonnull %31)
-  %61 = getelementptr inbounds nuw [10 x i64], ptr @anon.0ecd3ce1ce6f6f973ef910aad1a48719.163.llvm.6452179527160401088, i64 0, i64 %.0..0..0..0.6.pr
+  %61 = getelementptr inbounds [10 x i64], ptr @anon.0ecd3ce1ce6f6f973ef910aad1a48719.163.llvm.6452179527160401088, i64 0, i64 %.0..0..0..0.6.pr
   %62 = load i64, ptr %61, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %31, ptr nonnull align 8 %34, i64 %62, i1 false)
   %.0..0..0..0. = load i64, ptr %31, align 8
-  %63 = getelementptr inbounds nuw [10 x i64], ptr @anon.0ecd3ce1ce6f6f973ef910aad1a48719.163.llvm.6452179527160401088, i64 0, i64 %.0..0..0..0.
+  %63 = getelementptr inbounds [10 x i64], ptr @anon.0ecd3ce1ce6f6f973ef910aad1a48719.163.llvm.6452179527160401088, i64 0, i64 %.0..0..0..0.
   %64 = load i64, ptr %63, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %35, ptr nonnull align 8 %31, i64 %64, i1 false)
   call void @llvm.lifetime.end.p0(i64 304, ptr nonnull %31)
@@ -39778,7 +39778,7 @@ define hidden noundef range(i8 0, 3) i8 @_ZN8wasmtime6engine13serialization24det
   br label %29
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds nuw [10 x i64], ptr @anon.0ecd3ce1ce6f6f973ef910aad1a48719.163.llvm.6452179527160401088, i64 0, i64 %.0..0..0..0.2.pr
+  %14 = getelementptr inbounds [10 x i64], ptr @anon.0ecd3ce1ce6f6f973ef910aad1a48719.163.llvm.6452179527160401088, i64 0, i64 %.0..0..0..0.2.pr
   %15 = load i64, ptr %14, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %6, ptr nonnull align 8 %5, i64 %15, i1 false)
   %.0..0..0..0..pr = load i64, ptr %6, align 8
@@ -39787,7 +39787,7 @@ define hidden noundef range(i8 0, 3) i8 @_ZN8wasmtime6engine13serialization24det
   br i1 %16, label %29, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds nuw [10 x i64], ptr @anon.0ecd3ce1ce6f6f973ef910aad1a48719.163.llvm.6452179527160401088, i64 0, i64 %.0..0..0..0..pr
+  %18 = getelementptr inbounds [10 x i64], ptr @anon.0ecd3ce1ce6f6f973ef910aad1a48719.163.llvm.6452179527160401088, i64 0, i64 %.0..0..0..0..pr
   %19 = load i64, ptr %18, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3, ptr nonnull align 8 %6, i64 %19, i1 false)
   %20 = invoke i64 @"_ZN81_$LT$object..read..any..File$LT$R$GT$$u20$as$u20$object..read..traits..Object$GT$5flags17h96bcfcc435eff258E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(304) %3)

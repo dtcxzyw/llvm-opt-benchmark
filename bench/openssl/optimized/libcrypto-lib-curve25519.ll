@@ -5393,7 +5393,7 @@ entry:
   %xy2d.i = getelementptr inbounds nuw i8, ptr %t, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %xy2d.i, i8 0, i64 40, i1 false)
   %idxprom = sext i32 %pos to i64
-  %arrayidx = getelementptr inbounds nuw [32 x [8 x %struct.ge_precomp]], ptr @k25519Precomp, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [32 x [8 x %struct.ge_precomp]], ptr @k25519Precomp, i64 0, i64 %idxprom
   %xor3.i = xor i8 %sub5, 1
   %conv3.i = zext i8 %xor3.i to i32
   %sub.i = add nsw i32 %conv3.i, -1

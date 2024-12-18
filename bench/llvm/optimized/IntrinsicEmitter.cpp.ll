@@ -1728,7 +1728,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i22:             ; preds = %428, %426
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %438, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %437, i64 32
   %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
-  %439 = getelementptr inbounds nuw [256 x %"class.llvm::StringRef"], ptr %63, i64 0, i64 %436
+  %439 = getelementptr inbounds [256 x %"class.llvm::StringRef"], ptr %63, i64 0, i64 %436
   store ptr %.sroa.0.0.copyload.i.i.i, ptr %439, align 8
   %.sroa.27.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %439, i64 8
   store i64 %.sroa.2.0.copyload.i.i.i, ptr %.sroa.27.0..sroa_idx.i, align 8
@@ -3170,10 +3170,10 @@ _ZNSt3mapIN4llvm11SmallVectorINS0_16CodeGenIntrinsic12ArgAttributeELj0EEEjSt4les
   %.09797.i = phi ptr [ %1122, %1120 ], [ %1110, %.loopexit.i73 ]
   %1113 = load i32, ptr %.09797.i, align 8
   %1114 = sext i32 %1113 to i64
-  %switch.gep = getelementptr inbounds nuw [11 x i64], ptr @switch.table._ZN12_GLOBAL__N_116IntrinsicEmitter3runERN4llvm11raw_ostreamEb, i64 0, i64 %1114
+  %switch.gep = getelementptr inbounds [11 x i64], ptr @switch.table._ZN12_GLOBAL__N_116IntrinsicEmitter3runERN4llvm11raw_ostreamEb, i64 0, i64 %1114
   %switch.load = load i64, ptr %switch.gep, align 8
   %1115 = sext i32 %1113 to i64
-  %switch.gep133 = getelementptr inbounds nuw [11 x ptr], ptr @switch.table._ZN12_GLOBAL__N_116IntrinsicEmitter3runERN4llvm11raw_ostreamEb.69, i64 0, i64 %1115
+  %switch.gep133 = getelementptr inbounds [11 x ptr], ptr @switch.table._ZN12_GLOBAL__N_116IntrinsicEmitter3runERN4llvm11raw_ostreamEb.69, i64 0, i64 %1115
   %switch.load134 = load ptr, ptr %switch.gep133, align 8
   store ptr %switch.load134, ptr %33, align 8
   store i64 %switch.load, ptr %1034, align 8

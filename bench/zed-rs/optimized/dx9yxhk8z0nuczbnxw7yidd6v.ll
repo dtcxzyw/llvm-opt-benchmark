@@ -6390,7 +6390,7 @@ define noundef float @_ZN2ui6styles10typography8TextSize4rems17hdbba866a7127fe24
 define noundef float @_ZN2ui6styles10typography12HeadlineSize4size17h81d3fe3d6e522998E(i8 noundef %0) unnamed_addr #0 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x float], ptr @"switch.table._ZN78_$LT$ui..styles..typography..Headline$u20$as$u20$gpui..element..RenderOnce$GT$6render17h02fa36f34caadb0bE", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [5 x float], ptr @"switch.table._ZN78_$LT$ui..styles..typography..Headline$u20$as$u20$gpui..element..RenderOnce$GT$6render17h02fa36f34caadb0bE", i64 0, i64 %1
   %switch.load = load float, ptr %switch.gep, align 4
   %2 = tail call noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef %switch.load)
   ret float %2

@@ -78,7 +78,7 @@ if.else:                                          ; preds = %if.then
 
 if.then12:                                        ; preds = %if.else
   %idxprom14 = sext i32 %0 to i64
-  %arrayidx15 = getelementptr inbounds nuw [16 x i32], ptr %point_indices, i64 0, i64 %idxprom14
+  %arrayidx15 = getelementptr inbounds [16 x i32], ptr %point_indices, i64 0, i64 %idxprom14
   %12 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %12, ptr %arrayidx15, align 4
   %inc = add nsw i32 %0, 1
@@ -819,7 +819,7 @@ if.else.i:                                        ; preds = %if.then.i
 
 if.then12.i:                                      ; preds = %if.else.i
   %idxprom14.i = sext i32 %8 to i64
-  %arrayidx15.i = getelementptr inbounds nuw [16 x i32], ptr %point_indices.i, i64 0, i64 %idxprom14.i
+  %arrayidx15.i = getelementptr inbounds [16 x i32], ptr %point_indices.i, i64 0, i64 %idxprom14.i
   %14 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %14, ptr %arrayidx15.i, align 4
   %inc.i = add nsw i32 %8, 1
@@ -844,7 +844,7 @@ for.body23.i:                                     ; preds = %for.body23.i, %for.
   %arrayidx25.i = getelementptr inbounds nuw [16 x i32], ptr %point_indices.i, i64 0, i64 %indvars.iv18.i
   %17 = load i32, ptr %arrayidx25.i, align 4
   %idxprom26.i = sext i32 %17 to i64
-  %arrayidx27.i = getelementptr inbounds nuw %class.btVector3, ptr %clipped_points, i64 %idxprom26.i
+  %arrayidx27.i = getelementptr inbounds %class.btVector3, ptr %clipped_points, i64 %idxprom26.i
   %arrayidx29.i = getelementptr inbounds nuw [16 x %class.btVector3], ptr %m_points.i, i64 0, i64 %indvars.iv18.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx29.i, ptr noundef nonnull readonly align 16 dereferenceable(16) %arrayidx27.i, i64 16, i1 false)
   %indvars.iv.next19.i = add nuw nsw i64 %indvars.iv18.i, 1
@@ -939,7 +939,7 @@ if.else.i28:                                      ; preds = %if.then.i26
 
 if.then12.i31:                                    ; preds = %if.else.i28
   %idxprom14.i32 = sext i32 %25 to i64
-  %arrayidx15.i33 = getelementptr inbounds nuw [16 x i32], ptr %point_indices.i9, i64 0, i64 %idxprom14.i32
+  %arrayidx15.i33 = getelementptr inbounds [16 x i32], ptr %point_indices.i9, i64 0, i64 %idxprom14.i32
   %31 = trunc nuw nsw i64 %indvars.iv.i18 to i32
   store i32 %31, ptr %arrayidx15.i33, align 4
   %inc.i34 = add nsw i32 %25, 1
@@ -964,7 +964,7 @@ for.body23.i46:                                   ; preds = %for.body23.i46, %fo
   %arrayidx25.i48 = getelementptr inbounds nuw [16 x i32], ptr %point_indices.i9, i64 0, i64 %indvars.iv18.i47
   %34 = load i32, ptr %arrayidx25.i48, align 4
   %idxprom26.i49 = sext i32 %34 to i64
-  %arrayidx27.i50 = getelementptr inbounds nuw %class.btVector3, ptr %clipped_points, i64 %idxprom26.i49
+  %arrayidx27.i50 = getelementptr inbounds %class.btVector3, ptr %clipped_points, i64 %idxprom26.i49
   %arrayidx29.i51 = getelementptr inbounds nuw [16 x %class.btVector3], ptr %m_points.i44, i64 0, i64 %indvars.iv18.i47
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx29.i51, ptr noundef nonnull readonly align 16 dereferenceable(16) %arrayidx27.i50, i64 16, i1 false)
   %indvars.iv.next19.i52 = add nuw nsw i64 %indvars.iv18.i47, 1

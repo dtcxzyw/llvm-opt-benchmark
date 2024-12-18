@@ -360,7 +360,7 @@ invoke.cont87:                                    ; preds = %if.else68, %if.then
   %size_bytes_pos.0 = phi i64 [ 0, %if.else68 ], [ 1, %if.then.i87 ], [ %sub.ptr.sub.i85, %call.i82.noexc ]
   %conv91 = trunc i64 %retval.sroa.3.0.i94.pre-phi to i32
   %sub92 = sub i32 %conv, %conv91
-  %add.ptr94 = getelementptr inbounds nuw i8, ptr %size_bytes, i64 %size_bytes_pos.0
+  %add.ptr94 = getelementptr inbounds i8, ptr %size_bytes, i64 %size_bytes_pos.0
   %cmp.i100 = icmp ult i32 %sub92, 63
   br i1 %cmp.i100, label %if.then.i109, label %if.else.i101
 

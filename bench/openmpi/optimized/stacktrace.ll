@@ -572,7 +572,7 @@ define internal void @show_stackframe(i32 noundef %0, ptr noundef readonly %1, p
   %43 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 1024, ptr noundef nonnull @.str.16, ptr noundef %40, i32 noundef %41, ptr noundef %42, i32 noundef %0) #14
   %44 = sub nsw i32 1024, %43
   %45 = sext i32 %43 to i64
-  %46 = getelementptr inbounds nuw i8, ptr %4, i64 %45
+  %46 = getelementptr inbounds i8, ptr %4, i64 %45
   %.not80 = icmp eq ptr %1, null
   br i1 %.not80, label %130, label %47
 

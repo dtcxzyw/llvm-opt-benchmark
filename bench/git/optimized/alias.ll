@@ -489,7 +489,7 @@ define dso_local ptr @split_cmdline_strerror(i32 noundef %split_cmdline_errno) l
 entry:
   %sub1 = xor i32 %split_cmdline_errno, -1
   %idxprom = sext i32 %sub1 to i64
-  %arrayidx = getelementptr inbounds nuw [3 x ptr], ptr @split_cmdline_errors, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [3 x ptr], ptr @split_cmdline_errors, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
   ret ptr %0
 }

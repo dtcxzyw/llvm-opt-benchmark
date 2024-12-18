@@ -237,7 +237,7 @@ define void @_Z24output_env_get_time_unitB5cxx11PK16gmx_output_env_t(ptr dead_on
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds nuw [6 x ptr], ptr @_ZL15c_timeUnitNames, i64 0, i64 %6
+  %7 = getelementptr inbounds [6 x ptr], ptr @_ZL15c_timeUnitNames, i64 0, i64 %6
   %8 = load ptr, ptr %7, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #16
   %9 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -396,7 +396,7 @@ define void @_Z25output_env_get_time_labelB5cxx11PK16gmx_output_env_t(ptr dead_o
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds nuw [6 x ptr], ptr @_ZL15c_timeUnitNames, i64 0, i64 %5
+  %6 = getelementptr inbounds [6 x ptr], ptr @_ZL15c_timeUnitNames, i64 0, i64 %5
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull @.str.8, ptr noundef %7)
   ret void
@@ -409,7 +409,7 @@ define void @_Z26output_env_get_xvgr_tlabelB5cxx11PK16gmx_output_env_t(ptr dead_
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds nuw [6 x ptr], ptr @_ZL22c_timeUnitNamesForXvgr, i64 0, i64 %5
+  %6 = getelementptr inbounds [6 x ptr], ptr @_ZL22c_timeUnitNamesForXvgr, i64 0, i64 %5
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull @.str.8, ptr noundef %7)
   ret void
@@ -420,7 +420,7 @@ define noundef float @_Z26output_env_get_time_factorPK16gmx_output_env_t(ptr noc
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds nuw [6 x float], ptr @_ZL23c_picosecondsInTimeUnit, i64 0, i64 %4
+  %5 = getelementptr inbounds [6 x float], ptr @_ZL23c_picosecondsInTimeUnit, i64 0, i64 %4
   %6 = load float, ptr %5, align 4
   ret float %6
 }
@@ -430,7 +430,7 @@ define noundef float @_Z29output_env_get_time_invfactorPK16gmx_output_env_t(ptr 
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds nuw [6 x float], ptr @_ZL24c_timeUnitsInPicoseconds, i64 0, i64 %4
+  %5 = getelementptr inbounds [6 x float], ptr @_ZL24c_timeUnitsInPicoseconds, i64 0, i64 %4
   %6 = load float, ptr %5, align 4
   ret float %6
 }
@@ -440,7 +440,7 @@ define noundef float @_Z20output_env_conv_timePK16gmx_output_env_tf(ptr nocaptur
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds nuw [6 x float], ptr @_ZL23c_picosecondsInTimeUnit, i64 0, i64 %5
+  %6 = getelementptr inbounds [6 x float], ptr @_ZL23c_picosecondsInTimeUnit, i64 0, i64 %5
   %7 = load float, ptr %6, align 4
   %8 = fmul float %1, %7
   ret float %8
@@ -451,7 +451,7 @@ define void @_Z21output_env_conv_timesPK16gmx_output_env_tiPf(ptr nocapture noun
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds nuw [6 x float], ptr @_ZL23c_picosecondsInTimeUnit, i64 0, i64 %6
+  %7 = getelementptr inbounds [6 x float], ptr @_ZL23c_picosecondsInTimeUnit, i64 0, i64 %6
   %8 = load float, ptr %7, align 4
   %9 = fcmp une float %8, 1.000000e+00
   %10 = icmp sgt i32 %1, 0

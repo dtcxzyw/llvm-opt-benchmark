@@ -1499,7 +1499,7 @@ if.then129.i222:                                  ; preds = %if.then118.i
 
 if.then131.i223:                                  ; preds = %if.then129.i222
   %idxprom132.i = sext i32 %stackLast.0.ph169240.i to i64
-  %arrayidx133.i = getelementptr inbounds nuw [126 x i32], ptr %isolateStartStack.i, i64 0, i64 %idxprom132.i
+  %arrayidx133.i = getelementptr inbounds [126 x i32], ptr %isolateStartStack.i, i64 0, i64 %idxprom132.i
   %104 = load i32, ptr %arrayidx133.i, align 4
   %idxprom134.i = sext i32 %104 to i64
   %arrayidx135.i = getelementptr inbounds i8, ptr %74, i64 %idxprom134.i
@@ -1527,9 +1527,9 @@ if.then153.i:                                     ; preds = %if.end147.i
 
 if.then156.i:                                     ; preds = %if.then153.i
   %idxprom158.i = sext i32 %inc154.i to i64
-  %arrayidx159.i = getelementptr inbounds nuw [126 x i32], ptr %isolateStartStack.i, i64 0, i64 %idxprom158.i
+  %arrayidx159.i = getelementptr inbounds [126 x i32], ptr %isolateStartStack.i, i64 0, i64 %idxprom158.i
   store i32 %sub67.i, ptr %arrayidx159.i, align 4
-  %arrayidx161.i = getelementptr inbounds nuw [126 x i32], ptr %previousStateStack.i, i64 0, i64 %idxprom158.i
+  %arrayidx161.i = getelementptr inbounds [126 x i32], ptr %previousStateStack.i, i64 0, i64 %idxprom158.i
   store i32 %state.1.ph167239.i, ptr %arrayidx161.i, align 4
   br label %if.end162.i
 

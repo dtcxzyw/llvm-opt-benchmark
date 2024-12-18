@@ -323,7 +323,7 @@ _ZN28TemplateInterpreterGenerator19generate_error_exitEPKc.exit49: ; preds = %_Z
   %123 = load i8, ptr %122, align 1
   %124 = call noundef i32 @_ZN19AbstractInterpreter18BasicType_as_indexE9BasicType(i8 noundef zeroext %123) #7
   %125 = sext i32 %124 to i64
-  %126 = getelementptr inbounds nuw [10 x i32], ptr %12, i64 0, i64 %125
+  %126 = getelementptr inbounds [10 x i32], ptr %12, i64 0, i64 %125
   %127 = load i32, ptr %126, align 4
   %128 = add nsw i32 %127, 1
   store i32 %128, ptr %126, align 4
@@ -334,7 +334,7 @@ _ZN28TemplateInterpreterGenerator19generate_error_exitEPKc.exit49: ; preds = %_Z
   %130 = call noundef ptr @_ZN28TemplateInterpreterGenerator27generate_result_handler_forE9BasicType(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 noundef zeroext %123) #7
   %131 = call noundef i32 @_ZN19AbstractInterpreter18BasicType_as_indexE9BasicType(i8 noundef zeroext %123) #7
   %132 = sext i32 %131 to i64
-  %133 = getelementptr inbounds nuw [10 x ptr], ptr @_ZN19AbstractInterpreter20_native_abi_to_toscaE, i64 0, i64 %132
+  %133 = getelementptr inbounds [10 x ptr], ptr @_ZN19AbstractInterpreter20_native_abi_to_toscaE, i64 0, i64 %132
   store ptr %130, ptr %133, align 8
   br label %134
 
@@ -1373,7 +1373,7 @@ define hidden void @_ZN28TemplateInterpreterGenerator16set_entry_pointsEN9Byteco
   %12 = alloca ptr, align 8
   %13 = alloca %class.EntryPoint, align 8
   %14 = sext i32 %1 to i64
-  %15 = getelementptr inbounds nuw [239 x ptr], ptr @_ZN9Bytecodes5_nameE, i64 0, i64 %14
+  %15 = getelementptr inbounds [239 x ptr], ptr @_ZN9Bytecodes5_nameE, i64 0, i64 %14
   %16 = load ptr, ptr %15, align 8
   call void @_ZN11CodeletMarkC1ERP25InterpreterMacroAssemblerPKcN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(504) %3, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %16, i32 noundef %1) #7
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1446,7 +1446,7 @@ _ZN9Bytecodes15wide_is_definedEi.exit.thread:     ; preds = %_ZN9Bytecodes10is_d
   %49 = load ptr, ptr %12, align 8
   call void @_ZN10EntryPointC1EPhS0_S0_S0_S0_S0_S0_S0_S0_S0_(ptr noundef nonnull align 8 dereferenceable(80) %13, ptr noundef %41, ptr noundef %18, ptr noundef %42, ptr noundef %43, ptr noundef %44, ptr noundef %45, ptr noundef %46, ptr noundef %47, ptr noundef %48, ptr noundef %49) #7
   call void @_ZN13DispatchTable9set_entryEiR10EntryPoint(ptr noundef nonnull align 8 dereferenceable(20480) @_ZN19TemplateInterpreter13_normal_tableE, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(80) %13) #7
-  %50 = getelementptr inbounds nuw [256 x ptr], ptr @_ZN19TemplateInterpreter13_wentry_pointE, i64 0, i64 %14
+  %50 = getelementptr inbounds [256 x ptr], ptr @_ZN19TemplateInterpreter13_wentry_pointE, i64 0, i64 %14
   store ptr %.0, ptr %50, align 8
   call void @_ZN11CodeletMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(504) %3) #7
   ret void
@@ -1461,7 +1461,7 @@ define hidden void @_ZN28TemplateInterpreterGenerator17set_unimplementedEi(ptr n
   call void @_ZN13DispatchTable9set_entryEiR10EntryPoint(ptr noundef nonnull align 8 dereferenceable(20480) @_ZN19TemplateInterpreter13_normal_tableE, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(80) %3) #7
   %6 = load ptr, ptr %4, align 8
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds nuw [256 x ptr], ptr @_ZN19TemplateInterpreter13_wentry_pointE, i64 0, i64 %7
+  %8 = getelementptr inbounds [256 x ptr], ptr @_ZN19TemplateInterpreter13_wentry_pointE, i64 0, i64 %7
   store ptr %6, ptr %8, align 8
   ret void
 }

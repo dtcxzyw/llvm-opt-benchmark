@@ -391,7 +391,7 @@ if.then11.i:                                      ; preds = %for.body6.i
 if.then13.i:                                      ; preds = %if.then11.i
   %add.i = add nuw nsw i32 %j.019.i, %4
   %idxprom14.i = sext i32 %k.221.i to i64
-  %arrayidx15.i = getelementptr inbounds nuw i32, ptr %arr, i64 %idxprom14.i
+  %arrayidx15.i = getelementptr inbounds i32, ptr %arr, i64 %idxprom14.i
   store i32 %add.i, ptr %arrayidx15.i, align 4
   br label %if.end16.i
 
@@ -418,7 +418,7 @@ for.end20.i:                                      ; preds = %for.inc18.i
 if.then22.i:                                      ; preds = %if.end.i, %for.end20.i
   %k.0.lcssa.i5 = phi i32 [ %k.1.i, %for.end20.i ], [ 0, %if.end.i ]
   %idxprom23.i = sext i32 %k.0.lcssa.i5 to i64
-  %arrayidx24.i = getelementptr inbounds nuw i32, ptr %arr, i64 %idxprom23.i
+  %arrayidx24.i = getelementptr inbounds i32, ptr %arr, i64 %idxprom23.i
   store i32 -1, ptr %arrayidx24.i, align 4
   %inc25.i = add nsw i32 %k.0.lcssa.i5, 1
   br label %BN_GF2m_poly2arr.exit

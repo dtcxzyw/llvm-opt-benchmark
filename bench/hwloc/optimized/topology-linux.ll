@@ -6443,7 +6443,7 @@ hwloc_open.exit.i.i.i165:                         ; preds = %.preheader.i.i.i.i.
   %1040 = getelementptr inbounds nuw i8, ptr %22, i64 %1036
   store i8 0, ptr %1040, align 1
   %1041 = call i64 @strspn(ptr noundef nonnull %22, ptr noundef nonnull @.str.488) #29
-  %1042 = getelementptr inbounds nuw [20 x i8], ptr %22, i64 0, i64 %1041
+  %1042 = getelementptr inbounds [20 x i8], ptr %22, i64 0, i64 %1041
   store i8 0, ptr %1042, align 1
   %1043 = getelementptr inbounds nuw i8, ptr %1024, i64 216
   %1044 = call i32 @hwloc_modify_infos(ptr noundef nonnull %1043, i64 noundef 1, ptr noundef nonnull @.str.489, ptr noundef nonnull %22) #26
@@ -6476,7 +6476,7 @@ hwloc_open.exit.i36.i.i:                          ; preds = %.preheader.i.i.i.i3
   %1056 = getelementptr inbounds nuw i8, ptr %22, i64 %1052
   store i8 0, ptr %1056, align 1
   %1057 = call i64 @strspn(ptr noundef nonnull %22, ptr noundef nonnull @.str.488) #29
-  %1058 = getelementptr inbounds nuw [20 x i8], ptr %22, i64 0, i64 %1057
+  %1058 = getelementptr inbounds [20 x i8], ptr %22, i64 0, i64 %1057
   store i8 0, ptr %1058, align 1
   %1059 = getelementptr inbounds nuw i8, ptr %1024, i64 216
   %1060 = call i32 @hwloc_modify_infos(ptr noundef nonnull %1059, i64 noundef 1, ptr noundef nonnull @.str.491, ptr noundef nonnull %22) #26
@@ -6542,7 +6542,7 @@ hwloc_open.exit.i50.i.i:                          ; preds = %.preheader.i.i.i.i5
   %1088 = getelementptr inbounds nuw i8, ptr %24, i64 %1084
   store i8 0, ptr %1088, align 1
   %1089 = call i64 @strspn(ptr noundef nonnull %24, ptr noundef nonnull @.str.495) #29
-  %1090 = getelementptr inbounds nuw [11 x i8], ptr %24, i64 0, i64 %1089
+  %1090 = getelementptr inbounds [11 x i8], ptr %24, i64 0, i64 %1089
   store i8 0, ptr %1090, align 1
   %1091 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %27, i64 noundef 32, ptr noundef nonnull @.str.496, i32 noundef %.0.i.i168) #26
   %1092 = call i32 @hwloc_modify_infos(ptr noundef nonnull %1061, i64 noundef 1, ptr noundef nonnull %27, ptr noundef nonnull %24) #26
@@ -6575,7 +6575,7 @@ hwloc_open.exit.i57.i.i:                          ; preds = %.preheader.i.i.i.i6
   %1104 = getelementptr inbounds nuw i8, ptr %24, i64 %1100
   store i8 0, ptr %1104, align 1
   %1105 = call i64 @strspn(ptr noundef nonnull %24, ptr noundef nonnull @.str.498) #29
-  %1106 = getelementptr inbounds nuw [11 x i8], ptr %24, i64 0, i64 %1105
+  %1106 = getelementptr inbounds [11 x i8], ptr %24, i64 0, i64 %1105
   store i8 0, ptr %1106, align 1
   %1107 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %28, i64 noundef 32, ptr noundef nonnull @.str.499, i32 noundef %.0.i.i168) #26
   %1108 = call i32 @hwloc_modify_infos(ptr noundef nonnull %1061, i64 noundef 1, ptr noundef nonnull %28, ptr noundef nonnull %24) #26
@@ -6612,7 +6612,7 @@ hwloc_open.exit.i64.i.i:                          ; preds = %.preheader.i.i.i.i6
   %1120 = getelementptr inbounds nuw i8, ptr %25, i64 %1116
   store i8 0, ptr %1120, align 1
   %1121 = call i64 @strspn(ptr noundef nonnull %25, ptr noundef nonnull @.str.488) #29
-  %1122 = getelementptr inbounds nuw [40 x i8], ptr %25, i64 0, i64 %1121
+  %1122 = getelementptr inbounds [40 x i8], ptr %25, i64 0, i64 %1121
   store i8 0, ptr %1122, align 1
   %bcmp.i.i169 = call i32 @bcmp(ptr noundef nonnull dereferenceable(19) %1007, ptr noundef nonnull dereferenceable(19) @.str.501, i64 19)
   %.not.i.i170 = icmp eq i32 %bcmp.i.i169, 0
@@ -6858,7 +6858,7 @@ hwloc_open.exit.i54.i.i:                          ; preds = %.preheader.i.i.i.i5
   %1220 = getelementptr inbounds nuw i8, ptr %19, i64 %1216
   store i8 0, ptr %1220, align 1
   %1221 = call i64 @strspn(ptr noundef nonnull %19, ptr noundef nonnull @.str.498) #29
-  %1222 = getelementptr inbounds nuw [64 x i8], ptr %19, i64 0, i64 %1221
+  %1222 = getelementptr inbounds [64 x i8], ptr %19, i64 0, i64 %1221
   store i8 0, ptr %1222, align 1
   %1223 = getelementptr inbounds nuw i8, ptr %1151, i64 216
   %1224 = call i32 @hwloc_modify_infos(ptr noundef nonnull %1223, i64 noundef 1, ptr noundef nonnull @.str.513, ptr noundef nonnull %19) #26
@@ -6931,7 +6931,7 @@ hwloc_open.exit.i62.i.i:                          ; preds = %.preheader.i.i.i.i6
   %1255 = getelementptr inbounds nuw i8, ptr %19, i64 %1251
   store i8 0, ptr %1255, align 1
   %1256 = call i64 @strspn(ptr noundef nonnull %19, ptr noundef nonnull @.str.498) #29
-  %1257 = getelementptr inbounds nuw [64 x i8], ptr %19, i64 0, i64 %1256
+  %1257 = getelementptr inbounds [64 x i8], ptr %19, i64 0, i64 %1256
   store i8 0, ptr %1257, align 1
   %1258 = getelementptr inbounds nuw i8, ptr %1151, i64 216
   %1259 = call i32 @hwloc_modify_infos(ptr noundef nonnull %1258, i64 noundef 1, ptr noundef nonnull @.str.517, ptr noundef nonnull %19) #26
@@ -6964,7 +6964,7 @@ hwloc_open.exit.i69.i.i:                          ; preds = %.preheader.i.i.i.i7
   %1271 = getelementptr inbounds nuw i8, ptr %19, i64 %1267
   store i8 0, ptr %1271, align 1
   %1272 = call i64 @strspn(ptr noundef nonnull %19, ptr noundef nonnull @.str.498) #29
-  %1273 = getelementptr inbounds nuw [64 x i8], ptr %19, i64 0, i64 %1272
+  %1273 = getelementptr inbounds [64 x i8], ptr %19, i64 0, i64 %1272
   store i8 0, ptr %1273, align 1
   %1274 = getelementptr inbounds nuw i8, ptr %1151, i64 216
   %1275 = call i32 @hwloc_modify_infos(ptr noundef nonnull %1274, i64 noundef 1, ptr noundef nonnull @.str.519, ptr noundef nonnull %19) #26
@@ -6997,7 +6997,7 @@ hwloc_open.exit.i76.i.i:                          ; preds = %.preheader.i.i.i.i7
   %1287 = getelementptr inbounds nuw i8, ptr %19, i64 %1283
   store i8 0, ptr %1287, align 1
   %1288 = call i64 @strspn(ptr noundef nonnull %19, ptr noundef nonnull @.str.498) #29
-  %1289 = getelementptr inbounds nuw [64 x i8], ptr %19, i64 0, i64 %1288
+  %1289 = getelementptr inbounds [64 x i8], ptr %19, i64 0, i64 %1288
   store i8 0, ptr %1289, align 1
   %1290 = getelementptr inbounds nuw i8, ptr %1151, i64 216
   %1291 = call i32 @hwloc_modify_infos(ptr noundef nonnull %1290, i64 noundef 1, ptr noundef nonnull @.str.521, ptr noundef nonnull %19) #26
@@ -7030,7 +7030,7 @@ hwloc_open.exit.i83.i.i:                          ; preds = %.preheader.i.i.i.i8
   %1303 = getelementptr inbounds nuw i8, ptr %19, i64 %1299
   store i8 0, ptr %1303, align 1
   %1304 = call i64 @strspn(ptr noundef nonnull %19, ptr noundef nonnull @.str.498) #29
-  %1305 = getelementptr inbounds nuw [64 x i8], ptr %19, i64 0, i64 %1304
+  %1305 = getelementptr inbounds [64 x i8], ptr %19, i64 0, i64 %1304
   store i8 0, ptr %1305, align 1
   %1306 = getelementptr inbounds nuw i8, ptr %1151, i64 216
   %1307 = call i32 @hwloc_modify_infos(ptr noundef nonnull %1306, i64 noundef 1, ptr noundef nonnull @.str.523, ptr noundef nonnull %19) #26

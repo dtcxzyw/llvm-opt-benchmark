@@ -3532,7 +3532,7 @@ sub_0:                                            ; preds = %2
 
 21:                                               ; preds = %14
   %22 = sext i32 %15 to i64
-  %23 = getelementptr inbounds nuw [32 x i32], ptr %4, i64 0, i64 %22
+  %23 = getelementptr inbounds [32 x i32], ptr %4, i64 0, i64 %22
   store i32 1, ptr %23, align 4
   %.pre = load ptr, ptr %3, align 8
   br label %24

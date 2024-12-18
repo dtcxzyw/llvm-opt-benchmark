@@ -2040,7 +2040,7 @@ lxb_encoding_decode_finish.exit:                  ; preds = %lxb_encoding_decode
   store ptr %6, ptr %9, align 8
   %64 = getelementptr inbounds nuw i8, ptr %.0.i2, i64 8
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds nuw i32, ptr %6, i64 %.val
+  %66 = getelementptr inbounds i32, ptr %6, i64 %.val
   %67 = call i32 %65(ptr noundef nonnull %3, ptr noundef nonnull %9, ptr noundef nonnull %66) #11
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %69 = load ptr, ptr %68, align 8

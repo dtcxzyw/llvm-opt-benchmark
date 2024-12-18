@@ -2010,7 +2010,7 @@ _ZN14cmProcessTools12OutputLoggerC2ERSoPKc.exit78: ; preds = %.noexc75
   %92 = load ptr, ptr %16, align 8
   %93 = getelementptr i8, ptr %92, i64 -24
   %94 = load i64, ptr %93, align 8
-  %95 = getelementptr inbounds nuw i8, ptr %16, i64 %94
+  %95 = getelementptr inbounds i8, ptr %16, i64 %94
   %96 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %95)
           to label %97 unwind label %111
 
@@ -7290,7 +7290,7 @@ define linkonce_odr dso_local void @_ZN10cmCTestGIT12CommitParser14FormatDateTim
 
 .noexc15:                                         ; preds = %.noexc
   %26 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #21
-  %27 = getelementptr inbounds nuw i8, ptr %5, i64 %26
+  %27 = getelementptr inbounds i8, ptr %5, i64 %26
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %5, ptr noundef nonnull %27)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %28
 

@@ -83,7 +83,7 @@ Abc_Clock.exit:                                   ; preds = %8, %20
   %29 = add i32 %.neg, %.0251
   %30 = sub nsw i32 %3, %29
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds nuw [1024 x i32], ptr @CreateDecomposedNetwork.Profile, i64 0, i64 %31
+  %32 = getelementptr inbounds [1024 x i32], ptr @CreateDecomposedNetwork.Profile, i64 0, i64 %31
   %33 = load i32, ptr %32, align 4
   %34 = icmp ult i32 %33, 2
   %35 = add i32 %33, -1
@@ -187,7 +187,7 @@ Abc_Clock.exit:                                   ; preds = %8, %20
 
 86:                                               ; preds = %69
   %87 = add nsw i64 %indvars.iv381, -1
-  %88 = getelementptr inbounds nuw [1024 x ptr], ptr @CreateDecomposedNetwork.pLuts, i64 0, i64 %87
+  %88 = getelementptr inbounds [1024 x ptr], ptr @CreateDecomposedNetwork.pLuts, i64 0, i64 %87
   %89 = load ptr, ptr %88, align 8
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 40
   %91 = load ptr, ptr %90, align 8
@@ -762,7 +762,7 @@ define void @WriteLUTSintoBLIFfile(ptr noundef %0, ptr noundef %1, ptr nocapture
   %27 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds nuw [1024 x ptr], ptr @WriteLUTSintoBLIFfile.pNamesLocalIn, i64 0, i64 %29
+  %30 = getelementptr inbounds [1024 x ptr], ptr @WriteLUTSintoBLIFfile.pNamesLocalIn, i64 0, i64 %29
   store ptr %25, ptr %30, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = load i32, ptr %.phi.trans.insert, align 4
@@ -823,7 +823,7 @@ define void @WriteLUTSintoBLIFfile(ptr noundef %0, ptr noundef %1, ptr nocapture
   %64 = getelementptr inbounds i32, ptr %60, i64 %63
   %65 = load i32, ptr %64, align 4
   %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds nuw [1024 x ptr], ptr @WriteLUTSintoBLIFfile.pNamesLocalIn, i64 0, i64 %66
+  %67 = getelementptr inbounds [1024 x ptr], ptr @WriteLUTSintoBLIFfile.pNamesLocalIn, i64 0, i64 %66
   store ptr %59, ptr %67, align 8
   %68 = add nuw nsw i32 %.190, 1
   %69 = load i32, ptr %16, align 8

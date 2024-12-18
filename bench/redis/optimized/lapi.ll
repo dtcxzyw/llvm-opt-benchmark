@@ -886,7 +886,7 @@ entry:
 
 cond.false:                                       ; preds = %entry
   %idxprom = sext i32 %t to i64
-  %arrayidx = getelementptr inbounds nuw [0 x ptr], ptr @luaT_typenames, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [0 x ptr], ptr @luaT_typenames, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8, !tbaa !36
   br label %cond.end
 

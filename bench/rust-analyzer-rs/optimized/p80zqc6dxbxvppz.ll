@@ -2983,7 +2983,7 @@ switch.lookup:
   %3 = load ptr, ptr %0, align 8, !nonnull !26, !align !49, !noundef !26
   tail call void @llvm.experimental.noalias.scope.decl(metadata !410)
   %4 = sext i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [16 x i8], ptr @"switch.table._ZN6hir_ty8chalk_db120_$LT$impl$u20$chalk_solve..RustIrDatabase$LT$hir_ty..interner..Interner$GT$$u20$for$u20$hir_ty..traits..ChalkContext$GT$19well_known_trait_id17h69c7e98c12ec6cc9E", i64 0, i64 %4
+  %switch.gep = getelementptr inbounds [16 x i8], ptr @"switch.table._ZN6hir_ty8chalk_db120_$LT$impl$u20$chalk_solve..RustIrDatabase$LT$hir_ty..interner..Interner$GT$$u20$for$u20$hir_ty..traits..ChalkContext$GT$19well_known_trait_id17h69c7e98c12ec6cc9E", i64 0, i64 %4
   %switch.load = load i8, ptr %switch.gep, align 1
   %5 = load ptr, ptr %3, align 8, !alias.scope !410, !nonnull !26, !align !69, !noundef !26
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -54680,7 +54680,7 @@ switch.lookup:
   %2 = alloca i32, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10256)
   %3 = sext i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [16 x i8], ptr @"switch.table._ZN6hir_ty8chalk_db120_$LT$impl$u20$chalk_solve..RustIrDatabase$LT$hir_ty..interner..Interner$GT$$u20$for$u20$hir_ty..traits..ChalkContext$GT$19well_known_trait_id17h69c7e98c12ec6cc9E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds [16 x i8], ptr @"switch.table._ZN6hir_ty8chalk_db120_$LT$impl$u20$chalk_solve..RustIrDatabase$LT$hir_ty..interner..Interner$GT$$u20$for$u20$hir_ty..traits..ChalkContext$GT$19well_known_trait_id17h69c7e98c12ec6cc9E", i64 0, i64 %3
   %switch.load = load i8, ptr %switch.gep, align 1
   %4 = load ptr, ptr %0, align 8, !alias.scope !10256, !nonnull !26, !align !69, !noundef !26
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -78336,7 +78336,7 @@ define noundef i32 @"_ZN6hir_ty8chalk_db120_$LT$impl$u20$chalk_solve..RustIrData
 switch.lookup:
   %2 = alloca i32, align 4
   %3 = sext i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [16 x i8], ptr @"switch.table._ZN6hir_ty8chalk_db120_$LT$impl$u20$chalk_solve..RustIrDatabase$LT$hir_ty..interner..Interner$GT$$u20$for$u20$hir_ty..traits..ChalkContext$GT$19well_known_trait_id17h69c7e98c12ec6cc9E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds [16 x i8], ptr @"switch.table._ZN6hir_ty8chalk_db120_$LT$impl$u20$chalk_solve..RustIrDatabase$LT$hir_ty..interner..Interner$GT$$u20$for$u20$hir_ty..traits..ChalkContext$GT$19well_known_trait_id17h69c7e98c12ec6cc9E", i64 0, i64 %3
   %switch.load = load i8, ptr %switch.gep, align 1
   %4 = load ptr, ptr %0, align 8, !nonnull !26, !align !69, !noundef !26
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8

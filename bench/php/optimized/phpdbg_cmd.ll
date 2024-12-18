@@ -905,7 +905,7 @@ define range(i32 -1, 1) i32 @phpdbg_stack_verify(ptr noundef readonly %0, ptr no
   %24 = load i64, ptr %23, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr align 1 %22, i64 %24, i1 false)
   %25 = load i64, ptr %23, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %3, i64 %25
+  %26 = getelementptr inbounds i8, ptr %3, i64 %25
   store i8 32, ptr %26, align 1
   %27 = add i64 %25, 1
   br label %phpdbg_command_name.exit
@@ -1023,7 +1023,7 @@ phpdbg_command_name.exit:                         ; preds = %17, %21
   %59 = load i64, ptr %58, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr align 1 %57, i64 %59, i1 false)
   %60 = load i64, ptr %58, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %3, i64 %60
+  %61 = getelementptr inbounds i8, ptr %3, i64 %60
   store i8 32, ptr %61, align 1
   %62 = add i64 %60, 1
   br label %phpdbg_command_name.exit137
@@ -1058,7 +1058,7 @@ phpdbg_command_name.exit137:                      ; preds = %52, %56
   %78 = load i64, ptr %77, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr align 1 %76, i64 %78, i1 false)
   %79 = load i64, ptr %77, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %3, i64 %79
+  %80 = getelementptr inbounds i8, ptr %3, i64 %79
   store i8 32, ptr %80, align 1
   %81 = add i64 %79, 1
   br label %phpdbg_command_name.exit140
@@ -1099,7 +1099,7 @@ phpdbg_command_name.exit140:                      ; preds = %71, %75
   %99 = load i64, ptr %98, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr align 1 %97, i64 %99, i1 false)
   %100 = load i64, ptr %98, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %3, i64 %100
+  %101 = getelementptr inbounds i8, ptr %3, i64 %100
   store i8 32, ptr %101, align 1
   %102 = add i64 %100, 1
   br label %phpdbg_command_name.exit143
@@ -1134,7 +1134,7 @@ phpdbg_command_name.exit143:                      ; preds = %92, %96
   %118 = load i64, ptr %117, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr align 1 %116, i64 %118, i1 false)
   %119 = load i64, ptr %117, align 8
-  %120 = getelementptr inbounds nuw i8, ptr %3, i64 %119
+  %120 = getelementptr inbounds i8, ptr %3, i64 %119
   store i8 32, ptr %120, align 1
   %121 = add i64 %119, 1
   br label %phpdbg_command_name.exit146
@@ -1175,7 +1175,7 @@ phpdbg_command_name.exit146:                      ; preds = %111, %115
   %139 = load i64, ptr %138, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr align 1 %137, i64 %139, i1 false)
   %140 = load i64, ptr %138, align 8
-  %141 = getelementptr inbounds nuw i8, ptr %3, i64 %140
+  %141 = getelementptr inbounds i8, ptr %3, i64 %140
   store i8 32, ptr %141, align 1
   %142 = add i64 %140, 1
   br label %phpdbg_command_name.exit149
@@ -1210,7 +1210,7 @@ phpdbg_command_name.exit149:                      ; preds = %132, %136
   %158 = load i64, ptr %157, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr align 1 %156, i64 %158, i1 false)
   %159 = load i64, ptr %157, align 8
-  %160 = getelementptr inbounds nuw i8, ptr %3, i64 %159
+  %160 = getelementptr inbounds i8, ptr %3, i64 %159
   store i8 32, ptr %160, align 1
   %161 = add i64 %159, 1
   br label %phpdbg_command_name.exit152
@@ -1251,7 +1251,7 @@ phpdbg_command_name.exit152:                      ; preds = %151, %155
   %179 = load i64, ptr %178, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr align 1 %177, i64 %179, i1 false)
   %180 = load i64, ptr %178, align 8
-  %181 = getelementptr inbounds nuw i8, ptr %3, i64 %180
+  %181 = getelementptr inbounds i8, ptr %3, i64 %180
   store i8 32, ptr %181, align 1
   %182 = add i64 %180, 1
   br label %phpdbg_command_name.exit155
@@ -1286,7 +1286,7 @@ phpdbg_command_name.exit155:                      ; preds = %172, %176
   %198 = load i64, ptr %197, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr align 1 %196, i64 %198, i1 false)
   %199 = load i64, ptr %197, align 8
-  %200 = getelementptr inbounds nuw i8, ptr %3, i64 %199
+  %200 = getelementptr inbounds i8, ptr %3, i64 %199
   store i8 32, ptr %200, align 1
   %201 = add i64 %199, 1
   br label %phpdbg_command_name.exit158
@@ -1327,7 +1327,7 @@ phpdbg_command_name.exit158:                      ; preds = %191, %195
   %219 = load i64, ptr %218, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr align 1 %217, i64 %219, i1 false)
   %220 = load i64, ptr %218, align 8
-  %221 = getelementptr inbounds nuw i8, ptr %3, i64 %220
+  %221 = getelementptr inbounds i8, ptr %3, i64 %220
   store i8 32, ptr %221, align 1
   %222 = add i64 %220, 1
   br label %phpdbg_command_name.exit161
@@ -1362,7 +1362,7 @@ phpdbg_command_name.exit161:                      ; preds = %212, %216
   %238 = load i64, ptr %237, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr align 1 %236, i64 %238, i1 false)
   %239 = load i64, ptr %237, align 8
-  %240 = getelementptr inbounds nuw i8, ptr %3, i64 %239
+  %240 = getelementptr inbounds i8, ptr %3, i64 %239
   store i8 32, ptr %240, align 1
   %241 = add i64 %239, 1
   br label %phpdbg_command_name.exit164
@@ -1403,7 +1403,7 @@ phpdbg_command_name.exit164:                      ; preds = %231, %235
   %259 = load i64, ptr %258, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr align 1 %257, i64 %259, i1 false)
   %260 = load i64, ptr %258, align 8
-  %261 = getelementptr inbounds nuw i8, ptr %3, i64 %260
+  %261 = getelementptr inbounds i8, ptr %3, i64 %260
   store i8 32, ptr %261, align 1
   %262 = add i64 %260, 1
   br label %phpdbg_command_name.exit167
@@ -1438,7 +1438,7 @@ phpdbg_command_name.exit167:                      ; preds = %252, %256
   %278 = load i64, ptr %277, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr align 1 %276, i64 %278, i1 false)
   %279 = load i64, ptr %277, align 8
-  %280 = getelementptr inbounds nuw i8, ptr %3, i64 %279
+  %280 = getelementptr inbounds i8, ptr %3, i64 %279
   store i8 32, ptr %280, align 1
   %281 = add i64 %279, 1
   br label %phpdbg_command_name.exit170
@@ -1479,7 +1479,7 @@ phpdbg_command_name.exit170:                      ; preds = %271, %275
   %299 = load i64, ptr %298, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr align 1 %297, i64 %299, i1 false)
   %300 = load i64, ptr %298, align 8
-  %301 = getelementptr inbounds nuw i8, ptr %3, i64 %300
+  %301 = getelementptr inbounds i8, ptr %3, i64 %300
   store i8 32, ptr %301, align 1
   %302 = add i64 %300, 1
   br label %phpdbg_command_name.exit173
@@ -1514,7 +1514,7 @@ phpdbg_command_name.exit173:                      ; preds = %292, %296
   %318 = load i64, ptr %317, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr align 1 %316, i64 %318, i1 false)
   %319 = load i64, ptr %317, align 8
-  %320 = getelementptr inbounds nuw i8, ptr %3, i64 %319
+  %320 = getelementptr inbounds i8, ptr %3, i64 %319
   store i8 32, ptr %320, align 1
   %321 = add i64 %319, 1
   br label %phpdbg_command_name.exit176
@@ -1555,7 +1555,7 @@ phpdbg_command_name.exit176:                      ; preds = %311, %315
   %339 = load i64, ptr %338, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr align 1 %337, i64 %339, i1 false)
   %340 = load i64, ptr %338, align 8
-  %341 = getelementptr inbounds nuw i8, ptr %3, i64 %340
+  %341 = getelementptr inbounds i8, ptr %3, i64 %340
   store i8 32, ptr %341, align 1
   %342 = add i64 %340, 1
   br label %phpdbg_command_name.exit179
@@ -1590,7 +1590,7 @@ phpdbg_command_name.exit179:                      ; preds = %332, %336
   %358 = load i64, ptr %357, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr align 1 %356, i64 %358, i1 false)
   %359 = load i64, ptr %357, align 8
-  %360 = getelementptr inbounds nuw i8, ptr %3, i64 %359
+  %360 = getelementptr inbounds i8, ptr %3, i64 %359
   store i8 32, ptr %360, align 1
   %361 = add i64 %359, 1
   br label %phpdbg_command_name.exit182
@@ -1631,7 +1631,7 @@ phpdbg_command_name.exit182:                      ; preds = %351, %355
   %379 = load i64, ptr %378, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr align 1 %377, i64 %379, i1 false)
   %380 = load i64, ptr %378, align 8
-  %381 = getelementptr inbounds nuw i8, ptr %3, i64 %380
+  %381 = getelementptr inbounds i8, ptr %3, i64 %380
   store i8 32, ptr %381, align 1
   %382 = add i64 %380, 1
   br label %phpdbg_command_name.exit185
@@ -1666,7 +1666,7 @@ phpdbg_command_name.exit185:                      ; preds = %372, %376
   %398 = load i64, ptr %397, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr align 1 %396, i64 %398, i1 false)
   %399 = load i64, ptr %397, align 8
-  %400 = getelementptr inbounds nuw i8, ptr %3, i64 %399
+  %400 = getelementptr inbounds i8, ptr %3, i64 %399
   store i8 32, ptr %400, align 1
   %401 = add i64 %399, 1
   br label %phpdbg_command_name.exit188
@@ -1722,7 +1722,7 @@ phpdbg_command_name.exit188:                      ; preds = %391, %395
   %421 = load i64, ptr %420, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr align 1 %419, i64 %421, i1 false)
   %422 = load i64, ptr %420, align 8
-  %423 = getelementptr inbounds nuw i8, ptr %3, i64 %422
+  %423 = getelementptr inbounds i8, ptr %3, i64 %422
   store i8 32, ptr %423, align 1
   %424 = add i64 %422, 1
   br label %phpdbg_command_name.exit191
@@ -1838,7 +1838,7 @@ tailrecurse:                                      ; preds = %91
   br i1 %.not193202, label %.thread206, label %.thread206.sink.split
 
 .thread206.sink.split:                            ; preds = %36, %23
-  %37 = getelementptr inbounds nuw [3 x ptr], ptr %4, i64 0, i64 %.0179222267
+  %37 = getelementptr inbounds [3 x ptr], ptr %4, i64 0, i64 %.0179222267
   store ptr %.0182221268, ptr %37, align 8
   %38 = add i64 %.0179222267, 1
   br label %.thread206

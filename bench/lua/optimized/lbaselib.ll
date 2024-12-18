@@ -112,7 +112,7 @@ define internal noundef i32 @luaB_collectgarbage(ptr noundef %L) #0 {
 entry:
   %call = tail call i32 @luaL_checkoption(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.29, ptr noundef nonnull @luaB_collectgarbage.opts) #9
   %idxprom = sext i32 %call to i64
-  %arrayidx = getelementptr inbounds nuw [10 x i32], ptr @luaB_collectgarbage.optsnum, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [10 x i32], ptr @luaB_collectgarbage.optsnum, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4
   switch i32 %0, label %sw.default [
     i32 3, label %sw.bb

@@ -126,7 +126,7 @@ _ZN7OptoReg8as_VMRegEi.exit:                      ; preds = %_ZN7OptoReg8as_VMRe
 
 6:                                                ; preds = %_ZN7OptoReg8as_VMRegEi.exit
   %7 = sext i32 %5 to i64
-  %8 = getelementptr inbounds nuw [609 x i32], ptr @_ZN7OptoReg7vm2optoE, i64 0, i64 %7
+  %8 = getelementptr inbounds [609 x i32], ptr @_ZN7OptoReg7vm2optoE, i64 0, i64 %7
   %9 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %9, ptr %8, align 4
   br label %10
@@ -181,7 +181,7 @@ _ZN7OptoReg8as_VMRegEi.exit.i:                    ; preds = %14, %4
 
 10:                                               ; preds = %_ZN7OptoReg8as_VMRegEi.exit.i
   %11 = sext i32 %9 to i64
-  %12 = getelementptr inbounds nuw [609 x i32], ptr @_ZN7OptoReg7vm2optoE, i64 0, i64 %11
+  %12 = getelementptr inbounds [609 x i32], ptr @_ZN7OptoReg7vm2optoE, i64 0, i64 %11
   %13 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %13, ptr %12, align 4
   br label %14

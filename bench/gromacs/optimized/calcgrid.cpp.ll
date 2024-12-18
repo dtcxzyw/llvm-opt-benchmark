@@ -170,7 +170,7 @@ define noundef float @_Z11calcFftGridP8_IO_FILEPA3_KffiPiS4_S4_(ptr noundef %0, 
 .critedge:                                        ; preds = %.preheader, %68
   %sext = shl i64 %indvars.iv120, 32
   %71 = ashr exact i64 %sext, 32
-  %72 = getelementptr inbounds nuw [15 x i32], ptr @_ZL9grid_init.const, i64 0, i64 %71
+  %72 = getelementptr inbounds [15 x i32], ptr @_ZL9grid_init.const, i64 0, i64 %71
   %73 = load i32, ptr %72, align 4
   store i32 %73, ptr %57, align 4
   br label %.loopexit

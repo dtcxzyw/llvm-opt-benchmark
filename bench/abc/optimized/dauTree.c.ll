@@ -1071,7 +1071,7 @@ Dau_DsdIsConst.exit.thread:                       ; preds = %11, %Dau_DsdIsConst
 35:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
   %36 = add nsw i32 %.029.i, 1
   %37 = sext i32 %.029.i to i64
-  %38 = getelementptr inbounds nuw [12 x i32], ptr %4, i64 0, i64 %37
+  %38 = getelementptr inbounds [12 x i32], ptr %4, i64 0, i64 %37
   %39 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %39, ptr %38, align 4
   br label %48
@@ -1079,10 +1079,10 @@ Dau_DsdIsConst.exit.thread:                       ; preds = %11, %Dau_DsdIsConst
 40:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
   %41 = add nsw i32 %.029.i, -1
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds nuw [12 x i32], ptr %4, i64 0, i64 %42
+  %43 = getelementptr inbounds [12 x i32], ptr %4, i64 0, i64 %42
   %44 = load i32, ptr %43, align 4
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds nuw i32, ptr %6, i64 %45
+  %46 = getelementptr inbounds i32, ptr %6, i64 %45
   %47 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %47, ptr %46, align 4
   br label %48
@@ -1526,7 +1526,7 @@ define void @Dss_NtkTransform(ptr nocapture noundef %0, ptr nocapture noundef wr
   %46 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv59.i
   %47 = load ptr, ptr %46, align 8
   %48 = sext i32 %spec.select.us.i to i64
-  %49 = getelementptr inbounds nuw ptr, ptr %3, i64 %48
+  %49 = getelementptr inbounds ptr, ptr %3, i64 %48
   %50 = load ptr, ptr %49, align 8
   store ptr %50, ptr %46, align 8
   store ptr %47, ptr %49, align 8
@@ -1541,7 +1541,7 @@ define void @Dss_NtkTransform(ptr nocapture noundef %0, ptr nocapture noundef wr
   %indvars.iv54.i = phi i64 [ %indvars.iv52.i, %.lr.ph.us.preheader.i ], [ %indvars.iv.next55.i, %.lr.ph.us.i ]
   %.03537.us.i = phi i32 [ %42, %.lr.ph.us.preheader.i ], [ %spec.select.us.i, %.lr.ph.us.i ]
   %52 = sext i32 %.03537.us.i to i64
-  %53 = getelementptr inbounds nuw ptr, ptr %3, i64 %52
+  %53 = getelementptr inbounds ptr, ptr %3, i64 %52
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv54.i
   %56 = load ptr, ptr %55, align 8
@@ -4482,10 +4482,10 @@ define i32 @Dss_ManOperation(ptr nocapture noundef readonly %0, i32 noundef %1, 
   %53 = add nsw i32 %52, %.0145270
   %54 = or i32 %53, %45
   %55 = sext i32 %.0151269 to i64
-  %56 = getelementptr inbounds nuw [12 x i32], ptr %8, i64 0, i64 %55
+  %56 = getelementptr inbounds [12 x i32], ptr %8, i64 0, i64 %55
   store i32 %54, ptr %56, align 4
   %57 = add nsw i32 %.0151269, 1
-  %58 = getelementptr inbounds nuw [12 x ptr], ptr %7, i64 0, i64 %55
+  %58 = getelementptr inbounds [12 x ptr], ptr %7, i64 0, i64 %55
   store ptr %.0, ptr %58, align 8
   br label %.critedge
 
@@ -4530,10 +4530,10 @@ define i32 @Dss_ManOperation(ptr nocapture noundef readonly %0, i32 noundef %1, 
   %87 = and i32 %86, 255
   %88 = add nsw i32 %87, %.1261
   %89 = or i32 %80, %88
-  %90 = getelementptr inbounds nuw [12 x i32], ptr %8, i64 0, i64 %indvars.iv334
+  %90 = getelementptr inbounds [12 x i32], ptr %8, i64 0, i64 %indvars.iv334
   store i32 %89, ptr %90, align 4
   %indvars.iv.next335 = add nsw i64 %indvars.iv334, 1
-  %91 = getelementptr inbounds nuw [12 x ptr], ptr %7, i64 0, i64 %indvars.iv334
+  %91 = getelementptr inbounds [12 x ptr], ptr %7, i64 0, i64 %indvars.iv334
   store ptr %.0165, ptr %91, align 8
   %indvars.iv.next337 = add nuw nsw i64 %indvars.iv336, 1
   %exitcond342.not = icmp eq i64 %indvars.iv.next337, %wide.trip.count341
@@ -4570,7 +4570,7 @@ define i32 @Dss_ManOperation(ptr nocapture noundef readonly %0, i32 noundef %1, 
   %indvars.iv44.i = phi i64 [ %indvars.iv.i, %.lr.ph.preheader.i ], [ %indvars.iv.next45.i, %.lr.ph.i ]
   %.03537.i = phi i32 [ %95, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
   %96 = sext i32 %.03537.i to i64
-  %97 = getelementptr inbounds nuw ptr, ptr %7, i64 %96
+  %97 = getelementptr inbounds ptr, ptr %7, i64 %96
   %98 = load ptr, ptr %97, align 8
   %99 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv44.i
   %100 = load ptr, ptr %99, align 8
@@ -4592,13 +4592,13 @@ define i32 @Dss_ManOperation(ptr nocapture noundef readonly %0, i32 noundef %1, 
   %107 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv47.i
   %108 = load ptr, ptr %107, align 8
   %109 = sext i32 %spec.select.i to i64
-  %110 = getelementptr inbounds nuw ptr, ptr %7, i64 %109
+  %110 = getelementptr inbounds ptr, ptr %7, i64 %109
   %111 = load ptr, ptr %110, align 8
   store ptr %111, ptr %107, align 8
   store ptr %108, ptr %110, align 8
   %112 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv47.i
   %113 = load i32, ptr %112, align 4
-  %114 = getelementptr inbounds nuw i32, ptr %8, i64 %109
+  %114 = getelementptr inbounds i32, ptr %8, i64 %109
   %115 = load i32, ptr %114, align 4
   store i32 %115, ptr %112, align 4
   store i32 %113, ptr %114, align 4
@@ -4711,7 +4711,7 @@ Dss_ObjSort.exit:                                 ; preds = %116, %._crit_edge27
 159:                                              ; preds = %151, %138
   %160 = add nsw i32 %.4255, 1
   %161 = sext i32 %.4255 to i64
-  %162 = getelementptr inbounds nuw [12 x ptr], ptr %7, i64 0, i64 %161
+  %162 = getelementptr inbounds [12 x ptr], ptr %7, i64 0, i64 %161
   store ptr %149, ptr %162, align 8
   br label %.critedge3
 
@@ -4734,7 +4734,7 @@ Dss_ObjSort.exit:                                 ; preds = %116, %._crit_edge27
   %173 = xor i64 %170, %171
   %174 = inttoptr i64 %173 to ptr
   %indvars.iv.next321 = add nsw i64 %indvars.iv320, 1
-  %175 = getelementptr inbounds nuw [12 x ptr], ptr %7, i64 0, i64 %indvars.iv320
+  %175 = getelementptr inbounds [12 x ptr], ptr %7, i64 0, i64 %indvars.iv320
   store ptr %174, ptr %175, align 8
   %indvars.iv.next323 = add nuw nsw i64 %indvars.iv322, 1
   %exitcond328.not = icmp eq i64 %indvars.iv.next323, %wide.trip.count327
@@ -4776,7 +4776,7 @@ Dss_ObjSort.exit:                                 ; preds = %116, %._crit_edge27
   %183 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv59.i
   %184 = load ptr, ptr %183, align 8
   %185 = sext i32 %spec.select.us.i to i64
-  %186 = getelementptr inbounds nuw ptr, ptr %7, i64 %185
+  %186 = getelementptr inbounds ptr, ptr %7, i64 %185
   %187 = load ptr, ptr %186, align 8
   store ptr %187, ptr %183, align 8
   store ptr %184, ptr %186, align 8
@@ -4791,7 +4791,7 @@ Dss_ObjSort.exit:                                 ; preds = %116, %._crit_edge27
   %indvars.iv54.i = phi i64 [ %indvars.iv52.i, %.lr.ph.us.preheader.i ], [ %indvars.iv.next55.i, %.lr.ph.us.i ]
   %.03537.us.i = phi i32 [ %179, %.lr.ph.us.preheader.i ], [ %spec.select.us.i, %.lr.ph.us.i ]
   %189 = sext i32 %.03537.us.i to i64
-  %190 = getelementptr inbounds nuw ptr, ptr %7, i64 %189
+  %190 = getelementptr inbounds ptr, ptr %7, i64 %189
   %191 = load ptr, ptr %190, align 8
   %192 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv54.i
   %193 = load ptr, ptr %192, align 8
@@ -4867,7 +4867,7 @@ Dss_ObjSort.exit:                                 ; preds = %116, %._crit_edge27
 222:                                              ; preds = %206
   %223 = add nsw i32 %.7243, 1
   %224 = sext i32 %.7243 to i64
-  %225 = getelementptr inbounds nuw [12 x ptr], ptr %7, i64 0, i64 %224
+  %225 = getelementptr inbounds [12 x ptr], ptr %7, i64 0, i64 %224
   store ptr %214, ptr %225, align 8
   br label %.critedge5
 
@@ -4890,7 +4890,7 @@ Dss_ObjSort.exit:                                 ; preds = %116, %._crit_edge27
   %236 = xor i64 %233, %234
   %237 = inttoptr i64 %236 to ptr
   %indvars.iv.next307 = add nsw i64 %indvars.iv306, 1
-  %238 = getelementptr inbounds nuw [12 x ptr], ptr %7, i64 0, i64 %indvars.iv306
+  %238 = getelementptr inbounds [12 x ptr], ptr %7, i64 0, i64 %indvars.iv306
   store ptr %237, ptr %238, align 8
   %indvars.iv.next309 = add nuw nsw i64 %indvars.iv308, 1
   %exitcond314.not = icmp eq i64 %indvars.iv.next309, %wide.trip.count313
@@ -4932,7 +4932,7 @@ Dss_ObjSort.exit:                                 ; preds = %116, %._crit_edge27
   %246 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv59.i202
   %247 = load ptr, ptr %246, align 8
   %248 = sext i32 %spec.select.us.i208 to i64
-  %249 = getelementptr inbounds nuw ptr, ptr %7, i64 %248
+  %249 = getelementptr inbounds ptr, ptr %7, i64 %248
   %250 = load ptr, ptr %249, align 8
   store ptr %250, ptr %246, align 8
   store ptr %247, ptr %249, align 8
@@ -4947,7 +4947,7 @@ Dss_ObjSort.exit:                                 ; preds = %116, %._crit_edge27
   %indvars.iv54.i206 = phi i64 [ %indvars.iv52.i203, %.lr.ph.us.preheader.i201 ], [ %indvars.iv.next55.i209, %.lr.ph.us.i205 ]
   %.03537.us.i207 = phi i32 [ %242, %.lr.ph.us.preheader.i201 ], [ %spec.select.us.i208, %.lr.ph.us.i205 ]
   %252 = sext i32 %.03537.us.i207 to i64
-  %253 = getelementptr inbounds nuw ptr, ptr %7, i64 %252
+  %253 = getelementptr inbounds ptr, ptr %7, i64 %252
   %254 = load ptr, ptr %253, align 8
   %255 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv54.i206
   %256 = load ptr, ptr %255, align 8
@@ -5369,7 +5369,7 @@ Abc_TtCopy.exit:                                  ; preds = %.lr.ph18.i, %._crit
 
 65:                                               ; preds = %.lr.ph83
   %66 = sext i32 %.182 to i64
-  %67 = getelementptr inbounds nuw [12 x i32], ptr %6, i64 0, i64 %66
+  %67 = getelementptr inbounds [12 x i32], ptr %6, i64 0, i64 %66
   %68 = trunc i64 %indvars.iv104 to i32
   %69 = add i32 %23, %68
   store i32 %69, ptr %67, align 4
@@ -5520,7 +5520,7 @@ Dss_NtkFree.exit:                                 ; preds = %Vec_PtrFree.exit.i,
   %143 = load i32, ptr %142, align 4
   %144 = ashr i32 %143, 1
   %145 = sext i32 %144 to i64
-  %146 = getelementptr inbounds nuw i32, ptr %6, i64 %145
+  %146 = getelementptr inbounds i32, ptr %6, i64 %145
   %147 = load i32, ptr %146, align 4
   %148 = and i32 %143, 1
   %149 = shl nsw i32 %147, 1
@@ -5592,7 +5592,7 @@ define noundef nonnull ptr @Dss_ManSharedMap(ptr nocapture readnone %0, ptr noca
   %33 = or disjoint i32 %31, %32
   %34 = ashr i32 %30, 1
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds nuw [12 x i32], ptr %6, i64 0, i64 %35
+  %36 = getelementptr inbounds [12 x i32], ptr %6, i64 0, i64 %35
   store i32 %33, ptr %36, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -5618,7 +5618,7 @@ define noundef nonnull ptr @Dss_ManSharedMap(ptr nocapture readnone %0, ptr noca
   %49 = getelementptr inbounds nuw [0 x i8], ptr getelementptr inbounds nuw (i8, ptr @Dss_ManSharedMap.Buffer, i64 24), i64 0, i64 %48
   store i8 %47, ptr %49, align 2
   %50 = sext i32 %43 to i64
-  %51 = getelementptr inbounds nuw [12 x i32], ptr %6, i64 0, i64 %50
+  %51 = getelementptr inbounds [12 x i32], ptr %6, i64 0, i64 %50
   %52 = load i32, ptr %51, align 4
   %53 = load ptr, ptr %27, align 8
   %54 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv39

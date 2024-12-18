@@ -2360,7 +2360,7 @@ switch.lookup184:                                 ; preds = %1074
   %1077 = load i8, ptr %1, align 8
   %switch.tableidx185 = add nsw i8 %1077, -54
   %1078 = sext i8 %switch.tableidx185 to i64
-  %switch.gep186 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN12_GLOBAL__N_111X86FastISel21fastSelectInstructionEPKN4llvm11InstructionE.20, i64 0, i64 %1078
+  %switch.gep186 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN12_GLOBAL__N_111X86FastISel21fastSelectInstructionEPKN4llvm11InstructionE.20, i64 0, i64 %1078
   br label %1090
 
 1079:                                             ; preds = %1074
@@ -2372,7 +2372,7 @@ switch.lookup188:                                 ; preds = %1079
   %1082 = load i8, ptr %1, align 8
   %switch.tableidx189 = add nsw i8 %1082, -54
   %1083 = sext i8 %switch.tableidx189 to i64
-  %switch.gep190 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN12_GLOBAL__N_111X86FastISel21fastSelectInstructionEPKN4llvm11InstructionE.21, i64 0, i64 %1083
+  %switch.gep190 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN12_GLOBAL__N_111X86FastISel21fastSelectInstructionEPKN4llvm11InstructionE.21, i64 0, i64 %1083
   br label %1090
 
 1084:                                             ; preds = %1079
@@ -2384,7 +2384,7 @@ switch.lookup192:                                 ; preds = %1084
   %1087 = load i8, ptr %1, align 8
   %switch.tableidx193 = add nsw i8 %1087, -54
   %1088 = sext i8 %switch.tableidx193 to i64
-  %switch.gep194 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN12_GLOBAL__N_111X86FastISel21fastSelectInstructionEPKN4llvm11InstructionE.22, i64 0, i64 %1088
+  %switch.gep194 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN12_GLOBAL__N_111X86FastISel21fastSelectInstructionEPKN4llvm11InstructionE.22, i64 0, i64 %1088
   br label %1090
 
 switch.lookup180:                                 ; preds = %1071
@@ -2642,7 +2642,7 @@ switch.lookup196:                                 ; preds = %1227, %1226, %1225,
   %1233 = load i8, ptr %1, align 8
   %switch.tableidx197 = add nsw i8 %1233, -48
   %1234 = sext i8 %switch.tableidx197 to i64
-  %switch.gep198 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN12_GLOBAL__N_111X86FastISel21fastSelectInstructionEPKN4llvm11InstructionE.23, i64 0, i64 %1234
+  %switch.gep198 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN12_GLOBAL__N_111X86FastISel21fastSelectInstructionEPKN4llvm11InstructionE.23, i64 0, i64 %1234
   %switch.load199 = load i64, ptr %switch.gep198, align 8
   %1235 = getelementptr inbounds nuw [4 x %struct.DivRemEntry], ptr @_ZZN12_GLOBAL__N_111X86FastISel15X86SelectDivRemEPKN4llvm11InstructionEE7OpTable, i64 0, i64 %.053.i
   %1236 = getelementptr inbounds nuw i8, ptr %1235, i64 16
@@ -4333,7 +4333,7 @@ _ZNK4llvm3EVTeqES0_.exit.thread11.i:              ; preds = %2245, %_ZNK4llvm4Us
 2249:                                             ; preds = %_ZNK4llvm3EVTeqES0_.exit.thread11.i
   %2250 = zext i16 %2242 to i64
   %2251 = add nsw i64 %2250, -1
-  %2252 = getelementptr inbounds nuw [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %2251
+  %2252 = getelementptr inbounds [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %2251
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %2252, align 16
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %2252, i64 8
   %.sroa.2.0.copyload.i.i.i.i = load i8, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8
@@ -4355,7 +4355,7 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit.i.i:          ; preds = %2253, %2249
 2255:                                             ; preds = %_ZNK4llvm3EVT13getSizeInBitsEv.exit.i.i
   %2256 = zext i16 %2235 to i64
   %2257 = add nsw i64 %2256, -1
-  %2258 = getelementptr inbounds nuw [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %2257
+  %2258 = getelementptr inbounds [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %2257
   %.sroa.0.0.copyload.i.i6.i.i = load i64, ptr %2258, align 16
   %.sroa.2.0..sroa_idx.i.i7.i.i = getelementptr inbounds nuw i8, ptr %2258, i64 8
   %.sroa.2.0.copyload.i.i8.i.i = load i8, ptr %.sroa.2.0..sroa_idx.i.i7.i.i, align 8
@@ -4411,7 +4411,7 @@ _ZNK4llvm3EVTeqES0_.exit.thread11.i125:           ; preds = %.thread, %2267
 2271:                                             ; preds = %_ZNK4llvm3EVTeqES0_.exit.thread11.i125
   %2272 = zext i16 %2242 to i64
   %2273 = add nsw i64 %2272, -1
-  %2274 = getelementptr inbounds nuw [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %2273
+  %2274 = getelementptr inbounds [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %2273
   %.sroa.0.0.copyload.i.i.i.i127 = load i64, ptr %2274, align 16
   %.sroa.2.0..sroa_idx.i.i.i.i128 = getelementptr inbounds nuw i8, ptr %2274, i64 8
   %.sroa.2.0.copyload.i.i.i.i129 = load i8, ptr %.sroa.2.0..sroa_idx.i.i.i.i128, align 8
@@ -4433,7 +4433,7 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit.i.i132:       ; preds = %2275, %2271
 2277:                                             ; preds = %_ZNK4llvm3EVT13getSizeInBitsEv.exit.i.i132
   %2278 = zext i16 %2235 to i64
   %2279 = add nsw i64 %2278, -1
-  %2280 = getelementptr inbounds nuw [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %2279
+  %2280 = getelementptr inbounds [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %2279
   %.sroa.0.0.copyload.i.i6.i.i137 = load i64, ptr %2280, align 16
   %.sroa.2.0..sroa_idx.i.i7.i.i138 = getelementptr inbounds nuw i8, ptr %2280, i64 8
   %.sroa.2.0.copyload.i.i8.i.i139 = load i8, ptr %.sroa.2.0..sroa_idx.i.i7.i.i138, align 8
@@ -4587,7 +4587,7 @@ _ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit: ; pre
 
 2356:                                             ; preds = %2353
   %2357 = add nsw i64 %2345, -1
-  %2358 = getelementptr inbounds nuw [240 x i16], ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 0, i64 %2357
+  %2358 = getelementptr inbounds [240 x i16], ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 0, i64 %2357
   %2359 = load i16, ptr %2358, align 2
   %2360 = icmp eq i16 %2359, 2
   br i1 %2360, label %.critedge, label %2361
@@ -4595,7 +4595,7 @@ _ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit: ; pre
 2361:                                             ; preds = %2356
   %2362 = zext nneg i16 %2354 to i64
   %2363 = add nsw i64 %2362, -1
-  %2364 = getelementptr inbounds nuw [240 x i16], ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 0, i64 %2363
+  %2364 = getelementptr inbounds [240 x i16], ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 0, i64 %2363
   %2365 = load i16, ptr %2364, align 2
   %2366 = icmp eq i16 %2365, 2
   br i1 %2366, label %.critedge, label %2367
@@ -5315,7 +5315,7 @@ _ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit: ; pre
 
 231:                                              ; preds = %229
   %232 = add nsw i64 %226, -1
-  %233 = getelementptr inbounds nuw [240 x i16], ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 0, i64 %232
+  %233 = getelementptr inbounds [240 x i16], ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 0, i64 %232
   %234 = load i16, ptr %233, align 2
   %235 = icmp eq i16 %234, 2
   br i1 %235, label %.critedge3, label %.critedge5
@@ -5690,7 +5690,7 @@ _ZNK4llvm11CCValAssign15getLocMemOffsetEv.exit:   ; preds = %384
   call void @_ZN4llvm18MachinePointerInfo8getStackERNS_15MachineFunctionElh(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::MachinePointerInfo") align 8 %31, ptr noundef nonnull align 8 dereferenceable(1041) %399, i64 noundef %400, i8 noundef zeroext 0) #18
   %401 = zext i16 %.sroa.0470.0 to i64
   %402 = add nsw i64 %401, -1
-  %403 = getelementptr inbounds nuw [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %402
+  %403 = getelementptr inbounds [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %402
   %.sroa.0.0.copyload.i.i = load i64, ptr %403, align 16
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %403, i64 8
   %.sroa.2.0.copyload.i.i = load i8, ptr %.sroa.2.0..sroa_idx.i.i, align 8
@@ -7650,7 +7650,7 @@ _ZNK4llvm11ConstantInt5isOneEv.exit:              ; preds = %723, %726
   %779 = load ptr, ptr %778, align 8
   %780 = getelementptr inbounds i8, ptr %779, i64 -608
   %781 = add nsw i64 %669, -5
-  %782 = getelementptr inbounds nuw [4 x i16], ptr @_ZZN12_GLOBAL__N_111X86FastISel22fastLowerIntrinsicCallEPKN4llvm13IntrinsicInstEE3Reg, i64 0, i64 %781
+  %782 = getelementptr inbounds [4 x i16], ptr @_ZZN12_GLOBAL__N_111X86FastISel22fastLowerIntrinsicCallEPKN4llvm13IntrinsicInstEE3Reg, i64 0, i64 %781
   %783 = load i16, ptr %782, align 2
   %784 = zext i16 %783 to i32
   %785 = call { ptr, ptr } @_ZN4llvm7BuildMIERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_10MIMetadataERKNS_11MCInstrDescENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(288) %773, ptr %.sroa.040.0.copyload, ptr noundef nonnull align 8 dereferenceable(24) %775, ptr noundef nonnull align 8 dereferenceable(32) %780, i32 %784)
@@ -7666,7 +7666,7 @@ _ZNK4llvm11ConstantInt5isOneEv.exit:              ; preds = %723, %726
   store i32 0, ptr %6, align 8, !alias.scope !291
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %787, ptr noundef nonnull align 8 dereferenceable(1041) %786, ptr noundef nonnull align 8 dereferenceable(32) %6) #18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  %791 = getelementptr inbounds nuw [4 x i16], ptr @_ZZN12_GLOBAL__N_111X86FastISel22fastLowerIntrinsicCallEPKN4llvm13IntrinsicInstEE6MULOpc, i64 0, i64 %781
+  %791 = getelementptr inbounds [4 x i16], ptr @_ZZN12_GLOBAL__N_111X86FastISel22fastLowerIntrinsicCallEPKN4llvm13IntrinsicInstEE6MULOpc, i64 0, i64 %781
   %792 = load i16, ptr %791, align 2
   %793 = zext i16 %792 to i32
   %794 = load ptr, ptr %648, align 8
@@ -7721,7 +7721,7 @@ _ZNK4llvm11ConstantInt5isOneEv.exit:              ; preds = %723, %726
 
 827:                                              ; preds = %801
   %828 = add nsw i64 %669, -5
-  %829 = getelementptr inbounds nuw [4 x i16], ptr @_ZZN12_GLOBAL__N_111X86FastISel22fastLowerIntrinsicCallEPKN4llvm13IntrinsicInstEE6MULOpc_0, i64 0, i64 %828
+  %829 = getelementptr inbounds [4 x i16], ptr @_ZZN12_GLOBAL__N_111X86FastISel22fastLowerIntrinsicCallEPKN4llvm13IntrinsicInstEE6MULOpc_0, i64 0, i64 %828
   %830 = load i16, ptr %829, align 2
   %831 = zext i16 %830 to i32
   %832 = load ptr, ptr %648, align 8
@@ -14239,7 +14239,7 @@ _ZNK4llvm4User10getOperandEj.exit25:              ; preds = %42, %45
 switch.lookup:                                    ; preds = %60
   %switch.tableidx = add nsw i16 %.sroa.053.0, -5
   %61 = sext i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN12_GLOBAL__N_111X86FastISel13X86SelectZExtEPKN4llvm11InstructionE, i64 0, i64 %61
+  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table._ZN12_GLOBAL__N_111X86FastISel13X86SelectZExtEPKN4llvm11InstructionE, i64 0, i64 %61
   %switch.load = load i64, ptr %switch.gep, align 8
   %62 = tail call i32 @_ZN4llvm8FastISel15createResultRegEPKNS_19TargetRegisterClassE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull @_ZN4llvm3X8612GR32RegClassE) #18
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -16729,7 +16729,7 @@ define linkonce_odr hidden { i64, i8 } @_ZNK4llvm3EVT13getSizeInBitsEv(ptr nound
 3:                                                ; preds = %1
   %4 = zext i16 %2 to i64
   %5 = add nsw i64 %4, -1
-  %6 = getelementptr inbounds nuw [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %5
+  %6 = getelementptr inbounds [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %5
   %.sroa.0.0.copyload.i = load i64, ptr %6, align 16
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.2.0.copyload.i = load i8, ptr %.sroa.2.0..sroa_idx.i, align 8

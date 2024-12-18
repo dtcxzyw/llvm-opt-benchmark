@@ -1881,7 +1881,7 @@ dsdKernelFindContainingComponent.exit:            ; preds = %.lr.ph1102, %.lr.ph
   %901 = load ptr, ptr %900, align 8
   %902 = add nsw i32 %.0542926, 1
   %903 = sext i32 %.0542926 to i64
-  %904 = getelementptr inbounds nuw [1000 x ptr], ptr @dsdKernelDecompose_rec.pNonOverlap, i64 0, i64 %903
+  %904 = getelementptr inbounds [1000 x ptr], ptr @dsdKernelDecompose_rec.pNonOverlap, i64 0, i64 %903
   store ptr %901, ptr %904, align 8
   br label %905
 
@@ -2155,7 +2155,7 @@ dsdKernelFindContainingComponent.exit801:         ; preds = %.lr.ph1108, %.lr.ph
 1052:                                             ; preds = %1050
   %1053 = add nsw i32 %.05766.i, 1
   %1054 = sext i32 %.05766.i to i64
-  %1055 = getelementptr inbounds nuw [1000 x ptr], ptr @dsdKernelFindCommonComponents.Common, i64 0, i64 %1054
+  %1055 = getelementptr inbounds [1000 x ptr], ptr @dsdKernelFindCommonComponents.Common, i64 0, i64 %1054
   store ptr %1020, ptr %1055, align 8
   %.pre1017.pre = load i16, ptr %1005, align 8
   br label %1056
@@ -2393,7 +2393,7 @@ define internal fastcc i32 @dsdKernelFindCommonComponents(ptr nocapture noundef 
 54:                                               ; preds = %52
   %55 = add nsw i32 %.05766, 1
   %56 = sext i32 %.05766 to i64
-  %57 = getelementptr inbounds nuw [1000 x ptr], ptr @dsdKernelFindCommonComponents.Common, i64 0, i64 %56
+  %57 = getelementptr inbounds [1000 x ptr], ptr @dsdKernelFindCommonComponents.Common, i64 0, i64 %56
   store ptr %20, ptr %57, align 8
   br label %62
 

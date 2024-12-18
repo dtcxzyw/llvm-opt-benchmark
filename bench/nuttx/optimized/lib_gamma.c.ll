@@ -46,7 +46,7 @@ define double @tgamma(double noundef %0) local_unnamed_addr #0 {
   %21 = fptosi double %0 to i32
   %22 = add nsw i32 %21, -1
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds nuw [23 x double], ptr @g_fact, i64 0, i64 %23
+  %24 = getelementptr inbounds [23 x double], ptr @g_fact, i64 0, i64 %23
   %25 = load double, ptr %24, align 8
   br label %105
 

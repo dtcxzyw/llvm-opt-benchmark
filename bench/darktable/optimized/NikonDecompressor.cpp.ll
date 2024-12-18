@@ -2841,7 +2841,7 @@ define hidden void @_ZN8rawspeed17NikonDecompressor10decompressENS_10Array1DRefI
   %280 = phi i16 [ 0, %272 ], [ %303, %300 ]
   %281 = phi i32 [ 0, %272 ], [ %302, %300 ]
   %282 = sext i32 %281 to i64
-  %283 = getelementptr inbounds nuw [257 x i8], ptr %6, i64 0, i64 %282
+  %283 = getelementptr inbounds [257 x i8], ptr %6, i64 0, i64 %282
   %284 = load i8, ptr %283, align 1, !tbaa !96, !noalias !215
   %285 = icmp eq i8 %284, 0
   br i1 %285, label %306, label %286
@@ -2854,11 +2854,11 @@ define hidden void @_ZN8rawspeed17NikonDecompressor10decompressENS_10Array1DRefI
 .preheader50:                                     ; preds = %286, %.preheader50
   %289 = phi i64 [ %292, %.preheader50 ], [ %282, %286 ]
   %290 = phi i16 [ %293, %.preheader50 ], [ %280, %286 ]
-  %291 = getelementptr inbounds nuw [257 x i16], ptr %7, i64 0, i64 %289
+  %291 = getelementptr inbounds [257 x i16], ptr %7, i64 0, i64 %289
   store i16 %290, ptr %291, align 2, !tbaa !12, !noalias !215
   %292 = add nsw i64 %289, 1
   %293 = add i16 %290, 1
-  %294 = getelementptr inbounds nuw [257 x i8], ptr %6, i64 0, i64 %292
+  %294 = getelementptr inbounds [257 x i8], ptr %6, i64 0, i64 %292
   %295 = load i8, ptr %294, align 1, !tbaa !96, !noalias !215
   %296 = sext i8 %295 to i32
   %297 = icmp eq i32 %279, %296
@@ -2904,14 +2904,14 @@ define hidden void @_ZN8rawspeed17NikonDecompressor10decompressENS_10Array1DRefI
   %321 = getelementptr inbounds nuw [17 x i16], ptr %309, i64 0, i64 %311
   store i16 %320, ptr %321, align 2, !tbaa !12, !alias.scope !215
   %322 = sext i32 %312 to i64
-  %323 = getelementptr inbounds nuw [257 x i16], ptr %7, i64 0, i64 %322
+  %323 = getelementptr inbounds [257 x i16], ptr %7, i64 0, i64 %322
   %324 = load i16, ptr %323, align 2, !tbaa !12, !noalias !215
   %325 = getelementptr inbounds nuw [17 x i16], ptr %307, i64 0, i64 %311
   store i16 %324, ptr %325, align 2, !tbaa !12, !alias.scope !215
   %326 = add i32 %314, %312
   %327 = add nsw i32 %326, -1
   %328 = sext i32 %327 to i64
-  %329 = getelementptr inbounds nuw [257 x i16], ptr %7, i64 0, i64 %328
+  %329 = getelementptr inbounds [257 x i16], ptr %7, i64 0, i64 %328
   %330 = load i16, ptr %329, align 2, !tbaa !12, !noalias !215
   %331 = zext i16 %330 to i32
   %332 = getelementptr inbounds nuw [18 x i32], ptr %308, i64 0, i64 %311
@@ -2932,14 +2932,14 @@ define hidden void @_ZN8rawspeed17NikonDecompressor10decompressENS_10Array1DRefI
   %342 = getelementptr inbounds nuw [17 x i16], ptr %309, i64 0, i64 %336
   store i16 %341, ptr %342, align 2, !tbaa !12, !alias.scope !215
   %343 = sext i32 %335 to i64
-  %344 = getelementptr inbounds nuw [257 x i16], ptr %7, i64 0, i64 %343
+  %344 = getelementptr inbounds [257 x i16], ptr %7, i64 0, i64 %343
   %345 = load i16, ptr %344, align 2, !tbaa !12, !noalias !215
   %346 = getelementptr inbounds nuw [17 x i16], ptr %307, i64 0, i64 %336
   store i16 %345, ptr %346, align 2, !tbaa !12, !alias.scope !215
   %347 = add i32 %338, %335
   %348 = add nsw i32 %347, -1
   %349 = sext i32 %348 to i64
-  %350 = getelementptr inbounds nuw [257 x i16], ptr %7, i64 0, i64 %349
+  %350 = getelementptr inbounds [257 x i16], ptr %7, i64 0, i64 %349
   %351 = load i16, ptr %350, align 2, !tbaa !12, !noalias !215
   %352 = zext i16 %351 to i32
   %353 = getelementptr inbounds nuw [18 x i32], ptr %308, i64 0, i64 %336
@@ -2989,7 +2989,7 @@ define hidden void @_ZN8rawspeed17NikonDecompressor10decompressENS_10Array1DRefI
 380:                                              ; preds = %371
   %381 = add nsw i32 %369, 24
   %382 = sext i32 %381 to i64
-  %383 = getelementptr inbounds nuw [32 x i32], ptr @_ZN8rawspeed12_GLOBAL__N_17bitMaskE, i64 0, i64 %382
+  %383 = getelementptr inbounds [32 x i32], ptr @_ZN8rawspeed12_GLOBAL__N_17bitMaskE, i64 0, i64 %382
   %384 = load i32, ptr %383, align 4, !tbaa !52, !noalias !215
   %385 = or i32 %384, %378
   br label %386

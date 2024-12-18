@@ -1027,7 +1027,7 @@ do.body:                                          ; preds = %do.cond, %for.body
   %ch.1 = select i1 %tobool.not, i8 %conv, i8 %conv12
   %inc14 = add nsw i32 %len.1, 1
   %idxprom15 = sext i32 %len.1 to i64
-  %arrayidx16 = getelementptr inbounds nuw [10000 x i8], ptr %buffer, i64 0, i64 %idxprom15
+  %arrayidx16 = getelementptr inbounds [10000 x i8], ptr %buffer, i64 0, i64 %idxprom15
   store i8 %ch.1, ptr %arrayidx16, align 1
   %cmp18 = icmp eq i32 %inc14, 10000
   br i1 %cmp18, label %if.then19, label %do.cond
@@ -1050,7 +1050,7 @@ for.end:                                          ; preds = %for.inc, %if.end5
   %len.0.lcssa = phi i32 [ 1, %if.end5 ], [ %len.2, %for.inc ]
   %inc25 = add nsw i32 %len.0.lcssa, 1
   %idxprom26 = sext i32 %len.0.lcssa to i64
-  %arrayidx27 = getelementptr inbounds nuw [10000 x i8], ptr %buffer, i64 0, i64 %idxprom26
+  %arrayidx27 = getelementptr inbounds [10000 x i8], ptr %buffer, i64 0, i64 %idxprom26
   store i8 0, ptr %arrayidx27, align 1
   %m_bout28 = getelementptr inbounds nuw i8, ptr %this, i64 600
   %3 = load ptr, ptr %m_bout28, align 8
@@ -5024,7 +5024,7 @@ do.body.i:                                        ; preds = %do.cond.i, %if.end5
   %ch.1.i = select i1 %tobool.not.i, i8 %conv.i, i8 %conv12.i
   %inc14.i = add nsw i32 %len.1.i, 1
   %idxprom15.i = sext i32 %len.1.i to i64
-  %arrayidx16.i = getelementptr inbounds nuw [10000 x i8], ptr %buffer.i, i64 0, i64 %idxprom15.i
+  %arrayidx16.i = getelementptr inbounds [10000 x i8], ptr %buffer.i, i64 0, i64 %idxprom15.i
   store i8 %ch.1.i, ptr %arrayidx16.i, align 1
   %cmp18.i = icmp eq i32 %inc14.i, 10000
   br i1 %cmp18.i, label %if.then19.i, label %do.cond.i
@@ -5041,7 +5041,7 @@ do.cond.i:                                        ; preds = %if.then19.i, %do.bo
 for.inc.i:                                        ; preds = %do.cond.i
   %inc25.i = add nsw i32 %len.2.i, 1
   %idxprom26.i = sext i32 %len.2.i to i64
-  %arrayidx27.i = getelementptr inbounds nuw [10000 x i8], ptr %buffer.i, i64 0, i64 %idxprom26.i
+  %arrayidx27.i = getelementptr inbounds [10000 x i8], ptr %buffer.i, i64 0, i64 %idxprom26.i
   store i8 0, ptr %arrayidx27.i, align 1
   %6 = load ptr, ptr %m_bout, align 8
   %conv30.i = sext i32 %inc25.i to i64
@@ -5176,7 +5176,7 @@ do.body.i:                                        ; preds = %do.cond.i, %for.bod
   %ch.1.i = select i1 %tobool.not.i, i8 %conv.i, i8 %conv12.i
   %inc14.i = add nsw i32 %len.1.i, 1
   %idxprom15.i = sext i32 %len.1.i to i64
-  %arrayidx16.i = getelementptr inbounds nuw [10000 x i8], ptr %buffer.i, i64 0, i64 %idxprom15.i
+  %arrayidx16.i = getelementptr inbounds [10000 x i8], ptr %buffer.i, i64 0, i64 %idxprom15.i
   store i8 %ch.1.i, ptr %arrayidx16.i, align 1
   %cmp18.i = icmp eq i32 %inc14.i, 10000
   br i1 %cmp18.i, label %if.then19.i, label %do.cond.i
@@ -5198,7 +5198,7 @@ for.inc.i:                                        ; preds = %do.cond.i
 for.end.i:                                        ; preds = %for.inc.i
   %inc25.i = add nsw i32 %len.2.i, 1
   %idxprom26.i = sext i32 %len.2.i to i64
-  %arrayidx27.i = getelementptr inbounds nuw [10000 x i8], ptr %buffer.i, i64 0, i64 %idxprom26.i
+  %arrayidx27.i = getelementptr inbounds [10000 x i8], ptr %buffer.i, i64 0, i64 %idxprom26.i
   store i8 0, ptr %arrayidx27.i, align 1
   %11 = load ptr, ptr %m_bout, align 8
   %conv30.i = sext i32 %inc25.i to i64
@@ -5350,7 +5350,7 @@ do.body.i:                                        ; preds = %do.cond.i, %for.bod
   %ch.1.i = select i1 %tobool.not.i, i8 %conv.i, i8 %conv12.i
   %inc14.i = add nsw i32 %len.1.i, 1
   %idxprom15.i = sext i32 %len.1.i to i64
-  %arrayidx16.i = getelementptr inbounds nuw [10000 x i8], ptr %buffer.i, i64 0, i64 %idxprom15.i
+  %arrayidx16.i = getelementptr inbounds [10000 x i8], ptr %buffer.i, i64 0, i64 %idxprom15.i
   store i8 %ch.1.i, ptr %arrayidx16.i, align 1
   %cmp18.i = icmp eq i32 %inc14.i, 10000
   br i1 %cmp18.i, label %if.then19.i, label %do.cond.i
@@ -5378,7 +5378,7 @@ for.end.i:                                        ; preds = %for.end.i.loopexit,
   %len.0.lcssa.i = phi i32 [ 1, %if.end5.i ], [ %len.2.i, %for.end.i.loopexit ]
   %inc25.i = add nsw i32 %len.0.lcssa.i, 1
   %idxprom26.i = sext i32 %len.0.lcssa.i to i64
-  %arrayidx27.i = getelementptr inbounds nuw [10000 x i8], ptr %buffer.i, i64 0, i64 %idxprom26.i
+  %arrayidx27.i = getelementptr inbounds [10000 x i8], ptr %buffer.i, i64 0, i64 %idxprom26.i
   store i8 0, ptr %arrayidx27.i, align 1
   %conv30.i = sext i32 %inc25.i to i64
   %call31.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull %buffer.i, i64 noundef %conv30.i)
@@ -5763,7 +5763,7 @@ do.body.i:                                        ; preds = %do.cond.i, %for.bod
   %ch.1.i = select i1 %tobool.not.i, i8 %conv.i, i8 %conv12.i
   %inc14.i = add nsw i32 %len.1.i, 1
   %idxprom15.i = sext i32 %len.1.i to i64
-  %arrayidx16.i = getelementptr inbounds nuw [10000 x i8], ptr %buffer.i, i64 0, i64 %idxprom15.i
+  %arrayidx16.i = getelementptr inbounds [10000 x i8], ptr %buffer.i, i64 0, i64 %idxprom15.i
   store i8 %ch.1.i, ptr %arrayidx16.i, align 1
   %cmp18.i = icmp eq i32 %inc14.i, 10000
   br i1 %cmp18.i, label %if.then19.i, label %do.cond.i
@@ -5791,7 +5791,7 @@ _ZN3sat4drat5bdumpEjPKNS_7literalENS_6statusE.exit: ; preds = %_ZN3sat4drat5bdum
   %len.0.lcssa.i = phi i32 [ 1, %if.end5.i ], [ 1, %if.end5.i.thread ], [ %len.2.i, %_ZN3sat4drat5bdumpEjPKNS_7literalENS_6statusE.exit.loopexit ]
   %inc25.i = add nsw i32 %len.0.lcssa.i, 1
   %idxprom26.i = sext i32 %len.0.lcssa.i to i64
-  %arrayidx27.i = getelementptr inbounds nuw [10000 x i8], ptr %buffer.i, i64 0, i64 %idxprom26.i
+  %arrayidx27.i = getelementptr inbounds [10000 x i8], ptr %buffer.i, i64 0, i64 %idxprom26.i
   store i8 0, ptr %arrayidx27.i, align 1
   %conv30.i = sext i32 %inc25.i to i64
   %call31.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull %buffer.i, i64 noundef %conv30.i)
@@ -6010,7 +6010,7 @@ do.body.i:                                        ; preds = %do.cond.i, %if.end5
   %ch.1.i = select i1 %tobool.not.i, i8 %conv.i, i8 %conv12.i
   %inc14.i = add nsw i32 %len.1.i, 1
   %idxprom15.i = sext i32 %len.1.i to i64
-  %arrayidx16.i = getelementptr inbounds nuw [10000 x i8], ptr %buffer.i, i64 0, i64 %idxprom15.i
+  %arrayidx16.i = getelementptr inbounds [10000 x i8], ptr %buffer.i, i64 0, i64 %idxprom15.i
   store i8 %ch.1.i, ptr %arrayidx16.i, align 1
   %cmp18.i = icmp eq i32 %inc14.i, 10000
   br i1 %cmp18.i, label %if.then19.i, label %do.cond.i
@@ -6027,7 +6027,7 @@ do.cond.i:                                        ; preds = %if.then19.i, %do.bo
 for.inc.i:                                        ; preds = %do.cond.i
   %inc25.i = add nsw i32 %len.2.i, 1
   %idxprom26.i = sext i32 %len.2.i to i64
-  %arrayidx27.i = getelementptr inbounds nuw [10000 x i8], ptr %buffer.i, i64 0, i64 %idxprom26.i
+  %arrayidx27.i = getelementptr inbounds [10000 x i8], ptr %buffer.i, i64 0, i64 %idxprom26.i
   store i8 0, ptr %arrayidx27.i, align 1
   %4 = load ptr, ptr %m_bout, align 8
   %conv30.i = sext i32 %inc25.i to i64
@@ -6128,7 +6128,7 @@ do.body.i:                                        ; preds = %do.cond.i, %for.bod
   %ch.1.i = select i1 %tobool.not.i, i8 %conv.i, i8 %conv12.i
   %inc14.i = add nsw i32 %len.1.i, 1
   %idxprom15.i = sext i32 %len.1.i to i64
-  %arrayidx16.i = getelementptr inbounds nuw [10000 x i8], ptr %buffer.i, i64 0, i64 %idxprom15.i
+  %arrayidx16.i = getelementptr inbounds [10000 x i8], ptr %buffer.i, i64 0, i64 %idxprom15.i
   store i8 %ch.1.i, ptr %arrayidx16.i, align 1
   %cmp18.i = icmp eq i32 %inc14.i, 10000
   br i1 %cmp18.i, label %if.then19.i, label %do.cond.i
@@ -6150,7 +6150,7 @@ for.inc.i:                                        ; preds = %do.cond.i
 _ZN3sat4drat5bdumpEjPKNS_7literalENS_6statusE.exit: ; preds = %for.inc.i
   %inc25.i = add nsw i32 %len.2.i, 1
   %idxprom26.i = sext i32 %len.2.i to i64
-  %arrayidx27.i = getelementptr inbounds nuw [10000 x i8], ptr %buffer.i, i64 0, i64 %idxprom26.i
+  %arrayidx27.i = getelementptr inbounds [10000 x i8], ptr %buffer.i, i64 0, i64 %idxprom26.i
   store i8 0, ptr %arrayidx27.i, align 1
   %5 = load ptr, ptr %m_bout, align 8
   %conv30.i = sext i32 %inc25.i to i64
@@ -6258,7 +6258,7 @@ do.body.i:                                        ; preds = %do.cond.i, %for.bod
   %ch.1.i = select i1 %tobool.not.i, i8 %conv.i, i8 %conv12.i
   %inc14.i = add nsw i32 %len.1.i, 1
   %idxprom15.i = sext i32 %len.1.i to i64
-  %arrayidx16.i = getelementptr inbounds nuw [10000 x i8], ptr %buffer.i, i64 0, i64 %idxprom15.i
+  %arrayidx16.i = getelementptr inbounds [10000 x i8], ptr %buffer.i, i64 0, i64 %idxprom15.i
   store i8 %ch.1.i, ptr %arrayidx16.i, align 1
   %cmp18.i = icmp eq i32 %inc14.i, 10000
   br i1 %cmp18.i, label %if.then19.i, label %do.cond.i
@@ -6286,7 +6286,7 @@ _ZN3sat4drat5bdumpEjPKNS_7literalENS_6statusE.exit: ; preds = %_ZN3sat4drat5bdum
   %len.0.lcssa.i = phi i32 [ 1, %if.end5.i ], [ %len.2.i, %_ZN3sat4drat5bdumpEjPKNS_7literalENS_6statusE.exit.loopexit ]
   %inc25.i = add nsw i32 %len.0.lcssa.i, 1
   %idxprom26.i = sext i32 %len.0.lcssa.i to i64
-  %arrayidx27.i = getelementptr inbounds nuw [10000 x i8], ptr %buffer.i, i64 0, i64 %idxprom26.i
+  %arrayidx27.i = getelementptr inbounds [10000 x i8], ptr %buffer.i, i64 0, i64 %idxprom26.i
   store i8 0, ptr %arrayidx27.i, align 1
   %conv30.i = sext i32 %inc25.i to i64
   %call31.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %buffer.i, i64 noundef %conv30.i)
@@ -6424,7 +6424,7 @@ do.body.i:                                        ; preds = %do.cond.i, %for.bod
   %ch.1.i = select i1 %tobool.not.i, i8 %conv.i, i8 %conv12.i
   %inc14.i = add nsw i32 %len.1.i, 1
   %idxprom15.i = sext i32 %len.1.i to i64
-  %arrayidx16.i = getelementptr inbounds nuw [10000 x i8], ptr %buffer.i, i64 0, i64 %idxprom15.i
+  %arrayidx16.i = getelementptr inbounds [10000 x i8], ptr %buffer.i, i64 0, i64 %idxprom15.i
   store i8 %ch.1.i, ptr %arrayidx16.i, align 1
   %cmp18.i = icmp eq i32 %inc14.i, 10000
   br i1 %cmp18.i, label %if.then19.i, label %do.cond.i
@@ -6452,7 +6452,7 @@ _ZN3sat4drat5bdumpEjPKNS_7literalENS_6statusE.exit: ; preds = %_ZN3sat4drat5bdum
   %len.0.lcssa.i = phi i32 [ 1, %if.end5.i ], [ 1, %if.end5.i.thread ], [ %len.2.i, %_ZN3sat4drat5bdumpEjPKNS_7literalENS_6statusE.exit.loopexit ]
   %inc25.i = add nsw i32 %len.0.lcssa.i, 1
   %idxprom26.i = sext i32 %len.0.lcssa.i to i64
-  %arrayidx27.i = getelementptr inbounds nuw [10000 x i8], ptr %buffer.i, i64 0, i64 %idxprom26.i
+  %arrayidx27.i = getelementptr inbounds [10000 x i8], ptr %buffer.i, i64 0, i64 %idxprom26.i
   store i8 0, ptr %arrayidx27.i, align 1
   %conv30.i = sext i32 %inc25.i to i64
   %call31.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull %buffer.i, i64 noundef %conv30.i)

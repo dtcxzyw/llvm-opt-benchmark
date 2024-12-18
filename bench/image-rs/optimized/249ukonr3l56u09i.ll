@@ -25354,9 +25354,9 @@ switch.lookup:
   %4 = zext nneg i16 %1 to i64
   %5 = add nsw i64 %4, -20
   %6 = select i1 %3, i64 %5, i64 0
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @"switch.table._ZN61_$LT$tiff..error..TiffError$u20$as$u20$core..error..Error$GT$11description17hf0b92496416a6b74E.llvm.9742654456972663382", i64 0, i64 %6
+  %switch.gep = getelementptr inbounds [6 x i64], ptr @"switch.table._ZN61_$LT$tiff..error..TiffError$u20$as$u20$core..error..Error$GT$11description17hf0b92496416a6b74E.llvm.9742654456972663382", i64 0, i64 %6
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep1 = getelementptr inbounds nuw [6 x ptr], ptr @"switch.table._ZN61_$LT$tiff..error..TiffError$u20$as$u20$core..error..Error$GT$11description17hf0b92496416a6b74E.llvm.9742654456972663382.131", i64 0, i64 %6
+  %switch.gep1 = getelementptr inbounds [6 x ptr], ptr @"switch.table._ZN61_$LT$tiff..error..TiffError$u20$as$u20$core..error..Error$GT$11description17hf0b92496416a6b74E.llvm.9742654456972663382.131", i64 0, i64 %6
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %7 = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %8 = insertvalue { ptr, i64 } %7, i64 %switch.load, 1

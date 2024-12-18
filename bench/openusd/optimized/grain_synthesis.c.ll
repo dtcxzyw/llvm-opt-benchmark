@@ -1418,7 +1418,7 @@ generate_chroma_grain_blocks.exit:                ; preds = %.preheader171.us.us
   %533 = trunc nuw nsw i64 %indvars.iv55.i to i32
   %534 = add nsw i32 %527, %533
   %535 = sext i32 %534 to i64
-  %536 = getelementptr inbounds nuw i32, ptr @scaling_lut_y, i64 %535
+  %536 = getelementptr inbounds i32, ptr @scaling_lut_y, i64 %535
   store i32 %532, ptr %536, align 4
   %indvars.iv.next56.i = add nuw nsw i64 %indvars.iv55.i, 1
   %exitcond.not.i692 = icmp eq i64 %indvars.iv.next56.i, %wide.trip.count.i691
@@ -1439,7 +1439,7 @@ generate_chroma_grain_blocks.exit:                ; preds = %.preheader171.us.us
 
 543:                                              ; preds = %543, %.lr.ph53.i
   %indvars.iv63.i = phi i64 [ %542, %.lr.ph53.i ], [ %indvars.iv.next64.i, %543 ]
-  %544 = getelementptr inbounds nuw i32, ptr @scaling_lut_y, i64 %indvars.iv63.i
+  %544 = getelementptr inbounds i32, ptr @scaling_lut_y, i64 %indvars.iv63.i
   store i32 %.pre67.i, ptr %544, align 4
   %indvars.iv.next64.i = add nsw i64 %indvars.iv63.i, 1
   %545 = and i64 %indvars.iv.next64.i, 4294967295
@@ -1533,7 +1533,7 @@ init_scaling_function.exit:                       ; preds = %543, %.loopexit, %.
   %586 = trunc nuw nsw i64 %indvars.iv55.i715 to i32
   %587 = add nsw i32 %580, %586
   %588 = sext i32 %587 to i64
-  %589 = getelementptr inbounds nuw i32, ptr @scaling_lut_cb, i64 %588
+  %589 = getelementptr inbounds i32, ptr @scaling_lut_cb, i64 %588
   store i32 %585, ptr %589, align 4
   %indvars.iv.next56.i716 = add nuw nsw i64 %indvars.iv55.i715, 1
   %exitcond.not.i717 = icmp eq i64 %indvars.iv.next56.i716, %wide.trip.count.i713
@@ -1554,7 +1554,7 @@ init_scaling_function.exit:                       ; preds = %543, %.loopexit, %.
 
 596:                                              ; preds = %596, %.lr.ph53.i700
   %indvars.iv63.i702 = phi i64 [ %595, %.lr.ph53.i700 ], [ %indvars.iv.next64.i703, %596 ]
-  %597 = getelementptr inbounds nuw i32, ptr @scaling_lut_cb, i64 %indvars.iv63.i702
+  %597 = getelementptr inbounds i32, ptr @scaling_lut_cb, i64 %indvars.iv63.i702
   store i32 %.pre67.i701, ptr %597, align 4
   %indvars.iv.next64.i703 = add nsw i64 %indvars.iv63.i702, 1
   %598 = and i64 %indvars.iv.next64.i703, 4294967295
@@ -1637,7 +1637,7 @@ init_scaling_function.exit722:                    ; preds = %596, %549, %._crit_
   %635 = trunc nuw nsw i64 %indvars.iv55.i741 to i32
   %636 = add nsw i32 %629, %635
   %637 = sext i32 %636 to i64
-  %638 = getelementptr inbounds nuw i32, ptr @scaling_lut_cr, i64 %637
+  %638 = getelementptr inbounds i32, ptr @scaling_lut_cr, i64 %637
   store i32 %634, ptr %638, align 4
   %indvars.iv.next56.i742 = add nuw nsw i64 %indvars.iv55.i741, 1
   %exitcond.not.i743 = icmp eq i64 %indvars.iv.next56.i742, %wide.trip.count.i739
@@ -1658,7 +1658,7 @@ init_scaling_function.exit722:                    ; preds = %596, %549, %._crit_
 
 645:                                              ; preds = %645, %.lr.ph53.i726
   %indvars.iv63.i728 = phi i64 [ %644, %.lr.ph53.i726 ], [ %indvars.iv.next64.i729, %645 ]
-  %646 = getelementptr inbounds nuw i32, ptr @scaling_lut_cr, i64 %indvars.iv63.i728
+  %646 = getelementptr inbounds i32, ptr @scaling_lut_cr, i64 %indvars.iv63.i728
   store i32 %.pre67.i727, ptr %646, align 4
   %indvars.iv.next64.i729 = add nsw i64 %indvars.iv63.i728, 1
   %647 = and i64 %indvars.iv.next64.i729, 4294967295
@@ -3002,7 +3002,7 @@ define internal fastcc void @add_noise_to_block_hbd(ptr nocapture noundef readon
   %123 = icmp eq i32 %122, 255
   %or.cond.i.us = or i1 %80, %123
   %124 = sext i32 %122 to i64
-  %125 = getelementptr inbounds nuw i32, ptr @scaling_lut_cb, i64 %124
+  %125 = getelementptr inbounds i32, ptr @scaling_lut_cb, i64 %124
   %126 = load i32, ptr %125, align 4
   br i1 %or.cond.i.us, label %scale_LUT.exit.us, label %127
 
@@ -3052,7 +3052,7 @@ scale_LUT.exit.us:                                ; preds = %127, %111
   %159 = icmp eq i32 %158, 255
   %or.cond.i151.us = or i1 %80, %159
   %160 = sext i32 %158 to i64
-  %161 = getelementptr inbounds nuw i32, ptr @scaling_lut_cr, i64 %160
+  %161 = getelementptr inbounds i32, ptr @scaling_lut_cr, i64 %160
   %162 = load i32, ptr %161, align 4
   br i1 %or.cond.i151.us, label %scale_LUT.exit154.us, label %163
 
@@ -3361,7 +3361,7 @@ define internal fastcc void @add_noise_to_block(ptr nocapture noundef readonly %
   %105 = tail call i32 @llvm.smin.i32(i32 %103, i32 %68)
   %106 = select i1 %104, i32 0, i32 %105
   %107 = sext i32 %106 to i64
-  %108 = getelementptr inbounds nuw i32, ptr @scaling_lut_cb, i64 %107
+  %108 = getelementptr inbounds i32, ptr @scaling_lut_cb, i64 %107
   %109 = load i32, ptr %108, align 4
   %gep166 = getelementptr i32, ptr %invariant.gep165, i64 %indvars.iv
   %110 = load i32, ptr %gep166, align 4
@@ -3393,7 +3393,7 @@ define internal fastcc void @add_noise_to_block(ptr nocapture noundef readonly %
   %130 = tail call i32 @llvm.smin.i32(i32 %128, i32 %68)
   %131 = select i1 %129, i32 0, i32 %130
   %132 = sext i32 %131 to i64
-  %133 = getelementptr inbounds nuw i32, ptr @scaling_lut_cr, i64 %132
+  %133 = getelementptr inbounds i32, ptr @scaling_lut_cr, i64 %132
   %134 = load i32, ptr %133, align 4
   %gep170 = getelementptr i32, ptr %invariant.gep169, i64 %indvars.iv
   %135 = load i32, ptr %gep170, align 4

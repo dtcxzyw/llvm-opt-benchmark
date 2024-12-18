@@ -883,7 +883,7 @@ if.end.i.i:                                       ; preds = %if.then3.i.i, %if.t
   %spec.select.i12.i.i = select i1 %tobool.i.i11.i.i, ptr %17, ptr %sTestTypeTemp
   %add.ptr.i.i = getelementptr inbounds i8, ptr %spec.select.i12.i.i, i64 %cond.i10.i
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 %15
-  %add.ptr.i1.i.i.i = getelementptr inbounds nuw i8, ptr %sTestTypeTemp, i64 %sub.i.i.i.pre-phi.i.i
+  %add.ptr.i1.i.i.i = getelementptr inbounds i8, ptr %sTestTypeTemp, i64 %sub.i.i.i.pre-phi.i.i
   %cond.i16.i.i = select i1 %tobool.i.i11.i.i, ptr %add.ptr.i.i.i.i, ptr %add.ptr.i1.i.i.i
   %cmp.not.i.i.i = icmp eq ptr %add.ptr.i.i, %cond.i16.i.i
   br i1 %cmp.not.i.i.i, label %invoke.cont15, label %if.then.i.i.i

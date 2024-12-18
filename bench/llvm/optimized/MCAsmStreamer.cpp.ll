@@ -1995,7 +1995,7 @@ define internal void @_ZN12_GLOBAL__N_113MCAsmStreamer14emitVersionMinEN4llvm16M
 switch.lookup:                                    ; preds = %15, %13
   %.0.i = phi ptr [ %14, %13 ], [ %8, %15 ]
   %17 = sext i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_113MCAsmStreamer14emitVersionMinEN4llvm16MCVersionMinTypeEjjjNS1_12VersionTupleE, i64 0, i64 %17
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_113MCAsmStreamer14emitVersionMinEN4llvm16MCVersionMinTypeEjjjNS1_12VersionTupleE, i64 0, i64 %17
   %switch.load = load ptr, ptr %switch.gep, align 8
   %18 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #21
   %19 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
@@ -2119,7 +2119,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit15:               ; preds = %68, %70
 define internal void @_ZN12_GLOBAL__N_113MCAsmStreamer16emitBuildVersionEjjjjN4llvm12VersionTupleE(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly byval(%"class.llvm::VersionTuple") align 8 %5) unnamed_addr #0 align 2 {
 switch.lookup:
   %6 = sext i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [13 x ptr], ptr @switch.table._ZN12_GLOBAL__N_113MCAsmStreamer16emitBuildVersionEjjjjN4llvm12VersionTupleE, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds [13 x ptr], ptr @switch.table._ZN12_GLOBAL__N_113MCAsmStreamer16emitBuildVersionEjjjjN4llvm12VersionTupleE, i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %8 = load ptr, ptr %7, align 8
@@ -2653,7 +2653,7 @@ _ZN4llvm11raw_ostreamlsEc.exit7:                  ; preds = %45, %47
   %49 = load ptr, ptr %11, align 8
   %switch.tableidx = add nsw i32 %2, -2
   %50 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN12_GLOBAL__N_113MCAsmStreamer19emitSymbolAttributeEPN4llvm8MCSymbolENS1_12MCSymbolAttrE, i64 0, i64 %50
+  %switch.gep = getelementptr inbounds [7 x ptr], ptr @switch.table._ZN12_GLOBAL__N_113MCAsmStreamer19emitSymbolAttributeEPN4llvm8MCSymbolENS1_12MCSymbolAttrE, i64 0, i64 %50
   %switch.load = load ptr, ptr %switch.gep, align 8
   %51 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %49, ptr noundef nonnull %switch.load)
   br label %.sink.split

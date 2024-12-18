@@ -1295,7 +1295,7 @@ mbedtls_ecp_copy.exit78.i.i:                      ; preds = %160
   %170 = zext nneg i32 %169 to i64
   %171 = getelementptr inbounds nuw %struct.mbedtls_ecp_point, ptr %121, i64 %170
   %172 = add i64 %.15513.i.i, 1
-  %173 = getelementptr inbounds nuw [7 x ptr], ptr %13, i64 0, i64 %.15513.i.i
+  %173 = getelementptr inbounds [7 x ptr], ptr %13, i64 0, i64 %.15513.i.i
   store ptr %171, ptr %173, align 8
   %174 = shl nuw nsw i32 %169, 1
   %175 = and i32 %174, 254

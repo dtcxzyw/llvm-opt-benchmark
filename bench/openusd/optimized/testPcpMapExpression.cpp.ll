@@ -3594,7 +3594,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit302: ;
 
 427:                                              ; preds = %417
   %428 = sext i32 %421 to i64
-  %429 = getelementptr inbounds nuw %"struct.std::pair", ptr %75, i64 %428
+  %429 = getelementptr inbounds %"struct.std::pair", ptr %75, i64 %428
   %.not9.i.i.i.i.i = icmp eq i32 %421, 0
   br i1 %.not9.i.i.i.i.i, label %.loopexit655, label %.lr.ph.i.i.i.i.i
 
@@ -3865,7 +3865,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit321: ;
 
 532:                                              ; preds = %522
   %533 = sext i32 %526 to i64
-  %534 = getelementptr inbounds nuw %"struct.std::pair", ptr %84, i64 %533
+  %534 = getelementptr inbounds %"struct.std::pair", ptr %84, i64 %533
   %.not9.i.i.i.i.i324 = icmp eq i32 %526, 0
   br i1 %.not9.i.i.i.i.i324, label %.loopexit654, label %.lr.ph.i.i.i.i.i325
 
@@ -4091,7 +4091,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit347: ;
 
 619:                                              ; preds = %609
   %620 = sext i32 %613 to i64
-  %621 = getelementptr inbounds nuw %"struct.std::pair", ptr %91, i64 %620
+  %621 = getelementptr inbounds %"struct.std::pair", ptr %91, i64 %620
   %.not9.i.i.i.i.i350 = icmp eq i32 %613, 0
   br i1 %.not9.i.i.i.i.i350, label %.loopexit, label %.lr.ph.i.i.i.i.i351
 

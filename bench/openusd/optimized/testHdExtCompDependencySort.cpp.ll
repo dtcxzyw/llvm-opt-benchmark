@@ -801,7 +801,7 @@ _ZSt22__uninitialized_copy_aIPKPKN32pxrInternal_v0_24__pxrReserved__16HdExtCompu
   %192 = ptrtoint ptr %187 to i64
   %193 = sub i64 %192, %176
   %gepdiff = sub nsw i64 8, %193
-  %.sink.i.i25.i.ptr = getelementptr inbounds nuw i8, ptr %18, i64 %193
+  %.sink.i.i25.i.ptr = getelementptr inbounds i8, ptr %18, i64 %193
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %187, ptr nonnull align 8 %.sink.i.i25.i.ptr, i64 %gepdiff, i1 false)
   %194 = getelementptr inbounds i8, ptr %187, i64 %gepdiff
   store ptr %194, ptr %186, align 8
@@ -924,7 +924,7 @@ _ZSt22__uninitialized_copy_aIPKPKN32pxrInternal_v0_24__pxrReserved__16HdExtCompu
   %242 = ptrtoint ptr %237 to i64
   %243 = sub i64 %242, %226
   %gepdiff236 = sub nsw i64 8, %243
-  %.sink.i.i25.i187.ptr = getelementptr inbounds nuw i8, ptr %19, i64 %243
+  %.sink.i.i25.i187.ptr = getelementptr inbounds i8, ptr %19, i64 %243
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %237, ptr nonnull align 8 %.sink.i.i25.i187.ptr, i64 %gepdiff236, i1 false)
   %244 = getelementptr inbounds i8, ptr %237, i64 %gepdiff236
   store ptr %244, ptr %236, align 8
@@ -2964,7 +2964,7 @@ _ZSt22__uninitialized_copy_aIPKPKN32pxrInternal_v0_24__pxrReserved__16HdExtCompu
   %440 = ptrtoint ptr %435 to i64
   %441 = sub i64 %440, %424
   %gepdiff379 = sub nsw i64 8, %441
-  %.sink.i.i25.i299.ptr = getelementptr inbounds nuw i8, ptr %35, i64 %441
+  %.sink.i.i25.i299.ptr = getelementptr inbounds i8, ptr %35, i64 %441
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %435, ptr nonnull align 8 %.sink.i.i25.i299.ptr, i64 %gepdiff379, i1 false)
   %442 = getelementptr inbounds i8, ptr %435, i64 %gepdiff379
   store ptr %442, ptr %434, align 8
@@ -5074,7 +5074,7 @@ _ZSt22__uninitialized_copy_aIPKPKN32pxrInternal_v0_24__pxrReserved__16HdExtCompu
   %388 = ptrtoint ptr %383 to i64
   %389 = sub i64 %388, %372
   %gepdiff381 = sub nsw i64 8, %389
-  %.sink.i.i25.i268.ptr = getelementptr inbounds nuw i8, ptr %34, i64 %389
+  %.sink.i.i25.i268.ptr = getelementptr inbounds i8, ptr %34, i64 %389
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %383, ptr nonnull align 8 %.sink.i.i25.i268.ptr, i64 %gepdiff381, i1 false)
   %390 = getelementptr inbounds i8, ptr %383, i64 %gepdiff381
   store ptr %390, ptr %382, align 8
@@ -5197,7 +5197,7 @@ _ZSt22__uninitialized_copy_aIPKPKN32pxrInternal_v0_24__pxrReserved__16HdExtCompu
   %438 = ptrtoint ptr %433 to i64
   %439 = sub i64 %438, %422
   %gepdiff382 = sub nsw i64 8, %439
-  %.sink.i.i25.i286.ptr = getelementptr inbounds nuw i8, ptr %35, i64 %439
+  %.sink.i.i25.i286.ptr = getelementptr inbounds i8, ptr %35, i64 %439
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %433, ptr nonnull align 8 %.sink.i.i25.i286.ptr, i64 %gepdiff382, i1 false)
   %440 = getelementptr inbounds i8, ptr %433, i64 %gepdiff382
   store ptr %440, ptr %432, align 8

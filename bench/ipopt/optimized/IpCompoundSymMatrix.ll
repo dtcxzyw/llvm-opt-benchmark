@@ -2301,7 +2301,7 @@ _ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit.thread: ; preds = %33, %_ZNK5Ipo
 
 .noexc47:                                         ; preds = %.noexc
   %52 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #19
-  %53 = getelementptr inbounds nuw i8, ptr %8, i64 %52
+  %53 = getelementptr inbounds i8, ptr %8, i64 %52
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull %8, ptr noundef nonnull %53)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %54
 

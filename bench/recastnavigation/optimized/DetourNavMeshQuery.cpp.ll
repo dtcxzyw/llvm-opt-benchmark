@@ -2354,12 +2354,12 @@ _Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit:        ; preds = %117
 142:                                              ; preds = %131
   %143 = or i32 %129, %96
   %144 = sext i32 %.0114148 to i64
-  %145 = getelementptr inbounds nuw [32 x i32], ptr %7, i64 0, i64 %144
+  %145 = getelementptr inbounds [32 x i32], ptr %7, i64 0, i64 %144
   store i32 %143, ptr %145, align 4
   %146 = load i32, ptr %128, align 4
   %147 = sext i32 %146 to i64
   %148 = getelementptr inbounds %struct.dtPoly, ptr %132, i64 %147
-  %149 = getelementptr inbounds nuw [32 x ptr], ptr %8, i64 0, i64 %144
+  %149 = getelementptr inbounds [32 x ptr], ptr %8, i64 0, i64 %144
   store ptr %148, ptr %149, align 8
   %150 = icmp eq i32 %.0114148, 31
   br i1 %150, label %151, label %155
@@ -2549,9 +2549,9 @@ _Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit:        ; preds = %117
 
 258:                                              ; preds = %255
   %259 = sext i32 %.3164 to i64
-  %260 = getelementptr inbounds nuw [32 x i32], ptr %7, i64 0, i64 %259
+  %260 = getelementptr inbounds [32 x i32], ptr %7, i64 0, i64 %259
   store i32 %194, ptr %260, align 4
-  %261 = getelementptr inbounds nuw [32 x ptr], ptr %8, i64 0, i64 %259
+  %261 = getelementptr inbounds [32 x ptr], ptr %8, i64 0, i64 %259
   store ptr %188, ptr %261, align 8
   %262 = icmp eq i32 %.3164, 31
   br i1 %262, label %263, label %267
@@ -4639,12 +4639,12 @@ _Z11dtVisfinitePKf.exit179:                       ; preds = %49
   %265 = load i32, ptr %19, align 4
   %266 = mul nsw i32 %265, 3
   %267 = sext i32 %266 to i64
-  %268 = getelementptr inbounds nuw [21 x float], ptr %9, i64 0, i64 %267
+  %268 = getelementptr inbounds [21 x float], ptr %9, i64 0, i64 %267
   %269 = add nsw i32 %265, 1
   %270 = srem i32 %269, %.0149.lcssa
   %271 = mul nsw i32 %270, 3
   %272 = sext i32 %271 to i64
-  %273 = getelementptr inbounds nuw [21 x float], ptr %9, i64 0, i64 %272
+  %273 = getelementptr inbounds [21 x float], ptr %9, i64 0, i64 %272
   %274 = load float, ptr %273, align 4
   %275 = load float, ptr %268, align 4
   %276 = fsub float %274, %275
@@ -4700,11 +4700,11 @@ _Z11dtVisfinitePKf.exit179:                       ; preds = %49
   %316 = icmp slt i32 %315, %.0149.lcssa
   %317 = mul nsw i32 %314, 3
   %318 = sext i32 %317 to i64
-  %319 = getelementptr inbounds nuw [21 x float], ptr %9, i64 0, i64 %318
+  %319 = getelementptr inbounds [21 x float], ptr %9, i64 0, i64 %318
   %320 = mul nsw i32 %315, 3
   %321 = select i1 %316, i32 %320, i32 0
   %322 = sext i32 %321 to i64
-  %323 = getelementptr inbounds nuw [21 x float], ptr %9, i64 0, i64 %322
+  %323 = getelementptr inbounds [21 x float], ptr %9, i64 0, i64 %322
   %324 = load float, ptr %323, align 4
   %325 = load float, ptr %319, align 4
   %326 = fsub float %324, %325
@@ -6393,7 +6393,7 @@ _Z11dtVisfinitePKf.exit190:                       ; preds = %49, %53, %58
   %176 = load i32, ptr %155, align 4
   %177 = add nsw i32 %.0156225, 1
   %178 = sext i32 %.0156225 to i64
-  %179 = getelementptr inbounds nuw [8 x i32], ptr %15, i64 0, i64 %178
+  %179 = getelementptr inbounds [8 x i32], ptr %15, i64 0, i64 %178
   store i32 %176, ptr %179, align 4
   br label %180
 
@@ -6448,7 +6448,7 @@ _Z11dtVisfinitePKf.exit190:                       ; preds = %49, %53, %58
   %.2158280282 = phi i32 [ 1, %.preheader206.thread ], [ %.1157, %.preheader206 ]
   %205 = mul nsw i32 %.0155236, 3
   %206 = sext i32 %205 to i64
-  %207 = getelementptr inbounds nuw [18 x float], ptr %12, i64 0, i64 %206
+  %207 = getelementptr inbounds [18 x float], ptr %12, i64 0, i64 %206
   %208 = mul nuw nsw i64 %indvars.iv266, 3
   %209 = getelementptr inbounds nuw [18 x float], ptr %12, i64 0, i64 %208
   %wide.trip.count264 = zext nneg i32 %.2158280282 to i64
@@ -6457,7 +6457,7 @@ _Z11dtVisfinitePKf.exit190:                       ; preds = %49, %53, %58
 .thread:                                          ; preds = %.preheader208, %185, %186, %.loopexit209
   %210 = mul nsw i32 %.0155236, 3
   %211 = sext i32 %210 to i64
-  %212 = getelementptr inbounds nuw [18 x float], ptr %12, i64 0, i64 %211
+  %212 = getelementptr inbounds [18 x float], ptr %12, i64 0, i64 %211
   %213 = mul nuw nsw i64 %indvars.iv266, 3
   %214 = getelementptr inbounds nuw [18 x float], ptr %12, i64 0, i64 %213
   %215 = call noundef float @_Z20dtDistancePtSegSqr2DPKfS0_S0_Rf(ptr noundef nonnull %3, ptr noundef nonnull %212, ptr noundef nonnull %214, ptr noundef nonnull align 4 dereferenceable(4) %18)
@@ -6531,7 +6531,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %248, %249
   store i32 %261, ptr %241, align 4
   %262 = add nsw i32 %.2230, 1
   %263 = sext i32 %.2230 to i64
-  %264 = getelementptr inbounds nuw [48 x ptr], ptr %10, i64 0, i64 %263
+  %264 = getelementptr inbounds [48 x ptr], ptr %10, i64 0, i64 %263
   store ptr %239, ptr %264, align 8
   br label %265
 
@@ -8079,7 +8079,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %109
 200:                                              ; preds = %198
   %201 = add nsw i32 %.1176, 1
   %202 = sext i32 %.1176 to i64
-  %203 = getelementptr inbounds nuw [48 x ptr], ptr %10, i64 0, i64 %202
+  %203 = getelementptr inbounds [48 x ptr], ptr %10, i64 0, i64 %202
   store ptr %89, ptr %203, align 8
   br label %.loopexit157
 
@@ -8604,7 +8604,7 @@ _ZL14insertIntervalP13dtSegIntervalRiissj.exit173: ; preds = %._crit_edge, %_ZL1
   %.3108 = phi i32 [ %.2107202, %208 ], [ %253, %252 ], [ %.2107202, %203 ], [ %.2107202, %202 ]
   %.3 = phi i32 [ %251, %208 ], [ %.2203, %252 ], [ %.2203, %203 ], [ %.2203, %202 ]
   %255 = add nsw i64 %indvars.iv, -1
-  %256 = getelementptr inbounds nuw [16 x %struct.dtSegInterval], ptr %10, i64 0, i64 %255, i32 2
+  %256 = getelementptr inbounds [16 x %struct.dtSegInterval], ptr %10, i64 0, i64 %255, i32 2
   %257 = load i16, ptr %256, align 2
   %258 = getelementptr inbounds nuw [16 x %struct.dtSegInterval], ptr %10, i64 0, i64 %indvars.iv, i32 1
   %259 = load i16, ptr %258, align 4

@@ -424,7 +424,7 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
 .preheader.lr.ph:                                 ; preds = %169
   %172 = xor i32 %102, 7
   %173 = sext i32 %46 to i64
-  %174 = getelementptr inbounds nuw [4 x ptr], ptr @AB_ptr_list, i64 0, i64 %173
+  %174 = getelementptr inbounds [4 x ptr], ptr @AB_ptr_list, i64 0, i64 %173
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 3324
   %177 = getelementptr inbounds [50 x %struct.moveType], ptr %176, i64 0, i64 %54
@@ -576,7 +576,7 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
 245:                                              ; preds = %223
   %246 = xor i32 %102, 7
   %247 = sext i32 %46 to i64
-  %248 = getelementptr inbounds nuw [4 x ptr], ptr @AB_ptr_list, i64 0, i64 %247
+  %248 = getelementptr inbounds [4 x ptr], ptr @AB_ptr_list, i64 0, i64 %247
   %249 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %250 = getelementptr inbounds nuw i8, ptr %0, i64 3324
   %251 = getelementptr inbounds [50 x %struct.moveType], ptr %250, i64 0, i64 %54
@@ -676,7 +676,7 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
 
 296:                                              ; preds = %223
   %297 = sext i32 %46 to i64
-  %298 = getelementptr inbounds nuw [4 x ptr], ptr @AB_ptr_list, i64 0, i64 %297
+  %298 = getelementptr inbounds [4 x ptr], ptr @AB_ptr_list, i64 0, i64 %297
   %299 = load ptr, ptr %298, align 8
   %300 = call noundef zeroext i1 %299(ptr noundef nonnull %64, i32 noundef %2, i32 noundef %42, ptr noundef nonnull %0)
   %301 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -721,7 +721,7 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
   %322 = getelementptr inbounds nuw i8, ptr %0, i64 3324
   %323 = getelementptr inbounds [50 x %struct.moveType], ptr %322, i64 0, i64 %54
   %324 = getelementptr inbounds nuw i8, ptr %323, i64 4
-  %325 = getelementptr inbounds nuw [4 x ptr], ptr @AB_ptr_list, i64 0, i64 %.pre-phi
+  %325 = getelementptr inbounds [4 x ptr], ptr @AB_ptr_list, i64 0, i64 %.pre-phi
   %326 = getelementptr inbounds nuw i8, ptr %5, i64 164
   %327 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %328 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -1111,7 +1111,7 @@ define noundef range(i32 -14, 2) i32 @_Z16BoardValueChecksRK4dealiiiPK10ThreadDa
   %58 = getelementptr inbounds nuw [3 x i32], ptr %43, i64 0, i64 %indvars.iv124
   %59 = load i32, ptr %58, align 4
   %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %60
+  %61 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %60
   %62 = load i16, ptr %61, align 2
   %63 = and i16 %62, %56
   %.not90 = icmp eq i16 %63, 0
@@ -1284,9 +1284,9 @@ define void @_Z15LastTrickWinnerRK4dealPK10ThreadDataiiRiS5_S5_(ptr nocapture no
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %59 = load i32, ptr %58, align 4
   %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %60
+  %61 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %60
   %62 = load i32, ptr %61, align 4
-  %63 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %60
+  %63 = getelementptr inbounds [4 x i32], ptr %8, i64 0, i64 %60
   %64 = load i32, ptr %63, align 4
   br label %65
 
@@ -1332,7 +1332,7 @@ define void @_Z15LastTrickWinnerRK4dealPK10ThreadDataiiRiS5_S5_(ptr nocapture no
 
 84:                                               ; preds = %.loopexit
   %85 = sext i32 %2 to i64
-  %86 = getelementptr inbounds nuw [4 x i32], ptr @partner, i64 0, i64 %85
+  %86 = getelementptr inbounds [4 x i32], ptr @partner, i64 0, i64 %85
   %87 = load i32, ptr %86, align 4
   %88 = icmp eq i32 %87, %.3
   %89 = zext i1 %88 to i32
@@ -1526,7 +1526,7 @@ define noundef i32 @_Z17AnalyseLaterBoardP10ThreadDataiPK8moveTypeiiP12futureTri
   %. = select i1 %41, i32 %3, i32 0
   %.84 = select i1 %41, i32 13, i32 %3
   %42 = sext i32 %14 to i64
-  %43 = getelementptr inbounds nuw [4 x ptr], ptr @AB_ptr_trace_list, i64 0, i64 %42
+  %43 = getelementptr inbounds [4 x ptr], ptr @AB_ptr_trace_list, i64 0, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 20
   br label %46

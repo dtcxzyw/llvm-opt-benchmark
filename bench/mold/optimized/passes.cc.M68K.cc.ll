@@ -25145,7 +25145,7 @@ for.end:                                          ; preds = %for.inc, %_ZN3tbb6d
   %vtable = load ptr, ptr %out, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %out, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %out, i64 %vbase.offset
   %call10 = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr) #15
   br i1 %call10, label %if.then11, label %if.end20
 
@@ -42991,7 +42991,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZL24XXH3_accumulat
   %add.ptr1.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 320
   tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i.i.i.i.i, i32 0, i32 3, i32 1), !noalias !648
   %mul2.i.i.i.i.i = shl i64 %n.06.i.i.i.i.i, 3
-  %add.ptr3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr @_ZL12XXH3_kSecret, i64 %mul2.i.i.i.i.i
+  %add.ptr3.i.i.i.i.i = getelementptr inbounds i8, ptr @_ZL12XXH3_kSecret, i64 %mul2.i.i.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !650)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !653)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !655)
@@ -43074,7 +43074,7 @@ for.body.i34.i.i.i.i:                             ; preds = %for.end.i.i.i.i, %_
   %add.ptr1.i38.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i37.i.i.i.i, i64 320
   tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i38.i.i.i.i, i32 0, i32 3, i32 1), !noalias !680
   %mul2.i39.i.i.i.i = shl i64 %n.06.i35.i.i.i.i, 3
-  %add.ptr3.i40.i.i.i.i = getelementptr inbounds nuw i8, ptr @_ZL12XXH3_kSecret, i64 %mul2.i39.i.i.i.i
+  %add.ptr3.i40.i.i.i.i = getelementptr inbounds i8, ptr @_ZL12XXH3_kSecret, i64 %mul2.i39.i.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !682)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !685)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !687)
@@ -64041,7 +64041,7 @@ if.end6:                                          ; preds = %if.end6.sink.split,
   %vtable = load ptr, ptr %__is, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %__is, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %__is, i64 %vbase.offset
   %call8 = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr) #15
   %3 = load i64, ptr %__v, align 8
   %4 = trunc i64 %3 to i32

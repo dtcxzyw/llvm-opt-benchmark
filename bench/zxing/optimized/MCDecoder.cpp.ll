@@ -619,7 +619,7 @@ _ZN5ZXing8MaxiCode22DecodedBitStreamParserL18GetPostCode2LengthERKNS_9ByteArrayE
 
 .noexc11.i.i:                                     ; preds = %.noexc.i.i
   %226 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #18, !noalias !7
-  %227 = getelementptr inbounds nuw i8, ptr %5, i64 %226
+  %227 = getelementptr inbounds i8, ptr %5, i64 %226
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull %5, ptr noundef nonnull %227)
           to label %_ZN5ZXing8MaxiCode22DecodedBitStreamParserL12GetPostCode2B5cxx11ERKNS_9ByteArrayE.exit.i unwind label %228, !noalias !4
 
@@ -2073,7 +2073,7 @@ define internal fastcc void @_ZN5ZXing8MaxiCode22DecodedBitStreamParserL10GetMes
 
 _ZNKSt5arrayIsLm64EE2atEm.exit:                   ; preds = %13
   %21 = sext i32 %.02653 to i64
-  %22 = getelementptr inbounds nuw [5 x %"struct.std::array"], ptr @_ZN5ZXing8MaxiCode22DecodedBitStreamParserL8CHARSETSE, i64 0, i64 %21
+  %22 = getelementptr inbounds [5 x %"struct.std::array"], ptr @_ZN5ZXing8MaxiCode22DecodedBitStreamParserL8CHARSETSE, i64 0, i64 %21
   %23 = getelementptr inbounds nuw [64 x i16], ptr %22, i64 0, i64 %18
   %24 = load i16, ptr %23, align 2
   switch i16 %24, label %126 [

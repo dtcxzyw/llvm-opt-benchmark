@@ -123,7 +123,7 @@ define void @_ZN3vcg9CICubeMap14DrawEnvCubeOldERNS_8Matrix44IfEE(ptr nocapture n
   %7 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %6
   %8 = shl i64 %indvars.iv.i.i.i, 2
   %9 = add nuw nsw i64 %8, %indvars.iv15.i.i.i
-  %10 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %9
+  %10 = getelementptr inbounds [16 x float], ptr %3, i64 0, i64 %9
   %11 = load float, ptr %7, align 4, !alias.scope !5
   %12 = load float, ptr %10, align 4, !alias.scope !5
   store float %12, ptr %7, align 4, !alias.scope !5
@@ -164,7 +164,7 @@ _ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit:    ; preds = %13
   %25 = getelementptr inbounds nuw [6 x [4 x i32]], ptr @_ZL10cube_faces, i64 0, i64 %indvars.iv14, i64 %indvars.iv
   %26 = load i32, ptr %25, align 4
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds nuw [8 x %"class.vcg::Point3"], ptr @_ZL13cube_vertices, i64 0, i64 %27
+  %28 = getelementptr inbounds [8 x %"class.vcg::Point3"], ptr @_ZL13cube_vertices, i64 0, i64 %27
   call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %28)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -234,7 +234,7 @@ define void @_ZN3vcg9CICubeMap14DrawEnvCubeExtERNS_8Matrix44IfEE(ptr nocapture n
   %12 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %11
   %13 = shl i64 %indvars.iv.i.i.i, 2
   %14 = add nuw nsw i64 %13, %indvars.iv15.i.i.i
-  %15 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %14
+  %15 = getelementptr inbounds [16 x float], ptr %3, i64 0, i64 %14
   %16 = load float, ptr %12, align 4, !alias.scope !13
   %17 = load float, ptr %15, align 4, !alias.scope !13
   store float %17, ptr %12, align 4, !alias.scope !13
@@ -264,7 +264,7 @@ _ZN3vcg8glNormalERKNS_6Point3IfEE.exit:           ; preds = %19, %_ZN3vcg8glNorm
   %20 = getelementptr inbounds nuw [6 x [4 x i32]], ptr @_ZL10cube_faces, i64 0, i64 %indvars.iv15, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds nuw [8 x %"class.vcg::Point3"], ptr @_ZL13cube_vertices, i64 0, i64 %22
+  %23 = getelementptr inbounds [8 x %"class.vcg::Point3"], ptr @_ZL13cube_vertices, i64 0, i64 %22
   %24 = load float, ptr %23, align 4
   %25 = fneg float %24
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 4
@@ -1367,7 +1367,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
 
 _ZN7QStringD2Ev.exit:                             ; preds = %65, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
   %71 = sext i32 %1 to i64
-  %72 = getelementptr inbounds nuw [6 x %class.QString], ptr %11, i64 0, i64 %71
+  %72 = getelementptr inbounds [6 x %class.QString], ptr %11, i64 0, i64 %71
   %73 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QString6appendERKS_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %72)
           to label %74 unwind label %83
 

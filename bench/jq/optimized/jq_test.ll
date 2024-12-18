@@ -419,7 +419,7 @@ checkfail.exit.thread.i:                          ; preds = %checkfail.exit.i, %
 238:                                              ; preds = %checkfail.exit.i
   %239 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #14
   %240 = add i64 %239, -1
-  %241 = getelementptr inbounds nuw [4096 x i8], ptr %8, i64 0, i64 %240
+  %241 = getelementptr inbounds [4096 x i8], ptr %8, i64 0, i64 %240
   %242 = load i8, ptr %241, align 1
   %243 = icmp eq i8 %242, 10
   br i1 %243, label %244, label %245
@@ -504,7 +504,7 @@ checkfail.exit.thread.i:                          ; preds = %checkfail.exit.i, %
   %282 = add i32 %.0133240.i, 2
   %283 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #14
   %284 = add i64 %283, -1
-  %285 = getelementptr inbounds nuw [4096 x i8], ptr %9, i64 0, i64 %284
+  %285 = getelementptr inbounds [4096 x i8], ptr %9, i64 0, i64 %284
   %286 = load i8, ptr %285, align 1
   %287 = icmp eq i8 %286, 10
   br i1 %287, label %288, label %289

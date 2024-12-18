@@ -436,7 +436,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm9FaultMaps17faultTypeToStringENS0_
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -1
   %1 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4llvm9FaultMaps17faultTypeToStringENS0_9FaultKindE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4llvm9FaultMaps17faultTypeToStringENS0_9FaultKindE, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }

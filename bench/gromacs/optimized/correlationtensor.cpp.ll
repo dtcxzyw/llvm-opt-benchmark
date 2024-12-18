@@ -178,7 +178,7 @@ _ZNK3gmx17CorrelationTensor15getTimeIntegralEid.exit.us: ; preds = %_ZNK3gmx17Co
   %21 = fdiv double %20, %15
   %22 = fmul double %21, 5.000000e-01
   %23 = fmul double %1, %22
-  %24 = getelementptr inbounds nuw [6 x double], ptr %3, i64 0, i64 %17
+  %24 = getelementptr inbounds [6 x double], ptr %3, i64 0, i64 %17
   store double %23, ptr %24, align 8
   %25 = load i64, ptr %4, align 8
   %26 = add i64 %25, 1
@@ -195,7 +195,7 @@ _ZNK3gmx17CorrelationTensor15getTimeIntegralEid.exit.us: ; preds = %_ZNK3gmx17Co
 _ZNK3gmx17CorrelationTensor15getTimeIntegralEid.exit: ; preds = %.lr.ph.split, %_ZNK3gmx17CorrelationTensor15getTimeIntegralEid.exit
   %29 = phi i64 [ 0, %.lr.ph.split ], [ %32, %_ZNK3gmx17CorrelationTensor15getTimeIntegralEid.exit ]
   %.06 = phi i64 [ 0, %.lr.ph.split ], [ %33, %_ZNK3gmx17CorrelationTensor15getTimeIntegralEid.exit ]
-  %30 = getelementptr inbounds nuw [6 x double], ptr %3, i64 0, i64 %29
+  %30 = getelementptr inbounds [6 x double], ptr %3, i64 0, i64 %29
   store double %28, ptr %30, align 8
   %31 = load i64, ptr %4, align 8
   %32 = add i64 %31, 1

@@ -15806,7 +15806,7 @@ _ZNK4llvm20iterator_facade_baseINS_15concat_iteratorINS_12GlobalObjectEJNS_14ili
   %.fca.0.load.i.i = load i64, ptr %.0.ptr.i.i, align 16
   %.fca.1.gep.i.i = getelementptr inbounds nuw i8, ptr %.0.ptr.i.i, i64 8
   %.fca.1.load.i.i = load i64, ptr %.fca.1.gep.i.i, align 8
-  %465 = getelementptr inbounds nuw i8, ptr %15, i64 %.fca.1.load.i.i
+  %465 = getelementptr inbounds i8, ptr %15, i64 %.fca.1.load.i.i
   %466 = and i64 %.fca.0.load.i.i, 1
   %.not.i.i201 = icmp eq i64 %466, 0
   br i1 %.not.i.i201, label %472, label %467
@@ -15857,7 +15857,7 @@ _ZNK4llvm15concat_iteratorINS_12GlobalObjectEJNS_14ilist_iteratorINS_12ilist_det
   %.fca.0.load.i.i204 = load i64, ptr %.0.ptr.i.i203, align 16
   %.fca.1.gep.i.i205 = getelementptr inbounds nuw i8, ptr %.0.ptr.i.i203, i64 8
   %.fca.1.load.i.i206 = load i64, ptr %.fca.1.gep.i.i205, align 8
-  %491 = getelementptr inbounds nuw i8, ptr %15, i64 %.fca.1.load.i.i206
+  %491 = getelementptr inbounds i8, ptr %15, i64 %.fca.1.load.i.i206
   %492 = and i64 %.fca.0.load.i.i204, 1
   %.not.i.i207 = icmp eq i64 %492, 0
   br i1 %.not.i.i207, label %498, label %493
@@ -16146,7 +16146,7 @@ _ZNK4llvm20iterator_facade_baseINS_15concat_iteratorINS_11GlobalValueEJNS_14ilis
   %.fca.0.load.i.i214 = load i64, ptr %.0.ptr.i.i213, align 16
   %.fca.1.gep.i.i215 = getelementptr inbounds nuw i8, ptr %.0.ptr.i.i213, i64 8
   %.fca.1.load.i.i216 = load i64, ptr %.fca.1.gep.i.i215, align 8
-  %645 = getelementptr inbounds nuw i8, ptr %20, i64 %.fca.1.load.i.i216
+  %645 = getelementptr inbounds i8, ptr %20, i64 %.fca.1.load.i.i216
   %646 = and i64 %.fca.0.load.i.i214, 1
   %.not.i.i217 = icmp eq i64 %646, 0
   br i1 %.not.i.i217, label %652, label %647
@@ -16231,7 +16231,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread325: ; preds = %667, %_ZNK4llvm9
   %.fca.0.load.i.i223 = load i64, ptr %.0.ptr.i.i222, align 16
   %.fca.1.gep.i.i224 = getelementptr inbounds nuw i8, ptr %.0.ptr.i.i222, i64 8
   %.fca.1.load.i.i225 = load i64, ptr %.fca.1.gep.i.i224, align 8
-  %683 = getelementptr inbounds nuw i8, ptr %20, i64 %.fca.1.load.i.i225
+  %683 = getelementptr inbounds i8, ptr %20, i64 %.fca.1.load.i.i225
   %684 = and i64 %.fca.0.load.i.i223, 1
   %.not.i.i226 = icmp eq i64 %684, 0
   br i1 %.not.i.i226, label %690, label %685
@@ -16356,7 +16356,7 @@ _ZNK4llvm20iterator_facade_baseINS_15concat_iteratorINS_11GlobalValueEJNS_14ilis
   %.fca.0.load.i.i233 = load i64, ptr %.0.ptr.i.i232, align 16
   %.fca.1.gep.i.i234 = getelementptr inbounds nuw i8, ptr %.0.ptr.i.i232, i64 8
   %.fca.1.load.i.i235 = load i64, ptr %.fca.1.gep.i.i234, align 8
-  %739 = getelementptr inbounds nuw i8, ptr %22, i64 %.fca.1.load.i.i235
+  %739 = getelementptr inbounds i8, ptr %22, i64 %.fca.1.load.i.i235
   %740 = and i64 %.fca.0.load.i.i233, 1
   %.not.i.i236 = icmp eq i64 %740, 0
   br i1 %.not.i.i236, label %746, label %741
@@ -16452,7 +16452,7 @@ _ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit241.thread: ; preds = %_ZNK
   %.fca.0.load.i.i244 = load i64, ptr %.0.ptr.i.i243, align 16
   %.fca.1.gep.i.i245 = getelementptr inbounds nuw i8, ptr %.0.ptr.i.i243, i64 8
   %.fca.1.load.i.i246 = load i64, ptr %.fca.1.gep.i.i245, align 8
-  %787 = getelementptr inbounds nuw i8, ptr %22, i64 %.fca.1.load.i.i246
+  %787 = getelementptr inbounds i8, ptr %22, i64 %.fca.1.load.i.i246
   %788 = and i64 %.fca.0.load.i.i244, 1
   %.not.i.i247 = icmp eq i64 %788, 0
   br i1 %.not.i.i247, label %794, label %789
@@ -18020,10 +18020,10 @@ switch.lookup:                                    ; preds = %.critedge81, %_ZN4l
   %203 = getelementptr inbounds nuw i8, ptr %201, i64 312
   %204 = load i32, ptr %203, align 8
   %205 = sext i32 %204 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZNK4llvm10AsmPrinter12GetCPISymbolEj, i64 0, i64 %205
+  %switch.gep = getelementptr inbounds [8 x i64], ptr @switch.table._ZNK4llvm10AsmPrinter12GetCPISymbolEj, i64 0, i64 %205
   %switch.load = load i64, ptr %switch.gep, align 8
   %206 = sext i32 %204 to i64
-  %switch.gep83 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZNK4llvm10AsmPrinter12GetCPISymbolEj.72, i64 0, i64 %206
+  %switch.gep83 = getelementptr inbounds [8 x ptr], ptr @switch.table._ZNK4llvm10AsmPrinter12GetCPISymbolEj.72, i64 0, i64 %206
   %switch.load84 = load ptr, ptr %switch.gep83, align 8
   %207 = load ptr, ptr %8, align 8
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 336
@@ -18167,10 +18167,10 @@ switch.lookup:
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 312
   %15 = load i32, ptr %14, align 8
   %16 = sext i32 %15 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZNK4llvm10AsmPrinter12GetCPISymbolEj, i64 0, i64 %16
+  %switch.gep = getelementptr inbounds [8 x i64], ptr @switch.table._ZNK4llvm10AsmPrinter12GetCPISymbolEj, i64 0, i64 %16
   %switch.load = load i64, ptr %switch.gep, align 8
   %17 = sext i32 %15 to i64
-  %switch.gep88 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZNK4llvm10AsmPrinter12GetCPISymbolEj.72, i64 0, i64 %17
+  %switch.gep88 = getelementptr inbounds [8 x ptr], ptr @switch.table._ZNK4llvm10AsmPrinter12GetCPISymbolEj.72, i64 0, i64 %17
   %switch.load89 = load ptr, ptr %switch.gep88, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %19 = load ptr, ptr %18, align 8
@@ -18325,10 +18325,10 @@ switch.lookup:                                    ; preds = %51
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 312
   %66 = load i32, ptr %65, align 8
   %67 = sext i32 %66 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZNK4llvm10AsmPrinter12GetCPISymbolEj, i64 0, i64 %67
+  %switch.gep = getelementptr inbounds [8 x i64], ptr @switch.table._ZNK4llvm10AsmPrinter12GetCPISymbolEj, i64 0, i64 %67
   %switch.load = load i64, ptr %switch.gep, align 8
   %68 = sext i32 %66 to i64
-  %switch.gep20 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZNK4llvm10AsmPrinter12GetCPISymbolEj.72, i64 0, i64 %68
+  %switch.gep20 = getelementptr inbounds [8 x ptr], ptr @switch.table._ZNK4llvm10AsmPrinter12GetCPISymbolEj.72, i64 0, i64 %68
   %switch.load21 = load ptr, ptr %switch.gep20, align 8
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %70 = load ptr, ptr %69, align 8
@@ -20441,10 +20441,10 @@ switch.lookup:                                    ; preds = %2, %_ZNK4llvm6Tripl
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 312
   %75 = load i32, ptr %74, align 8
   %76 = sext i32 %75 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZNK4llvm10AsmPrinter12GetCPISymbolEj, i64 0, i64 %76
+  %switch.gep = getelementptr inbounds [8 x i64], ptr @switch.table._ZNK4llvm10AsmPrinter12GetCPISymbolEj, i64 0, i64 %76
   %switch.load = load i64, ptr %switch.gep, align 8
   %77 = sext i32 %75 to i64
-  %switch.gep88 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZNK4llvm10AsmPrinter12GetCPISymbolEj.72, i64 0, i64 %77
+  %switch.gep88 = getelementptr inbounds [8 x ptr], ptr @switch.table._ZNK4llvm10AsmPrinter12GetCPISymbolEj.72, i64 0, i64 %77
   %switch.load89 = load ptr, ptr %switch.gep88, align 8
   store ptr %switch.load89, ptr %7, align 8, !alias.scope !266
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8

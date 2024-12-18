@@ -23168,7 +23168,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i.i.i.i.i
   %.021.i.i.i.i.i.i.i.i.i = phi i64 [ %30, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %16, %.lr.ph.i.preheader.i.i.i.i.i.i.i.i ]
-  %26 = getelementptr inbounds nuw double, ptr %4, i64 %.021.i.i.i.i.i.i.i.i.i
+  %26 = getelementptr inbounds double, ptr %4, i64 %.021.i.i.i.i.i.i.i.i.i
   %27 = getelementptr inbounds double, ptr %9, i64 %.021.i.i.i.i.i.i.i.i.i
   %28 = load <2 x double>, ptr %27, align 1
   %29 = fmul <2 x double> %25, %28
@@ -23183,7 +23183,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i:                     ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i, %.lr.ph.i17.i.i.i.i.i.i.i.i.i
   %.05.i18.i.i.i.i.i.i.i.i.i = phi i64 [ %37, %.lr.ph.i17.i.i.i.i.i.i.i.i.i ], [ %20, %._crit_edge.i.i.i.i.i.i.i.i.i ]
-  %33 = getelementptr inbounds nuw double, ptr %4, i64 %.05.i18.i.i.i.i.i.i.i.i.i
+  %33 = getelementptr inbounds double, ptr %4, i64 %.05.i18.i.i.i.i.i.i.i.i.i
   %34 = getelementptr inbounds double, ptr %9, i64 %.05.i18.i.i.i.i.i.i.i.i.i
   %35 = load double, ptr %34, align 8
   %36 = fmul double %7, %35

@@ -34608,7 +34608,7 @@ _ZN5boost4json6detail3ryu6detail18multipleOfPowerOf5Emj.exit200: ; preds = %.pre
   %92 = mul i32 %90, -1217359
   %93 = lshr i32 %92, 19
   %94 = sext i32 %91 to i64
-  %95 = getelementptr inbounds nuw [326 x [2 x i64]], ptr @_ZZN5boost4json6detail3ryu17DOUBLE_POW5_SPLITEvE3arr, i64 0, i64 %94
+  %95 = getelementptr inbounds [326 x [2 x i64]], ptr @_ZZN5boost4json6detail3ryu17DOUBLE_POW5_SPLITEvE3arr, i64 0, i64 %94
   %96 = or disjoint i64 %8, 2
   %97 = zext i64 %96 to i128
   %98 = load i64, ptr %95, align 16, !tbaa !11
@@ -59511,7 +59511,7 @@ _ZN5boost4json6detail8charconv6detail10fast_float13compute_floatINS4_13binary_fo
   %346 = shl i32 %345, 1
   %347 = add i32 %346, 684
   %348 = sext i32 %347 to i64
-  %349 = getelementptr inbounds nuw [1302 x i64], ptr @_ZN5boost4json6detail8charconv6detail10fast_float15powers_templateIvE17power_of_five_128E, i64 0, i64 %348
+  %349 = getelementptr inbounds [1302 x i64], ptr @_ZN5boost4json6detail8charconv6detail10fast_float15powers_templateIvE17power_of_five_128E, i64 0, i64 %348
   %350 = load i64, ptr %349, align 16, !tbaa !11
   %351 = zext i64 %344 to i128
   %352 = zext i64 %350 to i128
@@ -59526,7 +59526,7 @@ _ZN5boost4json6detail8charconv6detail10fast_float13compute_floatINS4_13binary_fo
   %358 = trunc i128 %353 to i64
   %359 = add i32 %346, 685
   %360 = sext i32 %359 to i64
-  %361 = getelementptr inbounds nuw [1302 x i64], ptr @_ZN5boost4json6detail8charconv6detail10fast_float15powers_templateIvE17power_of_five_128E, i64 0, i64 %360
+  %361 = getelementptr inbounds [1302 x i64], ptr @_ZN5boost4json6detail8charconv6detail10fast_float15powers_templateIvE17power_of_five_128E, i64 0, i64 %360
   %362 = load i64, ptr %361, align 8, !tbaa !11
   %363 = zext i64 %362 to i128
   %364 = mul nuw i128 %363, %351
@@ -62294,7 +62294,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost4json6detail8charconv6detail17
 11:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6) #48
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr align 1 %0, i64 %9, i1 false)
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 %9
+  %12 = getelementptr inbounds i8, ptr %6, i64 %9
   store i8 0, ptr %12, align 1, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #48
   %13 = call double @strtod(ptr noundef nonnull %6, ptr noundef nonnull %5) #48

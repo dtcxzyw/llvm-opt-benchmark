@@ -1230,7 +1230,7 @@ invoke.cont45:                                    ; preds = %if.then.i80, %if.th
   %retval.0.i.i.i = select i1 %cmp.i.i.i, ptr %arrayidx.i.i.i84, ptr %add.ptr.i.i.i.i
   %inc47 = add nsw i32 %num_keys.0216, 1
   %conv48 = sext i32 %num_keys.0216 to i64
-  %arrayidx.i.i85 = getelementptr inbounds nuw [32 x ptr], ptr %keys, i64 0, i64 %conv48
+  %arrayidx.i.i85 = getelementptr inbounds [32 x ptr], ptr %keys, i64 0, i64 %conv48
   store ptr %retval.0.i.i.i, ptr %arrayidx.i.i85, align 8
   br label %for.inc
 

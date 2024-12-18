@@ -1647,7 +1647,7 @@ for.body.i.i:                                     ; preds = %if.end.i, %_ZN4absl
   %vtable.i.i.i = load ptr, ptr %flag_file.i.i.i, align 8
   %vbase.offset.ptr.i.i.i = getelementptr i8, ptr %vtable.i.i.i, i64 -24
   %vbase.offset.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i, align 8
-  %add.ptr.i.i18.i = getelementptr inbounds nuw i8, ptr %flag_file.i.i.i, i64 %vbase.offset.i.i.i
+  %add.ptr.i.i18.i = getelementptr inbounds i8, ptr %flag_file.i.i.i, i64 %vbase.offset.i.i.i
   %call.i.i.i = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr.i.i18.i)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 

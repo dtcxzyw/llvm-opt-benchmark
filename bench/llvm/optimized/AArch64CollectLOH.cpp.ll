@@ -747,7 +747,7 @@ _ZL16mapRegToGPRIndext.exit64.i:                  ; preds = %209, %207, %203
 
 210:                                              ; preds = %_ZL16mapRegToGPRIndext.exit64.i
   %211 = sext i32 %.0.i63.i to i64
-  %212 = getelementptr inbounds nuw %struct.LOHInfo, ptr %14, i64 %211
+  %212 = getelementptr inbounds %struct.LOHInfo, ptr %14, i64 %211
   %.sroa.05.0.copyload.i = load i16, ptr %212, align 16
   %213 = and i16 %.sroa.05.0.copyload.i, 1536
   %or.cond.i84 = icmp eq i16 %213, 0
@@ -1228,7 +1228,7 @@ _ZL16mapRegToGPRIndext.exit69.i:                  ; preds = %391, %389, %385
 396:                                              ; preds = %393
   %397 = load i32, ptr %4, align 4
   %398 = sext i32 %397 to i64
-  %399 = getelementptr inbounds nuw %struct.LOHInfo, ptr %14, i64 %398
+  %399 = getelementptr inbounds %struct.LOHInfo, ptr %14, i64 %398
   %400 = load i16, ptr %399, align 16
   %401 = and i16 %400, 1536
   %or.cond.i70.i = icmp eq i16 %401, 0

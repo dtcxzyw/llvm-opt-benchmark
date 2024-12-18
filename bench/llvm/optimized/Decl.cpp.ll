@@ -8308,7 +8308,7 @@ define dso_local noundef nonnull ptr @_ZN5clang7VarDecl30getStorageClassSpecifie
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -1
   %1 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN5clang7VarDecl30getStorageClassSpecifierStringENS_12StorageClassE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN5clang7VarDecl30getStorageClassSpecifierStringENS_12StorageClassE, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }

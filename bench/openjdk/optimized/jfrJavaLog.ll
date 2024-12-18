@@ -218,7 +218,7 @@ $_ZTV18LogMessageTemplateILN6LogTag4typeE64ELS1_156ELS1_41ELS1_0ELS1_0ELS1_0EE =
 define hidden void @_ZN10JfrJavaLog19subscribe_log_levelEP8_jobjectiP10JavaThread(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = tail call noundef ptr @_ZN14JfrJavaSupport17global_jni_handleEP8_jobjectP10JavaThread(ptr noundef %0, ptr noundef %2) #6
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds nuw [16 x %struct.jfrLogSubscriber], ptr @_ZL12log_tag_sets, i64 0, i64 %5
+  %6 = getelementptr inbounds [16 x %struct.jfrLogSubscriber], ptr @_ZL12log_tag_sets, i64 0, i64 %5
   store ptr %4, ptr %6, align 16
   %.b = load i1, ptr @_ZZN10JfrJavaLog19subscribe_log_levelEP8_jobjectiP10JavaThreadE18subscribed_updates, align 1
   br i1 %.b, label %8, label %7

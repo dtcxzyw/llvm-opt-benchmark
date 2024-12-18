@@ -343,7 +343,7 @@ define hidden noundef i32 @_ZNK8rawspeed9CiffEntry14getElementSizeEv(ptr nocaptu
   %3 = load i32, ptr %2, align 4, !tbaa !18
   %4 = tail call i32 @llvm.fshl.i32(i32 %3, i32 %3, i32 21)
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZNK8rawspeed9CiffEntry14getElementSizeEv, i64 0, i64 %5
+  %6 = getelementptr inbounds [7 x i32], ptr @switch.table._ZNK8rawspeed9CiffEntry14getElementSizeEv, i64 0, i64 %5
   %7 = load i32, ptr %6, align 4
   ret i32 %7
 }

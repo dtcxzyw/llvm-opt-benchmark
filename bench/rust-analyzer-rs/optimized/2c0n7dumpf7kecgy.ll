@@ -4342,7 +4342,7 @@ define hidden void @_ZN8smol_str4Repr12new_on_stack17h0cf58159e18accf7E.llvm.177
   unreachable
 
 44:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i", %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit7.i"
-  %45 = getelementptr inbounds nuw i8, ptr @anon.75cef3805c38ca33f719bfa6e69e326b.58, i64 %31
+  %45 = getelementptr inbounds i8, ptr @anon.75cef3805c38ca33f719bfa6e69e326b.58, i64 %31
   store i8 25, ptr %0, align 8
   %.sroa.47.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %45, ptr %.sroa.47.0..sroa_idx, align 8

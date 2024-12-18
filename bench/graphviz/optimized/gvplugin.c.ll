@@ -1471,10 +1471,10 @@ define noundef ptr @gvplugin_graph(ptr nocapture noundef readonly %0) local_unna
   %31 = load ptr, ptr %24, align 8
   %32 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %31) #24
   %strlen360 = call i64 @strlen(ptr nonnull dereferenceable(1) %2)
-  %endptr361 = getelementptr inbounds nuw i8, ptr %2, i64 %strlen360
+  %endptr361 = getelementptr inbounds i8, ptr %2, i64 %strlen360
   store i16 95, ptr %endptr361, align 1
   %33 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #23
-  %34 = getelementptr inbounds nuw i8, ptr %2, i64 %33
+  %34 = getelementptr inbounds i8, ptr %2, i64 %33
   br label %35
 
 35:                                               ; preds = %23, %.thread388
@@ -1496,7 +1496,7 @@ define noundef ptr @gvplugin_graph(ptr nocapture noundef readonly %0) local_unna
   %endptr367 = getelementptr inbounds i8, ptr %34, i64 %strlen366
   store i16 95, ptr %endptr367, align 1
   %42 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #23
-  %43 = getelementptr inbounds nuw i8, ptr %2, i64 %42
+  %43 = getelementptr inbounds i8, ptr %2, i64 %42
   %44 = getelementptr inbounds nuw [5 x ptr], ptr %22, i64 0, i64 %.0290465
   %.0301446 = load ptr, ptr %44, align 8
   %.not368447 = icmp eq ptr %.0301446, null
@@ -1653,7 +1653,7 @@ sub_1403:                                         ; preds = %sub_0402
 102:                                              ; preds = %63
   %103 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %37) #24
   %strlen374 = call i64 @strlen(ptr nonnull dereferenceable(1) %3)
-  %endptr375 = getelementptr inbounds nuw i8, ptr %3, i64 %strlen374
+  %endptr375 = getelementptr inbounds i8, ptr %3, i64 %strlen374
   store i16 95, ptr %endptr375, align 1
   %104 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %53) #24
   %105 = call ptr @agnode(ptr noundef %39, ptr noundef nonnull %3, i32 noundef 1) #24
@@ -1664,7 +1664,7 @@ sub_1403:                                         ; preds = %sub_0402
 108:                                              ; preds = %63
   %109 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %37) #24
   %strlen372 = call i64 @strlen(ptr nonnull dereferenceable(1) %3)
-  %endptr373 = getelementptr inbounds nuw i8, ptr %3, i64 %strlen372
+  %endptr373 = getelementptr inbounds i8, ptr %3, i64 %strlen372
   store i16 95, ptr %endptr373, align 1
   %110 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %53) #24
   %111 = call ptr @agnode(ptr noundef %39, ptr noundef nonnull %3, i32 noundef 1) #24
@@ -1677,7 +1677,7 @@ sub_1403:                                         ; preds = %sub_0402
 116:                                              ; preds = %63
   %117 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %37) #24
   %strlen370 = call i64 @strlen(ptr nonnull dereferenceable(1) %3)
-  %endptr371 = getelementptr inbounds nuw i8, ptr %3, i64 %strlen370
+  %endptr371 = getelementptr inbounds i8, ptr %3, i64 %strlen370
   store i16 95, ptr %endptr371, align 1
   %118 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %53) #24
   %119 = call ptr @agnode(ptr noundef %39, ptr noundef nonnull %3, i32 noundef 1) #24
@@ -1857,10 +1857,10 @@ default.unreachable:                              ; preds = %63
   %191 = load ptr, ptr %190, align 8
   %192 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %191) #24
   %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) %2)
-  %endptr = getelementptr inbounds nuw i8, ptr %2, i64 %strlen
+  %endptr = getelementptr inbounds i8, ptr %2, i64 %strlen
   store i16 95, ptr %endptr, align 1
   %193 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #23
-  %194 = getelementptr inbounds nuw i8, ptr %2, i64 %193
+  %194 = getelementptr inbounds i8, ptr %2, i64 %193
   br label %195
 
 195:                                              ; preds = %189, %._crit_edge477
@@ -1872,7 +1872,7 @@ default.unreachable:                              ; preds = %63
   %endptr343 = getelementptr inbounds i8, ptr %194, i64 %strlen342
   store i16 95, ptr %endptr343, align 1
   %199 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #23
-  %200 = getelementptr inbounds nuw i8, ptr %2, i64 %199
+  %200 = getelementptr inbounds i8, ptr %2, i64 %199
   %201 = getelementptr inbounds nuw [5 x ptr], ptr %188, i64 0, i64 %.0478
   %.1302472 = load ptr, ptr %201, align 8
   %.not344473 = icmp eq ptr %.1302472, null

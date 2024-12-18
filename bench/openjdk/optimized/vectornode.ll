@@ -6361,7 +6361,7 @@ define hidden noundef ptr @_ZN10VectorNode4makeEiP4NodeS1_j9BasicTypeb(i32 nound
   %13 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %13, align 1
   %14 = sext i32 %0 to i64
-  %15 = getelementptr inbounds nuw [0 x ptr], ptr @NodeClassNames, i64 0, i64 %14
+  %15 = getelementptr inbounds [0 x ptr], ptr @NodeClassNames, i64 0, i64 %14
   %16 = load ptr, ptr %15, align 8
   tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 773, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.8, ptr noundef %16) #9
   unreachable
@@ -6570,7 +6570,7 @@ define hidden noundef ptr @_ZN10VectorNode4makeEiP4NodeS1_S1_j9BasicType(i32 nou
   %13 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %13, align 1
   %14 = sext i32 %0 to i64
-  %15 = getelementptr inbounds nuw [0 x ptr], ptr @NodeClassNames, i64 0, i64 %14
+  %15 = getelementptr inbounds [0 x ptr], ptr @NodeClassNames, i64 0, i64 %14
   %16 = load ptr, ptr %15, align 8
   tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 797, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.8, ptr noundef %16) #9
   unreachable
@@ -6959,7 +6959,7 @@ _ZN14RShiftCntVNodeC2EP4NodePK8TypeVect.exit:     ; preds = %74, %80, %91
   %98 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %98, align 1
   %99 = sext i32 %0 to i64
-  %100 = getelementptr inbounds nuw [0 x ptr], ptr @NodeClassNames, i64 0, i64 %99
+  %100 = getelementptr inbounds [0 x ptr], ptr @NodeClassNames, i64 0, i64 %99
   %101 = load ptr, ptr %100, align 8
   tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 829, ptr noundef nonnull @.str.7, ptr noundef %101) #9
   unreachable
@@ -10012,7 +10012,7 @@ define hidden noundef ptr @_ZN13ReductionNode4makeEiP4NodeS1_S1_9BasicTypeb(i32 
   %9 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %9, align 1
   %10 = sext i32 %0 to i64
-  %11 = getelementptr inbounds nuw [0 x ptr], ptr @NodeClassNames, i64 0, i64 %10
+  %11 = getelementptr inbounds [0 x ptr], ptr @NodeClassNames, i64 0, i64 %10
   %12 = load ptr, ptr %11, align 8
   tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 1353, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.8, ptr noundef %12) #9
   unreachable
@@ -12118,7 +12118,7 @@ define hidden noundef ptr @_ZN13ReductionNode24make_identity_con_scalarER8PhaseG
   %6 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %6, align 1
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds nuw [0 x ptr], ptr @NodeClassNames, i64 0, i64 %7
+  %8 = getelementptr inbounds [0 x ptr], ptr @NodeClassNames, i64 0, i64 %7
   %9 = load ptr, ptr %8, align 8
   tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 1483, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, ptr noundef %9) #9
   unreachable
@@ -12285,7 +12285,7 @@ define hidden noundef ptr @_ZN13ReductionNode24make_identity_con_scalarER8PhaseG
   %78 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %78, align 1
   %79 = sext i32 %4 to i64
-  %80 = getelementptr inbounds nuw [0 x ptr], ptr @NodeClassNames, i64 0, i64 %79
+  %80 = getelementptr inbounds [0 x ptr], ptr @NodeClassNames, i64 0, i64 %79
   %81 = load ptr, ptr %80, align 8
   tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 1549, ptr noundef nonnull @.str.7, ptr noundef %81) #9
   unreachable

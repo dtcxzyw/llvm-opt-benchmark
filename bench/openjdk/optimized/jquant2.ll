@@ -1709,7 +1709,7 @@ define internal fastcc void @fill_inverse_cmap(ptr nocapture noundef readonly %0
   %104 = trunc i64 %indvars.iv173.i to i8
   %105 = add nsw i32 %.0139169.i, 1
   %106 = sext i32 %.0139169.i to i64
-  %107 = getelementptr inbounds nuw i8, ptr %7, i64 %106
+  %107 = getelementptr inbounds i8, ptr %7, i64 %106
   store i8 %104, ptr %107, align 1
   br label %108
 

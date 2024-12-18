@@ -26438,7 +26438,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_110InfoWriter4SaveERKNSt7__cxx1112b
   %10 = load ptr, ptr %3, align 8
   %11 = getelementptr i8, ptr %10, i64 -24
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 %12
+  %13 = getelementptr inbounds i8, ptr %3, i64 %12
   %14 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %13)
           to label %15 unwind label %16
 

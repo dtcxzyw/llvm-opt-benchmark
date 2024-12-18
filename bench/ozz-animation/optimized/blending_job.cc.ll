@@ -242,7 +242,7 @@ _ZNK3ozz9animation11BlendingJob8ValidateEv.exit:  ; preds = %.lr.ph41.i, %._crit
   %74 = load <4 x float>, ptr %73, align 16
   %75 = tail call noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> zeroinitializer, <4 x float> %74)
   %76 = fmul <4 x float> %54, %75
-  %77 = getelementptr inbounds nuw [256 x <4 x float>], ptr %2, i64 0, i64 %.0346411.i
+  %77 = getelementptr inbounds [256 x <4 x float>], ptr %2, i64 0, i64 %.0346411.i
   store <4 x float> %76, ptr %77, align 16
   %78 = load <4 x float>, ptr %67, align 16, !noalias !5
   %79 = fmul <4 x float> %76, %78
@@ -310,7 +310,7 @@ _ZNK3ozz9animation11BlendingJob8ValidateEv.exit:  ; preds = %.lr.ph41.i, %._crit
   %121 = load <4 x float>, ptr %120, align 16
   %122 = tail call noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> zeroinitializer, <4 x float> %121)
   %123 = fmul <4 x float> %54, %122
-  %124 = getelementptr inbounds nuw [256 x <4 x float>], ptr %2, i64 0, i64 %.0347410.i
+  %124 = getelementptr inbounds [256 x <4 x float>], ptr %2, i64 0, i64 %.0347410.i
   %125 = load <4 x float>, ptr %124, align 16
   %126 = fadd <4 x float> %125, %123
   store <4 x float> %126, ptr %124, align 16
@@ -432,7 +432,7 @@ _ZNK3ozz9animation11BlendingJob8ValidateEv.exit:  ; preds = %.lr.ph41.i, %._crit
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 56
   %215 = load ptr, ptr %214, align 8
   %216 = getelementptr inbounds %"struct.ozz::math::SoaTransform", ptr %215, i64 %.0348415.i
-  %217 = getelementptr inbounds nuw [256 x <4 x float>], ptr %2, i64 0, i64 %.0348415.i
+  %217 = getelementptr inbounds [256 x <4 x float>], ptr %2, i64 0, i64 %.0348415.i
   store <4 x float> %54, ptr %217, align 16
   %218 = load <4 x float>, ptr %212, align 16, !noalias !29
   %219 = fmul <4 x float> %54, %218
@@ -495,7 +495,7 @@ _ZNK3ozz9animation11BlendingJob8ValidateEv.exit:  ; preds = %.lr.ph41.i, %._crit
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 56
   %257 = load ptr, ptr %256, align 8
   %258 = getelementptr inbounds %"struct.ozz::math::SoaTransform", ptr %257, i64 %.0349413.i
-  %259 = getelementptr inbounds nuw [256 x <4 x float>], ptr %2, i64 0, i64 %.0349413.i
+  %259 = getelementptr inbounds [256 x <4 x float>], ptr %2, i64 0, i64 %.0349413.i
   %260 = load <4 x float>, ptr %259, align 16
   %261 = fadd <4 x float> %54, %260
   store <4 x float> %261, ptr %259, align 16
@@ -779,7 +779,7 @@ _ZN3ozz9animation12_GLOBAL__N_111BlendLayersEPNS1_11ProcessArgsE.exit.thread.thr
   %462 = getelementptr inbounds nuw i8, ptr %458, i64 56
   %463 = load ptr, ptr %462, align 8
   %464 = getelementptr inbounds %"struct.ozz::math::SoaTransform", ptr %463, i64 %.0261300.i
-  %465 = getelementptr inbounds nuw [256 x <4 x float>], ptr %2, i64 0, i64 %.0261300.i
+  %465 = getelementptr inbounds [256 x <4 x float>], ptr %2, i64 0, i64 %.0261300.i
   %466 = load <4 x float>, ptr %465, align 16
   %467 = fsub <4 x float> %457, %466
   %468 = tail call noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> zeroinitializer, <4 x float> %467)
@@ -979,7 +979,7 @@ _ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit.thread: 
 
 .lr.ph.i11:                                       ; preds = %.lr.ph.i11.preheader, %.lr.ph.i11
   %.0177179.i = phi i64 [ %647, %.lr.ph.i11 ], [ 0, %.lr.ph.i11.preheader ]
-  %603 = getelementptr inbounds nuw [256 x <4 x float>], ptr %2, i64 0, i64 %.0177179.i
+  %603 = getelementptr inbounds [256 x <4 x float>], ptr %2, i64 0, i64 %.0177179.i
   %604 = load <4 x float>, ptr %603, align 16
   %605 = fdiv <4 x float> splat (float 1.000000e+00), %604
   %606 = load ptr, ptr %550, align 8

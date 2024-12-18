@@ -1664,7 +1664,7 @@ define internal noundef i32 @_ZL13read_statdataPKcS0_z(ptr nocapture readnone %0
 
 9:                                                ; preds = %7
   %10 = add nsw i64 %8, -1
-  %11 = getelementptr inbounds nuw [2048 x i8], ptr %3, i64 0, i64 %10
+  %11 = getelementptr inbounds [2048 x i8], ptr %3, i64 0, i64 %10
   store i8 0, ptr %11, align 1
   %12 = call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %3, i32 noundef 41) #19
   %.not16.i = icmp eq ptr %12, null
@@ -1672,7 +1672,7 @@ define internal noundef i32 @_ZL13read_statdataPKcS0_z(ptr nocapture readnone %0
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 2
-  %15 = getelementptr inbounds nuw i8, ptr %3, i64 %8
+  %15 = getelementptr inbounds i8, ptr %3, i64 %8
   %16 = icmp ult ptr %14, %15
   br i1 %16, label %17, label %20
 

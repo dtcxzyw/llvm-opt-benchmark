@@ -282,7 +282,7 @@ sub_0:                                            ; preds = %41
   %100 = load ptr, ptr %12, align 8
   %101 = getelementptr i8, ptr %100, i64 -24
   %102 = load i64, ptr %101, align 8
-  %103 = getelementptr inbounds nuw i8, ptr %12, i64 %102
+  %103 = getelementptr inbounds i8, ptr %12, i64 %102
   %104 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %103)
           to label %105 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

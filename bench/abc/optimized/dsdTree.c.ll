@@ -1439,7 +1439,7 @@ common.ret37:                                     ; preds = %._crit_edge.loopexi
   %28 = load ptr, ptr %24, align 8
   %29 = tail call i64 @Dsd_TreeFunc2Truth_rec(ptr noundef nonnull %0, ptr noundef %28)
   %30 = sext i32 %23 to i64
-  %31 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %30
+  %31 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %30
   %32 = load i64, ptr %31, align 8
   %33 = and i64 %32, %29
   %34 = xor i64 %32, -1
@@ -1534,7 +1534,7 @@ define void @Dsd_TreePrint2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %50 = shl nuw i32 1, %49
   %51 = sext i32 %50 to i64
   %52 = select i1 %48, i64 1, i64 %51
-  %53 = getelementptr inbounds nuw i64, ptr %7, i64 %52
+  %53 = getelementptr inbounds i64, ptr %7, i64 %52
   %.021.i = getelementptr inbounds i8, ptr %53, i64 -8
   %.not22.i = icmp ult ptr %.021.i, %7
   br i1 %.not22.i, label %Abc_TtPrintHexRev.exit, label %.lr.ph.us.preheader.i

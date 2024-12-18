@@ -1232,7 +1232,7 @@ define internal fastcc ptr @__ompi_datatype_create_from_packed_description(ptr n
 18:                                               ; preds = %1
   store ptr %17, ptr %0, align 8
   %19 = sext i32 %16 to i64
-  %20 = getelementptr inbounds nuw [53 x ptr], ptr @ompi_datatype_basicDatatypes, i64 0, i64 %19
+  %20 = getelementptr inbounds [53 x ptr], ptr @ompi_datatype_basicDatatypes, i64 0, i64 %19
   %21 = load ptr, ptr %20, align 8
   br label %400
 
@@ -1269,7 +1269,7 @@ define internal fastcc ptr @__ompi_datatype_create_from_packed_description(ptr n
 
 42:                                               ; preds = %.lr.ph
   %43 = sext i32 %40 to i64
-  %44 = getelementptr inbounds nuw [53 x ptr], ptr @ompi_datatype_basicDatatypes, i64 0, i64 %43
+  %44 = getelementptr inbounds [53 x ptr], ptr @ompi_datatype_basicDatatypes, i64 0, i64 %43
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv
   store ptr %45, ptr %46, align 8

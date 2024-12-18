@@ -24,7 +24,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %idxprom = sext i8 %value_in to i64
-  %arrayidx = getelementptr inbounds nuw i8, ptr @.str, i64 %idxprom
+  %arrayidx = getelementptr inbounds i8, ptr @.str, i64 %idxprom
   %0 = load i8, ptr %arrayidx, align 1
   br label %return
 
@@ -84,7 +84,7 @@ if.end20:                                         ; preds = %sw.bb10
 
 if.end.i:                                         ; preds = %if.end20
   %idxprom.i44 = sext i8 %conv26 to i64
-  %arrayidx.i45 = getelementptr inbounds nuw i8, ptr @.str, i64 %idxprom.i44
+  %arrayidx.i45 = getelementptr inbounds i8, ptr @.str, i64 %idxprom.i44
   %9 = load i8, ptr %arrayidx.i45, align 1
   br label %base64_encode_value.exit
 
@@ -113,7 +113,7 @@ if.end43:                                         ; preds = %sw.bb33
 
 if.end.i47:                                       ; preds = %if.end43
   %idxprom.i48 = sext i8 %conv50 to i64
-  %arrayidx.i49 = getelementptr inbounds nuw i8, ptr @.str, i64 %idxprom.i48
+  %arrayidx.i49 = getelementptr inbounds i8, ptr @.str, i64 %idxprom.i48
   %14 = load i8, ptr %arrayidx.i49, align 1
   br label %base64_encode_value.exit51
 
@@ -174,7 +174,7 @@ sw.bb:                                            ; preds = %entry
 
 if.end.i:                                         ; preds = %sw.bb
   %idxprom.i = sext i8 %1 to i64
-  %arrayidx.i = getelementptr inbounds nuw i8, ptr @.str, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds i8, ptr @.str, i64 %idxprom.i
   %2 = load i8, ptr %arrayidx.i, align 1
   br label %base64_encode_value.exit
 
@@ -196,7 +196,7 @@ sw.bb3:                                           ; preds = %entry
 
 if.end.i11:                                       ; preds = %sw.bb3
   %idxprom.i12 = sext i8 %3 to i64
-  %arrayidx.i13 = getelementptr inbounds nuw i8, ptr @.str, i64 %idxprom.i12
+  %arrayidx.i13 = getelementptr inbounds i8, ptr @.str, i64 %idxprom.i12
   %4 = load i8, ptr %arrayidx.i13, align 1
   br label %base64_encode_value.exit15
 

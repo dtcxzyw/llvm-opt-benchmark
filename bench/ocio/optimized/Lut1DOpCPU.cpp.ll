@@ -7399,10 +7399,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %8 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %10 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %9, %10
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -7410,7 +7410,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %11 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %11, %10
   %div = fdiv float %sub15, %sub
@@ -7430,13 +7430,13 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %arrayidx.i18 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i17
   %14 = load float, ptr %arrayidx.i18, align 4
   store float %14, ptr %arrayinit.element21, align 4
-  %arrayidx25 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx25 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %15 = load float, ptr %arrayidx25, align 4
-  %arrayidx27 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx27 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %16 = load float, ptr %arrayidx27, align 4
   %sub28 = fsub float %15, %16
   %17 = tail call float @llvm.fmuladd.f32(float %cond, float %sub28, float %16)
-  %arrayidx32 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx32 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %17, ptr %arrayidx32, align 4
   %18 = load float, ptr %RGB2, align 4
   %conv34 = fptoui float %18 to i8
@@ -7818,10 +7818,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %8 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %10 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %9, %10
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -7829,7 +7829,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %11 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %11, %10
   %div = fdiv float %sub15, %sub
@@ -7849,13 +7849,13 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %arrayidx.i18 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i17
   %14 = load float, ptr %arrayidx.i18, align 4
   store float %14, ptr %arrayinit.element21, align 4
-  %arrayidx25 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx25 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %15 = load float, ptr %arrayidx25, align 4
-  %arrayidx27 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx27 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %16 = load float, ptr %arrayidx27, align 4
   %sub28 = fsub float %15, %16
   %17 = tail call float @llvm.fmuladd.f32(float %cond, float %sub28, float %16)
-  %arrayidx32 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx32 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %17, ptr %arrayidx32, align 4
   %18 = load float, ptr %RGB2, align 4
   %conv34 = fptoui float %18 to i8
@@ -10240,10 +10240,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx14 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx14 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx14, align 4
   %idxprom15 = sext i32 %8 to i64
-  %arrayidx16 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom15
+  %arrayidx16 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom15
   %10 = load float, ptr %arrayidx16, align 4
   %sub = fsub float %9, %10
   %cmp17 = fcmp oeq float %sub, 0.000000e+00
@@ -10251,7 +10251,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.false:                                       ; preds = %for.body
   %idxprom18 = sext i32 %7 to i64
-  %arrayidx19 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom18
+  %arrayidx19 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom18
   %11 = load float, ptr %arrayidx19, align 4
   %sub22 = fsub float %11, %10
   %div = fdiv float %sub22, %sub
@@ -10334,14 +10334,14 @@ cond.end115:                                      ; preds = %cond.false102, %con
   store float %cond46, ptr %RGB2, align 4
   store float %cond81, ptr %arrayinit.element118, align 4
   store float %cond116, ptr %arrayinit.element119, align 4
-  %arrayidx121 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx121 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %42 = load float, ptr %arrayidx121, align 4
-  %arrayidx123 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
+  %arrayidx123 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
   %43 = load float, ptr %arrayidx123, align 4
   %sub124 = fsub float %42, %43
   %44 = tail call float @llvm.fmuladd.f32(float %cond, float %sub124, float %43)
   %idxprom127 = sext i32 %7 to i64
-  %arrayidx128 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
+  %arrayidx128 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
   store float %44, ptr %arrayidx128, align 4
   %45 = load float, ptr %RGB2, align 4
   %add.i11 = fadd float %45, 5.000000e-01
@@ -10746,10 +10746,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %5 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %3 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %6 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %5 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %7 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %6, %7
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -10757,7 +10757,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.false:                                       ; preds = %for.body
   %idxprom11 = sext i32 %4 to i64
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom11
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom11
   %8 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %8, %7
   %div = fdiv float %sub15, %sub
@@ -10934,14 +10934,14 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   %add11.i83 = fadd float %delta.0.i77, %add.i82
   %mul12.i84 = fmul float %13, %add11.i83
   store float %mul12.i84, ptr %arrayinit.element32, align 4
-  %arrayidx44 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx44 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %46 = load float, ptr %arrayidx44, align 4
-  %arrayidx46 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx46 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %47 = load float, ptr %arrayidx46, align 4
   %sub47 = fsub float %46, %47
   %48 = tail call float @llvm.fmuladd.f32(float %cond, float %sub47, float %47)
   %idxprom50 = sext i32 %4 to i64
-  %arrayidx51 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom50
+  %arrayidx51 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom50
   store float %48, ptr %arrayidx51, align 4
   %49 = load float, ptr %RGB2, align 4
   %add.i101 = fadd float %49, 5.000000e-01
@@ -14067,10 +14067,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %8 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %10 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %9, %10
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -14078,7 +14078,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %11 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %11, %10
   %div = fdiv float %sub15, %sub
@@ -14098,13 +14098,13 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %arrayidx.i18 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i17
   %14 = load float, ptr %arrayidx.i18, align 4
   store float %14, ptr %arrayinit.element21, align 4
-  %arrayidx25 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx25 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %15 = load float, ptr %arrayidx25, align 4
-  %arrayidx27 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx27 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %16 = load float, ptr %arrayidx27, align 4
   %sub28 = fsub float %15, %16
   %17 = tail call float @llvm.fmuladd.f32(float %cond, float %sub28, float %16)
-  %arrayidx32 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx32 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %17, ptr %arrayidx32, align 4
   %18 = load float, ptr %RGB2, align 4
   %conv34 = fptoui float %18 to i16
@@ -14486,10 +14486,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %8 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %10 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %9, %10
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -14497,7 +14497,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %11 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %11, %10
   %div = fdiv float %sub15, %sub
@@ -14517,13 +14517,13 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %arrayidx.i18 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i17
   %14 = load float, ptr %arrayidx.i18, align 4
   store float %14, ptr %arrayinit.element21, align 4
-  %arrayidx25 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx25 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %15 = load float, ptr %arrayidx25, align 4
-  %arrayidx27 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx27 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %16 = load float, ptr %arrayidx27, align 4
   %sub28 = fsub float %15, %16
   %17 = tail call float @llvm.fmuladd.f32(float %cond, float %sub28, float %16)
-  %arrayidx32 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx32 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %17, ptr %arrayidx32, align 4
   %18 = load float, ptr %RGB2, align 4
   %conv34 = fptoui float %18 to i16
@@ -16663,10 +16663,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx14 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx14 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx14, align 4
   %idxprom15 = sext i32 %8 to i64
-  %arrayidx16 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom15
+  %arrayidx16 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom15
   %10 = load float, ptr %arrayidx16, align 4
   %sub = fsub float %9, %10
   %cmp17 = fcmp oeq float %sub, 0.000000e+00
@@ -16674,7 +16674,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.false:                                       ; preds = %for.body
   %idxprom18 = sext i32 %7 to i64
-  %arrayidx19 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom18
+  %arrayidx19 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom18
   %11 = load float, ptr %arrayidx19, align 4
   %sub22 = fsub float %11, %10
   %div = fdiv float %sub22, %sub
@@ -16757,14 +16757,14 @@ cond.end115:                                      ; preds = %cond.false102, %con
   store float %cond46, ptr %RGB2, align 4
   store float %cond81, ptr %arrayinit.element118, align 4
   store float %cond116, ptr %arrayinit.element119, align 4
-  %arrayidx121 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx121 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %42 = load float, ptr %arrayidx121, align 4
-  %arrayidx123 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
+  %arrayidx123 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
   %43 = load float, ptr %arrayidx123, align 4
   %sub124 = fsub float %42, %43
   %44 = tail call float @llvm.fmuladd.f32(float %cond, float %sub124, float %43)
   %idxprom127 = sext i32 %7 to i64
-  %arrayidx128 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
+  %arrayidx128 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
   store float %44, ptr %arrayidx128, align 4
   %45 = load float, ptr %RGB2, align 4
   %add.i11 = fadd float %45, 5.000000e-01
@@ -17169,10 +17169,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %5 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %3 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %6 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %5 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %7 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %6, %7
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -17180,7 +17180,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.false:                                       ; preds = %for.body
   %idxprom11 = sext i32 %4 to i64
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom11
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom11
   %8 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %8, %7
   %div = fdiv float %sub15, %sub
@@ -17357,14 +17357,14 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   %add11.i83 = fadd float %delta.0.i77, %add.i82
   %mul12.i84 = fmul float %13, %add11.i83
   store float %mul12.i84, ptr %arrayinit.element32, align 4
-  %arrayidx44 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx44 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %46 = load float, ptr %arrayidx44, align 4
-  %arrayidx46 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx46 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %47 = load float, ptr %arrayidx46, align 4
   %sub47 = fsub float %46, %47
   %48 = tail call float @llvm.fmuladd.f32(float %cond, float %sub47, float %47)
   %idxprom50 = sext i32 %4 to i64
-  %arrayidx51 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom50
+  %arrayidx51 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom50
   store float %48, ptr %arrayidx51, align 4
   %49 = load float, ptr %RGB2, align 4
   %add.i101 = fadd float %49, 5.000000e-01
@@ -20490,10 +20490,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %8 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %10 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %9, %10
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -20501,7 +20501,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %11 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %11, %10
   %div = fdiv float %sub15, %sub
@@ -20521,13 +20521,13 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %arrayidx.i18 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i17
   %14 = load float, ptr %arrayidx.i18, align 4
   store float %14, ptr %arrayinit.element21, align 4
-  %arrayidx25 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx25 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %15 = load float, ptr %arrayidx25, align 4
-  %arrayidx27 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx27 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %16 = load float, ptr %arrayidx27, align 4
   %sub28 = fsub float %15, %16
   %17 = tail call float @llvm.fmuladd.f32(float %cond, float %sub28, float %16)
-  %arrayidx32 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx32 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %17, ptr %arrayidx32, align 4
   %18 = load float, ptr %RGB2, align 4
   %conv34 = fptoui float %18 to i16
@@ -20909,10 +20909,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %8 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %10 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %9, %10
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -20920,7 +20920,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %11 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %11, %10
   %div = fdiv float %sub15, %sub
@@ -20940,13 +20940,13 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %arrayidx.i18 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i17
   %14 = load float, ptr %arrayidx.i18, align 4
   store float %14, ptr %arrayinit.element21, align 4
-  %arrayidx25 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx25 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %15 = load float, ptr %arrayidx25, align 4
-  %arrayidx27 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx27 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %16 = load float, ptr %arrayidx27, align 4
   %sub28 = fsub float %15, %16
   %17 = tail call float @llvm.fmuladd.f32(float %cond, float %sub28, float %16)
-  %arrayidx32 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx32 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %17, ptr %arrayidx32, align 4
   %18 = load float, ptr %RGB2, align 4
   %conv34 = fptoui float %18 to i16
@@ -23086,10 +23086,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx14 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx14 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx14, align 4
   %idxprom15 = sext i32 %8 to i64
-  %arrayidx16 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom15
+  %arrayidx16 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom15
   %10 = load float, ptr %arrayidx16, align 4
   %sub = fsub float %9, %10
   %cmp17 = fcmp oeq float %sub, 0.000000e+00
@@ -23097,7 +23097,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.false:                                       ; preds = %for.body
   %idxprom18 = sext i32 %7 to i64
-  %arrayidx19 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom18
+  %arrayidx19 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom18
   %11 = load float, ptr %arrayidx19, align 4
   %sub22 = fsub float %11, %10
   %div = fdiv float %sub22, %sub
@@ -23180,14 +23180,14 @@ cond.end115:                                      ; preds = %cond.false102, %con
   store float %cond46, ptr %RGB2, align 4
   store float %cond81, ptr %arrayinit.element118, align 4
   store float %cond116, ptr %arrayinit.element119, align 4
-  %arrayidx121 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx121 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %42 = load float, ptr %arrayidx121, align 4
-  %arrayidx123 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
+  %arrayidx123 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
   %43 = load float, ptr %arrayidx123, align 4
   %sub124 = fsub float %42, %43
   %44 = tail call float @llvm.fmuladd.f32(float %cond, float %sub124, float %43)
   %idxprom127 = sext i32 %7 to i64
-  %arrayidx128 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
+  %arrayidx128 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
   store float %44, ptr %arrayidx128, align 4
   %45 = load float, ptr %RGB2, align 4
   %add.i11 = fadd float %45, 5.000000e-01
@@ -23592,10 +23592,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %5 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %3 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %6 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %5 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %7 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %6, %7
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -23603,7 +23603,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.false:                                       ; preds = %for.body
   %idxprom11 = sext i32 %4 to i64
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom11
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom11
   %8 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %8, %7
   %div = fdiv float %sub15, %sub
@@ -23780,14 +23780,14 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   %add11.i83 = fadd float %delta.0.i77, %add.i82
   %mul12.i84 = fmul float %13, %add11.i83
   store float %mul12.i84, ptr %arrayinit.element32, align 4
-  %arrayidx44 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx44 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %46 = load float, ptr %arrayidx44, align 4
-  %arrayidx46 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx46 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %47 = load float, ptr %arrayidx46, align 4
   %sub47 = fsub float %46, %47
   %48 = tail call float @llvm.fmuladd.f32(float %cond, float %sub47, float %47)
   %idxprom50 = sext i32 %4 to i64
-  %arrayidx51 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom50
+  %arrayidx51 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom50
   store float %48, ptr %arrayidx51, align 4
   %49 = load float, ptr %RGB2, align 4
   %add.i101 = fadd float %49, 5.000000e-01
@@ -26913,10 +26913,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %8 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %10 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %9, %10
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -26924,7 +26924,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %11 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %11, %10
   %div = fdiv float %sub15, %sub
@@ -26944,13 +26944,13 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %arrayidx.i18 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i17
   %14 = load float, ptr %arrayidx.i18, align 4
   store float %14, ptr %arrayinit.element21, align 4
-  %arrayidx25 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx25 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %15 = load float, ptr %arrayidx25, align 4
-  %arrayidx27 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx27 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %16 = load float, ptr %arrayidx27, align 4
   %sub28 = fsub float %15, %16
   %17 = tail call float @llvm.fmuladd.f32(float %cond, float %sub28, float %16)
-  %arrayidx32 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx32 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %17, ptr %arrayidx32, align 4
   %18 = load float, ptr %RGB2, align 4
   %conv34 = fptoui float %18 to i16
@@ -27332,10 +27332,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %8 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %10 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %9, %10
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -27343,7 +27343,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %11 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %11, %10
   %div = fdiv float %sub15, %sub
@@ -27363,13 +27363,13 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %arrayidx.i18 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i17
   %14 = load float, ptr %arrayidx.i18, align 4
   store float %14, ptr %arrayinit.element21, align 4
-  %arrayidx25 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx25 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %15 = load float, ptr %arrayidx25, align 4
-  %arrayidx27 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx27 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %16 = load float, ptr %arrayidx27, align 4
   %sub28 = fsub float %15, %16
   %17 = tail call float @llvm.fmuladd.f32(float %cond, float %sub28, float %16)
-  %arrayidx32 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx32 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %17, ptr %arrayidx32, align 4
   %18 = load float, ptr %RGB2, align 4
   %conv34 = fptoui float %18 to i16
@@ -29509,10 +29509,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx14 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx14 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx14, align 4
   %idxprom15 = sext i32 %8 to i64
-  %arrayidx16 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom15
+  %arrayidx16 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom15
   %10 = load float, ptr %arrayidx16, align 4
   %sub = fsub float %9, %10
   %cmp17 = fcmp oeq float %sub, 0.000000e+00
@@ -29520,7 +29520,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.false:                                       ; preds = %for.body
   %idxprom18 = sext i32 %7 to i64
-  %arrayidx19 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom18
+  %arrayidx19 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom18
   %11 = load float, ptr %arrayidx19, align 4
   %sub22 = fsub float %11, %10
   %div = fdiv float %sub22, %sub
@@ -29603,14 +29603,14 @@ cond.end115:                                      ; preds = %cond.false102, %con
   store float %cond46, ptr %RGB2, align 4
   store float %cond81, ptr %arrayinit.element118, align 4
   store float %cond116, ptr %arrayinit.element119, align 4
-  %arrayidx121 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx121 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %42 = load float, ptr %arrayidx121, align 4
-  %arrayidx123 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
+  %arrayidx123 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
   %43 = load float, ptr %arrayidx123, align 4
   %sub124 = fsub float %42, %43
   %44 = tail call float @llvm.fmuladd.f32(float %cond, float %sub124, float %43)
   %idxprom127 = sext i32 %7 to i64
-  %arrayidx128 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
+  %arrayidx128 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
   store float %44, ptr %arrayidx128, align 4
   %45 = load float, ptr %RGB2, align 4
   %add.i11 = fadd float %45, 5.000000e-01
@@ -30015,10 +30015,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %5 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %3 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %6 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %5 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %7 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %6, %7
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -30026,7 +30026,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.false:                                       ; preds = %for.body
   %idxprom11 = sext i32 %4 to i64
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom11
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom11
   %8 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %8, %7
   %div = fdiv float %sub15, %sub
@@ -30203,14 +30203,14 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   %add11.i83 = fadd float %delta.0.i77, %add.i82
   %mul12.i84 = fmul float %13, %add11.i83
   store float %mul12.i84, ptr %arrayinit.element32, align 4
-  %arrayidx44 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx44 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %46 = load float, ptr %arrayidx44, align 4
-  %arrayidx46 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx46 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %47 = load float, ptr %arrayidx46, align 4
   %sub47 = fsub float %46, %47
   %48 = tail call float @llvm.fmuladd.f32(float %cond, float %sub47, float %47)
   %idxprom50 = sext i32 %4 to i64
-  %arrayidx51 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom50
+  %arrayidx51 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom50
   store float %48, ptr %arrayidx51, align 4
   %49 = load float, ptr %RGB2, align 4
   %add.i101 = fadd float %49, 5.000000e-01
@@ -33413,10 +33413,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %8 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %10 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %9, %10
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -33424,7 +33424,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %11 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %11, %10
   %div = fdiv float %sub15, %sub
@@ -33444,13 +33444,13 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %arrayidx.i18 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i17
   %14 = load float, ptr %arrayidx.i18, align 4
   store float %14, ptr %arrayinit.element21, align 4
-  %arrayidx25 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx25 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %15 = load float, ptr %arrayidx25, align 4
-  %arrayidx27 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx27 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %16 = load float, ptr %arrayidx27, align 4
   %sub28 = fsub float %15, %16
   %17 = tail call float @llvm.fmuladd.f32(float %cond, float %sub28, float %16)
-  %arrayidx32 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx32 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %17, ptr %arrayidx32, align 4
   %18 = load float, ptr %RGB2, align 4
   %19 = bitcast float %18 to i32
@@ -34217,10 +34217,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %8 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %10 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %9, %10
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -34228,7 +34228,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %11 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %11, %10
   %div = fdiv float %sub15, %sub
@@ -34248,13 +34248,13 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %arrayidx.i18 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i17
   %14 = load float, ptr %arrayidx.i18, align 4
   store float %14, ptr %arrayinit.element21, align 4
-  %arrayidx25 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx25 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %15 = load float, ptr %arrayidx25, align 4
-  %arrayidx27 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx27 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %16 = load float, ptr %arrayidx27, align 4
   %sub28 = fsub float %15, %16
   %17 = tail call float @llvm.fmuladd.f32(float %cond, float %sub28, float %16)
-  %arrayidx32 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx32 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %17, ptr %arrayidx32, align 4
   %18 = load float, ptr %RGB2, align 4
   %19 = bitcast float %18 to i32
@@ -37230,10 +37230,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx14 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx14 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx14, align 4
   %idxprom15 = sext i32 %8 to i64
-  %arrayidx16 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom15
+  %arrayidx16 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom15
   %10 = load float, ptr %arrayidx16, align 4
   %sub = fsub float %9, %10
   %cmp17 = fcmp oeq float %sub, 0.000000e+00
@@ -37241,7 +37241,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.false:                                       ; preds = %for.body
   %idxprom18 = sext i32 %7 to i64
-  %arrayidx19 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom18
+  %arrayidx19 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom18
   %11 = load float, ptr %arrayidx19, align 4
   %sub22 = fsub float %11, %10
   %div = fdiv float %sub22, %sub
@@ -37324,14 +37324,14 @@ cond.end115:                                      ; preds = %cond.false102, %con
   store float %cond46, ptr %RGB2, align 4
   store float %cond81, ptr %arrayinit.element118, align 4
   store float %cond116, ptr %arrayinit.element119, align 4
-  %arrayidx121 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx121 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %42 = load float, ptr %arrayidx121, align 4
-  %arrayidx123 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
+  %arrayidx123 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
   %43 = load float, ptr %arrayidx123, align 4
   %sub124 = fsub float %42, %43
   %44 = tail call float @llvm.fmuladd.f32(float %cond, float %sub124, float %43)
   %idxprom127 = sext i32 %7 to i64
-  %arrayidx128 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
+  %arrayidx128 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
   store float %44, ptr %arrayidx128, align 4
   %45 = load float, ptr %RGB2, align 4
   %46 = bitcast float %45 to i32
@@ -38000,10 +38000,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %5 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %3 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %6 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %5 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %7 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %6, %7
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -38011,7 +38011,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.false:                                       ; preds = %for.body
   %idxprom11 = sext i32 %4 to i64
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom11
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom11
   %8 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %8, %7
   %div = fdiv float %sub15, %sub
@@ -38188,14 +38188,14 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   %add11.i83 = fadd float %delta.0.i77, %add.i82
   %mul12.i84 = fmul float %13, %add11.i83
   store float %mul12.i84, ptr %arrayinit.element32, align 4
-  %arrayidx44 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx44 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %46 = load float, ptr %arrayidx44, align 4
-  %arrayidx46 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx46 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %47 = load float, ptr %arrayidx46, align 4
   %sub47 = fsub float %46, %47
   %48 = tail call float @llvm.fmuladd.f32(float %cond, float %sub47, float %47)
   %idxprom50 = sext i32 %4 to i64
-  %arrayidx51 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom50
+  %arrayidx51 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom50
   store float %48, ptr %arrayidx51, align 4
   %49 = load float, ptr %RGB2, align 4
   %50 = bitcast float %49 to i32
@@ -41584,10 +41584,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %8 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %10 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %9, %10
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -41595,7 +41595,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %11 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %11, %10
   %div = fdiv float %sub15, %sub
@@ -41615,13 +41615,13 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %arrayidx.i18 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i17
   %14 = load float, ptr %arrayidx.i18, align 4
   store float %14, ptr %arrayinit.element21, align 4
-  %arrayidx25 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx25 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %15 = load float, ptr %arrayidx25, align 4
-  %arrayidx27 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx27 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %16 = load float, ptr %arrayidx27, align 4
   %sub28 = fsub float %15, %16
   %17 = tail call float @llvm.fmuladd.f32(float %cond, float %sub28, float %16)
-  %arrayidx32 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx32 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %17, ptr %arrayidx32, align 4
   %18 = load float, ptr %RGB2, align 4
   store float %18, ptr %out.024, align 4
@@ -41998,10 +41998,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %8 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %10 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %9, %10
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -42009,7 +42009,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %11 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %11, %10
   %div = fdiv float %sub15, %sub
@@ -42029,13 +42029,13 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %arrayidx.i18 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i17
   %14 = load float, ptr %arrayidx.i18, align 4
   store float %14, ptr %arrayinit.element21, align 4
-  %arrayidx25 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx25 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %15 = load float, ptr %arrayidx25, align 4
-  %arrayidx27 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx27 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %16 = load float, ptr %arrayidx27, align 4
   %sub28 = fsub float %15, %16
   %17 = tail call float @llvm.fmuladd.f32(float %cond, float %sub28, float %16)
-  %arrayidx32 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx32 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %17, ptr %arrayidx32, align 4
   %18 = load float, ptr %RGB2, align 4
   store float %18, ptr %out.024, align 4
@@ -44075,10 +44075,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx14 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx14 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx14, align 4
   %idxprom15 = sext i32 %8 to i64
-  %arrayidx16 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom15
+  %arrayidx16 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom15
   %10 = load float, ptr %arrayidx16, align 4
   %sub = fsub float %9, %10
   %cmp17 = fcmp oeq float %sub, 0.000000e+00
@@ -44086,7 +44086,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
 
 cond.false:                                       ; preds = %for.body
   %idxprom18 = sext i32 %7 to i64
-  %arrayidx19 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom18
+  %arrayidx19 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom18
   %11 = load float, ptr %arrayidx19, align 4
   %sub22 = fsub float %11, %10
   %div = fdiv float %sub22, %sub
@@ -44169,14 +44169,14 @@ cond.end115:                                      ; preds = %cond.false102, %con
   store float %cond46, ptr %RGB2, align 4
   store float %cond81, ptr %arrayinit.element118, align 4
   store float %cond116, ptr %arrayinit.element119, align 4
-  %arrayidx121 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx121 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %42 = load float, ptr %arrayidx121, align 4
-  %arrayidx123 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
+  %arrayidx123 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
   %43 = load float, ptr %arrayidx123, align 4
   %sub124 = fsub float %42, %43
   %44 = tail call float @llvm.fmuladd.f32(float %cond, float %sub124, float %43)
   %idxprom127 = sext i32 %7 to i64
-  %arrayidx128 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
+  %arrayidx128 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
   store float %44, ptr %arrayidx128, align 4
   %45 = load float, ptr %RGB2, align 4
   store float %45, ptr %out.016, align 4
@@ -44533,10 +44533,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %5 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %3 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %6 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %5 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %7 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %6, %7
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -44544,7 +44544,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.false:                                       ; preds = %for.body
   %idxprom11 = sext i32 %4 to i64
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom11
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom11
   %8 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %8, %7
   %div = fdiv float %sub15, %sub
@@ -44721,14 +44721,14 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   %add11.i83 = fadd float %delta.0.i77, %add.i82
   %mul12.i84 = fmul float %13, %add11.i83
   store float %mul12.i84, ptr %arrayinit.element32, align 4
-  %arrayidx44 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx44 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %46 = load float, ptr %arrayidx44, align 4
-  %arrayidx46 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx46 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %47 = load float, ptr %arrayidx46, align 4
   %sub47 = fsub float %46, %47
   %48 = tail call float @llvm.fmuladd.f32(float %cond, float %sub47, float %47)
   %idxprom50 = sext i32 %4 to i64
-  %arrayidx51 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom50
+  %arrayidx51 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom50
   store float %48, ptr %arrayidx51, align 4
   %49 = load float, ptr %RGB2, align 4
   store float %49, ptr %out.0106, align 4
@@ -49642,10 +49642,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %8 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %10 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %9, %10
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -49653,7 +49653,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %11 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %11, %10
   %div = fdiv float %sub15, %sub
@@ -49673,13 +49673,13 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %arrayidx.i18 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i17
   %14 = load float, ptr %arrayidx.i18, align 4
   store float %14, ptr %arrayinit.element21, align 4
-  %arrayidx25 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx25 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %15 = load float, ptr %arrayidx25, align 4
-  %arrayidx27 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx27 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %16 = load float, ptr %arrayidx27, align 4
   %sub28 = fsub float %15, %16
   %17 = tail call float @llvm.fmuladd.f32(float %cond, float %sub28, float %16)
-  %arrayidx32 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx32 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %17, ptr %arrayidx32, align 4
   %18 = load float, ptr %RGB2, align 4
   %conv34 = fptoui float %18 to i8
@@ -50061,10 +50061,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %8 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %10 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %9, %10
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -50072,7 +50072,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %11 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %11, %10
   %div = fdiv float %sub15, %sub
@@ -50092,13 +50092,13 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %arrayidx.i18 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i17
   %14 = load float, ptr %arrayidx.i18, align 4
   store float %14, ptr %arrayinit.element21, align 4
-  %arrayidx25 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx25 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %15 = load float, ptr %arrayidx25, align 4
-  %arrayidx27 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx27 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %16 = load float, ptr %arrayidx27, align 4
   %sub28 = fsub float %15, %16
   %17 = tail call float @llvm.fmuladd.f32(float %cond, float %sub28, float %16)
-  %arrayidx32 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx32 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %17, ptr %arrayidx32, align 4
   %18 = load float, ptr %RGB2, align 4
   %conv34 = fptoui float %18 to i8
@@ -52238,10 +52238,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx14 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx14 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx14, align 4
   %idxprom15 = sext i32 %8 to i64
-  %arrayidx16 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom15
+  %arrayidx16 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom15
   %10 = load float, ptr %arrayidx16, align 4
   %sub = fsub float %9, %10
   %cmp17 = fcmp oeq float %sub, 0.000000e+00
@@ -52249,7 +52249,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.false:                                       ; preds = %for.body
   %idxprom18 = sext i32 %7 to i64
-  %arrayidx19 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom18
+  %arrayidx19 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom18
   %11 = load float, ptr %arrayidx19, align 4
   %sub22 = fsub float %11, %10
   %div = fdiv float %sub22, %sub
@@ -52332,14 +52332,14 @@ cond.end115:                                      ; preds = %cond.false102, %con
   store float %cond46, ptr %RGB2, align 4
   store float %cond81, ptr %arrayinit.element118, align 4
   store float %cond116, ptr %arrayinit.element119, align 4
-  %arrayidx121 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx121 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %42 = load float, ptr %arrayidx121, align 4
-  %arrayidx123 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
+  %arrayidx123 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
   %43 = load float, ptr %arrayidx123, align 4
   %sub124 = fsub float %42, %43
   %44 = tail call float @llvm.fmuladd.f32(float %cond, float %sub124, float %43)
   %idxprom127 = sext i32 %7 to i64
-  %arrayidx128 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
+  %arrayidx128 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
   store float %44, ptr %arrayidx128, align 4
   %45 = load float, ptr %RGB2, align 4
   %add.i11 = fadd float %45, 5.000000e-01
@@ -52744,10 +52744,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %5 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %3 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %6 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %5 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %7 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %6, %7
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -52755,7 +52755,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.false:                                       ; preds = %for.body
   %idxprom11 = sext i32 %4 to i64
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom11
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom11
   %8 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %8, %7
   %div = fdiv float %sub15, %sub
@@ -52932,14 +52932,14 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   %add11.i83 = fadd float %delta.0.i77, %add.i82
   %mul12.i84 = fmul float %13, %add11.i83
   store float %mul12.i84, ptr %arrayinit.element32, align 4
-  %arrayidx44 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx44 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %46 = load float, ptr %arrayidx44, align 4
-  %arrayidx46 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx46 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %47 = load float, ptr %arrayidx46, align 4
   %sub47 = fsub float %46, %47
   %48 = tail call float @llvm.fmuladd.f32(float %cond, float %sub47, float %47)
   %idxprom50 = sext i32 %4 to i64
-  %arrayidx51 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom50
+  %arrayidx51 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom50
   store float %48, ptr %arrayidx51, align 4
   %49 = load float, ptr %RGB2, align 4
   %add.i101 = fadd float %49, 5.000000e-01
@@ -56065,10 +56065,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %8 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %10 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %9, %10
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -56076,7 +56076,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %11 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %11, %10
   %div = fdiv float %sub15, %sub
@@ -56096,13 +56096,13 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %arrayidx.i18 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i17
   %14 = load float, ptr %arrayidx.i18, align 4
   store float %14, ptr %arrayinit.element21, align 4
-  %arrayidx25 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx25 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %15 = load float, ptr %arrayidx25, align 4
-  %arrayidx27 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx27 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %16 = load float, ptr %arrayidx27, align 4
   %sub28 = fsub float %15, %16
   %17 = tail call float @llvm.fmuladd.f32(float %cond, float %sub28, float %16)
-  %arrayidx32 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx32 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %17, ptr %arrayidx32, align 4
   %18 = load float, ptr %RGB2, align 4
   %conv34 = fptoui float %18 to i16
@@ -56484,10 +56484,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %8 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %10 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %9, %10
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -56495,7 +56495,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %11 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %11, %10
   %div = fdiv float %sub15, %sub
@@ -56515,13 +56515,13 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %arrayidx.i18 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i17
   %14 = load float, ptr %arrayidx.i18, align 4
   store float %14, ptr %arrayinit.element21, align 4
-  %arrayidx25 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx25 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %15 = load float, ptr %arrayidx25, align 4
-  %arrayidx27 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx27 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %16 = load float, ptr %arrayidx27, align 4
   %sub28 = fsub float %15, %16
   %17 = tail call float @llvm.fmuladd.f32(float %cond, float %sub28, float %16)
-  %arrayidx32 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx32 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %17, ptr %arrayidx32, align 4
   %18 = load float, ptr %RGB2, align 4
   %conv34 = fptoui float %18 to i16
@@ -58661,10 +58661,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx14 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx14 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx14, align 4
   %idxprom15 = sext i32 %8 to i64
-  %arrayidx16 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom15
+  %arrayidx16 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom15
   %10 = load float, ptr %arrayidx16, align 4
   %sub = fsub float %9, %10
   %cmp17 = fcmp oeq float %sub, 0.000000e+00
@@ -58672,7 +58672,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.false:                                       ; preds = %for.body
   %idxprom18 = sext i32 %7 to i64
-  %arrayidx19 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom18
+  %arrayidx19 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom18
   %11 = load float, ptr %arrayidx19, align 4
   %sub22 = fsub float %11, %10
   %div = fdiv float %sub22, %sub
@@ -58755,14 +58755,14 @@ cond.end115:                                      ; preds = %cond.false102, %con
   store float %cond46, ptr %RGB2, align 4
   store float %cond81, ptr %arrayinit.element118, align 4
   store float %cond116, ptr %arrayinit.element119, align 4
-  %arrayidx121 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx121 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %42 = load float, ptr %arrayidx121, align 4
-  %arrayidx123 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
+  %arrayidx123 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
   %43 = load float, ptr %arrayidx123, align 4
   %sub124 = fsub float %42, %43
   %44 = tail call float @llvm.fmuladd.f32(float %cond, float %sub124, float %43)
   %idxprom127 = sext i32 %7 to i64
-  %arrayidx128 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
+  %arrayidx128 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
   store float %44, ptr %arrayidx128, align 4
   %45 = load float, ptr %RGB2, align 4
   %add.i11 = fadd float %45, 5.000000e-01
@@ -59167,10 +59167,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %5 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %3 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %6 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %5 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %7 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %6, %7
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -59178,7 +59178,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.false:                                       ; preds = %for.body
   %idxprom11 = sext i32 %4 to i64
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom11
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom11
   %8 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %8, %7
   %div = fdiv float %sub15, %sub
@@ -59355,14 +59355,14 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   %add11.i83 = fadd float %delta.0.i77, %add.i82
   %mul12.i84 = fmul float %13, %add11.i83
   store float %mul12.i84, ptr %arrayinit.element32, align 4
-  %arrayidx44 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx44 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %46 = load float, ptr %arrayidx44, align 4
-  %arrayidx46 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx46 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %47 = load float, ptr %arrayidx46, align 4
   %sub47 = fsub float %46, %47
   %48 = tail call float @llvm.fmuladd.f32(float %cond, float %sub47, float %47)
   %idxprom50 = sext i32 %4 to i64
-  %arrayidx51 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom50
+  %arrayidx51 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom50
   store float %48, ptr %arrayidx51, align 4
   %49 = load float, ptr %RGB2, align 4
   %add.i101 = fadd float %49, 5.000000e-01
@@ -62488,10 +62488,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %8 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %10 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %9, %10
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -62499,7 +62499,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %11 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %11, %10
   %div = fdiv float %sub15, %sub
@@ -62519,13 +62519,13 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %arrayidx.i18 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i17
   %14 = load float, ptr %arrayidx.i18, align 4
   store float %14, ptr %arrayinit.element21, align 4
-  %arrayidx25 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx25 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %15 = load float, ptr %arrayidx25, align 4
-  %arrayidx27 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx27 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %16 = load float, ptr %arrayidx27, align 4
   %sub28 = fsub float %15, %16
   %17 = tail call float @llvm.fmuladd.f32(float %cond, float %sub28, float %16)
-  %arrayidx32 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx32 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %17, ptr %arrayidx32, align 4
   %18 = load float, ptr %RGB2, align 4
   %conv34 = fptoui float %18 to i16
@@ -62907,10 +62907,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %8 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %10 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %9, %10
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -62918,7 +62918,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %11 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %11, %10
   %div = fdiv float %sub15, %sub
@@ -62938,13 +62938,13 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %arrayidx.i18 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i17
   %14 = load float, ptr %arrayidx.i18, align 4
   store float %14, ptr %arrayinit.element21, align 4
-  %arrayidx25 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx25 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %15 = load float, ptr %arrayidx25, align 4
-  %arrayidx27 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx27 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %16 = load float, ptr %arrayidx27, align 4
   %sub28 = fsub float %15, %16
   %17 = tail call float @llvm.fmuladd.f32(float %cond, float %sub28, float %16)
-  %arrayidx32 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx32 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %17, ptr %arrayidx32, align 4
   %18 = load float, ptr %RGB2, align 4
   %conv34 = fptoui float %18 to i16
@@ -65084,10 +65084,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx14 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx14 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx14, align 4
   %idxprom15 = sext i32 %8 to i64
-  %arrayidx16 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom15
+  %arrayidx16 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom15
   %10 = load float, ptr %arrayidx16, align 4
   %sub = fsub float %9, %10
   %cmp17 = fcmp oeq float %sub, 0.000000e+00
@@ -65095,7 +65095,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.false:                                       ; preds = %for.body
   %idxprom18 = sext i32 %7 to i64
-  %arrayidx19 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom18
+  %arrayidx19 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom18
   %11 = load float, ptr %arrayidx19, align 4
   %sub22 = fsub float %11, %10
   %div = fdiv float %sub22, %sub
@@ -65178,14 +65178,14 @@ cond.end115:                                      ; preds = %cond.false102, %con
   store float %cond46, ptr %RGB2, align 4
   store float %cond81, ptr %arrayinit.element118, align 4
   store float %cond116, ptr %arrayinit.element119, align 4
-  %arrayidx121 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx121 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %42 = load float, ptr %arrayidx121, align 4
-  %arrayidx123 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
+  %arrayidx123 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
   %43 = load float, ptr %arrayidx123, align 4
   %sub124 = fsub float %42, %43
   %44 = tail call float @llvm.fmuladd.f32(float %cond, float %sub124, float %43)
   %idxprom127 = sext i32 %7 to i64
-  %arrayidx128 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
+  %arrayidx128 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
   store float %44, ptr %arrayidx128, align 4
   %45 = load float, ptr %RGB2, align 4
   %add.i11 = fadd float %45, 5.000000e-01
@@ -65590,10 +65590,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %5 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %3 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %6 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %5 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %7 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %6, %7
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -65601,7 +65601,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.false:                                       ; preds = %for.body
   %idxprom11 = sext i32 %4 to i64
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom11
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom11
   %8 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %8, %7
   %div = fdiv float %sub15, %sub
@@ -65778,14 +65778,14 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   %add11.i83 = fadd float %delta.0.i77, %add.i82
   %mul12.i84 = fmul float %13, %add11.i83
   store float %mul12.i84, ptr %arrayinit.element32, align 4
-  %arrayidx44 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx44 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %46 = load float, ptr %arrayidx44, align 4
-  %arrayidx46 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx46 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %47 = load float, ptr %arrayidx46, align 4
   %sub47 = fsub float %46, %47
   %48 = tail call float @llvm.fmuladd.f32(float %cond, float %sub47, float %47)
   %idxprom50 = sext i32 %4 to i64
-  %arrayidx51 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom50
+  %arrayidx51 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom50
   store float %48, ptr %arrayidx51, align 4
   %49 = load float, ptr %RGB2, align 4
   %add.i101 = fadd float %49, 5.000000e-01
@@ -68911,10 +68911,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %8 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %10 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %9, %10
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -68922,7 +68922,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %11 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %11, %10
   %div = fdiv float %sub15, %sub
@@ -68942,13 +68942,13 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %arrayidx.i18 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i17
   %14 = load float, ptr %arrayidx.i18, align 4
   store float %14, ptr %arrayinit.element21, align 4
-  %arrayidx25 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx25 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %15 = load float, ptr %arrayidx25, align 4
-  %arrayidx27 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx27 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %16 = load float, ptr %arrayidx27, align 4
   %sub28 = fsub float %15, %16
   %17 = tail call float @llvm.fmuladd.f32(float %cond, float %sub28, float %16)
-  %arrayidx32 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx32 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %17, ptr %arrayidx32, align 4
   %18 = load float, ptr %RGB2, align 4
   %conv34 = fptoui float %18 to i16
@@ -69330,10 +69330,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %8 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %10 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %9, %10
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -69341,7 +69341,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %11 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %11, %10
   %div = fdiv float %sub15, %sub
@@ -69361,13 +69361,13 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %arrayidx.i18 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i17
   %14 = load float, ptr %arrayidx.i18, align 4
   store float %14, ptr %arrayinit.element21, align 4
-  %arrayidx25 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx25 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %15 = load float, ptr %arrayidx25, align 4
-  %arrayidx27 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx27 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %16 = load float, ptr %arrayidx27, align 4
   %sub28 = fsub float %15, %16
   %17 = tail call float @llvm.fmuladd.f32(float %cond, float %sub28, float %16)
-  %arrayidx32 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx32 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %17, ptr %arrayidx32, align 4
   %18 = load float, ptr %RGB2, align 4
   %conv34 = fptoui float %18 to i16
@@ -71507,10 +71507,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx14 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx14 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx14, align 4
   %idxprom15 = sext i32 %8 to i64
-  %arrayidx16 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom15
+  %arrayidx16 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom15
   %10 = load float, ptr %arrayidx16, align 4
   %sub = fsub float %9, %10
   %cmp17 = fcmp oeq float %sub, 0.000000e+00
@@ -71518,7 +71518,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.false:                                       ; preds = %for.body
   %idxprom18 = sext i32 %7 to i64
-  %arrayidx19 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom18
+  %arrayidx19 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom18
   %11 = load float, ptr %arrayidx19, align 4
   %sub22 = fsub float %11, %10
   %div = fdiv float %sub22, %sub
@@ -71601,14 +71601,14 @@ cond.end115:                                      ; preds = %cond.false102, %con
   store float %cond46, ptr %RGB2, align 4
   store float %cond81, ptr %arrayinit.element118, align 4
   store float %cond116, ptr %arrayinit.element119, align 4
-  %arrayidx121 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx121 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %42 = load float, ptr %arrayidx121, align 4
-  %arrayidx123 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
+  %arrayidx123 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
   %43 = load float, ptr %arrayidx123, align 4
   %sub124 = fsub float %42, %43
   %44 = tail call float @llvm.fmuladd.f32(float %cond, float %sub124, float %43)
   %idxprom127 = sext i32 %7 to i64
-  %arrayidx128 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
+  %arrayidx128 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
   store float %44, ptr %arrayidx128, align 4
   %45 = load float, ptr %RGB2, align 4
   %add.i11 = fadd float %45, 5.000000e-01
@@ -72013,10 +72013,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %5 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %3 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %6 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %5 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %7 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %6, %7
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -72024,7 +72024,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.false:                                       ; preds = %for.body
   %idxprom11 = sext i32 %4 to i64
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom11
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom11
   %8 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %8, %7
   %div = fdiv float %sub15, %sub
@@ -72201,14 +72201,14 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   %add11.i83 = fadd float %delta.0.i77, %add.i82
   %mul12.i84 = fmul float %13, %add11.i83
   store float %mul12.i84, ptr %arrayinit.element32, align 4
-  %arrayidx44 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx44 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %46 = load float, ptr %arrayidx44, align 4
-  %arrayidx46 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx46 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %47 = load float, ptr %arrayidx46, align 4
   %sub47 = fsub float %46, %47
   %48 = tail call float @llvm.fmuladd.f32(float %cond, float %sub47, float %47)
   %idxprom50 = sext i32 %4 to i64
-  %arrayidx51 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom50
+  %arrayidx51 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom50
   store float %48, ptr %arrayidx51, align 4
   %49 = load float, ptr %RGB2, align 4
   %add.i101 = fadd float %49, 5.000000e-01
@@ -75411,10 +75411,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %8 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %10 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %9, %10
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -75422,7 +75422,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %11 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %11, %10
   %div = fdiv float %sub15, %sub
@@ -75442,13 +75442,13 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %arrayidx.i18 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i17
   %14 = load float, ptr %arrayidx.i18, align 4
   store float %14, ptr %arrayinit.element21, align 4
-  %arrayidx25 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx25 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %15 = load float, ptr %arrayidx25, align 4
-  %arrayidx27 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx27 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %16 = load float, ptr %arrayidx27, align 4
   %sub28 = fsub float %15, %16
   %17 = tail call float @llvm.fmuladd.f32(float %cond, float %sub28, float %16)
-  %arrayidx32 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx32 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %17, ptr %arrayidx32, align 4
   %18 = load float, ptr %RGB2, align 4
   %19 = bitcast float %18 to i32
@@ -76215,10 +76215,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %8 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %10 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %9, %10
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -76226,7 +76226,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %11 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %11, %10
   %div = fdiv float %sub15, %sub
@@ -76246,13 +76246,13 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %arrayidx.i18 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i17
   %14 = load float, ptr %arrayidx.i18, align 4
   store float %14, ptr %arrayinit.element21, align 4
-  %arrayidx25 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx25 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %15 = load float, ptr %arrayidx25, align 4
-  %arrayidx27 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx27 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %16 = load float, ptr %arrayidx27, align 4
   %sub28 = fsub float %15, %16
   %17 = tail call float @llvm.fmuladd.f32(float %cond, float %sub28, float %16)
-  %arrayidx32 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx32 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %17, ptr %arrayidx32, align 4
   %18 = load float, ptr %RGB2, align 4
   %19 = bitcast float %18 to i32
@@ -79228,10 +79228,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx14 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx14 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx14, align 4
   %idxprom15 = sext i32 %8 to i64
-  %arrayidx16 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom15
+  %arrayidx16 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom15
   %10 = load float, ptr %arrayidx16, align 4
   %sub = fsub float %9, %10
   %cmp17 = fcmp oeq float %sub, 0.000000e+00
@@ -79239,7 +79239,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.false:                                       ; preds = %for.body
   %idxprom18 = sext i32 %7 to i64
-  %arrayidx19 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom18
+  %arrayidx19 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom18
   %11 = load float, ptr %arrayidx19, align 4
   %sub22 = fsub float %11, %10
   %div = fdiv float %sub22, %sub
@@ -79322,14 +79322,14 @@ cond.end115:                                      ; preds = %cond.false102, %con
   store float %cond46, ptr %RGB2, align 4
   store float %cond81, ptr %arrayinit.element118, align 4
   store float %cond116, ptr %arrayinit.element119, align 4
-  %arrayidx121 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx121 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %42 = load float, ptr %arrayidx121, align 4
-  %arrayidx123 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
+  %arrayidx123 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
   %43 = load float, ptr %arrayidx123, align 4
   %sub124 = fsub float %42, %43
   %44 = tail call float @llvm.fmuladd.f32(float %cond, float %sub124, float %43)
   %idxprom127 = sext i32 %7 to i64
-  %arrayidx128 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
+  %arrayidx128 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
   store float %44, ptr %arrayidx128, align 4
   %45 = load float, ptr %RGB2, align 4
   %46 = bitcast float %45 to i32
@@ -79998,10 +79998,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %5 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %3 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %6 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %5 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %7 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %6, %7
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -80009,7 +80009,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.false:                                       ; preds = %for.body
   %idxprom11 = sext i32 %4 to i64
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom11
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom11
   %8 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %8, %7
   %div = fdiv float %sub15, %sub
@@ -80186,14 +80186,14 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   %add11.i83 = fadd float %delta.0.i77, %add.i82
   %mul12.i84 = fmul float %13, %add11.i83
   store float %mul12.i84, ptr %arrayinit.element32, align 4
-  %arrayidx44 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx44 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %46 = load float, ptr %arrayidx44, align 4
-  %arrayidx46 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx46 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %47 = load float, ptr %arrayidx46, align 4
   %sub47 = fsub float %46, %47
   %48 = tail call float @llvm.fmuladd.f32(float %cond, float %sub47, float %47)
   %idxprom50 = sext i32 %4 to i64
-  %arrayidx51 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom50
+  %arrayidx51 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom50
   store float %48, ptr %arrayidx51, align 4
   %49 = load float, ptr %RGB2, align 4
   %50 = bitcast float %49 to i32
@@ -83582,10 +83582,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %8 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %10 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %9, %10
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -83593,7 +83593,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %11 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %11, %10
   %div = fdiv float %sub15, %sub
@@ -83613,13 +83613,13 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %arrayidx.i18 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i17
   %14 = load float, ptr %arrayidx.i18, align 4
   store float %14, ptr %arrayinit.element21, align 4
-  %arrayidx25 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx25 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %15 = load float, ptr %arrayidx25, align 4
-  %arrayidx27 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx27 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %16 = load float, ptr %arrayidx27, align 4
   %sub28 = fsub float %15, %16
   %17 = tail call float @llvm.fmuladd.f32(float %cond, float %sub28, float %16)
-  %arrayidx32 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx32 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %17, ptr %arrayidx32, align 4
   %18 = load float, ptr %RGB2, align 4
   store float %18, ptr %out.024, align 4
@@ -83996,10 +83996,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %8 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %10 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %9, %10
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -84007,7 +84007,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %11 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %11, %10
   %div = fdiv float %sub15, %sub
@@ -84027,13 +84027,13 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %arrayidx.i18 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i17
   %14 = load float, ptr %arrayidx.i18, align 4
   store float %14, ptr %arrayinit.element21, align 4
-  %arrayidx25 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx25 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %15 = load float, ptr %arrayidx25, align 4
-  %arrayidx27 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx27 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %16 = load float, ptr %arrayidx27, align 4
   %sub28 = fsub float %15, %16
   %17 = tail call float @llvm.fmuladd.f32(float %cond, float %sub28, float %16)
-  %arrayidx32 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx32 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %17, ptr %arrayidx32, align 4
   %18 = load float, ptr %RGB2, align 4
   store float %18, ptr %out.024, align 4
@@ -86073,10 +86073,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx14 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx14 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx14, align 4
   %idxprom15 = sext i32 %8 to i64
-  %arrayidx16 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom15
+  %arrayidx16 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom15
   %10 = load float, ptr %arrayidx16, align 4
   %sub = fsub float %9, %10
   %cmp17 = fcmp oeq float %sub, 0.000000e+00
@@ -86084,7 +86084,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
 
 cond.false:                                       ; preds = %for.body
   %idxprom18 = sext i32 %7 to i64
-  %arrayidx19 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom18
+  %arrayidx19 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom18
   %11 = load float, ptr %arrayidx19, align 4
   %sub22 = fsub float %11, %10
   %div = fdiv float %sub22, %sub
@@ -86167,14 +86167,14 @@ cond.end115:                                      ; preds = %cond.false102, %con
   store float %cond46, ptr %RGB2, align 4
   store float %cond81, ptr %arrayinit.element118, align 4
   store float %cond116, ptr %arrayinit.element119, align 4
-  %arrayidx121 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx121 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %42 = load float, ptr %arrayidx121, align 4
-  %arrayidx123 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
+  %arrayidx123 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
   %43 = load float, ptr %arrayidx123, align 4
   %sub124 = fsub float %42, %43
   %44 = tail call float @llvm.fmuladd.f32(float %cond, float %sub124, float %43)
   %idxprom127 = sext i32 %7 to i64
-  %arrayidx128 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
+  %arrayidx128 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
   store float %44, ptr %arrayidx128, align 4
   %45 = load float, ptr %RGB2, align 4
   store float %45, ptr %out.016, align 4
@@ -86531,10 +86531,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %5 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %3 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %6 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %5 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %7 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %6, %7
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -86542,7 +86542,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.false:                                       ; preds = %for.body
   %idxprom11 = sext i32 %4 to i64
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom11
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom11
   %8 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %8, %7
   %div = fdiv float %sub15, %sub
@@ -86719,14 +86719,14 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   %add11.i83 = fadd float %delta.0.i77, %add.i82
   %mul12.i84 = fmul float %13, %add11.i83
   store float %mul12.i84, ptr %arrayinit.element32, align 4
-  %arrayidx44 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx44 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %46 = load float, ptr %arrayidx44, align 4
-  %arrayidx46 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx46 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %47 = load float, ptr %arrayidx46, align 4
   %sub47 = fsub float %46, %47
   %48 = tail call float @llvm.fmuladd.f32(float %cond, float %sub47, float %47)
   %idxprom50 = sext i32 %4 to i64
-  %arrayidx51 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom50
+  %arrayidx51 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom50
   store float %48, ptr %arrayidx51, align 4
   %49 = load float, ptr %RGB2, align 4
   store float %49, ptr %out.0106, align 4
@@ -91640,10 +91640,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %8 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %10 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %9, %10
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -91651,7 +91651,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %11 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %11, %10
   %div = fdiv float %sub15, %sub
@@ -91671,13 +91671,13 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %arrayidx.i18 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i17
   %14 = load float, ptr %arrayidx.i18, align 4
   store float %14, ptr %arrayinit.element21, align 4
-  %arrayidx25 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx25 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %15 = load float, ptr %arrayidx25, align 4
-  %arrayidx27 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx27 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %16 = load float, ptr %arrayidx27, align 4
   %sub28 = fsub float %15, %16
   %17 = tail call float @llvm.fmuladd.f32(float %cond, float %sub28, float %16)
-  %arrayidx32 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx32 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %17, ptr %arrayidx32, align 4
   %18 = load float, ptr %RGB2, align 4
   %conv34 = fptoui float %18 to i8
@@ -92059,10 +92059,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %8 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %10 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %9, %10
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -92070,7 +92070,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %11 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %11, %10
   %div = fdiv float %sub15, %sub
@@ -92090,13 +92090,13 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %arrayidx.i18 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i17
   %14 = load float, ptr %arrayidx.i18, align 4
   store float %14, ptr %arrayinit.element21, align 4
-  %arrayidx25 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx25 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %15 = load float, ptr %arrayidx25, align 4
-  %arrayidx27 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx27 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %16 = load float, ptr %arrayidx27, align 4
   %sub28 = fsub float %15, %16
   %17 = tail call float @llvm.fmuladd.f32(float %cond, float %sub28, float %16)
-  %arrayidx32 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx32 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %17, ptr %arrayidx32, align 4
   %18 = load float, ptr %RGB2, align 4
   %conv34 = fptoui float %18 to i8
@@ -94236,10 +94236,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx14 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx14 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx14, align 4
   %idxprom15 = sext i32 %8 to i64
-  %arrayidx16 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom15
+  %arrayidx16 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom15
   %10 = load float, ptr %arrayidx16, align 4
   %sub = fsub float %9, %10
   %cmp17 = fcmp oeq float %sub, 0.000000e+00
@@ -94247,7 +94247,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.false:                                       ; preds = %for.body
   %idxprom18 = sext i32 %7 to i64
-  %arrayidx19 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom18
+  %arrayidx19 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom18
   %11 = load float, ptr %arrayidx19, align 4
   %sub22 = fsub float %11, %10
   %div = fdiv float %sub22, %sub
@@ -94330,14 +94330,14 @@ cond.end115:                                      ; preds = %cond.false102, %con
   store float %cond46, ptr %RGB2, align 4
   store float %cond81, ptr %arrayinit.element118, align 4
   store float %cond116, ptr %arrayinit.element119, align 4
-  %arrayidx121 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx121 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %42 = load float, ptr %arrayidx121, align 4
-  %arrayidx123 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
+  %arrayidx123 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
   %43 = load float, ptr %arrayidx123, align 4
   %sub124 = fsub float %42, %43
   %44 = tail call float @llvm.fmuladd.f32(float %cond, float %sub124, float %43)
   %idxprom127 = sext i32 %7 to i64
-  %arrayidx128 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
+  %arrayidx128 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
   store float %44, ptr %arrayidx128, align 4
   %45 = load float, ptr %RGB2, align 4
   %add.i11 = fadd float %45, 5.000000e-01
@@ -94742,10 +94742,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %5 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %3 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %6 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %5 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %7 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %6, %7
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -94753,7 +94753,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.false:                                       ; preds = %for.body
   %idxprom11 = sext i32 %4 to i64
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom11
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom11
   %8 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %8, %7
   %div = fdiv float %sub15, %sub
@@ -94930,14 +94930,14 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   %add11.i83 = fadd float %delta.0.i77, %add.i82
   %mul12.i84 = fmul float %13, %add11.i83
   store float %mul12.i84, ptr %arrayinit.element32, align 4
-  %arrayidx44 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx44 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %46 = load float, ptr %arrayidx44, align 4
-  %arrayidx46 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx46 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %47 = load float, ptr %arrayidx46, align 4
   %sub47 = fsub float %46, %47
   %48 = tail call float @llvm.fmuladd.f32(float %cond, float %sub47, float %47)
   %idxprom50 = sext i32 %4 to i64
-  %arrayidx51 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom50
+  %arrayidx51 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom50
   store float %48, ptr %arrayidx51, align 4
   %49 = load float, ptr %RGB2, align 4
   %add.i101 = fadd float %49, 5.000000e-01
@@ -98063,10 +98063,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %8 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %10 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %9, %10
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -98074,7 +98074,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %11 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %11, %10
   %div = fdiv float %sub15, %sub
@@ -98094,13 +98094,13 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %arrayidx.i18 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i17
   %14 = load float, ptr %arrayidx.i18, align 4
   store float %14, ptr %arrayinit.element21, align 4
-  %arrayidx25 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx25 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %15 = load float, ptr %arrayidx25, align 4
-  %arrayidx27 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx27 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %16 = load float, ptr %arrayidx27, align 4
   %sub28 = fsub float %15, %16
   %17 = tail call float @llvm.fmuladd.f32(float %cond, float %sub28, float %16)
-  %arrayidx32 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx32 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %17, ptr %arrayidx32, align 4
   %18 = load float, ptr %RGB2, align 4
   %conv34 = fptoui float %18 to i16
@@ -98482,10 +98482,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %8 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %10 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %9, %10
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -98493,7 +98493,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %11 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %11, %10
   %div = fdiv float %sub15, %sub
@@ -98513,13 +98513,13 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %arrayidx.i18 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i17
   %14 = load float, ptr %arrayidx.i18, align 4
   store float %14, ptr %arrayinit.element21, align 4
-  %arrayidx25 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx25 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %15 = load float, ptr %arrayidx25, align 4
-  %arrayidx27 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx27 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %16 = load float, ptr %arrayidx27, align 4
   %sub28 = fsub float %15, %16
   %17 = tail call float @llvm.fmuladd.f32(float %cond, float %sub28, float %16)
-  %arrayidx32 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx32 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %17, ptr %arrayidx32, align 4
   %18 = load float, ptr %RGB2, align 4
   %conv34 = fptoui float %18 to i16
@@ -100659,10 +100659,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx14 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx14 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx14, align 4
   %idxprom15 = sext i32 %8 to i64
-  %arrayidx16 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom15
+  %arrayidx16 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom15
   %10 = load float, ptr %arrayidx16, align 4
   %sub = fsub float %9, %10
   %cmp17 = fcmp oeq float %sub, 0.000000e+00
@@ -100670,7 +100670,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.false:                                       ; preds = %for.body
   %idxprom18 = sext i32 %7 to i64
-  %arrayidx19 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom18
+  %arrayidx19 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom18
   %11 = load float, ptr %arrayidx19, align 4
   %sub22 = fsub float %11, %10
   %div = fdiv float %sub22, %sub
@@ -100753,14 +100753,14 @@ cond.end115:                                      ; preds = %cond.false102, %con
   store float %cond46, ptr %RGB2, align 4
   store float %cond81, ptr %arrayinit.element118, align 4
   store float %cond116, ptr %arrayinit.element119, align 4
-  %arrayidx121 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx121 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %42 = load float, ptr %arrayidx121, align 4
-  %arrayidx123 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
+  %arrayidx123 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
   %43 = load float, ptr %arrayidx123, align 4
   %sub124 = fsub float %42, %43
   %44 = tail call float @llvm.fmuladd.f32(float %cond, float %sub124, float %43)
   %idxprom127 = sext i32 %7 to i64
-  %arrayidx128 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
+  %arrayidx128 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
   store float %44, ptr %arrayidx128, align 4
   %45 = load float, ptr %RGB2, align 4
   %add.i11 = fadd float %45, 5.000000e-01
@@ -101165,10 +101165,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %5 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %3 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %6 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %5 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %7 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %6, %7
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -101176,7 +101176,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.false:                                       ; preds = %for.body
   %idxprom11 = sext i32 %4 to i64
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom11
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom11
   %8 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %8, %7
   %div = fdiv float %sub15, %sub
@@ -101353,14 +101353,14 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   %add11.i83 = fadd float %delta.0.i77, %add.i82
   %mul12.i84 = fmul float %13, %add11.i83
   store float %mul12.i84, ptr %arrayinit.element32, align 4
-  %arrayidx44 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx44 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %46 = load float, ptr %arrayidx44, align 4
-  %arrayidx46 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx46 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %47 = load float, ptr %arrayidx46, align 4
   %sub47 = fsub float %46, %47
   %48 = tail call float @llvm.fmuladd.f32(float %cond, float %sub47, float %47)
   %idxprom50 = sext i32 %4 to i64
-  %arrayidx51 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom50
+  %arrayidx51 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom50
   store float %48, ptr %arrayidx51, align 4
   %49 = load float, ptr %RGB2, align 4
   %add.i101 = fadd float %49, 5.000000e-01
@@ -104486,10 +104486,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %8 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %10 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %9, %10
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -104497,7 +104497,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %11 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %11, %10
   %div = fdiv float %sub15, %sub
@@ -104517,13 +104517,13 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %arrayidx.i18 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i17
   %14 = load float, ptr %arrayidx.i18, align 4
   store float %14, ptr %arrayinit.element21, align 4
-  %arrayidx25 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx25 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %15 = load float, ptr %arrayidx25, align 4
-  %arrayidx27 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx27 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %16 = load float, ptr %arrayidx27, align 4
   %sub28 = fsub float %15, %16
   %17 = tail call float @llvm.fmuladd.f32(float %cond, float %sub28, float %16)
-  %arrayidx32 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx32 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %17, ptr %arrayidx32, align 4
   %18 = load float, ptr %RGB2, align 4
   %conv34 = fptoui float %18 to i16
@@ -104905,10 +104905,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %8 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %10 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %9, %10
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -104916,7 +104916,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %11 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %11, %10
   %div = fdiv float %sub15, %sub
@@ -104936,13 +104936,13 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %arrayidx.i18 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i17
   %14 = load float, ptr %arrayidx.i18, align 4
   store float %14, ptr %arrayinit.element21, align 4
-  %arrayidx25 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx25 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %15 = load float, ptr %arrayidx25, align 4
-  %arrayidx27 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx27 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %16 = load float, ptr %arrayidx27, align 4
   %sub28 = fsub float %15, %16
   %17 = tail call float @llvm.fmuladd.f32(float %cond, float %sub28, float %16)
-  %arrayidx32 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx32 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %17, ptr %arrayidx32, align 4
   %18 = load float, ptr %RGB2, align 4
   %conv34 = fptoui float %18 to i16
@@ -107082,10 +107082,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx14 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx14 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx14, align 4
   %idxprom15 = sext i32 %8 to i64
-  %arrayidx16 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom15
+  %arrayidx16 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom15
   %10 = load float, ptr %arrayidx16, align 4
   %sub = fsub float %9, %10
   %cmp17 = fcmp oeq float %sub, 0.000000e+00
@@ -107093,7 +107093,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.false:                                       ; preds = %for.body
   %idxprom18 = sext i32 %7 to i64
-  %arrayidx19 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom18
+  %arrayidx19 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom18
   %11 = load float, ptr %arrayidx19, align 4
   %sub22 = fsub float %11, %10
   %div = fdiv float %sub22, %sub
@@ -107176,14 +107176,14 @@ cond.end115:                                      ; preds = %cond.false102, %con
   store float %cond46, ptr %RGB2, align 4
   store float %cond81, ptr %arrayinit.element118, align 4
   store float %cond116, ptr %arrayinit.element119, align 4
-  %arrayidx121 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx121 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %42 = load float, ptr %arrayidx121, align 4
-  %arrayidx123 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
+  %arrayidx123 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
   %43 = load float, ptr %arrayidx123, align 4
   %sub124 = fsub float %42, %43
   %44 = tail call float @llvm.fmuladd.f32(float %cond, float %sub124, float %43)
   %idxprom127 = sext i32 %7 to i64
-  %arrayidx128 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
+  %arrayidx128 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
   store float %44, ptr %arrayidx128, align 4
   %45 = load float, ptr %RGB2, align 4
   %add.i11 = fadd float %45, 5.000000e-01
@@ -107588,10 +107588,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %5 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %3 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %6 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %5 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %7 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %6, %7
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -107599,7 +107599,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.false:                                       ; preds = %for.body
   %idxprom11 = sext i32 %4 to i64
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom11
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom11
   %8 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %8, %7
   %div = fdiv float %sub15, %sub
@@ -107776,14 +107776,14 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   %add11.i83 = fadd float %delta.0.i77, %add.i82
   %mul12.i84 = fmul float %13, %add11.i83
   store float %mul12.i84, ptr %arrayinit.element32, align 4
-  %arrayidx44 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx44 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %46 = load float, ptr %arrayidx44, align 4
-  %arrayidx46 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx46 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %47 = load float, ptr %arrayidx46, align 4
   %sub47 = fsub float %46, %47
   %48 = tail call float @llvm.fmuladd.f32(float %cond, float %sub47, float %47)
   %idxprom50 = sext i32 %4 to i64
-  %arrayidx51 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom50
+  %arrayidx51 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom50
   store float %48, ptr %arrayidx51, align 4
   %49 = load float, ptr %RGB2, align 4
   %add.i101 = fadd float %49, 5.000000e-01
@@ -110909,10 +110909,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %8 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %10 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %9, %10
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -110920,7 +110920,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %11 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %11, %10
   %div = fdiv float %sub15, %sub
@@ -110940,13 +110940,13 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %arrayidx.i18 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i17
   %14 = load float, ptr %arrayidx.i18, align 4
   store float %14, ptr %arrayinit.element21, align 4
-  %arrayidx25 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx25 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %15 = load float, ptr %arrayidx25, align 4
-  %arrayidx27 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx27 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %16 = load float, ptr %arrayidx27, align 4
   %sub28 = fsub float %15, %16
   %17 = tail call float @llvm.fmuladd.f32(float %cond, float %sub28, float %16)
-  %arrayidx32 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx32 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %17, ptr %arrayidx32, align 4
   %18 = load float, ptr %RGB2, align 4
   %conv34 = fptoui float %18 to i16
@@ -111328,10 +111328,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %8 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %10 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %9, %10
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -111339,7 +111339,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %11 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %11, %10
   %div = fdiv float %sub15, %sub
@@ -111359,13 +111359,13 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %arrayidx.i18 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i17
   %14 = load float, ptr %arrayidx.i18, align 4
   store float %14, ptr %arrayinit.element21, align 4
-  %arrayidx25 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx25 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %15 = load float, ptr %arrayidx25, align 4
-  %arrayidx27 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx27 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %16 = load float, ptr %arrayidx27, align 4
   %sub28 = fsub float %15, %16
   %17 = tail call float @llvm.fmuladd.f32(float %cond, float %sub28, float %16)
-  %arrayidx32 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx32 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %17, ptr %arrayidx32, align 4
   %18 = load float, ptr %RGB2, align 4
   %conv34 = fptoui float %18 to i16
@@ -113505,10 +113505,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx14 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx14 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx14, align 4
   %idxprom15 = sext i32 %8 to i64
-  %arrayidx16 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom15
+  %arrayidx16 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom15
   %10 = load float, ptr %arrayidx16, align 4
   %sub = fsub float %9, %10
   %cmp17 = fcmp oeq float %sub, 0.000000e+00
@@ -113516,7 +113516,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.false:                                       ; preds = %for.body
   %idxprom18 = sext i32 %7 to i64
-  %arrayidx19 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom18
+  %arrayidx19 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom18
   %11 = load float, ptr %arrayidx19, align 4
   %sub22 = fsub float %11, %10
   %div = fdiv float %sub22, %sub
@@ -113599,14 +113599,14 @@ cond.end115:                                      ; preds = %cond.false102, %con
   store float %cond46, ptr %RGB2, align 4
   store float %cond81, ptr %arrayinit.element118, align 4
   store float %cond116, ptr %arrayinit.element119, align 4
-  %arrayidx121 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx121 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %42 = load float, ptr %arrayidx121, align 4
-  %arrayidx123 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
+  %arrayidx123 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
   %43 = load float, ptr %arrayidx123, align 4
   %sub124 = fsub float %42, %43
   %44 = tail call float @llvm.fmuladd.f32(float %cond, float %sub124, float %43)
   %idxprom127 = sext i32 %7 to i64
-  %arrayidx128 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
+  %arrayidx128 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
   store float %44, ptr %arrayidx128, align 4
   %45 = load float, ptr %RGB2, align 4
   %add.i11 = fadd float %45, 5.000000e-01
@@ -114011,10 +114011,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %5 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %3 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %6 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %5 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %7 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %6, %7
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -114022,7 +114022,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.false:                                       ; preds = %for.body
   %idxprom11 = sext i32 %4 to i64
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom11
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom11
   %8 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %8, %7
   %div = fdiv float %sub15, %sub
@@ -114199,14 +114199,14 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   %add11.i83 = fadd float %delta.0.i77, %add.i82
   %mul12.i84 = fmul float %13, %add11.i83
   store float %mul12.i84, ptr %arrayinit.element32, align 4
-  %arrayidx44 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx44 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %46 = load float, ptr %arrayidx44, align 4
-  %arrayidx46 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx46 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %47 = load float, ptr %arrayidx46, align 4
   %sub47 = fsub float %46, %47
   %48 = tail call float @llvm.fmuladd.f32(float %cond, float %sub47, float %47)
   %idxprom50 = sext i32 %4 to i64
-  %arrayidx51 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom50
+  %arrayidx51 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom50
   store float %48, ptr %arrayidx51, align 4
   %49 = load float, ptr %RGB2, align 4
   %add.i101 = fadd float %49, 5.000000e-01
@@ -117409,10 +117409,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %8 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %10 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %9, %10
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -117420,7 +117420,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %11 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %11, %10
   %div = fdiv float %sub15, %sub
@@ -117440,13 +117440,13 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %arrayidx.i18 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i17
   %14 = load float, ptr %arrayidx.i18, align 4
   store float %14, ptr %arrayinit.element21, align 4
-  %arrayidx25 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx25 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %15 = load float, ptr %arrayidx25, align 4
-  %arrayidx27 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx27 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %16 = load float, ptr %arrayidx27, align 4
   %sub28 = fsub float %15, %16
   %17 = tail call float @llvm.fmuladd.f32(float %cond, float %sub28, float %16)
-  %arrayidx32 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx32 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %17, ptr %arrayidx32, align 4
   %18 = load float, ptr %RGB2, align 4
   %19 = bitcast float %18 to i32
@@ -118213,10 +118213,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %8 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %10 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %9, %10
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -118224,7 +118224,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %11 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %11, %10
   %div = fdiv float %sub15, %sub
@@ -118244,13 +118244,13 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %arrayidx.i18 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i17
   %14 = load float, ptr %arrayidx.i18, align 4
   store float %14, ptr %arrayinit.element21, align 4
-  %arrayidx25 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx25 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %15 = load float, ptr %arrayidx25, align 4
-  %arrayidx27 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx27 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %16 = load float, ptr %arrayidx27, align 4
   %sub28 = fsub float %15, %16
   %17 = tail call float @llvm.fmuladd.f32(float %cond, float %sub28, float %16)
-  %arrayidx32 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx32 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %17, ptr %arrayidx32, align 4
   %18 = load float, ptr %RGB2, align 4
   %19 = bitcast float %18 to i32
@@ -121226,10 +121226,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx14 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx14 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx14, align 4
   %idxprom15 = sext i32 %8 to i64
-  %arrayidx16 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom15
+  %arrayidx16 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom15
   %10 = load float, ptr %arrayidx16, align 4
   %sub = fsub float %9, %10
   %cmp17 = fcmp oeq float %sub, 0.000000e+00
@@ -121237,7 +121237,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.false:                                       ; preds = %for.body
   %idxprom18 = sext i32 %7 to i64
-  %arrayidx19 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom18
+  %arrayidx19 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom18
   %11 = load float, ptr %arrayidx19, align 4
   %sub22 = fsub float %11, %10
   %div = fdiv float %sub22, %sub
@@ -121320,14 +121320,14 @@ cond.end115:                                      ; preds = %cond.false102, %con
   store float %cond46, ptr %RGB2, align 4
   store float %cond81, ptr %arrayinit.element118, align 4
   store float %cond116, ptr %arrayinit.element119, align 4
-  %arrayidx121 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx121 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %42 = load float, ptr %arrayidx121, align 4
-  %arrayidx123 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
+  %arrayidx123 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
   %43 = load float, ptr %arrayidx123, align 4
   %sub124 = fsub float %42, %43
   %44 = tail call float @llvm.fmuladd.f32(float %cond, float %sub124, float %43)
   %idxprom127 = sext i32 %7 to i64
-  %arrayidx128 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
+  %arrayidx128 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
   store float %44, ptr %arrayidx128, align 4
   %45 = load float, ptr %RGB2, align 4
   %46 = bitcast float %45 to i32
@@ -121996,10 +121996,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %5 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %3 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %6 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %5 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %7 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %6, %7
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -122007,7 +122007,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.false:                                       ; preds = %for.body
   %idxprom11 = sext i32 %4 to i64
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom11
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom11
   %8 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %8, %7
   %div = fdiv float %sub15, %sub
@@ -122184,14 +122184,14 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   %add11.i83 = fadd float %delta.0.i77, %add.i82
   %mul12.i84 = fmul float %13, %add11.i83
   store float %mul12.i84, ptr %arrayinit.element32, align 4
-  %arrayidx44 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx44 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %46 = load float, ptr %arrayidx44, align 4
-  %arrayidx46 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx46 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %47 = load float, ptr %arrayidx46, align 4
   %sub47 = fsub float %46, %47
   %48 = tail call float @llvm.fmuladd.f32(float %cond, float %sub47, float %47)
   %idxprom50 = sext i32 %4 to i64
-  %arrayidx51 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom50
+  %arrayidx51 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom50
   store float %48, ptr %arrayidx51, align 4
   %49 = load float, ptr %RGB2, align 4
   %50 = bitcast float %49 to i32
@@ -125580,10 +125580,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %8 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %10 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %9, %10
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -125591,7 +125591,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %11 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %11, %10
   %div = fdiv float %sub15, %sub
@@ -125611,13 +125611,13 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %arrayidx.i18 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i17
   %14 = load float, ptr %arrayidx.i18, align 4
   store float %14, ptr %arrayinit.element21, align 4
-  %arrayidx25 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx25 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %15 = load float, ptr %arrayidx25, align 4
-  %arrayidx27 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx27 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %16 = load float, ptr %arrayidx27, align 4
   %sub28 = fsub float %15, %16
   %17 = tail call float @llvm.fmuladd.f32(float %cond, float %sub28, float %16)
-  %arrayidx32 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx32 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %17, ptr %arrayidx32, align 4
   %18 = load float, ptr %RGB2, align 4
   store float %18, ptr %out.024, align 4
@@ -125994,10 +125994,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %8 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %10 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %9, %10
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -126005,7 +126005,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %11 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %11, %10
   %div = fdiv float %sub15, %sub
@@ -126025,13 +126025,13 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %arrayidx.i18 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i17
   %14 = load float, ptr %arrayidx.i18, align 4
   store float %14, ptr %arrayinit.element21, align 4
-  %arrayidx25 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx25 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %15 = load float, ptr %arrayidx25, align 4
-  %arrayidx27 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx27 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %16 = load float, ptr %arrayidx27, align 4
   %sub28 = fsub float %15, %16
   %17 = tail call float @llvm.fmuladd.f32(float %cond, float %sub28, float %16)
-  %arrayidx32 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx32 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %17, ptr %arrayidx32, align 4
   %18 = load float, ptr %RGB2, align 4
   store float %18, ptr %out.024, align 4
@@ -128071,10 +128071,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx14 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx14 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx14, align 4
   %idxprom15 = sext i32 %8 to i64
-  %arrayidx16 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom15
+  %arrayidx16 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom15
   %10 = load float, ptr %arrayidx16, align 4
   %sub = fsub float %9, %10
   %cmp17 = fcmp oeq float %sub, 0.000000e+00
@@ -128082,7 +128082,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
 
 cond.false:                                       ; preds = %for.body
   %idxprom18 = sext i32 %7 to i64
-  %arrayidx19 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom18
+  %arrayidx19 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom18
   %11 = load float, ptr %arrayidx19, align 4
   %sub22 = fsub float %11, %10
   %div = fdiv float %sub22, %sub
@@ -128165,14 +128165,14 @@ cond.end115:                                      ; preds = %cond.false102, %con
   store float %cond46, ptr %RGB2, align 4
   store float %cond81, ptr %arrayinit.element118, align 4
   store float %cond116, ptr %arrayinit.element119, align 4
-  %arrayidx121 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx121 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %42 = load float, ptr %arrayidx121, align 4
-  %arrayidx123 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
+  %arrayidx123 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
   %43 = load float, ptr %arrayidx123, align 4
   %sub124 = fsub float %42, %43
   %44 = tail call float @llvm.fmuladd.f32(float %cond, float %sub124, float %43)
   %idxprom127 = sext i32 %7 to i64
-  %arrayidx128 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
+  %arrayidx128 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
   store float %44, ptr %arrayidx128, align 4
   %45 = load float, ptr %RGB2, align 4
   store float %45, ptr %out.016, align 4
@@ -128529,10 +128529,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %5 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %3 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %6 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %5 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %7 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %6, %7
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -128540,7 +128540,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.false:                                       ; preds = %for.body
   %idxprom11 = sext i32 %4 to i64
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom11
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom11
   %8 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %8, %7
   %div = fdiv float %sub15, %sub
@@ -128717,14 +128717,14 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   %add11.i83 = fadd float %delta.0.i77, %add.i82
   %mul12.i84 = fmul float %13, %add11.i83
   store float %mul12.i84, ptr %arrayinit.element32, align 4
-  %arrayidx44 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx44 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %46 = load float, ptr %arrayidx44, align 4
-  %arrayidx46 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx46 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %47 = load float, ptr %arrayidx46, align 4
   %sub47 = fsub float %46, %47
   %48 = tail call float @llvm.fmuladd.f32(float %cond, float %sub47, float %47)
   %idxprom50 = sext i32 %4 to i64
-  %arrayidx51 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom50
+  %arrayidx51 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom50
   store float %48, ptr %arrayidx51, align 4
   %49 = load float, ptr %RGB2, align 4
   store float %49, ptr %out.0106, align 4
@@ -133638,10 +133638,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %8 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %10 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %9, %10
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -133649,7 +133649,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %11 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %11, %10
   %div = fdiv float %sub15, %sub
@@ -133669,13 +133669,13 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %arrayidx.i18 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i17
   %14 = load float, ptr %arrayidx.i18, align 4
   store float %14, ptr %arrayinit.element21, align 4
-  %arrayidx25 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx25 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %15 = load float, ptr %arrayidx25, align 4
-  %arrayidx27 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx27 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %16 = load float, ptr %arrayidx27, align 4
   %sub28 = fsub float %15, %16
   %17 = tail call float @llvm.fmuladd.f32(float %cond, float %sub28, float %16)
-  %arrayidx32 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx32 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %17, ptr %arrayidx32, align 4
   %18 = load float, ptr %RGB2, align 4
   %conv34 = fptoui float %18 to i8
@@ -134057,10 +134057,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %8 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %10 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %9, %10
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -134068,7 +134068,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %11 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %11, %10
   %div = fdiv float %sub15, %sub
@@ -134088,13 +134088,13 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %arrayidx.i18 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i17
   %14 = load float, ptr %arrayidx.i18, align 4
   store float %14, ptr %arrayinit.element21, align 4
-  %arrayidx25 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx25 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %15 = load float, ptr %arrayidx25, align 4
-  %arrayidx27 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx27 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %16 = load float, ptr %arrayidx27, align 4
   %sub28 = fsub float %15, %16
   %17 = tail call float @llvm.fmuladd.f32(float %cond, float %sub28, float %16)
-  %arrayidx32 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx32 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %17, ptr %arrayidx32, align 4
   %18 = load float, ptr %RGB2, align 4
   %conv34 = fptoui float %18 to i8
@@ -136234,10 +136234,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx14 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx14 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx14, align 4
   %idxprom15 = sext i32 %8 to i64
-  %arrayidx16 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom15
+  %arrayidx16 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom15
   %10 = load float, ptr %arrayidx16, align 4
   %sub = fsub float %9, %10
   %cmp17 = fcmp oeq float %sub, 0.000000e+00
@@ -136245,7 +136245,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.false:                                       ; preds = %for.body
   %idxprom18 = sext i32 %7 to i64
-  %arrayidx19 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom18
+  %arrayidx19 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom18
   %11 = load float, ptr %arrayidx19, align 4
   %sub22 = fsub float %11, %10
   %div = fdiv float %sub22, %sub
@@ -136328,14 +136328,14 @@ cond.end115:                                      ; preds = %cond.false102, %con
   store float %cond46, ptr %RGB2, align 4
   store float %cond81, ptr %arrayinit.element118, align 4
   store float %cond116, ptr %arrayinit.element119, align 4
-  %arrayidx121 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx121 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %42 = load float, ptr %arrayidx121, align 4
-  %arrayidx123 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
+  %arrayidx123 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
   %43 = load float, ptr %arrayidx123, align 4
   %sub124 = fsub float %42, %43
   %44 = tail call float @llvm.fmuladd.f32(float %cond, float %sub124, float %43)
   %idxprom127 = sext i32 %7 to i64
-  %arrayidx128 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
+  %arrayidx128 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
   store float %44, ptr %arrayidx128, align 4
   %45 = load float, ptr %RGB2, align 4
   %add.i11 = fadd float %45, 5.000000e-01
@@ -136740,10 +136740,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %5 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %3 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %6 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %5 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %7 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %6, %7
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -136751,7 +136751,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.false:                                       ; preds = %for.body
   %idxprom11 = sext i32 %4 to i64
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom11
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom11
   %8 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %8, %7
   %div = fdiv float %sub15, %sub
@@ -136928,14 +136928,14 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   %add11.i83 = fadd float %delta.0.i77, %add.i82
   %mul12.i84 = fmul float %13, %add11.i83
   store float %mul12.i84, ptr %arrayinit.element32, align 4
-  %arrayidx44 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx44 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %46 = load float, ptr %arrayidx44, align 4
-  %arrayidx46 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx46 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %47 = load float, ptr %arrayidx46, align 4
   %sub47 = fsub float %46, %47
   %48 = tail call float @llvm.fmuladd.f32(float %cond, float %sub47, float %47)
   %idxprom50 = sext i32 %4 to i64
-  %arrayidx51 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom50
+  %arrayidx51 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom50
   store float %48, ptr %arrayidx51, align 4
   %49 = load float, ptr %RGB2, align 4
   %add.i101 = fadd float %49, 5.000000e-01
@@ -140061,10 +140061,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %8 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %10 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %9, %10
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -140072,7 +140072,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %11 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %11, %10
   %div = fdiv float %sub15, %sub
@@ -140092,13 +140092,13 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %arrayidx.i18 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i17
   %14 = load float, ptr %arrayidx.i18, align 4
   store float %14, ptr %arrayinit.element21, align 4
-  %arrayidx25 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx25 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %15 = load float, ptr %arrayidx25, align 4
-  %arrayidx27 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx27 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %16 = load float, ptr %arrayidx27, align 4
   %sub28 = fsub float %15, %16
   %17 = tail call float @llvm.fmuladd.f32(float %cond, float %sub28, float %16)
-  %arrayidx32 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx32 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %17, ptr %arrayidx32, align 4
   %18 = load float, ptr %RGB2, align 4
   %conv34 = fptoui float %18 to i16
@@ -140480,10 +140480,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %8 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %10 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %9, %10
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -140491,7 +140491,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %11 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %11, %10
   %div = fdiv float %sub15, %sub
@@ -140511,13 +140511,13 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %arrayidx.i18 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i17
   %14 = load float, ptr %arrayidx.i18, align 4
   store float %14, ptr %arrayinit.element21, align 4
-  %arrayidx25 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx25 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %15 = load float, ptr %arrayidx25, align 4
-  %arrayidx27 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx27 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %16 = load float, ptr %arrayidx27, align 4
   %sub28 = fsub float %15, %16
   %17 = tail call float @llvm.fmuladd.f32(float %cond, float %sub28, float %16)
-  %arrayidx32 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx32 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %17, ptr %arrayidx32, align 4
   %18 = load float, ptr %RGB2, align 4
   %conv34 = fptoui float %18 to i16
@@ -142657,10 +142657,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx14 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx14 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx14, align 4
   %idxprom15 = sext i32 %8 to i64
-  %arrayidx16 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom15
+  %arrayidx16 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom15
   %10 = load float, ptr %arrayidx16, align 4
   %sub = fsub float %9, %10
   %cmp17 = fcmp oeq float %sub, 0.000000e+00
@@ -142668,7 +142668,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.false:                                       ; preds = %for.body
   %idxprom18 = sext i32 %7 to i64
-  %arrayidx19 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom18
+  %arrayidx19 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom18
   %11 = load float, ptr %arrayidx19, align 4
   %sub22 = fsub float %11, %10
   %div = fdiv float %sub22, %sub
@@ -142751,14 +142751,14 @@ cond.end115:                                      ; preds = %cond.false102, %con
   store float %cond46, ptr %RGB2, align 4
   store float %cond81, ptr %arrayinit.element118, align 4
   store float %cond116, ptr %arrayinit.element119, align 4
-  %arrayidx121 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx121 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %42 = load float, ptr %arrayidx121, align 4
-  %arrayidx123 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
+  %arrayidx123 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
   %43 = load float, ptr %arrayidx123, align 4
   %sub124 = fsub float %42, %43
   %44 = tail call float @llvm.fmuladd.f32(float %cond, float %sub124, float %43)
   %idxprom127 = sext i32 %7 to i64
-  %arrayidx128 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
+  %arrayidx128 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
   store float %44, ptr %arrayidx128, align 4
   %45 = load float, ptr %RGB2, align 4
   %add.i11 = fadd float %45, 5.000000e-01
@@ -143163,10 +143163,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %5 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %3 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %6 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %5 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %7 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %6, %7
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -143174,7 +143174,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.false:                                       ; preds = %for.body
   %idxprom11 = sext i32 %4 to i64
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom11
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom11
   %8 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %8, %7
   %div = fdiv float %sub15, %sub
@@ -143351,14 +143351,14 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   %add11.i83 = fadd float %delta.0.i77, %add.i82
   %mul12.i84 = fmul float %13, %add11.i83
   store float %mul12.i84, ptr %arrayinit.element32, align 4
-  %arrayidx44 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx44 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %46 = load float, ptr %arrayidx44, align 4
-  %arrayidx46 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx46 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %47 = load float, ptr %arrayidx46, align 4
   %sub47 = fsub float %46, %47
   %48 = tail call float @llvm.fmuladd.f32(float %cond, float %sub47, float %47)
   %idxprom50 = sext i32 %4 to i64
-  %arrayidx51 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom50
+  %arrayidx51 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom50
   store float %48, ptr %arrayidx51, align 4
   %49 = load float, ptr %RGB2, align 4
   %add.i101 = fadd float %49, 5.000000e-01
@@ -146484,10 +146484,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %8 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %10 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %9, %10
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -146495,7 +146495,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %11 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %11, %10
   %div = fdiv float %sub15, %sub
@@ -146515,13 +146515,13 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %arrayidx.i18 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i17
   %14 = load float, ptr %arrayidx.i18, align 4
   store float %14, ptr %arrayinit.element21, align 4
-  %arrayidx25 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx25 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %15 = load float, ptr %arrayidx25, align 4
-  %arrayidx27 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx27 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %16 = load float, ptr %arrayidx27, align 4
   %sub28 = fsub float %15, %16
   %17 = tail call float @llvm.fmuladd.f32(float %cond, float %sub28, float %16)
-  %arrayidx32 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx32 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %17, ptr %arrayidx32, align 4
   %18 = load float, ptr %RGB2, align 4
   %conv34 = fptoui float %18 to i16
@@ -146903,10 +146903,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %8 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %10 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %9, %10
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -146914,7 +146914,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %11 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %11, %10
   %div = fdiv float %sub15, %sub
@@ -146934,13 +146934,13 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %arrayidx.i18 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i17
   %14 = load float, ptr %arrayidx.i18, align 4
   store float %14, ptr %arrayinit.element21, align 4
-  %arrayidx25 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx25 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %15 = load float, ptr %arrayidx25, align 4
-  %arrayidx27 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx27 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %16 = load float, ptr %arrayidx27, align 4
   %sub28 = fsub float %15, %16
   %17 = tail call float @llvm.fmuladd.f32(float %cond, float %sub28, float %16)
-  %arrayidx32 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx32 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %17, ptr %arrayidx32, align 4
   %18 = load float, ptr %RGB2, align 4
   %conv34 = fptoui float %18 to i16
@@ -149080,10 +149080,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx14 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx14 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx14, align 4
   %idxprom15 = sext i32 %8 to i64
-  %arrayidx16 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom15
+  %arrayidx16 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom15
   %10 = load float, ptr %arrayidx16, align 4
   %sub = fsub float %9, %10
   %cmp17 = fcmp oeq float %sub, 0.000000e+00
@@ -149091,7 +149091,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.false:                                       ; preds = %for.body
   %idxprom18 = sext i32 %7 to i64
-  %arrayidx19 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom18
+  %arrayidx19 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom18
   %11 = load float, ptr %arrayidx19, align 4
   %sub22 = fsub float %11, %10
   %div = fdiv float %sub22, %sub
@@ -149174,14 +149174,14 @@ cond.end115:                                      ; preds = %cond.false102, %con
   store float %cond46, ptr %RGB2, align 4
   store float %cond81, ptr %arrayinit.element118, align 4
   store float %cond116, ptr %arrayinit.element119, align 4
-  %arrayidx121 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx121 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %42 = load float, ptr %arrayidx121, align 4
-  %arrayidx123 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
+  %arrayidx123 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
   %43 = load float, ptr %arrayidx123, align 4
   %sub124 = fsub float %42, %43
   %44 = tail call float @llvm.fmuladd.f32(float %cond, float %sub124, float %43)
   %idxprom127 = sext i32 %7 to i64
-  %arrayidx128 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
+  %arrayidx128 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
   store float %44, ptr %arrayidx128, align 4
   %45 = load float, ptr %RGB2, align 4
   %add.i11 = fadd float %45, 5.000000e-01
@@ -149586,10 +149586,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %5 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %3 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %6 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %5 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %7 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %6, %7
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -149597,7 +149597,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.false:                                       ; preds = %for.body
   %idxprom11 = sext i32 %4 to i64
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom11
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom11
   %8 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %8, %7
   %div = fdiv float %sub15, %sub
@@ -149774,14 +149774,14 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   %add11.i83 = fadd float %delta.0.i77, %add.i82
   %mul12.i84 = fmul float %13, %add11.i83
   store float %mul12.i84, ptr %arrayinit.element32, align 4
-  %arrayidx44 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx44 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %46 = load float, ptr %arrayidx44, align 4
-  %arrayidx46 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx46 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %47 = load float, ptr %arrayidx46, align 4
   %sub47 = fsub float %46, %47
   %48 = tail call float @llvm.fmuladd.f32(float %cond, float %sub47, float %47)
   %idxprom50 = sext i32 %4 to i64
-  %arrayidx51 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom50
+  %arrayidx51 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom50
   store float %48, ptr %arrayidx51, align 4
   %49 = load float, ptr %RGB2, align 4
   %add.i101 = fadd float %49, 5.000000e-01
@@ -152907,10 +152907,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %8 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %10 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %9, %10
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -152918,7 +152918,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %11 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %11, %10
   %div = fdiv float %sub15, %sub
@@ -152938,13 +152938,13 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %arrayidx.i18 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i17
   %14 = load float, ptr %arrayidx.i18, align 4
   store float %14, ptr %arrayinit.element21, align 4
-  %arrayidx25 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx25 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %15 = load float, ptr %arrayidx25, align 4
-  %arrayidx27 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx27 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %16 = load float, ptr %arrayidx27, align 4
   %sub28 = fsub float %15, %16
   %17 = tail call float @llvm.fmuladd.f32(float %cond, float %sub28, float %16)
-  %arrayidx32 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx32 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %17, ptr %arrayidx32, align 4
   %18 = load float, ptr %RGB2, align 4
   %conv34 = fptoui float %18 to i16
@@ -153326,10 +153326,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %8 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %10 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %9, %10
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -153337,7 +153337,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %11 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %11, %10
   %div = fdiv float %sub15, %sub
@@ -153357,13 +153357,13 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %arrayidx.i18 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i17
   %14 = load float, ptr %arrayidx.i18, align 4
   store float %14, ptr %arrayinit.element21, align 4
-  %arrayidx25 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx25 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %15 = load float, ptr %arrayidx25, align 4
-  %arrayidx27 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx27 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %16 = load float, ptr %arrayidx27, align 4
   %sub28 = fsub float %15, %16
   %17 = tail call float @llvm.fmuladd.f32(float %cond, float %sub28, float %16)
-  %arrayidx32 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx32 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %17, ptr %arrayidx32, align 4
   %18 = load float, ptr %RGB2, align 4
   %conv34 = fptoui float %18 to i16
@@ -155503,10 +155503,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx14 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx14 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx14, align 4
   %idxprom15 = sext i32 %8 to i64
-  %arrayidx16 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom15
+  %arrayidx16 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom15
   %10 = load float, ptr %arrayidx16, align 4
   %sub = fsub float %9, %10
   %cmp17 = fcmp oeq float %sub, 0.000000e+00
@@ -155514,7 +155514,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.false:                                       ; preds = %for.body
   %idxprom18 = sext i32 %7 to i64
-  %arrayidx19 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom18
+  %arrayidx19 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom18
   %11 = load float, ptr %arrayidx19, align 4
   %sub22 = fsub float %11, %10
   %div = fdiv float %sub22, %sub
@@ -155597,14 +155597,14 @@ cond.end115:                                      ; preds = %cond.false102, %con
   store float %cond46, ptr %RGB2, align 4
   store float %cond81, ptr %arrayinit.element118, align 4
   store float %cond116, ptr %arrayinit.element119, align 4
-  %arrayidx121 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx121 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %42 = load float, ptr %arrayidx121, align 4
-  %arrayidx123 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
+  %arrayidx123 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
   %43 = load float, ptr %arrayidx123, align 4
   %sub124 = fsub float %42, %43
   %44 = tail call float @llvm.fmuladd.f32(float %cond, float %sub124, float %43)
   %idxprom127 = sext i32 %7 to i64
-  %arrayidx128 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
+  %arrayidx128 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
   store float %44, ptr %arrayidx128, align 4
   %45 = load float, ptr %RGB2, align 4
   %add.i11 = fadd float %45, 5.000000e-01
@@ -156009,10 +156009,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %5 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %3 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %6 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %5 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %7 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %6, %7
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -156020,7 +156020,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.false:                                       ; preds = %for.body
   %idxprom11 = sext i32 %4 to i64
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom11
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom11
   %8 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %8, %7
   %div = fdiv float %sub15, %sub
@@ -156197,14 +156197,14 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   %add11.i83 = fadd float %delta.0.i77, %add.i82
   %mul12.i84 = fmul float %13, %add11.i83
   store float %mul12.i84, ptr %arrayinit.element32, align 4
-  %arrayidx44 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx44 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %46 = load float, ptr %arrayidx44, align 4
-  %arrayidx46 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx46 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %47 = load float, ptr %arrayidx46, align 4
   %sub47 = fsub float %46, %47
   %48 = tail call float @llvm.fmuladd.f32(float %cond, float %sub47, float %47)
   %idxprom50 = sext i32 %4 to i64
-  %arrayidx51 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom50
+  %arrayidx51 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom50
   store float %48, ptr %arrayidx51, align 4
   %49 = load float, ptr %RGB2, align 4
   %add.i101 = fadd float %49, 5.000000e-01
@@ -159407,10 +159407,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %8 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %10 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %9, %10
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -159418,7 +159418,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %11 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %11, %10
   %div = fdiv float %sub15, %sub
@@ -159438,13 +159438,13 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %arrayidx.i18 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i17
   %14 = load float, ptr %arrayidx.i18, align 4
   store float %14, ptr %arrayinit.element21, align 4
-  %arrayidx25 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx25 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %15 = load float, ptr %arrayidx25, align 4
-  %arrayidx27 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx27 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %16 = load float, ptr %arrayidx27, align 4
   %sub28 = fsub float %15, %16
   %17 = tail call float @llvm.fmuladd.f32(float %cond, float %sub28, float %16)
-  %arrayidx32 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx32 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %17, ptr %arrayidx32, align 4
   %18 = load float, ptr %RGB2, align 4
   %19 = bitcast float %18 to i32
@@ -160211,10 +160211,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %8 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %10 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %9, %10
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -160222,7 +160222,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %11 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %11, %10
   %div = fdiv float %sub15, %sub
@@ -160242,13 +160242,13 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %arrayidx.i18 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i17
   %14 = load float, ptr %arrayidx.i18, align 4
   store float %14, ptr %arrayinit.element21, align 4
-  %arrayidx25 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx25 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %15 = load float, ptr %arrayidx25, align 4
-  %arrayidx27 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx27 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %16 = load float, ptr %arrayidx27, align 4
   %sub28 = fsub float %15, %16
   %17 = tail call float @llvm.fmuladd.f32(float %cond, float %sub28, float %16)
-  %arrayidx32 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx32 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %17, ptr %arrayidx32, align 4
   %18 = load float, ptr %RGB2, align 4
   %19 = bitcast float %18 to i32
@@ -163224,10 +163224,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx14 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx14 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx14, align 4
   %idxprom15 = sext i32 %8 to i64
-  %arrayidx16 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom15
+  %arrayidx16 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom15
   %10 = load float, ptr %arrayidx16, align 4
   %sub = fsub float %9, %10
   %cmp17 = fcmp oeq float %sub, 0.000000e+00
@@ -163235,7 +163235,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.false:                                       ; preds = %for.body
   %idxprom18 = sext i32 %7 to i64
-  %arrayidx19 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom18
+  %arrayidx19 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom18
   %11 = load float, ptr %arrayidx19, align 4
   %sub22 = fsub float %11, %10
   %div = fdiv float %sub22, %sub
@@ -163318,14 +163318,14 @@ cond.end115:                                      ; preds = %cond.false102, %con
   store float %cond46, ptr %RGB2, align 4
   store float %cond81, ptr %arrayinit.element118, align 4
   store float %cond116, ptr %arrayinit.element119, align 4
-  %arrayidx121 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx121 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %42 = load float, ptr %arrayidx121, align 4
-  %arrayidx123 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
+  %arrayidx123 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
   %43 = load float, ptr %arrayidx123, align 4
   %sub124 = fsub float %42, %43
   %44 = tail call float @llvm.fmuladd.f32(float %cond, float %sub124, float %43)
   %idxprom127 = sext i32 %7 to i64
-  %arrayidx128 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
+  %arrayidx128 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
   store float %44, ptr %arrayidx128, align 4
   %45 = load float, ptr %RGB2, align 4
   %46 = bitcast float %45 to i32
@@ -163994,10 +163994,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %5 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %3 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %6 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %5 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %7 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %6, %7
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -164005,7 +164005,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.false:                                       ; preds = %for.body
   %idxprom11 = sext i32 %4 to i64
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom11
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom11
   %8 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %8, %7
   %div = fdiv float %sub15, %sub
@@ -164182,14 +164182,14 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   %add11.i83 = fadd float %delta.0.i77, %add.i82
   %mul12.i84 = fmul float %13, %add11.i83
   store float %mul12.i84, ptr %arrayinit.element32, align 4
-  %arrayidx44 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx44 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %46 = load float, ptr %arrayidx44, align 4
-  %arrayidx46 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx46 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %47 = load float, ptr %arrayidx46, align 4
   %sub47 = fsub float %46, %47
   %48 = tail call float @llvm.fmuladd.f32(float %cond, float %sub47, float %47)
   %idxprom50 = sext i32 %4 to i64
-  %arrayidx51 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom50
+  %arrayidx51 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom50
   store float %48, ptr %arrayidx51, align 4
   %49 = load float, ptr %RGB2, align 4
   %50 = bitcast float %49 to i32
@@ -167578,10 +167578,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %8 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %10 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %9, %10
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -167589,7 +167589,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %11 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %11, %10
   %div = fdiv float %sub15, %sub
@@ -167609,13 +167609,13 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %arrayidx.i18 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i17
   %14 = load float, ptr %arrayidx.i18, align 4
   store float %14, ptr %arrayinit.element21, align 4
-  %arrayidx25 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx25 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %15 = load float, ptr %arrayidx25, align 4
-  %arrayidx27 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx27 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %16 = load float, ptr %arrayidx27, align 4
   %sub28 = fsub float %15, %16
   %17 = tail call float @llvm.fmuladd.f32(float %cond, float %sub28, float %16)
-  %arrayidx32 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx32 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %17, ptr %arrayidx32, align 4
   %18 = load float, ptr %RGB2, align 4
   store float %18, ptr %out.024, align 4
@@ -167992,10 +167992,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %8 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %10 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %9, %10
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -168003,7 +168003,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %11 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %11, %10
   %div = fdiv float %sub15, %sub
@@ -168023,13 +168023,13 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %arrayidx.i18 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i17
   %14 = load float, ptr %arrayidx.i18, align 4
   store float %14, ptr %arrayinit.element21, align 4
-  %arrayidx25 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx25 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %15 = load float, ptr %arrayidx25, align 4
-  %arrayidx27 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx27 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %16 = load float, ptr %arrayidx27, align 4
   %sub28 = fsub float %15, %16
   %17 = tail call float @llvm.fmuladd.f32(float %cond, float %sub28, float %16)
-  %arrayidx32 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx32 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %17, ptr %arrayidx32, align 4
   %18 = load float, ptr %RGB2, align 4
   store float %18, ptr %out.024, align 4
@@ -170069,10 +170069,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx14 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx14 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx14, align 4
   %idxprom15 = sext i32 %8 to i64
-  %arrayidx16 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom15
+  %arrayidx16 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom15
   %10 = load float, ptr %arrayidx16, align 4
   %sub = fsub float %9, %10
   %cmp17 = fcmp oeq float %sub, 0.000000e+00
@@ -170080,7 +170080,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
 
 cond.false:                                       ; preds = %for.body
   %idxprom18 = sext i32 %7 to i64
-  %arrayidx19 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom18
+  %arrayidx19 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom18
   %11 = load float, ptr %arrayidx19, align 4
   %sub22 = fsub float %11, %10
   %div = fdiv float %sub22, %sub
@@ -170163,14 +170163,14 @@ cond.end115:                                      ; preds = %cond.false102, %con
   store float %cond46, ptr %RGB2, align 4
   store float %cond81, ptr %arrayinit.element118, align 4
   store float %cond116, ptr %arrayinit.element119, align 4
-  %arrayidx121 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx121 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %42 = load float, ptr %arrayidx121, align 4
-  %arrayidx123 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
+  %arrayidx123 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
   %43 = load float, ptr %arrayidx123, align 4
   %sub124 = fsub float %42, %43
   %44 = tail call float @llvm.fmuladd.f32(float %cond, float %sub124, float %43)
   %idxprom127 = sext i32 %7 to i64
-  %arrayidx128 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
+  %arrayidx128 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
   store float %44, ptr %arrayidx128, align 4
   %45 = load float, ptr %RGB2, align 4
   store float %45, ptr %out.016, align 4
@@ -170527,10 +170527,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %5 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %3 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %6 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %5 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %7 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %6, %7
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -170538,7 +170538,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.false:                                       ; preds = %for.body
   %idxprom11 = sext i32 %4 to i64
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom11
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom11
   %8 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %8, %7
   %div = fdiv float %sub15, %sub
@@ -170715,14 +170715,14 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   %add11.i83 = fadd float %delta.0.i77, %add.i82
   %mul12.i84 = fmul float %13, %add11.i83
   store float %mul12.i84, ptr %arrayinit.element32, align 4
-  %arrayidx44 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx44 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %46 = load float, ptr %arrayidx44, align 4
-  %arrayidx46 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx46 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %47 = load float, ptr %arrayidx46, align 4
   %sub47 = fsub float %46, %47
   %48 = tail call float @llvm.fmuladd.f32(float %cond, float %sub47, float %47)
   %idxprom50 = sext i32 %4 to i64
-  %arrayidx51 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom50
+  %arrayidx51 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom50
   store float %48, ptr %arrayidx51, align 4
   %49 = load float, ptr %RGB2, align 4
   store float %49, ptr %out.0106, align 4
@@ -175784,10 +175784,10 @@ _ZNK9Imath_3_14halfcvfEv.exit59:                  ; preds = %if.then7.i.i57, %if
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %17 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %15 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %18 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %17 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %19 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %18, %19
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -175795,7 +175795,7 @@ _ZNK9Imath_3_14halfcvfEv.exit59:                  ; preds = %if.then7.i.i57, %if
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %_ZNK9Imath_3_14halfcvfEv.exit59
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %20 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %20, %19
   %div = fdiv float %sub15, %sub
@@ -175815,13 +175815,13 @@ cond.end:                                         ; preds = %_ZNK9Imath_3_14half
   %arrayidx.i64 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i63
   %23 = load float, ptr %arrayidx.i64, align 4
   store float %23, ptr %arrayinit.element22, align 4
-  %arrayidx26 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx26 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %24 = load float, ptr %arrayidx26, align 4
-  %arrayidx28 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx28 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %25 = load float, ptr %arrayidx28, align 4
   %sub29 = fsub float %24, %25
   %26 = tail call float @llvm.fmuladd.f32(float %cond, float %sub29, float %25)
-  %arrayidx33 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx33 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %26, ptr %arrayidx33, align 4
   %27 = load float, ptr %RGB2, align 4
   %conv = fptoui float %27 to i8
@@ -176388,10 +176388,10 @@ _ZNK9Imath_3_14halfcvfEv.exit59:                  ; preds = %if.then7.i.i57, %if
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %17 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %15 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %18 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %17 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %19 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %18, %19
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -176399,7 +176399,7 @@ _ZNK9Imath_3_14halfcvfEv.exit59:                  ; preds = %if.then7.i.i57, %if
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %_ZNK9Imath_3_14halfcvfEv.exit59
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %20 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %20, %19
   %div = fdiv float %sub15, %sub
@@ -176419,13 +176419,13 @@ cond.end:                                         ; preds = %_ZNK9Imath_3_14half
   %arrayidx.i64 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i63
   %23 = load float, ptr %arrayidx.i64, align 4
   store float %23, ptr %arrayinit.element22, align 4
-  %arrayidx26 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx26 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %24 = load float, ptr %arrayidx26, align 4
-  %arrayidx28 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx28 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %25 = load float, ptr %arrayidx28, align 4
   %sub29 = fsub float %24, %25
   %26 = tail call float @llvm.fmuladd.f32(float %cond, float %sub29, float %25)
-  %arrayidx33 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx33 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %26, ptr %arrayidx33, align 4
   %27 = load float, ptr %RGB2, align 4
   %conv = fptoui float %27 to i8
@@ -179009,10 +179009,10 @@ _ZNK9Imath_3_14halfcvfEv.exit56:                  ; preds = %if.then7.i.i54, %if
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %17 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %15 to i64
-  %arrayidx14 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx14 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %18 = load float, ptr %arrayidx14, align 4
   %idxprom15 = sext i32 %17 to i64
-  %arrayidx16 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom15
+  %arrayidx16 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom15
   %19 = load float, ptr %arrayidx16, align 4
   %sub = fsub float %18, %19
   %cmp17 = fcmp oeq float %sub, 0.000000e+00
@@ -179020,7 +179020,7 @@ _ZNK9Imath_3_14halfcvfEv.exit56:                  ; preds = %if.then7.i.i54, %if
 
 cond.false:                                       ; preds = %_ZNK9Imath_3_14halfcvfEv.exit56
   %idxprom18 = sext i32 %16 to i64
-  %arrayidx19 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom18
+  %arrayidx19 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom18
   %20 = load float, ptr %arrayidx19, align 4
   %sub22 = fsub float %20, %19
   %div = fdiv float %sub22, %sub
@@ -179103,14 +179103,14 @@ cond.end115:                                      ; preds = %cond.false102, %con
   store float %cond46, ptr %RGB2, align 4
   store float %cond81, ptr %arrayinit.element118, align 4
   store float %cond116, ptr %arrayinit.element119, align 4
-  %arrayidx121 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx121 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %51 = load float, ptr %arrayidx121, align 4
-  %arrayidx123 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
+  %arrayidx123 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
   %52 = load float, ptr %arrayidx123, align 4
   %sub124 = fsub float %51, %52
   %53 = tail call float @llvm.fmuladd.f32(float %cond, float %sub124, float %52)
   %idxprom127 = sext i32 %16 to i64
-  %arrayidx128 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
+  %arrayidx128 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
   store float %53, ptr %arrayidx128, align 4
   %54 = load float, ptr %RGB2, align 4
   %add.i57 = fadd float %54, 5.000000e-01
@@ -179663,10 +179663,10 @@ _ZNK9Imath_3_14halfcvfEv.exit56:                  ; preds = %if.then7.i.i54, %if
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %14 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %12 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %15 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %14 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %16 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %15, %16
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -179674,7 +179674,7 @@ _ZNK9Imath_3_14halfcvfEv.exit56:                  ; preds = %if.then7.i.i54, %if
 
 cond.false:                                       ; preds = %_ZNK9Imath_3_14halfcvfEv.exit56
   %idxprom11 = sext i32 %13 to i64
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom11
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom11
   %17 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %17, %16
   %div = fdiv float %sub15, %sub
@@ -179851,14 +179851,14 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   %add11.i130 = fadd float %delta.0.i124, %add.i129
   %mul12.i131 = fmul float %22, %add11.i130
   store float %mul12.i131, ptr %arrayinit.element33, align 4
-  %arrayidx45 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx45 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %55 = load float, ptr %arrayidx45, align 4
-  %arrayidx47 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx47 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %56 = load float, ptr %arrayidx47, align 4
   %sub48 = fsub float %55, %56
   %57 = tail call float @llvm.fmuladd.f32(float %cond, float %sub48, float %56)
   %idxprom51 = sext i32 %13 to i64
-  %arrayidx52 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom51
+  %arrayidx52 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom51
   store float %57, ptr %arrayidx52, align 4
   %58 = load float, ptr %RGB2, align 4
   %add.i148 = fadd float %58, 5.000000e-01
@@ -183169,10 +183169,10 @@ _ZNK9Imath_3_14halfcvfEv.exit59:                  ; preds = %if.then7.i.i57, %if
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %17 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %15 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %18 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %17 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %19 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %18, %19
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -183180,7 +183180,7 @@ _ZNK9Imath_3_14halfcvfEv.exit59:                  ; preds = %if.then7.i.i57, %if
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %_ZNK9Imath_3_14halfcvfEv.exit59
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %20 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %20, %19
   %div = fdiv float %sub15, %sub
@@ -183200,13 +183200,13 @@ cond.end:                                         ; preds = %_ZNK9Imath_3_14half
   %arrayidx.i64 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i63
   %23 = load float, ptr %arrayidx.i64, align 4
   store float %23, ptr %arrayinit.element22, align 4
-  %arrayidx26 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx26 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %24 = load float, ptr %arrayidx26, align 4
-  %arrayidx28 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx28 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %25 = load float, ptr %arrayidx28, align 4
   %sub29 = fsub float %24, %25
   %26 = tail call float @llvm.fmuladd.f32(float %cond, float %sub29, float %25)
-  %arrayidx33 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx33 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %26, ptr %arrayidx33, align 4
   %27 = load float, ptr %RGB2, align 4
   %conv = fptoui float %27 to i16
@@ -183773,10 +183773,10 @@ _ZNK9Imath_3_14halfcvfEv.exit59:                  ; preds = %if.then7.i.i57, %if
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %17 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %15 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %18 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %17 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %19 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %18, %19
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -183784,7 +183784,7 @@ _ZNK9Imath_3_14halfcvfEv.exit59:                  ; preds = %if.then7.i.i57, %if
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %_ZNK9Imath_3_14halfcvfEv.exit59
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %20 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %20, %19
   %div = fdiv float %sub15, %sub
@@ -183804,13 +183804,13 @@ cond.end:                                         ; preds = %_ZNK9Imath_3_14half
   %arrayidx.i64 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i63
   %23 = load float, ptr %arrayidx.i64, align 4
   store float %23, ptr %arrayinit.element22, align 4
-  %arrayidx26 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx26 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %24 = load float, ptr %arrayidx26, align 4
-  %arrayidx28 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx28 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %25 = load float, ptr %arrayidx28, align 4
   %sub29 = fsub float %24, %25
   %26 = tail call float @llvm.fmuladd.f32(float %cond, float %sub29, float %25)
-  %arrayidx33 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx33 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %26, ptr %arrayidx33, align 4
   %27 = load float, ptr %RGB2, align 4
   %conv = fptoui float %27 to i16
@@ -186394,10 +186394,10 @@ _ZNK9Imath_3_14halfcvfEv.exit56:                  ; preds = %if.then7.i.i54, %if
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %17 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %15 to i64
-  %arrayidx14 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx14 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %18 = load float, ptr %arrayidx14, align 4
   %idxprom15 = sext i32 %17 to i64
-  %arrayidx16 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom15
+  %arrayidx16 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom15
   %19 = load float, ptr %arrayidx16, align 4
   %sub = fsub float %18, %19
   %cmp17 = fcmp oeq float %sub, 0.000000e+00
@@ -186405,7 +186405,7 @@ _ZNK9Imath_3_14halfcvfEv.exit56:                  ; preds = %if.then7.i.i54, %if
 
 cond.false:                                       ; preds = %_ZNK9Imath_3_14halfcvfEv.exit56
   %idxprom18 = sext i32 %16 to i64
-  %arrayidx19 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom18
+  %arrayidx19 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom18
   %20 = load float, ptr %arrayidx19, align 4
   %sub22 = fsub float %20, %19
   %div = fdiv float %sub22, %sub
@@ -186488,14 +186488,14 @@ cond.end115:                                      ; preds = %cond.false102, %con
   store float %cond46, ptr %RGB2, align 4
   store float %cond81, ptr %arrayinit.element118, align 4
   store float %cond116, ptr %arrayinit.element119, align 4
-  %arrayidx121 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx121 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %51 = load float, ptr %arrayidx121, align 4
-  %arrayidx123 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
+  %arrayidx123 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
   %52 = load float, ptr %arrayidx123, align 4
   %sub124 = fsub float %51, %52
   %53 = tail call float @llvm.fmuladd.f32(float %cond, float %sub124, float %52)
   %idxprom127 = sext i32 %16 to i64
-  %arrayidx128 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
+  %arrayidx128 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
   store float %53, ptr %arrayidx128, align 4
   %54 = load float, ptr %RGB2, align 4
   %add.i57 = fadd float %54, 5.000000e-01
@@ -187048,10 +187048,10 @@ _ZNK9Imath_3_14halfcvfEv.exit56:                  ; preds = %if.then7.i.i54, %if
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %14 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %12 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %15 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %14 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %16 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %15, %16
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -187059,7 +187059,7 @@ _ZNK9Imath_3_14halfcvfEv.exit56:                  ; preds = %if.then7.i.i54, %if
 
 cond.false:                                       ; preds = %_ZNK9Imath_3_14halfcvfEv.exit56
   %idxprom11 = sext i32 %13 to i64
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom11
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom11
   %17 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %17, %16
   %div = fdiv float %sub15, %sub
@@ -187236,14 +187236,14 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   %add11.i130 = fadd float %delta.0.i124, %add.i129
   %mul12.i131 = fmul float %22, %add11.i130
   store float %mul12.i131, ptr %arrayinit.element33, align 4
-  %arrayidx45 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx45 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %55 = load float, ptr %arrayidx45, align 4
-  %arrayidx47 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx47 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %56 = load float, ptr %arrayidx47, align 4
   %sub48 = fsub float %55, %56
   %57 = tail call float @llvm.fmuladd.f32(float %cond, float %sub48, float %56)
   %idxprom51 = sext i32 %13 to i64
-  %arrayidx52 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom51
+  %arrayidx52 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom51
   store float %57, ptr %arrayidx52, align 4
   %58 = load float, ptr %RGB2, align 4
   %add.i148 = fadd float %58, 5.000000e-01
@@ -190554,10 +190554,10 @@ _ZNK9Imath_3_14halfcvfEv.exit59:                  ; preds = %if.then7.i.i57, %if
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %17 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %15 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %18 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %17 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %19 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %18, %19
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -190565,7 +190565,7 @@ _ZNK9Imath_3_14halfcvfEv.exit59:                  ; preds = %if.then7.i.i57, %if
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %_ZNK9Imath_3_14halfcvfEv.exit59
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %20 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %20, %19
   %div = fdiv float %sub15, %sub
@@ -190585,13 +190585,13 @@ cond.end:                                         ; preds = %_ZNK9Imath_3_14half
   %arrayidx.i64 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i63
   %23 = load float, ptr %arrayidx.i64, align 4
   store float %23, ptr %arrayinit.element22, align 4
-  %arrayidx26 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx26 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %24 = load float, ptr %arrayidx26, align 4
-  %arrayidx28 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx28 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %25 = load float, ptr %arrayidx28, align 4
   %sub29 = fsub float %24, %25
   %26 = tail call float @llvm.fmuladd.f32(float %cond, float %sub29, float %25)
-  %arrayidx33 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx33 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %26, ptr %arrayidx33, align 4
   %27 = load float, ptr %RGB2, align 4
   %conv = fptoui float %27 to i16
@@ -191158,10 +191158,10 @@ _ZNK9Imath_3_14halfcvfEv.exit59:                  ; preds = %if.then7.i.i57, %if
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %17 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %15 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %18 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %17 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %19 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %18, %19
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -191169,7 +191169,7 @@ _ZNK9Imath_3_14halfcvfEv.exit59:                  ; preds = %if.then7.i.i57, %if
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %_ZNK9Imath_3_14halfcvfEv.exit59
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %20 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %20, %19
   %div = fdiv float %sub15, %sub
@@ -191189,13 +191189,13 @@ cond.end:                                         ; preds = %_ZNK9Imath_3_14half
   %arrayidx.i64 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i63
   %23 = load float, ptr %arrayidx.i64, align 4
   store float %23, ptr %arrayinit.element22, align 4
-  %arrayidx26 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx26 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %24 = load float, ptr %arrayidx26, align 4
-  %arrayidx28 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx28 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %25 = load float, ptr %arrayidx28, align 4
   %sub29 = fsub float %24, %25
   %26 = tail call float @llvm.fmuladd.f32(float %cond, float %sub29, float %25)
-  %arrayidx33 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx33 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %26, ptr %arrayidx33, align 4
   %27 = load float, ptr %RGB2, align 4
   %conv = fptoui float %27 to i16
@@ -193779,10 +193779,10 @@ _ZNK9Imath_3_14halfcvfEv.exit56:                  ; preds = %if.then7.i.i54, %if
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %17 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %15 to i64
-  %arrayidx14 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx14 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %18 = load float, ptr %arrayidx14, align 4
   %idxprom15 = sext i32 %17 to i64
-  %arrayidx16 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom15
+  %arrayidx16 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom15
   %19 = load float, ptr %arrayidx16, align 4
   %sub = fsub float %18, %19
   %cmp17 = fcmp oeq float %sub, 0.000000e+00
@@ -193790,7 +193790,7 @@ _ZNK9Imath_3_14halfcvfEv.exit56:                  ; preds = %if.then7.i.i54, %if
 
 cond.false:                                       ; preds = %_ZNK9Imath_3_14halfcvfEv.exit56
   %idxprom18 = sext i32 %16 to i64
-  %arrayidx19 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom18
+  %arrayidx19 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom18
   %20 = load float, ptr %arrayidx19, align 4
   %sub22 = fsub float %20, %19
   %div = fdiv float %sub22, %sub
@@ -193873,14 +193873,14 @@ cond.end115:                                      ; preds = %cond.false102, %con
   store float %cond46, ptr %RGB2, align 4
   store float %cond81, ptr %arrayinit.element118, align 4
   store float %cond116, ptr %arrayinit.element119, align 4
-  %arrayidx121 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx121 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %51 = load float, ptr %arrayidx121, align 4
-  %arrayidx123 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
+  %arrayidx123 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
   %52 = load float, ptr %arrayidx123, align 4
   %sub124 = fsub float %51, %52
   %53 = tail call float @llvm.fmuladd.f32(float %cond, float %sub124, float %52)
   %idxprom127 = sext i32 %16 to i64
-  %arrayidx128 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
+  %arrayidx128 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
   store float %53, ptr %arrayidx128, align 4
   %54 = load float, ptr %RGB2, align 4
   %add.i57 = fadd float %54, 5.000000e-01
@@ -194433,10 +194433,10 @@ _ZNK9Imath_3_14halfcvfEv.exit56:                  ; preds = %if.then7.i.i54, %if
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %14 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %12 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %15 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %14 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %16 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %15, %16
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -194444,7 +194444,7 @@ _ZNK9Imath_3_14halfcvfEv.exit56:                  ; preds = %if.then7.i.i54, %if
 
 cond.false:                                       ; preds = %_ZNK9Imath_3_14halfcvfEv.exit56
   %idxprom11 = sext i32 %13 to i64
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom11
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom11
   %17 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %17, %16
   %div = fdiv float %sub15, %sub
@@ -194621,14 +194621,14 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   %add11.i130 = fadd float %delta.0.i124, %add.i129
   %mul12.i131 = fmul float %22, %add11.i130
   store float %mul12.i131, ptr %arrayinit.element33, align 4
-  %arrayidx45 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx45 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %55 = load float, ptr %arrayidx45, align 4
-  %arrayidx47 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx47 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %56 = load float, ptr %arrayidx47, align 4
   %sub48 = fsub float %55, %56
   %57 = tail call float @llvm.fmuladd.f32(float %cond, float %sub48, float %56)
   %idxprom51 = sext i32 %13 to i64
-  %arrayidx52 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom51
+  %arrayidx52 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom51
   store float %57, ptr %arrayidx52, align 4
   %58 = load float, ptr %RGB2, align 4
   %add.i148 = fadd float %58, 5.000000e-01
@@ -197939,10 +197939,10 @@ _ZNK9Imath_3_14halfcvfEv.exit59:                  ; preds = %if.then7.i.i57, %if
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %17 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %15 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %18 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %17 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %19 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %18, %19
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -197950,7 +197950,7 @@ _ZNK9Imath_3_14halfcvfEv.exit59:                  ; preds = %if.then7.i.i57, %if
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %_ZNK9Imath_3_14halfcvfEv.exit59
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %20 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %20, %19
   %div = fdiv float %sub15, %sub
@@ -197970,13 +197970,13 @@ cond.end:                                         ; preds = %_ZNK9Imath_3_14half
   %arrayidx.i64 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i63
   %23 = load float, ptr %arrayidx.i64, align 4
   store float %23, ptr %arrayinit.element22, align 4
-  %arrayidx26 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx26 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %24 = load float, ptr %arrayidx26, align 4
-  %arrayidx28 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx28 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %25 = load float, ptr %arrayidx28, align 4
   %sub29 = fsub float %24, %25
   %26 = tail call float @llvm.fmuladd.f32(float %cond, float %sub29, float %25)
-  %arrayidx33 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx33 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %26, ptr %arrayidx33, align 4
   %27 = load float, ptr %RGB2, align 4
   %conv = fptoui float %27 to i16
@@ -198543,10 +198543,10 @@ _ZNK9Imath_3_14halfcvfEv.exit59:                  ; preds = %if.then7.i.i57, %if
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %17 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %15 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %18 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %17 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %19 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %18, %19
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -198554,7 +198554,7 @@ _ZNK9Imath_3_14halfcvfEv.exit59:                  ; preds = %if.then7.i.i57, %if
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %_ZNK9Imath_3_14halfcvfEv.exit59
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %20 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %20, %19
   %div = fdiv float %sub15, %sub
@@ -198574,13 +198574,13 @@ cond.end:                                         ; preds = %_ZNK9Imath_3_14half
   %arrayidx.i64 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i63
   %23 = load float, ptr %arrayidx.i64, align 4
   store float %23, ptr %arrayinit.element22, align 4
-  %arrayidx26 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx26 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %24 = load float, ptr %arrayidx26, align 4
-  %arrayidx28 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx28 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %25 = load float, ptr %arrayidx28, align 4
   %sub29 = fsub float %24, %25
   %26 = tail call float @llvm.fmuladd.f32(float %cond, float %sub29, float %25)
-  %arrayidx33 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx33 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %26, ptr %arrayidx33, align 4
   %27 = load float, ptr %RGB2, align 4
   %conv = fptoui float %27 to i16
@@ -201164,10 +201164,10 @@ _ZNK9Imath_3_14halfcvfEv.exit56:                  ; preds = %if.then7.i.i54, %if
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %17 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %15 to i64
-  %arrayidx14 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx14 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %18 = load float, ptr %arrayidx14, align 4
   %idxprom15 = sext i32 %17 to i64
-  %arrayidx16 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom15
+  %arrayidx16 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom15
   %19 = load float, ptr %arrayidx16, align 4
   %sub = fsub float %18, %19
   %cmp17 = fcmp oeq float %sub, 0.000000e+00
@@ -201175,7 +201175,7 @@ _ZNK9Imath_3_14halfcvfEv.exit56:                  ; preds = %if.then7.i.i54, %if
 
 cond.false:                                       ; preds = %_ZNK9Imath_3_14halfcvfEv.exit56
   %idxprom18 = sext i32 %16 to i64
-  %arrayidx19 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom18
+  %arrayidx19 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom18
   %20 = load float, ptr %arrayidx19, align 4
   %sub22 = fsub float %20, %19
   %div = fdiv float %sub22, %sub
@@ -201258,14 +201258,14 @@ cond.end115:                                      ; preds = %cond.false102, %con
   store float %cond46, ptr %RGB2, align 4
   store float %cond81, ptr %arrayinit.element118, align 4
   store float %cond116, ptr %arrayinit.element119, align 4
-  %arrayidx121 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx121 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %51 = load float, ptr %arrayidx121, align 4
-  %arrayidx123 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
+  %arrayidx123 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
   %52 = load float, ptr %arrayidx123, align 4
   %sub124 = fsub float %51, %52
   %53 = tail call float @llvm.fmuladd.f32(float %cond, float %sub124, float %52)
   %idxprom127 = sext i32 %16 to i64
-  %arrayidx128 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
+  %arrayidx128 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
   store float %53, ptr %arrayidx128, align 4
   %54 = load float, ptr %RGB2, align 4
   %add.i57 = fadd float %54, 5.000000e-01
@@ -201818,10 +201818,10 @@ _ZNK9Imath_3_14halfcvfEv.exit56:                  ; preds = %if.then7.i.i54, %if
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %14 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %12 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %15 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %14 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %16 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %15, %16
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -201829,7 +201829,7 @@ _ZNK9Imath_3_14halfcvfEv.exit56:                  ; preds = %if.then7.i.i54, %if
 
 cond.false:                                       ; preds = %_ZNK9Imath_3_14halfcvfEv.exit56
   %idxprom11 = sext i32 %13 to i64
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom11
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom11
   %17 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %17, %16
   %div = fdiv float %sub15, %sub
@@ -202006,14 +202006,14 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   %add11.i130 = fadd float %delta.0.i124, %add.i129
   %mul12.i131 = fmul float %22, %add11.i130
   store float %mul12.i131, ptr %arrayinit.element33, align 4
-  %arrayidx45 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx45 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %55 = load float, ptr %arrayidx45, align 4
-  %arrayidx47 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx47 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %56 = load float, ptr %arrayidx47, align 4
   %sub48 = fsub float %55, %56
   %57 = tail call float @llvm.fmuladd.f32(float %cond, float %sub48, float %56)
   %idxprom51 = sext i32 %13 to i64
-  %arrayidx52 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom51
+  %arrayidx52 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom51
   store float %57, ptr %arrayidx52, align 4
   %58 = load float, ptr %RGB2, align 4
   %add.i148 = fadd float %58, 5.000000e-01
@@ -205401,10 +205401,10 @@ _ZNK9Imath_3_14halfcvfEv.exit59:                  ; preds = %if.then7.i.i57, %if
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %17 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %15 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %18 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %17 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %19 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %18, %19
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -205412,7 +205412,7 @@ _ZNK9Imath_3_14halfcvfEv.exit59:                  ; preds = %if.then7.i.i57, %if
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %_ZNK9Imath_3_14halfcvfEv.exit59
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %20 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %20, %19
   %div = fdiv float %sub15, %sub
@@ -205432,13 +205432,13 @@ cond.end:                                         ; preds = %_ZNK9Imath_3_14half
   %arrayidx.i64 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i63
   %23 = load float, ptr %arrayidx.i64, align 4
   store float %23, ptr %arrayinit.element22, align 4
-  %arrayidx26 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx26 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %24 = load float, ptr %arrayidx26, align 4
-  %arrayidx28 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx28 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %25 = load float, ptr %arrayidx28, align 4
   %sub29 = fsub float %24, %25
   %26 = tail call float @llvm.fmuladd.f32(float %cond, float %sub29, float %25)
-  %arrayidx33 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx33 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %26, ptr %arrayidx33, align 4
   %27 = load float, ptr %RGB2, align 4
   %28 = bitcast float %27 to i32
@@ -206390,10 +206390,10 @@ _ZNK9Imath_3_14halfcvfEv.exit59:                  ; preds = %if.then7.i.i57, %if
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %17 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %15 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %18 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %17 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %19 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %18, %19
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -206401,7 +206401,7 @@ _ZNK9Imath_3_14halfcvfEv.exit59:                  ; preds = %if.then7.i.i57, %if
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %_ZNK9Imath_3_14halfcvfEv.exit59
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %20 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %20, %19
   %div = fdiv float %sub15, %sub
@@ -206421,13 +206421,13 @@ cond.end:                                         ; preds = %_ZNK9Imath_3_14half
   %arrayidx.i64 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i63
   %23 = load float, ptr %arrayidx.i64, align 4
   store float %23, ptr %arrayinit.element22, align 4
-  %arrayidx26 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx26 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %24 = load float, ptr %arrayidx26, align 4
-  %arrayidx28 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx28 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %25 = load float, ptr %arrayidx28, align 4
   %sub29 = fsub float %24, %25
   %26 = tail call float @llvm.fmuladd.f32(float %cond, float %sub29, float %25)
-  %arrayidx33 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx33 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %26, ptr %arrayidx33, align 4
   %27 = load float, ptr %RGB2, align 4
   %28 = bitcast float %27 to i32
@@ -209847,10 +209847,10 @@ _ZNK9Imath_3_14halfcvfEv.exit56:                  ; preds = %if.then7.i.i54, %if
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %17 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %15 to i64
-  %arrayidx14 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx14 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %18 = load float, ptr %arrayidx14, align 4
   %idxprom15 = sext i32 %17 to i64
-  %arrayidx16 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom15
+  %arrayidx16 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom15
   %19 = load float, ptr %arrayidx16, align 4
   %sub = fsub float %18, %19
   %cmp17 = fcmp oeq float %sub, 0.000000e+00
@@ -209858,7 +209858,7 @@ _ZNK9Imath_3_14halfcvfEv.exit56:                  ; preds = %if.then7.i.i54, %if
 
 cond.false:                                       ; preds = %_ZNK9Imath_3_14halfcvfEv.exit56
   %idxprom18 = sext i32 %16 to i64
-  %arrayidx19 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom18
+  %arrayidx19 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom18
   %20 = load float, ptr %arrayidx19, align 4
   %sub22 = fsub float %20, %19
   %div = fdiv float %sub22, %sub
@@ -209941,14 +209941,14 @@ cond.end115:                                      ; preds = %cond.false102, %con
   store float %cond46, ptr %RGB2, align 4
   store float %cond81, ptr %arrayinit.element118, align 4
   store float %cond116, ptr %arrayinit.element119, align 4
-  %arrayidx121 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx121 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %51 = load float, ptr %arrayidx121, align 4
-  %arrayidx123 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
+  %arrayidx123 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
   %52 = load float, ptr %arrayidx123, align 4
   %sub124 = fsub float %51, %52
   %53 = tail call float @llvm.fmuladd.f32(float %cond, float %sub124, float %52)
   %idxprom127 = sext i32 %16 to i64
-  %arrayidx128 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
+  %arrayidx128 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
   store float %53, ptr %arrayidx128, align 4
   %54 = load float, ptr %RGB2, align 4
   %55 = bitcast float %54 to i32
@@ -210765,10 +210765,10 @@ _ZNK9Imath_3_14halfcvfEv.exit56:                  ; preds = %if.then7.i.i54, %if
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %14 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %12 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %15 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %14 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %16 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %15, %16
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -210776,7 +210776,7 @@ _ZNK9Imath_3_14halfcvfEv.exit56:                  ; preds = %if.then7.i.i54, %if
 
 cond.false:                                       ; preds = %_ZNK9Imath_3_14halfcvfEv.exit56
   %idxprom11 = sext i32 %13 to i64
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom11
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom11
   %17 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %17, %16
   %div = fdiv float %sub15, %sub
@@ -210953,14 +210953,14 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   %add11.i130 = fadd float %delta.0.i124, %add.i129
   %mul12.i131 = fmul float %22, %add11.i130
   store float %mul12.i131, ptr %arrayinit.element33, align 4
-  %arrayidx45 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx45 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %55 = load float, ptr %arrayidx45, align 4
-  %arrayidx47 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx47 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %56 = load float, ptr %arrayidx47, align 4
   %sub48 = fsub float %55, %56
   %57 = tail call float @llvm.fmuladd.f32(float %cond, float %sub48, float %56)
   %idxprom51 = sext i32 %13 to i64
-  %arrayidx52 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom51
+  %arrayidx52 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom51
   store float %57, ptr %arrayidx52, align 4
   %58 = load float, ptr %RGB2, align 4
   %59 = bitcast float %58 to i32
@@ -214534,10 +214534,10 @@ _ZNK9Imath_3_14halfcvfEv.exit59:                  ; preds = %if.then7.i.i57, %if
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %17 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %15 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %18 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %17 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %19 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %18, %19
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -214545,7 +214545,7 @@ _ZNK9Imath_3_14halfcvfEv.exit59:                  ; preds = %if.then7.i.i57, %if
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %_ZNK9Imath_3_14halfcvfEv.exit59
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %20 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %20, %19
   %div = fdiv float %sub15, %sub
@@ -214565,13 +214565,13 @@ cond.end:                                         ; preds = %_ZNK9Imath_3_14half
   %arrayidx.i64 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i63
   %23 = load float, ptr %arrayidx.i64, align 4
   store float %23, ptr %arrayinit.element22, align 4
-  %arrayidx26 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx26 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %24 = load float, ptr %arrayidx26, align 4
-  %arrayidx28 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx28 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %25 = load float, ptr %arrayidx28, align 4
   %sub29 = fsub float %24, %25
   %26 = tail call float @llvm.fmuladd.f32(float %cond, float %sub29, float %25)
-  %arrayidx33 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx33 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %26, ptr %arrayidx33, align 4
   %27 = load float, ptr %RGB2, align 4
   store float %27, ptr %out.093, align 4
@@ -215133,10 +215133,10 @@ _ZNK9Imath_3_14halfcvfEv.exit59:                  ; preds = %if.then7.i.i57, %if
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %17 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %15 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %18 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %17 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %19 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %18, %19
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -215144,7 +215144,7 @@ _ZNK9Imath_3_14halfcvfEv.exit59:                  ; preds = %if.then7.i.i57, %if
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %_ZNK9Imath_3_14halfcvfEv.exit59
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %20 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %20, %19
   %div = fdiv float %sub15, %sub
@@ -215164,13 +215164,13 @@ cond.end:                                         ; preds = %_ZNK9Imath_3_14half
   %arrayidx.i64 = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i63
   %23 = load float, ptr %arrayidx.i64, align 4
   store float %23, ptr %arrayinit.element22, align 4
-  %arrayidx26 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx26 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %24 = load float, ptr %arrayidx26, align 4
-  %arrayidx28 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx28 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %25 = load float, ptr %arrayidx28, align 4
   %sub29 = fsub float %24, %25
   %26 = tail call float @llvm.fmuladd.f32(float %cond, float %sub29, float %25)
-  %arrayidx33 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx33 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %26, ptr %arrayidx33, align 4
   %27 = load float, ptr %RGB2, align 4
   store float %27, ptr %out.093, align 4
@@ -217654,10 +217654,10 @@ _ZNK9Imath_3_14halfcvfEv.exit56:                  ; preds = %if.then7.i.i54, %if
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %17 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %15 to i64
-  %arrayidx14 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx14 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %18 = load float, ptr %arrayidx14, align 4
   %idxprom15 = sext i32 %17 to i64
-  %arrayidx16 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom15
+  %arrayidx16 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom15
   %19 = load float, ptr %arrayidx16, align 4
   %sub = fsub float %18, %19
   %cmp17 = fcmp oeq float %sub, 0.000000e+00
@@ -217665,7 +217665,7 @@ _ZNK9Imath_3_14halfcvfEv.exit56:                  ; preds = %if.then7.i.i54, %if
 
 cond.false:                                       ; preds = %_ZNK9Imath_3_14halfcvfEv.exit56
   %idxprom18 = sext i32 %16 to i64
-  %arrayidx19 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom18
+  %arrayidx19 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom18
   %20 = load float, ptr %arrayidx19, align 4
   %sub22 = fsub float %20, %19
   %div = fdiv float %sub22, %sub
@@ -217748,14 +217748,14 @@ cond.end115:                                      ; preds = %cond.false102, %con
   store float %cond46, ptr %RGB2, align 4
   store float %cond81, ptr %arrayinit.element118, align 4
   store float %cond116, ptr %arrayinit.element119, align 4
-  %arrayidx121 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx121 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %51 = load float, ptr %arrayidx121, align 4
-  %arrayidx123 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
+  %arrayidx123 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom15
   %52 = load float, ptr %arrayidx123, align 4
   %sub124 = fsub float %51, %52
   %53 = tail call float @llvm.fmuladd.f32(float %cond, float %sub124, float %52)
   %idxprom127 = sext i32 %16 to i64
-  %arrayidx128 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
+  %arrayidx128 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom127
   store float %53, ptr %arrayidx128, align 4
   %54 = load float, ptr %RGB2, align 4
   store float %54, ptr %out.085, align 4
@@ -218260,10 +218260,10 @@ _ZNK9Imath_3_14halfcvfEv.exit56:                  ; preds = %if.then7.i.i54, %if
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %14 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %12 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %15 = load float, ptr %arrayidx7, align 4
   %idxprom8 = sext i32 %14 to i64
-  %arrayidx9 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom8
   %16 = load float, ptr %arrayidx9, align 4
   %sub = fsub float %15, %16
   %cmp10 = fcmp oeq float %sub, 0.000000e+00
@@ -218271,7 +218271,7 @@ _ZNK9Imath_3_14halfcvfEv.exit56:                  ; preds = %if.then7.i.i54, %if
 
 cond.false:                                       ; preds = %_ZNK9Imath_3_14halfcvfEv.exit56
   %idxprom11 = sext i32 %13 to i64
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom11
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom11
   %17 = load float, ptr %arrayidx12, align 4
   %sub15 = fsub float %17, %16
   %div = fdiv float %sub15, %sub
@@ -218448,14 +218448,14 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   %add11.i130 = fadd float %delta.0.i124, %add.i129
   %mul12.i131 = fmul float %22, %add11.i130
   store float %mul12.i131, ptr %arrayinit.element33, align 4
-  %arrayidx45 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx45 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %55 = load float, ptr %arrayidx45, align 4
-  %arrayidx47 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
+  %arrayidx47 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom8
   %56 = load float, ptr %arrayidx47, align 4
   %sub48 = fsub float %55, %56
   %57 = tail call float @llvm.fmuladd.f32(float %cond, float %sub48, float %56)
   %idxprom51 = sext i32 %13 to i64
-  %arrayidx52 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom51
+  %arrayidx52 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom51
   store float %57, ptr %arrayidx52, align 4
   %58 = load float, ptr %RGB2, align 4
   store float %58, ptr %out.0176, align 4
@@ -221822,10 +221822,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %20 = tail call noundef float @llvm.fmuladd.f32(float %sub.i16, float %sub33, float %18)
   store float %20, ptr %arrayinit.element25, align 4
   %idxprom35 = sext i32 %6 to i64
-  %arrayidx36 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom35
+  %arrayidx36 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom35
   %21 = load float, ptr %arrayidx36, align 4
   %idxprom37 = sext i32 %8 to i64
-  %arrayidx38 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom37
+  %arrayidx38 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom37
   %22 = load float, ptr %arrayidx38, align 4
   %sub39 = fsub float %21, %22
   %cmp40 = fcmp oeq float %sub39, 0.000000e+00
@@ -221833,7 +221833,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp40, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx42 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx42 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %23 = load float, ptr %arrayidx42, align 4
   %sub45 = fsub float %23, %22
   %div = fdiv float %sub45, %sub39
@@ -221841,13 +221841,13 @@ cond.false:                                       ; preds = %for.body
 
 cond.end:                                         ; preds = %for.body, %cond.false
   %cond = phi float [ %div, %cond.false ], [ 0.000000e+00, %for.body ]
-  %arrayidx47 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom35
+  %arrayidx47 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom35
   %24 = load float, ptr %arrayidx47, align 4
-  %arrayidx49 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom37
+  %arrayidx49 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom37
   %25 = load float, ptr %arrayidx49, align 4
   %sub50 = fsub float %24, %25
   %26 = tail call float @llvm.fmuladd.f32(float %cond, float %sub50, float %25)
-  %arrayidx54 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx54 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %26, ptr %arrayidx54, align 4
   %27 = load float, ptr %RGB2, align 4
   %add.i17 = fadd float %27, 5.000000e-01
@@ -222565,10 +222565,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %9 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %7 to i64
-  %arrayidx5 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx5 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %10 = load float, ptr %arrayidx5, align 4
   %idxprom6 = sext i32 %9 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom6
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom6
   %11 = load float, ptr %arrayidx7, align 4
   %sub = fsub float %10, %11
   %cmp8 = fcmp oeq float %sub, 0.000000e+00
@@ -222576,7 +222576,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp8, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx10 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx10 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %12 = load float, ptr %arrayidx10, align 4
   %sub13 = fsub float %12, %11
   %div = fdiv float %sub13, %sub
@@ -222647,13 +222647,13 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %sub.i30 = fsub float %29, %28
   %30 = tail call noundef float @llvm.fmuladd.f32(float %sub.i30, float %delta.sroa.0.8.vec.extract, float %28)
   store float %30, ptr %arrayinit.element56, align 4
-  %arrayidx68 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx68 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %31 = load float, ptr %arrayidx68, align 4
-  %arrayidx70 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom6
+  %arrayidx70 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom6
   %32 = load float, ptr %arrayidx70, align 4
   %sub71 = fsub float %31, %32
   %33 = tail call float @llvm.fmuladd.f32(float %cond, float %sub71, float %32)
-  %arrayidx75 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx75 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %33, ptr %arrayidx75, align 4
   %34 = load float, ptr %RGB2, align 4
   %add.i31 = fadd float %34, 5.000000e-01
@@ -224833,10 +224833,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx12, align 4
   %idxprom13 = sext i32 %8 to i64
-  %arrayidx14 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom13
+  %arrayidx14 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom13
   %10 = load float, ptr %arrayidx14, align 4
   %sub = fsub float %9, %10
   %cmp15 = fcmp oeq float %sub, 0.000000e+00
@@ -224844,7 +224844,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.false:                                       ; preds = %for.body
   %idxprom16 = sext i32 %7 to i64
-  %arrayidx17 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom16
+  %arrayidx17 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom16
   %11 = load float, ptr %arrayidx17, align 4
   %sub20 = fsub float %11, %10
   %div = fdiv float %sub20, %sub
@@ -224927,14 +224927,14 @@ cond.end112:                                      ; preds = %cond.false99, %cond
   store float %cond43, ptr %RGB2, align 4
   store float %cond78, ptr %arrayinit.element115, align 4
   store float %cond113, ptr %arrayinit.element116, align 4
-  %arrayidx118 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx118 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %42 = load float, ptr %arrayidx118, align 4
-  %arrayidx120 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom13
+  %arrayidx120 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom13
   %43 = load float, ptr %arrayidx120, align 4
   %sub121 = fsub float %42, %43
   %44 = tail call float @llvm.fmuladd.f32(float %cond, float %sub121, float %43)
   %idxprom124 = sext i32 %7 to i64
-  %arrayidx125 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom124
+  %arrayidx125 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom124
   store float %44, ptr %arrayidx125, align 4
   %45 = load float, ptr %RGB2, align 4
   %add.i11 = fadd float %45, 5.000000e-01
@@ -225335,10 +225335,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %5 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %3 to i64
-  %arrayidx5 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx5 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %6 = load float, ptr %arrayidx5, align 4
   %idxprom6 = sext i32 %5 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom6
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom6
   %7 = load float, ptr %arrayidx7, align 4
   %sub = fsub float %6, %7
   %cmp8 = fcmp oeq float %sub, 0.000000e+00
@@ -225346,7 +225346,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.false:                                       ; preds = %for.body
   %idxprom9 = sext i32 %4 to i64
-  %arrayidx10 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom9
+  %arrayidx10 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom9
   %8 = load float, ptr %arrayidx10, align 4
   %sub13 = fsub float %8, %7
   %div = fdiv float %sub13, %sub
@@ -225523,14 +225523,14 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   %add11.i83 = fadd float %delta.0.i77, %add.i82
   %mul12.i84 = fmul float %13, %add11.i83
   store float %mul12.i84, ptr %arrayinit.element30, align 4
-  %arrayidx42 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx42 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %46 = load float, ptr %arrayidx42, align 4
-  %arrayidx44 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom6
+  %arrayidx44 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom6
   %47 = load float, ptr %arrayidx44, align 4
   %sub45 = fsub float %46, %47
   %48 = tail call float @llvm.fmuladd.f32(float %cond, float %sub45, float %47)
   %idxprom48 = sext i32 %4 to i64
-  %arrayidx49 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom48
+  %arrayidx49 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom48
   store float %48, ptr %arrayidx49, align 4
   %49 = load float, ptr %RGB2, align 4
   %add.i101 = fadd float %49, 5.000000e-01
@@ -226811,10 +226811,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %20 = tail call noundef float @llvm.fmuladd.f32(float %sub.i16, float %sub33, float %18)
   store float %20, ptr %arrayinit.element25, align 4
   %idxprom35 = sext i32 %6 to i64
-  %arrayidx36 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom35
+  %arrayidx36 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom35
   %21 = load float, ptr %arrayidx36, align 4
   %idxprom37 = sext i32 %8 to i64
-  %arrayidx38 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom37
+  %arrayidx38 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom37
   %22 = load float, ptr %arrayidx38, align 4
   %sub39 = fsub float %21, %22
   %cmp40 = fcmp oeq float %sub39, 0.000000e+00
@@ -226822,7 +226822,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp40, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx42 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx42 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %23 = load float, ptr %arrayidx42, align 4
   %sub45 = fsub float %23, %22
   %div = fdiv float %sub45, %sub39
@@ -226830,13 +226830,13 @@ cond.false:                                       ; preds = %for.body
 
 cond.end:                                         ; preds = %for.body, %cond.false
   %cond = phi float [ %div, %cond.false ], [ 0.000000e+00, %for.body ]
-  %arrayidx47 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom35
+  %arrayidx47 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom35
   %24 = load float, ptr %arrayidx47, align 4
-  %arrayidx49 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom37
+  %arrayidx49 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom37
   %25 = load float, ptr %arrayidx49, align 4
   %sub50 = fsub float %24, %25
   %26 = tail call float @llvm.fmuladd.f32(float %cond, float %sub50, float %25)
-  %arrayidx54 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx54 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %26, ptr %arrayidx54, align 4
   %27 = load float, ptr %RGB2, align 4
   %add.i17 = fadd float %27, 5.000000e-01
@@ -227548,10 +227548,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %9 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %7 to i64
-  %arrayidx5 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx5 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %10 = load float, ptr %arrayidx5, align 4
   %idxprom6 = sext i32 %9 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom6
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom6
   %11 = load float, ptr %arrayidx7, align 4
   %sub = fsub float %10, %11
   %cmp8 = fcmp oeq float %sub, 0.000000e+00
@@ -227559,7 +227559,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp8, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx10 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx10 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %12 = load float, ptr %arrayidx10, align 4
   %sub13 = fsub float %12, %11
   %div = fdiv float %sub13, %sub
@@ -227630,13 +227630,13 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %sub.i30 = fsub float %29, %28
   %30 = tail call noundef float @llvm.fmuladd.f32(float %sub.i30, float %delta.sroa.0.8.vec.extract, float %28)
   store float %30, ptr %arrayinit.element56, align 4
-  %arrayidx68 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx68 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %31 = load float, ptr %arrayidx68, align 4
-  %arrayidx70 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom6
+  %arrayidx70 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom6
   %32 = load float, ptr %arrayidx70, align 4
   %sub71 = fsub float %31, %32
   %33 = tail call float @llvm.fmuladd.f32(float %cond, float %sub71, float %32)
-  %arrayidx75 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx75 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %33, ptr %arrayidx75, align 4
   %34 = load float, ptr %RGB2, align 4
   %add.i31 = fadd float %34, 5.000000e-01
@@ -229807,10 +229807,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx12, align 4
   %idxprom13 = sext i32 %8 to i64
-  %arrayidx14 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom13
+  %arrayidx14 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom13
   %10 = load float, ptr %arrayidx14, align 4
   %sub = fsub float %9, %10
   %cmp15 = fcmp oeq float %sub, 0.000000e+00
@@ -229818,7 +229818,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.false:                                       ; preds = %for.body
   %idxprom16 = sext i32 %7 to i64
-  %arrayidx17 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom16
+  %arrayidx17 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom16
   %11 = load float, ptr %arrayidx17, align 4
   %sub20 = fsub float %11, %10
   %div = fdiv float %sub20, %sub
@@ -229901,14 +229901,14 @@ cond.end112:                                      ; preds = %cond.false99, %cond
   store float %cond43, ptr %RGB2, align 4
   store float %cond78, ptr %arrayinit.element115, align 4
   store float %cond113, ptr %arrayinit.element116, align 4
-  %arrayidx118 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx118 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %42 = load float, ptr %arrayidx118, align 4
-  %arrayidx120 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom13
+  %arrayidx120 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom13
   %43 = load float, ptr %arrayidx120, align 4
   %sub121 = fsub float %42, %43
   %44 = tail call float @llvm.fmuladd.f32(float %cond, float %sub121, float %43)
   %idxprom124 = sext i32 %7 to i64
-  %arrayidx125 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom124
+  %arrayidx125 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom124
   store float %44, ptr %arrayidx125, align 4
   %45 = load float, ptr %RGB2, align 4
   %add.i11 = fadd float %45, 5.000000e-01
@@ -230309,10 +230309,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %5 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %3 to i64
-  %arrayidx5 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx5 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %6 = load float, ptr %arrayidx5, align 4
   %idxprom6 = sext i32 %5 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom6
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom6
   %7 = load float, ptr %arrayidx7, align 4
   %sub = fsub float %6, %7
   %cmp8 = fcmp oeq float %sub, 0.000000e+00
@@ -230320,7 +230320,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.false:                                       ; preds = %for.body
   %idxprom9 = sext i32 %4 to i64
-  %arrayidx10 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom9
+  %arrayidx10 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom9
   %8 = load float, ptr %arrayidx10, align 4
   %sub13 = fsub float %8, %7
   %div = fdiv float %sub13, %sub
@@ -230497,14 +230497,14 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   %add11.i83 = fadd float %delta.0.i77, %add.i82
   %mul12.i84 = fmul float %13, %add11.i83
   store float %mul12.i84, ptr %arrayinit.element30, align 4
-  %arrayidx42 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx42 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %46 = load float, ptr %arrayidx42, align 4
-  %arrayidx44 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom6
+  %arrayidx44 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom6
   %47 = load float, ptr %arrayidx44, align 4
   %sub45 = fsub float %46, %47
   %48 = tail call float @llvm.fmuladd.f32(float %cond, float %sub45, float %47)
   %idxprom48 = sext i32 %4 to i64
-  %arrayidx49 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom48
+  %arrayidx49 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom48
   store float %48, ptr %arrayidx49, align 4
   %49 = load float, ptr %RGB2, align 4
   %add.i101 = fadd float %49, 5.000000e-01
@@ -231785,10 +231785,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %20 = tail call noundef float @llvm.fmuladd.f32(float %sub.i16, float %sub33, float %18)
   store float %20, ptr %arrayinit.element25, align 4
   %idxprom35 = sext i32 %6 to i64
-  %arrayidx36 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom35
+  %arrayidx36 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom35
   %21 = load float, ptr %arrayidx36, align 4
   %idxprom37 = sext i32 %8 to i64
-  %arrayidx38 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom37
+  %arrayidx38 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom37
   %22 = load float, ptr %arrayidx38, align 4
   %sub39 = fsub float %21, %22
   %cmp40 = fcmp oeq float %sub39, 0.000000e+00
@@ -231796,7 +231796,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp40, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx42 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx42 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %23 = load float, ptr %arrayidx42, align 4
   %sub45 = fsub float %23, %22
   %div = fdiv float %sub45, %sub39
@@ -231804,13 +231804,13 @@ cond.false:                                       ; preds = %for.body
 
 cond.end:                                         ; preds = %for.body, %cond.false
   %cond = phi float [ %div, %cond.false ], [ 0.000000e+00, %for.body ]
-  %arrayidx47 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom35
+  %arrayidx47 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom35
   %24 = load float, ptr %arrayidx47, align 4
-  %arrayidx49 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom37
+  %arrayidx49 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom37
   %25 = load float, ptr %arrayidx49, align 4
   %sub50 = fsub float %24, %25
   %26 = tail call float @llvm.fmuladd.f32(float %cond, float %sub50, float %25)
-  %arrayidx54 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx54 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %26, ptr %arrayidx54, align 4
   %27 = load float, ptr %RGB2, align 4
   %add.i17 = fadd float %27, 5.000000e-01
@@ -232522,10 +232522,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %9 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %7 to i64
-  %arrayidx5 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx5 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %10 = load float, ptr %arrayidx5, align 4
   %idxprom6 = sext i32 %9 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom6
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom6
   %11 = load float, ptr %arrayidx7, align 4
   %sub = fsub float %10, %11
   %cmp8 = fcmp oeq float %sub, 0.000000e+00
@@ -232533,7 +232533,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp8, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx10 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx10 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %12 = load float, ptr %arrayidx10, align 4
   %sub13 = fsub float %12, %11
   %div = fdiv float %sub13, %sub
@@ -232604,13 +232604,13 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %sub.i30 = fsub float %29, %28
   %30 = tail call noundef float @llvm.fmuladd.f32(float %sub.i30, float %delta.sroa.0.8.vec.extract, float %28)
   store float %30, ptr %arrayinit.element56, align 4
-  %arrayidx68 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx68 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %31 = load float, ptr %arrayidx68, align 4
-  %arrayidx70 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom6
+  %arrayidx70 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom6
   %32 = load float, ptr %arrayidx70, align 4
   %sub71 = fsub float %31, %32
   %33 = tail call float @llvm.fmuladd.f32(float %cond, float %sub71, float %32)
-  %arrayidx75 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx75 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %33, ptr %arrayidx75, align 4
   %34 = load float, ptr %RGB2, align 4
   %add.i31 = fadd float %34, 5.000000e-01
@@ -234781,10 +234781,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx12, align 4
   %idxprom13 = sext i32 %8 to i64
-  %arrayidx14 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom13
+  %arrayidx14 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom13
   %10 = load float, ptr %arrayidx14, align 4
   %sub = fsub float %9, %10
   %cmp15 = fcmp oeq float %sub, 0.000000e+00
@@ -234792,7 +234792,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.false:                                       ; preds = %for.body
   %idxprom16 = sext i32 %7 to i64
-  %arrayidx17 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom16
+  %arrayidx17 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom16
   %11 = load float, ptr %arrayidx17, align 4
   %sub20 = fsub float %11, %10
   %div = fdiv float %sub20, %sub
@@ -234875,14 +234875,14 @@ cond.end112:                                      ; preds = %cond.false99, %cond
   store float %cond43, ptr %RGB2, align 4
   store float %cond78, ptr %arrayinit.element115, align 4
   store float %cond113, ptr %arrayinit.element116, align 4
-  %arrayidx118 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx118 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %42 = load float, ptr %arrayidx118, align 4
-  %arrayidx120 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom13
+  %arrayidx120 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom13
   %43 = load float, ptr %arrayidx120, align 4
   %sub121 = fsub float %42, %43
   %44 = tail call float @llvm.fmuladd.f32(float %cond, float %sub121, float %43)
   %idxprom124 = sext i32 %7 to i64
-  %arrayidx125 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom124
+  %arrayidx125 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom124
   store float %44, ptr %arrayidx125, align 4
   %45 = load float, ptr %RGB2, align 4
   %add.i11 = fadd float %45, 5.000000e-01
@@ -235283,10 +235283,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %5 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %3 to i64
-  %arrayidx5 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx5 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %6 = load float, ptr %arrayidx5, align 4
   %idxprom6 = sext i32 %5 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom6
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom6
   %7 = load float, ptr %arrayidx7, align 4
   %sub = fsub float %6, %7
   %cmp8 = fcmp oeq float %sub, 0.000000e+00
@@ -235294,7 +235294,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.false:                                       ; preds = %for.body
   %idxprom9 = sext i32 %4 to i64
-  %arrayidx10 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom9
+  %arrayidx10 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom9
   %8 = load float, ptr %arrayidx10, align 4
   %sub13 = fsub float %8, %7
   %div = fdiv float %sub13, %sub
@@ -235471,14 +235471,14 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   %add11.i83 = fadd float %delta.0.i77, %add.i82
   %mul12.i84 = fmul float %13, %add11.i83
   store float %mul12.i84, ptr %arrayinit.element30, align 4
-  %arrayidx42 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx42 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %46 = load float, ptr %arrayidx42, align 4
-  %arrayidx44 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom6
+  %arrayidx44 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom6
   %47 = load float, ptr %arrayidx44, align 4
   %sub45 = fsub float %46, %47
   %48 = tail call float @llvm.fmuladd.f32(float %cond, float %sub45, float %47)
   %idxprom48 = sext i32 %4 to i64
-  %arrayidx49 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom48
+  %arrayidx49 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom48
   store float %48, ptr %arrayidx49, align 4
   %49 = load float, ptr %RGB2, align 4
   %add.i101 = fadd float %49, 5.000000e-01
@@ -236759,10 +236759,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %20 = tail call noundef float @llvm.fmuladd.f32(float %sub.i16, float %sub33, float %18)
   store float %20, ptr %arrayinit.element25, align 4
   %idxprom35 = sext i32 %6 to i64
-  %arrayidx36 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom35
+  %arrayidx36 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom35
   %21 = load float, ptr %arrayidx36, align 4
   %idxprom37 = sext i32 %8 to i64
-  %arrayidx38 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom37
+  %arrayidx38 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom37
   %22 = load float, ptr %arrayidx38, align 4
   %sub39 = fsub float %21, %22
   %cmp40 = fcmp oeq float %sub39, 0.000000e+00
@@ -236770,7 +236770,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp40, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx42 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx42 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %23 = load float, ptr %arrayidx42, align 4
   %sub45 = fsub float %23, %22
   %div = fdiv float %sub45, %sub39
@@ -236778,13 +236778,13 @@ cond.false:                                       ; preds = %for.body
 
 cond.end:                                         ; preds = %for.body, %cond.false
   %cond = phi float [ %div, %cond.false ], [ 0.000000e+00, %for.body ]
-  %arrayidx47 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom35
+  %arrayidx47 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom35
   %24 = load float, ptr %arrayidx47, align 4
-  %arrayidx49 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom37
+  %arrayidx49 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom37
   %25 = load float, ptr %arrayidx49, align 4
   %sub50 = fsub float %24, %25
   %26 = tail call float @llvm.fmuladd.f32(float %cond, float %sub50, float %25)
-  %arrayidx54 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx54 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %26, ptr %arrayidx54, align 4
   %27 = load float, ptr %RGB2, align 4
   %add.i17 = fadd float %27, 5.000000e-01
@@ -237496,10 +237496,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %9 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %7 to i64
-  %arrayidx5 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx5 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %10 = load float, ptr %arrayidx5, align 4
   %idxprom6 = sext i32 %9 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom6
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom6
   %11 = load float, ptr %arrayidx7, align 4
   %sub = fsub float %10, %11
   %cmp8 = fcmp oeq float %sub, 0.000000e+00
@@ -237507,7 +237507,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp8, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx10 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx10 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %12 = load float, ptr %arrayidx10, align 4
   %sub13 = fsub float %12, %11
   %div = fdiv float %sub13, %sub
@@ -237578,13 +237578,13 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %sub.i30 = fsub float %29, %28
   %30 = tail call noundef float @llvm.fmuladd.f32(float %sub.i30, float %delta.sroa.0.8.vec.extract, float %28)
   store float %30, ptr %arrayinit.element56, align 4
-  %arrayidx68 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx68 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %31 = load float, ptr %arrayidx68, align 4
-  %arrayidx70 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom6
+  %arrayidx70 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom6
   %32 = load float, ptr %arrayidx70, align 4
   %sub71 = fsub float %31, %32
   %33 = tail call float @llvm.fmuladd.f32(float %cond, float %sub71, float %32)
-  %arrayidx75 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx75 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %33, ptr %arrayidx75, align 4
   %34 = load float, ptr %RGB2, align 4
   %add.i31 = fadd float %34, 5.000000e-01
@@ -239755,10 +239755,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx12, align 4
   %idxprom13 = sext i32 %8 to i64
-  %arrayidx14 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom13
+  %arrayidx14 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom13
   %10 = load float, ptr %arrayidx14, align 4
   %sub = fsub float %9, %10
   %cmp15 = fcmp oeq float %sub, 0.000000e+00
@@ -239766,7 +239766,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.false:                                       ; preds = %for.body
   %idxprom16 = sext i32 %7 to i64
-  %arrayidx17 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom16
+  %arrayidx17 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom16
   %11 = load float, ptr %arrayidx17, align 4
   %sub20 = fsub float %11, %10
   %div = fdiv float %sub20, %sub
@@ -239849,14 +239849,14 @@ cond.end112:                                      ; preds = %cond.false99, %cond
   store float %cond43, ptr %RGB2, align 4
   store float %cond78, ptr %arrayinit.element115, align 4
   store float %cond113, ptr %arrayinit.element116, align 4
-  %arrayidx118 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx118 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %42 = load float, ptr %arrayidx118, align 4
-  %arrayidx120 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom13
+  %arrayidx120 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom13
   %43 = load float, ptr %arrayidx120, align 4
   %sub121 = fsub float %42, %43
   %44 = tail call float @llvm.fmuladd.f32(float %cond, float %sub121, float %43)
   %idxprom124 = sext i32 %7 to i64
-  %arrayidx125 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom124
+  %arrayidx125 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom124
   store float %44, ptr %arrayidx125, align 4
   %45 = load float, ptr %RGB2, align 4
   %add.i11 = fadd float %45, 5.000000e-01
@@ -240257,10 +240257,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %5 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %3 to i64
-  %arrayidx5 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx5 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %6 = load float, ptr %arrayidx5, align 4
   %idxprom6 = sext i32 %5 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom6
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom6
   %7 = load float, ptr %arrayidx7, align 4
   %sub = fsub float %6, %7
   %cmp8 = fcmp oeq float %sub, 0.000000e+00
@@ -240268,7 +240268,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.false:                                       ; preds = %for.body
   %idxprom9 = sext i32 %4 to i64
-  %arrayidx10 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom9
+  %arrayidx10 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom9
   %8 = load float, ptr %arrayidx10, align 4
   %sub13 = fsub float %8, %7
   %div = fdiv float %sub13, %sub
@@ -240445,14 +240445,14 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   %add11.i83 = fadd float %delta.0.i77, %add.i82
   %mul12.i84 = fmul float %13, %add11.i83
   store float %mul12.i84, ptr %arrayinit.element30, align 4
-  %arrayidx42 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx42 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %46 = load float, ptr %arrayidx42, align 4
-  %arrayidx44 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom6
+  %arrayidx44 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom6
   %47 = load float, ptr %arrayidx44, align 4
   %sub45 = fsub float %46, %47
   %48 = tail call float @llvm.fmuladd.f32(float %cond, float %sub45, float %47)
   %idxprom48 = sext i32 %4 to i64
-  %arrayidx49 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom48
+  %arrayidx49 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom48
   store float %48, ptr %arrayidx49, align 4
   %49 = load float, ptr %RGB2, align 4
   %add.i101 = fadd float %49, 5.000000e-01
@@ -241997,10 +241997,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %20 = tail call noundef float @llvm.fmuladd.f32(float %sub.i16, float %sub33, float %18)
   store float %20, ptr %arrayinit.element25, align 4
   %idxprom35 = sext i32 %6 to i64
-  %arrayidx36 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom35
+  %arrayidx36 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom35
   %21 = load float, ptr %arrayidx36, align 4
   %idxprom37 = sext i32 %8 to i64
-  %arrayidx38 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom37
+  %arrayidx38 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom37
   %22 = load float, ptr %arrayidx38, align 4
   %sub39 = fsub float %21, %22
   %cmp40 = fcmp oeq float %sub39, 0.000000e+00
@@ -242008,7 +242008,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp40, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx42 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx42 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %23 = load float, ptr %arrayidx42, align 4
   %sub45 = fsub float %23, %22
   %div = fdiv float %sub45, %sub39
@@ -242016,13 +242016,13 @@ cond.false:                                       ; preds = %for.body
 
 cond.end:                                         ; preds = %for.body, %cond.false
   %cond = phi float [ %div, %cond.false ], [ 0.000000e+00, %for.body ]
-  %arrayidx47 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom35
+  %arrayidx47 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom35
   %24 = load float, ptr %arrayidx47, align 4
-  %arrayidx49 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom37
+  %arrayidx49 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom37
   %25 = load float, ptr %arrayidx49, align 4
   %sub50 = fsub float %24, %25
   %26 = tail call float @llvm.fmuladd.f32(float %cond, float %sub50, float %25)
-  %arrayidx54 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx54 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %26, ptr %arrayidx54, align 4
   %27 = load float, ptr %RGB2, align 4
   %28 = bitcast float %27 to i32
@@ -243262,10 +243262,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %9 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %7 to i64
-  %arrayidx5 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx5 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %10 = load float, ptr %arrayidx5, align 4
   %idxprom6 = sext i32 %9 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom6
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom6
   %11 = load float, ptr %arrayidx7, align 4
   %sub = fsub float %10, %11
   %cmp8 = fcmp oeq float %sub, 0.000000e+00
@@ -243273,7 +243273,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp8, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx10 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx10 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %12 = load float, ptr %arrayidx10, align 4
   %sub13 = fsub float %12, %11
   %div = fdiv float %sub13, %sub
@@ -243344,13 +243344,13 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %sub.i30 = fsub float %29, %28
   %30 = tail call noundef float @llvm.fmuladd.f32(float %sub.i30, float %delta.sroa.0.8.vec.extract, float %28)
   store float %30, ptr %arrayinit.element56, align 4
-  %arrayidx68 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx68 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %31 = load float, ptr %arrayidx68, align 4
-  %arrayidx70 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom6
+  %arrayidx70 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom6
   %32 = load float, ptr %arrayidx70, align 4
   %sub71 = fsub float %31, %32
   %33 = tail call float @llvm.fmuladd.f32(float %cond, float %sub71, float %32)
-  %arrayidx75 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx75 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %33, ptr %arrayidx75, align 4
   %34 = load float, ptr %RGB2, align 4
   %35 = bitcast float %34 to i32
@@ -246313,10 +246313,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx12, align 4
   %idxprom13 = sext i32 %8 to i64
-  %arrayidx14 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom13
+  %arrayidx14 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom13
   %10 = load float, ptr %arrayidx14, align 4
   %sub = fsub float %9, %10
   %cmp15 = fcmp oeq float %sub, 0.000000e+00
@@ -246324,7 +246324,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.false:                                       ; preds = %for.body
   %idxprom16 = sext i32 %7 to i64
-  %arrayidx17 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom16
+  %arrayidx17 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom16
   %11 = load float, ptr %arrayidx17, align 4
   %sub20 = fsub float %11, %10
   %div = fdiv float %sub20, %sub
@@ -246407,14 +246407,14 @@ cond.end112:                                      ; preds = %cond.false99, %cond
   store float %cond43, ptr %RGB2, align 4
   store float %cond78, ptr %arrayinit.element115, align 4
   store float %cond113, ptr %arrayinit.element116, align 4
-  %arrayidx118 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx118 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %42 = load float, ptr %arrayidx118, align 4
-  %arrayidx120 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom13
+  %arrayidx120 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom13
   %43 = load float, ptr %arrayidx120, align 4
   %sub121 = fsub float %42, %43
   %44 = tail call float @llvm.fmuladd.f32(float %cond, float %sub121, float %43)
   %idxprom124 = sext i32 %7 to i64
-  %arrayidx125 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom124
+  %arrayidx125 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom124
   store float %44, ptr %arrayidx125, align 4
   %45 = load float, ptr %RGB2, align 4
   %46 = bitcast float %45 to i32
@@ -247079,10 +247079,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %5 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %3 to i64
-  %arrayidx5 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx5 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %6 = load float, ptr %arrayidx5, align 4
   %idxprom6 = sext i32 %5 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom6
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom6
   %7 = load float, ptr %arrayidx7, align 4
   %sub = fsub float %6, %7
   %cmp8 = fcmp oeq float %sub, 0.000000e+00
@@ -247090,7 +247090,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.false:                                       ; preds = %for.body
   %idxprom9 = sext i32 %4 to i64
-  %arrayidx10 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom9
+  %arrayidx10 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom9
   %8 = load float, ptr %arrayidx10, align 4
   %sub13 = fsub float %8, %7
   %div = fdiv float %sub13, %sub
@@ -247267,14 +247267,14 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   %add11.i83 = fadd float %delta.0.i77, %add.i82
   %mul12.i84 = fmul float %13, %add11.i83
   store float %mul12.i84, ptr %arrayinit.element30, align 4
-  %arrayidx42 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx42 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %46 = load float, ptr %arrayidx42, align 4
-  %arrayidx44 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom6
+  %arrayidx44 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom6
   %47 = load float, ptr %arrayidx44, align 4
   %sub45 = fsub float %46, %47
   %48 = tail call float @llvm.fmuladd.f32(float %cond, float %sub45, float %47)
   %idxprom48 = sext i32 %4 to i64
-  %arrayidx49 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom48
+  %arrayidx49 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom48
   store float %48, ptr %arrayidx49, align 4
   %49 = load float, ptr %RGB2, align 4
   %50 = bitcast float %49 to i32
@@ -248771,10 +248771,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %20 = tail call noundef float @llvm.fmuladd.f32(float %sub.i16, float %sub33, float %18)
   store float %20, ptr %arrayinit.element25, align 4
   %idxprom35 = sext i32 %6 to i64
-  %arrayidx36 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom35
+  %arrayidx36 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom35
   %21 = load float, ptr %arrayidx36, align 4
   %idxprom37 = sext i32 %8 to i64
-  %arrayidx38 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom37
+  %arrayidx38 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom37
   %22 = load float, ptr %arrayidx38, align 4
   %sub39 = fsub float %21, %22
   %cmp40 = fcmp oeq float %sub39, 0.000000e+00
@@ -248782,7 +248782,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   br i1 %cmp40, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx42 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx42 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %23 = load float, ptr %arrayidx42, align 4
   %sub45 = fsub float %23, %22
   %div = fdiv float %sub45, %sub39
@@ -248790,13 +248790,13 @@ cond.false:                                       ; preds = %for.body
 
 cond.end:                                         ; preds = %for.body, %cond.false
   %cond = phi float [ %div, %cond.false ], [ 0.000000e+00, %for.body ]
-  %arrayidx47 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom35
+  %arrayidx47 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom35
   %24 = load float, ptr %arrayidx47, align 4
-  %arrayidx49 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom37
+  %arrayidx49 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom37
   %25 = load float, ptr %arrayidx49, align 4
   %sub50 = fsub float %24, %25
   %26 = tail call float @llvm.fmuladd.f32(float %cond, float %sub50, float %25)
-  %arrayidx54 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx54 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %26, ptr %arrayidx54, align 4
   %27 = load float, ptr %RGB2, align 4
   store float %27, ptr %out.022, align 4
@@ -249412,10 +249412,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %9 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %7 to i64
-  %arrayidx5 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx5 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %10 = load float, ptr %arrayidx5, align 4
   %idxprom6 = sext i32 %9 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom6
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom6
   %11 = load float, ptr %arrayidx7, align 4
   %sub = fsub float %10, %11
   %cmp8 = fcmp oeq float %sub, 0.000000e+00
@@ -249423,7 +249423,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   br i1 %cmp8, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %arrayidx10 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %.pre
+  %arrayidx10 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %.pre
   %12 = load float, ptr %arrayidx10, align 4
   %sub13 = fsub float %12, %11
   %div = fdiv float %sub13, %sub
@@ -249494,13 +249494,13 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %sub.i30 = fsub float %29, %28
   %30 = tail call noundef float @llvm.fmuladd.f32(float %sub.i30, float %delta.sroa.0.8.vec.extract, float %28)
   store float %30, ptr %arrayinit.element56, align 4
-  %arrayidx68 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx68 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %31 = load float, ptr %arrayidx68, align 4
-  %arrayidx70 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom6
+  %arrayidx70 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom6
   %32 = load float, ptr %arrayidx70, align 4
   %sub71 = fsub float %31, %32
   %33 = tail call float @llvm.fmuladd.f32(float %cond, float %sub71, float %32)
-  %arrayidx75 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %.pre
+  %arrayidx75 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %.pre
   store float %33, ptr %arrayidx75, align 4
   %34 = load float, ptr %RGB2, align 4
   store float %34, ptr %out.036, align 4
@@ -251527,10 +251527,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %8 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx12 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx12 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx12, align 4
   %idxprom13 = sext i32 %8 to i64
-  %arrayidx14 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom13
+  %arrayidx14 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom13
   %10 = load float, ptr %arrayidx14, align 4
   %sub = fsub float %9, %10
   %cmp15 = fcmp oeq float %sub, 0.000000e+00
@@ -251538,7 +251538,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
 
 cond.false:                                       ; preds = %for.body
   %idxprom16 = sext i32 %7 to i64
-  %arrayidx17 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom16
+  %arrayidx17 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom16
   %11 = load float, ptr %arrayidx17, align 4
   %sub20 = fsub float %11, %10
   %div = fdiv float %sub20, %sub
@@ -251621,14 +251621,14 @@ cond.end112:                                      ; preds = %cond.false99, %cond
   store float %cond43, ptr %RGB2, align 4
   store float %cond78, ptr %arrayinit.element115, align 4
   store float %cond113, ptr %arrayinit.element116, align 4
-  %arrayidx118 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx118 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %42 = load float, ptr %arrayidx118, align 4
-  %arrayidx120 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom13
+  %arrayidx120 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom13
   %43 = load float, ptr %arrayidx120, align 4
   %sub121 = fsub float %42, %43
   %44 = tail call float @llvm.fmuladd.f32(float %cond, float %sub121, float %43)
   %idxprom124 = sext i32 %7 to i64
-  %arrayidx125 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom124
+  %arrayidx125 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom124
   store float %44, ptr %arrayidx125, align 4
   %45 = load float, ptr %RGB2, align 4
   store float %45, ptr %out.016, align 4
@@ -251981,10 +251981,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx18.i = getelementptr inbounds nuw [12 x i32], ptr @_ZZN19OpenColorIO_v2_4dev12_GLOBAL__N_113GamutMapUtils6Order3EPKfRiS4_S4_E5table, i64 0, i64 %idxprom17.i
   %5 = load i32, ptr %arrayidx18.i, align 4
   %idxprom = sext i32 %3 to i64
-  %arrayidx5 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom
+  %arrayidx5 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom
   %6 = load float, ptr %arrayidx5, align 4
   %idxprom6 = sext i32 %5 to i64
-  %arrayidx7 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom6
+  %arrayidx7 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom6
   %7 = load float, ptr %arrayidx7, align 4
   %sub = fsub float %6, %7
   %cmp8 = fcmp oeq float %sub, 0.000000e+00
@@ -251992,7 +251992,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.false:                                       ; preds = %for.body
   %idxprom9 = sext i32 %4 to i64
-  %arrayidx10 = getelementptr inbounds nuw [3 x float], ptr %RGB, i64 0, i64 %idxprom9
+  %arrayidx10 = getelementptr inbounds [3 x float], ptr %RGB, i64 0, i64 %idxprom9
   %8 = load float, ptr %arrayidx10, align 4
   %sub13 = fsub float %8, %7
   %div = fdiv float %sub13, %sub
@@ -252169,14 +252169,14 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   %add11.i83 = fadd float %delta.0.i77, %add.i82
   %mul12.i84 = fmul float %13, %add11.i83
   store float %mul12.i84, ptr %arrayinit.element30, align 4
-  %arrayidx42 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom
+  %arrayidx42 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom
   %46 = load float, ptr %arrayidx42, align 4
-  %arrayidx44 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom6
+  %arrayidx44 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom6
   %47 = load float, ptr %arrayidx44, align 4
   %sub45 = fsub float %46, %47
   %48 = tail call float @llvm.fmuladd.f32(float %cond, float %sub45, float %47)
   %idxprom48 = sext i32 %4 to i64
-  %arrayidx49 = getelementptr inbounds nuw [3 x float], ptr %RGB2, i64 0, i64 %idxprom48
+  %arrayidx49 = getelementptr inbounds [3 x float], ptr %RGB2, i64 0, i64 %idxprom48
   store float %48, ptr %arrayidx49, align 4
   %49 = load float, ptr %RGB2, align 4
   store float %49, ptr %out.0106, align 4

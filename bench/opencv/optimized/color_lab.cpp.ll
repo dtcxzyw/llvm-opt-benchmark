@@ -7952,7 +7952,7 @@ define linkonce_odr hidden void @_ZNK2cv9RGB2Lab_bclEPKhPhi(ptr noundef nonnull 
   %53 = add i32 %52, %50
   %54 = ashr i32 %53, 12
   %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds nuw [3072 x i16], ptr @_ZN2cvL12LabCbrtTab_bE, i64 0, i64 %55
+  %56 = getelementptr inbounds [3072 x i16], ptr @_ZN2cvL12LabCbrtTab_bE, i64 0, i64 %55
   %57 = load i16, ptr %56, align 2
   %58 = zext i16 %57 to i32
   %59 = mul nsw i32 %16, %35
@@ -7963,7 +7963,7 @@ define linkonce_odr hidden void @_ZNK2cv9RGB2Lab_bclEPKhPhi(ptr noundef nonnull 
   %64 = add i32 %63, %61
   %65 = ashr i32 %64, 12
   %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds nuw [3072 x i16], ptr @_ZN2cvL12LabCbrtTab_bE, i64 0, i64 %66
+  %67 = getelementptr inbounds [3072 x i16], ptr @_ZN2cvL12LabCbrtTab_bE, i64 0, i64 %66
   %68 = load i16, ptr %67, align 2
   %69 = zext i16 %68 to i32
   %70 = mul nsw i32 %22, %35
@@ -7974,7 +7974,7 @@ define linkonce_odr hidden void @_ZNK2cv9RGB2Lab_bclEPKhPhi(ptr noundef nonnull 
   %75 = add i32 %74, %72
   %76 = ashr i32 %75, 12
   %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds nuw [3072 x i16], ptr @_ZN2cvL12LabCbrtTab_bE, i64 0, i64 %77
+  %78 = getelementptr inbounds [3072 x i16], ptr @_ZN2cvL12LabCbrtTab_bE, i64 0, i64 %77
   %79 = load i16, ptr %78, align 2
   %80 = zext i16 %79 to i32
   %81 = mul nuw nsw i32 %69, 296
@@ -9815,19 +9815,19 @@ define linkonce_odr hidden void @_ZNK2cv14Lab2RGBinteger7processEhhhRiS1_S1_(ptr
 
 83:                                               ; preds = %.critedge
   %84 = sext i32 %82 to i64
-  %85 = getelementptr inbounds nuw i16, ptr @_ZN2cvL17sRGBInvGammaTab_bE, i64 %84
+  %85 = getelementptr inbounds i16, ptr @_ZN2cvL17sRGBInvGammaTab_bE, i64 %84
   %86 = load i16, ptr %85, align 2
   %87 = zext i16 %86 to i32
   store i32 %87, ptr %4, align 4
   %88 = load i32, ptr %5, align 4
   %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds nuw i16, ptr @_ZN2cvL17sRGBInvGammaTab_bE, i64 %89
+  %90 = getelementptr inbounds i16, ptr @_ZN2cvL17sRGBInvGammaTab_bE, i64 %89
   %91 = load i16, ptr %90, align 2
   %92 = zext i16 %91 to i32
   store i32 %92, ptr %5, align 4
   %93 = load i32, ptr %6, align 4
   %94 = sext i32 %93 to i64
-  %95 = getelementptr inbounds nuw i16, ptr @_ZN2cvL17sRGBInvGammaTab_bE, i64 %94
+  %95 = getelementptr inbounds i16, ptr @_ZN2cvL17sRGBInvGammaTab_bE, i64 %94
   %96 = load i16, ptr %95, align 2
   %97 = zext i16 %96 to i32
   br label %107
@@ -10909,19 +10909,19 @@ define linkonce_odr hidden void @_ZNK2cv14Luv2RGBinteger7processEhhhRiS1_S1_(ptr
 
 97:                                               ; preds = %7
   %98 = sext i32 %96 to i64
-  %99 = getelementptr inbounds nuw i16, ptr @_ZN2cvL17sRGBInvGammaTab_bE, i64 %98
+  %99 = getelementptr inbounds i16, ptr @_ZN2cvL17sRGBInvGammaTab_bE, i64 %98
   %100 = load i16, ptr %99, align 2
   %101 = zext i16 %100 to i32
   store i32 %101, ptr %4, align 4
   %102 = load i32, ptr %5, align 4
   %103 = sext i32 %102 to i64
-  %104 = getelementptr inbounds nuw i16, ptr @_ZN2cvL17sRGBInvGammaTab_bE, i64 %103
+  %104 = getelementptr inbounds i16, ptr @_ZN2cvL17sRGBInvGammaTab_bE, i64 %103
   %105 = load i16, ptr %104, align 2
   %106 = zext i16 %105 to i32
   store i32 %106, ptr %5, align 4
   %107 = load i32, ptr %6, align 4
   %108 = sext i32 %107 to i64
-  %109 = getelementptr inbounds nuw i16, ptr @_ZN2cvL17sRGBInvGammaTab_bE, i64 %108
+  %109 = getelementptr inbounds i16, ptr @_ZN2cvL17sRGBInvGammaTab_bE, i64 %108
   %110 = load i16, ptr %109, align 2
   %111 = zext i16 %110 to i32
   br label %121

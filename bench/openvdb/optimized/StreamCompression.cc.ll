@@ -874,7 +874,7 @@ invoke.cont18:                                    ; preds = %invoke.cont15
   %vtable = load ptr, ptr %is, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %is, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %is, i64 %vbase.offset
   %7 = load ptr, ptr %this, align 8
   %meta = getelementptr inbounds nuw i8, ptr %7, i64 16
   invoke void @_ZN7openvdb5v11_02io20setStreamMetadataPtrERSt8ios_baseRSt10shared_ptrINS1_14StreamMetadataEEb(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr, ptr noundef nonnull align 8 dereferenceable(16) %meta, i1 noundef zeroext true)

@@ -205,7 +205,7 @@ do.body:                                          ; preds = %if.then36, %if.end7
   %initialWhitespace.132 = phi i8 [ %initialWhitespace.2, %if.end79 ], [ %initialWhitespace.034, %if.then36 ]
   %inc = add nsw i32 %uBuffIdx.033, 1
   %idxprom = sext i32 %uBuffIdx.033 to i64
-  %arrayidx = getelementptr inbounds nuw [16 x i16], ptr %uBuffer, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [16 x i16], ptr %uBuffer, i64 0, i64 %idxprom
   %3 = load i16, ptr %arrayidx, align 2
   %4 = and i16 %3, -1024
   %cmp43 = icmp ne i16 %4, -10240
@@ -215,7 +215,7 @@ do.body:                                          ; preds = %if.then36, %if.end7
 
 land.lhs.true:                                    ; preds = %do.body
   %idxprom46 = sext i32 %inc to i64
-  %arrayidx47 = getelementptr inbounds nuw [16 x i16], ptr %uBuffer, i64 0, i64 %idxprom46
+  %arrayidx47 = getelementptr inbounds [16 x i16], ptr %uBuffer, i64 0, i64 %idxprom46
   %5 = load i16, ptr %arrayidx47, align 2
   %6 = and i16 %5, -1024
   %cmp50 = icmp eq i16 %6, -9216
@@ -243,7 +243,7 @@ if.then61:                                        ; preds = %do.end
 if.then63:                                        ; preds = %if.then61
   %7 = load i8, ptr %ch, align 1
   %idxprom65 = sext i32 %idx.035 to i64
-  %arrayidx66 = getelementptr inbounds nuw [16 x i8], ptr %buffer, i64 0, i64 %idxprom65
+  %arrayidx66 = getelementptr inbounds [16 x i8], ptr %buffer, i64 0, i64 %idxprom65
   store i8 %7, ptr %arrayidx66, align 1
   %cmp6836 = icmp sgt i32 %idx.035, -1
   br i1 %cmp6836, label %while.body69.preheader, label %STOP_READING
@@ -306,7 +306,7 @@ if.else81:                                        ; preds = %if.end34
   %16 = load i8, ptr %ch, align 1
   %inc82 = add nsw i32 %idx.035, 1
   %idxprom83 = sext i32 %idx.035 to i64
-  %arrayidx84 = getelementptr inbounds nuw [16 x i8], ptr %buffer, i64 0, i64 %idxprom83
+  %arrayidx84 = getelementptr inbounds [16 x i8], ptr %buffer, i64 0, i64 %idxprom83
   store i8 %16, ptr %arrayidx84, align 1
   br label %if.end85
 

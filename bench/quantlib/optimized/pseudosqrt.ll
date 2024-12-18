@@ -494,7 +494,7 @@ invoke.cont54:                                    ; preds = %invoke.cont50
   %vtable.i = load ptr, ptr %_ql_msg_stream48, align 8, !tbaa !24
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %_ql_msg_stream48, i64 %vbase.offset.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %_ql_msg_stream48, i64 %vbase.offset.i
   %_M_flags.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 24
   %36 = load i32, ptr %_M_flags.i.i, align 8, !tbaa !26
   %and.i.i.i.i = and i32 %36, -261
@@ -5771,7 +5771,7 @@ invoke.cont175:                                   ; preds = %invoke.cont171
   %vtable.i = load ptr, ptr %_ql_msg_stream169, align 8, !tbaa !24
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %_ql_msg_stream169, i64 %vbase.offset.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %_ql_msg_stream169, i64 %vbase.offset.i
   %_M_flags.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 24
   %95 = load i32, ptr %_M_flags.i.i, align 8, !tbaa !26
   %and.i.i.i.i = and i32 %95, -261
@@ -7694,7 +7694,7 @@ ehcleanup23:                                      ; preds = %_ZNKSt7__cxx1112bas
   %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %29, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %_ql_msg_stream, i64 %vbase.offset.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %_ql_msg_stream, i64 %vbase.offset.i.i
   store ptr %30, ptr %add.ptr.i.i, align 8, !tbaa !24
   %_M_stringbuf.i.i = getelementptr inbounds nuw i8, ptr %_ql_msg_stream, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !24

@@ -817,7 +817,7 @@ invoke.cont38:                                    ; preds = %invoke.cont37
   %8 = load i32, ptr %tm_mon, align 8
   %add40 = add nsw i32 %8, 1
   %idxprom.i = sext i32 %add40 to i64
-  %arrayidx.i = getelementptr inbounds nuw [62 x [3 x i8]], ptr @_ZN8facebook5velox12_GLOBAL__N_18intToStrE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [62 x [3 x i8]], ptr @_ZN8facebook5velox12_GLOBAL__N_18intToStrE, i64 0, i64 %idxprom.i
   %call.i24 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %arrayidx.i, i64 noundef 2)
           to label %invoke.cont41 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -829,7 +829,7 @@ invoke.cont42:                                    ; preds = %invoke.cont41
   %tm_mday = getelementptr inbounds nuw i8, ptr %tmValue, i64 12
   %9 = load i32, ptr %tm_mday, align 4
   %idxprom.i25 = sext i32 %9 to i64
-  %arrayidx.i26 = getelementptr inbounds nuw [62 x [3 x i8]], ptr @_ZN8facebook5velox12_GLOBAL__N_18intToStrE, i64 0, i64 %idxprom.i25
+  %arrayidx.i26 = getelementptr inbounds [62 x [3 x i8]], ptr @_ZN8facebook5velox12_GLOBAL__N_18intToStrE, i64 0, i64 %idxprom.i25
   %call.i27 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %arrayidx.i26, i64 noundef 2)
           to label %invoke.cont44 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -848,7 +848,7 @@ if.end51:                                         ; preds = %if.end48, %invoke.c
   %tm_hour = getelementptr inbounds nuw i8, ptr %tmValue, i64 8
   %12 = load i32, ptr %tm_hour, align 8
   %idxprom.i29 = sext i32 %12 to i64
-  %arrayidx.i30 = getelementptr inbounds nuw [62 x [3 x i8]], ptr @_ZN8facebook5velox12_GLOBAL__N_18intToStrE, i64 0, i64 %idxprom.i29
+  %arrayidx.i30 = getelementptr inbounds [62 x [3 x i8]], ptr @_ZN8facebook5velox12_GLOBAL__N_18intToStrE, i64 0, i64 %idxprom.i29
   %call.i31 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %arrayidx.i30, i64 noundef 2)
           to label %invoke.cont52 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -860,7 +860,7 @@ invoke.cont53:                                    ; preds = %invoke.cont52
   %tm_min = getelementptr inbounds nuw i8, ptr %tmValue, i64 4
   %13 = load i32, ptr %tm_min, align 4
   %idxprom.i33 = sext i32 %13 to i64
-  %arrayidx.i34 = getelementptr inbounds nuw [62 x [3 x i8]], ptr @_ZN8facebook5velox12_GLOBAL__N_18intToStrE, i64 0, i64 %idxprom.i33
+  %arrayidx.i34 = getelementptr inbounds [62 x [3 x i8]], ptr @_ZN8facebook5velox12_GLOBAL__N_18intToStrE, i64 0, i64 %idxprom.i33
   %call.i35 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %arrayidx.i34, i64 noundef 2)
           to label %invoke.cont55 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -871,7 +871,7 @@ invoke.cont55:                                    ; preds = %invoke.cont53
 invoke.cont56:                                    ; preds = %invoke.cont55
   %14 = load i32, ptr %tmValue, align 8
   %idxprom.i37 = sext i32 %14 to i64
-  %arrayidx.i38 = getelementptr inbounds nuw [62 x [3 x i8]], ptr @_ZN8facebook5velox12_GLOBAL__N_18intToStrE, i64 0, i64 %idxprom.i37
+  %arrayidx.i38 = getelementptr inbounds [62 x [3 x i8]], ptr @_ZN8facebook5velox12_GLOBAL__N_18intToStrE, i64 0, i64 %idxprom.i37
   %call.i39 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %arrayidx.i38, i64 noundef 2)
           to label %invoke.cont58 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

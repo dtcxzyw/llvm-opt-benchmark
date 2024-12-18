@@ -266,7 +266,7 @@ If_Dec08ComposeLut4.exit:                         ; preds = %59
   br i1 %.not41, label %74, label %80
 
 80:                                               ; preds = %75
-  %81 = getelementptr inbounds nuw [16 x [16 x i64]], ptr %5, i64 0, i64 %73
+  %81 = getelementptr inbounds [16 x [16 x i64]], ptr %5, i64 0, i64 %73
   call void @If_Dec08PrintConfig(ptr noundef nonnull %2)
   call void @Kit_DsdPrintFromTruth(ptr noundef nonnull %0, i32 noundef %1) #10
   %putchar = call i32 @putchar(i32 10)
@@ -300,7 +300,7 @@ define void @If_Dec08Cofactors(ptr nocapture noundef readonly %0, i32 noundef %1
 .lr.ph:                                           ; preds = %11
   %13 = shl nuw nsw i32 1, %2
   %14 = sext i32 %2 to i64
-  %15 = getelementptr inbounds nuw [6 x i64], ptr @Truth6, i64 0, i64 %14
+  %15 = getelementptr inbounds [6 x i64], ptr @Truth6, i64 0, i64 %14
   %16 = load i64, ptr %15, align 8
   %17 = xor i64 %16, -1
   %18 = zext nneg i32 %13 to i64
@@ -634,7 +634,7 @@ define range(i32 0, 2) i32 @If_Dec08Perform(ptr noundef %0, i32 noundef %1, i32 
 .lr.ph135.i.i:                                    ; preds = %111
   %112 = shl nuw nsw i32 1, %109
   %113 = sext i32 %109 to i64
-  %114 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @PMasks, i64 0, i64 %113
+  %114 = getelementptr inbounds [5 x [3 x i64]], ptr @PMasks, i64 0, i64 %113
   %115 = load i64, ptr %114, align 8
   %116 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %117 = load i64, ptr %116, align 8
@@ -764,17 +764,17 @@ define range(i32 0, 2) i32 @If_Dec08Perform(ptr noundef %0, i32 noundef %1, i32 
 
 If_Dec08SwapAdjacent.exit.i:                      ; preds = %._crit_edge.us.i.i, %.lr.ph.i.i, %121, %.preheader87.lr.ph.i.i, %133, %.preheader.i.i, %111
   %169 = sext i32 %109 to i64
-  %170 = getelementptr inbounds nuw i32, ptr %10, i64 %169
+  %170 = getelementptr inbounds i32, ptr %10, i64 %169
   %171 = load i32, ptr %170, align 4
   %172 = sext i32 %171 to i64
-  %173 = getelementptr inbounds nuw i32, ptr %11, i64 %172
+  %173 = getelementptr inbounds i32, ptr %11, i64 %172
   %174 = load i32, ptr %173, align 4
   %175 = add nsw i32 %174, 1
   store i32 %175, ptr %173, align 4
   %176 = getelementptr i8, ptr %170, i64 4
   %177 = load i32, ptr %176, align 4
   %178 = sext i32 %177 to i64
-  %179 = getelementptr inbounds nuw i32, ptr %11, i64 %178
+  %179 = getelementptr inbounds i32, ptr %11, i64 %178
   %180 = load i32, ptr %179, align 4
   %181 = add nsw i32 %180, -1
   store i32 %181, ptr %179, align 4
@@ -822,7 +822,7 @@ If_Dec08MoveTo.exit:                              ; preds = %.lr.ph.i43.i, %._cr
 .lr.ph135.i.i139:                                 ; preds = %191
   %192 = shl nuw nsw i32 1, %189
   %193 = sext i32 %189 to i64
-  %194 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @PMasks, i64 0, i64 %193
+  %194 = getelementptr inbounds [5 x [3 x i64]], ptr @PMasks, i64 0, i64 %193
   %195 = load i64, ptr %194, align 8
   %196 = getelementptr inbounds nuw i8, ptr %194, i64 8
   %197 = load i64, ptr %196, align 8
@@ -952,17 +952,17 @@ If_Dec08MoveTo.exit:                              ; preds = %.lr.ph.i43.i, %._cr
 
 If_Dec08SwapAdjacent.exit.i95:                    ; preds = %._crit_edge.us.i.i134, %.lr.ph.i.i136, %201, %.preheader87.lr.ph.i.i105, %213, %.preheader.i.i135, %191
   %249 = sext i32 %189 to i64
-  %250 = getelementptr inbounds nuw i32, ptr %10, i64 %249
+  %250 = getelementptr inbounds i32, ptr %10, i64 %249
   %251 = load i32, ptr %250, align 4
   %252 = sext i32 %251 to i64
-  %253 = getelementptr inbounds nuw i32, ptr %11, i64 %252
+  %253 = getelementptr inbounds i32, ptr %11, i64 %252
   %254 = load i32, ptr %253, align 4
   %255 = add nsw i32 %254, 1
   store i32 %255, ptr %253, align 4
   %256 = getelementptr i8, ptr %250, i64 4
   %257 = load i32, ptr %256, align 4
   %258 = sext i32 %257 to i64
-  %259 = getelementptr inbounds nuw i32, ptr %11, i64 %258
+  %259 = getelementptr inbounds i32, ptr %11, i64 %258
   %260 = load i32, ptr %259, align 4
   %261 = add nsw i32 %260, -1
   store i32 %261, ptr %259, align 4
@@ -1011,7 +1011,7 @@ If_Dec08MoveTo.exit143:                           ; preds = %.lr.ph.i43.i101, %.
 .lr.ph135.i.i194:                                 ; preds = %272
   %273 = shl nuw nsw i32 1, %270
   %274 = sext i32 %270 to i64
-  %275 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @PMasks, i64 0, i64 %274
+  %275 = getelementptr inbounds [5 x [3 x i64]], ptr @PMasks, i64 0, i64 %274
   %276 = load i64, ptr %275, align 8
   %277 = getelementptr inbounds nuw i8, ptr %275, i64 8
   %278 = load i64, ptr %277, align 8
@@ -1141,17 +1141,17 @@ If_Dec08MoveTo.exit143:                           ; preds = %.lr.ph.i43.i101, %.
 
 If_Dec08SwapAdjacent.exit.i150:                   ; preds = %._crit_edge.us.i.i189, %.lr.ph.i.i191, %282, %.preheader87.lr.ph.i.i160, %294, %.preheader.i.i190, %272
   %330 = sext i32 %270 to i64
-  %331 = getelementptr inbounds nuw i32, ptr %10, i64 %330
+  %331 = getelementptr inbounds i32, ptr %10, i64 %330
   %332 = load i32, ptr %331, align 4
   %333 = sext i32 %332 to i64
-  %334 = getelementptr inbounds nuw i32, ptr %11, i64 %333
+  %334 = getelementptr inbounds i32, ptr %11, i64 %333
   %335 = load i32, ptr %334, align 4
   %336 = add nsw i32 %335, 1
   store i32 %336, ptr %334, align 4
   %337 = getelementptr i8, ptr %331, i64 4
   %338 = load i32, ptr %337, align 4
   %339 = sext i32 %338 to i64
-  %340 = getelementptr inbounds nuw i32, ptr %11, i64 %339
+  %340 = getelementptr inbounds i32, ptr %11, i64 %339
   %341 = load i32, ptr %340, align 4
   %342 = add nsw i32 %341, -1
   store i32 %342, ptr %340, align 4
@@ -1229,7 +1229,7 @@ If_Dec08MoveTo.exit198:                           ; preds = %.lr.ph.i43.i156, %.
 ._crit_edge.thread.i:                             ; preds = %365, %._crit_edge.i199
   %368 = add nsw i32 %.027.i, 1
   %369 = sext i32 %.027.i to i64
-  %370 = getelementptr inbounds nuw [16 x i64], ptr %4, i64 0, i64 %369
+  %370 = getelementptr inbounds [16 x i64], ptr %4, i64 0, i64 %369
   store i64 %360, ptr %370, align 8
   br label %371
 
@@ -1241,12 +1241,12 @@ If_Dec08MoveTo.exit198:                           ; preds = %.lr.ph.i43.i156, %.
 
 If_Dec08CofCount.exit:                            ; preds = %371
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4)
-  %373 = getelementptr inbounds nuw [210 x i32], ptr %12, i64 0, i64 %indvars.iv308
+  %373 = getelementptr inbounds [210 x i32], ptr %12, i64 0, i64 %indvars.iv308
   store i32 %.1.i, ptr %373, align 4
   %374 = trunc nuw i64 %indvars.iv314 to i32
   %375 = shl nuw i32 1, %374
   %376 = or i32 %105, %375
-  %377 = getelementptr inbounds nuw [210 x i32], ptr %13, i64 0, i64 %indvars.iv308
+  %377 = getelementptr inbounds [210 x i32], ptr %13, i64 0, i64 %indvars.iv308
   store i32 %376, ptr %377, align 4
   %378 = icmp eq i32 %.1.i, 2
   %379 = icmp sgt i32 %.1.i, 5
@@ -1265,7 +1265,7 @@ If_Dec08CofCount.exit:                            ; preds = %371
 .lr.ph.i206:                                      ; preds = %382
   %383 = trunc nsw i64 %380 to i32
   %384 = shl nuw nsw i32 1, %383
-  %385 = getelementptr inbounds nuw [6 x i64], ptr @Truth6, i64 0, i64 %380
+  %385 = getelementptr inbounds [6 x i64], ptr @Truth6, i64 0, i64 %380
   %386 = load i64, ptr %385, align 8
   %387 = xor i64 %386, -1
   %388 = zext nneg i32 %384 to i64
@@ -1352,7 +1352,7 @@ If_Dec08Cofactors.exit:                           ; preds = %._crit_edge.us.i, %
   %425 = shl i32 %.025.i, %23
   %426 = sdiv i32 %425, 64
   %427 = sext i32 %426 to i64
-  %428 = getelementptr inbounds nuw i64, ptr %8, i64 %427
+  %428 = getelementptr inbounds i64, ptr %8, i64 %427
   %429 = load i64, ptr %428, align 8
   %430 = and i32 %425, 63
   %431 = zext nneg i32 %430 to i64
@@ -1386,7 +1386,7 @@ If_Dec08CofCount2.exit:                           ; preds = %438
   %443 = shl i32 %.025.i212, %23
   %444 = sdiv i32 %443, 64
   %445 = sext i32 %444 to i64
-  %446 = getelementptr inbounds nuw i64, ptr %9, i64 %445
+  %446 = getelementptr inbounds i64, ptr %9, i64 %445
   %447 = load i64, ptr %446, align 8
   %448 = and i32 %443, 63
   %449 = zext nneg i32 %448 to i64

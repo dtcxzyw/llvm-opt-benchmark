@@ -70350,7 +70350,7 @@ invoke.cont50.i.i:                                ; preds = %invoke.cont48.i.i
   %57 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8, !tbaa !10
   %58 = load i32, ptr %c_sz.i.i, align 4, !tbaa !65
   %idx.ext55.i.i = sext i32 %58 to i64
-  %add.ptr56.i.i = getelementptr inbounds nuw i8, ptr %c.i.i, i64 %idx.ext55.i.i
+  %add.ptr56.i.i = getelementptr inbounds i8, ptr %c.i.i, i64 %idx.ext55.i.i
   %59 = load ptr, ptr %fun.coerce1, align 8, !tbaa !10
   %sub.ptr.lhs.cast.i.i259.i.i = ptrtoint ptr %57 to i64
   %sub.ptr.rhs.cast.i.i260.i.i = ptrtoint ptr %59 to i64
@@ -93849,7 +93849,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i:            ; preds = %if.then.i.i.i.i.i, 
   %32 = load i32, ptr %num_digits.i.i, align 4, !tbaa !1891
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i.i.i.i) #24
   %idx.ext.i.i.i.i.i = sext i32 %32 to i64
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i, i64 %idx.ext.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i.i.i.i, i64 %idx.ext.i.i.i.i.i
   %cmp33.i.i.i.i.i = icmp ugt i32 %31, 99
   br i1 %cmp33.i.i.i.i.i, label %while.body.i.i.i.i.i, label %while.end.i.i.i.i.i
 
@@ -94082,7 +94082,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i95:          ; preds = %if.then.i.i.i.i.i92
   %68 = load i32, ptr %num_digits.i.i98, align 4, !tbaa !1891
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i.i.i.i75) #24
   %idx.ext.i.i.i.i.i99 = sext i32 %68 to i64
-  %add.ptr.i.i.i.i.i100 = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i75, i64 %idx.ext.i.i.i.i.i99
+  %add.ptr.i.i.i.i.i100 = getelementptr inbounds i8, ptr %buffer.i.i.i.i75, i64 %idx.ext.i.i.i.i.i99
   %cmp33.i.i.i.i.i101 = icmp ugt i32 %67, 99
   br i1 %cmp33.i.i.i.i.i101, label %while.body.i.i.i.i.i124, label %while.end.i.i.i.i.i102
 
@@ -94293,7 +94293,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i163:         ; preds = %if.then.i.i.i.i.i16
   %98 = load i32, ptr %num_digits.i.i166, align 4, !tbaa !1891
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i.i.i.i143) #24
   %idx.ext.i.i.i.i.i167 = sext i32 %98 to i64
-  %add.ptr.i.i.i.i.i168 = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i143, i64 %idx.ext.i.i.i.i.i167
+  %add.ptr.i.i.i.i.i168 = getelementptr inbounds i8, ptr %buffer.i.i.i.i143, i64 %idx.ext.i.i.i.i.i167
   %cmp33.i.i.i.i.i169 = icmp ugt i32 %97, 99
   br i1 %cmp33.i.i.i.i.i169, label %while.body.i.i.i.i.i192, label %while.end.i.i.i.i.i170
 
@@ -94499,7 +94499,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i232:         ; preds = %if.then.i.i.i.i.i22
   %129 = load i32, ptr %num_digits.i.i235, align 4, !tbaa !1891
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i.i.i.i212) #24
   %idx.ext.i.i.i.i.i236 = sext i32 %129 to i64
-  %add.ptr.i.i.i.i.i237 = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i212, i64 %idx.ext.i.i.i.i.i236
+  %add.ptr.i.i.i.i.i237 = getelementptr inbounds i8, ptr %buffer.i.i.i.i212, i64 %idx.ext.i.i.i.i.i236
   %cmp33.i.i.i.i.i238 = icmp ugt i32 %128, 99
   br i1 %cmp33.i.i.i.i.i238, label %while.body.i.i.i.i.i261, label %while.end.i.i.i.i.i239
 
@@ -99084,7 +99084,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i:            ; preds = %if.then.i.i.i.i.i, 
   %32 = load i32, ptr %num_digits.i.i, align 4, !tbaa !2002
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i.i.i.i) #24
   %idx.ext.i.i.i.i.i = sext i32 %32 to i64
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i, i64 %idx.ext.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i.i.i.i, i64 %idx.ext.i.i.i.i.i
   %cmp33.i.i.i.i.i = icmp ugt i32 %31, 99
   br i1 %cmp33.i.i.i.i.i, label %while.body.i.i.i.i.i, label %while.end.i.i.i.i.i
 
@@ -99317,7 +99317,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i95:          ; preds = %if.then.i.i.i.i.i92
   %68 = load i32, ptr %num_digits.i.i98, align 4, !tbaa !2002
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i.i.i.i75) #24
   %idx.ext.i.i.i.i.i99 = sext i32 %68 to i64
-  %add.ptr.i.i.i.i.i100 = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i75, i64 %idx.ext.i.i.i.i.i99
+  %add.ptr.i.i.i.i.i100 = getelementptr inbounds i8, ptr %buffer.i.i.i.i75, i64 %idx.ext.i.i.i.i.i99
   %cmp33.i.i.i.i.i101 = icmp ugt i32 %67, 99
   br i1 %cmp33.i.i.i.i.i101, label %while.body.i.i.i.i.i124, label %while.end.i.i.i.i.i102
 
@@ -99528,7 +99528,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i163:         ; preds = %if.then.i.i.i.i.i16
   %98 = load i32, ptr %num_digits.i.i166, align 4, !tbaa !2002
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i.i.i.i143) #24
   %idx.ext.i.i.i.i.i167 = sext i32 %98 to i64
-  %add.ptr.i.i.i.i.i168 = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i143, i64 %idx.ext.i.i.i.i.i167
+  %add.ptr.i.i.i.i.i168 = getelementptr inbounds i8, ptr %buffer.i.i.i.i143, i64 %idx.ext.i.i.i.i.i167
   %cmp33.i.i.i.i.i169 = icmp ugt i32 %97, 99
   br i1 %cmp33.i.i.i.i.i169, label %while.body.i.i.i.i.i192, label %while.end.i.i.i.i.i170
 
@@ -99734,7 +99734,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i232:         ; preds = %if.then.i.i.i.i.i22
   %129 = load i32, ptr %num_digits.i.i235, align 4, !tbaa !2002
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i.i.i.i212) #24
   %idx.ext.i.i.i.i.i236 = sext i32 %129 to i64
-  %add.ptr.i.i.i.i.i237 = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i212, i64 %idx.ext.i.i.i.i.i236
+  %add.ptr.i.i.i.i.i237 = getelementptr inbounds i8, ptr %buffer.i.i.i.i212, i64 %idx.ext.i.i.i.i.i236
   %cmp33.i.i.i.i.i238 = icmp ugt i32 %128, 99
   br i1 %cmp33.i.i.i.i.i238, label %while.body.i.i.i.i.i261, label %while.end.i.i.i.i.i239
 
@@ -104060,7 +104060,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i:            ; preds = %if.then.i.i.i.i.i, 
   %32 = load i32, ptr %num_digits.i.i, align 8, !tbaa !2110
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %buffer.i.i.i.i) #24
   %idx.ext.i.i.i.i.i = sext i32 %32 to i64
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i, i64 %idx.ext.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i.i.i.i, i64 %idx.ext.i.i.i.i.i
   %cmp35.i.i.i.i.i = icmp ugt i64 %31, 99
   br i1 %cmp35.i.i.i.i.i, label %while.body.i.i.i.i.i, label %while.end.i.i.i.i.i
 
@@ -104295,7 +104295,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i95:          ; preds = %if.then.i.i.i.i.i92
   %68 = load i32, ptr %num_digits.i.i98, align 8, !tbaa !2110
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %buffer.i.i.i.i75) #24
   %idx.ext.i.i.i.i.i99 = sext i32 %68 to i64
-  %add.ptr.i.i.i.i.i100 = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i75, i64 %idx.ext.i.i.i.i.i99
+  %add.ptr.i.i.i.i.i100 = getelementptr inbounds i8, ptr %buffer.i.i.i.i75, i64 %idx.ext.i.i.i.i.i99
   %cmp35.i.i.i.i.i101 = icmp ugt i64 %67, 99
   br i1 %cmp35.i.i.i.i.i101, label %while.body.i.i.i.i.i125, label %while.end.i.i.i.i.i102
 
@@ -104508,7 +104508,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i165:         ; preds = %if.then.i.i.i.i.i16
   %98 = load i32, ptr %num_digits.i.i168, align 8, !tbaa !2110
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %buffer.i.i.i.i145) #24
   %idx.ext.i.i.i.i.i169 = sext i32 %98 to i64
-  %add.ptr.i.i.i.i.i170 = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i145, i64 %idx.ext.i.i.i.i.i169
+  %add.ptr.i.i.i.i.i170 = getelementptr inbounds i8, ptr %buffer.i.i.i.i145, i64 %idx.ext.i.i.i.i.i169
   %cmp35.i.i.i.i.i171 = icmp ugt i64 %97, 99
   br i1 %cmp35.i.i.i.i.i171, label %while.body.i.i.i.i.i195, label %while.end.i.i.i.i.i172
 
@@ -104716,7 +104716,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i236:         ; preds = %if.then.i.i.i.i.i23
   %129 = load i32, ptr %num_digits.i.i239, align 8, !tbaa !2110
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %buffer.i.i.i.i216) #24
   %idx.ext.i.i.i.i.i240 = sext i32 %129 to i64
-  %add.ptr.i.i.i.i.i241 = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i216, i64 %idx.ext.i.i.i.i.i240
+  %add.ptr.i.i.i.i.i241 = getelementptr inbounds i8, ptr %buffer.i.i.i.i216, i64 %idx.ext.i.i.i.i.i240
   %cmp35.i.i.i.i.i242 = icmp ugt i64 %128, 99
   br i1 %cmp35.i.i.i.i.i242, label %while.body.i.i.i.i.i266, label %while.end.i.i.i.i.i243
 
@@ -109305,7 +109305,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i:            ; preds = %if.then.i.i.i.i.i, 
   %32 = load i32, ptr %num_digits.i.i, align 8, !tbaa !2221
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %buffer.i.i.i.i) #24
   %idx.ext.i.i.i.i.i = sext i32 %32 to i64
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i, i64 %idx.ext.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i.i.i.i, i64 %idx.ext.i.i.i.i.i
   %cmp35.i.i.i.i.i = icmp ugt i64 %31, 99
   br i1 %cmp35.i.i.i.i.i, label %while.body.i.i.i.i.i, label %while.end.i.i.i.i.i
 
@@ -109540,7 +109540,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i95:          ; preds = %if.then.i.i.i.i.i92
   %68 = load i32, ptr %num_digits.i.i98, align 8, !tbaa !2221
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %buffer.i.i.i.i75) #24
   %idx.ext.i.i.i.i.i99 = sext i32 %68 to i64
-  %add.ptr.i.i.i.i.i100 = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i75, i64 %idx.ext.i.i.i.i.i99
+  %add.ptr.i.i.i.i.i100 = getelementptr inbounds i8, ptr %buffer.i.i.i.i75, i64 %idx.ext.i.i.i.i.i99
   %cmp35.i.i.i.i.i101 = icmp ugt i64 %67, 99
   br i1 %cmp35.i.i.i.i.i101, label %while.body.i.i.i.i.i125, label %while.end.i.i.i.i.i102
 
@@ -109753,7 +109753,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i165:         ; preds = %if.then.i.i.i.i.i16
   %98 = load i32, ptr %num_digits.i.i168, align 8, !tbaa !2221
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %buffer.i.i.i.i145) #24
   %idx.ext.i.i.i.i.i169 = sext i32 %98 to i64
-  %add.ptr.i.i.i.i.i170 = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i145, i64 %idx.ext.i.i.i.i.i169
+  %add.ptr.i.i.i.i.i170 = getelementptr inbounds i8, ptr %buffer.i.i.i.i145, i64 %idx.ext.i.i.i.i.i169
   %cmp35.i.i.i.i.i171 = icmp ugt i64 %97, 99
   br i1 %cmp35.i.i.i.i.i171, label %while.body.i.i.i.i.i195, label %while.end.i.i.i.i.i172
 
@@ -109961,7 +109961,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i236:         ; preds = %if.then.i.i.i.i.i23
   %129 = load i32, ptr %num_digits.i.i239, align 8, !tbaa !2221
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %buffer.i.i.i.i216) #24
   %idx.ext.i.i.i.i.i240 = sext i32 %129 to i64
-  %add.ptr.i.i.i.i.i241 = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i216, i64 %idx.ext.i.i.i.i.i240
+  %add.ptr.i.i.i.i.i241 = getelementptr inbounds i8, ptr %buffer.i.i.i.i216, i64 %idx.ext.i.i.i.i.i240
   %cmp35.i.i.i.i.i242 = icmp ugt i64 %128, 99
   br i1 %cmp35.i.i.i.i.i242, label %while.body.i.i.i.i.i266, label %while.end.i.i.i.i.i243
 
@@ -114196,7 +114196,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i:            ; preds = %if.then.i.i.i.i.i, 
   %32 = load i32, ptr %num_digits.i.i, align 16, !tbaa !2330
   call void @llvm.lifetime.start.p0(i64 78, ptr nonnull %buffer.i.i.i.i) #24
   %idx.ext.i.i.i.i.i = sext i32 %32 to i64
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i, i64 %idx.ext.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i.i.i.i, i64 %idx.ext.i.i.i.i.i
   %cmp36.i.i.i.i.i = icmp ugt i128 %.fr, 99
   br i1 %cmp36.i.i.i.i.i, label %while.body.i.i.i.i.i, label %while.end.i.i.i.i.i
 
@@ -114433,7 +114433,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i95:          ; preds = %if.then.i.i.i.i.i92
   %68 = load i32, ptr %num_digits.i.i98, align 16, !tbaa !2330
   call void @llvm.lifetime.start.p0(i64 78, ptr nonnull %buffer.i.i.i.i75) #24
   %idx.ext.i.i.i.i.i99 = sext i32 %68 to i64
-  %add.ptr.i.i.i.i.i100 = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i75, i64 %idx.ext.i.i.i.i.i99
+  %add.ptr.i.i.i.i.i100 = getelementptr inbounds i8, ptr %buffer.i.i.i.i75, i64 %idx.ext.i.i.i.i.i99
   %cmp36.i.i.i.i.i101 = icmp ugt i128 %.fr19, 99
   br i1 %cmp36.i.i.i.i.i101, label %while.body.i.i.i.i.i125, label %while.end.i.i.i.i.i102
 
@@ -114648,7 +114648,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i165:         ; preds = %if.then.i.i.i.i.i16
   %98 = load i32, ptr %num_digits.i.i168, align 16, !tbaa !2330
   call void @llvm.lifetime.start.p0(i64 78, ptr nonnull %buffer.i.i.i.i145) #24
   %idx.ext.i.i.i.i.i169 = sext i32 %98 to i64
-  %add.ptr.i.i.i.i.i170 = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i145, i64 %idx.ext.i.i.i.i.i169
+  %add.ptr.i.i.i.i.i170 = getelementptr inbounds i8, ptr %buffer.i.i.i.i145, i64 %idx.ext.i.i.i.i.i169
   %cmp36.i.i.i.i.i171 = icmp ugt i128 %.fr17, 99
   br i1 %cmp36.i.i.i.i.i171, label %while.body.i.i.i.i.i195, label %while.end.i.i.i.i.i172
 
@@ -114858,7 +114858,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i236:         ; preds = %if.then.i.i.i.i.i23
   %129 = load i32, ptr %num_digits.i.i239, align 16, !tbaa !2330
   call void @llvm.lifetime.start.p0(i64 78, ptr nonnull %buffer.i.i.i.i216) #24
   %idx.ext.i.i.i.i.i240 = sext i32 %129 to i64
-  %add.ptr.i.i.i.i.i241 = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i216, i64 %idx.ext.i.i.i.i.i240
+  %add.ptr.i.i.i.i.i241 = getelementptr inbounds i8, ptr %buffer.i.i.i.i216, i64 %idx.ext.i.i.i.i.i240
   %cmp36.i.i.i.i.i242 = icmp ugt i128 %.fr21, 99
   br i1 %cmp36.i.i.i.i.i242, label %while.body.i.i.i.i.i266, label %while.end.i.i.i.i.i243
 
@@ -117137,7 +117137,7 @@ if.then10:                                        ; preds = %_ZN10duckdb_fmt2v68
 if.end11:                                         ; preds = %if.then10, %_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit
   %ref.tmp.0 = phi ptr [ %incdec.ptr, %if.then10 ], [ %add.ptr.i.i, %_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit ]
   call void @llvm.lifetime.start.p0(i64 78, ptr nonnull %buffer.i.i) #24
-  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.i.i, i64 %conv6
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %buffer.i.i, i64 %conv6
   %cmp36.i.i.i = icmp ugt i128 %n.sroa.0.0.insert.insert.i.fr, 99
   br i1 %cmp36.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i
 
@@ -119255,7 +119255,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i:            ; preds = %if.then.i.i.i.i.i, 
   %32 = load i32, ptr %num_digits.i.i, align 16, !tbaa !2438
   call void @llvm.lifetime.start.p0(i64 78, ptr nonnull %buffer.i.i.i.i) #24
   %idx.ext.i.i.i.i.i = sext i32 %32 to i64
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i, i64 %idx.ext.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i.i.i.i, i64 %idx.ext.i.i.i.i.i
   %cmp36.i.i.i.i.i = icmp ugt i128 %.fr, 99
   br i1 %cmp36.i.i.i.i.i, label %while.body.i.i.i.i.i, label %while.end.i.i.i.i.i
 
@@ -119492,7 +119492,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i95:          ; preds = %if.then.i.i.i.i.i92
   %68 = load i32, ptr %num_digits.i.i98, align 16, !tbaa !2438
   call void @llvm.lifetime.start.p0(i64 78, ptr nonnull %buffer.i.i.i.i75) #24
   %idx.ext.i.i.i.i.i99 = sext i32 %68 to i64
-  %add.ptr.i.i.i.i.i100 = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i75, i64 %idx.ext.i.i.i.i.i99
+  %add.ptr.i.i.i.i.i100 = getelementptr inbounds i8, ptr %buffer.i.i.i.i75, i64 %idx.ext.i.i.i.i.i99
   %cmp36.i.i.i.i.i101 = icmp ugt i128 %.fr19, 99
   br i1 %cmp36.i.i.i.i.i101, label %while.body.i.i.i.i.i125, label %while.end.i.i.i.i.i102
 
@@ -119707,7 +119707,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i165:         ; preds = %if.then.i.i.i.i.i16
   %98 = load i32, ptr %num_digits.i.i168, align 16, !tbaa !2438
   call void @llvm.lifetime.start.p0(i64 78, ptr nonnull %buffer.i.i.i.i145) #24
   %idx.ext.i.i.i.i.i169 = sext i32 %98 to i64
-  %add.ptr.i.i.i.i.i170 = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i145, i64 %idx.ext.i.i.i.i.i169
+  %add.ptr.i.i.i.i.i170 = getelementptr inbounds i8, ptr %buffer.i.i.i.i145, i64 %idx.ext.i.i.i.i.i169
   %cmp36.i.i.i.i.i171 = icmp ugt i128 %.fr17, 99
   br i1 %cmp36.i.i.i.i.i171, label %while.body.i.i.i.i.i195, label %while.end.i.i.i.i.i172
 
@@ -119917,7 +119917,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i236:         ; preds = %if.then.i.i.i.i.i23
   %129 = load i32, ptr %num_digits.i.i239, align 16, !tbaa !2438
   call void @llvm.lifetime.start.p0(i64 78, ptr nonnull %buffer.i.i.i.i216) #24
   %idx.ext.i.i.i.i.i240 = sext i32 %129 to i64
-  %add.ptr.i.i.i.i.i241 = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i216, i64 %idx.ext.i.i.i.i.i240
+  %add.ptr.i.i.i.i.i241 = getelementptr inbounds i8, ptr %buffer.i.i.i.i216, i64 %idx.ext.i.i.i.i.i240
   %cmp36.i.i.i.i.i242 = icmp ugt i128 %.fr21, 99
   br i1 %cmp36.i.i.i.i.i242, label %while.body.i.i.i.i.i266, label %while.end.i.i.i.i.i243
 
@@ -122166,7 +122166,7 @@ if.end11:                                         ; preds = %if.then.i.i.i.i, %_
   %ptr_.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload.i.i, i64 8
   %3 = load ptr, ptr %ptr_.i.i.i.i, align 8, !tbaa !1742
   call void @llvm.lifetime.start.p0(i64 78, ptr nonnull %buffer.i.i) #24
-  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.i.i, i64 %conv6
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %buffer.i.i, i64 %conv6
   %cmp36.i.i.i = icmp ugt i128 %n.sroa.0.0.insert.insert.i, 99
   br i1 %cmp36.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i
 
@@ -125307,7 +125307,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i:            ; preds = %if.then.i.i.i.i.i, 
   %32 = load i32, ptr %num_digits.i.i, align 4, !tbaa !2562
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i.i.i.i) #24
   %idx.ext.i.i.i.i.i = sext i32 %32 to i64
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i, i64 %idx.ext.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i.i.i.i, i64 %idx.ext.i.i.i.i.i
   %cmp33.i.i.i.i.i = icmp ugt i32 %31, 99
   br i1 %cmp33.i.i.i.i.i, label %while.body.i.i.i.i.i, label %while.end.i.i.i.i.i
 
@@ -125540,7 +125540,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i95:          ; preds = %if.then.i.i.i.i.i92
   %68 = load i32, ptr %num_digits.i.i98, align 4, !tbaa !2562
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i.i.i.i75) #24
   %idx.ext.i.i.i.i.i99 = sext i32 %68 to i64
-  %add.ptr.i.i.i.i.i100 = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i75, i64 %idx.ext.i.i.i.i.i99
+  %add.ptr.i.i.i.i.i100 = getelementptr inbounds i8, ptr %buffer.i.i.i.i75, i64 %idx.ext.i.i.i.i.i99
   %cmp33.i.i.i.i.i101 = icmp ugt i32 %67, 99
   br i1 %cmp33.i.i.i.i.i101, label %while.body.i.i.i.i.i124, label %while.end.i.i.i.i.i102
 
@@ -125751,7 +125751,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i163:         ; preds = %if.then.i.i.i.i.i16
   %98 = load i32, ptr %num_digits.i.i166, align 4, !tbaa !2562
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i.i.i.i143) #24
   %idx.ext.i.i.i.i.i167 = sext i32 %98 to i64
-  %add.ptr.i.i.i.i.i168 = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i143, i64 %idx.ext.i.i.i.i.i167
+  %add.ptr.i.i.i.i.i168 = getelementptr inbounds i8, ptr %buffer.i.i.i.i143, i64 %idx.ext.i.i.i.i.i167
   %cmp33.i.i.i.i.i169 = icmp ugt i32 %97, 99
   br i1 %cmp33.i.i.i.i.i169, label %while.body.i.i.i.i.i192, label %while.end.i.i.i.i.i170
 
@@ -125957,7 +125957,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i232:         ; preds = %if.then.i.i.i.i.i22
   %129 = load i32, ptr %num_digits.i.i235, align 4, !tbaa !2562
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i.i.i.i212) #24
   %idx.ext.i.i.i.i.i236 = sext i32 %129 to i64
-  %add.ptr.i.i.i.i.i237 = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i212, i64 %idx.ext.i.i.i.i.i236
+  %add.ptr.i.i.i.i.i237 = getelementptr inbounds i8, ptr %buffer.i.i.i.i212, i64 %idx.ext.i.i.i.i.i236
   %cmp33.i.i.i.i.i238 = icmp ugt i32 %128, 99
   br i1 %cmp33.i.i.i.i.i238, label %while.body.i.i.i.i.i261, label %while.end.i.i.i.i.i239
 

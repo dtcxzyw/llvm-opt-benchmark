@@ -7937,7 +7937,7 @@ if.else.i:                                        ; preds = %for.body
 _ZNK4node12_GLOBAL__N_19StringPtr8ToStringEPNS_11EnvironmentE.exit: ; preds = %if.then.i, %if.then.i.i.i, %if.else.i
   %retval.sroa.0.0.i = phi ptr [ %6, %if.else.i ], [ %call.i.i, %if.then.i ], [ null, %if.then.i.i.i ]
   %mul = shl i64 %i.015, 1
-  %arrayidx8 = getelementptr inbounds nuw [64 x %"class.v8::Local.0"], ptr %headers_v, i64 0, i64 %mul
+  %arrayidx8 = getelementptr inbounds [64 x %"class.v8::Local.0"], ptr %headers_v, i64 0, i64 %mul
   store ptr %retval.sroa.0.0.i, ptr %arrayidx8, align 16
   %arrayidx11 = getelementptr inbounds [32 x %"struct.node::(anonymous namespace)::StringPtr"], ptr %values_, i64 0, i64 %i.015
   %7 = load ptr, ptr %realm_.i, align 8
@@ -7991,7 +7991,7 @@ if.else.i.i:                                      ; preds = %while.body.i, %_ZNK
 _ZN4node12_GLOBAL__N_19StringPtr15ToTrimmedStringEPNS_11EnvironmentE.exit: ; preds = %if.then.i.i, %if.then.i.i.i.i, %if.else.i.i
   %retval.sroa.0.0.i.i = phi ptr [ %15, %if.else.i.i ], [ %call.i.i.i, %if.then.i.i ], [ null, %if.then.i.i.i.i ]
   %add = or disjoint i64 %mul, 1
-  %arrayidx21 = getelementptr inbounds nuw [64 x %"class.v8::Local.0"], ptr %headers_v, i64 0, i64 %add
+  %arrayidx21 = getelementptr inbounds [64 x %"class.v8::Local.0"], ptr %headers_v, i64 0, i64 %add
   store ptr %retval.sroa.0.0.i.i, ptr %arrayidx21, align 8
   %inc = add nuw i64 %i.015, 1
   %16 = load i64, ptr %num_values_, align 8

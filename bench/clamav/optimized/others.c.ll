@@ -239,7 +239,7 @@ define i32 @cl_init(i32 noundef %0) local_unnamed_addr #2 {
 
 .lr.ph.i.i:                                       ; preds = %22, %35
   %.03817.i.i = phi i64 [ %36, %35 ], [ 0, %22 ]
-  %25 = getelementptr inbounds nuw [10 x ptr], ptr %3, i64 0, i64 %.03817.i.i
+  %25 = getelementptr inbounds [10 x ptr], ptr %3, i64 0, i64 %.03817.i.i
   %26 = load ptr, ptr %25, align 8
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.115, ptr noundef nonnull @.str.97, ptr noundef %26) #24
   br label %27

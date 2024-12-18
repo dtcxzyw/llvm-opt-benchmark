@@ -27669,7 +27669,7 @@ define void @_ZN7glslang9TBuiltIns20addSamplingFunctionsENS_8TSamplerERKNSt7__cx
   %116 = trunc nuw i8 %.3145 to i1
   %switch.tableidx = add nsw i32 %110, -1
   %117 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN7glslang9TBuiltIns20addSamplingFunctionsENS_8TSamplerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEi8EProfile, i64 0, i64 %117
+  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN7glslang9TBuiltIns20addSamplingFunctionsENS_8TSamplerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEi8EProfile, i64 0, i64 %117
   br label %118
 
 118:                                              ; preds = %.critedge193, %.loopexit

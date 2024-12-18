@@ -4414,10 +4414,10 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %2
 define dso_local { ptr, i64 } @_ZN5clang14PredefinedExpr16getIdentKindNameENS_19PredefinedIdentKindE(i32 noundef %0) local_unnamed_addr #8 align 2 {
 switch.lookup:
   %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZN5clang14PredefinedExpr16getIdentKindNameENS_19PredefinedIdentKindE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [7 x i64], ptr @switch.table._ZN5clang14PredefinedExpr16getIdentKindNameENS_19PredefinedIdentKindE, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = sext i32 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN5clang14PredefinedExpr16getIdentKindNameENS_19PredefinedIdentKindE.133, i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds [7 x ptr], ptr @switch.table._ZN5clang14PredefinedExpr16getIdentKindNameENS_19PredefinedIdentKindE.133, i64 0, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -8727,10 +8727,10 @@ declare noundef i32 @_ZNK5clang19StringLiteralParser21getOffsetOfStringByteERKNS
 define dso_local { ptr, i64 } @_ZN5clang13UnaryOperator12getOpcodeStrENS_17UnaryOperatorKindE(i32 noundef %0) local_unnamed_addr #8 align 2 {
 switch.lookup:
   %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [14 x i64], ptr @switch.table._ZN5clang13UnaryOperator12getOpcodeStrENS_17UnaryOperatorKindE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [14 x i64], ptr @switch.table._ZN5clang13UnaryOperator12getOpcodeStrENS_17UnaryOperatorKindE, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = sext i32 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw [14 x ptr], ptr @switch.table._ZN5clang13UnaryOperator12getOpcodeStrENS_17UnaryOperatorKindE.134, i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds [14 x ptr], ptr @switch.table._ZN5clang13UnaryOperator12getOpcodeStrENS_17UnaryOperatorKindE.134, i64 0, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -11221,7 +11221,7 @@ declare i64 @_ZNK5clang4Type14getPointeeTypeEv(ptr noundef nonnull align 16 dere
 define dso_local noundef nonnull ptr @_ZN5clang8CastExpr15getCastKindNameENS_8CastKindE(i32 noundef %0) local_unnamed_addr #8 align 2 {
 switch.lookup:
   %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [67 x ptr], ptr @switch.table._ZN5clang8CastExpr15getCastKindNameENS_8CastKindE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [67 x ptr], ptr @switch.table._ZN5clang8CastExpr15getCastKindNameENS_8CastKindE, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -11513,7 +11513,7 @@ switch.lookup:
   %1 = load i8, ptr %0, align 8
   %switch.tableidx = add nsw i8 %1, -79
   %2 = sext i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN5clang8CastExpr11path_bufferEv, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds [10 x i64], ptr @switch.table._ZN5clang8CastExpr11path_bufferEv, i64 0, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   ret ptr %3
@@ -11690,7 +11690,7 @@ switch.lookup:
   %3 = load i32, ptr %2, align 4
   %switch.tableidx = add nsw i8 %1, -79
   %4 = sext i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZNK5clang8CastExpr21getFPFeaturesInEffectERKNS_11LangOptionsE, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds [9 x i64], ptr @switch.table._ZNK5clang8CastExpr21getFPFeaturesInEffectERKNS_11LangOptionsE, i64 0, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = zext i32 %3 to i64
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
@@ -11798,7 +11798,7 @@ switch.lookup:                                    ; preds = %_ZN5clang8CastExprC
   %switch.tableidx = shl i64 %62, 56
   %sext = add i64 %switch.tableidx, -5692549928996306944
   %64 = ashr exact i64 %sext, 56
-  %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZNK5clang8CastExpr21getFPFeaturesInEffectERKNS_11LangOptionsE, i64 0, i64 %64
+  %switch.gep = getelementptr inbounds [9 x i64], ptr @switch.table._ZNK5clang8CastExpr21getFPFeaturesInEffectERKNS_11LangOptionsE, i64 0, i64 %64
   %switch.load = load i64, ptr %switch.gep, align 8
   %65 = zext i32 %63 to i64
   %66 = getelementptr inbounds nuw i8, ptr %.0.i.i.i18, i64 %switch.load
@@ -11999,7 +11999,7 @@ switch.lookup:                                    ; preds = %_ZN5clang16Explicit
   %switch.tableidx = shl i64 %68, 56
   %sext = add i64 %switch.tableidx, -5692549928996306944
   %70 = ashr exact i64 %sext, 56
-  %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZNK5clang8CastExpr21getFPFeaturesInEffectERKNS_11LangOptionsE, i64 0, i64 %70
+  %switch.gep = getelementptr inbounds [9 x i64], ptr @switch.table._ZNK5clang8CastExpr21getFPFeaturesInEffectERKNS_11LangOptionsE, i64 0, i64 %70
   %switch.load = load i64, ptr %switch.gep, align 8
   %71 = zext i32 %69 to i64
   %72 = getelementptr inbounds nuw i8, ptr %.0.i.i.i23, i64 %switch.load
@@ -12100,10 +12100,10 @@ _ZN5clang14CStyleCastExprC2ENS_4Stmt10EmptyShellEjb.exit: ; preds = %23, %26
 define dso_local { ptr, i64 } @_ZN5clang14BinaryOperator12getOpcodeStrENS_18BinaryOperatorKindE(i32 noundef %0) local_unnamed_addr #8 align 2 {
 switch.lookup:
   %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [33 x i64], ptr @switch.table._ZN5clang14BinaryOperator12getOpcodeStrENS_18BinaryOperatorKindE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [33 x i64], ptr @switch.table._ZN5clang14BinaryOperator12getOpcodeStrENS_18BinaryOperatorKindE, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = sext i32 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw [33 x ptr], ptr @switch.table._ZN5clang14BinaryOperator12getOpcodeStrENS_18BinaryOperatorKindE.135, i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds [33 x ptr], ptr @switch.table._ZN5clang14BinaryOperator12getOpcodeStrENS_18BinaryOperatorKindE.135, i64 0, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -12115,7 +12115,7 @@ define dso_local noundef range(i32 1, 33) i32 @_ZN5clang14BinaryOperator19getOve
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -5
   %1 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [36 x i32], ptr @switch.table._ZN5clang14BinaryOperator19getOverloadedOpcodeENS_22OverloadedOperatorKindE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [36 x i32], ptr @switch.table._ZN5clang14BinaryOperator19getOverloadedOpcodeENS_22OverloadedOperatorKindE, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -23781,7 +23781,7 @@ switch.lookup:                                    ; preds = %2
   %switch.tableidx = shl i64 %5, 56
   %sext = add i64 %switch.tableidx, -5692549928996306944
   %8 = ashr exact i64 %sext, 56
-  %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZNK5clang8CastExpr21getFPFeaturesInEffectERKNS_11LangOptionsE, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds [9 x i64], ptr @switch.table._ZNK5clang8CastExpr21getFPFeaturesInEffectERKNS_11LangOptionsE, i64 0, i64 %8
   %switch.load = load i64, ptr %switch.gep, align 8
   %9 = zext i32 %7 to i64
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
@@ -30701,7 +30701,7 @@ declare noundef zeroext i8 @_ZN5clang17computeDependenceEPNS_10AtomicExprE(ptr n
 define dso_local noundef range(i32 2, 8) i32 @_ZN5clang10AtomicExpr14getNumSubExprsENS0_8AtomicOpE(i32 noundef %0) local_unnamed_addr #8 align 2 {
 switch.lookup:
   %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [87 x i32], ptr @switch.table._ZN5clang10AtomicExpr14getNumSubExprsENS0_8AtomicOpE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [87 x i32], ptr @switch.table._ZN5clang10AtomicExpr14getNumSubExprsENS0_8AtomicOpE, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }

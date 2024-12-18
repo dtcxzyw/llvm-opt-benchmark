@@ -658,7 +658,7 @@ define internal range(i32 0, 2) i32 @compress_first_pass(ptr noundef %0, ptr noc
   %75 = load i32, ptr %74, align 4
   %76 = mul i32 %75, %73
   %77 = tail call ptr %69(ptr noundef nonnull %0, ptr noundef %72, i32 noundef %76, i32 noundef %75, i32 noundef 0) #5
-  %78 = getelementptr inbounds nuw [4 x ptr], ptr %3, i64 0, i64 %70
+  %78 = getelementptr inbounds [4 x ptr], ptr %3, i64 0, i64 %70
   store ptr %77, ptr %78, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %79 = load i32, ptr %54, align 4
@@ -706,7 +706,7 @@ define internal range(i32 0, 2) i32 @compress_output(ptr noundef %0, ptr nocaptu
   %26 = load i32, ptr %25, align 4
   %27 = mul i32 %26, %24
   %28 = tail call ptr %20(ptr noundef nonnull %0, ptr noundef %23, i32 noundef %27, i32 noundef %26, i32 noundef 0) #5
-  %29 = getelementptr inbounds nuw [4 x ptr], ptr %3, i64 0, i64 %21
+  %29 = getelementptr inbounds [4 x ptr], ptr %3, i64 0, i64 %21
   store ptr %28, ptr %29, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = load i32, ptr %4, align 4

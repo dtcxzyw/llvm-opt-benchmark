@@ -3511,10 +3511,10 @@ switch.lookup:                                    ; preds = %.lr.ph, %_ZN4llvm12
   %73 = load ptr, ptr %72, align 8
   %74 = call noundef i32 %73(ptr noundef nonnull align 8 dereferenceable(8) %30, i32 noundef %70) #14
   %75 = sext i32 %74 to i64
-  %switch.gep = getelementptr inbounds nuw [14 x i64], ptr @switch.table._ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprENS0_7AddressES5_S5_S5_PN4llvm5ValueES8_mNS6_14AtomicOrderingES8_, i64 0, i64 %75
+  %switch.gep = getelementptr inbounds [14 x i64], ptr @switch.table._ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprENS0_7AddressES5_S5_S5_PN4llvm5ValueES8_mNS6_14AtomicOrderingES8_, i64 0, i64 %75
   %switch.load = load i64, ptr %switch.gep, align 8
   %76 = sext i32 %74 to i64
-  %switch.gep12 = getelementptr inbounds nuw [14 x ptr], ptr @switch.table._ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprENS0_7AddressES5_S5_S5_PN4llvm5ValueES8_mNS6_14AtomicOrderingES8_.18, i64 0, i64 %76
+  %switch.gep12 = getelementptr inbounds [14 x ptr], ptr @switch.table._ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprENS0_7AddressES5_S5_S5_PN4llvm5ValueES8_mNS6_14AtomicOrderingES8_.18, i64 0, i64 %76
   %switch.load13 = load ptr, ptr %switch.gep12, align 8
   store i8 5, ptr %64, align 8
   store i8 1, ptr %65, align 1
@@ -4558,7 +4558,7 @@ switch.lookup:                                    ; preds = %175
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %20)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %21)
   %178 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN5clang7CodeGen15CodeGenFunction16EmitAtomicUpdateENS0_6LValueEN4llvm14AtomicOrderingERKNS3_12function_refIFNS0_6RValueES6_EEEb.20, i64 0, i64 %178
+  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZN5clang7CodeGen15CodeGenFunction16EmitAtomicUpdateENS0_6LValueEN4llvm14AtomicOrderingERKNS3_12function_refIFNS0_6RValueES6_EEEb.20, i64 0, i64 %178
   %switch.load = load i32, ptr %switch.gep, align 4
   call fastcc void @_ZNK12_GLOBAL__N_110AtomicInfo16CreateTempAllocaEv(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(232) %27)
   %179 = getelementptr inbounds nuw i8, ptr %17, i64 24
@@ -4839,7 +4839,7 @@ switch.lookup148:                                 ; preds = %175
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13)
   %285 = sext i32 %switch.tableidx to i64
-  %switch.gep150 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN5clang7CodeGen15CodeGenFunction16EmitAtomicUpdateENS0_6LValueEN4llvm14AtomicOrderingERKNS3_12function_refIFNS0_6RValueES6_EEEb.20, i64 0, i64 %285
+  %switch.gep150 = getelementptr inbounds [6 x i32], ptr @switch.table._ZN5clang7CodeGen15CodeGenFunction16EmitAtomicUpdateENS0_6LValueEN4llvm14AtomicOrderingERKNS3_12function_refIFNS0_6RValueES6_EEEb.20, i64 0, i64 %285
   %switch.load151 = load i32, ptr %switch.gep150, align 4
   %286 = call fastcc noundef ptr @_ZN12_GLOBAL__N_110AtomicInfo16EmitAtomicLoadOpEN4llvm14AtomicOrderingEbb(ptr noundef nonnull align 8 dereferenceable(232) %27, i32 noundef %switch.load151, i1 noundef zeroext %4, i1 noundef zeroext true)
   %287 = load ptr, ptr %27, align 8
@@ -5888,7 +5888,7 @@ switch.lookup:                                    ; preds = %5
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %20)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %21)
   %25 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN5clang7CodeGen15CodeGenFunction16EmitAtomicUpdateENS0_6LValueEN4llvm14AtomicOrderingERKNS3_12function_refIFNS0_6RValueES6_EEEb.20, i64 0, i64 %25
+  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZN5clang7CodeGen15CodeGenFunction16EmitAtomicUpdateENS0_6LValueEN4llvm14AtomicOrderingERKNS3_12function_refIFNS0_6RValueES6_EEEb.20, i64 0, i64 %25
   %switch.load = load i32, ptr %switch.gep, align 4
   call fastcc void @_ZNK12_GLOBAL__N_110AtomicInfo16CreateTempAllocaEv(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(232) %22)
   %26 = getelementptr inbounds nuw i8, ptr %15, i64 24
@@ -6107,7 +6107,7 @@ switch.lookup3:                                   ; preds = %5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13)
   %123 = sext i32 %switch.tableidx to i64
-  %switch.gep5 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN5clang7CodeGen15CodeGenFunction16EmitAtomicUpdateENS0_6LValueEN4llvm14AtomicOrderingERKNS3_12function_refIFNS0_6RValueES6_EEEb.20, i64 0, i64 %123
+  %switch.gep5 = getelementptr inbounds [6 x i32], ptr @switch.table._ZN5clang7CodeGen15CodeGenFunction16EmitAtomicUpdateENS0_6LValueEN4llvm14AtomicOrderingERKNS3_12function_refIFNS0_6RValueES6_EEEb.20, i64 0, i64 %123
   %switch.load6 = load i32, ptr %switch.gep5, align 4
   %124 = call fastcc noundef ptr @_ZN12_GLOBAL__N_110AtomicInfo16EmitAtomicLoadOpEN4llvm14AtomicOrderingEbb(ptr noundef nonnull align 8 dereferenceable(232) %22, i32 noundef %switch.load6, i1 noundef zeroext %4, i1 noundef zeroext true)
   %125 = load ptr, ptr %22, align 8

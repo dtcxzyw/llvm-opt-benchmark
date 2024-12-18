@@ -2641,7 +2641,7 @@ call12.i.noexc:                                   ; preds = %if.then.i
 if.end.i195:                                      ; preds = %call12.i.noexc, %land.lhs.true.i, %for.body.i
   %div.i21.i = sdiv i32 %55, 64
   %idxprom.i22.i = sext i32 %div.i21.i to i64
-  %arrayidx.i23.i = getelementptr inbounds nuw [4 x i64], ptr %builder, i64 0, i64 %idxprom.i22.i
+  %arrayidx.i23.i = getelementptr inbounds [4 x i64], ptr %builder, i64 0, i64 %idxprom.i22.i
   %58 = load i64, ptr %arrayidx.i23.i, align 8
   %rem.i24.i = srem i32 %55, 64
   %sh_prom.i25.i = zext nneg i32 %rem.i24.i to i64
@@ -5713,7 +5713,7 @@ for.body18.i:                                     ; preds = %for.end14.i, %call2
 
 call20.i.noexc:                                   ; preds = %for.body18.i
   %7 = load i8, ptr %call20.i6, align 1
-  %arrayidx21.i = getelementptr inbounds nuw [10 x i16], ptr %states.i, i64 0, i64 %dcurr.039.i
+  %arrayidx21.i = getelementptr inbounds [10 x i16], ptr %states.i, i64 0, i64 %dcurr.039.i
   %8 = load i16, ptr %arrayidx21.i, align 2
   %idxprom22.i = zext i8 %7 to i64
   %arrayidx23.i = getelementptr inbounds nuw [256 x i16], ptr %nfa.i, i64 0, i64 %idxprom22.i
@@ -5724,7 +5724,7 @@ call20.i.noexc:                                   ; preds = %for.body18.i
   %add29.i = add nuw i64 %dcurr.039.i, 1
   %cmp30.i = icmp eq i64 %add29.i, %call.i
   %spec.store.select.i = select i1 %cmp30.i, i64 9, i64 %add29.i
-  %arrayidx31.i = getelementptr inbounds nuw [10 x i16], ptr %states.i, i64 0, i64 %spec.store.select.i
+  %arrayidx31.i = getelementptr inbounds [10 x i16], ptr %states.i, i64 0, i64 %spec.store.select.i
   store i16 %and.i, ptr %arrayidx31.i, align 2
   br i1 %cmp30.i, label %for.end34.i, label %for.body18.i, !llvm.loop !107
 
@@ -5803,7 +5803,7 @@ for.body64.i:                                     ; preds = %call60.i.noexc, %fo
   br i1 %cmp.i.not40.i, label %for.inc113.i, label %for.body71.lr.ph.i
 
 for.body71.lr.ph.i:                               ; preds = %for.body64.i
-  %arrayidx75.i = getelementptr inbounds nuw [10 x i16], ptr %states.i, i64 0, i64 %dcurr61.043.i
+  %arrayidx75.i = getelementptr inbounds [10 x i16], ptr %states.i, i64 0, i64 %dcurr61.043.i
   %14 = load i16, ptr %arrayidx75.i, align 2
   %shl81.i = shl i16 %14, 1
   %or82.i = or disjoint i16 %shl81.i, 1
@@ -5821,7 +5821,7 @@ for.body71.i:                                     ; preds = %for.inc110.i, %for.
 
 while.cond.i:                                     ; preds = %while.cond.i, %for.body71.i
   %dnext85.0.i = phi i64 [ 0, %for.body71.i ], [ %inc90.i, %while.cond.i ]
-  %arrayidx86.i = getelementptr inbounds nuw [10 x i16], ptr %states.i, i64 0, i64 %dnext85.0.i
+  %arrayidx86.i = getelementptr inbounds [10 x i16], ptr %states.i, i64 0, i64 %dnext85.0.i
   %17 = load i16, ptr %arrayidx86.i, align 2
   %cmp89.not.i = icmp eq i16 %17, %and83.i
   %inc90.i = add i64 %dnext85.0.i, 1

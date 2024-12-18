@@ -71,7 +71,7 @@ define hidden noundef range(i32 -1, 2) i32 @_Z12pj_datum_setP6pj_ctxP8ARG_listP8
 20:                                               ; preds = %19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(7) %4, ptr noundef nonnull align 1 dereferenceable(7) @.str.2, i64 7, i1 false) #7
   %21 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #6
-  %22 = getelementptr inbounds nuw i8, ptr %4, i64 %21
+  %22 = getelementptr inbounds i8, ptr %4, i64 %21
   %23 = sub i64 99, %21
   %24 = call ptr @strncpy(ptr noundef nonnull %22, ptr noundef nonnull %18, i64 noundef %23) #7
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 99

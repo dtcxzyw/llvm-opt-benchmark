@@ -554,7 +554,7 @@ _ZSt6fill_nIPP11processor_tmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds =
   %123 = load ptr, ptr @_ZSt4cerr, align 8
   %124 = getelementptr i8, ptr %123, i64 -24
   %125 = load i64, ptr %124, align 8
-  %126 = getelementptr inbounds nuw i8, ptr @_ZSt4cerr, i64 %125
+  %126 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %125
   %127 = invoke noundef ptr @_ZNKSt9basic_iosIcSt11char_traitsIcEE5rdbufEv(ptr noundef nonnull align 8 dereferenceable(264) %126)
           to label %128 unwind label %.loopexit.split-lp285.loopexit.split-lp
 
@@ -785,7 +785,7 @@ _ZSt6fill_nIPP11processor_tmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds =
   %223 = load ptr, ptr %17, align 8
   %224 = getelementptr i8, ptr %223, i64 -24
   %225 = load i64, ptr %224, align 8
-  %226 = getelementptr inbounds nuw i8, ptr %17, i64 %225
+  %226 = getelementptr inbounds i8, ptr %17, i64 %225
   %227 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %226)
           to label %228 unwind label %236
 

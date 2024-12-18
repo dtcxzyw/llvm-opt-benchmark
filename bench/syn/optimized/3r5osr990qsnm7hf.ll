@@ -7443,7 +7443,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i: ; preds = %85, %87
   br i1 %173, label %177, label %174
 
 174:                                              ; preds = %170
-  %175 = getelementptr inbounds nuw [39 x i64], ptr @anon.87e1a2d6df9a83b4d58f020fa9ead87e.4, i64 0, i64 %.0..0..0..0..0..0..pr
+  %175 = getelementptr inbounds [39 x i64], ptr @anon.87e1a2d6df9a83b4d58f020fa9ead87e.4, i64 0, i64 %.0..0..0..0..0..0..pr
   %176 = load i64, ptr %175, align 8, !noundef !5
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %15, ptr nonnull align 8 %14, i64 %176, i1 false)
   invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$core..option..Option$LT$syn..expr..Expr$GT$$GT$17h14ca120f4c290c30E"(ptr noalias noundef align 8 dereferenceable(176) %23)

@@ -501,7 +501,7 @@ Vec_IntPush.exit138:                              ; preds = %.Vec_IntGrow.exit10
   %102 = add nsw i32 %97, 1
   store i32 %102, ptr %9, align 16
   %103 = sext i32 %102 to i64
-  %104 = getelementptr inbounds nuw i32, ptr %9, i64 %103
+  %104 = getelementptr inbounds i32, ptr %9, i64 %103
   store i32 %101, ptr %104, align 4
   br label %.loopexit.i
 
@@ -665,7 +665,7 @@ Ree_ManCutNotFind.exit.i.i:                       ; preds = %155, %154, %150
 
 Ree_ManCutFind.exit.i.i:                          ; preds = %167, %165, %162
   %.0.i26.i.i = phi i64 [ 0, %162 ], [ 1, %165 ], [ %..i.i.i, %167 ]
-  %170 = getelementptr inbounds nuw [3 x i32], ptr @__const.Ree_ManCutTruthOne.Truths.16, i64 0, i64 %.0.i26.i.i
+  %170 = getelementptr inbounds [3 x i32], ptr @__const.Ree_ManCutTruthOne.Truths.16, i64 0, i64 %.0.i26.i.i
   %171 = load i32, ptr %170, align 4
   %172 = xor i32 %171, %sext.i.i
   br label %Ree_ManCutTruthOne.exit.i
@@ -744,7 +744,7 @@ Ree_ManCutNotFind.exit.i25.i:                     ; preds = %191, %190, %184
 
 Ree_ManCutFind.exit.i19.i:                        ; preds = %204, %202, %198
   %.0.i26.i20.i = phi i64 [ 0, %198 ], [ 1, %202 ], [ %..i.i18.i, %204 ]
-  %207 = getelementptr inbounds nuw [3 x i32], ptr @__const.Ree_ManCutTruthOne.Truths.16, i64 0, i64 %.0.i26.i20.i
+  %207 = getelementptr inbounds [3 x i32], ptr @__const.Ree_ManCutTruthOne.Truths.16, i64 0, i64 %.0.i26.i20.i
   %208 = load i32, ptr %207, align 4
   %209 = xor i32 %208, %sext.i17.i
   br label %Ree_ManCutTruthOne.exit33.i

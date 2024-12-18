@@ -299,7 +299,7 @@ define noundef nonnull ptr @Extra_FileInTheSameDir(ptr nocapture noundef readonl
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #22
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 @Extra_FileInTheSameDir.pBuffer, ptr align 1 %0, i64 %3, i1 false)
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #22
-  %5 = getelementptr inbounds nuw i8, ptr @Extra_FileInTheSameDir.pBuffer, i64 %4
+  %5 = getelementptr inbounds i8, ptr @Extra_FileInTheSameDir.pBuffer, i64 %4
   br label %6
 
 6:                                                ; preds = %7, %2

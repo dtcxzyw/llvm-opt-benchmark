@@ -1461,7 +1461,7 @@ entry:
   %msg = alloca [150 x i8], align 16
   %0 = load i32, ptr @lng_index, align 4
   %idxprom = sext i32 %0 to i64
-  %arrayidx = getelementptr inbounds nuw [2 x [4 x ptr]], ptr @bench_result_words1, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [2 x [4 x ptr]], ptr @bench_result_words1, i64 0, i64 %idxprom
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(150) %msg, i8 0, i64 150, i1 false)
   %1 = tail call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !8
   %asmresult.i = extractvalue { i32, i32 } %1, 0
@@ -1559,7 +1559,7 @@ if.end16:                                         ; preds = %if.end5.sink.split.
 if.then24:                                        ; preds = %if.end16
   %call26 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %msg, i64 noundef 150, ptr noundef nonnull @.str.105, ptr noundef %desc, double noundef %persec.0) #16
   %call29 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %msg) #19
-  %add.ptr = getelementptr inbounds nuw i8, ptr %msg, i64 %call29
+  %add.ptr = getelementptr inbounds i8, ptr %msg, i64 %call29
   %sub32 = sub i64 150, %call29
   %cmp33 = icmp eq i32 %count, 0
   br i1 %cmp33, label %cond.end, label %cond.false
@@ -1585,11 +1585,11 @@ if.else42:                                        ; preds = %if.end16
   %11 = load ptr, ptr %arrayidx45, align 8
   %call46 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %msg, i64 noundef 150, ptr noundef nonnull @.str.107, ptr noundef %desc, ptr noundef nonnull @.str.108, i32 noundef 5, i32 noundef 0, double noundef %blocks.0, ptr noundef nonnull %blockType.0, ptr noundef %10, i32 noundef 5, i32 noundef 3, double noundef %sub3, ptr noundef %11, i32 noundef 8, i32 noundef 3, double noundef %persec.0, ptr noundef nonnull %blockType.0) #16
   %call49 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %msg) #19
-  %add.ptr50 = getelementptr inbounds nuw i8, ptr %msg, i64 %call49
+  %add.ptr50 = getelementptr inbounds i8, ptr %msg, i64 %call49
   %sub53 = sub i64 150, %call49
   %12 = load i32, ptr @lng_index, align 4
   %idxprom54 = sext i32 %12 to i64
-  %arrayidx56 = getelementptr inbounds nuw [2 x [4 x ptr]], ptr @bench_result_words1, i64 0, i64 %idxprom54, i64 2
+  %arrayidx56 = getelementptr inbounds [2 x [4 x ptr]], ptr @bench_result_words1, i64 0, i64 %idxprom54, i64 2
   %13 = load ptr, ptr %arrayidx56, align 16
   %cmp57 = icmp eq i32 %count, 0
   br i1 %cmp57, label %cond.end67, label %cond.false60
@@ -5750,7 +5750,7 @@ if.then18:                                        ; preds = %if.end7
   call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %message.i)
   %1 = load i32, ptr @lng_index, align 4
   %idxprom.i = sext i32 %1 to i64
-  %arrayidx.i = getelementptr inbounds nuw [2 x [15 x ptr]], ptr @bench_desc_words, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [2 x [15 x ptr]], ptr @bench_desc_words, i64 0, i64 %idxprom.i
   %call.i = call ptr @wolfSSL_Malloc(i64 noundef 2048) #16
   %call34.i = call ptr @wolfSSL_Malloc(i64 noundef 2048) #16
   %cmp72.i = icmp eq ptr %call34.i, null
@@ -6162,7 +6162,7 @@ entry:
   %priv2 = alloca [48 x i8], align 16
   %0 = load i32, ptr @lng_index, align 4
   %idxprom = sext i32 %0 to i64
-  %arrayidx = getelementptr inbounds nuw [2 x [15 x ptr]], ptr @bench_desc_words, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [2 x [15 x ptr]], ptr @bench_desc_words, i64 0, i64 %idxprom
   store i32 384, ptr %pubSz2, align 4
   store i32 48, ptr %privSz2, align 4
   %.b35 = load i1, ptr @use_ffdhe, align 4
@@ -6406,7 +6406,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %msg.i)
   %0 = load i32, ptr @lng_index, align 4
   %idxprom.i = sext i32 %0 to i64
-  %arrayidx.i = getelementptr inbounds nuw [2 x [5 x ptr]], ptr @bench_result_words2, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [2 x [5 x ptr]], ptr @bench_result_words2, i64 0, i64 %idxprom.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %msg.i, i8 0, i64 256, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i)
   %call.i.i = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %tv.i.i) #16
@@ -6628,7 +6628,7 @@ exit:                                             ; preds = %bench_stats_check.e
   %call32 = call ptr @wc_ecc_get_name(i32 noundef %curveId) #16
   %call33 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %name, i64 noundef 24, ptr noundef nonnull @.str.73, ptr noundef %call32) #16
   %mul = shl nsw i32 %call, 3
-  %arrayidx35 = getelementptr inbounds nuw [2 x [15 x ptr]], ptr @bench_desc_words, i64 0, i64 %idxprom, i64 2
+  %arrayidx35 = getelementptr inbounds [2 x [15 x ptr]], ptr @bench_desc_words, i64 0, i64 %idxprom, i64 2
   %12 = load ptr, ptr %arrayidx35, align 8
   call fastcc void @bench_stats_asym_finish(ptr noundef nonnull %name, i32 noundef %mul, ptr noundef %12, i32 noundef %count.1, double noundef %add.i.i, i32 noundef %ret.2)
   %call41 = call i32 @wc_ecc_free(ptr noundef nonnull %genKey) #16
@@ -6654,7 +6654,7 @@ entry:
   %digest = alloca [1 x [66 x i8]], align 16
   %0 = load i32, ptr @lng_index, align 4
   %idxprom = sext i32 %0 to i64
-  %arrayidx = getelementptr inbounds nuw [2 x [15 x ptr]], ptr @bench_desc_words, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [2 x [15 x ptr]], ptr @bench_desc_words, i64 0, i64 %idxprom
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4200) %genKey, i8 0, i64 4200, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4200) %genKey2, i8 0, i64 4200, i1 false)
   %call = tail call i32 @wc_ecc_get_curve_size_from_id(i32 noundef %curveId) #16
@@ -7494,47 +7494,47 @@ entry:
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   %0 = load i32, ptr @lng_index, align 4
   %idxprom = sext i32 %0 to i64
-  %arrayidx = getelementptr inbounds nuw [2 x [25 x ptr]], ptr @bench_Usage_msg1, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [2 x [25 x ptr]], ptr @bench_Usage_msg1, i64 0, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8
   %call3 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef %1)
   %2 = load i32, ptr @lng_index, align 4
   %idxprom4 = sext i32 %2 to i64
-  %arrayidx8 = getelementptr inbounds nuw [2 x [25 x ptr]], ptr @bench_Usage_msg1, i64 0, i64 %idxprom4, i64 1
+  %arrayidx8 = getelementptr inbounds [2 x [25 x ptr]], ptr @bench_Usage_msg1, i64 0, i64 %idxprom4, i64 1
   %3 = load ptr, ptr %arrayidx8, align 8
   %call9 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef %3)
   %4 = load i32, ptr @lng_index, align 4
   %idxprom10 = sext i32 %4 to i64
-  %arrayidx14 = getelementptr inbounds nuw [2 x [25 x ptr]], ptr @bench_Usage_msg1, i64 0, i64 %idxprom10, i64 2
+  %arrayidx14 = getelementptr inbounds [2 x [25 x ptr]], ptr @bench_Usage_msg1, i64 0, i64 %idxprom10, i64 2
   %5 = load ptr, ptr %arrayidx14, align 8
   %call15 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef %5)
   %6 = load i32, ptr @lng_index, align 4
   %idxprom16 = sext i32 %6 to i64
-  %arrayidx20 = getelementptr inbounds nuw [2 x [25 x ptr]], ptr @bench_Usage_msg1, i64 0, i64 %idxprom16, i64 3
+  %arrayidx20 = getelementptr inbounds [2 x [25 x ptr]], ptr @bench_Usage_msg1, i64 0, i64 %idxprom16, i64 3
   %7 = load ptr, ptr %arrayidx20, align 8
   %call21 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef %7)
   %8 = load i32, ptr @lng_index, align 4
   %idxprom22 = sext i32 %8 to i64
-  %arrayidx26 = getelementptr inbounds nuw [2 x [25 x ptr]], ptr @bench_Usage_msg1, i64 0, i64 %idxprom22, i64 4
+  %arrayidx26 = getelementptr inbounds [2 x [25 x ptr]], ptr @bench_Usage_msg1, i64 0, i64 %idxprom22, i64 4
   %9 = load ptr, ptr %arrayidx26, align 8
   %call27 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef %9)
   %10 = load i32, ptr @lng_index, align 4
   %idxprom28 = sext i32 %10 to i64
-  %arrayidx32 = getelementptr inbounds nuw [2 x [25 x ptr]], ptr @bench_Usage_msg1, i64 0, i64 %idxprom28, i64 5
+  %arrayidx32 = getelementptr inbounds [2 x [25 x ptr]], ptr @bench_Usage_msg1, i64 0, i64 %idxprom28, i64 5
   %11 = load ptr, ptr %arrayidx32, align 8
   %call33 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef %11)
   %12 = load i32, ptr @lng_index, align 4
   %idxprom34 = sext i32 %12 to i64
-  %arrayidx38 = getelementptr inbounds nuw [2 x [25 x ptr]], ptr @bench_Usage_msg1, i64 0, i64 %idxprom34, i64 6
+  %arrayidx38 = getelementptr inbounds [2 x [25 x ptr]], ptr @bench_Usage_msg1, i64 0, i64 %idxprom34, i64 6
   %13 = load ptr, ptr %arrayidx38, align 8
   %call39 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef %13)
   %14 = load i32, ptr @lng_index, align 4
   %idxprom40 = sext i32 %14 to i64
-  %arrayidx44 = getelementptr inbounds nuw [2 x [25 x ptr]], ptr @bench_Usage_msg1, i64 0, i64 %idxprom40, i64 7
+  %arrayidx44 = getelementptr inbounds [2 x [25 x ptr]], ptr @bench_Usage_msg1, i64 0, i64 %idxprom40, i64 7
   %15 = load ptr, ptr %arrayidx44, align 8
   %call45 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef %15)
   %16 = load i32, ptr @lng_index, align 4
   %idxprom46 = sext i32 %16 to i64
-  %arrayidx50 = getelementptr inbounds nuw [2 x [25 x ptr]], ptr @bench_Usage_msg1, i64 0, i64 %idxprom46, i64 8
+  %arrayidx50 = getelementptr inbounds [2 x [25 x ptr]], ptr @bench_Usage_msg1, i64 0, i64 %idxprom46, i64 8
   %17 = load ptr, ptr %arrayidx50, align 8
   %call51 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef %17)
   %puts139 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.7)
@@ -7542,7 +7542,7 @@ entry:
   %puts141 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.9)
   %18 = load i32, ptr @lng_index, align 4
   %idxprom74 = sext i32 %18 to i64
-  %arrayidx77 = getelementptr inbounds nuw [2 x [25 x ptr]], ptr @bench_Usage_msg1, i64 0, i64 %idxprom74, i64 16
+  %arrayidx77 = getelementptr inbounds [2 x [25 x ptr]], ptr @bench_Usage_msg1, i64 0, i64 %idxprom74, i64 16
   %19 = load ptr, ptr %arrayidx77, align 8
   %call78 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef %19)
   br label %for.body
@@ -7745,17 +7745,17 @@ for.end144:                                       ; preds = %print_alg.exit115
   %putchar = tail call i32 @putchar(i32 10)
   %29 = load i32, ptr @lng_index, align 4
   %idxprom147 = sext i32 %29 to i64
-  %arrayidx151 = getelementptr inbounds nuw [2 x [25 x ptr]], ptr @bench_Usage_msg1, i64 0, i64 %idxprom147, i64 17
+  %arrayidx151 = getelementptr inbounds [2 x [25 x ptr]], ptr @bench_Usage_msg1, i64 0, i64 %idxprom147, i64 17
   %30 = load ptr, ptr %arrayidx151, align 8
   %call152 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef %30)
   %31 = load i32, ptr @lng_index, align 4
   %idxprom153 = sext i32 %31 to i64
-  %arrayidx157 = getelementptr inbounds nuw [2 x [25 x ptr]], ptr @bench_Usage_msg1, i64 0, i64 %idxprom153, i64 18
+  %arrayidx157 = getelementptr inbounds [2 x [25 x ptr]], ptr @bench_Usage_msg1, i64 0, i64 %idxprom153, i64 18
   %32 = load ptr, ptr %arrayidx157, align 8
   %call158 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef %32)
   %33 = load i32, ptr @lng_index, align 4
   %idxprom159 = sext i32 %33 to i64
-  %arrayidx163 = getelementptr inbounds nuw [2 x [25 x ptr]], ptr @bench_Usage_msg1, i64 0, i64 %idxprom159, i64 19
+  %arrayidx163 = getelementptr inbounds [2 x [25 x ptr]], ptr @bench_Usage_msg1, i64 0, i64 %idxprom159, i64 19
   %34 = load ptr, ptr %arrayidx163, align 8
   %call164 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef %34)
   %puts142 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.10)

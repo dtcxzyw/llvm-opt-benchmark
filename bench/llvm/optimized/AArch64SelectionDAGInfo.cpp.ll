@@ -211,7 +211,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.thread: ; preds 
   %35 = icmp eq i32 %34, 1024
   %switch.tableidx = add nsw i32 %1, -1024
   %36 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZNK4llvm23AArch64SelectionDAGInfo8EmitMOPSENS_10AArch64ISD8NodeTypeERNS_12SelectionDAGERKNS_5SDLocENS_7SDValueES8_S8_S8_NS_5AlignEbNS_18MachinePointerInfoESA_, i64 0, i64 %36
+  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZNK4llvm23AArch64SelectionDAGInfo8EmitMOPSENS_10AArch64ISD8NodeTypeERNS_12SelectionDAGERKNS_5SDLocENS_7SDValueES8_S8_S8_NS_5AlignEbNS_18MachinePointerInfoESA_, i64 0, i64 %36
   %switch.load = load i32, ptr %switch.gep, align 4
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %38 = load ptr, ptr %37, align 8

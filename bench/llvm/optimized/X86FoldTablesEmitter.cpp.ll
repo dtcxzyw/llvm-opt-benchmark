@@ -3610,7 +3610,7 @@ define internal fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIN12_G
   %38 = load i8, ptr %37, align 1
   %switch.tableidx = add nsw i8 %35, -40
   %39 = sext i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [16 x i8], ptr @switch.table._ZN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_17IsMatchEEclINS_17__normal_iteratorIPPKN4llvm18CodeGenInstructionESt6vectorISA_SaISA_EEEEEEbT_, i64 0, i64 %39
+  %switch.gep = getelementptr inbounds [16 x i8], ptr @switch.table._ZN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_17IsMatchEEclINS_17__normal_iteratorIPPKN4llvm18CodeGenInstructionESt6vectorISA_SaISA_EEEEEEbT_, i64 0, i64 %39
   %switch.load = load i8, ptr %switch.gep, align 1
   %40 = icmp eq i8 %38, %switch.load
   br i1 %40, label %41, label %_ZN12_GLOBAL__N_17IsMatchclEPKN4llvm18CodeGenInstructionE.exit

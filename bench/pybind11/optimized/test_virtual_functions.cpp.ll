@@ -38754,7 +38754,7 @@ _ZSt22__uninitialized_copy_aIPKPN8pybind116detail9type_infoEPS3_S3_ET0_T_S8_S7_R
   %198 = ptrtoint ptr %193 to i64
   %199 = sub i64 %198, %182
   %gepdiff = sub nsw i64 8, %199
-  %.sink.i.i25.i.ptr = getelementptr inbounds nuw i8, ptr %16, i64 %199
+  %.sink.i.i25.i.ptr = getelementptr inbounds i8, ptr %16, i64 %199
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %193, ptr nonnull align 8 %.sink.i.i25.i.ptr, i64 %gepdiff, i1 false)
   %200 = getelementptr inbounds i8, ptr %193, i64 %gepdiff
   store ptr %200, ptr %192, align 8

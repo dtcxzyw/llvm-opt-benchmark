@@ -29,7 +29,7 @@ define hidden range(i32 -2147483528, -2147483648) i32 @VP8LDistanceToPlaneCode(i
   %9 = or disjoint i32 %8, 8
   %10 = sub i32 %9, %.recomposed
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds nuw [128 x i8], ptr @plane_to_code_lut, i64 0, i64 %11
+  %12 = getelementptr inbounds [128 x i8], ptr @plane_to_code_lut, i64 0, i64 %11
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i32
   %15 = add nuw nsw i32 %14, 1
@@ -48,7 +48,7 @@ define hidden range(i32 -2147483528, -2147483648) i32 @VP8LDistanceToPlaneCode(i
   %23 = add i32 %22, %21
   %24 = sub i32 %23, %.recomposed
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds nuw [128 x i8], ptr @plane_to_code_lut, i64 0, i64 %25
+  %26 = getelementptr inbounds [128 x i8], ptr @plane_to_code_lut, i64 0, i64 %25
   %27 = load i8, ptr %26, align 1
   %28 = zext i8 %27 to i32
   %29 = add nuw nsw i32 %28, 1
@@ -824,7 +824,7 @@ VP8LRefsCursorInit.exit.i.i:                      ; preds = %28
   %48 = or disjoint i32 %47, 8
   %49 = sub i32 %48, %.recomposed
   %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds nuw [128 x i8], ptr @plane_to_code_lut, i64 0, i64 %50
+  %51 = getelementptr inbounds [128 x i8], ptr @plane_to_code_lut, i64 0, i64 %50
   %52 = load i8, ptr %51, align 1
   %53 = zext i8 %52 to i32
   %54 = add nuw nsw i32 %53, 1
@@ -841,7 +841,7 @@ VP8LRefsCursorInit.exit.i.i:                      ; preds = %28
   %60 = add i32 %37, %59
   %61 = sub i32 %60, %.recomposed
   %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds nuw [128 x i8], ptr @plane_to_code_lut, i64 0, i64 %62
+  %63 = getelementptr inbounds [128 x i8], ptr @plane_to_code_lut, i64 0, i64 %62
   %64 = load i8, ptr %63, align 1
   %65 = zext i8 %64 to i32
   %66 = add nuw nsw i32 %65, 1
@@ -1410,7 +1410,7 @@ VP8LDistanceToPlaneCode.exit.i.i46:               ; preds = %329, %323
   %.pn192.i.i = phi i32 [ %325, %323 ], [ %331, %329 ]
   %.pn191.in.i.i = sub i32 %.pn192.i.i, %.recomposed136
   %.pn191.i.i = sext i32 %.pn191.in.i.i to i64
-  %.0.i.in.in.in.i.i = getelementptr inbounds nuw [128 x i8], ptr @plane_to_code_lut, i64 0, i64 %.pn191.i.i
+  %.0.i.in.in.in.i.i = getelementptr inbounds [128 x i8], ptr @plane_to_code_lut, i64 0, i64 %.pn191.i.i
   %.0.i.in.in.i.i = load i8, ptr %.0.i.in.in.in.i.i, align 1
   %332 = icmp ugt i8 %.0.i.in.in.i.i, 31
   br i1 %332, label %VP8LDistanceToPlaneCode.exit.thread.i.i, label %333
@@ -1448,7 +1448,7 @@ VP8LDistanceToPlaneCode.exit.thread.i.i:          ; preds = %333, %VP8LDistanceT
 
 343:                                              ; preds = %._crit_edge.us.i.i
   %344 = sext i32 %.0158215.us.i.i to i64
-  %345 = getelementptr inbounds nuw [32 x i32], ptr %22, i64 0, i64 %344
+  %345 = getelementptr inbounds [32 x i32], ptr %22, i64 0, i64 %344
   store i32 %342, ptr %345, align 4
   %346 = add nsw i32 %.0158215.us.i.i, 1
   br label %347
@@ -1484,7 +1484,7 @@ VP8LDistanceToPlaneCode.exit.thread.i.i:          ; preds = %333, %VP8LDistanceT
 358:                                              ; preds = %.preheader197.i.i
   %359 = add nsw i32 %.0144211.i.i, 1
   %360 = sext i32 %.0144211.i.i to i64
-  %361 = getelementptr inbounds nuw [32 x i32], ptr %21, i64 0, i64 %360
+  %361 = getelementptr inbounds [32 x i32], ptr %21, i64 0, i64 %360
   store i32 %356, ptr %361, align 4
   br label %362
 
@@ -2443,7 +2443,7 @@ VP8LRefsCursorInit.exit.i167.i:                   ; preds = %739
   %757 = or disjoint i32 %756, 8
   %758 = sub i32 %757, %.recomposed137
   %759 = sext i32 %758 to i64
-  %760 = getelementptr inbounds nuw [128 x i8], ptr @plane_to_code_lut, i64 0, i64 %759
+  %760 = getelementptr inbounds [128 x i8], ptr @plane_to_code_lut, i64 0, i64 %759
   %761 = load i8, ptr %760, align 1
   %762 = zext i8 %761 to i32
   %763 = add nuw nsw i32 %762, 1
@@ -2460,7 +2460,7 @@ VP8LRefsCursorInit.exit.i167.i:                   ; preds = %739
   %769 = add i32 %768, %.pre-phi244.i
   %770 = sub i32 %769, %.recomposed137
   %771 = sext i32 %770 to i64
-  %772 = getelementptr inbounds nuw [128 x i8], ptr @plane_to_code_lut, i64 0, i64 %771
+  %772 = getelementptr inbounds [128 x i8], ptr @plane_to_code_lut, i64 0, i64 %771
   %773 = load i8, ptr %772, align 1
   %774 = zext i8 %773 to i32
   %775 = add nuw nsw i32 %774, 1

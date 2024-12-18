@@ -2032,7 +2032,7 @@ _ZN2cv3PtrINS_2ml8KNearestEED2Ev.exit:            ; preds = %_ZN2cv3PtrINS_2ml8K
   %107 = load ptr, ptr %6, align 8
   %108 = getelementptr i8, ptr %107, i64 -24
   %109 = load i64, ptr %108, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %6, i64 %109
+  %110 = getelementptr inbounds i8, ptr %6, i64 %109
   %111 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %110)
           to label %112 unwind label %140
 
@@ -6053,7 +6053,7 @@ define hidden void @_ZN2cv4text19OCRHMMClassifierCNNC2ERKNSt7__cxx1112basic_stri
   %40 = load ptr, ptr %9, align 8
   %41 = getelementptr i8, ptr %40, i64 -24
   %42 = load i64, ptr %41, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %9, i64 %42
+  %43 = getelementptr inbounds i8, ptr %9, i64 %42
   %44 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %43)
           to label %45 unwind label %81
 

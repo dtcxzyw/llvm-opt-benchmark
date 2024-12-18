@@ -1715,7 +1715,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 define void @_ZN32pxrInternal_v0_24__pxrReserved__19Tf_MallocGlobalData14_GetStackTraceEmPSt6vectorImSaImEE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(2392) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca [64 x i64], align 16
   %5 = call noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__18ArchGetStackFramesEmmPm(i64 noundef 64, i64 noundef %1, ptr noundef nonnull %4)
-  %6 = getelementptr inbounds nuw i64, ptr %4, i64 %5
+  %6 = getelementptr inbounds i64, ptr %4, i64 %5
   call void @_ZNSt6vectorImSaImEE13_M_assign_auxIPmEEvT_S4_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %4, ptr noundef nonnull %6)
   ret void
 }
@@ -2002,7 +2002,7 @@ _ZN3tbb6detail2d219concurrent_hash_mapIPKvN32pxrInternal_v0_24__pxrReserved__11T
 
 .noexc:                                           ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %20 = getelementptr inbounds nuw i64, ptr %5, i64 %18
+  %20 = getelementptr inbounds i64, ptr %5, i64 %18
   invoke void @_ZNSt6vectorImSaImEE13_M_assign_auxIPmEEvT_S4_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull %5, ptr noundef nonnull %20)
           to label %21 unwind label %32
 
@@ -31199,7 +31199,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   %24 = load ptr, ptr %4, align 8
   %25 = getelementptr i8, ptr %24, i64 -24
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %4, i64 %26
+  %27 = getelementptr inbounds i8, ptr %4, i64 %26
   %28 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %27)
           to label %29 unwind label %17
 

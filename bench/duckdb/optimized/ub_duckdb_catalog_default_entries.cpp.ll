@@ -2188,7 +2188,7 @@ if.then.i.i.i:                                    ; preds = %lpad11.i
 
 for.inc.i:                                        ; preds = %land.lhs.true.i, %for.body.i
   %inc.i = add i64 %index.049.i, 1
-  %arrayidx.i = getelementptr inbounds nuw [108 x %"struct.duckdb::DefaultMacro"], ptr @_ZN6duckdbL15internal_macrosE, i64 0, i64 %inc.i
+  %arrayidx.i = getelementptr inbounds [108 x %"struct.duckdb::DefaultMacro"], ptr @_ZN6duckdbL15internal_macrosE, i64 0, i64 %inc.i
   %name1.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %11 = load ptr, ptr %name1.i, align 8, !tbaa !50, !noalias !93
   %cmp.not.i = icmp eq ptr %11, null
@@ -2610,7 +2610,7 @@ lpad32:                                           ; preds = %if.then35
 
 for.inc:                                          ; preds = %if.then35, %if.end
   %inc = add i64 %index.096, 1
-  %arrayidx = getelementptr inbounds nuw [108 x %"struct.duckdb::DefaultMacro"], ptr @_ZN6duckdbL15internal_macrosE, i64 0, i64 %inc
+  %arrayidx = getelementptr inbounds [108 x %"struct.duckdb::DefaultMacro"], ptr @_ZN6duckdbL15internal_macrosE, i64 0, i64 %inc
   %name = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %27 = load ptr, ptr %name, align 8, !tbaa !50
   %cmp.not = icmp eq ptr %27, null
@@ -2944,7 +2944,7 @@ entry:
 
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add i64 %index.09.i, 1
-  %arrayidx.i = getelementptr inbounds nuw [3 x %"struct.duckdb::DefaultSchema"], ptr @_ZN6duckdbL16internal_schemasE, i64 0, i64 %inc.i
+  %arrayidx.i = getelementptr inbounds [3 x %"struct.duckdb::DefaultSchema"], ptr @_ZN6duckdbL16internal_schemasE, i64 0, i64 %inc.i
   %1 = load ptr, ptr %arrayidx.i, align 8, !tbaa !118
   %cmp.not.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.not.i, label %cleanup3.i, label %for.body.i, !llvm.loop !120
@@ -3132,7 +3132,7 @@ for.body:                                         ; preds = %entry, %for.inc
 
 for.inc:                                          ; preds = %for.body
   %inc = add i64 %index.08, 1
-  %arrayidx = getelementptr inbounds nuw [3 x %"struct.duckdb::DefaultSchema"], ptr @_ZN6duckdbL16internal_schemasE, i64 0, i64 %inc
+  %arrayidx = getelementptr inbounds [3 x %"struct.duckdb::DefaultSchema"], ptr @_ZN6duckdbL16internal_schemasE, i64 0, i64 %inc
   %1 = load ptr, ptr %arrayidx, align 8, !tbaa !118
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %nrvo.skipdtor, label %for.body, !llvm.loop !124
@@ -4015,7 +4015,7 @@ if.then.i.i.i:                                    ; preds = %ehcleanup34.i
 
 for.inc.i:                                        ; preds = %land.lhs.true.i, %for.body.i
   %inc.i = add i64 %index.094.i, 1
-  %arrayidx.i = getelementptr inbounds nuw [37 x %"struct.duckdb::DefaultView"], ptr @_ZN6duckdbL14internal_viewsE, i64 0, i64 %inc.i
+  %arrayidx.i = getelementptr inbounds [37 x %"struct.duckdb::DefaultView"], ptr @_ZN6duckdbL14internal_viewsE, i64 0, i64 %inc.i
   %name1.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %23 = load ptr, ptr %name1.i, align 8, !tbaa !146, !noalias !143
   %cmp.not.i = icmp eq ptr %23, null
@@ -4266,7 +4266,7 @@ lpad:                                             ; preds = %if.then
 
 for.inc:                                          ; preds = %if.then, %for.body
   %inc = add i64 %index.013, 1
-  %arrayidx = getelementptr inbounds nuw [37 x %"struct.duckdb::DefaultView"], ptr @_ZN6duckdbL14internal_viewsE, i64 0, i64 %inc
+  %arrayidx = getelementptr inbounds [37 x %"struct.duckdb::DefaultView"], ptr @_ZN6duckdbL14internal_viewsE, i64 0, i64 %inc
   %name = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %4 = load ptr, ptr %name, align 8, !tbaa !146
   %cmp.not = icmp eq ptr %4, null

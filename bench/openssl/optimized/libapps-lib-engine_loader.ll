@@ -92,7 +92,7 @@ if.end17:                                         ; preds = %land.lhs.true5
   %sub.ptr.rhs.cast = ptrtoint ptr %add.ptr to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %call11 = call ptr @strncpy(ptr noundef nonnull %engineid, ptr noundef nonnull %add.ptr, i64 noundef %sub.ptr.sub) #7
-  %arrayidx12 = getelementptr inbounds nuw [256 x i8], ptr %engineid, i64 0, i64 %sub.ptr.sub
+  %arrayidx12 = getelementptr inbounds [256 x i8], ptr %engineid, i64 0, i64 %sub.ptr.sub
   store i8 0, ptr %arrayidx12, align 1
   %call14 = call ptr @ENGINE_by_id(ptr noundef nonnull %engineid) #7
   %call16 = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %arrayidx6, ptr noundef nonnull @.str.2, i32 noundef 89) #7

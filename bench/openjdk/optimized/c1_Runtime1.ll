@@ -3160,7 +3160,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
 _ZNK6Method12java_code_atEi.exit:                 ; preds = %_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.i, %74
   %76 = phi i32 [ %75, %74 ], [ %73, %_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.i ]
   %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %77
+  %78 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %77
   %79 = load i32, ptr %78, align 4
   %80 = icmp eq i32 %1, 27
   %81 = add i32 %1, -27
@@ -3242,7 +3242,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
 _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %_ZN14Bytecode_fieldC2ERK12methodHandlei.exit, %_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.i158
   %125 = call noundef i32 @_ZNK19Bytecode_member_ref5indexEv(ptr noundef nonnull align 8 dereferenceable(24) %16) #14
   %126 = sext i32 %97 to i64
-  %127 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %126
+  %127 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %126
   %128 = load i32, ptr %127, align 4
   call void @_ZN12LinkResolver20resolve_field_accessER15fieldDescriptorRK18constantPoolHandleiRK12methodHandleN9Bytecodes4CodeEbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull align 8 dereferenceable(16) %18, i32 noundef %125, ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef %128, i1 noundef zeroext true, ptr noundef nonnull %0) #14
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3386,7 +3386,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
 _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit.i: ; preds = %_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.i.i, %_ZN14Bytecode_fieldC2ERK12methodHandlei.exit.i
   %195 = call noundef i32 @_ZNK19Bytecode_member_ref5indexEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #14
   %196 = sext i32 %165 to i64
-  %197 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %196
+  %197 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %196
   %198 = load i32, ptr %197, align 4
   call void @_ZN12LinkResolver20resolve_field_accessER15fieldDescriptorRK18constantPoolHandleiRK12methodHandleN9Bytecodes4CodeEbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef %195, ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef %198, i1 noundef zeroext true, ptr noundef nonnull %0) #14
   %199 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3900,7 +3900,7 @@ _ZN15Bytecode_invokeC2ERK12methodHandlei.exit:    ; preds = %468, %473
 
 481:                                              ; preds = %_ZN15Bytecode_invokeC2ERK12methodHandlei.exit
   %482 = sext i32 %479 to i64
-  %483 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %482
+  %483 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %482
   %484 = load i32, ptr %483, align 4
   br label %_ZNK8Bytecode11invoke_codeEv.exit
 

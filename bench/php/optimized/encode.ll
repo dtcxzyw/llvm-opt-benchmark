@@ -3502,7 +3502,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %43
   %82 = sub nuw i64 %.02942.i, %.03041.i
   %83 = lshr i64 %82, 1
   %84 = add i64 %83, %.03041.i
-  %85 = getelementptr inbounds nuw %struct.lxb_encoding_range_index_t, ptr @lxb_encoding_range_index_gb18030, i64 %84, i32 1
+  %85 = getelementptr inbounds %struct.lxb_encoding_range_index_t, ptr @lxb_encoding_range_index_gb18030, i64 %84, i32 1
   %86 = load i32, ptr %85, align 4
   %87 = icmp ult i32 %86, %13
   br i1 %87, label %88, label %95
@@ -3513,7 +3513,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %43
   br i1 %90, label %91, label %102
 
 91:                                               ; preds = %88
-  %92 = getelementptr inbounds nuw %struct.lxb_encoding_range_index_t, ptr @lxb_encoding_range_index_gb18030, i64 %89, i32 1
+  %92 = getelementptr inbounds %struct.lxb_encoding_range_index_t, ptr @lxb_encoding_range_index_gb18030, i64 %89, i32 1
   %93 = load i32, ptr %92, align 4
   %94 = icmp ugt i32 %93, %13
   br i1 %94, label %.thread.i, label %102
@@ -3528,7 +3528,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %43
   br i1 %.not.i59, label %.thread.i, label %99
 
 99:                                               ; preds = %97
-  %100 = getelementptr inbounds nuw %struct.lxb_encoding_range_index_t, ptr @lxb_encoding_range_index_gb18030, i64 %98, i32 1
+  %100 = getelementptr inbounds %struct.lxb_encoding_range_index_t, ptr @lxb_encoding_range_index_gb18030, i64 %98, i32 1
   %101 = load i32, ptr %100, align 4
   %.not40.i = icmp ugt i32 %101, %13
   br i1 %.not40.i, label %102, label %.thread.i
@@ -3541,7 +3541,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %43
 
 .thread.i:                                        ; preds = %102, %99, %97, %95, %91
   %.133.i = phi i64 [ %84, %91 ], [ %84, %95 ], [ %84, %102 ], [ %98, %99 ], [ 1, %97 ]
-  %104 = getelementptr inbounds nuw %struct.lxb_encoding_range_index_t, ptr @lxb_encoding_range_index_gb18030, i64 %.133.i
+  %104 = getelementptr inbounds %struct.lxb_encoding_range_index_t, ptr @lxb_encoding_range_index_gb18030, i64 %.133.i
   %105 = load i32, ptr %104, align 8
   %106 = add i32 %105, %13
   %107 = getelementptr inbounds nuw i8, ptr %104, i64 4
@@ -6930,7 +6930,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %16
   %49 = sub nuw i64 %.02942.i, %.03041.i
   %50 = lshr i64 %49, 1
   %51 = add i64 %50, %.03041.i
-  %52 = getelementptr inbounds nuw %struct.lxb_encoding_range_index_t, ptr @lxb_encoding_range_index_gb18030, i64 %51, i32 1
+  %52 = getelementptr inbounds %struct.lxb_encoding_range_index_t, ptr @lxb_encoding_range_index_gb18030, i64 %51, i32 1
   %53 = load i32, ptr %52, align 4
   %54 = icmp ult i32 %53, %3
   br i1 %54, label %55, label %62
@@ -6941,7 +6941,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %16
   br i1 %57, label %58, label %69
 
 58:                                               ; preds = %55
-  %59 = getelementptr inbounds nuw %struct.lxb_encoding_range_index_t, ptr @lxb_encoding_range_index_gb18030, i64 %56, i32 1
+  %59 = getelementptr inbounds %struct.lxb_encoding_range_index_t, ptr @lxb_encoding_range_index_gb18030, i64 %56, i32 1
   %60 = load i32, ptr %59, align 4
   %61 = icmp ugt i32 %60, %3
   br i1 %61, label %.thread.i, label %69
@@ -6956,7 +6956,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %16
   br i1 %.not.i32, label %.thread.i, label %66
 
 66:                                               ; preds = %64
-  %67 = getelementptr inbounds nuw %struct.lxb_encoding_range_index_t, ptr @lxb_encoding_range_index_gb18030, i64 %65, i32 1
+  %67 = getelementptr inbounds %struct.lxb_encoding_range_index_t, ptr @lxb_encoding_range_index_gb18030, i64 %65, i32 1
   %68 = load i32, ptr %67, align 4
   %.not40.i = icmp ugt i32 %68, %3
   br i1 %.not40.i, label %69, label %.thread.i
@@ -6969,7 +6969,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %16
 
 .thread.i:                                        ; preds = %69, %66, %64, %62, %58
   %.133.i = phi i64 [ %51, %58 ], [ %51, %62 ], [ %51, %69 ], [ %65, %66 ], [ 1, %64 ]
-  %71 = getelementptr inbounds nuw %struct.lxb_encoding_range_index_t, ptr @lxb_encoding_range_index_gb18030, i64 %.133.i
+  %71 = getelementptr inbounds %struct.lxb_encoding_range_index_t, ptr @lxb_encoding_range_index_gb18030, i64 %.133.i
   %72 = load i32, ptr %71, align 8
   %73 = add i32 %72, %3
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 4

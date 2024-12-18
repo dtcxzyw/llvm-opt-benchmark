@@ -709,20 +709,20 @@ land.lhs.true201:                                 ; preds = %land.lhs.true195
 
 if.then206:                                       ; preds = %land.lhs.true201
   %inc207 = add nsw i32 %conv186, 1
-  %arrayidx209 = getelementptr inbounds nuw [68 x i8], ptr %prefix, i64 0, i64 %conv190
+  %arrayidx209 = getelementptr inbounds [68 x i8], ptr %prefix, i64 0, i64 %conv190
   store i8 95, ptr %arrayidx209, align 1
   br label %if.end215
 
 if.else210:                                       ; preds = %land.lhs.true201, %land.lhs.true195, %if.else182
   %inc211 = add nsw i32 %conv186, 1
-  %arrayidx213 = getelementptr inbounds nuw [68 x i8], ptr %prefix, i64 0, i64 %conv190
+  %arrayidx213 = getelementptr inbounds [68 x i8], ptr %prefix, i64 0, i64 %conv190
   store i8 47, ptr %arrayidx213, align 1
   br label %if.end215
 
 if.end215:                                        ; preds = %if.then206, %if.else210, %if.end174
   %prefixLength.0 = phi i32 [ %inc, %if.end174 ], [ %inc207, %if.then206 ], [ %inc211, %if.else210 ]
   %idxprom216 = sext i32 %prefixLength.0 to i64
-  %arrayidx217 = getelementptr inbounds nuw [68 x i8], ptr %prefix, i64 0, i64 %idxprom216
+  %arrayidx217 = getelementptr inbounds [68 x i8], ptr %prefix, i64 0, i64 %idxprom216
   store i8 0, ptr %arrayidx217, align 1
   %63 = load i32, ptr %itemCount, align 4
   %cmp219193 = icmp sgt i32 %63, 0
@@ -1359,7 +1359,7 @@ entry:
   %conv1.i.i = sext i8 %1 to i32
   %add.i.i = add nsw i32 %mul.i.i, %conv1.i.i
   %idxprom.i = sext i32 %add.i.i to i64
-  %arrayidx.i = getelementptr inbounds nuw i8, ptr @.str.47, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds i8, ptr @.str.47, i64 %idxprom.i
   %2 = load i8, ptr %arrayidx.i, align 1
   ret i8 %2
 }
@@ -1578,7 +1578,7 @@ if.else:                                          ; preds = %if.end101
 if.then118:                                       ; preds = %if.else
   %sext101 = add i64 %sext100, -4294967296
   %idxprom120 = ashr exact i64 %sext101, 32
-  %arrayidx121 = getelementptr inbounds nuw [68 x i8], ptr %prefix, i64 0, i64 %idxprom120
+  %arrayidx121 = getelementptr inbounds [68 x i8], ptr %prefix, i64 0, i64 %idxprom120
   store i8 %outType, ptr %arrayidx121, align 1
   br label %if.end123
 
@@ -1587,10 +1587,10 @@ if.end123:                                        ; preds = %if.else, %if.then11
   %prefixLength.0.in = phi i64 [ %call111, %if.else ], [ %call111, %if.then118 ], [ %call107, %if.then105 ]
   %prefixLength.0 = trunc i64 %prefixLength.0.in to i32
   %inc124 = add nsw i32 %prefixLength.0, 1
-  %arrayidx126 = getelementptr inbounds nuw [68 x i8], ptr %prefix, i64 0, i64 %idxprom125.pre-phi
+  %arrayidx126 = getelementptr inbounds [68 x i8], ptr %prefix, i64 0, i64 %idxprom125.pre-phi
   store i8 47, ptr %arrayidx126, align 1
   %idxprom127 = sext i32 %inc124 to i64
-  %arrayidx128 = getelementptr inbounds nuw [68 x i8], ptr %prefix, i64 0, i64 %idxprom127
+  %arrayidx128 = getelementptr inbounds [68 x i8], ptr %prefix, i64 0, i64 %idxprom127
   store i8 0, ptr %arrayidx128, align 1
   br i1 %cmp76.not, label %if.end151, label %if.then130
 
@@ -1878,7 +1878,7 @@ for.body265:                                      ; preds = %for.body265.prehead
   %75 = select i1 %cmp6.i133, i64 3, i64 -1
   %76 = select i1 %cmp2.i132, i64 1, i64 %75
   %idxprom268 = select i1 %cmp.i131, i64 0, i64 %76
-  %arrayidx269 = getelementptr inbounds nuw [4 x ptr], ptr %ds, i64 0, i64 %idxprom268
+  %arrayidx269 = getelementptr inbounds [4 x ptr], ptr %ds, i64 0, i64 %idxprom268
   %77 = load ptr, ptr %arrayidx269, align 8
   %cmp270.not = icmp eq ptr %77, null
   br i1 %cmp270.not, label %if.end284, label %if.then271
@@ -3043,7 +3043,7 @@ if.end25:                                         ; preds = %if.end23, %land.lhs
   call fastcc void @_ZL16makeFullFilenamePKcS0_Pci(ptr noundef %filesPath, ptr noundef %outName, ptr noundef nonnull %filename)
   store i32 0, ptr %errorCode.i, align 4
   %strlen.i = call i64 @strlen(ptr nonnull dereferenceable(1) %filename)
-  %strchr.i = getelementptr inbounds nuw i8, ptr %filename, i64 %strlen.i
+  %strchr.i = getelementptr inbounds i8, ptr %filename, i64 %strlen.i
   %call1.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %outName) #24
   %idx.neg.i = sub i64 0, %call1.i
   %add.ptr.i = getelementptr inbounds i8, ptr %strchr.i, i64 %idx.neg.i

@@ -192,7 +192,7 @@ for.body13.i:                                     ; preds = %for.body13.i, %for.
   %value.236.i = phi i64 [ %value.0.i, %for.body13.preheader.i ], [ %shr18.i, %for.body13.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %conv15.i = trunc i64 %value.236.i to i8
-  %arrayidx17.i = getelementptr inbounds nuw [32 x i8], ptr %buff.i, i64 0, i64 %indvars.iv.next.i
+  %arrayidx17.i = getelementptr inbounds [32 x i8], ptr %buff.i, i64 0, i64 %indvars.iv.next.i
   store i8 %conv15.i, ptr %arrayidx17.i, align 1, !tbaa !10
   %shr18.i = lshr i64 %value.236.i, 8
   %cmp11.i = icmp ugt i64 %indvars.iv.i, 1
@@ -261,7 +261,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %indvars.iv.i110 = phi i64 [ %14, %while.body.preheader.i ], [ %indvars.iv.next.i112, %while.body.i ]
   %arrayidx.i111 = getelementptr inbounds nuw i8, ptr %f, i64 %indvars.iv21.i
   %15 = load i8, ptr %arrayidx.i111, align 1, !tbaa !10
-  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %f, i64 %indvars.iv.i110
+  %arrayidx5.i = getelementptr inbounds i8, ptr %f, i64 %indvars.iv.i110
   %16 = load i8, ptr %arrayidx5.i, align 1, !tbaa !10
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   store i8 %16, ptr %arrayidx.i111, align 1, !tbaa !10
@@ -296,7 +296,7 @@ while.body.i119:                                  ; preds = %while.body.i119, %w
   %indvars.iv.i121 = phi i64 [ %19, %while.body.preheader.i118 ], [ %indvars.iv.next.i125, %while.body.i119 ]
   %arrayidx.i122 = getelementptr inbounds nuw i8, ptr %d, i64 %indvars.iv21.i120
   %20 = load i8, ptr %arrayidx.i122, align 1, !tbaa !10
-  %arrayidx5.i123 = getelementptr inbounds nuw i8, ptr %d, i64 %indvars.iv.i121
+  %arrayidx5.i123 = getelementptr inbounds i8, ptr %d, i64 %indvars.iv.i121
   %21 = load i8, ptr %arrayidx5.i123, align 1, !tbaa !10
   %indvars.iv.next22.i124 = add nuw nsw i64 %indvars.iv21.i120, 1
   store i8 %21, ptr %arrayidx.i122, align 1, !tbaa !10
@@ -595,7 +595,7 @@ while.body.i:                                     ; preds = %sw.bb25, %while.bod
   %indvars.iv.i149 = phi i64 [ %indvars.iv.next.i151, %while.body.i ], [ 3, %sw.bb25 ]
   %arrayidx.i150 = getelementptr inbounds nuw i8, ptr %f, i64 %indvars.iv21.i
   %23 = load i8, ptr %arrayidx.i150, align 1, !tbaa !10
-  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %f, i64 %indvars.iv.i149
+  %arrayidx5.i = getelementptr inbounds i8, ptr %f, i64 %indvars.iv.i149
   %24 = load i8, ptr %arrayidx5.i, align 1, !tbaa !10
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   store i8 %24, ptr %arrayidx.i150, align 1, !tbaa !10
@@ -625,7 +625,7 @@ while.body.i155:                                  ; preds = %sw.bb30, %while.bod
   %indvars.iv.i157 = phi i64 [ %indvars.iv.next.i161, %while.body.i155 ], [ 7, %sw.bb30 ]
   %arrayidx.i158 = getelementptr inbounds nuw i8, ptr %d, i64 %indvars.iv21.i156
   %27 = load i8, ptr %arrayidx.i158, align 1, !tbaa !10
-  %arrayidx5.i159 = getelementptr inbounds nuw i8, ptr %d, i64 %indvars.iv.i157
+  %arrayidx5.i159 = getelementptr inbounds i8, ptr %d, i64 %indvars.iv.i157
   %28 = load i8, ptr %arrayidx5.i159, align 1, !tbaa !10
   %indvars.iv.next22.i160 = add nuw nsw i64 %indvars.iv21.i156, 1
   store i8 %28, ptr %arrayidx.i158, align 1, !tbaa !10

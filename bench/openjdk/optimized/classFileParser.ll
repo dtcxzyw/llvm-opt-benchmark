@@ -1168,15 +1168,15 @@ _ZNK15ClassFileParser17verify_legal_utf8EPKhiP10JavaThread.exit: ; preds = %364,
 
 373:                                              ; preds = %370
   %374 = sext i32 %.0271 to i64
-  %375 = getelementptr inbounds nuw [8 x ptr], ptr %7, i64 0, i64 %374
+  %375 = getelementptr inbounds [8 x ptr], ptr %7, i64 0, i64 %374
   store ptr %349, ptr %375, align 8
-  %376 = getelementptr inbounds nuw [8 x i32], ptr %8, i64 0, i64 %374
+  %376 = getelementptr inbounds [8 x i32], ptr %8, i64 0, i64 %374
   store i32 %350, ptr %376, align 4
-  %377 = getelementptr inbounds nuw [8 x i32], ptr %9, i64 0, i64 %374
+  %377 = getelementptr inbounds [8 x i32], ptr %9, i64 0, i64 %374
   store i32 %.0186270, ptr %377, align 4
   %378 = load i32, ptr %11, align 4
   %379 = add nsw i32 %.0271, 1
-  %380 = getelementptr inbounds nuw [8 x i32], ptr %10, i64 0, i64 %374
+  %380 = getelementptr inbounds [8 x i32], ptr %10, i64 0, i64 %374
   store i32 %378, ptr %380, align 4
   %381 = icmp eq i32 %379, 8
   br i1 %381, label %382, label %_ZN15ClassFileParser27set_class_bad_constant_seenEs.exit
@@ -5269,12 +5269,12 @@ _ZN15MetadataFactory10free_arrayIhEEvP15ClassLoaderDataP5ArrayIT_E.exit.i160: ; 
 
 278:                                              ; preds = %270
   %279 = sext i32 %277 to i64
-  %280 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %279
+  %280 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %279
   %281 = load ptr, ptr %280, align 8
   %282 = getelementptr inbounds nuw i8, ptr %272, i64 8
   %283 = load i32, ptr %282, align 4
   %284 = sext i32 %283 to i64
-  %285 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %284
+  %285 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %284
   %286 = load ptr, ptr %285, align 8
   %.pre266 = load ptr, ptr %43, align 8
   br i1 %.not244, label %.critedge127, label %.lr.ph232
@@ -5362,7 +5362,7 @@ _ZN26GrowableArrayWithAllocatorI9FieldInfo13GrowableArrayIS0_EE6appendERKS0_.exi
   store i16 0, ptr %.sroa.9.0..sroa_idx, align 4
   %328 = load i32, ptr %308, align 4
   %329 = sext i32 %328 to i64
-  %330 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %329
+  %330 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %329
   %331 = load ptr, ptr %330, align 8
   %332 = getelementptr inbounds nuw i8, ptr %331, i64 6
   %333 = load i8, ptr %332, align 1

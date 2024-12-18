@@ -2669,7 +2669,7 @@ define noundef i32 @mca_coll_han_allreduce_reproducible_decision(ptr noundef %0,
 
 22:                                               ; preds = %19
   %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 284), align 4
-  %24 = getelementptr inbounds nuw [7 x %struct.ompi_coll_han_components], ptr @ompi_coll_han_available_components, i64 0, i64 %10, i32 1
+  %24 = getelementptr inbounds [7 x %struct.ompi_coll_han_components], ptr @ompi_coll_han_available_components, i64 0, i64 %10, i32 1
   %25 = load ptr, ptr %24, align 8
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %23, ptr noundef nonnull @.str, ptr noundef %25) #4
   br label %38

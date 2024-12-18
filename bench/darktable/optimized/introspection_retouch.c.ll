@@ -1588,7 +1588,7 @@ define void @gui_update(ptr noundef %0) local_unnamed_addr #1 {
 
 50:                                               ; preds = %49
   %51 = sext i32 %36 to i64
-  %52 = getelementptr inbounds nuw [300 x %struct.dt_iop_retouch_form_data_t], ptr %4, i64 0, i64 %51
+  %52 = getelementptr inbounds [300 x %struct.dt_iop_retouch_form_data_t], ptr %4, i64 0, i64 %51
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %52, ptr noundef nonnull align 4 dereferenceable(44) %43, i64 44, i1 false), !tbaa.struct !154
   %53 = add nsw i32 %36, 1
   br label %83
@@ -1601,7 +1601,7 @@ define void @gui_update(ptr noundef %0) local_unnamed_addr #1 {
 
 58:                                               ; preds = %54
   %59 = sext i32 %36 to i64
-  %60 = getelementptr inbounds nuw [300 x %struct.dt_iop_retouch_form_data_t], ptr %4, i64 0, i64 %59
+  %60 = getelementptr inbounds [300 x %struct.dt_iop_retouch_form_data_t], ptr %4, i64 0, i64 %59
   store i32 %40, ptr %60, align 4, !tbaa !64
   %61 = load i32, ptr %26, align 4, !tbaa !140
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 4

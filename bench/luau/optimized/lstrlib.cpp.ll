@@ -408,7 +408,7 @@ _ZL10scanformatP9lua_StatePKcPcPm.exit:           ; preds = %79
   br label %188
 
 94:                                               ; preds = %_ZL10scanformatP9lua_StatePKcPcPm.exit, %_ZL10scanformatP9lua_StatePKcPcPm.exit
-  %95 = getelementptr inbounds nuw i8, ptr %5, i64 %85
+  %95 = getelementptr inbounds i8, ptr %5, i64 %85
   store i8 108, ptr %95, align 1
   %96 = getelementptr i8, ptr %95, i64 1
   store i8 108, ptr %96, align 1
@@ -423,7 +423,7 @@ _ZL10scanformatP9lua_StatePKcPcPm.exit:           ; preds = %79
 
 102:                                              ; preds = %_ZL10scanformatP9lua_StatePKcPcPm.exit, %_ZL10scanformatP9lua_StatePKcPcPm.exit, %_ZL10scanformatP9lua_StatePKcPcPm.exit, %_ZL10scanformatP9lua_StatePKcPcPm.exit
   %103 = call noundef double @_Z16luaL_checknumberP9lua_Statei(ptr noundef %0, i32 noundef %49)
-  %104 = getelementptr inbounds nuw i8, ptr %5, i64 %85
+  %104 = getelementptr inbounds i8, ptr %5, i64 %85
   store i8 108, ptr %104, align 1
   %105 = getelementptr i8, ptr %104, i64 1
   store i8 108, ptr %105, align 1
@@ -1359,7 +1359,7 @@ define internal noundef i32 @_ZL8str_packP9lua_State(ptr noundef %0) #0 {
   %56 = add i32 %23, -1
   %57 = select i1 %.not.i, i32 %56, i32 0
   %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 0, i64 %58
+  %59 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 %58
   store i8 %55, ptr %59, align 1
   %60 = icmp sgt i32 %23, 1
   br i1 %60, label %.lr.ph.i, label %_ZL7packintP11luaL_Strbufyiii.exit
@@ -1382,7 +1382,7 @@ define internal noundef i32 @_ZL8str_packP9lua_State(ptr noundef %0) #0 {
   %62 = lshr i64 %.02325.us.i, 8
   %63 = trunc i64 %62 to i8
   %64 = sub nsw i64 %61, %indvars.iv31.i
-  %65 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 0, i64 %64
+  %65 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 %64
   store i8 %63, ptr %65, align 1
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
   %exitcond35.not.i = icmp eq i64 %indvars.iv.next32.i, %wide.trip.count34.i
@@ -1449,7 +1449,7 @@ _ZL7packintP11luaL_Strbufyiii.exit:               ; preds = %53, %._crit_edge.i,
   %91 = add i32 %23, -1
   %92 = select i1 %.not.i59, i32 %91, i32 0
   %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 0, i64 %93
+  %94 = getelementptr inbounds [16 x i8], ptr %3, i64 0, i64 %93
   store i8 %90, ptr %94, align 1
   %95 = icmp sgt i32 %23, 1
   br i1 %95, label %.lr.ph.i60, label %_ZL7packintP11luaL_Strbufyiii.exit80
@@ -1472,7 +1472,7 @@ _ZL7packintP11luaL_Strbufyiii.exit:               ; preds = %53, %._crit_edge.i,
   %97 = lshr i64 %.02325.us.i77, 8
   %98 = trunc i64 %97 to i8
   %99 = sub nsw i64 %96, %indvars.iv31.i76
-  %100 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 0, i64 %99
+  %100 = getelementptr inbounds [16 x i8], ptr %3, i64 0, i64 %99
   store i8 %98, ptr %100, align 1
   %indvars.iv.next32.i78 = add nuw nsw i64 %indvars.iv31.i76, 1
   %exitcond35.not.i79 = icmp eq i64 %indvars.iv.next32.i78, %wide.trip.count34.i74
@@ -1627,7 +1627,7 @@ _ZL14copywithendianPVcPVKcii.exit:                ; preds = %.lr.ph.i81, %.lr.ph
   %156 = add i32 %23, -1
   %157 = select i1 %.not.i84, i32 %156, i32 0
   %158 = sext i32 %157 to i64
-  %159 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 0, i64 %158
+  %159 = getelementptr inbounds [16 x i8], ptr %2, i64 0, i64 %158
   store i8 %155, ptr %159, align 1
   %160 = icmp sgt i32 %23, 1
   br i1 %160, label %.lr.ph.i85, label %_ZL7packintP11luaL_Strbufyiii.exit105
@@ -1650,7 +1650,7 @@ _ZL14copywithendianPVcPVKcii.exit:                ; preds = %.lr.ph.i81, %.lr.ph
   %162 = lshr i64 %.02325.us.i102, 8
   %163 = trunc i64 %162 to i8
   %164 = sub nsw i64 %161, %indvars.iv31.i101
-  %165 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 0, i64 %164
+  %165 = getelementptr inbounds [16 x i8], ptr %2, i64 0, i64 %164
   store i8 %163, ptr %165, align 1
   %indvars.iv.next32.i103 = add nuw nsw i64 %indvars.iv31.i101, 1
   %exitcond35.not.i104 = icmp eq i64 %indvars.iv.next32.i103, %wide.trip.count34.i99

@@ -59,7 +59,7 @@ define void @mca_fs_base_get_parent_dir(ptr nocapture noundef readonly %0, ptr n
 23:                                               ; preds = %17
   %sext.i = shl i64 %18, 32
   %24 = ashr exact i64 %sext.i, 32
-  %25 = getelementptr inbounds nuw [4097 x i8], ptr %3, i64 0, i64 %24
+  %25 = getelementptr inbounds [4097 x i8], ptr %3, i64 0, i64 %24
   store i8 0, ptr %25, align 1
   %26 = call noalias ptr @strdup(ptr noundef nonnull %3) #10
   br label %mca_fs_base_get_real_filename.exit

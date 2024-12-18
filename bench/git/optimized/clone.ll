@@ -1558,7 +1558,7 @@ if.then.i.i:                                      ; preds = %for.body428
 
 if.else.i.i:                                      ; preds = %for.body428
   %idxprom.i.i = sext i32 %145 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.i
   br label %is_null_oid.exit
 
 is_null_oid.exit:                                 ; preds = %if.then.i.i, %if.else.i.i

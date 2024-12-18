@@ -5400,13 +5400,13 @@ define internal i64 @event_enable_read(ptr nocapture noundef readonly %0, ptr no
 
 29:                                               ; preds = %26
   %30 = call i64 @strlen(ptr nonnull dereferenceable(1) %5)
-  %31 = getelementptr inbounds nuw i8, ptr %5, i64 %30
+  %31 = getelementptr inbounds i8, ptr %5, i64 %30
   store i16 42, ptr %31, align 1
   br label %32
 
 32:                                               ; preds = %29, %26
   %33 = call i64 @strlen(ptr nonnull dereferenceable(1) %5)
-  %34 = getelementptr inbounds nuw i8, ptr %5, i64 %33
+  %34 = getelementptr inbounds i8, ptr %5, i64 %33
   store i16 10, ptr %34, align 1
   %35 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #19
   %36 = call i64 @simple_read_from_buffer(ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef nonnull %5, i64 noundef %35) #19

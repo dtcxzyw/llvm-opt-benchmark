@@ -439,8 +439,8 @@ define internal range(i32 0, 2) i32 @test_dyn_frame_types(i32 noundef %idx) #1 {
 entry:
   %script_name = alloca [64 x i8], align 16
   %idxprom11 = sext i32 %idx to i64
-  %expected_err = getelementptr inbounds nuw [40 x %struct.forbidden_frame_type], ptr @forbidden_frame_types, i64 0, i64 %idxprom11, i32 2
-  %arrayidx2 = getelementptr inbounds nuw [40 x %struct.forbidden_frame_type], ptr @forbidden_frame_types, i64 0, i64 %idxprom11
+  %expected_err = getelementptr inbounds [40 x %struct.forbidden_frame_type], ptr @forbidden_frame_types, i64 0, i64 %idxprom11, i32 2
+  %arrayidx2 = getelementptr inbounds [40 x %struct.forbidden_frame_type], ptr @forbidden_frame_types, i64 0, i64 %idxprom11
   %frame_type = getelementptr inbounds nuw i8, ptr %arrayidx2, i64 8
   br label %for.body
 
@@ -495,7 +495,7 @@ if.end:                                           ; preds = %entry
   %call = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %script_name, i64 noundef 64, ptr noundef nonnull @.str.158, i32 noundef %add) #14
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.14, i32 noundef 5160, ptr noundef nonnull @.str.159, i32 noundef %add, i32 noundef %rem, i32 noundef %rem1) #14
   %idxprom = sext i32 %div2 to i64
-  %arrayidx = getelementptr inbounds nuw [78 x ptr], ptr @scripts, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [78 x ptr], ptr @scripts, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
   %call6 = call fastcc i32 @run_script(ptr noundef %0, ptr noundef %script_name, i32 noundef %rem, i32 noundef %rem1)
   br label %return
@@ -1477,12 +1477,12 @@ if.end123:                                        ; preds = %sw.bb119
 
 if.end127:                                        ; preds = %if.end123
   %add128 = add i64 %op_idx.2, 1
-  %arrayidx129 = getelementptr inbounds nuw [8 x i64], ptr %repeat_stack_idx, i64 0, i64 %repeat_stack_len.1
+  %arrayidx129 = getelementptr inbounds [8 x i64], ptr %repeat_stack_idx, i64 0, i64 %repeat_stack_len.1
   store i64 %add128, ptr %arrayidx129, align 8
-  %arrayidx130 = getelementptr inbounds nuw [8 x i64], ptr %repeat_stack_done, i64 0, i64 %repeat_stack_len.1
+  %arrayidx130 = getelementptr inbounds [8 x i64], ptr %repeat_stack_done, i64 0, i64 %repeat_stack_len.1
   store i64 0, ptr %arrayidx130, align 8
   %31 = load i64, ptr %arg1, align 8
-  %arrayidx132 = getelementptr inbounds nuw [8 x i64], ptr %repeat_stack_limit, i64 0, i64 %repeat_stack_len.1
+  %arrayidx132 = getelementptr inbounds [8 x i64], ptr %repeat_stack_limit, i64 0, i64 %repeat_stack_len.1
   store i64 %31, ptr %arrayidx132, align 8
   %inc133 = add i64 %repeat_stack_len.1, 1
   br label %for.cond.backedge
@@ -1504,17 +1504,17 @@ sw.bb141:                                         ; preds = %if.end80
 
 if.end145:                                        ; preds = %sw.bb141
   %sub = add i64 %repeat_stack_len.1, -1
-  %arrayidx146 = getelementptr inbounds nuw [8 x i64], ptr %repeat_stack_done, i64 0, i64 %sub
+  %arrayidx146 = getelementptr inbounds [8 x i64], ptr %repeat_stack_done, i64 0, i64 %sub
   %33 = load i64, ptr %arrayidx146, align 8
   %inc147 = add i64 %33, 1
   store i64 %inc147, ptr %arrayidx146, align 8
-  %arrayidx149 = getelementptr inbounds nuw [8 x i64], ptr %repeat_stack_limit, i64 0, i64 %sub
+  %arrayidx149 = getelementptr inbounds [8 x i64], ptr %repeat_stack_limit, i64 0, i64 %sub
   %34 = load i64, ptr %arrayidx149, align 8
   %cmp150 = icmp eq i64 %inc147, %34
   br i1 %cmp150, label %for.cond.backedge, label %if.else153
 
 if.else153:                                       ; preds = %if.end145
-  %arrayidx155 = getelementptr inbounds nuw [8 x i64], ptr %repeat_stack_idx, i64 0, i64 %sub
+  %arrayidx155 = getelementptr inbounds [8 x i64], ptr %repeat_stack_idx, i64 0, i64 %sub
   %35 = load i64, ptr %arrayidx155, align 8
   br label %for.cond.backedge
 
@@ -3573,11 +3573,11 @@ if.then1154:                                      ; preds = %s_unlock.exit1002
 
 for.body1160:                                     ; preds = %if.then1154, %for.body1160
   %i1155.01123 = phi i64 [ %inc1165, %for.body1160 ], [ 0, %if.then1154 ]
-  %arrayidx1161 = getelementptr inbounds nuw [8 x i64], ptr %repeat_stack_done, i64 0, i64 %i1155.01123
+  %arrayidx1161 = getelementptr inbounds [8 x i64], ptr %repeat_stack_done, i64 0, i64 %i1155.01123
   %248 = load i64, ptr %arrayidx1161, align 8
-  %arrayidx1162 = getelementptr inbounds nuw [8 x i64], ptr %repeat_stack_limit, i64 0, i64 %i1155.01123
+  %arrayidx1162 = getelementptr inbounds [8 x i64], ptr %repeat_stack_limit, i64 0, i64 %i1155.01123
   %249 = load i64, ptr %arrayidx1162, align 8
-  %arrayidx1163 = getelementptr inbounds nuw [8 x i64], ptr %repeat_stack_idx, i64 0, i64 %i1155.01123
+  %arrayidx1163 = getelementptr inbounds [8 x i64], ptr %repeat_stack_idx, i64 0, i64 %i1155.01123
   %250 = load i64, ptr %arrayidx1163, align 8
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.14, i32 noundef 1958, ptr noundef nonnull @.str.143, i64 noundef %248, i64 noundef %249, i64 noundef %250) #14
   %inc1165 = add nuw i64 %i1155.01123, 1

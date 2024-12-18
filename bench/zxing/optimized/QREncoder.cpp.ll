@@ -273,7 +273,7 @@ define void @_ZN5ZXing6QRCode6EncodeERKNSt7__cxx1112basic_stringIwSt11char_trait
 
 107:                                              ; preds = %105
   %108 = sext i32 %102 to i64
-  %109 = getelementptr inbounds nuw [96 x i32], ptr @_ZN5ZXing6QRCodeL18ALPHANUMERIC_TABLEE, i64 0, i64 %108
+  %109 = getelementptr inbounds [96 x i32], ptr @_ZN5ZXing6QRCodeL18ALPHANUMERIC_TABLEE, i64 0, i64 %108
   %110 = load i32, ptr %109, align 4, !tbaa !20
   %111 = icmp eq i32 %110, -1
   br i1 %111, label %.loopexit139, label %112
@@ -585,7 +585,7 @@ define void @_ZN5ZXing6QRCode6EncodeERKNSt7__cxx1112basic_stringIwSt11char_trait
 
 271:                                              ; preds = %.preheader126
   %272 = sext i32 %269 to i64
-  %273 = getelementptr inbounds nuw [96 x i32], ptr @_ZN5ZXing6QRCodeL18ALPHANUMERIC_TABLEE, i64 0, i64 %272
+  %273 = getelementptr inbounds [96 x i32], ptr @_ZN5ZXing6QRCodeL18ALPHANUMERIC_TABLEE, i64 0, i64 %272
   %274 = load i32, ptr %273, align 4, !tbaa !20
   %275 = icmp eq i32 %274, -1
   br i1 %275, label %276, label %283
@@ -621,7 +621,7 @@ define void @_ZN5ZXing6QRCode6EncodeERKNSt7__cxx1112basic_stringIwSt11char_trait
 
 290:                                              ; preds = %286
   %291 = sext i32 %288 to i64
-  %292 = getelementptr inbounds nuw [96 x i32], ptr @_ZN5ZXing6QRCodeL18ALPHANUMERIC_TABLEE, i64 0, i64 %291
+  %292 = getelementptr inbounds [96 x i32], ptr @_ZN5ZXing6QRCodeL18ALPHANUMERIC_TABLEE, i64 0, i64 %291
   %293 = load i32, ptr %292, align 4, !tbaa !20
   %294 = icmp eq i32 %293, -1
   br i1 %294, label %295, label %299

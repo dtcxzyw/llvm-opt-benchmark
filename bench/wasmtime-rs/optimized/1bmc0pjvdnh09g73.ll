@@ -6293,7 +6293,7 @@ switch.lookup952:                                 ; preds = %205
   %switch.shiftamt954 = shl nuw nsw i48 %switch.cast953, 4
   %switch.downshift955 = lshr i48 133144903688, %switch.shiftamt954
   %switch.masked956 = trunc i48 %switch.downshift955 to i16
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN5gimli5write4line11LineProgram5write17h686013c60885eeb2E, i64 0, i64 %214
+  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table._ZN5gimli5write4line11LineProgram5write17h686013c60885eeb2E, i64 0, i64 %214
   %switch.load = load i64, ptr %switch.gep, align 8
   store i16 %switch.masked956, ptr %10, align 2
   %215 = tail call i64 @_ZN5gimli5write6writer6Writer13write_uleb12817h82bb31a3bb7b29ebE(ptr noalias noundef nonnull align 8 dereferenceable(56) %2, i64 noundef %switch.load)

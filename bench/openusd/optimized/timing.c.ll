@@ -12,10 +12,10 @@ define hidden range(i64 -2147483648000, 2147483647001) i64 @av1_max_level_bitrat
   %.not = icmp eq i32 %2, 0
   %4 = sext i32 %1 to i64
   %5 = sext i8 %0 to i64
-  %6 = getelementptr inbounds nuw [8 x i32], ptr @bitrate_profile_factor, i64 0, i64 %5
+  %6 = getelementptr inbounds [8 x i32], ptr @bitrate_profile_factor, i64 0, i64 %5
   %7 = load i32, ptr %6, align 4
   %main_kbps.high_kbps = select i1 %.not, ptr @main_kbps, ptr @high_kbps
-  %8 = getelementptr inbounds nuw [32 x i32], ptr %main_kbps.high_kbps, i64 0, i64 %4
+  %8 = getelementptr inbounds [32 x i32], ptr %main_kbps.high_kbps, i64 0, i64 %4
   %9 = load i32, ptr %8, align 4
   %10 = mul nsw i32 %7, %9
   %.0 = sext i32 %10 to i64

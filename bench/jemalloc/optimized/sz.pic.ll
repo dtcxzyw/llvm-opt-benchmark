@@ -138,7 +138,7 @@ for.cond10.preheader.i:                           ; preds = %for.inc.i
 for.body13.lr.ph.i:                               ; preds = %for.cond10.preheader.i
   %large_maxclass.i = getelementptr inbounds nuw i8, ptr %sc_data, i64 64
   %idxprom15.i = sext i32 %pind.1.i to i64
-  %arrayidx16.i = getelementptr inbounds nuw [200 x i64], ptr @sz_pind2sz_tab, i64 0, i64 %idxprom15.i
+  %arrayidx16.i = getelementptr inbounds [200 x i64], ptr @sz_pind2sz_tab, i64 0, i64 %idxprom15.i
   br label %for.body13.i
 
 for.body.i:                                       ; preds = %for.inc.i, %entry
@@ -164,7 +164,7 @@ if.then.i:                                        ; preds = %for.body.i
   %shl5.i = shl i64 %conv3.i, %sh_prom4.i
   %add.i = add i64 %shl5.i, %shl.i
   %idxprom6.i = sext i32 %pind.012.i to i64
-  %arrayidx7.i = getelementptr inbounds nuw [200 x i64], ptr @sz_pind2sz_tab, i64 0, i64 %idxprom6.i
+  %arrayidx7.i = getelementptr inbounds [200 x i64], ptr @sz_pind2sz_tab, i64 0, i64 %idxprom6.i
   store i64 %add.i, ptr %arrayidx7.i, align 8
   %inc.i = add nsw i32 %pind.012.i, 1
   br label %for.inc.i

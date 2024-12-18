@@ -57727,7 +57727,7 @@ define void @_ZN6casadi6MatrixINS_6SXElemEE4_symERKNSt7__cxx1112basic_stringIcSt
   %33 = load ptr, ptr %6, align 8
   %34 = getelementptr i8, ptr %33, i64 -24
   %35 = load i64, ptr %34, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %6, i64 %35
+  %36 = getelementptr inbounds i8, ptr %6, i64 %35
   %37 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %36)
           to label %38 unwind label %58
 
@@ -57742,7 +57742,7 @@ define void @_ZN6casadi6MatrixINS_6SXElemEE4_symERKNSt7__cxx1112basic_stringIcSt
   %42 = load ptr, ptr %6, align 8
   %43 = getelementptr i8, ptr %42, i64 -24
   %44 = load i64, ptr %43, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %6, i64 %44
+  %45 = getelementptr inbounds i8, ptr %6, i64 %44
   %46 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %45)
           to label %47 unwind label %58
 

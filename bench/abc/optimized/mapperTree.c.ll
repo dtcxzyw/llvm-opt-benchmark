@@ -77,7 +77,7 @@ define noundef ptr @Map_LibraryReadGateTree(ptr nocapture noundef readonly %0, p
 24:                                               ; preds = %16
   %25 = tail call i32 @Mio_GateReadPinNum(ptr noundef nonnull %19) #16
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds nuw [10 x i32], ptr @s_MapFanoutLimits, i64 0, i64 %26
+  %27 = getelementptr inbounds [10 x i32], ptr @s_MapFanoutLimits, i64 0, i64 %26
   %28 = load i32, ptr %27, align 4
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %30 = load i32, ptr %29, align 4

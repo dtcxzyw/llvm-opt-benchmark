@@ -810,7 +810,7 @@ if.then.i32:                                      ; preds = %while.cond
 
 land.lhs.true.i35:                                ; preds = %if.then.i32
   %sub.i36 = add i64 %call2.i33, -1
-  %arrayidx.i37 = getelementptr inbounds nuw [512 x i8], ptr %buf.i24, i64 0, i64 %sub.i36
+  %arrayidx.i37 = getelementptr inbounds [512 x i8], ptr %buf.i24, i64 0, i64 %sub.i36
   %4 = load i8, ptr %arrayidx.i37, align 1
   %cmp3.i38 = icmp eq i8 %4, 10
   br i1 %cmp3.i38, label %if.then5.i42, label %if.end.i39
@@ -888,7 +888,7 @@ if.then.i20:                                      ; preds = %if.end7.i
 
 land.lhs.true.i22:                                ; preds = %if.then.i20
   %sub.i = add i64 %call2.i21, -1
-  %arrayidx.i = getelementptr inbounds nuw [512 x i8], ptr %buf.i, i64 0, i64 %sub.i
+  %arrayidx.i = getelementptr inbounds [512 x i8], ptr %buf.i, i64 0, i64 %sub.i
   %10 = load i8, ptr %arrayidx.i, align 1
   %cmp3.i = icmp eq i8 %10, 10
   br i1 %cmp3.i, label %if.then5.i, label %if.end11.i

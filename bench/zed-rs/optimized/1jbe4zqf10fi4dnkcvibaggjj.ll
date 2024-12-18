@@ -7698,7 +7698,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h477887ac51f950
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.backedge.i
   %11 = phi i64 [ %13, %.backedge.i ], [ %.sroa.7.0, %.lr.ph.i ]
-  %12 = getelementptr inbounds nuw { { ptr, i64 }, i8, [7 x i8] }, ptr @anon.d202357ba6a8cfd4ae96f9a4695c6a35.146.llvm.7393537633185154647, i64 %11
+  %12 = getelementptr inbounds { { ptr, i64 }, i8, [7 x i8] }, ptr @anon.d202357ba6a8cfd4ae96f9a4695c6a35.146.llvm.7393537633185154647, i64 %11
   %13 = add i64 %11, 1
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load i64, ptr %14, align 8, !noalias !1993, !noundef !7
@@ -16784,7 +16784,7 @@ switch.lookup:
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %3, ptr %6, align 8
   %7 = sext i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN6search14project_search17ProjectSearchView17set_search_editor17hba4c37110b153ae5E, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table._ZN6search14project_search17ProjectSearchView17set_search_editor17hba4c37110b153ae5E, i64 0, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   call void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..VisualContext$GT$11update_view17h37933f3ecc74a6edE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5)

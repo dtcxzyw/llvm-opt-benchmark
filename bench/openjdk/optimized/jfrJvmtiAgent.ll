@@ -413,7 +413,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit.i43: ; preds = %103, %_ZN18Safepo
   store volatile i32 6, ptr %24, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(43) %4, ptr noundef nonnull align 16 dereferenceable(43) @__const._ZL13log_and_throw10jvmtiErrorP10JavaThread.base_error_msg, i64 43, i1 false)
   %104 = sext i32 %90 to i64
-  %105 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN9JvmtiUtil12_error_namesE, i64 0, i64 %104
+  %105 = getelementptr inbounds [0 x ptr], ptr @_ZN9JvmtiUtil12_error_namesE, i64 0, i64 %104
   %106 = load ptr, ptr %105, align 8
   %107 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %106) #13
   %108 = add i64 %107, 43

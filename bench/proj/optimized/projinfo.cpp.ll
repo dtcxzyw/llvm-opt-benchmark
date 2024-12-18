@@ -12139,7 +12139,7 @@ define internal fastcc void @_ZL11buildObjectSt10shared_ptrIN5osgeo4proj2io15Dat
   %110 = load ptr, ptr %36, align 8
   %111 = getelementptr i8, ptr %110, i64 -24
   %112 = load i64, ptr %111, align 8
-  %113 = getelementptr inbounds nuw i8, ptr %36, i64 %112
+  %113 = getelementptr inbounds i8, ptr %36, i64 %112
   %114 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv(ptr noundef nonnull align 8 dereferenceable(264) %113)
           to label %115 unwind label %.loopexit340
 

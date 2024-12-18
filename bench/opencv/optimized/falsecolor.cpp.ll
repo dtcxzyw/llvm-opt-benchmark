@@ -897,7 +897,7 @@ define internal void @_ZL13TrackColorMapiPv(i32 noundef %0, ptr noundef initiali
   store ptr %3, ptr %59, align 8
   %61 = load i32, ptr %1, align 8
   %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds nuw [23 x %"class.std::__cxx11::basic_string"], ptr @_ZL9ColorMapsB5cxx11, i64 0, i64 %62
+  %63 = getelementptr inbounds [23 x %"class.std::__cxx11::basic_string"], ptr @_ZL9ColorMapsB5cxx11, i64 0, i64 %62
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %16, ptr noundef nonnull @.str.30, ptr noundef nonnull align 8 dereferenceable(32) %63)
           to label %64 unwind label %73
 

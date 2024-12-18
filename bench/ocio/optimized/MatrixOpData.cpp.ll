@@ -2857,7 +2857,7 @@ for.body5.i:                                      ; preds = %for.body5.i, %for.c
   br i1 %exitcond.not.i, label %for.end.i, label %for.body5.i, !llvm.loop !14
 
 for.end.i:                                        ; preds = %for.body5.i
-  %arrayidx.i10.i = getelementptr inbounds nuw [4 x double], ptr %ref.tmp, i64 0, i64 %i.014.i
+  %arrayidx.i10.i = getelementptr inbounds [4 x double], ptr %ref.tmp, i64 0, i64 %i.014.i
   store double %12, ptr %arrayidx.i10.i, align 8, !alias.scope !40
   %inc11.i = add nuw i64 %i.014.i, 1
   %exitcond15.not.i = icmp eq i64 %inc11.i, %call.i3
@@ -3794,7 +3794,7 @@ for.body5.i:                                      ; preds = %for.body5.i, %for.c
   br i1 %exitcond.not.i, label %for.end.i, label %for.body5.i, !llvm.loop !14
 
 for.end.i:                                        ; preds = %for.body5.i
-  %arrayidx.i10.i = getelementptr inbounds nuw [4 x double], ptr %offs, i64 0, i64 %i.014.i
+  %arrayidx.i10.i = getelementptr inbounds [4 x double], ptr %offs, i64 0, i64 %i.014.i
   store double %23, ptr %arrayidx.i10.i, align 8, !alias.scope !55
   %inc11.i = add nuw i64 %i.014.i, 1
   %exitcond15.not.i = icmp eq i64 %inc11.i, %call.i35
@@ -3818,7 +3818,7 @@ for.body76.lr.ph:                                 ; preds = %for.body
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %i.054 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
   %max_val.053 = phi double [ 0.000000e+00, %for.body.lr.ph ], [ %cond72, %for.body ]
-  %arrayidx.i = getelementptr inbounds nuw [4 x double], ptr %offs, i64 0, i64 %i.054
+  %arrayidx.i = getelementptr inbounds [4 x double], ptr %offs, i64 0, i64 %i.054
   %26 = load double, ptr %arrayidx.i, align 8
   %27 = call double @llvm.fabs.f64(double %26)
   %cmp62 = fcmp ogt double %max_val.053, %27
@@ -3861,7 +3861,7 @@ for.body76:                                       ; preds = %for.body76.lr.ph, %
   %i73.056 = phi i64 [ 0, %for.body76.lr.ph ], [ %inc85, %for.body76 ]
   %arrayidx.i40 = getelementptr inbounds [4 x double], ptr %m_offsets.i39, i64 0, i64 %i73.056
   %32 = load double, ptr %arrayidx.i40, align 8
-  %arrayidx.i41 = getelementptr inbounds nuw [4 x double], ptr %offs, i64 0, i64 %i73.056
+  %arrayidx.i41 = getelementptr inbounds [4 x double], ptr %offs, i64 0, i64 %i73.056
   %33 = load double, ptr %arrayidx.i41, align 8
   %add = fadd double %32, %33
   store double %add, ptr %arrayidx.i41, align 8

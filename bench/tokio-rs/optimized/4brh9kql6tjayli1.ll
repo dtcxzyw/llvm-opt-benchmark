@@ -9850,7 +9850,7 @@ _ZN5tokio7runtime4time5Inner4lock17hc6aef85257c604f9E.exit77: ; preds = %.noexc7
 
 .lr.ph.i:                                         ; preds = %101, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hc490b1dedfd7c3deE.llvm.3285439092171202888.exit7.i"
   %.19.i = phi i64 [ %105, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hc490b1dedfd7c3deE.llvm.3285439092171202888.exit7.i" ], [ %92, %101 ]
-  %104 = getelementptr inbounds nuw [32 x { ptr, ptr }], ptr %5, i64 0, i64 %.19.i
+  %104 = getelementptr inbounds [32 x { ptr, ptr }], ptr %5, i64 0, i64 %.19.i
   %105 = add i64 %.19.i, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !1828)
   %106 = load ptr, ptr %104, align 8, !alias.scope !1831, !noundef !4

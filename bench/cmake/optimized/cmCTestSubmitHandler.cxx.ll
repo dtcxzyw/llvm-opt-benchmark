@@ -7587,7 +7587,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   %450 = load ptr, ptr %15, align 8
   %451 = getelementptr i8, ptr %450, i64 -24
   %452 = load i64, ptr %451, align 8
-  %453 = getelementptr inbounds nuw i8, ptr %15, i64 %452
+  %453 = getelementptr inbounds i8, ptr %15, i64 %452
   %454 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %453)
           to label %455 unwind label %.loopexit.split-lp.loopexit.split-lp
 

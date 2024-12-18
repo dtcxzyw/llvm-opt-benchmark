@@ -2875,9 +2875,9 @@ define internal fastcc noundef i32 @_ZL25assignInteractionsForAtomILb1EEiRK12Ato
   %35 = load i32, ptr %34, align 4
   %36 = getelementptr i8, ptr %34, i64 4
   %37 = sext i32 %35 to i64
-  %38 = getelementptr inbounds nuw [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %37, i32 2
+  %38 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %37, i32 2
   %39 = load i32, ptr %38, align 16
-  %40 = getelementptr inbounds nuw [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %37, i32 5
+  %40 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %37, i32 5
   %41 = load i32, ptr %40, align 4
   %42 = and i32 %41, 2
   %.not = icmp eq i32 %42, 0
@@ -3761,14 +3761,14 @@ _ZL20add_ifunc_for_vsitesRK11gmx_ga2la_tibRK12AtomIndexSetN3gmx8ArrayRefIKiEEP15
   %138 = getelementptr i32, ptr %137, i64 %136
   %139 = load i32, ptr %138, align 4
   %140 = sext i32 %139 to i64
-  %141 = getelementptr inbounds nuw [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %140, i32 5
+  %141 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %140, i32 5
   %142 = load i32, ptr %141, align 4
   %143 = and i32 %142, 2
   %.not40 = icmp eq i32 %143, 0
   br i1 %.not40, label %157, label %144
 
 144:                                              ; preds = %.lr.ph
-  %145 = getelementptr inbounds nuw [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %140, i32 2
+  %145 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %140, i32 2
   %146 = load i32, ptr %145, align 16
   store i32 -1, ptr %10, align 4
   %147 = load i32, ptr %18, align 4
@@ -3878,9 +3878,9 @@ define internal fastcc noundef i32 @_ZL25assignInteractionsForAtomILb0EEiRK12Ato
   %62 = load i32, ptr %61, align 4
   %63 = getelementptr i8, ptr %61, i64 4
   %64 = sext i32 %62 to i64
-  %65 = getelementptr inbounds nuw [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %64, i32 2
+  %65 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %64, i32 2
   %66 = load i32, ptr %65, align 16
-  %67 = getelementptr inbounds nuw [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %64, i32 5
+  %67 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %64, i32 5
   %68 = load i32, ptr %67, align 4
   %69 = and i32 %68, 2
   %.not = icmp eq i32 %69, 0
@@ -4170,10 +4170,10 @@ _ZNK11gmx_ga2la_t4findEi.exit137.thread:          ; preds = %198
   %217 = getelementptr inbounds nuw [3 x i32], ptr %17, i64 0, i64 %indvars.iv48
   %218 = load i32, ptr %217, align 4
   %219 = sext i32 %218 to i64
-  %220 = getelementptr inbounds nuw [7 x i32], ptr %15, i64 0, i64 %219
+  %220 = getelementptr inbounds [7 x i32], ptr %15, i64 0, i64 %219
   %221 = load i32, ptr %220, align 4
   %222 = sext i32 %215 to i64
-  %223 = getelementptr inbounds nuw [7 x i32], ptr %15, i64 0, i64 %222
+  %223 = getelementptr inbounds [7 x i32], ptr %15, i64 0, i64 %222
   %224 = load i32, ptr %223, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %13)
   %225 = sext i32 %221 to i64

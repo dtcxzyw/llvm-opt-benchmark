@@ -916,7 +916,7 @@ BuildColorantList.exit.us.i.i:                    ; preds = %.lr.ph.split.us.i.i
 
 363:                                              ; preds = %355
   %strlen.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16)
-  %endptr.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 %strlen.i.i.i
+  %endptr.i.i.i = getelementptr inbounds i8, ptr %16, i64 %strlen.i.i.i
   store i16 32, ptr %endptr.i.i.i, align 1
   br label %364
 

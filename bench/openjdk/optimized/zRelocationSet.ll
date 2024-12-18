@@ -1390,7 +1390,7 @@ _ZN7oopDesc11oop_iterateI23ZBasicOopIterateClosureIPFvPV8zpointerEEEEvPT_.exit.i
   %57 = getelementptr inbounds nuw i8, ptr %.0.i.i4.i.i.i, i64 12
   %58 = load i32, ptr %57, align 4
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI23ZBasicOopIterateClosureIPFvPV8zpointerEEE6_tableE, i64 0, i64 %59
+  %60 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI23ZBasicOopIterateClosureIPFvPV8zpointerEEE6_tableE, i64 0, i64 %59
   %61 = load ptr, ptr %60, align 8
   call void %61(ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef %.0.i.i4.i.i.i) #15
   br label %_ZZN25ZRelocationSetInstallTask7installEP11ZForwardingmENKUlP7oopDescE_clES3_.exit

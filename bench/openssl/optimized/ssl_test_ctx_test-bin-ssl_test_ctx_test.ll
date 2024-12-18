@@ -344,7 +344,7 @@ define internal range(i32 0, 2) i32 @test_bad_configuration(i32 noundef %idx) #1
 entry:
   %0 = load ptr, ptr @conf, align 8
   %idxprom = sext i32 %idx to i64
-  %arrayidx = getelementptr inbounds nuw [16 x ptr], ptr @bad_configurations, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [16 x ptr], ptr @bad_configurations, i64 0, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8
   %call = tail call ptr @SSL_TEST_CTX_create(ptr noundef %0, ptr noundef %1, ptr noundef null) #3
   %call1 = tail call i32 @test_ptr_null(ptr noundef nonnull @.str.14, i32 noundef 232, ptr noundef nonnull @.str.92, ptr noundef %call) #3

@@ -185,7 +185,7 @@ define range(i32 0, 309) i32 @yara_yylex(ptr noundef %0, ptr noundef initializes
   %77 = getelementptr inbounds nuw [256 x i8], ptr @yy_ec, i64 0, i64 %76
   %78 = load i8, ptr %77, align 1
   %79 = sext i32 %.1 to i64
-  %80 = getelementptr inbounds nuw [219 x i16], ptr @yy_accept, i64 0, i64 %79
+  %80 = getelementptr inbounds [219 x i16], ptr @yy_accept, i64 0, i64 %79
   %81 = load i16, ptr %80, align 2
   %.not382 = icmp eq i16 %81, 0
   br i1 %.not382, label %83, label %82
@@ -196,12 +196,12 @@ define range(i32 0, 309) i32 @yara_yylex(ptr noundef %0, ptr noundef initializes
   br label %83
 
 83:                                               ; preds = %82, %74
-  %84 = getelementptr inbounds nuw [238 x i16], ptr @yy_base, i64 0, i64 %79
+  %84 = getelementptr inbounds [238 x i16], ptr @yy_base, i64 0, i64 %79
   %85 = load i16, ptr %84, align 2
   %86 = sext i16 %85 to i64
   %87 = zext i8 %78 to i64
   %88 = add nsw i64 %86, %87
-  %89 = getelementptr inbounds nuw [412 x i16], ptr @yy_chk, i64 0, i64 %88
+  %89 = getelementptr inbounds [412 x i16], ptr @yy_chk, i64 0, i64 %88
   %90 = load i16, ptr %89, align 2
   %91 = sext i16 %90 to i32
   %.not383721 = icmp eq i32 %.1, %91
@@ -211,7 +211,7 @@ define range(i32 0, 309) i32 @yara_yylex(ptr noundef %0, ptr noundef initializes
   %92 = phi i64 [ %105, %100 ], [ %87, %83 ]
   %93 = phi i64 [ %101, %100 ], [ %79, %83 ]
   %.0356722 = phi i8 [ %.1357, %100 ], [ %78, %83 ]
-  %94 = getelementptr inbounds nuw [238 x i16], ptr @yy_def, i64 0, i64 %93
+  %94 = getelementptr inbounds [238 x i16], ptr @yy_def, i64 0, i64 %93
   %95 = load i16, ptr %94, align 2
   %96 = icmp sgt i16 %95, 218
   br i1 %96, label %97, label %100
@@ -224,24 +224,24 @@ define range(i32 0, 309) i32 @yara_yylex(ptr noundef %0, ptr noundef initializes
 100:                                              ; preds = %97, %.lr.ph
   %.1357 = phi i8 [ %99, %97 ], [ %.0356722, %.lr.ph ]
   %101 = sext i16 %95 to i64
-  %102 = getelementptr inbounds nuw [238 x i16], ptr @yy_base, i64 0, i64 %101
+  %102 = getelementptr inbounds [238 x i16], ptr @yy_base, i64 0, i64 %101
   %103 = load i16, ptr %102, align 2
   %104 = sext i16 %103 to i64
   %105 = zext i8 %.1357 to i64
   %106 = add nsw i64 %104, %105
-  %107 = getelementptr inbounds nuw [412 x i16], ptr @yy_chk, i64 0, i64 %106
+  %107 = getelementptr inbounds [412 x i16], ptr @yy_chk, i64 0, i64 %106
   %108 = load i16, ptr %107, align 2
   %.not383 = icmp eq i16 %95, %108
   br i1 %.not383, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %100, %83
   %.lcssa = phi i64 [ %88, %83 ], [ %106, %100 ]
-  %109 = getelementptr inbounds nuw [412 x i16], ptr @yy_nxt, i64 0, i64 %.lcssa
+  %109 = getelementptr inbounds [412 x i16], ptr @yy_nxt, i64 0, i64 %.lcssa
   %110 = load i16, ptr %109, align 2
   %111 = sext i16 %110 to i32
   %112 = getelementptr inbounds nuw i8, ptr %.1347, i64 1
   %113 = sext i16 %110 to i64
-  %114 = getelementptr inbounds nuw [238 x i16], ptr @yy_base, i64 0, i64 %113
+  %114 = getelementptr inbounds [238 x i16], ptr @yy_base, i64 0, i64 %113
   %115 = load i16, ptr %114, align 2
   %.not384 = icmp eq i16 %115, 357
   br i1 %.not384, label %.outer, label %74
@@ -257,7 +257,7 @@ define range(i32 0, 309) i32 @yara_yylex(ptr noundef %0, ptr noundef initializes
   %.2348 = phi ptr [ %163, %161 ], [ %.2348.ph, %.outer ]
   %.3 = phi i32 [ %164, %161 ], [ %.3.ph, %.outer ]
   %118 = sext i32 %.3 to i64
-  %119 = getelementptr inbounds nuw [219 x i16], ptr @yy_accept, i64 0, i64 %118
+  %119 = getelementptr inbounds [219 x i16], ptr @yy_accept, i64 0, i64 %118
   %120 = load i16, ptr %119, align 2
   %121 = icmp eq i16 %120, 0
   br i1 %121, label %122, label %128
@@ -266,7 +266,7 @@ define range(i32 0, 309) i32 @yara_yylex(ptr noundef %0, ptr noundef initializes
   %123 = load ptr, ptr %60, align 8
   %124 = load i32, ptr %59, align 8
   %125 = sext i32 %124 to i64
-  %126 = getelementptr inbounds nuw [219 x i16], ptr @yy_accept, i64 0, i64 %125
+  %126 = getelementptr inbounds [219 x i16], ptr @yy_accept, i64 0, i64 %125
   %127 = load i16, ptr %126, align 2
   br label %128
 
@@ -288,7 +288,7 @@ define range(i32 0, 309) i32 @yara_yylex(ptr noundef %0, ptr noundef initializes
 
 133:                                              ; preds = %128
   %134 = sext i16 %.0353.in to i64
-  %135 = getelementptr inbounds nuw [76 x i32], ptr @yy_rule_can_match_eol, i64 0, i64 %134
+  %135 = getelementptr inbounds [76 x i32], ptr @yy_rule_can_match_eol, i64 0, i64 %134
   %136 = load i32, ptr %135, align 4
   %.not386 = icmp eq i32 %136, 0
   br i1 %.not386, label %.loopexit415.preheader, label %.preheader
@@ -2392,7 +2392,7 @@ define internal fastcc i32 @yy_get_previous_state(ptr nocapture noundef %0) unna
 17:                                               ; preds = %11, %13
   %18 = phi i8 [ %16, %13 ], [ 1, %11 ]
   %19 = sext i32 %.02129 to i64
-  %20 = getelementptr inbounds nuw [219 x i16], ptr @yy_accept, i64 0, i64 %19
+  %20 = getelementptr inbounds [219 x i16], ptr @yy_accept, i64 0, i64 %19
   %21 = load i16, ptr %20, align 2
   %.not24 = icmp eq i16 %21, 0
   br i1 %.not24, label %23, label %22
@@ -2403,12 +2403,12 @@ define internal fastcc i32 @yy_get_previous_state(ptr nocapture noundef %0) unna
   br label %23
 
 23:                                               ; preds = %22, %17
-  %24 = getelementptr inbounds nuw [238 x i16], ptr @yy_base, i64 0, i64 %19
+  %24 = getelementptr inbounds [238 x i16], ptr @yy_base, i64 0, i64 %19
   %25 = load i16, ptr %24, align 2
   %26 = sext i16 %25 to i64
   %27 = zext i8 %18 to i64
   %28 = add nsw i64 %26, %27
-  %29 = getelementptr inbounds nuw [412 x i16], ptr @yy_chk, i64 0, i64 %28
+  %29 = getelementptr inbounds [412 x i16], ptr @yy_chk, i64 0, i64 %28
   %30 = load i16, ptr %29, align 2
   %31 = sext i16 %30 to i32
   %.not2526 = icmp eq i32 %.02129, %31
@@ -2418,7 +2418,7 @@ define internal fastcc i32 @yy_get_previous_state(ptr nocapture noundef %0) unna
   %32 = phi i64 [ %45, %40 ], [ %27, %23 ]
   %33 = phi i64 [ %41, %40 ], [ %19, %23 ]
   %.027 = phi i8 [ %.1, %40 ], [ %18, %23 ]
-  %34 = getelementptr inbounds nuw [238 x i16], ptr @yy_def, i64 0, i64 %33
+  %34 = getelementptr inbounds [238 x i16], ptr @yy_def, i64 0, i64 %33
   %35 = load i16, ptr %34, align 2
   %36 = icmp sgt i16 %35, 218
   br i1 %36, label %37, label %40
@@ -2431,19 +2431,19 @@ define internal fastcc i32 @yy_get_previous_state(ptr nocapture noundef %0) unna
 40:                                               ; preds = %37, %.lr.ph
   %.1 = phi i8 [ %39, %37 ], [ %.027, %.lr.ph ]
   %41 = sext i16 %35 to i64
-  %42 = getelementptr inbounds nuw [238 x i16], ptr @yy_base, i64 0, i64 %41
+  %42 = getelementptr inbounds [238 x i16], ptr @yy_base, i64 0, i64 %41
   %43 = load i16, ptr %42, align 2
   %44 = sext i16 %43 to i64
   %45 = zext i8 %.1 to i64
   %46 = add nsw i64 %44, %45
-  %47 = getelementptr inbounds nuw [412 x i16], ptr @yy_chk, i64 0, i64 %46
+  %47 = getelementptr inbounds [412 x i16], ptr @yy_chk, i64 0, i64 %46
   %48 = load i16, ptr %47, align 2
   %.not25 = icmp eq i16 %35, %48
   br i1 %.not25, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %40, %23
   %.lcssa = phi i64 [ %28, %23 ], [ %46, %40 ]
-  %49 = getelementptr inbounds nuw [412 x i16], ptr @yy_nxt, i64 0, i64 %.lcssa
+  %49 = getelementptr inbounds [412 x i16], ptr @yy_nxt, i64 0, i64 %.lcssa
   %50 = load i16, ptr %49, align 2
   %51 = sext i16 %50 to i32
   %52 = getelementptr inbounds nuw i8, ptr %.02328, i64 1
@@ -2458,7 +2458,7 @@ define internal fastcc i32 @yy_get_previous_state(ptr nocapture noundef %0) unna
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc range(i32 -32768, 32768) i32 @yy_try_NUL_trans(i32 noundef %0, ptr nocapture noundef %1) unnamed_addr #9 {
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds nuw [219 x i16], ptr @yy_accept, i64 0, i64 %3
+  %4 = getelementptr inbounds [219 x i16], ptr @yy_accept, i64 0, i64 %3
   %5 = load i16, ptr %4, align 2
   %.not = icmp eq i16 %5, 0
   br i1 %.not, label %11, label %6
@@ -2473,11 +2473,11 @@ define internal fastcc range(i32 -32768, 32768) i32 @yy_try_NUL_trans(i32 nounde
   br label %11
 
 11:                                               ; preds = %6, %2
-  %12 = getelementptr inbounds nuw [238 x i16], ptr @yy_base, i64 0, i64 %3
+  %12 = getelementptr inbounds [238 x i16], ptr @yy_base, i64 0, i64 %3
   %13 = load i16, ptr %12, align 2
   %14 = sext i16 %13 to i64
   %15 = add nsw i64 %14, 1
-  %16 = getelementptr inbounds nuw [412 x i16], ptr @yy_chk, i64 0, i64 %15
+  %16 = getelementptr inbounds [412 x i16], ptr @yy_chk, i64 0, i64 %15
   %17 = load i16, ptr %16, align 2
   %18 = sext i16 %17 to i32
   %.not1819 = icmp eq i32 %0, %18
@@ -2485,21 +2485,21 @@ define internal fastcc range(i32 -32768, 32768) i32 @yy_try_NUL_trans(i32 nounde
 
 .lr.ph:                                           ; preds = %11, %.lr.ph
   %19 = phi i64 [ %22, %.lr.ph ], [ %3, %11 ]
-  %20 = getelementptr inbounds nuw [238 x i16], ptr @yy_def, i64 0, i64 %19
+  %20 = getelementptr inbounds [238 x i16], ptr @yy_def, i64 0, i64 %19
   %21 = load i16, ptr %20, align 2
   %22 = sext i16 %21 to i64
-  %23 = getelementptr inbounds nuw [238 x i16], ptr @yy_base, i64 0, i64 %22
+  %23 = getelementptr inbounds [238 x i16], ptr @yy_base, i64 0, i64 %22
   %24 = load i16, ptr %23, align 2
   %25 = sext i16 %24 to i64
   %26 = add nsw i64 %25, 1
-  %27 = getelementptr inbounds nuw [412 x i16], ptr @yy_chk, i64 0, i64 %26
+  %27 = getelementptr inbounds [412 x i16], ptr @yy_chk, i64 0, i64 %26
   %28 = load i16, ptr %27, align 2
   %.not18 = icmp eq i16 %21, %28
   br i1 %.not18, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %11
   %.lcssa = phi i64 [ %15, %11 ], [ %26, %.lr.ph ]
-  %29 = getelementptr inbounds nuw [412 x i16], ptr @yy_nxt, i64 0, i64 %.lcssa
+  %29 = getelementptr inbounds [412 x i16], ptr @yy_nxt, i64 0, i64 %.lcssa
   %30 = load i16, ptr %29, align 2
   %31 = icmp eq i16 %30, 218
   %narrow = select i1 %31, i16 0, i16 %30

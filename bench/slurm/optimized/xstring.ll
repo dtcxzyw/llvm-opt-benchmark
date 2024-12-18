@@ -1137,7 +1137,7 @@ define i64 @xstrntol(ptr noundef %0, ptr noundef writeonly %1, i64 noundef %2, i
   %7 = alloca i8, i64 %6, align 16
   store ptr null, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr align 1 %0, i64 %2, i1 false)
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 %2
+  %8 = getelementptr inbounds i8, ptr %7, i64 %2
   store i8 0, ptr %8, align 1
   %9 = call i64 @strtol(ptr noundef nonnull %7, ptr noundef nonnull %5, i32 noundef %3) #22
   %.not = icmp eq ptr %1, null

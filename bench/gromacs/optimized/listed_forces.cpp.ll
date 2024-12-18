@@ -2481,7 +2481,7 @@ _ZN12_GLOBAL__N_124selectBondedKernelFlavorERKN3gmx12StepWorkloadEbb.exit: ; pre
 _ZL17IS_RESTRAINT_TYPEi.exit:                     ; preds = %_ZN12_GLOBAL__N_124selectBondedKernelFlavorERKN3gmx12StepWorkloadEbb.exit, %45
   %46 = phi i64 [ 5, %45 ], [ 4, %_ZN12_GLOBAL__N_124selectBondedKernelFlavorERKN3gmx12StepWorkloadEbb.exit ]
   %47 = sext i32 %1 to i64
-  %48 = getelementptr inbounds nuw [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %47, i32 2
+  %48 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %47, i32 2
   %49 = load i32, ptr %48, align 16
   %50 = add nsw i32 %49, 1
   %51 = sext i32 %50 to i64

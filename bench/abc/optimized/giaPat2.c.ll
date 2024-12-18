@@ -7061,7 +7061,7 @@ define void @Patt_ManProfileErrors(ptr nocapture noundef readonly %0, ptr nocapt
   %14 = add nsw i32 %13, %.04355
   %15 = tail call i32 @llvm.smin.i32(i32 %13, i32 32)
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds nuw [33 x i32], ptr %3, i64 0, i64 %16
+  %17 = getelementptr inbounds [33 x i32], ptr %3, i64 0, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = add nsw i32 %18, 1
   store i32 %19, ptr %17, align 4
@@ -7075,7 +7075,7 @@ define void @Patt_ManProfileErrors(ptr nocapture noundef readonly %0, ptr nocapt
   %21 = load i32, ptr %20, align 4
   %22 = tail call i32 @llvm.smin.i32(i32 %21, i32 32)
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds nuw [33 x i32], ptr %4, i64 0, i64 %23
+  %24 = getelementptr inbounds [33 x i32], ptr %4, i64 0, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = add nsw i32 %25, 1
   store i32 %26, ptr %24, align 4

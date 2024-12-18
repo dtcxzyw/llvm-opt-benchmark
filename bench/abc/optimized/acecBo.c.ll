@@ -978,7 +978,7 @@ Vec_IntPush.exit74:                               ; preds = %.Vec_IntGrow.exit10
   %117 = load i32, ptr %116, align 4
   %118 = add nsw i32 %.06079, 1
   %119 = sext i32 %.06079 to i64
-  %120 = getelementptr inbounds nuw [7 x i32], ptr %1, i64 0, i64 %119
+  %120 = getelementptr inbounds [7 x i32], ptr %1, i64 0, i64 %119
   store i32 %117, ptr %120, align 4
   br label %121
 

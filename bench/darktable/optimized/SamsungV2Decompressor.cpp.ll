@@ -1126,9 +1126,9 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
 
 384:                                              ; preds = %382
   %385 = sext i32 %359 to i64
-  %386 = getelementptr inbounds nuw [7 x i32], ptr @_ZZN8rawspeed21SamsungV2Decompressor21prepareBaselineValuesERNS_16BitStreamerMSB32EiiE12motionOffset, i64 0, i64 %385
+  %386 = getelementptr inbounds [7 x i32], ptr @_ZZN8rawspeed21SamsungV2Decompressor21prepareBaselineValuesERNS_16BitStreamerMSB32EiiE12motionOffset, i64 0, i64 %385
   %387 = load i32, ptr %386, align 4, !tbaa !14, !noalias !117
-  %388 = getelementptr inbounds nuw [7 x i32], ptr @_ZZN8rawspeed21SamsungV2Decompressor21prepareBaselineValuesERNS_16BitStreamerMSB32EiiE15motionDoAverage, i64 0, i64 %385
+  %388 = getelementptr inbounds [7 x i32], ptr @_ZZN8rawspeed21SamsungV2Decompressor21prepareBaselineValuesERNS_16BitStreamerMSB32EiiE15motionDoAverage, i64 0, i64 %385
   %389 = load i32, ptr %388, align 4, !tbaa !14, !noalias !117
   %390 = freeze i32 %389
   %391 = icmp eq i32 %390, 0

@@ -2407,7 +2407,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn12LRNLayerImpl20spatialNormalizationE
   %78 = getelementptr inbounds nuw i32, ptr %76, i64 %indvars.iv.i.us
   %79 = load i32, ptr %78, align 4, !noalias !10
   %80 = add nsw i64 %indvars.iv.i.us, -2
-  %81 = getelementptr inbounds nuw [32 x i32], ptr %12, i64 0, i64 %80
+  %81 = getelementptr inbounds [32 x i32], ptr %12, i64 0, i64 %80
   store i32 %79, ptr %81, align 4, !noalias !10
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i.us
@@ -2450,7 +2450,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn12LRNLayerImpl20spatialNormalizationE
   %100 = getelementptr inbounds nuw i32, ptr %98, i64 %indvars.iv.i37.us
   %101 = load i32, ptr %100, align 4, !noalias !14
   %102 = add nsw i64 %indvars.iv.i37.us, -2
-  %103 = getelementptr inbounds nuw [32 x i32], ptr %9, i64 0, i64 %102
+  %103 = getelementptr inbounds [32 x i32], ptr %9, i64 0, i64 %102
   store i32 %101, ptr %103, align 4, !noalias !14
   %indvars.iv.next.i38.us = add nuw nsw i64 %indvars.iv.i37.us, 1
   %exitcond.not.i39.us = icmp eq i64 %indvars.iv.next.i38.us, %wide.trip.count.i36.us

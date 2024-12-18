@@ -464,7 +464,7 @@ define noundef ptr @Amap_ParseGateWithSamePins(ptr nocapture noundef readonly %0
   %24 = ptrtoint ptr %.018 to i64
   %25 = sub i64 %24, %22
   %26 = sdiv exact i64 %25, 72
-  %27 = getelementptr inbounds nuw [128 x ptr], ptr %2, i64 0, i64 %26
+  %27 = getelementptr inbounds [128 x ptr], ptr %2, i64 0, i64 %26
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %.018, align 8
   %29 = getelementptr inbounds nuw i8, ptr %.018, i64 72
@@ -994,7 +994,7 @@ sub_0:                                            ; preds = %._crit_edge
   %232 = ptrtoint ptr %.018.i to i64
   %233 = sub i64 %232, %230
   %234 = sdiv exact i64 %233, 72
-  %235 = getelementptr inbounds nuw [128 x ptr], ptr %3, i64 0, i64 %234
+  %235 = getelementptr inbounds [128 x ptr], ptr %3, i64 0, i64 %234
   %236 = load ptr, ptr %235, align 8
   store ptr %236, ptr %.018.i, align 8
   %237 = getelementptr inbounds nuw i8, ptr %.018.i, i64 72

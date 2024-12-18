@@ -1011,7 +1011,7 @@ _ZN7QStringD2Ev.exit51:                           ; preds = %_ZN7QStringD2Ev.exi
   %54 = getelementptr inbounds nuw [16 x float], ptr %9, i64 0, i64 %53
   %55 = shl i64 %indvars.iv.i.i.i, 2
   %56 = add nuw nsw i64 %55, %indvars.iv15.i.i.i
-  %57 = getelementptr inbounds nuw [16 x float], ptr %9, i64 0, i64 %56
+  %57 = getelementptr inbounds [16 x float], ptr %9, i64 0, i64 %56
   %58 = load float, ptr %54, align 4, !alias.scope !10
   %59 = load float, ptr %57, align 4, !alias.scope !10
   store float %59, ptr %54, align 4, !alias.scope !10
@@ -1351,7 +1351,7 @@ _ZNSt6vectorIP8CVertexOSaIS1_EE9push_backERKS1_.exit: ; preds = %205, %_ZNSt6vec
   %238 = getelementptr inbounds nuw [16 x float], ptr %5, i64 0, i64 %237
   %239 = shl i64 %indvars.iv.i.i.i58, 2
   %240 = add nuw nsw i64 %239, %indvars.iv15.i.i.i57
-  %241 = getelementptr inbounds nuw [16 x float], ptr %5, i64 0, i64 %240
+  %241 = getelementptr inbounds [16 x float], ptr %5, i64 0, i64 %240
   %242 = load float, ptr %238, align 4, !alias.scope !20
   %243 = load float, ptr %241, align 4, !alias.scope !20
   store float %243, ptr %238, align 4, !alias.scope !20

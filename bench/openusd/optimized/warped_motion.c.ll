@@ -50,7 +50,7 @@ resolve_divisor_32.exit:                          ; preds = %17, %23
   %26 = trunc nuw nsw i32 %14 to i16
   %27 = add nuw nsw i16 %26, 14
   %28 = sext i32 %.0.i to i64
-  %29 = getelementptr inbounds nuw [257 x i16], ptr @div_lut, i64 0, i64 %28
+  %29 = getelementptr inbounds [257 x i16], ptr @div_lut, i64 0, i64 %28
   %30 = load i16, ptr %29, align 2
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load i32, ptr %31, align 4
@@ -383,7 +383,7 @@ define hidden void @av1_highbd_warp_affine_c(ptr nocapture noundef readonly %0, 
   %129 = ashr i32 %128, 10
   %130 = add nsw i32 %129, 64
   %131 = sext i32 %130 to i64
-  %132 = getelementptr inbounds nuw [193 x [8 x i16]], ptr @av1_warped_filter, i64 0, i64 %131
+  %132 = getelementptr inbounds [193 x [8 x i16]], ptr @av1_warped_filter, i64 0, i64 %131
   %133 = add nsw i64 %indvars.iv252, %109
   br label %140
 
@@ -391,7 +391,7 @@ define hidden void @av1_highbd_warp_affine_c(ptr nocapture noundef readonly %0, 
   %135 = add nsw i32 %155, %64
   %136 = ashr i32 %135, %26
   %137 = add nsw i64 %121, %indvars.iv252
-  %138 = getelementptr inbounds nuw [120 x i32], ptr %20, i64 0, i64 %137
+  %138 = getelementptr inbounds [120 x i32], ptr %20, i64 0, i64 %137
   store i32 %136, ptr %138, align 4
   %139 = add nsw i32 %.0190221.us, %52
   %indvars.iv.next253 = add nsw i64 %indvars.iv252, 1
@@ -458,7 +458,7 @@ define hidden void @av1_highbd_warp_affine_c(ptr nocapture noundef readonly %0, 
   %171 = ashr i32 %170, 10
   %172 = add nsw i32 %171, 64
   %173 = sext i32 %172 to i64
-  %174 = getelementptr inbounds nuw [193 x [8 x i16]], ptr @av1_warped_filter, i64 0, i64 %173
+  %174 = getelementptr inbounds [193 x [8 x i16]], ptr @av1_warped_filter, i64 0, i64 %173
   %175 = trunc nsw i64 %indvars.iv264 to i32
   %176 = add i32 %175, 36
   br label %241
@@ -594,7 +594,7 @@ clip_pixel_highbd.exit209.us.us:                  ; preds = %235, %233, %231
   %244 = shl i32 %243, 3
   %245 = add i32 %176, %244
   %246 = sext i32 %245 to i64
-  %247 = getelementptr inbounds nuw [120 x i32], ptr %20, i64 0, i64 %246
+  %247 = getelementptr inbounds [120 x i32], ptr %20, i64 0, i64 %246
   %248 = load i32, ptr %247, align 4
   %249 = getelementptr inbounds nuw i16, ptr %174, i64 %indvars.iv260
   %250 = load i16, ptr %249, align 2
@@ -868,7 +868,7 @@ define hidden void @av1_warp_affine_c(ptr nocapture noundef readonly %0, ptr noc
   %119 = ashr i32 %118, 10
   %120 = add nsw i32 %119, 64
   %121 = sext i32 %120 to i64
-  %122 = getelementptr inbounds nuw [193 x [8 x i16]], ptr @av1_warped_filter, i64 0, i64 %121
+  %122 = getelementptr inbounds [193 x [8 x i16]], ptr @av1_warped_filter, i64 0, i64 %121
   %123 = add nsw i64 %indvars.iv228, %99
   br label %130
 
@@ -876,7 +876,7 @@ define hidden void @av1_warp_affine_c(ptr nocapture noundef readonly %0, ptr noc
   %125 = add nsw i32 %145, %56
   %126 = ashr i32 %125, %21
   %127 = add nsw i64 %111, %indvars.iv228
-  %128 = getelementptr inbounds nuw [120 x i32], ptr %19, i64 0, i64 %127
+  %128 = getelementptr inbounds [120 x i32], ptr %19, i64 0, i64 %127
   store i32 %126, ptr %128, align 4
   %129 = add nsw i32 %.0177199.us, %45
   %indvars.iv.next229 = add nsw i64 %indvars.iv228, 1
@@ -943,7 +943,7 @@ define hidden void @av1_warp_affine_c(ptr nocapture noundef readonly %0, ptr noc
   %161 = ashr i32 %160, 10
   %162 = add nsw i32 %161, 64
   %163 = sext i32 %162 to i64
-  %164 = getelementptr inbounds nuw [193 x [8 x i16]], ptr @av1_warped_filter, i64 0, i64 %163
+  %164 = getelementptr inbounds [193 x [8 x i16]], ptr @av1_warped_filter, i64 0, i64 %163
   %165 = trunc nsw i64 %indvars.iv240 to i32
   %166 = add i32 %165, 36
   br label %222
@@ -1041,7 +1041,7 @@ define hidden void @av1_warp_affine_c(ptr nocapture noundef readonly %0, ptr noc
   %225 = shl i32 %224, 3
   %226 = add i32 %166, %225
   %227 = sext i32 %226 to i64
-  %228 = getelementptr inbounds nuw [120 x i32], ptr %19, i64 0, i64 %227
+  %228 = getelementptr inbounds [120 x i32], ptr %19, i64 0, i64 %227
   %229 = load i32, ptr %228, align 4
   %230 = getelementptr inbounds nuw i16, ptr %164, i64 %indvars.iv236
   %231 = load i16, ptr %230, align 2
@@ -1796,7 +1796,7 @@ define hidden range(i32 0, 2) i32 @av1_find_projection(i32 noundef %0, ptr nocap
 resolve_divisor_64.exit.i:                        ; preds = %133, %123
   %137 = phi i16 [ %125, %123 ], [ %119, %133 ]
   %.0.i.i = phi i64 [ %132, %123 ], [ %136, %133 ]
-  %138 = getelementptr inbounds nuw [257 x i16], ptr @div_lut, i64 0, i64 %.0.i.i
+  %138 = getelementptr inbounds [257 x i16], ptr @div_lut, i64 0, i64 %.0.i.i
   %139 = load i16, ptr %138, align 2
   %140 = icmp slt i64 %106, 0
   %141 = sub i16 0, %139

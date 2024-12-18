@@ -23468,7 +23468,7 @@ switch.lookup:
   %28 = getelementptr inbounds i32, ptr %23, i64 %27
   %29 = load i32, ptr %28, align 4
   %30 = sext i32 %29 to i64
-  %switch.gep = getelementptr inbounds nuw [11 x ptr], ptr @"switch.table._ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier11verifyIndexENS1_9StringRefENS1_16DWARFSectionKindES3_E3$_0E9_M_invokeERKSt9_Any_data", i64 0, i64 %30
+  %switch.gep = getelementptr inbounds [11 x ptr], ptr @"switch.table._ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier11verifyIndexENS1_9StringRefENS1_16DWARFSectionKindES3_E3$_0E9_M_invokeERKSt9_Any_data", i64 0, i64 %30
   %switch.load = load ptr, ptr %switch.gep, align 8
   %31 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %32 = zext i32 %17 to i64

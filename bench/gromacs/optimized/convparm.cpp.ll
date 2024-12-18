@@ -382,7 +382,7 @@ define internal fastcc void @_ZL14enter_functionPK18InteractionsOfTypei15Combina
 .lr.ph:                                           ; preds = %7
   %20 = fpext float %2 to double
   %21 = sext i32 %0 to i64
-  %22 = getelementptr inbounds nuw [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %21
+  %22 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 28
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 4
@@ -406,7 +406,7 @@ define internal fastcc void @_ZL14enter_functionPK18InteractionsOfTypei15Combina
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.not = icmp eq ptr %4, null
-  %42 = getelementptr inbounds nuw [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %21, i32 2
+  %42 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %21, i32 2
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %45
@@ -1882,7 +1882,7 @@ define internal fastcc noundef range(i32 -99, -2147483648) i32 @_ZL11round_check
   call void @_ZNSt10filesystem7__cxx114pathC2IA132_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 1 dereferenceable(132) @.str, i8 noundef zeroext 2)
   %14 = fpext float %0 to double
   %15 = sext i32 %2 to i64
-  %16 = getelementptr inbounds nuw [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %15, i32 1
+  %16 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %15, i32 1
   %17 = load ptr, ptr %16, align 8
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %5, i32 noundef 65, ptr noundef nonnull @.str.14, double noundef %14, ptr noundef %3, ptr noundef %17) #18
           to label %18 unwind label %19
@@ -1902,7 +1902,7 @@ define internal fastcc noundef range(i32 -99, -2147483648) i32 @_ZL11round_check
 23:                                               ; preds = %21
   call void @_ZNSt10filesystem7__cxx114pathC2IA132_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 1 dereferenceable(132) @.str, i8 noundef zeroext 2)
   %24 = sext i32 %2 to i64
-  %25 = getelementptr inbounds nuw [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %24, i32 1
+  %25 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %24, i32 1
   %26 = load ptr, ptr %25, align 8
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef 74, ptr noundef nonnull @.str.15, ptr noundef %3, ptr noundef %26, i32 noundef %8, i32 noundef %1) #18
           to label %27 unwind label %28

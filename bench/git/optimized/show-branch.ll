@@ -705,10 +705,10 @@ if.end11.i:                                       ; preds = %if.end.i
   %inc13.i = add nsw i32 %38, 1
   store i32 %inc13.i, ptr @ref_name_cnt, align 4
   %idxprom14.i = sext i32 %38 to i64
-  %arrayidx15.i = getelementptr inbounds nuw [27 x ptr], ptr @ref_name, i64 0, i64 %idxprom14.i
+  %arrayidx15.i = getelementptr inbounds [27 x ptr], ptr @ref_name, i64 0, i64 %idxprom14.i
   store ptr %call12.i, ptr %arrayidx15.i, align 8
   %idxprom16.i = sext i32 %inc13.i to i64
-  %arrayidx17.i = getelementptr inbounds nuw [27 x ptr], ptr @ref_name, i64 0, i64 %idxprom16.i
+  %arrayidx17.i = getelementptr inbounds [27 x ptr], ptr @ref_name, i64 0, i64 %idxprom16.i
   store ptr null, ptr %arrayidx17.i, align 8
   br label %append_ref.exit
 
@@ -761,7 +761,7 @@ if.then.i:                                        ; preds = %if.then298
 if.then.i.i.i:                                    ; preds = %if.then.i
   %conv.i.i = sext i32 %sub.i.i to i64
   %idx.ext.i.i = sext i32 %45 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr @ref_name, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds ptr, ptr @ref_name, i64 %idx.ext.i.i
   call void @qsort(ptr noundef nonnull %add.ptr.i.i, i64 noundef range(i64 -2147483648, 2147483648) %conv.i.i, i64 noundef 8, ptr noundef nonnull @compare_ref_name) #16
   br label %if.end.i115
 
@@ -780,7 +780,7 @@ if.then2.i:                                       ; preds = %if.end.i115
 if.then.i.i3.i:                                   ; preds = %if.then2.i
   %conv.i4.i = sext i32 %sub.i1.i to i64
   %idx.ext.i5.i = sext i32 %47 to i64
-  %add.ptr.i6.i = getelementptr inbounds nuw ptr, ptr @ref_name, i64 %idx.ext.i5.i
+  %add.ptr.i6.i = getelementptr inbounds ptr, ptr @ref_name, i64 %idx.ext.i5.i
   call void @qsort(ptr noundef nonnull %add.ptr.i6.i, i64 noundef range(i64 -2147483648, 2147483648) %conv.i4.i, i64 noundef 8, ptr noundef nonnull @compare_ref_name) #16
   br label %if.end300
 
@@ -1364,7 +1364,7 @@ if.then.i199:                                     ; preds = %land.rhs417
 
 if.else.i:                                        ; preds = %land.rhs417
   %idxprom.i = sext i32 %114 to i64
-  %arrayidx.i195 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i
+  %arrayidx.i195 = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i
   br label %oideq.exit
 
 oideq.exit:                                       ; preds = %if.then.i199, %if.else.i
@@ -2455,10 +2455,10 @@ if.end11:                                         ; preds = %for.cond.preheader,
   %inc13 = add nsw i32 %4, 1
   store i32 %inc13, ptr @ref_name_cnt, align 4
   %idxprom14 = sext i32 %4 to i64
-  %arrayidx15 = getelementptr inbounds nuw [27 x ptr], ptr @ref_name, i64 0, i64 %idxprom14
+  %arrayidx15 = getelementptr inbounds [27 x ptr], ptr @ref_name, i64 0, i64 %idxprom14
   store ptr %call12, ptr %arrayidx15, align 8
   %idxprom16 = sext i32 %inc13 to i64
-  %arrayidx17 = getelementptr inbounds nuw [27 x ptr], ptr @ref_name, i64 0, i64 %idxprom16
+  %arrayidx17 = getelementptr inbounds [27 x ptr], ptr @ref_name, i64 0, i64 %idxprom16
   store ptr null, ptr %arrayidx17, align 8
   br label %return
 
@@ -2520,7 +2520,7 @@ if.end12:                                         ; preds = %_.exit, %if.then4
 if.then.i.i:                                      ; preds = %if.end12
   %conv.i = sext i32 %sub.i to i64
   %idx.ext.i = sext i32 %1 to i64
-  %add.ptr.i = getelementptr inbounds nuw ptr, ptr @ref_name, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds ptr, ptr @ref_name, i64 %idx.ext.i
   call void @qsort(ptr noundef nonnull %add.ptr.i, i64 noundef range(i64 -2147483648, 2147483648) %conv.i, i64 noundef 8, ptr noundef nonnull @compare_ref_name) #16
   br label %return
 
@@ -2819,7 +2819,7 @@ if.then.i.i:                                      ; preds = %lor.lhs.false.i
 
 if.else.i.i:                                      ; preds = %lor.lhs.false.i
   %idxprom.i.i = sext i32 %8 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.i
   br label %oideq.exit.i
 
 oideq.exit.i:                                     ; preds = %if.else.i.i, %if.then.i.i
@@ -2901,7 +2901,7 @@ if.then.i:                                        ; preds = %lor.lhs.false
 
 if.else.i:                                        ; preds = %lor.lhs.false
   %idxprom.i = sext i32 %1 to i64
-  %arrayidx.i = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i
   br label %oideq.exit
 
 oideq.exit:                                       ; preds = %if.then.i, %if.else.i
@@ -3076,7 +3076,7 @@ if.then.i:                                        ; preds = %lor.lhs.false
 
 if.else.i:                                        ; preds = %lor.lhs.false
   %idxprom.i = sext i32 %1 to i64
-  %arrayidx.i = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i
   br label %oideq.exit
 
 oideq.exit:                                       ; preds = %if.then.i, %if.else.i

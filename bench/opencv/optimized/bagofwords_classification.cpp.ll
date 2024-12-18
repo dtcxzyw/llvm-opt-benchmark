@@ -895,7 +895,7 @@ _ZNSt6vectorIcSaIcEE5clearEv.exit:                ; preds = %_ZNSt6vectorINSt7__
   %47 = load ptr, ptr %5, align 8
   %48 = getelementptr i8, ptr %47, i64 -24
   %49 = load i64, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %5, i64 %49
+  %50 = getelementptr inbounds i8, ptr %5, i64 %49
   %51 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv(ptr noundef nonnull align 8 dereferenceable(264) %50)
           to label %52 unwind label %.loopexit
 
@@ -922,7 +922,7 @@ _ZNSt6vectorIcSaIcEE5clearEv.exit:                ; preds = %_ZNSt6vectorINSt7__
   %61 = load ptr, ptr %13, align 8
   %62 = getelementptr i8, ptr %61, i64 -24
   %63 = load i64, ptr %62, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %13, i64 %63
+  %64 = getelementptr inbounds i8, ptr %13, i64 %63
   %65 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %64)
           to label %66 unwind label %.loopexit24
 
@@ -1044,7 +1044,7 @@ _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS
   %103 = load ptr, ptr %5, align 8
   %104 = getelementptr i8, ptr %103, i64 -24
   %105 = load i64, ptr %104, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %5, i64 %105
+  %106 = getelementptr inbounds i8, ptr %5, i64 %105
   %107 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv(ptr noundef nonnull align 8 dereferenceable(264) %106)
           to label %108 unwind label %.loopexit24
 
@@ -7865,7 +7865,7 @@ define hidden void @_ZN7VocData25readClassifierResultsFileERKNSt7__cxx1112basic_
   %25 = load ptr, ptr %5, align 8
   %26 = getelementptr i8, ptr %25, i64 -24
   %27 = load i64, ptr %26, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %5, i64 %27
+  %28 = getelementptr inbounds i8, ptr %5, i64 %27
   %29 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv(ptr noundef nonnull align 8 dereferenceable(264) %28)
           to label %30 unwind label %.loopexit
 
@@ -7892,7 +7892,7 @@ define hidden void @_ZN7VocData25readClassifierResultsFileERKNSt7__cxx1112basic_
   %39 = load ptr, ptr %9, align 8
   %40 = getelementptr i8, ptr %39, i64 -24
   %41 = load i64, ptr %40, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %9, i64 %41
+  %42 = getelementptr inbounds i8, ptr %9, i64 %41
   %43 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %42)
           to label %44 unwind label %.loopexit21
 
@@ -8017,7 +8017,7 @@ _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIP
   %82 = load ptr, ptr %5, align 8
   %83 = getelementptr i8, ptr %82, i64 -24
   %84 = load i64, ptr %83, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %5, i64 %84
+  %85 = getelementptr inbounds i8, ptr %5, i64 %84
   %86 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv(ptr noundef nonnull align 8 dereferenceable(264) %85)
           to label %87 unwind label %.loopexit21
 
@@ -11342,7 +11342,7 @@ _ZNSt6vectorIS_IN2cv5Rect_IiEESaIS2_EESaIS4_EE5clearEv.exit: ; preds = %_ZNSt6ve
   %51 = load ptr, ptr %6, align 8
   %52 = getelementptr i8, ptr %51, i64 -24
   %53 = load i64, ptr %52, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %6, i64 %53
+  %54 = getelementptr inbounds i8, ptr %6, i64 %53
   %55 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv(ptr noundef nonnull align 8 dereferenceable(264) %54)
           to label %56 unwind label %.loopexit
 
@@ -11385,7 +11385,7 @@ _ZNSt6vectorIS_IN2cv5Rect_IiEESaIS2_EESaIS4_EE5clearEv.exit: ; preds = %_ZNSt6ve
   %73 = load ptr, ptr %11, align 8
   %74 = getelementptr i8, ptr %73, i64 -24
   %75 = load i64, ptr %74, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %11, i64 %75
+  %76 = getelementptr inbounds i8, ptr %11, i64 %75
   %77 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %76)
           to label %78 unwind label %.loopexit72
 
@@ -11777,7 +11777,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__
   %218 = load ptr, ptr %6, align 8
   %219 = getelementptr i8, ptr %218, i64 -24
   %220 = load i64, ptr %219, align 8
-  %221 = getelementptr inbounds nuw i8, ptr %6, i64 %220
+  %221 = getelementptr inbounds i8, ptr %6, i64 %220
   %222 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv(ptr noundef nonnull align 8 dereferenceable(264) %221)
           to label %223 unwind label %.loopexit72
 

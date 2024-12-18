@@ -493,7 +493,7 @@ while.body.i:                                     ; preds = %if.then, %while.bod
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %str.addr.05.i, i64 1
   %conv.i = sext i8 %2 to i64
   %sub.i.i = add nsw i64 %conv.i, -16
-  %arrayidx.i.i = getelementptr inbounds nuw [769 x i16], ptr @stbte__fontdata, i64 0, i64 %sub.i.i
+  %arrayidx.i.i = getelementptr inbounds [769 x i16], ptr @stbte__fontdata, i64 0, i64 %sub.i.i
   %3 = load i16, ptr %arrayidx.i.i, align 2
   %conv.i.i = sext i16 %3 to i32
   %add.i = add i32 %x.04.i, 1
@@ -528,7 +528,7 @@ while.body:                                       ; preds = %entry, %while.body
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %str.addr.05, i64 1
   %conv = sext i8 %1 to i64
   %sub.i = add nsw i64 %conv, -16
-  %arrayidx.i = getelementptr inbounds nuw [769 x i16], ptr @stbte__fontdata, i64 0, i64 %sub.i
+  %arrayidx.i = getelementptr inbounds [769 x i16], ptr @stbte__fontdata, i64 0, i64 %sub.i
   %2 = load i16, ptr %arrayidx.i, align 2
   %conv.i = sext i16 %2 to i32
   %add = add i32 %x.04, 1
@@ -1333,7 +1333,7 @@ entry:
   %converter = alloca %union.anon.0, align 4
   store float %f, ptr %converter, align 4
   %idxprom = sext i32 %slot to i64
-  %arrayidx = getelementptr inbounds nuw [2 x i16], ptr %converter, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [2 x i16], ptr %converter, i64 0, i64 %idxprom
   %0 = load i16, ptr %arrayidx, align 2
   ret i16 %0
 }
@@ -2522,7 +2522,7 @@ define range(i32 -32768, 32768) i32 @stbte__get_char_width(i32 noundef %ch) loca
 entry:
   %sub = add nsw i32 %ch, -16
   %idxprom = sext i32 %sub to i64
-  %arrayidx = getelementptr inbounds nuw [769 x i16], ptr @stbte__fontdata, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [769 x i16], ptr @stbte__fontdata, i64 0, i64 %idxprom
   %0 = load i16, ptr %arrayidx, align 2
   %conv = sext i16 %0 to i32
   ret i32 %conv
@@ -2533,10 +2533,10 @@ define nonnull ptr @stbte__get_char_bitmap(i32 noundef %ch) local_unnamed_addr #
 entry:
   %sub = add nsw i32 %ch, -16
   %idxprom = sext i32 %sub to i64
-  %arrayidx = getelementptr inbounds nuw [111 x i16], ptr @stbte__font_offset, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [111 x i16], ptr @stbte__font_offset, i64 0, i64 %idxprom
   %0 = load i16, ptr %arrayidx, align 2
   %idx.ext = sext i16 %0 to i64
-  %add.ptr = getelementptr inbounds nuw i16, ptr @stbte__fontdata, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i16, ptr @stbte__fontdata, i64 %idx.ext
   ret ptr %add.ptr
 }
 
@@ -2672,7 +2672,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %str.addr.014, i64 1
   %conv = sext i8 %1 to i64
   %sub.i = add nsw i64 %conv, -16
-  %arrayidx.i = getelementptr inbounds nuw [769 x i16], ptr @stbte__fontdata, i64 0, i64 %sub.i
+  %arrayidx.i = getelementptr inbounds [769 x i16], ptr @stbte__fontdata, i64 0, i64 %sub.i
   %2 = load i16, ptr %arrayidx.i, align 2
   %conv.i = sext i16 %2 to i32
   %add1 = add nsw i32 %x.addr.015, %conv.i
@@ -2685,10 +2685,10 @@ if.end:                                           ; preds = %while.body
   br i1 %cmp3.i, label %for.body.i.preheader, label %stbte__draw_bitmap.exit
 
 for.body.i.preheader:                             ; preds = %if.end
-  %arrayidx.i11 = getelementptr inbounds nuw [111 x i16], ptr @stbte__font_offset, i64 0, i64 %sub.i
+  %arrayidx.i11 = getelementptr inbounds [111 x i16], ptr @stbte__font_offset, i64 0, i64 %sub.i
   %3 = load i16, ptr %arrayidx.i11, align 2
   %idx.ext.i = sext i16 %3 to i64
-  %add.ptr.i = getelementptr inbounds nuw i16, ptr @stbte__fontdata, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds i16, ptr @stbte__fontdata, i64 %idx.ext.i
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %stbte__draw_bitmask_as_columns.exit.i
@@ -2774,7 +2774,7 @@ while.body.i:                                     ; preds = %entry, %stbte__draw
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %str.addr.014.i, i64 1
   %conv.i = sext i8 %1 to i64
   %sub.i.i = add nsw i64 %conv.i, -16
-  %arrayidx.i.i = getelementptr inbounds nuw [769 x i16], ptr @stbte__fontdata, i64 0, i64 %sub.i.i
+  %arrayidx.i.i = getelementptr inbounds [769 x i16], ptr @stbte__fontdata, i64 0, i64 %sub.i.i
   %2 = load i16, ptr %arrayidx.i.i, align 2
   %conv.i.i = sext i16 %2 to i32
   %add1.i = add nsw i32 %x.addr.015.i, %conv.i.i
@@ -2787,10 +2787,10 @@ if.end.i:                                         ; preds = %while.body.i
   br i1 %cmp3.i.i, label %for.body.i.preheader.i, label %stbte__draw_bitmap.exit.i
 
 for.body.i.preheader.i:                           ; preds = %if.end.i
-  %arrayidx.i11.i = getelementptr inbounds nuw [111 x i16], ptr @stbte__font_offset, i64 0, i64 %sub.i.i
+  %arrayidx.i11.i = getelementptr inbounds [111 x i16], ptr @stbte__font_offset, i64 0, i64 %sub.i.i
   %3 = load i16, ptr %arrayidx.i11.i, align 2
   %idx.ext.i.i = sext i16 %3 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i16, ptr @stbte__fontdata, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i16, ptr @stbte__fontdata, i64 %idx.ext.i.i
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %stbte__draw_bitmask_as_columns.exit.i.i, %for.body.i.preheader.i
@@ -3025,7 +3025,7 @@ return:                                           ; preds = %return.sink.split, 
 define void @stbte__draw_box(i32 noundef %x0, i32 noundef %y0, i32 noundef %x1, i32 noundef %y1, i32 noundef %colormode, i32 noundef %colorindex) local_unnamed_addr #14 {
 entry:
   %idxprom = sext i32 %colormode to i64
-  %arrayidx = getelementptr inbounds nuw [13 x [3 x [7 x i32]]], ptr @stbte__color_table, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [13 x [3 x [7 x i32]]], ptr @stbte__color_table, i64 0, i64 %idxprom
   %idxprom2 = sext i32 %colorindex to i64
   %arrayidx3 = getelementptr inbounds [7 x i32], ptr %arrayidx, i64 0, i64 %idxprom2
   %0 = load i32, ptr %arrayidx3, align 4
@@ -3048,7 +3048,7 @@ entry:
 define void @stbte__draw_textbox(i32 noundef %x0, i32 noundef %y0, i32 noundef %x1, i32 noundef %y1, ptr nocapture noundef readonly %text, i32 noundef %xoff, i32 noundef %yoff, i32 noundef %colormode, i32 noundef %colorindex) local_unnamed_addr #14 {
 entry:
   %idxprom.i = sext i32 %colormode to i64
-  %arrayidx.i = getelementptr inbounds nuw [13 x [3 x [7 x i32]]], ptr @stbte__color_table, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [13 x [3 x [7 x i32]]], ptr @stbte__color_table, i64 0, i64 %idxprom.i
   %idxprom2.i = sext i32 %colorindex to i64
   %arrayidx3.i = getelementptr inbounds [7 x i32], ptr %arrayidx.i, i64 0, i64 %idxprom2.i
   %0 = load i32, ptr %arrayidx3.i, align 4
@@ -3082,7 +3082,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i.preh
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %str.addr.014.i.i, i64 1
   %conv.i.i = sext i8 %4 to i64
   %sub.i.i.i = add nsw i64 %conv.i.i, -16
-  %arrayidx.i.i.i = getelementptr inbounds nuw [769 x i16], ptr @stbte__fontdata, i64 0, i64 %sub.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [769 x i16], ptr @stbte__fontdata, i64 0, i64 %sub.i.i.i
   %5 = load i16, ptr %arrayidx.i.i.i, align 2
   %conv.i.i.i = sext i16 %5 to i32
   %add1.i.i = add nsw i32 %x.addr.015.i.i, %conv.i.i.i
@@ -3095,10 +3095,10 @@ if.end.i.i:                                       ; preds = %while.body.i.i
   br i1 %cmp3.i.i.i, label %for.body.i.preheader.i.i, label %stbte__draw_bitmap.exit.i.i
 
 for.body.i.preheader.i.i:                         ; preds = %if.end.i.i
-  %arrayidx.i11.i.i = getelementptr inbounds nuw [111 x i16], ptr @stbte__font_offset, i64 0, i64 %sub.i.i.i
+  %arrayidx.i11.i.i = getelementptr inbounds [111 x i16], ptr @stbte__font_offset, i64 0, i64 %sub.i.i.i
   %6 = load i16, ptr %arrayidx.i11.i.i, align 2
   %idx.ext.i.i.i = sext i16 %6 to i64
-  %add.ptr.i.i.i = getelementptr inbounds nuw i16, ptr @stbte__fontdata, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds i16, ptr @stbte__fontdata, i64 %idx.ext.i.i.i
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %stbte__draw_bitmask_as_columns.exit.i.i.i, %for.body.i.preheader.i.i
@@ -3321,7 +3321,7 @@ if.then:                                          ; preds = %stbte__hittest.exit
   store i8 0, ptr %arrayinit.element, align 1
   %conv = sext i8 %ch to i64
   %sub.i = add nsw i64 %conv, -16
-  %arrayidx.i = getelementptr inbounds nuw [769 x i16], ptr @stbte__fontdata, i64 0, i64 %sub.i
+  %arrayidx.i = getelementptr inbounds [769 x i16], ptr @stbte__fontdata, i64 0, i64 %sub.i
   %4 = load i16, ptr %arrayidx.i, align 2
   %conv.i = sext i16 %4 to i32
   %sub = sub nsw i32 9, %conv.i
@@ -3554,7 +3554,7 @@ if.then2:                                         ; preds = %if.end
   store i8 0, ptr %arrayinit.element, align 1
   %sub.i = add nsw i32 %ch, -16
   %idxprom.i = sext i32 %sub.i to i64
-  %arrayidx.i = getelementptr inbounds nuw [769 x i16], ptr @stbte__fontdata, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [769 x i16], ptr @stbte__fontdata, i64 0, i64 %idxprom.i
   %4 = load i16, ptr %arrayidx.i, align 2
   %conv.i = sext i16 %4 to i32
   %sub = sub nsw i32 9, %conv.i
@@ -3680,7 +3680,7 @@ if.then:                                          ; preds = %stbte__hittest.exit
   %arrayidx6 = getelementptr inbounds nuw [2 x [2 x i8]], ptr @stbte__state_to_index, i64 0, i64 %idxprom, i64 %idxprom5
   %6 = load i8, ptr %arrayidx6, align 1
   %idxprom.i = sext i32 %colormode to i64
-  %arrayidx.i = getelementptr inbounds nuw [13 x [3 x [7 x i32]]], ptr @stbte__color_table, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [13 x [3 x [7 x i32]]], ptr @stbte__color_table, i64 0, i64 %idxprom.i
   %idxprom2.i = zext i8 %6 to i64
   %arrayidx3.i = getelementptr inbounds nuw [7 x i32], ptr %arrayidx.i, i64 0, i64 %idxprom2.i
   %7 = load i32, ptr %arrayidx3.i, align 4
@@ -4602,7 +4602,7 @@ if.then:                                          ; preds = %for.body31
   %arrayidx39 = getelementptr inbounds nuw [7 x i32], ptr %min_width, i64 0, i64 %indvars.iv98
   %14 = load i32, ptr %arrayidx39, align 4
   %idxprom40 = sext i32 %13 to i64
-  %arrayidx41 = getelementptr inbounds nuw [4 x %struct.stbte__region_t], ptr @stbte__region, i64 0, i64 %idxprom40
+  %arrayidx41 = getelementptr inbounds [4 x %struct.stbte__region_t], ptr @stbte__region, i64 0, i64 %idxprom40
   %15 = load i32, ptr %arrayidx41, align 8
   %cmp43 = icmp sgt i32 %14, %15
   br i1 %cmp43, label %if.then45, label %if.end
@@ -4639,7 +4639,7 @@ if.then59:                                        ; preds = %for.end57
 if.else:                                          ; preds = %for.end57
   %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5376), align 8
   %idxprom66 = sext i32 %17 to i64
-  %arrayidx67 = getelementptr inbounds nuw [4 x %struct.stbte__region_t], ptr @stbte__region, i64 0, i64 %idxprom66
+  %arrayidx67 = getelementptr inbounds [4 x %struct.stbte__region_t], ptr @stbte__region, i64 0, i64 %idxprom66
   %18 = load i32, ptr %arrayidx67, align 8
   %sub69 = add nsw i32 %18, -4
   %div = sdiv i32 %sub69, 13
@@ -4685,7 +4685,7 @@ for.end112:                                       ; preds = %for.body91
   store i32 300, ptr %arrayidx113, align 4
   %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5440), align 8
   %idxprom116 = sext i32 %22 to i64
-  %arrayidx117 = getelementptr inbounds nuw [4 x %struct.stbte__region_t], ptr @stbte__region, i64 0, i64 %idxprom116
+  %arrayidx117 = getelementptr inbounds [4 x %struct.stbte__region_t], ptr @stbte__region, i64 0, i64 %idxprom116
   %23 = load i32, ptr %arrayidx117, align 8
   %24 = load i32, ptr %digits, align 8
   %add122 = mul i32 %24, 14
@@ -4723,7 +4723,7 @@ for.end112:                                       ; preds = %for.body91
   store i32 %sub176, ptr %arrayidx171, align 4
   %32 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5568), align 8
   %idxprom180 = sext i32 %32 to i64
-  %arrayidx181 = getelementptr inbounds nuw [4 x %struct.stbte__region_t], ptr @stbte__region, i64 0, i64 %idxprom180
+  %arrayidx181 = getelementptr inbounds [4 x %struct.stbte__region_t], ptr @stbte__region, i64 0, i64 %idxprom180
   %33 = load i32, ptr %arrayidx181, align 8
   %sub183 = add nsw i32 %33, -8
   %34 = load i32, ptr %palette_spacing_x, align 4
@@ -9500,7 +9500,7 @@ if.then:                                          ; preds = %entry
   %1 = load i8, ptr %label, align 1
   %conv = sext i8 %1 to i64
   %sub.i = add nsw i64 %conv, -16
-  %arrayidx.i = getelementptr inbounds nuw [769 x i16], ptr @stbte__fontdata, i64 0, i64 %sub.i
+  %arrayidx.i = getelementptr inbounds [769 x i16], ptr @stbte__fontdata, i64 0, i64 %sub.i
   %2 = load i16, ptr %arrayidx.i, align 2
   %conv.i = sext i16 %2 to i32
   %call1 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %text, ptr noundef nonnull dereferenceable(1) %label, i32 noundef %digits, i32 noundef %val) #25
@@ -9522,7 +9522,7 @@ while.body.i:                                     ; preds = %while.body.i.prehea
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %str.addr.014.i, i64 1
   %conv.i16 = sext i8 %5 to i64
   %sub.i.i = add nsw i64 %conv.i16, -16
-  %arrayidx.i.i = getelementptr inbounds nuw [769 x i16], ptr @stbte__fontdata, i64 0, i64 %sub.i.i
+  %arrayidx.i.i = getelementptr inbounds [769 x i16], ptr @stbte__fontdata, i64 0, i64 %sub.i.i
   %6 = load i16, ptr %arrayidx.i.i, align 2
   %conv.i.i = sext i16 %6 to i32
   %add1.i = add nsw i32 %x.addr.015.i, %conv.i.i
@@ -9535,10 +9535,10 @@ if.end.i:                                         ; preds = %while.body.i
   br i1 %cmp3.i.i, label %for.body.i.preheader.i, label %stbte__draw_bitmap.exit.i
 
 for.body.i.preheader.i:                           ; preds = %if.end.i
-  %arrayidx.i11.i = getelementptr inbounds nuw [111 x i16], ptr @stbte__font_offset, i64 0, i64 %sub.i.i
+  %arrayidx.i11.i = getelementptr inbounds [111 x i16], ptr @stbte__font_offset, i64 0, i64 %sub.i.i
   %7 = load i16, ptr %arrayidx.i11.i, align 2
   %idx.ext.i.i = sext i16 %7 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i16, ptr @stbte__fontdata, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds i16, ptr @stbte__fontdata, i64 %idx.ext.i.i
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %stbte__draw_bitmask_as_columns.exit.i.i, %for.body.i.preheader.i
@@ -9695,7 +9695,7 @@ while.body.i.i:                                   ; preds = %stbte__draw_bitmap.
   %incdec.ptr.i.i.ptr = getelementptr inbounds nuw i8, ptr @.str.13, i64 %str.addr.014.i.i.add
   %conv.i.i = sext i8 %10 to i64
   %sub.i.i.i = add nsw i64 %conv.i.i, -16
-  %arrayidx.i.i.i = getelementptr inbounds nuw [769 x i16], ptr @stbte__fontdata, i64 0, i64 %sub.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [769 x i16], ptr @stbte__fontdata, i64 0, i64 %sub.i.i.i
   %11 = load i16, ptr %arrayidx.i.i.i, align 2
   %conv.i.i.i = sext i16 %11 to i32
   %add1.i.i = add nsw i32 %x.addr.015.i.i, %conv.i.i.i
@@ -9708,10 +9708,10 @@ if.end.i.i:                                       ; preds = %while.body.i.i
   br i1 %cmp3.i.i.i, label %for.body.i.preheader.i.i, label %stbte__draw_bitmap.exit.i.i
 
 for.body.i.preheader.i.i:                         ; preds = %if.end.i.i
-  %arrayidx.i11.i.i = getelementptr inbounds nuw [111 x i16], ptr @stbte__font_offset, i64 0, i64 %sub.i.i.i
+  %arrayidx.i11.i.i = getelementptr inbounds [111 x i16], ptr @stbte__font_offset, i64 0, i64 %sub.i.i.i
   %12 = load i16, ptr %arrayidx.i11.i.i, align 2
   %idx.ext.i.i.i = sext i16 %12 to i64
-  %add.ptr.i.i.i = getelementptr inbounds nuw i16, ptr @stbte__fontdata, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds i16, ptr @stbte__fontdata, i64 %idx.ext.i.i.i
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %stbte__draw_bitmask_as_columns.exit.i.i.i, %for.body.i.preheader.i.i
@@ -9806,7 +9806,7 @@ entry:
 if.end:                                           ; preds = %entry
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5472), align 8
   %idxprom = sext i32 %1 to i64
-  %arrayidx = getelementptr inbounds nuw [4 x %struct.stbte__region_t], ptr @stbte__region, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [4 x %struct.stbte__region_t], ptr @stbte__region, i64 0, i64 %idxprom
   %2 = load i32, ptr %arrayidx, align 8
   %sub = add nsw i32 %2, -42
   %layername_width = getelementptr inbounds nuw i8, ptr %tm, i64 801028
@@ -9837,7 +9837,7 @@ while.body.i.i:                                   ; preds = %stbte__draw_bitmap.
   %incdec.ptr.i.i.ptr = getelementptr inbounds nuw i8, ptr @.str.17, i64 %str.addr.014.i.i.add
   %conv.i.i = sext i8 %6 to i64
   %sub.i.i.i = add nsw i64 %conv.i.i, -16
-  %arrayidx.i.i.i = getelementptr inbounds nuw [769 x i16], ptr @stbte__fontdata, i64 0, i64 %sub.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [769 x i16], ptr @stbte__fontdata, i64 0, i64 %sub.i.i.i
   %7 = load i16, ptr %arrayidx.i.i.i, align 2
   %conv.i.i.i = sext i16 %7 to i32
   %add1.i.i = add nsw i32 %x.addr.015.i.i, %conv.i.i.i
@@ -9850,10 +9850,10 @@ if.end.i.i:                                       ; preds = %while.body.i.i
   br i1 %cmp3.i.i.i, label %for.body.i.preheader.i.i, label %stbte__draw_bitmap.exit.i.i
 
 for.body.i.preheader.i.i:                         ; preds = %if.end.i.i
-  %arrayidx.i11.i.i = getelementptr inbounds nuw [111 x i16], ptr @stbte__font_offset, i64 0, i64 %sub.i.i.i
+  %arrayidx.i11.i.i = getelementptr inbounds [111 x i16], ptr @stbte__font_offset, i64 0, i64 %sub.i.i.i
   %8 = load i16, ptr %arrayidx.i11.i.i, align 2
   %idx.ext.i.i.i = sext i16 %8 to i64
-  %add.ptr.i.i.i = getelementptr inbounds nuw i16, ptr @stbte__fontdata, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds i16, ptr @stbte__fontdata, i64 %idx.ext.i.i.i
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %stbte__draw_bitmask_as_columns.exit.i.i.i, %for.body.i.preheader.i.i
@@ -10011,7 +10011,7 @@ if.then65:                                        ; preds = %if.end54
 
 if.end75:                                         ; preds = %if.then65, %if.end54
   %idxprom79 = sext i32 %15 to i64
-  %arrayidx80 = getelementptr inbounds nuw [3 x i8], ptr @__const.stbte__layers.lockedchar, i64 0, i64 %idxprom79
+  %arrayidx80 = getelementptr inbounds [3 x i8], ptr @__const.stbte__layers.lockedchar, i64 0, i64 %idxprom79
   %29 = load i8, ptr %arrayidx80, align 1
   %conv81 = sext i8 %29 to i32
   %add83 = or disjoint i32 %shl, 12
@@ -10076,7 +10076,7 @@ while.body.i:                                     ; preds = %while.body.i, %for.
   %incdec.ptr.i.ptr = getelementptr inbounds nuw i8, ptr @.str.19, i64 %str.addr.05.i.add
   %conv.i = sext i8 %36 to i64
   %sub.i.i = add nsw i64 %conv.i, -16
-  %arrayidx.i.i = getelementptr inbounds nuw [769 x i16], ptr @stbte__fontdata, i64 0, i64 %sub.i.i
+  %arrayidx.i.i = getelementptr inbounds [769 x i16], ptr @stbte__fontdata, i64 0, i64 %sub.i.i
   %37 = load i16, ptr %arrayidx.i.i, align 2
   %conv.i.i88 = sext i16 %37 to i32
   %add.i = add i32 %x.04.i, 1
@@ -10100,7 +10100,7 @@ while.body.i.i90:                                 ; preds = %stbte__draw_bitmap.
   %incdec.ptr.i.i93.ptr = getelementptr inbounds nuw i8, ptr @.str.19, i64 %str.addr.014.i.i92.add
   %conv.i.i94 = sext i8 %40 to i64
   %sub.i.i.i95 = add nsw i64 %conv.i.i94, -16
-  %arrayidx.i.i.i96 = getelementptr inbounds nuw [769 x i16], ptr @stbte__fontdata, i64 0, i64 %sub.i.i.i95
+  %arrayidx.i.i.i96 = getelementptr inbounds [769 x i16], ptr @stbte__fontdata, i64 0, i64 %sub.i.i.i95
   %41 = load i16, ptr %arrayidx.i.i.i96, align 2
   %conv.i.i.i97 = sext i16 %41 to i32
   %add1.i.i98 = add nsw i32 %x.addr.015.i.i91, %conv.i.i.i97
@@ -10113,10 +10113,10 @@ if.end.i.i100:                                    ; preds = %while.body.i.i90
   br i1 %cmp3.i.i.i102, label %for.body.i.preheader.i.i106, label %stbte__draw_bitmap.exit.i.i103
 
 for.body.i.preheader.i.i106:                      ; preds = %if.end.i.i100
-  %arrayidx.i11.i.i107 = getelementptr inbounds nuw [111 x i16], ptr @stbte__font_offset, i64 0, i64 %sub.i.i.i95
+  %arrayidx.i11.i.i107 = getelementptr inbounds [111 x i16], ptr @stbte__font_offset, i64 0, i64 %sub.i.i.i95
   %42 = load i16, ptr %arrayidx.i11.i.i107, align 2
   %idx.ext.i.i.i108 = sext i16 %42 to i64
-  %add.ptr.i.i.i109 = getelementptr inbounds nuw i16, ptr @stbte__fontdata, i64 %idx.ext.i.i.i108
+  %add.ptr.i.i.i109 = getelementptr inbounds i16, ptr @stbte__fontdata, i64 %idx.ext.i.i.i108
   br label %for.body.i.i.i110
 
 for.body.i.i.i110:                                ; preds = %stbte__draw_bitmask_as_columns.exit.i.i.i134, %for.body.i.preheader.i.i106
@@ -10185,7 +10185,7 @@ stbte__draw_text.exit143:                         ; preds = %while.body.i.i90, %
   %propmode = getelementptr inbounds nuw i8, ptr %tm, i64 801036
   %48 = load i32, ptr %propmode, align 4
   %idxprom130 = sext i32 %48 to i64
-  %arrayidx131 = getelementptr inbounds nuw [3 x ptr], ptr @__const.stbte__layers.propmodes, i64 0, i64 %idxprom130
+  %arrayidx131 = getelementptr inbounds [3 x ptr], ptr @__const.stbte__layers.propmodes, i64 0, i64 %idxprom130
   %49 = load ptr, ptr %arrayidx131, align 8
   %add132 = add nsw i32 %add122, %add5149
   %call133 = tail call i32 @stbte__button(i32 noundef 8, ptr noundef %49, i32 noundef %add132, i32 noundef %y.0.lcssa, i32 noundef 0, i32 noundef %spec.store.select, i32 noundef 32777, i32 noundef 0, i32 noundef 0)
@@ -11442,7 +11442,7 @@ while.body.i:                                     ; preds = %if.then424, %while.
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %str.addr.05.i, i64 1
   %conv.i = sext i8 %180 to i64
   %sub.i.i222 = add nsw i64 %conv.i, -16
-  %arrayidx.i.i223 = getelementptr inbounds nuw [769 x i16], ptr @stbte__fontdata, i64 0, i64 %sub.i.i222
+  %arrayidx.i.i223 = getelementptr inbounds [769 x i16], ptr @stbte__fontdata, i64 0, i64 %sub.i.i222
   %181 = load i16, ptr %arrayidx.i.i223, align 2
   %conv.i.i224 = sext i16 %181 to i32
   %add.i225 = add i32 %x.04.i, 1
@@ -11493,7 +11493,7 @@ while.body.i.i:                                   ; preds = %stbte__text_width.e
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %str.addr.014.i.i, i64 1
   %conv.i.i230 = sext i8 %189 to i64
   %sub.i.i.i = add nsw i64 %conv.i.i230, -16
-  %arrayidx.i.i.i = getelementptr inbounds nuw [769 x i16], ptr @stbte__fontdata, i64 0, i64 %sub.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [769 x i16], ptr @stbte__fontdata, i64 0, i64 %sub.i.i.i
   %190 = load i16, ptr %arrayidx.i.i.i, align 2
   %conv.i.i.i231 = sext i16 %190 to i32
   %add1.i.i = add nsw i32 %x.addr.015.i.i, %conv.i.i.i231
@@ -11506,10 +11506,10 @@ if.end.i.i:                                       ; preds = %while.body.i.i
   br i1 %cmp3.i.i.i233, label %for.body.i.preheader.i.i, label %stbte__draw_bitmap.exit.i.i
 
 for.body.i.preheader.i.i:                         ; preds = %if.end.i.i
-  %arrayidx.i11.i.i = getelementptr inbounds nuw [111 x i16], ptr @stbte__font_offset, i64 0, i64 %sub.i.i.i
+  %arrayidx.i11.i.i = getelementptr inbounds [111 x i16], ptr @stbte__font_offset, i64 0, i64 %sub.i.i.i
   %191 = load i16, ptr %arrayidx.i11.i.i, align 2
   %idx.ext.i.i.i = sext i16 %191 to i64
-  %add.ptr.i.i.i = getelementptr inbounds nuw i16, ptr @stbte__fontdata, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds i16, ptr @stbte__fontdata, i64 %idx.ext.i.i.i
   br label %for.body.i.i.i234
 
 for.body.i.i.i234:                                ; preds = %stbte__draw_bitmask_as_columns.exit.i.i.i, %for.body.i.preheader.i.i

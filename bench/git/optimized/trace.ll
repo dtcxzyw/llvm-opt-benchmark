@@ -455,7 +455,7 @@ if.end:                                           ; preds = %entry
   %call1 = tail call i64 @getnanotime()
   %0 = load i32, ptr @perf_indent, align 4
   %idxprom = sext i32 %0 to i64
-  %arrayidx = getelementptr inbounds nuw [10 x i64], ptr @perf_start_times, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [10 x i64], ptr @perf_start_times, i64 0, i64 %idxprom
   store i64 %call1, ptr %arrayidx, align 8
   %add = add nsw i32 %0, 1
   %cmp = icmp ult i32 %add, 10
@@ -835,7 +835,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %tobool1.not, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %arrayidx = getelementptr inbounds nuw [10 x i64], ptr @perf_start_times, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [10 x i64], ptr @perf_start_times, i64 0, i64 %idxprom
   %2 = load i64, ptr %arrayidx, align 8
   call void @llvm.va_start.p0(ptr nonnull %ap)
   %sub = sub i64 %nanos, %2
@@ -1065,7 +1065,7 @@ if.end.i:                                         ; preds = %strbuf_setlen.exit
   %call1.i = tail call i64 @getnanotime()
   %2 = load i32, ptr @perf_indent, align 4
   %idxprom.i = sext i32 %2 to i64
-  %arrayidx.i = getelementptr inbounds nuw [10 x i64], ptr @perf_start_times, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [10 x i64], ptr @perf_start_times, i64 0, i64 %idxprom.i
   store i64 %call1.i, ptr %arrayidx.i, align 8
   %add.i = add nsw i32 %2, 1
   %cmp.i = icmp ult i32 %add.i, 10

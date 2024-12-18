@@ -4405,7 +4405,7 @@ _ZNK3vcg8Matrix44IfE8ToMatrixIS1_EEvRT_.exit:
   %68 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %67
   %69 = shl i64 %indvars.iv.i.i, 2
   %70 = add nuw nsw i64 %69, %indvars.iv15.i.i
-  %71 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %70
+  %71 = getelementptr inbounds [16 x float], ptr %4, i64 0, i64 %70
   %72 = load float, ptr %68, align 4, !alias.scope !30
   %73 = load float, ptr %71, align 4, !alias.scope !30
   store float %73, ptr %68, align 4, !alias.scope !30
@@ -9313,7 +9313,7 @@ _ZN3vcg4face10IsManifoldI6CFaceOEEbRKT_i.exit:    ; preds = %_ZNK3vcg4face8FFAdj
   store i32 %116, ptr %114, align 4
   %sext54 = shl i64 %.sroa.6.0.us, 32
   %117 = ashr exact i64 %sext54, 32
-  %118 = getelementptr inbounds nuw [3 x i32], ptr %3, i64 0, i64 %117
+  %118 = getelementptr inbounds [3 x i32], ptr %3, i64 0, i64 %117
   %119 = load i32, ptr %118, align 4
   %120 = or i32 %116, %119
   store i32 %120, ptr %114, align 4
@@ -9339,7 +9339,7 @@ _ZN3vcg4face10IsManifoldI6CFaceOEEbRKT_i.exit:    ; preds = %_ZNK3vcg4face8FFAdj
   %.sroa.0.0 = phi ptr [ %151, %.split ], [ %.sroa.032.049, %98 ]
   %sext = shl i64 %.sroa.6.0, 32
   %135 = ashr exact i64 %sext, 32
-  %136 = getelementptr inbounds nuw [3 x i32], ptr %3, i64 0, i64 %135
+  %136 = getelementptr inbounds [3 x i32], ptr %3, i64 0, i64 %135
   %137 = load i32, ptr %136, align 4
   %138 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 32
   %139 = load i32, ptr %138, align 4
@@ -22252,7 +22252,7 @@ define linkonce_odr void @_ZN9__gnu_cxx12__to_xstringINSt7__cxx1112basic_stringI
   %8 = call noundef i32 %1(ptr noundef nonnull %7, i64 noundef %2, ptr noundef %3, ptr noundef nonnull %5)
   call void @llvm.va_end.p0(ptr nonnull %5)
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds nuw i8, ptr %7, i64 %9
+  %10 = getelementptr inbounds i8, ptr %7, i64 %9
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #31
   %11 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %.noexc unwind label %15

@@ -1309,7 +1309,7 @@ _ZN11QReadLockerC2EP14QReadWriteLock.exit:
   %34 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %33
   %35 = shl i64 %indvars.iv.i.i.i, 2
   %36 = add nuw nsw i64 %35, %indvars.iv15.i.i.i
-  %37 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %36
+  %37 = getelementptr inbounds [16 x float], ptr %3, i64 0, i64 %36
   %38 = load float, ptr %34, align 4, !alias.scope !12
   %39 = load float, ptr %37, align 4, !alias.scope !12
   store float %39, ptr %34, align 4, !alias.scope !12
@@ -1524,7 +1524,7 @@ _ZNK3vcg8Matrix44IfE9transposeEv.exit.i:          ; preds = %40
   %128 = getelementptr inbounds nuw [16 x float], ptr %2, i64 0, i64 %127
   %129 = shl i64 %indvars.iv.i.i.i30, 2
   %130 = add nuw nsw i64 %129, %indvars.iv15.i.i.i29
-  %131 = getelementptr inbounds nuw [16 x float], ptr %2, i64 0, i64 %130
+  %131 = getelementptr inbounds [16 x float], ptr %2, i64 0, i64 %130
   %132 = load float, ptr %128, align 4, !alias.scope !18
   %133 = load float, ptr %131, align 4, !alias.scope !18
   store float %133, ptr %128, align 4, !alias.scope !18

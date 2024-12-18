@@ -4514,7 +4514,7 @@ _ZN7xgboost4JsonaSEONS_10JsonStringE.exit77:      ; preds = %148, %144, %.noexc7
           to label %162 unwind label %.loopexit120
 
 162:                                              ; preds = %158
-  %163 = icmp ult i32 %161, 16
+  %163 = icmp slt i32 %161, 16
   br i1 %163, label %179, label %164
 
 164:                                              ; preds = %162
@@ -4580,7 +4580,7 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit86: ; preds = %.noexc85, %_ZN4dmlc
 
 .noexc88:                                         ; preds = %.noexc87
   %181 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #17
-  %182 = getelementptr inbounds nuw i8, ptr %14, i64 %181
+  %182 = getelementptr inbounds i8, ptr %14, i64 %181
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull %14, ptr noundef nonnull %182)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit91 unwind label %183
 

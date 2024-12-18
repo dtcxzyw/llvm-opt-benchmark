@@ -760,7 +760,7 @@ cleanup195.i:                                     ; preds = %if.end193.i, %invok
   %80 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i.i = getelementptr i8, ptr %79, i64 -24
   %vbase.offset.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %muzzy_decay_key.i, i64 %vbase.offset.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %muzzy_decay_key.i, i64 %vbase.offset.i.i.i
   store ptr %80, ptr %add.ptr.i.i.i, align 8, !tbaa !73
   %_M_stringbuf.i.i.i = getelementptr inbounds nuw i8, ptr %muzzy_decay_key.i, i64 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i.i, align 8, !tbaa !73
@@ -807,7 +807,7 @@ cleanup199.i:                                     ; preds = %_ZNSt7__cxx1119basi
   store ptr %86, ptr %dirty_decay_key.i, align 8, !tbaa !73
   %vbase.offset.ptr.i.i422.i = getelementptr i8, ptr %86, i64 -24
   %vbase.offset.i.i423.i = load i64, ptr %vbase.offset.ptr.i.i422.i, align 8
-  %add.ptr.i.i424.i = getelementptr inbounds nuw i8, ptr %dirty_decay_key.i, i64 %vbase.offset.i.i423.i
+  %add.ptr.i.i424.i = getelementptr inbounds i8, ptr %dirty_decay_key.i, i64 %vbase.offset.i.i423.i
   store ptr %85, ptr %add.ptr.i.i424.i, align 8, !tbaa !73
   %_M_stringbuf.i.i425.i = getelementptr inbounds nuw i8, ptr %dirty_decay_key.i, i64 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i425.i, align 8, !tbaa !73
@@ -867,7 +867,7 @@ cleanup207.i:                                     ; preds = %cleanup205.i, %if.t
   %92 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i434.i = getelementptr i8, ptr %91, i64 -24
   %vbase.offset.i.i435.i = load i64, ptr %vbase.offset.ptr.i.i434.i, align 8
-  %add.ptr.i.i436.i = getelementptr inbounds nuw i8, ptr %hooks_key.i, i64 %vbase.offset.i.i435.i
+  %add.ptr.i.i436.i = getelementptr inbounds i8, ptr %hooks_key.i, i64 %vbase.offset.i.i435.i
   store ptr %92, ptr %add.ptr.i.i436.i, align 8, !tbaa !73
   %_M_stringbuf.i.i437.i = getelementptr inbounds nuw i8, ptr %hooks_key.i, i64 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i437.i, align 8, !tbaa !73
@@ -929,7 +929,7 @@ cleanup215.i:                                     ; preds = %cleanup213.i, %if.t
   %98 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i446.i = getelementptr i8, ptr %97, i64 -24
   %vbase.offset.i.i447.i = load i64, ptr %vbase.offset.ptr.i.i446.i, align 8
-  %add.ptr.i.i448.i = getelementptr inbounds nuw i8, ptr %rtl_key.i, i64 %vbase.offset.i.i447.i
+  %add.ptr.i.i448.i = getelementptr inbounds i8, ptr %rtl_key.i, i64 %vbase.offset.i.i447.i
   store ptr %98, ptr %add.ptr.i.i448.i, align 8, !tbaa !73
   %_M_stringbuf.i.i449.i = getelementptr inbounds nuw i8, ptr %rtl_key.i, i64 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i449.i, align 8, !tbaa !73

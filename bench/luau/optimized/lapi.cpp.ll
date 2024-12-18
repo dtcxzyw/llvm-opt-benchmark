@@ -1289,7 +1289,7 @@ define dso_local noundef ptr @_Z12lua_typenameP9lua_Statei(ptr nocapture noundef
 
 4:                                                ; preds = %2
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds nuw [0 x ptr], ptr @luaT_typenames, i64 0, i64 %5
+  %6 = getelementptr inbounds [0 x ptr], ptr @luaT_typenames, i64 0, i64 %5
   %7 = load ptr, ptr %6, align 8
   br label %8
 

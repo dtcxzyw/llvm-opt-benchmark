@@ -3841,7 +3841,7 @@ _ZN3gmx11ISerializer11doRealArrayEPfi.exit315.i.i: ; preds = %.lr.ph.i311.i.i
 845:                                              ; preds = %.loopexit.i
   call void @_ZNSt10filesystem7__cxx114pathC2IA122_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %28, ptr noundef nonnull align 1 dereferenceable(122) @.str.12, i8 noundef zeroext 2)
   %846 = sext i32 %247 to i64
-  %847 = getelementptr inbounds nuw [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %846
+  %847 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %846
   %848 = load ptr, ptr %847, align 16
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %28, i32 noundef 2157, ptr noundef nonnull @.str.34, i32 noundef %247, ptr noundef %848, ptr noundef nonnull @.str.12, i32 noundef 2162) #27
           to label %849 unwind label %850

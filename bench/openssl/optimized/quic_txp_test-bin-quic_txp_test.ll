@@ -229,7 +229,7 @@ declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) 
 define internal range(i32 0, 2) i32 @test_script(i32 noundef %idx) #0 {
 entry:
   %idxprom = sext i32 %idx to i64
-  %arrayidx = getelementptr inbounds nuw [18 x ptr], ptr @scripts, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [18 x ptr], ptr @scripts, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
   %call = tail call fastcc i32 @run_script(i32 noundef %idx, ptr noundef %0)
   ret i32 %call
@@ -2024,7 +2024,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %2 = load ptr, ptr %data, align 8
   %3 = load i64, ptr %len, align 8
   %4 = load i64, ptr @stream_10a_off, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr @stream_10a, i64 %4
+  %add.ptr = getelementptr inbounds i8, ptr @stream_10a, i64 %4
   %call10 = tail call i32 @test_mem_eq(ptr noundef nonnull @.str.2, i32 noundef 921, ptr noundef nonnull @.str.124, ptr noundef nonnull @.str.133, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %add.ptr, i64 noundef %3) #8
   %tobool11.not = icmp ne i32 %call10, 0
   %. = zext i1 %tobool11.not to i32
@@ -2055,7 +2055,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %2 = load ptr, ptr %data, align 8
   %3 = load i64, ptr %len, align 8
   %4 = load i64, ptr @stream_10b_off, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr @stream_10b, i64 %4
+  %add.ptr = getelementptr inbounds i8, ptr @stream_10b, i64 %4
   %call10 = tail call i32 @test_mem_eq(ptr noundef nonnull @.str.2, i32 noundef 934, ptr noundef nonnull @.str.124, ptr noundef nonnull @.str.134, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %add.ptr, i64 noundef %3) #8
   %tobool11.not = icmp ne i32 %call10, 0
   %. = zext i1 %tobool11.not to i32

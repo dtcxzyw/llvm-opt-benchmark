@@ -220,7 +220,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonly %
   %76 = load ptr, ptr %14, align 8
   %77 = getelementptr i8, ptr %76, i64 -24
   %78 = load i64, ptr %77, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %14, i64 %78
+  %79 = getelementptr inbounds i8, ptr %14, i64 %78
   %80 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %79)
           to label %83 unwind label %81
 
@@ -245,7 +245,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonly %
   %86 = load ptr, ptr %13, align 8
   %87 = getelementptr i8, ptr %86, i64 -24
   %88 = load i64, ptr %87, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %13, i64 %88
+  %89 = getelementptr inbounds i8, ptr %13, i64 %88
   %90 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %89)
           to label %93 unwind label %91
 

@@ -2579,7 +2579,7 @@ if.then.i:                                        ; preds = %if.end
 if.end3.i:                                        ; preds = %if.end, %resolve_scheduler.exit.thread
   %retval.0.i5 = phi i32 [ %retval.0.i.ph, %resolve_scheduler.exit.thread ], [ %0, %if.end ]
   %idxprom.i = sext i32 %retval.0.i5 to i64
-  %arrayidx.i = getelementptr inbounds nuw [5 x %struct.anon.0], ptr @scheduler_fn, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [5 x %struct.anon.0], ptr @scheduler_fn, i64 0, i64 %idxprom.i
   %is_available.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %4 = load ptr, ptr %is_available.i, align 8
   %call.i = call i32 %4() #20
@@ -4165,7 +4165,7 @@ for.end:                                          ; preds = %for.inc, %for.inc.u
 if.then20:                                        ; preds = %for.end
   %11 = load i32, ptr %opts, align 4
   %idxprom22 = sext i32 %11 to i64
-  %update_schedule24 = getelementptr inbounds nuw [5 x %struct.anon.0], ptr @scheduler_fn, i64 0, i64 %idxprom22, i32 2
+  %update_schedule24 = getelementptr inbounds [5 x %struct.anon.0], ptr @scheduler_fn, i64 0, i64 %idxprom22, i32 2
   %12 = load ptr, ptr %update_schedule24, align 8
   %lk.val = load ptr, ptr %lk, align 8
   %call.i11 = call i32 @get_tempfile_fd(ptr noundef %lk.val) #20
@@ -4952,7 +4952,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %child, ptr noundef nonnull align 8 dereferenceable(120) @__const.schtasks_remove_task.child, i64 120, i1 false)
   %switch.tableidx = add nsw i32 %schedule, -1
   %0 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.schtasks_schedule_task, i64 0, i64 %0
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.schtasks_schedule_task, i64 0, i64 %0
   %switch.load = load ptr, ptr %switch.gep, align 8
   %tobool = icmp ne i32 %enable, 0
   br i1 %tobool, label %if.else, label %if.then
@@ -4965,7 +4965,7 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %switch.tableidx12 = add nsw i32 %schedule, -1
   %1 = sext i32 %switch.tableidx12 to i64
-  %switch.gep13 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.schtasks_schedule_task, i64 0, i64 %1
+  %switch.gep13 = getelementptr inbounds [3 x ptr], ptr @switch.table.schtasks_schedule_task, i64 0, i64 %1
   %switch.load14 = load ptr, ptr %switch.gep13, align 8
   %call1.i = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.199, ptr noundef nonnull %switch.load14, ptr noundef nonnull @.str.209) #20
   %call.i.i = tail call ptr @xdg_config_home_for(ptr noundef nonnull @.str.205, ptr noundef %call1.i) #20
@@ -4995,7 +4995,7 @@ if.end.i:                                         ; preds = %if.else
 if.end10.i:                                       ; preds = %if.end.i
   %switch.tableidx15 = add nsw i32 %schedule, -1
   %3 = sext i32 %switch.tableidx15 to i64
-  %switch.gep16 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.systemd_timer_enable_unit.8, i64 0, i64 %3
+  %switch.gep16 = getelementptr inbounds [3 x ptr], ptr @switch.table.systemd_timer_enable_unit.8, i64 0, i64 %3
   %switch.load17 = load ptr, ptr %switch.gep16, align 8
   %call15.i = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull %switch.load17, i32 noundef range(i32 0, 60) %minute) #20
   %call16.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call7.i, ptr noundef nonnull @.str.217, ptr noundef %call15.i)
@@ -5149,7 +5149,7 @@ define internal fastcc range(i32 -1, 1) i32 @systemd_timer_delete_timer_file(i32
 entry:
   %switch.tableidx = add nsw i32 %priority, -1
   %0 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.schtasks_schedule_task, i64 0, i64 %0
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.schtasks_schedule_task, i64 0, i64 %0
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call1 = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.199, ptr noundef nonnull %switch.load, ptr noundef nonnull @.str.209) #20
   %call.i = tail call ptr @xdg_config_home_for(ptr noundef nonnull @.str.205, ptr noundef %call1) #20
@@ -5199,7 +5199,7 @@ entry:
   %cmd = alloca ptr, align 8
   %switch.tableidx = add nsw i32 %schedule, -1
   %0 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.schtasks_schedule_task, i64 0, i64 %0
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.schtasks_schedule_task, i64 0, i64 %0
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %label.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %label.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.get_maintpath.sb, i64 24, i1 false)
@@ -5445,7 +5445,7 @@ entry:
   %label.i = alloca %struct.strbuf, align 8
   %switch.tableidx = add nsw i32 %schedule, -1
   %0 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.schtasks_schedule_task, i64 0, i64 %0
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.schtasks_schedule_task, i64 0, i64 %0
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %label.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %label.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.get_maintpath.sb, i64 24, i1 false)
@@ -5489,7 +5489,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %child, ptr noundef nonnull align 8 dereferenceable(120) @__const.schtasks_remove_task.child, i64 120, i1 false)
   %switch.tableidx = add nsw i32 %schedule, -1
   %0 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.schtasks_schedule_task, i64 0, i64 %0
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.schtasks_schedule_task, i64 0, i64 %0
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %label.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %label.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.get_maintpath.sb, i64 24, i1 false)
@@ -5531,7 +5531,7 @@ if.end:                                           ; preds = %get_random_minute.e
   %3 = call i64 @fwrite(ptr nonnull @.str.237, i64 135, i64 1, ptr %2)
   %switch.tableidx13 = add nsw i32 %schedule, -1
   %4 = sext i32 %switch.tableidx13 to i64
-  %switch.gep14 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.schtasks_schedule_task.9, i64 0, i64 %4
+  %switch.gep14 = getelementptr inbounds [3 x ptr], ptr @switch.table.schtasks_schedule_task.9, i64 0, i64 %4
   %switch.load15 = load ptr, ptr %switch.gep14, align 8
   %5 = load volatile ptr, ptr %fp, align 8
   %call16 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull %switch.load15, i32 noundef %retval.0.i10)

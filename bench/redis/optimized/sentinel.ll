@@ -1124,7 +1124,7 @@ if.end27:                                         ; preds = %if.else25, %if.end
 if.then32:                                        ; preds = %if.end27
   call void @llvm.va_start.p0(ptr nonnull %ap)
   %call36 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %msg) #33
-  %add.ptr37 = getelementptr inbounds nuw i8, ptr %msg, i64 %call36
+  %add.ptr37 = getelementptr inbounds i8, ptr %msg, i64 %call36
   %sub = sub i64 1024, %call36
   %call41 = call i32 @vsnprintf(ptr noundef nonnull %add.ptr37, i64 noundef %sub, ptr noundef nonnull %fmt.addr.0, ptr noundef nonnull %ap) #29
   call void @llvm.va_end.p0(ptr nonnull %ap)

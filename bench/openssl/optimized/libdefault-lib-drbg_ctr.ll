@@ -770,7 +770,7 @@ if.end15:                                         ; preds = %if.end
   %K = getelementptr inbounds nuw i8, ptr %0, i64 52
   %6 = load i64, ptr %keylen, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %K, ptr nonnull align 16 %out, i64 %6, i1 false)
-  %add.ptr23 = getelementptr inbounds nuw i8, ptr %out, i64 %6
+  %add.ptr23 = getelementptr inbounds i8, ptr %out, i64 %6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %V, ptr noundef nonnull align 1 dereferenceable(16) %add.ptr23, i64 16, i1 false)
   %use_df = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i32, ptr %use_df, align 8

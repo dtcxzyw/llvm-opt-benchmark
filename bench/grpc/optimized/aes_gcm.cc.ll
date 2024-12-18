@@ -1535,7 +1535,7 @@ if.end110:                                        ; preds = %for.end105
 
 if.then113:                                       ; preds = %if.end110
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %tag, ptr align 1 %ciphertext.1, i64 %ciphertext_length.1, i1 false)
-  %add.ptr114 = getelementptr inbounds nuw i8, ptr %tag, i64 %ciphertext_length.1
+  %add.ptr114 = getelementptr inbounds i8, ptr %tag, i64 %ciphertext_length.1
   br label %if.end116
 
 if.end116:                                        ; preds = %for.end105.thread, %if.then113, %if.end110

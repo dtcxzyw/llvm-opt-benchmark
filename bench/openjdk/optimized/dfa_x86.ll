@@ -139385,7 +139385,7 @@ define hidden noundef zeroext i1 @_ZN5State3DFAEiPK4Node(ptr noundef nonnull ali
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %629, ptr noundef nonnull @.str) #8
   %630 = load ptr, ptr @tty, align 8
   %631 = sext i32 %1 to i64
-  %632 = getelementptr inbounds nuw [0 x ptr], ptr @NodeClassNames, i64 0, i64 %631
+  %632 = getelementptr inbounds [0 x ptr], ptr @NodeClassNames, i64 0, i64 %631
   %633 = load ptr, ptr %632, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %630, ptr noundef nonnull @.str.4, i32 noundef %1, ptr noundef %633) #8
   br label %_ZN5State15_sub_Op_CacheWBEPK4Node.exit

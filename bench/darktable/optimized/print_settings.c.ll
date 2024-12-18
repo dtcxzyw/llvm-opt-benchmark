@@ -7138,7 +7138,7 @@ define internal noundef range(i32 0, 2) i32 @_print_job_run(ptr noundef %0) #1 {
   %210 = load i32, ptr %209, align 8, !tbaa !227
   %211 = call ptr @dt_pdf_add_image(ptr noundef %187, ptr noundef %206, i32 noundef %208, i32 noundef %210, i32 noundef 8, i32 noundef 0, float noundef 0.000000e+00) #21
   %212 = sext i32 %199 to i64
-  %213 = getelementptr inbounds nuw [20 x ptr], ptr %2, i64 0, i64 %212
+  %213 = getelementptr inbounds [20 x ptr], ptr %2, i64 0, i64 %212
   store ptr %211, ptr %213, align 8, !tbaa !39
   %214 = getelementptr inbounds nuw i8, ptr %200, i64 72
   %215 = sitofp i32 %204 to float

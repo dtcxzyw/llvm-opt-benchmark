@@ -1669,7 +1669,7 @@ define linkonce_odr dso_local void @_ZN8mmio_memC2EmPKc(ptr noundef nonnull alig
   %22 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !68
   %23 = getelementptr i8, ptr %22, i64 -24
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds nuw i8, ptr @_ZSt4cerr, i64 %24
+  %25 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %24
   %26 = invoke noundef signext i8 @_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc(ptr noundef nonnull align 8 dereferenceable(264) %25, i8 noundef signext 10) #28
           to label %27 unwind label %35
 
@@ -4769,7 +4769,7 @@ define linkonce_odr dso_local void @_ZN8mmio_mem11load_binaryEmPKc(ptr noundef n
   %19 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !68
   %20 = getelementptr i8, ptr %19, i64 -24
   %21 = load i64, ptr %20, align 8
-  %22 = getelementptr inbounds nuw i8, ptr @_ZSt4cerr, i64 %21
+  %22 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %21
   %23 = invoke noundef signext i8 @_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc(ptr noundef nonnull align 8 dereferenceable(264) %22, i8 noundef signext 10) #28
           to label %24 unwind label %32
 
@@ -5465,7 +5465,7 @@ define linkonce_odr dso_local void @_ZN8mmio_mem11save_binaryEPKc(ptr noundef no
   %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTSt14basic_ofstreamIcSt11char_traitsIcEE, i64 24), align 8
   %12 = getelementptr i8, ptr %10, i64 -24
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %3, i64 %13
+  %14 = getelementptr inbounds i8, ptr %3, i64 %13
   store ptr %11, ptr %14, align 8, !tbaa !68
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @_ZNSt13basic_filebufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(240) %15) #27

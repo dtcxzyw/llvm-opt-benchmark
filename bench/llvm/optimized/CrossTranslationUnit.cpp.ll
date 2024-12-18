@@ -449,7 +449,7 @@ define dso_local void @_ZN5clang8cross_tu17parseCrossTUIndexB5cxx11EN4llvm9Strin
   %30 = load ptr, ptr %13, align 8
   %31 = getelementptr i8, ptr %30, i64 -24
   %32 = load i64, ptr %31, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %13, i64 %32
+  %33 = getelementptr inbounds i8, ptr %13, i64 %32
   %34 = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %33) #18
   br i1 %34, label %35, label %47
 

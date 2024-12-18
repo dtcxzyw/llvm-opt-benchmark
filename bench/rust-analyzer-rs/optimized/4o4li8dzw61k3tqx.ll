@@ -21261,7 +21261,7 @@ default.unreachable1:                             ; preds = %2
 define { i32, i32 } @"_ZN3hir7from_id96_$LT$impl$u20$core..convert..From$LT$hir..DefWithBody$GT$$u20$for$u20$hir_def..DefWithBodyId$GT$4from17h34f5dcb8c3d8bf8eE"(i32 noundef %0, i32 noundef %1) unnamed_addr #12 {
 switch.lookup:
   %2 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @"switch.table._ZN3hir7from_id96_$LT$impl$u20$core..convert..From$LT$hir..DefWithBody$GT$$u20$for$u20$hir_def..DefWithBodyId$GT$4from17h34f5dcb8c3d8bf8eE", i64 0, i64 %2
+  %switch.gep = getelementptr inbounds [5 x i32], ptr @"switch.table._ZN3hir7from_id96_$LT$impl$u20$core..convert..From$LT$hir..DefWithBody$GT$$u20$for$u20$hir_def..DefWithBodyId$GT$4from17h34f5dcb8c3d8bf8eE", i64 0, i64 %2
   %switch.load = load i32, ptr %switch.gep, align 4
   %3 = insertvalue { i32, i32 } poison, i32 %switch.load, 0
   %4 = insertvalue { i32, i32 } %3, i32 %1, 1
@@ -21349,7 +21349,7 @@ define i64 @"_ZN3hir7from_id87_$LT$impl$u20$core..convert..From$LT$hir..Adt$GT$$
 define { i32, i32 } @"_ZN3hir7from_id91_$LT$impl$u20$core..convert..From$LT$hir..VariantDef$GT$$u20$for$u20$hir_def..VariantId$GT$4from17hce35f7b41f1105bdE"(i32 noundef %0, i32 noundef %1) unnamed_addr #12 {
 switch.lookup:
   %2 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @"switch.table._ZN3hir7from_id84_$LT$impl$u20$core..convert..From$LT$hir..Field$GT$$u20$for$u20$hir_def..FieldId$GT$4from17hb783860643586ac2E", i64 0, i64 %2
+  %switch.gep = getelementptr inbounds [3 x i32], ptr @"switch.table._ZN3hir7from_id84_$LT$impl$u20$core..convert..From$LT$hir..Field$GT$$u20$for$u20$hir_def..FieldId$GT$4from17hb783860643586ac2E", i64 0, i64 %2
   %switch.load = load i32, ptr %switch.gep, align 4
   %3 = insertvalue { i32, i32 } poison, i32 %switch.load, 0
   %4 = insertvalue { i32, i32 } %3, i32 %1, 1

@@ -949,7 +949,7 @@ define dso_local noundef nonnull ptr @_ZN5clang10TargetInfo11getTypeNameENS_23Tr
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -1
   %1 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @switch.table._ZN5clang10TargetInfo11getTypeNameENS_23TransferrableTargetInfo7IntTypeE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [10 x ptr], ptr @switch.table._ZN5clang10TargetInfo11getTypeNameENS_23TransferrableTargetInfo7IntTypeE, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -1009,7 +1009,7 @@ define dso_local noundef nonnull ptr @_ZN5clang10TargetInfo21getTypeFormatModifi
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -1
   %1 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @switch.table._ZN5clang10TargetInfo21getTypeFormatModifierENS_23TransferrableTargetInfo7IntTypeE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [10 x ptr], ptr @switch.table._ZN5clang10TargetInfo21getTypeFormatModifierENS_23TransferrableTargetInfo7IntTypeE, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }

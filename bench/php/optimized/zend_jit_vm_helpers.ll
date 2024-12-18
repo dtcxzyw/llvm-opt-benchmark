@@ -2021,7 +2021,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.si
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %414, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.010.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %419, %.lr.ph.i ]
-  %415 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i
+  %415 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv.i
   %416 = load ptr, ptr %415, align 8
   %417 = icmp eq ptr %416, %412
   %418 = zext i1 %417 to i32
@@ -2052,7 +2052,7 @@ zend_jit_trace_recursive_call_count.exit:         ; preds = %.lr.ph.i, %411
   %.3628 = phi i32 [ %.0625, %425 ], [ %407, %421 ]
   %429 = add nsw i32 %.0658, %.0662
   %430 = sext i32 %429 to i64
-  %431 = getelementptr inbounds nuw [14 x ptr], ptr %7, i64 0, i64 %430
+  %431 = getelementptr inbounds [14 x ptr], ptr %7, i64 0, i64 %430
   store ptr %412, ptr %431, align 8
   %432 = add nsw i32 %.0662, 1
   br label %547
@@ -2177,7 +2177,7 @@ zend_jit_trace_recursive_ret_count.exit:          ; preds = %.lr.ph.i822, %474
   %.3624 = phi i32 [ %.0621, %487 ], [ %470, %483 ]
   %.3620 = phi i32 [ %.0617, %487 ], [ %.0658, %483 ]
   %491 = sext i32 %.0658 to i64
-  %492 = getelementptr inbounds nuw [14 x ptr], ptr %7, i64 0, i64 %491
+  %492 = getelementptr inbounds [14 x ptr], ptr %7, i64 0, i64 %491
   store ptr %475, ptr %492, align 8
   %493 = add nsw i32 %.0658, 1
   %.not760 = icmp eq ptr %435, null

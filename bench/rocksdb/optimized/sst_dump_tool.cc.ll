@@ -3646,7 +3646,7 @@ invoke.cont7:                                     ; preds = %invoke.cont5
   %vtable = load ptr, ptr %iss, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr9 = getelementptr inbounds nuw i8, ptr %iss, i64 %vbase.offset
+  %add.ptr9 = getelementptr inbounds i8, ptr %iss, i64 %vbase.offset
   %call11 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr9)
           to label %invoke.cont10 unwind label %lpad6
 

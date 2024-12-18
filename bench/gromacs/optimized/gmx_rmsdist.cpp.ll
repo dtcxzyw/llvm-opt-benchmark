@@ -1396,7 +1396,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i.i:      ; preds = %558, %555
 564:                                              ; preds = %.noexc191
   %565 = load i32, ptr %10, align 4
   %566 = sext i32 %565 to i64
-  %567 = getelementptr inbounds nuw i8, ptr %7, i64 %566
+  %567 = getelementptr inbounds i8, ptr %7, i64 %566
   %568 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.95, ptr noundef nonnull @.str.46, i32 noundef 198, i64 noundef 1, i64 noundef 32)
           to label %.noexc192 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 

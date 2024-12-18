@@ -1478,7 +1478,7 @@ if.then43.i.i:                                    ; preds = %do.body31.i.i
 for.cond28.outer.split.i.i:                       ; preds = %for.cond28.preheader.i.i, %if.then43.i.i
   %sub33123.i.i = phi i64 [ %sub33.i.i, %if.then43.i.i ], [ %.us-phi70.i.i, %for.cond28.preheader.i.i ]
   %nwritten.0.ph121.i.i = phi i64 [ %add.i.i252, %if.then43.i.i ], [ 0, %for.cond28.preheader.i.i ]
-  %add.ptr122.i.i = getelementptr inbounds nuw i8, ptr %buf.i.i, i64 %nwritten.0.ph121.i.i
+  %add.ptr122.i.i = getelementptr inbounds i8, ptr %buf.i.i, i64 %nwritten.0.ph121.i.i
   br label %do.body31.i.i
 
 if.end51.i.i:                                     ; preds = %land.rhs37.i.i

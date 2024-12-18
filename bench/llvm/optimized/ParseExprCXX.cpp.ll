@@ -3967,7 +3967,7 @@ _ZNK5clang6Parser20isTokenStringLiteralEv.exit:   ; preds = %279, %273
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(172) %497, i8 0, i64 172, i1 false)
   %499 = call noundef i32 @_ZN5clang6Parser39getDeclSpecContextFromDeclaratorContextENS_17DeclaratorContextE(ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 noundef 19) #17
   %500 = sext i32 %499 to i64
-  %switch.gep = getelementptr inbounds nuw [14 x i32], ptr @switch.table._ZN5clang6Parser21ParseCXXNewExpressionEbNS_14SourceLocationE.31, i64 0, i64 %500
+  %switch.gep = getelementptr inbounds [14 x i32], ptr @switch.table._ZN5clang6Parser21ParseCXXNewExpressionEbNS_14SourceLocationE.31, i64 0, i64 %500
   %switch.load = load i32, ptr %switch.gep, align 4
   call void @_ZN5clang6Parser27ParseSpecifierQualifierListERNS_8DeclSpecENS_23ImplicitTypenameContextENS_15AccessSpecifierENS0_15DeclSpecContextE(ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr noundef nonnull align 8 dereferenceable(360) %21, i32 noundef %switch.load, i32 noundef 3, i32 noundef %499) #17
   %501 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -5868,7 +5868,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang24BalancedDelimiterTrack
 switch.lookup:                                    ; preds = %1
   %switch.tableidx = add nsw i16 %5, -20
   %9 = sext i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN5clang6Parser23ParseRequiresExpressionEv, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table._ZN5clang6Parser23ParseRequiresExpressionEv, i64 0, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 %switch.load
   %11 = load i16, ptr %10, align 2
@@ -13497,7 +13497,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6Parser24ParseCXXTypeSpecifierSeqE
 switch.lookup:
   %3 = tail call noundef i32 @_ZN5clang6Parser39getDeclSpecContextFromDeclaratorContextENS_17DeclaratorContextE(ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 noundef %2) #17
   %4 = sext i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [14 x i32], ptr @switch.table._ZN5clang6Parser21ParseCXXNewExpressionEbNS_14SourceLocationE.31, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds [14 x i32], ptr @switch.table._ZN5clang6Parser21ParseCXXNewExpressionEbNS_14SourceLocationE.31, i64 0, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   tail call void @_ZN5clang6Parser27ParseSpecifierQualifierListERNS_8DeclSpecENS_23ImplicitTypenameContextENS_15AccessSpecifierENS0_15DeclSpecContextE(ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr noundef nonnull align 8 dereferenceable(360) %1, i32 noundef %switch.load, i32 noundef 3, i32 noundef %3) #17
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -14172,7 +14172,7 @@ switch.lookup:                                    ; preds = %110
   call void @_ZN5clang6Parser23MaybeParseGNUAttributesERNS_10DeclaratorEPNS0_18LateParsedAttrListE(ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr noundef nonnull align 8 dereferenceable(4456) %11, ptr noundef null)
   %140 = call noundef i32 @_ZN5clang6Parser39getDeclSpecContextFromDeclaratorContextENS_17DeclaratorContextE(ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 noundef 5) #17
   %141 = sext i32 %140 to i64
-  %switch.gep = getelementptr inbounds nuw [14 x i32], ptr @switch.table._ZN5clang6Parser21ParseCXXNewExpressionEbNS_14SourceLocationE.31, i64 0, i64 %141
+  %switch.gep = getelementptr inbounds [14 x i32], ptr @switch.table._ZN5clang6Parser21ParseCXXNewExpressionEbNS_14SourceLocationE.31, i64 0, i64 %141
   %switch.load = load i32, ptr %switch.gep, align 4
   call void @_ZN5clang6Parser27ParseSpecifierQualifierListERNS_8DeclSpecENS_23ImplicitTypenameContextENS_15AccessSpecifierENS0_15DeclSpecContextE(ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr noundef nonnull align 8 dereferenceable(360) %10, i32 noundef %switch.load, i32 noundef 3, i32 noundef %140) #17
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -14209,7 +14209,7 @@ switch.lookup90:                                  ; preds = %_ZN5clang20ParsedAt
   call void @_ZN5clang6Parser23MaybeParseGNUAttributesERNS_10DeclaratorEPNS0_18LateParsedAttrListE(ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr noundef nonnull align 8 dereferenceable(4456) %11, ptr noundef null)
   %155 = call noundef i32 @_ZN5clang6Parser39getDeclSpecContextFromDeclaratorContextENS_17DeclaratorContextE(ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 noundef 13) #17
   %156 = sext i32 %155 to i64
-  %switch.gep91 = getelementptr inbounds nuw [14 x i32], ptr @switch.table._ZN5clang6Parser21ParseCXXNewExpressionEbNS_14SourceLocationE.31, i64 0, i64 %156
+  %switch.gep91 = getelementptr inbounds [14 x i32], ptr @switch.table._ZN5clang6Parser21ParseCXXNewExpressionEbNS_14SourceLocationE.31, i64 0, i64 %156
   %switch.load92 = load i32, ptr %switch.gep91, align 4
   call void @_ZN5clang6Parser27ParseSpecifierQualifierListERNS_8DeclSpecENS_23ImplicitTypenameContextENS_15AccessSpecifierENS0_15DeclSpecContextE(ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr noundef nonnull align 8 dereferenceable(360) %10, i32 noundef %switch.load92, i32 noundef 3, i32 noundef %155) #17
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -15639,7 +15639,7 @@ define dso_local i64 @_ZN5clang6Parser23ParseRequiresExpressionEv(ptr noundef no
 switch.lookup:                                    ; preds = %70
   %switch.tableidx = add nsw i16 %72, -20
   %76 = sext i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN5clang6Parser23ParseRequiresExpressionEv, i64 0, i64 %76
+  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table._ZN5clang6Parser23ParseRequiresExpressionEv, i64 0, i64 %76
   %switch.load = load i64, ptr %switch.gep, align 8
   %77 = getelementptr inbounds nuw i8, ptr %71, i64 %switch.load
   %78 = load i16, ptr %77, align 2
@@ -17494,7 +17494,7 @@ switch.lookup:                                    ; preds = %66
   %68 = load ptr, ptr %33, align 8
   %switch.tableidx = add nsw i16 %6, -198
   %69 = sext i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [164 x i32], ptr @switch.table._ZN5clang6Parser14ParseTypeTraitEv, i64 0, i64 %69
+  %switch.gep = getelementptr inbounds [164 x i32], ptr @switch.table._ZN5clang6Parser14ParseTypeTraitEv, i64 0, i64 %69
   %switch.load = load i32, ptr %switch.gep, align 4
   %70 = load ptr, ptr %3, align 8
   %71 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #17

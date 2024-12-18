@@ -7932,7 +7932,7 @@ define hidden void @"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 248
   %24 = load i64, ptr %23, align 8, !alias.scope !1346, !noalias !1351, !noundef !9
   %25 = sub nuw i64 %24, %22
-  %26 = getelementptr inbounds nuw { [10 x i64] }, ptr %4, i64 %22
+  %26 = getelementptr inbounds { [10 x i64] }, ptr %4, i64 %22
   invoke void @"_ZN4core3ptr94drop_in_place$LT$$u5b$$LP$alloc..string..String$C$client..telemetry..ProjectCache$RP$$u5d$$GT$17h33d81a3e6075435cE.llvm.3246130142079152848"(ptr noalias noundef nonnull align 8 %26, i64 noundef %25)
           to label %.body.thread unwind label %27
 
@@ -7947,7 +7947,7 @@ define hidden void @"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 248
   %31 = load i64, ptr %30, align 8, !alias.scope !1352, !noalias !1351, !noundef !9
   %32 = sub nuw i64 %31, %29
-  %33 = getelementptr inbounds nuw { [10 x i64] }, ptr %4, i64 %29
+  %33 = getelementptr inbounds { [10 x i64] }, ptr %4, i64 %29
   call void @"_ZN4core3ptr94drop_in_place$LT$$u5b$$LP$alloc..string..String$C$client..telemetry..ProjectCache$RP$$u5d$$GT$17h33d81a3e6075435cE.llvm.3246130142079152848"(ptr noalias noundef nonnull align 8 %33, i64 noundef %32)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !1342
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4)

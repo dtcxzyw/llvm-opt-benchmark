@@ -1876,7 +1876,7 @@ entry:
   %shl = shl nuw i64 1, %sh_prom
   %div = sdiv i32 %sock, 64
   %idxprom3 = sext i32 %div to i64
-  %arrayidx4 = getelementptr inbounds nuw [16 x i64], ptr %readfds, i64 0, i64 %idxprom3
+  %arrayidx4 = getelementptr inbounds [16 x i64], ptr %readfds, i64 0, i64 %idxprom3
   %0 = load i64, ptr %arrayidx4, align 8
   %or = or i64 %0, %shl
   store i64 %or, ptr %arrayidx4, align 8

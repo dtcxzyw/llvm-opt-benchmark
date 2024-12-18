@@ -389,7 +389,7 @@ return:                                           ; preds = %_ZN6Assimp3FBX4Util
 define hidden noundef signext i8 @_ZN6Assimp3FBX4Util12EncodeBase64Ec(i8 noundef signext %byte) local_unnamed_addr #0 {
 entry:
   %conv = sext i8 %byte to i64
-  %arrayidx = getelementptr inbounds nuw [65 x i8], ptr @_ZN6Assimp3FBX4UtilL16to_base64_stringE, i64 0, i64 %conv
+  %arrayidx = getelementptr inbounds [65 x i8], ptr @_ZN6Assimp3FBX4UtilL16to_base64_stringE, i64 0, i64 %conv
   %0 = load i8, ptr %arrayidx, align 1
   ret i8 %0
 }

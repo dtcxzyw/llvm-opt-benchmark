@@ -583,7 +583,7 @@ _ZN12_GLOBAL__N_118polishQuarticRootsEPKdPdi.exit: ; preds = %._crit_edge.us.i, 
   %346 = fsub double %344, %219
   %347 = fmul double %346, %346
   %348 = call double @llvm.fmuladd.f64(double %345, double %345, double %347)
-  %349 = getelementptr inbounds nuw [4 x double], ptr %8, i64 0, i64 %311
+  %349 = getelementptr inbounds [4 x double], ptr %8, i64 0, i64 %311
   store double %348, ptr %349, align 8
   br label %350
 

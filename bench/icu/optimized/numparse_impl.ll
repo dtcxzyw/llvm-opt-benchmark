@@ -885,7 +885,7 @@ _ZN6icu_758numparse4impl21AffixMatcherWarehouseaSEOS2_.exit: ; preds = %for.body
 arraydestroy.body.i:                              ; preds = %_ZN6icu_758numparse4impl19AffixPatternMatcherD2Ev.exit.i, %_ZN6icu_758numparse4impl21AffixMatcherWarehouseaSEOS2_.exit
   %arraydestroy.elementPast.idx.i = phi i64 [ 1536, %_ZN6icu_758numparse4impl21AffixMatcherWarehouseaSEOS2_.exit ], [ %arraydestroy.elementPast.add.i, %_ZN6icu_758numparse4impl19AffixPatternMatcherD2Ev.exit.i ]
   %arraydestroy.elementPast.add.i = add nsw i64 %arraydestroy.elementPast.idx.i, -80
-  %arraydestroy.element.ptr.i = getelementptr inbounds nuw i8, ptr %ref.tmp47, i64 %arraydestroy.elementPast.add.i
+  %arraydestroy.element.ptr.i = getelementptr inbounds i8, ptr %ref.tmp47, i64 %arraydestroy.elementPast.add.i
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_758numparse4impl19AffixPatternMatcherE, i64 16), ptr %arraydestroy.element.ptr.i, align 8
   %needToRelease.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arraydestroy.element.ptr.i, i64 68
   %12 = load i8, ptr %needToRelease.i.i.i.i.i, align 4
@@ -1194,7 +1194,7 @@ invoke.cont208:                                   ; preds = %invoke.cont200
 arraydestroy.body.i90:                            ; preds = %arraydestroy.body.i90, %invoke.cont208
   %arraydestroy.elementPast.idx.i91 = phi i64 [ 664, %invoke.cont208 ], [ %arraydestroy.elementPast.add.i92, %arraydestroy.body.i90 ]
   %arraydestroy.elementPast.add.i92 = add nsw i64 %arraydestroy.elementPast.idx.i91, -64
-  %arraydestroy.element.ptr.i93 = getelementptr inbounds nuw i8, ptr %ref.tmp199, i64 %arraydestroy.elementPast.add.i92
+  %arraydestroy.element.ptr.i93 = getelementptr inbounds i8, ptr %ref.tmp199, i64 %arraydestroy.elementPast.add.i92
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element.ptr.i93) #17
   %arraydestroy.done.i94 = icmp eq i64 %arraydestroy.elementPast.add.i92, 152
   br i1 %arraydestroy.done.i94, label %_ZN6icu_758numparse4impl23CombinedCurrencyMatcherD2Ev.exit, label %arraydestroy.body.i90
@@ -2251,7 +2251,7 @@ _ZN6icu_758numparse4impl21AffixMatcherWarehouseaSEOS2_.exit: ; preds = %for.body
 arraydestroy.body.i:                              ; preds = %_ZN6icu_758numparse4impl19AffixPatternMatcherD2Ev.exit.i, %_ZN6icu_758numparse4impl21AffixMatcherWarehouseaSEOS2_.exit
   %arraydestroy.elementPast.idx.i = phi i64 [ 1536, %_ZN6icu_758numparse4impl21AffixMatcherWarehouseaSEOS2_.exit ], [ %arraydestroy.elementPast.add.i, %_ZN6icu_758numparse4impl19AffixPatternMatcherD2Ev.exit.i ]
   %arraydestroy.elementPast.add.i = add nsw i64 %arraydestroy.elementPast.idx.i, -80
-  %arraydestroy.element.ptr.i = getelementptr inbounds nuw i8, ptr %ref.tmp83, i64 %arraydestroy.elementPast.add.i
+  %arraydestroy.element.ptr.i = getelementptr inbounds i8, ptr %ref.tmp83, i64 %arraydestroy.elementPast.add.i
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_758numparse4impl19AffixPatternMatcherE, i64 16), ptr %arraydestroy.element.ptr.i, align 8
   %needToRelease.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arraydestroy.element.ptr.i, i64 68
   %27 = load i8, ptr %needToRelease.i.i.i.i.i, align 4
@@ -2346,7 +2346,7 @@ invoke.cont124:                                   ; preds = %invoke.cont115
 arraydestroy.body.i81:                            ; preds = %arraydestroy.body.i81, %invoke.cont124
   %arraydestroy.elementPast.idx.i82 = phi i64 [ 664, %invoke.cont124 ], [ %arraydestroy.elementPast.add.i83, %arraydestroy.body.i81 ]
   %arraydestroy.elementPast.add.i83 = add nsw i64 %arraydestroy.elementPast.idx.i82, -64
-  %arraydestroy.element.ptr.i84 = getelementptr inbounds nuw i8, ptr %ref.tmp114, i64 %arraydestroy.elementPast.add.i83
+  %arraydestroy.element.ptr.i84 = getelementptr inbounds i8, ptr %ref.tmp114, i64 %arraydestroy.elementPast.add.i83
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element.ptr.i84) #17
   %arraydestroy.done.i85 = icmp eq i64 %arraydestroy.elementPast.add.i83, 152
   br i1 %arraydestroy.done.i85, label %_ZN6icu_758numparse4impl23CombinedCurrencyMatcherD2Ev.exit, label %arraydestroy.body.i81

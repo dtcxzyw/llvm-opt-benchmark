@@ -1229,7 +1229,7 @@ _ZN12_GLOBAL__N_19ReadFlagsEPiPPPcPNS_7OptionsEP11BuildConfig.exit: ; preds = %.
   %.unpack41 = load i64, ptr %295, align 8
   %.elt42 = getelementptr inbounds nuw i8, ptr %294, i64 32
   %.unpack43 = load i64, ptr %.elt42, align 8
-  %296 = getelementptr inbounds nuw i8, ptr %24, i64 %.unpack43
+  %296 = getelementptr inbounds i8, ptr %24, i64 %.unpack43
   %297 = and i64 %.unpack41, 1
   %.not44 = icmp eq i64 %297, 0
   br i1 %.not44, label %303, label %298
@@ -1510,7 +1510,7 @@ _ZN12_GLOBAL__N_19NinjaMainC2EPKcRK11BuildConfig.exit: ; preds = %342
   %.unpack34 = load i64, ptr %399, align 8
   %.elt35 = getelementptr inbounds nuw i8, ptr %393, i64 32
   %.unpack36 = load i64, ptr %.elt35, align 8
-  %400 = getelementptr inbounds nuw i8, ptr %25, i64 %.unpack36
+  %400 = getelementptr inbounds i8, ptr %25, i64 %.unpack36
   %401 = and i64 %.unpack34, 1
   %.not37 = icmp eq i64 %401, 0
   br i1 %.not37, label %407, label %402
@@ -1580,7 +1580,7 @@ _ZN12_GLOBAL__N_19NinjaMainC2EPKcRK11BuildConfig.exit: ; preds = %342
   %.unpack = load i64, ptr %431, align 8
   %.elt31 = getelementptr inbounds nuw i8, ptr %425, i64 32
   %.unpack32 = load i64, ptr %.elt31, align 8
-  %432 = getelementptr inbounds nuw i8, ptr %25, i64 %.unpack32
+  %432 = getelementptr inbounds i8, ptr %25, i64 %.unpack32
   %433 = and i64 %.unpack, 1
   %.not33 = icmp eq i64 %433, 0
   br i1 %.not33, label %439, label %434

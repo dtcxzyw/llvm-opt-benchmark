@@ -240,7 +240,7 @@ AddToken.exit141:                                 ; preds = %TBufferNewPage.exit
   br i1 %.not301, label %100, label %109
 
 100:                                              ; preds = %AddToken.exit141
-  %101 = getelementptr inbounds nuw [17 x i8], ptr @VP8EncBands, i64 0, i64 %indvars.iv.next
+  %101 = getelementptr inbounds [17 x i8], ptr @VP8EncBands, i64 0, i64 %indvars.iv.next
   %102 = load i8, ptr %101, align 1
   %103 = zext i8 %102 to i32
   %104 = add nsw i32 %11, %103
@@ -1350,7 +1350,7 @@ AddConstantToken.exit280:                         ; preds = %TBufferNewPage.exit
 AddConstantToken.exit:                            ; preds = %AddConstantToken.exit280, %AddToken.exit173, %AddToken.exit165, %TBufferNewPage.exit.thread.i191, %326, %TBufferNewPage.exit.thread.i204, %368, %AddToken.exit149
   %.sink309 = phi i32 [ 11, %AddToken.exit149 ], [ 22, %368 ], [ 22, %TBufferNewPage.exit.thread.i204 ], [ 22, %326 ], [ 22, %TBufferNewPage.exit.thread.i191 ], [ 22, %AddToken.exit165 ], [ 22, %AddToken.exit173 ], [ 22, %AddConstantToken.exit280 ]
   %.sink306 = phi i64 [ 1, %AddToken.exit149 ], [ 2, %368 ], [ 2, %TBufferNewPage.exit.thread.i204 ], [ 2, %326 ], [ 2, %TBufferNewPage.exit.thread.i191 ], [ 2, %AddToken.exit165 ], [ 2, %AddToken.exit173 ], [ 2, %AddConstantToken.exit280 ]
-  %650 = getelementptr inbounds nuw [17 x i8], ptr @VP8EncBands, i64 0, i64 %indvars.iv.next
+  %650 = getelementptr inbounds [17 x i8], ptr @VP8EncBands, i64 0, i64 %indvars.iv.next
   %651 = load i8, ptr %650, align 1
   %652 = zext i8 %651 to i32
   %653 = add nsw i32 %11, %652

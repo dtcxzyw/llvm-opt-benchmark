@@ -1118,7 +1118,7 @@ _ZL19isDiagnosticEnabledRKN4llvm14DiagnosticInfoE.exit19.thread: ; preds = %_ZL1
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %62 = load i8, ptr %61, align 4
   %63 = sext i8 %62 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4llvm11LLVMContext26getDiagnosticMessagePrefixENS_18DiagnosticSeverityE, i64 0, i64 %63
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN4llvm11LLVMContext26getDiagnosticMessagePrefixENS_18DiagnosticSeverityE, i64 0, i64 %63
   %switch.load = load ptr, ptr %switch.gep, align 8
   %64 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #17
   %65 = getelementptr inbounds nuw i8, ptr %60, i64 24
@@ -1222,7 +1222,7 @@ declare void @_ZN4llvm23DiagnosticInfoInlineAsmC1ERKNS_11InstructionERKNS_5Twine
 define dso_local noundef nonnull ptr @_ZN4llvm11LLVMContext26getDiagnosticMessagePrefixENS_18DiagnosticSeverityE(i8 noundef signext %0) local_unnamed_addr #9 align 2 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4llvm11LLVMContext26getDiagnosticMessagePrefixENS_18DiagnosticSeverityE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN4llvm11LLVMContext26getDiagnosticMessagePrefixENS_18DiagnosticSeverityE, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }

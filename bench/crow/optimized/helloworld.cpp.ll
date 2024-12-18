@@ -13211,7 +13211,7 @@ define linkonce_odr dso_local void @_ZN4crow6Router25default_exception_handlerER
   %47 = load ptr, ptr %4, align 8, !tbaa !87
   %48 = getelementptr i8, ptr %47, i64 -24
   %49 = load i64, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %4, i64 %49
+  %50 = getelementptr inbounds i8, ptr %4, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 32
   %52 = load i32, ptr %51, align 8, !tbaa !270
   %53 = or i32 %52, 1
@@ -31231,7 +31231,7 @@ define linkonce_odr dso_local noundef i32 @_ZN4asio6detail10socket_ops9inet_pton
 
 28:                                               ; preds = %13
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr align 1 %1, i64 %16, i1 false)
-  %29 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 0, i64 %16
+  %29 = getelementptr inbounds [64 x i8], ptr %6, i64 0, i64 %16
   store i8 0, ptr %29, align 1, !tbaa !14
   br label %30
 
@@ -47345,7 +47345,7 @@ define linkonce_odr dso_local void @_ZN4crow6ServerINS_4CrowIJEEENS_13SocketAdap
   %112 = load ptr, ptr %6, align 8, !tbaa !87
   %113 = getelementptr i8, ptr %112, i64 -24
   %114 = load i64, ptr %113, align 8
-  %115 = getelementptr inbounds nuw i8, ptr %6, i64 %114
+  %115 = getelementptr inbounds i8, ptr %6, i64 %114
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 16
   %117 = load i64, ptr %116, align 8, !tbaa !1068
   %118 = icmp eq i64 %117, 0
@@ -51216,7 +51216,7 @@ define linkonce_odr dso_local void @_ZN4crow10ConnectionINS_13SocketAdaptorENS_4
   %92 = load ptr, ptr %6, align 8, !tbaa !87
   %93 = getelementptr i8, ptr %92, i64 -24
   %94 = load i64, ptr %93, align 8
-  %95 = getelementptr inbounds nuw i8, ptr %6, i64 %94
+  %95 = getelementptr inbounds i8, ptr %6, i64 %94
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 16
   %97 = load i64, ptr %96, align 8, !tbaa !1068
   %98 = icmp eq i64 %97, 0
@@ -51722,7 +51722,7 @@ define linkonce_odr dso_local void @_ZN4crow10ConnectionINS_13SocketAdaptorENS_4
   %40 = load ptr, ptr %3, align 8, !tbaa !87
   %41 = getelementptr i8, ptr %40, i64 -24
   %42 = load i64, ptr %41, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %3, i64 %42
+  %43 = getelementptr inbounds i8, ptr %3, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load i64, ptr %44, align 8, !tbaa !1068
   %46 = icmp eq i64 %45, 0
@@ -51987,7 +51987,7 @@ define linkonce_odr dso_local noundef i64 @_ZN4crow6detail10task_timer8scheduleE
   %109 = load ptr, ptr %6, align 8, !tbaa !87
   %110 = getelementptr i8, ptr %109, i64 -24
   %111 = load i64, ptr %110, align 8
-  %112 = getelementptr inbounds nuw i8, ptr %6, i64 %111
+  %112 = getelementptr inbounds i8, ptr %6, i64 %111
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 16
   %114 = load i64, ptr %113, align 8, !tbaa !1068
   %115 = icmp eq i64 %114, 0
@@ -52267,7 +52267,7 @@ define linkonce_odr dso_local void @_ZN4crow6detail10task_timer6cancelEm(ptr nou
   %78 = load ptr, ptr %4, align 8, !tbaa !87
   %79 = getelementptr i8, ptr %78, i64 -24
   %80 = load i64, ptr %79, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %4, i64 %80
+  %81 = getelementptr inbounds i8, ptr %4, i64 %80
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %83 = load i64, ptr %82, align 8, !tbaa !1068
   %84 = icmp eq i64 %83, 0
@@ -54272,7 +54272,7 @@ define linkonce_odr dso_local void @_ZZN4crow10ConnectionINS_13SocketAdaptorENS_
   %106 = load ptr, ptr %7, align 8, !tbaa !87
   %107 = getelementptr i8, ptr %106, i64 -24
   %108 = load i64, ptr %107, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %7, i64 %108
+  %109 = getelementptr inbounds i8, ptr %7, i64 %108
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 32
   %111 = load i32, ptr %110, align 8, !tbaa !270
   %112 = or i32 %111, 1
@@ -54296,7 +54296,7 @@ define linkonce_odr dso_local void @_ZZN4crow10ConnectionINS_13SocketAdaptorENS_
   %121 = load ptr, ptr %7, align 8, !tbaa !87
   %122 = getelementptr i8, ptr %121, i64 -24
   %123 = load i64, ptr %122, align 8
-  %124 = getelementptr inbounds nuw i8, ptr %7, i64 %123
+  %124 = getelementptr inbounds i8, ptr %7, i64 %123
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 16
   %126 = load i64, ptr %125, align 8, !tbaa !1068
   %127 = icmp eq i64 %126, 0
@@ -58485,7 +58485,7 @@ define linkonce_odr dso_local void @_ZN4crow10ConnectionINS_13SocketAdaptorENS_4
   %40 = load ptr, ptr %8, align 8, !tbaa !87
   %41 = getelementptr i8, ptr %40, i64 -24
   %42 = load i64, ptr %41, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %8, i64 %42
+  %43 = getelementptr inbounds i8, ptr %8, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load i64, ptr %44, align 8, !tbaa !1068
   %46 = icmp eq i64 %45, 0
@@ -58538,7 +58538,7 @@ define linkonce_odr dso_local void @_ZN4crow10ConnectionINS_13SocketAdaptorENS_4
   %74 = load ptr, ptr %8, align 8, !tbaa !87
   %75 = getelementptr i8, ptr %74, i64 -24
   %76 = load i64, ptr %75, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %8, i64 %76
+  %77 = getelementptr inbounds i8, ptr %8, i64 %76
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %79 = load i64, ptr %78, align 8, !tbaa !1068
   %80 = icmp eq i64 %79, 0
@@ -58587,7 +58587,7 @@ define linkonce_odr dso_local void @_ZN4crow10ConnectionINS_13SocketAdaptorENS_4
   %104 = load ptr, ptr %8, align 8, !tbaa !87
   %105 = getelementptr i8, ptr %104, i64 -24
   %106 = load i64, ptr %105, align 8
-  %107 = getelementptr inbounds nuw i8, ptr %8, i64 %106
+  %107 = getelementptr inbounds i8, ptr %8, i64 %106
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 16
   %109 = load i64, ptr %108, align 8, !tbaa !1068
   %110 = icmp eq i64 %109, 0
@@ -70695,7 +70695,7 @@ define linkonce_odr dso_local void @_ZN4crow10ConnectionINS_13SocketAdaptorENS_4
   %70 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTSt14basic_ifstreamIcSt11char_traitsIcEE, i64 24), align 8
   %71 = getelementptr i8, ptr %69, i64 -24
   %72 = load i64, ptr %71, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %7, i64 %72
+  %73 = getelementptr inbounds i8, ptr %7, i64 %72
   store ptr %70, ptr %73, align 8, !tbaa !87
   %74 = getelementptr inbounds nuw i8, ptr %7, i64 16
   call void @_ZNSt13basic_filebufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(240) %74) #36
@@ -70704,7 +70704,7 @@ define linkonce_odr dso_local void @_ZN4crow10ConnectionINS_13SocketAdaptorENS_4
   %76 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTSt14basic_ifstreamIcSt11char_traitsIcEE, i64 16), align 8
   %77 = getelementptr i8, ptr %75, i64 -24
   %78 = load i64, ptr %77, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %7, i64 %78
+  %79 = getelementptr inbounds i8, ptr %7, i64 %78
   store ptr %76, ptr %79, align 8, !tbaa !87
   store i64 0, ptr %43, align 8, !tbaa !1531
   %80 = getelementptr inbounds nuw i8, ptr %7, i64 256
@@ -73396,7 +73396,7 @@ define linkonce_odr dso_local noundef i64 @_ZN4asio6detail21write_buffer_sequenc
   %126 = phi i64 [ %99, %98 ], [ %120, %119 ]
   call void @llvm.lifetime.start.p0(i64 1040, ptr nonnull %5) #36
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %73, i8 0, i64 16, i1 false)
-  %127 = getelementptr inbounds nuw %"class.asio::const_buffer", ptr %6, i64 %126
+  %127 = getelementptr inbounds %"class.asio::const_buffer", ptr %6, i64 %126
   %128 = icmp eq i64 %126, 0
   br i1 %128, label %145, label %.preheader19
 
@@ -73972,7 +73972,7 @@ define linkonce_odr dso_local noundef i64 @_ZN4asio6detail21write_buffer_sequenc
   %130 = phi i64 [ %103, %102 ], [ %124, %123 ]
   call void @llvm.lifetime.start.p0(i64 1040, ptr nonnull %6) #36
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %75, i8 0, i64 16, i1 false)
-  %131 = getelementptr inbounds nuw %"class.asio::const_buffer", ptr %8, i64 %130
+  %131 = getelementptr inbounds %"class.asio::const_buffer", ptr %8, i64 %130
   %132 = icmp eq i64 %130, 0
   br i1 %132, label %149, label %.preheader19
 
@@ -77345,7 +77345,7 @@ define linkonce_odr dso_local void @_ZN4crow10ConnectionINS_13SocketAdaptorENS_4
   %295 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8, !noalias !1654
   %296 = getelementptr i8, ptr %294, i64 -24
   %297 = load i64, ptr %296, align 8
-  %298 = getelementptr inbounds nuw i8, ptr %12, i64 %297
+  %298 = getelementptr inbounds i8, ptr %12, i64 %297
   store ptr %295, ptr %298, align 8, !tbaa !87, !noalias !1654
   %299 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8, !noalias !1654
   store ptr %299, ptr %280, align 8, !tbaa !87, !noalias !1654
@@ -77377,7 +77377,7 @@ define linkonce_odr dso_local void @_ZN4crow10ConnectionINS_13SocketAdaptorENS_4
   %313 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8, !noalias !1654
   %314 = getelementptr i8, ptr %312, i64 -24
   %315 = load i64, ptr %314, align 8
-  %316 = getelementptr inbounds nuw i8, ptr %12, i64 %315
+  %316 = getelementptr inbounds i8, ptr %12, i64 %315
   store ptr %313, ptr %316, align 8, !tbaa !87, !noalias !1654
   %317 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 0, ptr %317, align 8, !tbaa !1531, !noalias !1654
@@ -77461,7 +77461,7 @@ define linkonce_odr dso_local void @_ZN4crow10ConnectionINS_13SocketAdaptorENS_4
   %365 = load ptr, ptr %20, align 8, !tbaa !87
   %366 = getelementptr i8, ptr %365, i64 -24
   %367 = load i64, ptr %366, align 8
-  %368 = getelementptr inbounds nuw i8, ptr %20, i64 %367
+  %368 = getelementptr inbounds i8, ptr %20, i64 %367
   %369 = getelementptr inbounds nuw i8, ptr %368, i64 16
   %370 = load i64, ptr %369, align 8, !tbaa !1068
   %371 = icmp eq i64 %370, 0
@@ -77512,7 +77512,7 @@ define linkonce_odr dso_local void @_ZN4crow10ConnectionINS_13SocketAdaptorENS_4
   %397 = load ptr, ptr %20, align 8, !tbaa !87
   %398 = getelementptr i8, ptr %397, i64 -24
   %399 = load i64, ptr %398, align 8
-  %400 = getelementptr inbounds nuw i8, ptr %20, i64 %399
+  %400 = getelementptr inbounds i8, ptr %20, i64 %399
   %401 = getelementptr inbounds nuw i8, ptr %400, i64 16
   %402 = load i64, ptr %401, align 8, !tbaa !1068
   %403 = icmp eq i64 %402, 0
@@ -77544,7 +77544,7 @@ define linkonce_odr dso_local void @_ZN4crow10ConnectionINS_13SocketAdaptorENS_4
   %416 = load ptr, ptr %20, align 8, !tbaa !87
   %417 = getelementptr i8, ptr %416, i64 -24
   %418 = load i64, ptr %417, align 8
-  %419 = getelementptr inbounds nuw i8, ptr %20, i64 %418
+  %419 = getelementptr inbounds i8, ptr %20, i64 %418
   %420 = getelementptr inbounds nuw i8, ptr %419, i64 16
   %421 = load i64, ptr %420, align 8, !tbaa !1068
   %422 = icmp eq i64 %421, 0
@@ -80902,7 +80902,7 @@ define linkonce_odr dso_local void @_ZNK4asio2ip6detail8endpoint9to_stringB5cxx1
           to label %14 unwind label %26
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds nuw i8, ptr %6, i64 %12
+  %15 = getelementptr inbounds i8, ptr %6, i64 %12
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale(ptr dead_on_unwind nonnull writable sret(%"class.std::locale") align 8 %7, ptr noundef nonnull align 8 dereferenceable(264) %15, ptr noundef nonnull align 8 dereferenceable(8) %13)
           to label %16 unwind label %26
 
@@ -80946,7 +80946,7 @@ define linkonce_odr dso_local void @_ZNK4asio2ip6detail8endpoint9to_stringB5cxx1
   %31 = load ptr, ptr %6, align 8, !tbaa !87
   %32 = getelementptr i8, ptr %31, i64 -24
   %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %6, i64 %33
+  %34 = getelementptr inbounds i8, ptr %6, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load i64, ptr %35, align 8, !tbaa !1068
   %37 = icmp eq i64 %36, 0
@@ -81033,7 +81033,7 @@ define linkonce_odr dso_local void @_ZNK4asio2ip6detail8endpoint9to_stringB5cxx1
   %78 = load ptr, ptr %6, align 8, !tbaa !87
   %79 = getelementptr i8, ptr %78, i64 -24
   %80 = load i64, ptr %79, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %6, i64 %80
+  %81 = getelementptr inbounds i8, ptr %6, i64 %80
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %83 = load i64, ptr %82, align 8, !tbaa !1068
   %84 = icmp eq i64 %83, 0
@@ -81113,7 +81113,7 @@ define linkonce_odr dso_local void @_ZNK4asio2ip6detail8endpoint9to_stringB5cxx1
   %127 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %128 = getelementptr i8, ptr %126, i64 -24
   %129 = load i64, ptr %128, align 8
-  %130 = getelementptr inbounds nuw i8, ptr %6, i64 %129
+  %130 = getelementptr inbounds i8, ptr %6, i64 %129
   store ptr %127, ptr %130, align 8, !tbaa !87
   %131 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %131, align 8, !tbaa !87

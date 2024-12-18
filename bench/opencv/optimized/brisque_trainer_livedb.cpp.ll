@@ -707,7 +707,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %242 = getelementptr inbounds nuw i32, ptr %241, i64 %indvars.iv116.i
   %243 = load i32, ptr %242, align 4, !noalias !5
   %244 = sext i32 %243 to i64
-  %245 = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN12_GLOBAL__N_120collect_data_live_r2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.imnumber, i64 0, i64 %244
+  %245 = getelementptr inbounds [5 x i32], ptr @__const._ZN12_GLOBAL__N_120collect_data_live_r2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.imnumber, i64 0, i64 %244
   %246 = load i32, ptr %245, align 4, !noalias !5
   %247 = add nuw nsw i64 %indvars.iv116.i, 1
   %248 = trunc nuw nsw i64 %247 to i32

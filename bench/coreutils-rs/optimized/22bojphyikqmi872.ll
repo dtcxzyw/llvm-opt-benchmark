@@ -1642,7 +1642,7 @@ define internal fastcc void @"_ZN97_$LT$digest..core_api..xof_reader..XofReaderC
   %25 = shl i64 %.sroa.11.020.i, 3
   %26 = sub nuw nsw i64 168, %25
   %.0.sroa.speculated.i.i.i3.i = call noundef i64 @llvm.umin.i64(i64 %26, i64 8)
-  %27 = getelementptr inbounds nuw i8, ptr %9, i64 %25
+  %27 = getelementptr inbounds i8, ptr %9, i64 %25
   %28 = getelementptr inbounds nuw i64, ptr %18, i64 %.sroa.11.020.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0.i)
   %29 = load i64, ptr %28, align 8, !alias.scope !365, !noalias !385, !noundef !4
@@ -1751,7 +1751,7 @@ define internal fastcc void @"_ZN97_$LT$digest..core_api..xof_reader..XofReaderC
   %25 = shl i64 %.sroa.11.020.i, 3
   %26 = sub nuw nsw i64 136, %25
   %.0.sroa.speculated.i.i.i3.i = call noundef i64 @llvm.umin.i64(i64 %26, i64 8)
-  %27 = getelementptr inbounds nuw i8, ptr %9, i64 %25
+  %27 = getelementptr inbounds i8, ptr %9, i64 %25
   %28 = getelementptr inbounds nuw i64, ptr %18, i64 %.sroa.11.020.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0.i)
   %29 = load i64, ptr %28, align 8, !alias.scope !396, !noalias !416, !noundef !4

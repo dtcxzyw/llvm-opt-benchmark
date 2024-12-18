@@ -1067,7 +1067,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 .noexc25:                                         ; preds = %72
   %73 = sext i32 %31 to i64
-  %74 = getelementptr inbounds nuw [8 x %"class.std::__cxx11::basic_string"], ptr @_ZL14kWarpTypeNamesB5cxx11, i64 0, i64 %73
+  %74 = getelementptr inbounds [8 x %"class.std::__cxx11::basic_string"], ptr @_ZL14kWarpTypeNamesB5cxx11, i64 0, i64 %73
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5), !noalias !13
   %75 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %75, ptr %5, align 8, !alias.scope !16, !noalias !13
@@ -8153,7 +8153,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %322 = load float, ptr %321, align 4
   %323 = fmul float %281, %322
   %324 = fmul float %323, 5.000000e-01
-  %325 = getelementptr inbounds nuw float, ptr %29, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i170
+  %325 = getelementptr inbounds float, ptr %29, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i170
   %326 = load float, ptr %325, align 4
   %327 = fadd float %326, %324
   store float %327, ptr %321, align 4
@@ -9036,7 +9036,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %751 = getelementptr inbounds float, ptr %718, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i257
   %752 = load float, ptr %751, align 4
   %753 = fmul float %752, 5.000000e-01
-  %754 = getelementptr inbounds nuw float, ptr %49, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i257
+  %754 = getelementptr inbounds float, ptr %49, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i257
   %755 = load float, ptr %754, align 4
   %756 = fadd float %753, %755
   store float %756, ptr %751, align 4
@@ -10820,7 +10820,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 .lr.ph.i.i.i.i.i.i.i.i.i.i:                       ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS5_INS7_IfLi3ELi1ELi0ELi3ELi1EEEEENS0_9assign_opIffEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i
   %.021.i.i.i.i.i.i.i.i.i.i = phi i64 [ %138, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %.0.i.i.i.i.i.i.i.i.i.i.i, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS5_INS7_IfLi3ELi1ELi0ELi3ELi1EEEEENS0_9assign_opIffEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i ]
   %135 = getelementptr inbounds float, ptr %117, i64 %.021.i.i.i.i.i.i.i.i.i.i
-  %136 = getelementptr inbounds nuw float, ptr %7, i64 %.021.i.i.i.i.i.i.i.i.i.i
+  %136 = getelementptr inbounds float, ptr %7, i64 %.021.i.i.i.i.i.i.i.i.i.i
   %137 = load <4 x float>, ptr %136, align 4
   store <4 x float> %137, ptr %135, align 16
   %138 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i, 4
@@ -10834,7 +10834,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i:                   ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i
   %.05.i18.i.i.i.i.i.i.i.i.i.i = phi i64 [ %144, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i ], [ %128, %._crit_edge.i.i.i.i.i.i.i.i.i.i ]
   %141 = getelementptr inbounds float, ptr %117, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i
-  %142 = getelementptr inbounds nuw float, ptr %7, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i
+  %142 = getelementptr inbounds float, ptr %7, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i
   %143 = load float, ptr %142, align 4
   store float %143, ptr %141, align 4
   %144 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i, 1
@@ -11189,7 +11189,7 @@ _ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit: ; preds = %28, %23
   %50 = load ptr, ptr %8, align 8
   %51 = getelementptr i8, ptr %50, i64 -24
   %52 = load i64, ptr %51, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %8, i64 %52
+  %53 = getelementptr inbounds i8, ptr %8, i64 %52
   %54 = load ptr, ptr %0, align 8
   %55 = getelementptr i8, ptr %54, i64 -24
   %56 = load i64, ptr %55, align 8

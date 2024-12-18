@@ -1597,7 +1597,7 @@ for.body31.i:                                     ; preds = %for.body31.i, %for.
   %26 = phi i32 [ 0, %for.end.i ], [ %add.i, %for.body31.i ]
   %indvars.iv.i = phi i64 [ 1, %for.end.i ], [ %indvars.iv.next.i, %for.body31.i ]
   %27 = add nsw i64 %indvars.iv.i, -1
-  %arrayidx36.i = getelementptr inbounds nuw [64 x i32], ptr %bucketCount.i, i64 0, i64 %27
+  %arrayidx36.i = getelementptr inbounds [64 x i32], ptr %bucketCount.i, i64 0, i64 %27
   %28 = load i32, ptr %arrayidx36.i, align 4
   %add.i = add nsw i32 %28, %26
   %arrayidx38.i = getelementptr inbounds nuw [64 x i32], ptr %outIndex.i, i64 0, i64 %indvars.iv.i
@@ -3619,7 +3619,7 @@ _ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit:          ; preds = %for.body117, %if.th
   %cmp129 = icmp eq i32 %conv128, 12
   %spec.store.select = select i1 %cmp129, i32 11, i32 %conv128
   %idxprom = sext i32 %spec.store.select to i64
-  %arrayidx = getelementptr inbounds nuw [12 x %"struct.pbrt::BVHSplitBucket"], ptr %buckets, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [12 x %"struct.pbrt::BVHSplitBucket"], ptr %buckets, i64 0, i64 %idxprom
   %79 = load i32, ptr %arrayidx, align 4
   %inc136 = add nsw i32 %79, 1
   store i32 %inc136, ptr %arrayidx, align 4
@@ -7034,7 +7034,7 @@ for.end:                                          ; preds = %_ZN4pstd8optionalIN
 if.end41:                                         ; preds = %for.end
   %dec = add nsw i32 %toVisitOffset.0, -1
   %idxprom42 = sext i32 %dec to i64
-  %arrayidx43 = getelementptr inbounds nuw [64 x i32], ptr %nodesToVisit, i64 0, i64 %idxprom42
+  %arrayidx43 = getelementptr inbounds [64 x i32], ptr %nodesToVisit, i64 0, i64 %idxprom42
   %26 = load i32, ptr %arrayidx43, align 4
   %.pre.pre = load ptr, ptr %nodes, align 8
   br label %while.cond.outer, !llvm.loop !94
@@ -7052,7 +7052,7 @@ if.then47:                                        ; preds = %if.else
   %add48 = add nsw i32 %currentNodeIndex.0, 1
   %inc49 = add nsw i32 %toVisitOffset.0, 1
   %idxprom50 = sext i32 %toVisitOffset.0 to i64
-  %arrayidx51 = getelementptr inbounds nuw [64 x i32], ptr %nodesToVisit, i64 0, i64 %idxprom50
+  %arrayidx51 = getelementptr inbounds [64 x i32], ptr %nodesToVisit, i64 0, i64 %idxprom50
   store i32 %add48, ptr %arrayidx51, align 4
   %29 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   %30 = load i32, ptr %29, align 8
@@ -7063,7 +7063,7 @@ if.else52:                                        ; preds = %if.else
   %32 = load i32, ptr %31, align 8
   %inc53 = add nsw i32 %toVisitOffset.0, 1
   %idxprom54 = sext i32 %toVisitOffset.0 to i64
-  %arrayidx55 = getelementptr inbounds nuw [64 x i32], ptr %nodesToVisit, i64 0, i64 %idxprom54
+  %arrayidx55 = getelementptr inbounds [64 x i32], ptr %nodesToVisit, i64 0, i64 %idxprom54
   store i32 %32, ptr %arrayidx55, align 4
   %add56 = add nsw i32 %currentNodeIndex.0, 1
   br label %while.cond.backedge
@@ -7080,7 +7080,7 @@ if.else59:                                        ; preds = %if.end.i, %while.co
 if.end62:                                         ; preds = %if.else59
   %dec63 = add nsw i32 %toVisitOffset.0, -1
   %idxprom64 = sext i32 %dec63 to i64
-  %arrayidx65 = getelementptr inbounds nuw [64 x i32], ptr %nodesToVisit, i64 0, i64 %idxprom64
+  %arrayidx65 = getelementptr inbounds [64 x i32], ptr %nodesToVisit, i64 0, i64 %idxprom64
   %33 = load i32, ptr %arrayidx65, align 4
   br label %while.cond.backedge
 
@@ -7258,7 +7258,7 @@ for.end:                                          ; preds = %for.cond
 if.end35:                                         ; preds = %for.end
   %dec = add nsw i32 %toVisitOffset.0, -1
   %idxprom36 = sext i32 %dec to i64
-  %arrayidx37 = getelementptr inbounds nuw [64 x i32], ptr %nodesToVisit, i64 0, i64 %idxprom36
+  %arrayidx37 = getelementptr inbounds [64 x i32], ptr %nodesToVisit, i64 0, i64 %idxprom36
   %16 = load i32, ptr %arrayidx37, align 4
   %.pre.pre = load ptr, ptr %nodes, align 8
   br label %while.body.outer, !llvm.loop !96
@@ -7276,7 +7276,7 @@ if.then41:                                        ; preds = %if.else
   %add42 = add nsw i32 %currentNodeIndex.0, 1
   %inc43 = add nsw i32 %toVisitOffset.0, 1
   %idxprom44 = sext i32 %toVisitOffset.0 to i64
-  %arrayidx45 = getelementptr inbounds nuw [64 x i32], ptr %nodesToVisit, i64 0, i64 %idxprom44
+  %arrayidx45 = getelementptr inbounds [64 x i32], ptr %nodesToVisit, i64 0, i64 %idxprom44
   store i32 %add42, ptr %arrayidx45, align 4
   %19 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   %20 = load i32, ptr %19, align 8
@@ -7287,7 +7287,7 @@ if.else46:                                        ; preds = %if.else
   %22 = load i32, ptr %21, align 8
   %inc47 = add nsw i32 %toVisitOffset.0, 1
   %idxprom48 = sext i32 %toVisitOffset.0 to i64
-  %arrayidx49 = getelementptr inbounds nuw [64 x i32], ptr %nodesToVisit, i64 0, i64 %idxprom48
+  %arrayidx49 = getelementptr inbounds [64 x i32], ptr %nodesToVisit, i64 0, i64 %idxprom48
   store i32 %22, ptr %arrayidx49, align 4
   %add50 = add nsw i32 %currentNodeIndex.0, 1
   br label %while.body.backedge
@@ -7304,7 +7304,7 @@ if.else53:                                        ; preds = %if.end.i, %while.bo
 if.end56:                                         ; preds = %if.else53
   %dec57 = add nsw i32 %toVisitOffset.0, -1
   %idxprom58 = sext i32 %dec57 to i64
-  %arrayidx59 = getelementptr inbounds nuw [64 x i32], ptr %nodesToVisit, i64 0, i64 %idxprom58
+  %arrayidx59 = getelementptr inbounds [64 x i32], ptr %nodesToVisit, i64 0, i64 %idxprom58
   %23 = load i32, ptr %arrayidx59, align 4
   br label %while.body.backedge
 
@@ -9703,7 +9703,7 @@ if.else53:                                        ; preds = %if.end49
 
 if.else56:                                        ; preds = %if.else53
   %idxprom57 = sext i32 %toVisitIndex.0175 to i64
-  %arrayidx58 = getelementptr inbounds nuw [64 x %"struct.pbrt::KdNodeToVisit"], ptr %toVisit, i64 0, i64 %idxprom57
+  %arrayidx58 = getelementptr inbounds [64 x %"struct.pbrt::KdNodeToVisit"], ptr %toVisit, i64 0, i64 %idxprom57
   store ptr %secondChild.0, ptr %arrayidx58, align 16
   %tMin62 = getelementptr inbounds nuw i8, ptr %arrayidx58, i64 8
   store float %mul153, ptr %tMin62, align 8
@@ -10105,7 +10105,7 @@ if.else77:                                        ; preds = %if.end73
 
 if.else80:                                        ; preds = %if.else77
   %idxprom81 = sext i32 %toVisitIndex.0112 to i64
-  %arrayidx82 = getelementptr inbounds nuw [64 x %"struct.pbrt::KdNodeToVisit"], ptr %toVisit, i64 0, i64 %idxprom81
+  %arrayidx82 = getelementptr inbounds [64 x %"struct.pbrt::KdNodeToVisit"], ptr %toVisit, i64 0, i64 %idxprom81
   store ptr %secondChild.0, ptr %arrayidx82, align 16
   %tMin86 = getelementptr inbounds nuw i8, ptr %arrayidx82, i64 8
   store float %mul101, ptr %tMin86, align 8

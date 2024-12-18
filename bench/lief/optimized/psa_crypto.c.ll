@@ -1724,7 +1724,7 @@ psa_hash_finish.exit:                             ; preds = %8, %12
   %.089.i = phi i64 [ %23, %.lr.ph.i ], [ 0, %16 ]
   %17 = getelementptr inbounds i8, ptr %1, i64 %.089.i
   %18 = load i8, ptr %17, align 1
-  %19 = getelementptr inbounds nuw i8, ptr %4, i64 %.089.i
+  %19 = getelementptr inbounds i8, ptr %4, i64 %.089.i
   %20 = load i8, ptr %19, align 1
   %21 = xor i8 %20, %18
   %.fr21 = freeze i8 %21
@@ -1803,7 +1803,7 @@ define hidden i32 @psa_hash_compare(i32 noundef %0, ptr noundef %1, i64 noundef 
   %.089.i = phi i64 [ %21, %.lr.ph.i ], [ 0, %14 ]
   %15 = getelementptr inbounds i8, ptr %3, i64 %.089.i
   %16 = load i8, ptr %15, align 1
-  %17 = getelementptr inbounds nuw i8, ptr %6, i64 %.089.i
+  %17 = getelementptr inbounds i8, ptr %6, i64 %.089.i
   %18 = load i8, ptr %17, align 1
   %19 = xor i8 %18, %16
   %.fr16 = freeze i8 %19
@@ -2244,7 +2244,7 @@ define hidden i32 @psa_mac_verify(i32 noundef %0, i32 noundef %1, ptr noundef %2
   %.089.i = phi i64 [ %19, %.lr.ph.i ], [ 0, %12 ]
   %13 = getelementptr inbounds i8, ptr %4, i64 %.089.i
   %14 = load i8, ptr %13, align 1
-  %15 = getelementptr inbounds nuw i8, ptr %7, i64 %.089.i
+  %15 = getelementptr inbounds i8, ptr %7, i64 %.089.i
   %16 = load i8, ptr %15, align 1
   %17 = xor i8 %16, %14
   %.fr14 = freeze i8 %17

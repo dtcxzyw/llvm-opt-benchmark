@@ -1929,7 +1929,7 @@ if.end76.i:                                       ; preds = %while.end.i
 
 if.then81.i:                                      ; preds = %if.end76.i
   %idxprom.i = sext i8 %25 to i64
-  %arrayidx83.i = getelementptr inbounds nuw [34 x ptr], ptr @ucnv_converterStaticData, i64 0, i64 %idxprom.i
+  %arrayidx83.i = getelementptr inbounds [34 x ptr], ptr @ucnv_converterStaticData, i64 0, i64 %idxprom.i
   %29 = load ptr, ptr %arrayidx83.i, align 8
   %cmp84.not.i = icmp eq ptr %29, null
   br i1 %cmp84.not.i, label %if.end145.i, label %if.then85.i
@@ -2099,9 +2099,9 @@ while.cond.preheader:                             ; preds = %if.end13
 
 while.body:                                       ; preds = %while.cond.preheader, %if.then46
   %strlen = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %line)
-  %strchr = getelementptr inbounds nuw i8, ptr %line, i64 %strlen
-  %cmp2535.not = icmp eq i64 %strlen, 0
-  br i1 %cmp2535.not, label %while.end, label %land.rhs
+  %strchr = getelementptr inbounds i8, ptr %line, i64 %strlen
+  %cmp2535 = icmp sgt i64 %strlen, 0
+  br i1 %cmp2535, label %land.rhs, label %while.end
 
 land.rhs:                                         ; preds = %while.body, %while.body38
   %end.036 = phi ptr [ %add.ptr, %while.body38 ], [ %strchr, %while.body ]

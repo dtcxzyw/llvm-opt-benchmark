@@ -2166,7 +2166,7 @@ if.then.i:                                        ; preds = %vaarg.end394
 
 if.then.i.i.i:                                    ; preds = %if.then.i
   %idx.ext.i.i.i = sext i32 %93 to i64
-  %add.ptr.i.i.i = getelementptr inbounds nuw i16, ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull16E, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds i16, ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull16E, i64 %idx.ext.i.i.i
   %cmp211.i.i.i = icmp sgt i32 %93, 0
   br i1 %cmp211.i.i.i, label %land.rhs.i.i.i, label %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit.i
 
@@ -2232,7 +2232,7 @@ if.then.i133:                                     ; preds = %vaarg.end412
 
 if.then.i.i.i134:                                 ; preds = %if.then.i133
   %idx.ext.i.i.i135 = sext i32 %99 to i64
-  %add.ptr.i.i.i136 = getelementptr inbounds nuw i16, ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull16E, i64 %idx.ext.i.i.i135
+  %add.ptr.i.i.i136 = getelementptr inbounds i16, ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull16E, i64 %idx.ext.i.i.i135
   %cmp211.i.i.i137 = icmp sgt i32 %99, 0
   br i1 %cmp211.i.i.i137, label %land.rhs.i.i.i142, label %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit.i138
 
@@ -2329,7 +2329,7 @@ if.then.i153:                                     ; preds = %vaarg.end430
 
 if.then.i.i.i156:                                 ; preds = %if.then.i153
   %idx.ext.i.i.i157 = sext i32 %107 to i64
-  %add.ptr.i.i.i158 = getelementptr inbounds nuw i16, ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull16E, i64 %idx.ext.i.i.i157
+  %add.ptr.i.i.i158 = getelementptr inbounds i16, ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull16E, i64 %idx.ext.i.i.i157
   %cmp211.i.i.i159 = icmp sgt i32 %107, 0
   br i1 %cmp211.i.i.i159, label %land.rhs.i.i.i167, label %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit.i160
 
@@ -3342,7 +3342,7 @@ if.then.i:                                        ; preds = %vaarg.end393
 
 if.then.i.i.i:                                    ; preds = %if.then.i
   %idx.ext.i.i.i = sext i32 %93 to i64
-  %add.ptr.i.i.i = getelementptr inbounds nuw i32, ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull32E, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds i32, ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull32E, i64 %idx.ext.i.i.i
   %cmp211.i.i.i = icmp sgt i32 %93, 0
   br i1 %cmp211.i.i.i, label %land.rhs.i.i.i, label %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDiDiEclEPFiPKDimPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDiS5_.exit.i
 
@@ -3409,7 +3409,7 @@ if.then.i134:                                     ; preds = %vaarg.end411
 
 if.then.i.i.i137:                                 ; preds = %if.then.i134
   %idx.ext.i.i.i138 = sext i32 %99 to i64
-  %add.ptr.i.i.i139 = getelementptr inbounds nuw i32, ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull32E, i64 %idx.ext.i.i.i138
+  %add.ptr.i.i.i139 = getelementptr inbounds i32, ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull32E, i64 %idx.ext.i.i.i138
   %cmp211.i.i.i140 = icmp sgt i32 %99, 0
   br i1 %cmp211.i.i.i140, label %land.rhs.i.i.i148, label %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDiDiEclEPFiPKDimPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDiS5_.exit.i141
 
@@ -3475,7 +3475,7 @@ if.then.i158:                                     ; preds = %vaarg.end429
 
 if.then.i.i.i159:                                 ; preds = %if.then.i158
   %idx.ext.i.i.i160 = sext i32 %105 to i64
-  %add.ptr.i.i.i161 = getelementptr inbounds nuw i32, ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull32E, i64 %idx.ext.i.i.i160
+  %add.ptr.i.i.i161 = getelementptr inbounds i32, ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull32E, i64 %idx.ext.i.i.i160
   %cmp211.i.i.i162 = icmp sgt i32 %105, 0
   br i1 %cmp211.i.i.i162, label %land.rhs.i.i.i167, label %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDiDiEclEPFiPKDimPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDiS5_.exit.i163
 
@@ -4413,7 +4413,7 @@ for.body:                                         ; preds = %if.end69, %if.end94
   %pCurrent.4150 = phi ptr [ %pCurrent.5, %if.end94 ], [ %incdec.ptr77, %if.end69 ]
   %bStripTrailingZeroes.3149 = phi i8 [ %spec.select113, %if.end94 ], [ %bStripTrailingZeroes.2165187, %if.end69 ]
   %pTemp.0.add = add nsw i64 %pTemp.0.idx151, -1
-  %incdec.ptr83.ptr = getelementptr inbounds nuw i8, ptr %pBufferCvt, i64 %pTemp.0.add
+  %incdec.ptr83.ptr = getelementptr inbounds i8, ptr %pBufferCvt, i64 %pTemp.0.add
   %14 = load i8, ptr %incdec.ptr83.ptr, align 1
   %cmp85.not = icmp eq i8 %14, 48
   %spec.select113 = select i1 %cmp85.not, i8 %bStripTrailingZeroes.3149, i8 0
@@ -4494,11 +4494,11 @@ if.then124:                                       ; preds = %FType
 if.end128:                                        ; preds = %FType, %if.then124
   %pCurrent.8 = phi ptr [ %incdec.ptr127, %if.then124 ], [ %incdec.ptr34.ptr, %FType ]
   %idx.ext130 = sext i32 %21 to i64
-  %add.ptr131 = getelementptr inbounds nuw i8, ptr %pBufferCvt, i64 %idx.ext130
+  %add.ptr131 = getelementptr inbounds i8, ptr %pBufferCvt, i64 %idx.ext130
   %add.ptr132 = getelementptr inbounds i8, ptr %add.ptr131, i64 -1
   %sext = shl i64 %call117, 32
   %idx.ext134 = ashr exact i64 %sext, 32
-  %add.ptr135 = getelementptr inbounds nuw i8, ptr %pBufferCvt, i64 %idx.ext134
+  %add.ptr135 = getelementptr inbounds i8, ptr %pBufferCvt, i64 %idx.ext134
   %add.ptr136 = getelementptr inbounds i8, ptr %add.ptr135, i64 -1
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr136 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %add.ptr132 to i64
@@ -6451,7 +6451,7 @@ for.body:                                         ; preds = %if.end74, %if.end99
   %pCurrent.4151 = phi ptr [ %pCurrent.5, %if.end99 ], [ %incdec.ptr82, %if.end74 ]
   %bStripTrailingZeroes.3150 = phi i8 [ %spec.select116, %if.end99 ], [ %bStripTrailingZeroes.2166188, %if.end74 ]
   %pTemp.0.add = add nsw i64 %pTemp.0.idx152, -2
-  %incdec.ptr88.ptr = getelementptr inbounds nuw i8, ptr %pBufferCvt, i64 %pTemp.0.add
+  %incdec.ptr88.ptr = getelementptr inbounds i8, ptr %pBufferCvt, i64 %pTemp.0.add
   %15 = load i16, ptr %incdec.ptr88.ptr, align 2
   %cmp90.not = icmp eq i16 %15, 48
   %spec.select116 = select i1 %cmp90.not, i8 %bStripTrailingZeroes.3150, i8 0
@@ -6530,11 +6530,11 @@ if.then129:                                       ; preds = %FType
 if.end133:                                        ; preds = %FType, %if.then129
   %pCurrent.8 = phi ptr [ %incdec.ptr132, %if.then129 ], [ %incdec.ptr34.ptr, %FType ]
   %idx.ext135 = sext i32 %22 to i64
-  %add.ptr136 = getelementptr inbounds nuw i16, ptr %pBufferCvt, i64 %idx.ext135
+  %add.ptr136 = getelementptr inbounds i16, ptr %pBufferCvt, i64 %idx.ext135
   %add.ptr137 = getelementptr inbounds i8, ptr %add.ptr136, i64 -2
   %sext = shl i64 %call122, 32
   %24 = ashr exact i64 %sext, 31
-  %add.ptr140 = getelementptr inbounds nuw i8, ptr %pBufferCvt, i64 %24
+  %add.ptr140 = getelementptr inbounds i8, ptr %pBufferCvt, i64 %24
   %add.ptr141 = getelementptr inbounds i8, ptr %add.ptr140, i64 -2
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr141 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %add.ptr137 to i64
@@ -8476,7 +8476,7 @@ for.body:                                         ; preds = %if.end73, %if.end95
   %pCurrent.4151 = phi ptr [ %pCurrent.5, %if.end95 ], [ %incdec.ptr80, %if.end73 ]
   %bStripTrailingZeroes.3150 = phi i8 [ %spec.select116, %if.end95 ], [ %bStripTrailingZeroes.2166188, %if.end73 ]
   %pTemp.0.add = add nsw i64 %pTemp.0.idx152, -4
-  %incdec.ptr86.ptr = getelementptr inbounds nuw i8, ptr %pBufferCvt, i64 %pTemp.0.add
+  %incdec.ptr86.ptr = getelementptr inbounds i8, ptr %pBufferCvt, i64 %pTemp.0.add
   %14 = load i32, ptr %incdec.ptr86.ptr, align 4
   %cmp87.not = icmp eq i32 %14, 48
   %spec.select116 = select i1 %cmp87.not, i8 %bStripTrailingZeroes.3150, i8 0
@@ -8553,11 +8553,11 @@ if.then121:                                       ; preds = %FType
 if.end124:                                        ; preds = %FType, %if.then121
   %pCurrent.8 = phi ptr [ %incdec.ptr123, %if.then121 ], [ %incdec.ptr34.ptr, %FType ]
   %idx.ext126 = sext i32 %21 to i64
-  %add.ptr127 = getelementptr inbounds nuw i32, ptr %pBufferCvt, i64 %idx.ext126
+  %add.ptr127 = getelementptr inbounds i32, ptr %pBufferCvt, i64 %idx.ext126
   %add.ptr128 = getelementptr inbounds i8, ptr %add.ptr127, i64 -4
   %sext = shl i64 %call114, 32
   %23 = ashr exact i64 %sext, 30
-  %add.ptr131 = getelementptr inbounds nuw i8, ptr %pBufferCvt, i64 %23
+  %add.ptr131 = getelementptr inbounds i8, ptr %pBufferCvt, i64 %23
   %add.ptr132 = getelementptr inbounds i8, ptr %add.ptr131, i64 -4
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr132 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %add.ptr128 to i64

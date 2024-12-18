@@ -29997,7 +29997,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_4_4(ptr
   %215 = getelementptr inbounds nuw i8, ptr %15, i64 %214
   tail call void @llvm.prefetch.p0(ptr %215, i32 0, i32 3, i32 1)
   %216 = add i64 %.0874927, 1
-  %217 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %.0874927
+  %217 = getelementptr inbounds [64 x i32], ptr %5, i64 0, i64 %.0874927
   store i32 %209, ptr %217, align 4
   %218 = add nsw i32 %.0881926, -1
   br label %219
@@ -30047,7 +30047,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_4_4(ptr
 244:                                              ; preds = %.lr.ph938, %ZSTD_count.exit.thread
   %.0873936 = phi i64 [ 0, %.lr.ph938 ], [ %295, %ZSTD_count.exit.thread ]
   %.0885935 = phi i64 [ 3, %.lr.ph938 ], [ %.2887, %ZSTD_count.exit.thread ]
-  %245 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %.0873936
+  %245 = getelementptr inbounds [64 x i32], ptr %5, i64 0, i64 %.0873936
   %246 = load i32, ptr %245, align 4
   %247 = zext i32 %246 to i64
   %248 = getelementptr inbounds nuw i8, ptr %15, i64 %247
@@ -30497,7 +30497,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_4_5(ptr
   %221 = getelementptr inbounds nuw i8, ptr %15, i64 %220
   tail call void @llvm.prefetch.p0(ptr %221, i32 0, i32 3, i32 1)
   %222 = add i64 %.0874928, 1
-  %223 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %.0874928
+  %223 = getelementptr inbounds [64 x i32], ptr %5, i64 0, i64 %.0874928
   store i32 %215, ptr %223, align 4
   %224 = add nsw i32 %.0881927, -1
   br label %225
@@ -30546,7 +30546,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_4_5(ptr
 249:                                              ; preds = %.lr.ph940, %ZSTD_count.exit.thread
   %.0873938 = phi i64 [ 0, %.lr.ph940 ], [ %300, %ZSTD_count.exit.thread ]
   %.0885937 = phi i64 [ 3, %.lr.ph940 ], [ %.2887, %ZSTD_count.exit.thread ]
-  %250 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %.0873938
+  %250 = getelementptr inbounds [64 x i32], ptr %5, i64 0, i64 %.0873938
   %251 = load i32, ptr %250, align 4
   %252 = zext i32 %251 to i64
   %253 = getelementptr inbounds nuw i8, ptr %15, i64 %252
@@ -31031,7 +31031,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_4_6(ptr
   %247 = getelementptr inbounds nuw i8, ptr %16, i64 %246
   tail call void @llvm.prefetch.p0(ptr %247, i32 0, i32 3, i32 1)
   %248 = add i64 %.0874928, 1
-  %249 = getelementptr inbounds nuw [64 x i32], ptr %6, i64 0, i64 %.0874928
+  %249 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 %.0874928
   store i32 %241, ptr %249, align 4
   %250 = add nsw i32 %.0881927, -1
   br label %251
@@ -31080,7 +31080,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_4_6(ptr
 275:                                              ; preds = %.lr.ph940, %ZSTD_count.exit.thread
   %.0873938 = phi i64 [ 0, %.lr.ph940 ], [ %326, %ZSTD_count.exit.thread ]
   %.0885937 = phi i64 [ 3, %.lr.ph940 ], [ %.2887, %ZSTD_count.exit.thread ]
-  %276 = getelementptr inbounds nuw [64 x i32], ptr %6, i64 0, i64 %.0873938
+  %276 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 %.0873938
   %277 = load i32, ptr %276, align 4
   %278 = zext i32 %277 to i64
   %279 = getelementptr inbounds nuw i8, ptr %16, i64 %278
@@ -31522,7 +31522,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_5_4(ptr
   %216 = getelementptr inbounds nuw i8, ptr %15, i64 %215
   tail call void @llvm.prefetch.p0(ptr %216, i32 0, i32 3, i32 1)
   %217 = add i64 %.0874927, 1
-  %218 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %.0874927
+  %218 = getelementptr inbounds [64 x i32], ptr %5, i64 0, i64 %.0874927
   store i32 %210, ptr %218, align 4
   %219 = add nsw i32 %.0881926, -1
   br label %220
@@ -31572,7 +31572,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_5_4(ptr
 245:                                              ; preds = %.lr.ph938, %ZSTD_count.exit.thread
   %.0873936 = phi i64 [ 0, %.lr.ph938 ], [ %296, %ZSTD_count.exit.thread ]
   %.0885935 = phi i64 [ 3, %.lr.ph938 ], [ %.2887, %ZSTD_count.exit.thread ]
-  %246 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %.0873936
+  %246 = getelementptr inbounds [64 x i32], ptr %5, i64 0, i64 %.0873936
   %247 = load i32, ptr %246, align 4
   %248 = zext i32 %247 to i64
   %249 = getelementptr inbounds nuw i8, ptr %15, i64 %248
@@ -32023,7 +32023,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_5_5(ptr
   %222 = getelementptr inbounds nuw i8, ptr %15, i64 %221
   tail call void @llvm.prefetch.p0(ptr %222, i32 0, i32 3, i32 1)
   %223 = add i64 %.0874928, 1
-  %224 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %.0874928
+  %224 = getelementptr inbounds [64 x i32], ptr %5, i64 0, i64 %.0874928
   store i32 %216, ptr %224, align 4
   %225 = add nsw i32 %.0881927, -1
   br label %226
@@ -32072,7 +32072,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_5_5(ptr
 250:                                              ; preds = %.lr.ph940, %ZSTD_count.exit.thread
   %.0873938 = phi i64 [ 0, %.lr.ph940 ], [ %301, %ZSTD_count.exit.thread ]
   %.0885937 = phi i64 [ 3, %.lr.ph940 ], [ %.2887, %ZSTD_count.exit.thread ]
-  %251 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %.0873938
+  %251 = getelementptr inbounds [64 x i32], ptr %5, i64 0, i64 %.0873938
   %252 = load i32, ptr %251, align 4
   %253 = zext i32 %252 to i64
   %254 = getelementptr inbounds nuw i8, ptr %15, i64 %253
@@ -32558,7 +32558,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_5_6(ptr
   %248 = getelementptr inbounds nuw i8, ptr %16, i64 %247
   tail call void @llvm.prefetch.p0(ptr %248, i32 0, i32 3, i32 1)
   %249 = add i64 %.0874928, 1
-  %250 = getelementptr inbounds nuw [64 x i32], ptr %6, i64 0, i64 %.0874928
+  %250 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 %.0874928
   store i32 %242, ptr %250, align 4
   %251 = add nsw i32 %.0881927, -1
   br label %252
@@ -32607,7 +32607,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_5_6(ptr
 276:                                              ; preds = %.lr.ph940, %ZSTD_count.exit.thread
   %.0873938 = phi i64 [ 0, %.lr.ph940 ], [ %327, %ZSTD_count.exit.thread ]
   %.0885937 = phi i64 [ 3, %.lr.ph940 ], [ %.2887, %ZSTD_count.exit.thread ]
-  %277 = getelementptr inbounds nuw [64 x i32], ptr %6, i64 0, i64 %.0873938
+  %277 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 %.0873938
   %278 = load i32, ptr %277, align 4
   %279 = zext i32 %278 to i64
   %280 = getelementptr inbounds nuw i8, ptr %16, i64 %279
@@ -33049,7 +33049,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_6_4(ptr
   %216 = getelementptr inbounds nuw i8, ptr %15, i64 %215
   tail call void @llvm.prefetch.p0(ptr %216, i32 0, i32 3, i32 1)
   %217 = add i64 %.0874927, 1
-  %218 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %.0874927
+  %218 = getelementptr inbounds [64 x i32], ptr %5, i64 0, i64 %.0874927
   store i32 %210, ptr %218, align 4
   %219 = add nsw i32 %.0881926, -1
   br label %220
@@ -33099,7 +33099,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_6_4(ptr
 245:                                              ; preds = %.lr.ph938, %ZSTD_count.exit.thread
   %.0873936 = phi i64 [ 0, %.lr.ph938 ], [ %296, %ZSTD_count.exit.thread ]
   %.0885935 = phi i64 [ 3, %.lr.ph938 ], [ %.2887, %ZSTD_count.exit.thread ]
-  %246 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %.0873936
+  %246 = getelementptr inbounds [64 x i32], ptr %5, i64 0, i64 %.0873936
   %247 = load i32, ptr %246, align 4
   %248 = zext i32 %247 to i64
   %249 = getelementptr inbounds nuw i8, ptr %15, i64 %248
@@ -33550,7 +33550,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_6_5(ptr
   %222 = getelementptr inbounds nuw i8, ptr %15, i64 %221
   tail call void @llvm.prefetch.p0(ptr %222, i32 0, i32 3, i32 1)
   %223 = add i64 %.0874928, 1
-  %224 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %.0874928
+  %224 = getelementptr inbounds [64 x i32], ptr %5, i64 0, i64 %.0874928
   store i32 %216, ptr %224, align 4
   %225 = add nsw i32 %.0881927, -1
   br label %226
@@ -33599,7 +33599,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_6_5(ptr
 250:                                              ; preds = %.lr.ph940, %ZSTD_count.exit.thread
   %.0873938 = phi i64 [ 0, %.lr.ph940 ], [ %301, %ZSTD_count.exit.thread ]
   %.0885937 = phi i64 [ 3, %.lr.ph940 ], [ %.2887, %ZSTD_count.exit.thread ]
-  %251 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %.0873938
+  %251 = getelementptr inbounds [64 x i32], ptr %5, i64 0, i64 %.0873938
   %252 = load i32, ptr %251, align 4
   %253 = zext i32 %252 to i64
   %254 = getelementptr inbounds nuw i8, ptr %15, i64 %253
@@ -34085,7 +34085,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_6_6(ptr
   %248 = getelementptr inbounds nuw i8, ptr %16, i64 %247
   tail call void @llvm.prefetch.p0(ptr %248, i32 0, i32 3, i32 1)
   %249 = add i64 %.0874928, 1
-  %250 = getelementptr inbounds nuw [64 x i32], ptr %6, i64 0, i64 %.0874928
+  %250 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 %.0874928
   store i32 %242, ptr %250, align 4
   %251 = add nsw i32 %.0881927, -1
   br label %252
@@ -34134,7 +34134,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_6_6(ptr
 276:                                              ; preds = %.lr.ph940, %ZSTD_count.exit.thread
   %.0873938 = phi i64 [ 0, %.lr.ph940 ], [ %327, %ZSTD_count.exit.thread ]
   %.0885937 = phi i64 [ 3, %.lr.ph940 ], [ %.2887, %ZSTD_count.exit.thread ]
-  %277 = getelementptr inbounds nuw [64 x i32], ptr %6, i64 0, i64 %.0873938
+  %277 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 %.0873938
   %278 = load i32, ptr %277, align 4
   %279 = zext i32 %278 to i64
   %280 = getelementptr inbounds nuw i8, ptr %16, i64 %279
@@ -35414,7 +35414,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_4_4(pt
   %222 = getelementptr inbounds nuw i8, ptr %.964, i64 %221
   tail call void @llvm.prefetch.p0(ptr %222, i32 0, i32 3, i32 1)
   %223 = add i64 %.0874931, 1
-  %224 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %.0874931
+  %224 = getelementptr inbounds [64 x i32], ptr %5, i64 0, i64 %.0874931
   store i32 %216, ptr %224, align 4
   %225 = add nsw i32 %.0881930, -1
   br label %226
@@ -35465,7 +35465,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_4_4(pt
 252:                                              ; preds = %.lr.ph942, %ZSTD_count.exit.thread
   %.0873940 = phi i64 [ 0, %.lr.ph942 ], [ %311, %ZSTD_count.exit.thread ]
   %.0885939 = phi i64 [ 3, %.lr.ph942 ], [ %.2887, %ZSTD_count.exit.thread ]
-  %253 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %.0873940
+  %253 = getelementptr inbounds [64 x i32], ptr %5, i64 0, i64 %.0873940
   %254 = load i32, ptr %253, align 4
   %.not908 = icmp ult i32 %254, %19
   %255 = zext i32 %254 to i64
@@ -35941,7 +35941,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_4_5(pt
   %228 = getelementptr inbounds nuw i8, ptr %.969, i64 %227
   tail call void @llvm.prefetch.p0(ptr %228, i32 0, i32 3, i32 1)
   %229 = add i64 %.0874932, 1
-  %230 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %.0874932
+  %230 = getelementptr inbounds [64 x i32], ptr %5, i64 0, i64 %.0874932
   store i32 %222, ptr %230, align 4
   %231 = add nsw i32 %.0881931, -1
   br label %232
@@ -35991,7 +35991,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_4_5(pt
 257:                                              ; preds = %.lr.ph944, %ZSTD_count.exit.thread
   %.0873942 = phi i64 [ 0, %.lr.ph944 ], [ %316, %ZSTD_count.exit.thread ]
   %.0885941 = phi i64 [ 3, %.lr.ph944 ], [ %.2887, %ZSTD_count.exit.thread ]
-  %258 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %.0873942
+  %258 = getelementptr inbounds [64 x i32], ptr %5, i64 0, i64 %.0873942
   %259 = load i32, ptr %258, align 4
   %.not908 = icmp ult i32 %259, %19
   %260 = zext i32 %259 to i64
@@ -36502,7 +36502,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_4_6(pt
   %254 = getelementptr inbounds nuw i8, ptr %.970, i64 %253
   tail call void @llvm.prefetch.p0(ptr %254, i32 0, i32 3, i32 1)
   %255 = add i64 %.0874932, 1
-  %256 = getelementptr inbounds nuw [64 x i32], ptr %6, i64 0, i64 %.0874932
+  %256 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 %.0874932
   store i32 %248, ptr %256, align 4
   %257 = add nsw i32 %.0881931, -1
   br label %258
@@ -36552,7 +36552,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_4_6(pt
 283:                                              ; preds = %.lr.ph944, %ZSTD_count.exit.thread
   %.0873942 = phi i64 [ 0, %.lr.ph944 ], [ %342, %ZSTD_count.exit.thread ]
   %.0885941 = phi i64 [ 3, %.lr.ph944 ], [ %.2887, %ZSTD_count.exit.thread ]
-  %284 = getelementptr inbounds nuw [64 x i32], ptr %6, i64 0, i64 %.0873942
+  %284 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 %.0873942
   %285 = load i32, ptr %284, align 4
   %.not908 = icmp ult i32 %285, %20
   %286 = zext i32 %285 to i64
@@ -37020,7 +37020,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_5_4(pt
   %223 = getelementptr inbounds nuw i8, ptr %.964, i64 %222
   tail call void @llvm.prefetch.p0(ptr %223, i32 0, i32 3, i32 1)
   %224 = add i64 %.0874931, 1
-  %225 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %.0874931
+  %225 = getelementptr inbounds [64 x i32], ptr %5, i64 0, i64 %.0874931
   store i32 %217, ptr %225, align 4
   %226 = add nsw i32 %.0881930, -1
   br label %227
@@ -37071,7 +37071,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_5_4(pt
 253:                                              ; preds = %.lr.ph942, %ZSTD_count.exit.thread
   %.0873940 = phi i64 [ 0, %.lr.ph942 ], [ %312, %ZSTD_count.exit.thread ]
   %.0885939 = phi i64 [ 3, %.lr.ph942 ], [ %.2887, %ZSTD_count.exit.thread ]
-  %254 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %.0873940
+  %254 = getelementptr inbounds [64 x i32], ptr %5, i64 0, i64 %.0873940
   %255 = load i32, ptr %254, align 4
   %.not908 = icmp ult i32 %255, %19
   %256 = zext i32 %255 to i64
@@ -37548,7 +37548,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_5_5(pt
   %229 = getelementptr inbounds nuw i8, ptr %.969, i64 %228
   tail call void @llvm.prefetch.p0(ptr %229, i32 0, i32 3, i32 1)
   %230 = add i64 %.0874932, 1
-  %231 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %.0874932
+  %231 = getelementptr inbounds [64 x i32], ptr %5, i64 0, i64 %.0874932
   store i32 %223, ptr %231, align 4
   %232 = add nsw i32 %.0881931, -1
   br label %233
@@ -37598,7 +37598,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_5_5(pt
 258:                                              ; preds = %.lr.ph944, %ZSTD_count.exit.thread
   %.0873942 = phi i64 [ 0, %.lr.ph944 ], [ %317, %ZSTD_count.exit.thread ]
   %.0885941 = phi i64 [ 3, %.lr.ph944 ], [ %.2887, %ZSTD_count.exit.thread ]
-  %259 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %.0873942
+  %259 = getelementptr inbounds [64 x i32], ptr %5, i64 0, i64 %.0873942
   %260 = load i32, ptr %259, align 4
   %.not908 = icmp ult i32 %260, %19
   %261 = zext i32 %260 to i64
@@ -38110,7 +38110,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_5_6(pt
   %255 = getelementptr inbounds nuw i8, ptr %.970, i64 %254
   tail call void @llvm.prefetch.p0(ptr %255, i32 0, i32 3, i32 1)
   %256 = add i64 %.0874932, 1
-  %257 = getelementptr inbounds nuw [64 x i32], ptr %6, i64 0, i64 %.0874932
+  %257 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 %.0874932
   store i32 %249, ptr %257, align 4
   %258 = add nsw i32 %.0881931, -1
   br label %259
@@ -38160,7 +38160,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_5_6(pt
 284:                                              ; preds = %.lr.ph944, %ZSTD_count.exit.thread
   %.0873942 = phi i64 [ 0, %.lr.ph944 ], [ %343, %ZSTD_count.exit.thread ]
   %.0885941 = phi i64 [ 3, %.lr.ph944 ], [ %.2887, %ZSTD_count.exit.thread ]
-  %285 = getelementptr inbounds nuw [64 x i32], ptr %6, i64 0, i64 %.0873942
+  %285 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 %.0873942
   %286 = load i32, ptr %285, align 4
   %.not908 = icmp ult i32 %286, %20
   %287 = zext i32 %286 to i64
@@ -38628,7 +38628,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_6_4(pt
   %223 = getelementptr inbounds nuw i8, ptr %.964, i64 %222
   tail call void @llvm.prefetch.p0(ptr %223, i32 0, i32 3, i32 1)
   %224 = add i64 %.0874931, 1
-  %225 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %.0874931
+  %225 = getelementptr inbounds [64 x i32], ptr %5, i64 0, i64 %.0874931
   store i32 %217, ptr %225, align 4
   %226 = add nsw i32 %.0881930, -1
   br label %227
@@ -38679,7 +38679,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_6_4(pt
 253:                                              ; preds = %.lr.ph942, %ZSTD_count.exit.thread
   %.0873940 = phi i64 [ 0, %.lr.ph942 ], [ %312, %ZSTD_count.exit.thread ]
   %.0885939 = phi i64 [ 3, %.lr.ph942 ], [ %.2887, %ZSTD_count.exit.thread ]
-  %254 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %.0873940
+  %254 = getelementptr inbounds [64 x i32], ptr %5, i64 0, i64 %.0873940
   %255 = load i32, ptr %254, align 4
   %.not908 = icmp ult i32 %255, %19
   %256 = zext i32 %255 to i64
@@ -39156,7 +39156,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_6_5(pt
   %229 = getelementptr inbounds nuw i8, ptr %.969, i64 %228
   tail call void @llvm.prefetch.p0(ptr %229, i32 0, i32 3, i32 1)
   %230 = add i64 %.0874932, 1
-  %231 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %.0874932
+  %231 = getelementptr inbounds [64 x i32], ptr %5, i64 0, i64 %.0874932
   store i32 %223, ptr %231, align 4
   %232 = add nsw i32 %.0881931, -1
   br label %233
@@ -39206,7 +39206,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_6_5(pt
 258:                                              ; preds = %.lr.ph944, %ZSTD_count.exit.thread
   %.0873942 = phi i64 [ 0, %.lr.ph944 ], [ %317, %ZSTD_count.exit.thread ]
   %.0885941 = phi i64 [ 3, %.lr.ph944 ], [ %.2887, %ZSTD_count.exit.thread ]
-  %259 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %.0873942
+  %259 = getelementptr inbounds [64 x i32], ptr %5, i64 0, i64 %.0873942
   %260 = load i32, ptr %259, align 4
   %.not908 = icmp ult i32 %260, %19
   %261 = zext i32 %260 to i64
@@ -39718,7 +39718,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_6_6(pt
   %255 = getelementptr inbounds nuw i8, ptr %.970, i64 %254
   tail call void @llvm.prefetch.p0(ptr %255, i32 0, i32 3, i32 1)
   %256 = add i64 %.0874932, 1
-  %257 = getelementptr inbounds nuw [64 x i32], ptr %6, i64 0, i64 %.0874932
+  %257 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 %.0874932
   store i32 %249, ptr %257, align 4
   %258 = add nsw i32 %.0881931, -1
   br label %259
@@ -39768,7 +39768,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_6_6(pt
 284:                                              ; preds = %.lr.ph944, %ZSTD_count.exit.thread
   %.0873942 = phi i64 [ 0, %.lr.ph944 ], [ %343, %ZSTD_count.exit.thread ]
   %.0885941 = phi i64 [ 3, %.lr.ph944 ], [ %.2887, %ZSTD_count.exit.thread ]
-  %285 = getelementptr inbounds nuw [64 x i32], ptr %6, i64 0, i64 %.0873942
+  %285 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 %.0873942
   %286 = load i32, ptr %285, align 4
   %.not908 = icmp ult i32 %286, %20
   %287 = zext i32 %286 to i64
@@ -41532,7 +41532,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
   %236 = getelementptr inbounds nuw i8, ptr %16, i64 %235
   tail call void @llvm.prefetch.p0(ptr %236, i32 0, i32 3, i32 1)
   %237 = add i64 %.0874942, 1
-  %238 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %.0874942
+  %238 = getelementptr inbounds [64 x i32], ptr %5, i64 0, i64 %.0874942
   store i32 %230, ptr %238, align 4
   %239 = add nsw i32 %.0881941, -1
   br label %240
@@ -41583,7 +41583,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
 265:                                              ; preds = %.lr.ph955, %ZSTD_count.exit.thread
   %.0873953 = phi i64 [ 0, %.lr.ph955 ], [ %316, %ZSTD_count.exit.thread ]
   %.0885952 = phi i64 [ 3, %.lr.ph955 ], [ %.2887, %ZSTD_count.exit.thread ]
-  %266 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %.0873953
+  %266 = getelementptr inbounds [64 x i32], ptr %5, i64 0, i64 %.0873953
   %267 = load i32, ptr %266, align 4
   %268 = zext i32 %267 to i64
   %269 = getelementptr inbounds nuw i8, ptr %16, i64 %268
@@ -41764,7 +41764,7 @@ ZSTD_count.exit.thread:                           ; preds = %265, %311, %ZSTD_co
   %354 = getelementptr inbounds nuw i8, ptr %320, i64 %353
   tail call void @llvm.prefetch.p0(ptr %354, i32 0, i32 3, i32 1)
   %355 = add i64 %.0856960, 1
-  %356 = getelementptr inbounds nuw [64 x i32], ptr %6, i64 0, i64 %.0856960
+  %356 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 %.0856960
   store i32 %348, ptr %356, align 4
   %357 = add nsw i32 %.2883959, -1
   br label %358
@@ -41793,7 +41793,7 @@ ZSTD_count.exit.thread:                           ; preds = %265, %311, %ZSTD_co
 366:                                              ; preds = %.lr.ph970, %.thread
   %.0855968 = phi i64 [ 0, %.lr.ph970 ], [ %383, %.thread ]
   %.4889967 = phi i64 [ %.1886, %.lr.ph970 ], [ %.5, %.thread ]
-  %367 = getelementptr inbounds nuw [64 x i32], ptr %6, i64 0, i64 %.0855968
+  %367 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 %.0855968
   %368 = load i32, ptr %367, align 4
   %369 = zext i32 %368 to i64
   %370 = getelementptr inbounds nuw i8, ptr %320, i64 %369
@@ -42176,7 +42176,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
   %243 = getelementptr inbounds nuw i8, ptr %16, i64 %242
   tail call void @llvm.prefetch.p0(ptr %243, i32 0, i32 3, i32 1)
   %244 = add i64 %.0874938, 1
-  %245 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %.0874938
+  %245 = getelementptr inbounds [64 x i32], ptr %5, i64 0, i64 %.0874938
   store i32 %237, ptr %245, align 4
   %246 = add nsw i32 %.0881937, -1
   br label %247
@@ -42226,7 +42226,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
 271:                                              ; preds = %.lr.ph952, %ZSTD_count.exit.thread
   %.0873950 = phi i64 [ 0, %.lr.ph952 ], [ %322, %ZSTD_count.exit.thread ]
   %.0885949 = phi i64 [ 3, %.lr.ph952 ], [ %.2887, %ZSTD_count.exit.thread ]
-  %272 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %.0873950
+  %272 = getelementptr inbounds [64 x i32], ptr %5, i64 0, i64 %.0873950
   %273 = load i32, ptr %272, align 4
   %274 = zext i32 %273 to i64
   %275 = getelementptr inbounds nuw i8, ptr %16, i64 %274
@@ -42408,7 +42408,7 @@ ZSTD_count.exit.thread:                           ; preds = %271, %317, %ZSTD_co
   %362 = getelementptr inbounds nuw i8, ptr %326, i64 %361
   tail call void @llvm.prefetch.p0(ptr %362, i32 0, i32 3, i32 1)
   %363 = add i64 %.0856959, 1
-  %364 = getelementptr inbounds nuw [64 x i32], ptr %6, i64 0, i64 %.0856959
+  %364 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 %.0856959
   store i32 %356, ptr %364, align 4
   %365 = add nsw i32 %.2883958, -1
   br label %366
@@ -42437,7 +42437,7 @@ ZSTD_count.exit.thread:                           ; preds = %271, %317, %ZSTD_co
 374:                                              ; preds = %.lr.ph970, %.thread
   %.0855968 = phi i64 [ 0, %.lr.ph970 ], [ %391, %.thread ]
   %.4889967 = phi i64 [ %.1886, %.lr.ph970 ], [ %.5, %.thread ]
-  %375 = getelementptr inbounds nuw [64 x i32], ptr %6, i64 0, i64 %.0855968
+  %375 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 %.0855968
   %376 = load i32, ptr %375, align 4
   %377 = zext i32 %376 to i64
   %378 = getelementptr inbounds nuw i8, ptr %326, i64 %377
@@ -42858,7 +42858,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
   %271 = getelementptr inbounds nuw i8, ptr %18, i64 %270
   tail call void @llvm.prefetch.p0(ptr %271, i32 0, i32 3, i32 1)
   %272 = add i64 %.0874938, 1
-  %273 = getelementptr inbounds nuw [64 x i32], ptr %7, i64 0, i64 %.0874938
+  %273 = getelementptr inbounds [64 x i32], ptr %7, i64 0, i64 %.0874938
   store i32 %265, ptr %273, align 4
   %274 = add nsw i32 %.0881937, -1
   br label %275
@@ -42908,7 +42908,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
 299:                                              ; preds = %.lr.ph952, %ZSTD_count.exit.thread
   %.0873950 = phi i64 [ 0, %.lr.ph952 ], [ %350, %ZSTD_count.exit.thread ]
   %.0885949 = phi i64 [ 3, %.lr.ph952 ], [ %.2887, %ZSTD_count.exit.thread ]
-  %300 = getelementptr inbounds nuw [64 x i32], ptr %7, i64 0, i64 %.0873950
+  %300 = getelementptr inbounds [64 x i32], ptr %7, i64 0, i64 %.0873950
   %301 = load i32, ptr %300, align 4
   %302 = zext i32 %301 to i64
   %303 = getelementptr inbounds nuw i8, ptr %18, i64 %302
@@ -43117,7 +43117,7 @@ ZSTD_count.exit.thread:                           ; preds = %299, %345, %ZSTD_co
   %411 = getelementptr inbounds nuw i8, ptr %354, i64 %410
   tail call void @llvm.prefetch.p0(ptr %411, i32 0, i32 3, i32 1)
   %412 = add i64 %.0856959, 1
-  %413 = getelementptr inbounds nuw [64 x i32], ptr %8, i64 0, i64 %.0856959
+  %413 = getelementptr inbounds [64 x i32], ptr %8, i64 0, i64 %.0856959
   store i32 %405, ptr %413, align 4
   %414 = add nsw i32 %.2883958, -1
   br label %415
@@ -43146,7 +43146,7 @@ ZSTD_count.exit.thread:                           ; preds = %299, %345, %ZSTD_co
 423:                                              ; preds = %.lr.ph970, %.thread
   %.0855968 = phi i64 [ 0, %.lr.ph970 ], [ %440, %.thread ]
   %.4889967 = phi i64 [ %.1886, %.lr.ph970 ], [ %.5, %.thread ]
-  %424 = getelementptr inbounds nuw [64 x i32], ptr %8, i64 0, i64 %.0855968
+  %424 = getelementptr inbounds [64 x i32], ptr %8, i64 0, i64 %.0855968
   %425 = load i32, ptr %424, align 4
   %426 = zext i32 %425 to i64
   %427 = getelementptr inbounds nuw i8, ptr %354, i64 %426
@@ -43519,7 +43519,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
   %237 = getelementptr inbounds nuw i8, ptr %16, i64 %236
   tail call void @llvm.prefetch.p0(ptr %237, i32 0, i32 3, i32 1)
   %238 = add i64 %.0874942, 1
-  %239 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %.0874942
+  %239 = getelementptr inbounds [64 x i32], ptr %5, i64 0, i64 %.0874942
   store i32 %231, ptr %239, align 4
   %240 = add nsw i32 %.0881941, -1
   br label %241
@@ -43570,7 +43570,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
 266:                                              ; preds = %.lr.ph955, %ZSTD_count.exit.thread
   %.0873953 = phi i64 [ 0, %.lr.ph955 ], [ %317, %ZSTD_count.exit.thread ]
   %.0885952 = phi i64 [ 3, %.lr.ph955 ], [ %.2887, %ZSTD_count.exit.thread ]
-  %267 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %.0873953
+  %267 = getelementptr inbounds [64 x i32], ptr %5, i64 0, i64 %.0873953
   %268 = load i32, ptr %267, align 4
   %269 = zext i32 %268 to i64
   %270 = getelementptr inbounds nuw i8, ptr %16, i64 %269
@@ -43751,7 +43751,7 @@ ZSTD_count.exit.thread:                           ; preds = %266, %312, %ZSTD_co
   %355 = getelementptr inbounds nuw i8, ptr %321, i64 %354
   tail call void @llvm.prefetch.p0(ptr %355, i32 0, i32 3, i32 1)
   %356 = add i64 %.0856960, 1
-  %357 = getelementptr inbounds nuw [64 x i32], ptr %6, i64 0, i64 %.0856960
+  %357 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 %.0856960
   store i32 %349, ptr %357, align 4
   %358 = add nsw i32 %.2883959, -1
   br label %359
@@ -43780,7 +43780,7 @@ ZSTD_count.exit.thread:                           ; preds = %266, %312, %ZSTD_co
 367:                                              ; preds = %.lr.ph970, %.thread
   %.0855968 = phi i64 [ 0, %.lr.ph970 ], [ %384, %.thread ]
   %.4889967 = phi i64 [ %.1886, %.lr.ph970 ], [ %.5, %.thread ]
-  %368 = getelementptr inbounds nuw [64 x i32], ptr %6, i64 0, i64 %.0855968
+  %368 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 %.0855968
   %369 = load i32, ptr %368, align 4
   %370 = zext i32 %369 to i64
   %371 = getelementptr inbounds nuw i8, ptr %321, i64 %370
@@ -44164,7 +44164,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
   %244 = getelementptr inbounds nuw i8, ptr %16, i64 %243
   tail call void @llvm.prefetch.p0(ptr %244, i32 0, i32 3, i32 1)
   %245 = add i64 %.0874938, 1
-  %246 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %.0874938
+  %246 = getelementptr inbounds [64 x i32], ptr %5, i64 0, i64 %.0874938
   store i32 %238, ptr %246, align 4
   %247 = add nsw i32 %.0881937, -1
   br label %248
@@ -44214,7 +44214,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
 272:                                              ; preds = %.lr.ph952, %ZSTD_count.exit.thread
   %.0873950 = phi i64 [ 0, %.lr.ph952 ], [ %323, %ZSTD_count.exit.thread ]
   %.0885949 = phi i64 [ 3, %.lr.ph952 ], [ %.2887, %ZSTD_count.exit.thread ]
-  %273 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %.0873950
+  %273 = getelementptr inbounds [64 x i32], ptr %5, i64 0, i64 %.0873950
   %274 = load i32, ptr %273, align 4
   %275 = zext i32 %274 to i64
   %276 = getelementptr inbounds nuw i8, ptr %16, i64 %275
@@ -44396,7 +44396,7 @@ ZSTD_count.exit.thread:                           ; preds = %272, %318, %ZSTD_co
   %363 = getelementptr inbounds nuw i8, ptr %327, i64 %362
   tail call void @llvm.prefetch.p0(ptr %363, i32 0, i32 3, i32 1)
   %364 = add i64 %.0856959, 1
-  %365 = getelementptr inbounds nuw [64 x i32], ptr %6, i64 0, i64 %.0856959
+  %365 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 %.0856959
   store i32 %357, ptr %365, align 4
   %366 = add nsw i32 %.2883958, -1
   br label %367
@@ -44425,7 +44425,7 @@ ZSTD_count.exit.thread:                           ; preds = %272, %318, %ZSTD_co
 375:                                              ; preds = %.lr.ph970, %.thread
   %.0855968 = phi i64 [ 0, %.lr.ph970 ], [ %392, %.thread ]
   %.4889967 = phi i64 [ %.1886, %.lr.ph970 ], [ %.5, %.thread ]
-  %376 = getelementptr inbounds nuw [64 x i32], ptr %6, i64 0, i64 %.0855968
+  %376 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 %.0855968
   %377 = load i32, ptr %376, align 4
   %378 = zext i32 %377 to i64
   %379 = getelementptr inbounds nuw i8, ptr %327, i64 %378
@@ -44847,7 +44847,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
   %272 = getelementptr inbounds nuw i8, ptr %18, i64 %271
   tail call void @llvm.prefetch.p0(ptr %272, i32 0, i32 3, i32 1)
   %273 = add i64 %.0874938, 1
-  %274 = getelementptr inbounds nuw [64 x i32], ptr %7, i64 0, i64 %.0874938
+  %274 = getelementptr inbounds [64 x i32], ptr %7, i64 0, i64 %.0874938
   store i32 %266, ptr %274, align 4
   %275 = add nsw i32 %.0881937, -1
   br label %276
@@ -44897,7 +44897,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
 300:                                              ; preds = %.lr.ph952, %ZSTD_count.exit.thread
   %.0873950 = phi i64 [ 0, %.lr.ph952 ], [ %351, %ZSTD_count.exit.thread ]
   %.0885949 = phi i64 [ 3, %.lr.ph952 ], [ %.2887, %ZSTD_count.exit.thread ]
-  %301 = getelementptr inbounds nuw [64 x i32], ptr %7, i64 0, i64 %.0873950
+  %301 = getelementptr inbounds [64 x i32], ptr %7, i64 0, i64 %.0873950
   %302 = load i32, ptr %301, align 4
   %303 = zext i32 %302 to i64
   %304 = getelementptr inbounds nuw i8, ptr %18, i64 %303
@@ -45106,7 +45106,7 @@ ZSTD_count.exit.thread:                           ; preds = %300, %346, %ZSTD_co
   %412 = getelementptr inbounds nuw i8, ptr %355, i64 %411
   tail call void @llvm.prefetch.p0(ptr %412, i32 0, i32 3, i32 1)
   %413 = add i64 %.0856959, 1
-  %414 = getelementptr inbounds nuw [64 x i32], ptr %8, i64 0, i64 %.0856959
+  %414 = getelementptr inbounds [64 x i32], ptr %8, i64 0, i64 %.0856959
   store i32 %406, ptr %414, align 4
   %415 = add nsw i32 %.2883958, -1
   br label %416
@@ -45135,7 +45135,7 @@ ZSTD_count.exit.thread:                           ; preds = %300, %346, %ZSTD_co
 424:                                              ; preds = %.lr.ph970, %.thread
   %.0855968 = phi i64 [ 0, %.lr.ph970 ], [ %441, %.thread ]
   %.4889967 = phi i64 [ %.1886, %.lr.ph970 ], [ %.5, %.thread ]
-  %425 = getelementptr inbounds nuw [64 x i32], ptr %8, i64 0, i64 %.0855968
+  %425 = getelementptr inbounds [64 x i32], ptr %8, i64 0, i64 %.0855968
   %426 = load i32, ptr %425, align 4
   %427 = zext i32 %426 to i64
   %428 = getelementptr inbounds nuw i8, ptr %355, i64 %427
@@ -45508,7 +45508,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
   %237 = getelementptr inbounds nuw i8, ptr %16, i64 %236
   tail call void @llvm.prefetch.p0(ptr %237, i32 0, i32 3, i32 1)
   %238 = add i64 %.0874942, 1
-  %239 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %.0874942
+  %239 = getelementptr inbounds [64 x i32], ptr %5, i64 0, i64 %.0874942
   store i32 %231, ptr %239, align 4
   %240 = add nsw i32 %.0881941, -1
   br label %241
@@ -45559,7 +45559,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
 266:                                              ; preds = %.lr.ph955, %ZSTD_count.exit.thread
   %.0873953 = phi i64 [ 0, %.lr.ph955 ], [ %317, %ZSTD_count.exit.thread ]
   %.0885952 = phi i64 [ 3, %.lr.ph955 ], [ %.2887, %ZSTD_count.exit.thread ]
-  %267 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %.0873953
+  %267 = getelementptr inbounds [64 x i32], ptr %5, i64 0, i64 %.0873953
   %268 = load i32, ptr %267, align 4
   %269 = zext i32 %268 to i64
   %270 = getelementptr inbounds nuw i8, ptr %16, i64 %269
@@ -45740,7 +45740,7 @@ ZSTD_count.exit.thread:                           ; preds = %266, %312, %ZSTD_co
   %355 = getelementptr inbounds nuw i8, ptr %321, i64 %354
   tail call void @llvm.prefetch.p0(ptr %355, i32 0, i32 3, i32 1)
   %356 = add i64 %.0856960, 1
-  %357 = getelementptr inbounds nuw [64 x i32], ptr %6, i64 0, i64 %.0856960
+  %357 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 %.0856960
   store i32 %349, ptr %357, align 4
   %358 = add nsw i32 %.2883959, -1
   br label %359
@@ -45769,7 +45769,7 @@ ZSTD_count.exit.thread:                           ; preds = %266, %312, %ZSTD_co
 367:                                              ; preds = %.lr.ph970, %.thread
   %.0855968 = phi i64 [ 0, %.lr.ph970 ], [ %384, %.thread ]
   %.4889967 = phi i64 [ %.1886, %.lr.ph970 ], [ %.5, %.thread ]
-  %368 = getelementptr inbounds nuw [64 x i32], ptr %6, i64 0, i64 %.0855968
+  %368 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 %.0855968
   %369 = load i32, ptr %368, align 4
   %370 = zext i32 %369 to i64
   %371 = getelementptr inbounds nuw i8, ptr %321, i64 %370
@@ -46153,7 +46153,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
   %244 = getelementptr inbounds nuw i8, ptr %16, i64 %243
   tail call void @llvm.prefetch.p0(ptr %244, i32 0, i32 3, i32 1)
   %245 = add i64 %.0874938, 1
-  %246 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %.0874938
+  %246 = getelementptr inbounds [64 x i32], ptr %5, i64 0, i64 %.0874938
   store i32 %238, ptr %246, align 4
   %247 = add nsw i32 %.0881937, -1
   br label %248
@@ -46203,7 +46203,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
 272:                                              ; preds = %.lr.ph952, %ZSTD_count.exit.thread
   %.0873950 = phi i64 [ 0, %.lr.ph952 ], [ %323, %ZSTD_count.exit.thread ]
   %.0885949 = phi i64 [ 3, %.lr.ph952 ], [ %.2887, %ZSTD_count.exit.thread ]
-  %273 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %.0873950
+  %273 = getelementptr inbounds [64 x i32], ptr %5, i64 0, i64 %.0873950
   %274 = load i32, ptr %273, align 4
   %275 = zext i32 %274 to i64
   %276 = getelementptr inbounds nuw i8, ptr %16, i64 %275
@@ -46385,7 +46385,7 @@ ZSTD_count.exit.thread:                           ; preds = %272, %318, %ZSTD_co
   %363 = getelementptr inbounds nuw i8, ptr %327, i64 %362
   tail call void @llvm.prefetch.p0(ptr %363, i32 0, i32 3, i32 1)
   %364 = add i64 %.0856959, 1
-  %365 = getelementptr inbounds nuw [64 x i32], ptr %6, i64 0, i64 %.0856959
+  %365 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 %.0856959
   store i32 %357, ptr %365, align 4
   %366 = add nsw i32 %.2883958, -1
   br label %367
@@ -46414,7 +46414,7 @@ ZSTD_count.exit.thread:                           ; preds = %272, %318, %ZSTD_co
 375:                                              ; preds = %.lr.ph970, %.thread
   %.0855968 = phi i64 [ 0, %.lr.ph970 ], [ %392, %.thread ]
   %.4889967 = phi i64 [ %.1886, %.lr.ph970 ], [ %.5, %.thread ]
-  %376 = getelementptr inbounds nuw [64 x i32], ptr %6, i64 0, i64 %.0855968
+  %376 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 %.0855968
   %377 = load i32, ptr %376, align 4
   %378 = zext i32 %377 to i64
   %379 = getelementptr inbounds nuw i8, ptr %327, i64 %378
@@ -46836,7 +46836,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
   %272 = getelementptr inbounds nuw i8, ptr %18, i64 %271
   tail call void @llvm.prefetch.p0(ptr %272, i32 0, i32 3, i32 1)
   %273 = add i64 %.0874938, 1
-  %274 = getelementptr inbounds nuw [64 x i32], ptr %7, i64 0, i64 %.0874938
+  %274 = getelementptr inbounds [64 x i32], ptr %7, i64 0, i64 %.0874938
   store i32 %266, ptr %274, align 4
   %275 = add nsw i32 %.0881937, -1
   br label %276
@@ -46886,7 +46886,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
 300:                                              ; preds = %.lr.ph952, %ZSTD_count.exit.thread
   %.0873950 = phi i64 [ 0, %.lr.ph952 ], [ %351, %ZSTD_count.exit.thread ]
   %.0885949 = phi i64 [ 3, %.lr.ph952 ], [ %.2887, %ZSTD_count.exit.thread ]
-  %301 = getelementptr inbounds nuw [64 x i32], ptr %7, i64 0, i64 %.0873950
+  %301 = getelementptr inbounds [64 x i32], ptr %7, i64 0, i64 %.0873950
   %302 = load i32, ptr %301, align 4
   %303 = zext i32 %302 to i64
   %304 = getelementptr inbounds nuw i8, ptr %18, i64 %303
@@ -47095,7 +47095,7 @@ ZSTD_count.exit.thread:                           ; preds = %300, %346, %ZSTD_co
   %412 = getelementptr inbounds nuw i8, ptr %355, i64 %411
   tail call void @llvm.prefetch.p0(ptr %412, i32 0, i32 3, i32 1)
   %413 = add i64 %.0856959, 1
-  %414 = getelementptr inbounds nuw [64 x i32], ptr %8, i64 0, i64 %.0856959
+  %414 = getelementptr inbounds [64 x i32], ptr %8, i64 0, i64 %.0856959
   store i32 %406, ptr %414, align 4
   %415 = add nsw i32 %.2883958, -1
   br label %416
@@ -47124,7 +47124,7 @@ ZSTD_count.exit.thread:                           ; preds = %300, %346, %ZSTD_co
 424:                                              ; preds = %.lr.ph970, %.thread
   %.0855968 = phi i64 [ 0, %.lr.ph970 ], [ %441, %.thread ]
   %.4889967 = phi i64 [ %.1886, %.lr.ph970 ], [ %.5, %.thread ]
-  %425 = getelementptr inbounds nuw [64 x i32], ptr %8, i64 0, i64 %.0855968
+  %425 = getelementptr inbounds [64 x i32], ptr %8, i64 0, i64 %.0855968
   %426 = load i32, ptr %425, align 4
   %427 = zext i32 %426 to i64
   %428 = getelementptr inbounds nuw i8, ptr %355, i64 %427
@@ -48800,7 +48800,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
   %234 = getelementptr inbounds nuw i8, ptr %15, i64 %233
   tail call void @llvm.prefetch.p0(ptr %234, i32 0, i32 3, i32 1)
   %235 = add i64 %.0874948, 1
-  %236 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %.0874948
+  %236 = getelementptr inbounds [64 x i32], ptr %5, i64 0, i64 %.0874948
   store i32 %228, ptr %236, align 4
   %237 = add nsw i32 %.0881947, -1
   br label %238
@@ -48851,7 +48851,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
 263:                                              ; preds = %.lr.ph961, %ZSTD_count.exit.thread
   %.0873959 = phi i64 [ 0, %.lr.ph961 ], [ %314, %ZSTD_count.exit.thread ]
   %.0885958 = phi i64 [ 3, %.lr.ph961 ], [ %.2887, %ZSTD_count.exit.thread ]
-  %264 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %.0873959
+  %264 = getelementptr inbounds [64 x i32], ptr %5, i64 0, i64 %.0873959
   %265 = load i32, ptr %264, align 4
   %266 = zext i32 %265 to i64
   %267 = getelementptr inbounds nuw i8, ptr %15, i64 %266
@@ -49487,7 +49487,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
   %240 = getelementptr inbounds nuw i8, ptr %15, i64 %239
   tail call void @llvm.prefetch.p0(ptr %240, i32 0, i32 3, i32 1)
   %241 = add i64 %.0874949, 1
-  %242 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %.0874949
+  %242 = getelementptr inbounds [64 x i32], ptr %5, i64 0, i64 %.0874949
   store i32 %234, ptr %242, align 4
   %243 = add nsw i32 %.0881948, -1
   br label %244
@@ -49537,7 +49537,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
 268:                                              ; preds = %.lr.ph963, %ZSTD_count.exit.thread
   %.0873961 = phi i64 [ 0, %.lr.ph963 ], [ %319, %ZSTD_count.exit.thread ]
   %.0885960 = phi i64 [ 3, %.lr.ph963 ], [ %.2887, %ZSTD_count.exit.thread ]
-  %269 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %.0873961
+  %269 = getelementptr inbounds [64 x i32], ptr %5, i64 0, i64 %.0873961
   %270 = load i32, ptr %269, align 4
   %271 = zext i32 %270 to i64
   %272 = getelementptr inbounds nuw i8, ptr %15, i64 %271
@@ -50208,7 +50208,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
   %266 = getelementptr inbounds nuw i8, ptr %16, i64 %265
   tail call void @llvm.prefetch.p0(ptr %266, i32 0, i32 3, i32 1)
   %267 = add i64 %.0874949, 1
-  %268 = getelementptr inbounds nuw [64 x i32], ptr %6, i64 0, i64 %.0874949
+  %268 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 %.0874949
   store i32 %260, ptr %268, align 4
   %269 = add nsw i32 %.0881948, -1
   br label %270
@@ -50258,7 +50258,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
 294:                                              ; preds = %.lr.ph963, %ZSTD_count.exit.thread
   %.0873961 = phi i64 [ 0, %.lr.ph963 ], [ %345, %ZSTD_count.exit.thread ]
   %.0885960 = phi i64 [ 3, %.lr.ph963 ], [ %.2887, %ZSTD_count.exit.thread ]
-  %295 = getelementptr inbounds nuw [64 x i32], ptr %6, i64 0, i64 %.0873961
+  %295 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 %.0873961
   %296 = load i32, ptr %295, align 4
   %297 = zext i32 %296 to i64
   %298 = getelementptr inbounds nuw i8, ptr %16, i64 %297
@@ -50886,7 +50886,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
   %235 = getelementptr inbounds nuw i8, ptr %15, i64 %234
   tail call void @llvm.prefetch.p0(ptr %235, i32 0, i32 3, i32 1)
   %236 = add i64 %.0874948, 1
-  %237 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %.0874948
+  %237 = getelementptr inbounds [64 x i32], ptr %5, i64 0, i64 %.0874948
   store i32 %229, ptr %237, align 4
   %238 = add nsw i32 %.0881947, -1
   br label %239
@@ -50937,7 +50937,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
 264:                                              ; preds = %.lr.ph961, %ZSTD_count.exit.thread
   %.0873959 = phi i64 [ 0, %.lr.ph961 ], [ %315, %ZSTD_count.exit.thread ]
   %.0885958 = phi i64 [ 3, %.lr.ph961 ], [ %.2887, %ZSTD_count.exit.thread ]
-  %265 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %.0873959
+  %265 = getelementptr inbounds [64 x i32], ptr %5, i64 0, i64 %.0873959
   %266 = load i32, ptr %265, align 4
   %267 = zext i32 %266 to i64
   %268 = getelementptr inbounds nuw i8, ptr %15, i64 %267
@@ -51574,7 +51574,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
   %241 = getelementptr inbounds nuw i8, ptr %15, i64 %240
   tail call void @llvm.prefetch.p0(ptr %241, i32 0, i32 3, i32 1)
   %242 = add i64 %.0874949, 1
-  %243 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %.0874949
+  %243 = getelementptr inbounds [64 x i32], ptr %5, i64 0, i64 %.0874949
   store i32 %235, ptr %243, align 4
   %244 = add nsw i32 %.0881948, -1
   br label %245
@@ -51624,7 +51624,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
 269:                                              ; preds = %.lr.ph963, %ZSTD_count.exit.thread
   %.0873961 = phi i64 [ 0, %.lr.ph963 ], [ %320, %ZSTD_count.exit.thread ]
   %.0885960 = phi i64 [ 3, %.lr.ph963 ], [ %.2887, %ZSTD_count.exit.thread ]
-  %270 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %.0873961
+  %270 = getelementptr inbounds [64 x i32], ptr %5, i64 0, i64 %.0873961
   %271 = load i32, ptr %270, align 4
   %272 = zext i32 %271 to i64
   %273 = getelementptr inbounds nuw i8, ptr %15, i64 %272
@@ -52296,7 +52296,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
   %267 = getelementptr inbounds nuw i8, ptr %16, i64 %266
   tail call void @llvm.prefetch.p0(ptr %267, i32 0, i32 3, i32 1)
   %268 = add i64 %.0874949, 1
-  %269 = getelementptr inbounds nuw [64 x i32], ptr %6, i64 0, i64 %.0874949
+  %269 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 %.0874949
   store i32 %261, ptr %269, align 4
   %270 = add nsw i32 %.0881948, -1
   br label %271
@@ -52346,7 +52346,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
 295:                                              ; preds = %.lr.ph963, %ZSTD_count.exit.thread
   %.0873961 = phi i64 [ 0, %.lr.ph963 ], [ %346, %ZSTD_count.exit.thread ]
   %.0885960 = phi i64 [ 3, %.lr.ph963 ], [ %.2887, %ZSTD_count.exit.thread ]
-  %296 = getelementptr inbounds nuw [64 x i32], ptr %6, i64 0, i64 %.0873961
+  %296 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 %.0873961
   %297 = load i32, ptr %296, align 4
   %298 = zext i32 %297 to i64
   %299 = getelementptr inbounds nuw i8, ptr %16, i64 %298
@@ -52974,7 +52974,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
   %235 = getelementptr inbounds nuw i8, ptr %15, i64 %234
   tail call void @llvm.prefetch.p0(ptr %235, i32 0, i32 3, i32 1)
   %236 = add i64 %.0874948, 1
-  %237 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %.0874948
+  %237 = getelementptr inbounds [64 x i32], ptr %5, i64 0, i64 %.0874948
   store i32 %229, ptr %237, align 4
   %238 = add nsw i32 %.0881947, -1
   br label %239
@@ -53025,7 +53025,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
 264:                                              ; preds = %.lr.ph961, %ZSTD_count.exit.thread
   %.0873959 = phi i64 [ 0, %.lr.ph961 ], [ %315, %ZSTD_count.exit.thread ]
   %.0885958 = phi i64 [ 3, %.lr.ph961 ], [ %.2887, %ZSTD_count.exit.thread ]
-  %265 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %.0873959
+  %265 = getelementptr inbounds [64 x i32], ptr %5, i64 0, i64 %.0873959
   %266 = load i32, ptr %265, align 4
   %267 = zext i32 %266 to i64
   %268 = getelementptr inbounds nuw i8, ptr %15, i64 %267
@@ -53662,7 +53662,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
   %241 = getelementptr inbounds nuw i8, ptr %15, i64 %240
   tail call void @llvm.prefetch.p0(ptr %241, i32 0, i32 3, i32 1)
   %242 = add i64 %.0874949, 1
-  %243 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %.0874949
+  %243 = getelementptr inbounds [64 x i32], ptr %5, i64 0, i64 %.0874949
   store i32 %235, ptr %243, align 4
   %244 = add nsw i32 %.0881948, -1
   br label %245
@@ -53712,7 +53712,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
 269:                                              ; preds = %.lr.ph963, %ZSTD_count.exit.thread
   %.0873961 = phi i64 [ 0, %.lr.ph963 ], [ %320, %ZSTD_count.exit.thread ]
   %.0885960 = phi i64 [ 3, %.lr.ph963 ], [ %.2887, %ZSTD_count.exit.thread ]
-  %270 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %.0873961
+  %270 = getelementptr inbounds [64 x i32], ptr %5, i64 0, i64 %.0873961
   %271 = load i32, ptr %270, align 4
   %272 = zext i32 %271 to i64
   %273 = getelementptr inbounds nuw i8, ptr %15, i64 %272
@@ -54384,7 +54384,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
   %267 = getelementptr inbounds nuw i8, ptr %16, i64 %266
   tail call void @llvm.prefetch.p0(ptr %267, i32 0, i32 3, i32 1)
   %268 = add i64 %.0874949, 1
-  %269 = getelementptr inbounds nuw [64 x i32], ptr %6, i64 0, i64 %.0874949
+  %269 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 %.0874949
   store i32 %261, ptr %269, align 4
   %270 = add nsw i32 %.0881948, -1
   br label %271
@@ -54434,7 +54434,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
 295:                                              ; preds = %.lr.ph963, %ZSTD_count.exit.thread
   %.0873961 = phi i64 [ 0, %.lr.ph963 ], [ %346, %ZSTD_count.exit.thread ]
   %.0885960 = phi i64 [ 3, %.lr.ph963 ], [ %.2887, %ZSTD_count.exit.thread ]
-  %296 = getelementptr inbounds nuw [64 x i32], ptr %6, i64 0, i64 %.0873961
+  %296 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 %.0873961
   %297 = load i32, ptr %296, align 4
   %298 = zext i32 %297 to i64
   %299 = getelementptr inbounds nuw i8, ptr %16, i64 %298

@@ -52761,7 +52761,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17hd05bb82d1362aa
 
 .backedge.i:                                      ; preds = %17, %.lr.ph.split.i
   %.not.i = icmp ult i64 %11, 2
-  %16 = getelementptr inbounds nuw { { ptr, i64 }, i8, [7 x i8] }, ptr @anon.4c1c81faaf4119674ab18ffb6752df2c.92.llvm.15095859440380444305, i64 %12
+  %16 = getelementptr inbounds { { ptr, i64 }, i8, [7 x i8] }, ptr @anon.4c1c81faaf4119674ab18ffb6752df2c.92.llvm.15095859440380444305, i64 %12
   %.0.i = select i1 %.not.i, ptr %16, ptr null
   %exitcond.not.i = icmp eq i64 %12, 3
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.split.i
@@ -90700,7 +90700,7 @@ _ZN6hir_ty3mir5lower11MirLowerCtx8set_goto17hf1d1537fc878dc13E.exit: ; preds = %
 
 switch.lookup:                                    ; preds = %2033
   %2036 = sext i8 %.sroa.0882.0.copyload to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i8], ptr @switch.table._ZN6hir_ty3mir5lower11MirLowerCtx34lower_expr_to_place_without_adjust17hbb9127372fc2352cE.366, i64 0, i64 %2036
+  %switch.gep = getelementptr inbounds [10 x i8], ptr @switch.table._ZN6hir_ty3mir5lower11MirLowerCtx34lower_expr_to_place_without_adjust17hbb9127372fc2352cE.366, i64 0, i64 %2036
   %switch.load = load i8, ptr %switch.gep, align 1
   %.sroa.104124.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 36
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %21), !noalias !23751
@@ -91015,7 +91015,7 @@ switch.lookup:                                    ; preds = %2033
 
 switch.lookup4671:                                ; preds = %2102
   %2110 = sext i8 %.sroa.0882.0.copyload to i64
-  %switch.gep4672 = getelementptr inbounds nuw [10 x i8], ptr @switch.table._ZN6hir_ty3mir5lower11MirLowerCtx34lower_expr_to_place_without_adjust17hbb9127372fc2352cE.366, i64 0, i64 %2110
+  %switch.gep4672 = getelementptr inbounds [10 x i8], ptr @switch.table._ZN6hir_ty3mir5lower11MirLowerCtx34lower_expr_to_place_without_adjust17hbb9127372fc2352cE.366, i64 0, i64 %2110
   %switch.load4673 = load i8, ptr %switch.gep4672, align 1
   br label %2111
 

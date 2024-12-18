@@ -1567,19 +1567,19 @@ H5D__free_piece_info.exit.i.i:                    ; preds = %391, %389, %387
   %408 = sext i32 %407 to i64
   %409 = getelementptr inbounds [33 x i64], ptr %330, i64 0, i64 %408
   %410 = load i64, ptr %409, align 8
-  %411 = getelementptr inbounds nuw [32 x i64], ptr %21, i64 0, i64 %408
+  %411 = getelementptr inbounds [32 x i64], ptr %21, i64 0, i64 %408
   %412 = load i64, ptr %411, align 8
   %413 = add i64 %412, %410
   store i64 %413, ptr %411, align 8
-  %414 = getelementptr inbounds nuw [32 x i64], ptr %23, i64 0, i64 %408
+  %414 = getelementptr inbounds [32 x i64], ptr %23, i64 0, i64 %408
   %415 = load i64, ptr %414, align 8
   %416 = add i64 %415, 1
   store i64 %416, ptr %414, align 8
-  %417 = getelementptr inbounds nuw [32 x i64], ptr %22, i64 0, i64 %408
+  %417 = getelementptr inbounds [32 x i64], ptr %22, i64 0, i64 %408
   %418 = load i64, ptr %417, align 8
   %419 = add i64 %418, %410
   store i64 %419, ptr %417, align 8
-  %420 = getelementptr inbounds nuw [32 x i64], ptr %19, i64 0, i64 %408
+  %420 = getelementptr inbounds [32 x i64], ptr %19, i64 0, i64 %408
   %421 = load i64, ptr %420, align 8
   %.not136.i.i = icmp ult i64 %413, %421
   br i1 %.not136.i.i, label %.critedge.i.i, label %.preheader.preheader.i.i
@@ -1593,26 +1593,26 @@ H5D__free_piece_info.exit.i.i:                    ; preds = %391, %389, %387
   %424 = phi i64 [ %410, %.preheader.preheader.i.i ], [ %443, %441 ]
   %indvars.iv193.i.i = phi i64 [ %423, %.preheader.preheader.i.i ], [ %indvars.iv.next194.i.i, %441 ]
   %.5.i.i = phi i32 [ %.2176.i188.i, %.preheader.preheader.i.i ], [ %.6.i.i, %441 ]
-  %425 = getelementptr inbounds nuw [32 x i64], ptr %21, i64 0, i64 %indvars.iv193.i.i
+  %425 = getelementptr inbounds [32 x i64], ptr %21, i64 0, i64 %indvars.iv193.i.i
   store i64 0, ptr %425, align 8
-  %426 = getelementptr inbounds nuw [32 x i64], ptr %23, i64 0, i64 %indvars.iv193.i.i
+  %426 = getelementptr inbounds [32 x i64], ptr %23, i64 0, i64 %indvars.iv193.i.i
   store i64 0, ptr %426, align 8
   %427 = add i64 %424, -1
-  %428 = getelementptr inbounds nuw [32 x i64], ptr %22, i64 0, i64 %indvars.iv193.i.i
+  %428 = getelementptr inbounds [32 x i64], ptr %22, i64 0, i64 %indvars.iv193.i.i
   store i64 %427, ptr %428, align 8
-  %429 = getelementptr inbounds nuw [32 x i8], ptr %26, i64 0, i64 %indvars.iv193.i.i
+  %429 = getelementptr inbounds [32 x i8], ptr %26, i64 0, i64 %indvars.iv193.i.i
   %430 = load i8, ptr %429, align 1
   %431 = trunc i8 %430 to i1
   br i1 %431, label %432, label %439
 
 432:                                              ; preds = %.preheader.i.i
-  %433 = getelementptr inbounds nuw [32 x i64], ptr %19, i64 0, i64 %indvars.iv193.i.i
+  %433 = getelementptr inbounds [32 x i64], ptr %19, i64 0, i64 %indvars.iv193.i.i
   %434 = load i64, ptr %433, align 8
   %435 = icmp ult i64 %427, %434
   br i1 %435, label %436, label %439
 
 436:                                              ; preds = %432
-  %437 = getelementptr inbounds nuw [32 x i64], ptr %24, i64 0, i64 %indvars.iv193.i.i
+  %437 = getelementptr inbounds [32 x i64], ptr %24, i64 0, i64 %indvars.iv193.i.i
   store i64 %424, ptr %437, align 8
   store i8 0, ptr %429, align 1
   %438 = add i32 %.5.i.i, -1
@@ -1962,19 +1962,19 @@ H5D__free_piece_info.exit.i123.i:                 ; preds = %604, %602, %600
   %620 = sext i32 %619 to i64
   %621 = getelementptr inbounds [33 x i64], ptr %531, i64 0, i64 %620
   %622 = load i64, ptr %621, align 8
-  %623 = getelementptr inbounds nuw [33 x i64], ptr %15, i64 0, i64 %620
+  %623 = getelementptr inbounds [33 x i64], ptr %15, i64 0, i64 %620
   %624 = load i64, ptr %623, align 8
   %625 = add i64 %624, %622
   store i64 %625, ptr %623, align 8
-  %626 = getelementptr inbounds nuw [33 x i64], ptr %16, i64 0, i64 %620
+  %626 = getelementptr inbounds [33 x i64], ptr %16, i64 0, i64 %620
   %627 = load i64, ptr %626, align 8
   %628 = add i64 %627, %622
   store i64 %628, ptr %626, align 8
-  %629 = getelementptr inbounds nuw [32 x i64], ptr %18, i64 0, i64 %620
+  %629 = getelementptr inbounds [32 x i64], ptr %18, i64 0, i64 %620
   %630 = load i64, ptr %629, align 8
   %631 = add i64 %630, 1
   store i64 %631, ptr %629, align 8
-  %632 = getelementptr inbounds nuw [33 x i64], ptr %13, i64 0, i64 %620
+  %632 = getelementptr inbounds [33 x i64], ptr %13, i64 0, i64 %620
   %633 = load i64, ptr %632, align 8
   %634 = icmp ugt i64 %625, %633
   br i1 %634, label %.preheader.preheader.i118.i, label %666
@@ -1987,17 +1987,17 @@ H5D__free_piece_info.exit.i123.i:                 ; preds = %604, %602, %600
 .preheader.i119.i:                                ; preds = %648, %.preheader.preheader.i118.i
   %637 = phi i64 [ %622, %.preheader.preheader.i118.i ], [ %653, %648 ]
   %indvars.iv144.i.i = phi i64 [ %636, %.preheader.preheader.i118.i ], [ %indvars.iv.next145.i.i, %648 ]
-  %638 = getelementptr inbounds nuw [32 x i64], ptr %17, i64 0, i64 %indvars.iv144.i.i
+  %638 = getelementptr inbounds [32 x i64], ptr %17, i64 0, i64 %indvars.iv144.i.i
   %639 = load i64, ptr %638, align 8
-  %640 = getelementptr inbounds nuw [32 x i64], ptr %18, i64 0, i64 %indvars.iv144.i.i
+  %640 = getelementptr inbounds [32 x i64], ptr %18, i64 0, i64 %indvars.iv144.i.i
   store i64 %639, ptr %640, align 8
-  %641 = getelementptr inbounds nuw [33 x i64], ptr %14, i64 0, i64 %indvars.iv144.i.i
+  %641 = getelementptr inbounds [33 x i64], ptr %14, i64 0, i64 %indvars.iv144.i.i
   %642 = load i64, ptr %641, align 8
-  %643 = getelementptr inbounds nuw [33 x i64], ptr %15, i64 0, i64 %indvars.iv144.i.i
+  %643 = getelementptr inbounds [33 x i64], ptr %15, i64 0, i64 %indvars.iv144.i.i
   store i64 %642, ptr %643, align 8
   %644 = add i64 %637, -1
   %645 = add i64 %644, %642
-  %646 = getelementptr inbounds nuw [33 x i64], ptr %16, i64 0, i64 %indvars.iv144.i.i
+  %646 = getelementptr inbounds [33 x i64], ptr %16, i64 0, i64 %indvars.iv144.i.i
   store i64 %645, ptr %646, align 8
   %647 = icmp sgt i64 %indvars.iv144.i.i, 0
   br i1 %647, label %648, label %.critedge.i120.i
@@ -12210,7 +12210,7 @@ define range(i32 -1, 1) i32 @H5D__get_chunk_info(ptr noundef %0, ptr nocapture n
 
 .lr.ph51:                                         ; preds = %.preheader, %.lr.ph51
   %.03550 = phi i64 [ %87, %.lr.ph51 ], [ 0, %.preheader ]
-  %78 = getelementptr inbounds nuw [33 x i64], ptr %10, i64 0, i64 %.03550
+  %78 = getelementptr inbounds [33 x i64], ptr %10, i64 0, i64 %.03550
   %79 = load i64, ptr %78, align 8
   %80 = load ptr, ptr %13, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 276

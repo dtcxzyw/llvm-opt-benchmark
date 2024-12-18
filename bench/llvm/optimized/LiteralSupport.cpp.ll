@@ -2867,7 +2867,7 @@ switch.lookup:
   %16 = add i32 %15, -2
   %17 = tail call i32 @llvm.fshl.i32(i32 %16, i32 %16, i32 31)
   %18 = sext i32 %17 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN5clang20NumericLiteralParser18GetFixedPointValueERN4llvm5APIntEj, i64 0, i64 %18
+  %switch.gep = getelementptr inbounds [8 x i32], ptr @switch.table._ZN5clang20NumericLiteralParser18GetFixedPointValueERN4llvm5APIntEj, i64 0, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   %19 = icmp ugt i32 %switch.load, %13
   br i1 %19, label %.preheader, label %56
@@ -3439,7 +3439,7 @@ switch.lookup:                                    ; preds = %30
   %40 = add i32 %28, -2
   %41 = tail call i32 @llvm.fshl.i32(i32 %40, i32 %40, i32 31)
   %42 = sext i32 %41 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN5clang20NumericLiteralParser18GetFixedPointValueERN4llvm5APIntEj, i64 0, i64 %42
+  %switch.gep = getelementptr inbounds [8 x i32], ptr @switch.table._ZN5clang20NumericLiteralParser18GetFixedPointValueERN4llvm5APIntEj, i64 0, i64 %42
   %switch.load = load i32, ptr %switch.gep, align 4
   %43 = icmp ule i32 %switch.load, %39
   br i1 %43, label %_ZN4llvm5APIntD2Ev.exit, label %44
@@ -7909,7 +7909,7 @@ switch.lookup:                                    ; preds = %101
   %103 = load i32, ptr %.0350, align 8
   %switch.tableidx = add nsw i16 %99, -9
   %104 = sext i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [11 x i32], ptr @switch.table._ZN5clang19StringLiteralParser4initEN4llvm8ArrayRefINS_5TokenEEE, i64 0, i64 %104
+  %switch.gep = getelementptr inbounds [11 x i32], ptr @switch.table._ZN5clang19StringLiteralParser4initEN4llvm8ArrayRefINS_5TokenEEE, i64 0, i64 %104
   %switch.load = load i32, ptr %switch.gep, align 4
   %105 = load ptr, ptr %0, align 8
   %106 = load ptr, ptr %56, align 8
@@ -7925,7 +7925,7 @@ switch.lookup:                                    ; preds = %101
   %112 = load i16, ptr %98, align 8
   %switch.tableidx411 = add nsw i16 %112, -9
   %113 = sext i16 %switch.tableidx411 to i64
-  %switch.gep412 = getelementptr inbounds nuw [11 x i64], ptr @switch.table._ZN5clang19StringLiteralParser4initEN4llvm8ArrayRefINS_5TokenEEE.7, i64 0, i64 %113
+  %switch.gep412 = getelementptr inbounds [11 x i64], ptr @switch.table._ZN5clang19StringLiteralParser4initEN4llvm8ArrayRefINS_5TokenEEE.7, i64 0, i64 %113
   %switch.load413 = load i64, ptr %switch.gep412, align 8
   %114 = load ptr, ptr %55, align 8
   %115 = load i32, ptr %.0350, align 8

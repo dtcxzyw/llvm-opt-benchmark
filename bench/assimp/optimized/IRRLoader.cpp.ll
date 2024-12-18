@@ -7149,7 +7149,7 @@ call.i.noexc:                                     ; preds = %entry
 
 .noexc:                                           ; preds = %call.i.noexc
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %buffer) #28
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %buffer, i64 %call.i.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buffer, i64 %call.i.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %buffer, ptr noundef nonnull %add.ptr.i)
           to label %invoke.cont unwind label %lpad.i
 
@@ -8536,7 +8536,7 @@ if.end22:                                         ; preds = %_ZN4pugi4impl16load
 switch.lookup:                                    ; preds = %if.end22
   %switch.tableidx = add nsw i32 %23, -1
   %25 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [16 x ptr], ptr @switch.table._ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE5parseEPNS_8IOStreamE, i64 0, i64 %25
+  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE5parseEPNS_8IOStreamE, i64 0, i64 %25
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZNK4pugi16xml_parse_result11descriptionEv.exit
 

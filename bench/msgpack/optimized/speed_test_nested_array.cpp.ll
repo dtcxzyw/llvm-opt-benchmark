@@ -434,7 +434,7 @@ define dso_local void @_Z19test_array_of_arrayv() local_unnamed_addr #5 personal
   %25 = load ptr, ptr @_ZSt4cout, align 8, !tbaa !4
   %26 = getelementptr i8, ptr %25, i64 -24
   %27 = load i64, ptr %26, align 8
-  %28 = getelementptr inbounds nuw i8, ptr @_ZSt4cout, i64 %27
+  %28 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 240
   %30 = load ptr, ptr %29, align 8, !tbaa !7
   %31 = icmp eq ptr %30, null
@@ -471,7 +471,7 @@ define dso_local void @_Z19test_array_of_arrayv() local_unnamed_addr #5 personal
   %50 = load ptr, ptr @_ZSt4cout, align 8, !tbaa !4
   %51 = getelementptr i8, ptr %50, i64 -24
   %52 = load i64, ptr %51, align 8
-  %53 = getelementptr inbounds nuw i8, ptr @_ZSt4cout, i64 %52
+  %53 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 240
   %55 = load ptr, ptr %54, align 8, !tbaa !7
   %56 = icmp eq ptr %55, null
@@ -560,7 +560,7 @@ define dso_local void @_Z19test_array_of_arrayv() local_unnamed_addr #5 personal
   %84 = load ptr, ptr @_ZSt4cout, align 8, !tbaa !4
   %85 = getelementptr i8, ptr %84, i64 -24
   %86 = load i64, ptr %85, align 8
-  %87 = getelementptr inbounds nuw i8, ptr @_ZSt4cout, i64 %86
+  %87 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %86
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 240
   %89 = load ptr, ptr %88, align 8, !tbaa !7
   %90 = icmp eq ptr %89, null
@@ -711,7 +711,7 @@ define dso_local void @_Z19test_array_of_arrayv() local_unnamed_addr #5 personal
   %161 = load ptr, ptr @_ZSt4cout, align 8, !tbaa !4
   %162 = getelementptr i8, ptr %161, i64 -24
   %163 = load i64, ptr %162, align 8
-  %164 = getelementptr inbounds nuw i8, ptr @_ZSt4cout, i64 %163
+  %164 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %163
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 240
   %166 = load ptr, ptr %165, align 8, !tbaa !7
   %167 = icmp eq ptr %166, null
@@ -824,7 +824,7 @@ define dso_local void @_Z19test_array_of_arrayv() local_unnamed_addr #5 personal
   %225 = load ptr, ptr @_ZSt4cout, align 8, !tbaa !4
   %226 = getelementptr i8, ptr %225, i64 -24
   %227 = load i64, ptr %226, align 8
-  %228 = getelementptr inbounds nuw i8, ptr @_ZSt4cout, i64 %227
+  %228 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %227
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 240
   %230 = load ptr, ptr %229, align 8, !tbaa !7
   %231 = icmp eq ptr %230, null
@@ -978,7 +978,7 @@ define dso_local void @_Z19test_array_of_arrayv() local_unnamed_addr #5 personal
   %305 = load ptr, ptr @_ZSt4cout, align 8, !tbaa !4
   %306 = getelementptr i8, ptr %305, i64 -24
   %307 = load i64, ptr %306, align 8
-  %308 = getelementptr inbounds nuw i8, ptr @_ZSt4cout, i64 %307
+  %308 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %307
   %309 = getelementptr inbounds nuw i8, ptr %308, i64 240
   %310 = load ptr, ptr %309, align 8, !tbaa !7
   %311 = icmp eq ptr %310, null
@@ -1032,7 +1032,7 @@ define dso_local void @_Z19test_array_of_arrayv() local_unnamed_addr #5 personal
   %335 = load ptr, ptr @_ZSt4cout, align 8, !tbaa !4
   %336 = getelementptr i8, ptr %335, i64 -24
   %337 = load i64, ptr %336, align 8
-  %338 = getelementptr inbounds nuw i8, ptr @_ZSt4cout, i64 %337
+  %338 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %337
   %339 = getelementptr inbounds nuw i8, ptr %338, i64 240
   %340 = load ptr, ptr %339, align 8, !tbaa !7
   %341 = icmp eq ptr %340, null
@@ -1171,7 +1171,7 @@ define dso_local void @_Z19test_array_of_arrayv() local_unnamed_addr #5 personal
   %409 = load ptr, ptr @_ZSt4cout, align 8, !tbaa !4
   %410 = getelementptr i8, ptr %409, i64 -24
   %411 = load i64, ptr %410, align 8
-  %412 = getelementptr inbounds nuw i8, ptr @_ZSt4cout, i64 %411
+  %412 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %411
   %413 = getelementptr inbounds nuw i8, ptr %412, i64 240
   %414 = load ptr, ptr %413, align 8, !tbaa !7
   %415 = icmp eq ptr %414, null
@@ -1326,7 +1326,7 @@ define dso_local void @_Z19test_array_of_arrayv() local_unnamed_addr #5 personal
   %493 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %494 = getelementptr i8, ptr %492, i64 -24
   %495 = load i64, ptr %494, align 8
-  %496 = getelementptr inbounds nuw i8, ptr %13, i64 %495
+  %496 = getelementptr inbounds i8, ptr %13, i64 %495
   store ptr %493, ptr %496, align 8, !tbaa !4
   %497 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   %498 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -1361,7 +1361,7 @@ define dso_local void @_Z19test_array_of_arrayv() local_unnamed_addr #5 personal
   %514 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %515 = getelementptr i8, ptr %513, i64 -24
   %516 = load i64, ptr %515, align 8
-  %517 = getelementptr inbounds nuw i8, ptr %13, i64 %516
+  %517 = getelementptr inbounds i8, ptr %13, i64 %516
   store ptr %514, ptr %517, align 8, !tbaa !4
   %518 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 0, ptr %518, align 8, !tbaa !82

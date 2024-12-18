@@ -2633,7 +2633,7 @@ define linkonce_odr dso_local void @_ZN4Luau19TypePackStringifier9stringifyEPKNS
   store ptr %1, ptr %60, align 8
   %61 = load i32, ptr %1, align 8
   %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds nuw [8 x ptr], ptr @_ZZN4Luau5visitIZNS_19TypePackStringifier9stringifyEPKNS_11TypePackVarEEUlOT_E_JNS_9Unifiable5BoundIS4_EENS8_5ErrorENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_26TypeFamilyInstanceTypePackEEEEDaS6_RKNS_7VariantIJDpT0_EEEE10tableVisit, i64 0, i64 %62
+  %63 = getelementptr inbounds [8 x ptr], ptr @_ZZN4Luau5visitIZNS_19TypePackStringifier9stringifyEPKNS_11TypePackVarEEUlOT_E_JNS_9Unifiable5BoundIS4_EENS8_5ErrorENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_26TypeFamilyInstanceTypePackEEEEDaS6_RKNS_7VariantIJDpT0_EEEE10tableVisit, i64 0, i64 %62
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void %64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %65)
@@ -3555,7 +3555,7 @@ _ZN4Luau16StringifierState4emitEPKc.exit95:       ; preds = %341, %348
   store ptr %351, ptr %307, align 8
   %352 = load i32, ptr %351, align 8
   %353 = sext i32 %352 to i64
-  %354 = getelementptr inbounds nuw [20 x ptr], ptr @"_ZZN4Luau5visitIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0JNS_9Unifiable5BoundIS3_EENS7_5ErrorENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_22TypeFamilyInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit", i64 0, i64 %353
+  %354 = getelementptr inbounds [20 x ptr], ptr @"_ZZN4Luau5visitIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0JNS_9Unifiable5BoundIS3_EENS7_5ErrorENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_22TypeFamilyInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit", i64 0, i64 %353
   %355 = load ptr, ptr %354, align 8
   %356 = getelementptr inbounds nuw i8, ptr %351, i64 8
   invoke void %355(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull %356)
@@ -3848,7 +3848,7 @@ _ZN4Luau16StringifierState4emitEPKc.exit126:      ; preds = %466, %473
   store ptr %476, ptr %431, align 8
   %477 = load i32, ptr %476, align 8
   %478 = sext i32 %477 to i64
-  %479 = getelementptr inbounds nuw [8 x ptr], ptr @"_ZZN4Luau5visitIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_1JNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS7_5ErrorENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_26TypeFamilyInstanceTypePackEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit", i64 0, i64 %478
+  %479 = getelementptr inbounds [8 x ptr], ptr @"_ZZN4Luau5visitIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_1JNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS7_5ErrorENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_26TypeFamilyInstanceTypePackEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit", i64 0, i64 %478
   %480 = load ptr, ptr %479, align 8
   %481 = getelementptr inbounds nuw i8, ptr %476, i64 8
   invoke void %480(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull %481)
@@ -5481,7 +5481,7 @@ define linkonce_odr dso_local void @_ZN4Luau15TypeStringifier9stringifyEPKNS_4Ty
   store ptr %1, ptr %60, align 8
   %61 = load i32, ptr %1, align 8
   %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds nuw [20 x ptr], ptr @_ZZN4Luau5visitIZNS_15TypeStringifier9stringifyEPKNS_4TypeEEUlOT_E_JNS_9Unifiable5BoundIS4_EENS8_5ErrorENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_22TypeFamilyInstanceTypeEEEEDaS6_RKNS_7VariantIJDpT0_EEEE10tableVisit, i64 0, i64 %62
+  %63 = getelementptr inbounds [20 x ptr], ptr @_ZZN4Luau5visitIZNS_15TypeStringifier9stringifyEPKNS_4TypeEEUlOT_E_JNS_9Unifiable5BoundIS4_EENS8_5ErrorENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_22TypeFamilyInstanceTypeEEEEDaS6_RKNS_7VariantIJDpT0_EEEE10tableVisit, i64 0, i64 %62
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void %64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %65)
@@ -6454,7 +6454,7 @@ _ZN4Luau16StringifierState4emitEPKc.exit64:       ; preds = %235, %242
   store ptr %245, ptr %201, align 8
   %246 = load i32, ptr %245, align 8
   %247 = sext i32 %246 to i64
-  %248 = getelementptr inbounds nuw [20 x ptr], ptr @"_ZZN4Luau5visitIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0JNS_9Unifiable5BoundIPKNS_4TypeEEENS7_5ErrorENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_22TypeFamilyInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit", i64 0, i64 %247
+  %248 = getelementptr inbounds [20 x ptr], ptr @"_ZZN4Luau5visitIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0JNS_9Unifiable5BoundIPKNS_4TypeEEENS7_5ErrorENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_22TypeFamilyInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit", i64 0, i64 %247
   %249 = load ptr, ptr %248, align 8
   %250 = getelementptr inbounds nuw i8, ptr %245, i64 8
   invoke void %249(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull %250)
@@ -6748,7 +6748,7 @@ _ZN4Luau16StringifierState4emitEPKc.exit95:       ; preds = %361, %368
   store ptr %371, ptr %326, align 8
   %372 = load i32, ptr %371, align 8
   %373 = sext i32 %372 to i64
-  %374 = getelementptr inbounds nuw [8 x ptr], ptr @"_ZZN4Luau5visitIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_1JNS_9Unifiable5BoundIS3_EENS7_5ErrorENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_26TypeFamilyInstanceTypePackEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit", i64 0, i64 %373
+  %374 = getelementptr inbounds [8 x ptr], ptr @"_ZZN4Luau5visitIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_1JNS_9Unifiable5BoundIS3_EENS7_5ErrorENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_26TypeFamilyInstanceTypePackEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit", i64 0, i64 %373
   %375 = load ptr, ptr %374, align 8
   %376 = getelementptr inbounds nuw i8, ptr %371, i64 8
   invoke void %375(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull %376)
@@ -8169,7 +8169,7 @@ define dso_local void @_ZN4Luau8toStringB5cxx11ERKNS_10ConstraintERNS_15ToString
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #27, !noalias !47
   %7 = load i32, ptr %6, align 8, !noalias !47
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds nuw [17 x ptr], ptr @"_ZZN4Luau5visitIRZNS_8toStringB5cxx11ERKNS_10ConstraintERNS_15ToStringOptionsEE3$_0JNS_17SubtypeConstraintENS_21PackSubtypeConstraintENS_24GeneralizationConstraintENS_18IterableConstraintENS_14NameConstraintENS_28TypeAliasExpansionConstraintENS_22FunctionCallConstraintENS_23FunctionCheckConstraintENS_23PrimitiveTypeConstraintENS_17HasPropConstraintENS_20HasIndexerConstraintENS_20AssignPropConstraintENS_21AssignIndexConstraintENS_16UnpackConstraintENS_16ReduceConstraintENS_20ReducePackConstraintENS_18EqualityConstraintEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisitB5cxx11", i64 0, i64 %8
+  %9 = getelementptr inbounds [17 x ptr], ptr @"_ZZN4Luau5visitIRZNS_8toStringB5cxx11ERKNS_10ConstraintERNS_15ToStringOptionsEE3$_0JNS_17SubtypeConstraintENS_21PackSubtypeConstraintENS_24GeneralizationConstraintENS_18IterableConstraintENS_14NameConstraintENS_28TypeAliasExpansionConstraintENS_22FunctionCallConstraintENS_23FunctionCheckConstraintENS_23PrimitiveTypeConstraintENS_17HasPropConstraintENS_20HasIndexerConstraintENS_20AssignPropConstraintENS_21AssignIndexConstraintENS_16UnpackConstraintENS_16ReduceConstraintENS_20ReducePackConstraintENS_18EqualityConstraintEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisitB5cxx11", i64 0, i64 %8
   %10 = load ptr, ptr %9, align 8, !noalias !47
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   invoke void %10(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull %11)
@@ -8233,7 +8233,7 @@ define dso_local void @_ZN4Luau8toStringB5cxx11ERKNS_10ConstraintE(ptr dead_on_u
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #27, !noalias !56
   %26 = load i32, ptr %25, align 8, !noalias !56
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds nuw [17 x ptr], ptr @"_ZZN4Luau5visitIRZNS_8toStringB5cxx11ERKNS_10ConstraintERNS_15ToStringOptionsEE3$_0JNS_17SubtypeConstraintENS_21PackSubtypeConstraintENS_24GeneralizationConstraintENS_18IterableConstraintENS_14NameConstraintENS_28TypeAliasExpansionConstraintENS_22FunctionCallConstraintENS_23FunctionCheckConstraintENS_23PrimitiveTypeConstraintENS_17HasPropConstraintENS_20HasIndexerConstraintENS_20AssignPropConstraintENS_21AssignIndexConstraintENS_16UnpackConstraintENS_16ReduceConstraintENS_20ReducePackConstraintENS_18EqualityConstraintEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisitB5cxx11", i64 0, i64 %27
+  %28 = getelementptr inbounds [17 x ptr], ptr @"_ZZN4Luau5visitIRZNS_8toStringB5cxx11ERKNS_10ConstraintERNS_15ToStringOptionsEE3$_0JNS_17SubtypeConstraintENS_21PackSubtypeConstraintENS_24GeneralizationConstraintENS_18IterableConstraintENS_14NameConstraintENS_28TypeAliasExpansionConstraintENS_22FunctionCallConstraintENS_23FunctionCheckConstraintENS_23PrimitiveTypeConstraintENS_17HasPropConstraintENS_20HasIndexerConstraintENS_20AssignPropConstraintENS_21AssignIndexConstraintENS_16UnpackConstraintENS_16ReduceConstraintENS_20ReducePackConstraintENS_18EqualityConstraintEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisitB5cxx11", i64 0, i64 %27
   %29 = load ptr, ptr %28, align 8, !noalias !56
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 32
   invoke void %29(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull %30)
@@ -8417,7 +8417,7 @@ define dso_local void @_ZN4Luau4dumpB5cxx11ERKNS_10ConstraintE(ptr dead_on_unwin
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #27, !noalias !63
   %27 = load i32, ptr %26, align 8, !noalias !63
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds nuw [17 x ptr], ptr @"_ZZN4Luau5visitIRZNS_8toStringB5cxx11ERKNS_10ConstraintERNS_15ToStringOptionsEE3$_0JNS_17SubtypeConstraintENS_21PackSubtypeConstraintENS_24GeneralizationConstraintENS_18IterableConstraintENS_14NameConstraintENS_28TypeAliasExpansionConstraintENS_22FunctionCallConstraintENS_23FunctionCheckConstraintENS_23PrimitiveTypeConstraintENS_17HasPropConstraintENS_20HasIndexerConstraintENS_20AssignPropConstraintENS_21AssignIndexConstraintENS_16UnpackConstraintENS_16ReduceConstraintENS_20ReducePackConstraintENS_18EqualityConstraintEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisitB5cxx11", i64 0, i64 %28
+  %29 = getelementptr inbounds [17 x ptr], ptr @"_ZZN4Luau5visitIRZNS_8toStringB5cxx11ERKNS_10ConstraintERNS_15ToStringOptionsEE3$_0JNS_17SubtypeConstraintENS_21PackSubtypeConstraintENS_24GeneralizationConstraintENS_18IterableConstraintENS_14NameConstraintENS_28TypeAliasExpansionConstraintENS_22FunctionCallConstraintENS_23FunctionCheckConstraintENS_23PrimitiveTypeConstraintENS_17HasPropConstraintENS_20HasIndexerConstraintENS_20AssignPropConstraintENS_21AssignIndexConstraintENS_16UnpackConstraintENS_16ReduceConstraintENS_20ReducePackConstraintENS_18EqualityConstraintEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisitB5cxx11", i64 0, i64 %28
   %30 = load ptr, ptr %29, align 8, !noalias !63
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
   invoke void %30(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull %31)
@@ -20191,7 +20191,7 @@ define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePack
   %4 = load i32, ptr %1, align 8
   store i32 %4, ptr %3, align 8
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZN4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEEC1ERKS3_E5table, i64 0, i64 %5
+  %6 = getelementptr inbounds [2 x ptr], ptr @_ZZN4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEEC1ERKS3_E5table, i64 0, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -20205,7 +20205,7 @@ define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePack
 "_ZZN4Luau16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEENK3$_0clINS_13SingletonTypeEEEDaT_.exit": ; preds = %2
   %11 = load i32, ptr %3, align 8
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEE9tableDtorE, i64 0, i64 %12
+  %13 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEE9tableDtorE, i64 0, i64 %12
   %14 = load ptr, ptr %13, align 8
   invoke void %14(ptr noundef nonnull %8)
           to label %_ZN4Luau13SingletonTypeD2Ev.exit unwind label %15
@@ -20225,7 +20225,7 @@ _ZN4Luau13SingletonTypeD2Ev.exit:                 ; preds = %"_ZZN4Luau16toStrin
           cleanup
   %20 = load i32, ptr %3, align 8
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEE9tableDtorE, i64 0, i64 %21
+  %22 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEE9tableDtorE, i64 0, i64 %21
   %23 = load ptr, ptr %22, align 8
   invoke void %23(ptr noundef nonnull %8)
           to label %_ZN4Luau13SingletonTypeD2Ev.exit4 unwind label %24

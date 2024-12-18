@@ -2845,7 +2845,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149: ; preds = %_Z
   %86 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %85, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
-  %add.ptr.i.i150 = getelementptr inbounds nuw i8, ptr %message, i64 %vbase.offset.i.i
+  %add.ptr.i.i150 = getelementptr inbounds i8, ptr %message, i64 %vbase.offset.i.i
   store ptr %86, ptr %add.ptr.i.i150, align 8, !tbaa !33
   %_M_stringbuf.i.i = getelementptr inbounds nuw i8, ptr %message, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !33

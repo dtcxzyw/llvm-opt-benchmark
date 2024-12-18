@@ -303,7 +303,7 @@ if.then.i:                                        ; preds = %invoke.cont7
   %vtable.i = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !4
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr @_ZSt4cerr, i64 %vbase.offset.i
+  %add.ptr.i = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %vbase.offset.i
   %_M_streambuf_state.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 32
   %0 = load i32, ptr %_M_streambuf_state.i.i.i, align 8, !tbaa !7
   %or.i.i.i = or i32 %0, 1
@@ -364,7 +364,7 @@ if.then.i:                                        ; preds = %invoke.cont6
   %vtable.i = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !4
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr @_ZSt4cerr, i64 %vbase.offset.i
+  %add.ptr.i = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %vbase.offset.i
   %_M_streambuf_state.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 32
   %0 = load i32, ptr %_M_streambuf_state.i.i.i, align 8, !tbaa !7
   %or.i.i.i = or i32 %0, 1
@@ -1788,23 +1788,23 @@ for.body20.i.i.preheader:                         ; preds = %for.body8.i.i
   %25 = load i64, ptr %arrayidx28.i.i.1, align 8, !tbaa !55
   %inc29.i.i.1 = add i64 %25, 1
   store i64 %inc29.i.i.1, ptr %arrayidx28.i.i.1, align 8, !tbaa !55
-  %arrayidx30.i.i.1 = getelementptr inbounds nuw i32, ptr %arr, i64 %25
+  %arrayidx30.i.i.1 = getelementptr inbounds i32, ptr %arr, i64 %25
   store i32 %11, ptr %arrayidx30.i.i.1, align 4, !tbaa !17
   %arrayidx28.i.i.2 = getelementptr inbounds nuw [256 x i64], ptr %index.i30.i, i64 0, i64 %idxprom.i37.i.2
   %26 = load i64, ptr %arrayidx28.i.i.2, align 8, !tbaa !55
   %inc29.i.i.2 = add i64 %26, 1
   store i64 %inc29.i.i.2, ptr %arrayidx28.i.i.2, align 8, !tbaa !55
-  %arrayidx30.i.i.2 = getelementptr inbounds nuw i32, ptr %arr, i64 %26
+  %arrayidx30.i.i.2 = getelementptr inbounds i32, ptr %arr, i64 %26
   store i32 %13, ptr %arrayidx30.i.i.2, align 4, !tbaa !17
   %arrayidx28.i.i.3 = getelementptr inbounds nuw [256 x i64], ptr %index.i30.i, i64 0, i64 %idxprom.i37.i.3
   %27 = load i64, ptr %arrayidx28.i.i.3, align 8, !tbaa !55
   %inc29.i.i.3 = add i64 %27, 1
   store i64 %inc29.i.i.3, ptr %arrayidx28.i.i.3, align 8, !tbaa !55
-  %arrayidx30.i.i.3 = getelementptr inbounds nuw i32, ptr %arr, i64 %27
+  %arrayidx30.i.i.3 = getelementptr inbounds i32, ptr %arr, i64 %27
   store i32 %15, ptr %arrayidx30.i.i.3, align 4, !tbaa !17
   %arrayidx28.i.i.4 = getelementptr inbounds nuw [256 x i64], ptr %index.i30.i, i64 0, i64 %idxprom.i37.i.4
   %28 = load i64, ptr %arrayidx28.i.i.4, align 8, !tbaa !55
-  %arrayidx30.i.i.4 = getelementptr inbounds nuw i32, ptr %arr, i64 %28
+  %arrayidx30.i.i.4 = getelementptr inbounds i32, ptr %arr, i64 %28
   store i32 %17, ptr %arrayidx30.i.i.4, align 4, !tbaa !17
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %count.i31.i) #17
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %index.i30.i) #17
@@ -2003,29 +2003,29 @@ for.body20.i.1.i.preheader:                       ; preds = %for.body8.i.1.i
   %66 = load i64, ptr %arrayidx28.i.1.i, align 8, !tbaa !55
   %inc29.i.1.i = add i64 %66, 1
   store i64 %inc29.i.1.i, ptr %arrayidx28.i.1.i, align 8, !tbaa !55
-  %arrayidx30.i.1.i = getelementptr inbounds nuw i32, ptr %arr, i64 %66
+  %arrayidx30.i.1.i = getelementptr inbounds i32, ptr %arr, i64 %66
   store i32 %50, ptr %arrayidx30.i.1.i, align 4, !tbaa !17
   %arrayidx28.i.1.i.1 = getelementptr inbounds nuw [256 x i64], ptr %index.i30.i, i64 0, i64 %idxprom.i37.1.i.1
   %67 = load i64, ptr %arrayidx28.i.1.i.1, align 8, !tbaa !55
   %inc29.i.1.i.1 = add i64 %67, 1
   store i64 %inc29.i.1.i.1, ptr %arrayidx28.i.1.i.1, align 8, !tbaa !55
-  %arrayidx30.i.1.i.1 = getelementptr inbounds nuw i32, ptr %arr, i64 %67
+  %arrayidx30.i.1.i.1 = getelementptr inbounds i32, ptr %arr, i64 %67
   store i32 %52, ptr %arrayidx30.i.1.i.1, align 4, !tbaa !17
   %arrayidx28.i.1.i.2 = getelementptr inbounds nuw [256 x i64], ptr %index.i30.i, i64 0, i64 %idxprom.i37.1.i.2
   %68 = load i64, ptr %arrayidx28.i.1.i.2, align 8, !tbaa !55
   %inc29.i.1.i.2 = add i64 %68, 1
   store i64 %inc29.i.1.i.2, ptr %arrayidx28.i.1.i.2, align 8, !tbaa !55
-  %arrayidx30.i.1.i.2 = getelementptr inbounds nuw i32, ptr %arr, i64 %68
+  %arrayidx30.i.1.i.2 = getelementptr inbounds i32, ptr %arr, i64 %68
   store i32 %54, ptr %arrayidx30.i.1.i.2, align 4, !tbaa !17
   %arrayidx28.i.1.i.3 = getelementptr inbounds nuw [256 x i64], ptr %index.i30.i, i64 0, i64 %idxprom.i37.1.i.3
   %69 = load i64, ptr %arrayidx28.i.1.i.3, align 8, !tbaa !55
   %inc29.i.1.i.3 = add i64 %69, 1
   store i64 %inc29.i.1.i.3, ptr %arrayidx28.i.1.i.3, align 8, !tbaa !55
-  %arrayidx30.i.1.i.3 = getelementptr inbounds nuw i32, ptr %arr, i64 %69
+  %arrayidx30.i.1.i.3 = getelementptr inbounds i32, ptr %arr, i64 %69
   store i32 %56, ptr %arrayidx30.i.1.i.3, align 4, !tbaa !17
   %arrayidx28.i.1.i.4 = getelementptr inbounds nuw [256 x i64], ptr %index.i30.i, i64 0, i64 %idxprom.i37.1.i.4
   %70 = load i64, ptr %arrayidx28.i.1.i.4, align 8, !tbaa !55
-  %arrayidx30.i.1.i.4 = getelementptr inbounds nuw i32, ptr %arr, i64 %70
+  %arrayidx30.i.1.i.4 = getelementptr inbounds i32, ptr %arr, i64 %70
   store i32 %58, ptr %arrayidx30.i.1.i.4, align 4, !tbaa !17
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %count.i31.i) #17
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %index.i30.i) #17
@@ -3670,7 +3670,7 @@ invoke.cont1:                                     ; preds = %if.else.i.i, %if.th
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %8, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 %vbase.offset.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i
   store ptr %9, ptr %add.ptr.i.i, align 8, !tbaa !4
   %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   store ptr %10, ptr %add.ptr, align 8, !tbaa !4
@@ -3702,7 +3702,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i.i.i = getelementptr i8, ptr %14, i64 -24
   %vbase.offset.i.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 %vbase.offset.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i.i.i
   store ptr %15, ptr %add.ptr.i.i.i.i, align 8, !tbaa !4
   %_M_gcount.i.i.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 8
   store i64 0, ptr %_M_gcount.i.i.i.i, align 8, !tbaa !87
@@ -4477,7 +4477,7 @@ invoke.cont1:                                     ; preds = %if.else.i.i, %if.th
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %8, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 %vbase.offset.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i
   store ptr %9, ptr %add.ptr.i.i, align 8, !tbaa !4
   %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   store ptr %10, ptr %add.ptr, align 8, !tbaa !4
@@ -4509,7 +4509,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i.i.i = getelementptr i8, ptr %14, i64 -24
   %vbase.offset.i.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 %vbase.offset.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i.i.i
   store ptr %15, ptr %add.ptr.i.i.i.i, align 8, !tbaa !4
   %_M_gcount.i.i.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 8
   store i64 0, ptr %_M_gcount.i.i.i.i, align 8, !tbaa !87

@@ -1155,11 +1155,11 @@ xdl_num_out.exit.i:                               ; preds = %for.body9.i.i, %if.
 
 if.then.i:                                        ; preds = %xdl_num_out.exit.i
   %idx.ext4.i = sext i32 %add2.i to i64
-  %add.ptr5.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 %idx.ext4.i
+  %add.ptr5.i = getelementptr inbounds i8, ptr %buf.i, i64 %idx.ext4.i
   store i8 44, ptr %add.ptr5.i, align 1
   %add6.i = add nsw i32 %conv.i.i, 5
   %idx.ext8.i = sext i32 %add6.i to i64
-  %add.ptr9.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 %idx.ext8.i
+  %add.ptr9.i = getelementptr inbounds i8, ptr %buf.i, i64 %idx.ext8.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %buf.i35.i)
   %add.ptr1.i36.i = getelementptr inbounds nuw i8, ptr %buf.i35.i, i64 31
   store i8 0, ptr %add.ptr1.i36.i, align 1
@@ -1224,11 +1224,11 @@ xdl_num_out.exit70.i:                             ; preds = %for.body9.i53.i, %i
 if.end.i:                                         ; preds = %xdl_num_out.exit70.i, %xdl_num_out.exit.i
   %nb.0.i = phi i32 [ %add11.i, %xdl_num_out.exit70.i ], [ %add2.i, %xdl_num_out.exit.i ]
   %idx.ext13.i = sext i32 %nb.0.i to i64
-  %add.ptr14.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 %idx.ext13.i
+  %add.ptr14.i = getelementptr inbounds i8, ptr %buf.i, i64 %idx.ext13.i
   store i16 11040, ptr %add.ptr14.i, align 1
   %add15.i = add nsw i32 %nb.0.i, 2
   %idx.ext17.i = sext i32 %add15.i to i64
-  %add.ptr18.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 %idx.ext17.i
+  %add.ptr18.i = getelementptr inbounds i8, ptr %buf.i, i64 %idx.ext17.i
   %tobool19.not.i = icmp eq i64 %c2, 0
   %sub22.i = sext i1 %tobool19.not.i to i64
   %cond24.i = add nsw i64 %s2, %sub22.i
@@ -1297,11 +1297,11 @@ xdl_num_out.exit106.i:                            ; preds = %for.body9.i89.i, %i
 
 if.then28.i:                                      ; preds = %xdl_num_out.exit106.i
   %idx.ext30.i = sext i32 %add26.i to i64
-  %add.ptr31.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 %idx.ext30.i
+  %add.ptr31.i = getelementptr inbounds i8, ptr %buf.i, i64 %idx.ext30.i
   store i8 44, ptr %add.ptr31.i, align 1
   %add32.i = add nsw i32 %add26.i, 1
   %idx.ext34.i = sext i32 %add32.i to i64
-  %add.ptr35.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 %idx.ext34.i
+  %add.ptr35.i = getelementptr inbounds i8, ptr %buf.i, i64 %idx.ext34.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %buf.i107.i)
   %add.ptr1.i108.i = getelementptr inbounds nuw i8, ptr %buf.i107.i, i64 31
   store i8 0, ptr %add.ptr1.i108.i, align 1
@@ -1366,7 +1366,7 @@ xdl_num_out.exit142.i:                            ; preds = %for.body9.i125.i, %
 if.end38.i:                                       ; preds = %xdl_num_out.exit142.i, %xdl_num_out.exit106.i
   %nb.1.i = phi i32 [ %add37.i, %xdl_num_out.exit142.i ], [ %add26.i, %xdl_num_out.exit106.i ]
   %idx.ext40.i = sext i32 %nb.1.i to i64
-  %add.ptr41.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 %idx.ext40.i
+  %add.ptr41.i = getelementptr inbounds i8, ptr %buf.i, i64 %idx.ext40.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr41.i, ptr noundef nonnull align 1 dereferenceable(3) @.str.5, i64 3, i1 false)
   %add42.i = add nsw i32 %nb.1.i, 3
   %tobool43.i = icmp ne ptr %func, null
@@ -1377,12 +1377,12 @@ if.end38.i:                                       ; preds = %xdl_num_out.exit142
 if.then45.i:                                      ; preds = %if.end38.i
   %inc.i = add nsw i32 %nb.1.i, 4
   %idxprom.i = sext i32 %add42.i to i64
-  %arrayidx.i = getelementptr inbounds nuw [128 x i8], ptr %buf.i, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [128 x i8], ptr %buf.i, i64 0, i64 %idxprom.i
   store i8 32, ptr %arrayidx.i, align 1
   %conv.i = sext i32 %inc.i to i64
   %sub47.i = sub nsw i64 127, %conv.i
   %spec.select.i = call i64 @llvm.umin.i64(i64 %funclen, i64 %sub47.i)
-  %add.ptr57.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 %conv.i
+  %add.ptr57.i = getelementptr inbounds i8, ptr %buf.i, i64 %conv.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr57.i, ptr nonnull readonly align 1 %func, i64 %spec.select.i, i1 false)
   %13 = trunc i64 %spec.select.i to i32
   %conv60.i = add i32 %inc.i, %13
@@ -1392,7 +1392,7 @@ xdl_format_hunk_hdr.exit:                         ; preds = %if.end38.i, %if.the
   %nb.2.i = phi i32 [ %conv60.i, %if.then45.i ], [ %add42.i, %if.end38.i ]
   %inc62.i = add nsw i32 %nb.2.i, 1
   %idxprom63.i = sext i32 %nb.2.i to i64
-  %arrayidx64.i = getelementptr inbounds nuw [128 x i8], ptr %buf.i, i64 0, i64 %idxprom63.i
+  %arrayidx64.i = getelementptr inbounds [128 x i8], ptr %buf.i, i64 0, i64 %idxprom63.i
   store i8 10, ptr %arrayidx64.i, align 1
   store ptr %buf.i, ptr %mb.i, align 8
   %conv66.i = sext i32 %inc62.i to i64

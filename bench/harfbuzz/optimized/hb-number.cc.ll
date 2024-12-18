@@ -180,13 +180,13 @@ _resume.i:                                        ; preds = %if.end62.i, %_resum
   %p.addr.2.i = phi ptr [ %incdec.ptr63.i, %if.end62.i ], [ %p.addr.0.lcssa.i, %_resume.preheader.i ]
   %shl.i = shl nsw i32 %cs.0.i, 1
   %idx.ext.i = sext i32 %shl.i to i64
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr @_ZL25_double_parser_trans_keys, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds i8, ptr @_ZL25_double_parser_trans_keys, i64 %idx.ext.i
   %idxprom.i = sext i32 %cs.0.i to i64
-  %arrayidx.i = getelementptr inbounds nuw [9 x i8], ptr @_ZL28_double_parser_index_offsets, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [9 x i8], ptr @_ZL28_double_parser_index_offsets, i64 0, i64 %idxprom.i
   %5 = load i8, ptr %arrayidx.i, align 1
   %idx.ext5.i = zext i8 %5 to i64
   %add.ptr6.i = getelementptr inbounds nuw i8, ptr @_ZL23_double_parser_indicies, i64 %idx.ext5.i
-  %arrayidx8.i = getelementptr inbounds nuw [9 x i8], ptr @_ZL24_double_parser_key_spans, i64 0, i64 %idxprom.i
+  %arrayidx8.i = getelementptr inbounds [9 x i8], ptr @_ZL24_double_parser_key_spans, i64 0, i64 %idxprom.i
   %6 = load i8, ptr %arrayidx8.i, align 1
   %conv9.i = sext i8 %6 to i32
   %7 = load i8, ptr %add.ptr.i, align 2
@@ -211,7 +211,7 @@ cond.end.i:                                       ; preds = %land.lhs.true15.i, 
   %arrayidx24.i = getelementptr inbounds i8, ptr %add.ptr6.i, i64 %idxprom23.i
   %10 = load i8, ptr %arrayidx24.i, align 1
   %idxprom26.i = sext i8 %10 to i64
-  %arrayidx27.i = getelementptr inbounds nuw [10 x i8], ptr @_ZL26_double_parser_trans_targs, i64 0, i64 %idxprom26.i
+  %arrayidx27.i = getelementptr inbounds [10 x i8], ptr @_ZL26_double_parser_trans_targs, i64 0, i64 %idxprom26.i
   %11 = load i8, ptr %arrayidx27.i, align 1
   %conv28.i = sext i8 %11 to i32
   %12 = shl nuw i64 1, %idxprom26.i
@@ -220,7 +220,7 @@ cond.end.i:                                       ; preds = %land.lhs.true15.i, 
   br i1 %cmp32.not.i, label %if.end34.i, label %_again.i
 
 if.end34.i:                                       ; preds = %cond.end.i
-  %arrayidx30.i = getelementptr inbounds nuw [10 x i8], ptr @_ZL28_double_parser_trans_actions, i64 0, i64 %idxprom26.i
+  %arrayidx30.i = getelementptr inbounds [10 x i8], ptr @_ZL28_double_parser_trans_actions, i64 0, i64 %idxprom26.i
   %14 = load i8, ptr %arrayidx30.i, align 1
   switch i8 %14, label %_again.i [
     i8 1, label %sw.bb.i

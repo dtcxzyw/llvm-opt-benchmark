@@ -707,8 +707,8 @@ if.else:                                          ; preds = %if.end
   %add22 = add nsw i32 %mul21, 6
   %div = sdiv i32 %add22, 367
   %idxprom = sext i32 %div to i64
-  %arrayidx = getelementptr inbounds nuw [12 x i16], ptr @_ZL12kLeapNumDays, i64 0, i64 %idxprom
-  %arrayidx25 = getelementptr inbounds nuw [12 x i16], ptr @_ZL8kNumDays, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [12 x i16], ptr @_ZL12kLeapNumDays, i64 0, i64 %idxprom
+  %arrayidx25 = getelementptr inbounds [12 x i16], ptr @_ZL8kNumDays, i64 0, i64 %idxprom
   %cond26.in = select i1 %cmp12, ptr %arrayidx, ptr %arrayidx25
   %cond26 = load i16, ptr %cond26.in, align 2
   %conv27 = sext i16 %cond26 to i32
@@ -1020,8 +1020,8 @@ if.end28:                                         ; preds = %land.end, %if.end15
 if.then30:                                        ; preds = %if.end28
   %tobool31.not = icmp eq i8 %isLeap.0, 0
   %idxprom = sext i32 %6 to i64
-  %arrayidx = getelementptr inbounds nuw [12 x i16], ptr @_ZL12kLeapNumDays, i64 0, i64 %idxprom
-  %arrayidx33 = getelementptr inbounds nuw [12 x i16], ptr @_ZL8kNumDays, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [12 x i16], ptr @_ZL12kLeapNumDays, i64 0, i64 %idxprom
+  %arrayidx33 = getelementptr inbounds [12 x i16], ptr @_ZL8kNumDays, i64 0, i64 %idxprom
   %cond.in = select i1 %tobool31.not, ptr %arrayidx33, ptr %arrayidx
   %cond = load i16, ptr %cond.in, align 2
   %conv34 = sext i16 %cond to i64
@@ -1071,7 +1071,7 @@ land.rhs.i:                                       ; preds = %if.end
 _ZNK6icu_7517GregorianCalendar10isLeapYearEi.exit.thread: ; preds = %land.rhs.i
   %1 = load i32, ptr %month.addr, align 4
   %idxprom3 = sext i32 %1 to i64
-  %arrayidx4 = getelementptr inbounds nuw [12 x i8], ptr @_ZL16kLeapMonthLength, i64 0, i64 %idxprom3
+  %arrayidx4 = getelementptr inbounds [12 x i8], ptr @_ZL16kLeapMonthLength, i64 0, i64 %idxprom3
   br label %4
 
 lor.rhs.i:                                        ; preds = %land.rhs.i
@@ -1079,16 +1079,16 @@ lor.rhs.i:                                        ; preds = %land.rhs.i
   %cmp5.i = icmp eq i32 %rem4.i, 0
   %2 = load i32, ptr %month.addr, align 4
   %idxprom8 = sext i32 %2 to i64
-  %arrayidx9 = getelementptr inbounds nuw [12 x i8], ptr @_ZL16kLeapMonthLength, i64 0, i64 %idxprom8
-  %arrayidx510 = getelementptr inbounds nuw [12 x i8], ptr @_ZL12kMonthLength, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [12 x i8], ptr @_ZL16kLeapMonthLength, i64 0, i64 %idxprom8
+  %arrayidx510 = getelementptr inbounds [12 x i8], ptr @_ZL12kMonthLength, i64 0, i64 %idxprom8
   br i1 %cmp5.i, label %4, label %5
 
 _ZNK6icu_7517GregorianCalendar10isLeapYearEi.exit: ; preds = %if.end
   %cmp7.mux.i = and i1 %cmp.not.i, %cmp7.i
   %3 = load i32, ptr %month.addr, align 4
   %idxprom = sext i32 %3 to i64
-  %arrayidx = getelementptr inbounds nuw [12 x i8], ptr @_ZL16kLeapMonthLength, i64 0, i64 %idxprom
-  %arrayidx5 = getelementptr inbounds nuw [12 x i8], ptr @_ZL12kMonthLength, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [12 x i8], ptr @_ZL16kLeapMonthLength, i64 0, i64 %idxprom
+  %arrayidx5 = getelementptr inbounds [12 x i8], ptr @_ZL12kMonthLength, i64 0, i64 %idxprom
   br i1 %cmp7.mux.i, label %4, label %5
 
 4:                                                ; preds = %lor.rhs.i, %_ZNK6icu_7517GregorianCalendar10isLeapYearEi.exit.thread, %_ZNK6icu_7517GregorianCalendar10isLeapYearEi.exit
@@ -1167,22 +1167,22 @@ land.rhs.i:                                       ; preds = %entry
 
 _ZNK6icu_7517GregorianCalendar10isLeapYearEi.exit.thread: ; preds = %land.rhs.i
   %idxprom3 = sext i32 %month to i64
-  %arrayidx4 = getelementptr inbounds nuw [12 x i8], ptr @_ZL16kLeapMonthLength, i64 0, i64 %idxprom3
+  %arrayidx4 = getelementptr inbounds [12 x i8], ptr @_ZL16kLeapMonthLength, i64 0, i64 %idxprom3
   br label %1
 
 lor.rhs.i:                                        ; preds = %land.rhs.i
   %rem4.i = srem i32 %year, 400
   %cmp5.i = icmp eq i32 %rem4.i, 0
   %idxprom8 = sext i32 %month to i64
-  %arrayidx9 = getelementptr inbounds nuw [12 x i8], ptr @_ZL16kLeapMonthLength, i64 0, i64 %idxprom8
-  %arrayidx310 = getelementptr inbounds nuw [12 x i8], ptr @_ZL12kMonthLength, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [12 x i8], ptr @_ZL16kLeapMonthLength, i64 0, i64 %idxprom8
+  %arrayidx310 = getelementptr inbounds [12 x i8], ptr @_ZL12kMonthLength, i64 0, i64 %idxprom8
   br i1 %cmp5.i, label %1, label %2
 
 _ZNK6icu_7517GregorianCalendar10isLeapYearEi.exit: ; preds = %entry
   %cmp7.mux.i = and i1 %cmp7.i, %cmp.not.i
   %idxprom = sext i32 %month to i64
-  %arrayidx = getelementptr inbounds nuw [12 x i8], ptr @_ZL16kLeapMonthLength, i64 0, i64 %idxprom
-  %arrayidx3 = getelementptr inbounds nuw [12 x i8], ptr @_ZL12kMonthLength, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [12 x i8], ptr @_ZL16kLeapMonthLength, i64 0, i64 %idxprom
+  %arrayidx3 = getelementptr inbounds [12 x i8], ptr @_ZL12kMonthLength, i64 0, i64 %idxprom
   br i1 %cmp7.mux.i, label %1, label %2
 
 1:                                                ; preds = %lor.rhs.i, %_ZNK6icu_7517GregorianCalendar10isLeapYearEi.exit.thread, %_ZNK6icu_7517GregorianCalendar10isLeapYearEi.exit

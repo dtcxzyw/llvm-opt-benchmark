@@ -4523,14 +4523,14 @@ lzx_read_pre_tree.exit313.thread.i.i.i:           ; preds = %lzx_read_pre_tree.e
   %945 = getelementptr inbounds nuw i8, ptr %897, i64 41
   %946 = load i8, ptr %945, align 1
   %947 = sext i32 %921 to i64
-  %948 = getelementptr inbounds nuw [36 x i32], ptr @cache_masks, i64 0, i64 %947
+  %948 = getelementptr inbounds [36 x i32], ptr @cache_masks, i64 0, i64 %947
   %949 = getelementptr i8, ptr %897, i64 424
   %950 = sext i32 %919 to i64
-  %951 = getelementptr inbounds nuw [36 x i32], ptr @cache_masks, i64 0, i64 %950
+  %951 = getelementptr inbounds [36 x i32], ptr @cache_masks, i64 0, i64 %950
   %952 = getelementptr i8, ptr %897, i64 320
   %953 = icmp eq i8 %946, 2
   %954 = sext i32 %917 to i64
-  %955 = getelementptr inbounds nuw [36 x i32], ptr @cache_masks, i64 0, i64 %954
+  %955 = getelementptr inbounds [36 x i32], ptr @cache_masks, i64 0, i64 %954
   %956 = getelementptr i8, ptr %897, i64 216
   %957 = ptrtoint ptr %905 to i64
   br label %.outer.i.i.i.outer
@@ -5042,7 +5042,7 @@ lzx_read_pre_tree.exit313.thread.i.i.i:           ; preds = %lzx_read_pre_tree.e
   %1182 = lshr i64 %1179, %1181
   %1183 = trunc i64 %1182 to i32
   %1184 = sext i32 %.2289.i.i.i to i64
-  %1185 = getelementptr inbounds nuw [36 x i32], ptr @cache_masks, i64 0, i64 %1184
+  %1185 = getelementptr inbounds [36 x i32], ptr @cache_masks, i64 0, i64 %1184
   %1186 = load i32, ptr %1185, align 4
   %1187 = and i32 %1186, %1183
   store i32 %1180, ptr %404, align 8
@@ -5822,7 +5822,7 @@ define internal fastcc range(i32 -1, 2) i32 @lzx_read_bitlen(ptr nocapture nound
   %36 = lshr i64 %33, %35
   %37 = trunc i64 %36 to i32
   %38 = sext i32 %31 to i64
-  %39 = getelementptr inbounds nuw [36 x i32], ptr @cache_masks, i64 0, i64 %38
+  %39 = getelementptr inbounds [36 x i32], ptr @cache_masks, i64 0, i64 %38
   %40 = load i32, ptr %39, align 4
   %41 = and i32 %40, %37
   %.val = load i32, ptr %19, align 8
@@ -6016,7 +6016,7 @@ define internal fastcc range(i32 -1, 2) i32 @lzx_read_bitlen(ptr nocapture nound
   %142 = lshr i64 %129, %141
   %143 = trunc i64 %142 to i32
   %144 = sext i32 %139 to i64
-  %145 = getelementptr inbounds nuw [36 x i32], ptr @cache_masks, i64 0, i64 %144
+  %145 = getelementptr inbounds [36 x i32], ptr @cache_masks, i64 0, i64 %144
   %146 = load i32, ptr %145, align 4
   %147 = and i32 %146, %143
   %.val149 = load i32, ptr %19, align 8

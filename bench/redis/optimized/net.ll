@@ -259,7 +259,7 @@ land.lhs.true.i:                                  ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %buf.i, i8 0, i64 128, i1 false)
   %call1.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf.i, i64 noundef 128, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.2) #10
   %conv.i = sext i32 %call1.i to i64
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 %conv.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf.i, i64 %conv.i
   %sub.i = sub nsw i64 128, %conv.i
   %call3.i = call i32 @__xpg_strerror_r(i32 noundef %1, ptr noundef nonnull %add.ptr.i, i64 noundef %sub.i) #10
   call void @__redisSetError(ptr noundef nonnull %c, i32 noundef 1, ptr noundef nonnull %buf.i) #10
@@ -297,7 +297,7 @@ land.lhs.true.i:                                  ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %buf.i, i8 0, i64 128, i1 false)
   %call1.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf.i, i64 noundef 128, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.3) #10
   %conv.i = sext i32 %call1.i to i64
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 %conv.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf.i, i64 %conv.i
   %sub.i = sub nsw i64 128, %conv.i
   %call3.i = call i32 @__xpg_strerror_r(i32 noundef %1, ptr noundef nonnull %add.ptr.i, i64 noundef %sub.i) #10
   call void @__redisSetError(ptr noundef nonnull %c, i32 noundef 1, ptr noundef nonnull %buf.i) #10
@@ -403,7 +403,7 @@ if.then:                                          ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %buf.i, i8 0, i64 128, i1 false)
   %call1.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf.i, i64 noundef 128, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.4) #10
   %conv.i = sext i32 %call1.i to i64
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 %conv.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf.i, i64 %conv.i
   %sub.i = sub nsw i64 128, %conv.i
   %call3.i = call i32 @__xpg_strerror_r(i32 noundef %2, ptr noundef nonnull %add.ptr.i, i64 noundef %sub.i) #10
   call void @__redisSetError(ptr noundef nonnull %c, i32 noundef 1, ptr noundef nonnull %buf.i) #10
@@ -483,7 +483,7 @@ if.then4:                                         ; preds = %if.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %buf.i, i8 0, i64 128, i1 false)
   %call1.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf.i, i64 noundef 128, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.6) #10
   %conv.i = sext i32 %call1.i to i64
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 %conv.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf.i, i64 %conv.i
   %sub.i = sub nsw i64 128, %conv.i
   %call3.i = call i32 @__xpg_strerror_r(i32 noundef %5, ptr noundef nonnull %add.ptr.i, i64 noundef %sub.i) #10
   call void @__redisSetError(ptr noundef nonnull %c, i32 noundef 1, ptr noundef nonnull %buf.i) #10
@@ -503,7 +503,7 @@ if.then11:                                        ; preds = %if.end5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %buf.i9, i8 0, i64 128, i1 false)
   %call1.i11 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf.i9, i64 noundef 128, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.7) #10
   %conv.i12 = sext i32 %call1.i11 to i64
-  %add.ptr.i14 = getelementptr inbounds nuw i8, ptr %buf.i9, i64 %conv.i12
+  %add.ptr.i14 = getelementptr inbounds i8, ptr %buf.i9, i64 %conv.i12
   %sub.i15 = sub nsw i64 128, %conv.i12
   %call3.i16 = call i32 @__xpg_strerror_r(i32 noundef %7, ptr noundef nonnull %add.ptr.i14, i64 noundef %sub.i15) #10
   call void @__redisSetError(ptr noundef nonnull %c, i32 noundef 1, ptr noundef nonnull %buf.i9) #10
@@ -1190,7 +1190,7 @@ land.lhs.true.i:                                  ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %buf.i, i8 0, i64 128, i1 false)
   %call1.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf.i, i64 noundef 128, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.13) #10
   %conv.i = sext i32 %call1.i to i64
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 %conv.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf.i, i64 %conv.i
   %sub.i = sub nsw i64 128, %conv.i
   %call3.i = call i32 @__xpg_strerror_r(i32 noundef %1, ptr noundef nonnull %add.ptr.i, i64 noundef %sub.i) #10
   call void @__redisSetError(ptr noundef nonnull %c, i32 noundef 1, ptr noundef nonnull %buf.i) #10
@@ -1216,7 +1216,7 @@ land.lhs.true.i18:                                ; preds = %if.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %buf.i9, i8 0, i64 128, i1 false)
   %call1.i12 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf.i9, i64 noundef 128, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.14) #10
   %conv.i13 = sext i32 %call1.i12 to i64
-  %add.ptr.i14 = getelementptr inbounds nuw i8, ptr %buf.i9, i64 %conv.i13
+  %add.ptr.i14 = getelementptr inbounds i8, ptr %buf.i9, i64 %conv.i13
   %sub.i15 = sub nsw i64 128, %conv.i13
   %call3.i16 = call i32 @__xpg_strerror_r(i32 noundef %4, ptr noundef nonnull %add.ptr.i14, i64 noundef %sub.i15) #10
   call void @__redisSetError(ptr noundef nonnull %c, i32 noundef 1, ptr noundef nonnull %buf.i9) #10
@@ -1272,7 +1272,7 @@ land.lhs.true.i:                                  ; preds = %if.then
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %buf.i, i8 0, i64 128, i1 false)
   %call1.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf.i, i64 noundef 128, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.16) #10
   %conv.i = sext i32 %call1.i to i64
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 %conv.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf.i, i64 %conv.i
   %sub.i = sub nsw i64 128, %conv.i
   %call3.i = call i32 @__xpg_strerror_r(i32 noundef %2, ptr noundef nonnull %add.ptr.i, i64 noundef %sub.i) #10
   call void @__redisSetError(ptr noundef nonnull %c, i32 noundef 1, ptr noundef nonnull %buf.i) #10

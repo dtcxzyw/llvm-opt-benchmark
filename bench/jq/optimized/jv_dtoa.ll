@@ -652,7 +652,7 @@ match.exit599:                                    ; preds = %162, %.preheader
   %228 = load double, ptr %227, align 8
   %229 = fmul double %228, %208
   %230 = sext i32 %225 to i64
-  %231 = getelementptr inbounds nuw [23 x double], ptr @tens, i64 0, i64 %230
+  %231 = getelementptr inbounds [23 x double], ptr @tens, i64 0, i64 %230
   %232 = load double, ptr %231, align 8
   %233 = fmul double %229, %232
   store double %233, ptr %10, align 8
@@ -4217,7 +4217,7 @@ rv_alloc.exit:                                    ; preds = %153, %155
 
 315:                                              ; preds = %309
   %316 = sext i32 %.1485 to i64
-  %317 = getelementptr inbounds nuw [23 x double], ptr @tens, i64 0, i64 %316
+  %317 = getelementptr inbounds [23 x double], ptr @tens, i64 0, i64 %316
   %318 = load double, ptr %317, align 8
   %319 = icmp slt i32 %.0446711, 0
   %320 = icmp slt i32 %.0511700, 1

@@ -1347,7 +1347,7 @@ define void @_ZN3vcg22MovableCoordinateFrame6RenderEP9QGLWidgetP8QPainter(ptr no
   %59 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %58
   %60 = shl i64 %indvars.iv.i.i.i, 2
   %61 = add nuw nsw i64 %60, %indvars.iv15.i.i.i
-  %62 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %61
+  %62 = getelementptr inbounds [16 x float], ptr %4, i64 0, i64 %61
   %63 = load float, ptr %59, align 4, !alias.scope !36
   %64 = load float, ptr %62, align 4, !alias.scope !36
   store float %64, ptr %59, align 4, !alias.scope !36

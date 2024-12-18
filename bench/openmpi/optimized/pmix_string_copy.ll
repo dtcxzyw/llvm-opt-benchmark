@@ -44,7 +44,7 @@ define noalias ptr @pmix_getline(ptr nocapture noundef %0) local_unnamed_addr #1
 4:                                                ; preds = %1
   %5 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #5
   %6 = add i64 %5, -1
-  %7 = getelementptr inbounds nuw [1024 x i8], ptr %2, i64 0, i64 %6
+  %7 = getelementptr inbounds [1024 x i8], ptr %2, i64 0, i64 %6
   store i8 0, ptr %7, align 1
   %8 = call noalias ptr @strdup(ptr noundef nonnull %2) #6
   br label %9

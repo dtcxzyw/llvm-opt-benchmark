@@ -971,7 +971,7 @@ define void @_ZN7dtCrowd17updateMoveRequestEf(ptr noundef nonnull align 8 derefe
   %94 = load i32, ptr %6, align 4
   %95 = add nsw i32 %94, -1
   %96 = sext i32 %95 to i64
-  %97 = getelementptr inbounds nuw [32 x i32], ptr %5, i64 0, i64 %96
+  %97 = getelementptr inbounds [32 x i32], ptr %5, i64 0, i64 %96
   %98 = load i32, ptr %97, align 4
   %99 = load i32, ptr %45, align 4
   %100 = icmp eq i32 %98, %99
@@ -1054,7 +1054,7 @@ define void @_ZN7dtCrowd17updateMoveRequestEf(ptr noundef nonnull align 8 derefe
 132:                                              ; preds = %126, %.loopexit.i, %112, %102
   %.037.i = phi i32 [ 0, %102 ], [ %.0127169, %112 ], [ %.038.lcssa.i, %126 ], [ %.038.lcssa.i, %.loopexit.i ]
   %133 = sext i32 %.037.i to i64
-  %134 = getelementptr inbounds nuw ptr, ptr %3, i64 %133
+  %134 = getelementptr inbounds ptr, ptr %3, i64 %133
   store ptr %22, ptr %134, align 8
   %135 = call i32 @llvm.smin.i32(i32 %.0127169, i32 7)
   %136 = add nsw i32 %135, 1

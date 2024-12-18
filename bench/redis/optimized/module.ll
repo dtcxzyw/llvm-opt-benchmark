@@ -16714,7 +16714,7 @@ cond.end:                                         ; preds = %if.end17, %cond.tru
   %cond = phi ptr [ %1, %cond.true ], [ @.str.68, %if.end17 ]
   %call19 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %msg, i64 noundef 1024, ptr noundef nonnull @.str.67, ptr noundef %cond) #34
   %conv = sext i32 %call19 to i64
-  %add.ptr = getelementptr inbounds nuw i8, ptr %msg, i64 %conv
+  %add.ptr = getelementptr inbounds i8, ptr %msg, i64 %conv
   %sub = sub nsw i64 1024, %conv
   %call21 = call i32 @vsnprintf(ptr noundef nonnull %add.ptr, i64 noundef %sub, ptr noundef %fmt, ptr noundef %ap) #34
   call void @serverLogRaw(i32 noundef %level.0, ptr noundef nonnull %msg) #34

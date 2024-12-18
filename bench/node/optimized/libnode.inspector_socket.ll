@@ -303,7 +303,7 @@ if.end13:                                         ; preds = %if.end9
   %call.i5 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15) #20
   %call.i.i6 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %ip) #20
-  %add.ptr.i7 = getelementptr inbounds nuw i8, ptr %ip, i64 %call.i.i6
+  %add.ptr.i7 = getelementptr inbounds i8, ptr %ip, i64 %call.i.i6
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %ip, ptr noundef nonnull %add.ptr.i7)
   br label %return
 
@@ -1360,7 +1360,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %if.end17.i.i
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPcET0_T_SD_SC_.exit.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %if.end17.i.i
   %call30.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %host.i) #20
-  %arrayidx.i.i = getelementptr inbounds nuw [46 x i8], ptr %ipv6_str.i.i, i64 0, i64 %call30.i.i
+  %arrayidx.i.i = getelementptr inbounds [46 x i8], ptr %ipv6_str.i.i, i64 0, i64 %call30.i.i
   store i8 0, ptr %arrayidx.i.i, align 1
   %call33.i.i = call i32 @uv_inet_pton(i32 noundef 10, ptr noundef nonnull %ipv6_str.i.i, ptr noundef nonnull %ipv6.i.i) #20
   %cmp34.not.i.i = icmp eq i32 %call33.i.i, 0

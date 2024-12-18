@@ -4539,7 +4539,7 @@ _ZN6icu_755Grego11monthLengthEii.exit:            ; preds = %land.rhs.i.i, %_ZN6
 do.end:                                           ; preds = %_ZN6icu_755Grego11monthLengthEii.exit
   %add.i = add nsw i32 %39, %sub
   %idxprom.i = sext i32 %add.i to i64
-  %arrayidx.i = getelementptr inbounds nuw [24 x i8], ptr @_ZN6icu_755Grego12MONTH_LENGTHE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [24 x i8], ptr @_ZN6icu_755Grego12MONTH_LENGTHE, i64 0, i64 %idxprom.i
   %42 = load i8, ptr %arrayidx.i, align 1
   %conv28 = sext i8 %42 to i32
   %cmp36 = icmp sgt i32 %mul30.i146, %conv28
@@ -5030,7 +5030,7 @@ if.then14:                                        ; preds = %if.then12
 
 for.cond.preheader:                               ; preds = %if.then14
   %idxprom25 = sext i32 %5 to i64
-  %arrayidx26 = getelementptr inbounds nuw [12 x i32], ptr @_ZN6icu_75L11MONTHLENGTHE, i64 0, i64 %idxprom25
+  %arrayidx26 = getelementptr inbounds [12 x i32], ptr @_ZN6icu_75L11MONTHLENGTHE, i64 0, i64 %idxprom25
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %if.end32
@@ -5096,7 +5096,7 @@ for.cond73.preheader:                             ; preds = %if.else
 
 for.body75.lr.ph:                                 ; preds = %for.cond73.preheader
   %idxprom79 = sext i32 %11 to i64
-  %arrayidx80 = getelementptr inbounds nuw [12 x i32], ptr @_ZN6icu_75L11MONTHLENGTHE, i64 0, i64 %idxprom79
+  %arrayidx80 = getelementptr inbounds [12 x i32], ptr @_ZN6icu_75L11MONTHLENGTHE, i64 0, i64 %idxprom79
   %wide.trip.count = zext nneg i32 %13 to i64
   br label %for.body75
 
@@ -5207,7 +5207,7 @@ if.end144:                                        ; preds = %if.then125, %if.the
 
 for.body149.lr.ph:                                ; preds = %if.end144
   %idxprom157 = sext i32 %20 to i64
-  %arrayidx158 = getelementptr inbounds nuw [12 x i32], ptr @_ZN6icu_75L11MONTHLENGTHE, i64 0, i64 %idxprom157
+  %arrayidx158 = getelementptr inbounds [12 x i32], ptr @_ZN6icu_75L11MONTHLENGTHE, i64 0, i64 %idxprom157
   %wide.trip.count150 = zext nneg i32 %22 to i64
   br label %for.body149
 
@@ -6954,7 +6954,7 @@ invoke.cont:                                      ; preds = %call.i21.i.noexc, %
 invoke.cont11:                                    ; preds = %invoke.cont
   %sub = add nsw i32 %dayOfWeek, -1
   %idxprom = sext i32 %sub to i64
-  %arrayidx = getelementptr inbounds nuw [7 x [3 x i16]], ptr @_ZN6icu_75L14ICAL_DOW_NAMESE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [7 x [3 x i16]], ptr @_ZN6icu_75L14ICAL_DOW_NAMESE, i64 0, i64 %idxprom
   %13 = load ptr, ptr %writer, align 8
   %call2.i1.i29 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %13, ptr noundef nonnull %arrayidx, i32 noundef 0, i32 noundef -1)
           to label %invoke.cont12 unwind label %lpad.i30
@@ -7103,7 +7103,7 @@ if.then33.i:                                      ; preds = %if.then30.i
 
 if.else36.i:                                      ; preds = %if.then30.i
   %idxprom.i = sext i32 %call23.i to i64
-  %arrayidx.i = getelementptr inbounds nuw [12 x i32], ptr @_ZN6icu_75L11MONTHLENGTHE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [12 x i32], ptr @_ZN6icu_75L11MONTHLENGTHE, i64 0, i64 %idxprom.i
   %3 = load i32, ptr %arrayidx.i, align 4
   %4 = mul i32 %call31.i, 7
   %mul38.i = add i32 %4, 7
@@ -7128,7 +7128,7 @@ if.then44.i:                                      ; preds = %if.end41.i
 
 if.else48.i:                                      ; preds = %if.end41.i
   %idxprom49.i = sext i32 %call23.i to i64
-  %arrayidx50.i = getelementptr inbounds nuw [12 x i32], ptr @_ZN6icu_75L11MONTHLENGTHE, i64 0, i64 %idxprom49.i
+  %arrayidx50.i = getelementptr inbounds [12 x i32], ptr @_ZN6icu_75L11MONTHLENGTHE, i64 0, i64 %idxprom49.i
   %6 = load i32, ptr %arrayidx50.i, align 4
   %cmp51.i = icmp sgt i32 %add42.i, %6
   br i1 %cmp51.i, label %if.then52.i, label %if.end59.i
@@ -7407,7 +7407,7 @@ if.end21:                                         ; preds = %land.lhs.true18, %i
 
 land.lhs.true23:                                  ; preds = %if.end21
   %idxprom = sext i32 %month to i64
-  %arrayidx = getelementptr inbounds nuw [12 x i32], ptr @_ZN6icu_75L11MONTHLENGTHE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [12 x i32], ptr @_ZN6icu_75L11MONTHLENGTHE, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4
   %sub = sub nsw i32 %0, %call13
   %rem24 = srem i32 %sub, 7
@@ -7439,7 +7439,7 @@ if.end45:                                         ; preds = %if.then38
 
 land.lhs.true47:                                  ; preds = %if.end45
   %idxprom48 = sext i32 %month to i64
-  %arrayidx49 = getelementptr inbounds nuw [12 x i32], ptr @_ZN6icu_75L11MONTHLENGTHE, i64 0, i64 %idxprom48
+  %arrayidx49 = getelementptr inbounds [12 x i32], ptr @_ZN6icu_75L11MONTHLENGTHE, i64 0, i64 %idxprom48
   %1 = load i32, ptr %arrayidx49, align 4
   %sub50 = sub nsw i32 %1, %call13
   %rem51 = srem i32 %sub50, 7
@@ -8665,7 +8665,7 @@ if.else:                                          ; preds = %if.end
 
 land.lhs.true:                                    ; preds = %if.else
   %idxprom = sext i32 %month to i64
-  %arrayidx = getelementptr inbounds nuw [12 x i32], ptr @_ZN6icu_75L11MONTHLENGTHE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [12 x i32], ptr @_ZN6icu_75L11MONTHLENGTHE, i64 0, i64 %idxprom
   %1 = load i32, ptr %arrayidx, align 4
   %sub = sub nsw i32 %1, %dayOfMonth
   %rem8 = srem i32 %sub, 7
@@ -8706,7 +8706,7 @@ if.end36:                                         ; preds = %if.then26
 if.else37:                                        ; preds = %if.end24
   %add38 = add nuw nsw i32 %dayOfMonth, 6
   %idxprom39 = sext i32 %month to i64
-  %arrayidx40 = getelementptr inbounds nuw [12 x i32], ptr @_ZN6icu_75L11MONTHLENGTHE, i64 0, i64 %idxprom39
+  %arrayidx40 = getelementptr inbounds [12 x i32], ptr @_ZN6icu_75L11MONTHLENGTHE, i64 0, i64 %idxprom39
   %4 = load i32, ptr %arrayidx40, align 4
   %cmp41 = icmp sgt i32 %add38, %4
   br i1 %cmp41, label %if.then42, label %if.end60
@@ -8764,7 +8764,7 @@ if.end:                                           ; preds = %entry
 
 if.then4:                                         ; preds = %if.end
   %idxprom = sext i32 %month to i64
-  %arrayidx = getelementptr inbounds nuw [12 x i32], ptr @_ZN6icu_75L11MONTHLENGTHE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [12 x i32], ptr @_ZN6icu_75L11MONTHLENGTHE, i64 0, i64 %idxprom
   %1 = load i32, ptr %arrayidx, align 4
   %add = add nsw i32 %dayOfMonth, 1
   %add5 = add i32 %add, %1
@@ -8801,7 +8801,7 @@ _ZN6icu_759VTZWriter5writeEPKDs.exit:             ; preds = %if.end10
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %srcChar.addr.i.i)
   %sub = add nsw i32 %dayOfWeek, -1
   %idxprom11 = sext i32 %sub to i64
-  %arrayidx12 = getelementptr inbounds nuw [7 x [3 x i16]], ptr @_ZN6icu_75L14ICAL_DOW_NAMESE, i64 0, i64 %idxprom11
+  %arrayidx12 = getelementptr inbounds [7 x [3 x i16]], ptr @_ZN6icu_75L14ICAL_DOW_NAMESE, i64 0, i64 %idxprom11
   %6 = load ptr, ptr %writer, align 8
   %call2.i1.i26 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %arrayidx12, i32 noundef 0, i32 noundef -1)
           to label %_ZN6icu_759VTZWriter5writeEPKDs.exit28 unwind label %lpad.i27
@@ -9082,7 +9082,7 @@ if.else:                                          ; preds = %if.end
 
 land.lhs.true:                                    ; preds = %if.else
   %idxprom = sext i32 %month to i64
-  %arrayidx = getelementptr inbounds nuw [12 x i32], ptr @_ZN6icu_75L11MONTHLENGTHE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [12 x i32], ptr @_ZN6icu_75L11MONTHLENGTHE, i64 0, i64 %idxprom
   %1 = load i32, ptr %arrayidx, align 4
   %sub = sub nsw i32 %1, %dayOfMonth
   %rem4 = srem i32 %sub, 7

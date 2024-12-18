@@ -3955,7 +3955,7 @@ define void @"_ZN79_$LT$meilisearch_types..tasks..Status$u20$as$u20$core..str..t
 10:                                               ; preds = %8
   %11 = add i64 %9, 1
   %12 = getelementptr inbounds i8, ptr %1, i64 %9
-  %13 = getelementptr inbounds nuw i8, ptr @anon.eb4b09fcd0b9d0b1d99ed199e636ac98.27, i64 %9
+  %13 = getelementptr inbounds i8, ptr @anon.eb4b09fcd0b9d0b1d99ed199e636ac98.27, i64 %9
   %.val.i.i = load i8, ptr %12, align 1, !alias.scope !398, !noalias !410, !noundef !14
   %.val8.i.i = load i8, ptr %13, align 1, !alias.scope !401, !noalias !413, !noundef !14
   %14 = add i8 %.val.i.i, -65
@@ -3987,7 +3987,7 @@ define void @"_ZN79_$LT$meilisearch_types..tasks..Status$u20$as$u20$core..str..t
 25:                                               ; preds = %23
   %26 = add i64 %24, 1
   %27 = getelementptr inbounds i8, ptr %1, i64 %24
-  %28 = getelementptr inbounds nuw i8, ptr @anon.eb4b09fcd0b9d0b1d99ed199e636ac98.29, i64 %24
+  %28 = getelementptr inbounds i8, ptr @anon.eb4b09fcd0b9d0b1d99ed199e636ac98.29, i64 %24
   %.val.i.i3 = load i8, ptr %27, align 1, !alias.scope !414, !noalias !426, !noundef !14
   %.val8.i.i4 = load i8, ptr %28, align 1, !alias.scope !417, !noalias !429, !noundef !14
   %29 = add i8 %.val.i.i3, -65
@@ -4025,7 +4025,7 @@ define void @"_ZN79_$LT$meilisearch_types..tasks..Status$u20$as$u20$core..str..t
 41:                                               ; preds = %39
   %42 = add i64 %40, 1
   %43 = getelementptr inbounds i8, ptr %1, i64 %40
-  %44 = getelementptr inbounds nuw i8, ptr @anon.eb4b09fcd0b9d0b1d99ed199e636ac98.31, i64 %40
+  %44 = getelementptr inbounds i8, ptr @anon.eb4b09fcd0b9d0b1d99ed199e636ac98.31, i64 %40
   %.val.i.i11 = load i8, ptr %43, align 1, !alias.scope !430, !noalias !442, !noundef !14
   %.val8.i.i12 = load i8, ptr %44, align 1, !alias.scope !433, !noalias !445, !noundef !14
   %45 = add i8 %.val.i.i11, -65
@@ -4063,7 +4063,7 @@ define void @"_ZN79_$LT$meilisearch_types..tasks..Status$u20$as$u20$core..str..t
 57:                                               ; preds = %55
   %58 = add i64 %56, 1
   %59 = getelementptr inbounds i8, ptr %1, i64 %56
-  %60 = getelementptr inbounds nuw i8, ptr @anon.eb4b09fcd0b9d0b1d99ed199e636ac98.33, i64 %56
+  %60 = getelementptr inbounds i8, ptr @anon.eb4b09fcd0b9d0b1d99ed199e636ac98.33, i64 %56
   %.val.i.i19 = load i8, ptr %59, align 1, !alias.scope !446, !noalias !458, !noundef !14
   %.val8.i.i20 = load i8, ptr %60, align 1, !alias.scope !449, !noalias !461, !noundef !14
   %61 = add i8 %.val.i.i19, -65
@@ -4100,7 +4100,7 @@ define void @"_ZN79_$LT$meilisearch_types..tasks..Status$u20$as$u20$core..str..t
 72:                                               ; preds = %70
   %73 = add i64 %71, 1
   %74 = getelementptr inbounds i8, ptr %1, i64 %71
-  %75 = getelementptr inbounds nuw i8, ptr @anon.eb4b09fcd0b9d0b1d99ed199e636ac98.35, i64 %71
+  %75 = getelementptr inbounds i8, ptr @anon.eb4b09fcd0b9d0b1d99ed199e636ac98.35, i64 %71
   %.val.i.i27 = load i8, ptr %74, align 1, !alias.scope !462, !noalias !474, !noundef !14
   %.val8.i.i28 = load i8, ptr %75, align 1, !alias.scope !465, !noalias !477, !noundef !14
   %76 = add i8 %.val.i.i27, -65
@@ -4361,7 +4361,7 @@ define void @"_ZN77_$LT$meilisearch_types..tasks..Kind$u20$as$u20$core..str..tra
 9:                                                ; preds = %7
   %10 = add i64 %8, 1
   %11 = getelementptr inbounds i8, ptr %1, i64 %8
-  %12 = getelementptr inbounds nuw i8, ptr @anon.eb4b09fcd0b9d0b1d99ed199e636ac98.48, i64 %8
+  %12 = getelementptr inbounds i8, ptr @anon.eb4b09fcd0b9d0b1d99ed199e636ac98.48, i64 %8
   %.val.i.i = load i8, ptr %11, align 1, !alias.scope !529, !noalias !541, !noundef !14
   %.val8.i.i = load i8, ptr %12, align 1, !alias.scope !532, !noalias !544, !noundef !14
   %13 = add i8 %.val.i.i, -65
@@ -4393,7 +4393,7 @@ define void @"_ZN77_$LT$meilisearch_types..tasks..Kind$u20$as$u20$core..str..tra
 24:                                               ; preds = %22
   %25 = add i64 %23, 1
   %26 = getelementptr inbounds i8, ptr %1, i64 %23
-  %27 = getelementptr inbounds nuw i8, ptr @anon.eb4b09fcd0b9d0b1d99ed199e636ac98.52, i64 %23
+  %27 = getelementptr inbounds i8, ptr @anon.eb4b09fcd0b9d0b1d99ed199e636ac98.52, i64 %23
   %.val.i.i3 = load i8, ptr %26, align 1, !alias.scope !545, !noalias !557, !noundef !14
   %.val8.i.i4 = load i8, ptr %27, align 1, !alias.scope !548, !noalias !560, !noundef !14
   %28 = add i8 %.val.i.i3, -65
@@ -4431,7 +4431,7 @@ define void @"_ZN77_$LT$meilisearch_types..tasks..Kind$u20$as$u20$core..str..tra
 40:                                               ; preds = %38
   %41 = add i64 %39, 1
   %42 = getelementptr inbounds i8, ptr %1, i64 %39
-  %43 = getelementptr inbounds nuw i8, ptr @anon.eb4b09fcd0b9d0b1d99ed199e636ac98.54, i64 %39
+  %43 = getelementptr inbounds i8, ptr @anon.eb4b09fcd0b9d0b1d99ed199e636ac98.54, i64 %39
   %.val.i.i11 = load i8, ptr %42, align 1, !alias.scope !561, !noalias !573, !noundef !14
   %.val8.i.i12 = load i8, ptr %43, align 1, !alias.scope !564, !noalias !576, !noundef !14
   %44 = add i8 %.val.i.i11, -65
@@ -4468,7 +4468,7 @@ define void @"_ZN77_$LT$meilisearch_types..tasks..Kind$u20$as$u20$core..str..tra
 55:                                               ; preds = %53
   %56 = add i64 %54, 1
   %57 = getelementptr inbounds i8, ptr %1, i64 %54
-  %58 = getelementptr inbounds nuw i8, ptr @anon.eb4b09fcd0b9d0b1d99ed199e636ac98.50, i64 %54
+  %58 = getelementptr inbounds i8, ptr @anon.eb4b09fcd0b9d0b1d99ed199e636ac98.50, i64 %54
   %.val.i.i19 = load i8, ptr %57, align 1, !alias.scope !577, !noalias !589, !noundef !14
   %.val8.i.i20 = load i8, ptr %58, align 1, !alias.scope !580, !noalias !592, !noundef !14
   %59 = add i8 %.val.i.i19, -65
@@ -4506,7 +4506,7 @@ define void @"_ZN77_$LT$meilisearch_types..tasks..Kind$u20$as$u20$core..str..tra
 71:                                               ; preds = %69
   %72 = add i64 %70, 1
   %73 = getelementptr inbounds i8, ptr %1, i64 %70
-  %74 = getelementptr inbounds nuw i8, ptr @anon.eb4b09fcd0b9d0b1d99ed199e636ac98.42, i64 %70
+  %74 = getelementptr inbounds i8, ptr @anon.eb4b09fcd0b9d0b1d99ed199e636ac98.42, i64 %70
   %.val.i.i27 = load i8, ptr %73, align 1, !alias.scope !593, !noalias !605, !noundef !14
   %.val8.i.i28 = load i8, ptr %74, align 1, !alias.scope !596, !noalias !608, !noundef !14
   %75 = add i8 %.val.i.i27, -65
@@ -4544,7 +4544,7 @@ define void @"_ZN77_$LT$meilisearch_types..tasks..Kind$u20$as$u20$core..str..tra
 87:                                               ; preds = %85
   %88 = add i64 %86, 1
   %89 = getelementptr inbounds i8, ptr %1, i64 %86
-  %90 = getelementptr inbounds nuw i8, ptr @anon.eb4b09fcd0b9d0b1d99ed199e636ac98.44, i64 %86
+  %90 = getelementptr inbounds i8, ptr @anon.eb4b09fcd0b9d0b1d99ed199e636ac98.44, i64 %86
   %.val.i.i35 = load i8, ptr %89, align 1, !alias.scope !609, !noalias !621, !noundef !14
   %.val8.i.i36 = load i8, ptr %90, align 1, !alias.scope !612, !noalias !624, !noundef !14
   %91 = add i8 %.val.i.i35, -65

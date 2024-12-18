@@ -644,11 +644,11 @@ _ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit47:         ; preds = %30
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %sext102 = shl nuw i64 %.sroa.8.0, 32
   %43 = ashr exact i64 %sext102, 32
-  %44 = getelementptr inbounds nuw [1025 x %struct.NVGglyphPosition], ptr %7, i64 0, i64 %43
+  %44 = getelementptr inbounds [1025 x %struct.NVGglyphPosition], ptr %7, i64 0, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %sext103 = shl nuw i64 %.sroa.9.0, 32
   %46 = ashr exact i64 %sext103, 32
-  %47 = getelementptr inbounds nuw [1025 x %struct.NVGglyphPosition], ptr %7, i64 0, i64 %46
+  %47 = getelementptr inbounds [1025 x %struct.NVGglyphPosition], ptr %7, i64 0, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %49 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %50 = sext i32 %.sroa.069.0 to i64
@@ -714,7 +714,7 @@ _ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit47:         ; preds = %30
   %80 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %75) #17
   %81 = getelementptr inbounds i8, ptr %79, i64 %80
   %82 = sext i32 %77 to i64
-  %83 = getelementptr inbounds nuw [1025 x %struct.NVGglyphPosition], ptr %7, i64 0, i64 %82
+  %83 = getelementptr inbounds [1025 x %struct.NVGglyphPosition], ptr %7, i64 0, i64 %82
   store ptr %81, ptr %83, align 8
   %84 = icmp eq i64 %indvars.iv, %50
   br i1 %84, label %85, label %106
@@ -1440,7 +1440,7 @@ define hidden i64 @_ZNK7nanogui8TextArea17block_to_positionERKNS_5ArrayIiLm2EEE(
 _ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge: ; preds = %16
   %39 = add nsw i32 %35, -1
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds nuw [1024 x %struct.NVGglyphPosition], ptr %3, i64 0, i64 %40, i32 3
+  %41 = getelementptr inbounds [1024 x %struct.NVGglyphPosition], ptr %3, i64 0, i64 %40, i32 3
   %42 = load float, ptr %41, align 8
   %43 = fadd float %42, 1.000000e+00
   br label %.sink.split
@@ -1451,7 +1451,7 @@ _ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge: ; preds = %16
 
 _ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit18.critedge: ; preds = %44
   %46 = sext i32 %37 to i64
-  %47 = getelementptr inbounds nuw [1024 x %struct.NVGglyphPosition], ptr %3, i64 0, i64 %46, i32 1
+  %47 = getelementptr inbounds [1024 x %struct.NVGglyphPosition], ptr %3, i64 0, i64 %46, i32 1
   %48 = load float, ptr %47, align 8
   br label %.sink.split
 

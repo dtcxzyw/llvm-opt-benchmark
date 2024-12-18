@@ -554,7 +554,7 @@ define internal fastcc i64 @read_exec_segments(ptr noundef nonnull %0, ptr nound
   br i1 %.not, label %45, label %.loopexit.sink.split
 
 45:                                               ; preds = %37
-  %46 = getelementptr inbounds nuw [4353 x i8], ptr %3, i64 0, i64 %43
+  %46 = getelementptr inbounds [4353 x i8], ptr %3, i64 0, i64 %43
   store i8 0, ptr %46, align 1
   call void (ptr, ...) @print_debug(ptr noundef nonnull @.str.41, ptr noundef nonnull %3) #15
   %47 = call i32 @pathmap_open(ptr noundef nonnull %3) #15

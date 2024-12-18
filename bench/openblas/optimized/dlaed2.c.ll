@@ -532,7 +532,7 @@ thread-pre-split21:                               ; preds = %79
   %360 = load i32, ptr %359, align 4, !tbaa !3
   %361 = add nsw i32 %360, -1
   %362 = sext i32 %361 to i64
-  %363 = getelementptr inbounds nuw [4 x i32], ptr %19, i64 0, i64 %362
+  %363 = getelementptr inbounds [4 x i32], ptr %19, i64 0, i64 %362
   %364 = load i32, ptr %363, align 4, !tbaa !3
   %365 = add nsw i32 %364, 1
   store i32 %365, ptr %363, align 4, !tbaa !3
@@ -588,7 +588,7 @@ thread-pre-split23:                               ; preds = %357
   %394 = load i32, ptr %393, align 4, !tbaa !3
   %395 = add nsw i32 %394, -1
   %396 = sext i32 %395 to i64
-  %397 = getelementptr inbounds nuw [4 x i32], ptr %24, i64 0, i64 %396
+  %397 = getelementptr inbounds [4 x i32], ptr %24, i64 0, i64 %396
   %398 = load i32, ptr %397, align 4, !tbaa !3
   %399 = sext i32 %398 to i64
   %400 = getelementptr inbounds i32, ptr %35, i64 %399

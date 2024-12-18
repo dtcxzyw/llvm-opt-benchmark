@@ -2055,7 +2055,7 @@ switch.lookup:                                    ; preds = %317
   %switch.tableidx = shl nuw nsw i64 %indvars.iv, 32
   %sext = add nsw i64 %switch.tableidx, -4294967296
   %319 = ashr exact i64 %sext, 32
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.Bmc_CexCareMinimizeAig, i64 0, i64 %319
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.Bmc_CexCareMinimizeAig, i64 0, i64 %319
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.sink.split
 

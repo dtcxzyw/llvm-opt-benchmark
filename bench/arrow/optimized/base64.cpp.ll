@@ -253,7 +253,7 @@ land.rhs:                                         ; preds = %land.lhs.true
 while.body:                                       ; preds = %land.rhs
   %inc = add nsw i32 %i.037, 1
   %idxprom = sext i32 %i.037 to i64
-  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr %char_array_4, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [4 x i8], ptr %char_array_4, i64 0, i64 %idxprom
   store i8 %0, ptr %arrayidx, align 1
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %cmp9 = icmp eq i32 %inc, 4

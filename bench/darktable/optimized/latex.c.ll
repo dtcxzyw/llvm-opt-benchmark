@@ -384,7 +384,7 @@ define noundef range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 no
   %58 = load ptr, ptr %57, align 8, !tbaa !45
   %59 = call ptr %58(ptr noundef nonnull %4) #16
   %60 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #19
-  %61 = getelementptr inbounds nuw i8, ptr %16, i64 %60
+  %61 = getelementptr inbounds i8, ptr %16, i64 %60
   %62 = icmp sgt i64 %60, 0
   br i1 %62, label %.preheader3, label %.loopexit5
 
@@ -426,13 +426,13 @@ define noundef range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 no
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 5120
   %81 = call i64 @g_strlcpy(ptr noundef nonnull %80, ptr noundef nonnull %16, i64 noundef 4096) #16
   %82 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #19
-  %83 = getelementptr inbounds nuw i8, ptr %15, i64 %82
+  %83 = getelementptr inbounds i8, ptr %15, i64 %82
   %84 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %83, ptr noundef nonnull dereferenceable(1) @.str.16, ptr noundef %59) #16
   %85 = call noalias dereferenceable_or_null(4100) ptr @malloc(i64 noundef 4100) #17
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %18) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %18, i8 0, i64 4096, i1 false)
   %86 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #19
-  %87 = getelementptr inbounds nuw i8, ptr %15, i64 %86
+  %87 = getelementptr inbounds i8, ptr %15, i64 %86
   %88 = icmp sgt i64 %86, 0
   br i1 %88, label %.preheader, label %.loopexit
 
@@ -539,7 +539,7 @@ define void @finalize_store(ptr nocapture noundef readnone %0, ptr noundef %1) l
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 5120
   %5 = call i64 @g_strlcpy(ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef 4096) #16
   %6 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #19
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %6
+  %7 = getelementptr inbounds i8, ptr %3, i64 %6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %7, ptr noundef nonnull align 1 dereferenceable(15) @.str.20, i64 15, i1 false)
   call void @dt_copy_resource_file(ptr noundef nonnull @.str.21, ptr noundef nonnull %3) #16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %7, ptr noundef nonnull align 1 dereferenceable(10) @.str.22, i64 10, i1 false)

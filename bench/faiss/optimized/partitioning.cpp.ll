@@ -271,7 +271,7 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMinIflEEEEvPKNT_1TEmS5_RmS8_.exit:
 82:                                               ; preds = %.lr.ph.i78
   %83 = add nsw i32 %.01824.i, 1
   %84 = sext i32 %.01824.i to i64
-  %85 = getelementptr inbounds nuw [3 x float], ptr %7, i64 0, i64 %84
+  %85 = getelementptr inbounds [3 x float], ptr %7, i64 0, i64 %84
   store float %79, ptr %85, align 4
   %86 = icmp eq i32 %83, 3
   br i1 %86, label %.thread.i, label %87
@@ -654,7 +654,7 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMaxIflEEEEvPKNT_1TEmS5_RmS8_.exit:
 82:                                               ; preds = %.lr.ph.i78
   %83 = add nsw i32 %.01824.i, 1
   %84 = sext i32 %.01824.i to i64
-  %85 = getelementptr inbounds nuw [3 x float], ptr %7, i64 0, i64 %84
+  %85 = getelementptr inbounds [3 x float], ptr %7, i64 0, i64 %84
   store float %79, ptr %85, align 4
   %86 = icmp eq i32 %83, 3
   br i1 %86, label %.thread.i, label %87
@@ -988,7 +988,7 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMinItlEEEEvPKNT_1TEmS5_RmS8_.exit:
 78:                                               ; preds = %.lr.ph.i77
   %79 = add nsw i32 %.01824.i, 1
   %80 = sext i32 %.01824.i to i64
-  %81 = getelementptr inbounds nuw [3 x i16], ptr %7, i64 0, i64 %80
+  %81 = getelementptr inbounds [3 x i16], ptr %7, i64 0, i64 %80
   store i16 %75, ptr %81, align 2
   %82 = icmp eq i32 %79, 3
   br i1 %82, label %.thread.i, label %83
@@ -1324,7 +1324,7 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMaxItlEEEEvPKNT_1TEmS5_RmS8_.exit:
 78:                                               ; preds = %.lr.ph.i77
   %79 = add nsw i32 %.01824.i, 1
   %80 = sext i32 %.01824.i to i64
-  %81 = getelementptr inbounds nuw [3 x i16], ptr %7, i64 0, i64 %80
+  %81 = getelementptr inbounds [3 x i16], ptr %7, i64 0, i64 %80
   store i16 %75, ptr %81, align 2
   %82 = icmp eq i32 %79, 3
   br i1 %82, label %.thread.i, label %83
@@ -1660,7 +1660,7 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMinItiEEEEvPKNT_1TEmS5_RmS8_.exit:
 78:                                               ; preds = %.lr.ph.i77
   %79 = add nsw i32 %.01824.i, 1
   %80 = sext i32 %.01824.i to i64
-  %81 = getelementptr inbounds nuw [3 x i16], ptr %7, i64 0, i64 %80
+  %81 = getelementptr inbounds [3 x i16], ptr %7, i64 0, i64 %80
   store i16 %75, ptr %81, align 2
   %82 = icmp eq i32 %79, 3
   br i1 %82, label %.thread.i, label %83
@@ -1996,7 +1996,7 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMaxItiEEEEvPKNT_1TEmS5_RmS8_.exit:
 78:                                               ; preds = %.lr.ph.i77
   %79 = add nsw i32 %.01824.i, 1
   %80 = sext i32 %.01824.i to i64
-  %81 = getelementptr inbounds nuw [3 x i16], ptr %7, i64 0, i64 %80
+  %81 = getelementptr inbounds [3 x i16], ptr %7, i64 0, i64 %80
   store i16 %75, ptr %81, align 2
   %82 = icmp eq i32 %79, 3
   br i1 %82, label %.thread.i, label %83

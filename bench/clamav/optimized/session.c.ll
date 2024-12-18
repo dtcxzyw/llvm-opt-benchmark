@@ -305,7 +305,7 @@ define dso_local i32 @conn_reply_errno(ptr nocapture noundef readonly %0, ptr no
   %6 = load i32, ptr %5, align 4
   %7 = call ptr @cli_strerror(i32 noundef %6, ptr noundef nonnull %4, i64 noundef 1023) #13
   %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) %4)
-  %endptr = getelementptr inbounds nuw i8, ptr %4, i64 %strlen
+  %endptr = getelementptr inbounds i8, ptr %4, i64 %strlen
   store i64 23168163076448302, ptr %endptr, align 1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = load i32, ptr %8, align 8
@@ -1213,7 +1213,7 @@ define internal fastcc void @print_ver(i32 noundef %0, i8 noundef signext %1, pt
   %10 = call ptr @cli_ctime(ptr noundef nonnull %5, ptr noundef nonnull %4, i64 noundef 32) #13
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #12
   %12 = add i64 %11, -1
-  %13 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 0, i64 %12
+  %13 = getelementptr inbounds [32 x i8], ptr %4, i64 0, i64 %12
   store i8 0, ptr %13, align 1
   %14 = call ptr @get_version() #13
   %15 = sext i8 %1 to i32

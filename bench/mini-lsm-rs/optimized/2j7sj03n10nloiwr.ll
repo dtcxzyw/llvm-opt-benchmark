@@ -1072,7 +1072,7 @@ _ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit.i.i.i: ; preds = %23, %21
   %72 = add nuw nsw i64 %.0.i.i.i, 8
   %.promoted25.i.i.i = load i64, ptr %71, align 8, !alias.scope !186, !noalias !179
   %.promoted22.i.i.i = load i64, ptr %69, align 8, !alias.scope !178, !noalias !179
-  %73 = getelementptr inbounds nuw i8, ptr %2, i64 %.0.i.i.i
+  %73 = getelementptr inbounds i8, ptr %2, i64 %.0.i.i.i
   %.0.copyload.i.i.i = load i64, ptr %73, align 1, !alias.scope !179, !noalias !178
   %74 = xor i64 %.0.copyload.i.i.i, %.promoted22.i.i.i
   %75 = add i64 %74, %.promoted25.i.i.i
@@ -1111,7 +1111,7 @@ _ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit.i.i.i: ; preds = %23, %21
   br i1 %94, label %98, label %106
 
 95:                                               ; preds = %90
-  %96 = getelementptr inbounds nuw i8, ptr %2, i64 %.09.lcssa.i.i.i
+  %96 = getelementptr inbounds i8, ptr %2, i64 %.09.lcssa.i.i.i
   %.0.copyload.i19.i.i.i = load i32, ptr %96, align 1, !alias.scope !189, !noalias !178
   %97 = zext i32 %.0.copyload.i19.i.i.i to i64
   br label %92

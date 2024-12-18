@@ -2821,7 +2821,7 @@ invoke.cont15:                                    ; preds = %if.end12
   %vtable = load ptr, ptr %ifstream, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %ifstream, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %ifstream, i64 %vbase.offset
   %call18 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr)
           to label %invoke.cont17 unwind label %lpad16
 
@@ -3172,7 +3172,7 @@ if.end69:                                         ; preds = %if.then45, %invoke.
   %vtable70 = load ptr, ptr %ifstream, align 8
   %vbase.offset.ptr71 = getelementptr i8, ptr %vtable70, i64 -24
   %vbase.offset72 = load i64, ptr %vbase.offset.ptr71, align 8
-  %add.ptr73 = getelementptr inbounds nuw i8, ptr %ifstream, i64 %vbase.offset72
+  %add.ptr73 = getelementptr inbounds i8, ptr %ifstream, i64 %vbase.offset72
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr73, i32 noundef 0)
           to label %invoke.cont74 unwind label %lpad16
 
@@ -67016,7 +67016,7 @@ invoke.cont12:                                    ; preds = %if.end11
   %vtable = load ptr, ptr %__is, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %__is, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %__is, i64 %vbase.offset
   %call15 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr)
           to label %invoke.cont14 unwind label %lpad5
 

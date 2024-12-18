@@ -322,7 +322,7 @@ define noundef i32 @_ZN3gmx15imdsock_tryreadEPNS_9IMDSocketEii(ptr nocapture nou
   %10 = shl nuw i64 1, %9
   %11 = sdiv i32 %7, 64
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds nuw [16 x i64], ptr %4, i64 0, i64 %12
+  %13 = getelementptr inbounds [16 x i64], ptr %4, i64 0, i64 %12
   %14 = load i64, ptr %13, align 8
   %15 = or i64 %10, %14
   store i64 %15, ptr %13, align 8

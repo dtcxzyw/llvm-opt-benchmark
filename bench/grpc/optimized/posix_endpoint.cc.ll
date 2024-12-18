@@ -1178,7 +1178,7 @@ for.body110:                                      ; preds = %for.cond108.prehead
   %i107.0136 = phi i64 [ %inc141, %for.inc140 ], [ 0, %for.cond108.preheader ]
   %j.0135 = phi i64 [ %j.1, %for.inc140 ], [ 0, %for.cond108.preheader ]
   %remaining.0134 = phi i64 [ %remaining.1, %for.inc140 ], [ %call21, %for.cond108.preheader ]
-  %arrayidx111 = getelementptr inbounds nuw [64 x %struct.iovec], ptr %iov, i64 0, i64 %i107.0136
+  %arrayidx111 = getelementptr inbounds [64 x %struct.iovec], ptr %iov, i64 0, i64 %i107.0136
   %iov_len112 = getelementptr inbounds nuw i8, ptr %arrayidx111, i64 8
   %52 = load i64, ptr %iov_len112, align 8
   %cmp113.not = icmp ult i64 %remaining.0134, %52
@@ -1195,19 +1195,19 @@ if.end117:                                        ; preds = %for.body110
 
 if.then119:                                       ; preds = %if.end117
   %add.ptr = getelementptr inbounds i8, ptr %53, i64 %remaining.0134
-  %arrayidx122 = getelementptr inbounds nuw [64 x %struct.iovec], ptr %iov, i64 0, i64 %j.0135
+  %arrayidx122 = getelementptr inbounds [64 x %struct.iovec], ptr %iov, i64 0, i64 %j.0135
   store ptr %add.ptr, ptr %arrayidx122, align 16
   %sub126 = sub i64 %52, %remaining.0134
   br label %if.end138
 
 if.else129:                                       ; preds = %if.end117
-  %arrayidx132 = getelementptr inbounds nuw [64 x %struct.iovec], ptr %iov, i64 0, i64 %j.0135
+  %arrayidx132 = getelementptr inbounds [64 x %struct.iovec], ptr %iov, i64 0, i64 %j.0135
   store ptr %53, ptr %arrayidx132, align 16
   br label %if.end138
 
 if.end138:                                        ; preds = %if.else129, %if.then119
   %.sink = phi i64 [ %52, %if.else129 ], [ %sub126, %if.then119 ]
-  %iov_len137 = getelementptr inbounds nuw [64 x %struct.iovec], ptr %iov, i64 0, i64 %j.0135, i32 1
+  %iov_len137 = getelementptr inbounds [64 x %struct.iovec], ptr %iov, i64 0, i64 %j.0135, i32 1
   store i64 %.sink, ptr %iov_len137, align 8
   %inc139 = add i64 %j.0135, 1
   br label %for.inc140

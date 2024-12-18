@@ -335,7 +335,7 @@ if.then48:                                        ; preds = %if.else
 if.then57:                                        ; preds = %if.then48
   %m_normal = getelementptr inbounds nuw i8, ptr %arrayidx.i80, i64 16
   %idxprom = sext i32 %coincident_count.0101 to i64
-  %arrayidx = getelementptr inbounds nuw [8 x %class.btVector3], ptr %coincident_normals, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [8 x %class.btVector3], ptr %coincident_normals, i64 0, i64 %idxprom
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx, ptr noundef nonnull align 4 dereferenceable(16) %m_normal, i64 16, i1 false)
   %inc58 = add nsw i32 %coincident_count.0101, 1
   br label %if.end75

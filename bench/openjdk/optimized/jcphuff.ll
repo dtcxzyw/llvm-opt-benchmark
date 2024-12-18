@@ -501,7 +501,7 @@ define internal noundef i32 @encode_mcu_AC_first(ptr noundef %0, ptr nocapture n
 .backedge:                                        ; preds = %.backedge.backedge, %.lr.ph88
   %indvars.iv = phi i64 [ %38, %.lr.ph88 ], [ %indvars.iv.be, %.backedge.backedge ]
   %.06585 = phi i32 [ 0, %.lr.ph88 ], [ %.06585.be, %.backedge.backedge ]
-  %40 = getelementptr inbounds nuw [0 x i32], ptr @jZAGTable, i64 0, i64 %indvars.iv
+  %40 = getelementptr inbounds [0 x i32], ptr @jZAGTable, i64 0, i64 %indvars.iv
   %41 = load i32, ptr %40, align 4
   %42 = sext i32 %41 to i64
   %43 = getelementptr inbounds [64 x i16], ptr %27, i64 0, i64 %42
@@ -968,7 +968,7 @@ define internal noundef i32 @encode_mcu_AC_refine(ptr nocapture noundef readonly
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %32, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.089188 = phi i32 [ 0, %.lr.ph.preheader ], [ %.190, %.lr.ph ]
-  %34 = getelementptr inbounds nuw [0 x i32], ptr @jZAGTable, i64 0, i64 %indvars.iv
+  %34 = getelementptr inbounds [0 x i32], ptr @jZAGTable, i64 0, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4
   %36 = sext i32 %35 to i64
   %37 = getelementptr inbounds [64 x i16], ptr %28, i64 0, i64 %36
@@ -976,7 +976,7 @@ define internal noundef i32 @encode_mcu_AC_refine(ptr nocapture noundef readonly
   %39 = tail call i16 @llvm.abs.i16(i16 %38, i1 false)
   %spec.select = zext i16 %39 to i32
   %40 = lshr i32 %spec.select, %9
-  %41 = getelementptr inbounds nuw [64 x i32], ptr %3, i64 0, i64 %indvars.iv
+  %41 = getelementptr inbounds [64 x i32], ptr %3, i64 0, i64 %indvars.iv
   store i32 %40, ptr %41, align 4
   %42 = icmp eq i32 %40, 1
   %43 = trunc nsw i64 %indvars.iv to i32
@@ -1011,7 +1011,7 @@ define internal noundef i32 @encode_mcu_AC_refine(ptr nocapture noundef readonly
   %.080202 = phi i32 [ 0, %._crit_edge ], [ %.1, %583 ]
   %.083200 = phi i32 [ 0, %._crit_edge ], [ %.184, %583 ]
   %.086199 = phi ptr [ %50, %._crit_edge ], [ %.187, %583 ]
-  %62 = getelementptr inbounds nuw [64 x i32], ptr %3, i64 0, i64 %indvars.iv224
+  %62 = getelementptr inbounds [64 x i32], ptr %3, i64 0, i64 %indvars.iv224
   %63 = load i32, ptr %62, align 4
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %68, label %.preheader
@@ -1850,7 +1850,7 @@ emit_buffered_bits.exit:                          ; preds = %emit_bits.exit161, 
   br label %emit_symbol.exit101
 
 emit_symbol.exit101:                              ; preds = %489, %495
-  %504 = getelementptr inbounds nuw [0 x i32], ptr @jZAGTable, i64 0, i64 %indvars.iv224
+  %504 = getelementptr inbounds [0 x i32], ptr @jZAGTable, i64 0, i64 %indvars.iv224
   %505 = load i32, ptr %504, align 4
   %506 = sext i32 %505 to i64
   %507 = getelementptr inbounds [64 x i16], ptr %28, i64 0, i64 %506
@@ -2119,7 +2119,7 @@ define internal void @finish_pass_gather_phuff(ptr noundef %0) #0 {
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 20
   %.026.us = load i32, ptr %22, align 4
   %23 = sext i32 %.026.us to i64
-  %24 = getelementptr inbounds nuw [4 x i32], ptr %2, i64 0, i64 %23
+  %24 = getelementptr inbounds [4 x i32], ptr %2, i64 0, i64 %23
   %25 = load i32, ptr %24, align 4
   %.not27.us = icmp eq i32 %25, 0
   br i1 %.not27.us, label %26, label %35
@@ -2159,7 +2159,7 @@ define internal void @finish_pass_gather_phuff(ptr noundef %0) #0 {
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %.026 = load i32, ptr %42, align 4
   %43 = sext i32 %.026 to i64
-  %44 = getelementptr inbounds nuw [4 x i32], ptr %2, i64 0, i64 %43
+  %44 = getelementptr inbounds [4 x i32], ptr %2, i64 0, i64 %43
   %45 = load i32, ptr %44, align 4
   %.not27 = icmp eq i32 %45, 0
   br i1 %.not27, label %46, label %55

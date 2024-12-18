@@ -304,8 +304,8 @@ entry:
   %0 = load ptr, ptr @lgcyprov, align 8
   %cmp = icmp eq ptr %0, null
   %idxprom1 = sext i32 %z to i64
-  %arrayidx2 = getelementptr inbounds nuw [16 x i32], ptr @enc_nids_all, i64 0, i64 %idxprom1
-  %arrayidx = getelementptr inbounds nuw [5 x i32], ptr @enc_nids_no_legacy, i64 0, i64 %idxprom1
+  %arrayidx2 = getelementptr inbounds [16 x i32], ptr @enc_nids_all, i64 0, i64 %idxprom1
+  %arrayidx = getelementptr inbounds [5 x i32], ptr @enc_nids_no_legacy, i64 0, i64 %idxprom1
   %storemerge.in = select i1 %cmp, ptr %arrayidx, ptr %arrayidx2
   %storemerge = load i32, ptr %storemerge.in, align 4
   store i32 %storemerge, ptr %enc, align 8
@@ -325,8 +325,8 @@ entry:
   %0 = load ptr, ptr @lgcyprov, align 8
   %cmp = icmp eq ptr %0, null
   %idxprom1 = sext i32 %z to i64
-  %arrayidx2 = getelementptr inbounds nuw [16 x i32], ptr @enc_nids_all, i64 0, i64 %idxprom1
-  %arrayidx = getelementptr inbounds nuw [5 x i32], ptr @enc_nids_no_legacy, i64 0, i64 %idxprom1
+  %arrayidx2 = getelementptr inbounds [16 x i32], ptr @enc_nids_all, i64 0, i64 %idxprom1
+  %arrayidx = getelementptr inbounds [5 x i32], ptr @enc_nids_no_legacy, i64 0, i64 %idxprom1
   %storemerge.in = select i1 %cmp, ptr %arrayidx, ptr %arrayidx2
   %storemerge = load i32, ptr %storemerge.in, align 4
   store i32 %storemerge, ptr %enc, align 8
@@ -525,7 +525,7 @@ entry:
   %enc = alloca %struct.pkcs12_enc, align 8
   store i32 146, ptr %enc, align 8
   %idxprom = sext i32 %z to i64
-  %arrayidx = getelementptr inbounds nuw [2 x ptr], ptr @passwords, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [2 x ptr], ptr @passwords, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
   %pass = getelementptr inbounds nuw i8, ptr %enc, i64 8
   store ptr %0, ptr %pass, align 8
@@ -543,7 +543,7 @@ entry:
   %pass = getelementptr inbounds nuw i8, ptr %enc, i64 8
   store ptr @.str.47, ptr %pass, align 8
   %idxprom = sext i32 %z to i64
-  %arrayidx = getelementptr inbounds nuw [2 x i32], ptr @iters, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [2 x i32], ptr @iters, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4
   %iter = getelementptr inbounds nuw i8, ptr %enc, i64 16
   store i32 %0, ptr %iter, align 8
@@ -574,7 +574,7 @@ define internal i32 @test_single_cert_mac_alg(i32 noundef %z) #1 {
 entry:
   %mac = alloca %struct.pkcs12_enc, align 8
   %idxprom = sext i32 %z to i64
-  %arrayidx = getelementptr inbounds nuw [6 x i32], ptr @mac_nids, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [6 x i32], ptr @mac_nids, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4
   store i32 %0, ptr %mac, align 8
   %pass = getelementptr inbounds nuw i8, ptr %mac, i64 8
@@ -591,7 +591,7 @@ entry:
   %mac = alloca %struct.pkcs12_enc, align 8
   store i32 64, ptr %mac, align 8
   %idxprom = sext i32 %z to i64
-  %arrayidx = getelementptr inbounds nuw [2 x ptr], ptr @passwords, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [2 x ptr], ptr @passwords, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
   %pass = getelementptr inbounds nuw i8, ptr %mac, i64 8
   store ptr %0, ptr %pass, align 8
@@ -609,7 +609,7 @@ entry:
   %pass = getelementptr inbounds nuw i8, ptr %mac, i64 8
   store ptr @.str.47, ptr %pass, align 8
   %idxprom = sext i32 %z to i64
-  %arrayidx = getelementptr inbounds nuw [2 x i32], ptr @iters, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [2 x i32], ptr @iters, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4
   %iter = getelementptr inbounds nuw i8, ptr %mac, i64 16
   store i32 %0, ptr %iter, align 8

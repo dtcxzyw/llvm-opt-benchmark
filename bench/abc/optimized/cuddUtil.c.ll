@@ -2756,7 +2756,7 @@ Cudd_Random.exit:                                 ; preds = %.preheader, %48
   %76 = sdiv i64 %63, 33554431
   %sext.i = shl i64 %76, 32
   %77 = ashr exact i64 %sext.i, 32
-  %78 = getelementptr inbounds nuw [64 x i64], ptr @shuffleTable, i64 0, i64 %77
+  %78 = getelementptr inbounds [64 x i64], ptr @shuffleTable, i64 0, i64 %77
   %79 = load i64, ptr %78, align 8
   %80 = sub nsw i64 %79, %75
   store i64 %69, ptr %78, align 8
@@ -2846,7 +2846,7 @@ Cudd_Srandom.exit:                                ; preds = %.preheader, %._crit
   %29 = sdiv i64 %16, 33554431
   %sext = shl i64 %29, 32
   %30 = ashr exact i64 %sext, 32
-  %31 = getelementptr inbounds nuw [64 x i64], ptr @shuffleTable, i64 0, i64 %30
+  %31 = getelementptr inbounds [64 x i64], ptr @shuffleTable, i64 0, i64 %30
   %32 = load i64, ptr %31, align 8
   %33 = sub nsw i64 %32, %28
   store i64 %22, ptr %31, align 8
@@ -2989,7 +2989,7 @@ Cudd_Random.exit:                                 ; preds = %.preheader, %37
   %65 = sdiv i64 %52, 33554431
   %sext.i = shl i64 %65, 32
   %66 = ashr exact i64 %sext.i, 32
-  %67 = getelementptr inbounds nuw [64 x i64], ptr @shuffleTable, i64 0, i64 %66
+  %67 = getelementptr inbounds [64 x i64], ptr @shuffleTable, i64 0, i64 %66
   %68 = load i64, ptr %67, align 8
   %69 = sub nsw i64 %68, %64
   store i64 %58, ptr %67, align 8
@@ -3504,7 +3504,7 @@ Cudd_Random.exit345.us:                           ; preds = %.preheader350.us, %
   %141 = sdiv i64 %128, 33554431
   %sext.i337.us = shl i64 %141, 32
   %142 = ashr exact i64 %sext.i337.us, 32
-  %143 = getelementptr inbounds nuw [64 x i64], ptr @shuffleTable, i64 0, i64 %142
+  %143 = getelementptr inbounds [64 x i64], ptr @shuffleTable, i64 0, i64 %142
   %144 = load i64, ptr %143, align 8
   %145 = sub nsw i64 %144, %140
   store i64 %134, ptr %143, align 8
@@ -3592,7 +3592,7 @@ Cudd_Random.exit:                                 ; preds = %.preheader353, %163
   %191 = sdiv i64 %178, 33554431
   %sext.i = shl i64 %191, 32
   %192 = ashr exact i64 %sext.i, 32
-  %193 = getelementptr inbounds nuw [64 x i64], ptr @shuffleTable, i64 0, i64 %192
+  %193 = getelementptr inbounds [64 x i64], ptr @shuffleTable, i64 0, i64 %192
   %194 = load i64, ptr %193, align 8
   %195 = sub nsw i64 %194, %190
   store i64 %184, ptr %193, align 8

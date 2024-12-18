@@ -1107,7 +1107,7 @@ define internal fastcc void @_ZN10open_spiel11tiny_bridge12_GLOBAL__N_110CardStr
   %9 = sdiv i32 %1, 4
   %10 = srem i32 %1, 4
   %11 = sext i32 %9 to i64
-  %12 = getelementptr inbounds nuw [3 x i8], ptr @_ZN10open_spiel11tiny_bridge12_GLOBAL__N_19kSuitCharE, i64 0, i64 %11
+  %12 = getelementptr inbounds [3 x i8], ptr @_ZN10open_spiel11tiny_bridge12_GLOBAL__N_19kSuitCharE, i64 0, i64 %11
   %13 = load i8, ptr %12, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #28
   %14 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
@@ -1142,7 +1142,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %18, ptr %21, align 8
   %22 = sext i32 %10 to i64
-  %23 = getelementptr inbounds nuw [4 x i8], ptr @_ZN10open_spiel11tiny_bridge12_GLOBAL__N_19kRankCharE, i64 0, i64 %22
+  %23 = getelementptr inbounds [4 x i8], ptr @_ZN10open_spiel11tiny_bridge12_GLOBAL__N_19kRankCharE, i64 0, i64 %22
   %24 = load i8, ptr %23, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #28
   %25 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %7)
@@ -1236,7 +1236,7 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
 define void @_ZN10open_spiel11tiny_bridge10SeatStringB5cxx11ENS0_4SeatE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i32 noundef %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds nuw [4 x i8], ptr @_ZN10open_spiel11tiny_bridge12_GLOBAL__N_19kSeatCharE, i64 0, i64 %4
+  %5 = getelementptr inbounds [4 x i8], ptr @_ZN10open_spiel11tiny_bridge12_GLOBAL__N_19kSeatCharE, i64 0, i64 %4
   %6 = load i8, ptr %5, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #28
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -3154,7 +3154,7 @@ _ZN4absl7debian28AlphaNumC2EPKc.exit:             ; preds = %_ZN4absl7debian28op
   store ptr @.str.18, ptr %34, align 8
   store i64 5, ptr %85, align 8
   %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds nuw [4 x i8], ptr @_ZN10open_spiel11tiny_bridge12_GLOBAL__N_19kSeatCharE, i64 0, i64 %89
+  %90 = getelementptr inbounds [4 x i8], ptr @_ZN10open_spiel11tiny_bridge12_GLOBAL__N_19kSeatCharE, i64 0, i64 %89
   %91 = load i8, ptr %90, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %37) #28
   %92 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %36)
@@ -4462,7 +4462,7 @@ _ZN10open_spiel11tiny_bridge12_GLOBAL__N_130ChanceOutcomeToHandAbstractionEi.exi
   %38 = getelementptr inbounds i32, ptr %37, i64 %36
   %39 = load i32, ptr %38, align 4, !noalias !21
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds nuw [12 x ptr], ptr @_ZN10open_spiel11tiny_bridge12_GLOBAL__N_112kAbstractionE, i64 0, i64 %40
+  %41 = getelementptr inbounds [12 x ptr], ptr @_ZN10open_spiel11tiny_bridge12_GLOBAL__N_112kAbstractionE, i64 0, i64 %40
   %42 = load ptr, ptr %41, align 8, !noalias !21
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #28, !noalias !21
   %43 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -5563,7 +5563,7 @@ _ZN10open_spiel11tiny_bridge12_GLOBAL__N_120ChanceOutcomeToCardsEi.exit: ; preds
   %16 = getelementptr inbounds nuw [8 x i32], ptr %4, i64 0, i64 %.sroa.0.0.insert.ext.i
   store i32 0, ptr %16, align 4
   %17 = sext i32 %15 to i64
-  %18 = getelementptr inbounds nuw [8 x i32], ptr %4, i64 0, i64 %17
+  %18 = getelementptr inbounds [8 x i32], ptr %4, i64 0, i64 %17
   store i32 0, ptr %18, align 4
   %19 = trunc i64 %1 to i32
   br label %20
@@ -5585,7 +5585,7 @@ _ZN10open_spiel11tiny_bridge12_GLOBAL__N_120ChanceOutcomeToCardsEi.exit40: ; pre
   %27 = getelementptr inbounds nuw [8 x i32], ptr %4, i64 0, i64 %.sroa.0.0.insert.ext.i38
   store i32 2, ptr %27, align 4
   %28 = sext i32 %26 to i64
-  %29 = getelementptr inbounds nuw [8 x i32], ptr %4, i64 0, i64 %28
+  %29 = getelementptr inbounds [8 x i32], ptr %4, i64 0, i64 %28
   store i32 2, ptr %29, align 4
   br label %.preheader.preheader
 
@@ -5746,7 +5746,7 @@ _ZN10open_spiel11tiny_bridge12_GLOBAL__N_120ChanceOutcomeToCardsEi.exit.i26: ; p
   %40 = getelementptr inbounds nuw [8 x i32], ptr %2, i64 0, i64 %.sroa.0.0.insert.ext.i.i
   store i32 0, ptr %40, align 4
   %41 = sext i32 %39 to i64
-  %42 = getelementptr inbounds nuw [8 x i32], ptr %2, i64 0, i64 %41
+  %42 = getelementptr inbounds [8 x i32], ptr %2, i64 0, i64 %41
   store i32 0, ptr %42, align 4
   br label %43
 
@@ -5768,7 +5768,7 @@ _ZN10open_spiel11tiny_bridge12_GLOBAL__N_120ChanceOutcomeToCardsEi.exit40.i: ; p
   %51 = getelementptr inbounds nuw [8 x i32], ptr %2, i64 0, i64 %.sroa.0.0.insert.ext.i38.i
   store i32 2, ptr %51, align 4
   %52 = sext i32 %50 to i64
-  %53 = getelementptr inbounds nuw [8 x i32], ptr %2, i64 0, i64 %52
+  %53 = getelementptr inbounds [8 x i32], ptr %2, i64 0, i64 %52
   store i32 2, ptr %53, align 4
   br label %.preheader.preheader.i
 
@@ -5919,7 +5919,7 @@ define noundef double @_ZN10open_spiel11tiny_bridge8Score_2pEllRKNS0_22TinyBridg
   br label %13
 
 13:                                               ; preds = %12, %9, %6
-  %14 = getelementptr inbounds nuw [28 x %"struct.std::array.41"], ptr @_ZZN10open_spiel11tiny_bridge8Score_2pEllRKNS0_22TinyBridgeAuctionState12AuctionStateEE13scoring_table, i64 0, i64 %0
+  %14 = getelementptr inbounds [28 x %"struct.std::array.41"], ptr @_ZZN10open_spiel11tiny_bridge8Score_2pEllRKNS0_22TinyBridgeAuctionState12AuctionStateEE13scoring_table, i64 0, i64 %0
   %15 = getelementptr inbounds [28 x %"struct.std::array.42"], ptr %14, i64 0, i64 %1
   %16 = load i64, ptr %2, align 8
   %17 = getelementptr inbounds [7 x %"struct.std::array.43"], ptr %15, i64 0, i64 %16
@@ -6160,7 +6160,7 @@ _ZNK10open_spiel11tiny_bridge22TinyBridgeAuctionState14AnalyzeAuctionEv.exit: ; 
   br label %76
 
 76:                                               ; preds = %75, %72, %69
-  %77 = getelementptr inbounds nuw [28 x %"struct.std::array.41"], ptr @_ZZN10open_spiel11tiny_bridge8Score_2pEllRKNS0_22TinyBridgeAuctionState12AuctionStateEE13scoring_table, i64 0, i64 %50
+  %77 = getelementptr inbounds [28 x %"struct.std::array.41"], ptr @_ZZN10open_spiel11tiny_bridge8Score_2pEllRKNS0_22TinyBridgeAuctionState12AuctionStateEE13scoring_table, i64 0, i64 %50
   %78 = getelementptr inbounds [28 x %"struct.std::array.42"], ptr %77, i64 0, i64 %53
   %79 = getelementptr inbounds [7 x %"struct.std::array.43"], ptr %78, i64 0, i64 %67
   %80 = sdiv i32 %66, 2
@@ -6619,7 +6619,7 @@ _ZN10open_spiel11tiny_bridge12_GLOBAL__N_120ChanceOutcomeToCardsEi.exit.i: ; pre
   %27 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %27, ptr %26, align 4, !alias.scope !40
   %28 = sext i32 %25 to i64
-  %29 = getelementptr inbounds nuw [8 x i32], ptr %3, i64 0, i64 %28
+  %29 = getelementptr inbounds [8 x i32], ptr %3, i64 0, i64 %28
   store i32 %27, ptr %29, align 4, !alias.scope !40
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %umax
@@ -6935,7 +6935,7 @@ define void @_ZNK10open_spiel11tiny_bridge22TinyBridgeAuctionState14ActionToStri
   br label %22
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw [9 x ptr], ptr @_ZN10open_spiel11tiny_bridge10kActionStrE, i64 0, i64 %3
+  %9 = getelementptr inbounds [9 x ptr], ptr @_ZN10open_spiel11tiny_bridge10kActionStrE, i64 0, i64 %3
   %10 = load ptr, ptr %9, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #28
   %11 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -7344,7 +7344,7 @@ define void @_ZNK10open_spiel11tiny_bridge22TinyBridgeAuctionState22InformationS
   %38 = sub nsw i32 4, %37
   %39 = srem i32 %38, 4
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds nuw [4 x %"class.absl::debian2::string_view"], ptr @__const._ZN10open_spiel11tiny_bridge12_GLOBAL__N_118RelativeSeatStringB5cxx11ENS0_4SeatES2_.relative_player, i64 0, i64 %40
+  %41 = getelementptr inbounds [4 x %"class.absl::debian2::string_view"], ptr @__const._ZN10open_spiel11tiny_bridge12_GLOBAL__N_118RelativeSeatStringB5cxx11ENS0_4SeatES2_.relative_player, i64 0, i64 %40
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5), !noalias !51
   %42 = load ptr, ptr %41, align 8, !noalias !54
   %.not.i.i = icmp eq ptr %42, null
@@ -7763,7 +7763,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   %101 = sub i32 %100, %99
   %102 = srem i32 %101, 4
   %103 = sext i32 %102 to i64
-  %104 = getelementptr inbounds nuw [4 x %"class.absl::debian2::string_view"], ptr @__const._ZN10open_spiel11tiny_bridge12_GLOBAL__N_118RelativeSeatStringB5cxx11ENS0_4SeatES2_.relative_player, i64 0, i64 %103
+  %104 = getelementptr inbounds [4 x %"class.absl::debian2::string_view"], ptr @__const._ZN10open_spiel11tiny_bridge12_GLOBAL__N_118RelativeSeatStringB5cxx11ENS0_4SeatES2_.relative_player, i64 0, i64 %103
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6), !noalias !63
   %105 = load ptr, ptr %104, align 8, !noalias !66
   %.not.i.i = icmp eq ptr %105, null
@@ -7846,7 +7846,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   %131 = sub i32 %130, %129
   %132 = srem i32 %131, 4
   %133 = sext i32 %132 to i64
-  %134 = getelementptr inbounds nuw [4 x %"class.absl::debian2::string_view"], ptr @__const._ZN10open_spiel11tiny_bridge12_GLOBAL__N_118RelativeSeatStringB5cxx11ENS0_4SeatES2_.relative_player, i64 0, i64 %133
+  %134 = getelementptr inbounds [4 x %"class.absl::debian2::string_view"], ptr @__const._ZN10open_spiel11tiny_bridge12_GLOBAL__N_118RelativeSeatStringB5cxx11ENS0_4SeatES2_.relative_player, i64 0, i64 %133
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5), !noalias !69
   %135 = load ptr, ptr %134, align 8, !noalias !72
   %.not.i.i22 = icmp eq ptr %135, null
@@ -7918,7 +7918,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   %159 = sub i32 %158, %157
   %160 = srem i32 %159, 4
   %161 = sext i32 %160 to i64
-  %162 = getelementptr inbounds nuw [4 x %"class.absl::debian2::string_view"], ptr @__const._ZN10open_spiel11tiny_bridge12_GLOBAL__N_118RelativeSeatStringB5cxx11ENS0_4SeatES2_.relative_player, i64 0, i64 %161
+  %162 = getelementptr inbounds [4 x %"class.absl::debian2::string_view"], ptr @__const._ZN10open_spiel11tiny_bridge12_GLOBAL__N_118RelativeSeatStringB5cxx11ENS0_4SeatES2_.relative_player, i64 0, i64 %161
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !75
   %163 = load ptr, ptr %162, align 8, !noalias !78
   %.not.i.i29 = icmp eq ptr %163, null
@@ -9545,7 +9545,7 @@ _ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm4EEC2Ev.exit.p
 
 35:                                               ; preds = %31
   %36 = sext i32 %33 to i64
-  %37 = getelementptr inbounds nuw [4 x %"class.std::__cxx11::basic_string"], ptr %3, i64 0, i64 %36
+  %37 = getelementptr inbounds [4 x %"class.std::__cxx11::basic_string"], ptr %3, i64 0, i64 %36
   %38 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm4EEC2Ev.exit unwind label %41
 
@@ -9684,7 +9684,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %79 = load i32, ptr %78, align 4
   %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds nuw [3 x i8], ptr @_ZN10open_spiel11tiny_bridge12_GLOBAL__N_19kSuitCharE, i64 0, i64 %80
+  %81 = getelementptr inbounds [3 x i8], ptr @_ZN10open_spiel11tiny_bridge12_GLOBAL__N_19kSuitCharE, i64 0, i64 %80
   %82 = load i8, ptr %81, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #28
   %83 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %14)
@@ -9724,7 +9724,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %93 = load i32, ptr %92, align 8
   %94 = sext i32 %93 to i64
-  %95 = getelementptr inbounds nuw [4 x i8], ptr @_ZN10open_spiel11tiny_bridge12_GLOBAL__N_19kSeatCharE, i64 0, i64 %94
+  %95 = getelementptr inbounds [4 x i8], ptr @_ZN10open_spiel11tiny_bridge12_GLOBAL__N_19kSeatCharE, i64 0, i64 %94
   %96 = load i8, ptr %95, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #28
   %97 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %18)
@@ -9791,7 +9791,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   store i64 1, ptr %112, align 8
   %117 = load i32, ptr %.sroa.069.076, align 4
   %118 = sext i32 %117 to i64
-  %119 = getelementptr inbounds nuw [4 x i8], ptr @_ZN10open_spiel11tiny_bridge12_GLOBAL__N_19kSeatCharE, i64 0, i64 %118
+  %119 = getelementptr inbounds [4 x i8], ptr @_ZN10open_spiel11tiny_bridge12_GLOBAL__N_19kSeatCharE, i64 0, i64 %118
   %120 = load i8, ptr %119, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %24) #28
   %121 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %23)

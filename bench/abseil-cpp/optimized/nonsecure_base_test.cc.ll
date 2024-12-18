@@ -2109,7 +2109,7 @@ for.body15.i.i.i:                                 ; preds = %for.body15.i.i.i, %
   %and23.i.i.i = and i64 %17, 2147483646
   %or24.i.i.i = or disjoint i64 %and23.i.i.i, %and19.i.i.i
   %add26.i.i.i = add nsw i64 %__k12.015.i.i.i, -227
-  %arrayidx27.i.i.i = getelementptr inbounds nuw [624 x i64], ptr %rbg1, i64 0, i64 %add26.i.i.i
+  %arrayidx27.i.i.i = getelementptr inbounds [624 x i64], ptr %rbg1, i64 0, i64 %add26.i.i.i
   %18 = load i64, ptr %arrayidx27.i.i.i, align 8
   %shr28.i.i.i = lshr exact i64 %or24.i.i.i, 1
   %xor29.i.i.i = xor i64 %shr28.i.i.i, %18
@@ -2194,7 +2194,7 @@ for.body15.i.i.i55:                               ; preds = %for.body15.i.i.i55,
   %and23.i.i.i61 = and i64 %28, 2147483646
   %or24.i.i.i62 = or disjoint i64 %and23.i.i.i61, %and19.i.i.i58
   %add26.i.i.i63 = add nsw i64 %__k12.015.i.i.i56, -227
-  %arrayidx27.i.i.i64 = getelementptr inbounds nuw [624 x i64], ptr %rbg2, i64 0, i64 %add26.i.i.i63
+  %arrayidx27.i.i.i64 = getelementptr inbounds [624 x i64], ptr %rbg2, i64 0, i64 %add26.i.i.i63
   %29 = load i64, ptr %arrayidx27.i.i.i64, align 8
   %shr28.i.i.i65 = lshr exact i64 %or24.i.i.i62, 1
   %xor29.i.i.i66 = xor i64 %shr28.i.i.i65, %29
@@ -3724,7 +3724,7 @@ while.body:                                       ; preds = %if.then, %while.bod
   %sub = add nsw i64 %dst.022, -4
   %shr = lshr exact i64 %sub, 1
   %dec = add nsw i64 %dst.022, -5
-  %arrayidx = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec
+  %arrayidx = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec
   %dec9 = add nsw i64 %shr, -1
   %arrayidx10 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec9
   %0 = load i32, ptr %arrayidx, align 4
@@ -3732,7 +3732,7 @@ while.body:                                       ; preds = %if.then, %while.bod
   store i32 %1, ptr %arrayidx, align 4
   store i32 %0, ptr %arrayidx10, align 4
   %dec11 = add nsw i64 %dst.022, -6
-  %arrayidx12 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec11
+  %arrayidx12 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec11
   %dec13 = add nsw i64 %shr, -2
   %arrayidx14 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec13
   %2 = load i32, ptr %arrayidx12, align 8
@@ -3740,17 +3740,17 @@ while.body:                                       ; preds = %if.then, %while.bod
   store i32 %3, ptr %arrayidx12, align 8
   store i32 %2, ptr %arrayidx14, align 8
   %dec15 = add nsw i64 %dst.022, -7
-  %arrayidx16 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec15
+  %arrayidx16 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec15
   %dec17 = add nsw i64 %shr, -3
-  %arrayidx18 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec17
+  %arrayidx18 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec17
   %4 = load i32, ptr %arrayidx16, align 4
   %5 = load i32, ptr %arrayidx18, align 4
   store i32 %5, ptr %arrayidx16, align 4
   store i32 %4, ptr %arrayidx18, align 4
   %dec19 = add nsw i64 %dst.022, -8
-  %arrayidx20 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec19
+  %arrayidx20 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec19
   %dec21 = add nsw i64 %shr, -4
-  %arrayidx22 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec21
+  %arrayidx22 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec21
   %6 = load i32, ptr %arrayidx20, align 16
   %7 = load i32, ptr %arrayidx22, align 8
   store i32 %7, ptr %arrayidx20, align 16

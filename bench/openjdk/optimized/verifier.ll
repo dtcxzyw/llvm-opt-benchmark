@@ -3406,7 +3406,7 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %81, %_ZN26Gro
 
 227:                                              ; preds = %216
   %228 = sext i32 %205 to i64
-  %229 = getelementptr inbounds nuw [239 x ptr], ptr @_ZN9Bytecodes5_nameE, i64 0, i64 %228
+  %229 = getelementptr inbounds [239 x ptr], ptr @_ZN9Bytecodes5_nameE, i64 0, i64 %228
   %230 = load ptr, ptr %229, align 8
   br label %231
 

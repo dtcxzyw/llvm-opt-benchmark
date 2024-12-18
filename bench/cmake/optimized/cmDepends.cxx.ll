@@ -602,7 +602,7 @@ define dso_local noundef zeroext i1 @_ZN9cmDepends5CheckERKNSt7__cxx1112basic_st
   %7 = load ptr, ptr %5, align 8
   %8 = getelementptr i8, ptr %7, i64 -24
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %5, i64 %9
+  %10 = getelementptr inbounds i8, ptr %5, i64 %9
   %11 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %10)
           to label %12 unwind label %26
 

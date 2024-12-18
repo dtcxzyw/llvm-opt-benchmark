@@ -571,7 +571,7 @@ define internal fastcc range(i32 -2147483645, -2147483648) i32 @sort_typeBstar(p
   %177 = add nsw i32 %176, -6
   %178 = ashr i32 %145, %177
   %179 = sext i32 %178 to i64
-  %180 = getelementptr inbounds nuw [256 x i32], ptr @sqq_table, i64 0, i64 %179
+  %180 = getelementptr inbounds [256 x i32], ptr @sqq_table, i64 0, i64 %179
   %181 = load i32, ptr %180, align 4
   %182 = lshr i32 %173, 1
   %183 = add nsw i32 %182, -7
@@ -603,7 +603,7 @@ define internal fastcc range(i32 -2147483645, -2147483648) i32 @sort_typeBstar(p
   %200 = add nsw i32 %199, -6
   %201 = ashr i32 %145, %200
   %202 = sext i32 %201 to i64
-  %203 = getelementptr inbounds nuw [256 x i32], ptr @sqq_table, i64 0, i64 %202
+  %203 = getelementptr inbounds [256 x i32], ptr @sqq_table, i64 0, i64 %202
   %204 = load i32, ptr %203, align 4
   %205 = lshr i32 %173, 1
   %206 = sub nuw nsw i32 7, %205
@@ -614,7 +614,7 @@ define internal fastcc range(i32 -2147483645, -2147483648) i32 @sort_typeBstar(p
 209:                                              ; preds = %196
   %sext.i = shl i64 %141, 30
   %210 = ashr i64 %sext.i, 32
-  %211 = getelementptr inbounds nuw [256 x i32], ptr @sqq_table, i64 0, i64 %210
+  %211 = getelementptr inbounds [256 x i32], ptr @sqq_table, i64 0, i64 %210
   %212 = load i32, ptr %211, align 4
   %213 = ashr i32 %212, 4
   br label %ss_isqrt.exit.i
@@ -1783,7 +1783,7 @@ tr_partition.exit121.i:                           ; preds = %._crit_edge264.i77.
 
 746:                                              ; preds = %.loopexit593.i.i
   %747 = sext i32 %.0445.ph.i.i to i64
-  %748 = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %5, i64 0, i64 %747
+  %748 = getelementptr inbounds [64 x %struct.anon.1], ptr %5, i64 0, i64 %747
   store ptr null, ptr %748, align 16
   %749 = getelementptr inbounds nuw i8, ptr %748, i64 8
   store ptr %.0165.i79.i, ptr %749, align 8
@@ -1795,7 +1795,7 @@ tr_partition.exit121.i:                           ; preds = %._crit_edge264.i77.
   %753 = getelementptr inbounds nuw i8, ptr %748, i64 28
   store i32 0, ptr %753, align 4
   %754 = sext i32 %752 to i64
-  %755 = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %5, i64 0, i64 %754
+  %755 = getelementptr inbounds [64 x %struct.anon.1], ptr %5, i64 0, i64 %754
   store ptr %583, ptr %755, align 16
   %756 = getelementptr inbounds nuw i8, ptr %755, i64 8
   store ptr %.0455.ph.i.i, ptr %756, align 8
@@ -1825,7 +1825,7 @@ tr_partition.exit121.i:                           ; preds = %._crit_edge264.i77.
 
 769:                                              ; preds = %767
   %770 = sext i32 %.1446.i.i to i64
-  %771 = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %5, i64 0, i64 %770
+  %771 = getelementptr inbounds [64 x %struct.anon.1], ptr %5, i64 0, i64 %770
   store ptr %.0452.ph.i.i, ptr %771, align 16
   %772 = getelementptr inbounds nuw i8, ptr %771, i64 8
   store ptr %.0166.i78.i, ptr %772, align 8
@@ -1978,7 +1978,7 @@ tr_ilg.exit528.i.i:                               ; preds = %796, %790, %783, %7
 860:                                              ; preds = %858
   %861 = add nsw i32 %.1446.i.i, -1
   %862 = sext i32 %861 to i64
-  %863 = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %5, i64 0, i64 %862
+  %863 = getelementptr inbounds [64 x %struct.anon.1], ptr %5, i64 0, i64 %862
   %864 = load ptr, ptr %863, align 16
   %865 = getelementptr inbounds nuw i8, ptr %863, i64 8
   %866 = load ptr, ptr %865, align 8
@@ -1996,7 +1996,7 @@ tr_ilg.exit528.i.i:                               ; preds = %796, %790, %783, %7
 
 875:                                              ; preds = %873
   %876 = sext i32 %.1446.i.i to i64
-  %877 = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %5, i64 0, i64 %876
+  %877 = getelementptr inbounds [64 x %struct.anon.1], ptr %5, i64 0, i64 %876
   store ptr %.0452.ph.i.i, ptr %877, align 16
   %878 = getelementptr inbounds nuw i8, ptr %877, i64 8
   store ptr %.0455.ph.i.i, ptr %878, align 8
@@ -2149,7 +2149,7 @@ tr_ilg.exit540.i.i:                               ; preds = %902, %896, %889, %8
 966:                                              ; preds = %964
   %967 = add nsw i32 %.1446.i.i, -1
   %968 = sext i32 %967 to i64
-  %969 = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %5, i64 0, i64 %968
+  %969 = getelementptr inbounds [64 x %struct.anon.1], ptr %5, i64 0, i64 %968
   %970 = load ptr, ptr %969, align 16
   %971 = getelementptr inbounds nuw i8, ptr %969, i64 8
   %972 = load ptr, ptr %971, align 8
@@ -2164,7 +2164,7 @@ tr_ilg.exit540.i.i:                               ; preds = %902, %896, %889, %8
 979:                                              ; preds = %._crit_edge.i.i306
   %980 = add nsw i32 %.0445.ph.i.i, -1
   %981 = sext i32 %980 to i64
-  %982 = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %5, i64 0, i64 %981
+  %982 = getelementptr inbounds [64 x %struct.anon.1], ptr %5, i64 0, i64 %981
   %983 = getelementptr inbounds nuw i8, ptr %982, i64 8
   %984 = load ptr, ptr %983, align 8
   %985 = getelementptr inbounds nuw i8, ptr %982, i64 16
@@ -2405,7 +2405,7 @@ tr_copy.exit.i.i:                                 ; preds = %1100, %1033, %._cri
 1103:                                             ; preds = %tr_copy.exit.i.i
   %1104 = add nsw i32 %.0445.ph.i.i, -2
   %1105 = sext i32 %1104 to i64
-  %1106 = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %5, i64 0, i64 %1105
+  %1106 = getelementptr inbounds [64 x %struct.anon.1], ptr %5, i64 0, i64 %1105
   %1107 = load ptr, ptr %1106, align 16
   %1108 = getelementptr inbounds nuw i8, ptr %1106, i64 8
   %1109 = load ptr, ptr %1108, align 8
@@ -2570,7 +2570,7 @@ tr_ilg.exit556.i.i:                               ; preds = %1173, %1167, %1160,
 
 1205:                                             ; preds = %1202
   %1206 = sext i32 %.0445.ph.i.i to i64
-  %1207 = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %5, i64 0, i64 %1206
+  %1207 = getelementptr inbounds [64 x %struct.anon.1], ptr %5, i64 0, i64 %1206
   store ptr %.0452.ph.i.i, ptr %1207, align 16
   %1208 = getelementptr inbounds nuw i8, ptr %1207, i64 8
   store ptr %1178, ptr %1208, align 8
@@ -2591,7 +2591,7 @@ tr_ilg.exit556.i.i:                               ; preds = %1173, %1167, %1160,
 
 1217:                                             ; preds = %1214
   %1218 = sext i32 %.0445.ph.i.i to i64
-  %1219 = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %5, i64 0, i64 %1218
+  %1219 = getelementptr inbounds [64 x %struct.anon.1], ptr %5, i64 0, i64 %1218
   store ptr %1216, ptr %1219, align 16
   %1220 = getelementptr inbounds nuw i8, ptr %1219, i64 8
   store ptr %.2457.i.i, ptr %1220, align 8
@@ -2628,7 +2628,7 @@ tr_ilg.exit556.i.i:                               ; preds = %1173, %1167, %1160,
 1237:                                             ; preds = %1235
   %1238 = add nsw i32 %.0445.ph.i.i, -1
   %1239 = sext i32 %1238 to i64
-  %1240 = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %5, i64 0, i64 %1239
+  %1240 = getelementptr inbounds [64 x %struct.anon.1], ptr %5, i64 0, i64 %1239
   %1241 = load ptr, ptr %1240, align 16
   %1242 = getelementptr inbounds nuw i8, ptr %1240, i64 8
   %1243 = load ptr, ptr %1242, align 8
@@ -2647,7 +2647,7 @@ tr_ilg.exit556.i.i:                               ; preds = %1173, %1167, %1160,
 1252:                                             ; preds = %1250
   %1253 = add nsw i32 %.0445.ph.i.i, -1
   %1254 = sext i32 %1253 to i64
-  %1255 = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %5, i64 0, i64 %1254
+  %1255 = getelementptr inbounds [64 x %struct.anon.1], ptr %5, i64 0, i64 %1254
   %1256 = load ptr, ptr %1255, align 16
   %1257 = getelementptr inbounds nuw i8, ptr %1255, i64 8
   %1258 = load ptr, ptr %1257, align 8
@@ -3619,7 +3619,7 @@ trbudget_check.exit576.i.i:                       ; preds = %1799
 1810:                                             ; preds = %1808
   %1811 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %481
   %1812 = sext i32 %.0445.ph.i.i to i64
-  %1813 = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %5, i64 0, i64 %1812
+  %1813 = getelementptr inbounds [64 x %struct.anon.1], ptr %5, i64 0, i64 %1812
   store ptr %1811, ptr %1813, align 16
   %1814 = getelementptr inbounds nuw i8, ptr %1813, i64 8
   store ptr %1739, ptr %1814, align 8
@@ -3631,7 +3631,7 @@ trbudget_check.exit576.i.i:                       ; preds = %1799
   %1818 = getelementptr inbounds nuw i8, ptr %1813, i64 28
   store i32 %.0.ph.i.i, ptr %1818, align 4
   %1819 = sext i32 %1817 to i64
-  %1820 = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %5, i64 0, i64 %1819
+  %1820 = getelementptr inbounds [64 x %struct.anon.1], ptr %5, i64 0, i64 %1819
   store ptr %.0452.ph.i.i, ptr %1820, align 16
   %1821 = getelementptr inbounds nuw i8, ptr %1820, i64 8
   store ptr %1741, ptr %1821, align 8
@@ -3651,7 +3651,7 @@ trbudget_check.exit576.i.i:                       ; preds = %1799
 
 1829:                                             ; preds = %1826
   %1830 = sext i32 %.0445.ph.i.i to i64
-  %1831 = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %5, i64 0, i64 %1830
+  %1831 = getelementptr inbounds [64 x %struct.anon.1], ptr %5, i64 0, i64 %1830
   store ptr %1828, ptr %1831, align 16
   %1832 = getelementptr inbounds nuw i8, ptr %1831, i64 8
   store ptr %1739, ptr %1832, align 8
@@ -3671,7 +3671,7 @@ trbudget_check.exit576.i.i:                       ; preds = %1799
 1838:                                             ; preds = %1837
   %1839 = icmp sgt i64 %1806, 1
   %1840 = sext i32 %.0445.ph.i.i to i64
-  %1841 = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %5, i64 0, i64 %1840
+  %1841 = getelementptr inbounds [64 x %struct.anon.1], ptr %5, i64 0, i64 %1840
   store ptr %.0452.ph.i.i, ptr %1841, align 16
   %1842 = getelementptr inbounds nuw i8, ptr %1841, i64 8
   store ptr %1741, ptr %1842, align 8
@@ -3687,7 +3687,7 @@ trbudget_check.exit576.i.i:                       ; preds = %1799
 
 1848:                                             ; preds = %1838
   %1849 = sext i32 %1845 to i64
-  %1850 = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %5, i64 0, i64 %1849
+  %1850 = getelementptr inbounds [64 x %struct.anon.1], ptr %5, i64 0, i64 %1849
   store ptr %1847, ptr %1850, align 16
   %1851 = getelementptr inbounds nuw i8, ptr %1850, i64 8
   store ptr %1739, ptr %1851, align 8
@@ -3702,7 +3702,7 @@ trbudget_check.exit576.i.i:                       ; preds = %1799
 
 1856:                                             ; preds = %1837
   %1857 = sext i32 %.0445.ph.i.i to i64
-  %1858 = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %5, i64 0, i64 %1857
+  %1858 = getelementptr inbounds [64 x %struct.anon.1], ptr %5, i64 0, i64 %1857
   store ptr %.0452.ph.i.i, ptr %1858, align 16
   %1859 = getelementptr inbounds nuw i8, ptr %1858, i64 8
   store ptr %1741, ptr %1859, align 8
@@ -3714,7 +3714,7 @@ trbudget_check.exit576.i.i:                       ; preds = %1799
   %1863 = getelementptr inbounds nuw i8, ptr %1858, i64 28
   store i32 %.0.ph.i.i, ptr %1863, align 4
   %1864 = sext i32 %1862 to i64
-  %1865 = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %5, i64 0, i64 %1864
+  %1865 = getelementptr inbounds [64 x %struct.anon.1], ptr %5, i64 0, i64 %1864
   store ptr %.0452.ph.i.i, ptr %1865, align 16
   %1866 = getelementptr inbounds nuw i8, ptr %1865, i64 8
   store ptr %.0455.ph.i.i, ptr %1866, align 8
@@ -3739,7 +3739,7 @@ trbudget_check.exit576.i.i:                       ; preds = %1799
 1875:                                             ; preds = %1873
   %1876 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %481
   %1877 = sext i32 %.0445.ph.i.i to i64
-  %1878 = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %5, i64 0, i64 %1877
+  %1878 = getelementptr inbounds [64 x %struct.anon.1], ptr %5, i64 0, i64 %1877
   store ptr %1876, ptr %1878, align 16
   %1879 = getelementptr inbounds nuw i8, ptr %1878, i64 8
   store ptr %1739, ptr %1879, align 8
@@ -3751,7 +3751,7 @@ trbudget_check.exit576.i.i:                       ; preds = %1799
   %1883 = getelementptr inbounds nuw i8, ptr %1878, i64 28
   store i32 %.0.ph.i.i, ptr %1883, align 4
   %1884 = sext i32 %1882 to i64
-  %1885 = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %5, i64 0, i64 %1884
+  %1885 = getelementptr inbounds [64 x %struct.anon.1], ptr %5, i64 0, i64 %1884
   store ptr %.0452.ph.i.i, ptr %1885, align 16
   %1886 = getelementptr inbounds nuw i8, ptr %1885, i64 8
   store ptr %.0455.ph.i.i, ptr %1886, align 8
@@ -3771,7 +3771,7 @@ trbudget_check.exit576.i.i:                       ; preds = %1799
 
 1894:                                             ; preds = %1891
   %1895 = sext i32 %.0445.ph.i.i to i64
-  %1896 = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %5, i64 0, i64 %1895
+  %1896 = getelementptr inbounds [64 x %struct.anon.1], ptr %5, i64 0, i64 %1895
   store ptr %1893, ptr %1896, align 16
   %1897 = getelementptr inbounds nuw i8, ptr %1896, i64 8
   store ptr %1739, ptr %1897, align 8
@@ -3791,7 +3791,7 @@ trbudget_check.exit576.i.i:                       ; preds = %1799
 1903:                                             ; preds = %1902
   %1904 = icmp sgt i64 %1723, 1
   %1905 = sext i32 %.0445.ph.i.i to i64
-  %1906 = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %5, i64 0, i64 %1905
+  %1906 = getelementptr inbounds [64 x %struct.anon.1], ptr %5, i64 0, i64 %1905
   store ptr %.0452.ph.i.i, ptr %1906, align 16
   %1907 = getelementptr inbounds nuw i8, ptr %1906, i64 8
   store ptr %.0455.ph.i.i, ptr %1907, align 8
@@ -3807,7 +3807,7 @@ trbudget_check.exit576.i.i:                       ; preds = %1799
 
 1913:                                             ; preds = %1903
   %1914 = sext i32 %1910 to i64
-  %1915 = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %5, i64 0, i64 %1914
+  %1915 = getelementptr inbounds [64 x %struct.anon.1], ptr %5, i64 0, i64 %1914
   store ptr %1912, ptr %1915, align 16
   %1916 = getelementptr inbounds nuw i8, ptr %1915, i64 8
   store ptr %1739, ptr %1916, align 8
@@ -3822,7 +3822,7 @@ trbudget_check.exit576.i.i:                       ; preds = %1799
 
 1921:                                             ; preds = %1902
   %1922 = sext i32 %.0445.ph.i.i to i64
-  %1923 = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %5, i64 0, i64 %1922
+  %1923 = getelementptr inbounds [64 x %struct.anon.1], ptr %5, i64 0, i64 %1922
   store ptr %.0452.ph.i.i, ptr %1923, align 16
   %1924 = getelementptr inbounds nuw i8, ptr %1923, i64 8
   store ptr %.0455.ph.i.i, ptr %1924, align 8
@@ -3834,7 +3834,7 @@ trbudget_check.exit576.i.i:                       ; preds = %1799
   %1928 = getelementptr inbounds nuw i8, ptr %1923, i64 28
   store i32 %.0.ph.i.i, ptr %1928, align 4
   %1929 = sext i32 %1927 to i64
-  %1930 = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %5, i64 0, i64 %1929
+  %1930 = getelementptr inbounds [64 x %struct.anon.1], ptr %5, i64 0, i64 %1929
   store ptr %.0452.ph.i.i, ptr %1930, align 16
   %1931 = getelementptr inbounds nuw i8, ptr %1930, i64 8
   store ptr %1741, ptr %1931, align 8
@@ -3872,7 +3872,7 @@ trbudget_check.exit576.i.i:                       ; preds = %1799
 
 1947:                                             ; preds = %1945
   %1948 = sext i32 %.0445.ph.i.i to i64
-  %1949 = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %5, i64 0, i64 %1948
+  %1949 = getelementptr inbounds [64 x %struct.anon.1], ptr %5, i64 0, i64 %1948
   store ptr %.0452.ph.i.i, ptr %1949, align 16
   %1950 = getelementptr inbounds nuw i8, ptr %1949, i64 8
   store ptr %1741, ptr %1950, align 8
@@ -3896,7 +3896,7 @@ trbudget_check.exit576.i.i:                       ; preds = %1799
 1959:                                             ; preds = %1957
   %1960 = add nsw i32 %.0445.ph.i.i, -1
   %1961 = sext i32 %1960 to i64
-  %1962 = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %5, i64 0, i64 %1961
+  %1962 = getelementptr inbounds [64 x %struct.anon.1], ptr %5, i64 0, i64 %1961
   %1963 = load ptr, ptr %1962, align 16
   %1964 = getelementptr inbounds nuw i8, ptr %1962, i64 8
   %1965 = load ptr, ptr %1964, align 8
@@ -3914,7 +3914,7 @@ trbudget_check.exit576.i.i:                       ; preds = %1799
 
 1974:                                             ; preds = %1972
   %1975 = sext i32 %.0445.ph.i.i to i64
-  %1976 = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %5, i64 0, i64 %1975
+  %1976 = getelementptr inbounds [64 x %struct.anon.1], ptr %5, i64 0, i64 %1975
   store ptr %.0452.ph.i.i, ptr %1976, align 16
   %1977 = getelementptr inbounds nuw i8, ptr %1976, i64 8
   store ptr %.0455.ph.i.i, ptr %1977, align 8
@@ -3938,7 +3938,7 @@ trbudget_check.exit576.i.i:                       ; preds = %1799
 1986:                                             ; preds = %1984
   %1987 = add nsw i32 %.0445.ph.i.i, -1
   %1988 = sext i32 %1987 to i64
-  %1989 = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %5, i64 0, i64 %1988
+  %1989 = getelementptr inbounds [64 x %struct.anon.1], ptr %5, i64 0, i64 %1988
   %1990 = load ptr, ptr %1989, align 16
   %1991 = getelementptr inbounds nuw i8, ptr %1989, i64 8
   %1992 = load ptr, ptr %1991, align 8
@@ -4031,7 +4031,7 @@ tr_ilg.exit583.i.i:                               ; preds = %2025, %2019, %2012,
 2039:                                             ; preds = %2037
   %2040 = add nsw i32 %.0445.ph.i.i, -1
   %2041 = sext i32 %2040 to i64
-  %2042 = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %5, i64 0, i64 %2041
+  %2042 = getelementptr inbounds [64 x %struct.anon.1], ptr %5, i64 0, i64 %2041
   %2043 = load ptr, ptr %2042, align 16
   %2044 = getelementptr inbounds nuw i8, ptr %2042, i64 8
   %2045 = load ptr, ptr %2044, align 8
@@ -5094,7 +5094,7 @@ ss_insertionsort.exit:                            ; preds = %.critedge.thread.th
 82:                                               ; preds = %ss_insertionsort.exit
   %83 = add nsw i32 %.0392, -1
   %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds nuw [16 x %struct.anon], ptr %5, i64 0, i64 %84
+  %85 = getelementptr inbounds [16 x %struct.anon], ptr %5, i64 0, i64 %84
   %86 = load ptr, ptr %85, align 8
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %88 = load ptr, ptr %87, align 8
@@ -5543,7 +5543,7 @@ ss_partition.exit:                                ; preds = %331, %.critedge2.i,
 
 342:                                              ; preds = %340
   %343 = sext i32 %.0392 to i64
-  %344 = getelementptr inbounds nuw [16 x %struct.anon], ptr %5, i64 0, i64 %343
+  %344 = getelementptr inbounds [16 x %struct.anon], ptr %5, i64 0, i64 %343
   store ptr %.0419.lcssa, ptr %344, align 8
   %345 = getelementptr inbounds nuw i8, ptr %344, i64 8
   store ptr %.0436, ptr %345, align 8
@@ -5577,7 +5577,7 @@ ss_partition.exit:                                ; preds = %331, %.critedge2.i,
 
 363:                                              ; preds = %361
   %364 = sext i32 %.0392 to i64
-  %365 = getelementptr inbounds nuw [16 x %struct.anon], ptr %5, i64 0, i64 %364
+  %365 = getelementptr inbounds [16 x %struct.anon], ptr %5, i64 0, i64 %364
   store ptr %.3429, ptr %365, align 8
   %366 = getelementptr inbounds nuw i8, ptr %365, i64 8
   store ptr %.0419.lcssa, ptr %366, align 8
@@ -6403,7 +6403,7 @@ ss_partition.exit527:                             ; preds = %899, %.critedge2.i5
 
 909:                                              ; preds = %908
   %910 = sext i32 %.0392 to i64
-  %911 = getelementptr inbounds nuw [16 x %struct.anon], ptr %5, i64 0, i64 %910
+  %911 = getelementptr inbounds [16 x %struct.anon], ptr %5, i64 0, i64 %910
   store ptr %902, ptr %911, align 8
   %912 = getelementptr inbounds nuw i8, ptr %911, i64 8
   store ptr %858, ptr %912, align 8
@@ -6434,7 +6434,7 @@ ss_ilg.exit529:                                   ; preds = %916, %922
   %928 = getelementptr inbounds nuw i8, ptr %911, i64 20
   store i32 %926, ptr %928, align 4
   %929 = sext i32 %927 to i64
-  %930 = getelementptr inbounds nuw [16 x %struct.anon], ptr %5, i64 0, i64 %929
+  %930 = getelementptr inbounds [16 x %struct.anon], ptr %5, i64 0, i64 %929
   store ptr %858, ptr %930, align 8
   %931 = getelementptr inbounds nuw i8, ptr %930, i64 8
   store ptr %.0436, ptr %931, align 8
@@ -6448,7 +6448,7 @@ ss_ilg.exit529:                                   ; preds = %916, %922
 935:                                              ; preds = %908
   %.not493 = icmp sgt i64 %903, %907
   %936 = sext i32 %.0392 to i64
-  %937 = getelementptr inbounds nuw [16 x %struct.anon], ptr %5, i64 0, i64 %936
+  %937 = getelementptr inbounds [16 x %struct.anon], ptr %5, i64 0, i64 %936
   store ptr %858, ptr %937, align 8
   %938 = getelementptr inbounds nuw i8, ptr %937, i64 8
   store ptr %.0436, ptr %938, align 8
@@ -6458,7 +6458,7 @@ ss_ilg.exit529:                                   ; preds = %916, %922
   %941 = getelementptr inbounds nuw i8, ptr %937, i64 20
   store i32 %96, ptr %941, align 4
   %942 = sext i32 %940 to i64
-  %943 = getelementptr inbounds nuw [16 x %struct.anon], ptr %5, i64 0, i64 %942
+  %943 = getelementptr inbounds [16 x %struct.anon], ptr %5, i64 0, i64 %942
   %944 = getelementptr inbounds nuw i8, ptr %943, i64 8
   br i1 %.not493, label %962, label %945
 
@@ -6526,7 +6526,7 @@ ss_ilg.exit531:                                   ; preds = %949, %955
 
 979:                                              ; preds = %978
   %980 = sext i32 %.0392 to i64
-  %981 = getelementptr inbounds nuw [16 x %struct.anon], ptr %5, i64 0, i64 %980
+  %981 = getelementptr inbounds [16 x %struct.anon], ptr %5, i64 0, i64 %980
   store ptr %902, ptr %981, align 8
   %982 = getelementptr inbounds nuw i8, ptr %981, i64 8
   store ptr %858, ptr %982, align 8
@@ -6557,7 +6557,7 @@ ss_ilg.exit535:                                   ; preds = %986, %992
   %998 = getelementptr inbounds nuw i8, ptr %981, i64 20
   store i32 %996, ptr %998, align 4
   %999 = sext i32 %997 to i64
-  %1000 = getelementptr inbounds nuw [16 x %struct.anon], ptr %5, i64 0, i64 %999
+  %1000 = getelementptr inbounds [16 x %struct.anon], ptr %5, i64 0, i64 %999
   store ptr %.0426, ptr %1000, align 8
   %1001 = getelementptr inbounds nuw i8, ptr %1000, i64 8
   store ptr %856, ptr %1001, align 8
@@ -6571,7 +6571,7 @@ ss_ilg.exit535:                                   ; preds = %986, %992
 1005:                                             ; preds = %978
   %.not491 = icmp sgt i64 %840, %907
   %1006 = sext i32 %.0392 to i64
-  %1007 = getelementptr inbounds nuw [16 x %struct.anon], ptr %5, i64 0, i64 %1006
+  %1007 = getelementptr inbounds [16 x %struct.anon], ptr %5, i64 0, i64 %1006
   store ptr %.0426, ptr %1007, align 8
   %1008 = getelementptr inbounds nuw i8, ptr %1007, i64 8
   store ptr %856, ptr %1008, align 8
@@ -6581,7 +6581,7 @@ ss_ilg.exit535:                                   ; preds = %986, %992
   %1011 = getelementptr inbounds nuw i8, ptr %1007, i64 20
   store i32 %96, ptr %1011, align 4
   %1012 = sext i32 %1010 to i64
-  %1013 = getelementptr inbounds nuw [16 x %struct.anon], ptr %5, i64 0, i64 %1012
+  %1013 = getelementptr inbounds [16 x %struct.anon], ptr %5, i64 0, i64 %1012
   %1014 = getelementptr inbounds nuw i8, ptr %1013, i64 8
   br i1 %.not491, label %1032, label %1015
 
@@ -7354,7 +7354,7 @@ ss_compare.exit316.thread:                        ; preds = %233, %243, %ss_comp
 246:                                              ; preds = %ss_compare.exit316.thread
   %247 = add nsw i32 %.0217, -1
   %248 = sext i32 %247 to i64
-  %249 = getelementptr inbounds nuw [32 x %struct.anon.0], ptr %8, i64 0, i64 %248
+  %249 = getelementptr inbounds [32 x %struct.anon.0], ptr %8, i64 0, i64 %248
   %250 = load ptr, ptr %249, align 16
   %251 = getelementptr inbounds nuw i8, ptr %249, i64 8
   %252 = load ptr, ptr %251, align 8
@@ -7828,7 +7828,7 @@ ss_compare.exit371.thread:                        ; preds = %427, %437, %ss_comp
 440:                                              ; preds = %ss_compare.exit371.thread
   %441 = add nsw i32 %.0217, -1
   %442 = sext i32 %441 to i64
-  %443 = getelementptr inbounds nuw [32 x %struct.anon.0], ptr %8, i64 0, i64 %442
+  %443 = getelementptr inbounds [32 x %struct.anon.0], ptr %8, i64 0, i64 %442
   %444 = load ptr, ptr %443, align 16
   %445 = getelementptr inbounds nuw i8, ptr %443, i64 8
   %446 = load ptr, ptr %445, align 8
@@ -8020,7 +8020,7 @@ ss_blockswap.exit:                                ; preds = %.lr.ph.i387
 
 528:                                              ; preds = %.loopexit
   %529 = sext i32 %.0217 to i64
-  %530 = getelementptr inbounds nuw [32 x %struct.anon.0], ptr %8, i64 0, i64 %529
+  %530 = getelementptr inbounds [32 x %struct.anon.0], ptr %8, i64 0, i64 %529
   store ptr %.0228, ptr %530, align 16
   %531 = getelementptr inbounds nuw i8, ptr %530, i64 8
   store ptr %511, ptr %531, align 8
@@ -8044,7 +8044,7 @@ ss_blockswap.exit:                                ; preds = %.lr.ph.i387
   %543 = xor i32 %.0, 6
   %.2 = select i1 %or.cond270, i32 %543, i32 %.0
   %544 = sext i32 %.0217 to i64
-  %545 = getelementptr inbounds nuw [32 x %struct.anon.0], ptr %8, i64 0, i64 %544
+  %545 = getelementptr inbounds [32 x %struct.anon.0], ptr %8, i64 0, i64 %544
   store ptr %.0224, ptr %545, align 16
   %546 = getelementptr inbounds nuw i8, ptr %545, i64 8
   store ptr %504, ptr %546, align 8
@@ -8333,7 +8333,7 @@ ss_compare.exit429.thread:                        ; preds = %664, %674, %ss_comp
 677:                                              ; preds = %ss_compare.exit429.thread
   %678 = add nsw i32 %.0217, -1
   %679 = sext i32 %678 to i64
-  %680 = getelementptr inbounds nuw [32 x %struct.anon.0], ptr %8, i64 0, i64 %679
+  %680 = getelementptr inbounds [32 x %struct.anon.0], ptr %8, i64 0, i64 %679
   %681 = load ptr, ptr %680, align 16
   %682 = getelementptr inbounds nuw i8, ptr %680, i64 8
   %683 = load ptr, ptr %682, align 8

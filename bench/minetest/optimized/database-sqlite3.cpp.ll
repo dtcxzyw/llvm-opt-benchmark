@@ -11416,7 +11416,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit419: ; preds = %if
   %vtable139 = load ptr, ptr %oss, align 8, !tbaa !29
   %vbase.offset.ptr = getelementptr i8, ptr %vtable139, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %oss, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %oss, i64 %vbase.offset
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr, i32 noundef 0)
           to label %invoke.cont140 unwind label %lpad123
 
@@ -12012,7 +12012,7 @@ invoke.cont235:                                   ; preds = %invoke.cont234
   %156 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %155, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
-  %add.ptr.i.i507 = getelementptr inbounds nuw i8, ptr %oss, i64 %vbase.offset.i.i
+  %add.ptr.i.i507 = getelementptr inbounds i8, ptr %oss, i64 %vbase.offset.i.i
   store ptr %156, ptr %add.ptr.i.i507, align 8, !tbaa !29
   %_M_stringbuf.i.i = getelementptr inbounds nuw i8, ptr %oss, i64 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !29

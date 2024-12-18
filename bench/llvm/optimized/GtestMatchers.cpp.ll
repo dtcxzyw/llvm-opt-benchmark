@@ -584,7 +584,7 @@ switch.lookup:
   %49 = getelementptr inbounds nuw i8, ptr %37, i64 16
   store ptr @.str.5, ptr %49, align 8, !alias.scope !25, !noalias !28
   %50 = sext i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN5clang12ast_matchersL23gtestComparisonInternalENS0_12_GLOBAL__N_19MacroTypeENS0_8GtestCmpENS0_8internal7MatcherINS_4StmtEEES7_, i64 0, i64 %50
+  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN5clang12ast_matchersL23gtestComparisonInternalENS0_12_GLOBAL__N_19MacroTypeENS0_8GtestCmpENS0_8internal7MatcherINS_4StmtEEES7_, i64 0, i64 %50
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %37, ptr %36, align 8, !alias.scope !31, !noalias !28
   %51 = getelementptr inbounds nuw i8, ptr %36, i64 16

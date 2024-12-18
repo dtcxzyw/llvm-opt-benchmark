@@ -233,7 +233,7 @@ $_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev =
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef ptr @_Z17enumValueToString20NonBondedEnergyTerms(i32 noundef %0) local_unnamed_addr #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [5 x ptr], ptr @_ZZ17enumValueToString20NonBondedEnergyTermsE28nonBondedEnergyTermTypeNames, i64 0, i64 %2
+  %3 = getelementptr inbounds [5 x ptr], ptr @_ZZ17enumValueToString20NonBondedEnergyTermsE28nonBondedEnergyTermTypeNames, i64 0, i64 %2
   %4 = load ptr, ptr %3, align 8
   ret ptr %4
 }
@@ -913,7 +913,7 @@ _ZNK3gmx17MDModulesNotifierIPNS_41MDModulesEnergyOutputToQMMMRequestCheckerENS0_
   %336 = getelementptr inbounds nuw [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv498, i32 1
   %337 = load ptr, ptr %336, align 8
   %338 = sext i32 %331 to i64
-  %339 = getelementptr inbounds nuw [94 x ptr], ptr %13, i64 0, i64 %338
+  %339 = getelementptr inbounds [94 x ptr], ptr %13, i64 0, i64 %338
   store ptr %337, ptr %339, align 8
   %340 = add nsw i32 %331, 1
   store i32 %340, ptr %28, align 4
@@ -4607,7 +4607,7 @@ define void @_ZN3gmx12EnergyOutput19addDataAtEnergyStepEbbdfPK14gmx_enerdata_tPK
   %254 = load float, ptr %253, align 4
   %255 = add nsw i32 %.0171233, 1
   %256 = sext i32 %.0171233 to i64
-  %257 = getelementptr inbounds nuw [5 x float], ptr %22, i64 0, i64 %256
+  %257 = getelementptr inbounds [5 x float], ptr %22, i64 0, i64 %256
   store float %254, ptr %257, align 4
   br label %258
 
@@ -5176,7 +5176,7 @@ define void @_ZN3gmx12EnergyOutput19addDataAtEnergyStepEbbdfPK14gmx_enerdata_tPK
   %584 = load float, ptr %583, align 4
   %585 = fpext float %584 to double
   %586 = sext i32 %.0176271 to i64
-  %587 = getelementptr inbounds nuw [7 x double], ptr %23, i64 0, i64 %586
+  %587 = getelementptr inbounds [7 x double], ptr %23, i64 0, i64 %586
   store double %585, ptr %587, align 8
   %588 = add nsw i32 %.0176271, 1
   br label %589

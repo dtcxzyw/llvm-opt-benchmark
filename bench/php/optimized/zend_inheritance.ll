@@ -3562,7 +3562,7 @@ define hidden void @zend_verify_abstract_class(ptr noundef %0) local_unnamed_add
 
 27:                                               ; preds = %25
   %28 = sext i32 %16 to i64
-  %29 = getelementptr inbounds nuw [4 x ptr], ptr %2, i64 0, i64 %28
+  %29 = getelementptr inbounds [4 x ptr], ptr %2, i64 0, i64 %28
   store ptr %21, ptr %29, align 8
   %.pre.i.us = load i32, ptr %15, align 8
   br label %zend_verify_abstract_class_function.exit.us
@@ -3601,7 +3601,7 @@ zend_verify_abstract_class_function.exit.us:      ; preds = %27, %25
 
 46:                                               ; preds = %44
   %47 = sext i32 %35 to i64
-  %48 = getelementptr inbounds nuw [4 x ptr], ptr %2, i64 0, i64 %47
+  %48 = getelementptr inbounds [4 x ptr], ptr %2, i64 0, i64 %47
   store ptr %40, ptr %48, align 8
   %.pre.i = load i32, ptr %15, align 8
   br label %zend_verify_abstract_class_function.exit

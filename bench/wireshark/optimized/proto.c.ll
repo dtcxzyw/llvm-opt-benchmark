@@ -26341,7 +26341,7 @@ hfinfo_number_vals_format.exit.thread:            ; preds = %27
 switch.lookup:                                    ; preds = %47
   %switch.tableidx = add nsw i32 %16, -13
   %48 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.fill_label_number, i64 0, i64 %48
+  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.fill_label_number, i64 0, i64 %48
   %switch.load = load i32, ptr %switch.gep, align 4
   %49 = call i32 @port_with_resolution_to_str_buf(ptr noundef nonnull %6, i64 noundef 240, i32 noundef %switch.load, i32 noundef %.0) #33
   call fastcc void @label_fill(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %7, ptr noundef nonnull %6)

@@ -1016,7 +1016,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %add.ptr = getelementptr inbounds nuw i8, ptr %out, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %out, i64 %vbase.offset
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale(ptr nonnull sret(%"class.std::locale") align 8 %agg.tmp.ensured, ptr noundef nonnull align 8 dereferenceable(264) %add.ptr, ptr noundef nonnull align 8 dereferenceable(8) %call)
           to label %invoke.cont1 unwind label %lpad
 

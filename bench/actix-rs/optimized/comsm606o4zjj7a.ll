@@ -9169,7 +9169,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17h4606cdbdfc1e884dE.ex
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h190fa1b5ceadf067E.llvm.3706446735560306221.exit": ; preds = %288
-  %292 = getelementptr inbounds nuw i8, ptr @_ZN19brotli_decompressor10dictionary17kBrotliDictionary17h18c83699a9dd7a24E, i64 %285
+  %292 = getelementptr inbounds i8, ptr @_ZN19brotli_decompressor10dictionary17kBrotliDictionary17h18c83699a9dd7a24E, i64 %285
   call void @llvm.lifetime.start.p0(i64 38, ptr nonnull %39)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(38) %39, i8 0, i64 38, i1 false)
   %293 = trunc i64 %278 to i32
@@ -10112,7 +10112,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17h8b0d385c478e828dE.ex
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h190fa1b5ceadf067E.llvm.3706446735560306221.exit": ; preds = %288
-  %292 = getelementptr inbounds nuw i8, ptr @_ZN19brotli_decompressor10dictionary17kBrotliDictionary17h18c83699a9dd7a24E, i64 %285
+  %292 = getelementptr inbounds i8, ptr @_ZN19brotli_decompressor10dictionary17kBrotliDictionary17h18c83699a9dd7a24E, i64 %285
   call void @llvm.lifetime.start.p0(i64 38, ptr nonnull %39)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(38) %39, i8 0, i64 38, i1 false)
   %293 = trunc i64 %278 to i32
@@ -10941,7 +10941,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17hb012893e2557d093E.ex
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h190fa1b5ceadf067E.llvm.3706446735560306221.exit": ; preds = %266
-  %270 = getelementptr inbounds nuw i8, ptr @_ZN19brotli_decompressor10dictionary17kBrotliDictionary17h18c83699a9dd7a24E, i64 %263
+  %270 = getelementptr inbounds i8, ptr @_ZN19brotli_decompressor10dictionary17kBrotliDictionary17h18c83699a9dd7a24E, i64 %263
   call void @llvm.lifetime.start.p0(i64 38, ptr nonnull %43)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(38) %43, i8 0, i64 38, i1 false)
   %271 = trunc i64 %256 to i32
@@ -12231,7 +12231,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17h5dd71e12cb07ad68E.ex
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h190fa1b5ceadf067E.llvm.3706446735560306221.exit": ; preds = %288
-  %292 = getelementptr inbounds nuw i8, ptr @_ZN19brotli_decompressor10dictionary17kBrotliDictionary17h18c83699a9dd7a24E, i64 %285
+  %292 = getelementptr inbounds i8, ptr @_ZN19brotli_decompressor10dictionary17kBrotliDictionary17h18c83699a9dd7a24E, i64 %285
   call void @llvm.lifetime.start.p0(i64 38, ptr nonnull %39)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(38) %39, i8 0, i64 38, i1 false)
   %293 = trunc i64 %278 to i32

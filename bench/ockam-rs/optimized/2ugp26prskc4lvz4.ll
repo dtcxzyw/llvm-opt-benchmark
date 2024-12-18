@@ -41600,7 +41600,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %25 = phi i64 [ %34, %.lr.ph.i.i.i.i.i.i.i ], [ %21, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h40327bc5f77c4365E.exit.i.i" ]
   %26 = phi i64 [ %27, %.lr.ph.i.i.i.i.i.i.i ], [ %.promoted.i.i.i.i.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h40327bc5f77c4365E.exit.i.i" ]
   %27 = add nuw i64 %26, 1
-  %28 = getelementptr inbounds nuw { ptr, i64 }, ptr %3, i64 %26
+  %28 = getelementptr inbounds { ptr, i64 }, ptr %3, i64 %26
   %29 = load ptr, ptr %28, align 8, !alias.scope !13039, !noalias !13040, !nonnull !4, !align !85, !noundef !4
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %31 = load i64, ptr %30, align 8, !alias.scope !13039, !noalias !13040, !noundef !4
@@ -46855,7 +46855,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %25 = phi i64 [ %34, %.lr.ph.i.i.i.i.i.i.i ], [ %21, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h647260965b1150bcE.exit.i.i" ]
   %26 = phi i64 [ %27, %.lr.ph.i.i.i.i.i.i.i ], [ %.promoted.i.i.i.i.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h647260965b1150bcE.exit.i.i" ]
   %27 = add nuw i64 %26, 1
-  %28 = getelementptr inbounds nuw { ptr, i64 }, ptr %3, i64 %26
+  %28 = getelementptr inbounds { ptr, i64 }, ptr %3, i64 %26
   %29 = load ptr, ptr %28, align 8, !alias.scope !14557, !noalias !14558, !nonnull !4, !align !85, !noundef !4
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %31 = load i64, ptr %30, align 8, !alias.scope !14557, !noalias !14558, !noundef !4
@@ -121442,7 +121442,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h2f53a2c61
   %.val5.i.i.i = phi i64 [ %31, %.noexc.i.i.i ], [ %14, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h81a9494fc2fe52efE.exit" ]
   %19 = phi i64 [ %20, %.noexc.i.i.i ], [ %.promoted.i.i.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h81a9494fc2fe52efE.exit" ]
   %20 = add nuw i64 %19, 1
-  %21 = getelementptr inbounds nuw { ptr, i64 }, ptr %3, i64 %19
+  %21 = getelementptr inbounds { ptr, i64 }, ptr %3, i64 %19
   %22 = load ptr, ptr %21, align 8, !alias.scope !31058, !noalias !31059, !nonnull !4, !align !85, !noundef !4
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %24 = load i64, ptr %23, align 8, !alias.scope !31058, !noalias !31059, !noundef !4

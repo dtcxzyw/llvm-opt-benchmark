@@ -798,10 +798,10 @@ define linkonce_odr void @_ZN4llvm4yaml7yamlizeINS_7msgpack7DocNodeEEENSt9enable
 
 switch.lookup:                                    ; preds = %66
   %74 = sext i8 %64 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN4llvm4yaml7yamlizeINS_7msgpack7DocNodeEEENSt9enable_ifIXsr21has_PolymorphicTraitsIT_EE5valueEvE4typeERNS0_2IOERS5_bRNS0_12EmptyContextE, i64 0, i64 %74
+  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN4llvm4yaml7yamlizeINS_7msgpack7DocNodeEEENSt9enable_ifIXsr21has_PolymorphicTraitsIT_EE5valueEvE4typeERNS0_2IOERS5_bRNS0_12EmptyContextE, i64 0, i64 %74
   %switch.load = load ptr, ptr %switch.gep, align 8
   %75 = sext i8 %64 to i64
-  %switch.gep17 = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN4llvm4yaml7yamlizeINS_7msgpack7DocNodeEEENSt9enable_ifIXsr21has_PolymorphicTraitsIT_EE5valueEvE4typeERNS0_2IOERS5_bRNS0_12EmptyContextE.6, i64 0, i64 %75
+  %switch.gep17 = getelementptr inbounds [6 x i64], ptr @switch.table._ZN4llvm4yaml7yamlizeINS_7msgpack7DocNodeEEENSt9enable_ifIXsr21has_PolymorphicTraitsIT_EE5valueEvE4typeERNS0_2IOERS5_bRNS0_12EmptyContextE.6, i64 0, i64 %75
   %switch.load18 = load i64, ptr %switch.gep17, align 8
   br label %_ZNK12_GLOBAL__N_113ScalarDocNode10getYAMLTagEv.exit.i.i
 

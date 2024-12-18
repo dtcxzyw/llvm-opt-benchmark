@@ -351,7 +351,7 @@ sub_0:                                            ; preds = %._crit_edge
   %89 = load ptr, ptr %.199137.us, align 8
   %90 = add nsw i32 %.094139.us, 1
   %91 = sext i32 %.094139.us to i64
-  %92 = getelementptr inbounds nuw [100 x ptr], ptr %5, i64 0, i64 %91
+  %92 = getelementptr inbounds [100 x ptr], ptr %5, i64 0, i64 %91
   store ptr %89, ptr %92, align 8
   br label %..loopexit_crit_edge.us
 
@@ -478,7 +478,7 @@ Mio_SopRegister.exit:                             ; preds = %106, %117
 145:                                              ; preds = %144
   %146 = sdiv i32 %139, 2
   %147 = sext i32 %146 to i64
-  %148 = getelementptr inbounds nuw i64, ptr @Exp_Truth6.Truth6, i64 %147
+  %148 = getelementptr inbounds i64, ptr @Exp_Truth6.Truth6, i64 %147
   %149 = load i64, ptr %148, align 8
   %150 = xor i64 %149, -1
   br label %Exp_Truth6Lit.exit.i
@@ -486,7 +486,7 @@ Mio_SopRegister.exit:                             ; preds = %106, %117
 151:                                              ; preds = %144
   %152 = ashr exact i32 %139, 1
   %153 = sext i32 %152 to i64
-  %154 = getelementptr inbounds nuw i64, ptr @Exp_Truth6.Truth6, i64 %153
+  %154 = getelementptr inbounds i64, ptr @Exp_Truth6.Truth6, i64 %153
   %155 = load i64, ptr %154, align 8
   br label %Exp_Truth6Lit.exit.i
 
@@ -535,7 +535,7 @@ Exp_Truth6Lit.exit.i:                             ; preds = %164, %157, %151, %1
 178:                                              ; preds = %177
   %179 = sdiv i32 %172, 2
   %180 = sext i32 %179 to i64
-  %181 = getelementptr inbounds nuw i64, ptr @Exp_Truth6.Truth6, i64 %180
+  %181 = getelementptr inbounds i64, ptr @Exp_Truth6.Truth6, i64 %180
   %182 = load i64, ptr %181, align 8
   %183 = xor i64 %182, -1
   br label %Exp_Truth6Lit.exit31.i
@@ -543,7 +543,7 @@ Exp_Truth6Lit.exit.i:                             ; preds = %164, %157, %151, %1
 184:                                              ; preds = %177
   %185 = ashr exact i32 %172, 1
   %186 = sext i32 %185 to i64
-  %187 = getelementptr inbounds nuw i64, ptr @Exp_Truth6.Truth6, i64 %186
+  %187 = getelementptr inbounds i64, ptr @Exp_Truth6.Truth6, i64 %186
   %188 = load i64, ptr %187, align 8
   br label %Exp_Truth6Lit.exit31.i
 
@@ -602,7 +602,7 @@ Exp_Truth6Lit.exit31.i:                           ; preds = %197, %190, %184, %1
 215:                                              ; preds = %214
   %216 = sdiv i32 %208, 2
   %217 = sext i32 %216 to i64
-  %218 = getelementptr inbounds nuw i64, ptr @Exp_Truth6.Truth6, i64 %217
+  %218 = getelementptr inbounds i64, ptr @Exp_Truth6.Truth6, i64 %217
   %219 = load i64, ptr %218, align 8
   %220 = xor i64 %219, -1
   br label %Exp_Truth6Lit.exit34.i
@@ -610,7 +610,7 @@ Exp_Truth6Lit.exit31.i:                           ; preds = %197, %190, %184, %1
 221:                                              ; preds = %214
   %222 = ashr exact i32 %208, 1
   %223 = sext i32 %222 to i64
-  %224 = getelementptr inbounds nuw i64, ptr @Exp_Truth6.Truth6, i64 %223
+  %224 = getelementptr inbounds i64, ptr @Exp_Truth6.Truth6, i64 %223
   %225 = load i64, ptr %224, align 8
   br label %Exp_Truth6Lit.exit34.i
 
@@ -696,7 +696,7 @@ Exp_Truth6.exit:                                  ; preds = %Exp_Truth6Lit.exit3
   %.not122.i = icmp eq i32 %260, 0
   %261 = ashr i32 %252, 1
   %262 = sext i32 %261 to i64
-  %263 = getelementptr inbounds nuw ptr, ptr %3, i64 %262
+  %263 = getelementptr inbounds ptr, ptr %3, i64 %262
   %264 = load ptr, ptr %263, align 8
   br i1 %.not122.i, label %.preheader1.split.us.i, label %.preheader1.split.i
 
@@ -778,7 +778,7 @@ Exp_Truth6.exit:                                  ; preds = %Exp_Truth6Lit.exit3
 
 296:                                              ; preds = %.lr.ph.i116
   %297 = sext i32 %288 to i64
-  %298 = getelementptr inbounds nuw ptr, ptr %3, i64 %297
+  %298 = getelementptr inbounds ptr, ptr %3, i64 %297
   %299 = load ptr, ptr %298, align 8
   br label %305
 
@@ -796,7 +796,7 @@ Exp_Truth6.exit:                                  ; preds = %Exp_Truth6Lit.exit3
 
 308:                                              ; preds = %305
   %309 = sext i32 %292 to i64
-  %310 = getelementptr inbounds nuw ptr, ptr %3, i64 %309
+  %310 = getelementptr inbounds ptr, ptr %3, i64 %309
   %311 = load ptr, ptr %310, align 8
   br label %317
 

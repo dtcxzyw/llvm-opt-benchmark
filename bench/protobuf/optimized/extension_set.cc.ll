@@ -17942,13 +17942,13 @@ while.end:                                        ; preds = %if.end6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(26) %buf, i8 0, i64 26, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %buf, ptr noundef nonnull align 1 dereferenceable(16) %8, i64 16, i1 false)
   %idx.ext = sext i32 %sub to i64
-  %add.ptr = getelementptr inbounds nuw i8, ptr %buf, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %idx.ext
   %sext18 = shl i64 %sub.ptr.sub10, 32
   %idx.ext30 = ashr exact i64 %sext18, 32
-  %add.ptr31 = getelementptr inbounds nuw i8, ptr %buf, i64 %idx.ext30
+  %add.ptr31 = getelementptr inbounds i8, ptr %buf, i64 %idx.ext30
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %agg.tmp3226)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp3226, ptr noundef nonnull align 8 dereferenceable(40) %add, i64 40, i1 false)
-  %cmp9.i27 = icmp samesign ult i64 %idx.ext30, %idx.ext
+  %cmp9.i27 = icmp slt i64 %idx.ext30, %idx.ext
   br i1 %cmp9.i27, label %while.body.i29, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_19PackedEnumParserArgINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcPvSB_PNS1_12ParseContextEPFbPKviESG_PNS1_16InternalMetadataEiEUliE_EESB_SB_SB_T_.exit44
 
 while.body.i29:                                   ; preds = %while.end, %if.end.i36

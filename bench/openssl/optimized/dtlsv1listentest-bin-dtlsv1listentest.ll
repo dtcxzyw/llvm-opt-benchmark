@@ -45,7 +45,7 @@ define internal range(i32 0, 2) i32 @dtls_listen_test(i32 noundef %i) #0 {
 entry:
   %data = alloca ptr, align 8
   %idxprom = sext i32 %i to i64
-  %arrayidx = getelementptr inbounds nuw [9 x %struct.tests], ptr @testpackets, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [9 x %struct.tests], ptr @testpackets, i64 0, i64 %idxprom
   %call = tail call ptr @DTLS_server_method() #4
   %call1 = tail call ptr @SSL_CTX_new(ptr noundef %call) #4
   %call2 = tail call i32 @test_ptr(ptr noundef nonnull @.str.1, i32 noundef 301, ptr noundef nonnull @.str.2, ptr noundef %call1) #4

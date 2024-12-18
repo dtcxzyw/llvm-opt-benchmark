@@ -1033,7 +1033,7 @@ for.body106.us:                                   ; preds = %for.cond103.prehead
   %arrayidx108.us = getelementptr i8, ptr %6, i64 %j.079.us
   %7 = load i8, ptr %arrayidx108.us, align 1
   %conv109.us = zext i8 %7 to i32
-  %arrayidx110.us = getelementptr inbounds nuw [128 x i8], ptr %B, i64 0, i64 %j.079.us
+  %arrayidx110.us = getelementptr inbounds [128 x i8], ptr %B, i64 0, i64 %j.079.us
   %8 = load i8, ptr %arrayidx110.us, align 1
   %conv111.us = zext i8 %8 to i32
   %add112.us = add nuw nsw i32 %carry.078.us, %conv109.us
@@ -1055,7 +1055,7 @@ for.body90:                                       ; preds = %for.end76, %for.bod
   %rem92 = urem i64 %i.275, %conv77
   %arrayidx93 = getelementptr inbounds nuw [64 x i8], ptr %A, i64 0, i64 %rem92
   %9 = load i8, ptr %arrayidx93, align 1
-  %arrayidx94 = getelementptr inbounds nuw [128 x i8], ptr %B, i64 0, i64 %i.275
+  %arrayidx94 = getelementptr inbounds [128 x i8], ptr %B, i64 0, i64 %i.275
   store i8 %9, ptr %arrayidx94, align 1
   %inc96 = add nuw i64 %i.275, 1
   %exitcond92.not = icmp eq i64 %inc96, %umax

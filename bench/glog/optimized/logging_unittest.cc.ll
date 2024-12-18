@@ -13775,7 +13775,7 @@ define internal fastcc void @_ZL19TestLogPeriodicallyv() unnamed_addr #18 person
   %35 = getelementptr inbounds nuw [10 x %"class.std::chrono::time_point.29"], ptr %9, i64 0, i64 %.02949
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %35, align 8
   %36 = sub nsw i64 %.sroa.0.0.copyload.i.i.i, %.sroa.0.0.copyload.i2.i.i
-  %37 = getelementptr inbounds nuw [9 x i64], ptr %3, i64 0, i64 %34
+  %37 = getelementptr inbounds [9 x i64], ptr %3, i64 0, i64 %34
   store i64 %36, ptr %37, align 8
   %38 = add nuw nsw i64 %.02949, 1
   %exitcond.not = icmp eq i64 %38, 10
@@ -25119,7 +25119,7 @@ define internal fastcc void @_ZN6googleL5MungeERKNSt7__cxx1112basic_stringIcSt11
 
 .noexc52:                                         ; preds = %.noexc
   %49 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #40
-  %50 = getelementptr inbounds nuw i8, ptr %4, i64 %49
+  %50 = getelementptr inbounds i8, ptr %4, i64 %49
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull %4, ptr noundef nonnull %50)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %51
 
@@ -25167,7 +25167,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit57: ; 
 
 .noexc59:                                         ; preds = %.noexc58
   %60 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #40
-  %61 = getelementptr inbounds nuw i8, ptr %8, i64 %60
+  %61 = getelementptr inbounds i8, ptr %8, i64 %60
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull %8, ptr noundef nonnull %61)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit62 unwind label %62
 
@@ -25221,7 +25221,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit68: ; 
 
 .noexc70:                                         ; preds = %.noexc69
   %72 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #40
-  %73 = getelementptr inbounds nuw i8, ptr %9, i64 %72
+  %73 = getelementptr inbounds i8, ptr %9, i64 %72
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull %9, ptr noundef nonnull %73)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit73 unwind label %74
 
@@ -25802,7 +25802,7 @@ define internal fastcc void @_ZN6googleL9MungeLineERKNSt7__cxx1112basic_stringIc
   %44 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef %.012.i) #40
   %45 = load i8, ptr %44, align 1
   %46 = add nsw i64 %.012.i, -1
-  %47 = getelementptr inbounds nuw [9 x i8], ptr @.str.267, i64 0, i64 %46
+  %47 = getelementptr inbounds [9 x i8], ptr @.str.267, i64 0, i64 %46
   %48 = load i8, ptr %47, align 1
   %.not11.i = icmp eq i8 %45, %48
   br i1 %.not11.i, label %49, label %.loopexit

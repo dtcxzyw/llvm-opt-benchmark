@@ -11346,21 +11346,21 @@ _ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_m.exit: ; preds = %51, %54
   %72 = getelementptr inbounds nuw [20 x [3 x i32]], ptr @__const._ZN3vcg3tri11IcosahedronI6CMeshOEEvRT_.ff, i64 0, i64 %indvars.iv51
   %73 = load i32, ptr %72, align 4
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds nuw [12 x ptr], ptr %5, i64 0, i64 %74
+  %75 = getelementptr inbounds [12 x ptr], ptr %5, i64 0, i64 %74
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr inbounds nuw i8, ptr %.sroa.030.045, i64 8
   store ptr %76, ptr %77, align 8
   %78 = getelementptr inbounds nuw i8, ptr %72, i64 4
   %79 = load i32, ptr %78, align 4
   %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds nuw [12 x ptr], ptr %5, i64 0, i64 %80
+  %81 = getelementptr inbounds [12 x ptr], ptr %5, i64 0, i64 %80
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds nuw i8, ptr %.sroa.030.045, i64 16
   store ptr %82, ptr %83, align 8
   %84 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %85 = load i32, ptr %84, align 4
   %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds nuw [12 x ptr], ptr %5, i64 0, i64 %86
+  %87 = getelementptr inbounds [12 x ptr], ptr %5, i64 0, i64 %86
   %88 = load ptr, ptr %87, align 8
   %89 = getelementptr inbounds nuw i8, ptr %.sroa.030.045, i64 24
   store ptr %88, ptr %89, align 8
@@ -11838,26 +11838,26 @@ _ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_m.exit: ; preds = %203, %206
   %217 = load i32, ptr %216, align 4
   %218 = add nsw i32 %217, %214
   %219 = sext i32 %218 to i64
-  %220 = getelementptr inbounds nuw [108 x i32], ptr @__const._ZN3vcg3tri12DodecahedronI6CMeshOEEvRT_.penta, i64 0, i64 %219
+  %220 = getelementptr inbounds [108 x i32], ptr @__const._ZN3vcg3tri12DodecahedronI6CMeshOEEvRT_.penta, i64 0, i64 %219
   %221 = load i32, ptr %220, align 4
   %222 = add nsw i32 %221, -1
   %223 = mul nsw i32 %222, 3
   %224 = sext i32 %223 to i64
-  %225 = getelementptr inbounds nuw [186 x float], ptr %4, i64 0, i64 %224
+  %225 = getelementptr inbounds [186 x float], ptr %4, i64 0, i64 %224
   %226 = load float, ptr %225, align 4
   %227 = add nsw i32 %223, 1
   %228 = sext i32 %227 to i64
-  %229 = getelementptr inbounds nuw [186 x float], ptr %4, i64 0, i64 %228
+  %229 = getelementptr inbounds [186 x float], ptr %4, i64 0, i64 %228
   %230 = load float, ptr %229, align 4
   %231 = add nsw i32 %223, 2
   %232 = sext i32 %231 to i64
-  %233 = getelementptr inbounds nuw [186 x float], ptr %4, i64 0, i64 %232
+  %233 = getelementptr inbounds [186 x float], ptr %4, i64 0, i64 %232
   %234 = load float, ptr %233, align 4
   %235 = fadd float %.0219259, %226
   %236 = fadd float %.0222256, %230
   %237 = fadd float %.0221257, %234
   %238 = sext i32 %222 to i64
-  %239 = getelementptr inbounds nuw [62 x i8], ptr %5, i64 0, i64 %238
+  %239 = getelementptr inbounds [62 x i8], ptr %5, i64 0, i64 %238
   %240 = load i8, ptr %239, align 1
   %241 = trunc i8 %240 to i1
   br i1 %241, label %247, label %242
@@ -11872,7 +11872,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_m.exit: ; preds = %203, %206
   %244 = getelementptr inbounds nuw i8, ptr %.sroa.0247.1255, i64 48
   store i8 1, ptr %239, align 1
   %245 = add nsw i32 %.1217260, 1
-  %246 = getelementptr inbounds nuw [140 x i32], ptr %6, i64 0, i64 %238
+  %246 = getelementptr inbounds [140 x i32], ptr %6, i64 0, i64 %238
   store i32 %.1217260, ptr %246, align 4
   br label %247
 
@@ -11971,11 +11971,11 @@ _ZSt6fill_nIPP8CVertexOmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.n
   %281 = load i32, ptr %280, align 4
   %282 = add nsw i32 %281, %273
   %283 = sext i32 %282 to i64
-  %284 = getelementptr inbounds nuw [108 x i32], ptr @__const._ZN3vcg3tri12DodecahedronI6CMeshOEEvRT_.penta, i64 0, i64 %283
+  %284 = getelementptr inbounds [108 x i32], ptr @__const._ZN3vcg3tri12DodecahedronI6CMeshOEEvRT_.penta, i64 0, i64 %283
   %285 = load i32, ptr %284, align 4
   %286 = add nsw i32 %285, -1
   %287 = sext i32 %286 to i64
-  %288 = getelementptr inbounds nuw [140 x i32], ptr %6, i64 0, i64 %287
+  %288 = getelementptr inbounds [140 x i32], ptr %6, i64 0, i64 %287
   %289 = load i32, ptr %288, align 4
   %290 = sext i32 %289 to i64
   %291 = getelementptr inbounds ptr, ptr %.sroa.0234.0293, i64 %290
@@ -11990,11 +11990,11 @@ _ZSt6fill_nIPP8CVertexOmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.n
   %298 = load i32, ptr %297, align 4
   %299 = add nsw i32 %298, %273
   %300 = sext i32 %299 to i64
-  %301 = getelementptr inbounds nuw [108 x i32], ptr @__const._ZN3vcg3tri12DodecahedronI6CMeshOEEvRT_.penta, i64 0, i64 %300
+  %301 = getelementptr inbounds [108 x i32], ptr @__const._ZN3vcg3tri12DodecahedronI6CMeshOEEvRT_.penta, i64 0, i64 %300
   %302 = load i32, ptr %301, align 4
   %303 = add nsw i32 %302, -1
   %304 = sext i32 %303 to i64
-  %305 = getelementptr inbounds nuw [140 x i32], ptr %6, i64 0, i64 %304
+  %305 = getelementptr inbounds [140 x i32], ptr %6, i64 0, i64 %304
   %306 = load i32, ptr %305, align 4
   %307 = sext i32 %306 to i64
   %308 = getelementptr inbounds ptr, ptr %.sroa.0234.0293, i64 %307
@@ -36240,7 +36240,7 @@ _ZN3vcg4face16WedgeTexCoordOcfINS_9TexCoord2IfLi1EEENS_7Arity10INS_8FaceBaseI11C
   %495 = getelementptr inbounds nuw [4 x [3 x i32]], ptr %487, i64 0, i64 %indvars.iv352, i64 %indvars.iv348
   %496 = load i32, ptr %495, align 4
   %497 = sext i32 %496 to i64
-  %498 = getelementptr inbounds nuw [6 x ptr], ptr %11, i64 0, i64 %497
+  %498 = getelementptr inbounds [6 x ptr], ptr %11, i64 0, i64 %497
   %499 = load ptr, ptr %498, align 8
   %500 = getelementptr inbounds nuw [3 x ptr], ptr %491, i64 0, i64 %indvars.iv348
   store ptr %499, ptr %500, align 8
@@ -36249,7 +36249,7 @@ _ZN3vcg4face16WedgeTexCoordOcfINS_9TexCoord2IfLi1EEENS_7Arity10INS_8FaceBaseI11C
   br i1 %502, label %503, label %514
 
 503:                                              ; preds = %494
-  %504 = getelementptr inbounds nuw [6 x %"class.vcg::TexCoord2"], ptr %13, i64 0, i64 %497
+  %504 = getelementptr inbounds [6 x %"class.vcg::TexCoord2"], ptr %13, i64 0, i64 %497
   %505 = load ptr, ptr %490, align 8
   %506 = getelementptr inbounds nuw i8, ptr %505, i64 192
   %507 = load ptr, ptr %505, align 8
@@ -36334,13 +36334,13 @@ _ZN3vcg4face16WedgeTexCoordOcfINS_9TexCoord2IfLi1EEENS_7Arity10INS_8FaceBaseI11C
   %549 = getelementptr inbounds nuw i8, ptr %383, i64 52
   %550 = load i32, ptr %549, align 4
   %551 = sext i32 %550 to i64
-  %552 = getelementptr inbounds nuw [6 x ptr], ptr %11, i64 0, i64 %551
+  %552 = getelementptr inbounds [6 x ptr], ptr %11, i64 0, i64 %551
   %553 = load ptr, ptr %552, align 8
   %554 = getelementptr inbounds nuw i8, ptr %553, i64 8
   %555 = getelementptr inbounds nuw i8, ptr %383, i64 56
   %556 = load i32, ptr %555, align 4
   %557 = sext i32 %556 to i64
-  %558 = getelementptr inbounds nuw [6 x ptr], ptr %11, i64 0, i64 %557
+  %558 = getelementptr inbounds [6 x ptr], ptr %11, i64 0, i64 %557
   %559 = load ptr, ptr %558, align 8
   %560 = getelementptr inbounds nuw i8, ptr %559, i64 8
   %561 = load float, ptr %554, align 4
@@ -36362,13 +36362,13 @@ _ZN3vcg4face16WedgeTexCoordOcfINS_9TexCoord2IfLi1EEENS_7Arity10INS_8FaceBaseI11C
   %577 = getelementptr inbounds nuw i8, ptr %383, i64 60
   %578 = load i32, ptr %577, align 4
   %579 = sext i32 %578 to i64
-  %580 = getelementptr inbounds nuw [6 x ptr], ptr %11, i64 0, i64 %579
+  %580 = getelementptr inbounds [6 x ptr], ptr %11, i64 0, i64 %579
   %581 = load ptr, ptr %580, align 8
   %582 = getelementptr inbounds nuw i8, ptr %581, i64 8
   %583 = getelementptr inbounds nuw i8, ptr %383, i64 64
   %584 = load i32, ptr %583, align 4
   %585 = sext i32 %584 to i64
-  %586 = getelementptr inbounds nuw [6 x ptr], ptr %11, i64 0, i64 %585
+  %586 = getelementptr inbounds [6 x ptr], ptr %11, i64 0, i64 %585
   %587 = load ptr, ptr %586, align 8
   %588 = getelementptr inbounds nuw i8, ptr %587, i64 8
   %589 = load float, ptr %582, align 4

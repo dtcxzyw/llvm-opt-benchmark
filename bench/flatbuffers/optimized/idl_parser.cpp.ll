@@ -10070,7 +10070,7 @@ lpad.i173:                                        ; preds = %.noexc176
 invoke.cont70:                                    ; preds = %.noexc176
   %switch.tableidx = add nsw i32 %8, -1
   %18 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x ptr], ptr @switch.table._ZN11flatbuffers6Parser16ParseSingleValueEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_5ValueEb, i64 0, i64 %18
+  %switch.gep = getelementptr inbounds [12 x ptr], ptr @switch.table._ZN11flatbuffers6Parser16ParseSingleValueEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_5ValueEb, i64 0, i64 %18
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call.i180 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp67, ptr noundef nonnull %switch.load)
           to label %invoke.cont74 unwind label %lpad71

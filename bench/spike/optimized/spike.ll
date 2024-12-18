@@ -3045,7 +3045,7 @@ _ZL9make_memsRKSt6vectorI9mem_cfg_tSaIS0_EE.exit: ; preds = %_ZNSt6vectorISt4pai
   %1033 = load ptr, ptr %6, align 8
   %1034 = getelementptr i8, ptr %1033, i64 -24
   %1035 = load i64, ptr %1034, align 8
-  %1036 = getelementptr inbounds nuw i8, ptr %6, i64 %1035
+  %1036 = getelementptr inbounds i8, ptr %6, i64 %1035
   %1037 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %1036)
           to label %1040 unwind label %1038
 
@@ -3161,7 +3161,7 @@ _ZL9make_memsRKSt6vectorI9mem_cfg_tSaIS0_EE.exit: ; preds = %_ZNSt6vectorISt4pai
   %1078 = load ptr, ptr %4, align 8
   %1079 = getelementptr i8, ptr %1078, i64 -24
   %1080 = load i64, ptr %1079, align 8
-  %1081 = getelementptr inbounds nuw i8, ptr %4, i64 %1080
+  %1081 = getelementptr inbounds i8, ptr %4, i64 %1080
   %1082 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %1081)
           to label %1085 unwind label %1083
 
@@ -8187,7 +8187,7 @@ define internal void @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_22E9_M_invokeERK
   %19 = load ptr, ptr %7, align 8
   %20 = getelementptr i8, ptr %19, i64 -24
   %21 = load i64, ptr %20, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %7, i64 %21
+  %22 = getelementptr inbounds i8, ptr %7, i64 %21
   %23 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %22)
           to label %24 unwind label %.loopexit.i.i.i
 

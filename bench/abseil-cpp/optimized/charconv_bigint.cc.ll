@@ -613,7 +613,7 @@ if.then67:                                        ; preds = %for.end
 
 if.end5.i:                                        ; preds = %if.then67
   %idxprom = sext i32 %digits_queued.1 to i64
-  %arrayidx = getelementptr inbounds nuw [10 x i32], ptr @_ZN4absl16strings_internal9kTenToNthE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [10 x i32], ptr @_ZN4absl16strings_internal9kTenToNthE, i64 0, i64 %idxprom
   %31 = load i32, ptr %arrayidx, align 4
   %conv.i = zext i32 %31 to i64
   %cmp711.i61 = icmp sgt i32 %.sroa.speculated.i197, 0
@@ -2902,7 +2902,7 @@ if.then67:                                        ; preds = %for.end
 
 if.end5.i:                                        ; preds = %if.then67
   %idxprom = sext i32 %digits_queued.1 to i64
-  %arrayidx = getelementptr inbounds nuw [10 x i32], ptr @_ZN4absl16strings_internal9kTenToNthE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [10 x i32], ptr @_ZN4absl16strings_internal9kTenToNthE, i64 0, i64 %idxprom
   %31 = load i32, ptr %arrayidx, align 4
   %conv.i = zext i32 %31 to i64
   %cmp711.i61 = icmp sgt i32 %.sroa.speculated.i197, 0

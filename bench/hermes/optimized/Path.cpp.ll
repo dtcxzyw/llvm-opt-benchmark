@@ -5443,7 +5443,7 @@ if.end.i20.thread:                                ; preds = %if.then19
   br label %if.then.i.i23
 
 if.end.i20:                                       ; preds = %if.then19
-  %cmp.not.i.i22 = icmp samesign eq i64 %call23, 0
+  %cmp.not.i.i22 = icmp eq i64 %call23, 0
   br i1 %cmp.not.i.i22, label %_ZN4llvh15SmallVectorImplIcE6appendIPcvEEvT_S4_.exit32, label %if.then.i.i23
 
 if.then.i.i23:                                    ; preds = %if.end.i20.thread, %if.end.i20
@@ -6406,7 +6406,7 @@ if.then9:                                         ; preds = %_ZN4llvh3sys2fsL8te
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11) #29
   %call.i.i11 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %exe_path) #29
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %exe_path, i64 %call.i.i11
+  %add.ptr.i = getelementptr inbounds i8, ptr %exe_path, i64 %call.i.i11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %exe_path, ptr noundef nonnull %add.ptr.i)
   br label %return
 
@@ -9042,7 +9042,7 @@ if.end.i15.thread:                                ; preds = %if.end11
   br label %if.then.i.i16
 
 if.end.i15:                                       ; preds = %if.end11
-  %cmp.not.i.i = icmp samesign eq i64 %call15, 0
+  %cmp.not.i.i = icmp eq i64 %call15, 0
   br i1 %cmp.not.i.i, label %_ZN4llvh15SmallVectorImplIcE6appendIPcvEEvT_S4_.exit, label %if.then.i.i16
 
 if.then.i.i16:                                    ; preds = %if.end.i15.thread, %if.end.i15

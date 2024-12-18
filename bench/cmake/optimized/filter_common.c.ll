@@ -209,7 +209,7 @@ validate_chain.exit:                              ; preds = %28
 
 44:                                               ; preds = %40
   %45 = load i64, ptr %36, align 8
-  %46 = getelementptr inbounds nuw [5 x %struct.lzma_filter_info_s], ptr %6, i64 0, i64 %35
+  %46 = getelementptr inbounds [5 x %struct.lzma_filter_info_s], ptr %6, i64 0, i64 %35
   store i64 %45, ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store ptr %42, ptr %47, align 8
@@ -237,7 +237,7 @@ validate_chain.exit:                              ; preds = %28
 
 60:                                               ; preds = %56
   %61 = load i64, ptr %52, align 8
-  %62 = getelementptr inbounds nuw [5 x %struct.lzma_filter_info_s], ptr %6, i64 0, i64 %.04264
+  %62 = getelementptr inbounds [5 x %struct.lzma_filter_info_s], ptr %6, i64 0, i64 %.04264
   store i64 %61, ptr %62, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store ptr %58, ptr %63, align 8

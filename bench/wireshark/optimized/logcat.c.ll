@@ -104,7 +104,7 @@ define hidden range(i32 -1, 2) i32 @logcat_open(ptr noundef %0, ptr noundef %1, 
 switch.lookup:                                    ; preds = %3
   %switch.tableidx = add nsw i32 %5, 2
   %30 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.logcat_open, i64 0, i64 %30
+  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table.logcat_open, i64 0, i64 %30
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %31
 

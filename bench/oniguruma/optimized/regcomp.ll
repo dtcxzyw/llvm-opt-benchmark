@@ -8086,7 +8086,7 @@ unravel_cf_node_add.exit.i.i.i:                   ; preds = %207
   %238 = load i32, ptr %237, align 4
   %239 = add nsw i32 %.151.i.i, 1
   %240 = sext i32 %.151.i.i to i64
-  %241 = getelementptr inbounds nuw [14 x i32], ptr %12, i64 0, i64 %240
+  %241 = getelementptr inbounds [14 x i32], ptr %12, i64 0, i64 %240
   store i32 %238, ptr %241, align 4
   br label %242
 

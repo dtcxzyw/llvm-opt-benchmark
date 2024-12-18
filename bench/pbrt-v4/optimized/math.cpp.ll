@@ -900,8 +900,8 @@ for.body150:                                      ; preds = %for.inc144, %for.in
 for.cond158.preheader:                            ; preds = %for.body150
   %idxprom165 = sext i32 %21 to i64
   %idxprom171 = sext i32 %22 to i64
-  %arrayidx166 = getelementptr inbounds nuw [2 x [2 x float]], ptr %minv, i64 0, i64 0, i64 %idxprom165
-  %arrayidx172 = getelementptr inbounds nuw [2 x [2 x float]], ptr %minv, i64 0, i64 0, i64 %idxprom171
+  %arrayidx166 = getelementptr inbounds [2 x [2 x float]], ptr %minv, i64 0, i64 0, i64 %idxprom165
+  %arrayidx172 = getelementptr inbounds [2 x [2 x float]], ptr %minv, i64 0, i64 0, i64 %idxprom171
   %23 = load float, ptr %arrayidx166, align 4
   %24 = load float, ptr %arrayidx172, align 4
   store float %24, ptr %arrayidx166, align 4

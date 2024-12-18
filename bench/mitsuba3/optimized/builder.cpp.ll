@@ -2977,7 +2977,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder11serializeToEPNS
 .preheader:                                       ; preds = %.loopexit3, %.preheader
   %62 = phi i64 [ %66, %.preheader ], [ %60, %.loopexit3 ]
   %63 = phi i64 [ %67, %.preheader ], [ 0, %.loopexit3 ]
-  %64 = getelementptr inbounds nuw [6 x %"struct.asmjit::_abi_1_10::Operand_"], ptr %3, i64 0, i64 %62
+  %64 = getelementptr inbounds [6 x %"struct.asmjit::_abi_1_10::Operand_"], ptr %3, i64 0, i64 %62
   %65 = getelementptr inbounds %"struct.asmjit::_abi_1_10::Operand_", ptr %44, i64 %62
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %64, ptr noundef nonnull align 4 dereferenceable(16) %65, i64 16, i1 false)
   %66 = add nuw nsw i64 %62, 1

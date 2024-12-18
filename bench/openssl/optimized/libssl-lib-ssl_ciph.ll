@@ -4630,7 +4630,7 @@ for.inc.i:                                        ; preds = %for.body.i
 if.end3:                                          ; preds = %for.body.i
   %sext = shl i64 %i.06.i, 32
   %idxprom = ashr exact i64 %sext, 32
-  %nid = getelementptr inbounds nuw [24 x %struct.ssl_cipher_table], ptr @ssl_cipher_table_cipher, i64 0, i64 %idxprom, i32 1
+  %nid = getelementptr inbounds [24 x %struct.ssl_cipher_table], ptr @ssl_cipher_table_cipher, i64 0, i64 %idxprom, i32 1
   %2 = load i32, ptr %nid, align 4
   br label %return
 
@@ -4662,7 +4662,7 @@ for.inc.i:                                        ; preds = %for.body.i
 if.end:                                           ; preds = %for.body.i
   %sext = shl i64 %i.06.i, 32
   %idxprom = ashr exact i64 %sext, 32
-  %nid = getelementptr inbounds nuw [14 x %struct.ssl_cipher_table], ptr @ssl_cipher_table_mac, i64 0, i64 %idxprom, i32 1
+  %nid = getelementptr inbounds [14 x %struct.ssl_cipher_table], ptr @ssl_cipher_table_mac, i64 0, i64 %idxprom, i32 1
   %2 = load i32, ptr %nid, align 4
   br label %return
 
@@ -4694,7 +4694,7 @@ for.inc.i:                                        ; preds = %for.body.i
 if.end:                                           ; preds = %for.body.i
   %sext = shl i64 %i.06.i, 32
   %idxprom = ashr exact i64 %sext, 32
-  %nid = getelementptr inbounds nuw [11 x %struct.ssl_cipher_table], ptr @ssl_cipher_table_kx, i64 0, i64 %idxprom, i32 1
+  %nid = getelementptr inbounds [11 x %struct.ssl_cipher_table], ptr @ssl_cipher_table_kx, i64 0, i64 %idxprom, i32 1
   %2 = load i32, ptr %nid, align 4
   br label %return
 
@@ -4726,7 +4726,7 @@ for.inc.i:                                        ; preds = %for.body.i
 if.end:                                           ; preds = %for.body.i
   %sext = shl i64 %i.06.i, 32
   %idxprom = ashr exact i64 %sext, 32
-  %nid = getelementptr inbounds nuw [9 x %struct.ssl_cipher_table], ptr @ssl_cipher_table_auth, i64 0, i64 %idxprom, i32 1
+  %nid = getelementptr inbounds [9 x %struct.ssl_cipher_table], ptr @ssl_cipher_table_auth, i64 0, i64 %idxprom, i32 1
   %2 = load i32, ptr %nid, align 4
   br label %return
 
@@ -4834,7 +4834,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
 if.end.i:                                         ; preds = %for.body.i.i
   %sext.i = shl i64 %i.06.i.i, 32
   %idxprom.i = ashr exact i64 %sext.i, 32
-  %nid.i = getelementptr inbounds nuw [14 x %struct.ssl_cipher_table], ptr @ssl_cipher_table_mac, i64 0, i64 %idxprom.i, i32 1
+  %nid.i = getelementptr inbounds [14 x %struct.ssl_cipher_table], ptr @ssl_cipher_table_mac, i64 0, i64 %idxprom.i, i32 1
   %5 = load i32, ptr %nid.i, align 4
   br label %SSL_CIPHER_get_digest_nid.exit
 
@@ -4868,7 +4868,7 @@ for.inc.i.i18:                                    ; preds = %for.body.i.i14
 if.end3.i:                                        ; preds = %for.body.i.i14
   %sext.i23 = shl i64 %i.06.i.i15, 32
   %idxprom.i24 = ashr exact i64 %sext.i23, 32
-  %nid.i25 = getelementptr inbounds nuw [24 x %struct.ssl_cipher_table], ptr @ssl_cipher_table_cipher, i64 0, i64 %idxprom.i24, i32 1
+  %nid.i25 = getelementptr inbounds [24 x %struct.ssl_cipher_table], ptr @ssl_cipher_table_cipher, i64 0, i64 %idxprom.i24, i32 1
   %8 = load i32, ptr %nid.i25, align 4
   br label %SSL_CIPHER_get_cipher_nid.exit
 
@@ -5029,7 +5029,7 @@ entry:
 if.end:                                           ; preds = %entry
   %conv = sext i32 %len to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %name, ptr align 1 %elem, i64 %conv, i1 false)
-  %arrayidx = getelementptr inbounds nuw [80 x i8], ptr %name, i64 0, i64 %conv
+  %arrayidx = getelementptr inbounds [80 x i8], ptr %name, i64 0, i64 %conv
   store i8 0, ptr %arrayidx, align 1
   %call = call ptr @ssl3_get_cipher_by_std_name(ptr noundef nonnull %name) #15
   %cmp2 = icmp eq ptr %call, null

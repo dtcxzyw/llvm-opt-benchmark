@@ -23494,7 +23494,7 @@ _ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit88.thread: ; preds = %20, %55, %
   unreachable
 
 111:                                              ; preds = %106
-  %112 = getelementptr inbounds nuw [3 x i32], ptr %10, i64 0, i64 %.077112
+  %112 = getelementptr inbounds [3 x i32], ptr %10, i64 0, i64 %.077112
   store i32 %107, ptr %112, align 4
   br label %168
 
@@ -23582,7 +23582,7 @@ _ZN4Luau8Compiler15getExprLocalRegEPNS_7AstExprE.exit: ; preds = %151
   %155 = getelementptr inbounds nuw i8, ptr %143, i64 8
   %156 = load i8, ptr %155, align 4
   %157 = zext i8 %156 to i32
-  %158 = getelementptr inbounds nuw [3 x i32], ptr %10, i64 0, i64 %.077112
+  %158 = getelementptr inbounds [3 x i32], ptr %10, i64 0, i64 %.077112
   store i32 %157, ptr %158, align 4
   br label %168
 
@@ -23591,7 +23591,7 @@ _ZN4Luau8Compiler15getExprLocalRegEPNS_7AstExprE.exit.thread: ; preds = %120, %1
   %160 = trunc i64 %159 to i8
   %161 = trunc i64 %159 to i32
   %162 = and i32 %161, 255
-  %163 = getelementptr inbounds nuw [3 x i32], ptr %10, i64 0, i64 %.077112
+  %163 = getelementptr inbounds [3 x i32], ptr %10, i64 0, i64 %.077112
   store i32 %162, ptr %163, align 4
   %164 = add nuw nsw i32 %162, 1
   %165 = load i32, ptr %100, align 4
@@ -23679,7 +23679,7 @@ _ZN4Luau8Compiler18compileExprTempTopEPNS_7AstExprEh.exit: ; preds = %_ZN4Luau8C
 .lr.ph115.split.us:                               ; preds = %.lr.ph115, %_ZN4Luau8Compiler9emitLoadKEhi.exit.us
   %204 = phi i64 [ %213, %_ZN4Luau8Compiler9emitLoadKEhi.exit.us ], [ %198, %.lr.ph115 ]
   %.076113.us = phi i64 [ %214, %_ZN4Luau8Compiler9emitLoadKEhi.exit.us ], [ 0, %.lr.ph115 ]
-  %205 = getelementptr inbounds nuw [3 x i32], ptr %10, i64 0, i64 %.076113.us
+  %205 = getelementptr inbounds [3 x i32], ptr %10, i64 0, i64 %.076113.us
   %206 = load i32, ptr %205, align 4
   %207 = zext i32 %206 to i64
   %208 = add i64 %201, %.076113.us
@@ -23708,7 +23708,7 @@ _ZN4Luau8Compiler9emitLoadKEhi.exit.us:           ; preds = %209, %.lr.ph115.spl
 216:                                              ; preds = %.lr.ph115.split
   %217 = add i64 %201, %.076113
   %218 = trunc i64 %217 to i8
-  %219 = getelementptr inbounds nuw [3 x i32], ptr %10, i64 0, i64 %.076113
+  %219 = getelementptr inbounds [3 x i32], ptr %10, i64 0, i64 %.076113
   %220 = load i32, ptr %219, align 4
   %221 = icmp slt i32 %220, 32768
   %222 = load ptr, ptr %0, align 8

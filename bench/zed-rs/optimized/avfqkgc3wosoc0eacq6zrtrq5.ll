@@ -65476,7 +65476,7 @@ _ZN4core3ops8function6FnOnce9call_once17h20eb9f37dd66b466E.exit.i.i.i.i: ; preds
   %312 = zext nneg i16 %311 to i64
   %313 = add i64 %.sroa.012.031.i.i.i.i.i.i.i.i.i, -4
   %314 = getelementptr inbounds nuw i8, ptr @anon.187ff28613c2c65f7ccbfd9ddb5a172b.100, i64 %309
-  %315 = getelementptr inbounds nuw i8, ptr %8, i64 %313
+  %315 = getelementptr inbounds i8, ptr %8, i64 %313
   %316 = load i16, ptr %314, align 1, !noalias !17694
   store i16 %316, ptr %315, align 1, !alias.scope !17691, !noalias !17690
   %317 = getelementptr inbounds nuw i8, ptr @anon.187ff28613c2c65f7ccbfd9ddb5a172b.100, i64 %312
@@ -65495,7 +65495,7 @@ _ZN4core3ops8function6FnOnce9call_once17h20eb9f37dd66b466E.exit.i.i.i.i: ; preds
   %.zext30.i.i.i.i.i.i.i.i.i = zext nneg i16 %324 to i64
   %325 = add i64 %.sroa.012.0.lcssa.i.i.i.i.i.i.i.i.i, -2
   %326 = getelementptr inbounds nuw i8, ptr @anon.187ff28613c2c65f7ccbfd9ddb5a172b.100, i64 %323
-  %327 = getelementptr inbounds nuw i8, ptr %8, i64 %325
+  %327 = getelementptr inbounds i8, ptr %8, i64 %325
   %328 = load i16, ptr %326, align 1, !noalias !17694
   store i16 %328, ptr %327, align 1, !alias.scope !17691, !noalias !17690
   br label %329
@@ -65510,7 +65510,7 @@ _ZN4core3ops8function6FnOnce9call_once17h20eb9f37dd66b466E.exit.i.i.i.i: ; preds
   %332 = shl nuw nsw i64 %.sroa.06.0.i.i.i.i.i.i.i.i.i, 1
   %333 = add i64 %.sroa.012.1.i.i.i.i.i.i.i.i.i, -2
   %334 = getelementptr inbounds nuw i8, ptr @anon.187ff28613c2c65f7ccbfd9ddb5a172b.100, i64 %332
-  %335 = getelementptr inbounds nuw i8, ptr %8, i64 %333
+  %335 = getelementptr inbounds i8, ptr %8, i64 %333
   %336 = load i16, ptr %334, align 1, !noalias !17694
   store i16 %336, ptr %335, align 1, !alias.scope !17691, !noalias !17690
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17haa199b5baa1e0090E.exit.i.i.i.i.i.i.i.i"
@@ -65518,7 +65518,7 @@ _ZN4core3ops8function6FnOnce9call_once17h20eb9f37dd66b466E.exit.i.i.i.i: ; preds
 337:                                              ; preds = %329
   %338 = add i64 %.sroa.012.1.i.i.i.i.i.i.i.i.i, -1
   %339 = trunc nuw nsw i64 %.sroa.06.0.i.i.i.i.i.i.i.i.i to i8
-  %340 = getelementptr inbounds nuw i8, ptr %8, i64 %338
+  %340 = getelementptr inbounds i8, ptr %8, i64 %338
   %341 = or disjoint i8 %339, 48
   store i8 %341, ptr %340, align 1, !alias.scope !17691, !noalias !17690
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17haa199b5baa1e0090E.exit.i.i.i.i.i.i.i.i"
@@ -65541,7 +65541,7 @@ _ZN4core3ops8function6FnOnce9call_once17h20eb9f37dd66b466E.exit.i.i.i.i: ; preds
 "_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_u6417hf55a7cbabd125149E.exit.i.i.i.i.i.i": ; preds = %.noexc5.i.i.i, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17haa199b5baa1e0090E.exit.i.i.i.i.i.i.i.i"
   %345 = phi ptr [ %.pre37.i.i.i, %.noexc5.i.i.i ], [ %267, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17haa199b5baa1e0090E.exit.i.i.i.i.i.i.i.i" ]
   %346 = phi i64 [ %.pre.i.i.i.i.i.i.i.i.i.i.i.i.i, %.noexc5.i.i.i ], [ 0, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17haa199b5baa1e0090E.exit.i.i.i.i.i.i.i.i" ]
-  %347 = getelementptr inbounds nuw i8, ptr %8, i64 %.sroa.012.2.i.i.i.i.i.i.i.i.i
+  %347 = getelementptr inbounds i8, ptr %8, i64 %.sroa.012.2.i.i.i.i.i.i.i.i.i
   %348 = getelementptr inbounds i8, ptr %345, i64 %346
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %348, ptr nonnull readonly align 1 %347, i64 %342, i1 false), !noalias !17709
   %349 = load i64, ptr %269, align 8, !alias.scope !17695, !noalias !17704, !noundef !5
@@ -65580,7 +65580,7 @@ _ZN4core3ops8function6FnOnce9call_once17h20eb9f37dd66b466E.exit.i.i.i.i: ; preds
   %363 = zext nneg i16 %362 to i64
   %364 = add i64 %.sroa.010.029.i.i.i.i.i.i.i.i.i, -4
   %365 = getelementptr inbounds nuw i8, ptr @anon.187ff28613c2c65f7ccbfd9ddb5a172b.100, i64 %360
-  %366 = getelementptr inbounds nuw i8, ptr %7, i64 %364
+  %366 = getelementptr inbounds i8, ptr %7, i64 %364
   %367 = load i16, ptr %365, align 1, !noalias !17713
   store i16 %367, ptr %366, align 1, !alias.scope !17710, !noalias !17690
   %368 = getelementptr inbounds nuw i8, ptr @anon.187ff28613c2c65f7ccbfd9ddb5a172b.100, i64 %363
@@ -65599,7 +65599,7 @@ _ZN4core3ops8function6FnOnce9call_once17h20eb9f37dd66b466E.exit.i.i.i.i: ; preds
   %.zext28.i.i.i.i.i.i.i.i.i = zext nneg i16 %375 to i64
   %376 = add i64 %.sroa.010.0.lcssa.i.i.i.i.i.i.i.i.i, -2
   %377 = getelementptr inbounds nuw i8, ptr @anon.187ff28613c2c65f7ccbfd9ddb5a172b.100, i64 %374
-  %378 = getelementptr inbounds nuw i8, ptr %7, i64 %376
+  %378 = getelementptr inbounds i8, ptr %7, i64 %376
   %379 = load i16, ptr %377, align 1, !noalias !17713
   store i16 %379, ptr %378, align 1, !alias.scope !17710, !noalias !17690
   br label %380
@@ -65614,7 +65614,7 @@ _ZN4core3ops8function6FnOnce9call_once17h20eb9f37dd66b466E.exit.i.i.i.i: ; preds
   %383 = shl nuw nsw i64 %.sroa.04.0.i.i.i.i.i.i.i.i.i, 1
   %384 = add i64 %.sroa.010.1.i.i.i.i.i.i.i.i.i, -2
   %385 = getelementptr inbounds nuw i8, ptr @anon.187ff28613c2c65f7ccbfd9ddb5a172b.100, i64 %383
-  %386 = getelementptr inbounds nuw i8, ptr %7, i64 %384
+  %386 = getelementptr inbounds i8, ptr %7, i64 %384
   %387 = load i16, ptr %385, align 1, !noalias !17713
   store i16 %387, ptr %386, align 1, !alias.scope !17710, !noalias !17690
   br label %393
@@ -65622,7 +65622,7 @@ _ZN4core3ops8function6FnOnce9call_once17h20eb9f37dd66b466E.exit.i.i.i.i: ; preds
 388:                                              ; preds = %380
   %389 = add i64 %.sroa.010.1.i.i.i.i.i.i.i.i.i, -1
   %390 = trunc nuw nsw i64 %.sroa.04.0.i.i.i.i.i.i.i.i.i to i8
-  %391 = getelementptr inbounds nuw i8, ptr %7, i64 %389
+  %391 = getelementptr inbounds i8, ptr %7, i64 %389
   %392 = or disjoint i8 %390, 48
   store i8 %392, ptr %391, align 1, !alias.scope !17710, !noalias !17690
   br label %393
@@ -65633,7 +65633,7 @@ _ZN4core3ops8function6FnOnce9call_once17h20eb9f37dd66b466E.exit.i.i.i.i: ; preds
 
 394:                                              ; preds = %393
   %395 = add i64 %.sroa.010.2.i.i.i.i.i.i.i.i.i, -1
-  %396 = getelementptr inbounds nuw i8, ptr %7, i64 %395
+  %396 = getelementptr inbounds i8, ptr %7, i64 %395
   store i8 45, ptr %396, align 1, !alias.scope !17710, !noalias !17690
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i64$GT$5write17h72e7b9e36ce973e9E.exit.i.i.i.i.i.i.i.i"
 
@@ -65655,7 +65655,7 @@ _ZN4core3ops8function6FnOnce9call_once17h20eb9f37dd66b466E.exit.i.i.i.i: ; preds
 "_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_i6417h7b5f8b06e67d943dE.exit.i.i.i.i.i.i": ; preds = %.noexc6.i.i.i, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i64$GT$5write17h72e7b9e36ce973e9E.exit.i.i.i.i.i.i.i.i"
   %400 = phi ptr [ %.pre36.i.i.i, %.noexc6.i.i.i ], [ %267, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i64$GT$5write17h72e7b9e36ce973e9E.exit.i.i.i.i.i.i.i.i" ]
   %401 = phi i64 [ %.pre.i.i.i.i.i.i.i6.i.i.i.i.i.i, %.noexc6.i.i.i ], [ 0, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i64$GT$5write17h72e7b9e36ce973e9E.exit.i.i.i.i.i.i.i.i" ]
-  %402 = getelementptr inbounds nuw i8, ptr %7, i64 %.sroa.010.3.i.i.i.i.i.i.i.i.i
+  %402 = getelementptr inbounds i8, ptr %7, i64 %.sroa.010.3.i.i.i.i.i.i.i.i.i
   %403 = getelementptr inbounds i8, ptr %400, i64 %401
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %403, ptr nonnull readonly align 1 %402, i64 %397, i1 false), !noalias !17709
   %404 = load i64, ptr %269, align 8, !alias.scope !17714, !noalias !17723, !noundef !5

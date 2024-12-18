@@ -246,13 +246,13 @@ if.end23:                                         ; preds = %if.then17, %if.end1
   %div.i.lhs.trunc = trunc i16 %div2460 to i8
   %div.i62 = sdiv i8 %div.i.lhs.trunc, 10
   %idxprom.i = sext i8 %div.i62 to i64
-  %arrayidx.i = getelementptr inbounds nuw [11 x i8], ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [11 x i8], ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom.i
   %6 = load i8, ptr %arrayidx.i, align 1
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %buf, i64 11
   store i8 %6, ptr %incdec.ptr, align 2
   %rem1.i63 = srem i8 %div.i.lhs.trunc, 10
   %idxprom2.i = sext i8 %rem1.i63 to i64
-  %arrayidx3.i = getelementptr inbounds nuw [11 x i8], ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom2.i
+  %arrayidx3.i = getelementptr inbounds [11 x i8], ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom2.i
   %7 = load i8, ptr %arrayidx3.i, align 1
   %incdec.ptr4.i = getelementptr inbounds nuw i8, ptr %buf, i64 12
   store i8 %7, ptr %incdec.ptr.i, align 1
@@ -261,13 +261,13 @@ if.end23:                                         ; preds = %if.then17, %if.end1
   %div.i33.lhs.trunc = trunc nsw i16 %rem2561 to i8
   %div.i3364 = sdiv i8 %div.i33.lhs.trunc, 10
   %idxprom.i35 = sext i8 %div.i3364 to i64
-  %arrayidx.i36 = getelementptr inbounds nuw [11 x i8], ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom.i35
+  %arrayidx.i36 = getelementptr inbounds [11 x i8], ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom.i35
   %8 = load i8, ptr %arrayidx.i36, align 1
   %incdec.ptr.i37 = getelementptr inbounds nuw i8, ptr %buf, i64 14
   store i8 %8, ptr %incdec.ptr28, align 1
   %rem1.i3865 = srem i8 %div.i33.lhs.trunc, 10
   %idxprom2.i39 = sext i8 %rem1.i3865 to i64
-  %arrayidx3.i40 = getelementptr inbounds nuw [11 x i8], ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom2.i39
+  %arrayidx3.i40 = getelementptr inbounds [11 x i8], ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom2.i39
   %9 = load i8, ptr %arrayidx3.i40, align 1
   %incdec.ptr4.i41 = getelementptr inbounds nuw i8, ptr %buf, i64 15
   store i8 %9, ptr %incdec.ptr.i37, align 2
@@ -276,13 +276,13 @@ if.end23:                                         ; preds = %if.then17, %if.end1
   %div.i42.lhs.trunc = trunc nsw i32 %offset_seconds.0 to i8
   %div.i4266 = sdiv i8 %div.i42.lhs.trunc, 10
   %idxprom.i44 = sext i8 %div.i4266 to i64
-  %arrayidx.i45 = getelementptr inbounds nuw [11 x i8], ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom.i44
+  %arrayidx.i45 = getelementptr inbounds [11 x i8], ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom.i44
   %10 = load i8, ptr %arrayidx.i45, align 1
   %incdec.ptr.i46 = getelementptr inbounds nuw i8, ptr %buf, i64 17
   store i8 %10, ptr %incdec.ptr30, align 16
   %rem1.i4767 = srem i8 %div.i42.lhs.trunc, 10
   %idxprom2.i48 = sext i8 %rem1.i4767 to i64
-  %arrayidx3.i49 = getelementptr inbounds nuw [11 x i8], ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom2.i48
+  %arrayidx3.i49 = getelementptr inbounds [11 x i8], ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom2.i48
   %11 = load i8, ptr %arrayidx3.i49, align 1
   %incdec.ptr4.i50 = getelementptr inbounds nuw i8, ptr %buf, i64 18
   store i8 %11, ptr %incdec.ptr.i46, align 1
@@ -297,7 +297,7 @@ call.i.noexc55:                                   ; preds = %if.end23
 
 .noexc57:                                         ; preds = %call.i.noexc55
   %call.i.i52 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #10
-  %add.ptr.i53 = getelementptr inbounds nuw i8, ptr %buf, i64 %call.i.i52
+  %add.ptr.i53 = getelementptr inbounds i8, ptr %buf, i64 %call.i.i52
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %buf, ptr noundef nonnull %add.ptr.i53)
           to label %return unwind label %lpad.i54
 

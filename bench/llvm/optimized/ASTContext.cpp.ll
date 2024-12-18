@@ -6196,7 +6196,7 @@ _ZSt4copyIPKPN5clang4DeclEPS2_ET0_T_S7_S6_.exit18.i: ; preds = %15
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKPN5clang4DeclEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit.i, label %42
 
 42:                                               ; preds = %_ZSt4copyIPKPN5clang4DeclEPS2_ET0_T_S7_S6_.exit18.i
-  %.sink.i.i25.i.ptr = getelementptr inbounds nuw i8, ptr %2, i64 %41
+  %.sink.i.i25.i.ptr = getelementptr inbounds i8, ptr %2, i64 %41
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %7, ptr nonnull align 8 %.sink.i.i25.i.ptr, i64 %gepdiff, i1 false)
   br label %_ZSt22__uninitialized_copy_aIPKPN5clang4DeclEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit.i
 
@@ -36811,7 +36811,7 @@ switch.lookup:                                    ; preds = %13
   %.sroa.0.0.extract.trunc.i = zext i16 %24 to i64
   %sext = shl i64 %.sroa.0.0.extract.trunc.i, 56
   %26 = ashr exact i64 %sext, 56
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZNK5clang10ASTContext14GetBuiltinTypeEjRNS0_19GetBuiltinTypeErrorEPj, i64 0, i64 %26
+  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZNK5clang10ASTContext14GetBuiltinTypeEjRNS0_19GetBuiltinTypeErrorEPj, i64 0, i64 %26
   %switch.load = load i32, ptr %switch.gep, align 4
   %27 = tail call i64 @_ZNK5clang10ASTContext17getAttributedTypeENS_4attr4KindENS_8QualTypeES3_(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 noundef %switch.load, i64 %22, i64 %22)
   br label %_ZNK5clang10ASTContext19getArrayDecayedTypeENS_8QualTypeE.exit
@@ -36864,7 +36864,7 @@ switch.lookup:                                    ; preds = %2
   %.sroa.0.0.extract.trunc = zext i16 %15 to i64
   %sext = shl i64 %.sroa.0.0.extract.trunc, 56
   %17 = ashr exact i64 %sext, 56
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZNK5clang10ASTContext14GetBuiltinTypeEjRNS0_19GetBuiltinTypeErrorEPj, i64 0, i64 %17
+  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZNK5clang10ASTContext14GetBuiltinTypeEjRNS0_19GetBuiltinTypeErrorEPj, i64 0, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   %18 = tail call i64 @_ZNK5clang10ASTContext17getAttributedTypeENS_4attr4KindENS_8QualTypeES3_(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 noundef %switch.load, i64 %11, i64 %11)
   br label %19
@@ -63789,7 +63789,7 @@ switch.lookup:                                    ; preds = %24
   %.sroa.0.0.extract.trunc.i = zext i16 %38 to i64
   %sext = shl i64 %.sroa.0.0.extract.trunc.i, 56
   %40 = ashr exact i64 %sext, 56
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZNK5clang10ASTContext14GetBuiltinTypeEjRNS0_19GetBuiltinTypeErrorEPj, i64 0, i64 %40
+  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZNK5clang10ASTContext14GetBuiltinTypeEjRNS0_19GetBuiltinTypeErrorEPj, i64 0, i64 %40
   %switch.load = load i32, ptr %switch.gep, align 4
   %41 = tail call i64 @_ZNK5clang10ASTContext17getAttributedTypeENS_4attr4KindENS_8QualTypeES3_(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 noundef %switch.load, i64 %35, i64 %35)
   br label %_ZNK5clang10ASTContext19getArrayDecayedTypeENS_8QualTypeE.exit
@@ -71947,7 +71947,7 @@ switch.lookup:
   %4 = load i32, ptr %3, align 8
   %switch.tableidx = add nsw i32 %4, -4
   %5 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZNK5clang10ASTContext17getSignedSizeTypeEv, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds [7 x i64], ptr @switch.table._ZNK5clang10ASTContext17getSignedSizeTypeEv, i64 0, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %.sroa.0.0.i = load i64, ptr %6, align 8
@@ -72041,7 +72041,7 @@ switch.lookup:
   %4 = load i32, ptr %3, align 4
   %switch.tableidx = add nsw i32 %4, -1
   %5 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZNK5clang10ASTContext23getCFConstantStringDeclEv, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds [9 x i64], ptr @switch.table._ZNK5clang10ASTContext23getCFConstantStringDeclEv, i64 0, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %.sroa.0.0.i = load i64, ptr %6, align 8
@@ -72506,7 +72506,7 @@ switch.lookup:
   %4 = load i32, ptr %3, align 8
   %switch.tableidx = add nsw i32 %4, -1
   %5 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZNK5clang10ASTContext23getCFConstantStringDeclEv, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds [9 x i64], ptr @switch.table._ZNK5clang10ASTContext23getCFConstantStringDeclEv, i64 0, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %.sroa.0.0.i = load i64, ptr %6, align 8
@@ -76193,7 +76193,7 @@ _ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit.thread.i: ; preds = %9, %_ZN
   %23 = and i32 %22, 511
   %switch.tableidx = add nsw i32 %23, -473
   %24 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZNK5clang10ASTContext20getFloatingTypeOrderENS_8QualTypeES1_.60, i64 0, i64 %24
+  %switch.gep = getelementptr inbounds [8 x i32], ptr @switch.table._ZNK5clang10ASTContext20getFloatingTypeOrderENS_8QualTypeES1_.60, i64 0, i64 %24
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %tailrecurse.i10
 
@@ -76246,7 +76246,7 @@ _ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit.thread.i14: ; preds = %30, %
   %44 = and i32 %43, 511
   %switch.tableidx54 = add nsw i32 %44, -473
   %45 = sext i32 %switch.tableidx54 to i64
-  %switch.gep55 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZNK5clang10ASTContext20getFloatingTypeOrderENS_8QualTypeES1_.60, i64 0, i64 %45
+  %switch.gep55 = getelementptr inbounds [8 x i32], ptr @switch.table._ZNK5clang10ASTContext20getFloatingTypeOrderENS_8QualTypeES1_.60, i64 0, i64 %45
   %switch.load56 = load i32, ptr %switch.gep55, align 4
   %.0 = tail call i32 @llvm.ucmp.i32.i32(i32 %switch.load, i32 %switch.load56)
   ret i32 %.0
@@ -77545,7 +77545,7 @@ _ZNK5clang10ASTContext14getUIntPtrTypeEv.exit53:  ; preds = %_ZNK5clang10ASTCont
   %103 = load i32, ptr %102, align 8
   %switch.tableidx = add nsw i32 %103, -1
   %104 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZNK5clang10ASTContext23getCFConstantStringDeclEv, i64 0, i64 %104
+  %switch.gep = getelementptr inbounds [9 x i64], ptr @switch.table._ZNK5clang10ASTContext23getCFConstantStringDeclEv, i64 0, i64 %104
   %switch.load = load i64, ptr %switch.gep, align 8
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %.sroa.0.0.i = load i64, ptr %105, align 8
@@ -83954,7 +83954,7 @@ switch.lookup:                                    ; preds = %19
   %268 = load i32, ptr %267, align 8
   %switch.tableidx = add nsw i32 %268, -1
   %269 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZNK5clang10ASTContext20getBuiltinVaListDeclEv.61, i64 0, i64 %269
+  %switch.gep = getelementptr inbounds [10 x i64], ptr @switch.table._ZNK5clang10ASTContext20getBuiltinVaListDeclEv.61, i64 0, i64 %269
   %switch.load = load i64, ptr %switch.gep, align 8
   %270 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %271 = load i64, ptr %270, align 8
@@ -84311,7 +84311,7 @@ switch.lookup1:                                   ; preds = %_ZN4llvm9StringRefC
   %456 = load i32, ptr %455, align 8
   %switch.tableidx2 = add nsw i32 %456, -1
   %457 = sext i32 %switch.tableidx2 to i64
-  %switch.gep3 = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZNK5clang10ASTContext20getBuiltinVaListDeclEv.61, i64 0, i64 %457
+  %switch.gep3 = getelementptr inbounds [10 x i64], ptr @switch.table._ZNK5clang10ASTContext20getBuiltinVaListDeclEv.61, i64 0, i64 %457
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   %458 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load4
   %459 = load i64, ptr %458, align 8
@@ -96426,7 +96426,7 @@ switch.lookup:                                    ; preds = %49
   %.sroa.0.0.extract.trunc.i = zext i16 %60 to i64
   %sext = shl i64 %.sroa.0.0.extract.trunc.i, 56
   %62 = ashr exact i64 %sext, 56
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZNK5clang10ASTContext14GetBuiltinTypeEjRNS0_19GetBuiltinTypeErrorEPj, i64 0, i64 %62
+  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZNK5clang10ASTContext14GetBuiltinTypeEjRNS0_19GetBuiltinTypeErrorEPj, i64 0, i64 %62
   %switch.load = load i32, ptr %switch.gep, align 4
   %63 = call i64 @_ZNK5clang10ASTContext17getAttributedTypeENS_4attr4KindENS_8QualTypeES3_(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 noundef %switch.load, i64 %58, i64 %58)
   br label %_ZNK5clang10ASTContext19getArrayDecayedTypeENS_8QualTypeE.exit
@@ -104008,7 +104008,7 @@ switch.lookup:
   %12 = and i32 %11, 511
   %switch.tableidx = add nsw i32 %12, -452
   %13 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [21 x i64], ptr @switch.table._ZNK5clang10ASTContext36getCorrespondingSignedFixedPointTypeENS_8QualTypeE, i64 0, i64 %13
+  %switch.gep = getelementptr inbounds [21 x i64], ptr @switch.table._ZNK5clang10ASTContext36getCorrespondingSignedFixedPointTypeENS_8QualTypeE, i64 0, i64 %13
   %switch.load = load i64, ptr %switch.gep, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %.sroa.0.0 = load i64, ptr %14, align 8

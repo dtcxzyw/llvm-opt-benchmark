@@ -182,11 +182,11 @@ entry:
 while.body:                                       ; preds = %entry, %if.end25
   %pos.08 = phi i64 [ 0, %entry ], [ %pos.1, %if.end25 ]
   %coeff_num.07 = phi i64 [ 0, %entry ], [ %coeff_num.1, %if.end25 ]
-  %arrayidx7 = getelementptr inbounds nuw [2688 x i8], ptr %buf, i64 0, i64 %pos.08
+  %arrayidx7 = getelementptr inbounds [2688 x i8], ptr %buf, i64 0, i64 %pos.08
   %0 = load i8, ptr %arrayidx7, align 1
   %conv = zext i8 %0 to i16
   %add = add nuw nsw i64 %pos.08, 1
-  %arrayidx8 = getelementptr inbounds nuw [2688 x i8], ptr %buf, i64 0, i64 %add
+  %arrayidx8 = getelementptr inbounds [2688 x i8], ptr %buf, i64 0, i64 %add
   %1 = load i8, ptr %arrayidx8, align 1
   %conv10 = zext i8 %1 to i16
   %shl = shl nuw i16 %conv10, 8

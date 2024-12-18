@@ -201,10 +201,10 @@ switch.lookup:
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load i32, ptr %9, align 8
   %11 = sext i32 %10 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZNK4llvm24TargetLoweringObjectFile28getSymbolWithGlobalValueBaseEPKNS_11GlobalValueENS_9StringRefERKNS_13TargetMachineE, i64 0, i64 %11
+  %switch.gep = getelementptr inbounds [8 x i64], ptr @switch.table._ZNK4llvm24TargetLoweringObjectFile28getSymbolWithGlobalValueBaseEPKNS_11GlobalValueENS_9StringRefERKNS_13TargetMachineE, i64 0, i64 %11
   %switch.load = load i64, ptr %switch.gep, align 8
   %12 = sext i32 %10 to i64
-  %switch.gep5 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZNK4llvm24TargetLoweringObjectFile28getSymbolWithGlobalValueBaseEPKNS_11GlobalValueENS_9StringRefERKNS_13TargetMachineE.2, i64 0, i64 %12
+  %switch.gep5 = getelementptr inbounds [8 x ptr], ptr @switch.table._ZNK4llvm24TargetLoweringObjectFile28getSymbolWithGlobalValueBaseEPKNS_11GlobalValueENS_9StringRefERKNS_13TargetMachineE.2, i64 0, i64 %12
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   %13 = getelementptr inbounds nuw i8, ptr %switch.load6, i64 %switch.load
   call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(84) %5, ptr noundef nonnull %switch.load6, ptr noundef nonnull %13)

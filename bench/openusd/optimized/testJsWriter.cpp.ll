@@ -105,7 +105,7 @@ define dso_local noundef range(i32 0, 3) i32 @main(i32 noundef %0, ptr nocapture
   %21 = load ptr, ptr %4, align 8
   %22 = getelementptr i8, ptr %21, i64 -24
   %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %4, i64 %23
+  %24 = getelementptr inbounds i8, ptr %4, i64 %23
   %25 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %24)
           to label %26 unwind label %31
 

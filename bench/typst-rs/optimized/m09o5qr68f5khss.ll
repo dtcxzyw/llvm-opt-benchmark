@@ -111395,10 +111395,10 @@ define internal noundef zeroext i1 @"_ZN69_$LT$typst..model..strong..StrongElem$
 define { ptr, i64 } @_ZN5typst4text3raw1_6Fields6to_str17h204a6d7a4298bffaE(i8 noundef %0) unnamed_addr #31 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @"switch.table._ZN66_$LT$typst..text..raw.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h6c755c664d40daf6E", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [10 x ptr], ptr @"switch.table._ZN66_$LT$typst..text..raw.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h6c755c664d40daf6E", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw [10 x i64], ptr @"switch.table._ZN66_$LT$typst..text..raw.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h6c755c664d40daf6E.1065", i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds [10 x i64], ptr @"switch.table._ZN66_$LT$typst..text..raw.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h6c755c664d40daf6E.1065", i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -118175,10 +118175,10 @@ define void @"_ZN5typst4text3raw1_91_$LT$impl$u20$typst..foundations..cast..Into
 define { ptr, i64 } @_ZN5typst4text3raw1_6Fields6to_str17hdd527d169dd7d9d5E(i8 noundef %0) unnamed_addr #31 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN66_$LT$typst..text..raw.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h8bb3856f30c41740E", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @"switch.table._ZN66_$LT$typst..text..raw.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h8bb3856f30c41740E", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN66_$LT$typst..text..raw.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h8bb3856f30c41740E.1067", i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds [4 x i64], ptr @"switch.table._ZN66_$LT$typst..text..raw.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h8bb3856f30c41740E.1067", i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -120751,10 +120751,10 @@ default.unreachable12:                            ; preds = %33, %22
 define { ptr, i64 } @_ZN5typst9visualize5shape1_6Fields6to_str17h3da151fa19e9925cE(i8 noundef %0) unnamed_addr #31 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @"switch.table._ZN73_$LT$typst..visualize..shape.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hec4a5f92d6f01bb3E", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [8 x ptr], ptr @"switch.table._ZN73_$LT$typst..visualize..shape.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hec4a5f92d6f01bb3E", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw [8 x i64], ptr @"switch.table._ZN73_$LT$typst..visualize..shape.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hec4a5f92d6f01bb3E.1071", i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds [8 x i64], ptr @"switch.table._ZN73_$LT$typst..visualize..shape.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hec4a5f92d6f01bb3E.1071", i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -128323,10 +128323,10 @@ define void @"_ZN5typst9visualize5shape1_99_$LT$impl$u20$typst..foundations..cas
 define { ptr, i64 } @_ZN5typst9visualize5shape1_6Fields6to_str17h2bc0163211caa329E(i8 noundef %0) unnamed_addr #31 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @"switch.table._ZN73_$LT$typst..visualize..shape.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hec4a5f92d6f01bb3E", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [8 x ptr], ptr @"switch.table._ZN73_$LT$typst..visualize..shape.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hec4a5f92d6f01bb3E", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw [8 x i64], ptr @"switch.table._ZN73_$LT$typst..visualize..shape.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hec4a5f92d6f01bb3E.1071", i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds [8 x i64], ptr @"switch.table._ZN73_$LT$typst..visualize..shape.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hec4a5f92d6f01bb3E.1071", i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -135981,10 +135981,10 @@ define void @"_ZN5typst9visualize5shape1_101_$LT$impl$u20$typst..foundations..ca
 define { ptr, i64 } @_ZN5typst9visualize5shape1_6Fields6to_str17h68e2367f40153ea8E(i8 noundef %0) unnamed_addr #31 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @"switch.table._ZN73_$LT$typst..visualize..shape.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h95ad8b040841ff90E", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [7 x ptr], ptr @"switch.table._ZN73_$LT$typst..visualize..shape.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h95ad8b040841ff90E", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw [7 x i64], ptr @"switch.table._ZN73_$LT$typst..visualize..shape.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h95ad8b040841ff90E.1075", i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds [7 x i64], ptr @"switch.table._ZN73_$LT$typst..visualize..shape.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h95ad8b040841ff90E.1075", i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -142973,10 +142973,10 @@ define void @"_ZN5typst9visualize5shape1_102_$LT$impl$u20$typst..foundations..ca
 define { ptr, i64 } @_ZN5typst9visualize5shape1_6Fields6to_str17h6f137b582c92a257E(i8 noundef %0) unnamed_addr #31 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @"switch.table._ZN73_$LT$typst..visualize..shape.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h95ad8b040841ff90E", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [7 x ptr], ptr @"switch.table._ZN73_$LT$typst..visualize..shape.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h95ad8b040841ff90E", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw [7 x i64], ptr @"switch.table._ZN73_$LT$typst..visualize..shape.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h95ad8b040841ff90E.1075", i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds [7 x i64], ptr @"switch.table._ZN73_$LT$typst..visualize..shape.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h95ad8b040841ff90E.1075", i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1

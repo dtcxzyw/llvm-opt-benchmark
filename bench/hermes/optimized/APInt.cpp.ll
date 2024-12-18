@@ -8416,7 +8416,7 @@ _ZNK4llvh5APInt13getActiveBitsEv.exit.thread:     ; preds = %entry
 
 if.then.thread:                                   ; preds = %_ZNK4llvh5APInt13getActiveBitsEv.exit.thread
   %cond1006 = load i64, ptr %this, align 8
-  %arrayidx41007 = getelementptr inbounds nuw [32 x i8], ptr @_ZZNK4llvh5APInt4sqrtEvE7results, i64 0, i64 %cond1006
+  %arrayidx41007 = getelementptr inbounds [32 x i8], ptr @_ZZNK4llvh5APInt4sqrtEvE7results, i64 0, i64 %cond1006
   %8 = load i8, ptr %arrayidx41007, align 1
   %BitWidth.i61009 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 %0, ptr %BitWidth.i61009, align 8
@@ -8432,7 +8432,7 @@ if.then.thread:                                   ; preds = %_ZNK4llvh5APInt13ge
 
 if.then:                                          ; preds = %_ZNK4llvh5APInt13getActiveBitsEv.exit
   %cond = load i64, ptr %1, align 8
-  %arrayidx4 = getelementptr inbounds nuw [32 x i8], ptr @_ZZNK4llvh5APInt4sqrtEvE7results, i64 0, i64 %cond
+  %arrayidx4 = getelementptr inbounds [32 x i8], ptr @_ZZNK4llvh5APInt4sqrtEvE7results, i64 0, i64 %cond
   %9 = load i8, ptr %arrayidx4, align 1
   %BitWidth.i6 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 %0, ptr %BitWidth.i6, align 8
@@ -19315,7 +19315,7 @@ if.then:                                          ; preds = %entry
   %0 = add i32 %Radix, -2
   %1 = tail call i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 31)
   %2 = sext i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZNK4llvh5APInt8toStringERNS_15SmallVectorImplIcEEjbb, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table._ZNK4llvh5APInt8toStringERNS_15SmallVectorImplIcEEjbb, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %if.end
 
@@ -19538,7 +19538,7 @@ while.body28:                                     ; preds = %while.body28.lr.ph,
   %arrayidx = getelementptr inbounds nuw [37 x i8], ptr @_ZZNK4llvh5APInt8toStringERNS_15SmallVectorImplIcEEjbbE6Digits, i64 0, i64 %rem
   %35 = load i8, ptr %arrayidx, align 1
   %BufPtr.0.add = add nsw i64 %BufPtr.0.idx220, -1
-  %incdec.ptr29.ptr = getelementptr inbounds nuw i8, ptr %Buffer, i64 %BufPtr.0.add
+  %incdec.ptr29.ptr = getelementptr inbounds i8, ptr %Buffer, i64 %BufPtr.0.add
   store i8 %35, ptr %incdec.ptr29.ptr, align 1
   %div = udiv i64 %N.1219, %conv
   %tobool27.not = icmp ult i64 %N.1219, %conv
@@ -19546,7 +19546,7 @@ while.body28:                                     ; preds = %while.body28.lr.ph,
 
 while.end31:                                      ; preds = %while.body28, %while.cond26.preheader
   %BufPtr.0.idx.lcssa217 = phi i64 [ 65, %while.cond26.preheader ], [ %BufPtr.0.add, %while.body28 ]
-  %BufPtr.0.ptr.le = getelementptr inbounds nuw i8, ptr %Buffer, i64 %BufPtr.0.idx.lcssa217
+  %BufPtr.0.ptr.le = getelementptr inbounds i8, ptr %Buffer, i64 %BufPtr.0.idx.lcssa217
   %gepdiff = sub nsw i64 65, %BufPtr.0.idx.lcssa217
   %Capacity.i.i79 = getelementptr inbounds nuw i8, ptr %Str, i64 12
   %36 = load i32, ptr %Capacity.i.i79, align 4
@@ -19879,7 +19879,7 @@ _ZNK4llvh5APInt12getBoolValueEv.exit185:          ; preds = %if.then.i.i.i180, %
 while.body66:                                     ; preds = %if.then.i.i183, %_ZNK4llvh5APInt12getBoolValueEv.exit185
   call void @_ZN4llvh5APInt7udivremERKS0_mRS0_Rm(ptr noundef nonnull align 8 dereferenceable(12) %Tmp, i64 noundef %conv68, ptr noundef nonnull align 8 dereferenceable(12) %Tmp, ptr noundef nonnull align 8 dereferenceable(8) %Digit67)
   %84 = load i64, ptr %Digit67, align 8
-  %arrayidx69 = getelementptr inbounds nuw [37 x i8], ptr @_ZZNK4llvh5APInt8toStringERNS_15SmallVectorImplIcEEjbbE6Digits, i64 0, i64 %84
+  %arrayidx69 = getelementptr inbounds [37 x i8], ptr @_ZZNK4llvh5APInt8toStringERNS_15SmallVectorImplIcEEjbbE6Digits, i64 0, i64 %84
   %85 = load i32, ptr %Size.i, align 8
   %86 = load i32, ptr %Capacity.i.i187, align 4
   %cmp.not.i188 = icmp ult i32 %85, %86

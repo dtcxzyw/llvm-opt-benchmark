@@ -2028,7 +2028,7 @@ if.then.i:                                        ; preds = %if.then11
 
 if.else.i:                                        ; preds = %if.then11
   %idxprom.i = sext i32 %3 to i64
-  %arrayidx.i = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i
   br label %oideq.exit
 
 oideq.exit:                                       ; preds = %if.then.i, %if.else.i
@@ -2055,7 +2055,7 @@ if.then.i30:                                      ; preds = %lor.lhs.false
 
 if.else.i20:                                      ; preds = %lor.lhs.false
   %idxprom.i21 = sext i32 %7 to i64
-  %arrayidx.i22 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i21
+  %arrayidx.i22 = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i21
   br label %oideq.exit32
 
 oideq.exit32:                                     ; preds = %if.then.i30, %if.else.i20
@@ -2164,7 +2164,7 @@ if.then.i60:                                      ; preds = %if.end46
 
 if.else.i50:                                      ; preds = %if.end46
   %idxprom.i51 = sext i32 %17 to i64
-  %arrayidx.i52 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i51
+  %arrayidx.i52 = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i51
   br label %oideq.exit62
 
 oideq.exit62:                                     ; preds = %if.then.i60, %if.else.i50
@@ -4386,7 +4386,7 @@ if.then.i:                                        ; preds = %entry
 
 if.else.i:                                        ; preds = %entry
   %idxprom.i = sext i32 %0 to i64
-  %arrayidx.i = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i
   br label %oideq.exit
 
 oideq.exit:                                       ; preds = %if.then.i, %if.else.i

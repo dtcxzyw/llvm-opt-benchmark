@@ -309,7 +309,7 @@ if.end.i.i:                                       ; preds = %if.then3.i.i, %if.t
   %spec.select.i12.i.i = select i1 %tobool.i.i11.i.i, ptr %8, ptr %sTestEa
   %add.ptr.i.i = getelementptr inbounds i8, ptr %spec.select.i12.i.i, i64 %call9
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 %6
-  %add.ptr.i1.i.i.i = getelementptr inbounds nuw i8, ptr %sTestEa, i64 %sub.i.i.i.pre-phi.i.i
+  %add.ptr.i1.i.i.i = getelementptr inbounds i8, ptr %sTestEa, i64 %sub.i.i.i.pre-phi.i.i
   %cond.i16.i.i = select i1 %tobool.i.i11.i.i, ptr %add.ptr.i.i.i.i, ptr %add.ptr.i1.i.i.i
   %cmp.not.i.i.i = icmp eq ptr %add.ptr.i.i, %cond.i16.i.i
   br i1 %cmp.not.i.i.i, label %_ZN5eastl12basic_stringIcNS_9allocatorEE6assignEPKcm.exit, label %if.then.i.i.i
@@ -698,7 +698,7 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit.i99:         ; preds = %_ZN2EA4StdC9Stopwat
   %add.ptr.i.i.i.i105 = getelementptr inbounds i8, ptr %45, i64 %46
   %conv.i.i.i.i.i = zext nneg i8 %44 to i64
   %sub.i.i.i.i.i = sub nsw i64 23, %conv.i.i.i.i.i
-  %add.ptr.i1.i.i.i106 = getelementptr inbounds nuw i8, ptr %sTestEa, i64 %sub.i.i.i.i.i
+  %add.ptr.i1.i.i.i106 = getelementptr inbounds i8, ptr %sTestEa, i64 %sub.i.i.i.i.i
   %cond.i.i.i107 = select i1 %tobool.i.i.i.i102, ptr %add.ptr.i.i.i.i105, ptr %add.ptr.i1.i.i.i106
   %cmp.not4.i.i.i = icmp eq ptr %spec.select.i.i.i103, %cond.i.i.i107
   br i1 %cmp.not4.i.i.i, label %_ZN5eastl6searchIPKcS2_EET_S3_S3_T0_S4_.exit.i, label %land.rhs.i.i
@@ -751,7 +751,7 @@ _ZN5eastl6searchIPKcS2_EET_S3_S3_T0_S4_.exit.i:   ; preds = %if.then11.i.i, %whi
   %add.ptr.i.i.i10.i = getelementptr inbounds i8, ptr %51, i64 %52
   %conv.i.i.i.i11.i = zext nneg i8 %50 to i64
   %sub.i.i.i.i12.i = sub nsw i64 23, %conv.i.i.i.i11.i
-  %add.ptr.i1.i.i13.i = getelementptr inbounds nuw i8, ptr %sTestEa, i64 %sub.i.i.i.i12.i
+  %add.ptr.i1.i.i13.i = getelementptr inbounds i8, ptr %sTestEa, i64 %sub.i.i.i.i12.i
   %cond.i.i14.i = select i1 %tobool.i.i.i8.i, ptr %add.ptr.i.i.i10.i, ptr %add.ptr.i1.i.i13.i
   %cmp.not.i = icmp eq ptr %retval.0.i.i, %cond.i.i14.i
   br i1 %cmp.not.i, label %invoke.cont67, label %if.then.i109
@@ -905,7 +905,7 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit.i148:        ; preds = %_ZN2EA4StdC9Stopwat
   %add.ptr.i.i.i.i154 = getelementptr inbounds i8, ptr %67, i64 %68
   %conv.i.i.i.i.i155 = zext nneg i8 %66 to i64
   %sub.i.i.i.i.i156 = sub nsw i64 23, %conv.i.i.i.i.i155
-  %add.ptr.i1.i.i.i157 = getelementptr inbounds nuw i8, ptr %sTestEa, i64 %sub.i.i.i.i.i156
+  %add.ptr.i1.i.i.i157 = getelementptr inbounds i8, ptr %sTestEa, i64 %sub.i.i.i.i.i156
   %cond.i.i.i158 = select i1 %tobool.i.i.i.i151, ptr %add.ptr.i.i.i.i154, ptr %add.ptr.i1.i.i.i157
   %cmp4.i.i.i = icmp ugt ptr %cond.i.i.i158, %spec.select.i.i.i152
   br i1 %cmp4.i.i.i, label %if.then5.i.i.i, label %_ZN5eastl8search_nIPKcicEET_S3_S3_T0_RKT1_.exit.i
@@ -990,7 +990,7 @@ _ZN5eastl8search_nIPKcicEET_S3_S3_T0_RKT1_.exit.i: ; preds = %for.inc38.i.i.i, %
   %add.ptr.i.i.i11.i = getelementptr inbounds i8, ptr %73, i64 %74
   %conv.i.i.i.i12.i = zext nneg i8 %72 to i64
   %sub.i.i.i.i13.i = sub nsw i64 23, %conv.i.i.i.i12.i
-  %add.ptr.i1.i.i14.i = getelementptr inbounds nuw i8, ptr %sTestEa, i64 %sub.i.i.i.i13.i
+  %add.ptr.i1.i.i14.i = getelementptr inbounds i8, ptr %sTestEa, i64 %sub.i.i.i.i13.i
   %cond.i.i15.i = select i1 %tobool.i.i.i9.i, ptr %add.ptr.i.i.i11.i, ptr %add.ptr.i1.i.i14.i
   %cmp.not.i159 = icmp eq ptr %retval.0.i.i.i, %cond.i.i15.i
   br i1 %cmp.not.i159, label %invoke.cont79, label %if.then.i160
@@ -15824,7 +15824,7 @@ _ZN5eastl12basic_stringIcNS_9allocatorEEC2EPKcS4_RKS1_.exit: ; preds = %if.then.
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 %7
   %conv.i.i.i.i.i = zext nneg i8 %5 to i64
   %sub.i.i.i.i.i = sub nsw i64 23, %conv.i.i.i.i.i
-  %add.ptr.i1.i.i.i = getelementptr inbounds nuw i8, ptr %stackTemp, i64 %sub.i.i.i.i.i
+  %add.ptr.i1.i.i.i = getelementptr inbounds i8, ptr %stackTemp, i64 %sub.i.i.i.i.i
   %cond.i.i.i = select i1 %tobool.i.i5.i.i, ptr %add.ptr.i.i.i.i, ptr %add.ptr.i1.i.i.i
   store i8 0, ptr %cond.i.i.i, align 1
   %8 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1

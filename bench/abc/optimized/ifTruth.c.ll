@@ -2849,7 +2849,7 @@ define internal fastcc void @Abc_TtSwapVars(ptr noundef %0, i32 noundef range(i3
 
 .preheader.lr.ph.split.us:                        ; preds = %.preheader.lr.ph
   %67 = sext i32 %spec.select117 to i64
-  %68 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %67
+  %68 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %67
   %69 = load i64, ptr %68, align 8
   %70 = xor i64 %69, -1
   %71 = sext i32 %62 to i64
@@ -4121,7 +4121,7 @@ Vec_MemAllocForTTSimple.exit:                     ; preds = %Abc_PrimeCudd.exit.
   %49 = zext i32 %48 to i64
   %50 = shl i64 %44, %49
   %51 = sext i32 %47 to i64
-  %52 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %51
+  %52 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %51
   %53 = load i64, ptr %52, align 8
   %54 = and i64 %50, %53
   %55 = and i64 %53, %44
@@ -4136,7 +4136,7 @@ Vec_MemAllocForTTSimple.exit:                     ; preds = %Abc_PrimeCudd.exit.
   %58 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv62
   %59 = load i32, ptr %58, align 4
   %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %60
+  %61 = getelementptr inbounds [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %60
   %62 = load i64, ptr %61, align 8
   %63 = and i64 %62, %57
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 8

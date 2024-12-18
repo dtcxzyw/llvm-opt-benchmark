@@ -415,7 +415,7 @@ if.then23:                                        ; preds = %while.end
   %sub = shl i64 %call25, 32
   %sext = add i64 %sub, 21474836480
   %idxprom27 = ashr exact i64 %sext, 32
-  %arrayidx28 = getelementptr inbounds nuw [256 x i8], ptr %buf, i64 0, i64 %idxprom27
+  %arrayidx28 = getelementptr inbounds [256 x i8], ptr %buf, i64 0, i64 %idxprom27
   %call29 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %arrayidx28, ptr noundef nonnull dereferenceable(7) @.str.12, i64 noundef 6) #12
   %cmp30.not = icmp eq i32 %call29, 0
   br i1 %cmp30.not, label %if.end33, label %for.cond.backedge
@@ -658,7 +658,7 @@ lor.lhs.false213:                                 ; preds = %if.end205
 lor.lhs.false220:                                 ; preds = %lor.lhs.false213
   %sext89 = add i64 %sext88, 38654705664
   %idxprom222 = ashr exact i64 %sext89, 32
-  %arrayidx223 = getelementptr inbounds nuw [256 x i8], ptr %buf, i64 0, i64 %idxprom222
+  %arrayidx223 = getelementptr inbounds [256 x i8], ptr %buf, i64 0, i64 %idxprom222
   %call224 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %arrayidx223, ptr noundef nonnull dereferenceable(7) @.str.12, i64 noundef 6) #12
   %cmp225.not = icmp eq i32 %call224, 0
   br i1 %cmp225.not, label %if.end228, label %if.then227

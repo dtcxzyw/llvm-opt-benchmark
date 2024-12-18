@@ -177,7 +177,7 @@ _ZN18ZArrayIteratorImplIP5ZPageLb0EEC2EPK18GrowableArrayCHeapIS1_L8MEMFLAGS5EE.e
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %17 = load volatile i64, ptr %16, align 8
   %18 = lshr i64 %17, %5
-  %19 = getelementptr inbounds nuw [2048 x i32], ptr %1, i64 0, i64 %18
+  %19 = getelementptr inbounds [2048 x i32], ptr %1, i64 0, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = add nsw i32 %20, 1
   store i32 %21, ptr %19, align 4
@@ -229,7 +229,7 @@ _ZN18GrowableArrayCHeapIP5ZPageL8MEMFLAGS5EEC2EiiRKS1_.exit: ; preds = %.lr.ph.p
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 48
   %39 = load volatile i64, ptr %38, align 8
   %40 = lshr i64 %39, %5
-  %41 = getelementptr inbounds nuw [2048 x i32], ptr %1, i64 0, i64 %40
+  %41 = getelementptr inbounds [2048 x i32], ptr %1, i64 0, i64 %40
   %42 = load i32, ptr %41, align 4
   %43 = add nsw i32 %42, 1
   store i32 %43, ptr %41, align 4

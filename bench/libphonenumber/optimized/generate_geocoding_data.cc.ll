@@ -585,7 +585,7 @@ define dso_local noundef zeroext i1 @_ZN4i18n12phonenumbers8StrToIntERKNSt7__cxx
   %9 = load ptr, ptr %3, align 8
   %10 = getelementptr i8, ptr %9, i64 -24
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 %11
+  %12 = getelementptr inbounds i8, ptr %3, i64 %11
   %13 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %12)
           to label %14 unwind label %16
 
@@ -628,7 +628,7 @@ define dso_local noundef zeroext i1 @_ZN4i18n12phonenumbers8IntToStrEiPNSt7__cxx
   %9 = load ptr, ptr %3, align 8
   %10 = getelementptr i8, ptr %9, i64 -24
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 %11
+  %12 = getelementptr inbounds i8, ptr %3, i64 %11
   %13 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %12)
           to label %14 unwind label %16
 
@@ -1051,7 +1051,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN9__gnu_cxx17__normal_it
   %166 = load ptr, ptr %4, align 8
   %167 = getelementptr i8, ptr %166, i64 -24
   %168 = load i64, ptr %167, align 8
-  %169 = getelementptr inbounds nuw i8, ptr %4, i64 %168
+  %169 = getelementptr inbounds i8, ptr %4, i64 %168
   %170 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %169)
           to label %173 unwind label %171
 
@@ -2295,7 +2295,7 @@ define dso_local noundef zeroext i1 @_ZN4i18n12phonenumbers21WriteCountryLanguag
   %24 = load ptr, ptr %3, align 8
   %25 = getelementptr i8, ptr %24, i64 -24
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %3, i64 %26
+  %27 = getelementptr inbounds i8, ptr %3, i64 %26
   %28 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %27)
           to label %31 unwind label %29
 
@@ -3083,7 +3083,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %111 = load ptr, ptr %10, align 8
   %112 = getelementptr i8, ptr %111, i64 -24
   %113 = load i64, ptr %112, align 8
-  %114 = getelementptr inbounds nuw i8, ptr %10, i64 %113
+  %114 = getelementptr inbounds i8, ptr %10, i64 %113
   %115 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %114)
           to label %118 unwind label %116
 

@@ -871,7 +871,7 @@ define internal i64 @H5FD_multi_sb_size(ptr nocapture noundef readonly %0) #0 {
   %10 = trunc nuw nsw i64 %indvars.iv to i32
   %spec.select = select i1 %9, i32 %10, i32 %8
   %11 = sext i32 %spec.select to i64
-  %12 = getelementptr inbounds nuw [7 x i32], ptr %2, i64 0, i64 %11
+  %12 = getelementptr inbounds [7 x i32], ptr %2, i64 0, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = add i32 %13, 1
   store i32 %14, ptr %12, align 4
@@ -899,7 +899,7 @@ define internal i64 @H5FD_multi_sb_size(ptr nocapture noundef readonly %0) #0 {
   %25 = trunc nuw nsw i64 %indvars.iv37 to i32
   %spec.select31 = select i1 %24, i32 %25, i32 %23
   %26 = sext i32 %spec.select31 to i64
-  %27 = getelementptr inbounds nuw [7 x i32], ptr %3, i64 0, i64 %26
+  %27 = getelementptr inbounds [7 x i32], ptr %3, i64 0, i64 %26
   %28 = load i32, ptr %27, align 4
   %29 = add i32 %28, 1
   store i32 %29, ptr %27, align 4
@@ -969,7 +969,7 @@ define internal range(i32 -1, 1) i32 @H5FD_multi_sb_encode(ptr nocapture noundef
   %23 = trunc nuw nsw i64 %indvars.iv76 to i32
   %spec.select = select i1 %22, i32 %23, i32 %21
   %24 = sext i32 %spec.select to i64
-  %25 = getelementptr inbounds nuw [7 x i32], ptr %4, i64 0, i64 %24
+  %25 = getelementptr inbounds [7 x i32], ptr %4, i64 0, i64 %24
   %26 = load i32, ptr %25, align 4
   %27 = add i32 %26, 1
   store i32 %27, ptr %25, align 4
@@ -1032,7 +1032,7 @@ define internal range(i32 -1, 1) i32 @H5FD_multi_sb_encode(ptr nocapture noundef
   %62 = trunc nuw nsw i64 %indvars.iv81 to i32
   %spec.select64 = select i1 %61, i32 %62, i32 %60
   %63 = sext i32 %spec.select64 to i64
-  %64 = getelementptr inbounds nuw [7 x i32], ptr %5, i64 0, i64 %63
+  %64 = getelementptr inbounds [7 x i32], ptr %5, i64 0, i64 %63
   %65 = load i32, ptr %64, align 4
   %66 = add i32 %65, 1
   store i32 %66, ptr %64, align 4
@@ -1138,7 +1138,7 @@ define internal range(i32 -1, 1) i32 @H5FD_multi_sb_decode(ptr nocapture noundef
   %40 = trunc nuw nsw i64 %indvars.iv168 to i32
   %spec.select145 = select i1 %39, i32 %40, i32 %38
   %41 = sext i32 %spec.select145 to i64
-  %42 = getelementptr inbounds nuw [7 x i32], ptr %12, i64 0, i64 %41
+  %42 = getelementptr inbounds [7 x i32], ptr %12, i64 0, i64 %41
   %43 = load i32, ptr %42, align 4
   %44 = add i32 %43, 1
   store i32 %44, ptr %42, align 4
@@ -1186,7 +1186,7 @@ define internal range(i32 -1, 1) i32 @H5FD_multi_sb_decode(ptr nocapture noundef
   %70 = trunc nuw nsw i64 %indvars.iv172 to i32
   %spec.select146 = select i1 %69, i32 %70, i32 %68
   %71 = sext i32 %spec.select146 to i64
-  %72 = getelementptr inbounds nuw [7 x i32], ptr %13, i64 0, i64 %71
+  %72 = getelementptr inbounds [7 x i32], ptr %13, i64 0, i64 %71
   %73 = load i32, ptr %72, align 4
   %74 = add i32 %73, 1
   store i32 %74, ptr %72, align 4
@@ -1223,7 +1223,7 @@ define internal range(i32 -1, 1) i32 @H5FD_multi_sb_decode(ptr nocapture noundef
   %88 = trunc nuw nsw i64 %indvars.iv176 to i32
   %spec.select147 = select i1 %87, i32 %88, i32 %86
   %89 = sext i32 %spec.select147 to i64
-  %90 = getelementptr inbounds nuw [7 x i32], ptr %14, i64 0, i64 %89
+  %90 = getelementptr inbounds [7 x i32], ptr %14, i64 0, i64 %89
   %91 = load i32, ptr %90, align 4
   %92 = add i32 %91, 1
   store i32 %92, ptr %90, align 4
@@ -1266,7 +1266,7 @@ define internal range(i32 -1, 1) i32 @H5FD_multi_sb_decode(ptr nocapture noundef
   %106 = trunc nuw nsw i64 %indvars.iv183 to i32
   %spec.select148 = select i1 %105, i32 %106, i32 %104
   %107 = sext i32 %spec.select148 to i64
-  %108 = getelementptr inbounds nuw [7 x i32], ptr %15, i64 0, i64 %107
+  %108 = getelementptr inbounds [7 x i32], ptr %15, i64 0, i64 %107
   %109 = load i32, ptr %108, align 4
   %110 = add i32 %109, 1
   store i32 %110, ptr %108, align 4
@@ -1274,7 +1274,7 @@ define internal range(i32 -1, 1) i32 @H5FD_multi_sb_decode(ptr nocapture noundef
   br i1 %.not140, label %111, label %113
 
 111:                                              ; preds = %102
-  %112 = getelementptr inbounds nuw [7 x i8], ptr %8, i64 0, i64 %107
+  %112 = getelementptr inbounds [7 x i8], ptr %8, i64 0, i64 %107
   store i8 1, ptr %112, align 1
   br label %113
 
@@ -1363,7 +1363,7 @@ define internal range(i32 -1, 1) i32 @H5FD_multi_sb_decode(ptr nocapture noundef
   %149 = trunc nuw nsw i64 %indvars.iv50.i to i32
   %spec.select.i = select i1 %148, i32 %149, i32 %147
   %150 = sext i32 %spec.select.i to i64
-  %151 = getelementptr inbounds nuw [7 x i32], ptr %4, i64 0, i64 %150
+  %151 = getelementptr inbounds [7 x i32], ptr %4, i64 0, i64 %150
   %152 = load i32, ptr %151, align 4
   %153 = add i32 %152, 1
   store i32 %153, ptr %151, align 4
@@ -1384,7 +1384,7 @@ define internal range(i32 -1, 1) i32 @H5FD_multi_sb_decode(ptr nocapture noundef
   %161 = trunc nuw nsw i64 %indvars.iv.i to i32
   %spec.select44.i = select i1 %160, i32 %161, i32 %159
   %162 = sext i32 %spec.select44.i to i64
-  %163 = getelementptr inbounds nuw [7 x i32], ptr %5, i64 0, i64 %162
+  %163 = getelementptr inbounds [7 x i32], ptr %5, i64 0, i64 %162
   %164 = load i32, ptr %163, align 4
   %165 = add i32 %164, 1
   store i32 %165, ptr %163, align 4
@@ -1459,7 +1459,7 @@ compute_next.exit:                                ; preds = %181
   %199 = trunc nuw nsw i64 %indvars.iv195 to i32
   %spec.select149 = select i1 %198, i32 %199, i32 %197
   %200 = sext i32 %spec.select149 to i64
-  %201 = getelementptr inbounds nuw [7 x i32], ptr %16, i64 0, i64 %200
+  %201 = getelementptr inbounds [7 x i32], ptr %16, i64 0, i64 %200
   %202 = load i32, ptr %201, align 4
   %203 = add i32 %202, 1
   store i32 %203, ptr %201, align 4
@@ -1470,7 +1470,7 @@ compute_next.exit:                                ; preds = %181
   %205 = getelementptr inbounds [7 x ptr], ptr %193, i64 0, i64 %200
   %206 = load ptr, ptr %205, align 8
   %.not136 = icmp eq ptr %206, null
-  %.phi.trans.insert = getelementptr inbounds nuw [7 x i64], ptr %11, i64 0, i64 %200
+  %.phi.trans.insert = getelementptr inbounds [7 x i64], ptr %11, i64 0, i64 %200
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br i1 %.not136, label %._crit_edge, label %207
 
@@ -1907,7 +1907,7 @@ define internal noalias noundef ptr @H5FD_multi_open(ptr noundef readonly %0, i3
   %155 = trunc nuw nsw i64 %indvars.iv50.i to i32
   %spec.select.i = select i1 %154, i32 %155, i32 %153
   %156 = sext i32 %spec.select.i to i64
-  %157 = getelementptr inbounds nuw [7 x i32], ptr %5, i64 0, i64 %156
+  %157 = getelementptr inbounds [7 x i32], ptr %5, i64 0, i64 %156
   %158 = load i32, ptr %157, align 4
   %159 = add i32 %158, 1
   store i32 %159, ptr %157, align 4
@@ -1928,7 +1928,7 @@ define internal noalias noundef ptr @H5FD_multi_open(ptr noundef readonly %0, i3
   %167 = trunc nuw nsw i64 %indvars.iv.i to i32
   %spec.select44.i = select i1 %166, i32 %167, i32 %165
   %168 = sext i32 %spec.select44.i to i64
-  %169 = getelementptr inbounds nuw [7 x i32], ptr %6, i64 0, i64 %168
+  %169 = getelementptr inbounds [7 x i32], ptr %6, i64 0, i64 %168
   %170 = load i32, ptr %169, align 4
   %171 = add i32 %170, 1
   store i32 %171, ptr %169, align 4
@@ -2326,7 +2326,7 @@ define internal i64 @H5FD_multi_get_eoa(ptr nocapture noundef readonly %0, i32 n
   %22 = trunc nuw nsw i64 %indvars.iv to i32
   %spec.select = select i1 %21, i32 %22, i32 %20
   %23 = sext i32 %spec.select to i64
-  %24 = getelementptr inbounds nuw [7 x i32], ptr %3, i64 0, i64 %23
+  %24 = getelementptr inbounds [7 x i32], ptr %3, i64 0, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = add i32 %25, 1
   store i32 %26, ptr %24, align 4
@@ -2641,7 +2641,7 @@ define internal i64 @H5FD_multi_get_eof(ptr nocapture noundef readonly %0, i32 n
   %22 = trunc nuw nsw i64 %indvars.iv to i32
   %spec.select = select i1 %21, i32 %22, i32 %20
   %23 = sext i32 %spec.select to i64
-  %24 = getelementptr inbounds nuw [7 x i32], ptr %3, i64 0, i64 %23
+  %24 = getelementptr inbounds [7 x i32], ptr %3, i64 0, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = add i32 %25, 1
   store i32 %26, ptr %24, align 4
@@ -3395,7 +3395,7 @@ define internal range(i32 -1, 1) i32 @H5FD_multi_delete(ptr noundef %0, i64 noun
   %61 = trunc nuw nsw i64 %indvars.iv to i32
   %spec.select = select i1 %60, i32 %61, i32 %59
   %62 = sext i32 %spec.select to i64
-  %63 = getelementptr inbounds nuw [7 x i32], ptr %8, i64 0, i64 %62
+  %63 = getelementptr inbounds [7 x i32], ptr %8, i64 0, i64 %62
   %64 = load i32, ptr %63, align 4
   %65 = add i32 %64, 1
   store i32 %65, ptr %63, align 4
@@ -3519,7 +3519,7 @@ define internal fastcc range(i32 -1, 1) i32 @open_members(ptr nocapture noundef 
   %19 = trunc nuw nsw i64 %indvars.iv to i32
   %spec.select = select i1 %18, i32 %19, i32 %17
   %20 = sext i32 %spec.select to i64
-  %21 = getelementptr inbounds nuw [7 x i32], ptr %3, i64 0, i64 %20
+  %21 = getelementptr inbounds [7 x i32], ptr %3, i64 0, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = add i32 %22, 1
   store i32 %23, ptr %21, align 4

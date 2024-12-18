@@ -1095,10 +1095,10 @@ _ZN4llvm4json5Array12emplace_backIJRKNS_9StringRefEEEEvDpOT_.exit.i: ; preds = %
 define dso_local { ptr, i64 } @_ZN5clang10extractapi21SymbolGraphSerializer21getRelationshipStringENS1_16RelationshipKindE(i32 noundef %0) local_unnamed_addr #5 align 2 {
 switch.lookup:
   %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN5clang10extractapi21SymbolGraphSerializer21serializeRelationshipENS1_16RelationshipKindERKNS0_15SymbolReferenceES5_RNS0_14ExtendedModuleE.26, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZN5clang10extractapi21SymbolGraphSerializer21serializeRelationshipENS1_16RelationshipKindERKNS0_15SymbolReferenceES5_RNS0_14ExtendedModuleE.26, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = sext i32 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN5clang10extractapi21SymbolGraphSerializer21serializeRelationshipENS1_16RelationshipKindERKNS0_15SymbolReferenceES5_RNS0_14ExtendedModuleE.27, i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN5clang10extractapi21SymbolGraphSerializer21serializeRelationshipENS1_16RelationshipKindERKNS0_15SymbolReferenceES5_RNS0_14ExtendedModuleE.27, i64 0, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -1144,10 +1144,10 @@ switch.lookup:                                    ; preds = %5
   store ptr %9, ptr %29, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef null, i64 noundef 0, i32 noundef 0) #17
   %30 = sext i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN5clang10extractapi21SymbolGraphSerializer21serializeRelationshipENS1_16RelationshipKindERKNS0_15SymbolReferenceES5_RNS0_14ExtendedModuleE.26, i64 0, i64 %30
+  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZN5clang10extractapi21SymbolGraphSerializer21serializeRelationshipENS1_16RelationshipKindERKNS0_15SymbolReferenceES5_RNS0_14ExtendedModuleE.26, i64 0, i64 %30
   %switch.load = load i64, ptr %switch.gep, align 8
   %31 = sext i32 %1 to i64
-  %switch.gep59 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN5clang10extractapi21SymbolGraphSerializer21serializeRelationshipENS1_16RelationshipKindERKNS0_15SymbolReferenceES5_RNS0_14ExtendedModuleE.27, i64 0, i64 %31
+  %switch.gep59 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN5clang10extractapi21SymbolGraphSerializer21serializeRelationshipENS1_16RelationshipKindERKNS0_15SymbolReferenceES5_RNS0_14ExtendedModuleE.27, i64 0, i64 %31
   %switch.load60 = load ptr, ptr %switch.gep59, align 8
   %32 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %33 = load ptr, ptr %32, align 8
@@ -1408,10 +1408,10 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit44:               ; preds = %_ZN4llvm4json9Objec
   store ptr null, ptr %18, align 8
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %17) #17
   %131 = sext i32 %1 to i64
-  %switch.gep62 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN5clang10extractapi21SymbolGraphSerializer21serializeRelationshipENS1_16RelationshipKindERKNS0_15SymbolReferenceES5_RNS0_14ExtendedModuleE.26, i64 0, i64 %131
+  %switch.gep62 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN5clang10extractapi21SymbolGraphSerializer21serializeRelationshipENS1_16RelationshipKindERKNS0_15SymbolReferenceES5_RNS0_14ExtendedModuleE.26, i64 0, i64 %131
   %switch.load63 = load i64, ptr %switch.gep62, align 8
   %132 = sext i32 %1 to i64
-  %switch.gep64 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN5clang10extractapi21SymbolGraphSerializer21serializeRelationshipENS1_16RelationshipKindERKNS0_15SymbolReferenceES5_RNS0_14ExtendedModuleE.27, i64 0, i64 %132
+  %switch.gep64 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN5clang10extractapi21SymbolGraphSerializer21serializeRelationshipENS1_16RelationshipKindERKNS0_15SymbolReferenceES5_RNS0_14ExtendedModuleE.27, i64 0, i64 %132
   %switch.load65 = load ptr, ptr %switch.gep64, align 8
   call void @_ZN4llvm4json5ValueC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr nonnull %switch.load65, i64 %switch.load63)
   call void @_ZN4llvm4json9ObjectKeyC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr nonnull @.str.14, i64 4)
@@ -1686,10 +1686,10 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit.i:               ; preds = %_ZNKSt14default_del
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %52) #17
   %switch.tableidx = add nsw i8 %86, -4
   %91 = sext i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %91
+  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %91
   %switch.load = load i64, ptr %switch.gep, align 8
   %92 = sext i8 %switch.tableidx to i64
-  %switch.gep87 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %92
+  %switch.gep87 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %92
   %switch.load88 = load ptr, ptr %switch.gep87, align 8
   call void @_ZN4llvm4json5ValueC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %54, ptr nonnull %switch.load88, i64 %switch.load)
   call void @_ZN4llvm4json9ObjectKeyC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %55, ptr nonnull @.str.52, i64 17)
@@ -11750,9 +11750,9 @@ _ZN4llvm4json5ArrayD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN4ll
   %110 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %switch.tableidx = add nsw i8 %81, -4
   %111 = sext i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %111
+  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %111
   %112 = sext i8 %switch.tableidx to i64
-  %switch.gep95 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %112
+  %switch.gep95 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %112
   br label %113
 
 113:                                              ; preds = %.lr.ph, %170
@@ -13109,10 +13109,10 @@ switch.lookup:                                    ; preds = %3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %75)
   %switch.tableidx = add nsw i8 %2, -4
   %256 = sext i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %256
+  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %256
   %switch.load = load i64, ptr %switch.gep, align 8
   %257 = sext i8 %switch.tableidx to i64
-  %switch.gep498 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %257
+  %switch.gep498 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %257
   %switch.load499 = load ptr, ptr %switch.gep498, align 8
   %258 = getelementptr inbounds nuw i8, ptr %75, i64 32
   store i8 5, ptr %258, align 8, !alias.scope !87, !noalias !90
@@ -13167,10 +13167,10 @@ switch.lookup500:                                 ; preds = %3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %73)
   %switch.tableidx501 = add nsw i8 %2, -4
   %269 = sext i8 %switch.tableidx501 to i64
-  %switch.gep502 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %269
+  %switch.gep502 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %269
   %switch.load503 = load i64, ptr %switch.gep502, align 8
   %270 = sext i8 %switch.tableidx501 to i64
-  %switch.gep504 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %270
+  %switch.gep504 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %270
   %switch.load505 = load ptr, ptr %switch.gep504, align 8
   %271 = getelementptr inbounds nuw i8, ptr %73, i64 32
   store i8 5, ptr %271, align 8, !alias.scope !98, !noalias !101
@@ -13225,10 +13225,10 @@ switch.lookup506:                                 ; preds = %3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %71)
   %switch.tableidx507 = add nsw i8 %2, -4
   %282 = sext i8 %switch.tableidx507 to i64
-  %switch.gep508 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %282
+  %switch.gep508 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %282
   %switch.load509 = load i64, ptr %switch.gep508, align 8
   %283 = sext i8 %switch.tableidx507 to i64
-  %switch.gep510 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %283
+  %switch.gep510 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %283
   %switch.load511 = load ptr, ptr %switch.gep510, align 8
   %284 = getelementptr inbounds nuw i8, ptr %71, i64 32
   store i8 5, ptr %284, align 8, !alias.scope !109, !noalias !112
@@ -13283,10 +13283,10 @@ switch.lookup512:                                 ; preds = %3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %69)
   %switch.tableidx513 = add nsw i8 %2, -4
   %295 = sext i8 %switch.tableidx513 to i64
-  %switch.gep514 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %295
+  %switch.gep514 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %295
   %switch.load515 = load i64, ptr %switch.gep514, align 8
   %296 = sext i8 %switch.tableidx513 to i64
-  %switch.gep516 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %296
+  %switch.gep516 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %296
   %switch.load517 = load ptr, ptr %switch.gep516, align 8
   %297 = getelementptr inbounds nuw i8, ptr %69, i64 32
   store i8 5, ptr %297, align 8, !alias.scope !120, !noalias !123
@@ -13341,10 +13341,10 @@ switch.lookup518:                                 ; preds = %3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %67)
   %switch.tableidx519 = add nsw i8 %2, -4
   %308 = sext i8 %switch.tableidx519 to i64
-  %switch.gep520 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %308
+  %switch.gep520 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %308
   %switch.load521 = load i64, ptr %switch.gep520, align 8
   %309 = sext i8 %switch.tableidx519 to i64
-  %switch.gep522 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %309
+  %switch.gep522 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %309
   %switch.load523 = load ptr, ptr %switch.gep522, align 8
   %310 = getelementptr inbounds nuw i8, ptr %67, i64 32
   store i8 5, ptr %310, align 8, !alias.scope !131, !noalias !134
@@ -13399,10 +13399,10 @@ switch.lookup524:                                 ; preds = %3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %65)
   %switch.tableidx525 = add nsw i8 %2, -4
   %321 = sext i8 %switch.tableidx525 to i64
-  %switch.gep526 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %321
+  %switch.gep526 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %321
   %switch.load527 = load i64, ptr %switch.gep526, align 8
   %322 = sext i8 %switch.tableidx525 to i64
-  %switch.gep528 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %322
+  %switch.gep528 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %322
   %switch.load529 = load ptr, ptr %switch.gep528, align 8
   %323 = getelementptr inbounds nuw i8, ptr %65, i64 32
   store i8 5, ptr %323, align 8, !alias.scope !142, !noalias !145
@@ -13457,10 +13457,10 @@ switch.lookup530:                                 ; preds = %3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %63)
   %switch.tableidx531 = add nsw i8 %2, -4
   %334 = sext i8 %switch.tableidx531 to i64
-  %switch.gep532 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %334
+  %switch.gep532 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %334
   %switch.load533 = load i64, ptr %switch.gep532, align 8
   %335 = sext i8 %switch.tableidx531 to i64
-  %switch.gep534 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %335
+  %switch.gep534 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %335
   %switch.load535 = load ptr, ptr %switch.gep534, align 8
   %336 = getelementptr inbounds nuw i8, ptr %63, i64 32
   store i8 5, ptr %336, align 8, !alias.scope !153, !noalias !156
@@ -13515,10 +13515,10 @@ switch.lookup536:                                 ; preds = %3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %61)
   %switch.tableidx537 = add nsw i8 %2, -4
   %347 = sext i8 %switch.tableidx537 to i64
-  %switch.gep538 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %347
+  %switch.gep538 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %347
   %switch.load539 = load i64, ptr %switch.gep538, align 8
   %348 = sext i8 %switch.tableidx537 to i64
-  %switch.gep540 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %348
+  %switch.gep540 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %348
   %switch.load541 = load ptr, ptr %switch.gep540, align 8
   %349 = getelementptr inbounds nuw i8, ptr %61, i64 32
   store i8 5, ptr %349, align 8, !alias.scope !164, !noalias !167
@@ -13573,10 +13573,10 @@ switch.lookup542:                                 ; preds = %3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %59)
   %switch.tableidx543 = add nsw i8 %2, -4
   %360 = sext i8 %switch.tableidx543 to i64
-  %switch.gep544 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %360
+  %switch.gep544 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %360
   %switch.load545 = load i64, ptr %switch.gep544, align 8
   %361 = sext i8 %switch.tableidx543 to i64
-  %switch.gep546 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %361
+  %switch.gep546 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %361
   %switch.load547 = load ptr, ptr %switch.gep546, align 8
   %362 = getelementptr inbounds nuw i8, ptr %59, i64 32
   store i8 5, ptr %362, align 8, !alias.scope !175, !noalias !178
@@ -13631,10 +13631,10 @@ switch.lookup548:                                 ; preds = %3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %57)
   %switch.tableidx549 = add nsw i8 %2, -4
   %373 = sext i8 %switch.tableidx549 to i64
-  %switch.gep550 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %373
+  %switch.gep550 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %373
   %switch.load551 = load i64, ptr %switch.gep550, align 8
   %374 = sext i8 %switch.tableidx549 to i64
-  %switch.gep552 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %374
+  %switch.gep552 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %374
   %switch.load553 = load ptr, ptr %switch.gep552, align 8
   %375 = getelementptr inbounds nuw i8, ptr %57, i64 32
   store i8 5, ptr %375, align 8, !alias.scope !186, !noalias !189
@@ -13689,10 +13689,10 @@ switch.lookup554:                                 ; preds = %3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %55)
   %switch.tableidx555 = add nsw i8 %2, -4
   %386 = sext i8 %switch.tableidx555 to i64
-  %switch.gep556 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %386
+  %switch.gep556 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %386
   %switch.load557 = load i64, ptr %switch.gep556, align 8
   %387 = sext i8 %switch.tableidx555 to i64
-  %switch.gep558 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %387
+  %switch.gep558 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %387
   %switch.load559 = load ptr, ptr %switch.gep558, align 8
   %388 = getelementptr inbounds nuw i8, ptr %55, i64 32
   store i8 5, ptr %388, align 8, !alias.scope !197, !noalias !200
@@ -13747,10 +13747,10 @@ switch.lookup560:                                 ; preds = %3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %53)
   %switch.tableidx561 = add nsw i8 %2, -4
   %399 = sext i8 %switch.tableidx561 to i64
-  %switch.gep562 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %399
+  %switch.gep562 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %399
   %switch.load563 = load i64, ptr %switch.gep562, align 8
   %400 = sext i8 %switch.tableidx561 to i64
-  %switch.gep564 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %400
+  %switch.gep564 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %400
   %switch.load565 = load ptr, ptr %switch.gep564, align 8
   %401 = getelementptr inbounds nuw i8, ptr %53, i64 32
   store i8 5, ptr %401, align 8, !alias.scope !208, !noalias !211
@@ -13805,10 +13805,10 @@ switch.lookup566:                                 ; preds = %3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %51)
   %switch.tableidx567 = add nsw i8 %2, -4
   %412 = sext i8 %switch.tableidx567 to i64
-  %switch.gep568 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %412
+  %switch.gep568 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %412
   %switch.load569 = load i64, ptr %switch.gep568, align 8
   %413 = sext i8 %switch.tableidx567 to i64
-  %switch.gep570 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %413
+  %switch.gep570 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %413
   %switch.load571 = load ptr, ptr %switch.gep570, align 8
   %414 = getelementptr inbounds nuw i8, ptr %51, i64 32
   store i8 5, ptr %414, align 8, !alias.scope !219, !noalias !222
@@ -13863,10 +13863,10 @@ switch.lookup572:                                 ; preds = %3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %49)
   %switch.tableidx573 = add nsw i8 %2, -4
   %425 = sext i8 %switch.tableidx573 to i64
-  %switch.gep574 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %425
+  %switch.gep574 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %425
   %switch.load575 = load i64, ptr %switch.gep574, align 8
   %426 = sext i8 %switch.tableidx573 to i64
-  %switch.gep576 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %426
+  %switch.gep576 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %426
   %switch.load577 = load ptr, ptr %switch.gep576, align 8
   %427 = getelementptr inbounds nuw i8, ptr %49, i64 32
   store i8 5, ptr %427, align 8, !alias.scope !230, !noalias !233
@@ -13921,10 +13921,10 @@ switch.lookup578:                                 ; preds = %3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %47)
   %switch.tableidx579 = add nsw i8 %2, -4
   %438 = sext i8 %switch.tableidx579 to i64
-  %switch.gep580 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %438
+  %switch.gep580 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %438
   %switch.load581 = load i64, ptr %switch.gep580, align 8
   %439 = sext i8 %switch.tableidx579 to i64
-  %switch.gep582 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %439
+  %switch.gep582 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %439
   %switch.load583 = load ptr, ptr %switch.gep582, align 8
   %440 = getelementptr inbounds nuw i8, ptr %47, i64 32
   store i8 5, ptr %440, align 8, !alias.scope !241, !noalias !244
@@ -13979,10 +13979,10 @@ switch.lookup584:                                 ; preds = %3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %45)
   %switch.tableidx585 = add nsw i8 %2, -4
   %451 = sext i8 %switch.tableidx585 to i64
-  %switch.gep586 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %451
+  %switch.gep586 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %451
   %switch.load587 = load i64, ptr %switch.gep586, align 8
   %452 = sext i8 %switch.tableidx585 to i64
-  %switch.gep588 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %452
+  %switch.gep588 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %452
   %switch.load589 = load ptr, ptr %switch.gep588, align 8
   %453 = getelementptr inbounds nuw i8, ptr %45, i64 32
   store i8 5, ptr %453, align 8, !alias.scope !252, !noalias !255
@@ -14037,10 +14037,10 @@ switch.lookup590:                                 ; preds = %3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %43)
   %switch.tableidx591 = add nsw i8 %2, -4
   %464 = sext i8 %switch.tableidx591 to i64
-  %switch.gep592 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %464
+  %switch.gep592 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %464
   %switch.load593 = load i64, ptr %switch.gep592, align 8
   %465 = sext i8 %switch.tableidx591 to i64
-  %switch.gep594 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %465
+  %switch.gep594 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %465
   %switch.load595 = load ptr, ptr %switch.gep594, align 8
   %466 = getelementptr inbounds nuw i8, ptr %43, i64 32
   store i8 5, ptr %466, align 8, !alias.scope !263, !noalias !266
@@ -14095,10 +14095,10 @@ switch.lookup596:                                 ; preds = %3, %3, %3, %3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %41)
   %switch.tableidx597 = add nsw i8 %2, -4
   %477 = sext i8 %switch.tableidx597 to i64
-  %switch.gep598 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %477
+  %switch.gep598 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %477
   %switch.load599 = load i64, ptr %switch.gep598, align 8
   %478 = sext i8 %switch.tableidx597 to i64
-  %switch.gep600 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %478
+  %switch.gep600 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %478
   %switch.load601 = load ptr, ptr %switch.gep600, align 8
   %479 = getelementptr inbounds nuw i8, ptr %41, i64 32
   store i8 5, ptr %479, align 8, !alias.scope !274, !noalias !277
@@ -14153,10 +14153,10 @@ switch.lookup602:                                 ; preds = %3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %39)
   %switch.tableidx603 = add nsw i8 %2, -4
   %490 = sext i8 %switch.tableidx603 to i64
-  %switch.gep604 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %490
+  %switch.gep604 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %490
   %switch.load605 = load i64, ptr %switch.gep604, align 8
   %491 = sext i8 %switch.tableidx603 to i64
-  %switch.gep606 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %491
+  %switch.gep606 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %491
   %switch.load607 = load ptr, ptr %switch.gep606, align 8
   %492 = getelementptr inbounds nuw i8, ptr %39, i64 32
   store i8 5, ptr %492, align 8, !alias.scope !285, !noalias !288
@@ -14211,10 +14211,10 @@ switch.lookup608:                                 ; preds = %3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %37)
   %switch.tableidx609 = add nsw i8 %2, -4
   %503 = sext i8 %switch.tableidx609 to i64
-  %switch.gep610 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %503
+  %switch.gep610 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %503
   %switch.load611 = load i64, ptr %switch.gep610, align 8
   %504 = sext i8 %switch.tableidx609 to i64
-  %switch.gep612 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %504
+  %switch.gep612 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %504
   %switch.load613 = load ptr, ptr %switch.gep612, align 8
   %505 = getelementptr inbounds nuw i8, ptr %37, i64 32
   store i8 5, ptr %505, align 8, !alias.scope !296, !noalias !299
@@ -14269,10 +14269,10 @@ switch.lookup614:                                 ; preds = %3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %35)
   %switch.tableidx615 = add nsw i8 %2, -4
   %516 = sext i8 %switch.tableidx615 to i64
-  %switch.gep616 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %516
+  %switch.gep616 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %516
   %switch.load617 = load i64, ptr %switch.gep616, align 8
   %517 = sext i8 %switch.tableidx615 to i64
-  %switch.gep618 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %517
+  %switch.gep618 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %517
   %switch.load619 = load ptr, ptr %switch.gep618, align 8
   %518 = getelementptr inbounds nuw i8, ptr %35, i64 32
   store i8 5, ptr %518, align 8, !alias.scope !307, !noalias !310
@@ -14327,10 +14327,10 @@ switch.lookup620:                                 ; preds = %3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %33)
   %switch.tableidx621 = add nsw i8 %2, -4
   %529 = sext i8 %switch.tableidx621 to i64
-  %switch.gep622 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %529
+  %switch.gep622 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %529
   %switch.load623 = load i64, ptr %switch.gep622, align 8
   %530 = sext i8 %switch.tableidx621 to i64
-  %switch.gep624 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %530
+  %switch.gep624 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %530
   %switch.load625 = load ptr, ptr %switch.gep624, align 8
   %531 = getelementptr inbounds nuw i8, ptr %33, i64 32
   store i8 5, ptr %531, align 8, !alias.scope !318, !noalias !321
@@ -14385,10 +14385,10 @@ switch.lookup626:                                 ; preds = %3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %31)
   %switch.tableidx627 = add nsw i8 %2, -4
   %542 = sext i8 %switch.tableidx627 to i64
-  %switch.gep628 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %542
+  %switch.gep628 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %542
   %switch.load629 = load i64, ptr %switch.gep628, align 8
   %543 = sext i8 %switch.tableidx627 to i64
-  %switch.gep630 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %543
+  %switch.gep630 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %543
   %switch.load631 = load ptr, ptr %switch.gep630, align 8
   %544 = getelementptr inbounds nuw i8, ptr %31, i64 32
   store i8 5, ptr %544, align 8, !alias.scope !329, !noalias !332
@@ -14443,10 +14443,10 @@ switch.lookup632:                                 ; preds = %3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %29)
   %switch.tableidx633 = add nsw i8 %2, -4
   %555 = sext i8 %switch.tableidx633 to i64
-  %switch.gep634 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %555
+  %switch.gep634 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %555
   %switch.load635 = load i64, ptr %switch.gep634, align 8
   %556 = sext i8 %switch.tableidx633 to i64
-  %switch.gep636 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %556
+  %switch.gep636 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %556
   %switch.load637 = load ptr, ptr %switch.gep636, align 8
   %557 = getelementptr inbounds nuw i8, ptr %29, i64 32
   store i8 5, ptr %557, align 8, !alias.scope !340, !noalias !343
@@ -14501,10 +14501,10 @@ switch.lookup638:                                 ; preds = %3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %27)
   %switch.tableidx639 = add nsw i8 %2, -4
   %568 = sext i8 %switch.tableidx639 to i64
-  %switch.gep640 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %568
+  %switch.gep640 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %568
   %switch.load641 = load i64, ptr %switch.gep640, align 8
   %569 = sext i8 %switch.tableidx639 to i64
-  %switch.gep642 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %569
+  %switch.gep642 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %569
   %switch.load643 = load ptr, ptr %switch.gep642, align 8
   %570 = getelementptr inbounds nuw i8, ptr %27, i64 32
   store i8 5, ptr %570, align 8, !alias.scope !351, !noalias !354
@@ -14559,10 +14559,10 @@ switch.lookup644:                                 ; preds = %3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %25)
   %switch.tableidx645 = add nsw i8 %2, -4
   %581 = sext i8 %switch.tableidx645 to i64
-  %switch.gep646 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %581
+  %switch.gep646 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %581
   %switch.load647 = load i64, ptr %switch.gep646, align 8
   %582 = sext i8 %switch.tableidx645 to i64
-  %switch.gep648 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %582
+  %switch.gep648 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %582
   %switch.load649 = load ptr, ptr %switch.gep648, align 8
   %583 = getelementptr inbounds nuw i8, ptr %25, i64 32
   store i8 5, ptr %583, align 8, !alias.scope !362, !noalias !365
@@ -14617,10 +14617,10 @@ switch.lookup650:                                 ; preds = %3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %23)
   %switch.tableidx651 = add nsw i8 %2, -4
   %594 = sext i8 %switch.tableidx651 to i64
-  %switch.gep652 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %594
+  %switch.gep652 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %594
   %switch.load653 = load i64, ptr %switch.gep652, align 8
   %595 = sext i8 %switch.tableidx651 to i64
-  %switch.gep654 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %595
+  %switch.gep654 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %595
   %switch.load655 = load ptr, ptr %switch.gep654, align 8
   %596 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store i8 5, ptr %596, align 8, !alias.scope !373, !noalias !376
@@ -14675,10 +14675,10 @@ switch.lookup656:                                 ; preds = %3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %21)
   %switch.tableidx657 = add nsw i8 %2, -4
   %607 = sext i8 %switch.tableidx657 to i64
-  %switch.gep658 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %607
+  %switch.gep658 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %607
   %switch.load659 = load i64, ptr %switch.gep658, align 8
   %608 = sext i8 %switch.tableidx657 to i64
-  %switch.gep660 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %608
+  %switch.gep660 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %608
   %switch.load661 = load ptr, ptr %switch.gep660, align 8
   %609 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store i8 5, ptr %609, align 8, !alias.scope !384, !noalias !387
@@ -14733,10 +14733,10 @@ switch.lookup662:                                 ; preds = %3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %19)
   %switch.tableidx663 = add nsw i8 %2, -4
   %620 = sext i8 %switch.tableidx663 to i64
-  %switch.gep664 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %620
+  %switch.gep664 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %620
   %switch.load665 = load i64, ptr %switch.gep664, align 8
   %621 = sext i8 %switch.tableidx663 to i64
-  %switch.gep666 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %621
+  %switch.gep666 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %621
   %switch.load667 = load ptr, ptr %switch.gep666, align 8
   %622 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store i8 5, ptr %622, align 8, !alias.scope !395, !noalias !398
@@ -14791,10 +14791,10 @@ switch.lookup668:                                 ; preds = %3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %17)
   %switch.tableidx669 = add nsw i8 %2, -4
   %633 = sext i8 %switch.tableidx669 to i64
-  %switch.gep670 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %633
+  %switch.gep670 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %633
   %switch.load671 = load i64, ptr %switch.gep670, align 8
   %634 = sext i8 %switch.tableidx669 to i64
-  %switch.gep672 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %634
+  %switch.gep672 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %634
   %switch.load673 = load ptr, ptr %switch.gep672, align 8
   %635 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store i8 5, ptr %635, align 8, !alias.scope !406, !noalias !409
@@ -14849,10 +14849,10 @@ switch.lookup674:                                 ; preds = %3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %15)
   %switch.tableidx675 = add nsw i8 %2, -4
   %646 = sext i8 %switch.tableidx675 to i64
-  %switch.gep676 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %646
+  %switch.gep676 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %646
   %switch.load677 = load i64, ptr %switch.gep676, align 8
   %647 = sext i8 %switch.tableidx675 to i64
-  %switch.gep678 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %647
+  %switch.gep678 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %647
   %switch.load679 = load ptr, ptr %switch.gep678, align 8
   %648 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store i8 5, ptr %648, align 8, !alias.scope !417, !noalias !420
@@ -14907,10 +14907,10 @@ switch.lookup680:                                 ; preds = %3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13)
   %switch.tableidx681 = add nsw i8 %2, -4
   %659 = sext i8 %switch.tableidx681 to i64
-  %switch.gep682 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %659
+  %switch.gep682 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %659
   %switch.load683 = load i64, ptr %switch.gep682, align 8
   %660 = sext i8 %switch.tableidx681 to i64
-  %switch.gep684 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %660
+  %switch.gep684 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %660
   %switch.load685 = load ptr, ptr %switch.gep684, align 8
   %661 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store i8 5, ptr %661, align 8, !alias.scope !428, !noalias !431
@@ -14965,10 +14965,10 @@ switch.lookup686:                                 ; preds = %3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   %switch.tableidx687 = add nsw i8 %2, -4
   %672 = sext i8 %switch.tableidx687 to i64
-  %switch.gep688 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %672
+  %switch.gep688 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %672
   %switch.load689 = load i64, ptr %switch.gep688, align 8
   %673 = sext i8 %switch.tableidx687 to i64
-  %switch.gep690 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %673
+  %switch.gep690 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %673
   %switch.load691 = load ptr, ptr %switch.gep690, align 8
   %674 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store i8 5, ptr %674, align 8, !alias.scope !439, !noalias !442
@@ -15023,10 +15023,10 @@ switch.lookup692:                                 ; preds = %3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
   %switch.tableidx693 = add nsw i8 %2, -4
   %685 = sext i8 %switch.tableidx693 to i64
-  %switch.gep694 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %685
+  %switch.gep694 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %685
   %switch.load695 = load i64, ptr %switch.gep694, align 8
   %686 = sext i8 %switch.tableidx693 to i64
-  %switch.gep696 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %686
+  %switch.gep696 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %686
   %switch.load697 = load ptr, ptr %switch.gep696, align 8
   %687 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i8 5, ptr %687, align 8, !alias.scope !450, !noalias !453
@@ -15081,10 +15081,10 @@ switch.lookup698:                                 ; preds = %3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   %switch.tableidx699 = add nsw i8 %2, -4
   %698 = sext i8 %switch.tableidx699 to i64
-  %switch.gep700 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %698
+  %switch.gep700 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %698
   %switch.load701 = load i64, ptr %switch.gep700, align 8
   %699 = sext i8 %switch.tableidx699 to i64
-  %switch.gep702 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %699
+  %switch.gep702 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %699
   %switch.load703 = load ptr, ptr %switch.gep702, align 8
   %700 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i8 5, ptr %700, align 8, !alias.scope !461, !noalias !464
@@ -15139,10 +15139,10 @@ switch.lookup704:                                 ; preds = %3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   %switch.tableidx705 = add nsw i8 %2, -4
   %711 = sext i8 %switch.tableidx705 to i64
-  %switch.gep706 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %711
+  %switch.gep706 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.99, i64 0, i64 %711
   %switch.load707 = load i64, ptr %switch.gep706, align 8
   %712 = sext i8 %switch.tableidx705 to i64
-  %switch.gep708 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %712
+  %switch.gep708 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.100, i64 0, i64 %712
   %switch.load709 = load ptr, ptr %switch.gep708, align 8
   %713 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i8 5, ptr %713, align 8, !alias.scope !472, !noalias !475

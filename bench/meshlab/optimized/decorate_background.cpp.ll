@@ -2200,7 +2200,7 @@ _ZN10QByteArrayD2Ev.exit88:                       ; preds = %72, %_ZN9QtPrivate8
   %93 = getelementptr inbounds nuw [16 x float], ptr %9, i64 0, i64 %92
   %94 = shl i64 %indvars.iv.i.i.i, 2
   %95 = add nuw nsw i64 %94, %indvars.iv15.i.i.i
-  %96 = getelementptr inbounds nuw [16 x float], ptr %9, i64 0, i64 %95
+  %96 = getelementptr inbounds [16 x float], ptr %9, i64 0, i64 %95
   %97 = load float, ptr %93, align 4, !alias.scope !50
   %98 = load float, ptr %96, align 4, !alias.scope !50
   store float %98, ptr %93, align 4, !alias.scope !50
@@ -3253,35 +3253,35 @@ define void @_Z13DrawGridPlaneiiN3vcg6Point3IfEES1_S1_S1_ffNS_6Color4IhEEf(i32 n
   store i8 -1, ptr %58, align 1
   %.not = icmp eq i32 %1, 0
   %59 = sext i32 %30 to i64
-  %60 = getelementptr inbounds nuw [3 x float], ptr %18, i64 0, i64 %59
-  %61 = getelementptr inbounds nuw [3 x float], ptr %17, i64 0, i64 %59
+  %60 = getelementptr inbounds [3 x float], ptr %18, i64 0, i64 %59
+  %61 = getelementptr inbounds [3 x float], ptr %17, i64 0, i64 %59
   %.in = select i1 %.not, ptr %61, ptr %60
   %62 = load float, ptr %.in, align 4
-  %63 = getelementptr inbounds nuw [3 x float], ptr %25, i64 0, i64 %59
+  %63 = getelementptr inbounds [3 x float], ptr %25, i64 0, i64 %59
   store float %62, ptr %63, align 4
-  %64 = getelementptr inbounds nuw [3 x float], ptr %24, i64 0, i64 %59
+  %64 = getelementptr inbounds [3 x float], ptr %24, i64 0, i64 %59
   store float %62, ptr %64, align 4
-  %65 = getelementptr inbounds nuw [3 x float], ptr %23, i64 0, i64 %59
+  %65 = getelementptr inbounds [3 x float], ptr %23, i64 0, i64 %59
   store float %62, ptr %65, align 4
-  %66 = getelementptr inbounds nuw [3 x float], ptr %22, i64 0, i64 %59
+  %66 = getelementptr inbounds [3 x float], ptr %22, i64 0, i64 %59
   store float %62, ptr %66, align 4
   %67 = sext i32 %29 to i64
-  %68 = getelementptr inbounds nuw [3 x float], ptr %17, i64 0, i64 %67
+  %68 = getelementptr inbounds [3 x float], ptr %17, i64 0, i64 %67
   %69 = load float, ptr %68, align 4
-  %70 = getelementptr inbounds nuw [3 x float], ptr %22, i64 0, i64 %67
+  %70 = getelementptr inbounds [3 x float], ptr %22, i64 0, i64 %67
   store float %69, ptr %70, align 4
-  %71 = getelementptr inbounds nuw [3 x float], ptr %18, i64 0, i64 %67
+  %71 = getelementptr inbounds [3 x float], ptr %18, i64 0, i64 %67
   %72 = load float, ptr %71, align 4
-  %73 = getelementptr inbounds nuw [3 x float], ptr %23, i64 0, i64 %67
+  %73 = getelementptr inbounds [3 x float], ptr %23, i64 0, i64 %67
   store float %72, ptr %73, align 4
   %74 = sext i32 %27 to i64
-  %75 = getelementptr inbounds nuw [3 x float], ptr %17, i64 0, i64 %74
+  %75 = getelementptr inbounds [3 x float], ptr %17, i64 0, i64 %74
   %76 = load float, ptr %75, align 4
-  %77 = getelementptr inbounds nuw [3 x float], ptr %24, i64 0, i64 %74
+  %77 = getelementptr inbounds [3 x float], ptr %24, i64 0, i64 %74
   store float %76, ptr %77, align 4
-  %78 = getelementptr inbounds nuw [3 x float], ptr %18, i64 0, i64 %74
+  %78 = getelementptr inbounds [3 x float], ptr %18, i64 0, i64 %74
   %79 = load float, ptr %78, align 4
-  %80 = getelementptr inbounds nuw [3 x float], ptr %25, i64 0, i64 %74
+  %80 = getelementptr inbounds [3 x float], ptr %25, i64 0, i64 %74
   store float %79, ptr %80, align 4
   %81 = fmul float %13, 5.000000e-01
   tail call void @glLineWidth(float noundef %81)
@@ -3291,8 +3291,8 @@ define void @_Z13DrawGridPlaneiiN3vcg6Point3IfEES1_S1_S1_ffNS_6Color4IhEEf(i32 n
   br i1 %82, label %.preheader104, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14
-  %83 = getelementptr inbounds nuw [3 x float], ptr %23, i64 0, i64 %74
-  %84 = getelementptr inbounds nuw [3 x float], ptr %22, i64 0, i64 %74
+  %83 = getelementptr inbounds [3 x float], ptr %23, i64 0, i64 %74
+  %84 = getelementptr inbounds [3 x float], ptr %22, i64 0, i64 %74
   br label %88
 
 .preheader104:                                    ; preds = %88, %14
@@ -3300,8 +3300,8 @@ define void @_Z13DrawGridPlaneiiN3vcg6Point3IfEES1_S1_S1_ffNS_6Color4IhEEf(i32 n
   br i1 %85, label %._crit_edge, label %.lr.ph107
 
 .lr.ph107:                                        ; preds = %.preheader104
-  %86 = getelementptr inbounds nuw [3 x float], ptr %25, i64 0, i64 %67
-  %87 = getelementptr inbounds nuw [3 x float], ptr %24, i64 0, i64 %67
+  %86 = getelementptr inbounds [3 x float], ptr %25, i64 0, i64 %67
+  %87 = getelementptr inbounds [3 x float], ptr %24, i64 0, i64 %67
   br label %91
 
 88:                                               ; preds = %.lr.ph, %88
@@ -3332,16 +3332,16 @@ define void @_Z13DrawGridPlaneiiN3vcg6Point3IfEES1_S1_S1_ffNS_6Color4IhEEf(i32 n
   br i1 %82, label %.preheader, label %.lr.ph110
 
 .lr.ph110:                                        ; preds = %._crit_edge
-  %94 = getelementptr inbounds nuw [3 x float], ptr %23, i64 0, i64 %74
-  %95 = getelementptr inbounds nuw [3 x float], ptr %22, i64 0, i64 %74
+  %94 = getelementptr inbounds [3 x float], ptr %23, i64 0, i64 %74
+  %95 = getelementptr inbounds [3 x float], ptr %22, i64 0, i64 %74
   br label %98
 
 .preheader:                                       ; preds = %98, %._crit_edge
   br i1 %85, label %._crit_edge113, label %.lr.ph112
 
 .lr.ph112:                                        ; preds = %.preheader
-  %96 = getelementptr inbounds nuw [3 x float], ptr %25, i64 0, i64 %67
-  %97 = getelementptr inbounds nuw [3 x float], ptr %24, i64 0, i64 %67
+  %96 = getelementptr inbounds [3 x float], ptr %25, i64 0, i64 %67
+  %97 = getelementptr inbounds [3 x float], ptr %24, i64 0, i64 %67
   br label %101
 
 98:                                               ; preds = %.lr.ph110, %98
@@ -3370,9 +3370,9 @@ define void @_Z13DrawGridPlaneiiN3vcg6Point3IfEES1_S1_S1_ffNS_6Color4IhEEf(i32 n
   %104 = fmul float %13, 1.500000e+00
   call void @glLineWidth(float noundef %104)
   call void @glBegin(i32 noundef 1)
-  %105 = getelementptr inbounds nuw [3 x float], ptr %15, i64 0, i64 %74
+  %105 = getelementptr inbounds [3 x float], ptr %15, i64 0, i64 %74
   %106 = load float, ptr %105, align 4
-  %107 = getelementptr inbounds nuw [3 x float], ptr %16, i64 0, i64 %74
+  %107 = getelementptr inbounds [3 x float], ptr %16, i64 0, i64 %74
   %108 = load float, ptr %107, align 4
   %109 = fmul float %106, %108
   %110 = fcmp olt float %109, 0.000000e+00
@@ -3381,27 +3381,27 @@ define void @_Z13DrawGridPlaneiiN3vcg6Point3IfEES1_S1_S1_ffNS_6Color4IhEEf(i32 n
 111:                                              ; preds = %._crit_edge113
   store float %69, ptr %70, align 4
   store float %72, ptr %73, align 4
-  %112 = getelementptr inbounds nuw [3 x float], ptr %23, i64 0, i64 %74
+  %112 = getelementptr inbounds [3 x float], ptr %23, i64 0, i64 %74
   store float 0.000000e+00, ptr %112, align 4
-  %113 = getelementptr inbounds nuw [3 x float], ptr %22, i64 0, i64 %74
+  %113 = getelementptr inbounds [3 x float], ptr %22, i64 0, i64 %74
   store float 0.000000e+00, ptr %113, align 4
   call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %22)
   call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %23)
   br label %114
 
 114:                                              ; preds = %111, %._crit_edge113
-  %115 = getelementptr inbounds nuw [3 x float], ptr %15, i64 0, i64 %67
+  %115 = getelementptr inbounds [3 x float], ptr %15, i64 0, i64 %67
   %116 = load float, ptr %115, align 4
-  %117 = getelementptr inbounds nuw [3 x float], ptr %16, i64 0, i64 %67
+  %117 = getelementptr inbounds [3 x float], ptr %16, i64 0, i64 %67
   %118 = load float, ptr %117, align 4
   %119 = fmul float %116, %118
   %120 = fcmp olt float %119, 0.000000e+00
   br i1 %120, label %121, label %124
 
 121:                                              ; preds = %114
-  %122 = getelementptr inbounds nuw [3 x float], ptr %22, i64 0, i64 %74
+  %122 = getelementptr inbounds [3 x float], ptr %22, i64 0, i64 %74
   store float %76, ptr %122, align 4
-  %123 = getelementptr inbounds nuw [3 x float], ptr %23, i64 0, i64 %74
+  %123 = getelementptr inbounds [3 x float], ptr %23, i64 0, i64 %74
   store float %79, ptr %123, align 4
   store float 0.000000e+00, ptr %73, align 4
   store float 0.000000e+00, ptr %70, align 4
@@ -3466,11 +3466,11 @@ define noundef zeroext i1 @_Z11FrontFacingN3vcg6Point3IfEEiiS1_S1_(<2 x float> %
   %.sink46 = phi ptr [ %9, %23 ], [ %10, %8 ]
   %.sink = phi float [ 1.000000e+00, %23 ], [ -1.000000e+00, %8 ]
   %24 = sext i32 %2 to i64
-  %25 = getelementptr inbounds nuw [3 x float], ptr %.sink46, i64 0, i64 %24
+  %25 = getelementptr inbounds [3 x float], ptr %.sink46, i64 0, i64 %24
   %26 = load float, ptr %25, align 4
-  %27 = getelementptr inbounds nuw [3 x float], ptr %12, i64 0, i64 %24
+  %27 = getelementptr inbounds [3 x float], ptr %12, i64 0, i64 %24
   store float %26, ptr %27, align 4
-  %28 = getelementptr inbounds nuw [3 x float], ptr %11, i64 0, i64 %24
+  %28 = getelementptr inbounds [3 x float], ptr %11, i64 0, i64 %24
   store float %.sink, ptr %28, align 4
   br label %29
 
@@ -3526,15 +3526,15 @@ define void @_Z12DrawFlatMeshP26MLSceneGLSharedDataContextP10QGLContextR9MeshMod
   %19 = add nsw i32 %3, 1
   %20 = srem i32 %19, 3
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds nuw [3 x float], ptr %12, i64 0, i64 %21
+  %22 = getelementptr inbounds [3 x float], ptr %12, i64 0, i64 %21
   store float 0.000000e+00, ptr %22, align 4
   %23 = add nsw i32 %3, 2
   %24 = srem i32 %23, 3
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds nuw [3 x float], ptr %12, i64 0, i64 %25
+  %26 = getelementptr inbounds [3 x float], ptr %12, i64 0, i64 %25
   store float 0.000000e+00, ptr %26, align 4
   %27 = sext i32 %3 to i64
-  %28 = getelementptr inbounds nuw [3 x float], ptr %13, i64 0, i64 %27
+  %28 = getelementptr inbounds [3 x float], ptr %13, i64 0, i64 %27
   store float 0.000000e+00, ptr %28, align 4
   %29 = load float, ptr %12, align 4
   %30 = getelementptr inbounds nuw i8, ptr %12, i64 4

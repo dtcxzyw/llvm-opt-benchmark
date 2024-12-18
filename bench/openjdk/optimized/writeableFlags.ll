@@ -670,7 +670,7 @@ define internal fastcc void @_ZL34print_flag_error_message_if_neededN7JVMFlag5Er
 
 ._crit_edge.i:                                    ; preds = %62, %.lr.ph.i, %50
   %.016.lcssa.i = phi i64 [ %55, %50 ], [ %.1.i, %62 ], [ %.01621.i, %.lr.ph.i ]
-  %65 = getelementptr inbounds nuw i8, ptr %5, i64 %.016.lcssa.i
+  %65 = getelementptr inbounds i8, ptr %5, i64 %.016.lcssa.i
   store i8 0, ptr %65, align 1
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %4) #13
   br label %_ZL31print_flag_error_message_boundsPK7JVMFlagPc.exit

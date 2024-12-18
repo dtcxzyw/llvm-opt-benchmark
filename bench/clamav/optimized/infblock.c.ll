@@ -2351,7 +2351,7 @@ define internal fastcc range(i32 -5, 1) i32 @huft_build(ptr nocapture noundef re
 
 71:                                               ; preds = %69
   %72 = sext i32 %.1175.lcssa to i64
-  %73 = getelementptr inbounds nuw [16 x i32], ptr %12, i64 0, i64 %72
+  %73 = getelementptr inbounds [16 x i32], ptr %12, i64 0, i64 %72
   %74 = load i32, ptr %73, align 4
   store i32 0, ptr %12, align 16
   store ptr null, ptr %11, align 16
@@ -2477,18 +2477,18 @@ define internal fastcc range(i32 -5, 1) i32 @huft_build(ptr nocapture noundef re
 118:                                              ; preds = %.critedge
   %119 = zext i32 %115 to i64
   %120 = getelementptr inbounds nuw %struct.inflate_huft_s, ptr %7, i64 %119
-  %121 = getelementptr inbounds nuw [15 x ptr], ptr %11, i64 0, i64 %indvars.iv.next338
+  %121 = getelementptr inbounds [15 x ptr], ptr %11, i64 0, i64 %indvars.iv.next338
   store ptr %120, ptr %121, align 8
   store i32 %116, ptr %8, align 4
   %.not217 = icmp eq i64 %indvars.iv.next338, 0
   br i1 %.not217, label %137, label %122
 
 122:                                              ; preds = %118
-  %123 = getelementptr inbounds nuw [16 x i32], ptr %12, i64 0, i64 %indvars.iv.next338
+  %123 = getelementptr inbounds [16 x i32], ptr %12, i64 0, i64 %indvars.iv.next338
   store i32 %.5179290, ptr %123, align 4
   %124 = trunc i32 %.3170 to i8
   %125 = lshr i32 %.5179290, %.2156259
-  %126 = getelementptr inbounds nuw [15 x ptr], ptr %11, i64 0, i64 %indvars.iv337
+  %126 = getelementptr inbounds [15 x ptr], ptr %11, i64 0, i64 %indvars.iv337
   %127 = load ptr, ptr %126, align 8
   %128 = ptrtoint ptr %120 to i64
   %129 = ptrtoint ptr %127 to i64
@@ -2601,7 +2601,7 @@ define internal fastcc range(i32 -5, 1) i32 @huft_build(ptr nocapture noundef re
   %175 = xor i32 %notmask279, -1
   %176 = and i32 %174, %175
   %177 = sext i32 %.2183.lcssa to i64
-  %178 = getelementptr inbounds nuw [16 x i32], ptr %12, i64 0, i64 %177
+  %178 = getelementptr inbounds [16 x i32], ptr %12, i64 0, i64 %177
   %179 = load i32, ptr %178, align 4
   %.not216280 = icmp eq i32 %176, %179
   br i1 %.not216280, label %.loopexit, label %.lr.ph284
@@ -2614,7 +2614,7 @@ define internal fastcc range(i32 -5, 1) i32 @huft_build(ptr nocapture noundef re
   %notmask = shl nsw i32 -1, %180
   %181 = xor i32 %notmask, -1
   %182 = and i32 %174, %181
-  %183 = getelementptr inbounds nuw [16 x i32], ptr %12, i64 0, i64 %indvars.iv.next340
+  %183 = getelementptr inbounds [16 x i32], ptr %12, i64 0, i64 %indvars.iv.next340
   %184 = load i32, ptr %183, align 4
   %.not216 = icmp eq i32 %182, %184
   br i1 %.not216, label %.loopexit.loopexit, label %.lr.ph284

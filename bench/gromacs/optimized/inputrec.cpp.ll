@@ -2342,7 +2342,7 @@ define void @_Z11pr_inputrecP8_IO_FILEiPKcPK10t_inputrecb(ptr noundef %0, i32 no
   %131 = getelementptr inbounds nuw i8, ptr %3, i64 176
   %132 = load i32, ptr %131, align 8
   %133 = sext i32 %132 to i64
-  %134 = getelementptr inbounds nuw [5 x %"class.std::__cxx11::basic_string"], ptr @_Z14c_pbcTypeNamesB5cxx11, i64 0, i64 %133
+  %134 = getelementptr inbounds [5 x %"class.std::__cxx11::basic_string"], ptr @_Z14c_pbcTypeNamesB5cxx11, i64 0, i64 %133
   %135 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %134) #21
   call void @_Z6pr_strP8_IO_FILEiPKcS2_(ptr noundef %0, i32 noundef %.0439, ptr noundef nonnull @.str.62, ptr noundef %135)
   %136 = getelementptr inbounds nuw i8, ptr %3, i64 180

@@ -1137,7 +1137,7 @@ Dau_DsdIsConst.exit103.thread:                    ; preds = %Dau_DsdIsConst.exit
 95:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
   %96 = add nsw i32 %.029.i, 1
   %97 = sext i32 %.029.i to i64
-  %98 = getelementptr inbounds nuw [12 x i32], ptr %20, i64 0, i64 %97
+  %98 = getelementptr inbounds [12 x i32], ptr %20, i64 0, i64 %97
   %99 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %99, ptr %98, align 4
   br label %108
@@ -1145,10 +1145,10 @@ Dau_DsdIsConst.exit103.thread:                    ; preds = %Dau_DsdIsConst.exit
 100:                                              ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
   %101 = add nsw i32 %.029.i, -1
   %102 = sext i32 %101 to i64
-  %103 = getelementptr inbounds nuw [12 x i32], ptr %20, i64 0, i64 %102
+  %103 = getelementptr inbounds [12 x i32], ptr %20, i64 0, i64 %102
   %104 = load i32, ptr %103, align 4
   %105 = sext i32 %104 to i64
-  %106 = getelementptr inbounds nuw i32, ptr %24, i64 %105
+  %106 = getelementptr inbounds i32, ptr %24, i64 %105
   %107 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %107, ptr %106, align 4
   br label %108
@@ -1187,7 +1187,7 @@ Dau_DsdMergeMatches.exit:                         ; preds = %108, %Dau_DsdIsCons
 113:                                              ; preds = %.lr.ph.i109, %.lr.ph.i109, %.lr.ph.i109, %.lr.ph.i109
   %114 = add nsw i32 %.029.i111, 1
   %115 = sext i32 %.029.i111 to i64
-  %116 = getelementptr inbounds nuw [12 x i32], ptr %19, i64 0, i64 %115
+  %116 = getelementptr inbounds [12 x i32], ptr %19, i64 0, i64 %115
   %117 = trunc nuw nsw i64 %indvars.iv.i110 to i32
   store i32 %117, ptr %116, align 4
   br label %126
@@ -1195,10 +1195,10 @@ Dau_DsdMergeMatches.exit:                         ; preds = %108, %Dau_DsdIsCons
 118:                                              ; preds = %.lr.ph.i109, %.lr.ph.i109, %.lr.ph.i109, %.lr.ph.i109
   %119 = add nsw i32 %.029.i111, -1
   %120 = sext i32 %119 to i64
-  %121 = getelementptr inbounds nuw [12 x i32], ptr %19, i64 0, i64 %120
+  %121 = getelementptr inbounds [12 x i32], ptr %19, i64 0, i64 %120
   %122 = load i32, ptr %121, align 4
   %123 = sext i32 %122 to i64
-  %124 = getelementptr inbounds nuw i32, ptr %25, i64 %123
+  %124 = getelementptr inbounds i32, ptr %25, i64 %123
   %125 = trunc nuw nsw i64 %indvars.iv.i110 to i32
   store i32 %125, ptr %124, align 4
   br label %126
@@ -1226,16 +1226,16 @@ Dau_DsdMergeMatches.exit115:                      ; preds = %126, %Dau_DsdMergeM
   ]
 
 132:                                              ; preds = %129
-  %133 = getelementptr inbounds nuw i32, ptr %24, i64 %131
+  %133 = getelementptr inbounds i32, ptr %24, i64 %131
   %134 = load i32, ptr %133, align 4
   %135 = add nsw i32 %134, 1
   %136 = sext i32 %135 to i64
-  %137 = getelementptr inbounds nuw i8, ptr %22, i64 %136
+  %137 = getelementptr inbounds i8, ptr %22, i64 %136
   %138 = load i8, ptr %137, align 1
   %139 = icmp eq i8 %138, 123
   %spec.select.i117 = select i1 %139, i32 %135, i32 %.0.i116
   %.pre.i = sext i32 %spec.select.i117 to i64
-  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %22, i64 %.pre.i
+  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %22, i64 %.pre.i
   %.pre50.i = load i8, ptr %.phi.trans.insert.i, align 1
   br label %140
 
@@ -1252,7 +1252,7 @@ Dau_DsdMergeMatches.exit115:                      ; preds = %126, %Dau_DsdMergeM
 
 .critedge.i:                                      ; preds = %140, %.critedge.i
   %indvars.iv.i119 = phi i64 [ %indvars.iv.next.i120, %.critedge.i ], [ %.pre-phi.i, %140 ]
-  %144 = getelementptr inbounds nuw i8, ptr %22, i64 %indvars.iv.i119
+  %144 = getelementptr inbounds i8, ptr %22, i64 %indvars.iv.i119
   %145 = load i8, ptr %144, align 1
   %146 = add i8 %145, -65
   %or.cond44.i = icmp ult i8 %146, 6
@@ -1266,7 +1266,7 @@ Dau_DsdMergeMatches.exit115:                      ; preds = %126, %Dau_DsdMergeM
   %148 = trunc nsw i64 %indvars.iv.i119 to i32
   %sext.i = shl i64 %indvars.iv.i119, 32
   %.pre51.i = ashr exact i64 %sext.i, 32
-  %.phi.trans.insert53.i = getelementptr inbounds nuw i8, ptr %22, i64 %.pre51.i
+  %.phi.trans.insert53.i = getelementptr inbounds i8, ptr %22, i64 %.pre51.i
   %.pre54.i = load i8, ptr %.phi.trans.insert53.i, align 1
   br label %.critedge2.i
 
@@ -1279,7 +1279,7 @@ Dau_DsdMergeMatches.exit115:                      ; preds = %126, %Dau_DsdMergeM
   br i1 %or.cond46.i, label %151, label %157
 
 151:                                              ; preds = %.critedge2.i
-  %152 = getelementptr inbounds nuw i8, ptr %22, i64 %.pre-phi52.i
+  %152 = getelementptr inbounds i8, ptr %22, i64 %.pre-phi52.i
   %153 = zext nneg i8 %149 to i64
   %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %153
   %154 = load i32, ptr %gep.i, align 4
@@ -1291,7 +1291,7 @@ Dau_DsdMergeMatches.exit115:                      ; preds = %126, %Dau_DsdMergeM
 157:                                              ; preds = %151, %.critedge2.i
   %158 = add nsw i32 %.2.i, 1
   %.phi.trans.insert = sext i32 %158 to i64
-  %.phi.trans.insert313 = getelementptr inbounds nuw i8, ptr %22, i64 %.phi.trans.insert
+  %.phi.trans.insert313 = getelementptr inbounds i8, ptr %22, i64 %.phi.trans.insert
   %.pre = load i8, ptr %.phi.trans.insert313, align 1
   br label %129, !llvm.loop !19
 
@@ -1309,16 +1309,16 @@ Dau_DsdMergeReplace.exit:                         ; preds = %129
   ]
 
 162:                                              ; preds = %159
-  %163 = getelementptr inbounds nuw i32, ptr %25, i64 %161
+  %163 = getelementptr inbounds i32, ptr %25, i64 %161
   %164 = load i32, ptr %163, align 4
   %165 = add nsw i32 %164, 1
   %166 = sext i32 %165 to i64
-  %167 = getelementptr inbounds nuw i8, ptr %23, i64 %166
+  %167 = getelementptr inbounds i8, ptr %23, i64 %166
   %168 = load i8, ptr %167, align 1
   %169 = icmp eq i8 %168, 123
   %spec.select.i123 = select i1 %169, i32 %165, i32 %.0.i122
   %.pre.i124 = sext i32 %spec.select.i123 to i64
-  %.phi.trans.insert.i125 = getelementptr inbounds nuw i8, ptr %23, i64 %.pre.i124
+  %.phi.trans.insert.i125 = getelementptr inbounds i8, ptr %23, i64 %.pre.i124
   %.pre50.i126 = load i8, ptr %.phi.trans.insert.i125, align 1
   br label %170
 
@@ -1335,7 +1335,7 @@ Dau_DsdMergeReplace.exit:                         ; preds = %129
 
 .critedge.i137:                                   ; preds = %170, %.critedge.i137
   %indvars.iv.i138 = phi i64 [ %indvars.iv.next.i142, %.critedge.i137 ], [ %.pre-phi.i127, %170 ]
-  %174 = getelementptr inbounds nuw i8, ptr %23, i64 %indvars.iv.i138
+  %174 = getelementptr inbounds i8, ptr %23, i64 %indvars.iv.i138
   %175 = load i8, ptr %174, align 1
   %176 = add i8 %175, -65
   %or.cond44.i139 = icmp ult i8 %176, 6
@@ -1349,7 +1349,7 @@ Dau_DsdMergeReplace.exit:                         ; preds = %129
   %178 = trunc nsw i64 %indvars.iv.i138 to i32
   %sext.i144 = shl i64 %indvars.iv.i138, 32
   %.pre51.i145 = ashr exact i64 %sext.i144, 32
-  %.phi.trans.insert53.i146 = getelementptr inbounds nuw i8, ptr %23, i64 %.pre51.i145
+  %.phi.trans.insert53.i146 = getelementptr inbounds i8, ptr %23, i64 %.pre51.i145
   %.pre54.i147 = load i8, ptr %.phi.trans.insert53.i146, align 1
   br label %.critedge2.i132
 
@@ -1362,7 +1362,7 @@ Dau_DsdMergeReplace.exit:                         ; preds = %129
   br i1 %or.cond46.i135, label %181, label %187
 
 181:                                              ; preds = %.critedge2.i132
-  %182 = getelementptr inbounds nuw i8, ptr %23, i64 %.pre-phi52.i133
+  %182 = getelementptr inbounds i8, ptr %23, i64 %.pre-phi52.i133
   %183 = zext nneg i8 %179 to i64
   %gep.i136 = getelementptr i32, ptr %invariant.gep.i121, i64 %183
   %184 = load i32, ptr %gep.i136, align 4
@@ -1374,7 +1374,7 @@ Dau_DsdMergeReplace.exit:                         ; preds = %129
 187:                                              ; preds = %181, %.critedge2.i132
   %188 = add nsw i32 %.2.i134, 1
   %.phi.trans.insert314 = sext i32 %188 to i64
-  %.phi.trans.insert315 = getelementptr inbounds nuw i8, ptr %23, i64 %.phi.trans.insert314
+  %.phi.trans.insert315 = getelementptr inbounds i8, ptr %23, i64 %.phi.trans.insert314
   %.pre316 = load i8, ptr %.phi.trans.insert315, align 1
   br label %159, !llvm.loop !19
 
@@ -1386,7 +1386,7 @@ Dau_DsdMergeReplace.exit148:                      ; preds = %159
 189:                                              ; preds = %216, %Dau_DsdMergeReplace.exit148
   %.0.i.i = phi i32 [ 0, %Dau_DsdMergeReplace.exit148 ], [ %217, %216 ]
   %190 = sext i32 %.0.i.i to i64
-  %191 = getelementptr inbounds nuw i8, ptr %22, i64 %190
+  %191 = getelementptr inbounds i8, ptr %22, i64 %190
   %192 = load i8, ptr %191, align 1
   switch i8 %192, label %201 [
     i8 0, label %Dau_DsdMergeVarPres.exit.i
@@ -1394,16 +1394,16 @@ Dau_DsdMergeReplace.exit148:                      ; preds = %159
   ]
 
 193:                                              ; preds = %189
-  %194 = getelementptr inbounds nuw i32, ptr %24, i64 %190
+  %194 = getelementptr inbounds i32, ptr %24, i64 %190
   %195 = load i32, ptr %194, align 4
   %196 = add nsw i32 %195, 1
   %197 = sext i32 %196 to i64
-  %198 = getelementptr inbounds nuw i8, ptr %22, i64 %197
+  %198 = getelementptr inbounds i8, ptr %22, i64 %197
   %199 = load i8, ptr %198, align 1
   %200 = icmp eq i8 %199, 123
   %spec.select.i.i = select i1 %200, i32 %196, i32 %.0.i.i
   %.pre.i.i = sext i32 %spec.select.i.i to i64
-  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %22, i64 %.pre.i.i
+  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %22, i64 %.pre.i.i
   %.pre49.i.i = load i8, ptr %.phi.trans.insert.i.i, align 1
   br label %201
 
@@ -1420,7 +1420,7 @@ Dau_DsdMergeReplace.exit148:                      ; preds = %159
 
 .critedge.i.i:                                    ; preds = %201, %.critedge.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.critedge.i.i ], [ %.pre-phi.i.i, %201 ]
-  %205 = getelementptr inbounds nuw i8, ptr %22, i64 %indvars.iv.i.i
+  %205 = getelementptr inbounds i8, ptr %22, i64 %indvars.iv.i.i
   %206 = load i8, ptr %205, align 1
   %207 = add i8 %206, -65
   %or.cond43.i.i = icmp ult i8 %207, 6
@@ -1434,7 +1434,7 @@ Dau_DsdMergeReplace.exit148:                      ; preds = %159
   %209 = trunc nsw i64 %indvars.iv.i.i to i32
   %sext.i.i = shl i64 %indvars.iv.i.i, 32
   %.pre50.i.i = ashr exact i64 %sext.i.i, 32
-  %.phi.trans.insert52.i.i = getelementptr inbounds nuw i8, ptr %22, i64 %.pre50.i.i
+  %.phi.trans.insert52.i.i = getelementptr inbounds i8, ptr %22, i64 %.pre50.i.i
   %.pre53.i.i = load i8, ptr %.phi.trans.insert52.i.i, align 1
   br label %.critedge2.i.i
 
@@ -1460,7 +1460,7 @@ Dau_DsdMergeReplace.exit148:                      ; preds = %159
 Dau_DsdMergeVarPres.exit.i:                       ; preds = %189, %244
   %.0.i9.i = phi i32 [ %245, %244 ], [ 0, %189 ]
   %218 = sext i32 %.0.i9.i to i64
-  %219 = getelementptr inbounds nuw i8, ptr %23, i64 %218
+  %219 = getelementptr inbounds i8, ptr %23, i64 %218
   %220 = load i8, ptr %219, align 1
   switch i8 %220, label %229 [
     i8 0, label %Dau_DsdMergeVarPres.exit34.i
@@ -1468,16 +1468,16 @@ Dau_DsdMergeVarPres.exit.i:                       ; preds = %189, %244
   ]
 
 221:                                              ; preds = %Dau_DsdMergeVarPres.exit.i
-  %222 = getelementptr inbounds nuw i32, ptr %25, i64 %218
+  %222 = getelementptr inbounds i32, ptr %25, i64 %218
   %223 = load i32, ptr %222, align 4
   %224 = add nsw i32 %223, 1
   %225 = sext i32 %224 to i64
-  %226 = getelementptr inbounds nuw i8, ptr %23, i64 %225
+  %226 = getelementptr inbounds i8, ptr %23, i64 %225
   %227 = load i8, ptr %226, align 1
   %228 = icmp eq i8 %227, 123
   %spec.select.i10.i = select i1 %228, i32 %224, i32 %.0.i9.i
   %.pre.i11.i = sext i32 %spec.select.i10.i to i64
-  %.phi.trans.insert.i12.i = getelementptr inbounds nuw i8, ptr %23, i64 %.pre.i11.i
+  %.phi.trans.insert.i12.i = getelementptr inbounds i8, ptr %23, i64 %.pre.i11.i
   %.pre49.i13.i = load i8, ptr %.phi.trans.insert.i12.i, align 1
   br label %229
 
@@ -1494,7 +1494,7 @@ Dau_DsdMergeVarPres.exit.i:                       ; preds = %189, %244
 
 .critedge.i23.i:                                  ; preds = %229, %.critedge.i23.i
   %indvars.iv.i24.i = phi i64 [ %indvars.iv.next.i28.i, %.critedge.i23.i ], [ %.pre-phi.i14.i, %229 ]
-  %233 = getelementptr inbounds nuw i8, ptr %23, i64 %indvars.iv.i24.i
+  %233 = getelementptr inbounds i8, ptr %23, i64 %indvars.iv.i24.i
   %234 = load i8, ptr %233, align 1
   %235 = add i8 %234, -65
   %or.cond43.i25.i = icmp ult i8 %235, 6
@@ -1508,7 +1508,7 @@ Dau_DsdMergeVarPres.exit.i:                       ; preds = %189, %244
   %237 = trunc nsw i64 %indvars.iv.i24.i to i32
   %sext.i30.i = shl i64 %indvars.iv.i24.i, 32
   %.pre50.i31.i = ashr exact i64 %sext.i30.i, 32
-  %.phi.trans.insert52.i32.i = getelementptr inbounds nuw i8, ptr %23, i64 %.pre50.i31.i
+  %.phi.trans.insert52.i32.i = getelementptr inbounds i8, ptr %23, i64 %.pre50.i31.i
   %.pre53.i33.i = load i8, ptr %.phi.trans.insert52.i32.i, align 1
   br label %.critedge2.i19.i
 
@@ -1574,7 +1574,7 @@ Dau_DsdMergeFindShared.exit:                      ; preds = %Dau_DsdMergeVarPres
 257:                                              ; preds = %.lr.ph.i150, %.lr.ph.i150, %.lr.ph.i150, %.lr.ph.i150
   %258 = add nsw i32 %.029.i152, 1
   %259 = sext i32 %.029.i152 to i64
-  %260 = getelementptr inbounds nuw [12 x i32], ptr %18, i64 0, i64 %259
+  %260 = getelementptr inbounds [12 x i32], ptr %18, i64 0, i64 %259
   %261 = trunc nuw nsw i64 %indvars.iv.i151 to i32
   store i32 %261, ptr %260, align 4
   br label %270
@@ -1582,10 +1582,10 @@ Dau_DsdMergeFindShared.exit:                      ; preds = %Dau_DsdMergeVarPres
 262:                                              ; preds = %.lr.ph.i150, %.lr.ph.i150, %.lr.ph.i150, %.lr.ph.i150
   %263 = add nsw i32 %.029.i152, -1
   %264 = sext i32 %263 to i64
-  %265 = getelementptr inbounds nuw [12 x i32], ptr %18, i64 0, i64 %264
+  %265 = getelementptr inbounds [12 x i32], ptr %18, i64 0, i64 %264
   %266 = load i32, ptr %265, align 4
   %267 = sext i32 %266 to i64
-  %268 = getelementptr inbounds nuw i32, ptr %31, i64 %267
+  %268 = getelementptr inbounds i32, ptr %31, i64 %267
   %269 = trunc nuw nsw i64 %indvars.iv.i151 to i32
   store i32 %269, ptr %268, align 4
   br label %270
@@ -1707,7 +1707,7 @@ Abc_Clock.exit164:                                ; preds = %299, %302
   %316 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv.i165
   store i32 %.02126.i, ptr %316, align 4
   %317 = sext i32 %.02126.i to i64
-  %318 = getelementptr inbounds nuw i32, ptr %28, i64 %317
+  %318 = getelementptr inbounds i32, ptr %28, i64 %317
   %319 = trunc nuw nsw i64 %indvars.iv.i165 to i32
   store i32 %319, ptr %318, align 4
   %320 = add nsw i32 %.02126.i, 1
@@ -1717,7 +1717,7 @@ Abc_Clock.exit164:                                ; preds = %299, %302
   %322 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv.i165
   store i32 %.027.i, ptr %322, align 4
   %323 = sext i32 %.027.i to i64
-  %324 = getelementptr inbounds nuw i32, ptr %28, i64 %323
+  %324 = getelementptr inbounds i32, ptr %28, i64 %323
   %325 = trunc nuw nsw i64 %indvars.iv.i165 to i32
   store i32 %325, ptr %324, align 4
   %326 = add nsw i32 %.027.i, 1
@@ -1737,7 +1737,7 @@ Dau_DsdMergeCreateMaps.exit:                      ; preds = %327
 328:                                              ; preds = %357, %Dau_DsdMergeCreateMaps.exit
   %.0.i169 = phi i32 [ 0, %Dau_DsdMergeCreateMaps.exit ], [ %358, %357 ]
   %329 = sext i32 %.0.i169 to i64
-  %330 = getelementptr inbounds nuw i8, ptr %22, i64 %329
+  %330 = getelementptr inbounds i8, ptr %22, i64 %329
   %331 = load i8, ptr %330, align 1
   switch i8 %331, label %340 [
     i8 0, label %Dau_DsdMergeReplace.exit195
@@ -1745,16 +1745,16 @@ Dau_DsdMergeCreateMaps.exit:                      ; preds = %327
   ]
 
 332:                                              ; preds = %328
-  %333 = getelementptr inbounds nuw i32, ptr %24, i64 %329
+  %333 = getelementptr inbounds i32, ptr %24, i64 %329
   %334 = load i32, ptr %333, align 4
   %335 = add nsw i32 %334, 1
   %336 = sext i32 %335 to i64
-  %337 = getelementptr inbounds nuw i8, ptr %22, i64 %336
+  %337 = getelementptr inbounds i8, ptr %22, i64 %336
   %338 = load i8, ptr %337, align 1
   %339 = icmp eq i8 %338, 123
   %spec.select.i170 = select i1 %339, i32 %335, i32 %.0.i169
   %.pre.i171 = sext i32 %spec.select.i170 to i64
-  %.phi.trans.insert.i172 = getelementptr inbounds nuw i8, ptr %22, i64 %.pre.i171
+  %.phi.trans.insert.i172 = getelementptr inbounds i8, ptr %22, i64 %.pre.i171
   %.pre50.i173 = load i8, ptr %.phi.trans.insert.i172, align 1
   br label %340
 
@@ -1771,7 +1771,7 @@ Dau_DsdMergeCreateMaps.exit:                      ; preds = %327
 
 .critedge.i184:                                   ; preds = %340, %.critedge.i184
   %indvars.iv.i185 = phi i64 [ %indvars.iv.next.i189, %.critedge.i184 ], [ %.pre-phi.i174, %340 ]
-  %344 = getelementptr inbounds nuw i8, ptr %22, i64 %indvars.iv.i185
+  %344 = getelementptr inbounds i8, ptr %22, i64 %indvars.iv.i185
   %345 = load i8, ptr %344, align 1
   %346 = add i8 %345, -65
   %or.cond44.i186 = icmp ult i8 %346, 6
@@ -1785,7 +1785,7 @@ Dau_DsdMergeCreateMaps.exit:                      ; preds = %327
   %348 = trunc nsw i64 %indvars.iv.i185 to i32
   %sext.i191 = shl i64 %indvars.iv.i185, 32
   %.pre51.i192 = ashr exact i64 %sext.i191, 32
-  %.phi.trans.insert53.i193 = getelementptr inbounds nuw i8, ptr %22, i64 %.pre51.i192
+  %.phi.trans.insert53.i193 = getelementptr inbounds i8, ptr %22, i64 %.pre51.i192
   %.pre54.i194 = load i8, ptr %.phi.trans.insert53.i193, align 1
   br label %.critedge2.i179
 
@@ -1798,7 +1798,7 @@ Dau_DsdMergeCreateMaps.exit:                      ; preds = %327
   br i1 %or.cond46.i182, label %351, label %357
 
 351:                                              ; preds = %.critedge2.i179
-  %352 = getelementptr inbounds nuw i8, ptr %22, i64 %.pre-phi52.i180
+  %352 = getelementptr inbounds i8, ptr %22, i64 %.pre-phi52.i180
   %353 = zext nneg i8 %349 to i64
   %gep.i183 = getelementptr i32, ptr %invariant.gep.i168, i64 %353
   %354 = load i32, ptr %gep.i183, align 4
@@ -1814,7 +1814,7 @@ Dau_DsdMergeCreateMaps.exit:                      ; preds = %327
 Dau_DsdMergeReplace.exit195:                      ; preds = %328, %387
   %.0.i197 = phi i32 [ %388, %387 ], [ 0, %328 ]
   %359 = sext i32 %.0.i197 to i64
-  %360 = getelementptr inbounds nuw i8, ptr %23, i64 %359
+  %360 = getelementptr inbounds i8, ptr %23, i64 %359
   %361 = load i8, ptr %360, align 1
   switch i8 %361, label %370 [
     i8 0, label %Dau_DsdMergeReplace.exit223
@@ -1822,16 +1822,16 @@ Dau_DsdMergeReplace.exit195:                      ; preds = %328, %387
   ]
 
 362:                                              ; preds = %Dau_DsdMergeReplace.exit195
-  %363 = getelementptr inbounds nuw i32, ptr %25, i64 %359
+  %363 = getelementptr inbounds i32, ptr %25, i64 %359
   %364 = load i32, ptr %363, align 4
   %365 = add nsw i32 %364, 1
   %366 = sext i32 %365 to i64
-  %367 = getelementptr inbounds nuw i8, ptr %23, i64 %366
+  %367 = getelementptr inbounds i8, ptr %23, i64 %366
   %368 = load i8, ptr %367, align 1
   %369 = icmp eq i8 %368, 123
   %spec.select.i198 = select i1 %369, i32 %365, i32 %.0.i197
   %.pre.i199 = sext i32 %spec.select.i198 to i64
-  %.phi.trans.insert.i200 = getelementptr inbounds nuw i8, ptr %23, i64 %.pre.i199
+  %.phi.trans.insert.i200 = getelementptr inbounds i8, ptr %23, i64 %.pre.i199
   %.pre50.i201 = load i8, ptr %.phi.trans.insert.i200, align 1
   br label %370
 
@@ -1848,7 +1848,7 @@ Dau_DsdMergeReplace.exit195:                      ; preds = %328, %387
 
 .critedge.i212:                                   ; preds = %370, %.critedge.i212
   %indvars.iv.i213 = phi i64 [ %indvars.iv.next.i217, %.critedge.i212 ], [ %.pre-phi.i202, %370 ]
-  %374 = getelementptr inbounds nuw i8, ptr %23, i64 %indvars.iv.i213
+  %374 = getelementptr inbounds i8, ptr %23, i64 %indvars.iv.i213
   %375 = load i8, ptr %374, align 1
   %376 = add i8 %375, -65
   %or.cond44.i214 = icmp ult i8 %376, 6
@@ -1862,7 +1862,7 @@ Dau_DsdMergeReplace.exit195:                      ; preds = %328, %387
   %378 = trunc nsw i64 %indvars.iv.i213 to i32
   %sext.i219 = shl i64 %indvars.iv.i213, 32
   %.pre51.i220 = ashr exact i64 %sext.i219, 32
-  %.phi.trans.insert53.i221 = getelementptr inbounds nuw i8, ptr %23, i64 %.pre51.i220
+  %.phi.trans.insert53.i221 = getelementptr inbounds i8, ptr %23, i64 %.pre51.i220
   %.pre54.i222 = load i8, ptr %.phi.trans.insert53.i221, align 1
   br label %.critedge2.i207
 
@@ -1875,7 +1875,7 @@ Dau_DsdMergeReplace.exit195:                      ; preds = %328, %387
   br i1 %or.cond46.i210, label %381, label %387
 
 381:                                              ; preds = %.critedge2.i207
-  %382 = getelementptr inbounds nuw i8, ptr %23, i64 %.pre-phi52.i208
+  %382 = getelementptr inbounds i8, ptr %23, i64 %.pre-phi52.i208
   %383 = zext nneg i8 %379 to i64
   %gep.i211 = getelementptr i32, ptr %invariant.gep.i168, i64 %383
   %384 = load i32, ptr %gep.i211, align 4
@@ -1977,7 +1977,7 @@ Dau_DsdIsConst.exit228.thread:                    ; preds = %406
 415:                                              ; preds = %.lr.ph.i230, %.lr.ph.i230, %.lr.ph.i230, %.lr.ph.i230
   %416 = add nsw i32 %.029.i232, 1
   %417 = sext i32 %.029.i232 to i64
-  %418 = getelementptr inbounds nuw [12 x i32], ptr %10, i64 0, i64 %417
+  %418 = getelementptr inbounds [12 x i32], ptr %10, i64 0, i64 %417
   %419 = trunc nuw nsw i64 %indvars.iv.i231 to i32
   store i32 %419, ptr %418, align 4
   br label %428
@@ -1985,10 +1985,10 @@ Dau_DsdIsConst.exit228.thread:                    ; preds = %406
 420:                                              ; preds = %.lr.ph.i230, %.lr.ph.i230, %.lr.ph.i230, %.lr.ph.i230
   %421 = add nsw i32 %.029.i232, -1
   %422 = sext i32 %421 to i64
-  %423 = getelementptr inbounds nuw [12 x i32], ptr %10, i64 0, i64 %422
+  %423 = getelementptr inbounds [12 x i32], ptr %10, i64 0, i64 %422
   %424 = load i32, ptr %423, align 4
   %425 = sext i32 %424 to i64
-  %426 = getelementptr inbounds nuw i32, ptr %31, i64 %425
+  %426 = getelementptr inbounds i32, ptr %31, i64 %425
   %427 = trunc nuw nsw i64 %indvars.iv.i231 to i32
   store i32 %427, ptr %426, align 4
   br label %428
@@ -2016,7 +2016,7 @@ Dau_DsdMergeMatches.exit236:                      ; preds = %428, %Dau_DsdIsCons
   ]
 
 434:                                              ; preds = %431
-  %435 = getelementptr inbounds nuw i32, ptr %31, i64 %433
+  %435 = getelementptr inbounds i32, ptr %31, i64 %433
   %436 = load i32, ptr %435, align 4
   %437 = sext i32 %436 to i64
   %gep.i239 = getelementptr i8, ptr %409, i64 %437
@@ -2034,7 +2034,7 @@ Dau_DsdMergeMatches.exit236:                      ; preds = %428, %Dau_DsdIsCons
   %442 = getelementptr inbounds nuw i8, ptr %.27.i, i64 1
   store i8 %441, ptr %.27.i, align 1
   %indvars.iv.next.i242 = add nsw i64 %indvars.iv.i241, 1
-  %443 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv.next.i242
+  %443 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv.next.i242
   %444 = load i32, ptr %443, align 4
   %445 = sext i32 %444 to i64
   %.not68.not.i = icmp slt i64 %indvars.iv.i241, %445
@@ -2151,7 +2151,7 @@ Dau_DsdMergeInlineDefinitions.exit:               ; preds = %431
 477:                                              ; preds = %.lr.ph.i253, %.lr.ph.i253, %.lr.ph.i253, %.lr.ph.i253
   %478 = add nsw i32 %.029.i255, 1
   %479 = sext i32 %.029.i255 to i64
-  %480 = getelementptr inbounds nuw [12 x i32], ptr %9, i64 0, i64 %479
+  %480 = getelementptr inbounds [12 x i32], ptr %9, i64 0, i64 %479
   %481 = trunc nuw nsw i64 %indvars.iv.i254 to i32
   store i32 %481, ptr %480, align 4
   br label %490
@@ -2159,10 +2159,10 @@ Dau_DsdMergeInlineDefinitions.exit:               ; preds = %431
 482:                                              ; preds = %.lr.ph.i253, %.lr.ph.i253, %.lr.ph.i253, %.lr.ph.i253
   %483 = add nsw i32 %.029.i255, -1
   %484 = sext i32 %483 to i64
-  %485 = getelementptr inbounds nuw [12 x i32], ptr %9, i64 0, i64 %484
+  %485 = getelementptr inbounds [12 x i32], ptr %9, i64 0, i64 %484
   %486 = load i32, ptr %485, align 4
   %487 = sext i32 %486 to i64
-  %488 = getelementptr inbounds nuw i32, ptr %31, i64 %487
+  %488 = getelementptr inbounds i32, ptr %31, i64 %487
   %489 = trunc nuw nsw i64 %indvars.iv.i254 to i32
   store i32 %489, ptr %488, align 4
   br label %490
@@ -2190,16 +2190,16 @@ Dau_DsdMergeMatches.exit259:                      ; preds = %490, %Dau_DsdMergeI
   ]
 
 496:                                              ; preds = %493
-  %497 = getelementptr inbounds nuw i32, ptr %31, i64 %495
+  %497 = getelementptr inbounds i32, ptr %31, i64 %495
   %498 = load i32, ptr %497, align 4
   %499 = add nsw i32 %498, 1
   %500 = sext i32 %499 to i64
-  %501 = getelementptr inbounds nuw i8, ptr @Dau_DsdMerge.pRes, i64 %500
+  %501 = getelementptr inbounds i8, ptr @Dau_DsdMerge.pRes, i64 %500
   %502 = load i8, ptr %501, align 1
   %503 = icmp eq i8 %502, 123
   %spec.select.i262 = select i1 %503, i32 %499, i32 %.0.i261
   %.pre.i263 = sext i32 %spec.select.i262 to i64
-  %.phi.trans.insert.i264 = getelementptr inbounds nuw i8, ptr @Dau_DsdMerge.pRes, i64 %.pre.i263
+  %.phi.trans.insert.i264 = getelementptr inbounds i8, ptr @Dau_DsdMerge.pRes, i64 %.pre.i263
   %.pre50.i265 = load i8, ptr %.phi.trans.insert.i264, align 1
   br label %504
 
@@ -2216,7 +2216,7 @@ Dau_DsdMergeMatches.exit259:                      ; preds = %490, %Dau_DsdMergeI
 
 .critedge.i276:                                   ; preds = %504, %.critedge.i276
   %indvars.iv.i277 = phi i64 [ %indvars.iv.next.i281, %.critedge.i276 ], [ %.pre-phi.i266, %504 ]
-  %508 = getelementptr inbounds nuw i8, ptr @Dau_DsdMerge.pRes, i64 %indvars.iv.i277
+  %508 = getelementptr inbounds i8, ptr @Dau_DsdMerge.pRes, i64 %indvars.iv.i277
   %509 = load i8, ptr %508, align 1
   %510 = add i8 %509, -65
   %or.cond44.i278 = icmp ult i8 %510, 6
@@ -2230,7 +2230,7 @@ Dau_DsdMergeMatches.exit259:                      ; preds = %490, %Dau_DsdMergeI
   %512 = trunc nsw i64 %indvars.iv.i277 to i32
   %sext.i283 = shl i64 %indvars.iv.i277, 32
   %.pre51.i284 = ashr exact i64 %sext.i283, 32
-  %.phi.trans.insert53.i285 = getelementptr inbounds nuw i8, ptr @Dau_DsdMerge.pRes, i64 %.pre51.i284
+  %.phi.trans.insert53.i285 = getelementptr inbounds i8, ptr @Dau_DsdMerge.pRes, i64 %.pre51.i284
   %.pre54.i286 = load i8, ptr %.phi.trans.insert53.i285, align 1
   br label %.critedge2.i271
 
@@ -2243,7 +2243,7 @@ Dau_DsdMergeMatches.exit259:                      ; preds = %490, %Dau_DsdMergeI
   br i1 %or.cond46.i274, label %515, label %521
 
 515:                                              ; preds = %.critedge2.i271
-  %516 = getelementptr inbounds nuw i8, ptr @Dau_DsdMerge.pRes, i64 %.pre-phi52.i272
+  %516 = getelementptr inbounds i8, ptr @Dau_DsdMerge.pRes, i64 %.pre-phi52.i272
   %517 = zext nneg i8 %513 to i64
   %gep.i275 = getelementptr i32, ptr %invariant.gep.i260, i64 %517
   %518 = load i32, ptr %gep.i275, align 4
@@ -2255,7 +2255,7 @@ Dau_DsdMergeMatches.exit259:                      ; preds = %490, %Dau_DsdMergeI
 521:                                              ; preds = %515, %.critedge2.i271
   %522 = add nsw i32 %.2.i273, 1
   %.phi.trans.insert320 = sext i32 %522 to i64
-  %.phi.trans.insert321 = getelementptr inbounds nuw i8, ptr @Dau_DsdMerge.pRes, i64 %.phi.trans.insert320
+  %.phi.trans.insert321 = getelementptr inbounds i8, ptr @Dau_DsdMerge.pRes, i64 %.phi.trans.insert320
   %.pre322 = load i8, ptr %.phi.trans.insert321, align 1
   br label %493, !llvm.loop !19
 

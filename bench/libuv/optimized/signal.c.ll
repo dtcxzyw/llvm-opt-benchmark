@@ -917,7 +917,7 @@ if.then4:                                         ; preds = %uv__signal_tree_s_R
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %lookup.i)
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %sa.i)
   %idxprom.i = sext i32 %80 to i64
-  %arrayidx.i = getelementptr inbounds nuw [128 x %struct.sigaction], ptr @uv__sigactions, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [128 x %struct.sigaction], ptr @uv__sigactions, i64 0, i64 %idxprom.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %sa.i, ptr noundef nonnull align 8 dereferenceable(152) %arrayidx.i, i64 152, i1 false)
   %call.i = call i32 @sigaction(i32 noundef %80, ptr noundef nonnull %sa.i, ptr noundef null) #10
   %tobool.not.i17 = icmp eq i32 %call.i, 0
@@ -967,7 +967,7 @@ if.end.i23:                                       ; preds = %if.then9
 
 if.end9.i:                                        ; preds = %if.end.i23
   %idxprom.i.i = sext i32 %75 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw [128 x %struct.sigaction], ptr @uv__sigactions, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds [128 x %struct.sigaction], ptr @uv__sigactions, i64 0, i64 %idxprom.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %arrayidx.i.i, ptr noundef nonnull readonly align 8 dereferenceable(152) %sa_old.i, i64 152, i1 false)
   %arrayidx2.i.i = getelementptr inbounds [128 x i8], ptr getelementptr inbounds nuw (i8, ptr @uv__sigactions, i64 19456), i64 0, i64 %idxprom.i.i
   store i8 1, ptr %arrayidx2.i.i, align 1
@@ -1230,7 +1230,7 @@ if.end.i23:                                       ; preds = %if.end9.split
 
 if.then12.thread77:                               ; preds = %if.end.i23
   %idxprom.i.i = sext i32 %signum to i64
-  %arrayidx.i.i = getelementptr inbounds nuw [128 x %struct.sigaction], ptr @uv__sigactions, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds [128 x %struct.sigaction], ptr @uv__sigactions, i64 0, i64 %idxprom.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %arrayidx.i.i, ptr noundef nonnull readonly align 8 dereferenceable(152) %sa_old.i, i64 152, i1 false)
   %arrayidx2.i.i = getelementptr inbounds [128 x i8], ptr getelementptr inbounds nuw (i8, ptr @uv__sigactions, i64 19456), i64 0, i64 %idxprom.i.i
   store i8 1, ptr %arrayidx2.i.i, align 1
@@ -1281,7 +1281,7 @@ if.end.i31:                                       ; preds = %land.lhs.true.split
 
 if.then12.thread.thread:                          ; preds = %if.end.i31
   %idxprom.i.i40 = sext i32 %signum to i64
-  %arrayidx.i.i41 = getelementptr inbounds nuw [128 x %struct.sigaction], ptr @uv__sigactions, i64 0, i64 %idxprom.i.i40
+  %arrayidx.i.i41 = getelementptr inbounds [128 x %struct.sigaction], ptr @uv__sigactions, i64 0, i64 %idxprom.i.i40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %arrayidx.i.i41, ptr noundef nonnull readonly align 8 dereferenceable(152) %sa_old.i26, i64 152, i1 false)
   %arrayidx2.i.i42 = getelementptr inbounds [128 x i8], ptr getelementptr inbounds nuw (i8, ptr @uv__sigactions, i64 19456), i64 0, i64 %idxprom.i.i40
   store i8 1, ptr %arrayidx2.i.i42, align 1
@@ -1952,7 +1952,7 @@ if.end23:                                         ; preds = %do.body, %do.body.o
 
 for.body:                                         ; preds = %if.end23, %for.inc
   %i.034 = phi i64 [ %add38, %for.inc ], [ 0, %if.end23 ]
-  %add.ptr28 = getelementptr inbounds nuw i8, ptr %buf, i64 %i.034
+  %add.ptr28 = getelementptr inbounds i8, ptr %buf, i64 %i.034
   %6 = load ptr, ptr %add.ptr28, align 16
   %signum = getelementptr inbounds nuw i8, ptr %add.ptr28, i64 8
   %7 = load i32, ptr %signum, align 8
@@ -1993,7 +1993,7 @@ for.end:                                          ; preds = %for.inc, %if.end23
   br i1 %tobool40.not, label %do.cond, label %if.then41
 
 if.then41:                                        ; preds = %for.end
-  %add.ptr44 = getelementptr inbounds nuw i8, ptr %buf, i64 %div24
+  %add.ptr44 = getelementptr inbounds i8, ptr %buf, i64 %div24
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 %buf, ptr nonnull align 16 %add.ptr44, i64 %sub39, i1 false)
   br label %do.cond
 

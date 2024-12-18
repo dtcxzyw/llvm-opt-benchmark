@@ -274,10 +274,10 @@ define noundef ptr @_ZN5Yosys3AST8dpi_callERKNSt7__cxx1112basic_stringIcSt11char
   %156 = ptrtoint ptr %154 to i64
   %157 = ptrtoint ptr %155 to i64
   %158 = sub i64 %156, %157
-  %159 = getelementptr inbounds nuw i8, ptr %20, i64 %158
+  %159 = getelementptr inbounds i8, ptr %20, i64 %158
   store ptr %ffi_type_float.sink, ptr %159, align 8
-  %160 = getelementptr inbounds nuw i8, ptr %19, i64 %158
-  %161 = getelementptr inbounds nuw i8, ptr %21, i64 %158
+  %160 = getelementptr inbounds i8, ptr %19, i64 %158
+  %161 = getelementptr inbounds i8, ptr %21, i64 %158
   store ptr %160, ptr %161, align 8
   %162 = lshr exact i64 %158, 3
   %163 = trunc i64 %162 to i32
@@ -618,7 +618,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %274 = ptrtoint ptr %272 to i64
   %275 = ptrtoint ptr %273 to i64
   %276 = sub i64 %274, %275
-  %277 = getelementptr inbounds nuw i8, ptr %21, i64 %276
+  %277 = getelementptr inbounds i8, ptr %21, i64 %276
   %278 = load ptr, ptr %277, align 8
   invoke void @ffi_call(ptr noundef nonnull %7, ptr noundef nonnull %.0.i, ptr noundef %278, ptr noundef nonnull %21)
           to label %279 unwind label %296
@@ -641,7 +641,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %287 = ptrtoint ptr %285 to i64
   %288 = ptrtoint ptr %286 to i64
   %289 = sub i64 %287, %288
-  %290 = getelementptr inbounds nuw i8, ptr %19, i64 %289
+  %290 = getelementptr inbounds i8, ptr %19, i64 %289
   %291 = load double, ptr %290, align 8
   %292 = getelementptr inbounds nuw i8, ptr %283, i64 168
   store double %291, ptr %292, align 8
@@ -691,7 +691,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %309 = ptrtoint ptr %307 to i64
   %310 = ptrtoint ptr %308 to i64
   %311 = sub i64 %309, %310
-  %312 = getelementptr inbounds nuw i8, ptr %19, i64 %311
+  %312 = getelementptr inbounds i8, ptr %19, i64 %311
   %313 = load float, ptr %312, align 8
   %314 = fpext float %313 to double
   %315 = getelementptr inbounds nuw i8, ptr %305, i64 168
@@ -714,7 +714,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %324 = ptrtoint ptr %322 to i64
   %325 = ptrtoint ptr %323 to i64
   %326 = sub i64 %324, %325
-  %327 = getelementptr inbounds nuw i8, ptr %19, i64 %326
+  %327 = getelementptr inbounds i8, ptr %19, i64 %326
   br i1 %321, label %328, label %352
 
 328:                                              ; preds = %319

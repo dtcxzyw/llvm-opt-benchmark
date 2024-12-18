@@ -2115,7 +2115,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   %509 = load ptr, ptr @_ZSt4cerr, align 8
   %510 = getelementptr i8, ptr %509, i64 -24
   %511 = load i64, ptr %510, align 8
-  %512 = getelementptr inbounds nuw i8, ptr @_ZSt4cerr, i64 %511
+  %512 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %511
   %513 = load i32, ptr %13, align 8
   %514 = getelementptr inbounds nuw i8, ptr %512, i64 24
   store i32 %513, ptr %514, align 8
@@ -9828,7 +9828,7 @@ define linkonce_odr void @_ZN21PXR_INTERNAL_NS_pegtl6tracerINS_13tracer_traitsIL
   %3 = load ptr, ptr @_ZSt4cerr, align 8
   %4 = getelementptr i8, ptr %3, i64 -24
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds nuw i8, ptr @_ZSt4cerr, i64 %5
+  %6 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load i32, ptr %7, align 8
   store i32 %8, ptr %0, align 8
@@ -9900,7 +9900,7 @@ define linkonce_odr void @_ZN21PXR_INTERNAL_NS_pegtl6tracerINS_13tracer_traitsIL
   %2 = load ptr, ptr @_ZSt4cerr, align 8
   %3 = getelementptr i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds nuw i8, ptr @_ZSt4cerr, i64 %4
+  %5 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %4
   %6 = load i32, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %6, ptr %7, align 8

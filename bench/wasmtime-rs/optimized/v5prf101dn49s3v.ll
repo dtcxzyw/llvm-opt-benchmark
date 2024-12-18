@@ -8474,9 +8474,9 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %4 = tail call { i64, i64 } @_ZN8wasmtime7runtime9component9resources19AtomicResourceState3get17h779fc738e764a384E(ptr noundef nonnull align 8 %0)
   %5 = extractvalue { i64, i64 } %4, 0
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN95_$LT$wasmtime..runtime..component..resources..Resource$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h478fb1f80664aa1cE", i64 0, i64 %5
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @"switch.table._ZN95_$LT$wasmtime..runtime..component..resources..Resource$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h478fb1f80664aa1cE", i64 0, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %switch.gep1 = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN95_$LT$wasmtime..runtime..component..resources..Resource$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h478fb1f80664aa1cE.61", i64 0, i64 %5
+  %switch.gep1 = getelementptr inbounds [4 x i64], ptr @"switch.table._ZN95_$LT$wasmtime..runtime..component..resources..Resource$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h478fb1f80664aa1cE.61", i64 0, i64 %5
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %switch.load, ptr %3, align 8

@@ -809,7 +809,7 @@ _ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_1
   %47 = sext i8 %36 to i32
   %48 = ashr i32 %47, 4
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds nuw i8, ptr @.str.3, i64 %49
+  %50 = getelementptr inbounds i8, ptr @.str.3, i64 %49
   %51 = load i8, ptr %50, align 1, !tbaa !23
   %52 = getelementptr inbounds nuw i8, ptr %.04970, i64 2
   store i8 %51, ptr %45, align 1, !tbaa !23
@@ -859,7 +859,7 @@ _ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit: ; preds = 
   %71 = sext i8 %59 to i32
   %72 = ashr i32 %71, 4
   %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds nuw i8, ptr @.str.3, i64 %73
+  %74 = getelementptr inbounds i8, ptr @.str.3, i64 %73
   %75 = load i8, ptr %74, align 1, !tbaa !23
   %76 = getelementptr inbounds nuw i8, ptr %.173, i64 2
   store i8 %75, ptr %68, align 1, !tbaa !23
@@ -906,7 +906,7 @@ _ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit33: ; preds 
   %95 = sext i8 %83 to i32
   %96 = ashr i32 %95, 4
   %97 = sext i32 %96 to i64
-  %98 = getelementptr inbounds nuw i8, ptr @.str.3, i64 %97
+  %98 = getelementptr inbounds i8, ptr @.str.3, i64 %97
   %99 = load i8, ptr %98, align 1, !tbaa !23
   %100 = getelementptr inbounds nuw i8, ptr %.278, i64 2
   store i8 %99, ptr %92, align 1, !tbaa !23
@@ -1653,7 +1653,7 @@ _ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_1
   %64 = sext i8 %53 to i32
   %65 = ashr i32 %64, 4
   %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds nuw i8, ptr @.str.3, i64 %66
+  %67 = getelementptr inbounds i8, ptr @.str.3, i64 %66
   %68 = load i8, ptr %67, align 1, !tbaa !23
   %69 = getelementptr inbounds nuw i8, ptr %.1106133, i64 2
   store i8 %68, ptr %62, align 1, !tbaa !23
@@ -1727,7 +1727,7 @@ _ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit: ; preds = 
   %100 = sext i8 %87 to i32
   %101 = ashr i32 %100, 4
   %102 = sext i32 %101 to i64
-  %103 = getelementptr inbounds nuw i8, ptr @.str.3, i64 %102
+  %103 = getelementptr inbounds i8, ptr @.str.3, i64 %102
   %104 = load i8, ptr %103, align 1, !tbaa !23
   %105 = getelementptr inbounds nuw i8, ptr %.0105, i64 2
   store i8 %104, ptr %97, align 1, !tbaa !23
@@ -1807,7 +1807,7 @@ _ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit82: ; preds 
   %135 = sext i8 %124 to i32
   %136 = ashr i32 %135, 4
   %137 = sext i32 %136 to i64
-  %138 = getelementptr inbounds nuw i8, ptr @.str.3, i64 %137
+  %138 = getelementptr inbounds i8, ptr @.str.3, i64 %137
   %139 = load i8, ptr %138, align 1, !tbaa !23
   %140 = getelementptr inbounds nuw i8, ptr %.5140, i64 2
   store i8 %139, ptr %132, align 1, !tbaa !23
@@ -1859,7 +1859,7 @@ _ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit84: ; preds 
   %163 = sext i8 %151 to i32
   %164 = ashr i32 %163, 4
   %165 = sext i32 %164 to i64
-  %166 = getelementptr inbounds nuw i8, ptr @.str.3, i64 %165
+  %166 = getelementptr inbounds i8, ptr @.str.3, i64 %165
   %167 = load i8, ptr %166, align 1, !tbaa !23
   %168 = getelementptr inbounds nuw i8, ptr %.7146, i64 2
   store i8 %167, ptr %160, align 1, !tbaa !23
@@ -2027,7 +2027,7 @@ _ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_1
   %62 = sext i8 %51 to i32
   %63 = ashr i32 %62, 4
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds nuw i8, ptr @.str.3, i64 %64
+  %65 = getelementptr inbounds i8, ptr @.str.3, i64 %64
   %66 = load i8, ptr %65, align 1, !tbaa !23
   %67 = getelementptr inbounds nuw i8, ptr %.188115, i64 2
   store i8 %66, ptr %60, align 1, !tbaa !23
@@ -2082,7 +2082,7 @@ _ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit: ; preds = 
   %88 = sext i8 %75 to i32
   %89 = ashr i32 %88, 4
   %90 = sext i32 %89 to i64
-  %91 = getelementptr inbounds nuw i8, ptr @.str.3, i64 %90
+  %91 = getelementptr inbounds i8, ptr @.str.3, i64 %90
   %92 = load i8, ptr %91, align 1, !tbaa !23
   %93 = getelementptr inbounds nuw i8, ptr %.087, i64 2
   store i8 %92, ptr %85, align 1, !tbaa !23
@@ -2161,7 +2161,7 @@ _ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit67: ; preds 
   %123 = sext i8 %112 to i32
   %124 = ashr i32 %123, 4
   %125 = sext i32 %124 to i64
-  %126 = getelementptr inbounds nuw i8, ptr @.str.3, i64 %125
+  %126 = getelementptr inbounds i8, ptr @.str.3, i64 %125
   %127 = load i8, ptr %126, align 1, !tbaa !23
   %128 = getelementptr inbounds nuw i8, ptr %.5122, i64 2
   store i8 %127, ptr %120, align 1, !tbaa !23
@@ -2213,7 +2213,7 @@ _ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit69: ; preds 
   %151 = sext i8 %139 to i32
   %152 = ashr i32 %151, 4
   %153 = sext i32 %152 to i64
-  %154 = getelementptr inbounds nuw i8, ptr @.str.3, i64 %153
+  %154 = getelementptr inbounds i8, ptr @.str.3, i64 %153
   %155 = load i8, ptr %154, align 1, !tbaa !23
   %156 = getelementptr inbounds nuw i8, ptr %.7128, i64 2
   store i8 %155, ptr %148, align 1, !tbaa !23

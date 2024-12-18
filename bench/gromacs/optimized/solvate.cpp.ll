@@ -1142,7 +1142,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %359, %356
 .noexc31:                                         ; preds = %375
   %376 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #26
   %377 = add i64 %376, -1
-  %378 = getelementptr inbounds nuw [4096 x i8], ptr %8, i64 0, i64 %377
+  %378 = getelementptr inbounds [4096 x i8], ptr %8, i64 0, i64 %377
   %379 = load i8, ptr %378, align 1
   %380 = icmp eq i8 %379, 93
   br i1 %380, label %381, label %393

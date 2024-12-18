@@ -354,7 +354,7 @@ define i32 @Xzs_ReadBackward(ptr nocapture noundef %0, ptr noundef %1, ptr nound
 
 52:                                               ; preds = %.preheader
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %53 = getelementptr inbounds nuw [1024 x i8], ptr %7, i64 0, i64 %indvars.iv.next.i
+  %53 = getelementptr inbounds [1024 x i8], ptr %7, i64 0, i64 %indvars.iv.next.i
   %54 = load i8, ptr %53, align 1
   %.not100.i = icmp eq i8 %54, 0
   br i1 %.not100.i, label %.preheader, label %55

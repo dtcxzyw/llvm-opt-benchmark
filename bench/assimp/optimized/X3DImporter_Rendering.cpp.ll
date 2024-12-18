@@ -2905,7 +2905,7 @@ invoke.cont72:                                    ; preds = %_ZNSt6vectorIiSaIiE
 
 if.else75:                                        ; preds = %if.else45
   %idxprom = sext i32 %counter.0402 to i64
-  %arrayidx77 = getelementptr inbounds nuw [3 x i32], ptr %idx, i64 0, i64 %idxprom
+  %arrayidx77 = getelementptr inbounds [3 x i32], ptr %idx, i64 0, i64 %idxprom
   store i32 %29, ptr %arrayidx77, align 4
   br label %if.end78
 

@@ -2103,7 +2103,7 @@ _ZN2cvmlIfEENS_7Point3_IT_EERKNS_4MatxIS2_Li3ELi3EEERKS3_.exit.us: ; preds = %.c
   %326 = getelementptr inbounds nuw [7 x float], ptr %7, i64 0, i64 %indvars.iv478
   %327 = load float, ptr %326, align 4
   %indvars.iv.next481 = add nsw i64 %indvars.iv480, 1
-  %328 = getelementptr inbounds nuw [27 x float], ptr %5, i64 0, i64 %indvars.iv480
+  %328 = getelementptr inbounds [27 x float], ptr %5, i64 0, i64 %indvars.iv480
   %329 = load float, ptr %328, align 4
   %330 = tail call float @llvm.fmuladd.f32(float %332, float %327, float %329)
   store float %330, ptr %328, align 4
@@ -2147,8 +2147,8 @@ _ZN2cvmlIfEENS_7Point3_IT_EERKNS_4MatxIS2_Li3ELi3EEERKS3_.exit.us: ; preds = %.c
   %sext = shl i64 %.0176472, 32
   %338 = ashr exact i64 %sext, 32
   %339 = ashr exact i64 %sext, 30
-  %scevgep498 = getelementptr nuw i8, ptr %5, i64 %339
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %scevgep, ptr nonnull align 4 %scevgep498, i64 %337, i1 false)
+  %scevgep498 = getelementptr i8, ptr %5, i64 %339
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %scevgep, ptr align 4 %scevgep498, i64 %337, i1 false)
   %340 = add i64 %indvars.iv503, %338
   %indvar.next = add nuw nsw i64 %indvar, 1
   %indvars.iv.next504 = add nsw i64 %indvars.iv503, -1

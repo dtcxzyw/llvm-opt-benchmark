@@ -547,7 +547,7 @@ define internal fastcc range(i32 0, 2) i32 @EncodeAlphaInternal(ptr noundef nonn
   %14 = mul nsw i32 %2, %1
   %15 = sext i32 %14 to i64
   %16 = sext i32 %4 to i64
-  %17 = getelementptr inbounds nuw [4 x ptr], ptr @WebPFilters, i64 0, i64 %16
+  %17 = getelementptr inbounds [4 x ptr], ptr @WebPFilters, i64 0, i64 %16
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %20, label %19

@@ -413,7 +413,7 @@ call.i.noexc7:                                    ; preds = %if.end
 
 .noexc9:                                          ; preds = %call.i.noexc7
   %call.i.i4 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %buffer) #15
-  %add.ptr.i5 = getelementptr inbounds nuw i8, ptr %buffer, i64 %call.i.i4
+  %add.ptr.i5 = getelementptr inbounds i8, ptr %buffer, i64 %call.i.i4
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %buffer, ptr noundef nonnull %add.ptr.i5)
           to label %return unwind label %lpad.i6
 
@@ -472,7 +472,7 @@ sw.bb:                                            ; preds = %init.end
 
 if.end:                                           ; preds = %sw.bb
   %idxprom = sext i32 %i to i64
-  %name = getelementptr inbounds nuw [6 x %"struct.rocksdb::OperationProperty"], ptr @_ZN7rocksdbL31compaction_operation_propertiesE, i64 0, i64 %idxprom, i32 1
+  %name = getelementptr inbounds [6 x %"struct.rocksdb::OperationProperty"], ptr @_ZN7rocksdbL31compaction_operation_propertiesE, i64 0, i64 %idxprom, i32 1
   br label %return
 
 sw.bb1:                                           ; preds = %init.end
@@ -481,7 +481,7 @@ sw.bb1:                                           ; preds = %init.end
 
 if.end4:                                          ; preds = %sw.bb1
   %idxprom5 = sext i32 %i to i64
-  %name7 = getelementptr inbounds nuw [3 x %"struct.rocksdb::OperationProperty"], ptr @_ZN7rocksdbL26flush_operation_propertiesE, i64 0, i64 %idxprom5, i32 1
+  %name7 = getelementptr inbounds [3 x %"struct.rocksdb::OperationProperty"], ptr @_ZN7rocksdbL26flush_operation_propertiesE, i64 0, i64 %idxprom5, i32 1
   br label %return
 
 return:                                           ; preds = %init.end, %sw.bb1, %sw.bb, %if.end4, %if.end

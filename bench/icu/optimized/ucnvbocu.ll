@@ -1240,7 +1240,7 @@ cond.false118:                                    ; preds = %if.end112.thread, %
   %incdec.ptr114134 = phi ptr [ %incdec.ptr114130, %if.end112.thread ], [ %incdec.ptr114, %if.end112 ]
   %m.0132 = phi i32 [ 0, %if.end112.thread ], [ %m.0, %if.end112 ]
   %idxprom = sext i32 %m.0132 to i64
-  %arrayidx = getelementptr inbounds nuw [20 x i8], ptr @_ZL16bocu1TrailToByte, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [20 x i8], ptr @_ZL16bocu1TrailToByte, i64 0, i64 %idxprom
   %21 = load i8, ptr %arrayidx, align 1
   br label %cond.end120
 
@@ -1694,7 +1694,7 @@ cond.false130:                                    ; preds = %if.end124.thread, %
   %incdec.ptr126170 = phi ptr [ %incdec.ptr126166, %if.end124.thread ], [ %incdec.ptr126, %if.end124 ]
   %m.0168 = phi i32 [ 0, %if.end124.thread ], [ %m.0, %if.end124 ]
   %idxprom = sext i32 %m.0168 to i64
-  %arrayidx = getelementptr inbounds nuw [20 x i8], ptr @_ZL16bocu1TrailToByte, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [20 x i8], ptr @_ZL16bocu1TrailToByte, i64 0, i64 %idxprom
   %22 = load i8, ptr %arrayidx, align 1
   br label %cond.end132
 
@@ -1906,7 +1906,7 @@ cond.true:                                        ; preds = %if.then2
 
 cond.false:                                       ; preds = %if.then2
   %idxprom = sext i16 %rem102 to i64
-  %arrayidx = getelementptr inbounds nuw [20 x i8], ptr @_ZL16bocu1TrailToByte, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [20 x i8], ptr @_ZL16bocu1TrailToByte, i64 0, i64 %idxprom
   %1 = load i8, ptr %arrayidx, align 1
   %conv = sext i8 %1 to i32
   br label %cond.end
@@ -2195,7 +2195,7 @@ cond.true187:                                     ; preds = %cond.end181
 cond.false189:                                    ; preds = %cond.end181
   %add185 = add nsw i32 %diff.addr.4, 243
   %idxprom190 = sext i32 %add185 to i64
-  %arrayidx191 = getelementptr inbounds nuw [20 x i8], ptr @_ZL16bocu1TrailToByte, i64 0, i64 %idxprom190
+  %arrayidx191 = getelementptr inbounds [20 x i8], ptr @_ZL16bocu1TrailToByte, i64 0, i64 %idxprom190
   %13 = load i8, ptr %arrayidx191, align 1
   %conv192 = sext i8 %13 to i32
   br label %cond.end193

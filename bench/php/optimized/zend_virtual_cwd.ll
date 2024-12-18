@@ -590,19 +590,19 @@ define range(i32 -1, 2) i32 @virtual_file_ex(ptr noundef %0, ptr nocapture nound
   %28 = load ptr, ptr %0, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr align 1 %28, i64 %17, i1 false)
   %29 = add i64 %17, -1
-  %30 = getelementptr inbounds nuw [4096 x i8], ptr %5, i64 0, i64 %29
+  %30 = getelementptr inbounds [4096 x i8], ptr %5, i64 0, i64 %29
   %31 = load i8, ptr %30, align 1
   %32 = icmp eq i8 %31, 47
   br i1 %32, label %33, label %36
 
 33:                                               ; preds = %27
-  %34 = getelementptr inbounds nuw i8, ptr %5, i64 %17
+  %34 = getelementptr inbounds i8, ptr %5, i64 %17
   %35 = add nuw nsw i64 %8, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %34, ptr noundef nonnull align 1 dereferenceable(1) %1, i64 %35, i1 false)
   br label %43
 
 36:                                               ; preds = %27
-  %37 = getelementptr inbounds nuw [4096 x i8], ptr %5, i64 0, i64 %17
+  %37 = getelementptr inbounds [4096 x i8], ptr %5, i64 0, i64 %17
   store i8 47, ptr %37, align 1
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 1
   %39 = add nuw nsw i64 %8, 1
@@ -626,7 +626,7 @@ define range(i32 -1, 2) i32 @virtual_file_ex(ptr noundef %0, ptr nocapture nound
 
 47:                                               ; preds = %43
   %48 = add i64 %.0111, -1
-  %49 = getelementptr inbounds nuw [4096 x i8], ptr %5, i64 0, i64 %48
+  %49 = getelementptr inbounds [4096 x i8], ptr %5, i64 0, i64 %48
   %50 = load i8, ptr %49, align 1
   %51 = icmp eq i8 %50, 47
   br label %52
@@ -663,7 +663,7 @@ define range(i32 -1, 2) i32 @virtual_file_ex(ptr noundef %0, ptr nocapture nound
 
 65:                                               ; preds = %63
   %66 = add i64 %.1, -1
-  %67 = getelementptr inbounds nuw [4096 x i8], ptr %5, i64 0, i64 %66
+  %67 = getelementptr inbounds [4096 x i8], ptr %5, i64 0, i64 %66
   %68 = load i8, ptr %67, align 1
   %69 = icmp eq i8 %68, 47
   br i1 %69, label %75, label %70
@@ -680,7 +680,7 @@ define range(i32 -1, 2) i32 @virtual_file_ex(ptr noundef %0, ptr nocapture nound
 
 75:                                               ; preds = %72, %65, %63
   %.2 = phi i64 [ %.1, %65 ], [ %73, %72 ], [ %.1, %63 ]
-  %76 = getelementptr inbounds nuw [4096 x i8], ptr %5, i64 0, i64 %.2
+  %76 = getelementptr inbounds [4096 x i8], ptr %5, i64 0, i64 %.2
   store i8 0, ptr %76, align 1
   %.not119 = icmp eq ptr %2, null
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 8

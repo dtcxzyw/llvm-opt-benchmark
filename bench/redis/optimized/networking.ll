@@ -3642,15 +3642,15 @@ if.then:                                          ; preds = %entry
   %call = call i32 @d2string(ptr noundef nonnull %add.ptr, i64 noundef 130, double noundef %d) #27
   %add = add nsw i32 %call, 1
   %idxprom = sext i32 %add to i64
-  %arrayidx1 = getelementptr inbounds nuw [131 x i8], ptr %dbuf, i64 0, i64 %idxprom
+  %arrayidx1 = getelementptr inbounds [131 x i8], ptr %dbuf, i64 0, i64 %idxprom
   store i8 13, ptr %arrayidx1, align 1
   %add2 = add nsw i32 %call, 2
   %idxprom3 = sext i32 %add2 to i64
-  %arrayidx4 = getelementptr inbounds nuw [131 x i8], ptr %dbuf, i64 0, i64 %idxprom3
+  %arrayidx4 = getelementptr inbounds [131 x i8], ptr %dbuf, i64 0, i64 %idxprom3
   store i8 10, ptr %arrayidx4, align 1
   %add5 = add nsw i32 %call, 3
   %idxprom6 = sext i32 %add5 to i64
-  %arrayidx7 = getelementptr inbounds nuw [131 x i8], ptr %dbuf, i64 0, i64 %idxprom6
+  %arrayidx7 = getelementptr inbounds [131 x i8], ptr %dbuf, i64 0, i64 %idxprom6
   store i8 0, ptr %arrayidx7, align 1
   %call.i = call i32 @prepareClientToWrite(ptr noundef nonnull %c)
   %cmp.not.i = icmp eq i32 %call.i, 0
@@ -3692,7 +3692,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %val.028 = phi i32 [ %call14, %for.body.preheader ], [ %div, %for.body ]
   %rem = srem i32 %val.028, 10
   %idxprom26 = sext i32 %rem to i64
-  %arrayidx27 = getelementptr inbounds nuw [11 x i8], ptr @.str.24, i64 0, i64 %idxprom26
+  %arrayidx27 = getelementptr inbounds [11 x i8], ptr @.str.24, i64 0, i64 %idxprom26
   %3 = load i8, ptr %arrayidx27, align 1
   %4 = add nuw nsw i64 %indvars.iv, %idxprom21
   %arrayidx30 = getelementptr inbounds nuw [5152 x i8], ptr %dbuf10, i64 0, i64 %4
@@ -3712,15 +3712,15 @@ for.end:                                          ; preds = %for.body, %cond.end
   store i8 10, ptr %arrayidx32, align 2
   %add33 = add nsw i32 %call14, 7
   %idxprom34 = sext i32 %add33 to i64
-  %arrayidx35 = getelementptr inbounds nuw [5152 x i8], ptr %dbuf10, i64 0, i64 %idxprom34
+  %arrayidx35 = getelementptr inbounds [5152 x i8], ptr %dbuf10, i64 0, i64 %idxprom34
   store i8 13, ptr %arrayidx35, align 1
   %add36 = add nsw i32 %call14, 8
   %idxprom37 = sext i32 %add36 to i64
-  %arrayidx38 = getelementptr inbounds nuw [5152 x i8], ptr %dbuf10, i64 0, i64 %idxprom37
+  %arrayidx38 = getelementptr inbounds [5152 x i8], ptr %dbuf10, i64 0, i64 %idxprom37
   store i8 10, ptr %arrayidx38, align 1
   %add39 = add nsw i32 %call14, 9
   %idxprom40 = sext i32 %add39 to i64
-  %arrayidx41 = getelementptr inbounds nuw [5152 x i8], ptr %dbuf10, i64 0, i64 %idxprom40
+  %arrayidx41 = getelementptr inbounds [5152 x i8], ptr %dbuf10, i64 0, i64 %idxprom40
   store i8 0, ptr %arrayidx41, align 1
   %call.i21 = call i32 @prepareClientToWrite(ptr noundef %c)
   %cmp.not.i22 = icmp eq i32 %call.i21, 0
@@ -3986,11 +3986,11 @@ if.end34:                                         ; preds = %if.else23
   %call = call i32 @ll2string(ptr noundef nonnull %add.ptr, i64 noundef 127, i64 noundef %ll) #27
   %add = add nsw i32 %call, 1
   %idxprom = sext i32 %add to i64
-  %arrayidx36 = getelementptr inbounds nuw [128 x i8], ptr %buf, i64 0, i64 %idxprom
+  %arrayidx36 = getelementptr inbounds [128 x i8], ptr %buf, i64 0, i64 %idxprom
   store i8 13, ptr %arrayidx36, align 1
   %add37 = add nsw i32 %call, 2
   %idxprom38 = sext i32 %add37 to i64
-  %arrayidx39 = getelementptr inbounds nuw [128 x i8], ptr %buf, i64 0, i64 %idxprom38
+  %arrayidx39 = getelementptr inbounds [128 x i8], ptr %buf, i64 0, i64 %idxprom38
   store i8 10, ptr %arrayidx39, align 1
   %call.i39 = call i32 @prepareClientToWrite(ptr noundef %c)
   %cmp.not.i40 = icmp eq i32 %call.i39, 0
@@ -4032,11 +4032,11 @@ if.else3:                                         ; preds = %entry
   %call.i = call i32 @ll2string(ptr noundef nonnull %add.ptr.i, i64 noundef 127, i64 noundef %ll) #27
   %add.i = add nsw i32 %call.i, 1
   %idxprom.i = sext i32 %add.i to i64
-  %arrayidx36.i = getelementptr inbounds nuw [128 x i8], ptr %buf.i, i64 0, i64 %idxprom.i
+  %arrayidx36.i = getelementptr inbounds [128 x i8], ptr %buf.i, i64 0, i64 %idxprom.i
   store i8 13, ptr %arrayidx36.i, align 1
   %add37.i = add nsw i32 %call.i, 2
   %idxprom38.i = sext i32 %add37.i to i64
-  %arrayidx39.i = getelementptr inbounds nuw [128 x i8], ptr %buf.i, i64 0, i64 %idxprom38.i
+  %arrayidx39.i = getelementptr inbounds [128 x i8], ptr %buf.i, i64 0, i64 %idxprom38.i
   store i8 10, ptr %arrayidx39.i, align 1
   %call.i39.i = call i32 @prepareClientToWrite(ptr noundef %c)
   %cmp.not.i40.i = icmp eq i32 %call.i39.i, 0
@@ -4161,11 +4161,11 @@ addReplyAggregateLen.exit:                        ; preds = %cond.end
   %call.i = call i32 @ll2string(ptr noundef nonnull %add.ptr.i, i64 noundef 127, i64 noundef %length) #27
   %add.i = add nsw i32 %call.i, 1
   %idxprom.i = sext i32 %add.i to i64
-  %arrayidx36.i = getelementptr inbounds nuw [128 x i8], ptr %buf.i, i64 0, i64 %idxprom.i
+  %arrayidx36.i = getelementptr inbounds [128 x i8], ptr %buf.i, i64 0, i64 %idxprom.i
   store i8 13, ptr %arrayidx36.i, align 1
   %add37.i = add nsw i32 %call.i, 2
   %idxprom38.i = sext i32 %add37.i to i64
-  %arrayidx39.i = getelementptr inbounds nuw [128 x i8], ptr %buf.i, i64 0, i64 %idxprom38.i
+  %arrayidx39.i = getelementptr inbounds [128 x i8], ptr %buf.i, i64 0, i64 %idxprom38.i
   store i8 10, ptr %arrayidx39.i, align 1
   %call.i39.i = call i32 @prepareClientToWrite(ptr noundef nonnull %c)
   %cmp.not.i40.i = icmp eq i32 %call.i39.i, 0
@@ -4224,11 +4224,11 @@ addReplyAggregateLen.exit:                        ; preds = %cond.end11
   %call.i = call i32 @ll2string(ptr noundef nonnull %add.ptr.i, i64 noundef 127, i64 noundef %length) #27
   %add.i = add nsw i32 %call.i, 1
   %idxprom.i = sext i32 %add.i to i64
-  %arrayidx36.i = getelementptr inbounds nuw [128 x i8], ptr %buf.i, i64 0, i64 %idxprom.i
+  %arrayidx36.i = getelementptr inbounds [128 x i8], ptr %buf.i, i64 0, i64 %idxprom.i
   store i8 13, ptr %arrayidx36.i, align 1
   %add37.i = add nsw i32 %call.i, 2
   %idxprom38.i = sext i32 %add37.i to i64
-  %arrayidx39.i = getelementptr inbounds nuw [128 x i8], ptr %buf.i, i64 0, i64 %idxprom38.i
+  %arrayidx39.i = getelementptr inbounds [128 x i8], ptr %buf.i, i64 0, i64 %idxprom38.i
   store i8 10, ptr %arrayidx39.i, align 1
   %call.i39.i = call i32 @prepareClientToWrite(ptr noundef nonnull %c)
   %cmp.not.i40.i = icmp eq i32 %call.i39.i, 0
@@ -4657,7 +4657,7 @@ if.else:                                          ; preds = %entry
   %add = add i64 %len, 4
   %call = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf, i64 noundef 32, ptr noundef nonnull @.str.34, i64 noundef %add) #27
   %conv = sext i32 %call to i64
-  %add.ptr = getelementptr inbounds nuw i8, ptr %buf, i64 %conv
+  %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %conv
   %add.ptr2 = getelementptr inbounds i8, ptr %add.ptr, i64 -4
   br label %for.body
 
@@ -14410,9 +14410,9 @@ entry:
   call void @makeThreadKillable() #27
   %sext = shl i64 %0, 32
   %idxprom.i = ashr exact i64 %sext, 32
-  %arrayidx.i = getelementptr inbounds nuw [128 x %struct.threads_pending], ptr @io_threads_pending, i64 0, i64 %idxprom.i
-  %arrayidx22 = getelementptr inbounds nuw [128 x ptr], ptr @io_threads_list, i64 0, i64 %0
-  %arrayidx = getelementptr inbounds nuw [128 x %union.pthread_mutex_t], ptr @io_threads_mutex, i64 0, i64 %0
+  %arrayidx.i = getelementptr inbounds [128 x %struct.threads_pending], ptr @io_threads_pending, i64 0, i64 %idxprom.i
+  %arrayidx22 = getelementptr inbounds [128 x ptr], ptr @io_threads_list, i64 0, i64 %0
+  %arrayidx = getelementptr inbounds [128 x %union.pthread_mutex_t], ptr @io_threads_mutex, i64 0, i64 %0
   br label %for.body
 
 for.body:                                         ; preds = %for.body.backedge, %entry

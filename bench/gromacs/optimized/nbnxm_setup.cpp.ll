@@ -572,10 +572,10 @@ switch.lookup:                                    ; preds = %78
   store i8 1, ptr %83, align 8
   %switch.tableidx = add nsw i32 %.sroa.06.0.i, -1
   %84 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN5Nbnxm14init_nb_verletERKN3gmx8MDLoggerERK10t_inputrecRK10t_forcerecPK9t_commrecRK13gmx_hw_info_tbPKNS0_19DeviceStreamManagerERK10gmx_mtop_tPNS0_25ObservablesReducerBuilderENS0_8ArrayRefIKNS0_11BasicVectorIfEEEEPA3_fP13gmx_wallcycle.27, i64 0, i64 %84
+  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN5Nbnxm14init_nb_verletERKN3gmx8MDLoggerERK10t_inputrecRK10t_forcerecPK9t_commrecRK13gmx_hw_info_tbPKNS0_19DeviceStreamManagerERK10gmx_mtop_tPNS0_25ObservablesReducerBuilderENS0_8ArrayRefIKNS0_11BasicVectorIfEEEEPA3_fP13gmx_wallcycle.27, i64 0, i64 %84
   %switch.load = load ptr, ptr %switch.gep, align 8
   %85 = sext i32 %switch.tableidx to i64
-  %switch.gep138 = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN5Nbnxm14init_nb_verletERKN3gmx8MDLoggerERK10t_inputrecRK10t_forcerecPK9t_commrecRK13gmx_hw_info_tbPKNS0_19DeviceStreamManagerERK10gmx_mtop_tPNS0_25ObservablesReducerBuilderENS0_8ArrayRefIKNS0_11BasicVectorIfEEEEPA3_fP13gmx_wallcycle.26, i64 0, i64 %85
+  %switch.gep138 = getelementptr inbounds [5 x i32], ptr @switch.table._ZN5Nbnxm14init_nb_verletERKN3gmx8MDLoggerERK10t_inputrecRK10t_forcerecPK9t_commrecRK13gmx_hw_info_tbPKNS0_19DeviceStreamManagerERK10gmx_mtop_tPNS0_25ObservablesReducerBuilderENS0_8ArrayRefIKNS0_11BasicVectorIfEEEEPA3_fP13gmx_wallcycle.26, i64 0, i64 %85
   %switch.load139 = load i32, ptr %switch.gep138, align 4
   %switch30.i = icmp eq i32 %.sroa.06.0.i, 2
   %spec.select.i = select i1 %switch30.i, i32 8, i32 4

@@ -523,7 +523,7 @@ define internal fastcc void @_ZL14add_selectionsPP12LogSelectionPmS2_RK9LogTagSe
 
 .lr.ph70:                                         ; preds = %._crit_edge, %.loopexit
   %.04768 = phi i64 [ %63, %.loopexit ], [ 0, %._crit_edge ]
-  %16 = getelementptr inbounds nuw [32 x [5 x i32]], ptr %8, i64 0, i64 %.04768
+  %16 = getelementptr inbounds [32 x [5 x i32]], ptr %8, i64 0, i64 %.04768
   br label %17
 
 17:                                               ; preds = %17, %.lr.ph70

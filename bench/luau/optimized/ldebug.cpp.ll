@@ -1542,7 +1542,7 @@ define dso_local noundef nonnull ptr @_Z14lua_debugtraceP9lua_State(ptr noundef 
   %27 = icmp ugt i64 %26, 4095
   %28 = sub i64 4095, %.01623
   %29 = select i1 %27, i64 %28, i64 %25
-  %30 = getelementptr inbounds nuw i8, ptr @_ZZ14lua_debugtraceP9lua_StateE3buf, i64 %.01623
+  %30 = getelementptr inbounds i8, ptr @_ZZ14lua_debugtraceP9lua_StateE3buf, i64 %.01623
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr readonly align 1 %24, i64 %29, i1 false)
   %31 = add i64 %29, %.01623
   br label %32
@@ -1560,7 +1560,7 @@ define dso_local noundef nonnull ptr @_Z14lua_debugtraceP9lua_State(ptr noundef 
   %39 = icmp ugt i64 %38, 4095
   %40 = sub i64 4095, %.117
   %41 = select i1 %39, i64 %40, i64 %37
-  %42 = getelementptr inbounds nuw i8, ptr @_ZZ14lua_debugtraceP9lua_StateE3buf, i64 %.117
+  %42 = getelementptr inbounds i8, ptr @_ZZ14lua_debugtraceP9lua_StateE3buf, i64 %.117
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %42, ptr nonnull readonly align 16 %3, i64 %41, i1 false)
   %43 = add i64 %41, %.117
   br label %44
@@ -1576,7 +1576,7 @@ define dso_local noundef nonnull ptr @_Z14lua_debugtraceP9lua_State(ptr noundef 
   %48 = icmp ult i64 %47, -4096
   %49 = sub i64 4095, %.2
   %50 = select i1 %48, i64 %49, i64 10
-  %51 = getelementptr inbounds nuw i8, ptr @_ZZ14lua_debugtraceP9lua_StateE3buf, i64 %.2
+  %51 = getelementptr inbounds i8, ptr @_ZZ14lua_debugtraceP9lua_StateE3buf, i64 %.2
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %51, ptr nonnull align 1 @.str.15, i64 %50, i1 false)
   %52 = add i64 %50, %.2
   %53 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %45) #16
@@ -1584,7 +1584,7 @@ define dso_local noundef nonnull ptr @_Z14lua_debugtraceP9lua_State(ptr noundef 
   %55 = icmp ugt i64 %54, 4095
   %56 = sub i64 4095, %52
   %57 = select i1 %55, i64 %56, i64 %53
-  %58 = getelementptr inbounds nuw i8, ptr @_ZZ14lua_debugtraceP9lua_StateE3buf, i64 %52
+  %58 = getelementptr inbounds i8, ptr @_ZZ14lua_debugtraceP9lua_StateE3buf, i64 %52
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %58, ptr nonnull readonly align 1 %45, i64 %57, i1 false)
   %59 = add i64 %57, %52
   br label %60
@@ -1595,7 +1595,7 @@ define dso_local noundef nonnull ptr @_Z14lua_debugtraceP9lua_State(ptr noundef 
   %62 = icmp ult i64 %61, -4096
   %63 = sub i64 4095, %.3
   %64 = select i1 %62, i64 %63, i64 1
-  %65 = getelementptr inbounds nuw i8, ptr @_ZZ14lua_debugtraceP9lua_StateE3buf, i64 %.3
+  %65 = getelementptr inbounds i8, ptr @_ZZ14lua_debugtraceP9lua_StateE3buf, i64 %.3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %65, ptr nonnull align 1 @.str.16, i64 %64, i1 false)
   %66 = add i64 %64, %.3
   %67 = icmp eq i32 %.024, 9
@@ -1609,7 +1609,7 @@ define dso_local noundef nonnull ptr @_Z14lua_debugtraceP9lua_State(ptr noundef 
   %72 = icmp ugt i64 %71, 4095
   %73 = sub i64 4095, %66
   %74 = select i1 %72, i64 %73, i64 %70
-  %75 = getelementptr inbounds nuw i8, ptr @_ZZ14lua_debugtraceP9lua_StateE3buf, i64 %66
+  %75 = getelementptr inbounds i8, ptr @_ZZ14lua_debugtraceP9lua_StateE3buf, i64 %66
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %75, ptr nonnull readonly align 16 %4, i64 %74, i1 false)
   %76 = add i64 %74, %66
   br label %77
@@ -1624,7 +1624,7 @@ define dso_local noundef nonnull ptr @_Z14lua_debugtraceP9lua_State(ptr noundef 
 
 ._crit_edge:                                      ; preds = %77, %1
   %.016.lcssa = phi i64 [ 0, %1 ], [ %.4, %77 ]
-  %80 = getelementptr inbounds nuw [4096 x i8], ptr @_ZZ14lua_debugtraceP9lua_StateE3buf, i64 0, i64 %.016.lcssa
+  %80 = getelementptr inbounds [4096 x i8], ptr @_ZZ14lua_debugtraceP9lua_StateE3buf, i64 0, i64 %.016.lcssa
   store i8 0, ptr %80, align 1
   ret ptr @_ZZ14lua_debugtraceP9lua_StateE3buf
 }

@@ -1798,7 +1798,7 @@ define void @Res6_ManResubCheck(ptr noundef %0, ptr noundef readonly %1, i32 nou
 8:                                                ; preds = %3
   %9 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %0) #18
   %10 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #22
-  %11 = getelementptr inbounds nuw i8, ptr %5, i64 %10
+  %11 = getelementptr inbounds i8, ptr %5, i64 %10
   %12 = getelementptr inbounds i8, ptr %11, i64 -6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %12, ptr noundef nonnull align 1 dereferenceable(5) @.str.24, i64 5, i1 false) #18
   br label %13

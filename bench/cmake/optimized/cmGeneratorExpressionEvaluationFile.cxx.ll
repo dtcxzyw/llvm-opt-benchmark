@@ -479,7 +479,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   %136 = load ptr, ptr %15, align 8
   %137 = getelementptr i8, ptr %136, i64 -24
   %138 = load i64, ptr %137, align 8
-  %139 = getelementptr inbounds nuw i8, ptr %15, i64 %138
+  %139 = getelementptr inbounds i8, ptr %15, i64 %138
   %140 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %139)
           to label %141 unwind label %145
 
@@ -1203,7 +1203,7 @@ _ZN10cmMakefile18AddCMakeDependFileERKNSt7__cxx1112basic_stringIcSt11char_traits
   %49 = load ptr, ptr %5, align 8
   %50 = getelementptr i8, ptr %49, i64 -24
   %51 = load i64, ptr %50, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %5, i64 %51
+  %52 = getelementptr inbounds i8, ptr %5, i64 %51
   %53 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %52)
           to label %54 unwind label %65
 

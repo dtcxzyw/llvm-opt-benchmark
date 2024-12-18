@@ -2173,12 +2173,12 @@ define hidden range(i32 0, 189) i32 @threadControl_addDebugThread(ptr noundef %0
   %6 = tail call ptr @getEnv() #6
   %7 = load i32, ptr @debugThreadCount, align 4
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds nuw [10 x ptr], ptr @debugThreads, i64 0, i64 %8
+  %9 = getelementptr inbounds [10 x ptr], ptr @debugThreads, i64 0, i64 %8
   store ptr null, ptr %9, align 8
   tail call void @saveGlobalRef(ptr noundef %6, ptr noundef %0, ptr noundef nonnull %9) #6
   %10 = load i32, ptr @debugThreadCount, align 4
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds nuw [10 x ptr], ptr @debugThreads, i64 0, i64 %11
+  %12 = getelementptr inbounds [10 x ptr], ptr @debugThreads, i64 0, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %17, label %15

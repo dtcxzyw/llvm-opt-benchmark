@@ -1490,7 +1490,7 @@ if.then.i.i:                                      ; preds = %if.end4
 
 if.else.i.i:                                      ; preds = %if.end4
   %idxprom.i.i = sext i32 %0 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.i
   br label %is_null_oid.exit
 
 is_null_oid.exit:                                 ; preds = %if.then.i.i, %if.else.i.i
@@ -1518,7 +1518,7 @@ if.then.i.i44:                                    ; preds = %if.else
 
 if.else.i.i34:                                    ; preds = %if.else
   %idxprom.i.i35 = sext i32 %4 to i64
-  %arrayidx.i.i36 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.i35
+  %arrayidx.i.i36 = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.i35
   br label %is_null_oid.exit46
 
 is_null_oid.exit46:                               ; preds = %if.then.i.i44, %if.else.i.i34
@@ -1557,7 +1557,7 @@ if.then.i.i60:                                    ; preds = %if.end17
 
 if.else.i.i50:                                    ; preds = %if.end17
   %idxprom.i.i51 = sext i32 %8 to i64
-  %arrayidx.i.i52 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.i51
+  %arrayidx.i.i52 = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.i51
   br label %is_null_oid.exit62
 
 is_null_oid.exit62:                               ; preds = %if.then.i.i60, %if.else.i.i50
@@ -1594,7 +1594,7 @@ if.then.i.i76:                                    ; preds = %lor.lhs.false
 
 if.else.i.i66:                                    ; preds = %lor.lhs.false
   %idxprom.i.i67 = sext i32 %13 to i64
-  %arrayidx.i.i68 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.i67
+  %arrayidx.i.i68 = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.i67
   br label %is_null_oid.exit78
 
 is_null_oid.exit78:                               ; preds = %if.then.i.i76, %if.else.i.i66
@@ -1647,7 +1647,7 @@ if.then.i:                                        ; preds = %if.end39
 
 if.else.i:                                        ; preds = %if.end39
   %idxprom.i = sext i32 %22 to i64
-  %arrayidx.i = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i
   br label %oideq.exit
 
 oideq.exit:                                       ; preds = %if.then.i, %if.else.i
@@ -1747,7 +1747,7 @@ if.then.i.i:                                      ; preds = %lor.lhs.false
 
 if.else.i.i:                                      ; preds = %lor.lhs.false
   %idxprom.i.i = sext i32 %4 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.i
   br label %is_null_oid.exit
 
 is_null_oid.exit:                                 ; preds = %if.then.i.i, %if.else.i.i
@@ -1780,7 +1780,7 @@ if.then.i.i41:                                    ; preds = %lor.lhs.false7
 
 if.else.i.i31:                                    ; preds = %lor.lhs.false7
   %idxprom.i.i32 = sext i32 %9 to i64
-  %arrayidx.i.i33 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.i32
+  %arrayidx.i.i33 = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.i32
   br label %is_null_oid.exit43
 
 is_null_oid.exit43:                               ; preds = %if.then.i.i41, %if.else.i.i31
@@ -2532,7 +2532,7 @@ if.then.i.i:                                      ; preds = %if.end
 
 if.else.i.i:                                      ; preds = %if.end
   %idxprom.i.i = sext i32 %1 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.i
   br label %is_null_oid.exit
 
 is_null_oid.exit:                                 ; preds = %if.then.i.i, %if.else.i.i

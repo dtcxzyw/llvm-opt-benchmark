@@ -3110,7 +3110,7 @@ if.then10:                                        ; preds = %if.end6
 
 if.end12:                                         ; preds = %if.end6
   %sub = add nsw i64 %conv, -1
-  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr @.str.33, i64 0, i64 %sub
+  %arrayidx = getelementptr inbounds [4 x i8], ptr @.str.33, i64 0, i64 %sub
   %6 = load i8, ptr %arrayidx, align 1
   %conv1.i = uitofp nneg i64 %conv to double
   %mul = fmul double %conv1.i, 1.000000e+01

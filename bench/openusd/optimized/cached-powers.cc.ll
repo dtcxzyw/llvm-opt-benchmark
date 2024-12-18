@@ -18,7 +18,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion16Power
   %11 = sdiv i32 %10, 8
   %12 = add nsw i32 %11, 1
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds nuw [87 x %"struct.pxrInternal_v0_24__pxrReserved__::pxr_double_conversion::PowersOfTenCache::CachedPower"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion16PowersOfTenCacheL13kCachedPowersE, i64 0, i64 %13
+  %14 = getelementptr inbounds [87 x %"struct.pxrInternal_v0_24__pxrReserved__::pxr_double_conversion::PowersOfTenCache::CachedPower"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion16PowersOfTenCacheL13kCachedPowersE, i64 0, i64 %13
   %.sroa.0.0.copyload = load i64, ptr %14, align 16
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.sroa.2.0.copyload = load i16, ptr %.sroa.2.0..sroa_idx, align 8
@@ -41,7 +41,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion16Power
   %4 = add nsw i32 %0, 348
   %5 = sdiv i32 %4, 8
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds nuw [87 x %"struct.pxrInternal_v0_24__pxrReserved__::pxr_double_conversion::PowersOfTenCache::CachedPower"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion16PowersOfTenCacheL13kCachedPowersE, i64 0, i64 %6
+  %7 = getelementptr inbounds [87 x %"struct.pxrInternal_v0_24__pxrReserved__::pxr_double_conversion::PowersOfTenCache::CachedPower"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion16PowersOfTenCacheL13kCachedPowersE, i64 0, i64 %6
   %.sroa.0.0.copyload = load i64, ptr %7, align 16
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.2.0.copyload = load i16, ptr %.sroa.2.0..sroa_idx, align 8

@@ -133,10 +133,10 @@ define hidden range(i32 0, 2) i32 @QuantizeLevels(ptr noundef %0, i32 noundef %1
   br i1 %57, label %58, label %.critedge
 
 58:                                               ; preds = %56
-  %59 = getelementptr inbounds nuw [256 x double], ptr %8, i64 0, i64 %indvars.iv175
+  %59 = getelementptr inbounds [256 x double], ptr %8, i64 0, i64 %indvars.iv175
   %60 = load double, ptr %59, align 8
   %indvars.iv.next176 = add nsw i64 %indvars.iv175, 1
-  %61 = getelementptr inbounds nuw [256 x double], ptr %8, i64 0, i64 %indvars.iv.next176
+  %61 = getelementptr inbounds [256 x double], ptr %8, i64 0, i64 %indvars.iv.next176
   %62 = load double, ptr %61, align 8
   %63 = fadd double %60, %62
   %64 = fcmp olt double %63, %54
@@ -158,12 +158,12 @@ define hidden range(i32 0, 2) i32 @QuantizeLevels(ptr noundef %0, i32 noundef %1
   %71 = mul nuw nsw i32 %67, %70
   %72 = sitofp i32 %71 to double
   %73 = sext i32 %.1109.lcssa to i64
-  %74 = getelementptr inbounds nuw [256 x double], ptr %9, i64 0, i64 %73
+  %74 = getelementptr inbounds [256 x double], ptr %9, i64 0, i64 %73
   %75 = load double, ptr %74, align 8
   %76 = fadd double %75, %72
   store double %76, ptr %74, align 8
   %77 = uitofp nneg i32 %67 to double
-  %78 = getelementptr inbounds nuw [256 x double], ptr %10, i64 0, i64 %73
+  %78 = getelementptr inbounds [256 x double], ptr %10, i64 0, i64 %73
   %79 = load double, ptr %78, align 8
   %80 = fadd double %79, %77
   store double %80, ptr %78, align 8
@@ -210,7 +210,7 @@ define hidden range(i32 0, 2) i32 @QuantizeLevels(ptr noundef %0, i32 noundef %1
   %94 = getelementptr inbounds nuw [256 x i32], ptr %7, i64 0, i64 %indvars.iv188
   %95 = load i32, ptr %94, align 4
   %96 = sext i32 %95 to i64
-  %97 = getelementptr inbounds nuw [256 x double], ptr %8, i64 0, i64 %96
+  %97 = getelementptr inbounds [256 x double], ptr %8, i64 0, i64 %96
   %98 = load double, ptr %97, align 8
   %99 = fsub double %93, %98
   %100 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %indvars.iv188
@@ -246,7 +246,7 @@ define hidden range(i32 0, 2) i32 @QuantizeLevels(ptr noundef %0, i32 noundef %1
   %109 = getelementptr inbounds nuw [256 x i32], ptr %7, i64 0, i64 %indvars.iv194
   %110 = load i32, ptr %109, align 4
   %111 = sext i32 %110 to i64
-  %112 = getelementptr inbounds nuw [256 x double], ptr %8, i64 0, i64 %111
+  %112 = getelementptr inbounds [256 x double], ptr %8, i64 0, i64 %111
   %113 = load double, ptr %112, align 8
   %114 = fadd double %113, 5.000000e-01
   %115 = fptoui double %114 to i8

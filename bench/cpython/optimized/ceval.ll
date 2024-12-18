@@ -16933,7 +16933,7 @@ TARGET_SET_FUNCTION_ATTRIBUTE:                    ; preds = %indirectgoto
   %2014 = load ptr, ptr %arrayidx10110, align 8
   %switch.tableidx = add nsw i32 %oparg.0, -1
   %2015 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table._PyEval_EvalFrameDefault.53, i64 0, i64 %2015
+  %switch.gep = getelementptr inbounds [8 x i64], ptr @switch.table._PyEval_EvalFrameDefault.53, i64 0, i64 %2015
   %switch.load = load i64, ptr %switch.gep, align 8
   %func_defaults10117 = getelementptr inbounds nuw i8, ptr %2013, i64 %switch.load
   store ptr %2014, ptr %func_defaults10117, align 8
@@ -28415,7 +28415,7 @@ sw.bb18914:                                       ; preds = %for.cond12062
   %3925 = load ptr, ptr %arrayidx18921, align 8
   %switch.tableidx13986 = add nsw i16 %3923, -1
   %3926 = sext i16 %switch.tableidx13986 to i64
-  %switch.gep13987 = getelementptr inbounds nuw [8 x i64], ptr @switch.table._PyEval_EvalFrameDefault.53, i64 0, i64 %3926
+  %switch.gep13987 = getelementptr inbounds [8 x i64], ptr @switch.table._PyEval_EvalFrameDefault.53, i64 0, i64 %3926
   %switch.load13988 = load i64, ptr %switch.gep13987, align 8
   %func_defaults18930 = getelementptr inbounds nuw i8, ptr %3924, i64 %switch.load13988
   store ptr %3925, ptr %func_defaults18930, align 8

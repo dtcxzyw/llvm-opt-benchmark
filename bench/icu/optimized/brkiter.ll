@@ -654,7 +654,7 @@ if.end41:                                         ; preds = %invoke.cont38, %inv
   %len.0 = phi i64 [ %sub.ptr.div, %invoke.cont38 ], [ 0, %invoke.cont33 ]
   %sext = shl i64 %len.0, 32
   %idxprom = ashr exact i64 %sext, 32
-  %arrayidx = getelementptr inbounds nuw [256 x i8], ptr %fnbuff, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [256 x i8], ptr %fnbuff, i64 0, i64 %idxprom
   store i8 0, ptr %arrayidx, align 1
   br label %if.end43
 
@@ -1351,7 +1351,7 @@ invoke.cont23:                                    ; preds = %land.rhs.i40
 if.then25:                                        ; preds = %land.rhs.i40, %land.rhs.i31, %land.rhs.i, %invoke.cont23, %invoke.cont18, %invoke.cont14
   %18 = phi ptr [ %.pre, %land.rhs.i40 ], [ %.pre72, %land.rhs.i31 ], [ %.pre73, %land.rhs.i ], [ %.pre, %invoke.cont23 ], [ %.pre72, %invoke.cont18 ], [ %.pre73, %invoke.cont14 ]
   %strlen = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %lb_lw)
-  %endptr = getelementptr inbounds nuw i8, ptr %lb_lw, i64 %strlen
+  %endptr = getelementptr inbounds i8, ptr %lb_lw, i64 %strlen
   store i16 95, ptr %endptr, align 1
   %call31 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %lb_lw, ptr noundef nonnull dereferenceable(1) %18) #19
   br label %if.end32
@@ -1422,7 +1422,7 @@ invoke.cont53:                                    ; preds = %land.rhs.i53
 
 if.then55:                                        ; preds = %land.rhs.i53, %invoke.cont53
   %strlen21 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %lb_lw)
-  %endptr22 = getelementptr inbounds nuw i8, ptr %lb_lw, i64 %strlen21
+  %endptr22 = getelementptr inbounds i8, ptr %lb_lw, i64 %strlen21
   store i16 95, ptr %endptr22, align 1
   %call61 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %lb_lw, ptr noundef nonnull dereferenceable(1) %.pre74) #19
   br label %if.end63

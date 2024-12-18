@@ -1658,14 +1658,14 @@ _ZN4llvm16itanium_demangle12OutputBufferlsEc.exit: ; preds = %8, %._ZN4llvm16ita
   %29 = trunc nuw nsw i64 %28 to i8
   %30 = or disjoint i8 %29, 48
   %.0.add.i.i.i = add nsw i64 %.0.idx.i.i.i, -1
-  %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 %.0.add.i.i.i
+  %.ptr.i.i.i = getelementptr inbounds i8, ptr %4, i64 %.0.add.i.i.i
   store i8 %30, ptr %.ptr.i.i.i, align 1
   %31 = udiv i64 %.08.i.i.i, 10
   %.not.i.i.i = icmp ult i64 %.08.i.i.i, 10
   br i1 %.not.i.i.i, label %32, label %27, !llvm.loop !6
 
 32:                                               ; preds = %27
-  %.ptr.i.i.i.le = getelementptr inbounds nuw i8, ptr %4, i64 %.0.add.i.i.i
+  %.ptr.i.i.i.le = getelementptr inbounds i8, ptr %4, i64 %.0.add.i.i.i
   %gepdiff.i.i.i = sub nsw i64 22, %.0.idx.i.i.i
   %.not.i.i.i.i = icmp eq i64 %.0.add.i.i.i, 21
   br i1 %.not.i.i.i.i, label %_ZN4llvm16itanium_demangle12OutputBufferlsEm.exit, label %33
@@ -1876,7 +1876,7 @@ _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_trait
   %81 = trunc nuw nsw i64 %80 to i8
   %82 = or disjoint i8 %81, 48
   %.0.add.i.i.i = add nsw i64 %.0.idx.i.i.i, -1
-  %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 %.0.add.i.i.i
+  %.ptr.i.i.i = getelementptr inbounds i8, ptr %5, i64 %.0.add.i.i.i
   store i8 %82, ptr %.ptr.i.i.i, align 1
   %83 = udiv i64 %.08.i.i.i, 10
   %.not.i.i.i = icmp samesign ult i64 %.08.i.i.i, 10
@@ -1888,13 +1888,13 @@ _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_trait
 
 86:                                               ; preds = %84
   %.0.add9.i.i.i = add nsw i64 %.0.idx.i.i.i, -2
-  %.ptr10.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 %.0.add9.i.i.i
+  %.ptr10.i.i.i = getelementptr inbounds i8, ptr %5, i64 %.0.add9.i.i.i
   store i8 45, ptr %.ptr10.i.i.i, align 1
   br label %87
 
 87:                                               ; preds = %86, %84
   %.1.idx.i.i.i = phi i64 [ %.0.add9.i.i.i, %86 ], [ %.0.add.i.i.i, %84 ]
-  %.1.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 %.1.idx.i.i.i
+  %.1.ptr.i.i.i = getelementptr inbounds i8, ptr %5, i64 %.1.idx.i.i.i
   %gepdiff.i.i.i = sub nsw i64 21, %.1.idx.i.i.i
   %.not.i.i.i.i = icmp eq i64 %.1.idx.i.i.i, 21
   br i1 %.not.i.i.i.i, label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit26.thread66, label %88
@@ -1999,7 +1999,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i29: ; preds = %._ZN4llvm
   %131 = trunc nuw nsw i64 %130 to i8
   %132 = or disjoint i8 %131, 48
   %.0.add.i.i.i36 = add nsw i64 %.0.idx.i.i.i35, -1
-  %.ptr.i.i.i37 = getelementptr inbounds nuw i8, ptr %4, i64 %.0.add.i.i.i36
+  %.ptr.i.i.i37 = getelementptr inbounds i8, ptr %4, i64 %.0.add.i.i.i36
   store i8 %132, ptr %.ptr.i.i.i37, align 1
   %133 = udiv i64 %.08.i.i.i34, 10
   %.not.i.i.i38 = icmp samesign ult i64 %.08.i.i.i34, 10
@@ -2011,13 +2011,13 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i29: ; preds = %._ZN4llvm
 
 136:                                              ; preds = %134
   %.0.add9.i.i.i48 = add nsw i64 %.0.idx.i.i.i35, -2
-  %.ptr10.i.i.i49 = getelementptr inbounds nuw i8, ptr %4, i64 %.0.add9.i.i.i48
+  %.ptr10.i.i.i49 = getelementptr inbounds i8, ptr %4, i64 %.0.add9.i.i.i48
   store i8 45, ptr %.ptr10.i.i.i49, align 1
   br label %137
 
 137:                                              ; preds = %136, %134
   %.1.idx.i.i.i39 = phi i64 [ %.0.add9.i.i.i48, %136 ], [ %.0.add.i.i.i36, %134 ]
-  %.1.ptr.i.i.i40 = getelementptr inbounds nuw i8, ptr %4, i64 %.1.idx.i.i.i39
+  %.1.ptr.i.i.i40 = getelementptr inbounds i8, ptr %4, i64 %.1.idx.i.i.i39
   %gepdiff.i.i.i41 = sub nsw i64 21, %.1.idx.i.i.i39
   %.not.i.i.i.i42 = icmp eq i64 %.1.idx.i.i.i39, 21
   br i1 %.not.i.i.i.i42, label %_ZN4llvm16itanium_demangle12OutputBufferlsEl.exit50, label %138
@@ -2942,14 +2942,14 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i13: ; preds = %._ZN4llvm
   %61 = trunc nuw nsw i64 %60 to i8
   %62 = or disjoint i8 %61, 48
   %.0.add.i.i.i = add nsw i64 %.0.idx.i.i.i, -1
-  %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 %.0.add.i.i.i
+  %.ptr.i.i.i = getelementptr inbounds i8, ptr %4, i64 %.0.add.i.i.i
   store i8 %62, ptr %.ptr.i.i.i, align 1
   %63 = udiv i64 %.08.i.i.i, 10
   %.not.i.i.i = icmp samesign ult i64 %.08.i.i.i, 10
   br i1 %.not.i.i.i, label %64, label %59, !llvm.loop !6
 
 64:                                               ; preds = %59
-  %.ptr.i.i.i.le = getelementptr inbounds nuw i8, ptr %4, i64 %.0.add.i.i.i
+  %.ptr.i.i.i.le = getelementptr inbounds i8, ptr %4, i64 %.0.add.i.i.i
   %gepdiff.i.i.i = sub nsw i64 22, %.0.idx.i.i.i
   %.not.i.i.i.i = icmp eq i64 %.0.add.i.i.i, 21
   br i1 %.not.i.i.i.i, label %_ZN4llvm16itanium_demangle12OutputBufferlsEj.exit, label %65
@@ -4693,14 +4693,14 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
   %38 = trunc nuw nsw i64 %37 to i8
   %39 = or disjoint i8 %38, 48
   %.0.add.i.i.i = add nsw i64 %.0.idx.i.i.i, -1
-  %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 %.0.add.i.i.i
+  %.ptr.i.i.i = getelementptr inbounds i8, ptr %10, i64 %.0.add.i.i.i
   store i8 %39, ptr %.ptr.i.i.i, align 1
   %40 = udiv i64 %.08.i.i.i, 10
   %.not.i.i.i = icmp samesign ult i64 %.08.i.i.i, 10
   br i1 %.not.i.i.i, label %41, label %36, !llvm.loop !6
 
 41:                                               ; preds = %36
-  %.ptr.i.i.i.le = getelementptr inbounds nuw i8, ptr %10, i64 %.0.add.i.i.i
+  %.ptr.i.i.i.le = getelementptr inbounds i8, ptr %10, i64 %.0.add.i.i.i
   %gepdiff.i.i.i = sub nsw i64 22, %.0.idx.i.i.i
   %.not.i.i.i.i = icmp eq i64 %.0.add.i.i.i, 21
   br i1 %.not.i.i.i.i, label %_ZN4llvm16itanium_demangle12OutputBufferlsEj.exit, label %42
@@ -4837,7 +4837,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i16: ; preds = %._ZN4llvm
   %100 = trunc nuw nsw i64 %99 to i8
   %101 = or disjoint i8 %100, 48
   %.0.add.i.i.i23 = add nsw i64 %.0.idx.i.i.i22, -1
-  %.ptr.i.i.i24 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.add.i.i.i23
+  %.ptr.i.i.i24 = getelementptr inbounds i8, ptr %9, i64 %.0.add.i.i.i23
   store i8 %101, ptr %.ptr.i.i.i24, align 1
   %102 = udiv i64 %.08.i.i.i21, 10
   %.not.i.i.i25 = icmp samesign ult i64 %.08.i.i.i21, 10
@@ -4850,13 +4850,13 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i16: ; preds = %._ZN4llvm
 
 106:                                              ; preds = %103
   %.0.add9.i.i.i = add nsw i64 %.0.idx.i.i.i22, -2
-  %.ptr10.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 %.0.add9.i.i.i
+  %.ptr10.i.i.i = getelementptr inbounds i8, ptr %9, i64 %.0.add9.i.i.i
   store i8 45, ptr %.ptr10.i.i.i, align 1
   br label %107
 
 107:                                              ; preds = %106, %103
   %.1.idx.i.i.i = phi i64 [ %.0.add9.i.i.i, %106 ], [ %.0.add.i.i.i23, %103 ]
-  %.1.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 %.1.idx.i.i.i
+  %.1.ptr.i.i.i = getelementptr inbounds i8, ptr %9, i64 %.1.idx.i.i.i
   %gepdiff.i.i.i26 = sub nsw i64 21, %.1.idx.i.i.i
   %.not.i.i.i.i27 = icmp eq i64 %.1.idx.i.i.i, 21
   br i1 %.not.i.i.i.i27, label %_ZN4llvm16itanium_demangle12OutputBufferlsEi.exit, label %108
@@ -4945,7 +4945,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i35: ; preds = %._ZN4llvm
   %144 = trunc nuw nsw i64 %143 to i8
   %145 = or disjoint i8 %144, 48
   %.0.add.i.i.i42 = add nsw i64 %.0.idx.i.i.i41, -1
-  %.ptr.i.i.i43 = getelementptr inbounds nuw i8, ptr %8, i64 %.0.add.i.i.i42
+  %.ptr.i.i.i43 = getelementptr inbounds i8, ptr %8, i64 %.0.add.i.i.i42
   store i8 %145, ptr %.ptr.i.i.i43, align 1
   %146 = udiv i64 %.08.i.i.i40, 10
   %.not.i.i.i44 = icmp samesign ult i64 %.08.i.i.i40, 10
@@ -4957,13 +4957,13 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i35: ; preds = %._ZN4llvm
 
 149:                                              ; preds = %147
   %.0.add9.i.i.i54 = add nsw i64 %.0.idx.i.i.i41, -2
-  %.ptr10.i.i.i55 = getelementptr inbounds nuw i8, ptr %8, i64 %.0.add9.i.i.i54
+  %.ptr10.i.i.i55 = getelementptr inbounds i8, ptr %8, i64 %.0.add9.i.i.i54
   store i8 45, ptr %.ptr10.i.i.i55, align 1
   br label %150
 
 150:                                              ; preds = %149, %147
   %.1.idx.i.i.i45 = phi i64 [ %.0.add9.i.i.i54, %149 ], [ %.0.add.i.i.i42, %147 ]
-  %.1.ptr.i.i.i46 = getelementptr inbounds nuw i8, ptr %8, i64 %.1.idx.i.i.i45
+  %.1.ptr.i.i.i46 = getelementptr inbounds i8, ptr %8, i64 %.1.idx.i.i.i45
   %gepdiff.i.i.i47 = sub nsw i64 21, %.1.idx.i.i.i45
   %.not.i.i.i.i48 = icmp eq i64 %.1.idx.i.i.i45, 21
   br i1 %.not.i.i.i.i48, label %_ZN4llvm16itanium_demangle12OutputBufferlsEi.exit56, label %151
@@ -5052,7 +5052,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i59: ; preds = %._ZN4llvm
   %187 = trunc nuw nsw i64 %186 to i8
   %188 = or disjoint i8 %187, 48
   %.0.add.i.i.i66 = add nsw i64 %.0.idx.i.i.i65, -1
-  %.ptr.i.i.i67 = getelementptr inbounds nuw i8, ptr %7, i64 %.0.add.i.i.i66
+  %.ptr.i.i.i67 = getelementptr inbounds i8, ptr %7, i64 %.0.add.i.i.i66
   store i8 %188, ptr %.ptr.i.i.i67, align 1
   %189 = udiv i64 %.08.i.i.i64, 10
   %.not.i.i.i68 = icmp samesign ult i64 %.08.i.i.i64, 10
@@ -5064,13 +5064,13 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i59: ; preds = %._ZN4llvm
 
 192:                                              ; preds = %190
   %.0.add9.i.i.i78 = add nsw i64 %.0.idx.i.i.i65, -2
-  %.ptr10.i.i.i79 = getelementptr inbounds nuw i8, ptr %7, i64 %.0.add9.i.i.i78
+  %.ptr10.i.i.i79 = getelementptr inbounds i8, ptr %7, i64 %.0.add9.i.i.i78
   store i8 45, ptr %.ptr10.i.i.i79, align 1
   br label %193
 
 193:                                              ; preds = %192, %190
   %.1.idx.i.i.i69 = phi i64 [ %.0.add9.i.i.i78, %192 ], [ %.0.add.i.i.i66, %190 ]
-  %.1.ptr.i.i.i70 = getelementptr inbounds nuw i8, ptr %7, i64 %.1.idx.i.i.i69
+  %.1.ptr.i.i.i70 = getelementptr inbounds i8, ptr %7, i64 %.1.idx.i.i.i69
   %gepdiff.i.i.i71 = sub nsw i64 21, %.1.idx.i.i.i69
   %.not.i.i.i.i72 = icmp eq i64 %.1.idx.i.i.i69, 21
   br i1 %.not.i.i.i.i72, label %_ZN4llvm16itanium_demangle12OutputBufferlsEi.exit80, label %194
@@ -5157,14 +5157,14 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i83: ; preds = %._ZN4llvm
   %228 = trunc nuw nsw i64 %227 to i8
   %229 = or disjoint i8 %228, 48
   %.0.add.i.i.i90 = add nsw i64 %.0.idx.i.i.i89, -1
-  %.ptr.i.i.i91 = getelementptr inbounds nuw i8, ptr %6, i64 %.0.add.i.i.i90
+  %.ptr.i.i.i91 = getelementptr inbounds i8, ptr %6, i64 %.0.add.i.i.i90
   store i8 %229, ptr %.ptr.i.i.i91, align 1
   %230 = udiv i64 %.08.i.i.i88, 10
   %.not.i.i.i92 = icmp samesign ult i64 %.08.i.i.i88, 10
   br i1 %.not.i.i.i92, label %231, label %226, !llvm.loop !6
 
 231:                                              ; preds = %226
-  %.ptr.i.i.i91.le = getelementptr inbounds nuw i8, ptr %6, i64 %.0.add.i.i.i90
+  %.ptr.i.i.i91.le = getelementptr inbounds i8, ptr %6, i64 %.0.add.i.i.i90
   %gepdiff.i.i.i94 = sub nsw i64 22, %.0.idx.i.i.i89
   %.not.i.i.i.i95 = icmp eq i64 %.0.add.i.i.i90, 21
   br i1 %.not.i.i.i.i95, label %_ZN4llvm16itanium_demangle12OutputBufferlsEj.exit101, label %232
@@ -5286,7 +5286,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i111: ; preds = %._ZN4llv
   %282 = trunc nuw nsw i64 %281 to i8
   %283 = or disjoint i8 %282, 48
   %.0.add.i.i.i118 = add nsw i64 %.0.idx.i.i.i117, -1
-  %.ptr.i.i.i119 = getelementptr inbounds nuw i8, ptr %5, i64 %.0.add.i.i.i118
+  %.ptr.i.i.i119 = getelementptr inbounds i8, ptr %5, i64 %.0.add.i.i.i118
   store i8 %283, ptr %.ptr.i.i.i119, align 1
   %284 = udiv i64 %.08.i.i.i116, 10
   %.not.i.i.i120 = icmp samesign ult i64 %.08.i.i.i116, 10
@@ -5299,13 +5299,13 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i111: ; preds = %._ZN4llv
 
 288:                                              ; preds = %285
   %.0.add9.i.i.i130 = add nsw i64 %.0.idx.i.i.i117, -2
-  %.ptr10.i.i.i131 = getelementptr inbounds nuw i8, ptr %5, i64 %.0.add9.i.i.i130
+  %.ptr10.i.i.i131 = getelementptr inbounds i8, ptr %5, i64 %.0.add9.i.i.i130
   store i8 45, ptr %.ptr10.i.i.i131, align 1
   br label %289
 
 289:                                              ; preds = %288, %285
   %.1.idx.i.i.i121 = phi i64 [ %.0.add9.i.i.i130, %288 ], [ %.0.add.i.i.i118, %285 ]
-  %.1.ptr.i.i.i122 = getelementptr inbounds nuw i8, ptr %5, i64 %.1.idx.i.i.i121
+  %.1.ptr.i.i.i122 = getelementptr inbounds i8, ptr %5, i64 %.1.idx.i.i.i121
   %gepdiff.i.i.i123 = sub nsw i64 21, %.1.idx.i.i.i121
   %.not.i.i.i.i124 = icmp eq i64 %.1.idx.i.i.i121, 21
   br i1 %.not.i.i.i.i124, label %_ZN4llvm16itanium_demangle12OutputBufferlsEi.exit132, label %290
@@ -5392,14 +5392,14 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i135: ; preds = %._ZN4llv
   %324 = trunc nuw nsw i64 %323 to i8
   %325 = or disjoint i8 %324, 48
   %.0.add.i.i.i142 = add nsw i64 %.0.idx.i.i.i141, -1
-  %.ptr.i.i.i143 = getelementptr inbounds nuw i8, ptr %4, i64 %.0.add.i.i.i142
+  %.ptr.i.i.i143 = getelementptr inbounds i8, ptr %4, i64 %.0.add.i.i.i142
   store i8 %325, ptr %.ptr.i.i.i143, align 1
   %326 = udiv i64 %.08.i.i.i140, 10
   %.not.i.i.i144 = icmp samesign ult i64 %.08.i.i.i140, 10
   br i1 %.not.i.i.i144, label %327, label %322, !llvm.loop !6
 
 327:                                              ; preds = %322
-  %.ptr.i.i.i143.le = getelementptr inbounds nuw i8, ptr %4, i64 %.0.add.i.i.i142
+  %.ptr.i.i.i143.le = getelementptr inbounds i8, ptr %4, i64 %.0.add.i.i.i142
   %gepdiff.i.i.i146 = sub nsw i64 22, %.0.idx.i.i.i141
   %.not.i.i.i.i147 = icmp eq i64 %.0.add.i.i.i142, 21
   br i1 %.not.i.i.i.i147, label %_ZN4llvm16itanium_demangle12OutputBufferlsEj.exit153, label %328
@@ -6834,14 +6834,14 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
   %30 = trunc nuw nsw i64 %29 to i8
   %31 = or disjoint i8 %30, 48
   %.0.add.i.i.i = add nsw i64 %.0.idx.i.i.i, -1
-  %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 %.0.add.i.i.i
+  %.ptr.i.i.i = getelementptr inbounds i8, ptr %7, i64 %.0.add.i.i.i
   store i8 %31, ptr %.ptr.i.i.i, align 1
   %32 = udiv i64 %.08.i.i.i, 10
   %.not.i.i.i = icmp samesign ult i64 %.08.i.i.i, 10
   br i1 %.not.i.i.i, label %33, label %28, !llvm.loop !6
 
 33:                                               ; preds = %28
-  %.ptr.i.i.i.le = getelementptr inbounds nuw i8, ptr %7, i64 %.0.add.i.i.i
+  %.ptr.i.i.i.le = getelementptr inbounds i8, ptr %7, i64 %.0.add.i.i.i
   %gepdiff.i.i.i = sub nsw i64 22, %.0.idx.i.i.i
   %.not.i.i.i.i = icmp eq i64 %.0.add.i.i.i, 21
   br i1 %.not.i.i.i.i, label %_ZN4llvm16itanium_demangle12OutputBufferlsEj.exit, label %34
@@ -6930,7 +6930,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i6: ; preds = %._ZN4llvm1
   %70 = trunc nuw nsw i64 %69 to i8
   %71 = or disjoint i8 %70, 48
   %.0.add.i.i.i13 = add nsw i64 %.0.idx.i.i.i12, -1
-  %.ptr.i.i.i14 = getelementptr inbounds nuw i8, ptr %6, i64 %.0.add.i.i.i13
+  %.ptr.i.i.i14 = getelementptr inbounds i8, ptr %6, i64 %.0.add.i.i.i13
   store i8 %71, ptr %.ptr.i.i.i14, align 1
   %72 = udiv i64 %.08.i.i.i11, 10
   %.not.i.i.i15 = icmp samesign ult i64 %.08.i.i.i11, 10
@@ -6942,13 +6942,13 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i6: ; preds = %._ZN4llvm1
 
 75:                                               ; preds = %73
   %.0.add9.i.i.i = add nsw i64 %.0.idx.i.i.i12, -2
-  %.ptr10.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 %.0.add9.i.i.i
+  %.ptr10.i.i.i = getelementptr inbounds i8, ptr %6, i64 %.0.add9.i.i.i
   store i8 45, ptr %.ptr10.i.i.i, align 1
   br label %76
 
 76:                                               ; preds = %75, %73
   %.1.idx.i.i.i = phi i64 [ %.0.add9.i.i.i, %75 ], [ %.0.add.i.i.i13, %73 ]
-  %.1.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 %.1.idx.i.i.i
+  %.1.ptr.i.i.i = getelementptr inbounds i8, ptr %6, i64 %.1.idx.i.i.i
   %gepdiff.i.i.i16 = sub nsw i64 21, %.1.idx.i.i.i
   %.not.i.i.i.i17 = icmp eq i64 %.1.idx.i.i.i, 21
   br i1 %.not.i.i.i.i17, label %_ZN4llvm16itanium_demangle12OutputBufferlsEi.exit, label %77
@@ -7036,14 +7036,14 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i25: ; preds = %._ZN4llvm
   %112 = trunc nuw nsw i64 %111 to i8
   %113 = or disjoint i8 %112, 48
   %.0.add.i.i.i32 = add nsw i64 %.0.idx.i.i.i31, -1
-  %.ptr.i.i.i33 = getelementptr inbounds nuw i8, ptr %5, i64 %.0.add.i.i.i32
+  %.ptr.i.i.i33 = getelementptr inbounds i8, ptr %5, i64 %.0.add.i.i.i32
   store i8 %113, ptr %.ptr.i.i.i33, align 1
   %114 = udiv i64 %.08.i.i.i30, 10
   %.not.i.i.i34 = icmp samesign ult i64 %.08.i.i.i30, 10
   br i1 %.not.i.i.i34, label %115, label %110, !llvm.loop !6
 
 115:                                              ; preds = %110
-  %.ptr.i.i.i33.le = getelementptr inbounds nuw i8, ptr %5, i64 %.0.add.i.i.i32
+  %.ptr.i.i.i33.le = getelementptr inbounds i8, ptr %5, i64 %.0.add.i.i.i32
   %gepdiff.i.i.i36 = sub nsw i64 22, %.0.idx.i.i.i31
   %.not.i.i.i.i37 = icmp eq i64 %.0.add.i.i.i32, 21
   br i1 %.not.i.i.i.i37, label %_ZN4llvm16itanium_demangle12OutputBufferlsEj.exit43, label %116
@@ -7131,14 +7131,14 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i46: ; preds = %._ZN4llvm
   %151 = trunc nuw nsw i64 %150 to i8
   %152 = or disjoint i8 %151, 48
   %.0.add.i.i.i53 = add nsw i64 %.0.idx.i.i.i52, -1
-  %.ptr.i.i.i54 = getelementptr inbounds nuw i8, ptr %4, i64 %.0.add.i.i.i53
+  %.ptr.i.i.i54 = getelementptr inbounds i8, ptr %4, i64 %.0.add.i.i.i53
   store i8 %152, ptr %.ptr.i.i.i54, align 1
   %153 = udiv i64 %.08.i.i.i51, 10
   %.not.i.i.i55 = icmp samesign ult i64 %.08.i.i.i51, 10
   br i1 %.not.i.i.i55, label %154, label %149, !llvm.loop !6
 
 154:                                              ; preds = %149
-  %.ptr.i.i.i54.le = getelementptr inbounds nuw i8, ptr %4, i64 %.0.add.i.i.i53
+  %.ptr.i.i.i54.le = getelementptr inbounds i8, ptr %4, i64 %.0.add.i.i.i53
   %gepdiff.i.i.i57 = sub nsw i64 22, %.0.idx.i.i.i52
   %.not.i.i.i.i58 = icmp eq i64 %.0.add.i.i.i53, 21
   br i1 %.not.i.i.i.i58, label %_ZN4llvm16itanium_demangle12OutputBufferlsEj.exit64, label %155
@@ -7277,14 +7277,14 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
   %26 = trunc nuw nsw i64 %25 to i8
   %27 = or disjoint i8 %26, 48
   %.0.add.i.i.i = add nsw i64 %.0.idx.i.i.i, -1
-  %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 %.0.add.i.i.i
+  %.ptr.i.i.i = getelementptr inbounds i8, ptr %4, i64 %.0.add.i.i.i
   store i8 %27, ptr %.ptr.i.i.i, align 1
   %28 = udiv i64 %.08.i.i.i, 10
   %.not.i.i.i = icmp ult i64 %.08.i.i.i, 10
   br i1 %.not.i.i.i, label %29, label %24, !llvm.loop !6
 
 29:                                               ; preds = %24
-  %.ptr.i.i.i.le = getelementptr inbounds nuw i8, ptr %4, i64 %.0.add.i.i.i
+  %.ptr.i.i.i.le = getelementptr inbounds i8, ptr %4, i64 %.0.add.i.i.i
   %gepdiff.i.i.i = sub nsw i64 22, %.0.idx.i.i.i
   %.not.i.i.i.i = icmp eq i64 %.0.add.i.i.i, 21
   br i1 %.not.i.i.i.i, label %_ZN4llvm16itanium_demangle12OutputBufferlsEm.exit, label %30

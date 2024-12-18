@@ -434,14 +434,14 @@ Abc_ObjIsBarBuf.exit.thread:                      ; preds = %22, %Abc_ObjIsBarBu
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 104
   %36 = load i32, ptr %35, align 8
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds nuw [64 x i32], ptr %4, i64 0, i64 %37
+  %38 = getelementptr inbounds [64 x i32], ptr %4, i64 0, i64 %37
   %39 = load i32, ptr %38, align 4
   %40 = add nsw i32 %39, 1
   store i32 %40, ptr %38, align 4
   %41 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %42 = load float, ptr %41, align 8
   %43 = fpext float %42 to double
-  %44 = getelementptr inbounds nuw [64 x double], ptr %5, i64 0, i64 %37
+  %44 = getelementptr inbounds [64 x double], ptr %5, i64 0, i64 %37
   %45 = load double, ptr %44, align 8
   %46 = fadd double %45, %43
   store double %46, ptr %44, align 8

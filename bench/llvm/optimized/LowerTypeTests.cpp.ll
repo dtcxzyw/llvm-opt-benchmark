@@ -4461,7 +4461,7 @@ _ZNK4llvm20iterator_facade_baseINS_15concat_iteratorINS_12GlobalObjectEJNS_14ili
   %.fca.0.load.i.i = load i64, ptr %.0.ptr.i.i, align 16
   %.fca.1.gep.i.i = getelementptr inbounds nuw i8, ptr %.0.ptr.i.i, i64 8
   %.fca.1.load.i.i = load i64, ptr %.fca.1.gep.i.i, align 8
-  %777 = getelementptr inbounds nuw i8, ptr %41, i64 %.fca.1.load.i.i
+  %777 = getelementptr inbounds i8, ptr %41, i64 %.fca.1.load.i.i
   %778 = and i64 %.fca.0.load.i.i, 1
   %.not.i.i502 = icmp eq i64 %778, 0
   br i1 %.not.i.i502, label %784, label %779
@@ -5014,7 +5014,7 @@ _ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread: ; preds = %_ZNSt6v
   %.fca.0.load.i.i542 = load i64, ptr %.0.ptr.i.i541, align 16
   %.fca.1.gep.i.i543 = getelementptr inbounds nuw i8, ptr %.0.ptr.i.i541, i64 8
   %.fca.1.load.i.i544 = load i64, ptr %.fca.1.gep.i.i543, align 8
-  %1035 = getelementptr inbounds nuw i8, ptr %41, i64 %.fca.1.load.i.i544
+  %1035 = getelementptr inbounds i8, ptr %41, i64 %.fca.1.load.i.i544
   %1036 = and i64 %.fca.0.load.i.i542, 1
   %.not.i.i545 = icmp eq i64 %1036, 0
   br i1 %.not.i.i545, label %1042, label %1037

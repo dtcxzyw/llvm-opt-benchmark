@@ -4550,7 +4550,7 @@ for.body.preheader:                               ; preds = %if.end123
   %shl = shl nuw i64 1, %sh_prom
   %div = sdiv i32 %s, 64
   %idxprom138 = sext i32 %div to i64
-  %arrayidx139 = getelementptr inbounds nuw [16 x i64], ptr %readfds, i64 0, i64 %idxprom138
+  %arrayidx139 = getelementptr inbounds [16 x i64], ptr %readfds, i64 0, i64 %idxprom138
   %14 = load i64, ptr %arrayidx139, align 8
   %or = or i64 %14, %shl
   store i64 %or, ptr %arrayidx139, align 8
@@ -5316,7 +5316,7 @@ if.end153:                                        ; preds = %if.end145, %if.then
   %shl174 = shl nuw i64 1, %sh_prom173
   %div176 = sdiv i32 %s, 64
   %idxprom177 = sext i32 %div176 to i64
-  %arrayidx178 = getelementptr inbounds nuw [16 x i64], ptr %readfds, i64 0, i64 %idxprom177
+  %arrayidx178 = getelementptr inbounds [16 x i64], ptr %readfds, i64 0, i64 %idxprom177
   %arrayidx356 = getelementptr inbounds nuw i8, ptr %call, i64 1
   br label %for.cond154
 
@@ -5343,7 +5343,7 @@ for.cond162.preheader:                            ; preds = %land.rhs, %lor.rhs
   %call169 = call i32 @fileno_stdin() #14
   %div = sdiv i32 %call169, 64
   %idxprom170 = sext i32 %div to i64
-  %arrayidx171 = getelementptr inbounds nuw [16 x i64], ptr %readfds, i64 0, i64 %idxprom170
+  %arrayidx171 = getelementptr inbounds [16 x i64], ptr %readfds, i64 0, i64 %idxprom170
   %27 = load i64, ptr %arrayidx171, align 8
   %or = or i64 %shl, %27
   store i64 %or, ptr %arrayidx171, align 8
@@ -5387,7 +5387,7 @@ if.end201:                                        ; preds = %if.end197
   %call203 = call i32 @fileno_stdin() #14
   %div204 = sdiv i32 %call203, 64
   %idxprom205 = sext i32 %div204 to i64
-  %arrayidx206 = getelementptr inbounds nuw [16 x i64], ptr %readfds, i64 0, i64 %idxprom205
+  %arrayidx206 = getelementptr inbounds [16 x i64], ptr %readfds, i64 0, i64 %idxprom205
   %30 = load i64, ptr %arrayidx206, align 8
   %call207 = call i32 @fileno_stdin() #14
   %rem208 = srem i32 %call207, 64

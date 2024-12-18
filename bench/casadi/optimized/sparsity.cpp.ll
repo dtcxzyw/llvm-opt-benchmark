@@ -25749,7 +25749,7 @@ define void @_ZN6casadi8Sparsity9from_fileERKNSt7__cxx1112basic_stringIcSt11char
   %47 = load ptr, ptr %6, align 8
   %48 = getelementptr i8, ptr %47, i64 -24
   %49 = load i64, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %6, i64 %49
+  %50 = getelementptr inbounds i8, ptr %6, i64 %49
   %51 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %50)
           to label %52 unwind label %69
 

@@ -892,7 +892,7 @@ Vec_PtrAlloc.exit49:                              ; preds = %Vec_PtrAlloc.exit45
   %.083 = phi i32 [ %161, %158 ], [ 0, %Vec_PtrAlloc.exit49 ]
   %46 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #29
   %47 = add i64 %46, -1
-  %48 = getelementptr inbounds nuw [5000 x i8], ptr %3, i64 0, i64 %47
+  %48 = getelementptr inbounds [5000 x i8], ptr %3, i64 0, i64 %47
   %49 = load i8, ptr %48, align 1
   %50 = icmp eq i8 %49, 10
   br i1 %50, label %51, label %52

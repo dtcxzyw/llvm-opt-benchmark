@@ -492,7 +492,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %252 = mul nsw i64 %251, %250
   %253 = add nsw i32 %14, -257
   %254 = sext i32 %253 to i64
-  %255 = getelementptr inbounds nuw [7 x float], ptr @switch.table.process, i64 0, i64 %254
+  %255 = getelementptr inbounds [7 x float], ptr @switch.table.process, i64 0, i64 %254
   %256 = load float, ptr %255, align 4
   %257 = icmp eq i64 %252, 0
   br i1 %257, label %.loopexit39, label %258

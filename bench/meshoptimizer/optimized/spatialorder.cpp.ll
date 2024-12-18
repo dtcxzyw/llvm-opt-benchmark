@@ -345,7 +345,7 @@ for.cond.i:                                       ; preds = %for.cond.i.preheade
 for.body.i84:                                     ; preds = %for.cond.i
   %38 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8
   %sub.i85 = add i64 %i.0.i, -1
-  %arrayidx.i86 = getelementptr inbounds nuw [24 x ptr], ptr %allocator, i64 0, i64 %sub.i85
+  %arrayidx.i86 = getelementptr inbounds [24 x ptr], ptr %allocator, i64 0, i64 %sub.i85
   %39 = load ptr, ptr %arrayidx.i86, align 8
   invoke void %38(ptr noundef %39)
           to label %for.cond.i unwind label %terminate.lpad.i, !llvm.loop !14
@@ -552,7 +552,7 @@ for.cond.i:                                       ; preds = %for.cond.i.preheade
 for.body.i:                                       ; preds = %for.cond.i
   %21 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8
   %sub.i = add i64 %i.0.i, -1
-  %arrayidx.i64 = getelementptr inbounds nuw [24 x ptr], ptr %allocator, i64 0, i64 %sub.i
+  %arrayidx.i64 = getelementptr inbounds [24 x ptr], ptr %allocator, i64 0, i64 %sub.i
   %22 = load ptr, ptr %arrayidx.i64, align 8
   invoke void %21(ptr noundef %22)
           to label %for.cond.i unwind label %terminate.lpad.i, !llvm.loop !14

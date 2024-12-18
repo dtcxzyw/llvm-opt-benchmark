@@ -13419,7 +13419,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeE
 
 .preheader.i:                                     ; preds = %3200, %.preheader.i
   %.0.i.i2413 = phi i64 [ %3208, %.preheader.i ], [ 0, %3200 ]
-  %3205 = getelementptr inbounds nuw i32, ptr %150, i64 %.0.i.i2413
+  %3205 = getelementptr inbounds i32, ptr %150, i64 %.0.i.i2413
   %3206 = load i32, ptr %3205, align 4
   %3207 = icmp eq i32 %3206, 0
   %3208 = add i64 %.0.i.i2413, 1

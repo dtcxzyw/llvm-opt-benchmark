@@ -1006,7 +1006,7 @@ define internal range(i32 -1, 1) i32 @H5O__sdspace_pre_copy_file(ptr nocapture r
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 @H5F_get_high_bound(ptr noundef %9) #5
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds nuw [6 x i32], ptr @H5O_sdspace_ver_bounds, i64 0, i64 %11
+  %12 = getelementptr inbounds [6 x i32], ptr @H5O_sdspace_ver_bounds, i64 0, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = icmp ugt i32 %7, %13
   br i1 %14, label %15, label %19

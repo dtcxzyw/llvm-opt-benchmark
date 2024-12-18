@@ -1458,14 +1458,14 @@ php_sprintf_appendchar.exit335:                   ; preds = %524, %567
   %584 = getelementptr inbounds nuw i8, ptr @hexchars, i64 %583
   %585 = load i8, ptr %584, align 1
   %586 = add nsw i64 %.017.i, -1
-  %587 = getelementptr inbounds nuw [500 x i8], ptr %9, i64 0, i64 %586
+  %587 = getelementptr inbounds [500 x i8], ptr %9, i64 0, i64 %586
   store i8 %585, ptr %587, align 1
   %588 = lshr i64 %.0.i336, 3
   %.not.i337 = icmp ult i64 %.0.i336, 8
   br i1 %.not.i337, label %php_sprintf_append2n.exit, label %582
 
 php_sprintf_append2n.exit:                        ; preds = %582
-  %589 = getelementptr inbounds nuw [500 x i8], ptr %9, i64 0, i64 %586
+  %589 = getelementptr inbounds [500 x i8], ptr %9, i64 0, i64 %586
   %590 = zext nneg i32 %.0232 to i64
   %591 = sub i64 500, %.017.i
   call fastcc void @php_sprintf_appendstring(ptr noundef nonnull %21, ptr noundef nonnull %20, ptr noundef nonnull %589, i64 noundef range(i64 0, 2147483648) %581, i64 noundef 0, i8 noundef signext %.0218, i64 noundef range(i64 0, 2) %590, i64 noundef %591, i1 noundef zeroext false, i32 noundef range(i32 0, 2) %.0214, i32 noundef 0)
@@ -1500,14 +1500,14 @@ php_sprintf_append2n.exit:                        ; preds = %582
   %605 = getelementptr inbounds nuw i8, ptr @hexchars, i64 %604
   %606 = load i8, ptr %605, align 1
   %607 = add nsw i64 %.017.i338, -1
-  %608 = getelementptr inbounds nuw [500 x i8], ptr %8, i64 0, i64 %607
+  %608 = getelementptr inbounds [500 x i8], ptr %8, i64 0, i64 %607
   store i8 %606, ptr %608, align 1
   %609 = lshr i64 %.0.i339, 4
   %.not.i340 = icmp ult i64 %.0.i339, 16
   br i1 %.not.i340, label %php_sprintf_append2n.exit341, label %603
 
 php_sprintf_append2n.exit341:                     ; preds = %603
-  %610 = getelementptr inbounds nuw [500 x i8], ptr %8, i64 0, i64 %607
+  %610 = getelementptr inbounds [500 x i8], ptr %8, i64 0, i64 %607
   %611 = zext nneg i32 %.0232 to i64
   %612 = sub i64 500, %.017.i338
   call fastcc void @php_sprintf_appendstring(ptr noundef nonnull %21, ptr noundef nonnull %20, ptr noundef nonnull %610, i64 noundef range(i64 0, 2147483648) %602, i64 noundef 0, i8 noundef signext %.0218, i64 noundef range(i64 0, 2) %611, i64 noundef %612, i1 noundef zeroext false, i32 noundef range(i32 0, 2) %.0214, i32 noundef 0)
@@ -1542,14 +1542,14 @@ php_sprintf_append2n.exit341:                     ; preds = %603
   %626 = getelementptr inbounds nuw i8, ptr @HEXCHARS, i64 %625
   %627 = load i8, ptr %626, align 1
   %628 = add nsw i64 %.017.i342, -1
-  %629 = getelementptr inbounds nuw [500 x i8], ptr %7, i64 0, i64 %628
+  %629 = getelementptr inbounds [500 x i8], ptr %7, i64 0, i64 %628
   store i8 %627, ptr %629, align 1
   %630 = lshr i64 %.0.i343, 4
   %.not.i344 = icmp ult i64 %.0.i343, 16
   br i1 %.not.i344, label %php_sprintf_append2n.exit345, label %624
 
 php_sprintf_append2n.exit345:                     ; preds = %624
-  %631 = getelementptr inbounds nuw [500 x i8], ptr %7, i64 0, i64 %628
+  %631 = getelementptr inbounds [500 x i8], ptr %7, i64 0, i64 %628
   %632 = zext nneg i32 %.0232 to i64
   %633 = sub i64 500, %.017.i342
   call fastcc void @php_sprintf_appendstring(ptr noundef nonnull %21, ptr noundef nonnull %20, ptr noundef nonnull %631, i64 noundef range(i64 0, 2147483648) %623, i64 noundef 0, i8 noundef signext %.0218, i64 noundef range(i64 0, 2) %632, i64 noundef %633, i1 noundef zeroext false, i32 noundef range(i32 0, 2) %.0214, i32 noundef 0)
@@ -1584,14 +1584,14 @@ php_sprintf_append2n.exit345:                     ; preds = %624
   %647 = getelementptr inbounds nuw i8, ptr @hexchars, i64 %646
   %648 = load i8, ptr %647, align 1
   %649 = add nsw i64 %.017.i346, -1
-  %650 = getelementptr inbounds nuw [500 x i8], ptr %6, i64 0, i64 %649
+  %650 = getelementptr inbounds [500 x i8], ptr %6, i64 0, i64 %649
   store i8 %648, ptr %650, align 1
   %651 = lshr i64 %.0.i347, 1
   %.not.i348 = icmp ult i64 %.0.i347, 2
   br i1 %.not.i348, label %php_sprintf_append2n.exit349, label %645
 
 php_sprintf_append2n.exit349:                     ; preds = %645
-  %652 = getelementptr inbounds nuw [500 x i8], ptr %6, i64 0, i64 %649
+  %652 = getelementptr inbounds [500 x i8], ptr %6, i64 0, i64 %649
   %653 = zext nneg i32 %.0232 to i64
   %654 = sub i64 500, %.017.i346
   call fastcc void @php_sprintf_appendstring(ptr noundef nonnull %21, ptr noundef nonnull %20, ptr noundef nonnull %652, i64 noundef range(i64 0, 2147483648) %644, i64 noundef 0, i8 noundef signext %.0218, i64 noundef range(i64 0, 2) %653, i64 noundef %654, i1 noundef zeroext false, i32 noundef range(i32 0, 2) %.0214, i32 noundef 0)

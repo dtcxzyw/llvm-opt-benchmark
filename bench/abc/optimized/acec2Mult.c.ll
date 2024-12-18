@@ -604,7 +604,7 @@ Abc_TtCopy.exit69.i.us:                           ; preds = %.lr.ph.i58.i.us, %.
   %255 = add nsw i32 %254, -1
   %256 = zext nneg i32 %207 to i64
   %257 = sext i32 %209 to i64
-  %258 = getelementptr inbounds nuw i64, ptr %4, i64 %257
+  %258 = getelementptr inbounds i64, ptr %4, i64 %257
   %smax.i220.us = call i32 @llvm.smax.i32(i32 %209, i32 1)
   %wide.trip.count149.i221.us = zext nneg i32 %smax.i220.us to i64
   br label %.lr.ph.i71.i.us
@@ -789,7 +789,7 @@ Abc_TtExpand.exit.i.us:                           ; preds = %343, %Abc_TtCopy.ex
   %351 = add nsw i32 %350, -1
   %352 = zext nneg i32 %207 to i64
   %353 = sext i32 %209 to i64
-  %354 = getelementptr inbounds nuw i64, ptr %5, i64 %353
+  %354 = getelementptr inbounds i64, ptr %5, i64 %353
   %smax.i187.us = call i32 @llvm.smax.i32(i32 %209, i32 1)
   %wide.trip.count149.i188.us = zext nneg i32 %smax.i187.us to i64
   br label %.lr.ph.i75.i.us
@@ -1022,7 +1022,7 @@ Abc_TtXor.exit.i.us:                              ; preds = %Abc_TtXor.exit.sink
 
 .lr.ph.i105.i.us:                                 ; preds = %454
   %455 = sext i32 %209 to i64
-  %456 = getelementptr inbounds nuw i64, ptr %3, i64 %455
+  %456 = getelementptr inbounds i64, ptr %3, i64 %455
   br i1 %.not115.i107.us, label %Abc_TtMinBase.exit.i.us, label %.lr.ph.split.split.i.i.us
 
 .lr.ph.split.split.i.i.us:                        ; preds = %.lr.ph.i105.i.us
@@ -1155,7 +1155,7 @@ Abc_TtHasVar.exit.i.i.us:                         ; preds = %464, %.lr.ph.i.i114
 .preheader.lr.ph.i.us:                            ; preds = %489
   %511 = shl nuw nsw i32 1, %spec.select117.i.us
   %512 = sext i32 %spec.select117.i.us to i64
-  %513 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %512
+  %513 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %512
   %514 = load i64, ptr %513, align 8
   %515 = zext nneg i32 %511 to i64
   %516 = xor i64 %514, -1

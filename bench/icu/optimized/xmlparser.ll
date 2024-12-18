@@ -752,7 +752,7 @@ if.end37:                                         ; preds = %invoke.cont31
   %idx.ext = select i1 %tobool.not.i, i64 %8, i64 27
   %add.ptr = getelementptr inbounds i16, ptr %call32, i64 %idx.ext
   %idx.ext42 = sext i32 %call7 to i64
-  %add.ptr43 = getelementptr inbounds nuw i8, ptr %bytes, i64 %idx.ext42
+  %add.ptr43 = getelementptr inbounds i8, ptr %bytes, i64 %idx.ext42
   invoke void @ucnv_toUnicode_75(ptr noundef %call25, ptr noundef nonnull %pu, ptr noundef nonnull %add.ptr, ptr noundef nonnull %pb, ptr noundef nonnull %add.ptr43, ptr noundef null, i8 noundef signext 1, ptr noundef nonnull %errorCode)
           to label %invoke.cont44 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -1037,7 +1037,7 @@ for.cond:                                         ; preds = %for.cond.preheader,
   %flush.0 = phi i8 [ %spec.select, %invoke.cont170 ], [ 0, %for.cond.preheader ]
   store ptr %bytes, ptr %pb, align 8
   %idx.ext139 = sext i32 %bytesLength.0 to i64
-  %add.ptr140 = getelementptr inbounds nuw i8, ptr %bytes, i64 %idx.ext139
+  %add.ptr140 = getelementptr inbounds i8, ptr %bytes, i64 %idx.ext139
   %.pre = load i16, ptr %fUnion2.i, align 8
   br label %invoke.cont123
 

@@ -46358,7 +46358,7 @@ invoke.cont87:                                    ; preds = %if.else.i.i.i.i, %c
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %72, i64 %73
   %conv.i.i.i.i.i.i = zext nneg i8 %71 to i64
   %sub.i.i.i.i.i.i = sub nsw i64 23, %conv.i.i.i.i.i.i
-  %add.ptr.i1.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp83, i64 %sub.i.i.i.i.i.i
+  %add.ptr.i1.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp83, i64 %sub.i.i.i.i.i.i
   %cond.i.i.i.i = select i1 %tobool.i.i5.i.i.i, ptr %add.ptr.i.i.i.i.i, ptr %add.ptr.i1.i.i.i.i
   store i8 0, ptr %cond.i.i.i.i, align 1
   %74 = load ptr, ptr %mEnd.i, align 8
@@ -46805,7 +46805,7 @@ if.else.i.i:                                      ; preds = %_ZN5eastl10CharStrl
   %conv.i.i31.i.i = zext nneg i8 %146 to i64
   %sub.i.i32.i.i = sub nsw i64 23, %conv.i.i31.i.i
   %cond.i33.i.i = select i1 %tobool.i.i29.i.i, i64 %147, i64 %sub.i.i32.i.i
-  %add.ptr18.i.i = getelementptr inbounds nuw i8, ptr %counterBuffer, i64 %cond.i33.i.i
+  %add.ptr18.i.i = getelementptr inbounds i8, ptr %counterBuffer, i64 %cond.i33.i.i
   %call19.i.i634 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6appendEPKcS4_(ptr noundef nonnull align 8 dereferenceable(24) %spec.select8526, ptr noundef nonnull %add.ptr18.i.i, ptr noundef nonnull %add.ptr.i)
           to label %if.else.i.i.invoke.cont171_crit_edge unwind label %lpad27.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -47054,7 +47054,7 @@ invoke.cont225:                                   ; preds = %if.else.i.i.i.i779,
   %add.ptr.i.i.i.i.i784 = getelementptr inbounds i8, ptr %188, i64 %189
   %conv.i.i.i.i.i.i785 = zext nneg i8 %187 to i64
   %sub.i.i.i.i.i.i786 = sub nsw i64 23, %conv.i.i.i.i.i.i785
-  %add.ptr.i1.i.i.i.i787 = getelementptr inbounds nuw i8, ptr %ref.tmp221, i64 %sub.i.i.i.i.i.i786
+  %add.ptr.i1.i.i.i.i787 = getelementptr inbounds i8, ptr %ref.tmp221, i64 %sub.i.i.i.i.i.i786
   %cond.i.i.i.i788 = select i1 %tobool.i.i5.i.i.i782, ptr %add.ptr.i.i.i.i.i784, ptr %add.ptr.i1.i.i.i.i787
   store i8 0, ptr %cond.i.i.i.i788, align 1
   %190 = load ptr, ptr %mEnd.i, align 8
@@ -47530,7 +47530,7 @@ invoke.cont320:                                   ; preds = %if.else.i.i.i.i1041
   %add.ptr.i.i.i.i.i1046 = getelementptr inbounds i8, ptr %258, i64 %259
   %conv.i.i.i.i.i.i1047 = zext nneg i8 %257 to i64
   %sub.i.i.i.i.i.i1048 = sub nsw i64 23, %conv.i.i.i.i.i.i1047
-  %add.ptr.i1.i.i.i.i1049 = getelementptr inbounds nuw i8, ptr %ref.tmp316, i64 %sub.i.i.i.i.i.i1048
+  %add.ptr.i1.i.i.i.i1049 = getelementptr inbounds i8, ptr %ref.tmp316, i64 %sub.i.i.i.i.i.i1048
   %cond.i.i.i.i1050 = select i1 %tobool.i.i5.i.i.i1044, ptr %add.ptr.i.i.i.i.i1046, ptr %add.ptr.i1.i.i.i.i1049
   store i8 0, ptr %cond.i.i.i.i1050, align 1
   %260 = load ptr, ptr %mEnd.i, align 8
@@ -47706,7 +47706,7 @@ invoke.cont344:                                   ; preds = %call.i.i.i.i.i.i.no
   %add.ptr.i.i.i.i.i1131 = getelementptr inbounds i8, ptr %290, i64 %291
   %conv.i.i.i.i.i.i1132 = zext nneg i8 %289 to i64
   %sub.i.i.i.i.i.i1133 = sub nsw i64 23, %conv.i.i.i.i.i.i1132
-  %add.ptr.i1.i.i.i.i1134 = getelementptr inbounds nuw i8, ptr %ref.tmp336, i64 %sub.i.i.i.i.i.i1133
+  %add.ptr.i1.i.i.i.i1134 = getelementptr inbounds i8, ptr %ref.tmp336, i64 %sub.i.i.i.i.i.i1133
   %cond.i.i.i.i1135 = select i1 %tobool.i.i5.i.i.i1129, ptr %add.ptr.i.i.i.i.i1131, ptr %add.ptr.i1.i.i.i.i1134
   store i8 0, ptr %cond.i.i.i.i1135, align 1
   %292 = load ptr, ptr %mEnd.i, align 8, !noalias !3325
@@ -47820,7 +47820,7 @@ invoke.cont378:                                   ; preds = %if.else.i.i.i.i1192
   %add.ptr.i.i.i.i.i1197 = getelementptr inbounds i8, ptr %313, i64 %314
   %conv.i.i.i.i.i.i1198 = zext nneg i8 %312 to i64
   %sub.i.i.i.i.i.i1199 = sub nsw i64 23, %conv.i.i.i.i.i.i1198
-  %add.ptr.i1.i.i.i.i1200 = getelementptr inbounds nuw i8, ptr %ref.tmp374, i64 %sub.i.i.i.i.i.i1199
+  %add.ptr.i1.i.i.i.i1200 = getelementptr inbounds i8, ptr %ref.tmp374, i64 %sub.i.i.i.i.i.i1199
   %cond.i.i.i.i1201 = select i1 %tobool.i.i5.i.i.i1195, ptr %add.ptr.i.i.i.i.i1197, ptr %add.ptr.i1.i.i.i.i1200
   store i8 0, ptr %cond.i.i.i.i1201, align 1
   %315 = load ptr, ptr %mBegin.i, align 8
@@ -47964,7 +47964,7 @@ invoke.cont404:                                   ; preds = %call.i.i.i.i.i.i.no
   %add.ptr.i.i.i.i.i1269 = getelementptr inbounds i8, ptr %339, i64 %340
   %conv.i.i.i.i.i.i1270 = zext nneg i8 %338 to i64
   %sub.i.i.i.i.i.i1271 = sub nsw i64 23, %conv.i.i.i.i.i.i1270
-  %add.ptr.i1.i.i.i.i1272 = getelementptr inbounds nuw i8, ptr %ref.tmp396, i64 %sub.i.i.i.i.i.i1271
+  %add.ptr.i1.i.i.i.i1272 = getelementptr inbounds i8, ptr %ref.tmp396, i64 %sub.i.i.i.i.i.i1271
   %cond.i.i.i.i1273 = select i1 %tobool.i.i5.i.i.i1267, ptr %add.ptr.i.i.i.i.i1269, ptr %add.ptr.i1.i.i.i.i1272
   store i8 0, ptr %cond.i.i.i.i1273, align 1
   %341 = load ptr, ptr %mBegin.i, align 8
@@ -48142,7 +48142,7 @@ invoke.cont470:                                   ; preds = %if.else.i.i.i.i1394
   %add.ptr.i.i.i.i.i1399 = getelementptr inbounds i8, ptr %366, i64 %367
   %conv.i.i.i.i.i.i1400 = zext nneg i8 %365 to i64
   %sub.i.i.i.i.i.i1401 = sub nsw i64 23, %conv.i.i.i.i.i.i1400
-  %add.ptr.i1.i.i.i.i1402 = getelementptr inbounds nuw i8, ptr %ref.tmp466, i64 %sub.i.i.i.i.i.i1401
+  %add.ptr.i1.i.i.i.i1402 = getelementptr inbounds i8, ptr %ref.tmp466, i64 %sub.i.i.i.i.i.i1401
   %cond.i.i.i.i1403 = select i1 %tobool.i.i5.i.i.i1397, ptr %add.ptr.i.i.i.i.i1399, ptr %add.ptr.i1.i.i.i.i1402
   store i8 0, ptr %cond.i.i.i.i1403, align 1
   %368 = load ptr, ptr %mEnd.i, align 8, !noalias !3337
@@ -48412,7 +48412,7 @@ invoke.cont524:                                   ; preds = %if.else.i.i.i.i1560
   %add.ptr.i.i.i.i.i1565 = getelementptr inbounds i8, ptr %406, i64 %407
   %conv.i.i.i.i.i.i1566 = zext nneg i8 %405 to i64
   %sub.i.i.i.i.i.i1567 = sub nsw i64 23, %conv.i.i.i.i.i.i1566
-  %add.ptr.i1.i.i.i.i1568 = getelementptr inbounds nuw i8, ptr %ref.tmp520, i64 %sub.i.i.i.i.i.i1567
+  %add.ptr.i1.i.i.i.i1568 = getelementptr inbounds i8, ptr %ref.tmp520, i64 %sub.i.i.i.i.i.i1567
   %cond.i.i.i.i1569 = select i1 %tobool.i.i5.i.i.i1563, ptr %add.ptr.i.i.i.i.i1565, ptr %add.ptr.i1.i.i.i.i1568
   store i8 0, ptr %cond.i.i.i.i1569, align 1
   invoke void @_ZN5eastl11ring_bufferINS_12basic_stringIcNS_9allocatorEEENS_6vectorIS3_S2_EES2_E6insertENS_20ring_buffer_iteratorIS3_PKS3_RS8_S5_EEmSA_(ptr noundef nonnull align 8 dereferenceable(48) %rbVectorString, ptr nonnull %rbVectorString, ptr %it.sroa.32.7, i64 noundef %shr.i1546, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp520)
@@ -53982,7 +53982,7 @@ invoke.cont1425:                                  ; preds = %if.else.i.i.i.i4675
   %add.ptr.i.i.i.i.i4680 = getelementptr inbounds i8, ptr %1299, i64 %1300
   %conv.i.i.i.i.i.i4681 = zext nneg i8 %1298 to i64
   %sub.i.i.i.i.i.i4682 = sub nsw i64 23, %conv.i.i.i.i.i.i4681
-  %add.ptr.i1.i.i.i.i4683 = getelementptr inbounds nuw i8, ptr %ref.tmp1421, i64 %sub.i.i.i.i.i.i4682
+  %add.ptr.i1.i.i.i.i4683 = getelementptr inbounds i8, ptr %ref.tmp1421, i64 %sub.i.i.i.i.i.i4682
   %cond.i.i.i.i4684 = select i1 %tobool.i.i5.i.i.i4678, ptr %add.ptr.i.i.i.i.i4680, ptr %add.ptr.i1.i.i.i.i4683
   store i8 0, ptr %cond.i.i.i.i4684, align 1
   %1301 = load ptr, ptr %mEnd.i4499, align 8
@@ -54445,7 +54445,7 @@ if.else.i.i4956:                                  ; preds = %_ZN5eastl10CharStrl
   %conv.i.i31.i.i4960 = zext nneg i8 %1377 to i64
   %sub.i.i32.i.i4961 = sub nsw i64 23, %conv.i.i31.i.i4960
   %cond.i33.i.i4962 = select i1 %tobool.i.i29.i.i4959, i64 %1378, i64 %sub.i.i32.i.i4961
-  %add.ptr18.i.i4963 = getelementptr inbounds nuw i8, ptr %counterBuffer1354, i64 %cond.i33.i.i4962
+  %add.ptr18.i.i4963 = getelementptr inbounds i8, ptr %counterBuffer1354, i64 %cond.i33.i.i4962
   %call19.i.i4965 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6appendEPKcS4_(ptr noundef nonnull align 8 dereferenceable(24) %mValue.i.i4902, ptr noundef nonnull %add.ptr18.i.i4963, ptr noundef nonnull %add.ptr.i4957)
           to label %if.else.i.i4956.invoke.cont1513_crit_edge unwind label %lpad1356.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -54668,7 +54668,7 @@ invoke.cont1574:                                  ; preds = %if.else.i.i.i.i5094
   %add.ptr.i.i.i.i.i5099 = getelementptr inbounds i8, ptr %1415, i64 %1416
   %conv.i.i.i.i.i.i5100 = zext nneg i8 %1414 to i64
   %sub.i.i.i.i.i.i5101 = sub nsw i64 23, %conv.i.i.i.i.i.i5100
-  %add.ptr.i1.i.i.i.i5102 = getelementptr inbounds nuw i8, ptr %ref.tmp1570, i64 %sub.i.i.i.i.i.i5101
+  %add.ptr.i1.i.i.i.i5102 = getelementptr inbounds i8, ptr %ref.tmp1570, i64 %sub.i.i.i.i.i.i5101
   %cond.i.i.i.i5103 = select i1 %tobool.i.i5.i.i.i5097, ptr %add.ptr.i.i.i.i.i5099, ptr %add.ptr.i1.i.i.i.i5102
   store i8 0, ptr %cond.i.i.i.i5103, align 1
   %1417 = load ptr, ptr %mEnd.i4499, align 8
@@ -55164,7 +55164,7 @@ invoke.cont1682:                                  ; preds = %if.else.i.i.i.i5369
   %add.ptr.i.i.i.i.i5374 = getelementptr inbounds i8, ptr %1486, i64 %1487
   %conv.i.i.i.i.i.i5375 = zext nneg i8 %1485 to i64
   %sub.i.i.i.i.i.i5376 = sub nsw i64 23, %conv.i.i.i.i.i.i5375
-  %add.ptr.i1.i.i.i.i5377 = getelementptr inbounds nuw i8, ptr %ref.tmp1678, i64 %sub.i.i.i.i.i.i5376
+  %add.ptr.i1.i.i.i.i5377 = getelementptr inbounds i8, ptr %ref.tmp1678, i64 %sub.i.i.i.i.i.i5376
   %cond.i.i.i.i5378 = select i1 %tobool.i.i5.i.i.i5372, ptr %add.ptr.i.i.i.i.i5374, ptr %add.ptr.i1.i.i.i.i5377
   store i8 0, ptr %cond.i.i.i.i5378, align 1
   %1488 = load ptr, ptr %mEnd.i4499, align 8
@@ -55342,7 +55342,7 @@ invoke.cont1708:                                  ; preds = %call.i.i.i.i.i.i.no
   %add.ptr.i.i.i.i.i5455 = getelementptr inbounds i8, ptr %1523, i64 %1524
   %conv.i.i.i.i.i.i5456 = zext nneg i8 %1522 to i64
   %sub.i.i.i.i.i.i5457 = sub nsw i64 23, %conv.i.i.i.i.i.i5456
-  %add.ptr.i1.i.i.i.i5458 = getelementptr inbounds nuw i8, ptr %ref.tmp1700, i64 %sub.i.i.i.i.i.i5457
+  %add.ptr.i1.i.i.i.i5458 = getelementptr inbounds i8, ptr %ref.tmp1700, i64 %sub.i.i.i.i.i.i5457
   %cond.i.i.i.i5459 = select i1 %tobool.i.i5.i.i.i5453, ptr %add.ptr.i.i.i.i.i5455, ptr %add.ptr.i1.i.i.i.i5458
   store i8 0, ptr %cond.i.i.i.i5459, align 1
   %1525 = load ptr, ptr %mEnd.i4499, align 8, !noalias !3676
@@ -55460,7 +55460,7 @@ invoke.cont1743:                                  ; preds = %if.else.i.i.i.i5515
   %add.ptr.i.i.i.i.i5520 = getelementptr inbounds i8, ptr %1543, i64 %1544
   %conv.i.i.i.i.i.i5521 = zext nneg i8 %1542 to i64
   %sub.i.i.i.i.i.i5522 = sub nsw i64 23, %conv.i.i.i.i.i.i5521
-  %add.ptr.i1.i.i.i.i5523 = getelementptr inbounds nuw i8, ptr %ref.tmp1739, i64 %sub.i.i.i.i.i.i5522
+  %add.ptr.i1.i.i.i.i5523 = getelementptr inbounds i8, ptr %ref.tmp1739, i64 %sub.i.i.i.i.i.i5522
   %cond.i.i.i.i5524 = select i1 %tobool.i.i5.i.i.i5518, ptr %add.ptr.i.i.i.i.i5520, ptr %add.ptr.i1.i.i.i.i5523
   store i8 0, ptr %cond.i.i.i.i5524, align 1
   %1545 = load ptr, ptr %rbListString, align 8, !noalias !3691
@@ -55630,7 +55630,7 @@ invoke.cont1769:                                  ; preds = %call.i.i.i.i.i.i.no
   %add.ptr.i.i.i.i.i5595 = getelementptr inbounds i8, ptr %1570, i64 %1571
   %conv.i.i.i.i.i.i5596 = zext nneg i8 %1569 to i64
   %sub.i.i.i.i.i.i5597 = sub nsw i64 23, %conv.i.i.i.i.i.i5596
-  %add.ptr.i1.i.i.i.i5598 = getelementptr inbounds nuw i8, ptr %ref.tmp1761, i64 %sub.i.i.i.i.i.i5597
+  %add.ptr.i1.i.i.i.i5598 = getelementptr inbounds i8, ptr %ref.tmp1761, i64 %sub.i.i.i.i.i.i5597
   %cond.i.i.i.i5599 = select i1 %tobool.i.i5.i.i.i5593, ptr %add.ptr.i.i.i.i.i5595, ptr %add.ptr.i1.i.i.i.i5598
   store i8 0, ptr %cond.i.i.i.i5599, align 1
   %1572 = load ptr, ptr %mBegin.i4497, align 8
@@ -55822,7 +55822,7 @@ invoke.cont1836:                                  ; preds = %if.else.i.i.i.i5715
   %add.ptr.i.i.i.i.i5720 = getelementptr inbounds i8, ptr %1602, i64 %1603
   %conv.i.i.i.i.i.i5721 = zext nneg i8 %1601 to i64
   %sub.i.i.i.i.i.i5722 = sub nsw i64 23, %conv.i.i.i.i.i.i5721
-  %add.ptr.i1.i.i.i.i5723 = getelementptr inbounds nuw i8, ptr %ref.tmp1832, i64 %sub.i.i.i.i.i.i5722
+  %add.ptr.i1.i.i.i.i5723 = getelementptr inbounds i8, ptr %ref.tmp1832, i64 %sub.i.i.i.i.i.i5722
   %cond.i.i.i.i5724 = select i1 %tobool.i.i5.i.i.i5718, ptr %add.ptr.i.i.i.i.i5720, ptr %add.ptr.i1.i.i.i.i5723
   store i8 0, ptr %cond.i.i.i.i5724, align 1
   invoke void @_ZN5eastl11ring_bufferINS_12basic_stringIcNS_9allocatorEEENS_4listIS3_S2_EES2_E6insertENS_20ring_buffer_iteratorIS3_PKS3_RS8_S5_EESA_(ptr nonnull sret(%"struct.eastl::ring_buffer_iterator.138") align 8 %tmp1837, ptr noundef nonnull align 8 dereferenceable(48) %rbListString, ptr noundef nonnull %agg.tmp1830, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp1832)
@@ -56004,7 +56004,7 @@ invoke.cont1892:                                  ; preds = %if.else.i.i.i.i5845
   %add.ptr.i.i.i.i.i5850 = getelementptr inbounds i8, ptr %1634, i64 %1635
   %conv.i.i.i.i.i.i5851 = zext nneg i8 %1633 to i64
   %sub.i.i.i.i.i.i5852 = sub nsw i64 23, %conv.i.i.i.i.i.i5851
-  %add.ptr.i1.i.i.i.i5853 = getelementptr inbounds nuw i8, ptr %ref.tmp1888, i64 %sub.i.i.i.i.i.i5852
+  %add.ptr.i1.i.i.i.i5853 = getelementptr inbounds i8, ptr %ref.tmp1888, i64 %sub.i.i.i.i.i.i5852
   %cond.i.i.i.i5854 = select i1 %tobool.i.i5.i.i.i5848, ptr %add.ptr.i.i.i.i.i5850, ptr %add.ptr.i1.i.i.i.i5853
   store i8 0, ptr %cond.i.i.i.i5854, align 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)

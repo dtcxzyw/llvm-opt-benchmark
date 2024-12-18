@@ -10161,7 +10161,7 @@ for.body15.i.i:                                   ; preds = %for.body15.i.i, %fo
   %and23.i.i = and i64 %13, 2147483646
   %or24.i.i = or disjoint i64 %and23.i.i, %and19.i.i
   %add26.i.i = add nsw i64 %__k12.015.i.i, -227
-  %arrayidx27.i.i = getelementptr inbounds nuw [624 x i64], ptr %rand, i64 0, i64 %add26.i.i
+  %arrayidx27.i.i = getelementptr inbounds [624 x i64], ptr %rand, i64 0, i64 %add26.i.i
   %14 = load i64, ptr %arrayidx27.i.i, align 8
   %shr28.i.i = lshr exact i64 %or24.i.i, 1
   %xor29.i.i = xor i64 %shr28.i.i, %14
@@ -46771,7 +46771,7 @@ invoke.cont11:                                    ; preds = %invoke.cont8
   %vtable = load ptr, ptr %is, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %is, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %is, i64 %vbase.offset
   %meta = getelementptr inbounds nuw i8, ptr %4, i64 32
   invoke void @_ZN7openvdb5v11_02io20setStreamMetadataPtrERSt8ios_baseRSt10shared_ptrINS1_14StreamMetadataEEb(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr, ptr noundef nonnull align 8 dereferenceable(16) %meta, i1 noundef zeroext true)
           to label %invoke.cont15 unwind label %lpad13
@@ -46797,7 +46797,7 @@ invoke.cont25:                                    ; preds = %invoke.cont21
   %vtable27 = load ptr, ptr %is, align 8
   %vbase.offset.ptr28 = getelementptr i8, ptr %vtable27, i64 -24
   %vbase.offset29 = load i64, ptr %vbase.offset.ptr28, align 8
-  %add.ptr30 = getelementptr inbounds nuw i8, ptr %is, i64 %vbase.offset29
+  %add.ptr30 = getelementptr inbounds i8, ptr %is, i64 %vbase.offset29
   %call32 = invoke noundef zeroext i1 @_ZN7openvdb5v11_02io12getHalfFloatERSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr30)
           to label %invoke.cont31 unwind label %lpad17
 
@@ -49564,7 +49564,7 @@ for.body15.i.i:                                   ; preds = %for.body15.i.i, %fo
   %and23.i.i = and i64 %13, 2147483646
   %or24.i.i = or disjoint i64 %and23.i.i, %and19.i.i
   %add26.i.i = add nsw i64 %__k12.015.i.i, -227
-  %arrayidx27.i.i = getelementptr inbounds nuw [624 x i64], ptr %rand, i64 0, i64 %add26.i.i
+  %arrayidx27.i.i = getelementptr inbounds [624 x i64], ptr %rand, i64 0, i64 %add26.i.i
   %14 = load i64, ptr %arrayidx27.i.i, align 8
   %shr28.i.i = lshr exact i64 %or24.i.i, 1
   %xor29.i.i = xor i64 %shr28.i.i, %14
@@ -85562,7 +85562,7 @@ invoke.cont11:                                    ; preds = %invoke.cont8
   %vtable = load ptr, ptr %is, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %is, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %is, i64 %vbase.offset
   %meta = getelementptr inbounds nuw i8, ptr %4, i64 32
   invoke void @_ZN7openvdb5v11_02io20setStreamMetadataPtrERSt8ios_baseRSt10shared_ptrINS1_14StreamMetadataEEb(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr, ptr noundef nonnull align 8 dereferenceable(16) %meta, i1 noundef zeroext true)
           to label %invoke.cont15 unwind label %lpad13
@@ -85588,7 +85588,7 @@ invoke.cont25:                                    ; preds = %invoke.cont21
   %vtable27 = load ptr, ptr %is, align 8
   %vbase.offset.ptr28 = getelementptr i8, ptr %vtable27, i64 -24
   %vbase.offset29 = load i64, ptr %vbase.offset.ptr28, align 8
-  %add.ptr30 = getelementptr inbounds nuw i8, ptr %is, i64 %vbase.offset29
+  %add.ptr30 = getelementptr inbounds i8, ptr %is, i64 %vbase.offset29
   %call32 = invoke noundef zeroext i1 @_ZN7openvdb5v11_02io12getHalfFloatERSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr30)
           to label %invoke.cont31 unwind label %lpad17
 

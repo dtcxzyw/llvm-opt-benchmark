@@ -1146,7 +1146,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 .noexc17:                                         ; preds = %.noexc16
   %34 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #14
-  %35 = getelementptr inbounds nuw i8, ptr %6, i64 %34
+  %35 = getelementptr inbounds i8, ptr %6, i64 %34
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %6, ptr noundef nonnull %35)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit20 unwind label %36
 

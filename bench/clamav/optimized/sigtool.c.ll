@@ -2225,7 +2225,7 @@ getdbname.exit:                                   ; preds = %49, %51
   %53 = tail call i32 @llvm.smin.i32(i32 %.0.i, i32 31)
   %54 = sext i32 %53 to i64
   %55 = call ptr @strncpy(ptr noundef nonnull %17, ptr noundef %43, i64 noundef %54) #25
-  %56 = getelementptr inbounds nuw i8, ptr %17, i64 %54
+  %56 = getelementptr inbounds i8, ptr %17, i64 %54
   store i8 0, ptr %56, align 1
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %17, ptr noundef nonnull dereferenceable(9) @.str.161, i64 9)
   %.not331 = icmp eq i32 %bcmp, 0
@@ -2672,11 +2672,11 @@ getdbname.exit:                                   ; preds = %49, %51
   %223 = call i64 @strftime(ptr noundef nonnull %12, i64 noundef 32, ptr noundef nonnull @.str.191, ptr noundef %221) #25
   %224 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %12) #25
   %225 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #31
-  %226 = getelementptr inbounds nuw i8, ptr %11, i64 %225
+  %226 = getelementptr inbounds i8, ptr %11, i64 %225
   %227 = load i32, ptr %8, align 4
   %228 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(1) @.str.192, i32 noundef %227) #25
   %229 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #31
-  %230 = getelementptr inbounds nuw i8, ptr %11, i64 %229
+  %230 = getelementptr inbounds i8, ptr %11, i64 %229
   %231 = load i32, ptr %7, align 4
   %232 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %230, ptr noundef nonnull dereferenceable(1) @.str.193, i32 noundef %231) #25
   %233 = call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str.194) #25
@@ -2684,10 +2684,10 @@ getdbname.exit:                                   ; preds = %49, %51
   %235 = load i64, ptr %234, align 8
   %236 = trunc i64 %235 to i32
   %237 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #31
-  %238 = getelementptr inbounds nuw i8, ptr %11, i64 %237
+  %238 = getelementptr inbounds i8, ptr %11, i64 %237
   %239 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %238, ptr noundef nonnull dereferenceable(1) @.str.193, i32 noundef %236) #25
   %240 = call i64 @strlen(ptr nonnull dereferenceable(1) %11)
-  %endptr = getelementptr inbounds nuw i8, ptr %11, i64 %240
+  %endptr = getelementptr inbounds i8, ptr %11, i64 %240
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %endptr, ptr noundef nonnull align 1 dereferenceable(5) @.str.195, i64 5, i1 false)
   %241 = call ptr @getenv(ptr noundef nonnull @.str.196) #25
   %.not357 = icmp eq ptr %241, null
@@ -2713,7 +2713,7 @@ getdbname.exit:                                   ; preds = %49, %51
 249:                                              ; preds = %245, %242
   %250 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %13) #25
   %251 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #31
-  %252 = getelementptr inbounds nuw i8, ptr %11, i64 %251
+  %252 = getelementptr inbounds i8, ptr %11, i64 %251
   %253 = load i64, ptr %19, align 8
   %254 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %252, ptr noundef nonnull dereferenceable(1) @.str.200, i64 noundef %253) #25
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
@@ -3186,7 +3186,7 @@ getdbname.exit:                                   ; preds = %49, %51
 402:                                              ; preds = %397
   call void @rewind(ptr noundef nonnull %394)
   %403 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #31
-  %404 = getelementptr inbounds nuw i8, ptr %11, i64 %403
+  %404 = getelementptr inbounds i8, ptr %11, i64 %403
   %405 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %404, ptr noundef nonnull dereferenceable(1) @.str.210, ptr noundef nonnull %398) #25
   call void @free(ptr noundef nonnull %398) #25
   %406 = call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str.156) #25
@@ -3212,21 +3212,21 @@ getdbname.exit:                                   ; preds = %49, %51
 
 417:                                              ; preds = %409
   %418 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #31
-  %419 = getelementptr inbounds nuw i8, ptr %11, i64 %418
+  %419 = getelementptr inbounds i8, ptr %11, i64 %418
   %420 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %419, ptr noundef nonnull dereferenceable(1) @.str.210, ptr noundef nonnull %413) #25
   call void @free(ptr noundef nonnull %413) #25
   br label %424
 
 421:                                              ; preds = %402
   %422 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #31
-  %423 = getelementptr inbounds nuw i8, ptr %11, i64 %422
+  %423 = getelementptr inbounds i8, ptr %11, i64 %422
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %423, ptr noundef nonnull align 1 dereferenceable(3) @.str.212, i64 3, i1 false)
   br label %424
 
 424:                                              ; preds = %421, %417
   %425 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %13) #25
   %426 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #31
-  %427 = getelementptr inbounds nuw i8, ptr %11, i64 %426
+  %427 = getelementptr inbounds i8, ptr %11, i64 %426
   %428 = load i64, ptr %19, align 8
   %429 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %427, ptr noundef nonnull dereferenceable(1) @.str.200, i64 noundef %428) #25
   %430 = call i64 @strlen(ptr nonnull dereferenceable(1) %11)

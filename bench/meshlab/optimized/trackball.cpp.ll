@@ -1005,7 +1005,7 @@ define linkonce_odr void @_ZN3vcg4ViewIfE7GetViewEv(ptr noundef nonnull align 4 
   %11 = getelementptr inbounds nuw [16 x float], ptr %5, i64 0, i64 %10
   %12 = shl i64 %indvars.iv.i.i.i, 2
   %13 = add nuw nsw i64 %12, %indvars.iv15.i.i.i
-  %14 = getelementptr inbounds nuw [16 x float], ptr %5, i64 0, i64 %13
+  %14 = getelementptr inbounds [16 x float], ptr %5, i64 0, i64 %13
   %15 = load float, ptr %11, align 4, !alias.scope !15
   %16 = load float, ptr %14, align 4, !alias.scope !15
   store float %16, ptr %11, align 4, !alias.scope !15
@@ -1040,7 +1040,7 @@ _ZN3vcg6glGetvEjRNS_8Matrix44IfEE.exit:           ; preds = %17
   %21 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %20
   %22 = shl i64 %indvars.iv.i.i.i3, 2
   %23 = add nuw nsw i64 %22, %indvars.iv15.i.i.i2
-  %24 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %23
+  %24 = getelementptr inbounds [16 x float], ptr %3, i64 0, i64 %23
   %25 = load float, ptr %21, align 4, !alias.scope !20
   %26 = load float, ptr %24, align 4, !alias.scope !20
   store float %26, ptr %21, align 4, !alias.scope !20
@@ -1391,7 +1391,7 @@ define void @_ZN3vcg9Trackball5ApplyEv(ptr noundef nonnull align 8 dereferenceab
   %13 = getelementptr inbounds nuw [16 x float], ptr %2, i64 0, i64 %12
   %14 = shl i64 %indvars.iv.i.i.i, 2
   %15 = add nuw nsw i64 %14, %indvars.iv15.i.i.i
-  %16 = getelementptr inbounds nuw [16 x float], ptr %2, i64 0, i64 %15
+  %16 = getelementptr inbounds [16 x float], ptr %2, i64 0, i64 %15
   %17 = load float, ptr %13, align 4, !alias.scope !33
   %18 = load float, ptr %16, align 4, !alias.scope !33
   store float %18, ptr %13, align 4, !alias.scope !33
@@ -1643,7 +1643,7 @@ define void @_ZN3vcg9Trackball12ApplyInverseEv(ptr noundef nonnull align 8 deref
   %14 = getelementptr inbounds nuw [16 x float], ptr %2, i64 0, i64 %13
   %15 = shl i64 %indvars.iv.i.i.i, 2
   %16 = add nuw nsw i64 %15, %indvars.iv15.i.i.i
-  %17 = getelementptr inbounds nuw [16 x float], ptr %2, i64 0, i64 %16
+  %17 = getelementptr inbounds [16 x float], ptr %2, i64 0, i64 %16
   %18 = load float, ptr %14, align 4, !alias.scope !45
   %19 = load float, ptr %17, align 4, !alias.scope !45
   store float %19, ptr %14, align 4, !alias.scope !45
@@ -1812,7 +1812,7 @@ define void @_ZNK3vcg9Trackball6MatrixEv(ptr dead_on_unwind noalias nocapture wr
   %76 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %75
   %77 = shl i64 %indvars.iv.i.i, 2
   %78 = add nuw nsw i64 %77, %indvars.iv15.i.i
-  %79 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %78
+  %79 = getelementptr inbounds [16 x float], ptr %3, i64 0, i64 %78
   %80 = load float, ptr %76, align 4, !alias.scope !51
   %81 = load float, ptr %79, align 4, !alias.scope !51
   store float %81, ptr %76, align 4, !alias.scope !51

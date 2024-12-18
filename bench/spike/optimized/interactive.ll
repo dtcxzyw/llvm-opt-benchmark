@@ -2013,7 +2013,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %421
   %428 = load ptr, ptr @_ZSt4cerr, align 8
   %429 = getelementptr i8, ptr %428, i64 -24
   %430 = load i64, ptr %429, align 8
-  %431 = getelementptr inbounds nuw i8, ptr @_ZSt4cerr, i64 %430
+  %431 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %430
   %432 = invoke noundef ptr @_ZNKSt9basic_iosIcSt11char_traitsIcEE5rdbufEv(ptr noundef nonnull align 8 dereferenceable(264) %431)
           to label %433 unwind label %571
 

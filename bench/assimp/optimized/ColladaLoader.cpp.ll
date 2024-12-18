@@ -10748,7 +10748,7 @@ for.body400:                                      ; preds = %for.body400.lr.ph, 
   %c395.01181 = phi i64 [ 0, %for.body400.lr.ph ], [ %inc410, %for.body400 ]
   %add.ptr.i.i395 = getelementptr float, ptr %107, i64 %c395.01181
   %108 = load float, ptr %add.ptr.i.i395, align 4
-  %arrayidx406 = getelementptr inbounds nuw [16 x float], ptr %temp, i64 0, i64 %c395.01181
+  %arrayidx406 = getelementptr inbounds [16 x float], ptr %temp, i64 0, i64 %c395.01181
   %109 = load float, ptr %arrayidx406, align 4
   %sub407 = fsub float %108, %109
   %110 = call float @llvm.fmuladd.f32(float %sub407, float %div, float %109)
@@ -10758,7 +10758,7 @@ for.body400:                                      ; preds = %for.body400.lr.ph, 
   br i1 %exitcond1383.not, label %if.then.i.i.i.i.i, label %for.body400, !llvm.loop !91
 
 if.then.i.i.i.i.i:                                ; preds = %for.body400, %for.end383.thread
-  %add.ptr.idx = shl nuw nsw i64 %87, 2
+  %add.ptr.idx = shl nsw i64 %87, 2
   %111 = load ptr, ptr %transforms, align 8
   %mTransformIndex417 = getelementptr inbounds nuw i8, ptr %__begin4.sroa.0.01183, i64 72
   %112 = load i64, ptr %mTransformIndex417, align 8

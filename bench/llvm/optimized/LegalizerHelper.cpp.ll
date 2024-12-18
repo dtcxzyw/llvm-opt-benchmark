@@ -13289,7 +13289,7 @@ _ZNK4llvm20iterator_facade_baseINS_15concat_iteratorIKNS_8RegisterEJPS3_S4_EEESt
   %.fca.0.load.i.i = load i64, ptr %.0.ptr.i.i, align 16
   %.fca.1.gep.i.i = getelementptr inbounds nuw i8, ptr %.0.ptr.i.i, i64 8
   %.fca.1.load.i.i = load i64, ptr %.fca.1.gep.i.i, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %13, i64 %.fca.1.load.i.i
+  %59 = getelementptr inbounds i8, ptr %13, i64 %.fca.1.load.i.i
   %60 = and i64 %.fca.0.load.i.i, 1
   %.not.i.i = icmp eq i64 %60, 0
   br i1 %.not.i.i, label %66, label %61
@@ -13342,7 +13342,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit: ; preds
   %.fca.0.load.i.i44 = load i64, ptr %.0.ptr.i.i43, align 16
   %.fca.1.gep.i.i45 = getelementptr inbounds nuw i8, ptr %.0.ptr.i.i43, i64 8
   %.fca.1.load.i.i46 = load i64, ptr %.fca.1.gep.i.i45, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %13, i64 %.fca.1.load.i.i46
+  %82 = getelementptr inbounds i8, ptr %13, i64 %.fca.1.load.i.i46
   %83 = and i64 %.fca.0.load.i.i44, 1
   %.not.i.i47 = icmp eq i64 %83, 0
   br i1 %.not.i.i47, label %89, label %84
@@ -13430,7 +13430,7 @@ _ZNK4llvm20iterator_facade_baseINS_15concat_iteratorIKNS_8RegisterEJPS3_S4_EEESt
   %.fca.0.load.i.i53 = load i64, ptr %.0.ptr.i.i52, align 16
   %.fca.1.gep.i.i54 = getelementptr inbounds nuw i8, ptr %.0.ptr.i.i52, i64 8
   %.fca.1.load.i.i55 = load i64, ptr %.fca.1.gep.i.i54, align 8
-  %123 = getelementptr inbounds nuw i8, ptr %15, i64 %.fca.1.load.i.i55
+  %123 = getelementptr inbounds i8, ptr %15, i64 %.fca.1.load.i.i55
   %124 = and i64 %.fca.0.load.i.i53, 1
   %.not.i.i56 = icmp eq i64 %124, 0
   br i1 %.not.i.i56, label %130, label %125
@@ -13466,7 +13466,7 @@ _ZNK4llvm15concat_iteratorIKNS_8RegisterEJPS2_S3_EEdeEv.exit59: ; preds = %132
   %.fca.0.load.i.i62 = load i64, ptr %.0.ptr.i.i61, align 16
   %.fca.1.gep.i.i63 = getelementptr inbounds nuw i8, ptr %.0.ptr.i.i61, i64 8
   %.fca.1.load.i.i64 = load i64, ptr %.fca.1.gep.i.i63, align 8
-  %137 = getelementptr inbounds nuw i8, ptr %15, i64 %.fca.1.load.i.i64
+  %137 = getelementptr inbounds i8, ptr %15, i64 %.fca.1.load.i.i64
   %138 = and i64 %.fca.0.load.i.i62, 1
   %.not.i.i65 = icmp eq i64 %138, 0
   br i1 %.not.i.i65, label %144, label %139
@@ -16112,7 +16112,7 @@ _ZNK4llvm15LegalizerHelper26getStackTemporaryAlignmentENS_3LLTENS_5AlignE.exit: 
   %.val = load i16, ptr %115, align 4
   %switch.tableidx = add nsw i16 %.val, -207
   %116 = sext i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN4llvm15LegalizerHelper23createResetStateLibcallERNS_16MachineIRBuilderERNS_12MachineInstrERNS_20LostDebugLocObserverE, i64 0, i64 %116
+  %switch.gep = getelementptr inbounds [6 x i64], ptr @switch.table._ZN4llvm15LegalizerHelper23createResetStateLibcallERNS_16MachineIRBuilderERNS_12MachineInstrERNS_20LostDebugLocObserverE, i64 0, i64 %116
   %switch.load = load i64, ptr %switch.gep, align 8
   store i32 0, ptr %10, align 4
   %117 = call noundef ptr @_ZN4llvm4Type9getVoidTyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %27) #18
@@ -16587,7 +16587,7 @@ _ZNK4llvm15LegalizerHelper26getStackTemporaryAlignmentENS_3LLTENS_5AlignE.exit: 
   %.val = load i16, ptr %119, align 4
   %switch.tableidx = add nsw i16 %.val, -207
   %120 = sext i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN4llvm15LegalizerHelper23createResetStateLibcallERNS_16MachineIRBuilderERNS_12MachineInstrERNS_20LostDebugLocObserverE, i64 0, i64 %120
+  %switch.gep = getelementptr inbounds [6 x i64], ptr @switch.table._ZN4llvm15LegalizerHelper23createResetStateLibcallERNS_16MachineIRBuilderERNS_12MachineInstrERNS_20LostDebugLocObserverE, i64 0, i64 %120
   %switch.load = load i64, ptr %switch.gep, align 8
   store i32 0, ptr %14, align 4
   %121 = call noundef ptr @_ZN4llvm4Type9getVoidTyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %27) #18
@@ -17237,7 +17237,7 @@ switch.lookup:
   %.val = load i16, ptr %46, align 4
   %switch.tableidx = add nsw i16 %.val, -207
   %47 = sext i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN4llvm15LegalizerHelper23createResetStateLibcallERNS_16MachineIRBuilderERNS_12MachineInstrERNS_20LostDebugLocObserverE, i64 0, i64 %47
+  %switch.gep = getelementptr inbounds [6 x i64], ptr @switch.table._ZN4llvm15LegalizerHelper23createResetStateLibcallERNS_16MachineIRBuilderERNS_12MachineInstrERNS_20LostDebugLocObserverE, i64 0, i64 %47
   %switch.load = load i64, ptr %switch.gep, align 8
   store i32 0, ptr %8, align 4
   %48 = call noundef ptr @_ZN4llvm4Type9getVoidTyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %19) #18
@@ -17650,7 +17650,7 @@ switch.lookup:                                    ; preds = %2
   %27 = add i32 %1, -32
   %28 = tail call i32 @llvm.fshl.i32(i32 %27, i32 %27, i32 28)
   %29 = sext i32 %28 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZL12getRTLibDescjj, i64 0, i64 %29
+  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table._ZL12getRTLibDescjj, i64 0, i64 %29
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %130
 
@@ -17658,7 +17658,7 @@ switch.lookup42:                                  ; preds = %2
   %30 = add i32 %1, -32
   %31 = tail call i32 @llvm.fshl.i32(i32 %30, i32 %30, i32 28)
   %32 = sext i32 %31 to i64
-  %switch.gep43 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.23, i64 0, i64 %32
+  %switch.gep43 = getelementptr inbounds [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.23, i64 0, i64 %32
   %switch.load44 = load i32, ptr %switch.gep43, align 4
   br label %130
 
@@ -17666,7 +17666,7 @@ switch.lookup45:                                  ; preds = %2
   %33 = add i32 %1, -32
   %34 = tail call i32 @llvm.fshl.i32(i32 %33, i32 %33, i32 28)
   %35 = sext i32 %34 to i64
-  %switch.gep46 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.24, i64 0, i64 %35
+  %switch.gep46 = getelementptr inbounds [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.24, i64 0, i64 %35
   %switch.load47 = load i32, ptr %switch.gep46, align 4
   br label %130
 
@@ -17674,7 +17674,7 @@ switch.lookup48:                                  ; preds = %2
   %36 = add i32 %1, -32
   %37 = tail call i32 @llvm.fshl.i32(i32 %36, i32 %36, i32 28)
   %38 = sext i32 %37 to i64
-  %switch.gep49 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.25, i64 0, i64 %38
+  %switch.gep49 = getelementptr inbounds [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.25, i64 0, i64 %38
   %switch.load50 = load i32, ptr %switch.gep49, align 4
   br label %130
 
@@ -17682,7 +17682,7 @@ switch.lookup51:                                  ; preds = %2
   %39 = add i32 %1, -32
   %40 = tail call i32 @llvm.fshl.i32(i32 %39, i32 %39, i32 28)
   %41 = sext i32 %40 to i64
-  %switch.gep52 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.26, i64 0, i64 %41
+  %switch.gep52 = getelementptr inbounds [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.26, i64 0, i64 %41
   %switch.load53 = load i32, ptr %switch.gep52, align 4
   br label %130
 
@@ -17690,7 +17690,7 @@ switch.lookup54:                                  ; preds = %2
   %42 = add i32 %1, -32
   %43 = tail call i32 @llvm.fshl.i32(i32 %42, i32 %42, i32 28)
   %44 = sext i32 %43 to i64
-  %switch.gep55 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.27, i64 0, i64 %44
+  %switch.gep55 = getelementptr inbounds [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.27, i64 0, i64 %44
   %switch.load56 = load i32, ptr %switch.gep55, align 4
   br label %130
 
@@ -17698,7 +17698,7 @@ switch.lookup57:                                  ; preds = %2
   %45 = add i32 %1, -32
   %46 = tail call i32 @llvm.fshl.i32(i32 %45, i32 %45, i32 28)
   %47 = sext i32 %46 to i64
-  %switch.gep58 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.28, i64 0, i64 %47
+  %switch.gep58 = getelementptr inbounds [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.28, i64 0, i64 %47
   %switch.load59 = load i32, ptr %switch.gep58, align 4
   br label %130
 
@@ -17706,7 +17706,7 @@ switch.lookup60:                                  ; preds = %2
   %48 = add i32 %1, -32
   %49 = tail call i32 @llvm.fshl.i32(i32 %48, i32 %48, i32 28)
   %50 = sext i32 %49 to i64
-  %switch.gep61 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.29, i64 0, i64 %50
+  %switch.gep61 = getelementptr inbounds [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.29, i64 0, i64 %50
   %switch.load62 = load i32, ptr %switch.gep61, align 4
   br label %130
 
@@ -17714,7 +17714,7 @@ switch.lookup63:                                  ; preds = %2
   %51 = add i32 %1, -32
   %52 = tail call i32 @llvm.fshl.i32(i32 %51, i32 %51, i32 28)
   %53 = sext i32 %52 to i64
-  %switch.gep64 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.30, i64 0, i64 %53
+  %switch.gep64 = getelementptr inbounds [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.30, i64 0, i64 %53
   %switch.load65 = load i32, ptr %switch.gep64, align 4
   br label %130
 
@@ -17722,7 +17722,7 @@ switch.lookup66:                                  ; preds = %2
   %54 = add i32 %1, -32
   %55 = tail call i32 @llvm.fshl.i32(i32 %54, i32 %54, i32 28)
   %56 = sext i32 %55 to i64
-  %switch.gep67 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.31, i64 0, i64 %56
+  %switch.gep67 = getelementptr inbounds [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.31, i64 0, i64 %56
   %switch.load68 = load i32, ptr %switch.gep67, align 4
   br label %130
 
@@ -17730,7 +17730,7 @@ switch.lookup69:                                  ; preds = %2
   %57 = add i32 %1, -32
   %58 = tail call i32 @llvm.fshl.i32(i32 %57, i32 %57, i32 28)
   %59 = sext i32 %58 to i64
-  %switch.gep70 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.32, i64 0, i64 %59
+  %switch.gep70 = getelementptr inbounds [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.32, i64 0, i64 %59
   %switch.load71 = load i32, ptr %switch.gep70, align 4
   br label %130
 
@@ -17738,7 +17738,7 @@ switch.lookup72:                                  ; preds = %2
   %60 = add i32 %1, -32
   %61 = tail call i32 @llvm.fshl.i32(i32 %60, i32 %60, i32 28)
   %62 = sext i32 %61 to i64
-  %switch.gep73 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.33, i64 0, i64 %62
+  %switch.gep73 = getelementptr inbounds [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.33, i64 0, i64 %62
   %switch.load74 = load i32, ptr %switch.gep73, align 4
   br label %130
 
@@ -17746,7 +17746,7 @@ switch.lookup75:                                  ; preds = %2
   %63 = add i32 %1, -32
   %64 = tail call i32 @llvm.fshl.i32(i32 %63, i32 %63, i32 28)
   %65 = sext i32 %64 to i64
-  %switch.gep76 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.34, i64 0, i64 %65
+  %switch.gep76 = getelementptr inbounds [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.34, i64 0, i64 %65
   %switch.load77 = load i32, ptr %switch.gep76, align 4
   br label %130
 
@@ -17754,7 +17754,7 @@ switch.lookup78:                                  ; preds = %2
   %66 = add i32 %1, -32
   %67 = tail call i32 @llvm.fshl.i32(i32 %66, i32 %66, i32 28)
   %68 = sext i32 %67 to i64
-  %switch.gep79 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.35, i64 0, i64 %68
+  %switch.gep79 = getelementptr inbounds [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.35, i64 0, i64 %68
   %switch.load80 = load i32, ptr %switch.gep79, align 4
   br label %130
 
@@ -17762,7 +17762,7 @@ switch.lookup81:                                  ; preds = %2
   %69 = add i32 %1, -32
   %70 = tail call i32 @llvm.fshl.i32(i32 %69, i32 %69, i32 28)
   %71 = sext i32 %70 to i64
-  %switch.gep82 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.36, i64 0, i64 %71
+  %switch.gep82 = getelementptr inbounds [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.36, i64 0, i64 %71
   %switch.load83 = load i32, ptr %switch.gep82, align 4
   br label %130
 
@@ -17770,7 +17770,7 @@ switch.lookup84:                                  ; preds = %2
   %72 = add i32 %1, -32
   %73 = tail call i32 @llvm.fshl.i32(i32 %72, i32 %72, i32 28)
   %74 = sext i32 %73 to i64
-  %switch.gep85 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.37, i64 0, i64 %74
+  %switch.gep85 = getelementptr inbounds [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.37, i64 0, i64 %74
   %switch.load86 = load i32, ptr %switch.gep85, align 4
   br label %130
 
@@ -17778,7 +17778,7 @@ switch.lookup87:                                  ; preds = %2
   %75 = add i32 %1, -32
   %76 = tail call i32 @llvm.fshl.i32(i32 %75, i32 %75, i32 28)
   %77 = sext i32 %76 to i64
-  %switch.gep88 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.38, i64 0, i64 %77
+  %switch.gep88 = getelementptr inbounds [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.38, i64 0, i64 %77
   %switch.load89 = load i32, ptr %switch.gep88, align 4
   br label %130
 
@@ -17786,7 +17786,7 @@ switch.lookup90:                                  ; preds = %2
   %78 = add i32 %1, -32
   %79 = tail call i32 @llvm.fshl.i32(i32 %78, i32 %78, i32 28)
   %80 = sext i32 %79 to i64
-  %switch.gep91 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.39, i64 0, i64 %80
+  %switch.gep91 = getelementptr inbounds [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.39, i64 0, i64 %80
   %switch.load92 = load i32, ptr %switch.gep91, align 4
   br label %130
 
@@ -17794,7 +17794,7 @@ switch.lookup93:                                  ; preds = %2
   %81 = add i32 %1, -32
   %82 = tail call i32 @llvm.fshl.i32(i32 %81, i32 %81, i32 28)
   %83 = sext i32 %82 to i64
-  %switch.gep94 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.40, i64 0, i64 %83
+  %switch.gep94 = getelementptr inbounds [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.40, i64 0, i64 %83
   %switch.load95 = load i32, ptr %switch.gep94, align 4
   br label %130
 
@@ -17802,7 +17802,7 @@ switch.lookup96:                                  ; preds = %2
   %84 = add i32 %1, -32
   %85 = tail call i32 @llvm.fshl.i32(i32 %84, i32 %84, i32 28)
   %86 = sext i32 %85 to i64
-  %switch.gep97 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.41, i64 0, i64 %86
+  %switch.gep97 = getelementptr inbounds [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.41, i64 0, i64 %86
   %switch.load98 = load i32, ptr %switch.gep97, align 4
   br label %130
 
@@ -17810,7 +17810,7 @@ switch.lookup99:                                  ; preds = %2
   %87 = add i32 %1, -32
   %88 = tail call i32 @llvm.fshl.i32(i32 %87, i32 %87, i32 28)
   %89 = sext i32 %88 to i64
-  %switch.gep100 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.42, i64 0, i64 %89
+  %switch.gep100 = getelementptr inbounds [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.42, i64 0, i64 %89
   %switch.load101 = load i32, ptr %switch.gep100, align 4
   br label %130
 
@@ -17818,7 +17818,7 @@ switch.lookup102:                                 ; preds = %2
   %90 = add i32 %1, -32
   %91 = tail call i32 @llvm.fshl.i32(i32 %90, i32 %90, i32 28)
   %92 = sext i32 %91 to i64
-  %switch.gep103 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.43, i64 0, i64 %92
+  %switch.gep103 = getelementptr inbounds [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.43, i64 0, i64 %92
   %switch.load104 = load i32, ptr %switch.gep103, align 4
   br label %130
 
@@ -17826,7 +17826,7 @@ switch.lookup105:                                 ; preds = %2
   %93 = add i32 %1, -32
   %94 = tail call i32 @llvm.fshl.i32(i32 %93, i32 %93, i32 28)
   %95 = sext i32 %94 to i64
-  %switch.gep106 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.44, i64 0, i64 %95
+  %switch.gep106 = getelementptr inbounds [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.44, i64 0, i64 %95
   %switch.load107 = load i32, ptr %switch.gep106, align 4
   br label %130
 
@@ -17834,7 +17834,7 @@ switch.lookup108:                                 ; preds = %2
   %96 = add i32 %1, -32
   %97 = tail call i32 @llvm.fshl.i32(i32 %96, i32 %96, i32 28)
   %98 = sext i32 %97 to i64
-  %switch.gep109 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.45, i64 0, i64 %98
+  %switch.gep109 = getelementptr inbounds [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.45, i64 0, i64 %98
   %switch.load110 = load i32, ptr %switch.gep109, align 4
   br label %130
 
@@ -17842,7 +17842,7 @@ switch.lookup111:                                 ; preds = %2
   %99 = add i32 %1, -32
   %100 = tail call i32 @llvm.fshl.i32(i32 %99, i32 %99, i32 28)
   %101 = sext i32 %100 to i64
-  %switch.gep112 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.46, i64 0, i64 %101
+  %switch.gep112 = getelementptr inbounds [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.46, i64 0, i64 %101
   %switch.load113 = load i32, ptr %switch.gep112, align 4
   br label %130
 
@@ -17850,7 +17850,7 @@ switch.lookup114:                                 ; preds = %2
   %102 = add i32 %1, -32
   %103 = tail call i32 @llvm.fshl.i32(i32 %102, i32 %102, i32 28)
   %104 = sext i32 %103 to i64
-  %switch.gep115 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.47, i64 0, i64 %104
+  %switch.gep115 = getelementptr inbounds [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.47, i64 0, i64 %104
   %switch.load116 = load i32, ptr %switch.gep115, align 4
   br label %130
 
@@ -17858,7 +17858,7 @@ switch.lookup117:                                 ; preds = %2
   %105 = add i32 %1, -32
   %106 = tail call i32 @llvm.fshl.i32(i32 %105, i32 %105, i32 28)
   %107 = sext i32 %106 to i64
-  %switch.gep118 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.48, i64 0, i64 %107
+  %switch.gep118 = getelementptr inbounds [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.48, i64 0, i64 %107
   %switch.load119 = load i32, ptr %switch.gep118, align 4
   br label %130
 
@@ -17866,7 +17866,7 @@ switch.lookup120:                                 ; preds = %2
   %108 = add i32 %1, -32
   %109 = tail call i32 @llvm.fshl.i32(i32 %108, i32 %108, i32 28)
   %110 = sext i32 %109 to i64
-  %switch.gep121 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.49, i64 0, i64 %110
+  %switch.gep121 = getelementptr inbounds [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.49, i64 0, i64 %110
   %switch.load122 = load i32, ptr %switch.gep121, align 4
   br label %130
 
@@ -17874,7 +17874,7 @@ switch.lookup123:                                 ; preds = %2
   %111 = add i32 %1, -32
   %112 = tail call i32 @llvm.fshl.i32(i32 %111, i32 %111, i32 28)
   %113 = sext i32 %112 to i64
-  %switch.gep124 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.50, i64 0, i64 %113
+  %switch.gep124 = getelementptr inbounds [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.50, i64 0, i64 %113
   %switch.load125 = load i32, ptr %switch.gep124, align 4
   br label %130
 
@@ -17882,7 +17882,7 @@ switch.lookup126:                                 ; preds = %2
   %114 = add i32 %1, -32
   %115 = tail call i32 @llvm.fshl.i32(i32 %114, i32 %114, i32 28)
   %116 = sext i32 %115 to i64
-  %switch.gep127 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.51, i64 0, i64 %116
+  %switch.gep127 = getelementptr inbounds [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.51, i64 0, i64 %116
   %switch.load128 = load i32, ptr %switch.gep127, align 4
   br label %130
 
@@ -17890,7 +17890,7 @@ switch.lookup129:                                 ; preds = %2
   %117 = add i32 %1, -32
   %118 = tail call i32 @llvm.fshl.i32(i32 %117, i32 %117, i32 28)
   %119 = sext i32 %118 to i64
-  %switch.gep130 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.52, i64 0, i64 %119
+  %switch.gep130 = getelementptr inbounds [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.52, i64 0, i64 %119
   %switch.load131 = load i32, ptr %switch.gep130, align 4
   br label %130
 
@@ -17898,7 +17898,7 @@ switch.lookup132:                                 ; preds = %2
   %120 = add i32 %1, -32
   %121 = tail call i32 @llvm.fshl.i32(i32 %120, i32 %120, i32 28)
   %122 = sext i32 %121 to i64
-  %switch.gep133 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.53, i64 0, i64 %122
+  %switch.gep133 = getelementptr inbounds [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.53, i64 0, i64 %122
   %switch.load134 = load i32, ptr %switch.gep133, align 4
   br label %130
 
@@ -17906,7 +17906,7 @@ switch.lookup135:                                 ; preds = %2
   %123 = add i32 %1, -32
   %124 = tail call i32 @llvm.fshl.i32(i32 %123, i32 %123, i32 28)
   %125 = sext i32 %124 to i64
-  %switch.gep136 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.54, i64 0, i64 %125
+  %switch.gep136 = getelementptr inbounds [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.54, i64 0, i64 %125
   %switch.load137 = load i32, ptr %switch.gep136, align 4
   br label %130
 
@@ -17914,7 +17914,7 @@ switch.lookup138:                                 ; preds = %2
   %126 = add i32 %1, -32
   %127 = tail call i32 @llvm.fshl.i32(i32 %126, i32 %126, i32 28)
   %128 = sext i32 %127 to i64
-  %switch.gep139 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.55, i64 0, i64 %128
+  %switch.gep139 = getelementptr inbounds [7 x i32], ptr @switch.table._ZL12getRTLibDescjj.55, i64 0, i64 %128
   %switch.load140 = load i32, ptr %switch.gep139, align 4
   br label %130
 
@@ -53898,7 +53898,7 @@ switch.lookup:                                    ; preds = %_ZNK4llvm3LLT14getN
   %49 = load i16, ptr %48, align 4
   %switch.tableidx = add nsw i16 %49, -279
   %50 = sext i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [15 x i32], ptr @switch.table._ZN4llvm15LegalizerHelper29fewerElementsVectorReductionsERNS_12MachineInstrEjNS_3LLTE, i64 0, i64 %50
+  %switch.gep = getelementptr inbounds [15 x i32], ptr @switch.table._ZN4llvm15LegalizerHelper29fewerElementsVectorReductionsERNS_12MachineInstrEjNS_3LLTE, i64 0, i64 %50
   %switch.load = load i32, ptr %switch.gep, align 4
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %51, i64 noundef 12) #18
@@ -58196,7 +58196,7 @@ _ZN4llvm3LLT12fixed_vectorEjS0_.exit:             ; preds = %159, %161
   %250 = call i16 %249(ptr noundef nonnull align 8 dereferenceable(408123) %243, ptr noundef nonnull align 8 dereferenceable(512) %246) #18
   %251 = zext i16 %250 to i64
   %252 = add nsw i64 %251, -1
-  %253 = getelementptr inbounds nuw [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %252
+  %253 = getelementptr inbounds [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %252
   %.sroa.0.0.copyload.i.i91 = load i64, ptr %253, align 16
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %253, i64 8
   %.sroa.2.0.copyload.i.i = load i8, ptr %.sroa.2.0..sroa_idx.i.i, align 8

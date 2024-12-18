@@ -2374,7 +2374,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang24BalancedDelimiterTrack
 switch.lookup:                                    ; preds = %1
   %switch.tableidx = add nsw i16 %5, -20
   %9 = sext i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN5clang6Parser18ParseOpenMPVarListEN4llvm3omp9DirectiveENS2_6ClauseERNS1_15SmallVectorImplIPNS_4ExprEEERNS_10SemaOpenMP19OpenMPVarListDataTyE, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table._ZN5clang6Parser18ParseOpenMPVarListEN4llvm3omp9DirectiveENS2_6ClauseERNS1_15SmallVectorImplIPNS_4ExprEEERNS_10SemaOpenMP19OpenMPVarListDataTyE, i64 0, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 %switch.load
   %11 = load i16, ptr %10, align 2
@@ -14727,7 +14727,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit405:         ; preds = %_ZN5clang19Streamin
 switch.lookup:                                    ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit405
   %switch.tableidx = add nsw i16 %1167, -20
   %1171 = sext i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN5clang6Parser18ParseOpenMPVarListEN4llvm3omp9DirectiveENS2_6ClauseERNS1_15SmallVectorImplIPNS_4ExprEEERNS_10SemaOpenMP19OpenMPVarListDataTyE, i64 0, i64 %1171
+  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table._ZN5clang6Parser18ParseOpenMPVarListEN4llvm3omp9DirectiveENS2_6ClauseERNS1_15SmallVectorImplIPNS_4ExprEEERNS_10SemaOpenMP19OpenMPVarListDataTyE, i64 0, i64 %1171
   %switch.load = load i64, ptr %switch.gep, align 8
   %1172 = getelementptr inbounds nuw i8, ptr %1166, i64 %switch.load
   %1173 = load i16, ptr %1172, align 2
@@ -16537,7 +16537,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %_ZN5clang17Diagnost
 
 116:                                              ; preds = %select.unfold
   %117 = sext i32 %.019 to i64
-  %118 = getelementptr inbounds nuw [7 x %"struct.llvm::omp::AssumptionClauseMappingInfo"], ptr @_ZN4llvm3ompL24AssumptionClauseMappingsE, i64 0, i64 %117
+  %118 = getelementptr inbounds [7 x %"struct.llvm::omp::AssumptionClauseMappingInfo"], ptr @_ZN4llvm3ompL24AssumptionClauseMappingsE, i64 0, i64 %117
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 17
   %120 = load i8, ptr %119, align 1
   %121 = trunc i8 %120 to i1

@@ -4200,7 +4200,7 @@ define hidden void @_ZN2cv8ximgproc15ScanSegmentImpl11watershedExERKNS_3MatERS2_
   %161 = add i32 %160, %146
   %162 = sub i32 %161, %154
   %163 = sext i32 %162 to i64
-  %164 = getelementptr inbounds nuw [513 x i32], ptr %4, i64 0, i64 %163
+  %164 = getelementptr inbounds [513 x i32], ptr %4, i64 0, i64 %163
   %165 = load i32, ptr %164, align 4
   %166 = add nsw i32 %154, %165
   %or.cond.us = icmp ult i32 %166, 256
@@ -4253,7 +4253,7 @@ define hidden void @_ZN2cv8ximgproc15ScanSegmentImpl11watershedExERKNS_3MatERS2_
   %203 = add i32 %202, %188
   %204 = sub i32 %203, %196
   %205 = sext i32 %204 to i64
-  %206 = getelementptr inbounds nuw [513 x i32], ptr %4, i64 0, i64 %205
+  %206 = getelementptr inbounds [513 x i32], ptr %4, i64 0, i64 %205
   %207 = load i32, ptr %206, align 4
   %208 = add nsw i32 %196, %207
   %or.cond3.us = icmp ult i32 %208, 256
@@ -4308,7 +4308,7 @@ define hidden void @_ZN2cv8ximgproc15ScanSegmentImpl11watershedExERKNS_3MatERS2_
   %250 = add i32 %249, %235
   %251 = sub i32 %250, %243
   %252 = sext i32 %251 to i64
-  %253 = getelementptr inbounds nuw [513 x i32], ptr %4, i64 0, i64 %252
+  %253 = getelementptr inbounds [513 x i32], ptr %4, i64 0, i64 %252
   %254 = load i32, ptr %253, align 4
   %255 = add nsw i32 %243, %254
   %or.cond5.us = icmp ult i32 %255, 256
@@ -4318,7 +4318,7 @@ define hidden void @_ZN2cv8ximgproc15ScanSegmentImpl11watershedExERKNS_3MatERS2_
   %257 = add i32 %.1576.us, 256
   %258 = sub i32 %257, %255
   %259 = sext i32 %258 to i64
-  %260 = getelementptr inbounds nuw [513 x i32], ptr %4, i64 0, i64 %259
+  %260 = getelementptr inbounds [513 x i32], ptr %4, i64 0, i64 %259
   %261 = load i32, ptr %260, align 4
   %262 = sub nsw i32 %.1576.us, %261
   br label %263
@@ -4363,7 +4363,7 @@ define hidden void @_ZN2cv8ximgproc15ScanSegmentImpl11watershedExERKNS_3MatERS2_
   %297 = add i32 %296, %282
   %298 = sub i32 %297, %290
   %299 = sext i32 %298 to i64
-  %300 = getelementptr inbounds nuw [513 x i32], ptr %4, i64 0, i64 %299
+  %300 = getelementptr inbounds [513 x i32], ptr %4, i64 0, i64 %299
   %301 = load i32, ptr %300, align 4
   %302 = add nsw i32 %290, %301
   %or.cond7.us = icmp ult i32 %302, 256
@@ -4373,7 +4373,7 @@ define hidden void @_ZN2cv8ximgproc15ScanSegmentImpl11watershedExERKNS_3MatERS2_
   %304 = add i32 %.2577.us, 256
   %305 = sub i32 %304, %302
   %306 = sext i32 %305 to i64
-  %307 = getelementptr inbounds nuw [513 x i32], ptr %4, i64 0, i64 %306
+  %307 = getelementptr inbounds [513 x i32], ptr %4, i64 0, i64 %306
   %308 = load i32, ptr %307, align 4
   %309 = sub nsw i32 %.2577.us, %308
   br label %310
@@ -4778,7 +4778,7 @@ _ZN2cv8ximgproc15ScanSegmentImpl12allocWSNodesERSt6vectorINS1_6WSNodeESaIS3_EE.e
   %.0570 = phi i32 [ 0, %.thread925 ], [ %.4574932, %.backedge ]
   %.4 = phi i32 [ %.0533.lcssa, %.thread925 ], [ %.4.be, %.backedge ]
   %438 = sext i32 %.0579 to i64
-  %439 = getelementptr inbounds nuw [256 x %"struct.cv::ximgproc::ScanSegmentImpl::WSQueue"], ptr %3, i64 0, i64 %438
+  %439 = getelementptr inbounds [256 x %"struct.cv::ximgproc::ScanSegmentImpl::WSQueue"], ptr %3, i64 0, i64 %438
   %440 = load i32, ptr %439, align 8
   %441 = icmp eq i32 %440, 0
   br i1 %441, label %.preheader.preheader, label %.thread926
@@ -4795,7 +4795,7 @@ _ZN2cv8ximgproc15ScanSegmentImpl12allocWSNodesERSt6vectorINS1_6WSNodeESaIS3_EE.e
   br i1 %exitcond1160.not, label %445, label %442
 
 442:                                              ; preds = %.preheader
-  %443 = getelementptr inbounds nuw [256 x %"struct.cv::ximgproc::ScanSegmentImpl::WSQueue"], ptr %3, i64 0, i64 %indvars.iv.next1157
+  %443 = getelementptr inbounds [256 x %"struct.cv::ximgproc::ScanSegmentImpl::WSQueue"], ptr %3, i64 0, i64 %indvars.iv.next1157
   %444 = load i32, ptr %443, align 8
   %.not630 = icmp eq i32 %444, 0
   br i1 %.not630, label %.preheader, label %.thread926.loopexit, !llvm.loop !51
@@ -4816,7 +4816,7 @@ _ZN2cv8ximgproc15ScanSegmentImpl12allocWSNodesERSt6vectorINS1_6WSNodeESaIS3_EE.e
 .thread926:                                       ; preds = %.thread926.loopexit, %445, %437
   %.1580 = phi i32 [ %.0579, %437 ], [ %446, %445 ], [ %449, %.thread926.loopexit ]
   %450 = sext i32 %.1580 to i64
-  %451 = getelementptr inbounds nuw [256 x %"struct.cv::ximgproc::ScanSegmentImpl::WSQueue"], ptr %3, i64 0, i64 %450
+  %451 = getelementptr inbounds [256 x %"struct.cv::ximgproc::ScanSegmentImpl::WSQueue"], ptr %3, i64 0, i64 %450
   %452 = load i32, ptr %451, align 8
   %453 = sext i32 %452 to i64
   %454 = getelementptr inbounds %"struct.cv::ximgproc::ScanSegmentImpl::WSNode", ptr %.sroa.0851.7, i64 %453
@@ -4892,7 +4892,7 @@ _ZN2cv8ximgproc15ScanSegmentImpl12allocWSNodesERSt6vectorINS1_6WSNodeESaIS3_EE.e
   %509 = add i32 %508, %494
   %510 = sub i32 %509, %502
   %511 = sext i32 %510 to i64
-  %512 = getelementptr inbounds nuw [513 x i32], ptr %4, i64 0, i64 %511
+  %512 = getelementptr inbounds [513 x i32], ptr %4, i64 0, i64 %511
   %513 = load i32, ptr %512, align 4
   %514 = add nsw i32 %502, %513
   %or.cond11 = icmp ult i32 %514, 256
@@ -4974,7 +4974,7 @@ _ZN2cv8ximgproc15ScanSegmentImpl12allocWSNodesERSt6vectorINS1_6WSNodeESaIS3_EE.e
   %560 = add i32 %559, %545
   %561 = sub i32 %560, %553
   %562 = sext i32 %561 to i64
-  %563 = getelementptr inbounds nuw [513 x i32], ptr %4, i64 0, i64 %562
+  %563 = getelementptr inbounds [513 x i32], ptr %4, i64 0, i64 %562
   %564 = load i32, ptr %563, align 4
   %565 = add nsw i32 %553, %564
   %or.cond13 = icmp ult i32 %565, 256
@@ -5045,7 +5045,7 @@ _ZN2cv8ximgproc15ScanSegmentImpl12allocWSNodesERSt6vectorINS1_6WSNodeESaIS3_EE.e
   %605 = add i32 %604, %590
   %606 = sub i32 %605, %598
   %607 = sext i32 %606 to i64
-  %608 = getelementptr inbounds nuw [513 x i32], ptr %4, i64 0, i64 %607
+  %608 = getelementptr inbounds [513 x i32], ptr %4, i64 0, i64 %607
   %609 = load i32, ptr %608, align 4
   %610 = add nsw i32 %598, %609
   %or.cond15 = icmp ult i32 %610, 256
@@ -5083,7 +5083,7 @@ _ZN2cv8ximgproc15ScanSegmentImpl12allocWSNodesERSt6vectorINS1_6WSNodeESaIS3_EE.e
   %620 = add i32 %.1571, 256
   %621 = sub i32 %620, %610
   %622 = sext i32 %621 to i64
-  %623 = getelementptr inbounds nuw [513 x i32], ptr %4, i64 0, i64 %622
+  %623 = getelementptr inbounds [513 x i32], ptr %4, i64 0, i64 %622
   %624 = load i32, ptr %623, align 4
   %625 = sub nsw i32 %.1571, %624
   %626 = icmp eq i32 %625, %610
@@ -5138,7 +5138,7 @@ _ZN2cv8ximgproc15ScanSegmentImpl12allocWSNodesERSt6vectorINS1_6WSNodeESaIS3_EE.e
   %664 = add i32 %663, %649
   %665 = sub i32 %664, %657
   %666 = sext i32 %665 to i64
-  %667 = getelementptr inbounds nuw [513 x i32], ptr %4, i64 0, i64 %666
+  %667 = getelementptr inbounds [513 x i32], ptr %4, i64 0, i64 %666
   %668 = load i32, ptr %667, align 4
   %669 = add nsw i32 %657, %668
   %or.cond17 = icmp ult i32 %669, 256
@@ -5209,7 +5209,7 @@ _ZN2cv8ximgproc15ScanSegmentImpl12allocWSNodesERSt6vectorINS1_6WSNodeESaIS3_EE.e
   %709 = add i32 %708, %694
   %710 = sub i32 %709, %702
   %711 = sext i32 %710 to i64
-  %712 = getelementptr inbounds nuw [513 x i32], ptr %4, i64 0, i64 %711
+  %712 = getelementptr inbounds [513 x i32], ptr %4, i64 0, i64 %711
   %713 = load i32, ptr %712, align 4
   %714 = add nsw i32 %702, %713
   %or.cond19 = icmp ult i32 %714, 256
@@ -5247,7 +5247,7 @@ _ZN2cv8ximgproc15ScanSegmentImpl12allocWSNodesERSt6vectorINS1_6WSNodeESaIS3_EE.e
   %724 = add i32 %.2572, 256
   %725 = sub i32 %724, %714
   %726 = sext i32 %725 to i64
-  %727 = getelementptr inbounds nuw [513 x i32], ptr %4, i64 0, i64 %726
+  %727 = getelementptr inbounds [513 x i32], ptr %4, i64 0, i64 %726
   %728 = load i32, ptr %727, align 4
   %729 = sub nsw i32 %.2572, %728
   %730 = icmp eq i32 %729, %714
@@ -5306,7 +5306,7 @@ _ZN2cv8ximgproc15ScanSegmentImpl12allocWSNodesERSt6vectorINS1_6WSNodeESaIS3_EE.e
   %769 = add i32 %768, %754
   %770 = sub i32 %769, %762
   %771 = sext i32 %770 to i64
-  %772 = getelementptr inbounds nuw [513 x i32], ptr %4, i64 0, i64 %771
+  %772 = getelementptr inbounds [513 x i32], ptr %4, i64 0, i64 %771
   %773 = load i32, ptr %772, align 4
   %774 = add nsw i32 %762, %773
   %or.cond21 = icmp ult i32 %774, 256
@@ -5344,7 +5344,7 @@ _ZN2cv8ximgproc15ScanSegmentImpl12allocWSNodesERSt6vectorINS1_6WSNodeESaIS3_EE.e
   %784 = add i32 %.3573, 256
   %785 = sub i32 %784, %774
   %786 = sext i32 %785 to i64
-  %787 = getelementptr inbounds nuw [513 x i32], ptr %4, i64 0, i64 %786
+  %787 = getelementptr inbounds [513 x i32], ptr %4, i64 0, i64 %786
   %788 = load i32, ptr %787, align 4
   %789 = sub nsw i32 %.3573, %788
   %790 = icmp eq i32 %789, %774
@@ -5428,7 +5428,7 @@ _ZN2cv8ximgproc15ScanSegmentImpl12allocWSNodesERSt6vectorINS1_6WSNodeESaIS3_EE.e
   %834 = add i32 %833, %819
   %835 = sub i32 %834, %827
   %836 = sext i32 %835 to i64
-  %837 = getelementptr inbounds nuw [513 x i32], ptr %4, i64 0, i64 %836
+  %837 = getelementptr inbounds [513 x i32], ptr %4, i64 0, i64 %836
   %838 = load i32, ptr %837, align 4
   %839 = add nsw i32 %827, %838
   %or.cond23 = icmp ult i32 %839, 256
@@ -5634,7 +5634,7 @@ _ZN2cv8ximgproc15ScanSegmentImpl12allocWSNodesERSt6vectorINS1_6WSNodeESaIS3_EE.e
   %917 = add i32 %.1580, 256
   %918 = sub i32 %917, %839
   %919 = sext i32 %918 to i64
-  %920 = getelementptr inbounds nuw [513 x i32], ptr %4, i64 0, i64 %919
+  %920 = getelementptr inbounds [513 x i32], ptr %4, i64 0, i64 %919
   %921 = load i32, ptr %920, align 4
   %922 = sub nsw i32 %.1580, %921
   store i32 -2, ptr %801, align 4
@@ -5687,7 +5687,7 @@ _ZN2cv8ximgproc15ScanSegmentImpl12allocWSNodesERSt6vectorINS1_6WSNodeESaIS3_EE.e
   %958 = add i32 %957, %943
   %959 = sub i32 %958, %951
   %960 = sext i32 %959 to i64
-  %961 = getelementptr inbounds nuw [513 x i32], ptr %4, i64 0, i64 %960
+  %961 = getelementptr inbounds [513 x i32], ptr %4, i64 0, i64 %960
   %962 = load i32, ptr %961, align 4
   %963 = add nsw i32 %951, %962
   %or.cond25 = icmp ult i32 %963, 256
@@ -5892,7 +5892,7 @@ _ZN2cv8ximgproc15ScanSegmentImpl12allocWSNodesERSt6vectorINS1_6WSNodeESaIS3_EE.e
   %1041 = add i32 %.2581, 256
   %1042 = sub i32 %1041, %963
   %1043 = sext i32 %1042 to i64
-  %1044 = getelementptr inbounds nuw [513 x i32], ptr %4, i64 0, i64 %1043
+  %1044 = getelementptr inbounds [513 x i32], ptr %4, i64 0, i64 %1043
   %1045 = load i32, ptr %1044, align 4
   %1046 = sub nsw i32 %.2581, %1045
   store i32 -2, ptr %925, align 4
@@ -5945,7 +5945,7 @@ _ZN2cv8ximgproc15ScanSegmentImpl12allocWSNodesERSt6vectorINS1_6WSNodeESaIS3_EE.e
   %1082 = add i32 %1081, %1067
   %1083 = sub i32 %1082, %1075
   %1084 = sext i32 %1083 to i64
-  %1085 = getelementptr inbounds nuw [513 x i32], ptr %4, i64 0, i64 %1084
+  %1085 = getelementptr inbounds [513 x i32], ptr %4, i64 0, i64 %1084
   %1086 = load i32, ptr %1085, align 4
   %1087 = add nsw i32 %1075, %1086
   %or.cond27 = icmp ult i32 %1087, 256
@@ -6151,7 +6151,7 @@ _ZN2cv8ximgproc15ScanSegmentImpl12allocWSNodesERSt6vectorINS1_6WSNodeESaIS3_EE.e
   %1166 = add i32 %.3582, 256
   %1167 = sub i32 %1166, %1087
   %1168 = sext i32 %1167 to i64
-  %1169 = getelementptr inbounds nuw [513 x i32], ptr %4, i64 0, i64 %1168
+  %1169 = getelementptr inbounds [513 x i32], ptr %4, i64 0, i64 %1168
   %1170 = load i32, ptr %1169, align 4
   %1171 = sub nsw i32 %.3582, %1170
   store i32 -2, ptr %1049, align 4
@@ -6212,7 +6212,7 @@ _ZN2cv8ximgproc15ScanSegmentImpl12allocWSNodesERSt6vectorINS1_6WSNodeESaIS3_EE.e
   %1207 = add i32 %1206, %1192
   %1208 = sub i32 %1207, %1200
   %1209 = sext i32 %1208 to i64
-  %1210 = getelementptr inbounds nuw [513 x i32], ptr %4, i64 0, i64 %1209
+  %1210 = getelementptr inbounds [513 x i32], ptr %4, i64 0, i64 %1209
   %1211 = load i32, ptr %1210, align 4
   %1212 = add nsw i32 %1200, %1211
   %or.cond29 = icmp ult i32 %1212, 256
@@ -6418,7 +6418,7 @@ _ZN2cv8ximgproc15ScanSegmentImpl12allocWSNodesERSt6vectorINS1_6WSNodeESaIS3_EE.e
   %1291 = add i32 %.4583, 256
   %1292 = sub i32 %1291, %1212
   %1293 = sext i32 %1292 to i64
-  %1294 = getelementptr inbounds nuw [513 x i32], ptr %4, i64 0, i64 %1293
+  %1294 = getelementptr inbounds [513 x i32], ptr %4, i64 0, i64 %1293
   %1295 = load i32, ptr %1294, align 4
   %1296 = sub nsw i32 %.4583, %1295
   store i32 -2, ptr %1174, align 4

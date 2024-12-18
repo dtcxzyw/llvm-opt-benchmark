@@ -391,7 +391,7 @@ invoke.cont20:                                    ; preds = %invoke.cont17
 
 while.cond:                                       ; preds = %while.body
   %indvars.iv.next = add nsw i64 %indvars.iv.next197, -1
-  %arrayidx23 = getelementptr inbounds nuw [7 x i8], ptr %buf0, i64 0, i64 %indvars.iv.next
+  %arrayidx23 = getelementptr inbounds [7 x i8], ptr %buf0, i64 0, i64 %indvars.iv.next
   %3 = load i8, ptr %arrayidx23, align 1
   %cmp24 = icmp eq i8 %3, 0
   br i1 %cmp24, label %land.rhs, label %while.end.loopexit, !llvm.loop !5
@@ -399,7 +399,7 @@ while.cond:                                       ; preds = %while.body
 land.rhs:                                         ; preds = %invoke.cont20, %while.cond
   %indvars.iv.next197 = phi i64 [ %indvars.iv.next, %while.cond ], [ 6, %invoke.cont20 ]
   %4 = phi i64 [ %indvars.iv.next197, %while.cond ], [ 7, %invoke.cont20 ]
-  %arrayidx27 = getelementptr inbounds nuw [7 x i8], ptr %buf1, i64 0, i64 %indvars.iv.next197
+  %arrayidx27 = getelementptr inbounds [7 x i8], ptr %buf1, i64 0, i64 %indvars.iv.next197
   %5 = load i8, ptr %arrayidx27, align 1
   %cmp29 = icmp eq i8 %5, -1
   br i1 %cmp29, label %while.body, label %while.end.loopexit

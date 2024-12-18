@@ -1428,7 +1428,7 @@ exp2f.i.noexc.i:                                  ; preds = %519
   %sext.i = add nsw i64 %721, -4294967296
   %722 = ashr exact i64 %sext.i, 32
   %723 = select i1 %.not.i, i64 35, i64 %722
-  %724 = getelementptr inbounds nuw [36 x float], ptr %26, i64 0, i64 %723
+  %724 = getelementptr inbounds [36 x float], ptr %26, i64 0, i64 %723
   %725 = load float, ptr %724, align 4
   %726 = fcmp ogt float %720, %725
   br i1 %726, label %727, label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backERKS1_.exit.i

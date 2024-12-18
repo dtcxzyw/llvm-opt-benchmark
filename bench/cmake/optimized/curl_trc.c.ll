@@ -119,10 +119,10 @@ define dso_local void @Curl_failf(ptr noundef %0, ptr noundef %1, ...) local_unn
 23:                                               ; preds = %19, %15, %11
   %24 = add nsw i32 %12, 1
   %25 = sext i32 %12 to i64
-  %26 = getelementptr inbounds nuw [258 x i8], ptr %4, i64 0, i64 %25
+  %26 = getelementptr inbounds [258 x i8], ptr %4, i64 0, i64 %25
   store i8 10, ptr %26, align 1
   %27 = sext i32 %24 to i64
-  %28 = getelementptr inbounds nuw [258 x i8], ptr %4, i64 0, i64 %27
+  %28 = getelementptr inbounds [258 x i8], ptr %4, i64 0, i64 %27
   store i8 0, ptr %28, align 1
   call void @Curl_debug(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull %4, i64 noundef %27)
   call void @llvm.va_end.p0(ptr nonnull %3)
@@ -157,10 +157,10 @@ define dso_local void @Curl_infof(ptr noundef %0, ptr noundef %1, ...) local_unn
   call void @llvm.va_end.p0(ptr nonnull %3)
   %11 = add nsw i32 %10, 1
   %12 = sext i32 %10 to i64
-  %13 = getelementptr inbounds nuw [2050 x i8], ptr %4, i64 0, i64 %12
+  %13 = getelementptr inbounds [2050 x i8], ptr %4, i64 0, i64 %12
   store i8 10, ptr %13, align 1
   %14 = sext i32 %11 to i64
-  %15 = getelementptr inbounds nuw [2050 x i8], ptr %4, i64 0, i64 %14
+  %15 = getelementptr inbounds [2050 x i8], ptr %4, i64 0, i64 %14
   store i8 0, ptr %15, align 1
   call void @Curl_debug(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull %4, i64 noundef %14)
   br label %16
@@ -197,7 +197,7 @@ define dso_local void @Curl_trc_cf_infof(ptr noundef %0, ptr noundef readonly %1
   %19 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %5, i64 noundef 2048, ptr noundef nonnull @.str, ptr noundef %18) #7
   call void @llvm.va_start.p0(ptr nonnull %4)
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds nuw i8, ptr %5, i64 %20
+  %21 = getelementptr inbounds i8, ptr %5, i64 %20
   %22 = sub nsw i32 2048, %19
   %23 = sext i32 %22 to i64
   %24 = call i32 @curl_mvsnprintf(ptr noundef nonnull %21, i64 noundef %23, ptr noundef %2, ptr noundef nonnull %4) #7
@@ -205,10 +205,10 @@ define dso_local void @Curl_trc_cf_infof(ptr noundef %0, ptr noundef readonly %1
   call void @llvm.va_end.p0(ptr nonnull %4)
   %26 = add nsw i32 %25, 1
   %27 = sext i32 %25 to i64
-  %28 = getelementptr inbounds nuw [2050 x i8], ptr %5, i64 0, i64 %27
+  %28 = getelementptr inbounds [2050 x i8], ptr %5, i64 0, i64 %27
   store i8 10, ptr %28, align 1
   %29 = sext i32 %26 to i64
-  %30 = getelementptr inbounds nuw [2050 x i8], ptr %5, i64 0, i64 %29
+  %30 = getelementptr inbounds [2050 x i8], ptr %5, i64 0, i64 %29
   store i8 0, ptr %30, align 1
   call void @Curl_debug(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull %5, i64 noundef %29)
   br label %31

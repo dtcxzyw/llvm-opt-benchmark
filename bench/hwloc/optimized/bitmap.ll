@@ -2134,7 +2134,7 @@ hwloc_flsl_manual.exit.i.i:                       ; preds = %62, %54
   %spec.store.select = select i1 %.not37, i32 16, i32 %91
   %92 = sext i32 %spec.store.select to i64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %.260, i64 %92, i1 false)
-  %93 = getelementptr inbounds nuw [17 x i8], ptr %3, i64 0, i64 %92
+  %93 = getelementptr inbounds [17 x i8], ptr %3, i64 0, i64 %92
   store i8 0, ptr %93, align 1
   %94 = call i64 @strtoul(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 16) #16
   %95 = load ptr, ptr %4, align 8

@@ -1097,15 +1097,15 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
 372:                                              ; preds = %368
   %373 = load i8, ptr %369, align 1
   %374 = sext i32 %.0374506 to i64
-  %375 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %374
+  %375 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %374
   store i8 %373, ptr %375, align 1
   %376 = getelementptr inbounds nuw %struct.ColorEntry, ptr %.pre577, i64 %indvars.iv559, i32 1
   %377 = load i8, ptr %376, align 1
-  %378 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %374
+  %378 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 %374
   store i8 %377, ptr %378, align 1
   %379 = getelementptr inbounds nuw %struct.ColorEntry, ptr %.pre577, i64 %indvars.iv559, i32 2
   %380 = load i8, ptr %379, align 1
-  %381 = getelementptr inbounds nuw [256 x i8], ptr %7, i64 0, i64 %374
+  %381 = getelementptr inbounds [256 x i8], ptr %7, i64 0, i64 %374
   store i8 %380, ptr %381, align 1
   %382 = add nsw i32 %.0374506, 1
   br label %385

@@ -99507,10 +99507,10 @@ common.resume:                                    ; preds = %.body, %16
 
 switch.lookup:                                    ; preds = %39
   %43 = sext i8 %.val4 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN99_$LT$ockam_api..logs..logging_configuration..LoggingConfiguration$u20$as$u20$core..fmt..Display$GT$3fmt17h9b420e9374d178cbE", i64 0, i64 %43
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN99_$LT$ockam_api..logs..logging_configuration..LoggingConfiguration$u20$as$u20$core..fmt..Display$GT$3fmt17h9b420e9374d178cbE", i64 0, i64 %43
   %switch.load = load ptr, ptr %switch.gep, align 8
   %44 = sext i8 %.val4 to i64
-  %switch.gep14 = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN99_$LT$ockam_api..logs..logging_configuration..LoggingConfiguration$u20$as$u20$core..fmt..Display$GT$3fmt17h9b420e9374d178cbE.238", i64 0, i64 %44
+  %switch.gep14 = getelementptr inbounds [3 x i64], ptr @"switch.table._ZN99_$LT$ockam_api..logs..logging_configuration..LoggingConfiguration$u20$as$u20$core..fmt..Display$GT$3fmt17h9b420e9374d178cbE.238", i64 0, i64 %44
   %switch.load15 = load i64, ptr %switch.gep14, align 8
   %45 = invoke noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hf5c6803265aa79e0E(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.load15)
           to label %"_ZN91_$LT$ockam_api..logs..logging_options..GlobalErrorHandler$u20$as$u20$core..fmt..Display$GT$3fmt17h933ed53cf045e756E.exit.i" unwind label %41, !noalias !19841

@@ -2328,7 +2328,7 @@ switch.lookup:                                    ; preds = %28
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 136
   %switch.tableidx = add nsw i32 %.sroa.182.0.copyload.i, -6
   %35 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZL4loadPN4llvm6object15MachOObjectFileERNS_5MachO12RecordsSliceERKNS3_11DylibReader11ParseOptionENS3_12ArchitectureE, i64 0, i64 %35
+  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZL4loadPN4llvm6object15MachOObjectFileERNS_5MachO12RecordsSliceERKNS3_11DylibReader11ParseOptionENS3_12ArchitectureE, i64 0, i64 %35
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %34, align 8, !noalias !147
   %36 = and i32 %.sroa.284.0.copyload.i, 128

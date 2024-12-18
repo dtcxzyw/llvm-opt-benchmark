@@ -21663,7 +21663,7 @@ _ZNSt6vectorIiSaIiEEC2ERKS1_.exit:                ; preds = %.thread, %33
   %indvar = phi i64 [ 0, %98 ], [ %indvar.next, %_ZN19integrate_potential8get_gradEPdRSt6vectorIiSaIiEE.exit ]
   %104 = mul nuw nsw i64 %indvar, 24
   %scevgep = getelementptr i8, ptr %102, i64 %104
-  %105 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv
+  %105 = getelementptr inbounds double, ptr %8, i64 %indvars.iv
   %106 = load i64, ptr %88, align 8
   %.not19.i.i = icmp eq i64 %106, 0
   br i1 %.not19.i.i, label %_ZNK11colvar_gridIdE9wrap_edgeERSt6vectorIiSaIiEE.exit.thread.i, label %.outer.i

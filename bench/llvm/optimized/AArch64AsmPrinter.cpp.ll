@@ -3144,7 +3144,7 @@ _ZNK4llvm15SmallPtrSetImplIPKNS_12MachineInstrEE5countES3_.exit: ; preds = %.lr.
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %50, i8 0, i64 16, i1 false)
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(112) %449, ptr noundef nonnull %450, i64 noundef 6) #21
   %451 = zext i1 %448 to i64
-  %452 = getelementptr inbounds nuw [2 x [2 x i32]], ptr @__const._ZN12_GLOBAL__N_117AArch64AsmPrinter15emitInstructionEPKN4llvm12MachineInstrE.Opcodes, i64 0, i64 %420, i64 %451
+  %452 = getelementptr inbounds [2 x [2 x i32]], ptr @__const._ZN12_GLOBAL__N_117AArch64AsmPrinter15emitInstructionEPKN4llvm12MachineInstrE.Opcodes, i64 0, i64 %420, i64 %451
   %453 = load i32, ptr %452, align 4
   store i32 %453, ptr %50, align 8
   %454 = load ptr, ptr %32, align 8
@@ -3502,7 +3502,7 @@ _ZN4llvm13MCInstBuilder7addExprEPKNS_6MCExprE.exit.i: ; preds = %616, %_ZN4llvm1
 _ZN4llvm13MCInstBuilderD2Ev.exit.i:               ; preds = %625, %_ZN4llvm13MCInstBuilder7addExprEPKNS_6MCExprE.exit.i
   %switch.tableidx = add nsw i32 %571, -1
   %626 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN12_GLOBAL__N_117AArch64AsmPrinter15emitInstructionEPKN4llvm12MachineInstrE, i64 0, i64 %626
+  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZN12_GLOBAL__N_117AArch64AsmPrinter15emitInstructionEPKN4llvm12MachineInstrE, i64 0, i64 %626
   %switch.load = load i32, ptr %switch.gep, align 4
   %627 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %628 = getelementptr inbounds nuw i8, ptr %24, i64 32

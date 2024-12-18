@@ -327,7 +327,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Osd15CpuEvalStencilsEPKfRKNS1_16BufferDescri
   %50 = shl nsw i64 %49, 2
   %51 = alloca i8, i64 %50, align 16
   %52 = sext i32 %42 to i64
-  %53 = getelementptr inbounds nuw float, ptr %51, i64 %52
+  %53 = getelementptr inbounds float, ptr %51, i64 %52
   %54 = sext i32 %44 to i64
   %55 = getelementptr inbounds float, ptr %53, i64 %54
   %56 = sub nsw i32 %15, %14
@@ -558,7 +558,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Osd15CpuEvalStencilsEPKfRKNS1_16BufferDescri
   %80 = shl nsw i64 %79, 2
   %81 = alloca i8, i64 %80, align 16
   %82 = sext i32 %63 to i64
-  %83 = getelementptr inbounds nuw float, ptr %81, i64 %82
+  %83 = getelementptr inbounds float, ptr %81, i64 %82
   %84 = sext i32 %65 to i64
   %85 = getelementptr inbounds float, ptr %83, i64 %84
   %86 = sext i32 %68 to i64

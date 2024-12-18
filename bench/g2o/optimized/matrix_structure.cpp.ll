@@ -638,7 +638,7 @@ _ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St17basic_string_viewIS3_
   %151 = load ptr, ptr %7, align 8
   %152 = getelementptr i8, ptr %151, i64 -24
   %153 = load i64, ptr %152, align 8
-  %154 = getelementptr inbounds nuw i8, ptr %7, i64 %153
+  %154 = getelementptr inbounds i8, ptr %7, i64 %153
   %155 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %154)
           to label %156 unwind label %.loopexit.split-lp
 

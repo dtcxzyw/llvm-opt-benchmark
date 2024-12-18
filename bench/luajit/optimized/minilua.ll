@@ -3959,7 +3959,7 @@ if.then17:                                        ; preds = %if.then
   %tt.i73 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 8
   %5 = load i32, ptr %tt.i73, align 8
   %idxprom.i = sext i32 %5 to i64
-  %arrayidx.i = getelementptr inbounds nuw [11 x ptr], ptr @luaT_typenames, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [11 x ptr], ptr @luaT_typenames, i64 0, i64 %idxprom.i
   %6 = load ptr, ptr %arrayidx.i, align 8
   tail call void (ptr, ptr, ...) @luaG_runerror(ptr noundef nonnull %L, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.45, ptr noundef %6)
   unreachable
@@ -5362,7 +5362,7 @@ if.then605.i:                                     ; preds = %sw.default.i
   %tt588.i.le = getelementptr inbounds nuw i8, ptr %add.ptr587.i, i64 8
   %109 = load i32, ptr %tt588.i.le, align 8
   %idxprom.i78 = sext i32 %109 to i64
-  %arrayidx.i79 = getelementptr inbounds nuw [11 x ptr], ptr @luaT_typenames, i64 0, i64 %idxprom.i78
+  %arrayidx.i79 = getelementptr inbounds [11 x ptr], ptr @luaT_typenames, i64 0, i64 %idxprom.i78
   %110 = load ptr, ptr %arrayidx.i79, align 8
   tail call void (ptr, ptr, ...) @luaG_runerror(ptr noundef nonnull %L, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.32, ptr noundef %110)
   unreachable
@@ -5858,10 +5858,10 @@ sw.bb754.i:                                       ; preds = %for.cond.i
 
 if.then.i128:                                     ; preds = %sw.bb754.i
   %idxprom.i.i = sext i32 %207 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw [11 x ptr], ptr @luaT_typenames, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds [11 x ptr], ptr @luaT_typenames, i64 0, i64 %idxprom.i.i
   %209 = load ptr, ptr %arrayidx.i.i, align 8
   %idxprom2.i.i = sext i32 %208 to i64
-  %arrayidx3.i.i = getelementptr inbounds nuw [11 x ptr], ptr @luaT_typenames, i64 0, i64 %idxprom2.i.i
+  %arrayidx3.i.i = getelementptr inbounds [11 x ptr], ptr @luaT_typenames, i64 0, i64 %idxprom2.i.i
   %210 = load ptr, ptr %arrayidx3.i.i, align 8
   %arrayidx4.i.i = getelementptr inbounds nuw i8, ptr %209, i64 2
   %211 = load i8, ptr %arrayidx4.i.i, align 1
@@ -6447,7 +6447,7 @@ lor.end.fold.split.i37.i:                         ; preds = %callTMres.exit834
 
 if.then.i50.i:                                    ; preds = %luaO_rawequalObj.exit, %luaT_gettmbyobj.exit380, %luaT_gettmbyobj.exit, %sw.default.i319, %sw.bb11.i, %sw.bb6.i
   %idxprom.i40.i = sext i32 %207 to i64
-  %arrayidx.i41.i = getelementptr inbounds nuw [11 x ptr], ptr @luaT_typenames, i64 0, i64 %idxprom.i40.i
+  %arrayidx.i41.i = getelementptr inbounds [11 x ptr], ptr @luaT_typenames, i64 0, i64 %idxprom.i40.i
   %333 = load ptr, ptr %arrayidx.i41.i, align 8
   tail call void (ptr, ptr, ...) @luaG_runerror(ptr noundef %L, ptr noundef nonnull @.str.43, ptr noundef nonnull %333)
   unreachable
@@ -7906,7 +7906,7 @@ luaT_gettmbyobj.exit.i:                           ; preds = %if.else.i.i.i, %lan
 
 if.then.i:                                        ; preds = %luaT_gettmbyobj.exit.i
   %idxprom.i23.i = sext i32 %0 to i64
-  %arrayidx.i24.i = getelementptr inbounds nuw [11 x ptr], ptr @luaT_typenames, i64 0, i64 %idxprom.i23.i
+  %arrayidx.i24.i = getelementptr inbounds [11 x ptr], ptr @luaT_typenames, i64 0, i64 %idxprom.i23.i
   %16 = load ptr, ptr %arrayidx.i24.i, align 8
   tail call void (ptr, ptr, ...) @luaG_runerror(ptr noundef nonnull %L, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.18, ptr noundef %16)
   unreachable
@@ -8520,7 +8520,7 @@ luaT_gettmbyobj.exit:                             ; preds = %land.lhs.true.i.i34
 
 if.then23:                                        ; preds = %luaT_gettmbyobj.exit
   %idxprom.i38 = sext i32 %0 to i64
-  %arrayidx.i39 = getelementptr inbounds nuw [11 x ptr], ptr @luaT_typenames, i64 0, i64 %idxprom.i38
+  %arrayidx.i39 = getelementptr inbounds [11 x ptr], ptr @luaT_typenames, i64 0, i64 %idxprom.i38
   %31 = load ptr, ptr %arrayidx.i39, align 8
   tail call void (ptr, ptr, ...) @luaG_runerror(ptr noundef nonnull %L, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.36, ptr noundef %31)
   unreachable
@@ -8834,7 +8834,7 @@ luaT_gettmbyobj.exit:                             ; preds = %land.lhs.true.i.i50
 
 if.then38:                                        ; preds = %luaT_gettmbyobj.exit
   %idxprom.i54 = sext i32 %0 to i64
-  %arrayidx.i55 = getelementptr inbounds nuw [11 x ptr], ptr @luaT_typenames, i64 0, i64 %idxprom.i54
+  %arrayidx.i55 = getelementptr inbounds [11 x ptr], ptr @luaT_typenames, i64 0, i64 %idxprom.i54
   %42 = load ptr, ptr %arrayidx.i55, align 8
   tail call void (ptr, ptr, ...) @luaG_runerror(ptr noundef nonnull %L, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.36, ptr noundef %42)
   unreachable
@@ -9201,7 +9201,7 @@ luaV_tonumber.exit99:                             ; preds = %if.then33, %if.then
   %tt.i100 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 8
   %31 = load i32, ptr %tt.i100, align 8
   %idxprom.i = sext i32 %31 to i64
-  %arrayidx.i = getelementptr inbounds nuw [11 x ptr], ptr @luaT_typenames, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [11 x ptr], ptr @luaT_typenames, i64 0, i64 %idxprom.i
   %32 = load ptr, ptr %arrayidx.i, align 8
   call void (ptr, ptr, ...) @luaG_runerror(ptr noundef nonnull %L, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.42, ptr noundef %32)
   unreachable
@@ -9498,10 +9498,10 @@ entry:
 
 if.then:                                          ; preds = %entry
   %idxprom.i = sext i32 %0 to i64
-  %arrayidx.i = getelementptr inbounds nuw [11 x ptr], ptr @luaT_typenames, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [11 x ptr], ptr @luaT_typenames, i64 0, i64 %idxprom.i
   %2 = load ptr, ptr %arrayidx.i, align 8
   %idxprom2.i = sext i32 %1 to i64
-  %arrayidx3.i = getelementptr inbounds nuw [11 x ptr], ptr @luaT_typenames, i64 0, i64 %idxprom2.i
+  %arrayidx3.i = getelementptr inbounds [11 x ptr], ptr @luaT_typenames, i64 0, i64 %idxprom2.i
   %3 = load ptr, ptr %arrayidx3.i, align 8
   %arrayidx4.i = getelementptr inbounds nuw i8, ptr %2, i64 2
   %4 = load i8, ptr %arrayidx4.i, align 1
@@ -9837,7 +9837,7 @@ lor.end.fold.split.i:                             ; preds = %callTMres.exit
 
 if.then.i31:                                      ; preds = %luaO_rawequalObj.exit, %luaT_gettmbyobj.exit, %luaT_gettmbyobj.exit75, %sw.default.i83, %sw.bb11.i, %sw.bb6.i
   %idxprom.i21 = sext i32 %0 to i64
-  %arrayidx.i22 = getelementptr inbounds nuw [11 x ptr], ptr @luaT_typenames, i64 0, i64 %idxprom.i21
+  %arrayidx.i22 = getelementptr inbounds [11 x ptr], ptr @luaT_typenames, i64 0, i64 %idxprom.i21
   %70 = load ptr, ptr %arrayidx.i22, align 8
   tail call void (ptr, ptr, ...) @luaG_runerror(ptr noundef %L, ptr noundef nonnull @.str.43, ptr noundef nonnull %70)
   unreachable
@@ -17390,7 +17390,7 @@ if.then.i:                                        ; preds = %lua_type.exit.i, %e
 
 lua_typename.exit:                                ; preds = %lua_type.exit.i
   %idxprom.i = sext i32 %2 to i64
-  %arrayidx.i = getelementptr inbounds nuw [11 x ptr], ptr @luaT_typenames, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [11 x ptr], ptr @luaT_typenames, i64 0, i64 %idxprom.i
   %3 = load ptr, ptr %arrayidx.i, align 8
   tail call fastcc void @lua_pushstring(ptr noundef nonnull %L, ptr noundef %3)
   ret i32 1
@@ -19039,7 +19039,7 @@ lua_type.exit:                                    ; preds = %index2adr.exit.i
 
 cond.false.i6:                                    ; preds = %lua_type.exit
   %idxprom.i = sext i32 %14 to i64
-  %arrayidx.i = getelementptr inbounds nuw [11 x ptr], ptr @luaT_typenames, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [11 x ptr], ptr @luaT_typenames, i64 0, i64 %idxprom.i
   %15 = load ptr, ptr %arrayidx.i, align 8
   br label %lua_typename.exit
 
@@ -36116,7 +36116,7 @@ lua_type.exit:                                    ; preds = %lua_isstring.exit
 
 cond.false.i9:                                    ; preds = %lua_type.exit
   %idxprom.i = sext i32 %15 to i64
-  %arrayidx.i = getelementptr inbounds nuw [11 x ptr], ptr @luaT_typenames, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [11 x ptr], ptr @luaT_typenames, i64 0, i64 %idxprom.i
   %18 = load ptr, ptr %arrayidx.i, align 8
   br label %lua_typename.exit
 
@@ -38868,7 +38868,7 @@ lua_type.exit.i:                                  ; preds = %if.end7
 
 cond.false.i6.i:                                  ; preds = %lua_type.exit.i
   %idxprom.i.i = sext i32 %22 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw [11 x ptr], ptr @luaT_typenames, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds [11 x ptr], ptr @luaT_typenames, i64 0, i64 %idxprom.i.i
   %23 = load ptr, ptr %arrayidx.i.i, align 8
   br label %lua_typename.exit.i
 
@@ -42802,7 +42802,7 @@ lua_type.exit64.i:                                ; preds = %lua_isstring.exit.i
 
 cond.false.i66.i:                                 ; preds = %lua_type.exit64.i
   %idxprom.i67.i = sext i32 %64 to i64
-  %arrayidx.i68.i = getelementptr inbounds nuw [11 x ptr], ptr @luaT_typenames, i64 0, i64 %idxprom.i67.i
+  %arrayidx.i68.i = getelementptr inbounds [11 x ptr], ptr @luaT_typenames, i64 0, i64 %idxprom.i67.i
   %81 = load ptr, ptr %arrayidx.i68.i, align 8
   br label %lua_typename.exit.i
 

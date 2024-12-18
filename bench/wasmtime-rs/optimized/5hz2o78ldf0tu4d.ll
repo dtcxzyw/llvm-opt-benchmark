@@ -12656,7 +12656,7 @@ common.resume:                                    ; preds = %.body, %82
   %.sroa.8.0248 = phi i64 [ 0, %.lr.ph ], [ %141, %283 ]
   %141 = add nuw i64 %.sroa.8.0248, 1
   %142 = getelementptr inbounds { i8, [15 x i8] }, ptr %.sink5.i88, i64 %.sroa.8.0248
-  %143 = getelementptr inbounds nuw i32, ptr %35, i64 %.sroa.8.0248
+  %143 = getelementptr inbounds i32, ptr %35, i64 %.sroa.8.0248
   %144 = load i8, ptr %142, align 8, !range !316, !noundef !4
   %trunc73 = trunc nuw i8 %144 to i1
   %145 = load i32, ptr %36, align 16, !noundef !4
@@ -21735,7 +21735,7 @@ define hidden void @_ZN17cranelift_codegen8machinst17MachInstEmitState12on_new_b
 define noundef range(i8 0, 10) i8 @"_ZN102_$LT$cranelift_codegen..ir..condcodes..IntCC$u20$as$u20$cranelift_codegen..ir..condcodes..CondCode$GT$10complement17h6ba3481be0621387E"(i8 noundef %0) unnamed_addr #15 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i8], ptr @"switch.table._ZN102_$LT$cranelift_codegen..ir..condcodes..IntCC$u20$as$u20$cranelift_codegen..ir..condcodes..CondCode$GT$10complement17h6ba3481be0621387E", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [10 x i8], ptr @"switch.table._ZN102_$LT$cranelift_codegen..ir..condcodes..IntCC$u20$as$u20$cranelift_codegen..ir..condcodes..CondCode$GT$10complement17h6ba3481be0621387E", i64 0, i64 %1
   %switch.load = load i8, ptr %switch.gep, align 1
   ret i8 %switch.load
 }
@@ -21744,7 +21744,7 @@ switch.lookup:
 define noundef range(i8 0, 10) i8 @"_ZN102_$LT$cranelift_codegen..ir..condcodes..IntCC$u20$as$u20$cranelift_codegen..ir..condcodes..CondCode$GT$9swap_args17he5acc091d2695b4bE"(i8 noundef %0) unnamed_addr #15 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i8], ptr @"switch.table._ZN102_$LT$cranelift_codegen..ir..condcodes..IntCC$u20$as$u20$cranelift_codegen..ir..condcodes..CondCode$GT$9swap_args17he5acc091d2695b4bE", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [10 x i8], ptr @"switch.table._ZN102_$LT$cranelift_codegen..ir..condcodes..IntCC$u20$as$u20$cranelift_codegen..ir..condcodes..CondCode$GT$9swap_args17he5acc091d2695b4bE", i64 0, i64 %1
   %switch.load = load i8, ptr %switch.gep, align 1
   ret i8 %switch.load
 }
@@ -21782,10 +21782,10 @@ define noundef range(i8 6, 2) i8 @_ZN17cranelift_codegen2ir9condcodes5IntCC8unsi
 define { ptr, i64 } @_ZN17cranelift_codegen2ir9condcodes5IntCC13to_static_str17h3222c27946bd6d1aE(i8 noundef %0) unnamed_addr #15 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @"switch.table._ZN78_$LT$cranelift_codegen..ir..condcodes..IntCC$u20$as$u20$core..fmt..Display$GT$3fmt17h2d96095c197121faE", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [10 x ptr], ptr @"switch.table._ZN78_$LT$cranelift_codegen..ir..condcodes..IntCC$u20$as$u20$core..fmt..Display$GT$3fmt17h2d96095c197121faE", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw [10 x i64], ptr @"switch.table._ZN78_$LT$cranelift_codegen..ir..condcodes..IntCC$u20$as$u20$core..fmt..Display$GT$3fmt17h2d96095c197121faE.62", i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds [10 x i64], ptr @"switch.table._ZN78_$LT$cranelift_codegen..ir..condcodes..IntCC$u20$as$u20$core..fmt..Display$GT$3fmt17h2d96095c197121faE.62", i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -21882,7 +21882,7 @@ define { ptr, i64 } @_ZN17cranelift_codegen2ir9condcodes7FloatCC3all17hb5a8d70ad
 define noundef range(i8 0, 14) i8 @"_ZN104_$LT$cranelift_codegen..ir..condcodes..FloatCC$u20$as$u20$cranelift_codegen..ir..condcodes..CondCode$GT$10complement17h1efff6d86e2d26e9E"(i8 noundef %0) unnamed_addr #15 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [14 x i8], ptr @"switch.table._ZN104_$LT$cranelift_codegen..ir..condcodes..FloatCC$u20$as$u20$cranelift_codegen..ir..condcodes..CondCode$GT$10complement17h1efff6d86e2d26e9E", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [14 x i8], ptr @"switch.table._ZN104_$LT$cranelift_codegen..ir..condcodes..FloatCC$u20$as$u20$cranelift_codegen..ir..condcodes..CondCode$GT$10complement17h1efff6d86e2d26e9E", i64 0, i64 %1
   %switch.load = load i8, ptr %switch.gep, align 1
   ret i8 %switch.load
 }
@@ -21891,7 +21891,7 @@ switch.lookup:
 define noundef range(i8 0, 14) i8 @"_ZN104_$LT$cranelift_codegen..ir..condcodes..FloatCC$u20$as$u20$cranelift_codegen..ir..condcodes..CondCode$GT$9swap_args17h19d7023992a0fcbdE"(i8 noundef %0) unnamed_addr #15 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [14 x i8], ptr @"switch.table._ZN104_$LT$cranelift_codegen..ir..condcodes..FloatCC$u20$as$u20$cranelift_codegen..ir..condcodes..CondCode$GT$9swap_args17h19d7023992a0fcbdE", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [14 x i8], ptr @"switch.table._ZN104_$LT$cranelift_codegen..ir..condcodes..FloatCC$u20$as$u20$cranelift_codegen..ir..condcodes..CondCode$GT$9swap_args17h19d7023992a0fcbdE", i64 0, i64 %1
   %switch.load = load i8, ptr %switch.gep, align 1
   ret i8 %switch.load
 }

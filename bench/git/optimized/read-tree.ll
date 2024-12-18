@@ -565,7 +565,7 @@ if.end283:                                        ; preds = %if.end.i
   %inc.i = add nsw i32 %16, 1
   store i32 %inc.i, ptr @nr_trees, align 4
   %idxprom.i = sext i32 %16 to i64
-  %arrayidx.i = getelementptr inbounds nuw [8 x ptr], ptr @trees, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [8 x ptr], ptr @trees, i64 0, i64 %idxprom.i
   store ptr %call.i, ptr %arrayidx.i, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

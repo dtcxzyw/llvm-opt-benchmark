@@ -1887,7 +1887,7 @@ define noundef range(i32 0, 3) i32 @_ZNK10open_spiel7pentago12PentagoState3getEi
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load i64, ptr %3, align 8
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds nuw [36 x i64], ptr @_ZN10open_spiel7pentago12_GLOBAL__N_111xy_bit_maskE, i64 0, i64 %5
+  %6 = getelementptr inbounds [36 x i64], ptr @_ZN10open_spiel7pentago12_GLOBAL__N_111xy_bit_maskE, i64 0, i64 %5
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, %4
   %.not = icmp eq i64 %8, 0
@@ -2576,7 +2576,7 @@ define void @_ZN10open_spiel7pentago12PentagoState13DoApplyActionEl(ptr nocaptur
   %25 = add nsw i64 %24, %21
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %27 = load i64, ptr %26, align 8
-  %28 = getelementptr inbounds nuw [36 x i64], ptr @_ZN10open_spiel7pentago12_GLOBAL__N_111xy_bit_maskE, i64 0, i64 %25
+  %28 = getelementptr inbounds [36 x i64], ptr @_ZN10open_spiel7pentago12_GLOBAL__N_111xy_bit_maskE, i64 0, i64 %25
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %29, %27
   %.not.i = icmp eq i64 %30, 0

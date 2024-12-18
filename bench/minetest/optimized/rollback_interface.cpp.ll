@@ -414,7 +414,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
   %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %28, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %os, i64 %vbase.offset.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %os, i64 %vbase.offset.i.i
   store ptr %29, ptr %add.ptr.i.i, align 8, !tbaa !17
   %_M_stringbuf.i.i = getelementptr inbounds nuw i8, ptr %os, i64 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !17
@@ -1348,7 +1348,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit486: ; preds = %if
   %vtable.i = load ptr, ptr %os, align 8, !tbaa !17
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %os, i64 %vbase.offset.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %os, i64 %vbase.offset.i
   %_M_width.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 16
   %89 = load i64, ptr %_M_width.i.i, align 8, !tbaa !96
   %cmp.not.i = icmp eq i64 %89, 0
@@ -1730,7 +1730,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit613: ; preds = %if
   %vtable.i615 = load ptr, ptr %os, align 8, !tbaa !17
   %vbase.offset.ptr.i616 = getelementptr i8, ptr %vtable.i615, i64 -24
   %vbase.offset.i617 = load i64, ptr %vbase.offset.ptr.i616, align 8
-  %add.ptr.i618 = getelementptr inbounds nuw i8, ptr %os, i64 %vbase.offset.i617
+  %add.ptr.i618 = getelementptr inbounds i8, ptr %os, i64 %vbase.offset.i617
   %_M_width.i.i619 = getelementptr inbounds nuw i8, ptr %add.ptr.i618, i64 16
   %149 = load i64, ptr %_M_width.i.i619, align 8, !tbaa !96
   %cmp.not.i620 = icmp eq i64 %149, 0
@@ -1937,7 +1937,7 @@ cleanup:                                          ; preds = %if.else.i.i, %if.th
   %181 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %180, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %os, i64 %vbase.offset.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %os, i64 %vbase.offset.i.i
   store ptr %181, ptr %add.ptr.i.i, align 8, !tbaa !17
   %_M_stringbuf.i.i = getelementptr inbounds nuw i8, ptr %os, i64 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !17

@@ -243,7 +243,7 @@ if.then:                                          ; preds = %lor.lhs.false, %for
   %2 = load i32, ptr %bitmask, align 8
   %or = or i32 %2, %features.011
   %inc = add i64 %n.09, 1
-  %arrayidx = getelementptr inbounds nuw [17 x ptr], ptr @feature_names, i64 0, i64 %n.09
+  %arrayidx = getelementptr inbounds [17 x ptr], ptr @feature_names, i64 0, i64 %n.09
   store ptr %0, ptr %arrayidx, align 8
   br label %for.inc
 
@@ -256,7 +256,7 @@ for.inc:                                          ; preds = %lor.lhs.false, %if.
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !6
 
 for.end:                                          ; preds = %for.inc
-  %arrayidx9 = getelementptr inbounds nuw [17 x ptr], ptr @feature_names, i64 0, i64 %n.1
+  %arrayidx9 = getelementptr inbounds [17 x ptr], ptr @feature_names, i64 0, i64 %n.1
   store ptr null, ptr %arrayidx9, align 8
   store i32 %features.1, ptr getelementptr inbounds nuw (i8, ptr @version_info, i64 32), align 8
   ret ptr @version_info

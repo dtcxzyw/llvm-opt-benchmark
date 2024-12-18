@@ -182749,7 +182749,7 @@ switch.lookup:                                    ; preds = %_ZN4gpui8platform5l
   %10 = getelementptr inbounds nuw i8, ptr %.val, i64 3104
   %11 = getelementptr inbounds nuw i8, ptr %.val, i64 2808
   %12 = sext i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @"switch.table._ZN104_$LT$gpui..platform..linux..wayland..window..WaylandWindow$u20$as$u20$gpui..platform..PlatformWindow$GT$19start_window_resize17h182c6d8fd5cb7fadE", i64 0, i64 %12
+  %switch.gep = getelementptr inbounds [8 x i32], ptr @"switch.table._ZN104_$LT$gpui..platform..linux..wayland..window..WaylandWindow$u20$as$u20$gpui..platform..PlatformWindow$GT$19start_window_resize17h182c6d8fd5cb7fadE", i64 0, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   invoke void @_ZN17wayland_protocols3xdg5shell9generated6client12xdg_toplevel11XdgToplevel6resize17hba1569506a36e2f4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %10, i32 noundef %9, i32 noundef %switch.load)
           to label %13 unwind label %16

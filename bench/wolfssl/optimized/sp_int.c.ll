@@ -7114,7 +7114,7 @@ for.end126.loopexit.i:                            ; preds = %for.inc124.i, %sp_i
   %j.1.lcssa.ph.i = phi i32 [ %n.2.i262.i, %for.inc124.i ], [ %j.1212.i, %sp_is_bit_set.exit.i ], [ %j.1212.i, %land.lhs.true.i117.i ]
   %46 = add nsw i32 %j.1.lcssa.ph.i, -1
   %47 = sext i32 %46 to i64
-  %arrayidx129.i.phi.trans.insert = getelementptr inbounds nuw [10 x ptr], ptr %pre.i, i64 0, i64 %47
+  %arrayidx129.i.phi.trans.insert = getelementptr inbounds [10 x ptr], ptr %pre.i, i64 0, i64 %47
   %.pre = load ptr, ptr %arrayidx129.i.phi.trans.insert, align 8
   br label %for.end126.i
 
@@ -7196,7 +7196,7 @@ for.inc165.i:                                     ; preds = %for.body158.i
 if.end175.i:                                      ; preds = %for.inc165.i, %if.then148.i
   %sub171.i = add nsw i32 %add139.i, -1
   %idxprom172.i = sext i32 %sub171.i to i64
-  %arrayidx173.i = getelementptr inbounds nuw [10 x ptr], ptr %pre.i, i64 0, i64 %idxprom172.i
+  %arrayidx173.i = getelementptr inbounds [10 x ptr], ptr %pre.i, i64 0, i64 %idxprom172.i
   %54 = load ptr, ptr %arrayidx173.i, align 8
   %call174.i = tail call i32 @sp_mul(ptr noundef nonnull %12, ptr noundef %54, ptr noundef nonnull %12)
   %cmp176.i = icmp eq i32 %call174.i, 0
@@ -9032,7 +9032,7 @@ if.end228.i:                                      ; preds = %if.else219.i, %if.t
   %i.3.i = phi i32 [ %dec208.i, %if.then202.i ], [ %dec.i, %if.else219.i ]
   %sext.i = shl i64 %y.0.in.i, 32
   %idxprom229.i = ashr exact i64 %sext.i, 32
-  %arrayidx230.i = getelementptr inbounds nuw [34 x ptr], ptr %t.i, i64 0, i64 %idxprom229.i
+  %arrayidx230.i = getelementptr inbounds [34 x ptr], ptr %t.i, i64 0, i64 %idxprom229.i
   %41 = load ptr, ptr %arrayidx230.i, align 8
   %42 = load i32, ptr %41, align 8
   %cmp.i235.i = icmp eq i32 %42, 0
@@ -13044,7 +13044,7 @@ for.body7.preheader.i:                            ; preds = %for.cond3.preheader
 
 for.body7.i:                                      ; preds = %for.inc.i32, %for.body7.preheader.i
   %indvars.iv.i30 = phi i64 [ %10, %for.body7.preheader.i ], [ %indvars.iv.next.i33, %for.inc.i32 ]
-  %arrayidx9.i = getelementptr inbounds nuw [256 x i16], ptr @sp_primes, i64 0, i64 %indvars.iv.i30
+  %arrayidx9.i = getelementptr inbounds [256 x i16], ptr @sp_primes, i64 0, i64 %indvars.iv.i30
   %11 = load i16, ptr %arrayidx9.i, align 2
   %conv.i31 = zext i16 %11 to i64
   %rem.i = urem i64 %8, %conv.i31
@@ -13287,7 +13287,7 @@ for.body7.preheader.i:                            ; preds = %for.cond3.preheader
 
 for.body7.i:                                      ; preds = %for.inc.i32, %for.body7.preheader.i
   %indvars.iv.i30 = phi i64 [ %9, %for.body7.preheader.i ], [ %indvars.iv.next.i33, %for.inc.i32 ]
-  %arrayidx9.i = getelementptr inbounds nuw [256 x i16], ptr @sp_primes, i64 0, i64 %indvars.iv.i30
+  %arrayidx9.i = getelementptr inbounds [256 x i16], ptr @sp_primes, i64 0, i64 %indvars.iv.i30
   %10 = load i16, ptr %arrayidx9.i, align 2
   %conv.i31 = zext i16 %10 to i64
   %rem.i = urem i64 %7, %conv.i31

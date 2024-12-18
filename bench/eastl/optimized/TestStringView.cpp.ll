@@ -1247,7 +1247,7 @@ while.cond.i.i.i.i2205:                           ; preds = %while.cond.i.i.i.i2
   %pTemp.0.i.i.i.i2206 = phi ptr [ %incdec.ptr.i.i.i.i2207, %while.body.i.i.i.i2209 ], [ getelementptr inbounds nuw (i8, ptr @.str.162, i64 26), %while.cond.i.i.i.i2205.preheader ]
   %incdec.ptr.i.i.i.i2207 = getelementptr inbounds i8, ptr %pTemp.0.i.i.i.i2206, i64 -1
   %cmp.not.i.i.i.i2208 = icmp ult ptr %incdec.ptr.i.i.i.i2207, @.str.162
-  br i1 %cmp.not.i.i.i.i2208, label %if.end10.i.i.i2238, label %while.body.i.i.i.i2209
+  br i1 %cmp.not.i.i.i.i2208, label %while.body.i.i.i2243.preheader, label %while.body.i.i.i.i2209
 
 while.body.i.i.i.i2209:                           ; preds = %while.cond.i.i.i.i2205
   %53 = load i8, ptr %incdec.ptr.i.i.i.i2207, align 1
@@ -1258,16 +1258,16 @@ if.then12.i.i2199:                                ; preds = %while.body.i.i.i.i2
   %sub.ptr.lhs.cast.i3.i2201 = ptrtoint ptr %incdec.ptr.i.i.i.i2207 to i64
   %sub.ptr.sub.i5.i2203 = sub i64 %sub.ptr.lhs.cast.i3.i2201, ptrtoint (ptr @.str.162 to i64)
   %54 = icmp ne i64 %sub.ptr.sub.i5.i2203, -1
-  br label %if.end10.i.i.i2238
+  br label %while.body.i.i.i2243.preheader
 
-if.end10.i.i.i2238:                               ; preds = %while.cond.i.i.i.i2205, %if.then12.i.i2199
+while.body.i.i.i2243.preheader:                   ; preds = %while.cond.i.i.i.i2205, %if.then12.i.i2199
   %retval.0.i.i2189 = phi i1 [ %54, %if.then12.i.i2199 ], [ false, %while.cond.i.i.i.i2205 ]
   %call562 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i.i2189, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 384, ptr noundef nonnull @.str.172)
   br label %while.body.i.i.i2243
 
-while.body.i.i.i2243:                             ; preds = %if.end10.i.i.i2238, %while.end.i.i.i2259
-  %indvars.iv.i.i.i2244 = phi ptr [ %scevgep.i.i.i2262, %while.end.i.i.i2259 ], [ getelementptr inbounds nuw (i8, ptr @.str.162, i64 26), %if.end10.i.i.i2238 ]
-  %pSearchEnd.045.i.i.i2245 = phi ptr [ %incdec.ptr34.i.i.i2260, %while.end.i.i.i2259 ], [ getelementptr inbounds nuw (i8, ptr @.str.162, i64 24), %if.end10.i.i.i2238 ]
+while.body.i.i.i2243:                             ; preds = %while.body.i.i.i2243.preheader, %while.end.i.i.i2259
+  %indvars.iv.i.i.i2244 = phi ptr [ %scevgep.i.i.i2262, %while.end.i.i.i2259 ], [ getelementptr inbounds nuw (i8, ptr @.str.162, i64 26), %while.body.i.i.i2243.preheader ]
+  %pSearchEnd.045.i.i.i2245 = phi ptr [ %incdec.ptr34.i.i.i2260, %while.end.i.i.i2259 ], [ getelementptr inbounds nuw (i8, ptr @.str.162, i64 24), %while.body.i.i.i2243.preheader ]
   br label %while.cond.i30.i.i.i2246
 
 while.cond.i30.i.i.i2246:                         ; preds = %while.body.i34.i.i.i2251, %while.body.i.i.i2243
@@ -1275,7 +1275,7 @@ while.cond.i30.i.i.i2246:                         ; preds = %while.body.i34.i.i.
   %pTemp.0.i31.i.i.i2248 = phi ptr [ %incdec.ptr.i32.i.i.i2249, %while.body.i34.i.i.i2251 ], [ %pSearchEnd.045.i.i.i2245, %while.body.i.i.i2243 ]
   %incdec.ptr.i32.i.i.i2249 = getelementptr inbounds i8, ptr %pTemp.0.i31.i.i.i2248, i64 -1
   %cmp.not.i33.i.i.i2250 = icmp ult ptr %incdec.ptr.i32.i.i.i2249, @.str.162
-  br i1 %cmp.not.i33.i.i.i2250, label %if.end10.i.i.i2313, label %while.body.i34.i.i.i2251
+  br i1 %cmp.not.i33.i.i.i2250, label %while.body.i.i.i2318.preheader, label %while.body.i34.i.i.i2251
 
 while.body.i34.i.i.i2251:                         ; preds = %while.cond.i30.i.i.i2246
   %55 = load i8, ptr %incdec.ptr.i32.i.i.i2249, align 1
@@ -1302,27 +1302,27 @@ while.end.i.i.i2259:                              ; preds = %while.cond21.i.i.i2
   %incdec.ptr34.i.i.i2260 = getelementptr inbounds i8, ptr %pSearchEnd.045.i.i.i2245, i64 -1
   %cmp16.not.i.i.i2261 = icmp eq ptr %incdec.ptr34.i.i.i2260, @.str.162
   %scevgep.i.i.i2262 = getelementptr i8, ptr %indvars.iv.i.i.i2244, i64 -1
-  br i1 %cmp16.not.i.i.i2261, label %if.end10.i.i.i2313, label %while.body.i.i.i2243, !llvm.loop !11
+  br i1 %cmp16.not.i.i.i2261, label %while.body.i.i.i2318.preheader, label %while.body.i.i.i2243, !llvm.loop !11
 
 _ZN5eastl21CharTypeStringRSearchIcEEPKT_S3_S3_S3_S3_.exit.i.i2270: ; preds = %while.body25.i.i.i2264
   %add.ptr32.i.i.i2269 = getelementptr inbounds i8, ptr %indvars.iv49.i.i.i2247, i64 -3
   %cmp11.not.i.i2272 = icmp eq ptr %add.ptr32.i.i.i2269, getelementptr inbounds nuw (i8, ptr @.str.162, i64 26)
-  br i1 %cmp11.not.i.i2272, label %if.end10.i.i.i2313, label %if.then12.i.i2273
+  br i1 %cmp11.not.i.i2272, label %while.body.i.i.i2318.preheader, label %if.then12.i.i2273
 
 if.then12.i.i2273:                                ; preds = %_ZN5eastl21CharTypeStringRSearchIcEEPKT_S3_S3_S3_S3_.exit.i.i2270
   %sub.ptr.lhs.cast.i3.i2275 = ptrtoint ptr %add.ptr32.i.i.i2269 to i64
   %sub.ptr.sub.i5.i2277 = sub i64 %sub.ptr.lhs.cast.i3.i2275, ptrtoint (ptr @.str.162 to i64)
   %58 = icmp ne i64 %sub.ptr.sub.i5.i2277, -1
-  br label %if.end10.i.i.i2313
+  br label %while.body.i.i.i2318.preheader
 
-if.end10.i.i.i2313:                               ; preds = %while.end.i.i.i2259, %while.cond.i30.i.i.i2246, %if.then12.i.i2273, %_ZN5eastl21CharTypeStringRSearchIcEEPKT_S3_S3_S3_S3_.exit.i.i2270
+while.body.i.i.i2318.preheader:                   ; preds = %while.end.i.i.i2259, %while.cond.i30.i.i.i2246, %_ZN5eastl21CharTypeStringRSearchIcEEPKT_S3_S3_S3_S3_.exit.i.i2270, %if.then12.i.i2273
   %retval.0.i.i2263 = phi i1 [ %58, %if.then12.i.i2273 ], [ false, %_ZN5eastl21CharTypeStringRSearchIcEEPKT_S3_S3_S3_S3_.exit.i.i2270 ], [ false, %while.cond.i30.i.i.i2246 ], [ false, %while.end.i.i.i2259 ]
   %call566 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i.i2263, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 385, ptr noundef nonnull @.str.173)
   br label %while.body.i.i.i2318
 
-while.body.i.i.i2318:                             ; preds = %if.end10.i.i.i2313, %while.end.i.i.i2334
-  %indvars.iv.i.i.i2319 = phi ptr [ %scevgep.i.i.i2337, %while.end.i.i.i2334 ], [ getelementptr inbounds nuw (i8, ptr @.str.162, i64 26), %if.end10.i.i.i2313 ]
-  %pSearchEnd.045.i.i.i2320 = phi ptr [ %incdec.ptr34.i.i.i2335, %while.end.i.i.i2334 ], [ getelementptr inbounds nuw (i8, ptr @.str.162, i64 23), %if.end10.i.i.i2313 ]
+while.body.i.i.i2318:                             ; preds = %while.body.i.i.i2318.preheader, %while.end.i.i.i2334
+  %indvars.iv.i.i.i2319 = phi ptr [ %scevgep.i.i.i2337, %while.end.i.i.i2334 ], [ getelementptr inbounds nuw (i8, ptr @.str.162, i64 26), %while.body.i.i.i2318.preheader ]
+  %pSearchEnd.045.i.i.i2320 = phi ptr [ %incdec.ptr34.i.i.i2335, %while.end.i.i.i2334 ], [ getelementptr inbounds nuw (i8, ptr @.str.162, i64 23), %while.body.i.i.i2318.preheader ]
   br label %while.cond.i30.i.i.i2321
 
 while.cond.i30.i.i.i2321:                         ; preds = %while.body.i34.i.i.i2326, %while.body.i.i.i2318
@@ -3174,7 +3174,7 @@ while.cond.i.i.i.i2692:                           ; preds = %while.cond.i.i.i.i2
   %pTemp.0.i.i.i.i2693 = phi ptr [ %incdec.ptr.i.i.i.i2694, %while.body.i.i.i.i2696 ], [ getelementptr inbounds nuw (i8, ptr @.str.285, i64 104), %while.cond.i.i.i.i2692.preheader ]
   %incdec.ptr.i.i.i.i2694 = getelementptr inbounds i8, ptr %pTemp.0.i.i.i.i2693, i64 -4
   %cmp.not.i.i.i.i2695 = icmp ult ptr %incdec.ptr.i.i.i.i2694, @.str.285
-  br i1 %cmp.not.i.i.i.i2695, label %if.end11.i.i.i2726, label %while.body.i.i.i.i2696
+  br i1 %cmp.not.i.i.i.i2695, label %while.body.i.i.i2731.preheader, label %while.body.i.i.i.i2696
 
 while.body.i.i.i.i2696:                           ; preds = %while.cond.i.i.i.i2692
   %83 = load i32, ptr %incdec.ptr.i.i.i.i2694, align 4
@@ -3185,16 +3185,16 @@ if.then12.i.i2685:                                ; preds = %while.body.i.i.i.i2
   %sub.ptr.lhs.cast.i3.i2687 = ptrtoint ptr %incdec.ptr.i.i.i.i2694 to i64
   %sub.ptr.sub.i5.i2689 = sub i64 %sub.ptr.lhs.cast.i3.i2687, ptrtoint (ptr @.str.285 to i64)
   %84 = icmp ne i64 %sub.ptr.sub.i5.i2689, -4
-  br label %if.end11.i.i.i2726
+  br label %while.body.i.i.i2731.preheader
 
-if.end11.i.i.i2726:                               ; preds = %while.cond.i.i.i.i2692, %if.then12.i.i2685
+while.body.i.i.i2731.preheader:                   ; preds = %while.cond.i.i.i.i2692, %if.then12.i.i2685
   %retval.0.i.i2675 = phi i1 [ %84, %if.then12.i.i2685 ], [ false, %while.cond.i.i.i.i2692 ]
   %call534 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i.i2675, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 384, ptr noundef nonnull @.str.172)
   br label %while.body.i.i.i2731
 
-while.body.i.i.i2731:                             ; preds = %if.end11.i.i.i2726, %while.end.i.i.i2743
-  %indvars.iv5511 = phi ptr [ getelementptr inbounds nuw (i8, ptr @.str.285, i64 104), %if.end11.i.i.i2726 ], [ %scevgep5512, %while.end.i.i.i2743 ]
-  %pSearchEnd.045.i.i.i2732 = phi ptr [ getelementptr inbounds nuw (i8, ptr @.str.285, i64 96), %if.end11.i.i.i2726 ], [ %incdec.ptr36.i.i.i2744, %while.end.i.i.i2743 ]
+while.body.i.i.i2731:                             ; preds = %while.body.i.i.i2731.preheader, %while.end.i.i.i2743
+  %indvars.iv5511 = phi ptr [ getelementptr inbounds nuw (i8, ptr @.str.285, i64 104), %while.body.i.i.i2731.preheader ], [ %scevgep5512, %while.end.i.i.i2743 ]
+  %pSearchEnd.045.i.i.i2732 = phi ptr [ getelementptr inbounds nuw (i8, ptr @.str.285, i64 96), %while.body.i.i.i2731.preheader ], [ %incdec.ptr36.i.i.i2744, %while.end.i.i.i2743 ]
   br label %while.cond.i30.i.i.i2733
 
 while.cond.i30.i.i.i2733:                         ; preds = %while.body.i34.i.i.i2737, %while.body.i.i.i2731
@@ -3202,7 +3202,7 @@ while.cond.i30.i.i.i2733:                         ; preds = %while.body.i34.i.i.
   %pTemp.0.i31.i.i.i2734 = phi ptr [ %incdec.ptr.i32.i.i.i2735, %while.body.i34.i.i.i2737 ], [ %pSearchEnd.045.i.i.i2732, %while.body.i.i.i2731 ]
   %incdec.ptr.i32.i.i.i2735 = getelementptr inbounds i8, ptr %pTemp.0.i31.i.i.i2734, i64 -4
   %cmp.not.i33.i.i.i2736 = icmp ult ptr %incdec.ptr.i32.i.i.i2735, @.str.285
-  br i1 %cmp.not.i33.i.i.i2736, label %if.end11.i.i.i2798, label %while.body.i34.i.i.i2737
+  br i1 %cmp.not.i33.i.i.i2736, label %while.body.i.i.i2803.preheader, label %while.body.i34.i.i.i2737
 
 while.body.i34.i.i.i2737:                         ; preds = %while.cond.i30.i.i.i2733
   %85 = load i32, ptr %incdec.ptr.i32.i.i.i2735, align 4
@@ -3229,27 +3229,27 @@ while.end.i.i.i2743:                              ; preds = %while.cond23.i.i.i2
   %incdec.ptr36.i.i.i2744 = getelementptr inbounds i8, ptr %pSearchEnd.045.i.i.i2732, i64 -4
   %cmp18.not.i.i.i2745 = icmp eq ptr %incdec.ptr36.i.i.i2744, @.str.285
   %scevgep5512 = getelementptr i8, ptr %indvars.iv5511, i64 -4
-  br i1 %cmp18.not.i.i.i2745, label %if.end11.i.i.i2798, label %while.body.i.i.i2731, !llvm.loop !27
+  br i1 %cmp18.not.i.i.i2745, label %while.body.i.i.i2803.preheader, label %while.body.i.i.i2731, !llvm.loop !27
 
 _ZN5eastl21CharTypeStringRSearchIwEEPKT_S3_S3_S3_S3_.exit.i.i2753: ; preds = %while.body26.i.i.i2747
   %add.ptr34.i.i.i2752 = getelementptr inbounds i8, ptr %indvars.iv5513, i64 -12
   %cmp11.not.i.i2755 = icmp eq ptr %add.ptr34.i.i.i2752, getelementptr inbounds nuw (i8, ptr @.str.285, i64 104)
-  br i1 %cmp11.not.i.i2755, label %if.end11.i.i.i2798, label %if.then12.i.i2756
+  br i1 %cmp11.not.i.i2755, label %while.body.i.i.i2803.preheader, label %if.then12.i.i2756
 
 if.then12.i.i2756:                                ; preds = %_ZN5eastl21CharTypeStringRSearchIwEEPKT_S3_S3_S3_S3_.exit.i.i2753
   %sub.ptr.lhs.cast.i3.i2758 = ptrtoint ptr %add.ptr34.i.i.i2752 to i64
   %sub.ptr.sub.i5.i2760 = sub i64 %sub.ptr.lhs.cast.i3.i2758, ptrtoint (ptr @.str.285 to i64)
   %88 = icmp ne i64 %sub.ptr.sub.i5.i2760, -4
-  br label %if.end11.i.i.i2798
+  br label %while.body.i.i.i2803.preheader
 
-if.end11.i.i.i2798:                               ; preds = %while.end.i.i.i2743, %while.cond.i30.i.i.i2733, %if.then12.i.i2756, %_ZN5eastl21CharTypeStringRSearchIwEEPKT_S3_S3_S3_S3_.exit.i.i2753
+while.body.i.i.i2803.preheader:                   ; preds = %while.end.i.i.i2743, %while.cond.i30.i.i.i2733, %_ZN5eastl21CharTypeStringRSearchIwEEPKT_S3_S3_S3_S3_.exit.i.i2753, %if.then12.i.i2756
   %retval.0.i.i2746 = phi i1 [ %88, %if.then12.i.i2756 ], [ false, %_ZN5eastl21CharTypeStringRSearchIwEEPKT_S3_S3_S3_S3_.exit.i.i2753 ], [ false, %while.cond.i30.i.i.i2733 ], [ false, %while.end.i.i.i2743 ]
   %call538 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i.i2746, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 385, ptr noundef nonnull @.str.173)
   br label %while.body.i.i.i2803
 
-while.body.i.i.i2803:                             ; preds = %if.end11.i.i.i2798, %while.end.i.i.i2815
-  %indvars.iv5516 = phi ptr [ getelementptr inbounds nuw (i8, ptr @.str.285, i64 104), %if.end11.i.i.i2798 ], [ %scevgep5517, %while.end.i.i.i2815 ]
-  %pSearchEnd.045.i.i.i2804 = phi ptr [ getelementptr inbounds nuw (i8, ptr @.str.285, i64 92), %if.end11.i.i.i2798 ], [ %incdec.ptr36.i.i.i2816, %while.end.i.i.i2815 ]
+while.body.i.i.i2803:                             ; preds = %while.body.i.i.i2803.preheader, %while.end.i.i.i2815
+  %indvars.iv5516 = phi ptr [ getelementptr inbounds nuw (i8, ptr @.str.285, i64 104), %while.body.i.i.i2803.preheader ], [ %scevgep5517, %while.end.i.i.i2815 ]
+  %pSearchEnd.045.i.i.i2804 = phi ptr [ getelementptr inbounds nuw (i8, ptr @.str.285, i64 92), %while.body.i.i.i2803.preheader ], [ %incdec.ptr36.i.i.i2816, %while.end.i.i.i2815 ]
   br label %while.cond.i30.i.i.i2805
 
 while.cond.i30.i.i.i2805:                         ; preds = %while.body.i34.i.i.i2809, %while.body.i.i.i2803
@@ -5758,7 +5758,7 @@ while.cond.i.i.i.i2625:                           ; preds = %while.cond.i.i.i.i2
   %pTemp.0.i.i.i.i2626 = phi ptr [ %incdec.ptr.i.i.i.i2627, %while.body.i.i.i.i2629 ], [ getelementptr inbounds nuw (i8, ptr @.str.162, i64 26), %while.cond.i.i.i.i2625.preheader ]
   %incdec.ptr.i.i.i.i2627 = getelementptr inbounds i8, ptr %pTemp.0.i.i.i.i2626, i64 -1
   %cmp.not.i.i.i.i2628 = icmp ult ptr %incdec.ptr.i.i.i.i2627, @.str.162
-  br i1 %cmp.not.i.i.i.i2628, label %if.end10.i.i.i2658, label %while.body.i.i.i.i2629
+  br i1 %cmp.not.i.i.i.i2628, label %while.body.i.i.i2663.preheader, label %while.body.i.i.i.i2629
 
 while.body.i.i.i.i2629:                           ; preds = %while.cond.i.i.i.i2625
   %85 = load i8, ptr %incdec.ptr.i.i.i.i2627, align 1
@@ -5769,16 +5769,16 @@ if.then12.i.i2619:                                ; preds = %while.body.i.i.i.i2
   %sub.ptr.lhs.cast.i3.i2621 = ptrtoint ptr %incdec.ptr.i.i.i.i2627 to i64
   %sub.ptr.sub.i5.i2623 = sub i64 %sub.ptr.lhs.cast.i3.i2621, ptrtoint (ptr @.str.162 to i64)
   %86 = icmp ne i64 %sub.ptr.sub.i5.i2623, -1
-  br label %if.end10.i.i.i2658
+  br label %while.body.i.i.i2663.preheader
 
-if.end10.i.i.i2658:                               ; preds = %while.cond.i.i.i.i2625, %if.then12.i.i2619
+while.body.i.i.i2663.preheader:                   ; preds = %while.cond.i.i.i.i2625, %if.then12.i.i2619
   %retval.0.i.i2609 = phi i1 [ %86, %if.then12.i.i2619 ], [ false, %while.cond.i.i.i.i2625 ]
   %call562 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i.i2609, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 384, ptr noundef nonnull @.str.172)
   br label %while.body.i.i.i2663
 
-while.body.i.i.i2663:                             ; preds = %if.end10.i.i.i2658, %while.end.i.i.i2679
-  %indvars.iv.i.i.i2664 = phi ptr [ %scevgep.i.i.i2682, %while.end.i.i.i2679 ], [ getelementptr inbounds nuw (i8, ptr @.str.162, i64 26), %if.end10.i.i.i2658 ]
-  %pSearchEnd.045.i.i.i2665 = phi ptr [ %incdec.ptr34.i.i.i2680, %while.end.i.i.i2679 ], [ getelementptr inbounds nuw (i8, ptr @.str.162, i64 24), %if.end10.i.i.i2658 ]
+while.body.i.i.i2663:                             ; preds = %while.body.i.i.i2663.preheader, %while.end.i.i.i2679
+  %indvars.iv.i.i.i2664 = phi ptr [ %scevgep.i.i.i2682, %while.end.i.i.i2679 ], [ getelementptr inbounds nuw (i8, ptr @.str.162, i64 26), %while.body.i.i.i2663.preheader ]
+  %pSearchEnd.045.i.i.i2665 = phi ptr [ %incdec.ptr34.i.i.i2680, %while.end.i.i.i2679 ], [ getelementptr inbounds nuw (i8, ptr @.str.162, i64 24), %while.body.i.i.i2663.preheader ]
   br label %while.cond.i30.i.i.i2666
 
 while.cond.i30.i.i.i2666:                         ; preds = %while.body.i34.i.i.i2671, %while.body.i.i.i2663
@@ -5786,7 +5786,7 @@ while.cond.i30.i.i.i2666:                         ; preds = %while.body.i34.i.i.
   %pTemp.0.i31.i.i.i2668 = phi ptr [ %incdec.ptr.i32.i.i.i2669, %while.body.i34.i.i.i2671 ], [ %pSearchEnd.045.i.i.i2665, %while.body.i.i.i2663 ]
   %incdec.ptr.i32.i.i.i2669 = getelementptr inbounds i8, ptr %pTemp.0.i31.i.i.i2668, i64 -1
   %cmp.not.i33.i.i.i2670 = icmp ult ptr %incdec.ptr.i32.i.i.i2669, @.str.162
-  br i1 %cmp.not.i33.i.i.i2670, label %if.end10.i.i.i2733, label %while.body.i34.i.i.i2671
+  br i1 %cmp.not.i33.i.i.i2670, label %while.body.i.i.i2738.preheader, label %while.body.i34.i.i.i2671
 
 while.body.i34.i.i.i2671:                         ; preds = %while.cond.i30.i.i.i2666
   %87 = load i8, ptr %incdec.ptr.i32.i.i.i2669, align 1
@@ -5813,27 +5813,27 @@ while.end.i.i.i2679:                              ; preds = %while.cond21.i.i.i2
   %incdec.ptr34.i.i.i2680 = getelementptr inbounds i8, ptr %pSearchEnd.045.i.i.i2665, i64 -1
   %cmp16.not.i.i.i2681 = icmp eq ptr %incdec.ptr34.i.i.i2680, @.str.162
   %scevgep.i.i.i2682 = getelementptr i8, ptr %indvars.iv.i.i.i2664, i64 -1
-  br i1 %cmp16.not.i.i.i2681, label %if.end10.i.i.i2733, label %while.body.i.i.i2663, !llvm.loop !43
+  br i1 %cmp16.not.i.i.i2681, label %while.body.i.i.i2738.preheader, label %while.body.i.i.i2663, !llvm.loop !43
 
 _ZN5eastl21CharTypeStringRSearchIDuEEPKT_S3_S3_S3_S3_.exit.i.i2690: ; preds = %while.body25.i.i.i2684
   %add.ptr32.i.i.i2689 = getelementptr inbounds i8, ptr %indvars.iv49.i.i.i2667, i64 -3
   %cmp11.not.i.i2692 = icmp eq ptr %add.ptr32.i.i.i2689, getelementptr inbounds nuw (i8, ptr @.str.162, i64 26)
-  br i1 %cmp11.not.i.i2692, label %if.end10.i.i.i2733, label %if.then12.i.i2693
+  br i1 %cmp11.not.i.i2692, label %while.body.i.i.i2738.preheader, label %if.then12.i.i2693
 
 if.then12.i.i2693:                                ; preds = %_ZN5eastl21CharTypeStringRSearchIDuEEPKT_S3_S3_S3_S3_.exit.i.i2690
   %sub.ptr.lhs.cast.i3.i2695 = ptrtoint ptr %add.ptr32.i.i.i2689 to i64
   %sub.ptr.sub.i5.i2697 = sub i64 %sub.ptr.lhs.cast.i3.i2695, ptrtoint (ptr @.str.162 to i64)
   %90 = icmp ne i64 %sub.ptr.sub.i5.i2697, -1
-  br label %if.end10.i.i.i2733
+  br label %while.body.i.i.i2738.preheader
 
-if.end10.i.i.i2733:                               ; preds = %while.end.i.i.i2679, %while.cond.i30.i.i.i2666, %if.then12.i.i2693, %_ZN5eastl21CharTypeStringRSearchIDuEEPKT_S3_S3_S3_S3_.exit.i.i2690
+while.body.i.i.i2738.preheader:                   ; preds = %while.end.i.i.i2679, %while.cond.i30.i.i.i2666, %_ZN5eastl21CharTypeStringRSearchIDuEEPKT_S3_S3_S3_S3_.exit.i.i2690, %if.then12.i.i2693
   %retval.0.i.i2683 = phi i1 [ %90, %if.then12.i.i2693 ], [ false, %_ZN5eastl21CharTypeStringRSearchIDuEEPKT_S3_S3_S3_S3_.exit.i.i2690 ], [ false, %while.cond.i30.i.i.i2666 ], [ false, %while.end.i.i.i2679 ]
   %call566 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i.i2683, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 385, ptr noundef nonnull @.str.173)
   br label %while.body.i.i.i2738
 
-while.body.i.i.i2738:                             ; preds = %if.end10.i.i.i2733, %while.end.i.i.i2754
-  %indvars.iv.i.i.i2739 = phi ptr [ %scevgep.i.i.i2757, %while.end.i.i.i2754 ], [ getelementptr inbounds nuw (i8, ptr @.str.162, i64 26), %if.end10.i.i.i2733 ]
-  %pSearchEnd.045.i.i.i2740 = phi ptr [ %incdec.ptr34.i.i.i2755, %while.end.i.i.i2754 ], [ getelementptr inbounds nuw (i8, ptr @.str.162, i64 23), %if.end10.i.i.i2733 ]
+while.body.i.i.i2738:                             ; preds = %while.body.i.i.i2738.preheader, %while.end.i.i.i2754
+  %indvars.iv.i.i.i2739 = phi ptr [ %scevgep.i.i.i2757, %while.end.i.i.i2754 ], [ getelementptr inbounds nuw (i8, ptr @.str.162, i64 26), %while.body.i.i.i2738.preheader ]
+  %pSearchEnd.045.i.i.i2740 = phi ptr [ %incdec.ptr34.i.i.i2755, %while.end.i.i.i2754 ], [ getelementptr inbounds nuw (i8, ptr @.str.162, i64 23), %while.body.i.i.i2738.preheader ]
   br label %while.cond.i30.i.i.i2741
 
 while.cond.i30.i.i.i2741:                         ; preds = %while.body.i34.i.i.i2746, %while.body.i.i.i2738
@@ -8288,7 +8288,7 @@ while.cond.i.i.i.i2690:                           ; preds = %while.cond.i.i.i.i2
   %pTemp.0.i.i.i.i2691 = phi ptr [ %incdec.ptr.i.i.i.i2692, %while.body.i.i.i.i2694 ], [ getelementptr inbounds nuw (i8, ptr @.str.342, i64 52), %while.cond.i.i.i.i2690.preheader ]
   %incdec.ptr.i.i.i.i2692 = getelementptr inbounds i8, ptr %pTemp.0.i.i.i.i2691, i64 -2
   %cmp.not.i.i.i.i2693 = icmp ult ptr %incdec.ptr.i.i.i.i2692, @.str.342
-  br i1 %cmp.not.i.i.i.i2693, label %if.end11.i.i.i2724, label %while.body.i.i.i.i2694
+  br i1 %cmp.not.i.i.i.i2693, label %while.body.i.i.i2729.preheader, label %while.body.i.i.i.i2694
 
 while.body.i.i.i.i2694:                           ; preds = %while.cond.i.i.i.i2690
   %83 = load i16, ptr %incdec.ptr.i.i.i.i2692, align 2
@@ -8299,16 +8299,16 @@ if.then12.i.i2683:                                ; preds = %while.body.i.i.i.i2
   %sub.ptr.lhs.cast.i3.i2685 = ptrtoint ptr %incdec.ptr.i.i.i.i2692 to i64
   %sub.ptr.sub.i5.i2687 = sub i64 %sub.ptr.lhs.cast.i3.i2685, ptrtoint (ptr @.str.342 to i64)
   %84 = icmp ne i64 %sub.ptr.sub.i5.i2687, -2
-  br label %if.end11.i.i.i2724
+  br label %while.body.i.i.i2729.preheader
 
-if.end11.i.i.i2724:                               ; preds = %while.cond.i.i.i.i2690, %if.then12.i.i2683
+while.body.i.i.i2729.preheader:                   ; preds = %while.cond.i.i.i.i2690, %if.then12.i.i2683
   %retval.0.i.i2673 = phi i1 [ %84, %if.then12.i.i2683 ], [ false, %while.cond.i.i.i.i2690 ]
   %call562 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i.i2673, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 384, ptr noundef nonnull @.str.172)
   br label %while.body.i.i.i2729
 
-while.body.i.i.i2729:                             ; preds = %if.end11.i.i.i2724, %while.end.i.i.i2741
-  %indvars.iv5516 = phi ptr [ getelementptr inbounds nuw (i8, ptr @.str.342, i64 52), %if.end11.i.i.i2724 ], [ %scevgep5517, %while.end.i.i.i2741 ]
-  %pSearchEnd.045.i.i.i2730 = phi ptr [ getelementptr inbounds nuw (i8, ptr @.str.342, i64 48), %if.end11.i.i.i2724 ], [ %incdec.ptr37.i.i.i2742, %while.end.i.i.i2741 ]
+while.body.i.i.i2729:                             ; preds = %while.body.i.i.i2729.preheader, %while.end.i.i.i2741
+  %indvars.iv5516 = phi ptr [ getelementptr inbounds nuw (i8, ptr @.str.342, i64 52), %while.body.i.i.i2729.preheader ], [ %scevgep5517, %while.end.i.i.i2741 ]
+  %pSearchEnd.045.i.i.i2730 = phi ptr [ getelementptr inbounds nuw (i8, ptr @.str.342, i64 48), %while.body.i.i.i2729.preheader ], [ %incdec.ptr37.i.i.i2742, %while.end.i.i.i2741 ]
   br label %while.cond.i30.i.i.i2731
 
 while.cond.i30.i.i.i2731:                         ; preds = %while.body.i34.i.i.i2735, %while.body.i.i.i2729
@@ -8316,7 +8316,7 @@ while.cond.i30.i.i.i2731:                         ; preds = %while.body.i34.i.i.
   %pTemp.0.i31.i.i.i2732 = phi ptr [ %incdec.ptr.i32.i.i.i2733, %while.body.i34.i.i.i2735 ], [ %pSearchEnd.045.i.i.i2730, %while.body.i.i.i2729 ]
   %incdec.ptr.i32.i.i.i2733 = getelementptr inbounds i8, ptr %pTemp.0.i31.i.i.i2732, i64 -2
   %cmp.not.i33.i.i.i2734 = icmp ult ptr %incdec.ptr.i32.i.i.i2733, @.str.342
-  br i1 %cmp.not.i33.i.i.i2734, label %if.end11.i.i.i2796, label %while.body.i34.i.i.i2735
+  br i1 %cmp.not.i33.i.i.i2734, label %while.body.i.i.i2801.preheader, label %while.body.i34.i.i.i2735
 
 while.body.i34.i.i.i2735:                         ; preds = %while.cond.i30.i.i.i2731
   %85 = load i16, ptr %incdec.ptr.i32.i.i.i2733, align 2
@@ -8343,27 +8343,27 @@ while.end.i.i.i2741:                              ; preds = %while.cond23.i.i.i2
   %incdec.ptr37.i.i.i2742 = getelementptr inbounds i8, ptr %pSearchEnd.045.i.i.i2730, i64 -2
   %cmp18.not.i.i.i2743 = icmp eq ptr %incdec.ptr37.i.i.i2742, @.str.342
   %scevgep5517 = getelementptr i8, ptr %indvars.iv5516, i64 -2
-  br i1 %cmp18.not.i.i.i2743, label %if.end11.i.i.i2796, label %while.body.i.i.i2729, !llvm.loop !59
+  br i1 %cmp18.not.i.i.i2743, label %while.body.i.i.i2801.preheader, label %while.body.i.i.i2729, !llvm.loop !59
 
 _ZN5eastl21CharTypeStringRSearchIDsEEPKT_S3_S3_S3_S3_.exit.i.i2751: ; preds = %while.body27.i.i.i2745
   %add.ptr35.i.i.i2750 = getelementptr inbounds i8, ptr %indvars.iv5518, i64 -6
   %cmp11.not.i.i2753 = icmp eq ptr %add.ptr35.i.i.i2750, getelementptr inbounds nuw (i8, ptr @.str.342, i64 52)
-  br i1 %cmp11.not.i.i2753, label %if.end11.i.i.i2796, label %if.then12.i.i2754
+  br i1 %cmp11.not.i.i2753, label %while.body.i.i.i2801.preheader, label %if.then12.i.i2754
 
 if.then12.i.i2754:                                ; preds = %_ZN5eastl21CharTypeStringRSearchIDsEEPKT_S3_S3_S3_S3_.exit.i.i2751
   %sub.ptr.lhs.cast.i3.i2756 = ptrtoint ptr %add.ptr35.i.i.i2750 to i64
   %sub.ptr.sub.i5.i2758 = sub i64 %sub.ptr.lhs.cast.i3.i2756, ptrtoint (ptr @.str.342 to i64)
   %88 = icmp ne i64 %sub.ptr.sub.i5.i2758, -2
-  br label %if.end11.i.i.i2796
+  br label %while.body.i.i.i2801.preheader
 
-if.end11.i.i.i2796:                               ; preds = %while.end.i.i.i2741, %while.cond.i30.i.i.i2731, %if.then12.i.i2754, %_ZN5eastl21CharTypeStringRSearchIDsEEPKT_S3_S3_S3_S3_.exit.i.i2751
+while.body.i.i.i2801.preheader:                   ; preds = %while.end.i.i.i2741, %while.cond.i30.i.i.i2731, %_ZN5eastl21CharTypeStringRSearchIDsEEPKT_S3_S3_S3_S3_.exit.i.i2751, %if.then12.i.i2754
   %retval.0.i.i2744 = phi i1 [ %88, %if.then12.i.i2754 ], [ false, %_ZN5eastl21CharTypeStringRSearchIDsEEPKT_S3_S3_S3_S3_.exit.i.i2751 ], [ false, %while.cond.i30.i.i.i2731 ], [ false, %while.end.i.i.i2741 ]
   %call566 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i.i2744, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 385, ptr noundef nonnull @.str.173)
   br label %while.body.i.i.i2801
 
-while.body.i.i.i2801:                             ; preds = %if.end11.i.i.i2796, %while.end.i.i.i2813
-  %indvars.iv5521 = phi ptr [ getelementptr inbounds nuw (i8, ptr @.str.342, i64 52), %if.end11.i.i.i2796 ], [ %scevgep5522, %while.end.i.i.i2813 ]
-  %pSearchEnd.045.i.i.i2802 = phi ptr [ getelementptr inbounds nuw (i8, ptr @.str.342, i64 46), %if.end11.i.i.i2796 ], [ %incdec.ptr37.i.i.i2814, %while.end.i.i.i2813 ]
+while.body.i.i.i2801:                             ; preds = %while.body.i.i.i2801.preheader, %while.end.i.i.i2813
+  %indvars.iv5521 = phi ptr [ getelementptr inbounds nuw (i8, ptr @.str.342, i64 52), %while.body.i.i.i2801.preheader ], [ %scevgep5522, %while.end.i.i.i2813 ]
+  %pSearchEnd.045.i.i.i2802 = phi ptr [ getelementptr inbounds nuw (i8, ptr @.str.342, i64 46), %while.body.i.i.i2801.preheader ], [ %incdec.ptr37.i.i.i2814, %while.end.i.i.i2813 ]
   br label %while.cond.i30.i.i.i2803
 
 while.cond.i30.i.i.i2803:                         ; preds = %while.body.i34.i.i.i2807, %while.body.i.i.i2801
@@ -10840,7 +10840,7 @@ while.cond.i.i.i.i2692:                           ; preds = %while.cond.i.i.i.i2
   %pTemp.0.i.i.i.i2693 = phi ptr [ %incdec.ptr.i.i.i.i2694, %while.body.i.i.i.i2696 ], [ getelementptr inbounds nuw (i8, ptr @.str.285, i64 104), %while.cond.i.i.i.i2692.preheader ]
   %incdec.ptr.i.i.i.i2694 = getelementptr inbounds i8, ptr %pTemp.0.i.i.i.i2693, i64 -4
   %cmp.not.i.i.i.i2695 = icmp ult ptr %incdec.ptr.i.i.i.i2694, @.str.285
-  br i1 %cmp.not.i.i.i.i2695, label %if.end11.i.i.i2726, label %while.body.i.i.i.i2696
+  br i1 %cmp.not.i.i.i.i2695, label %while.body.i.i.i2731.preheader, label %while.body.i.i.i.i2696
 
 while.body.i.i.i.i2696:                           ; preds = %while.cond.i.i.i.i2692
   %83 = load i32, ptr %incdec.ptr.i.i.i.i2694, align 4
@@ -10851,16 +10851,16 @@ if.then12.i.i2685:                                ; preds = %while.body.i.i.i.i2
   %sub.ptr.lhs.cast.i3.i2687 = ptrtoint ptr %incdec.ptr.i.i.i.i2694 to i64
   %sub.ptr.sub.i5.i2689 = sub i64 %sub.ptr.lhs.cast.i3.i2687, ptrtoint (ptr @.str.285 to i64)
   %84 = icmp ne i64 %sub.ptr.sub.i5.i2689, -4
-  br label %if.end11.i.i.i2726
+  br label %while.body.i.i.i2731.preheader
 
-if.end11.i.i.i2726:                               ; preds = %while.cond.i.i.i.i2692, %if.then12.i.i2685
+while.body.i.i.i2731.preheader:                   ; preds = %while.cond.i.i.i.i2692, %if.then12.i.i2685
   %retval.0.i.i2675 = phi i1 [ %84, %if.then12.i.i2685 ], [ false, %while.cond.i.i.i.i2692 ]
   %call534 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i.i2675, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 384, ptr noundef nonnull @.str.172)
   br label %while.body.i.i.i2731
 
-while.body.i.i.i2731:                             ; preds = %if.end11.i.i.i2726, %while.end.i.i.i2743
-  %indvars.iv5511 = phi ptr [ getelementptr inbounds nuw (i8, ptr @.str.285, i64 104), %if.end11.i.i.i2726 ], [ %scevgep5512, %while.end.i.i.i2743 ]
-  %pSearchEnd.045.i.i.i2732 = phi ptr [ getelementptr inbounds nuw (i8, ptr @.str.285, i64 96), %if.end11.i.i.i2726 ], [ %incdec.ptr36.i.i.i2744, %while.end.i.i.i2743 ]
+while.body.i.i.i2731:                             ; preds = %while.body.i.i.i2731.preheader, %while.end.i.i.i2743
+  %indvars.iv5511 = phi ptr [ getelementptr inbounds nuw (i8, ptr @.str.285, i64 104), %while.body.i.i.i2731.preheader ], [ %scevgep5512, %while.end.i.i.i2743 ]
+  %pSearchEnd.045.i.i.i2732 = phi ptr [ getelementptr inbounds nuw (i8, ptr @.str.285, i64 96), %while.body.i.i.i2731.preheader ], [ %incdec.ptr36.i.i.i2744, %while.end.i.i.i2743 ]
   br label %while.cond.i30.i.i.i2733
 
 while.cond.i30.i.i.i2733:                         ; preds = %while.body.i34.i.i.i2737, %while.body.i.i.i2731
@@ -10868,7 +10868,7 @@ while.cond.i30.i.i.i2733:                         ; preds = %while.body.i34.i.i.
   %pTemp.0.i31.i.i.i2734 = phi ptr [ %incdec.ptr.i32.i.i.i2735, %while.body.i34.i.i.i2737 ], [ %pSearchEnd.045.i.i.i2732, %while.body.i.i.i2731 ]
   %incdec.ptr.i32.i.i.i2735 = getelementptr inbounds i8, ptr %pTemp.0.i31.i.i.i2734, i64 -4
   %cmp.not.i33.i.i.i2736 = icmp ult ptr %incdec.ptr.i32.i.i.i2735, @.str.285
-  br i1 %cmp.not.i33.i.i.i2736, label %if.end11.i.i.i2798, label %while.body.i34.i.i.i2737
+  br i1 %cmp.not.i33.i.i.i2736, label %while.body.i.i.i2803.preheader, label %while.body.i34.i.i.i2737
 
 while.body.i34.i.i.i2737:                         ; preds = %while.cond.i30.i.i.i2733
   %85 = load i32, ptr %incdec.ptr.i32.i.i.i2735, align 4
@@ -10895,27 +10895,27 @@ while.end.i.i.i2743:                              ; preds = %while.cond23.i.i.i2
   %incdec.ptr36.i.i.i2744 = getelementptr inbounds i8, ptr %pSearchEnd.045.i.i.i2732, i64 -4
   %cmp18.not.i.i.i2745 = icmp eq ptr %incdec.ptr36.i.i.i2744, @.str.285
   %scevgep5512 = getelementptr i8, ptr %indvars.iv5511, i64 -4
-  br i1 %cmp18.not.i.i.i2745, label %if.end11.i.i.i2798, label %while.body.i.i.i2731, !llvm.loop !75
+  br i1 %cmp18.not.i.i.i2745, label %while.body.i.i.i2803.preheader, label %while.body.i.i.i2731, !llvm.loop !75
 
 _ZN5eastl21CharTypeStringRSearchIDiEEPKT_S3_S3_S3_S3_.exit.i.i2753: ; preds = %while.body26.i.i.i2747
   %add.ptr34.i.i.i2752 = getelementptr inbounds i8, ptr %indvars.iv5513, i64 -12
   %cmp11.not.i.i2755 = icmp eq ptr %add.ptr34.i.i.i2752, getelementptr inbounds nuw (i8, ptr @.str.285, i64 104)
-  br i1 %cmp11.not.i.i2755, label %if.end11.i.i.i2798, label %if.then12.i.i2756
+  br i1 %cmp11.not.i.i2755, label %while.body.i.i.i2803.preheader, label %if.then12.i.i2756
 
 if.then12.i.i2756:                                ; preds = %_ZN5eastl21CharTypeStringRSearchIDiEEPKT_S3_S3_S3_S3_.exit.i.i2753
   %sub.ptr.lhs.cast.i3.i2758 = ptrtoint ptr %add.ptr34.i.i.i2752 to i64
   %sub.ptr.sub.i5.i2760 = sub i64 %sub.ptr.lhs.cast.i3.i2758, ptrtoint (ptr @.str.285 to i64)
   %88 = icmp ne i64 %sub.ptr.sub.i5.i2760, -4
-  br label %if.end11.i.i.i2798
+  br label %while.body.i.i.i2803.preheader
 
-if.end11.i.i.i2798:                               ; preds = %while.end.i.i.i2743, %while.cond.i30.i.i.i2733, %if.then12.i.i2756, %_ZN5eastl21CharTypeStringRSearchIDiEEPKT_S3_S3_S3_S3_.exit.i.i2753
+while.body.i.i.i2803.preheader:                   ; preds = %while.end.i.i.i2743, %while.cond.i30.i.i.i2733, %_ZN5eastl21CharTypeStringRSearchIDiEEPKT_S3_S3_S3_S3_.exit.i.i2753, %if.then12.i.i2756
   %retval.0.i.i2746 = phi i1 [ %88, %if.then12.i.i2756 ], [ false, %_ZN5eastl21CharTypeStringRSearchIDiEEPKT_S3_S3_S3_S3_.exit.i.i2753 ], [ false, %while.cond.i30.i.i.i2733 ], [ false, %while.end.i.i.i2743 ]
   %call538 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i.i2746, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 385, ptr noundef nonnull @.str.173)
   br label %while.body.i.i.i2803
 
-while.body.i.i.i2803:                             ; preds = %if.end11.i.i.i2798, %while.end.i.i.i2815
-  %indvars.iv5516 = phi ptr [ getelementptr inbounds nuw (i8, ptr @.str.285, i64 104), %if.end11.i.i.i2798 ], [ %scevgep5517, %while.end.i.i.i2815 ]
-  %pSearchEnd.045.i.i.i2804 = phi ptr [ getelementptr inbounds nuw (i8, ptr @.str.285, i64 92), %if.end11.i.i.i2798 ], [ %incdec.ptr36.i.i.i2816, %while.end.i.i.i2815 ]
+while.body.i.i.i2803:                             ; preds = %while.body.i.i.i2803.preheader, %while.end.i.i.i2815
+  %indvars.iv5516 = phi ptr [ getelementptr inbounds nuw (i8, ptr @.str.285, i64 104), %while.body.i.i.i2803.preheader ], [ %scevgep5517, %while.end.i.i.i2815 ]
+  %pSearchEnd.045.i.i.i2804 = phi ptr [ getelementptr inbounds nuw (i8, ptr @.str.285, i64 92), %while.body.i.i.i2803.preheader ], [ %incdec.ptr36.i.i.i2816, %while.end.i.i.i2815 ]
   br label %while.cond.i30.i.i.i2805
 
 while.cond.i30.i.i.i2805:                         ; preds = %while.body.i34.i.i.i2809, %while.body.i.i.i2803

@@ -2706,9 +2706,9 @@ _ZN3gmxL22check_assign_connectedEPNS_5LincsENS_8ArrayRefIKiEERK22InteractionDefi
 
 603:                                              ; preds = %598
   %604 = sext i32 %.0119.i to i64
-  %605 = getelementptr inbounds nuw [32 x i32], ptr %12, i64 0, i64 %604
+  %605 = getelementptr inbounds [32 x i32], ptr %12, i64 0, i64 %604
   store i32 %597, ptr %605, align 4
-  %606 = getelementptr inbounds nuw [32 x i32], ptr %13, i64 0, i64 %604
+  %606 = getelementptr inbounds [32 x i32], ptr %13, i64 0, i64 %604
   store i32 %601, ptr %606, align 4
   %607 = add nsw i32 %.0119.i, 1
   br label %608
@@ -2720,9 +2720,9 @@ _ZN3gmxL22check_assign_connectedEPNS_5LincsENS_8ArrayRefIKiEERK22InteractionDefi
 
 609:                                              ; preds = %608
   %610 = sext i32 %.1.i to i64
-  %611 = getelementptr inbounds nuw [32 x i32], ptr %12, i64 0, i64 %610
+  %611 = getelementptr inbounds [32 x i32], ptr %12, i64 0, i64 %610
   store i32 %597, ptr %611, align 4
-  %612 = getelementptr inbounds nuw [32 x i32], ptr %13, i64 0, i64 %610
+  %612 = getelementptr inbounds [32 x i32], ptr %13, i64 0, i64 %610
   store i32 %602, ptr %612, align 4
   %613 = add nsw i32 %.1.i, 1
   br label %614

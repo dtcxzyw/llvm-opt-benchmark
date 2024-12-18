@@ -3312,7 +3312,7 @@ define noundef zeroext i1 @_ZN3g2o16OptimizableGraph4loadEPKc(ptr noundef nonnul
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 -24
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %6
+  %7 = getelementptr inbounds i8, ptr %3, i64 %6
   %8 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %7)
           to label %9 unwind label %10
 
@@ -3352,7 +3352,7 @@ define noundef zeroext i1 @_ZNK3g2o16OptimizableGraph4saveEPKci(ptr noundef nonn
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 -24
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %7
+  %8 = getelementptr inbounds i8, ptr %4, i64 %7
   %9 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %8)
           to label %10 unwind label %11
 

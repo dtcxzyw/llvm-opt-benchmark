@@ -4160,7 +4160,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunctionC2Ev.exit: ; preds = %6
 
 20:                                               ; preds = %13
   %21 = sext i32 %15 to i64
-  %22 = getelementptr inbounds nuw %"struct.std::pair", ptr %2, i64 %21
+  %22 = getelementptr inbounds %"struct.std::pair", ptr %2, i64 %21
   %.not14.i.i.i = icmp eq i32 %15, 0
   br i1 %.not14.i.i.i, label %.loopexit16, label %.lr.ph.i.i.i
 

@@ -8045,10 +8045,10 @@ switch.lookup:                                    ; preds = %1
 define dso_local { ptr, i64 } @_ZN4llvm5dwarf23GDBIndexEntryKindStringENS0_17GDBIndexEntryKindE(i32 noundef %0) local_unnamed_addr #0 {
 switch.lookup:
   %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN4llvm5dwarf23GDBIndexEntryKindStringENS0_17GDBIndexEntryKindE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [8 x i64], ptr @switch.table._ZN4llvm5dwarf23GDBIndexEntryKindStringENS0_17GDBIndexEntryKindE, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = sext i32 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN4llvm5dwarf23GDBIndexEntryKindStringENS0_17GDBIndexEntryKindE.19, i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN4llvm5dwarf23GDBIndexEntryKindStringENS0_17GDBIndexEntryKindE.19, i64 0, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1

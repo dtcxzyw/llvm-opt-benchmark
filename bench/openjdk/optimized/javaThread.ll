@@ -2016,13 +2016,13 @@ define hidden void @_ZN10JavaThread14pretouch_stackEv(ptr nocapture noundef nonn
   %30 = load i32, ptr %29, align 8
   %31 = sext i32 %30 to i64
   %32 = ptrtoint ptr %24 to i64
-  %33 = getelementptr inbounds nuw i8, ptr %24, i64 %23
+  %33 = getelementptr inbounds i8, ptr %24, i64 %23
   %34 = ptrtoint ptr %33 to i64
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE105ELS1_159ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.44, i64 noundef %31, i64 noundef %32, i64 noundef %34, i64 noundef %23)
   br label %35
 
 35:                                               ; preds = %20, %26
-  %36 = getelementptr inbounds nuw i8, ptr %24, i64 %23
+  %36 = getelementptr inbounds i8, ptr %24, i64 %23
   %37 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
   call void @_ZN2os15pretouch_memoryEPvS0_m(ptr noundef nonnull %24, ptr noundef nonnull %36, i64 noundef %37) #21
   br label %38

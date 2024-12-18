@@ -1297,7 +1297,7 @@ html_output_flush.exit.i1437:                     ; preds = %339
 html_output_c.exit1438:                           ; preds = %338, %344
   %348 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 1
   %349 = sext i32 %.1966.ph790 to i64
-  %350 = getelementptr inbounds nuw [1025 x i8], ptr %7, i64 0, i64 %349
+  %350 = getelementptr inbounds [1025 x i8], ptr %7, i64 0, i64 %349
   store i8 0, ptr %350, align 1
   br label %html_output_c.exit
 
@@ -1361,7 +1361,7 @@ html_output_c.exit1441:                           ; preds = %358, %366
   %378 = trunc i32 %377 to i8
   %379 = add nsw i32 %.1966.ph790, 1
   %380 = sext i32 %.1966.ph790 to i64
-  %381 = getelementptr inbounds nuw [1025 x i8], ptr %7, i64 0, i64 %380
+  %381 = getelementptr inbounds [1025 x i8], ptr %7, i64 0, i64 %380
   store i8 %378, ptr %381, align 1
   br label %382
 
@@ -1373,7 +1373,7 @@ html_output_c.exit1441:                           ; preds = %358, %366
 
 384:                                              ; preds = %351
   %385 = sext i32 %.1966.ph790 to i64
-  %386 = getelementptr inbounds nuw [1025 x i8], ptr %7, i64 0, i64 %385
+  %386 = getelementptr inbounds [1025 x i8], ptr %7, i64 0, i64 %385
   store i8 0, ptr %386, align 1
   %387 = icmp eq i32 %.11013.ph765, 0
   %388 = select i1 %387, i32 9, i32 12
@@ -1406,7 +1406,7 @@ html_output_flush.exit.i1443:                     ; preds = %392
 
 html_output_c.exit1444:                           ; preds = %391, %397
   %401 = sext i32 %.1968.ph788 to i64
-  %402 = getelementptr inbounds nuw [1025 x i8], ptr %8, i64 0, i64 %401
+  %402 = getelementptr inbounds [1025 x i8], ptr %8, i64 0, i64 %401
   store i8 0, ptr %402, align 1
   %403 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 1
   br label %html_output_c.exit
@@ -1424,7 +1424,7 @@ html_output_c.exit1444:                           ; preds = %391, %397
 411:                                              ; preds = %404
   %412 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 1
   %413 = sext i32 %.1968.ph788 to i64
-  %414 = getelementptr inbounds nuw [1025 x i8], ptr %8, i64 0, i64 %413
+  %414 = getelementptr inbounds [1025 x i8], ptr %8, i64 0, i64 %413
   store i8 0, ptr %414, align 1
   br label %html_output_c.exit
 
@@ -1533,7 +1533,7 @@ html_output_c.exit1453.thread:                    ; preds = %435, %html_output_c
   %464 = trunc i32 %463 to i8
   %465 = add nsw i32 %.1968.ph788, 1
   %466 = sext i32 %.1968.ph788 to i64
-  %467 = getelementptr inbounds nuw [1025 x i8], ptr %8, i64 0, i64 %466
+  %467 = getelementptr inbounds [1025 x i8], ptr %8, i64 0, i64 %466
   store i8 %464, ptr %467, align 1
   br label %468
 
@@ -1742,13 +1742,13 @@ html_output_c.exit1468:                           ; preds = %536, %542
 
 547:                                              ; preds = %html_output_c.exit1468
   %548 = add nsw i64 %.1990.ph1868576, 1
-  %549 = getelementptr inbounds nuw [1025 x i8], ptr %9, i64 0, i64 %.1990.ph1868576
+  %549 = getelementptr inbounds [1025 x i8], ptr %9, i64 0, i64 %.1990.ph1868576
   store i8 34, ptr %549, align 1
   br label %550
 
 550:                                              ; preds = %547, %html_output_c.exit1468
   %.5994 = phi i64 [ %548, %547 ], [ %.1990.ph1868576, %html_output_c.exit1468 ]
-  %551 = getelementptr inbounds nuw [1025 x i8], ptr %9, i64 0, i64 %.5994
+  %551 = getelementptr inbounds [1025 x i8], ptr %9, i64 0, i64 %.5994
   store i8 0, ptr %551, align 1
   call void @html_tag_arg_add(ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %552 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 1
@@ -1781,7 +1781,7 @@ html_output_c.exit1471:                           ; preds = %553, %559
 
 564:                                              ; preds = %html_output_c.exit1471
   %565 = add nsw i64 %.1990.ph1868576, 1
-  %566 = getelementptr inbounds nuw [1025 x i8], ptr %9, i64 0, i64 %.1990.ph1868576
+  %566 = getelementptr inbounds [1025 x i8], ptr %9, i64 0, i64 %.1990.ph1868576
   store i8 34, ptr %566, align 1
   br label %567
 
@@ -1853,13 +1853,13 @@ html_output_c.exit1477:                           ; preds = %585, %591
 
 596:                                              ; preds = %html_output_c.exit1477
   %597 = add nsw i64 %.1990.ph1868576, 1
-  %598 = getelementptr inbounds nuw [1025 x i8], ptr %9, i64 0, i64 %.1990.ph1868576
+  %598 = getelementptr inbounds [1025 x i8], ptr %9, i64 0, i64 %.1990.ph1868576
   store i8 34, ptr %598, align 1
   br label %599
 
 599:                                              ; preds = %596, %html_output_c.exit1477
   %.8 = phi i64 [ %597, %596 ], [ %.1990.ph1868576, %html_output_c.exit1477 ]
-  %600 = getelementptr inbounds nuw [1025 x i8], ptr %9, i64 0, i64 %.8
+  %600 = getelementptr inbounds [1025 x i8], ptr %9, i64 0, i64 %.8
   store i8 0, ptr %600, align 1
   call void @html_tag_arg_add(ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %601 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 1
@@ -1892,7 +1892,7 @@ html_output_c.exit1480:                           ; preds = %602, %608
 
 613:                                              ; preds = %html_output_c.exit1480
   %614 = add nsw i64 %.1990.ph1868576, 1
-  %615 = getelementptr inbounds nuw [1025 x i8], ptr %9, i64 0, i64 %.1990.ph1868576
+  %615 = getelementptr inbounds [1025 x i8], ptr %9, i64 0, i64 %.1990.ph1868576
   store i8 34, ptr %615, align 1
   br label %616
 
@@ -1918,7 +1918,7 @@ html_output_c.exit1480:                           ; preds = %602, %608
   br i1 %627, label %628, label %630
 
 628:                                              ; preds = %626
-  %629 = getelementptr inbounds nuw [1025 x i8], ptr %9, i64 0, i64 %.1990.ph1868576
+  %629 = getelementptr inbounds [1025 x i8], ptr %9, i64 0, i64 %.1990.ph1868576
   store i8 0, ptr %629, align 1
   call void @html_tag_arg_add(ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef nonnull %9)
   br label %html_output_c.exit1459
@@ -1957,7 +1957,7 @@ html_output_c.exit1483:                           ; preds = %630, %636
   %646 = and i16 %645, 8192
   %.not1339 = icmp eq i16 %646, 0
   %647 = add nsw i64 %.1990.ph1868576, 1
-  %648 = getelementptr inbounds nuw [1025 x i8], ptr %9, i64 0, i64 %.1990.ph1868576
+  %648 = getelementptr inbounds [1025 x i8], ptr %9, i64 0, i64 %.1990.ph1868576
   %.4905 = select i1 %.not1339, i8 62, i8 32
   store i8 %.4905, ptr %648, align 1
   br label %649
@@ -2023,7 +2023,7 @@ html_output_c.exit1486:                           ; preds = %657, %663
 
 668:                                              ; preds = %html_output_c.exit1486
   %669 = add nsw i64 %.1990.ph1868576, 1
-  %670 = getelementptr inbounds nuw [1025 x i8], ptr %9, i64 0, i64 %.1990.ph1868576
+  %670 = getelementptr inbounds [1025 x i8], ptr %9, i64 0, i64 %.1990.ph1868576
   store i8 46, ptr %670, align 1
   br label %671
 
@@ -2070,7 +2070,7 @@ html_output_c.exit1486:                           ; preds = %657, %663
 
 687:                                              ; preds = %.thread1702
   %688 = add nsw i64 %.1990.ph1868576, 1
-  %689 = getelementptr inbounds nuw [1025 x i8], ptr %9, i64 0, i64 %.1990.ph1868576
+  %689 = getelementptr inbounds [1025 x i8], ptr %9, i64 0, i64 %.1990.ph1868576
   store i8 %676, ptr %689, align 1
   br label %690
 
@@ -2082,7 +2082,7 @@ html_output_c.exit1486:                           ; preds = %657, %663
 
 692:                                              ; preds = %690
   %693 = add nsw i64 %.14, 1
-  %694 = getelementptr inbounds nuw [1025 x i8], ptr %9, i64 0, i64 %.14
+  %694 = getelementptr inbounds [1025 x i8], ptr %9, i64 0, i64 %.14
   store i8 %678, ptr %694, align 1
   br label %695
 
@@ -2094,7 +2094,7 @@ html_output_c.exit1486:                           ; preds = %657, %663
 
 698:                                              ; preds = %695
   %699 = add nsw i64 %.15, 1
-  %700 = getelementptr inbounds nuw [1025 x i8], ptr %9, i64 0, i64 %.15
+  %700 = getelementptr inbounds [1025 x i8], ptr %9, i64 0, i64 %.15
   store i8 %696, ptr %700, align 1
   br label %.loopexit1839
 
@@ -2141,7 +2141,7 @@ html_output_c.exit1489:                           ; preds = %707, %715
 720:                                              ; preds = %html_output_c.exit1489
   %721 = load i8, ptr %.us-phi2938, align 1
   %722 = add nsw i64 %.11, 1
-  %723 = getelementptr inbounds nuw [1025 x i8], ptr %9, i64 0, i64 %.11
+  %723 = getelementptr inbounds [1025 x i8], ptr %9, i64 0, i64 %.11
   store i8 %721, ptr %723, align 1
   br label %724
 
@@ -3033,7 +3033,7 @@ html_tag_arg_value.exit1512.thread:               ; preds = %968, %891, %1073, %
 
 1094:                                             ; preds = %1091
   %1095 = add nsw i64 %.1990.ph1868576, 1
-  %1096 = getelementptr inbounds nuw [1025 x i8], ptr %9, i64 0, i64 %.1990.ph1868576
+  %1096 = getelementptr inbounds [1025 x i8], ptr %9, i64 0, i64 %.1990.ph1868576
   store i8 38, ptr %1096, align 1
   br label %1097
 
@@ -3064,7 +3064,7 @@ html_output_flush.exit.i1549:                     ; preds = %1098
   br i1 %1108, label %1109, label %1184
 
 1109:                                             ; preds = %1107
-  %1110 = getelementptr inbounds nuw [1025 x i8], ptr %13, i64 0, i64 %.11116.ph733
+  %1110 = getelementptr inbounds [1025 x i8], ptr %13, i64 0, i64 %.11116.ph733
   store i8 0, ptr %1110, align 1
   %1111 = call ptr @entity_norm(ptr noundef nonnull %12, ptr noundef nonnull %13) #15
   %.not1272 = icmp eq ptr %1111, null
@@ -3111,7 +3111,7 @@ html_output_c.exit1553:                           ; preds = %1113, %1121
 
 1126:                                             ; preds = %html_output_c.exit1553
   %1127 = add nsw i64 %.182958, 1
-  %1128 = getelementptr inbounds nuw [1025 x i8], ptr %9, i64 0, i64 %.182958
+  %1128 = getelementptr inbounds [1025 x i8], ptr %9, i64 0, i64 %.182958
   store i8 %1115, ptr %1128, align 1
   br label %1129
 
@@ -3151,7 +3151,7 @@ html_output_c.exit1556:                           ; preds = %1133, %1139
 
 1145:                                             ; preds = %html_output_c.exit1556
   %1146 = add nsw i64 %.1990.ph1868576, 1
-  %1147 = getelementptr inbounds nuw [1025 x i8], ptr %9, i64 0, i64 %.1990.ph1868576
+  %1147 = getelementptr inbounds [1025 x i8], ptr %9, i64 0, i64 %.1990.ph1868576
   store i8 38, ptr %1147, align 1
   br label %1148
 
@@ -3163,7 +3163,7 @@ html_output_c.exit1556:                           ; preds = %1133, %1139
 .lr.ph2964:                                       ; preds = %1148, %1167
   %.222962 = phi i64 [ %.23, %1167 ], [ %.21, %1148 ]
   %.19962961 = phi i64 [ %1168, %1167 ], [ 0, %1148 ]
-  %1149 = getelementptr inbounds nuw [1025 x i8], ptr %13, i64 0, i64 %.19962961
+  %1149 = getelementptr inbounds [1025 x i8], ptr %13, i64 0, i64 %.19962961
   %1150 = load i8, ptr %1149, align 1
   %1151 = zext i8 %1150 to i32
   %1152 = call i32 @tolower(i32 noundef %1151) #16
@@ -3195,7 +3195,7 @@ html_output_c.exit1559:                           ; preds = %.lr.ph2964, %1159
 
 1164:                                             ; preds = %html_output_c.exit1559
   %1165 = add nsw i64 %.222962, 1
-  %1166 = getelementptr inbounds nuw [1025 x i8], ptr %9, i64 0, i64 %.222962
+  %1166 = getelementptr inbounds [1025 x i8], ptr %9, i64 0, i64 %.222962
   store i8 %1153, ptr %1166, align 1
   br label %1167
 
@@ -3213,7 +3213,7 @@ html_output_c.exit1559:                           ; preds = %.lr.ph2964, %1159
 
 1170:                                             ; preds = %._crit_edge2965
   %1171 = add nsw i64 %.22.lcssa, 1
-  %1172 = getelementptr inbounds nuw [1025 x i8], ptr %9, i64 0, i64 %.22.lcssa
+  %1172 = getelementptr inbounds [1025 x i8], ptr %9, i64 0, i64 %.22.lcssa
   store i8 59, ptr %1172, align 1
   br label %1173
 
@@ -3274,7 +3274,7 @@ switch.early.test:                                ; preds = %1184
 1195:                                             ; preds = %1191, %1194
   %1196 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 1
   %1197 = add nuw nsw i64 %.11116.ph733, 1
-  %1198 = getelementptr inbounds nuw [1025 x i8], ptr %13, i64 0, i64 %.11116.ph733
+  %1198 = getelementptr inbounds [1025 x i8], ptr %13, i64 0, i64 %.11116.ph733
   store i8 %.us-phi2939, ptr %1198, align 1
   br label %html_output_c.exit
 
@@ -3286,7 +3286,7 @@ switch.early.test:                                ; preds = %1184
 
 1202:                                             ; preds = %1199
   %1203 = add nsw i64 %.1990.ph1868576, 1
-  %1204 = getelementptr inbounds nuw [1025 x i8], ptr %9, i64 0, i64 %.1990.ph1868576
+  %1204 = getelementptr inbounds [1025 x i8], ptr %9, i64 0, i64 %.1990.ph1868576
   store i8 38, ptr %1204, align 1
   br label %1205
 
@@ -3319,7 +3319,7 @@ html_output_c.exit1565:                           ; preds = %1205, %1211
 .lr.ph2955:                                       ; preds = %html_output_c.exit1565, %1233
   %.09792954 = phi i64 [ %1234, %1233 ], [ 0, %html_output_c.exit1565 ]
   %.262953 = phi i64 [ %.27, %1233 ], [ %.25, %html_output_c.exit1565 ]
-  %1215 = getelementptr inbounds nuw [1025 x i8], ptr %13, i64 0, i64 %.09792954
+  %1215 = getelementptr inbounds [1025 x i8], ptr %13, i64 0, i64 %.09792954
   %1216 = load i8, ptr %1215, align 1
   %1217 = zext i8 %1216 to i32
   %1218 = call i32 @tolower(i32 noundef %1217) #16
@@ -3351,7 +3351,7 @@ html_output_c.exit1568:                           ; preds = %.lr.ph2955, %1225
 
 1230:                                             ; preds = %html_output_c.exit1568
   %1231 = add nsw i64 %.262953, 1
-  %1232 = getelementptr inbounds nuw [1025 x i8], ptr %9, i64 0, i64 %.262953
+  %1232 = getelementptr inbounds [1025 x i8], ptr %9, i64 0, i64 %.262953
   store i8 %1219, ptr %1232, align 1
   br label %1233
 
@@ -3389,7 +3389,7 @@ html_output_c.exit1568:                           ; preds = %.lr.ph2955, %1225
 1245:                                             ; preds = %1242
   %1246 = trunc i64 %.1984.ph778 to i8
   %1247 = add nsw i64 %.1990.ph1868576, 1
-  %1248 = getelementptr inbounds nuw [1025 x i8], ptr %9, i64 0, i64 %.1990.ph1868576
+  %1248 = getelementptr inbounds [1025 x i8], ptr %9, i64 0, i64 %.1990.ph1868576
   store i8 %1246, ptr %1248, align 1
   br label %1249
 
@@ -3818,7 +3818,7 @@ html_output_c.exit1589:                           ; preds = %1384, %1393
 
 1484:                                             ; preds = %1482
   %1485 = add nsw i64 %.1990.ph1868576, 1
-  %1486 = getelementptr inbounds nuw [1025 x i8], ptr %9, i64 0, i64 %.1990.ph1868576
+  %1486 = getelementptr inbounds [1025 x i8], ptr %9, i64 0, i64 %.1990.ph1868576
   store i8 34, ptr %1486, align 1
   br label %1487
 
@@ -3843,7 +3843,7 @@ html_output_c.exit1589:                           ; preds = %1384, %1393
 
 1496:                                             ; preds = %1494
   %1497 = add nsw i64 %.1990.ph1868576, 1
-  %1498 = getelementptr inbounds nuw [1025 x i8], ptr %9, i64 0, i64 %.1990.ph1868576
+  %1498 = getelementptr inbounds [1025 x i8], ptr %9, i64 0, i64 %.1990.ph1868576
   store i8 34, ptr %1498, align 1
   br label %1499
 
@@ -3875,7 +3875,7 @@ html_output_c.exit1589:                           ; preds = %1384, %1393
 .sink.split4903:                                  ; preds = %1511
   %.not1258 = icmp eq i16 %1507, 0
   %1513 = add nsw i64 %.1990.ph1868576, 1
-  %1514 = getelementptr inbounds nuw [1025 x i8], ptr %9, i64 0, i64 %.1990.ph1868576
+  %1514 = getelementptr inbounds [1025 x i8], ptr %9, i64 0, i64 %.1990.ph1868576
   %.4908 = select i1 %.not1258, i8 62, i8 32
   store i8 %.4908, ptr %1514, align 1
   br label %1515
@@ -3890,7 +3890,7 @@ html_output_c.exit1589:                           ; preds = %1384, %1393
   br i1 %1518, label %1519, label %1522
 
 1519:                                             ; preds = %1517
-  %1520 = getelementptr inbounds nuw [1025 x i8], ptr %9, i64 0, i64 %.1990.ph1868576
+  %1520 = getelementptr inbounds [1025 x i8], ptr %9, i64 0, i64 %.1990.ph1868576
   store i8 0, ptr %1520, align 1
   %1521 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 1
   br label %1531
@@ -3903,7 +3903,7 @@ html_output_c.exit1589:                           ; preds = %1384, %1393
   %1525 = call i32 @tolower(i32 noundef %1476) #16
   %1526 = trunc i32 %1525 to i8
   %1527 = add nsw i64 %.1990.ph1868576, 1
-  %1528 = getelementptr inbounds nuw [1025 x i8], ptr %9, i64 0, i64 %.1990.ph1868576
+  %1528 = getelementptr inbounds [1025 x i8], ptr %9, i64 0, i64 %.1990.ph1868576
   store i8 %1526, ptr %1528, align 1
   br label %1529
 
@@ -4686,7 +4686,7 @@ js_process.exit1664:                              ; preds = %1798, %1782
   br i1 %.not12701682, label %.thread1732, label %1837
 
 1837:                                             ; preds = %.split2968.us.thread
-  %1838 = getelementptr inbounds nuw [1025 x i8], ptr %13, i64 0, i64 %.01115.lcssa.us4334
+  %1838 = getelementptr inbounds [1025 x i8], ptr %13, i64 0, i64 %.01115.lcssa.us4334
   store i8 0, ptr %1838, align 1
   %1839 = call ptr @entity_norm(ptr noundef nonnull %12, ptr noundef nonnull %13) #15
   %.not1234 = icmp eq ptr %1839, null
@@ -4734,7 +4734,7 @@ html_output_c.exit1667:                           ; preds = %html_output_flush.e
 
 .split3310:                                       ; preds = %1853, %html_output_c.exit1670
   %.13309 = phi i64 [ %1866, %html_output_c.exit1670 ], [ 0, %1853 ]
-  %1854 = getelementptr inbounds nuw [1025 x i8], ptr %13, i64 0, i64 %.13309
+  %1854 = getelementptr inbounds [1025 x i8], ptr %13, i64 0, i64 %.13309
   %1855 = load i8, ptr %1854, align 1
   %1856 = zext i8 %1855 to i32
   %1857 = call i32 @tolower(i32 noundef %1856) #16
@@ -5426,7 +5426,7 @@ thread-pre-split:                                 ; preds = %.lr.ph, %.lr.ph
   %13 = load i32, ptr %12, align 4
   %14 = sext i32 %13 to i64
   %15 = zext nneg i8 %5 to i64
-  %16 = getelementptr inbounds nuw [3 x [128 x i32]], ptr @decrypt_tables, i64 0, i64 %14, i64 %15
+  %16 = getelementptr inbounds [3 x [128 x i32]], ptr @decrypt_tables, i64 0, i64 %14, i64 %15
   %17 = load i32, ptr %16, align 4
   %18 = trunc i32 %17 to i8
   %19 = and i32 %17, 255

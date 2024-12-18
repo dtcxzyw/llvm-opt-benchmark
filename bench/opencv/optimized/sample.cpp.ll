@@ -801,7 +801,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 
 246:                                              ; preds = %244
   %247 = sext i32 %88 to i64
-  %248 = getelementptr inbounds nuw [7 x ptr], ptr @__const.main.b, i64 0, i64 %247
+  %248 = getelementptr inbounds [7 x ptr], ptr @__const.main.b, i64 0, i64 %247
   %249 = load ptr, ptr %248, align 8
   %250 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %245, ptr noundef %249)
           to label %251 unwind label %197

@@ -34476,7 +34476,7 @@ define void @_ZN6casadi8Function11generate_inERKNSt7__cxx1112basic_stringIcSt11c
   %18 = load ptr, ptr %5, align 8
   %19 = getelementptr i8, ptr %18, i64 -24
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %5, i64 %20
+  %21 = getelementptr inbounds i8, ptr %5, i64 %20
   %22 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %21)
           to label %23 unwind label %.loopexit.split-lp
 
@@ -34768,7 +34768,7 @@ define void @_ZN6casadi8Function12generate_outERKNSt7__cxx1112basic_stringIcSt11
   %18 = load ptr, ptr %5, align 8
   %19 = getelementptr i8, ptr %18, i64 -24
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %5, i64 %20
+  %21 = getelementptr inbounds i8, ptr %5, i64 %20
   %22 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %21)
           to label %23 unwind label %.loopexit.split-lp
 

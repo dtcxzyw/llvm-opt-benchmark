@@ -2958,13 +2958,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit44: ; 
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   %66 = srem i32 %65, 4
   %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds nuw [5 x i8], ptr @_ZN10open_spiel6euchreL9kSuitCharE, i64 0, i64 %67
+  %68 = getelementptr inbounds [5 x i8], ptr @_ZN10open_spiel6euchreL9kSuitCharE, i64 0, i64 %67
   %69 = load i8, ptr %68, align 1, !noalias !12
   store i8 %69, ptr %5, align 1, !noalias !12
   %70 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %71 = sdiv i32 %65, 4
   %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds nuw [7 x i8], ptr @_ZN10open_spiel6euchreL9kRankCharE, i64 0, i64 %72
+  %73 = getelementptr inbounds [7 x i8], ptr @_ZN10open_spiel6euchreL9kRankCharE, i64 0, i64 %72
   %74 = load i8, ptr %73, align 1, !noalias !12
   store i8 %74, ptr %70, align 1, !noalias !12
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #25, !noalias !12
@@ -4556,12 +4556,12 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge, %69
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   %82 = srem i32 %81, 4
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds nuw [5 x i8], ptr @_ZN10open_spiel6euchreL9kSuitCharE, i64 0, i64 %83
+  %84 = getelementptr inbounds [5 x i8], ptr @_ZN10open_spiel6euchreL9kSuitCharE, i64 0, i64 %83
   %85 = load i8, ptr %84, align 1, !noalias !51
   store i8 %85, ptr %3, align 1, !noalias !51
   %86 = sdiv i32 %81, 4
   %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds nuw [7 x i8], ptr @_ZN10open_spiel6euchreL9kRankCharE, i64 0, i64 %87
+  %88 = getelementptr inbounds [7 x i8], ptr @_ZN10open_spiel6euchreL9kRankCharE, i64 0, i64 %87
   %89 = load i8, ptr %88, align 1, !noalias !51
   store i8 %89, ptr %39, align 1, !noalias !51
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #25, !noalias !51

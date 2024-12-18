@@ -621,7 +621,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm17RISCVCallLowering14canLowerRetur
 28:                                               ; preds = %.lr.ph
   %29 = zext nneg i16 %26 to i64
   %30 = add nsw i64 %29, -1
-  %31 = getelementptr inbounds nuw [240 x i16], ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 0, i64 %30
+  %31 = getelementptr inbounds [240 x i16], ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 0, i64 %30
   %32 = load i16, ptr %31, align 2
   %33 = icmp eq i16 %32, 2
   %spec.select = select i1 %33, i32 %.sroa.5.047, i32 %.sroa.042.148
@@ -1981,7 +1981,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_126RISCVOutgoingValueAssigne
 24:                                               ; preds = %19
   %25 = zext nneg i16 %4 to i64
   %26 = add nsw i64 %25, -1
-  %27 = getelementptr inbounds nuw [240 x i16], ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 0, i64 %26
+  %27 = getelementptr inbounds [240 x i16], ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 0, i64 %26
   %28 = load i16, ptr %27, align 2
   %29 = icmp eq i16 %28, 2
   br i1 %29, label %30, label %.critedge
@@ -2142,7 +2142,7 @@ define internal void @_ZN12_GLOBAL__N_125RISCVOutgoingValueHandler16assignValueT
 .critedge:                                        ; preds = %12, %.thread41
   %15 = zext nneg i16 %.sroa.0.0.copyload.i to i64
   %16 = add nsw i64 %15, -1
-  %17 = getelementptr inbounds nuw [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %16
+  %17 = getelementptr inbounds [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %16
   %.sroa.0.0.copyload.i29 = load i64, ptr %17, align 16
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   %.sroa.2.0.copyload.i = load i8, ptr %.sroa.2.0..sroa_idx.i, align 8
@@ -2702,7 +2702,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_126RISCVIncomingValueAssigne
 30:                                               ; preds = %25
   %31 = zext nneg i16 %4 to i64
   %32 = add nsw i64 %31, -1
-  %33 = getelementptr inbounds nuw [240 x i16], ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 0, i64 %32
+  %33 = getelementptr inbounds [240 x i16], ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 0, i64 %32
   %34 = load i16, ptr %33, align 2
   %35 = icmp eq i16 %34, 2
   br i1 %35, label %36, label %.critedge

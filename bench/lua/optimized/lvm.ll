@@ -1442,7 +1442,7 @@ cond.false.i:                                     ; preds = %do.body.i
 
 cond.end.i:                                       ; preds = %cond.false.i, %cond.true.i
   %cond.i = phi i64 [ %conv3.i, %cond.true.i ], [ %26, %cond.false.i ]
-  %add.ptr4.i = getelementptr inbounds nuw i8, ptr %buff, i64 %tl.0.i
+  %add.ptr4.i = getelementptr inbounds i8, ptr %buff, i64 %tl.0.i
   %contents.i = getelementptr inbounds nuw i8, ptr %24, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr4.i, ptr nonnull align 8 %contents.i, i64 %cond.i, i1 false)
   %add.i = add i64 %cond.i, %tl.0.i

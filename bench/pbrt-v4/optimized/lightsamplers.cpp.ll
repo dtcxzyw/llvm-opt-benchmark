@@ -2603,7 +2603,7 @@ _ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit:          ; preds = %for.body31, %if.the
   %cmp45 = icmp eq i32 %conv44, 12
   %spec.store.select = select i1 %cmp45, i32 11, i32 %conv44
   %idxprom = sext i32 %spec.store.select to i64
-  %arrayidx = getelementptr inbounds nuw [12 x %"class.pbrt::LightBounds"], ptr %bucketLightBounds, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [12 x %"class.pbrt::LightBounds"], ptr %bucketLightBounds, i64 0, i64 %idxprom
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp5.i)
   %phi.i148 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24

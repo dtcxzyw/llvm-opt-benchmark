@@ -1242,13 +1242,13 @@ define hidden range(i32 0, 2) i32 @hb_buffer_deserialize_glyphs(ptr noundef %0, 
   %.4.i = phi ptr [ %227, %226 ], [ %.1.i, %.preheader.i ]
   %79 = shl nsw i32 %.1206.i, 1
   %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds nuw i8, ptr @_ZL35_deserialize_text_glyphs_trans_keys, i64 %80
+  %81 = getelementptr inbounds i8, ptr @_ZL35_deserialize_text_glyphs_trans_keys, i64 %80
   %82 = sext i32 %.1206.i to i64
-  %83 = getelementptr inbounds nuw [27 x i16], ptr @_ZL38_deserialize_text_glyphs_index_offsets, i64 0, i64 %82
+  %83 = getelementptr inbounds [27 x i16], ptr @_ZL38_deserialize_text_glyphs_index_offsets, i64 0, i64 %82
   %84 = load i16, ptr %83, align 2
   %85 = sext i16 %84 to i64
-  %86 = getelementptr inbounds nuw i8, ptr @_ZL33_deserialize_text_glyphs_indicies, i64 %85
-  %87 = getelementptr inbounds nuw [27 x i8], ptr @_ZL34_deserialize_text_glyphs_key_spans, i64 0, i64 %82
+  %86 = getelementptr inbounds i8, ptr @_ZL33_deserialize_text_glyphs_indicies, i64 %85
+  %87 = getelementptr inbounds [27 x i8], ptr @_ZL34_deserialize_text_glyphs_key_spans, i64 0, i64 %82
   %88 = load i8, ptr %87, align 1
   %89 = sext i8 %88 to i32
   %90 = load i8, ptr %81, align 2
@@ -1273,7 +1273,7 @@ define hidden range(i32 0, 2) i32 @hb_buffer_deserialize_glyphs(ptr noundef %0, 
   %102 = getelementptr inbounds i8, ptr %86, i64 %101
   %103 = load i8, ptr %102, align 1
   %104 = sext i8 %103 to i64
-  %105 = getelementptr inbounds nuw [63 x i8], ptr @_ZL36_deserialize_text_glyphs_trans_targs, i64 0, i64 %104
+  %105 = getelementptr inbounds [63 x i8], ptr @_ZL36_deserialize_text_glyphs_trans_targs, i64 0, i64 %104
   %106 = load i8, ptr %105, align 1
   %107 = sext i8 %106 to i32
   %108 = shl nuw i64 1, %104
@@ -1282,7 +1282,7 @@ define hidden range(i32 0, 2) i32 @hb_buffer_deserialize_glyphs(ptr noundef %0, 
   br i1 %.not224.i, label %110, label %224
 
 110:                                              ; preds = %99
-  %111 = getelementptr inbounds nuw [63 x i8], ptr @_ZL38_deserialize_text_glyphs_trans_actions, i64 0, i64 %104
+  %111 = getelementptr inbounds [63 x i8], ptr @_ZL38_deserialize_text_glyphs_trans_actions, i64 0, i64 %104
   %112 = load i8, ptr %111, align 1
   switch i8 %112, label %224 [
     i8 1, label %113
@@ -1698,7 +1698,7 @@ _ZL10parse_uintPKcS0_Pj.exit241.i:                ; preds = %199
   br i1 %229, label %230, label %.loopexit452.i
 
 230:                                              ; preds = %.loopexit453.i
-  %231 = getelementptr inbounds nuw [27 x i8], ptr @_ZL36_deserialize_text_glyphs_eof_actions, i64 0, i64 %.0205.i
+  %231 = getelementptr inbounds [27 x i8], ptr @_ZL36_deserialize_text_glyphs_eof_actions, i64 0, i64 %.0205.i
   %232 = load i8, ptr %231, align 1
   switch i8 %232, label %.loopexit452.i [
     i8 6, label %233
@@ -2119,13 +2119,13 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL27_hb_buffer_deserialize_
   %.3 = phi ptr [ %243, %242 ], [ %.1, %.preheader ]
   %56 = shl nsw i32 %.0141, 1
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds nuw i8, ptr @_ZL28_deserialize_json_trans_keys, i64 %57
+  %58 = getelementptr inbounds i8, ptr @_ZL28_deserialize_json_trans_keys, i64 %57
   %59 = sext i32 %.0141 to i64
-  %60 = getelementptr inbounds nuw [58 x i16], ptr @_ZL31_deserialize_json_index_offsets, i64 0, i64 %59
+  %60 = getelementptr inbounds [58 x i16], ptr @_ZL31_deserialize_json_index_offsets, i64 0, i64 %59
   %61 = load i16, ptr %60, align 2
   %62 = sext i16 %61 to i64
-  %63 = getelementptr inbounds nuw i8, ptr @_ZL26_deserialize_json_indicies, i64 %62
-  %64 = getelementptr inbounds nuw [58 x i8], ptr @_ZL27_deserialize_json_key_spans, i64 0, i64 %59
+  %63 = getelementptr inbounds i8, ptr @_ZL26_deserialize_json_indicies, i64 %62
+  %64 = getelementptr inbounds [58 x i8], ptr @_ZL27_deserialize_json_key_spans, i64 0, i64 %59
   %65 = load i8, ptr %64, align 1
   %66 = sext i8 %65 to i32
   %.not148 = icmp eq i32 %.0141, 57
@@ -2154,10 +2154,10 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL27_hb_buffer_deserialize_
   %80 = getelementptr inbounds i8, ptr %63, i64 %79
   %81 = load i8, ptr %80, align 1
   %82 = sext i8 %81 to i64
-  %83 = getelementptr inbounds nuw [98 x i8], ptr @_ZL29_deserialize_json_trans_targs, i64 0, i64 %82
+  %83 = getelementptr inbounds [98 x i8], ptr @_ZL29_deserialize_json_trans_targs, i64 0, i64 %82
   %84 = load i8, ptr %83, align 1
   %85 = sext i8 %84 to i32
-  %86 = getelementptr inbounds nuw [98 x i8], ptr @_ZL31_deserialize_json_trans_actions, i64 0, i64 %82
+  %86 = getelementptr inbounds [98 x i8], ptr @_ZL31_deserialize_json_trans_actions, i64 0, i64 %82
   %87 = load i8, ptr %86, align 1
   switch i8 %87, label %_ZN11hb_buffer_t13ensure_glyphsEv.exit.thread [
     i8 15, label %229
@@ -2867,13 +2867,13 @@ define hidden range(i32 0, 2) i32 @hb_buffer_deserialize_unicode(ptr noundef %0,
   %.4.i = phi ptr [ %130, %129 ], [ %.1.i, %.preheader.i ]
   %56 = shl nsw i32 %.1101.i, 1
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds nuw i8, ptr @_ZL36_deserialize_text_unicode_trans_keys, i64 %57
+  %58 = getelementptr inbounds i8, ptr @_ZL36_deserialize_text_unicode_trans_keys, i64 %57
   %59 = sext i32 %.1101.i to i64
-  %60 = getelementptr inbounds nuw [9 x i16], ptr @_ZL39_deserialize_text_unicode_index_offsets, i64 0, i64 %59
+  %60 = getelementptr inbounds [9 x i16], ptr @_ZL39_deserialize_text_unicode_index_offsets, i64 0, i64 %59
   %61 = load i16, ptr %60, align 2
   %62 = sext i16 %61 to i64
-  %63 = getelementptr inbounds nuw i8, ptr @_ZL34_deserialize_text_unicode_indicies, i64 %62
-  %64 = getelementptr inbounds nuw [9 x i8], ptr @_ZL35_deserialize_text_unicode_key_spans, i64 0, i64 %59
+  %63 = getelementptr inbounds i8, ptr @_ZL34_deserialize_text_unicode_indicies, i64 %62
+  %64 = getelementptr inbounds [9 x i8], ptr @_ZL35_deserialize_text_unicode_key_spans, i64 0, i64 %59
   %65 = load i8, ptr %64, align 1
   %66 = sext i8 %65 to i32
   %67 = load i8, ptr %58, align 2
@@ -2898,7 +2898,7 @@ define hidden range(i32 0, 2) i32 @hb_buffer_deserialize_unicode(ptr noundef %0,
   %79 = getelementptr inbounds i8, ptr %63, i64 %78
   %80 = load i8, ptr %79, align 1
   %81 = sext i8 %80 to i64
-  %82 = getelementptr inbounds nuw [15 x i8], ptr @_ZL37_deserialize_text_unicode_trans_targs, i64 0, i64 %81
+  %82 = getelementptr inbounds [15 x i8], ptr @_ZL37_deserialize_text_unicode_trans_targs, i64 0, i64 %81
   %83 = load i8, ptr %82, align 1
   %84 = sext i8 %83 to i32
   %85 = shl nuw i64 1, %81
@@ -2907,7 +2907,7 @@ define hidden range(i32 0, 2) i32 @hb_buffer_deserialize_unicode(ptr noundef %0,
   br i1 %.not119.i, label %87, label %127
 
 87:                                               ; preds = %76
-  %88 = getelementptr inbounds nuw [15 x i8], ptr @_ZL39_deserialize_text_unicode_trans_actions, i64 0, i64 %81
+  %88 = getelementptr inbounds [15 x i8], ptr @_ZL39_deserialize_text_unicode_trans_actions, i64 0, i64 %81
   %89 = load i8, ptr %88, align 1
   switch i8 %89, label %127 [
     i8 1, label %90
@@ -3045,7 +3045,7 @@ _ZL10parse_uintPKcS0_Pj.exit.i:                   ; preds = %111
   br i1 %132, label %133, label %.loopexit1.i
 
 133:                                              ; preds = %.loopexit2.i
-  %134 = getelementptr inbounds nuw [9 x i8], ptr @_ZL37_deserialize_text_unicode_eof_actions, i64 0, i64 %.0100.i
+  %134 = getelementptr inbounds [9 x i8], ptr @_ZL37_deserialize_text_unicode_eof_actions, i64 0, i64 %.0100.i
   %135 = load i8, ptr %134, align 1
   switch i8 %135, label %.loopexit1.i [
     i8 3, label %136

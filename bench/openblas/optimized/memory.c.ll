@@ -493,7 +493,7 @@ define internal ptr @alloc_mmap(ptr noundef %0) unnamed_addr #0 {
 
 14:                                               ; preds = %10
   %15 = sext i32 %12 to i64
-  %16 = getelementptr inbounds nuw [50 x %struct.release_t], ptr @release_info, i64 0, i64 %15
+  %16 = getelementptr inbounds [50 x %struct.release_t], ptr @release_info, i64 0, i64 %15
   store ptr %8, ptr %16, align 8, !tbaa !26
   %17 = getelementptr inbounds [50 x %struct.release_t], ptr @release_info, i64 0, i64 %15, i32 1
   br label %24
@@ -535,7 +535,7 @@ define internal noundef nonnull ptr @alloc_malloc(ptr nocapture readnone %0) #5 
 
 9:                                                ; preds = %6
   %10 = sext i32 %7 to i64
-  %11 = getelementptr inbounds nuw [50 x %struct.release_t], ptr @release_info, i64 0, i64 %10
+  %11 = getelementptr inbounds [50 x %struct.release_t], ptr @release_info, i64 0, i64 %10
   store ptr %4, ptr %11, align 8, !tbaa !26
   %12 = getelementptr inbounds [50 x %struct.release_t], ptr @release_info, i64 0, i64 %10, i32 1
   br label %19

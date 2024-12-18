@@ -15866,7 +15866,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %27, %30
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %72, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %73 = getelementptr inbounds nuw [3 x [3 x float]], ptr %18, i64 0, i64 %indvars.iv
+  %73 = getelementptr inbounds [3 x [3 x float]], ptr %18, i64 0, i64 %indvars.iv
   store float 0.000000e+00, ptr %73, align 4
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 4
   store float 0.000000e+00, ptr %74, align 4

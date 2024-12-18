@@ -21153,7 +21153,7 @@ invoke.cont381:                                   ; preds = %invoke.cont379
   %vtable = load ptr, ptr %ss, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr384 = getelementptr inbounds nuw i8, ptr %ss, i64 %vbase.offset
+  %add.ptr384 = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset
   %call386 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr384)
           to label %invoke.cont385 unwind label %lpad378
 
@@ -21168,7 +21168,7 @@ invoke.cont387:                                   ; preds = %invoke.cont385
   %vtable390 = load ptr, ptr %ss, align 8
   %vbase.offset.ptr391 = getelementptr i8, ptr %vtable390, i64 -24
   %vbase.offset392 = load i64, ptr %vbase.offset.ptr391, align 8
-  %add.ptr393 = getelementptr inbounds nuw i8, ptr %ss, i64 %vbase.offset392
+  %add.ptr393 = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset392
   %call395 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3badEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr393)
           to label %invoke.cont394 unwind label %lpad378
 
@@ -21183,7 +21183,7 @@ invoke.cont397:                                   ; preds = %invoke.cont394
   %vtable400 = load ptr, ptr %ss, align 8
   %vbase.offset.ptr401 = getelementptr i8, ptr %vtable400, i64 -24
   %vbase.offset402 = load i64, ptr %vbase.offset.ptr401, align 8
-  %add.ptr403 = getelementptr inbounds nuw i8, ptr %ss, i64 %vbase.offset402
+  %add.ptr403 = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset402
   %call405 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr403)
           to label %invoke.cont404 unwind label %lpad378
 
@@ -21198,7 +21198,7 @@ invoke.cont407:                                   ; preds = %invoke.cont404
   %vtable410 = load ptr, ptr %ss, align 8
   %vbase.offset.ptr411 = getelementptr i8, ptr %vtable410, i64 -24
   %vbase.offset412 = load i64, ptr %vbase.offset.ptr411, align 8
-  %add.ptr413 = getelementptr inbounds nuw i8, ptr %ss, i64 %vbase.offset412
+  %add.ptr413 = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset412
   %call415 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr413)
           to label %invoke.cont414 unwind label %lpad378
 
@@ -25744,7 +25744,7 @@ invoke.cont381:                                   ; preds = %invoke.cont379
   %vtable = load ptr, ptr %ss, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr384 = getelementptr inbounds nuw i8, ptr %ss, i64 %vbase.offset
+  %add.ptr384 = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset
   %call386 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr384)
           to label %invoke.cont385 unwind label %lpad378
 
@@ -25759,7 +25759,7 @@ invoke.cont387:                                   ; preds = %invoke.cont385
   %vtable390 = load ptr, ptr %ss, align 8
   %vbase.offset.ptr391 = getelementptr i8, ptr %vtable390, i64 -24
   %vbase.offset392 = load i64, ptr %vbase.offset.ptr391, align 8
-  %add.ptr393 = getelementptr inbounds nuw i8, ptr %ss, i64 %vbase.offset392
+  %add.ptr393 = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset392
   %call395 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3badEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr393)
           to label %invoke.cont394 unwind label %lpad378
 
@@ -25774,7 +25774,7 @@ invoke.cont397:                                   ; preds = %invoke.cont394
   %vtable400 = load ptr, ptr %ss, align 8
   %vbase.offset.ptr401 = getelementptr i8, ptr %vtable400, i64 -24
   %vbase.offset402 = load i64, ptr %vbase.offset.ptr401, align 8
-  %add.ptr403 = getelementptr inbounds nuw i8, ptr %ss, i64 %vbase.offset402
+  %add.ptr403 = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset402
   %call405 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr403)
           to label %invoke.cont404 unwind label %lpad378
 
@@ -25789,7 +25789,7 @@ invoke.cont407:                                   ; preds = %invoke.cont404
   %vtable410 = load ptr, ptr %ss, align 8
   %vbase.offset.ptr411 = getelementptr i8, ptr %vtable410, i64 -24
   %vbase.offset412 = load i64, ptr %vbase.offset.ptr411, align 8
-  %add.ptr413 = getelementptr inbounds nuw i8, ptr %ss, i64 %vbase.offset412
+  %add.ptr413 = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset412
   %call415 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr413)
           to label %invoke.cont414 unwind label %lpad378
 
@@ -29971,7 +29971,7 @@ if.end:                                           ; preds = %entry, %_ZNK7testin
   %vtable = load ptr, ptr %lhs_ss, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %lhs_ss, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %lhs_ss, i64 %vbase.offset
   %_M_precision.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   store i64 8, ptr %_M_precision.i, align 8
   %add.ptr2 = getelementptr inbounds nuw i8, ptr %lhs_ss, i64 16
@@ -29986,7 +29986,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
   %vtable5 = load ptr, ptr %rhs_ss, align 8
   %vbase.offset.ptr6 = getelementptr i8, ptr %vtable5, i64 -24
   %vbase.offset7 = load i64, ptr %vbase.offset.ptr6, align 8
-  %add.ptr8 = getelementptr inbounds nuw i8, ptr %rhs_ss, i64 %vbase.offset7
+  %add.ptr8 = getelementptr inbounds i8, ptr %rhs_ss, i64 %vbase.offset7
   %_M_precision.i4 = getelementptr inbounds nuw i8, ptr %add.ptr8, i64 8
   store i64 8, ptr %_M_precision.i4, align 8
   %add.ptr10 = getelementptr inbounds nuw i8, ptr %rhs_ss, i64 16

@@ -48374,7 +48374,7 @@ invoke.cont:                                      ; preds = %cond.true.i
   %vtable = load ptr, ptr %stream, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %stream, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %stream, i64 %vbase.offset
   %_M_flags.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 24
   %7 = load i32, ptr %_M_flags.i, align 4
   %and.i.i.i = and i32 %7, -3
@@ -49539,7 +49539,7 @@ invoke.cont:                                      ; preds = %cond.true.i
   %vtable = load ptr, ptr %stream, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %stream, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %stream, i64 %vbase.offset
   %_M_flags.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 24
   %7 = load i32, ptr %_M_flags.i, align 4
   %and.i.i.i = and i32 %7, -3
@@ -60755,7 +60755,7 @@ invoke.cont:                                      ; preds = %cond.true.i
   %vtable = load ptr, ptr %stream, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %stream, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %stream, i64 %vbase.offset
   %_M_flags.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 24
   %7 = load i32, ptr %_M_flags.i, align 4
   %and.i.i.i = and i32 %7, -3
@@ -106540,7 +106540,7 @@ if.end:                                           ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %stream, i64 %vbase.offset.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %stream, i64 %vbase.offset.i
   %_M_precision.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   store i64 %call.i5, ptr %_M_precision.i.i, align 8
   %0 = fcmp uno double %value, 0.000000e+00
@@ -120322,7 +120322,7 @@ if.end:                                           ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %stream, i64 %vbase.offset.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %stream, i64 %vbase.offset.i
   %_M_precision.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   store i64 %call.i5, ptr %_M_precision.i.i, align 8
   %0 = fcmp uno float %value, 0.000000e+00

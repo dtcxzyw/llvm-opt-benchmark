@@ -4677,7 +4677,7 @@ define void @_ZN7xgboost10JsonWriter5VisitEPKNS_10JsonNumberE(ptr nocapture noun
   %6 = load float, ptr %5, align 4
   %7 = call noundef i32 @_ZN7xgboost6detail16ToCharsFloatImplEfPc(float noundef %6, ptr noundef nonnull %3)
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 %8
+  %9 = getelementptr inbounds i8, ptr %3, i64 %8
   %10 = icmp ult ptr %9, %4
   %..i = select i1 %10, ptr %9, ptr %4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8

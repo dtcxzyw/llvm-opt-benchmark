@@ -98,7 +98,7 @@ _ZN2cv5GNodeC2ERKS0_.exit:                        ; preds = %6, %15, %18
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %23 = load i64, ptr %4, align 8
   store i64 %23, ptr %22, align 8
-  %24 = getelementptr inbounds nuw [3 x ptr], ptr @constinit, i64 0, i64 %23
+  %24 = getelementptr inbounds [3 x ptr], ptr @constinit, i64 0, i64 %23
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -114,7 +114,7 @@ _ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFv
   %30 = landingpad { ptr, i32 }
           cleanup
   %31 = load i64, ptr %20, align 8
-  %32 = getelementptr inbounds nuw [4 x ptr], ptr @constinit.2, i64 0, i64 %31
+  %32 = getelementptr inbounds [4 x ptr], ptr @constinit.2, i64 0, i64 %31
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void %33(ptr noundef nonnull %34)
@@ -221,7 +221,7 @@ define hidden void @_ZN2cv7GOriginC2ENS_6GShapeENS_4util7variantIJNS2_9monostate
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %2, align 8
   store i64 %6, ptr %5, align 8
-  %7 = getelementptr inbounds nuw [4 x ptr], ptr @constinit.4, i64 0, i64 %6
+  %7 = getelementptr inbounds [4 x ptr], ptr @constinit.4, i64 0, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8

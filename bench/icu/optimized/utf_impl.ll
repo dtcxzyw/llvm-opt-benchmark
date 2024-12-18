@@ -220,7 +220,7 @@ if.then.i:                                        ; preds = %lor.lhs.false45, %l
   %i.091 = phi i32 [ %i.0, %if.end162 ], [ %inc84, %land.lhs.true96 ], [ %inc29, %land.lhs.true43 ], [ %inc29, %lor.lhs.false45 ]
   %sub16392 = sub nsw i32 %i.091, %0
   %idxprom.i = sext i32 %sub16392 to i64
-  %arrayidx.i = getelementptr inbounds nuw [6 x i32], ptr @_ZL15utf8_errorValue, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [6 x i32], ptr @_ZL15utf8_errorValue, i64 0, i64 %idxprom.i
   %11 = load i32, ptr %arrayidx.i, align 4
   br label %_ZL10errorValueia.exit
 

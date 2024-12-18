@@ -14991,7 +14991,7 @@ switch.lookup:                                    ; preds = %9
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #25
   %switch.tableidx = add nsw i32 %7, -1
   %20 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN12_GLOBAL__N_120CheckGenExParametersEP28cmGeneratorExpressionContextPK26GeneratorExpressionContentSt17basic_string_viewIcSt11char_traitsIcEES8_mib, i64 0, i64 %20
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN12_GLOBAL__N_120CheckGenExParametersEP28cmGeneratorExpressionContextPK26GeneratorExpressionContentSt17basic_string_viewIcSt11char_traitsIcEES8_mib, i64 0, i64 %20
   %switch.load = load ptr, ptr %switch.gep, align 8
   %21 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull %switch.load)
           to label %24 unwind label %22

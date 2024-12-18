@@ -509,7 +509,7 @@ entry:
   %stream_rxfc.i = alloca [3 x %struct.quic_rxfc_st], align 16
   %stream_init_done.i = alloca [3 x i8], align 1
   %idxprom = sext i32 %idx to i64
-  %arrayidx = getelementptr inbounds nuw [2 x ptr], ptr @rx_scripts, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [2 x ptr], ptr @rx_scripts, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %conn_rxfc.i)
   call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %stream_rxfc.i)
@@ -572,7 +572,7 @@ lor.lhs.false.i:                                  ; preds = %sw.bb9.i
 
 if.end17.i:                                       ; preds = %lor.lhs.false.i
   %5 = load i64, ptr %stream_idx.i, align 8
-  %arrayidx.i = getelementptr inbounds nuw [3 x %struct.quic_rxfc_st], ptr %stream_rxfc.i, i64 0, i64 %5
+  %arrayidx.i = getelementptr inbounds [3 x %struct.quic_rxfc_st], ptr %stream_rxfc.i, i64 0, i64 %5
   %arg019.i = getelementptr inbounds nuw i8, ptr %op.0.i, i64 16
   %6 = load i64, ptr %arg019.i, align 8
   %arg120.i = getelementptr inbounds nuw i8, ptr %op.0.i, i64 24
@@ -586,7 +586,7 @@ if.end17.i:                                       ; preds = %lor.lhs.false.i
 
 if.end27.i:                                       ; preds = %if.end17.i
   %8 = load i64, ptr %stream_idx.i, align 8
-  %arrayidx29.i = getelementptr inbounds nuw [3 x i8], ptr %stream_init_done.i, i64 0, i64 %8
+  %arrayidx29.i = getelementptr inbounds [3 x i8], ptr %stream_init_done.i, i64 0, i64 %8
   store i8 1, ptr %arrayidx29.i, align 1
   br label %for.inc.i
 
@@ -616,7 +616,7 @@ land.end.i:                                       ; preds = %land.rhs.i, %land.l
 if.end44.i:                                       ; preds = %land.end.i
   %stream_idx45.i = getelementptr inbounds nuw i8, ptr %op.0.i, i64 8
   %12 = load i64, ptr %stream_idx45.i, align 8
-  %arrayidx46.i = getelementptr inbounds nuw [3 x %struct.quic_rxfc_st], ptr %stream_rxfc.i, i64 0, i64 %12
+  %arrayidx46.i = getelementptr inbounds [3 x %struct.quic_rxfc_st], ptr %stream_rxfc.i, i64 0, i64 %12
   %arg047.i = getelementptr inbounds nuw i8, ptr %op.0.i, i64 16
   %13 = load i64, ptr %arg047.i, align 8
   %arg148.i = getelementptr inbounds nuw i8, ptr %op.0.i, i64 24
@@ -655,7 +655,7 @@ land.end68.i:                                     ; preds = %land.rhs63.i, %land
 if.end75.i:                                       ; preds = %land.end68.i
   %stream_idx76.i = getelementptr inbounds nuw i8, ptr %op.0.i, i64 8
   %18 = load i64, ptr %stream_idx76.i, align 8
-  %arrayidx77.i = getelementptr inbounds nuw [3 x %struct.quic_rxfc_st], ptr %stream_rxfc.i, i64 0, i64 %18
+  %arrayidx77.i = getelementptr inbounds [3 x %struct.quic_rxfc_st], ptr %stream_rxfc.i, i64 0, i64 %18
   %arg078.i = getelementptr inbounds nuw i8, ptr %op.0.i, i64 16
   %19 = load i64, ptr %arg078.i, align 8
   %arg179.i = getelementptr inbounds nuw i8, ptr %op.0.i, i64 24
@@ -705,7 +705,7 @@ land.end111.i:                                    ; preds = %land.rhs106.i, %sw.
 
 if.end118.i:                                      ; preds = %land.end111.i
   %26 = load i64, ptr %stream_idx103.i, align 8
-  %arrayidx120.i = getelementptr inbounds nuw [3 x %struct.quic_rxfc_st], ptr %stream_rxfc.i, i64 0, i64 %26
+  %arrayidx120.i = getelementptr inbounds [3 x %struct.quic_rxfc_st], ptr %stream_rxfc.i, i64 0, i64 %26
   %call121.i = call i64 @ossl_quic_rxfc_get_cwm(ptr noundef nonnull %arrayidx120.i) #7
   %arg0122.i = getelementptr inbounds nuw i8, ptr %op.0.i, i64 16
   %27 = load i64, ptr %arg0122.i, align 8
@@ -749,7 +749,7 @@ land.end149.i:                                    ; preds = %land.rhs144.i, %sw.
 
 if.end156.i:                                      ; preds = %land.end149.i
   %32 = load i64, ptr %stream_idx141.i, align 8
-  %arrayidx158.i = getelementptr inbounds nuw [3 x %struct.quic_rxfc_st], ptr %stream_rxfc.i, i64 0, i64 %32
+  %arrayidx158.i = getelementptr inbounds [3 x %struct.quic_rxfc_st], ptr %stream_rxfc.i, i64 0, i64 %32
   %call159.i = call i64 @ossl_quic_rxfc_get_swm(ptr noundef nonnull %arrayidx158.i) #7
   %arg0160.i = getelementptr inbounds nuw i8, ptr %op.0.i, i64 16
   %33 = load i64, ptr %arg0160.i, align 8
@@ -793,7 +793,7 @@ land.end187.i:                                    ; preds = %land.rhs182.i, %sw.
 
 if.end194.i:                                      ; preds = %land.end187.i
   %38 = load i64, ptr %stream_idx179.i, align 8
-  %arrayidx196.i = getelementptr inbounds nuw [3 x %struct.quic_rxfc_st], ptr %stream_rxfc.i, i64 0, i64 %38
+  %arrayidx196.i = getelementptr inbounds [3 x %struct.quic_rxfc_st], ptr %stream_rxfc.i, i64 0, i64 %38
   %call197.i = call i64 @ossl_quic_rxfc_get_rwm(ptr noundef nonnull %arrayidx196.i) #7
   %arg0198.i = getelementptr inbounds nuw i8, ptr %op.0.i, i64 16
   %39 = load i64, ptr %arg0198.i, align 8
@@ -841,7 +841,7 @@ land.end228.i:                                    ; preds = %land.rhs223.i, %sw.
 
 if.end235.i:                                      ; preds = %land.end228.i
   %45 = load i64, ptr %stream_idx220.i, align 8
-  %arrayidx237.i = getelementptr inbounds nuw [3 x %struct.quic_rxfc_st], ptr %stream_rxfc.i, i64 0, i64 %45
+  %arrayidx237.i = getelementptr inbounds [3 x %struct.quic_rxfc_st], ptr %stream_rxfc.i, i64 0, i64 %45
   %arg1238.i = getelementptr inbounds nuw i8, ptr %op.0.i, i64 24
   %46 = load i64, ptr %arg1238.i, align 8
   %conv239.i = trunc i64 %46 to i32
@@ -893,7 +893,7 @@ land.end272.i:                                    ; preds = %land.rhs267.i, %sw.
 
 if.end279.i:                                      ; preds = %land.end272.i
   %53 = load i64, ptr %stream_idx264.i, align 8
-  %arrayidx281.i = getelementptr inbounds nuw [3 x %struct.quic_rxfc_st], ptr %stream_rxfc.i, i64 0, i64 %53
+  %arrayidx281.i = getelementptr inbounds [3 x %struct.quic_rxfc_st], ptr %stream_rxfc.i, i64 0, i64 %53
   %arg1282.i = getelementptr inbounds nuw i8, ptr %op.0.i, i64 24
   %54 = load i64, ptr %arg1282.i, align 8
   %conv283.i = trunc i64 %54 to i32

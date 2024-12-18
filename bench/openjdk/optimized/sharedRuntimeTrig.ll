@@ -378,7 +378,7 @@ define internal fastcc noundef i32 @_ZL18__ieee754_rem_pio2dPd(double noundef %0
 55:                                               ; preds = %45
   %56 = add nsw i32 %49, -1
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds nuw [32 x i32], ptr @_ZL8npio2_hw, i64 0, i64 %57
+  %58 = getelementptr inbounds [32 x i32], ptr @_ZL8npio2_hw, i64 0, i64 %57
   %59 = load i32, ptr %58, align 4
   %.not = icmp eq i32 %9, %59
   br i1 %.not, label %62, label %60
@@ -494,7 +494,7 @@ define internal fastcc noundef i32 @_ZL18__ieee754_rem_pio2dPd(double noundef %0
 120:                                              ; preds = %120, %118
   %indvars.iv149 = phi i64 [ %indvars.iv.next150, %120 ], [ 3, %118 ]
   %indvars.iv.next150 = add nsw i64 %indvars.iv149, -1
-  %121 = getelementptr inbounds nuw [3 x double], ptr %7, i64 0, i64 %indvars.iv.next150
+  %121 = getelementptr inbounds [3 x double], ptr %7, i64 0, i64 %indvars.iv.next150
   %122 = load double, ptr %121, align 8
   %123 = fcmp oeq double %122, 0.000000e+00
   br i1 %123, label %120, label %124, !llvm.loop !8
@@ -550,7 +550,7 @@ define internal fastcc noundef i32 @_ZL18__ieee754_rem_pio2dPd(double noundef %0
   %137 = sub i64 %133, %indvars.iv98.i
   %sext = shl i64 %137, 32
   %138 = ashr exact i64 %sext, 32
-  %139 = getelementptr inbounds nuw [20 x double], ptr %4, i64 0, i64 %138
+  %139 = getelementptr inbounds [20 x double], ptr %4, i64 0, i64 %138
   %140 = load double, ptr %139, align 8
   %141 = fmul double %136, %140
   %142 = fadd double %.033.us.i, %141
@@ -733,7 +733,7 @@ _ZL7scalbnAdi.exit.i:                             ; preds = %209, %206, %198, %1
 224:                                              ; preds = %_ZL7scalbnAdi.exit.i
   %225 = add nsw i32 %.0231.i, -1
   %226 = sext i32 %225 to i64
-  %227 = getelementptr inbounds nuw [20 x i32], ptr %3, i64 0, i64 %226
+  %227 = getelementptr inbounds [20 x i32], ptr %3, i64 0, i64 %226
   %228 = load i32, ptr %227, align 4
   %229 = ashr i32 %228, %156
   %230 = add nsw i32 %229, %221
@@ -749,7 +749,7 @@ _ZL7scalbnAdi.exit.i:                             ; preds = %209, %206, %198, %1
 235:                                              ; preds = %234
   %236 = add nsw i32 %.0231.i, -1
   %237 = sext i32 %236 to i64
-  %238 = getelementptr inbounds nuw [20 x i32], ptr %3, i64 0, i64 %237
+  %238 = getelementptr inbounds [20 x i32], ptr %3, i64 0, i64 %237
   %239 = load i32, ptr %238, align 4
   %240 = ashr i32 %239, 23
   br label %243
@@ -813,7 +813,7 @@ _ZL7scalbnAdi.exit.i:                             ; preds = %209, %206, %198, %1
   %.sink184.i = phi i32 [ 4194303, %255 ], [ 8388607, %254 ]
   %256 = add nsw i32 %.0231.i, -1
   %257 = sext i32 %256 to i64
-  %258 = getelementptr inbounds nuw [20 x i32], ptr %3, i64 0, i64 %257
+  %258 = getelementptr inbounds [20 x i32], ptr %3, i64 0, i64 %257
   %259 = load i32, ptr %258, align 4
   %260 = and i32 %259, %.sink184.i
   store i32 %260, ptr %258, align 4
@@ -866,7 +866,7 @@ _ZL7scalbnAdi.exit285.i:                          ; preds = %263
 .preheader14.i:                                   ; preds = %.preheader14.i.preheader, %.preheader14.i
   %indvars.iv124.i = phi i64 [ %indvars.iv.next125.i, %.preheader14.i ], [ 1, %.preheader14.i.preheader ]
   %274 = sub nsw i64 4, %indvars.iv124.i
-  %275 = getelementptr inbounds nuw [20 x i32], ptr %3, i64 0, i64 %274
+  %275 = getelementptr inbounds [20 x i32], ptr %3, i64 0, i64 %274
   %276 = load i32, ptr %275, align 4
   %277 = icmp eq i32 %276, 0
   %indvars.iv.next125.i = add nuw nsw i64 %indvars.iv124.i, 1
@@ -887,7 +887,7 @@ _ZL7scalbnAdi.exit285.i:                          ; preds = %263
   %284 = add i64 %indvars.iv149, %indvars.iv132.i
   %sext153 = shl i64 %284, 32
   %285 = ashr exact i64 %sext153, 32
-  %286 = getelementptr inbounds nuw [20 x double], ptr %4, i64 0, i64 %285
+  %286 = getelementptr inbounds [20 x double], ptr %4, i64 0, i64 %285
   store double %283, ptr %286, align 8
   br i1 %.not269.not31163.i, label %.lr.ph51.i, label %._crit_edge52.i
 
@@ -897,7 +897,7 @@ _ZL7scalbnAdi.exit285.i:                          ; preds = %263
   %287 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv127.i
   %288 = load double, ptr %287, align 8
   %289 = sub nsw i64 %285, %indvars.iv127.i
-  %290 = getelementptr inbounds nuw [20 x double], ptr %4, i64 0, i64 %289
+  %290 = getelementptr inbounds [20 x double], ptr %4, i64 0, i64 %289
   %291 = load double, ptr %290, align 8
   %292 = fmul double %288, %291
   %293 = fadd double %.149.i, %292
@@ -918,7 +918,7 @@ _ZL7scalbnAdi.exit285.i:                          ; preds = %263
   %.0229.in.i = phi i32 [ %127, %.preheader11.i ], [ %.0229.i, %296 ]
   %.0229.i = add nsw i32 %.0229.in.i, -24
   %indvars.iv.next138.i = add nsw i64 %indvars.iv137.i, -1
-  %297 = getelementptr inbounds nuw [20 x i32], ptr %3, i64 0, i64 %indvars.iv.next138.i
+  %297 = getelementptr inbounds [20 x i32], ptr %3, i64 0, i64 %indvars.iv.next138.i
   %298 = load i32, ptr %297, align 4
   %299 = icmp eq i32 %298, 0
   br i1 %299, label %296, label %.loopexit.loopexit.i, !llvm.loop !18

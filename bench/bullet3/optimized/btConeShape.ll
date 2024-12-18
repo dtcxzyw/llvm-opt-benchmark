@@ -280,9 +280,9 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %arrayidx9 = getelementptr inbounds nuw float, ptr %retval, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds float, ptr %retval, i64 %idxprom8
   store float 0.000000e+00, ptr %arrayidx9, align 4
-  %arrayidx14 = getelementptr inbounds nuw float, ptr %retval, i64 %idxprom
+  %arrayidx14 = getelementptr inbounds float, ptr %retval, i64 %idxprom
   store float %mul, ptr %arrayidx14, align 4
   %arrayidx17 = getelementptr inbounds nuw i8, ptr %this, i64 92
   %10 = load i32, ptr %arrayidx17, align 4
@@ -308,26 +308,26 @@ if.then44:                                        ; preds = %if.else
   %15 = load float, ptr %m_radius, align 4
   %div = fdiv float %15, %sqrt
   %mul50 = fmul float %div, %11
-  %arrayidx55 = getelementptr inbounds nuw float, ptr %retval, i64 %idxprom8
+  %arrayidx55 = getelementptr inbounds float, ptr %retval, i64 %idxprom8
   store float %mul50, ptr %arrayidx55, align 4
   %fneg = fneg float %mul
-  %arrayidx60 = getelementptr inbounds nuw float, ptr %retval, i64 %idxprom
+  %arrayidx60 = getelementptr inbounds float, ptr %retval, i64 %idxprom
   store float %fneg, ptr %arrayidx60, align 4
   %mul66 = fmul float %div, %13
   br label %return
 
 if.else72:                                        ; preds = %if.else
-  %arrayidx77 = getelementptr inbounds nuw float, ptr %retval, i64 %idxprom8
+  %arrayidx77 = getelementptr inbounds float, ptr %retval, i64 %idxprom8
   store float 0.000000e+00, ptr %arrayidx77, align 4
   %fneg78 = fneg float %mul
-  %arrayidx83 = getelementptr inbounds nuw float, ptr %retval, i64 %idxprom
+  %arrayidx83 = getelementptr inbounds float, ptr %retval, i64 %idxprom
   store float %fneg78, ptr %arrayidx83, align 4
   br label %return
 
 return:                                           ; preds = %if.else72, %if.then44, %if.then
   %idxprom34.sink = phi i64 [ %idxprom34, %if.else72 ], [ %idxprom34, %if.then44 ], [ %idxprom18, %if.then ]
   %.sink = phi float [ 0.000000e+00, %if.else72 ], [ %mul66, %if.then44 ], [ 0.000000e+00, %if.then ]
-  %arrayidx88 = getelementptr inbounds nuw float, ptr %retval, i64 %idxprom34.sink
+  %arrayidx88 = getelementptr inbounds float, ptr %retval, i64 %idxprom34.sink
   store float %.sink, ptr %arrayidx88, align 4
   %.fca.0.load = load <2 x float>, ptr %retval, align 8
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.fca.0.load, 0
@@ -369,9 +369,9 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %arrayidx9.i = getelementptr inbounds nuw float, ptr %retval.i, i64 %idxprom8.i
+  %arrayidx9.i = getelementptr inbounds float, ptr %retval.i, i64 %idxprom8.i
   store float 0.000000e+00, ptr %arrayidx9.i, align 4
-  %arrayidx14.i = getelementptr inbounds nuw float, ptr %retval.i, i64 %idxprom.i
+  %arrayidx14.i = getelementptr inbounds float, ptr %retval.i, i64 %idxprom.i
   store float %mul.i, ptr %arrayidx14.i, align 4
   %arrayidx17.i = getelementptr inbounds nuw i8, ptr %this, i64 92
   %10 = load i32, ptr %arrayidx17.i, align 4
@@ -397,26 +397,26 @@ if.then44.i:                                      ; preds = %if.else.i
   %15 = load float, ptr %m_radius.i, align 4
   %div.i = fdiv float %15, %sqrt.i
   %mul50.i = fmul float %11, %div.i
-  %arrayidx55.i = getelementptr inbounds nuw float, ptr %retval.i, i64 %idxprom8.i
+  %arrayidx55.i = getelementptr inbounds float, ptr %retval.i, i64 %idxprom8.i
   store float %mul50.i, ptr %arrayidx55.i, align 4
   %fneg.i = fneg float %mul.i
-  %arrayidx60.i = getelementptr inbounds nuw float, ptr %retval.i, i64 %idxprom.i
+  %arrayidx60.i = getelementptr inbounds float, ptr %retval.i, i64 %idxprom.i
   store float %fneg.i, ptr %arrayidx60.i, align 4
   %mul66.i = fmul float %13, %div.i
   br label %_ZNK11btConeShape16coneLocalSupportERK9btVector3.exit
 
 if.else72.i:                                      ; preds = %if.else.i
-  %arrayidx77.i = getelementptr inbounds nuw float, ptr %retval.i, i64 %idxprom8.i
+  %arrayidx77.i = getelementptr inbounds float, ptr %retval.i, i64 %idxprom8.i
   store float 0.000000e+00, ptr %arrayidx77.i, align 4
   %fneg78.i = fneg float %mul.i
-  %arrayidx83.i = getelementptr inbounds nuw float, ptr %retval.i, i64 %idxprom.i
+  %arrayidx83.i = getelementptr inbounds float, ptr %retval.i, i64 %idxprom.i
   store float %fneg78.i, ptr %arrayidx83.i, align 4
   br label %_ZNK11btConeShape16coneLocalSupportERK9btVector3.exit
 
 _ZNK11btConeShape16coneLocalSupportERK9btVector3.exit: ; preds = %if.then.i, %if.then44.i, %if.else72.i
   %idxprom34.sink.i = phi i64 [ %idxprom34.i, %if.else72.i ], [ %idxprom34.i, %if.then44.i ], [ %idxprom18.i, %if.then.i ]
   %.sink.i = phi float [ 0.000000e+00, %if.else72.i ], [ %mul66.i, %if.then44.i ], [ 0.000000e+00, %if.then.i ]
-  %arrayidx88.i = getelementptr inbounds nuw float, ptr %retval.i, i64 %idxprom34.sink.i
+  %arrayidx88.i = getelementptr inbounds float, ptr %retval.i, i64 %idxprom34.sink.i
   store float %.sink.i, ptr %arrayidx88.i, align 4
   %.fca.0.load.i = load <2 x float>, ptr %retval.i, align 8
   %.fca.0.insert.i = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.fca.0.load.i, 0
@@ -472,9 +472,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.body
-  %arrayidx9.i = getelementptr inbounds nuw float, ptr %retval.i, i64 %idxprom8.i
+  %arrayidx9.i = getelementptr inbounds float, ptr %retval.i, i64 %idxprom8.i
   store float 0.000000e+00, ptr %arrayidx9.i, align 4
-  %arrayidx14.i = getelementptr inbounds nuw float, ptr %retval.i, i64 %idxprom.i
+  %arrayidx14.i = getelementptr inbounds float, ptr %retval.i, i64 %idxprom.i
   store float %mul.i, ptr %arrayidx14.i, align 4
   %10 = load i32, ptr %arrayidx33.i, align 4
   %idxprom18.i = sext i32 %10 to i64
@@ -497,26 +497,26 @@ if.then44.i:                                      ; preds = %if.else.i
   %15 = load float, ptr %m_radius.i, align 4
   %div.i = fdiv float %15, %sqrt.i
   %mul50.i = fmul float %11, %div.i
-  %arrayidx55.i = getelementptr inbounds nuw float, ptr %retval.i, i64 %idxprom8.i
+  %arrayidx55.i = getelementptr inbounds float, ptr %retval.i, i64 %idxprom8.i
   store float %mul50.i, ptr %arrayidx55.i, align 4
   %fneg.i = fneg float %mul.i
-  %arrayidx60.i = getelementptr inbounds nuw float, ptr %retval.i, i64 %idxprom.i
+  %arrayidx60.i = getelementptr inbounds float, ptr %retval.i, i64 %idxprom.i
   store float %fneg.i, ptr %arrayidx60.i, align 4
   %mul66.i = fmul float %13, %div.i
   br label %_ZNK11btConeShape16coneLocalSupportERK9btVector3.exit
 
 if.else72.i:                                      ; preds = %if.else.i
-  %arrayidx77.i = getelementptr inbounds nuw float, ptr %retval.i, i64 %idxprom8.i
+  %arrayidx77.i = getelementptr inbounds float, ptr %retval.i, i64 %idxprom8.i
   store float 0.000000e+00, ptr %arrayidx77.i, align 4
   %fneg78.i = fneg float %mul.i
-  %arrayidx83.i = getelementptr inbounds nuw float, ptr %retval.i, i64 %idxprom.i
+  %arrayidx83.i = getelementptr inbounds float, ptr %retval.i, i64 %idxprom.i
   store float %fneg78.i, ptr %arrayidx83.i, align 4
   br label %_ZNK11btConeShape16coneLocalSupportERK9btVector3.exit
 
 _ZNK11btConeShape16coneLocalSupportERK9btVector3.exit: ; preds = %if.then.i, %if.then44.i, %if.else72.i
   %idxprom34.sink.i = phi i64 [ %idxprom34.i, %if.else72.i ], [ %idxprom34.i, %if.then44.i ], [ %idxprom18.i, %if.then.i ]
   %.sink.i = phi float [ 0.000000e+00, %if.else72.i ], [ %mul66.i, %if.then44.i ], [ 0.000000e+00, %if.then.i ]
-  %arrayidx88.i = getelementptr inbounds nuw float, ptr %retval.i, i64 %idxprom34.sink.i
+  %arrayidx88.i = getelementptr inbounds float, ptr %retval.i, i64 %idxprom34.sink.i
   store float %.sink.i, ptr %arrayidx88.i, align 4
   %.fca.0.load.i = load <2 x float>, ptr %retval.i, align 8
   %.fca.1.load.i = load <2 x float>, ptr %.fca.1.gep.i, align 8
@@ -565,9 +565,9 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %arrayidx9.i = getelementptr inbounds nuw float, ptr %retval.i, i64 %idxprom8.i
+  %arrayidx9.i = getelementptr inbounds float, ptr %retval.i, i64 %idxprom8.i
   store float 0.000000e+00, ptr %arrayidx9.i, align 4
-  %arrayidx14.i = getelementptr inbounds nuw float, ptr %retval.i, i64 %idxprom.i
+  %arrayidx14.i = getelementptr inbounds float, ptr %retval.i, i64 %idxprom.i
   store float %mul.i, ptr %arrayidx14.i, align 4
   %arrayidx17.i = getelementptr inbounds nuw i8, ptr %this, i64 92
   %10 = load i32, ptr %arrayidx17.i, align 4
@@ -593,26 +593,26 @@ if.then44.i:                                      ; preds = %if.else.i
   %15 = load float, ptr %m_radius.i, align 4
   %div.i = fdiv float %15, %sqrt.i
   %mul50.i = fmul float %11, %div.i
-  %arrayidx55.i = getelementptr inbounds nuw float, ptr %retval.i, i64 %idxprom8.i
+  %arrayidx55.i = getelementptr inbounds float, ptr %retval.i, i64 %idxprom8.i
   store float %mul50.i, ptr %arrayidx55.i, align 4
   %fneg.i = fneg float %mul.i
-  %arrayidx60.i = getelementptr inbounds nuw float, ptr %retval.i, i64 %idxprom.i
+  %arrayidx60.i = getelementptr inbounds float, ptr %retval.i, i64 %idxprom.i
   store float %fneg.i, ptr %arrayidx60.i, align 4
   %mul66.i = fmul float %13, %div.i
   br label %_ZNK11btConeShape16coneLocalSupportERK9btVector3.exit
 
 if.else72.i:                                      ; preds = %if.else.i
-  %arrayidx77.i = getelementptr inbounds nuw float, ptr %retval.i, i64 %idxprom8.i
+  %arrayidx77.i = getelementptr inbounds float, ptr %retval.i, i64 %idxprom8.i
   store float 0.000000e+00, ptr %arrayidx77.i, align 4
   %fneg78.i = fneg float %mul.i
-  %arrayidx83.i = getelementptr inbounds nuw float, ptr %retval.i, i64 %idxprom.i
+  %arrayidx83.i = getelementptr inbounds float, ptr %retval.i, i64 %idxprom.i
   store float %fneg78.i, ptr %arrayidx83.i, align 4
   br label %_ZNK11btConeShape16coneLocalSupportERK9btVector3.exit
 
 _ZNK11btConeShape16coneLocalSupportERK9btVector3.exit: ; preds = %if.then.i, %if.then44.i, %if.else72.i
   %idxprom34.sink.i = phi i64 [ %idxprom34.i, %if.else72.i ], [ %idxprom34.i, %if.then44.i ], [ %idxprom18.i, %if.then.i ]
   %.sink.i = phi float [ 0.000000e+00, %if.else72.i ], [ %mul66.i, %if.then44.i ], [ 0.000000e+00, %if.then.i ]
-  %arrayidx88.i = getelementptr inbounds nuw float, ptr %retval.i, i64 %idxprom34.sink.i
+  %arrayidx88.i = getelementptr inbounds float, ptr %retval.i, i64 %idxprom34.sink.i
   store float %.sink.i, ptr %arrayidx88.i, align 4
   %.fca.0.load.i = load <2 x float>, ptr %retval.i, align 8
   %.fca.1.gep.i = getelementptr inbounds nuw i8, ptr %retval.i, i64 8

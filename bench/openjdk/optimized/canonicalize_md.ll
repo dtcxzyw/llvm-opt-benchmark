@@ -38,93 +38,93 @@ define range(i32 -1, 1) i32 @JDK_Canonicalize(ptr nocapture noundef readonly %0,
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 4096
   store i8 0, ptr %18, align 16
   %19 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
-  %.not57 = icmp eq i64 %19, 0
-  br i1 %.not57, label %.critedge._crit_edge, label %.preheader.preheader
+  %20 = icmp sgt i64 %19, 0
+  br i1 %20, label %.preheader.preheader, label %.critedge._crit_edge
 
 .preheader.preheader:                             ; preds = %16
-  %20 = getelementptr inbounds nuw i8, ptr %4, i64 %19
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 %19
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.backedge, %.preheader.preheader
-  %.2 = phi ptr [ %20, %.preheader.preheader ], [ %21, %.preheader.backedge ]
-  %21 = getelementptr inbounds i8, ptr %.2, i64 -1
-  %22 = icmp ugt ptr %21, %4
-  br i1 %22, label %23, label %.critedge
+  %.2 = phi ptr [ %21, %.preheader.preheader ], [ %22, %.preheader.backedge ]
+  %22 = getelementptr inbounds i8, ptr %.2, i64 -1
+  %23 = icmp ugt ptr %22, %4
+  br i1 %23, label %24, label %.critedge
 
-23:                                               ; preds = %.preheader
-  %24 = load i8, ptr %21, align 1
-  %.not45 = icmp eq i8 %24, 47
+24:                                               ; preds = %.preheader
+  %25 = load i8, ptr %22, align 1
+  %.not45 = icmp eq i8 %25, 47
   br i1 %.not45, label %.critedge, label %.preheader.backedge
 
-.preheader.backedge:                              ; preds = %23, %31
+.preheader.backedge:                              ; preds = %24, %32
   br label %.preheader, !llvm.loop !6
 
-.critedge:                                        ; preds = %.preheader, %23
-  %25 = icmp eq ptr %21, %4
-  br i1 %25, label %.critedge._crit_edge, label %26
+.critedge:                                        ; preds = %.preheader, %24
+  %26 = icmp eq ptr %22, %4
+  br i1 %26, label %.critedge._crit_edge, label %27
 
-26:                                               ; preds = %.critedge
-  store i8 0, ptr %21, align 1
-  %27 = call ptr @realpath(ptr noundef nonnull %4, ptr noundef %1) #8
-  store i8 47, ptr %21, align 1
-  %.not46 = icmp eq ptr %27, null
-  br i1 %.not46, label %28, label %32
+27:                                               ; preds = %.critedge
+  store i8 0, ptr %22, align 1
+  %28 = call ptr @realpath(ptr noundef nonnull %4, ptr noundef %1) #8
+  store i8 47, ptr %22, align 1
+  %.not46 = icmp eq ptr %28, null
+  br i1 %.not46, label %29, label %33
 
-28:                                               ; preds = %26
-  %29 = tail call ptr @__errno_location() #6
-  %30 = load i32, ptr %29, align 4
-  switch i32 %30, label %.loopexit [
-    i32 2, label %31
-    i32 20, label %31
-    i32 13, label %31
+29:                                               ; preds = %27
+  %30 = tail call ptr @__errno_location() #6
+  %31 = load i32, ptr %30, align 4
+  switch i32 %31, label %.loopexit [
+    i32 2, label %32
+    i32 20, label %32
+    i32 13, label %32
   ]
 
-31:                                               ; preds = %28, %28, %28
-  br i1 %22, label %.preheader.backedge, label %.critedge._crit_edge
+32:                                               ; preds = %29, %29, %29
+  br i1 %23, label %.preheader.backedge, label %.critedge._crit_edge
 
-32:                                               ; preds = %26
-  %33 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #7
-  %34 = trunc i64 %33 to i32
-  %35 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #7
-  %36 = trunc i64 %35 to i32
-  %37 = add nsw i32 %36, %34
-  %.not48 = icmp slt i32 %37, %2
-  br i1 %.not48, label %40, label %38
+33:                                               ; preds = %27
+  %34 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #7
+  %35 = trunc i64 %34 to i32
+  %36 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #7
+  %37 = trunc i64 %36 to i32
+  %38 = add nsw i32 %37, %35
+  %.not48 = icmp slt i32 %38, %2
+  br i1 %.not48, label %41, label %39
 
-38:                                               ; preds = %32
-  %39 = tail call ptr @__errno_location() #6
-  store i32 36, ptr %39, align 4
+39:                                               ; preds = %33
+  %40 = tail call ptr @__errno_location() #6
+  store i32 36, ptr %40, align 4
   br label %.loopexit
 
-40:                                               ; preds = %32
-  %41 = icmp sgt i32 %34, 0
-  br i1 %41, label %42, label %48
+41:                                               ; preds = %33
+  %42 = icmp sgt i32 %35, 0
+  br i1 %42, label %43, label %49
 
-42:                                               ; preds = %40
-  %43 = add i64 %33, 4294967295
-  %44 = and i64 %43, 4294967295
-  %45 = getelementptr inbounds nuw i8, ptr %27, i64 %44
-  %46 = load i8, ptr %45, align 1
-  %47 = icmp eq i8 %46, 47
-  %spec.select73 = select i1 %47, ptr %.2, ptr %21
-  br label %48
+43:                                               ; preds = %41
+  %44 = add i64 %34, 4294967295
+  %45 = and i64 %44, 4294967295
+  %46 = getelementptr inbounds nuw i8, ptr %28, i64 %45
+  %47 = load i8, ptr %46, align 1
+  %48 = icmp eq i8 %47, 47
+  %spec.select72 = select i1 %48, ptr %.2, ptr %22
+  br label %49
 
-48:                                               ; preds = %42, %40
-  %.3 = phi ptr [ %21, %40 ], [ %spec.select73, %42 ]
-  %sext = shl i64 %33, 32
-  %49 = ashr exact i64 %sext, 32
-  %50 = getelementptr inbounds i8, ptr %27, i64 %49
-  %51 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %.3) #8
-  call void @collapse(ptr noundef nonnull %27) #8
+49:                                               ; preds = %43, %41
+  %.3 = phi ptr [ %22, %41 ], [ %spec.select72, %43 ]
+  %sext = shl i64 %34, 32
+  %50 = ashr exact i64 %sext, 32
+  %51 = getelementptr inbounds i8, ptr %28, i64 %50
+  %52 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %51, ptr noundef nonnull dereferenceable(1) %.3) #8
+  call void @collapse(ptr noundef nonnull %28) #8
   br label %.loopexit
 
-.critedge._crit_edge:                             ; preds = %31, %.critedge, %16
-  %52 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %4) #8
+.critedge._crit_edge:                             ; preds = %32, %.critedge, %16
+  %53 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %4) #8
   call void @collapse(ptr noundef %1) #8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %28, %.critedge._crit_edge, %48, %38, %15, %11, %6
-  %.0 = phi i32 [ -1, %6 ], [ -1, %11 ], [ 0, %15 ], [ -1, %38 ], [ 0, %48 ], [ 0, %.critedge._crit_edge ], [ -1, %28 ]
+.loopexit:                                        ; preds = %29, %.critedge._crit_edge, %49, %39, %15, %11, %6
+  %.0 = phi i32 [ -1, %6 ], [ -1, %11 ], [ 0, %15 ], [ -1, %39 ], [ 0, %49 ], [ 0, %.critedge._crit_edge ], [ -1, %29 ]
   ret i32 %.0
 }
 

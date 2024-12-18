@@ -21650,7 +21650,7 @@ if.then6.i:                                       ; preds = %do.body4.i
 do.end10.i:                                       ; preds = %do.body4.i
   %inc.i = add nsw i32 %np.0246.i, 1
   %idxprom14.i = sext i32 %np.0246.i to i64
-  %arrayidx15.i = getelementptr inbounds nuw [2048 x ptr], ptr %ps.i, i64 0, i64 %idxprom14.i
+  %arrayidx15.i = getelementptr inbounds [2048 x ptr], ptr %ps.i, i64 0, i64 %idxprom14.i
   store ptr %9, ptr %arrayidx15.i, align 8
   %ne.i138.i = getelementptr inbounds nuw i8, ptr %9, i64 16
   %13 = load i64, ptr %ne.i138.i, align 8
@@ -22405,7 +22405,7 @@ if.then18.i:                                      ; preds = %do.body.i
 do.end.i:                                         ; preds = %do.body.i
   %inc.i81 = add nsw i32 %np.0741.i, 1
   %idxprom24.i = sext i32 %np.0741.i to i64
-  %arrayidx25.i = getelementptr inbounds nuw [2048 x ptr], ptr %ps.i20, i64 0, i64 %idxprom24.i
+  %arrayidx25.i = getelementptr inbounds [2048 x ptr], ptr %ps.i20, i64 0, i64 %idxprom24.i
   store ptr %135, ptr %arrayidx25.i, align 8
   %ne.i.i82 = getelementptr inbounds nuw i8, ptr %135, i64 16
   %139 = load i64, ptr %ne.i.i82, align 8
@@ -42743,7 +42743,7 @@ for.end299.us.us:                                 ; preds = %for.body291.us.us
 for.body291.us.us:                                ; preds = %for.body291.us.us.preheader, %for.body291.us.us
   %ir0.0185.us.us = phi i64 [ %inc298.us.us, %for.body291.us.us ], [ %iir0.0189.us.us, %for.body291.us.us.preheader ]
   %sub293.us.us = sub nsw i64 %ir0.0185.us.us, %iir0.0189.us.us
-  %arrayidx294.us.us = getelementptr inbounds nuw [16 x float], ptr %tmp, i64 0, i64 %sub293.us.us
+  %arrayidx294.us.us = getelementptr inbounds [16 x float], ptr %tmp, i64 0, i64 %sub293.us.us
   %mul295.us.us = mul i64 %ir0.0185.us.us, %5
   %add.ptr296.us.us = getelementptr inbounds i8, ptr %add.ptr254.us.us, i64 %mul295.us.us
   call void %31(i32 noundef %conv292, ptr noundef nonnull %arrayidx294.us.us, ptr noundef %add.ptr296.us.us, ptr noundef %add.ptr275.us.us) #45
@@ -43301,7 +43301,7 @@ for.end381.us.us:                                 ; preds = %for.body373.us.us
 for.body373.us.us:                                ; preds = %for.body373.us.us.preheader, %for.body373.us.us
   %ir0.0236.us.us = phi i64 [ %inc380.us.us, %for.body373.us.us ], [ %iir0.0241.us.us, %for.body373.us.us.preheader ]
   %sub375.us.us = sub nsw i64 %ir0.0236.us.us, %iir0.0241.us.us
-  %arrayidx376.us.us = getelementptr inbounds nuw [16 x float], ptr %tmp, i64 0, i64 %sub375.us.us
+  %arrayidx376.us.us = getelementptr inbounds [16 x float], ptr %tmp, i64 0, i64 %sub375.us.us
   %mul377.us.us = mul i64 %ir0.0236.us.us, %6
   %add.ptr378.us.us = getelementptr inbounds i8, ptr %add.ptr336.us.us, i64 %mul377.us.us
   call void %32(i32 noundef %conv374, ptr noundef nonnull %arrayidx376.us.us, ptr noundef %add.ptr378.us.us, ptr noundef %add.ptr357.us.us) #45

@@ -6613,7 +6613,7 @@ for.end:                                          ; preds = %for.inc, %if.else
 
 for.cond40.preheader:                             ; preds = %for.end
   %idxprom44 = sext i32 %ly.0.lcssa to i64
-  %arrayidx45 = getelementptr inbounds nuw [256 x float], ptr @inverse_db_table, i64 0, i64 %idxprom44
+  %arrayidx45 = getelementptr inbounds [256 x float], ptr @inverse_db_table, i64 0, i64 %idxprom44
   %15 = zext nneg i32 %lx.0.lcssa to i64
   %wide.trip.count = sext i32 %shr to i64
   br label %for.body43
@@ -7238,7 +7238,7 @@ if.then19:                                        ; preds = %get_bits.exit
   %15 = load i8, ptr %floor1_multiplier, align 4
   %conv20 = zext i8 %15 to i64
   %sub = add nsw i64 %conv20, -1
-  %arrayidx22 = getelementptr inbounds nuw [4 x i32], ptr @__const.vorbis_decode_packet_rest.range_list, i64 0, i64 %sub
+  %arrayidx22 = getelementptr inbounds [4 x i32], ptr @__const.vorbis_decode_packet_rest.range_list, i64 0, i64 %sub
   %16 = load i32, ptr %arrayidx22, align 4
   %arrayidx25 = getelementptr inbounds nuw [16 x ptr], ptr %finalY23, i64 0, i64 %indvars.iv534
   %17 = load ptr, ptr %arrayidx25, align 8
@@ -7973,7 +7973,7 @@ if.then340:                                       ; preds = %for.body332
   %126 = load i32, ptr %arrayidx342, align 4
   %tobool343.not = icmp eq i32 %126, 0
   %idxprom350 = sext i32 %ch.0504 to i64
-  %arrayidx351 = getelementptr inbounds nuw [256 x i8], ptr %do_not_decode, i64 0, i64 %idxprom350
+  %arrayidx351 = getelementptr inbounds [256 x i8], ptr %do_not_decode, i64 0, i64 %idxprom350
   br i1 %tobool343.not, label %if.else349, label %if.then344
 
 if.then344:                                       ; preds = %if.then340
@@ -7988,7 +7988,7 @@ if.else349:                                       ; preds = %if.then340
 
 if.end356:                                        ; preds = %if.else349, %if.then344
   %.sink = phi ptr [ %127, %if.else349 ], [ null, %if.then344 ]
-  %arrayidx355 = getelementptr inbounds nuw [16 x ptr], ptr %residue_buffers, i64 0, i64 %idxprom350
+  %arrayidx355 = getelementptr inbounds [16 x ptr], ptr %residue_buffers, i64 0, i64 %idxprom350
   store ptr %.sink, ptr %arrayidx355, align 8
   %inc357 = add nsw i32 %ch.0504, 1
   br label %for.inc359
@@ -8217,7 +8217,7 @@ for.end.i458:                                     ; preds = %for.inc.i466, %if.e
 
 for.cond40.preheader.i:                           ; preds = %for.end.i458
   %idxprom44.i = sext i32 %ly.0.lcssa.i to i64
-  %arrayidx45.i = getelementptr inbounds nuw [256 x float], ptr @inverse_db_table, i64 0, i64 %idxprom44.i
+  %arrayidx45.i = getelementptr inbounds [256 x float], ptr @inverse_db_table, i64 0, i64 %idxprom44.i
   %160 = zext nneg i32 %lx.0.lcssa.i to i64
   br label %for.body43.i
 

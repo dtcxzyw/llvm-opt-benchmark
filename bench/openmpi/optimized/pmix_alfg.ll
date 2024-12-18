@@ -88,11 +88,11 @@ define i32 @pmix_rand(ptr nocapture noundef %0) local_unnamed_addr #2 {
 define range(i32 0, -2147483648) i32 @pmix_random() local_unnamed_addr #3 {
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @alfg_buffer, i64 508), align 4
   %2 = sext i32 %1 to i64
-  %3 = getelementptr inbounds nuw [127 x i32], ptr @alfg_buffer, i64 0, i64 %2
+  %3 = getelementptr inbounds [127 x i32], ptr @alfg_buffer, i64 0, i64 %2
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @alfg_buffer, i64 512), align 4
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds nuw [127 x i32], ptr @alfg_buffer, i64 0, i64 %6
+  %7 = getelementptr inbounds [127 x i32], ptr @alfg_buffer, i64 0, i64 %6
   %8 = load i32, ptr %7, align 4
   %9 = add nsw i32 %1, 1
   %10 = icmp eq i32 %9, 127

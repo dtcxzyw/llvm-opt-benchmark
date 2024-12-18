@@ -1140,7 +1140,7 @@ Maj_ManAlloc.exit:                                ; preds = %485
   %506 = shl nsw i32 %504, 1
   %507 = add nsw i32 %.069109.i, 1
   %508 = sext i32 %.069109.i to i64
-  %509 = getelementptr inbounds nuw [32 x i32], ptr %14, i64 0, i64 %508
+  %509 = getelementptr inbounds [32 x i32], ptr %14, i64 0, i64 %508
   store i32 %506, ptr %509, align 4
   br label %510
 
@@ -1154,7 +1154,7 @@ Maj_ManAlloc.exit:                                ; preds = %485
   %.069.lcssa.i = phi i32 [ 0, %.preheader102.i ], [ %.1.i, %510 ]
   %511 = load ptr, ptr %489, align 8
   %512 = sext i32 %.069.lcssa.i to i64
-  %513 = getelementptr inbounds nuw i32, ptr %14, i64 %512
+  %513 = getelementptr inbounds i32, ptr %14, i64 %512
   %514 = call i32 @sat_solver_addclause(ptr noundef %511, ptr noundef nonnull %14, ptr noundef nonnull %513) #16
   %.not79.i = icmp eq i32 %514, 0
   br i1 %.not79.i, label %Maj_ManAddCnfStart.exit, label %.preheader101.i
@@ -2664,7 +2664,7 @@ Abc_TtNot.exit:                                   ; preds = %.lr.ph.i, %247, %Ex
   %282 = shl nsw i32 %280, 1
   %283 = add nsw i32 %.079123.i, 1
   %284 = sext i32 %.079123.i to i64
-  %285 = getelementptr inbounds nuw [32 x i32], ptr %7, i64 0, i64 %284
+  %285 = getelementptr inbounds [32 x i32], ptr %7, i64 0, i64 %284
   store i32 %282, ptr %285, align 4
   br label %286
 
@@ -2678,7 +2678,7 @@ Abc_TtNot.exit:                                   ; preds = %.lr.ph.i, %247, %Ex
   %.079.lcssa.i = phi i32 [ 0, %275 ], [ %.1.i, %286 ]
   %287 = load ptr, ptr %244, align 8
   %288 = sext i32 %.079.lcssa.i to i64
-  %289 = getelementptr inbounds nuw i32, ptr %7, i64 %288
+  %289 = getelementptr inbounds i32, ptr %7, i64 %288
   %290 = call i32 @sat_solver_addclause(ptr noundef %287, ptr noundef nonnull %7, ptr noundef nonnull %289) #16
   %.not90.i = icmp eq i32 %290, 0
   br i1 %.not90.i, label %Exa_ManAddCnfStart.exit, label %.preheader109.i
@@ -4591,7 +4591,7 @@ Abc_TtNot.exit:                                   ; preds = %.lr.ph.i, %264, %Ex
   %299 = shl nsw i32 %297, 1
   %300 = add nsw i32 %.083125.i, 1
   %301 = sext i32 %.083125.i to i64
-  %302 = getelementptr inbounds nuw [32 x i32], ptr %8, i64 0, i64 %301
+  %302 = getelementptr inbounds [32 x i32], ptr %8, i64 0, i64 %301
   store i32 %299, ptr %302, align 4
   br label %303
 
@@ -4605,7 +4605,7 @@ Abc_TtNot.exit:                                   ; preds = %.lr.ph.i, %264, %Ex
   %.083.lcssa.i = phi i32 [ 0, %.preheader114.i ], [ %.1.i, %303 ]
   %304 = load ptr, ptr %261, align 8
   %305 = sext i32 %.083.lcssa.i to i64
-  %306 = getelementptr inbounds nuw i32, ptr %8, i64 %305
+  %306 = getelementptr inbounds i32, ptr %8, i64 %305
   %307 = call i32 @sat_solver_addclause(ptr noundef %304, ptr noundef nonnull %8, ptr noundef nonnull %306) #16
   %.not94.i = icmp eq i32 %307, 0
   br i1 %.not94.i, label %Exa3_ManAddCnfStart.exit, label %.preheader113.i
@@ -5097,7 +5097,7 @@ Abc_Clock.exit35:                                 ; preds = %408, %411
   %537 = or disjoint i32 %536, %.1103137.i
   %538 = add nsw i32 %.1.i41, 1
   %539 = sext i32 %.1.i41 to i64
-  %540 = getelementptr inbounds nuw [8 x i32], ptr %6, i64 0, i64 %539
+  %540 = getelementptr inbounds [8 x i32], ptr %6, i64 0, i64 %539
   store i32 %537, ptr %540, align 4
   br label %541
 
@@ -5105,7 +5105,7 @@ Abc_Clock.exit35:                                 ; preds = %408, %411
   %.2.i = phi i32 [ %538, %534 ], [ %.1.i41, %533 ]
   %542 = load ptr, ptr %261, align 8
   %543 = sext i32 %.2.i to i64
-  %544 = getelementptr inbounds nuw i32, ptr %6, i64 %543
+  %544 = getelementptr inbounds i32, ptr %6, i64 %543
   %545 = call i32 @sat_solver_addclause(ptr noundef %542, ptr noundef nonnull %6, ptr noundef nonnull %544) #16
   %.not109.i = icmp eq i32 %545, 0
   br i1 %.not109.i, label %Exa3_ManAddCnf.exit.thread, label %._crit_edge164.i

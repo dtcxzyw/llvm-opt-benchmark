@@ -32389,7 +32389,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hb46ff2c95a7f629bE.exit: ; preds 
   %381 = icmp ult i64 %380, 3
   %382 = add nsw i64 %379, -1
   %383 = select i1 %381, i64 %382, i64 0
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN10tokenizers9tokenizer16added_vocabulary15AddedVocabulary10add_tokens17h95860d8d7ca79737E.164, i64 0, i64 %383
+  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZN10tokenizers9tokenizer16added_vocabulary15AddedVocabulary10add_tokens17h95860d8d7ca79737E.164, i64 0, i64 %383
   %switch.load = load i64, ptr %switch.gep, align 8
   %384 = getelementptr inbounds nuw i8, ptr %3, i64 %switch.load
   %.0.i47 = load i64, ptr %384, align 8, !noundef !4
@@ -32397,7 +32397,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hb46ff2c95a7f629bE.exit: ; preds 
   br i1 %.not, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h924039e4693ba90bE.exit", label %switch.lookup
 
 switch.lookup:                                    ; preds = %_ZN4core4iter6traits8iterator8Iterator6reduce17hb46ff2c95a7f629bE.exit
-  %switch.gep420 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN10tokenizers9tokenizer16added_vocabulary15AddedVocabulary10add_tokens17h95860d8d7ca79737E.164, i64 0, i64 %383
+  %switch.gep420 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN10tokenizers9tokenizer16added_vocabulary15AddedVocabulary10add_tokens17h95860d8d7ca79737E.164, i64 0, i64 %383
   %switch.load421 = load i64, ptr %switch.gep420, align 8
   %386 = getelementptr inbounds nuw i8, ptr %3, i64 %switch.load421
   %.0.i.i.i = load i64, ptr %386, align 8, !noundef !4
@@ -32406,7 +32406,7 @@ switch.lookup:                                    ; preds = %_ZN4core4iter6trait
   br i1 %.not.i.i, label %switch.lookup422, label %392
 
 switch.lookup422:                                 ; preds = %switch.lookup
-  %switch.gep423 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN10tokenizers9tokenizer16added_vocabulary15AddedVocabulary10add_tokens17h95860d8d7ca79737E.164, i64 0, i64 %383
+  %switch.gep423 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN10tokenizers9tokenizer16added_vocabulary15AddedVocabulary10add_tokens17h95860d8d7ca79737E.164, i64 0, i64 %383
   %switch.load424 = load i64, ptr %switch.gep423, align 8
   %388 = getelementptr inbounds nuw i8, ptr %3, i64 %switch.load424
   %.0.i2.i.i = load i64, ptr %388, align 8, !noundef !4
@@ -32414,7 +32414,7 @@ switch.lookup422:                                 ; preds = %switch.lookup
   br i1 %389, label %392, label %switch.lookup425
 
 switch.lookup425:                                 ; preds = %switch.lookup422
-  %switch.gep426 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN10tokenizers9tokenizer16added_vocabulary15AddedVocabulary10add_tokens17h95860d8d7ca79737E.164, i64 0, i64 %383
+  %switch.gep426 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN10tokenizers9tokenizer16added_vocabulary15AddedVocabulary10add_tokens17h95860d8d7ca79737E.164, i64 0, i64 %383
   %switch.load427 = load i64, ptr %switch.gep426, align 8
   %390 = getelementptr inbounds nuw i8, ptr %3, i64 %switch.load427
   %.0.i5.i.i = load i64, ptr %390, align 8, !noundef !4

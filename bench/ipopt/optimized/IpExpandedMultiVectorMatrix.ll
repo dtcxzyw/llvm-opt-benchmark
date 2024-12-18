@@ -1642,7 +1642,7 @@ define void @_ZNK5Ipopt25ExpandedMultiVectorMatrix9PrintImplERKNS_10JournalistEN
 
 .noexc50:                                         ; preds = %.noexc
   %44 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #20
-  %45 = getelementptr inbounds nuw i8, ptr %8, i64 %44
+  %45 = getelementptr inbounds i8, ptr %8, i64 %44
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull %8, ptr noundef nonnull %45)
           to label %48 unwind label %46
 
@@ -1770,7 +1770,7 @@ _ZN5Ipopt8SmartPtrIKNS_10JournalistEED2Ev.exit52: ; preds = %75, %70, %67
 
 .noexc54:                                         ; preds = %.noexc53
   %103 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #20
-  %104 = getelementptr inbounds nuw i8, ptr %12, i64 %103
+  %104 = getelementptr inbounds i8, ptr %12, i64 %103
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull %12, ptr noundef nonnull %104)
           to label %107 unwind label %105
 

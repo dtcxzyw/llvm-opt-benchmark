@@ -274,7 +274,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm15LockFileManager21processStillExec
   store i8 0, ptr %4, align 16
   %10 = call i32 @gethostname(ptr noundef nonnull %4, i64 noundef 255) #13
   %11 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #13
-  %12 = getelementptr inbounds nuw i8, ptr %4, i64 %11
+  %12 = getelementptr inbounds i8, ptr %4, i64 %11
   call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull %4, ptr noundef nonnull %12)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4)
   %13 = load ptr, ptr %5, align 8
@@ -566,7 +566,7 @@ _ZN4llvm15LockFileManager8setErrorERKSt10error_codeNS_9StringRefE.exit20: ; pred
   store i8 0, ptr %8, align 16
   %120 = call i32 @gethostname(ptr noundef nonnull %8, i64 noundef 255) #13
   %121 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #13
-  %122 = getelementptr inbounds nuw i8, ptr %8, i64 %121
+  %122 = getelementptr inbounds i8, ptr %8, i64 %121
   call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull %8, ptr noundef nonnull %122)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8)
   %123 = load i32, ptr %19, align 4

@@ -371,7 +371,7 @@ $_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE = co
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef ptr @_Z17enumValueToString15HistidineStates(i32 noundef %0) local_unnamed_addr #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [4 x ptr], ptr @__const._Z17enumValueToString15HistidineStates.histidineStateNames, i64 0, i64 %2
+  %3 = getelementptr inbounds [4 x ptr], ptr @__const._Z17enumValueToString15HistidineStates.histidineStateNames, i64 0, i64 %2
   %4 = load ptr, ptr %3, align 8
   ret ptr %4
 }
@@ -3646,7 +3646,7 @@ _ZL15gmx_srenew_implIPcEvPKcS2_iRPT_m.exit:       ; preds = %69
   store i8 1, ptr %63, align 8
   %84 = load i32, ptr %6, align 4
   %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds nuw i8, ptr %5, i64 %85
+  %86 = getelementptr inbounds i8, ptr %5, i64 %85
   %87 = invoke noundef nonnull align 8 dereferenceable(40) ptr (ptr, ptr, ...) @_ZN3gmx14LogEntryWriter19appendTextFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull @.str.13, i32 noundef %64, ptr noundef nonnull %86)
           to label %88 unwind label %92
 

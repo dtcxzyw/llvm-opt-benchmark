@@ -68,7 +68,7 @@ entry:
   %sub = sub nsw i32 11, %m
   %shl = shl nuw i32 1, %sub
   %idxprom = sext i32 %y to i64
-  %arrayidx = getelementptr inbounds nuw [301 x i32], ptr @_ZN6icu_75L20UMALQURA_MONTHLENGTHE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [301 x i32], ptr @_ZN6icu_75L20UMALQURA_MONTHLENGTHE, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4
   %and = and i32 %0, %shl
   %cmp = icmp eq i32 %and, 0

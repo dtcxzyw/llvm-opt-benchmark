@@ -26629,10 +26629,10 @@ if.end52:                                         ; preds = %if.else36, %if.else
 
 if.end59:                                         ; preds = %if.end52
   %idxprom60 = sext i32 %effective_channels.0 to i64
-  %arrayidx61 = getelementptr inbounds nuw [8 x i8], ptr @__const.stbir__alloc_internal_mem_and_build_samplers.stbir_channel_count_index, i64 0, i64 %idxprom60
+  %arrayidx61 = getelementptr inbounds [8 x i8], ptr @__const.stbir__alloc_internal_mem_and_build_samplers.stbir_channel_count_index, i64 0, i64 %idxprom60
   %14 = load i8, ptr %arrayidx61, align 1
   %idxprom63 = sext i8 %14 to i64
-  %arrayidx64 = getelementptr inbounds nuw [5 x [8 x [4 x float]]], ptr @stbir__compute_weights, i64 0, i64 %idxprom63
+  %arrayidx64 = getelementptr inbounds [5 x [8 x [4 x float]]], ptr @stbir__compute_weights, i64 0, i64 %idxprom63
   %filter_pixel_width = getelementptr inbounds nuw i8, ptr %horizontal, i64 96
   %15 = load i32, ptr %filter_pixel_width, align 8
   %scale = getelementptr inbounds nuw i8, ptr %horizontal, i64 40
@@ -27114,7 +27114,7 @@ no_vert_alloc:                                    ; preds = %if.then333, %if.end
 
 if.then361:                                       ; preds = %no_vert_alloc
   tail call void @stbir__calculate_filters(ptr noundef nonnull %horizontal, ptr noundef null, ptr noundef %user_data)
-  %arrayidx363 = getelementptr inbounds nuw [8 x ptr], ptr @stbir__horizontal_gather_n_coeffs_funcs, i64 0, i64 %idxprom60
+  %arrayidx363 = getelementptr inbounds [8 x ptr], ptr @stbir__horizontal_gather_n_coeffs_funcs, i64 0, i64 %idxprom60
   %96 = load ptr, ptr %arrayidx363, align 8
   %widest = getelementptr inbounds nuw i8, ptr %horizontal, i64 124
   %97 = load i32, ptr %widest, align 4
@@ -27129,7 +27129,7 @@ if.then361:                                       ; preds = %no_vert_alloc
   br i1 %cmp369, label %if.then371, label %if.end380
 
 if.then371:                                       ; preds = %if.then361
-  %arrayidx373 = getelementptr inbounds nuw [8 x ptr], ptr @stbir__horizontal_gather_channels_funcs, i64 0, i64 %idxprom60
+  %arrayidx373 = getelementptr inbounds [8 x ptr], ptr @stbir__horizontal_gather_channels_funcs, i64 0, i64 %idxprom60
   %100 = load ptr, ptr %arrayidx373, align 8
   %101 = sext i32 %99 to i64
   %102 = getelementptr ptr, ptr %100, i64 %101

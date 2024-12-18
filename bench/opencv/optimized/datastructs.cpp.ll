@@ -1447,7 +1447,7 @@ define i32 @cvSeqElemIdx(ptr noundef readonly %0, ptr noundef %1, ptr noundef wr
   br i1 %.not39, label %50, label %42
 
 42:                                               ; preds = %37
-  %43 = getelementptr inbounds nuw [32 x i8], ptr @_ZL17icvPower2ShiftTab, i64 0, i64 %39
+  %43 = getelementptr inbounds [32 x i8], ptr @_ZL17icvPower2ShiftTab, i64 0, i64 %39
   %44 = load i8, ptr %43, align 1
   %45 = sext i8 %44 to i64
   %46 = ptrtoint ptr %.pre46 to i64
@@ -3170,7 +3170,7 @@ define i32 @cvGetSeqReaderPos(ptr noundef readonly %0) local_unnamed_addr #0 per
   br i1 %.not24, label %37, label %26
 
 26:                                               ; preds = %21
-  %27 = getelementptr inbounds nuw [32 x i8], ptr @_ZL17icvPower2ShiftTab, i64 0, i64 %23
+  %27 = getelementptr inbounds [32 x i8], ptr @_ZL17icvPower2ShiftTab, i64 0, i64 %23
   %28 = load i8, ptr %27, align 1
   %29 = sext i8 %28 to i64
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -6914,7 +6914,7 @@ common.resume:                                    ; preds = %51, %53, %43, %45, 
   br i1 %.not24.i, label %205, label %196
 
 196:                                              ; preds = %191
-  %197 = getelementptr inbounds nuw [32 x i8], ptr @_ZL17icvPower2ShiftTab, i64 0, i64 %193
+  %197 = getelementptr inbounds [32 x i8], ptr @_ZL17icvPower2ShiftTab, i64 0, i64 %193
   %198 = load i8, ptr %197, align 1
   %199 = sext i8 %198 to i64
   %200 = ptrtoint ptr %178 to i64
@@ -6991,7 +6991,7 @@ cvGetSeqReaderPos.exit:                           ; preds = %196, %205
   br i1 %.not24.i330, label %242, label %233
 
 233:                                              ; preds = %228
-  %234 = getelementptr inbounds nuw [32 x i8], ptr @_ZL17icvPower2ShiftTab, i64 0, i64 %230
+  %234 = getelementptr inbounds [32 x i8], ptr @_ZL17icvPower2ShiftTab, i64 0, i64 %230
   %235 = load i8, ptr %234, align 1
   %236 = sext i8 %235 to i64
   %237 = ptrtoint ptr %215 to i64
@@ -8803,7 +8803,7 @@ _Z7icvMed3PaS_S_PFiPKvS1_PvES2_.exit573:          ; preds = %827, %829, %833, %8
   br i1 %.not24.i610, label %1116, label %1107
 
 1107:                                             ; preds = %1102
-  %1108 = getelementptr inbounds nuw [32 x i8], ptr @_ZL17icvPower2ShiftTab, i64 0, i64 %1104
+  %1108 = getelementptr inbounds [32 x i8], ptr @_ZL17icvPower2ShiftTab, i64 0, i64 %1104
   %1109 = load i8, ptr %1108, align 1
   %1110 = sext i8 %1109 to i64
   %1111 = ptrtoint ptr %1089 to i64
@@ -8888,7 +8888,7 @@ cvGetSeqReaderPos.exit612:                        ; preds = %1107, %1116
   br i1 %.not24.i617, label %1161, label %1151
 
 1151:                                             ; preds = %1146
-  %1152 = getelementptr inbounds nuw [32 x i8], ptr @_ZL17icvPower2ShiftTab, i64 0, i64 %1148
+  %1152 = getelementptr inbounds [32 x i8], ptr @_ZL17icvPower2ShiftTab, i64 0, i64 %1148
   %1153 = load i8, ptr %1152, align 1
   %1154 = sext i8 %1153 to i64
   %1155 = load ptr, ptr %.sroa.100.0..sroa_idx832, align 8
@@ -8961,7 +8961,7 @@ cvGetSeqReaderPos.exit619:                        ; preds = %1151, %1161
   br i1 %.not24.i624, label %1197, label %1188
 
 1188:                                             ; preds = %1183
-  %1189 = getelementptr inbounds nuw [32 x i8], ptr @_ZL17icvPower2ShiftTab, i64 0, i64 %1185
+  %1189 = getelementptr inbounds [32 x i8], ptr @_ZL17icvPower2ShiftTab, i64 0, i64 %1185
   %1190 = load i8, ptr %1189, align 1
   %1191 = sext i8 %1190 to i64
   %1192 = ptrtoint ptr %.sroa.9.4976 to i64
@@ -9200,7 +9200,7 @@ cvGetSeqReaderPos.exit626:                        ; preds = %1188, %1197
   br i1 %.not24.i664, label %1313, label %1304
 
 1304:                                             ; preds = %1299
-  %1305 = getelementptr inbounds nuw [32 x i8], ptr @_ZL17icvPower2ShiftTab, i64 0, i64 %1301
+  %1305 = getelementptr inbounds [32 x i8], ptr @_ZL17icvPower2ShiftTab, i64 0, i64 %1301
   %1306 = load i8, ptr %1305, align 1
   %1307 = sext i8 %1306 to i64
   %1308 = ptrtoint ptr %1286 to i64
@@ -9275,7 +9275,7 @@ cvGetSeqReaderPos.exit666:                        ; preds = %1304, %1313
   br i1 %.not24.i671, label %1353, label %1343
 
 1343:                                             ; preds = %1338
-  %1344 = getelementptr inbounds nuw [32 x i8], ptr @_ZL17icvPower2ShiftTab, i64 0, i64 %1340
+  %1344 = getelementptr inbounds [32 x i8], ptr @_ZL17icvPower2ShiftTab, i64 0, i64 %1340
   %1345 = load i8, ptr %1344, align 1
   %1346 = sext i8 %1345 to i64
   %1347 = load ptr, ptr %.sroa.13.0..sroa_idx863, align 8
@@ -9347,7 +9347,7 @@ cvGetSeqReaderPos.exit673:                        ; preds = %1343, %1353
   br i1 %.not24.i678, label %1388, label %1379
 
 1379:                                             ; preds = %1374
-  %1380 = getelementptr inbounds nuw [32 x i8], ptr @_ZL17icvPower2ShiftTab, i64 0, i64 %1376
+  %1380 = getelementptr inbounds [32 x i8], ptr @_ZL17icvPower2ShiftTab, i64 0, i64 %1376
   %1381 = load i8, ptr %1380, align 1
   %1382 = sext i8 %1381 to i64
   %1383 = ptrtoint ptr %.sroa.7.1.lcssa to i64
@@ -9544,7 +9544,7 @@ cvGetSeqReaderPos.exit680:                        ; preds = %1379, %1388
   %1479 = icmp samesign ugt i32 %1211, %1400
   %1480 = add nsw i32 %.1, 1
   %1481 = sext i32 %1480 to i64
-  %1482 = getelementptr inbounds nuw [48 x %struct.anon], ptr %28, i64 0, i64 %1481
+  %1482 = getelementptr inbounds [48 x %struct.anon], ptr %28, i64 0, i64 %1481
   br i1 %1479, label %1483, label %1501
 
 1483:                                             ; preds = %1478

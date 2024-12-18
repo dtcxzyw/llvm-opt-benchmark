@@ -366,7 +366,7 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden noundef ptr @_ZNK12JVMFlagLimit15constraint_funcEv(ptr nocapture noundef nonnull readonly align 2 dereferenceable(4) %0) local_unnamed_addr #0 align 2 {
   %2 = load i16, ptr %0, align 2
   %3 = sext i16 %2 to i64
-  %4 = getelementptr inbounds nuw [62 x ptr], ptr @_ZL19flagConstraintTable, i64 0, i64 %3
+  %4 = getelementptr inbounds [62 x ptr], ptr @_ZL19flagConstraintTable, i64 0, i64 %3
   %5 = load ptr, ptr %4, align 8
   ret ptr %5
 }
@@ -473,7 +473,7 @@ define hidden noundef zeroext i1 @_ZN12JVMFlagLimit21check_all_constraintsE22JVM
   %22 = getelementptr inbounds nuw %class.JVMFlag, ptr %21, i64 %indvars.iv
   %23 = load i16, ptr %10, align 2
   %24 = sext i16 %23 to i64
-  %25 = getelementptr inbounds nuw [62 x ptr], ptr @_ZL19flagConstraintTable, i64 0, i64 %24
+  %25 = getelementptr inbounds [62 x ptr], ptr @_ZL19flagConstraintTable, i64 0, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noundef i32 @_ZN13JVMFlagAccess16check_constraintEPK7JVMFlagPvb(ptr noundef %22, ptr noundef %26, i1 noundef zeroext true) #5
   %.not14 = icmp eq i32 %27, 0

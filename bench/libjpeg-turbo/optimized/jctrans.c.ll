@@ -639,10 +639,10 @@ define internal range(i32 0, 2) i32 @compress_output(ptr noundef %0, ptr nocaptu
   %.291.us = phi i32 [ %.1.us, %.lr.ph93.us.preheader ], [ %106, %.lr.ph93.us ]
   %99 = getelementptr inbounds [10 x ptr], ptr %49, i64 0, i64 %indvars.iv126
   %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds nuw [10 x ptr], ptr %4, i64 0, i64 %indvars.iv126
+  %101 = getelementptr inbounds [10 x ptr], ptr %4, i64 0, i64 %indvars.iv126
   store ptr %100, ptr %101, align 8
   %102 = add nsw i64 %indvars.iv126, -1
-  %103 = getelementptr inbounds nuw [10 x ptr], ptr %4, i64 0, i64 %102
+  %103 = getelementptr inbounds [10 x ptr], ptr %4, i64 0, i64 %102
   %104 = load ptr, ptr %103, align 8
   %105 = load i16, ptr %104, align 2
   store i16 %105, ptr %100, align 2
@@ -658,7 +658,7 @@ define internal range(i32 0, 2) i32 @compress_output(ptr noundef %0, ptr nocaptu
   %.07485.us = phi i32 [ 0, %.lr.ph88.us ], [ %112, %109 ]
   %110 = getelementptr inbounds nuw i8, ptr %.086.us, i64 128
   %indvars.iv.next124 = add nsw i64 %indvars.iv123, 1
-  %111 = getelementptr inbounds nuw [10 x ptr], ptr %4, i64 0, i64 %indvars.iv123
+  %111 = getelementptr inbounds [10 x ptr], ptr %4, i64 0, i64 %indvars.iv123
   store ptr %.086.us, ptr %111, align 8
   %112 = add nuw nsw i32 %.07485.us, 1
   %exitcond.not = icmp eq i32 %112, %.fr112
@@ -681,10 +681,10 @@ define internal range(i32 0, 2) i32 @compress_output(ptr noundef %0, ptr nocaptu
   %.291 = phi i32 [ 0, %.lr.ph93.preheader ], [ %124, %.lr.ph93 ]
   %117 = getelementptr inbounds [10 x ptr], ptr %49, i64 0, i64 %indvars.iv120
   %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds nuw [10 x ptr], ptr %4, i64 0, i64 %indvars.iv120
+  %119 = getelementptr inbounds [10 x ptr], ptr %4, i64 0, i64 %indvars.iv120
   store ptr %118, ptr %119, align 8
   %120 = add nsw i64 %indvars.iv120, -1
-  %121 = getelementptr inbounds nuw [10 x ptr], ptr %4, i64 0, i64 %120
+  %121 = getelementptr inbounds [10 x ptr], ptr %4, i64 0, i64 %120
   %122 = load ptr, ptr %121, align 8
   %123 = load i16, ptr %122, align 2
   store i16 %123, ptr %118, align 2

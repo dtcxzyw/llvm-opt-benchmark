@@ -534,12 +534,12 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   %217 = getelementptr inbounds nuw [256 x i8], ptr @_ZL5yy_ec, i64 0, i64 %216
   %218 = load i8, ptr %217, align 1
   %219 = sext i32 %.11104 to i64
-  %220 = getelementptr inbounds nuw [980 x i16], ptr @_ZL7yy_base, i64 0, i64 %219
+  %220 = getelementptr inbounds [980 x i16], ptr @_ZL7yy_base, i64 0, i64 %219
   %221 = load i16, ptr %220, align 2
   %222 = sext i16 %221 to i64
   %223 = zext i8 %218 to i64
   %224 = add nsw i64 %222, %223
-  %225 = getelementptr inbounds nuw [4604 x i16], ptr @_ZL6yy_chk, i64 0, i64 %224
+  %225 = getelementptr inbounds [4604 x i16], ptr @_ZL6yy_chk, i64 0, i64 %224
   %226 = load i16, ptr %225, align 2
   %227 = sext i16 %226 to i32
   %.not15992635 = icmp eq i32 %.11104, %227
@@ -549,7 +549,7 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   %228 = phi i64 [ %241, %236 ], [ %223, %213 ]
   %229 = phi i64 [ %237, %236 ], [ %219, %213 ]
   %.013812636 = phi i8 [ %.11382, %236 ], [ %218, %213 ]
-  %230 = getelementptr inbounds nuw [980 x i16], ptr @_ZL6yy_def, i64 0, i64 %229
+  %230 = getelementptr inbounds [980 x i16], ptr @_ZL6yy_def, i64 0, i64 %229
   %231 = load i16, ptr %230, align 2
   %232 = icmp sgt i16 %231, 947
   br i1 %232, label %233, label %236
@@ -562,19 +562,19 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 236:                                              ; preds = %233, %.lr.ph
   %.11382 = phi i8 [ %235, %233 ], [ %.013812636, %.lr.ph ]
   %237 = sext i16 %231 to i64
-  %238 = getelementptr inbounds nuw [980 x i16], ptr @_ZL7yy_base, i64 0, i64 %237
+  %238 = getelementptr inbounds [980 x i16], ptr @_ZL7yy_base, i64 0, i64 %237
   %239 = load i16, ptr %238, align 2
   %240 = sext i16 %239 to i64
   %241 = zext i8 %.11382 to i64
   %242 = add nsw i64 %240, %241
-  %243 = getelementptr inbounds nuw [4604 x i16], ptr @_ZL6yy_chk, i64 0, i64 %242
+  %243 = getelementptr inbounds [4604 x i16], ptr @_ZL6yy_chk, i64 0, i64 %242
   %244 = load i16, ptr %243, align 2
   %.not1599 = icmp eq i16 %231, %244
   br i1 %.not1599, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %236, %213
   %.lcssa2236 = phi i64 [ %224, %213 ], [ %242, %236 ]
-  %245 = getelementptr inbounds nuw [4604 x i16], ptr @_ZL6yy_nxt, i64 0, i64 %.lcssa2236
+  %245 = getelementptr inbounds [4604 x i16], ptr @_ZL6yy_nxt, i64 0, i64 %.lcssa2236
   %246 = load i16, ptr %245, align 2
   %247 = sext i16 %246 to i32
   %248 = getelementptr inbounds nuw i8, ptr %214, i64 4
@@ -582,7 +582,7 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   store i32 %247, ptr %214, align 4
   %249 = getelementptr inbounds nuw i8, ptr %.11180, i64 1
   %250 = sext i16 %246 to i64
-  %251 = getelementptr inbounds nuw [980 x i16], ptr @_ZL7yy_base, i64 0, i64 %250
+  %251 = getelementptr inbounds [980 x i16], ptr @_ZL7yy_base, i64 0, i64 %250
   %252 = load i16, ptr %251, align 2
   %.not1600 = icmp eq i16 %252, 4532
   br i1 %.not1600, label %.preheader, label %213, !llvm.loop !9
@@ -595,7 +595,7 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   store ptr %254, ptr @_ZL12yy_state_ptr, align 8
   %255 = load i32, ptr %254, align 4
   %256 = sext i32 %255 to i64
-  %257 = getelementptr inbounds nuw [949 x i16], ptr @_ZL9yy_accept, i64 0, i64 %256
+  %257 = getelementptr inbounds [949 x i16], ptr @_ZL9yy_accept, i64 0, i64 %256
   %258 = load i16, ptr %257, align 2
   %259 = sext i16 %258 to i32
   br label %260
@@ -612,7 +612,7 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 263:                                              ; preds = %260
   %264 = add nsw i32 %.4, 1
   %265 = sext i32 %264 to i64
-  %266 = getelementptr inbounds nuw [949 x i16], ptr @_ZL9yy_accept, i64 0, i64 %265
+  %266 = getelementptr inbounds [949 x i16], ptr @_ZL9yy_accept, i64 0, i64 %265
   %267 = load i16, ptr %266, align 2
   %268 = sext i16 %267 to i32
   %269 = icmp slt i32 %262, %268
@@ -620,7 +620,7 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 
 270:                                              ; preds = %263
   %271 = sext i32 %262 to i64
-  %272 = getelementptr inbounds nuw [2144 x i16], ptr @_ZL10yy_acclist, i64 0, i64 %271
+  %272 = getelementptr inbounds [2144 x i16], ptr @_ZL10yy_acclist, i64 0, i64 %271
   %273 = load i16, ptr %272, align 2
   %274 = sext i16 %273 to i32
   %275 = and i16 %273, 16384
@@ -674,7 +674,7 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   store ptr %293, ptr @_ZL12yy_state_ptr, align 8
   %294 = load i32, ptr %293, align 4
   %295 = sext i32 %294 to i64
-  %296 = getelementptr inbounds nuw [949 x i16], ptr @_ZL9yy_accept, i64 0, i64 %295
+  %296 = getelementptr inbounds [949 x i16], ptr @_ZL9yy_accept, i64 0, i64 %295
   %297 = load i16, ptr %296, align 2
   %298 = sext i16 %297 to i32
   br label %.backedge5592
@@ -708,7 +708,7 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 
 309:                                              ; preds = %299
   %310 = sext i32 %.01200 to i64
-  %311 = getelementptr inbounds nuw [189 x i32], ptr @_ZL21yy_rule_can_match_eol, i64 0, i64 %310
+  %311 = getelementptr inbounds [189 x i32], ptr @_ZL21yy_rule_can_match_eol, i64 0, i64 %310
   %312 = load i32, ptr %311, align 4
   %.not1604 = icmp eq i32 %312, 0
   br i1 %.not1604, label %.loopexit2184.preheader, label %313
@@ -12055,12 +12055,12 @@ define internal fastcc noundef range(i32 -32768, 32768) i32 @_ZL21yy_get_previou
 16:                                               ; preds = %.lr.ph24, %12
   %17 = phi i8 [ %15, %12 ], [ 1, %.lr.ph24 ]
   %18 = sext i32 %.01521 to i64
-  %19 = getelementptr inbounds nuw [980 x i16], ptr @_ZL7yy_base, i64 0, i64 %18
+  %19 = getelementptr inbounds [980 x i16], ptr @_ZL7yy_base, i64 0, i64 %18
   %20 = load i16, ptr %19, align 2
   %21 = sext i16 %20 to i64
   %22 = zext i8 %17 to i64
   %23 = add nsw i64 %21, %22
-  %24 = getelementptr inbounds nuw [4604 x i16], ptr @_ZL6yy_chk, i64 0, i64 %23
+  %24 = getelementptr inbounds [4604 x i16], ptr @_ZL6yy_chk, i64 0, i64 %23
   %25 = load i16, ptr %24, align 2
   %26 = sext i16 %25 to i32
   %.not1819 = icmp eq i32 %.01521, %26
@@ -12070,7 +12070,7 @@ define internal fastcc noundef range(i32 -32768, 32768) i32 @_ZL21yy_get_previou
   %27 = phi i64 [ %40, %35 ], [ %22, %16 ]
   %28 = phi i64 [ %36, %35 ], [ %18, %16 ]
   %.020 = phi i8 [ %.1, %35 ], [ %17, %16 ]
-  %29 = getelementptr inbounds nuw [980 x i16], ptr @_ZL6yy_def, i64 0, i64 %28
+  %29 = getelementptr inbounds [980 x i16], ptr @_ZL6yy_def, i64 0, i64 %28
   %30 = load i16, ptr %29, align 2
   %31 = icmp sgt i16 %30, 947
   br i1 %31, label %32, label %35
@@ -12083,19 +12083,19 @@ define internal fastcc noundef range(i32 -32768, 32768) i32 @_ZL21yy_get_previou
 35:                                               ; preds = %32, %.lr.ph
   %.1 = phi i8 [ %34, %32 ], [ %.020, %.lr.ph ]
   %36 = sext i16 %30 to i64
-  %37 = getelementptr inbounds nuw [980 x i16], ptr @_ZL7yy_base, i64 0, i64 %36
+  %37 = getelementptr inbounds [980 x i16], ptr @_ZL7yy_base, i64 0, i64 %36
   %38 = load i16, ptr %37, align 2
   %39 = sext i16 %38 to i64
   %40 = zext i8 %.1 to i64
   %41 = add nsw i64 %39, %40
-  %42 = getelementptr inbounds nuw [4604 x i16], ptr @_ZL6yy_chk, i64 0, i64 %41
+  %42 = getelementptr inbounds [4604 x i16], ptr @_ZL6yy_chk, i64 0, i64 %41
   %43 = load i16, ptr %42, align 2
   %.not18 = icmp eq i16 %30, %43
   br i1 %.not18, label %._crit_edge, label %.lr.ph, !llvm.loop !217
 
 ._crit_edge:                                      ; preds = %35, %16
   %.lcssa = phi i64 [ %23, %16 ], [ %41, %35 ]
-  %44 = getelementptr inbounds nuw [4604 x i16], ptr @_ZL6yy_nxt, i64 0, i64 %.lcssa
+  %44 = getelementptr inbounds [4604 x i16], ptr @_ZL6yy_nxt, i64 0, i64 %.lcssa
   %45 = load i16, ptr %44, align 2
   %46 = sext i16 %45 to i32
   %47 = getelementptr inbounds nuw i8, ptr %10, i64 4
@@ -12116,11 +12116,11 @@ define internal fastcc noundef range(i32 -32768, 32768) i32 @_ZL21yy_get_previou
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
 define internal fastcc noundef range(i32 -32768, 32768) i32 @_ZL16yy_try_NUL_transi(i32 noundef range(i32 -32768, 32768) %0) unnamed_addr #19 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [980 x i16], ptr @_ZL7yy_base, i64 0, i64 %2
+  %3 = getelementptr inbounds [980 x i16], ptr @_ZL7yy_base, i64 0, i64 %2
   %4 = load i16, ptr %3, align 2
   %5 = sext i16 %4 to i64
   %6 = add nsw i64 %5, 1
-  %7 = getelementptr inbounds nuw [4604 x i16], ptr @_ZL6yy_chk, i64 0, i64 %6
+  %7 = getelementptr inbounds [4604 x i16], ptr @_ZL6yy_chk, i64 0, i64 %6
   %8 = load i16, ptr %7, align 2
   %9 = sext i16 %8 to i32
   %.not15 = icmp eq i32 %0, %9
@@ -12128,21 +12128,21 @@ define internal fastcc noundef range(i32 -32768, 32768) i32 @_ZL16yy_try_NUL_tra
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %10 = phi i64 [ %13, %.lr.ph ], [ %2, %1 ]
-  %11 = getelementptr inbounds nuw [980 x i16], ptr @_ZL6yy_def, i64 0, i64 %10
+  %11 = getelementptr inbounds [980 x i16], ptr @_ZL6yy_def, i64 0, i64 %10
   %12 = load i16, ptr %11, align 2
   %13 = sext i16 %12 to i64
-  %14 = getelementptr inbounds nuw [980 x i16], ptr @_ZL7yy_base, i64 0, i64 %13
+  %14 = getelementptr inbounds [980 x i16], ptr @_ZL7yy_base, i64 0, i64 %13
   %15 = load i16, ptr %14, align 2
   %16 = sext i16 %15 to i64
   %17 = add nsw i64 %16, 1
-  %18 = getelementptr inbounds nuw [4604 x i16], ptr @_ZL6yy_chk, i64 0, i64 %17
+  %18 = getelementptr inbounds [4604 x i16], ptr @_ZL6yy_chk, i64 0, i64 %17
   %19 = load i16, ptr %18, align 2
   %.not = icmp eq i16 %12, %19
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !219
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.lcssa = phi i64 [ %6, %1 ], [ %17, %.lr.ph ]
-  %20 = getelementptr inbounds nuw [4604 x i16], ptr @_ZL6yy_nxt, i64 0, i64 %.lcssa
+  %20 = getelementptr inbounds [4604 x i16], ptr @_ZL6yy_nxt, i64 0, i64 %.lcssa
   %21 = load i16, ptr %20, align 2
   %22 = icmp eq i16 %21, 947
   br i1 %22, label %27, label %23

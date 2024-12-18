@@ -586,7 +586,7 @@ _ZL9addUniquePhRhih.exit669.thread.us:            ; preds = %.lr.ph.i.i662.us, %
 245:                                              ; preds = %234
   %246 = add nsw i32 %.0556849.us, 1
   %247 = sext i32 %.0556849.us to i64
-  %248 = getelementptr inbounds nuw [63 x i8], ptr %7, i64 0, i64 %247
+  %248 = getelementptr inbounds [63 x i8], ptr %7, i64 0, i64 %247
   store i8 %232, ptr %248, align 1
   br label %249
 
@@ -840,7 +840,7 @@ _ZL9addUniquePhRhih.exit658.invoke:               ; preds = %.loopexit.i666.us, 
 345:                                              ; preds = %.loopexit801
   %346 = add nsw i32 %.1576872, 1
   %347 = sext i32 %.1576872 to i64
-  %348 = getelementptr inbounds nuw [64 x i8], ptr %8, i64 0, i64 %347
+  %348 = getelementptr inbounds [64 x i8], ptr %8, i64 0, i64 %347
   store i8 %321, ptr %348, align 1
   store i8 %.0571878, ptr %324, align 2
   %349 = getelementptr inbounds nuw i8, ptr %323, i64 85

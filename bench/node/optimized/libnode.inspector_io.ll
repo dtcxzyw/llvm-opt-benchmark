@@ -554,7 +554,7 @@ _ZN4node9inspector12_GLOBAL__N_110GenerateIDB5cxx11Ev.exit: ; preds = %_ZN4node2
   %call.i.i13 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %id_) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id_, ptr noundef %call.i.i13, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp25.i) #18
   %call.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %uuid.i) #18, !noalias !5
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %uuid.i, i64 %call.i.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %uuid.i, i64 %call.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %id_, ptr noundef nonnull %uuid.i, ptr noundef nonnull %add.ptr.i.i)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp25.i) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buffer.i)

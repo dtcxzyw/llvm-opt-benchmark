@@ -325,7 +325,7 @@ for.end:                                          ; preds = %for.body, %for.cond
   %result.0.lcssa = phi double [ 0.000000e+00, %for.cond.preheader ], [ %5, %for.body ]
   %conv11 = sext i16 %0 to i64
   %add = add nsw i64 %conv11, 6
-  %arrayidx13 = getelementptr inbounds nuw [18 x double], ptr @_ZN2EA4StdC10ScanfLocalL10powerTableE, i64 0, i64 %add
+  %arrayidx13 = getelementptr inbounds [18 x double], ptr @_ZN2EA4StdC10ScanfLocalL10powerTableE, i64 0, i64 %add
   %6 = load double, ptr %arrayidx13, align 8
   %mul = fmul double %result.0.lcssa, %6
   br label %return
@@ -376,7 +376,7 @@ while.body:                                       ; preds = %if.end, %while.body
 if.end56:                                         ; preds = %while.body
   %sext = shl i64 %indvars.iv.next, 32
   %idxprom57 = ashr exact i64 %sext, 32
-  %arrayidx58 = getelementptr inbounds nuw [36 x i8], ptr %buffer, i64 0, i64 %idxprom57
+  %arrayidx58 = getelementptr inbounds [36 x i8], ptr %buffer, i64 0, i64 %idxprom57
   store i8 0, ptr %arrayidx58, align 1
   %call = call double @strtod(ptr nocapture noundef nonnull %buffer, ptr noundef null) #14
   br label %return
@@ -4086,7 +4086,7 @@ if.then50:                                        ; preds = %if.then47
   %inc53 = add nsw i16 %9, 1
   store i16 %inc53, ptr %mSigLen.i, align 2
   %idxprom = sext i16 %9 to i64
-  %arrayidx = getelementptr inbounds nuw [25 x i8], ptr %doubleValue, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [25 x i8], ptr %doubleValue, i64 0, i64 %idxprom
   store i8 %conv44, ptr %arrayidx, align 1
   br label %if.end56
 
@@ -4145,7 +4145,7 @@ if.then86:                                        ; preds = %if.then82
   %inc90 = add nsw i16 %15, 1
   store i16 %inc90, ptr %mSigLen.i, align 2
   %idxprom91 = sext i16 %15 to i64
-  %arrayidx92 = getelementptr inbounds nuw [25 x i8], ptr %doubleValue, i64 0, i64 %idxprom91
+  %arrayidx92 = getelementptr inbounds [25 x i8], ptr %doubleValue, i64 0, i64 %idxprom91
   store i8 %conv75, ptr %arrayidx92, align 1
   br label %if.end94
 
@@ -4532,7 +4532,7 @@ for.end.i:                                        ; preds = %for.body.i, %for.co
   %result.0.lcssa.i = phi double [ 0.000000e+00, %for.cond.preheader.i ], [ %58, %for.body.i ]
   %conv11.i = sext i16 %conv275 to i64
   %add.i = add nsw i64 %conv11.i, 6
-  %arrayidx13.i = getelementptr inbounds nuw [18 x double], ptr @_ZN2EA4StdC10ScanfLocalL10powerTableE, i64 0, i64 %add.i
+  %arrayidx13.i = getelementptr inbounds [18 x double], ptr @_ZN2EA4StdC10ScanfLocalL10powerTableE, i64 0, i64 %add.i
   %59 = load double, ptr %arrayidx13.i, align 8
   %mul.i = fmul double %result.0.lcssa.i, %59
   br label %_ZNK2EA4StdC10ScanfLocal11DoubleValue8ToDoubleEv.exit
@@ -4582,7 +4582,7 @@ while.body.i:                                     ; preds = %if.end.i, %while.bo
 if.end56.i:                                       ; preds = %while.body.i
   %sext.i = shl i64 %indvars.iv.next.i, 32
   %idxprom57.i = ashr exact i64 %sext.i, 32
-  %arrayidx58.i = getelementptr inbounds nuw [36 x i8], ptr %buffer.i, i64 0, i64 %idxprom57.i
+  %arrayidx58.i = getelementptr inbounds [36 x i8], ptr %buffer.i, i64 0, i64 %idxprom57.i
   store i8 0, ptr %arrayidx58.i, align 1
   %call.i = call double @strtod(ptr nocapture noundef nonnull %buffer.i, ptr noundef null) #14
   br label %_ZNK2EA4StdC10ScanfLocal11DoubleValue8ToDoubleEv.exit
@@ -5440,7 +5440,7 @@ if.then50:                                        ; preds = %if.then47
   %inc53 = add nsw i16 %6, 1
   store i16 %inc53, ptr %mSigLen.i, align 2
   %idxprom = sext i16 %6 to i64
-  %arrayidx = getelementptr inbounds nuw [25 x i8], ptr %doubleValue, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [25 x i8], ptr %doubleValue, i64 0, i64 %idxprom
   store i8 %conv51, ptr %arrayidx, align 1
   br label %if.end56
 
@@ -5493,7 +5493,7 @@ if.then86:                                        ; preds = %if.then82
   %inc90 = add nsw i16 %9, 1
   store i16 %inc90, ptr %mSigLen.i, align 2
   %idxprom91 = sext i16 %9 to i64
-  %arrayidx92 = getelementptr inbounds nuw [25 x i8], ptr %doubleValue, i64 0, i64 %idxprom91
+  %arrayidx92 = getelementptr inbounds [25 x i8], ptr %doubleValue, i64 0, i64 %idxprom91
   store i8 %conv87, ptr %arrayidx92, align 1
   br label %if.end94
 
@@ -5912,7 +5912,7 @@ for.end.i:                                        ; preds = %for.body.i, %for.co
   %result.0.lcssa.i = phi double [ 0.000000e+00, %for.cond.preheader.i ], [ %47, %for.body.i ]
   %conv11.i = sext i16 %conv275 to i64
   %add.i = add nsw i64 %conv11.i, 6
-  %arrayidx13.i = getelementptr inbounds nuw [18 x double], ptr @_ZN2EA4StdC10ScanfLocalL10powerTableE, i64 0, i64 %add.i
+  %arrayidx13.i = getelementptr inbounds [18 x double], ptr @_ZN2EA4StdC10ScanfLocalL10powerTableE, i64 0, i64 %add.i
   %48 = load double, ptr %arrayidx13.i, align 8
   %mul.i = fmul double %result.0.lcssa.i, %48
   br label %_ZNK2EA4StdC10ScanfLocal11DoubleValue8ToDoubleEv.exit
@@ -5962,7 +5962,7 @@ while.body.i:                                     ; preds = %if.end.i, %while.bo
 if.end56.i:                                       ; preds = %while.body.i
   %sext.i = shl i64 %indvars.iv.next.i, 32
   %idxprom57.i = ashr exact i64 %sext.i, 32
-  %arrayidx58.i = getelementptr inbounds nuw [36 x i8], ptr %buffer.i, i64 0, i64 %idxprom57.i
+  %arrayidx58.i = getelementptr inbounds [36 x i8], ptr %buffer.i, i64 0, i64 %idxprom57.i
   store i8 0, ptr %arrayidx58.i, align 1
   %call.i = call double @strtod(ptr nocapture noundef nonnull %buffer.i, ptr noundef null) #14
   br label %_ZNK2EA4StdC10ScanfLocal11DoubleValue8ToDoubleEv.exit
@@ -6803,7 +6803,7 @@ if.then47:                                        ; preds = %if.then45
   %inc50 = add nsw i16 %5, 1
   store i16 %inc50, ptr %mSigLen.i, align 2
   %idxprom = sext i16 %5 to i64
-  %arrayidx = getelementptr inbounds nuw [25 x i8], ptr %doubleValue, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [25 x i8], ptr %doubleValue, i64 0, i64 %idxprom
   store i8 %conv48, ptr %arrayidx, align 1
   br label %if.end53
 
@@ -6854,7 +6854,7 @@ if.then81:                                        ; preds = %if.then77
   %inc85 = add nsw i16 %8, 1
   store i16 %inc85, ptr %mSigLen.i, align 2
   %idxprom86 = sext i16 %8 to i64
-  %arrayidx87 = getelementptr inbounds nuw [25 x i8], ptr %doubleValue, i64 0, i64 %idxprom86
+  %arrayidx87 = getelementptr inbounds [25 x i8], ptr %doubleValue, i64 0, i64 %idxprom86
   store i8 %conv82, ptr %arrayidx87, align 1
   br label %if.end89
 
@@ -7260,7 +7260,7 @@ for.end.i:                                        ; preds = %for.body.i, %for.co
   %result.0.lcssa.i = phi double [ 0.000000e+00, %for.cond.preheader.i ], [ %42, %for.body.i ]
   %conv11.i = sext i16 %conv260 to i64
   %add.i = add nsw i64 %conv11.i, 6
-  %arrayidx13.i = getelementptr inbounds nuw [18 x double], ptr @_ZN2EA4StdC10ScanfLocalL10powerTableE, i64 0, i64 %add.i
+  %arrayidx13.i = getelementptr inbounds [18 x double], ptr @_ZN2EA4StdC10ScanfLocalL10powerTableE, i64 0, i64 %add.i
   %43 = load double, ptr %arrayidx13.i, align 8
   %mul.i = fmul double %result.0.lcssa.i, %43
   br label %_ZNK2EA4StdC10ScanfLocal11DoubleValue8ToDoubleEv.exit
@@ -7310,7 +7310,7 @@ while.body.i:                                     ; preds = %if.end.i, %while.bo
 if.end56.i:                                       ; preds = %while.body.i
   %sext.i = shl i64 %indvars.iv.next.i, 32
   %idxprom57.i = ashr exact i64 %sext.i, 32
-  %arrayidx58.i = getelementptr inbounds nuw [36 x i8], ptr %buffer.i, i64 0, i64 %idxprom57.i
+  %arrayidx58.i = getelementptr inbounds [36 x i8], ptr %buffer.i, i64 0, i64 %idxprom57.i
   store i8 0, ptr %arrayidx58.i, align 1
   %call.i = call double @strtod(ptr nocapture noundef nonnull %buffer.i, ptr noundef null) #14
   br label %_ZNK2EA4StdC10ScanfLocal11DoubleValue8ToDoubleEv.exit

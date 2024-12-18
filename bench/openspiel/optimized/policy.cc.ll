@@ -5198,7 +5198,7 @@ select.unfold.i.i.i.i:                            ; preds = %.noexc35, %58
   %86 = and i64 %85, 2147483646
   %87 = or disjoint i64 %86, %82
   %88 = add nsw i64 %.01822.i.i, -227
-  %89 = getelementptr inbounds nuw [624 x i64], ptr %6, i64 0, i64 %88
+  %89 = getelementptr inbounds [624 x i64], ptr %6, i64 0, i64 %88
   %90 = load i64, ptr %89, align 8
   %91 = lshr exact i64 %87, 1
   %92 = xor i64 %91, %90
@@ -8872,7 +8872,7 @@ _ZSt22__uninitialized_copy_aIPKiPiiET0_T_S4_S3_RSaIT1_E.exit.i: ; preds = %88
   %91 = ptrtoint ptr %.0.i.i.i.i.i to i64
   %92 = sub i64 %91, %81
   %gepdiff = sub nsw i64 4, %92
-  %.sink.i.i25.i.ptr = getelementptr inbounds nuw i8, ptr %6, i64 %92
+  %.sink.i.i25.i.ptr = getelementptr inbounds i8, ptr %6, i64 %92
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.0.i.i.i.i.i, ptr nonnull align 4 %.sink.i.i25.i.ptr, i64 %gepdiff, i1 false)
   %93 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 %gepdiff
   br label %_ZN4absl7debian26c_iotaISt6vectorIiSaIiEEiEEvRT_OT0_.exit

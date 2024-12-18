@@ -256,7 +256,7 @@ switch.lookup:                                    ; preds = %10
   %61 = add nsw i32 %.074.lcssa, -1
   %62 = add nsw i32 %61, %60
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds nuw [16 x ptr], ptr @mlib_AffineFunArr_nn, i64 0, i64 %63
+  %64 = getelementptr inbounds [16 x ptr], ptr @mlib_AffineFunArr_nn, i64 0, i64 %63
   br label %77
 
 65:                                               ; preds = %25
@@ -264,7 +264,7 @@ switch.lookup:                                    ; preds = %10
   %67 = add nsw i32 %.val98, -1
   %68 = add nsw i32 %67, %66
   %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds nuw [24 x ptr], ptr @mlib_AffineFunArr_bl, i64 0, i64 %69
+  %70 = getelementptr inbounds [24 x ptr], ptr @mlib_AffineFunArr_bl, i64 0, i64 %69
   br label %77
 
 71:                                               ; preds = %25, %25
@@ -272,7 +272,7 @@ switch.lookup:                                    ; preds = %10
   %73 = add nsw i32 %.val98, -1
   %74 = add nsw i32 %73, %72
   %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds nuw [24 x ptr], ptr @mlib_AffineFunArr_bc, i64 0, i64 %75
+  %76 = getelementptr inbounds [24 x ptr], ptr @mlib_AffineFunArr_bc, i64 0, i64 %75
   br label %77
 
 77:                                               ; preds = %71, %65, %._crit_edge

@@ -1456,7 +1456,7 @@ _ZNK2cv3Mat8elemSizeEv.exit.thread:               ; preds = %68, %_ZNK2cv3Mat8el
 94:                                               ; preds = %88
   %95 = add nsw i32 %69, -1
   %96 = sext i32 %95 to i64
-  %97 = getelementptr inbounds nuw [32 x i64], ptr %9, i64 0, i64 %96
+  %97 = getelementptr inbounds [32 x i64], ptr %9, i64 0, i64 %96
   %98 = load i64, ptr %97, align 8
   %99 = mul i64 %98, %76
   store i64 %99, ptr %97, align 8
@@ -1467,7 +1467,7 @@ _ZNK2cv3Mat8elemSizeEv.exit.thread:               ; preds = %68, %_ZNK2cv3Mat8el
   %101 = load i32, ptr %49, align 4
   %102 = add nsw i32 %101, -1
   %103 = sext i32 %102 to i64
-  %104 = getelementptr inbounds nuw [32 x i64], ptr %10, i64 0, i64 %103
+  %104 = getelementptr inbounds [32 x i64], ptr %10, i64 0, i64 %103
   %105 = load i64, ptr %104, align 8
   %106 = mul i64 %105, %76
   store i64 %106, ptr %104, align 8

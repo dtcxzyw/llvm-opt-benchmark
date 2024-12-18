@@ -32266,10 +32266,10 @@ switch.lookup:                                    ; preds = %"_ZN4core3ptr42drop
   store i64 %54, ptr %55, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34)
   %56 = sext i32 %.0.val5 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN15rustfmt_nightly8closures23rewrite_closure_fn_decl17h6a2e0a41cc3bed0aE, i64 0, i64 %56
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN15rustfmt_nightly8closures23rewrite_closure_fn_decl17h6a2e0a41cc3bed0aE, i64 0, i64 %56
   %switch.load = load ptr, ptr %switch.gep, align 8
   %57 = sext i32 %.0.val5 to i64
-  %switch.gep178 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN15rustfmt_nightly8closures23rewrite_closure_fn_decl17h6a2e0a41cc3bed0aE.148, i64 0, i64 %57
+  %switch.gep178 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN15rustfmt_nightly8closures23rewrite_closure_fn_decl17h6a2e0a41cc3bed0aE.148, i64 0, i64 %57
   %switch.load179 = load i64, ptr %switch.gep178, align 8
   store ptr %switch.load, ptr %34, align 8
   %58 = getelementptr inbounds nuw i8, ptr %34, i64 8

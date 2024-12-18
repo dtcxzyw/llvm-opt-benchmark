@@ -1558,7 +1558,7 @@ sw.epilog:                                        ; preds = %sw.bb17, %if.end16,
 switch.lookup:                                    ; preds = %sw.default
   %switch.tableidx = add nsw i32 %call24, 30
   %11 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [30 x i32], ptr @switch.table.brotli_do_write, i64 0, i64 %11
+  %switch.gep = getelementptr inbounds [30 x i32], ptr @switch.table.brotli_do_write, i64 0, i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %while.end
 

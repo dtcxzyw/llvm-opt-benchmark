@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef ptr @_Z17enumValueToString11XdrDataType(i32 noundef %0) local_unnamed_addr #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [6 x ptr], ptr @__const._Z17enumValueToString11XdrDataType.xdrDataTypeNames, i64 0, i64 %2
+  %3 = getelementptr inbounds [6 x ptr], ptr @__const._Z17enumValueToString11XdrDataType.xdrDataTypeNames, i64 0, i64 %2
   %4 = load ptr, ptr %3, align 8
   ret ptr %4
 }
@@ -463,7 +463,7 @@ _ZL9sizeofinti.exit473:                           ; preds = %.lr.ph.i470, %_ZL9s
   %233 = getelementptr inbounds nuw [73 x i32], ptr @_ZL9magicints, i64 0, i64 %232
   %234 = load i32, ptr %233, align 4
   %235 = sext i32 %229 to i64
-  %236 = getelementptr inbounds nuw [73 x i32], ptr @_ZL9magicints, i64 0, i64 %235
+  %236 = getelementptr inbounds [73 x i32], ptr @_ZL9magicints, i64 0, i64 %235
   %237 = load i32, ptr %236, align 4
   %238 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 %237, ptr %238, align 4
@@ -471,7 +471,7 @@ _ZL9sizeofinti.exit473:                           ; preds = %.lr.ph.i470, %_ZL9s
   store i32 %237, ptr %239, align 4
   store i32 %237, ptr %12, align 4
   %240 = sext i32 %.sroa.speculated562 to i64
-  %241 = getelementptr inbounds nuw [73 x i32], ptr @_ZL9magicints, i64 0, i64 %240
+  %241 = getelementptr inbounds [73 x i32], ptr @_ZL9magicints, i64 0, i64 %240
   %242 = load i32, ptr %241, align 4
   %243 = sdiv i32 %242, 2
   store i32 0, ptr %13, align 4
@@ -1062,17 +1062,17 @@ _ZL8sendbitsP10DataBufferii.exit505:              ; preds = %_ZL8sendbitsP10Data
 570:                                              ; preds = %566
   %571 = add nsw i32 %568, -1
   %572 = sext i32 %571 to i64
-  %573 = getelementptr inbounds nuw [73 x i32], ptr @_ZL9magicints, i64 0, i64 %572
+  %573 = getelementptr inbounds [73 x i32], ptr @_ZL9magicints, i64 0, i64 %572
   %574 = load i32, ptr %573, align 4
   %575 = sdiv i32 %574, 2
   %.pre685 = sext i32 %568 to i64
-  %.phi.trans.insert = getelementptr inbounds nuw [73 x i32], ptr @_ZL9magicints, i64 0, i64 %.pre685
+  %.phi.trans.insert = getelementptr inbounds [73 x i32], ptr @_ZL9magicints, i64 0, i64 %.pre685
   %.pre686 = load i32, ptr %.phi.trans.insert, align 4
   br label %581
 
 576:                                              ; preds = %566
   %577 = sext i32 %568 to i64
-  %578 = getelementptr inbounds nuw [73 x i32], ptr @_ZL9magicints, i64 0, i64 %577
+  %578 = getelementptr inbounds [73 x i32], ptr @_ZL9magicints, i64 0, i64 %577
   %579 = load i32, ptr %578, align 4
   %580 = sdiv i32 %579, 2
   br label %581
@@ -1385,7 +1385,7 @@ _ZL9sizeofinti.exit530:                           ; preds = %.lr.ph.i527, %_ZL9s
   %739 = load i32, ptr %738, align 4
   %740 = sdiv i32 %739, 2
   %741 = sext i32 %735 to i64
-  %742 = getelementptr inbounds nuw [73 x i32], ptr @_ZL9magicints, i64 0, i64 %741
+  %742 = getelementptr inbounds [73 x i32], ptr @_ZL9magicints, i64 0, i64 %741
   %743 = load i32, ptr %742, align 4
   %744 = sdiv i32 %743, 2
   %745 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -1695,7 +1695,7 @@ _ZL11receivebitsP10DataBufferi.exit543:           ; preds = %824, %826
 
 911:                                              ; preds = %910
   %912 = sext i32 %900 to i64
-  %913 = getelementptr inbounds nuw [73 x i32], ptr @_ZL9magicints, i64 0, i64 %912
+  %913 = getelementptr inbounds [73 x i32], ptr @_ZL9magicints, i64 0, i64 %912
   %914 = load i32, ptr %913, align 4
   %915 = sdiv i32 %914, 2
   br label %916
@@ -1704,7 +1704,7 @@ _ZL11receivebitsP10DataBufferi.exit543:           ; preds = %824, %826
   %.4414 = phi i32 [ %.3408638, %904 ], [ %915, %911 ], [ %.3413637, %910 ], [ %.3408638, %902 ]
   %.4409 = phi i32 [ %909, %904 ], [ %.3413637, %911 ], [ %.3408638, %910 ], [ 0, %902 ]
   %917 = sext i32 %900 to i64
-  %918 = getelementptr inbounds nuw [73 x i32], ptr @_ZL9magicints, i64 0, i64 %917
+  %918 = getelementptr inbounds [73 x i32], ptr @_ZL9magicints, i64 0, i64 %917
   %919 = load i32, ptr %918, align 4
   store i32 %919, ptr %745, align 4
   store i32 %919, ptr %746, align 4

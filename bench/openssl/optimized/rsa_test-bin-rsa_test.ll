@@ -197,7 +197,7 @@ entry:
   %num = alloca [2000 x i8], align 16
   %call = tail call ptr @RSA_new() #4
   %idxprom = sext i32 %n to i64
-  %arrayidx = getelementptr inbounds nuw [17 x %struct.anon], ptr @rsa_security_bits_cases, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [17 x %struct.anon], ptr @rsa_security_bits_cases, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 8
   %r = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   %1 = load i32, ptr %r, align 4
@@ -215,7 +215,7 @@ lor.lhs.false:                                    ; preds = %entry
 if.end:                                           ; preds = %lor.lhs.false
   %rem = srem i32 %0, 8
   %idxprom8 = sext i32 %rem to i64
-  %arrayidx9 = getelementptr inbounds nuw [8 x i8], ptr @test_rsa_security_bit.vals, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds [8 x i8], ptr @test_rsa_security_bit.vals, i64 0, i64 %idxprom8
   %2 = load i8, ptr %arrayidx9, align 1
   %conv10 = sext i32 %div to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %num, i8 %2, i64 %conv10, i1 false)

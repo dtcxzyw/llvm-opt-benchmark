@@ -16268,7 +16268,7 @@ switch.lookup:
   %3 = load ptr, ptr %2, align 16
   %4 = tail call noundef i32 @_ZNK5clang4Type17getScalarTypeKindEv(ptr noundef nonnull align 16 dereferenceable(24) %3) #23
   %5 = sext i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN5clang4Sema27ScalarTypeToBooleanCastKindENS_8QualTypeE, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table._ZN5clang4Sema27ScalarTypeToBooleanCastKindENS_8QualTypeE, i64 0, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -17904,7 +17904,7 @@ _ZN12_GLOBAL__N_126DeferredDiagnosticsEmitter17checkRecordedDeclEPN5clang4DeclE.
 .preheader:                                       ; preds = %.preheader.preheader, %_ZN4llvm11SmallPtrSetIN5clang16CanonicalDeclPtrINS1_4DeclEEELj4EED2Ev.exit.i
   %.idx.i9 = phi i64 [ %.add.i10, %_ZN4llvm11SmallPtrSetIN5clang16CanonicalDeclPtrINS1_4DeclEEELj4EED2Ev.exit.i ], [ 256, %.preheader.preheader ]
   %.add.i10 = add nsw i64 %.idx.i9, -64
-  %.ptr1.i = getelementptr inbounds nuw i8, ptr %2, i64 %.add.i10
+  %.ptr1.i = getelementptr inbounds i8, ptr %2, i64 %.add.i10
   %69 = getelementptr inbounds nuw i8, ptr %.ptr1.i, i64 8
   %70 = load ptr, ptr %69, align 8
   %71 = load ptr, ptr %.ptr1.i, align 8

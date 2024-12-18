@@ -29670,7 +29670,7 @@ _ZN7testing15AssertionResultD2Ev.exit3193:        ; preds = %if.end1293, %_ZNKSt
 
 do.body.i.i:                                      ; preds = %_ZN7testing15AssertionResultD2Ev.exit3193, %do.cond.i.i
   %__pos.addr.0.i.i = phi i64 [ %dec.i.i, %do.cond.i.i ], [ 23, %_ZN7testing15AssertionResultD2Ev.exit3193 ]
-  %add.ptr.i.i3198 = getelementptr inbounds nuw i8, ptr @.str.251, i64 %__pos.addr.0.i.i
+  %add.ptr.i.i3198 = getelementptr inbounds i8, ptr @.str.251, i64 %__pos.addr.0.i.i
   %bcmp.i.i3199 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %add.ptr.i.i3198, ptr noundef nonnull dereferenceable(3) @.str.252, i64 3)
   %cmp4.i.i = icmp eq i32 %bcmp.i.i3199, 0
   br i1 %cmp4.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE5rfindES2_m.exit, label %do.cond.i.i
@@ -29799,7 +29799,7 @@ _ZN7testing15AssertionResultD2Ev.exit3226:        ; preds = %if.end1315, %_ZNKSt
 
 do.body.i.i3232:                                  ; preds = %_ZN7testing15AssertionResultD2Ev.exit3226, %do.cond.i.i3237
   %__pos.addr.0.i.i3233 = phi i64 [ %dec.i.i3238, %do.cond.i.i3237 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit3226 ]
-  %add.ptr.i.i3234 = getelementptr inbounds nuw i8, ptr @.str.251, i64 %__pos.addr.0.i.i3233
+  %add.ptr.i.i3234 = getelementptr inbounds i8, ptr @.str.251, i64 %__pos.addr.0.i.i3233
   %bcmp.i.i3235 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %add.ptr.i.i3234, ptr noundef nonnull dereferenceable(3) @.str.252, i64 3)
   %cmp4.i.i3236 = icmp eq i32 %bcmp.i.i3235, 0
   br i1 %cmp4.i.i3236, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE5rfindES2_m.exit3241, label %do.cond.i.i3237
@@ -29928,7 +29928,7 @@ _ZN7testing15AssertionResultD2Ev.exit3267:        ; preds = %if.end1337, %_ZNKSt
 
 do.body.i.i3274:                                  ; preds = %_ZN7testing15AssertionResultD2Ev.exit3267, %do.cond.i.i3279
   %__pos.addr.0.i.i3275 = phi i64 [ %dec.i.i3280, %do.cond.i.i3279 ], [ 23, %_ZN7testing15AssertionResultD2Ev.exit3267 ]
-  %add.ptr.i.i3276 = getelementptr inbounds nuw i8, ptr @.str.251, i64 %__pos.addr.0.i.i3275
+  %add.ptr.i.i3276 = getelementptr inbounds i8, ptr @.str.251, i64 %__pos.addr.0.i.i3275
   %bcmp.i.i3277 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %add.ptr.i.i3276, ptr noundef nonnull dereferenceable(3) @.str.253, i64 3)
   %cmp4.i.i3278 = icmp eq i32 %bcmp.i.i3277, 0
   br i1 %cmp4.i.i3278, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE5rfindES2_m.exit3283, label %do.cond.i.i3279
@@ -30057,7 +30057,7 @@ _ZN7testing15AssertionResultD2Ev.exit3309:        ; preds = %if.end1359, %_ZNKSt
 
 do.body.i.i3316:                                  ; preds = %_ZN7testing15AssertionResultD2Ev.exit3309, %do.cond.i.i3321
   %__pos.addr.0.i.i3317 = phi i64 [ %dec.i.i3322, %do.cond.i.i3321 ], [ 22, %_ZN7testing15AssertionResultD2Ev.exit3309 ]
-  %add.ptr.i.i3318 = getelementptr inbounds nuw i8, ptr @.str.251, i64 %__pos.addr.0.i.i3317
+  %add.ptr.i.i3318 = getelementptr inbounds i8, ptr @.str.251, i64 %__pos.addr.0.i.i3317
   %bcmp.i.i3319 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %add.ptr.i.i3318, ptr noundef nonnull dereferenceable(3) @.str.253, i64 3)
   %cmp4.i.i3320 = icmp eq i32 %bcmp.i.i3319, 0
   br i1 %cmp4.i.i3320, label %if.end.i.i3327, label %do.cond.i.i3321
@@ -30177,7 +30177,7 @@ _ZN7testing15AssertionResultD2Ev.exit3350:        ; preds = %if.end1380, %_ZNKSt
 
 do.body.i.i3357:                                  ; preds = %_ZN7testing15AssertionResultD2Ev.exit3350, %do.cond.i.i3362
   %__pos.addr.0.i.i3358 = phi i64 [ %dec.i.i3363, %do.cond.i.i3362 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit3350 ]
-  %add.ptr.i.i3359 = getelementptr inbounds nuw i8, ptr @.str.251, i64 %__pos.addr.0.i.i3358
+  %add.ptr.i.i3359 = getelementptr inbounds i8, ptr @.str.251, i64 %__pos.addr.0.i.i3358
   %bcmp.i.i3360 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %add.ptr.i.i3359, ptr noundef nonnull dereferenceable(3) @.str.253, i64 3)
   %cmp4.i.i3361 = icmp eq i32 %bcmp.i.i3360, 0
   br i1 %cmp4.i.i3361, label %if.end.i.i3368, label %do.cond.i.i3362
@@ -31069,7 +31069,7 @@ _ZN7testing15AssertionResultD2Ev.exit3692:        ; preds = %if.end1574, %_ZNKSt
 
 do.body.i.i3699:                                  ; preds = %_ZN7testing15AssertionResultD2Ev.exit3692, %do.cond.i.i3704
   %__pos.addr.0.i.i3700 = phi i64 [ %dec.i.i3705, %do.cond.i.i3704 ], [ 11, %_ZN7testing15AssertionResultD2Ev.exit3692 ]
-  %add.ptr.i.i3701 = getelementptr inbounds nuw i8, ptr @.str.251, i64 %__pos.addr.0.i.i3700
+  %add.ptr.i.i3701 = getelementptr inbounds i8, ptr @.str.251, i64 %__pos.addr.0.i.i3700
   %bcmp.i.i3702 = call i32 @bcmp(ptr noundef nonnull dereferenceable(15) %add.ptr.i.i3701, ptr noundef nonnull dereferenceable(15) @.str.336, i64 15)
   %cmp4.i.i3703 = icmp eq i32 %bcmp.i.i3702, 0
   br i1 %cmp4.i.i3703, label %if.end.i.i3710, label %do.cond.i.i3704
@@ -32650,7 +32650,7 @@ for.cond.i4275:                                   ; preds = %_ZN7testing15Assert
 
 for.body.i4278:                                   ; preds = %for.cond.i4275
   %dec4.i4279 = add nsw i64 %__size.1.i4276, -1
-  %arrayidx.i4280 = getelementptr inbounds nuw i8, ptr @.str.336, i64 %dec4.i4279
+  %arrayidx.i4280 = getelementptr inbounds i8, ptr @.str.336, i64 %dec4.i4279
   %872 = load i8, ptr %arrayidx.i4280, align 1
   %cmp.i.i4281 = icmp eq i8 %872, 113
   br i1 %cmp.i.i4281, label %if.end.i.i4285, label %for.cond.i4275, !llvm.loop !499
@@ -32962,7 +32962,7 @@ for.cond.i4395:                                   ; preds = %for.body.i4398, %_Z
 
 for.body.i4398:                                   ; preds = %for.cond.i4395
   %dec4.i4399 = add nsw i64 %__size.1.i4396, -1
-  %arrayidx.i4400 = getelementptr inbounds nuw i8, ptr @.str.336, i64 %dec4.i4399
+  %arrayidx.i4400 = getelementptr inbounds i8, ptr @.str.336, i64 %dec4.i4399
   %901 = load i8, ptr %arrayidx.i4400, align 1
   %cmp.i.i4401 = icmp eq i8 %901, 111
   br i1 %cmp.i.i4401, label %if.end.i.i4405, label %for.cond.i4395, !llvm.loop !499
@@ -40290,7 +40290,7 @@ entry:
 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %do.cond.i.i, %entry
   %__size.1.i.i = phi i64 [ 3, %entry ], [ %dec8.i.i, %do.cond.i.i ]
-  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr @.str.482, i64 %__size.1.i.i
+  %arrayidx.i.i = getelementptr inbounds i8, ptr @.str.482, i64 %__size.1.i.i
   %0 = load i8, ptr %arrayidx.i.i, align 1
   %1 = add i8 %0, -123
   %2 = icmp ult i8 %1, -26
@@ -41230,7 +41230,7 @@ for.cond.i.i584:                                  ; preds = %for.body.i.i587, %_
 
 for.body.i.i587:                                  ; preds = %for.cond.i.i584
   %dec4.i.i588 = add nsw i64 %__size.1.i.i585, -1
-  %arrayidx.i.i589 = getelementptr inbounds nuw i8, ptr @.str.251, i64 %dec4.i.i588
+  %arrayidx.i.i589 = getelementptr inbounds i8, ptr @.str.251, i64 %dec4.i.i588
   %94 = load i8, ptr %arrayidx.i.i589, align 1
   %cmp.i.i.i590 = icmp eq i8 %94, 98
   br i1 %cmp.i.i.i590, label %if.end.i.i594, label %for.cond.i.i584, !llvm.loop !499
@@ -41436,7 +41436,7 @@ for.cond.i.i665:                                  ; preds = %for.body.i.i668, %_
 
 for.body.i.i668:                                  ; preds = %for.cond.i.i665
   %dec4.i.i669 = add nsw i64 %__size.1.i.i666, -1
-  %arrayidx.i.i670 = getelementptr inbounds nuw i8, ptr @.str.251, i64 %dec4.i.i669
+  %arrayidx.i.i670 = getelementptr inbounds i8, ptr @.str.251, i64 %dec4.i.i669
   %114 = load i8, ptr %arrayidx.i.i670, align 1
   %cmp.i.i.i671 = icmp eq i8 %114, 122
   br i1 %cmp.i.i.i671, label %if.end.i.i675, label %for.cond.i.i665, !llvm.loop !499
@@ -41728,7 +41728,7 @@ _ZN7testing15AssertionResultD2Ev.exit786:         ; preds = %if.end312, %_ZNKSt1
 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i795:  ; preds = %_ZN7testing15AssertionResultD2Ev.exit786, %do.cond.i.i801
   %__size.1.i.i796 = phi i64 [ %dec8.i.i802, %do.cond.i.i801 ], [ 4, %_ZN7testing15AssertionResultD2Ev.exit786 ]
-  %arrayidx.i.i797 = getelementptr inbounds nuw i8, ptr @.str.318, i64 %__size.1.i.i796
+  %arrayidx.i.i797 = getelementptr inbounds i8, ptr @.str.318, i64 %__size.1.i.i796
   %143 = load i8, ptr %arrayidx.i.i797, align 1
   %144 = add i8 %143, -123
   %145 = icmp ult i8 %144, -26
@@ -43482,7 +43482,7 @@ _ZN7testing15AssertionResultD2Ev.exit1596:        ; preds = %if.end715, %_ZNKSt1
 
 do.body.i.i1603:                                  ; preds = %_ZN7testing15AssertionResultD2Ev.exit1596, %do.cond.i.i1609
   %__size.1.i.i1604 = phi i64 [ %dec6.i.i1610, %do.cond.i.i1609 ], [ 2, %_ZN7testing15AssertionResultD2Ev.exit1596 ]
-  %arrayidx.i.i1605 = getelementptr inbounds nuw i8, ptr @.str.252, i64 %__size.1.i.i1604
+  %arrayidx.i.i1605 = getelementptr inbounds i8, ptr @.str.252, i64 %__size.1.i.i1604
   %334 = load i8, ptr %arrayidx.i.i1605, align 1
   %335 = add i8 %334, -123
   %336 = icmp ult i8 %335, -26
@@ -43598,7 +43598,7 @@ _ZN7testing15AssertionResultD2Ev.exit1638:        ; preds = %if.end736, %_ZNKSt1
 
 do.body.i.i1645:                                  ; preds = %_ZN7testing15AssertionResultD2Ev.exit1638, %do.cond.i.i1651
   %__size.1.i.i1646 = phi i64 [ %dec6.i.i1652, %do.cond.i.i1651 ], [ 2, %_ZN7testing15AssertionResultD2Ev.exit1638 ]
-  %arrayidx.i.i1647 = getelementptr inbounds nuw i8, ptr @.str.252, i64 %__size.1.i.i1646
+  %arrayidx.i.i1647 = getelementptr inbounds i8, ptr @.str.252, i64 %__size.1.i.i1646
   %347 = load i8, ptr %arrayidx.i.i1647, align 1
   %348 = add i8 %347, -100
   %349 = icmp ult i8 %348, -3
@@ -43987,7 +43987,7 @@ _ZN7testing15AssertionResultD2Ev.exit1809:        ; preds = %if.end823, %_ZNKSt1
 
 do.body.i.i1816:                                  ; preds = %_ZN7testing15AssertionResultD2Ev.exit1809, %do.cond.i.i1822
   %__size.1.i.i1817 = phi i64 [ %dec6.i.i1823, %do.cond.i.i1822 ], [ 2, %_ZN7testing15AssertionResultD2Ev.exit1809 ]
-  %arrayidx.i.i1818 = getelementptr inbounds nuw i8, ptr @.str.251, i64 %__size.1.i.i1817
+  %arrayidx.i.i1818 = getelementptr inbounds i8, ptr @.str.251, i64 %__size.1.i.i1817
   %387 = load i8, ptr %arrayidx.i.i1818, align 1
   %388 = add i8 %387, -100
   %389 = icmp ult i8 %388, -3
@@ -45650,7 +45650,7 @@ _ZN7testing15AssertionResultD2Ev.exit2552:        ; preds = %if.end1211, %_ZNKSt
 
 do.body.i2557:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit2552, %do.cond.i2562
   %__size.1.i2558 = phi i64 [ %dec5.i2563, %do.cond.i2562 ], [ 3, %_ZN7testing15AssertionResultD2Ev.exit2552 ]
-  %arrayidx.i2559 = getelementptr inbounds nuw i8, ptr @.str.482, i64 %__size.1.i2558
+  %arrayidx.i2559 = getelementptr inbounds i8, ptr @.str.482, i64 %__size.1.i2558
   %569 = load i8, ptr %arrayidx.i2559, align 1
   %cmp.i.i2560 = icmp eq i8 %569, 61
   br i1 %cmp.i.i2560, label %do.cond.i2562, label %if.end.i.i2567
@@ -45947,7 +45947,7 @@ _ZN7testing15AssertionResultD2Ev.exit2668:        ; preds = %if.end1273, %_ZNKSt
 
 do.body.i2674:                                    ; preds = %do.cond.i2679, %_ZN7testing15AssertionResultD2Ev.exit2668
   %__size.1.i2675 = phi i64 [ 2, %_ZN7testing15AssertionResultD2Ev.exit2668 ], [ %dec5.i2680, %do.cond.i2679 ]
-  %arrayidx.i2676 = getelementptr inbounds nuw i8, ptr @.str.482, i64 %__size.1.i2675
+  %arrayidx.i2676 = getelementptr inbounds i8, ptr @.str.482, i64 %__size.1.i2675
   %598 = load i8, ptr %arrayidx.i2676, align 1
   %cmp.i.i2677 = icmp eq i8 %598, 61
   br i1 %cmp.i.i2677, label %do.cond.i2679, label %if.end.i.i2684

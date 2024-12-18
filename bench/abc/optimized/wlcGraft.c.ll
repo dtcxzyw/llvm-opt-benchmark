@@ -2231,7 +2231,7 @@ Vec_WrdStart.exit:                                ; preds = %Vec_WrdFreeP.exit, 
   %92 = icmp slt i64 %indvars.iv214, %72
   %93 = getelementptr inbounds nuw [64 x i64], ptr %3, i64 0, i64 %indvars.iv214
   %94 = sub nsw i64 %indvars.iv214, %72
-  %95 = getelementptr inbounds nuw [64 x i64], ptr %4, i64 0, i64 %94
+  %95 = getelementptr inbounds [64 x i64], ptr %4, i64 0, i64 %94
   %.in = select i1 %92, ptr %93, ptr %95
   %96 = load i64, ptr %.in, align 8
   store i64 %96, ptr %91, align 8

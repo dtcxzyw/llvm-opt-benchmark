@@ -222,7 +222,7 @@ thread-pre-split:                                 ; preds = %18, %13, %6
 20:                                               ; preds = %thread-pre-split
   %21 = call ptr @ctime_r(ptr noundef nonnull %7, ptr noundef nonnull %8) #6
   %22 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #7
-  %23 = getelementptr inbounds nuw [48 x i8], ptr %8, i64 0, i64 %22
+  %23 = getelementptr inbounds [48 x i8], ptr %8, i64 0, i64 %22
   store i8 0, ptr %23, align 1
   br label %25
 

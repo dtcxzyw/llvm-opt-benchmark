@@ -4303,7 +4303,7 @@ define dso_local noundef range(i32 13, 55) i32 @_ZN4llvm33getArithmeticReduction
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -372
   %1 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [15 x i32], ptr @switch.table._ZN4llvm33getArithmeticReductionInstructionEj, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [15 x i32], ptr @switch.table._ZN4llvm33getArithmeticReductionInstructionEj, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -4313,7 +4313,7 @@ define dso_local noundef range(i32 229, 358) i32 @_ZN4llvm29getMinMaxReductionIn
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -375
   %1 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [11 x i32], ptr @switch.table._ZN4llvm29getMinMaxReductionIntrinsicOpEj, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [11 x i32], ptr @switch.table._ZN4llvm29getMinMaxReductionIntrinsicOpEj, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -4323,7 +4323,7 @@ define dso_local noundef range(i32 229, 358) i32 @_ZN4llvm29getMinMaxReductionIn
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -6
   %1 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN4llvm14createMinMaxOpERNS_13IRBuilderBaseENS_9RecurKindEPNS_5ValueES4_, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table._ZN4llvm14createMinMaxOpERNS_13IRBuilderBaseENS_9RecurKindEPNS_5ValueES4_, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -4350,7 +4350,7 @@ define dso_local noundef range(i32 2, 41) i32 @_ZN4llvm27getMinMaxReductionPredi
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -6
   %1 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN4llvm27getMinMaxReductionPredicateENS_9RecurKindE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [8 x i32], ptr @switch.table._ZN4llvm27getMinMaxReductionPredicateENS_9RecurKindE, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -4390,7 +4390,7 @@ _ZNK4llvm4Type18isIntOrIntVectorTyEv.exit:        ; preds = %4, %15
 switch.lookup:                                    ; preds = %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit
   %switch.tableidx = add nsw i32 %1, -6
   %22 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN4llvm14createMinMaxOpERNS_13IRBuilderBaseENS_9RecurKindEPNS_5ValueES4_, i64 0, i64 %22
+  %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table._ZN4llvm14createMinMaxOpERNS_13IRBuilderBaseENS_9RecurKindEPNS_5ValueES4_, i64 0, i64 %22
   %switch.load = load i32, ptr %switch.gep, align 4
   store ptr %2, ptr %5, align 8
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -5057,7 +5057,7 @@ define dso_local noundef ptr @_ZN4llvm21createSimpleReductionERNS_13IRBuilderBas
 switch.lookup:                                    ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
   %switch.tableidx = add nsw i32 %2, -1
   %9 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [15 x i32], ptr @switch.table._ZN4llvm21createSimpleReductionERNS_13IRBuilderBaseEPNS_5ValueENS_9RecurKindE, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds [15 x i32], ptr @switch.table._ZN4llvm21createSimpleReductionERNS_13IRBuilderBaseEPNS_5ValueENS_9RecurKindE, i64 0, i64 %9
   %switch.load = load i32, ptr %switch.gep, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i16 257, ptr %10, align 8
@@ -5105,7 +5105,7 @@ switch.lookup:
   %6 = load i32, ptr %5, align 8
   %switch.tableidx = add nsw i32 %6, -1
   %7 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [16 x i32], ptr @switch.table._ZN4llvm21createSimpleReductionERNS_13VectorBuilderEPNS_5ValueERKNS_20RecurrenceDescriptorE, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds [16 x i32], ptr @switch.table._ZN4llvm21createSimpleReductionERNS_13VectorBuilderEPNS_5ValueERKNS_20RecurrenceDescriptorE, i64 0, i64 %7
   %switch.load = load i32, ptr %switch.gep, align 4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8

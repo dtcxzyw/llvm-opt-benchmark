@@ -18383,7 +18383,7 @@ _ZNK4llvm20iterator_facade_baseINS_15concat_iteratorIN12_GLOBAL__N_114InputFileE
   %.fca.0.load.i.i = load i64, ptr %.0.ptr.i.i, align 16
   %.fca.1.gep.i.i = getelementptr inbounds nuw i8, ptr %.0.ptr.i.i, i64 8
   %.fca.1.load.i.i = load i64, ptr %.fca.1.gep.i.i, align 8
-  %480 = getelementptr inbounds nuw i8, ptr %8, i64 %.fca.1.load.i.i
+  %480 = getelementptr inbounds i8, ptr %8, i64 %.fca.1.load.i.i
   %481 = and i64 %.fca.0.load.i.i, 1
   %.not.i.i180 = icmp eq i64 %481, 0
   br i1 %.not.i.i180, label %487, label %482
@@ -18846,7 +18846,7 @@ _ZN4llvm11SmallStringILj128EED2Ev.exit218:        ; preds = %_ZN4llvm11SmallStri
   %.fca.0.load.i.i221 = load i64, ptr %.0.ptr.i.i220, align 16
   %.fca.1.gep.i.i222 = getelementptr inbounds nuw i8, ptr %.0.ptr.i.i220, i64 8
   %.fca.1.load.i.i223 = load i64, ptr %.fca.1.gep.i.i222, align 8
-  %691 = getelementptr inbounds nuw i8, ptr %8, i64 %.fca.1.load.i.i223
+  %691 = getelementptr inbounds i8, ptr %8, i64 %.fca.1.load.i.i223
   %692 = and i64 %.fca.0.load.i.i221, 1
   %.not.i.i224 = icmp eq i64 %692, 0
   br i1 %.not.i.i224, label %698, label %693
@@ -36870,7 +36870,7 @@ switch.lookup:                                    ; preds = %48
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %89 = load i8, ptr %88, align 16
   %90 = sext i8 %89 to i64
-  %switch.gep = getelementptr inbounds nuw [58 x i32], ptr @switch.table._ZN5clang9ASTWriter9WriteTypeENS_8QualTypeE, i64 0, i64 %90
+  %switch.gep = getelementptr inbounds [58 x i32], ptr @switch.table._ZN5clang9ASTWriter9WriteTypeENS_8QualTypeE, i64 0, i64 %90
   %switch.load = load i32, ptr %switch.gep, align 4
   %91 = call noundef i64 @_ZN5clang15ASTRecordWriter4EmitEjj(ptr noundef nonnull align 8 dereferenceable(216) %52, i32 noundef %switch.load, i32 noundef 0)
   br label %_ZN12_GLOBAL__N_113ASTTypeWriter5writeEN5clang8QualTypeE.exit
@@ -82451,7 +82451,7 @@ _ZN4llvm7support6endian19writeAtBitAlignmentIhLNS_10endiannessE1ELm1EEEvPvT_m.ex
   %100 = getelementptr inbounds i8, ptr %.pre, i64 %.03474
   %101 = load i8, ptr %100, align 1
   %102 = add i64 %.03474, %.sroa.speculated
-  %103 = getelementptr inbounds nuw [3 x i8], ptr %4, i64 0, i64 %102
+  %103 = getelementptr inbounds [3 x i8], ptr %4, i64 0, i64 %102
   store i8 %101, ptr %103, align 1
   %104 = add nuw i64 %.03474, 1
   %exitcond.not = icmp eq i64 %104, %71
@@ -82478,7 +82478,7 @@ _ZN4llvm15BitstreamWriter8fdStreamEv.exit60:      ; preds = %_ZN4llvm7support6en
 112:                                              ; preds = %.lr.ph76, %112
   %.075 = phi i64 [ 0, %.lr.ph76 ], [ %119, %112 ]
   %113 = add i64 %.075, %.sroa.speculated
-  %114 = getelementptr inbounds nuw [3 x i8], ptr %4, i64 0, i64 %113
+  %114 = getelementptr inbounds [3 x i8], ptr %4, i64 0, i64 %113
   %115 = load i8, ptr %114, align 1
   %116 = load ptr, ptr %111, align 8
   %117 = load ptr, ptr %116, align 8

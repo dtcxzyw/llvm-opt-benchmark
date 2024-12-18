@@ -1229,7 +1229,7 @@ for.end:                                          ; preds = %for.body, %for.body
   %mul5.i = fmul float %div, %.lcssa
   store float %mul5.i, ptr %0, align 8
   %idxprom = sext i32 %splitAxis to i64
-  %arrayidx = getelementptr inbounds nuw float, ptr %means, i64 %idxprom
+  %arrayidx = getelementptr inbounds float, ptr %means, i64 %idxprom
   %24 = load float, ptr %arrayidx, align 4
   br i1 %cmp189, label %for.body24.lr.ph, label %for.end49
 
@@ -1244,7 +1244,7 @@ for.body24.lr.ph:                                 ; preds = %for.end
   %arrayidx3.i4.i.i98 = getelementptr inbounds nuw i8, ptr %this, i64 20
   %arrayidx6.i.i.i101 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %25 = getelementptr inbounds nuw i8, ptr %center25, i64 8
-  %arrayidx44 = getelementptr inbounds nuw float, ptr %center25, i64 %idxprom
+  %arrayidx44 = getelementptr inbounds float, ptr %center25, i64 %idxprom
   %26 = sext i32 %startIndex to i64
   %wide.trip.count210 = sext i32 %endIndex to i64
   br label %for.body24

@@ -146,7 +146,7 @@ entry:
   %msg.i59.i = alloca [1024 x i8], align 16
   %msg.i.i = alloca [1024 x i8], align 16
   %idxprom = sext i32 %i to i64
-  %arrayidx = getelementptr inbounds nuw [10 x %struct.set_name_fn], ptr @name_fns, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [10 x %struct.set_name_fn], ptr @name_fns, i64 0, i64 %idxprom
   %name = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %0 = load ptr, ptr %name, align 8
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.2, i32 noundef 349, ptr noundef nonnull @.str.3, ptr noundef %0) #7

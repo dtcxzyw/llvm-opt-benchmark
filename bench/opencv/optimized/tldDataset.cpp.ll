@@ -120,9 +120,9 @@ define void @_ZN2cv6detail8tracking3tld15tld_InitDatasetEiPKci(ptr dead_on_unwin
 
 .thread:                                          ; preds = %4
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds nuw [10 x ptr], ptr @_ZN2cv6detail8tracking3tld13tldFolderNameE, i64 0, i64 %6
+  %7 = getelementptr inbounds [10 x ptr], ptr @_ZN2cv6detail8tracking3tld13tldFolderNameE, i64 0, i64 %6
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds nuw [10 x %"class.cv::Rect_"], ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 0, i64 %6
+  %9 = getelementptr inbounds [10 x %"class.cv::Rect_"], ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 0, i64 %6
   %10 = load double, ptr %9, align 16
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load double, ptr %11, align 8
@@ -130,17 +130,17 @@ define void @_ZN2cv6detail8tracking3tld15tld_InitDatasetEiPKci(ptr dead_on_unwin
   %14 = load double, ptr %13, align 16
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %16 = load double, ptr %15, align 8
-  %17 = getelementptr inbounds nuw [10 x i32], ptr @_ZN2cv6detail8tracking3tld14tldFrameOffsetE, i64 0, i64 %6
+  %17 = getelementptr inbounds [10 x i32], ptr @_ZN2cv6detail8tracking3tld14tldFrameOffsetE, i64 0, i64 %6
   %18 = load i32, ptr %17, align 4
   store i32 %18, ptr @_ZN2cv6detail8tracking3tld8frameNumE, align 4
-  %19 = getelementptr inbounds nuw [10 x i8], ptr @_ZN2cv6detail8tracking3tld10tldFlagPNGE, i64 0, i64 %6
+  %19 = getelementptr inbounds [10 x i8], ptr @_ZN2cv6detail8tracking3tld10tldFlagPNGE, i64 0, i64 %6
   br label %.sink.split
 
 20:                                               ; preds = %4
   %21 = sext i32 %5 to i64
-  %22 = getelementptr inbounds nuw [60 x ptr], ptr @_ZN2cv6detail8tracking3tld13votFolderNameE, i64 0, i64 %21
+  %22 = getelementptr inbounds [60 x ptr], ptr @_ZN2cv6detail8tracking3tld13votFolderNameE, i64 0, i64 %21
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds nuw [60 x %"class.cv::Rect_"], ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 0, i64 %21
+  %24 = getelementptr inbounds [60 x %"class.cv::Rect_"], ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 0, i64 %21
   %25 = load double, ptr %24, align 16
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %27 = load double, ptr %26, align 8
@@ -148,10 +148,10 @@ define void @_ZN2cv6detail8tracking3tld15tld_InitDatasetEiPKci(ptr dead_on_unwin
   %29 = load double, ptr %28, align 16
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %31 = load double, ptr %30, align 8
-  %32 = getelementptr inbounds nuw [60 x i32], ptr @_ZN2cv6detail8tracking3tld14votFrameOffsetE, i64 0, i64 %21
+  %32 = getelementptr inbounds [60 x i32], ptr @_ZN2cv6detail8tracking3tld14votFrameOffsetE, i64 0, i64 %21
   %33 = load i32, ptr %32, align 4
   store i32 %33, ptr @_ZN2cv6detail8tracking3tld8frameNumE, align 4
-  %34 = getelementptr inbounds nuw [60 x i8], ptr @_ZN2cv6detail8tracking3tld10votFlagPNGE, i64 0, i64 %21
+  %34 = getelementptr inbounds [60 x i8], ptr @_ZN2cv6detail8tracking3tld10votFlagPNGE, i64 0, i64 %21
   br label %.sink.split
 
 .sink.split:                                      ; preds = %20, %.thread
@@ -176,7 +176,7 @@ define void @_ZN2cv6detail8tracking3tld15tld_InitDatasetEiPKci(ptr dead_on_unwin
   %.1 = phi ptr [ @.str.72, %4 ], [ %.1.ph, %.sink.split ]
   %37 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @_ZN2cv6detail8tracking3tld11tldRootPathE, ptr noundef nonnull dereferenceable(1) %2) #10
   %strlen = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @_ZN2cv6detail8tracking3tld11tldRootPathE)
-  %endptr = getelementptr inbounds nuw i8, ptr @_ZN2cv6detail8tracking3tld11tldRootPathE, i64 %strlen
+  %endptr = getelementptr inbounds i8, ptr @_ZN2cv6detail8tracking3tld11tldRootPathE, i64 %strlen
   store i16 92, ptr %endptr, align 1
   %38 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) @_ZN2cv6detail8tracking3tld11tldRootPathE, ptr noundef nonnull dereferenceable(1) %.1) #10
   store double %.129, ptr %0, align 8
@@ -202,7 +202,7 @@ define void @_ZN2cv6detail8tracking3tld23tld_getNextDatasetFrameB5cxx11Ev(ptr de
   %4 = alloca %"class.std::allocator", align 1
   %5 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @_ZN2cv6detail8tracking3tld11tldRootPathE) #10
   %strlen = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2)
-  %endptr = getelementptr inbounds nuw i8, ptr %2, i64 %strlen
+  %endptr = getelementptr inbounds i8, ptr %2, i64 %strlen
   store i16 92, ptr %endptr, align 1
   %6 = load i8, ptr @_ZN2cv6detail8tracking3tld7flagVOTE, align 1
   %7 = trunc i8 %6 to i1
@@ -210,7 +210,7 @@ define void @_ZN2cv6detail8tracking3tld23tld_getNextDatasetFrameB5cxx11Ev(ptr de
 
 8:                                                ; preds = %1
   %strlen1 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2)
-  %endptr2 = getelementptr inbounds nuw i8, ptr %2, i64 %strlen1
+  %endptr2 = getelementptr inbounds i8, ptr %2, i64 %strlen1
   store i32 3158064, ptr %endptr2, align 1
   br label %9
 
@@ -221,7 +221,7 @@ define void @_ZN2cv6detail8tracking3tld23tld_getNextDatasetFrameB5cxx11Ev(ptr de
 
 12:                                               ; preds = %9
   %strlen9 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2)
-  %endptr10 = getelementptr inbounds nuw i8, ptr %2, i64 %strlen9
+  %endptr10 = getelementptr inbounds i8, ptr %2, i64 %strlen9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %endptr10, ptr noundef nonnull align 1 dereferenceable(5) @.str.75, i64 5, i1 false)
   br label %22
 
@@ -231,7 +231,7 @@ define void @_ZN2cv6detail8tracking3tld23tld_getNextDatasetFrameB5cxx11Ev(ptr de
 
 15:                                               ; preds = %13
   %strlen7 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2)
-  %endptr8 = getelementptr inbounds nuw i8, ptr %2, i64 %strlen7
+  %endptr8 = getelementptr inbounds i8, ptr %2, i64 %strlen7
   store i32 3158064, ptr %endptr8, align 1
   br label %22
 
@@ -241,7 +241,7 @@ define void @_ZN2cv6detail8tracking3tld23tld_getNextDatasetFrameB5cxx11Ev(ptr de
 
 18:                                               ; preds = %16
   %strlen5 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2)
-  %endptr6 = getelementptr inbounds nuw i8, ptr %2, i64 %strlen5
+  %endptr6 = getelementptr inbounds i8, ptr %2, i64 %strlen5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %endptr6, ptr noundef nonnull align 1 dereferenceable(3) @.str.76, i64 3, i1 false)
   br label %22
 
@@ -251,7 +251,7 @@ define void @_ZN2cv6detail8tracking3tld23tld_getNextDatasetFrameB5cxx11Ev(ptr de
 
 21:                                               ; preds = %19
   %strlen3 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2)
-  %endptr4 = getelementptr inbounds nuw i8, ptr %2, i64 %strlen3
+  %endptr4 = getelementptr inbounds i8, ptr %2, i64 %strlen3
   store i16 48, ptr %endptr4, align 1
   br label %22
 
@@ -261,7 +261,7 @@ define void @_ZN2cv6detail8tracking3tld23tld_getNextDatasetFrameB5cxx11Ev(ptr de
   %25 = load i8, ptr @_ZN2cv6detail8tracking3tld7flagPNGE, align 1
   %26 = trunc i8 %25 to i1
   %strlen13 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2)
-  %endptr14 = getelementptr inbounds nuw i8, ptr %2, i64 %strlen13
+  %endptr14 = getelementptr inbounds i8, ptr %2, i64 %strlen13
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %22

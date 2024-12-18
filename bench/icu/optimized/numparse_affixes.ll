@@ -995,7 +995,7 @@ entry:
 arraydestroy.body.i:                              ; preds = %arraydestroy.body.i, %entry
   %arraydestroy.elementPast.idx.i = phi i64 [ 664, %entry ], [ %arraydestroy.elementPast.add.i, %arraydestroy.body.i ]
   %arraydestroy.elementPast.add.i = add nsw i64 %arraydestroy.elementPast.idx.i, -64
-  %arraydestroy.element.ptr.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 %arraydestroy.elementPast.add.i
+  %arraydestroy.element.ptr.i = getelementptr inbounds i8, ptr %ref.tmp, i64 %arraydestroy.elementPast.add.i
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element.ptr.i) #17
   %arraydestroy.done.i = icmp eq i64 %arraydestroy.elementPast.add.i, 152
   br i1 %arraydestroy.done.i, label %_ZN6icu_758numparse4impl23CombinedCurrencyMatcherD2Ev.exit, label %arraydestroy.body.i

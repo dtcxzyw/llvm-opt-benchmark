@@ -4574,7 +4574,7 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFvdEZN5draco17PlyPropertyWrit
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 84
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds nuw i8, ptr %3, i64 %13
+  %14 = getelementptr inbounds i8, ptr %3, i64 %13
   %15 = load ptr, ptr %8, align 8
   %16 = ptrtoint ptr %10 to i64
   %17 = ptrtoint ptr %15 to i64
@@ -4776,7 +4776,7 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFvdEZN5draco17PlyPropertyWrit
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 84
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds nuw i8, ptr %3, i64 %13
+  %14 = getelementptr inbounds i8, ptr %3, i64 %13
   %15 = load ptr, ptr %8, align 8
   %16 = ptrtoint ptr %10 to i64
   %17 = ptrtoint ptr %15 to i64
@@ -4827,7 +4827,7 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFvdEZN5draco17PlyPropertyWrit
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 84
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds nuw i8, ptr %3, i64 %13
+  %14 = getelementptr inbounds i8, ptr %3, i64 %13
   %15 = load ptr, ptr %8, align 8
   %16 = ptrtoint ptr %10 to i64
   %17 = ptrtoint ptr %15 to i64
@@ -4878,7 +4878,7 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFvdEZN5draco17PlyPropertyWrit
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 84
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds nuw i8, ptr %3, i64 %13
+  %14 = getelementptr inbounds i8, ptr %3, i64 %13
   %15 = load ptr, ptr %8, align 8
   %16 = ptrtoint ptr %10 to i64
   %17 = ptrtoint ptr %15 to i64
@@ -4929,7 +4929,7 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFvdEZN5draco17PlyPropertyWrit
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 84
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds nuw i8, ptr %3, i64 %13
+  %14 = getelementptr inbounds i8, ptr %3, i64 %13
   %15 = load ptr, ptr %8, align 8
   %16 = ptrtoint ptr %10 to i64
   %17 = ptrtoint ptr %15 to i64
@@ -4980,7 +4980,7 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFvdEZN5draco17PlyPropertyWrit
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 84
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds nuw i8, ptr %3, i64 %13
+  %14 = getelementptr inbounds i8, ptr %3, i64 %13
   %15 = load ptr, ptr %8, align 8
   %16 = ptrtoint ptr %10 to i64
   %17 = ptrtoint ptr %15 to i64
@@ -5031,7 +5031,7 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFvdEZN5draco17PlyPropertyWrit
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 84
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds nuw i8, ptr %3, i64 %13
+  %14 = getelementptr inbounds i8, ptr %3, i64 %13
   %15 = load ptr, ptr %8, align 8
   %16 = ptrtoint ptr %10 to i64
   %17 = ptrtoint ptr %15 to i64
@@ -5081,7 +5081,7 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFvdEZN5draco17PlyPropertyWrit
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 84
   %11 = load i32, ptr %10, align 4
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 %12
+  %13 = getelementptr inbounds i8, ptr %3, i64 %12
   %14 = load ptr, ptr %7, align 8
   %15 = ptrtoint ptr %9 to i64
   %16 = ptrtoint ptr %14 to i64

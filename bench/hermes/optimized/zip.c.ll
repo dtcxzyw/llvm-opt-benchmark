@@ -7806,7 +7806,7 @@ if.end41:                                         ; preds = %for.end35
   store i8 8, ptr %arrayinit.element70, align 8
   %arrayinit.element71 = getelementptr inbounds nuw i8, ptr %pnghdr, i64 25
   %idxprom72 = sext i32 %num_chans to i64
-  %arrayidx73 = getelementptr inbounds nuw [5 x i8], ptr @tdefl_write_image_to_png_file_in_memory_ex.chans, i64 0, i64 %idxprom72
+  %arrayidx73 = getelementptr inbounds [5 x i8], ptr @tdefl_write_image_to_png_file_in_memory_ex.chans, i64 0, i64 %idxprom72
   %18 = load i8, ptr %arrayidx73, align 1
   store i8 %18, ptr %arrayinit.element71, align 1
   %arrayinit.element74 = getelementptr inbounds nuw i8, ptr %pnghdr, i64 26
@@ -16305,7 +16305,7 @@ if.end:                                           ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(584) %info, i8 0, i64 584, i1 false)
   %call3 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %path, ptr noundef nonnull dereferenceable(1) %dir) #30
   %sub = add nsw i64 %call, -1
-  %arrayidx = getelementptr inbounds nuw [32768 x i8], ptr %path, i64 0, i64 %sub
+  %arrayidx = getelementptr inbounds [32768 x i8], ptr %path, i64 0, i64 %sub
   %0 = load i8, ptr %arrayidx, align 1
   switch i8 %0, label %if.then11 [
     i8 47, label %if.end13
@@ -16313,7 +16313,7 @@ if.end:                                           ; preds = %entry
   ]
 
 if.then11:                                        ; preds = %if.end
-  %arrayidx12 = getelementptr inbounds nuw [32768 x i8], ptr %path, i64 0, i64 %call
+  %arrayidx12 = getelementptr inbounds [32768 x i8], ptr %path, i64 0, i64 %call
   store i8 47, ptr %arrayidx12, align 1
   br label %if.end13
 
@@ -16326,7 +16326,7 @@ if.end13:                                         ; preds = %if.end, %if.end, %i
 
 for.body.lr.ph:                                   ; preds = %if.end13
   %m_filename = getelementptr inbounds nuw i8, ptr %info, i64 68
-  %arrayidx30 = getelementptr inbounds nuw [32768 x i8], ptr %path, i64 0, i64 %dirlen.0
+  %arrayidx30 = getelementptr inbounds [32768 x i8], ptr %path, i64 0, i64 %dirlen.0
   %sub33 = sub nsw i64 32767, %dirlen.0
   %m_version_made_by = getelementptr inbounds nuw i8, ptr %info, i64 8
   %m_external_attr = getelementptr inbounds nuw i8, ptr %info, i64 52
@@ -16527,7 +16527,7 @@ lor.lhs.false54:                                  ; preds = %if.then51
 
 if.end59:                                         ; preds = %lor.lhs.false54
   %27 = load i64, ptr %m_uncomp_size, align 8
-  %arrayidx61 = getelementptr inbounds nuw [32768 x i8], ptr %symlink_to, i64 0, i64 %27
+  %arrayidx61 = getelementptr inbounds [32768 x i8], ptr %symlink_to, i64 0, i64 %27
   store i8 0, ptr %arrayidx61, align 1
   %call64 = call i32 @symlink(ptr noundef nonnull %symlink_to, ptr noundef nonnull %path) #30
   %cmp65.not = icmp eq i32 %call64, 0
@@ -17172,7 +17172,7 @@ for.body76.i.i:                                   ; preds = %for.body76.i.i, %if
   %indvars.iv120.i.i = phi i64 [ 2, %if.end71.loopexit98.i.i ], [ %indvars.iv.next121.i.i, %for.body76.i.i ]
   %j.291.i.i = phi i32 [ 0, %if.end71.loopexit98.i.i ], [ %shl.i.i, %for.body76.i.i ]
   %2 = add nsw i64 %indvars.iv120.i.i, -1
-  %arrayidx78.i.i = getelementptr inbounds nuw [33 x i32], ptr %num_codes.i.i, i64 0, i64 %2
+  %arrayidx78.i.i = getelementptr inbounds [33 x i32], ptr %num_codes.i.i, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx78.i.i, align 4
   %add.i.i = add nsw i32 %3, %j.291.i.i
   %shl.i.i = shl i32 %add.i.i, 1
@@ -17251,7 +17251,7 @@ for.body76.i37.i:                                 ; preds = %for.body76.i37.i, %
   %indvars.iv120.i38.i = phi i64 [ 2, %if.end71.loopexit98.i35.i ], [ %indvars.iv.next121.i44.i, %for.body76.i37.i ]
   %j.291.i39.i = phi i32 [ 0, %if.end71.loopexit98.i35.i ], [ %shl.i42.i, %for.body76.i37.i ]
   %8 = add nsw i64 %indvars.iv120.i38.i, -1
-  %arrayidx78.i40.i = getelementptr inbounds nuw [33 x i32], ptr %num_codes.i24.i, i64 0, i64 %8
+  %arrayidx78.i40.i = getelementptr inbounds [33 x i32], ptr %num_codes.i24.i, i64 0, i64 %8
   %9 = load i32, ptr %arrayidx78.i40.i, align 4
   %add.i41.i = add nsw i32 %9, %j.291.i39.i
   %shl.i42.i = shl i32 %add.i41.i, 1
@@ -17403,7 +17403,7 @@ for.end17.i:                                      ; preds = %for.cond4.i, %for.e
   %num_dist_codes.0.lcssa.i = phi i32 [ %23, %for.end17.split.loop.exit.i ], [ 1, %for.cond4.i ]
   %conv.i4 = sext i32 %num_lit_codes.0.lcssa.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %code_sizes_to_pack.i, ptr nonnull align 2 %m_huff_code_sizes.i3, i64 %conv.i4, i1 false)
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %code_sizes_to_pack.i, i64 %conv.i4
+  %add.ptr.i = getelementptr inbounds i8, ptr %code_sizes_to_pack.i, i64 %conv.i4
   %conv25.i = sext i32 %num_dist_codes.0.lcssa.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr nonnull align 2 %arrayidx8.i, i64 %conv25.i, i1 false)
   %add.i5 = add nsw i32 %num_dist_codes.0.lcssa.i, %num_lit_codes.0.lcssa.i
@@ -18596,7 +18596,7 @@ for.body11:                                       ; preds = %if.else, %for.inc23
 
 if.then15:                                        ; preds = %for.body11
   %idxprom18 = sext i32 %num_used_syms.082 to i64
-  %arrayidx19 = getelementptr inbounds nuw [288 x %struct.tdefl_sym_freq], ptr %syms0, i64 0, i64 %idxprom18
+  %arrayidx19 = getelementptr inbounds [288 x %struct.tdefl_sym_freq], ptr %syms0, i64 0, i64 %idxprom18
   store i16 %2, ptr %arrayidx19, align 4
   %conv = trunc i64 %indvars.iv101 to i16
   %inc20 = add nsw i32 %num_used_syms.082, 1
@@ -19110,7 +19110,7 @@ for.body76:                                       ; preds = %if.end71, %for.body
   %indvars.iv120 = phi i64 [ 2, %if.end71 ], [ %indvars.iv.next121, %for.body76 ]
   %j.291 = phi i32 [ 0, %if.end71 ], [ %shl, %for.body76 ]
   %45 = add nsw i64 %indvars.iv120, -1
-  %arrayidx78 = getelementptr inbounds nuw [33 x i32], ptr %num_codes, i64 0, i64 %45
+  %arrayidx78 = getelementptr inbounds [33 x i32], ptr %num_codes, i64 0, i64 %45
   %46 = load i32, ptr %arrayidx78, align 4
   %add = add nsw i32 %46, %j.291
   %shl = shl i32 %add, 1

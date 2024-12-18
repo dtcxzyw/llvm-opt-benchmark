@@ -937,7 +937,7 @@ switch.lookup:                                    ; preds = %5
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5O_fsinfo_set_version(i32 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = sext i32 %0 to i64
-  %5 = getelementptr inbounds nuw [6 x i32], ptr @H5O_fsinfo_ver_bounds, i64 0, i64 %4
+  %5 = getelementptr inbounds [6 x i32], ptr @H5O_fsinfo_ver_bounds, i64 0, i64 %4
   %6 = load i32, ptr %5, align 4
   %.not.inv = icmp ugt i32 %0, 1
   %.011 = select i1 %.not.inv, i32 %6, i32 1
@@ -946,7 +946,7 @@ define range(i32 -1, 1) i32 @H5O_fsinfo_set_version(i32 noundef %0, i32 noundef 
 
 8:                                                ; preds = %3
   %9 = sext i32 %1 to i64
-  %10 = getelementptr inbounds nuw [6 x i32], ptr @H5O_fsinfo_ver_bounds, i64 0, i64 %9
+  %10 = getelementptr inbounds [6 x i32], ptr @H5O_fsinfo_ver_bounds, i64 0, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = icmp ugt i32 %.011, %11
   br i1 %12, label %13, label %17
@@ -975,7 +975,7 @@ define range(i32 -1, 1) i32 @H5O_fsinfo_check_version(i32 noundef %0, ptr nocapt
 
 4:                                                ; preds = %2
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds nuw [6 x i32], ptr @H5O_fsinfo_ver_bounds, i64 0, i64 %5
+  %6 = getelementptr inbounds [6 x i32], ptr @H5O_fsinfo_ver_bounds, i64 0, i64 %5
   %7 = load i32, ptr %6, align 4
   %8 = load i32, ptr %1, align 8
   %9 = icmp ugt i32 %8, %7

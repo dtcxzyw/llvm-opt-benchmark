@@ -275,7 +275,7 @@ _ZN8tstrings3anylsIPKcEERS0_T_.exit27:            ; preds = %44
   %62 = load ptr, ptr %16, align 8
   %63 = getelementptr i8, ptr %62, i64 -24
   %64 = load i64, ptr %63, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %16, i64 %64
+  %65 = getelementptr inbounds i8, ptr %16, i64 %64
   %66 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %65)
           to label %67 unwind label %80
 

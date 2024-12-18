@@ -734,7 +734,7 @@ define void @_ZN2cv4face11FacemarkLBF6Params4readERKNS_8FileNodeE(ptr noundef no
 8:                                                ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit.i, %2
   %.idx.i = phi i64 [ 208, %2 ], [ %.add.i, %_ZNSt6vectorIiSaIiEED2Ev.exit.i ]
   %.add.i = add nsw i64 %.idx.i, -24
-  %.ptr1.i = getelementptr inbounds nuw i8, ptr %4, i64 %.add.i
+  %.ptr1.i = getelementptr inbounds i8, ptr %4, i64 %.add.i
   %9 = load ptr, ptr %.ptr1.i, align 8
   %.not.i.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit.i, label %10
@@ -1291,7 +1291,7 @@ _ZN2cv3PtrINS_4face15FacemarkLBFImplEED2Ev.exit:  ; preds = %5
 24:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit.i, %_ZN2cv3PtrINS_4face15FacemarkLBFImplEED2Ev.exit
   %.idx.i = phi i64 [ 208, %_ZN2cv3PtrINS_4face15FacemarkLBFImplEED2Ev.exit ], [ %.add.i, %_ZNSt6vectorIiSaIiEED2Ev.exit.i ]
   %.add.i = add nsw i64 %.idx.i, -24
-  %.ptr1.i = getelementptr inbounds nuw i8, ptr %2, i64 %.add.i
+  %.ptr1.i = getelementptr inbounds i8, ptr %2, i64 %.add.i
   %25 = load ptr, ptr %.ptr1.i, align 8
   %.not.i.i.i.i3 = icmp eq ptr %25, null
   br i1 %.not.i.i.i.i3, label %_ZNSt6vectorIiSaIiEED2Ev.exit.i, label %26
@@ -1930,7 +1930,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE5clearEv.exit: ; preds = %3, %19
   %49 = load ptr, ptr %9, align 8
   %50 = getelementptr i8, ptr %49, i64 -24
   %51 = load i64, ptr %50, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %9, i64 %51
+  %52 = getelementptr inbounds i8, ptr %9, i64 %51
   %53 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %52)
           to label %54 unwind label %61
 
@@ -3280,7 +3280,7 @@ _ZNK2cv4face11FacemarkLBF4BBox9reprojectERKNS_3MatE.exit: ; preds = %201, %.noex
 .preheader149:                                    ; preds = %257, %_ZNSt6vectorIiSaIiEED2Ev.exit.i
   %.idx.i = phi i64 [ %.add.i, %_ZNSt6vectorIiSaIiEED2Ev.exit.i ], [ 208, %257 ]
   %.add.i = add nsw i64 %.idx.i, -24
-  %.ptr1.i = getelementptr inbounds nuw i8, ptr %15, i64 %.add.i
+  %.ptr1.i = getelementptr inbounds i8, ptr %15, i64 %.add.i
   %258 = load ptr, ptr %.ptr1.i, align 8
   %.not.i.i.i.i91 = icmp eq ptr %258, null
   br i1 %.not.i.i.i.i91, label %_ZNSt6vectorIiSaIiEED2Ev.exit.i, label %259
@@ -3328,7 +3328,7 @@ _ZN2cv4face11FacemarkLBF6ParamsD2Ev.exit:         ; preds = %_ZNSt6vectorIdSaIdE
 .preheader148:                                    ; preds = %270, %_ZNSt6vectorIiSaIiEED2Ev.exit.i96
   %.idx.i92 = phi i64 [ %.add.i93, %_ZNSt6vectorIiSaIiEED2Ev.exit.i96 ], [ 208, %270 ]
   %.add.i93 = add nsw i64 %.idx.i92, -24
-  %.ptr1.i94 = getelementptr inbounds nuw i8, ptr %16, i64 %.add.i93
+  %.ptr1.i94 = getelementptr inbounds i8, ptr %16, i64 %.add.i93
   %271 = load ptr, ptr %.ptr1.i94, align 8
   %.not.i.i.i.i95 = icmp eq ptr %271, null
   br i1 %.not.i.i.i.i95, label %_ZNSt6vectorIiSaIiEED2Ev.exit.i96, label %272
@@ -3435,7 +3435,7 @@ _ZN2cv11FileStorageC2ERKS0_.exit:                 ; preds = %307, %304, %.noexc1
 .preheader:                                       ; preds = %309, %_ZNSt6vectorIiSaIiEED2Ev.exit.i107
   %.idx.i103 = phi i64 [ %.add.i104, %_ZNSt6vectorIiSaIiEED2Ev.exit.i107 ], [ 208, %309 ]
   %.add.i104 = add nsw i64 %.idx.i103, -24
-  %.ptr1.i105 = getelementptr inbounds nuw i8, ptr %22, i64 %.add.i104
+  %.ptr1.i105 = getelementptr inbounds i8, ptr %22, i64 %.add.i104
   %310 = load ptr, ptr %.ptr1.i105, align 8
   %.not.i.i.i.i106 = icmp eq ptr %310, null
   br i1 %.not.i.i.i.i106, label %_ZNSt6vectorIiSaIiEED2Ev.exit.i107, label %311
@@ -6648,7 +6648,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %123, %124
 .preheader:                                       ; preds = %148, %_ZNSt6vectorIiSaIiEED2Ev.exit.i
   %.idx.i = phi i64 [ %.add.i, %_ZNSt6vectorIiSaIiEED2Ev.exit.i ], [ 208, %148 ]
   %.add.i = add nsw i64 %.idx.i, -24
-  %.ptr1.i = getelementptr inbounds nuw i8, ptr %15, i64 %.add.i
+  %.ptr1.i = getelementptr inbounds i8, ptr %15, i64 %.add.i
   %149 = load ptr, ptr %.ptr1.i, align 8
   %.not.i.i.i.i = icmp eq ptr %149, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit.i, label %150
@@ -9384,7 +9384,7 @@ define hidden void @_ZN2cv4face15FacemarkLBFImpl9loadModelENSt7__cxx1112basic_st
   %21 = load ptr, ptr %3, align 8
   %22 = getelementptr i8, ptr %21, i64 -24
   %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %3, i64 %23
+  %24 = getelementptr inbounds i8, ptr %3, i64 %23
   %25 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %24)
           to label %26 unwind label %30
 
@@ -9572,7 +9572,7 @@ define hidden void @_ZN2cv4face15FacemarkLBFImpl9Regressor4readENS_11FileStorage
 .preheader:                                       ; preds = %3, %_ZNSt6vectorIiSaIiEED2Ev.exit.i
   %.idx.i = phi i64 [ %.add.i, %_ZNSt6vectorIiSaIiEED2Ev.exit.i ], [ 208, %3 ]
   %.add.i = add nsw i64 %.idx.i, -24
-  %.ptr1.i = getelementptr inbounds nuw i8, ptr %10, i64 %.add.i
+  %.ptr1.i = getelementptr inbounds i8, ptr %10, i64 %.add.i
   %25 = load ptr, ptr %.ptr1.i, align 8
   %.not.i.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit.i, label %26

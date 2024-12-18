@@ -955,7 +955,7 @@ _ZN7oopDesc11oop_iterateI20G1MarkAndPushClosureEEvPT_.exit.i: ; preds = %_ZNK7oo
   %81 = phi i32 [ %74, %_ZNK7oopDesc11is_objArrayEv.exit.i ], [ %78, %_ZNK7oopDesc11is_objArrayEv.exit.thread.i ]
   %.0.i.i4.i = phi ptr [ %72, %_ZNK7oopDesc11is_objArrayEv.exit.i ], [ %76, %_ZNK7oopDesc11is_objArrayEv.exit.thread.i ]
   %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI20G1MarkAndPushClosureE6_tableE, i64 0, i64 %82
+  %83 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI20G1MarkAndPushClosureE6_tableE, i64 0, i64 %82
   %84 = load ptr, ptr %83, align 8
   tail call void %84(ptr noundef nonnull %14, ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull %.0.i.i4.i) #8
   br label %_ZN14G1FullGCMarker13follow_objectEP7oopDesc.exit
@@ -1044,7 +1044,7 @@ _ZN7oopDesc11oop_iterateI20G1MarkAndPushClosureEEvPT_.exit.i2: ; preds = %_ZNK7o
   %126 = phi i32 [ %119, %_ZNK7oopDesc11is_objArrayEv.exit.i4 ], [ %123, %_ZNK7oopDesc11is_objArrayEv.exit.thread.i1 ]
   %.0.i.i4.i3 = phi ptr [ %117, %_ZNK7oopDesc11is_objArrayEv.exit.i4 ], [ %121, %_ZNK7oopDesc11is_objArrayEv.exit.thread.i1 ]
   %127 = sext i32 %126 to i64
-  %128 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI20G1MarkAndPushClosureE6_tableE, i64 0, i64 %127
+  %128 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI20G1MarkAndPushClosureE6_tableE, i64 0, i64 %127
   %129 = load ptr, ptr %128, align 8
   tail call void %129(ptr noundef nonnull %22, ptr noundef nonnull align 8 dereferenceable(16) %93, ptr noundef nonnull %.0.i.i4.i3) #8
   br label %_ZN14G1FullGCMarker13follow_objectEP7oopDesc.exit5

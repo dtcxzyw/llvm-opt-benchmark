@@ -1665,7 +1665,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %conv31.i = sext i32 %mul3039.i to i64
   %sub32.i = sub i64 %current.243.i, %conv31.i
   %add35.i = add nsw i32 %mul34.i, %3
-  %arrayidx37.i = getelementptr inbounds nuw %struct.smvt_control, ptr %control_pre, i64 %indvars.iv.i
+  %arrayidx37.i = getelementptr inbounds %struct.smvt_control, ptr %control_pre, i64 %indvars.iv.i
   store i32 %add35.i, ptr %arrayidx37.i, align 8
   %addend41.i = getelementptr inbounds nuw i8, ptr %arrayidx37.i, i64 4
   store i32 %spec.select.i, ptr %addend41.i, align 4
@@ -1764,7 +1764,7 @@ while.body.i60:                                   ; preds = %while.body.i60, %wh
   %conv31.i71 = sext i32 %mul3039.i70 to i64
   %sub32.i72 = sub i64 %current.243.i62, %conv31.i71
   %add35.i73 = add nsw i32 %mul34.i59, %10
-  %arrayidx37.i74 = getelementptr inbounds nuw %struct.smvt_control, ptr %control_var, i64 %indvars.iv.i61
+  %arrayidx37.i74 = getelementptr inbounds %struct.smvt_control, ptr %control_var, i64 %indvars.iv.i61
   store i32 %add35.i73, ptr %arrayidx37.i74, align 8
   %addend41.i75 = getelementptr inbounds nuw i8, ptr %arrayidx37.i74, i64 4
   store i32 %spec.select.i69, ptr %addend41.i75, align 4
@@ -1893,7 +1893,7 @@ if.then7:                                         ; preds = %if.end
   %16 = load i32, ptr %addend, align 4
   %shr = ashr i32 %16, 1
   %idxprom = sext i32 %shr to i64
-  %arrayidx9 = getelementptr inbounds nuw [8 x [1 x %struct.anon]], ptr %precmp_var, i64 0, i64 %idxprom
+  %arrayidx9 = getelementptr inbounds [8 x [1 x %struct.anon]], ptr %precmp_var, i64 0, i64 %idxprom
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %eu.i)
   %b.i = getelementptr inbounds nuw i8, ptr %arrayidx9, i64 64
   call void @gf_add(ptr noundef nonnull %eu.i, ptr noundef nonnull %b.i, ptr noundef nonnull %arrayidx9) #7
@@ -1919,7 +1919,7 @@ if.then15:                                        ; preds = %if.else
   %17 = load i32, ptr %addend17, align 4
   %shr18 = ashr i32 %17, 1
   %idxprom19 = sext i32 %shr18 to i64
-  %arrayidx20 = getelementptr inbounds nuw [8 x [1 x %struct.anon]], ptr %precmp_var, i64 0, i64 %idxprom19
+  %arrayidx20 = getelementptr inbounds [8 x [1 x %struct.anon]], ptr %precmp_var, i64 0, i64 %idxprom19
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %eu.i119)
   %b.i120 = getelementptr inbounds nuw i8, ptr %arrayidx20, i64 64
   call void @gf_add(ptr noundef nonnull %eu.i119, ptr noundef nonnull %b.i120, ptr noundef nonnull %arrayidx20) #7
@@ -1974,11 +1974,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %contv.1135 = phi i32 [ %contv.0, %for.body.lr.ph ], [ %contv.2, %for.inc ]
   %i.1137 = add nsw i32 %i.1137.in, -1
   %idxprom43 = sext i32 %contv.1135 to i64
-  %arrayidx44 = getelementptr inbounds nuw [114 x %struct.smvt_control], ptr %control_var, i64 0, i64 %idxprom43
+  %arrayidx44 = getelementptr inbounds [114 x %struct.smvt_control], ptr %control_var, i64 0, i64 %idxprom43
   %22 = load i32, ptr %arrayidx44, align 8
   %cmp46 = icmp ne i32 %i.1137, %22
   %idxprom47 = sext i32 %contp.1136 to i64
-  %arrayidx48 = getelementptr inbounds nuw [77 x %struct.smvt_control], ptr %control_pre, i64 0, i64 %idxprom47
+  %arrayidx48 = getelementptr inbounds [77 x %struct.smvt_control], ptr %control_pre, i64 0, i64 %idxprom47
   %23 = load i32, ptr %arrayidx48, align 8
   %cmp50 = icmp ne i32 %i.1137, %23
   %tobool = icmp ne i32 %i.1137, 0

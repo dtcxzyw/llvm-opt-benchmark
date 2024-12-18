@@ -269,7 +269,7 @@ define internal fastcc i32 @getbits(ptr nocapture noundef readonly %0, i32 nound
   %50 = sub nsw i32 %.lcssa, %1
   store i32 %50, ptr %6, align 4
   %51 = sext i32 %1 to i64
-  %52 = getelementptr inbounds nuw [17 x i32], ptr @getbits.mask, i64 0, i64 %51
+  %52 = getelementptr inbounds [17 x i32], ptr @getbits.mask, i64 0, i64 %51
   %53 = load i32, ptr %52, align 4
   %54 = and i32 %53, %47
   br label %.loopexit

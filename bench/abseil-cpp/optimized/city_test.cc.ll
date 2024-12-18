@@ -333,7 +333,7 @@ entry:
   %ref.tmp74 = alloca %"class.testing::Message", align 8
   %ref.tmp76 = alloca %"class.testing::internal::AssertHelper", align 8
   %idx.ext = sext i32 %offset to i64
-  %add.ptr = getelementptr inbounds nuw i8, ptr @_ZN4absl13hash_internal12_GLOBAL__N_14dataE, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i8, ptr @_ZN4absl13hash_internal12_GLOBAL__N_14dataE, i64 %idx.ext
   %conv = sext i32 %len to i64
   %call = tail call noundef i64 @_ZN4absl13hash_internal10CityHash64EPKcm(ptr noundef nonnull %add.ptr, i64 noundef %conv)
   store i64 %call, ptr %ref.tmp, align 8

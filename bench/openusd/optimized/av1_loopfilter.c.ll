@@ -368,8 +368,8 @@ update_sharpness.exit:                            ; preds = %.split.i, %.split.u
   br i1 %or.cond95, label %.preheader86, label %.loopexit87
 
 .preheader86:                                     ; preds = %60
-  %63 = getelementptr inbounds nuw [3 x i32], ptr %4, i64 0, i64 %indvars.iv108
-  %64 = getelementptr inbounds nuw [3 x i32], ptr %5, i64 0, i64 %indvars.iv108
+  %63 = getelementptr inbounds [3 x i32], ptr %4, i64 0, i64 %indvars.iv108
+  %64 = getelementptr inbounds [3 x i32], ptr %5, i64 0, i64 %indvars.iv108
   br label %.preheader85
 
 .preheader85:                                     ; preds = %.preheader86, %117

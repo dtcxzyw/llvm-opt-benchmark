@@ -931,7 +931,7 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
 
 680:                                              ; preds = %680, %675
   %681 = phi i64 [ 0, %675 ], [ %685, %680 ]
-  %682 = getelementptr inbounds nuw [257 x i32], ptr %8, i64 0, i64 %681
+  %682 = getelementptr inbounds [257 x i32], ptr %8, i64 0, i64 %681
   %683 = load i32, ptr %682, align 4, !tbaa !31
   %684 = add nsw i32 %683, 1
   store i32 %684, ptr %682, align 4, !tbaa !31
@@ -972,7 +972,7 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   %703 = phi <8 x i32> [ zeroinitializer, %697 ], [ %716, %699 ]
   %704 = phi <8 x i32> [ zeroinitializer, %697 ], [ %717, %699 ]
   %705 = add i64 %700, %691
-  %706 = getelementptr inbounds nuw [257 x i32], ptr %8, i64 0, i64 %705
+  %706 = getelementptr inbounds [257 x i32], ptr %8, i64 0, i64 %705
   %707 = getelementptr inbounds nuw i8, ptr %706, i64 32
   %708 = getelementptr inbounds nuw i8, ptr %706, i64 64
   %709 = getelementptr inbounds nuw i8, ptr %706, i64 96
@@ -1039,7 +1039,7 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   %751 = phi <8 x i32> [ zeroinitializer, %743 ], [ %764, %747 ]
   %752 = phi <8 x i32> [ zeroinitializer, %743 ], [ %765, %747 ]
   %753 = add i64 %746, %748
-  %754 = getelementptr inbounds nuw [257 x i32], ptr %8, i64 0, i64 %753
+  %754 = getelementptr inbounds [257 x i32], ptr %8, i64 0, i64 %753
   %755 = getelementptr inbounds nuw i8, ptr %754, i64 32
   %756 = getelementptr inbounds nuw i8, ptr %754, i64 64
   %757 = getelementptr inbounds nuw i8, ptr %754, i64 96
@@ -1067,7 +1067,7 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
 775:                                              ; preds = %.preheader119, %775
   %776 = phi i64 [ %781, %775 ], [ %.ph120, %.preheader119 ]
   %777 = phi i32 [ %780, %775 ], [ %.ph121, %.preheader119 ]
-  %778 = getelementptr inbounds nuw [257 x i32], ptr %8, i64 0, i64 %776
+  %778 = getelementptr inbounds [257 x i32], ptr %8, i64 0, i64 %776
   %779 = load i32, ptr %778, align 4, !tbaa !31
   %780 = add nsw i32 %779, %777
   %781 = add nsw i64 %776, 1
@@ -1094,7 +1094,7 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   %796 = phi i64 [ %798, %795 ], [ %.ph, %.preheader117 ]
   %797 = phi i32 [ %801, %795 ], [ %.ph118, %.preheader117 ]
   %798 = add nsw i64 %796, 1
-  %799 = getelementptr inbounds nuw [257 x i32], ptr %8, i64 0, i64 %798
+  %799 = getelementptr inbounds [257 x i32], ptr %8, i64 0, i64 %798
   %800 = load i32, ptr %799, align 4, !tbaa !31
   %801 = add nsw i32 %800, %797
   %802 = icmp eq i64 %798, 256

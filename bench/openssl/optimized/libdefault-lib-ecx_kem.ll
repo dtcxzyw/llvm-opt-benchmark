@@ -824,7 +824,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not, label %if.end17, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %add.ptr = getelementptr inbounds nuw i8, ptr %dhkm, i64 %2
+  %add.ptr = getelementptr inbounds i8, ptr %dhkm, i64 %2
   %sub = sub i64 112, %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i28)
   store i64 0, ptr %len.i28, align 8
@@ -871,7 +871,7 @@ if.end22:                                         ; preds = %if.end17
 if.then27:                                        ; preds = %if.end17.thread
   %pubkey.i = getelementptr inbounds nuw i8, ptr %5, i64 17
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %kemctx, ptr align 1 %sender_pub, i64 %2, i1 false)
-  %add.ptr2548 = getelementptr inbounds nuw i8, ptr %kemctx, i64 %2
+  %add.ptr2548 = getelementptr inbounds i8, ptr %kemctx, i64 %2
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr2548, ptr nonnull align 1 %recipient_pub, i64 %2, i1 false)
   br label %if.end30
 
@@ -879,7 +879,7 @@ if.end30:                                         ; preds = %if.end22, %if.then2
   %.sink = phi i64 [ %2, %if.end22 ], [ %add, %if.then27 ]
   %recipient_pub.sink = phi ptr [ %recipient_pub, %if.end22 ], [ %pubkey.i, %if.then27 ]
   %add184450 = phi i64 [ %add18, %if.end22 ], [ %add1840, %if.then27 ]
-  %add.ptr25 = getelementptr inbounds nuw i8, ptr %kemctx, i64 %.sink
+  %add.ptr25 = getelementptr inbounds i8, ptr %kemctx, i64 %.sink
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr25, ptr nonnull align 1 %recipient_pub.sink, i64 %2, i1 false)
   %kdfname = getelementptr inbounds nuw i8, ptr %ctx, i64 56
   %6 = load ptr, ptr %kdfname, align 8

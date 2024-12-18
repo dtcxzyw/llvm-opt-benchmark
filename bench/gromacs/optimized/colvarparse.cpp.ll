@@ -20217,7 +20217,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %35 = load ptr, ptr %5, align 8
   %36 = getelementptr i8, ptr %35, i64 -24
   %37 = load i64, ptr %36, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %5, i64 %37
+  %38 = getelementptr inbounds i8, ptr %5, i64 %37
   %39 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %38)
           to label %40 unwind label %47
 

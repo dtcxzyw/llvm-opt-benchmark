@@ -1758,14 +1758,14 @@ define internal fastcc range(i32 0, 2) i32 @compare_opcodes(ptr noundef nonnull 
   %456 = zext i1 %455 to i32
   %457 = sdiv i32 %382, 128
   %458 = sext i32 %457 to i64
-  %459 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %458
+  %459 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %458
   %460 = load i16, ptr %459, align 2
   %461 = zext i16 %460 to i32
   %462 = shl nuw nsw i32 %461, 7
   %463 = srem i32 %382, 128
   %464 = add nsw i32 %462, %463
   %465 = sext i32 %464 to i64
-  %466 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %465
+  %466 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %465
   %467 = load i16, ptr %466, align 2
   %468 = zext i16 %467 to i64
   %469 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %468

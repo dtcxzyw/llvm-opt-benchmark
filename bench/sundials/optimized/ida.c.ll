@@ -4822,7 +4822,7 @@ define range(i32 -28, 1) i32 @IDAGetDky(ptr noundef %0, double noundef %1, i32 n
 
 61:                                               ; preds = %46
   %62 = add nsw i64 %indvar, -1
-  %63 = getelementptr inbounds nuw [6 x double], ptr %5, i64 0, i64 %62
+  %63 = getelementptr inbounds [6 x double], ptr %5, i64 0, i64 %62
   %64 = load double, ptr %63, align 8
   %65 = trunc nuw nsw i64 %indvar to i32
   %66 = uitofp nneg i32 %65 to double
@@ -4855,7 +4855,7 @@ define range(i32 -28, 1) i32 @IDAGetDky(ptr noundef %0, double noundef %1, i32 n
   %indvars.iv97 = phi i64 [ %58, %.lr.ph ], [ %indvars.iv.next98, %76 ]
   %.17788 = phi double [ %.076, %.lr.ph ], [ %84, %76 ]
   %77 = add nsw i64 %indvars.iv97, -1
-  %78 = getelementptr inbounds nuw [6 x double], ptr %6, i64 0, i64 %77
+  %78 = getelementptr inbounds [6 x double], ptr %6, i64 0, i64 %77
   %79 = load double, ptr %78, align 8
   %80 = fadd double %41, %.17788
   %81 = fmul double %80, %store_forwarded

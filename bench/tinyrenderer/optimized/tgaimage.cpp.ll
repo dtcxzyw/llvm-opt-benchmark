@@ -144,7 +144,7 @@ define dso_local noundef zeroext i1 @_ZN8TGAImage13read_tga_fileENSt7__cxx1112ba
   %17 = load ptr, ptr %3, align 8
   %18 = getelementptr i8, ptr %17, i64 -24
   %19 = load i64, ptr %18, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %3, i64 %19
+  %20 = getelementptr inbounds i8, ptr %3, i64 %19
   %21 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %20)
           to label %22 unwind label %12
 
@@ -221,7 +221,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %48, %.noexc23
   %56 = load ptr, ptr %3, align 8
   %57 = getelementptr i8, ptr %56, i64 -24
   %58 = load i64, ptr %57, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %3, i64 %58
+  %59 = getelementptr inbounds i8, ptr %3, i64 %58
   %60 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %59)
           to label %61 unwind label %12
 
@@ -733,7 +733,7 @@ define dso_local noundef zeroext i1 @_ZNK8TGAImage14write_tga_fileENSt7__cxx1112
   %40 = load ptr, ptr %8, align 8
   %41 = getelementptr i8, ptr %40, i64 -24
   %42 = load i64, ptr %41, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %8, i64 %42
+  %43 = getelementptr inbounds i8, ptr %8, i64 %42
   %44 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %43)
           to label %45 unwind label %17
 
@@ -760,7 +760,7 @@ define dso_local noundef zeroext i1 @_ZNK8TGAImage14write_tga_fileENSt7__cxx1112
   %59 = load ptr, ptr %8, align 8
   %60 = getelementptr i8, ptr %59, i64 -24
   %61 = load i64, ptr %60, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %8, i64 %61
+  %62 = getelementptr inbounds i8, ptr %8, i64 %61
   %63 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %62)
           to label %64 unwind label %17
 
@@ -782,7 +782,7 @@ define dso_local noundef zeroext i1 @_ZNK8TGAImage14write_tga_fileENSt7__cxx1112
   %71 = load ptr, ptr %8, align 8
   %72 = getelementptr i8, ptr %71, i64 -24
   %73 = load i64, ptr %72, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %8, i64 %73
+  %74 = getelementptr inbounds i8, ptr %8, i64 %73
   %75 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %74)
           to label %76 unwind label %17
 
@@ -797,7 +797,7 @@ define dso_local noundef zeroext i1 @_ZNK8TGAImage14write_tga_fileENSt7__cxx1112
   %80 = load ptr, ptr %8, align 8
   %81 = getelementptr i8, ptr %80, i64 -24
   %82 = load i64, ptr %81, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %8, i64 %82
+  %83 = getelementptr inbounds i8, ptr %8, i64 %82
   %84 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %83)
           to label %85 unwind label %17
 
@@ -812,7 +812,7 @@ define dso_local noundef zeroext i1 @_ZNK8TGAImage14write_tga_fileENSt7__cxx1112
   %89 = load ptr, ptr %8, align 8
   %90 = getelementptr i8, ptr %89, i64 -24
   %91 = load i64, ptr %90, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %8, i64 %91
+  %92 = getelementptr inbounds i8, ptr %8, i64 %91
   %93 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %92)
           to label %94 unwind label %17
 

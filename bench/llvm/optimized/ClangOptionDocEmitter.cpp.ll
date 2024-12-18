@@ -3581,7 +3581,7 @@ _ZN12_GLOBAL__N_110emitOptionERKNS_16DocumentedOptionEPKN4llvm6RecordERNS3_11raw
 
 .lr.ph249:                                        ; preds = %._crit_edge
   %683 = sext i32 %0 to i64
-  %684 = getelementptr inbounds nuw [9 x i8], ptr @.str.56, i64 0, i64 %683
+  %684 = getelementptr inbounds [9 x i8], ptr @.str.56, i64 0, i64 %683
   %685 = add nsw i32 %0, 1
   br label %686
 

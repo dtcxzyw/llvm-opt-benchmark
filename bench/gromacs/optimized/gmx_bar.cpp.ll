@@ -1841,7 +1841,7 @@ _ZL22lambda_components_findPK19lambda_components_tPKcm.exit.i.i.i: ; preds = %57
 
 _ZL22lambda_components_findPK19lambda_components_tPKcm.exit.thread.i.i.i: ; preds = %563, %579
   %581 = call ptr @strncpy(ptr noundef nonnull %61, ptr noundef nonnull %564, i64 noundef %569) #25
-  %582 = getelementptr inbounds nuw [4096 x i8], ptr %61, i64 0, i64 %569
+  %582 = getelementptr inbounds [4096 x i8], ptr %61, i64 0, i64 %569
   store i8 0, ptr %582, align 1
   invoke void @_ZNSt10filesystem7__cxx114pathC2IA124_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %62, ptr noundef nonnull align 1 dereferenceable(124) @.str.116, i8 noundef zeroext 2)
           to label %.noexc207 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -4995,7 +4995,7 @@ _ZL21sim_data_impose_timesP10sim_data_tdd.exit:   ; preds = %._crit_edge31.i, %1
 
 .noexc67.i:                                       ; preds = %.noexc.i
   %1959 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #25
-  %1960 = getelementptr inbounds nuw i8, ptr %20, i64 %1959
+  %1960 = getelementptr inbounds i8, ptr %20, i64 %1959
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull %20, ptr noundef nonnull %1960)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i unwind label %1961
 
@@ -7022,7 +7022,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 .noexc432:                                        ; preds = %.noexc431
   %2757 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %99) #25
-  %2758 = getelementptr inbounds nuw i8, ptr %99, i64 %2757
+  %2758 = getelementptr inbounds i8, ptr %99, i64 %2757
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %112, ptr noundef nonnull %99, ptr noundef nonnull %2758)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit435 unwind label %2759
 
@@ -7132,7 +7132,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit441: ;
 
 .noexc443:                                        ; preds = %.noexc442
   %2785 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %99) #25
-  %2786 = getelementptr inbounds nuw i8, ptr %99, i64 %2785
+  %2786 = getelementptr inbounds i8, ptr %99, i64 %2785
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %118, ptr noundef nonnull %99, ptr noundef nonnull %2786)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit446 unwind label %2787
 

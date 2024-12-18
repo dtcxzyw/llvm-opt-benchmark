@@ -1619,7 +1619,7 @@ entry:
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
 
 invoke.cont:                                      ; preds = %entry
-  %add.ptr = getelementptr inbounds nuw i8, ptr %out, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %out, i64 %vbase.offset
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale(ptr nonnull sret(%"class.std::locale") align 8 %agg.tmp.ensured, ptr noundef nonnull align 8 dereferenceable(264) %add.ptr, ptr noundef nonnull align 8 dereferenceable(8) %call)
           to label %invoke.cont1 unwind label %lpad.loopexit.split-lp
 
@@ -1649,7 +1649,7 @@ if.then:                                          ; preds = %land.lhs.true
   %vtable.i = load ptr, ptr %out, align 8
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %out, i64 %vbase.offset.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %out, i64 %vbase.offset.i
   %call.i2 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr.i)
           to label %call.i.noexc unwind label %lpad.loopexit
 

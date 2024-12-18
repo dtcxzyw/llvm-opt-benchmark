@@ -8181,7 +8181,7 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit199: ; preds = %428, %4
   %489 = getelementptr inbounds nuw i8, ptr %.sroa.0372.0419, i64 12
   %490 = load i32, ptr %489, align 4
   %491 = sext i32 %490 to i64
-  %492 = getelementptr inbounds nuw [2 x %struct.PmeOutput], ptr %34, i64 0, i64 %491
+  %492 = getelementptr inbounds [2 x %struct.PmeOutput], ptr %34, i64 0, i64 %491
   br i1 %485, label %493, label %494
 
 493:                                              ; preds = %483

@@ -1213,7 +1213,7 @@ _ZL18remapShortTimeZonePKcS0_ii.exit:             ; preds = %land.lhs.true11.i
 
 if.end74:                                         ; preds = %for.inc.i, %_ZL18remapShortTimeZonePKcS0_ii.exit
   %idxprom = sext i32 %n to i64
-  %arrayidx75 = getelementptr inbounds nuw [2 x ptr], ptr @tzname, i64 0, i64 %idxprom
+  %arrayidx75 = getelementptr inbounds [2 x ptr], ptr @tzname, i64 0, i64 %idxprom
   %15 = load ptr, ptr %arrayidx75, align 8
   br label %return
 
@@ -2341,7 +2341,7 @@ if.end.i:                                         ; preds = %entry
   %spec.store.select = tail call i32 @llvm.smin.i32(i32 %call, i32 20)
   call void @u_UCharsToChars_75(ptr noundef nonnull %versionString, ptr noundef nonnull %versionChars, i32 noundef %spec.store.select)
   %idxprom = sext i32 %spec.store.select to i64
-  %arrayidx = getelementptr inbounds nuw [21 x i8], ptr %versionChars, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [21 x i8], ptr %versionChars, i64 0, i64 %idxprom
   store i8 0, ptr %arrayidx, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i)
   %call8.i = call i64 @strtoul(ptr noundef nonnull %versionChars, ptr noundef nonnull %end.i, i32 noundef 10) #30

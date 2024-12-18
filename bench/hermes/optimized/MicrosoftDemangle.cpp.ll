@@ -117,14 +117,14 @@ $_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13Prim
 define hidden noundef zeroext i8 @_Z30translateIntrinsicFunctionCodec27FunctionIdentifierCodeGroup(i8 noundef signext %CH, i32 noundef %Group) local_unnamed_addr #0 {
 entry:
   %0 = sext i32 %Group to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._Z30translateIntrinsicFunctionCodec27FunctionIdentifierCodeGroup, i64 0, i64 %0
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._Z30translateIntrinsicFunctionCodec27FunctionIdentifierCodeGroup, i64 0, i64 %0
   %switch.load = load ptr, ptr %switch.gep, align 8
   %1 = add i8 %CH, -48
   %or.cond = icmp ult i8 %1, 10
   %cond.v = select i1 %or.cond, i64 -48, i64 -55
   %conv = sext i8 %CH to i64
   %cond = add nsw i64 %cond.v, %conv
-  %arrayidx11 = getelementptr inbounds nuw [36 x i8], ptr %switch.load, i64 0, i64 %cond
+  %arrayidx11 = getelementptr inbounds [36 x i8], ptr %switch.load, i64 0, i64 %cond
   %retval.0 = load i8, ptr %arrayidx11, align 1
   ret i8 %retval.0
 }
@@ -1756,7 +1756,7 @@ land.lhs.true.i.i:                                ; preds = %if.end34.i.i
 if.then41.i.i:                                    ; preds = %land.lhs.true.i.i
   %conv45.i.i = zext nneg i8 %23 to i64
   %sub46.i.i = add nsw i64 %conv45.i.i, -97
-  %arrayidx48.i.i = getelementptr inbounds nuw [26 x i8], ptr @__const._ZN12_GLOBAL__N_19Demangler19demangleCharLiteralER10StringView.Lookup, i64 0, i64 %sub46.i.i
+  %arrayidx48.i.i = getelementptr inbounds [26 x i8], ptr @__const._ZN12_GLOBAL__N_19Demangler19demangleCharLiteralER10StringView.Lookup, i64 0, i64 %sub46.i.i
   %31 = load i8, ptr %arrayidx48.i.i, align 1
   %add.ptr.i68.i.i = getelementptr inbounds nuw i8, ptr %18, i64 2
   store ptr %add.ptr.i68.i.i, ptr %MangledName, align 8
@@ -1770,7 +1770,7 @@ if.end51.i.i:                                     ; preds = %if.end34.i.i
 if.then59.i.i:                                    ; preds = %if.end51.i.i
   %conv63.i.i = zext nneg i8 %23 to i64
   %sub64.i.i = add nsw i64 %conv63.i.i, -65
-  %arrayidx66.i.i = getelementptr inbounds nuw [26 x i8], ptr @__const._ZN12_GLOBAL__N_19Demangler19demangleCharLiteralER10StringView.Lookup.34, i64 0, i64 %sub64.i.i
+  %arrayidx66.i.i = getelementptr inbounds [26 x i8], ptr @__const._ZN12_GLOBAL__N_19Demangler19demangleCharLiteralER10StringView.Lookup.34, i64 0, i64 %sub64.i.i
   %33 = load i8, ptr %arrayidx66.i.i, align 1
   %add.ptr.i79.i.i = getelementptr inbounds nuw i8, ptr %18, i64 2
   store ptr %add.ptr.i79.i.i, ptr %MangledName, align 8
@@ -1868,7 +1868,7 @@ land.lhs.true.i30.i:                              ; preds = %if.end34.i19.i
 if.then41.i32.i:                                  ; preds = %land.lhs.true.i30.i
   %conv45.i33.i = zext nneg i8 %39 to i64
   %sub46.i34.i = add nsw i64 %conv45.i33.i, -97
-  %arrayidx48.i35.i = getelementptr inbounds nuw [26 x i8], ptr @__const._ZN12_GLOBAL__N_19Demangler19demangleCharLiteralER10StringView.Lookup, i64 0, i64 %sub46.i34.i
+  %arrayidx48.i35.i = getelementptr inbounds [26 x i8], ptr @__const._ZN12_GLOBAL__N_19Demangler19demangleCharLiteralER10StringView.Lookup, i64 0, i64 %sub46.i34.i
   %47 = load i8, ptr %arrayidx48.i35.i, align 1
   %add.ptr.i68.i36.i = getelementptr inbounds nuw i8, ptr %35, i64 2
   store ptr %add.ptr.i68.i36.i, ptr %MangledName, align 8
@@ -1882,7 +1882,7 @@ if.end51.i21.i:                                   ; preds = %if.end34.i19.i
 if.then59.i25.i:                                  ; preds = %if.end51.i21.i
   %conv63.i26.i = zext nneg i8 %39 to i64
   %sub64.i27.i = add nsw i64 %conv63.i26.i, -65
-  %arrayidx66.i28.i = getelementptr inbounds nuw [26 x i8], ptr @__const._ZN12_GLOBAL__N_19Demangler19demangleCharLiteralER10StringView.Lookup.34, i64 0, i64 %sub64.i27.i
+  %arrayidx66.i28.i = getelementptr inbounds [26 x i8], ptr @__const._ZN12_GLOBAL__N_19Demangler19demangleCharLiteralER10StringView.Lookup.34, i64 0, i64 %sub64.i27.i
   %49 = load i8, ptr %arrayidx66.i28.i, align 1
   %add.ptr.i79.i29.i = getelementptr inbounds nuw i8, ptr %35, i64 2
   store ptr %add.ptr.i79.i29.i, ptr %MangledName, align 8
@@ -2019,7 +2019,7 @@ land.lhs.true.i:                                  ; preds = %if.end34.i
 if.then41.i:                                      ; preds = %land.lhs.true.i
   %conv45.i = zext nneg i8 %58 to i64
   %sub46.i = add nsw i64 %conv45.i, -97
-  %arrayidx48.i = getelementptr inbounds nuw [26 x i8], ptr @__const._ZN12_GLOBAL__N_19Demangler19demangleCharLiteralER10StringView.Lookup, i64 0, i64 %sub46.i
+  %arrayidx48.i = getelementptr inbounds [26 x i8], ptr @__const._ZN12_GLOBAL__N_19Demangler19demangleCharLiteralER10StringView.Lookup, i64 0, i64 %sub46.i
   %66 = load i8, ptr %arrayidx48.i, align 1
   %add.ptr.i68.i = getelementptr inbounds nuw i8, ptr %54, i64 2
   store ptr %add.ptr.i68.i, ptr %MangledName, align 8
@@ -2033,7 +2033,7 @@ if.end51.i:                                       ; preds = %if.end34.i
 if.then59.i:                                      ; preds = %if.end51.i
   %conv63.i = zext nneg i8 %58 to i64
   %sub64.i = add nsw i64 %conv63.i, -65
-  %arrayidx66.i = getelementptr inbounds nuw [26 x i8], ptr @__const._ZN12_GLOBAL__N_19Demangler19demangleCharLiteralER10StringView.Lookup.34, i64 0, i64 %sub64.i
+  %arrayidx66.i = getelementptr inbounds [26 x i8], ptr @__const._ZN12_GLOBAL__N_19Demangler19demangleCharLiteralER10StringView.Lookup.34, i64 0, i64 %sub64.i
   %68 = load i8, ptr %arrayidx66.i, align 1
   %add.ptr.i79.i = getelementptr inbounds nuw i8, ptr %54, i64 2
   store ptr %add.ptr.i79.i, ptr %MangledName, align 8
@@ -2072,7 +2072,7 @@ if.end54:                                         ; preds = %if.then52, %while.e
   %call56 = call noundef i32 @_Z17guessCharByteSizePKhjj(ptr noundef nonnull %StringBytes, i32 noundef %BytesDecoded.0, i32 noundef %conv55)
   %switch.tableidx = add nsw i32 %call56, -1
   %69 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN12_GLOBAL__N_19Demangler21demangleStringLiteralER10StringView, i64 0, i64 %69
+  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZN12_GLOBAL__N_19Demangler21demangleStringLiteralER10StringView, i64 0, i64 %69
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %Char.i7.i, align 4
   %cmp65141.not = icmp ugt i32 %call56, %BytesDecoded.0
@@ -6215,7 +6215,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.co
   %cmp2.i = phi i1 [ true, %for.cond.preheader.i ], [ false, %for.body.i ]
   %C.addr.135.i = phi i32 [ %C.addr.038.i, %for.cond.preheader.i ], [ %div9.i, %for.body.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %arrayidx.i = getelementptr inbounds nuw [17 x i8], ptr %TempBuffer.i, i64 0, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds [17 x i8], ptr %TempBuffer.i, i64 0, i64 %indvars.iv.i
   %61 = trunc i32 %C.addr.135.i to i8
   %conv.i = and i8 %61, 15
   %cmp.i.i253 = icmp samesign ult i8 %conv.i, 10
@@ -6229,19 +6229,19 @@ for.body.i:                                       ; preds = %for.body.i, %for.co
 for.end.i:                                        ; preds = %for.body.i
   %sext41.i = shl i64 %indvars.iv.next.i, 32
   %idxprom4.i = ashr exact i64 %sext41.i, 32
-  %arrayidx5.i = getelementptr inbounds nuw [17 x i8], ptr %TempBuffer.i, i64 0, i64 %idxprom4.i
+  %arrayidx5.i = getelementptr inbounds [17 x i8], ptr %TempBuffer.i, i64 0, i64 %idxprom4.i
   store i8 120, ptr %arrayidx5.i, align 1
   %dec6.i = add i64 %indvars.iv.i, -3
   %dec3.i = shl i64 %indvars.iv.i, 32
   %sext42.i = add i64 %dec3.i, -8589934592
   %idxprom7.i = ashr exact i64 %sext42.i, 32
-  %arrayidx8.i = getelementptr inbounds nuw [17 x i8], ptr %TempBuffer.i, i64 0, i64 %idxprom7.i
+  %arrayidx8.i = getelementptr inbounds [17 x i8], ptr %TempBuffer.i, i64 0, i64 %idxprom7.i
   store i8 92, ptr %arrayidx8.i, align 1
   %cmp1.not.i = icmp ult i32 %C.addr.135.i, 16
   br i1 %cmp1.not.i, label %while.end.i, label %for.cond.preheader.i, !llvm.loop !17
 
 while.end.i:                                      ; preds = %for.end.i
-  %arrayidx8.i.le = getelementptr inbounds nuw [17 x i8], ptr %TempBuffer.i, i64 0, i64 %idxprom7.i
+  %arrayidx8.i.le = getelementptr inbounds [17 x i8], ptr %TempBuffer.i, i64 0, i64 %idxprom7.i
   %call.i11.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %arrayidx8.i.le) #22
   %cmp.i.i16.i = icmp eq i64 %call.i11.i, 0
   br i1 %cmp.i.i16.i, label %_ZL9outputHexR12OutputStreamj.exit, label %if.end.i.i17.i
@@ -8447,7 +8447,7 @@ if.then6.i:                                       ; preds = %_ZNK10StringView10s
   %cond.v.i35.i.i = select i1 %or.cond.i34.i.i, i64 -48, i64 -55
   %conv.i36.i.i = sext i8 %4 to i64
   %cond.i37.i.i = add nsw i64 %cond.v.i35.i.i, %conv.i36.i.i
-  %arrayidx11.i38.i.i = getelementptr inbounds nuw [36 x i8], ptr @_ZZ30translateIntrinsicFunctionCodec27FunctionIdentifierCodeGroupE5Under, i64 0, i64 %cond.i37.i.i
+  %arrayidx11.i38.i.i = getelementptr inbounds [36 x i8], ptr @_ZZ30translateIntrinsicFunctionCodec27FunctionIdentifierCodeGroupE5Under, i64 0, i64 %cond.i37.i.i
   %retval.0.i39.i.i = load i8, ptr %arrayidx11.i38.i.i, align 1
   %6 = load ptr, ptr %Arena10.i.i, align 8
   %7 = load ptr, ptr %6, align 8
@@ -8738,7 +8738,7 @@ sw.default:                                       ; preds = %sw.bb
   %cond.v.i = select i1 %or.cond.i, i64 -48, i64 -55
   %conv.i = sext i8 %1 to i64
   %cond.i = add nsw i64 %cond.v.i, %conv.i
-  %arrayidx11.i = getelementptr inbounds nuw [36 x i8], ptr @_ZZ30translateIntrinsicFunctionCodec27FunctionIdentifierCodeGroupE5Basic, i64 0, i64 %cond.i
+  %arrayidx11.i = getelementptr inbounds [36 x i8], ptr @_ZZ30translateIntrinsicFunctionCodec27FunctionIdentifierCodeGroupE5Basic, i64 0, i64 %cond.i
   %retval.0.i = load i8, ptr %arrayidx11.i, align 1
   %19 = load ptr, ptr %Arena, align 8
   %20 = load ptr, ptr %19, align 8
@@ -8798,7 +8798,7 @@ sw.bb9:                                           ; preds = %entry
   %cond.v.i35 = select i1 %or.cond.i34, i64 -48, i64 -55
   %conv.i36 = sext i8 %28 to i64
   %cond.i37 = add nsw i64 %cond.v.i35, %conv.i36
-  %arrayidx11.i38 = getelementptr inbounds nuw [36 x i8], ptr @_ZZ30translateIntrinsicFunctionCodec27FunctionIdentifierCodeGroupE5Under, i64 0, i64 %cond.i37
+  %arrayidx11.i38 = getelementptr inbounds [36 x i8], ptr @_ZZ30translateIntrinsicFunctionCodec27FunctionIdentifierCodeGroupE5Under, i64 0, i64 %cond.i37
   %retval.0.i39 = load i8, ptr %arrayidx11.i38, align 1
   %30 = load ptr, ptr %Arena10, align 8
   %31 = load ptr, ptr %30, align 8
@@ -8952,7 +8952,7 @@ sw.default21:                                     ; preds = %sw.bb15
   %cond.v.i83 = select i1 %or.cond.i82, i64 -48, i64 -55
   %conv.i84 = sext i8 %39 to i64
   %cond.i85 = add nsw i64 %cond.v.i83, %conv.i84
-  %arrayidx11.i86 = getelementptr inbounds nuw [36 x i8], ptr @_ZZ30translateIntrinsicFunctionCodec27FunctionIdentifierCodeGroupE11DoubleUnder, i64 0, i64 %cond.i85
+  %arrayidx11.i86 = getelementptr inbounds [36 x i8], ptr @_ZZ30translateIntrinsicFunctionCodec27FunctionIdentifierCodeGroupE11DoubleUnder, i64 0, i64 %cond.i85
   %retval.0.i87 = load i8, ptr %arrayidx11.i86, align 1
   %52 = load ptr, ptr %Arena.i62, align 8
   %53 = load ptr, ptr %52, align 8
@@ -9338,7 +9338,7 @@ while.body:                                       ; preds = %entry, %while.body
   %conv = trunc nuw nsw i64 %rem to i8
   %add = or disjoint i8 %conv, 48
   %TempPtr.0.add19 = add nsw i64 %TempPtr.0.idx21, -1
-  %incdec.ptr.ptr = getelementptr inbounds nuw i8, ptr %Temp, i64 %TempPtr.0.add19
+  %incdec.ptr.ptr = getelementptr inbounds i8, ptr %Temp, i64 %TempPtr.0.add19
   store i8 %add, ptr %incdec.ptr.ptr, align 1
   %div = udiv i64 %N.addr.020, 10
   %tobool.not = icmp ult i64 %N.addr.020, 10
@@ -9349,13 +9349,13 @@ while.end:                                        ; preds = %while.body
 
 if.then6:                                         ; preds = %while.end
   %TempPtr.0.add = add nsw i64 %TempPtr.0.idx21, -2
-  %incdec.ptr7.ptr = getelementptr inbounds nuw i8, ptr %Temp, i64 %TempPtr.0.add
+  %incdec.ptr7.ptr = getelementptr inbounds i8, ptr %Temp, i64 %TempPtr.0.add
   store i8 45, ptr %incdec.ptr7.ptr, align 1
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then6, %while.end
   %TempPtr.1.idx = phi i64 [ %TempPtr.0.add, %if.then6 ], [ %TempPtr.0.add19, %while.end ]
-  %TempPtr.1.ptr = getelementptr inbounds nuw i8, ptr %Temp, i64 %TempPtr.1.idx
+  %TempPtr.1.ptr = getelementptr inbounds i8, ptr %Temp, i64 %TempPtr.1.idx
   %gepdiff = sub nsw i64 21, %TempPtr.1.idx
   %cmp.i.i = icmp eq i64 %TempPtr.1.idx, 21
   br i1 %cmp.i.i, label %return, label %if.end.i.i

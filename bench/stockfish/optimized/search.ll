@@ -4342,14 +4342,14 @@ _ZNSt6vectorIN9Stockfish4MoveESaIS1_EE9push_backERKS1_.exit: ; preds = %750, %_Z
 797:                                              ; preds = %796
   %798 = add nsw i32 %.0456.ph784, 1
   %799 = sext i32 %.0456.ph784 to i64
-  %800 = getelementptr inbounds nuw [32 x %"class.Stockfish::Move"], ptr %9, i64 0, i64 %799
+  %800 = getelementptr inbounds [32 x %"class.Stockfish::Move"], ptr %9, i64 0, i64 %799
   store i16 %383, ptr %800, align 2
   br label %.outer
 
 801:                                              ; preds = %796
   %802 = add nsw i32 %.0458.ph783, 1
   %803 = sext i32 %.0458.ph783 to i64
-  %804 = getelementptr inbounds nuw [32 x %"class.Stockfish::Move"], ptr %10, i64 0, i64 %803
+  %804 = getelementptr inbounds [32 x %"class.Stockfish::Move"], ptr %10, i64 0, i64 %803
   store i16 %383, ptr %804, align 2
   br label %.outer
 
@@ -8164,14 +8164,14 @@ _ZN9Stockfish12_GLOBAL__N_129update_continuation_historiesEPNS_6Search5StackENS_
 1003:                                             ; preds = %1002
   %1004 = add nsw i32 %.06471136, 1
   %1005 = sext i32 %.06471136 to i64
-  %1006 = getelementptr inbounds nuw [32 x %"class.Stockfish::Move"], ptr %8, i64 0, i64 %1005
+  %1006 = getelementptr inbounds [32 x %"class.Stockfish::Move"], ptr %8, i64 0, i64 %1005
   store i16 %648, ptr %1006, align 2
   br label %.backedge
 
 1007:                                             ; preds = %1002
   %1008 = add nsw i32 %.06491135, 1
   %1009 = sext i32 %.06491135 to i64
-  %1010 = getelementptr inbounds nuw [32 x %"class.Stockfish::Move"], ptr %9, i64 0, i64 %1009
+  %1010 = getelementptr inbounds [32 x %"class.Stockfish::Move"], ptr %9, i64 0, i64 %1009
   store i16 %648, ptr %1010, align 2
   br label %.backedge
 
@@ -9809,14 +9809,14 @@ _ZN9Stockfish12_GLOBAL__N_19update_pvEPNS_4MoveES1_PKS1_.exit: ; preds = %.lr.ph
 821:                                              ; preds = %820
   %822 = add nsw i32 %.0500941, 1
   %823 = sext i32 %.0500941 to i64
-  %824 = getelementptr inbounds nuw [32 x %"class.Stockfish::Move"], ptr %9, i64 0, i64 %823
+  %824 = getelementptr inbounds [32 x %"class.Stockfish::Move"], ptr %9, i64 0, i64 %823
   store i16 %455, ptr %824, align 2
   br label %.backedge
 
 825:                                              ; preds = %820
   %826 = add nsw i32 %.0502940, 1
   %827 = sext i32 %.0502940 to i64
-  %828 = getelementptr inbounds nuw [32 x %"class.Stockfish::Move"], ptr %10, i64 0, i64 %827
+  %828 = getelementptr inbounds [32 x %"class.Stockfish::Move"], ptr %10, i64 0, i64 %827
   store i16 %455, ptr %828, align 2
   br label %.backedge
 

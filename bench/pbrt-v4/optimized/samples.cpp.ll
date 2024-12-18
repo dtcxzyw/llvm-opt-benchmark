@@ -4029,7 +4029,7 @@ if.then:                                          ; preds = %entry
   %haltonIndex = getelementptr inbounds nuw i8, ptr %this, i64 40
   %1 = load i64, ptr %haltonIndex, align 8
   %idxprom.i = sext i32 %dimension to i64
-  %arrayidx.i = getelementptr inbounds nuw [1000 x i32], ptr @_ZN4pbrt6PrimesE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [1000 x i32], ptr @_ZN4pbrt6PrimesE, i64 0, i64 %idxprom.i
   %2 = load i32, ptr %arrayidx.i, align 4
   %conv.i = zext i32 %2 to i64
   %div.i = udiv i64 -1, %conv.i
@@ -4066,7 +4066,7 @@ _ZN4pbrt14RadicalInverseEim.exit:                 ; preds = %if.then, %while.end
 
 if.then4:                                         ; preds = %entry
   %conv = sext i32 %dimension to i64
-  %arrayidx.i7 = getelementptr inbounds nuw [1000 x i32], ptr @_ZN4pbrt6PrimesE, i64 0, i64 %conv
+  %arrayidx.i7 = getelementptr inbounds [1000 x i32], ptr @_ZN4pbrt6PrimesE, i64 0, i64 %conv
   %6 = load i32, ptr %arrayidx.i7, align 4
   %conv.i8 = zext i32 %6 to i64
   %div.i9 = udiv i64 -1, %conv.i8
@@ -4156,7 +4156,7 @@ return:                                           ; preds = %do.end, %_ZN4pbrt23
 define linkonce_odr dso_local noundef float @_ZN4pbrt27OwenScrambledRadicalInverseEimj(i32 noundef %baseIndex, i64 noundef %a, i32 noundef %hash) local_unnamed_addr #4 comdat {
 while.body.lr.ph:
   %idxprom = sext i32 %baseIndex to i64
-  %arrayidx = getelementptr inbounds nuw [1000 x i32], ptr @_ZN4pbrt6PrimesE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [1000 x i32], ptr @_ZN4pbrt6PrimesE, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4
   %conv = zext i32 %0 to i64
   %div = udiv i64 -1, %conv
@@ -5050,7 +5050,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %tobool.not.i, label %for.inc.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %arrayidx.i = getelementptr inbounds nuw [53248 x i32], ptr @_ZN4pbrt15SobolMatrices32E, i64 0, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds [53248 x i32], ptr @_ZN4pbrt15SobolMatrices32E, i64 0, i64 %indvars.iv.i
   %2 = load i32, ptr %arrayidx.i, align 4
   %xor.i = xor i32 %2, %v.08.i
   br label %for.inc.i
@@ -5085,7 +5085,7 @@ for.body.i12:                                     ; preds = %for.inc.i21, %for.b
   br i1 %tobool.not.i17, label %for.inc.i21, label %if.then.i18
 
 if.then.i18:                                      ; preds = %for.body.i12
-  %arrayidx.i19 = getelementptr inbounds nuw [53248 x i32], ptr @_ZN4pbrt15SobolMatrices32E, i64 0, i64 %indvars.iv.i13
+  %arrayidx.i19 = getelementptr inbounds [53248 x i32], ptr @_ZN4pbrt15SobolMatrices32E, i64 0, i64 %indvars.iv.i13
   %6 = load i32, ptr %arrayidx.i19, align 4
   %xor.i20 = xor i32 %6, %v.08.i14
   br label %for.inc.i21
@@ -5122,7 +5122,7 @@ for.body.i32:                                     ; preds = %for.inc.i41, %for.b
   br i1 %tobool.not.i37, label %for.inc.i41, label %if.then.i38
 
 if.then.i38:                                      ; preds = %for.body.i32
-  %arrayidx.i39 = getelementptr inbounds nuw [53248 x i32], ptr @_ZN4pbrt15SobolMatrices32E, i64 0, i64 %indvars.iv.i33
+  %arrayidx.i39 = getelementptr inbounds [53248 x i32], ptr @_ZN4pbrt15SobolMatrices32E, i64 0, i64 %indvars.iv.i33
   %8 = load i32, ptr %arrayidx.i39, align 4
   %xor.i40 = xor i32 %8, %v.08.i34
   br label %for.inc.i41
@@ -5170,7 +5170,7 @@ for.body.i55:                                     ; preds = %for.inc.i64, %for.b
   br i1 %tobool.not.i60, label %for.inc.i64, label %if.then.i61
 
 if.then.i61:                                      ; preds = %for.body.i55
-  %arrayidx.i62 = getelementptr inbounds nuw [53248 x i32], ptr @_ZN4pbrt15SobolMatrices32E, i64 0, i64 %indvars.iv.i56
+  %arrayidx.i62 = getelementptr inbounds [53248 x i32], ptr @_ZN4pbrt15SobolMatrices32E, i64 0, i64 %indvars.iv.i56
   %10 = load i32, ptr %arrayidx.i62, align 4
   %xor.i63 = xor i32 %10, %v.08.i57
   br label %for.inc.i64
@@ -5937,7 +5937,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %tobool.not.i, label %for.inc.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %arrayidx.i = getelementptr inbounds nuw [53248 x i32], ptr @_ZN4pbrt15SobolMatrices32E, i64 0, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds [53248 x i32], ptr @_ZN4pbrt15SobolMatrices32E, i64 0, i64 %indvars.iv.i
   %3 = load i32, ptr %arrayidx.i, align 4
   %xor.i = xor i32 %3, %v.08.i
   br label %for.inc.i
@@ -5998,7 +5998,7 @@ for.body.i10:                                     ; preds = %for.inc.i19, %for.b
   br i1 %tobool.not.i15, label %for.inc.i19, label %if.then.i16
 
 if.then.i16:                                      ; preds = %for.body.i10
-  %arrayidx.i17 = getelementptr inbounds nuw [53248 x i32], ptr @_ZN4pbrt15SobolMatrices32E, i64 0, i64 %indvars.iv.i11
+  %arrayidx.i17 = getelementptr inbounds [53248 x i32], ptr @_ZN4pbrt15SobolMatrices32E, i64 0, i64 %indvars.iv.i11
   %9 = load i32, ptr %arrayidx.i17, align 4
   %xor.i18 = xor i32 %9, %v.08.i12
   br label %for.inc.i19
@@ -6034,7 +6034,7 @@ for.body.i30:                                     ; preds = %for.inc.i39, %for.b
   br i1 %tobool.not.i35, label %for.inc.i39, label %if.then.i36
 
 if.then.i36:                                      ; preds = %for.body.i30
-  %arrayidx.i37 = getelementptr inbounds nuw [53248 x i32], ptr @_ZN4pbrt15SobolMatrices32E, i64 0, i64 %indvars.iv.i31
+  %arrayidx.i37 = getelementptr inbounds [53248 x i32], ptr @_ZN4pbrt15SobolMatrices32E, i64 0, i64 %indvars.iv.i31
   %11 = load i32, ptr %arrayidx.i37, align 4
   %xor.i38 = xor i32 %11, %v.08.i32
   br label %for.inc.i39
@@ -6081,7 +6081,7 @@ for.body.i55:                                     ; preds = %for.inc.i64, %for.b
   br i1 %tobool.not.i60, label %for.inc.i64, label %if.then.i61
 
 if.then.i61:                                      ; preds = %for.body.i55
-  %arrayidx.i62 = getelementptr inbounds nuw [53248 x i32], ptr @_ZN4pbrt15SobolMatrices32E, i64 0, i64 %indvars.iv.i56
+  %arrayidx.i62 = getelementptr inbounds [53248 x i32], ptr @_ZN4pbrt15SobolMatrices32E, i64 0, i64 %indvars.iv.i56
   %13 = load i32, ptr %arrayidx.i62, align 4
   %xor.i63 = xor i32 %13, %v.08.i57
   br label %for.inc.i64

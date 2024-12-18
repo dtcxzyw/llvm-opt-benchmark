@@ -44,7 +44,7 @@ define range(i32 0, 2) i32 @ExorLinkCubeIteratorStart(ptr nocapture noundef writ
   %5 = add i32 %3, 2
   store i32 %5, ptr @nCubes, align 4
   %6 = sext i32 %3 to i64
-  %7 = getelementptr inbounds nuw [4 x i32], ptr @s_ELnCubes, i64 0, i64 %6
+  %7 = getelementptr inbounds [4 x i32], ptr @s_ELnCubes, i64 0, i64 %6
   %8 = load i32, ptr %7, align 4
   store i32 %8, ptr @nCubesInGroup, align 4
   %9 = zext i32 %3 to i64
@@ -109,7 +109,7 @@ define range(i32 0, 2) i32 @ExorLinkCubeIteratorStart(ptr nocapture noundef writ
   %37 = shl nuw i32 3, %35
   %38 = xor i32 %37, -1
   %39 = sext i32 %32 to i64
-  %40 = getelementptr inbounds nuw [78 x i32], ptr @DammyBitData, i64 0, i64 %39
+  %40 = getelementptr inbounds [78 x i32], ptr @DammyBitData, i64 0, i64 %39
   %41 = load i32, ptr %40, align 4
   %42 = and i32 %41, %38
   store i32 %42, ptr %40, align 4
@@ -222,7 +222,7 @@ define range(i32 0, 2) i32 @ExorLinkCubeIteratorStart(ptr nocapture noundef writ
   %96 = getelementptr inbounds nuw [3 x [24 x [4 x i32]]], ptr @s_ELGroupRules, i64 0, i64 %9, i64 %indvars.iv189, i64 %indvars.iv184
   %97 = load i32, ptr %96, align 4
   %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds nuw [32 x i32], ptr @CubeLiterals, i64 0, i64 %98
+  %99 = getelementptr inbounds [32 x i32], ptr @CubeLiterals, i64 0, i64 %98
   %100 = load i32, ptr %99, align 4
   %101 = add nsw i32 %95, %100
   %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
@@ -286,7 +286,7 @@ define range(i32 0, 2) i32 @ExorLinkCubeIteratorStart(ptr nocapture noundef writ
   %123 = load i32, ptr %122, align 4
   store i32 %123, ptr @CubeNum, align 4
   %124 = sext i32 %123 to i64
-  %125 = getelementptr inbounds nuw [32 x i32], ptr @s_BitMasks, i64 0, i64 %124
+  %125 = getelementptr inbounds [32 x i32], ptr @s_BitMasks, i64 0, i64 %124
   %126 = load i32, ptr %125, align 4
   %127 = load i32, ptr @LastGroup, align 4
   %128 = or i32 %127, %126
@@ -294,7 +294,7 @@ define range(i32 0, 2) i32 @ExorLinkCubeIteratorStart(ptr nocapture noundef writ
   %129 = tail call ptr (...) @GetFreeCube() #5
   %130 = load i32, ptr @CubeNum, align 4
   %131 = sext i32 %130 to i64
-  %132 = getelementptr inbounds nuw [32 x ptr], ptr @ELCubes, i64 0, i64 %131
+  %132 = getelementptr inbounds [32 x ptr], ptr @ELCubes, i64 0, i64 %131
   store ptr %129, ptr %132, align 8
   %133 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 8), align 8
   %134 = icmp sgt i32 %133, 0
@@ -520,7 +520,7 @@ define range(i32 0, 2) i32 @ExorLinkCubeIteratorStart(ptr nocapture noundef writ
 
 ._crit_edge156:                                   ; preds = %258, %.loopexit
   %274 = load i32, ptr @StartingLiterals, align 4
-  %275 = getelementptr inbounds nuw [32 x i32], ptr @CubeLiterals, i64 0, i64 %131
+  %275 = getelementptr inbounds [32 x i32], ptr @CubeLiterals, i64 0, i64 %131
   %276 = load i32, ptr %275, align 4
   %277 = add nsw i32 %276, %274
   %278 = trunc i32 %277 to i16
@@ -533,7 +533,7 @@ define range(i32 0, 2) i32 @ExorLinkCubeIteratorStart(ptr nocapture noundef writ
   %283 = trunc i32 %282 to i16
   %284 = load i32, ptr @CubeNum, align 4
   %285 = sext i32 %284 to i64
-  %286 = getelementptr inbounds nuw [32 x ptr], ptr @ELCubes, i64 0, i64 %285
+  %286 = getelementptr inbounds [32 x ptr], ptr @ELCubes, i64 0, i64 %285
   %287 = load ptr, ptr %286, align 8
   %288 = getelementptr inbounds nuw i8, ptr %287, i64 6
   store i16 %283, ptr %288, align 2
@@ -563,7 +563,7 @@ define range(i32 0, 2) i32 @ExorLinkCubeIteratorStart(ptr nocapture noundef writ
 ._crit_edge160:                                   ; preds = %296, %._crit_edge131
   %301 = load i32, ptr @GroupCostBestNum, align 4
   %302 = sext i32 %301 to i64
-  %303 = getelementptr inbounds nuw [32 x i32], ptr @s_BitMasks, i64 0, i64 %302
+  %303 = getelementptr inbounds [32 x i32], ptr @s_BitMasks, i64 0, i64 %302
   %304 = load i32, ptr %303, align 4
   %305 = load i32, ptr @VisitedGroups, align 4
   %306 = or i32 %305, %304
@@ -647,11 +647,11 @@ define range(i32 0, 2) i32 @ExorLinkCubeIteratorNext(ptr nocapture noundef write
   %29 = load i32, ptr %28, align 4
   store i32 %29, ptr @CubeNum, align 4
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds nuw [32 x i32], ptr @s_BitMasks, i64 0, i64 %30
+  %31 = getelementptr inbounds [32 x i32], ptr @s_BitMasks, i64 0, i64 %30
   %32 = load i32, ptr %31, align 4
   %33 = or i32 %23, %32
   store i32 %33, ptr @LastGroup, align 4
-  %34 = getelementptr inbounds nuw [32 x ptr], ptr @ELCubes, i64 0, i64 %30
+  %34 = getelementptr inbounds [32 x ptr], ptr @ELCubes, i64 0, i64 %30
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %209
@@ -660,7 +660,7 @@ define range(i32 0, 2) i32 @ExorLinkCubeIteratorNext(ptr nocapture noundef write
   %38 = tail call ptr (...) @GetFreeCube() #5
   %39 = load i32, ptr @CubeNum, align 4
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds nuw [32 x ptr], ptr @ELCubes, i64 0, i64 %40
+  %41 = getelementptr inbounds [32 x ptr], ptr @ELCubes, i64 0, i64 %40
   store ptr %38, ptr %41, align 8
   %42 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 8), align 8
   %43 = icmp sgt i32 %42, 0
@@ -890,7 +890,7 @@ define range(i32 0, 2) i32 @ExorLinkCubeIteratorNext(ptr nocapture noundef write
 
 ._crit_edge78:                                    ; preds = %171, %.loopexit
   %187 = load i32, ptr @StartingLiterals, align 4
-  %188 = getelementptr inbounds nuw [32 x i32], ptr @CubeLiterals, i64 0, i64 %40
+  %188 = getelementptr inbounds [32 x i32], ptr @CubeLiterals, i64 0, i64 %40
   %189 = load i32, ptr %188, align 4
   %190 = add nsw i32 %189, %187
   %191 = trunc i32 %190 to i16
@@ -903,7 +903,7 @@ define range(i32 0, 2) i32 @ExorLinkCubeIteratorNext(ptr nocapture noundef write
   %196 = trunc i32 %195 to i16
   %197 = load i32, ptr @CubeNum, align 4
   %198 = sext i32 %197 to i64
-  %199 = getelementptr inbounds nuw [32 x ptr], ptr @ELCubes, i64 0, i64 %198
+  %199 = getelementptr inbounds [32 x ptr], ptr @ELCubes, i64 0, i64 %198
   %200 = load ptr, ptr %199, align 8
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 6
   store i16 %196, ptr %201, align 2
@@ -945,7 +945,7 @@ define range(i32 0, 2) i32 @ExorLinkCubeIteratorNext(ptr nocapture noundef write
   %218 = phi i32 [ %.pre120, %._crit_edge82.loopexit ], [ %2, %._crit_edge ]
   %219 = phi i32 [ %212, %._crit_edge82.loopexit ], [ %.pre119, %._crit_edge ]
   %220 = sext i32 %219 to i64
-  %221 = getelementptr inbounds nuw [32 x i32], ptr @s_BitMasks, i64 0, i64 %220
+  %221 = getelementptr inbounds [32 x i32], ptr @s_BitMasks, i64 0, i64 %220
   %222 = load i32, ptr %221, align 4
   %223 = load i32, ptr @VisitedGroups, align 4
   %224 = or i32 %223, %222
@@ -953,7 +953,7 @@ define range(i32 0, 2) i32 @ExorLinkCubeIteratorNext(ptr nocapture noundef write
   %225 = add nsw i32 %218, 1
   store i32 %225, ptr @nVisitedGroups, align 4
   %226 = sext i32 %218 to i64
-  %227 = getelementptr inbounds nuw [24 x i32], ptr @GroupOrder, i64 0, i64 %226
+  %227 = getelementptr inbounds [24 x i32], ptr @GroupOrder, i64 0, i64 %226
   store i32 %219, ptr %227, align 4
   br label %228
 
@@ -965,7 +965,7 @@ define range(i32 0, 2) i32 @ExorLinkCubeIteratorNext(ptr nocapture noundef write
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
 define noundef i32 @ExorLinkCubeIteratorPick(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds nuw [24 x i32], ptr @GroupOrder, i64 0, i64 %3
+  %4 = getelementptr inbounds [24 x i32], ptr @GroupOrder, i64 0, i64 %3
   %5 = load i32, ptr %4, align 4
   store i32 0, ptr @LastGroup, align 4
   %6 = load i32, ptr @nCubes, align 4
@@ -985,10 +985,10 @@ define noundef i32 @ExorLinkCubeIteratorPick(ptr nocapture noundef writeonly %0,
   %13 = getelementptr inbounds [3 x [24 x [4 x i32]]], ptr @s_ELGroupRules, i64 0, i64 %9, i64 %10, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds nuw [32 x i32], ptr @s_BitMasks, i64 0, i64 %15
+  %16 = getelementptr inbounds [32 x i32], ptr @s_BitMasks, i64 0, i64 %15
   %17 = load i32, ptr %16, align 4
   %18 = or i32 %12, %17
-  %19 = getelementptr inbounds nuw [32 x ptr], ptr @ELCubes, i64 0, i64 %15
+  %19 = getelementptr inbounds [32 x ptr], ptr @ELCubes, i64 0, i64 %15
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   store ptr %20, ptr %21, align 8

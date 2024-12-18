@@ -39,7 +39,7 @@ timelib_day_of_week_ex.exit:                      ; preds = %8, %10
   %15 = udiv i16 %.lhs.trunc.i, 100
   %16 = shl nuw nsw i16 %15, 1
   %17 = zext nneg i16 %16 to i64
-  %.in.i = getelementptr inbounds nuw [13 x i32], ptr %m_table_leap.pn.i, i64 0, i64 %1
+  %.in.i = getelementptr inbounds [13 x i32], ptr %m_table_leap.pn.i, i64 0, i64 %1
   %18 = load i32, ptr %.in.i, align 4
   %19 = sext i32 %18 to i64
   %20 = lshr i64 %spec.select.i17.i, 2
@@ -84,7 +84,7 @@ timelib_day_of_week_ex.exit:                      ; preds = %8, %10
   %15 = udiv i16 %.lhs.trunc.i, 100
   %16 = shl nuw nsw i16 %15, 1
   %17 = zext nneg i16 %16 to i64
-  %.in.i = getelementptr inbounds nuw [13 x i32], ptr %m_table_leap.pn.i, i64 0, i64 %1
+  %.in.i = getelementptr inbounds [13 x i32], ptr %m_table_leap.pn.i, i64 0, i64 %1
   %18 = load i32, ptr %.in.i, align 4
   %19 = sext i32 %18 to i64
   %20 = lshr i64 %spec.select.i17.i, 2
@@ -121,7 +121,7 @@ define hidden range(i64 -9223372036854775808, 9223372036854775807) i64 @timelib_
 
 11:                                               ; preds = %6, %10
   %d_table_leap.pn = phi ptr [ @d_table_common, %10 ], [ @d_table_leap, %6 ]
-  %.in = getelementptr inbounds nuw [13 x i32], ptr %d_table_leap.pn, i64 0, i64 %1
+  %.in = getelementptr inbounds [13 x i32], ptr %d_table_leap.pn, i64 0, i64 %1
   %12 = load i32, ptr %.in, align 4
   %13 = sext i32 %12 to i64
   %14 = add i64 %2, -1
@@ -148,7 +148,7 @@ define hidden range(i64 -2147483648, 2147483648) i64 @timelib_days_in_month(i64 
 
 10:                                               ; preds = %5, %9
   %ml_table_leap.pn = phi ptr [ @ml_table_common, %9 ], [ @ml_table_leap, %5 ]
-  %.in = getelementptr inbounds nuw [13 x i32], ptr %ml_table_leap.pn, i64 0, i64 %1
+  %.in = getelementptr inbounds [13 x i32], ptr %ml_table_leap.pn, i64 0, i64 %1
   %11 = load i32, ptr %.in, align 4
   %12 = sext i32 %11 to i64
   ret i64 %12
@@ -198,7 +198,7 @@ define hidden void @timelib_isoweek_from_date(i64 noundef %0, i64 noundef %1, i6
   %28 = icmp eq i64 %27, 0
   %or.cond.i = or i1 %.not.i, %28
   %spec.select87 = select i1 %or.cond.i, ptr @d_table_leap, ptr @d_table_common
-  %.in.i75 = getelementptr inbounds nuw [13 x i32], ptr %spec.select87, i64 0, i64 %1
+  %.in.i75 = getelementptr inbounds [13 x i32], ptr %spec.select87, i64 0, i64 %1
   %29 = load i32, ptr %.in.i75, align 4
   %30 = trunc i64 %2 to i32
   %31 = add i32 %29, %30
@@ -215,7 +215,7 @@ define hidden void @timelib_isoweek_from_date(i64 noundef %0, i64 noundef %1, i6
 timelib_day_of_year.exit:                         ; preds = %23
   %.pre71 = srem i64 %0, 400
   %.pre = srem i64 %0, 100
-  %.in.i = getelementptr inbounds nuw [13 x i32], ptr @d_table_common, i64 0, i64 %1
+  %.in.i = getelementptr inbounds [13 x i32], ptr @d_table_common, i64 0, i64 %1
   %35 = load i32, ptr %.in.i, align 4
   %36 = trunc i64 %2 to i32
   %37 = add i32 %35, %36
@@ -266,7 +266,7 @@ timelib_day_of_week.exit:                         ; preds = %25, %timelib_day_of
 
 timelib_day_of_week.exit65:                       ; preds = %58, %60
   %m_table_leap.pn.i.i57 = phi ptr [ @m_table_common, %60 ], [ @m_table_leap, %58 ]
-  %.in.i.i61 = getelementptr inbounds nuw [13 x i32], ptr %m_table_leap.pn.i.i57, i64 0, i64 %1
+  %.in.i.i61 = getelementptr inbounds [13 x i32], ptr %m_table_leap.pn.i.i57, i64 0, i64 %1
   %61 = load i32, ptr %.in.i.i61, align 4
   %62 = sext i32 %61 to i64
   %reass.sub.i.i = add i64 %2, 6
@@ -378,7 +378,7 @@ timelib_day_of_week_ex.exit:                      ; preds = %11, %13
   %18 = udiv i16 %.lhs.trunc.i, 100
   %19 = shl nuw nsw i16 %18, 1
   %20 = zext nneg i16 %19 to i64
-  %.in.i = getelementptr inbounds nuw [13 x i32], ptr %m_table_leap.pn.i, i64 0, i64 %1
+  %.in.i = getelementptr inbounds [13 x i32], ptr %m_table_leap.pn.i, i64 0, i64 %1
   %21 = load i32, ptr %.in.i, align 4
   %22 = sext i32 %21 to i64
   %23 = lshr i64 %spec.select.i17.i, 2

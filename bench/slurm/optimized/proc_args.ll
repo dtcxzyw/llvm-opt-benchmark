@@ -2072,7 +2072,7 @@ define noundef nonnull ptr @print_mail_type(i16 noundef zeroext %0) local_unname
 
 6:                                                ; preds = %3
   %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) @print_mail_type.buf)
-  %endptr = getelementptr inbounds nuw i8, ptr @print_mail_type.buf, i64 %strlen
+  %endptr = getelementptr inbounds i8, ptr @print_mail_type.buf, i64 %strlen
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %endptr, ptr noundef nonnull align 1 dereferenceable(12) @.str.60, i64 12, i1 false)
   br label %7
 
@@ -2088,13 +2088,13 @@ define noundef nonnull ptr @print_mail_type(i16 noundef zeroext %0) local_unname
 
 11:                                               ; preds = %9
   %strlen14 = tail call i64 @strlen(ptr nonnull dereferenceable(1) @print_mail_type.buf)
-  %endptr15 = getelementptr inbounds nuw i8, ptr @print_mail_type.buf, i64 %strlen14
+  %endptr15 = getelementptr inbounds i8, ptr @print_mail_type.buf, i64 %strlen14
   store i16 44, ptr %endptr15, align 1
   br label %12
 
 12:                                               ; preds = %11, %9
   %strlen16 = tail call i64 @strlen(ptr nonnull dereferenceable(1) @print_mail_type.buf)
-  %endptr17 = getelementptr inbounds nuw i8, ptr @print_mail_type.buf, i64 %strlen16
+  %endptr17 = getelementptr inbounds i8, ptr @print_mail_type.buf, i64 %strlen16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %endptr17, ptr noundef nonnull align 1 dereferenceable(15) @.str.64, i64 15, i1 false)
   br label %13
 
@@ -2110,13 +2110,13 @@ define noundef nonnull ptr @print_mail_type(i16 noundef zeroext %0) local_unname
 
 17:                                               ; preds = %15
   %strlen20 = tail call i64 @strlen(ptr nonnull dereferenceable(1) @print_mail_type.buf)
-  %endptr21 = getelementptr inbounds nuw i8, ptr @print_mail_type.buf, i64 %strlen20
+  %endptr21 = getelementptr inbounds i8, ptr @print_mail_type.buf, i64 %strlen20
   store i16 44, ptr %endptr21, align 1
   br label %18
 
 18:                                               ; preds = %17, %15
   %strlen22 = tail call i64 @strlen(ptr nonnull dereferenceable(1) @print_mail_type.buf)
-  %endptr23 = getelementptr inbounds nuw i8, ptr @print_mail_type.buf, i64 %strlen22
+  %endptr23 = getelementptr inbounds i8, ptr @print_mail_type.buf, i64 %strlen22
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %endptr23, ptr noundef nonnull align 1 dereferenceable(6) @.str.61, i64 6, i1 false)
   br label %19
 
@@ -2132,13 +2132,13 @@ define noundef nonnull ptr @print_mail_type(i16 noundef zeroext %0) local_unname
 
 23:                                               ; preds = %21
   %strlen26 = tail call i64 @strlen(ptr nonnull dereferenceable(1) @print_mail_type.buf)
-  %endptr27 = getelementptr inbounds nuw i8, ptr @print_mail_type.buf, i64 %strlen26
+  %endptr27 = getelementptr inbounds i8, ptr @print_mail_type.buf, i64 %strlen26
   store i16 44, ptr %endptr27, align 1
   br label %24
 
 24:                                               ; preds = %23, %21
   %strlen28 = tail call i64 @strlen(ptr nonnull dereferenceable(1) @print_mail_type.buf)
-  %endptr29 = getelementptr inbounds nuw i8, ptr @print_mail_type.buf, i64 %strlen28
+  %endptr29 = getelementptr inbounds i8, ptr @print_mail_type.buf, i64 %strlen28
   store i32 4476485, ptr %endptr29, align 1
   br label %25
 
@@ -2154,13 +2154,13 @@ define noundef nonnull ptr @print_mail_type(i16 noundef zeroext %0) local_unname
 
 29:                                               ; preds = %27
   %strlen32 = tail call i64 @strlen(ptr nonnull dereferenceable(1) @print_mail_type.buf)
-  %endptr33 = getelementptr inbounds nuw i8, ptr @print_mail_type.buf, i64 %strlen32
+  %endptr33 = getelementptr inbounds i8, ptr @print_mail_type.buf, i64 %strlen32
   store i16 44, ptr %endptr33, align 1
   br label %30
 
 30:                                               ; preds = %29, %27
   %strlen34 = tail call i64 @strlen(ptr nonnull dereferenceable(1) @print_mail_type.buf)
-  %endptr35 = getelementptr inbounds nuw i8, ptr @print_mail_type.buf, i64 %strlen34
+  %endptr35 = getelementptr inbounds i8, ptr @print_mail_type.buf, i64 %strlen34
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %endptr35, ptr noundef nonnull align 1 dereferenceable(5) @.str.63, i64 5, i1 false)
   br label %31
 
@@ -2176,13 +2176,13 @@ define noundef nonnull ptr @print_mail_type(i16 noundef zeroext %0) local_unname
 
 35:                                               ; preds = %33
   %strlen38 = tail call i64 @strlen(ptr nonnull dereferenceable(1) @print_mail_type.buf)
-  %endptr39 = getelementptr inbounds nuw i8, ptr @print_mail_type.buf, i64 %strlen38
+  %endptr39 = getelementptr inbounds i8, ptr @print_mail_type.buf, i64 %strlen38
   store i16 44, ptr %endptr39, align 1
   br label %36
 
 36:                                               ; preds = %35, %33
   %strlen40 = tail call i64 @strlen(ptr nonnull dereferenceable(1) @print_mail_type.buf)
-  %endptr41 = getelementptr inbounds nuw i8, ptr @print_mail_type.buf, i64 %strlen40
+  %endptr41 = getelementptr inbounds i8, ptr @print_mail_type.buf, i64 %strlen40
   store i64 19515529665529170, ptr %endptr41, align 1
   br label %37
 
@@ -2198,13 +2198,13 @@ define noundef nonnull ptr @print_mail_type(i16 noundef zeroext %0) local_unname
 
 41:                                               ; preds = %39
   %strlen44 = tail call i64 @strlen(ptr nonnull dereferenceable(1) @print_mail_type.buf)
-  %endptr45 = getelementptr inbounds nuw i8, ptr @print_mail_type.buf, i64 %strlen44
+  %endptr45 = getelementptr inbounds i8, ptr @print_mail_type.buf, i64 %strlen44
   store i16 44, ptr %endptr45, align 1
   br label %42
 
 42:                                               ; preds = %41, %39
   %strlen46 = tail call i64 @strlen(ptr nonnull dereferenceable(1) @print_mail_type.buf)
-  %endptr47 = getelementptr inbounds nuw i8, ptr @print_mail_type.buf, i64 %strlen46
+  %endptr47 = getelementptr inbounds i8, ptr @print_mail_type.buf, i64 %strlen46
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %endptr47, ptr noundef nonnull align 1 dereferenceable(10) @.str.67, i64 10, i1 false)
   br label %43
 
@@ -2220,13 +2220,13 @@ define noundef nonnull ptr @print_mail_type(i16 noundef zeroext %0) local_unname
 
 47:                                               ; preds = %45
   %strlen50 = tail call i64 @strlen(ptr nonnull dereferenceable(1) @print_mail_type.buf)
-  %endptr51 = getelementptr inbounds nuw i8, ptr @print_mail_type.buf, i64 %strlen50
+  %endptr51 = getelementptr inbounds i8, ptr @print_mail_type.buf, i64 %strlen50
   store i16 44, ptr %endptr51, align 1
   br label %48
 
 48:                                               ; preds = %47, %45
   %strlen52 = tail call i64 @strlen(ptr nonnull dereferenceable(1) @print_mail_type.buf)
-  %endptr53 = getelementptr inbounds nuw i8, ptr @print_mail_type.buf, i64 %strlen52
+  %endptr53 = getelementptr inbounds i8, ptr @print_mail_type.buf, i64 %strlen52
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %endptr53, ptr noundef nonnull align 1 dereferenceable(14) @.str.71, i64 14, i1 false)
   br label %49
 
@@ -2242,13 +2242,13 @@ define noundef nonnull ptr @print_mail_type(i16 noundef zeroext %0) local_unname
 
 53:                                               ; preds = %51
   %strlen56 = tail call i64 @strlen(ptr nonnull dereferenceable(1) @print_mail_type.buf)
-  %endptr57 = getelementptr inbounds nuw i8, ptr @print_mail_type.buf, i64 %strlen56
+  %endptr57 = getelementptr inbounds i8, ptr @print_mail_type.buf, i64 %strlen56
   store i16 44, ptr %endptr57, align 1
   br label %54
 
 54:                                               ; preds = %53, %51
   %strlen58 = tail call i64 @strlen(ptr nonnull dereferenceable(1) @print_mail_type.buf)
-  %endptr59 = getelementptr inbounds nuw i8, ptr @print_mail_type.buf, i64 %strlen58
+  %endptr59 = getelementptr inbounds i8, ptr @print_mail_type.buf, i64 %strlen58
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %endptr59, ptr noundef nonnull align 1 dereferenceable(14) @.str.70, i64 14, i1 false)
   br label %55
 
@@ -2264,13 +2264,13 @@ define noundef nonnull ptr @print_mail_type(i16 noundef zeroext %0) local_unname
 
 59:                                               ; preds = %57
   %strlen62 = tail call i64 @strlen(ptr nonnull dereferenceable(1) @print_mail_type.buf)
-  %endptr63 = getelementptr inbounds nuw i8, ptr @print_mail_type.buf, i64 %strlen62
+  %endptr63 = getelementptr inbounds i8, ptr @print_mail_type.buf, i64 %strlen62
   store i16 44, ptr %endptr63, align 1
   br label %60
 
 60:                                               ; preds = %59, %57
   %strlen64 = tail call i64 @strlen(ptr nonnull dereferenceable(1) @print_mail_type.buf)
-  %endptr65 = getelementptr inbounds nuw i8, ptr @print_mail_type.buf, i64 %strlen64
+  %endptr65 = getelementptr inbounds i8, ptr @print_mail_type.buf, i64 %strlen64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %endptr65, ptr noundef nonnull align 1 dereferenceable(14) @.str.69, i64 14, i1 false)
   br label %61
 
@@ -2286,13 +2286,13 @@ define noundef nonnull ptr @print_mail_type(i16 noundef zeroext %0) local_unname
 
 65:                                               ; preds = %63
   %strlen68 = tail call i64 @strlen(ptr nonnull dereferenceable(1) @print_mail_type.buf)
-  %endptr69 = getelementptr inbounds nuw i8, ptr @print_mail_type.buf, i64 %strlen68
+  %endptr69 = getelementptr inbounds i8, ptr @print_mail_type.buf, i64 %strlen68
   store i16 44, ptr %endptr69, align 1
   br label %66
 
 66:                                               ; preds = %65, %63
   %strlen70 = tail call i64 @strlen(ptr nonnull dereferenceable(1) @print_mail_type.buf)
-  %endptr71 = getelementptr inbounds nuw i8, ptr @print_mail_type.buf, i64 %strlen70
+  %endptr71 = getelementptr inbounds i8, ptr @print_mail_type.buf, i64 %strlen70
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %endptr71, ptr noundef nonnull align 1 dereferenceable(11) @.str.68, i64 11, i1 false)
   br label %67
 

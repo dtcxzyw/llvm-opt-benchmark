@@ -4130,7 +4130,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %476 = load ptr, ptr %65, align 8, !noalias !29
   %477 = getelementptr i8, ptr %476, i64 -24
   %478 = load i64, ptr %477, align 8, !noalias !29
-  %479 = getelementptr inbounds nuw i8, ptr %65, i64 %478
+  %479 = getelementptr inbounds i8, ptr %65, i64 %478
   %480 = getelementptr inbounds nuw i8, ptr %479, i64 24
   %481 = load i32, ptr %480, align 8, !noalias !29
   %482 = or i32 %481, 4
@@ -4143,7 +4143,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %486 = load ptr, ptr %65, align 8, !noalias !29
   %487 = getelementptr i8, ptr %486, i64 -24
   %488 = load i64, ptr %487, align 8, !noalias !29
-  %489 = getelementptr inbounds nuw i8, ptr %65, i64 %488
+  %489 = getelementptr inbounds i8, ptr %65, i64 %488
   %490 = getelementptr inbounds nuw i8, ptr %489, i64 24
   %491 = load i32, ptr %490, align 8, !noalias !29
   %492 = or i32 %491, 256
@@ -5440,7 +5440,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %858 = load ptr, ptr %54, align 8, !noalias !45
   %859 = getelementptr i8, ptr %858, i64 -24
   %860 = load i64, ptr %859, align 8, !noalias !45
-  %861 = getelementptr inbounds nuw i8, ptr %54, i64 %860
+  %861 = getelementptr inbounds i8, ptr %54, i64 %860
   %862 = getelementptr inbounds nuw i8, ptr %861, i64 24
   %863 = load i32, ptr %862, align 8, !noalias !45
   %864 = or i32 %863, 4
@@ -5453,7 +5453,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %868 = load ptr, ptr %54, align 8, !noalias !45
   %869 = getelementptr i8, ptr %868, i64 -24
   %870 = load i64, ptr %869, align 8, !noalias !45
-  %871 = getelementptr inbounds nuw i8, ptr %54, i64 %870
+  %871 = getelementptr inbounds i8, ptr %54, i64 %870
   %872 = getelementptr inbounds nuw i8, ptr %871, i64 24
   %873 = load i32, ptr %872, align 8, !noalias !45
   %874 = or i32 %873, 256
@@ -6114,7 +6114,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %1079 = load ptr, ptr %48, align 8, !noalias !55
   %1080 = getelementptr i8, ptr %1079, i64 -24
   %1081 = load i64, ptr %1080, align 8, !noalias !55
-  %1082 = getelementptr inbounds nuw i8, ptr %48, i64 %1081
+  %1082 = getelementptr inbounds i8, ptr %48, i64 %1081
   %1083 = getelementptr inbounds nuw i8, ptr %1082, i64 24
   %1084 = load i32, ptr %1083, align 8, !noalias !55
   %1085 = or i32 %1084, 4
@@ -6127,7 +6127,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %1089 = load ptr, ptr %48, align 8, !noalias !55
   %1090 = getelementptr i8, ptr %1089, i64 -24
   %1091 = load i64, ptr %1090, align 8, !noalias !55
-  %1092 = getelementptr inbounds nuw i8, ptr %48, i64 %1091
+  %1092 = getelementptr inbounds i8, ptr %48, i64 %1091
   %1093 = getelementptr inbounds nuw i8, ptr %1092, i64 24
   %1094 = load i32, ptr %1093, align 8, !noalias !55
   %1095 = or i32 %1094, 256
@@ -6171,7 +6171,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %1110 = load ptr, ptr %47, align 8, !noalias !58
   %1111 = getelementptr i8, ptr %1110, i64 -24
   %1112 = load i64, ptr %1111, align 8, !noalias !58
-  %1113 = getelementptr inbounds nuw i8, ptr %47, i64 %1112
+  %1113 = getelementptr inbounds i8, ptr %47, i64 %1112
   %1114 = getelementptr inbounds nuw i8, ptr %1113, i64 24
   %1115 = load i32, ptr %1114, align 8, !noalias !58
   %1116 = or i32 %1115, 4
@@ -6184,7 +6184,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %1120 = load ptr, ptr %47, align 8, !noalias !58
   %1121 = getelementptr i8, ptr %1120, i64 -24
   %1122 = load i64, ptr %1121, align 8, !noalias !58
-  %1123 = getelementptr inbounds nuw i8, ptr %47, i64 %1122
+  %1123 = getelementptr inbounds i8, ptr %47, i64 %1122
   %1124 = getelementptr inbounds nuw i8, ptr %1123, i64 24
   %1125 = load i32, ptr %1124, align 8, !noalias !58
   %1126 = or i32 %1125, 256
@@ -6226,7 +6226,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %1139 = load ptr, ptr %46, align 8, !noalias !61
   %1140 = getelementptr i8, ptr %1139, i64 -24
   %1141 = load i64, ptr %1140, align 8, !noalias !61
-  %1142 = getelementptr inbounds nuw i8, ptr %46, i64 %1141
+  %1142 = getelementptr inbounds i8, ptr %46, i64 %1141
   %1143 = getelementptr inbounds nuw i8, ptr %1142, i64 24
   %1144 = load i32, ptr %1143, align 8, !noalias !61
   %1145 = or i32 %1144, 4
@@ -6239,7 +6239,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %1149 = load ptr, ptr %46, align 8, !noalias !61
   %1150 = getelementptr i8, ptr %1149, i64 -24
   %1151 = load i64, ptr %1150, align 8, !noalias !61
-  %1152 = getelementptr inbounds nuw i8, ptr %46, i64 %1151
+  %1152 = getelementptr inbounds i8, ptr %46, i64 %1151
   %1153 = getelementptr inbounds nuw i8, ptr %1152, i64 24
   %1154 = load i32, ptr %1153, align 8, !noalias !61
   %1155 = or i32 %1154, 256
@@ -6286,7 +6286,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %1170 = load ptr, ptr %45, align 8, !noalias !64
   %1171 = getelementptr i8, ptr %1170, i64 -24
   %1172 = load i64, ptr %1171, align 8, !noalias !64
-  %1173 = getelementptr inbounds nuw i8, ptr %45, i64 %1172
+  %1173 = getelementptr inbounds i8, ptr %45, i64 %1172
   %1174 = getelementptr inbounds nuw i8, ptr %1173, i64 24
   %1175 = load i32, ptr %1174, align 8, !noalias !64
   %1176 = or i32 %1175, 4
@@ -6299,7 +6299,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %1180 = load ptr, ptr %45, align 8, !noalias !64
   %1181 = getelementptr i8, ptr %1180, i64 -24
   %1182 = load i64, ptr %1181, align 8, !noalias !64
-  %1183 = getelementptr inbounds nuw i8, ptr %45, i64 %1182
+  %1183 = getelementptr inbounds i8, ptr %45, i64 %1182
   %1184 = getelementptr inbounds nuw i8, ptr %1183, i64 24
   %1185 = load i32, ptr %1184, align 8, !noalias !64
   %1186 = or i32 %1185, 256
@@ -6553,7 +6553,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %1262 = load ptr, ptr %44, align 8, !noalias !67
   %1263 = getelementptr i8, ptr %1262, i64 -24
   %1264 = load i64, ptr %1263, align 8, !noalias !67
-  %1265 = getelementptr inbounds nuw i8, ptr %44, i64 %1264
+  %1265 = getelementptr inbounds i8, ptr %44, i64 %1264
   %1266 = getelementptr inbounds nuw i8, ptr %1265, i64 24
   %1267 = load i32, ptr %1266, align 8, !noalias !67
   %1268 = or i32 %1267, 4
@@ -6566,7 +6566,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %1272 = load ptr, ptr %44, align 8, !noalias !67
   %1273 = getelementptr i8, ptr %1272, i64 -24
   %1274 = load i64, ptr %1273, align 8, !noalias !67
-  %1275 = getelementptr inbounds nuw i8, ptr %44, i64 %1274
+  %1275 = getelementptr inbounds i8, ptr %44, i64 %1274
   %1276 = getelementptr inbounds nuw i8, ptr %1275, i64 24
   %1277 = load i32, ptr %1276, align 8, !noalias !67
   %1278 = or i32 %1277, 256
@@ -6704,7 +6704,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %1320 = load ptr, ptr %43, align 8, !noalias !70
   %1321 = getelementptr i8, ptr %1320, i64 -24
   %1322 = load i64, ptr %1321, align 8, !noalias !70
-  %1323 = getelementptr inbounds nuw i8, ptr %43, i64 %1322
+  %1323 = getelementptr inbounds i8, ptr %43, i64 %1322
   %1324 = getelementptr inbounds nuw i8, ptr %1323, i64 24
   %1325 = load i32, ptr %1324, align 8, !noalias !70
   %1326 = or i32 %1325, 4
@@ -6717,7 +6717,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %1330 = load ptr, ptr %43, align 8, !noalias !70
   %1331 = getelementptr i8, ptr %1330, i64 -24
   %1332 = load i64, ptr %1331, align 8, !noalias !70
-  %1333 = getelementptr inbounds nuw i8, ptr %43, i64 %1332
+  %1333 = getelementptr inbounds i8, ptr %43, i64 %1332
   %1334 = getelementptr inbounds nuw i8, ptr %1333, i64 24
   %1335 = load i32, ptr %1334, align 8, !noalias !70
   %1336 = or i32 %1335, 256
@@ -10538,7 +10538,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %2169, %2177
   %2708 = load ptr, ptr %7, align 8, !noalias !228
   %2709 = getelementptr i8, ptr %2708, i64 -24
   %2710 = load i64, ptr %2709, align 8, !noalias !228
-  %2711 = getelementptr inbounds nuw i8, ptr %7, i64 %2710
+  %2711 = getelementptr inbounds i8, ptr %7, i64 %2710
   %2712 = getelementptr inbounds nuw i8, ptr %2711, i64 24
   %2713 = load i32, ptr %2712, align 8, !noalias !228
   %2714 = or i32 %2713, 4
@@ -10551,7 +10551,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %2169, %2177
   %2718 = load ptr, ptr %7, align 8, !noalias !228
   %2719 = getelementptr i8, ptr %2718, i64 -24
   %2720 = load i64, ptr %2719, align 8, !noalias !228
-  %2721 = getelementptr inbounds nuw i8, ptr %7, i64 %2720
+  %2721 = getelementptr inbounds i8, ptr %7, i64 %2720
   %2722 = getelementptr inbounds nuw i8, ptr %2721, i64 24
   %2723 = load i32, ptr %2722, align 8, !noalias !228
   %2724 = or i32 %2723, 256
@@ -11894,7 +11894,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %198 = load ptr, ptr %14, align 8, !noalias !260
   %199 = getelementptr i8, ptr %198, i64 -24
   %200 = load i64, ptr %199, align 8, !noalias !260
-  %201 = getelementptr inbounds nuw i8, ptr %14, i64 %200
+  %201 = getelementptr inbounds i8, ptr %14, i64 %200
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 24
   %203 = load i32, ptr %202, align 8, !noalias !260
   %204 = or i32 %203, 4
@@ -11907,7 +11907,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %208 = load ptr, ptr %14, align 8, !noalias !260
   %209 = getelementptr i8, ptr %208, i64 -24
   %210 = load i64, ptr %209, align 8, !noalias !260
-  %211 = getelementptr inbounds nuw i8, ptr %14, i64 %210
+  %211 = getelementptr inbounds i8, ptr %14, i64 %210
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 24
   %213 = load i32, ptr %212, align 8, !noalias !260
   %214 = or i32 %213, 256
@@ -11962,7 +11962,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %234 = load ptr, ptr %13, align 8, !noalias !266
   %235 = getelementptr i8, ptr %234, i64 -24
   %236 = load i64, ptr %235, align 8, !noalias !266
-  %237 = getelementptr inbounds nuw i8, ptr %13, i64 %236
+  %237 = getelementptr inbounds i8, ptr %13, i64 %236
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 24
   %239 = load i32, ptr %238, align 8, !noalias !266
   %240 = or i32 %239, 4
@@ -11975,7 +11975,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %244 = load ptr, ptr %13, align 8, !noalias !266
   %245 = getelementptr i8, ptr %244, i64 -24
   %246 = load i64, ptr %245, align 8, !noalias !266
-  %247 = getelementptr inbounds nuw i8, ptr %13, i64 %246
+  %247 = getelementptr inbounds i8, ptr %13, i64 %246
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 24
   %249 = load i32, ptr %248, align 8, !noalias !266
   %250 = or i32 %249, 256
@@ -12030,7 +12030,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %270 = load ptr, ptr %12, align 8, !noalias !272
   %271 = getelementptr i8, ptr %270, i64 -24
   %272 = load i64, ptr %271, align 8, !noalias !272
-  %273 = getelementptr inbounds nuw i8, ptr %12, i64 %272
+  %273 = getelementptr inbounds i8, ptr %12, i64 %272
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 24
   %275 = load i32, ptr %274, align 8, !noalias !272
   %276 = or i32 %275, 4
@@ -12043,7 +12043,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %280 = load ptr, ptr %12, align 8, !noalias !272
   %281 = getelementptr i8, ptr %280, i64 -24
   %282 = load i64, ptr %281, align 8, !noalias !272
-  %283 = getelementptr inbounds nuw i8, ptr %12, i64 %282
+  %283 = getelementptr inbounds i8, ptr %12, i64 %282
   %284 = getelementptr inbounds nuw i8, ptr %283, i64 24
   %285 = load i32, ptr %284, align 8, !noalias !272
   %286 = or i32 %285, 256
@@ -12098,7 +12098,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %306 = load ptr, ptr %11, align 8, !noalias !278
   %307 = getelementptr i8, ptr %306, i64 -24
   %308 = load i64, ptr %307, align 8, !noalias !278
-  %309 = getelementptr inbounds nuw i8, ptr %11, i64 %308
+  %309 = getelementptr inbounds i8, ptr %11, i64 %308
   %310 = getelementptr inbounds nuw i8, ptr %309, i64 24
   %311 = load i32, ptr %310, align 8, !noalias !278
   %312 = or i32 %311, 4
@@ -12111,7 +12111,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %316 = load ptr, ptr %11, align 8, !noalias !278
   %317 = getelementptr i8, ptr %316, i64 -24
   %318 = load i64, ptr %317, align 8, !noalias !278
-  %319 = getelementptr inbounds nuw i8, ptr %11, i64 %318
+  %319 = getelementptr inbounds i8, ptr %11, i64 %318
   %320 = getelementptr inbounds nuw i8, ptr %319, i64 24
   %321 = load i32, ptr %320, align 8, !noalias !278
   %322 = or i32 %321, 256
@@ -12166,7 +12166,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %342 = load ptr, ptr %10, align 8, !noalias !284
   %343 = getelementptr i8, ptr %342, i64 -24
   %344 = load i64, ptr %343, align 8, !noalias !284
-  %345 = getelementptr inbounds nuw i8, ptr %10, i64 %344
+  %345 = getelementptr inbounds i8, ptr %10, i64 %344
   %346 = getelementptr inbounds nuw i8, ptr %345, i64 24
   %347 = load i32, ptr %346, align 8, !noalias !284
   %348 = or i32 %347, 4
@@ -12179,7 +12179,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %352 = load ptr, ptr %10, align 8, !noalias !284
   %353 = getelementptr i8, ptr %352, i64 -24
   %354 = load i64, ptr %353, align 8, !noalias !284
-  %355 = getelementptr inbounds nuw i8, ptr %10, i64 %354
+  %355 = getelementptr inbounds i8, ptr %10, i64 %354
   %356 = getelementptr inbounds nuw i8, ptr %355, i64 24
   %357 = load i32, ptr %356, align 8, !noalias !284
   %358 = or i32 %357, 256
@@ -12234,7 +12234,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %378 = load ptr, ptr %9, align 8, !noalias !290
   %379 = getelementptr i8, ptr %378, i64 -24
   %380 = load i64, ptr %379, align 8, !noalias !290
-  %381 = getelementptr inbounds nuw i8, ptr %9, i64 %380
+  %381 = getelementptr inbounds i8, ptr %9, i64 %380
   %382 = getelementptr inbounds nuw i8, ptr %381, i64 24
   %383 = load i32, ptr %382, align 8, !noalias !290
   %384 = or i32 %383, 4
@@ -12247,7 +12247,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %388 = load ptr, ptr %9, align 8, !noalias !290
   %389 = getelementptr i8, ptr %388, i64 -24
   %390 = load i64, ptr %389, align 8, !noalias !290
-  %391 = getelementptr inbounds nuw i8, ptr %9, i64 %390
+  %391 = getelementptr inbounds i8, ptr %9, i64 %390
   %392 = getelementptr inbounds nuw i8, ptr %391, i64 24
   %393 = load i32, ptr %392, align 8, !noalias !290
   %394 = or i32 %393, 256
@@ -12303,7 +12303,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %415 = load ptr, ptr %8, align 8, !noalias !296
   %416 = getelementptr i8, ptr %415, i64 -24
   %417 = load i64, ptr %416, align 8, !noalias !296
-  %418 = getelementptr inbounds nuw i8, ptr %8, i64 %417
+  %418 = getelementptr inbounds i8, ptr %8, i64 %417
   %419 = getelementptr inbounds nuw i8, ptr %418, i64 24
   %420 = load i32, ptr %419, align 8, !noalias !296
   %421 = or i32 %420, 4
@@ -12316,7 +12316,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %425 = load ptr, ptr %8, align 8, !noalias !296
   %426 = getelementptr i8, ptr %425, i64 -24
   %427 = load i64, ptr %426, align 8, !noalias !296
-  %428 = getelementptr inbounds nuw i8, ptr %8, i64 %427
+  %428 = getelementptr inbounds i8, ptr %8, i64 %427
   %429 = getelementptr inbounds nuw i8, ptr %428, i64 24
   %430 = load i32, ptr %429, align 8, !noalias !296
   %431 = or i32 %430, 256
@@ -12371,7 +12371,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %451 = load ptr, ptr %7, align 8, !noalias !302
   %452 = getelementptr i8, ptr %451, i64 -24
   %453 = load i64, ptr %452, align 8, !noalias !302
-  %454 = getelementptr inbounds nuw i8, ptr %7, i64 %453
+  %454 = getelementptr inbounds i8, ptr %7, i64 %453
   %455 = getelementptr inbounds nuw i8, ptr %454, i64 24
   %456 = load i32, ptr %455, align 8, !noalias !302
   %457 = or i32 %456, 4
@@ -12384,7 +12384,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %461 = load ptr, ptr %7, align 8, !noalias !302
   %462 = getelementptr i8, ptr %461, i64 -24
   %463 = load i64, ptr %462, align 8, !noalias !302
-  %464 = getelementptr inbounds nuw i8, ptr %7, i64 %463
+  %464 = getelementptr inbounds i8, ptr %7, i64 %463
   %465 = getelementptr inbounds nuw i8, ptr %464, i64 24
   %466 = load i32, ptr %465, align 8, !noalias !302
   %467 = or i32 %466, 256
@@ -12439,7 +12439,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %487 = load ptr, ptr %6, align 8, !noalias !308
   %488 = getelementptr i8, ptr %487, i64 -24
   %489 = load i64, ptr %488, align 8, !noalias !308
-  %490 = getelementptr inbounds nuw i8, ptr %6, i64 %489
+  %490 = getelementptr inbounds i8, ptr %6, i64 %489
   %491 = getelementptr inbounds nuw i8, ptr %490, i64 24
   %492 = load i32, ptr %491, align 8, !noalias !308
   %493 = or i32 %492, 4
@@ -12452,7 +12452,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %497 = load ptr, ptr %6, align 8, !noalias !308
   %498 = getelementptr i8, ptr %497, i64 -24
   %499 = load i64, ptr %498, align 8, !noalias !308
-  %500 = getelementptr inbounds nuw i8, ptr %6, i64 %499
+  %500 = getelementptr inbounds i8, ptr %6, i64 %499
   %501 = getelementptr inbounds nuw i8, ptr %500, i64 24
   %502 = load i32, ptr %501, align 8, !noalias !308
   %503 = or i32 %502, 256

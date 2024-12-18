@@ -4656,7 +4656,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit28.i: ; preds = %1289, 
   %1295 = call noundef i32 @_ZNK4llvm9Attribute13getKindAsEnumEv(ptr noundef nonnull align 8 dereferenceable(8) %24) #27
   %switch.tableidx = add nsw i32 %1295, -1
   %1296 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [93 x i64], ptr @switch.table._ZL19getAttrKindEncodingN4llvm9Attribute8AttrKindE, i64 0, i64 %1296
+  %switch.gep = getelementptr inbounds [93 x i64], ptr @switch.table._ZL19getAttrKindEncodingN4llvm9Attribute8AttrKindE, i64 0, i64 %1296
   %switch.load = load i64, ptr %switch.gep, align 8
   %1297 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %22) #27
   %1298 = add i64 %1297, 1
@@ -4704,7 +4704,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit33.i: ; preds = %1312, 
   %1318 = call noundef i32 @_ZNK4llvm9Attribute13getKindAsEnumEv(ptr noundef nonnull align 8 dereferenceable(8) %24) #27
   %switch.tableidx197 = add nsw i32 %1318, -1
   %1319 = sext i32 %switch.tableidx197 to i64
-  %switch.gep198 = getelementptr inbounds nuw [93 x i64], ptr @switch.table._ZL19getAttrKindEncodingN4llvm9Attribute8AttrKindE, i64 0, i64 %1319
+  %switch.gep198 = getelementptr inbounds [93 x i64], ptr @switch.table._ZL19getAttrKindEncodingN4llvm9Attribute8AttrKindE, i64 0, i64 %1319
   %switch.load199 = load i64, ptr %switch.gep198, align 8
   %1320 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %22) #27
   %1321 = add i64 %1320, 1
@@ -12343,7 +12343,7 @@ _ZN4llvm7support6endian19writeAtBitAlignmentIhLNS_10endiannessE1ELm1EEEvPvT_m.ex
   %100 = getelementptr inbounds i8, ptr %.pre, i64 %.03474
   %101 = load i8, ptr %100, align 1
   %102 = add i64 %.03474, %.sroa.speculated
-  %103 = getelementptr inbounds nuw [3 x i8], ptr %4, i64 0, i64 %102
+  %103 = getelementptr inbounds [3 x i8], ptr %4, i64 0, i64 %102
   store i8 %101, ptr %103, align 1
   %104 = add nuw i64 %.03474, 1
   %exitcond.not = icmp eq i64 %104, %71
@@ -12370,7 +12370,7 @@ _ZN4llvm15BitstreamWriter8fdStreamEv.exit60:      ; preds = %_ZN4llvm7support6en
 112:                                              ; preds = %.lr.ph76, %112
   %.075 = phi i64 [ 0, %.lr.ph76 ], [ %119, %112 ]
   %113 = add i64 %.075, %.sroa.speculated
-  %114 = getelementptr inbounds nuw [3 x i8], ptr %4, i64 0, i64 %113
+  %114 = getelementptr inbounds [3 x i8], ptr %4, i64 0, i64 %113
   %115 = load i8, ptr %114, align 1
   %116 = load ptr, ptr %111, align 8
   %117 = load ptr, ptr %116, align 8
@@ -33873,7 +33873,7 @@ define internal fastcc noundef range(i64 1, 97) i64 @_ZL19getAttrKindEncodingN4l
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -1
   %1 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [93 x i64], ptr @switch.table._ZL19getAttrKindEncodingN4llvm9Attribute8AttrKindE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [93 x i64], ptr @switch.table._ZL19getAttrKindEncodingN4llvm9Attribute8AttrKindE, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   ret i64 %switch.load
 }
@@ -36955,7 +36955,7 @@ define internal fastcc noundef range(i32 0, 13) i32 @_ZL22getEncodedBinaryOpcode
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -13
   %1 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [18 x i32], ptr @switch.table._ZL22getEncodedBinaryOpcodej, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [18 x i32], ptr @switch.table._ZL22getEncodedBinaryOpcodej, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }

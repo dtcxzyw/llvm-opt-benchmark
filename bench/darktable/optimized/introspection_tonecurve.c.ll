@@ -5324,7 +5324,7 @@ define internal noundef i32 @dt_iop_tonecurve_draw(ptr noundef %0, ptr noundef %
   %482 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store float 0x3FE570A3E0000000, ptr %482, align 16, !tbaa !13
   %483 = call ptr @cairo_pattern_create_linear(double noundef %476, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %475) #22
-  %484 = getelementptr inbounds nuw [3 x [3 x float]], ptr %6, i64 0, i64 %22
+  %484 = getelementptr inbounds [3 x [3 x float]], ptr %6, i64 0, i64 %22
   %485 = load float, ptr %484, align 4, !tbaa !13
   %486 = fpext float %485 to double
   %487 = getelementptr inbounds nuw i8, ptr %484, i64 4
@@ -5334,7 +5334,7 @@ define internal noundef i32 @dt_iop_tonecurve_draw(ptr noundef %0, ptr noundef %
   %491 = load float, ptr %490, align 4, !tbaa !13
   %492 = fpext float %491 to double
   call void @cairo_pattern_add_color_stop_rgba(ptr noundef %483, double noundef 1.000000e+00, double noundef %486, double noundef %489, double noundef %492, double noundef 5.000000e-01) #22
-  %493 = getelementptr inbounds nuw [3 x [3 x float]], ptr %7, i64 0, i64 %22
+  %493 = getelementptr inbounds [3 x [3 x float]], ptr %7, i64 0, i64 %22
   %494 = load float, ptr %493, align 4, !tbaa !13
   %495 = fpext float %494 to double
   %496 = getelementptr inbounds nuw i8, ptr %493, i64 4
@@ -5344,7 +5344,7 @@ define internal noundef i32 @dt_iop_tonecurve_draw(ptr noundef %0, ptr noundef %
   %500 = load float, ptr %499, align 4, !tbaa !13
   %501 = fpext float %500 to double
   call void @cairo_pattern_add_color_stop_rgba(ptr noundef %483, double noundef 5.000000e-01, double noundef %495, double noundef %498, double noundef %501, double noundef 5.000000e-01) #22
-  %502 = getelementptr inbounds nuw [3 x [3 x float]], ptr @__const.dt_iop_tonecurve_draw.destin, i64 0, i64 %22
+  %502 = getelementptr inbounds [3 x [3 x float]], ptr @__const.dt_iop_tonecurve_draw.destin, i64 0, i64 %22
   %503 = load float, ptr %502, align 4, !tbaa !13
   %504 = fpext float %503 to double
   %505 = getelementptr inbounds nuw i8, ptr %502, i64 4
@@ -5822,9 +5822,9 @@ define internal noundef i32 @dt_iop_tonecurve_draw(ptr noundef %0, ptr noundef %
   %806 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %807 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %808 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %809 = getelementptr inbounds nuw [4 x float], ptr %9, i64 0, i64 %22
-  %810 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %22
-  %811 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %22
+  %809 = getelementptr inbounds [4 x float], ptr %9, i64 0, i64 %22
+  %810 = getelementptr inbounds [4 x float], ptr %10, i64 0, i64 %22
+  %811 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %22
   %812 = getelementptr inbounds nuw i8, ptr %14, i64 6280
   %813 = sitofp i32 %460 to float
   %814 = sub nsw i32 0, %461
@@ -6230,7 +6230,7 @@ define internal noundef i32 @dt_iop_tonecurve_draw(ptr noundef %0, ptr noundef %
   %1053 = fdiv reassoc nsz arcp contract afn double %1052, %1051
   call void @pango_font_description_set_absolute_size(ptr noundef %957, double noundef %1053) #22
   call void @pango_layout_set_font_description(ptr noundef %958, ptr noundef %957) #22
-  %1054 = getelementptr inbounds nuw [4 x float], ptr %9, i64 0, i64 %22
+  %1054 = getelementptr inbounds [4 x float], ptr %9, i64 0, i64 %22
   %1055 = load float, ptr %1054, align 4, !tbaa !13
   %1056 = load float, ptr %521, align 4, !tbaa !121
   %1057 = fcmp reassoc nsz arcp contract afn ogt float %1056, 0.000000e+00
@@ -6251,9 +6251,9 @@ define internal noundef i32 @dt_iop_tonecurve_draw(ptr noundef %0, ptr noundef %
   br label %1092
 
 1068:                                             ; preds = %1046
-  %1069 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %22
+  %1069 = getelementptr inbounds [4 x float], ptr %10, i64 0, i64 %22
   %1070 = load float, ptr %1069, align 4, !tbaa !13
-  %1071 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %22
+  %1071 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %22
   %1072 = load float, ptr %1071, align 4, !tbaa !13
   br label %1092
 

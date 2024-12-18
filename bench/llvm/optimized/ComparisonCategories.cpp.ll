@@ -450,10 +450,10 @@ switch.lookup:                                    ; preds = %"_ZN4llvm7find_ifIR
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 17296
   %52 = load ptr, ptr %51, align 8
   %53 = sext i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN5clang20ComparisonCategories15getResultStringENS_24ComparisonCategoryResultE, i64 0, i64 %53
+  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table._ZN5clang20ComparisonCategories15getResultStringENS_24ComparisonCategoryResultE, i64 0, i64 %53
   %switch.load = load i64, ptr %switch.gep, align 8
   %54 = sext i8 %1 to i64
-  %switch.gep41 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN5clang20ComparisonCategories15getResultStringENS_24ComparisonCategoryResultE.7, i64 0, i64 %54
+  %switch.gep41 = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN5clang20ComparisonCategories15getResultStringENS_24ComparisonCategoryResultE.7, i64 0, i64 %54
   %switch.load42 = load ptr, ptr %switch.gep41, align 8
   %55 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %52, ptr nonnull %switch.load42, i64 %switch.load)
   %56 = ptrtoint ptr %55 to i64
@@ -591,10 +591,10 @@ _ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm
 define dso_local { ptr, i64 } @_ZN5clang20ComparisonCategories15getResultStringENS_24ComparisonCategoryResultE(i8 noundef zeroext %0) local_unnamed_addr #3 align 2 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN5clang20ComparisonCategories15getResultStringENS_24ComparisonCategoryResultE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table._ZN5clang20ComparisonCategories15getResultStringENS_24ComparisonCategoryResultE, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN5clang20ComparisonCategories15getResultStringENS_24ComparisonCategoryResultE.7, i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN5clang20ComparisonCategories15getResultStringENS_24ComparisonCategoryResultE.7, i64 0, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -750,10 +750,10 @@ _ZL18lookupStdNamespaceRKN5clang10ASTContextERPNS_13NamespaceDeclE.exit.thread: 
   %62 = getelementptr i8, ptr %61, i64 17296
   %.val = load ptr, ptr %62, align 8
   %63 = sext i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN5clang20ComparisonCategories17getCategoryStringENS_22ComparisonCategoryTypeE, i64 0, i64 %63
+  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table._ZN5clang20ComparisonCategories17getCategoryStringENS_22ComparisonCategoryTypeE, i64 0, i64 %63
   %switch.load = load i64, ptr %switch.gep, align 8
   %64 = sext i8 %1 to i64
-  %switch.gep43 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN5clang20ComparisonCategories17getCategoryStringENS_22ComparisonCategoryTypeE.10, i64 0, i64 %64
+  %switch.gep43 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN5clang20ComparisonCategories17getCategoryStringENS_22ComparisonCategoryTypeE.10, i64 0, i64 %64
   %switch.load44 = load ptr, ptr %switch.gep43, align 8
   %65 = getelementptr inbounds nuw i8, ptr %60, i64 48
   %66 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %.val, ptr nonnull %switch.load44, i64 %switch.load)
@@ -963,10 +963,10 @@ switch.lookup:                                    ; preds = %.preheader, %_ZN4ll
   %.01340 = phi i32 [ 0, %.preheader ], [ %92, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ]
   %48 = trunc nuw nsw i32 %.01340 to i8
   %49 = sext i8 %48 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN5clang20ComparisonCategories17getCategoryStringENS_22ComparisonCategoryTypeE, i64 0, i64 %49
+  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table._ZN5clang20ComparisonCategories17getCategoryStringENS_22ComparisonCategoryTypeE, i64 0, i64 %49
   %switch.load = load i64, ptr %switch.gep, align 8
   %50 = sext i8 %48 to i64
-  %switch.gep74 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN5clang20ComparisonCategories17getCategoryStringENS_22ComparisonCategoryTypeE.10, i64 0, i64 %50
+  %switch.gep74 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN5clang20ComparisonCategories17getCategoryStringENS_22ComparisonCategoryTypeE.10, i64 0, i64 %50
   %switch.load75 = load ptr, ptr %switch.gep74, align 8
   br i1 %.not.i, label %_ZNK5clang9NamedDecl7getNameEv.exit, label %51
 
@@ -1071,10 +1071,10 @@ declare noundef zeroext i1 @_ZNK5clang11DeclContext14isStdNamespaceEv(ptr nounde
 define dso_local { ptr, i64 } @_ZN5clang20ComparisonCategories17getCategoryStringENS_22ComparisonCategoryTypeE(i8 noundef zeroext %0) local_unnamed_addr #3 align 2 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN5clang20ComparisonCategories17getCategoryStringENS_22ComparisonCategoryTypeE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table._ZN5clang20ComparisonCategories17getCategoryStringENS_22ComparisonCategoryTypeE, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN5clang20ComparisonCategories17getCategoryStringENS_22ComparisonCategoryTypeE.10, i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN5clang20ComparisonCategories17getCategoryStringENS_22ComparisonCategoryTypeE.10, i64 0, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1

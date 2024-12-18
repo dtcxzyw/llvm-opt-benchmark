@@ -11798,7 +11798,7 @@ _ZN15rustfmt_nightly7comment12CommentStyle10line_start17h4a0602fcbf52a401E.exit:
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$18trim_start_matches17heef2807b10e846c0E.exit96": ; preds = %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hcdf32a2bcc0b1decE.llvm.5923418642108526555.exit.i._crit_edge.i.i90", %62, %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h907bb60876c544bcE.llvm.5923418642108526555.exit.i93"
   %69 = phi i64 [ %.fca.0.extract.i.le.i.i94, %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h907bb60876c544bcE.llvm.5923418642108526555.exit.i93" ], [ 3, %62 ], [ 3, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hcdf32a2bcc0b1decE.llvm.5923418642108526555.exit.i._crit_edge.i.i90" ]
-  %70 = getelementptr inbounds nuw i8, ptr @anon.ac9b56db96481140084a14b3a62254c9.144, i64 %69
+  %70 = getelementptr inbounds i8, ptr @anon.ac9b56db96481140084a14b3a62254c9.144, i64 %69
   %71 = sub i64 3, %69
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %35), !noalias !1888
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %46)

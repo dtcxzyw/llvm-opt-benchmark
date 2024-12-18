@@ -2841,7 +2841,7 @@ _ZN7oopDesc16oop_iterate_sizeI19YoungGenScanClosureEEmPT_.exit.i: ; preds = %68,
   %73 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   %74 = load i32, ptr %73, align 4
   %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI19YoungGenScanClosureE6_tableE, i64 0, i64 %75
+  %76 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI19YoungGenScanClosureE6_tableE, i64 0, i64 %75
   %77 = load ptr, ptr %76, align 8
   tail call void %77(ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %.113.i, ptr noundef nonnull %.0.i.i.i) #16
   %78 = getelementptr inbounds ptr, ptr %.113.i, i64 %.0.i4.i.i
@@ -2961,7 +2961,7 @@ _ZN7oopDesc16oop_iterate_sizeI17OldGenScanClosureEEmPT_.exit.i: ; preds = %141, 
   %146 = getelementptr inbounds nuw i8, ptr %.0.i.i.i12, i64 12
   %147 = load i32, ptr %146, align 4
   %148 = sext i32 %147 to i64
-  %149 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI17OldGenScanClosureE6_tableE, i64 0, i64 %148
+  %149 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI17OldGenScanClosureE6_tableE, i64 0, i64 %148
   %150 = load ptr, ptr %149, align 8
   tail call void %150(ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %.113.i10, ptr noundef nonnull %.0.i.i.i12) #16
   %151 = getelementptr inbounds ptr, ptr %.113.i10, i64 %.0.i4.i.i13

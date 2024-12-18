@@ -12738,15 +12738,15 @@ _ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15I
 
 .lr.ph.i.i:                                       ; preds = %.loopexit196.i.i, %.lr.ph.preheader.i.i
   %indvars.iv211.i.i = phi i64 [ %252, %.lr.ph.preheader.i.i ], [ %indvars.iv.next212.i.i, %.loopexit196.i.i ]
-  %253 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv211.i.i
+  %253 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv211.i.i
   %254 = load i32, ptr %253, align 4
-  %255 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv211.i.i
+  %255 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv211.i.i
   %256 = load i32, ptr %255, align 4
   %257 = icmp eq i32 %254, %256
   br i1 %257, label %.loopexit196.i.i, label %.preheader195.i.i
 
 .preheader195.i.i:                                ; preds = %.lr.ph.i.i
-  %258 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv211.i.i
+  %258 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv211.i.i
   br label %259
 
 259:                                              ; preds = %_ZN4llvm15IntervalMapImpl8NodeBaseISt4pairINS_9SlotIndexES3_EN12_GLOBAL__N_116DbgVariableValueELj4EE17adjustFromLeftSibEjRS7_ji.exit.i.i, %.preheader195.i.i
@@ -12759,9 +12759,9 @@ _ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15I
 
 263:                                              ; preds = %259
   %264 = load ptr, ptr %258, align 8
-  %265 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.next214.i.i
+  %265 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv.next214.i.i
   %266 = load ptr, ptr %265, align 8
-  %267 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.next214.i.i
+  %267 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.next214.i.i
   %268 = load i32, ptr %267, align 4
   %269 = sub i32 %260, %261
   %270 = icmp sgt i32 %269, 0
@@ -15089,15 +15089,15 @@ _ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15I
 
 .lr.ph.i:                                         ; preds = %.loopexit110.i, %.lr.ph.preheader.i
   %indvars.iv.i77 = phi i64 [ %205, %.lr.ph.preheader.i ], [ %indvars.iv.next.i79, %.loopexit110.i ]
-  %206 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i77
+  %206 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.i77
   %207 = load i32, ptr %206, align 4
-  %208 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i77
+  %208 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv.i77
   %209 = load i32, ptr %208, align 4
   %210 = icmp eq i32 %207, %209
   br i1 %210, label %.loopexit110.i, label %.preheader109.i
 
 .preheader109.i:                                  ; preds = %.lr.ph.i
-  %211 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.i77
+  %211 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv.i77
   br label %212
 
 212:                                              ; preds = %_ZN4llvm15IntervalMapImpl8NodeBaseINS0_7NodeRefENS_9SlotIndexELj12EE17adjustFromLeftSibEjRS4_ji.exit.i, %.preheader109.i
@@ -15110,9 +15110,9 @@ _ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15I
 
 216:                                              ; preds = %212
   %217 = load ptr, ptr %211, align 8
-  %218 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.next117.i
+  %218 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv.next117.i
   %219 = load ptr, ptr %218, align 8
-  %220 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.next117.i
+  %220 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.next117.i
   %221 = load i32, ptr %220, align 4
   %222 = sub i32 %213, %214
   %223 = icmp sgt i32 %222, 0

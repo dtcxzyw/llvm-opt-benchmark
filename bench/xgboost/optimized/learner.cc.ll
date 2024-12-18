@@ -9268,7 +9268,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %27 = load ptr, ptr %8, align 8
   %28 = getelementptr i8, ptr %27, i64 -24
   %29 = load i64, ptr %28, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %8, i64 %29
+  %30 = getelementptr inbounds i8, ptr %8, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 17, ptr %31, align 8
   %32 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %8, i8 noundef signext 91)
@@ -12570,7 +12570,7 @@ _ZSt22__uninitialized_copy_aIPKfPffET0_T_S4_S3_RSaIT1_E.exit.i: ; preds = %595
   %602 = ptrtoint ptr %597 to i64
   %603 = sub i64 %602, %586
   %gepdiff = sub nsw i64 4, %603
-  %.sink.i.i25.i.ptr = getelementptr inbounds nuw i8, ptr %44, i64 %603
+  %.sink.i.i25.i.ptr = getelementptr inbounds i8, ptr %44, i64 %603
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %597, ptr nonnull align 4 %.sink.i.i25.i.ptr, i64 %gepdiff, i1 false)
   %604 = getelementptr inbounds i8, ptr %597, i64 %gepdiff
   store ptr %604, ptr %596, align 8
@@ -28931,9 +28931,9 @@ _ZN7xgboost10JsonObjectD2Ev.exit:                 ; preds = %42
           to label %52 unwind label %70
 
 52:                                               ; preds = %_ZN7xgboost10JsonObjectD2Ev.exit
-  %53 = icmp ult i32 %51, 16
-  %narrow = call i32 @llvm.umin.i32(i32 %51, i32 16)
-  %..i.v = zext nneg i32 %narrow to i64
+  %53 = icmp slt i32 %51, 16
+  %narrow = call i32 @llvm.smin.i32(i32 %51, i32 16)
+  %..i.v = sext i32 %narrow to i64
   br i1 %53, label %74, label %54
 
 54:                                               ; preds = %52
@@ -49813,7 +49813,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryIj
   %12 = load ptr, ptr %4, align 8
   %13 = getelementptr i8, ptr %12, i64 -24
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %4, i64 %14
+  %15 = getelementptr inbounds i8, ptr %4, i64 %14
   %16 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %15)
           to label %17 unwind label %.loopexit.split-lp
 
@@ -49824,7 +49824,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryIj
   %18 = load ptr, ptr %4, align 8
   %19 = getelementptr i8, ptr %18, i64 -24
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %4, i64 %20
+  %21 = getelementptr inbounds i8, ptr %4, i64 %20
   %22 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv(ptr noundef nonnull align 8 dereferenceable(264) %21)
           to label %23 unwind label %.loopexit
 
@@ -49843,7 +49843,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryIj
   %29 = load ptr, ptr %4, align 8
   %30 = getelementptr i8, ptr %29, i64 -24
   %31 = load i64, ptr %30, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %4, i64 %31
+  %32 = getelementptr inbounds i8, ptr %4, i64 %31
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %32, i32 noundef 0)
           to label %.loopexit22 unwind label %.loopexit.split-lp
 
@@ -49874,7 +49874,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryIj
   %36 = load ptr, ptr %4, align 8
   %37 = getelementptr i8, ptr %36, i64 -24
   %38 = load i64, ptr %37, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %4, i64 %38
+  %39 = getelementptr inbounds i8, ptr %4, i64 %38
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %39, i32 noundef 4)
           to label %.loopexit22 unwind label %.loopexit.split-lp
 
@@ -49882,7 +49882,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryIj
   %40 = load ptr, ptr %4, align 8
   %41 = getelementptr i8, ptr %40, i64 -24
   %42 = load i64, ptr %41, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %4, i64 %42
+  %43 = getelementptr inbounds i8, ptr %4, i64 %42
   %44 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %43)
           to label %45 unwind label %.loopexit.split-lp
 
@@ -51499,7 +51499,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryIi
   %12 = load ptr, ptr %4, align 8
   %13 = getelementptr i8, ptr %12, i64 -24
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %4, i64 %14
+  %15 = getelementptr inbounds i8, ptr %4, i64 %14
   %16 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %15)
           to label %17 unwind label %.loopexit.split-lp
 
@@ -51510,7 +51510,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryIi
   %18 = load ptr, ptr %4, align 8
   %19 = getelementptr i8, ptr %18, i64 -24
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %4, i64 %20
+  %21 = getelementptr inbounds i8, ptr %4, i64 %20
   %22 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv(ptr noundef nonnull align 8 dereferenceable(264) %21)
           to label %23 unwind label %.loopexit
 
@@ -51529,7 +51529,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryIi
   %29 = load ptr, ptr %4, align 8
   %30 = getelementptr i8, ptr %29, i64 -24
   %31 = load i64, ptr %30, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %4, i64 %31
+  %32 = getelementptr inbounds i8, ptr %4, i64 %31
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %32, i32 noundef 0)
           to label %.loopexit22 unwind label %.loopexit.split-lp
 
@@ -51560,7 +51560,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryIi
   %36 = load ptr, ptr %4, align 8
   %37 = getelementptr i8, ptr %36, i64 -24
   %38 = load i64, ptr %37, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %4, i64 %38
+  %39 = getelementptr inbounds i8, ptr %4, i64 %38
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %39, i32 noundef 4)
           to label %.loopexit22 unwind label %.loopexit.split-lp
 
@@ -51568,7 +51568,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryIi
   %40 = load ptr, ptr %4, align 8
   %41 = getelementptr i8, ptr %40, i64 -24
   %42 = load i64, ptr %41, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %4, i64 %42
+  %43 = getelementptr inbounds i8, ptr %4, i64 %42
   %44 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %43)
           to label %45 unwind label %.loopexit.split-lp
 
@@ -53346,7 +53346,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryIN
   %12 = load ptr, ptr %4, align 8
   %13 = getelementptr i8, ptr %12, i64 -24
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %4, i64 %14
+  %15 = getelementptr inbounds i8, ptr %4, i64 %14
   %16 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %15)
           to label %17 unwind label %.loopexit.split-lp
 
@@ -53357,7 +53357,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryIN
   %18 = load ptr, ptr %4, align 8
   %19 = getelementptr i8, ptr %18, i64 -24
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %4, i64 %20
+  %21 = getelementptr inbounds i8, ptr %4, i64 %20
   %22 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv(ptr noundef nonnull align 8 dereferenceable(264) %21)
           to label %23 unwind label %.loopexit
 
@@ -53376,7 +53376,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryIN
   %29 = load ptr, ptr %4, align 8
   %30 = getelementptr i8, ptr %29, i64 -24
   %31 = load i64, ptr %30, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %4, i64 %31
+  %32 = getelementptr inbounds i8, ptr %4, i64 %31
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %32, i32 noundef 0)
           to label %.loopexit22 unwind label %.loopexit.split-lp
 
@@ -53407,7 +53407,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryIN
   %36 = load ptr, ptr %4, align 8
   %37 = getelementptr i8, ptr %36, i64 -24
   %38 = load i64, ptr %37, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %4, i64 %38
+  %39 = getelementptr inbounds i8, ptr %4, i64 %38
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %39, i32 noundef 4)
           to label %.loopexit22 unwind label %.loopexit.split-lp
 
@@ -53415,7 +53415,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryIN
   %40 = load ptr, ptr %4, align 8
   %41 = getelementptr i8, ptr %40, i64 -24
   %42 = load i64, ptr %41, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %4, i64 %42
+  %43 = getelementptr inbounds i8, ptr %4, i64 %42
   %44 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %43)
           to label %45 unwind label %.loopexit.split-lp
 
@@ -54748,7 +54748,7 @@ declare i64 @llvm.umax.i64(i64, i64) #31
 declare i64 @llvm.umin.i64(i64, i64) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #31
+declare i32 @llvm.smin.i32(i32, i32) #31
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #33

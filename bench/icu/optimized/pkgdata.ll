@@ -789,16 +789,16 @@ if.end21.i:                                       ; preds = %for.end.i
 
 if.then23.i:                                      ; preds = %if.end21.i
   %strlen.i = tail call i64 @strlen(ptr nonnull dereferenceable(1) @_ZZL18pkg_getPkgDataPathaP7UOptionE3buf)
-  %endptr.i = getelementptr inbounds nuw i8, ptr @_ZZL18pkg_getPkgDataPathaP7UOptionE3buf, i64 %strlen.i
+  %endptr.i = getelementptr inbounds i8, ptr @_ZZL18pkg_getPkgDataPathaP7UOptionE3buf, i64 %strlen.i
   store i16 47, ptr %endptr.i, align 1
   %strlen10.i = tail call i64 @strlen(ptr nonnull dereferenceable(1) @_ZZL18pkg_getPkgDataPathaP7UOptionE3buf)
-  %endptr11.i = getelementptr inbounds nuw i8, ptr @_ZZL18pkg_getPkgDataPathaP7UOptionE3buf, i64 %strlen10.i
+  %endptr11.i = getelementptr inbounds i8, ptr @_ZZL18pkg_getPkgDataPathaP7UOptionE3buf, i64 %strlen10.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %endptr11.i, ptr noundef nonnull align 1 dereferenceable(12) @.str.158, i64 12, i1 false)
   br label %_ZL18pkg_getPkgDataPathaP7UOption.exit
 
 _ZL18pkg_getPkgDataPathaP7UOption.exit:           ; preds = %if.end21.i, %if.then23.i
   %call27.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @_ZZL18pkg_getPkgDataPathaP7UOptionE3buf) #23
-  %arrayidx28.i = getelementptr inbounds nuw [512 x i8], ptr @_ZZL18pkg_getPkgDataPathaP7UOptionE3buf, i64 0, i64 %call27.i
+  %arrayidx28.i = getelementptr inbounds [512 x i8], ptr @_ZZL18pkg_getPkgDataPathaP7UOptionE3buf, i64 0, i64 %call27.i
   store i8 0, ptr %arrayidx28.i, align 1
   store ptr @_ZZL18pkg_getPkgDataPathaP7UOptionE3buf, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 48), align 16
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 74), align 2
@@ -1457,7 +1457,7 @@ if.then.i74:                                      ; preds = %_ZL22initializePkgD
 if.end.i76:                                       ; preds = %if.then.i74
   %call5.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %targetDir.i, ptr noundef nonnull dereferenceable(1) %o.sroa.68.0) #19
   %strlen121.i = call i64 @strlen(ptr nonnull dereferenceable(1) %targetDir.i)
-  %endptr122.i = getelementptr inbounds nuw i8, ptr %targetDir.i, i64 %strlen121.i
+  %endptr122.i = getelementptr inbounds i8, ptr %targetDir.i, i64 %strlen121.i
   store i16 47, ptr %endptr122.i, align 1
   %call12.i = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %targetDir.i, ptr noundef nonnull dereferenceable(1) %49) #19
   %tobool.not.i78 = icmp eq i8 %59, 0
@@ -1572,16 +1572,16 @@ _ZL19pkg_installFileModePKcS0_S0_.exit.i:         ; preds = %if.else34.i.i, %for
 if.else.i59:                                      ; preds = %_ZL22initializePkgDataFlagsP12UPKGOptions_.exit.i
   %call22.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %targetDir.i, ptr noundef nonnull dereferenceable(1) %spec.select174) #19
   %strlen.i60 = call i64 @strlen(ptr nonnull dereferenceable(1) %targetDir.i)
-  %endptr.i61 = getelementptr inbounds nuw i8, ptr %targetDir.i, i64 %strlen.i60
+  %endptr.i61 = getelementptr inbounds i8, ptr %targetDir.i, i64 %strlen.i60
   store i16 47, ptr %endptr.i61, align 1
   %call27.i62 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %tmpDir.i, ptr noundef nonnull dereferenceable(1) %o.sroa.36102.0) #19
   %strlen117.i = call i64 @strlen(ptr nonnull dereferenceable(1) %tmpDir.i)
-  %endptr118.i = getelementptr inbounds nuw i8, ptr %tmpDir.i, i64 %strlen117.i
+  %endptr118.i = getelementptr inbounds i8, ptr %tmpDir.i, i64 %strlen117.i
   store i16 47, ptr %endptr118.i, align 1
   %call32.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %datFileNamePath.i, ptr noundef nonnull dereferenceable(1) %tmpDir.i) #19
   %call35.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %datFileName.i, ptr noundef nonnull dereferenceable(1) %49) #19
   %strlen119.i = call i64 @strlen(ptr nonnull dereferenceable(1) %datFileName.i)
-  %endptr120.i = getelementptr inbounds nuw i8, ptr %datFileName.i, i64 %strlen119.i
+  %endptr120.i = getelementptr inbounds i8, ptr %datFileName.i, i64 %strlen119.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %endptr120.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.57, i64 5, i1 false)
   %call40.i = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %datFileNamePath.i, ptr noundef nonnull dereferenceable(1) %datFileName.i) #19
   %tobool42.not.i63 = icmp eq i8 %59, 0
@@ -1946,7 +1946,7 @@ if.then250.i:                                     ; preds = %land.lhs.true247.i
   %call.i159.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %tempObjectFile.i.i, ptr noundef nonnull dereferenceable(1) %gencFilePath.i) #19
   %call2.i160.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %tempObjectFile.i.i) #23
   %sub.i161.i = add i64 %call2.i160.i, -1
-  %arrayidx.i162.i = getelementptr inbounds nuw [512 x i8], ptr %tempObjectFile.i.i, i64 0, i64 %sub.i161.i
+  %arrayidx.i162.i = getelementptr inbounds [512 x i8], ptr %tempObjectFile.i.i, i64 0, i64 %sub.i161.i
   store i8 111, ptr %arrayidx.i162.i, align 1
   %197 = load ptr, ptr @_ZL12pkgDataFlags, align 8
   %arrayidx3.i.i = getelementptr inbounds nuw i8, ptr %197, i64 48
@@ -2209,7 +2209,7 @@ if.end99.i.i:                                     ; preds = %if.end83.i.i, %if.t
   %call102.i.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %tempObjectFile.i180.i, ptr noundef nonnull dereferenceable(1) %gencmnFile.i.i) #19
   %call104.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %tempObjectFile.i180.i) #23
   %sub.i202.i = add i64 %call104.i.i, -1
-  %arrayidx105.i.i = getelementptr inbounds nuw [512 x i8], ptr %tempObjectFile.i180.i, i64 0, i64 %sub.i202.i
+  %arrayidx105.i.i = getelementptr inbounds [512 x i8], ptr %tempObjectFile.i180.i, i64 0, i64 %sub.i202.i
   store i8 111, ptr %arrayidx105.i.i, align 1
   %228 = load ptr, ptr @_ZL12pkgDataFlags, align 8
   %arrayidx106.i.i = getelementptr inbounds nuw i8, ptr %228, i64 48

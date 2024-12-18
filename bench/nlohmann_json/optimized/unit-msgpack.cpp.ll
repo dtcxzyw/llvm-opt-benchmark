@@ -66981,7 +66981,7 @@ entry:
   %div4.lhs.trunc.i = add nsw i16 %1, 307
   %div42.i = sdiv i16 %div4.lhs.trunc.i, 8
   %conv5.i = sext i16 %div42.i to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw [79 x %"struct.nlohmann::json_abi_v3_11_3::detail::dtoa_impl::cached_power"], ptr @_ZZN8nlohmann16json_abi_v3_11_36detail9dtoa_impl36get_cached_power_for_binary_exponentEiE13kCachedPowers, i64 0, i64 %conv5.i
+  %arrayidx.i.i.i = getelementptr inbounds [79 x %"struct.nlohmann::json_abi_v3_11_3::detail::dtoa_impl::cached_power"], ptr @_ZZN8nlohmann16json_abi_v3_11_36detail9dtoa_impl36get_cached_power_for_binary_exponentEiE13kCachedPowers, i64 0, i64 %conv5.i
   %retval.sroa.0.0.copyload.i = load i64, ptr %arrayidx.i.i.i, align 8
   %retval.sroa.2.0.call.sroa_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 8
   %retval.sroa.2.0.copyload.i = load i64, ptr %retval.sroa.2.0.call.sroa_idx.i, align 8
@@ -85914,7 +85914,7 @@ invoke.cont:
   %vtable = load ptr, ptr %file, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %file, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %file, i64 %vbase.offset
   %_M_flags.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 24
   %0 = load i32, ptr %_M_flags.i, align 4
   %and.i.i.i = and i32 %0, -4097

@@ -5558,7 +5558,7 @@ _ZN4llvm3sys2fsL13hasProcSelfFDEv.exit:           ; preds = %12, %17, %19
 
 37:                                               ; preds = %32
   %38 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #29
-  %39 = getelementptr inbounds nuw i8, ptr %5, i64 %38
+  %39 = getelementptr inbounds i8, ptr %5, i64 %38
   call void @_ZN4llvm15SmallVectorImplIcE6appendIPcvEEvT_S4_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %5, ptr noundef nonnull %39)
   br label %40
 
@@ -6536,7 +6536,7 @@ select.unfold:                                    ; preds = %_ZN4llvm3sys2fsL8te
   %69 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #30
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %69, ptr noundef nonnull align 1 dereferenceable(1) %16) #30
   %70 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #30
-  %71 = getelementptr inbounds nuw i8, ptr %12, i64 %70
+  %71 = getelementptr inbounds i8, ptr %12, i64 %70
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %12, ptr noundef nonnull %71)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #30
   br label %74
@@ -9031,7 +9031,7 @@ define dso_local { i32, ptr } @_ZN4llvm3sys2fs9real_pathERKNS_5TwineERNS_15Small
 
 39:                                               ; preds = %29
   %40 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #29
-  %41 = getelementptr inbounds nuw i8, ptr %7, i64 %40
+  %41 = getelementptr inbounds i8, ptr %7, i64 %40
   call void @_ZN4llvm15SmallVectorImplIcE6appendIPcvEEvT_S4_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %7, ptr noundef nonnull %41)
   %42 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #33
   br label %43

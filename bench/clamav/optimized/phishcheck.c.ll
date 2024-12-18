@@ -612,14 +612,14 @@ define i32 @phishingScan(ptr noundef %0, ptr nocapture noundef readonly %1) loca
 
 125:                                              ; preds = %124
   %126 = add nsw i64 %.05191.i.i, -1
-  %127 = getelementptr inbounds nuw [5 x ptr], ptr %10, i64 0, i64 %.05191.i.i
+  %127 = getelementptr inbounds [5 x ptr], ptr %10, i64 0, i64 %.05191.i.i
   store ptr %.156.i.i, ptr %127, align 8
   %128 = icmp eq i64 %126, 0
   br i1 %128, label %._crit_edge.i.i, label %.preheader.i.i
 
 ._crit_edge.i.i:                                  ; preds = %125, %124, %115
   %.051.lcssa.i.i = phi i64 [ 4, %115 ], [ %.05191.i.i, %124 ], [ 0, %125 ]
-  %129 = getelementptr inbounds nuw [5 x ptr], ptr %10, i64 0, i64 %.051.lcssa.i.i
+  %129 = getelementptr inbounds [5 x ptr], ptr %10, i64 0, i64 %.051.lcssa.i.i
   store ptr %116, ptr %129, align 8
   %130 = load i64, ptr %8, align 8
   store i64 %130, ptr %11, align 16
@@ -673,7 +673,7 @@ define i32 @phishingScan(ptr noundef %0, ptr nocapture noundef readonly %1) loca
 .lr.ph.us.us.i.i:                                 ; preds = %.split.us.i.i, %hash_match.exit.us.us.us.preheader.i.i
   %.05799.us.us.i.i = phi i64 [ %148, %hash_match.exit.us.us.us.preheader.i.i ], [ %.2.i.i, %.split.us.i.i ]
   %148 = add nsw i64 %.05799.us.us.i.i, -1
-  %149 = getelementptr inbounds nuw [6 x i64], ptr %11, i64 0, i64 %148
+  %149 = getelementptr inbounds [6 x i64], ptr %11, i64 0, i64 %148
   %150 = load i64, ptr %149, align 8
   %.not71.us.us.i.i = icmp ugt i64 %150, %130
   br i1 %.not71.us.us.i.i, label %.split114.us.i.i, label %hash_match.exit.us.us.us.preheader.i.i
@@ -685,7 +685,7 @@ hash_match.exit.us.us.us.preheader.i.i:           ; preds = %.lr.ph.us.us.i.i
 .lr.ph.us.i.i:                                    ; preds = %.split.us.i.i, %..loopexit_crit_edge.split.us104.i.i
   %.05799.us.i.i = phi i64 [ %151, %..loopexit_crit_edge.split.us104.i.i ], [ %.2.i.i, %.split.us.i.i ]
   %151 = add nsw i64 %.05799.us.i.i, -1
-  %152 = getelementptr inbounds nuw [6 x i64], ptr %11, i64 0, i64 %151
+  %152 = getelementptr inbounds [6 x i64], ptr %11, i64 0, i64 %151
   %153 = load i64, ptr %152, align 8
   %.not71.us.i.i = icmp ugt i64 %153, %130
   %154 = trunc i64 %153 to i32
@@ -694,7 +694,7 @@ hash_match.exit.us.us.us.preheader.i.i:           ; preds = %.lr.ph.us.us.i.i
 .lr.ph.split.us.i.i:                              ; preds = %.lr.ph.us.i.i, %.sink.split.i.i
   %.05895.us102.i.i = phi i64 [ %155, %.sink.split.i.i ], [ 5, %.lr.ph.us.i.i ]
   %155 = add nsw i64 %.05895.us102.i.i, -1
-  %156 = getelementptr inbounds nuw [5 x ptr], ptr %10, i64 0, i64 %155
+  %156 = getelementptr inbounds [5 x ptr], ptr %10, i64 0, i64 %155
   %157 = load ptr, ptr %156, align 8
   %158 = ptrtoint ptr %157 to i64
   %159 = sub i64 %145, %158

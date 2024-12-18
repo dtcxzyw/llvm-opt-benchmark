@@ -898,7 +898,7 @@ define void @_ZN7jsonnet8internal22jsonnet_unparse_numberB5cxx11Ed(ptr dead_on_u
           to label %9 unwind label %19
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 %7
+  %10 = getelementptr inbounds i8, ptr %3, i64 %7
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale(ptr dead_on_unwind nonnull writable sret(%"class.std::locale") align 8 %4, ptr noundef nonnull align 8 dereferenceable(264) %10, ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %11 unwind label %19
 

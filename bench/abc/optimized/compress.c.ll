@@ -1736,7 +1736,7 @@ generateMTFValues.exit:                           ; preds = %.preheader.i, %._cr
 1170:                                             ; preds = %.loopexit1975.i
   %1171 = add nuw nsw i32 %spec.select1520.i, %.014762145.i
   %1172 = sext i32 %spec.select1521.i to i64
-  %1173 = getelementptr inbounds nuw [6 x i32], ptr %4, i64 0, i64 %1172
+  %1173 = getelementptr inbounds [6 x i32], ptr %4, i64 0, i64 %1172
   %1174 = load i32, ptr %1173, align 4
   %1175 = add nsw i32 %1174, 1
   store i32 %1175, ptr %1173, align 4

@@ -2446,7 +2446,7 @@ if.then40:                                        ; preds = %if.end38
   br label %if.end41
 
 if.end41:                                         ; preds = %if.then40, %if.end38
-  %arrayidx42 = getelementptr inbounds nuw i8, ptr %vla, i64 %minRepresentDigits
+  %arrayidx42 = getelementptr inbounds i8, ptr %vla, i64 %minRepresentDigits
   store i8 0, ptr %arrayidx42, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #2
   %call.i12 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
@@ -2458,7 +2458,7 @@ call.i.noexc:                                     ; preds = %if.end41
 
 .noexc:                                           ; preds = %call.i.noexc
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %vla) #2
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %vla, i64 %call.i.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %vla, i64 %call.i.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %vla, ptr noundef nonnull %add.ptr.i)
           to label %invoke.cont unwind label %lpad.i
 

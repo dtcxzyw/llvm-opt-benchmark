@@ -4893,7 +4893,7 @@ f_tostring.exit377:                               ; preds = %118, %121
   %.0333439.add = add nuw nsw i64 %.0333439.idx, 1
   %.ptr = getelementptr inbounds nuw i8, ptr @.str.183, i64 %.0333439.add
   %133 = sext i8 %132 to i64
-  %134 = getelementptr inbounds nuw [128 x i32], ptr %9, i64 0, i64 %133
+  %134 = getelementptr inbounds [128 x i32], ptr %9, i64 0, i64 %133
   store i32 1, ptr %134, align 4
   %135 = load i8, ptr %.ptr, align 1
   %exitcond494 = icmp eq i64 %.0333439.add, 66
@@ -7354,7 +7354,7 @@ define internal fastcc { i64, ptr } @escape_string(i64 %0, ptr %1, ptr noundef %
   %.038 = phi ptr [ %13, %.lr.ph ], [ %2, %3 ]
   %8 = getelementptr inbounds nuw i8, ptr %.038, i64 1
   %9 = sext i8 %7 to i64
-  %10 = getelementptr inbounds nuw [128 x ptr], ptr %4, i64 0, i64 %9
+  %10 = getelementptr inbounds [128 x ptr], ptr %4, i64 0, i64 %9
   store ptr %8, ptr %10, align 8
   %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #17
   %12 = getelementptr inbounds i8, ptr %8, i64 %11
@@ -7389,7 +7389,7 @@ define internal fastcc { i64, ptr } @escape_string(i64 %0, ptr %1, ptr noundef %
 
 27:                                               ; preds = %.lr.ph46
   %28 = sext i32 %25 to i64
-  %29 = getelementptr inbounds nuw [128 x ptr], ptr %4, i64 0, i64 %28
+  %29 = getelementptr inbounds [128 x ptr], ptr %4, i64 0, i64 %28
   %30 = load ptr, ptr %29, align 8
   %.not33 = icmp eq ptr %30, null
   br i1 %.not33, label %33, label %31

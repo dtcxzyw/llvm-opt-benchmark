@@ -4226,7 +4226,7 @@ define void @reload_defaults(ptr nocapture noundef initializes((492, 496), (676,
   %25 = load i32, ptr %24, align 8, !tbaa !182
   call void @dt_image_full_path(i32 noundef %25, ptr noundef nonnull %2, i64 noundef 4096, ptr noundef nonnull %3) #19
   %26 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
-  %27 = getelementptr inbounds nuw i8, ptr %2, i64 %26
+  %27 = getelementptr inbounds i8, ptr %2, i64 %26
   br label %28
 
 28:                                               ; preds = %28, %23

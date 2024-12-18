@@ -503,7 +503,7 @@ inet_pton4.exit:                                  ; preds = %17, %28, %32, %11, 
   %sext = shl i64 %49, 32
   %53 = ashr exact i64 %sext, 32
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr nonnull align 1 %1, i64 %53, i1 false)
-  %54 = getelementptr inbounds nuw i8, ptr %7, i64 %53
+  %54 = getelementptr inbounds i8, ptr %7, i64 %53
   store i8 0, ptr %54, align 1
   br label %55
 

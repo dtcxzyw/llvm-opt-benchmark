@@ -1543,7 +1543,7 @@ Vec_WrdAlloc.exit:                                ; preds = %Vec_IntFree.exit, %
   %126 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv229
   %127 = load i32, ptr %126, align 4
   %128 = sext i32 %127 to i64
-  %129 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %128
+  %129 = getelementptr inbounds [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %128
   %130 = load i64, ptr %129, align 8
   %131 = and i64 %130, %.0201.us
   %132 = getelementptr inbounds nuw i8, ptr %129, i64 8
@@ -2204,7 +2204,7 @@ Mpm_CutCheckDsd6.exit:                            ; preds = %158
   %217 = getelementptr inbounds nuw [720 x [6 x i8]], ptr %207, i64 0, i64 %209, i64 %indvars.iv183
   %218 = load i8, ptr %217, align 1
   %219 = sext i8 %218 to i64
-  %220 = getelementptr inbounds nuw [6 x i32], ptr %11, i64 0, i64 %219
+  %220 = getelementptr inbounds [6 x i32], ptr %11, i64 0, i64 %219
   store i32 %216, ptr %220, align 4
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
   %exitcond186.not = icmp eq i64 %indvars.iv.next184, %wide.trip.count

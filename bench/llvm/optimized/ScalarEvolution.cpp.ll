@@ -21286,7 +21286,7 @@ switch.lookup:
   %21 = alloca %"class.llvm::APInt", align 8
   %switch.tableidx = add nsw i32 %1, -13
   %22 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN4llvm15ScalarEvolution15willNotOverflowENS_11Instruction9BinaryOpsEbPKNS_4SCEVES5_PKS1_, i64 0, i64 %22
+  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN4llvm15ScalarEvolution15willNotOverflowENS_11Instruction9BinaryOpsEbPKNS_4SCEVES5_PKS1_, i64 0, i64 %22
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %tailrecurse.i
 

@@ -1494,7 +1494,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   %add.ptr1.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 320
   tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i.i.i, i32 0, i32 3, i32 1)
   %mul2.i.i.i = shl i64 %n.06.i.i.i, 3
-  %add.ptr3.i.i.i = getelementptr inbounds nuw i8, ptr @_ZL12XXH3_kSecret, i64 %mul2.i.i.i
+  %add.ptr3.i.i.i = getelementptr inbounds i8, ptr @_ZL12XXH3_kSecret, i64 %mul2.i.i.i
   %1 = load <8 x i64>, ptr %add.ptr.i.i.i, align 1
   %2 = load <8 x i64>, ptr %add.ptr3.i.i.i, align 8
   %xor.i.i.i.i.i = xor <8 x i64> %2, %1
@@ -1542,7 +1542,7 @@ for.body.i34.i.i:                                 ; preds = %for.end.i.i, %for.b
   %add.ptr1.i39.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i38.i.i, i64 320
   tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i39.i.i, i32 0, i32 3, i32 1)
   %mul2.i40.i.i = shl i64 %n.06.i36.i.i, 3
-  %add.ptr3.i41.i.i = getelementptr inbounds nuw i8, ptr @_ZL12XXH3_kSecret, i64 %mul2.i40.i.i
+  %add.ptr3.i41.i.i = getelementptr inbounds i8, ptr @_ZL12XXH3_kSecret, i64 %mul2.i40.i.i
   %16 = load <8 x i64>, ptr %add.ptr.i38.i.i, align 1
   %17 = load <8 x i64>, ptr %add.ptr3.i41.i.i, align 8
   %xor.i.i.i42.i.i = xor <8 x i64> %17, %16
@@ -1818,7 +1818,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   %add.ptr1.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i, i64 320
   tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i.i.i.i, i32 0, i32 3, i32 1)
   %mul2.i.i.i.i = shl i64 %n.06.i.i.i.i, 3
-  %add.ptr3.i.i.i.i = getelementptr inbounds nuw i8, ptr @_ZL12XXH3_kSecret, i64 %mul2.i.i.i.i
+  %add.ptr3.i.i.i.i = getelementptr inbounds i8, ptr @_ZL12XXH3_kSecret, i64 %mul2.i.i.i.i
   %1 = load <8 x i64>, ptr %add.ptr.i.i.i.i, align 1
   %2 = load <8 x i64>, ptr %add.ptr3.i.i.i.i, align 8
   %xor.i.i.i.i.i.i = xor <8 x i64> %2, %1
@@ -1866,7 +1866,7 @@ for.body.i34.i.i.i:                               ; preds = %for.end.i.i.i, %for
   %add.ptr1.i39.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i38.i.i.i, i64 320
   tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i39.i.i.i, i32 0, i32 3, i32 1)
   %mul2.i40.i.i.i = shl i64 %n.06.i36.i.i.i, 3
-  %add.ptr3.i41.i.i.i = getelementptr inbounds nuw i8, ptr @_ZL12XXH3_kSecret, i64 %mul2.i40.i.i.i
+  %add.ptr3.i41.i.i.i = getelementptr inbounds i8, ptr @_ZL12XXH3_kSecret, i64 %mul2.i40.i.i.i
   %16 = load <8 x i64>, ptr %add.ptr.i38.i.i.i, align 1
   %17 = load <8 x i64>, ptr %add.ptr3.i41.i.i.i, align 8
   %xor.i.i.i42.i.i.i = xor <8 x i64> %17, %16
@@ -1978,7 +1978,7 @@ for.body.i.i.i18.i:                               ; preds = %for.body.i.i.i18.i,
   %add.ptr1.i.i.i23.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i22.i, i64 320
   tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i.i.i23.i, i32 0, i32 3, i32 1)
   %mul2.i.i.i24.i = shl i64 %n.06.i.i.i20.i, 3
-  %add.ptr3.i.i.i25.i = getelementptr inbounds nuw i8, ptr %secret.i, i64 %mul2.i.i.i24.i
+  %add.ptr3.i.i.i25.i = getelementptr inbounds i8, ptr %secret.i, i64 %mul2.i.i.i24.i
   %35 = load <8 x i64>, ptr %add.ptr.i.i.i22.i, align 1
   %36 = load <8 x i64>, ptr %add.ptr3.i.i.i25.i, align 8
   %xor.i.i.i.i.i26.i = xor <8 x i64> %36, %35
@@ -2026,7 +2026,7 @@ for.body.i34.i.i45.i:                             ; preds = %for.end.i.i36.i, %f
   %add.ptr1.i39.i.i50.i = getelementptr inbounds nuw i8, ptr %add.ptr.i38.i.i49.i, i64 320
   tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i39.i.i50.i, i32 0, i32 3, i32 1)
   %mul2.i40.i.i51.i = shl i64 %n.06.i36.i.i47.i, 3
-  %add.ptr3.i41.i.i52.i = getelementptr inbounds nuw i8, ptr %secret.i, i64 %mul2.i40.i.i51.i
+  %add.ptr3.i41.i.i52.i = getelementptr inbounds i8, ptr %secret.i, i64 %mul2.i40.i.i51.i
   %50 = load <8 x i64>, ptr %add.ptr.i38.i.i49.i, align 1
   %51 = load <8 x i64>, ptr %add.ptr3.i41.i.i52.i, align 8
   %xor.i.i.i42.i.i53.i = xor <8 x i64> %51, %50

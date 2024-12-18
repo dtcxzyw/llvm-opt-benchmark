@@ -6397,7 +6397,7 @@ thread-pre-split:                                 ; preds = %1123, %1138, %_ZN19
 
 1192:                                             ; preds = %1187
   %1193 = sub nuw nsw i64 %1185, %1183
-  %1194 = getelementptr inbounds nuw i8, ptr @_ZN19brotli_decompressor10dictionary17kBrotliDictionary17h18c83699a9dd7a24E, i64 %1183
+  %1194 = getelementptr inbounds i8, ptr @_ZN19brotli_decompressor10dictionary17kBrotliDictionary17h18c83699a9dd7a24E, i64 %1183
   %1195 = icmp eq i32 %1174, 0
   %1196 = sext i32 %.089 to i64
   br i1 %1195, label %1197, label %1210

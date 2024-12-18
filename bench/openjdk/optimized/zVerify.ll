@@ -1228,7 +1228,7 @@ _ZNK5ZPage21object_from_bit_indexEm.exit.i.i.i.i.i.i.i.i: ; preds = %_ZNK5ZPage2
   %107 = getelementptr inbounds nuw i8, ptr %.0.i.i.i2.i.i.i.i.i.i.i.i, i64 12
   %108 = load i32, ptr %107, align 4
   %109 = sext i32 %108 to i64
-  %110 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI29ZVerifyRemsetBeforeOopClosureE6_tableE, i64 0, i64 %109
+  %110 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI29ZVerifyRemsetBeforeOopClosureE6_tableE, i64 0, i64 %109
   %111 = load ptr, ptr %110, align 8
   call void %111(ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(16) %91, ptr noundef %.0.i.i.i2.i.i.i.i.i.i.i.i) #10
   br label %"_ZNK6BitMap14IterateInvokerIbEclIZN8ZLiveMap7iterateIZN5ZPage14object_iterateIZN7ZVerify17before_relocationEP11ZForwardingE3$_0EEvT_EUlmE_EEv13ZGenerationIdSB_EUlmE_EEbSB_m.exit.i.i.i.i.i"
@@ -1366,7 +1366,7 @@ _ZN11ZGeneration12remap_objectE15zaddress_unsafe.exit.i.i: ; preds = %38, %18
   %57 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
   %58 = load i32, ptr %57, align 4
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI28ZVerifyRemsetAfterOopClosureE6_tableE, i64 0, i64 %59
+  %60 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI28ZVerifyRemsetAfterOopClosureE6_tableE, i64 0, i64 %59
   %61 = load ptr, ptr %60, align 8
   call void %61(ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef %.0.i.i.i.i) #10
   br label %62
@@ -2341,7 +2341,7 @@ _ZN7oopDesc11oop_iterateI20ZVerifyOldOopClosureEEvPT_.exit.i.i: ; preds = %61, %
   %63 = getelementptr inbounds nuw i8, ptr %.0.i.i4.i.i, i64 12
   %64 = load i32, ptr %63, align 4
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI20ZVerifyOldOopClosureE6_tableE, i64 0, i64 %65
+  %66 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI20ZVerifyOldOopClosureE6_tableE, i64 0, i64 %65
   %67 = load ptr, ptr %66, align 8
   call void %67(ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %.0.i.i4.i.i) #10
   br label %_ZN20ZVerifyObjectClosure18verify_live_objectEP7oopDesc.exit

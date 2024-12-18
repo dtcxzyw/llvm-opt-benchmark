@@ -3148,7 +3148,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   %161 = and i64 %160, 2147483646
   %162 = or disjoint i64 %161, %157
   %163 = add nsw i64 %.01822.i.i, -227
-  %164 = getelementptr inbounds nuw [624 x i64], ptr %4, i64 0, i64 %163
+  %164 = getelementptr inbounds [624 x i64], ptr %4, i64 0, i64 %163
   %165 = load i64, ptr %164, align 8
   %166 = lshr exact i64 %162, 1
   %167 = xor i64 %166, %165
@@ -3400,7 +3400,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   %295 = and i64 %294, 2147483646
   %296 = or disjoint i64 %295, %291
   %297 = add nsw i64 %.01822.i.i89, -227
-  %298 = getelementptr inbounds nuw [624 x i64], ptr %4, i64 0, i64 %297
+  %298 = getelementptr inbounds [624 x i64], ptr %4, i64 0, i64 %297
   %299 = load i64, ptr %298, align 8
   %300 = lshr exact i64 %296, 1
   %301 = xor i64 %300, %299

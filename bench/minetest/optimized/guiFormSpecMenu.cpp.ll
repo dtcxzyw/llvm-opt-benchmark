@@ -54949,9 +54949,9 @@ lpad.i.i:                                         ; preds = %if.then.i.i.i.i707
 
 arraydestroy.body.i.i:                            ; preds = %lpad.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
   %arraydestroy.elementPast.i.idx.i = phi i64 [ %arraydestroy.elementPast.i.add.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i ], [ %properties.add.i, %lpad.i.i ]
-  %arraydestroy.elementPast.i.ptr.i = getelementptr inbounds nuw i8, ptr %selector_spec, i64 %arraydestroy.elementPast.i.idx.i
+  %arraydestroy.elementPast.i.ptr.i = getelementptr inbounds i8, ptr %selector_spec, i64 %arraydestroy.elementPast.i.idx.i
   %arraydestroy.elementPast.i.add.i = add nsw i64 %arraydestroy.elementPast.i.idx.i, -32
-  %arraydestroy.element.i.ptr.i = getelementptr inbounds nuw i8, ptr %selector_spec, i64 %arraydestroy.elementPast.i.add.i
+  %arraydestroy.element.i.ptr.i = getelementptr inbounds i8, ptr %selector_spec, i64 %arraydestroy.elementPast.i.add.i
   %227 = load ptr, ptr %arraydestroy.element.i.ptr.i, align 8, !tbaa !4
   %228 = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.ptr.i, i64 -16
   %cmp.i.i.i.i.i708 = icmp eq ptr %227, %228

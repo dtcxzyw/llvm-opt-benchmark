@@ -317,7 +317,7 @@ if.else142:                                       ; preds = %while.end
 
 if.then145:                                       ; preds = %if.else142
   %60 = load ptr, ptr %output_end, align 8
-  %arrayidx148 = getelementptr inbounds nuw [4 x i8], ptr @_ZL9tail_xtra, i64 0, i64 %sub.ptr.sub
+  %arrayidx148 = getelementptr inbounds [4 x i8], ptr @_ZL9tail_xtra, i64 0, i64 %sub.ptr.sub
   %61 = load i8, ptr %arrayidx148, align 1
   %idx.ext = zext i8 %61 to i64
   %add.ptr150 = getelementptr inbounds nuw i8, ptr %32, i64 %idx.ext

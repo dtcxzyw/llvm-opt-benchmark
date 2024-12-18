@@ -394,12 +394,12 @@ if.end176:                                        ; preds = %if.else172, %if.the
 
 land.rhs179:                                      ; preds = %if.end176, %while.body185
   %indvars.iv237 = phi i64 [ %indvars.iv.next238, %while.body185 ], [ %idxprom164, %if.end176 ]
-  %arrayidx181 = getelementptr inbounds nuw [12 x ptr], ptr %links, i64 0, i64 %indvars.iv237
+  %arrayidx181 = getelementptr inbounds [12 x ptr], ptr %links, i64 0, i64 %indvars.iv237
   %35 = load ptr, ptr %arrayidx181, align 8
   %balance182 = getelementptr inbounds nuw i8, ptr %35, i64 25
   %36 = load i8, ptr %balance182, align 1
   %tobool183.not = icmp eq i8 %36, 0
-  %arrayidx187 = getelementptr inbounds nuw [12 x i32], ptr %dirs, i64 0, i64 %indvars.iv237
+  %arrayidx187 = getelementptr inbounds [12 x i32], ptr %dirs, i64 0, i64 %indvars.iv237
   %37 = load i32, ptr %arrayidx187, align 4
   br i1 %tobool183.not, label %while.body185, label %land.lhs.true204
 
@@ -440,7 +440,7 @@ sw.bb:                                            ; preds = %if.then227
   %add232 = shl i64 %indvars.iv237, 32
   %sext242 = add i64 %add232, 4294967296
   %idxprom233 = ashr exact i64 %sext242, 32
-  %arrayidx234 = getelementptr inbounds nuw [12 x i32], ptr %dirs, i64 0, i64 %idxprom233
+  %arrayidx234 = getelementptr inbounds [12 x i32], ptr %dirs, i64 0, i64 %idxprom233
   %40 = load i32, ptr %arrayidx234, align 4
   switch i32 %40, label %sw.default [
     i32 0, label %sw.bb235
@@ -490,7 +490,7 @@ sw.bb270:                                         ; preds = %if.then227
   %add271 = shl i64 %indvars.iv237, 32
   %sext = add i64 %add271, 4294967296
   %idxprom272 = ashr exact i64 %sext, 32
-  %arrayidx273 = getelementptr inbounds nuw [12 x i32], ptr %dirs, i64 0, i64 %idxprom272
+  %arrayidx273 = getelementptr inbounds [12 x i32], ptr %dirs, i64 0, i64 %idxprom272
   %49 = load i32, ptr %arrayidx273, align 4
   switch i32 %49, label %sw.default309 [
     i32 1, label %sw.bb274
@@ -545,10 +545,10 @@ sw.epilog312:                                     ; preds = %sw.bb274, %sw.bb283
   %sub313 = shl i64 %indvars.iv237, 32
   %sext243 = add i64 %sub313, -4294967296
   %idxprom314 = ashr exact i64 %sext243, 32
-  %arrayidx315 = getelementptr inbounds nuw [12 x i32], ptr %dirs, i64 0, i64 %idxprom314
+  %arrayidx315 = getelementptr inbounds [12 x i32], ptr %dirs, i64 0, i64 %idxprom314
   %58 = load i32, ptr %arrayidx315, align 4
   %cmp316 = icmp eq i32 %58, 0
-  %arrayidx321 = getelementptr inbounds nuw [12 x ptr], ptr %links, i64 0, i64 %idxprom314
+  %arrayidx321 = getelementptr inbounds [12 x ptr], ptr %links, i64 0, i64 %idxprom314
   %59 = load ptr, ptr %arrayidx321, align 8
   br i1 %cmp316, label %if.then318, label %if.else323
 

@@ -3770,11 +3770,11 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i: ; preds = %32, %34
 
 74:                                               ; preds = %157
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %12)
-  %75 = getelementptr inbounds nuw [39 x i64], ptr @anon.cb776e29a3edfb21b922828375758a83.9, i64 0, i64 %.0..0..0..0..0..0..pr
+  %75 = getelementptr inbounds [39 x i64], ptr @anon.cb776e29a3edfb21b922828375758a83.9, i64 0, i64 %.0..0..0..0..0..0..pr
   %76 = load i64, ptr %75, align 8, !noundef !7
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %12, ptr nonnull align 8 %14, i64 %76, i1 false)
   %.0..0..0..0. = load i64, ptr %12, align 8
-  %77 = getelementptr inbounds nuw [39 x i64], ptr @anon.cb776e29a3edfb21b922828375758a83.9, i64 0, i64 %.0..0..0..0.
+  %77 = getelementptr inbounds [39 x i64], ptr @anon.cb776e29a3edfb21b922828375758a83.9, i64 0, i64 %.0..0..0..0.
   %78 = load i64, ptr %77, align 8, !noundef !7
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %18, ptr nonnull align 8 %12, i64 %78, i1 false)
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %12)

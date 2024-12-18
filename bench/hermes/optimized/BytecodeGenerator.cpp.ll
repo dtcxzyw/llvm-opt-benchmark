@@ -1443,7 +1443,7 @@ _ZNSt6vectorIhSaIhEE5eraseEN9__gnu_cxx17__normal_iteratorIPKhS1_EES6_.exit: ; pr
   %4 = load i8, ptr %add.ptr.i.i5, align 1
   %switch.tableidx = add nsw i8 %4, 113
   %5 = sext i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [49 x i8], ptr @switch.table._ZN6hermes3hbc25BytecodeFunctionGenerator10shrinkJumpEj, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds [49 x i8], ptr @switch.table._ZN6hermes3hbc25BytecodeFunctionGenerator10shrinkJumpEj, i64 0, i64 %5
   %switch.load = load i8, ptr %switch.gep, align 1
   store i8 %switch.load, ptr %add.ptr.i.i5, align 1
   ret void

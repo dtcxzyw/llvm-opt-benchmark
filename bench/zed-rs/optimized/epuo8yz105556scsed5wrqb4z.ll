@@ -24327,7 +24327,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17hfc6a49f5af1610fcE.exit.i.i: ; p
   br label %846
 
 850:                                              ; preds = %846
-  %851 = getelementptr inbounds nuw [5 x { i64, [3 x i64] }], ptr %21, i64 0, i64 %.sroa.0.1.i.i.i
+  %851 = getelementptr inbounds [5 x { i64, [3 x i64] }], ptr %21, i64 0, i64 %.sroa.0.1.i.i.i
   %852 = add i64 %.sroa.0.1.i.i.i, 1
   invoke fastcc void @"_ZN4core3ptr48drop_in_place$LT$project..EntitySubscription$GT$17hf8e8b08f834c8638E"(ptr noalias noundef align 8 dereferenceable(32) %851) #23
           to label %846 unwind label %853, !noalias !3495

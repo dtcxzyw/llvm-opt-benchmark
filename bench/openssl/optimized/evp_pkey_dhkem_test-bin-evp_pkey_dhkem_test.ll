@@ -332,7 +332,7 @@ entry:
   %tmp2.i = alloca %struct.ossl_param_st, align 8
   %tmp3.i = alloca %struct.ossl_param_st, align 8
   %idxprom = sext i32 %tstid to i64
-  %arrayidx = getelementptr inbounds nuw [5 x %struct.TEST_ENCAPDATA], ptr @ec_encapdata, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [5 x %struct.TEST_ENCAPDATA], ptr @ec_encapdata, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
   %spriv1 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 104
   %1 = load ptr, ptr %spriv1, align 8
@@ -470,7 +470,7 @@ entry:
   %secret.i = alloca [256 x i8], align 16
   %secretlen.i = alloca i64, align 8
   %idxprom = sext i32 %tstid to i64
-  %arrayidx = getelementptr inbounds nuw [5 x %struct.TEST_ENCAPDATA], ptr @ec_encapdata, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [5 x %struct.TEST_ENCAPDATA], ptr @ec_encapdata, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
   %spub1 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 88
   %1 = load ptr, ptr %spub1, align 8
@@ -574,7 +574,7 @@ err:                                              ; preds = %if.then7, %entry, %
 define internal range(i32 0, 2) i32 @test_settables(i32 noundef %tstid) #0 {
 entry:
   %idxprom = sext i32 %tstid to i64
-  %arrayidx = getelementptr inbounds nuw [2 x ptr], ptr @rctx, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [2 x ptr], ptr @rctx, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
   %call = tail call i32 @EVP_PKEY_encapsulate_init(ptr noundef %0, ptr noundef null) #5
   %call1 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 94, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.50, i32 noundef %call, i32 noundef 1) #5
@@ -623,7 +623,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 define internal range(i32 0, 2) i32 @test_init_multiple(i32 noundef %tstid) #0 {
 entry:
   %idxprom = sext i32 %tstid to i64
-  %arrayidx = getelementptr inbounds nuw [2 x ptr], ptr @rctx, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [2 x ptr], ptr @rctx, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
   %call = tail call i32 @EVP_PKEY_encapsulate_init(ptr noundef %0, ptr noundef null) #5
   %call1 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 109, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.50, i32 noundef %call, i32 noundef 1) #5
@@ -659,7 +659,7 @@ define internal i32 @test_auth_key_type_mismatch(i32 noundef %tstid) #0 {
 entry:
   %tobool.not = icmp eq i32 %tstid, 0
   %idxprom = sext i32 %tstid to i64
-  %arrayidx = getelementptr inbounds nuw [2 x ptr], ptr @rctx, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [2 x ptr], ptr @rctx, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
   %idxprom1 = zext i1 %tobool.not to i64
   %arrayidx2 = getelementptr inbounds nuw [2 x ptr], ptr @rkey, i64 0, i64 %idxprom1
@@ -674,9 +674,9 @@ define internal range(i32 0, 2) i32 @test_no_operation_set(i32 noundef %tstid) #
 entry:
   %len = alloca i64, align 8
   %idxprom = sext i32 %tstid to i64
-  %arrayidx = getelementptr inbounds nuw [2 x ptr], ptr @rctx, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [2 x ptr], ptr @rctx, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
-  %arrayidx2 = getelementptr inbounds nuw [5 x %struct.TEST_ENCAPDATA], ptr @ec_encapdata, i64 0, i64 %idxprom
+  %arrayidx2 = getelementptr inbounds [5 x %struct.TEST_ENCAPDATA], ptr @ec_encapdata, i64 0, i64 %idxprom
   store i64 0, ptr %len, align 8
   %call = tail call i32 @EVP_PKEY_encapsulate_init(ptr noundef %0, ptr noundef null) #5
   %call3 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 174, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.50, i32 noundef %call, i32 noundef 1) #5
@@ -727,7 +727,7 @@ entry:
   store i64 256, ptr %secretlen, align 8
   store i64 256, ptr %enclen, align 8
   %idxprom = sext i32 %tstid to i64
-  %arrayidx = getelementptr inbounds nuw [2 x ptr], ptr @rctx, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [2 x ptr], ptr @rctx, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp2, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i64 noundef 0) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp2, i64 40, i1 false)
@@ -764,7 +764,7 @@ entry:
   store i64 256, ptr %seclen, align 8
   store i64 256, ptr %enclen, align 8
   %idxprom = sext i32 %tstid to i64
-  %arrayidx = getelementptr inbounds nuw [2 x ptr], ptr @rctx, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [2 x ptr], ptr @rctx, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
   %call = tail call i32 @EVP_PKEY_encapsulate_init(ptr noundef %0, ptr noundef nonnull @opparam) #5
   %call1 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 215, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.50, i32 noundef %call, i32 noundef 1) #5
@@ -837,9 +837,9 @@ err:                                              ; preds = %if.end24, %if.end18
 define internal range(i32 0, 2) i32 @test_null_params(i32 noundef %tstid) #0 {
 entry:
   %idxprom = sext i32 %tstid to i64
-  %arrayidx = getelementptr inbounds nuw [2 x ptr], ptr @rctx, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [2 x ptr], ptr @rctx, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
-  %arrayidx2 = getelementptr inbounds nuw [5 x %struct.TEST_ENCAPDATA], ptr @ec_encapdata, i64 0, i64 %idxprom
+  %arrayidx2 = getelementptr inbounds [5 x %struct.TEST_ENCAPDATA], ptr @ec_encapdata, i64 0, i64 %idxprom
   %call = tail call i32 @EVP_PKEY_auth_encapsulate_init(ptr noundef %0, ptr noundef null, ptr noundef nonnull @opparam) #5
   %call3 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 330, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.74, i32 noundef %call, i32 noundef 0) #5
   %tobool.not = icmp eq i32 %call3, 0
@@ -903,7 +903,7 @@ entry:
   %tmp46 = alloca %struct.ossl_param_st, align 8
   %tmp48 = alloca %struct.ossl_param_st, align 8
   %idxprom = sext i32 %tstid to i64
-  %arrayidx = getelementptr inbounds nuw [2 x ptr], ptr @rctx, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [2 x ptr], ptr @rctx, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
   store i32 1, ptr %val, align 4
   call void @OSSL_PARAM_construct_int(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.2, ptr noundef nonnull %val) #5
@@ -1113,7 +1113,7 @@ entry:
   %tmp5 = alloca %struct.ossl_param_st, align 8
   store ptr null, ptr %pkey, align 8
   %idxprom = sext i32 %tstid to i64
-  %arrayidx = getelementptr inbounds nuw [3 x %struct.TEST_DERIVEKEY_DATA], ptr @ec_derivekey_data, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [3 x %struct.TEST_DERIVEKEY_DATA], ptr @ec_derivekey_data, i64 0, i64 %idxprom
   store i64 0, ptr %pubkeylen, align 8
   store ptr null, ptr %priv, align 8
   %0 = load ptr, ptr %arrayidx, align 8
@@ -1231,7 +1231,7 @@ entry:
   %spec.select = select i1 %cmp, ptr @.str.39, ptr @.str.119
   %spec.select27 = select i1 %cmp, i32 %tstid, i32 %sub
   %idxprom = sext i32 %spec.select27 to i64
-  %arrayidx = getelementptr inbounds nuw [5 x ptr], ptr @dhkem_supported_curves, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [5 x ptr], ptr @dhkem_supported_curves, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
   tail call void (ptr, ...) @test_note(ptr noundef nonnull @.str.118, ptr noundef %0, ptr noundef nonnull %spec.select) #5
   %1 = load i8, ptr %0, align 1
@@ -1773,7 +1773,7 @@ entry:
   store i64 0, ptr %pubkeylen, align 8
   store i64 0, ptr %privkeylen, align 8
   %idxprom = sext i32 %tstid to i64
-  %arrayidx = getelementptr inbounds nuw [2 x %struct.TEST_DERIVEKEY_DATA], ptr @ecx_derivekey_data, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [2 x %struct.TEST_DERIVEKEY_DATA], ptr @ecx_derivekey_data, i64 0, i64 %idxprom
   %priv = getelementptr inbounds nuw i8, ptr %arrayidx, i64 40
   %0 = load ptr, ptr %priv, align 8
   %privlen = getelementptr inbounds nuw i8, ptr %arrayidx, i64 48
@@ -1784,7 +1784,7 @@ entry:
   %cmp = icmp eq i32 %call, 0
   %3 = load i8, ptr %masked_priv, align 16
   %sub = add i64 %1, -1
-  %arrayidx4 = getelementptr inbounds nuw [64 x i8], ptr %masked_priv, i64 0, i64 %sub
+  %arrayidx4 = getelementptr inbounds [64 x i8], ptr %masked_priv, i64 0, i64 %sub
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry

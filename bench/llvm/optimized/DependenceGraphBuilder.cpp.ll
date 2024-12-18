@@ -4478,7 +4478,7 @@ _ZNK4llvm6DGNodeINS_7DDGNodeENS_7DDGEdgeEE11findEdgesToERKS1_RNS_15SmallVectorIm
   %372 = getelementptr inbounds nuw i8, ptr %371, i64 8
   %373 = load i32, ptr %372, align 8
   %374 = sext i32 %373 to i64
-  %375 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 0, i64 %374
+  %375 = getelementptr inbounds [4 x i8], ptr %12, i64 0, i64 %374
   %376 = load i8, ptr %375, align 1
   %377 = trunc i8 %376 to i1
   br i1 %377, label %383, label %switch.lookup

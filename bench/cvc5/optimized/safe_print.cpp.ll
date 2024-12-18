@@ -105,7 +105,7 @@ while.body:                                       ; preds = %while.body.preheade
 
 while.end:                                        ; preds = %while.body
   %sub6 = sub i64 20, %idx.017
-  %add.ptr = getelementptr inbounds nuw i8, ptr %buf, i64 %dec
+  %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %dec
   %add.ptr7 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 1
   %call = call i64 @write(i32 noundef %fd, ptr noundef nonnull %add.ptr7, i64 noundef %sub6)
   %cmp8.not = icmp eq i64 %call, %sub6
@@ -164,7 +164,7 @@ while.body:                                       ; preds = %entry, %while.body
 
 while.end:                                        ; preds = %while.body
   %sub3 = sub i64 20, %idx.010
-  %add.ptr = getelementptr inbounds nuw i8, ptr %buf, i64 %dec
+  %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %dec
   %add.ptr4 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 1
   %call = call i64 @write(i32 noundef %fd, ptr noundef nonnull %add.ptr4, i64 noundef %sub3)
   %cmp5.not = icmp eq i64 %call, %sub3
@@ -217,7 +217,7 @@ while.body.i:                                     ; preds = %while.body.i.prehea
 
 while.end.i:                                      ; preds = %while.body.i
   %sub3.i = sub i64 20, %idx.010.i
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 %dec.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf.i, i64 %dec.i
   %add.ptr4.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 1
   %call.i = call i64 @write(i32 noundef %fd, ptr noundef nonnull %add.ptr4.i, i64 noundef %sub3.i)
   %cmp5.not.i = icmp eq i64 %call.i, %sub3.i
@@ -388,7 +388,7 @@ while.body:                                       ; preds = %_ZN4cvc58internal10
 
 while.end:                                        ; preds = %while.body
   %sub14 = sub i64 20, %idx.018
-  %add.ptr = getelementptr inbounds nuw i8, ptr %buf, i64 %dec
+  %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %dec
   %add.ptr15 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 1
   %call = call i64 @write(i32 noundef %fd, ptr noundef nonnull %add.ptr15, i64 noundef %sub14)
   %cmp16.not = icmp eq i64 %call, %sub14
@@ -438,7 +438,7 @@ while.body.i:                                     ; preds = %entry, %while.body.
 
 while.end.i:                                      ; preds = %while.body.i
   %sub3.i = sub i64 20, %idx.010.i
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 %dec.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf.i, i64 %dec.i
   %add.ptr4.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 1
   %call.i = call i64 @write(i32 noundef %fd, ptr noundef nonnull %add.ptr4.i, i64 noundef %sub3.i)
   %cmp5.not.i = icmp eq i64 %call.i, %sub3.i

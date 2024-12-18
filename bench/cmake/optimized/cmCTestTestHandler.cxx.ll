@@ -6378,7 +6378,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %58 = load ptr, ptr %14, align 8
   %59 = getelementptr i8, ptr %58, i64 -24
   %60 = load i64, ptr %59, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %14, i64 %60
+  %61 = getelementptr inbounds i8, ptr %14, i64 %60
   %62 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %61)
           to label %63 unwind label %81
 
@@ -16956,7 +16956,7 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
   %142 = load ptr, ptr %19, align 8
   %143 = getelementptr i8, ptr %142, i64 -24
   %144 = load i64, ptr %143, align 8
-  %145 = getelementptr inbounds nuw i8, ptr %19, i64 %144
+  %145 = getelementptr inbounds i8, ptr %19, i64 %144
   %146 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %145)
           to label %147 unwind label %157
 
@@ -21946,7 +21946,7 @@ define dso_local void @_ZNK18cmCTestTestHandler16ReadTestListFileERKNSt7__cxx111
   %16 = load ptr, ptr %4, align 8
   %17 = getelementptr i8, ptr %16, i64 -24
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %4, i64 %18
+  %19 = getelementptr inbounds i8, ptr %4, i64 %18
   %20 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %19)
           to label %21 unwind label %39
 

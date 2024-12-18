@@ -1171,13 +1171,13 @@ if.then19.i:                                      ; preds = %if.end17.i
   %arrayidx21.i = getelementptr inbounds nuw i32, ptr %P, i64 %indvars.iv70.i
   %13 = load i32, ptr %arrayidx21.i, align 4
   %idxprom22.i = sext i32 %imax.1.i to i64
-  %arrayidx23.i = getelementptr inbounds nuw i32, ptr %P, i64 %idxprom22.i
+  %arrayidx23.i = getelementptr inbounds i32, ptr %P, i64 %idxprom22.i
   %14 = load i32, ptr %arrayidx23.i, align 4
   store i32 %14, ptr %arrayidx21.i, align 4
   store i32 %13, ptr %arrayidx23.i, align 4
   %arrayidx29.i29 = getelementptr inbounds nuw ptr, ptr %J, i64 %indvars.iv70.i
   %15 = load ptr, ptr %arrayidx29.i29, align 8
-  %arrayidx31.i30 = getelementptr inbounds nuw ptr, ptr %J, i64 %idxprom22.i
+  %arrayidx31.i30 = getelementptr inbounds ptr, ptr %J, i64 %idxprom22.i
   %16 = load ptr, ptr %arrayidx31.i30, align 8
   store ptr %16, ptr %arrayidx29.i29, align 8
   store ptr %15, ptr %arrayidx31.i30, align 8
@@ -1269,7 +1269,7 @@ for.body.i31:                                     ; preds = %for.cond1.loopexit.
   %arrayidx.i32 = getelementptr inbounds nuw i32, ptr %P, i64 %indvars.iv42.i
   %32 = load i32, ptr %arrayidx.i32, align 4
   %idxprom1.i = sext i32 %32 to i64
-  %arrayidx2.i = getelementptr inbounds nuw double, ptr %residual, i64 %idxprom1.i
+  %arrayidx2.i = getelementptr inbounds double, ptr %residual, i64 %idxprom1.i
   %33 = load double, ptr %arrayidx2.i, align 8
   %arrayidx4.i = getelementptr inbounds nuw double, ptr %x, i64 %indvars.iv42.i
   store double %33, ptr %arrayidx4.i, align 8
@@ -3036,19 +3036,19 @@ for.body10.i.i.i:                                 ; preds = %for.body10.i.i.i, %
   %15 = load ptr, ptr %6, align 8
   %16 = load i32, ptr %15, align 4
   %idxprom12.i.i.i = sext i32 %16 to i64
-  %arrayidx13.i.i.i = getelementptr inbounds nuw [3 x double], ptr %rgb.i.i.i, i64 0, i64 %idxprom12.i.i.i
+  %arrayidx13.i.i.i = getelementptr inbounds [3 x double], ptr %rgb.i.i.i, i64 0, i64 %idxprom12.i.i.i
   store double %conv11.i.i.i, ptr %arrayidx13.i.i.i, align 8
   %mul.i.i.i = fmul double %div6.i.i.i, %conv11.i.i.i
   %add.i.i.i = add nsw i32 %16, 1
   %rem.i.i.i = srem i32 %add.i.i.i, 3
   %idxprom14.i.i.i = sext i32 %rem.i.i.i to i64
-  %arrayidx15.i.i.i = getelementptr inbounds nuw [3 x double], ptr %rgb.i.i.i, i64 0, i64 %idxprom14.i.i.i
+  %arrayidx15.i.i.i = getelementptr inbounds [3 x double], ptr %rgb.i.i.i, i64 0, i64 %idxprom14.i.i.i
   store double %mul.i.i.i, ptr %arrayidx15.i.i.i, align 8
   %mul16.i.i.i = fmul double %div.i.i.i, %conv11.i.i.i
   %add17.i.i.i = add nsw i32 %16, 2
   %rem18.i.i.i = srem i32 %add17.i.i.i, 3
   %idxprom19.i.i.i = sext i32 %rem18.i.i.i to i64
-  %arrayidx20.i.i.i = getelementptr inbounds nuw [3 x double], ptr %rgb.i.i.i, i64 0, i64 %idxprom19.i.i.i
+  %arrayidx20.i.i.i = getelementptr inbounds [3 x double], ptr %rgb.i.i.i, i64 0, i64 %idxprom19.i.i.i
   store double %mul16.i.i.i, ptr %arrayidx20.i.i.i, align 8
   call void @_Z12gauss_newtonPKdPdi(ptr noundef nonnull %rgb.i.i.i, ptr noundef nonnull %coeffs.i.i.i, i32 noundef 15)
   %17 = load double, ptr %coeffs.i.i.i, align 16
@@ -3122,19 +3122,19 @@ for.body70.i.i.i:                                 ; preds = %for.body70.i.i.i, %
   %43 = load ptr, ptr %6, align 8
   %44 = load i32, ptr %43, align 4
   %idxprom75.i.i.i = sext i32 %44 to i64
-  %arrayidx76.i.i.i = getelementptr inbounds nuw [3 x double], ptr %rgb.i.i.i, i64 0, i64 %idxprom75.i.i.i
+  %arrayidx76.i.i.i = getelementptr inbounds [3 x double], ptr %rgb.i.i.i, i64 0, i64 %idxprom75.i.i.i
   store double %conv74.i.i.i, ptr %arrayidx76.i.i.i, align 8
   %mul77.i.i.i = fmul double %div6.i.i.i, %conv74.i.i.i
   %add78.i.i.i = add nsw i32 %44, 1
   %rem79.i.i.i = srem i32 %add78.i.i.i, 3
   %idxprom80.i.i.i = sext i32 %rem79.i.i.i to i64
-  %arrayidx81.i.i.i = getelementptr inbounds nuw [3 x double], ptr %rgb.i.i.i, i64 0, i64 %idxprom80.i.i.i
+  %arrayidx81.i.i.i = getelementptr inbounds [3 x double], ptr %rgb.i.i.i, i64 0, i64 %idxprom80.i.i.i
   store double %mul77.i.i.i, ptr %arrayidx81.i.i.i, align 8
   %mul82.i.i.i = fmul double %div.i.i.i, %conv74.i.i.i
   %add83.i.i.i = add nsw i32 %44, 2
   %rem84.i.i.i = srem i32 %add83.i.i.i, 3
   %idxprom85.i.i.i = sext i32 %rem84.i.i.i to i64
-  %arrayidx86.i.i.i = getelementptr inbounds nuw [3 x double], ptr %rgb.i.i.i, i64 0, i64 %idxprom85.i.i.i
+  %arrayidx86.i.i.i = getelementptr inbounds [3 x double], ptr %rgb.i.i.i, i64 0, i64 %idxprom85.i.i.i
   store double %mul82.i.i.i, ptr %arrayidx86.i.i.i, align 8
   call void @_Z12gauss_newtonPKdPdi(ptr noundef nonnull %rgb.i.i.i, ptr noundef nonnull %coeffs.i.i.i, i32 noundef 15)
   %45 = load double, ptr %coeffs.i.i.i, align 16

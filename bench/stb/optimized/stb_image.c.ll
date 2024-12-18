@@ -5061,7 +5061,7 @@ if.then2.i:                                       ; preds = %if.then.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %rgbe, ptr align 1 %64, i64 %conv4.i, i1 false)
   %io_user_data.i = getelementptr inbounds nuw i8, ptr %s, i64 40
   %65 = load ptr, ptr %io_user_data.i, align 8
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %rgbe, i64 %conv4.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %rgbe, i64 %conv4.i
   %sub.i = sub nsw i32 4, %conv.i
   %call.i = call i32 %62(ptr noundef %65, ptr noundef nonnull %add.ptr.i, i32 noundef %sub.i) #37
   %66 = load ptr, ptr %img_buffer_end.i, align 8
@@ -11147,7 +11147,7 @@ if.end4:                                          ; preds = %if.end
   %2 = load i32, ptr %code_buffer, align 8
   %or = tail call i32 @llvm.fshl.i32(i32 %2, i32 %2, i32 %n)
   %idxprom = sext i32 %n to i64
-  %arrayidx = getelementptr inbounds nuw [17 x i32], ptr @stbi__bmask, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [17 x i32], ptr @stbi__bmask, i64 0, i64 %idxprom
   %3 = load i32, ptr %arrayidx, align 4
   %not = xor i32 %3, -1
   %and8 = and i32 %or, %not
@@ -11155,7 +11155,7 @@ if.end4:                                          ; preds = %if.end
   %and12 = and i32 %or, %3
   %sub14 = sub nsw i32 %1, %n
   store i32 %sub14, ptr %code_bits, align 4
-  %arrayidx16 = getelementptr inbounds nuw [16 x i32], ptr @stbi__jbias, i64 0, i64 %idxprom
+  %arrayidx16 = getelementptr inbounds [16 x i32], ptr @stbi__jbias, i64 0, i64 %idxprom
   %4 = load i32, ptr %arrayidx16, align 4
   %.inv = icmp slt i32 %2, 0
   %and18 = select i1 %.inv, i32 0, i32 %4
@@ -11190,7 +11190,7 @@ if.end4:                                          ; preds = %if.end
   %2 = load i32, ptr %code_buffer, align 8
   %or = tail call i32 @llvm.fshl.i32(i32 %2, i32 %2, i32 %n)
   %idxprom = sext i32 %n to i64
-  %arrayidx = getelementptr inbounds nuw [17 x i32], ptr @stbi__bmask, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [17 x i32], ptr @stbi__bmask, i64 0, i64 %idxprom
   %3 = load i32, ptr %arrayidx, align 4
   %not = xor i32 %3, -1
   %and6 = and i32 %or, %not
@@ -11465,7 +11465,7 @@ if.end49:                                         ; preds = %if.then39
   store i32 %sub, ptr %code_bits, align 4
   %inc = add nsw i32 %add42, 1
   %idxprom52 = sext i32 %add42 to i64
-  %arrayidx53 = getelementptr inbounds nuw [79 x i8], ptr @stbi__jpeg_dezigzag, i64 0, i64 %idxprom52
+  %arrayidx53 = getelementptr inbounds [79 x i8], ptr @stbi__jpeg_dezigzag, i64 0, i64 %idxprom52
   %27 = load i8, ptr %arrayidx53, align 1
   %shr55 = ashr i16 %25, 8
   %idxprom56 = zext i8 %27 to i64
@@ -11577,7 +11577,7 @@ if.else79:                                        ; preds = %if.end68
   %add80 = add nsw i32 %shr70, %k.0
   %inc81 = add nsw i32 %add80, 1
   %idxprom82 = sext i32 %add80 to i64
-  %arrayidx83 = getelementptr inbounds nuw [79 x i8], ptr @stbi__jpeg_dezigzag, i64 0, i64 %idxprom82
+  %arrayidx83 = getelementptr inbounds [79 x i8], ptr @stbi__jpeg_dezigzag, i64 0, i64 %idxprom82
   %40 = load i8, ptr %arrayidx83, align 1
   %cmp.i120 = icmp slt i32 %39, %and69
   br i1 %cmp.i120, label %if.then.i137, label %if.end.i121
@@ -11999,7 +11999,7 @@ if.end20:                                         ; preds = %if.then11
   store i32 %sub, ptr %code_bits, align 4
   %inc = add nsw i32 %add, 1
   %idxprom23 = sext i32 %add to i64
-  %arrayidx24 = getelementptr inbounds nuw [79 x i8], ptr @stbi__jpeg_dezigzag, i64 0, i64 %idxprom23
+  %arrayidx24 = getelementptr inbounds [79 x i8], ptr @stbi__jpeg_dezigzag, i64 0, i64 %idxprom23
   %10 = load i8, ptr %arrayidx24, align 1
   %shr26 = lshr i32 %conv, 8
   %mul96 = shl i32 %shr26, %3
@@ -12138,7 +12138,7 @@ if.else57:                                        ; preds = %if.end36
   %add58 = add nsw i32 %shr38, %k.0
   %inc59 = add nsw i32 %add58, 1
   %idxprom60 = sext i32 %add58 to i64
-  %arrayidx61 = getelementptr inbounds nuw [79 x i8], ptr @stbi__jpeg_dezigzag, i64 0, i64 %idxprom60
+  %arrayidx61 = getelementptr inbounds [79 x i8], ptr @stbi__jpeg_dezigzag, i64 0, i64 %idxprom60
   %25 = load i8, ptr %arrayidx61, align 1
   %cmp.i98 = icmp slt i32 %22, %and37
   br i1 %cmp.i98, label %if.then.i105, label %if.end.i99
@@ -12224,7 +12224,7 @@ for.body.lr.ph:                                   ; preds = %if.then79
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ %34, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx87 = getelementptr inbounds nuw [79 x i8], ptr @stbi__jpeg_dezigzag, i64 0, i64 %indvars.iv
+  %arrayidx87 = getelementptr inbounds [79 x i8], ptr @stbi__jpeg_dezigzag, i64 0, i64 %indvars.iv
   %36 = load i8, ptr %arrayidx87, align 1
   %idxprom88 = zext i8 %36 to i64
   %arrayidx89 = getelementptr inbounds nuw i16, ptr %data, i64 %idxprom88
@@ -12468,7 +12468,7 @@ while.body:                                       ; preds = %while.body.preheade
   %indvars.iv239 = phi i64 [ %65, %while.body.preheader ], [ %indvars.iv.next240, %if.end212 ]
   %r124.1231 = phi i32 [ %r124.0, %while.body.preheader ], [ %r124.2, %if.end212 ]
   %indvars.iv.next240 = add nsw i64 %indvars.iv239, 1
-  %arrayidx173 = getelementptr inbounds nuw [79 x i8], ptr @stbi__jpeg_dezigzag, i64 0, i64 %indvars.iv239
+  %arrayidx173 = getelementptr inbounds [79 x i8], ptr @stbi__jpeg_dezigzag, i64 0, i64 %indvars.iv239
   %66 = load i8, ptr %arrayidx173, align 1
   %idxprom174 = zext i8 %66 to i64
   %arrayidx175 = getelementptr inbounds nuw i16, ptr %data, i64 %idxprom174
@@ -19983,7 +19983,7 @@ if.then23:                                        ; preds = %if.end20
   %conv24 = trunc nuw nsw i32 %call13 to i8
   %inc25 = add nsw i32 %n.0216, 1
   %idxprom26 = sext i32 %n.0216 to i64
-  %arrayidx27 = getelementptr inbounds nuw [455 x i8], ptr %lencodes, i64 0, i64 %idxprom26
+  %arrayidx27 = getelementptr inbounds [455 x i8], ptr %lencodes, i64 0, i64 %idxprom26
   store i8 %conv24, ptr %arrayidx27, align 1
   br label %if.end67
 
@@ -20054,7 +20054,7 @@ if.end37:                                         ; preds = %stbi__zreceive.exit
   %add32 = add nuw nsw i32 %and.i113, 3
   %sub = add nsw i32 %n.0216, -1
   %idxprom38 = sext i32 %sub to i64
-  %arrayidx39 = getelementptr inbounds nuw [455 x i8], ptr %lencodes, i64 0, i64 %idxprom38
+  %arrayidx39 = getelementptr inbounds [455 x i8], ptr %lencodes, i64 0, i64 %idxprom38
   %52 = load i8, ptr %arrayidx39, align 1
   br label %if.end56
 
@@ -20172,7 +20172,7 @@ if.then60:                                        ; preds = %if.end56
 
 if.end62:                                         ; preds = %if.end56
   %idx.ext = sext i32 %n.0216 to i64
-  %add.ptr = getelementptr inbounds nuw i8, ptr %lencodes, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i8, ptr %lencodes, i64 %idx.ext
   %conv65 = zext nneg i32 %c.0 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr, i8 %fill.0, i64 %conv65, i1 false)
   %add66 = add nsw i32 %c.0, %n.0216
@@ -21414,7 +21414,7 @@ for.body.lr.ph:                                   ; preds = %if.end30
   %conv304 = zext i32 %mul.i to i64
   %cmp209 = icmp eq i32 %color, 0
   %idxprom211 = sext i32 %depth to i64
-  %arrayidx212 = getelementptr inbounds nuw [9 x i8], ptr @stbi__depth_scale_table, i64 0, i64 %idxprom211
+  %arrayidx212 = getelementptr inbounds [9 x i8], ptr @stbi__depth_scale_table, i64 0, i64 %idxprom211
   %wide.trip.count371 = zext nneg i32 %y to i64
   %wide.trip.count332 = zext nneg i32 %spec.select to i64
   %wide.trip.count343 = zext nneg i32 %spec.select to i64
@@ -23600,7 +23600,7 @@ for.body249:                                      ; preds = %for.cond245.prehead
   %call250 = tail call i32 @stbi__get16be(ptr noundef nonnull %0)
   %169 = load i32, ptr %depth228, align 8
   %idxprom255 = sext i32 %169 to i64
-  %arrayidx256 = getelementptr inbounds nuw [9 x i8], ptr @stbi__depth_scale_table, i64 0, i64 %idxprom255
+  %arrayidx256 = getelementptr inbounds [9 x i8], ptr @stbi__depth_scale_table, i64 0, i64 %idxprom255
   %170 = load i8, ptr %arrayidx256, align 1
   %171 = trunc i32 %call250 to i8
   %conv259 = mul i8 %170, %171
@@ -24479,10 +24479,10 @@ entry:
   %sub1 = sub nsw i32 8, %bits
   %shr2 = lshr i32 %v.addr.0, %sub1
   %idxprom = sext i32 %bits to i64
-  %arrayidx = getelementptr inbounds nuw [9 x i32], ptr @__const.stbi__shiftsigned.mul_table, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [9 x i32], ptr @__const.stbi__shiftsigned.mul_table, i64 0, i64 %idxprom
   %4 = load i32, ptr %arrayidx, align 4
   %mul = mul i32 %4, %shr2
-  %arrayidx4 = getelementptr inbounds nuw [9 x i32], ptr %shift_table, i64 0, i64 %idxprom
+  %arrayidx4 = getelementptr inbounds [9 x i32], ptr %shift_table, i64 0, i64 %idxprom
   %5 = load i32, ptr %arrayidx4, align 4
   %shr5 = ashr i32 %mul, %5
   ret i32 %shr5

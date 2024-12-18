@@ -28134,7 +28134,7 @@ define linkonce_odr hidden noundef i64 @_ZNK5boost16cpp_regex_traitsIcE3toiERPKc
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %16, align 8, !tbaa !572
   %17 = load i64, ptr getelementptr inbounds nuw inrange(0, 40) (i8, ptr @_ZTVSi, i64 0), align 8
-  %18 = getelementptr inbounds nuw i8, ptr %6, i64 %17
+  %18 = getelementptr inbounds i8, ptr %6, i64 %17
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE4initEPSt15basic_streambufIcS1_E(ptr noundef nonnull align 8 dereferenceable(264) %18, ptr noundef nonnull %5)
           to label %_ZNSiC1EPSt15basic_streambufIcSt11char_traitsIcEE.exit unwind label %19
 
@@ -28149,7 +28149,7 @@ _ZNSiC1EPSt15basic_streambufIcSt11char_traitsIcEE.exit: ; preds = %4
   %22 = load ptr, ptr %6, align 8, !tbaa !17
   %23 = getelementptr i8, ptr %22, i64 -24
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %6, i64 %24
+  %25 = getelementptr inbounds i8, ptr %6, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 208
   call void @_ZNSt6localeC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %26) #29
   %27 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZSt9use_facetINSt7__cxx118numpunctIcEEERKT_RKSt6locale(ptr noundef nonnull align 8 dereferenceable(8) %7)
@@ -28278,7 +28278,7 @@ _ZNSt15basic_streambufIcSt11char_traitsIcEE9pubsetbufEPcl.exit: ; preds = %_ZSt4
   %82 = load ptr, ptr %6, align 8, !tbaa !17
   %83 = getelementptr i8, ptr %82, i64 -24
   %84 = load i64, ptr %83, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %6, i64 %84
+  %85 = getelementptr inbounds i8, ptr %6, i64 %84
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %85, i32 noundef 0)
           to label %86 unwind label %99
 
@@ -28287,7 +28287,7 @@ _ZNSt15basic_streambufIcSt11char_traitsIcEE9pubsetbufEPcl.exit: ; preds = %_ZSt4
   %88 = load ptr, ptr %6, align 8, !tbaa !17
   %89 = getelementptr i8, ptr %88, i64 -24
   %90 = load i64, ptr %89, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %6, i64 %90
+  %91 = getelementptr inbounds i8, ptr %6, i64 %90
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 24
   %93 = load i32, ptr %92, align 8, !tbaa !575
   %94 = and i32 %93, -75
@@ -28367,7 +28367,7 @@ _ZNSt15basic_streambufIcSt11char_traitsIcEE8in_availEv.exit: ; preds = %109, %11
   %133 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTSi, i64 8), align 8
   %134 = getelementptr i8, ptr %132, i64 -24
   %135 = load i64, ptr %134, align 8
-  %136 = getelementptr inbounds nuw i8, ptr %6, i64 %135
+  %136 = getelementptr inbounds i8, ptr %6, i64 %135
   store ptr %133, ptr %136, align 8, !tbaa !17
   store i64 0, ptr %16, align 8, !tbaa !572
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %11) #29
@@ -28384,7 +28384,7 @@ _ZNSt15basic_streambufIcSt11char_traitsIcEE8in_availEv.exit: ; preds = %109, %11
   %139 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTSi, i64 8), align 8
   %140 = getelementptr i8, ptr %138, i64 -24
   %141 = load i64, ptr %140, align 8
-  %142 = getelementptr inbounds nuw i8, ptr %6, i64 %141
+  %142 = getelementptr inbounds i8, ptr %6, i64 %141
   store ptr %139, ptr %142, align 8, !tbaa !17
   store i64 0, ptr %16, align 8, !tbaa !572
   br label %.body

@@ -2075,7 +2075,7 @@ define hidden { i32, i64 } @_ZN6hermes2vm14throwTypeErrorEPvRNS0_7RuntimeENS0_10
 entry:
   %ref.tmp = alloca %"class.hermes::vm::TwineChar16", align 8
   %1 = ptrtoint ptr %ctx to i64
-  %arrayidx = getelementptr inbounds nuw [2 x ptr], ptr @_ZZN6hermes2vm14throwTypeErrorEPvRNS0_7RuntimeENS0_10NativeArgsEE16TypeErrorMessage, i64 0, i64 %1
+  %arrayidx = getelementptr inbounds [2 x ptr], ptr @_ZZN6hermes2vm14throwTypeErrorEPvRNS0_7RuntimeENS0_10NativeArgsEE16TypeErrorMessage, i64 0, i64 %1
   %2 = load ptr, ptr %arrayidx, align 8
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #11
   %rightKind_.i3.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24

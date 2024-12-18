@@ -295,9 +295,9 @@ sstream_expect.exit:                              ; preds = %if.then.i, %if.end.
 define internal void @regen_frame(i64 noundef %frame_type, i64 noundef %stream_id, ptr nocapture readnone %pkt, ptr nocapture readnone %arg) #5 {
 entry:
   %0 = load i64, ptr @regen_count, align 8
-  %arrayidx.i = getelementptr inbounds nuw [16 x i64], ptr @regen_frame_type, i64 0, i64 %0
+  %arrayidx.i = getelementptr inbounds [16 x i64], ptr @regen_frame_type, i64 0, i64 %0
   store i64 %frame_type, ptr %arrayidx.i, align 8
-  %arrayidx1.i = getelementptr inbounds nuw [16 x i64], ptr @regen_stream_id, i64 0, i64 %0
+  %arrayidx1.i = getelementptr inbounds [16 x i64], ptr @regen_stream_id, i64 0, i64 %0
   store i64 %stream_id, ptr %arrayidx1.i, align 8
   %inc.i = add i64 %0, 1
   store i64 %inc.i, ptr @regen_count, align 8

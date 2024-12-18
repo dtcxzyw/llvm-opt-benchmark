@@ -345,14 +345,14 @@ while.body:                                       ; preds = %while.body.preheade
   %valueStringLength.0150 = phi i32 [ 0, %while.body.preheader ], [ %add, %while.body ]
   %inc = add nsw i32 %valueStringLength.0150, 1
   %idxprom = sext i32 %valueStringLength.0150 to i64
-  %arrayidx = getelementptr inbounds nuw [48 x i16], ptr %valueString, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [48 x i16], ptr %valueString, i64 0, i64 %idxprom
   store i16 37, ptr %arrayidx, align 2
   %inc63 = add nsw i32 %valueStringLength.0150, 2
   %idxprom64 = sext i32 %inc to i64
-  %arrayidx65 = getelementptr inbounds nuw [48 x i16], ptr %valueString, i64 0, i64 %idxprom64
+  %arrayidx65 = getelementptr inbounds [48 x i16], ptr %valueString, i64 0, i64 %idxprom64
   store i16 85, ptr %arrayidx65, align 2
   %idx.ext = sext i32 %inc63 to i64
-  %add.ptr = getelementptr inbounds nuw i16, ptr %valueString, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i16, ptr %valueString, i64 %idx.ext
   %sub = sub nsw i32 46, %valueStringLength.0150
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
   %arrayidx68 = getelementptr inbounds nuw i16, ptr %codeUnits, i64 %indvars.iv161
@@ -395,14 +395,14 @@ while.body74:                                     ; preds = %while.body74.prehea
   %valueStringLength.2143 = phi i32 [ 0, %while.body74.preheader ], [ %add90, %while.body74 ]
   %inc75 = add nsw i32 %valueStringLength.2143, 1
   %idxprom76 = sext i32 %valueStringLength.2143 to i64
-  %arrayidx77 = getelementptr inbounds nuw [48 x i16], ptr %valueString, i64 0, i64 %idxprom76
+  %arrayidx77 = getelementptr inbounds [48 x i16], ptr %valueString, i64 0, i64 %idxprom76
   store i16 92, ptr %arrayidx77, align 2
   %inc78 = add nsw i32 %valueStringLength.2143, 2
   %idxprom79 = sext i32 %inc75 to i64
-  %arrayidx80 = getelementptr inbounds nuw [48 x i16], ptr %valueString, i64 0, i64 %idxprom79
+  %arrayidx80 = getelementptr inbounds [48 x i16], ptr %valueString, i64 0, i64 %idxprom79
   store i16 117, ptr %arrayidx80, align 2
   %idx.ext82 = sext i32 %inc78 to i64
-  %add.ptr83 = getelementptr inbounds nuw i16, ptr %valueString, i64 %idx.ext82
+  %add.ptr83 = getelementptr inbounds i16, ptr %valueString, i64 %idx.ext82
   %sub84 = sub nsw i32 46, %valueStringLength.2143
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx87 = getelementptr inbounds nuw i16, ptr %codeUnits, i64 %indvars.iv
@@ -453,7 +453,7 @@ if.end144:                                        ; preds = %sw.bb120, %if.else1
   %valueStringLength.3 = add nsw i32 %call142, 2
   %inc145 = add nsw i32 %call142, 3
   %idxprom146 = sext i32 %valueStringLength.3 to i64
-  %arrayidx147 = getelementptr inbounds nuw [48 x i16], ptr %valueString, i64 0, i64 %idxprom146
+  %arrayidx147 = getelementptr inbounds [48 x i16], ptr %valueString, i64 0, i64 %idxprom146
   store i16 59, ptr %arrayidx147, align 2
   br label %if.end243
 
@@ -478,7 +478,7 @@ if.end175:                                        ; preds = %sw.bb148, %if.else1
   %valueStringLength.4 = add nsw i32 %call173, 3
   %inc176 = add nsw i32 %call173, 4
   %idxprom177 = sext i32 %valueStringLength.4 to i64
-  %arrayidx178 = getelementptr inbounds nuw [48 x i16], ptr %valueString, i64 0, i64 %idxprom177
+  %arrayidx178 = getelementptr inbounds [48 x i16], ptr %valueString, i64 0, i64 %idxprom177
   store i16 59, ptr %arrayidx178, align 2
   br label %if.end243
 
@@ -503,7 +503,7 @@ if.end206:                                        ; preds = %sw.bb179, %if.else1
   %valueStringLength.5 = add nsw i32 %call204, 3
   %inc207 = add nsw i32 %call204, 4
   %idxprom208 = sext i32 %valueStringLength.5 to i64
-  %arrayidx209 = getelementptr inbounds nuw [48 x i16], ptr %valueString, i64 0, i64 %idxprom208
+  %arrayidx209 = getelementptr inbounds [48 x i16], ptr %valueString, i64 0, i64 %idxprom208
   store i16 125, ptr %arrayidx209, align 2
   br label %if.end243
 
@@ -514,7 +514,7 @@ sw.bb210:                                         ; preds = %if.else70
   %add219 = add nsw i32 %call218, 1
   %inc220 = add nsw i32 %call218, 2
   %idxprom221 = sext i32 %add219 to i64
-  %arrayidx222 = getelementptr inbounds nuw [48 x i16], ptr %valueString, i64 0, i64 %idxprom221
+  %arrayidx222 = getelementptr inbounds [48 x i16], ptr %valueString, i64 0, i64 %idxprom221
   store i16 32, ptr %arrayidx222, align 2
   br label %if.end243
 
@@ -523,14 +523,14 @@ while.body225:                                    ; preds = %while.body225.prehe
   %valueStringLength.6146 = phi i32 [ 0, %while.body225.preheader ], [ %add241, %while.body225 ]
   %inc226 = add nsw i32 %valueStringLength.6146, 1
   %idxprom227 = sext i32 %valueStringLength.6146 to i64
-  %arrayidx228 = getelementptr inbounds nuw [48 x i16], ptr %valueString, i64 0, i64 %idxprom227
+  %arrayidx228 = getelementptr inbounds [48 x i16], ptr %valueString, i64 0, i64 %idxprom227
   store i16 37, ptr %arrayidx228, align 2
   %inc229 = add nsw i32 %valueStringLength.6146, 2
   %idxprom230 = sext i32 %inc226 to i64
-  %arrayidx231 = getelementptr inbounds nuw [48 x i16], ptr %valueString, i64 0, i64 %idxprom230
+  %arrayidx231 = getelementptr inbounds [48 x i16], ptr %valueString, i64 0, i64 %idxprom230
   store i16 85, ptr %arrayidx231, align 2
   %idx.ext233 = sext i32 %inc229 to i64
-  %add.ptr234 = getelementptr inbounds nuw i16, ptr %valueString, i64 %idx.ext233
+  %add.ptr234 = getelementptr inbounds i16, ptr %valueString, i64 %idx.ext233
   %sub235 = sub nsw i32 46, %valueStringLength.6146
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
   %arrayidx238 = getelementptr inbounds nuw i16, ptr %codeUnits, i64 %indvars.iv156
@@ -546,7 +546,7 @@ if.end243:                                        ; preds = %while.body74, %whil
   store ptr %valueString, ptr %myValueSource, align 8
   store i32 0, ptr %err, align 4
   %idx.ext245 = sext i32 %valueStringLength.1 to i64
-  %add.ptr246 = getelementptr inbounds nuw i16, ptr %valueString, i64 %idx.ext245
+  %add.ptr246 = getelementptr inbounds i16, ptr %valueString, i64 %idx.ext245
   call void @ucnv_cbFromUWriteUChars_75(ptr noundef %fromArgs, ptr noundef nonnull %myValueSource, ptr noundef nonnull %add.ptr246, i32 noundef 0, ptr noundef nonnull %err)
   %15 = load ptr, ptr %converter, align 8
   %16 = load ptr, ptr %original, align 8
@@ -648,14 +648,14 @@ while.body:                                       ; preds = %while.body.preheade
   %valueStringLength.068 = phi i32 [ 0, %while.body.preheader ], [ %add, %while.body ]
   %inc = add nsw i32 %valueStringLength.068, 1
   %idxprom = sext i32 %valueStringLength.068 to i64
-  %arrayidx = getelementptr inbounds nuw [48 x i16], ptr %uniValueString, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [48 x i16], ptr %uniValueString, i64 0, i64 %idxprom
   store i16 37, ptr %arrayidx, align 2
   %inc4 = add nsw i32 %valueStringLength.068, 2
   %idxprom5 = sext i32 %inc to i64
-  %arrayidx6 = getelementptr inbounds nuw [48 x i16], ptr %uniValueString, i64 0, i64 %idxprom5
+  %arrayidx6 = getelementptr inbounds [48 x i16], ptr %uniValueString, i64 0, i64 %idxprom5
   store i16 88, ptr %arrayidx6, align 2
   %idx.ext = sext i32 %inc4 to i64
-  %add.ptr = getelementptr inbounds nuw i16, ptr %uniValueString, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i16, ptr %uniValueString, i64 %idx.ext
   %sub = sub nsw i32 46, %valueStringLength.068
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %arrayidx9 = getelementptr inbounds nuw i8, ptr %codeUnits, i64 %indvars.iv98
@@ -708,14 +708,14 @@ while.body13:                                     ; preds = %while.body13.prehea
   %valueStringLength.260 = phi i32 [ 0, %while.body13.preheader ], [ %inc30, %while.body13 ]
   %inc14 = add nsw i32 %valueStringLength.260, 1
   %idxprom15 = sext i32 %valueStringLength.260 to i64
-  %arrayidx16 = getelementptr inbounds nuw [48 x i16], ptr %uniValueString, i64 0, i64 %idxprom15
+  %arrayidx16 = getelementptr inbounds [48 x i16], ptr %uniValueString, i64 0, i64 %idxprom15
   store i16 38, ptr %arrayidx16, align 2
   %inc17 = add nsw i32 %valueStringLength.260, 2
   %idxprom18 = sext i32 %inc14 to i64
-  %arrayidx19 = getelementptr inbounds nuw [48 x i16], ptr %uniValueString, i64 0, i64 %idxprom18
+  %arrayidx19 = getelementptr inbounds [48 x i16], ptr %uniValueString, i64 0, i64 %idxprom18
   store i16 35, ptr %arrayidx19, align 2
   %idx.ext21 = sext i32 %inc17 to i64
-  %add.ptr22 = getelementptr inbounds nuw i16, ptr %uniValueString, i64 %idx.ext21
+  %add.ptr22 = getelementptr inbounds i16, ptr %uniValueString, i64 %idx.ext21
   %sub23 = sub nsw i32 46, %valueStringLength.260
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %arrayidx26 = getelementptr inbounds nuw i8, ptr %codeUnits, i64 %indvars.iv81
@@ -725,7 +725,7 @@ while.body13:                                     ; preds = %while.body13.prehea
   %add29 = add nsw i32 %call28, %inc17
   %inc30 = add nsw i32 %add29, 1
   %idxprom31 = sext i32 %add29 to i64
-  %arrayidx32 = getelementptr inbounds nuw [48 x i16], ptr %uniValueString, i64 0, i64 %idxprom31
+  %arrayidx32 = getelementptr inbounds [48 x i16], ptr %uniValueString, i64 0, i64 %idxprom31
   store i16 59, ptr %arrayidx32, align 2
   %exitcond85.not = icmp eq i64 %indvars.iv.next82, %wide.trip.count84
   br i1 %exitcond85.not, label %if.end102, label %while.body13, !llvm.loop !9
@@ -735,18 +735,18 @@ while.body37:                                     ; preds = %while.body37.prehea
   %valueStringLength.356 = phi i32 [ 0, %while.body37.preheader ], [ %inc57, %while.body37 ]
   %inc38 = add nsw i32 %valueStringLength.356, 1
   %idxprom39 = sext i32 %valueStringLength.356 to i64
-  %arrayidx40 = getelementptr inbounds nuw [48 x i16], ptr %uniValueString, i64 0, i64 %idxprom39
+  %arrayidx40 = getelementptr inbounds [48 x i16], ptr %uniValueString, i64 0, i64 %idxprom39
   store i16 38, ptr %arrayidx40, align 2
   %inc41 = add nsw i32 %valueStringLength.356, 2
   %idxprom42 = sext i32 %inc38 to i64
-  %arrayidx43 = getelementptr inbounds nuw [48 x i16], ptr %uniValueString, i64 0, i64 %idxprom42
+  %arrayidx43 = getelementptr inbounds [48 x i16], ptr %uniValueString, i64 0, i64 %idxprom42
   store i16 35, ptr %arrayidx43, align 2
   %inc44 = add nsw i32 %valueStringLength.356, 3
   %idxprom45 = sext i32 %inc41 to i64
-  %arrayidx46 = getelementptr inbounds nuw [48 x i16], ptr %uniValueString, i64 0, i64 %idxprom45
+  %arrayidx46 = getelementptr inbounds [48 x i16], ptr %uniValueString, i64 0, i64 %idxprom45
   store i16 120, ptr %arrayidx46, align 2
   %idx.ext48 = sext i32 %inc44 to i64
-  %add.ptr49 = getelementptr inbounds nuw i16, ptr %uniValueString, i64 %idx.ext48
+  %add.ptr49 = getelementptr inbounds i16, ptr %uniValueString, i64 %idx.ext48
   %sub50 = sub nsw i32 45, %valueStringLength.356
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %arrayidx53 = getelementptr inbounds nuw i8, ptr %codeUnits, i64 %indvars.iv76
@@ -756,7 +756,7 @@ while.body37:                                     ; preds = %while.body37.prehea
   %add56 = add nsw i32 %call55, %inc44
   %inc57 = add nsw i32 %add56, 1
   %idxprom58 = sext i32 %add56 to i64
-  %arrayidx59 = getelementptr inbounds nuw [48 x i16], ptr %uniValueString, i64 0, i64 %idxprom58
+  %arrayidx59 = getelementptr inbounds [48 x i16], ptr %uniValueString, i64 0, i64 %idxprom58
   store i16 59, ptr %arrayidx59, align 2
   %exitcond80.not = icmp eq i64 %indvars.iv.next77, %wide.trip.count79
   br i1 %exitcond80.not, label %if.end102, label %while.body37, !llvm.loop !10
@@ -766,14 +766,14 @@ while.body64:                                     ; preds = %while.body64.prehea
   %valueStringLength.453 = phi i32 [ 0, %while.body64.preheader ], [ %add80, %while.body64 ]
   %inc65 = add nsw i32 %valueStringLength.453, 1
   %idxprom66 = sext i32 %valueStringLength.453 to i64
-  %arrayidx67 = getelementptr inbounds nuw [48 x i16], ptr %uniValueString, i64 0, i64 %idxprom66
+  %arrayidx67 = getelementptr inbounds [48 x i16], ptr %uniValueString, i64 0, i64 %idxprom66
   store i16 92, ptr %arrayidx67, align 2
   %inc68 = add nsw i32 %valueStringLength.453, 2
   %idxprom69 = sext i32 %inc65 to i64
-  %arrayidx70 = getelementptr inbounds nuw [48 x i16], ptr %uniValueString, i64 0, i64 %idxprom69
+  %arrayidx70 = getelementptr inbounds [48 x i16], ptr %uniValueString, i64 0, i64 %idxprom69
   store i16 120, ptr %arrayidx70, align 2
   %idx.ext72 = sext i32 %inc68 to i64
-  %add.ptr73 = getelementptr inbounds nuw i16, ptr %uniValueString, i64 %idx.ext72
+  %add.ptr73 = getelementptr inbounds i16, ptr %uniValueString, i64 %idx.ext72
   %sub74 = sub nsw i32 46, %valueStringLength.453
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx77 = getelementptr inbounds nuw i8, ptr %codeUnits, i64 %indvars.iv

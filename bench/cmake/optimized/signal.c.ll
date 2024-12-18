@@ -1853,7 +1853,7 @@ define internal void @uv__signal_event(ptr nocapture noundef readonly %0, ptr no
 
 .lr.ph:                                           ; preds = %.critedge39, %45
   %.03049 = phi i64 [ %46, %45 ], [ 0, %.critedge39 ]
-  %27 = getelementptr inbounds nuw i8, ptr %4, i64 %.03049
+  %27 = getelementptr inbounds i8, ptr %4, i64 %.03049
   %28 = load ptr, ptr %27, align 16
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %30 = load i32, ptr %29, align 8
@@ -1894,7 +1894,7 @@ define internal void @uv__signal_event(ptr nocapture noundef readonly %0, ptr no
   br i1 %.not, label %.loopexit, label %49
 
 49:                                               ; preds = %._crit_edge
-  %50 = getelementptr inbounds nuw i8, ptr %4, i64 %26
+  %50 = getelementptr inbounds i8, ptr %4, i64 %26
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull align 16 %50, i64 %48, i1 false)
   br label %.loopexit
 

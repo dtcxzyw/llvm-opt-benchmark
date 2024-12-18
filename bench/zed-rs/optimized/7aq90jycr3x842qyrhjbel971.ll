@@ -20299,7 +20299,7 @@ default.unreachable40.i:                          ; preds = %99
 "_ZN4core3ptr49drop_in_place$LT$outline_panel..SelectedEntry$GT$17ha6637e4804e61991E.llvm.13117562262406010975.exit27.i": ; preds = %99
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %6, ptr noundef nonnull align 8 dereferenceable(296) %7, i64 296, i1 false), !noalias !4102
   %.0..0..0..0..0..0.18.i = load i64, ptr %6, align 8, !noalias !4102
-  %105 = getelementptr inbounds nuw [3 x i64], ptr @anon.ee1179cdcd7a6a8830c398d65159c9d6.45.llvm.13117562262406010975, i64 0, i64 %.0..0..0..0..0..0.18.i
+  %105 = getelementptr inbounds [3 x i64], ptr @anon.ee1179cdcd7a6a8830c398d65159c9d6.45.llvm.13117562262406010975, i64 0, i64 %.0..0..0..0..0..0.18.i
   %106 = load i64, ptr %105, align 8, !noalias !4102, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(296) %0, ptr nonnull align 8 %6, i64 %106, i1 false)
   br label %109
@@ -28360,7 +28360,7 @@ default.unreachable40.i:                          ; preds = %312
 "_ZN4core3ptr49drop_in_place$LT$outline_panel..SelectedEntry$GT$17ha6637e4804e61991E.llvm.13117562262406010975.exit27.i": ; preds = %312
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %23, ptr noundef nonnull align 8 dereferenceable(296) %24, i64 296, i1 false), !noalias !5807
   %.0..0..0..0..0..0.18.i = load i64, ptr %23, align 8, !noalias !5807
-  %318 = getelementptr inbounds nuw [3 x i64], ptr @anon.ee1179cdcd7a6a8830c398d65159c9d6.45.llvm.13117562262406010975, i64 0, i64 %.0..0..0..0..0..0.18.i
+  %318 = getelementptr inbounds [3 x i64], ptr @anon.ee1179cdcd7a6a8830c398d65159c9d6.45.llvm.13117562262406010975, i64 0, i64 %.0..0..0..0..0..0.18.i
   %319 = load i64, ptr %318, align 8, !noalias !5807, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(296) %0, ptr nonnull align 8 %23, i64 %319, i1 false)
   br label %646

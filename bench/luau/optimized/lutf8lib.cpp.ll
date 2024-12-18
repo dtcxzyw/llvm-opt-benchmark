@@ -389,7 +389,7 @@ define internal noundef i32 @_ZL7utfcharP9lua_State(ptr noundef %0) #0 {
   %14 = or disjoint i8 %13, -128
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %15 = sub nsw i64 8, %indvars.iv.i.i
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 %15
+  %16 = getelementptr inbounds i8, ptr %2, i64 %15
   store i8 %14, ptr %16, align 1
   %17 = lshr i64 %.015.i.i, 6
   %18 = lshr i32 %.0.i.i, 1
@@ -414,7 +414,7 @@ _ZL11buffutfcharP9lua_StateiPcPPKc.exit:          ; preds = %9, %21
   %.sink.in.i.i = phi i64 [ %25, %21 ], [ %10, %9 ]
   %.014.i.i = phi i64 [ %28, %21 ], [ 1, %9 ]
   %.sink.i.i = trunc i64 %.sink.in.i.i to i8
-  %29 = getelementptr inbounds nuw i8, ptr %2, i64 %.sink26.i.i
+  %29 = getelementptr inbounds i8, ptr %2, i64 %.sink26.i.i
   store i8 %.sink.i.i, ptr %29, align 1
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %31 = sub nsw i64 0, %.014.i.i
@@ -455,7 +455,7 @@ _ZL11buffutfcharP9lua_StateiPcPPKc.exit:          ; preds = %9, %21
   %43 = or disjoint i8 %42, -128
   %indvars.iv.next.i.i17 = add nuw nsw i64 %indvars.iv.i.i14, 1
   %44 = sub nsw i64 8, %indvars.iv.i.i14
-  %45 = getelementptr inbounds nuw i8, ptr %2, i64 %44
+  %45 = getelementptr inbounds i8, ptr %2, i64 %44
   store i8 %43, ptr %45, align 1
   %46 = lshr i64 %.015.i.i15, 6
   %47 = lshr i32 %.0.i.i16, 1
@@ -480,7 +480,7 @@ _ZL11buffutfcharP9lua_StateiPcPPKc.exit23:        ; preds = %38, %50
   %.sink.in.i.i20 = phi i64 [ %54, %50 ], [ %39, %38 ]
   %.014.i.i21 = phi i64 [ %57, %50 ], [ 1, %38 ]
   %.sink.i.i22 = trunc i64 %.sink.in.i.i20 to i8
-  %58 = getelementptr inbounds nuw i8, ptr %2, i64 %.sink26.i.i19
+  %58 = getelementptr inbounds i8, ptr %2, i64 %.sink26.i.i19
   store i8 %.sink.i.i22, ptr %58, align 1
   %59 = sub nsw i64 0, %.014.i.i21
   %60 = getelementptr inbounds i8, ptr %34, i64 %59

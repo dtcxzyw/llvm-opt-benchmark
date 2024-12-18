@@ -4962,7 +4962,7 @@ _ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescEN
   %60 = phi ptr [ %61, %_ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEED2Ev.exit ], [ %55, %51 ]
   %61 = getelementptr inbounds i8, ptr %60, i64 -56
   %62 = load i64, ptr %61, align 8
-  %63 = getelementptr inbounds nuw [6 x ptr], ptr @constinit.18, i64 0, i64 %62
+  %63 = getelementptr inbounds [6 x ptr], ptr @constinit.18, i64 0, i64 %62
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds i8, ptr %60, i64 -48
   invoke void %64(ptr noundef nonnull %65)
@@ -4986,7 +4986,7 @@ _ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDes
   %71 = phi ptr [ %72, %_ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEED2Ev.exit28 ], [ %55, %.body.preheader ]
   %72 = getelementptr inbounds i8, ptr %71, i64 -56
   %73 = load i64, ptr %72, align 8
-  %74 = getelementptr inbounds nuw [6 x ptr], ptr @constinit.18, i64 0, i64 %73
+  %74 = getelementptr inbounds [6 x ptr], ptr @constinit.18, i64 0, i64 %73
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr inbounds i8, ptr %71, i64 -48
   invoke void %75(ptr noundef nonnull %76)
@@ -5081,7 +5081,7 @@ _ZNSt12_Vector_baseIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScala
   %.01215.i.i.i.i = phi ptr [ %20, %_ZSt10_ConstructIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEEJRKS9_EEvPT_DpOT0_.exit.i.i.i.i ], [ %1, %.lr.ph.i.i.i.i.preheader ]
   %15 = load i64, ptr %.01215.i.i.i.i, align 8
   store i64 %15, ptr %.016.i.i.i.i, align 8
-  %16 = getelementptr inbounds nuw [6 x ptr], ptr @constinit.20, i64 0, i64 %15
+  %16 = getelementptr inbounds [6 x ptr], ptr @constinit.20, i64 0, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %.01215.i.i.i.i, i64 8
@@ -5105,7 +5105,7 @@ _ZSt10_ConstructIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDe
 .lr.ph.i.i.i.i.i.i:                               ; preds = %22, %_ZSt8_DestroyIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEEEvPT_.exit.i.i.i.i.i.i
   %.05.i.i.i.i.i.i = phi ptr [ %33, %_ZSt8_DestroyIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEEEvPT_.exit.i.i.i.i.i.i ], [ %12, %22 ]
   %26 = load i64, ptr %.05.i.i.i.i.i.i, align 8
-  %27 = getelementptr inbounds nuw [6 x ptr], ptr @constinit.18, i64 0, i64 %26
+  %27 = getelementptr inbounds [6 x ptr], ptr @constinit.18, i64 0, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i, i64 8
   invoke void %28(ptr noundef nonnull %29)
@@ -7482,7 +7482,7 @@ _ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescEN
   %59 = phi ptr [ %60, %_ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEED2Ev.exit ], [ %54, %50 ]
   %60 = getelementptr inbounds i8, ptr %59, i64 -56
   %61 = load i64, ptr %60, align 8
-  %62 = getelementptr inbounds nuw [6 x ptr], ptr @constinit.18, i64 0, i64 %61
+  %62 = getelementptr inbounds [6 x ptr], ptr @constinit.18, i64 0, i64 %61
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %59, i64 -48
   invoke void %63(ptr noundef nonnull %64)
@@ -7522,7 +7522,7 @@ _ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDes
   %75 = phi ptr [ %76, %_ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEED2Ev.exit30 ], [ %54, %.body25.preheader ]
   %76 = getelementptr inbounds i8, ptr %75, i64 -56
   %77 = load i64, ptr %76, align 8
-  %78 = getelementptr inbounds nuw [6 x ptr], ptr @constinit.18, i64 0, i64 %77
+  %78 = getelementptr inbounds [6 x ptr], ptr @constinit.18, i64 0, i64 %77
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds i8, ptr %75, i64 -48
   invoke void %79(ptr noundef nonnull %80)

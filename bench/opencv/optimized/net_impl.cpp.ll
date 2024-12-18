@@ -35239,7 +35239,7 @@ _ZN2cveqIdEEbRKNS_7Scalar_IT_EES5_.exit.thread:   ; preds = %55, %64, %68, %_ZN2
   %158 = getelementptr inbounds nuw i32, ptr %144, i64 %indvars.iv.i
   %159 = load i32, ptr %158, align 4, !noalias !321
   %160 = add nsw i64 %indvars.iv.i, -2
-  %161 = getelementptr inbounds nuw [32 x i32], ptr %10, i64 0, i64 %160
+  %161 = getelementptr inbounds [32 x i32], ptr %10, i64 0, i64 %160
   store i32 %159, ptr %161, align 4, !noalias !321
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -35316,7 +35316,7 @@ _ZN2cveqIdEEbRKNS_7Scalar_IT_EES5_.exit.thread:   ; preds = %55, %64, %68, %_ZN2
   %194 = getelementptr inbounds nuw i32, ptr %184, i64 %indvars.iv.i82
   %195 = load i32, ptr %194, align 4, !noalias !325
   %196 = add nsw i64 %indvars.iv.i82, -2
-  %197 = getelementptr inbounds nuw [32 x i32], ptr %7, i64 0, i64 %196
+  %197 = getelementptr inbounds [32 x i32], ptr %7, i64 0, i64 %196
   store i32 %195, ptr %197, align 4, !noalias !325
   %indvars.iv.next.i83 = add nuw nsw i64 %indvars.iv.i82, 1
   %exitcond.not.i84 = icmp eq i64 %indvars.iv.next.i83, %wide.trip.count.i81

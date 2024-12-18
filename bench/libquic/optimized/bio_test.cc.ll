@@ -339,7 +339,7 @@ for.body.i:                                       ; preds = %lor.lhs.false, %for
   %arrayidx.i = getelementptr inbounds nuw [7 x i64], ptr @_ZZL10TestPrintfvE8kLengths, i64 0, i64 %i.013.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %string.i, i8 97, i64 1024, i1 false)
   %23 = load i64, ptr %arrayidx.i, align 8
-  %arrayidx10.i = getelementptr inbounds nuw [1024 x i8], ptr %string.i, i64 0, i64 %23
+  %arrayidx10.i = getelementptr inbounds [1024 x i8], ptr %string.i, i64 0, i64 %23
   store i8 0, ptr %arrayidx10.i, align 1
   %call14.i5 = invoke i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %call1.i3, ptr noundef nonnull @.str.14, ptr noundef nonnull %string.i)
           to label %invoke.cont13.i unwind label %lpad.i6
@@ -496,7 +496,7 @@ if.end.i.i:                                       ; preds = %call.i.noexc.i
   %37 = load ptr, ptr %write_buf.i.i, align 8
   %38 = load i64, ptr %write_buf_offset.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %37, i64 %38
-  %add.ptr2.i.i = getelementptr inbounds nuw i8, ptr %bio1_application_send_buffer.i, i64 %len_written.0.i.i
+  %add.ptr2.i.i = getelementptr inbounds i8, ptr %bio1_application_send_buffer.i, i64 %len_written.0.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr nonnull readonly align 1 %add.ptr2.i.i, i64 %.sroa.speculated.i.i, i1 false)
   %39 = load i64, ptr %available_bytes.i.i, align 8
   %call3.i32.i = invoke i32 @BIO_zero_copy_get_write_buf_done(ptr noundef %33, i64 noundef %39)
@@ -564,7 +564,7 @@ invoke.cont19.i:                                  ; preds = %if.end15.i
   %47 = load ptr, ptr %write_buf.i, align 8
   %48 = load i64, ptr %write_buf_offset.i, align 8
   %add.ptr26.i = getelementptr inbounds i8, ptr %47, i64 %48
-  %add.ptr28.i = getelementptr inbounds nuw i8, ptr %bio1_application_send_buffer.i, i64 %retval.0.i.i
+  %add.ptr28.i = getelementptr inbounds i8, ptr %bio1_application_send_buffer.i, i64 %retval.0.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr26.i, ptr nonnull align 1 %add.ptr28.i, i64 %46, i1 false)
   %49 = load ptr, ptr %bio1.i, align 8
   %call30.i = invoke i32 @BIO_zero_copy_get_write_buf_done(ptr noundef %49, i64 noundef %46)
@@ -575,7 +575,7 @@ invoke.cont29.i:                                  ; preds = %invoke.cont19.i
   %add33.i = select i1 %tobool31.not.i, i64 0, i64 %46
   %spec.select.i = add i64 %add33.i, %retval.0.i.i
   %50 = load ptr, ptr %bio1.i, align 8
-  %add.ptr36.i = getelementptr inbounds nuw i8, ptr %bio1_application_send_buffer.i, i64 %spec.select.i
+  %add.ptr36.i = getelementptr inbounds i8, ptr %bio1_application_send_buffer.i, i64 %spec.select.i
   %sub.i = sub i64 %44, %46
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %write_buf.i34.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %write_buf_offset.i35.i)
@@ -625,7 +625,7 @@ invoke.cont38.i:                                  ; preds = %call3.i.noexc51.i, 
 
 invoke.cont41.i:                                  ; preds = %invoke.cont38.i
   %58 = load ptr, ptr %bio2.i, align 8
-  %add.ptr44.i = getelementptr inbounds nuw i8, ptr %bio2_application_recv_buffer.i, i64 %conv21.i24
+  %add.ptr44.i = getelementptr inbounds i8, ptr %bio2_application_recv_buffer.i, i64 %conv21.i24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %read_buf.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %read_buf_offset.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %available_bytes.i54.i)

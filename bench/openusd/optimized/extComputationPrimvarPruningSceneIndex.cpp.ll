@@ -9839,7 +9839,7 @@ _ZSt22__uninitialized_copy_aIPKfPffET0_T_S4_S3_RSaIT1_E.exit.i: ; preds = %586
   %592 = ptrtoint ptr %588 to i64
   %593 = sub i64 %592, %578
   %gepdiff = sub nsw i64 4, %593
-  %.sink.i.i25.i.ptr = getelementptr inbounds nuw i8, ptr %16, i64 %593
+  %.sink.i.i25.i.ptr = getelementptr inbounds i8, ptr %16, i64 %593
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %588, ptr nonnull align 4 %.sink.i.i25.i.ptr, i64 %gepdiff, i1 false)
   %594 = getelementptr inbounds i8, ptr %588, i64 %gepdiff
   store ptr %594, ptr %587, align 8

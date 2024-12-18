@@ -316,7 +316,7 @@ define dso_local void @BZ2_blockSort(ptr nocapture noundef %0) local_unnamed_add
 
 .lr.ph409.i:                                      ; preds = %split.i, %.lr.ph409.preheader.i
   %indvars.iv513.i = phi i64 [ %178, %.lr.ph409.preheader.i ], [ %indvars.iv.next514.i, %split.i ]
-  %180 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %indvars.iv513.i
+  %180 = getelementptr inbounds [256 x i32], ptr %5, i64 0, i64 %indvars.iv513.i
   %181 = load i32, ptr %180, align 4
   %182 = shl i32 %181, 8
   %183 = add i32 %182, 256
@@ -334,7 +334,7 @@ define dso_local void @BZ2_blockSort(ptr nocapture noundef %0) local_unnamed_add
   %.2280.i = phi i32 [ %191, %.lr.ph409.i ], [ %193, %208 ]
   %193 = sub nsw i32 %.2280.i, %176
   %194 = sext i32 %193 to i64
-  %195 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %194
+  %195 = getelementptr inbounds [256 x i32], ptr %5, i64 0, i64 %194
   %196 = load i32, ptr %195, align 4
   %197 = shl i32 %196, 8
   %198 = add i32 %197, 256
@@ -350,14 +350,14 @@ define dso_local void @BZ2_blockSort(ptr nocapture noundef %0) local_unnamed_add
   br i1 %206, label %208, label %split.i
 
 208:                                              ; preds = %192
-  %209 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %207
+  %209 = getelementptr inbounds [256 x i32], ptr %5, i64 0, i64 %207
   store i32 %196, ptr %209, align 4
   %.not318.not.i = icmp slt i32 %193, %176
   br i1 %.not318.not.i, label %split.i, label %192, !llvm.loop !13
 
 split.i:                                          ; preds = %208, %192
   %.pre-phi.i = phi i64 [ %207, %192 ], [ %194, %208 ]
-  %210 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %.pre-phi.i
+  %210 = getelementptr inbounds [256 x i32], ptr %5, i64 0, i64 %.pre-phi.i
   store i32 %181, ptr %210, align 4
   %indvars.iv.next514.i = add nsw i64 %indvars.iv513.i, 1
   %exitcond516.not.i = icmp eq i64 %indvars.iv.next514.i, %wide.trip.count.i
@@ -443,11 +443,11 @@ split.i:                                          ; preds = %208, %192
 
 241:                                              ; preds = %240, %237
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
-  %242 = getelementptr inbounds nuw [100 x i32], ptr %2, i64 0, i64 %indvars.iv.next.i.i
+  %242 = getelementptr inbounds [100 x i32], ptr %2, i64 0, i64 %indvars.iv.next.i.i
   %243 = load i32, ptr %242, align 4
-  %244 = getelementptr inbounds nuw [100 x i32], ptr %3, i64 0, i64 %indvars.iv.next.i.i
+  %244 = getelementptr inbounds [100 x i32], ptr %3, i64 0, i64 %indvars.iv.next.i.i
   %245 = load i32, ptr %244, align 4
-  %246 = getelementptr inbounds nuw [100 x i32], ptr %4, i64 0, i64 %indvars.iv.next.i.i
+  %246 = getelementptr inbounds [100 x i32], ptr %4, i64 0, i64 %indvars.iv.next.i.i
   %247 = load i32, ptr %246, align 4
   %248 = sub nsw i32 %245, %243
   %249 = icmp slt i32 %248, 20
@@ -611,9 +611,9 @@ mainSimpleSort.exit.i.i:                          ; preds = %mainSimpleSort.exit
   br i1 %or.cond3.i.i, label %237, label %mainQSort3.exit.i, !llvm.loop !21
 
 317:                                              ; preds = %241
-  %318 = getelementptr inbounds nuw [100 x i32], ptr %2, i64 0, i64 %indvars.iv.next.i.i
-  %319 = getelementptr inbounds nuw [100 x i32], ptr %3, i64 0, i64 %indvars.iv.next.i.i
-  %320 = getelementptr inbounds nuw [100 x i32], ptr %4, i64 0, i64 %indvars.iv.next.i.i
+  %318 = getelementptr inbounds [100 x i32], ptr %2, i64 0, i64 %indvars.iv.next.i.i
+  %319 = getelementptr inbounds [100 x i32], ptr %3, i64 0, i64 %indvars.iv.next.i.i
+  %320 = getelementptr inbounds [100 x i32], ptr %4, i64 0, i64 %indvars.iv.next.i.i
   %321 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %322 = sext i32 %243 to i64
   %323 = getelementptr inbounds i32, ptr %11, i64 %322
@@ -911,19 +911,19 @@ mainSimpleSort.exit.i.i:                          ; preds = %mainSimpleSort.exit
   store i32 %.sroa.0.1.i.i, ptr %320, align 4
   %sext.i.i = shl i64 %indvars.iv.i.i, 32
   %450 = ashr exact i64 %sext.i.i, 32
-  %451 = getelementptr inbounds nuw [100 x i32], ptr %2, i64 0, i64 %450
+  %451 = getelementptr inbounds [100 x i32], ptr %2, i64 0, i64 %450
   store i32 %.sroa.857.2.i.i, ptr %451, align 4
-  %452 = getelementptr inbounds nuw [100 x i32], ptr %3, i64 0, i64 %450
+  %452 = getelementptr inbounds [100 x i32], ptr %3, i64 0, i64 %450
   store i32 %.sroa.8.2.i.i, ptr %452, align 4
-  %453 = getelementptr inbounds nuw [100 x i32], ptr %4, i64 0, i64 %450
+  %453 = getelementptr inbounds [100 x i32], ptr %4, i64 0, i64 %450
   store i32 %.sroa.6.2.i.i, ptr %453, align 4
   %sext414.i.i = add i64 %sext.i.i, 4294967296
   %454 = ashr exact i64 %sext414.i.i, 32
-  %455 = getelementptr inbounds nuw [100 x i32], ptr %2, i64 0, i64 %454
+  %455 = getelementptr inbounds [100 x i32], ptr %2, i64 0, i64 %454
   store i32 %.sroa.1964.0.i.i, ptr %455, align 4
-  %456 = getelementptr inbounds nuw [100 x i32], ptr %3, i64 0, i64 %454
+  %456 = getelementptr inbounds [100 x i32], ptr %3, i64 0, i64 %454
   store i32 %.sroa.19.0.i.i, ptr %456, align 4
-  %457 = getelementptr inbounds nuw [100 x i32], ptr %4, i64 0, i64 %454
+  %457 = getelementptr inbounds [100 x i32], ptr %4, i64 0, i64 %454
   store i32 %.sroa.14.0.i.i, ptr %457, align 4
   %458 = add nsw i32 %321, 2
   br label %.backedge.i.i
@@ -963,7 +963,7 @@ mainQSort3.exit._crit_edge.i:                     ; preds = %mainQSort3.exit.i
 
 470:                                              ; preds = %468
   %471 = sext i32 %213 to i64
-  %472 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %471
+  %472 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 %471
   %473 = load i8, ptr %472, align 1
   %.not312.i = icmp eq i8 %473, 0
   br i1 %.not312.i, label %475, label %474
@@ -997,7 +997,7 @@ mainQSort3.exit._crit_edge.i:                     ; preds = %mainQSort3.exit.i
 485:                                              ; preds = %476
   %486 = load i32, ptr %invariant.gep.i, align 4
   %487 = and i32 %486, -2097153
-  %488 = getelementptr inbounds nuw [256 x i32], ptr %7, i64 0, i64 %471
+  %488 = getelementptr inbounds [256 x i32], ptr %7, i64 0, i64 %471
   %489 = load i32, ptr %488, align 4
   %490 = icmp slt i32 %487, %489
   br i1 %490, label %.lr.ph422.preheader.i, label %._crit_edge423.i
@@ -1049,7 +1049,7 @@ mainQSort3.exit._crit_edge.i:                     ; preds = %mainQSort3.exit.i
   %516 = getelementptr inbounds i32, ptr %15, i64 %515
   %517 = load i32, ptr %516, align 4
   %518 = and i32 %517, -2097153
-  %519 = getelementptr inbounds nuw [256 x i32], ptr %8, i64 0, i64 %471
+  %519 = getelementptr inbounds [256 x i32], ptr %8, i64 0, i64 %471
   %.7285425.i = add i32 %518, -1
   %520 = load i32, ptr %519, align 4
   %521 = icmp sgt i32 %.7285425.i, %520
@@ -2081,14 +2081,14 @@ fallbackQSort3.exit:                              ; preds = %.outer191.backedge.
 
 349:                                              ; preds = %349, %.preheader
   %indvars.iv345 = phi i64 [ %indvars.iv.next346, %349 ], [ %348, %.preheader ]
-  %350 = getelementptr inbounds nuw [256 x i32], ptr %9, i64 0, i64 %indvars.iv345
+  %350 = getelementptr inbounds [256 x i32], ptr %9, i64 0, i64 %indvars.iv345
   %351 = load i32, ptr %350, align 4
   %352 = icmp eq i32 %351, 0
   %indvars.iv.next346 = add nsw i64 %indvars.iv345, 1
   br i1 %352, label %349, label %353, !llvm.loop !52
 
 353:                                              ; preds = %349
-  %354 = getelementptr inbounds nuw [256 x i32], ptr %9, i64 0, i64 %indvars.iv345
+  %354 = getelementptr inbounds [256 x i32], ptr %9, i64 0, i64 %indvars.iv345
   %355 = add nsw i32 %351, -1
   store i32 %355, ptr %354, align 4
   %356 = trunc i64 %indvars.iv345 to i8

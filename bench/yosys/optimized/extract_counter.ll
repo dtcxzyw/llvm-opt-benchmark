@@ -3213,7 +3213,7 @@ _ZN5Yosys7hashlib4poolINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_8
 
 _ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.exit217: ; preds = %396
   %399 = sext i32 %393 to i64
-  %400 = getelementptr inbounds nuw [27 x ptr], ptr @_ZZN12_GLOBAL__N_114counter_workerERN5Yosys8ModIndexEPNS0_5RTLIL4CellERjRNS0_7hashlib4poolIS5_NS7_8hash_opsIS5_EEEERNS8_ISt4pairIS5_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS9_ISK_EEEENS_25CounterExtractionSettingsEE7reasons, i64 0, i64 %399
+  %400 = getelementptr inbounds [27 x ptr], ptr @_ZZN12_GLOBAL__N_114counter_workerERN5Yosys8ModIndexEPNS0_5RTLIL4CellERjRNS0_7hashlib4poolIS5_NS7_8hash_opsIS5_EEEERNS8_ISt4pairIS5_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS9_ISK_EEEENS_25CounterExtractionSettingsEE7reasons, i64 0, i64 %399
   %401 = load ptr, ptr %400, align 8
   invoke void (ptr, ...) @_ZN5Yosys9log_errorEPKcz(ptr noundef nonnull @.str.76, ptr noundef %398, ptr noundef %401) #27
           to label %402 unwind label %403

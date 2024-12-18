@@ -2831,7 +2831,7 @@ define void @_ZNK11TransTableL17SetToPartialHandsEjjiiRSt6vectorIS0_INSt7__cxx11
 20:                                               ; preds = %12
   %21 = lshr i32 %1, %17
   %22 = and i32 %21, 3
-  %23 = getelementptr inbounds nuw [16 x i8], ptr @cardRank, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds [16 x i8], ptr @cardRank, i64 0, i64 %indvars.iv
   %24 = load i8, ptr %23, align 1
   %25 = zext nneg i32 %22 to i64
   %26 = load ptr, ptr %5, align 8
@@ -3019,7 +3019,7 @@ define void @_ZNK11TransTableL15PrintNodeValuesERSt14basic_ofstreamIcSt11char_tr
   %12 = load i8, ptr %11, align 1
   %13 = sext i8 %12 to i64
   %14 = sub nsw i64 15, %13
-  %15 = getelementptr inbounds nuw [16 x i8], ptr @cardRank, i64 0, i64 %14
+  %15 = getelementptr inbounds [16 x i8], ptr @cardRank, i64 0, i64 %14
   %16 = load i8, ptr %15, align 1
   %17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h(ptr noundef nonnull align 8 dereferenceable(8) %10, i8 noundef zeroext %16)
   %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull @.str.6)
@@ -3029,7 +3029,7 @@ define void @_ZNK11TransTableL15PrintNodeValuesERSt14basic_ofstreamIcSt11char_tr
   %22 = load i8, ptr %21, align 1
   %23 = sext i8 %22 to i64
   %24 = sub nsw i64 15, %23
-  %25 = getelementptr inbounds nuw [16 x i8], ptr @cardRank, i64 0, i64 %24
+  %25 = getelementptr inbounds [16 x i8], ptr @cardRank, i64 0, i64 %24
   %26 = load i8, ptr %25, align 1
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h(ptr noundef nonnull align 8 dereferenceable(8) %20, i8 noundef zeroext %26)
   %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull @.str.6)
@@ -3039,7 +3039,7 @@ define void @_ZNK11TransTableL15PrintNodeValuesERSt14basic_ofstreamIcSt11char_tr
   %32 = load i8, ptr %31, align 1
   %33 = sext i8 %32 to i64
   %34 = sub nsw i64 15, %33
-  %35 = getelementptr inbounds nuw [16 x i8], ptr @cardRank, i64 0, i64 %34
+  %35 = getelementptr inbounds [16 x i8], ptr @cardRank, i64 0, i64 %34
   %36 = load i8, ptr %35, align 1
   %37 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h(ptr noundef nonnull align 8 dereferenceable(8) %30, i8 noundef zeroext %36)
   %38 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull @.str.6)
@@ -3049,7 +3049,7 @@ define void @_ZNK11TransTableL15PrintNodeValuesERSt14basic_ofstreamIcSt11char_tr
   %42 = load i8, ptr %41, align 1
   %43 = sext i8 %42 to i64
   %44 = sub nsw i64 15, %43
-  %45 = getelementptr inbounds nuw [16 x i8], ptr @cardRank, i64 0, i64 %44
+  %45 = getelementptr inbounds [16 x i8], ptr @cardRank, i64 0, i64 %44
   %46 = load i8, ptr %45, align 1
   %47 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h(ptr noundef nonnull align 8 dereferenceable(8) %40, i8 noundef zeroext %46)
   %48 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull @.str.7)
@@ -3087,13 +3087,13 @@ define void @_ZNK11TransTableL15PrintNodeValuesERSt14basic_ofstreamIcSt11char_tr
   %68 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %69 = load i8, ptr %68, align 1
   %70 = sext i8 %69 to i64
-  %71 = getelementptr inbounds nuw [5 x i8], ptr @cardSuit, i64 0, i64 %70
+  %71 = getelementptr inbounds [5 x i8], ptr @cardSuit, i64 0, i64 %70
   %72 = load i8, ptr %71, align 1
   %73 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h(ptr noundef nonnull align 8 dereferenceable(8) %67, i8 noundef zeroext %72)
   %74 = getelementptr inbounds nuw i8, ptr %2, i64 3
   %75 = load i8, ptr %74, align 1
   %76 = sext i8 %75 to i64
-  %77 = getelementptr inbounds nuw [16 x i8], ptr @cardRank, i64 0, i64 %76
+  %77 = getelementptr inbounds [16 x i8], ptr @cardRank, i64 0, i64 %76
   %78 = load i8, ptr %77, align 1
   %79 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h(ptr noundef nonnull align 8 dereferenceable(8) %73, i8 noundef zeroext %78)
   %80 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %79, ptr noundef nonnull @.str.12)
@@ -4707,7 +4707,7 @@ define void @_ZNK11TransTableL14PrintSuitStatsERSt14basic_ofstreamIcSt11char_tra
   %12 = getelementptr inbounds nuw %"struct.TransTableL::distHashType", ptr %10, i64 %indvars.iv.i
   %13 = load i32, ptr %12, align 8
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds nuw i32, ptr %5, i64 %14
+  %15 = getelementptr inbounds i32, ptr %5, i64 %14
   %16 = load i32, ptr %15, align 4
   %17 = add nsw i32 %16, 1
   store i32 %17, ptr %15, align 4
@@ -4763,11 +4763,11 @@ define void @_ZNK11TransTableL17PrintAllSuitStatsERSt14basic_ofstreamIcSt11char_
   %10 = getelementptr inbounds nuw %"struct.TransTableL::distHashType", ptr %8, i64 %indvars.iv.i
   %11 = load i32, ptr %10, align 8
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %2, i64 %12
+  %13 = getelementptr inbounds i32, ptr %2, i64 %12
   %14 = load i32, ptr %13, align 4
   %15 = add nsw i32 %14, 1
   store i32 %15, ptr %13, align 4
-  %16 = getelementptr inbounds nuw i32, ptr %3, i64 %12
+  %16 = getelementptr inbounds i32, ptr %3, i64 %12
   %17 = load i32, ptr %16, align 4
   %18 = add nsw i32 %17, 1
   store i32 %18, ptr %16, align 4
@@ -4851,7 +4851,7 @@ define void @_ZNK11TransTableL21PrintSummarySuitStatsERSt14basic_ofstreamIcSt11c
   %32 = getelementptr inbounds nuw %"struct.TransTableL::distHashType", ptr %30, i64 %indvars.iv.i
   %33 = load i32, ptr %32, align 8
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds nuw i32, ptr %3, i64 %34
+  %35 = getelementptr inbounds i32, ptr %3, i64 %34
   %36 = load i32, ptr %35, align 4
   %37 = add nsw i32 %36, 1
   store i32 %37, ptr %35, align 4
@@ -6383,7 +6383,7 @@ define void @_ZNK11TransTableL15PrintEntryStatsERSt14basic_ofstreamIcSt11char_tr
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %19, align 4
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds nuw i32, ptr %5, i64 %21
+  %22 = getelementptr inbounds i32, ptr %5, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = add nsw i32 %23, 1
   store i32 %24, ptr %22, align 4
@@ -6460,11 +6460,11 @@ define void @_ZNK11TransTableL18PrintAllEntryStatsERSt14basic_ofstreamIcSt11char
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr %17, align 4
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds nuw i32, ptr %2, i64 %19
+  %20 = getelementptr inbounds i32, ptr %2, i64 %19
   %21 = load i32, ptr %20, align 4
   %22 = add nsw i32 %21, 1
   store i32 %22, ptr %20, align 4
-  %23 = getelementptr inbounds nuw i32, ptr %3, i64 %19
+  %23 = getelementptr inbounds i32, ptr %3, i64 %19
   %24 = load i32, ptr %23, align 4
   %25 = add nsw i32 %24, 1
   store i32 %25, ptr %23, align 4
@@ -6601,7 +6601,7 @@ define void @_ZNK11TransTableL22PrintSummaryEntryStatsERSt14basic_ofstreamIcSt11
   %39 = load ptr, ptr %38, align 8
   %40 = load i32, ptr %39, align 4
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds nuw i32, ptr %3, i64 %41
+  %42 = getelementptr inbounds i32, ptr %3, i64 %41
   %43 = load i32, ptr %42, align 4
   %44 = add nsw i32 %43, 1
   store i32 %44, ptr %42, align 4

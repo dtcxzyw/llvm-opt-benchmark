@@ -235,7 +235,7 @@ sw.bb:                                            ; preds = %while.cond
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %spec.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tags.i)
   %idxprom.i = sext i32 %6 to i64
-  %arrayidx.i = getelementptr inbounds nuw [59 x %struct.share__option], ptr @long_options_, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [59 x %struct.share__option], ptr @long_options_, i64 0, i64 %idxprom.i
   %8 = load ptr, ptr %arrayidx.i, align 16
   %call.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(17) @.str) #21
   %cmp.i = icmp eq i32 %call.i, 0

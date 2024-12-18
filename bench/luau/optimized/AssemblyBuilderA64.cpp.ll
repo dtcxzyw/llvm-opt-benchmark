@@ -1240,7 +1240,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA647placeCSEPKcNS1_1
   %25 = shl nuw nsw i32 %24, 10
   %26 = or disjoint i32 %25, %23
   %27 = sext i32 %5 to i64
-  %28 = getelementptr inbounds nuw [15 x i8], ptr @_ZN4Luau7CodeGen3A64L16codeForConditionE, i64 0, i64 %27
+  %28 = getelementptr inbounds [15 x i8], ptr @_ZN4Luau7CodeGen3A64L16codeForConditionE, i64 0, i64 %27
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i32
   %31 = xor i32 %8, %30
@@ -2766,9 +2766,9 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA646commitEv.exit: ; preds = %8, %_ZN4Luau7
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %0, i32 noundef %1, ptr nocapture noundef nonnull align 4 dereferenceable(8) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds nuw [15 x ptr], ptr @_ZN4Luau7CodeGen3A64L16textForConditionE, i64 0, i64 %4
+  %5 = getelementptr inbounds [15 x ptr], ptr @_ZN4Luau7CodeGen3A64L16textForConditionE, i64 0, i64 %4
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds nuw [15 x i8], ptr @_ZN4Luau7CodeGen3A64L16codeForConditionE, i64 0, i64 %4
+  %7 = getelementptr inbounds [15 x i8], ptr @_ZN4Luau7CodeGen3A64L16codeForConditionE, i64 0, i64 %4
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
   %10 = or disjoint i32 %9, 1409286144
@@ -5471,7 +5471,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logEPKcNS1_11Reg
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull @.str.80)
   %14 = sext i32 %5 to i64
-  %15 = getelementptr inbounds nuw [15 x ptr], ptr @_ZN4Luau7CodeGen3A64L16textForConditionE, i64 0, i64 %14
+  %15 = getelementptr inbounds [15 x ptr], ptr @_ZN4Luau7CodeGen3A64L16textForConditionE, i64 0, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %18 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull %17)

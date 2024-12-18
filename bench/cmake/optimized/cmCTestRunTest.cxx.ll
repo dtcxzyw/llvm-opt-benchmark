@@ -1653,7 +1653,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %347 = load ptr, ptr %16, align 8
   %348 = getelementptr i8, ptr %347, i64 -24
   %349 = load i64, ptr %348, align 8
-  %350 = getelementptr inbounds nuw i8, ptr %16, i64 %349
+  %350 = getelementptr inbounds i8, ptr %16, i64 %349
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %350, i32 noundef 0)
           to label %351 unwind label %363
 

@@ -27473,7 +27473,7 @@ switch.lookup112:                                 ; preds = %140
   store i32 %6, ptr %24, align 4, !noalias !7040
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23), !noalias !7040
   %177 = sext i8 %7 to i64
-  %switch.gep113 = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN5image5image12ImageDecoder11total_bytes17h43e3b0cadfb576e8E, i64 0, i64 %177
+  %switch.gep113 = getelementptr inbounds [10 x i64], ptr @switch.table._ZN5image5image12ImageDecoder11total_bytes17h43e3b0cadfb576e8E, i64 0, i64 %177
   %switch.load114 = load i64, ptr %switch.gep113, align 8
   %178 = zext i32 %5 to i64
   %179 = zext i32 %6 to i64
@@ -29209,7 +29209,7 @@ _ZN4core4iter6traits8iterator8Iterator10max_by_key17h5aa12293d676241dE.exit: ; p
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha26ecade21f8cc0cE.exit181": ; preds = %186
-  %191 = getelementptr inbounds nuw [3 x i8], ptr %10, i64 %.sroa.7243.0366
+  %191 = getelementptr inbounds [3 x i8], ptr %10, i64 %.sroa.7243.0366
   %192 = icmp eq i64 %.sroa.7243.0366, 0
   br i1 %192, label %.loopexit, label %.lr.ph
 
@@ -32866,7 +32866,7 @@ switch.lookup:
   %11 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %12 = alloca { { i64, ptr }, i64 }, align 8
   %13 = sext i8 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN5image5image12ImageDecoder11total_bytes17h43e3b0cadfb576e8E, i64 0, i64 %13
+  %switch.gep = getelementptr inbounds [10 x i64], ptr @switch.table._ZN5image5image12ImageDecoder11total_bytes17h43e3b0cadfb576e8E, i64 0, i64 %13
   %switch.load = load i64, ptr %switch.gep, align 8
   %14 = shl nuw nsw i64 %switch.load, 7
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)

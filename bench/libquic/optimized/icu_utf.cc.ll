@@ -205,7 +205,7 @@ if.then110:                                       ; preds = %while.end107
 if.end116.sink.split:                             ; preds = %lor.lhs.false85, %land.lhs.true83, %if.then70, %if.then110
   %idxprom112.sink = phi i64 [ %idxprom112, %if.then110 ], [ %idxprom74, %if.then70 ], [ %idxprom51, %land.lhs.true83 ], [ %idxprom51, %lor.lhs.false85 ]
   %i.4.ph = phi i32 [ %i.5.lcssa, %if.then110 ], [ %i.3.lcssa, %if.then70 ], [ %i.061, %land.lhs.true83 ], [ %i.061, %lor.lhs.false85 ]
-  %arrayidx113 = getelementptr inbounds nuw [6 x i32], ptr @_ZN8base_icuL15utf8_errorValueE, i64 0, i64 %idxprom112.sink
+  %arrayidx113 = getelementptr inbounds [6 x i32], ptr @_ZN8base_icuL15utf8_errorValueE, i64 0, i64 %idxprom112.sink
   %22 = load i32, ptr %arrayidx113, align 4
   br label %if.end116
 

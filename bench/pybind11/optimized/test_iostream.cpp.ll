@@ -22863,7 +22863,7 @@ _ZNK8pybind116detail8accessorINS0_17accessor_policies8str_attrEEcvNS_6objectEEv.
   %31 = load ptr, ptr @_ZSt4cout, align 8
   %32 = getelementptr i8, ptr %31, i64 -24
   %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr @_ZSt4cout, i64 %33
+  %34 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %33
   %35 = invoke noundef ptr @_ZNSt9basic_iosIcSt11char_traitsIcEE5rdbufEPSt15basic_streambufIcS1_E(ptr noundef nonnull align 8 dereferenceable(264) %34, ptr noundef nonnull %30)
           to label %38 unwind label %36
 
@@ -23065,7 +23065,7 @@ _ZNK8pybind116detail8accessorINS0_17accessor_policies8str_attrEEcvNS_6objectEEv.
   %106 = load ptr, ptr @_ZSt4cerr, align 8
   %107 = getelementptr i8, ptr %106, i64 -24
   %108 = load i64, ptr %107, align 8
-  %109 = getelementptr inbounds nuw i8, ptr @_ZSt4cerr, i64 %108
+  %109 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %108
   %110 = invoke noundef ptr @_ZNSt9basic_iosIcSt11char_traitsIcEE5rdbufEPSt15basic_streambufIcS1_E(ptr noundef nonnull align 8 dereferenceable(264) %109, ptr noundef nonnull %105)
           to label %113 unwind label %111
 
@@ -24096,7 +24096,7 @@ _ZSt22__uninitialized_copy_aIPKPN8pybind116detail9type_infoEPS3_S3_ET0_T_S8_S7_R
   %198 = ptrtoint ptr %193 to i64
   %199 = sub i64 %198, %182
   %gepdiff = sub nsw i64 8, %199
-  %.sink.i.i25.i.ptr = getelementptr inbounds nuw i8, ptr %16, i64 %199
+  %.sink.i.i25.i.ptr = getelementptr inbounds i8, ptr %16, i64 %199
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %193, ptr nonnull align 8 %.sink.i.i25.i.ptr, i64 %gepdiff, i1 false)
   %200 = getelementptr inbounds i8, ptr %193, i64 %gepdiff
   store ptr %200, ptr %192, align 8
@@ -32174,7 +32174,7 @@ _ZNK8pybind116detail8accessorINS0_17accessor_policies8str_attrEEcvNS_6objectEEv.
   %35 = load ptr, ptr @_ZSt4cout, align 8
   %36 = getelementptr i8, ptr %35, i64 -24
   %37 = load i64, ptr %36, align 8
-  %38 = getelementptr inbounds nuw i8, ptr @_ZSt4cout, i64 %37
+  %38 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %37
   %39 = invoke noundef ptr @_ZNSt9basic_iosIcSt11char_traitsIcEE5rdbufEPSt15basic_streambufIcS1_E(ptr noundef nonnull align 8 dereferenceable(264) %38, ptr noundef nonnull %34)
           to label %42 unwind label %40
 
@@ -32422,7 +32422,7 @@ _ZNK8pybind116detail8accessorINS0_17accessor_policies8str_attrEEcvNS_6objectEEv.
   %35 = load ptr, ptr @_ZSt4cout, align 8
   %36 = getelementptr i8, ptr %35, i64 -24
   %37 = load i64, ptr %36, align 8
-  %38 = getelementptr inbounds nuw i8, ptr @_ZSt4cout, i64 %37
+  %38 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %37
   %39 = invoke noundef ptr @_ZNSt9basic_iosIcSt11char_traitsIcEE5rdbufEPSt15basic_streambufIcS1_E(ptr noundef nonnull align 8 dereferenceable(264) %38, ptr noundef nonnull %34)
           to label %42 unwind label %40
 
@@ -32742,7 +32742,7 @@ _ZNK8pybind116detail8accessorINS0_17accessor_policies8str_attrEEcvNS_6objectEEv.
   %25 = load ptr, ptr @_ZSt4cout, align 8
   %26 = getelementptr i8, ptr %25, i64 -24
   %27 = load i64, ptr %26, align 8
-  %28 = getelementptr inbounds nuw i8, ptr @_ZSt4cout, i64 %27
+  %28 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %27
   %29 = invoke noundef ptr @_ZNSt9basic_iosIcSt11char_traitsIcEE5rdbufEPSt15basic_streambufIcS1_E(ptr noundef nonnull align 8 dereferenceable(264) %28, ptr noundef nonnull %24)
           to label %32 unwind label %30
 
@@ -33256,7 +33256,7 @@ _ZNK8pybind116detail8accessorINS0_17accessor_policies8str_attrEEcvNS_6objectEEv.
   %35 = load ptr, ptr @_ZSt4cerr, align 8
   %36 = getelementptr i8, ptr %35, i64 -24
   %37 = load i64, ptr %36, align 8
-  %38 = getelementptr inbounds nuw i8, ptr @_ZSt4cerr, i64 %37
+  %38 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %37
   %39 = invoke noundef ptr @_ZNSt9basic_iosIcSt11char_traitsIcEE5rdbufEPSt15basic_streambufIcS1_E(ptr noundef nonnull align 8 dereferenceable(264) %38, ptr noundef nonnull %34)
           to label %42 unwind label %40
 
@@ -33721,7 +33721,7 @@ _ZNK8pybind116detail8accessorINS0_17accessor_policies8str_attrEEcvNS_6objectEEv.
   %28 = load ptr, ptr @_ZSt4cout, align 8
   %29 = getelementptr i8, ptr %28, i64 -24
   %30 = load i64, ptr %29, align 8
-  %31 = getelementptr inbounds nuw i8, ptr @_ZSt4cout, i64 %30
+  %31 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %30
   %32 = invoke noundef ptr @_ZNSt9basic_iosIcSt11char_traitsIcEE5rdbufEPSt15basic_streambufIcS1_E(ptr noundef nonnull align 8 dereferenceable(264) %31, ptr noundef nonnull %27)
           to label %35 unwind label %33
 
@@ -33860,7 +33860,7 @@ _ZNK8pybind116detail8accessorINS0_17accessor_policies8str_attrEEcvNS_6objectEEv.
   %77 = load ptr, ptr @_ZSt4cerr, align 8
   %78 = getelementptr i8, ptr %77, i64 -24
   %79 = load i64, ptr %78, align 8
-  %80 = getelementptr inbounds nuw i8, ptr @_ZSt4cerr, i64 %79
+  %80 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %79
   %81 = invoke noundef ptr @_ZNSt9basic_iosIcSt11char_traitsIcEE5rdbufEPSt15basic_streambufIcS1_E(ptr noundef nonnull align 8 dereferenceable(264) %80, ptr noundef nonnull %76)
           to label %84 unwind label %82
 
@@ -34306,7 +34306,7 @@ _ZNK8pybind116detail8accessorINS0_17accessor_policies8str_attrEEcvNS_6objectEEv.
   %48 = load ptr, ptr @_ZSt4cout, align 8
   %49 = getelementptr i8, ptr %48, i64 -24
   %50 = load i64, ptr %49, align 8
-  %51 = getelementptr inbounds nuw i8, ptr @_ZSt4cout, i64 %50
+  %51 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %50
   %52 = invoke noundef ptr @_ZNSt9basic_iosIcSt11char_traitsIcEE5rdbufEPSt15basic_streambufIcS1_E(ptr noundef nonnull align 8 dereferenceable(264) %51, ptr noundef nonnull %47)
           to label %55 unwind label %53
 
@@ -34444,7 +34444,7 @@ _ZNK8pybind116detail8accessorINS0_17accessor_policies8str_attrEEcvNS_6objectEEv.
   %96 = load ptr, ptr @_ZSt4cerr, align 8
   %97 = getelementptr i8, ptr %96, i64 -24
   %98 = load i64, ptr %97, align 8
-  %99 = getelementptr inbounds nuw i8, ptr @_ZSt4cerr, i64 %98
+  %99 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %98
   %100 = invoke noundef ptr @_ZNSt9basic_iosIcSt11char_traitsIcEE5rdbufEPSt15basic_streambufIcS1_E(ptr noundef nonnull align 8 dereferenceable(264) %99, ptr noundef nonnull %95)
           to label %103 unwind label %101
 

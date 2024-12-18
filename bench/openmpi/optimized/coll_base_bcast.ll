@@ -1005,15 +1005,15 @@ ompi_coll_base_bcast_intra_chain.exit:            ; preds = %89, %92, %96
   %166 = load i32, ptr %165, align 4
   %167 = icmp sgt i32 %166, 0
   %168 = sext i32 %123 to i64
-  %169 = getelementptr inbounds nuw [2 x i32], ptr %9, i64 0, i64 %168
+  %169 = getelementptr inbounds [2 x i32], ptr %9, i64 0, i64 %168
   %170 = load i32, ptr %169, align 4
   br i1 %167, label %171, label %236
 
 171:                                              ; preds = %164
-  %172 = getelementptr inbounds nuw [2 x i32], ptr %11, i64 0, i64 %168
+  %172 = getelementptr inbounds [2 x i32], ptr %11, i64 0, i64 %168
   store i32 %170, ptr %172, align 4
   %173 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 64), align 8
-  %174 = getelementptr inbounds nuw [2 x ptr], ptr %13, i64 0, i64 %168
+  %174 = getelementptr inbounds [2 x ptr], ptr %13, i64 0, i64 %168
   %175 = load ptr, ptr %174, align 8
   %176 = sext i32 %170 to i64
   %177 = getelementptr inbounds nuw i8, ptr %34, i64 12
@@ -1023,15 +1023,15 @@ ompi_coll_base_bcast_intra_chain.exit:            ; preds = %89, %92, %96
   br i1 %.not221, label %.preheader248, label %.loopexit246
 
 .preheader248:                                    ; preds = %171
-  %180 = getelementptr inbounds nuw [2 x i32], ptr %10, i64 0, i64 %168
+  %180 = getelementptr inbounds [2 x i32], ptr %10, i64 0, i64 %168
   %181 = load i32, ptr %180, align 4
   %182 = icmp sgt i32 %181, 1
   br i1 %182, label %.lr.ph265, label %218
 
 .lr.ph265:                                        ; preds = %.preheader248
   %183 = add nsw i32 %181, -1
-  %184 = getelementptr inbounds nuw [2 x i32], ptr %8, i64 0, i64 %168
-  %185 = getelementptr inbounds nuw [2 x i64], ptr %12, i64 0, i64 %168
+  %184 = getelementptr inbounds [2 x i32], ptr %8, i64 0, i64 %168
+  %185 = getelementptr inbounds [2 x i64], ptr %12, i64 0, i64 %168
   %186 = load i64, ptr %185, align 8
   %187 = getelementptr inbounds nuw i8, ptr %34, i64 20
   %188 = mul i32 %183, %170
@@ -1125,17 +1125,17 @@ ompi_coll_base_bcast_intra_chain.exit:            ; preds = %89, %92, %96
   br i1 %.not222, label %227, label %.loopexit246
 
 236:                                              ; preds = %164
-  %237 = getelementptr inbounds nuw [2 x i32], ptr %10, i64 0, i64 %168
+  %237 = getelementptr inbounds [2 x i32], ptr %10, i64 0, i64 %168
   %238 = load i32, ptr %237, align 4
   %239 = icmp sgt i32 %238, 0
   br i1 %239, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %236
   %240 = add nsw i32 %238, -1
-  %241 = getelementptr inbounds nuw [2 x i32], ptr %8, i64 0, i64 %168
-  %242 = getelementptr inbounds nuw [2 x ptr], ptr %13, i64 0, i64 %168
+  %241 = getelementptr inbounds [2 x i32], ptr %8, i64 0, i64 %168
+  %242 = getelementptr inbounds [2 x ptr], ptr %13, i64 0, i64 %168
   %243 = getelementptr inbounds nuw i8, ptr %34, i64 12
-  %244 = getelementptr inbounds nuw [2 x i64], ptr %12, i64 0, i64 %168
+  %244 = getelementptr inbounds [2 x i64], ptr %12, i64 0, i64 %168
   %.promoted259 = load ptr, ptr %242, align 8
   %245 = mul i32 %240, %170
   br label %246
@@ -1187,9 +1187,9 @@ ompi_coll_base_bcast_intra_chain.exit:            ; preds = %89, %92, %96
 
 267:                                              ; preds = %.loopexit
   %268 = sext i32 %123 to i64
-  %269 = getelementptr inbounds nuw [2 x ptr], ptr %13, i64 0, i64 %268
+  %269 = getelementptr inbounds [2 x ptr], ptr %13, i64 0, i64 %268
   %270 = load ptr, ptr %269, align 8
-  %271 = getelementptr inbounds nuw [2 x i32], ptr %8, i64 0, i64 %268
+  %271 = getelementptr inbounds [2 x i32], ptr %8, i64 0, i64 %268
   %272 = load i32, ptr %271, align 4
   %273 = and i32 %123, 1
   %274 = xor i32 %273, 1
@@ -1246,9 +1246,9 @@ ompi_coll_base_sendrecv.exit:                     ; preds = %281, %283
 
 303:                                              ; preds = %295
   %304 = sext i32 %123 to i64
-  %305 = getelementptr inbounds nuw [2 x ptr], ptr %13, i64 0, i64 %304
+  %305 = getelementptr inbounds [2 x ptr], ptr %13, i64 0, i64 %304
   %306 = load ptr, ptr %305, align 8
-  %307 = getelementptr inbounds nuw [2 x i32], ptr %8, i64 0, i64 %304
+  %307 = getelementptr inbounds [2 x i32], ptr %8, i64 0, i64 %304
   %308 = load i32, ptr %307, align 4
   %309 = zext i32 %308 to i64
   %310 = and i32 %123, 1

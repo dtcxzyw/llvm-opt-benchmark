@@ -853,7 +853,7 @@ define dso_local zeroext i1 @parse_stdin() local_unnamed_addr #0 {
 ._crit_edge:                                      ; preds = %14, %0
   %.029.lcssa = phi ptr [ %1, %0 ], [ %.130, %14 ]
   %.028.lcssa = phi i64 [ 0, %0 ], [ %16, %14 ]
-  %20 = getelementptr inbounds nuw [65536 x i8], ptr %1, i64 0, i64 %.028.lcssa
+  %20 = getelementptr inbounds [65536 x i8], ptr %1, i64 0, i64 %.028.lcssa
   store i8 0, ptr %20, align 1
   %21 = add i64 %.028.lcssa, 1
   %22 = call ptr @calloc_arena(i64 noundef %21) #10

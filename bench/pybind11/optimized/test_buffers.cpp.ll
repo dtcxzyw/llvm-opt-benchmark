@@ -28630,7 +28630,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit282: ;
   %.unpack = load i64, ptr %460, align 8
   %.elt122 = getelementptr inbounds nuw i8, ptr %460, i64 8
   %.unpack123 = load i64, ptr %.elt122, align 8
-  %462 = getelementptr inbounds nuw i8, ptr %84, i64 %.unpack123
+  %462 = getelementptr inbounds i8, ptr %84, i64 %.unpack123
   %463 = and i64 %.unpack, 1
   %.not124 = icmp eq i64 %463, 0
   br i1 %.not124, label %471, label %464
@@ -32242,7 +32242,7 @@ _ZSt22__uninitialized_copy_aIPKPN8pybind116detail9type_infoEPS3_S3_ET0_T_S8_S7_R
   %198 = ptrtoint ptr %193 to i64
   %199 = sub i64 %198, %182
   %gepdiff = sub nsw i64 8, %199
-  %.sink.i.i25.i.ptr = getelementptr inbounds nuw i8, ptr %16, i64 %199
+  %.sink.i.i25.i.ptr = getelementptr inbounds i8, ptr %16, i64 %199
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %193, ptr nonnull align 8 %.sink.i.i25.i.ptr, i64 %gepdiff, i1 false)
   %200 = getelementptr inbounds i8, ptr %193, i64 %gepdiff
   store ptr %200, ptr %192, align 8

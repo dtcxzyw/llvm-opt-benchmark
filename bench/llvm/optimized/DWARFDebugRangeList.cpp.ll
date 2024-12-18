@@ -552,7 +552,7 @@ switch.lookup:
   %5 = load i8, ptr %4, align 8
   %switch.tableidx = add nsw i8 %5, -2
   %6 = sext i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZNK4llvm19DWARFDebugRangeList4dumpERNS_11raw_ostreamE, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds [7 x ptr], ptr @switch.table._ZNK4llvm19DWARFDebugRangeList4dumpERNS_11raw_ostreamE, i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8

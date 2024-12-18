@@ -416,7 +416,7 @@ define noundef range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 no
   %65 = load ptr, ptr %64, align 8, !tbaa !44
   %66 = call ptr %65(ptr noundef nonnull %4) #16
   %67 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #19
-  %68 = getelementptr inbounds nuw i8, ptr %16, i64 %67
+  %68 = getelementptr inbounds i8, ptr %16, i64 %67
   %69 = icmp sgt i64 %67, 0
   br i1 %69, label %.preheader17, label %.loopexit19
 
@@ -457,7 +457,7 @@ define noundef range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 no
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 5120
   %87 = call i64 @g_strlcpy(ptr noundef nonnull %86, ptr noundef nonnull %16, i64 noundef 4096) #16
   %88 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #19
-  %89 = getelementptr inbounds nuw i8, ptr %15, i64 %88
+  %89 = getelementptr inbounds i8, ptr %15, i64 %88
   %90 = icmp sgt i64 %88, 0
   br i1 %90, label %.preheader15, label %.loopexit16
 
@@ -518,7 +518,7 @@ define noundef range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 no
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %20) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %20, i8 0, i64 4096, i1 false)
   %123 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #19
-  %124 = getelementptr inbounds nuw i8, ptr %15, i64 %123
+  %124 = getelementptr inbounds i8, ptr %15, i64 %123
   %125 = icmp sgt i64 %123, 0
   br i1 %125, label %.preheader12, label %.loopexit13
 
@@ -544,7 +544,7 @@ define noundef range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 no
   %139 = call i64 @g_strlcpy(ptr noundef nonnull %19, ptr noundef nonnull %138, i64 noundef 4096) #16
   %140 = call i64 @g_strlcpy(ptr noundef nonnull %20, ptr noundef nonnull %19, i64 noundef 4096) #16
   %141 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #19
-  %142 = getelementptr inbounds nuw i8, ptr %20, i64 %141
+  %142 = getelementptr inbounds i8, ptr %20, i64 %141
   %143 = icmp sgt i64 %141, 0
   br i1 %143, label %.preheader10, label %.loopexit11
 
@@ -568,7 +568,7 @@ define noundef range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 no
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %22, i8 0, i64 4096, i1 false)
   %152 = call i64 @g_strlcpy(ptr noundef nonnull %21, ptr noundef nonnull %86, i64 noundef 4096) #16
   %153 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #19
-  %154 = getelementptr inbounds nuw i8, ptr %21, i64 %153
+  %154 = getelementptr inbounds i8, ptr %21, i64 %153
   %155 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %154, ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %5) #16
   %156 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %22, i64 noundef 4096, ptr noundef nonnull @.str.21, i32 noundef %5) #16
   %157 = call noalias ptr @g_strescape(ptr noundef nonnull %19, ptr noundef null) #16
@@ -627,7 +627,7 @@ define noundef range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 no
   store i32 200, ptr %4, align 4, !tbaa !36
   store i32 200, ptr %26, align 4, !tbaa !38
   %187 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #19
-  %188 = getelementptr inbounds nuw i8, ptr %15, i64 %187
+  %188 = getelementptr inbounds i8, ptr %15, i64 %187
   %189 = icmp sgt i64 %187, 0
   br i1 %189, label %.preheader, label %.loopexit
 
@@ -755,7 +755,7 @@ define void @finalize_store(ptr nocapture noundef readnone %0, ptr noundef %1) l
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 5120
   %5 = call i64 @g_strlcpy(ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef 4096) #16
   %6 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #19
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %6
+  %7 = getelementptr inbounds i8, ptr %3, i64 %6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %7, ptr noundef nonnull align 1 dereferenceable(7) @.str.29, i64 7, i1 false)
   %8 = call i32 @g_mkdir_with_parents(ptr noundef nonnull %3, i32 noundef 493) #16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %7, ptr noundef nonnull align 1 dereferenceable(17) @.str.30, i64 17, i1 false)

@@ -25680,11 +25680,11 @@ _ZSt4copyIPKiN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET0_T_SA_S9_.ex
   br label %invoke.cont366
 
 if.else.i1759:                                    ; preds = %if.then4.i1754
-  %tobool.not.i.i.i.i.i.i.i.i.i1765 = icmp samesign eq i64 %sub.ptr.sub.i.i1756, 12
+  %tobool.not.i.i.i.i.i.i.i.i.i1765 = icmp eq i64 %sub.ptr.sub.i.i1756, 12
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i1765, label %_ZSt22__uninitialized_copy_aIPKiPiiET0_T_S4_S3_RSaIT1_E.exit.i, label %if.then.i.i.i.i.i.i.i.i.i1766
 
 if.then.i.i.i.i.i.i.i.i.i1766:                    ; preds = %if.else.i1759
-  %incdec.ptr.i.i.i1764 = getelementptr inbounds nuw i8, ptr %ref.tmp358, i64 %sub.ptr.sub.i.i1756
+  %incdec.ptr.i.i.i1764 = getelementptr inbounds i8, ptr %ref.tmp358, i64 %sub.ptr.sub.i.i1756
   %gepdiff2290 = sub nsw i64 12, %sub.ptr.sub.i.i1756
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %std_v344.sroa.11.42275, ptr nonnull align 4 %incdec.ptr.i.i.i1764, i64 %gepdiff2290, i1 false)
   br label %_ZSt22__uninitialized_copy_aIPKiPiiET0_T_S4_S3_RSaIT1_E.exit.i
@@ -26691,11 +26691,11 @@ _ZSt4copyIPKiN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET0_T_SA_S9_.ex
   br label %invoke.cont461
 
 if.else.i1968:                                    ; preds = %if.then4.i1963
-  %tobool.not.i.i.i.i.i.i.i.i.i1975 = icmp samesign eq i64 %sub.ptr.sub.i.i1965, 8
+  %tobool.not.i.i.i.i.i.i.i.i.i1975 = icmp eq i64 %sub.ptr.sub.i.i1965, 8
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i1975, label %_ZSt22__uninitialized_copy_aIPKiPiiET0_T_S4_S3_RSaIT1_E.exit.i1980, label %if.then.i.i.i.i.i.i.i.i.i1976
 
 if.then.i.i.i.i.i.i.i.i.i1976:                    ; preds = %if.else.i1968
-  %incdec.ptr.i.i.i1974 = getelementptr inbounds nuw i8, ptr %ref.tmp454, i64 %sub.ptr.sub.i.i1965
+  %incdec.ptr.i.i.i1974 = getelementptr inbounds i8, ptr %ref.tmp454, i64 %sub.ptr.sub.i.i1965
   %gepdiff2293 = sub nsw i64 8, %sub.ptr.sub.i.i1965
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %std_v440.sroa.11.42281, ptr nonnull align 4 %incdec.ptr.i.i.i1974, i64 %gepdiff2293, i1 false)
   br label %_ZSt22__uninitialized_copy_aIPKiPiiET0_T_S4_S3_RSaIT1_E.exit.i1980

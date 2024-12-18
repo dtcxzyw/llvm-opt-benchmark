@@ -476,7 +476,7 @@ if.end97:                                         ; preds = %if.else92, %if.then
   %svrArgsSz.2 = phi i32 [ %inc94, %if.else92 ], [ %svrArgsSz.095, %if.then89 ]
   %cliArgsSz.2 = phi i32 [ %cliArgsSz.096, %if.else92 ], [ %inc, %if.then89 ]
   %idxprom95 = sext i32 %svrArgsSz.095.sink to i64
-  %arrayidx96 = getelementptr inbounds nuw [40 x ptr], ptr %svrArgs.sink, i64 0, i64 %idxprom95
+  %arrayidx96 = getelementptr inbounds [40 x ptr], ptr %svrArgs.sink, i64 0, i64 %idxprom95
   store ptr %call93, ptr %arrayidx96, align 8
   %20 = load ptr, ptr %cursor, align 8
   %cmp98 = icmp eq ptr %20, null
@@ -527,7 +527,7 @@ if.then123:                                       ; preds = %if.then115
 if.end137.thread86:                               ; preds = %if.then123
   %inc13187 = add nsw i32 %cliArgsSz.1115, 1
   %idxprom13288 = sext i32 %cliArgsSz.1115 to i64
-  %arrayidx13389 = getelementptr inbounds nuw [40 x ptr], ptr %cliArgs, i64 0, i64 %idxprom13288
+  %arrayidx13389 = getelementptr inbounds [40 x ptr], ptr %cliArgs, i64 0, i64 %idxprom13288
   store ptr @disableDHPrimeTest, ptr %arrayidx13389, align 8
   %inc13490 = add nsw i32 %svrArgsSz.1112, 1
   br label %if.end156.sink.split
@@ -540,11 +540,11 @@ lor.lhs.false126:                                 ; preds = %if.then123
 if.end137:                                        ; preds = %lor.lhs.false126
   %inc131 = add nsw i32 %cliArgsSz.1115, 1
   %idxprom132 = sext i32 %cliArgsSz.1115 to i64
-  %arrayidx133 = getelementptr inbounds nuw [40 x ptr], ptr %cliArgs, i64 0, i64 %idxprom132
+  %arrayidx133 = getelementptr inbounds [40 x ptr], ptr %cliArgs, i64 0, i64 %idxprom132
   store ptr @disableDHPrimeTest, ptr %arrayidx133, align 8
   %inc134 = add nsw i32 %svrArgsSz.1112, 1
   %idxprom135 = sext i32 %svrArgsSz.1112 to i64
-  %arrayidx136 = getelementptr inbounds nuw [40 x ptr], ptr %svrArgs, i64 0, i64 %idxprom135
+  %arrayidx136 = getelementptr inbounds [40 x ptr], ptr %svrArgs, i64 0, i64 %idxprom135
   store ptr @disableDHPrimeTest, ptr %arrayidx136, align 8
   br label %land.lhs.true139
 
@@ -558,15 +558,15 @@ land.lhs.true139:                                 ; preds = %lor.lhs.false126, %
 if.then142:                                       ; preds = %land.lhs.true139
   %inc143 = add nsw i32 %cliArgsSz.585, 1
   %idxprom144 = sext i32 %cliArgsSz.585 to i64
-  %arrayidx145 = getelementptr inbounds nuw [40 x ptr], ptr %cliArgs, i64 0, i64 %idxprom144
+  %arrayidx145 = getelementptr inbounds [40 x ptr], ptr %cliArgs, i64 0, i64 %idxprom144
   store ptr @intTestFlag, ptr %arrayidx145, align 8
   %inc146 = add nsw i32 %cliArgsSz.585, 2
   %idxprom147 = sext i32 %inc143 to i64
-  %arrayidx148 = getelementptr inbounds nuw [40 x ptr], ptr %cliArgs, i64 0, i64 %idxprom147
+  %arrayidx148 = getelementptr inbounds [40 x ptr], ptr %cliArgs, i64 0, i64 %idxprom147
   store ptr @exitWithRetFlag, ptr %arrayidx148, align 8
   %inc149 = add nsw i32 %svrArgsSz.584, 1
   %idxprom150 = sext i32 %svrArgsSz.584 to i64
-  %arrayidx151 = getelementptr inbounds nuw [40 x ptr], ptr %svrArgs, i64 0, i64 %idxprom150
+  %arrayidx151 = getelementptr inbounds [40 x ptr], ptr %svrArgs, i64 0, i64 %idxprom150
   store ptr @intTestFlag, ptr %arrayidx151, align 8
   %inc152 = add nsw i32 %svrArgsSz.584, 2
   br label %if.end156.sink.split
@@ -577,7 +577,7 @@ if.end156.sink.split:                             ; preds = %if.then142, %if.end
   %svrArgsSz.4.ph = phi i32 [ %inc13490, %if.end137.thread86 ], [ %inc152, %if.then142 ]
   %cliArgsSz.4.ph = phi i32 [ %inc13187, %if.end137.thread86 ], [ %inc146, %if.then142 ]
   %idxprom13591 = sext i32 %svrArgsSz.1112.sink to i64
-  %arrayidx13692 = getelementptr inbounds nuw [40 x ptr], ptr %svrArgs, i64 0, i64 %idxprom13591
+  %arrayidx13692 = getelementptr inbounds [40 x ptr], ptr %svrArgs, i64 0, i64 %idxprom13591
   store ptr %disableDHPrimeTest.sink, ptr %arrayidx13692, align 8
   br label %if.end156
 
@@ -733,7 +733,7 @@ if.then6.i:                                       ; preds = %if.then4.i
 
 if.end8.i:                                        ; preds = %if.then4.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %cipherSuite, ptr nonnull align 1 %add.ptr.i, i64 %sub.ptr.sub.i, i1 false)
-  %arrayidx9.i = getelementptr inbounds nuw i8, ptr %cipherSuite, i64 %sub.ptr.sub.i
+  %arrayidx9.i = getelementptr inbounds i8, ptr %cipherSuite, i64 %sub.ptr.sub.i
   store i8 0, ptr %arrayidx9.i, align 1
   br label %IsValidCipherSuite.exit
 

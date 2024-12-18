@@ -29,7 +29,7 @@ define hidden void @_ZNK9VMRegImpl8print_onEP12outputStream(ptr noundef nonnull 
 
 8:                                                ; preds = %2
   %9 = sext i32 %5 to i64
-  %10 = getelementptr inbounds nuw [609 x ptr], ptr @_ZN9VMRegImpl7regNameE, i64 0, i64 %9
+  %10 = getelementptr inbounds [609 x ptr], ptr @_ZN9VMRegImpl7regNameE, i64 0, i64 %9
   %11 = load ptr, ptr %10, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str, ptr noundef %11) #2
   br label %17
@@ -66,7 +66,7 @@ define hidden void @_ZNK9VMRegImpl5printEv(ptr noundef nonnull align 1 dereferen
 
 8:                                                ; preds = %1
   %9 = sext i32 %5 to i64
-  %10 = getelementptr inbounds nuw [609 x ptr], ptr @_ZN9VMRegImpl7regNameE, i64 0, i64 %9
+  %10 = getelementptr inbounds [609 x ptr], ptr @_ZN9VMRegImpl7regNameE, i64 0, i64 %9
   %11 = load ptr, ptr %10, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str, ptr noundef %11) #2
   br label %_ZNK9VMRegImpl8print_onEP12outputStream.exit

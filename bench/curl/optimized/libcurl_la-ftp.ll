@@ -2403,7 +2403,7 @@ if.then85:                                        ; preds = %if.else81
   %add = add nsw i32 %20, %19
   store i32 %add, ptr %count188, align 8
   %idxprom91 = sext i32 %add to i64
-  %arrayidx92 = getelementptr inbounds nuw [2 x ptr], ptr @ftp_statemachine.ftpauth, i64 0, i64 %idxprom91
+  %arrayidx92 = getelementptr inbounds [2 x ptr], ptr @ftp_statemachine.ftpauth, i64 0, i64 %idxprom91
   %21 = load ptr, ptr %arrayidx92, align 8
   %call93 = call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef nonnull %data, ptr noundef nonnull %proto, ptr noundef nonnull @.str.9, ptr noundef %21) #10
   br label %return
@@ -3727,14 +3727,14 @@ if.end24:                                         ; preds = %if.then16
   %sub = add nsw i32 %21, -1
   %narrow = select i1 %tobool26.not, i32 6, i32 %sub
   %cond = sext i32 %narrow to i64
-  %arrayidx28 = getelementptr inbounds nuw [7 x ptr], ptr @Curl_wkday, i64 0, i64 %cond
+  %arrayidx28 = getelementptr inbounds [7 x ptr], ptr @Curl_wkday, i64 0, i64 %cond
   %22 = load ptr, ptr %arrayidx28, align 8
   %tm_mday = getelementptr inbounds nuw i8, ptr %buffer20, i64 12
   %23 = load i32, ptr %tm_mday, align 4
   %tm_mon = getelementptr inbounds nuw i8, ptr %buffer20, i64 16
   %24 = load i32, ptr %tm_mon, align 8
   %idxprom29 = sext i32 %24 to i64
-  %arrayidx30 = getelementptr inbounds nuw [12 x ptr], ptr @Curl_month, i64 0, i64 %idxprom29
+  %arrayidx30 = getelementptr inbounds [12 x ptr], ptr @Curl_month, i64 0, i64 %idxprom29
   %25 = load ptr, ptr %arrayidx30, align 8
   %tm_year = getelementptr inbounds nuw i8, ptr %buffer20, i64 20
   %26 = load i32, ptr %tm_year, align 4

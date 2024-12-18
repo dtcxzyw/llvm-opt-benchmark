@@ -178,7 +178,7 @@ read_ip_port.exit.thread.thread:                  ; preds = %10
 
 22:                                               ; preds = %19
   %23 = add i64 %20, -1
-  %24 = getelementptr inbounds nuw [256 x i8], ptr %1, i64 0, i64 %23
+  %24 = getelementptr inbounds [256 x i8], ptr %1, i64 0, i64 %23
   store i8 0, ptr %24, align 1
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(21) %1, ptr noundef nonnull dereferenceable(21) @.str.14, i64 21)
   %25 = icmp eq i32 %bcmp.i, 0

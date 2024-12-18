@@ -368,7 +368,7 @@ if.then160:                                       ; preds = %do.end155
   br label %return
 
 do.end163:                                        ; preds = %do.end155
-  %arrayidx164 = getelementptr inbounds nuw [1024 x i8], ptr %ntlmbuf, i64 0, i64 %size.0
+  %arrayidx164 = getelementptr inbounds [1024 x i8], ptr %ntlmbuf, i64 0, i64 %size.0
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx164, ptr align 1 %ptr_ntresp.0, i64 %conv156, i1 false)
   %16 = load ptr, ptr @Curl_cfree, align 8
   %17 = load ptr, ptr %ntlmv2resp, align 8
@@ -409,10 +409,10 @@ for.body.i:                                       ; preds = %if.then182, %for.bo
 if.end186.thread:                                 ; preds = %do.end180
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx185, ptr align 1 %domain.0, i64 %domlen.0, i1 false)
   %add187124 = add i64 %add157, %domlen.0
-  %arrayidx195 = getelementptr inbounds nuw [1024 x i8], ptr %ntlmbuf, i64 0, i64 %add187124
+  %arrayidx195 = getelementptr inbounds [1024 x i8], ptr %ntlmbuf, i64 0, i64 %add187124
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx195, ptr align 1 %user.1, i64 %call8, i1 false)
   %add197131 = add i64 %add187124, %call8
-  %arrayidx206 = getelementptr inbounds nuw [1024 x i8], ptr %ntlmbuf, i64 0, i64 %add197131
+  %arrayidx206 = getelementptr inbounds [1024 x i8], ptr %ntlmbuf, i64 0, i64 %add197131
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %arrayidx206, ptr noundef nonnull align 16 dereferenceable(11) %host, i64 11, i1 false)
   br label %if.end208
 
@@ -422,7 +422,7 @@ if.end186:                                        ; preds = %for.body.i
 
 if.then191:                                       ; preds = %if.then182, %if.end186
   %add187129 = phi i64 [ %add187, %if.end186 ], [ %add157, %if.then182 ]
-  %arrayidx192 = getelementptr inbounds nuw [1024 x i8], ptr %ntlmbuf, i64 0, i64 %add187129
+  %arrayidx192 = getelementptr inbounds [1024 x i8], ptr %ntlmbuf, i64 0, i64 %add187129
   %div193100 = and i64 %call8, 9223372036854775807
   %cmp6.not.i102 = icmp eq i64 %div193100, 0
   br i1 %cmp6.not.i102, label %if.then201, label %for.body.i103
@@ -447,7 +447,7 @@ if.end196:                                        ; preds = %for.body.i103
 
 if.then201:                                       ; preds = %if.then191, %if.end196
   %add197137 = phi i64 [ %add197, %if.end196 ], [ %add187129, %if.then191 ]
-  %arrayidx202 = getelementptr inbounds nuw [1024 x i8], ptr %ntlmbuf, i64 0, i64 %add197137
+  %arrayidx202 = getelementptr inbounds [1024 x i8], ptr %ntlmbuf, i64 0, i64 %add197137
   br label %for.body.i114
 
 for.body.i114:                                    ; preds = %if.then201, %for.body.i114

@@ -13509,7 +13509,7 @@ define internal fastcc void @_ZN8LightGBM6CommonL4JoinINSt7__cxx1112basic_string
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %17
-  %22 = getelementptr inbounds nuw i8, ptr %7, i64 %20
+  %22 = getelementptr inbounds i8, ptr %7, i64 %20
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale(ptr dead_on_unwind nonnull writable sret(%"class.std::locale") align 8 %5, ptr noundef nonnull align 8 dereferenceable(264) %22, ptr noundef nonnull align 8 dereferenceable(8) %21)
           to label %_ZN8LightGBM6CommonL14C_stringstreamERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit unwind label %.loopexit.split-lp
 

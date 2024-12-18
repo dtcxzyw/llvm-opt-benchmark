@@ -103,7 +103,7 @@ define void @Cmd_HistoryAddCommand(ptr nocapture noundef readonly %0, ptr nocapt
 
 30:                                               ; preds = %29
   %31 = add i64 %19, -1
-  %32 = getelementptr inbounds nuw [32768 x i8], ptr %3, i64 0, i64 %31
+  %32 = getelementptr inbounds [32768 x i8], ptr %3, i64 0, i64 %31
   %33 = load i8, ptr %32, align 1
   %.not46 = icmp eq i8 %33, 63
   br i1 %.not46, label %54, label %34
@@ -368,7 +368,7 @@ define void @Cmd_HistoryRead(ptr nocapture noundef readonly %0) local_unnamed_ad
   %9 = shl i64 %8, 32
   %sext = add i64 %9, -4294967296
   %10 = ashr exact i64 %sext, 32
-  %11 = getelementptr inbounds nuw [32768 x i8], ptr %2, i64 0, i64 %10
+  %11 = getelementptr inbounds [32768 x i8], ptr %2, i64 0, i64 %10
   %12 = load i8, ptr %11, align 1
   %13 = icmp eq i8 %12, 10
   br i1 %13, label %14, label %15

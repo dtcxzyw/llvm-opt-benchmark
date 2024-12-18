@@ -9849,7 +9849,7 @@ define dso_local void @_ZN5Catch10makeStreamERKNSt7__cxx1112basic_stringIcSt11ch
   %13 = load ptr, ptr @_ZSt4cout, align 8, !noalias !86
   %14 = getelementptr i8, ptr %13, i64 -24
   %15 = load i64, ptr %14, align 8, !noalias !86
-  %16 = getelementptr inbounds nuw i8, ptr @_ZSt4cout, i64 %15
+  %16 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %15
   %17 = invoke noundef ptr @_ZNKSt9basic_iosIcSt11char_traitsIcEE5rdbufEv(ptr noundef nonnull align 8 dereferenceable(264) %16)
           to label %.noexc.i unwind label %19, !noalias !86
 
@@ -9948,7 +9948,7 @@ common.resume:                                    ; preds = %81, %.body.i29, %68
   %49 = load ptr, ptr @_ZSt4cerr, align 8, !noalias !96
   %50 = getelementptr i8, ptr %49, i64 -24
   %51 = load i64, ptr %50, align 8, !noalias !96
-  %52 = getelementptr inbounds nuw i8, ptr @_ZSt4cerr, i64 %51
+  %52 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %51
   %53 = invoke noundef ptr @_ZNKSt9basic_iosIcSt11char_traitsIcEE5rdbufEv(ptr noundef nonnull align 8 dereferenceable(264) %52)
           to label %.noexc.i24 unwind label %55, !noalias !96
 
@@ -9974,7 +9974,7 @@ common.resume:                                    ; preds = %81, %.body.i29, %68
   %62 = load ptr, ptr @_ZSt4cout, align 8, !noalias !99
   %63 = getelementptr i8, ptr %62, i64 -24
   %64 = load i64, ptr %63, align 8, !noalias !99
-  %65 = getelementptr inbounds nuw i8, ptr @_ZSt4cout, i64 %64
+  %65 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %64
   %66 = invoke noundef ptr @_ZNKSt9basic_iosIcSt11char_traitsIcEE5rdbufEv(ptr noundef nonnull align 8 dereferenceable(264) %65)
           to label %.noexc.i26 unwind label %68, !noalias !99
 
@@ -27451,7 +27451,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit29: ; 
 
 .noexc31:                                         ; preds = %.noexc30
   %39 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #56
-  %40 = getelementptr inbounds nuw i8, ptr %7, i64 %39
+  %40 = getelementptr inbounds i8, ptr %7, i64 %39
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %7, ptr noundef nonnull %40)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit34 unwind label %41
 
@@ -36867,7 +36867,7 @@ define dso_local void @_ZN5Catch16RedirectedStdOutC2Ev(ptr nocapture noundef non
   %6 = load ptr, ptr @_ZSt4cout, align 8
   %7 = getelementptr i8, ptr %6, i64 -24
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds nuw i8, ptr @_ZSt4cout, i64 %8
+  %9 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %8
   %10 = invoke noundef ptr @_ZNKSt9basic_iosIcSt11char_traitsIcEE5rdbufEv(ptr noundef nonnull align 8 dereferenceable(264) %9)
           to label %.noexc unwind label %24
 
@@ -36921,7 +36921,7 @@ define dso_local void @_ZN5Catch16RedirectedStdErrC2Ev(ptr nocapture noundef non
   %6 = load ptr, ptr @_ZSt4cerr, align 8
   %7 = getelementptr i8, ptr %6, i64 -24
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds nuw i8, ptr @_ZSt4cerr, i64 %8
+  %9 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %8
   %10 = invoke noundef ptr @_ZNKSt9basic_iosIcSt11char_traitsIcEE5rdbufEv(ptr noundef nonnull align 8 dereferenceable(264) %9)
           to label %.noexc unwind label %45
 
@@ -36954,7 +36954,7 @@ _ZN5Catch16RedirectedStreamC2ERSoS1_.exit:        ; preds = %.noexc4
   %27 = load ptr, ptr @_ZSt4clog, align 8
   %28 = getelementptr i8, ptr %27, i64 -24
   %29 = load i64, ptr %28, align 8
-  %30 = getelementptr inbounds nuw i8, ptr @_ZSt4clog, i64 %29
+  %30 = getelementptr inbounds i8, ptr @_ZSt4clog, i64 %29
   %31 = invoke noundef ptr @_ZNKSt9basic_iosIcSt11char_traitsIcEE5rdbufEv(ptr noundef nonnull align 8 dereferenceable(264) %30)
           to label %.noexc6 unwind label %47
 
@@ -37027,7 +37027,7 @@ define dso_local void @_ZN5Catch17RedirectedStreamsC2ERNSt7__cxx1112basic_string
   %10 = load ptr, ptr @_ZSt4cout, align 8
   %11 = getelementptr i8, ptr %10, i64 -24
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds nuw i8, ptr @_ZSt4cout, i64 %12
+  %13 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %12
   %14 = invoke noundef ptr @_ZNKSt9basic_iosIcSt11char_traitsIcEE5rdbufEv(ptr noundef nonnull align 8 dereferenceable(264) %13)
           to label %.noexc.i unwind label %28
 
@@ -96105,7 +96105,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail11convertIntoIiEENS1_1
   %9 = load ptr, ptr %4, align 8
   %10 = getelementptr i8, ptr %9, i64 -24
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %4, i64 %11
+  %12 = getelementptr inbounds i8, ptr %4, i64 %11
   %13 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %12)
           to label %14 unwind label %21
 
@@ -96605,7 +96605,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail11convertIntoIdEENS1_1
   %9 = load ptr, ptr %4, align 8
   %10 = getelementptr i8, ptr %9, i64 -24
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %4, i64 %11
+  %12 = getelementptr inbounds i8, ptr %4, i64 %11
   %13 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %12)
           to label %14 unwind label %21
 
@@ -98880,7 +98880,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail11convertIntoIjEENS1_1
   %9 = load ptr, ptr %4, align 8
   %10 = getelementptr i8, ptr %9, i64 -24
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %4, i64 %11
+  %12 = getelementptr inbounds i8, ptr %4, i64 %11
   %13 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %12)
           to label %14 unwind label %21
 
@@ -99029,7 +99029,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail11convertIntoIlEENS1_1
   %9 = load ptr, ptr %4, align 8
   %10 = getelementptr i8, ptr %9, i64 -24
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %4, i64 %11
+  %12 = getelementptr inbounds i8, ptr %4, i64 %11
   %13 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %12)
           to label %14 unwind label %21
 
@@ -116760,7 +116760,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   %24 = load ptr, ptr %4, align 8
   %25 = getelementptr i8, ptr %24, i64 -24
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %4, i64 %26
+  %27 = getelementptr inbounds i8, ptr %4, i64 %26
   %28 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %27)
           to label %29 unwind label %17
 

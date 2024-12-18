@@ -351,7 +351,7 @@ define internal noundef i32 @encode_mcu_DC_first(ptr noundef %0, ptr nocapture n
   %53 = sub nsw i32 %52, %51
   %54 = xor i32 %53, %51
   %55 = sext i32 %53 to i64
-  %56 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %55
+  %56 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %55
   %57 = load i8, ptr %56, align 1
   %58 = zext i8 %57 to i32
   %59 = icmp slt i32 %33, %58
@@ -497,7 +497,7 @@ define internal noundef i32 @encode_mcu_AC_first(ptr noundef %0, ptr nocapture n
   %38 = load ptr, ptr %1, align 8
   %39 = load i32, ptr %9, align 4
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds nuw i32, ptr @jpeg_natural_order, i64 %40
+  %41 = getelementptr inbounds i32, ptr @jpeg_natural_order, i64 %40
   call void %37(ptr noundef %38, ptr noundef nonnull %41, i32 noundef %12, i32 noundef %14, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
   %42 = load i64, ptr %4, align 8
   %cond = icmp eq i64 %42, 0
@@ -760,7 +760,7 @@ emit_symbol.exit75:                               ; preds = %175, %181
 ._crit_edge84:                                    ; preds = %emit_symbol.exit75, %35
   %.063.lcssa = phi ptr [ %3, %35 ], [ %190, %emit_symbol.exit75 ]
   %192 = sext i32 %12 to i64
-  %193 = getelementptr inbounds nuw i16, ptr %3, i64 %192
+  %193 = getelementptr inbounds i16, ptr %3, i64 %192
   %194 = icmp ult ptr %.063.lcssa, %193
   br i1 %194, label %195, label %201
 
@@ -1005,10 +1005,10 @@ define internal noundef i32 @encode_mcu_AC_refine(ptr nocapture noundef readonly
   %35 = load ptr, ptr %1, align 8
   %36 = load i32, ptr %9, align 4
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds nuw i32, ptr @jpeg_natural_order, i64 %37
+  %38 = getelementptr inbounds i32, ptr @jpeg_natural_order, i64 %37
   %39 = call i32 %34(ptr noundef %35, ptr noundef nonnull %38, i32 noundef %12, i32 noundef %14, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds nuw i16, ptr %3, i64 %40
+  %41 = getelementptr inbounds i16, ptr %3, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 120
   %44 = load i64, ptr %4, align 16
@@ -1060,7 +1060,7 @@ define internal noundef i32 @encode_mcu_AC_refine(ptr nocapture noundef readonly
 
 70:                                               ; preds = %.lr.ph
   %71 = sext i32 %69 to i64
-  %72 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %71
+  %72 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %71
   %73 = load i8, ptr %72, align 1
   %74 = zext i8 %73 to i32
   %75 = add nsw i32 %74, -1
@@ -2041,7 +2041,7 @@ emit_buffered_bits.exit107:                       ; preds = %emit_bits.exit171, 
   %.084.lcssa = phi i32 [ 0, %32 ], [ %.084.be, %.backedge ]
   %.083.lcssa = phi ptr [ %3, %32 ], [ %490, %.backedge ]
   %596 = sext i32 %12 to i64
-  %597 = getelementptr inbounds nuw i16, ptr %3, i64 %596
+  %597 = getelementptr inbounds i16, ptr %3, i64 %596
   %598 = ptrtoint ptr %597 to i64
   %599 = ptrtoint ptr %.083.lcssa to i64
   %600 = sub i64 %598, %599
@@ -2214,7 +2214,7 @@ define internal void @finish_pass_gather_phuff(ptr noundef %0) #0 {
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 20
   %.026.us = load i32, ptr %22, align 4
   %23 = sext i32 %.026.us to i64
-  %24 = getelementptr inbounds nuw [4 x i32], ptr %2, i64 0, i64 %23
+  %24 = getelementptr inbounds [4 x i32], ptr %2, i64 0, i64 %23
   %25 = load i32, ptr %24, align 4
   %.not27.us = icmp eq i32 %25, 0
   br i1 %.not27.us, label %26, label %35
@@ -2254,7 +2254,7 @@ define internal void @finish_pass_gather_phuff(ptr noundef %0) #0 {
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %.026 = load i32, ptr %42, align 4
   %43 = sext i32 %.026 to i64
-  %44 = getelementptr inbounds nuw [4 x i32], ptr %2, i64 0, i64 %43
+  %44 = getelementptr inbounds [4 x i32], ptr %2, i64 0, i64 %43
   %45 = load i32, ptr %44, align 4
   %.not27 = icmp eq i32 %45, 0
   br i1 %.not27, label %46, label %55
@@ -2629,7 +2629,7 @@ define internal fastcc void @emit_eobrun(ptr nocapture noundef %0) unnamed_addr 
 
 4:                                                ; preds = %1
   %5 = sext i32 %3 to i64
-  %6 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %5
+  %6 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %5
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nsw i32 %8, -1

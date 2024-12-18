@@ -586,7 +586,7 @@ define noundef nonnull ptr @zend_get_type_by_const(i32 noundef %0) local_unnamed
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -1
   %1 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [19 x ptr], ptr @switch.table.zend_get_type_by_const, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [19 x ptr], ptr @switch.table.zend_get_type_by_const, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }

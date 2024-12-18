@@ -1610,7 +1610,7 @@ define void @_ZN10open_spiel18twenty_forty_eight21TwentyFortyEightState13DoApply
   br i1 %exitcond13.not.i, label %_ZN10open_spiel18twenty_forty_eight21TwentyFortyEightState12PrepareTilesEv.exit.preheader, label %.preheader.i, !llvm.loop !12
 
 _ZN10open_spiel18twenty_forty_eight21TwentyFortyEightState12PrepareTilesEv.exit.preheader: ; preds = %34
-  %35 = getelementptr inbounds nuw [4 x %"struct.std::array.23"], ptr @_ZN10open_spiel18twenty_forty_eight12_GLOBAL__N_111kTraversalsE, i64 0, i64 %1
+  %35 = getelementptr inbounds [4 x %"struct.std::array.23"], ptr @_ZN10open_spiel18twenty_forty_eight12_GLOBAL__N_111kTraversalsE, i64 0, i64 %1
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %37 = and i64 %1, 4294967292
   %38 = icmp eq i64 %37, 0
@@ -1790,7 +1790,7 @@ _ZN10open_spiel18twenty_forty_eight21TwentyFortyEightState12PrepareTilesEv.exit:
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState21DoesActionChangeBoardEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds nuw [4 x %"struct.std::array.23"], ptr @_ZN10open_spiel18twenty_forty_eight12_GLOBAL__N_111kTraversalsE, i64 0, i64 %1
+  %3 = getelementptr inbounds [4 x %"struct.std::array.23"], ptr @_ZN10open_spiel18twenty_forty_eight12_GLOBAL__N_111kTraversalsE, i64 0, i64 %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = trunc i64 %1 to i32
   br label %6
@@ -2737,7 +2737,7 @@ define void @_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState12LegalA
   %.sroa.025.0.idx36 = phi i64 [ 0, %19 ], [ %.sroa.025.0.add, %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState21DoesActionChangeBoardEl.exit ]
   %.sroa.025.0.ptr = getelementptr inbounds nuw i8, ptr %20, i64 %.sroa.025.0.idx36
   %26 = load i64, ptr %.sroa.025.0.ptr, align 8
-  %27 = getelementptr inbounds nuw [4 x %"struct.std::array.23"], ptr @_ZN10open_spiel18twenty_forty_eight12_GLOBAL__N_111kTraversalsE, i64 0, i64 %26
+  %27 = getelementptr inbounds [4 x %"struct.std::array.23"], ptr @_ZN10open_spiel18twenty_forty_eight12_GLOBAL__N_111kTraversalsE, i64 0, i64 %26
   %28 = load ptr, ptr %21, align 8
   %29 = and i64 %26, 4294967292
   %30 = icmp eq i64 %29, 0

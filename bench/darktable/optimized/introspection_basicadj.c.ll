@@ -2056,7 +2056,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
 
 332:                                              ; preds = %324
   %333 = sext i32 %327 to i64
-  %334 = getelementptr inbounds nuw [8 x float], ptr %7, i64 0, i64 %333
+  %334 = getelementptr inbounds [8 x float], ptr %7, i64 0, i64 %333
   %335 = load float, ptr %334, align 4, !tbaa !6
   %336 = fadd reassoc nsz arcp contract afn float %335, %331
   store float %336, ptr %334, align 4, !tbaa !6
@@ -2146,7 +2146,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
 
 407:                                              ; preds = %399
   %408 = sext i32 %402 to i64
-  %409 = getelementptr inbounds nuw [8 x float], ptr %7, i64 0, i64 %408
+  %409 = getelementptr inbounds [8 x float], ptr %7, i64 0, i64 %408
   %410 = load float, ptr %409, align 4, !tbaa !6
   %411 = fadd reassoc nsz arcp contract afn float %410, %406
   store float %411, ptr %409, align 4, !tbaa !6

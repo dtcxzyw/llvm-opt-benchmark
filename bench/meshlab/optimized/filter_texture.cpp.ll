@@ -11622,7 +11622,7 @@ _ZN3vcg8Matrix44IfE8IdentityEv.exit:              ; preds = %_ZN7QStringD2Ev.exi
 
 _ZNK3vcg8Matrix44IfEneERKS1_.exit:                ; preds = %287, %288
   %295 = sext i32 %252 to i64
-  %296 = getelementptr inbounds nuw [3 x [2 x %"class.vcg::Point3"]], ptr %27, i64 0, i64 %295
+  %296 = getelementptr inbounds [3 x [2 x %"class.vcg::Point3"]], ptr %27, i64 0, i64 %295
   %297 = getelementptr inbounds nuw i8, ptr %296, i64 12
   call void @_ZN3vcg3tri13UpdateTextureI6CMeshOE17WedgeTexFromPlaneERS2_RKNS_6Point3IfEES8_bf(ptr noundef nonnull align 8 dereferenceable(1196) %104, ptr noundef nonnull align 4 dereferenceable(12) %296, ptr noundef nonnull align 4 dereferenceable(12) %297, i1 noundef zeroext %259, float noundef %266)
   %298 = load atomic i8, ptr @_ZGVZN3vcg8Matrix44IfE8IdentityEvE3tmp acquire, align 8
@@ -16872,7 +16872,7 @@ _ZN3vcg4face10IsManifoldI6CFaceOEEbRKT_i.exit:    ; preds = %_ZNK3vcg4face8FFAdj
   store i32 %116, ptr %114, align 4
   %sext54 = shl i64 %.sroa.6.0.us, 32
   %117 = ashr exact i64 %sext54, 32
-  %118 = getelementptr inbounds nuw [3 x i32], ptr %3, i64 0, i64 %117
+  %118 = getelementptr inbounds [3 x i32], ptr %3, i64 0, i64 %117
   %119 = load i32, ptr %118, align 4
   %120 = or i32 %116, %119
   store i32 %120, ptr %114, align 4
@@ -16898,7 +16898,7 @@ _ZN3vcg4face10IsManifoldI6CFaceOEEbRKT_i.exit:    ; preds = %_ZNK3vcg4face8FFAdj
   %.sroa.0.0 = phi ptr [ %151, %.split ], [ %.sroa.032.049, %98 ]
   %sext = shl i64 %.sroa.6.0, 32
   %135 = ashr exact i64 %sext, 32
-  %136 = getelementptr inbounds nuw [3 x i32], ptr %3, i64 0, i64 %135
+  %136 = getelementptr inbounds [3 x i32], ptr %3, i64 0, i64 %135
   %137 = load i32, ptr %136, align 4
   %138 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 32
   %139 = load i32, ptr %138, align 4
@@ -53947,7 +53947,7 @@ _ZN3vcg4face10IsManifoldINS_3tri12VoronoiAtlasI6CMeshOE8VoroFaceEEEbRKT_i.exit.t
   store i32 %95, ptr %93, align 4
   %sext61 = shl i64 %.sroa.6.0.us.us.us, 32
   %96 = ashr exact i64 %sext61, 32
-  %97 = getelementptr inbounds nuw [3 x i32], ptr %3, i64 0, i64 %96
+  %97 = getelementptr inbounds [3 x i32], ptr %3, i64 0, i64 %96
   %98 = load i32, ptr %97, align 4
   %99 = or i32 %95, %98
   store i32 %99, ptr %93, align 4
@@ -54007,7 +54007,7 @@ _ZN3vcg4face10IsManifoldINS_3tri12VoronoiAtlasI6CMeshOE8VoroFaceEEEbRKT_i.exit: 
   %.sroa.0.0 = phi ptr [ %137, %.split ], [ %.sroa.032.049, %124 ]
   %sext = shl i64 %.sroa.6.0, 32
   %129 = ashr exact i64 %sext, 32
-  %130 = getelementptr inbounds nuw [3 x i32], ptr %3, i64 0, i64 %129
+  %130 = getelementptr inbounds [3 x i32], ptr %3, i64 0, i64 %129
   %131 = load i32, ptr %130, align 4
   %132 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 24
   %133 = load i32, ptr %132, align 4

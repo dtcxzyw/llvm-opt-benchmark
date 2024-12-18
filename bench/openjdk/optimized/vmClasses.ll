@@ -78,7 +78,7 @@ define hidden noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr n
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN9vmClasses7resolveE9vmClassIDP10JavaThread(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds nuw [117 x ptr], ptr @_ZN9vmClasses8_klassesE, i64 0, i64 %3
+  %4 = getelementptr inbounds [117 x ptr], ptr @_ZN9vmClasses8_klassesE, i64 0, i64 %3
   %5 = tail call noundef zeroext i1 @_ZN9CDSConfig16is_using_archiveEv() #5
   br i1 %5, label %6, label %14
 
@@ -108,10 +108,10 @@ _ZN9vmClasses9is_loadedEP13InstanceKlass.exit:    ; preds = %14
   br i1 %.not15, label %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread, label %28
 
 _ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread: ; preds = %14, %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit
-  %18 = getelementptr inbounds nuw [118 x i16], ptr @_ZL17vm_class_name_ids, i64 0, i64 %3
+  %18 = getelementptr inbounds [118 x i16], ptr @_ZL17vm_class_name_ids, i64 0, i64 %3
   %19 = load i16, ptr %18, align 2
   %20 = sext i16 %19 to i64
-  %21 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %20
+  %21 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %22, ptr null, ptr null, i1 noundef zeroext true, ptr noundef %1) #5
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -230,7 +230,7 @@ define hidden void @_ZN9vmClasses13resolve_untilE9vmClassIDRS0_P10JavaThread(i32
 
 9:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ %6, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %10 = getelementptr inbounds nuw [117 x ptr], ptr @_ZN9vmClasses8_klassesE, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds [117 x ptr], ptr @_ZN9vmClasses8_klassesE, i64 0, i64 %indvars.iv
   %11 = tail call noundef zeroext i1 @_ZN9CDSConfig16is_using_archiveEv() #5
   br i1 %11, label %12, label %18
 
@@ -257,10 +257,10 @@ _ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i:  ; preds = %18
   br i1 %.not15.i, label %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i, label %_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit
 
 _ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i: ; preds = %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i, %18
-  %22 = getelementptr inbounds nuw [118 x i16], ptr @_ZL17vm_class_name_ids, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds [118 x i16], ptr @_ZL17vm_class_name_ids, i64 0, i64 %indvars.iv
   %23 = load i16, ptr %22, align 2
   %24 = sext i16 %23 to i64
-  %25 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %24
+  %25 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %26, ptr null, ptr null, i1 noundef zeroext true, ptr noundef %2) #5
   %28 = load ptr, ptr %5, align 8
@@ -385,7 +385,7 @@ _ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i.i33: ; preds = %_ZN9vmC
   %38 = getelementptr inbounds nuw [118 x i16], ptr @_ZL17vm_class_name_ids, i64 0, i64 %indvars.iv.i.i23
   %39 = load i16, ptr %38, align 2
   %40 = sext i16 %39 to i64
-  %41 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %40
+  %41 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %40
   %42 = load ptr, ptr %41, align 8
   %43 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %42, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #5
   %44 = load ptr, ptr %2, align 8
@@ -438,7 +438,7 @@ _ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i.i48: ; preds = %_ZN9vmC
   %59 = getelementptr inbounds nuw [118 x i16], ptr @_ZL17vm_class_name_ids, i64 0, i64 %indvars.iv.i.i38
   %60 = load i16, ptr %59, align 2
   %61 = sext i16 %60 to i64
-  %62 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %61
+  %62 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %61
   %63 = load ptr, ptr %62, align 8
   %64 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %63, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #5
   %65 = load ptr, ptr %2, align 8
@@ -548,7 +548,7 @@ define linkonce_odr hidden void @_ZN9vmClasses15resolve_throughE9vmClassIDRS0_P1
 
 10:                                               ; preds = %8, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %7, %.lr.ph.i ], [ %indvars.iv.next.i, %8 ]
-  %11 = getelementptr inbounds nuw [117 x ptr], ptr @_ZN9vmClasses8_klassesE, i64 0, i64 %indvars.iv.i
+  %11 = getelementptr inbounds [117 x ptr], ptr @_ZN9vmClasses8_klassesE, i64 0, i64 %indvars.iv.i
   %12 = tail call noundef zeroext i1 @_ZN9CDSConfig16is_using_archiveEv() #5
   br i1 %12, label %13, label %19
 
@@ -575,10 +575,10 @@ _ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i.i: ; preds = %19
   br i1 %.not15.i.i, label %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i, label %_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i
 
 _ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i: ; preds = %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i.i, %19
-  %23 = getelementptr inbounds nuw [118 x i16], ptr @_ZL17vm_class_name_ids, i64 0, i64 %indvars.iv.i
+  %23 = getelementptr inbounds [118 x i16], ptr @_ZL17vm_class_name_ids, i64 0, i64 %indvars.iv.i
   %24 = load i16, ptr %23, align 2
   %25 = sext i16 %24 to i64
-  %26 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %25
+  %26 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %27, ptr null, ptr null, i1 noundef zeroext true, ptr noundef %2) #5
   %29 = load ptr, ptr %6, align 8

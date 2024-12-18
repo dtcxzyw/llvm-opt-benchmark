@@ -2616,9 +2616,9 @@ lpad.i.i.i:                                       ; preds = %if.then.i.i.i.i.i
 
 arraydestroy.body.i.i.i:                          ; preds = %lpad.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
   %arraydestroy.elementPast.i.idx.i.i = phi i64 [ %arraydestroy.elementPast.i.add.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i ], [ %properties.add.i.i, %lpad.i.i.i ]
-  %arraydestroy.elementPast.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %style, i64 %arraydestroy.elementPast.i.idx.i.i
+  %arraydestroy.elementPast.i.ptr.i.i = getelementptr inbounds i8, ptr %style, i64 %arraydestroy.elementPast.i.idx.i.i
   %arraydestroy.elementPast.i.add.i.i = add nsw i64 %arraydestroy.elementPast.i.idx.i.i, -32
-  %arraydestroy.element.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %style, i64 %arraydestroy.elementPast.i.add.i.i
+  %arraydestroy.element.i.ptr.i.i = getelementptr inbounds i8, ptr %style, i64 %arraydestroy.elementPast.i.add.i.i
   %9 = load ptr, ptr %arraydestroy.element.i.ptr.i.i, align 8, !tbaa !69, !alias.scope !110
   %10 = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.ptr.i.i, i64 -16
   %cmp.i.i.i.i.i.i = icmp eq ptr %9, %10

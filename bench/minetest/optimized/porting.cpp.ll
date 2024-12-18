@@ -1067,7 +1067,7 @@ if.then:                                          ; preds = %land.lhs.true3.i.i
 
 if.end:                                           ; preds = %land.lhs.true3.i.i, %land.lhs.true.i.i, %entry
   %len.0.i.i = phi i64 [ %call4.i.i, %land.lhs.true3.i.i ], [ %call1.i.i, %land.lhs.true.i.i ], [ %call.i.i, %entry ]
-  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %buf, i64 %len.0.i.i
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %buf, i64 %len.0.i.i
   store i8 0, ptr %arrayidx.i.i, align 1, !tbaa !35
   %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #29
   %0 = trunc i64 %call.i to i32
@@ -1092,7 +1092,7 @@ for.body.i:                                       ; preds = %for.cond.i
 _ZN7portingL14pathRemoveFileEPcc.exit:            ; preds = %for.body.i, %for.cond.i
   %i.0.lcssa.i = phi i32 [ %indvars.i, %for.body.i ], [ %smin.i, %for.cond.i ]
   %idxprom4.i = sext i32 %i.0.lcssa.i to i64
-  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %buf, i64 %idxprom4.i
+  %arrayidx5.i = getelementptr inbounds i8, ptr %buf, i64 %idxprom4.i
   store i8 0, ptr %arrayidx5.i, align 1, !tbaa !35
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %bindir) #26
   %3 = getelementptr inbounds nuw i8, ptr %bindir, i64 16
@@ -5125,7 +5125,7 @@ invoke.cont8.i530:                                ; preds = %invoke.cont3.i
   %vtable.i531 = load ptr, ptr %ofs.i, align 8, !tbaa !22
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i531, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %ofs.i, i64 %vbase.offset.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %ofs.i, i64 %vbase.offset.i
   %_M_streambuf_state.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 32
   %328 = load i32, ptr %_M_streambuf_state.i.i.i, align 8, !tbaa !138
   %cmp.i.i532 = icmp eq i32 %328, 0

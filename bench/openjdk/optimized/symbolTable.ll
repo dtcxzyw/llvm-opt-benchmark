@@ -4514,7 +4514,7 @@ define linkonce_odr hidden void @_ZN19ConcurrentHashTableI17SymbolTableConfigL8M
 
 14:                                               ; preds = %.lr.ph
   %15 = add i64 %.02035, 1
-  %16 = getelementptr inbounds nuw [256 x ptr], ptr %5, i64 0, i64 %.02035
+  %16 = getelementptr inbounds [256 x ptr], ptr %5, i64 0, i64 %.02035
   store ptr %.02134, ptr %16, align 8
   %17 = load volatile ptr, ptr %.02134, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !11
@@ -4553,7 +4553,7 @@ define linkonce_odr hidden void @_ZN19ConcurrentHashTableI17SymbolTableConfigL8M
 
 29:                                               ; preds = %.thread, %_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE17safe_stats_removeEv.exit
   %.036 = phi i64 [ 0, %.thread ], [ %63, %_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE17safe_stats_removeEv.exit ]
-  %30 = getelementptr inbounds nuw [256 x ptr], ptr %5, i64 0, i64 %.036
+  %30 = getelementptr inbounds [256 x ptr], ptr %5, i64 0, i64 %.036
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load i8, ptr @_ZN9CDSConfig26_is_dumping_static_archiveE, align 1

@@ -319,7 +319,7 @@ if.then100:                                       ; preds = %if.end96
 
 if.end102:                                        ; preds = %if.end96
   %29 = load i64, ptr %streamid, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %reqbuf, i64 %reqbytes.1
+  %add.ptr = getelementptr inbounds i8, ptr %reqbuf, i64 %reqbytes.1
   %sub104 = sub i64 1024, %reqbytes.1
   %call105 = call i32 @ossl_quic_tserver_read(ptr noundef nonnull %call52, i64 noundef %29, ptr noundef nonnull %add.ptr, i64 noundef %sub104, ptr noundef nonnull %numbytes) #9
   %tobool106.not = icmp eq i32 %call105, 0
@@ -453,7 +453,7 @@ for.body.preheader:                               ; preds = %entry
   %shl = shl nuw i64 1, %sh_prom
   %div = sdiv i32 %0, 64
   %idxprom5 = sext i32 %div to i64
-  %arrayidx6 = getelementptr inbounds nuw [16 x i64], ptr %readfds, i64 0, i64 %idxprom5
+  %arrayidx6 = getelementptr inbounds [16 x i64], ptr %readfds, i64 0, i64 %idxprom5
   %1 = load i64, ptr %arrayidx6, align 8
   %or = or i64 %shl, %1
   store i64 %or, ptr %arrayidx6, align 8
@@ -473,7 +473,7 @@ for.body17.preheader:                             ; preds = %if.end
   %shl27 = shl nuw i64 1, %sh_prom26
   %div29 = sdiv i32 %2, 64
   %idxprom30 = sext i32 %div29 to i64
-  %arrayidx31 = getelementptr inbounds nuw [16 x i64], ptr %writefds, i64 0, i64 %idxprom30
+  %arrayidx31 = getelementptr inbounds [16 x i64], ptr %writefds, i64 0, i64 %idxprom30
   %3 = load i64, ptr %arrayidx31, align 8
   %or32 = or i64 %shl27, %3
   store i64 %or32, ptr %arrayidx31, align 8

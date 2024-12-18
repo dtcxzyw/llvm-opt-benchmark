@@ -2215,7 +2215,7 @@ define void @_ZN2cv4readERKNS_8FileNodeERNS_9SparseMatERKS3_(ptr noundef nonnull
   %96 = add i32 %60, -1
   %sext58 = add i64 %sext, -4294967296
   %97 = ashr exact i64 %sext58, 32
-  %98 = getelementptr inbounds nuw [32 x i32], ptr %18, i64 0, i64 %97
+  %98 = getelementptr inbounds [32 x i32], ptr %18, i64 0, i64 %97
   %narrow = add nuw nsw i32 %83, 2
   %99 = zext nneg i32 %narrow to i64
   br label %100
@@ -2346,7 +2346,7 @@ define void @_ZN2cv4readERKNS_8FileNodeERNS_9SparseMatERKS3_(ptr noundef nonnull
   br label %.loopexit.split-lp
 
 142:                                              ; preds = %132
-  %143 = getelementptr inbounds nuw [32 x i32], ptr %18, i64 0, i64 %indvars.iv
+  %143 = getelementptr inbounds [32 x i32], ptr %18, i64 0, i64 %indvars.iv
   store i32 %131, ptr %143, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32

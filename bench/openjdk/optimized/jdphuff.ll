@@ -857,7 +857,7 @@ process_restart.exit.thread:                      ; preds = %._crit_edge.i, %43,
   %125 = shl i32 %124, %9
   %126 = trunc i32 %125 to i16
   %127 = sext i32 %103 to i64
-  %128 = getelementptr inbounds nuw [0 x i32], ptr @jZAGTable, i64 0, i64 %127
+  %128 = getelementptr inbounds [0 x i32], ptr @jZAGTable, i64 0, i64 %127
   %129 = load i32, ptr %128, align 4
   %130 = sext i32 %129 to i64
   %131 = getelementptr inbounds [64 x i16], ptr %64, i64 0, i64 %130
@@ -1375,7 +1375,7 @@ process_restart.exit.thread:                      ; preds = %._crit_edge.i, %46,
   %.0153 = phi i32 [ %.1154, %167 ], [ %102, %137 ]
   %.8145 = phi i32 [ %.10147, %167 ], [ %.6143, %137 ]
   %.8 = phi i32 [ %.10, %167 ], [ %.6, %137 ]
-  %141 = getelementptr inbounds nuw [0 x i32], ptr @jZAGTable, i64 0, i64 %indvars.iv
+  %141 = getelementptr inbounds [0 x i32], ptr @jZAGTable, i64 0, i64 %indvars.iv
   %142 = load i32, ptr %141, align 4
   %143 = sext i32 %142 to i64
   %144 = getelementptr inbounds i16, ptr %64, i64 %143
@@ -1447,7 +1447,7 @@ process_restart.exit.thread:                      ; preds = %._crit_edge.i, %46,
 
 169:                                              ; preds = %.split.loop.exit295
   %170 = sext i32 %.3130 to i64
-  %171 = getelementptr inbounds nuw [0 x i32], ptr @jZAGTable, i64 0, i64 %170
+  %171 = getelementptr inbounds [0 x i32], ptr @jZAGTable, i64 0, i64 %170
   %172 = load i32, ptr %171, align 4
   %173 = trunc i32 %.1 to i16
   %174 = sext i32 %172 to i64
@@ -1455,7 +1455,7 @@ process_restart.exit.thread:                      ; preds = %._crit_edge.i, %46,
   store i16 %173, ptr %175, align 2
   %176 = add nsw i32 %.1126223, 1
   %177 = sext i32 %.1126223 to i64
-  %178 = getelementptr inbounds nuw [64 x i32], ptr %4, i64 0, i64 %177
+  %178 = getelementptr inbounds [64 x i32], ptr %4, i64 0, i64 %177
   store i32 %172, ptr %178, align 4
   br label %179
 
@@ -1489,7 +1489,7 @@ process_restart.exit.thread:                      ; preds = %._crit_edge.i, %46,
   %indvars.iv255 = phi i64 [ %183, %.lr.ph231 ], [ %indvars.iv.next256, %209 ]
   %.13229 = phi i32 [ %.0132269, %.lr.ph231 ], [ %.15, %209 ]
   %.13150228 = phi i32 [ %.0137268, %.lr.ph231 ], [ %.15152, %209 ]
-  %186 = getelementptr inbounds nuw [0 x i32], ptr @jZAGTable, i64 0, i64 %indvars.iv255
+  %186 = getelementptr inbounds [0 x i32], ptr @jZAGTable, i64 0, i64 %indvars.iv255
   %187 = load i32, ptr %186, align 4
   %188 = sext i32 %187 to i64
   %189 = getelementptr inbounds i16, ptr %64, i64 %188

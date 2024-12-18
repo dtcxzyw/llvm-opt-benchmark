@@ -7342,7 +7342,7 @@ define internal fastcc void @xtrans_markesteijn_interpolate(ptr nocapture nounde
   %510 = trunc i64 %494 to i32
   %511 = srem i32 %510, 5
   %512 = sext i32 %511 to i64
-  %513 = getelementptr inbounds nuw [5 x i8], ptr %10, i64 0, i64 %512
+  %513 = getelementptr inbounds [5 x i8], ptr %10, i64 0, i64 %512
   %514 = load i8, ptr %513, align 1, !tbaa !105
   %515 = add i8 %509, %493
   %516 = sub i8 %515, %514
@@ -11339,7 +11339,7 @@ define internal fastcc void @vng_interpolate(ptr nocapture noundef %0, ptr nocap
   %940 = getelementptr inbounds nuw i8, ptr %930, i64 8
   %941 = load i32, ptr %940, align 4, !tbaa !22
   %942 = sext i32 %941 to i64
-  %943 = getelementptr inbounds nuw [4 x float], ptr %12, i64 0, i64 %942
+  %943 = getelementptr inbounds [4 x float], ptr %12, i64 0, i64 %942
   %944 = load float, ptr %943, align 4, !tbaa !24
   %945 = fadd reassoc nsz arcp contract afn float %944, %939
   store float %945, ptr %943, align 4, !tbaa !24
@@ -11369,7 +11369,7 @@ define internal fastcc void @vng_interpolate(ptr nocapture noundef %0, ptr nocap
   %963 = getelementptr inbounds nuw i8, ptr %954, i64 8
   %964 = load i32, ptr %963, align 4, !tbaa !22
   %965 = sext i32 %964 to i64
-  %966 = getelementptr inbounds nuw [4 x float], ptr %12, i64 0, i64 %965
+  %966 = getelementptr inbounds [4 x float], ptr %12, i64 0, i64 %965
   %967 = load float, ptr %966, align 4, !tbaa !24
   %968 = fadd reassoc nsz arcp contract afn float %967, %962
   store float %968, ptr %966, align 4, !tbaa !24
@@ -11385,7 +11385,7 @@ define internal fastcc void @vng_interpolate(ptr nocapture noundef %0, ptr nocap
   %978 = getelementptr inbounds nuw i8, ptr %954, i64 20
   %979 = load i32, ptr %978, align 4, !tbaa !22
   %980 = sext i32 %979 to i64
-  %981 = getelementptr inbounds nuw [4 x float], ptr %12, i64 0, i64 %980
+  %981 = getelementptr inbounds [4 x float], ptr %12, i64 0, i64 %980
   %982 = load float, ptr %981, align 4, !tbaa !24
   %983 = fadd reassoc nsz arcp contract afn float %982, %977
   store float %983, ptr %981, align 4, !tbaa !24
@@ -11401,7 +11401,7 @@ define internal fastcc void @vng_interpolate(ptr nocapture noundef %0, ptr nocap
   %993 = getelementptr inbounds nuw i8, ptr %954, i64 32
   %994 = load i32, ptr %993, align 4, !tbaa !22
   %995 = sext i32 %994 to i64
-  %996 = getelementptr inbounds nuw [4 x float], ptr %12, i64 0, i64 %995
+  %996 = getelementptr inbounds [4 x float], ptr %12, i64 0, i64 %995
   %997 = load float, ptr %996, align 4, !tbaa !24
   %998 = fadd reassoc nsz arcp contract afn float %997, %992
   store float %998, ptr %996, align 4, !tbaa !24
@@ -11418,7 +11418,7 @@ define internal fastcc void @vng_interpolate(ptr nocapture noundef %0, ptr nocap
   %1009 = getelementptr inbounds nuw i8, ptr %954, i64 44
   %1010 = load i32, ptr %1009, align 4, !tbaa !22
   %1011 = sext i32 %1010 to i64
-  %1012 = getelementptr inbounds nuw [4 x float], ptr %12, i64 0, i64 %1011
+  %1012 = getelementptr inbounds [4 x float], ptr %12, i64 0, i64 %1011
   %1013 = load float, ptr %1012, align 4, !tbaa !24
   %1014 = fadd reassoc nsz arcp contract afn float %1013, %1008
   store float %1014, ptr %1012, align 4, !tbaa !24
@@ -11435,7 +11435,7 @@ define internal fastcc void @vng_interpolate(ptr nocapture noundef %0, ptr nocap
   %1018 = phi ptr [ %1028, %.loopexit191 ], [ %.ph484, %.loopexit191.preheader ]
   %1019 = load i32, ptr %1018, align 4, !tbaa !22
   %1020 = sext i32 %1019 to i64
-  %1021 = getelementptr inbounds nuw [4 x float], ptr %12, i64 0, i64 %1020
+  %1021 = getelementptr inbounds [4 x float], ptr %12, i64 0, i64 %1020
   %1022 = load float, ptr %1021, align 4, !tbaa !24
   %1023 = getelementptr inbounds nuw i8, ptr %1018, i64 4
   %1024 = load i32, ptr %1023, align 4, !tbaa !22
@@ -13038,7 +13038,7 @@ define internal fastcc void @vng_interpolate(ptr nocapture noundef %0, ptr nocap
   %2166 = getelementptr inbounds nuw i8, ptr %2151, i64 12
   %2167 = load i32, ptr %2166, align 4, !tbaa !22
   %2168 = sext i32 %2167 to i64
-  %2169 = getelementptr inbounds nuw [8 x float], ptr %14, i64 0, i64 %2168
+  %2169 = getelementptr inbounds [8 x float], ptr %14, i64 0, i64 %2168
   %2170 = load float, ptr %2169, align 4, !tbaa !24
   %2171 = fadd reassoc nsz arcp contract afn float %2170, %2165
   store float %2171, ptr %2169, align 4, !tbaa !24
@@ -13050,7 +13050,7 @@ define internal fastcc void @vng_interpolate(ptr nocapture noundef %0, ptr nocap
 
 2176:                                             ; preds = %.preheader185
   %2177 = sext i32 %2174 to i64
-  %2178 = getelementptr inbounds nuw [8 x float], ptr %14, i64 0, i64 %2177
+  %2178 = getelementptr inbounds [8 x float], ptr %14, i64 0, i64 %2177
   %2179 = load float, ptr %2178, align 4, !tbaa !24
   %2180 = fadd reassoc nsz arcp contract afn float %2179, %2165
   store float %2180, ptr %2178, align 4, !tbaa !24
@@ -13063,7 +13063,7 @@ define internal fastcc void @vng_interpolate(ptr nocapture noundef %0, ptr nocap
   %2184 = phi i32 [ %2191, %.preheader183 ], [ %2182, %2176 ]
   %2185 = phi ptr [ %2190, %.preheader183 ], [ %2181, %2176 ]
   %2186 = sext i32 %2184 to i64
-  %2187 = getelementptr inbounds nuw [8 x float], ptr %14, i64 0, i64 %2186
+  %2187 = getelementptr inbounds [8 x float], ptr %14, i64 0, i64 %2186
   %2188 = load float, ptr %2187, align 4, !tbaa !24
   %2189 = fadd reassoc nsz arcp contract afn float %2188, %2165
   store float %2189, ptr %2187, align 4, !tbaa !24
@@ -15311,7 +15311,7 @@ define internal fastcc void @rcd_demosaic(ptr nocapture noundef readonly %0, ptr
   %410 = fadd reassoc nsz arcp contract afn <8 x float> %409, %406
   %411 = fadd reassoc nsz arcp contract afn <8 x float> %410, %405
   %412 = fmul reassoc nsz arcp contract afn <8 x float> %411, %411
-  %413 = getelementptr inbounds nuw [112 x float], ptr %8, i64 0, i64 %387
+  %413 = getelementptr inbounds [112 x float], ptr %8, i64 0, i64 %387
   store <8 x float> %412, ptr %413, align 16, !tbaa !24, !alias.scope !191, !noalias !188
   %414 = add nuw i64 %387, 8
   %415 = icmp eq i64 %414, %342
@@ -15409,7 +15409,7 @@ define internal fastcc void @rcd_demosaic(ptr nocapture noundef readonly %0, ptr
   %485 = fadd reassoc nsz arcp contract afn float %484, %480
   %486 = fmul reassoc nsz arcp contract afn float %485, %485
   %487 = add nsw i64 %464, -3
-  %488 = getelementptr inbounds nuw [112 x float], ptr %8, i64 0, i64 %487
+  %488 = getelementptr inbounds [112 x float], ptr %8, i64 0, i64 %487
   store float %486, ptr %488, align 4, !tbaa !24
   %489 = add nuw nsw i64 %464, 1
   %490 = icmp slt i64 %489, %338
@@ -15459,7 +15459,7 @@ define internal fastcc void @rcd_demosaic(ptr nocapture noundef readonly %0, ptr
   %519 = fadd reassoc nsz arcp contract afn <8 x float> %516, %518
   %520 = call reassoc nsz arcp contract afn <8 x float> @llvm.maxnum.v8f32(<8 x float> %519, <8 x float> splat (float 0x3DDB7CDFE0000000))
   %521 = or disjoint i64 %509, 2
-  %522 = getelementptr inbounds nuw [112 x float], ptr %8, i64 0, i64 %521
+  %522 = getelementptr inbounds [112 x float], ptr %8, i64 0, i64 %521
   %523 = load <8 x float>, ptr %522, align 8, !tbaa !24
   %524 = shufflevector <8 x float> %510, <8 x float> %523, <8 x i32> <i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14>
   %525 = shufflevector <8 x float> %511, <8 x float> %524, <8 x i32> <i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14>
@@ -15524,7 +15524,7 @@ define internal fastcc void @rcd_demosaic(ptr nocapture noundef readonly %0, ptr
   %575 = getelementptr inbounds float, ptr %359, i64 %570
   %576 = load float, ptr %575, align 4, !tbaa !24
   %577 = add nsw i64 %568, -2
-  %578 = getelementptr inbounds nuw [112 x float], ptr %8, i64 0, i64 %577
+  %578 = getelementptr inbounds [112 x float], ptr %8, i64 0, i64 %577
   %579 = load float, ptr %578, align 4, !tbaa !24
   %580 = shufflevector <2 x float> %569, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %581 = insertelement <2 x float> %580, float %574, i64 1
@@ -19199,7 +19199,7 @@ define internal fastcc void @lmmse_demosaic(ptr nocapture noundef readonly %0, p
   %1619 = getelementptr inbounds nuw float, ptr %152, i64 %1617
   %1620 = sub nsw i32 2, %1613
   %1621 = sext i32 %1620 to i64
-  %1622 = getelementptr inbounds nuw [6 x ptr], ptr %8, i64 0, i64 %1621
+  %1622 = getelementptr inbounds [6 x ptr], ptr %8, i64 0, i64 %1621
   %1623 = load ptr, ptr %1622, align 8, !tbaa !20
   %1624 = getelementptr inbounds nuw float, ptr %1623, i64 %1617
   %1625 = add nuw nsw i32 %1607, 1
@@ -19522,7 +19522,7 @@ define internal fastcc void @lmmse_demosaic(ptr nocapture noundef readonly %0, p
   %1891 = and i32 %1890, 3
   %1892 = sub nsw i32 2, %1891
   %1893 = sext i32 %1892 to i64
-  %1894 = getelementptr inbounds nuw [6 x ptr], ptr %8, i64 0, i64 %1893
+  %1894 = getelementptr inbounds [6 x ptr], ptr %8, i64 0, i64 %1893
   %1895 = load ptr, ptr %1894, align 8, !tbaa !20
   %1896 = mul nuw nsw i64 %1871, 136
   %1897 = getelementptr inbounds nuw float, ptr %1895, i64 %1896
@@ -20290,7 +20290,7 @@ define internal fastcc void @lmmse_demosaic(ptr nocapture noundef readonly %0, p
   %2558 = getelementptr inbounds nuw float, ptr %2557, i64 %1759
   %2559 = sub nsw i32 2, %2550
   %2560 = sext i32 %2559 to i64
-  %2561 = getelementptr inbounds nuw [6 x ptr], ptr %8, i64 0, i64 %2560
+  %2561 = getelementptr inbounds [6 x ptr], ptr %8, i64 0, i64 %2560
   %2562 = load ptr, ptr %2561, align 8, !tbaa !20
   %2563 = getelementptr inbounds nuw float, ptr %2562, i64 %2534
   %2564 = getelementptr inbounds nuw float, ptr %2563, i64 %1759
@@ -20493,7 +20493,7 @@ define internal fastcc void @lmmse_demosaic(ptr nocapture noundef readonly %0, p
   %reass.sub225 = sub nsw i32 %2719, %2544
   %2720 = add nsw i32 %reass.sub225, 5
   %2721 = sext i32 %2717 to i64
-  %2722 = getelementptr inbounds nuw [6 x ptr], ptr %8, i64 0, i64 %2721
+  %2722 = getelementptr inbounds [6 x ptr], ptr %8, i64 0, i64 %2721
   %2723 = load ptr, ptr %2722, align 8, !tbaa !20
   %2724 = getelementptr float, ptr %2723, i64 %2534
   %2725 = getelementptr float, ptr %2724, i64 %1759
@@ -20950,7 +20950,7 @@ define internal fastcc void @lmmse_demosaic(ptr nocapture noundef readonly %0, p
   %3092 = getelementptr inbounds nuw float, ptr %3091, i64 %3086
   %3093 = sub nsw i32 2, %3085
   %3094 = sext i32 %3093 to i64
-  %3095 = getelementptr inbounds nuw [6 x ptr], ptr %8, i64 0, i64 %3094
+  %3095 = getelementptr inbounds [6 x ptr], ptr %8, i64 0, i64 %3094
   %3096 = load ptr, ptr %3095, align 8, !tbaa !20
   %3097 = getelementptr inbounds nuw float, ptr %3096, i64 %3086
   %3098 = xor i32 %3078, -1
@@ -21281,7 +21281,7 @@ define internal fastcc void @lmmse_demosaic(ptr nocapture noundef readonly %0, p
   %3393 = mul nuw nsw i64 %3373, 136
   %3394 = getelementptr inbounds nuw float, ptr %152, i64 %3393
   %3395 = sext i32 %3392 to i64
-  %3396 = getelementptr inbounds nuw [6 x ptr], ptr %8, i64 0, i64 %3395
+  %3396 = getelementptr inbounds [6 x ptr], ptr %8, i64 0, i64 %3395
   %3397 = load ptr, ptr %3396, align 8, !tbaa !20
   %3398 = getelementptr inbounds nuw float, ptr %3397, i64 %3393
   %3399 = zext nneg i32 %3391 to i64

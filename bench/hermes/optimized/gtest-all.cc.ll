@@ -13580,7 +13580,7 @@ call.i17.noexc:                                   ; preds = %if.end49
 
 .noexc:                                           ; preds = %call.i17.noexc
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #50
-  %add.ptr.i18 = getelementptr inbounds nuw i8, ptr %str, i64 %call.i.i
+  %add.ptr.i18 = getelementptr inbounds i8, ptr %str, i64 %call.i.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %str, ptr noundef nonnull %add.ptr.i18)
           to label %invoke.cont52 unwind label %lpad.i19
 
@@ -20414,7 +20414,7 @@ if.end:                                           ; preds = %init.end
 switch.lookup:                                    ; preds = %if.end
   %switch.tableidx = add i32 %color, -1
   %6 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN7testing8internal13ColoredPrintfENS0_10GTestColorEPKcz, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN7testing8internal13ColoredPrintfENS0_10GTestColorEPKcz, i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN7testing8internal16GetAnsiColorCodeENS0_10GTestColorE.exit
 

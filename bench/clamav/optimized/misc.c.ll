@@ -405,7 +405,7 @@ define ptr @filelist(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_add
 
 .lr.ph:                                           ; preds = %.preheader, %.critedge2
   %.030 = phi i64 [ %.0, %.critedge2 ], [ %.028, %.preheader ]
-  %27 = getelementptr inbounds nuw [1025 x i8], ptr @filelist.buff, i64 0, i64 %.030
+  %27 = getelementptr inbounds [1025 x i8], ptr @filelist.buff, i64 0, i64 %.030
   %28 = load i8, ptr %27, align 1
   switch i8 %28, label %.critedge [
     i8 10, label %.critedge2

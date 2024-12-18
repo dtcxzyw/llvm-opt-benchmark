@@ -5059,7 +5059,7 @@ switch.hole_check:                                ; preds = %if.end.i55
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %69 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table.igb_rss_parse_packet, i64 0, i64 %69
+  %switch.gep = getelementptr inbounds [8 x i32], ptr @switch.table.igb_rss_parse_packet, i64 0, i64 %69
   %switch.load = load i32, ptr %switch.gep, align 4
   %arrayidx.i56 = getelementptr i8, ptr %core, i64 23680
   %call8.i = call i32 @net_rx_pkt_calc_rss_hash(ptr noundef %pkt, i32 noundef %switch.load, ptr noundef %arrayidx.i56) #15

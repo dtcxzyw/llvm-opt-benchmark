@@ -216,7 +216,7 @@ H5LTyy_create_buffer.exit:                        ; preds = %35
   %62 = getelementptr inbounds nuw [256 x i8], ptr @yy_ec, i64 0, i64 %61
   %63 = load i8, ptr %62, align 1
   %64 = sext i32 %.1 to i64
-  %65 = getelementptr inbounds nuw [283 x i16], ptr @yy_accept, i64 0, i64 %64
+  %65 = getelementptr inbounds [283 x i16], ptr @yy_accept, i64 0, i64 %64
   %66 = load i16, ptr %65, align 2
   %.not54 = icmp eq i16 %66, 0
   br i1 %.not54, label %68, label %67
@@ -227,12 +227,12 @@ H5LTyy_create_buffer.exit:                        ; preds = %35
   br label %68
 
 68:                                               ; preds = %67, %59
-  %69 = getelementptr inbounds nuw [285 x i16], ptr @yy_base, i64 0, i64 %64
+  %69 = getelementptr inbounds [285 x i16], ptr @yy_base, i64 0, i64 %64
   %70 = load i16, ptr %69, align 2
   %71 = sext i16 %70 to i64
   %72 = zext i8 %63 to i64
   %73 = add nsw i64 %71, %72
-  %74 = getelementptr inbounds nuw [349 x i16], ptr @yy_chk, i64 0, i64 %73
+  %74 = getelementptr inbounds [349 x i16], ptr @yy_chk, i64 0, i64 %73
   %75 = load i16, ptr %74, align 2
   %76 = sext i16 %75 to i32
   %.not5583 = icmp eq i32 %.1, %76
@@ -242,7 +242,7 @@ H5LTyy_create_buffer.exit:                        ; preds = %35
   %77 = phi i64 [ %90, %85 ], [ %72, %68 ]
   %78 = phi i64 [ %86, %85 ], [ %64, %68 ]
   %.03584 = phi i8 [ %.136, %85 ], [ %63, %68 ]
-  %79 = getelementptr inbounds nuw [285 x i16], ptr @yy_def, i64 0, i64 %78
+  %79 = getelementptr inbounds [285 x i16], ptr @yy_def, i64 0, i64 %78
   %80 = load i16, ptr %79, align 2
   %81 = icmp sgt i16 %80, 282
   br i1 %81, label %82, label %85
@@ -255,24 +255,24 @@ H5LTyy_create_buffer.exit:                        ; preds = %35
 85:                                               ; preds = %82, %.lr.ph
   %.136 = phi i8 [ %84, %82 ], [ %.03584, %.lr.ph ]
   %86 = sext i16 %80 to i64
-  %87 = getelementptr inbounds nuw [285 x i16], ptr @yy_base, i64 0, i64 %86
+  %87 = getelementptr inbounds [285 x i16], ptr @yy_base, i64 0, i64 %86
   %88 = load i16, ptr %87, align 2
   %89 = sext i16 %88 to i64
   %90 = zext i8 %.136 to i64
   %91 = add nsw i64 %89, %90
-  %92 = getelementptr inbounds nuw [349 x i16], ptr @yy_chk, i64 0, i64 %91
+  %92 = getelementptr inbounds [349 x i16], ptr @yy_chk, i64 0, i64 %91
   %93 = load i16, ptr %92, align 2
   %.not55 = icmp eq i16 %80, %93
   br i1 %.not55, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %85, %68
   %.lcssa = phi i64 [ %73, %68 ], [ %91, %85 ]
-  %94 = getelementptr inbounds nuw [349 x i16], ptr @yy_nxt, i64 0, i64 %.lcssa
+  %94 = getelementptr inbounds [349 x i16], ptr @yy_nxt, i64 0, i64 %.lcssa
   %95 = load i16, ptr %94, align 2
   %96 = sext i16 %95 to i32
   %97 = getelementptr inbounds nuw i8, ptr %.142, i64 1
   %98 = sext i16 %95 to i64
-  %99 = getelementptr inbounds nuw [285 x i16], ptr @yy_base, i64 0, i64 %98
+  %99 = getelementptr inbounds [285 x i16], ptr @yy_base, i64 0, i64 %98
   %100 = load i16, ptr %99, align 2
   %.not56 = icmp eq i16 %100, 308
   br i1 %.not56, label %.outer, label %59
@@ -288,7 +288,7 @@ H5LTyy_create_buffer.exit:                        ; preds = %35
   %.243 = phi ptr [ %120, %118 ], [ %.243.ph, %.outer ]
   %.3 = phi i32 [ %121, %118 ], [ %.3.ph, %.outer ]
   %103 = sext i32 %.3 to i64
-  %104 = getelementptr inbounds nuw [283 x i16], ptr @yy_accept, i64 0, i64 %103
+  %104 = getelementptr inbounds [283 x i16], ptr @yy_accept, i64 0, i64 %103
   %105 = load i16, ptr %104, align 2
   %106 = icmp eq i16 %105, 0
   br i1 %106, label %107, label %113
@@ -297,7 +297,7 @@ H5LTyy_create_buffer.exit:                        ; preds = %35
   %108 = load ptr, ptr @yy_last_accepting_cpos, align 8
   %109 = load i32, ptr @yy_last_accepting_state, align 4
   %110 = sext i32 %109 to i64
-  %111 = getelementptr inbounds nuw [283 x i16], ptr @yy_accept, i64 0, i64 %110
+  %111 = getelementptr inbounds [283 x i16], ptr @yy_accept, i64 0, i64 %110
   %112 = load i16, ptr %111, align 2
   br label %113
 
@@ -1016,7 +1016,7 @@ define internal fastcc range(i32 -32768, 32768) i32 @yy_get_previous_state() unn
 10:                                               ; preds = %.lr.ph25, %6
   %11 = phi i8 [ %9, %6 ], [ 1, %.lr.ph25 ]
   %12 = sext i32 %.01622 to i64
-  %13 = getelementptr inbounds nuw [283 x i16], ptr @yy_accept, i64 0, i64 %12
+  %13 = getelementptr inbounds [283 x i16], ptr @yy_accept, i64 0, i64 %12
   %14 = load i16, ptr %13, align 2
   %.not18 = icmp eq i16 %14, 0
   br i1 %.not18, label %16, label %15
@@ -1027,12 +1027,12 @@ define internal fastcc range(i32 -32768, 32768) i32 @yy_get_previous_state() unn
   br label %16
 
 16:                                               ; preds = %15, %10
-  %17 = getelementptr inbounds nuw [285 x i16], ptr @yy_base, i64 0, i64 %12
+  %17 = getelementptr inbounds [285 x i16], ptr @yy_base, i64 0, i64 %12
   %18 = load i16, ptr %17, align 2
   %19 = sext i16 %18 to i64
   %20 = zext i8 %11 to i64
   %21 = add nsw i64 %19, %20
-  %22 = getelementptr inbounds nuw [349 x i16], ptr @yy_chk, i64 0, i64 %21
+  %22 = getelementptr inbounds [349 x i16], ptr @yy_chk, i64 0, i64 %21
   %23 = load i16, ptr %22, align 2
   %24 = sext i16 %23 to i32
   %.not1920 = icmp eq i32 %.01622, %24
@@ -1042,7 +1042,7 @@ define internal fastcc range(i32 -32768, 32768) i32 @yy_get_previous_state() unn
   %25 = phi i64 [ %38, %33 ], [ %20, %16 ]
   %26 = phi i64 [ %34, %33 ], [ %12, %16 ]
   %.021 = phi i8 [ %.1, %33 ], [ %11, %16 ]
-  %27 = getelementptr inbounds nuw [285 x i16], ptr @yy_def, i64 0, i64 %26
+  %27 = getelementptr inbounds [285 x i16], ptr @yy_def, i64 0, i64 %26
   %28 = load i16, ptr %27, align 2
   %29 = icmp sgt i16 %28, 282
   br i1 %29, label %30, label %33
@@ -1055,19 +1055,19 @@ define internal fastcc range(i32 -32768, 32768) i32 @yy_get_previous_state() unn
 33:                                               ; preds = %30, %.lr.ph
   %.1 = phi i8 [ %32, %30 ], [ %.021, %.lr.ph ]
   %34 = sext i16 %28 to i64
-  %35 = getelementptr inbounds nuw [285 x i16], ptr @yy_base, i64 0, i64 %34
+  %35 = getelementptr inbounds [285 x i16], ptr @yy_base, i64 0, i64 %34
   %36 = load i16, ptr %35, align 2
   %37 = sext i16 %36 to i64
   %38 = zext i8 %.1 to i64
   %39 = add nsw i64 %37, %38
-  %40 = getelementptr inbounds nuw [349 x i16], ptr @yy_chk, i64 0, i64 %39
+  %40 = getelementptr inbounds [349 x i16], ptr @yy_chk, i64 0, i64 %39
   %41 = load i16, ptr %40, align 2
   %.not19 = icmp eq i16 %28, %41
   br i1 %.not19, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %33, %16
   %.lcssa = phi i64 [ %21, %16 ], [ %39, %33 ]
-  %42 = getelementptr inbounds nuw [349 x i16], ptr @yy_nxt, i64 0, i64 %.lcssa
+  %42 = getelementptr inbounds [349 x i16], ptr @yy_nxt, i64 0, i64 %.lcssa
   %43 = load i16, ptr %42, align 2
   %44 = sext i16 %43 to i32
   %45 = getelementptr inbounds nuw i8, ptr %.01523, i64 1
@@ -1082,7 +1082,7 @@ define internal fastcc range(i32 -32768, 32768) i32 @yy_get_previous_state() unn
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define internal fastcc range(i32 -32768, 32768) i32 @yy_try_NUL_trans(i32 noundef range(i32 -32768, 32768) %0) unnamed_addr #4 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [283 x i16], ptr @yy_accept, i64 0, i64 %2
+  %3 = getelementptr inbounds [283 x i16], ptr @yy_accept, i64 0, i64 %2
   %4 = load i16, ptr %3, align 2
   %.not = icmp eq i16 %4, 0
   br i1 %.not, label %7, label %5
@@ -1094,11 +1094,11 @@ define internal fastcc range(i32 -32768, 32768) i32 @yy_try_NUL_trans(i32 nounde
   br label %7
 
 7:                                                ; preds = %5, %1
-  %8 = getelementptr inbounds nuw [285 x i16], ptr @yy_base, i64 0, i64 %2
+  %8 = getelementptr inbounds [285 x i16], ptr @yy_base, i64 0, i64 %2
   %9 = load i16, ptr %8, align 2
   %10 = sext i16 %9 to i64
   %11 = add nsw i64 %10, 1
-  %12 = getelementptr inbounds nuw [349 x i16], ptr @yy_chk, i64 0, i64 %11
+  %12 = getelementptr inbounds [349 x i16], ptr @yy_chk, i64 0, i64 %11
   %13 = load i16, ptr %12, align 2
   %14 = sext i16 %13 to i32
   %.not1415 = icmp eq i32 %0, %14
@@ -1106,21 +1106,21 @@ define internal fastcc range(i32 -32768, 32768) i32 @yy_try_NUL_trans(i32 nounde
 
 .lr.ph:                                           ; preds = %7, %.lr.ph
   %15 = phi i64 [ %18, %.lr.ph ], [ %2, %7 ]
-  %16 = getelementptr inbounds nuw [285 x i16], ptr @yy_def, i64 0, i64 %15
+  %16 = getelementptr inbounds [285 x i16], ptr @yy_def, i64 0, i64 %15
   %17 = load i16, ptr %16, align 2
   %18 = sext i16 %17 to i64
-  %19 = getelementptr inbounds nuw [285 x i16], ptr @yy_base, i64 0, i64 %18
+  %19 = getelementptr inbounds [285 x i16], ptr @yy_base, i64 0, i64 %18
   %20 = load i16, ptr %19, align 2
   %21 = sext i16 %20 to i64
   %22 = add nsw i64 %21, 1
-  %23 = getelementptr inbounds nuw [349 x i16], ptr @yy_chk, i64 0, i64 %22
+  %23 = getelementptr inbounds [349 x i16], ptr @yy_chk, i64 0, i64 %22
   %24 = load i16, ptr %23, align 2
   %.not14 = icmp eq i16 %17, %24
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   %.lcssa = phi i64 [ %11, %7 ], [ %22, %.lr.ph ]
-  %25 = getelementptr inbounds nuw [349 x i16], ptr @yy_nxt, i64 0, i64 %.lcssa
+  %25 = getelementptr inbounds [349 x i16], ptr @yy_nxt, i64 0, i64 %.lcssa
   %26 = load i16, ptr %25, align 2
   %27 = icmp eq i16 %26, 282
   %narrow = select i1 %27, i16 0, i16 %26

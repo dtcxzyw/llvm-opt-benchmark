@@ -119,7 +119,7 @@ define dso_local void @_ZN3ozz9animation21GetJointLocalRestPoseERKNS0_8SkeletonE
   store <4 x float> %61, ptr %62, align 16
   %63 = srem i32 %2, 4
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds nuw [4 x <4 x float>], ptr %4, i64 0, i64 %64
+  %65 = getelementptr inbounds [4 x <4 x float>], ptr %4, i64 0, i64 %64
   %66 = load <4 x float>, ptr %65, align 16
   %67 = extractelement <4 x float> %66, i64 0
   store float %67, ptr %0, align 4
@@ -129,11 +129,11 @@ define dso_local void @_ZN3ozz9animation21GetJointLocalRestPoseERKNS0_8SkeletonE
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %71 = extractelement <4 x float> %66, i64 2
   store float %71, ptr %70, align 4
-  %72 = getelementptr inbounds nuw [4 x <4 x float>], ptr %5, i64 0, i64 %64
+  %72 = getelementptr inbounds [4 x <4 x float>], ptr %5, i64 0, i64 %64
   %73 = load <4 x float>, ptr %72, align 16
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store <4 x float> %73, ptr %74, align 4
-  %75 = getelementptr inbounds nuw [4 x <4 x float>], ptr %6, i64 0, i64 %64
+  %75 = getelementptr inbounds [4 x <4 x float>], ptr %6, i64 0, i64 %64
   %76 = load <4 x float>, ptr %75, align 16
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %78 = extractelement <4 x float> %76, i64 0

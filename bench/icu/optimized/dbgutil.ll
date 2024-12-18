@@ -766,7 +766,7 @@ _ZNK6icu_7513UnicodeString9getBufferEv.exit:      ; preds = %entry, %if.then7.i,
   %cond.i = select i1 %cmp.i.i, i32 %6, i32 %shr.i.i
   call void @u_UCharsToChars_75(ptr noundef %retval.0.i, ptr noundef nonnull %ch, i32 noundef %cond.i)
   %idxprom = sext i32 %cond.i to i64
-  %arrayidx = getelementptr inbounds nuw [256 x i8], ptr %ch, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [256 x i8], ptr %ch, i64 0, i64 %idxprom
   store i8 0, ptr %arrayidx, align 1
   %call4 = call i32 @atoi(ptr nocapture noundef nonnull %ch) #17
   ret i32 %call4
@@ -813,7 +813,7 @@ _ZNK6icu_7513UnicodeString9getBufferEv.exit:      ; preds = %entry, %if.then7.i,
   %cond.i = select i1 %cmp.i.i, i32 %6, i32 %shr.i.i
   call void @u_UCharsToChars_75(ptr noundef %retval.0.i, ptr noundef nonnull %ch, i32 noundef %cond.i)
   %idxprom = sext i32 %cond.i to i64
-  %arrayidx = getelementptr inbounds nuw [256 x i8], ptr %ch, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [256 x i8], ptr %ch, i64 0, i64 %idxprom
   store i8 0, ptr %arrayidx, align 1
   %call4 = call double @atof(ptr noundef nonnull %ch) #17
   ret double %call4

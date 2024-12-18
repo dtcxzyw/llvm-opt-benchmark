@@ -10941,13 +10941,13 @@ _ZNK4llvm16BasicTTIImplBaseINS_12BasicTTIImplEE23getTypeLegalizationCostEPNS_4Ty
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   %67 = zext i16 %.sroa.025.0.lcssa42.sink.i to i64
   %68 = add nsw i64 %67, -1
-  %69 = getelementptr inbounds nuw [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %68
+  %69 = getelementptr inbounds [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %68
   %.sroa.0.0.copyload.i199 = load i64, ptr %69, align 16
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %69, i64 8
   %.sroa.2.0.copyload.i = load i8, ptr %.sroa.2.0..sroa_idx.i, align 8
   %70 = zext i16 %.sroa.025.0.lcssa42.sink.i185 to i64
   %71 = add nsw i64 %70, -1
-  %72 = getelementptr inbounds nuw [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %71
+  %72 = getelementptr inbounds [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %71
   %.sroa.0.0.copyload.i200 = load i64, ptr %72, align 16
   %.sroa.2.0..sroa_idx.i201 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %.sroa.2.0.copyload.i202 = load i8, ptr %.sroa.2.0..sroa_idx.i201, align 8
@@ -11596,7 +11596,7 @@ _ZNK4llvm16BasicTTIImplBaseINS_12BasicTTIImplEE23getTypeLegalizationCostEPNS_4Ty
   %47 = and i64 %46, -8
   %48 = zext i16 %.sroa.025.0.lcssa42.sink.i to i64
   %49 = add nsw i64 %48, -1
-  %50 = getelementptr inbounds nuw [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %49
+  %50 = getelementptr inbounds [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %49
   %.sroa.0.0.copyload.i39 = load i64, ptr %50, align 16
   %51 = trunc i8 %.fca.1.extract.i to i1
   br i1 %51, label %52, label %_ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownLTERKS3_S5_.exit
@@ -14657,7 +14657,7 @@ define linkonce_odr hidden i64 @_ZNK4llvm3EVT21getVectorElementCountEv(ptr nound
 3:                                                ; preds = %1
   %4 = zext i16 %2 to i64
   %5 = add nsw i64 %4, -1
-  %6 = getelementptr inbounds nuw [240 x i16], ptr @_ZZNK4llvm3MVT23getVectorMinNumElementsEvE10NElemTable, i64 0, i64 %5
+  %6 = getelementptr inbounds [240 x i16], ptr @_ZZNK4llvm3MVT23getVectorMinNumElementsEvE10NElemTable, i64 0, i64 %5
   %7 = load i16, ptr %6, align 2
   %8 = add i16 %2, -137
   %spec.select.i.i = icmp ult i16 %8, 53
@@ -14922,7 +14922,7 @@ _ZNK4llvm16BasicTTIImplBaseINS_12BasicTTIImplEE23getTypeLegalizationCostEPNS_4Ty
 _ZNK4llvm3MVT20getVectorNumElementsEv.exit:       ; preds = %41, %43
   %44 = zext nneg i16 %.sroa.025.0.lcssa42.sink.i to i64
   %45 = add nsw i64 %44, -1
-  %46 = getelementptr inbounds nuw [240 x i16], ptr @_ZZNK4llvm3MVT23getVectorMinNumElementsEvE10NElemTable, i64 0, i64 %45
+  %46 = getelementptr inbounds [240 x i16], ptr @_ZZNK4llvm3MVT23getVectorMinNumElementsEvE10NElemTable, i64 0, i64 %45
   %47 = load i16, ptr %46, align 2
   %48 = zext i16 %47 to i32
   br label %49
@@ -15908,7 +15908,7 @@ _ZNK4llvm16BasicTTIImplBaseINS_12BasicTTIImplEE23getTypeLegalizationCostEPNS_4Ty
 _ZNK4llvm3MVT20getVectorNumElementsEv.exit:       ; preds = %62, %64
   %65 = zext nneg i16 %.sroa.025.0.lcssa42.sink.i to i64
   %66 = add nsw i64 %65, -1
-  %67 = getelementptr inbounds nuw [240 x i16], ptr @_ZZNK4llvm3MVT23getVectorMinNumElementsEvE10NElemTable, i64 0, i64 %66
+  %67 = getelementptr inbounds [240 x i16], ptr @_ZZNK4llvm3MVT23getVectorMinNumElementsEvE10NElemTable, i64 0, i64 %66
   %68 = load i16, ptr %67, align 2
   %69 = zext i16 %68 to i32
   br label %70
@@ -18307,7 +18307,7 @@ _ZNK4llvm16BasicTTIImplBaseINS_12BasicTTIImplEE23getTypeLegalizationCostEPNS_4Ty
   %57 = trunc i64 %56 to i32
   %58 = zext i16 %.sroa.025.0.lcssa42.sink.i to i64
   %59 = add nsw i64 %58, -1
-  %60 = getelementptr inbounds nuw [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %59
+  %60 = getelementptr inbounds [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %59
   %.sroa.0.0.copyload.i.i = load i64, ptr %60, align 16
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %60, i64 8
   %.sroa.2.0.copyload.i.i = load i8, ptr %.sroa.2.0..sroa_idx.i.i, align 8

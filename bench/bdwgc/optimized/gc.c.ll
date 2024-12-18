@@ -2371,7 +2371,7 @@ GC_write.exit.thread:                             ; preds = %22
   %29 = zext i32 %28 to i64
   %30 = icmp ugt i64 %12, %29
   %31 = sext i32 %28 to i64
-  %32 = getelementptr inbounds nuw i8, ptr %3, i64 %31
+  %32 = getelementptr inbounds i8, ptr %3, i64 %31
   %33 = sub i64 %12, %31
   br i1 %30, label %.outer.split.i, label %GC_write.exit, !llvm.loop !13
 
@@ -2573,7 +2573,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
 
 57:                                               ; preds = %56
   %58 = sext i32 %42 to i64
-  %59 = getelementptr inbounds nuw [24 x %struct.obj_kind], ptr @GC_obj_kinds, i64 0, i64 %58, i32 4
+  %59 = getelementptr inbounds [24 x %struct.obj_kind], ptr @GC_obj_kinds, i64 0, i64 %58, i32 4
   %60 = load i32, ptr %59, align 4
   %.not7.i.i = icmp eq i32 %60, 0
   br i1 %.not7.i.i, label %GC_generic_malloc_inner.exit, label %61
@@ -2743,7 +2743,7 @@ GC_generic_malloc_inner.exit.thread.thread34:     ; preds = %36
 
 40:                                               ; preds = %36
   %41 = sext i32 %28 to i64
-  %42 = getelementptr inbounds nuw [24 x %struct.obj_kind], ptr @GC_obj_kinds, i64 0, i64 %41, i32 4
+  %42 = getelementptr inbounds [24 x %struct.obj_kind], ptr @GC_obj_kinds, i64 0, i64 %41, i32 4
   %43 = load i32, ptr %42, align 4
   %.not7.i.i = icmp eq i32 %43, 0
   br i1 %.not7.i.i, label %.sink.split, label %GC_generic_malloc_inner.exit.thread
@@ -3001,7 +3001,7 @@ define void @GC_err_printf(ptr nocapture noundef readonly %0, ...) local_unnamed
   %25 = zext i32 %24 to i64
   %26 = icmp ugt i64 %12, %25
   %27 = sext i32 %24 to i64
-  %28 = getelementptr inbounds nuw i8, ptr %3, i64 %27
+  %28 = getelementptr inbounds i8, ptr %3, i64 %27
   %29 = sub i64 %12, %27
   br i1 %26, label %.outer.split.i.i, label %GC_err_puts.exit, !llvm.loop !13
 
@@ -3892,7 +3892,7 @@ define hidden void @GC_print_hblkfreelist() local_unnamed_addr #1 {
   %3 = trunc nuw nsw i64 %indvars.iv.i to i32
   %sext = shl i64 %indvars.iv.i, 32
   %4 = ashr exact i64 %sext, 32
-  %5 = getelementptr inbounds nuw [61 x i64], ptr @GC_free_bytes, i64 0, i64 %4
+  %5 = getelementptr inbounds [61 x i64], ptr @GC_free_bytes, i64 0, i64 %4
   %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 232), align 8
   br label %.lr.ph.i
 
@@ -4260,7 +4260,7 @@ GC_write.exit.thread:                             ; preds = %24
   %31 = zext i32 %30 to i64
   %32 = icmp ugt i64 %14, %31
   %33 = sext i32 %30 to i64
-  %34 = getelementptr inbounds nuw i8, ptr %3, i64 %33
+  %34 = getelementptr inbounds i8, ptr %3, i64 %33
   %35 = sub i64 %14, %33
   br i1 %32, label %.outer.split.i, label %GC_write.exit, !llvm.loop !13
 
@@ -6635,7 +6635,7 @@ define i64 @GC_get_allocd_bytes_per_finalizer() local_unnamed_addr #8 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @GC_register_describe_type_fn(i32 noundef %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds nuw [24 x ptr], ptr @GC_describe_type_fns, i64 0, i64 %3
+  %4 = getelementptr inbounds [24 x ptr], ptr @GC_describe_type_fns, i64 0, i64 %3
   store ptr %1, ptr %4, align 8
   ret void
 }
@@ -13550,7 +13550,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %.043 = phi i64 [ %41, %39 ], [ %49, %.thread ]
   %.1 = phi i64 [ %0, %39 ], [ %spec.store.select, %.thread ]
   %51 = sext i32 %1 to i64
-  %52 = getelementptr inbounds nuw [24 x %struct.obj_kind], ptr @GC_obj_kinds, i64 0, i64 %51, i32 4
+  %52 = getelementptr inbounds [24 x %struct.obj_kind], ptr @GC_obj_kinds, i64 0, i64 %51, i32 4
   %53 = load i32, ptr %52, align 4
   %54 = icmp ult i64 %3, 16
   %spec.store.select2 = tail call i64 @llvm.umax.i64(i64 %3, i64 4095)
@@ -13741,7 +13741,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %30 = getelementptr inbounds [2049 x i64], ptr getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 5608), i64 0, i64 %0
   %31 = load i64, ptr %30, align 8
   %32 = sext i32 %1 to i64
-  %33 = getelementptr inbounds nuw [24 x %struct.obj_kind], ptr @GC_obj_kinds, i64 0, i64 %32
+  %33 = getelementptr inbounds [24 x %struct.obj_kind], ptr @GC_obj_kinds, i64 0, i64 %32
   %34 = load ptr, ptr %33, align 16
   %35 = getelementptr inbounds ptr, ptr %34, i64 %31
   %36 = load ptr, ptr %35, align 8
@@ -13898,7 +13898,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %28 = getelementptr inbounds [2049 x i64], ptr getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 5608), i64 0, i64 %.028
   %29 = load i64, ptr %28, align 8
   %30 = sext i32 %1 to i64
-  %31 = getelementptr inbounds nuw [24 x %struct.obj_kind], ptr @GC_obj_kinds, i64 0, i64 %30
+  %31 = getelementptr inbounds [24 x %struct.obj_kind], ptr @GC_obj_kinds, i64 0, i64 %30
   %32 = load ptr, ptr %31, align 16
   %33 = getelementptr inbounds ptr, ptr %32, i64 %29
   %34 = load ptr, ptr %33, align 8
@@ -14232,7 +14232,7 @@ GC_check_finalizer_nested.exit:                   ; preds = %46, %54
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @GC_generic_malloc_inner_small(i64 noundef %0, i32 noundef %1) unnamed_addr #1 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds nuw [24 x %struct.obj_kind], ptr @GC_obj_kinds, i64 0, i64 %3
+  %4 = getelementptr inbounds [24 x %struct.obj_kind], ptr @GC_obj_kinds, i64 0, i64 %3
   %5 = getelementptr inbounds [2049 x i64], ptr getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 5608), i64 0, i64 %0
   %6 = load i64, ptr %5, align 8
   %7 = load ptr, ptr %4, align 16
@@ -14432,7 +14432,7 @@ GC_alloc_reclaim_list.exit:                       ; preds = %86
   %96 = and i32 %1, -2
   %97 = icmp eq i32 %96, 2
   %98 = shl i64 %.12849, 1
-  %99 = getelementptr inbounds nuw [24 x %struct.obj_kind], ptr @GC_obj_kinds, i64 0, i64 %3, i32 4
+  %99 = getelementptr inbounds [24 x %struct.obj_kind], ptr @GC_obj_kinds, i64 0, i64 %3, i32 4
   %100 = sub i64 0, %98
   br label %101
 
@@ -15100,7 +15100,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
 
 70:                                               ; preds = %69, %GC_lock.exit
   %71 = sext i32 %1 to i64
-  %72 = getelementptr inbounds nuw [24 x %struct.obj_kind], ptr @GC_obj_kinds, i64 0, i64 %71
+  %72 = getelementptr inbounds [24 x %struct.obj_kind], ptr @GC_obj_kinds, i64 0, i64 %71
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %74 = load ptr, ptr %73, align 8
   %.not95 = icmp eq ptr %74, null
@@ -16039,7 +16039,7 @@ GC_build_fl4.exit.i163:                           ; preds = %433
   br i1 %.b.i.i, label %463, label %460
 
 460:                                              ; preds = %459
-  %461 = getelementptr inbounds nuw [24 x %struct.obj_kind], ptr @GC_obj_kinds, i64 0, i64 %71, i32 4
+  %461 = getelementptr inbounds [24 x %struct.obj_kind], ptr @GC_obj_kinds, i64 0, i64 %71, i32 4
   %462 = load i32, ptr %461, align 4
   %.not7.i.i = icmp eq i32 %462, 0
   br i1 %.not7.i.i, label %GC_generic_malloc_inner.exit.thread, label %463
@@ -19319,7 +19319,7 @@ GC_apply_to_all_blocks.exit:                      ; preds = %72, %0
 ; Function Attrs: nounwind uwtable
 define void @GC_print_free_list(i32 noundef %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds nuw [24 x %struct.obj_kind], ptr @GC_obj_kinds, i64 0, i64 %3
+  %4 = getelementptr inbounds [24 x %struct.obj_kind], ptr @GC_obj_kinds, i64 0, i64 %3
   %5 = load ptr, ptr %4, align 16
   %6 = getelementptr inbounds ptr, ptr %5, i64 %1
   %.078 = load ptr, ptr %6, align 8
@@ -21532,7 +21532,7 @@ GC_repeat_read.exit.i:                            ; preds = %.lr.ph.i.i
   %48 = tail call ptr @__ctype_b_loc() #48
   %49 = load ptr, ptr %48, align 8
   %50 = add i64 %.1.i, 1
-  %51 = getelementptr inbounds nuw [4096 x i8], ptr %1, i64 0, i64 %.1.i
+  %51 = getelementptr inbounds [4096 x i8], ptr %1, i64 0, i64 %.1.i
   %52 = load i8, ptr %51, align 1
   %53 = zext i8 %52 to i64
   %54 = getelementptr inbounds nuw i16, ptr %49, i64 %53
@@ -21555,7 +21555,7 @@ GC_repeat_read.exit.i:                            ; preds = %.lr.ph.i.i
   %59 = tail call ptr @__ctype_b_loc() #48
   %60 = load ptr, ptr %59, align 8
   %61 = add i64 %.3.i, 1
-  %62 = getelementptr inbounds nuw [4096 x i8], ptr %1, i64 0, i64 %.3.i
+  %62 = getelementptr inbounds [4096 x i8], ptr %1, i64 0, i64 %.3.i
   %63 = load i8, ptr %62, align 1
   %64 = zext i8 %63 to i64
   %65 = getelementptr inbounds nuw i16, ptr %60, i64 %64
@@ -21572,7 +21572,7 @@ GC_repeat_read.exit.i:                            ; preds = %.lr.ph.i.i
 
 69:                                               ; preds = %76, %.lr.ph.i
   %.558.i = phi i64 [ %.4.i, %.lr.ph.i ], [ %77, %76 ]
-  %70 = getelementptr inbounds nuw [4096 x i8], ptr %1, i64 0, i64 %.558.i
+  %70 = getelementptr inbounds [4096 x i8], ptr %1, i64 0, i64 %.558.i
   %71 = load i8, ptr %70, align 1
   %72 = zext i8 %71 to i64
   %73 = getelementptr inbounds nuw i16, ptr %45, i64 %72
@@ -21606,7 +21606,7 @@ GC_repeat_read.exit.i:                            ; preds = %.lr.ph.i.i
 85:                                               ; preds = %82, %.lr.ph62.i
   %.13861.i = phi i64 [ 0, %.lr.ph62.i ], [ %83, %82 ]
   %86 = add nsw i64 %.13861.i, %.5.lcssa.i
-  %87 = getelementptr inbounds nuw [4096 x i8], ptr %1, i64 0, i64 %86
+  %87 = getelementptr inbounds [4096 x i8], ptr %1, i64 0, i64 %86
   %88 = load i8, ptr %87, align 1
   %89 = zext i8 %88 to i64
   %90 = getelementptr inbounds nuw i16, ptr %81, i64 %89
@@ -21622,9 +21622,9 @@ GC_repeat_read.exit.i:                            ; preds = %.lr.ph.i.i
   unreachable
 
 94:                                               ; preds = %85
-  %95 = getelementptr inbounds nuw [4096 x i8], ptr %1, i64 0, i64 %86
+  %95 = getelementptr inbounds [4096 x i8], ptr %1, i64 0, i64 %86
   store i8 0, ptr %95, align 1
-  %96 = getelementptr inbounds nuw i8, ptr %1, i64 %.5.lcssa.i
+  %96 = getelementptr inbounds i8, ptr %1, i64 %.5.lcssa.i
   %97 = call i64 @strtoul(ptr nocapture noundef nonnull %96, ptr noundef null, i32 noundef 10) #41
   %98 = icmp ugt i64 %97, 1048575
   %99 = and i64 %97, 7
@@ -23667,7 +23667,7 @@ GC_write.exit:                                    ; preds = %.outer.i
   %44 = icmp eq i32 %38, 0
   %sext = shl i64 %37, 32
   %45 = ashr exact i64 %sext, 32
-  %46 = getelementptr inbounds nuw i8, ptr @.str.257, i64 %45
+  %46 = getelementptr inbounds i8, ptr @.str.257, i64 %45
   %47 = sub nsw i64 1, %45
   br i1 %44, label %.outer.split.i4, label %GC_write.exit8, !llvm.loop !13
 
@@ -37849,7 +37849,7 @@ GC_hblk_fl_from_blocks.exit.i:                    ; preds = %214, %212, %210
 244:                                              ; preds = %238, %222
   %.pre-phi.i.i = phi i64 [ %.pre.i.i, %238 ], [ %224, %222 ]
   %245 = load i64, ptr %204, align 8
-  %246 = getelementptr inbounds nuw [61 x i64], ptr @GC_free_bytes, i64 0, i64 %.pre-phi.i.i
+  %246 = getelementptr inbounds [61 x i64], ptr @GC_free_bytes, i64 0, i64 %.pre-phi.i.i
   %247 = load i64, ptr %246, align 8
   %248 = sub i64 %247, %245
   store i64 %248, ptr %246, align 8
@@ -38021,7 +38021,7 @@ GC_hblk_fl_from_blocks.exit.i79:                  ; preds = %318, %316, %314
 348:                                              ; preds = %342, %326
   %.pre-phi.i.i84 = phi i64 [ %.pre.i.i83, %342 ], [ %328, %326 ]
   %349 = load i64, ptr %308, align 8
-  %350 = getelementptr inbounds nuw [61 x i64], ptr @GC_free_bytes, i64 0, i64 %.pre-phi.i.i84
+  %350 = getelementptr inbounds [61 x i64], ptr @GC_free_bytes, i64 0, i64 %.pre-phi.i.i84
   %351 = load i64, ptr %350, align 8
   %352 = sub i64 %351, %349
   store i64 %352, ptr %350, align 8
@@ -38249,11 +38249,11 @@ define internal range(i32 -1, 1) i32 @GC_register_dynlib_callback(ptr nocapture 
 
 41:                                               ; preds = %31
   %42 = sext i32 %35 to i64
-  %43 = getelementptr inbounds nuw [2048 x %struct.load_segment], ptr @load_segs, i64 0, i64 %42
+  %43 = getelementptr inbounds [2048 x %struct.load_segment], ptr @load_segs, i64 0, i64 %42
   store ptr %34, ptr %43, align 16
-  %44 = getelementptr inbounds nuw [2048 x %struct.load_segment], ptr @load_segs, i64 0, i64 %42, i32 1
+  %44 = getelementptr inbounds [2048 x %struct.load_segment], ptr @load_segs, i64 0, i64 %42, i32 1
   store ptr %27, ptr %44, align 8
-  %45 = getelementptr inbounds nuw [2048 x %struct.load_segment], ptr @load_segs, i64 0, i64 %42, i32 2
+  %45 = getelementptr inbounds [2048 x %struct.load_segment], ptr @load_segs, i64 0, i64 %42, i32 2
   %46 = add nsw i32 %35, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %45, i8 0, i64 16, i1 false)
   store i32 %46, ptr @n_load_segs, align 4
@@ -41343,7 +41343,7 @@ GC_hblk_fl_from_blocks.exit.i.i:                  ; preds = %251, %249, %247
 282:                                              ; preds = %276, %259
   %.pre-phi.i.i.i = phi i64 [ %.pre.i.i.i, %276 ], [ %261, %259 ]
   %283 = load i64, ptr %85, align 8
-  %284 = getelementptr inbounds nuw [61 x i64], ptr @GC_free_bytes, i64 0, i64 %.pre-phi.i.i.i
+  %284 = getelementptr inbounds [61 x i64], ptr @GC_free_bytes, i64 0, i64 %.pre-phi.i.i.i
   %285 = load i64, ptr %284, align 8
   %286 = sub i64 %285, %283
   store i64 %286, ptr %284, align 8
@@ -41814,7 +41814,7 @@ define internal fastcc ptr @GC_allochblk_nth(i64 noundef %0, i32 noundef %1, i32
   %7 = tail call i64 @llvm.uadd.sat.i64(i64 %0, i64 4095)
   %8 = and i64 %7, -4096
   %9 = sext i32 %3 to i64
-  %10 = getelementptr inbounds nuw [61 x ptr], ptr @GC_hblkfreelist, i64 0, i64 %9
+  %10 = getelementptr inbounds [61 x ptr], ptr @GC_hblkfreelist, i64 0, i64 %9
   %.0109255259 = load ptr, ptr %10, align 8
   %.not256260 = icmp eq ptr %.0109255259, null
   br i1 %.not256260, label %GC_remove_counts.exit, label %.lr.ph.lr.ph
@@ -41835,7 +41835,7 @@ define internal fastcc ptr @GC_allochblk_nth(i64 noundef %0, i32 noundef %1, i32
   %20 = icmp ne i64 %8, 4096
   %21 = icmp ne i64 %5, 0
   %or.cond3.not130 = or i1 %20, %21
-  %22 = getelementptr inbounds nuw [61 x i64], ptr @GC_free_bytes, i64 0, i64 %9
+  %22 = getelementptr inbounds [61 x i64], ptr @GC_free_bytes, i64 0, i64 %9
   %brmerge = or i1 %14, %or.cond
   br label %.lr.ph
 
@@ -43176,7 +43176,7 @@ define internal fastcc range(i32 0, 2) i32 @setup_header(ptr noundef initializes
   %7 = or disjoint i32 %4, 32
   %spec.select = select i1 %6, i32 %7, i32 %4
   %8 = sext i32 %3 to i64
-  %9 = getelementptr inbounds nuw [24 x %struct.obj_kind], ptr @GC_obj_kinds, i64 0, i64 %8
+  %9 = getelementptr inbounds [24 x %struct.obj_kind], ptr @GC_obj_kinds, i64 0, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null

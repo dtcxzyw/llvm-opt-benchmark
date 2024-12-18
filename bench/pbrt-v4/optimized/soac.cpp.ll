@@ -279,7 +279,7 @@ if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %ifs, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %ifs, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %ifs, i64 %vbase.offset
   %call = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr)
           to label %invoke.cont unwind label %lpad
 
@@ -303,7 +303,7 @@ if.end5:                                          ; preds = %invoke.cont
   %vtable.i = load ptr, ptr %ifs, align 8
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %ifs, i64 %vbase.offset.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %ifs, i64 %vbase.offset.i
   %call.i = invoke noundef ptr @_ZNKSt9basic_iosIcSt11char_traitsIcEE5rdbufEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr.i)
           to label %_ZNSt19istreambuf_iteratorIcSt11char_traitsIcEEC2ERSi.exit unwind label %terminate.lpad.i
 

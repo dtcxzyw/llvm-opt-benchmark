@@ -934,7 +934,7 @@ AllocateExternalBuffer.exit:                      ; preds = %285, %318
   %362 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %363 = load i32, ptr %362, align 8
   %364 = sext i32 %363 to i64
-  %365 = getelementptr inbounds nuw [3 x ptr], ptr @kFormatType, i64 0, i64 %364
+  %365 = getelementptr inbounds [3 x ptr], ptr @kFormatType, i64 0, i64 %364
   %366 = load ptr, ptr %365, align 8
   %367 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %354, ptr noundef nonnull @.str.49, i32 noundef %356, i32 noundef %358, ptr noundef nonnull %361, ptr noundef %366) #10
   br label %368
@@ -1039,7 +1039,7 @@ SaveOutput.exit:                                  ; preds = %384, %385, %401, %4
   %418 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %419 = load i32, ptr %418, align 8
   %420 = sext i32 %419 to i64
-  %421 = getelementptr inbounds nuw [3 x ptr], ptr @kFormatType, i64 0, i64 %420
+  %421 = getelementptr inbounds [3 x ptr], ptr @kFormatType, i64 0, i64 %420
   %422 = load ptr, ptr %421, align 8
   %423 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %410, ptr noundef nonnull @.str.53, i32 noundef %412, i32 noundef %414, ptr noundef nonnull %417, ptr noundef %422) #10
   %424 = load ptr, ptr @stderr, align 8

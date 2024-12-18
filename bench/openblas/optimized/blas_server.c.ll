@@ -249,7 +249,7 @@ declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) 
 define internal noundef ptr @blas_thread_server(ptr noundef %0) #0 {
   %2 = ptrtoint ptr %0 to i64
   %3 = tail call ptr @blas_memory_alloc(i32 noundef 2) #11
-  %4 = getelementptr inbounds nuw [16 x %struct.thread_status_t], ptr @thread_status, i64 0, i64 %2
+  %4 = getelementptr inbounds [16 x %struct.thread_status_t], ptr @thread_status, i64 0, i64 %2
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 56
@@ -455,7 +455,7 @@ define noundef i32 @exec_blas_async(i64 noundef %0, ptr noundef %1) local_unname
   %18 = phi i64 [ %35, %.loopexit3 ], [ 0, %14 ]
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 %16, ptr %19, align 8, !tbaa !32
-  %20 = getelementptr inbounds nuw [16 x %struct.thread_status_t], ptr @thread_status, i64 0, i64 %18
+  %20 = getelementptr inbounds [16 x %struct.thread_status_t], ptr @thread_status, i64 0, i64 %18
   %21 = load atomic volatile i64, ptr %20 monotonic, align 128
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %.loopexit3, label %23
@@ -471,7 +471,7 @@ define noundef i32 @exec_blas_async(i64 noundef %0, ptr noundef %1) local_unname
   %29 = add nsw i64 %28, 1
   %30 = icmp slt i64 %29, %26
   %31 = select i1 %30, i64 %29, i64 0
-  %32 = getelementptr inbounds nuw [16 x %struct.thread_status_t], ptr @thread_status, i64 0, i64 %31
+  %32 = getelementptr inbounds [16 x %struct.thread_status_t], ptr @thread_status, i64 0, i64 %31
   %33 = load atomic volatile i64, ptr %32 monotonic, align 128
   %34 = icmp eq i64 %33, 0
   br i1 %34, label %.loopexit3, label %27, !llvm.loop !40
@@ -481,7 +481,7 @@ define noundef i32 @exec_blas_async(i64 noundef %0, ptr noundef %1) local_unname
   %36 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i64 %35, ptr %36, align 8, !tbaa !41
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !42
-  %37 = getelementptr inbounds nuw [16 x %struct.thread_status_t], ptr @thread_status, i64 0, i64 %35
+  %37 = getelementptr inbounds [16 x %struct.thread_status_t], ptr @thread_status, i64 0, i64 %35
   %38 = ptrtoint ptr %17 to i64
   store atomic volatile i64 %38, ptr %37 monotonic, align 128
   %39 = getelementptr inbounds nuw i8, ptr %17, i64 64
@@ -499,7 +499,7 @@ define noundef i32 @exec_blas_async(i64 noundef %0, ptr noundef %1) local_unname
   %45 = phi ptr [ %67, %65 ], [ %1, %43 ]
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load i64, ptr %46, align 8, !tbaa !41
-  %48 = getelementptr inbounds nuw [16 x %struct.thread_status_t], ptr @thread_status, i64 0, i64 %47
+  %48 = getelementptr inbounds [16 x %struct.thread_status_t], ptr @thread_status, i64 0, i64 %47
   %49 = load atomic volatile i64, ptr %48 monotonic, align 128
   %50 = icmp ugt i64 %49, 1
   br i1 %50, label %51, label %65
@@ -557,7 +557,7 @@ define noundef i32 @exec_blas_async_wait(i64 noundef %0, ptr noundef readonly %1
   %7 = phi ptr [ %18, %.loopexit ], [ %1, %2 ]
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i64, ptr %8, align 8, !tbaa !41
-  %10 = getelementptr inbounds nuw [16 x %struct.thread_status_t], ptr @thread_status, i64 0, i64 %9
+  %10 = getelementptr inbounds [16 x %struct.thread_status_t], ptr @thread_status, i64 0, i64 %9
   %11 = load atomic volatile i64, ptr %10 monotonic, align 128
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %.loopexit, label %.preheader
@@ -565,7 +565,7 @@ define noundef i32 @exec_blas_async_wait(i64 noundef %0, ptr noundef readonly %1
 .preheader:                                       ; preds = %.preheader3, %.preheader
   tail call void asm sideeffect "nop;nop;nop;nop;nop;nop;nop;nop;\0A", "~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !47
   %13 = load i64, ptr %8, align 8, !tbaa !41
-  %14 = getelementptr inbounds nuw [16 x %struct.thread_status_t], ptr @thread_status, i64 0, i64 %13
+  %14 = getelementptr inbounds [16 x %struct.thread_status_t], ptr @thread_status, i64 0, i64 %13
   %15 = load atomic volatile i64, ptr %14 monotonic, align 128
   %16 = icmp eq i64 %15, 0
   br i1 %16, label %.loopexit, label %.preheader, !llvm.loop !48
@@ -683,7 +683,7 @@ define noundef i32 @exec_blas(i64 noundef %0, ptr noundef readonly %1) local_unn
   %61 = add nsw i64 %59, -1
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %63 = load i64, ptr %62, align 8, !tbaa !41
-  %64 = getelementptr inbounds nuw [16 x %struct.thread_status_t], ptr @thread_status, i64 0, i64 %63
+  %64 = getelementptr inbounds [16 x %struct.thread_status_t], ptr @thread_status, i64 0, i64 %63
   %65 = load atomic volatile i64, ptr %64 monotonic, align 128
   %66 = icmp eq i64 %65, 0
   br i1 %66, label %.loopexit, label %.preheader
@@ -691,7 +691,7 @@ define noundef i32 @exec_blas(i64 noundef %0, ptr noundef readonly %1) local_unn
 .preheader:                                       ; preds = %.preheader5, %.preheader
   tail call void asm sideeffect "nop;nop;nop;nop;nop;nop;nop;nop;\0A", "~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !47
   %67 = load i64, ptr %62, align 8, !tbaa !41
-  %68 = getelementptr inbounds nuw [16 x %struct.thread_status_t], ptr @thread_status, i64 0, i64 %67
+  %68 = getelementptr inbounds [16 x %struct.thread_status_t], ptr @thread_status, i64 0, i64 %67
   %69 = load atomic volatile i64, ptr %68 monotonic, align 128
   %70 = icmp eq i64 %69, 0
   br i1 %70, label %.loopexit, label %.preheader, !llvm.loop !48

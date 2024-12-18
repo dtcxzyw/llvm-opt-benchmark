@@ -9074,7 +9074,7 @@ switch.early.test.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.preheader.us.i.i.i
 
 .split18.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i:          ; preds = %318, %switch.early.test.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %switch.early.test.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.preheader.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %.lcssa.lcssa14.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %324, %.preheader.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %indvars.iv30.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %switch.early.test.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %indvars.iv30.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %switch.early.test.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %indvars.iv.next31.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %318 ]
-  %329 = getelementptr inbounds nuw i8, ptr @.str.52, i64 %.lcssa.lcssa14.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %329 = getelementptr inbounds i8, ptr @.str.52, i64 %.lcssa.lcssa14.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #29, !noalias !141
   %330 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %.noexc.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %349, !noalias !141
@@ -9234,7 +9234,7 @@ switch.early.test.us.i.i.i.i.i.i.i.i.i.i.i.i.i:   ; preds = %.preheader.us.i.i.i
 
 .split18.us.i.i.i.i.i.i.i.i.i.i.i.i.i:            ; preds = %363, %switch.early.test.us.i.i.i.i.i.i.i.i.i.i.i.i.i, %switch.early.test.us.i.i.i.i.i.i.i.i.i.i.i.i.i, %.preheader.us.i.i.i.i.i.i.i.i.i.i.i.i.i
   %.lcssa.lcssa14.us.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %369, %.preheader.us.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %indvars.iv.next31.i.i.i.i.i.i.i.i.i.i.i.i.i, %363 ], [ %indvars.iv30.i.i.i.i.i.i.i.i.i.i.i.i.i, %switch.early.test.us.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %indvars.iv30.i.i.i.i.i.i.i.i.i.i.i.i.i, %switch.early.test.us.i.i.i.i.i.i.i.i.i.i.i.i.i ]
-  %374 = getelementptr inbounds nuw i8, ptr @.str.54, i64 %.lcssa.lcssa14.us.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %374 = getelementptr inbounds i8, ptr @.str.54, i64 %.lcssa.lcssa14.us.i.i.i.i.i.i.i.i.i.i.i.i.i
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #29, !noalias !141
   %375 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %.noexc.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %394, !noalias !141

@@ -705,7 +705,7 @@ define void @_Z17low_ana_dih_transbPKcbS0_iPPfN3gmx8ArrayRefI7t_dlistEEiiS0_PiS1
   %60 = load i32, ptr %59, align 4
   %61 = tail call noundef i32 %_ZL10calc_RBbinfif._ZL9calc_Nbinfif(float noundef %58, i32 noundef %60, float noundef %13), !callees !11
   %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds nuw [4 x ptr], ptr %19, i64 0, i64 %62
+  %63 = getelementptr inbounds [4 x ptr], ptr %19, i64 0, i64 %62
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds nuw float, ptr %64, i64 %indvars.iv265
   %66 = load float, ptr %65, align 4
@@ -724,7 +724,7 @@ define void @_Z17low_ana_dih_transbPKcbS0_iPPfN3gmx8ArrayRefI7t_dlistEEiiS0_PiS1
   %73 = load i32, ptr %59, align 4
   %74 = tail call noundef i32 %_ZL10calc_RBbinfif._ZL9calc_Nbinfif(float noundef %72, i32 noundef %73, float noundef %13), !callees !11
   %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds nuw [4 x ptr], ptr %19, i64 0, i64 %75
+  %76 = getelementptr inbounds [4 x ptr], ptr %19, i64 0, i64 %75
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr inbounds nuw float, ptr %77, i64 %indvars.iv265
   %79 = load float, ptr %78, align 4

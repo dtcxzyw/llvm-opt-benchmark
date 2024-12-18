@@ -1916,25 +1916,25 @@ define hidden ptr @ir_reg_name(i8 noundef signext %0, i32 noundef %1) local_unna
 
 15:                                               ; preds = %11, %6
   %16 = sext i8 %0 to i64
-  %17 = getelementptr inbounds nuw [32 x ptr], ptr @_ir_reg_name, i64 0, i64 %16
+  %17 = getelementptr inbounds [32 x ptr], ptr @_ir_reg_name, i64 0, i64 %16
   %18 = load ptr, ptr %17, align 8
   br label %31
 
 19:                                               ; preds = %11
   %20 = sext i8 %0 to i64
-  %21 = getelementptr inbounds nuw [32 x ptr], ptr @_ir_reg_name32, i64 0, i64 %20
+  %21 = getelementptr inbounds [32 x ptr], ptr @_ir_reg_name32, i64 0, i64 %20
   %22 = load ptr, ptr %21, align 8
   br label %31
 
 23:                                               ; preds = %11
   %24 = sext i8 %0 to i64
-  %25 = getelementptr inbounds nuw [32 x ptr], ptr @_ir_reg_name16, i64 0, i64 %24
+  %25 = getelementptr inbounds [32 x ptr], ptr @_ir_reg_name16, i64 0, i64 %24
   %26 = load ptr, ptr %25, align 8
   br label %31
 
 27:                                               ; preds = %11
   %28 = sext i8 %0 to i64
-  %29 = getelementptr inbounds nuw [32 x ptr], ptr @_ir_reg_name8, i64 0, i64 %28
+  %29 = getelementptr inbounds [32 x ptr], ptr @_ir_reg_name8, i64 0, i64 %28
   %30 = load ptr, ptr %29, align 8
   br label %31
 
@@ -2924,7 +2924,7 @@ define internal fastcc i32 @ir_get_args_regs(ptr nocapture noundef readonly %0, 
 
 17:                                               ; preds = %15
   %18 = sext i32 %.03341 to i64
-  %19 = getelementptr inbounds nuw i8, ptr @_ir_int_reg_params, i64 %18
+  %19 = getelementptr inbounds i8, ptr @_ir_int_reg_params, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = trunc i64 %indvars.iv to i32
   %22 = add i32 %21, 1
@@ -2944,7 +2944,7 @@ define internal fastcc i32 @ir_get_args_regs(ptr nocapture noundef readonly %0, 
 
 28:                                               ; preds = %26
   %29 = sext i32 %.03440 to i64
-  %30 = getelementptr inbounds nuw i8, ptr @_ir_fp_reg_params, i64 %29
+  %30 = getelementptr inbounds i8, ptr @_ir_fp_reg_params, i64 %29
   %31 = load i8, ptr %30, align 1
   %32 = trunc i64 %indvars.iv to i32
   %33 = add i32 %32, 1
@@ -3043,7 +3043,7 @@ define internal fastcc signext i8 @ir_get_param_reg(ptr nocapture noundef readon
   %.02935.lcssa.sink = phi i32 [ %.02836, %27 ], [ %.02935, %32 ]
   %_ir_fp_reg_params.sink = phi ptr [ @_ir_int_reg_params, %27 ], [ @_ir_fp_reg_params, %32 ]
   %39 = sext i32 %.02935.lcssa.sink to i64
-  %40 = getelementptr inbounds nuw i8, ptr %_ir_fp_reg_params.sink, i64 %39
+  %40 = getelementptr inbounds i8, ptr %_ir_fp_reg_params.sink, i64 %39
   %41 = load i8, ptr %40, align 1
   br label %.loopexit
 
@@ -3377,7 +3377,7 @@ ir_preallocate_call_stack.exit:                   ; preds = %105, %._crit_edge.i
 
 156:                                              ; preds = %154
   %157 = sext i32 %.05568.i to i64
-  %158 = getelementptr inbounds nuw i8, ptr @_ir_int_reg_params, i64 %157
+  %158 = getelementptr inbounds i8, ptr @_ir_int_reg_params, i64 %157
   %159 = load i8, ptr %158, align 1
   br label %160
 
@@ -3392,7 +3392,7 @@ ir_preallocate_call_stack.exit:                   ; preds = %105, %._crit_edge.i
 
 164:                                              ; preds = %162
   %165 = sext i32 %.05767.i to i64
-  %166 = getelementptr inbounds nuw i8, ptr @_ir_fp_reg_params, i64 %165
+  %166 = getelementptr inbounds i8, ptr @_ir_fp_reg_params, i64 %165
   %167 = load i8, ptr %166, align 1
   br label %168
 
@@ -4533,7 +4533,7 @@ dasm_growpc.exit:                                 ; preds = %._crit_edge.i574, %
 
 586:                                              ; preds = %584
   %587 = sext i32 %.05070.i to i64
-  %588 = getelementptr inbounds nuw i8, ptr @_ir_int_reg_params, i64 %587
+  %588 = getelementptr inbounds i8, ptr @_ir_int_reg_params, i64 %587
   %589 = load i8, ptr %588, align 1
   br label %590
 
@@ -4548,7 +4548,7 @@ dasm_growpc.exit:                                 ; preds = %._crit_edge.i574, %
 
 594:                                              ; preds = %592
   %595 = sext i32 %.05369.i to i64
-  %596 = getelementptr inbounds nuw i8, ptr @_ir_fp_reg_params, i64 %595
+  %596 = getelementptr inbounds i8, ptr @_ir_fp_reg_params, i64 %595
   %597 = load i8, ptr %596, align 1
   br label %598
 
@@ -52666,7 +52666,7 @@ ir_call_used_stack.exit:                          ; preds = %46
 
 79:                                               ; preds = %77
   %80 = sext i32 %.0498642 to i64
-  %81 = getelementptr inbounds nuw i8, ptr @_ir_int_reg_params, i64 %80
+  %81 = getelementptr inbounds i8, ptr @_ir_int_reg_params, i64 %80
   %82 = load i8, ptr %81, align 1
   br label %83
 
@@ -52681,7 +52681,7 @@ ir_call_used_stack.exit:                          ; preds = %46
 
 87:                                               ; preds = %85
   %88 = sext i32 %.0502641 to i64
-  %89 = getelementptr inbounds nuw i8, ptr @_ir_fp_reg_params, i64 %88
+  %89 = getelementptr inbounds i8, ptr @_ir_fp_reg_params, i64 %88
   %90 = load i8, ptr %89, align 1
   br label %91
 
@@ -52831,7 +52831,7 @@ ir_emit_store_mem.exit:                           ; preds = %113, %112, %107
 
 151:                                              ; preds = %145
   %152 = sext i32 %.2500649 to i64
-  %153 = getelementptr inbounds nuw i8, ptr @_ir_int_reg_params, i64 %152
+  %153 = getelementptr inbounds i8, ptr @_ir_int_reg_params, i64 %152
   %154 = load i8, ptr %153, align 1
   %155 = add nsw i32 %.2500649, 1
   %156 = sext i8 %154 to i32
@@ -52840,7 +52840,7 @@ ir_emit_store_mem.exit:                           ; preds = %113, %112, %107
 
 .thread:                                          ; preds = %148
   %157 = sext i32 %.3505648 to i64
-  %158 = getelementptr inbounds nuw i8, ptr @_ir_fp_reg_params, i64 %157
+  %158 = getelementptr inbounds i8, ptr @_ir_fp_reg_params, i64 %157
   %159 = load i8, ptr %158, align 1
   %160 = add nsw i32 %.3505648, 1
   %.not575598 = icmp eq i8 %159, -1
@@ -53994,7 +53994,7 @@ ir_emit_mov.exit:                                 ; preds = %switch.lookup, %13
   %44 = shl nuw i32 1, %43
   %45 = or i32 %44, %.0146227
   %46 = sext i8 %40 to i64
-  %47 = getelementptr inbounds nuw i8, ptr %34, i64 %46
+  %47 = getelementptr inbounds i8, ptr %34, i64 %46
   store i8 %40, ptr %47, align 1
   %48 = sext i8 %42 to i64
   %49 = getelementptr inbounds i8, ptr %35, i64 %48
@@ -54098,7 +54098,7 @@ ir_emit_mov.exit203:                              ; preds = %switch.lookup5, %71
   %95 = getelementptr inbounds nuw i8, ptr %35, i64 %94
   %96 = load i8, ptr %95, align 1
   %97 = sext i8 %96 to i64
-  %98 = getelementptr inbounds nuw i8, ptr %34, i64 %97
+  %98 = getelementptr inbounds i8, ptr %34, i64 %97
   %99 = load i8, ptr %98, align 1
   %100 = getelementptr inbounds i8, ptr %36, i64 %97
   %101 = load i8, ptr %100, align 1
@@ -54207,7 +54207,7 @@ ir_emit_swap.exit:                                ; preds = %switch.lookup9, %14
   %155 = and i32 %131, %154
   %156 = getelementptr inbounds nuw i8, ptr %34, i64 %132
   store i8 %134, ptr %156, align 1
-  %157 = getelementptr inbounds nuw i8, ptr %34, i64 %135
+  %157 = getelementptr inbounds i8, ptr %34, i64 %135
   store i8 %129, ptr %157, align 1
   br label %.backedge
 
@@ -54258,7 +54258,7 @@ ir_emit_mov.exit214:                              ; preds = %switch.lookup13, %1
   %170 = getelementptr inbounds i8, ptr %35, i64 %169
   %171 = load i8, ptr %170, align 1
   %172 = sext i8 %171 to i64
-  %173 = getelementptr inbounds nuw i8, ptr %34, i64 %172
+  %173 = getelementptr inbounds i8, ptr %34, i64 %172
   %174 = load i8, ptr %173, align 1
   %175 = getelementptr inbounds i8, ptr %36, i64 %172
   %176 = load i8, ptr %175, align 1
@@ -56322,7 +56322,7 @@ ir_get_param_reg.exit:                            ; preds = %95, %100
   %.02935.lcssa.sink.i = phi i32 [ %.02836.i, %95 ], [ %.02935.i, %100 ]
   %_ir_fp_reg_params.sink.i = phi ptr [ @_ir_int_reg_params, %95 ], [ @_ir_fp_reg_params, %100 ]
   %107 = sext i32 %.02935.lcssa.sink.i to i64
-  %108 = getelementptr inbounds nuw i8, ptr %_ir_fp_reg_params.sink.i, i64 %107
+  %108 = getelementptr inbounds i8, ptr %_ir_fp_reg_params.sink.i, i64 %107
   %109 = load i8, ptr %108, align 1
   %110 = icmp eq i8 %109, -1
   br i1 %110, label %ir_get_param_reg.exit.thread, label %ir_match_has_mem_deps.exit

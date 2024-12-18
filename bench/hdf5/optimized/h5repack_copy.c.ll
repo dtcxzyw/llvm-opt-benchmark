@@ -668,7 +668,7 @@ switch.lookup:                                    ; preds = %317
   %322 = getelementptr inbounds nuw [5 x i32], ptr %11, i64 0, i64 %321
   %sext = shl i64 %indvars.iv, 32
   %323 = ashr exact i64 %sext, 32
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.copy_objects, i64 0, i64 %323
+  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table.copy_objects, i64 0, i64 %323
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %322, align 4
   %324 = getelementptr inbounds nuw [5 x i32], ptr %12, i64 0, i64 %321
@@ -5876,7 +5876,7 @@ define internal fastcc void @print_dataset_info(i64 noundef range(i64 0, -922337
   %17 = call i32 @H5Pget_filter2(i64 noundef %0, i32 noundef %.036, ptr noundef nonnull %9, ptr noundef nonnull %11, ptr noundef nonnull %10, i64 noundef 256, ptr noundef nonnull %12, ptr noundef null) #14
   %18 = icmp slt i32 %17, 0
   %strlen34 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8)
-  %endptr35 = getelementptr inbounds nuw i8, ptr %8, i64 %strlen34
+  %endptr35 = getelementptr inbounds i8, ptr %8, i64 %strlen34
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %.lr.ph

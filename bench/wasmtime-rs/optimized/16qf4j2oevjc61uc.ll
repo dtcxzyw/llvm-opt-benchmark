@@ -27714,7 +27714,7 @@ switch.lookup1435:                                ; preds = %301
 switch.lookup1438:                                ; preds = %781
   %switch.tableidx = add nsw i8 %trunc1292, -118
   %785 = sext i8 %switch.tableidx to i64
-  %switch.gep1439 = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10fits_in_1617h1be43d6933153e3bE", i64 0, i64 %785
+  %switch.gep1439 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10fits_in_1617h1be43d6933153e3bE", i64 0, i64 %785
   %switch.load1440 = load i32, ptr %switch.gep1439, align 4
   br label %_ZN17cranelift_codegen3isa3x643pcc10check_load17h6d58419052474314E.exit
 
@@ -36396,7 +36396,7 @@ define noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$c
   br i1 %11, label %12, label %15, !prof !579
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds nuw [0 x i32], ptr %4, i64 0, i64 %2
+  %13 = getelementptr inbounds [0 x i32], ptr %4, i64 0, i64 %2
   %14 = load i32, ptr %13, align 4, !noundef !4
   ret i32 %14
 

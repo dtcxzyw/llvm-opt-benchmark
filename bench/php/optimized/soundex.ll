@@ -87,14 +87,14 @@ define hidden void @zif_soundex(ptr noundef %0, ptr nocapture noundef writeonly 
 31:                                               ; preds = %29
   %32 = trunc nuw i32 %26 to i8
   %33 = add nsw i64 %27, -65
-  %34 = getelementptr inbounds nuw [26 x i8], ptr @zif_soundex.soundex_table, i64 0, i64 %33
+  %34 = getelementptr inbounds [26 x i8], ptr @zif_soundex.soundex_table, i64 0, i64 %33
   %35 = load i8, ptr %34, align 1
   %36 = sext i8 %35 to i64
   br label %48
 
 37:                                               ; preds = %29
   %38 = add nsw i64 %27, -65
-  %39 = getelementptr inbounds nuw [26 x i8], ptr @zif_soundex.soundex_table, i64 0, i64 %38
+  %39 = getelementptr inbounds [26 x i8], ptr @zif_soundex.soundex_table, i64 0, i64 %38
   %40 = load i8, ptr %39, align 1
   %41 = sext i8 %40 to i64
   %.not160 = icmp eq i64 %.0146185, %41

@@ -5296,10 +5296,10 @@ switch.lookup:                                    ; preds = %23, %23
   %36 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %37 = load i32, ptr %36, align 8
   %38 = sext i32 %37 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZNK12_GLOBAL__N_114X86MCInstLower20GetSymbolFromOperandERKN4llvm14MachineOperandE, i64 0, i64 %38
+  %switch.gep = getelementptr inbounds [8 x i64], ptr @switch.table._ZNK12_GLOBAL__N_114X86MCInstLower20GetSymbolFromOperandERKN4llvm14MachineOperandE, i64 0, i64 %38
   %switch.load = load i64, ptr %switch.gep, align 8
   %39 = sext i32 %37 to i64
-  %switch.gep95 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZNK12_GLOBAL__N_114X86MCInstLower20GetSymbolFromOperandERKN4llvm14MachineOperandE.13, i64 0, i64 %39
+  %switch.gep95 = getelementptr inbounds [8 x ptr], ptr @switch.table._ZNK12_GLOBAL__N_114X86MCInstLower20GetSymbolFromOperandERKN4llvm14MachineOperandE.13, i64 0, i64 %39
   %switch.load96 = load ptr, ptr %switch.gep95, align 8
   %40 = getelementptr inbounds nuw i8, ptr %switch.load96, i64 %switch.load
   call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(152) %5, ptr noundef nonnull %switch.load96, ptr noundef nonnull %40)

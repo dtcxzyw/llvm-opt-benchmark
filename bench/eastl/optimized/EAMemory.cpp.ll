@@ -1950,7 +1950,7 @@ while.end.i:                                      ; preds = %for.body.us.i, %whi
 while.body14.preheader.i:                         ; preds = %while.end.i
   %cmp10.i = icmp eq i64 %i.0.lcssa.i, 8
   %spec.store.select.i = select i1 %cmp10.i, i64 0, i64 %i.0.lcssa.i
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %c.addr, i64 %spec.store.select.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %c.addr, i64 %spec.store.select.i
   br label %while.body14.i
 
 while.body14.i:                                   ; preds = %while.body14.i, %while.body14.preheader.i

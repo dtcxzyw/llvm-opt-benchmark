@@ -2812,7 +2812,7 @@ if.then4.i:                                       ; preds = %if.else.i
   %vtable5.i = load ptr, ptr @_ZSt3cin, align 8
   %vbase.offset.ptr6.i = getelementptr i8, ptr %vtable5.i, i64 -24
   %vbase.offset7.i = load i64, ptr %vbase.offset.ptr6.i, align 8
-  %add.ptr8.i = getelementptr inbounds nuw i8, ptr @_ZSt3cin, i64 %vbase.offset7.i
+  %add.ptr8.i = getelementptr inbounds i8, ptr @_ZSt3cin, i64 %vbase.offset7.i
   call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr8.i, i32 noundef 0) #21
   store i32 0, ptr %call.i, align 4
   %call1.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZSt7getlineIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(16) @_ZSt3cin, ptr noundef nonnull align 8 dereferenceable(32) %line) #21

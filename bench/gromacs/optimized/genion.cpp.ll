@@ -1978,7 +1978,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %19, %22
   call void @_Z5rtrimPc(ptr noundef nonnull %9)
   %39 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #24
   %40 = add i64 %39, -1
-  %41 = getelementptr inbounds nuw [4096 x i8], ptr %9, i64 0, i64 %40
+  %41 = getelementptr inbounds [4096 x i8], ptr %9, i64 0, i64 %40
   %42 = load i8, ptr %41, align 1
   %43 = icmp eq i8 %42, 93
   br i1 %43, label %44, label %47

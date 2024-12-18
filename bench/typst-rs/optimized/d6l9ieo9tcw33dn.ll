@@ -13329,7 +13329,7 @@ common.resume.i:                                  ; preds = %44, %21
 
 switch.lookup:                                    ; preds = %27
   %41 = sext i32 %.sroa.011.0.copyload.i.i to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN4core3ops8function6FnOnce9call_once17h36e9678a2afe1f1cE, i64 0, i64 %41
+  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN4core3ops8function6FnOnce9call_once17h36e9678a2afe1f1cE, i64 0, i64 %41
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !2700
   store i64 0, ptr %5, align 8, !noalias !2700
@@ -42793,7 +42793,7 @@ define internal void @_ZN4time10formatting13format_number17h2d0fe2f5b59251beE(pt
   %22 = zext nneg i16 %21 to i64
   %23 = add i64 %.02838.i.i, -4
   %24 = getelementptr inbounds nuw i8, ptr @anon.a2b023d1a4e2834952d16152dce23780.170, i64 %19
-  %25 = getelementptr inbounds nuw i8, ptr %5, i64 %23
+  %25 = getelementptr inbounds i8, ptr %5, i64 %23
   %26 = load i16, ptr %24, align 1, !noalias !9333
   store i16 %26, ptr %25, align 1, !alias.scope !9330, !noalias !9313
   %27 = getelementptr inbounds nuw i8, ptr @anon.a2b023d1a4e2834952d16152dce23780.170, i64 %22
@@ -42812,7 +42812,7 @@ define internal void @_ZN4time10formatting13format_number17h2d0fe2f5b59251beE(pt
   %.zext37.i.i = zext nneg i16 %34 to i64
   %35 = add i64 %.028.lcssa.i.i, -2
   %36 = getelementptr inbounds nuw i8, ptr @anon.a2b023d1a4e2834952d16152dce23780.170, i64 %33
-  %37 = getelementptr inbounds nuw i8, ptr %5, i64 %35
+  %37 = getelementptr inbounds i8, ptr %5, i64 %35
   %38 = load i16, ptr %36, align 1, !noalias !9333
   store i16 %38, ptr %37, align 1, !alias.scope !9330, !noalias !9313
   br label %39
@@ -42827,7 +42827,7 @@ define internal void @_ZN4time10formatting13format_number17h2d0fe2f5b59251beE(pt
   %42 = shl nuw nsw i64 %.027.i.i, 1
   %43 = add i64 %.129.i.i, -2
   %44 = getelementptr inbounds nuw i8, ptr @anon.a2b023d1a4e2834952d16152dce23780.170, i64 %42
-  %45 = getelementptr inbounds nuw i8, ptr %5, i64 %43
+  %45 = getelementptr inbounds i8, ptr %5, i64 %43
   %46 = load i16, ptr %44, align 1, !noalias !9333
   store i16 %46, ptr %45, align 1, !alias.scope !9330, !noalias !9313
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h1fd863dcf43b9be6E.exit.i"
@@ -42835,7 +42835,7 @@ define internal void @_ZN4time10formatting13format_number17h2d0fe2f5b59251beE(pt
 47:                                               ; preds = %39
   %48 = add i64 %.129.i.i, -1
   %49 = trunc nuw nsw i64 %.027.i.i to i8
-  %50 = getelementptr inbounds nuw i8, ptr %5, i64 %48
+  %50 = getelementptr inbounds i8, ptr %5, i64 %48
   %51 = or disjoint i8 %49, 48
   store i8 %51, ptr %50, align 1, !alias.scope !9330, !noalias !9313
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h1fd863dcf43b9be6E.exit.i"
@@ -42887,7 +42887,7 @@ define internal void @_ZN4time10formatting13format_number17h2d0fe2f5b59251beE(pt
 
 _ZN4time10formatting23format_number_pad_space17h5d138c97d11a4fdeE.exit: ; preds = %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h1fd863dcf43b9be6E.exit.i", %58
   %78 = phi i64 [ %54, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h1fd863dcf43b9be6E.exit.i" ], [ %.pre.i.i.i.i.i, %58 ]
-  %79 = getelementptr inbounds nuw i8, ptr %5, i64 %.2.i.i
+  %79 = getelementptr inbounds i8, ptr %5, i64 %.2.i.i
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %81 = load ptr, ptr %80, align 8, !alias.scope !9350, !noalias !9345, !nonnull !4, !noundef !4
   %82 = getelementptr inbounds i8, ptr %81, i64 %78
@@ -43299,7 +43299,7 @@ define internal void @_ZN4time10formatting13format_number17hc4758b33635d0ff5E(pt
   %22 = zext nneg i16 %21 to i64
   %23 = add i64 %.02838.i.i, -4
   %24 = getelementptr inbounds nuw i8, ptr @anon.a2b023d1a4e2834952d16152dce23780.170, i64 %19
-  %25 = getelementptr inbounds nuw i8, ptr %5, i64 %23
+  %25 = getelementptr inbounds i8, ptr %5, i64 %23
   %26 = load i16, ptr %24, align 1, !noalias !9502
   store i16 %26, ptr %25, align 1, !alias.scope !9499, !noalias !9482
   %27 = getelementptr inbounds nuw i8, ptr @anon.a2b023d1a4e2834952d16152dce23780.170, i64 %22
@@ -43318,7 +43318,7 @@ define internal void @_ZN4time10formatting13format_number17hc4758b33635d0ff5E(pt
   %.zext37.i.i = zext nneg i16 %34 to i64
   %35 = add i64 %.028.lcssa.i.i, -2
   %36 = getelementptr inbounds nuw i8, ptr @anon.a2b023d1a4e2834952d16152dce23780.170, i64 %33
-  %37 = getelementptr inbounds nuw i8, ptr %5, i64 %35
+  %37 = getelementptr inbounds i8, ptr %5, i64 %35
   %38 = load i16, ptr %36, align 1, !noalias !9502
   store i16 %38, ptr %37, align 1, !alias.scope !9499, !noalias !9482
   br label %39
@@ -43333,7 +43333,7 @@ define internal void @_ZN4time10formatting13format_number17hc4758b33635d0ff5E(pt
   %42 = shl nuw nsw i64 %.027.i.i, 1
   %43 = add i64 %.129.i.i, -2
   %44 = getelementptr inbounds nuw i8, ptr @anon.a2b023d1a4e2834952d16152dce23780.170, i64 %42
-  %45 = getelementptr inbounds nuw i8, ptr %5, i64 %43
+  %45 = getelementptr inbounds i8, ptr %5, i64 %43
   %46 = load i16, ptr %44, align 1, !noalias !9502
   store i16 %46, ptr %45, align 1, !alias.scope !9499, !noalias !9482
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h1fd863dcf43b9be6E.exit.i"
@@ -43341,7 +43341,7 @@ define internal void @_ZN4time10formatting13format_number17hc4758b33635d0ff5E(pt
 47:                                               ; preds = %39
   %48 = add i64 %.129.i.i, -1
   %49 = trunc nuw nsw i64 %.027.i.i to i8
-  %50 = getelementptr inbounds nuw i8, ptr %5, i64 %48
+  %50 = getelementptr inbounds i8, ptr %5, i64 %48
   %51 = or disjoint i8 %49, 48
   store i8 %51, ptr %50, align 1, !alias.scope !9499, !noalias !9482
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h1fd863dcf43b9be6E.exit.i"
@@ -43393,7 +43393,7 @@ define internal void @_ZN4time10formatting13format_number17hc4758b33635d0ff5E(pt
 
 _ZN4time10formatting23format_number_pad_space17h052e01f9dbd8b50bE.exit: ; preds = %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h1fd863dcf43b9be6E.exit.i", %58
   %78 = phi i64 [ %54, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h1fd863dcf43b9be6E.exit.i" ], [ %.pre.i.i.i.i.i, %58 ]
-  %79 = getelementptr inbounds nuw i8, ptr %5, i64 %.2.i.i
+  %79 = getelementptr inbounds i8, ptr %5, i64 %.2.i.i
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %81 = load ptr, ptr %80, align 8, !alias.scope !9519, !noalias !9514, !nonnull !4, !noundef !4
   %82 = getelementptr inbounds i8, ptr %81, i64 %78
@@ -44484,7 +44484,7 @@ _ZN4time10formatting10fmt_period17hdd63c36390f775b0E.exit: ; preds = %440, %439,
   %478 = zext nneg i16 %477 to i64
   %479 = add i64 %.02838.i.i.i, -4
   %480 = getelementptr inbounds nuw i8, ptr @anon.a2b023d1a4e2834952d16152dce23780.170, i64 %475
-  %481 = getelementptr inbounds nuw i8, ptr %10, i64 %479
+  %481 = getelementptr inbounds i8, ptr %10, i64 %479
   %482 = load i16, ptr %480, align 1, !noalias !9867
   store i16 %482, ptr %481, align 1, !alias.scope !9864, !noalias !9847
   %483 = getelementptr inbounds nuw i8, ptr @anon.a2b023d1a4e2834952d16152dce23780.170, i64 %478
@@ -44503,7 +44503,7 @@ _ZN4time10formatting10fmt_period17hdd63c36390f775b0E.exit: ; preds = %440, %439,
   %.zext37.i.i.i = zext nneg i16 %490 to i64
   %491 = add i64 %.028.lcssa.i.i.i, -2
   %492 = getelementptr inbounds nuw i8, ptr @anon.a2b023d1a4e2834952d16152dce23780.170, i64 %489
-  %493 = getelementptr inbounds nuw i8, ptr %10, i64 %491
+  %493 = getelementptr inbounds i8, ptr %10, i64 %491
   %494 = load i16, ptr %492, align 1, !noalias !9867
   store i16 %494, ptr %493, align 1, !alias.scope !9864, !noalias !9847
   br label %495
@@ -44518,7 +44518,7 @@ _ZN4time10formatting10fmt_period17hdd63c36390f775b0E.exit: ; preds = %440, %439,
   %498 = shl nuw nsw i64 %.027.i.i.i, 1
   %499 = add i64 %.129.i.i.i, -2
   %500 = getelementptr inbounds nuw i8, ptr @anon.a2b023d1a4e2834952d16152dce23780.170, i64 %498
-  %501 = getelementptr inbounds nuw i8, ptr %10, i64 %499
+  %501 = getelementptr inbounds i8, ptr %10, i64 %499
   %502 = load i16, ptr %500, align 1, !noalias !9867
   store i16 %502, ptr %501, align 1, !alias.scope !9864, !noalias !9847
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h1fd863dcf43b9be6E.exit.i.i"
@@ -44526,7 +44526,7 @@ _ZN4time10formatting10fmt_period17hdd63c36390f775b0E.exit: ; preds = %440, %439,
 503:                                              ; preds = %495
   %504 = add i64 %.129.i.i.i, -1
   %505 = trunc nuw nsw i64 %.027.i.i.i to i8
-  %506 = getelementptr inbounds nuw i8, ptr %10, i64 %504
+  %506 = getelementptr inbounds i8, ptr %10, i64 %504
   %507 = or disjoint i8 %505, 48
   store i8 %507, ptr %506, align 1, !alias.scope !9864, !noalias !9847
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h1fd863dcf43b9be6E.exit.i.i"
@@ -44578,7 +44578,7 @@ _ZN4time10formatting10fmt_period17hdd63c36390f775b0E.exit: ; preds = %440, %439,
 
 _ZN4time10formatting22format_number_pad_zero17hb864f94e1be11cf7E.exit.i: ; preds = %514, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h1fd863dcf43b9be6E.exit.i.i"
   %533 = phi i64 [ %510, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h1fd863dcf43b9be6E.exit.i.i" ], [ %.pre.i.i.i.i.i.i, %514 ]
-  %534 = getelementptr inbounds nuw i8, ptr %10, i64 %.2.i.i.i
+  %534 = getelementptr inbounds i8, ptr %10, i64 %.2.i.i.i
   %535 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %536 = load ptr, ptr %535, align 8, !alias.scope !9884, !noalias !9879, !nonnull !4, !noundef !4
   %537 = getelementptr inbounds i8, ptr %536, i64 %533
@@ -44678,7 +44678,7 @@ _ZN4time10formatting22format_number_pad_zero17hb864f94e1be11cf7E.exit.i: ; preds
   %558 = zext nneg i16 %557 to i64
   %559 = add i64 %.02838.i.i43.i, -4
   %560 = getelementptr inbounds nuw i8, ptr @anon.a2b023d1a4e2834952d16152dce23780.170, i64 %555
-  %561 = getelementptr inbounds nuw i8, ptr %9, i64 %559
+  %561 = getelementptr inbounds i8, ptr %9, i64 %559
   %562 = load i16, ptr %560, align 1, !noalias !9915
   store i16 %562, ptr %561, align 1, !alias.scope !9912, !noalias !9895
   %563 = getelementptr inbounds nuw i8, ptr @anon.a2b023d1a4e2834952d16152dce23780.170, i64 %558
@@ -44697,7 +44697,7 @@ _ZN4time10formatting22format_number_pad_zero17hb864f94e1be11cf7E.exit.i: ; preds
   %.zext37.i.i40.i = zext nneg i16 %570 to i64
   %571 = add i64 %.028.lcssa.i.i32.i, -2
   %572 = getelementptr inbounds nuw i8, ptr @anon.a2b023d1a4e2834952d16152dce23780.170, i64 %569
-  %573 = getelementptr inbounds nuw i8, ptr %9, i64 %571
+  %573 = getelementptr inbounds i8, ptr %9, i64 %571
   %574 = load i16, ptr %572, align 1, !noalias !9915
   store i16 %574, ptr %573, align 1, !alias.scope !9912, !noalias !9895
   br label %575
@@ -44712,7 +44712,7 @@ _ZN4time10formatting22format_number_pad_zero17hb864f94e1be11cf7E.exit.i: ; preds
   %578 = shl nuw nsw i64 %.027.i.i35.i, 1
   %579 = add i64 %.129.i.i34.i, -2
   %580 = getelementptr inbounds nuw i8, ptr @anon.a2b023d1a4e2834952d16152dce23780.170, i64 %578
-  %581 = getelementptr inbounds nuw i8, ptr %9, i64 %579
+  %581 = getelementptr inbounds i8, ptr %9, i64 %579
   %582 = load i16, ptr %580, align 1, !noalias !9915
   store i16 %582, ptr %581, align 1, !alias.scope !9912, !noalias !9895
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h1fd863dcf43b9be6E.exit.i36.i"
@@ -44720,7 +44720,7 @@ _ZN4time10formatting22format_number_pad_zero17hb864f94e1be11cf7E.exit.i: ; preds
 583:                                              ; preds = %575
   %584 = add i64 %.129.i.i34.i, -1
   %585 = trunc nuw nsw i64 %.027.i.i35.i to i8
-  %586 = getelementptr inbounds nuw i8, ptr %9, i64 %584
+  %586 = getelementptr inbounds i8, ptr %9, i64 %584
   %587 = or disjoint i8 %585, 48
   store i8 %587, ptr %586, align 1, !alias.scope !9912, !noalias !9895
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h1fd863dcf43b9be6E.exit.i36.i"
@@ -44772,7 +44772,7 @@ _ZN4time10formatting22format_number_pad_zero17hb864f94e1be11cf7E.exit.i: ; preds
 
 _ZN4time10formatting22format_number_pad_zero17hc76bcf101b8062a1E.exit.i: ; preds = %594, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h1fd863dcf43b9be6E.exit.i36.i"
   %613 = phi i64 [ %590, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h1fd863dcf43b9be6E.exit.i36.i" ], [ %.pre.i.i.i.i.i38.i, %594 ]
-  %614 = getelementptr inbounds nuw i8, ptr %9, i64 %.2.i.i37.i
+  %614 = getelementptr inbounds i8, ptr %9, i64 %.2.i.i37.i
   %615 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %616 = load ptr, ptr %615, align 8, !alias.scope !9932, !noalias !9927, !nonnull !4, !noundef !4
   %617 = getelementptr inbounds i8, ptr %616, i64 %613
@@ -44866,7 +44866,7 @@ _ZN4time10formatting22format_number_pad_zero17hc76bcf101b8062a1E.exit.i: ; preds
   %658 = shl nuw nsw i64 %.027.i.i57.i, 1
   %659 = add nsw i64 %.129.i.i56.i, -2
   %660 = getelementptr inbounds nuw i8, ptr @anon.a2b023d1a4e2834952d16152dce23780.170, i64 %658
-  %661 = getelementptr inbounds nuw i8, ptr %8, i64 %659
+  %661 = getelementptr inbounds i8, ptr %8, i64 %659
   %662 = load i16, ptr %660, align 1, !noalias !9963
   store i16 %662, ptr %661, align 1, !alias.scope !9960, !noalias !9943
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h1fd863dcf43b9be6E.exit.i58.i"
@@ -44874,7 +44874,7 @@ _ZN4time10formatting22format_number_pad_zero17hc76bcf101b8062a1E.exit.i: ; preds
 663:                                              ; preds = %655
   %664 = add nsw i64 %.129.i.i56.i, -1
   %665 = trunc nuw nsw i64 %.027.i.i57.i to i8
-  %666 = getelementptr inbounds nuw i8, ptr %8, i64 %664
+  %666 = getelementptr inbounds i8, ptr %8, i64 %664
   %667 = or disjoint i8 %665, 48
   store i8 %667, ptr %666, align 1, !alias.scope !9960, !noalias !9943
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h1fd863dcf43b9be6E.exit.i58.i"
@@ -44926,7 +44926,7 @@ _ZN4time10formatting22format_number_pad_zero17hc76bcf101b8062a1E.exit.i: ; preds
 
 _ZN4time10formatting22format_number_pad_zero17h4b54b92de60d8288E.exit.i: ; preds = %674, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h1fd863dcf43b9be6E.exit.i58.i"
   %693 = phi i64 [ %670, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h1fd863dcf43b9be6E.exit.i58.i" ], [ %.pre.i.i.i.i.i60.i, %674 ]
-  %694 = getelementptr inbounds nuw i8, ptr %8, i64 %.2.i.i59.i
+  %694 = getelementptr inbounds i8, ptr %8, i64 %.2.i.i59.i
   %695 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %696 = load ptr, ptr %695, align 8, !alias.scope !9980, !noalias !9975, !nonnull !4, !noundef !4
   %697 = getelementptr inbounds i8, ptr %696, i64 %693
@@ -45320,7 +45320,7 @@ _ZN4time10formatting5write17hb0852041087e33f2E.exit38: ; preds = %35, %40
   %62 = zext nneg i16 %61 to i64
   %63 = add i64 %.02836.i.i, -4
   %64 = getelementptr inbounds nuw i8, ptr @anon.a2b023d1a4e2834952d16152dce23780.170, i64 %59
-  %65 = getelementptr inbounds nuw i8, ptr %8, i64 %63
+  %65 = getelementptr inbounds i8, ptr %8, i64 %63
   %66 = load i16, ptr %64, align 1, !noalias !10074
   store i16 %66, ptr %65, align 1, !alias.scope !10071, !noalias !10070
   %67 = getelementptr inbounds nuw i8, ptr @anon.a2b023d1a4e2834952d16152dce23780.170, i64 %62
@@ -45339,7 +45339,7 @@ _ZN4time10formatting5write17hb0852041087e33f2E.exit38: ; preds = %35, %40
   %.zext35.i.i = zext nneg i16 %74 to i64
   %75 = add i64 %.028.lcssa.i.i, -2
   %76 = getelementptr inbounds nuw i8, ptr @anon.a2b023d1a4e2834952d16152dce23780.170, i64 %73
-  %77 = getelementptr inbounds nuw i8, ptr %8, i64 %75
+  %77 = getelementptr inbounds i8, ptr %8, i64 %75
   %78 = load i16, ptr %76, align 1, !noalias !10074
   store i16 %78, ptr %77, align 1, !alias.scope !10071, !noalias !10070
   br label %79
@@ -45354,7 +45354,7 @@ _ZN4time10formatting5write17hb0852041087e33f2E.exit38: ; preds = %35, %40
   %82 = shl nuw nsw i64 %.027.i.i, 1
   %83 = add i64 %.129.i.i, -2
   %84 = getelementptr inbounds nuw i8, ptr @anon.a2b023d1a4e2834952d16152dce23780.170, i64 %82
-  %85 = getelementptr inbounds nuw i8, ptr %8, i64 %83
+  %85 = getelementptr inbounds i8, ptr %8, i64 %83
   %86 = load i16, ptr %84, align 1, !noalias !10074
   store i16 %86, ptr %85, align 1, !alias.scope !10071, !noalias !10070
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h8d801766e3402317E.exit.i"
@@ -45362,7 +45362,7 @@ _ZN4time10formatting5write17hb0852041087e33f2E.exit38: ; preds = %35, %40
 87:                                               ; preds = %79
   %88 = add i64 %.129.i.i, -1
   %89 = trunc nuw nsw i64 %.027.i.i to i8
-  %90 = getelementptr inbounds nuw i8, ptr %8, i64 %88
+  %90 = getelementptr inbounds i8, ptr %8, i64 %88
   %91 = or disjoint i8 %89, 48
   store i8 %91, ptr %90, align 1, !alias.scope !10071, !noalias !10070
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h8d801766e3402317E.exit.i"
@@ -45389,7 +45389,7 @@ _ZN4time10formatting5write17hb0852041087e33f2E.exit38: ; preds = %35, %40
 
 _ZN4time10formatting22format_number_pad_none17h591bcadf29e1fa09E.exit: ; preds = %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h8d801766e3402317E.exit.i", %98
   %102 = phi i64 [ %94, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h8d801766e3402317E.exit.i" ], [ %.pre.i.i.i.i.i, %98 ]
-  %103 = getelementptr inbounds nuw i8, ptr %8, i64 %.2.i.i
+  %103 = getelementptr inbounds i8, ptr %8, i64 %.2.i.i
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %105 = load ptr, ptr %104, align 8, !alias.scope !10093, !noalias !10089, !nonnull !4, !noundef !4
   %106 = getelementptr inbounds i8, ptr %105, i64 %102
@@ -45594,7 +45594,7 @@ _ZN4itoa7udiv12812udivmod_1e1917haafb7a50911f1a0aE.exit16.i: ; preds = %"_ZN4ito
   %88 = zext nneg i16 %87 to i64
   %89 = add i64 %.02836.i28.i, -4
   %90 = getelementptr inbounds nuw i8, ptr @anon.a2b023d1a4e2834952d16152dce23780.170, i64 %85
-  %91 = getelementptr inbounds nuw i8, ptr %4, i64 %89
+  %91 = getelementptr inbounds i8, ptr %4, i64 %89
   %92 = load i16, ptr %90, align 1, !noalias !10106
   store i16 %92, ptr %91, align 1, !alias.scope !10106
   %93 = getelementptr inbounds nuw i8, ptr @anon.a2b023d1a4e2834952d16152dce23780.170, i64 %88
@@ -45613,7 +45613,7 @@ _ZN4itoa7udiv12812udivmod_1e1917haafb7a50911f1a0aE.exit16.i: ; preds = %"_ZN4ito
   %.zext35.i25.i = zext nneg i16 %100 to i64
   %101 = add i64 %.028.lcssa.i19.i, -2
   %102 = getelementptr inbounds nuw i8, ptr @anon.a2b023d1a4e2834952d16152dce23780.170, i64 %99
-  %103 = getelementptr inbounds nuw i8, ptr %4, i64 %101
+  %103 = getelementptr inbounds i8, ptr %4, i64 %101
   %104 = load i16, ptr %102, align 1, !noalias !10106
   store i16 %104, ptr %103, align 1, !alias.scope !10106
   br label %105
@@ -45628,7 +45628,7 @@ _ZN4itoa7udiv12812udivmod_1e1917haafb7a50911f1a0aE.exit16.i: ; preds = %"_ZN4ito
   %108 = shl nuw nsw i64 %.027.i22.i, 1
   %109 = add i64 %.129.i21.i, -2
   %110 = getelementptr inbounds nuw i8, ptr @anon.a2b023d1a4e2834952d16152dce23780.170, i64 %108
-  %111 = getelementptr inbounds nuw i8, ptr %4, i64 %109
+  %111 = getelementptr inbounds i8, ptr %4, i64 %109
   %112 = load i16, ptr %110, align 1, !noalias !10106
   store i16 %112, ptr %111, align 1, !alias.scope !10106
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h8d801766e3402317E.exit31.i"
@@ -45636,7 +45636,7 @@ _ZN4itoa7udiv12812udivmod_1e1917haafb7a50911f1a0aE.exit16.i: ; preds = %"_ZN4ito
 113:                                              ; preds = %105
   %114 = add i64 %.129.i21.i, -1
   %115 = trunc nuw nsw i64 %.027.i22.i to i8
-  %116 = getelementptr inbounds nuw i8, ptr %4, i64 %114
+  %116 = getelementptr inbounds i8, ptr %4, i64 %114
   %117 = or disjoint i8 %115, 48
   store i8 %117, ptr %116, align 1, !alias.scope !10106
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h8d801766e3402317E.exit31.i"
@@ -45677,7 +45677,7 @@ _ZN4itoa7udiv12812udivmod_1e1917haafb7a50911f1a0aE.exit16.i: ; preds = %"_ZN4ito
 
 _ZN4time10formatting5write17hb0852041087e33f2E.exit: ; preds = %"_ZN4itoa56_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u128$GT$5write17h7b637938c19fcb24E.exit", %130
   %134 = phi i64 [ %126, %"_ZN4itoa56_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u128$GT$5write17h7b637938c19fcb24E.exit" ], [ %.pre.i.i.i.i, %130 ]
-  %135 = getelementptr inbounds nuw i8, ptr %4, i64 %.011.i
+  %135 = getelementptr inbounds i8, ptr %4, i64 %.011.i
   %136 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %137 = load ptr, ptr %136, align 8, !alias.scope !10125, !noalias !10121, !nonnull !4, !noundef !4
   %138 = getelementptr inbounds i8, ptr %137, i64 %134
@@ -45722,7 +45722,7 @@ define internal fastcc void @_ZN4time10formatting22format_number_pad_none17hf054
   %15 = zext nneg i16 %14 to i64
   %16 = add i64 %.02838.i, -4
   %17 = getelementptr inbounds nuw i8, ptr @anon.a2b023d1a4e2834952d16152dce23780.170, i64 %12
-  %18 = getelementptr inbounds nuw i8, ptr %4, i64 %16
+  %18 = getelementptr inbounds i8, ptr %4, i64 %16
   %19 = load i16, ptr %17, align 1, !noalias !10127
   store i16 %19, ptr %18, align 1, !alias.scope !10127
   %20 = getelementptr inbounds nuw i8, ptr @anon.a2b023d1a4e2834952d16152dce23780.170, i64 %15
@@ -45741,7 +45741,7 @@ define internal fastcc void @_ZN4time10formatting22format_number_pad_none17hf054
   %.zext37.i = zext nneg i16 %27 to i64
   %28 = add i64 %.028.lcssa.i, -2
   %29 = getelementptr inbounds nuw i8, ptr @anon.a2b023d1a4e2834952d16152dce23780.170, i64 %26
-  %30 = getelementptr inbounds nuw i8, ptr %4, i64 %28
+  %30 = getelementptr inbounds i8, ptr %4, i64 %28
   %31 = load i16, ptr %29, align 1, !noalias !10127
   store i16 %31, ptr %30, align 1, !alias.scope !10127
   br label %32
@@ -45756,7 +45756,7 @@ define internal fastcc void @_ZN4time10formatting22format_number_pad_none17hf054
   %35 = shl nuw nsw i64 %.027.i, 1
   %36 = add i64 %.129.i, -2
   %37 = getelementptr inbounds nuw i8, ptr @anon.a2b023d1a4e2834952d16152dce23780.170, i64 %35
-  %38 = getelementptr inbounds nuw i8, ptr %4, i64 %36
+  %38 = getelementptr inbounds i8, ptr %4, i64 %36
   %39 = load i16, ptr %37, align 1, !noalias !10127
   store i16 %39, ptr %38, align 1, !alias.scope !10127
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h1fd863dcf43b9be6E.exit"
@@ -45764,7 +45764,7 @@ define internal fastcc void @_ZN4time10formatting22format_number_pad_none17hf054
 40:                                               ; preds = %32
   %41 = add i64 %.129.i, -1
   %42 = trunc nuw nsw i64 %.027.i to i8
-  %43 = getelementptr inbounds nuw i8, ptr %4, i64 %41
+  %43 = getelementptr inbounds i8, ptr %4, i64 %41
   %44 = or disjoint i8 %42, 48
   store i8 %44, ptr %43, align 1, !alias.scope !10127
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h1fd863dcf43b9be6E.exit"
@@ -45791,7 +45791,7 @@ define internal fastcc void @_ZN4time10formatting22format_number_pad_none17hf054
 
 _ZN4time10formatting5write17hb0852041087e33f2E.exit: ; preds = %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h1fd863dcf43b9be6E.exit", %51
   %55 = phi i64 [ %47, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h1fd863dcf43b9be6E.exit" ], [ %.pre.i.i.i.i, %51 ]
-  %56 = getelementptr inbounds nuw i8, ptr %4, i64 %.2.i
+  %56 = getelementptr inbounds i8, ptr %4, i64 %.2.i
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %58 = load ptr, ptr %57, align 8, !alias.scope !10148, !noalias !10144, !nonnull !4, !noundef !4
   %59 = getelementptr inbounds i8, ptr %58, i64 %55
@@ -45849,7 +45849,7 @@ define internal fastcc void @_ZN4time10formatting22format_number_pad_zero17h36df
   %19 = zext nneg i16 %18 to i64
   %20 = add i64 %.02838.i, -4
   %21 = getelementptr inbounds nuw i8, ptr @anon.a2b023d1a4e2834952d16152dce23780.170, i64 %16
-  %22 = getelementptr inbounds nuw i8, ptr %4, i64 %20
+  %22 = getelementptr inbounds i8, ptr %4, i64 %20
   %23 = load i16, ptr %21, align 1, !noalias !10166
   store i16 %23, ptr %22, align 1, !alias.scope !10166
   %24 = getelementptr inbounds nuw i8, ptr @anon.a2b023d1a4e2834952d16152dce23780.170, i64 %19
@@ -45868,7 +45868,7 @@ define internal fastcc void @_ZN4time10formatting22format_number_pad_zero17h36df
   %.zext37.i = zext nneg i16 %31 to i64
   %32 = add i64 %.028.lcssa.i, -2
   %33 = getelementptr inbounds nuw i8, ptr @anon.a2b023d1a4e2834952d16152dce23780.170, i64 %30
-  %34 = getelementptr inbounds nuw i8, ptr %4, i64 %32
+  %34 = getelementptr inbounds i8, ptr %4, i64 %32
   %35 = load i16, ptr %33, align 1, !noalias !10166
   store i16 %35, ptr %34, align 1, !alias.scope !10166
   br label %36
@@ -45883,7 +45883,7 @@ define internal fastcc void @_ZN4time10formatting22format_number_pad_zero17h36df
   %39 = shl nuw nsw i64 %.027.i, 1
   %40 = add i64 %.129.i, -2
   %41 = getelementptr inbounds nuw i8, ptr @anon.a2b023d1a4e2834952d16152dce23780.170, i64 %39
-  %42 = getelementptr inbounds nuw i8, ptr %4, i64 %40
+  %42 = getelementptr inbounds i8, ptr %4, i64 %40
   %43 = load i16, ptr %41, align 1, !noalias !10166
   store i16 %43, ptr %42, align 1, !alias.scope !10166
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h1fd863dcf43b9be6E.exit"
@@ -45891,7 +45891,7 @@ define internal fastcc void @_ZN4time10formatting22format_number_pad_zero17h36df
 44:                                               ; preds = %36
   %45 = add i64 %.129.i, -1
   %46 = trunc nuw nsw i64 %.027.i to i8
-  %47 = getelementptr inbounds nuw i8, ptr %4, i64 %45
+  %47 = getelementptr inbounds i8, ptr %4, i64 %45
   %48 = or disjoint i8 %46, 48
   store i8 %48, ptr %47, align 1, !alias.scope !10166
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h1fd863dcf43b9be6E.exit"
@@ -45933,7 +45933,7 @@ define internal fastcc void @_ZN4time10formatting22format_number_pad_zero17h36df
 
 68:                                               ; preds = %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h1fd863dcf43b9be6E.exit", %55
   %69 = phi i64 [ %51, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h1fd863dcf43b9be6E.exit" ], [ %.pre.i.i.i.i, %55 ]
-  %70 = getelementptr inbounds nuw i8, ptr %4, i64 %.2.i
+  %70 = getelementptr inbounds i8, ptr %4, i64 %.2.i
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %72 = load ptr, ptr %71, align 8, !alias.scope !10185, !noalias !10180, !nonnull !4, !noundef !4
   %73 = getelementptr inbounds i8, ptr %72, i64 %69
@@ -46154,7 +46154,7 @@ define internal fastcc void @_ZN4time10formatting22format_number_pad_zero17h7713
   %37 = shl nuw nsw i64 %.027.i, 1
   %38 = add nsw i64 %.129.i, -2
   %39 = getelementptr inbounds nuw i8, ptr @anon.a2b023d1a4e2834952d16152dce23780.170, i64 %37
-  %40 = getelementptr inbounds nuw i8, ptr %4, i64 %38
+  %40 = getelementptr inbounds i8, ptr %4, i64 %38
   %41 = load i16, ptr %39, align 1, !noalias !10244
   store i16 %41, ptr %40, align 1, !alias.scope !10244
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h1fd863dcf43b9be6E.exit"
@@ -46162,7 +46162,7 @@ define internal fastcc void @_ZN4time10formatting22format_number_pad_zero17h7713
 42:                                               ; preds = %34
   %43 = add nsw i64 %.129.i, -1
   %44 = trunc nuw nsw i64 %.027.i to i8
-  %45 = getelementptr inbounds nuw i8, ptr %4, i64 %43
+  %45 = getelementptr inbounds i8, ptr %4, i64 %43
   %46 = or disjoint i8 %44, 48
   store i8 %46, ptr %45, align 1, !alias.scope !10244
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h1fd863dcf43b9be6E.exit"
@@ -46204,7 +46204,7 @@ define internal fastcc void @_ZN4time10formatting22format_number_pad_zero17h7713
 
 66:                                               ; preds = %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h1fd863dcf43b9be6E.exit", %53
   %67 = phi i64 [ %49, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h1fd863dcf43b9be6E.exit" ], [ %.pre.i.i.i.i, %53 ]
-  %68 = getelementptr inbounds nuw i8, ptr %4, i64 %.2.i
+  %68 = getelementptr inbounds i8, ptr %4, i64 %.2.i
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %70 = load ptr, ptr %69, align 8, !alias.scope !10263, !noalias !10258, !nonnull !4, !noundef !4
   %71 = getelementptr inbounds i8, ptr %70, i64 %67
@@ -46303,7 +46303,7 @@ define internal fastcc void @_ZN4time10formatting22format_number_pad_zero17h9741
   %37 = shl nuw nsw i64 %.027.i, 1
   %38 = add nsw i64 %.129.i, -2
   %39 = getelementptr inbounds nuw i8, ptr @anon.a2b023d1a4e2834952d16152dce23780.170, i64 %37
-  %40 = getelementptr inbounds nuw i8, ptr %4, i64 %38
+  %40 = getelementptr inbounds i8, ptr %4, i64 %38
   %41 = load i16, ptr %39, align 1, !noalias !10283
   store i16 %41, ptr %40, align 1, !alias.scope !10283
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h1fd863dcf43b9be6E.exit"
@@ -46311,7 +46311,7 @@ define internal fastcc void @_ZN4time10formatting22format_number_pad_zero17h9741
 42:                                               ; preds = %34
   %43 = add nsw i64 %.129.i, -1
   %44 = trunc nuw nsw i64 %.027.i to i8
-  %45 = getelementptr inbounds nuw i8, ptr %4, i64 %43
+  %45 = getelementptr inbounds i8, ptr %4, i64 %43
   %46 = or disjoint i8 %44, 48
   store i8 %46, ptr %45, align 1, !alias.scope !10283
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h1fd863dcf43b9be6E.exit"
@@ -46353,7 +46353,7 @@ define internal fastcc void @_ZN4time10formatting22format_number_pad_zero17h9741
 
 66:                                               ; preds = %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h1fd863dcf43b9be6E.exit", %53
   %67 = phi i64 [ %49, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h1fd863dcf43b9be6E.exit" ], [ %.pre.i.i.i.i, %53 ]
-  %68 = getelementptr inbounds nuw i8, ptr %4, i64 %.2.i
+  %68 = getelementptr inbounds i8, ptr %4, i64 %.2.i
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %70 = load ptr, ptr %69, align 8, !alias.scope !10302, !noalias !10297, !nonnull !4, !noundef !4
   %71 = getelementptr inbounds i8, ptr %70, i64 %67
@@ -46423,7 +46423,7 @@ define internal fastcc void @_ZN4time10formatting22format_number_pad_zero17he591
   %19 = zext nneg i16 %18 to i64
   %20 = add i64 %.02838.i, -4
   %21 = getelementptr inbounds nuw i8, ptr @anon.a2b023d1a4e2834952d16152dce23780.170, i64 %16
-  %22 = getelementptr inbounds nuw i8, ptr %4, i64 %20
+  %22 = getelementptr inbounds i8, ptr %4, i64 %20
   %23 = load i16, ptr %21, align 1, !noalias !10322
   store i16 %23, ptr %22, align 1, !alias.scope !10322
   %24 = getelementptr inbounds nuw i8, ptr @anon.a2b023d1a4e2834952d16152dce23780.170, i64 %19
@@ -46442,7 +46442,7 @@ define internal fastcc void @_ZN4time10formatting22format_number_pad_zero17he591
   %.zext37.i = zext nneg i16 %31 to i64
   %32 = add i64 %.028.lcssa.i, -2
   %33 = getelementptr inbounds nuw i8, ptr @anon.a2b023d1a4e2834952d16152dce23780.170, i64 %30
-  %34 = getelementptr inbounds nuw i8, ptr %4, i64 %32
+  %34 = getelementptr inbounds i8, ptr %4, i64 %32
   %35 = load i16, ptr %33, align 1, !noalias !10322
   store i16 %35, ptr %34, align 1, !alias.scope !10322
   br label %36
@@ -46457,7 +46457,7 @@ define internal fastcc void @_ZN4time10formatting22format_number_pad_zero17he591
   %39 = shl nuw nsw i64 %.027.i, 1
   %40 = add i64 %.129.i, -2
   %41 = getelementptr inbounds nuw i8, ptr @anon.a2b023d1a4e2834952d16152dce23780.170, i64 %39
-  %42 = getelementptr inbounds nuw i8, ptr %4, i64 %40
+  %42 = getelementptr inbounds i8, ptr %4, i64 %40
   %43 = load i16, ptr %41, align 1, !noalias !10322
   store i16 %43, ptr %42, align 1, !alias.scope !10322
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h1fd863dcf43b9be6E.exit"
@@ -46465,7 +46465,7 @@ define internal fastcc void @_ZN4time10formatting22format_number_pad_zero17he591
 44:                                               ; preds = %36
   %45 = add i64 %.129.i, -1
   %46 = trunc nuw nsw i64 %.027.i to i8
-  %47 = getelementptr inbounds nuw i8, ptr %4, i64 %45
+  %47 = getelementptr inbounds i8, ptr %4, i64 %45
   %48 = or disjoint i8 %46, 48
   store i8 %48, ptr %47, align 1, !alias.scope !10322
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h1fd863dcf43b9be6E.exit"
@@ -46507,7 +46507,7 @@ define internal fastcc void @_ZN4time10formatting22format_number_pad_zero17he591
 
 68:                                               ; preds = %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h1fd863dcf43b9be6E.exit", %55
   %69 = phi i64 [ %51, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h1fd863dcf43b9be6E.exit" ], [ %.pre.i.i.i.i, %55 ]
-  %70 = getelementptr inbounds nuw i8, ptr %4, i64 %.2.i
+  %70 = getelementptr inbounds i8, ptr %4, i64 %.2.i
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %72 = load ptr, ptr %71, align 8, !alias.scope !10341, !noalias !10336, !nonnull !4, !noundef !4
   %73 = getelementptr inbounds i8, ptr %72, i64 %69
@@ -64667,7 +64667,7 @@ _ZN5typst4math8fragment13GlyphFragment3new17ha82d380105918fa6E.exit399: ; preds 
 define hidden noundef range(i32 40, 8215) i32 @_ZN5typst4math6matrix9Delimiter4open17hb57fac189785d6efE(i8 noundef %0) unnamed_addr #5 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN5typst4math6matrix9Delimiter4open17hb57fac189785d6efE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZN5typst4math6matrix9Delimiter4open17hb57fac189785d6efE, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -64676,7 +64676,7 @@ switch.lookup:
 define hidden noundef range(i32 41, 8215) i32 @_ZN5typst4math6matrix9Delimiter5close17hd4ea37fcf7a6cf01E(i8 noundef %0) unnamed_addr #5 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN5typst4math6matrix9Delimiter5close17hd4ea37fcf7a6cf01E, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZN5typst4math6matrix9Delimiter5close17hd4ea37fcf7a6cf01E, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -79470,7 +79470,7 @@ define void @"_ZN90_$LT$typst..text..font..variant..FontStretch$u20$as$u20$typst
 define noundef range(i16 500, 2001) i16 @"_ZN115_$LT$typst..text..font..variant..FontStretch$u20$as$u20$core..convert..From$LT$usvg_tree..text..FontStretch$GT$$GT$4from17hbd00d5a705abbe53E"(i8 noundef %0) unnamed_addr #5 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i16], ptr @"switch.table._ZN115_$LT$typst..text..font..variant..FontStretch$u20$as$u20$core..convert..From$LT$usvg_tree..text..FontStretch$GT$$GT$4from17hbd00d5a705abbe53E", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [9 x i16], ptr @"switch.table._ZN115_$LT$typst..text..font..variant..FontStretch$u20$as$u20$core..convert..From$LT$usvg_tree..text..FontStretch$GT$$GT$4from17hbd00d5a705abbe53E", i64 0, i64 %1
   %switch.load = load i16, ptr %switch.gep, align 2
   ret i16 %switch.load
 }
@@ -114188,10 +114188,10 @@ define internal fastcc void @"_ZN75_$LT$typst..layout..sides..Sides$LT$T$GT$$u20
 define { ptr, i64 } @_ZN5typst4math6attach1_6Fields6to_str17haa7c833df9c0b1c5E(i8 noundef %0) unnamed_addr #5 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @"switch.table._ZN69_$LT$typst..math..attach.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17he953de5f6f20d384E", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [7 x ptr], ptr @"switch.table._ZN69_$LT$typst..math..attach.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17he953de5f6f20d384E", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw [7 x i64], ptr @"switch.table._ZN69_$LT$typst..math..attach.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17he953de5f6f20d384E.772", i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds [7 x i64], ptr @"switch.table._ZN69_$LT$typst..math..attach.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17he953de5f6f20d384E.772", i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -124912,10 +124912,10 @@ define void @"_ZN5typst4math4frac1_94_$LT$impl$u20$typst..foundations..cast..Int
 define { ptr, i64 } @_ZN5typst4math6matrix1_6Fields6to_str17h7866851df4c85168E(i8 noundef %0) unnamed_addr #5 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN69_$LT$typst..math..matrix.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h4ebfb5950324d3b3E", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN69_$LT$typst..math..matrix.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h4ebfb5950324d3b3E", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN69_$LT$typst..math..matrix.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h4ebfb5950324d3b3E.774", i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds [3 x i64], ptr @"switch.table._ZN69_$LT$typst..math..matrix.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h4ebfb5950324d3b3E.774", i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -127160,10 +127160,10 @@ define void @"_ZN5typst4math6matrix1_94_$LT$impl$u20$typst..foundations..cast..I
 define { ptr, i64 } @_ZN5typst4math6matrix1_6Fields6to_str17h6d09f06817266692E(i8 noundef %0) unnamed_addr #5 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN69_$LT$typst..math..matrix.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h2c321388cd376e7cE", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [5 x ptr], ptr @"switch.table._ZN69_$LT$typst..math..matrix.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h2c321388cd376e7cE", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN69_$LT$typst..math..matrix.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h2c321388cd376e7cE.776", i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds [5 x i64], ptr @"switch.table._ZN69_$LT$typst..math..matrix.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h2c321388cd376e7cE.776", i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -131755,10 +131755,10 @@ define void @"_ZN5typst4math6matrix1_94_$LT$impl$u20$typst..foundations..cast..I
 define { ptr, i64 } @_ZN5typst4math6matrix1_6Fields6to_str17hbf684b38307b42e9E(i8 noundef %0) unnamed_addr #5 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN69_$LT$typst..math..matrix.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h74eb21178e143051E", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @"switch.table._ZN69_$LT$typst..math..matrix.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h74eb21178e143051E", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN69_$LT$typst..math..matrix.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h74eb21178e143051E.778", i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds [4 x i64], ptr @"switch.table._ZN69_$LT$typst..math..matrix.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h74eb21178e143051E.778", i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -134609,10 +134609,10 @@ common.resume:                                    ; preds = %.body, %17
 define { ptr, i64 } @_ZN5typst5model5terms1_6Fields6to_str17h44bf2fe7dbb1f8c7E(i8 noundef %0) unnamed_addr #5 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @"switch.table._ZN69_$LT$typst..model..terms.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hd8dc6bf7c416cbb3E", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [6 x ptr], ptr @"switch.table._ZN69_$LT$typst..model..terms.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hd8dc6bf7c416cbb3E", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw [6 x i64], ptr @"switch.table._ZN69_$LT$typst..model..terms.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hd8dc6bf7c416cbb3E.780", i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds [6 x i64], ptr @"switch.table._ZN69_$LT$typst..model..terms.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hd8dc6bf7c416cbb3E.780", i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -139974,10 +139974,10 @@ define noundef nonnull align 8 ptr @"_ZN81_$LT$typst..text..case..upper$u20$as$u
 define { ptr, i64 } @_ZN5typst4text4deco1_6Fields6to_str17hfcf81cce1ab763e6E(i8 noundef %0) unnamed_addr #5 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @"switch.table._ZN67_$LT$typst..text..deco.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h4ce166c3118f4d8eE", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [6 x ptr], ptr @"switch.table._ZN67_$LT$typst..text..deco.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h4ce166c3118f4d8eE", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw [6 x i64], ptr @"switch.table._ZN67_$LT$typst..text..deco.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h4ce166c3118f4d8eE.784", i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds [6 x i64], ptr @"switch.table._ZN67_$LT$typst..text..deco.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h4ce166c3118f4d8eE.784", i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -143969,10 +143969,10 @@ define void @"_ZN5typst4text4deco1_98_$LT$impl$u20$typst..foundations..cast..Int
 define { ptr, i64 } @_ZN5typst4text4deco1_6Fields6to_str17hdef773a4451765bcE(i8 noundef %0) unnamed_addr #5 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @"switch.table._ZN67_$LT$typst..text..deco.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h4ce166c3118f4d8eE", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [6 x ptr], ptr @"switch.table._ZN67_$LT$typst..text..deco.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h4ce166c3118f4d8eE", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw [6 x i64], ptr @"switch.table._ZN67_$LT$typst..text..deco.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h4ce166c3118f4d8eE.784", i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds [6 x i64], ptr @"switch.table._ZN67_$LT$typst..text..deco.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h4ce166c3118f4d8eE.784", i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -147964,10 +147964,10 @@ define void @"_ZN5typst4text4deco1_97_$LT$impl$u20$typst..foundations..cast..Int
 define { ptr, i64 } @_ZN5typst4text4deco1_6Fields6to_str17hd49c3234cea84cb7E(i8 noundef %0) unnamed_addr #5 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN67_$LT$typst..text..deco.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hf22c616f9da37229E", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [5 x ptr], ptr @"switch.table._ZN67_$LT$typst..text..deco.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hf22c616f9da37229E", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN67_$LT$typst..text..deco.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hf22c616f9da37229E.786", i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds [5 x i64], ptr @"switch.table._ZN67_$LT$typst..text..deco.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hf22c616f9da37229E.786", i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -151533,10 +151533,10 @@ define void @"_ZN5typst4text4deco1_95_$LT$impl$u20$typst..foundations..cast..Int
 define { ptr, i64 } @_ZN5typst4text4deco1_6Fields6to_str17h1b311ec0c1e508feE(i8 noundef %0) unnamed_addr #5 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @"switch.table._ZN67_$LT$typst..text..deco.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hffa4044029f91650E", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [7 x ptr], ptr @"switch.table._ZN67_$LT$typst..text..deco.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hffa4044029f91650E", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw [7 x i64], ptr @"switch.table._ZN67_$LT$typst..text..deco.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hffa4044029f91650E.788", i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds [7 x i64], ptr @"switch.table._ZN67_$LT$typst..text..deco.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hffa4044029f91650E.788", i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -156785,10 +156785,10 @@ define internal fastcc noundef zeroext i1 @"_ZN64_$LT$typst..text..BottomEdge$u2
 define { ptr, i64 } @_ZN5typst9visualize4line1_6Fields6to_str17h42c19611628e22d7E(i8 noundef %0) unnamed_addr #5 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN72_$LT$typst..visualize..line.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hd62c25bc2f5bd156E", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [5 x ptr], ptr @"switch.table._ZN72_$LT$typst..visualize..line.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hd62c25bc2f5bd156E", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN72_$LT$typst..visualize..line.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hd62c25bc2f5bd156E.791", i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds [5 x i64], ptr @"switch.table._ZN72_$LT$typst..visualize..line.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hd62c25bc2f5bd156E.791", i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -162322,7 +162322,7 @@ default.unreachable12:                            ; preds = %33, %22
 define { ptr, i64 } @_ZN5typst9visualize7polygon1_6Fields6to_str17ha31e1f560d48776bE(i8 noundef %0) unnamed_addr #5 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN75_$LT$typst..visualize..polygon.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h0d67ed5b291cc107E", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN75_$LT$typst..visualize..polygon.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h0d67ed5b291cc107E", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %switch.idx.cast = zext i8 %0 to i64
   %switch.idx.mult = shl nuw nsw i64 %switch.idx.cast, 1
@@ -166943,7 +166943,7 @@ define void @"_ZN91_$LT$typst..visualize..color..ColorSpace$u20$as$u20$typst..fo
 switch.lookup:
   %2 = alloca { i64, [1 x i64] }, align 8
   %3 = sext i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @"switch.table._ZN91_$LT$typst..visualize..color..ColorSpace$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17hc7a60c44e8317284E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds [8 x ptr], ptr @"switch.table._ZN91_$LT$typst..visualize..color..ColorSpace$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17hc7a60c44e8317284E", i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !35719)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !35722
@@ -176165,10 +176165,10 @@ define void @"_ZN93_$LT$typst..text..font..variant..FontStyle$u20$as$u20$typst..
 switch.lookup:
   %2 = alloca [15 x i8], align 8
   %3 = sext i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN93_$LT$typst..text..font..variant..FontStyle$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17hbb6d3c84dacf724eE", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN93_$LT$typst..text..font..variant..FontStyle$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17hbb6d3c84dacf724eE", i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = sext i8 %1 to i64
-  %switch.gep1 = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN93_$LT$typst..text..font..variant..FontStyle$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17hbb6d3c84dacf724eE.792", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds [3 x i64], ptr @"switch.table._ZN93_$LT$typst..text..font..variant..FontStyle$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17hbb6d3c84dacf724eE.792", i64 0, i64 %4
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !37107)
   call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %2)
@@ -178877,10 +178877,10 @@ define void @"_ZN86_$LT$typst..math..matrix..Delimiter$u20$as$u20$typst..foundat
 switch.lookup:
   %2 = alloca [15 x i8], align 8
   %3 = sext i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN86_$LT$typst..math..matrix..Delimiter$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h42edd9e578570f2dE", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds [5 x ptr], ptr @"switch.table._ZN86_$LT$typst..math..matrix..Delimiter$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h42edd9e578570f2dE", i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = sext i8 %1 to i64
-  %switch.gep1 = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN86_$LT$typst..math..matrix..Delimiter$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h42edd9e578570f2dE.793", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds [5 x i64], ptr @"switch.table._ZN86_$LT$typst..math..matrix..Delimiter$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h42edd9e578570f2dE.793", i64 0, i64 %4
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !37595)
   call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %2)

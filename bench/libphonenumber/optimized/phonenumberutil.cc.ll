@@ -5533,7 +5533,7 @@ _ZNKSt16reverse_iteratorIN4i18n12phonenumbers11UnicodeText14const_iteratorEE4bas
 34:                                               ; preds = %.noexc15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %35 = sext i32 %33 to i64
-  %36 = getelementptr inbounds nuw [5 x i8], ptr %6, i64 0, i64 %35
+  %36 = getelementptr inbounds [5 x i8], ptr %6, i64 0, i64 %35
   store i8 0, ptr %36, align 1
   %37 = load ptr, ptr %27, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 592
@@ -5548,7 +5548,7 @@ _ZNKSt16reverse_iteratorIN4i18n12phonenumbers11UnicodeText14const_iteratorEE4bas
 
 .noexc18:                                         ; preds = %.noexc17
   %41 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #27
-  %42 = getelementptr inbounds nuw i8, ptr %6, i64 %41
+  %42 = getelementptr inbounds i8, ptr %6, i64 %41
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull %6, ptr noundef nonnull %42)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %43
 
@@ -15500,7 +15500,7 @@ define dso_local void @_ZNK4i18n12phonenumbers15PhoneNumberUtil21ExtractPossible
 
 33:                                               ; preds = %31
   %34 = sext i32 %32 to i64
-  %35 = getelementptr inbounds nuw [5 x i8], ptr %5, i64 0, i64 %34
+  %35 = getelementptr inbounds [5 x i8], ptr %5, i64 0, i64 %34
   store i8 0, ptr %35, align 1
   %36 = load ptr, ptr %26, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 576
@@ -15515,7 +15515,7 @@ define dso_local void @_ZNK4i18n12phonenumbers15PhoneNumberUtil21ExtractPossible
 
 .noexc17:                                         ; preds = %.noexc
   %40 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #27
-  %41 = getelementptr inbounds nuw i8, ptr %5, i64 %40
+  %41 = getelementptr inbounds i8, ptr %5, i64 %40
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull %5, ptr noundef nonnull %41)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %42
 

@@ -2252,7 +2252,7 @@ if.then44:                                        ; preds = %for.body
   br i1 %tobool47.not, label %if.then48, label %if.else
 
 if.then48:                                        ; preds = %if.then44
-  %arrayidx49 = getelementptr inbounds nuw [2048 x i8], ptr %temp, i64 0, i64 %len.048
+  %arrayidx49 = getelementptr inbounds [2048 x i8], ptr %temp, i64 0, i64 %len.048
   %sub50 = sub i64 2048, %len.048
   %call52 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %arrayidx49, i64 noundef %sub50, ptr noundef nonnull @.str.101, i32 noundef 0, ptr noundef %8) #10
   %conv53 = sext i32 %call52 to i64
@@ -2263,7 +2263,7 @@ if.else:                                          ; preds = %if.then44
   %sub.ptr.lhs.cast56 = ptrtoint ptr %call46 to i64
   %sub.ptr.rhs.cast57 = ptrtoint ptr %8 to i64
   %sub.ptr.sub58 = sub i64 %sub.ptr.lhs.cast56, %sub.ptr.rhs.cast57
-  %arrayidx59 = getelementptr inbounds nuw [2048 x i8], ptr %temp, i64 0, i64 %len.048
+  %arrayidx59 = getelementptr inbounds [2048 x i8], ptr %temp, i64 0, i64 %len.048
   %sub60 = sub i64 2048, %len.048
   %conv61 = trunc i64 %sub.ptr.sub58 to i32
   %incdec.ptr63 = getelementptr inbounds nuw i8, ptr %call46, i64 1
@@ -2281,7 +2281,7 @@ for.inc:                                          ; preds = %for.body, %if.else,
 
 for.end:                                          ; preds = %for.inc, %sw.bb35
   %len.0.lcssa = phi i64 [ 4, %sw.bb35 ], [ %len.1, %for.inc ]
-  %arrayidx69 = getelementptr inbounds nuw [2048 x i8], ptr %temp, i64 0, i64 %len.0.lcssa
+  %arrayidx69 = getelementptr inbounds [2048 x i8], ptr %temp, i64 0, i64 %len.0.lcssa
   %sub70 = sub i64 2048, %len.0.lcssa
   %call71 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %arrayidx69, i64 noundef %sub70, ptr noundef nonnull @.str.103, i32 noundef 255, i32 noundef 240) #10
   %add72 = add i64 %len.0.lcssa, 2

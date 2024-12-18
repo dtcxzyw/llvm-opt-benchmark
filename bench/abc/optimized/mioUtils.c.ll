@@ -3583,7 +3583,7 @@ define void @Mio_DeriveTruthTable(ptr nocapture noundef readonly %0, ptr nocaptu
 28:                                               ; preds = %27
   %29 = sdiv i32 %22, 2
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds nuw i64, ptr %6, i64 %30
+  %31 = getelementptr inbounds i64, ptr %6, i64 %30
   %32 = load i64, ptr %31, align 8
   %33 = xor i64 %32, -1
   br label %Exp_Truth6Lit.exit.i
@@ -3591,7 +3591,7 @@ define void @Mio_DeriveTruthTable(ptr nocapture noundef readonly %0, ptr nocaptu
 34:                                               ; preds = %27
   %35 = ashr exact i32 %22, 1
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds nuw i64, ptr %6, i64 %36
+  %37 = getelementptr inbounds i64, ptr %6, i64 %36
   %38 = load i64, ptr %37, align 8
   br label %Exp_Truth6Lit.exit.i
 
@@ -3640,7 +3640,7 @@ Exp_Truth6Lit.exit.i:                             ; preds = %47, %40, %34, %28, 
 61:                                               ; preds = %60
   %62 = sdiv i32 %55, 2
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds nuw i64, ptr %6, i64 %63
+  %64 = getelementptr inbounds i64, ptr %6, i64 %63
   %65 = load i64, ptr %64, align 8
   %66 = xor i64 %65, -1
   br label %Exp_Truth6Lit.exit31.i
@@ -3648,7 +3648,7 @@ Exp_Truth6Lit.exit.i:                             ; preds = %47, %40, %34, %28, 
 67:                                               ; preds = %60
   %68 = ashr exact i32 %55, 1
   %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds nuw i64, ptr %6, i64 %69
+  %70 = getelementptr inbounds i64, ptr %6, i64 %69
   %71 = load i64, ptr %70, align 8
   br label %Exp_Truth6Lit.exit31.i
 
@@ -3707,7 +3707,7 @@ Exp_Truth6Lit.exit31.i:                           ; preds = %80, %73, %67, %61, 
 98:                                               ; preds = %97
   %99 = sdiv i32 %91, 2
   %100 = sext i32 %99 to i64
-  %101 = getelementptr inbounds nuw i64, ptr %6, i64 %100
+  %101 = getelementptr inbounds i64, ptr %6, i64 %100
   %102 = load i64, ptr %101, align 8
   %103 = xor i64 %102, -1
   br label %Exp_Truth6Lit.exit34.i
@@ -3715,7 +3715,7 @@ Exp_Truth6Lit.exit31.i:                           ; preds = %80, %73, %67, %61, 
 104:                                              ; preds = %97
   %105 = ashr exact i32 %91, 1
   %106 = sext i32 %105 to i64
-  %107 = getelementptr inbounds nuw i64, ptr %6, i64 %106
+  %107 = getelementptr inbounds i64, ptr %6, i64 %106
   %108 = load i64, ptr %107, align 8
   br label %Exp_Truth6Lit.exit34.i
 
@@ -4353,7 +4353,7 @@ Vec_WrdPush.exit.us.us.us:                        ; preds = %Vec_WrdGrow.exit.i.
   %45 = zext i32 %44 to i64
   %46 = shl i64 %.126.us.us.us, %45
   %47 = sext i32 %43 to i64
-  %48 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %47
+  %48 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %47
   %49 = load i64, ptr %48, align 8
   %50 = and i64 %46, %49
   %51 = and i64 %49, %.126.us.us.us
@@ -4367,7 +4367,7 @@ Vec_WrdPush.exit.us.us.us:                        ; preds = %Vec_WrdGrow.exit.i.
   %54 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv42
   %55 = load i32, ptr %54, align 4
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %56
+  %57 = getelementptr inbounds [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %56
   %58 = load i64, ptr %57, align 8
   %59 = and i64 %58, %53
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 8
@@ -4664,9 +4664,9 @@ Abc_Clock.exit:                                   ; preds = %1, %9
   %35 = getelementptr inbounds nuw i64, ptr %24, i64 %indvars.iv101
   store i64 %34, ptr %35, align 8
   %36 = sext i32 %32 to i64
-  %37 = getelementptr inbounds nuw [7 x ptr], ptr %4, i64 0, i64 %36
+  %37 = getelementptr inbounds [7 x ptr], ptr %4, i64 0, i64 %36
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds nuw [7 x ptr], ptr %5, i64 0, i64 %36
+  %39 = getelementptr inbounds [7 x ptr], ptr %5, i64 0, i64 %36
   %40 = load ptr, ptr %39, align 8
   call void @Nf_ManPrepareGate(i32 noundef %32, i64 noundef %34, ptr noundef %38, ptr noundef %40, ptr noundef nonnull %25)
   %41 = load i32, ptr %26, align 4

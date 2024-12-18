@@ -609,7 +609,7 @@ cond.end40:                                       ; preds = %cond.end40.sink.spl
   %conv44 = zext i16 %5 to i32
   %add45 = add nsw i32 %column, %conv44
   %idxprom46 = sext i32 %add45 to i64
-  %arrayidx47 = getelementptr inbounds nuw [7260 x i32], ptr @_ZL12propsVectors, i64 0, i64 %idxprom46
+  %arrayidx47 = getelementptr inbounds [7260 x i32], ptr @_ZL12propsVectors, i64 0, i64 %idxprom46
   %6 = load i32, ptr %arrayidx47, align 4
   br label %return
 

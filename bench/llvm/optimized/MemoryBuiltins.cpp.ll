@@ -280,10 +280,10 @@ define dso_local { ptr, i64 } @_Z26mangledNameForMallocFamilyRK12MallocFamily(pt
 switch.lookup:
   %1 = load i32, ptr %0, align 4
   %2 = sext i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZN4llvm19getAllocationFamilyEPKNS_5ValueEPKNS_17TargetLibraryInfoE.41, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds [9 x i64], ptr @switch.table._ZN4llvm19getAllocationFamilyEPKNS_5ValueEPKNS_17TargetLibraryInfoE.41, i64 0, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = sext i32 %1 to i64
-  %switch.gep1 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN4llvm19getAllocationFamilyEPKNS_5ValueEPKNS_17TargetLibraryInfoE.42, i64 0, i64 %3
+  %switch.gep1 = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN4llvm19getAllocationFamilyEPKNS_5ValueEPKNS_17TargetLibraryInfoE.42, i64 0, i64 %3
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -1494,10 +1494,10 @@ switch.lookup:                                    ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %41 = load i32, ptr %40, align 4
   %42 = sext i32 %41 to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZN4llvm19getAllocationFamilyEPKNS_5ValueEPKNS_17TargetLibraryInfoE.41, i64 0, i64 %42
+  %switch.gep = getelementptr inbounds [9 x i64], ptr @switch.table._ZN4llvm19getAllocationFamilyEPKNS_5ValueEPKNS_17TargetLibraryInfoE.41, i64 0, i64 %42
   %switch.load = load i64, ptr %switch.gep, align 8
   %43 = sext i32 %41 to i64
-  %switch.gep56 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN4llvm19getAllocationFamilyEPKNS_5ValueEPKNS_17TargetLibraryInfoE.42, i64 0, i64 %43
+  %switch.gep56 = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN4llvm19getAllocationFamilyEPKNS_5ValueEPKNS_17TargetLibraryInfoE.42, i64 0, i64 %43
   %switch.load57 = load ptr, ptr %switch.gep56, align 8
   store ptr %switch.load57, ptr %0, align 8
   %.sroa.231.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1562,10 +1562,10 @@ switch.lookup58:                                  ; preds = %"_ZN4llvm7find_ifIR
   %58 = getelementptr inbounds nuw i8, ptr %.028.i.i.i.i6.i, i64 4
   %59 = load i64, ptr %58, align 4
   %60 = ashr i64 %59, 32
-  %switch.gep59 = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZN4llvm19getAllocationFamilyEPKNS_5ValueEPKNS_17TargetLibraryInfoE.41, i64 0, i64 %60
+  %switch.gep59 = getelementptr inbounds [9 x i64], ptr @switch.table._ZN4llvm19getAllocationFamilyEPKNS_5ValueEPKNS_17TargetLibraryInfoE.41, i64 0, i64 %60
   %switch.load60 = load i64, ptr %switch.gep59, align 8
   %61 = ashr i64 %59, 32
-  %switch.gep61 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN4llvm19getAllocationFamilyEPKNS_5ValueEPKNS_17TargetLibraryInfoE.42, i64 0, i64 %61
+  %switch.gep61 = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN4llvm19getAllocationFamilyEPKNS_5ValueEPKNS_17TargetLibraryInfoE.42, i64 0, i64 %61
   %switch.load62 = load ptr, ptr %switch.gep61, align 8
   store ptr %switch.load62, ptr %0, align 8
   %.sroa.227.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8

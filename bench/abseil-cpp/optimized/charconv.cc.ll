@@ -235,7 +235,7 @@ _ZSt8__copy_nIPKclPcET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i67.i: ; p
   br label %_ZSt6copy_nIPKclPcET1_T_T0_S3_.exit.i68.i
 
 _ZSt6copy_nIPKclPcET1_T_T0_S3_.exit.i68.i:        ; preds = %_ZSt8__copy_nIPKclPcET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i67.i, %if.else.i60.i
-  %arrayidx6.i69.i = getelementptr inbounds nuw [128 x i8], ptr %n_char_sequence.i50.i, i64 0, i64 %.sroa.speculated.i65.i
+  %arrayidx6.i69.i = getelementptr inbounds [128 x i8], ptr %n_char_sequence.i50.i, i64 0, i64 %.sroa.speculated.i65.i
   store i8 0, ptr %arrayidx6.i69.i, align 1
   br label %if.end.i70.i
 
@@ -399,7 +399,7 @@ _ZSt8__copy_nIPKclPcET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i165.i: ; 
   br label %_ZSt6copy_nIPKclPcET1_T_T0_S3_.exit.i166.i
 
 _ZSt6copy_nIPKclPcET1_T_T0_S3_.exit.i166.i:       ; preds = %_ZSt8__copy_nIPKclPcET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i165.i, %if.else.i158.i
-  %arrayidx6.i167.i = getelementptr inbounds nuw [128 x i8], ptr %n_char_sequence.i148.i, i64 0, i64 %.sroa.speculated.i163.i
+  %arrayidx6.i167.i = getelementptr inbounds [128 x i8], ptr %n_char_sequence.i148.i, i64 0, i64 %.sroa.speculated.i163.i
   store i8 0, ptr %arrayidx6.i167.i, align 1
   br label %if.end.i168.i
 
@@ -1005,7 +1005,7 @@ _ZSt8__copy_nIPKclPcET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i68.i: ; p
   br label %_ZSt6copy_nIPKclPcET1_T_T0_S3_.exit.i69.i
 
 _ZSt6copy_nIPKclPcET1_T_T0_S3_.exit.i69.i:        ; preds = %_ZSt8__copy_nIPKclPcET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i68.i, %if.else.i61.i
-  %arrayidx6.i70.i = getelementptr inbounds nuw [128 x i8], ptr %n_char_sequence.i51.i, i64 0, i64 %.sroa.speculated.i66.i
+  %arrayidx6.i70.i = getelementptr inbounds [128 x i8], ptr %n_char_sequence.i51.i, i64 0, i64 %.sroa.speculated.i66.i
   store i8 0, ptr %arrayidx6.i70.i, align 1
   br label %if.end.i71.i
 
@@ -1169,7 +1169,7 @@ _ZSt8__copy_nIPKclPcET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i166.i: ; 
   br label %_ZSt6copy_nIPKclPcET1_T_T0_S3_.exit.i167.i
 
 _ZSt6copy_nIPKclPcET1_T_T0_S3_.exit.i167.i:       ; preds = %_ZSt8__copy_nIPKclPcET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i166.i, %if.else.i159.i
-  %arrayidx6.i168.i = getelementptr inbounds nuw [128 x i8], ptr %n_char_sequence.i149.i, i64 0, i64 %.sroa.speculated.i164.i
+  %arrayidx6.i168.i = getelementptr inbounds [128 x i8], ptr %n_char_sequence.i149.i, i64 0, i64 %.sroa.speculated.i164.i
   store i8 0, ptr %arrayidx6.i168.i, align 1
   br label %if.end.i169.i
 

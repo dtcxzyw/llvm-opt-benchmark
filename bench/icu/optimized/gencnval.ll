@@ -164,7 +164,7 @@ land.lhs.true:                                    ; preds = %if.end23
 if.then29:                                        ; preds = %land.lhs.true
   %call30 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %pathBuf, ptr noundef nonnull dereferenceable(1) %9) #16
   %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) %pathBuf)
-  %strchr = getelementptr inbounds nuw i8, ptr %pathBuf, i64 %strlen
+  %strchr = getelementptr inbounds i8, ptr %pathBuf, i64 %strlen
   %add.ptr = getelementptr inbounds i8, ptr %strchr, i64 -1
   %11 = load i8, ptr %add.ptr, align 1
   %cmp34.not = icmp eq i8 %11, 47
@@ -283,7 +283,7 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i, %chomp.exit.i
   %idx.ext.i = sext i32 %lineSize.165.i to i64
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %line.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %line.i, i64 %idx.ext.i
   %call16.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %add.ptr.i, ptr noundef nonnull dereferenceable(1) %lastLine.i) #16
   %add.i = add nsw i32 %lineSize.165.i, %conv21.i.i
   br label %if.end20.i

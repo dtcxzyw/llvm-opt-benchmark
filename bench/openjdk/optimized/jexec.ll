@@ -77,7 +77,7 @@ getJavaPath.exit52:                               ; preds = %16
 
 .critedge.sink.split:                             ; preds = %.lr.ph.i, %.lr.ph.i45
   %strlen.i49 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3)
-  %endptr.i50 = getelementptr inbounds nuw i8, ptr %3, i64 %strlen.i49
+  %endptr.i50 = getelementptr inbounds i8, ptr %3, i64 %strlen.i49
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %endptr.i50, ptr noundef nonnull align 1 dereferenceable(10) @.str.9, i64 10, i1 false)
   br label %.critedge
 

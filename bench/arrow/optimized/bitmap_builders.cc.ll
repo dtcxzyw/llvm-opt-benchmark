@@ -148,7 +148,7 @@ for.body.i:                                       ; preds = %invoke.cont7, %for.
 
 if.then.i:                                        ; preds = %for.body.i
   %rem.i.i = srem i64 %i.09.i, 8
-  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i
+  %arrayidx.i.i = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i
   %14 = load i8, ptr %arrayidx.i.i, align 1
   %div.i.i = sdiv i64 %i.09.i, 8
   %arrayidx1.i.i = getelementptr inbounds i8, ptr %cond.i, i64 %div.i.i

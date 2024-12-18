@@ -22378,7 +22378,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22cmGlobalNinjaGe
   %104 = load ptr, ptr %13, align 8
   %105 = getelementptr i8, ptr %104, i64 -24
   %106 = load i64, ptr %105, align 8
-  %107 = getelementptr inbounds nuw i8, ptr %13, i64 %106
+  %107 = getelementptr inbounds i8, ptr %13, i64 %106
   %108 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %107)
           to label %109 unwind label %.loopexit.split-lp179.loopexit.split-lp
 
@@ -26097,7 +26097,7 @@ _ZNSt6vectorI13cmScanDepInfoSaIS0_EE9push_backEOS0_.exit: ; preds = %209
   %312 = load ptr, ptr %46, align 8
   %313 = getelementptr i8, ptr %312, i64 -24
   %314 = load i64, ptr %313, align 8
-  %315 = getelementptr inbounds nuw i8, ptr %46, i64 %314
+  %315 = getelementptr inbounds i8, ptr %46, i64 %314
   %316 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %315)
           to label %317 unwind label %.loopexit560
 
@@ -28444,7 +28444,7 @@ _ZN18CxxModuleLocationsD2Ev.exit350:              ; preds = %_ZNSt8functionIF14C
   %1103 = load ptr, ptr %107, align 8
   %1104 = getelementptr i8, ptr %1103, i64 -24
   %1105 = load i64, ptr %1104, align 8
-  %1106 = getelementptr inbounds nuw i8, ptr %107, i64 %1105
+  %1106 = getelementptr inbounds i8, ptr %107, i64 %1105
   %1107 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %1106)
           to label %1108 unwind label %.loopexit509
 

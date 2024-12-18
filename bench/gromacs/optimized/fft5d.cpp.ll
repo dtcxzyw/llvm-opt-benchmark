@@ -1019,13 +1019,13 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %359
 
 423:                                              ; preds = %421
   %424 = sext i32 %storemerge486 to i64
-  %425 = getelementptr inbounds nuw [3 x i32], ptr %29, i64 0, i64 %424
+  %425 = getelementptr inbounds [3 x i32], ptr %29, i64 0, i64 %424
   %426 = load i32, ptr %425, align 4
-  %427 = getelementptr inbounds nuw [3 x i32], ptr %17, i64 0, i64 %424
+  %427 = getelementptr inbounds [3 x i32], ptr %17, i64 0, i64 %424
   %428 = load i32, ptr %427, align 4
-  %429 = getelementptr inbounds nuw [3 x i32], ptr %21, i64 0, i64 %424
+  %429 = getelementptr inbounds [3 x i32], ptr %21, i64 0, i64 %424
   %430 = load i32, ptr %429, align 4
-  %431 = getelementptr inbounds nuw [3 x i32], ptr %28, i64 0, i64 %424
+  %431 = getelementptr inbounds [3 x i32], ptr %28, i64 0, i64 %424
   %432 = load i32, ptr %431, align 4
   %433 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %422, ptr noundef nonnull @.str.9, i32 noundef %storemerge486, i32 noundef %426, i32 noundef %428, i32 noundef %430, i32 noundef %432, i32 noundef %.sroa.speculated) #11
   %.pre519 = load i32, ptr %32, align 4
@@ -1091,7 +1091,7 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %359
 461:                                              ; preds = %.loopexit, %461
   %storemerge317487 = phi i32 [ 0, %.loopexit ], [ %553, %461 ]
   %462 = sext i32 %storemerge317487 to i64
-  %463 = getelementptr inbounds nuw [3 x i32], ptr %16, i64 0, i64 %462
+  %463 = getelementptr inbounds [3 x i32], ptr %16, i64 0, i64 %462
   %464 = load i32, ptr %463, align 4
   %465 = load ptr, ptr %31, align 8
   %466 = getelementptr inbounds nuw i8, ptr %465, i64 80
@@ -1099,7 +1099,7 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %359
   store i32 %464, ptr %467, align 4
   %468 = load i32, ptr %32, align 4
   %469 = sext i32 %468 to i64
-  %470 = getelementptr inbounds nuw [3 x i32], ptr %17, i64 0, i64 %469
+  %470 = getelementptr inbounds [3 x i32], ptr %17, i64 0, i64 %469
   %471 = load i32, ptr %470, align 4
   %472 = load ptr, ptr %31, align 8
   %473 = getelementptr inbounds nuw i8, ptr %472, i64 92
@@ -1107,7 +1107,7 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %359
   store i32 %471, ptr %474, align 4
   %475 = load i32, ptr %32, align 4
   %476 = sext i32 %475 to i64
-  %477 = getelementptr inbounds nuw [3 x i32], ptr %18, i64 0, i64 %476
+  %477 = getelementptr inbounds [3 x i32], ptr %18, i64 0, i64 %476
   %478 = load i32, ptr %477, align 4
   %479 = load ptr, ptr %31, align 8
   %480 = getelementptr inbounds nuw i8, ptr %479, i64 104
@@ -1115,7 +1115,7 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %359
   store i32 %478, ptr %481, align 4
   %482 = load i32, ptr %32, align 4
   %483 = sext i32 %482 to i64
-  %484 = getelementptr inbounds nuw [3 x i32], ptr %19, i64 0, i64 %483
+  %484 = getelementptr inbounds [3 x i32], ptr %19, i64 0, i64 %483
   %485 = load i32, ptr %484, align 4
   %486 = load ptr, ptr %31, align 8
   %487 = getelementptr inbounds nuw i8, ptr %486, i64 116
@@ -1123,7 +1123,7 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %359
   store i32 %485, ptr %488, align 4
   %489 = load i32, ptr %32, align 4
   %490 = sext i32 %489 to i64
-  %491 = getelementptr inbounds nuw [3 x i32], ptr %20, i64 0, i64 %490
+  %491 = getelementptr inbounds [3 x i32], ptr %20, i64 0, i64 %490
   %492 = load i32, ptr %491, align 4
   %493 = load ptr, ptr %31, align 8
   %494 = getelementptr inbounds nuw i8, ptr %493, i64 128
@@ -1131,7 +1131,7 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %359
   store i32 %492, ptr %495, align 4
   %496 = load i32, ptr %32, align 4
   %497 = sext i32 %496 to i64
-  %498 = getelementptr inbounds nuw [3 x i32], ptr %21, i64 0, i64 %497
+  %498 = getelementptr inbounds [3 x i32], ptr %21, i64 0, i64 %497
   %499 = load i32, ptr %498, align 4
   %500 = load ptr, ptr %31, align 8
   %501 = getelementptr inbounds nuw i8, ptr %500, i64 140
@@ -1139,7 +1139,7 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %359
   store i32 %499, ptr %502, align 4
   %503 = load i32, ptr %32, align 4
   %504 = sext i32 %503 to i64
-  %505 = getelementptr inbounds nuw [3 x i32], ptr %22, i64 0, i64 %504
+  %505 = getelementptr inbounds [3 x i32], ptr %22, i64 0, i64 %504
   %506 = load i32, ptr %505, align 4
   %507 = load ptr, ptr %31, align 8
   %508 = getelementptr inbounds nuw i8, ptr %507, i64 152
@@ -1147,7 +1147,7 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %359
   store i32 %506, ptr %509, align 4
   %510 = load i32, ptr %32, align 4
   %511 = sext i32 %510 to i64
-  %512 = getelementptr inbounds nuw [3 x i32], ptr %23, i64 0, i64 %511
+  %512 = getelementptr inbounds [3 x i32], ptr %23, i64 0, i64 %511
   %513 = load i32, ptr %512, align 4
   %514 = load ptr, ptr %31, align 8
   %515 = getelementptr inbounds nuw i8, ptr %514, i64 164
@@ -1155,7 +1155,7 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %359
   store i32 %513, ptr %516, align 4
   %517 = load i32, ptr %32, align 4
   %518 = sext i32 %517 to i64
-  %519 = getelementptr inbounds nuw [3 x i32], ptr %28, i64 0, i64 %518
+  %519 = getelementptr inbounds [3 x i32], ptr %28, i64 0, i64 %518
   %520 = load i32, ptr %519, align 4
   %521 = load ptr, ptr %31, align 8
   %522 = getelementptr inbounds nuw i8, ptr %521, i64 272
@@ -1163,7 +1163,7 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %359
   store i32 %520, ptr %523, align 4
   %524 = load i32, ptr %32, align 4
   %525 = sext i32 %524 to i64
-  %526 = getelementptr inbounds nuw [3 x i32], ptr %29, i64 0, i64 %525
+  %526 = getelementptr inbounds [3 x i32], ptr %29, i64 0, i64 %525
   %527 = load i32, ptr %526, align 4
   %528 = load ptr, ptr %31, align 8
   %529 = getelementptr inbounds nuw i8, ptr %528, i64 284
@@ -1171,25 +1171,25 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %359
   store i32 %527, ptr %530, align 4
   %531 = load i32, ptr %32, align 4
   %532 = sext i32 %531 to i64
-  %533 = getelementptr inbounds nuw [3 x ptr], ptr %24, i64 0, i64 %532
+  %533 = getelementptr inbounds [3 x ptr], ptr %24, i64 0, i64 %532
   %534 = load ptr, ptr %533, align 8
   %535 = load ptr, ptr %31, align 8
   %536 = getelementptr inbounds nuw i8, ptr %535, i64 176
   %537 = getelementptr inbounds [3 x ptr], ptr %536, i64 0, i64 %532
   store ptr %534, ptr %537, align 8
-  %538 = getelementptr inbounds nuw [3 x ptr], ptr %25, i64 0, i64 %532
+  %538 = getelementptr inbounds [3 x ptr], ptr %25, i64 0, i64 %532
   %539 = load ptr, ptr %538, align 8
   %540 = load ptr, ptr %31, align 8
   %541 = getelementptr inbounds nuw i8, ptr %540, i64 200
   %542 = getelementptr inbounds [3 x ptr], ptr %541, i64 0, i64 %532
   store ptr %539, ptr %542, align 8
-  %543 = getelementptr inbounds nuw [3 x ptr], ptr %26, i64 0, i64 %532
+  %543 = getelementptr inbounds [3 x ptr], ptr %26, i64 0, i64 %532
   %544 = load ptr, ptr %543, align 8
   %545 = load ptr, ptr %31, align 8
   %546 = getelementptr inbounds nuw i8, ptr %545, i64 224
   %547 = getelementptr inbounds [3 x ptr], ptr %546, i64 0, i64 %532
   store ptr %544, ptr %547, align 8
-  %548 = getelementptr inbounds nuw [3 x ptr], ptr %27, i64 0, i64 %532
+  %548 = getelementptr inbounds [3 x ptr], ptr %27, i64 0, i64 %532
   %549 = load ptr, ptr %548, align 8
   %550 = load ptr, ptr %31, align 8
   %551 = getelementptr inbounds nuw i8, ptr %550, i64 248
@@ -1203,7 +1203,7 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %359
 555:                                              ; preds = %.preheader, %555
   %storemerge318488 = phi i32 [ 0, %.preheader ], [ %570, %555 ]
   %556 = sext i32 %storemerge318488 to i64
-  %557 = getelementptr inbounds nuw [2 x i32], ptr %30, i64 0, i64 %556
+  %557 = getelementptr inbounds [2 x i32], ptr %30, i64 0, i64 %556
   %558 = load i32, ptr %557, align 4
   %559 = load ptr, ptr %31, align 8
   %560 = getelementptr inbounds nuw i8, ptr %559, i64 296
@@ -1211,7 +1211,7 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %359
   store i32 %558, ptr %561, align 4
   %562 = load i32, ptr %32, align 4
   %563 = sext i32 %562 to i64
-  %564 = getelementptr inbounds nuw [2 x i32], ptr %15, i64 0, i64 %563
+  %564 = getelementptr inbounds [2 x i32], ptr %15, i64 0, i64 %563
   %565 = load i32, ptr %564, align 4
   %566 = load ptr, ptr %31, align 8
   %567 = getelementptr inbounds nuw i8, ptr %566, i64 320

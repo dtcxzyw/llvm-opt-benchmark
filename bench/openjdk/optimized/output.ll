@@ -4189,7 +4189,7 @@ _ZN26GrowableArrayWithAllocatorIP10ScopeValue13GrowableArrayIS1_EE6appendERKS1_.
 
 _ZN7OptoReg8as_VMRegEi.exit.i:                    ; preds = %_ZN26GrowableArrayWithAllocatorIP10ScopeValue13GrowableArrayIS1_EE6appendERKS1_.exit147
   %317 = sext i16 %286 to i64
-  %318 = getelementptr inbounds nuw [591 x ptr], ptr @_ZN7OptoReg7opto2vmE, i64 0, i64 %317
+  %318 = getelementptr inbounds [591 x ptr], ptr @_ZN7OptoReg7opto2vmE, i64 0, i64 %317
   %319 = load ptr, ptr %318, align 8
   %320 = ptrtoint ptr %319 to i64
   %321 = trunc i64 %320 to i32
@@ -4538,7 +4538,7 @@ define internal fastcc noundef ptr @_ZL13new_loc_valueP13PhaseRegAllociN8Locatio
 
 _ZN7OptoReg8as_VMRegEi.exit:                      ; preds = %3
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds nuw [591 x ptr], ptr @_ZN7OptoReg7opto2vmE, i64 0, i64 %8
+  %9 = getelementptr inbounds [591 x ptr], ptr @_ZN7OptoReg7opto2vmE, i64 0, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = ptrtoint ptr %10 to i64
   %12 = trunc i64 %11 to i32
@@ -5290,7 +5290,7 @@ _ZN13GrowableArrayIP10ScopeValueE10deallocateEPS1_.exit.i: ; preds = %.loopexit.
 
 _ZN7OptoReg8as_VMRegEi.exit.i:                    ; preds = %383
   %384 = sext i16 %367 to i64
-  %385 = getelementptr inbounds nuw [591 x ptr], ptr @_ZN7OptoReg7opto2vmE, i64 0, i64 %384
+  %385 = getelementptr inbounds [591 x ptr], ptr @_ZN7OptoReg7opto2vmE, i64 0, i64 %384
   %386 = load ptr, ptr %385, align 8
   %387 = ptrtoint ptr %386 to i64
   %388 = trunc i64 %387 to i32
@@ -5318,7 +5318,7 @@ _ZL13new_loc_valueP13PhaseRegAllociN8Location4TypeE.exit: ; preds = %_ZN7OptoReg
 
 _ZN7OptoReg8as_VMRegEi.exit.i203:                 ; preds = %398
   %399 = sext i16 %367 to i64
-  %400 = getelementptr inbounds nuw [591 x ptr], ptr @_ZN7OptoReg7opto2vmE, i64 0, i64 %399
+  %400 = getelementptr inbounds [591 x ptr], ptr @_ZN7OptoReg7opto2vmE, i64 0, i64 %399
   %401 = load ptr, ptr %400, align 8
   %402 = ptrtoint ptr %401 to i64
   %403 = trunc i64 %402 to i32
@@ -9898,7 +9898,7 @@ define hidden void @_ZN10Scheduling11anti_do_defEP5BlockP4Nodeii(ptr noundef non
 
 _ZN7OptoReg8as_VMRegEi.exit:                      ; preds = %6
   %8 = sext i32 %3 to i64
-  %9 = getelementptr inbounds nuw [591 x ptr], ptr @_ZN7OptoReg7opto2vmE, i64 0, i64 %8
+  %9 = getelementptr inbounds [591 x ptr], ptr @_ZN7OptoReg7opto2vmE, i64 0, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = ptrtoint ptr %10 to i64
   %12 = trunc i64 %11 to i32

@@ -2594,7 +2594,7 @@ _ZN2cv4util7variantIJNS_4UMatENS_4RMatESt10shared_ptrINS_4gapi3wip13IStreamSourc
   %103 = landingpad { ptr, i32 }
           cleanup
   %104 = load i64, ptr %0, align 8
-  %105 = getelementptr inbounds nuw [8 x ptr], ptr @constinit.11, i64 0, i64 %104
+  %105 = getelementptr inbounds [8 x ptr], ptr @constinit.11, i64 0, i64 %104
   %106 = load ptr, ptr %105, align 8
   invoke void %106(ptr noundef nonnull %78)
           to label %common.resume unwind label %107
@@ -2787,7 +2787,7 @@ _ZN2cv4util7variantIJNS_4UMatENS_4RMatESt10shared_ptrINS_4gapi3wip13IStreamSourc
   %193 = landingpad { ptr, i32 }
           cleanup
   %194 = load i64, ptr %0, align 8
-  %195 = getelementptr inbounds nuw [8 x ptr], ptr @constinit.11, i64 0, i64 %194
+  %195 = getelementptr inbounds [8 x ptr], ptr @constinit.11, i64 0, i64 %194
   %196 = load ptr, ptr %195, align 8
   invoke void %196(ptr noundef nonnull %175)
           to label %common.resume unwind label %197
@@ -2993,7 +2993,7 @@ _ZN2cv4util7variantIJNS_4UMatENS_4RMatESt10shared_ptrINS_4gapi3wip13IStreamSourc
   %294 = landingpad { ptr, i32 }
           cleanup
   %295 = load i64, ptr %0, align 8
-  %296 = getelementptr inbounds nuw [8 x ptr], ptr @constinit.11, i64 0, i64 %295
+  %296 = getelementptr inbounds [8 x ptr], ptr @constinit.11, i64 0, i64 %295
   %297 = load ptr, ptr %296, align 8
   invoke void %297(ptr noundef nonnull %266)
           to label %common.resume unwind label %298
@@ -3199,7 +3199,7 @@ _ZN2cv4util7variantIJNS_4UMatENS_4RMatESt10shared_ptrINS_4gapi3wip13IStreamSourc
   %395 = landingpad { ptr, i32 }
           cleanup
   %396 = load i64, ptr %0, align 8
-  %397 = getelementptr inbounds nuw [8 x ptr], ptr @constinit.11, i64 0, i64 %396
+  %397 = getelementptr inbounds [8 x ptr], ptr @constinit.11, i64 0, i64 %396
   %398 = load ptr, ptr %397, align 8
   invoke void %398(ptr noundef nonnull %367)
           to label %common.resume unwind label %399
@@ -3401,7 +3401,7 @@ _ZN2cv4util7variantIJNS_4UMatENS_4RMatESt10shared_ptrINS_4gapi3wip13IStreamSourc
   %493 = landingpad { ptr, i32 }
           cleanup
   %494 = load i64, ptr %0, align 8
-  %495 = getelementptr inbounds nuw [8 x ptr], ptr @constinit.11, i64 0, i64 %494
+  %495 = getelementptr inbounds [8 x ptr], ptr @constinit.11, i64 0, i64 %494
   %496 = load ptr, ptr %495, align 8
   invoke void %496(ptr noundef nonnull %468)
           to label %common.resume unwind label %497

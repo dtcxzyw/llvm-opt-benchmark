@@ -1036,7 +1036,7 @@ while.body:                                       ; preds = %while.cond.preheade
   %0 = trunc nuw nsw i64 %rem to i8
   %conv = or disjoint i8 %0, 48
   %q.1.add = add nsw i64 %q.1.idx87, -1
-  %incdec.ptr31.ptr = getelementptr inbounds nuw i8, ptr %buf, i64 %q.1.add
+  %incdec.ptr31.ptr = getelementptr inbounds i8, ptr %buf, i64 %q.1.add
   store i8 %conv, ptr %incdec.ptr31.ptr, align 1
   %div = udiv i64 %k.addr.188, 10
   %tobool29.not = icmp ult i64 %k.addr.188, 42949672960
@@ -1055,7 +1055,7 @@ do.body:                                          ; preds = %do.body, %while.end
   %1 = trunc nuw nsw i32 %rem33 to i8
   %conv35 = or disjoint i8 %1, 48
   %q.2.add = add nsw i64 %q.2.idx, -1
-  %incdec.ptr36.ptr = getelementptr inbounds nuw i8, ptr %buf, i64 %q.2.add
+  %incdec.ptr36.ptr = getelementptr inbounds i8, ptr %buf, i64 %q.2.add
   store i8 %conv35, ptr %incdec.ptr36.ptr, align 1
   %div37 = udiv i32 %k2.0, 10
   %tobool38.not = icmp ult i32 %k2.0, 10
@@ -1079,7 +1079,7 @@ do.body45:                                        ; preds = %do.body45, %if.then
   %arrayidx = getelementptr inbounds nuw i8, ptr %cond, i64 %and46
   %2 = load i8, ptr %arrayidx, align 1
   %q.3.add = add nsw i64 %q.3.idx, -1
-  %incdec.ptr47.ptr = getelementptr inbounds nuw i8, ptr %buf, i64 %q.3.add
+  %incdec.ptr47.ptr = getelementptr inbounds i8, ptr %buf, i64 %q.3.add
   store i8 %2, ptr %incdec.ptr47.ptr, align 1
   %shr48 = lshr i64 %k.addr.2, 4
   %tobool50.not = icmp ult i64 %k.addr.2, 16
@@ -1099,7 +1099,7 @@ do.body61:                                        ; preds = %if.else39, %do.body
   %conv63 = and i8 %3, 7
   %add64 = or disjoint i8 %conv63, 48
   %q.4.add = add nsw i64 %q.4.idx, -1
-  %incdec.ptr66.ptr = getelementptr inbounds nuw i8, ptr %buf, i64 %q.4.add
+  %incdec.ptr66.ptr = getelementptr inbounds i8, ptr %buf, i64 %q.4.add
   store i8 %add64, ptr %incdec.ptr66.ptr, align 1
   %shr67 = lshr i64 %k.addr.3, 3
   %tobool69.not = icmp ult i64 %k.addr.3, 8
@@ -1112,7 +1112,7 @@ do.end70:                                         ; preds = %do.body61
 
 if.then73:                                        ; preds = %do.end70
   %q.4.add68 = add nsw i64 %q.4.idx, -2
-  %incdec.ptr74.ptr = getelementptr inbounds nuw i8, ptr %buf, i64 %q.4.add68
+  %incdec.ptr74.ptr = getelementptr inbounds i8, ptr %buf, i64 %q.4.add68
   store i8 48, ptr %incdec.ptr74.ptr, align 1
   br label %if.end78
 
@@ -1227,7 +1227,7 @@ while.cond135.preheader:                          ; preds = %while.body132.prehe
 while.body140:                                    ; preds = %while.cond135.preheader, %while.body140
   %q.5.idx108 = phi i64 [ %q.5.add, %while.body140 ], [ %q.0.idx, %while.cond135.preheader ]
   %w.7107 = phi ptr [ %incdec.ptr142, %while.body140 ], [ %w.6.lcssa, %while.cond135.preheader ]
-  %q.5.ptr = getelementptr inbounds nuw i8, ptr %buf, i64 %q.5.idx108
+  %q.5.ptr = getelementptr inbounds i8, ptr %buf, i64 %q.5.idx108
   %q.5.add = add i64 %q.5.idx108, 1
   %19 = load i8, ptr %q.5.ptr, align 1
   %incdec.ptr142 = getelementptr inbounds nuw i8, ptr %w.7107, i64 1

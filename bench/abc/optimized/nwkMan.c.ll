@@ -268,7 +268,7 @@ define void @Nwk_ManPrintLutSizes(ptr nocapture noundef readonly %0, ptr nocaptu
   %17 = getelementptr i8, ptr %11, i64 60
   %.val16 = load i32, ptr %17, align 4
   %18 = sext i32 %.val16 to i64
-  %19 = getelementptr inbounds nuw [256 x i32], ptr %3, i64 0, i64 %18
+  %19 = getelementptr inbounds [256 x i32], ptr %3, i64 0, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = add nsw i32 %20, 1
   store i32 %21, ptr %19, align 4
@@ -632,7 +632,7 @@ Nwk_FileNameGeneric.exit:                         ; preds = %20, %Abc_UtilStrsav
   %68 = getelementptr i8, ptr %62, i64 60
   %.val16.i = load i32, ptr %68, align 4
   %69 = sext i32 %.val16.i to i64
-  %70 = getelementptr inbounds nuw [256 x i32], ptr %7, i64 0, i64 %69
+  %70 = getelementptr inbounds [256 x i32], ptr %7, i64 0, i64 %69
   %71 = load i32, ptr %70, align 4
   %72 = add nsw i32 %71, 1
   store i32 %72, ptr %70, align 4

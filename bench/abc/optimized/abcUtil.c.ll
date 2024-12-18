@@ -8666,7 +8666,7 @@ define float @Abc_NtkComputeDelay(ptr noundef %0) local_unnamed_addr #0 {
 .critedge4:                                       ; preds = %51, %..critedge4_crit_edge
   %.pre-phi = phi i64 [ %.pre, %..critedge4_crit_edge ], [ %50, %51 ]
   %64 = phi float [ 0.000000e+00, %..critedge4_crit_edge ], [ %62, %51 ]
-  %65 = getelementptr inbounds nuw [15 x float], ptr %2, i64 0, i64 %.pre-phi
+  %65 = getelementptr inbounds [15 x float], ptr %2, i64 0, i64 %.pre-phi
   %66 = load float, ptr %65, align 4
   %67 = fadd float %66, %64
   store float %67, ptr %45, align 8

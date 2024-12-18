@@ -377,12 +377,12 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6Str
   %trunc.i = zext i32 %.sroa.0.0.copyload.i to i64
   %sext = shl i64 %trunc.i, 56
   %19 = ashr exact i64 %sext, 56
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1008tui_termNtB5_5ColorINtNtCs1LoaDTb72WA_4core7convert4FromNtNtB7_5attrs5ColorE4from, i64 0, i64 %19
+  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1008tui_termNtB5_5ColorINtNtCs1LoaDTb72WA_4core7convert4FromNtNtB7_5attrs5ColorE4from, i64 0, i64 %19
   %switch.load = load i32, ptr %switch.gep, align 4
   %trunc.i24 = zext i32 %.sroa.0.0.copyload.i23 to i64
   %sext33 = shl i64 %trunc.i24, 56
   %20 = ashr exact i64 %sext33, 56
-  %switch.gep31 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1008tui_termNtB5_5ColorINtNtCs1LoaDTb72WA_4core7convert4FromNtNtB7_5attrs5ColorE4from, i64 0, i64 %20
+  %switch.gep31 = getelementptr inbounds [3 x i32], ptr @switch.table._RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1008tui_termNtB5_5ColorINtNtCs1LoaDTb72WA_4core7convert4FromNtNtB7_5attrs5ColorE4from, i64 0, i64 %20
   %switch.load32 = load i32, ptr %switch.gep31, align 4
   call void @_RNvMs1_NtCsbYUTfhIhMOk_7ratatui5styleNtB5_5Style5reset(ptr noalias nocapture noundef nonnull sret([16 x i8]) align 2 dereferenceable(16) %3)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 33
@@ -479,7 +479,7 @@ switch.lookup:
   %trunc = zext i32 %0 to i64
   %sext = shl i64 %trunc, 56
   %1 = ashr exact i64 %sext, 56
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1008tui_termNtB5_5ColorINtNtCs1LoaDTb72WA_4core7convert4FromNtNtB7_5attrs5ColorE4from, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1008tui_termNtB5_5ColorINtNtCs1LoaDTb72WA_4core7convert4FromNtNtB7_5attrs5ColorE4from, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   %.sroa.46.0.insert.insert = and i32 %0, -256
   %.sroa.05.0.insert.insert = or disjoint i32 %switch.load, %.sroa.46.0.insert.insert

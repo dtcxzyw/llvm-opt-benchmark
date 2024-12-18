@@ -3405,7 +3405,7 @@ define dso_local noundef zeroext i1 @_ZN5cmsys11SystemTools11FilesDifferERKNSt7_
   %25 = load ptr, ptr %5, align 8
   %26 = getelementptr i8, ptr %25, i64 -24
   %27 = load i64, ptr %26, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %5, i64 %27
+  %28 = getelementptr inbounds i8, ptr %5, i64 %27
   %29 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %28)
           to label %30 unwind label %.loopexit.split-lp
 
@@ -3416,7 +3416,7 @@ define dso_local noundef zeroext i1 @_ZN5cmsys11SystemTools11FilesDifferERKNSt7_
   %32 = load ptr, ptr %6, align 8
   %33 = getelementptr i8, ptr %32, i64 -24
   %34 = load i64, ptr %33, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %6, i64 %34
+  %35 = getelementptr inbounds i8, ptr %6, i64 %34
   %36 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %35)
           to label %37 unwind label %.loopexit.split-lp
 
@@ -3809,7 +3809,7 @@ define dso_local noundef zeroext i1 @_ZN5cmsys11SystemTools15TextFilesDifferERKN
   %10 = load ptr, ptr %3, align 8
   %11 = getelementptr i8, ptr %10, i64 -24
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 %12
+  %13 = getelementptr inbounds i8, ptr %3, i64 %12
   %14 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %13)
           to label %15 unwind label %25
 
@@ -3820,7 +3820,7 @@ define dso_local noundef zeroext i1 @_ZN5cmsys11SystemTools15TextFilesDifferERKN
   %17 = load ptr, ptr %4, align 8
   %18 = getelementptr i8, ptr %17, i64 -24
   %19 = load i64, ptr %18, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %4, i64 %19
+  %20 = getelementptr inbounds i8, ptr %4, i64 %19
   %21 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %20)
           to label %22 unwind label %25
 
@@ -4006,7 +4006,7 @@ define dso_local { i64, i32 } @_ZN5cmsys11SystemTools24CopyFileContentBlockwiseE
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr i8, ptr %7, i64 -24
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 %9
+  %10 = getelementptr inbounds i8, ptr %3, i64 %9
   %11 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %10)
           to label %12 unwind label %15
 
@@ -4047,7 +4047,7 @@ _ZN5cmsys11SystemTools10RemoveFileERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   %27 = load ptr, ptr %4, align 8
   %28 = getelementptr i8, ptr %27, i64 -24
   %29 = load i64, ptr %28, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %4, i64 %29
+  %30 = getelementptr inbounds i8, ptr %4, i64 %29
   %31 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %30)
           to label %32 unwind label %.loopexit.split-lp
 
@@ -4077,7 +4077,7 @@ _ZN5cmsys11SystemTools10RemoveFileERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   %35 = load ptr, ptr %3, align 8
   %36 = getelementptr i8, ptr %35, i64 -24
   %37 = load i64, ptr %36, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %3, i64 %37
+  %38 = getelementptr inbounds i8, ptr %3, i64 %37
   %39 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %38)
           to label %40 unwind label %.loopexit
 
@@ -4120,7 +4120,7 @@ _ZN5cmsys11SystemTools10RemoveFileERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   %55 = load ptr, ptr %4, align 8
   %56 = getelementptr i8, ptr %55, i64 -24
   %57 = load i64, ptr %56, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %4, i64 %57
+  %58 = getelementptr inbounds i8, ptr %4, i64 %57
   %59 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %58)
           to label %60 unwind label %.loopexit.split-lp
 
@@ -9780,7 +9780,7 @@ define dso_local void @_ZN5cmsys11SystemTools18GetCurrentDateTimeB5cxx11EPKc(ptr
 
 .noexc2:                                          ; preds = %.noexc
   %10 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #34
-  %11 = getelementptr inbounds nuw i8, ptr %3, i64 %10
+  %11 = getelementptr inbounds i8, ptr %3, i64 %10
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %3, ptr noundef nonnull %11)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %12
 

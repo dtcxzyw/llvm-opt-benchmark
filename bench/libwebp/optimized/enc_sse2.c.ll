@@ -62,7 +62,7 @@ define internal void @CollectHistogram_SSE2(ptr nocapture noundef readonly %0, p
 
 11:                                               ; preds = %.lr.ph, %138
   %indvars.iv72 = phi i64 [ %10, %.lr.ph ], [ %indvars.iv.next73, %138 ]
-  %12 = getelementptr inbounds nuw [24 x i32], ptr @VP8DspScan, i64 0, i64 %indvars.iv72
+  %12 = getelementptr inbounds [24 x i32], ptr @VP8DspScan, i64 0, i64 %indvars.iv72
   %13 = load i32, ptr %12, align 4
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds i8, ptr %0, i64 %14
@@ -192,7 +192,7 @@ define internal void @CollectHistogram_SSE2(ptr nocapture noundef readonly %0, p
   %132 = getelementptr inbounds nuw [16 x i16], ptr %7, i64 0, i64 %indvars.iv
   %133 = load i16, ptr %132, align 2
   %134 = sext i16 %133 to i64
-  %135 = getelementptr inbounds nuw [32 x i32], ptr %6, i64 0, i64 %134
+  %135 = getelementptr inbounds [32 x i32], ptr %6, i64 0, i64 %134
   %136 = load i32, ptr %135, align 4
   %137 = add nsw i32 %136, 1
   store i32 %137, ptr %135, align 4

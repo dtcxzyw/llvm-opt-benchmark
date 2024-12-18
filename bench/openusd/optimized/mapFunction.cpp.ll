@@ -2713,7 +2713,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataaSEOS1_.exit: ; preds
 
 67:                                               ; preds = %60
   %68 = sext i32 %62 to i64
-  %69 = getelementptr inbounds nuw %"struct.std::pair", ptr %3, i64 %68
+  %69 = getelementptr inbounds %"struct.std::pair", ptr %3, i64 %68
   %.not14.i.i7 = icmp eq i32 %62, 0
   br i1 %.not14.i.i7, label %_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataaSEOS1_.exit12, label %.lr.ph.i.i8
 

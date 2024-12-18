@@ -44,7 +44,7 @@ define range(i32 0, 2) i32 @opal_unpack_homogeneous_contig_checksum(ptr noundef 
 
 21:                                               ; preds = %4
   %22 = sext i16 %17 to i64
-  %23 = getelementptr inbounds nuw [28 x ptr], ptr @opal_datatype_basicDatatypes, i64 0, i64 %22
+  %23 = getelementptr inbounds [28 x ptr], ptr @opal_datatype_basicDatatypes, i64 0, i64 %22
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load i64, ptr %25, align 8
@@ -948,7 +948,7 @@ define internal fastcc void @opal_unpack_partial_predefined(ptr noundef %0, ptr 
   %.065.lcssa = phi i8 [ 127, %6 ], [ %.06572.us, %43 ]
   %52 = sext i8 %.065.lcssa to i32
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %8, i8 %.065.lcssa, i64 %25, i1 false)
-  %53 = getelementptr inbounds nuw i8, ptr %8, i64 %28
+  %53 = getelementptr inbounds i8, ptr %8, i64 %28
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %53, ptr align 1 %26, i64 %spec.select, i1 false)
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %55 = load ptr, ptr %54, align 8
@@ -979,7 +979,7 @@ define internal fastcc void @opal_unpack_partial_predefined(ptr noundef %0, ptr 
 
 .lr.ph76:                                         ; preds = %66, %77
   %.06274 = phi i64 [ %78, %77 ], [ 0, %66 ]
-  %69 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 0, i64 %.06274
+  %69 = getelementptr inbounds [16 x i8], ptr %14, i64 0, i64 %.06274
   %70 = load i8, ptr %69, align 1
   %71 = icmp eq i8 %.065.lcssa, %70
   br i1 %71, label %72, label %77
@@ -987,7 +987,7 @@ define internal fastcc void @opal_unpack_partial_predefined(ptr noundef %0, ptr 
 72:                                               ; preds = %.lr.ph76
   %73 = load ptr, ptr %54, align 8
   %74 = getelementptr inbounds i8, ptr %65, i64 %.06274
-  %75 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 0, i64 %.06274
+  %75 = getelementptr inbounds [16 x i8], ptr %7, i64 0, i64 %.06274
   %76 = call ptr %73(ptr noundef %74, ptr noundef nonnull %75, i64 noundef 1, ptr noundef %0) #7
   br label %77
 
@@ -1005,7 +1005,7 @@ define internal fastcc void @opal_unpack_partial_predefined(ptr noundef %0, ptr 
   br i1 %82, label %83, label %86
 
 83:                                               ; preds = %.lr.ph78
-  %84 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 0, i64 %.077
+  %84 = getelementptr inbounds [16 x i8], ptr %7, i64 0, i64 %.077
   %85 = load i8, ptr %84, align 1
   store i8 %85, ptr %79, align 1
   br label %86

@@ -814,7 +814,7 @@ if.end30:                                         ; preds = %if.else
   %sext = shl i64 %sub.ptr.sub, 32
   %conv21 = ashr exact i64 %sext, 32
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf, ptr align 1 %call5, i64 %conv21, i1 false)
-  %arrayidx = getelementptr inbounds nuw [256 x i8], ptr %buf, i64 0, i64 %sub.ptr.sub
+  %arrayidx = getelementptr inbounds [256 x i8], ptr %buf, i64 0, i64 %sub.ptr.sub
   store i8 0, ptr %arrayidx, align 1
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %strchr, i64 1
   %call26 = call i32 @ENGINE_ctrl_cmd_string(ptr noundef nonnull %e, ptr noundef nonnull %buf, ptr noundef nonnull %incdec.ptr, i32 noundef 0) #7

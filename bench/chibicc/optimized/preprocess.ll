@@ -622,7 +622,7 @@ entry:
   %tm_mon.i = getelementptr inbounds nuw i8, ptr %call6, i64 16
   %0 = load i32, ptr %tm_mon.i, align 8
   %idxprom.i = sext i32 %0 to i64
-  %arrayidx.i = getelementptr inbounds nuw [12 x [4 x i8]], ptr @format_date.mon, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [12 x [4 x i8]], ptr @format_date.mon, i64 0, i64 %idxprom.i
   %tm_mday.i = getelementptr inbounds nuw i8, ptr %call6, i64 12
   %1 = load i32, ptr %tm_mday.i, align 4
   %tm_year.i = getelementptr inbounds nuw i8, ptr %call6, i64 20

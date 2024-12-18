@@ -1383,7 +1383,7 @@ _ZN2cv3PtrINS_4face11FacemarkLBFEED2Ev.exit.preheader: ; preds = %_ZNSt6vectorIN
 _ZN2cv3PtrINS_4face11FacemarkLBFEED2Ev.exit:      ; preds = %_ZN2cv3PtrINS_4face11FacemarkLBFEED2Ev.exit.preheader, %_ZNSt6vectorIiSaIiEED2Ev.exit.i
   %.idx.i = phi i64 [ %.add.i, %_ZNSt6vectorIiSaIiEED2Ev.exit.i ], [ 208, %_ZN2cv3PtrINS_4face11FacemarkLBFEED2Ev.exit.preheader ]
   %.add.i = add nsw i64 %.idx.i, -24
-  %.ptr1.i = getelementptr inbounds nuw i8, ptr %30, i64 %.add.i
+  %.ptr1.i = getelementptr inbounds i8, ptr %30, i64 %.add.i
   %477 = load ptr, ptr %.ptr1.i, align 8
   %.not.i.i.i.i121 = icmp eq ptr %477, null
   br i1 %.not.i.i.i.i121, label %_ZNSt6vectorIiSaIiEED2Ev.exit.i, label %478

@@ -515,7 +515,7 @@ fill_rect.exit:                                   ; preds = %._crit_edge.us.i, %
 
 170:                                              ; preds = %161
   %171 = sext i32 %.147.us.i to i64
-  %172 = getelementptr inbounds nuw %struct.cdef_list, ptr %7, i64 %171
+  %172 = getelementptr inbounds %struct.cdef_list, ptr %7, i64 %171
   store i8 %157, ptr %172, align 2
   %173 = lshr exact i64 %indvars.iv.i336, 1
   %174 = trunc i64 %173 to i8
@@ -577,7 +577,7 @@ av1_cdef_compute_sb_list.exit:                    ; preds = %._crit_edge.us.i338
 
 200:                                              ; preds = %189
   %201 = sext i32 %197 to i64
-  %202 = getelementptr inbounds nuw [19296 x i16], ptr %4, i64 0, i64 %201
+  %202 = getelementptr inbounds [19296 x i16], ptr %4, i64 0, i64 %201
   %203 = icmp sgt i32 %.0291, -3
   br i1 %203, label %.preheader.us.preheader.i339, label %fill_rect.exit351
 
@@ -612,7 +612,7 @@ fill_rect.exit351:                                ; preds = %._crit_edge.us.i348
   %207 = mul i32 %196, 144
   %208 = add i32 %207, 432
   %209 = sext i32 %208 to i64
-  %210 = getelementptr inbounds nuw [19296 x i16], ptr %4, i64 0, i64 %209
+  %210 = getelementptr inbounds [19296 x i16], ptr %4, i64 0, i64 %209
   %211 = icmp sgt i32 %193, -16
   br i1 %211, label %.preheader.us.preheader.i353, label %fill_rect.exit365
 
@@ -1072,7 +1072,7 @@ copy_sb8_16.exit450:                              ; preds = %._crit_edge.us.i473
   %336 = load i8, ptr %188, align 1
   %.not320 = icmp eq i8 %336, 0
   %337 = sext i32 %197 to i64
-  %338 = getelementptr inbounds nuw [19296 x i16], ptr %4, i64 0, i64 %337
+  %338 = getelementptr inbounds [19296 x i16], ptr %4, i64 0, i64 %337
   br i1 %.not320, label %339, label %364
 
 339:                                              ; preds = %copy_sb8_16.exit450
@@ -1238,7 +1238,7 @@ copy_sb8_16.exit504:                              ; preds = %._crit_edge.us.i527
 
 copy_rect.exit545:                                ; preds = %._crit_edge.us.i542, %copy_sb8_16.exit504
   %380 = sext i32 %193 to i64
-  %381 = getelementptr inbounds nuw i16, ptr %4, i64 %380
+  %381 = getelementptr inbounds i16, ptr %4, i64 %380
   %382 = icmp sgt i32 %.0291, -3
   br i1 %382, label %.preheader.us.preheader.i547, label %copy_rect.exit561
 
@@ -1430,7 +1430,7 @@ fill_rect.exit621:                                ; preds = %._crit_edge.us.i618
   %427 = mul i32 %196, 144
   %428 = add i32 %427, 432
   %429 = sext i32 %428 to i64
-  %430 = getelementptr inbounds nuw [19296 x i16], ptr %4, i64 0, i64 %429
+  %430 = getelementptr inbounds [19296 x i16], ptr %4, i64 0, i64 %429
   br i1 %420, label %.preheader.us.preheader.i623, label %fill_rect.exit635
 
 .preheader.us.preheader.i623:                     ; preds = %426
@@ -1462,7 +1462,7 @@ fill_rect.exit635:                                ; preds = %._crit_edge.us.i632
 
 433:                                              ; preds = %fill_rect.exit635
   %434 = sext i32 %197 to i64
-  %435 = getelementptr inbounds nuw [19296 x i16], ptr %4, i64 0, i64 %434
+  %435 = getelementptr inbounds [19296 x i16], ptr %4, i64 0, i64 %434
   br i1 %423, label %.preheader.us.preheader.i637, label %fill_rect.exit649
 
 .preheader.us.preheader.i637:                     ; preds = %433

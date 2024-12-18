@@ -2698,7 +2698,7 @@ ShannonEntropy.exit337:                           ; preds = %while.end.i317, %Fa
   %retval1.i308.2 = phi double [ %36, %FastLog2.exit422 ], [ %retval1.i308.1, %while.end.i317 ]
   %cmp.i273 = fcmp olt double %retval1.i308.2, %.pre290
   %retval1.i270.0 = select i1 %cmp.i273, double %.pre290, double %retval1.i308.2
-  %arrayidx49 = getelementptr inbounds nuw [13 x double], ptr %entropy, i64 0, i64 %i37.0268
+  %arrayidx49 = getelementptr inbounds [13 x double], ptr %entropy, i64 0, i64 %i37.0268
   store double %retval1.i270.0, ptr %arrayidx49, align 8
   %invariant.gep = getelementptr %struct.HistogramLiteral, ptr %2, i64 %i37.0268
   br label %for.body53
@@ -2826,7 +2826,7 @@ ShannonEntropy.exit371:                           ; preds = %while.end.i351, %Fa
   %retval1.i342.2 = phi double [ %50, %FastLog2.exit395 ], [ %retval1.i342.1, %while.end.i351 ]
   %cmp.i266 = fcmp olt double %retval1.i342.2, %.pre291
   %retval1.i.0 = select i1 %cmp.i266, double %.pre291, double %retval1.i342.2
-  %arrayidx67 = getelementptr inbounds nuw [26 x double], ptr %combined_entropy, i64 0, i64 %add55
+  %arrayidx67 = getelementptr inbounds [26 x double], ptr %combined_entropy, i64 0, i64 %add55
   store double %retval1.i.0, ptr %arrayidx67, align 8
   %sub = fsub double %retval1.i.0, %retval1.i270.0
   %arrayidx70 = getelementptr inbounds double, ptr %last_entropy_, i64 %add55
@@ -2900,7 +2900,7 @@ for.body113:                                      ; preds = %for.body113.lr.ph, 
   %65 = load double, ptr %arrayidx114, align 8
   %arrayidx116 = getelementptr double, ptr %64, i64 %i37.1274
   store double %65, ptr %arrayidx116, align 8
-  %arrayidx117 = getelementptr inbounds nuw [13 x double], ptr %entropy, i64 0, i64 %i37.1274
+  %arrayidx117 = getelementptr inbounds [13 x double], ptr %entropy, i64 0, i64 %i37.1274
   %66 = load double, ptr %arrayidx117, align 8
   store double %66, ptr %arrayidx114, align 8
   %inc120 = add nuw i64 %i37.1274, 1
@@ -2996,7 +2996,7 @@ for.body170:                                      ; preds = %for.body170.lr.ph, 
   %88 = load double, ptr %arrayidx177, align 8
   %arrayidx179 = getelementptr inbounds double, ptr %last_entropy_, i64 %add175
   store double %88, ptr %arrayidx179, align 8
-  %arrayidx181 = getelementptr inbounds nuw [26 x double], ptr %combined_entropy, i64 0, i64 %add175
+  %arrayidx181 = getelementptr inbounds [26 x double], ptr %combined_entropy, i64 0, i64 %add175
   %89 = load double, ptr %arrayidx181, align 8
   store double %89, ptr %arrayidx177, align 8
   %90 = load i64, ptr %curr_histogram_ix_183, align 8
@@ -3041,7 +3041,7 @@ for.body206:                                      ; preds = %for.body206.lr.ph, 
   %arrayidx210 = getelementptr %struct.HistogramLiteral, ptr %97, i64 %i37.3270
   %arrayidx211 = getelementptr inbounds %struct.HistogramLiteral, ptr %cond295, i64 %i37.3270
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1040) %arrayidx210, ptr noundef nonnull align 8 dereferenceable(1040) %arrayidx211, i64 1040, i1 false)
-  %arrayidx212 = getelementptr inbounds nuw [26 x double], ptr %combined_entropy, i64 0, i64 %i37.3270
+  %arrayidx212 = getelementptr inbounds [26 x double], ptr %combined_entropy, i64 0, i64 %i37.3270
   %98 = load double, ptr %arrayidx212, align 8
   %arrayidx213 = getelementptr inbounds double, ptr %last_entropy_, i64 %i37.3270
   store double %98, ptr %arrayidx213, align 8

@@ -1007,7 +1007,7 @@ _ZN23NativeSignatureIterator7iterateEm.exit:      ; preds = %2, %12
   %28 = load i8, ptr %27, align 8
   %29 = call noundef i32 @_ZN19AbstractInterpreter18BasicType_as_indexE9BasicType(i8 noundef zeroext %28) #11
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds nuw [10 x ptr], ptr @_ZN19AbstractInterpreter20_native_abi_to_toscaE, i64 0, i64 %30
+  %31 = getelementptr inbounds [10 x ptr], ptr @_ZN19AbstractInterpreter20_native_abi_to_toscaE, i64 0, i64 %30
   %32 = load ptr, ptr %31, align 8
   %.not.i.i = icmp eq ptr %32, null
   %33 = select i1 %.not.i.i, i32 0, i32 7
@@ -1192,7 +1192,7 @@ _ZN23NativeSignatureIterator7iterateEm.exit:      ; preds = %_ZN12methodHandleC2
   %84 = load i8, ptr %83, align 8
   %85 = call noundef i32 @_ZN19AbstractInterpreter18BasicType_as_indexE9BasicType(i8 noundef zeroext %84) #11
   %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds nuw [10 x ptr], ptr @_ZN19AbstractInterpreter20_native_abi_to_toscaE, i64 0, i64 %86
+  %87 = getelementptr inbounds [10 x ptr], ptr @_ZN19AbstractInterpreter20_native_abi_to_toscaE, i64 0, i64 %86
   %88 = load ptr, ptr %87, align 8
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #11
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 408

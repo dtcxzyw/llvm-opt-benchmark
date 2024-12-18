@@ -10252,20 +10252,20 @@ define linkonce_odr hidden void @_ZNK2cv4rgbd7LINEMODIfE11computeImplItlEENS_3Ma
 26:                                               ; preds = %.preheader97, %26
   %indvars.iv116 = phi i64 [ -5, %.preheader97 ], [ %indvars.iv.next117, %26 ]
   %indvars.iv = phi i64 [ %24, %.preheader97 ], [ %indvars.iv.next, %26 ]
-  %27 = getelementptr inbounds nuw [9 x i64], ptr %9, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds [9 x i64], ptr %9, i64 0, i64 %indvars.iv
   store i64 %indvars.iv116, ptr %27, align 8
-  %28 = getelementptr inbounds nuw [9 x i64], ptr %10, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds [9 x i64], ptr %10, i64 0, i64 %indvars.iv
   store i64 %indvars.iv121, ptr %28, align 8
   %29 = mul nsw i64 %indvars.iv116, %indvars.iv116
-  %30 = getelementptr inbounds nuw [9 x i64], ptr %11, i64 0, i64 %indvars.iv
+  %30 = getelementptr inbounds [9 x i64], ptr %11, i64 0, i64 %indvars.iv
   store i64 %29, ptr %30, align 8
   %31 = mul nsw i64 %indvars.iv116, %indvars.iv121
-  %32 = getelementptr inbounds nuw [9 x i64], ptr %12, i64 0, i64 %indvars.iv
+  %32 = getelementptr inbounds [9 x i64], ptr %12, i64 0, i64 %indvars.iv
   store i64 %31, ptr %32, align 8
-  %33 = getelementptr inbounds nuw [9 x i64], ptr %13, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds [9 x i64], ptr %13, i64 0, i64 %indvars.iv
   store i64 %22, ptr %33, align 8
   %34 = add nsw i64 %23, %indvars.iv116
-  %35 = getelementptr inbounds nuw [9 x i64], ptr %8, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds [9 x i64], ptr %8, i64 0, i64 %indvars.iv
   store i64 %34, ptr %35, align 8
   %indvars.iv.next117 = add nsw i64 %indvars.iv116, 5
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -10605,20 +10605,20 @@ define linkonce_odr hidden void @_ZNK2cv4rgbd7LINEMODIfE11computeImplIffEENS_3Ma
 26:                                               ; preds = %.preheader97, %26
   %indvars.iv116 = phi i64 [ -5, %.preheader97 ], [ %indvars.iv.next117, %26 ]
   %indvars.iv = phi i64 [ %24, %.preheader97 ], [ %indvars.iv.next, %26 ]
-  %27 = getelementptr inbounds nuw [9 x i64], ptr %9, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds [9 x i64], ptr %9, i64 0, i64 %indvars.iv
   store i64 %indvars.iv116, ptr %27, align 8
-  %28 = getelementptr inbounds nuw [9 x i64], ptr %10, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds [9 x i64], ptr %10, i64 0, i64 %indvars.iv
   store i64 %indvars.iv121, ptr %28, align 8
   %29 = mul nsw i64 %indvars.iv116, %indvars.iv116
-  %30 = getelementptr inbounds nuw [9 x i64], ptr %11, i64 0, i64 %indvars.iv
+  %30 = getelementptr inbounds [9 x i64], ptr %11, i64 0, i64 %indvars.iv
   store i64 %29, ptr %30, align 8
   %31 = mul nsw i64 %indvars.iv116, %indvars.iv121
-  %32 = getelementptr inbounds nuw [9 x i64], ptr %12, i64 0, i64 %indvars.iv
+  %32 = getelementptr inbounds [9 x i64], ptr %12, i64 0, i64 %indvars.iv
   store i64 %31, ptr %32, align 8
-  %33 = getelementptr inbounds nuw [9 x i64], ptr %13, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds [9 x i64], ptr %13, i64 0, i64 %indvars.iv
   store i64 %22, ptr %33, align 8
   %34 = add nsw i64 %23, %indvars.iv116
-  %35 = getelementptr inbounds nuw [9 x i64], ptr %8, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds [9 x i64], ptr %8, i64 0, i64 %indvars.iv
   store i64 %34, ptr %35, align 8
   %indvars.iv.next117 = add nsw i64 %indvars.iv116, 5
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -10959,20 +10959,20 @@ define linkonce_odr hidden void @_ZNK2cv4rgbd7LINEMODIfE11computeImplIddEENS_3Ma
 26:                                               ; preds = %.preheader97, %26
   %indvars.iv116 = phi i64 [ -5, %.preheader97 ], [ %indvars.iv.next117, %26 ]
   %indvars.iv = phi i64 [ %24, %.preheader97 ], [ %indvars.iv.next, %26 ]
-  %27 = getelementptr inbounds nuw [9 x i64], ptr %9, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds [9 x i64], ptr %9, i64 0, i64 %indvars.iv
   store i64 %indvars.iv116, ptr %27, align 8
-  %28 = getelementptr inbounds nuw [9 x i64], ptr %10, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds [9 x i64], ptr %10, i64 0, i64 %indvars.iv
   store i64 %indvars.iv121, ptr %28, align 8
   %29 = mul nsw i64 %indvars.iv116, %indvars.iv116
-  %30 = getelementptr inbounds nuw [9 x i64], ptr %11, i64 0, i64 %indvars.iv
+  %30 = getelementptr inbounds [9 x i64], ptr %11, i64 0, i64 %indvars.iv
   store i64 %29, ptr %30, align 8
   %31 = mul nsw i64 %indvars.iv116, %indvars.iv121
-  %32 = getelementptr inbounds nuw [9 x i64], ptr %12, i64 0, i64 %indvars.iv
+  %32 = getelementptr inbounds [9 x i64], ptr %12, i64 0, i64 %indvars.iv
   store i64 %31, ptr %32, align 8
-  %33 = getelementptr inbounds nuw [9 x i64], ptr %13, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds [9 x i64], ptr %13, i64 0, i64 %indvars.iv
   store i64 %22, ptr %33, align 8
   %34 = add nsw i64 %23, %indvars.iv116
-  %35 = getelementptr inbounds nuw [9 x i64], ptr %8, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds [9 x i64], ptr %8, i64 0, i64 %indvars.iv
   store i64 %34, ptr %35, align 8
   %indvars.iv.next117 = add nsw i64 %indvars.iv116, 5
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -11499,20 +11499,20 @@ define linkonce_odr hidden void @_ZNK2cv4rgbd7LINEMODIdE11computeImplItlEENS_3Ma
 26:                                               ; preds = %.preheader97, %26
   %indvars.iv116 = phi i64 [ -5, %.preheader97 ], [ %indvars.iv.next117, %26 ]
   %indvars.iv = phi i64 [ %24, %.preheader97 ], [ %indvars.iv.next, %26 ]
-  %27 = getelementptr inbounds nuw [9 x i64], ptr %9, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds [9 x i64], ptr %9, i64 0, i64 %indvars.iv
   store i64 %indvars.iv116, ptr %27, align 8
-  %28 = getelementptr inbounds nuw [9 x i64], ptr %10, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds [9 x i64], ptr %10, i64 0, i64 %indvars.iv
   store i64 %indvars.iv121, ptr %28, align 8
   %29 = mul nsw i64 %indvars.iv116, %indvars.iv116
-  %30 = getelementptr inbounds nuw [9 x i64], ptr %11, i64 0, i64 %indvars.iv
+  %30 = getelementptr inbounds [9 x i64], ptr %11, i64 0, i64 %indvars.iv
   store i64 %29, ptr %30, align 8
   %31 = mul nsw i64 %indvars.iv116, %indvars.iv121
-  %32 = getelementptr inbounds nuw [9 x i64], ptr %12, i64 0, i64 %indvars.iv
+  %32 = getelementptr inbounds [9 x i64], ptr %12, i64 0, i64 %indvars.iv
   store i64 %31, ptr %32, align 8
-  %33 = getelementptr inbounds nuw [9 x i64], ptr %13, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds [9 x i64], ptr %13, i64 0, i64 %indvars.iv
   store i64 %22, ptr %33, align 8
   %34 = add nsw i64 %23, %indvars.iv116
-  %35 = getelementptr inbounds nuw [9 x i64], ptr %8, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds [9 x i64], ptr %8, i64 0, i64 %indvars.iv
   store i64 %34, ptr %35, align 8
   %indvars.iv.next117 = add nsw i64 %indvars.iv116, 5
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -11852,20 +11852,20 @@ define linkonce_odr hidden void @_ZNK2cv4rgbd7LINEMODIdE11computeImplIffEENS_3Ma
 26:                                               ; preds = %.preheader97, %26
   %indvars.iv116 = phi i64 [ -5, %.preheader97 ], [ %indvars.iv.next117, %26 ]
   %indvars.iv = phi i64 [ %24, %.preheader97 ], [ %indvars.iv.next, %26 ]
-  %27 = getelementptr inbounds nuw [9 x i64], ptr %9, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds [9 x i64], ptr %9, i64 0, i64 %indvars.iv
   store i64 %indvars.iv116, ptr %27, align 8
-  %28 = getelementptr inbounds nuw [9 x i64], ptr %10, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds [9 x i64], ptr %10, i64 0, i64 %indvars.iv
   store i64 %indvars.iv121, ptr %28, align 8
   %29 = mul nsw i64 %indvars.iv116, %indvars.iv116
-  %30 = getelementptr inbounds nuw [9 x i64], ptr %11, i64 0, i64 %indvars.iv
+  %30 = getelementptr inbounds [9 x i64], ptr %11, i64 0, i64 %indvars.iv
   store i64 %29, ptr %30, align 8
   %31 = mul nsw i64 %indvars.iv116, %indvars.iv121
-  %32 = getelementptr inbounds nuw [9 x i64], ptr %12, i64 0, i64 %indvars.iv
+  %32 = getelementptr inbounds [9 x i64], ptr %12, i64 0, i64 %indvars.iv
   store i64 %31, ptr %32, align 8
-  %33 = getelementptr inbounds nuw [9 x i64], ptr %13, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds [9 x i64], ptr %13, i64 0, i64 %indvars.iv
   store i64 %22, ptr %33, align 8
   %34 = add nsw i64 %23, %indvars.iv116
-  %35 = getelementptr inbounds nuw [9 x i64], ptr %8, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds [9 x i64], ptr %8, i64 0, i64 %indvars.iv
   store i64 %34, ptr %35, align 8
   %indvars.iv.next117 = add nsw i64 %indvars.iv116, 5
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -12212,20 +12212,20 @@ define linkonce_odr hidden void @_ZNK2cv4rgbd7LINEMODIdE11computeImplIddEENS_3Ma
 26:                                               ; preds = %.preheader97, %26
   %indvars.iv116 = phi i64 [ -5, %.preheader97 ], [ %indvars.iv.next117, %26 ]
   %indvars.iv = phi i64 [ %24, %.preheader97 ], [ %indvars.iv.next, %26 ]
-  %27 = getelementptr inbounds nuw [9 x i64], ptr %9, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds [9 x i64], ptr %9, i64 0, i64 %indvars.iv
   store i64 %indvars.iv116, ptr %27, align 8
-  %28 = getelementptr inbounds nuw [9 x i64], ptr %10, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds [9 x i64], ptr %10, i64 0, i64 %indvars.iv
   store i64 %indvars.iv121, ptr %28, align 8
   %29 = mul nsw i64 %indvars.iv116, %indvars.iv116
-  %30 = getelementptr inbounds nuw [9 x i64], ptr %11, i64 0, i64 %indvars.iv
+  %30 = getelementptr inbounds [9 x i64], ptr %11, i64 0, i64 %indvars.iv
   store i64 %29, ptr %30, align 8
   %31 = mul nsw i64 %indvars.iv116, %indvars.iv121
-  %32 = getelementptr inbounds nuw [9 x i64], ptr %12, i64 0, i64 %indvars.iv
+  %32 = getelementptr inbounds [9 x i64], ptr %12, i64 0, i64 %indvars.iv
   store i64 %31, ptr %32, align 8
-  %33 = getelementptr inbounds nuw [9 x i64], ptr %13, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds [9 x i64], ptr %13, i64 0, i64 %indvars.iv
   store i64 %22, ptr %33, align 8
   %34 = add nsw i64 %23, %indvars.iv116
-  %35 = getelementptr inbounds nuw [9 x i64], ptr %8, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds [9 x i64], ptr %8, i64 0, i64 %indvars.iv
   store i64 %34, ptr %35, align 8
   %indvars.iv.next117 = add nsw i64 %indvars.iv116, 5
   %indvars.iv.next = add nsw i64 %indvars.iv, 1

@@ -192,7 +192,7 @@ return:                                           ; preds = %land.lhs.true3, %la
 define internal range(i32 0, 2) i32 @test_binops(i32 noundef %i) #0 {
 entry:
   %idxprom = sext i32 %i to i64
-  %arrayidx = getelementptr inbounds nuw [10 x i32], ptr @test_values, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [10 x i32], ptr @test_values, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4
   %1 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -256, 256) -1) #3, !srcloc !5
   %and.i.i = and i32 %1, %0
@@ -329,7 +329,7 @@ for.end:                                          ; preds = %for.inc
 define internal range(i32 0, 2) i32 @test_binops_8(i32 noundef %i) #0 {
 entry:
   %idxprom = sext i32 %i to i64
-  %arrayidx = getelementptr inbounds nuw [9 x i8], ptr @test_values_8, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [9 x i8], ptr @test_values_8, i64 0, i64 %idxprom
   %0 = load i8, ptr %arrayidx, align 1
   br label %for.body
 
@@ -438,7 +438,7 @@ for.end:                                          ; preds = %for.inc
 define internal range(i32 0, 2) i32 @test_binops_s(i32 noundef %i) #0 {
 entry:
   %idxprom = sext i32 %i to i64
-  %arrayidx = getelementptr inbounds nuw [10 x i64], ptr @test_values_s, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [10 x i64], ptr @test_values_s, i64 0, i64 %idxprom
   %0 = load i64, ptr %arrayidx, align 8
   %1 = tail call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 -1, 1) -1) #3, !srcloc !9
   %and.i.i = and i64 %1, %0
@@ -596,7 +596,7 @@ for.end:                                          ; preds = %for.inc
 define internal range(i32 0, 2) i32 @test_signed(i32 noundef %i) #0 {
 entry:
   %idxprom = sext i32 %i to i64
-  %arrayidx = getelementptr inbounds nuw [13 x i32], ptr @signed_test_values, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [13 x i32], ptr @signed_test_values, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4
   %1 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -256, 256) -1) #3, !srcloc !5
   %and.i.i.i = and i32 %1, %0
@@ -663,7 +663,7 @@ for.end:                                          ; preds = %for.inc
 define internal range(i32 0, 2) i32 @test_8values(i32 noundef %i) #0 {
 entry:
   %idxprom = sext i32 %i to i64
-  %arrayidx = getelementptr inbounds nuw [9 x i8], ptr @test_values_8, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [9 x i8], ptr @test_values_8, i64 0, i64 %idxprom
   %0 = load i8, ptr %arrayidx, align 1
   %conv1.i.i = zext i8 %0 to i32
   %1 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 256) 255) #3, !srcloc !5
@@ -711,7 +711,7 @@ for.end:                                          ; preds = %for.cond
 define internal range(i32 0, 2) i32 @test_32values(i32 noundef %i) #0 {
 entry:
   %idxprom = sext i32 %i to i64
-  %arrayidx = getelementptr inbounds nuw [9 x i32], ptr @test_values_32, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [9 x i32], ptr @test_values_32, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4
   %1 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) -1) #3, !srcloc !13
   %and.i.i = and i32 %1, %0
@@ -759,7 +759,7 @@ for.end:                                          ; preds = %for.cond
 define internal range(i32 0, 2) i32 @test_64values(i32 noundef %i) #0 {
 entry:
   %idxprom = sext i32 %i to i64
-  %arrayidx = getelementptr inbounds nuw [11 x i64], ptr @test_values_64, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [11 x i64], ptr @test_values_64, i64 0, i64 %idxprom
   %0 = load i64, ptr %arrayidx, align 8
   %cmp19 = icmp slt i32 %i, 10
   br i1 %cmp19, label %for.body, label %for.end
@@ -768,7 +768,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ %idxprom, %entry ]
   %ret.020 = phi i32 [ %ret.1, %for.inc ], [ 1, %entry ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds nuw [11 x i64], ptr @test_values_64, i64 0, i64 %indvars.iv.next
+  %arrayidx2 = getelementptr inbounds [11 x i64], ptr @test_values_64, i64 0, i64 %indvars.iv.next
   %1 = load i64, ptr %arrayidx2, align 8
   %cmp3 = icmp uge i64 %0, %1
   %xor.i.i = xor i64 %1, %0

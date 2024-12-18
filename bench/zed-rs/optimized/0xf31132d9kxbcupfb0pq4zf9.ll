@@ -8884,7 +8884,7 @@ _ZN4core3str7pattern13simd_contains17hc1ca49711af5475fE.exit.i: ; preds = %244
 
 "_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17h4f9d03ee82fc3c55E.exit.i.i.i": ; preds = %244
   %246 = add nsw i64 %245, -1
-  %247 = getelementptr inbounds nuw [0 x i8], ptr %7, i64 0, i64 %246
+  %247 = getelementptr inbounds [0 x i8], ptr %7, i64 0, i64 %246
   %248 = load i8, ptr %247, align 1, !alias.scope !1012, !noalias !1013, !noundef !20
   %.not.i.not.i.i.i = icmp eq i8 %248, %29
   br i1 %.not.i.not.i.i.i, label %244, label %249

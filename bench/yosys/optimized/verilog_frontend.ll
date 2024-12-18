@@ -741,7 +741,7 @@ define void @_Z24frontend_verilog_yyerrorPKcz(ptr nocapture noundef readonly %0,
   call void @llvm.va_start.p0(ptr nonnull %2)
   %4 = call i32 @vsnprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef %0, ptr noundef nonnull %2) #26
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %5
+  %6 = getelementptr inbounds i8, ptr %3, i64 %5
   call void @llvm.va_end.p0(ptr nonnull %2)
   %gepdiff = sub nsw i64 1024, %5
   %7 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %6, i64 noundef %gepdiff, ptr noundef nonnull @.str) #26

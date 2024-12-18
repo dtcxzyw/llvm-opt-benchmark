@@ -58,11 +58,11 @@ define range(i32 0, 2) i32 @Abc_CascadeExperiment(ptr nocapture noundef readonly
   %18 = alloca [300 x i8], align 16
   %19 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %0) #14
   %strlen = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15)
-  %endptr = getelementptr inbounds nuw i8, ptr %15, i64 %strlen
+  %endptr = getelementptr inbounds i8, ptr %15, i64 %strlen
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %endptr, ptr noundef nonnull align 1 dereferenceable(10) @.str, i64 10, i1 false)
   %20 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %0) #14
   %strlen59 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16)
-  %endptr60 = getelementptr inbounds nuw i8, ptr %16, i64 %strlen59
+  %endptr60 = getelementptr inbounds i8, ptr %16, i64 %strlen59
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %endptr60, ptr noundef nonnull align 1 dereferenceable(10) @.str.1, i64 10, i1 false)
   %21 = icmp ult i32 %4, 2
   %22 = add i32 %4, -1
@@ -390,11 +390,11 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 define i32 @CompareSupports(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
   %3 = load i32, ptr %1, align 4
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds nuw [1024 x i32], ptr @s_SuppSize, i64 0, i64 %4
+  %5 = getelementptr inbounds [1024 x i32], ptr @s_SuppSize, i64 0, i64 %4
   %6 = load i32, ptr %5, align 4
   %7 = load i32, ptr %0, align 4
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds nuw [1024 x i32], ptr @s_SuppSize, i64 0, i64 %8
+  %9 = getelementptr inbounds [1024 x i32], ptr @s_SuppSize, i64 0, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = sub nsw i32 %6, %10
   ret i32 %11
@@ -605,7 +605,7 @@ define noundef ptr @GetSingleOutputFunctionRemappedNewDD(ptr noundef %0, ptr noc
   %38 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv106
   %39 = load i32, ptr %38, align 4
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds nuw [1024 x i32], ptr @GetSingleOutputFunctionRemappedNewDD.Permute, i64 0, i64 %40
+  %41 = getelementptr inbounds [1024 x i32], ptr @GetSingleOutputFunctionRemappedNewDD.Permute, i64 0, i64 %40
   %42 = trunc nuw nsw i64 %indvars.iv106 to i32
   store i32 %42, ptr %41, align 4
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1

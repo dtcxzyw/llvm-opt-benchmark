@@ -7920,7 +7920,7 @@ if.then.i:                                        ; preds = %_ZNK5boost16re_deta
 
 _ZN5boost16re_detail_10740020get_default_class_idIcEEiPKT_S4_.exit: ; preds = %_ZSt11lower_boundIPKN5boost16re_detail_10740023character_pointer_rangeIcEES3_ET_S6_S6_RKT0_.exit.i, %land.lhs.true.i, %_ZNK5boost16re_detail_10740023character_pointer_rangeIcEeqERKS2_.exit.i, %if.then.i
   %retval.0.i = phi i64 [ %20, %if.then.i ], [ 0, %_ZNK5boost16re_detail_10740023character_pointer_rangeIcEeqERKS2_.exit.i ], [ 0, %_ZSt11lower_boundIPKN5boost16re_detail_10740023character_pointer_rangeIcEES3_ET_S6_S6_RKT0_.exit.i ], [ 0, %land.lhs.true.i ]
-  %arrayidx = getelementptr inbounds nuw [22 x i32], ptr @_ZZNK5boost16re_detail_10740031cpp_regex_traits_implementationIcE20lookup_classname_impEPKcS4_E5masks, i64 0, i64 %retval.0.i
+  %arrayidx = getelementptr inbounds [22 x i32], ptr @_ZZNK5boost16re_detail_10740031cpp_regex_traits_implementationIcE20lookup_classname_impEPKcS4_E5masks, i64 0, i64 %retval.0.i
   br label %return
 
 return:                                           ; preds = %_ZN5boost16re_detail_10740020get_default_class_idIcEEiPKT_S4_.exit, %if.then12
@@ -19192,7 +19192,7 @@ invoke.cont:                                      ; preds = %_ZN5boost16re_detai
   %vtable = load ptr, ptr %is, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %is, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %is, i64 %vbase.offset
   %_M_ios_locale.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 208
   call void @_ZNSt6localeC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(8) %_M_ios_locale.i) #24
   %call = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZSt9use_facetINSt7__cxx118numpunctIcEEERKT_RKSt6locale(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2)
@@ -19314,7 +19314,7 @@ invoke.cont11:                                    ; preds = %invoke.cont9
   %vtable13 = load ptr, ptr %is, align 8
   %vbase.offset.ptr14 = getelementptr i8, ptr %vtable13, i64 -24
   %vbase.offset15 = load i64, ptr %vbase.offset.ptr14, align 8
-  %add.ptr16 = getelementptr inbounds nuw i8, ptr %is, i64 %vbase.offset15
+  %add.ptr16 = getelementptr inbounds i8, ptr %is, i64 %vbase.offset15
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr16, i32 noundef 0)
           to label %invoke.cont17 unwind label %lpad3
 

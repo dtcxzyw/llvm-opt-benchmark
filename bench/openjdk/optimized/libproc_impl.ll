@@ -67,7 +67,7 @@ thread-pre-split:                                 ; preds = %1
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 4096
   store i8 0, ptr %17, align 16
   %18 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #23
-  %19 = getelementptr inbounds nuw i8, ptr %2, i64 %18
+  %19 = getelementptr inbounds i8, ptr %2, i64 %18
   %20 = shl i64 %18, 32
   %sext = sub i64 17596481011712, %20
   %21 = ashr exact i64 %sext, 32

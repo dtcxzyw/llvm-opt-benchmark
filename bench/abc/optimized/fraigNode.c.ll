@@ -529,7 +529,7 @@ define void @Fraig_NodeSimulate(ptr nocapture noundef %0, i32 noundef %1, i32 no
   %62 = or i32 %61, %59
   %63 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv251
   store i32 %62, ptr %63, align 4
-  %64 = getelementptr inbounds nuw [1024 x i32], ptr @s_FraigPrimes, i64 0, i64 %indvars.iv251
+  %64 = getelementptr inbounds [1024 x i32], ptr @s_FraigPrimes, i64 0, i64 %indvars.iv251
   %65 = load i32, ptr %64, align 4
   %66 = mul i32 %65, %62
   %67 = xor i32 %66, %.0147203
@@ -548,7 +548,7 @@ define void @Fraig_NodeSimulate(ptr nocapture noundef %0, i32 noundef %1, i32 no
   %73 = xor i32 %72, -1
   %74 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv256
   store i32 %73, ptr %74, align 4
-  %75 = getelementptr inbounds nuw [1024 x i32], ptr @s_FraigPrimes, i64 0, i64 %indvars.iv256
+  %75 = getelementptr inbounds [1024 x i32], ptr @s_FraigPrimes, i64 0, i64 %indvars.iv256
   %76 = load i32, ptr %75, align 4
   %77 = mul i32 %76, %73
   %78 = xor i32 %77, %.1148207
@@ -593,7 +593,7 @@ define void @Fraig_NodeSimulate(ptr nocapture noundef %0, i32 noundef %1, i32 no
   %90 = or i32 %86, %89
   %91 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv
   store i32 %90, ptr %91, align 4
-  %92 = getelementptr inbounds nuw [1024 x i32], ptr @s_FraigPrimes, i64 0, i64 %indvars.iv
+  %92 = getelementptr inbounds [1024 x i32], ptr @s_FraigPrimes, i64 0, i64 %indvars.iv
   %93 = load i32, ptr %92, align 4
   %94 = mul i32 %93, %90
   %95 = xor i32 %94, %.3150181
@@ -612,7 +612,7 @@ define void @Fraig_NodeSimulate(ptr nocapture noundef %0, i32 noundef %1, i32 no
   %101 = and i32 %100, %98
   %102 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv226
   store i32 %101, ptr %102, align 4
-  %103 = getelementptr inbounds nuw [1024 x i32], ptr @s_FraigPrimes, i64 0, i64 %indvars.iv226
+  %103 = getelementptr inbounds [1024 x i32], ptr @s_FraigPrimes, i64 0, i64 %indvars.iv226
   %104 = load i32, ptr %103, align 4
   %105 = mul i32 %104, %101
   %106 = xor i32 %105, %.4151183
@@ -656,7 +656,7 @@ define void @Fraig_NodeSimulate(ptr nocapture noundef %0, i32 noundef %1, i32 no
   %117 = or i32 %116, %114
   %118 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv241
   store i32 %117, ptr %118, align 4
-  %119 = getelementptr inbounds nuw [1024 x i32], ptr @s_FraigPrimes, i64 0, i64 %indvars.iv241
+  %119 = getelementptr inbounds [1024 x i32], ptr @s_FraigPrimes, i64 0, i64 %indvars.iv241
   %120 = load i32, ptr %119, align 4
   %121 = mul i32 %120, %117
   %122 = xor i32 %121, %.5152195
@@ -675,7 +675,7 @@ define void @Fraig_NodeSimulate(ptr nocapture noundef %0, i32 noundef %1, i32 no
   %128 = and i32 %124, %127
   %129 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv246
   store i32 %128, ptr %129, align 4
-  %130 = getelementptr inbounds nuw [1024 x i32], ptr @s_FraigPrimes, i64 0, i64 %indvars.iv246
+  %130 = getelementptr inbounds [1024 x i32], ptr @s_FraigPrimes, i64 0, i64 %indvars.iv246
   %131 = load i32, ptr %130, align 4
   %132 = mul i32 %131, %128
   %133 = xor i32 %132, %.6153199
@@ -713,7 +713,7 @@ define void @Fraig_NodeSimulate(ptr nocapture noundef %0, i32 noundef %1, i32 no
   %142 = xor i32 %141, -1
   %143 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv231
   store i32 %142, ptr %143, align 4
-  %144 = getelementptr inbounds nuw [1024 x i32], ptr @s_FraigPrimes, i64 0, i64 %indvars.iv231
+  %144 = getelementptr inbounds [1024 x i32], ptr @s_FraigPrimes, i64 0, i64 %indvars.iv231
   %145 = load i32, ptr %144, align 4
   %146 = mul i32 %145, %142
   %147 = xor i32 %146, %.7154187
@@ -731,7 +731,7 @@ define void @Fraig_NodeSimulate(ptr nocapture noundef %0, i32 noundef %1, i32 no
   %152 = and i32 %151, %149
   %153 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv236
   store i32 %152, ptr %153, align 4
-  %154 = getelementptr inbounds nuw [1024 x i32], ptr @s_FraigPrimes, i64 0, i64 %indvars.iv236
+  %154 = getelementptr inbounds [1024 x i32], ptr @s_FraigPrimes, i64 0, i64 %indvars.iv236
   %155 = load i32, ptr %154, align 4
   %156 = mul i32 %155, %152
   %157 = xor i32 %156, %.8191

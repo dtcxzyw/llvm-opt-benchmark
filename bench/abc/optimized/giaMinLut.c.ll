@@ -1264,7 +1264,7 @@ Vec_WrdStart.exit59:                              ; preds = %Vec_WrdStart.exit, 
   %indvars.iv88 = phi i64 [ 0, %..preheader_crit_edge.us.us ], [ %indvars.iv.next89, %69 ]
   %60 = xor i64 %indvars.iv88, -1
   %61 = add nsw i64 %53, %60
-  %62 = getelementptr inbounds nuw [1000 x i8], ptr %6, i64 0, i64 %61
+  %62 = getelementptr inbounds [1000 x i8], ptr %6, i64 0, i64 %61
   %63 = load i8, ptr %62, align 1
   %64 = icmp eq i8 %63, 49
   br i1 %64, label %65, label %69
@@ -1286,7 +1286,7 @@ Vec_WrdStart.exit59:                              ; preds = %Vec_WrdStart.exit, 
   %indvars.iv83 = phi i64 [ %indvars.iv.next84, %80 ], [ 0, %.preheader60.us.us ]
   %71 = xor i64 %indvars.iv83, -1
   %72 = add nsw i64 %51, %71
-  %73 = getelementptr inbounds nuw [1000 x i8], ptr %6, i64 0, i64 %72
+  %73 = getelementptr inbounds [1000 x i8], ptr %6, i64 0, i64 %72
   %74 = load i8, ptr %73, align 1
   %75 = icmp eq i8 %74, 49
   br i1 %75, label %76, label %80
@@ -1328,7 +1328,7 @@ Vec_WrdStart.exit59:                              ; preds = %Vec_WrdStart.exit, 
   %indvars.iv78 = phi i64 [ 0, %.preheader60.us ], [ %indvars.iv.next79, %98 ]
   %89 = xor i64 %indvars.iv78, -1
   %90 = add nsw i64 %51, %89
-  %91 = getelementptr inbounds nuw [1000 x i8], ptr %6, i64 0, i64 %90
+  %91 = getelementptr inbounds [1000 x i8], ptr %6, i64 0, i64 %90
   %92 = load i8, ptr %91, align 1
   %93 = icmp eq i8 %92, 49
   br i1 %93, label %94, label %98
@@ -1376,7 +1376,7 @@ Vec_WrdStart.exit59:                              ; preds = %Vec_WrdStart.exit, 
   %109 = xor i32 %108, -1
   %110 = add i32 %15, %109
   %111 = sext i32 %110 to i64
-  %112 = getelementptr inbounds nuw [1000 x i8], ptr %6, i64 0, i64 %111
+  %112 = getelementptr inbounds [1000 x i8], ptr %6, i64 0, i64 %111
   %113 = load i8, ptr %112, align 1
   %114 = icmp eq i8 %113, 49
   br i1 %114, label %115, label %119
@@ -1522,7 +1522,7 @@ Vec_WrdStart.exit:                                ; preds = %28, %34
   %51 = sub i64 %43, %indvars.iv
   %sext = shl i64 %51, 32
   %52 = ashr exact i64 %sext, 32
-  %53 = getelementptr inbounds nuw [1000 x i8], ptr %3, i64 0, i64 %52
+  %53 = getelementptr inbounds [1000 x i8], ptr %3, i64 0, i64 %52
   %54 = load i8, ptr %53, align 1
   %55 = icmp eq i8 %54, 49
   br i1 %55, label %56, label %60

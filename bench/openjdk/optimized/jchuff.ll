@@ -108,7 +108,7 @@ define hidden void @jMkCDerived(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
 
 55:                                               ; preds = %._crit_edge
   %56 = sext i32 %.173.lcssa to i64
-  %57 = getelementptr inbounds nuw [257 x i8], ptr %5, i64 0, i64 %56
+  %57 = getelementptr inbounds [257 x i8], ptr %5, i64 0, i64 %56
   store i8 0, ptr %57, align 1
   %58 = load i8, ptr %5, align 16
   %.not7893 = icmp eq i8 %58, 0
@@ -135,10 +135,10 @@ define hidden void @jMkCDerived(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   %indvars.iv107 = phi i64 [ %63, %.lr.ph89.preheader ], [ %indvars.iv.next108, %.lr.ph89 ]
   %.188 = phi i32 [ %.096, %.lr.ph89.preheader ], [ %65, %.lr.ph89 ]
   %indvars.iv.next108 = add nsw i64 %indvars.iv107, 1
-  %64 = getelementptr inbounds nuw [257 x i32], ptr %6, i64 0, i64 %indvars.iv107
+  %64 = getelementptr inbounds [257 x i32], ptr %6, i64 0, i64 %indvars.iv107
   store i32 %.188, ptr %64, align 4
   %65 = add i32 %.188, 1
-  %66 = getelementptr inbounds nuw [257 x i8], ptr %5, i64 0, i64 %indvars.iv.next108
+  %66 = getelementptr inbounds [257 x i8], ptr %5, i64 0, i64 %indvars.iv.next108
   %67 = load i8, ptr %66, align 1
   %68 = sext i8 %67 to i32
   %69 = icmp eq i32 %.07494, %68
@@ -168,7 +168,7 @@ define hidden void @jMkCDerived(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   %78 = shl i32 %.1.lcssa, 1
   %79 = add nsw i32 %.07494, 1
   %80 = sext i32 %.3.lcssa to i64
-  %81 = getelementptr inbounds nuw [257 x i8], ptr %5, i64 0, i64 %80
+  %81 = getelementptr inbounds [257 x i8], ptr %5, i64 0, i64 %80
   %82 = load i8, ptr %81, align 1
   %.not78 = icmp eq i8 %82, 0
   br i1 %.not78, label %._crit_edge97, label %.preheader, !llvm.loop !9
@@ -328,11 +328,11 @@ define hidden void @jGenOptTbl(ptr noundef %0, ptr nocapture noundef writeonly %
   %25 = add nsw i64 %24, %21
   store i64 %25, ptr %23, align 8
   store i64 0, ptr %20, align 8
-  %26 = getelementptr inbounds nuw [257 x i32], ptr %5, i64 0, i64 %22
+  %26 = getelementptr inbounds [257 x i32], ptr %5, i64 0, i64 %22
   %27 = load i32, ptr %26, align 4
   %28 = add nsw i32 %27, 1
   store i32 %28, ptr %26, align 4
-  %29 = getelementptr inbounds nuw [257 x i32], ptr %6, i64 0, i64 %22
+  %29 = getelementptr inbounds [257 x i32], ptr %6, i64 0, i64 %22
   %30 = load i32, ptr %29, align 4
   %31 = icmp sgt i32 %30, -1
   br i1 %31, label %.lr.ph, label %._crit_edge
@@ -351,7 +351,7 @@ define hidden void @jGenOptTbl(ptr noundef %0, ptr nocapture noundef writeonly %
 
 ._crit_edge:                                      ; preds = %.lr.ph, %18
   %.lcssa122 = phi i64 [ %22, %18 ], [ %33, %.lr.ph ]
-  %40 = getelementptr inbounds nuw [257 x i32], ptr %6, i64 0, i64 %.lcssa122
+  %40 = getelementptr inbounds [257 x i32], ptr %6, i64 0, i64 %.lcssa122
   store i32 %.189, ptr %40, align 4
   %41 = getelementptr inbounds nuw [257 x i32], ptr %5, i64 0, i64 %19
   %42 = load i32, ptr %41, align 4
@@ -396,7 +396,7 @@ define hidden void @jGenOptTbl(ptr noundef %0, ptr nocapture noundef writeonly %
 
 64:                                               ; preds = %59, %57
   %65 = sext i32 %56 to i64
-  %66 = getelementptr inbounds nuw [33 x i8], ptr %4, i64 0, i64 %65
+  %66 = getelementptr inbounds [33 x i8], ptr %4, i64 0, i64 %65
   %67 = load i8, ptr %66, align 1
   %68 = add i8 %67, 1
   store i8 %68, ptr %66, align 1
@@ -421,9 +421,9 @@ define hidden void @jGenOptTbl(ptr noundef %0, ptr nocapture noundef writeonly %
 
 .lr.ph134:                                        ; preds = %.preheader108
   %72 = add nsw i64 %indvars.iv162, -2
-  %73 = getelementptr inbounds nuw [33 x i8], ptr %4, i64 0, i64 %72
+  %73 = getelementptr inbounds [33 x i8], ptr %4, i64 0, i64 %72
   %74 = add nsw i64 %indvars.iv162, -1
-  %75 = getelementptr inbounds nuw [33 x i8], ptr %4, i64 0, i64 %74
+  %75 = getelementptr inbounds [33 x i8], ptr %4, i64 0, i64 %74
   br label %76
 
 76:                                               ; preds = %.lr.ph134, %._crit_edge130
@@ -448,14 +448,14 @@ define hidden void @jGenOptTbl(ptr noundef %0, ptr nocapture noundef writeonly %
 
 86:                                               ; preds = %81, %.lr.ph129
   %indvars.iv.next160 = add nsw i64 %indvars.iv159, -1
-  %87 = getelementptr inbounds nuw [33 x i8], ptr %4, i64 0, i64 %indvars.iv.next160
+  %87 = getelementptr inbounds [33 x i8], ptr %4, i64 0, i64 %indvars.iv.next160
   %88 = load i8, ptr %87, align 1
   %89 = icmp eq i8 %88, 0
   br i1 %89, label %.lr.ph129, label %._crit_edge130, !llvm.loop !16
 
 ._crit_edge130:                                   ; preds = %86, %76
   %.lcssa126 = phi i64 [ %72, %76 ], [ %indvars.iv.next160, %86 ]
-  %90 = getelementptr inbounds nuw [33 x i8], ptr %4, i64 0, i64 %.lcssa126
+  %90 = getelementptr inbounds [33 x i8], ptr %4, i64 0, i64 %.lcssa126
   %91 = add i8 %77, -2
   store i8 %91, ptr %70, align 1
   %92 = load i8, ptr %75, align 1
@@ -464,7 +464,7 @@ define hidden void @jGenOptTbl(ptr noundef %0, ptr nocapture noundef writeonly %
   %94 = shl i64 %.lcssa126, 32
   %sext = add i64 %94, 4294967296
   %95 = ashr exact i64 %sext, 32
-  %96 = getelementptr inbounds nuw [33 x i8], ptr %4, i64 0, i64 %95
+  %96 = getelementptr inbounds [33 x i8], ptr %4, i64 0, i64 %95
   %97 = load i8, ptr %96, align 1
   %98 = add i8 %97, 2
   store i8 %98, ptr %96, align 1
@@ -483,14 +483,14 @@ define hidden void @jGenOptTbl(ptr noundef %0, ptr nocapture noundef writeonly %
 
 .preheader107:                                    ; preds = %._crit_edge135, %.preheader107
   %indvars.iv165 = phi i64 [ %indvars.iv.next166, %.preheader107 ], [ 16, %._crit_edge135 ]
-  %103 = getelementptr inbounds nuw [33 x i8], ptr %4, i64 0, i64 %indvars.iv165
+  %103 = getelementptr inbounds [33 x i8], ptr %4, i64 0, i64 %indvars.iv165
   %104 = load i8, ptr %103, align 1
   %105 = icmp eq i8 %104, 0
   %indvars.iv.next166 = add nsw i64 %indvars.iv165, -1
   br i1 %105, label %.preheader107, label %106, !llvm.loop !19
 
 106:                                              ; preds = %.preheader107
-  %107 = getelementptr inbounds nuw [33 x i8], ptr %4, i64 0, i64 %indvars.iv165
+  %107 = getelementptr inbounds [33 x i8], ptr %4, i64 0, i64 %indvars.iv165
   %108 = add i8 %104, -1
   store i8 %108, ptr %107, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(17) %1, ptr noundef nonnull align 16 dereferenceable(17) %4, i64 17, i1 false)
@@ -985,7 +985,7 @@ define internal void @finish_pass_gather(ptr noundef %0) #0 {
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %20 = load i32, ptr %19, align 8
   %21 = sext i32 %18 to i64
-  %22 = getelementptr inbounds nuw [4 x i32], ptr %2, i64 0, i64 %21
+  %22 = getelementptr inbounds [4 x i32], ptr %2, i64 0, i64 %21
   %23 = load i32, ptr %22, align 4
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %24, label %34
@@ -1011,7 +1011,7 @@ define internal void @finish_pass_gather(ptr noundef %0) #0 {
 
 34:                                               ; preds = %30, %14
   %35 = sext i32 %20 to i64
-  %36 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %35
+  %36 = getelementptr inbounds [4 x i32], ptr %3, i64 0, i64 %35
   %37 = load i32, ptr %36, align 4
   %.not29 = icmp eq i32 %37, 0
   br i1 %.not29, label %38, label %48

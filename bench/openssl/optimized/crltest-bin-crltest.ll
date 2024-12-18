@@ -433,7 +433,7 @@ define internal range(i32 0, 2) i32 @test_unknown_critical_crl(i32 noundef %n) #
 entry:
   %s.i.i = alloca i64, align 8
   %idxprom = sext i32 %n to i64
-  %arrayidx = getelementptr inbounds nuw [2 x ptr], ptr @unknown_critical_crls, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [2 x ptr], ptr @unknown_critical_crls, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %s.i.i)
   store i64 0, ptr %s.i.i, align 8

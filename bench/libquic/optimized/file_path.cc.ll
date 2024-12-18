@@ -188,7 +188,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %i.04 = phi i64 [ %inc, %for.body ], [ 0, %entry ]
-  %arrayidx = getelementptr inbounds nuw [0 x i8], ptr @_ZN4base8FilePath11kSeparatorsE, i64 0, i64 %i.04
+  %arrayidx = getelementptr inbounds [0 x i8], ptr @_ZN4base8FilePath11kSeparatorsE, i64 0, i64 %i.04
   %1 = load i8, ptr %arrayidx, align 1
   %cmp2 = icmp eq i8 %character, %1
   %inc = add nuw i64 %i.04, 1
@@ -317,7 +317,7 @@ for.cond.i.i:                                     ; preds = %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.cond.i.i, %for.body.i
   %i.04.i.i = phi i64 [ %inc.i.i, %for.cond.i.i ], [ 0, %for.body.i ]
-  %arrayidx.i.i = getelementptr inbounds nuw [0 x i8], ptr @_ZN4base8FilePath11kSeparatorsE, i64 0, i64 %i.04.i.i
+  %arrayidx.i.i = getelementptr inbounds [0 x i8], ptr @_ZN4base8FilePath11kSeparatorsE, i64 0, i64 %i.04.i.i
   %4 = load i8, ptr %arrayidx.i.i, align 1
   %cmp2.i.i = icmp eq i8 %3, %4
   br i1 %cmp2.i.i, label %for.inc.i, label %for.cond.i.i
@@ -673,7 +673,7 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %invoke.cont21, %for.cond.i
   %i.04.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %invoke.cont21 ]
-  %arrayidx.i = getelementptr inbounds nuw [0 x i8], ptr @_ZN4base8FilePath11kSeparatorsE, i64 0, i64 %i.04.i
+  %arrayidx.i = getelementptr inbounds [0 x i8], ptr @_ZN4base8FilePath11kSeparatorsE, i64 0, i64 %i.04.i
   %8 = load i8, ptr %arrayidx.i, align 1
   %cmp2.i = icmp eq i8 %7, %8
   br i1 %cmp2.i, label %if.then30.invoke, label %for.cond.i
@@ -1142,7 +1142,7 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %if.then22, %for.cond.i
   %i.04.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %if.then22 ]
-  %arrayidx.i = getelementptr inbounds nuw [0 x i8], ptr @_ZN4base8FilePath11kSeparatorsE, i64 0, i64 %i.04.i
+  %arrayidx.i = getelementptr inbounds [0 x i8], ptr @_ZN4base8FilePath11kSeparatorsE, i64 0, i64 %i.04.i
   %14 = load i8, ptr %arrayidx.i, align 1
   %cmp2.i = icmp eq i8 %12, %14
   br i1 %cmp2.i, label %if.end41, label %for.cond.i
@@ -1217,7 +1217,7 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %land.rhs, %for.cond.i
   %i.04.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %land.rhs ]
-  %arrayidx.i = getelementptr inbounds nuw [0 x i8], ptr @_ZN4base8FilePath11kSeparatorsE, i64 0, i64 %i.04.i
+  %arrayidx.i = getelementptr inbounds [0 x i8], ptr @_ZN4base8FilePath11kSeparatorsE, i64 0, i64 %i.04.i
   %2 = load i8, ptr %arrayidx.i, align 1
   %cmp2.i = icmp eq i8 %1, %2
   br i1 %cmp2.i, label %for.body, label %for.cond.i
@@ -1240,7 +1240,7 @@ for.cond.i15:                                     ; preds = %for.body.i11
 
 for.body.i11:                                     ; preds = %lor.lhs.false11, %for.cond.i15
   %i.04.i12 = phi i64 [ %inc.i16, %for.cond.i15 ], [ 0, %lor.lhs.false11 ]
-  %arrayidx.i13 = getelementptr inbounds nuw [0 x i8], ptr @_ZN4base8FilePath11kSeparatorsE, i64 0, i64 %i.04.i12
+  %arrayidx.i13 = getelementptr inbounds [0 x i8], ptr @_ZN4base8FilePath11kSeparatorsE, i64 0, i64 %i.04.i12
   %4 = load i8, ptr %arrayidx.i13, align 1
   %cmp2.i14 = icmp eq i8 %3, %4
   br i1 %cmp2.i14, label %for.inc, label %for.cond.i15
@@ -2334,7 +2334,7 @@ land.rhs.i:                                       ; preds = %entry
 
 for.body.i.i:                                     ; preds = %land.rhs.i, %for.body.i.i
   %i.04.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %land.rhs.i ]
-  %arrayidx.i.i = getelementptr inbounds nuw [0 x i8], ptr @_ZN4base8FilePath11kSeparatorsE, i64 0, i64 %i.04.i.i
+  %arrayidx.i.i = getelementptr inbounds [0 x i8], ptr @_ZN4base8FilePath11kSeparatorsE, i64 0, i64 %i.04.i.i
   %5 = load i8, ptr %arrayidx.i.i, align 1
   %cmp2.i.i = icmp eq i8 %call1.i, %5
   %inc.i.i = add nuw i64 %i.04.i.i, 1
@@ -2364,7 +2364,7 @@ if.end:                                           ; preds = %entry
 
 for.body.i:                                       ; preds = %if.end, %for.body.i
   %i.04.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %if.end ]
-  %arrayidx.i = getelementptr inbounds nuw [0 x i8], ptr @_ZN4base8FilePath11kSeparatorsE, i64 0, i64 %i.04.i
+  %arrayidx.i = getelementptr inbounds [0 x i8], ptr @_ZN4base8FilePath11kSeparatorsE, i64 0, i64 %i.04.i
   %2 = load i8, ptr %arrayidx.i, align 1
   %cmp2.i = icmp eq i8 %0, %2
   %inc.i = add nuw i64 %i.04.i, 1
@@ -2404,7 +2404,7 @@ for.cond.i.i:                                     ; preds = %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.end.i, %for.cond.i.i
   %i.04.i.i = phi i64 [ %inc.i.i, %for.cond.i.i ], [ 0, %if.end.i ]
-  %arrayidx.i.i = getelementptr inbounds nuw [0 x i8], ptr @_ZN4base8FilePath11kSeparatorsE, i64 0, i64 %i.04.i.i
+  %arrayidx.i.i = getelementptr inbounds [0 x i8], ptr @_ZN4base8FilePath11kSeparatorsE, i64 0, i64 %i.04.i.i
   %2 = load i8, ptr %arrayidx.i.i, align 1
   %cmp2.i.i = icmp eq i8 %0, %2
   br i1 %cmp2.i.i, label %if.then, label %for.cond.i.i

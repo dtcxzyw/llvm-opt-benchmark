@@ -131,7 +131,7 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_110ApproxItemESaIS1_EE13_M_deallocateEPS1_m.ex
   br i1 %or.cond.i, label %.critedge.i, label %.thread254
 
 .critedge.i:                                      ; preds = %46, %.lr.ph.i
-  %50 = getelementptr inbounds nuw [16 x i8], ptr @_ZN12_GLOBAL__N_18abs_diffE, i64 0, i64 %45
+  %50 = getelementptr inbounds [16 x i8], ptr @_ZN12_GLOBAL__N_18abs_diffE, i64 0, i64 %45
   %51 = load i8, ptr %50, align 1, !noalias !4
   %52 = sext i8 %51 to i32
   %.sroa.447.0.insert.ext.i = zext i32 %.sroa.447.049.i to i64
@@ -253,7 +253,7 @@ common.resume:                                    ; preds = %.body70, %.body70.t
   resume { ptr, i32 } %common.resume.op
 
 80:                                               ; preds = %76, %_ZNSt6vectorIN12_GLOBAL__N_110ApproxItemESaIS1_EE9push_backEOS1_.exit.i
-  %81 = getelementptr inbounds nuw [8 x %"class.cv::Point_"], ptr @_ZN12_GLOBAL__N_115chainCodeDeltasE, i64 0, i64 %42
+  %81 = getelementptr inbounds [8 x %"class.cv::Point_"], ptr @_ZN12_GLOBAL__N_115chainCodeDeltasE, i64 0, i64 %42
   %82 = load i32, ptr %81, align 8, !noalias !4
   %83 = add nsw i32 %82, %.sroa.046.048.i
   %84 = getelementptr inbounds nuw i8, ptr %81, i64 4
@@ -264,7 +264,7 @@ common.resume:                                    ; preds = %.body70, %.body70.t
   br i1 %exitcond.not.i, label %_ZN12_GLOBAL__N_16pass_0ERKSt6vectorIaSaIaEEN2cv6Point_IiEEbb.exit, label %.lr.ph.i.outer, !llvm.loop !13
 
 .thread254:                                       ; preds = %46
-  %88 = getelementptr inbounds nuw [8 x %"class.cv::Point_"], ptr @_ZN12_GLOBAL__N_115chainCodeDeltasE, i64 0, i64 %42
+  %88 = getelementptr inbounds [8 x %"class.cv::Point_"], ptr @_ZN12_GLOBAL__N_115chainCodeDeltasE, i64 0, i64 %42
   %89 = load i32, ptr %88, align 8, !noalias !4
   %90 = add nsw i32 %89, %.sroa.046.048.i
   %91 = getelementptr inbounds nuw i8, ptr %88, i64 4

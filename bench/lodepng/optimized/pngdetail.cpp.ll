@@ -2729,7 +2729,7 @@ entry:
   %vtable = load ptr, ptr @_ZSt4cout, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr @_ZSt4cout, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %vbase.offset
   %_M_flags.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 24
   %0 = load i32, ptr %_M_flags.i, align 8
   %cmp = icmp ne i32 %w, 0
@@ -2881,7 +2881,7 @@ if.end130:                                        ; preds = %for.end.split, %for
   %vtable131 = load ptr, ptr @_ZSt4cout, align 8
   %vbase.offset.ptr132 = getelementptr i8, ptr %vtable131, i64 -24
   %vbase.offset133 = load i64, ptr %vbase.offset.ptr132, align 8
-  %add.ptr134 = getelementptr inbounds nuw i8, ptr @_ZSt4cout, i64 %vbase.offset133
+  %add.ptr134 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %vbase.offset133
   %_M_flags.i45 = getelementptr inbounds nuw i8, ptr %add.ptr134, i64 24
   store i32 %0, ptr %_M_flags.i45, align 8
   ret void
@@ -3175,7 +3175,7 @@ if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr @_ZSt4cout, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr @_ZSt4cout, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %vbase.offset
   %_M_flags.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 24
   %3 = load i32, ptr %_M_flags.i, align 8
   %call8 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @_ZSt3hexRSt8ios_base)
@@ -3223,7 +3223,7 @@ for.end:                                          ; preds = %for.body, %if.end
   %vtable46 = load ptr, ptr @_ZSt4cout, align 8
   %vbase.offset.ptr47 = getelementptr i8, ptr %vtable46, i64 -24
   %vbase.offset48 = load i64, ptr %vbase.offset.ptr47, align 8
-  %add.ptr49 = getelementptr inbounds nuw i8, ptr @_ZSt4cout, i64 %vbase.offset48
+  %add.ptr49 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %vbase.offset48
   %_M_flags.i10 = getelementptr inbounds nuw i8, ptr %add.ptr49, i64 24
   store i32 %3, ptr %_M_flags.i10, align 8
   %call51 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)

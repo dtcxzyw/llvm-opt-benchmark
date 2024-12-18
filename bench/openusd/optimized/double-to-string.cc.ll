@@ -234,7 +234,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23Doub
   %76 = trunc nuw nsw i32 %75 to i8
   %77 = or disjoint i8 %76, 48
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %78 = getelementptr inbounds nuw [6 x i8], ptr %6, i64 0, i64 %indvars.iv.next
+  %78 = getelementptr inbounds [6 x i8], ptr %6, i64 0, i64 %indvars.iv.next
   store i8 %77, ptr %78, align 1
   %79 = udiv i32 %.12634, 10
   %.not40 = icmp samesign ult i32 %.12634, 10
@@ -283,7 +283,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23Doub
   %.2.lcssa = phi i32 [ %.0, %.loopexit ], [ %97, %._crit_edge.loopexit ]
   %.lcssa = phi i32 [ %83, %.loopexit ], [ %96, %._crit_edge.loopexit ]
   %98 = sext i32 %.2.lcssa to i64
-  %99 = getelementptr inbounds nuw [6 x i8], ptr %6, i64 0, i64 %98
+  %99 = getelementptr inbounds [6 x i8], ptr %6, i64 0, i64 %98
   %100 = load i32, ptr %8, align 8
   %101 = load ptr, ptr %4, align 8
   %102 = sext i32 %100 to i64
@@ -776,7 +776,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL20DtoaToBignumDtoaM
   call void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion10BignumDtoaEdNS0_14BignumDtoaModeEiNS0_6VectorIcEEPiS4_(double noundef %44, i32 noundef 2, i32 noundef %2, ptr nonnull %6, i32 161, ptr noundef nonnull %7, ptr noundef nonnull %5)
   %51 = load i32, ptr %7, align 4
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds nuw i8, ptr %6, i64 %52
+  %53 = getelementptr inbounds i8, ptr %6, i64 %52
   store i8 0, ptr %53, align 1
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
 
@@ -904,7 +904,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL20DtoaToBignumDtoaM
   call void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion10BignumDtoaEdNS0_14BignumDtoaModeEiNS0_6VectorIcEEPiS4_(double noundef %.0.i25, i32 noundef 0, i32 noundef 0, ptr nonnull %6, i32 122, ptr noundef nonnull %7, ptr noundef nonnull %5)
   %52 = load i32, ptr %7, align 4
   %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds nuw i8, ptr %6, i64 %53
+  %54 = getelementptr inbounds i8, ptr %6, i64 %53
   store i8 0, ptr %54, align 1
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
 
@@ -933,7 +933,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL20DtoaToBignumDtoaM
   call void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion10BignumDtoaEdNS0_14BignumDtoaModeEiNS0_6VectorIcEEPiS4_(double noundef %.0.i28, i32 noundef 3, i32 noundef %56, ptr nonnull %6, i32 122, ptr noundef nonnull %7, ptr noundef nonnull %5)
   %62 = load i32, ptr %7, align 4
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds nuw i8, ptr %6, i64 %63
+  %64 = getelementptr inbounds i8, ptr %6, i64 %63
   store i8 0, ptr %64, align 1
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit31
 
@@ -1076,7 +1076,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL20DtoaToBignumDtoaM
   call void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion10BignumDtoaEdNS0_14BignumDtoaModeEiNS0_6VectorIcEEPiS4_(double noundef %.0.i26, i32 noundef 3, i32 noundef %2, ptr nonnull %6, i32 121, ptr noundef nonnull %7, ptr noundef nonnull %5)
   %50 = load i32, ptr %7, align 4
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds nuw i8, ptr %6, i64 %51
+  %52 = getelementptr inbounds i8, ptr %6, i64 %51
   store i8 0, ptr %52, align 1
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
 
@@ -1150,14 +1150,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConv
   %86 = zext nneg i32 %.promoted to i64
   %87 = zext nneg i32 %84 to i64
   %indvars.iv.next74 = add nsw i64 %86, -1
-  %88 = getelementptr inbounds nuw [121 x i8], ptr %6, i64 0, i64 %indvars.iv.next74
+  %88 = getelementptr inbounds [121 x i8], ptr %6, i64 0, i64 %indvars.iv.next74
   %89 = load i8, ptr %88, align 1
   %90 = icmp eq i8 %89, 48
   br i1 %90, label %.lr.ph76, label %.critedge
 
 .lr.ph:                                           ; preds = %.lr.ph76
   %indvars.iv.next = add nsw i64 %indvars.iv.next75, -1
-  %91 = getelementptr inbounds nuw [121 x i8], ptr %6, i64 0, i64 %indvars.iv.next
+  %91 = getelementptr inbounds [121 x i8], ptr %6, i64 0, i64 %indvars.iv.next
   %92 = load i8, ptr %91, align 1
   %93 = icmp eq i8 %92, 48
   br i1 %93, label %.lr.ph76, label %.lr.ph..critedge.loopexit.split.loop.exit67_crit_edge, !llvm.loop !9

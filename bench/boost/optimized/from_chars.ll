@@ -1161,7 +1161,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail17from_chars_s
 11:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6) #13
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr align 1 %0, i64 %9, i1 false)
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 %9
+  %12 = getelementptr inbounds i8, ptr %6, i64 %9
   store i8 0, ptr %12, align 1, !tbaa !19
   %13 = tail call ptr @localeconv() #13
   %14 = load ptr, ptr %13, align 8, !tbaa !28
@@ -2174,7 +2174,7 @@ _ZN5boost8charconv6detail10fast_float13compute_floatINS2_13binary_formatIfEEEENS
   %345 = shl i32 %344, 1
   %346 = add i32 %345, 684
   %347 = sext i32 %346 to i64
-  %348 = getelementptr inbounds nuw [1302 x i64], ptr @_ZN5boost8charconv6detail10fast_float15powers_templateIvE17power_of_five_128E, i64 0, i64 %347
+  %348 = getelementptr inbounds [1302 x i64], ptr @_ZN5boost8charconv6detail10fast_float15powers_templateIvE17power_of_five_128E, i64 0, i64 %347
   %349 = load i64, ptr %348, align 16, !tbaa !7
   %350 = zext i64 %343 to i128
   %351 = zext i64 %349 to i128
@@ -2189,7 +2189,7 @@ _ZN5boost8charconv6detail10fast_float13compute_floatINS2_13binary_formatIfEEEENS
   %357 = trunc i128 %352 to i64
   %358 = add i32 %345, 685
   %359 = sext i32 %358 to i64
-  %360 = getelementptr inbounds nuw [1302 x i64], ptr @_ZN5boost8charconv6detail10fast_float15powers_templateIvE17power_of_five_128E, i64 0, i64 %359
+  %360 = getelementptr inbounds [1302 x i64], ptr @_ZN5boost8charconv6detail10fast_float15powers_templateIvE17power_of_five_128E, i64 0, i64 %359
   %361 = load i64, ptr %360, align 8, !tbaa !7
   %362 = zext i64 %361 to i128
   %363 = mul nuw i128 %362, %350
@@ -4821,7 +4821,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail17from_chars_s
 11:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6) #13
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr align 1 %0, i64 %9, i1 false)
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 %9
+  %12 = getelementptr inbounds i8, ptr %6, i64 %9
   store i8 0, ptr %12, align 1, !tbaa !19
   %13 = tail call ptr @localeconv() #13
   %14 = load ptr, ptr %13, align 8, !tbaa !28
@@ -6187,7 +6187,7 @@ _ZN5boost8charconv6detail10fast_float13compute_floatINS2_13binary_formatIdEEEENS
   %350 = shl i32 %349, 1
   %351 = add i32 %350, 684
   %352 = sext i32 %351 to i64
-  %353 = getelementptr inbounds nuw [1302 x i64], ptr @_ZN5boost8charconv6detail10fast_float15powers_templateIvE17power_of_five_128E, i64 0, i64 %352
+  %353 = getelementptr inbounds [1302 x i64], ptr @_ZN5boost8charconv6detail10fast_float15powers_templateIvE17power_of_five_128E, i64 0, i64 %352
   %354 = load i64, ptr %353, align 16, !tbaa !7
   %355 = zext i64 %348 to i128
   %356 = zext i64 %354 to i128
@@ -6202,7 +6202,7 @@ _ZN5boost8charconv6detail10fast_float13compute_floatINS2_13binary_formatIdEEEENS
   %363 = trunc i128 %357 to i64
   %364 = add i32 %350, 685
   %365 = sext i32 %364 to i64
-  %366 = getelementptr inbounds nuw [1302 x i64], ptr @_ZN5boost8charconv6detail10fast_float15powers_templateIvE17power_of_five_128E, i64 0, i64 %365
+  %366 = getelementptr inbounds [1302 x i64], ptr @_ZN5boost8charconv6detail10fast_float15powers_templateIvE17power_of_five_128E, i64 0, i64 %365
   %367 = load i64, ptr %366, align 8, !tbaa !7
   %368 = zext i64 %367 to i128
   %369 = mul nuw i128 %368, %355
@@ -6969,7 +6969,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail17from_chars_s
 11:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6) #13
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr align 1 %0, i64 %9, i1 false)
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 %9
+  %12 = getelementptr inbounds i8, ptr %6, i64 %9
   store i8 0, ptr %12, align 1, !tbaa !19
   %13 = tail call ptr @localeconv() #13
   %14 = load ptr, ptr %13, align 8, !tbaa !28

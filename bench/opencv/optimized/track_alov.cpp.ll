@@ -1820,7 +1820,7 @@ _ZN2cv3PtrINS_8datasets13TRACK_alovObjEED2Ev.exit231: ; preds = %_ZNSt6vectorIN2
   %622 = load ptr, ptr %9, align 8
   %623 = getelementptr i8, ptr %622, i64 -24
   %624 = load i64, ptr %623, align 8
-  %625 = getelementptr inbounds nuw i8, ptr %9, i64 %624
+  %625 = getelementptr inbounds i8, ptr %9, i64 %624
   %626 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %625)
           to label %627 unwind label %.loopexit305
 
@@ -2748,7 +2748,7 @@ _ZN2cv3PtrINS_8datasets13TRACK_alovObjEED2Ev.exit: ; preds = %277, %289, %_ZNSt1
   %295 = load ptr, ptr %7, align 8
   %296 = getelementptr i8, ptr %295, i64 -24
   %297 = load i64, ptr %296, align 8
-  %298 = getelementptr inbounds nuw i8, ptr %7, i64 %297
+  %298 = getelementptr inbounds i8, ptr %7, i64 %297
   %299 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %298)
           to label %300 unwind label %.loopexit
 
@@ -3257,7 +3257,7 @@ define hidden void @_ZN2cv8datasets14TRACK_alovImpl13fullFramePathENSt7__cxx1112
 
 _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit: ; preds = %.noexc
   %20 = sext i32 %3 to i64
-  %21 = getelementptr inbounds nuw [14 x %"class.std::__cxx11::basic_string"], ptr @_ZN2cv8datasetsL12sectionNamesB5cxx11E, i64 0, i64 %20
+  %21 = getelementptr inbounds [14 x %"class.std::__cxx11::basic_string"], ptr @_ZN2cv8datasetsL12sectionNamesB5cxx11E, i64 0, i64 %20
   %22 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %21)
           to label %23 unwind label %39
 
@@ -3435,7 +3435,7 @@ define hidden void @_ZN2cv8datasets14TRACK_alovImpl12fullAnnoPathENSt7__cxx1112b
 
 _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit: ; preds = %.noexc
   %17 = sext i32 %3 to i64
-  %18 = getelementptr inbounds nuw [14 x %"class.std::__cxx11::basic_string"], ptr @_ZN2cv8datasetsL12sectionNamesB5cxx11E, i64 0, i64 %17
+  %18 = getelementptr inbounds [14 x %"class.std::__cxx11::basic_string"], ptr @_ZN2cv8datasetsL12sectionNamesB5cxx11E, i64 0, i64 %17
   %19 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %18)
           to label %20 unwind label %36
 

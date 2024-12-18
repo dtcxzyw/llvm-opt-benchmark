@@ -17819,9 +17819,9 @@ switch.lookup:                                    ; preds = %763
   %765 = add nsw i64 %.sroa.330.0.i95.i.i, -3
   %766 = icmp ult i64 %765, 12
   %767 = select i1 %766, i64 %765, i64 10
-  %switch.gep = getelementptr inbounds nuw [12 x i8], ptr @"switch.table._ZN123_$LT$ockam_transport_websocket..workers..listener..WebSocketListenProcessor$u20$as$u20$ockam_core..processor..Processor$GT$7process28_$u7b$$u7b$closure$u7d$$u7d$17h0ccf93a4b388c17dE", i64 0, i64 %767
+  %switch.gep = getelementptr inbounds [12 x i8], ptr @"switch.table._ZN123_$LT$ockam_transport_websocket..workers..listener..WebSocketListenProcessor$u20$as$u20$ockam_core..processor..Processor$GT$7process28_$u7b$$u7b$closure$u7d$$u7d$17h0ccf93a4b388c17dE", i64 0, i64 %767
   %switch.load = load i8, ptr %switch.gep, align 1
-  %switch.gep766 = getelementptr inbounds nuw [12 x i8], ptr @"switch.table._ZN123_$LT$ockam_transport_websocket..workers..listener..WebSocketListenProcessor$u20$as$u20$ockam_core..processor..Processor$GT$7process28_$u7b$$u7b$closure$u7d$$u7d$17h0ccf93a4b388c17dE.49", i64 0, i64 %767
+  %switch.gep766 = getelementptr inbounds [12 x i8], ptr @"switch.table._ZN123_$LT$ockam_transport_websocket..workers..listener..WebSocketListenProcessor$u20$as$u20$ockam_core..processor..Processor$GT$7process28_$u7b$$u7b$closure$u7d$$u7d$17h0ccf93a4b388c17dE.49", i64 0, i64 %767
   %switch.load767 = load i8, ptr %switch.gep766, align 1
   invoke void @"_ZN4core3ptr46drop_in_place$LT$tungstenite..error..Error$GT$17h6ccc3988f8a6b40dE.llvm.17971264473161138775"(ptr noalias noundef nonnull align 8 dereferenceable(136) %95)
           to label %768 unwind label %761

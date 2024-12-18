@@ -806,14 +806,14 @@ if.then1.i:                                       ; preds = %if.then.i
   %inc.i = add nsw i32 %1, 1
   store i32 %inc.i, ptr @dasync_digest_nids.pos, align 4
   %idxprom.i = sext i32 %1 to i64
-  %arrayidx.i = getelementptr inbounds nuw [2 x i32], ptr @dasync_digest_nids.digest_nids, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [2 x i32], ptr @dasync_digest_nids.digest_nids, i64 0, i64 %idxprom.i
   store i32 %call2.i, ptr %arrayidx.i, align 4
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then1.i, %if.then.if.end_crit_edge.i
   %2 = phi i32 [ %.pre.i, %if.then.if.end_crit_edge.i ], [ %inc.i, %if.then1.i ]
   %idxprom3.i = sext i32 %2 to i64
-  %arrayidx4.i = getelementptr inbounds nuw [2 x i32], ptr @dasync_digest_nids.digest_nids, i64 0, i64 %idxprom3.i
+  %arrayidx4.i = getelementptr inbounds [2 x i32], ptr @dasync_digest_nids.digest_nids, i64 0, i64 %idxprom3.i
   store i32 0, ptr %arrayidx4.i, align 4
   store i1 true, ptr @dasync_digest_nids.init, align 4
   br label %dasync_digest_nids.exit

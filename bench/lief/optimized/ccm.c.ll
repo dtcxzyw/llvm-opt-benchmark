@@ -1035,7 +1035,7 @@ mbedtls_ccm_setkey.exit.thread:                   ; preds = %11, %8, %1, %mbedtl
   %26 = load i64, ptr %25, align 8
   %27 = getelementptr inbounds nuw [3 x i64], ptr @add_len_test_data, i64 0, i64 %.045
   %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %5, i64 %24
+  %29 = getelementptr inbounds i8, ptr %5, i64 %24
   %30 = getelementptr inbounds nuw [3 x i64], ptr @tag_len_test_data, i64 0, i64 %.045
   %31 = load i64, ptr %30, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)

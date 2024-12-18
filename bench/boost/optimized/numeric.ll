@@ -3692,7 +3692,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNK5boost6locale4util15base_num_formatI
           to label %20 unwind label %60
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %10, i64 %18
+  %21 = getelementptr inbounds i8, ptr %10, i64 %18
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale(ptr dead_on_unwind nonnull writable sret(%"class.std::locale") align 8 %11, ptr noundef nonnull align 8 dereferenceable(264) %21, ptr noundef nonnull align 8 dereferenceable(8) %19)
           to label %22 unwind label %60
 
@@ -3701,25 +3701,25 @@ define linkonce_odr hidden { ptr, i8 } @_ZNK5boost6locale4util15base_num_formatI
   %23 = load ptr, ptr %10, align 8, !tbaa !14
   %24 = getelementptr i8, ptr %23, i64 -24
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %10, i64 %25
+  %26 = getelementptr inbounds i8, ptr %10, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %28 = load i32, ptr %27, align 8, !tbaa !36
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 24
   store i32 %28, ptr %29, align 8, !tbaa !36
   %30 = load i64, ptr %24, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %10, i64 %30
+  %31 = getelementptr inbounds i8, ptr %10, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %33 = load i64, ptr %32, align 8, !tbaa !41
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 %33, ptr %34, align 8, !tbaa !41
   %35 = load i64, ptr %24, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %10, i64 %35
+  %36 = getelementptr inbounds i8, ptr %10, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %38 = load i64, ptr %37, align 8, !tbaa !42
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store i64 %38, ptr %39, align 8, !tbaa !42
   %40 = load i64, ptr %24, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %10, i64 %40
+  %41 = getelementptr inbounds i8, ptr %10, i64 %40
   %42 = invoke { ptr, i8 } @_ZNKSt7num_putIcSt19ostreambuf_iteratorIcSt11char_traitsIcEEE13_M_insert_intIlEES3_S3_RSt8ios_basecT_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr %1, i8 %2, ptr noundef nonnull align 8 dereferenceable(216) %41, i8 noundef signext %4, i64 noundef %5)
           to label %_ZNKSt7num_putIcSt19ostreambuf_iteratorIcSt11char_traitsIcEEE6do_putES3_RSt8ios_basecl.exit unwind label %60
 
@@ -3730,7 +3730,7 @@ _ZNKSt7num_putIcSt19ostreambuf_iteratorIcSt11char_traitsIcEEE6do_putES3_RSt8ios_
   %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %45 = getelementptr i8, ptr %43, i64 -24
   %46 = load i64, ptr %45, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %10, i64 %46
+  %47 = getelementptr inbounds i8, ptr %10, i64 %46
   store ptr %44, ptr %47, align 8, !tbaa !14
   %48 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %48, align 8, !tbaa !14
@@ -4143,7 +4143,7 @@ _ZNSt6vectorIcSaIcEEC2IPKcvEET_S5_RKS0_.exit:     ; preds = %_ZNSt6vectorIcSaIcE
   %49 = load ptr, ptr %11, align 8, !tbaa !14
   %50 = getelementptr i8, ptr %49, i64 -24
   %51 = load i64, ptr %50, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %11, i64 %51
+  %52 = getelementptr inbounds i8, ptr %11, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 232
   %54 = load ptr, ptr %53, align 8, !tbaa !46
   %.not.i = icmp eq ptr %54, null
@@ -4404,7 +4404,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %158 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %159 = getelementptr i8, ptr %157, i64 -24
   %160 = load i64, ptr %159, align 8
-  %161 = getelementptr inbounds nuw i8, ptr %11, i64 %160
+  %161 = getelementptr inbounds i8, ptr %11, i64 %160
   store ptr %158, ptr %161, align 8, !tbaa !14
   %162 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %162, align 8, !tbaa !14
@@ -4630,7 +4630,7 @@ _ZSt13__int_to_charIcmEiPT_T0_PKS0_St13_Ios_Fmtflagsb.exit: ; preds = %36, %28, 
   %45 = shl i64 %43, 32
   %sext = sub i64 171798691840, %45
   %46 = ashr exact i64 %sext, 32
-  %47 = getelementptr inbounds nuw i8, ptr %14, i64 %46
+  %47 = getelementptr inbounds i8, ptr %14, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %49 = load i8, ptr %48, align 8, !tbaa !66, !range !68, !noundef !69
   %50 = trunc nuw i8 %49 to i1
@@ -5786,7 +5786,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNK5boost6locale4util15base_num_formatI
           to label %20 unwind label %60
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %10, i64 %18
+  %21 = getelementptr inbounds i8, ptr %10, i64 %18
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale(ptr dead_on_unwind nonnull writable sret(%"class.std::locale") align 8 %11, ptr noundef nonnull align 8 dereferenceable(264) %21, ptr noundef nonnull align 8 dereferenceable(8) %19)
           to label %22 unwind label %60
 
@@ -5795,25 +5795,25 @@ define linkonce_odr hidden { ptr, i8 } @_ZNK5boost6locale4util15base_num_formatI
   %23 = load ptr, ptr %10, align 8, !tbaa !14
   %24 = getelementptr i8, ptr %23, i64 -24
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %10, i64 %25
+  %26 = getelementptr inbounds i8, ptr %10, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %28 = load i32, ptr %27, align 8, !tbaa !36
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 24
   store i32 %28, ptr %29, align 8, !tbaa !36
   %30 = load i64, ptr %24, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %10, i64 %30
+  %31 = getelementptr inbounds i8, ptr %10, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %33 = load i64, ptr %32, align 8, !tbaa !41
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 %33, ptr %34, align 8, !tbaa !41
   %35 = load i64, ptr %24, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %10, i64 %35
+  %36 = getelementptr inbounds i8, ptr %10, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %38 = load i64, ptr %37, align 8, !tbaa !42
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store i64 %38, ptr %39, align 8, !tbaa !42
   %40 = load i64, ptr %24, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %10, i64 %40
+  %41 = getelementptr inbounds i8, ptr %10, i64 %40
   %42 = invoke { ptr, i8 } @_ZNKSt7num_putIcSt19ostreambuf_iteratorIcSt11char_traitsIcEEE13_M_insert_intImEES3_S3_RSt8ios_basecT_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr %1, i8 %2, ptr noundef nonnull align 8 dereferenceable(216) %41, i8 noundef signext %4, i64 noundef %5)
           to label %_ZNKSt7num_putIcSt19ostreambuf_iteratorIcSt11char_traitsIcEEE6do_putES3_RSt8ios_basecm.exit unwind label %60
 
@@ -5824,7 +5824,7 @@ _ZNKSt7num_putIcSt19ostreambuf_iteratorIcSt11char_traitsIcEEE6do_putES3_RSt8ios_
   %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %45 = getelementptr i8, ptr %43, i64 -24
   %46 = load i64, ptr %45, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %10, i64 %46
+  %47 = getelementptr inbounds i8, ptr %10, i64 %46
   store ptr %44, ptr %47, align 8, !tbaa !14
   %48 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %48, align 8, !tbaa !14
@@ -6204,7 +6204,7 @@ _ZSt13__int_to_charIcmEiPT_T0_PKS0_St13_Ios_Fmtflagsb.exit: ; preds = %30, %22, 
   %39 = shl i64 %37, 32
   %sext = sub i64 171798691840, %39
   %40 = ashr exact i64 %sext, 32
-  %41 = getelementptr inbounds nuw i8, ptr %14, i64 %40
+  %41 = getelementptr inbounds i8, ptr %14, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %43 = load i8, ptr %42, align 8, !tbaa !66, !range !68, !noundef !69
   %44 = trunc nuw i8 %43 to i1
@@ -6335,7 +6335,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNK5boost6locale4util15base_num_formatI
           to label %20 unwind label %60
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %10, i64 %18
+  %21 = getelementptr inbounds i8, ptr %10, i64 %18
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale(ptr dead_on_unwind nonnull writable sret(%"class.std::locale") align 8 %11, ptr noundef nonnull align 8 dereferenceable(264) %21, ptr noundef nonnull align 8 dereferenceable(8) %19)
           to label %22 unwind label %60
 
@@ -6344,25 +6344,25 @@ define linkonce_odr hidden { ptr, i8 } @_ZNK5boost6locale4util15base_num_formatI
   %23 = load ptr, ptr %10, align 8, !tbaa !14
   %24 = getelementptr i8, ptr %23, i64 -24
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %10, i64 %25
+  %26 = getelementptr inbounds i8, ptr %10, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %28 = load i32, ptr %27, align 8, !tbaa !36
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 24
   store i32 %28, ptr %29, align 8, !tbaa !36
   %30 = load i64, ptr %24, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %10, i64 %30
+  %31 = getelementptr inbounds i8, ptr %10, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %33 = load i64, ptr %32, align 8, !tbaa !41
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 %33, ptr %34, align 8, !tbaa !41
   %35 = load i64, ptr %24, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %10, i64 %35
+  %36 = getelementptr inbounds i8, ptr %10, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %38 = load i64, ptr %37, align 8, !tbaa !42
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store i64 %38, ptr %39, align 8, !tbaa !42
   %40 = load i64, ptr %24, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %10, i64 %40
+  %41 = getelementptr inbounds i8, ptr %10, i64 %40
   %42 = invoke { ptr, i8 } @_ZNKSt7num_putIcSt19ostreambuf_iteratorIcSt11char_traitsIcEEE13_M_insert_intIxEES3_S3_RSt8ios_basecT_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr %1, i8 %2, ptr noundef nonnull align 8 dereferenceable(216) %41, i8 noundef signext %4, i64 noundef %5)
           to label %_ZNKSt7num_putIcSt19ostreambuf_iteratorIcSt11char_traitsIcEEE6do_putES3_RSt8ios_basecx.exit unwind label %60
 
@@ -6373,7 +6373,7 @@ _ZNKSt7num_putIcSt19ostreambuf_iteratorIcSt11char_traitsIcEEE6do_putES3_RSt8ios_
   %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %45 = getelementptr i8, ptr %43, i64 -24
   %46 = load i64, ptr %45, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %10, i64 %46
+  %47 = getelementptr inbounds i8, ptr %10, i64 %46
   store ptr %44, ptr %47, align 8, !tbaa !14
   %48 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %48, align 8, !tbaa !14
@@ -6768,7 +6768,7 @@ _ZSt13__int_to_charIcyEiPT_T0_PKS0_St13_Ios_Fmtflagsb.exit: ; preds = %36, %28, 
   %45 = shl i64 %43, 32
   %sext = sub i64 171798691840, %45
   %46 = ashr exact i64 %sext, 32
-  %47 = getelementptr inbounds nuw i8, ptr %14, i64 %46
+  %47 = getelementptr inbounds i8, ptr %14, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %49 = load i8, ptr %48, align 8, !tbaa !66, !range !68, !noundef !69
   %50 = trunc nuw i8 %49 to i1
@@ -6936,7 +6936,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNK5boost6locale4util15base_num_formatI
           to label %20 unwind label %60
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %10, i64 %18
+  %21 = getelementptr inbounds i8, ptr %10, i64 %18
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale(ptr dead_on_unwind nonnull writable sret(%"class.std::locale") align 8 %11, ptr noundef nonnull align 8 dereferenceable(264) %21, ptr noundef nonnull align 8 dereferenceable(8) %19)
           to label %22 unwind label %60
 
@@ -6945,25 +6945,25 @@ define linkonce_odr hidden { ptr, i8 } @_ZNK5boost6locale4util15base_num_formatI
   %23 = load ptr, ptr %10, align 8, !tbaa !14
   %24 = getelementptr i8, ptr %23, i64 -24
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %10, i64 %25
+  %26 = getelementptr inbounds i8, ptr %10, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %28 = load i32, ptr %27, align 8, !tbaa !36
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 24
   store i32 %28, ptr %29, align 8, !tbaa !36
   %30 = load i64, ptr %24, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %10, i64 %30
+  %31 = getelementptr inbounds i8, ptr %10, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %33 = load i64, ptr %32, align 8, !tbaa !41
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 %33, ptr %34, align 8, !tbaa !41
   %35 = load i64, ptr %24, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %10, i64 %35
+  %36 = getelementptr inbounds i8, ptr %10, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %38 = load i64, ptr %37, align 8, !tbaa !42
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store i64 %38, ptr %39, align 8, !tbaa !42
   %40 = load i64, ptr %24, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %10, i64 %40
+  %41 = getelementptr inbounds i8, ptr %10, i64 %40
   %42 = invoke { ptr, i8 } @_ZNKSt7num_putIcSt19ostreambuf_iteratorIcSt11char_traitsIcEEE13_M_insert_intIyEES3_S3_RSt8ios_basecT_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr %1, i8 %2, ptr noundef nonnull align 8 dereferenceable(216) %41, i8 noundef signext %4, i64 noundef %5)
           to label %_ZNKSt7num_putIcSt19ostreambuf_iteratorIcSt11char_traitsIcEEE6do_putES3_RSt8ios_basecy.exit unwind label %60
 
@@ -6974,7 +6974,7 @@ _ZNKSt7num_putIcSt19ostreambuf_iteratorIcSt11char_traitsIcEEE6do_putES3_RSt8ios_
   %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %45 = getelementptr i8, ptr %43, i64 -24
   %46 = load i64, ptr %45, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %10, i64 %46
+  %47 = getelementptr inbounds i8, ptr %10, i64 %46
   store ptr %44, ptr %47, align 8, !tbaa !14
   %48 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %48, align 8, !tbaa !14
@@ -7354,7 +7354,7 @@ _ZSt13__int_to_charIcyEiPT_T0_PKS0_St13_Ios_Fmtflagsb.exit: ; preds = %30, %22, 
   %39 = shl i64 %37, 32
   %sext = sub i64 171798691840, %39
   %40 = ashr exact i64 %sext, 32
-  %41 = getelementptr inbounds nuw i8, ptr %14, i64 %40
+  %41 = getelementptr inbounds i8, ptr %14, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %43 = load i8, ptr %42, align 8, !tbaa !66, !range !68, !noundef !69
   %44 = trunc nuw i8 %43 to i1
@@ -7485,7 +7485,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNK5boost6locale4util15base_num_formatI
           to label %20 unwind label %61
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %10, i64 %18
+  %21 = getelementptr inbounds i8, ptr %10, i64 %18
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale(ptr dead_on_unwind nonnull writable sret(%"class.std::locale") align 8 %11, ptr noundef nonnull align 8 dereferenceable(264) %21, ptr noundef nonnull align 8 dereferenceable(8) %19)
           to label %22 unwind label %61
 
@@ -7494,25 +7494,25 @@ define linkonce_odr hidden { ptr, i8 } @_ZNK5boost6locale4util15base_num_formatI
   %23 = load ptr, ptr %10, align 8, !tbaa !14
   %24 = getelementptr i8, ptr %23, i64 -24
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %10, i64 %25
+  %26 = getelementptr inbounds i8, ptr %10, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %28 = load i32, ptr %27, align 8, !tbaa !36
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 24
   store i32 %28, ptr %29, align 8, !tbaa !36
   %30 = load i64, ptr %24, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %10, i64 %30
+  %31 = getelementptr inbounds i8, ptr %10, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %33 = load i64, ptr %32, align 8, !tbaa !41
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 %33, ptr %34, align 8, !tbaa !41
   %35 = load i64, ptr %24, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %10, i64 %35
+  %36 = getelementptr inbounds i8, ptr %10, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %38 = load i64, ptr %37, align 8, !tbaa !42
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store i64 %38, ptr %39, align 8, !tbaa !42
   %40 = load i64, ptr %24, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %10, i64 %40
+  %41 = getelementptr inbounds i8, ptr %10, i64 %40
   %42 = invoke { ptr, i8 } @_ZNKSt7num_putIcSt19ostreambuf_iteratorIcSt11char_traitsIcEEE6do_putES3_RSt8ios_basecd(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr %1, i8 %2, ptr noundef nonnull align 8 dereferenceable(216) %41, i8 noundef signext %4, double noundef %5)
           to label %43 unwind label %61
 
@@ -7523,7 +7523,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNK5boost6locale4util15base_num_formatI
   %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %46 = getelementptr i8, ptr %44, i64 -24
   %47 = load i64, ptr %46, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %10, i64 %47
+  %48 = getelementptr inbounds i8, ptr %10, i64 %47
   store ptr %45, ptr %48, align 8, !tbaa !14
   %49 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %49, align 8, !tbaa !14
@@ -7858,7 +7858,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNK5boost6locale4util15base_num_formatI
           to label %20 unwind label %61
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %10, i64 %18
+  %21 = getelementptr inbounds i8, ptr %10, i64 %18
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale(ptr dead_on_unwind nonnull writable sret(%"class.std::locale") align 8 %11, ptr noundef nonnull align 8 dereferenceable(264) %21, ptr noundef nonnull align 8 dereferenceable(8) %19)
           to label %22 unwind label %61
 
@@ -7867,25 +7867,25 @@ define linkonce_odr hidden { ptr, i8 } @_ZNK5boost6locale4util15base_num_formatI
   %23 = load ptr, ptr %10, align 8, !tbaa !14
   %24 = getelementptr i8, ptr %23, i64 -24
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %10, i64 %25
+  %26 = getelementptr inbounds i8, ptr %10, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %28 = load i32, ptr %27, align 8, !tbaa !36
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 24
   store i32 %28, ptr %29, align 8, !tbaa !36
   %30 = load i64, ptr %24, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %10, i64 %30
+  %31 = getelementptr inbounds i8, ptr %10, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %33 = load i64, ptr %32, align 8, !tbaa !41
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 %33, ptr %34, align 8, !tbaa !41
   %35 = load i64, ptr %24, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %10, i64 %35
+  %36 = getelementptr inbounds i8, ptr %10, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %38 = load i64, ptr %37, align 8, !tbaa !42
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store i64 %38, ptr %39, align 8, !tbaa !42
   %40 = load i64, ptr %24, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %10, i64 %40
+  %41 = getelementptr inbounds i8, ptr %10, i64 %40
   %42 = invoke { ptr, i8 } @_ZNKSt7num_putIcSt19ostreambuf_iteratorIcSt11char_traitsIcEEE6do_putES3_RSt8ios_basece(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr %1, i8 %2, ptr noundef nonnull align 8 dereferenceable(216) %41, i8 noundef signext %4, x86_fp80 noundef %5)
           to label %43 unwind label %61
 
@@ -7896,7 +7896,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNK5boost6locale4util15base_num_formatI
   %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %46 = getelementptr i8, ptr %44, i64 -24
   %47 = load i64, ptr %46, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %10, i64 %47
+  %48 = getelementptr inbounds i8, ptr %10, i64 %47
   store ptr %45, ptr %48, align 8, !tbaa !14
   %49 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %49, align 8, !tbaa !14
@@ -10410,7 +10410,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNK5boost6locale4util15base_num_formatI
           to label %20 unwind label %61
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %10, i64 %18
+  %21 = getelementptr inbounds i8, ptr %10, i64 %18
   invoke void @_ZNSt9basic_iosIwSt11char_traitsIwEE5imbueERKSt6locale(ptr dead_on_unwind nonnull writable sret(%"class.std::locale") align 8 %11, ptr noundef nonnull align 8 dereferenceable(264) %21, ptr noundef nonnull align 8 dereferenceable(8) %19)
           to label %22 unwind label %61
 
@@ -10419,25 +10419,25 @@ define linkonce_odr hidden { ptr, i8 } @_ZNK5boost6locale4util15base_num_formatI
   %23 = load ptr, ptr %10, align 8, !tbaa !14
   %24 = getelementptr i8, ptr %23, i64 -24
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %10, i64 %25
+  %26 = getelementptr inbounds i8, ptr %10, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %28 = load i32, ptr %27, align 8, !tbaa !36
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 24
   store i32 %28, ptr %29, align 8, !tbaa !36
   %30 = load i64, ptr %24, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %10, i64 %30
+  %31 = getelementptr inbounds i8, ptr %10, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %33 = load i64, ptr %32, align 8, !tbaa !41
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 %33, ptr %34, align 8, !tbaa !41
   %35 = load i64, ptr %24, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %10, i64 %35
+  %36 = getelementptr inbounds i8, ptr %10, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %38 = load i64, ptr %37, align 8, !tbaa !42
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store i64 %38, ptr %39, align 8, !tbaa !42
   %40 = load i64, ptr %24, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %10, i64 %40
+  %41 = getelementptr inbounds i8, ptr %10, i64 %40
   %42 = invoke { ptr, i8 } @_ZNKSt7num_putIwSt19ostreambuf_iteratorIwSt11char_traitsIwEEE13_M_insert_intIlEES3_S3_RSt8ios_basewT_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr %1, i8 %2, ptr noundef nonnull align 8 dereferenceable(216) %41, i32 noundef signext %4, i64 noundef %5)
           to label %_ZNKSt7num_putIwSt19ostreambuf_iteratorIwSt11char_traitsIwEEE6do_putES3_RSt8ios_basewl.exit unwind label %61
 
@@ -10448,7 +10448,7 @@ _ZNKSt7num_putIwSt19ostreambuf_iteratorIwSt11char_traitsIwEEE6do_putES3_RSt8ios_
   %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIwSt11char_traitsIwESaIwEEE, i64 24), align 8
   %45 = getelementptr i8, ptr %43, i64 -24
   %46 = load i64, ptr %45, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %10, i64 %46
+  %47 = getelementptr inbounds i8, ptr %10, i64 %46
   store ptr %44, ptr %47, align 8, !tbaa !14
   %48 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIwSt11char_traitsIwESaIwEEE, i64 16), ptr %48, align 8, !tbaa !14
@@ -10864,7 +10864,7 @@ _ZNSt6vectorIcSaIcEEC2IPKcvEET_S5_RKS0_.exit:     ; preds = %_ZNSt6vectorIcSaIcE
   %49 = load ptr, ptr %11, align 8, !tbaa !14
   %50 = getelementptr i8, ptr %49, i64 -24
   %51 = load i64, ptr %50, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %11, i64 %51
+  %52 = getelementptr inbounds i8, ptr %11, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 232
   %54 = load ptr, ptr %53, align 8, !tbaa !125
   %.not.i = icmp eq ptr %54, null
@@ -11135,7 +11135,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit61: ; preds = %_ZN
   %165 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIwSt11char_traitsIwESaIwEEE, i64 24), align 8
   %166 = getelementptr i8, ptr %164, i64 -24
   %167 = load i64, ptr %166, align 8
-  %168 = getelementptr inbounds nuw i8, ptr %11, i64 %167
+  %168 = getelementptr inbounds i8, ptr %11, i64 %167
   store ptr %165, ptr %168, align 8, !tbaa !14
   %169 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIwSt11char_traitsIwESaIwEEE, i64 16), ptr %169, align 8, !tbaa !14
@@ -11346,7 +11346,7 @@ _ZSt13__int_to_charIwmEiPT_T0_PKS0_St13_Ios_Fmtflagsb.exit: ; preds = %36, %28, 
   %46 = shl i64 %43, 30
   %sext = sub i64 171798691840, %46
   %47 = ashr i64 %sext, 32
-  %48 = getelementptr inbounds nuw i32, ptr %14, i64 %47
+  %48 = getelementptr inbounds i32, ptr %14, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %50 = load i8, ptr %49, align 8, !tbaa !143, !range !68, !noundef !69
   %51 = trunc nuw i8 %50 to i1
@@ -12137,7 +12137,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNK5boost6locale4util15base_num_formatI
           to label %20 unwind label %61
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %10, i64 %18
+  %21 = getelementptr inbounds i8, ptr %10, i64 %18
   invoke void @_ZNSt9basic_iosIwSt11char_traitsIwEE5imbueERKSt6locale(ptr dead_on_unwind nonnull writable sret(%"class.std::locale") align 8 %11, ptr noundef nonnull align 8 dereferenceable(264) %21, ptr noundef nonnull align 8 dereferenceable(8) %19)
           to label %22 unwind label %61
 
@@ -12146,25 +12146,25 @@ define linkonce_odr hidden { ptr, i8 } @_ZNK5boost6locale4util15base_num_formatI
   %23 = load ptr, ptr %10, align 8, !tbaa !14
   %24 = getelementptr i8, ptr %23, i64 -24
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %10, i64 %25
+  %26 = getelementptr inbounds i8, ptr %10, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %28 = load i32, ptr %27, align 8, !tbaa !36
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 24
   store i32 %28, ptr %29, align 8, !tbaa !36
   %30 = load i64, ptr %24, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %10, i64 %30
+  %31 = getelementptr inbounds i8, ptr %10, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %33 = load i64, ptr %32, align 8, !tbaa !41
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 %33, ptr %34, align 8, !tbaa !41
   %35 = load i64, ptr %24, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %10, i64 %35
+  %36 = getelementptr inbounds i8, ptr %10, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %38 = load i64, ptr %37, align 8, !tbaa !42
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store i64 %38, ptr %39, align 8, !tbaa !42
   %40 = load i64, ptr %24, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %10, i64 %40
+  %41 = getelementptr inbounds i8, ptr %10, i64 %40
   %42 = invoke { ptr, i8 } @_ZNKSt7num_putIwSt19ostreambuf_iteratorIwSt11char_traitsIwEEE13_M_insert_intImEES3_S3_RSt8ios_basewT_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr %1, i8 %2, ptr noundef nonnull align 8 dereferenceable(216) %41, i32 noundef signext %4, i64 noundef %5)
           to label %_ZNKSt7num_putIwSt19ostreambuf_iteratorIwSt11char_traitsIwEEE6do_putES3_RSt8ios_basewm.exit unwind label %61
 
@@ -12175,7 +12175,7 @@ _ZNKSt7num_putIwSt19ostreambuf_iteratorIwSt11char_traitsIwEEE6do_putES3_RSt8ios_
   %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIwSt11char_traitsIwESaIwEEE, i64 24), align 8
   %45 = getelementptr i8, ptr %43, i64 -24
   %46 = load i64, ptr %45, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %10, i64 %46
+  %47 = getelementptr inbounds i8, ptr %10, i64 %46
   store ptr %44, ptr %47, align 8, !tbaa !14
   %48 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIwSt11char_traitsIwESaIwEEE, i64 16), ptr %48, align 8, !tbaa !14
@@ -12565,7 +12565,7 @@ _ZSt13__int_to_charIwmEiPT_T0_PKS0_St13_Ios_Fmtflagsb.exit: ; preds = %30, %22, 
   %40 = shl i64 %37, 30
   %sext = sub i64 171798691840, %40
   %41 = ashr i64 %sext, 32
-  %42 = getelementptr inbounds nuw i32, ptr %14, i64 %41
+  %42 = getelementptr inbounds i32, ptr %14, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %44 = load i8, ptr %43, align 8, !tbaa !143, !range !68, !noundef !69
   %45 = trunc nuw i8 %44 to i1
@@ -12698,7 +12698,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNK5boost6locale4util15base_num_formatI
           to label %20 unwind label %61
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %10, i64 %18
+  %21 = getelementptr inbounds i8, ptr %10, i64 %18
   invoke void @_ZNSt9basic_iosIwSt11char_traitsIwEE5imbueERKSt6locale(ptr dead_on_unwind nonnull writable sret(%"class.std::locale") align 8 %11, ptr noundef nonnull align 8 dereferenceable(264) %21, ptr noundef nonnull align 8 dereferenceable(8) %19)
           to label %22 unwind label %61
 
@@ -12707,25 +12707,25 @@ define linkonce_odr hidden { ptr, i8 } @_ZNK5boost6locale4util15base_num_formatI
   %23 = load ptr, ptr %10, align 8, !tbaa !14
   %24 = getelementptr i8, ptr %23, i64 -24
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %10, i64 %25
+  %26 = getelementptr inbounds i8, ptr %10, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %28 = load i32, ptr %27, align 8, !tbaa !36
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 24
   store i32 %28, ptr %29, align 8, !tbaa !36
   %30 = load i64, ptr %24, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %10, i64 %30
+  %31 = getelementptr inbounds i8, ptr %10, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %33 = load i64, ptr %32, align 8, !tbaa !41
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 %33, ptr %34, align 8, !tbaa !41
   %35 = load i64, ptr %24, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %10, i64 %35
+  %36 = getelementptr inbounds i8, ptr %10, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %38 = load i64, ptr %37, align 8, !tbaa !42
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store i64 %38, ptr %39, align 8, !tbaa !42
   %40 = load i64, ptr %24, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %10, i64 %40
+  %41 = getelementptr inbounds i8, ptr %10, i64 %40
   %42 = invoke { ptr, i8 } @_ZNKSt7num_putIwSt19ostreambuf_iteratorIwSt11char_traitsIwEEE13_M_insert_intIxEES3_S3_RSt8ios_basewT_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr %1, i8 %2, ptr noundef nonnull align 8 dereferenceable(216) %41, i32 noundef signext %4, i64 noundef %5)
           to label %_ZNKSt7num_putIwSt19ostreambuf_iteratorIwSt11char_traitsIwEEE6do_putES3_RSt8ios_basewx.exit unwind label %61
 
@@ -12736,7 +12736,7 @@ _ZNKSt7num_putIwSt19ostreambuf_iteratorIwSt11char_traitsIwEEE6do_putES3_RSt8ios_
   %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIwSt11char_traitsIwESaIwEEE, i64 24), align 8
   %45 = getelementptr i8, ptr %43, i64 -24
   %46 = load i64, ptr %45, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %10, i64 %46
+  %47 = getelementptr inbounds i8, ptr %10, i64 %46
   store ptr %44, ptr %47, align 8, !tbaa !14
   %48 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIwSt11char_traitsIwESaIwEEE, i64 16), ptr %48, align 8, !tbaa !14
@@ -13141,7 +13141,7 @@ _ZSt13__int_to_charIwyEiPT_T0_PKS0_St13_Ios_Fmtflagsb.exit: ; preds = %36, %28, 
   %46 = shl i64 %43, 30
   %sext = sub i64 171798691840, %46
   %47 = ashr i64 %sext, 32
-  %48 = getelementptr inbounds nuw i32, ptr %14, i64 %47
+  %48 = getelementptr inbounds i32, ptr %14, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %50 = load i8, ptr %49, align 8, !tbaa !143, !range !68, !noundef !69
   %51 = trunc nuw i8 %50 to i1
@@ -13311,7 +13311,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNK5boost6locale4util15base_num_formatI
           to label %20 unwind label %61
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %10, i64 %18
+  %21 = getelementptr inbounds i8, ptr %10, i64 %18
   invoke void @_ZNSt9basic_iosIwSt11char_traitsIwEE5imbueERKSt6locale(ptr dead_on_unwind nonnull writable sret(%"class.std::locale") align 8 %11, ptr noundef nonnull align 8 dereferenceable(264) %21, ptr noundef nonnull align 8 dereferenceable(8) %19)
           to label %22 unwind label %61
 
@@ -13320,25 +13320,25 @@ define linkonce_odr hidden { ptr, i8 } @_ZNK5boost6locale4util15base_num_formatI
   %23 = load ptr, ptr %10, align 8, !tbaa !14
   %24 = getelementptr i8, ptr %23, i64 -24
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %10, i64 %25
+  %26 = getelementptr inbounds i8, ptr %10, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %28 = load i32, ptr %27, align 8, !tbaa !36
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 24
   store i32 %28, ptr %29, align 8, !tbaa !36
   %30 = load i64, ptr %24, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %10, i64 %30
+  %31 = getelementptr inbounds i8, ptr %10, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %33 = load i64, ptr %32, align 8, !tbaa !41
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 %33, ptr %34, align 8, !tbaa !41
   %35 = load i64, ptr %24, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %10, i64 %35
+  %36 = getelementptr inbounds i8, ptr %10, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %38 = load i64, ptr %37, align 8, !tbaa !42
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store i64 %38, ptr %39, align 8, !tbaa !42
   %40 = load i64, ptr %24, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %10, i64 %40
+  %41 = getelementptr inbounds i8, ptr %10, i64 %40
   %42 = invoke { ptr, i8 } @_ZNKSt7num_putIwSt19ostreambuf_iteratorIwSt11char_traitsIwEEE13_M_insert_intIyEES3_S3_RSt8ios_basewT_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr %1, i8 %2, ptr noundef nonnull align 8 dereferenceable(216) %41, i32 noundef signext %4, i64 noundef %5)
           to label %_ZNKSt7num_putIwSt19ostreambuf_iteratorIwSt11char_traitsIwEEE6do_putES3_RSt8ios_basewy.exit unwind label %61
 
@@ -13349,7 +13349,7 @@ _ZNKSt7num_putIwSt19ostreambuf_iteratorIwSt11char_traitsIwEEE6do_putES3_RSt8ios_
   %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIwSt11char_traitsIwESaIwEEE, i64 24), align 8
   %45 = getelementptr i8, ptr %43, i64 -24
   %46 = load i64, ptr %45, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %10, i64 %46
+  %47 = getelementptr inbounds i8, ptr %10, i64 %46
   store ptr %44, ptr %47, align 8, !tbaa !14
   %48 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIwSt11char_traitsIwESaIwEEE, i64 16), ptr %48, align 8, !tbaa !14
@@ -13739,7 +13739,7 @@ _ZSt13__int_to_charIwyEiPT_T0_PKS0_St13_Ios_Fmtflagsb.exit: ; preds = %30, %22, 
   %40 = shl i64 %37, 30
   %sext = sub i64 171798691840, %40
   %41 = ashr i64 %sext, 32
-  %42 = getelementptr inbounds nuw i32, ptr %14, i64 %41
+  %42 = getelementptr inbounds i32, ptr %14, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %44 = load i8, ptr %43, align 8, !tbaa !143, !range !68, !noundef !69
   %45 = trunc nuw i8 %44 to i1
@@ -13872,7 +13872,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNK5boost6locale4util15base_num_formatI
           to label %20 unwind label %62
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %10, i64 %18
+  %21 = getelementptr inbounds i8, ptr %10, i64 %18
   invoke void @_ZNSt9basic_iosIwSt11char_traitsIwEE5imbueERKSt6locale(ptr dead_on_unwind nonnull writable sret(%"class.std::locale") align 8 %11, ptr noundef nonnull align 8 dereferenceable(264) %21, ptr noundef nonnull align 8 dereferenceable(8) %19)
           to label %22 unwind label %62
 
@@ -13881,25 +13881,25 @@ define linkonce_odr hidden { ptr, i8 } @_ZNK5boost6locale4util15base_num_formatI
   %23 = load ptr, ptr %10, align 8, !tbaa !14
   %24 = getelementptr i8, ptr %23, i64 -24
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %10, i64 %25
+  %26 = getelementptr inbounds i8, ptr %10, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %28 = load i32, ptr %27, align 8, !tbaa !36
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 24
   store i32 %28, ptr %29, align 8, !tbaa !36
   %30 = load i64, ptr %24, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %10, i64 %30
+  %31 = getelementptr inbounds i8, ptr %10, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %33 = load i64, ptr %32, align 8, !tbaa !41
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 %33, ptr %34, align 8, !tbaa !41
   %35 = load i64, ptr %24, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %10, i64 %35
+  %36 = getelementptr inbounds i8, ptr %10, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %38 = load i64, ptr %37, align 8, !tbaa !42
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store i64 %38, ptr %39, align 8, !tbaa !42
   %40 = load i64, ptr %24, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %10, i64 %40
+  %41 = getelementptr inbounds i8, ptr %10, i64 %40
   %42 = invoke { ptr, i8 } @_ZNKSt7num_putIwSt19ostreambuf_iteratorIwSt11char_traitsIwEEE6do_putES3_RSt8ios_basewd(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr %1, i8 %2, ptr noundef nonnull align 8 dereferenceable(216) %41, i32 noundef signext %4, double noundef %5)
           to label %43 unwind label %62
 
@@ -13910,7 +13910,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNK5boost6locale4util15base_num_formatI
   %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIwSt11char_traitsIwESaIwEEE, i64 24), align 8
   %46 = getelementptr i8, ptr %44, i64 -24
   %47 = load i64, ptr %46, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %10, i64 %47
+  %48 = getelementptr inbounds i8, ptr %10, i64 %47
   store ptr %45, ptr %48, align 8, !tbaa !14
   %49 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIwSt11char_traitsIwESaIwEEE, i64 16), ptr %49, align 8, !tbaa !14
@@ -14254,7 +14254,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNK5boost6locale4util15base_num_formatI
           to label %20 unwind label %62
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %10, i64 %18
+  %21 = getelementptr inbounds i8, ptr %10, i64 %18
   invoke void @_ZNSt9basic_iosIwSt11char_traitsIwEE5imbueERKSt6locale(ptr dead_on_unwind nonnull writable sret(%"class.std::locale") align 8 %11, ptr noundef nonnull align 8 dereferenceable(264) %21, ptr noundef nonnull align 8 dereferenceable(8) %19)
           to label %22 unwind label %62
 
@@ -14263,25 +14263,25 @@ define linkonce_odr hidden { ptr, i8 } @_ZNK5boost6locale4util15base_num_formatI
   %23 = load ptr, ptr %10, align 8, !tbaa !14
   %24 = getelementptr i8, ptr %23, i64 -24
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %10, i64 %25
+  %26 = getelementptr inbounds i8, ptr %10, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %28 = load i32, ptr %27, align 8, !tbaa !36
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 24
   store i32 %28, ptr %29, align 8, !tbaa !36
   %30 = load i64, ptr %24, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %10, i64 %30
+  %31 = getelementptr inbounds i8, ptr %10, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %33 = load i64, ptr %32, align 8, !tbaa !41
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 %33, ptr %34, align 8, !tbaa !41
   %35 = load i64, ptr %24, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %10, i64 %35
+  %36 = getelementptr inbounds i8, ptr %10, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %38 = load i64, ptr %37, align 8, !tbaa !42
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store i64 %38, ptr %39, align 8, !tbaa !42
   %40 = load i64, ptr %24, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %10, i64 %40
+  %41 = getelementptr inbounds i8, ptr %10, i64 %40
   %42 = invoke { ptr, i8 } @_ZNKSt7num_putIwSt19ostreambuf_iteratorIwSt11char_traitsIwEEE6do_putES3_RSt8ios_basewe(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr %1, i8 %2, ptr noundef nonnull align 8 dereferenceable(216) %41, i32 noundef signext %4, x86_fp80 noundef %5)
           to label %43 unwind label %62
 
@@ -14292,7 +14292,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNK5boost6locale4util15base_num_formatI
   %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIwSt11char_traitsIwESaIwEEE, i64 24), align 8
   %46 = getelementptr i8, ptr %44, i64 -24
   %47 = load i64, ptr %46, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %10, i64 %47
+  %48 = getelementptr inbounds i8, ptr %10, i64 %47
   store ptr %45, ptr %48, align 8, !tbaa !14
   %49 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIwSt11char_traitsIwESaIwEEE, i64 16), ptr %49, align 8, !tbaa !14
@@ -14955,7 +14955,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNK5boost6locale4util14base_num_parseI
           to label %19 unwind label %62
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds nuw i8, ptr %9, i64 %17
+  %20 = getelementptr inbounds i8, ptr %9, i64 %17
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale(ptr dead_on_unwind nonnull writable sret(%"class.std::locale") align 8 %10, ptr noundef nonnull align 8 dereferenceable(264) %20, ptr noundef nonnull align 8 dereferenceable(8) %18)
           to label %21 unwind label %62
 
@@ -14964,19 +14964,19 @@ define linkonce_odr hidden { ptr, i32 } @_ZNK5boost6locale4util14base_num_parseI
   %22 = load ptr, ptr %9, align 8, !tbaa !14
   %23 = getelementptr i8, ptr %22, i64 -24
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %9, i64 %24
+  %25 = getelementptr inbounds i8, ptr %9, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %27 = load i32, ptr %26, align 8, !tbaa !36
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store i32 %27, ptr %28, align 8, !tbaa !36
   %29 = load i64, ptr %23, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %9, i64 %29
+  %30 = getelementptr inbounds i8, ptr %9, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %32 = load i64, ptr %31, align 8, !tbaa !41
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 %32, ptr %33, align 8, !tbaa !41
   %34 = load i64, ptr %23, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %9, i64 %34
+  %35 = getelementptr inbounds i8, ptr %9, i64 %34
   %36 = invoke { ptr, i32 } @_ZNKSt7num_getIcSt19istreambuf_iteratorIcSt11char_traitsIcEEE14_M_extract_intB5cxx11IlEES3_S3_S3_RSt8ios_baseRSt12_Ios_IostateRT_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr %1, i32 %2, ptr %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(216) %35, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %_ZNKSt7num_getIcSt19istreambuf_iteratorIcSt11char_traitsIcEEE6do_getES3_S3_RSt8ios_baseRSt12_Ios_IostateRl.exit unwind label %62
 
@@ -14986,7 +14986,7 @@ _ZNKSt7num_getIcSt19istreambuf_iteratorIcSt11char_traitsIcEEE6do_getES3_S3_RSt8i
   %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %39 = getelementptr i8, ptr %37, i64 -24
   %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %9, i64 %40
+  %41 = getelementptr inbounds i8, ptr %9, i64 %40
   store ptr %38, ptr %41, align 8, !tbaa !14
   %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -15021,7 +15021,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %57 = getelementptr i8, ptr %55, i64 -24
   %58 = load i64, ptr %57, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %9, i64 %58
+  %59 = getelementptr inbounds i8, ptr %9, i64 %58
   store ptr %56, ptr %59, align 8, !tbaa !14
   %60 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 0, ptr %60, align 8, !tbaa !166
@@ -16323,7 +16323,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNK5boost6locale4util14base_num_parseI
           to label %19 unwind label %62
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds nuw i8, ptr %9, i64 %17
+  %20 = getelementptr inbounds i8, ptr %9, i64 %17
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale(ptr dead_on_unwind nonnull writable sret(%"class.std::locale") align 8 %10, ptr noundef nonnull align 8 dereferenceable(264) %20, ptr noundef nonnull align 8 dereferenceable(8) %18)
           to label %21 unwind label %62
 
@@ -16332,19 +16332,19 @@ define linkonce_odr hidden { ptr, i32 } @_ZNK5boost6locale4util14base_num_parseI
   %22 = load ptr, ptr %9, align 8, !tbaa !14
   %23 = getelementptr i8, ptr %22, i64 -24
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %9, i64 %24
+  %25 = getelementptr inbounds i8, ptr %9, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %27 = load i32, ptr %26, align 8, !tbaa !36
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store i32 %27, ptr %28, align 8, !tbaa !36
   %29 = load i64, ptr %23, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %9, i64 %29
+  %30 = getelementptr inbounds i8, ptr %9, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %32 = load i64, ptr %31, align 8, !tbaa !41
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 %32, ptr %33, align 8, !tbaa !41
   %34 = load i64, ptr %23, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %9, i64 %34
+  %35 = getelementptr inbounds i8, ptr %9, i64 %34
   %36 = invoke { ptr, i32 } @_ZNKSt7num_getIcSt19istreambuf_iteratorIcSt11char_traitsIcEEE14_M_extract_intB5cxx11ItEES3_S3_S3_RSt8ios_baseRSt12_Ios_IostateRT_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr %1, i32 %2, ptr %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(216) %35, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 2 dereferenceable(2) %7)
           to label %_ZNKSt7num_getIcSt19istreambuf_iteratorIcSt11char_traitsIcEEE6do_getES3_S3_RSt8ios_baseRSt12_Ios_IostateRt.exit unwind label %62
 
@@ -16354,7 +16354,7 @@ _ZNKSt7num_getIcSt19istreambuf_iteratorIcSt11char_traitsIcEEE6do_getES3_S3_RSt8i
   %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %39 = getelementptr i8, ptr %37, i64 -24
   %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %9, i64 %40
+  %41 = getelementptr inbounds i8, ptr %9, i64 %40
   store ptr %38, ptr %41, align 8, !tbaa !14
   %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -16389,7 +16389,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %57 = getelementptr i8, ptr %55, i64 -24
   %58 = load i64, ptr %57, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %9, i64 %58
+  %59 = getelementptr inbounds i8, ptr %9, i64 %58
   store ptr %56, ptr %59, align 8, !tbaa !14
   %60 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 0, ptr %60, align 8, !tbaa !166
@@ -17524,7 +17524,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNK5boost6locale4util14base_num_parseI
           to label %19 unwind label %62
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds nuw i8, ptr %9, i64 %17
+  %20 = getelementptr inbounds i8, ptr %9, i64 %17
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale(ptr dead_on_unwind nonnull writable sret(%"class.std::locale") align 8 %10, ptr noundef nonnull align 8 dereferenceable(264) %20, ptr noundef nonnull align 8 dereferenceable(8) %18)
           to label %21 unwind label %62
 
@@ -17533,19 +17533,19 @@ define linkonce_odr hidden { ptr, i32 } @_ZNK5boost6locale4util14base_num_parseI
   %22 = load ptr, ptr %9, align 8, !tbaa !14
   %23 = getelementptr i8, ptr %22, i64 -24
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %9, i64 %24
+  %25 = getelementptr inbounds i8, ptr %9, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %27 = load i32, ptr %26, align 8, !tbaa !36
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store i32 %27, ptr %28, align 8, !tbaa !36
   %29 = load i64, ptr %23, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %9, i64 %29
+  %30 = getelementptr inbounds i8, ptr %9, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %32 = load i64, ptr %31, align 8, !tbaa !41
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 %32, ptr %33, align 8, !tbaa !41
   %34 = load i64, ptr %23, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %9, i64 %34
+  %35 = getelementptr inbounds i8, ptr %9, i64 %34
   %36 = invoke { ptr, i32 } @_ZNKSt7num_getIcSt19istreambuf_iteratorIcSt11char_traitsIcEEE14_M_extract_intB5cxx11IjEES3_S3_S3_RSt8ios_baseRSt12_Ios_IostateRT_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr %1, i32 %2, ptr %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(216) %35, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
           to label %_ZNKSt7num_getIcSt19istreambuf_iteratorIcSt11char_traitsIcEEE6do_getES3_S3_RSt8ios_baseRSt12_Ios_IostateRj.exit unwind label %62
 
@@ -17555,7 +17555,7 @@ _ZNKSt7num_getIcSt19istreambuf_iteratorIcSt11char_traitsIcEEE6do_getES3_S3_RSt8i
   %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %39 = getelementptr i8, ptr %37, i64 -24
   %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %9, i64 %40
+  %41 = getelementptr inbounds i8, ptr %9, i64 %40
   store ptr %38, ptr %41, align 8, !tbaa !14
   %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -17590,7 +17590,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %57 = getelementptr i8, ptr %55, i64 -24
   %58 = load i64, ptr %57, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %9, i64 %58
+  %59 = getelementptr inbounds i8, ptr %9, i64 %58
   store ptr %56, ptr %59, align 8, !tbaa !14
   %60 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 0, ptr %60, align 8, !tbaa !166
@@ -18717,7 +18717,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNK5boost6locale4util14base_num_parseI
           to label %19 unwind label %62
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds nuw i8, ptr %9, i64 %17
+  %20 = getelementptr inbounds i8, ptr %9, i64 %17
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale(ptr dead_on_unwind nonnull writable sret(%"class.std::locale") align 8 %10, ptr noundef nonnull align 8 dereferenceable(264) %20, ptr noundef nonnull align 8 dereferenceable(8) %18)
           to label %21 unwind label %62
 
@@ -18726,19 +18726,19 @@ define linkonce_odr hidden { ptr, i32 } @_ZNK5boost6locale4util14base_num_parseI
   %22 = load ptr, ptr %9, align 8, !tbaa !14
   %23 = getelementptr i8, ptr %22, i64 -24
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %9, i64 %24
+  %25 = getelementptr inbounds i8, ptr %9, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %27 = load i32, ptr %26, align 8, !tbaa !36
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store i32 %27, ptr %28, align 8, !tbaa !36
   %29 = load i64, ptr %23, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %9, i64 %29
+  %30 = getelementptr inbounds i8, ptr %9, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %32 = load i64, ptr %31, align 8, !tbaa !41
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 %32, ptr %33, align 8, !tbaa !41
   %34 = load i64, ptr %23, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %9, i64 %34
+  %35 = getelementptr inbounds i8, ptr %9, i64 %34
   %36 = invoke { ptr, i32 } @_ZNKSt7num_getIcSt19istreambuf_iteratorIcSt11char_traitsIcEEE14_M_extract_intB5cxx11ImEES3_S3_S3_RSt8ios_baseRSt12_Ios_IostateRT_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr %1, i32 %2, ptr %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(216) %35, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %_ZNKSt7num_getIcSt19istreambuf_iteratorIcSt11char_traitsIcEEE6do_getES3_S3_RSt8ios_baseRSt12_Ios_IostateRm.exit unwind label %62
 
@@ -18748,7 +18748,7 @@ _ZNKSt7num_getIcSt19istreambuf_iteratorIcSt11char_traitsIcEEE6do_getES3_S3_RSt8i
   %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %39 = getelementptr i8, ptr %37, i64 -24
   %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %9, i64 %40
+  %41 = getelementptr inbounds i8, ptr %9, i64 %40
   store ptr %38, ptr %41, align 8, !tbaa !14
   %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -18783,7 +18783,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %57 = getelementptr i8, ptr %55, i64 -24
   %58 = load i64, ptr %57, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %9, i64 %58
+  %59 = getelementptr inbounds i8, ptr %9, i64 %58
   store ptr %56, ptr %59, align 8, !tbaa !14
   %60 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 0, ptr %60, align 8, !tbaa !166
@@ -19914,7 +19914,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNK5boost6locale4util14base_num_parseI
           to label %19 unwind label %62
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds nuw i8, ptr %9, i64 %17
+  %20 = getelementptr inbounds i8, ptr %9, i64 %17
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale(ptr dead_on_unwind nonnull writable sret(%"class.std::locale") align 8 %10, ptr noundef nonnull align 8 dereferenceable(264) %20, ptr noundef nonnull align 8 dereferenceable(8) %18)
           to label %21 unwind label %62
 
@@ -19923,19 +19923,19 @@ define linkonce_odr hidden { ptr, i32 } @_ZNK5boost6locale4util14base_num_parseI
   %22 = load ptr, ptr %9, align 8, !tbaa !14
   %23 = getelementptr i8, ptr %22, i64 -24
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %9, i64 %24
+  %25 = getelementptr inbounds i8, ptr %9, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %27 = load i32, ptr %26, align 8, !tbaa !36
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store i32 %27, ptr %28, align 8, !tbaa !36
   %29 = load i64, ptr %23, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %9, i64 %29
+  %30 = getelementptr inbounds i8, ptr %9, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %32 = load i64, ptr %31, align 8, !tbaa !41
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 %32, ptr %33, align 8, !tbaa !41
   %34 = load i64, ptr %23, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %9, i64 %34
+  %35 = getelementptr inbounds i8, ptr %9, i64 %34
   %36 = invoke { ptr, i32 } @_ZNKSt7num_getIcSt19istreambuf_iteratorIcSt11char_traitsIcEEE14_M_extract_intB5cxx11IxEES3_S3_S3_RSt8ios_baseRSt12_Ios_IostateRT_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr %1, i32 %2, ptr %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(216) %35, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %_ZNKSt7num_getIcSt19istreambuf_iteratorIcSt11char_traitsIcEEE6do_getES3_S3_RSt8ios_baseRSt12_Ios_IostateRx.exit unwind label %62
 
@@ -19945,7 +19945,7 @@ _ZNKSt7num_getIcSt19istreambuf_iteratorIcSt11char_traitsIcEEE6do_getES3_S3_RSt8i
   %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %39 = getelementptr i8, ptr %37, i64 -24
   %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %9, i64 %40
+  %41 = getelementptr inbounds i8, ptr %9, i64 %40
   store ptr %38, ptr %41, align 8, !tbaa !14
   %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -19980,7 +19980,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %57 = getelementptr i8, ptr %55, i64 -24
   %58 = load i64, ptr %57, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %9, i64 %58
+  %59 = getelementptr inbounds i8, ptr %9, i64 %58
   store ptr %56, ptr %59, align 8, !tbaa !14
   %60 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 0, ptr %60, align 8, !tbaa !166
@@ -21112,7 +21112,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNK5boost6locale4util14base_num_parseI
           to label %19 unwind label %62
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds nuw i8, ptr %9, i64 %17
+  %20 = getelementptr inbounds i8, ptr %9, i64 %17
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale(ptr dead_on_unwind nonnull writable sret(%"class.std::locale") align 8 %10, ptr noundef nonnull align 8 dereferenceable(264) %20, ptr noundef nonnull align 8 dereferenceable(8) %18)
           to label %21 unwind label %62
 
@@ -21121,19 +21121,19 @@ define linkonce_odr hidden { ptr, i32 } @_ZNK5boost6locale4util14base_num_parseI
   %22 = load ptr, ptr %9, align 8, !tbaa !14
   %23 = getelementptr i8, ptr %22, i64 -24
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %9, i64 %24
+  %25 = getelementptr inbounds i8, ptr %9, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %27 = load i32, ptr %26, align 8, !tbaa !36
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store i32 %27, ptr %28, align 8, !tbaa !36
   %29 = load i64, ptr %23, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %9, i64 %29
+  %30 = getelementptr inbounds i8, ptr %9, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %32 = load i64, ptr %31, align 8, !tbaa !41
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 %32, ptr %33, align 8, !tbaa !41
   %34 = load i64, ptr %23, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %9, i64 %34
+  %35 = getelementptr inbounds i8, ptr %9, i64 %34
   %36 = invoke { ptr, i32 } @_ZNKSt7num_getIcSt19istreambuf_iteratorIcSt11char_traitsIcEEE14_M_extract_intB5cxx11IyEES3_S3_S3_RSt8ios_baseRSt12_Ios_IostateRT_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr %1, i32 %2, ptr %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(216) %35, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %_ZNKSt7num_getIcSt19istreambuf_iteratorIcSt11char_traitsIcEEE6do_getES3_S3_RSt8ios_baseRSt12_Ios_IostateRy.exit unwind label %62
 
@@ -21143,7 +21143,7 @@ _ZNKSt7num_getIcSt19istreambuf_iteratorIcSt11char_traitsIcEEE6do_getES3_S3_RSt8i
   %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %39 = getelementptr i8, ptr %37, i64 -24
   %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %9, i64 %40
+  %41 = getelementptr inbounds i8, ptr %9, i64 %40
   store ptr %38, ptr %41, align 8, !tbaa !14
   %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -21178,7 +21178,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %57 = getelementptr i8, ptr %55, i64 -24
   %58 = load i64, ptr %57, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %9, i64 %58
+  %59 = getelementptr inbounds i8, ptr %9, i64 %58
   store ptr %56, ptr %59, align 8, !tbaa !14
   %60 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 0, ptr %60, align 8, !tbaa !166
@@ -22309,7 +22309,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNK5boost6locale4util14base_num_parseI
           to label %19 unwind label %63
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds nuw i8, ptr %9, i64 %17
+  %20 = getelementptr inbounds i8, ptr %9, i64 %17
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale(ptr dead_on_unwind nonnull writable sret(%"class.std::locale") align 8 %10, ptr noundef nonnull align 8 dereferenceable(264) %20, ptr noundef nonnull align 8 dereferenceable(8) %18)
           to label %21 unwind label %63
 
@@ -22318,19 +22318,19 @@ define linkonce_odr hidden { ptr, i32 } @_ZNK5boost6locale4util14base_num_parseI
   %22 = load ptr, ptr %9, align 8, !tbaa !14
   %23 = getelementptr i8, ptr %22, i64 -24
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %9, i64 %24
+  %25 = getelementptr inbounds i8, ptr %9, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %27 = load i32, ptr %26, align 8, !tbaa !36
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store i32 %27, ptr %28, align 8, !tbaa !36
   %29 = load i64, ptr %23, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %9, i64 %29
+  %30 = getelementptr inbounds i8, ptr %9, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %32 = load i64, ptr %31, align 8, !tbaa !41
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 %32, ptr %33, align 8, !tbaa !41
   %34 = load i64, ptr %23, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %9, i64 %34
+  %35 = getelementptr inbounds i8, ptr %9, i64 %34
   %36 = invoke { ptr, i32 } @_ZNKSt7num_getIcSt19istreambuf_iteratorIcSt11char_traitsIcEEE6do_getES3_S3_RSt8ios_baseRSt12_Ios_IostateRf(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr %1, i32 %2, ptr %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(216) %35, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
           to label %37 unwind label %63
 
@@ -22340,7 +22340,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNK5boost6locale4util14base_num_parseI
   %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %40 = getelementptr i8, ptr %38, i64 -24
   %41 = load i64, ptr %40, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %9, i64 %41
+  %42 = getelementptr inbounds i8, ptr %9, i64 %41
   store ptr %39, ptr %42, align 8, !tbaa !14
   %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -22375,7 +22375,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %58 = getelementptr i8, ptr %56, i64 -24
   %59 = load i64, ptr %58, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %9, i64 %59
+  %60 = getelementptr inbounds i8, ptr %9, i64 %59
   store ptr %57, ptr %60, align 8, !tbaa !14
   %61 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 0, ptr %61, align 8, !tbaa !166
@@ -22461,7 +22461,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNK5boost6locale4util14base_num_parseI
           to label %19 unwind label %63
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds nuw i8, ptr %9, i64 %17
+  %20 = getelementptr inbounds i8, ptr %9, i64 %17
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale(ptr dead_on_unwind nonnull writable sret(%"class.std::locale") align 8 %10, ptr noundef nonnull align 8 dereferenceable(264) %20, ptr noundef nonnull align 8 dereferenceable(8) %18)
           to label %21 unwind label %63
 
@@ -22470,19 +22470,19 @@ define linkonce_odr hidden { ptr, i32 } @_ZNK5boost6locale4util14base_num_parseI
   %22 = load ptr, ptr %9, align 8, !tbaa !14
   %23 = getelementptr i8, ptr %22, i64 -24
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %9, i64 %24
+  %25 = getelementptr inbounds i8, ptr %9, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %27 = load i32, ptr %26, align 8, !tbaa !36
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store i32 %27, ptr %28, align 8, !tbaa !36
   %29 = load i64, ptr %23, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %9, i64 %29
+  %30 = getelementptr inbounds i8, ptr %9, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %32 = load i64, ptr %31, align 8, !tbaa !41
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 %32, ptr %33, align 8, !tbaa !41
   %34 = load i64, ptr %23, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %9, i64 %34
+  %35 = getelementptr inbounds i8, ptr %9, i64 %34
   %36 = invoke { ptr, i32 } @_ZNKSt7num_getIcSt19istreambuf_iteratorIcSt11char_traitsIcEEE6do_getES3_S3_RSt8ios_baseRSt12_Ios_IostateRd(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr %1, i32 %2, ptr %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(216) %35, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %37 unwind label %63
 
@@ -22492,7 +22492,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNK5boost6locale4util14base_num_parseI
   %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %40 = getelementptr i8, ptr %38, i64 -24
   %41 = load i64, ptr %40, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %9, i64 %41
+  %42 = getelementptr inbounds i8, ptr %9, i64 %41
   store ptr %39, ptr %42, align 8, !tbaa !14
   %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -22527,7 +22527,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %58 = getelementptr i8, ptr %56, i64 -24
   %59 = load i64, ptr %58, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %9, i64 %59
+  %60 = getelementptr inbounds i8, ptr %9, i64 %59
   store ptr %57, ptr %60, align 8, !tbaa !14
   %61 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 0, ptr %61, align 8, !tbaa !166
@@ -22613,7 +22613,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNK5boost6locale4util14base_num_parseI
           to label %19 unwind label %63
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds nuw i8, ptr %9, i64 %17
+  %20 = getelementptr inbounds i8, ptr %9, i64 %17
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale(ptr dead_on_unwind nonnull writable sret(%"class.std::locale") align 8 %10, ptr noundef nonnull align 8 dereferenceable(264) %20, ptr noundef nonnull align 8 dereferenceable(8) %18)
           to label %21 unwind label %63
 
@@ -22622,19 +22622,19 @@ define linkonce_odr hidden { ptr, i32 } @_ZNK5boost6locale4util14base_num_parseI
   %22 = load ptr, ptr %9, align 8, !tbaa !14
   %23 = getelementptr i8, ptr %22, i64 -24
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %9, i64 %24
+  %25 = getelementptr inbounds i8, ptr %9, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %27 = load i32, ptr %26, align 8, !tbaa !36
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store i32 %27, ptr %28, align 8, !tbaa !36
   %29 = load i64, ptr %23, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %9, i64 %29
+  %30 = getelementptr inbounds i8, ptr %9, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %32 = load i64, ptr %31, align 8, !tbaa !41
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 %32, ptr %33, align 8, !tbaa !41
   %34 = load i64, ptr %23, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %9, i64 %34
+  %35 = getelementptr inbounds i8, ptr %9, i64 %34
   %36 = invoke { ptr, i32 } @_ZNKSt7num_getIcSt19istreambuf_iteratorIcSt11char_traitsIcEEE6do_getES3_S3_RSt8ios_baseRSt12_Ios_IostateRe(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr %1, i32 %2, ptr %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(216) %35, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 16 dereferenceable(16) %7)
           to label %37 unwind label %63
 
@@ -22644,7 +22644,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNK5boost6locale4util14base_num_parseI
   %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %40 = getelementptr i8, ptr %38, i64 -24
   %41 = load i64, ptr %40, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %9, i64 %41
+  %42 = getelementptr inbounds i8, ptr %9, i64 %41
   store ptr %39, ptr %42, align 8, !tbaa !14
   %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -22679,7 +22679,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %58 = getelementptr i8, ptr %56, i64 -24
   %59 = load i64, ptr %58, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %9, i64 %59
+  %60 = getelementptr inbounds i8, ptr %9, i64 %59
   store ptr %57, ptr %60, align 8, !tbaa !14
   %61 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 0, ptr %61, align 8, !tbaa !166
@@ -22901,7 +22901,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNK5boost6locale4util14base_num_parseI
           to label %19 unwind label %62
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds nuw i8, ptr %9, i64 %17
+  %20 = getelementptr inbounds i8, ptr %9, i64 %17
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale(ptr dead_on_unwind nonnull writable sret(%"class.std::locale") align 8 %10, ptr noundef nonnull align 8 dereferenceable(264) %20, ptr noundef nonnull align 8 dereferenceable(8) %18)
           to label %21 unwind label %62
 
@@ -22910,19 +22910,19 @@ define linkonce_odr hidden { ptr, i32 } @_ZNK5boost6locale4util14base_num_parseI
   %22 = load ptr, ptr %9, align 8, !tbaa !14
   %23 = getelementptr i8, ptr %22, i64 -24
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %9, i64 %24
+  %25 = getelementptr inbounds i8, ptr %9, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %27 = load i32, ptr %26, align 8, !tbaa !36
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store i32 %27, ptr %28, align 8, !tbaa !36
   %29 = load i64, ptr %23, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %9, i64 %29
+  %30 = getelementptr inbounds i8, ptr %9, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %32 = load i64, ptr %31, align 8, !tbaa !41
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 %32, ptr %33, align 8, !tbaa !41
   %34 = load i64, ptr %23, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %9, i64 %34
+  %35 = getelementptr inbounds i8, ptr %9, i64 %34
   %36 = invoke { ptr, i32 } @_ZNKSt7num_getIwSt19istreambuf_iteratorIwSt11char_traitsIwEEE14_M_extract_intB5cxx11IlEES3_S3_S3_RSt8ios_baseRSt12_Ios_IostateRT_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr %1, i32 %2, ptr %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(216) %35, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %_ZNKSt7num_getIwSt19istreambuf_iteratorIwSt11char_traitsIwEEE6do_getES3_S3_RSt8ios_baseRSt12_Ios_IostateRl.exit unwind label %62
 
@@ -22932,7 +22932,7 @@ _ZNKSt7num_getIwSt19istreambuf_iteratorIwSt11char_traitsIwEEE6do_getES3_S3_RSt8i
   %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %39 = getelementptr i8, ptr %37, i64 -24
   %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %9, i64 %40
+  %41 = getelementptr inbounds i8, ptr %9, i64 %40
   store ptr %38, ptr %41, align 8, !tbaa !14
   %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -22967,7 +22967,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %57 = getelementptr i8, ptr %55, i64 -24
   %58 = load i64, ptr %57, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %9, i64 %58
+  %59 = getelementptr inbounds i8, ptr %9, i64 %58
   store ptr %56, ptr %59, align 8, !tbaa !14
   %60 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 0, ptr %60, align 8, !tbaa !166
@@ -24299,7 +24299,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNK5boost6locale4util14base_num_parseI
           to label %19 unwind label %62
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds nuw i8, ptr %9, i64 %17
+  %20 = getelementptr inbounds i8, ptr %9, i64 %17
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale(ptr dead_on_unwind nonnull writable sret(%"class.std::locale") align 8 %10, ptr noundef nonnull align 8 dereferenceable(264) %20, ptr noundef nonnull align 8 dereferenceable(8) %18)
           to label %21 unwind label %62
 
@@ -24308,19 +24308,19 @@ define linkonce_odr hidden { ptr, i32 } @_ZNK5boost6locale4util14base_num_parseI
   %22 = load ptr, ptr %9, align 8, !tbaa !14
   %23 = getelementptr i8, ptr %22, i64 -24
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %9, i64 %24
+  %25 = getelementptr inbounds i8, ptr %9, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %27 = load i32, ptr %26, align 8, !tbaa !36
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store i32 %27, ptr %28, align 8, !tbaa !36
   %29 = load i64, ptr %23, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %9, i64 %29
+  %30 = getelementptr inbounds i8, ptr %9, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %32 = load i64, ptr %31, align 8, !tbaa !41
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 %32, ptr %33, align 8, !tbaa !41
   %34 = load i64, ptr %23, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %9, i64 %34
+  %35 = getelementptr inbounds i8, ptr %9, i64 %34
   %36 = invoke { ptr, i32 } @_ZNKSt7num_getIwSt19istreambuf_iteratorIwSt11char_traitsIwEEE14_M_extract_intB5cxx11ItEES3_S3_S3_RSt8ios_baseRSt12_Ios_IostateRT_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr %1, i32 %2, ptr %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(216) %35, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 2 dereferenceable(2) %7)
           to label %_ZNKSt7num_getIwSt19istreambuf_iteratorIwSt11char_traitsIwEEE6do_getES3_S3_RSt8ios_baseRSt12_Ios_IostateRt.exit unwind label %62
 
@@ -24330,7 +24330,7 @@ _ZNKSt7num_getIwSt19istreambuf_iteratorIwSt11char_traitsIwEEE6do_getES3_S3_RSt8i
   %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %39 = getelementptr i8, ptr %37, i64 -24
   %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %9, i64 %40
+  %41 = getelementptr inbounds i8, ptr %9, i64 %40
   store ptr %38, ptr %41, align 8, !tbaa !14
   %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -24365,7 +24365,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %57 = getelementptr i8, ptr %55, i64 -24
   %58 = load i64, ptr %57, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %9, i64 %58
+  %59 = getelementptr inbounds i8, ptr %9, i64 %58
   store ptr %56, ptr %59, align 8, !tbaa !14
   %60 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 0, ptr %60, align 8, !tbaa !166
@@ -25541,7 +25541,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNK5boost6locale4util14base_num_parseI
           to label %19 unwind label %62
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds nuw i8, ptr %9, i64 %17
+  %20 = getelementptr inbounds i8, ptr %9, i64 %17
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale(ptr dead_on_unwind nonnull writable sret(%"class.std::locale") align 8 %10, ptr noundef nonnull align 8 dereferenceable(264) %20, ptr noundef nonnull align 8 dereferenceable(8) %18)
           to label %21 unwind label %62
 
@@ -25550,19 +25550,19 @@ define linkonce_odr hidden { ptr, i32 } @_ZNK5boost6locale4util14base_num_parseI
   %22 = load ptr, ptr %9, align 8, !tbaa !14
   %23 = getelementptr i8, ptr %22, i64 -24
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %9, i64 %24
+  %25 = getelementptr inbounds i8, ptr %9, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %27 = load i32, ptr %26, align 8, !tbaa !36
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store i32 %27, ptr %28, align 8, !tbaa !36
   %29 = load i64, ptr %23, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %9, i64 %29
+  %30 = getelementptr inbounds i8, ptr %9, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %32 = load i64, ptr %31, align 8, !tbaa !41
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 %32, ptr %33, align 8, !tbaa !41
   %34 = load i64, ptr %23, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %9, i64 %34
+  %35 = getelementptr inbounds i8, ptr %9, i64 %34
   %36 = invoke { ptr, i32 } @_ZNKSt7num_getIwSt19istreambuf_iteratorIwSt11char_traitsIwEEE14_M_extract_intB5cxx11IjEES3_S3_S3_RSt8ios_baseRSt12_Ios_IostateRT_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr %1, i32 %2, ptr %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(216) %35, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
           to label %_ZNKSt7num_getIwSt19istreambuf_iteratorIwSt11char_traitsIwEEE6do_getES3_S3_RSt8ios_baseRSt12_Ios_IostateRj.exit unwind label %62
 
@@ -25572,7 +25572,7 @@ _ZNKSt7num_getIwSt19istreambuf_iteratorIwSt11char_traitsIwEEE6do_getES3_S3_RSt8i
   %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %39 = getelementptr i8, ptr %37, i64 -24
   %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %9, i64 %40
+  %41 = getelementptr inbounds i8, ptr %9, i64 %40
   store ptr %38, ptr %41, align 8, !tbaa !14
   %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -25607,7 +25607,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %57 = getelementptr i8, ptr %55, i64 -24
   %58 = load i64, ptr %57, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %9, i64 %58
+  %59 = getelementptr inbounds i8, ptr %9, i64 %58
   store ptr %56, ptr %59, align 8, !tbaa !14
   %60 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 0, ptr %60, align 8, !tbaa !166
@@ -26775,7 +26775,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNK5boost6locale4util14base_num_parseI
           to label %19 unwind label %62
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds nuw i8, ptr %9, i64 %17
+  %20 = getelementptr inbounds i8, ptr %9, i64 %17
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale(ptr dead_on_unwind nonnull writable sret(%"class.std::locale") align 8 %10, ptr noundef nonnull align 8 dereferenceable(264) %20, ptr noundef nonnull align 8 dereferenceable(8) %18)
           to label %21 unwind label %62
 
@@ -26784,19 +26784,19 @@ define linkonce_odr hidden { ptr, i32 } @_ZNK5boost6locale4util14base_num_parseI
   %22 = load ptr, ptr %9, align 8, !tbaa !14
   %23 = getelementptr i8, ptr %22, i64 -24
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %9, i64 %24
+  %25 = getelementptr inbounds i8, ptr %9, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %27 = load i32, ptr %26, align 8, !tbaa !36
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store i32 %27, ptr %28, align 8, !tbaa !36
   %29 = load i64, ptr %23, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %9, i64 %29
+  %30 = getelementptr inbounds i8, ptr %9, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %32 = load i64, ptr %31, align 8, !tbaa !41
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 %32, ptr %33, align 8, !tbaa !41
   %34 = load i64, ptr %23, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %9, i64 %34
+  %35 = getelementptr inbounds i8, ptr %9, i64 %34
   %36 = invoke { ptr, i32 } @_ZNKSt7num_getIwSt19istreambuf_iteratorIwSt11char_traitsIwEEE14_M_extract_intB5cxx11ImEES3_S3_S3_RSt8ios_baseRSt12_Ios_IostateRT_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr %1, i32 %2, ptr %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(216) %35, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %_ZNKSt7num_getIwSt19istreambuf_iteratorIwSt11char_traitsIwEEE6do_getES3_S3_RSt8ios_baseRSt12_Ios_IostateRm.exit unwind label %62
 
@@ -26806,7 +26806,7 @@ _ZNKSt7num_getIwSt19istreambuf_iteratorIwSt11char_traitsIwEEE6do_getES3_S3_RSt8i
   %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %39 = getelementptr i8, ptr %37, i64 -24
   %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %9, i64 %40
+  %41 = getelementptr inbounds i8, ptr %9, i64 %40
   store ptr %38, ptr %41, align 8, !tbaa !14
   %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -26841,7 +26841,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %57 = getelementptr i8, ptr %55, i64 -24
   %58 = load i64, ptr %57, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %9, i64 %58
+  %59 = getelementptr inbounds i8, ptr %9, i64 %58
   store ptr %56, ptr %59, align 8, !tbaa !14
   %60 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 0, ptr %60, align 8, !tbaa !166
@@ -28013,7 +28013,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNK5boost6locale4util14base_num_parseI
           to label %19 unwind label %62
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds nuw i8, ptr %9, i64 %17
+  %20 = getelementptr inbounds i8, ptr %9, i64 %17
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale(ptr dead_on_unwind nonnull writable sret(%"class.std::locale") align 8 %10, ptr noundef nonnull align 8 dereferenceable(264) %20, ptr noundef nonnull align 8 dereferenceable(8) %18)
           to label %21 unwind label %62
 
@@ -28022,19 +28022,19 @@ define linkonce_odr hidden { ptr, i32 } @_ZNK5boost6locale4util14base_num_parseI
   %22 = load ptr, ptr %9, align 8, !tbaa !14
   %23 = getelementptr i8, ptr %22, i64 -24
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %9, i64 %24
+  %25 = getelementptr inbounds i8, ptr %9, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %27 = load i32, ptr %26, align 8, !tbaa !36
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store i32 %27, ptr %28, align 8, !tbaa !36
   %29 = load i64, ptr %23, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %9, i64 %29
+  %30 = getelementptr inbounds i8, ptr %9, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %32 = load i64, ptr %31, align 8, !tbaa !41
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 %32, ptr %33, align 8, !tbaa !41
   %34 = load i64, ptr %23, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %9, i64 %34
+  %35 = getelementptr inbounds i8, ptr %9, i64 %34
   %36 = invoke { ptr, i32 } @_ZNKSt7num_getIwSt19istreambuf_iteratorIwSt11char_traitsIwEEE14_M_extract_intB5cxx11IxEES3_S3_S3_RSt8ios_baseRSt12_Ios_IostateRT_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr %1, i32 %2, ptr %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(216) %35, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %_ZNKSt7num_getIwSt19istreambuf_iteratorIwSt11char_traitsIwEEE6do_getES3_S3_RSt8ios_baseRSt12_Ios_IostateRx.exit unwind label %62
 
@@ -28044,7 +28044,7 @@ _ZNKSt7num_getIwSt19istreambuf_iteratorIwSt11char_traitsIwEEE6do_getES3_S3_RSt8i
   %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %39 = getelementptr i8, ptr %37, i64 -24
   %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %9, i64 %40
+  %41 = getelementptr inbounds i8, ptr %9, i64 %40
   store ptr %38, ptr %41, align 8, !tbaa !14
   %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -28079,7 +28079,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %57 = getelementptr i8, ptr %55, i64 -24
   %58 = load i64, ptr %57, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %9, i64 %58
+  %59 = getelementptr inbounds i8, ptr %9, i64 %58
   store ptr %56, ptr %59, align 8, !tbaa !14
   %60 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 0, ptr %60, align 8, !tbaa !166
@@ -29252,7 +29252,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNK5boost6locale4util14base_num_parseI
           to label %19 unwind label %62
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds nuw i8, ptr %9, i64 %17
+  %20 = getelementptr inbounds i8, ptr %9, i64 %17
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale(ptr dead_on_unwind nonnull writable sret(%"class.std::locale") align 8 %10, ptr noundef nonnull align 8 dereferenceable(264) %20, ptr noundef nonnull align 8 dereferenceable(8) %18)
           to label %21 unwind label %62
 
@@ -29261,19 +29261,19 @@ define linkonce_odr hidden { ptr, i32 } @_ZNK5boost6locale4util14base_num_parseI
   %22 = load ptr, ptr %9, align 8, !tbaa !14
   %23 = getelementptr i8, ptr %22, i64 -24
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %9, i64 %24
+  %25 = getelementptr inbounds i8, ptr %9, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %27 = load i32, ptr %26, align 8, !tbaa !36
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store i32 %27, ptr %28, align 8, !tbaa !36
   %29 = load i64, ptr %23, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %9, i64 %29
+  %30 = getelementptr inbounds i8, ptr %9, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %32 = load i64, ptr %31, align 8, !tbaa !41
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 %32, ptr %33, align 8, !tbaa !41
   %34 = load i64, ptr %23, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %9, i64 %34
+  %35 = getelementptr inbounds i8, ptr %9, i64 %34
   %36 = invoke { ptr, i32 } @_ZNKSt7num_getIwSt19istreambuf_iteratorIwSt11char_traitsIwEEE14_M_extract_intB5cxx11IyEES3_S3_S3_RSt8ios_baseRSt12_Ios_IostateRT_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr %1, i32 %2, ptr %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(216) %35, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %_ZNKSt7num_getIwSt19istreambuf_iteratorIwSt11char_traitsIwEEE6do_getES3_S3_RSt8ios_baseRSt12_Ios_IostateRy.exit unwind label %62
 
@@ -29283,7 +29283,7 @@ _ZNKSt7num_getIwSt19istreambuf_iteratorIwSt11char_traitsIwEEE6do_getES3_S3_RSt8i
   %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %39 = getelementptr i8, ptr %37, i64 -24
   %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %9, i64 %40
+  %41 = getelementptr inbounds i8, ptr %9, i64 %40
   store ptr %38, ptr %41, align 8, !tbaa !14
   %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -29318,7 +29318,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %57 = getelementptr i8, ptr %55, i64 -24
   %58 = load i64, ptr %57, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %9, i64 %58
+  %59 = getelementptr inbounds i8, ptr %9, i64 %58
   store ptr %56, ptr %59, align 8, !tbaa !14
   %60 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 0, ptr %60, align 8, !tbaa !166
@@ -30490,7 +30490,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNK5boost6locale4util14base_num_parseI
           to label %19 unwind label %63
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds nuw i8, ptr %9, i64 %17
+  %20 = getelementptr inbounds i8, ptr %9, i64 %17
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale(ptr dead_on_unwind nonnull writable sret(%"class.std::locale") align 8 %10, ptr noundef nonnull align 8 dereferenceable(264) %20, ptr noundef nonnull align 8 dereferenceable(8) %18)
           to label %21 unwind label %63
 
@@ -30499,19 +30499,19 @@ define linkonce_odr hidden { ptr, i32 } @_ZNK5boost6locale4util14base_num_parseI
   %22 = load ptr, ptr %9, align 8, !tbaa !14
   %23 = getelementptr i8, ptr %22, i64 -24
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %9, i64 %24
+  %25 = getelementptr inbounds i8, ptr %9, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %27 = load i32, ptr %26, align 8, !tbaa !36
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store i32 %27, ptr %28, align 8, !tbaa !36
   %29 = load i64, ptr %23, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %9, i64 %29
+  %30 = getelementptr inbounds i8, ptr %9, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %32 = load i64, ptr %31, align 8, !tbaa !41
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 %32, ptr %33, align 8, !tbaa !41
   %34 = load i64, ptr %23, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %9, i64 %34
+  %35 = getelementptr inbounds i8, ptr %9, i64 %34
   %36 = invoke { ptr, i32 } @_ZNKSt7num_getIwSt19istreambuf_iteratorIwSt11char_traitsIwEEE6do_getES3_S3_RSt8ios_baseRSt12_Ios_IostateRf(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr %1, i32 %2, ptr %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(216) %35, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
           to label %37 unwind label %63
 
@@ -30521,7 +30521,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNK5boost6locale4util14base_num_parseI
   %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %40 = getelementptr i8, ptr %38, i64 -24
   %41 = load i64, ptr %40, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %9, i64 %41
+  %42 = getelementptr inbounds i8, ptr %9, i64 %41
   store ptr %39, ptr %42, align 8, !tbaa !14
   %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -30556,7 +30556,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %58 = getelementptr i8, ptr %56, i64 -24
   %59 = load i64, ptr %58, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %9, i64 %59
+  %60 = getelementptr inbounds i8, ptr %9, i64 %59
   store ptr %57, ptr %60, align 8, !tbaa !14
   %61 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 0, ptr %61, align 8, !tbaa !166
@@ -30642,7 +30642,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNK5boost6locale4util14base_num_parseI
           to label %19 unwind label %63
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds nuw i8, ptr %9, i64 %17
+  %20 = getelementptr inbounds i8, ptr %9, i64 %17
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale(ptr dead_on_unwind nonnull writable sret(%"class.std::locale") align 8 %10, ptr noundef nonnull align 8 dereferenceable(264) %20, ptr noundef nonnull align 8 dereferenceable(8) %18)
           to label %21 unwind label %63
 
@@ -30651,19 +30651,19 @@ define linkonce_odr hidden { ptr, i32 } @_ZNK5boost6locale4util14base_num_parseI
   %22 = load ptr, ptr %9, align 8, !tbaa !14
   %23 = getelementptr i8, ptr %22, i64 -24
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %9, i64 %24
+  %25 = getelementptr inbounds i8, ptr %9, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %27 = load i32, ptr %26, align 8, !tbaa !36
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store i32 %27, ptr %28, align 8, !tbaa !36
   %29 = load i64, ptr %23, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %9, i64 %29
+  %30 = getelementptr inbounds i8, ptr %9, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %32 = load i64, ptr %31, align 8, !tbaa !41
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 %32, ptr %33, align 8, !tbaa !41
   %34 = load i64, ptr %23, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %9, i64 %34
+  %35 = getelementptr inbounds i8, ptr %9, i64 %34
   %36 = invoke { ptr, i32 } @_ZNKSt7num_getIwSt19istreambuf_iteratorIwSt11char_traitsIwEEE6do_getES3_S3_RSt8ios_baseRSt12_Ios_IostateRd(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr %1, i32 %2, ptr %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(216) %35, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %37 unwind label %63
 
@@ -30673,7 +30673,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNK5boost6locale4util14base_num_parseI
   %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %40 = getelementptr i8, ptr %38, i64 -24
   %41 = load i64, ptr %40, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %9, i64 %41
+  %42 = getelementptr inbounds i8, ptr %9, i64 %41
   store ptr %39, ptr %42, align 8, !tbaa !14
   %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -30708,7 +30708,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %58 = getelementptr i8, ptr %56, i64 -24
   %59 = load i64, ptr %58, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %9, i64 %59
+  %60 = getelementptr inbounds i8, ptr %9, i64 %59
   store ptr %57, ptr %60, align 8, !tbaa !14
   %61 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 0, ptr %61, align 8, !tbaa !166
@@ -30794,7 +30794,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNK5boost6locale4util14base_num_parseI
           to label %19 unwind label %63
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds nuw i8, ptr %9, i64 %17
+  %20 = getelementptr inbounds i8, ptr %9, i64 %17
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale(ptr dead_on_unwind nonnull writable sret(%"class.std::locale") align 8 %10, ptr noundef nonnull align 8 dereferenceable(264) %20, ptr noundef nonnull align 8 dereferenceable(8) %18)
           to label %21 unwind label %63
 
@@ -30803,19 +30803,19 @@ define linkonce_odr hidden { ptr, i32 } @_ZNK5boost6locale4util14base_num_parseI
   %22 = load ptr, ptr %9, align 8, !tbaa !14
   %23 = getelementptr i8, ptr %22, i64 -24
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %9, i64 %24
+  %25 = getelementptr inbounds i8, ptr %9, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %27 = load i32, ptr %26, align 8, !tbaa !36
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store i32 %27, ptr %28, align 8, !tbaa !36
   %29 = load i64, ptr %23, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %9, i64 %29
+  %30 = getelementptr inbounds i8, ptr %9, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %32 = load i64, ptr %31, align 8, !tbaa !41
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 %32, ptr %33, align 8, !tbaa !41
   %34 = load i64, ptr %23, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %9, i64 %34
+  %35 = getelementptr inbounds i8, ptr %9, i64 %34
   %36 = invoke { ptr, i32 } @_ZNKSt7num_getIwSt19istreambuf_iteratorIwSt11char_traitsIwEEE6do_getES3_S3_RSt8ios_baseRSt12_Ios_IostateRe(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr %1, i32 %2, ptr %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(216) %35, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 16 dereferenceable(16) %7)
           to label %37 unwind label %63
 
@@ -30825,7 +30825,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNK5boost6locale4util14base_num_parseI
   %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %40 = getelementptr i8, ptr %38, i64 -24
   %41 = load i64, ptr %40, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %9, i64 %41
+  %42 = getelementptr inbounds i8, ptr %9, i64 %41
   store ptr %39, ptr %42, align 8, !tbaa !14
   %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -30860,7 +30860,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %58 = getelementptr i8, ptr %56, i64 -24
   %59 = load i64, ptr %58, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %9, i64 %59
+  %60 = getelementptr inbounds i8, ptr %9, i64 %59
   store ptr %57, ptr %60, align 8, !tbaa !14
   %61 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 0, ptr %61, align 8, !tbaa !166

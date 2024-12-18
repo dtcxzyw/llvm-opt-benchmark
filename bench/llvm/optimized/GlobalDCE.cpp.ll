@@ -2465,7 +2465,7 @@ _ZNK4llvm20iterator_facade_baseINS_15concat_iteratorINS_12GlobalObjectEJNS_14ili
   %.fca.0.load.i.i = load i64, ptr %.0.ptr.i.i, align 16
   %.fca.1.gep.i.i = getelementptr inbounds nuw i8, ptr %.0.ptr.i.i, i64 8
   %.fca.1.load.i.i = load i64, ptr %.fca.1.gep.i.i, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %7, i64 %.fca.1.load.i.i
+  %94 = getelementptr inbounds i8, ptr %7, i64 %.fca.1.load.i.i
   %95 = and i64 %.fca.0.load.i.i, 1
   %.not.i.i = icmp eq i64 %95, 0
   br i1 %.not.i.i, label %101, label %96
@@ -2521,7 +2521,7 @@ _ZNK4llvm11GlobalValue21isDiscardableIfUnusedEv.exit.thread: ; preds = %107, %10
   %.fca.0.load.i.i125 = load i64, ptr %.0.ptr.i.i124, align 16
   %.fca.1.gep.i.i126 = getelementptr inbounds nuw i8, ptr %.0.ptr.i.i124, i64 8
   %.fca.1.load.i.i127 = load i64, ptr %.fca.1.gep.i.i126, align 8
-  %113 = getelementptr inbounds nuw i8, ptr %7, i64 %.fca.1.load.i.i127
+  %113 = getelementptr inbounds i8, ptr %7, i64 %.fca.1.load.i.i127
   %114 = and i64 %.fca.0.load.i.i125, 1
   %.not.i.i128 = icmp eq i64 %114, 0
   br i1 %.not.i.i128, label %120, label %115

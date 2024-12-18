@@ -29196,7 +29196,7 @@ _ZNK4llvm3LLT9isPointerEv.exit1245.thread:        ; preds = %2093
   %2118 = call i16 %2117(ptr noundef nonnull align 8 dereferenceable(408123) %2110, ptr noundef nonnull align 8 dereferenceable(512) %2114) #18
   %2119 = zext i16 %2118 to i64
   %2120 = add nsw i64 %2119, -1
-  %2121 = getelementptr inbounds nuw [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %2120
+  %2121 = getelementptr inbounds [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %2120
   %.sroa.0.0.copyload.i.i = load i64, ptr %2121, align 16
   %.not774 = icmp eq i64 %2112, %.sroa.0.0.copyload.i.i
   br i1 %.not774, label %.critedge15, label %2122
@@ -29360,7 +29360,7 @@ _ZNK4llvm3LLT9isPointerEv.exit1261.thread:        ; preds = %2195
   %2214 = call i16 %2213(ptr noundef nonnull align 8 dereferenceable(408123) %2206, ptr noundef nonnull align 8 dereferenceable(512) %2210) #18
   %2215 = zext i16 %2214 to i64
   %2216 = add nsw i64 %2215, -1
-  %2217 = getelementptr inbounds nuw [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %2216
+  %2217 = getelementptr inbounds [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %2216
   %.sroa.0.0.copyload.i.i1262 = load i64, ptr %2217, align 16
   %.not773 = icmp eq i64 %2208, %.sroa.0.0.copyload.i.i1262
   br i1 %.not773, label %.critedge15, label %2218

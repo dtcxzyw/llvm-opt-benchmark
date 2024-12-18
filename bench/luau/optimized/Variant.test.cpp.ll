@@ -812,7 +812,7 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_3v() #2 personality ptr @__gxx_pers
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %205) #14
   %206 = load i32, ptr %2, align 4
   %207 = sext i32 %206 to i64
-  %208 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJ3FooiEE9tableDtorE, i64 0, i64 %207
+  %208 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJ3FooiEE9tableDtorE, i64 0, i64 %207
   %209 = load ptr, ptr %208, align 8
   invoke void %209(ptr noundef nonnull %31)
           to label %_ZN4Luau7VariantIJ3FooiEED2Ev.exit unwind label %210
@@ -827,7 +827,7 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_3v() #2 personality ptr @__gxx_pers
 _ZN4Luau7VariantIJ3FooiEED2Ev.exit:               ; preds = %202
   %213 = load i32, ptr %1, align 4
   %214 = sext i32 %213 to i64
-  %215 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJi3FooEE9tableDtorE, i64 0, i64 %214
+  %215 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJi3FooEE9tableDtorE, i64 0, i64 %214
   %216 = load ptr, ptr %215, align 8
   invoke void %216(ptr noundef nonnull %30)
           to label %_ZN4Luau7VariantIJi3FooEED2Ev.exit unwind label %217
@@ -851,7 +851,7 @@ _ZN4Luau7VariantIJi3FooEED2Ev.exit:               ; preds = %_ZN4Luau7VariantIJ3
   %.pn24.pn = phi { ptr, i32 } [ %.pn24, %220 ], [ %184, %183 ], [ %44, %43 ], [ %.pn21, %182 ], [ %149, %148 ], [ %.pn18, %147 ], [ %114, %113 ], [ %.pn15, %112 ], [ %81, %80 ], [ %.pn12, %79 ], [ %46, %45 ]
   %222 = load i32, ptr %2, align 4
   %223 = sext i32 %222 to i64
-  %224 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJ3FooiEE9tableDtorE, i64 0, i64 %223
+  %224 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJ3FooiEE9tableDtorE, i64 0, i64 %223
   %225 = load ptr, ptr %224, align 8
   invoke void %225(ptr noundef nonnull %31)
           to label %_ZN4Luau7VariantIJ3FooiEED2Ev.exit33 unwind label %226
@@ -866,7 +866,7 @@ _ZN4Luau7VariantIJi3FooEED2Ev.exit:               ; preds = %_ZN4Luau7VariantIJ3
 _ZN4Luau7VariantIJ3FooiEED2Ev.exit33:             ; preds = %221
   %229 = load i32, ptr %1, align 4
   %230 = sext i32 %229 to i64
-  %231 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJi3FooEE9tableDtorE, i64 0, i64 %230
+  %231 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJi3FooEE9tableDtorE, i64 0, i64 %230
   %232 = load ptr, ptr %231, align 8
   invoke void %232(ptr noundef nonnull %30)
           to label %_ZN4Luau7VariantIJi3FooEED2Ev.exit34 unwind label %233
@@ -1559,7 +1559,7 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_5v() #2 personality ptr @__gxx_pers
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %250) #14
   %251 = load i32, ptr %3, align 4
   %252 = sext i32 %251 to i64
-  %253 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJ3FooiEE9tableDtorE, i64 0, i64 %252
+  %253 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJ3FooiEE9tableDtorE, i64 0, i64 %252
   %254 = load ptr, ptr %253, align 8
   invoke void %254(ptr noundef nonnull %39)
           to label %_ZN4Luau7VariantIJ3FooiEED2Ev.exit unwind label %255
@@ -1574,7 +1574,7 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_5v() #2 personality ptr @__gxx_pers
 _ZN4Luau7VariantIJ3FooiEED2Ev.exit:               ; preds = %247
   %258 = load i32, ptr %2, align 4
   %259 = sext i32 %258 to i64
-  %260 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJ3FooiEE9tableDtorE, i64 0, i64 %259
+  %260 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJ3FooiEE9tableDtorE, i64 0, i64 %259
   %261 = load ptr, ptr %260, align 8
   invoke void %261(ptr noundef nonnull %38)
           to label %_ZN4Luau7VariantIJ3FooiEED2Ev.exit42 unwind label %262
@@ -1589,7 +1589,7 @@ _ZN4Luau7VariantIJ3FooiEED2Ev.exit:               ; preds = %247
 _ZN4Luau7VariantIJ3FooiEED2Ev.exit42:             ; preds = %_ZN4Luau7VariantIJ3FooiEED2Ev.exit
   %265 = load i32, ptr %1, align 4
   %266 = sext i32 %265 to i64
-  %267 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJi3FooEE9tableDtorE, i64 0, i64 %266
+  %267 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJi3FooEE9tableDtorE, i64 0, i64 %266
   %268 = load ptr, ptr %267, align 8
   invoke void %268(ptr noundef nonnull %37)
           to label %_ZN4Luau7VariantIJi3FooEED2Ev.exit unwind label %269
@@ -1613,7 +1613,7 @@ _ZN4Luau7VariantIJi3FooEED2Ev.exit:               ; preds = %_ZN4Luau7VariantIJ3
   %.pn29.pn = phi { ptr, i32 } [ %.pn29, %272 ], [ %229, %228 ], [ %52, %51 ], [ %.pn26, %227 ], [ %194, %193 ], [ %.pn23, %192 ], [ %159, %158 ], [ %.pn20, %157 ], [ %124, %123 ], [ %.pn17, %122 ], [ %89, %88 ], [ %.pn14, %87 ], [ %54, %53 ]
   %274 = load i32, ptr %3, align 4
   %275 = sext i32 %274 to i64
-  %276 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJ3FooiEE9tableDtorE, i64 0, i64 %275
+  %276 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJ3FooiEE9tableDtorE, i64 0, i64 %275
   %277 = load ptr, ptr %276, align 8
   invoke void %277(ptr noundef nonnull %39)
           to label %_ZN4Luau7VariantIJ3FooiEED2Ev.exit43 unwind label %278
@@ -1628,7 +1628,7 @@ _ZN4Luau7VariantIJi3FooEED2Ev.exit:               ; preds = %_ZN4Luau7VariantIJ3
 _ZN4Luau7VariantIJ3FooiEED2Ev.exit43:             ; preds = %273
   %281 = load i32, ptr %2, align 4
   %282 = sext i32 %281 to i64
-  %283 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJ3FooiEE9tableDtorE, i64 0, i64 %282
+  %283 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJ3FooiEE9tableDtorE, i64 0, i64 %282
   %284 = load ptr, ptr %283, align 8
   invoke void %284(ptr noundef nonnull %38)
           to label %_ZN4Luau7VariantIJ3FooiEED2Ev.exit44 unwind label %285
@@ -1643,7 +1643,7 @@ _ZN4Luau7VariantIJ3FooiEED2Ev.exit43:             ; preds = %273
 _ZN4Luau7VariantIJ3FooiEED2Ev.exit44:             ; preds = %_ZN4Luau7VariantIJ3FooiEED2Ev.exit43
   %288 = load i32, ptr %1, align 4
   %289 = sext i32 %288 to i64
-  %290 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJi3FooEE9tableDtorE, i64 0, i64 %289
+  %290 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJi3FooEE9tableDtorE, i64 0, i64 %289
   %291 = load ptr, ptr %290, align 8
   invoke void %291(ptr noundef nonnull %37)
           to label %_ZN4Luau7VariantIJi3FooEED2Ev.exit45 unwind label %292
@@ -1812,7 +1812,7 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_7v() #2 personality ptr @__gxx_pers
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %76) #14
   %77 = load i32, ptr %1, align 4
   %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJi3BarEE9tableDtorE, i64 0, i64 %78
+  %79 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJi3BarEE9tableDtorE, i64 0, i64 %78
   %80 = load ptr, ptr %79, align 8
   invoke void %80(ptr noundef nonnull %44)
           to label %81 unwind label %52
@@ -2115,7 +2115,7 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_7v() #2 personality ptr @__gxx_pers
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %178) #14
   %179 = load i32, ptr %1, align 4
   %180 = sext i32 %179 to i64
-  %181 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJi3BarEE9tableDtorE, i64 0, i64 %180
+  %181 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJi3BarEE9tableDtorE, i64 0, i64 %180
   %182 = load ptr, ptr %181, align 8
   invoke void %182(ptr noundef nonnull %44)
           to label %183 unwind label %52
@@ -2422,7 +2422,7 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_7v() #2 personality ptr @__gxx_pers
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %282) #14
   %283 = load i32, ptr %1, align 4
   %284 = sext i32 %283 to i64
-  %285 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJi3BarEE9tableDtorE, i64 0, i64 %284
+  %285 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJi3BarEE9tableDtorE, i64 0, i64 %284
   %286 = load ptr, ptr %285, align 8
   invoke void %286(ptr noundef nonnull %44)
           to label %_ZN4Luau7VariantIJi3BarEED2Ev.exit unwind label %287
@@ -2470,7 +2470,7 @@ _ZN4Luau7VariantIJi3BarEED2Ev.exit:               ; preds = %279
   %.pn41.pn = phi { ptr, i32 } [ %.pn41, %296 ], [ %261, %260 ], [ %53, %52 ], [ %.pn38, %259 ], [ %226, %225 ], [ %.pn35, %224 ], [ %195, %194 ], [ %.pn32, %193 ], [ %157, %156 ], [ %.pn29, %155 ], [ %122, %121 ], [ %.pn26, %120 ], [ %91, %90 ], [ %.pn23, %89 ], [ %55, %54 ]
   %298 = load i32, ptr %1, align 4
   %299 = sext i32 %298 to i64
-  %300 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJi3BarEE9tableDtorE, i64 0, i64 %299
+  %300 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJi3BarEE9tableDtorE, i64 0, i64 %299
   %301 = load ptr, ptr %300, align 8
   invoke void %301(ptr noundef nonnull %44)
           to label %_ZN4Luau7VariantIJi3BarEED2Ev.exit70 unwind label %302
@@ -2926,7 +2926,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit75: ; 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %150, ptr noundef nonnull align 8 dereferenceable(32) %18) #14
   %151 = load i32, ptr %9, align 8
   %152 = sext i32 %151 to i64
-  %153 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEE9tableDtorE, i64 0, i64 %152
+  %153 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEE9tableDtorE, i64 0, i64 %152
   %154 = load ptr, ptr %153, align 8
   invoke void %154(ptr noundef nonnull %107)
           to label %.noexc76 unwind label %180
@@ -2935,7 +2935,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit75: ; 
   %155 = load i32, ptr %17, align 8
   store i32 %155, ptr %9, align 8
   %156 = sext i32 %155 to i64
-  %157 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEE9tableMoveE, i64 0, i64 %156
+  %157 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEE9tableMoveE, i64 0, i64 %156
   %158 = load ptr, ptr %157, align 8
   invoke void %158(ptr noundef nonnull %107, ptr noundef nonnull %150)
           to label %_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEaSEOS7_.exit unwind label %180
@@ -2943,7 +2943,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit75: ; 
 _ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEaSEOS7_.exit: ; preds = %.noexc76
   %159 = load i32, ptr %17, align 8
   %160 = sext i32 %159 to i64
-  %161 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEE9tableDtorE, i64 0, i64 %160
+  %161 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEE9tableDtorE, i64 0, i64 %160
   %162 = load ptr, ptr %161, align 8
   invoke void %162(ptr noundef nonnull %150)
           to label %_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEED2Ev.exit unwind label %163
@@ -3005,7 +3005,7 @@ _ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEED2Ev.ex
           cleanup
   %182 = load i32, ptr %17, align 8
   %183 = sext i32 %182 to i64
-  %184 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEE9tableDtorE, i64 0, i64 %183
+  %184 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEE9tableDtorE, i64 0, i64 %183
   %185 = load ptr, ptr %184, align 8
   invoke void %185(ptr noundef nonnull %150)
           to label %_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEED2Ev.exit80 unwind label %186
@@ -3116,7 +3116,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit85: ; 
 _ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEC2IRS6_EEOT_PNSt9enable_ifIXgecl9getTypeIdISA_EELi0EEvE4typeE.exit87: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit85
   %216 = load i32, ptr %9, align 8
   %217 = sext i32 %216 to i64
-  %218 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEE9tableDtorE, i64 0, i64 %217
+  %218 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEE9tableDtorE, i64 0, i64 %217
   %219 = load ptr, ptr %218, align 8
   invoke void %219(ptr noundef nonnull %107)
           to label %.noexc88 unwind label %247
@@ -3125,7 +3125,7 @@ _ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEC2IRS6_
   %220 = load i32, ptr %27, align 8
   store i32 %220, ptr %9, align 8
   %221 = sext i32 %220 to i64
-  %222 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEE9tableMoveE, i64 0, i64 %221
+  %222 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEE9tableMoveE, i64 0, i64 %221
   %223 = load ptr, ptr %222, align 8
   invoke void %223(ptr noundef nonnull %107, ptr noundef nonnull %215)
           to label %_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEaSEOS7_.exit90 unwind label %247
@@ -3133,7 +3133,7 @@ _ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEC2IRS6_
 _ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEaSEOS7_.exit90: ; preds = %.noexc88
   %224 = load i32, ptr %27, align 8
   %225 = sext i32 %224 to i64
-  %226 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEE9tableDtorE, i64 0, i64 %225
+  %226 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEE9tableDtorE, i64 0, i64 %225
   %227 = load ptr, ptr %226, align 8
   invoke void %227(ptr noundef nonnull %215)
           to label %_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEED2Ev.exit91 unwind label %228
@@ -3203,7 +3203,7 @@ _ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEED2Ev.ex
           cleanup
   %249 = load i32, ptr %27, align 8
   %250 = sext i32 %249 to i64
-  %251 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEE9tableDtorE, i64 0, i64 %250
+  %251 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEE9tableDtorE, i64 0, i64 %250
   %252 = load ptr, ptr %251, align 8
   invoke void %252(ptr noundef nonnull %215)
           to label %_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEED2Ev.exit94 unwind label %253
@@ -3280,7 +3280,7 @@ _ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEED2Ev.ex
   %279 = load i32, ptr %9, align 8
   store i32 %279, ptr %33, align 8
   %280 = sext i32 %279 to i64
-  %281 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEC1ERKS7_E5table, i64 0, i64 %280
+  %281 = getelementptr inbounds [2 x ptr], ptr @_ZZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEC1ERKS7_E5table, i64 0, i64 %280
   %282 = load ptr, ptr %281, align 8
   %283 = getelementptr inbounds nuw i8, ptr %33, i64 8
   invoke void %282(ptr noundef nonnull %283, ptr noundef nonnull %107)
@@ -3493,7 +3493,7 @@ _ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEC2ERKS7
   %356 = load i32, ptr %33, align 8
   store i32 %356, ptr %44, align 8
   %357 = sext i32 %356 to i64
-  %358 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEE9tableMoveE, i64 0, i64 %357
+  %358 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEE9tableMoveE, i64 0, i64 %357
   %359 = load ptr, ptr %358, align 8
   %360 = getelementptr inbounds nuw i8, ptr %44, i64 8
   invoke void %359(ptr noundef nonnull %360, ptr noundef nonnull %283)
@@ -3804,7 +3804,7 @@ _ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEC2EOS7_
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %467) #14
   %468 = load i32, ptr %44, align 8
   %469 = sext i32 %468 to i64
-  %470 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEE9tableDtorE, i64 0, i64 %469
+  %470 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEE9tableDtorE, i64 0, i64 %469
   %471 = load ptr, ptr %470, align 8
   invoke void %471(ptr noundef nonnull %360)
           to label %_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEED2Ev.exit107 unwind label %472
@@ -3819,7 +3819,7 @@ _ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEC2EOS7_
 _ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEED2Ev.exit107: ; preds = %464
   %475 = load i32, ptr %33, align 8
   %476 = sext i32 %475 to i64
-  %477 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEE9tableDtorE, i64 0, i64 %476
+  %477 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEE9tableDtorE, i64 0, i64 %476
   %478 = load ptr, ptr %477, align 8
   invoke void %478(ptr noundef nonnull %283)
           to label %_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEED2Ev.exit108 unwind label %479
@@ -3835,7 +3835,7 @@ _ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEED2Ev.ex
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #14
   %482 = load i32, ptr %9, align 8
   %483 = sext i32 %482 to i64
-  %484 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEE9tableDtorE, i64 0, i64 %483
+  %484 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEE9tableDtorE, i64 0, i64 %483
   %485 = load ptr, ptr %484, align 8
   invoke void %485(ptr noundef nonnull %107)
           to label %_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEED2Ev.exit109 unwind label %486
@@ -3850,7 +3850,7 @@ _ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEED2Ev.ex
 _ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEED2Ev.exit109: ; preds = %_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEED2Ev.exit108
   %489 = load i32, ptr %3, align 8
   %490 = sext i32 %489 to i64
-  %491 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEE9tableDtorE, i64 0, i64 %490
+  %491 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEE9tableDtorE, i64 0, i64 %490
   %492 = load ptr, ptr %491, align 8
   invoke void %492(ptr noundef nonnull %63)
           to label %_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEED2Ev.exit110 unwind label %493
@@ -3875,7 +3875,7 @@ _ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEED2Ev.ex
   %.pn53.pn = phi { ptr, i32 } [ %.pn53, %496 ], [ %446, %445 ], [ %374, %373 ], [ %.pn50, %444 ], [ %411, %410 ], [ %.pn47, %409 ], [ %376, %375 ]
   %498 = load i32, ptr %44, align 8
   %499 = sext i32 %498 to i64
-  %500 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEE9tableDtorE, i64 0, i64 %499
+  %500 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEE9tableDtorE, i64 0, i64 %499
   %501 = load ptr, ptr %500, align 8
   invoke void %501(ptr noundef nonnull %360)
           to label %_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEED2Ev.exit111 unwind label %502
@@ -3891,7 +3891,7 @@ _ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEED2Ev.ex
   %.pn53.pn.pn = phi { ptr, i32 } [ %297, %296 ], [ %.pn44, %372 ], [ %334, %333 ], [ %.pn41, %332 ], [ %299, %298 ], [ %.pn53.pn, %497 ]
   %505 = load i32, ptr %33, align 8
   %506 = sext i32 %505 to i64
-  %507 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEE9tableDtorE, i64 0, i64 %506
+  %507 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEE9tableDtorE, i64 0, i64 %506
   %508 = load ptr, ptr %507, align 8
   invoke void %508(ptr noundef nonnull %283)
           to label %_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEED2Ev.exit94 unwind label %509
@@ -3912,7 +3912,7 @@ _ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEED2Ev.ex
   %.pn53.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn53.pn.pn.pn, %_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEED2Ev.exit94 ], [ %eh.lpad-body84, %.body83 ], [ %.pn35, %242 ], [ %190, %189 ], [ %123, %122 ], [ %.pn32, %.body73 ], [ %.pn30, %177 ], [ %125, %124 ]
   %513 = load i32, ptr %9, align 8
   %514 = sext i32 %513 to i64
-  %515 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEE9tableDtorE, i64 0, i64 %514
+  %515 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEE9tableDtorE, i64 0, i64 %514
   %516 = load ptr, ptr %515, align 8
   invoke void %516(ptr noundef nonnull %107)
           to label %_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEED2Ev.exit113 unwind label %517
@@ -3928,7 +3928,7 @@ _ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEED2Ev.ex
   %.pn53.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %eh.lpad-body67, %.body66 ], [ %.pn27, %119 ], [ %82, %81 ], [ %80, %79 ], [ %.pn53.pn.pn.pn.pn, %512 ]
   %520 = load i32, ptr %3, align 8
   %521 = sext i32 %520 to i64
-  %522 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEE9tableDtorE, i64 0, i64 %521
+  %522 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEE9tableDtorE, i64 0, i64 %521
   %523 = load ptr, ptr %522, align 8
   invoke void %523(ptr noundef nonnull %63)
           to label %_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEED2Ev.exit114 unwind label %524
@@ -4552,7 +4552,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit36: ; 
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %210) #14
   %211 = load i32, ptr %9, align 8
   %212 = sext i32 %211 to i64
-  %213 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9tableDtorE, i64 0, i64 %212
+  %213 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9tableDtorE, i64 0, i64 %212
   %214 = load ptr, ptr %213, align 8
   invoke void %214(ptr noundef nonnull %45)
           to label %_ZN4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit unwind label %215
@@ -4567,7 +4567,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit36: ; 
 _ZN4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit: ; preds = %207
   %218 = load i32, ptr %8, align 8
   %219 = sext i32 %218 to i64
-  %220 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9tableDtorE, i64 0, i64 %219
+  %220 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9tableDtorE, i64 0, i64 %219
   %221 = load ptr, ptr %220, align 8
   invoke void %221(ptr noundef nonnull %44)
           to label %_ZN4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit45 unwind label %222
@@ -4582,7 +4582,7 @@ _ZN4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.ex
 _ZN4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit45: ; preds = %_ZN4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit
   %225 = load i32, ptr %7, align 8
   %226 = sext i32 %225 to i64
-  %227 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9tableDtorE, i64 0, i64 %226
+  %227 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9tableDtorE, i64 0, i64 %226
   %228 = load ptr, ptr %227, align 8
   invoke void %228(ptr noundef nonnull %43)
           to label %_ZN4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit46 unwind label %229
@@ -4597,7 +4597,7 @@ _ZN4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.ex
 _ZN4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit46: ; preds = %_ZN4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit45
   %232 = load i32, ptr %4, align 8
   %233 = sext i32 %232 to i64
-  %234 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9tableDtorE, i64 0, i64 %233
+  %234 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9tableDtorE, i64 0, i64 %233
   %235 = load ptr, ptr %234, align 8
   invoke void %235(ptr noundef nonnull %42)
           to label %_ZN4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit47 unwind label %236
@@ -4612,7 +4612,7 @@ _ZN4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.ex
 _ZN4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit47: ; preds = %_ZN4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit46
   %239 = load i32, ptr %1, align 8
   %240 = sext i32 %239 to i64
-  %241 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9tableDtorE, i64 0, i64 %240
+  %241 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9tableDtorE, i64 0, i64 %240
   %242 = load ptr, ptr %241, align 8
   invoke void %242(ptr noundef nonnull %38)
           to label %_ZN4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit48 unwind label %243
@@ -4636,7 +4636,7 @@ _ZN4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.ex
   %.pn26.pn = phi { ptr, i32 } [ %.pn26, %246 ], [ %189, %188 ], [ %59, %58 ], [ %.pn23, %187 ], [ %157, %156 ], [ %.pn20, %155 ], [ %125, %124 ], [ %.pn17, %123 ], [ %93, %92 ], [ %.pn14, %91 ], [ %61, %60 ]
   %248 = load i32, ptr %9, align 8
   %249 = sext i32 %248 to i64
-  %250 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9tableDtorE, i64 0, i64 %249
+  %250 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9tableDtorE, i64 0, i64 %249
   %251 = load ptr, ptr %250, align 8
   invoke void %251(ptr noundef nonnull %45)
           to label %_ZN4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit49 unwind label %252
@@ -4651,7 +4651,7 @@ _ZN4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.ex
 _ZN4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit49: ; preds = %247
   %255 = load i32, ptr %8, align 8
   %256 = sext i32 %255 to i64
-  %257 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9tableDtorE, i64 0, i64 %256
+  %257 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9tableDtorE, i64 0, i64 %256
   %258 = load ptr, ptr %257, align 8
   invoke void %258(ptr noundef nonnull %44)
           to label %_ZN4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit50 unwind label %259
@@ -4666,7 +4666,7 @@ _ZN4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.ex
 _ZN4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit50: ; preds = %_ZN4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit49
   %262 = load i32, ptr %7, align 8
   %263 = sext i32 %262 to i64
-  %264 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9tableDtorE, i64 0, i64 %263
+  %264 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9tableDtorE, i64 0, i64 %263
   %265 = load ptr, ptr %264, align 8
   invoke void %265(ptr noundef nonnull %43)
           to label %_ZN4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit51 unwind label %266
@@ -4681,7 +4681,7 @@ _ZN4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.ex
 _ZN4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit51: ; preds = %_ZN4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit50
   %269 = load i32, ptr %4, align 8
   %270 = sext i32 %269 to i64
-  %271 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9tableDtorE, i64 0, i64 %270
+  %271 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9tableDtorE, i64 0, i64 %270
   %272 = load ptr, ptr %271, align 8
   invoke void %272(ptr noundef nonnull %42)
           to label %_ZN4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit52 unwind label %273
@@ -4697,7 +4697,7 @@ _ZN4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.ex
   %.pn26.pn.pn = phi { ptr, i32 } [ %eh.lpad-body35, %.body34 ], [ %.pn26.pn, %_ZN4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit51 ]
   %276 = load i32, ptr %1, align 8
   %277 = sext i32 %276 to i64
-  %278 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9tableDtorE, i64 0, i64 %277
+  %278 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9tableDtorE, i64 0, i64 %277
   %279 = load ptr, ptr %278, align 8
   invoke void %279(ptr noundef nonnull %38)
           to label %_ZN4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit53 unwind label %280
@@ -4808,7 +4808,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   store ptr %11, ptr %12, align 8
   %60 = load i32, ptr %7, align 8
   %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds nuw [2 x ptr], ptr @"_ZZN4Luau5visitIZL20DOCTEST_ANON_FUNC_13vE3$_0JNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit", i64 0, i64 %61
+  %62 = getelementptr inbounds [2 x ptr], ptr @"_ZZN4Luau5visitIZL20DOCTEST_ANON_FUNC_13vE3$_0JNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit", i64 0, i64 %61
   %63 = load ptr, ptr %62, align 8
   invoke void %63(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull %58)
           to label %"_ZN4Luau5visitIZL20DOCTEST_ANON_FUNC_13vE3$_0JNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEEDaOT_RKNS_7VariantIJDpT0_EEE.exit" unwind label %78
@@ -4817,7 +4817,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   store ptr %11, ptr %13, align 8
   %64 = load i32, ptr %10, align 8
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds nuw [2 x ptr], ptr @"_ZZN4Luau5visitIZL20DOCTEST_ANON_FUNC_13vE3$_1JNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit", i64 0, i64 %65
+  %66 = getelementptr inbounds [2 x ptr], ptr @"_ZZN4Luau5visitIZL20DOCTEST_ANON_FUNC_13vE3$_1JNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit", i64 0, i64 %65
   %67 = load ptr, ptr %66, align 8
   invoke void %67(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull %59)
           to label %"_ZN4Luau5visitIZL20DOCTEST_ANON_FUNC_13vE3$_1JNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEEDaOT_RKNS_7VariantIJDpT0_EEE.exit" unwind label %78
@@ -4934,7 +4934,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #14, !noalias !39
   %103 = load i32, ptr %7, align 8, !noalias !39
   %104 = sext i32 %103 to i64
-  %105 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZN4Luau5visitI15ToStringVisitorJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisitB5cxx11_0, i64 0, i64 %104
+  %105 = getelementptr inbounds [2 x ptr], ptr @_ZZN4Luau5visitI15ToStringVisitorJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisitB5cxx11_0, i64 0, i64 %104
   %106 = load ptr, ptr %105, align 8, !noalias !39
   invoke void %106(ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull %58)
           to label %109 unwind label %107, !noalias !39
@@ -4958,7 +4958,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #14, !noalias !42
   %112 = load i32, ptr %10, align 8, !noalias !42
   %113 = sext i32 %112 to i64
-  %114 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZN4Luau5visitI15ToStringVisitorJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisitB5cxx11_0, i64 0, i64 %113
+  %114 = getelementptr inbounds [2 x ptr], ptr @_ZZN4Luau5visitI15ToStringVisitorJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisitB5cxx11_0, i64 0, i64 %113
   %115 = load ptr, ptr %114, align 8, !noalias !42
   invoke void %115(ptr noundef nonnull align 1 dereferenceable(1) %23, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull %59)
           to label %118 unwind label %116, !noalias !42
@@ -5093,7 +5093,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %158) #14
   %159 = load i32, ptr %7, align 8
   %160 = sext i32 %159 to i64
-  %161 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZN4Luau5visitI16IncrementVisitorJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEEDaOT_RNS_7VariantIJDpT0_EEEE10tableVisit, i64 0, i64 %160
+  %161 = getelementptr inbounds [2 x ptr], ptr @_ZZN4Luau5visitI16IncrementVisitorJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEEDaOT_RNS_7VariantIJDpT0_EEEE10tableVisit, i64 0, i64 %160
   %162 = load ptr, ptr %161, align 8
   invoke void %162(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef nonnull %58)
           to label %_ZN4Luau5visitI16IncrementVisitorJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEEDaOT_RNS_7VariantIJDpT0_EEE.exit unwind label %130
@@ -5101,7 +5101,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 _ZN4Luau5visitI16IncrementVisitorJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEEDaOT_RNS_7VariantIJDpT0_EEE.exit: ; preds = %155
   %163 = load i32, ptr %10, align 8
   %164 = sext i32 %163 to i64
-  %165 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZN4Luau5visitI16IncrementVisitorJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEEDaOT_RNS_7VariantIJDpT0_EEEE10tableVisit, i64 0, i64 %164
+  %165 = getelementptr inbounds [2 x ptr], ptr @_ZZN4Luau5visitI16IncrementVisitorJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEEDaOT_RNS_7VariantIJDpT0_EEEE10tableVisit, i64 0, i64 %164
   %166 = load ptr, ptr %165, align 8
   invoke void %166(ptr noundef nonnull align 1 dereferenceable(1) %30, ptr noundef nonnull %59)
           to label %_ZN4Luau5visitI16IncrementVisitorJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEEDaOT_RNS_7VariantIJDpT0_EEE.exit49 unwind label %130
@@ -5124,7 +5124,7 @@ _ZN4Luau5visitI16IncrementVisitorJNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #14, !noalias !46
   %170 = load i32, ptr %7, align 8, !noalias !46
   %171 = sext i32 %170 to i64
-  %172 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZN4Luau5visitI15ToStringVisitorJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEEDaOT_RNS_7VariantIJDpT0_EEEE10tableVisitB5cxx11_0, i64 0, i64 %171
+  %172 = getelementptr inbounds [2 x ptr], ptr @_ZZN4Luau5visitI15ToStringVisitorJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEEDaOT_RNS_7VariantIJDpT0_EEEE10tableVisitB5cxx11_0, i64 0, i64 %171
   %173 = load ptr, ptr %172, align 8, !noalias !46
   invoke void %173(ptr noundef nonnull align 1 dereferenceable(1) %37, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull %58)
           to label %176 unwind label %174, !noalias !46
@@ -5253,7 +5253,7 @@ _ZN4Luau5visitI16IncrementVisitorJNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #14, !noalias !53
   %211 = load i32, ptr %10, align 8, !noalias !53
   %212 = sext i32 %211 to i64
-  %213 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZN4Luau5visitI15ToStringVisitorJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEEDaOT_RNS_7VariantIJDpT0_EEEE10tableVisitB5cxx11_0, i64 0, i64 %212
+  %213 = getelementptr inbounds [2 x ptr], ptr @_ZZN4Luau5visitI15ToStringVisitorJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEEDaOT_RNS_7VariantIJDpT0_EEEE10tableVisitB5cxx11_0, i64 0, i64 %212
   %214 = load ptr, ptr %213, align 8, !noalias !53
   invoke void %214(ptr noundef nonnull align 1 dereferenceable(1) %44, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull %59)
           to label %217 unwind label %215, !noalias !53
@@ -5370,7 +5370,7 @@ _ZN4Luau5visitI16IncrementVisitorJNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14, !noalias !60
   %249 = load i32, ptr %7, align 8, !noalias !60
   %250 = sext i32 %249 to i64
-  %251 = getelementptr inbounds nuw [2 x ptr], ptr @"_ZZN4Luau5visitIZL20DOCTEST_ANON_FUNC_13vE3$_2JNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEEDaOT_RNS_7VariantIJDpT0_EEEE10tableVisitB5cxx11", i64 0, i64 %250
+  %251 = getelementptr inbounds [2 x ptr], ptr @"_ZZN4Luau5visitIZL20DOCTEST_ANON_FUNC_13vE3$_2JNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEEDaOT_RNS_7VariantIJDpT0_EEEE10tableVisitB5cxx11", i64 0, i64 %250
   %252 = load ptr, ptr %251, align 8, !noalias !60
   invoke void %252(ptr noundef nonnull align 1 dereferenceable(1) %47, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %58)
           to label %255 unwind label %253, !noalias !60
@@ -5394,7 +5394,7 @@ _ZN4Luau5visitI16IncrementVisitorJNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #14, !noalias !63
   %258 = load i32, ptr %10, align 8, !noalias !63
   %259 = sext i32 %258 to i64
-  %260 = getelementptr inbounds nuw [2 x ptr], ptr @"_ZZN4Luau5visitIZL20DOCTEST_ANON_FUNC_13vE3$_3JNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEEDaOT_RNS_7VariantIJDpT0_EEEE10tableVisitB5cxx11", i64 0, i64 %259
+  %260 = getelementptr inbounds [2 x ptr], ptr @"_ZZN4Luau5visitIZL20DOCTEST_ANON_FUNC_13vE3$_3JNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEEDaOT_RNS_7VariantIJDpT0_EEEE10tableVisitB5cxx11", i64 0, i64 %259
   %261 = load ptr, ptr %260, align 8, !noalias !63
   invoke void %261(ptr noundef nonnull align 1 dereferenceable(1) %49, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %59)
           to label %264 unwind label %262, !noalias !63
@@ -5532,7 +5532,7 @@ _ZN4Luau5visitI16IncrementVisitorJNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #14
   %305 = load i32, ptr %10, align 8
   %306 = sext i32 %305 to i64
-  %307 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEE9tableDtorE, i64 0, i64 %306
+  %307 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEE9tableDtorE, i64 0, i64 %306
   %308 = load ptr, ptr %307, align 8
   invoke void %308(ptr noundef nonnull %59)
           to label %_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEED2Ev.exit unwind label %309
@@ -5547,7 +5547,7 @@ _ZN4Luau5visitI16IncrementVisitorJNSt7__cxx1112basic_stringIcSt11char_traitsIcES
 _ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEED2Ev.exit: ; preds = %301
   %312 = load i32, ptr %7, align 8
   %313 = sext i32 %312 to i64
-  %314 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEE9tableDtorE, i64 0, i64 %313
+  %314 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEE9tableDtorE, i64 0, i64 %313
   %315 = load ptr, ptr %314, align 8
   invoke void %315(ptr noundef nonnull %58)
           to label %_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEED2Ev.exit61 unwind label %316
@@ -5582,7 +5582,7 @@ _ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEED2Ev.ex
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #14
   %321 = load i32, ptr %10, align 8
   %322 = sext i32 %321 to i64
-  %323 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEE9tableDtorE, i64 0, i64 %322
+  %323 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEE9tableDtorE, i64 0, i64 %322
   %324 = load ptr, ptr %323, align 8
   invoke void %324(ptr noundef nonnull %59)
           to label %_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEED2Ev.exit62 unwind label %325
@@ -5597,7 +5597,7 @@ _ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEED2Ev.ex
 _ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEED2Ev.exit62: ; preds = %320
   %328 = load i32, ptr %7, align 8
   %329 = sext i32 %328 to i64
-  %330 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEE9tableDtorE, i64 0, i64 %329
+  %330 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEE9tableDtorE, i64 0, i64 %329
   %331 = load ptr, ptr %330, align 8
   invoke void %331(ptr noundef nonnull %58)
           to label %_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEED2Ev.exit63 unwind label %332
@@ -5681,7 +5681,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %31 = load i32, ptr %1, align 8
   store i32 %31, ptr %4, align 8
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE8MoveOnlyEE9tableMoveE, i64 0, i64 %32
+  %33 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE8MoveOnlyEE9tableMoveE, i64 0, i64 %32
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 8
   invoke void %34(ptr noundef nonnull %35, ptr noundef nonnull %30)
@@ -6099,7 +6099,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %177) #14
   %178 = load i32, ptr %4, align 8
   %179 = sext i32 %178 to i64
-  %180 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE8MoveOnlyEE9tableDtorE, i64 0, i64 %179
+  %180 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE8MoveOnlyEE9tableDtorE, i64 0, i64 %179
   %181 = load ptr, ptr %180, align 8
   invoke void %181(ptr noundef nonnull %35)
           to label %_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE8MoveOnlyEED2Ev.exit unwind label %182
@@ -6114,7 +6114,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 _ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE8MoveOnlyEED2Ev.exit: ; preds = %174
   %185 = load i32, ptr %1, align 8
   %186 = sext i32 %185 to i64
-  %187 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE8MoveOnlyEE9tableDtorE, i64 0, i64 %186
+  %187 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE8MoveOnlyEE9tableDtorE, i64 0, i64 %186
   %188 = load ptr, ptr %187, align 8
   invoke void %188(ptr noundef nonnull %30)
           to label %_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE8MoveOnlyEED2Ev.exit34 unwind label %189
@@ -6138,7 +6138,7 @@ _ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE8MoveOnlyE
   %.pn21.pn = phi { ptr, i32 } [ %.pn21, %192 ], [ %156, %155 ], [ %53, %52 ], [ %.pn18, %154 ], [ %123, %122 ], [ %.pn15, %121 ], [ %88, %87 ], [ %.pn12, %86 ], [ %55, %54 ]
   %194 = load i32, ptr %4, align 8
   %195 = sext i32 %194 to i64
-  %196 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE8MoveOnlyEE9tableDtorE, i64 0, i64 %195
+  %196 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE8MoveOnlyEE9tableDtorE, i64 0, i64 %195
   %197 = load ptr, ptr %196, align 8
   invoke void %197(ptr noundef nonnull %35)
           to label %_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE8MoveOnlyEED2Ev.exit35 unwind label %198
@@ -6154,7 +6154,7 @@ _ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE8MoveOnlyE
   %.pn21.pn.pn = phi { ptr, i32 } [ %51, %50 ], [ %.pn21.pn, %193 ]
   %201 = load i32, ptr %1, align 8
   %202 = sext i32 %201 to i64
-  %203 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE8MoveOnlyEE9tableDtorE, i64 0, i64 %202
+  %203 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE8MoveOnlyEE9tableDtorE, i64 0, i64 %202
   %204 = load ptr, ptr %203, align 8
   invoke void %204(ptr noundef nonnull %30)
           to label %_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE8MoveOnlyEED2Ev.exit36 unwind label %205
@@ -7911,7 +7911,7 @@ define linkonce_odr dso_local void @_ZN7doctest6detail14Expression_lhsIRN4Luau7V
 
 _ZNK4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEeqERKS7_.exit: ; preds = %3
   %13 = sext i32 %7 to i64
-  %14 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEeqERKS7_E5table, i64 0, i64 %13
+  %14 = getelementptr inbounds [2 x ptr], ptr @_ZZNK4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEeqERKS7_E5table, i64 0, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -7983,7 +7983,7 @@ define linkonce_odr dso_local void @_ZN7doctest6detail14Expression_lhsIRN4Luau7V
 
 _ZNK4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEneERKS7_.exit: ; preds = %3
   %13 = sext i32 %7 to i64
-  %14 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEeqERKS7_E5table, i64 0, i64 %13
+  %14 = getelementptr inbounds [2 x ptr], ptr @_ZZNK4Luau7VariantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEeqERKS7_E5table, i64 0, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8

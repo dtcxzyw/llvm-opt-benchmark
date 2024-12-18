@@ -2715,7 +2715,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:
   %15 = tail call noundef i32 @_ZNK5clang14IdentifierInfo14getPPKeywordIDEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #18
   %switch.tableidx = add nsw i32 %15, -10
   %16 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN5clang19PreprocessingRecord18InclusionDirectiveENS_14SourceLocationERKNS_5TokenEN4llvm9StringRefEbNS_15CharSourceRangeENS_20CustomizableOptionalINS_12FileEntryRefEEES6_S6_PKNS_6ModuleEbNS_6SrcMgr18CharacteristicKindE, i64 0, i64 %16
+  %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table._ZN5clang19PreprocessingRecord18InclusionDirectiveENS_14SourceLocationERKNS_5TokenEN4llvm9StringRefEbNS_15CharSourceRangeENS_20CustomizableOptionalINS_12FileEntryRefEEES6_S6_PKNS_6ModuleEbNS_6SrcMgr18CharacteristicKindE, i64 0, i64 %16
   %switch.load = load i32, ptr %switch.gep, align 4
   br i1 %5, label %18, label %17
 

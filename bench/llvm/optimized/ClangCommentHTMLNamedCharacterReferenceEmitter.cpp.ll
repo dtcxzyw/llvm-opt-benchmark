@@ -209,7 +209,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i:               ; preds = %63, %61
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit9.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit9.i:              ; preds = %74, %72
-  %77 = getelementptr inbounds nuw i8, ptr %4, i64 %.0614.i
+  %77 = getelementptr inbounds i8, ptr %4, i64 %.0614.i
   %78 = load i8, ptr %77, align 1
   %79 = zext i8 %78 to i64
   %80 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream9write_hexEy(ptr noundef nonnull align 8 dereferenceable(48) %6, i64 noundef %79) #12

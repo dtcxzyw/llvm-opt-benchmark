@@ -510,7 +510,7 @@ for.body44:                                       ; preds = %sw.bb37, %for.body4
   %backtrace4.334 = phi ptr [ %incdec.ptr49, %for.body44 ], [ %backtrace4.0.ptr, %sw.bb37 ]
   %i.033 = phi i64 [ %dec45, %for.body44 ], [ %call40, %sw.bb37 ]
   %dec45 = add i64 %i.033, -1
-  %arrayidx46 = getelementptr inbounds nuw [128 x ptr], ptr %frames38, i64 0, i64 %dec45
+  %arrayidx46 = getelementptr inbounds [128 x ptr], ptr %frames38, i64 0, i64 %dec45
   %8 = load ptr, ptr %arrayidx46, align 8
   %incdec.ptr49 = getelementptr inbounds nuw i8, ptr %backtrace4.334, i64 16
   store i32 2, ptr %backtrace4.334, align 8

@@ -251,11 +251,11 @@ while.end.loopexit.i51.i:                         ; preds = %while.body.i40.i
 _ZN17double_conversionL10ReadUint64ENS_6VectorIKcEEPi.exit52.i: ; preds = %while.end.loopexit.i51.i, %if.then22.i
   %result.0.lcssa.i38.i = phi double [ 0.000000e+00, %if.then22.i ], [ %13, %while.end.loopexit.i51.i ]
   %idxprom26.i = sext i32 %sub17.i to i64
-  %arrayidx27.i = getelementptr inbounds nuw [23 x double], ptr @_ZN17double_conversionL19exact_powers_of_tenE, i64 0, i64 %idxprom26.i
+  %arrayidx27.i = getelementptr inbounds [23 x double], ptr @_ZN17double_conversionL19exact_powers_of_tenE, i64 0, i64 %idxprom26.i
   %14 = load double, ptr %arrayidx27.i, align 8
   %mul28.i = fmul double %result.0.lcssa.i38.i, %14
   %idxprom30.i = sext i32 %sub20.i to i64
-  %arrayidx31.i = getelementptr inbounds nuw [23 x double], ptr @_ZN17double_conversionL19exact_powers_of_tenE, i64 0, i64 %idxprom30.i
+  %arrayidx31.i = getelementptr inbounds [23 x double], ptr @_ZN17double_conversionL19exact_powers_of_tenE, i64 0, i64 %idxprom30.i
   %15 = load double, ptr %arrayidx31.i, align 8
   %mul32.i = fmul double %mul28.i, %15
   br label %_ZN17double_conversionL12DoubleStrtodENS_6VectorIKcEEiPd.exit

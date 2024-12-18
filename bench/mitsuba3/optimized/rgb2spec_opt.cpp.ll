@@ -1079,13 +1079,13 @@ _Z13eval_residualPKdS0_Pd.exit:                   ; preds = %45
   %67 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv93.i
   %68 = load i32, ptr %67, align 4
   %69 = sext i32 %.171.i to i64
-  %70 = getelementptr inbounds nuw i32, ptr %10, i64 %69
+  %70 = getelementptr inbounds i32, ptr %10, i64 %69
   %71 = load i32, ptr %70, align 4
   store i32 %71, ptr %67, align 4
   store i32 %68, ptr %70, align 4
   %72 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv93.i
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds nuw ptr, ptr %8, i64 %69
+  %74 = getelementptr inbounds ptr, ptr %8, i64 %69
   %75 = load ptr, ptr %74, align 8
   store ptr %75, ptr %72, align 8
   store ptr %73, ptr %74, align 8
@@ -1177,7 +1177,7 @@ _Z13eval_residualPKdS0_Pd.exit:                   ; preds = %45
   %124 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv55.i
   %125 = load i32, ptr %124, align 4
   %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds nuw double, ptr %9, i64 %126
+  %127 = getelementptr inbounds double, ptr %9, i64 %126
   %128 = load double, ptr %127, align 8
   %129 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv55.i
   store double %128, ptr %129, align 8
@@ -1853,15 +1853,15 @@ define internal void @main.omp_outlined(ptr noalias nocapture noundef readonly %
 .lr.ph107:                                        ; preds = %.lr.ph112
   %sext97 = shl i64 %27, 32
   %39 = ashr exact i64 %sext97, 32
-  %40 = getelementptr inbounds nuw [3 x double], ptr %11, i64 0, i64 %39
+  %40 = getelementptr inbounds [3 x double], ptr %11, i64 0, i64 %39
   %41 = add nsw i32 %28, 1
   %42 = srem i32 %41, 3
   %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds nuw [3 x double], ptr %11, i64 0, i64 %43
+  %44 = getelementptr inbounds [3 x double], ptr %11, i64 0, i64 %43
   %45 = add nsw i32 %28, 2
   %46 = srem i32 %45, 3
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds nuw [3 x double], ptr %11, i64 0, i64 %47
+  %48 = getelementptr inbounds [3 x double], ptr %11, i64 0, i64 %47
   br label %49
 
 49:                                               ; preds = %.lr.ph107, %._crit_edge104

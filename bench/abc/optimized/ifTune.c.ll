@@ -387,7 +387,7 @@ Inf_ManOpenSymb.exit.thread:                      ; preds = %5, %5, %5, %5
   %17 = tail call range(i32 -225, 32) i32 @llvm.smax.i32(i32 range(i32 -225, 32) %.0, i32 range(i32 -225, 32) %16)
   %18 = zext nneg i8 %7 to i64
   %19 = add nsw i64 %18, -97
-  %20 = getelementptr inbounds nuw [32 x i32], ptr %4, i64 0, i64 %19
+  %20 = getelementptr inbounds [32 x i32], ptr %4, i64 0, i64 %19
   store i32 1, ptr %20, align 4
   br label %24
 
@@ -1569,9 +1569,9 @@ define ptr @Ifn_ManStrFindModel(ptr nocapture noundef readonly %0) local_unnamed
   %83 = getelementptr inbounds i32, ptr %7, i64 %82
   %84 = load i32, ptr %83, align 4
   %85 = add nsw i64 %indvars.iv154, %79
-  %86 = getelementptr inbounds nuw [256 x i32], ptr %2, i64 0, i64 %85
+  %86 = getelementptr inbounds [256 x i32], ptr %2, i64 0, i64 %85
   %87 = load i32, ptr %86, align 4
-  %88 = getelementptr inbounds nuw [256 x i32], ptr %2, i64 0, i64 %indvars.iv154
+  %88 = getelementptr inbounds [256 x i32], ptr %2, i64 0, i64 %indvars.iv154
   %89 = load i32, ptr %88, align 8
   %90 = tail call i32 @Gia_ManHashMux(ptr noundef nonnull %8, i32 noundef %84, i32 noundef %87, i32 noundef %89) #23
   store i32 %90, ptr %88, align 8
@@ -3212,7 +3212,7 @@ define i32 @If_ManSatDeriveGiaFromBits(ptr noundef %0, ptr nocapture noundef rea
   %64 = getelementptr inbounds nuw i32, ptr %63, i64 %indvars.iv163
   %65 = load i32, ptr %64, align 4
   %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds nuw [1000 x i32], ptr %6, i64 0, i64 %66
+  %67 = getelementptr inbounds [1000 x i32], ptr %6, i64 0, i64 %66
   %68 = load i32, ptr %67, align 4
   %69 = call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %.289126, i32 noundef %68) #23
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
@@ -3225,7 +3225,7 @@ define i32 @If_ManSatDeriveGiaFromBits(ptr noundef %0, ptr nocapture noundef rea
   %70 = getelementptr inbounds nuw i32, ptr %63, i64 %indvars.iv158
   %71 = load i32, ptr %70, align 4
   %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds nuw [1000 x i32], ptr %6, i64 0, i64 %72
+  %73 = getelementptr inbounds [1000 x i32], ptr %6, i64 0, i64 %72
   %74 = load i32, ptr %73, align 4
   %75 = call i32 @Gia_ManHashXor(ptr noundef %0, i32 noundef %.390121, i32 noundef %74) #23
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
@@ -3235,17 +3235,17 @@ define i32 @If_ManSatDeriveGiaFromBits(ptr noundef %0, ptr nocapture noundef rea
 76:                                               ; preds = %57
   %77 = load i32, ptr %63, align 4
   %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds nuw [1000 x i32], ptr %6, i64 0, i64 %78
+  %79 = getelementptr inbounds [1000 x i32], ptr %6, i64 0, i64 %78
   %80 = load i32, ptr %79, align 4
   %81 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %82 = load i32, ptr %81, align 4
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds nuw [1000 x i32], ptr %6, i64 0, i64 %83
+  %84 = getelementptr inbounds [1000 x i32], ptr %6, i64 0, i64 %83
   %85 = load i32, ptr %84, align 4
   %86 = getelementptr inbounds nuw i8, ptr %58, i64 12
   %87 = load i32, ptr %86, align 4
   %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds nuw [1000 x i32], ptr %6, i64 0, i64 %88
+  %89 = getelementptr inbounds [1000 x i32], ptr %6, i64 0, i64 %88
   %90 = load i32, ptr %89, align 4
   %91 = call i32 @Gia_ManHashMux(ptr noundef %0, i32 noundef %80, i32 noundef %85, i32 noundef %90) #23
   br label %.sink.split
@@ -3327,7 +3327,7 @@ define i32 @If_ManSatDeriveGiaFromBits(ptr noundef %0, ptr nocapture noundef rea
   %129 = getelementptr inbounds nuw i32, ptr %63, i64 %indvars.iv153
   %130 = load i32, ptr %129, align 4
   %131 = sext i32 %130 to i64
-  %132 = getelementptr inbounds nuw [1000 x i32], ptr %6, i64 0, i64 %131
+  %132 = getelementptr inbounds [1000 x i32], ptr %6, i64 0, i64 %131
   %133 = load i32, ptr %132, align 4
   %134 = getelementptr inbounds nuw [16 x i32], ptr %7, i64 0, i64 %indvars.iv153
   store i32 %133, ptr %134, align 4
@@ -3363,7 +3363,7 @@ define i32 @If_ManSatDeriveGiaFromBits(ptr noundef %0, ptr nocapture noundef rea
 Abc_TtSwapVars.exit.i:                            ; preds = %144
   %147 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i
   %148 = load i32, ptr %147, align 4
-  %149 = getelementptr inbounds nuw i32, ptr %7, i64 %145
+  %149 = getelementptr inbounds i32, ptr %7, i64 %145
   store i32 %148, ptr %149, align 4
   %150 = getelementptr inbounds [5 x [6 x [3 x i64]]], ptr @s_PPMasks, i64 0, i64 %145, i64 %indvars.iv.i
   %.neg.i.i.i = shl nsw i32 -1, %.029.i
@@ -3418,7 +3418,7 @@ Abc_TtMinBase.exit.thread:                        ; preds = %._crit_edge114, %Ab
 .sink.split:                                      ; preds = %.lr.ph123, %.lr.ph128, %.preheader104, %.preheader, %174, %Abc_TtMinBase.exit.thread, %76
   %.289.lcssa.sink = phi i32 [ %91, %76 ], [ %173, %Abc_TtMinBase.exit.thread ], [ %175, %174 ], [ 1, %.preheader ], [ 0, %.preheader104 ], [ %69, %.lr.ph128 ], [ %75, %.lr.ph123 ]
   %.293.ph = phi i32 [ %.091131, %76 ], [ %.192.lcssa, %Abc_TtMinBase.exit.thread ], [ %.192.lcssa, %174 ], [ %.091131, %.preheader ], [ %.091131, %.preheader104 ], [ %.091131, %.lr.ph128 ], [ %.091131, %.lr.ph123 ]
-  %176 = getelementptr inbounds nuw [1000 x i32], ptr %6, i64 0, i64 %indvars.iv168
+  %176 = getelementptr inbounds [1000 x i32], ptr %6, i64 0, i64 %indvars.iv168
   store i32 %.289.lcssa.sink, ptr %176, align 4
   br label %177
 
@@ -3439,7 +3439,7 @@ Abc_TtMinBase.exit.thread:                        ; preds = %._crit_edge114, %Ab
   %185 = and i32 %184, 1
   %186 = add nsw i32 %.lcssa, -1
   %187 = sext i32 %186 to i64
-  %188 = getelementptr inbounds nuw [1000 x i32], ptr %6, i64 0, i64 %187
+  %188 = getelementptr inbounds [1000 x i32], ptr %6, i64 0, i64 %187
   %189 = load i32, ptr %188, align 4
   %190 = xor i32 %189, %185
   ret i32 %190
@@ -4582,7 +4582,7 @@ define void @Ifn_NtkAddConstrOne(ptr noundef %0, ptr nocapture noundef readonly 
   %.sink = phi i32 [ %24, %21 ], [ %20, %16 ]
   %25 = add nsw i32 %.025.us, 1
   %26 = sext i32 %.025.us to i64
-  %27 = getelementptr inbounds nuw [11 x i32], ptr %5, i64 0, i64 %26
+  %27 = getelementptr inbounds [11 x i32], ptr %5, i64 0, i64 %26
   store i32 %.sink, ptr %27, align 4
   br label %28
 
@@ -4594,7 +4594,7 @@ define void @Ifn_NtkAddConstrOne(ptr noundef %0, ptr nocapture noundef readonly 
 
 ._crit_edge.us:                                   ; preds = %28
   %29 = sext i32 %.1.us to i64
-  %30 = getelementptr inbounds nuw i32, ptr %5, i64 %29
+  %30 = getelementptr inbounds i32, ptr %5, i64 %29
   %31 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %30) #23
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %.val.us = load i32, ptr %6, align 4
@@ -4748,7 +4748,7 @@ define void @Ifn_NtkAddConstraints(ptr nocapture noundef readonly %0, ptr nounde
   %.sink.i = phi i32 [ %65, %62 ], [ %61, %57 ]
   %66 = add nsw i32 %.025.us.i, 1
   %67 = sext i32 %.025.us.i to i64
-  %68 = getelementptr inbounds nuw [11 x i32], ptr %4, i64 0, i64 %67
+  %68 = getelementptr inbounds [11 x i32], ptr %4, i64 0, i64 %67
   store i32 %.sink.i, ptr %68, align 4
   br label %69
 
@@ -4760,7 +4760,7 @@ define void @Ifn_NtkAddConstraints(ptr nocapture noundef readonly %0, ptr nounde
 
 ._crit_edge.us.i:                                 ; preds = %69
   %70 = sext i32 %.1.us.i to i64
-  %71 = getelementptr inbounds nuw i32, ptr %4, i64 %70
+  %71 = getelementptr inbounds i32, ptr %4, i64 %70
   %72 = call i32 @sat_solver_addclause(ptr noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %71) #23
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
   %.val.us.i = load i32, ptr %9, align 4
@@ -4894,7 +4894,7 @@ Ifn_NtkAddConstrOne.exit:                         ; preds = %.lr.ph29.split.i, %
   %.sink.i71 = phi i32 [ %128, %125 ], [ %124, %120 ]
   %129 = add nsw i32 %.025.us.i68, 1
   %130 = sext i32 %.025.us.i68 to i64
-  %131 = getelementptr inbounds nuw [11 x i32], ptr %3, i64 0, i64 %130
+  %131 = getelementptr inbounds [11 x i32], ptr %3, i64 0, i64 %130
   store i32 %.sink.i71, ptr %131, align 4
   br label %132
 
@@ -4906,7 +4906,7 @@ Ifn_NtkAddConstrOne.exit:                         ; preds = %.lr.ph29.split.i, %
 
 ._crit_edge.us.i75:                               ; preds = %132
   %133 = sext i32 %.1.us.i72 to i64
-  %134 = getelementptr inbounds nuw i32, ptr %3, i64 %133
+  %134 = getelementptr inbounds i32, ptr %3, i64 %133
   %135 = call i32 @sat_solver_addclause(ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %134) #23
   %indvars.iv.next33.i76 = add nuw nsw i64 %indvars.iv32.i65, 1
   %.val.us.i77 = load i32, ptr %9, align 4

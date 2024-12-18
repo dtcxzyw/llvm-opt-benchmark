@@ -544,11 +544,11 @@ for.cond79:                                       ; preds = %for.cond79.backedge
   %i.0 = phi i32 [ 0, %for.end78 ], [ %i.1.lcssa, %for.cond79.backedge ]
   %add80 = add nsw i32 %j.2, 1
   %idxprom81 = sext i32 %add80 to i64
-  %arrayidx82 = getelementptr inbounds nuw [9 x %struct.hexvert], ptr %vert, i64 0, i64 %idxprom81
+  %arrayidx82 = getelementptr inbounds [9 x %struct.hexvert], ptr %vert, i64 0, i64 %idxprom81
   %20 = load float, ptr %arrayidx82, align 4
   %cmp84226 = fcmp olt float %t.2, %20
   %idxprom90 = sext i32 %j.2 to i64
-  %arrayidx91 = getelementptr inbounds nuw [9 x %struct.hexvert], ptr %vert, i64 0, i64 %idxprom90
+  %arrayidx91 = getelementptr inbounds [9 x %struct.hexvert], ptr %vert, i64 0, i64 %idxprom90
   br i1 %cmp84226, label %while.body.lr.ph, label %for.cond79.while.end_crit_edge
 
 for.cond79.while.end_crit_edge:                   ; preds = %for.cond79
@@ -590,7 +590,7 @@ while.end:                                        ; preds = %for.cond79.while.en
   %29 = phi float [ %.pre, %for.cond79.while.end_crit_edge ], [ %25, %while.end.loopexit ]
   %t.3.lcssa = phi float [ %t.2, %for.cond79.while.end_crit_edge ], [ %add104, %while.end.loopexit ]
   %i.1.lcssa = phi i32 [ %i.0, %for.cond79.while.end_crit_edge ], [ %28, %while.end.loopexit ]
-  %arrayidx107 = getelementptr inbounds nuw [9 x %struct.hexvert], ptr %vert, i64 0, i64 %idxprom90
+  %arrayidx107 = getelementptr inbounds [9 x %struct.hexvert], ptr %vert, i64 0, i64 %idxprom90
   %cmp113 = fcmp oeq float %29, %20
   %.pre259 = load i32, ptr @hexblep, align 8
   %.pre261 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hexblep, i64 4), align 4
@@ -874,7 +874,7 @@ for.end232:                                       ; preds = %for.end197
 if.end239:                                        ; preds = %for.body204, %for.cond201.preheader.for.end214_crit_edge, %for.end232
   %conv29.sink = phi i64 [ %conv29, %for.end232 ], [ %.pre262, %for.cond201.preheader.for.end214_crit_edge ], [ %80, %for.body204 ]
   %buffer233 = getelementptr inbounds nuw i8, ptr %hex, i64 44
-  %add.ptr237 = getelementptr inbounds nuw float, ptr %temp_output, i64 %conv29.sink
+  %add.ptr237 = getelementptr inbounds float, ptr %temp_output, i64 %conv29.sink
   %conv238 = sext i32 %mul to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %buffer233, ptr nonnull align 4 %add.ptr237, i64 %conv238, i1 false)
   store float %t.1, ptr %hex, align 4

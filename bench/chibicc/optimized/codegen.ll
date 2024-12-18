@@ -886,9 +886,9 @@ for.cond.preheader.i.i:                           ; preds = %switch.hole_check, 
 
 for.body.lr.ph.i.i:                               ; preds = %for.cond.preheader.i.i
   %idxprom10.i.i = sext i32 %gp45.0128.i to i64
-  %arrayidx11.i.i = getelementptr inbounds nuw [6 x ptr], ptr @argreg8, i64 0, i64 %idxprom10.i.i
+  %arrayidx11.i.i = getelementptr inbounds [6 x ptr], ptr @argreg8, i64 0, i64 %idxprom10.i.i
   %78 = load ptr, ptr %arrayidx11.i.i, align 8
-  %arrayidx13.i.i = getelementptr inbounds nuw [6 x ptr], ptr @argreg64, i64 0, i64 %idxprom10.i.i
+  %arrayidx13.i.i = getelementptr inbounds [6 x ptr], ptr @argreg64, i64 0, i64 %idxprom10.i.i
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
@@ -912,7 +912,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.codegen.2, i64 0, i64 %80
   %switch.load = load ptr, ptr %switch.gep, align 8
   %idxprom8.i.i = sext i32 %gp45.0128.i to i64
-  %arrayidx9.i.i = getelementptr inbounds nuw [6 x ptr], ptr %switch.load, i64 0, i64 %idxprom8.i.i
+  %arrayidx9.i.i = getelementptr inbounds [6 x ptr], ptr %switch.load, i64 0, i64 %idxprom8.i.i
   %81 = load ptr, ptr %arrayidx9.i.i, align 8
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.52, ptr noundef %81, i32 noundef %73)
   br label %if.end78.i
@@ -957,9 +957,9 @@ if.else88.i:                                      ; preds = %if.then81.i
 
 for.body.lr.ph.i86.i:                             ; preds = %switch.hole_check59, %if.else88.i
   %idxprom10.i87.i = sext i32 %gp45.2.i to i64
-  %arrayidx11.i88.i = getelementptr inbounds nuw [6 x ptr], ptr @argreg8, i64 0, i64 %idxprom10.i87.i
+  %arrayidx11.i88.i = getelementptr inbounds [6 x ptr], ptr @argreg8, i64 0, i64 %idxprom10.i87.i
   %85 = load ptr, ptr %arrayidx11.i88.i, align 8
-  %arrayidx13.i89.i = getelementptr inbounds nuw [6 x ptr], ptr @argreg64, i64 0, i64 %idxprom10.i87.i
+  %arrayidx13.i89.i = getelementptr inbounds [6 x ptr], ptr @argreg64, i64 0, i64 %idxprom10.i87.i
   %86 = add nsw i32 %82, -9
   br label %for.body.i90.i
 
@@ -984,7 +984,7 @@ switch.lookup60:                                  ; preds = %switch.hole_check59
   %switch.gep64 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.codegen.2, i64 0, i64 %88
   %switch.load65 = load ptr, ptr %switch.gep64, align 8
   %idxprom8.i80.i = sext i32 %gp45.2.i to i64
-  %arrayidx9.i81.i = getelementptr inbounds nuw [6 x ptr], ptr %switch.load65, i64 0, i64 %idxprom8.i80.i
+  %arrayidx9.i81.i = getelementptr inbounds [6 x ptr], ptr %switch.load65, i64 0, i64 %idxprom8.i80.i
   %89 = load ptr, ptr %arrayidx9.i81.i, align 8
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.52, ptr noundef %89, i32 noundef %add86.i)
   br label %for.inc103.i
@@ -1024,9 +1024,9 @@ for.cond.preheader.i107.i:                        ; preds = %switch.hole_check68
 
 for.body.lr.ph.i109.i:                            ; preds = %for.cond.preheader.i107.i
   %idxprom10.i110.i = sext i32 %gp45.0128.i to i64
-  %arrayidx11.i111.i = getelementptr inbounds nuw [6 x ptr], ptr @argreg8, i64 0, i64 %idxprom10.i110.i
+  %arrayidx11.i111.i = getelementptr inbounds [6 x ptr], ptr @argreg8, i64 0, i64 %idxprom10.i110.i
   %93 = load ptr, ptr %arrayidx11.i111.i, align 8
-  %arrayidx13.i112.i = getelementptr inbounds nuw [6 x ptr], ptr @argreg64, i64 0, i64 %idxprom10.i110.i
+  %arrayidx13.i112.i = getelementptr inbounds [6 x ptr], ptr @argreg64, i64 0, i64 %idxprom10.i110.i
   br label %for.body.i113.i
 
 for.body.i113.i:                                  ; preds = %for.body.i113.i, %for.body.lr.ph.i109.i
@@ -1050,7 +1050,7 @@ switch.lookup69:                                  ; preds = %switch.hole_check68
   %switch.gep73 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.codegen.2, i64 0, i64 %95
   %switch.load74 = load ptr, ptr %switch.gep73, align 8
   %idxprom8.i103.i = sext i32 %gp45.0128.i to i64
-  %arrayidx9.i104.i = getelementptr inbounds nuw [6 x ptr], ptr %switch.load74, i64 0, i64 %idxprom8.i103.i
+  %arrayidx9.i104.i = getelementptr inbounds [6 x ptr], ptr %switch.load74, i64 0, i64 %idxprom8.i103.i
   %96 = load ptr, ptr %arrayidx9.i104.i, align 8
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.52, ptr noundef %96, i32 noundef %73)
   br label %for.inc103.i
@@ -2645,7 +2645,7 @@ if.then166:                                       ; preds = %if.then164
 if.else168:                                       ; preds = %if.then164
   %inc169 = add nsw i32 %gp.1337, 1
   %idxprom170 = sext i32 %gp.1337 to i64
-  %arrayidx171 = getelementptr inbounds nuw [6 x ptr], ptr @argreg64, i64 0, i64 %idxprom170
+  %arrayidx171 = getelementptr inbounds [6 x ptr], ptr @argreg64, i64 0, i64 %idxprom170
   %138 = load ptr, ptr %arrayidx171, align 8
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.254, ptr noundef %138)
   br label %if.end172
@@ -2671,7 +2671,7 @@ if.then178:                                       ; preds = %if.then176
 if.else180:                                       ; preds = %if.then176
   %inc181 = add nsw i32 %gp.3, 1
   %idxprom182 = sext i32 %gp.3 to i64
-  %arrayidx183 = getelementptr inbounds nuw [6 x ptr], ptr @argreg64, i64 0, i64 %idxprom182
+  %arrayidx183 = getelementptr inbounds [6 x ptr], ptr @argreg64, i64 0, i64 %idxprom182
   %140 = load ptr, ptr %arrayidx183, align 8
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.254, ptr noundef %140)
   %141 = load i32, ptr @depth, align 4
@@ -2699,7 +2699,7 @@ sw.default:                                       ; preds = %for.body135
 if.then196:                                       ; preds = %sw.default
   %inc197 = add nsw i32 %gp.1337, 1
   %idxprom198 = sext i32 %gp.1337 to i64
-  %arrayidx199 = getelementptr inbounds nuw [6 x ptr], ptr @argreg64, i64 0, i64 %idxprom198
+  %arrayidx199 = getelementptr inbounds [6 x ptr], ptr @argreg64, i64 0, i64 %idxprom198
   %143 = load ptr, ptr %arrayidx199, align 8
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.254, ptr noundef %143)
   %144 = load i32, ptr @depth, align 4

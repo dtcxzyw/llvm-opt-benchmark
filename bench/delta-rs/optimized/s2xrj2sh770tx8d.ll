@@ -54460,7 +54460,7 @@ define hidden void @_ZN15datafusion_expr12logical_plan7builder18LogicalPlanBuild
   br i1 %18, label %22, label %19
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds nuw [27 x i64], ptr @anon.9879281d3383c0c102598d7b28966b25.96.llvm.18123795597341512700, i64 0, i64 %.0..0..0..0..0..0..pr
+  %20 = getelementptr inbounds [27 x i64], ptr @anon.9879281d3383c0c102598d7b28966b25.96.llvm.18123795597341512700, i64 0, i64 %.0..0..0..0..0..0..pr
   %21 = load i64, ptr %20, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %.sroa.0, ptr nonnull align 16 %7, i64 %21, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(352) %0, ptr noundef nonnull align 16 dereferenceable(352) %.sroa.0, i64 352, i1 false)
@@ -55251,11 +55251,11 @@ define hidden void @_ZN15datafusion_expr12logical_plan7builder18LogicalPlanBuild
 
 195:                                              ; preds = %191
   call void @llvm.lifetime.start.p0(i64 352, ptr nonnull %20)
-  %196 = getelementptr inbounds nuw [27 x i64], ptr @anon.9879281d3383c0c102598d7b28966b25.96.llvm.18123795597341512700, i64 0, i64 %.0..0..0..0..0..0.30.pr
+  %196 = getelementptr inbounds [27 x i64], ptr @anon.9879281d3383c0c102598d7b28966b25.96.llvm.18123795597341512700, i64 0, i64 %.0..0..0..0..0..0.30.pr
   %197 = load i64, ptr %196, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %20, ptr nonnull align 16 %23, i64 %197, i1 false)
   %.0..0..0..0. = load i64, ptr %20, align 16
-  %198 = getelementptr inbounds nuw [27 x i64], ptr @anon.9879281d3383c0c102598d7b28966b25.96.llvm.18123795597341512700, i64 0, i64 %.0..0..0..0.
+  %198 = getelementptr inbounds [27 x i64], ptr @anon.9879281d3383c0c102598d7b28966b25.96.llvm.18123795597341512700, i64 0, i64 %.0..0..0..0.
   %199 = load i64, ptr %198, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %24, ptr nonnull align 16 %20, i64 %199, i1 false)
   call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %20)

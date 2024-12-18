@@ -410,7 +410,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   store double 2.550000e+02, ptr %86, align 8
   store double 0.000000e+00, ptr %87, align 8
   %124 = sext i32 %.039 to i64
-  %125 = getelementptr inbounds nuw [7 x %"class.std::__cxx11::basic_string"], ptr @_ZL5algosB5cxx11, i64 0, i64 %124
+  %125 = getelementptr inbounds [7 x %"class.std::__cxx11::basic_string"], ptr @_ZL5algosB5cxx11, i64 0, i64 %124
   invoke void @_ZN2cv7putTextERKNS_17_InputOutputArrayERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Point_IiEEidNS_7Scalar_IdEEiib(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(32) %125, i64 128849018890, i32 noundef 1, double noundef 2.000000e+00, ptr noundef nonnull %22, i32 noundef 2, i32 noundef 16, i1 noundef zeroext false)
           to label %126 unwind label %137
 
@@ -497,7 +497,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   %150 = icmp sgt i32 %.039, 5
   %spec.store.select = select i1 %150, i32 0, i32 %149
   %151 = sext i32 %spec.store.select to i64
-  %152 = getelementptr inbounds nuw [7 x %"class.std::__cxx11::basic_string"], ptr @_ZL5algosB5cxx11, i64 0, i64 %151
+  %152 = getelementptr inbounds [7 x %"class.std::__cxx11::basic_string"], ptr @_ZL5algosB5cxx11, i64 0, i64 %151
   invoke fastcc void @_ZL24createBGSubtractorByNameRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %29, ptr noundef nonnull align 8 dereferenceable(32) %152)
           to label %153 unwind label %.loopexit
 

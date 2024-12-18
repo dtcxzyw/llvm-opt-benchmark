@@ -1912,7 +1912,7 @@ _ZNK9btVector36maxDotEPKS_lRf.exit:               ; preds = %cond.end, %for.end.
   br i1 %cmp26, label %if.then27, label %for.inc31
 
 if.then27:                                        ; preds = %_ZNK9btVector36maxDotEPKS_lRf.exit
-  %arrayidx29 = getelementptr inbounds nuw [128 x %class.btVector3], ptr %temp, i64 0, i64 %ptIndex.0.lcssa.i
+  %arrayidx29 = getelementptr inbounds [128 x %class.btVector3], ptr %temp, i64 0, i64 %ptIndex.0.lcssa.i
   %retval.sroa.0.0.copyload = load <2 x float>, ptr %arrayidx29, align 16
   %retval.sroa.4.0.arrayidx29.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx29, i64 8
   %retval.sroa.4.0.copyload = load <2 x float>, ptr %retval.sroa.4.0.arrayidx29.sroa_idx, align 8
@@ -2054,7 +2054,7 @@ _ZNK9btVector36maxDotEPKS_lRf.exit:               ; preds = %cond.end, %for.end.
   br i1 %cmp36, label %if.then, label %for.inc45
 
 if.then:                                          ; preds = %_ZNK9btVector36maxDotEPKS_lRf.exit
-  %arrayidx38 = getelementptr inbounds nuw [128 x %class.btVector3], ptr %temp, i64 0, i64 %ptIndex.0.lcssa.i
+  %arrayidx38 = getelementptr inbounds [128 x %class.btVector3], ptr %temp, i64 0, i64 %ptIndex.0.lcssa.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx33, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx38, i64 12, i1 false)
   store float %maxDot1.0.lcssa.i, ptr %arrayidx35, align 4
   br label %for.inc45

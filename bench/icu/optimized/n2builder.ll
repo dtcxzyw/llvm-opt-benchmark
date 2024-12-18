@@ -1666,7 +1666,7 @@ if.end18:                                         ; preds = %if.end7
   store i8 %conv.i55, ptr %leadCC14, align 1
   %sub = add nsw i32 %7, -1
   %idxprom.i = sext i32 %sub to i64
-  %arrayidx.i = getelementptr inbounds nuw [31 x i32], ptr %buffer, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [31 x i32], ptr %buffer, i64 0, i64 %idxprom.i
   %9 = load i32, ptr %arrayidx.i, align 4
   %conv.i57 = trunc i32 %9 to i8
   %trailCC17 = getelementptr inbounds nuw i8, ptr %norm, i64 42

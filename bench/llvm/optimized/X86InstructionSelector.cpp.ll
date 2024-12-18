@@ -1783,7 +1783,7 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_122X86InstructionSelector24
 switch.lookup:
   %switch.tableidx = add nsw i32 %1, -1
   %3 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x double], ptr @switch.table._ZNK12_GLOBAL__N_122X86InstructionSelector24testImmPredicate_APFloatEjRKN4llvm7APFloatE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds [4 x double], ptr @switch.table._ZNK12_GLOBAL__N_122X86InstructionSelector24testImmPredicate_APFloatEjRKN4llvm7APFloatE, i64 0, i64 %3
   %switch.load = load double, ptr %switch.gep, align 8
   %4 = tail call noundef zeroext i1 @_ZNK4llvm7APFloat14isExactlyValueEd(ptr noundef nonnull align 8 dereferenceable(32) %2, double noundef %switch.load)
   ret i1 %4
@@ -2233,13 +2233,13 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit.i:            ; preds = %_ZNK4llvm3LLT19getS
   %228 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %49) #19
   %229 = add i64 %228, -8
   %230 = call i64 @llvm.fshl.i64(i64 %229, i64 %229, i64 61)
-  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN12_GLOBAL__N_122X86InstructionSelector6selectERN4llvm12MachineInstrE, i64 0, i64 %230
+  %switch.gep = getelementptr inbounds [8 x i32], ptr @switch.table._ZN12_GLOBAL__N_122X86InstructionSelector6selectERN4llvm12MachineInstrE, i64 0, i64 %230
   %switch.load = load i32, ptr %switch.gep, align 4
-  %switch.gep97 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN12_GLOBAL__N_122X86InstructionSelector6selectERN4llvm12MachineInstrE.48, i64 0, i64 %230
+  %switch.gep97 = getelementptr inbounds [8 x i32], ptr @switch.table._ZN12_GLOBAL__N_122X86InstructionSelector6selectERN4llvm12MachineInstrE.48, i64 0, i64 %230
   %switch.load98 = load i32, ptr %switch.gep97, align 4
-  %switch.gep99 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN12_GLOBAL__N_122X86InstructionSelector6selectERN4llvm12MachineInstrE.49, i64 0, i64 %230
+  %switch.gep99 = getelementptr inbounds [8 x i32], ptr @switch.table._ZN12_GLOBAL__N_122X86InstructionSelector6selectERN4llvm12MachineInstrE.49, i64 0, i64 %230
   %switch.load100 = load i32, ptr %switch.gep99, align 4
-  %switch.gep101 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN12_GLOBAL__N_122X86InstructionSelector6selectERN4llvm12MachineInstrE.50, i64 0, i64 %230
+  %switch.gep101 = getelementptr inbounds [8 x i32], ptr @switch.table._ZN12_GLOBAL__N_122X86InstructionSelector6selectERN4llvm12MachineInstrE.50, i64 0, i64 %230
   %switch.load102 = load i32, ptr %switch.gep101, align 4
   %231 = load ptr, ptr %149, align 8
   %232 = load ptr, ptr %147, align 8

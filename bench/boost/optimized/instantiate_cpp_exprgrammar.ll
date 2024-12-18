@@ -1985,10 +1985,10 @@ define linkonce_odr hidden void @_ZN5boost4wave4util6throw_INS0_20preprocess_exc
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %4)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = sext i32 %0 to i64
-  %9 = getelementptr inbounds nuw [50 x i32], ptr @_ZZN5boost4wave20preprocess_exception14severity_levelEiE29preprocess_exception_severity, i64 0, i64 %8
+  %9 = getelementptr inbounds [50 x i32], ptr @_ZZN5boost4wave20preprocess_exception14severity_levelEiE29preprocess_exception_severity, i64 0, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !59
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds nuw [5 x ptr], ptr @_ZZN5boost4wave4util12get_severityEiE13severity_text, i64 0, i64 %11
+  %12 = getelementptr inbounds [5 x ptr], ptr @_ZZN5boost4wave4util12get_severityEiE13severity_text, i64 0, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !22
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %14, label %22
@@ -2014,7 +2014,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %14, %22
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit17 unwind label %44
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit17: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
-  %26 = getelementptr inbounds nuw [50 x ptr], ptr @_ZZN5boost4wave20preprocess_exception10error_textEiE27preprocess_exception_errors, i64 0, i64 %8
+  %26 = getelementptr inbounds [50 x ptr], ptr @_ZZN5boost4wave20preprocess_exception10error_textEiE27preprocess_exception_errors, i64 0, i64 %8
   %27 = load ptr, ptr %26, align 8, !tbaa !22
   %.not.i18 = icmp eq ptr %27, null
   br i1 %.not.i18, label %28, label %36
@@ -2183,7 +2183,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %94 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %95 = getelementptr i8, ptr %93, i64 -24
   %96 = load i64, ptr %95, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %4, i64 %96
+  %97 = getelementptr inbounds i8, ptr %4, i64 %96
   store ptr %94, ptr %97, align 8, !tbaa !61
   %98 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   store ptr %98, ptr %7, align 8, !tbaa !61
@@ -2217,7 +2217,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   %111 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %112 = getelementptr i8, ptr %110, i64 -24
   %113 = load i64, ptr %112, align 8
-  %114 = getelementptr inbounds nuw i8, ptr %4, i64 %113
+  %114 = getelementptr inbounds i8, ptr %4, i64 %113
   store ptr %111, ptr %114, align 8, !tbaa !61
   %115 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %115, align 8, !tbaa !80
@@ -24145,7 +24145,7 @@ define linkonce_odr hidden noundef i32 @_ZNK5boost4wave20preprocess_exception12g
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %3 = load i32, ptr %2, align 8, !tbaa !76
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds nuw [50 x i32], ptr @_ZZN5boost4wave20preprocess_exception14severity_levelEiE29preprocess_exception_severity, i64 0, i64 %4
+  %5 = getelementptr inbounds [50 x i32], ptr @_ZZN5boost4wave20preprocess_exception14severity_levelEiE29preprocess_exception_severity, i64 0, i64 %4
   %6 = load i32, ptr %5, align 4, !tbaa !59
   ret i32 %6
 }

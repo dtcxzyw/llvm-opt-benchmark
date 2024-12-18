@@ -1394,7 +1394,7 @@ for.cond.cleanup:                                 ; preds = %if.end89, %entry
 
 for.body:                                         ; preds = %if.end89, %for.body.lr.ph
   %i.0324 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %if.end89 ]
-  %arrayidx325 = getelementptr inbounds nuw %"struct.duckdb::StaticFunctionDefinition", ptr @_ZN6duckdbL18internal_functionsE, i64 %i.0324
+  %arrayidx325 = getelementptr inbounds %"struct.duckdb::StaticFunctionDefinition", ptr @_ZN6duckdbL18internal_functionsE, i64 %i.0324
   %get_function = getelementptr inbounds nuw i8, ptr %arrayidx325, i64 32
   %9 = load ptr, ptr %get_function, align 16, !tbaa !8
   %tobool2.not = icmp eq ptr %9, null
@@ -2357,7 +2357,7 @@ cleanup.action:                                   ; preds = %ehcleanup84, %_ZNKS
 
 if.end89:                                         ; preds = %_ZN6duckdb11FunctionSetINS_17AggregateFunctionEED2Ev.exit312, %_ZN6duckdb11FunctionSetINS_14ScalarFunctionEED2Ev.exit171
   %inc = add i64 %i.0324, 1
-  %arrayidx = getelementptr inbounds nuw %"struct.duckdb::StaticFunctionDefinition", ptr @_ZN6duckdbL18internal_functionsE, i64 %inc
+  %arrayidx = getelementptr inbounds %"struct.duckdb::StaticFunctionDefinition", ptr @_ZN6duckdbL18internal_functionsE, i64 %inc
   %141 = load ptr, ptr %arrayidx, align 16, !tbaa !3
   %tobool.not = icmp eq ptr %141, null
   br i1 %tobool.not, label %for.cond.cleanup, label %for.body, !llvm.loop !39

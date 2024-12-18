@@ -1467,7 +1467,7 @@ if.else:                                          ; preds = %entry
   %arrayidx = getelementptr inbounds nuw [3 x i32], ptr @__const._ZNK4pbrt9TransformcvNS_10QuaternionEEv.nxt, i64 0, i64 %idxprom
   %26 = load i32, ptr %arrayidx, align 4
   %idxprom66 = sext i32 %26 to i64
-  %arrayidx67 = getelementptr inbounds nuw [3 x i32], ptr @__const._ZNK4pbrt9TransformcvNS_10QuaternionEEv.nxt, i64 0, i64 %idxprom66
+  %arrayidx67 = getelementptr inbounds [3 x i32], ptr @__const._ZNK4pbrt9TransformcvNS_10QuaternionEEv.nxt, i64 0, i64 %idxprom66
   %27 = load i32, ptr %arrayidx67, align 4
   %call71 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef %i.1)
   %28 = extractvalue { ptr, i64 } %call71, 0
@@ -1514,7 +1514,7 @@ if.else:                                          ; preds = %entry
   %41 = load float, ptr %arrayidx.i50, align 4
   %add118 = fadd float %39, %41
   %mul119 = fmul float %s68.0, %add118
-  %arrayidx121 = getelementptr inbounds nuw [3 x float], ptr %q, i64 0, i64 %idxprom66
+  %arrayidx121 = getelementptr inbounds [3 x float], ptr %q, i64 0, i64 %idxprom66
   store float %mul119, ptr %arrayidx121, align 4
   %call124 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef %27)
   %42 = extractvalue { ptr, i64 } %call124, 0
@@ -1526,7 +1526,7 @@ if.else:                                          ; preds = %entry
   %45 = load float, ptr %arrayidx.i52, align 4
   %add132 = fadd float %43, %45
   %mul133 = fmul float %s68.0, %add132
-  %arrayidx135 = getelementptr inbounds nuw [3 x float], ptr %q, i64 0, i64 %conv82
+  %arrayidx135 = getelementptr inbounds [3 x float], ptr %q, i64 0, i64 %conv82
   store float %mul133, ptr %arrayidx135, align 4
   %46 = load float, ptr %q, align 4
   %retval.sroa.0.0.vec.insert55 = insertelement <2 x float> poison, float %46, i64 0

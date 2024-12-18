@@ -70970,7 +70970,7 @@ _ZN3vcg4face10IsManifoldI8MeshFaceEEbRKT_i.exit.thread.us.us: ; preds = %_ZN3vcg
   store i32 %96, ptr %94, align 4
   %sext61 = shl i64 %.sroa.6.0.us.us.us, 32
   %97 = ashr exact i64 %sext61, 32
-  %98 = getelementptr inbounds nuw [3 x i32], ptr %3, i64 0, i64 %97
+  %98 = getelementptr inbounds [3 x i32], ptr %3, i64 0, i64 %97
   %99 = load i32, ptr %98, align 4
   %100 = or i32 %96, %99
   store i32 %100, ptr %94, align 4
@@ -71030,7 +71030,7 @@ _ZN3vcg4face10IsManifoldI8MeshFaceEEbRKT_i.exit:  ; preds = %114
   %.sroa.0.0 = phi ptr [ %138, %.split ], [ %.sroa.032.049, %125 ]
   %sext = shl i64 %.sroa.6.0, 32
   %130 = ashr exact i64 %sext, 32
-  %131 = getelementptr inbounds nuw [3 x i32], ptr %3, i64 0, i64 %130
+  %131 = getelementptr inbounds [3 x i32], ptr %3, i64 0, i64 %130
   %132 = load i32, ptr %131, align 4
   %133 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 200
   %134 = load i32, ptr %133, align 4

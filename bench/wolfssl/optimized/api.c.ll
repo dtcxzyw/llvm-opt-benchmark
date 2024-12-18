@@ -35552,7 +35552,7 @@ if.then204:                                       ; preds = %do.end199, %if.else
   %idx.0147 = phi i32 [ %add411, %if.else409 ], [ 0, %do.end199 ]
   %inc = add nsw i32 %idx.0147, 1
   %idxprom = sext i32 %idx.0147 to i64
-  %arrayidx = getelementptr inbounds nuw [65536 x i8], ptr %test_ctx, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [65536 x i8], ptr %test_ctx, i64 0, i64 %idxprom
   %54 = load i8, ptr %arrayidx, align 1
   %cmp211.not = icmp eq i8 %54, 22
   br i1 %cmp211.not, label %if.then232, label %do.end294.sink.split
@@ -35560,7 +35560,7 @@ if.then204:                                       ; preds = %do.end199, %if.else
 if.then232:                                       ; preds = %if.then204
   %inc235 = add nsw i32 %idx.0147, 2
   %idxprom236 = sext i32 %inc to i64
-  %arrayidx237 = getelementptr inbounds nuw [65536 x i8], ptr %test_ctx, i64 0, i64 %idxprom236
+  %arrayidx237 = getelementptr inbounds [65536 x i8], ptr %test_ctx, i64 0, i64 %idxprom236
   %55 = load i8, ptr %arrayidx237, align 1
   %cmp244 = icmp eq i8 %55, 3
   br i1 %cmp244, label %if.then265, label %do.end294.sink.split
@@ -35568,7 +35568,7 @@ if.then232:                                       ; preds = %if.then204
 if.then265:                                       ; preds = %if.then232
   %inc268 = add nsw i32 %idx.0147, 3
   %idxprom269 = sext i32 %inc235 to i64
-  %arrayidx270 = getelementptr inbounds nuw [65536 x i8], ptr %test_ctx, i64 0, i64 %idxprom269
+  %arrayidx270 = getelementptr inbounds [65536 x i8], ptr %test_ctx, i64 0, i64 %idxprom269
   %56 = load i8, ptr %arrayidx270, align 1
   %cmp277 = icmp eq i8 %56, 3
   br i1 %cmp277, label %do.end294, label %do.end294.sink.split
@@ -35599,7 +35599,7 @@ do.end294:                                        ; preds = %do.end294.sink.spli
   %_ret.11 = phi i32 [ 1, %if.then265 ], [ 0, %do.end294.sink.split ]
   %add = add nsw i32 %idx.3, 2
   %idxprom297 = sext i32 %add to i64
-  %arrayidx298 = getelementptr inbounds nuw [65536 x i8], ptr %test_ctx, i64 0, i64 %idxprom297
+  %arrayidx298 = getelementptr inbounds [65536 x i8], ptr %test_ctx, i64 0, i64 %idxprom297
   %64 = load i8, ptr %arrayidx298, align 1
   %cmp300 = icmp eq i8 %64, 13
   br i1 %cmp300, label %if.then302, label %if.else409
@@ -35607,13 +35607,13 @@ do.end294:                                        ; preds = %do.end294.sink.spli
 if.then302:                                       ; preds = %do.end294
   %add304 = add nsw i32 %idx.3, 6
   %idxprom306 = sext i32 %add304 to i64
-  %arrayidx307 = getelementptr inbounds nuw [65536 x i8], ptr %test_ctx, i64 0, i64 %idxprom306
+  %arrayidx307 = getelementptr inbounds [65536 x i8], ptr %test_ctx, i64 0, i64 %idxprom306
   %65 = load i8, ptr %arrayidx307, align 1
   %conv308 = zext i8 %65 to i32
   %add309 = add i32 %idx.3, 7
   %add310 = add i32 %add309, %conv308
   %idx.ext313 = sext i32 %add310 to i64
-  %add.ptr314 = getelementptr inbounds nuw i8, ptr %test_ctx, i64 %idx.ext313
+  %add.ptr314 = getelementptr inbounds i8, ptr %test_ctx, i64 %idx.ext313
   %add.ptr314.val = load i8, ptr %add.ptr314, align 1
   %66 = getelementptr i8, ptr %add.ptr314, i64 1
   %add.ptr314.val86 = load i8, ptr %66, align 1
@@ -35635,7 +35635,7 @@ for.body325.preheader:                            ; preds = %if.then302
 for.body325:                                      ; preds = %for.body325.preheader, %for.inc
   %indvars.iv = phi i64 [ %68, %for.body325.preheader ], [ %indvars.iv.next, %for.inc ]
   %70 = add nsw i64 %indvars.iv, 1
-  %arrayidx329 = getelementptr inbounds nuw [65536 x i8], ptr %test_ctx, i64 0, i64 %70
+  %arrayidx329 = getelementptr inbounds [65536 x i8], ptr %test_ctx, i64 0, i64 %70
   %71 = load i8, ptr %arrayidx329, align 1
   switch i8 %71, label %do.body392 [
     i8 7, label %if.then344
@@ -35644,7 +35644,7 @@ for.body325:                                      ; preds = %for.body325.prehead
   ]
 
 if.then344:                                       ; preds = %for.body325, %for.body325
-  %arrayidx348 = getelementptr inbounds nuw [65536 x i8], ptr %test_ctx, i64 0, i64 %indvars.iv
+  %arrayidx348 = getelementptr inbounds [65536 x i8], ptr %test_ctx, i64 0, i64 %indvars.iv
   %72 = load i8, ptr %arrayidx348, align 1
   %cmp355 = icmp eq i8 %72, 8
   br i1 %cmp355, label %for.inc, label %do.body358
@@ -35686,7 +35686,7 @@ for.inc:                                          ; preds = %for.body325, %if.th
 
 if.else409:                                       ; preds = %do.end294
   %idx.ext = sext i32 %idx.3 to i64
-  %add.ptr = getelementptr inbounds nuw i8, ptr %test_ctx, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i8, ptr %test_ctx, i64 %idx.ext
   %add.ptr.val = load i8, ptr %add.ptr, align 1
   %conv.i = zext i8 %add.ptr.val to i32
   %shl.i = shl nuw nsw i32 %conv.i, 8

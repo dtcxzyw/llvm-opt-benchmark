@@ -1822,7 +1822,7 @@ pad_block_float.exit105.us161.us.us.i:            ; preds = %pad_block_float.exi
 
 .preheader112.i:                                  ; preds = %28, %103, %.preheader113.i
   %.170.lcssa.i = phi ptr [ %.069148.i, %.preheader113.i ], [ %105, %103 ], [ %31, %28 ]
-  %96 = getelementptr inbounds nuw i8, ptr %11, i64 %23
+  %96 = getelementptr inbounds i8, ptr %11, i64 %23
   br label %.preheader109.i
 
 .preheader111.i:                                  ; preds = %.preheader111.lr.ph.i, %103

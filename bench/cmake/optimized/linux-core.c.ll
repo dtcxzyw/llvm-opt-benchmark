@@ -199,7 +199,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_resident_set_memory
 
 21:                                               ; preds = %.critedge30
   %22 = tail call i32 @uv__close(i32 noundef %4) #14
-  %23 = getelementptr inbounds nuw [1024 x i8], ptr %2, i64 0, i64 %11
+  %23 = getelementptr inbounds [1024 x i8], ptr %2, i64 0, i64 %11
   store i8 0, ptr %23, align 1
   %24 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef 32) #16
   %25 = icmp eq ptr %24, null
@@ -638,7 +638,7 @@ read_models.exit:                                 ; preds = %32
 
 101:                                              ; preds = %97
   store i32 %99, ptr %12, align 4
-  %102 = getelementptr inbounds nuw i8, ptr %11, i64 %.014.i
+  %102 = getelementptr inbounds i8, ptr %11, i64 %.014.i
   %103 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %102, ptr noundef nonnull @.str.16, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #14
   %.not19.i = icmp eq i32 %103, 6
   br i1 %.not19.i, label %105, label %104

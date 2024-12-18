@@ -198,7 +198,7 @@ _ZN3ryu6buffer6Buffer6format17hbb7cd26635e8b898E.exit.i.i: ; preds = %16, %14
   %46 = zext nneg i16 %45 to i64
   %47 = add i64 %.02638.i.i.i, -4
   %48 = getelementptr inbounds nuw i8, ptr @anon.b76ca3962959521c709fa61f4185cda9.54, i64 %43
-  %49 = getelementptr inbounds nuw i8, ptr %2, i64 %47
+  %49 = getelementptr inbounds i8, ptr %2, i64 %47
   %50 = load i16, ptr %48, align 1, !noalias !25
   store i16 %50, ptr %49, align 1, !alias.scope !22, !noalias !21
   %51 = getelementptr inbounds nuw i8, ptr @anon.b76ca3962959521c709fa61f4185cda9.54, i64 %46
@@ -217,7 +217,7 @@ _ZN3ryu6buffer6Buffer6format17hbb7cd26635e8b898E.exit.i.i: ; preds = %16, %14
   %.zext37.i.i.i = zext nneg i16 %58 to i64
   %59 = add i64 %.026.lcssa.i.i.i, -2
   %60 = getelementptr inbounds nuw i8, ptr @anon.b76ca3962959521c709fa61f4185cda9.54, i64 %57
-  %61 = getelementptr inbounds nuw i8, ptr %2, i64 %59
+  %61 = getelementptr inbounds i8, ptr %2, i64 %59
   %62 = load i16, ptr %60, align 1, !noalias !25
   store i16 %62, ptr %61, align 1, !alias.scope !22, !noalias !21
   br label %63
@@ -232,7 +232,7 @@ _ZN3ryu6buffer6Buffer6format17hbb7cd26635e8b898E.exit.i.i: ; preds = %16, %14
   %66 = shl nuw nsw i64 %.025.i.i.i, 1
   %67 = add i64 %.127.i.i.i, -2
   %68 = getelementptr inbounds nuw i8, ptr @anon.b76ca3962959521c709fa61f4185cda9.54, i64 %66
-  %69 = getelementptr inbounds nuw i8, ptr %2, i64 %67
+  %69 = getelementptr inbounds i8, ptr %2, i64 %67
   %70 = load i16, ptr %68, align 1, !noalias !25
   store i16 %70, ptr %69, align 1, !alias.scope !22, !noalias !21
   br label %76
@@ -240,7 +240,7 @@ _ZN3ryu6buffer6Buffer6format17hbb7cd26635e8b898E.exit.i.i: ; preds = %16, %14
 71:                                               ; preds = %63
   %72 = add i64 %.127.i.i.i, -1
   %73 = trunc nuw nsw i64 %.025.i.i.i to i8
-  %74 = getelementptr inbounds nuw i8, ptr %2, i64 %72
+  %74 = getelementptr inbounds i8, ptr %2, i64 %72
   %75 = or disjoint i8 %73, 48
   store i8 %75, ptr %74, align 1, !alias.scope !22, !noalias !21
   br label %76
@@ -251,13 +251,13 @@ _ZN3ryu6buffer6Buffer6format17hbb7cd26635e8b898E.exit.i.i: ; preds = %16, %14
 
 77:                                               ; preds = %76
   %78 = add i64 %.2.i.i.i, -1
-  %79 = getelementptr inbounds nuw i8, ptr %2, i64 %78
+  %79 = getelementptr inbounds i8, ptr %2, i64 %78
   store i8 45, ptr %79, align 1, !alias.scope !22, !noalias !21
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i32$GT$5write17h0150fa5b27f51b6aE.exit.i.i"
 
 "_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i32$GT$5write17h0150fa5b27f51b6aE.exit.i.i": ; preds = %77, %76
   %.3.i.i.i = phi i64 [ %.2.i.i.i, %76 ], [ %78, %77 ]
-  %gepdiff.i.i = sub nuw nsw i64 11, %.3.i.i.i
+  %gepdiff.i.i = sub nsw i64 11, %.3.i.i.i
   %80 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
   %81 = load i64, ptr %80, align 8, !alias.scope !26, !noundef !16
   %82 = load i64, ptr %.0.val, align 8, !alias.scope !26, !noundef !16
@@ -272,7 +272,7 @@ _ZN3ryu6buffer6Buffer6format17hbb7cd26635e8b898E.exit.i.i: ; preds = %16, %14
 
 "_ZN69_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$pdf_writer..buf..BufExt$GT$8push_int17ha1c8b648b2087586E.exit.i": ; preds = %85, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i32$GT$5write17h0150fa5b27f51b6aE.exit.i.i"
   %86 = phi i64 [ %81, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i32$GT$5write17h0150fa5b27f51b6aE.exit.i.i" ], [ %.pre.i.i2.i, %85 ]
-  %87 = getelementptr inbounds nuw i8, ptr %2, i64 %.3.i.i.i
+  %87 = getelementptr inbounds i8, ptr %2, i64 %.3.i.i.i
   %88 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
   %89 = load ptr, ptr %88, align 8, !alias.scope !31, !nonnull !16, !noundef !16
   %90 = getelementptr inbounds i8, ptr %89, i64 %86
@@ -424,7 +424,7 @@ _ZN10pdf_writer6object4Dict6insert17hbdd766f8807bb414E.exit: ; preds = %._crit_e
   %53 = zext nneg i16 %52 to i64
   %54 = add i64 %.02638.i.i.i.i, -4
   %55 = getelementptr inbounds nuw i8, ptr @anon.b76ca3962959521c709fa61f4185cda9.54, i64 %50
-  %56 = getelementptr inbounds nuw i8, ptr %5, i64 %54
+  %56 = getelementptr inbounds i8, ptr %5, i64 %54
   %57 = load i16, ptr %55, align 1, !noalias !66
   store i16 %57, ptr %56, align 1, !alias.scope !63, !noalias !62
   %58 = getelementptr inbounds nuw i8, ptr @anon.b76ca3962959521c709fa61f4185cda9.54, i64 %53
@@ -443,7 +443,7 @@ _ZN10pdf_writer6object4Dict6insert17hbdd766f8807bb414E.exit: ; preds = %._crit_e
   %.zext37.i.i.i.i = zext nneg i16 %65 to i64
   %66 = add i64 %.026.lcssa.i.i.i.i, -2
   %67 = getelementptr inbounds nuw i8, ptr @anon.b76ca3962959521c709fa61f4185cda9.54, i64 %64
-  %68 = getelementptr inbounds nuw i8, ptr %5, i64 %66
+  %68 = getelementptr inbounds i8, ptr %5, i64 %66
   %69 = load i16, ptr %67, align 1, !noalias !66
   store i16 %69, ptr %68, align 1, !alias.scope !63, !noalias !62
   br label %70
@@ -458,7 +458,7 @@ _ZN10pdf_writer6object4Dict6insert17hbdd766f8807bb414E.exit: ; preds = %._crit_e
   %73 = shl nuw nsw i64 %.025.i.i.i.i, 1
   %74 = add i64 %.127.i.i.i.i, -2
   %75 = getelementptr inbounds nuw i8, ptr @anon.b76ca3962959521c709fa61f4185cda9.54, i64 %73
-  %76 = getelementptr inbounds nuw i8, ptr %5, i64 %74
+  %76 = getelementptr inbounds i8, ptr %5, i64 %74
   %77 = load i16, ptr %75, align 1, !noalias !66
   store i16 %77, ptr %76, align 1, !alias.scope !63, !noalias !62
   br label %83
@@ -466,7 +466,7 @@ _ZN10pdf_writer6object4Dict6insert17hbdd766f8807bb414E.exit: ; preds = %._crit_e
 78:                                               ; preds = %70
   %79 = add i64 %.127.i.i.i.i, -1
   %80 = trunc nuw nsw i64 %.025.i.i.i.i to i8
-  %81 = getelementptr inbounds nuw i8, ptr %5, i64 %79
+  %81 = getelementptr inbounds i8, ptr %5, i64 %79
   %82 = or disjoint i8 %80, 48
   store i8 %82, ptr %81, align 1, !alias.scope !63, !noalias !62
   br label %83
@@ -477,13 +477,13 @@ _ZN10pdf_writer6object4Dict6insert17hbdd766f8807bb414E.exit: ; preds = %._crit_e
 
 84:                                               ; preds = %83
   %85 = add i64 %.2.i.i.i.i, -1
-  %86 = getelementptr inbounds nuw i8, ptr %5, i64 %85
+  %86 = getelementptr inbounds i8, ptr %5, i64 %85
   store i8 45, ptr %86, align 1, !alias.scope !63, !noalias !62
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i32$GT$5write17h0150fa5b27f51b6aE.exit.i.i.i"
 
 "_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i32$GT$5write17h0150fa5b27f51b6aE.exit.i.i.i": ; preds = %84, %83
   %.3.i.i.i.i = phi i64 [ %.2.i.i.i.i, %83 ], [ %85, %84 ]
-  %gepdiff.i.i.i = sub nuw nsw i64 11, %.3.i.i.i.i
+  %gepdiff.i.i.i = sub nsw i64 11, %.3.i.i.i.i
   %87 = load i64, ptr %9, align 8, !alias.scope !67, !noundef !16
   %88 = sub i64 %87, %41
   %89 = icmp ugt i64 %gepdiff.i.i.i, %88
@@ -496,7 +496,7 @@ _ZN10pdf_writer6object4Dict6insert17hbdd766f8807bb414E.exit: ; preds = %._crit_e
 
 "_ZN69_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$pdf_writer..buf..BufExt$GT$8push_int17ha1c8b648b2087586E.exit.i.i": ; preds = %90, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i32$GT$5write17h0150fa5b27f51b6aE.exit.i.i.i"
   %91 = phi i64 [ %41, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i32$GT$5write17h0150fa5b27f51b6aE.exit.i.i.i" ], [ %.pre.i.i.i.i, %90 ]
-  %92 = getelementptr inbounds nuw i8, ptr %5, i64 %.3.i.i.i.i
+  %92 = getelementptr inbounds i8, ptr %5, i64 %.3.i.i.i.i
   %93 = load ptr, ptr %16, align 8, !alias.scope !72, !nonnull !16, !noundef !16
   %94 = getelementptr inbounds i8, ptr %93, i64 %91
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %94, ptr nonnull align 1 %92, i64 %gepdiff.i.i.i, i1 false)

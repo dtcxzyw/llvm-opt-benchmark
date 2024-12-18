@@ -4465,7 +4465,7 @@ define linkonce_odr void @_ZNK7xgboost10collective10SockAddrV44AddrB5cxx11Ev(ptr
 
 .noexc3:                                          ; preds = %.noexc
   %13 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #10
-  %14 = getelementptr inbounds nuw i8, ptr %3, i64 %13
+  %14 = getelementptr inbounds i8, ptr %3, i64 %13
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %3, ptr noundef nonnull %14)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %15
 
@@ -4525,7 +4525,7 @@ define linkonce_odr void @_ZNK7xgboost10collective10SockAddrV64AddrB5cxx11Ev(ptr
 
 .noexc3:                                          ; preds = %.noexc
   %13 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #10
-  %14 = getelementptr inbounds nuw i8, ptr %3, i64 %13
+  %14 = getelementptr inbounds i8, ptr %3, i64 %13
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %3, ptr noundef nonnull %14)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %15
 

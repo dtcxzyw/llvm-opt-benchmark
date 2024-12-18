@@ -1014,7 +1014,7 @@ if.end8:                                          ; preds = %if.end
 if.end14:                                         ; preds = %if.end8
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %linkname) #26
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %linkname, ptr align 1 %name, i64 %cond, i1 false)
-  %add.ptr16 = getelementptr inbounds nuw i8, ptr %linkname, i64 %cond
+  %add.ptr16 = getelementptr inbounds i8, ptr %linkname, i64 %cond
   %add19 = add i64 %call11, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr16, ptr align 1 %add.ptr.i, i64 %add19, i1 false)
   store i8 0, ptr %this, align 8, !tbaa !7

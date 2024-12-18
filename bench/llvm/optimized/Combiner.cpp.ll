@@ -250,7 +250,7 @@ switch.lookup:
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 0, ptr %10, align 8, !noalias !4
   %11 = sext i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4llvm8CombinerC2ERNS_15MachineFunctionERNS_12CombinerInfoEPKNS_16TargetPassConfigEPNS_14GISelKnownBitsEPNS_12GISelCSEInfoE, i64 0, i64 %11
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4llvm8CombinerC2ERNS_15MachineFunctionERNS_12CombinerInfoEPKNS_16TargetPassConfigEPNS_14GISelKnownBitsEPNS_12GISelCSEInfoE, i64 0, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 424
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 408
@@ -338,7 +338,7 @@ switch.lookup:                                    ; preds = %.thread, %_ZNSt10un
   %32 = getelementptr inbounds nuw i8, ptr %26, i64 32
   store i32 0, ptr %32, align 8, !noalias !13
   %33 = sext i32 %23 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4llvm8CombinerC2ERNS_15MachineFunctionERNS_12CombinerInfoEPKNS_16TargetPassConfigEPNS_14GISelKnownBitsEPNS_12GISelCSEInfoE, i64 0, i64 %33
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4llvm8CombinerC2ERNS_15MachineFunctionERNS_12CombinerInfoEPKNS_16TargetPassConfigEPNS_14GISelKnownBitsEPNS_12GISelCSEInfoE, i64 0, i64 %33
   %switch.load = load ptr, ptr %switch.gep, align 8
   %34 = getelementptr inbounds nuw i8, ptr %26, i64 424
   %35 = getelementptr inbounds nuw i8, ptr %26, i64 408

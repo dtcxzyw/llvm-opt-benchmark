@@ -38145,9 +38145,9 @@ _ZNSt6vectorIN5clang17DocumentationDataESaIS1_EE9push_backEOS1_.exit.preheader: 
 
 _ZNSt6vectorIN5clang17DocumentationDataESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorIN5clang17DocumentationDataESaIS1_EE9push_backEOS1_.exit.preheader, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.i59
   %.idx.i = phi i64 [ %.add.i, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.i59 ], [ 240, %_ZNSt6vectorIN5clang17DocumentationDataESaIS1_EE9push_backEOS1_.exit.preheader ]
-  %.ptr.i = getelementptr inbounds nuw i8, ptr %36, i64 %.idx.i
+  %.ptr.i = getelementptr inbounds i8, ptr %36, i64 %.idx.i
   %.add.i = add nsw i64 %.idx.i, -24
-  %.ptr1.i = getelementptr inbounds nuw i8, ptr %36, i64 %.add.i
+  %.ptr1.i = getelementptr inbounds i8, ptr %36, i64 %.add.i
   %613 = load ptr, ptr %.ptr1.i, align 8
   %614 = getelementptr inbounds i8, ptr %.ptr.i, i64 -16
   %615 = load ptr, ptr %614, align 8
@@ -38189,9 +38189,9 @@ _ZN5clang17DocumentationDataD2Ev.exit:            ; preds = %_ZNSt6vectorINSt7__
 
 625:                                              ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.i73, %_ZN5clang17DocumentationDataD2Ev.exit
   %.idx.i61 = phi i64 [ 224, %_ZN5clang17DocumentationDataD2Ev.exit ], [ %.add.i63, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.i73 ]
-  %.ptr.i62 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx.i61
+  %.ptr.i62 = getelementptr inbounds i8, ptr %37, i64 %.idx.i61
   %.add.i63 = add nsw i64 %.idx.i61, -24
-  %.ptr1.i64 = getelementptr inbounds nuw i8, ptr %37, i64 %.add.i63
+  %.ptr1.i64 = getelementptr inbounds i8, ptr %37, i64 %.add.i63
   %626 = load ptr, ptr %.ptr1.i64, align 8
   %627 = getelementptr inbounds i8, ptr %.ptr.i62, i64 -16
   %628 = load ptr, ptr %627, align 8
@@ -76984,9 +76984,9 @@ _ZN5clang17DocumentationDataC2EOS0_.exit9.i.i.i:  ; preds = %43
 
 56:                                               ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.i.i.i.i, %_ZN5clang17DocumentationDataC2EOS0_.exit9.i.i.i
   %.idx.i.i.i.i = phi i64 [ 240, %_ZN5clang17DocumentationDataC2EOS0_.exit9.i.i.i ], [ %.add.i.i.i.i, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.i.i.i.i ]
-  %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 %.idx.i.i.i.i
+  %.ptr.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %.idx.i.i.i.i
   %.add.i.i.i.i = add nsw i64 %.idx.i.i.i.i, -24
-  %.ptr1.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 %.add.i.i.i.i
+  %.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %.add.i.i.i.i
   %57 = load ptr, ptr %.ptr1.i.i.i.i, align 8
   %58 = getelementptr inbounds i8, ptr %.ptr.i.i.i.i, i64 -16
   %59 = load ptr, ptr %58, align 8
@@ -77028,9 +77028,9 @@ _ZN5clang17DocumentationDataD2Ev.exit.i.i.i:      ; preds = %_ZNSt6vectorINSt7__
 
 69:                                               ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.i22.i.i.i, %_ZN5clang17DocumentationDataD2Ev.exit.i.i.i
   %.idx.i10.i.i.i = phi i64 [ 240, %_ZN5clang17DocumentationDataD2Ev.exit.i.i.i ], [ %.add.i12.i.i.i, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.i22.i.i.i ]
-  %.ptr.i11.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i10.i.i.i
+  %.ptr.i11.i.i.i = getelementptr inbounds i8, ptr %6, i64 %.idx.i10.i.i.i
   %.add.i12.i.i.i = add nsw i64 %.idx.i10.i.i.i, -24
-  %.ptr1.i13.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 %.add.i12.i.i.i
+  %.ptr1.i13.i.i.i = getelementptr inbounds i8, ptr %6, i64 %.add.i12.i.i.i
   %70 = load ptr, ptr %.ptr1.i13.i.i.i, align 8
   %71 = getelementptr inbounds i8, ptr %.ptr.i11.i.i.i, i64 -16
   %72 = load ptr, ptr %71, align 8
@@ -77194,9 +77194,9 @@ _ZN5clang17DocumentationDataC2EOS0_.exit2.i:      ; preds = %125
 
 140:                                              ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.i.i, %_ZN5clang17DocumentationDataC2EOS0_.exit2.i
   %.idx.i.i = phi i64 [ 240, %_ZN5clang17DocumentationDataC2EOS0_.exit2.i ], [ %.add.i.i, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.i.i ]
-  %.ptr.i.i = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i.i
+  %.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 %.idx.i.i
   %.add.i.i = add nsw i64 %.idx.i.i, -24
-  %.ptr1.i.i = getelementptr inbounds nuw i8, ptr %5, i64 %.add.i.i
+  %.ptr1.i.i = getelementptr inbounds i8, ptr %5, i64 %.add.i.i
   %141 = load ptr, ptr %.ptr1.i.i, align 8
   %142 = getelementptr inbounds i8, ptr %.ptr.i.i, i64 -16
   %143 = load ptr, ptr %142, align 8
@@ -77238,9 +77238,9 @@ _ZN5clang17DocumentationDataD2Ev.exit.i:          ; preds = %_ZNSt6vectorINSt7__
 
 153:                                              ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.i15.i, %_ZN5clang17DocumentationDataD2Ev.exit.i
   %.idx.i3.i = phi i64 [ 240, %_ZN5clang17DocumentationDataD2Ev.exit.i ], [ %.add.i5.i, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.i15.i ]
-  %.ptr.i4.i = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i3.i
+  %.ptr.i4.i = getelementptr inbounds i8, ptr %4, i64 %.idx.i3.i
   %.add.i5.i = add nsw i64 %.idx.i3.i, -24
-  %.ptr1.i6.i = getelementptr inbounds nuw i8, ptr %4, i64 %.add.i5.i
+  %.ptr1.i6.i = getelementptr inbounds i8, ptr %4, i64 %.add.i5.i
   %154 = load ptr, ptr %.ptr1.i6.i, align 8
   %155 = getelementptr inbounds i8, ptr %.ptr.i4.i, i64 -16
   %156 = load ptr, ptr %155, align 8
@@ -77657,9 +77657,9 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSEOS7_
 
 "_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN5clang17DocumentationDataESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNS2_17EmitClangAttrDocsERN4llvm12RecordKeeperERNSB_11raw_ostreamEE3$_0EEEvT_T0_SJ_T1_RT2_.exit": ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSEOS7_.exit.i.i17.i, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.i
   %.idx.i = phi i64 [ %.add.i, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.i ], [ 240, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSEOS7_.exit.i.i17.i ]
-  %.ptr.i = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i
+  %.ptr.i = getelementptr inbounds i8, ptr %5, i64 %.idx.i
   %.add.i = add nsw i64 %.idx.i, -24
-  %.ptr1.i = getelementptr inbounds nuw i8, ptr %5, i64 %.add.i
+  %.ptr1.i = getelementptr inbounds i8, ptr %5, i64 %.add.i
   %149 = load ptr, ptr %.ptr1.i, align 8
   %150 = getelementptr inbounds i8, ptr %.ptr.i, i64 -16
   %151 = load ptr, ptr %150, align 8
@@ -77832,9 +77832,9 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSEOS7_
 
 _ZN5clang17DocumentationDataaSEOS0_.exit13:       ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSEOS7_.exit.i.i11, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.i
   %.idx.i = phi i64 [ %.add.i, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.i ], [ 240, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSEOS7_.exit.i.i11 ]
-  %.ptr.i = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i
+  %.ptr.i = getelementptr inbounds i8, ptr %3, i64 %.idx.i
   %.add.i = add nsw i64 %.idx.i, -24
-  %.ptr1.i = getelementptr inbounds nuw i8, ptr %3, i64 %.add.i
+  %.ptr1.i = getelementptr inbounds i8, ptr %3, i64 %.add.i
   %63 = load ptr, ptr %.ptr1.i, align 8
   %64 = getelementptr inbounds i8, ptr %.ptr.i, i64 -16
   %65 = load ptr, ptr %64, align 8
@@ -78055,9 +78055,9 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSEOS7_
 
 _ZN5clang17DocumentationDataaSEOS0_.exit:         ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSEOS7_.exit.i.i, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.i
   %.idx.i = phi i64 [ %.add.i, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.i ], [ 240, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSEOS7_.exit.i.i ]
-  %.ptr.i = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i
+  %.ptr.i = getelementptr inbounds i8, ptr %3, i64 %.idx.i
   %.add.i = add nsw i64 %.idx.i, -24
-  %.ptr1.i = getelementptr inbounds nuw i8, ptr %3, i64 %.add.i
+  %.ptr1.i = getelementptr inbounds i8, ptr %3, i64 %.add.i
   %82 = load ptr, ptr %.ptr1.i, align 8
   %83 = getelementptr inbounds i8, ptr %.ptr.i, i64 -16
   %84 = load ptr, ptr %83, align 8
@@ -78261,9 +78261,9 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSEOS7_
 
 _ZN5clang17DocumentationDataaSEOS0_.exit10:       ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSEOS7_.exit.i.i8, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.i
   %.idx.i = phi i64 [ %.add.i, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.i ], [ 240, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSEOS7_.exit.i.i8 ]
-  %.ptr.i = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i
+  %.ptr.i = getelementptr inbounds i8, ptr %2, i64 %.idx.i
   %.add.i = add nsw i64 %.idx.i, -24
-  %.ptr1.i = getelementptr inbounds nuw i8, ptr %2, i64 %.add.i
+  %.ptr1.i = getelementptr inbounds i8, ptr %2, i64 %.add.i
   %72 = load ptr, ptr %.ptr1.i, align 8
   %73 = getelementptr inbounds i8, ptr %.ptr.i, i64 -16
   %74 = load ptr, ptr %73, align 8

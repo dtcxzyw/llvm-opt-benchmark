@@ -4833,7 +4833,7 @@ Gia_ObjHaveEdge.exit.thread:                      ; preds = %32, %Gia_ObjHaveEdg
 56:                                               ; preds = %53
   %57 = add nsw i32 %.0154223, 1
   %58 = sext i32 %.0154223 to i64
-  %59 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %58
+  %59 = getelementptr inbounds [4 x i32], ptr %6, i64 0, i64 %58
   store i32 %26, ptr %59, align 4
   br label %60
 
@@ -4928,7 +4928,7 @@ Gia_ObjHaveEdge.exit194.thread:                   ; preds = %78, %Gia_ObjHaveEdg
 
 101:                                              ; preds = %99
   %102 = sext i32 %.0152231 to i64
-  %103 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %102
+  %103 = getelementptr inbounds [4 x i32], ptr %7, i64 0, i64 %102
   store i32 %80, ptr %103, align 4
   br label %104
 

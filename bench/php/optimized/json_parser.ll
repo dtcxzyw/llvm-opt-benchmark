@@ -126,7 +126,7 @@ define hidden range(i32 0, 3) i32 @php_json_yyparse(ptr noundef %0) local_unname
 
 50:                                               ; preds = %48
   %51 = sext i32 %.0253 to i64
-  %52 = getelementptr inbounds nuw [40 x i8], ptr @yypact, i64 0, i64 %51
+  %52 = getelementptr inbounds [40 x i8], ptr @yypact, i64 0, i64 %51
   %53 = load i8, ptr %52, align 1
   %54 = sext i8 %53 to i32
   %55 = shl nuw i64 1, %51
@@ -240,7 +240,7 @@ php_json_yylex.exit:                              ; preds = %.critedge.i, %81, %
 
 108:                                              ; preds = %92, %94, %50
   %.4 = phi i32 [ %.0, %50 ], [ %.6, %92 ], [ %.6, %94 ]
-  %109 = getelementptr inbounds nuw [40 x i8], ptr @yydefact, i64 0, i64 %51
+  %109 = getelementptr inbounds [40 x i8], ptr @yydefact, i64 0, i64 %51
   %110 = load i8, ptr %109, align 1
   %111 = sext i8 %110 to i32
   %112 = and i64 %55, 328041767937
@@ -251,7 +251,7 @@ php_json_yylex.exit:                              ; preds = %.critedge.i, %81, %
   %.0284 = phi i32 [ %111, %108 ], [ %105, %104 ]
   %.8 = phi i32 [ %.4, %108 ], [ %.6, %104 ]
   %114 = sext i32 %.0284 to i64
-  %115 = getelementptr inbounds nuw [30 x i8], ptr @yyr2, i64 0, i64 %114
+  %115 = getelementptr inbounds [30 x i8], ptr @yyr2, i64 0, i64 %114
   %116 = load i8, ptr %115, align 1
   %117 = sext i8 %116 to i64
   %118 = sub nsw i64 1, %117
@@ -450,11 +450,11 @@ php_json_yylex.exit:                              ; preds = %.critedge.i, %81, %
   %215 = getelementptr inbounds i8, ptr %.2268, i64 %213
   %216 = getelementptr inbounds nuw i8, ptr %214, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %216, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  %217 = getelementptr inbounds nuw [30 x i8], ptr @yyr1, i64 0, i64 %114
+  %217 = getelementptr inbounds [30 x i8], ptr @yyr1, i64 0, i64 %114
   %218 = load i8, ptr %217, align 1
   %219 = sext i8 %218 to i64
   %220 = add nsw i64 %219, -18
-  %221 = getelementptr inbounds nuw [14 x i8], ptr @yypgoto, i64 0, i64 %220
+  %221 = getelementptr inbounds [14 x i8], ptr @yypgoto, i64 0, i64 %220
   %222 = load i8, ptr %221, align 1
   %223 = sext i8 %222 to i32
   %224 = load i8, ptr %215, align 1
@@ -475,7 +475,7 @@ php_json_yylex.exit:                              ; preds = %.critedge.i, %81, %
   br label %236
 
 234:                                              ; preds = %227, %212
-  %235 = getelementptr inbounds nuw [14 x i8], ptr @yydefgoto, i64 0, i64 %220
+  %235 = getelementptr inbounds [14 x i8], ptr @yydefgoto, i64 0, i64 %220
   br label %236
 
 236:                                              ; preds = %234, %232
@@ -521,7 +521,7 @@ php_json_yyerror.exit:                            ; preds = %83, %241, %238, %.l
   %.5271465 = phi ptr [ %254, %.lr.ph ], [ %.4270, %php_json_yyerror.exit ]
   %.5281464 = phi ptr [ %253, %.lr.ph ], [ %.4280, %php_json_yyerror.exit ]
   %249 = sext i32 %.3256466 to i64
-  %250 = getelementptr inbounds nuw [40 x i8], ptr @yystos, i64 0, i64 %249
+  %250 = getelementptr inbounds [40 x i8], ptr @yystos, i64 0, i64 %249
   %251 = load i8, ptr %250, align 1
   %252 = sext i8 %251 to i32
   call fastcc void @yydestruct(i32 noundef %252, ptr noundef %.5281464)
@@ -583,7 +583,7 @@ php_json_yyerror.exit336:                         ; preds = %44, %48, %.lr.ph, %
   %.7283469 = phi ptr [ %278, %.lr.ph471 ], [ %272, %.lr.ph471.preheader ]
   %273 = load i8, ptr %.7273470, align 1
   %274 = sext i8 %273 to i64
-  %275 = getelementptr inbounds nuw [40 x i8], ptr @yystos, i64 0, i64 %274
+  %275 = getelementptr inbounds [40 x i8], ptr @yystos, i64 0, i64 %274
   %276 = load i8, ptr %275, align 1
   %277 = sext i8 %276 to i32
   call fastcc void @yydestruct(i32 noundef %277, ptr noundef %.7283469)

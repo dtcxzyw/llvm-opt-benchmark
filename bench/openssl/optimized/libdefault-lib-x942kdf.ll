@@ -658,15 +658,15 @@ if.end68:                                         ; preds = %if.then65
 
 if.end77:                                         ; preds = %if.end68
   %20 = load i64, ptr %id, align 8
-  %oid = getelementptr inbounds nuw [4 x %struct.anon], ptr @kek_algs, i64 0, i64 %20, i32 1
+  %oid = getelementptr inbounds [4 x %struct.anon], ptr @kek_algs, i64 0, i64 %20, i32 1
   %21 = load ptr, ptr %oid, align 8
   %cek_oid = getelementptr inbounds nuw i8, ptr %vctx, i64 136
   store ptr %21, ptr %cek_oid, align 8
-  %oid_len = getelementptr inbounds nuw [4 x %struct.anon], ptr @kek_algs, i64 0, i64 %20, i32 2
+  %oid_len = getelementptr inbounds [4 x %struct.anon], ptr @kek_algs, i64 0, i64 %20, i32 2
   %22 = load i64, ptr %oid_len, align 16
   %cek_oid_len = getelementptr inbounds nuw i8, ptr %vctx, i64 144
   store i64 %22, ptr %cek_oid_len, align 8
-  %keklen = getelementptr inbounds nuw [4 x %struct.anon], ptr @kek_algs, i64 0, i64 %20, i32 3
+  %keklen = getelementptr inbounds [4 x %struct.anon], ptr @kek_algs, i64 0, i64 %20, i32 3
   %23 = load i64, ptr %keklen, align 8
   %dkm_len = getelementptr inbounds nuw i8, ptr %vctx, i64 128
   store i64 %23, ptr %dkm_len, align 8

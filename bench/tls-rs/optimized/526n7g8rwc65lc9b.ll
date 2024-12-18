@@ -4319,7 +4319,7 @@ define void @_ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E
 switch.lookup:
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !4
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %switch.offset = add nsw i64 %1, 1
   %6 = load i64, ptr %3, align 8, !alias.scope !919, !noundef !4

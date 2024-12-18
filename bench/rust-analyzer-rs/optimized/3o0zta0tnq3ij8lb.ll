@@ -4681,11 +4681,11 @@ _ZN7memmap211MmapOptions7get_len17h53ded0f1fcabf3f9E.llvm.13576623291743085369.e
 
 78:                                               ; preds = %74
   call void @llvm.lifetime.start.p0(i64 304, ptr nonnull %7)
-  %79 = getelementptr inbounds nuw [8 x i64], ptr @anon.9cc5293831a93561e2b560572d2ac46a.87, i64 0, i64 %.0..0..0..0..0..0..pr.i
+  %79 = getelementptr inbounds [8 x i64], ptr @anon.9cc5293831a93561e2b560572d2ac46a.87, i64 0, i64 %.0..0..0..0..0..0..pr.i
   %80 = load i64, ptr %79, align 8, !noalias !484, !noundef !7
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %7, ptr nonnull align 8 %10, i64 %80, i1 false), !noalias !484
   %.0..0..0..0..0..0.30.i = load i64, ptr %7, align 8, !noalias !484
-  %81 = getelementptr inbounds nuw [8 x i64], ptr @anon.9cc5293831a93561e2b560572d2ac46a.87, i64 0, i64 %.0..0..0..0..0..0.30.i
+  %81 = getelementptr inbounds [8 x i64], ptr @anon.9cc5293831a93561e2b560572d2ac46a.87, i64 0, i64 %.0..0..0..0..0..0.30.i
   %82 = load i64, ptr %81, align 8, !noalias !484, !noundef !7
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %11, ptr nonnull align 8 %7, i64 %82, i1 false), !noalias !484
   call void @llvm.lifetime.end.p0(i64 304, ptr nonnull %7)

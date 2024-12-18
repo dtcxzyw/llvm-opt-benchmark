@@ -3035,7 +3035,7 @@ sapi_cli_server_register_known_var_char.exit:     ; preds = %1, %48
   %69 = ptrtoint ptr %spec.select to i64
   %70 = sub i64 %68, %69
   %71 = call ptr @strncpy(ptr noundef nonnull %20, ptr noundef nonnull %spec.select, i64 noundef %70) #29
-  %72 = getelementptr inbounds nuw [64 x i8], ptr %20, i64 0, i64 %70
+  %72 = getelementptr inbounds [64 x i8], ptr %20, i64 0, i64 %70
   store i8 0, ptr %72, align 1
   %73 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #30
   %74 = icmp eq i64 %70, %73
@@ -5887,7 +5887,7 @@ php_cli_server_get_system_time.exit:              ; preds = %8
 
 15:                                               ; preds = %13
   %16 = add i64 %14, -1
-  %17 = getelementptr inbounds nuw [52 x i8], ptr %5, i64 0, i64 %16
+  %17 = getelementptr inbounds [52 x i8], ptr %5, i64 0, i64 %16
   store i8 0, ptr %17, align 1
   br label %19
 

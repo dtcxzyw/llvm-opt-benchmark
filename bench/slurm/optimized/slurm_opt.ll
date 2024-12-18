@@ -1945,7 +1945,7 @@ define noundef zeroext i1 @slurm_option_get_next_set(ptr noundef %0, ptr nocaptu
   %21 = tail call ptr @xstrdup(ptr noundef %20) #23
   store ptr %21, ptr %1, align 8
   %22 = load i64, ptr %3, align 8
-  %23 = getelementptr inbounds nuw [161 x ptr], ptr @common_options, i64 0, i64 %22
+  %23 = getelementptr inbounds [161 x ptr], ptr @common_options, i64 0, i64 %22
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 80
   %26 = load ptr, ptr %25, align 8

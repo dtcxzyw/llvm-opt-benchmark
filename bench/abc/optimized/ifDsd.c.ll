@@ -3354,7 +3354,7 @@ Abc_TtHasVar.exit.us.i.us:                        ; preds = %Abc_TtHasVar.exit.u
 Abc_TtSupportSize.exit.us:                        ; preds = %Abc_TtHasVar.exit.thread.i.us, %Abc_TtHasVar.exit.us.i.us, %.lr.ph.split.i.us
   %.0.lcssa.i.us = phi i32 [ 0, %.lr.ph.split.i.us ], [ %spec.select.i.us, %Abc_TtHasVar.exit.us.i.us ], [ %70, %Abc_TtHasVar.exit.thread.i.us ]
   %81 = sext i32 %.0.lcssa.i.us to i64
-  %82 = getelementptr inbounds nuw [15 x i32], ptr %3, i64 0, i64 %81
+  %82 = getelementptr inbounds [15 x i32], ptr %3, i64 0, i64 %81
   %83 = load i32, ptr %82, align 4
   %84 = getelementptr i8, ptr %31, i64 4
   %.val88.us = load i32, ptr %84, align 4
@@ -3502,13 +3502,13 @@ Abc_TtHasVar.exit.thread.i111:                    ; preds = %._crit_edge.us.i.i1
 Abc_TtSupportSize.exit132:                        ; preds = %Abc_TtHasVar.exit.thread.i111, %Abc_TtHasVar.exit.us.i124, %.lr.ph.split.i93
   %.0.lcssa.i89 = phi i32 [ 0, %.lr.ph.split.i93 ], [ %spec.select.i129, %Abc_TtHasVar.exit.us.i124 ], [ %146, %Abc_TtHasVar.exit.thread.i111 ]
   %147 = sext i32 %.0.lcssa.i89 to i64
-  %148 = getelementptr inbounds nuw [15 x i32], ptr %4, i64 0, i64 %147
+  %148 = getelementptr inbounds [15 x i32], ptr %4, i64 0, i64 %147
   %149 = load i32, ptr %148, align 4
   %150 = add nsw i32 %149, 1
   store i32 %150, ptr %148, align 4
   %151 = getelementptr i8, ptr %97, i64 4
   %.val86 = load i32, ptr %151, align 4
-  %152 = getelementptr inbounds nuw [15 x i32], ptr %5, i64 0, i64 %147
+  %152 = getelementptr inbounds [15 x i32], ptr %5, i64 0, i64 %147
   %153 = load i32, ptr %152, align 4
   %154 = add nsw i32 %153, %.val86
   store i32 %154, ptr %152, align 4
@@ -3910,11 +3910,11 @@ define void @If_DsdManPrintDistrib(ptr nocapture noundef readonly %0) local_unna
   %.val53 = load ptr, ptr %16, align 8
   %17 = add nsw i32 %9, 1
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds nuw [17 x i32], ptr %2, i64 0, i64 %18
-  %20 = getelementptr inbounds nuw [17 x i32], ptr %3, i64 0, i64 %18
-  %21 = getelementptr inbounds nuw [17 x i32], ptr %5, i64 0, i64 %18
-  %22 = getelementptr inbounds nuw [17 x i32], ptr %6, i64 0, i64 %18
-  %23 = getelementptr inbounds nuw [17 x i32], ptr %7, i64 0, i64 %18
+  %19 = getelementptr inbounds [17 x i32], ptr %2, i64 0, i64 %18
+  %20 = getelementptr inbounds [17 x i32], ptr %3, i64 0, i64 %18
+  %21 = getelementptr inbounds [17 x i32], ptr %5, i64 0, i64 %18
+  %22 = getelementptr inbounds [17 x i32], ptr %6, i64 0, i64 %18
+  %23 = getelementptr inbounds [17 x i32], ptr %7, i64 0, i64 %18
   %wide.trip.count75 = zext nneg i32 %.val to i64
   br label %31
 
@@ -9011,7 +9011,7 @@ define i32 @If_DsdManOperation(ptr noundef %0, i32 noundef %1, ptr nocapture nou
   br i1 %.not242, label %.critedge.loopexit.split.loop.exit, label %39
 
 39:                                               ; preds = %.lr.ph324
-  %40 = getelementptr inbounds nuw [12 x i32], ptr %8, i64 0, i64 %indvars.iv421
+  %40 = getelementptr inbounds [12 x i32], ptr %8, i64 0, i64 %indvars.iv421
   store i32 %38, ptr %40, align 4
   %41 = shl i32 %.1229321, 16
   %42 = ashr i32 %38, 1
@@ -9025,7 +9025,7 @@ define i32 @If_DsdManOperation(ptr noundef %0, i32 noundef %1, ptr nocapture nou
   %50 = add nsw i32 %49, %.1229321
   %51 = or i32 %50, %41
   %indvars.iv.next422 = add nsw i64 %indvars.iv421, 1
-  %52 = getelementptr inbounds nuw [12 x i32], ptr %9, i64 0, i64 %indvars.iv421
+  %52 = getelementptr inbounds [12 x i32], ptr %9, i64 0, i64 %indvars.iv421
   store i32 %51, ptr %52, align 4
   %indvars.iv.next424 = add nuw nsw i64 %indvars.iv423, 1
   %exitcond429.not = icmp eq i64 %indvars.iv.next424, %wide.trip.count428
@@ -9049,7 +9049,7 @@ If_DsdManPushInv.exit:                            ; preds = %53, %.thread, %55
   %.0.i = phi i32 [ 1, %55 ], [ 0, %.thread ], [ 0, %53 ]
   %57 = xor i32 %.0.i, %23
   %58 = sext i32 %.0205333 to i64
-  %59 = getelementptr inbounds nuw [12 x i32], ptr %8, i64 0, i64 %58
+  %59 = getelementptr inbounds [12 x i32], ptr %8, i64 0, i64 %58
   store i32 %57, ptr %59, align 4
   %60 = shl i32 %.0228330, 16
   %61 = lshr i32 %.val255, 3
@@ -9057,7 +9057,7 @@ If_DsdManPushInv.exit:                            ; preds = %53, %.thread, %55
   %63 = add nsw i32 %62, %.0228330
   %64 = or i32 %63, %60
   %65 = add nsw i32 %.0205333, 1
-  %66 = getelementptr inbounds nuw [12 x i32], ptr %9, i64 0, i64 %58
+  %66 = getelementptr inbounds [12 x i32], ptr %9, i64 0, i64 %58
   store i32 %64, ptr %66, align 4
   br label %.critedge
 
@@ -9098,7 +9098,7 @@ If_DsdManPushInv.exit:                            ; preds = %53, %.thread, %55
   %indvars.iv45.i = phi i64 [ %indvars.iv.i, %.lr.ph.preheader.i ], [ %indvars.iv.next46.i, %.lr.ph.i ]
   %.03638.i = phi i32 [ %75, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
   %76 = sext i32 %.03638.i to i64
-  %77 = getelementptr inbounds nuw i32, ptr %8, i64 %76
+  %77 = getelementptr inbounds i32, ptr %8, i64 %76
   %78 = load i32, ptr %77, align 4
   %79 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv45.i
   %80 = load i32, ptr %79, align 4
@@ -9120,13 +9120,13 @@ If_DsdManPushInv.exit:                            ; preds = %53, %.thread, %55
   %87 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv48.i
   %88 = load i32, ptr %87, align 4
   %89 = sext i32 %spec.select.i to i64
-  %90 = getelementptr inbounds nuw i32, ptr %8, i64 %89
+  %90 = getelementptr inbounds i32, ptr %8, i64 %89
   %91 = load i32, ptr %90, align 4
   store i32 %91, ptr %87, align 4
   store i32 %88, ptr %90, align 4
   %92 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv48.i
   %93 = load i32, ptr %92, align 4
-  %94 = getelementptr inbounds nuw i32, ptr %9, i64 %89
+  %94 = getelementptr inbounds i32, ptr %9, i64 %89
   %95 = load i32, ptr %94, align 4
   store i32 %95, ptr %92, align 4
   store i32 %93, ptr %94, align 4
@@ -9479,7 +9479,7 @@ If_DsdManPushInv.exit264:                         ; preds = %196, %204, %206
   %248 = sext i32 %247 to i64
   %249 = getelementptr inbounds ptr, ptr %.val, i64 %248
   %250 = load ptr, ptr %249, align 8
-  %251 = getelementptr inbounds nuw [12 x i32], ptr %11, i64 0, i64 %240
+  %251 = getelementptr inbounds [12 x i32], ptr %11, i64 0, i64 %240
   %252 = load i32, ptr %251, align 4
   %253 = sext i32 %252 to i64
   %254 = getelementptr i8, ptr %4, i64 %253
@@ -10008,7 +10008,7 @@ Dau_DsdIsConst1.exit.thread:                      ; preds = %13, %Dau_DsdIsConst
 32:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
   %33 = add nsw i32 %.029.i, 1
   %34 = sext i32 %.029.i to i64
-  %35 = getelementptr inbounds nuw [12 x i32], ptr %6, i64 0, i64 %34
+  %35 = getelementptr inbounds [12 x i32], ptr %6, i64 0, i64 %34
   %36 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %36, ptr %35, align 4
   br label %45
@@ -10016,10 +10016,10 @@ Dau_DsdIsConst1.exit.thread:                      ; preds = %13, %Dau_DsdIsConst
 37:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
   %38 = add nsw i32 %.029.i, -1
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds nuw [12 x i32], ptr %6, i64 0, i64 %39
+  %40 = getelementptr inbounds [12 x i32], ptr %6, i64 0, i64 %39
   %41 = load i32, ptr %40, align 4
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds nuw i32, ptr %8, i64 %42
+  %43 = getelementptr inbounds i32, ptr %8, i64 %42
   %44 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %44, ptr %43, align 4
   br label %45
@@ -12373,10 +12373,10 @@ If_DsdObjTruthId.exit:                            ; preds = %108
   %145 = call i32 @If_CutDsdBalancePinDelays_rec(ptr noundef %0, i32 noundef %143, ptr noundef %2, ptr noundef nonnull %144, ptr noundef %4, i32 noundef %5, ptr noundef %6)
   %146 = load i64, ptr %144, align 8
   %147 = sext i32 %.0130146188 to i64
-  %148 = getelementptr inbounds nuw i64, ptr %12, i64 %147
+  %148 = getelementptr inbounds i64, ptr %12, i64 %147
   store i64 %146, ptr %148, align 8
   %149 = add nsw i32 %.0130146188, 1
-  %150 = getelementptr inbounds nuw i32, ptr %13, i64 %147
+  %150 = getelementptr inbounds i32, ptr %13, i64 %147
   store i32 %145, ptr %150, align 4
   %151 = icmp sgt i32 %.0130146188, 0
   br i1 %151, label %.preheader.i, label %If_LogCounterPinDelays.exit
@@ -13044,7 +13044,7 @@ If_DsdObjTruthId.exit:                            ; preds = %81, %88
   %148 = load i32, ptr %14, align 4
   %.pre.i = sext i32 %148 to i64
   %149 = add nsw i32 %148, 1
-  %150 = getelementptr inbounds nuw i32, ptr %15, i64 %.pre.i
+  %150 = getelementptr inbounds i32, ptr %15, i64 %.pre.i
   store i32 %141, ptr %150, align 4
   %151 = icmp sgt i32 %148, 0
   br i1 %151, label %.preheader.i, label %If_LogCounterAddAig.exit

@@ -593,7 +593,7 @@ for.body4.i.i:                                    ; preds = %for.body4.i.i, %whi
   %indvars.iv.i.i = phi i64 [ 0, %while.end76.i ], [ %indvars.iv.next.i.i, %for.body4.i.i ]
   %arrayidx6.i.i = getelementptr inbounds nuw i64, ptr %add.ptr8, i64 %indvars.iv.i.i
   %61 = load i64, ptr %arrayidx6.i.i, align 8
-  %arrayidx7.i.i = getelementptr inbounds nuw [59 x i64], ptr %n.i.i, i64 0, i64 %61
+  %arrayidx7.i.i = getelementptr inbounds [59 x i64], ptr %n.i.i, i64 0, i64 %61
   %62 = load i64, ptr %arrayidx7.i.i, align 8
   %add.i.i = add i64 %62, 1
   store i64 %add.i.i, ptr %arrayidx7.i.i, align 8
@@ -621,7 +621,7 @@ for.body25.i.i:                                   ; preds = %for.body14.i.i, %fo
   br i1 %cmp28.not.i.i, label %for.inc33.i.i, label %if.then.i142.i
 
 if.then.i142.i:                                   ; preds = %for.body25.i.i
-  %arrayidx29.i.i = getelementptr inbounds nuw [59 x i64], ptr %n.i.i, i64 0, i64 %64
+  %arrayidx29.i.i = getelementptr inbounds [59 x i64], ptr %n.i.i, i64 0, i64 %64
   %65 = load i64, ptr %arrayidx29.i.i, align 8
   %inc30.i.i = add i64 %65, 1
   store i64 %inc30.i.i, ptr %arrayidx29.i.i, align 8
@@ -1756,7 +1756,7 @@ for.body4.i.i:                                    ; preds = %for.body4.i.i, %for
   %indvars.iv.i.i46 = phi i64 [ 0, %for.end.i ], [ %indvars.iv.next.i.i47, %for.body4.i.i ]
   %arrayidx6.i.i = getelementptr inbounds nuw i64, ptr %spare, i64 %indvars.iv.i.i46
   %59 = load i64, ptr %arrayidx6.i.i, align 8
-  %arrayidx7.i.i = getelementptr inbounds nuw [59 x i64], ptr %n.i.i, i64 0, i64 %59
+  %arrayidx7.i.i = getelementptr inbounds [59 x i64], ptr %n.i.i, i64 0, i64 %59
   %60 = load i64, ptr %arrayidx7.i.i, align 8
   %add.i43.i = add i64 %60, 1
   store i64 %add.i43.i, ptr %arrayidx7.i.i, align 8
@@ -1788,7 +1788,7 @@ for.body25.i.i:                                   ; preds = %for.body14.i.i, %fo
   br i1 %cmp28.not.i.i, label %for.inc33.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body25.i.i
-  %arrayidx29.i.i = getelementptr inbounds nuw [59 x i64], ptr %n.i.i, i64 0, i64 %63
+  %arrayidx29.i.i = getelementptr inbounds [59 x i64], ptr %n.i.i, i64 0, i64 %63
   %64 = load i64, ptr %arrayidx29.i.i, align 8
   %inc30.i.i = add i64 %64, 1
   store i64 %inc30.i.i, ptr %arrayidx29.i.i, align 8

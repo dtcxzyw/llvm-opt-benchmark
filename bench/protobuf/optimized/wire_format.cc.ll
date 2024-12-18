@@ -5452,10 +5452,10 @@ while.end.i:                                      ; preds = %if.end6.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) %6, i8 0, i64 10, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %buf.i, ptr noundef nonnull align 1 dereferenceable(16) %5, i64 16, i1 false)
   %idx.ext.i = sext i32 %sub.i to i64
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf.i, i64 %idx.ext.i
   %sext18.i = shl i64 %sub.ptr.sub10.i, 32
   %idx.ext30.i = ashr exact i64 %sext18.i, 32
-  %add.ptr31.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 %idx.ext30.i
+  %add.ptr31.i = getelementptr inbounds i8, ptr %buf.i, i64 %idx.ext30.i
   %call33.i = call fastcc noundef ptr @"_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_10WireFormat27_InternalParseAndMergeFieldEPNS0_7MessageEPKcPNS1_12ParseContextEmPKNS0_10ReflectionEPKNS0_15FieldDescriptorEE3$_0EES7_S7_S7_T_"(ptr noundef nonnull %add.ptr31.i, ptr noundef nonnull %add.ptr.i, ptr noundef nonnull byval(%class.anon) align 8 %agg.tmp1)
   %cmp35.not.i = icmp eq ptr %call33.i, %add.ptr.i
   br i1 %cmp35.not.i, label %if.end37.i, label %"_ZN6google8protobuf8internal18EpsCopyInputStream16ReadPackedVarintIZNS1_10WireFormat27_InternalParseAndMergeFieldEPNS0_7MessageEPKcPNS1_12ParseContextEmPKNS0_10ReflectionEPKNS0_15FieldDescriptorEE3$_0ZNS2_16ReadPackedVarintISH_EES8_S8_T_EUliE_EES8_S8_SJ_T0_.exit"

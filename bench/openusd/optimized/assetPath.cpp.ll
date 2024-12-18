@@ -934,7 +934,7 @@ define internal fastcc noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__L9_Read
   %34 = shl i64 %indvars.iv, 32
   %sext = add i64 %34, -4294967296
   %35 = ashr exact i64 %sext, 32
-  %36 = getelementptr inbounds nuw [4 x ptr], ptr @__const._ZN32pxrInternal_v0_24__pxrReserved__L9_ReadUTF8ERPKhPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.ordinalWords, i64 0, i64 %35
+  %36 = getelementptr inbounds [4 x ptr], ptr @__const._ZN32pxrInternal_v0_24__pxrReserved__L9_ReadUTF8ERPKhPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.ordinalWords, i64 0, i64 %35
   %37 = load ptr, ptr %36, align 8
   call void (ptr, ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__14TfStringPrintfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull @.str.12, i32 noundef %.026, ptr noundef %37)
   %38 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %3) #16

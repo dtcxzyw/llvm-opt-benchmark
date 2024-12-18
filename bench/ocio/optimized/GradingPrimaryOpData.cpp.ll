@@ -1286,7 +1286,7 @@ if.end:                                           ; preds = %invoke.cont7, %invo
   %vtable = load ptr, ptr %cacheIDStream, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %cacheIDStream, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %cacheIDStream, i64 %vbase.offset
   %_M_precision.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   store i64 7, ptr %_M_precision.i, align 8
   %m_style.i = getelementptr inbounds nuw i8, ptr %this, i64 168

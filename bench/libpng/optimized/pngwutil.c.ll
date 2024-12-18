@@ -3694,7 +3694,7 @@ define void @png_write_sCAL_s(ptr noalias noundef %0, i32 noundef %1, ptr nocapt
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %15 = add i64 %6, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %14, ptr align 1 %2, i64 %15, i1 false)
-  %16 = getelementptr inbounds nuw i8, ptr %5, i64 %6
+  %16 = getelementptr inbounds i8, ptr %5, i64 %6
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr align 1 %3, i64 %7, i1 false)
   call fastcc void @png_write_complete_chunk(ptr noundef %0, i32 noundef 1933787468, ptr noundef nonnull %5, i64 noundef %9)
@@ -4103,14 +4103,14 @@ define void @png_do_write_interlace(ptr nocapture noundef %0, ptr noundef %1, i3
 
 9:                                                ; preds = %5
   %10 = sext i32 %2 to i64
-  %11 = getelementptr inbounds nuw [7 x i8], ptr @png_do_write_interlace.png_pass_start, i64 0, i64 %10
+  %11 = getelementptr inbounds [7 x i8], ptr @png_do_write_interlace.png_pass_start, i64 0, i64 %10
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
   %14 = icmp ugt i32 %8, %13
   br i1 %14, label %.lr.ph140, label %.loopexit
 
 .lr.ph140:                                        ; preds = %9
-  %15 = getelementptr inbounds nuw [7 x i8], ptr @png_do_write_interlace.png_pass_inc, i64 0, i64 %10
+  %15 = getelementptr inbounds [7 x i8], ptr @png_do_write_interlace.png_pass_inc, i64 0, i64 %10
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i32
   br label %.outer
@@ -4158,14 +4158,14 @@ define void @png_do_write_interlace(ptr nocapture noundef %0, ptr noundef %1, i3
 
 40:                                               ; preds = %5
   %41 = sext i32 %2 to i64
-  %42 = getelementptr inbounds nuw [7 x i8], ptr @png_do_write_interlace.png_pass_start, i64 0, i64 %41
+  %42 = getelementptr inbounds [7 x i8], ptr @png_do_write_interlace.png_pass_start, i64 0, i64 %41
   %43 = load i8, ptr %42, align 1
   %44 = zext i8 %43 to i32
   %45 = icmp ugt i32 %8, %44
   br i1 %45, label %.lr.ph130, label %.loopexit
 
 .lr.ph130:                                        ; preds = %40
-  %46 = getelementptr inbounds nuw [7 x i8], ptr @png_do_write_interlace.png_pass_inc, i64 0, i64 %41
+  %46 = getelementptr inbounds [7 x i8], ptr @png_do_write_interlace.png_pass_inc, i64 0, i64 %41
   %47 = load i8, ptr %46, align 1
   %48 = zext i8 %47 to i32
   br label %.outer193
@@ -4214,14 +4214,14 @@ define void @png_do_write_interlace(ptr nocapture noundef %0, ptr noundef %1, i3
 
 72:                                               ; preds = %5
   %73 = sext i32 %2 to i64
-  %74 = getelementptr inbounds nuw [7 x i8], ptr @png_do_write_interlace.png_pass_start, i64 0, i64 %73
+  %74 = getelementptr inbounds [7 x i8], ptr @png_do_write_interlace.png_pass_start, i64 0, i64 %73
   %75 = load i8, ptr %74, align 1
   %76 = zext i8 %75 to i32
   %77 = icmp ugt i32 %8, %76
   br i1 %77, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %72
-  %78 = getelementptr inbounds nuw [7 x i8], ptr @png_do_write_interlace.png_pass_inc, i64 0, i64 %73
+  %78 = getelementptr inbounds [7 x i8], ptr @png_do_write_interlace.png_pass_inc, i64 0, i64 %73
   %79 = load i8, ptr %78, align 1
   %80 = zext i8 %79 to i32
   br label %.outer195
@@ -4272,14 +4272,14 @@ define void @png_do_write_interlace(ptr nocapture noundef %0, ptr noundef %1, i3
   %105 = lshr i8 %7, 3
   %106 = zext nneg i8 %105 to i64
   %107 = sext i32 %2 to i64
-  %108 = getelementptr inbounds nuw [7 x i8], ptr @png_do_write_interlace.png_pass_start, i64 0, i64 %107
+  %108 = getelementptr inbounds [7 x i8], ptr @png_do_write_interlace.png_pass_start, i64 0, i64 %107
   %109 = load i8, ptr %108, align 1
   %110 = zext i8 %109 to i32
   %111 = icmp ugt i32 %8, %110
   br i1 %111, label %.lr.ph148, label %.loopexit
 
 .lr.ph148:                                        ; preds = %104
-  %112 = getelementptr inbounds nuw [7 x i8], ptr @png_do_write_interlace.png_pass_inc, i64 0, i64 %107
+  %112 = getelementptr inbounds [7 x i8], ptr @png_do_write_interlace.png_pass_inc, i64 0, i64 %107
   %113 = load i8, ptr %112, align 1
   %114 = zext i8 %113 to i32
   br label %115
@@ -4316,7 +4316,7 @@ define void @png_do_write_interlace(ptr nocapture noundef %0, ptr noundef %1, i3
   %.pre-phi149 = phi i32 [ %110, %104 ], [ %76, %._crit_edge ], [ %44, %._crit_edge131 ], [ %13, %._crit_edge141 ], [ %13, %9 ], [ %44, %40 ], [ %76, %72 ], [ %.pre-phi149.ph, %.loopexit.sink.split ], [ %110, %120 ], [ %13, %.thread ], [ %44, %.thread166 ], [ %76, %.thread180 ]
   %.pre-phi = phi i64 [ %107, %104 ], [ %73, %._crit_edge ], [ %41, %._crit_edge131 ], [ %10, %._crit_edge141 ], [ %10, %9 ], [ %41, %40 ], [ %73, %72 ], [ %.pre-phi.ph, %.loopexit.sink.split ], [ %107, %120 ], [ %10, %.thread ], [ %41, %.thread166 ], [ %73, %.thread180 ]
   %125 = load i32, ptr %0, align 8
-  %126 = getelementptr inbounds nuw [7 x i8], ptr @png_do_write_interlace.png_pass_inc, i64 0, i64 %.pre-phi
+  %126 = getelementptr inbounds [7 x i8], ptr @png_do_write_interlace.png_pass_inc, i64 0, i64 %.pre-phi
   %127 = load i8, ptr %126, align 1
   %128 = zext i8 %127 to i32
   %129 = add i32 %125, %128

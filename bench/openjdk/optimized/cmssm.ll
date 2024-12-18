@@ -303,7 +303,7 @@ define internal fastcc void @InterpolateMissingSector(ptr noundef %0, i32 nounde
 24:                                               ; preds = %.preheader
   %25 = add nsw i32 %.028.i, 1
   %26 = sext i32 %.028.i to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %7, i64 %26
+  %27 = getelementptr inbounds ptr, ptr %7, i64 %26
   store ptr %22, ptr %27, align 8
   br label %28
 

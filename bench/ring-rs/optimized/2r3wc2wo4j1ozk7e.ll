@@ -2678,7 +2678,7 @@ _ZN4ring2ec7suite_b3ops9ScalarOps10leak_limbs17h08faba48ba6090eeE.exit: ; preds 
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hcd5c9a8e6f63698bE.exit": ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h6e56ef8d07eaea13E.llvm.7363024586935657205.exit18"
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %39 = getelementptr inbounds nuw i8, ptr %4, i64 %.0
+  %39 = getelementptr inbounds i8, ptr %4, i64 %.0
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %38, ptr nonnull readonly align 1 %39, i64 %29, i1 false), !alias.scope !755, !noalias !759
   %40 = add nuw nsw i64 %29, 2
   call void @llvm.lifetime.end.p0(i64 49, ptr nonnull %4)

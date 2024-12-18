@@ -1751,7 +1751,7 @@ _ZSt22__uninitialized_copy_aIPKPKN6google8protobuf15FieldDescriptorEPS4_S4_ET0_T
   %sub.ptr.lhs.cast.i14.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i16.i = sub i64 %sub.ptr.lhs.cast.i14.i, %sub.ptr.rhs.cast.i.i
   %gepdiff = sub nsw i64 8, %sub.ptr.sub.i16.i
-  %incdec.ptr4.sink.i.i45.i.ptr = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 %sub.ptr.sub.i16.i
+  %incdec.ptr4.sink.i.i45.i.ptr = getelementptr inbounds i8, ptr %ref.tmp, i64 %sub.ptr.sub.i16.i
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %10, ptr nonnull align 8 %incdec.ptr4.sink.i.i45.i.ptr, i64 %gepdiff, i1 false)
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 %gepdiff
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i, align 8

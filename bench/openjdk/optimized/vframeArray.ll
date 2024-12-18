@@ -1505,7 +1505,7 @@ _ZN15Bytecode_invokeC2ERK12methodHandlei.exit:    ; preds = %_ZN12methodHandleC2
 
 _ZNK15Bytecode_invoke16is_invokedynamicEv.exit:   ; preds = %_ZN15Bytecode_invokeC2ERK12methodHandlei.exit
   %145 = sext i32 %143 to i64
-  %146 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %145
+  %146 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %145
   %147 = load i32, ptr %146, align 4
   %148 = icmp eq i32 %147, 186
   br i1 %148, label %_ZN13MethodHandles14has_member_argEP6SymbolS1_.exit, label %_ZNK15Bytecode_invoke16is_invokedynamicEv.exit.thread
@@ -1597,7 +1597,7 @@ _ZN13MethodHandles14has_member_argEP6SymbolS1_.exit: ; preds = %158, %156, %153,
 _ZNK6Method7code_atEi.exit:                       ; preds = %197, %202
   %204 = phi i32 [ %203, %202 ], [ %201, %197 ]
   %205 = sext i32 %204 to i64
-  %206 = getelementptr inbounds nuw [239 x ptr], ptr @_ZN9Bytecodes5_nameE, i64 0, i64 %205
+  %206 = getelementptr inbounds [239 x ptr], ptr @_ZN9Bytecodes5_nameE, i64 0, i64 %205
   %207 = load ptr, ptr %206, align 8
   br label %208
 

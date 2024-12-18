@@ -3087,7 +3087,7 @@ _ZL19deleteCurrencyNamesP18CurrencyNameStructi.exit56: ; preds = %for.inc.i53, %
   call void @uprv_free_75(ptr noundef %call11.i)
   %sext = shl i64 %indvars.iv145, 56
   %idxprom63 = ashr exact i64 %sext, 56
-  %arrayidx64 = getelementptr inbounds nuw [10 x ptr], ptr @_ZL9currCache, i64 0, i64 %idxprom63
+  %arrayidx64 = getelementptr inbounds [10 x ptr], ptr @_ZL9currCache, i64 0, i64 %idxprom63
   %75 = load ptr, ptr %arrayidx64, align 8
   %refCount65 = getelementptr inbounds nuw i8, ptr %75, i64 188
   %76 = load i32, ptr %refCount65, align 4

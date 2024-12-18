@@ -3003,7 +3003,7 @@ define noundef range(i32 0, 3) i32 @_Z21textFileFormatYyparsePN32pxrInternal_v0_
   %.1747 = phi i32 [ %5475, %5472 ], [ %5479, %5476 ], [ %456, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSERKS1_.exit ]
   %.1 = phi i32 [ %.3, %5472 ], [ %.3, %5476 ], [ -2, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSERKS1_.exit ]
   %.1753.add = add nsw i64 %.1753.idx, 2
-  %.0752.ptr = getelementptr inbounds nuw i8, ptr %89, i64 %.1753.add
+  %.0752.ptr = getelementptr inbounds i8, ptr %89, i64 %.1753.add
   %422 = trunc i32 %.1747 to i16
   store i16 %422, ptr %.0752.ptr, align 2
   %.not = icmp slt i64 %.1753.idx, 2996
@@ -3023,7 +3023,7 @@ define noundef range(i32 0, 3) i32 @_Z21textFileFormatYyparsePN32pxrInternal_v0_
 
 426:                                              ; preds = %424
   %427 = sext i32 %.07463109 to i64
-  %428 = getelementptr inbounds nuw [857 x i16], ptr @_ZL6yypact, i64 0, i64 %427
+  %428 = getelementptr inbounds [857 x i16], ptr @_ZL6yypact, i64 0, i64 %427
   %429 = load i16, ptr %428, align 2
   %430 = sext i16 %429 to i32
   %431 = icmp eq i16 %429, -674
@@ -3099,7 +3099,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSERKS1_.exit: ; p
 
 460:                                              ; preds = %446, %448, %426
   %.3 = phi i32 [ %.03110, %426 ], [ %.5, %446 ], [ %.5, %448 ]
-  %461 = getelementptr inbounds nuw [857 x i16], ptr @_ZL8yydefact, i64 0, i64 %427
+  %461 = getelementptr inbounds [857 x i16], ptr @_ZL8yydefact, i64 0, i64 %427
   %462 = load i16, ptr %461, align 2
   %463 = icmp eq i16 %462, 0
   br i1 %463, label %5480, label %464
@@ -15824,12 +15824,12 @@ _ZNSt6vectorIS_IN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EESaIS3_EE8pop
 
 5456:                                             ; preds = %_ZNSt6vectorIS_IN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EESaIS3_EE8pop_backEv.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %.ptr825 = getelementptr inbounds nuw i8, ptr %89, i64 %.0752.add
+  %.ptr825 = getelementptr inbounds i8, ptr %89, i64 %.0752.add
   %5457 = getelementptr inbounds nuw [471 x i16], ptr @_ZL4yyr1, i64 0, i64 %465
   %5458 = load i16, ptr %5457, align 2
   %5459 = zext i16 %5458 to i64
   %5460 = add nsw i64 %5459, -67
-  %5461 = getelementptr inbounds nuw [215 x i16], ptr @_ZL7yypgoto, i64 0, i64 %5460
+  %5461 = getelementptr inbounds [215 x i16], ptr @_ZL7yypgoto, i64 0, i64 %5460
   %5462 = load i16, ptr %5461, align 2
   %5463 = sext i16 %5462 to i32
   %5464 = load i16, ptr %.ptr825, align 2
@@ -15852,7 +15852,7 @@ _ZNSt6vectorIS_IN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EESaIS3_EE8pop
   br label %421
 
 5476:                                             ; preds = %5467, %5456
-  %5477 = getelementptr inbounds nuw [215 x i16], ptr @_ZL9yydefgoto, i64 0, i64 %5460
+  %5477 = getelementptr inbounds [215 x i16], ptr @_ZL9yydefgoto, i64 0, i64 %5460
   %5478 = load i16, ptr %5477, align 2
   %5479 = sext i16 %5478 to i32
   br label %421

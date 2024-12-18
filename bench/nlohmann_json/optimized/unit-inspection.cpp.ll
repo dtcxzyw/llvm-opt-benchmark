@@ -8974,7 +8974,7 @@ invoke.cont3060:                                  ; preds = %_ZNSt8functionIFbiN
   %vtable.i = load ptr, ptr %f_escaped3050, align 8
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %f_escaped3050, i64 %vbase.offset.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %f_escaped3050, i64 %vbase.offset.i
   %call.i = invoke noundef ptr @_ZNKSt9basic_iosIcSt11char_traitsIcEE5rdbufEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr.i)
           to label %_ZNSt19istreambuf_iteratorIcSt11char_traitsIcEEC2ERSi.exit unwind label %terminate.lpad.i
 
@@ -9272,7 +9272,7 @@ invoke.cont3129:                                  ; preds = %if.then3128
   %vtable = load ptr, ptr %ss, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %ss, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset
   %_M_precision.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   store i64 3, ptr %_M_precision.i, align 8
   %add.ptr3133 = getelementptr inbounds nuw i8, ptr %ss, i64 16
@@ -9355,7 +9355,7 @@ invoke.cont3190:                                  ; preds = %invoke.cont3174
   %vtable3184 = load ptr, ptr %ss, align 8
   %vbase.offset.ptr3185 = getelementptr i8, ptr %vtable3184, i64 -24
   %vbase.offset3186 = load i64, ptr %vbase.offset.ptr3185, align 8
-  %add.ptr3187 = getelementptr inbounds nuw i8, ptr %ss, i64 %vbase.offset3186
+  %add.ptr3187 = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset3186
   %_M_precision.i1623 = getelementptr inbounds nuw i8, ptr %add.ptr3187, i64 8
   %783 = load i64, ptr %_M_precision.i1623, align 8
   %784 = load i32, ptr %ref.tmp3181, align 4
@@ -19823,7 +19823,7 @@ entry:
   %div4.lhs.trunc.i = add nsw i16 %1, 307
   %div42.i = sdiv i16 %div4.lhs.trunc.i, 8
   %conv5.i = sext i16 %div42.i to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw [79 x %"struct.nlohmann::json_abi_v3_11_3::detail::dtoa_impl::cached_power"], ptr @_ZZN8nlohmann16json_abi_v3_11_36detail9dtoa_impl36get_cached_power_for_binary_exponentEiE13kCachedPowers, i64 0, i64 %conv5.i
+  %arrayidx.i.i.i = getelementptr inbounds [79 x %"struct.nlohmann::json_abi_v3_11_3::detail::dtoa_impl::cached_power"], ptr @_ZZN8nlohmann16json_abi_v3_11_36detail9dtoa_impl36get_cached_power_for_binary_exponentEiE13kCachedPowers, i64 0, i64 %conv5.i
   %retval.sroa.0.0.copyload.i = load i64, ptr %arrayidx.i.i.i, align 8
   %retval.sroa.2.0.call.sroa_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 8
   %retval.sroa.2.0.copyload.i = load i64, ptr %retval.sroa.2.0.call.sroa_idx.i, align 8

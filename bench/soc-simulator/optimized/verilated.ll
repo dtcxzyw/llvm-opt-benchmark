@@ -5178,7 +5178,7 @@ _ZL11VL_NEGATE_WiPjPKj.exit:                      ; preds = %.lr.ph.i, %46
 63:                                               ; preds = %63, %_ZL11VL_NEGATE_WiPjPKj.exit
   %indvars.iv.i13 = phi i64 [ %indvars.iv.next.i14, %63 ], [ %58, %_ZL11VL_NEGATE_WiPjPKj.exit ]
   %indvars.iv.next.i14 = add nsw i64 %indvars.iv.i13, -1
-  %64 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.next.i14
+  %64 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.next.i14
   %65 = load i32, ptr %64, align 4
   %.not.i15 = icmp eq i32 %65, 0
   %66 = icmp sgt i64 %indvars.iv.i13, 1
@@ -5210,7 +5210,7 @@ _ZL11VL_NEGATE_WiPjPKj.exit:                      ; preds = %.lr.ph.i, %46
   %80 = load i32, ptr %79, align 4
   %81 = add nsw i32 %69, -3
   %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds nuw i32, ptr %3, i64 %82
+  %83 = getelementptr inbounds i32, ptr %3, i64 %82
   %84 = load i32, ptr %83, align 4
   %85 = uitofp i32 %65 to double
   %ldexp.i.i18 = tail call noundef double @ldexp(double 1.000000e+00, i32 64) #23
@@ -11494,7 +11494,7 @@ _ZN9Verilated14threadContextpEv.exit:             ; preds = %6, %_ZN9Verilated12
 
 _ZL8VL_MUL_WiPjPKjS1_.exit:                       ; preds = %._crit_edge39.us.i, %51
   %87 = sext i32 %42 to i64
-  %88 = getelementptr inbounds nuw [20 x i64], ptr @_ZZ13vl_time_pow10iE5pow10, i64 0, i64 %87
+  %88 = getelementptr inbounds [20 x i64], ptr @_ZZ13vl_time_pow10iE5pow10, i64 0, i64 %87
   %89 = load i64, ptr %88, align 8
   %90 = trunc i64 %89 to i32
   store i32 %90, ptr %12, align 4
@@ -11567,7 +11567,7 @@ _ZL9_vl_cmp_wiPKjS0_.exit70:                      ; preds = %115
   %123 = getelementptr inbounds i8, ptr %.059, i64 -1
   %124 = call noundef ptr @_Z12_vl_moddiv_wiPjPKjS1_b(i32 noundef 128, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %14, i1 noundef zeroext true)
   %125 = load i64, ptr %11, align 8
-  %126 = getelementptr inbounds nuw [11 x i8], ptr @.str.200, i64 0, i64 %125
+  %126 = getelementptr inbounds [11 x i8], ptr @.str.200, i64 0, i64 %125
   %127 = load i8, ptr %126, align 1
   store i8 %127, ptr %123, align 1
   %128 = call noundef ptr @_Z12_vl_moddiv_wiPjPKjS1_b(i32 noundef 128, ptr noundef nonnull %16, ptr noundef nonnull %12, ptr noundef nonnull %14, i1 noundef zeroext false)
@@ -15470,7 +15470,7 @@ _ZN19VerilatedContextImp10fdToFpListEj.exit.loopexit: ; preds = %_ZN15VerilatedF
 
 _ZN19VerilatedContextImp10fdToFpListEj.exit:      ; preds = %_ZN19VerilatedContextImp10fdToFpListEj.exit.loopexit, %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21.i
   %64 = phi i64 [ %.pre, %_ZN19VerilatedContextImp10fdToFpListEj.exit.loopexit ], [ %46, %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21.i ]
-  %65 = getelementptr inbounds nuw ptr, ptr %3, i64 %64
+  %65 = getelementptr inbounds ptr, ptr %3, i64 %64
   %.not11 = icmp eq i64 %64, 0
   br i1 %.not11, label %._crit_edge, label %.lr.ph.preheader
 
@@ -16813,7 +16813,7 @@ _ZN19VerilatedContextImp10fdToFpListEj.exit.loopexit: ; preds = %_ZN15VerilatedF
 
 _ZN19VerilatedContextImp10fdToFpListEj.exit:      ; preds = %_ZN19VerilatedContextImp10fdToFpListEj.exit.loopexit, %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21.i
   %65 = phi i64 [ %.pre, %_ZN19VerilatedContextImp10fdToFpListEj.exit.loopexit ], [ %47, %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21.i ]
-  %66 = getelementptr inbounds nuw ptr, ptr %4, i64 %65
+  %66 = getelementptr inbounds ptr, ptr %4, i64 %65
   %.not15 = icmp eq i64 %65, 0
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 
@@ -20755,7 +20755,7 @@ switch.lookup:                                    ; preds = %83
   %.pre.i69 = tail call align 16 ptr @llvm.threadlocal.address.p0(ptr align 16 @_ZZL10memhFormatiE5t_buf)
   %switch.tableidx = add nsw i32 %.zext111, -4
   %88 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN10VlWriteMem5printEmbPKv, i64 0, i64 %88
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN10VlWriteMem5printEmbPKv, i64 0, i64 %88
   %switch.load = load ptr, ptr %switch.gep, align 8
   %89 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %.pre.i69, i64 noundef 32, ptr noundef nonnull %switch.load) #23
   %90 = load i32, ptr %14, align 4
@@ -21467,7 +21467,7 @@ define dso_local noundef double @_Z18vl_time_multiplieri(i32 noundef %0) #14 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef i64 @_Z13vl_time_pow10i(i32 noundef %0) #14 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [20 x i64], ptr @_ZZ13vl_time_pow10iE5pow10, i64 0, i64 %2
+  %3 = getelementptr inbounds [20 x i64], ptr @_ZZ13vl_time_pow10iE5pow10, i64 0, i64 %2
   %4 = load i64, ptr %3, align 8
   ret i64 %4
 }
@@ -21556,7 +21556,7 @@ define dso_local void @_Z17VL_PRINTTIMESCALEPKcS0_PK16VerilatedContext(ptr nound
   %9 = add nsw i32 %6, 2
   %10 = select i1 %8, i32 2, i32 %9
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds nuw [18 x ptr], ptr @_ZZL11vl_time_striE5names, i64 0, i64 %11
+  %12 = getelementptr inbounds [18 x ptr], ptr @_ZZL11vl_time_striE5names, i64 0, i64 %11
   %13 = load ptr, ptr %12, align 8
   tail call void (ptr, ...) @_Z12VL_PRINTF_MTPKcz(ptr noundef nonnull @.str.63, ptr noundef %0, ptr noundef %1, ptr noundef %13)
   ret void
@@ -21572,7 +21572,7 @@ define dso_local noundef ptr @_ZNK16VerilatedContext19timeprecisionStringEv(ptr 
   %7 = add nsw i32 %4, 2
   %8 = select i1 %6, i32 2, i32 %7
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds nuw [18 x ptr], ptr @_ZZL11vl_time_striE5names, i64 0, i64 %9
+  %10 = getelementptr inbounds [18 x ptr], ptr @_ZZL11vl_time_striE5names, i64 0, i64 %9
   %11 = load ptr, ptr %10, align 8
   ret ptr %11
 }
@@ -23775,7 +23775,7 @@ define dso_local noundef ptr @_ZNK16VerilatedContext14timeunitStringEv(ptr nocap
   %7 = add nsw i32 %4, 2
   %8 = select i1 %6, i32 2, i32 %7
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds nuw [18 x ptr], ptr @_ZZL11vl_time_striE5names, i64 0, i64 %9
+  %10 = getelementptr inbounds [18 x ptr], ptr @_ZZL11vl_time_striE5names, i64 0, i64 %9
   %11 = load ptr, ptr %10, align 8
   ret ptr %11
 }
@@ -23787,7 +23787,7 @@ define internal noundef ptr @_ZL11vl_time_stri(i32 noundef %0) #14 {
   %4 = sub nsw i32 2, %0
   %5 = select i1 %3, i32 2, i32 %4
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds nuw [18 x ptr], ptr @_ZZL11vl_time_striE5names, i64 0, i64 %6
+  %7 = getelementptr inbounds [18 x ptr], ptr @_ZZL11vl_time_striE5names, i64 0, i64 %6
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
 }
@@ -28912,7 +28912,7 @@ define dso_local void @_ZN9Verilated20scTimePrecisionErrorEii(i32 noundef %0, i3
   %17 = sub nsw i32 2, %1
   %18 = select i1 %16, i32 2, i32 %17
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds nuw [18 x ptr], ptr @_ZZL11vl_time_striE5names, i64 0, i64 %19
+  %20 = getelementptr inbounds [18 x ptr], ptr @_ZZL11vl_time_striE5names, i64 0, i64 %19
   %21 = load ptr, ptr %20, align 8
   %22 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %21)
           to label %23 unwind label %44
@@ -28927,7 +28927,7 @@ define dso_local void @_ZN9Verilated20scTimePrecisionErrorEii(i32 noundef %0, i3
   %28 = sub nsw i32 2, %0
   %29 = select i1 %27, i32 2, i32 %28
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds nuw [18 x ptr], ptr @_ZZL11vl_time_striE5names, i64 0, i64 %30
+  %31 = getelementptr inbounds [18 x ptr], ptr @_ZZL11vl_time_striE5names, i64 0, i64 %30
   %32 = load ptr, ptr %31, align 8
   %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef %32)
           to label %34 unwind label %44

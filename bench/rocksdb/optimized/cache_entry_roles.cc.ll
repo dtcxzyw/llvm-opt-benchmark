@@ -141,7 +141,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #3
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZN7rocksdb21GetCacheEntryRoleNameB5cxx11ENS_14CacheEntryRoleE(i32 noundef %role) local_unnamed_addr #4 {
 entry:
   %conv = sext i32 %role to i64
-  %arrayidx.i.i = getelementptr inbounds nuw [14 x %"class.std::__cxx11::basic_string"], ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 0, i64 %conv
+  %arrayidx.i.i = getelementptr inbounds [14 x %"class.std::__cxx11::basic_string"], ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 0, i64 %conv
   ret ptr %arrayidx.i.i
 }
 
@@ -320,7 +320,7 @@ invoke.cont:                                      ; preds = %init
 
 init.end:                                         ; preds = %invoke.cont, %init.check, %entry
   %conv.i.i = sext i32 %role to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [14 x %"class.std::__cxx11::basic_string"], ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 0, i64 %conv.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds [14 x %"class.std::__cxx11::basic_string"], ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 0, i64 %conv.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #13
   %call1.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN7rocksdb27BlockCacheEntryStatsMapKeys10EntryCountB5cxx11ENS_14CacheEntryRoleEE7kPrefixB5cxx11) #13
   %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i.i) #13
@@ -383,7 +383,7 @@ invoke.cont:                                      ; preds = %init
 
 init.end:                                         ; preds = %invoke.cont, %init.check, %entry
   %conv.i.i = sext i32 %role to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [14 x %"class.std::__cxx11::basic_string"], ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 0, i64 %conv.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds [14 x %"class.std::__cxx11::basic_string"], ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 0, i64 %conv.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #13
   %call1.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN7rocksdb27BlockCacheEntryStatsMapKeys9UsedBytesB5cxx11ENS_14CacheEntryRoleEE7kPrefixB5cxx11) #13
   %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i.i) #13
@@ -446,7 +446,7 @@ invoke.cont:                                      ; preds = %init
 
 init.end:                                         ; preds = %invoke.cont, %init.check, %entry
   %conv.i.i = sext i32 %role to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [14 x %"class.std::__cxx11::basic_string"], ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 0, i64 %conv.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds [14 x %"class.std::__cxx11::basic_string"], ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 0, i64 %conv.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #13
   %call1.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN7rocksdb27BlockCacheEntryStatsMapKeys11UsedPercentB5cxx11ENS_14CacheEntryRoleEE7kPrefixB5cxx11) #13
   %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i.i) #13

@@ -936,7 +936,7 @@ define void @slurm_persist_conn_free_thread_loc(i32 noundef %0) local_unnamed_ad
 
 14:                                               ; preds = %12, %10
   %15 = sext i32 %0 to i64
-  %16 = getelementptr inbounds nuw [100 x ptr], ptr @persist_service_conn, i64 0, i64 %15
+  %16 = getelementptr inbounds [100 x ptr], ptr @persist_service_conn, i64 0, i64 %15
   %17 = load ptr, ptr %16, align 8
   tail call fastcc void @_destroy_persist_service(ptr noundef %17)
   store ptr null, ptr %16, align 8

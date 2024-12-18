@@ -4804,7 +4804,7 @@ define linkonce_odr void @_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE11Transform
   %41 = getelementptr inbounds nuw [16 x float], ptr %2, i64 0, i64 %40
   %42 = shl i64 %indvars.iv.i.i.i, 2
   %43 = add nuw nsw i64 %42, %indvars.iv15.i.i.i
-  %44 = getelementptr inbounds nuw [16 x float], ptr %2, i64 0, i64 %43
+  %44 = getelementptr inbounds [16 x float], ptr %2, i64 0, i64 %43
   %45 = load float, ptr %41, align 4, !alias.scope !48
   %46 = load float, ptr %44, align 4, !alias.scope !48
   store float %46, ptr %41, align 4, !alias.scope !48

@@ -973,7 +973,7 @@ entry:
 if.then:                                          ; preds = %entry
   %1 = load i32, ptr %ar, align 8
   %idxprom = sext i32 %1 to i64
-  %arrayidx = getelementptr inbounds nuw [5 x ptr], ptr @hookf.hooknames, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [5 x ptr], ptr @hookf.hooknames, i64 0, i64 %idxprom
   %2 = load ptr, ptr %arrayidx, align 8
   tail call void @lua_pushstring(ptr noundef nonnull %L, ptr noundef %2) #9
   %currentline = getelementptr inbounds nuw i8, ptr %ar, i64 40

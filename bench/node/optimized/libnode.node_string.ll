@@ -372,7 +372,7 @@ entry:
   %vtable = load ptr, ptr %stream, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %stream, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %stream, i64 %vbase.offset
   %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6locale7classicEv() #8
   call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale(ptr nonnull sret(%"class.std::locale") align 8 %agg.tmp.ensured, ptr noundef nonnull align 8 dereferenceable(264) %add.ptr, ptr noundef nonnull align 8 dereferenceable(8) %call) #8
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp.ensured) #8
@@ -414,7 +414,7 @@ entry:
   %vtable = load ptr, ptr %stream, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %stream, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %stream, i64 %vbase.offset
   %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6locale7classicEv() #8
   call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale(ptr nonnull sret(%"class.std::locale") align 8 %agg.tmp.ensured, ptr noundef nonnull align 8 dereferenceable(264) %add.ptr, ptr noundef nonnull align 8 dereferenceable(8) %call) #8
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp.ensured) #8
@@ -422,7 +422,7 @@ entry:
   %vtable3 = load ptr, ptr %stream, align 8
   %vbase.offset.ptr4 = getelementptr i8, ptr %vtable3, i64 -24
   %vbase.offset5 = load i64, ptr %vbase.offset.ptr4, align 8
-  %add.ptr6 = getelementptr inbounds nuw i8, ptr %stream, i64 %vbase.offset5
+  %add.ptr6 = getelementptr inbounds i8, ptr %stream, i64 %vbase.offset5
   %call7 = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr6) #8
   %lnot = xor i1 %call7, true
   %frombool = zext i1 %lnot to i8

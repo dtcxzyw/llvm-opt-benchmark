@@ -303,7 +303,7 @@ if.else8.i58.i:                                   ; preds = %if.then8.i
 
 if.else.i:                                        ; preds = %if.then5.i
   %idxprom.i = sext i32 %9 to i64
-  %arrayidx.i = getelementptr inbounds nuw [128 x i8], ptr %short_opts.i, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [128 x i8], ptr %short_opts.i, i64 0, i64 %idxprom.i
   %11 = load i8, ptr %arrayidx.i, align 1
   %inc.i = add i8 %11, 1
   store i8 %inc.i, ptr %arrayidx.i, align 1

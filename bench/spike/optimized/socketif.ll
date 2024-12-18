@@ -26591,7 +26591,7 @@ _ZNK5boost16re_detail_10740023character_pointer_rangeIcEeqERKS2_.exit.thread.i: 
 
 _ZN5boost16re_detail_10740020get_default_class_idIcEEiPKT_S4_.exit: ; preds = %_ZSt11lower_boundIPKN5boost16re_detail_10740023character_pointer_rangeIcEES3_ET_S6_S6_RKT0_.exit.i, %90, %_ZNK5boost16re_detail_10740023character_pointer_rangeIcEeqERKS2_.exit.i, %_ZNK5boost16re_detail_10740023character_pointer_rangeIcEeqERKS2_.exit.thread.i
   %.0.i = phi i64 [ %102, %_ZNK5boost16re_detail_10740023character_pointer_rangeIcEeqERKS2_.exit.thread.i ], [ 0, %_ZNK5boost16re_detail_10740023character_pointer_rangeIcEeqERKS2_.exit.i ], [ 0, %_ZSt11lower_boundIPKN5boost16re_detail_10740023character_pointer_rangeIcEES3_ET_S6_S6_RKT0_.exit.i ], [ 0, %90 ]
-  %103 = getelementptr inbounds nuw [22 x i32], ptr @_ZZNK5boost16re_detail_10740031cpp_regex_traits_implementationIcE20lookup_classname_impEPKcS4_E5masks, i64 0, i64 %.0.i
+  %103 = getelementptr inbounds [22 x i32], ptr @_ZZNK5boost16re_detail_10740031cpp_regex_traits_implementationIcE20lookup_classname_impEPKcS4_E5masks, i64 0, i64 %.0.i
   br label %104
 
 104:                                              ; preds = %_ZN5boost16re_detail_10740020get_default_class_idIcEEiPKT_S4_.exit, %57
@@ -38155,7 +38155,7 @@ _ZN5boost16re_detail_10740010parser_bufIcSt11char_traitsIcEEC2Ev.exit: ; preds =
   %13 = load ptr, ptr %6, align 8
   %14 = getelementptr i8, ptr %13, i64 -24
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %6, i64 %15
+  %16 = getelementptr inbounds i8, ptr %6, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 208
   call void @_ZNSt6localeC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %17) #31
   %18 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZSt9use_facetINSt7__cxx118numpunctIcEEERKT_RKSt6locale(ptr noundef nonnull align 8 dereferenceable(8) %7)
@@ -38277,7 +38277,7 @@ _ZSt4findIPKccET_S2_S2_RKT0_.exit:                ; preds = %28, %_ZSt4findIPKcc
   %69 = load ptr, ptr %6, align 8
   %70 = getelementptr i8, ptr %69, i64 -24
   %71 = load i64, ptr %70, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %6, i64 %71
+  %72 = getelementptr inbounds i8, ptr %6, i64 %71
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %72, i32 noundef 0)
           to label %.invoke unwind label %77
 

@@ -64,7 +64,7 @@ declare void @index_state_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 define dso_local void @repo_set_hash_algo(ptr nocapture noundef writeonly initializes((256, 264)) %repo, i32 noundef %hash_algo) local_unnamed_addr #2 {
 entry:
   %idxprom = sext i32 %hash_algo to i64
-  %arrayidx = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom
   %hash_algo1 = getelementptr inbounds nuw i8, ptr %repo, i64 256
   store ptr %arrayidx, ptr %hash_algo1, align 8
   ret void
@@ -342,7 +342,7 @@ if.end7:                                          ; preds = %strbuf_setlen.exit.
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %sb.i)
   %9 = load i32, ptr %1, align 8
   %idxprom.i = sext i32 %9 to i64
-  %arrayidx.i = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i
   %hash_algo1.i = getelementptr inbounds nuw i8, ptr %repo, i64 256
   store ptr %arrayidx.i, ptr %hash_algo1.i, align 8
   %10 = load i32, ptr %2, align 4

@@ -2369,7 +2369,7 @@ invoke.cont17:                                    ; preds = %invoke.cont15
   %vtable.i = load ptr, ptr %o.i, align 8, !noalias !21
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8, !noalias !21
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %o.i, i64 %vbase.offset.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %o.i, i64 %vbase.offset.i
   %_M_precision.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   store i64 7, ptr %_M_precision.i.i, align 8, !noalias !21
   %m_base.i.i = getelementptr inbounds nuw i8, ptr %this, i64 240
@@ -2590,7 +2590,7 @@ entry:
   %vtable = load ptr, ptr %o, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %o, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %o, i64 %vbase.offset
   %_M_precision.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   store i64 %precision, ptr %_M_precision.i, align 8
   %m_base.i = getelementptr inbounds nuw i8, ptr %this, i64 240
@@ -3278,7 +3278,7 @@ entry:
   %vtable = load ptr, ptr %o, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %o, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %o, i64 %vbase.offset
   %_M_precision.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   store i64 %precision, ptr %_M_precision.i, align 8
   %m_redParams.i = getelementptr inbounds nuw i8, ptr %log, i64 168
@@ -3416,7 +3416,7 @@ entry:
   %vtable = load ptr, ptr %o, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %o, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %o, i64 %vbase.offset
   %_M_precision.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   store i64 %precision, ptr %_M_precision.i, align 8
   %m_redParams.i = getelementptr inbounds nuw i8, ptr %log, i64 168
@@ -3572,7 +3572,7 @@ entry:
   %vtable = load ptr, ptr %o, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %o, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %o, i64 %vbase.offset
   %_M_precision.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   store i64 %precision, ptr %_M_precision.i, align 8
   %m_redParams.i = getelementptr inbounds nuw i8, ptr %log, i64 168
@@ -3728,7 +3728,7 @@ entry:
   %vtable = load ptr, ptr %o, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %o, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %o, i64 %vbase.offset
   %_M_precision.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   store i64 %precision, ptr %_M_precision.i, align 8
   %m_redParams.i = getelementptr inbounds nuw i8, ptr %log, i64 168
@@ -3884,7 +3884,7 @@ entry:
   %vtable = load ptr, ptr %o, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %o, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %o, i64 %vbase.offset
   %_M_precision.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   store i64 %precision, ptr %_M_precision.i, align 8
   %m_redParams.i = getelementptr inbounds nuw i8, ptr %log, i64 168
@@ -4040,7 +4040,7 @@ entry:
   %vtable = load ptr, ptr %o, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %o, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %o, i64 %vbase.offset
   %_M_precision.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   store i64 %precision, ptr %_M_precision.i, align 8
   %m_redParams.i = getelementptr inbounds nuw i8, ptr %log, i64 168

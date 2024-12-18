@@ -671,7 +671,7 @@ define hidden i32 @VP8LReadBits(ptr nocapture noundef %0, i32 noundef %1) local_
   %11 = lshr i64 %.val, %10
   %12 = trunc i64 %11 to i32
   %13 = sext i32 %1 to i64
-  %14 = getelementptr inbounds nuw [25 x i32], ptr @kBitMask, i64 0, i64 %13
+  %14 = getelementptr inbounds [25 x i32], ptr @kBitMask, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
   %16 = and i32 %15, %12
   %17 = add nsw i32 %.val13, %1

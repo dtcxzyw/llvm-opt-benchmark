@@ -718,7 +718,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit: ; preds = %242
   %282 = getelementptr inbounds nuw i8, ptr %.sroa.0127.0142.i, i64 8
   %283 = load ptr, ptr %282, align 8, !noalias !23
   %284 = sext i32 %281 to i64
-  %285 = getelementptr inbounds nuw [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %284, i32 5
+  %285 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %284, i32 5
   %286 = load i32, ptr %285, align 4, !noalias !23
   %287 = and i32 %286, 52
   %288 = icmp ne i32 %287, 0
@@ -727,7 +727,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit: ; preds = %242
   br i1 %or.cond.i.i83, label %_ZL18vsite_bond_nrchecki.exit.i88, label %_ZL12enter_bondediPSt6vectorI22VsiteBondedInteractionSaIS0_EERK17InteractionOfType.exit.i
 
 _ZL18vsite_bond_nrchecki.exit.i88:                ; preds = %.lr.ph.i82
-  %290 = getelementptr inbounds nuw [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %284, i32 2
+  %290 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %284, i32 2
   %291 = load i32, ptr %290, align 16, !noalias !23
   switch i32 %291, label %_ZL12enter_bondediPSt6vectorI22VsiteBondedInteractionSaIS0_EERK17InteractionOfType.exit.i [
     i32 2, label %298
@@ -6243,7 +6243,7 @@ _ZNSt6vectorI16VsiteAtomMappingSaIS0_EE6resizeEm.exit: ; preds = %_ZNSt6vectorIS
   %397 = phi i8 [ %374, %.noexc101._crit_edge ], [ %374, %.thread251.i ], [ %373, %369 ]
   %398 = icmp eq i32 %.0154273.i, 0
   %399 = sext i32 %396 to i64
-  %400 = getelementptr inbounds nuw [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %399, i32 2
+  %400 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %399, i32 2
   %401 = load i32, ptr %400, align 16
   %402 = add nsw i32 %401, -1
   br i1 %398, label %403, label %412
@@ -6888,7 +6888,7 @@ _ZL17clean_vsite_bondsN3gmx8ArrayRefI18InteractionsOfTypeEENS0_IK16VsiteAtomMapp
   %681 = icmp eq i32 %.08842.i, 0
   %682 = getelementptr inbounds %class.VsiteAtomMapping, ptr %.sroa.0211.4, i64 %672
   %683 = sext i32 %678 to i64
-  %684 = getelementptr inbounds nuw [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %683, i32 2
+  %684 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %683, i32 2
   %685 = load i32, ptr %684, align 16
   %.fr.i = freeze i32 %685
   %686 = add i32 %.fr.i, -1
@@ -7383,7 +7383,7 @@ _ZL18clean_vsite_anglesN3gmx8ArrayRefI18InteractionsOfTypeEENS0_I16VsiteAtomMapp
   %894 = getelementptr inbounds %class.VsiteAtomMapping, ptr %.sroa.0211.4, i64 %889
   %895 = load i32, ptr %894, align 4
   %896 = sext i32 %895 to i64
-  %897 = getelementptr inbounds nuw [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %896, i32 2
+  %897 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %896, i32 2
   %898 = load i32, ptr %897, align 16
   %899 = add nsw i32 %898, -1
   br i1 %893, label %900, label %909

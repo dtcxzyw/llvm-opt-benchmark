@@ -120,7 +120,7 @@ state_name.exit.i:                                ; preds = %31, %30, %29, %28, 
 
 33:                                               ; preds = %state_name.exit.i
   %strlen.i = call i64 @strlen(ptr nonnull dereferenceable(1) %5)
-  %endptr.i = getelementptr inbounds nuw i8, ptr %5, i64 %strlen.i
+  %endptr.i = getelementptr inbounds i8, ptr %5, i64 %strlen.i
   store i16 47, ptr %endptr.i, align 1
   br label %34
 
@@ -176,7 +176,7 @@ state_name.exit.i24:                              ; preds = %46, %45, %44, %43, 
 
 48:                                               ; preds = %state_name.exit.i24
   %strlen.i27 = call i64 @strlen(ptr nonnull dereferenceable(1) %6)
-  %endptr.i28 = getelementptr inbounds nuw i8, ptr %6, i64 %strlen.i27
+  %endptr.i28 = getelementptr inbounds i8, ptr %6, i64 %strlen.i27
   store i16 47, ptr %endptr.i28, align 1
   br label %49
 

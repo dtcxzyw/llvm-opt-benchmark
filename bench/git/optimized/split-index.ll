@@ -834,7 +834,7 @@ if.then.i.i:                                      ; preds = %lor.rhs.i
 
 if.else.i.i:                                      ; preds = %lor.rhs.i
   %idxprom.i.i = sext i32 %23 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.i
   br label %compare_ce_content.exit
 
 compare_ce_content.exit:                          ; preds = %if.then.i.i, %if.else.i.i
@@ -958,7 +958,7 @@ if.then.i.i108:                                   ; preds = %if.end124
 
 if.else.i.i98:                                    ; preds = %if.end124
   %idxprom.i.i99 = sext i32 %42 to i64
-  %arrayidx.i.i100 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.i99
+  %arrayidx.i.i100 = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.i99
   br label %is_null_oid.exit
 
 is_null_oid.exit:                                 ; preds = %if.then.i.i108, %if.else.i.i98

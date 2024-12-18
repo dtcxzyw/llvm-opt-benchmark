@@ -5850,7 +5850,7 @@ _ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit18.i: ; preds = %241, %_ZN
 
 _ZNK4Luau13SingletonTypeneERKS0_.exit.i:          ; preds = %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit18.i
   %250 = sext i32 %247 to i64
-  %251 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEEeqERKS3_E5table, i64 0, i64 %250
+  %251 = getelementptr inbounds [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEEeqERKS3_E5table, i64 0, i64 %250
   %252 = load ptr, ptr %251, align 8, !noalias !105
   %253 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %254 = getelementptr inbounds nuw i8, ptr %246, i64 8

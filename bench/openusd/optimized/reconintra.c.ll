@@ -862,7 +862,7 @@ define hidden void @av1_filter_intra_edge_c(ptr nocapture noundef %0, i32 nounde
   %15 = tail call i32 @llvm.smax.i32(i32 %14, i32 0)
   %16 = tail call i32 @llvm.smin.i32(i32 %15, i32 %9)
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds nuw [129 x i8], ptr %4, i64 0, i64 %17
+  %18 = getelementptr inbounds [129 x i8], ptr %4, i64 0, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   %21 = getelementptr inbounds [3 x [5 x i32]], ptr @__const.av1_filter_intra_edge_high_c.kernel, i64 0, i64 %10, i64 %indvars.iv
@@ -920,7 +920,7 @@ define hidden void @av1_filter_intra_edge_high_c(ptr nocapture noundef %0, i32 n
   %16 = tail call i32 @llvm.smax.i32(i32 %15, i32 0)
   %17 = tail call i32 @llvm.smin.i32(i32 %16, i32 %10)
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds nuw [129 x i16], ptr %4, i64 0, i64 %18
+  %19 = getelementptr inbounds [129 x i16], ptr %4, i64 0, i64 %18
   %20 = load i16, ptr %19, align 2
   %21 = zext i16 %20 to i32
   %22 = getelementptr inbounds [3 x [5 x i32]], ptr @__const.av1_filter_intra_edge_high_c.kernel, i64 0, i64 %11, i64 %indvars.iv
@@ -969,7 +969,7 @@ define hidden void @av1_upsample_intra_edge_c(ptr nocapture noundef %0, i32 noun
   %12 = load i8, ptr %11, align 1
   %13 = add nsw i32 %1, 2
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds nuw [19 x i8], ptr %3, i64 0, i64 %14
+  %15 = getelementptr inbounds [19 x i8], ptr %3, i64 0, i64 %14
   store i8 %12, ptr %15, align 1
   %16 = load i8, ptr %3, align 16
   %17 = getelementptr inbounds i8, ptr %0, i64 -2
@@ -1042,7 +1042,7 @@ define hidden void @av1_upsample_intra_edge_high_c(ptr nocapture noundef %0, i32
   %14 = load i16, ptr %13, align 2
   %15 = add nsw i32 %1, 2
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds nuw [19 x i16], ptr %4, i64 0, i64 %16
+  %17 = getelementptr inbounds [19 x i16], ptr %4, i64 0, i64 %16
   store i16 %14, ptr %17, align 2
   %18 = load i16, ptr %4, align 16
   %19 = getelementptr inbounds i8, ptr %0, i64 -4
@@ -3097,7 +3097,7 @@ av1_use_intra_edge_upsample.exit.i290:            ; preds = %1062
   %1079 = load i8, ptr %1078, align 1
   %1080 = add nsw i32 %1070, 2
   %1081 = sext i32 %1080 to i64
-  %1082 = getelementptr inbounds nuw [19 x i8], ptr %18, i64 0, i64 %1081
+  %1082 = getelementptr inbounds [19 x i8], ptr %18, i64 0, i64 %1081
   store i8 %1079, ptr %1082, align 1
   %1083 = load i8, ptr %18, align 16
   %1084 = getelementptr inbounds nuw i8, ptr %20, i64 14
@@ -3186,7 +3186,7 @@ av1_use_intra_edge_upsample.exit275.i:            ; preds = %av1_use_intra_edge_
   %1123 = load i8, ptr %1122, align 1
   %1124 = add nsw i32 %1114, 2
   %1125 = sext i32 %1124 to i64
-  %1126 = getelementptr inbounds nuw [19 x i8], ptr %17, i64 0, i64 %1125
+  %1126 = getelementptr inbounds [19 x i8], ptr %17, i64 0, i64 %1125
   store i8 %1123, ptr %1126, align 1
   %1127 = load i8, ptr %17, align 16
   %1128 = getelementptr inbounds nuw i8, ptr %19, i64 14

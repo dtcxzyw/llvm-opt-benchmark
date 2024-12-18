@@ -2676,7 +2676,7 @@ entry:
   %vtable = load ptr, ptr %is, align 8, !tbaa !28
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %is, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %is, i64 %vbase.offset
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #30
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp1) #30
   call void @_ZNSt6localeC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1) #30
@@ -2794,7 +2794,7 @@ invoke.cont36:                                    ; preds = %invoke.cont34
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %8, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %is, i64 %vbase.offset.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %is, i64 %vbase.offset.i.i
   store ptr %9, ptr %add.ptr.i.i, align 8, !tbaa !28
   %_M_stringbuf.i.i = getelementptr inbounds nuw i8, ptr %is, i64 16
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !28
@@ -2826,7 +2826,7 @@ _ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
   %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
   %vbase.offset.ptr.i.i.i = getelementptr i8, ptr %14, i64 -24
   %vbase.offset.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %is, i64 %vbase.offset.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %is, i64 %vbase.offset.i.i.i
   store ptr %15, ptr %add.ptr.i.i.i, align 8, !tbaa !28
   %_M_gcount.i.i.i = getelementptr inbounds nuw i8, ptr %is, i64 8
   store i64 0, ptr %_M_gcount.i.i.i, align 8, !tbaa !44
@@ -8243,7 +8243,7 @@ invoke.cont9:                                     ; preds = %invoke.cont7
   %vtable = load ptr, ptr %ss, align 8, !tbaa !28
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr11 = getelementptr inbounds nuw i8, ptr %ss, i64 %vbase.offset
+  %add.ptr11 = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset
   %_M_fill_init.i = getelementptr inbounds nuw i8, ptr %add.ptr11, i64 225
   %13 = load i8, ptr %_M_fill_init.i, align 1, !tbaa !124, !range !60, !noundef !61
   %loadedv.i = trunc nuw i8 %13 to i1
@@ -8412,7 +8412,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp20) #30
   store ptr %5, ptr %ss, align 8, !tbaa !28
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 %vbase.offset.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i
   store ptr %6, ptr %add.ptr.i.i, align 8, !tbaa !28
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !28
   %36 = load ptr, ptr %_M_string.i.i, align 8, !tbaa !10
@@ -8743,7 +8743,7 @@ invoke.cont9:                                     ; preds = %invoke.cont7
   %vtable = load ptr, ptr %ss, align 8, !tbaa !28
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr11 = getelementptr inbounds nuw i8, ptr %ss, i64 %vbase.offset
+  %add.ptr11 = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset
   %_M_fill_init.i = getelementptr inbounds nuw i8, ptr %add.ptr11, i64 225
   %13 = load i8, ptr %_M_fill_init.i, align 1, !tbaa !124, !range !60, !noundef !61
   %loadedv.i = trunc nuw i8 %13 to i1
@@ -8912,7 +8912,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp20) #30
   store ptr %5, ptr %ss, align 8, !tbaa !28
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 %vbase.offset.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i
   store ptr %6, ptr %add.ptr.i.i, align 8, !tbaa !28
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !28
   %36 = load ptr, ptr %_M_string.i.i, align 8, !tbaa !10

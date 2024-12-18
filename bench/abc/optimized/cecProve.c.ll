@@ -579,7 +579,7 @@ Abc_Clock.exit75:                                 ; preds = %Cec_GiaInitThreads.
   br i1 %72, label %74, label %._crit_edge29.i
 
 74:                                               ; preds = %.lr.ph.i76
-  %75 = getelementptr inbounds nuw %struct.Par_ThData_t_, ptr %16, i64 %73
+  %75 = getelementptr inbounds %struct.Par_ThData_t_, ptr %16, i64 %73
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 12
   %77 = load i32, ptr %76, align 4
   %.not.i = icmp eq i32 %77, 0
@@ -782,7 +782,7 @@ Abc_Clock.exit107:                                ; preds = %142, %148
   br i1 %166, label %168, label %._crit_edge29.i114
 
 168:                                              ; preds = %.lr.ph.i111
-  %169 = getelementptr inbounds nuw %struct.Par_ThData_t_, ptr %16, i64 %167
+  %169 = getelementptr inbounds %struct.Par_ThData_t_, ptr %16, i64 %167
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 12
   %171 = load i32, ptr %170, align 4
   %.not.i117 = icmp eq i32 %171, 0
@@ -903,7 +903,7 @@ Cec_GiaWaitThreads.exit121:                       ; preds = %._crit_edge29.i114,
   br i1 %220, label %222, label %._crit_edge29.i143
 
 222:                                              ; preds = %.lr.ph.i140
-  %223 = getelementptr inbounds nuw %struct.Par_ThData_t_, ptr %16, i64 %221
+  %223 = getelementptr inbounds %struct.Par_ThData_t_, ptr %16, i64 %221
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 12
   %225 = load i32, ptr %224, align 4
   %.not.i146 = icmp eq i32 %225, 0

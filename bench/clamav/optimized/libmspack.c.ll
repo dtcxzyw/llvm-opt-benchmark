@@ -807,11 +807,11 @@ define internal void @mspack_fmap_message(ptr nocapture readnone %0, ptr nocaptu
   %9 = call i32 @vsnprintf(ptr noundef nonnull %8, i64 noundef 8173, ptr noundef %1, ptr noundef nonnull %3) #14
   call void @llvm.va_end.p0(ptr nonnull %3)
   %10 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #15
-  %11 = getelementptr inbounds nuw [8192 x i8], ptr %4, i64 0, i64 %10
+  %11 = getelementptr inbounds [8192 x i8], ptr %4, i64 0, i64 %10
   store i8 10, ptr %11, align 1
   %12 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #15
   %13 = add i64 %12, 1
-  %14 = getelementptr inbounds nuw [8192 x i8], ptr %4, i64 0, i64 %13
+  %14 = getelementptr inbounds [8192 x i8], ptr %4, i64 0, i64 %13
   store i8 0, ptr %14, align 1
   call void @clrs_eprint(ptr noundef nonnull %4) #14
   br label %15

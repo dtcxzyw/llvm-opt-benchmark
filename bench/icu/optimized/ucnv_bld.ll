@@ -249,7 +249,7 @@ if.end.i:                                         ; preds = %if.end5
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
   %idxprom.i = sext i8 %4 to i64
-  %arrayidx.i = getelementptr inbounds nuw [34 x ptr], ptr @_ZL13converterData, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [34 x ptr], ptr @_ZL13converterData, i64 0, i64 %idxprom.i
   %6 = load ptr, ptr %arrayidx.i, align 8
   %7 = shl nuw i64 1, %idxprom.i
   %8 = and i64 %7, 515
@@ -718,7 +718,7 @@ _ZL26getAlgorithmicTypeFromNamePKc.exit:          ; preds = %if.else.i
   %type.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %17 = load i32, ptr %type.i, align 8
   %idxprom10.i = sext i32 %17 to i64
-  %arrayidx11.i = getelementptr inbounds nuw [34 x ptr], ptr @_ZL13converterData, i64 0, i64 %idxprom10.i
+  %arrayidx11.i = getelementptr inbounds [34 x ptr], ptr @_ZL13converterData, i64 0, i64 %idxprom10.i
   %18 = load ptr, ptr %arrayidx11.i, align 8
   call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %strippedName.i)
   %19 = shl nuw i64 1, %idxprom10.i

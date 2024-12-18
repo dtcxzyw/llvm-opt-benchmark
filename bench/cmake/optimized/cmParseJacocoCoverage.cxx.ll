@@ -608,7 +608,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %105 = load ptr, ptr %12, align 8
   %106 = getelementptr i8, ptr %105, i64 -24
   %107 = load i64, ptr %106, align 8
-  %108 = getelementptr inbounds nuw i8, ptr %12, i64 %107
+  %108 = getelementptr inbounds i8, ptr %12, i64 %107
   %109 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %108)
           to label %110 unwind label %130
 
@@ -700,7 +700,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %142 = load ptr, ptr %12, align 8
   %143 = getelementptr i8, ptr %142, i64 -24
   %144 = load i64, ptr %143, align 8
-  %145 = getelementptr inbounds nuw i8, ptr %12, i64 %144
+  %145 = getelementptr inbounds i8, ptr %12, i64 %144
   %146 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %145)
           to label %147 unwind label %.loopexit.split-lp
 

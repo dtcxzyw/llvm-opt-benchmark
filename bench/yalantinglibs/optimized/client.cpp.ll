@@ -2763,7 +2763,7 @@ invoke.cont30:                                    ; preds = %if.then26
   %vtable.i = load ptr, ptr %ifs, align 8
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %ifs, i64 %vbase.offset.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %ifs, i64 %vbase.offset.i
   %call.i50 = invoke noundef ptr @_ZNKSt9basic_iosIcSt11char_traitsIcEE5rdbufEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr.i)
           to label %_ZNSt19istreambuf_iteratorIcSt11char_traitsIcEEC2ERSi.exit unwind label %terminate.lpad.i
 
@@ -2801,7 +2801,7 @@ invoke.cont39:                                    ; preds = %invoke.cont34
   %vtable.i56 = load ptr, ptr %ifs2, align 8
   %vbase.offset.ptr.i57 = getelementptr i8, ptr %vtable.i56, i64 -24
   %vbase.offset.i58 = load i64, ptr %vbase.offset.ptr.i57, align 8
-  %add.ptr.i59 = getelementptr inbounds nuw i8, ptr %ifs2, i64 %vbase.offset.i58
+  %add.ptr.i59 = getelementptr inbounds i8, ptr %ifs2, i64 %vbase.offset.i58
   %call.i60 = invoke noundef ptr @_ZNKSt9basic_iosIcSt11char_traitsIcEE5rdbufEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr.i59)
           to label %_ZNSt19istreambuf_iteratorIcSt11char_traitsIcEEC2ERSi.exit63 unwind label %terminate.lpad.i61
 

@@ -4808,7 +4808,7 @@ _ZNK4llvm15TreePatternNode13getSimpleTypeEj.exit.i: ; preds = %134, %130
   %138 = getelementptr inbounds nuw i8, ptr %119, i64 32
   %139 = zext i16 %.0.i.i.i to i64
   %140 = add nsw i64 %139, -1
-  %141 = getelementptr inbounds nuw [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %140
+  %141 = getelementptr inbounds [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %140
   %.sroa.0.0.copyload.i.i.i17 = load i64, ptr %141, align 16
   %.sroa.2.0..sroa_idx.i.i.i18 = getelementptr inbounds nuw i8, ptr %141, i64 8
   %.sroa.2.0.copyload.i.i.i19 = load i8, ptr %.sroa.2.0..sroa_idx.i.i.i18, align 8
@@ -6790,7 +6790,7 @@ define linkonce_odr hidden void @_ZN4llvm18EmitIntegerMatcherC2ElNS_3MVT15Simple
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = zext i16 %2 to i64
   %9 = add nsw i64 %8, -1
-  %10 = getelementptr inbounds nuw [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %9
+  %10 = getelementptr inbounds [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %9
   %.sroa.0.0.copyload.i = load i64, ptr %10, align 16
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sroa.2.0.copyload.i = load i8, ptr %.sroa.2.0..sroa_idx.i, align 8

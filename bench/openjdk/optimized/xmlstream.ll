@@ -600,7 +600,7 @@ define hidden void @_ZN9xmlStream7va_doneEPKcP13__va_list_tag(ptr noundef nonnul
   call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull @.str.21, i64 noundef 1) #8
   call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull @.str.9, i64 noundef 3) #8
   store i32 0, ptr %32, align 8
-  %35 = getelementptr inbounds nuw [200 x i8], ptr %6, i64 0, i64 %.0
+  %35 = getelementptr inbounds [200 x i8], ptr %6, i64 0, i64 %.0
   store i8 0, ptr %35, align 1
   %36 = load ptr, ptr %0, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 48

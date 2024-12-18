@@ -1513,10 +1513,10 @@ switch.lookup:                                    ; preds = %31
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !112
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %37 = sext i8 %.val.i to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE", i64 0, i64 %37
+  %switch.gep = getelementptr inbounds [7 x ptr], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE", i64 0, i64 %37
   %switch.load = load ptr, ptr %switch.gep, align 8
   %38 = sext i8 %.val.i to i64
-  %switch.gep45 = getelementptr inbounds nuw [7 x i64], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE.121", i64 0, i64 %38
+  %switch.gep45 = getelementptr inbounds [7 x i64], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE.121", i64 0, i64 %38
   %switch.load46 = load i64, ptr %switch.gep45, align 8
   store ptr %switch.load, ptr %4, align 8, !noalias !112
   store i64 %switch.load46, ptr %36, align 8, !noalias !112
@@ -17569,10 +17569,10 @@ switch.lookup:                                    ; preds = %129
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !2309
   %132 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %133 = sext i8 %.val.i17 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE", i64 0, i64 %133
+  %switch.gep = getelementptr inbounds [7 x ptr], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE", i64 0, i64 %133
   %switch.load = load ptr, ptr %switch.gep, align 8
   %134 = sext i8 %.val.i17 to i64
-  %switch.gep88 = getelementptr inbounds nuw [7 x i64], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE.121", i64 0, i64 %134
+  %switch.gep88 = getelementptr inbounds [7 x i64], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE.121", i64 0, i64 %134
   %switch.load89 = load i64, ptr %switch.gep88, align 8
   store ptr %switch.load, ptr %5, align 8, !noalias !2309
   store i64 %switch.load89, ptr %132, align 8, !noalias !2309
@@ -18506,10 +18506,10 @@ switch.lookup:                                    ; preds = %297
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !2457
   %302 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %303 = sext i8 %.val.i163 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE", i64 0, i64 %303
+  %switch.gep = getelementptr inbounds [7 x ptr], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE", i64 0, i64 %303
   %switch.load = load ptr, ptr %switch.gep, align 8
   %304 = sext i8 %.val.i163 to i64
-  %switch.gep217 = getelementptr inbounds nuw [7 x i64], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE.121", i64 0, i64 %304
+  %switch.gep217 = getelementptr inbounds [7 x i64], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE.121", i64 0, i64 %304
   %switch.load218 = load i64, ptr %switch.gep217, align 8
   store ptr %switch.load, ptr %6, align 8, !noalias !2457
   store i64 %switch.load218, ptr %302, align 8, !noalias !2457
@@ -20788,10 +20788,10 @@ switch.lookup:                                    ; preds = %34
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !2665
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %40 = sext i8 %.val.i to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE", i64 0, i64 %40
+  %switch.gep = getelementptr inbounds [7 x ptr], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE", i64 0, i64 %40
   %switch.load = load ptr, ptr %switch.gep, align 8
   %41 = sext i8 %.val.i to i64
-  %switch.gep38 = getelementptr inbounds nuw [7 x i64], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE.121", i64 0, i64 %41
+  %switch.gep38 = getelementptr inbounds [7 x i64], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE.121", i64 0, i64 %41
   %switch.load39 = load i64, ptr %switch.gep38, align 8
   store ptr %switch.load, ptr %4, align 8, !noalias !2665
   store i64 %switch.load39, ptr %39, align 8, !noalias !2665
@@ -23933,10 +23933,10 @@ switch.lookup:                                    ; preds = %9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !2759
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %17 = sext i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE", i64 0, i64 %17
+  %switch.gep = getelementptr inbounds [7 x ptr], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE", i64 0, i64 %17
   %switch.load = load ptr, ptr %switch.gep, align 8
   %18 = sext i8 %.val to i64
-  %switch.gep5 = getelementptr inbounds nuw [7 x i64], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE.121", i64 0, i64 %18
+  %switch.gep5 = getelementptr inbounds [7 x i64], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE.121", i64 0, i64 %18
   %switch.load6 = load i64, ptr %switch.gep5, align 8
   store ptr %switch.load, ptr %4, align 8, !noalias !2759
   store i64 %switch.load6, ptr %16, align 8, !noalias !2759
@@ -24096,10 +24096,10 @@ switch.lookup:                                    ; preds = %33
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !2786
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %39 = sext i8 %.val.i to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE", i64 0, i64 %39
+  %switch.gep = getelementptr inbounds [7 x ptr], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE", i64 0, i64 %39
   %switch.load = load ptr, ptr %switch.gep, align 8
   %40 = sext i8 %.val.i to i64
-  %switch.gep36 = getelementptr inbounds nuw [7 x i64], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE.121", i64 0, i64 %40
+  %switch.gep36 = getelementptr inbounds [7 x i64], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE.121", i64 0, i64 %40
   %switch.load37 = load i64, ptr %switch.gep36, align 8
   store ptr %switch.load, ptr %4, align 8, !noalias !2786
   store i64 %switch.load37, ptr %38, align 8, !noalias !2786
@@ -24259,10 +24259,10 @@ switch.lookup:                                    ; preds = %13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !2812
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = sext i8 %.val8 to i64
-  %switch.gep = getelementptr inbounds nuw [31 x ptr], ptr @"switch.table._ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E", i64 0, i64 %17
+  %switch.gep = getelementptr inbounds [31 x ptr], ptr @"switch.table._ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E", i64 0, i64 %17
   %switch.load = load ptr, ptr %switch.gep, align 8
   %18 = sext i8 %.val8 to i64
-  %switch.gep3 = getelementptr inbounds nuw [31 x i64], ptr @"switch.table._ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E.107", i64 0, i64 %18
+  %switch.gep3 = getelementptr inbounds [31 x i64], ptr @"switch.table._ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E.107", i64 0, i64 %18
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   store ptr %switch.load, ptr %3, align 8, !noalias !2812
   store i64 %switch.load4, ptr %16, align 8, !noalias !2812
@@ -25211,10 +25211,10 @@ switch.lookup:                                    ; preds = %50
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !2883
   %53 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %54 = sext i8 %.val.i to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE", i64 0, i64 %54
+  %switch.gep = getelementptr inbounds [7 x ptr], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE", i64 0, i64 %54
   %switch.load = load ptr, ptr %switch.gep, align 8
   %55 = sext i8 %.val.i to i64
-  %switch.gep186 = getelementptr inbounds nuw [7 x i64], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE.121", i64 0, i64 %55
+  %switch.gep186 = getelementptr inbounds [7 x i64], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE.121", i64 0, i64 %55
   %switch.load187 = load i64, ptr %switch.gep186, align 8
   store ptr %switch.load, ptr %7, align 8, !noalias !2883
   store i64 %switch.load187, ptr %53, align 8, !noalias !2883
@@ -25926,10 +25926,10 @@ switch.lookup:                                    ; preds = %20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !3008
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %24 = sext i8 %.val.i to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE", i64 0, i64 %24
+  %switch.gep = getelementptr inbounds [7 x ptr], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE", i64 0, i64 %24
   %switch.load = load ptr, ptr %switch.gep, align 8
   %25 = sext i8 %.val.i to i64
-  %switch.gep38 = getelementptr inbounds nuw [7 x i64], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE.121", i64 0, i64 %25
+  %switch.gep38 = getelementptr inbounds [7 x i64], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE.121", i64 0, i64 %25
   %switch.load39 = load i64, ptr %switch.gep38, align 8
   store ptr %switch.load, ptr %4, align 8, !noalias !3008
   store i64 %switch.load39, ptr %23, align 8, !noalias !3008
@@ -27066,10 +27066,10 @@ switch.lookup:                                    ; preds = %79
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !3149
   %84 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %85 = sext i8 %.val.i to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE", i64 0, i64 %85
+  %switch.gep = getelementptr inbounds [7 x ptr], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE", i64 0, i64 %85
   %switch.load = load ptr, ptr %switch.gep, align 8
   %86 = sext i8 %.val.i to i64
-  %switch.gep95 = getelementptr inbounds nuw [7 x i64], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE.121", i64 0, i64 %86
+  %switch.gep95 = getelementptr inbounds [7 x i64], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE.121", i64 0, i64 %86
   %switch.load96 = load i64, ptr %switch.gep95, align 8
   store ptr %switch.load, ptr %4, align 8, !noalias !3149
   store i64 %switch.load96, ptr %84, align 8, !noalias !3149
@@ -27250,10 +27250,10 @@ switch.lookup:                                    ; preds = %9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !3169
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %17 = sext i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE", i64 0, i64 %17
+  %switch.gep = getelementptr inbounds [7 x ptr], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE", i64 0, i64 %17
   %switch.load = load ptr, ptr %switch.gep, align 8
   %18 = sext i8 %.val to i64
-  %switch.gep17 = getelementptr inbounds nuw [7 x i64], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE.121", i64 0, i64 %18
+  %switch.gep17 = getelementptr inbounds [7 x i64], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE.121", i64 0, i64 %18
   %switch.load18 = load i64, ptr %switch.gep17, align 8
   store ptr %switch.load, ptr %5, align 8, !noalias !3169
   store i64 %switch.load18, ptr %16, align 8, !noalias !3169
@@ -28099,10 +28099,10 @@ switch.lookup:                                    ; preds = %33
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !3316
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %39 = sext i8 %.val.i to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE", i64 0, i64 %39
+  %switch.gep = getelementptr inbounds [7 x ptr], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE", i64 0, i64 %39
   %switch.load = load ptr, ptr %switch.gep, align 8
   %40 = sext i8 %.val.i to i64
-  %switch.gep38 = getelementptr inbounds nuw [7 x i64], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE.121", i64 0, i64 %40
+  %switch.gep38 = getelementptr inbounds [7 x i64], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE.121", i64 0, i64 %40
   %switch.load39 = load i64, ptr %switch.gep38, align 8
   store ptr %switch.load, ptr %4, align 8, !noalias !3316
   store i64 %switch.load39, ptr %38, align 8, !noalias !3316
@@ -28860,10 +28860,10 @@ switch.lookup:                                    ; preds = %86
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !3437
   %91 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %92 = sext i8 %.val.i22.i to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE", i64 0, i64 %92
+  %switch.gep = getelementptr inbounds [7 x ptr], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE", i64 0, i64 %92
   %switch.load = load ptr, ptr %switch.gep, align 8
   %93 = sext i8 %.val.i22.i to i64
-  %switch.gep342 = getelementptr inbounds nuw [7 x i64], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE.121", i64 0, i64 %93
+  %switch.gep342 = getelementptr inbounds [7 x i64], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE.121", i64 0, i64 %93
   %switch.load343 = load i64, ptr %switch.gep342, align 8
   store ptr %switch.load, ptr %4, align 8, !noalias !3437
   store i64 %switch.load343, ptr %91, align 8, !noalias !3437
@@ -29074,10 +29074,10 @@ switch.lookup344:                                 ; preds = %169
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !3467
   %172 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %173 = sext i8 %.val.i to i64
-  %switch.gep345 = getelementptr inbounds nuw [7 x ptr], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE", i64 0, i64 %173
+  %switch.gep345 = getelementptr inbounds [7 x ptr], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE", i64 0, i64 %173
   %switch.load346 = load ptr, ptr %switch.gep345, align 8
   %174 = sext i8 %.val.i to i64
-  %switch.gep347 = getelementptr inbounds nuw [7 x i64], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE.121", i64 0, i64 %174
+  %switch.gep347 = getelementptr inbounds [7 x i64], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE.121", i64 0, i64 %174
   %switch.load348 = load i64, ptr %switch.gep347, align 8
   store ptr %switch.load346, ptr %9, align 8, !noalias !3467
   store i64 %switch.load348, ptr %172, align 8, !noalias !3467
@@ -30525,10 +30525,10 @@ switch.lookup:                                    ; preds = %51
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !3615
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !3615
   %56 = sext i8 %.val.i.i to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE", i64 0, i64 %56
+  %switch.gep = getelementptr inbounds [7 x ptr], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE", i64 0, i64 %56
   %switch.load = load ptr, ptr %switch.gep, align 8
   %57 = sext i8 %.val.i.i to i64
-  %switch.gep74 = getelementptr inbounds nuw [7 x i64], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE.121", i64 0, i64 %57
+  %switch.gep74 = getelementptr inbounds [7 x i64], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE.121", i64 0, i64 %57
   %switch.load75 = load i64, ptr %switch.gep74, align 8
   store ptr %switch.load, ptr %4, align 8, !noalias !3615
   store i64 %switch.load75, ptr %40, align 8, !noalias !3615
@@ -31695,10 +31695,10 @@ switch.lookup:                                    ; preds = %36
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !3750
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %42 = sext i8 %.val.i to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE", i64 0, i64 %42
+  %switch.gep = getelementptr inbounds [7 x ptr], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE", i64 0, i64 %42
   %switch.load = load ptr, ptr %switch.gep, align 8
   %43 = sext i8 %.val.i to i64
-  %switch.gep59 = getelementptr inbounds nuw [7 x i64], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE.121", i64 0, i64 %43
+  %switch.gep59 = getelementptr inbounds [7 x i64], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE.121", i64 0, i64 %43
   %switch.load60 = load i64, ptr %switch.gep59, align 8
   store ptr %switch.load, ptr %4, align 8, !noalias !3750
   store i64 %switch.load60, ptr %41, align 8, !noalias !3750
@@ -32408,10 +32408,10 @@ switch.lookup:                                    ; preds = %211
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !3880
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !3880
   %216 = sext i8 %.val.i to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE", i64 0, i64 %216
+  %switch.gep = getelementptr inbounds [7 x ptr], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE", i64 0, i64 %216
   %switch.load = load ptr, ptr %switch.gep, align 8
   %217 = sext i8 %.val.i to i64
-  %switch.gep134 = getelementptr inbounds nuw [7 x i64], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE.121", i64 0, i64 %217
+  %switch.gep134 = getelementptr inbounds [7 x i64], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE.121", i64 0, i64 %217
   %switch.load135 = load i64, ptr %switch.gep134, align 8
   store ptr %switch.load, ptr %5, align 8, !noalias !3880
   store i64 %switch.load135, ptr %175, align 8, !noalias !3880
@@ -32830,10 +32830,10 @@ switch.lookup:                                    ; preds = %1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = sext i8 %.0.val to i64
-  %switch.gep = getelementptr inbounds nuw [48 x ptr], ptr @"switch.table._ZN94_$LT$cpp_demangle..ast..SimpleOperatorName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h9c7f676bf3bc1594E", i64 0, i64 %11
+  %switch.gep = getelementptr inbounds [48 x ptr], ptr @"switch.table._ZN94_$LT$cpp_demangle..ast..SimpleOperatorName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h9c7f676bf3bc1594E", i64 0, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   %12 = sext i8 %.0.val to i64
-  %switch.gep2 = getelementptr inbounds nuw [48 x i64], ptr @"switch.table._ZN94_$LT$cpp_demangle..ast..SimpleOperatorName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h9c7f676bf3bc1594E.119", i64 0, i64 %12
+  %switch.gep2 = getelementptr inbounds [48 x i64], ptr @"switch.table._ZN94_$LT$cpp_demangle..ast..SimpleOperatorName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h9c7f676bf3bc1594E.119", i64 0, i64 %12
   %switch.load3 = load i64, ptr %switch.gep2, align 8
   store ptr %switch.load, ptr %2, align 8
   store i64 %switch.load3, ptr %10, align 8
@@ -32894,10 +32894,10 @@ switch.lookup:                                    ; preds = %1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = sext i8 %.0.val to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE", i64 0, i64 %11
+  %switch.gep = getelementptr inbounds [7 x ptr], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE", i64 0, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   %12 = sext i8 %.0.val to i64
-  %switch.gep2 = getelementptr inbounds nuw [7 x i64], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE.121", i64 0, i64 %12
+  %switch.gep2 = getelementptr inbounds [7 x i64], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE.121", i64 0, i64 %12
   %switch.load3 = load i64, ptr %switch.gep2, align 8
   store ptr %switch.load, ptr %2, align 8
   store i64 %switch.load3, ptr %10, align 8
@@ -33264,10 +33264,10 @@ switch.lookup:                                    ; preds = %32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !4019
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %38 = sext i8 %.val.i to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE", i64 0, i64 %38
+  %switch.gep = getelementptr inbounds [7 x ptr], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE", i64 0, i64 %38
   %switch.load = load ptr, ptr %switch.gep, align 8
   %39 = sext i8 %.val.i to i64
-  %switch.gep34 = getelementptr inbounds nuw [7 x i64], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE.121", i64 0, i64 %39
+  %switch.gep34 = getelementptr inbounds [7 x i64], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE.121", i64 0, i64 %39
   %switch.load35 = load i64, ptr %switch.gep34, align 8
   store ptr %switch.load, ptr %4, align 8, !noalias !4019
   store i64 %switch.load35, ptr %37, align 8, !noalias !4019
@@ -34173,11 +34173,11 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.14851531119274094909.exit27.i: ; p
 
 157:                                              ; preds = %153
   call void @llvm.lifetime.start.p0(i64 304, ptr nonnull %40)
-  %158 = getelementptr inbounds nuw [10 x i64], ptr @anon.b05fb5003af99ead400dd576f4a4fe71.830, i64 0, i64 %.0..0..0..0..0..0.1.pr.i
+  %158 = getelementptr inbounds [10 x i64], ptr @anon.b05fb5003af99ead400dd576f4a4fe71.830, i64 0, i64 %.0..0..0..0..0..0.1.pr.i
   %159 = load i64, ptr %158, align 8, !noalias !4140, !noundef !9
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %40, ptr nonnull align 8 %42, i64 %159, i1 false), !noalias !4140
   %.0..0..0..0..0..0..i = load i64, ptr %40, align 8, !noalias !4140
-  %160 = getelementptr inbounds nuw [10 x i64], ptr @anon.b05fb5003af99ead400dd576f4a4fe71.830, i64 0, i64 %.0..0..0..0..0..0..i
+  %160 = getelementptr inbounds [10 x i64], ptr @anon.b05fb5003af99ead400dd576f4a4fe71.830, i64 0, i64 %.0..0..0..0..0..0..i
   %161 = load i64, ptr %160, align 8, !noalias !4140, !noundef !9
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %43, ptr nonnull align 8 %40, i64 %161, i1 false), !noalias !4140
   call void @llvm.lifetime.end.p0(i64 304, ptr nonnull %40)
@@ -44092,9 +44092,9 @@ _ZN8wasmtime7runtime9component8matching12InstanceType13resource_type17hd120347ac
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define internal fastcc { ptr, i64 } @_ZN8wasmtime7runtime9component5types4Type4desc17h4009c40b222d7964E(i64 %.0.val) unnamed_addr #5 {
 switch.lookup:
-  %switch.gep = getelementptr inbounds nuw [23 x i64], ptr @switch.table._ZN8wasmtime7runtime9component5types4Type4desc17h4009c40b222d7964E, i64 0, i64 %.0.val
+  %switch.gep = getelementptr inbounds [23 x i64], ptr @switch.table._ZN8wasmtime7runtime9component5types4Type4desc17h4009c40b222d7964E, i64 0, i64 %.0.val
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep1 = getelementptr inbounds nuw [23 x ptr], ptr @switch.table._ZN8wasmtime7runtime9component5types4Type4desc17h4009c40b222d7964E.122, i64 0, i64 %.0.val
+  %switch.gep1 = getelementptr inbounds [23 x ptr], ptr @switch.table._ZN8wasmtime7runtime9component5types4Type4desc17h4009c40b222d7964E.122, i64 0, i64 %.0.val
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %0 = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %1 = insertvalue { ptr, i64 } %0, i64 %switch.load, 1

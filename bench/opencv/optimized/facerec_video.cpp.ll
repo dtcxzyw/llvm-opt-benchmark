@@ -203,7 +203,7 @@ define hidden noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture n
   %66 = load ptr, ptr %3, align 8
   %67 = getelementptr i8, ptr %66, i64 -24
   %68 = load i64, ptr %67, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %3, i64 %68
+  %69 = getelementptr inbounds i8, ptr %3, i64 %68
   %70 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %69)
           to label %71 unwind label %75
 

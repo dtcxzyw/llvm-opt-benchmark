@@ -947,7 +947,7 @@ define void @_ZN10open_spiel8FindFileERKNSt7__cxx1112basic_stringIcSt11char_trai
   %12 = load ptr, ptr %5, align 8
   %13 = getelementptr i8, ptr %12, i64 -24
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %5, i64 %14
+  %15 = getelementptr inbounds i8, ptr %5, i64 %14
   %16 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %15)
           to label %17 unwind label %20
 
@@ -987,7 +987,7 @@ define void @_ZN10open_spiel8FindFileERKNSt7__cxx1112basic_stringIcSt11char_trai
   %29 = load ptr, ptr %7, align 8
   %30 = getelementptr i8, ptr %29, i64 -24
   %31 = load i64, ptr %30, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %7, i64 %31
+  %32 = getelementptr inbounds i8, ptr %7, i64 %31
   %33 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %32)
           to label %34 unwind label %35
 

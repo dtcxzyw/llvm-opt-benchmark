@@ -875,7 +875,7 @@ define i64 @check_foreign_key(ptr nocapture noundef readonly %0) local_unnamed_a
 
 ._crit_edge246:                                   ; preds = %202
   %strlen216 = call i64 @strlen(ptr nonnull dereferenceable(1) %4)
-  %endptr217 = getelementptr inbounds nuw i8, ptr %4, i64 %strlen216
+  %endptr217 = getelementptr inbounds i8, ptr %4, i64 %strlen216
   store i64 9118741256763168, ptr %endptr217, align 1
   br label %.lr.ph250.preheader
 
@@ -903,7 +903,7 @@ define i64 @check_foreign_key(ptr nocapture noundef readonly %0) local_unnamed_a
 
 ._crit_edge241:                                   ; preds = %.lr.ph240
   %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) %4)
-  %endptr = getelementptr inbounds nuw i8, ptr %4, i64 %strlen
+  %endptr = getelementptr inbounds i8, ptr %4, i64 %strlen
   store i64 9118741256763168, ptr %endptr, align 1
   br label %.lr.ph250.preheader
 

@@ -2633,7 +2633,7 @@ _ZNSt10unique_ptrIN3gmx3Any7ContentIfEESt14default_deleteIS3_EED2Ev.exit:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef ptr @_Z17enumValueToString10StateEntry(i32 noundef %0) local_unnamed_addr #13 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [29 x ptr], ptr @_ZZ17enumValueToString10StateEntryE15stateEntryNames, i64 0, i64 %2
+  %3 = getelementptr inbounds [29 x ptr], ptr @_ZZ17enumValueToString10StateEntryE15stateEntryNames, i64 0, i64 %2
   %4 = load ptr, ptr %3, align 8
   ret ptr %4
 }
@@ -9177,7 +9177,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL12do_cpte_intsI10StateEn
 30:                                               ; preds = %28
   call void @_ZNSt10filesystem7__cxx114pathC2IA127_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 1 dereferenceable(127) @.str.3, i8 noundef zeroext 2)
   %31 = sext i32 %1 to i64
-  %32 = getelementptr inbounds nuw [29 x ptr], ptr @_ZZ17enumValueToString10StateEntryE15stateEntryNames, i64 0, i64 %31
+  %32 = getelementptr inbounds [29 x ptr], ptr @_ZZ17enumValueToString10StateEntryE15stateEntryNames, i64 0, i64 %31
   %33 = load ptr, ptr %32, align 8
   %34 = load i32, ptr %7, align 4
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %9, i32 noundef 784, ptr noundef nonnull @.str.85, ptr noundef %33, i64 noundef range(i64 0, 2) %12, i32 noundef %34) #24
@@ -9197,7 +9197,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL12do_cpte_intsI10StateEn
 
 40:                                               ; preds = %38
   %41 = sext i32 %1 to i64
-  %42 = getelementptr inbounds nuw [29 x ptr], ptr @_ZZ17enumValueToString10StateEntryE15stateEntryNames, i64 0, i64 %41
+  %42 = getelementptr inbounds [29 x ptr], ptr @_ZZ17enumValueToString10StateEntryE15stateEntryNames, i64 0, i64 %41
   %43 = load ptr, ptr %42, align 8
   %44 = call noundef ptr @_Z17enumValueToString11XdrDataType(i32 noundef 0)
   %45 = call noundef ptr @_Z17enumValueToString11XdrDataType(i32 noundef %21)
@@ -9366,7 +9366,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL11doVectorLowIfSaIfE10St
 51:                                               ; preds = %47
   call void @_ZNSt10filesystem7__cxx114pathC2IA127_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 1 dereferenceable(127) @.str.3, i8 noundef zeroext 2)
   %52 = sext i32 %1 to i64
-  %53 = getelementptr inbounds nuw [29 x ptr], ptr @_ZZ17enumValueToString10StateEntryE15stateEntryNames, i64 0, i64 %52
+  %53 = getelementptr inbounds [29 x ptr], ptr @_ZZ17enumValueToString10StateEntryE15stateEntryNames, i64 0, i64 %52
   %54 = load ptr, ptr %53, align 8
   %55 = load i32, ptr %9, align 4
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %11, i32 noundef 784, ptr noundef nonnull @.str.85, ptr noundef %54, i64 noundef %3, i32 noundef %55) #24
@@ -9386,7 +9386,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL11doVectorLowIfSaIfE10St
 
 61:                                               ; preds = %59
   %62 = sext i32 %1 to i64
-  %63 = getelementptr inbounds nuw [29 x ptr], ptr @_ZZ17enumValueToString10StateEntryE15stateEntryNames, i64 0, i64 %62
+  %63 = getelementptr inbounds [29 x ptr], ptr @_ZZ17enumValueToString10StateEntryE15stateEntryNames, i64 0, i64 %62
   %64 = load ptr, ptr %63, align 8
   %65 = call noundef ptr @_Z17enumValueToString11XdrDataType(i32 noundef 1)
   %66 = call noundef ptr @_Z17enumValueToString11XdrDataType(i32 noundef %40)
@@ -9578,7 +9578,7 @@ switch.lookup1:                                   ; preds = %switch.lookup
 
 22:                                               ; preds = %17
   %23 = sext i32 %1 to i64
-  %24 = getelementptr inbounds nuw [29 x ptr], ptr @_ZZ17enumValueToString10StateEntryE15stateEntryNames, i64 0, i64 %23
+  %24 = getelementptr inbounds [29 x ptr], ptr @_ZZ17enumValueToString10StateEntryE15stateEntryNames, i64 0, i64 %23
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %7, align 8
   invoke void @_Z7pr_ivecP8_IO_FILEiPKcPKiib(ptr noundef nonnull %4, i32 noundef 0, ptr noundef %25, ptr noundef %26, i32 noundef %2, i1 noundef zeroext true)
@@ -9587,7 +9587,7 @@ switch.lookup1:                                   ; preds = %switch.lookup
 27:                                               ; preds = %17
   %28 = icmp eq i32 %5, 2
   %29 = sext i32 %1 to i64
-  %30 = getelementptr inbounds nuw [29 x ptr], ptr @_ZZ17enumValueToString10StateEntryE15stateEntryNames, i64 0, i64 %29
+  %30 = getelementptr inbounds [29 x ptr], ptr @_ZZ17enumValueToString10StateEntryE15stateEntryNames, i64 0, i64 %29
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %7, align 8
   br i1 %28, label %33, label %35
@@ -9603,7 +9603,7 @@ switch.lookup1:                                   ; preds = %switch.lookup
 
 36:                                               ; preds = %17
   %37 = sext i32 %1 to i64
-  %38 = getelementptr inbounds nuw [29 x ptr], ptr @_ZZ17enumValueToString10StateEntryE15stateEntryNames, i64 0, i64 %37
+  %38 = getelementptr inbounds [29 x ptr], ptr @_ZZ17enumValueToString10StateEntryE15stateEntryNames, i64 0, i64 %37
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr %7, align 8
   invoke void @_Z7pr_dvecP8_IO_FILEiPKcPKdib(ptr noundef nonnull %4, i32 noundef 0, ptr noundef %39, ptr noundef %40, i32 noundef %2, i1 noundef zeroext true)
@@ -9923,7 +9923,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL11doVectorLowIdSaIdE10St
 48:                                               ; preds = %44
   call void @_ZNSt10filesystem7__cxx114pathC2IA127_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 1 dereferenceable(127) @.str.3, i8 noundef zeroext 2)
   %49 = sext i32 %1 to i64
-  %50 = getelementptr inbounds nuw [29 x ptr], ptr @_ZZ17enumValueToString10StateEntryE15stateEntryNames, i64 0, i64 %49
+  %50 = getelementptr inbounds [29 x ptr], ptr @_ZZ17enumValueToString10StateEntryE15stateEntryNames, i64 0, i64 %49
   %51 = load ptr, ptr %50, align 8
   %52 = load i32, ptr %8, align 4
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %10, i32 noundef 784, ptr noundef nonnull @.str.85, ptr noundef %51, i64 noundef %3, i32 noundef %52) #24
@@ -9943,7 +9943,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL11doVectorLowIdSaIdE10St
 
 58:                                               ; preds = %56
   %59 = sext i32 %1 to i64
-  %60 = getelementptr inbounds nuw [29 x ptr], ptr @_ZZ17enumValueToString10StateEntryE15stateEntryNames, i64 0, i64 %59
+  %60 = getelementptr inbounds [29 x ptr], ptr @_ZZ17enumValueToString10StateEntryE15stateEntryNames, i64 0, i64 %59
   %61 = load ptr, ptr %60, align 8
   %62 = call noundef ptr @_Z17enumValueToString11XdrDataType(i32 noundef 2)
   %63 = call noundef ptr @_Z17enumValueToString11XdrDataType(i32 noundef %37)
@@ -10200,7 +10200,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL16do_cpte_matricesI17Sta
 15:                                               ; preds = %12
   call void @_ZNSt10filesystem7__cxx114pathC2IA127_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 1 dereferenceable(127) @.str.3, i8 noundef zeroext 2)
   %16 = sext i32 %1 to i64
-  %17 = getelementptr inbounds nuw [10 x ptr], ptr @_ZZL17enumValueToString17StateKineticEntryE22stateKineticEntryNames, i64 0, i64 %16
+  %17 = getelementptr inbounds [10 x ptr], ptr @_ZZL17enumValueToString17StateKineticEntryE22stateKineticEntryNames, i64 0, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = load i32, ptr %8, align 4
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %9, i32 noundef 1036, ptr noundef nonnull @.str.120, ptr noundef %18, i32 noundef %3, i32 noundef %19) #24
@@ -10341,7 +10341,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL16do_cpte_matricesI17Sta
 
 .lr.ph:                                           ; preds = %._crit_edge80
   %71 = sext i32 %1 to i64
-  %72 = getelementptr inbounds nuw [10 x ptr], ptr @_ZZL17enumValueToString17StateKineticEntryE22stateKineticEntryNames, i64 0, i64 %71
+  %72 = getelementptr inbounds [10 x ptr], ptr @_ZZL17enumValueToString17StateKineticEntryE22stateKineticEntryNames, i64 0, i64 %71
   %73 = load ptr, ptr %72, align 8
   br label %74
 
@@ -10441,7 +10441,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL8doVectorId17StateKineti
 
 37:                                               ; preds = %35
   %38 = sext i32 %1 to i64
-  %39 = getelementptr inbounds nuw [10 x ptr], ptr @_ZZL17enumValueToString17StateKineticEntryE22stateKineticEntryNames, i64 0, i64 %38
+  %39 = getelementptr inbounds [10 x ptr], ptr @_ZZL17enumValueToString17StateKineticEntryE22stateKineticEntryNames, i64 0, i64 %38
   %40 = load ptr, ptr %39, align 8
   %41 = call noundef ptr @_Z17enumValueToString11XdrDataType(i32 noundef 2)
   %42 = call noundef ptr @_Z17enumValueToString11XdrDataType(i32 noundef %28)
@@ -10610,7 +10610,7 @@ switch.lookup1:                                   ; preds = %switch.lookup
 
 22:                                               ; preds = %17
   %23 = sext i32 %1 to i64
-  %24 = getelementptr inbounds nuw [10 x ptr], ptr @_ZZL17enumValueToString17StateKineticEntryE22stateKineticEntryNames, i64 0, i64 %23
+  %24 = getelementptr inbounds [10 x ptr], ptr @_ZZL17enumValueToString17StateKineticEntryE22stateKineticEntryNames, i64 0, i64 %23
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %7, align 8
   invoke void @_Z7pr_ivecP8_IO_FILEiPKcPKiib(ptr noundef nonnull %4, i32 noundef 0, ptr noundef %25, ptr noundef %26, i32 noundef %2, i1 noundef zeroext true)
@@ -10619,7 +10619,7 @@ switch.lookup1:                                   ; preds = %switch.lookup
 27:                                               ; preds = %17
   %28 = icmp eq i32 %5, 2
   %29 = sext i32 %1 to i64
-  %30 = getelementptr inbounds nuw [10 x ptr], ptr @_ZZL17enumValueToString17StateKineticEntryE22stateKineticEntryNames, i64 0, i64 %29
+  %30 = getelementptr inbounds [10 x ptr], ptr @_ZZL17enumValueToString17StateKineticEntryE22stateKineticEntryNames, i64 0, i64 %29
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %7, align 8
   br i1 %28, label %33, label %35
@@ -10635,7 +10635,7 @@ switch.lookup1:                                   ; preds = %switch.lookup
 
 36:                                               ; preds = %17
   %37 = sext i32 %1 to i64
-  %38 = getelementptr inbounds nuw [10 x ptr], ptr @_ZZL17enumValueToString17StateKineticEntryE22stateKineticEntryNames, i64 0, i64 %37
+  %38 = getelementptr inbounds [10 x ptr], ptr @_ZZL17enumValueToString17StateKineticEntryE22stateKineticEntryNames, i64 0, i64 %37
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr %7, align 8
   invoke void @_Z7pr_dvecP8_IO_FILEiPKcPKdib(ptr noundef nonnull %4, i32 noundef 0, ptr noundef %39, ptr noundef %40, i32 noundef %2, i1 noundef zeroext true)
@@ -10721,7 +10721,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL11doVectorLowIfSaIfE17St
 35:                                               ; preds = %31
   call void @_ZNSt10filesystem7__cxx114pathC2IA127_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 1 dereferenceable(127) @.str.3, i8 noundef zeroext 2)
   %36 = sext i32 %1 to i64
-  %37 = getelementptr inbounds nuw [10 x ptr], ptr @_ZZL17enumValueToString17StateKineticEntryE22stateKineticEntryNames, i64 0, i64 %36
+  %37 = getelementptr inbounds [10 x ptr], ptr @_ZZL17enumValueToString17StateKineticEntryE22stateKineticEntryNames, i64 0, i64 %36
   %38 = load ptr, ptr %37, align 8
   %39 = load i32, ptr %8, align 4
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %10, i32 noundef 784, ptr noundef nonnull @.str.85, ptr noundef %38, i64 noundef %3, i32 noundef %39) #24
@@ -10741,7 +10741,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL11doVectorLowIfSaIfE17St
 
 45:                                               ; preds = %43
   %46 = sext i32 %1 to i64
-  %47 = getelementptr inbounds nuw [10 x ptr], ptr @_ZZL17enumValueToString17StateKineticEntryE22stateKineticEntryNames, i64 0, i64 %46
+  %47 = getelementptr inbounds [10 x ptr], ptr @_ZZL17enumValueToString17StateKineticEntryE22stateKineticEntryNames, i64 0, i64 %46
   %48 = load ptr, ptr %47, align 8
   %49 = call noundef ptr @_Z17enumValueToString11XdrDataType(i32 noundef 1)
   %50 = call noundef ptr @_Z17enumValueToString11XdrDataType(i32 noundef %24)
@@ -10986,7 +10986,7 @@ switch.lookup1:                                   ; preds = %switch.lookup
 
 16:                                               ; preds = %switch.lookup1
   %17 = sext i32 %1 to i64
-  %18 = getelementptr inbounds nuw [12 x ptr], ptr @_ZZL17enumValueToString16StateEnergyEntryE21stateEnergyEntryNames, i64 0, i64 %17
+  %18 = getelementptr inbounds [12 x ptr], ptr @_ZZL17enumValueToString16StateEnergyEntryE21stateEnergyEntryNames, i64 0, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %6, align 8
   switch i32 %3, label %default.unreachable29 [
@@ -11135,7 +11135,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL11doVectorLowIdSaIdE16St
 48:                                               ; preds = %44
   call void @_ZNSt10filesystem7__cxx114pathC2IA127_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 1 dereferenceable(127) @.str.3, i8 noundef zeroext 2)
   %49 = sext i32 %1 to i64
-  %50 = getelementptr inbounds nuw [12 x ptr], ptr @_ZZL17enumValueToString16StateEnergyEntryE21stateEnergyEntryNames, i64 0, i64 %49
+  %50 = getelementptr inbounds [12 x ptr], ptr @_ZZL17enumValueToString16StateEnergyEntryE21stateEnergyEntryNames, i64 0, i64 %49
   %51 = load ptr, ptr %50, align 8
   %52 = load i32, ptr %8, align 4
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %10, i32 noundef 784, ptr noundef nonnull @.str.85, ptr noundef %51, i64 noundef %3, i32 noundef %52) #24
@@ -11155,7 +11155,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL11doVectorLowIdSaIdE16St
 
 58:                                               ; preds = %56
   %59 = sext i32 %1 to i64
-  %60 = getelementptr inbounds nuw [12 x ptr], ptr @_ZZL17enumValueToString16StateEnergyEntryE21stateEnergyEntryNames, i64 0, i64 %59
+  %60 = getelementptr inbounds [12 x ptr], ptr @_ZZL17enumValueToString16StateEnergyEntryE21stateEnergyEntryNames, i64 0, i64 %59
   %61 = load ptr, ptr %60, align 8
   %62 = call noundef ptr @_Z17enumValueToString11XdrDataType(i32 noundef 2)
   %63 = call noundef ptr @_Z17enumValueToString11XdrDataType(i32 noundef %37)
@@ -11631,7 +11631,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL14do_cpte_doubleI19State
 29:                                               ; preds = %27
   call void @_ZNSt10filesystem7__cxx114pathC2IA127_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 1 dereferenceable(127) @.str.3, i8 noundef zeroext 2)
   %30 = sext i32 %1 to i64
-  %31 = getelementptr inbounds nuw [7 x ptr], ptr @_ZZL17enumValueToString19StatePullCoordEntryE24statePullCoordEntryNames, i64 0, i64 %30
+  %31 = getelementptr inbounds [7 x ptr], ptr @_ZZL17enumValueToString19StatePullCoordEntryE24statePullCoordEntryNames, i64 0, i64 %30
   %32 = load ptr, ptr %31, align 8
   %33 = load i32, ptr %8, align 4
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %10, i32 noundef 784, ptr noundef nonnull @.str.85, ptr noundef %32, i64 noundef 1, i32 noundef %33) #24
@@ -11652,7 +11652,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL14do_cpte_doubleI19State
 
 39:                                               ; preds = %37
   %40 = sext i32 %1 to i64
-  %41 = getelementptr inbounds nuw [7 x ptr], ptr @_ZZL17enumValueToString19StatePullCoordEntryE24statePullCoordEntryNames, i64 0, i64 %40
+  %41 = getelementptr inbounds [7 x ptr], ptr @_ZZL17enumValueToString19StatePullCoordEntryE24statePullCoordEntryNames, i64 0, i64 %40
   %42 = load ptr, ptr %41, align 8
   %43 = call noundef ptr @_Z17enumValueToString11XdrDataType(i32 noundef 2)
   %44 = call noundef ptr @_Z17enumValueToString11XdrDataType(i32 noundef %20)
@@ -11755,7 +11755,7 @@ switch.lookup3:                                   ; preds = %switch.lookup
 
 75:                                               ; preds = %switch.lookup3
   %76 = sext i32 %1 to i64
-  %77 = getelementptr inbounds nuw [7 x ptr], ptr @_ZZL17enumValueToString19StatePullCoordEntryE24statePullCoordEntryNames, i64 0, i64 %76
+  %77 = getelementptr inbounds [7 x ptr], ptr @_ZZL17enumValueToString19StatePullCoordEntryE24statePullCoordEntryNames, i64 0, i64 %76
   %78 = load ptr, ptr %77, align 8
   %79 = load ptr, ptr %6, align 8
   switch i32 %20, label %default.unreachable29.i.i.i [
@@ -11897,7 +11897,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL12do_cpte_intsI13StateFe
 36:                                               ; preds = %32
   call void @_ZNSt10filesystem7__cxx114pathC2IA127_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 1 dereferenceable(127) @.str.3, i8 noundef zeroext 2)
   %37 = sext i32 %1 to i64
-  %38 = getelementptr inbounds nuw [14 x ptr], ptr @_ZZL17enumValueToString13StateFepEntryE18stateFepEntryNames, i64 0, i64 %37
+  %38 = getelementptr inbounds [14 x ptr], ptr @_ZZL17enumValueToString13StateFepEntryE18stateFepEntryNames, i64 0, i64 %37
   %39 = load ptr, ptr %38, align 8
   %40 = load i32, ptr %7, align 4
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %9, i32 noundef 784, ptr noundef nonnull @.str.85, ptr noundef %39, i64 noundef range(i64 -2147483648, 2147483648) %12, i32 noundef %40) #24
@@ -11917,7 +11917,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL12do_cpte_intsI13StateFe
 
 46:                                               ; preds = %44
   %47 = sext i32 %1 to i64
-  %48 = getelementptr inbounds nuw [14 x ptr], ptr @_ZZL17enumValueToString13StateFepEntryE18stateFepEntryNames, i64 0, i64 %47
+  %48 = getelementptr inbounds [14 x ptr], ptr @_ZZL17enumValueToString13StateFepEntryE18stateFepEntryNames, i64 0, i64 %47
   %49 = load ptr, ptr %48, align 8
   %50 = call noundef ptr @_Z17enumValueToString11XdrDataType(i32 noundef 0)
   %51 = call noundef ptr @_Z17enumValueToString11XdrDataType(i32 noundef %25)
@@ -12003,7 +12003,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL15do_cpte_nmatrixI13Stat
   %14 = zext nneg i32 %3 to i64
   %.not = icmp eq ptr %5, null
   %15 = sext i32 %1 to i64
-  %16 = getelementptr inbounds nuw [14 x ptr], ptr @_ZZL17enumValueToString13StateFepEntryE18stateFepEntryNames, i64 0, i64 %15
+  %16 = getelementptr inbounds [14 x ptr], ptr @_ZZL17enumValueToString13StateFepEntryE18stateFepEntryNames, i64 0, i64 %15
   br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
@@ -12095,7 +12095,7 @@ switch.lookup1:                                   ; preds = %switch.lookup
 
 22:                                               ; preds = %17
   %23 = sext i32 %1 to i64
-  %24 = getelementptr inbounds nuw [14 x ptr], ptr @_ZZL17enumValueToString13StateFepEntryE18stateFepEntryNames, i64 0, i64 %23
+  %24 = getelementptr inbounds [14 x ptr], ptr @_ZZL17enumValueToString13StateFepEntryE18stateFepEntryNames, i64 0, i64 %23
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %7, align 8
   invoke void @_Z7pr_ivecP8_IO_FILEiPKcPKiib(ptr noundef nonnull %4, i32 noundef 0, ptr noundef %25, ptr noundef %26, i32 noundef %2, i1 noundef zeroext true)
@@ -12104,7 +12104,7 @@ switch.lookup1:                                   ; preds = %switch.lookup
 27:                                               ; preds = %17
   %28 = icmp eq i32 %5, 2
   %29 = sext i32 %1 to i64
-  %30 = getelementptr inbounds nuw [14 x ptr], ptr @_ZZL17enumValueToString13StateFepEntryE18stateFepEntryNames, i64 0, i64 %29
+  %30 = getelementptr inbounds [14 x ptr], ptr @_ZZL17enumValueToString13StateFepEntryE18stateFepEntryNames, i64 0, i64 %29
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %7, align 8
   br i1 %28, label %33, label %35
@@ -12120,7 +12120,7 @@ switch.lookup1:                                   ; preds = %switch.lookup
 
 36:                                               ; preds = %17
   %37 = sext i32 %1 to i64
-  %38 = getelementptr inbounds nuw [14 x ptr], ptr @_ZZL17enumValueToString13StateFepEntryE18stateFepEntryNames, i64 0, i64 %37
+  %38 = getelementptr inbounds [14 x ptr], ptr @_ZZL17enumValueToString13StateFepEntryE18stateFepEntryNames, i64 0, i64 %37
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr %7, align 8
   invoke void @_Z7pr_dvecP8_IO_FILEiPKcPKdib(ptr noundef nonnull %4, i32 noundef 0, ptr noundef %39, ptr noundef %40, i32 noundef %2, i1 noundef zeroext true)
@@ -12217,7 +12217,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL11doVectorLowIfSaIfE13St
 37:                                               ; preds = %33
   call void @_ZNSt10filesystem7__cxx114pathC2IA127_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 1 dereferenceable(127) @.str.3, i8 noundef zeroext 2)
   %38 = sext i32 %1 to i64
-  %39 = getelementptr inbounds nuw [14 x ptr], ptr @_ZZL17enumValueToString13StateFepEntryE18stateFepEntryNames, i64 0, i64 %38
+  %39 = getelementptr inbounds [14 x ptr], ptr @_ZZL17enumValueToString13StateFepEntryE18stateFepEntryNames, i64 0, i64 %38
   %40 = load ptr, ptr %39, align 8
   %41 = load i32, ptr %8, align 4
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %10, i32 noundef 784, ptr noundef nonnull @.str.85, ptr noundef %40, i64 noundef %3, i32 noundef %41) #24
@@ -12237,7 +12237,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL11doVectorLowIfSaIfE13St
 
 47:                                               ; preds = %45
   %48 = sext i32 %1 to i64
-  %49 = getelementptr inbounds nuw [14 x ptr], ptr @_ZZL17enumValueToString13StateFepEntryE18stateFepEntryNames, i64 0, i64 %48
+  %49 = getelementptr inbounds [14 x ptr], ptr @_ZZL17enumValueToString13StateFepEntryE18stateFepEntryNames, i64 0, i64 %48
   %50 = load ptr, ptr %49, align 8
   %51 = call noundef ptr @_Z17enumValueToString11XdrDataType(i32 noundef 1)
   %52 = call noundef ptr @_Z17enumValueToString11XdrDataType(i32 noundef %26)

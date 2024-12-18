@@ -753,7 +753,7 @@ define internal fastcc void @_ZN5boost9unit_test16results_reporter12_GLOBAL__N_1
   %2 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !14
   %3 = getelementptr i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds nuw i8, ptr @_ZSt4cerr, i64 %4
+  %5 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %4
   store ptr %5, ptr %1, align 8, !tbaa !16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24

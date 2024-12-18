@@ -2688,7 +2688,7 @@ _ZN10cmCPackLog3LogEiPKciS1_.exit303:             ; preds = %442
   %523 = load ptr, ptr %66, align 8
   %524 = getelementptr i8, ptr %523, i64 -24
   %525 = load i64, ptr %524, align 8
-  %526 = getelementptr inbounds nuw i8, ptr %66, i64 %525
+  %526 = getelementptr inbounds i8, ptr %66, i64 %525
   %527 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %526)
           to label %528 unwind label %541
 
@@ -2790,7 +2790,7 @@ _ZN10cmCPackLog3LogEiPKciS1_.exit310:             ; preds = %558
   %562 = load ptr, ptr %66, align 8
   %563 = getelementptr i8, ptr %562, i64 -24
   %564 = load i64, ptr %563, align 8
-  %565 = getelementptr inbounds nuw i8, ptr %66, i64 %564
+  %565 = getelementptr inbounds i8, ptr %66, i64 %564
   %566 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %565)
           to label %567 unwind label %.loopexit
 
@@ -15409,7 +15409,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit315: ;
   %671 = load ptr, ptr %82, align 8
   %672 = getelementptr i8, ptr %671, i64 -24
   %673 = load i64, ptr %672, align 8
-  %674 = getelementptr inbounds nuw i8, ptr %82, i64 %673
+  %674 = getelementptr inbounds i8, ptr %82, i64 %673
   %675 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %674)
           to label %676 unwind label %707
 

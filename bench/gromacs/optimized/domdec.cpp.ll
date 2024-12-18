@@ -1801,7 +1801,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %3, %9, %2
   %92 = and i1 %91, %88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, i8 0, i64 12, i1 false)
   %93 = sext i32 %90 to i64
-  %94 = getelementptr inbounds nuw [3 x i32], ptr %4, i64 0, i64 %93
+  %94 = getelementptr inbounds [3 x i32], ptr %4, i64 0, i64 %93
   store i32 1, ptr %94, align 4
   %95 = getelementptr inbounds nuw [3 x %struct.gmx_domdec_comm_dim_t], ptr %62, i64 0, i64 %indvars.iv.next275
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
@@ -2699,7 +2699,7 @@ _ZNSt6vectorIiSaIiEE7reserveEm.exit:              ; preds = %30, %_ZNSt12_Vector
   store i32 %.04085, ptr %9, align 4
   store i32 %.03979, ptr %49, align 4
   store i32 %.076, ptr %50, align 4
-  %78 = getelementptr inbounds nuw i32, ptr %8, i64 %73
+  %78 = getelementptr inbounds i32, ptr %8, i64 %73
   %79 = load i32, ptr %78, align 4
   %80 = sub nsw i32 %77, %75
   %81 = mul nsw i32 %79, %80
@@ -2707,7 +2707,7 @@ _ZNSt6vectorIiSaIiEE7reserveEm.exit:              ; preds = %30, %_ZNSt12_Vector
   %83 = add nsw i32 %81, %82
   %84 = sdiv i32 %83, %75
   %85 = add nsw i32 %84, %75
-  %86 = getelementptr inbounds nuw i32, ptr %9, i64 %73
+  %86 = getelementptr inbounds i32, ptr %9, i64 %73
   store i32 %85, ptr %86, align 4
   %87 = load ptr, ptr %10, align 8
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
@@ -6292,7 +6292,7 @@ _ZNSt6vectorI21InteractionListHandleSaIS0_EED2Ev.exit.i.i: ; preds = %443, %_ZL1
   %.sroa.018.033.i.i = phi ptr [ %474, %_ZL13extractIListsRKSt5arrayI15InteractionListLm94EEi.exit.i.i ], [ %.sroa.021.2.i.i, %_ZL13extractIListsRKSt5arrayI15InteractionListLm94EEi.exit.preheader.i.i ]
   %446 = load i32, ptr %.sroa.018.033.i.i, align 8, !noalias !53
   %447 = sext i32 %446 to i64
-  %448 = getelementptr inbounds nuw [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %447, i32 2
+  %448 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %447, i32 2
   %449 = load i32, ptr %448, align 16, !noalias !53
   %450 = icmp sgt i32 %449, 2
   br i1 %450, label %451, label %_ZL13extractIListsRKSt5arrayI15InteractionListLm94EEi.exit.i.i
@@ -6313,7 +6313,7 @@ _ZNSt6vectorI21InteractionListHandleSaIS0_EED2Ev.exit.i.i: ; preds = %443, %_ZL1
   %462 = ashr exact i64 %461, 2
   %.val.i.i = load i32, ptr %.sroa.018.033.i.i, align 8, !noalias !53
   %463 = sext i32 %.val.i.i to i64
-  %464 = getelementptr inbounds nuw [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %463, i32 2
+  %464 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %463, i32 2
   %465 = load i32, ptr %464, align 16, !noalias !53
   %466 = add nsw i32 %465, 1
   %467 = sext i32 %466 to i64
@@ -7257,7 +7257,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit38.i: ; preds = %879
 890:                                              ; preds = %_ZN9gmx_ddpmeD2Ev.exit.i, %888
   %.idx.i102 = phi i64 [ 232, %888 ], [ %.add.i103, %_ZN9gmx_ddpmeD2Ev.exit.i ]
   %.add.i103 = add nsw i64 %.idx.i102, -96
-  %.ptr1.i = getelementptr inbounds nuw i8, ptr %73, i64 %.add.i103
+  %.ptr1.i = getelementptr inbounds i8, ptr %73, i64 %.add.i103
   %891 = getelementptr inbounds nuw i8, ptr %.ptr1.i, i64 64
   %892 = load ptr, ptr %891, align 8
   %.not.i.i.i.i.i104 = icmp eq ptr %892, null
@@ -8542,7 +8542,7 @@ define internal fastcc noundef i32 @_ZL18dd_simnode2pmenodeRK11DDRankSetupRK18Ca
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load i32, ptr %16, align 8
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds nuw [3 x i32], ptr %8, i64 0, i64 %18
+  %19 = getelementptr inbounds [3 x i32], ptr %8, i64 0, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = getelementptr inbounds [3 x i32], ptr %21, i64 0, i64 %18
@@ -8570,7 +8570,7 @@ define internal fastcc noundef i32 @_ZL18dd_simnode2pmenodeRK11DDRankSetupRK18Ca
   %39 = add nsw i32 %37, %38
   %40 = sdiv i32 %39, %23
   %41 = add nsw i32 %40, %23
-  %42 = getelementptr inbounds nuw i32, ptr %9, i64 %18
+  %42 = getelementptr inbounds i32, ptr %9, i64 %18
   store i32 %41, ptr %42, align 4
   %43 = load ptr, ptr %13, align 8
   %44 = call noundef i32 @_Z14tMPI_Cart_rankP10tmpi_comm_PiS1_(ptr noundef %43, ptr noundef nonnull %9, ptr noundef nonnull %7)
@@ -9188,7 +9188,7 @@ _ZL20average_cellsize_minRK11gmx_ddbox_tPKi.exit.i: ; preds = %230
 .noexc23:                                         ; preds = %282
   %283 = load i32, ptr %270, align 8
   %284 = sext i32 %283 to i64
-  %285 = getelementptr inbounds nuw [5 x %"class.std::__cxx11::basic_string"], ptr @_Z14c_pbcTypeNamesB5cxx11, i64 0, i64 %284
+  %285 = getelementptr inbounds [5 x %"class.std::__cxx11::basic_string"], ptr @_Z14c_pbcTypeNamesB5cxx11, i64 0, i64 %284
   %286 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %285) #26
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %23, i32 noundef 1637, ptr noundef nonnull @.str.149, ptr noundef %286) #25
           to label %287 unwind label %288
@@ -9957,7 +9957,7 @@ _ZL25receive_ddindex2simnodeidP12gmx_domdec_tP9t_commrec.exit.i: ; preds = %650,
   %673 = getelementptr inbounds nuw i8, ptr %657, i64 280
   %674 = load i32, ptr %673, align 8
   %675 = sext i32 %674 to i64
-  %676 = getelementptr inbounds nuw [3 x i32], ptr %16, i64 0, i64 %675
+  %676 = getelementptr inbounds [3 x i32], ptr %16, i64 0, i64 %675
   %677 = load i32, ptr %676, align 4
   %678 = add nsw i32 %677, 1
   store i32 %678, ptr %676, align 4
@@ -10645,7 +10645,7 @@ _ZNKSt14default_deleteI11gmx_ga2la_tEclEPS0_.exit.i.i.i.i.i: ; preds = %_ZNSt6ve
   %1013 = load i32, ptr %1000, align 4
   store i32 %1013, ptr %1001, align 4
   %1014 = sext i32 %1010 to i64
-  %1015 = getelementptr inbounds nuw [3 x i32], ptr %10, i64 0, i64 %1014
+  %1015 = getelementptr inbounds [3 x i32], ptr %10, i64 0, i64 %1014
   %1016 = load i32, ptr %1015, align 4
   %1017 = add nsw i32 %1016, 1
   %1018 = getelementptr inbounds [3 x i32], ptr %1002, i64 0, i64 %1014
@@ -11220,7 +11220,7 @@ _ZNSt6vectorIP10tmpi_comm_SaIS1_EE6resizeEm.exit.i.i: ; preds = %1250, %1256, %1
   br i1 %1271, label %.lr.ph.i.i89, label %._crit_edge.i.i88
 
 .lr.ph.i.i89:                                     ; preds = %1264
-  %1272 = getelementptr inbounds nuw [3 x i32], ptr %7, i64 0, i64 %1268
+  %1272 = getelementptr inbounds [3 x i32], ptr %7, i64 0, i64 %1268
   br label %1273
 
 1273:                                             ; preds = %.noexc104, %.lr.ph.i.i89
@@ -11253,7 +11253,7 @@ _ZNSt6vectorIP10tmpi_comm_SaIS1_EE6resizeEm.exit.i.i: ; preds = %1250, %1256, %1
   br i1 %1283, label %.lr.ph49.i.i, label %.thread.i.i87
 
 .lr.ph49.i.i:                                     ; preds = %1278
-  %1284 = getelementptr inbounds nuw [3 x i32], ptr %7, i64 0, i64 %1280
+  %1284 = getelementptr inbounds [3 x i32], ptr %7, i64 0, i64 %1280
   %1285 = getelementptr inbounds nuw i8, ptr %325, i64 168
   br label %1286
 
@@ -11269,7 +11269,7 @@ _ZNSt6vectorIP10tmpi_comm_SaIS1_EE6resizeEm.exit.i.i: ; preds = %1250, %1256, %1
   br i1 %1292, label %.lr.ph45.i.i, label %._crit_edge46.i.i
 
 .lr.ph45.i.i:                                     ; preds = %1286
-  %1293 = getelementptr inbounds nuw [3 x i32], ptr %7, i64 0, i64 %1289
+  %1293 = getelementptr inbounds [3 x i32], ptr %7, i64 0, i64 %1289
   br label %1294
 
 1294:                                             ; preds = %.noexc105, %.lr.ph45.i.i
@@ -12815,7 +12815,7 @@ define internal fastcc void @_ZL13writeSettingsPN3gmx10TextWriterEP12gmx_domdec_
   %75 = sext i8 %74 to i32
   %76 = load i32, ptr %72, align 4
   %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds nuw [3 x i32], ptr %8, i64 0, i64 %77
+  %78 = getelementptr inbounds [3 x i32], ptr %8, i64 0, i64 %77
   %79 = load i32, ptr %78, align 4
   call void (ptr, ptr, ...) @_ZN3gmx10TextWriter20writeStringFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.163, i32 noundef %75, i32 noundef %79)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -13218,7 +13218,7 @@ define internal fastcc void @_ZL22make_load_communicatorP12gmx_domdec_tiPi(ptr n
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit63
 
 .lr.ph:                                           ; preds = %3
-  %25 = getelementptr inbounds nuw [3 x i32], ptr %5, i64 0, i64 %18
+  %25 = getelementptr inbounds [3 x i32], ptr %5, i64 0, i64 %18
   %26 = getelementptr i8, ptr %0, i64 152
   %.val = load i32, ptr %26, align 4
   %27 = getelementptr i8, ptr %0, i64 156

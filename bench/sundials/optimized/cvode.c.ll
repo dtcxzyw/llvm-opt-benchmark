@@ -4233,7 +4233,7 @@ cvPrepareNextStep.exit.i:                         ; preds = %1268, %1262, %1239,
 
 1546:                                             ; preds = %1541
   %1547 = sext i32 %.2302.i.i.i to i64
-  %1548 = getelementptr inbounds nuw [4 x double], ptr %11, i64 0, i64 %1547
+  %1548 = getelementptr inbounds [4 x double], ptr %11, i64 0, i64 %1547
   %1549 = load double, ptr %1548, align 8
   %1550 = fcmp olt double %.3321.i.i.i, 1.000000e-03
   br i1 %1550, label %1556, label %.preheader.i.i108.i

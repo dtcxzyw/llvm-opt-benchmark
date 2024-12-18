@@ -8895,7 +8895,7 @@ define internal i32 @_v40_dump_STATS_MSG_SCHEDULE_EXIT(ptr nocapture readnone %0
 _set_schedule_exit_field.exit:                    ; preds = %14
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %22 = load i64, ptr %21, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %5, i64 %22
+  %23 = getelementptr inbounds i8, ptr %5, i64 %22
   store i32 %12, ptr %23, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -9263,7 +9263,7 @@ define internal i32 @_v40_dump_STATS_MSG_BF_EXIT(ptr nocapture readnone %0, ptr 
 _set_bf_exit_field.exit:                          ; preds = %14
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %22 = load i64, ptr %21, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %5, i64 %22
+  %23 = getelementptr inbounds i8, ptr %5, i64 %22
   store i32 %12, ptr %23, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

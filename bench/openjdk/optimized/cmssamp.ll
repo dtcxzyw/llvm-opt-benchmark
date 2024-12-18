@@ -499,9 +499,9 @@ define hidden range(i32 0, 2) i32 @cmsDetectDestinationBlackPoint(ptr noundef %0
   %104 = getelementptr inbounds nuw [256 x double], ptr %8, i64 0, i64 %indvars.iv155
   %105 = load double, ptr %104, align 8
   %106 = sext i32 %.0110141 to i64
-  %107 = getelementptr inbounds nuw [256 x double], ptr %11, i64 0, i64 %106
+  %107 = getelementptr inbounds [256 x double], ptr %11, i64 0, i64 %106
   store double %105, ptr %107, align 8
-  %108 = getelementptr inbounds nuw [256 x double], ptr %12, i64 0, i64 %106
+  %108 = getelementptr inbounds [256 x double], ptr %12, i64 0, i64 %106
   store double %100, ptr %108, align 8
   %109 = add nsw i32 %.0110141, 1
   br label %110

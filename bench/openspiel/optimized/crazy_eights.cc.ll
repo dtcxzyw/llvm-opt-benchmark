@@ -3568,7 +3568,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit23: ; 
 
 _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit24: ; preds = %58
   %60 = add nsw i64 %3, -54
-  %61 = getelementptr inbounds nuw [5 x i8], ptr @_ZN10open_spiel12crazy_eights12_GLOBAL__N_19kSuitCharE, i64 0, i64 %60
+  %61 = getelementptr inbounds [5 x i8], ptr @_ZN10open_spiel12crazy_eights12_GLOBAL__N_19kSuitCharE, i64 0, i64 %60
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %.sroa.0.0.copyload.i.i.i.i28 = load i8, ptr %61, align 1, !noalias !24
   %.sroa.0.0.insert.ext.i.i.i.i = zext i8 %.sroa.0.0.copyload.i.i.i.i28 to i64
@@ -5338,7 +5338,7 @@ _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversi
   %234 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %235 = load i32, ptr %234, align 4
   %236 = sext i32 %235 to i64
-  %237 = getelementptr inbounds nuw [5 x i8], ptr @_ZN10open_spiel12crazy_eights12_GLOBAL__N_19kSuitCharE, i64 0, i64 %236
+  %237 = getelementptr inbounds [5 x i8], ptr @_ZN10open_spiel12crazy_eights12_GLOBAL__N_19kSuitCharE, i64 0, i64 %236
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %.sroa.0.0.copyload.i.i.i.i99 = load i8, ptr %237, align 1, !noalias !75
   %.sroa.0.0.insert.ext.i.i.i.i100 = zext i8 %.sroa.0.0.copyload.i.i.i.i99 to i64
@@ -5790,7 +5790,7 @@ _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversi
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %83 = load i32, ptr %82, align 4
   %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds nuw [5 x i8], ptr @_ZN10open_spiel12crazy_eights12_GLOBAL__N_19kSuitCharE, i64 0, i64 %84
+  %85 = getelementptr inbounds [5 x i8], ptr @_ZN10open_spiel12crazy_eights12_GLOBAL__N_19kSuitCharE, i64 0, i64 %84
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   %.sroa.0.0.copyload.i.i.i.i39 = load i8, ptr %85, align 1, !noalias !88
   %.sroa.0.0.insert.ext.i.i.i.i40 = zext i8 %.sroa.0.0.copyload.i.i.i.i39 to i64

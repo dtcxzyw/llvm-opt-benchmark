@@ -471,7 +471,7 @@ if.end192.i:                                      ; preds = %if.end184.i, %if.en
   br i1 %or.cond2.i, label %if.end219.i, label %if.then198.i
 
 if.then198.i:                                     ; preds = %if.end192.i
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr @msg2, i64 %s_total_read.0142.i
+  %add.ptr.i = getelementptr inbounds i8, ptr @msg2, i64 %s_total_read.0142.i
   %sub.i = sub i64 1024, %s_total_read.0142.i
   %call199.i = call i32 @ossl_quic_tserver_read(ptr noundef %call54.i, i64 noundef 0, ptr noundef nonnull %add.ptr.i, i64 noundef %sub.i, ptr noundef nonnull %l.i) #8
   %tobool200.not.i = icmp eq i32 %call199.i, 0

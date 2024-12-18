@@ -44485,7 +44485,7 @@ default.unreachable:                              ; preds = %"_ZN17cranelift_cod
 
 switch.lookup:                                    ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$14value_regs_get17h3e8257de7726c8faE.exit68"
   %93 = sext i8 %.0.val to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i8], ptr @switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_emit_cmp17h28f4f167a86240f9E.461, i64 0, i64 %93
+  %switch.gep = getelementptr inbounds [10 x i8], ptr @switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_emit_cmp17h28f4f167a86240f9E.461, i64 0, i64 %93
   %switch.load = load i8, ptr %switch.gep, align 1
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %42)
   call fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code25constructor_emit_cmp_i12817h9ea53a68c171da94E(ptr noalias nocapture noundef align 8 dereferenceable(96) %42, ptr noalias noundef align 8 dereferenceable(16) %1, i8 %switch.load, i32 noundef %.sroa.3.0.extract.trunc, i32 noundef %.sroa.021.0.extract.trunc, i32 noundef %.sroa.326.0.extract.trunc, i32 noundef %.sroa.023.0.extract.trunc)
@@ -44715,7 +44715,7 @@ _ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit.thread3.i.i:
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %40)
   call fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_x64_test17h6e5239909aa1a7deE(ptr noalias nocapture noundef align 8 dereferenceable(88) %40, i8 %.0.i1.i.i, i32 noundef %.sroa.04.0.extract.trunc.i.i, ptr noalias noundef readonly align 4 dereferenceable(16) %41)
   %168 = sext i8 %.0.val to i64
-  %switch.gep73 = getelementptr inbounds nuw [10 x i8], ptr @switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_emit_cmp17h28f4f167a86240f9E.460, i64 0, i64 %168
+  %switch.gep73 = getelementptr inbounds [10 x i8], ptr @switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_emit_cmp17h28f4f167a86240f9E.460, i64 0, i64 %168
   %switch.load74 = load i8, ptr %switch.gep73, align 1
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %39)
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %28)
@@ -44973,7 +44973,7 @@ _ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit.thread3.i.i8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %37)
   call fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_x64_test17h6e5239909aa1a7deE(ptr noalias nocapture noundef align 8 dereferenceable(88) %37, i8 %.0.i1.i.i87, i32 noundef %.sroa.04.0.extract.trunc.i.i90, ptr noalias noundef readonly align 4 dereferenceable(16) %38)
   %243 = sext i8 %.0.val to i64
-  %switch.gep76 = getelementptr inbounds nuw [10 x i8], ptr @switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_emit_cmp17h28f4f167a86240f9E.461, i64 0, i64 %243
+  %switch.gep76 = getelementptr inbounds [10 x i8], ptr @switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_emit_cmp17h28f4f167a86240f9E.461, i64 0, i64 %243
   %switch.load77 = load i8, ptr %switch.gep76, align 1
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %36)
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %26)
@@ -45162,7 +45162,7 @@ _ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit.thread3.i.i1
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %34)
   call fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code19constructor_x64_cmp17h505d318546c9ee0aE(ptr noalias nocapture noundef align 8 dereferenceable(88) %34, i8 %.0.i1.i.i109, i32 noundef %.sroa.04.0.extract.trunc.i.i112, ptr noalias noundef readonly align 4 dereferenceable(16) %35)
   %287 = sext i8 %.0.val to i64
-  %switch.gep79 = getelementptr inbounds nuw [10 x i8], ptr @switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_emit_cmp17h28f4f167a86240f9E.460, i64 0, i64 %287
+  %switch.gep79 = getelementptr inbounds [10 x i8], ptr @switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_emit_cmp17h28f4f167a86240f9E.460, i64 0, i64 %287
   %switch.load80 = load i8, ptr %switch.gep79, align 1
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %33)
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %24)
@@ -45258,7 +45258,7 @@ _ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit.thread3.i.i1
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %31)
   call fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code19constructor_x64_cmp17h505d318546c9ee0aE(ptr noalias nocapture noundef align 8 dereferenceable(88) %31, i8 %.0.i1.i.i121, i32 noundef %.sroa.04.0.extract.trunc.i.i124, ptr noalias noundef readonly align 4 dereferenceable(16) %32)
   %309 = sext i8 %.0.val to i64
-  %switch.gep82 = getelementptr inbounds nuw [10 x i8], ptr @switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_emit_cmp17h28f4f167a86240f9E.461, i64 0, i64 %309
+  %switch.gep82 = getelementptr inbounds [10 x i8], ptr @switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_emit_cmp17h28f4f167a86240f9E.461, i64 0, i64 %309
   %switch.load83 = load i8, ptr %switch.gep82, align 1
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %30)
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %22)

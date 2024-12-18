@@ -302,7 +302,7 @@ define internal fastcc noundef zeroext i1 @ompi_op_is_valid(ptr noundef %0, ptr 
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %11 = load i32, ptr %10, align 8
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds nuw [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 %12
+  %13 = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, -1
   br i1 %15, label %22, label %16

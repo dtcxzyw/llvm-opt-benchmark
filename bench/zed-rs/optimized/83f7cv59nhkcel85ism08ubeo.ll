@@ -47392,7 +47392,7 @@ _ZN4core5slice4sort6stable5drift10create_run17hfde1e84513286b5eE.exit: ; preds =
   %.sroa.01.160 = phi i64 [ %97, %_ZN4core5slice4sort6stable5drift13logical_merge17h7316514650a550f4E.exit ], [ %.sroa.01.0, %95 ]
   %.sroa.017.159 = phi i64 [ %.sroa.0.0.i, %_ZN4core5slice4sort6stable5drift13logical_merge17h7316514650a550f4E.exit ], [ %.sroa.017.0, %95 ]
   %97 = add i64 %.sroa.01.160, -1
-  %98 = getelementptr inbounds nuw i8, ptr %7, i64 %97
+  %98 = getelementptr inbounds i8, ptr %7, i64 %97
   %99 = load i8, ptr %98, align 1, !noundef !4
   %.not = icmp ult i8 %99, %.sroa.025.0
   br i1 %.not, label %._crit_edge, label %102
@@ -47400,14 +47400,14 @@ _ZN4core5slice4sort6stable5drift10create_run17hfde1e84513286b5eE.exit: ; preds =
 ._crit_edge:                                      ; preds = %_ZN4core5slice4sort6stable5drift13logical_merge17h7316514650a550f4E.exit, %.lr.ph61, %95
   %.sroa.017.1.lcssa = phi i64 [ %.sroa.017.0, %95 ], [ %.sroa.017.159, %.lr.ph61 ], [ %.sroa.0.0.i, %_ZN4core5slice4sort6stable5drift13logical_merge17h7316514650a550f4E.exit ]
   %.sroa.01.1.lcssa = phi i64 [ %.sroa.01.0, %95 ], [ %.sroa.01.160, %.lr.ph61 ], [ 1, %_ZN4core5slice4sort6stable5drift13logical_merge17h7316514650a550f4E.exit ]
-  %100 = getelementptr inbounds nuw i64, ptr %8, i64 %.sroa.01.1.lcssa
+  %100 = getelementptr inbounds i64, ptr %8, i64 %.sroa.01.1.lcssa
   store i64 %.sroa.017.1.lcssa, ptr %100, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %7, i64 %.sroa.01.1.lcssa
+  %101 = getelementptr inbounds i8, ptr %7, i64 %.sroa.01.1.lcssa
   store i8 %.sroa.025.0, ptr %101, align 1
   br i1 %21, label %135, label %139
 
 102:                                              ; preds = %.lr.ph61
-  %103 = getelementptr inbounds nuw i64, ptr %8, i64 %97
+  %103 = getelementptr inbounds i64, ptr %8, i64 %97
   %104 = load i64, ptr %103, align 8, !noundef !4
   %105 = lshr i64 %104, 1
   %106 = lshr i64 %.sroa.017.159, 1
@@ -47731,7 +47731,7 @@ _ZN4core5slice4sort6stable5drift10create_run17h1b3018f56bcac881E.exit: ; preds =
   %.sroa.01.156 = phi i64 [ %92, %_ZN4core5slice4sort6stable5drift13logical_merge17h1f637ba39a28f770E.exit ], [ %.sroa.01.0, %90 ]
   %.sroa.017.155 = phi i64 [ %.sroa.0.0.i, %_ZN4core5slice4sort6stable5drift13logical_merge17h1f637ba39a28f770E.exit ], [ %.sroa.017.0, %90 ]
   %92 = add i64 %.sroa.01.156, -1
-  %93 = getelementptr inbounds nuw i8, ptr %13, i64 %92
+  %93 = getelementptr inbounds i8, ptr %13, i64 %92
   %94 = load i8, ptr %93, align 1, !noundef !4
   %.not = icmp ult i8 %94, %.sroa.025.0
   br i1 %.not, label %._crit_edge, label %97
@@ -47739,14 +47739,14 @@ _ZN4core5slice4sort6stable5drift10create_run17h1b3018f56bcac881E.exit: ; preds =
 ._crit_edge:                                      ; preds = %_ZN4core5slice4sort6stable5drift13logical_merge17h1f637ba39a28f770E.exit, %.lr.ph57, %90
   %.sroa.017.1.lcssa = phi i64 [ %.sroa.017.0, %90 ], [ %.sroa.017.155, %.lr.ph57 ], [ %.sroa.0.0.i, %_ZN4core5slice4sort6stable5drift13logical_merge17h1f637ba39a28f770E.exit ]
   %.sroa.01.1.lcssa = phi i64 [ %.sroa.01.0, %90 ], [ %.sroa.01.156, %.lr.ph57 ], [ 1, %_ZN4core5slice4sort6stable5drift13logical_merge17h1f637ba39a28f770E.exit ]
-  %95 = getelementptr inbounds nuw i64, ptr %14, i64 %.sroa.01.1.lcssa
+  %95 = getelementptr inbounds i64, ptr %14, i64 %.sroa.01.1.lcssa
   store i64 %.sroa.017.1.lcssa, ptr %95, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %13, i64 %.sroa.01.1.lcssa
+  %96 = getelementptr inbounds i8, ptr %13, i64 %.sroa.01.1.lcssa
   store i8 %.sroa.025.0, ptr %96, align 1
   br i1 %27, label %130, label %134
 
 97:                                               ; preds = %.lr.ph57
-  %98 = getelementptr inbounds nuw i64, ptr %14, i64 %92
+  %98 = getelementptr inbounds i64, ptr %14, i64 %92
   %99 = load i64, ptr %98, align 8, !noundef !4
   %100 = lshr i64 %99, 1
   %101 = lshr i64 %.sroa.017.155, 1

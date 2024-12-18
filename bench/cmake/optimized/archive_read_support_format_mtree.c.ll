@@ -3719,7 +3719,7 @@ switch.lookup:
   %4 = alloca [64 x i8], align 16
   %switch.tableidx = add nsw i32 %3, -1
   %5 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table.parse_digest, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds [6 x i64], ptr @switch.table.parse_digest, i64 0, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   %6 = or disjoint i64 %switch.load, 1
   %7 = tail call i64 @strnlen(ptr noundef nonnull dereferenceable(1) %2, i64 noundef %6) #21
