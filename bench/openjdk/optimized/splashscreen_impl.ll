@@ -65,12 +65,12 @@ define void @SplashSetFileJarName(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 SplashGetInstance.exit:                           ; preds = %.SplashGetInstance.exit_crit_edge, %3
   %4 = phi ptr [ %.pre, %.SplashGetInstance.exit_crit_edge ], [ null, %3 ]
-  tail call void @free(ptr noundef %4) #20
-  %5 = tail call ptr @SplashConvertStringAlloc(ptr noundef %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 11680)) #20
+  tail call void @free(ptr noundef %4) #21
+  %5 = tail call ptr @SplashConvertStringAlloc(ptr noundef %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 11680)) #21
   store ptr %5, ptr getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 11672), align 8
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 11688), align 8
-  tail call void @free(ptr noundef %6) #20
-  %7 = tail call ptr @SplashConvertStringAlloc(ptr noundef %1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 11696)) #20
+  tail call void @free(ptr noundef %6) #21
+  %7 = tail call ptr @SplashConvertStringAlloc(ptr noundef %1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 11696)) #21
   store ptr %7, ptr getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 11688), align 8
   ret void
 }
@@ -93,8 +93,8 @@ SplashGetInstance.exit:                           ; preds = %0, %1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11808) @SplashGetInstance.splash, i8 0, i64 11808, i1 false)
   store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 10628), align 4
   store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 11700), align 4
-  tail call void @initFormat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 9320), i32 noundef 16711680, i32 noundef 65280, i32 noundef 255, i32 noundef -16777216) #20
-  %2 = tail call i32 @SplashInitPlatform(ptr noundef nonnull @SplashGetInstance.splash) #20
+  tail call void @initFormat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 9320), i32 noundef 16711680, i32 noundef 65280, i32 noundef 255, i32 noundef -16777216) #21
+  %2 = tail call i32 @SplashInitPlatform(ptr noundef nonnull @SplashGetInstance.splash) #21
   ret i32 %2
 }
 
@@ -119,10 +119,10 @@ SplashGetInstance.exit:                           ; preds = %0
   br i1 %1, label %2, label %3
 
 2:                                                ; preds = %SplashGetInstance.exit
-  tail call void @SplashLock(ptr noundef nonnull @SplashGetInstance.splash) #20
+  tail call void @SplashLock(ptr noundef nonnull @SplashGetInstance.splash) #21
   store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 11668), align 4
-  tail call void @SplashClosePlatform(ptr noundef nonnull @SplashGetInstance.splash) #20
-  tail call void @SplashUnlock(ptr noundef nonnull @SplashGetInstance.splash) #20
+  tail call void @SplashClosePlatform(ptr noundef nonnull @SplashGetInstance.splash) #21
+  tail call void @SplashUnlock(ptr noundef nonnull @SplashGetInstance.splash) #21
   br label %3
 
 3:                                                ; preds = %SplashGetInstance.exit.thread, %2, %SplashGetInstance.exit
@@ -139,7 +139,7 @@ declare void @SplashUnlock(ptr noundef) local_unnamed_addr #4
 define hidden void @SplashCleanup(ptr noundef initializes((10628, 10632)) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 10628
   store i32 -1, ptr %2, align 4
-  tail call void @SplashCleanupPlatform(ptr noundef %0) #20
+  tail call void @SplashCleanupPlatform(ptr noundef %0) #21
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 10456
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -161,7 +161,7 @@ define hidden void @SplashCleanup(ptr noundef initializes((10628, 10632)) %0) lo
   br i1 %.not19, label %15, label %12
 
 12:                                               ; preds = %.lr.ph
-  tail call void @free(ptr noundef nonnull %11) #20
+  tail call void @free(ptr noundef nonnull %11) #21
   %13 = load ptr, ptr %3, align 8
   %14 = getelementptr inbounds nuw %struct.SplashImage, ptr %13, i64 %indvars.iv
   store ptr null, ptr %14, align 8
@@ -181,7 +181,7 @@ define hidden void @SplashCleanup(ptr noundef initializes((10628, 10632)) %0) lo
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %19 = phi ptr [ %.pre22, %._crit_edge.loopexit ], [ %4, %.preheader ]
-  tail call void @free(ptr noundef %19) #20
+  tail call void @free(ptr noundef %19) #21
   store ptr null, ptr %3, align 8
   br label %20
 
@@ -192,7 +192,7 @@ define hidden void @SplashCleanup(ptr noundef initializes((10628, 10632)) %0) lo
   br i1 %.not18, label %24, label %23
 
 23:                                               ; preds = %20
-  tail call void @free(ptr noundef nonnull %22) #20
+  tail call void @free(ptr noundef nonnull %22) #21
   store ptr null, ptr %21, align 8
   br label %24
 
@@ -212,12 +212,12 @@ define hidden void @SplashCleanup(ptr noundef initializes((10628, 10632)) %0) lo
 
 SplashSetFileJarName.exit:                        ; preds = %.SplashGetInstance.exit_crit_edge.i, %25
   %26 = phi ptr [ %.pre.i, %.SplashGetInstance.exit_crit_edge.i ], [ null, %25 ]
-  tail call void @free(ptr noundef %26) #20
-  %27 = tail call ptr @SplashConvertStringAlloc(ptr noundef null, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 11680)) #20
+  tail call void @free(ptr noundef %26) #21
+  %27 = tail call ptr @SplashConvertStringAlloc(ptr noundef null, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 11680)) #21
   store ptr %27, ptr getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 11672), align 8
   %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 11688), align 8
-  tail call void @free(ptr noundef %28) #20
-  %29 = tail call ptr @SplashConvertStringAlloc(ptr noundef null, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 11696)) #20
+  tail call void @free(ptr noundef %28) #21
+  %29 = tail call ptr @SplashConvertStringAlloc(ptr noundef null, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 11696)) #21
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 11688), align 8
   ret void
 }
@@ -243,7 +243,7 @@ SplashGetInstance.exit:                           ; preds = %1, %2
 ; Function Attrs: nounwind uwtable
 define hidden void @SplashDone(ptr noundef initializes((10628, 10632)) %0) local_unnamed_addr #2 {
   tail call void @SplashCleanup(ptr noundef %0)
-  tail call void @SplashDonePlatform(ptr noundef %0) #20
+  tail call void @SplashDonePlatform(ptr noundef %0) #21
   ret void
 }
 
@@ -296,14 +296,14 @@ define hidden void @SplashUpdateScreenData(ptr noundef %0) local_unnamed_addr #2
   %16 = getelementptr inbounds nuw %struct.SplashImage, ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 9320
-  call void @initRect(ptr noundef nonnull %2, i32 noundef 0, i32 noundef 0, i32 noundef %9, i32 noundef %11, i32 noundef 1, i32 noundef %12, ptr noundef %17, ptr noundef nonnull %18) #20
+  call void @initRect(ptr noundef nonnull %2, i32 noundef 0, i32 noundef 0, i32 noundef %9, i32 noundef %11, i32 noundef 1, i32 noundef %12, ptr noundef %17, ptr noundef nonnull %18) #21
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 10616
   %20 = load ptr, ptr %19, align 8
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %22, label %21
 
 21:                                               ; preds = %7
-  call void @free(ptr noundef nonnull %20) #20
+  call void @free(ptr noundef nonnull %20) #21
   br label %22
 
 22:                                               ; preds = %21, %7
@@ -331,9 +331,9 @@ define hidden void @SplashUpdateScreenData(ptr noundef %0) local_unnamed_addr #2
   %38 = load i32, ptr %10, align 4
   %39 = mul nsw i32 %37, %38
   %40 = sext i32 %39 to i64
-  %41 = call noalias ptr @malloc(i64 noundef %40) #21
+  %41 = call noalias ptr @malloc(i64 noundef %40) #22
   store ptr %41, ptr %19, align 8
-  call void @initRect(ptr noundef nonnull %3, i32 noundef 0, i32 noundef 0, i32 noundef %23, i32 noundef %38, i32 noundef 1, i32 noundef %37, ptr noundef %41, ptr noundef nonnull %0) #20
+  call void @initRect(ptr noundef nonnull %3, i32 noundef 0, i32 noundef 0, i32 noundef %23, i32 noundef %38, i32 noundef 1, i32 noundef %37, ptr noundef %41, ptr noundef nonnull %0) #21
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 10472
   %43 = load ptr, ptr %42, align 8
   %.not29 = icmp eq ptr %43, null
@@ -341,11 +341,11 @@ define hidden void @SplashUpdateScreenData(ptr noundef %0) local_unnamed_addr #2
 
 44:                                               ; preds = %36
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 10480
-  %46 = call i32 @convertRect2(ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 2, ptr noundef nonnull %45) #20
+  %46 = call i32 @convertRect2(ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 2, ptr noundef nonnull %45) #21
   br label %49
 
 47:                                               ; preds = %36
-  %48 = call i32 @convertRect(ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 0) #20
+  %48 = call i32 @convertRect(ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 0) #21
   br label %49
 
 49:                                               ; preds = %1, %47, %44
@@ -418,7 +418,7 @@ SplashIsStillLooping.exit.thread16:               ; preds = %10
   %27 = getelementptr inbounds nuw %struct.SplashImage, ptr %14, i64 %26, i32 1
   %28 = load i32, ptr %27, align 8
   %29 = add i32 %28, %19
-  %30 = tail call i32 (...) @SplashTime() #20
+  %30 = tail call i32 (...) @SplashTime() #21
   %31 = icmp eq i32 %29, %30
   br i1 %31, label %thread-pre-split, label %SplashIsStillLooping.exit.thread, !llvm.loop !8
 
@@ -1039,14 +1039,14 @@ SplashGetInstance.exit:                           ; preds = %1
 3:                                                ; preds = %SplashGetInstance.exit
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  tail call void %5(ptr noundef nonnull %0) #20
+  tail call void %5(ptr noundef nonnull %0) #21
   br label %SplashClose.exit
 
 6:                                                ; preds = %SplashGetInstance.exit.thread, %SplashGetInstance.exit
-  tail call void @SplashLock(ptr noundef nonnull @SplashGetInstance.splash) #20
+  tail call void @SplashLock(ptr noundef nonnull @SplashGetInstance.splash) #21
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 %8(ptr noundef nonnull %0) #20
+  %9 = tail call i32 %8(ptr noundef nonnull %0) #21
   %.not = icmp eq i32 %9, -1
   br i1 %.not, label %.thread, label %.preheader
 
@@ -1065,16 +1065,16 @@ SplashGetInstance.exit:                           ; preds = %1
 .thread:                                          ; preds = %10, %6
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull %0) #20
+  tail call void %16(ptr noundef nonnull %0) #21
   br label %23
 
 17:                                               ; preds = %.preheader
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call i32 %19(ptr noundef nonnull @SplashGetInstance.splash, ptr noundef nonnull %0) #20
+  %20 = tail call i32 %19(ptr noundef nonnull @SplashGetInstance.splash, ptr noundef nonnull %0) #21
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
-  tail call void %22(ptr noundef nonnull %0) #20
+  tail call void %22(ptr noundef nonnull %0) #21
   %.not31 = icmp eq i32 %20, 0
   br i1 %.not31, label %23, label %31
 
@@ -1088,7 +1088,7 @@ SplashGetInstance.exit:                           ; preds = %1
   br label %27
 
 27:                                               ; preds = %26, %23
-  tail call void @SplashUnlock(ptr noundef nonnull @SplashGetInstance.splash) #20
+  tail call void @SplashUnlock(ptr noundef nonnull @SplashGetInstance.splash) #21
   %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 11668), align 4
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %SplashClose.exit
@@ -1110,18 +1110,18 @@ SplashGetInstance.exit.thread.i:                  ; preds = %30
   br i1 %33, label %SplashStart.exit, label %34
 
 SplashStart.exit:                                 ; preds = %31
-  tail call void @SplashCreateThread(ptr noundef nonnull @SplashGetInstance.splash) #20
+  tail call void @SplashCreateThread(ptr noundef nonnull @SplashGetInstance.splash) #21
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 11668), align 4
   br label %36
 
 34:                                               ; preds = %31
-  tail call void @SplashReconfigure(ptr noundef nonnull @SplashGetInstance.splash) #20
-  %35 = tail call i32 (...) @SplashTime() #20
+  tail call void @SplashReconfigure(ptr noundef nonnull @SplashGetInstance.splash) #21
+  %35 = tail call i32 (...) @SplashTime() #21
   store i32 %35, ptr getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 10464), align 8
   br label %36
 
 36:                                               ; preds = %34, %SplashStart.exit
-  tail call void @SplashUnlock(ptr noundef nonnull @SplashGetInstance.splash) #20
+  tail call void @SplashUnlock(ptr noundef nonnull @SplashGetInstance.splash) #21
   br label %SplashClose.exit
 
 SplashClose.exit:                                 ; preds = %SplashGetInstance.exit.thread.i, %30, %36, %27, %3
@@ -1173,7 +1173,7 @@ define hidden void @SplashStart(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %1
-  tail call void @SplashCreateThread(ptr noundef nonnull %0) #20
+  tail call void @SplashCreateThread(ptr noundef nonnull %0) #21
   store i32 1, ptr %2, align 4
   br label %6
 
@@ -1230,20 +1230,19 @@ define internal i32 @readMem(ptr nocapture noundef %0, ptr nocapture noundef wri
   %9 = ptrtoint ptr %7 to i64
   %10 = ptrtoint ptr %5 to i64
   %11 = sub i64 %9, %10
-  %12 = icmp slt i64 %11, %8
-  %13 = trunc i64 %11 to i32
-  %spec.select = select i1 %12, i32 %13, i32 %2
-  %14 = icmp sgt i32 %spec.select, 0
-  br i1 %14, label %15, label %18
+  %spec.select16 = tail call i64 @llvm.smin.i64(i64 %11, i64 %8)
+  %spec.select = trunc i64 %spec.select16 to i32
+  %12 = icmp sgt i32 %spec.select, 0
+  br i1 %12, label %13, label %16
 
-15:                                               ; preds = %3
-  %16 = zext nneg i32 %spec.select to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %5, i64 %16, i1 false)
-  %17 = getelementptr inbounds nuw i8, ptr %5, i64 %16
-  store ptr %17, ptr %4, align 8
-  br label %18
+13:                                               ; preds = %3
+  %14 = and i64 %spec.select16, 2147483647
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %5, i64 %14, i1 false)
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 %14
+  store ptr %15, ptr %4, align 8
+  br label %16
 
-18:                                               ; preds = %15, %3
+16:                                               ; preds = %13, %3
   ret i32 %spec.select
 }
 
@@ -1273,7 +1272,7 @@ define internal void @closeMem(ptr nocapture readnone %0) #13 {
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define i32 @SplashGetScaledImgNameMaxPstfixLen(ptr nocapture noundef readonly %0) local_unnamed_addr #14 {
-  %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #22
+  %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #23
   %3 = trunc i64 %2 to i32
   %4 = add i32 %3, 8
   ret i32 %4
@@ -1291,23 +1290,23 @@ define hidden zeroext range(i8 0, 2) i8 @GetScaledImageName(ptr nocapture nounde
   br i1 %8, label %9, label %99
 
 9:                                                ; preds = %4
-  %10 = tail call noalias ptr @malloc(i64 noundef %3) #21
-  %11 = tail call noalias ptr @strdup(ptr noundef %0) #20
-  %12 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %11, i32 noundef 46) #22
+  %10 = tail call noalias ptr @malloc(i64 noundef %3) #22
+  %11 = tail call noalias ptr @strdup(ptr noundef %0) #21
+  %12 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %11, i32 noundef 46) #23
   %13 = fmul float %7, 1.000000e+02
   %14 = fptosi float %7 to i32
   %15 = mul nsw i32 %14, 100
   %16 = sitofp i32 %15 to float
   %17 = fcmp une float %13, %16
   %18 = fptosi float %13 to i32
-  %19 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 1024, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef %18, ptr noundef nonnull @.str.3) #20
+  %19 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 1024, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef %18, ptr noundef nonnull @.str.3) #21
   br i1 %17, label %25, label %20
 
 20:                                               ; preds = %9
-  %21 = tail call noalias ptr @malloc(i64 noundef %3) #21
+  %21 = tail call noalias ptr @malloc(i64 noundef %3) #22
   %22 = load float, ptr %2, align 4
   %23 = fptosi float %22 to i32
-  %24 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 1024, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef %23, ptr noundef nonnull @.str.4) #20
+  %24 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 1024, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef %23, ptr noundef nonnull @.str.4) #21
   br label %25
 
 25:                                               ; preds = %20, %9
@@ -1316,14 +1315,14 @@ define hidden zeroext range(i8 0, 2) i8 @GetScaledImageName(ptr nocapture nounde
   br i1 %26, label %27, label %54
 
 27:                                               ; preds = %25
-  %28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #22
-  %29 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #22
+  %28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #23
+  %29 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #23
   %30 = add i64 %29, %28
   %31 = add i64 %30, 1
   br i1 %17, label %36, label %32
 
 32:                                               ; preds = %27
-  %33 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #22
+  %33 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #23
   %34 = add i64 %28, 1
   %35 = add i64 %34, %33
   br label %36
@@ -1337,17 +1336,17 @@ define hidden zeroext range(i8 0, 2) i8 @GetScaledImageName(ptr nocapture nounde
 
 39:                                               ; preds = %36
   store float 1.000000e+00, ptr %2, align 4
-  tail call void @free(ptr noundef %11) #20
-  tail call void @free(ptr noundef %.098) #20
-  tail call void @free(ptr noundef %10) #20
+  tail call void @free(ptr noundef %11) #21
+  tail call void @free(ptr noundef %.098) #21
+  tail call void @free(ptr noundef %10) #21
   br label %99
 
 40:                                               ; preds = %36
-  %41 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %10, i64 noundef %31, ptr noundef nonnull @.str.5, ptr noundef %11, ptr noundef nonnull %5) #20
+  %41 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %10, i64 noundef %31, ptr noundef nonnull @.str.5, ptr noundef %11, ptr noundef nonnull %5) #21
   br i1 %17, label %44, label %42
 
 42:                                               ; preds = %40
-  %43 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.098, i64 noundef %.096, ptr noundef nonnull @.str.5, ptr noundef %11, ptr noundef nonnull %6) #20
+  %43 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.098, i64 noundef %.096, ptr noundef nonnull @.str.5, ptr noundef %11, ptr noundef nonnull %6) #21
   br label %44
 
 44:                                               ; preds = %42, %40
@@ -1368,9 +1367,9 @@ define hidden zeroext range(i8 0, 2) i8 @GetScaledImageName(ptr nocapture nounde
 
 53:                                               ; preds = %46, %44
   store float 1.000000e+00, ptr %2, align 4
-  call void @free(ptr noundef %11) #20
-  call void @free(ptr noundef %.098) #20
-  call void @free(ptr noundef %10) #20
+  call void @free(ptr noundef %11) #21
+  call void @free(ptr noundef %.098) #21
+  call void @free(ptr noundef %10) #21
   br label %99
 
 54:                                               ; preds = %25
@@ -1380,15 +1379,15 @@ define hidden zeroext range(i8 0, 2) i8 @GetScaledImageName(ptr nocapture nounde
   %58 = trunc i64 %57 to i32
   %sext = shl i64 %57, 32
   %59 = ashr exact i64 %sext, 32
-  %60 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #22
-  %61 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #22
+  %60 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #23
+  %61 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #23
   %62 = add i64 %61, %59
   %63 = add i64 %62, %60
   %64 = add i64 %63, 1
   br i1 %17, label %69, label %65
 
 65:                                               ; preds = %54
-  %66 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #22
+  %66 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #23
   %67 = add i64 %62, 1
   %68 = add i64 %67, %66
   br label %69
@@ -1402,17 +1401,17 @@ define hidden zeroext range(i8 0, 2) i8 @GetScaledImageName(ptr nocapture nounde
 
 72:                                               ; preds = %69
   store float 1.000000e+00, ptr %2, align 4
-  tail call void @free(ptr noundef %11) #20
-  tail call void @free(ptr noundef %.098) #20
-  tail call void @free(ptr noundef %10) #20
+  tail call void @free(ptr noundef %11) #21
+  tail call void @free(ptr noundef %.098) #21
+  tail call void @free(ptr noundef %10) #21
   br label %99
 
 73:                                               ; preds = %69
-  %74 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %10, i64 noundef %64, ptr noundef nonnull @.str.6, i32 noundef %58, ptr noundef %11, ptr noundef nonnull %5, ptr noundef nonnull %12) #20
+  %74 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %10, i64 noundef %64, ptr noundef nonnull @.str.6, i32 noundef %58, ptr noundef %11, ptr noundef nonnull %5, ptr noundef nonnull %12) #21
   br i1 %17, label %77, label %75
 
 75:                                               ; preds = %73
-  %76 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.098, i64 noundef %.197, ptr noundef nonnull @.str.6, i32 noundef %58, ptr noundef %11, ptr noundef nonnull %6, ptr noundef nonnull %12) #20
+  %76 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.098, i64 noundef %.197, ptr noundef nonnull @.str.6, i32 noundef %58, ptr noundef %11, ptr noundef nonnull %6, ptr noundef nonnull %12) #21
   br label %77
 
 77:                                               ; preds = %75, %73
@@ -1433,13 +1432,13 @@ define hidden zeroext range(i8 0, 2) i8 @GetScaledImageName(ptr nocapture nounde
 
 86:                                               ; preds = %79, %77
   store float 1.000000e+00, ptr %2, align 4
-  call void @free(ptr noundef %11) #20
-  call void @free(ptr noundef %.098) #20
-  call void @free(ptr noundef %10) #20
+  call void @free(ptr noundef %11) #21
+  call void @free(ptr noundef %.098) #21
+  call void @free(ptr noundef %10) #21
   br label %99
 
 87:                                               ; preds = %79, %46
-  call void @free(ptr noundef %11) #20
+  call void @free(ptr noundef %11) #21
   %88 = call noalias ptr @fopen64(ptr noundef %10, ptr noundef nonnull @.str.7)
   %.not = icmp eq ptr %88, null
   br i1 %.not, label %89, label %96
@@ -1454,22 +1453,22 @@ define hidden zeroext range(i8 0, 2) i8 @GetScaledImageName(ptr nocapture nounde
 
 92:                                               ; preds = %90
   %93 = call i32 @fclose(ptr noundef nonnull %91)
-  %94 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %.098) #20
-  call void @free(ptr noundef %.098) #20
-  call void @free(ptr noundef %10) #20
+  %94 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %.098) #21
+  call void @free(ptr noundef %.098) #21
+  call void @free(ptr noundef %10) #21
   br label %99
 
 95:                                               ; preds = %90, %89
   store float 1.000000e+00, ptr %2, align 4
-  call void @free(ptr noundef %.098) #20
-  call void @free(ptr noundef %10) #20
+  call void @free(ptr noundef %.098) #21
+  call void @free(ptr noundef %10) #21
   br label %99
 
 96:                                               ; preds = %87
   %97 = call i32 @fclose(ptr noundef nonnull %88)
-  %98 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %10) #20
-  call void @free(ptr noundef %.098) #20
-  call void @free(ptr noundef %10) #20
+  %98 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %10) #21
+  call void @free(ptr noundef %.098) #21
+  call void @free(ptr noundef %10) #21
   br label %99
 
 99:                                               ; preds = %4, %96, %95, %92, %86, %72, %53, %39
@@ -1489,9 +1488,9 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @cleanUp(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #17 {
   store float 1.000000e+00, ptr %3, align 4
-  tail call void @free(ptr noundef %0) #20
-  tail call void @free(ptr noundef %1) #20
-  tail call void @free(ptr noundef %2) #20
+  tail call void @free(ptr noundef %0) #21
+  tail call void @free(ptr noundef %1) #21
+  tail call void @free(ptr noundef %2) #21
   ret void
 }
 
@@ -1521,6 +1520,9 @@ declare noundef i32 @ungetc(i32 noundef, ptr nocapture noundef) local_unnamed_ad
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #19
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smin.i64(i64, i64) #20
+
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1541,9 +1543,10 @@ attributes #16 = { mustprogress nofree nounwind willreturn memory(argmem: readwr
 attributes #17 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #20 = { nounwind }
-attributes #21 = { nounwind allocsize(0) }
-attributes #22 = { nounwind willreturn memory(read) }
+attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #21 = { nounwind }
+attributes #22 = { nounwind allocsize(0) }
+attributes #23 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

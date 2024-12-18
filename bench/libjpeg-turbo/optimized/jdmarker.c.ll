@@ -2552,74 +2552,73 @@ define void @jpeg_save_markers(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
   %9 = load i64, ptr %8, align 8
   %10 = add i64 %9, -32
   %11 = zext i32 %2 to i64
-  %12 = icmp slt i64 %10, %11
-  %13 = trunc i64 %10 to i32
-  %spec.select = select i1 %12, i32 %13, i32 %2
+  %spec.select50 = tail call i64 @llvm.smin.i64(i64 %10, i64 %11)
+  %spec.select = trunc i64 %spec.select50 to i32
   %.not = icmp eq i32 %spec.select, 0
-  %14 = icmp eq i32 %1, 224
-  br i1 %.not, label %20, label %15
+  %12 = icmp eq i32 %1, 224
+  br i1 %.not, label %18, label %13
 
-15:                                               ; preds = %3
-  %16 = icmp ult i32 %spec.select, 14
-  %or.cond = and i1 %14, %16
-  br i1 %or.cond, label %.thread44, label %17
+13:                                               ; preds = %3
+  %14 = icmp ult i32 %spec.select, 14
+  %or.cond = and i1 %12, %14
+  br i1 %or.cond, label %.thread44, label %15
 
-17:                                               ; preds = %15
-  %18 = icmp eq i32 %1, 238
-  %19 = tail call i32 @llvm.umax.i32(i32 %spec.select, i32 12)
-  %spec.store.select = select i1 %18, i32 %19, i32 %spec.select
-  br label %22
+15:                                               ; preds = %13
+  %16 = icmp eq i32 %1, 238
+  %17 = tail call i32 @llvm.umax.i32(i32 %spec.select, i32 12)
+  %spec.store.select = select i1 %16, i32 %17, i32 %spec.select
+  br label %20
 
-20:                                               ; preds = %3
-  %21 = icmp eq i32 %1, 238
-  %or.cond5 = or i1 %14, %21
+18:                                               ; preds = %3
+  %19 = icmp eq i32 %1, 238
+  %or.cond5 = or i1 %12, %19
   %spec.store.select8 = select i1 %or.cond5, ptr @get_interesting_appn, ptr @skip_variable
-  br label %22
+  br label %20
 
-22:                                               ; preds = %20, %17
-  %.1 = phi i32 [ %spec.store.select, %17 ], [ 0, %20 ]
-  %.0 = phi ptr [ @save_marker, %17 ], [ %spec.store.select8, %20 ]
-  %23 = icmp eq i32 %1, 254
-  br i1 %23, label %24, label %27
+20:                                               ; preds = %18, %15
+  %.1 = phi i32 [ %spec.store.select, %15 ], [ 0, %18 ]
+  %.0 = phi ptr [ @save_marker, %15 ], [ %spec.store.select8, %18 ]
+  %21 = icmp eq i32 %1, 254
+  br i1 %21, label %22, label %25
 
-24:                                               ; preds = %22
-  %25 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store ptr %.0, ptr %25, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %5, i64 176
-  store i32 %.1, ptr %26, align 8
-  br label %42
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  store ptr %.0, ptr %23, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 176
+  store i32 %.1, ptr %24, align 8
+  br label %40
 
-27:                                               ; preds = %22
-  %28 = and i32 %1, -16
-  %or.cond7 = icmp eq i32 %28, 224
-  br i1 %or.cond7, label %.thread44, label %35
+25:                                               ; preds = %20
+  %26 = and i32 %1, -16
+  %or.cond7 = icmp eq i32 %26, 224
+  br i1 %or.cond7, label %.thread44, label %33
 
-.thread44:                                        ; preds = %15, %27
-  %.14249 = phi i32 [ %.1, %27 ], [ 14, %15 ]
-  %.04348 = phi ptr [ %.0, %27 ], [ @save_marker, %15 ]
-  %29 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %30 = add nsw i32 %1, -224
-  %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds nuw [16 x ptr], ptr %29, i64 0, i64 %31
-  store ptr %.04348, ptr %32, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %5, i64 180
-  %34 = getelementptr inbounds nuw [16 x i32], ptr %33, i64 0, i64 %31
-  store i32 %.14249, ptr %34, align 4
-  br label %42
+.thread44:                                        ; preds = %13, %25
+  %.14249 = phi i32 [ %.1, %25 ], [ 14, %13 ]
+  %.04348 = phi ptr [ %.0, %25 ], [ @save_marker, %13 ]
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %28 = add nsw i32 %1, -224
+  %29 = zext nneg i32 %28 to i64
+  %30 = getelementptr inbounds nuw [16 x ptr], ptr %27, i64 0, i64 %29
+  store ptr %.04348, ptr %30, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 180
+  %32 = getelementptr inbounds nuw [16 x i32], ptr %31, i64 0, i64 %29
+  store i32 %.14249, ptr %32, align 4
+  br label %40
 
-35:                                               ; preds = %27
+33:                                               ; preds = %25
+  %34 = load ptr, ptr %0, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 40
+  store i32 68, ptr %35, align 8
   %36 = load ptr, ptr %0, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 40
-  store i32 68, ptr %37, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 44
+  store i32 %1, ptr %37, align 4
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 44
-  store i32 %1, ptr %39, align 4
-  %40 = load ptr, ptr %0, align 8
-  %41 = load ptr, ptr %40, align 8
-  tail call void %41(ptr noundef nonnull %0) #7
-  br label %42
+  %39 = load ptr, ptr %38, align 8
+  tail call void %39(ptr noundef nonnull %0) #7
+  br label %40
 
-42:                                               ; preds = %.thread44, %35, %24
+40:                                               ; preds = %.thread44, %33, %22
   ret void
 }
 
@@ -3756,6 +3755,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smin.i64(i64, i64) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

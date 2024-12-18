@@ -1152,7 +1152,7 @@ define void @mempool_multiple_mallinfo(ptr dead_on_unwind noalias nocapture writ
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = load i64, ptr %28, align 8
   %.not21 = icmp eq i64 %29, 0
-  br i1 %.not21, label %64, label %.lr.ph
+  br i1 %.not21, label %62, label %.lr.ph
 
 .lr.ph:                                           ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1166,11 +1166,11 @@ define void @mempool_multiple_mallinfo(ptr dead_on_unwind noalias nocapture writ
   br label %38
 
 38:                                               ; preds = %.lr.ph, %38
-  %39 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %38 ]
+  %39 = phi i64 [ 0, %.lr.ph ], [ %spec.select22, %38 ]
   %40 = phi i32 [ 0, %.lr.ph ], [ %57, %38 ]
   %41 = phi i32 [ 0, %.lr.ph ], [ %54, %38 ]
   %42 = phi i32 [ %.promoted, %.lr.ph ], [ %52, %38 ]
-  %.014 = phi i64 [ 0, %.lr.ph ], [ %61, %38 ]
+  %.014 = phi i64 [ 0, %.lr.ph ], [ %59, %38 ]
   %43 = load ptr, ptr %1, align 8
   %44 = getelementptr inbounds %struct.mempool_s, ptr %43, i64 %.014
   %45 = call i32 @mempool_info(ptr noundef %44, ptr noundef nonnull %3) #6
@@ -1186,29 +1186,29 @@ define void @mempool_multiple_mallinfo(ptr dead_on_unwind noalias nocapture writ
   %55 = load i64, ptr %35, align 8
   %56 = trunc i64 %55 to i32
   %57 = add i32 %40, %56
-  %58 = sext i32 %39 to i64
-  %59 = icmp ugt i64 %49, %58
-  %60 = trunc i64 %49 to i32
-  %spec.select = select i1 %59, i32 %60, i32 %39
-  %61 = add nuw i64 %.014, 1
-  %62 = load i64, ptr %28, align 8
-  %63 = icmp ult i64 %61, %62
-  br i1 %63, label %38, label %._crit_edge, !llvm.loop !16
+  %sext = shl i64 %39, 32
+  %58 = ashr exact i64 %sext, 32
+  %spec.select22 = call i64 @llvm.umax.i64(i64 %49, i64 %58)
+  %59 = add nuw i64 %.014, 1
+  %60 = load i64, ptr %28, align 8
+  %61 = icmp ult i64 %59, %60
+  br i1 %61, label %38, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %38
+  %spec.select = trunc i64 %spec.select22 to i32
   store i32 %52, ptr %33, align 4
   store i32 %54, ptr %34, align 4
   store i32 %57, ptr %36, align 4
   store i32 %spec.select, ptr %37, align 4
-  br label %64
+  br label %62
 
-64:                                               ; preds = %._crit_edge, %26
-  %65 = phi i32 [ %52, %._crit_edge ], [ %.promoted, %26 ]
-  %66 = load i64, ptr %7, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %68 = trunc i64 %66 to i32
-  %69 = sub i32 %68, %65
-  store i32 %69, ptr %67, align 4
+62:                                               ; preds = %._crit_edge, %26
+  %63 = phi i32 [ %52, %._crit_edge ], [ %.promoted, %26 ]
+  %64 = load i64, ptr %7, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %66 = trunc i64 %64 to i32
+  %67 = sub i32 %66, %63
+  store i32 %67, ptr %65, align 4
   ret void
 }
 
@@ -1337,6 +1337,9 @@ declare ptr @sq_remafter(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #5
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #5

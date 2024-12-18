@@ -2603,65 +2603,65 @@ define hidden i32 @ZIP_Read(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr 
 21:                                               ; preds = %19
   %22 = zext nneg i32 %4 to i64
   %23 = sub nsw i64 %17, %2
-  %24 = icmp slt i64 %23, %22
-  %25 = trunc i64 %23 to i32
-  %spec.select = select i1 %24, i32 %25, i32 %4
-  %26 = tail call i64 @ZIP_GetEntryDataOffset(ptr noundef nonnull %0, ptr noundef nonnull %1)
-  %27 = icmp slt i64 %26, 0
-  br i1 %27, label %readFullyAt.exit, label %28
+  %spec.select42 = tail call i64 @llvm.smin.i64(i64 %23, i64 %22)
+  %spec.select = trunc i64 %spec.select42 to i32
+  %24 = tail call i64 @ZIP_GetEntryDataOffset(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  %25 = icmp slt i64 %24, 0
+  br i1 %25, label %readFullyAt.exit, label %26
 
-28:                                               ; preds = %21
-  %29 = add nuw nsw i64 %26, %2
-  %30 = sext i32 %spec.select to i64
-  %31 = add nsw i64 %29, %30
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %33 = load i64, ptr %32, align 8
-  %34 = icmp sgt i64 %31, %33
-  br i1 %34, label %readFullyAt.exit.sink.split, label %35
+26:                                               ; preds = %21
+  %27 = add nuw nsw i64 %24, %2
+  %sext = shl i64 %spec.select42, 32
+  %28 = ashr exact i64 %sext, 32
+  %29 = add nsw i64 %27, %28
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %31 = load i64, ptr %30, align 8
+  %32 = icmp sgt i64 %29, %31
+  br i1 %32, label %readFullyAt.exit.sink.split, label %33
 
-35:                                               ; preds = %28
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %37 = load i32, ptr %36, align 8
-  %38 = tail call i64 @lseek64(i32 noundef %37, i64 noundef %29, i32 noundef 0) #21
-  %39 = icmp eq i64 %38, -1
-  br i1 %39, label %readFullyAt.exit.sink.split, label %.outer.i.preheader.i
+33:                                               ; preds = %26
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %35 = load i32, ptr %34, align 8
+  %36 = tail call i64 @lseek64(i32 noundef %35, i64 noundef %27, i32 noundef 0) #21
+  %37 = icmp eq i64 %36, -1
+  br i1 %37, label %readFullyAt.exit.sink.split, label %.outer.i.preheader.i
 
-.outer.i.preheader.i:                             ; preds = %35
-  %40 = icmp sgt i32 %spec.select, 0
-  br i1 %40, label %.outer.split.i.preheader.i, label %readFullyAt.exit
+.outer.i.preheader.i:                             ; preds = %33
+  %38 = icmp sgt i64 %28, 0
+  br i1 %38, label %.outer.split.i.preheader.i, label %readFullyAt.exit
 
 .outer.split.i.preheader.i:                       ; preds = %.outer.i.preheader.i, %.outer.i.i
-  %41 = phi i64 [ %49, %.outer.i.i ], [ %30, %.outer.i.preheader.i ]
-  %.015.ph.i8.i = phi i64 [ %47, %.outer.i.i ], [ %30, %.outer.i.preheader.i ]
-  %.016.ph.i7.i = phi ptr [ %46, %.outer.i.i ], [ %3, %.outer.i.preheader.i ]
+  %39 = phi i64 [ %47, %.outer.i.i ], [ %28, %.outer.i.preheader.i ]
+  %.015.ph.i8.i = phi i64 [ %45, %.outer.i.i ], [ %28, %.outer.i.preheader.i ]
+  %.016.ph.i7.i = phi ptr [ %44, %.outer.i.i ], [ %3, %.outer.i.preheader.i ]
   br label %.outer.split.i.i
 
-.outer.split.i.i:                                 ; preds = %52, %.outer.split.i.preheader.i
-  %42 = tail call i64 @read(i32 noundef %37, ptr noundef %.016.ph.i7.i, i64 noundef %41) #21
-  %43 = trunc i64 %42 to i32
-  %44 = icmp sgt i32 %43, 0
-  br i1 %44, label %.outer.i.i, label %50
+.outer.split.i.i:                                 ; preds = %50, %.outer.split.i.preheader.i
+  %40 = tail call i64 @read(i32 noundef %35, ptr noundef %.016.ph.i7.i, i64 noundef %39) #21
+  %41 = trunc i64 %40 to i32
+  %42 = icmp sgt i32 %41, 0
+  br i1 %42, label %.outer.i.i, label %48
 
 .outer.i.i:                                       ; preds = %.outer.split.i.i
-  %45 = and i64 %42, 2147483647
-  %46 = getelementptr inbounds nuw i8, ptr %.016.ph.i7.i, i64 %45
-  %47 = sub nsw i64 %.015.ph.i8.i, %45
-  %48 = icmp sgt i64 %47, 0
-  %49 = tail call i64 @llvm.umin.i64(i64 %47, i64 2147483647)
-  br i1 %48, label %.outer.split.i.preheader.i, label %readFullyAt.exit, !llvm.loop !8
+  %43 = and i64 %40, 2147483647
+  %44 = getelementptr inbounds nuw i8, ptr %.016.ph.i7.i, i64 %43
+  %45 = sub nsw i64 %.015.ph.i8.i, %43
+  %46 = icmp sgt i64 %45, 0
+  %47 = tail call i64 @llvm.umin.i64(i64 %45, i64 2147483647)
+  br i1 %46, label %.outer.split.i.preheader.i, label %readFullyAt.exit, !llvm.loop !8
 
-50:                                               ; preds = %.outer.split.i.i
-  %51 = icmp eq i32 %43, -1
-  br i1 %51, label %52, label %readFullyAt.exit.sink.split
+48:                                               ; preds = %.outer.split.i.i
+  %49 = icmp eq i32 %41, -1
+  br i1 %49, label %50, label %readFullyAt.exit.sink.split
 
-52:                                               ; preds = %50
-  %53 = tail call ptr @__errno_location() #22
-  %54 = load i32, ptr %53, align 4
-  %55 = icmp eq i32 %54, 4
-  br i1 %55, label %.outer.split.i.i, label %readFullyAt.exit.sink.split, !llvm.loop !8
+50:                                               ; preds = %48
+  %51 = tail call ptr @__errno_location() #22
+  %52 = load i32, ptr %51, align 4
+  %53 = icmp eq i32 %52, 4
+  br i1 %53, label %.outer.split.i.i, label %readFullyAt.exit.sink.split, !llvm.loop !8
 
-readFullyAt.exit.sink.split:                      ; preds = %52, %50, %35, %28, %16, %7
-  %.str.9.sink = phi ptr [ @.str.6, %7 ], [ @.str.7, %16 ], [ @.str.8, %28 ], [ @.str.9, %35 ], [ @.str.9, %50 ], [ @.str.9, %52 ]
+readFullyAt.exit.sink.split:                      ; preds = %50, %48, %33, %26, %16, %7
+  %.str.9.sink = phi ptr [ @.str.6, %7 ], [ @.str.7, %16 ], [ @.str.8, %26 ], [ @.str.9, %33 ], [ @.str.9, %48 ], [ @.str.9, %50 ]
   store ptr %.str.9.sink, ptr %8, align 8
   br label %readFullyAt.exit
 
@@ -3244,126 +3244,126 @@ declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef
 define internal fastcc noalias noundef ptr @readCENHeader(i64 %.16.val, i32 %.72.val, i64 noundef %0, i32 noundef range(i32 160, 8193) %1) unnamed_addr #0 {
   %3 = zext nneg i32 %1 to i64
   %4 = sub nsw i64 %.16.val, %0
-  %5 = icmp slt i64 %4, %3
-  %6 = trunc i64 %4 to i32
-  %spec.select = select i1 %5, i32 %6, i32 %1
-  %7 = sext i32 %spec.select to i64
-  %8 = tail call noalias ptr @malloc(i64 noundef %7) #25
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %readFullyAt.exit.thread, label %10
+  %spec.select3 = tail call i64 @llvm.smin.i64(i64 %4, i64 %3)
+  %spec.select = trunc i64 %spec.select3 to i32
+  %sext = shl i64 %spec.select3, 32
+  %5 = ashr exact i64 %sext, 32
+  %6 = tail call noalias ptr @malloc(i64 noundef %5) #25
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %readFullyAt.exit.thread, label %8
 
-10:                                               ; preds = %2
-  %11 = tail call i64 @lseek64(i32 noundef %.72.val, i64 noundef %0, i32 noundef 0) #21
-  %12 = icmp eq i64 %11, -1
-  br i1 %12, label %readFullyAt.exit.thread, label %.outer.i.preheader.i
+8:                                                ; preds = %2
+  %9 = tail call i64 @lseek64(i32 noundef %.72.val, i64 noundef %0, i32 noundef 0) #21
+  %10 = icmp eq i64 %9, -1
+  br i1 %10, label %readFullyAt.exit.thread, label %.outer.i.preheader.i
 
-.outer.i.preheader.i:                             ; preds = %10
-  %13 = icmp sgt i32 %spec.select, 0
-  br i1 %13, label %.outer.split.i.preheader.i, label %readFullyAt.exit
+.outer.i.preheader.i:                             ; preds = %8
+  %11 = icmp sgt i64 %5, 0
+  br i1 %11, label %.outer.split.i.preheader.i, label %readFullyAt.exit
 
 .outer.split.i.preheader.i:                       ; preds = %.outer.i.preheader.i, %.outer.i.i
-  %14 = phi i64 [ %22, %.outer.i.i ], [ %7, %.outer.i.preheader.i ]
-  %.015.ph.i8.i = phi i64 [ %20, %.outer.i.i ], [ %7, %.outer.i.preheader.i ]
-  %.016.ph.i7.i = phi ptr [ %19, %.outer.i.i ], [ %8, %.outer.i.preheader.i ]
+  %12 = phi i64 [ %20, %.outer.i.i ], [ %5, %.outer.i.preheader.i ]
+  %.015.ph.i8.i = phi i64 [ %18, %.outer.i.i ], [ %5, %.outer.i.preheader.i ]
+  %.016.ph.i7.i = phi ptr [ %17, %.outer.i.i ], [ %6, %.outer.i.preheader.i ]
   br label %.outer.split.i.i
 
-.outer.split.i.i:                                 ; preds = %25, %.outer.split.i.preheader.i
-  %15 = tail call i64 @read(i32 noundef %.72.val, ptr noundef %.016.ph.i7.i, i64 noundef %14) #21
-  %16 = trunc i64 %15 to i32
-  %17 = icmp sgt i32 %16, 0
-  br i1 %17, label %.outer.i.i, label %23
+.outer.split.i.i:                                 ; preds = %23, %.outer.split.i.preheader.i
+  %13 = tail call i64 @read(i32 noundef %.72.val, ptr noundef %.016.ph.i7.i, i64 noundef %12) #21
+  %14 = trunc i64 %13 to i32
+  %15 = icmp sgt i32 %14, 0
+  br i1 %15, label %.outer.i.i, label %21
 
 .outer.i.i:                                       ; preds = %.outer.split.i.i
-  %18 = and i64 %15, 2147483647
-  %19 = getelementptr inbounds nuw i8, ptr %.016.ph.i7.i, i64 %18
-  %20 = sub nsw i64 %.015.ph.i8.i, %18
-  %21 = icmp sgt i64 %20, 0
-  %22 = tail call i64 @llvm.umin.i64(i64 %20, i64 2147483647)
-  br i1 %21, label %.outer.split.i.preheader.i, label %readFullyAt.exit.loopexit, !llvm.loop !8
+  %16 = and i64 %13, 2147483647
+  %17 = getelementptr inbounds nuw i8, ptr %.016.ph.i7.i, i64 %16
+  %18 = sub nsw i64 %.015.ph.i8.i, %16
+  %19 = icmp sgt i64 %18, 0
+  %20 = tail call i64 @llvm.umin.i64(i64 %18, i64 2147483647)
+  br i1 %19, label %.outer.split.i.preheader.i, label %readFullyAt.exit.loopexit, !llvm.loop !8
 
-23:                                               ; preds = %.outer.split.i.i
-  %24 = icmp eq i32 %16, -1
-  br i1 %24, label %25, label %readFullyAt.exit.thread
+21:                                               ; preds = %.outer.split.i.i
+  %22 = icmp eq i32 %14, -1
+  br i1 %22, label %23, label %readFullyAt.exit.thread
 
-25:                                               ; preds = %23
-  %26 = tail call ptr @__errno_location() #22
-  %27 = load i32, ptr %26, align 4
-  %28 = icmp eq i32 %27, 4
-  br i1 %28, label %.outer.split.i.i, label %readFullyAt.exit.thread, !llvm.loop !8
+23:                                               ; preds = %21
+  %24 = tail call ptr @__errno_location() #22
+  %25 = load i32, ptr %24, align 4
+  %26 = icmp eq i32 %25, 4
+  br i1 %26, label %.outer.split.i.i, label %readFullyAt.exit.thread, !llvm.loop !8
 
 readFullyAt.exit.loopexit:                        ; preds = %.outer.i.i
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %8, i64 28
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 28
   %.pre = load i16, ptr %.phi.trans.insert, align 1
-  %.phi.trans.insert13 = getelementptr inbounds nuw i8, ptr %8, i64 30
-  %.pre14 = load i16, ptr %.phi.trans.insert13, align 1
-  %.phi.trans.insert15 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %.pre16 = load i16, ptr %.phi.trans.insert15, align 1
-  %29 = zext i16 %.pre to i32
-  %30 = add nuw nsw i32 %29, 46
-  %31 = zext i16 %.pre14 to i32
+  %.phi.trans.insert14 = getelementptr inbounds nuw i8, ptr %6, i64 30
+  %.pre15 = load i16, ptr %.phi.trans.insert14, align 1
+  %.phi.trans.insert16 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %.pre17 = load i16, ptr %.phi.trans.insert16, align 1
+  %27 = zext i16 %.pre to i32
+  %28 = add nuw nsw i32 %27, 46
+  %29 = zext i16 %.pre15 to i32
+  %30 = add nuw nsw i32 %28, %29
+  %31 = zext i16 %.pre17 to i32
   %32 = add nuw nsw i32 %30, %31
-  %33 = zext i16 %.pre16 to i32
-  %34 = add nuw nsw i32 %32, %33
   br label %readFullyAt.exit
 
 readFullyAt.exit:                                 ; preds = %readFullyAt.exit.loopexit, %.outer.i.preheader.i
-  %35 = phi i32 [ %34, %readFullyAt.exit.loopexit ], [ 46, %.outer.i.preheader.i ]
-  %.not = icmp sgt i32 %35, %spec.select
-  br i1 %.not, label %36, label %readFully.exit
+  %33 = phi i32 [ %32, %readFullyAt.exit.loopexit ], [ 46, %.outer.i.preheader.i ]
+  %.not = icmp sgt i32 %33, %spec.select
+  br i1 %.not, label %34, label %readFully.exit
 
-36:                                               ; preds = %readFullyAt.exit
-  %37 = zext nneg i32 %35 to i64
-  %38 = tail call ptr @realloc(ptr noundef nonnull %8, i64 noundef %37) #26
-  %39 = icmp eq ptr %38, null
-  br i1 %39, label %readFullyAt.exit.thread, label %40
+34:                                               ; preds = %readFullyAt.exit
+  %35 = zext nneg i32 %33 to i64
+  %36 = tail call ptr @realloc(ptr noundef nonnull %6, i64 noundef %35) #26
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %readFullyAt.exit.thread, label %38
 
-40:                                               ; preds = %36
-  %41 = sub nsw i32 %35, %spec.select
-  %42 = icmp sgt i32 %41, 0
-  br i1 %42, label %.outer.split.i.preheader.preheader, label %readFully.exit
+38:                                               ; preds = %34
+  %39 = sub nsw i32 %33, %spec.select
+  %40 = icmp sgt i32 %39, 0
+  br i1 %40, label %.outer.split.i.preheader.preheader, label %readFully.exit
 
-.outer.split.i.preheader.preheader:               ; preds = %40
-  %43 = zext nneg i32 %41 to i64
-  %44 = getelementptr inbounds i8, ptr %38, i64 %7
+.outer.split.i.preheader.preheader:               ; preds = %38
+  %41 = zext nneg i32 %39 to i64
+  %42 = getelementptr inbounds i8, ptr %36, i64 %5
   br label %.outer.split.i.preheader
 
 .outer.split.i.preheader:                         ; preds = %.outer.split.i.preheader.preheader, %.outer.i
-  %45 = phi i64 [ %53, %.outer.i ], [ %43, %.outer.split.i.preheader.preheader ]
-  %.015.ph.i8 = phi i64 [ %51, %.outer.i ], [ %43, %.outer.split.i.preheader.preheader ]
-  %.016.ph.i7 = phi ptr [ %50, %.outer.i ], [ %44, %.outer.split.i.preheader.preheader ]
+  %43 = phi i64 [ %51, %.outer.i ], [ %41, %.outer.split.i.preheader.preheader ]
+  %.015.ph.i9 = phi i64 [ %49, %.outer.i ], [ %41, %.outer.split.i.preheader.preheader ]
+  %.016.ph.i8 = phi ptr [ %48, %.outer.i ], [ %42, %.outer.split.i.preheader.preheader ]
   br label %.outer.split.i
 
-.outer.split.i:                                   ; preds = %.outer.split.i.preheader, %56
-  %46 = tail call i64 @read(i32 noundef %.72.val, ptr noundef %.016.ph.i7, i64 noundef %45) #21
-  %47 = trunc i64 %46 to i32
-  %48 = icmp sgt i32 %47, 0
-  br i1 %48, label %.outer.i, label %54
+.outer.split.i:                                   ; preds = %.outer.split.i.preheader, %54
+  %44 = tail call i64 @read(i32 noundef %.72.val, ptr noundef %.016.ph.i8, i64 noundef %43) #21
+  %45 = trunc i64 %44 to i32
+  %46 = icmp sgt i32 %45, 0
+  br i1 %46, label %.outer.i, label %52
 
 .outer.i:                                         ; preds = %.outer.split.i
-  %49 = and i64 %46, 2147483647
-  %50 = getelementptr inbounds nuw i8, ptr %.016.ph.i7, i64 %49
-  %51 = sub nsw i64 %.015.ph.i8, %49
-  %52 = icmp sgt i64 %51, 0
-  %53 = tail call i64 @llvm.umin.i64(i64 %51, i64 2147483647)
-  br i1 %52, label %.outer.split.i.preheader, label %readFully.exit, !llvm.loop !8
+  %47 = and i64 %44, 2147483647
+  %48 = getelementptr inbounds nuw i8, ptr %.016.ph.i8, i64 %47
+  %49 = sub nsw i64 %.015.ph.i9, %47
+  %50 = icmp sgt i64 %49, 0
+  %51 = tail call i64 @llvm.umin.i64(i64 %49, i64 2147483647)
+  br i1 %50, label %.outer.split.i.preheader, label %readFully.exit, !llvm.loop !8
 
-54:                                               ; preds = %.outer.split.i
-  %55 = icmp eq i32 %47, -1
-  br i1 %55, label %56, label %readFullyAt.exit.thread
+52:                                               ; preds = %.outer.split.i
+  %53 = icmp eq i32 %45, -1
+  br i1 %53, label %54, label %readFullyAt.exit.thread
 
-56:                                               ; preds = %54
-  %57 = tail call ptr @__errno_location() #22
-  %58 = load i32, ptr %57, align 4
-  %59 = icmp eq i32 %58, 4
-  br i1 %59, label %.outer.split.i, label %readFullyAt.exit.thread, !llvm.loop !8
+54:                                               ; preds = %52
+  %55 = tail call ptr @__errno_location() #22
+  %56 = load i32, ptr %55, align 4
+  %57 = icmp eq i32 %56, 4
+  br i1 %57, label %.outer.split.i, label %readFullyAt.exit.thread, !llvm.loop !8
 
-readFullyAt.exit.thread:                          ; preds = %25, %23, %56, %54, %10, %36, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %36 ], [ %8, %10 ], [ %38, %54 ], [ %38, %56 ], [ %8, %23 ], [ %8, %25 ]
+readFullyAt.exit.thread:                          ; preds = %23, %21, %54, %52, %8, %34, %2
+  %.0 = phi ptr [ null, %2 ], [ null, %34 ], [ %6, %8 ], [ %36, %52 ], [ %36, %54 ], [ %6, %21 ], [ %6, %23 ]
   tail call void @free(ptr noundef %.0) #21
   br label %readFully.exit
 
-readFully.exit:                                   ; preds = %.outer.i, %40, %readFullyAt.exit, %readFullyAt.exit.thread
-  %.029 = phi ptr [ null, %readFullyAt.exit.thread ], [ %8, %readFullyAt.exit ], [ %38, %40 ], [ %38, %.outer.i ]
+readFully.exit:                                   ; preds = %.outer.i, %38, %readFullyAt.exit, %readFullyAt.exit.thread
+  %.029 = phi ptr [ null, %readFullyAt.exit.thread ], [ %6, %readFullyAt.exit ], [ %36, %38 ], [ %36, %.outer.i ]
   ret ptr %.029
 }
 

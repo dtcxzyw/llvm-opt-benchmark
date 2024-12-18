@@ -39,152 +39,148 @@ define range(i32 0, 2) i32 @KangarooTwelve_Update(ptr noundef %0, ptr noundef %1
   %12 = icmp eq i64 %11, 0
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %14 = load i32, ptr %13, align 8
-  br i1 %12, label %15, label %37
+  br i1 %12, label %15, label %35
 
 15:                                               ; preds = %9
   %16 = sub i32 8192, %14
   %17 = zext i32 %16 to i64
-  %18 = icmp ult i64 %2, %17
-  %19 = trunc nuw i64 %2 to i32
-  %20 = select i1 %18, i32 %19, i32 %16
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %22 = zext i32 %20 to i64
-  %23 = tail call i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef nonnull %21, ptr noundef %1, i64 noundef %22) #3
-  %.not74 = icmp eq i32 %23, 0
-  br i1 %.not74, label %24, label %.loopexit
+  %18 = tail call i64 @llvm.umin.i64(i64 %2, i64 %17)
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %20 = tail call i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef nonnull %19, ptr noundef %1, i64 noundef %18) #3
+  %.not74 = icmp eq i32 %20, 0
+  br i1 %.not74, label %21, label %.loopexit
 
-24:                                               ; preds = %15
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 %22
-  %26 = sub i64 %2, %22
-  %27 = load i32, ptr %13, align 8
-  %28 = add i32 %27, %20
-  store i32 %28, ptr %13, align 8
-  %29 = icmp eq i32 %28, 8192
-  %30 = icmp ne i64 %26, 0
-  %or.cond = and i1 %30, %29
-  br i1 %or.cond, label %31, label %61
+21:                                               ; preds = %15
+  %22 = trunc nuw i64 %18 to i32
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 %18
+  %24 = sub i64 %2, %18
+  %25 = load i32, ptr %13, align 8
+  %26 = add i32 %25, %22
+  store i32 %26, ptr %13, align 8
+  %27 = icmp eq i32 %26, 8192
+  %28 = icmp ne i64 %24, 0
+  %or.cond = and i1 %28, %27
+  br i1 %or.cond, label %29, label %57
 
-31:                                               ; preds = %24
+29:                                               ; preds = %21
   store i8 3, ptr %4, align 1
   store i32 0, ptr %13, align 8
   store i64 1, ptr %10, align 8
-  %32 = call i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef nonnull %21, ptr noundef nonnull %4, i64 noundef 1) #3
-  %.not75 = icmp eq i32 %32, 0
+  %30 = call i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef nonnull %19, ptr noundef nonnull %4, i64 noundef 1) #3
+  %.not75 = icmp eq i32 %30, 0
   br i1 %.not75, label %.thread, label %.loopexit
 
-.thread:                                          ; preds = %31
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 420
-  %34 = load i32, ptr %33, align 4
-  %35 = add i32 %34, 7
-  %36 = and i32 %35, -8
-  store i32 %36, ptr %33, align 4
+.thread:                                          ; preds = %29
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 420
+  %32 = load i32, ptr %31, align 4
+  %33 = add i32 %32, 7
+  %34 = and i32 %33, -8
+  store i32 %34, ptr %31, align 4
   br label %.lr.ph
 
-37:                                               ; preds = %9
+35:                                               ; preds = %9
   %.not69 = icmp eq i32 %14, 0
-  br i1 %.not69, label %61, label %38
+  br i1 %.not69, label %57, label %36
 
-38:                                               ; preds = %37
-  %39 = sub i32 8192, %14
-  %40 = zext i32 %39 to i64
-  %41 = icmp ult i64 %2, %40
-  %42 = trunc nuw i64 %2 to i32
-  %43 = select i1 %41, i32 %42, i32 %39
-  %44 = zext i32 %43 to i64
-  %45 = tail call i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %44) #3
-  %.not70 = icmp eq i32 %45, 0
-  br i1 %.not70, label %46, label %.loopexit
+36:                                               ; preds = %35
+  %37 = sub i32 8192, %14
+  %38 = zext i32 %37 to i64
+  %39 = tail call i64 @llvm.umin.i64(i64 %2, i64 %38)
+  %40 = tail call i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %39) #3
+  %.not70 = icmp eq i32 %40, 0
+  br i1 %.not70, label %41, label %.loopexit
 
-46:                                               ; preds = %38
-  %47 = getelementptr inbounds nuw i8, ptr %1, i64 %44
-  %48 = sub i64 %2, %44
-  %49 = load i32, ptr %13, align 8
-  %50 = add i32 %49, %43
-  store i32 %50, ptr %13, align 8
-  %51 = icmp eq i32 %50, 8192
-  br i1 %51, label %52, label %61
+41:                                               ; preds = %36
+  %42 = trunc nuw i64 %39 to i32
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 %39
+  %44 = sub i64 %2, %39
+  %45 = load i32, ptr %13, align 8
+  %46 = add i32 %45, %42
+  store i32 %46, ptr %13, align 8
+  %47 = icmp eq i32 %46, 8192
+  br i1 %47, label %48, label %57
 
-52:                                               ; preds = %46
+48:                                               ; preds = %41
   store i32 0, ptr %13, align 8
-  %53 = load i64, ptr %10, align 8
-  %54 = add i64 %53, 1
-  store i64 %54, ptr %10, align 8
-  %55 = tail call i32 @KeccakWidth1600_12rounds_SpongeAbsorbLastFewBits(ptr noundef nonnull %0, i8 noundef zeroext 11) #3
-  %.not71 = icmp eq i32 %55, 0
-  br i1 %.not71, label %56, label %.loopexit
+  %49 = load i64, ptr %10, align 8
+  %50 = add i64 %49, 1
+  store i64 %50, ptr %10, align 8
+  %51 = tail call i32 @KeccakWidth1600_12rounds_SpongeAbsorbLastFewBits(ptr noundef nonnull %0, i8 noundef zeroext 11) #3
+  %.not71 = icmp eq i32 %51, 0
+  br i1 %.not71, label %52, label %.loopexit
 
-56:                                               ; preds = %52
-  %57 = call i32 @KeccakWidth1600_12rounds_SpongeSqueeze(ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef 32) #3
-  %.not72 = icmp eq i32 %57, 0
-  br i1 %.not72, label %58, label %.loopexit
+52:                                               ; preds = %48
+  %53 = call i32 @KeccakWidth1600_12rounds_SpongeSqueeze(ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef 32) #3
+  %.not72 = icmp eq i32 %53, 0
+  br i1 %.not72, label %54, label %.loopexit
 
-58:                                               ; preds = %56
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %60 = call i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef nonnull %59, ptr noundef nonnull %5, i64 noundef 32) #3
-  %.not73 = icmp eq i32 %60, 0
-  br i1 %.not73, label %61, label %.loopexit
+54:                                               ; preds = %52
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %56 = call i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef nonnull %55, ptr noundef nonnull %5, i64 noundef 32) #3
+  %.not73 = icmp eq i32 %56, 0
+  br i1 %.not73, label %57, label %.loopexit
 
-61:                                               ; preds = %37, %58, %46, %24
-  %.062 = phi i64 [ %26, %24 ], [ %48, %58 ], [ %48, %46 ], [ %2, %37 ]
-  %.061 = phi ptr [ %25, %24 ], [ %47, %58 ], [ %47, %46 ], [ %1, %37 ]
+57:                                               ; preds = %35, %54, %41, %21
+  %.062 = phi i64 [ %24, %21 ], [ %44, %54 ], [ %44, %41 ], [ %2, %35 ]
+  %.061 = phi ptr [ %23, %21 ], [ %43, %54 ], [ %43, %41 ], [ %1, %35 ]
   %.not7682 = icmp eq i64 %.062, 0
   br i1 %.not7682, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.thread, %61
-  %.06199 = phi ptr [ %25, %.thread ], [ %.061, %61 ]
-  %.06298 = phi i64 [ %26, %.thread ], [ %.062, %61 ]
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  br label %64
+.lr.ph:                                           ; preds = %.thread, %57
+  %.06199 = phi ptr [ %23, %.thread ], [ %.061, %57 ]
+  %.06298 = phi i64 [ %24, %.thread ], [ %.062, %57 ]
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  br label %60
 
-64:                                               ; preds = %.lr.ph, %83
-  %.184 = phi ptr [ %.06199, %.lr.ph ], [ %71, %83 ]
-  %.16383 = phi i64 [ %.06298, %.lr.ph ], [ %72, %83 ]
-  %65 = call i64 @llvm.umin.i64(i64 %.16383, i64 8192)
-  %66 = trunc nuw nsw i64 %65 to i32
-  %67 = call i32 @KeccakWidth1600_12rounds_SpongeInitialize(ptr noundef nonnull %0, i32 noundef 1344, i32 noundef 256) #3
-  %.not77 = icmp eq i32 %67, 0
-  br i1 %.not77, label %68, label %.loopexit
+60:                                               ; preds = %.lr.ph, %79
+  %.184 = phi ptr [ %.06199, %.lr.ph ], [ %67, %79 ]
+  %.16383 = phi i64 [ %.06298, %.lr.ph ], [ %68, %79 ]
+  %61 = call i64 @llvm.umin.i64(i64 %.16383, i64 8192)
+  %62 = trunc nuw nsw i64 %61 to i32
+  %63 = call i32 @KeccakWidth1600_12rounds_SpongeInitialize(ptr noundef nonnull %0, i32 noundef 1344, i32 noundef 256) #3
+  %.not77 = icmp eq i32 %63, 0
+  br i1 %.not77, label %64, label %.loopexit
 
-68:                                               ; preds = %64
-  %69 = call i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef nonnull %0, ptr noundef %.184, i64 noundef %65) #3
-  %.not78 = icmp eq i32 %69, 0
-  br i1 %.not78, label %70, label %.loopexit
+64:                                               ; preds = %60
+  %65 = call i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef nonnull %0, ptr noundef %.184, i64 noundef %61) #3
+  %.not78 = icmp eq i32 %65, 0
+  br i1 %.not78, label %66, label %.loopexit
 
-70:                                               ; preds = %68
-  %71 = getelementptr inbounds nuw i8, ptr %.184, i64 %65
-  %72 = sub i64 %.16383, %65
-  %73 = icmp ugt i64 %.16383, 8191
-  br i1 %73, label %74, label %82
+66:                                               ; preds = %64
+  %67 = getelementptr inbounds nuw i8, ptr %.184, i64 %61
+  %68 = sub i64 %.16383, %61
+  %69 = icmp ugt i64 %.16383, 8191
+  br i1 %69, label %70, label %78
+
+70:                                               ; preds = %66
+  %71 = load i64, ptr %10, align 8
+  %72 = add i64 %71, 1
+  store i64 %72, ptr %10, align 8
+  %73 = call i32 @KeccakWidth1600_12rounds_SpongeAbsorbLastFewBits(ptr noundef %0, i8 noundef zeroext 11) #3
+  %.not79 = icmp eq i32 %73, 0
+  br i1 %.not79, label %74, label %.loopexit
 
 74:                                               ; preds = %70
-  %75 = load i64, ptr %10, align 8
-  %76 = add i64 %75, 1
-  store i64 %76, ptr %10, align 8
-  %77 = call i32 @KeccakWidth1600_12rounds_SpongeAbsorbLastFewBits(ptr noundef %0, i8 noundef zeroext 11) #3
-  %.not79 = icmp eq i32 %77, 0
-  br i1 %.not79, label %78, label %.loopexit
+  %75 = call i32 @KeccakWidth1600_12rounds_SpongeSqueeze(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef 32) #3
+  %.not80 = icmp eq i32 %75, 0
+  br i1 %.not80, label %76, label %.loopexit
 
-78:                                               ; preds = %74
-  %79 = call i32 @KeccakWidth1600_12rounds_SpongeSqueeze(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef 32) #3
-  %.not80 = icmp eq i32 %79, 0
-  br i1 %.not80, label %80, label %.loopexit
+76:                                               ; preds = %74
+  %77 = call i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef nonnull %58, ptr noundef nonnull %6, i64 noundef 32) #3
+  %.not81 = icmp eq i32 %77, 0
+  br i1 %.not81, label %79, label %.loopexit
 
-80:                                               ; preds = %78
-  %81 = call i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef nonnull %62, ptr noundef nonnull %6, i64 noundef 32) #3
-  %.not81 = icmp eq i32 %81, 0
-  br i1 %.not81, label %83, label %.loopexit
+78:                                               ; preds = %66
+  store i32 %62, ptr %59, align 8
+  br label %79
 
-82:                                               ; preds = %70
-  store i32 %66, ptr %63, align 8
-  br label %83
+79:                                               ; preds = %76, %78
+  %.not76 = icmp eq i64 %68, 0
+  br i1 %.not76, label %.loopexit, label %60, !llvm.loop !6
 
-83:                                               ; preds = %80, %82
-  %.not76 = icmp eq i64 %72, 0
-  br i1 %.not76, label %.loopexit, label %64, !llvm.loop !6
-
-.loopexit:                                        ; preds = %64, %68, %74, %78, %80, %83, %61, %58, %56, %52, %38, %31, %15, %3
-  %.0 = phi i32 [ 1, %3 ], [ 1, %15 ], [ 1, %31 ], [ 1, %38 ], [ 1, %52 ], [ 1, %56 ], [ 1, %58 ], [ 0, %61 ], [ 1, %64 ], [ 1, %68 ], [ 1, %74 ], [ 1, %78 ], [ 1, %80 ], [ 0, %83 ]
+.loopexit:                                        ; preds = %60, %64, %70, %74, %76, %79, %57, %54, %52, %48, %36, %29, %15, %3
+  %.0 = phi i32 [ 1, %3 ], [ 1, %15 ], [ 1, %29 ], [ 1, %36 ], [ 1, %48 ], [ 1, %52 ], [ 1, %54 ], [ 0, %57 ], [ 1, %60 ], [ 1, %64 ], [ 1, %70 ], [ 1, %74 ], [ 1, %76 ], [ 0, %79 ]
   ret i32 %.0
 }
 

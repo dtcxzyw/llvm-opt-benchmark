@@ -169,12 +169,12 @@ if.end56:                                         ; preds = %if.end49
 
 for.cond.preheader:                               ; preds = %if.end56
   %8 = load i32, ptr %n_blocks, align 4
-  %cmp6788.not = icmp eq i32 %8, -1
-  br i1 %cmp6788.not, label %for.end, label %for.body
+  %cmp6789.not = icmp eq i32 %8, -1
+  br i1 %cmp6789.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %for.cond.preheader ]
-  %max_compressed_block_size.089 = phi i32 [ %max_compressed_block_size.1, %for.inc ], [ 1, %for.cond.preheader ]
+  %max_compressed_block_size.090 = phi i32 [ %max_compressed_block_size.1, %for.inc ], [ 1, %for.cond.preheader ]
   %9 = load ptr, ptr %offsets, align 8
   %arrayidx = getelementptr i64, ptr %9, i64 %indvars.iv
   %10 = load i64, ptr %arrayidx, align 8
@@ -209,14 +209,13 @@ if.then98:                                        ; preds = %if.end87
   br label %fail
 
 if.end99:                                         ; preds = %if.end87
-  %conv100 = zext nneg i32 %max_compressed_block_size.089 to i64
-  %cmp101 = icmp samesign ugt i64 %sub95, %conv100
-  %conv104 = trunc nuw nsw i64 %sub95 to i32
-  %spec.select = select i1 %cmp101, i32 %conv104, i32 %max_compressed_block_size.089
+  %conv100 = zext nneg i32 %max_compressed_block_size.090 to i64
+  %spec.select83 = tail call i64 @llvm.umax.i64(i64 %sub95, i64 %conv100)
+  %spec.select = trunc nuw i64 %spec.select83 to i32
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end99, %for.body
-  %max_compressed_block_size.1 = phi i32 [ %max_compressed_block_size.089, %for.body ], [ %spec.select, %if.end99 ]
+  %max_compressed_block_size.1 = phi i32 [ %max_compressed_block_size.090, %for.body ], [ %spec.select, %if.end99 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = load i32, ptr %n_blocks, align 4
   %add66 = add i32 %18, 1
@@ -565,6 +564,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #9
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

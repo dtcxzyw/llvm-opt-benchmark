@@ -92,7 +92,7 @@ define dso_local noundef i32 @_Z14luaopen_stringP9lua_State(ptr noundef %0) loca
 declare void @_Z13luaL_registerP9lua_StatePKcPK8luaL_Reg(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZL8str_byteP9lua_State(ptr noundef %0) #0 {
+define internal noundef range(i32 0, -2147483648) i32 @_ZL8str_byteP9lua_State(ptr noundef %0) #0 {
   %2 = alloca i64, align 8
   %3 = call noundef ptr @_Z17luaL_checklstringP9lua_StateiPm(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2)
   %4 = call noundef i32 @_Z15luaL_optintegerP9lua_Stateii(ptr noundef %0, i32 noundef 2, i32 noundef 1)
@@ -113,47 +113,43 @@ define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZL8str_byteP9l
   %17 = call noundef range(i32 0, -2147483648) i32 @llvm.smax.i32(i32 %.0.i28, i32 0)
   %18 = call i32 @llvm.smax.i32(i32 %.0.i, i32 1)
   %19 = zext nneg i32 %17 to i64
-  %20 = icmp ult i64 %12, %19
-  %spec.select = select i1 %20, i32 %14, i32 %17
-  %21 = icmp sgt i32 %18, %spec.select
-  br i1 %21, label %.loopexit, label %22
+  %spec.select29 = call i64 @llvm.umin.i64(i64 %12, i64 %19)
+  %spec.select = trunc nuw nsw i64 %spec.select29 to i32
+  %20 = icmp samesign ugt i32 %18, %spec.select
+  br i1 %20, label %.loopexit, label %21
 
-22:                                               ; preds = %1
-  %23 = sub nsw i32 %spec.select, %18
-  %24 = add nsw i32 %23, 1
-  %.not.not = icmp eq i32 %spec.select, 2147483647
-  br i1 %.not.not, label %25, label %26
+21:                                               ; preds = %1
+  %22 = sub nuw nsw i32 %spec.select, %18
+  %23 = add nuw nsw i32 %22, 1
+  %.not.not = icmp eq i64 %spec.select29, 2147483647
+  br i1 %.not.not, label %24, label %25
 
-25:                                               ; preds = %22
+24:                                               ; preds = %21
   call void (ptr, ptr, ...) @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.18) #13
   unreachable
 
-26:                                               ; preds = %22
-  call void @_Z15luaL_checkstackP9lua_StateiPKc(ptr noundef %0, i32 noundef %24, ptr noundef nonnull @.str.18)
-  %.not29 = icmp slt i32 %23, 0
-  br i1 %.not29, label %.loopexit, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %26
+25:                                               ; preds = %21
+  call void @_Z15luaL_checkstackP9lua_StateiPKc(ptr noundef %0, i32 noundef %23, ptr noundef nonnull @.str.18)
   %invariant.gep = getelementptr i8, ptr %3, i64 -1
-  %27 = zext nneg i32 %18 to i64
-  %28 = add nuw nsw i32 %spec.select, 1
-  %29 = sub nsw i32 %28, %18
-  %wide.trip.count = zext i32 %29 to i64
-  %invariant.gep33 = getelementptr i8, ptr %invariant.gep, i64 %27
-  br label %.lr.ph
+  %26 = zext nneg i32 %18 to i64
+  %27 = add nuw i32 %spec.select, 1
+  %28 = sub i32 %27, %18
+  %wide.trip.count = zext i32 %28 to i64
+  %invariant.gep33 = getelementptr i8, ptr %invariant.gep, i64 %26
+  br label %29
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+29:                                               ; preds = %25, %29
+  %indvars.iv = phi i64 [ 0, %25 ], [ %indvars.iv.next, %29 ]
   %gep34 = getelementptr i8, ptr %invariant.gep33, i64 %indvars.iv
   %30 = load i8, ptr %gep34, align 1
   %31 = zext i8 %30 to i32
   call void @_Z15lua_pushintegerP9lua_Statei(ptr noundef %0, i32 noundef %31)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !5
+  br i1 %exitcond.not, label %.loopexit, label %29, !llvm.loop !5
 
-.loopexit:                                        ; preds = %.lr.ph, %26, %1
-  %.024 = phi i32 [ 0, %1 ], [ %24, %26 ], [ %24, %.lr.ph ]
+.loopexit:                                        ; preds = %29, %1
+  %.024 = phi i32 [ 0, %1 ], [ %23, %29 ]
   ret i32 %.024
 }
 
@@ -4238,6 +4234,9 @@ declare i32 @llvm.ctpop.i32(i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #9

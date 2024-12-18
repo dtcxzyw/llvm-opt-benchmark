@@ -4097,64 +4097,63 @@ define void @_ZN10CmdExtract11UnstoreFileER11ComprDataIOl(ptr noundef nonnull al
 _ZN5ArrayIhEC2Em.exit.preheader:                  ; preds = %2, %4
   br label %_ZN5ArrayIhEC2Em.exit.outer
 
-_ZN5ArrayIhEC2Em.exit.outer:                      ; preds = %_ZN5ArrayIhEC2Em.exit.preheader, %18
-  %.0.ph = phi i64 [ %1, %_ZN5ArrayIhEC2Em.exit.preheader ], [ %19, %18 ]
-  %5 = trunc i64 %.0.ph to i32
+_ZN5ArrayIhEC2Em.exit.outer:                      ; preds = %_ZN5ArrayIhEC2Em.exit.preheader, %17
+  %.0.ph = phi i64 [ %1, %_ZN5ArrayIhEC2Em.exit.preheader ], [ %18, %17 ]
   br label %_ZN5ArrayIhEC2Em.exit
 
-_ZN5ArrayIhEC2Em.exit:                            ; preds = %_ZN5ArrayIhEC2Em.exit.outer, %11
-  %6 = invoke noundef i32 @_ZN11ComprDataIO7UnpReadEPhm(ptr noundef nonnull align 8 dereferenceable(266) %0, ptr noundef nonnull %malloc.i, i64 noundef 1048576)
-          to label %7 unwind label %.loopexit
+_ZN5ArrayIhEC2Em.exit:                            ; preds = %_ZN5ArrayIhEC2Em.exit.outer, %10
+  %5 = invoke noundef i32 @_ZN11ComprDataIO7UnpReadEPhm(ptr noundef nonnull align 8 dereferenceable(266) %0, ptr noundef nonnull %malloc.i, i64 noundef 1048576)
+          to label %6 unwind label %.loopexit
 
-7:                                                ; preds = %_ZN5ArrayIhEC2Em.exit
-  %8 = icmp slt i32 %6, 1
-  br i1 %8, label %20, label %11
+6:                                                ; preds = %_ZN5ArrayIhEC2Em.exit
+  %7 = icmp slt i32 %5, 1
+  br i1 %7, label %19, label %10
 
 .loopexit:                                        ; preds = %_ZN5ArrayIhEC2Em.exit
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %9
+  br label %8
 
-.loopexit.split-lp:                               ; preds = %16
+.loopexit.split-lp:                               ; preds = %15
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %9
+  br label %8
 
-9:                                                ; preds = %.loopexit.split-lp, %.loopexit
+8:                                                ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  br i1 %3, label %_ZN5ArrayIhED2Ev.exit, label %10
+  br i1 %3, label %_ZN5ArrayIhED2Ev.exit, label %9
 
-10:                                               ; preds = %9
+9:                                                ; preds = %8
   tail call void @free(ptr noundef nonnull %malloc.i) #19
   br label %_ZN5ArrayIhED2Ev.exit
 
-_ZN5ArrayIhED2Ev.exit:                            ; preds = %9, %10
+_ZN5ArrayIhED2Ev.exit:                            ; preds = %8, %9
   resume { ptr, i32 } %lpad.phi
 
-11:                                               ; preds = %7
-  %12 = zext nneg i32 %6 to i64
-  %13 = icmp sgt i64 %.0.ph, %12
-  %14 = select i1 %13, i32 %6, i32 %5
-  %15 = icmp sgt i32 %14, 0
-  br i1 %15, label %16, label %_ZN5ArrayIhEC2Em.exit, !llvm.loop !18
+10:                                               ; preds = %6
+  %11 = zext nneg i32 %5 to i64
+  %12 = tail call i64 @llvm.smin.i64(i64 %.0.ph, i64 %11)
+  %13 = trunc i64 %12 to i32
+  %14 = icmp sgt i32 %13, 0
+  br i1 %14, label %15, label %_ZN5ArrayIhEC2Em.exit, !llvm.loop !18
 
-16:                                               ; preds = %11
-  %17 = zext nneg i32 %14 to i64
-  invoke void @_ZN11ComprDataIO8UnpWriteEPhm(ptr noundef nonnull align 8 dereferenceable(266) %0, ptr noundef nonnull %malloc.i, i64 noundef %17)
-          to label %18 unwind label %.loopexit.split-lp
+15:                                               ; preds = %10
+  %16 = and i64 %12, 2147483647
+  invoke void @_ZN11ComprDataIO8UnpWriteEPhm(ptr noundef nonnull align 8 dereferenceable(266) %0, ptr noundef nonnull %malloc.i, i64 noundef %16)
+          to label %17 unwind label %.loopexit.split-lp
 
-18:                                               ; preds = %16
-  %19 = sub nsw i64 %.0.ph, %17
+17:                                               ; preds = %15
+  %18 = sub nsw i64 %.0.ph, %16
   br label %_ZN5ArrayIhEC2Em.exit.outer, !llvm.loop !18
 
-20:                                               ; preds = %7
-  br i1 %3, label %_ZN5ArrayIhED2Ev.exit15, label %21
+19:                                               ; preds = %6
+  br i1 %3, label %_ZN5ArrayIhED2Ev.exit15, label %20
 
-21:                                               ; preds = %20
+20:                                               ; preds = %19
   tail call void @free(ptr noundef nonnull %malloc.i) #19
   br label %_ZN5ArrayIhED2Ev.exit15
 
-_ZN5ArrayIhED2Ev.exit15:                          ; preds = %20, %21
+_ZN5ArrayIhED2Ev.exit15:                          ; preds = %19, %20
   ret void
 }
 
@@ -4493,6 +4492,9 @@ declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smin.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #16

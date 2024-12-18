@@ -6647,8 +6647,8 @@ entry:
   %arrayidx = getelementptr inbounds nuw [3 x %struct.strmap], ptr %dir_rename_count, i64 0, i64 %idxprom
   call void @hashmap_iter_init(ptr noundef nonnull %arrayidx, ptr noundef nonnull %iter) #18
   %call.i = call ptr @hashmap_iter_next(ptr noundef nonnull %iter) #18
-  %tobool.not26 = icmp eq ptr %call.i, null
-  br i1 %tobool.not26, label %for.end38, label %for.body.lr.ph
+  %tobool.not27 = icmp eq ptr %call.i, null
+  br i1 %tobool.not27, label %for.end38, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %dir_renames = getelementptr inbounds nuw i8, ptr %0, i64 672
@@ -6656,35 +6656,35 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc35
-  %entry1.027 = phi ptr [ %call.i, %for.body.lr.ph ], [ %call36, %for.inc35 ]
-  %key = getelementptr inbounds nuw i8, ptr %entry1.027, i64 16
+  %entry1.028 = phi ptr [ %call.i, %for.body.lr.ph ], [ %call36, %for.inc35 ]
+  %key = getelementptr inbounds nuw i8, ptr %entry1.028, i64 16
   %1 = load ptr, ptr %key, align 8
-  %value = getelementptr inbounds nuw i8, ptr %entry1.027, i64 24
+  %value = getelementptr inbounds nuw i8, ptr %entry1.028, i64 24
   %2 = load ptr, ptr %value, align 8
   call void @hashmap_iter_init(ptr noundef %2, ptr noundef nonnull %count_iter) #18
   %call.i17 = call ptr @hashmap_iter_next(ptr noundef nonnull %count_iter) #18
-  %tobool9.not19 = icmp eq ptr %call.i17, null
-  br i1 %tobool9.not19, label %for.inc35, label %for.body10
+  %tobool9.not20 = icmp eq ptr %call.i17, null
+  br i1 %tobool9.not20, label %for.inc35, label %for.body10
 
 for.body10:                                       ; preds = %for.body, %for.body10
-  %count_entry.023 = phi ptr [ %call20, %for.body10 ], [ %call.i17, %for.body ]
-  %best.022 = phi ptr [ %best.1, %for.body10 ], [ null, %for.body ]
-  %bad_max.021 = phi i32 [ %bad_max.1, %for.body10 ], [ 0, %for.body ]
-  %max.020 = phi i32 [ %max.1, %for.body10 ], [ 0, %for.body ]
-  %key11 = getelementptr inbounds nuw i8, ptr %count_entry.023, i64 16
+  %count_entry.024 = phi ptr [ %call20, %for.body10 ], [ %call.i17, %for.body ]
+  %best.023 = phi ptr [ %best.1, %for.body10 ], [ null, %for.body ]
+  %bad_max.022 = phi i32 [ %bad_max.1, %for.body10 ], [ 0, %for.body ]
+  %max.021 = phi i32 [ %max.1, %for.body10 ], [ 0, %for.body ]
+  %key11 = getelementptr inbounds nuw i8, ptr %count_entry.024, i64 16
   %3 = load ptr, ptr %key11, align 8
-  %value12 = getelementptr inbounds nuw i8, ptr %count_entry.023, i64 24
+  %value12 = getelementptr inbounds nuw i8, ptr %count_entry.024, i64 24
   %4 = load ptr, ptr %value12, align 8
   %5 = ptrtoint ptr %4 to i64
-  %conv = sext i32 %max.020 to i64
+  %conv = sext i32 %max.021 to i64
   %cmp = icmp eq i64 %5, %conv
   %cmp15 = icmp sgt i64 %5, %conv
-  %conv18 = trunc i64 %5 to i32
-  %spec.select = select i1 %cmp15, i32 %conv18, i32 %max.020
-  %spec.select16 = select i1 %cmp15, ptr %3, ptr %best.022
-  %max.1 = select i1 %cmp, i32 %max.020, i32 %spec.select
-  %bad_max.1 = select i1 %cmp, i32 %max.020, i32 %bad_max.021
-  %best.1 = select i1 %cmp, ptr %best.022, ptr %spec.select16
+  %spec.select19 = call i64 @llvm.smax.i64(i64 %5, i64 %conv)
+  %spec.select = trunc i64 %spec.select19 to i32
+  %spec.select16 = select i1 %cmp15, ptr %3, ptr %best.023
+  %max.1 = select i1 %cmp, i32 %max.021, i32 %spec.select
+  %bad_max.1 = select i1 %cmp, i32 %max.021, i32 %bad_max.022
+  %best.1 = select i1 %cmp, ptr %best.023, ptr %spec.select16
   %call20 = call ptr @hashmap_iter_next(ptr noundef nonnull %count_iter) #18
   %tobool9.not = icmp eq ptr %call20, null
   br i1 %tobool9.not, label %for.end, label %for.body10, !llvm.loop !61
@@ -9138,6 +9138,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smax.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #16

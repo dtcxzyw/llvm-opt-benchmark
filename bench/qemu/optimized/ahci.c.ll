@@ -2532,7 +2532,7 @@ for.body.lr.ph:                                   ; preds = %do.end41
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %conv4362 = phi i32 [ 0, %for.body.lr.ph ], [ %41, %for.body ]
+  %conv4362 = phi i32 [ 0, %for.body.lr.ph ], [ %40, %for.body ]
   %remaining.060 = phi i64 [ %34, %for.body.lr.ph ], [ %remaining.1, %for.body ]
   %35 = load i64, ptr %buffer, align 8
   %36 = load i32, ptr %prd_size, align 8
@@ -2542,34 +2542,33 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store i64 %add51, ptr %prd, align 8
   store i32 0, ptr %res, align 8
   %conv54 = zext i32 %36 to i64
-  %cmp55 = icmp ugt i64 %remaining.060, %conv54
-  %37 = trunc i64 %remaining.060 to i32
-  %.v = select i1 %cmp55, i32 %36, i32 %37
-  %38 = add i32 %.v, 2147483647
+  %.v67 = call i64 @llvm.umin.i64(i64 %remaining.060, i64 %conv54)
+  %.v = trunc nuw i64 %.v67 to i32
+  %37 = add i32 %.v, 2147483647
   %remaining.1 = call i64 @llvm.usub.sat.i64(i64 %remaining.060, i64 %conv54)
-  %or = or i32 %38, -2147483648
+  %or = or i32 %37, -2147483648
   store i32 %or, ptr %dbc67, align 4
-  %39 = load ptr, ptr %ahci, align 8
-  %40 = load ptr, ptr %39, align 8
+  %38 = load ptr, ptr %ahci, align 8
+  %39 = load ptr, ptr %38, align 8
   %mul75 = shl nuw nsw i64 %indvars.iv, 4
   %add76 = add i64 %add73, %mul75
-  call void @qtest_memwrite(ptr noundef %40, i64 noundef %add76, ptr noundef nonnull %prd, i64 noundef 16) #16
+  call void @qtest_memwrite(ptr noundef %39, i64 noundef %add76, ptr noundef nonnull %prd, i64 noundef 16) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %41 = trunc nuw i64 %indvars.iv.next to i32
-  %cmp45 = icmp samesign ugt i32 %conv7.mask, %41
+  %40 = trunc nuw i64 %indvars.iv.next to i32
+  %cmp45 = icmp samesign ugt i32 %conv7.mask, %40
   br i1 %cmp45, label %for.body, label %for.end, !llvm.loop !12
 
 for.end:                                          ; preds = %for.body, %do.end41
   %port77 = getelementptr inbounds nuw i8, ptr %ahci, i64 56
   %arrayidx = getelementptr [32 x %struct.AHCIPortQState], ptr %port77, i64 0, i64 %conv.i.i.i
   %ctba78 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
-  %42 = load i8, ptr %slot, align 2
-  %idxprom80 = zext i8 %42 to i64
+  %41 = load i8, ptr %slot, align 2
+  %idxprom80 = zext i8 %41 to i64
   %arrayidx81 = getelementptr [32 x i64], ptr %ctba78, i64 0, i64 %idxprom80
   store i64 %call.i.i, ptr %arrayidx81, align 8
   %prdtl85 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 272
-  %43 = load i8, ptr %slot, align 2
-  %idxprom87 = zext i8 %43 to i64
+  %42 = load i8, ptr %slot, align 2
+  %idxprom87 = zext i8 %42 to i64
   %arrayidx88 = getelementptr [32 x i16], ptr %prdtl85, i64 0, i64 %idxprom87
   store i16 %33, ptr %arrayidx88, align 2
   ret void
@@ -3818,6 +3817,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #14

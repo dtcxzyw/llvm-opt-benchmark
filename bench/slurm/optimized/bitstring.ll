@@ -863,96 +863,95 @@ define i32 @bit_set_count_range(ptr nocapture noundef readonly %0, i32 noundef %
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = icmp sgt i64 %6, %4
-  %8 = trunc i64 %6 to i32
-  %9 = select i1 %7, i32 %2, i32 %8
-  %10 = sext i32 %1 to i64
-  %11 = add i32 %1, 63
-  %12 = and i32 %11, -64
-  %13 = icmp sge i32 %1, %12
-  %.not = icmp sgt i32 %12, %9
-  %or.cond = select i1 %13, i1 true, i1 %.not
-  br i1 %or.cond, label %24, label %14
+  %7 = tail call i64 @llvm.smin.i64(i64 %6, i64 %4)
+  %8 = trunc i64 %7 to i32
+  %9 = sext i32 %1 to i64
+  %10 = add i32 %1, 63
+  %11 = and i32 %10, -64
+  %12 = icmp sge i32 %1, %11
+  %.not = icmp sgt i32 %11, %8
+  %or.cond = select i1 %12, i1 true, i1 %.not
+  br i1 %or.cond, label %23, label %13
 
-14:                                               ; preds = %3
-  %15 = and i64 %10, 63
-  %notmask48 = shl nsw i64 -1, %15
-  %16 = ashr i64 %10, 6
-  %17 = getelementptr i64, ptr %0, i64 %16
-  %18 = getelementptr i8, ptr %17, i64 16
-  %19 = load i64, ptr %18, align 8
-  %20 = and i64 %19, %notmask48
-  %21 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %20)
-  %22 = trunc nuw nsw i64 %21 to i32
-  %23 = sext i32 %12 to i64
-  br label %39
+13:                                               ; preds = %3
+  %14 = and i64 %9, 63
+  %notmask48 = shl nsw i64 -1, %14
+  %15 = ashr i64 %9, 6
+  %16 = getelementptr i64, ptr %0, i64 %15
+  %17 = getelementptr i8, ptr %16, i64 16
+  %18 = load i64, ptr %17, align 8
+  %19 = and i64 %18, %notmask48
+  %20 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %19)
+  %21 = trunc nuw nsw i64 %20 to i32
+  %22 = sext i32 %11 to i64
+  br label %37
 
-24:                                               ; preds = %3
-  br i1 %13, label %39, label %25
+23:                                               ; preds = %3
+  br i1 %12, label %37, label %24
 
-25:                                               ; preds = %24
-  %26 = and i64 %10, 63
-  %notmask = shl nsw i64 -1, %26
-  %27 = and i32 %9, 63
-  %28 = zext nneg i32 %27 to i64
-  %notmask47 = shl nsw i64 -1, %28
-  %29 = xor i64 %notmask47, -1
-  %30 = and i64 %notmask, %29
-  %31 = ashr i64 %10, 6
-  %32 = getelementptr i64, ptr %0, i64 %31
-  %33 = getelementptr i8, ptr %32, i64 16
-  %34 = load i64, ptr %33, align 8
-  %35 = and i64 %30, %34
-  %36 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %35)
-  %37 = trunc nuw nsw i64 %36 to i32
-  %38 = sext i32 %12 to i64
-  br label %39
+24:                                               ; preds = %23
+  %25 = and i64 %9, 63
+  %notmask = shl nsw i64 -1, %25
+  %26 = and i64 %7, 63
+  %notmask47 = shl nsw i64 -1, %26
+  %27 = xor i64 %notmask47, -1
+  %28 = and i64 %notmask, %27
+  %29 = ashr i64 %9, 6
+  %30 = getelementptr i64, ptr %0, i64 %29
+  %31 = getelementptr i8, ptr %30, i64 16
+  %32 = load i64, ptr %31, align 8
+  %33 = and i64 %28, %32
+  %34 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %33)
+  %35 = trunc nuw nsw i64 %34 to i32
+  %36 = sext i32 %11 to i64
+  br label %37
 
-39:                                               ; preds = %24, %25, %14
-  %.039 = phi i64 [ %23, %14 ], [ %38, %25 ], [ %10, %24 ]
-  %.0 = phi i32 [ %22, %14 ], [ %37, %25 ], [ 0, %24 ]
-  %40 = sext i32 %9 to i64
+37:                                               ; preds = %23, %24, %13
+  %.039 = phi i64 [ %22, %13 ], [ %36, %24 ], [ %9, %23 ]
+  %.0 = phi i32 [ %21, %13 ], [ %35, %24 ], [ 0, %23 ]
+  %sext = shl i64 %7, 32
+  %38 = ashr exact i64 %sext, 32
   %invariant.gep = getelementptr i8, ptr %0, i64 16
-  %41 = add nsw i64 %.039, 64
-  %.not4952 = icmp ugt i64 %41, %40
+  %39 = add nsw i64 %.039, 64
+  %.not4952 = icmp ugt i64 %39, %38
   br i1 %.not4952, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %39, %.lr.ph
-  %42 = phi i64 [ %48, %.lr.ph ], [ %41, %39 ]
-  %.154 = phi i32 [ %47, %.lr.ph ], [ %.0, %39 ]
-  %.14053 = phi i64 [ %42, %.lr.ph ], [ %.039, %39 ]
-  %43 = ashr i64 %.14053, 6
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %43
-  %44 = load i64, ptr %gep, align 8
-  %45 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %44)
-  %46 = trunc nuw nsw i64 %45 to i32
-  %47 = add nsw i32 %.154, %46
-  %48 = add i64 %42, 64
-  %.not49 = icmp ugt i64 %48, %40
+.lr.ph:                                           ; preds = %37, %.lr.ph
+  %40 = phi i64 [ %46, %.lr.ph ], [ %39, %37 ]
+  %.154 = phi i32 [ %45, %.lr.ph ], [ %.0, %37 ]
+  %.14053 = phi i64 [ %40, %.lr.ph ], [ %.039, %37 ]
+  %41 = ashr i64 %.14053, 6
+  %gep = getelementptr i64, ptr %invariant.gep, i64 %41
+  %42 = load i64, ptr %gep, align 8
+  %43 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %42)
+  %44 = trunc nuw nsw i64 %43 to i32
+  %45 = add nsw i32 %.154, %44
+  %46 = add i64 %40, 64
+  %.not49 = icmp ugt i64 %46, %38
   br i1 %.not49, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
-._crit_edge:                                      ; preds = %.lr.ph, %39
-  %.140.lcssa = phi i64 [ %.039, %39 ], [ %42, %.lr.ph ]
-  %.1.lcssa = phi i32 [ %.0, %39 ], [ %47, %.lr.ph ]
-  %49 = icmp slt i64 %.140.lcssa, %40
-  br i1 %49, label %50, label %61
+._crit_edge:                                      ; preds = %.lr.ph, %37
+  %.140.lcssa = phi i64 [ %.039, %37 ], [ %40, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %.0, %37 ], [ %45, %.lr.ph ]
+  %47 = icmp slt i64 %.140.lcssa, %38
+  br i1 %47, label %48, label %59
 
-50:                                               ; preds = %._crit_edge
-  %51 = and i64 %40, 63
-  %notmask50 = shl nsw i64 -1, %51
-  %52 = xor i64 %notmask50, -1
-  %53 = ashr i64 %.140.lcssa, 6
-  %54 = getelementptr i64, ptr %0, i64 %53
-  %55 = getelementptr i8, ptr %54, i64 16
-  %56 = load i64, ptr %55, align 8
-  %57 = and i64 %56, %52
-  %58 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %57)
-  %59 = trunc nuw nsw i64 %58 to i32
-  %60 = add nsw i32 %.1.lcssa, %59
-  br label %61
+48:                                               ; preds = %._crit_edge
+  %49 = and i64 %7, 63
+  %notmask50 = shl nsw i64 -1, %49
+  %50 = xor i64 %notmask50, -1
+  %51 = ashr i64 %.140.lcssa, 6
+  %52 = getelementptr i64, ptr %0, i64 %51
+  %53 = getelementptr i8, ptr %52, i64 16
+  %54 = load i64, ptr %53, align 8
+  %55 = and i64 %54, %50
+  %56 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %55)
+  %57 = trunc nuw nsw i64 %56 to i32
+  %58 = add nsw i32 %.1.lcssa, %57
+  br label %59
 
-61:                                               ; preds = %50, %._crit_edge
-  %.2 = phi i32 [ %60, %50 ], [ %.1.lcssa, %._crit_edge ]
+59:                                               ; preds = %48, %._crit_edge
+  %.2 = phi i32 [ %58, %48 ], [ %.1.lcssa, %._crit_edge ]
   ret i32 %.2
 }
 
@@ -1009,107 +1008,106 @@ bit_set_count.exit:                               ; preds = %._crit_edge.i, %12
 define range(i32 -2147483646, -2147483648) i32 @bit_clear_count_range(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #4 {
   %4 = sub nsw i32 %2, %1
   %5 = icmp slt i32 %4, 1
-  br i1 %5, label %65, label %6
+  br i1 %5, label %63, label %6
 
 6:                                                ; preds = %3
   %7 = sext i32 %2 to i64
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
-  %10 = icmp sgt i64 %9, %7
-  %11 = trunc i64 %9 to i32
-  %12 = select i1 %10, i32 %2, i32 %11
-  %13 = sext i32 %1 to i64
-  %14 = add i32 %1, 63
-  %15 = and i32 %14, -64
-  %16 = icmp sge i32 %1, %15
-  %.not.i = icmp sgt i32 %15, %12
-  %or.cond.i = select i1 %16, i1 true, i1 %.not.i
-  br i1 %or.cond.i, label %27, label %17
+  %10 = tail call i64 @llvm.smin.i64(i64 %9, i64 %7)
+  %11 = trunc i64 %10 to i32
+  %12 = sext i32 %1 to i64
+  %13 = add i32 %1, 63
+  %14 = and i32 %13, -64
+  %15 = icmp sge i32 %1, %14
+  %.not.i = icmp sgt i32 %14, %11
+  %or.cond.i = select i1 %15, i1 true, i1 %.not.i
+  br i1 %or.cond.i, label %26, label %16
 
-17:                                               ; preds = %6
-  %18 = and i64 %13, 63
-  %notmask48.i = shl nsw i64 -1, %18
-  %19 = ashr i64 %13, 6
-  %20 = getelementptr i64, ptr %0, i64 %19
-  %21 = getelementptr i8, ptr %20, i64 16
-  %22 = load i64, ptr %21, align 8
-  %23 = and i64 %22, %notmask48.i
-  %24 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %23)
-  %25 = trunc nuw nsw i64 %24 to i32
-  %26 = sext i32 %15 to i64
-  br label %42
+16:                                               ; preds = %6
+  %17 = and i64 %12, 63
+  %notmask48.i = shl nsw i64 -1, %17
+  %18 = ashr i64 %12, 6
+  %19 = getelementptr i64, ptr %0, i64 %18
+  %20 = getelementptr i8, ptr %19, i64 16
+  %21 = load i64, ptr %20, align 8
+  %22 = and i64 %21, %notmask48.i
+  %23 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %22)
+  %24 = trunc nuw nsw i64 %23 to i32
+  %25 = sext i32 %14 to i64
+  br label %40
 
-27:                                               ; preds = %6
-  br i1 %16, label %42, label %28
+26:                                               ; preds = %6
+  br i1 %15, label %40, label %27
 
-28:                                               ; preds = %27
-  %29 = and i64 %13, 63
-  %notmask.i = shl nsw i64 -1, %29
-  %30 = and i32 %12, 63
-  %31 = zext nneg i32 %30 to i64
-  %notmask47.i = shl nsw i64 -1, %31
-  %32 = xor i64 %notmask47.i, -1
-  %33 = and i64 %notmask.i, %32
-  %34 = ashr i64 %13, 6
-  %35 = getelementptr i64, ptr %0, i64 %34
-  %36 = getelementptr i8, ptr %35, i64 16
-  %37 = load i64, ptr %36, align 8
-  %38 = and i64 %33, %37
-  %39 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %38)
-  %40 = trunc nuw nsw i64 %39 to i32
-  %41 = sext i32 %15 to i64
-  br label %42
+27:                                               ; preds = %26
+  %28 = and i64 %12, 63
+  %notmask.i = shl nsw i64 -1, %28
+  %29 = and i64 %10, 63
+  %notmask47.i = shl nsw i64 -1, %29
+  %30 = xor i64 %notmask47.i, -1
+  %31 = and i64 %notmask.i, %30
+  %32 = ashr i64 %12, 6
+  %33 = getelementptr i64, ptr %0, i64 %32
+  %34 = getelementptr i8, ptr %33, i64 16
+  %35 = load i64, ptr %34, align 8
+  %36 = and i64 %31, %35
+  %37 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %36)
+  %38 = trunc nuw nsw i64 %37 to i32
+  %39 = sext i32 %14 to i64
+  br label %40
 
-42:                                               ; preds = %28, %27, %17
-  %.039.i = phi i64 [ %26, %17 ], [ %41, %28 ], [ %13, %27 ]
-  %.0.i = phi i32 [ %25, %17 ], [ %40, %28 ], [ 0, %27 ]
-  %43 = sext i32 %12 to i64
+40:                                               ; preds = %27, %26, %16
+  %.039.i = phi i64 [ %25, %16 ], [ %39, %27 ], [ %12, %26 ]
+  %.0.i = phi i32 [ %24, %16 ], [ %38, %27 ], [ 0, %26 ]
+  %sext.i = shl i64 %10, 32
+  %41 = ashr exact i64 %sext.i, 32
   %invariant.gep.i = getelementptr i8, ptr %0, i64 16
-  %44 = add nsw i64 %.039.i, 64
-  %.not4952.i = icmp ugt i64 %44, %43
+  %42 = add nsw i64 %.039.i, 64
+  %.not4952.i = icmp ugt i64 %42, %41
   br i1 %.not4952.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %42, %.lr.ph.i
-  %45 = phi i64 [ %51, %.lr.ph.i ], [ %44, %42 ]
-  %.154.i = phi i32 [ %50, %.lr.ph.i ], [ %.0.i, %42 ]
-  %.14053.i = phi i64 [ %45, %.lr.ph.i ], [ %.039.i, %42 ]
-  %46 = ashr i64 %.14053.i, 6
-  %gep.i = getelementptr i64, ptr %invariant.gep.i, i64 %46
-  %47 = load i64, ptr %gep.i, align 8
-  %48 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %47)
-  %49 = trunc nuw nsw i64 %48 to i32
-  %50 = add nsw i32 %.154.i, %49
-  %51 = add i64 %45, 64
-  %.not49.i = icmp ugt i64 %51, %43
+.lr.ph.i:                                         ; preds = %40, %.lr.ph.i
+  %43 = phi i64 [ %49, %.lr.ph.i ], [ %42, %40 ]
+  %.154.i = phi i32 [ %48, %.lr.ph.i ], [ %.0.i, %40 ]
+  %.14053.i = phi i64 [ %43, %.lr.ph.i ], [ %.039.i, %40 ]
+  %44 = ashr i64 %.14053.i, 6
+  %gep.i = getelementptr i64, ptr %invariant.gep.i, i64 %44
+  %45 = load i64, ptr %gep.i, align 8
+  %46 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %45)
+  %47 = trunc nuw nsw i64 %46 to i32
+  %48 = add nsw i32 %.154.i, %47
+  %49 = add i64 %43, 64
+  %.not49.i = icmp ugt i64 %49, %41
   br i1 %.not49.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !18
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %42
-  %.140.lcssa.i = phi i64 [ %.039.i, %42 ], [ %45, %.lr.ph.i ]
-  %.1.lcssa.i = phi i32 [ %.0.i, %42 ], [ %50, %.lr.ph.i ]
-  %52 = icmp slt i64 %.140.lcssa.i, %43
-  br i1 %52, label %53, label %bit_set_count_range.exit
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %40
+  %.140.lcssa.i = phi i64 [ %.039.i, %40 ], [ %43, %.lr.ph.i ]
+  %.1.lcssa.i = phi i32 [ %.0.i, %40 ], [ %48, %.lr.ph.i ]
+  %50 = icmp slt i64 %.140.lcssa.i, %41
+  br i1 %50, label %51, label %bit_set_count_range.exit
 
-53:                                               ; preds = %._crit_edge.i
-  %54 = and i64 %43, 63
-  %notmask50.i = shl nsw i64 -1, %54
-  %55 = xor i64 %notmask50.i, -1
-  %56 = ashr i64 %.140.lcssa.i, 6
-  %57 = getelementptr i64, ptr %0, i64 %56
-  %58 = getelementptr i8, ptr %57, i64 16
-  %59 = load i64, ptr %58, align 8
-  %60 = and i64 %59, %55
-  %61 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %60)
-  %62 = trunc nuw nsw i64 %61 to i32
-  %63 = add nsw i32 %.1.lcssa.i, %62
+51:                                               ; preds = %._crit_edge.i
+  %52 = and i64 %10, 63
+  %notmask50.i = shl nsw i64 -1, %52
+  %53 = xor i64 %notmask50.i, -1
+  %54 = ashr i64 %.140.lcssa.i, 6
+  %55 = getelementptr i64, ptr %0, i64 %54
+  %56 = getelementptr i8, ptr %55, i64 16
+  %57 = load i64, ptr %56, align 8
+  %58 = and i64 %57, %53
+  %59 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %58)
+  %60 = trunc nuw nsw i64 %59 to i32
+  %61 = add nsw i32 %.1.lcssa.i, %60
   br label %bit_set_count_range.exit
 
-bit_set_count_range.exit:                         ; preds = %._crit_edge.i, %53
-  %.2.i = phi i32 [ %63, %53 ], [ %.1.lcssa.i, %._crit_edge.i ]
-  %64 = sub nsw i32 %4, %.2.i
-  br label %65
+bit_set_count_range.exit:                         ; preds = %._crit_edge.i, %51
+  %.2.i = phi i32 [ %61, %51 ], [ %.1.lcssa.i, %._crit_edge.i ]
+  %62 = sub nsw i32 %4, %.2.i
+  br label %63
 
-65:                                               ; preds = %3, %bit_set_count_range.exit
-  %.0 = phi i32 [ %64, %bit_set_count_range.exit ], [ 0, %3 ]
+63:                                               ; preds = %3, %bit_set_count_range.exit
+  %.0 = phi i32 [ %62, %bit_set_count_range.exit ], [ 0, %3 ]
   ret i32 %.0
 }
 

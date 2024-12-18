@@ -13,9 +13,9 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable
 define dso_local i32 @pg_inet_net_pton(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
-  switch i32 %0, label %232 [
+  switch i32 %0, label %230 [
     i32 2, label %5
-    i32 3, label %226
+    i32 3, label %224
   ]
 
 5:                                                ; preds = %4
@@ -23,7 +23,7 @@ define dso_local i32 @pg_inet_net_pton(i32 noundef %0, ptr nocapture noundef rea
   br i1 %6, label %7, label %76
 
 7:                                                ; preds = %5
-  %8 = tail call ptr @__ctype_b_loc() #7
+  %8 = tail call ptr @__ctype_b_loc() #8
   br label %9
 
 9:                                                ; preds = %34, %7
@@ -168,12 +168,12 @@ define dso_local i32 @pg_inet_net_pton(i32 noundef %0, ptr nocapture noundef rea
   br label %inet_net_pton_ipv4.exit
 
 .critedge3.i:                                     ; preds = %34, %.preheader87.i, %53, %67, %65, %.thread84.i, %39, %38
-  %74 = tail call ptr @__errno_location() #7
+  %74 = tail call ptr @__errno_location() #8
   store i32 2, ptr %74, align 4
   br label %inet_net_pton_ipv4.exit
 
 .loopexit89.i:                                    ; preds = %.critedge.i, %.critedge75.i
-  %75 = tail call ptr @__errno_location() #7
+  %75 = tail call ptr @__errno_location() #8
   store i32 90, ptr %75, align 4
   br label %inet_net_pton_ipv4.exit
 
@@ -191,7 +191,7 @@ define dso_local i32 @pg_inet_net_pton(i32 noundef %0, ptr nocapture noundef rea
   ]
 
 82:                                               ; preds = %80, %80
-  %83 = tail call ptr @__ctype_b_loc() #7
+  %83 = tail call ptr @__ctype_b_loc() #8
   %84 = load ptr, ptr %83, align 8
   %85 = getelementptr i8, ptr %1, i64 2
   %86 = load i8, ptr %85, align 1
@@ -204,23 +204,23 @@ define dso_local i32 @pg_inet_net_pton(i32 noundef %0, ptr nocapture noundef rea
 
 91:                                               ; preds = %82
   %92 = icmp eq i64 %3, 0
-  br i1 %92, label %.loopexit.sink.split.i, label %.preheader155.i
+  br i1 %92, label %.loopexit.sink.split.i, label %.preheader156.i
 
-.preheader155.i:                                  ; preds = %91
-  %.not124181.i = icmp eq i8 %86, 0
-  br i1 %.not124181.i, label %.loopexit.sink.split.i, label %.lr.ph.i.preheader
+.preheader156.i:                                  ; preds = %91
+  %.not124182.i = icmp eq i8 %86, 0
+  br i1 %.not124182.i, label %.loopexit.sink.split.i, label %.lr.ph.i.preheader
 
-.lr.ph.i.preheader:                               ; preds = %.preheader155.i
+.lr.ph.i.preheader:                               ; preds = %.preheader156.i
   %93 = getelementptr i8, ptr %1, i64 3
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %122
   %94 = phi i8 [ %124, %122 ], [ %86, %.lr.ph.i.preheader ]
   %95 = phi ptr [ %123, %122 ], [ %93, %.lr.ph.i.preheader ]
-  %.081185.i = phi i32 [ %.182.i, %122 ], [ 0, %.lr.ph.i.preheader ]
-  %.083184.i = phi i32 [ %.184.i, %122 ], [ 0, %.lr.ph.i.preheader ]
-  %.091183.i = phi i64 [ %.192.i, %122 ], [ %3, %.lr.ph.i.preheader ]
-  %.096182.i = phi ptr [ %.197.i, %122 ], [ %2, %.lr.ph.i.preheader ]
+  %.081186.i = phi i32 [ %.182.i, %122 ], [ 0, %.lr.ph.i.preheader ]
+  %.083185.i = phi i32 [ %.184.i, %122 ], [ 0, %.lr.ph.i.preheader ]
+  %.091184.i = phi i64 [ %.192.i, %122 ], [ %3, %.lr.ph.i.preheader ]
+  %.096183.i = phi ptr [ %.197.i, %122 ], [ %2, %.lr.ph.i.preheader ]
   %96 = sext i8 %94 to i32
   %97 = load ptr, ptr %83, align 8
   %98 = zext i8 %94 to i32
@@ -238,7 +238,7 @@ define dso_local i32 @pg_inet_net_pton(i32 noundef %0, ptr nocapture noundef rea
   br i1 %.not132.i, label %108, label %106
 
 106:                                              ; preds = %104
-  %107 = tail call i32 @tolower(i32 noundef %98) #8
+  %107 = tail call i32 @tolower(i32 noundef %98) #9
   br label %108
 
 108:                                              ; preds = %106, %104
@@ -247,27 +247,27 @@ define dso_local i32 @pg_inet_net_pton(i32 noundef %0, ptr nocapture noundef rea
   %109 = ptrtoint ptr %memchr133.i to i64
   %110 = trunc i64 %109 to i32
   %111 = sub i32 %110, ptrtoint (ptr @inet_cidr_pton_ipv4.xdigits to i32)
-  %112 = icmp eq i32 %.081185.i, 0
-  %113 = shl i32 %.083184.i, 4
+  %112 = icmp eq i32 %.081186.i, 0
+  %113 = shl i32 %.083185.i, 4
   %114 = or i32 %111, %113
   %.184.i = select i1 %112, i32 %111, i32 %114
-  %115 = icmp eq i32 %.081185.i, 1
+  %115 = icmp eq i32 %.081186.i, 1
   br i1 %115, label %116, label %122
 
 116:                                              ; preds = %108
-  %117 = icmp eq i64 %.091183.i, 0
+  %117 = icmp eq i64 %.091184.i, 0
   br i1 %117, label %.loopexit.sink.split.i, label %118
 
 118:                                              ; preds = %116
-  %119 = add i64 %.091183.i, -1
+  %119 = add i64 %.091184.i, -1
   %120 = trunc i32 %114 to i8
-  %121 = getelementptr i8, ptr %.096182.i, i64 1
-  store i8 %120, ptr %.096182.i, align 1
+  %121 = getelementptr i8, ptr %.096183.i, i64 1
+  store i8 %120, ptr %.096183.i, align 1
   br label %122
 
 122:                                              ; preds = %118, %108
-  %.197.i = phi ptr [ %121, %118 ], [ %.096182.i, %108 ]
-  %.192.i = phi i64 [ %119, %118 ], [ %.091183.i, %108 ]
+  %.197.i = phi ptr [ %121, %118 ], [ %.096183.i, %108 ]
+  %.192.i = phi i64 [ %119, %118 ], [ %.091184.i, %108 ]
   %.182.i = phi i32 [ 0, %118 ], [ 1, %108 ]
   %123 = getelementptr i8, ptr %95, i64 1
   %124 = load i8, ptr %95, align 1
@@ -275,16 +275,16 @@ define dso_local i32 @pg_inet_net_pton(i32 noundef %0, ptr nocapture noundef rea
   br i1 %.not124.i, label %.critedge.i21, label %.lr.ph.i, !llvm.loop !8
 
 .critedge.i21:                                    ; preds = %122, %.lr.ph.i
-  %.096.lcssa.ph.i = phi ptr [ %.096182.i, %.lr.ph.i ], [ %.197.i, %122 ]
-  %.091.lcssa.ph.i = phi i64 [ %.091183.i, %.lr.ph.i ], [ %.192.i, %122 ]
-  %.083.lcssa.ph.i = phi i32 [ %.083184.i, %.lr.ph.i ], [ %.184.i, %122 ]
-  %.081.lcssa.ph.i = phi i32 [ %.081185.i, %.lr.ph.i ], [ %.182.i, %122 ]
-  %.lcssa175.ph.i = phi ptr [ %95, %.lr.ph.i ], [ %123, %122 ]
-  %.lcssa173.ph.i = phi i32 [ %96, %.lr.ph.i ], [ 0, %122 ]
+  %.096.lcssa.ph.i = phi ptr [ %.096183.i, %.lr.ph.i ], [ %.197.i, %122 ]
+  %.091.lcssa.ph.i = phi i64 [ %.091184.i, %.lr.ph.i ], [ %.192.i, %122 ]
+  %.083.lcssa.ph.i = phi i32 [ %.083185.i, %.lr.ph.i ], [ %.184.i, %122 ]
+  %.081.lcssa.ph.i = phi i32 [ %.081186.i, %.lr.ph.i ], [ %.182.i, %122 ]
+  %.lcssa176.ph.i = phi ptr [ %95, %.lr.ph.i ], [ %123, %122 ]
+  %.lcssa174.ph.i = phi i32 [ %96, %.lr.ph.i ], [ 0, %122 ]
   %125 = icmp eq i32 %.081.lcssa.ph.i, 0
   %126 = trunc i32 %.083.lcssa.ph.i to i8
   %127 = shl i8 %126, 4
-  br i1 %125, label %.loopexit154.i, label %128
+  br i1 %125, label %.loopexit155.i, label %128
 
 128:                                              ; preds = %.critedge.i21
   %129 = icmp eq i64 %.091.lcssa.ph.i, 0
@@ -294,19 +294,19 @@ define dso_local i32 @pg_inet_net_pton(i32 noundef %0, ptr nocapture noundef rea
   %131 = add i64 %.091.lcssa.ph.i, -1
   %132 = getelementptr i8, ptr %.096.lcssa.ph.i, i64 1
   store i8 %127, ptr %.096.lcssa.ph.i, align 1
-  br label %.loopexit154.i
+  br label %.loopexit155.i
 
 133:                                              ; preds = %82, %80, %76
-  %134 = tail call ptr @__ctype_b_loc() #7
+  %134 = tail call ptr @__ctype_b_loc() #8
   %135 = load ptr, ptr %134, align 8
   %136 = zext i8 %78 to i64
   %137 = getelementptr i16, ptr %135, i64 %136
   %138 = load i16, ptr %137, align 2
   %139 = and i16 %138, 2048
   %.not119.i = icmp eq i16 %139, 0
-  br i1 %.not119.i, label %.loopexit.sink.split.i, label %.preheader151.i
+  br i1 %.not119.i, label %.loopexit.sink.split.i, label %.preheader152.i
 
-.preheader151.i:                                  ; preds = %133, %162
+.preheader152.i:                                  ; preds = %133, %162
   %140 = phi ptr [ %165, %162 ], [ %135, %133 ]
   %.2103.i = phi ptr [ %163, %162 ], [ %77, %133 ]
   %.399.i = phi ptr [ %161, %162 ], [ %2, %133 ]
@@ -315,10 +315,10 @@ define dso_local i32 @pg_inet_net_pton(i32 noundef %0, ptr nocapture noundef rea
   %.288.i = sext i8 %.288.in.i to i32
   br label %141
 
-141:                                              ; preds = %152, %.preheader151.i
-  %.3104.i = phi ptr [ %.2103.i, %.preheader151.i ], [ %149, %152 ]
-  %.389.i = phi i32 [ %.288.i, %.preheader151.i ], [ %151, %152 ]
-  %.285.i = phi i32 [ 0, %.preheader151.i ], [ %146, %152 ]
+141:                                              ; preds = %152, %.preheader152.i
+  %.3104.i = phi ptr [ %.2103.i, %.preheader152.i ], [ %149, %152 ]
+  %.389.i = phi i32 [ %.288.i, %.preheader152.i ], [ %151, %152 ]
+  %.285.i = phi i32 [ 0, %.preheader152.i ], [ %146, %152 ]
   %memchr.i14 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @inet_cidr_pton_ipv4.digits, i32 %.389.i, i64 11)
   %142 = ptrtoint ptr %memchr.i14 to i64
   %143 = trunc i64 %142 to i32
@@ -353,8 +353,8 @@ define dso_local i32 @pg_inet_net_pton(i32 noundef %0, ptr nocapture noundef rea
   %161 = getelementptr i8, ptr %.399.i, i64 1
   store i8 %160, ptr %.399.i, align 1
   switch i8 %150, label %.loopexit.sink.split.i [
-    i8 47, label %.loopexit154.i
-    i8 0, label %.loopexit154.i
+    i8 47, label %.loopexit155.i
+    i8 0, label %.loopexit155.i
     i8 46, label %162
   ]
 
@@ -367,18 +367,18 @@ define dso_local i32 @pg_inet_net_pton(i32 noundef %0, ptr nocapture noundef rea
   %168 = load i16, ptr %167, align 2
   %169 = and i16 %168, 2048
   %.not123.i = icmp eq i16 %169, 0
-  br i1 %.not123.i, label %.loopexit.sink.split.i, label %.preheader151.i
+  br i1 %.not123.i, label %.loopexit.sink.split.i, label %.preheader152.i
 
-.loopexit154.i:                                   ; preds = %159, %159, %130, %.critedge.i21
-  %.1102.i = phi ptr [ %.lcssa175.ph.i, %130 ], [ %.lcssa175.ph.i, %.critedge.i21 ], [ %149, %159 ], [ %149, %159 ]
+.loopexit155.i:                                   ; preds = %159, %159, %130, %.critedge.i21
+  %.1102.i = phi ptr [ %.lcssa176.ph.i, %130 ], [ %.lcssa176.ph.i, %.critedge.i21 ], [ %149, %159 ], [ %149, %159 ]
   %.298.i = phi ptr [ %132, %130 ], [ %.096.lcssa.ph.i, %.critedge.i21 ], [ %161, %159 ], [ %161, %159 ]
   %.293.i = phi i64 [ %131, %130 ], [ %.091.lcssa.ph.i, %.critedge.i21 ], [ %157, %159 ], [ %157, %159 ]
-  %.187.i = phi i32 [ %.lcssa173.ph.i, %130 ], [ %.lcssa173.ph.i, %.critedge.i21 ], [ %151, %159 ], [ %151, %159 ]
+  %.187.i = phi i32 [ %.lcssa174.ph.i, %130 ], [ %.lcssa174.ph.i, %.critedge.i21 ], [ %151, %159 ], [ %151, %159 ]
   %170 = icmp eq i32 %.187.i, 47
   br i1 %170, label %171, label %.thread141.i
 
-171:                                              ; preds = %.loopexit154.i
-  %172 = tail call ptr @__ctype_b_loc() #7
+171:                                              ; preds = %.loopexit155.i
+  %172 = tail call ptr @__ctype_b_loc() #8
   %173 = load ptr, ptr %172, align 8
   %174 = load i8, ptr %.1102.i, align 1
   %175 = zext i8 %174 to i64
@@ -418,7 +418,7 @@ define dso_local i32 @pg_inet_net_pton(i32 noundef %0, ptr nocapture noundef rea
   %191 = icmp sgt i32 %184, 32
   br i1 %191, label %.loopexit.sink.split.i, label %193
 
-.thread141.i:                                     ; preds = %.loopexit154.i
+.thread141.i:                                     ; preds = %.loopexit155.i
   %.not131144.i = icmp ne i32 %.187.i, 0
   %192 = icmp eq ptr %.298.i, %2
   %or.cond135145.i = select i1 %.not131144.i, i1 true, i1 %192
@@ -430,96 +430,94 @@ define dso_local i32 @pg_inet_net_pton(i32 noundef %0, ptr nocapture noundef rea
 
 ._crit_edge.i:                                    ; preds = %193
   %.pre.i = ptrtoint ptr %2 to i64
-  %.pre221.i = ptrtoint ptr %.298.i to i64
-  %.pre223.i = sub i64 %.pre221.i, %.pre.i
-  %.pre225.i = shl i64 %.pre223.i, 3
-  br label %214
+  %.pre222.i = ptrtoint ptr %.298.i to i64
+  %.pre224.i = sub i64 %.pre222.i, %.pre.i
+  %.pre226.i = shl i64 %.pre224.i, 3
+  br label %212
 
 .thread147.i:                                     ; preds = %193, %.thread141.i
   %195 = load i8, ptr %2, align 1
   %196 = icmp ugt i8 %195, -17
-  br i1 %196, label %203, label %197
+  br i1 %196, label %204, label %197
 
 197:                                              ; preds = %.thread147.i
   %198 = icmp ugt i8 %195, -33
-  br i1 %198, label %203, label %199
+  br i1 %198, label %204, label %199
 
 199:                                              ; preds = %197
   %200 = icmp ugt i8 %195, -65
-  br i1 %200, label %203, label %201
+  br i1 %200, label %204, label %201
 
 201:                                              ; preds = %199
   %202 = icmp slt i8 %195, 0
-  %..i = select i1 %202, i32 16, i32 8
-  br label %203
+  %203 = select i1 %202, i64 16, i64 8
+  br label %204
 
-203:                                              ; preds = %201, %199, %197, %.thread147.i
-  %.3.i16 = phi i32 [ 32, %.thread147.i ], [ 8, %197 ], [ 24, %199 ], [ %..i, %201 ]
-  %204 = zext nneg i32 %.3.i16 to i64
+204:                                              ; preds = %201, %199, %197, %.thread147.i
+  %.3.i16 = phi i64 [ 32, %.thread147.i ], [ 8, %197 ], [ 24, %199 ], [ %203, %201 ]
   %205 = ptrtoint ptr %.298.i to i64
   %206 = ptrtoint ptr %2 to i64
   %207 = sub i64 %205, %206
   %208 = shl i64 %207, 3
-  %209 = icmp sgt i64 %208, %204
-  %210 = trunc i64 %208 to i32
-  %spec.select.i = select i1 %209, i32 %210, i32 %.3.i16
-  %211 = icmp eq i32 %spec.select.i, 8
-  br i1 %211, label %212, label %214
+  %spec.select149.i = tail call i64 @llvm.smax.i64(i64 %208, i64 %.3.i16)
+  %spec.select.i = trunc i64 %spec.select149.i to i32
+  %209 = icmp eq i32 %spec.select.i, 8
+  br i1 %209, label %210, label %212
 
-212:                                              ; preds = %203
-  %213 = icmp eq i8 %195, -32
-  %spec.select136.i = select i1 %213, i32 4, i32 8
-  br label %214
+210:                                              ; preds = %204
+  %211 = icmp eq i8 %195, -32
+  %spec.select136.i = select i1 %211, i32 4, i32 8
+  br label %212
 
-214:                                              ; preds = %212, %203, %._crit_edge.i
-  %.pre-phi226.i = phi i64 [ %.pre225.i, %._crit_edge.i ], [ %208, %212 ], [ %208, %203 ]
-  %.pre-phi.i = phi i64 [ %.pre.i, %._crit_edge.i ], [ %206, %212 ], [ %206, %203 ]
-  %.2.i = phi i32 [ %184, %._crit_edge.i ], [ %spec.select136.i, %212 ], [ %spec.select.i, %203 ]
-  %215 = sext i32 %.2.i to i64
-  %216 = icmp slt i64 %.pre-phi226.i, %215
-  br i1 %216, label %.lr.ph200.i, label %inet_net_pton_ipv4.exit
+212:                                              ; preds = %210, %204, %._crit_edge.i
+  %.pre-phi227.i = phi i64 [ %.pre226.i, %._crit_edge.i ], [ %208, %210 ], [ %208, %204 ]
+  %.pre-phi.i = phi i64 [ %.pre.i, %._crit_edge.i ], [ %206, %210 ], [ %206, %204 ]
+  %.2.i = phi i32 [ %184, %._crit_edge.i ], [ %spec.select136.i, %210 ], [ %spec.select.i, %204 ]
+  %213 = sext i32 %.2.i to i64
+  %214 = icmp slt i64 %.pre-phi227.i, %213
+  br i1 %214, label %.lr.ph201.i, label %inet_net_pton_ipv4.exit
 
-.lr.ph200.i:                                      ; preds = %214, %218
-  %.495199.i = phi i64 [ %219, %218 ], [ %.293.i, %214 ]
-  %.4100198.i = phi ptr [ %220, %218 ], [ %.298.i, %214 ]
-  %217 = icmp eq i64 %.495199.i, 0
-  br i1 %217, label %.loopexit.sink.split.i, label %218
+.lr.ph201.i:                                      ; preds = %212, %216
+  %.495200.i = phi i64 [ %217, %216 ], [ %.293.i, %212 ]
+  %.4100199.i = phi ptr [ %218, %216 ], [ %.298.i, %212 ]
+  %215 = icmp eq i64 %.495200.i, 0
+  br i1 %215, label %.loopexit.sink.split.i, label %216
 
-218:                                              ; preds = %.lr.ph200.i
-  %219 = add i64 %.495199.i, -1
-  %220 = getelementptr i8, ptr %.4100198.i, i64 1
-  store i8 0, ptr %.4100198.i, align 1
-  %221 = ptrtoint ptr %220 to i64
-  %222 = sub i64 %221, %.pre-phi.i
-  %223 = shl i64 %222, 3
-  %224 = icmp slt i64 %223, %215
-  br i1 %224, label %.lr.ph200.i, label %inet_net_pton_ipv4.exit, !llvm.loop !11
+216:                                              ; preds = %.lr.ph201.i
+  %217 = add i64 %.495200.i, -1
+  %218 = getelementptr i8, ptr %.4100199.i, i64 1
+  store i8 0, ptr %.4100199.i, align 1
+  %219 = ptrtoint ptr %218 to i64
+  %220 = sub i64 %219, %.pre-phi.i
+  %221 = shl i64 %220, 3
+  %222 = icmp slt i64 %221, %213
+  br i1 %222, label %.lr.ph201.i, label %inet_net_pton_ipv4.exit, !llvm.loop !11
 
-.loopexit.sink.split.i:                           ; preds = %116, %162, %159, %.critedge2.i, %141, %186, %.lr.ph200.i, %.thread141.i, %.critedge134.i, %171, %133, %128, %.preheader155.i, %91
-  %.sink.i = phi i32 [ 2, %.preheader155.i ], [ 2, %171 ], [ 2, %.thread141.i ], [ 2, %133 ], [ 90, %.critedge134.i ], [ 90, %128 ], [ 90, %91 ], [ 90, %.lr.ph200.i ], [ 2, %186 ], [ 2, %141 ], [ 90, %.critedge2.i ], [ 2, %162 ], [ 2, %159 ], [ 90, %116 ]
-  %225 = tail call ptr @__errno_location() #7
-  store i32 %.sink.i, ptr %225, align 4
+.loopexit.sink.split.i:                           ; preds = %116, %162, %159, %.critedge2.i, %141, %186, %.lr.ph201.i, %.thread141.i, %.critedge134.i, %171, %133, %128, %.preheader156.i, %91
+  %.sink.i = phi i32 [ 2, %.preheader156.i ], [ 2, %171 ], [ 2, %.thread141.i ], [ 2, %133 ], [ 90, %.critedge134.i ], [ 90, %128 ], [ 90, %91 ], [ 90, %.lr.ph201.i ], [ 2, %186 ], [ 2, %141 ], [ 90, %.critedge2.i ], [ 2, %162 ], [ 2, %159 ], [ 90, %116 ]
+  %223 = tail call ptr @__errno_location() #8
+  store i32 %.sink.i, ptr %223, align 4
   br label %inet_net_pton_ipv4.exit
 
-226:                                              ; preds = %4
-  %227 = icmp eq i64 %3, -1
-  br i1 %227, label %228, label %230
+224:                                              ; preds = %4
+  %225 = icmp eq i64 %3, -1
+  br i1 %225, label %226, label %228
 
-228:                                              ; preds = %226
-  %229 = tail call fastcc noundef i32 @inet_cidr_pton_ipv6(ptr noundef readonly %1, ptr noundef %2, i64 noundef 16)
+226:                                              ; preds = %224
+  %227 = tail call fastcc noundef i32 @inet_cidr_pton_ipv6(ptr noundef readonly %1, ptr noundef %2, i64 noundef 16)
   br label %inet_net_pton_ipv4.exit
 
-230:                                              ; preds = %226
-  %231 = tail call fastcc i32 @inet_cidr_pton_ipv6(ptr noundef %1, ptr noundef %2, i64 noundef %3)
+228:                                              ; preds = %224
+  %229 = tail call fastcc i32 @inet_cidr_pton_ipv6(ptr noundef %1, ptr noundef %2, i64 noundef %3)
   br label %inet_net_pton_ipv4.exit
 
-232:                                              ; preds = %4
-  %233 = tail call ptr @__errno_location() #7
-  store i32 97, ptr %233, align 4
+230:                                              ; preds = %4
+  %231 = tail call ptr @__errno_location() #8
+  store i32 97, ptr %231, align 4
   br label %inet_net_pton_ipv4.exit
 
-inet_net_pton_ipv4.exit:                          ; preds = %218, %.loopexit.sink.split.i, %214, %.loopexit89.i, %.critedge3.i, %.lr.ph.preheader.i, %.preheader.i, %228, %230, %232
-  %.0 = phi i32 [ -1, %232 ], [ %229, %228 ], [ %231, %230 ], [ -1, %.critedge3.i ], [ -1, %.loopexit89.i ], [ %.246.i, %.preheader.i ], [ %.246.i, %.lr.ph.preheader.i ], [ %.2.i, %214 ], [ -1, %.loopexit.sink.split.i ], [ %.2.i, %218 ]
+inet_net_pton_ipv4.exit:                          ; preds = %216, %.loopexit.sink.split.i, %212, %.loopexit89.i, %.critedge3.i, %.lr.ph.preheader.i, %.preheader.i, %226, %228, %230
+  %.0 = phi i32 [ -1, %230 ], [ %227, %226 ], [ %229, %228 ], [ -1, %.critedge3.i ], [ -1, %.loopexit89.i ], [ %.246.i, %.preheader.i ], [ %.246.i, %.lr.ph.preheader.i ], [ %.2.i, %212 ], [ -1, %.loopexit.sink.split.i ], [ %.2.i, %216 ]
   ret i32 %.0
 }
 
@@ -847,12 +845,12 @@ getv4.exit.thread114.thread297:                   ; preds = %.outer131, %getv4.e
   br label %137
 
 .thread109:                                       ; preds = %32, %29, %31, %.thread, %97, %102, %99, %62, %54, %51, %77, %74, %72, %85, %89, %110, %42, %133, %120, %getv4.exit.thread291, %10
-  %134 = tail call ptr @__errno_location() #7
+  %134 = tail call ptr @__errno_location() #8
   store i32 2, ptr %134, align 4
   br label %137
 
 135:                                              ; preds = %3
-  %136 = tail call ptr @__errno_location() #7
+  %136 = tail call ptr @__errno_location() #8
   store i32 90, ptr %136, align 4
   br label %137
 
@@ -879,6 +877,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare ptr @memchr(ptr, i32, i64) local_unnamed_addr #6
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smax.i64(i64, i64) #7
+
 attributes #0 = { nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -886,8 +887,9 @@ attributes #3 = { mustprogress nofree nounwind willreturn memory(read) "frame-po
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #7 = { nounwind willreturn memory(none) }
-attributes #8 = { nounwind willreturn memory(read) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind willreturn memory(none) }
+attributes #9 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

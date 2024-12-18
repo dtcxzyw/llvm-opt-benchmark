@@ -19599,7 +19599,7 @@ _mem_per_node_part.exit.thread:                   ; preds = %50
   %103 = load ptr, ptr %102, align 8
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 24
   %105 = load i16, ptr %104, align 8
-  br i1 %70, label %137, label %133
+  br i1 %70, label %136, label %132
 
 .thread:                                          ; preds = %_mem_per_node_part.exit.thread, %88, %84
   %.0114180183 = phi i64 [ %.0114, %88 ], [ %.0114, %84 ], [ 0, %_mem_per_node_part.exit.thread ]
@@ -19619,16 +19619,16 @@ _mem_per_node_part.exit.thread:                   ; preds = %50
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 452
   %112 = load i32, ptr %111, align 4
   switch i32 %112, label %113 [
-    i32 -2, label %124
-    i32 0, label %124
+    i32 -2, label %123
+    i32 0, label %123
   ]
 
 113:                                              ; preds = %110
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %115 = load i32, ptr %114, align 8
   switch i32 %115, label %116 [
-    i32 -2, label %124
-    i32 0, label %124
+    i32 -2, label %123
+    i32 0, label %123
   ]
 
 116:                                              ; preds = %113
@@ -19636,130 +19636,129 @@ _mem_per_node_part.exit.thread:                   ; preds = %50
   %118 = add i32 %112, -1
   %119 = add i32 %118, %115
   %120 = udiv i32 %119, %115
-  %121 = icmp ult i32 %120, %117
-  %122 = trunc i32 %120 to i16
-  %123 = select i1 %121, i16 %.1116, i16 %122
-  br label %124
+  %121 = tail call i32 @llvm.umax.i32(i32 %120, i32 %117)
+  %122 = trunc i32 %121 to i16
+  br label %123
 
-124:                                              ; preds = %113, %113, %110, %110, %116
-  %.2 = phi i16 [ %123, %116 ], [ %.1116, %113 ], [ %.1116, %110 ], [ %.1116, %110 ], [ %.1116, %113 ]
-  %125 = getelementptr inbounds nuw i8, ptr %0, i64 736
-  %126 = load i16, ptr %125, align 8
-  switch i16 %126, label %127 [
-    i16 -2, label %129
-    i16 0, label %129
+123:                                              ; preds = %113, %113, %110, %110, %116
+  %.2 = phi i16 [ %122, %116 ], [ %.1116, %113 ], [ %.1116, %110 ], [ %.1116, %110 ], [ %.1116, %113 ]
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 736
+  %125 = load i16, ptr %124, align 8
+  switch i16 %125, label %126 [
+    i16 -2, label %128
+    i16 0, label %128
   ]
 
-127:                                              ; preds = %124
-  %128 = mul i16 %126, %.2
-  br label %129
+126:                                              ; preds = %123
+  %127 = mul i16 %125, %.2
+  br label %128
 
-129:                                              ; preds = %124, %124, %127
-  %.3 = phi i16 [ %128, %127 ], [ %.2, %124 ], [ %.2, %124 ]
-  %130 = getelementptr inbounds nuw i8, ptr %0, i64 776
-  %131 = load i16, ptr %130, align 8
-  %.not154.not = icmp eq i16 %131, -2
-  %132 = tail call i16 @llvm.umax.i16(i16 %131, i16 %.3)
-  %spec.select174 = select i1 %.not154.not, i16 %.3, i16 %132
-  br i1 %106, label %137, label %133
+128:                                              ; preds = %123, %123, %126
+  %.3 = phi i16 [ %127, %126 ], [ %.2, %123 ], [ %.2, %123 ]
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 776
+  %130 = load i16, ptr %129, align 8
+  %.not154.not = icmp eq i16 %130, -2
+  %131 = tail call i16 @llvm.umax.i16(i16 %130, i16 %.3)
+  %spec.select174 = select i1 %.not154.not, i16 %.3, i16 %131
+  br i1 %106, label %136, label %132
 
 _cpus_per_node_part.exit:                         ; preds = %93, %91
-  br i1 %70, label %137, label %133
+  br i1 %70, label %136, label %132
 
-133:                                              ; preds = %97, %129, %_cpus_per_node_part.exit
-  %.0115186 = phi i16 [ %spec.select174, %129 ], [ 0, %_cpus_per_node_part.exit ], [ %105, %97 ]
-  %.0114180182184 = phi i64 [ %.0114180183, %129 ], [ %.0114, %_cpus_per_node_part.exit ], [ %.0114, %97 ]
-  %134 = and i64 %.0114180182184, 9223372036854775807
-  %135 = zext i16 %.0115186 to i64
-  %136 = mul i64 %134, %135
-  br label %171
+132:                                              ; preds = %97, %128, %_cpus_per_node_part.exit
+  %.0115186 = phi i16 [ %spec.select174, %128 ], [ 0, %_cpus_per_node_part.exit ], [ %105, %97 ]
+  %.0114180182184 = phi i64 [ %.0114180183, %128 ], [ %.0114, %_cpus_per_node_part.exit ], [ %.0114, %97 ]
+  %133 = and i64 %.0114180182184, 9223372036854775807
+  %134 = zext i16 %.0115186 to i64
+  %135 = mul i64 %133, %134
+  br label %170
 
-137:                                              ; preds = %97, %129, %_cpus_per_node_part.exit
-  %.0115187 = phi i16 [ %spec.select174, %129 ], [ 0, %_cpus_per_node_part.exit ], [ %105, %97 ]
-  %.0114180182185 = phi i64 [ %.0114180183, %129 ], [ %.0114, %_cpus_per_node_part.exit ], [ %.0114, %97 ]
-  %138 = add nsw i64 %11, -1
-  %139 = add i64 %138, %.0114180182185
-  %140 = udiv i64 %139, %11
-  %141 = trunc i64 %140 to i32
-  %142 = getelementptr inbounds nuw i8, ptr %0, i64 776
-  %143 = load i16, ptr %142, align 8
-  %144 = icmp eq i16 %143, -2
-  %145 = zext i16 %143 to i32
-  %146 = icmp ult i32 %145, %141
-  %or.cond172 = select i1 %144, i1 true, i1 %146
-  br i1 %or.cond172, label %147, label %168
+136:                                              ; preds = %97, %128, %_cpus_per_node_part.exit
+  %.0115187 = phi i16 [ %spec.select174, %128 ], [ 0, %_cpus_per_node_part.exit ], [ %105, %97 ]
+  %.0114180182185 = phi i64 [ %.0114180183, %128 ], [ %.0114, %_cpus_per_node_part.exit ], [ %.0114, %97 ]
+  %137 = add nsw i64 %11, -1
+  %138 = add i64 %137, %.0114180182185
+  %139 = udiv i64 %138, %11
+  %140 = trunc i64 %139 to i32
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 776
+  %142 = load i16, ptr %141, align 8
+  %143 = icmp eq i16 %142, -2
+  %144 = zext i16 %142 to i32
+  %145 = icmp ult i32 %144, %140
+  %or.cond172 = select i1 %143, i1 true, i1 %145
+  br i1 %or.cond172, label %146, label %167
 
-147:                                              ; preds = %137
-  %148 = tail call i32 @get_log_level() #28
-  %149 = icmp sgt i32 %148, 4
-  br i1 %149, label %150, label %153
+146:                                              ; preds = %136
+  %147 = tail call i32 @get_log_level() #28
+  %148 = icmp sgt i32 %147, 4
+  br i1 %148, label %149, label %152
 
-150:                                              ; preds = %147
-  %151 = getelementptr inbounds nuw i8, ptr %0, i64 340
-  %152 = load i32, ptr %151, align 4
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.458, i32 noundef %152, i32 noundef %141) #28
-  br label %153
+149:                                              ; preds = %146
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 340
+  %151 = load i32, ptr %150, align 4
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.458, i32 noundef %151, i32 noundef %140) #28
+  br label %152
 
-153:                                              ; preds = %150, %147
-  %154 = trunc i64 %140 to i16
-  store i16 %154, ptr %142, align 8
-  %155 = zext i16 %.0115187 to i32
-  %156 = tail call i32 @llvm.umax.i32(i32 %155, i32 %141)
-  %157 = trunc i32 %156 to i16
-  %158 = getelementptr inbounds nuw i8, ptr %0, i64 766
-  %159 = load i16, ptr %158, align 2
-  %.not156 = icmp eq i16 %159, 0
-  br i1 %.not156, label %168, label %160
+152:                                              ; preds = %149, %146
+  %153 = trunc i64 %139 to i16
+  store i16 %153, ptr %141, align 8
+  %154 = zext i16 %.0115187 to i32
+  %155 = tail call i32 @llvm.umax.i32(i32 %154, i32 %140)
+  %156 = trunc i32 %155 to i16
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 766
+  %158 = load i16, ptr %157, align 2
+  %.not156 = icmp eq i16 %158, 0
+  br i1 %.not156, label %167, label %159
 
-160:                                              ; preds = %153
-  %161 = and i32 %141, 65535
-  %162 = zext i16 %159 to i32
-  %163 = add nsw i32 %161, -1
-  %164 = add nsw i32 %163, %162
-  %165 = udiv i32 %164, %162
-  %166 = trunc i32 %165 to i16
-  %167 = getelementptr inbounds nuw i8, ptr %0, i64 736
-  store i16 %166, ptr %167, align 8
-  br label %168
+159:                                              ; preds = %152
+  %160 = and i32 %140, 65535
+  %161 = zext i16 %158 to i32
+  %162 = add nsw i32 %160, -1
+  %163 = add nsw i32 %162, %161
+  %164 = udiv i32 %163, %161
+  %165 = trunc i32 %164 to i16
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 736
+  store i16 %165, ptr %166, align 8
+  br label %167
 
-168:                                              ; preds = %137, %153, %160
-  %.4 = phi i16 [ %157, %160 ], [ %157, %153 ], [ %.0115187, %137 ]
-  %169 = zext i16 %.4 to i64
-  %170 = mul i64 %11, %169
-  br label %171
+167:                                              ; preds = %136, %152, %159
+  %.4 = phi i16 [ %156, %159 ], [ %156, %152 ], [ %.0115187, %136 ]
+  %168 = zext i16 %.4 to i64
+  %169 = mul i64 %11, %168
+  br label %170
 
-171:                                              ; preds = %168, %133
-  %.1118 = phi i64 [ %.0117, %133 ], [ %170, %168 ]
-  %.1 = phi i64 [ %136, %133 ], [ %.0114180182185, %168 ]
+170:                                              ; preds = %167, %132
+  %.1118 = phi i64 [ %.0117, %132 ], [ %169, %167 ]
+  %.1 = phi i64 [ %135, %132 ], [ %.0114180182185, %167 ]
   %.not157 = icmp ugt i64 %.1, %.1118
-  br i1 %.not157, label %172, label %.thread188
+  br i1 %.not157, label %171, label %.thread188
 
-172:                                              ; preds = %171
-  %173 = tail call i32 @get_log_level() #28
-  %174 = icmp sgt i32 %173, 5
-  br i1 %174, label %175, label %.thread188
+171:                                              ; preds = %170
+  %172 = tail call i32 @get_log_level() #28
+  %173 = icmp sgt i32 %172, 5
+  br i1 %173, label %174, label %.thread188
 
-175:                                              ; preds = %172
-  %176 = getelementptr inbounds nuw i8, ptr %0, i64 340
-  %177 = load i32, ptr %176, align 4
+174:                                              ; preds = %171
+  %175 = getelementptr inbounds nuw i8, ptr %0, i64 340
+  %176 = load i32, ptr %175, align 4
   %.not158 = icmp sgt i64 %.1, -1
-  %178 = select i1 %.not158, ptr @.str.461, ptr @.str.460
-  br i1 %.not, label %182, label %179
+  %177 = select i1 %.not158, ptr @.str.461, ptr @.str.460
+  br i1 %.not, label %181, label %178
 
-179:                                              ; preds = %175
-  %180 = getelementptr inbounds nuw i8, ptr %1, i64 224
-  %181 = load ptr, ptr %180, align 8
-  %.not159 = icmp eq ptr %181, null
-  %spec.select173 = select i1 %.not159, ptr @.str.61, ptr %181
-  br label %182
+178:                                              ; preds = %174
+  %179 = getelementptr inbounds nuw i8, ptr %1, i64 224
+  %180 = load ptr, ptr %179, align 8
+  %.not159 = icmp eq ptr %180, null
+  %spec.select173 = select i1 %.not159, ptr @.str.61, ptr %180
+  br label %181
 
-182:                                              ; preds = %179, %175
-  %183 = phi ptr [ @.str.61, %175 ], [ %spec.select173, %179 ]
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.459, i32 noundef %177, i64 noundef %.1, ptr noundef nonnull %178, i64 noundef %.1118, ptr noundef nonnull %183) #28
+181:                                              ; preds = %178, %174
+  %182 = phi ptr [ @.str.61, %174 ], [ %spec.select173, %178 ]
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.459, i32 noundef %176, i64 noundef %.1, ptr noundef nonnull %177, i64 noundef %.1118, ptr noundef nonnull %182) #28
   br label %.thread188
 
-.thread188:                                       ; preds = %_mem_per_node_part.exit.thread, %172, %182, %171, %73, %82, %72, %46, %45, %39, %14, %10
-  %.0 = phi i1 [ true, %10 ], [ true, %14 ], [ true, %39 ], [ true, %45 ], [ true, %46 ], [ true, %72 ], [ false, %82 ], [ false, %73 ], [ true, %171 ], [ false, %182 ], [ false, %172 ], [ true, %_mem_per_node_part.exit.thread ]
+.thread188:                                       ; preds = %_mem_per_node_part.exit.thread, %171, %181, %170, %73, %82, %72, %46, %45, %39, %14, %10
+  %.0 = phi i1 [ true, %10 ], [ true, %14 ], [ true, %39 ], [ true, %45 ], [ true, %46 ], [ true, %72 ], [ false, %82 ], [ false, %73 ], [ true, %170 ], [ false, %181 ], [ false, %171 ], [ true, %_mem_per_node_part.exit.thread ]
   ret i1 %.0
 }
 
@@ -40541,24 +40540,24 @@ define dso_local zeroext i16 @job_mgr_determine_cpus_per_core(ptr noundef readon
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 276
   %13 = load i32, ptr %12, align 4
   %14 = icmp sgt i32 %13, 0
-  br i1 %14, label %37, label %.thread
+  br i1 %14, label %36, label %.thread
 
 15:                                               ; preds = %2
   %.not30 = icmp eq ptr %0, null
-  br i1 %.not30, label %35, label %.thread
+  br i1 %.not30, label %34, label %.thread
 
 .thread:                                          ; preds = %11, %15
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %17 = load ptr, ptr %16, align 8
   %.not31 = icmp eq ptr %17, null
-  br i1 %.not31, label %35, label %18
+  br i1 %.not31, label %34, label %18
 
 18:                                               ; preds = %.thread
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 14
   %20 = load i16, ptr %19, align 2
   switch i16 %20, label %21 [
-    i16 -1, label %31
-    i16 0, label %31
+    i16 -1, label %30
+    i16 0, label %30
   ]
 
 21:                                               ; preds = %18
@@ -40568,27 +40567,26 @@ define dso_local zeroext i16 @job_mgr_determine_cpus_per_core(ptr noundef readon
   %25 = load i16, ptr %24, align 8
   %26 = zext i16 %25 to i32
   %27 = mul nuw nsw i32 %26, %22
-  %28 = icmp samesign ugt i32 %27, %23
-  %29 = trunc nuw i32 %27 to i16
-  %30 = select i1 %28, i16 %8, i16 %29
-  br label %31
+  %28 = tail call i32 @llvm.umin.i32(i32 %27, i32 %23)
+  %29 = trunc nuw i32 %28 to i16
+  br label %30
 
-31:                                               ; preds = %18, %18, %21
-  %.1 = phi i16 [ %30, %21 ], [ -1, %18 ], [ -1, %18 ]
-  %32 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %33 = load i16, ptr %32, align 2
-  %.not34.not = icmp eq i16 %33, -2
-  %34 = tail call i16 @llvm.umin.i16(i16 %33, i16 %.1)
-  %spec.select = select i1 %.not34.not, i16 %.1, i16 %34
-  br label %35
+30:                                               ; preds = %18, %18, %21
+  %.1 = phi i16 [ %29, %21 ], [ -1, %18 ], [ -1, %18 ]
+  %31 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %32 = load i16, ptr %31, align 2
+  %.not34.not = icmp eq i16 %32, -2
+  %33 = tail call i16 @llvm.umin.i16(i16 %32, i16 %.1)
+  %spec.select = select i1 %.not34.not, i16 %.1, i16 %33
+  br label %34
 
-35:                                               ; preds = %31, %.thread, %15
-  %.023 = phi i16 [ -1, %.thread ], [ -1, %15 ], [ %spec.select, %31 ]
-  %36 = tail call i16 @llvm.umin.i16(i16 %8, i16 %.023)
-  br label %37
+34:                                               ; preds = %30, %.thread, %15
+  %.023 = phi i16 [ -1, %.thread ], [ -1, %15 ], [ %spec.select, %30 ]
+  %35 = tail call i16 @llvm.umin.i16(i16 %8, i16 %.023)
+  br label %36
 
-37:                                               ; preds = %11, %35
-  %.0 = phi i16 [ %36, %35 ], [ %8, %11 ]
+36:                                               ; preds = %11, %34
+  %.0 = phi i16 [ %35, %34 ], [ %8, %11 ]
   ret i16 %.0
 }
 

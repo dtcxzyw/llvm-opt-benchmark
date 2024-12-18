@@ -2884,10 +2884,10 @@ entry:
   store ptr null, ptr %list, align 8
   %commits = getelementptr inbounds nuw i8, ptr %info, i64 8
   %0 = load ptr, ptr %commits, align 8
-  %nr36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1 = load i64, ptr %nr36, align 8
-  %cmp37.not = icmp eq i64 %1, 0
-  br i1 %cmp37.not, label %for.end41, label %for.body.lr.ph
+  %nr37 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %1 = load i64, ptr %nr37, align 8
+  %cmp38.not = icmp eq i64 %1, 0
+  br i1 %cmp38.not, label %for.end41, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %get_generation = getelementptr inbounds nuw i8, ptr %info, i64 32
@@ -2921,47 +2921,45 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 if.end:                                           ; preds = %for.body, %for.body
   %call10 = call ptr @commit_list_insert(ptr noundef %4, ptr noundef nonnull %list) #22
   %10 = load ptr, ptr %list, align 8
-  %tobool.not35 = icmp eq ptr %10, null
-  br i1 %tobool.not35, label %for.inc40, label %while.body
+  %tobool.not36 = icmp eq ptr %10, null
+  br i1 %tobool.not36, label %for.inc40, label %while.body
 
 while.body:                                       ; preds = %if.end, %if.end39
   %11 = phi ptr [ %23, %if.end39 ], [ %10, %if.end ]
   %12 = load ptr, ptr %11, align 8
   %parents = getelementptr inbounds nuw i8, ptr %12, i64 48
-  %parent.031 = load ptr, ptr %parents, align 8
-  %tobool12.not.not32 = icmp eq ptr %parent.031, null
-  br i1 %tobool12.not.not32, label %if.then34, label %for.body13
+  %parent.032 = load ptr, ptr %parents, align 8
+  %tobool12.not.not33 = icmp eq ptr %parent.032, null
+  br i1 %tobool12.not.not33, label %if.then34, label %for.body13
 
 for.body13:                                       ; preds = %while.body, %if.end26
-  %parent.034 = phi ptr [ %parent.0, %if.end26 ], [ %parent.031, %while.body ]
-  %max_gen.033 = phi i32 [ %spec.select, %if.end26 ], [ 0, %while.body ]
+  %parent.035 = phi ptr [ %parent.0, %if.end26 ], [ %parent.032, %while.body ]
+  %max_gen.034 = phi i64 [ %spec.select29, %if.end26 ], [ 0, %while.body ]
   %13 = load ptr, ptr %info, align 8
-  %14 = load ptr, ptr %parent.034, align 8
+  %14 = load ptr, ptr %parent.035, align 8
   %call.i28 = call i32 @repo_parse_commit_gently(ptr noundef %13, ptr noundef %14, i32 noundef 0) #22
   %15 = load ptr, ptr %get_generation, align 8
-  %16 = load ptr, ptr %parent.034, align 8
+  %16 = load ptr, ptr %parent.035, align 8
   %17 = load ptr, ptr %data, align 8
   %call20 = call i64 %15(ptr noundef %16, ptr noundef %17) #22
   %cmp21 = icmp eq i64 %call20, 0
   br i1 %cmp21, label %if.then23, label %if.end26
 
 if.then23:                                        ; preds = %for.body13
-  %18 = load ptr, ptr %parent.034, align 8
+  %18 = load ptr, ptr %parent.035, align 8
   %call25 = call ptr @commit_list_insert(ptr noundef %18, ptr noundef nonnull %list) #22
   br label %if.end39
 
 if.end26:                                         ; preds = %for.body13
-  %conv27 = zext i32 %max_gen.033 to i64
-  %cmp28 = icmp ugt i64 %call20, %conv27
-  %conv31 = trunc i64 %call20 to i32
-  %spec.select = select i1 %cmp28, i32 %conv31, i32 %max_gen.033
-  %next = getelementptr inbounds nuw i8, ptr %parent.034, i64 8
+  %conv27 = and i64 %max_gen.034, 4294967295
+  %spec.select29 = call i64 @llvm.umax.i64(i64 %call20, i64 %conv27)
+  %next = getelementptr inbounds nuw i8, ptr %parent.035, i64 8
   %parent.0 = load ptr, ptr %next, align 8
   %tobool12.not.not = icmp eq ptr %parent.0, null
   br i1 %tobool12.not.not, label %if.then34.loopexit, label %for.body13, !llvm.loop !23
 
 if.then34.loopexit:                               ; preds = %if.end26
-  %19 = zext i32 %spec.select to i64
+  %19 = and i64 %spec.select29, 4294967295
   br label %if.then34
 
 if.then34:                                        ; preds = %if.then34.loopexit, %while.body

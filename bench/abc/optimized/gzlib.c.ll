@@ -16,7 +16,7 @@ define noalias noundef ptr @gzopen(ptr nocapture noundef readonly %0, ptr nocapt
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noalias noundef ptr @gz_open(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
-  %4 = tail call noalias dereferenceable_or_null(232) ptr @malloc(i64 noundef 232) #12
+  %4 = tail call noalias dereferenceable_or_null(232) ptr @malloc(i64 noundef 232) #13
   %5 = icmp eq ptr %4, null
   br i1 %5, label %65, label %6
 
@@ -74,7 +74,7 @@ define internal fastcc noalias noundef ptr @gz_open(ptr nocapture noundef readon
   br label %27
 
 22:                                               ; preds = %18
-  tail call void @free(ptr noundef %4) #13
+  tail call void @free(ptr noundef %4) #14
   br label %65
 
 23:                                               ; preds = %18
@@ -105,24 +105,24 @@ define internal fastcc noalias noundef ptr @gz_open(ptr nocapture noundef readon
   br i1 %31, label %._crit_edge.thread, label %32
 
 ._crit_edge.thread:                               ; preds = %6, %._crit_edge
-  tail call void @free(ptr noundef nonnull %4) #13
+  tail call void @free(ptr noundef nonnull %4) #14
   br label %65
 
 32:                                               ; preds = %._crit_edge
-  %33 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
+  %33 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #15
   %34 = add i64 %33, 1
-  %35 = tail call noalias ptr @malloc(i64 noundef %34) #12
+  %35 = tail call noalias ptr @malloc(i64 noundef %34) #13
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %35, ptr %36, align 8
   %37 = icmp eq ptr %35, null
   br i1 %37, label %38, label %39
 
 38:                                               ; preds = %32
-  tail call void @free(ptr noundef nonnull %4) #13
+  tail call void @free(ptr noundef nonnull %4) #14
   br label %65
 
 39:                                               ; preds = %32
-  %40 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(1) %0) #13
+  %40 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(1) %0) #14
   %.not55 = icmp eq i32 %1, -1
   br i1 %.not55, label %42, label %.thread
 
@@ -136,15 +136,15 @@ define internal fastcc noalias noundef ptr @gz_open(ptr nocapture noundef readon
   %44 = icmp eq i32 %28, 31153
   %45 = select i1 %44, i32 577, i32 1089
   %46 = select i1 %43, i32 0, i32 %45
-  %47 = tail call i32 (ptr, i32, ...) @open(ptr noundef %0, i32 noundef %46, i32 noundef 438) #13
+  %47 = tail call i32 (ptr, i32, ...) @open(ptr noundef %0, i32 noundef %46, i32 noundef 438) #14
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %47, ptr %48, align 4
   %49 = icmp eq i32 %47, -1
   br i1 %49, label %50, label %51
 
 50:                                               ; preds = %42
-  tail call void @free(ptr noundef nonnull %35) #13
-  tail call void @free(ptr noundef nonnull %4) #13
+  tail call void @free(ptr noundef nonnull %35) #14
+  tail call void @free(ptr noundef nonnull %4) #14
   br label %65
 
 51:                                               ; preds = %.thread, %42
@@ -159,7 +159,7 @@ define internal fastcc noalias noundef ptr @gz_open(ptr nocapture noundef readon
   br label %gz_reset.exit
 
 53:                                               ; preds = %51
-  %54 = tail call i64 @lseek(i32 noundef %52, i64 noundef 0, i32 noundef 1) #13
+  %54 = tail call i64 @lseek(i32 noundef %52, i64 noundef 0, i32 noundef 1) #14
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %56 = icmp eq i64 %54, -1
   %spec.store.select = select i1 %56, i64 0, i64 %54
@@ -202,14 +202,14 @@ define noalias noundef ptr @gzdopen(i32 noundef %0, ptr nocapture noundef readon
   br i1 %3, label %10, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call noalias dereferenceable_or_null(19) ptr @malloc(i64 noundef 19) #12
+  %5 = tail call noalias dereferenceable_or_null(19) ptr @malloc(i64 noundef 19) #13
   %6 = icmp eq ptr %5, null
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %0) #13
+  %8 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %0) #14
   %9 = tail call fastcc ptr @gz_open(ptr noundef nonnull %5, i32 noundef %0, ptr noundef %1)
-  tail call void @free(ptr noundef nonnull %5) #13
+  tail call void @free(ptr noundef nonnull %5) #14
   br label %10
 
 10:                                               ; preds = %2, %4, %7
@@ -277,7 +277,7 @@ define range(i32 -1, 1) i32 @gzrewind(ptr noundef %0) local_unnamed_addr #0 {
   %10 = load i32, ptr %9, align 4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = load i64, ptr %11, align 8
-  %13 = tail call i64 @lseek(i32 noundef %10, i64 noundef %12, i32 noundef 0) #13
+  %13 = tail call i64 @lseek(i32 noundef %10, i64 noundef %12, i32 noundef 0) #14
   %14 = icmp eq i64 %13, -1
   br i1 %14, label %33, label %15
 
@@ -311,7 +311,7 @@ define range(i32 -1, 1) i32 @gzrewind(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not21.i.i, label %30, label %29
 
 29:                                               ; preds = %27
-  tail call void @free(ptr noundef nonnull %26) #13
+  tail call void @free(ptr noundef nonnull %26) #14
   br label %30
 
 30:                                               ; preds = %29, %27
@@ -405,7 +405,7 @@ define i64 @gzseek64(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnam
   %40 = load i32, ptr %39, align 8
   %41 = zext i32 %40 to i64
   %42 = sub nsw i64 %.057, %41
-  %43 = tail call i64 @lseek(i32 noundef %38, i64 noundef %42, i32 noundef 1) #13
+  %43 = tail call i64 @lseek(i32 noundef %38, i64 noundef %42, i32 noundef 1) #14
   %44 = icmp eq i64 %43, -1
   br i1 %44, label %.thread69, label %45
 
@@ -425,7 +425,7 @@ define i64 @gzseek64(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnam
   br i1 %.not21.i, label %52, label %51
 
 51:                                               ; preds = %49
-  tail call void @free(ptr noundef nonnull %48) #13
+  tail call void @free(ptr noundef nonnull %48) #14
   br label %52
 
 52:                                               ; preds = %51, %49
@@ -461,7 +461,7 @@ gz_error.exit:                                    ; preds = %45, %52
   %66 = load i32, ptr %65, align 4
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %68 = load i64, ptr %67, align 8
-  %69 = tail call i64 @lseek(i32 noundef %66, i64 noundef %68, i32 noundef 0) #13
+  %69 = tail call i64 @lseek(i32 noundef %66, i64 noundef %68, i32 noundef 0) #14
   %70 = icmp eq i64 %69, -1
   br i1 %70, label %.thread69, label %71
 
@@ -493,7 +493,7 @@ gz_error.exit:                                    ; preds = %45, %52
   br i1 %.not21.i.i.i, label %84, label %83
 
 83:                                               ; preds = %81
-  tail call void @free(ptr noundef nonnull %80) #13
+  tail call void @free(ptr noundef nonnull %80) #14
   %.pre.pre.pre = load i32, ptr %0, align 8
   br label %84
 
@@ -516,42 +516,40 @@ gz_error.exit:                                    ; preds = %45, %52
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %89 = load i32, ptr %88, align 8
   %90 = zext i32 %89 to i64
-  %91 = icmp samesign ult i64 %.175, %90
-  %92 = trunc nuw i64 %.175 to i32
-  %93 = select i1 %91, i32 %92, i32 %89
-  %94 = sub i32 %89, %93
-  store i32 %94, ptr %88, align 8
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %96 = load ptr, ptr %95, align 8
-  %97 = zext i32 %93 to i64
-  %98 = getelementptr inbounds nuw i8, ptr %96, i64 %97
-  store ptr %98, ptr %95, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %100 = load i64, ptr %99, align 8
-  %101 = add nsw i64 %100, %97
-  store i64 %101, ptr %99, align 8
-  %102 = sub nsw i64 %.175, %97
+  %91 = tail call i64 @llvm.umin.i64(i64 %.175, i64 %90)
+  %92 = trunc nuw i64 %91 to i32
+  %93 = sub i32 %89, %92
+  store i32 %93, ptr %88, align 8
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %95 = load ptr, ptr %94, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 %91
+  store ptr %96, ptr %94, align 8
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %98 = load i64, ptr %97, align 8
+  %99 = add nsw i64 %98, %91
+  store i64 %99, ptr %97, align 8
+  %100 = sub nsw i64 %.175, %91
   br label %.thread76
 
 .thread76:                                        ; preds = %.thread, %.thread73, %85
-  %.2 = phi i64 [ %102, %.thread73 ], [ %62, %85 ], [ %.057, %.thread ]
+  %.2 = phi i64 [ %100, %.thread73 ], [ %62, %85 ], [ %.057, %.thread ]
   %.not66 = icmp eq i64 %.2, 0
-  br i1 %.not66, label %105, label %103
+  br i1 %.not66, label %103, label %101
 
-103:                                              ; preds = %.thread76
+101:                                              ; preds = %.thread76
   store i32 1, ptr %24, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i64 %.2, ptr %104, align 8
-  br label %105
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store i64 %.2, ptr %102, align 8
+  br label %103
 
-105:                                              ; preds = %103, %.thread76
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %107 = load i64, ptr %106, align 8
-  %108 = add nsw i64 %107, %.2
+103:                                              ; preds = %101, %.thread76
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %105 = load i64, ptr %104, align 8
+  %106 = add nsw i64 %105, %.2
   br label %.thread69
 
-.thread69:                                        ; preds = %64, %.thread, %59, %36, %7, %5, %3, %105, %gz_error.exit
-  %.0 = phi i64 [ %55, %gz_error.exit ], [ %108, %105 ], [ -1, %3 ], [ -1, %5 ], [ -1, %7 ], [ -1, %36 ], [ -1, %59 ], [ -1, %.thread ], [ -1, %64 ]
+.thread69:                                        ; preds = %64, %.thread, %59, %36, %7, %5, %3, %103, %gz_error.exit
+  %.0 = phi i64 [ %55, %gz_error.exit ], [ %106, %103 ], [ -1, %3 ], [ -1, %5 ], [ -1, %7 ], [ -1, %36 ], [ -1, %59 ], [ -1, %.thread ], [ -1, %64 ]
   ret i64 %.0
 }
 
@@ -569,7 +567,7 @@ define hidden void @gz_error(ptr nocapture noundef %0, i32 noundef %1, ptr nound
   br i1 %.not21, label %10, label %9
 
 9:                                                ; preds = %6
-  tail call void @free(ptr noundef nonnull %5) #13
+  tail call void @free(ptr noundef nonnull %5) #14
   br label %10
 
 10:                                               ; preds = %9, %6
@@ -593,11 +591,11 @@ define hidden void @gz_error(ptr nocapture noundef %0, i32 noundef %1, ptr nound
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #14
-  %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #14
+  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #15
+  %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #15
   %22 = add i64 %20, 3
   %23 = add i64 %22, %21
-  %24 = tail call noalias ptr @malloc(i64 noundef %23) #12
+  %24 = tail call noalias ptr @malloc(i64 noundef %23) #13
   store ptr %24, ptr %4, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %27
@@ -608,11 +606,11 @@ define hidden void @gz_error(ptr nocapture noundef %0, i32 noundef %1, ptr nound
   br label %30
 
 27:                                               ; preds = %17
-  %28 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %19) #13
+  %28 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %19) #14
   %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) %24)
   %endptr = getelementptr inbounds i8, ptr %24, i64 %strlen
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %endptr, ptr noundef nonnull align 1 dereferenceable(3) @.str.3, i64 3, i1 false)
-  %29 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %2) #13
+  %29 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %2) #14
   br label %30
 
 30:                                               ; preds = %11, %27, %26, %16
@@ -710,7 +708,7 @@ define i64 @gzoffset64(ptr noundef readonly %0) local_unnamed_addr #0 {
 5:                                                ; preds = %3, %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
-  %8 = tail call i64 @lseek(i32 noundef %7, i64 noundef 0, i32 noundef 1) #13
+  %8 = tail call i64 @lseek(i32 noundef %7, i64 noundef 0, i32 noundef 1) #14
   %9 = icmp eq i64 %8, -1
   br i1 %9, label %18, label %10
 
@@ -746,7 +744,7 @@ define i64 @gzoffset(ptr noundef readonly %0) local_unnamed_addr #0 {
 5:                                                ; preds = %3, %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
-  %8 = tail call i64 @lseek(i32 noundef %7, i64 noundef 0, i32 noundef 1) #13
+  %8 = tail call i64 @lseek(i32 noundef %7, i64 noundef 0, i32 noundef 1) #14
   %9 = icmp eq i64 %8, -1
   br i1 %9, label %gzoffset64.exit, label %10
 
@@ -865,7 +863,7 @@ define void @gzclearerr(ptr noundef %0) local_unnamed_addr #6 {
   br i1 %.not21.i, label %14, label %13
 
 13:                                               ; preds = %10
-  tail call void @free(ptr noundef nonnull %9) #13
+  tail call void @free(ptr noundef nonnull %9) #14
   br label %14
 
 14:                                               ; preds = %13, %10
@@ -896,6 +894,9 @@ declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) loca
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #12
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -908,9 +909,10 @@ attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "
 attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nounwind allocsize(0) }
-attributes #13 = { nounwind }
-attributes #14 = { nounwind willreturn memory(read) }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nounwind allocsize(0) }
+attributes #14 = { nounwind }
+attributes #15 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

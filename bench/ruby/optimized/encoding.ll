@@ -3331,9 +3331,8 @@ define dso_local i32 @rb_enc_mbclen(ptr noundef %0, ptr noundef %1, ptr noundef 
   %12 = getelementptr i8, ptr %2, i64 20
   %.val = load i32, ptr %12, align 4
   %13 = sext i32 %.val to i64
-  %.not17 = icmp slt i64 %10, %13
-  %14 = trunc i64 %10 to i32
-  %15 = select i1 %.not17, i32 %14, i32 %.val
+  %14 = tail call i64 @llvm.smin.i64(i64 %10, i64 %13)
+  %15 = trunc i64 %14 to i32
   br label %16
 
 16:                                               ; preds = %3, %11
@@ -5088,6 +5087,9 @@ declare ptr @rb_st_init_strcasetable_with_size(i64 noundef) local_unnamed_addr #
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #18
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smin.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19

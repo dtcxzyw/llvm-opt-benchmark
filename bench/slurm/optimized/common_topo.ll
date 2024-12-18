@@ -868,22 +868,22 @@ define i32 @common_topo_choose_nodes(ptr noundef %0) local_unnamed_addr #0 {
   %.not124179 = icmp eq ptr %155, null
   br i1 %.not124179, label %.thread142, label %.lr.ph181
 
-.lr.ph181:                                        ; preds = %.preheader, %199
-  %.388180 = phi i32 [ %.4, %199 ], [ 0, %.preheader ]
+.lr.ph181:                                        ; preds = %.preheader, %198
+  %.388180 = phi i32 [ %.4, %198 ], [ 0, %.preheader ]
   %156 = load ptr, ptr %4, align 8
   %157 = load i32, ptr %2, align 4
   %158 = sext i32 %157 to i64
   %159 = getelementptr inbounds ptr, ptr %156, i64 %158
   %160 = load ptr, ptr %159, align 8
   %.not126 = icmp eq ptr %160, null
-  br i1 %.not126, label %199, label %161
+  br i1 %.not126, label %198, label %161
 
 161:                                              ; preds = %.lr.ph181
   %162 = load ptr, ptr %0, align 8
   %163 = getelementptr inbounds ptr, ptr %162, i64 %158
   %164 = load ptr, ptr %163, align 8
   %.not127 = icmp eq ptr %164, null
-  br i1 %.not127, label %199, label %165
+  br i1 %.not127, label %198, label %165
 
 165:                                              ; preds = %161
   %166 = call i32 @slurm_bit_set_count(ptr noundef nonnull %164) #6
@@ -900,66 +900,65 @@ define i32 @common_topo_choose_nodes(ptr noundef %0) local_unnamed_addr #0 {
   %177 = load ptr, ptr %176, align 8
   %178 = load i16, ptr %177, align 8
   %179 = zext i16 %178 to i32
-  %180 = icmp slt i32 %175, %179
-  %181 = trunc i32 %175 to i16
-  %182 = select i1 %180, i16 %181, i16 %178
-  store i16 %182, ptr %177, align 8
-  %183 = load i32, ptr %2, align 4
-  %184 = sext i32 %183 to i64
-  %185 = getelementptr inbounds ptr, ptr %6, i64 %184
-  %186 = load ptr, ptr %185, align 8
-  %187 = load i16, ptr %186, align 8
-  %188 = icmp eq i16 %187, 0
-  br i1 %188, label %189, label %199
+  %180 = call i32 @llvm.smin.i32(i32 %175, i32 %179)
+  %181 = trunc i32 %180 to i16
+  store i16 %181, ptr %177, align 8
+  %182 = load i32, ptr %2, align 4
+  %183 = sext i32 %182 to i64
+  %184 = getelementptr inbounds ptr, ptr %6, i64 %183
+  %185 = load ptr, ptr %184, align 8
+  %186 = load i16, ptr %185, align 8
+  %187 = icmp eq i16 %186, 0
+  br i1 %187, label %188, label %198
 
-189:                                              ; preds = %165
-  %190 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.5, ptr noundef %8) #6
-  br i1 %.not, label %195, label %191
+188:                                              ; preds = %165
+  %189 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.5, ptr noundef %8) #6
+  br i1 %.not, label %194, label %190
 
-191:                                              ; preds = %189
-  %192 = load i32, ptr %2, align 4
-  %193 = sext i32 %192 to i64
-  %194 = call i32 @slurm_bit_test(ptr noundef nonnull %.fr, i64 noundef %193) #6
-  %.not129 = icmp eq i32 %194, 0
+190:                                              ; preds = %188
+  %191 = load i32, ptr %2, align 4
+  %192 = sext i32 %191 to i64
+  %193 = call i32 @slurm_bit_test(ptr noundef nonnull %.fr, i64 noundef %192) #6
+  %.not129 = icmp eq i32 %193, 0
   %spec.select134 = select i1 %.not129, i32 %.388180, i32 -1
-  br label %195
+  br label %194
 
-195:                                              ; preds = %191, %189
-  %.5 = phi i32 [ %.388180, %189 ], [ %spec.select134, %191 ]
-  %196 = load ptr, ptr %13, align 8
-  %197 = load i32, ptr %2, align 4
-  %198 = sext i32 %197 to i64
-  call void @slurm_bit_clear(ptr noundef %196, i64 noundef %198) #6
+194:                                              ; preds = %190, %188
+  %.5 = phi i32 [ %.388180, %188 ], [ %spec.select134, %190 ]
+  %195 = load ptr, ptr %13, align 8
+  %196 = load i32, ptr %2, align 4
+  %197 = sext i32 %196 to i64
+  call void @slurm_bit_clear(ptr noundef %195, i64 noundef %197) #6
   %.pre198 = load i32, ptr %2, align 4
-  br label %199
+  br label %198
 
-199:                                              ; preds = %165, %195, %.lr.ph181, %161
-  %200 = phi i32 [ %.pre198, %195 ], [ %183, %165 ], [ %157, %161 ], [ %157, %.lr.ph181 ]
-  %.4 = phi i32 [ %.5, %195 ], [ %.388180, %165 ], [ %.388180, %161 ], [ %.388180, %.lr.ph181 ]
-  %201 = add nsw i32 %200, 1
-  store i32 %201, ptr %2, align 4
-  %202 = load ptr, ptr %13, align 8
-  %203 = call ptr @next_node_bitmap(ptr noundef %202, ptr noundef nonnull %2) #6
-  %.not124 = icmp eq ptr %203, null
+198:                                              ; preds = %165, %194, %.lr.ph181, %161
+  %199 = phi i32 [ %.pre198, %194 ], [ %182, %165 ], [ %157, %161 ], [ %157, %.lr.ph181 ]
+  %.4 = phi i32 [ %.5, %194 ], [ %.388180, %165 ], [ %.388180, %161 ], [ %.388180, %.lr.ph181 ]
+  %200 = add nsw i32 %199, 1
+  store i32 %200, ptr %2, align 4
+  %201 = load ptr, ptr %13, align 8
+  %202 = call ptr @next_node_bitmap(ptr noundef %201, ptr noundef nonnull %2) #6
+  %.not124 = icmp eq ptr %202, null
   br i1 %.not124, label %.thread142, label %.lr.ph181, !llvm.loop !16
 
-.thread142:                                       ; preds = %144, %199, %.preheader146, %.preheader, %.loopexit, %.thread140
-  %.6 = phi i32 [ 0, %.thread140 ], [ %.085, %.loopexit ], [ 0, %.preheader ], [ %70, %.preheader146 ], [ %.4, %199 ], [ %142, %144 ]
-  %204 = load ptr, ptr %3, align 8
-  %.not125 = icmp eq ptr %204, null
-  br i1 %.not125, label %206, label %205
+.thread142:                                       ; preds = %144, %198, %.preheader146, %.preheader, %.loopexit, %.thread140
+  %.6 = phi i32 [ 0, %.thread140 ], [ %.085, %.loopexit ], [ 0, %.preheader ], [ %70, %.preheader146 ], [ %.4, %198 ], [ %142, %144 ]
+  %203 = load ptr, ptr %3, align 8
+  %.not125 = icmp eq ptr %203, null
+  br i1 %.not125, label %205, label %204
 
-205:                                              ; preds = %.thread142
+204:                                              ; preds = %.thread142
   call void @slurm_bit_free(ptr noundef nonnull %3) #6
-  br label %206
+  br label %205
 
-206:                                              ; preds = %205, %.thread142
+205:                                              ; preds = %204, %.thread142
   store ptr null, ptr %3, align 8
   call void @free_core_array(ptr noundef nonnull %4) #6
   br label %.loopexit147
 
-.loopexit147:                                     ; preds = %39, %206
-  %.090 = phi i32 [ %.6, %206 ], [ -1, %39 ]
+.loopexit147:                                     ; preds = %39, %205
+  %.090 = phi i32 [ %.6, %205 ], [ -1, %39 ]
   ret i32 %.090
 }
 

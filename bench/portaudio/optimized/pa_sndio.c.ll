@@ -879,10 +879,10 @@ declare double @PaUtil_DummyGetCpuLoad(ptr noundef) #1
 define internal range(i32 -9999, 1) i32 @BlockingReadStream(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca ptr, align 8
   store ptr %1, ptr %4, align 8
-  %.not43 = icmp eq i64 %2, 0
-  br i1 %.not43, label %.loopexit, label %.lr.ph46
+  %.not44 = icmp eq i64 %2, 0
+  br i1 %.not44, label %.loopexit, label %.lr.ph47
 
-.lr.ph46:                                         ; preds = %3
+.lr.ph47:                                         ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 412
@@ -893,57 +893,55 @@ define internal range(i32 -9999, 1) i32 @BlockingReadStream(ptr noundef %0, ptr 
   br label %14
 
 12:                                               ; preds = %._crit_edge
-  %13 = sub i64 %.03544, %33
+  %13 = sub i64 %.03545, %spec.select39
   %.not = icmp eq i64 %13, 0
   br i1 %.not, label %.loopexit, label %14, !llvm.loop !7
 
-14:                                               ; preds = %.lr.ph46, %12
-  %.03544 = phi i64 [ %2, %.lr.ph46 ], [ %13, %12 ]
+14:                                               ; preds = %.lr.ph47, %12
+  %.03545 = phi i64 [ %2, %.lr.ph47 ], [ %13, %12 ]
   %15 = load i32, ptr %5, align 8
   %16 = zext i32 %15 to i64
-  %17 = icmp ult i64 %.03544, %16
-  %18 = trunc nuw i64 %.03544 to i32
-  %spec.select = select i1 %17, i32 %18, i32 %15
-  %19 = load i32, ptr %7, align 4
-  %20 = mul i32 %spec.select, %19
-  %21 = load i32, ptr %8, align 4
-  %22 = mul i32 %20, %21
-  %.not3740 = icmp eq i32 %22, 0
-  br i1 %.not3740, label %._crit_edge, label %.lr.ph.preheader
+  %spec.select39 = call i64 @llvm.umin.i64(i64 %.03545, i64 %16)
+  %spec.select = trunc nuw i64 %spec.select39 to i32
+  %17 = load i32, ptr %7, align 4
+  %18 = mul i32 %17, %spec.select
+  %19 = load i32, ptr %8, align 4
+  %20 = mul i32 %18, %19
+  %.not3741 = icmp eq i32 %20, 0
+  br i1 %.not3741, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %14
-  %23 = load ptr, ptr %6, align 8
+  %21 = load ptr, ptr %6, align 8
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %29
-  %.042 = phi ptr [ %31, %29 ], [ %23, %.lr.ph.preheader ]
-  %.03241 = phi i32 [ %32, %29 ], [ %22, %.lr.ph.preheader ]
-  %24 = load ptr, ptr %9, align 8
-  %25 = zext i32 %.03241 to i64
-  %26 = call i64 @sio_read(ptr noundef %24, ptr noundef %.042, i64 noundef %25) #16
-  %27 = trunc i64 %26 to i32
-  %28 = icmp eq i32 %27, 0
-  br i1 %28, label %.loopexit, label %29
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %27
+  %.043 = phi ptr [ %29, %27 ], [ %21, %.lr.ph.preheader ]
+  %.03242 = phi i32 [ %30, %27 ], [ %20, %.lr.ph.preheader ]
+  %22 = load ptr, ptr %9, align 8
+  %23 = zext i32 %.03242 to i64
+  %24 = call i64 @sio_read(ptr noundef %22, ptr noundef %.043, i64 noundef %23) #16
+  %25 = trunc i64 %24 to i32
+  %26 = icmp eq i32 %25, 0
+  br i1 %26, label %.loopexit, label %27
 
-29:                                               ; preds = %.lr.ph
-  %30 = and i64 %26, 4294967295
-  %31 = getelementptr inbounds nuw i8, ptr %.042, i64 %30
-  %32 = sub i32 %.03241, %27
-  %.not37 = icmp eq i32 %32, 0
+27:                                               ; preds = %.lr.ph
+  %28 = and i64 %24, 4294967295
+  %29 = getelementptr inbounds nuw i8, ptr %.043, i64 %28
+  %30 = sub i32 %.03242, %25
+  %.not37 = icmp eq i32 %30, 0
   br i1 %.not37, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %29, %14
-  %33 = zext i32 %spec.select to i64
-  %34 = load i64, ptr %10, align 8
-  %35 = add i64 %34, %33
-  store i64 %35, ptr %10, align 8
-  call void @PaUtil_SetInputFrameCount(ptr noundef nonnull %11, i64 noundef %33) #16
-  %36 = load ptr, ptr %6, align 8
-  %37 = load i32, ptr %7, align 4
-  call void @PaUtil_SetInterleavedInputChannels(ptr noundef nonnull %11, i32 noundef 0, ptr noundef %36, i32 noundef %37) #16
-  %38 = call i64 @PaUtil_CopyInput(ptr noundef nonnull %11, ptr noundef nonnull %4, i64 noundef %33) #16
-  %39 = trunc i64 %38 to i32
-  %.not38 = icmp eq i32 %spec.select, %39
+._crit_edge:                                      ; preds = %27, %14
+  %31 = load i64, ptr %10, align 8
+  %32 = add i64 %31, %spec.select39
+  store i64 %32, ptr %10, align 8
+  call void @PaUtil_SetInputFrameCount(ptr noundef nonnull %11, i64 noundef %spec.select39) #16
+  %33 = load ptr, ptr %6, align 8
+  %34 = load i32, ptr %7, align 4
+  call void @PaUtil_SetInterleavedInputChannels(ptr noundef nonnull %11, i32 noundef 0, ptr noundef %33, i32 noundef %34) #16
+  %35 = call i64 @PaUtil_CopyInput(ptr noundef nonnull %11, ptr noundef nonnull %4, i64 noundef %spec.select39) #16
+  %36 = trunc i64 %35 to i32
+  %.not38 = icmp eq i32 %spec.select, %36
   br i1 %.not38, label %12, label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge, %12, %.lr.ph, %3
@@ -957,8 +955,8 @@ define internal range(i32 -9999, 1) i32 @BlockingWriteStream(ptr noundef %0, ptr
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %.not28 = icmp eq i64 %2, 0
-  br i1 %.not28, label %._crit_edge, label %.lr.ph
+  %.not29 = icmp eq i64 %2, 0
+  br i1 %.not29, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -968,46 +966,44 @@ define internal range(i32 -9999, 1) i32 @BlockingWriteStream(ptr noundef %0, ptr
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 504
   br label %12
 
-12:                                               ; preds = %.lr.ph, %33
-  %.02629 = phi i64 [ %2, %.lr.ph ], [ %36, %33 ]
+12:                                               ; preds = %.lr.ph, %30
+  %.02630 = phi i64 [ %2, %.lr.ph ], [ %33, %30 ]
   %13 = load i32, ptr %5, align 8
   %14 = zext i32 %13 to i64
-  %15 = icmp ult i64 %.02629, %14
-  %16 = trunc nuw i64 %.02629 to i32
-  %spec.select = select i1 %15, i32 %16, i32 %13
-  %17 = zext i32 %spec.select to i64
-  call void @PaUtil_SetOutputFrameCount(ptr noundef nonnull %7, i64 noundef %17) #16
-  %18 = load ptr, ptr %8, align 8
-  %19 = load i32, ptr %9, align 8
-  call void @PaUtil_SetInterleavedOutputChannels(ptr noundef nonnull %7, i32 noundef 0, ptr noundef %18, i32 noundef %19) #16
-  %20 = call i64 @PaUtil_CopyOutput(ptr noundef nonnull %7, ptr noundef nonnull %4, i64 noundef %17) #16
-  %21 = trunc i64 %20 to i32
-  %.not27 = icmp eq i32 %spec.select, %21
-  br i1 %.not27, label %22, label %._crit_edge
+  %spec.select28 = call i64 @llvm.umin.i64(i64 %.02630, i64 %14)
+  %spec.select = trunc nuw i64 %spec.select28 to i32
+  call void @PaUtil_SetOutputFrameCount(ptr noundef nonnull %7, i64 noundef %spec.select28) #16
+  %15 = load ptr, ptr %8, align 8
+  %16 = load i32, ptr %9, align 8
+  call void @PaUtil_SetInterleavedOutputChannels(ptr noundef nonnull %7, i32 noundef 0, ptr noundef %15, i32 noundef %16) #16
+  %17 = call i64 @PaUtil_CopyOutput(ptr noundef nonnull %7, ptr noundef nonnull %4, i64 noundef %spec.select28) #16
+  %18 = trunc i64 %17 to i32
+  %.not27 = icmp eq i32 %spec.select, %18
+  br i1 %.not27, label %19, label %._crit_edge
 
-22:                                               ; preds = %12
-  %23 = load ptr, ptr %6, align 8
-  %24 = load ptr, ptr %8, align 8
-  %25 = load i32, ptr %9, align 8
-  %26 = mul i32 %25, %spec.select
-  %27 = load i32, ptr %10, align 4
-  %28 = mul i32 %26, %27
-  %29 = zext i32 %28 to i64
-  %30 = call i64 @sio_write(ptr noundef %23, ptr noundef %24, i64 noundef %29) #16
-  %31 = and i64 %30, 4294967295
-  %32 = icmp eq i64 %31, 0
-  br i1 %32, label %._crit_edge, label %33
+19:                                               ; preds = %12
+  %20 = load ptr, ptr %6, align 8
+  %21 = load ptr, ptr %8, align 8
+  %22 = load i32, ptr %9, align 8
+  %23 = mul i32 %22, %spec.select
+  %24 = load i32, ptr %10, align 4
+  %25 = mul i32 %23, %24
+  %26 = zext i32 %25 to i64
+  %27 = call i64 @sio_write(ptr noundef %20, ptr noundef %21, i64 noundef %26) #16
+  %28 = and i64 %27, 4294967295
+  %29 = icmp eq i64 %28, 0
+  br i1 %29, label %._crit_edge, label %30
 
-33:                                               ; preds = %22
-  %34 = load i64, ptr %11, align 8
-  %35 = add i64 %34, %17
-  store i64 %35, ptr %11, align 8
-  %36 = sub i64 %.02629, %17
-  %.not = icmp eq i64 %36, 0
+30:                                               ; preds = %19
+  %31 = load i64, ptr %11, align 8
+  %32 = add i64 %31, %spec.select28
+  store i64 %32, ptr %11, align 8
+  %33 = sub i64 %.02630, %spec.select28
+  %.not = icmp eq i64 %33, 0
   br i1 %.not, label %._crit_edge, label %12, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %12, %22, %33, %3
-  %.025 = phi i32 [ 0, %3 ], [ 0, %33 ], [ -9999, %22 ], [ -9999, %12 ]
+._crit_edge:                                      ; preds = %12, %19, %30, %3
+  %.025 = phi i32 [ 0, %3 ], [ 0, %30 ], [ -9999, %19 ], [ -9999, %12 ]
   ret i32 %.025
 }
 
@@ -1385,6 +1381,9 @@ declare i32 @sio_revents(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #14
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15

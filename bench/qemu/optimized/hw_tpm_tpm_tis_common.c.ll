@@ -487,15 +487,14 @@ sw.bb69:                                          ; preds = %if.end, %if.end, %i
   br i1 %cmp73, label %if.then75, label %sw.epilog109
 
 if.then75:                                        ; preds = %sw.bb69
-  %conv76 = zext i32 %size to i64
-  %sub78 = sub nuw nsw i64 4, %and1
-  %cmp79 = icmp samesign ult i64 %sub78, %conv76
-  %conv84 = trunc nuw nsw i64 %sub78 to i32
-  %spec.select = select i1 %cmp79, i32 %conv84, i32 %size
-  %cmp86.not78 = icmp eq i32 %spec.select, 0
-  br i1 %cmp86.not78, label %sw.epilog109.thread, label %while.body.lr.ph
+  %cmp86.not79 = icmp eq i32 %size, 0
+  br i1 %cmp86.not79, label %sw.epilog109.thread, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.then75
+  %conv76 = zext i32 %size to i64
+  %sub78 = sub nuw nsw i64 4, %and1
+  %spec.select78 = tail call i64 @llvm.umin.i64(i64 %sub78, i64 %conv76)
+  %spec.select = trunc nuw nsw i64 %spec.select78 to i32
   %loc88 = getelementptr inbounds nuw i8, ptr %opaque, i64 4376
   %idxprom89 = and i64 %shr.i, 7
   %arrayidx90 = getelementptr [5 x %struct.TPMLocality], ptr %loc88, i64 0, i64 %idxprom89
@@ -513,14 +512,14 @@ while.body.lr.ph:                                 ; preds = %if.then75
   br i1 %35, label %while.body, label %while.body.us
 
 while.body.us:                                    ; preds = %while.body.lr.ph, %while.body.us
-  %size.addr.281.us = phi i32 [ %dec.us, %while.body.us ], [ %spec.select, %while.body.lr.ph ]
-  %shift.180.us = phi i32 [ %add.us, %while.body.us ], [ 0, %while.body.lr.ph ]
-  %val.279.us = phi i32 [ %or98.us, %while.body.us ], [ 0, %while.body.lr.ph ]
-  %conv96.us = and i32 %shift.180.us, 255
+  %size.addr.282.us = phi i32 [ %dec.us, %while.body.us ], [ %spec.select, %while.body.lr.ph ]
+  %shift.181.us = phi i32 [ %add.us, %while.body.us ], [ 0, %while.body.lr.ph ]
+  %val.280.us = phi i32 [ %or98.us, %while.body.us ], [ 0, %while.body.lr.ph ]
+  %conv96.us = and i32 %shift.181.us, 255
   %shl97.us = shl i32 255, %conv96.us
-  %or98.us = or i32 %shl97.us, %val.279.us
+  %or98.us = or i32 %shl97.us, %val.280.us
   %add.us = add nuw nsw i32 %conv96.us, 8
-  %dec.us = add i32 %size.addr.281.us, -1
+  %dec.us = add nsw i32 %size.addr.282.us, -1
   %cmp86.not.us = icmp eq i32 %dec.us, 0
   br i1 %cmp86.not.us, label %sw.epilog109.thread, label %while.body.us, !llvm.loop !8
 
@@ -531,9 +530,9 @@ while.bodythread-pre-split:                       ; preds = %sw.epilog94
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.bodythread-pre-split
   %36 = phi i32 [ %.pr, %while.bodythread-pre-split ], [ 2, %while.body.lr.ph ]
-  %size.addr.281 = phi i32 [ %dec, %while.bodythread-pre-split ], [ %spec.select, %while.body.lr.ph ]
-  %shift.180 = phi i32 [ %add, %while.bodythread-pre-split ], [ 0, %while.body.lr.ph ]
-  %val.279 = phi i32 [ %or98, %while.bodythread-pre-split ], [ 0, %while.body.lr.ph ]
+  %size.addr.282 = phi i32 [ %dec, %while.bodythread-pre-split ], [ %spec.select, %while.body.lr.ph ]
+  %shift.181 = phi i32 [ %add, %while.bodythread-pre-split ], [ 0, %while.body.lr.ph ]
+  %val.280 = phi i32 [ %or98, %while.bodythread-pre-split ], [ 0, %while.body.lr.ph ]
   %cond1 = icmp eq i32 %36, 2
   br i1 %cond1, label %sw.bb91, label %sw.epilog94
 
@@ -611,10 +610,10 @@ trace_tpm_tis_data_read.exit.i:                   ; preds = %if.else.i.i.i, %if.
 
 sw.epilog94:                                      ; preds = %trace_tpm_tis_data_read.exit.i, %sw.bb91, %while.body
   %v.0 = phi i32 [ 255, %while.body ], [ %conv6.i, %trace_tpm_tis_data_read.exit.i ], [ 255, %sw.bb91 ]
-  %conv96 = and i32 %shift.180, 255
+  %conv96 = and i32 %shift.181, 255
   %shl97 = shl i32 %v.0, %conv96
-  %or98 = or i32 %shl97, %val.279
-  %dec = add i32 %size.addr.281, -1
+  %or98 = or i32 %shl97, %val.280
+  %dec = add nsw i32 %size.addr.282, -1
   %cmp86.not = icmp eq i32 %dec, 0
   br i1 %cmp86.not, label %sw.epilog109.thread, label %while.bodythread-pre-split, !llvm.loop !9
 
@@ -879,8 +878,8 @@ for.end.thread:                                   ; preds = %for.inc
   br label %if.end61
 
 for.body:                                         ; preds = %if.then37, %for.inc
-  %c.0253 = phi i32 [ 4, %if.then37 ], [ %dec, %for.inc ]
-  %idxprom = zext nneg i32 %c.0253 to i64
+  %c.0254 = phi i32 [ 4, %if.then37 ], [ %dec, %for.inc ]
+  %idxprom = zext nneg i32 %c.0254 to i64
   %access.idx = mul nuw nsw i64 %idxprom, 24
   %access = getelementptr i8, ptr %17, i64 %access.idx
   %18 = load i8, ptr %access, align 4
@@ -889,12 +888,12 @@ for.body:                                         ; preds = %if.then37, %for.inc
   br i1 %tobool42.not, label %for.inc, label %for.end
 
 for.inc:                                          ; preds = %for.body
-  %dec = add nsw i32 %c.0253, -1
-  %cmp38.not = icmp eq i32 %c.0253, 0
+  %dec = add nsw i32 %c.0254, -1
+  %cmp38.not = icmp eq i32 %c.0254, 0
   br i1 %cmp38.not, label %for.end.thread, label %for.body, !llvm.loop !11
 
 for.end:                                          ; preds = %for.body
-  %conv44 = trunc i32 %c.0253 to i8
+  %conv44 = trunc i32 %c.0254 to i8
   tail call fastcc void @trace_tpm_tis_mmio_write_locty_req_use(i8 noundef zeroext %conv44)
   tail call fastcc void @trace_tpm_tis_mmio_write_next_locty(i8 noundef zeroext %conv44)
   %cmp48 = icmp ult i8 %conv44, 5
@@ -961,21 +960,21 @@ for.cond100.preheader:                            ; preds = %while.body
   br label %for.cond100
 
 for.cond100:                                      ; preds = %for.cond100.preheader, %for.body104
-  %indvars.iv261 = phi i64 [ %30, %for.cond100.preheader ], [ %indvars.iv.next262, %for.body104 ]
-  %cmp102 = icmp samesign ult i64 %indvars.iv261, 4
+  %indvars.iv262 = phi i64 [ %30, %for.cond100.preheader ], [ %indvars.iv.next263, %for.body104 ]
+  %cmp102 = icmp samesign ult i64 %indvars.iv262, 4
   br i1 %cmp102, label %for.body104, label %for.cond119.preheader
 
 for.cond119.preheader:                            ; preds = %for.cond100
-  %cmp122254.not = icmp eq i8 %conv.i, 0
-  br i1 %cmp122254.not, label %for.end134, label %for.body124.preheader
+  %cmp122255.not = icmp eq i8 %conv.i, 0
+  br i1 %cmp122255.not, label %for.end134, label %for.body124.preheader
 
 for.body124.preheader:                            ; preds = %for.cond119.preheader
   %wide.trip.count = and i64 %shr.i, 7
   br label %for.body124
 
 for.body104:                                      ; preds = %for.cond100
-  %indvars.iv.next262 = add nuw nsw i64 %indvars.iv261, 1
-  %31 = mul nuw nsw i64 %indvars.iv.next262, 24
+  %indvars.iv.next263 = add nuw nsw i64 %indvars.iv262, 1
+  %31 = mul nuw nsw i64 %indvars.iv.next263, 24
   %32 = or disjoint i64 %31, 4
   %access108 = getelementptr i8, ptr %loc89, i64 %32
   %33 = load i8, ptr %access108, align 4
@@ -984,23 +983,23 @@ for.body104:                                      ; preds = %for.cond100
   br i1 %tobool111.not, label %for.cond100, label %if.end143, !llvm.loop !12
 
 for.body124:                                      ; preds = %for.body124.preheader, %for.body124
-  %indvars.iv265 = phi i64 [ 0, %for.body124.preheader ], [ %indvars.iv.next266, %for.body124 ]
-  %access128.idx = mul nuw nsw i64 %indvars.iv265, 24
+  %indvars.iv266 = phi i64 [ 0, %for.body124.preheader ], [ %indvars.iv.next267, %for.body124 ]
+  %access128.idx = mul nuw nsw i64 %indvars.iv266, 24
   %access128.offs = or disjoint i64 %access128.idx, 4
   %access128 = getelementptr i8, ptr %loc89, i64 %access128.offs
   %35 = load i8, ptr %access128, align 4
   %36 = and i8 %35, -9
   store i8 %36, ptr %access128, align 4
-  %indvars.iv.next266 = add nuw nsw i64 %indvars.iv265, 1
-  %exitcond268.not = icmp eq i64 %indvars.iv.next266, %wide.trip.count
-  br i1 %exitcond268.not, label %for.end134.loopexit, label %for.body124, !llvm.loop !13
+  %indvars.iv.next267 = add nuw nsw i64 %indvars.iv266, 1
+  %exitcond269.not = icmp eq i64 %indvars.iv.next267, %wide.trip.count
+  br i1 %exitcond269.not, label %for.end134.loopexit, label %for.body124, !llvm.loop !13
 
 for.end134.loopexit:                              ; preds = %for.body124
-  %.pre271 = load i8, ptr %access92, align 4
+  %.pre272 = load i8, ptr %access92, align 4
   br label %for.end134
 
 for.end134:                                       ; preds = %for.end134.loopexit, %for.cond119.preheader
-  %37 = phi i8 [ %.pre271, %for.end134.loopexit ], [ %28, %for.cond119.preheader ]
+  %37 = phi i8 [ %.pre272, %for.end134.loopexit ], [ %28, %for.cond119.preheader ]
   %38 = or i8 %37, 8
   store i8 %38, ptr %access92, align 4
   tail call fastcc void @trace_tpm_tis_mmio_write_locty_seized(i8 noundef zeroext %conv.i, i8 noundef zeroext %26)
@@ -1063,13 +1062,13 @@ sw.bb172:                                         ; preds = %if.end14
 sw.bb186:                                         ; preds = %if.end14
   %and187 = and i64 %val.addr.0, 135
   %tobool188.not = icmp eq i64 %and187, 0
-  %.pre272 = mul nuw nsw i8 %conv.i, 24
-  %.pre273 = zext nneg i8 %.pre272 to i64
+  %.pre273 = mul nuw nsw i8 %conv.i, 24
+  %.pre274 = zext nneg i8 %.pre273 to i64
   br i1 %tobool188.not, label %if.end211, label %land.lhs.true189
 
 land.lhs.true189:                                 ; preds = %sw.bb186
   %48 = getelementptr i8, ptr %opaque, i64 4396
-  %ints = getelementptr i8, ptr %48, i64 %.pre273
+  %ints = getelementptr i8, ptr %48, i64 %.pre274
   %49 = load i32, ptr %ints, align 4
   %and193 = and i32 %49, 135
   %tobool194.not = icmp eq i32 %and193, 0
@@ -1092,7 +1091,7 @@ if.then209:                                       ; preds = %if.then195
 
 if.end211:                                        ; preds = %sw.bb186, %if.then195, %if.then209, %land.lhs.true189
   %53 = getelementptr i8, ptr %opaque, i64 4396
-  %ints217 = getelementptr i8, ptr %53, i64 %.pre273
+  %ints217 = getelementptr i8, ptr %53, i64 %.pre274
   %54 = load i32, ptr %ints217, align 4
   %55 = trunc nuw nsw i64 %and187 to i32
   %56 = xor i32 %55, -1
@@ -1198,11 +1197,11 @@ if.then288:                                       ; preds = %sw.bb277
   %or.i211 = or disjoint i32 %and.i210, 64
   store i32 %or.i211, ptr %sts, align 4
   tail call fastcc void @tpm_tis_raise_irq(ptr noundef nonnull %opaque, i8 noundef zeroext %conv.i, i32 noundef 128)
-  %.pre270 = load i32, ptr %sts, align 8
+  %.pre271 = load i32, ptr %sts, align 8
   br label %if.end292
 
 if.end292:                                        ; preds = %if.then288, %sw.bb277
-  %65 = phi i32 [ %.pre270, %if.then288 ], [ %64, %sw.bb277 ]
+  %65 = phi i32 [ %.pre271, %if.then288 ], [ %64, %sw.bb277 ]
   %and297 = and i32 %65, -17
   store i32 %and297, ptr %sts, align 8
   br label %sw.epilog479
@@ -1317,19 +1316,18 @@ if.then373:                                       ; preds = %trace_tpm_tis_mmio_
 
 if.end381:                                        ; preds = %trace_tpm_tis_mmio_write_data2send.exit.if.end381_crit_edge, %if.then373
   %80 = phi i32 [ %.pre, %trace_tpm_tis_mmio_write_data2send.exit.if.end381_crit_edge ], [ %or.i231, %if.then373 ]
-  %conv384 = zext i32 %size to i64
-  %sub = sub nuw nsw i64 4, %and1
-  %cmp386 = icmp samesign ult i64 %sub, %conv384
-  %conv391 = trunc nuw nsw i64 %sub to i32
-  %spec.select194 = select i1 %cmp386, i32 %conv391, i32 %size
   %sts397 = getelementptr inbounds nuw i8, ptr %arrayidx346, i64 8
-  %and398245 = and i32 %80, 8
-  %tobool399246 = icmp ne i32 %and398245, 0
-  %cmp400247 = icmp ne i32 %spec.select194, 0
-  %81 = select i1 %tobool399246, i1 %cmp400247, i1 false
+  %and398246 = and i32 %80, 8
+  %tobool399247 = icmp ne i32 %and398246, 0
+  %cmp400248 = icmp ne i32 %size, 0
+  %81 = and i1 %tobool399247, %cmp400248
   br i1 %81, label %while.body402.lr.ph, label %while.end420
 
 while.body402.lr.ph:                              ; preds = %if.end381
+  %conv384 = zext i32 %size to i64
+  %sub = sub nuw nsw i64 4, %and1
+  %spec.select194244 = tail call i64 @llvm.umin.i64(i64 %sub, i64 %conv384)
+  %spec.select194 = trunc nuw nsw i64 %spec.select194244 to i32
   %rw_offset403 = getelementptr inbounds nuw i8, ptr %opaque, i64 4368
   %be_buffer_size = getelementptr inbounds nuw i8, ptr %opaque, i64 4568
   %buffer = getelementptr inbounds nuw i8, ptr %opaque, i64 272
@@ -1337,8 +1335,8 @@ while.body402.lr.ph:                              ; preds = %if.end381
 
 while.body402:                                    ; preds = %while.body402.lr.ph, %if.end419
   %82 = phi i32 [ %80, %while.body402.lr.ph ], [ %85, %if.end419 ]
-  %val.addr.2249 = phi i64 [ %and16, %while.body402.lr.ph ], [ %val.addr.3, %if.end419 ]
-  %size.addr.1248 = phi i32 [ %spec.select194, %while.body402.lr.ph ], [ %size.addr.2, %if.end419 ]
+  %val.addr.2250 = phi i64 [ %and16, %while.body402.lr.ph ], [ %val.addr.3, %if.end419 ]
+  %size.addr.1249 = phi i32 [ %spec.select194, %while.body402.lr.ph ], [ %size.addr.2, %if.end419 ]
   %83 = load i16, ptr %rw_offset403, align 16
   %conv404 = zext i16 %83 to i64
   %84 = load i64, ptr %be_buffer_size, align 8
@@ -1346,14 +1344,14 @@ while.body402:                                    ; preds = %while.body402.lr.ph
   br i1 %cmp405, label %if.then407, label %if.else415
 
 if.then407:                                       ; preds = %while.body402
-  %conv408 = trunc i64 %val.addr.2249 to i8
+  %conv408 = trunc i64 %val.addr.2250 to i8
   %inc410 = add i16 %83, 1
   store i16 %inc410, ptr %rw_offset403, align 16
   %arrayidx412 = getelementptr [4096 x i8], ptr %buffer, i64 0, i64 %conv404
   store i8 %conv408, ptr %arrayidx412, align 1
-  %shr413 = lshr i64 %val.addr.2249, 8
-  %dec414 = add i32 %size.addr.1248, -1
-  %.pre269 = load i32, ptr %sts397, align 8
+  %shr413 = lshr i64 %val.addr.2250, 8
+  %dec414 = add i32 %size.addr.1249, -1
+  %.pre270 = load i32, ptr %sts397, align 8
   br label %if.end419
 
 if.else415:                                       ; preds = %while.body402
@@ -1363,9 +1361,9 @@ if.else415:                                       ; preds = %while.body402
   br label %if.end419
 
 if.end419:                                        ; preds = %if.else415, %if.then407
-  %85 = phi i32 [ %.pre269, %if.then407 ], [ %or.i234, %if.else415 ]
-  %size.addr.2 = phi i32 [ %dec414, %if.then407 ], [ %size.addr.1248, %if.else415 ]
-  %val.addr.3 = phi i64 [ %shr413, %if.then407 ], [ %val.addr.2249, %if.else415 ]
+  %85 = phi i32 [ %.pre270, %if.then407 ], [ %or.i234, %if.else415 ]
+  %size.addr.2 = phi i32 [ %dec414, %if.then407 ], [ %size.addr.1249, %if.else415 ]
+  %val.addr.3 = phi i64 [ %shr413, %if.then407 ], [ %val.addr.2250, %if.else415 ]
   %and398 = and i32 %85, 8
   %tobool399 = icmp ne i32 %and398, 0
   %cmp400 = icmp ne i32 %size.addr.2, 0
@@ -1374,7 +1372,7 @@ if.end419:                                        ; preds = %if.else415, %if.the
 
 while.end420:                                     ; preds = %if.end419, %if.end381
   %.lcssa = phi i32 [ %80, %if.end381 ], [ %85, %if.end419 ]
-  %tobool399.lcssa = phi i1 [ %tobool399246, %if.end381 ], [ %tobool399, %if.end419 ]
+  %tobool399.lcssa = phi i1 [ %tobool399247, %if.end381 ], [ %tobool399, %if.end419 ]
   %rw_offset421 = getelementptr inbounds nuw i8, ptr %opaque, i64 4368
   %87 = load i16, ptr %rw_offset421, align 16
   %cmp423 = icmp ugt i16 %87, 5

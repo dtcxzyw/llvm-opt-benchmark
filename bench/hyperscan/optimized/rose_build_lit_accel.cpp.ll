@@ -803,8 +803,8 @@ for.cond25.preheader:                             ; preds = %for.cond.cleanup27,
 
 for.cond.cleanup27:                               ; preds = %for.inc.1
   %indvars.iv.next469 = add nuw nsw i64 %indvars.iv468, 1
-  %exitcond.not74 = icmp eq i64 %indvars.iv.next469, %84
-  br i1 %exitcond.not74, label %for.cond51.preheader, label %for.cond25.preheader, !llvm.loop !14
+  %exitcond.not76 = icmp eq i64 %indvars.iv.next469, %84
+  br i1 %exitcond.not76, label %for.cond51.preheader, label %for.cond25.preheader, !llvm.loop !14
 
 for.body28:                                       ; preds = %for.inc.1, %for.cond25.preheader
   %indvars.iv464 = phi i64 [ 0, %for.cond25.preheader ], [ %indvars.iv.next465.1, %for.inc.1 ]
@@ -846,19 +846,19 @@ for.inc.1:                                        ; preds = %if.then38.1, %for.i
   br i1 %exitcond467.not.1, label %for.cond.cleanup27, label %for.body28, !llvm.loop !15
 
 for.body54:                                       ; preds = %cleanup, %for.body54.lr.ph
-  %indvars.iv67 = phi i64 [ %indvars.iv.next68, %cleanup ], [ 1, %for.body54.lr.ph ]
+  %indvars.iv69 = phi i64 [ %indvars.iv.next70, %cleanup ], [ 1, %for.body54.lr.ph ]
   %indvars.iv474 = phi i64 [ %indvars.iv.next475, %cleanup ], [ %.pre-phi, %for.body54.lr.ph ]
   %add.ptr.i323 = getelementptr inbounds nuw %"class.ue2::CharReach", ptr %call5.i.i.i.i4.i.i311, i64 %indvars.iv474
   %90 = sub nuw nsw i64 %indvars.iv474, %.pre-phi
   br i1 %tobool.not.i326, label %land.rhs.i327.us, label %land.rhs.i327
 
 land.rhs.i327.us:                                 ; preds = %for.body54, %if.end13.i.us
-  %indvars.iv63 = phi i64 [ %indvars.iv.next64, %if.end13.i.us ], [ 0, %for.body54 ]
-  %exitcond66.not = icmp eq i64 %indvars.iv63, %83
-  br i1 %exitcond66.not, label %if.end61, label %for.body.i329.us
+  %indvars.iv65 = phi i64 [ %indvars.iv.next66, %if.end13.i.us ], [ 0, %for.body54 ]
+  %exitcond68.not = icmp eq i64 %indvars.iv65, %83
+  br i1 %exitcond68.not, label %if.end61, label %for.body.i329.us
 
 for.body.i329.us:                                 ; preds = %land.rhs.i327.us
-  %arrayidx.i.i330.us = getelementptr inbounds nuw i8, ptr %.pre487, i64 %indvars.iv63
+  %arrayidx.i.i330.us = getelementptr inbounds nuw i8, ptr %.pre487, i64 %indvars.iv65
   %91 = load i8, ptr %arrayidx.i.i330.us, align 1
   %conv.i37.i.us = zext i8 %91 to i64
   %div1.i.i.i38.i.us = lshr i64 %conv.i37.i.us, 6
@@ -871,17 +871,17 @@ for.body.i329.us:                                 ; preds = %land.rhs.i327.us
   br i1 %tobool.i.i43.not.i.us, label %if.end13.i.us, label %cleanup
 
 if.end13.i.us:                                    ; preds = %for.body.i329.us
-  %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
-  %exitcond473.us = icmp eq i64 %indvars.iv.next64, %indvars.iv67
+  %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
+  %exitcond473.us = icmp eq i64 %indvars.iv.next66, %indvars.iv69
   br i1 %exitcond473.us, label %if.end61, label %land.rhs.i327.us, !llvm.loop !16
 
 land.rhs.i327:                                    ; preds = %for.body54, %if.end13.i
-  %indvars.iv59 = phi i64 [ %indvars.iv.next60, %if.end13.i ], [ 0, %for.body54 ]
-  %exitcond62.not = icmp eq i64 %indvars.iv59, %83
-  br i1 %exitcond62.not, label %if.end61, label %for.body.i329
+  %indvars.iv61 = phi i64 [ %indvars.iv.next62, %if.end13.i ], [ 0, %for.body54 ]
+  %exitcond64.not = icmp eq i64 %indvars.iv61, %83
+  br i1 %exitcond64.not, label %if.end61, label %for.body.i329
 
 for.body.i329:                                    ; preds = %land.rhs.i327
-  %arrayidx.i.i330 = getelementptr inbounds nuw i8, ptr %.pre487, i64 %indvars.iv59
+  %arrayidx.i.i330 = getelementptr inbounds nuw i8, ptr %.pre487, i64 %indvars.iv61
   %93 = load i8, ptr %arrayidx.i.i330, align 1
   %94 = add i8 %93, -123
   %95 = icmp ult i8 %94, -26
@@ -913,8 +913,8 @@ land.lhs.true.i:                                  ; preds = %for.body.i329
   br i1 %tobool.i.i36.not.i, label %if.end13.i, label %cleanup
 
 if.end13.i:                                       ; preds = %land.lhs.true.i, %for.body.i329
-  %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
-  %exitcond473 = icmp eq i64 %indvars.iv.next60, %indvars.iv67
+  %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
+  %exitcond473 = icmp eq i64 %indvars.iv.next62, %indvars.iv69
   br i1 %exitcond473, label %if.end61, label %land.rhs.i327, !llvm.loop !16
 
 if.end61:                                         ; preds = %land.rhs.i327, %if.end13.i, %land.rhs.i327.us, %if.end13.i.us
@@ -958,7 +958,7 @@ cleanup.sink.split:                               ; preds = %invoke.cont76, %if.
 cleanup:                                          ; preds = %land.lhs.true.i, %for.body.i329.us, %cleanup.sink.split
   %indvars.iv.next475 = add nuw nsw i64 %indvars.iv474, 1
   %cmp52 = icmp samesign ult i64 %indvars.iv474, 15
-  %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
+  %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   br i1 %cmp52, label %for.body54, label %cleanup91, !llvm.loop !17
 
 cleanup91:                                        ; preds = %cleanup, %for.cond51.preheader, %for.body
@@ -967,21 +967,20 @@ cleanup91:                                        ; preds = %cleanup, %for.cond5
   br i1 %cmp.i312.not, label %invoke.cont112.preheader, label %for.body
 
 for.cond.cleanup107:                              ; preds = %invoke.cont112
-  %cmp127 = icmp ugt i32 %spec.select, 240
+  %cmp127 = icmp samesign ugt i64 %spec.select8, 240
   br i1 %cmp127, label %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit, label %if.end132
 
 invoke.cont112:                                   ; preds = %invoke.cont112.preheader, %invoke.cont112
   %indvars.iv478 = phi i64 [ %indvars.iv.next479, %invoke.cont112 ], [ 0, %invoke.cont112.preheader ]
   %min_offset.0441 = phi i32 [ %spec.select230, %invoke.cont112 ], [ -1, %invoke.cont112.preheader ]
-  %min_count.0440 = phi i32 [ %spec.select, %invoke.cont112 ], [ -1, %invoke.cont112.preheader ]
+  %min_count.0440 = phi i64 [ %spec.select8, %invoke.cont112 ], [ 4294967295, %invoke.cont112.preheader ]
   %add.ptr.i354 = getelementptr inbounds nuw %"class.ue2::CharReach", ptr %call5.i.i.i.i4.i.i311, i64 %indvars.iv478
   %106 = load <4 x i64>, ptr %add.ptr.i354, align 8
   %107 = tail call range(i64 0, 65) <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %106), !range !18
   %108 = tail call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %107)
-  %conv116 = zext i32 %min_count.0440 to i64
+  %conv116 = and i64 %min_count.0440, 4294967295
   %cmp117 = icmp ult i64 %108, %conv116
-  %conv119 = trunc i64 %108 to i32
-  %spec.select = select i1 %cmp117, i32 %conv119, i32 %min_count.0440
+  %spec.select8 = tail call i64 @llvm.umin.i64(i64 %108, i64 %conv116)
   %109 = trunc i64 %indvars.iv478 to i32
   %spec.select230 = select i1 %cmp117, i32 %109, i32 %min_offset.0441
   %indvars.iv.next479 = add nuw nsw i64 %indvars.iv478, 1

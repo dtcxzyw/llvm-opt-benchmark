@@ -538,42 +538,40 @@ cm_zlib_gz_error.exit:                            ; preds = %45, %53
   %.172 = phi i64 [ %63, %68 ], [ %.058, %57 ]
   %70 = load i32, ptr %0, align 8
   %71 = zext i32 %70 to i64
-  %72 = icmp samesign ult i64 %.172, %71
-  %73 = trunc nuw i64 %.172 to i32
-  %74 = select i1 %72, i32 %73, i32 %70
-  %75 = sub i32 %70, %74
-  store i32 %75, ptr %0, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %77 = load ptr, ptr %76, align 8
-  %78 = zext i32 %74 to i64
-  %79 = getelementptr inbounds nuw i8, ptr %77, i64 %78
-  store ptr %79, ptr %76, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %81 = load i64, ptr %80, align 8
-  %82 = add nsw i64 %81, %78
-  store i64 %82, ptr %80, align 8
-  %83 = sub nsw i64 %.172, %78
+  %72 = tail call i64 @llvm.umin.i64(i64 %.172, i64 %71)
+  %73 = trunc nuw i64 %72 to i32
+  %74 = sub i32 %70, %73
+  store i32 %74, ptr %0, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %76 = load ptr, ptr %75, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 %72
+  store ptr %77, ptr %75, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %79 = load i64, ptr %78, align 8
+  %80 = add nsw i64 %79, %72
+  store i64 %80, ptr %78, align 8
+  %81 = sub nsw i64 %.172, %72
   br label %.thread73
 
 .thread73:                                        ; preds = %.thread, %.thread70, %68
-  %.2 = phi i64 [ %83, %.thread70 ], [ %63, %68 ], [ %.058, %.thread ]
+  %.2 = phi i64 [ %81, %.thread70 ], [ %63, %68 ], [ %.058, %.thread ]
   %.not68 = icmp eq i64 %.2, 0
-  br i1 %.not68, label %86, label %84
+  br i1 %.not68, label %84, label %82
 
-84:                                               ; preds = %.thread73
+82:                                               ; preds = %.thread73
   store i32 1, ptr %26, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i64 %.2, ptr %85, align 8
-  br label %86
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store i64 %.2, ptr %83, align 8
+  br label %84
 
-86:                                               ; preds = %84, %.thread73
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %88 = load i64, ptr %87, align 8
-  %89 = add nsw i64 %88, %.2
+84:                                               ; preds = %82, %.thread73
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %86 = load i64, ptr %85, align 8
+  %87 = add nsw i64 %86, %.2
   br label %.thread69
 
-.thread69:                                        ; preds = %.thread, %65, %60, %37, %11, %8, %5, %3, %86, %cm_zlib_gz_error.exit
-  %.0 = phi i64 [ %56, %cm_zlib_gz_error.exit ], [ %89, %86 ], [ -1, %3 ], [ -1, %5 ], [ -1, %8 ], [ -1, %11 ], [ -1, %37 ], [ -1, %60 ], [ -1, %65 ], [ -1, %.thread ]
+.thread69:                                        ; preds = %.thread, %65, %60, %37, %11, %8, %5, %3, %84, %cm_zlib_gz_error.exit
+  %.0 = phi i64 [ %56, %cm_zlib_gz_error.exit ], [ %87, %84 ], [ -1, %3 ], [ -1, %5 ], [ -1, %8 ], [ -1, %11 ], [ -1, %37 ], [ -1, %60 ], [ -1, %65 ], [ -1, %.thread ]
   ret i64 %.0
 }
 
@@ -913,6 +911,9 @@ declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) loca
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #10
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

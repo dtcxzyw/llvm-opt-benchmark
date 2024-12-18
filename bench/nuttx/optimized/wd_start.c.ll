@@ -205,77 +205,77 @@ define i32 @wd_timer(i32 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.01322 = phi ptr [ %.013, %.lr.ph ], [ %.01320, %2 ]
-  %.021 = phi i32 [ %17, %.lr.ph ], [ %0, %2 ]
+  %.021 = phi i32 [ %16, %.lr.ph ], [ %0, %2 ]
   %9 = getelementptr inbounds nuw i8, ptr %.01322, i64 24
   %10 = load i64, ptr %9, align 8
   %11 = zext nneg i32 %.021 to i64
-  %12 = icmp slt i64 %10, %11
-  %13 = trunc i64 %10 to i32
-  %14 = select i1 %12, i32 %13, i32 %.021
-  %15 = sext i32 %14 to i64
-  %16 = sub nsw i64 %10, %15
-  store i64 %16, ptr %9, align 8
-  %17 = sub nsw i32 %.021, %14
+  %12 = tail call i64 @llvm.smin.i64(i64 %10, i64 %11)
+  %13 = trunc i64 %12 to i32
+  %sext = shl i64 %12, 32
+  %14 = ashr exact i64 %sext, 32
+  %15 = sub nsw i64 %10, %14
+  store i64 %15, ptr %9, align 8
+  %16 = sub nsw i32 %.021, %13
   %.013 = load ptr, ptr %.01322, align 8
-  %18 = icmp ne ptr %.013, null
-  %19 = icmp sgt i32 %17, 0
-  %20 = select i1 %18, i1 %19, i1 false
-  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  %17 = icmp ne ptr %.013, null
+  %18 = icmp sgt i32 %16, 0
+  %19 = select i1 %17, i1 %18, i1 false
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.not = icmp eq ptr %.01320, null
-  br i1 %1, label %wd_expiration.exit, label %21
+  br i1 %1, label %wd_expiration.exit, label %20
 
-21:                                               ; preds = %._crit_edge
+20:                                               ; preds = %._crit_edge
   br i1 %.not, label %wd_expiration.exit.thread, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %21, %35
-  %22 = phi ptr [ %40, %35 ], [ %.01320, %21 ]
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %24 = load i64, ptr %23, align 8
-  %25 = icmp slt i64 %24, 1
-  br i1 %25, label %26, label %wd_expiration.exit.thread24
+.lr.ph.i:                                         ; preds = %20, %34
+  %21 = phi ptr [ %39, %34 ], [ %.01320, %20 ]
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  %23 = load i64, ptr %22, align 8
+  %24 = icmp slt i64 %23, 1
+  br i1 %24, label %25, label %wd_expiration.exit.thread24
 
-26:                                               ; preds = %.lr.ph.i
-  %27 = tail call ptr @sq_remfirst(ptr noundef nonnull @g_wdactivelist) #4
-  %28 = load ptr, ptr @g_wdactivelist, align 8
-  %.not6.i = icmp eq ptr %28, null
-  br i1 %.not6.i, label %35, label %29
+25:                                               ; preds = %.lr.ph.i
+  %26 = tail call ptr @sq_remfirst(ptr noundef nonnull @g_wdactivelist) #4
+  %27 = load ptr, ptr @g_wdactivelist, align 8
+  %.not6.i = icmp eq ptr %27, null
+  br i1 %.not6.i, label %34, label %28
 
-29:                                               ; preds = %26
-  %30 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  %31 = load i64, ptr %30, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  %33 = load i64, ptr %32, align 8
-  %34 = add nsw i64 %33, %31
-  store i64 %34, ptr %32, align 8
-  br label %35
+28:                                               ; preds = %25
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 24
+  %30 = load i64, ptr %29, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 24
+  %32 = load i64, ptr %31, align 8
+  %33 = add nsw i64 %32, %30
+  store i64 %33, ptr %31, align 8
+  br label %34
 
-35:                                               ; preds = %29, %26
-  %36 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %37 = load ptr, ptr %36, align 8
-  store ptr null, ptr %36, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %39 = load i64, ptr %38, align 8
-  tail call void %37(i64 noundef %39) #4
-  %40 = load ptr, ptr @g_wdactivelist, align 8
-  %.not.i = icmp eq ptr %40, null
+34:                                               ; preds = %28, %25
+  %35 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %36 = load ptr, ptr %35, align 8
+  store ptr null, ptr %35, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %38 = load i64, ptr %37, align 8
+  tail call void %36(i64 noundef %38) #4
+  %39 = load ptr, ptr @g_wdactivelist, align 8
+  %.not.i = icmp eq ptr %39, null
   br i1 %.not.i, label %wd_expiration.exit.thread, label %.lr.ph.i, !llvm.loop !13
 
 wd_expiration.exit:                               ; preds = %._crit_edge
   br i1 %.not, label %wd_expiration.exit.thread, label %wd_expiration.exit.thread24
 
 wd_expiration.exit.thread24:                      ; preds = %.lr.ph.i, %wd_expiration.exit
-  %.pr27 = phi ptr [ %.01320, %wd_expiration.exit ], [ %22, %.lr.ph.i ]
-  %41 = getelementptr inbounds nuw i8, ptr %.pr27, i64 24
-  %42 = load i64, ptr %41, align 8
-  %spec.select19 = tail call i64 @llvm.smax.i64(i64 %42, i64 1)
+  %.pr27 = phi ptr [ %.01320, %wd_expiration.exit ], [ %21, %.lr.ph.i ]
+  %40 = getelementptr inbounds nuw i8, ptr %.pr27, i64 24
+  %41 = load i64, ptr %40, align 8
+  %spec.select19 = tail call i64 @llvm.smax.i64(i64 %41, i64 1)
   %spec.select = trunc i64 %spec.select19 to i32
   br label %wd_expiration.exit.thread
 
-wd_expiration.exit.thread:                        ; preds = %35, %21, %wd_expiration.exit.thread24, %wd_expiration.exit
-  %43 = phi i32 [ 0, %wd_expiration.exit ], [ %spec.select, %wd_expiration.exit.thread24 ], [ 0, %21 ], [ 0, %35 ]
-  ret i32 %43
+wd_expiration.exit.thread:                        ; preds = %34, %20, %wd_expiration.exit.thread24, %wd_expiration.exit
+  %42 = phi i32 [ 0, %wd_expiration.exit ], [ %spec.select, %wd_expiration.exit.thread24 ], [ 0, %20 ], [ 0, %34 ]
+  ret i32 %42
 }
 
 declare ptr @sq_remfirst(ptr noundef) local_unnamed_addr #1
@@ -288,6 +288,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #3
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smin.i64(i64, i64) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }

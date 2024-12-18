@@ -55,24 +55,21 @@ if.end7:                                          ; preds = %if.end
   %0 = load i8, ptr %i1.i, align 8
   %cmp.not.i = icmp eq i8 %0, 0
   %1 = shl nuw i8 %p, 3
-  %.pre70.i = zext i8 %1 to i32
+  %.pre71.i = zext i8 %1 to i32
   br i1 %cmp.not.i, label %if.end52.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end7
   %conv6.i = sub i8 %1, %0
   %conv7.i = zext i8 %conv6.i to i32
-  %cmp8.i = icmp ult i32 %len, %conv7.i
-  %conv11.i = trunc nuw i32 %len to i8
-  %spec.select.i = select i1 %cmp8.i, i8 %conv11.i, i8 %conv6.i
+  %spec.select46.i = tail call i32 @llvm.umin.i32(i32 %len, i32 %conv7.i)
   %t12.i = getelementptr inbounds nuw i8, ptr %sha3, i64 200
   %idxprom.i = zext i8 %0 to i64
   %arrayidx.i = getelementptr inbounds nuw [200 x i8], ptr %t12.i, i64 0, i64 %idxprom.i
-  %conv14.i = zext i8 %spec.select.i to i32
-  %cmp1546.not.i = icmp eq i8 %spec.select.i, 0
-  br i1 %cmp1546.not.i, label %for.end.i, label %for.body.preheader.i
+  %cmp1547.not.i = icmp eq i32 %spec.select46.i, 0
+  br i1 %cmp1547.not.i, label %for.end.i, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %if.then.i
-  %wide.trip.count.i = zext i8 %spec.select.i to i64
+  %wide.trip.count.i = zext nneg i32 %spec.select46.i to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
@@ -93,28 +90,29 @@ for.end.i:                                        ; preds = %if.then.i, %for.end
   %idx.ext.i.pre-phi = phi i64 [ %wide.trip.count.i, %for.end.loopexit.i ], [ 0, %if.then.i ]
   %3 = phi i8 [ %.pre.i, %for.end.loopexit.i ], [ %0, %if.then.i ]
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %data, i64 %idx.ext.i.pre-phi
-  %sub21.i = sub i32 %len, %conv14.i
-  %conv26.i = add i8 %3, %spec.select.i
+  %sub21.i = sub i32 %len, %spec.select46.i
+  %4 = trunc nuw i32 %spec.select46.i to i8
+  %conv26.i = add i8 %3, %4
   store i8 %conv26.i, ptr %i1.i, align 8
   %cmp31.i = icmp eq i8 %1, %conv26.i
   br i1 %cmp31.i, label %for.body38.preheader.i, label %if.end52.i
 
 for.body38.preheader.i:                           ; preds = %for.end.i
-  %wide.trip.count61.i = zext nneg i8 %p to i64
+  %wide.trip.count62.i = zext nneg i8 %p to i64
   br label %for.body38.i
 
 for.body38.i:                                     ; preds = %for.body38.i, %for.body38.preheader.i
-  %indvars.iv57.i = phi i64 [ 0, %for.body38.preheader.i ], [ %indvars.iv.next58.i, %for.body38.i ]
-  %4 = shl nuw nsw i64 %indvars.iv57.i, 3
-  %add.ptr42.i = getelementptr inbounds nuw i8, ptr %t12.i, i64 %4
+  %indvars.iv58.i = phi i64 [ 0, %for.body38.preheader.i ], [ %indvars.iv.next59.i, %for.body38.i ]
+  %5 = shl nuw nsw i64 %indvars.iv58.i, 3
+  %add.ptr42.i = getelementptr inbounds nuw i8, ptr %t12.i, i64 %5
   %add.ptr42.val.i = load i64, ptr %add.ptr42.i, align 8
-  %arrayidx44.i = getelementptr inbounds nuw [25 x i64], ptr %sha3, i64 0, i64 %indvars.iv57.i
-  %5 = load i64, ptr %arrayidx44.i, align 8
-  %xor.i = xor i64 %5, %add.ptr42.val.i
+  %arrayidx44.i = getelementptr inbounds nuw [25 x i64], ptr %sha3, i64 0, i64 %indvars.iv58.i
+  %6 = load i64, ptr %arrayidx44.i, align 8
+  %xor.i = xor i64 %6, %add.ptr42.val.i
   store i64 %xor.i, ptr %arrayidx44.i, align 8
-  %indvars.iv.next58.i = add nuw nsw i64 %indvars.iv57.i, 1
-  %exitcond62.not.i = icmp eq i64 %indvars.iv.next58.i, %wide.trip.count61.i
-  br i1 %exitcond62.not.i, label %for.end47.i, label %for.body38.i, !llvm.loop !6
+  %indvars.iv.next59.i = add nuw nsw i64 %indvars.iv58.i, 1
+  %exitcond63.not.i = icmp eq i64 %indvars.iv.next59.i, %wide.trip.count62.i
+  br i1 %exitcond63.not.i, label %for.end47.i, label %for.body38.i, !llvm.loop !6
 
 for.end47.i:                                      ; preds = %for.body38.i
   tail call fastcc void @BlockSha3(ptr noundef nonnull %sha3)
@@ -124,43 +122,43 @@ for.end47.i:                                      ; preds = %for.body38.i
 if.end52.i:                                       ; preds = %for.end47.i, %for.end.i, %if.end7
   %len.addr.0.i = phi i32 [ %sub21.i, %for.end.i ], [ %sub21.i, %for.end47.i ], [ %len, %if.end7 ]
   %data.addr.0.i = phi ptr [ %add.ptr.i, %for.end.i ], [ %add.ptr.i, %for.end47.i ], [ %data, %if.end7 ]
-  %cmp56.not50.i = icmp ult i32 %len.addr.0.i, %.pre70.i
-  br i1 %cmp56.not50.i, label %Sha3Update.exit, label %for.cond59.preheader.lr.ph.i
+  %cmp56.not51.i = icmp ult i32 %len.addr.0.i, %.pre71.i
+  br i1 %cmp56.not51.i, label %Sha3Update.exit, label %for.cond59.preheader.lr.ph.i
 
 for.cond59.preheader.lr.ph.i:                     ; preds = %if.end52.i
-  %div.i = udiv i32 %len.addr.0.i, %.pre70.i
-  %.recomposed = urem i32 %len.addr.0.i, %.pre70.i
+  %div.i = udiv i32 %len.addr.0.i, %.pre71.i
+  %.recomposed = urem i32 %len.addr.0.i, %.pre71.i
   %idx.ext82.i = zext i8 %1 to i64
-  %wide.trip.count67.i = zext nneg i8 %p to i64
+  %wide.trip.count68.i = zext nneg i8 %p to i64
   br label %for.cond59.preheader.i
 
 for.cond59.preheader.i:                           ; preds = %for.end74.i, %for.cond59.preheader.lr.ph.i
-  %data.addr.153.i = phi ptr [ %data.addr.0.i, %for.cond59.preheader.lr.ph.i ], [ %add.ptr83.i, %for.end74.i ]
-  %blocks.052.i = phi i32 [ %div.i, %for.cond59.preheader.lr.ph.i ], [ %dec.i, %for.end74.i ]
+  %data.addr.154.i = phi ptr [ %data.addr.0.i, %for.cond59.preheader.lr.ph.i ], [ %add.ptr83.i, %for.end74.i ]
+  %blocks.053.i = phi i32 [ %div.i, %for.cond59.preheader.lr.ph.i ], [ %dec.i, %for.end74.i ]
   br label %for.body63.i
 
 for.body63.i:                                     ; preds = %for.body63.i, %for.cond59.preheader.i
-  %indvars.iv63.i = phi i64 [ 0, %for.cond59.preheader.i ], [ %indvars.iv.next64.i, %for.body63.i ]
-  %6 = shl nuw nsw i64 %indvars.iv63.i, 3
-  %add.ptr66.i = getelementptr inbounds nuw i8, ptr %data.addr.153.i, i64 %6
-  %7 = load i64, ptr %add.ptr66.i, align 1
-  %arrayidx70.i = getelementptr inbounds nuw [25 x i64], ptr %sha3, i64 0, i64 %indvars.iv63.i
-  %8 = load i64, ptr %arrayidx70.i, align 8
-  %xor71.i = xor i64 %8, %7
+  %indvars.iv64.i = phi i64 [ 0, %for.cond59.preheader.i ], [ %indvars.iv.next65.i, %for.body63.i ]
+  %7 = shl nuw nsw i64 %indvars.iv64.i, 3
+  %add.ptr66.i = getelementptr inbounds nuw i8, ptr %data.addr.154.i, i64 %7
+  %8 = load i64, ptr %add.ptr66.i, align 1
+  %arrayidx70.i = getelementptr inbounds nuw [25 x i64], ptr %sha3, i64 0, i64 %indvars.iv64.i
+  %9 = load i64, ptr %arrayidx70.i, align 8
+  %xor71.i = xor i64 %9, %8
   store i64 %xor71.i, ptr %arrayidx70.i, align 8
-  %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
-  %exitcond68.not.i = icmp eq i64 %indvars.iv.next64.i, %wide.trip.count67.i
-  br i1 %exitcond68.not.i, label %for.end74.i, label %for.body63.i, !llvm.loop !7
+  %indvars.iv.next65.i = add nuw nsw i64 %indvars.iv64.i, 1
+  %exitcond69.not.i = icmp eq i64 %indvars.iv.next65.i, %wide.trip.count68.i
+  br i1 %exitcond69.not.i, label %for.end74.i, label %for.body63.i, !llvm.loop !7
 
 for.end74.i:                                      ; preds = %for.body63.i
   tail call fastcc void @BlockSha3(ptr noundef nonnull %sha3)
-  %add.ptr83.i = getelementptr inbounds nuw i8, ptr %data.addr.153.i, i64 %idx.ext82.i
-  %dec.i = add nsw i32 %blocks.052.i, -1
+  %add.ptr83.i = getelementptr inbounds nuw i8, ptr %data.addr.154.i, i64 %idx.ext82.i
+  %dec.i = add nsw i32 %blocks.053.i, -1
   %cmp56.not.i = icmp eq i32 %dec.i, 0
   br i1 %cmp56.not.i, label %for.end85.loopexit.i, label %for.cond59.preheader.i, !llvm.loop !8
 
 for.end85.loopexit.i:                             ; preds = %for.end74.i
-  %9 = mul i32 %div.i, %.pre70.i
+  %10 = mul i32 %div.i, %.pre71.i
   br label %Sha3Update.exit
 
 Sha3Update.exit:                                  ; preds = %if.end52.i, %for.end85.loopexit.i
@@ -169,9 +167,9 @@ Sha3Update.exit:                                  ; preds = %if.end52.i, %for.en
   %t86.i = getelementptr inbounds nuw i8, ptr %sha3, i64 200
   %conv88.i = zext i32 %len.addr.1.lcssa.i to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %t86.i, ptr align 1 %data.addr.1.lcssa.i, i64 %conv88.i, i1 false)
-  %10 = load i8, ptr %i1.i, align 8
-  %11 = trunc i32 %len.addr.1.lcssa.i to i8
-  %conv94.i = add i8 %10, %11
+  %11 = load i8, ptr %i1.i, align 8
+  %12 = trunc i32 %len.addr.1.lcssa.i to i8
+  %conv94.i = add i8 %11, %12
   store i8 %conv94.i, ptr %i1.i, align 8
   br label %return
 
@@ -1263,6 +1261,9 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7

@@ -3949,16 +3949,16 @@ if.end:                                           ; preds = %entry
   %verify = getelementptr inbounds nuw i8, ptr %1, i64 4
   %2 = load i32, ptr %verify, align 4
   %tobool2.not = icmp eq i32 %2, 0
-  %.pre39 = load ptr, ptr %buffer, align 8
-  %.pre41 = load i64, ptr %bytes, align 8
+  %.pre41 = load ptr, ptr %buffer, align 8
+  %.pre43 = load i64, ptr %bytes, align 8
   br i1 %tobool2.not, label %if.end41, label %if.then3
 
 if.then3:                                         ; preds = %if.end
   %private_ = getelementptr inbounds nuw i8, ptr %encoder, i64 8
   %3 = load ptr, ptr %private_, align 8
   %output = getelementptr inbounds nuw i8, ptr %3, i64 2744
-  store ptr %.pre39, ptr %output, align 8
-  %conv = trunc i64 %.pre41 to i32
+  store ptr %.pre41, ptr %output, align 8
+  %conv = trunc i64 %.pre43 to i32
   %4 = load ptr, ptr %private_, align 8
   %bytes8 = getelementptr inbounds nuw i8, ptr %4, i64 2756
   store i32 %conv, ptr %bytes8, align 4
@@ -3982,11 +3982,11 @@ if.else:                                          ; preds = %if.then3
 
 lor.lhs.false:                                    ; preds = %if.else
   %tobool19.not = icmp eq i32 %is_last_block, 0
-  %.pre37 = load ptr, ptr %encoder, align 8
+  %.pre39 = load ptr, ptr %encoder, align 8
   br i1 %tobool19.not, label %land.lhs.true, label %lor.lhs.false23
 
 land.lhs.true:                                    ; preds = %lor.lhs.false
-  %verify.i = getelementptr inbounds nuw i8, ptr %.pre37, i64 4
+  %verify.i = getelementptr inbounds nuw i8, ptr %.pre39, i64 4
   %8 = load i32, ptr %verify.i, align 4
   %tobool.not.i = icmp eq i32 %8, 0
   br i1 %tobool.not.i, label %lor.lhs.false23, label %FLAC__stream_encoder_get_verify_decoder_state.exit
@@ -4004,14 +4004,14 @@ FLAC__stream_encoder_get_verify_decoder_state.exit.lor.lhs.false23_crit_edge: ; 
   br label %lor.lhs.false23
 
 lor.lhs.false23:                                  ; preds = %FLAC__stream_encoder_get_verify_decoder_state.exit.lor.lhs.false23_crit_edge, %land.lhs.true, %lor.lhs.false
-  %11 = phi ptr [ %.pre, %FLAC__stream_encoder_get_verify_decoder_state.exit.lor.lhs.false23_crit_edge ], [ %.pre37, %land.lhs.true ], [ %.pre37, %lor.lhs.false ]
+  %11 = phi ptr [ %.pre, %FLAC__stream_encoder_get_verify_decoder_state.exit.lor.lhs.false23_crit_edge ], [ %.pre39, %land.lhs.true ], [ %.pre39, %lor.lhs.false ]
   %12 = load i32, ptr %11, align 8
   %cmp26 = icmp eq i32 %12, 3
   br i1 %cmp26, label %if.then28, label %lor.lhs.false23.if.end41_crit_edge
 
 lor.lhs.false23.if.end41_crit_edge:               ; preds = %lor.lhs.false23
-  %.pre38 = load ptr, ptr %buffer, align 8
-  %.pre40 = load i64, ptr %bytes, align 8
+  %.pre40 = load ptr, ptr %buffer, align 8
+  %.pre42 = load i64, ptr %bytes, align 8
   br label %if.end41
 
 if.then28:                                        ; preds = %lor.lhs.false23, %FLAC__stream_encoder_get_verify_decoder_state.exit, %if.else
@@ -4029,8 +4029,8 @@ if.then35:                                        ; preds = %if.then28
   br label %return
 
 if.end41:                                         ; preds = %lor.lhs.false23.if.end41_crit_edge, %if.then12, %if.end
-  %17 = phi i64 [ %.pre40, %lor.lhs.false23.if.end41_crit_edge ], [ %.pre41, %if.then12 ], [ %.pre41, %if.end ]
-  %18 = phi ptr [ %.pre38, %lor.lhs.false23.if.end41_crit_edge ], [ %.pre39, %if.then12 ], [ %.pre39, %if.end ]
+  %17 = phi i64 [ %.pre42, %lor.lhs.false23.if.end41_crit_edge ], [ %.pre43, %if.then12 ], [ %.pre43, %if.end ]
+  %18 = phi ptr [ %.pre40, %lor.lhs.false23.if.end41_crit_edge ], [ %.pre41, %if.then12 ], [ %.pre41, %if.end ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %output_position.i)
   store i64 0, ptr %output_position.i, align 8
   %private_.i28 = getelementptr inbounds nuw i8, ptr %encoder, i64 8
@@ -4245,16 +4245,15 @@ if.then55:                                        ; preds = %if.end50
   %min_framesize = getelementptr inbounds nuw i8, ptr %79, i64 2112
   %80 = load i32, ptr %min_framesize, align 8
   %conv58 = zext i32 %80 to i64
-  %cmp59 = icmp ult i64 %78, %conv58
-  %81 = trunc i64 %78 to i32
-  %cond = select i1 %cmp59, i32 %81, i32 %80
+  %cond37 = call i64 @llvm.umin.i64(i64 %78, i64 %conv58)
+  %cond = trunc nuw i64 %cond37 to i32
   store i32 %cond, ptr %min_framesize, align 8
-  %82 = load ptr, ptr %private_.i28, align 8
-  %max_framesize = getelementptr inbounds nuw i8, ptr %82, i64 2116
-  %83 = load i32, ptr %max_framesize, align 4
-  %conv74 = zext i32 %83 to i64
-  %cmp75 = icmp ugt i64 %78, %conv74
-  %cond85 = select i1 %cmp75, i32 %81, i32 %83
+  %81 = load ptr, ptr %private_.i28, align 8
+  %max_framesize = getelementptr inbounds nuw i8, ptr %81, i64 2116
+  %82 = load i32, ptr %max_framesize, align 4
+  %conv74 = zext i32 %82 to i64
+  %cond8538 = call i64 @llvm.umax.i64(i64 %78, i64 %conv74)
+  %cond85 = trunc i64 %cond8538 to i32
   store i32 %cond85, ptr %max_framesize, align 4
   br label %return
 
@@ -10713,6 +10712,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.uadd.sat.i32(i32, i32) #20

@@ -2290,7 +2290,7 @@ define internal i32 @archive_read_format_iso9660_read_data(ptr noundef %0, ptr n
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 208
   %26 = load i64, ptr %25, align 8
   store i64 %26, ptr %3, align 8
-  br label %277
+  br label %275
 
 27:                                               ; preds = %21
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 160
@@ -2307,7 +2307,7 @@ define internal i32 @archive_read_format_iso9660_read_data(ptr noundef %0, ptr n
 
 36:                                               ; preds = %32
   %37 = trunc i64 %34 to i32
-  br label %277
+  br label %275
 
 .thread65:                                        ; preds = %32
   %38 = load ptr, ptr %19, align 8
@@ -2328,7 +2328,7 @@ define internal i32 @archive_read_format_iso9660_read_data(ptr noundef %0, ptr n
   %45 = getelementptr inbounds nuw i8, ptr %9, i64 208
   %46 = load i64, ptr %45, align 8
   store i64 %46, ptr %3, align 8
-  br label %277
+  br label %275
 
 47:                                               ; preds = %.thread65, %40
   %48 = phi ptr [ %38, %.thread65 ], [ %23, %40 ]
@@ -2341,7 +2341,7 @@ define internal i32 @archive_read_format_iso9660_read_data(ptr noundef %0, ptr n
   %52 = getelementptr inbounds nuw i8, ptr %9, i64 232
   %53 = load i32, ptr %52, align 8
   %.not64 = icmp eq i32 %53, 0
-  br i1 %.not64, label %258, label %54
+  br i1 %.not64, label %256, label %54
 
 54:                                               ; preds = %51
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -2547,7 +2547,7 @@ define internal i32 @archive_read_format_iso9660_read_data(ptr noundef %0, ptr n
   %.2.ph.i = phi ptr [ %.1.i, %125 ], [ %.1.i, %141 ], [ %154, %146 ]
   %.pr.i = load i32, ptr %68, align 8
   %.not187.i = icmp eq i32 %.pr.i, 0
-  br i1 %.not187.i, label %238, label %160
+  br i1 %.not187.i, label %236, label %160
 
 160:                                              ; preds = %159, %.thread195.i, %66
   %.0157.i = phi i64 [ %67, %66 ], [ %.2159.ph.i, %159 ], [ %153, %.thread195.i ]
@@ -2643,127 +2643,126 @@ define internal i32 @archive_read_format_iso9660_read_data(ptr noundef %0, ptr n
   %208 = load i64, ptr %207, align 8
   call void @llvm.memset.p0.i64(ptr align 1 %206, i8 0, i64 %208, i1 false)
   %209 = load i64, ptr %207, align 8
-  br label %238
+  br label %236
 
 .thread200.i:                                     ; preds = %200, %160
   %210 = phi i32 [ %.pr199.i, %200 ], [ %162, %160 ]
   %211 = getelementptr inbounds nuw i8, ptr %56, i64 360
   store ptr %.0153.i, ptr %211, align 8
   %212 = zext i32 %210 to i64
-  %213 = icmp ugt i64 %.0157.i, %212
-  %214 = trunc nuw i64 %.0157.i to i32
-  %spec.select209.i = select i1 %213, i32 %210, i32 %214
-  %215 = getelementptr inbounds nuw i8, ptr %56, i64 368
-  store i32 %spec.select209.i, ptr %215, align 8
-  %216 = getelementptr inbounds nuw i8, ptr %56, i64 256
-  %217 = load ptr, ptr %216, align 8
-  %218 = getelementptr inbounds nuw i8, ptr %56, i64 384
-  store ptr %217, ptr %218, align 8
-  %219 = getelementptr inbounds nuw i8, ptr %56, i64 264
-  %220 = load i64, ptr %219, align 8
-  %221 = trunc i64 %220 to i32
-  %222 = getelementptr inbounds nuw i8, ptr %56, i64 392
-  store i32 %221, ptr %222, align 8
-  %223 = call i32 @cm_zlib_inflate(ptr noundef nonnull %211, i32 noundef 0) #18
-  %switch.i = icmp ult i32 %223, 2
-  br i1 %switch.i, label %225, label %224
+  %spec.select209210.i = call i64 @llvm.umin.i64(i64 %.0157.i, i64 %212)
+  %spec.select209.i = trunc nuw i64 %spec.select209210.i to i32
+  %213 = getelementptr inbounds nuw i8, ptr %56, i64 368
+  store i32 %spec.select209.i, ptr %213, align 8
+  %214 = getelementptr inbounds nuw i8, ptr %56, i64 256
+  %215 = load ptr, ptr %214, align 8
+  %216 = getelementptr inbounds nuw i8, ptr %56, i64 384
+  store ptr %215, ptr %216, align 8
+  %217 = getelementptr inbounds nuw i8, ptr %56, i64 264
+  %218 = load i64, ptr %217, align 8
+  %219 = trunc i64 %218 to i32
+  %220 = getelementptr inbounds nuw i8, ptr %56, i64 392
+  store i32 %219, ptr %220, align 8
+  %221 = call i32 @cm_zlib_inflate(ptr noundef nonnull %211, i32 noundef 0) #18
+  %switch.i = icmp ult i32 %221, 2
+  br i1 %switch.i, label %223, label %222
 
-224:                                              ; preds = %.thread200.i
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.58, i32 noundef %223) #18
+222:                                              ; preds = %.thread200.i
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.58, i32 noundef %221) #18
   br label %zisofs_read_data.exit
 
-225:                                              ; preds = %.thread200.i
-  %226 = ptrtoint ptr %.0153.i to i64
-  %227 = load i64, ptr %219, align 8
-  %228 = load i32, ptr %222, align 8
-  %229 = zext i32 %228 to i64
-  %230 = sub i64 %227, %229
-  %231 = load ptr, ptr %211, align 8
-  %232 = ptrtoint ptr %231 to i64
-  %233 = sub i64 %232, %226
-  %234 = sub i64 %.0157.i, %233
-  %235 = trunc i64 %233 to i32
-  %236 = load i32, ptr %161, align 8
-  %237 = sub i32 %236, %235
-  store i32 %237, ptr %161, align 8
-  br label %238
+223:                                              ; preds = %.thread200.i
+  %224 = ptrtoint ptr %.0153.i to i64
+  %225 = load i64, ptr %217, align 8
+  %226 = load i32, ptr %220, align 8
+  %227 = zext i32 %226 to i64
+  %228 = sub i64 %225, %227
+  %229 = load ptr, ptr %211, align 8
+  %230 = ptrtoint ptr %229 to i64
+  %231 = sub i64 %230, %224
+  %232 = sub i64 %.0157.i, %231
+  %233 = trunc i64 %231 to i32
+  %234 = load i32, ptr %161, align 8
+  %235 = sub i32 %234, %233
+  store i32 %235, ptr %161, align 8
+  br label %236
 
-238:                                              ; preds = %225, %204, %159
-  %.0162.i = phi i64 [ %209, %204 ], [ %230, %225 ], [ 0, %159 ]
-  %.3.i = phi i64 [ %.0157.i, %204 ], [ %234, %225 ], [ %.2159.ph.i, %159 ]
-  %239 = load i64, ptr %5, align 8
-  %240 = sub i64 %239, %.3.i
-  %241 = getelementptr inbounds nuw i8, ptr %56, i64 256
-  %242 = load ptr, ptr %241, align 8
-  store ptr %242, ptr %1, align 8
+236:                                              ; preds = %223, %204, %159
+  %.0162.i = phi i64 [ %209, %204 ], [ %228, %223 ], [ 0, %159 ]
+  %.3.i = phi i64 [ %.0157.i, %204 ], [ %232, %223 ], [ %.2159.ph.i, %159 ]
+  %237 = load i64, ptr %5, align 8
+  %238 = sub i64 %237, %.3.i
+  %239 = getelementptr inbounds nuw i8, ptr %56, i64 256
+  %240 = load ptr, ptr %239, align 8
+  store ptr %240, ptr %1, align 8
   store i64 %.0162.i, ptr %2, align 8
-  %243 = getelementptr inbounds nuw i8, ptr %56, i64 208
-  %244 = load i64, ptr %243, align 8
-  store i64 %244, ptr %3, align 8
-  %245 = add i64 %244, %.0162.i
-  store i64 %245, ptr %243, align 8
-  %246 = load i64, ptr %62, align 8
-  %247 = sub nsw i64 %246, %240
-  store i64 %247, ptr %62, align 8
-  %248 = getelementptr inbounds nuw i8, ptr %56, i64 160
-  %249 = load i64, ptr %248, align 8
-  %250 = add i64 %249, %240
-  store i64 %250, ptr %248, align 8
-  %251 = trunc i64 %240 to i32
-  %252 = getelementptr inbounds nuw i8, ptr %56, i64 272
-  %253 = load i32, ptr %252, align 8
-  %254 = add i32 %253, %251
-  store i32 %254, ptr %252, align 8
-  %255 = getelementptr inbounds nuw i8, ptr %56, i64 224
-  %256 = load i64, ptr %255, align 8
-  %257 = add i64 %256, %240
-  store i64 %257, ptr %255, align 8
+  %241 = getelementptr inbounds nuw i8, ptr %56, i64 208
+  %242 = load i64, ptr %241, align 8
+  store i64 %242, ptr %3, align 8
+  %243 = add i64 %242, %.0162.i
+  store i64 %243, ptr %241, align 8
+  %244 = load i64, ptr %62, align 8
+  %245 = sub nsw i64 %244, %238
+  store i64 %245, ptr %62, align 8
+  %246 = getelementptr inbounds nuw i8, ptr %56, i64 160
+  %247 = load i64, ptr %246, align 8
+  %248 = add i64 %247, %238
+  store i64 %248, ptr %246, align 8
+  %249 = trunc i64 %238 to i32
+  %250 = getelementptr inbounds nuw i8, ptr %56, i64 272
+  %251 = load i32, ptr %250, align 8
+  %252 = add i32 %251, %249
+  store i32 %252, ptr %250, align 8
+  %253 = getelementptr inbounds nuw i8, ptr %56, i64 224
+  %254 = load i64, ptr %253, align 8
+  %255 = add i64 %254, %238
+  store i64 %255, ptr %253, align 8
   br label %zisofs_read_data.exit
 
-zisofs_read_data.exit:                            ; preds = %60, %94, %108, %139, %170, %183, %188, %199, %224, %238
-  %.0.i = phi i32 [ -30, %60 ], [ -30, %170 ], [ -30, %183 ], [ -30, %188 ], [ -30, %199 ], [ 0, %238 ], [ -30, %224 ], [ -30, %94 ], [ -30, %108 ], [ -30, %139 ]
+zisofs_read_data.exit:                            ; preds = %60, %94, %108, %139, %170, %183, %188, %199, %222, %236
+  %.0.i = phi i32 [ -30, %60 ], [ -30, %170 ], [ -30, %183 ], [ -30, %188 ], [ -30, %199 ], [ 0, %236 ], [ -30, %222 ], [ -30, %94 ], [ -30, %108 ], [ -30, %139 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %277
+  br label %275
 
-258:                                              ; preds = %51
-  %259 = call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef 1, ptr noundef nonnull %6) #18
-  store ptr %259, ptr %1, align 8
-  %260 = load i64, ptr %6, align 8
-  %261 = icmp eq i64 %260, 0
-  br i1 %261, label %262, label %263
+256:                                              ; preds = %51
+  %257 = call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef 1, ptr noundef nonnull %6) #18
+  store ptr %257, ptr %1, align 8
+  %258 = load i64, ptr %6, align 8
+  %259 = icmp eq i64 %258, 0
+  br i1 %259, label %260, label %261
 
-262:                                              ; preds = %258
+260:                                              ; preds = %256
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.50) #18
   %.pr = load ptr, ptr %1, align 8
-  br label %263
+  br label %261
 
-263:                                              ; preds = %262, %258
-  %264 = phi ptr [ %.pr, %262 ], [ %259, %258 ]
-  %265 = icmp eq ptr %264, null
-  br i1 %265, label %277, label %266
+261:                                              ; preds = %260, %256
+  %262 = phi ptr [ %.pr, %260 ], [ %257, %256 ]
+  %263 = icmp eq ptr %262, null
+  br i1 %263, label %275, label %264
 
-266:                                              ; preds = %263
-  %267 = load i64, ptr %6, align 8
-  %268 = load i64, ptr %15, align 8
-  %spec.select = call i64 @llvm.smin.i64(i64 %267, i64 %268)
+264:                                              ; preds = %261
+  %265 = load i64, ptr %6, align 8
+  %266 = load i64, ptr %15, align 8
+  %spec.select = call i64 @llvm.smin.i64(i64 %265, i64 %266)
   store i64 %spec.select, ptr %2, align 8
-  %269 = getelementptr inbounds nuw i8, ptr %9, i64 208
-  %270 = load i64, ptr %269, align 8
-  store i64 %270, ptr %3, align 8
-  %271 = add nsw i64 %270, %spec.select
-  store i64 %271, ptr %269, align 8
-  %272 = load i64, ptr %15, align 8
-  %273 = sub nsw i64 %272, %spec.select
-  store i64 %273, ptr %15, align 8
+  %267 = getelementptr inbounds nuw i8, ptr %9, i64 208
+  %268 = load i64, ptr %267, align 8
+  store i64 %268, ptr %3, align 8
+  %269 = add nsw i64 %268, %spec.select
+  store i64 %269, ptr %267, align 8
+  %270 = load i64, ptr %15, align 8
+  %271 = sub nsw i64 %270, %spec.select
+  store i64 %271, ptr %15, align 8
   store i64 %spec.select, ptr %10, align 8
-  %274 = getelementptr inbounds nuw i8, ptr %9, i64 160
-  %275 = load i64, ptr %274, align 8
-  %276 = add i64 %275, %spec.select
-  store i64 %276, ptr %274, align 8
-  br label %277
+  %272 = getelementptr inbounds nuw i8, ptr %9, i64 160
+  %273 = load i64, ptr %272, align 8
+  %274 = add i64 %273, %spec.select
+  store i64 %274, ptr %272, align 8
+  br label %275
 
-277:                                              ; preds = %263, %266, %zisofs_read_data.exit, %42, %36, %.thread
-  %.0 = phi i32 [ 1, %.thread ], [ %37, %36 ], [ -20, %42 ], [ %.0.i, %zisofs_read_data.exit ], [ 0, %266 ], [ -30, %263 ]
+275:                                              ; preds = %261, %264, %zisofs_read_data.exit, %42, %36, %.thread
+  %.0 = phi i32 [ 1, %.thread ], [ %37, %36 ], [ -20, %42 ], [ %.0.i, %zisofs_read_data.exit ], [ 0, %264 ], [ -30, %261 ]
   ret i32 %.0
 }
 

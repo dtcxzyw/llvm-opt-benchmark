@@ -145,7 +145,7 @@ define noundef i32 @dt_module_mod_version() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define ptr @name(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
-  %2 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 5) #16
+  %2 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 5) #17
   ret ptr %2
 }
 
@@ -169,57 +169,57 @@ define noundef i32 @position(ptr nocapture noundef readnone %0) local_unnamed_ad
 
 ; Function Attrs: nounwind uwtable
 define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_unnamed_addr #1 {
-  %2 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #17
+  %2 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store ptr %2, ptr %3, align 8, !tbaa !6
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 1, ptr %4, align 8, !tbaa !13
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 0, ptr %5, align 4, !tbaa !15
-  %6 = tail call ptr @gtk_box_new(i32 noundef 1, i32 noundef 0) #16
+  %6 = tail call ptr @gtk_box_new(i32 noundef 1, i32 noundef 0) #17
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store ptr %6, ptr %7, align 8, !tbaa !16
-  tail call void @gtk_widget_set_name(ptr noundef %6, ptr noundef nonnull @.str.1) #16
-  %8 = tail call ptr @gtk_box_new(i32 noundef 1, i32 noundef 0) #16
+  tail call void @gtk_widget_set_name(ptr noundef %6, ptr noundef nonnull @.str.1) #17
+  %8 = tail call ptr @gtk_box_new(i32 noundef 1, i32 noundef 0) #17
   store ptr %8, ptr %2, align 8, !tbaa !17
-  %9 = tail call ptr @gtk_box_new(i32 noundef 0, i32 noundef 0) #16
-  %10 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 5) #16
-  %11 = tail call ptr @dt_action_button_new(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef nonnull @_lib_history_compress_clicked_callback, ptr noundef %0, ptr noundef %10, i32 noundef 0, i32 noundef 0) #16
+  %9 = tail call ptr @gtk_box_new(i32 noundef 0, i32 noundef 0) #17
+  %10 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 5) #17
+  %11 = tail call ptr @dt_action_button_new(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef nonnull @_lib_history_compress_clicked_callback, ptr noundef %0, ptr noundef %10, i32 noundef 0, i32 noundef 0) #17
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %11, ptr %12, align 8, !tbaa !18
-  %13 = tail call ptr @g_type_check_instance_cast(ptr noundef %11, i64 noundef 80) #16
-  %14 = tail call i64 @g_signal_connect_data(ptr noundef %13, ptr noundef nonnull @.str.4, ptr noundef nonnull @_lib_history_compress_pressed_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #16
-  %15 = tail call ptr @dtgtk_button_new(ptr noundef nonnull @dtgtk_cairo_paint_styles, i32 noundef 0, ptr noundef null) #16
+  %13 = tail call ptr @g_type_check_instance_cast(ptr noundef %11, i64 noundef 80) #17
+  %14 = tail call i64 @g_signal_connect_data(ptr noundef %13, ptr noundef nonnull @.str.4, ptr noundef nonnull @_lib_history_compress_pressed_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #17
+  %15 = tail call ptr @dtgtk_button_new(ptr noundef nonnull @dtgtk_cairo_paint_styles, i32 noundef 0, ptr noundef null) #17
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %15, ptr %16, align 8, !tbaa !19
-  %17 = tail call ptr @g_type_check_instance_cast(ptr noundef %15, i64 noundef 80) #16
-  %18 = tail call i64 @g_signal_connect_data(ptr noundef %17, ptr noundef nonnull @.str.5, ptr noundef nonnull @_lib_history_create_style_button_clicked_callback, ptr noundef null, ptr noundef null, i32 noundef 0) #16
+  %17 = tail call ptr @g_type_check_instance_cast(ptr noundef %15, i64 noundef 80) #17
+  %18 = tail call i64 @g_signal_connect_data(ptr noundef %17, ptr noundef nonnull @.str.5, ptr noundef nonnull @_lib_history_create_style_button_clicked_callback, ptr noundef null, ptr noundef null, i32 noundef 0) #17
   %19 = load ptr, ptr %16, align 8, !tbaa !19
-  tail call void @gtk_widget_set_name(ptr noundef %19, ptr noundef nonnull @.str.6) #16
+  tail call void @gtk_widget_set_name(ptr noundef %19, ptr noundef nonnull @.str.6) #17
   %20 = load ptr, ptr %16, align 8, !tbaa !19
-  %21 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.7, i32 noundef 5) #16
-  tail call void @gtk_widget_set_tooltip_text(ptr noundef %20, ptr noundef %21) #16
+  %21 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.7, i32 noundef 5) #17
+  tail call void @gtk_widget_set_tooltip_text(ptr noundef %20, ptr noundef %21) #17
   %22 = load ptr, ptr %16, align 8, !tbaa !19
-  %23 = tail call ptr @dt_action_define(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.8, ptr noundef %22, ptr noundef nonnull @dt_action_def_button) #16
-  %24 = tail call i64 @gtk_box_get_type() #18
-  %25 = tail call ptr @g_type_check_instance_cast(ptr noundef %9, i64 noundef %24) #16
+  %23 = tail call ptr @dt_action_define(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.8, ptr noundef %22, ptr noundef nonnull @dt_action_def_button) #17
+  %24 = tail call i64 @gtk_box_get_type() #19
+  %25 = tail call ptr @g_type_check_instance_cast(ptr noundef %9, i64 noundef %24) #17
   %26 = load ptr, ptr %12, align 8, !tbaa !18
-  tail call void @gtk_box_pack_start(ptr noundef %25, ptr noundef %26, i32 noundef 1, i32 noundef 1, i32 noundef 0) #16
-  %27 = tail call ptr @g_type_check_instance_cast(ptr noundef %9, i64 noundef %24) #16
+  tail call void @gtk_box_pack_start(ptr noundef %25, ptr noundef %26, i32 noundef 1, i32 noundef 1, i32 noundef 0) #17
+  %27 = tail call ptr @g_type_check_instance_cast(ptr noundef %9, i64 noundef %24) #17
   %28 = load ptr, ptr %16, align 8, !tbaa !19
-  tail call void @gtk_box_pack_start(ptr noundef %27, ptr noundef %28, i32 noundef 0, i32 noundef 0, i32 noundef 0) #16
+  tail call void @gtk_box_pack_start(ptr noundef %27, ptr noundef %28, i32 noundef 0, i32 noundef 0, i32 noundef 0) #17
   %29 = load ptr, ptr %7, align 8, !tbaa !16
-  %30 = tail call ptr @g_type_check_instance_cast(ptr noundef %29, i64 noundef %24) #16
+  %30 = tail call ptr @g_type_check_instance_cast(ptr noundef %29, i64 noundef %24) #17
   %31 = load ptr, ptr %2, align 8, !tbaa !17
-  %32 = tail call ptr @dt_ui_resize_wrap(ptr noundef %31, i32 noundef 1, ptr noundef nonnull @.str.9) #16
-  tail call void @gtk_box_pack_start(ptr noundef %30, ptr noundef %32, i32 noundef 0, i32 noundef 0, i32 noundef 0) #16
+  %32 = tail call ptr @dt_ui_resize_wrap(ptr noundef %31, i32 noundef 1, ptr noundef nonnull @.str.9) #17
+  tail call void @gtk_box_pack_start(ptr noundef %30, ptr noundef %32, i32 noundef 0, i32 noundef 0, i32 noundef 0) #17
   %33 = load ptr, ptr %2, align 8, !tbaa !17
-  tail call void @gtk_widget_set_has_tooltip(ptr noundef %33, i32 noundef 0) #16
+  tail call void @gtk_widget_set_has_tooltip(ptr noundef %33, i32 noundef 0) #17
   %34 = load ptr, ptr %7, align 8, !tbaa !16
-  %35 = tail call ptr @g_type_check_instance_cast(ptr noundef %34, i64 noundef %24) #16
-  tail call void @gtk_box_pack_start(ptr noundef %35, ptr noundef %9, i32 noundef 0, i32 noundef 0, i32 noundef 0) #16
+  %35 = tail call ptr @g_type_check_instance_cast(ptr noundef %34, i64 noundef %24) #17
+  tail call void @gtk_box_pack_start(ptr noundef %35, ptr noundef %9, i32 noundef 0, i32 noundef 0, i32 noundef 0) #17
   %36 = load ptr, ptr %7, align 8, !tbaa !16
-  tail call void @gtk_widget_show_all(ptr noundef %36) #16
+  tail call void @gtk_widget_show_all(ptr noundef %36) #17
   %37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3120), align 8, !tbaa !20
   %38 = and i32 %37, 2
   %39 = icmp ne i32 %38, 0
@@ -235,12 +235,12 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   br i1 %46, label %48, label %47
 
 47:                                               ; preds = %43
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 160, ptr noundef nonnull @__FUNCTION__.gui_init, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13) #16
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 160, ptr noundef nonnull @__FUNCTION__.gui_init, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13) #17
   br label %48
 
 48:                                               ; preds = %47, %43, %1
   %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !31
-  tail call void @dt_control_signal_connect(ptr noundef %49, i32 noundef 24, ptr noundef nonnull @_lib_history_will_change_callback, ptr noundef nonnull %0) #16
+  tail call void @dt_control_signal_connect(ptr noundef %49, i32 noundef 24, ptr noundef nonnull @_lib_history_will_change_callback, ptr noundef nonnull %0) #17
   %50 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3120), align 8, !tbaa !20
   %51 = and i32 %50, 2
   %52 = icmp ne i32 %51, 0
@@ -256,12 +256,12 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   br i1 %59, label %61, label %60
 
 60:                                               ; preds = %56
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 162, ptr noundef nonnull @__FUNCTION__.gui_init, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15) #16
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 162, ptr noundef nonnull @__FUNCTION__.gui_init, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15) #17
   br label %61
 
 61:                                               ; preds = %60, %56, %48
   %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !31
-  tail call void @dt_control_signal_connect(ptr noundef %62, i32 noundef 25, ptr noundef nonnull @_lib_history_change_callback, ptr noundef nonnull %0) #16
+  tail call void @dt_control_signal_connect(ptr noundef %62, i32 noundef 25, ptr noundef nonnull @_lib_history_change_callback, ptr noundef nonnull %0) #17
   %63 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3120), align 8, !tbaa !20
   %64 = and i32 %63, 2
   %65 = icmp ne i32 %64, 0
@@ -277,12 +277,12 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   br i1 %72, label %74, label %73
 
 73:                                               ; preds = %69
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 164, ptr noundef nonnull @__FUNCTION__.gui_init, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17) #16
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 164, ptr noundef nonnull @__FUNCTION__.gui_init, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17) #17
   br label %74
 
 74:                                               ; preds = %73, %69, %61
   %75 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !31
-  tail call void @dt_control_signal_connect(ptr noundef %75, i32 noundef 27, ptr noundef nonnull @_lib_history_module_remove_callback, ptr noundef nonnull %0) #16
+  tail call void @dt_control_signal_connect(ptr noundef %75, i32 noundef 27, ptr noundef nonnull @_lib_history_module_remove_callback, ptr noundef nonnull %0) #17
   ret void
 }
 
@@ -312,7 +312,7 @@ declare ptr @g_type_check_instance_cast(ptr noundef, i64 noundef) local_unnamed_
 define internal noundef i32 @_lib_history_compress_pressed_callback(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %5 = load i32, ptr %4, align 8, !tbaa !32
-  %6 = tail call i32 @gtk_accelerator_get_default_mod_mask() #16
+  %6 = tail call i32 @gtk_accelerator_get_default_mod_mask() #17
   %7 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !34
   %8 = or i32 %7, %5
   %9 = and i32 %8, %6
@@ -335,11 +335,11 @@ define internal void @_lib_history_create_style_button_clicked_callback(ptr noca
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %2
-  tail call void @dt_dev_write_history(ptr noundef nonnull %3) #16
+  tail call void @dt_dev_write_history(ptr noundef nonnull %3) #17
   %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 1544
   %10 = load i32, ptr %9, align 8, !tbaa !36
-  tail call void @dt_gui_styles_dialog_new(i32 noundef %10) #16
+  tail call void @dt_gui_styles_dialog_new(i32 noundef %10) #17
   br label %11
 
 11:                                               ; preds = %7, %2
@@ -370,9 +370,9 @@ define internal void @_lib_history_will_change_callback(ptr nocapture readnone %
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !6
   %5 = load ptr, ptr %4, align 8, !tbaa !17
-  %6 = tail call i64 @gtk_container_get_type() #18
-  %7 = tail call ptr @g_type_check_instance_cast(ptr noundef %5, i64 noundef %6) #16
-  tail call void @gtk_container_foreach(ptr noundef %7, ptr noundef nonnull @gtk_widget_set_has_tooltip, ptr noundef null) #16
+  %6 = tail call i64 @gtk_container_get_type() #19
+  %7 = tail call ptr @g_type_check_instance_cast(ptr noundef %5, i64 noundef %6) #17
+  tail call void @gtk_container_foreach(ptr noundef %7, ptr noundef nonnull @gtk_widget_set_has_tooltip, ptr noundef null) #17
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %9 = load i32, ptr %8, align 4, !tbaa !15
   %10 = add nsw i32 %9, 1
@@ -387,11 +387,11 @@ define internal void @_lib_history_will_change_callback(ptr nocapture readnone %
   br i1 %15, label %47, label %16
 
 16:                                               ; preds = %12
-  %17 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #17
+  %17 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #18
   %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 2024
   %20 = load ptr, ptr %19, align 8, !tbaa !58
-  %21 = tail call ptr @dt_history_duplicate(ptr noundef %20) #16
+  %21 = tail call ptr @dt_history_duplicate(ptr noundef %20) #17
   store ptr %21, ptr %17, align 8, !tbaa !59
   %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 2016
@@ -400,7 +400,7 @@ define internal void @_lib_history_will_change_callback(ptr nocapture readnone %
   store i32 %24, ptr %25, align 8, !tbaa !62
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 2080
   %27 = load ptr, ptr %26, align 16, !tbaa !63
-  %28 = tail call ptr @dt_ioppr_iop_order_copy_deep(ptr noundef %27) #16
+  %28 = tail call ptr @dt_ioppr_iop_order_copy_deep(ptr noundef %27) #17
   %29 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %28, ptr %29, align 8, !tbaa !64
   %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
@@ -410,7 +410,7 @@ define internal void @_lib_history_will_change_callback(ptr nocapture readnone %
   br i1 %33, label %41, label %34
 
 34:                                               ; preds = %16
-  %35 = tail call i32 @dt_masks_get_edit_mode(ptr noundef nonnull %32) #16
+  %35 = tail call i32 @dt_masks_get_edit_mode(ptr noundef nonnull %32) #17
   %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 88
   %38 = load ptr, ptr %37, align 8, !tbaa !65
@@ -426,7 +426,7 @@ define internal void @_lib_history_will_change_callback(ptr nocapture readnone %
   %45 = getelementptr inbounds nuw i8, ptr %17, i64 28
   store i32 %43, ptr %45, align 4
   %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 208), align 8, !tbaa !71
-  tail call void @dt_undo_record(ptr noundef %46, ptr noundef nonnull %1, i32 noundef 2, ptr noundef nonnull %17, ptr noundef nonnull @_pop_undo, ptr noundef nonnull @_history_undo_data_free) #16
+  tail call void @dt_undo_record(ptr noundef %46, ptr noundef nonnull %1, i32 noundef 2, ptr noundef nonnull %17, ptr noundef nonnull @_pop_undo, ptr noundef nonnull @_history_undo_data_free) #17
   br label %47
 
 47:                                               ; preds = %41, %12, %2
@@ -443,14 +443,14 @@ define internal void @_lib_history_change_callback(ptr nocapture readnone %0, pt
   store i32 %7, ptr %5, align 4, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 1, ptr %8, align 8, !tbaa !13
-  tail call void @dt_lib_gui_queue_update(ptr noundef %1) #16
+  tail call void @dt_lib_gui_queue_update(ptr noundef %1) #17
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @_lib_history_module_remove_callback(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2) #1 {
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 208), align 8, !tbaa !71
-  tail call void @dt_undo_iterate(ptr noundef %4, i32 noundef 2, ptr noundef %1, ptr noundef nonnull @_history_invalidate_cb) #16
+  tail call void @dt_undo_iterate(ptr noundef %4, i32 noundef 2, ptr noundef %1, ptr noundef nonnull @_history_invalidate_cb) #17
   ret void
 }
 
@@ -471,12 +471,12 @@ define void @gui_cleanup(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %5
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.11, i32 noundef 170, ptr noundef nonnull @__FUNCTION__.gui_cleanup, ptr noundef nonnull @.str.14) #16
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.11, i32 noundef 170, ptr noundef nonnull @__FUNCTION__.gui_cleanup, ptr noundef nonnull @.str.14) #17
   br label %10
 
 10:                                               ; preds = %9, %5, %1
   %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !31
-  tail call void @dt_control_signal_disconnect(ptr noundef %11, ptr noundef nonnull @_lib_history_change_callback, ptr noundef %0) #16
+  tail call void @dt_control_signal_disconnect(ptr noundef %11, ptr noundef nonnull @_lib_history_change_callback, ptr noundef %0) #17
   %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3120), align 8, !tbaa !20
   %13 = and i32 %12, 4
   %14 = icmp eq i32 %13, 0
@@ -489,12 +489,12 @@ define void @gui_cleanup(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %18, label %20, label %19
 
 19:                                               ; preds = %15
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.11, i32 noundef 172, ptr noundef nonnull @__FUNCTION__.gui_cleanup, ptr noundef nonnull @.str.12) #16
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.11, i32 noundef 172, ptr noundef nonnull @__FUNCTION__.gui_cleanup, ptr noundef nonnull @.str.12) #17
   br label %20
 
 20:                                               ; preds = %19, %15, %10
   %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !31
-  tail call void @dt_control_signal_disconnect(ptr noundef %21, ptr noundef nonnull @_lib_history_will_change_callback, ptr noundef %0) #16
+  tail call void @dt_control_signal_disconnect(ptr noundef %21, ptr noundef nonnull @_lib_history_will_change_callback, ptr noundef %0) #17
   %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3120), align 8, !tbaa !20
   %23 = and i32 %22, 4
   %24 = icmp eq i32 %23, 0
@@ -507,15 +507,15 @@ define void @gui_cleanup(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %28, label %30, label %29
 
 29:                                               ; preds = %25
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.11, i32 noundef 174, ptr noundef nonnull @__FUNCTION__.gui_cleanup, ptr noundef nonnull @.str.16) #16
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.11, i32 noundef 174, ptr noundef nonnull @__FUNCTION__.gui_cleanup, ptr noundef nonnull @.str.16) #17
   br label %30
 
 30:                                               ; preds = %29, %25, %20
   %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !31
-  tail call void @dt_control_signal_disconnect(ptr noundef %31, ptr noundef nonnull @_lib_history_module_remove_callback, ptr noundef %0) #16
+  tail call void @dt_control_signal_disconnect(ptr noundef %31, ptr noundef nonnull @_lib_history_module_remove_callback, ptr noundef %0) #17
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %33 = load ptr, ptr %32, align 8, !tbaa !6
-  tail call void @g_free(ptr noundef %33) #16
+  tail call void @g_free(ptr noundef %33) #17
   store ptr null, ptr %32, align 8, !tbaa !6
   ret void
 }
@@ -530,12 +530,12 @@ define void @gui_update(ptr noundef %0) local_unnamed_addr #1 {
   %3 = load ptr, ptr %2, align 8, !tbaa !6
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1976
-  %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %5) #16
+  %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %5) #17
   %7 = load ptr, ptr %3, align 8, !tbaa !17
-  %8 = tail call i64 @gtk_container_get_type() #18
-  %9 = tail call ptr @g_type_check_instance_cast(ptr noundef %7, i64 noundef %8) #16
-  tail call void @dt_gui_container_destroy_children(ptr noundef %9) #16
-  %10 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.19, i32 noundef 5) #16
+  %8 = tail call i64 @gtk_container_get_type() #19
+  %9 = tail call ptr @g_type_check_instance_cast(ptr noundef %7, i64 noundef %8) #17
+  tail call void @dt_gui_container_destroy_children(ptr noundef %9) #17
+  %10 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.19, i32 noundef 5) #17
   %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 2016
   %13 = load i32, ptr %12, align 16, !tbaa !61
@@ -543,9 +543,9 @@ define void @gui_update(ptr noundef %0) local_unnamed_addr #1 {
   %15 = zext i1 %14 to i32
   %16 = tail call fastcc ptr @_lib_history_create_button(ptr noundef %0, i32 noundef -1, ptr noundef %10, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef %15, i32 noundef 0)
   %17 = load ptr, ptr %3, align 8, !tbaa !17
-  %18 = tail call i64 @gtk_box_get_type() #18
-  %19 = tail call ptr @g_type_check_instance_cast(ptr noundef %17, i64 noundef %18) #16
-  tail call void @gtk_box_pack_end(ptr noundef %19, ptr noundef %16, i32 noundef 0, i32 noundef 0, i32 noundef 0) #16
+  %18 = tail call i64 @gtk_box_get_type() #19
+  %19 = tail call ptr @g_type_check_instance_cast(ptr noundef %17, i64 noundef %18) #17
+  tail call void @gtk_box_pack_end(ptr noundef %19, ptr noundef %16, i32 noundef 0, i32 noundef 0, i32 noundef 0) #17
   %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 2024
   %22 = load ptr, ptr %21, align 8, !tbaa !72
@@ -555,9 +555,9 @@ define void @gui_update(ptr noundef %0) local_unnamed_addr #1 {
 .loopexit:                                        ; preds = %70, %1
   %24 = phi i32 [ 0, %1 ], [ %86, %70 ]
   %25 = load ptr, ptr %3, align 8, !tbaa !17
-  tail call void @gtk_widget_show_all(ptr noundef %25) #16
+  tail call void @gtk_widget_show_all(ptr noundef %25) #17
   %26 = load ptr, ptr %3, align 8, !tbaa !17
-  tail call void @dt_gui_widget_reallocate_now(ptr noundef %26) #16
+  tail call void @dt_gui_widget_reallocate_now(ptr noundef %26) #17
   %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 2016
   %29 = load i32, ptr %28, align 16, !tbaa !61
@@ -572,7 +572,7 @@ define void @gui_update(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %.preheader
-  %36 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.32) #16
+  %36 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.32) #17
   br label %54
 
 37:                                               ; preds = %.preheader
@@ -593,16 +593,16 @@ define void @gui_update(ptr noundef %0) local_unnamed_addr #1 {
   %44 = load ptr, ptr %33, align 8, !tbaa !76
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 40
   %46 = load ptr, ptr %45, align 8, !tbaa !78
-  %47 = tail call ptr %46() #16
-  %48 = tail call noalias ptr @g_strdup(ptr noundef %47) #16
+  %47 = tail call ptr %46() #17
+  %48 = tail call noalias ptr @g_strdup(ptr noundef %47) #17
   br label %54
 
 .tail.thread:                                     ; preds = %37, %.tail
   %49 = load ptr, ptr %33, align 8, !tbaa !76
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 40
   %51 = load ptr, ptr %50, align 8, !tbaa !78
-  %52 = tail call ptr %51() #16
-  %53 = tail call ptr (ptr, ...) @g_markup_printf_escaped(ptr noundef nonnull @.str.43, ptr noundef %52, ptr noundef nonnull %38) #16
+  %52 = tail call ptr %51() #17
+  %53 = tail call ptr (ptr, ...) @g_markup_printf_escaped(ptr noundef nonnull @.str.43, ptr noundef %52, ptr noundef nonnull %38) #17
   br label %54
 
 54:                                               ; preds = %.tail.thread, %43, %35
@@ -620,7 +620,7 @@ define void @gui_update(ptr noundef %0) local_unnamed_addr #1 {
 
 65:                                               ; preds = %54
   %66 = getelementptr inbounds nuw i8, ptr %33, i64 32
-  %67 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %66, ptr noundef nonnull dereferenceable(13) @.str.20) #19
+  %67 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %66, ptr noundef nonnull dereferenceable(13) @.str.20) #20
   %68 = icmp eq i32 %67, 0
   %69 = zext i1 %68 to i32
   br label %70
@@ -634,16 +634,16 @@ define void @gui_update(ptr noundef %0) local_unnamed_addr #1 {
   %76 = load i32, ptr %75, align 4, !tbaa !81
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 64
   %78 = load ptr, ptr %77, align 16, !tbaa !82
-  %79 = tail call i32 %78() #16
+  %79 = tail call i32 %78() #17
   %80 = and i32 %79, 4
   %81 = tail call fastcc ptr @_lib_history_create_button(ptr noundef %0, i32 noundef %32, ptr noundef %55, i32 noundef %71, i32 noundef %74, i32 noundef %76, i32 noundef %61, i32 noundef %80)
-  tail call void @g_free(ptr noundef %55) #16
-  tail call void @gtk_widget_set_has_tooltip(ptr noundef %81, i32 noundef 1) #16
-  %82 = tail call ptr @g_type_check_instance_cast(ptr noundef %81, i64 noundef 80) #16
-  %83 = tail call i64 @g_signal_connect_data(ptr noundef %82, ptr noundef nonnull @.str.21, ptr noundef nonnull @_changes_tooltip_callback, ptr noundef nonnull %33, ptr noundef null, i32 noundef 0) #16
+  tail call void @g_free(ptr noundef %55) #17
+  tail call void @gtk_widget_set_has_tooltip(ptr noundef %81, i32 noundef 1) #17
+  %82 = tail call ptr @g_type_check_instance_cast(ptr noundef %81, i64 noundef 80) #17
+  %83 = tail call i64 @g_signal_connect_data(ptr noundef %82, ptr noundef nonnull @.str.21, ptr noundef nonnull @_changes_tooltip_callback, ptr noundef nonnull %33, ptr noundef null, i32 noundef 0) #17
   %84 = load ptr, ptr %3, align 8, !tbaa !17
-  %85 = tail call ptr @g_type_check_instance_cast(ptr noundef %84, i64 noundef %18) #16
-  tail call void @gtk_box_pack_end(ptr noundef %85, ptr noundef %81, i32 noundef 0, i32 noundef 0, i32 noundef 0) #16
+  %85 = tail call ptr @g_type_check_instance_cast(ptr noundef %84, i64 noundef %18) #17
+  tail call void @gtk_box_pack_end(ptr noundef %85, ptr noundef %81, i32 noundef 0, i32 noundef 0, i32 noundef 0) #17
   %86 = add nuw nsw i32 %32, 1
   %87 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %88 = load ptr, ptr %87, align 8, !tbaa !72
@@ -652,18 +652,18 @@ define void @gui_update(ptr noundef %0) local_unnamed_addr #1 {
 
 90:                                               ; preds = %.loopexit
   %91 = load ptr, ptr %3, align 8, !tbaa !17
-  %92 = tail call i64 @gtk_scrolled_window_get_type() #18
-  %93 = tail call ptr @gtk_widget_get_ancestor(ptr noundef %91, i64 noundef %92) #16
-  %94 = tail call ptr @g_type_check_instance_cast(ptr noundef %93, i64 noundef %92) #16
-  %95 = tail call ptr @gtk_scrolled_window_get_vadjustment(ptr noundef %94) #16
-  tail call void @gtk_adjustment_set_value(ptr noundef %95, double noundef 0.000000e+00) #16
+  %92 = tail call i64 @gtk_scrolled_window_get_type() #19
+  %93 = tail call ptr @gtk_widget_get_ancestor(ptr noundef %91, i64 noundef %92) #17
+  %94 = tail call ptr @g_type_check_instance_cast(ptr noundef %93, i64 noundef %92) #17
+  %95 = tail call ptr @gtk_scrolled_window_get_vadjustment(ptr noundef %94) #17
+  tail call void @gtk_adjustment_set_value(ptr noundef %95, double noundef 0.000000e+00) #17
   %96 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   br label %97
 
 97:                                               ; preds = %90, %.loopexit
   %98 = phi ptr [ %96, %90 ], [ %27, %.loopexit ]
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 1976
-  %100 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %99) #16
+  %100 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %99) #17
   ret void
 }
 
@@ -675,37 +675,37 @@ declare i64 @gtk_container_get_type() local_unnamed_addr #6
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_lib_history_create_button(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, i32 noundef %4, i32 noundef %5, i32 noundef range(i32 0, 2) %6, i32 noundef range(i32 0, 5) %7) unnamed_addr #1 {
   %9 = alloca [10 x i8], align 1
-  %10 = tail call ptr @gtk_box_new(i32 noundef 0, i32 noundef 0) #16
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %9) #16
+  %10 = tail call ptr @gtk_box_new(i32 noundef 0, i32 noundef 0) #17
+  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %9) #17
   %11 = add nsw i32 %1, 1
-  %12 = call i32 (ptr, i64, ptr, ...) @g_snprintf(ptr noundef nonnull %9, i64 noundef 10, ptr noundef nonnull @.str.28, i32 noundef %11) #16
-  %13 = call ptr @gtk_label_new(ptr noundef nonnull %9) #16
-  call void @gtk_widget_set_name(ptr noundef %13, ptr noundef nonnull @.str.29) #16
-  call void @dt_gui_add_class(ptr noundef %13, ptr noundef nonnull @.str.30) #16
-  call void @dt_gui_add_class(ptr noundef %13, ptr noundef nonnull @.str.31) #16
-  %14 = call ptr @gtk_toggle_button_new_with_label(ptr noundef nonnull @.str.32) #16
-  call void @dt_gui_add_class(ptr noundef %14, ptr noundef nonnull @.str.33) #16
-  %15 = tail call i64 @gtk_bin_get_type() #18
-  %16 = call ptr @g_type_check_instance_cast(ptr noundef %14, i64 noundef %15) #16
-  %17 = call ptr @gtk_bin_get_child(ptr noundef %16) #16
-  call void @gtk_widget_set_halign(ptr noundef %17, i32 noundef 1) #16
-  %18 = tail call i64 @gtk_label_get_type() #18
-  %19 = call ptr @g_type_check_instance_cast(ptr noundef %17, i64 noundef %18) #16
-  call void @gtk_label_set_xalign(ptr noundef %19, float noundef 0.000000e+00) #16
-  %20 = call ptr @g_type_check_instance_cast(ptr noundef %17, i64 noundef %18) #16
-  call void @gtk_label_set_ellipsize(ptr noundef %20, i32 noundef 3) #16
-  %21 = call ptr @g_type_check_instance_cast(ptr noundef %17, i64 noundef %18) #16
-  call void @gtk_label_set_markup(ptr noundef %21, ptr noundef %2) #16
+  %12 = call i32 (ptr, i64, ptr, ...) @g_snprintf(ptr noundef nonnull %9, i64 noundef 10, ptr noundef nonnull @.str.28, i32 noundef %11) #17
+  %13 = call ptr @gtk_label_new(ptr noundef nonnull %9) #17
+  call void @gtk_widget_set_name(ptr noundef %13, ptr noundef nonnull @.str.29) #17
+  call void @dt_gui_add_class(ptr noundef %13, ptr noundef nonnull @.str.30) #17
+  call void @dt_gui_add_class(ptr noundef %13, ptr noundef nonnull @.str.31) #17
+  %14 = call ptr @gtk_toggle_button_new_with_label(ptr noundef nonnull @.str.32) #17
+  call void @dt_gui_add_class(ptr noundef %14, ptr noundef nonnull @.str.33) #17
+  %15 = tail call i64 @gtk_bin_get_type() #19
+  %16 = call ptr @g_type_check_instance_cast(ptr noundef %14, i64 noundef %15) #17
+  %17 = call ptr @gtk_bin_get_child(ptr noundef %16) #17
+  call void @gtk_widget_set_halign(ptr noundef %17, i32 noundef 1) #17
+  %18 = tail call i64 @gtk_label_get_type() #19
+  %19 = call ptr @g_type_check_instance_cast(ptr noundef %17, i64 noundef %18) #17
+  call void @gtk_label_set_xalign(ptr noundef %19, float noundef 0.000000e+00) #17
+  %20 = call ptr @g_type_check_instance_cast(ptr noundef %17, i64 noundef %18) #17
+  call void @gtk_label_set_ellipsize(ptr noundef %20, i32 noundef 3) #17
+  %21 = call ptr @g_type_check_instance_cast(ptr noundef %17, i64 noundef %18) #17
+  call void @gtk_label_set_markup(ptr noundef %21, ptr noundef %2) #17
   %22 = icmp eq i32 %5, 0
   br i1 %22, label %28, label %23
 
 23:                                               ; preds = %8
-  %24 = call ptr @dtgtk_button_new(ptr noundef nonnull @dtgtk_cairo_paint_switch_on, i32 noundef 0, ptr noundef null) #16
-  %25 = call i64 @dtgtk_button_get_type() #16
-  %26 = call ptr @g_type_check_instance_cast(ptr noundef %24, i64 noundef %25) #16
-  call void @dtgtk_button_set_active(ptr noundef %26, i32 noundef 1) #16
-  %27 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.34, i32 noundef 5) #16
-  call void @gtk_widget_set_tooltip_text(ptr noundef %24, ptr noundef %27) #16
+  %24 = call ptr @dtgtk_button_new(ptr noundef nonnull @dtgtk_cairo_paint_switch_on, i32 noundef 0, ptr noundef null) #17
+  %25 = call i64 @dtgtk_button_get_type() #17
+  %26 = call ptr @g_type_check_instance_cast(ptr noundef %24, i64 noundef %25) #17
+  call void @dtgtk_button_set_active(ptr noundef %26, i32 noundef 1) #17
+  %27 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.34, i32 noundef 5) #17
+  call void @gtk_widget_set_tooltip_text(ptr noundef %24, ptr noundef %27) #17
   br label %50
 
 28:                                               ; preds = %8
@@ -713,12 +713,12 @@ define internal fastcc ptr @_lib_history_create_button(ptr noundef %0, i32 nound
   br i1 %29, label %35, label %30
 
 30:                                               ; preds = %28
-  %31 = call ptr @dtgtk_button_new(ptr noundef nonnull @dtgtk_cairo_paint_switch, i32 noundef 0, ptr noundef null) #16
-  %32 = call i64 @dtgtk_button_get_type() #16
-  %33 = call ptr @g_type_check_instance_cast(ptr noundef %31, i64 noundef %32) #16
-  call void @dtgtk_button_set_active(ptr noundef %33, i32 noundef %3) #16
-  %34 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.35, i32 noundef 5) #16
-  call void @gtk_widget_set_tooltip_text(ptr noundef %31, ptr noundef %34) #16
+  %31 = call ptr @dtgtk_button_new(ptr noundef nonnull @dtgtk_cairo_paint_switch, i32 noundef 0, ptr noundef null) #17
+  %32 = call i64 @dtgtk_button_get_type() #17
+  %33 = call ptr @g_type_check_instance_cast(ptr noundef %31, i64 noundef %32) #17
+  call void @dtgtk_button_set_active(ptr noundef %33, i32 noundef %3) #17
+  %34 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.35, i32 noundef 5) #17
+  call void @gtk_widget_set_tooltip_text(ptr noundef %31, ptr noundef %34) #17
   br label %50
 
 35:                                               ; preds = %28
@@ -726,61 +726,61 @@ define internal fastcc ptr @_lib_history_create_button(ptr noundef %0, i32 nound
   br i1 %36, label %40, label %37
 
 37:                                               ; preds = %35
-  %38 = call ptr @dtgtk_button_new(ptr noundef nonnull @dtgtk_cairo_paint_switch_deprecated, i32 noundef 0, ptr noundef null) #16
-  %39 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.36, i32 noundef 5) #16
-  call void @gtk_widget_set_tooltip_text(ptr noundef %38, ptr noundef %39) #16
+  %38 = call ptr @dtgtk_button_new(ptr noundef nonnull @dtgtk_cairo_paint_switch_deprecated, i32 noundef 0, ptr noundef null) #17
+  %39 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.36, i32 noundef 5) #17
+  call void @gtk_widget_set_tooltip_text(ptr noundef %38, ptr noundef %39) #17
   br label %44
 
 40:                                               ; preds = %35
-  %41 = call ptr @dtgtk_button_new(ptr noundef nonnull @dtgtk_cairo_paint_switch, i32 noundef 0, ptr noundef null) #16
+  %41 = call ptr @dtgtk_button_new(ptr noundef nonnull @dtgtk_cairo_paint_switch, i32 noundef 0, ptr noundef null) #17
   %42 = icmp eq i32 %3, 0
   %43 = select i1 %42, ptr @.str.37, ptr @.str.32
-  call void @dt_gui_add_class(ptr noundef %41, ptr noundef nonnull %43) #16
+  call void @dt_gui_add_class(ptr noundef %41, ptr noundef nonnull %43) #17
   br label %44
 
 44:                                               ; preds = %40, %37
   %45 = phi ptr [ %38, %37 ], [ %41, %40 ]
   %46 = icmp eq i32 %3, 0
   %47 = select i1 %46, ptr @.str.37, ptr @.str.32
-  call void @dt_gui_add_class(ptr noundef %17, ptr noundef nonnull %47) #16
-  %48 = call i64 @dtgtk_button_get_type() #16
-  %49 = call ptr @g_type_check_instance_cast(ptr noundef %45, i64 noundef %48) #16
-  call void @dtgtk_button_set_active(ptr noundef %49, i32 noundef %3) #16
+  call void @dt_gui_add_class(ptr noundef %17, ptr noundef nonnull %47) #17
+  %48 = call i64 @dtgtk_button_get_type() #17
+  %49 = call ptr @g_type_check_instance_cast(ptr noundef %45, i64 noundef %48) #17
+  call void @dtgtk_button_set_active(ptr noundef %49, i32 noundef %3) #17
   br label %50
 
 50:                                               ; preds = %44, %30, %23
   %51 = phi ptr [ %24, %23 ], [ %31, %30 ], [ %45, %44 ]
-  call void @dt_gui_add_class(ptr noundef %14, ptr noundef nonnull @.str.30) #16
-  call void @dt_gui_add_class(ptr noundef %51, ptr noundef nonnull @.str.38) #16
-  call void @gtk_widget_set_sensitive(ptr noundef %51, i32 noundef 0) #16
-  %52 = call ptr @g_type_check_instance_cast(ptr noundef %14, i64 noundef 80) #16
+  call void @dt_gui_add_class(ptr noundef %14, ptr noundef nonnull @.str.30) #17
+  call void @dt_gui_add_class(ptr noundef %51, ptr noundef nonnull @.str.38) #17
+  call void @gtk_widget_set_sensitive(ptr noundef %51, i32 noundef 0) #17
+  %52 = call ptr @g_type_check_instance_cast(ptr noundef %14, i64 noundef 80) #17
   %53 = sext i32 %11 to i64
   %54 = inttoptr i64 %53 to ptr
-  call void @g_object_set_data(ptr noundef %52, ptr noundef nonnull @.str.39, ptr noundef %54) #16
-  %55 = call ptr @g_type_check_instance_cast(ptr noundef %14, i64 noundef 80) #16
-  call void @g_object_set_data(ptr noundef %55, ptr noundef nonnull @.str.40, ptr noundef %2) #16
+  call void @g_object_set_data(ptr noundef %52, ptr noundef nonnull @.str.39, ptr noundef %54) #17
+  %55 = call ptr @g_type_check_instance_cast(ptr noundef %14, i64 noundef 80) #17
+  call void @g_object_set_data(ptr noundef %55, ptr noundef nonnull @.str.40, ptr noundef %2) #17
   %56 = icmp eq i32 %6, 0
   br i1 %56, label %60, label %57
 
 57:                                               ; preds = %50
-  %58 = tail call i64 @gtk_toggle_button_get_type() #18
-  %59 = call ptr @g_type_check_instance_cast(ptr noundef %14, i64 noundef %58) #16
-  call void @gtk_toggle_button_set_active(ptr noundef %59, i32 noundef 1) #16
+  %58 = tail call i64 @gtk_toggle_button_get_type() #19
+  %59 = call ptr @g_type_check_instance_cast(ptr noundef %14, i64 noundef %58) #17
+  call void @gtk_toggle_button_set_active(ptr noundef %59, i32 noundef 1) #17
   br label %60
 
 60:                                               ; preds = %57, %50
-  %61 = call ptr @g_type_check_instance_cast(ptr noundef %14, i64 noundef 80) #16
-  %62 = call i64 @g_signal_connect_data(ptr noundef %61, ptr noundef nonnull @.str.4, ptr noundef nonnull @_lib_history_button_clicked_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #16
-  %63 = call ptr @g_type_check_instance_cast(ptr noundef %14, i64 noundef 80) #16
-  call void @g_object_set_data(ptr noundef %63, ptr noundef nonnull @.str.29, ptr noundef %54) #16
-  %64 = tail call i64 @gtk_box_get_type() #18
-  %65 = call ptr @g_type_check_instance_cast(ptr noundef %10, i64 noundef %64) #16
-  call void @gtk_box_pack_start(ptr noundef %65, ptr noundef %13, i32 noundef 0, i32 noundef 0, i32 noundef 0) #16
-  %66 = call ptr @g_type_check_instance_cast(ptr noundef %10, i64 noundef %64) #16
-  call void @gtk_box_pack_start(ptr noundef %66, ptr noundef %14, i32 noundef 1, i32 noundef 1, i32 noundef 0) #16
-  %67 = call ptr @g_type_check_instance_cast(ptr noundef %10, i64 noundef %64) #16
-  call void @gtk_box_pack_end(ptr noundef %67, ptr noundef %51, i32 noundef 0, i32 noundef 0, i32 noundef 0) #16
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %9) #16
+  %61 = call ptr @g_type_check_instance_cast(ptr noundef %14, i64 noundef 80) #17
+  %62 = call i64 @g_signal_connect_data(ptr noundef %61, ptr noundef nonnull @.str.4, ptr noundef nonnull @_lib_history_button_clicked_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #17
+  %63 = call ptr @g_type_check_instance_cast(ptr noundef %14, i64 noundef 80) #17
+  call void @g_object_set_data(ptr noundef %63, ptr noundef nonnull @.str.29, ptr noundef %54) #17
+  %64 = tail call i64 @gtk_box_get_type() #19
+  %65 = call ptr @g_type_check_instance_cast(ptr noundef %10, i64 noundef %64) #17
+  call void @gtk_box_pack_start(ptr noundef %65, ptr noundef %13, i32 noundef 0, i32 noundef 0, i32 noundef 0) #17
+  %66 = call ptr @g_type_check_instance_cast(ptr noundef %10, i64 noundef %64) #17
+  call void @gtk_box_pack_start(ptr noundef %66, ptr noundef %14, i32 noundef 1, i32 noundef 1, i32 noundef 0) #17
+  %67 = call ptr @g_type_check_instance_cast(ptr noundef %10, i64 noundef %64) #17
+  call void @gtk_box_pack_end(ptr noundef %67, ptr noundef %51, i32 noundef 0, i32 noundef 0, i32 noundef 0) #17
+  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %9) #17
   ret ptr %10
 }
 
@@ -815,7 +815,7 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr nocaptur
 .loopexit49:                                      ; preds = %40, %.preheader48, %6
   %23 = phi ptr [ %13, %6 ], [ %20, %.preheader48 ], [ %41, %40 ]
   %24 = phi ptr [ %11, %6 ], [ %19, %.preheader48 ], [ %42, %40 ]
-  %25 = tail call noalias dereferenceable_or_null(920) ptr @g_malloc0_n(i64 noundef 115, i64 noundef 8) #20
+  %25 = tail call noalias dereferenceable_or_null(920) ptr @g_malloc0_n(i64 noundef 115, i64 noundef 8) #21
   %26 = load ptr, ptr %5, align 8, !tbaa !76
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 1104
   %28 = load i32, ptr %27, align 16, !tbaa !85
@@ -849,7 +849,7 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr nocaptur
 46:                                               ; preds = %.loopexit49
   %47 = getelementptr inbounds nuw i8, ptr %26, i64 416
   %48 = load ptr, ptr %47, align 16, !tbaa !88
-  %49 = tail call ptr %48() #16
+  %49 = tail call ptr %48() #17
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %51 = load ptr, ptr %50, align 8, !tbaa !89
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -865,7 +865,7 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr nocaptur
   %59 = icmp ne ptr %58, null
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 64
   %61 = load ptr, ptr %60, align 16, !tbaa !82
-  %62 = tail call i32 %61() #16
+  %62 = tail call i32 %61() #17
   %63 = and i32 %62, 2
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %.thread41, label %65
@@ -909,19 +909,19 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr nocaptur
   br i1 %93, label %77, label %.preheader47
 
 94:                                               ; preds = %77, %74
-  %95 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.45, i32 noundef 5) #16
+  %95 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.45, i32 noundef 5) #17
   %96 = load i32, ptr %71, align 4, !tbaa !91
   %97 = load ptr, ptr %67, align 8, !tbaa !87
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 4
   %99 = load i32, ptr %98, align 4, !tbaa !91
-  %100 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.44, ptr noundef %95, i32 noundef %96, i32 noundef %99) #16
+  %100 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.44, ptr noundef %95, i32 noundef %96, i32 noundef %99) #17
   br label %106
 
 101:                                              ; preds = %77
-  %102 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.45, i32 noundef 5) #16
-  %103 = tail call ptr @g_dpgettext(ptr noundef null, ptr noundef nonnull %88, i64 noundef 0) #16
-  %104 = tail call ptr @g_dpgettext(ptr noundef null, ptr noundef nonnull %90, i64 noundef 0) #16
-  %105 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.46, ptr noundef %102, ptr noundef %103, ptr noundef %104) #16
+  %102 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.45, i32 noundef 5) #17
+  %103 = tail call ptr @g_dpgettext(ptr noundef null, ptr noundef nonnull %88, i64 noundef 0) #17
+  %104 = tail call ptr @g_dpgettext(ptr noundef null, ptr noundef nonnull %90, i64 noundef 0) #17
+  %105 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.46, ptr noundef %102, ptr noundef %103, ptr noundef %104) #17
   br label %106
 
 106:                                              ; preds = %101, %94
@@ -969,18 +969,18 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr nocaptur
   br i1 %137, label %121, label %.preheader46
 
 138:                                              ; preds = %121, %118
-  %139 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.47, i32 noundef 5) #16
+  %139 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.47, i32 noundef 5) #17
   %140 = load i32, ptr %23, align 4, !tbaa !96
   %141 = load ptr, ptr %67, align 8, !tbaa !87
   %142 = load i32, ptr %141, align 4, !tbaa !96
-  %143 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.44, ptr noundef %139, i32 noundef %140, i32 noundef %142) #16
+  %143 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.44, ptr noundef %139, i32 noundef %140, i32 noundef %142) #17
   br label %149
 
 144:                                              ; preds = %121
-  %145 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.47, i32 noundef 5) #16
-  %146 = tail call ptr @g_dpgettext(ptr noundef null, ptr noundef nonnull %132, i64 noundef 0) #16
-  %147 = tail call ptr @g_dpgettext(ptr noundef null, ptr noundef nonnull %134, i64 noundef 0) #16
-  %148 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.46, ptr noundef %145, ptr noundef %146, ptr noundef %147) #16
+  %145 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.47, i32 noundef 5) #17
+  %146 = tail call ptr @g_dpgettext(ptr noundef null, ptr noundef nonnull %132, i64 noundef 0) #17
+  %147 = tail call ptr @g_dpgettext(ptr noundef null, ptr noundef nonnull %134, i64 noundef 0) #17
+  %148 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.46, ptr noundef %145, ptr noundef %146, ptr noundef %147) #17
   br label %149
 
 149:                                              ; preds = %144, %138
@@ -1037,21 +1037,21 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr nocaptur
   br i1 %188, label %171, label %175
 
 189:                                              ; preds = %171, %165
-  %190 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.48, i32 noundef 5) #16
+  %190 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.48, i32 noundef 5) #17
   %191 = load i32, ptr %160, align 4, !tbaa !97
   %192 = and i32 %191, 255
   %193 = load ptr, ptr %67, align 8, !tbaa !87
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 8
   %195 = load i32, ptr %194, align 4, !tbaa !97
   %196 = and i32 %195, 255
-  %197 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.44, ptr noundef %190, i32 noundef %192, i32 noundef %196) #16
+  %197 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.44, ptr noundef %190, i32 noundef %192, i32 noundef %196) #17
   br label %203
 
 198:                                              ; preds = %171
-  %199 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.48, i32 noundef 5) #16
-  %200 = tail call ptr @g_dpgettext(ptr noundef null, ptr noundef nonnull %183, i64 noundef 0) #16
-  %201 = tail call ptr @g_dpgettext(ptr noundef null, ptr noundef nonnull %185, i64 noundef 0) #16
-  %202 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.46, ptr noundef %199, ptr noundef %200, ptr noundef %201) #16
+  %199 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.48, i32 noundef 5) #17
+  %200 = tail call ptr @g_dpgettext(ptr noundef null, ptr noundef nonnull %183, i64 noundef 0) #17
+  %201 = tail call ptr @g_dpgettext(ptr noundef null, ptr noundef nonnull %185, i64 noundef 0) #17
+  %202 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.46, ptr noundef %199, ptr noundef %200, ptr noundef %201) #17
   br label %203
 
 203:                                              ; preds = %198, %189
@@ -1109,21 +1109,21 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr nocaptur
   br i1 %243, label %226, label %230
 
 244:                                              ; preds = %226, %220
-  %245 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.49, i32 noundef 5) #16
+  %245 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.49, i32 noundef 5) #17
   %246 = load i32, ptr %160, align 4, !tbaa !97
   %247 = and i32 %246, -2147483648
   %248 = load ptr, ptr %67, align 8, !tbaa !87
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 8
   %250 = load i32, ptr %249, align 4, !tbaa !97
   %251 = and i32 %250, -2147483648
-  %252 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.44, ptr noundef %245, i32 noundef %247, i32 noundef %251) #16
+  %252 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.44, ptr noundef %245, i32 noundef %247, i32 noundef %251) #17
   br label %258
 
 253:                                              ; preds = %226
-  %254 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.49, i32 noundef 5) #16
-  %255 = tail call ptr @g_dpgettext(ptr noundef null, ptr noundef nonnull %238, i64 noundef 0) #16
-  %256 = tail call ptr @g_dpgettext(ptr noundef null, ptr noundef nonnull %240, i64 noundef 0) #16
-  %257 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.46, ptr noundef %254, ptr noundef %255, ptr noundef %256) #16
+  %254 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.49, i32 noundef 5) #17
+  %255 = tail call ptr @g_dpgettext(ptr noundef null, ptr noundef nonnull %238, i64 noundef 0) #17
+  %256 = tail call ptr @g_dpgettext(ptr noundef null, ptr noundef nonnull %240, i64 noundef 0) #17
+  %257 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.46, ptr noundef %254, ptr noundef %255, ptr noundef %256) #17
   br label %258
 
 258:                                              ; preds = %253, %244
@@ -1146,22 +1146,22 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr nocaptur
   br i1 %271, label %272, label %288
 
 272:                                              ; preds = %264
-  %273 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 5) #16
-  %274 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 5) #16
-  %275 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef nonnull @.str.50, ptr noundef %273, ptr noundef nonnull @.str.52, ptr noundef %274, ptr noundef null) #16
-  %276 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.53, i32 noundef 5) #16
+  %273 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 5) #17
+  %274 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 5) #17
+  %275 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef nonnull @.str.50, ptr noundef %273, ptr noundef nonnull @.str.52, ptr noundef %274, ptr noundef null) #17
+  %276 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.53, i32 noundef 5) #17
   %277 = load float, ptr %269, align 4, !tbaa !98
   %278 = fpext float %277 to double
   %279 = load ptr, ptr %67, align 8, !tbaa !87
   %280 = getelementptr inbounds nuw i8, ptr %279, i64 12
   %281 = load float, ptr %280, align 4, !tbaa !98
   %282 = fpext float %281 to double
-  %283 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef %275, ptr noundef %276, double noundef %278, double noundef %282) #16
+  %283 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef %275, ptr noundef %276, double noundef %278, double noundef %282) #17
   %284 = add nuw nsw i32 %266, 1
   %285 = zext nneg i32 %266 to i64
   %286 = getelementptr inbounds nuw ptr, ptr %25, i64 %285
   store ptr %283, ptr %286, align 8, !tbaa !72
-  tail call void @g_free(ptr noundef %275) #16
+  tail call void @g_free(ptr noundef %275) #17
   %287 = load ptr, ptr %67, align 8, !tbaa !87
   br label %288
 
@@ -1176,20 +1176,20 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr nocaptur
   br i1 %295, label %296, label %310
 
 296:                                              ; preds = %288
-  %297 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.54, ptr noundef null) #16
-  %298 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.55, i32 noundef 5) #16
+  %297 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.54, ptr noundef null) #17
+  %298 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.55, i32 noundef 5) #17
   %299 = load float, ptr %293, align 4, !tbaa !99
   %300 = fpext float %299 to double
   %301 = load ptr, ptr %67, align 8, !tbaa !87
   %302 = getelementptr inbounds nuw i8, ptr %301, i64 16
   %303 = load float, ptr %302, align 4, !tbaa !99
   %304 = fpext float %303 to double
-  %305 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef %297, ptr noundef %298, double noundef %300, double noundef %304) #16
+  %305 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef %297, ptr noundef %298, double noundef %300, double noundef %304) #17
   %306 = add nuw nsw i32 %290, 1
   %307 = zext nneg i32 %290 to i64
   %308 = getelementptr inbounds nuw ptr, ptr %25, i64 %307
   store ptr %305, ptr %308, align 8, !tbaa !72
-  tail call void @g_free(ptr noundef %297) #16
+  tail call void @g_free(ptr noundef %297) #17
   %309 = load ptr, ptr %67, align 8, !tbaa !87
   br label %310
 
@@ -1238,21 +1238,21 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr nocaptur
   br i1 %343, label %326, label %330
 
 344:                                              ; preds = %326, %320
-  %345 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.56, i32 noundef 5) #16
+  %345 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.56, i32 noundef 5) #17
   %346 = load i32, ptr %315, align 4, !tbaa !100
   %347 = and i32 %346, 3
   %348 = load ptr, ptr %67, align 8, !tbaa !87
   %349 = getelementptr inbounds nuw i8, ptr %348, i64 20
   %350 = load i32, ptr %349, align 4, !tbaa !100
   %351 = and i32 %350, 3
-  %352 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.44, ptr noundef %345, i32 noundef %347, i32 noundef %351) #16
+  %352 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.44, ptr noundef %345, i32 noundef %347, i32 noundef %351) #17
   br label %358
 
 353:                                              ; preds = %326
-  %354 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.56, i32 noundef 5) #16
-  %355 = tail call ptr @g_dpgettext(ptr noundef null, ptr noundef nonnull %338, i64 noundef 0) #16
-  %356 = tail call ptr @g_dpgettext(ptr noundef null, ptr noundef nonnull %340, i64 noundef 0) #16
-  %357 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.46, ptr noundef %354, ptr noundef %355, ptr noundef %356) #16
+  %354 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.56, i32 noundef 5) #17
+  %355 = tail call ptr @g_dpgettext(ptr noundef null, ptr noundef nonnull %338, i64 noundef 0) #17
+  %356 = tail call ptr @g_dpgettext(ptr noundef null, ptr noundef nonnull %340, i64 noundef 0) #17
+  %357 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.46, ptr noundef %354, ptr noundef %355, ptr noundef %356) #17
   br label %358
 
 358:                                              ; preds = %353, %344
@@ -1275,20 +1275,20 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr nocaptur
   br i1 %371, label %372, label %386
 
 372:                                              ; preds = %364
-  %373 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.54, ptr noundef null) #16
-  %374 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.57, i32 noundef 5) #16
+  %373 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.54, ptr noundef null) #17
+  %374 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.57, i32 noundef 5) #17
   %375 = load float, ptr %369, align 4, !tbaa !101
   %376 = fpext float %375 to double
   %377 = load ptr, ptr %67, align 8, !tbaa !87
   %378 = getelementptr inbounds nuw i8, ptr %377, i64 32
   %379 = load float, ptr %378, align 4, !tbaa !101
   %380 = fpext float %379 to double
-  %381 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef %373, ptr noundef %374, double noundef %376, double noundef %380) #16
+  %381 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef %373, ptr noundef %374, double noundef %376, double noundef %380) #17
   %382 = add nsw i32 %366, 1
   %383 = sext i32 %366 to i64
   %384 = getelementptr inbounds ptr, ptr %25, i64 %383
   store ptr %381, ptr %384, align 8, !tbaa !72
-  tail call void @g_free(ptr noundef %373) #16
+  tail call void @g_free(ptr noundef %373) #17
   %385 = load ptr, ptr %67, align 8, !tbaa !87
   br label %386
 
@@ -1330,19 +1330,19 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr nocaptur
   br i1 %413, label %397, label %.preheader45
 
 414:                                              ; preds = %397, %394
-  %415 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.58, i32 noundef 5) #16
+  %415 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.58, i32 noundef 5) #17
   %416 = load i32, ptr %391, align 4, !tbaa !102
   %417 = load ptr, ptr %67, align 8, !tbaa !87
   %418 = getelementptr inbounds nuw i8, ptr %417, i64 36
   %419 = load i32, ptr %418, align 4, !tbaa !102
-  %420 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.44, ptr noundef %415, i32 noundef %416, i32 noundef %419) #16
+  %420 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.44, ptr noundef %415, i32 noundef %416, i32 noundef %419) #17
   br label %426
 
 421:                                              ; preds = %397
-  %422 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.58, i32 noundef 5) #16
-  %423 = tail call ptr @g_dpgettext(ptr noundef null, ptr noundef nonnull %408, i64 noundef 0) #16
-  %424 = tail call ptr @g_dpgettext(ptr noundef null, ptr noundef nonnull %410, i64 noundef 0) #16
-  %425 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.46, ptr noundef %422, ptr noundef %423, ptr noundef %424) #16
+  %422 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.58, i32 noundef 5) #17
+  %423 = tail call ptr @g_dpgettext(ptr noundef null, ptr noundef nonnull %408, i64 noundef 0) #17
+  %424 = tail call ptr @g_dpgettext(ptr noundef null, ptr noundef nonnull %410, i64 noundef 0) #17
+  %425 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.46, ptr noundef %422, ptr noundef %423, ptr noundef %424) #17
   br label %426
 
 426:                                              ; preds = %421, %414
@@ -1365,20 +1365,20 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr nocaptur
   br i1 %439, label %440, label %454
 
 440:                                              ; preds = %432
-  %441 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.54, ptr noundef null) #16
-  %442 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.59, i32 noundef 5) #16
+  %441 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.54, ptr noundef null) #17
+  %442 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.59, i32 noundef 5) #17
   %443 = load float, ptr %437, align 4, !tbaa !103
   %444 = fpext float %443 to double
   %445 = load ptr, ptr %67, align 8, !tbaa !87
   %446 = getelementptr inbounds nuw i8, ptr %445, i64 40
   %447 = load float, ptr %446, align 4, !tbaa !103
   %448 = fpext float %447 to double
-  %449 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef %441, ptr noundef %442, double noundef %444, double noundef %448) #16
+  %449 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef %441, ptr noundef %442, double noundef %444, double noundef %448) #17
   %450 = add nsw i32 %434, 1
   %451 = sext i32 %434 to i64
   %452 = getelementptr inbounds ptr, ptr %25, i64 %451
   store ptr %449, ptr %452, align 8, !tbaa !72
-  tail call void @g_free(ptr noundef %441) #16
+  tail call void @g_free(ptr noundef %441) #17
   %453 = load ptr, ptr %67, align 8, !tbaa !87
   br label %454
 
@@ -1393,20 +1393,20 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr nocaptur
   br i1 %461, label %462, label %476
 
 462:                                              ; preds = %454
-  %463 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.54, ptr noundef null) #16
-  %464 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.60, i32 noundef 5) #16
+  %463 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.54, ptr noundef null) #17
+  %464 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.60, i32 noundef 5) #17
   %465 = load float, ptr %459, align 4, !tbaa !104
   %466 = fpext float %465 to double
   %467 = load ptr, ptr %67, align 8, !tbaa !87
   %468 = getelementptr inbounds nuw i8, ptr %467, i64 44
   %469 = load float, ptr %468, align 4, !tbaa !104
   %470 = fpext float %469 to double
-  %471 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef %463, ptr noundef %464, double noundef %466, double noundef %470) #16
+  %471 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef %463, ptr noundef %464, double noundef %466, double noundef %470) #17
   %472 = add nsw i32 %456, 1
   %473 = sext i32 %456 to i64
   %474 = getelementptr inbounds ptr, ptr %25, i64 %473
   store ptr %471, ptr %474, align 8, !tbaa !72
-  tail call void @g_free(ptr noundef %463) #16
+  tail call void @g_free(ptr noundef %463) #17
   %475 = load ptr, ptr %67, align 8, !tbaa !87
   br label %476
 
@@ -1421,20 +1421,20 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr nocaptur
   br i1 %483, label %484, label %498
 
 484:                                              ; preds = %476
-  %485 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.54, ptr noundef null) #16
-  %486 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.61, i32 noundef 5) #16
+  %485 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.54, ptr noundef null) #17
+  %486 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.61, i32 noundef 5) #17
   %487 = load float, ptr %481, align 4, !tbaa !105
   %488 = fpext float %487 to double
   %489 = load ptr, ptr %67, align 8, !tbaa !87
   %490 = getelementptr inbounds nuw i8, ptr %489, i64 48
   %491 = load float, ptr %490, align 4, !tbaa !105
   %492 = fpext float %491 to double
-  %493 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef %485, ptr noundef %486, double noundef %488, double noundef %492) #16
+  %493 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef %485, ptr noundef %486, double noundef %488, double noundef %492) #17
   %494 = add nsw i32 %478, 1
   %495 = sext i32 %478 to i64
   %496 = getelementptr inbounds ptr, ptr %25, i64 %495
   store ptr %493, ptr %496, align 8, !tbaa !72
-  tail call void @g_free(ptr noundef %485) #16
+  tail call void @g_free(ptr noundef %485) #17
   %497 = load ptr, ptr %67, align 8, !tbaa !87
   br label %498
 
@@ -1449,18 +1449,18 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr nocaptur
   br i1 %505, label %518, label %506
 
 506:                                              ; preds = %498
-  %507 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.62, ptr noundef null) #16
-  %508 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.63, i32 noundef 5) #16
+  %507 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.62, ptr noundef null) #17
+  %508 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.63, i32 noundef 5) #17
   %509 = load i32, ptr %503, align 4, !tbaa !106
   %510 = load ptr, ptr %67, align 8, !tbaa !87
   %511 = getelementptr inbounds nuw i8, ptr %510, i64 408
   %512 = load i32, ptr %511, align 4, !tbaa !106
-  %513 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef %507, ptr noundef %508, i32 noundef %509, i32 noundef %512) #16
+  %513 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef %507, ptr noundef %508, i32 noundef %509, i32 noundef %512) #17
   %514 = add nsw i32 %500, 1
   %515 = sext i32 %500 to i64
   %516 = getelementptr inbounds ptr, ptr %25, i64 %515
   store ptr %513, ptr %516, align 8, !tbaa !72
-  tail call void @g_free(ptr noundef %507) #16
+  tail call void @g_free(ptr noundef %507) #17
   %517 = load ptr, ptr %67, align 8, !tbaa !87
   br label %518
 
@@ -1475,18 +1475,18 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr nocaptur
   br i1 %525, label %538, label %526
 
 526:                                              ; preds = %518
-  %527 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.62, ptr noundef null) #16
-  %528 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.64, i32 noundef 5) #16
+  %527 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.62, ptr noundef null) #17
+  %528 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.64, i32 noundef 5) #17
   %529 = load i32, ptr %523, align 4, !tbaa !107
   %530 = load ptr, ptr %67, align 8, !tbaa !87
   %531 = getelementptr inbounds nuw i8, ptr %530, i64 412
   %532 = load i32, ptr %531, align 4, !tbaa !107
-  %533 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef %527, ptr noundef %528, i32 noundef %529, i32 noundef %532) #16
+  %533 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef %527, ptr noundef %528, i32 noundef %529, i32 noundef %532) #17
   %534 = add nsw i32 %520, 1
   %535 = sext i32 %520 to i64
   %536 = getelementptr inbounds ptr, ptr %25, i64 %535
   store ptr %533, ptr %536, align 8, !tbaa !72
-  tail call void @g_free(ptr noundef %527) #16
+  tail call void @g_free(ptr noundef %527) #17
   %537 = load ptr, ptr %67, align 8, !tbaa !87
   br label %538
 
@@ -1528,19 +1528,19 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr nocaptur
   br i1 %565, label %549, label %.preheader44
 
 566:                                              ; preds = %549, %546
-  %567 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.65, i32 noundef 5) #16
+  %567 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.65, i32 noundef 5) #17
   %568 = load i32, ptr %543, align 4, !tbaa !108
   %569 = load ptr, ptr %67, align 8, !tbaa !87
   %570 = getelementptr inbounds nuw i8, ptr %569, i64 416
   %571 = load i32, ptr %570, align 4, !tbaa !108
-  %572 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.44, ptr noundef %567, i32 noundef %568, i32 noundef %571) #16
+  %572 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.44, ptr noundef %567, i32 noundef %568, i32 noundef %571) #17
   br label %578
 
 573:                                              ; preds = %549
-  %574 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.65, i32 noundef 5) #16
-  %575 = tail call ptr @g_dpgettext(ptr noundef null, ptr noundef nonnull %560, i64 noundef 0) #16
-  %576 = tail call ptr @g_dpgettext(ptr noundef null, ptr noundef nonnull %562, i64 noundef 0) #16
-  %577 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.46, ptr noundef %574, ptr noundef %575, ptr noundef %576) #16
+  %574 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.65, i32 noundef 5) #17
+  %575 = tail call ptr @g_dpgettext(ptr noundef null, ptr noundef nonnull %560, i64 noundef 0) #17
+  %576 = tail call ptr @g_dpgettext(ptr noundef null, ptr noundef nonnull %562, i64 noundef 0) #17
+  %577 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.46, ptr noundef %574, ptr noundef %575, ptr noundef %576) #17
   br label %578
 
 578:                                              ; preds = %573, %566
@@ -1566,8 +1566,8 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr nocaptur
   br i1 %594, label %613, label %595
 
 595:                                              ; preds = %584
-  %596 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.66, ptr noundef null) #16
-  %597 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.67, i32 noundef 5) #16
+  %596 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.66, ptr noundef null) #17
+  %597 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.67, i32 noundef 5) #17
   %598 = load i32, ptr %315, align 4, !tbaa !100
   %599 = and i32 %598, 4
   %600 = icmp eq i32 %599, 0
@@ -1578,12 +1578,12 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr nocaptur
   %605 = and i32 %604, 4
   %606 = icmp eq i32 %605, 0
   %607 = select i1 %606, i32 43, i32 45
-  %608 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef %596, ptr noundef %597, i32 noundef %601, i32 noundef %607) #16
+  %608 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef %596, ptr noundef %597, i32 noundef %601, i32 noundef %607) #17
   %609 = add nsw i32 %586, 1
   %610 = sext i32 %586 to i64
   %611 = getelementptr inbounds ptr, ptr %25, i64 %610
   store ptr %608, ptr %611, align 8, !tbaa !72
-  tail call void @g_free(ptr noundef %596) #16
+  tail call void @g_free(ptr noundef %596) #17
   %612 = load ptr, ptr %67, align 8, !tbaa !87
   br label %613
 
@@ -1602,8 +1602,8 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr nocaptur
   %623 = icmp eq i32 %617, 0
   %624 = select i1 %623, ptr @.str.69, ptr @.str.70
   %625 = select i1 %622, ptr @.str.68, ptr %624
-  %626 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %625, i32 noundef 5) #16
-  %627 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef %626) #16
+  %626 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %625, i32 noundef 5) #17
+  %627 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef %626) #17
   %628 = add nsw i32 %615, 1
   %629 = sext i32 %615 to i64
   %630 = getelementptr inbounds ptr, ptr %25, i64 %629
@@ -1696,8 +1696,8 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr nocaptur
   br i1 %696, label %703, label %697
 
 697:                                              ; preds = %695
-  %698 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.72, i32 noundef 5) #16
-  %699 = call noalias ptr @g_strdup(ptr noundef %698) #16
+  %698 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.72, i32 noundef 5) #17
+  %699 = call noalias ptr @g_strdup(ptr noundef %698) #17
   %700 = add nsw i32 %660, 1
   %701 = sext i32 %660 to i64
   %702 = getelementptr inbounds ptr, ptr %25, i64 %701
@@ -1706,38 +1706,38 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr nocaptur
 
 703:                                              ; preds = %697, %695
   %704 = phi i32 [ %700, %697 ], [ %660, %695 ]
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %7) #17
   %705 = getelementptr inbounds nuw i8, ptr %659, i64 56
   %706 = load ptr, ptr %705, align 8, !tbaa !117
   %707 = load float, ptr %676, align 4, !tbaa !116
-  call void %706(float noundef %707, float noundef %682, ptr noundef nonnull %7, i32 noundef 25) #16
+  call void %706(float noundef %707, float noundef %682, ptr noundef nonnull %7, i32 noundef 25) #17
   %708 = load ptr, ptr %705, align 8, !tbaa !117
   %709 = load float, ptr %678, align 4, !tbaa !116
-  call void %708(float noundef %709, float noundef %686, ptr noundef nonnull %644, i32 noundef 25) #16
+  call void %708(float noundef %709, float noundef %686, ptr noundef nonnull %644, i32 noundef 25) #17
   %710 = load ptr, ptr %705, align 8, !tbaa !117
   %711 = getelementptr inbounds nuw i8, ptr %676, i64 4
   %712 = load float, ptr %711, align 4, !tbaa !116
-  call void %710(float noundef %712, float noundef %682, ptr noundef nonnull %641, i32 noundef 25) #16
+  call void %710(float noundef %712, float noundef %682, ptr noundef nonnull %641, i32 noundef 25) #17
   %713 = load ptr, ptr %705, align 8, !tbaa !117
   %714 = getelementptr inbounds nuw i8, ptr %678, i64 4
   %715 = load float, ptr %714, align 4, !tbaa !116
-  call void %713(float noundef %715, float noundef %686, ptr noundef nonnull %645, i32 noundef 25) #16
+  call void %713(float noundef %715, float noundef %686, ptr noundef nonnull %645, i32 noundef 25) #17
   %716 = load ptr, ptr %705, align 8, !tbaa !117
   %717 = getelementptr inbounds nuw i8, ptr %676, i64 8
   %718 = load float, ptr %717, align 4, !tbaa !116
-  call void %716(float noundef %718, float noundef %682, ptr noundef nonnull %642, i32 noundef 25) #16
+  call void %716(float noundef %718, float noundef %682, ptr noundef nonnull %642, i32 noundef 25) #17
   %719 = load ptr, ptr %705, align 8, !tbaa !117
   %720 = getelementptr inbounds nuw i8, ptr %678, i64 8
   %721 = load float, ptr %720, align 4, !tbaa !116
-  call void %719(float noundef %721, float noundef %686, ptr noundef nonnull %646, i32 noundef 25) #16
+  call void %719(float noundef %721, float noundef %686, ptr noundef nonnull %646, i32 noundef 25) #17
   %722 = load ptr, ptr %705, align 8, !tbaa !117
   %723 = getelementptr inbounds nuw i8, ptr %676, i64 12
   %724 = load float, ptr %723, align 4, !tbaa !116
-  call void %722(float noundef %724, float noundef %682, ptr noundef nonnull %643, i32 noundef 25) #16
+  call void %722(float noundef %724, float noundef %682, ptr noundef nonnull %643, i32 noundef 25) #17
   %725 = load ptr, ptr %705, align 8, !tbaa !117
   %726 = getelementptr inbounds nuw i8, ptr %678, i64 12
   %727 = load float, ptr %726, align 4, !tbaa !116
-  call void %725(float noundef %727, float noundef %686, ptr noundef nonnull %647, i32 noundef 25) #16
+  call void %725(float noundef %727, float noundef %686, ptr noundef nonnull %647, i32 noundef 25) #17
   %728 = icmp eq i32 %672, 0
   %729 = select i1 %728, ptr @.str.74, ptr @.str.73
   %730 = select i1 %687, ptr %729, ptr @.str.32
@@ -1746,13 +1746,13 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr nocaptur
   %733 = select i1 %688, ptr %732, ptr @.str.32
   %734 = getelementptr inbounds nuw i8, ptr %659, i64 72
   %735 = load ptr, ptr %734, align 8, !tbaa !118
-  %736 = call ptr @dcgettext(ptr noundef null, ptr noundef %735, i32 noundef 5) #16
-  %737 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.75, ptr noundef %736, ptr noundef nonnull %7, ptr noundef nonnull %641, ptr noundef nonnull %642, ptr noundef nonnull %643, ptr noundef nonnull %730, ptr noundef nonnull %644, ptr noundef nonnull %645, ptr noundef nonnull %646, ptr noundef nonnull %647, ptr noundef nonnull %733) #16
+  %736 = call ptr @dcgettext(ptr noundef null, ptr noundef %735, i32 noundef 5) #17
+  %737 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.75, ptr noundef %736, ptr noundef nonnull %7, ptr noundef nonnull %641, ptr noundef nonnull %642, ptr noundef nonnull %643, ptr noundef nonnull %730, ptr noundef nonnull %644, ptr noundef nonnull %645, ptr noundef nonnull %646, ptr noundef nonnull %647, ptr noundef nonnull %733) #17
   %738 = add nsw i32 %704, 1
   %739 = sext i32 %704 to i64
   %740 = getelementptr inbounds ptr, ptr %25, i64 %739
   store ptr %737, ptr %740, align 8, !tbaa !72
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %7) #17
   br label %741
 
 741:                                              ; preds = %703, %690, %.preheader42
@@ -1810,8 +1810,8 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr nocaptur
   br i1 %785, label %792, label %786
 
 786:                                              ; preds = %784
-  %787 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.71, i32 noundef 5) #16
-  %788 = call noalias ptr @g_strdup(ptr noundef %787) #16
+  %787 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.71, i32 noundef 5) #17
+  %788 = call noalias ptr @g_strdup(ptr noundef %787) #17
   %789 = add nsw i32 %749, 1
   %790 = sext i32 %749 to i64
   %791 = getelementptr inbounds ptr, ptr %25, i64 %790
@@ -1820,38 +1820,38 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr nocaptur
 
 792:                                              ; preds = %786, %784
   %793 = phi i32 [ %789, %786 ], [ %749, %784 ]
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %7) #17
   %794 = getelementptr inbounds nuw i8, ptr %748, i64 56
   %795 = load ptr, ptr %794, align 8, !tbaa !117
   %796 = load float, ptr %765, align 4, !tbaa !116
-  call void %795(float noundef %796, float noundef %771, ptr noundef nonnull %7, i32 noundef 25) #16
+  call void %795(float noundef %796, float noundef %771, ptr noundef nonnull %7, i32 noundef 25) #17
   %797 = load ptr, ptr %794, align 8, !tbaa !117
   %798 = load float, ptr %767, align 4, !tbaa !116
-  call void %797(float noundef %798, float noundef %775, ptr noundef nonnull %644, i32 noundef 25) #16
+  call void %797(float noundef %798, float noundef %775, ptr noundef nonnull %644, i32 noundef 25) #17
   %799 = load ptr, ptr %794, align 8, !tbaa !117
   %800 = getelementptr inbounds nuw i8, ptr %765, i64 4
   %801 = load float, ptr %800, align 4, !tbaa !116
-  call void %799(float noundef %801, float noundef %771, ptr noundef nonnull %641, i32 noundef 25) #16
+  call void %799(float noundef %801, float noundef %771, ptr noundef nonnull %641, i32 noundef 25) #17
   %802 = load ptr, ptr %794, align 8, !tbaa !117
   %803 = getelementptr inbounds nuw i8, ptr %767, i64 4
   %804 = load float, ptr %803, align 4, !tbaa !116
-  call void %802(float noundef %804, float noundef %775, ptr noundef nonnull %645, i32 noundef 25) #16
+  call void %802(float noundef %804, float noundef %775, ptr noundef nonnull %645, i32 noundef 25) #17
   %805 = load ptr, ptr %794, align 8, !tbaa !117
   %806 = getelementptr inbounds nuw i8, ptr %765, i64 8
   %807 = load float, ptr %806, align 4, !tbaa !116
-  call void %805(float noundef %807, float noundef %771, ptr noundef nonnull %642, i32 noundef 25) #16
+  call void %805(float noundef %807, float noundef %771, ptr noundef nonnull %642, i32 noundef 25) #17
   %808 = load ptr, ptr %794, align 8, !tbaa !117
   %809 = getelementptr inbounds nuw i8, ptr %767, i64 8
   %810 = load float, ptr %809, align 4, !tbaa !116
-  call void %808(float noundef %810, float noundef %775, ptr noundef nonnull %646, i32 noundef 25) #16
+  call void %808(float noundef %810, float noundef %775, ptr noundef nonnull %646, i32 noundef 25) #17
   %811 = load ptr, ptr %794, align 8, !tbaa !117
   %812 = getelementptr inbounds nuw i8, ptr %765, i64 12
   %813 = load float, ptr %812, align 4, !tbaa !116
-  call void %811(float noundef %813, float noundef %771, ptr noundef nonnull %643, i32 noundef 25) #16
+  call void %811(float noundef %813, float noundef %771, ptr noundef nonnull %643, i32 noundef 25) #17
   %814 = load ptr, ptr %794, align 8, !tbaa !117
   %815 = getelementptr inbounds nuw i8, ptr %767, i64 12
   %816 = load float, ptr %815, align 4, !tbaa !116
-  call void %814(float noundef %816, float noundef %775, ptr noundef nonnull %647, i32 noundef 25) #16
+  call void %814(float noundef %816, float noundef %775, ptr noundef nonnull %647, i32 noundef 25) #17
   %817 = icmp eq i32 %761, 0
   %818 = select i1 %817, ptr @.str.74, ptr @.str.73
   %819 = select i1 %776, ptr %818, ptr @.str.32
@@ -1860,13 +1860,13 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr nocaptur
   %822 = select i1 %777, ptr %821, ptr @.str.32
   %823 = getelementptr inbounds nuw i8, ptr %748, i64 72
   %824 = load ptr, ptr %823, align 8, !tbaa !118
-  %825 = call ptr @dcgettext(ptr noundef null, ptr noundef %824, i32 noundef 5) #16
-  %826 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.75, ptr noundef %825, ptr noundef nonnull %7, ptr noundef nonnull %641, ptr noundef nonnull %642, ptr noundef nonnull %643, ptr noundef nonnull %819, ptr noundef nonnull %644, ptr noundef nonnull %645, ptr noundef nonnull %646, ptr noundef nonnull %647, ptr noundef nonnull %822) #16
+  %825 = call ptr @dcgettext(ptr noundef null, ptr noundef %824, i32 noundef 5) #17
+  %826 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.75, ptr noundef %825, ptr noundef nonnull %7, ptr noundef nonnull %641, ptr noundef nonnull %642, ptr noundef nonnull %643, ptr noundef nonnull %819, ptr noundef nonnull %644, ptr noundef nonnull %645, ptr noundef nonnull %646, ptr noundef nonnull %647, ptr noundef nonnull %822) #17
   %827 = add nsw i32 %793, 1
   %828 = sext i32 %793 to i64
   %829 = getelementptr inbounds ptr, ptr %25, i64 %828
   store ptr %826, ptr %829, align 8, !tbaa !72
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %7) #17
   br label %830
 
 830:                                              ; preds = %792, %779, %.preheader43
@@ -1878,11 +1878,11 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr nocaptur
   br i1 %835, label %654, label %.preheader43
 
 .thread41:                                        ; preds = %741, %651, %656, %654, %648, %631, %56
-  %836 = call noalias ptr @g_strjoinv(ptr noundef nonnull @.str.76, ptr noundef nonnull %25) #16
-  call void @g_strfreev(ptr noundef nonnull %25) #16
+  %836 = call noalias ptr @g_strjoinv(ptr noundef nonnull @.str.76, ptr noundef nonnull %25) #17
+  call void @g_strfreev(ptr noundef nonnull %25) #17
   %837 = load i8, ptr %836, align 1, !tbaa !75
   %838 = icmp eq i8 %837, 0
-  br i1 %838, label %913, label %839
+  br i1 %838, label %912, label %839
 
 839:                                              ; preds = %.thread41
   %840 = load ptr, ptr @_changes_tooltip_callback.view, align 8, !tbaa !72
@@ -1890,63 +1890,63 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr nocaptur
   br i1 %841, label %842, label %849
 
 842:                                              ; preds = %839
-  %843 = call ptr @gtk_text_view_new() #16
+  %843 = call ptr @gtk_text_view_new() #17
   store ptr %843, ptr @_changes_tooltip_callback.view, align 8, !tbaa !72
-  call void @dt_gui_add_class(ptr noundef %843, ptr noundef nonnull @.str.33) #16
+  call void @dt_gui_add_class(ptr noundef %843, ptr noundef nonnull @.str.33) #17
   %844 = load ptr, ptr @_changes_tooltip_callback.view, align 8, !tbaa !72
-  call void @dt_gui_add_class(ptr noundef %844, ptr noundef nonnull @.str.31) #16
+  call void @dt_gui_add_class(ptr noundef %844, ptr noundef nonnull @.str.31) #17
   %845 = load ptr, ptr @_changes_tooltip_callback.view, align 8, !tbaa !72
-  %846 = call ptr @g_type_check_instance_cast(ptr noundef %845, i64 noundef 80) #16
-  %847 = call i64 @g_signal_connect_data(ptr noundef %846, ptr noundef nonnull @.str.77, ptr noundef nonnull @gtk_widget_destroyed, ptr noundef nonnull @_changes_tooltip_callback.view, ptr noundef null, i32 noundef 0) #16
+  %846 = call ptr @g_type_check_instance_cast(ptr noundef %845, i64 noundef 80) #17
+  %847 = call i64 @g_signal_connect_data(ptr noundef %846, ptr noundef nonnull @.str.77, ptr noundef nonnull @gtk_widget_destroyed, ptr noundef nonnull @_changes_tooltip_callback.view, ptr noundef null, i32 noundef 0) #17
   %848 = load ptr, ptr @_changes_tooltip_callback.view, align 8, !tbaa !72
   br label %849
 
 849:                                              ; preds = %842, %839
   %850 = phi ptr [ %848, %842 ], [ %840, %839 ]
-  %851 = tail call i64 @gtk_text_view_get_type() #18
-  %852 = call ptr @g_type_check_instance_cast(ptr noundef %850, i64 noundef %851) #16
-  %853 = call ptr @gtk_text_view_get_buffer(ptr noundef %852) #16
-  call void @gtk_text_buffer_set_text(ptr noundef %853, ptr noundef nonnull %836, i32 noundef -1) #16
+  %851 = tail call i64 @gtk_text_view_get_type() #19
+  %852 = call ptr @g_type_check_instance_cast(ptr noundef %850, i64 noundef %851) #17
+  %853 = call ptr @gtk_text_view_get_buffer(ptr noundef %852) #17
+  call void @gtk_text_buffer_set_text(ptr noundef %853, ptr noundef nonnull %836, i32 noundef -1) #17
   %854 = load ptr, ptr @_changes_tooltip_callback.view, align 8, !tbaa !72
-  call void @gtk_tooltip_set_custom(ptr noundef %4, ptr noundef %854) #16
+  call void @gtk_tooltip_set_custom(ptr noundef %4, ptr noundef %854) #17
   %855 = load ptr, ptr @_changes_tooltip_callback.view, align 8, !tbaa !72
-  call void @gtk_widget_map(ptr noundef %855) #16
+  call void @gtk_widget_map(ptr noundef %855) #17
   %856 = load i8, ptr %836, align 1, !tbaa !75
   %857 = icmp eq i8 %856, 0
   br i1 %857, label %.loopexit, label %.preheader
 
-.loopexit:                                        ; preds = %904, %849
-  %858 = phi i32 [ 0, %849 ], [ %905, %904 ]
-  %859 = phi i32 [ 0, %849 ], [ %906, %904 ]
+.loopexit:                                        ; preds = %903, %849
+  %858 = phi i32 [ 0, %849 ], [ %904, %903 ]
+  %859 = phi i32 [ 0, %849 ], [ %905, %903 ]
   %860 = load ptr, ptr @_changes_tooltip_callback.view, align 8, !tbaa !72
-  %861 = call ptr @gtk_widget_create_pango_layout(ptr noundef %860, ptr noundef nonnull @.str.79) #16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #16
-  call void @pango_layout_get_size(ptr noundef %861, ptr noundef nonnull %8, ptr noundef null) #16
-  call void @g_object_unref(ptr noundef %861) #16
+  %861 = call ptr @gtk_widget_create_pango_layout(ptr noundef %860, ptr noundef nonnull @.str.79) #17
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #17
+  call void @pango_layout_get_size(ptr noundef %861, ptr noundef nonnull %8, ptr noundef null) #17
+  call void @g_object_unref(ptr noundef %861) #17
   %862 = load i32, ptr %8, align 4, !tbaa !34
   %863 = mul nsw i32 %862, %858
   %864 = add nsw i32 %859, %858
   %865 = mul nsw i32 %862, %864
   %866 = add nsw i32 %864, 2
   %867 = mul nsw i32 %862, %866
-  %868 = call ptr (i32, i32, i32, i32, ...) @pango_tab_array_new_with_positions(i32 noundef 3, i32 noundef 0, i32 noundef 0, i32 noundef %863, i32 noundef 0, i32 noundef %865, i32 noundef 0, i32 noundef %867) #16
+  %868 = call ptr (i32, i32, i32, i32, ...) @pango_tab_array_new_with_positions(i32 noundef 3, i32 noundef 0, i32 noundef 0, i32 noundef %863, i32 noundef 0, i32 noundef %865, i32 noundef 0, i32 noundef %867) #17
   %869 = load ptr, ptr @_changes_tooltip_callback.view, align 8, !tbaa !72
-  %870 = call ptr @g_type_check_instance_cast(ptr noundef %869, i64 noundef %851) #16
-  call void @gtk_text_view_set_tabs(ptr noundef %870, ptr noundef %868) #16
-  call void @pango_tab_array_free(ptr noundef %868) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #16
-  br label %913
+  %870 = call ptr @g_type_check_instance_cast(ptr noundef %869, i64 noundef %851) #17
+  call void @gtk_text_view_set_tabs(ptr noundef %870, ptr noundef %868) #17
+  call void @pango_tab_array_free(ptr noundef %868) #17
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #17
+  br label %912
 
-.preheader:                                       ; preds = %849, %904
-  %871 = phi ptr [ %910, %904 ], [ %836, %849 ]
-  %872 = phi i32 [ %906, %904 ], [ 0, %849 ]
-  %873 = phi i32 [ %905, %904 ], [ 0, %849 ]
-  %874 = call ptr @g_strstr_len(ptr noundef nonnull %871, i64 noundef -1, ptr noundef nonnull @.str.76) #16
+.preheader:                                       ; preds = %849, %903
+  %871 = phi ptr [ %909, %903 ], [ %836, %849 ]
+  %872 = phi i32 [ %905, %903 ], [ 0, %849 ]
+  %873 = phi i32 [ %904, %903 ], [ 0, %849 ]
+  %874 = call ptr @g_strstr_len(ptr noundef nonnull %871, i64 noundef -1, ptr noundef nonnull @.str.76) #17
   %875 = icmp eq ptr %874, null
   br i1 %875, label %876, label %879
 
 876:                                              ; preds = %.preheader
-  %877 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %871) #19
+  %877 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %871) #20
   %878 = getelementptr inbounds i8, ptr %871, i64 %877
   br label %879
 
@@ -1955,9 +1955,9 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr nocaptur
   %881 = ptrtoint ptr %880 to i64
   %882 = ptrtoint ptr %871 to i64
   %883 = sub i64 %881, %882
-  %884 = call ptr @g_strstr_len(ptr noundef nonnull %871, i64 noundef %883, ptr noundef nonnull @.str.78) #16
+  %884 = call ptr @g_strstr_len(ptr noundef nonnull %871, i64 noundef %883, ptr noundef nonnull @.str.78) #17
   %885 = icmp eq ptr %884, null
-  br i1 %885, label %904, label %886
+  br i1 %885, label %903, label %886
 
 886:                                              ; preds = %879
   %887 = ptrtoint ptr %884 to i64
@@ -1970,30 +1970,29 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr nocaptur
   %894 = getelementptr inbounds nuw i8, ptr %884, i64 1
   %895 = xor i64 %887, -1
   %896 = add i64 %895, %881
-  %897 = call ptr @g_strstr_len(ptr noundef nonnull %894, i64 noundef %896, ptr noundef nonnull @.str.78) #16
+  %897 = call ptr @g_strstr_len(ptr noundef nonnull %894, i64 noundef %896, ptr noundef nonnull @.str.78) #17
   %898 = ptrtoint ptr %897 to i64
   %899 = sub i64 %898, %887
   %900 = sext i32 %872 to i64
-  %901 = icmp sgt i64 %899, %900
-  %902 = trunc i64 %899 to i32
-  %903 = select i1 %901, i32 %902, i32 %872
-  br label %904
+  %901 = call i64 @llvm.smax.i64(i64 %899, i64 %900)
+  %902 = trunc i64 %901 to i32
+  br label %903
 
-904:                                              ; preds = %886, %879
-  %905 = phi i32 [ %893, %886 ], [ %873, %879 ]
-  %906 = phi i32 [ %903, %886 ], [ %872, %879 ]
-  %907 = load i8, ptr %880, align 1, !tbaa !75
-  %908 = icmp ne i8 %907, 0
-  %909 = zext i1 %908 to i64
-  %910 = getelementptr inbounds nuw i8, ptr %880, i64 %909
-  %911 = load i8, ptr %910, align 1, !tbaa !75
-  %912 = icmp eq i8 %911, 0
-  br i1 %912, label %.loopexit, label %.preheader
+903:                                              ; preds = %886, %879
+  %904 = phi i32 [ %893, %886 ], [ %873, %879 ]
+  %905 = phi i32 [ %902, %886 ], [ %872, %879 ]
+  %906 = load i8, ptr %880, align 1, !tbaa !75
+  %907 = icmp ne i8 %906, 0
+  %908 = zext i1 %907 to i64
+  %909 = getelementptr inbounds nuw i8, ptr %880, i64 %908
+  %910 = load i8, ptr %909, align 1, !tbaa !75
+  %911 = icmp eq i8 %910, 0
+  br i1 %911, label %.loopexit, label %.preheader
 
-913:                                              ; preds = %.loopexit, %.thread41
-  %914 = sext i8 %837 to i32
-  call void @g_free(ptr noundef nonnull %836) #16
-  ret i32 %914
+912:                                              ; preds = %.loopexit, %.thread41
+  %913 = sext i8 %837 to i32
+  call void @g_free(ptr noundef nonnull %836) #17
+  ret i32 %913
 }
 
 declare void @dt_gui_widget_reallocate_now(ptr noundef) local_unnamed_addr #5
@@ -2016,27 +2015,27 @@ define void @gui_reset(ptr nocapture noundef readnone %0) local_unnamed_addr #1 
   br i1 %5, label %6, label %19
 
 6:                                                ; preds = %1
-  %7 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.22) #16
+  %7 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.22) #17
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %6
-  %10 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.23, i32 noundef 5) #16
-  %11 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.24, i32 noundef 5) #16
-  %12 = tail call i32 (ptr, ptr, ...) @dt_gui_show_yes_no_dialog(ptr noundef %10, ptr noundef %11) #16
+  %10 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.23, i32 noundef 5) #17
+  %11 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.24, i32 noundef 5) #17
+  %12 = tail call i32 (ptr, ptr, ...) @dt_gui_show_yes_no_dialog(ptr noundef %10, ptr noundef %11) #17
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %19, label %14
 
 14:                                               ; preds = %9, %6
   %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
-  tail call void @dt_dev_undo_start_record(ptr noundef %15) #16
-  tail call void @dt_history_delete_on_image_ext(i32 noundef %4, i32 noundef 0, i32 noundef 1) #16
+  tail call void @dt_dev_undo_start_record(ptr noundef %15) #17
+  tail call void @dt_history_delete_on_image_ext(i32 noundef %4, i32 noundef 0, i32 noundef 1) #17
   %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
-  tail call void @dt_dev_undo_end_record(ptr noundef %16) #16
+  tail call void @dt_dev_undo_end_record(ptr noundef %16) #17
   %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
-  %18 = tail call i32 @dt_dev_modulegroups_get(ptr noundef %17) #16
-  tail call void @dt_dev_modulegroups_set(ptr noundef %17, i32 noundef %18) #16
-  tail call void (...) @dt_control_queue_redraw_center() #16
+  %18 = tail call i32 @dt_dev_modulegroups_get(ptr noundef %17) #17
+  tail call void @dt_dev_modulegroups_set(ptr noundef %17, i32 noundef %18) #17
+  tail call void (...) @dt_control_queue_redraw_center() #17
   br label %19
 
 19:                                               ; preds = %14, %9, %1
@@ -2064,7 +2063,7 @@ declare void @dt_undo_iterate(ptr noundef, i32 noundef, ptr noundef, ptr noundef
 ; Function Attrs: nounwind uwtable
 define internal void @_history_invalidate_cb(ptr noundef %0, i32 %1, ptr nocapture noundef readonly %2) #1 {
   %4 = load ptr, ptr %2, align 8, !tbaa !59
-  tail call void @dt_dev_invalidate_history_module(ptr noundef %4, ptr noundef %0) #16
+  tail call void @dt_dev_invalidate_history_module(ptr noundef %4, ptr noundef %0) #17
   ret void
 }
 
@@ -2100,7 +2099,7 @@ define internal void @_pop_undo(ptr nocapture noundef readonly %0, i32 noundef %
   %16 = load ptr, ptr %15, align 8, !tbaa !64
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 2056
   %18 = load ptr, ptr %17, align 8, !tbaa !119
-  %19 = tail call ptr @g_list_copy(ptr noundef %18) #16
+  %19 = tail call ptr @g_list_copy(ptr noundef %18) #17
   %20 = icmp eq ptr %12, null
   br i1 %20, label %44, label %.preheader39
 
@@ -2131,7 +2130,7 @@ define internal void @_pop_undo(ptr nocapture noundef readonly %0, i32 noundef %
   br i1 %37, label %42, label %23
 
 38:                                               ; preds = %28
-  tail call void @dt_iop_update_multi_priority(ptr noundef nonnull %26, i32 noundef %32) #16
+  tail call void @dt_iop_update_multi_priority(ptr noundef nonnull %26, i32 noundef %32) #17
   %39 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !122
   %41 = icmp eq ptr %40, null
@@ -2141,7 +2140,7 @@ define internal void @_pop_undo(ptr nocapture noundef readonly %0, i32 noundef %
   br i1 %21, label %44, label %.loopexit40
 
 .loopexit40:                                      ; preds = %38, %42
-  %43 = tail call ptr @g_list_sort(ptr noundef %19, ptr noundef nonnull @dt_sort_iop_by_order) #16
+  %43 = tail call ptr @g_list_sort(ptr noundef %19, ptr noundef nonnull @dt_sort_iop_by_order) #17
   br label %44
 
 44:                                               ; preds = %.loopexit40, %42, %8
@@ -2171,21 +2170,21 @@ define internal void @_pop_undo(ptr nocapture noundef readonly %0, i32 noundef %
 
 61:                                               ; preds = %55
   %62 = getelementptr inbounds nuw i8, ptr %58, i64 32
-  %63 = call ptr @dt_iop_get_module_from_list(ptr noundef %51, ptr noundef nonnull %62) #16
+  %63 = call ptr @dt_iop_get_module_from_list(ptr noundef %51, ptr noundef nonnull %62) #17
   %64 = icmp eq ptr %63, null
   br i1 %64, label %65, label %66
 
 65:                                               ; preds = %61
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.25, ptr noundef nonnull %62) #16
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.25, ptr noundef nonnull %62) #17
   br label %.loopexit38
 
 66:                                               ; preds = %61
-  %67 = call noalias dereferenceable_or_null(1120) ptr @calloc(i64 noundef 1, i64 noundef 1120) #20
+  %67 = call noalias dereferenceable_or_null(1120) ptr @calloc(i64 noundef 1, i64 noundef 1120) #21
   %68 = getelementptr inbounds nuw i8, ptr %63, i64 944
   %69 = load ptr, ptr %68, align 16, !tbaa !123
   %70 = getelementptr inbounds nuw i8, ptr %63, i64 664
   %71 = load ptr, ptr %70, align 8, !tbaa !124
-  %72 = call i32 @dt_iop_load_module(ptr noundef %67, ptr noundef %69, ptr noundef %71) #16
+  %72 = call i32 @dt_iop_load_module(ptr noundef %67, ptr noundef %69, ptr noundef %71) #17
   %73 = icmp eq i32 %72, 0
   br i1 %73, label %74, label %.loopexit38
 
@@ -2194,7 +2193,7 @@ define internal void @_pop_undo(ptr nocapture noundef readonly %0, i32 noundef %
   %76 = load i32, ptr %75, align 4, !tbaa !125
   %77 = getelementptr inbounds nuw i8, ptr %67, i64 484
   store i32 %76, ptr %77, align 4, !tbaa !125
-  %78 = call i32 @dt_iop_is_hidden(ptr noundef %67) #16
+  %78 = call i32 @dt_iop_is_hidden(ptr noundef %67) #17
   %79 = icmp eq i32 %78, 0
   br i1 %79, label %80, label %91
 
@@ -2206,7 +2205,7 @@ define internal void @_pop_undo(ptr nocapture noundef readonly %0, i32 noundef %
   store i32 %84, ptr %82, align 8, !tbaa !127
   %85 = getelementptr inbounds nuw i8, ptr %67, i64 176
   %86 = load ptr, ptr %85, align 16, !tbaa !131
-  call void %86(ptr noundef nonnull %67) #16
+  call void %86(ptr noundef nonnull %67) #17
   %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !126
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 120
   %89 = load i32, ptr %88, align 8, !tbaa !127
@@ -2217,16 +2216,16 @@ define internal void @_pop_undo(ptr nocapture noundef readonly %0, i32 noundef %
 91:                                               ; preds = %80, %74
   %92 = getelementptr inbounds nuw i8, ptr %67, i64 956
   %93 = getelementptr inbounds nuw i8, ptr %58, i64 60
-  %94 = call i64 @g_strlcpy(ptr noundef nonnull %92, ptr noundef nonnull %93, i64 noundef 128) #16
+  %94 = call i64 @g_strlcpy(ptr noundef nonnull %92, ptr noundef nonnull %93, i64 noundef 128) #17
   %95 = getelementptr inbounds nuw i8, ptr %58, i64 56
   %96 = load i32, ptr %95, align 8, !tbaa !121
-  call void @dt_iop_update_multi_priority(ptr noundef nonnull %67, i32 noundef %96) #16
+  call void @dt_iop_update_multi_priority(ptr noundef nonnull %67, i32 noundef %96) #17
   %97 = getelementptr inbounds nuw i8, ptr %58, i64 52
   %98 = load i32, ptr %97, align 4, !tbaa !132
   %99 = getelementptr inbounds nuw i8, ptr %67, i64 488
   store i32 %98, ptr %99, align 8, !tbaa !133
-  %100 = call ptr @g_list_insert_sorted(ptr noundef %51, ptr noundef nonnull %67, ptr noundef nonnull @dt_sort_iop_by_order) #16
-  %101 = call i32 @dt_iop_is_hidden(ptr noundef nonnull %67) #16
+  %100 = call ptr @g_list_insert_sorted(ptr noundef %51, ptr noundef nonnull %67, ptr noundef nonnull @dt_sort_iop_by_order) #17
+  %101 = call i32 @dt_iop_is_hidden(ptr noundef nonnull %67) #17
   %102 = icmp eq i32 %101, 0
   br i1 %102, label %103, label %108
 
@@ -2237,9 +2236,9 @@ define internal void @_pop_undo(ptr nocapture noundef readonly %0, i32 noundef %
   br i1 %106, label %107, label %108
 
 107:                                              ; preds = %103
-  call void @dt_iop_gui_set_expander(ptr noundef nonnull %67) #16
-  call void @dt_iop_gui_set_expanded(ptr noundef nonnull %67, i32 noundef 1, i32 noundef 0) #16
-  call void @dt_iop_gui_update_blending(ptr noundef nonnull %67) #16
+  call void @dt_iop_gui_set_expander(ptr noundef nonnull %67) #17
+  call void @dt_iop_gui_set_expanded(ptr noundef nonnull %67, i32 noundef 1, i32 noundef 0) #17
+  call void @dt_iop_gui_update_blending(ptr noundef nonnull %67) #17
   br label %108
 
 108:                                              ; preds = %107, %103, %91
@@ -2262,7 +2261,7 @@ define internal void @_pop_undo(ptr nocapture noundef readonly %0, i32 noundef %
 
 118:                                              ; preds = %113
   %119 = getelementptr inbounds nuw i8, ptr %115, i64 32
-  %120 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %119, ptr noundef nonnull dereferenceable(1) %112) #19
+  %120 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %119, ptr noundef nonnull dereferenceable(1) %112) #20
   %121 = icmp eq i32 %120, 0
   br i1 %121, label %122, label %127
 
@@ -2283,12 +2282,12 @@ define internal void @_pop_undo(ptr nocapture noundef readonly %0, i32 noundef %
   br i1 %130, label %.loopexit37, label %113
 
 .loopexit37:                                      ; preds = %127, %109
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #17
   store ptr %67, ptr %6, align 8, !tbaa !135
   store i32 %110, ptr %47, align 8, !tbaa !137
   %131 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 208), align 8, !tbaa !71
-  call void @dt_undo_iterate_internal(ptr noundef %131, i32 noundef 2, ptr noundef nonnull %6, ptr noundef nonnull @_undo_items_cb) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #16
+  call void @dt_undo_iterate_internal(ptr noundef %131, i32 noundef 2, ptr noundef nonnull %6, ptr noundef nonnull @_undo_items_cb) #17
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #17
   br label %132
 
 132:                                              ; preds = %.loopexit37, %108
@@ -2332,7 +2331,7 @@ define internal void @_pop_undo(ptr nocapture noundef readonly %0, i32 noundef %
   %153 = load ptr, ptr %150, align 8, !tbaa !73
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 464
   %155 = getelementptr inbounds nuw i8, ptr %144, i64 464
-  %156 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %154, ptr noundef nonnull dereferenceable(1) %155) #19
+  %156 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %154, ptr noundef nonnull dereferenceable(1) %155) #20
   %157 = icmp eq i32 %156, 0
   br i1 %157, label %158, label %166
 
@@ -2345,7 +2344,7 @@ define internal void @_pop_undo(ptr nocapture noundef readonly %0, i32 noundef %
 162:                                              ; preds = %158
   %163 = getelementptr inbounds nuw i8, ptr %144, i64 956
   %164 = getelementptr inbounds nuw i8, ptr %153, i64 956
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.27, ptr noundef nonnull %155, ptr noundef nonnull %163, i32 noundef 0, ptr noundef nonnull %154, ptr noundef nonnull %164, i32 noundef 0) #16
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.27, ptr noundef nonnull %155, ptr noundef nonnull %163, i32 noundef 0, ptr noundef nonnull %154, ptr noundef nonnull %164, i32 noundef 0) #17
   %165 = load ptr, ptr %149, align 8, !tbaa !122
   br label %166
 
@@ -2372,7 +2371,7 @@ define internal void @_pop_undo(ptr nocapture noundef readonly %0, i32 noundef %
   %179 = load ptr, ptr %176, align 8, !tbaa !73
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 464
   %181 = getelementptr inbounds nuw i8, ptr %170, i64 464
-  %182 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %180, ptr noundef nonnull dereferenceable(1) %181) #19
+  %182 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %180, ptr noundef nonnull dereferenceable(1) %181) #20
   %183 = icmp eq i32 %182, 0
   br i1 %183, label %184, label %.loopexit27
 
@@ -2440,7 +2439,7 @@ define internal void @_pop_undo(ptr nocapture noundef readonly %0, i32 noundef %
   br i1 %220, label %221, label %222
 
 221:                                              ; preds = %.loopexit28
-  call void @dt_iop_request_focus(ptr noundef null) #16
+  call void @dt_iop_request_focus(ptr noundef null) #17
   br label %222
 
 222:                                              ; preds = %221, %.loopexit28
@@ -2449,25 +2448,25 @@ define internal void @_pop_undo(ptr nocapture noundef readonly %0, i32 noundef %
   %225 = load i32, ptr %224, align 8, !tbaa !127
   %226 = add nsw i32 %225, 1
   store i32 %226, ptr %224, align 8, !tbaa !127
-  %227 = call i32 @dt_iop_is_hidden(ptr noundef %216) #16
+  %227 = call i32 @dt_iop_is_hidden(ptr noundef %216) #17
   %228 = icmp eq i32 %227, 0
   br i1 %228, label %229, label %241
 
 229:                                              ; preds = %222
   %230 = getelementptr inbounds nuw i8, ptr %216, i64 864
   %231 = load ptr, ptr %230, align 16, !tbaa !134
-  call void @gtk_widget_hide(ptr noundef %231) #16
-  call void @dt_iop_gui_cleanup_module(ptr noundef %216) #16
+  call void @gtk_widget_hide(ptr noundef %231) #17
+  call void @dt_iop_gui_cleanup_module(ptr noundef %216) #17
   %232 = getelementptr inbounds nuw i8, ptr %216, i64 816
   %233 = load ptr, ptr %232, align 16, !tbaa !138
-  call void @gtk_widget_destroy(ptr noundef %233) #16
+  call void @gtk_widget_destroy(ptr noundef %233) #17
   br label %241
 
 234:                                              ; preds = %206, %205
   %235 = phi ptr [ @.str.26, %206 ], [ @.str.27, %205 ]
   %236 = getelementptr inbounds nuw i8, ptr %170, i64 956
   %237 = getelementptr inbounds nuw i8, ptr %179, i64 956
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull %235, ptr noundef nonnull %181, ptr noundef nonnull %236, i32 noundef 0, ptr noundef nonnull %180, ptr noundef nonnull %237, i32 noundef 0) #16
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull %235, ptr noundef nonnull %181, ptr noundef nonnull %236, i32 noundef 0, ptr noundef nonnull %180, ptr noundef nonnull %237, i32 noundef 0) #17
   br label %.loopexit27
 
 .loopexit27:                                      ; preds = %.preheader26, %234, %184, %178, %174
@@ -2477,12 +2476,12 @@ define internal void @_pop_undo(ptr nocapture noundef readonly %0, i32 noundef %
   br i1 %240, label %.loopexit31, label %.preheader32
 
 241:                                              ; preds = %229, %222
-  %242 = call ptr @g_list_remove_link(ptr noundef nonnull %141, ptr noundef nonnull %215) #16
+  %242 = call ptr @g_list_remove_link(ptr noundef nonnull %141, ptr noundef nonnull %215) #17
   %243 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 208), align 8, !tbaa !71
-  call void @dt_undo_iterate_internal(ptr noundef %243, i32 noundef 2, ptr noundef %216, ptr noundef nonnull @_history_invalidate_cb) #16
-  call void @dt_action_cleanup_instance_iop(ptr noundef %216) #16
+  call void @dt_undo_iterate_internal(ptr noundef %243, i32 noundef 2, ptr noundef %216, ptr noundef nonnull @_history_invalidate_cb) #17
+  call void @dt_action_cleanup_instance_iop(ptr noundef %216) #17
   %244 = load ptr, ptr %139, align 16, !tbaa !139
-  %245 = call ptr @g_list_append(ptr noundef %244, ptr noundef %216) #16
+  %245 = call ptr @g_list_append(ptr noundef %244, ptr noundef %216) #17
   store ptr %245, ptr %139, align 16, !tbaa !139
   %246 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !126
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 120
@@ -2497,7 +2496,7 @@ define internal void @_pop_undo(ptr nocapture noundef readonly %0, i32 noundef %
 
 .loopexit36:                                      ; preds = %241, %.loopexit31
   %251 = phi ptr [ %141, %.loopexit31 ], [ null, %241 ]
-  %252 = call ptr @g_list_sort(ptr noundef %251, ptr noundef nonnull @dt_sort_iop_by_order) #16
+  %252 = call ptr @g_list_sort(ptr noundef %251, ptr noundef nonnull @dt_sort_iop_by_order) #17
   br label %253
 
 253:                                              ; preds = %.loopexit36, %.loopexit31, %.loopexit38
@@ -2506,7 +2505,7 @@ define internal void @_pop_undo(ptr nocapture noundef readonly %0, i32 noundef %
   %256 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i32 0, ptr %256, align 8, !tbaa !13
   %257 = getelementptr inbounds nuw i8, ptr %11, i64 1976
-  %258 = call i32 @pthread_mutex_lock(ptr noundef nonnull %257) #16
+  %258 = call i32 @pthread_mutex_lock(ptr noundef nonnull %257) #17
   %259 = getelementptr inbounds nuw i8, ptr %11, i64 2024
   %260 = load ptr, ptr %259, align 8, !tbaa !58
   store ptr %260, ptr %2, align 8, !tbaa !59
@@ -2520,16 +2519,16 @@ define internal void @_pop_undo(ptr nocapture noundef readonly %0, i32 noundef %
   store i32 %14, ptr %261, align 16, !tbaa !61
   store ptr %16, ptr %263, align 16, !tbaa !63
   %265 = load ptr, ptr %17, align 8, !tbaa !119
-  call void @g_list_free(ptr noundef %265) #16
+  call void @g_list_free(ptr noundef %265) #17
   store ptr %254, ptr %17, align 8, !tbaa !119
-  call void @dt_dev_pixelpipe_rebuild(ptr noundef %11) #16
-  %266 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %257) #16
+  call void @dt_dev_pixelpipe_rebuild(ptr noundef %11) #17
+  %266 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %257) #17
   %267 = icmp eq i32 %255, 0
   br i1 %267, label %.loopexit, label %268
 
 268:                                              ; preds = %253
   %269 = load ptr, ptr %17, align 8, !tbaa !119
-  %270 = call ptr @g_list_last(ptr noundef %269) #16
+  %270 = call ptr @g_list_last(ptr noundef %269) #17
   %271 = icmp eq ptr %270, null
   br i1 %271, label %.loopexit, label %.preheader
 
@@ -2545,9 +2544,9 @@ define internal void @_pop_undo(ptr nocapture noundef readonly %0, i32 noundef %
 278:                                              ; preds = %.preheader
   %279 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !126
   %280 = load ptr, ptr %279, align 8, !tbaa !140
-  %281 = call ptr @dt_ui_get_container(ptr noundef %280, i32 noundef 4) #16
+  %281 = call ptr @dt_ui_get_container(ptr noundef %280, i32 noundef 4) #17
   %282 = add nsw i32 %272, 1
-  call void @gtk_box_reorder_child(ptr noundef %281, ptr noundef nonnull %276, i32 noundef %272) #16
+  call void @gtk_box_reorder_child(ptr noundef %281, ptr noundef nonnull %276, i32 noundef %272) #17
   br label %283
 
 283:                                              ; preds = %278, %.preheader
@@ -2558,12 +2557,12 @@ define internal void @_pop_undo(ptr nocapture noundef readonly %0, i32 noundef %
   br i1 %287, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %283, %268, %253
-  call void @dt_dev_write_history(ptr noundef %11) #16
-  call void @dt_dev_reload_history_items(ptr noundef %11) #16
-  call void @dt_ioppr_resync_modules_order(ptr noundef %11) #16
+  call void @dt_dev_write_history(ptr noundef %11) #17
+  call void @dt_dev_reload_history_items(ptr noundef %11) #17
+  call void @dt_ioppr_resync_modules_order(ptr noundef %11) #17
   %288 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
-  %289 = call i32 @dt_dev_modulegroups_get(ptr noundef %288) #16
-  call void @dt_dev_modulegroups_set(ptr noundef %288, i32 noundef %289) #16
+  %289 = call i32 @dt_dev_modulegroups_get(ptr noundef %288) #17
+  call void @dt_dev_modulegroups_set(ptr noundef %288, i32 noundef %289) #17
   %290 = getelementptr inbounds nuw i8, ptr %11, i64 88
   %291 = load ptr, ptr %290, align 8, !tbaa !65
   %292 = icmp eq ptr %291, null
@@ -2572,7 +2571,7 @@ define internal void @_pop_undo(ptr nocapture noundef readonly %0, i32 noundef %
 293:                                              ; preds = %.loopexit
   %294 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %295 = load i32, ptr %294, align 8, !tbaa !142
-  call void @dt_masks_set_edit_mode(ptr noundef nonnull %291, i32 noundef %295) #16
+  call void @dt_masks_set_edit_mode(ptr noundef nonnull %291, i32 noundef %295) #17
   %296 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %297 = load i32, ptr %296, align 4, !tbaa !143
   %298 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
@@ -2580,7 +2579,7 @@ define internal void @_pop_undo(ptr nocapture noundef readonly %0, i32 noundef %
   %300 = load ptr, ptr %299, align 8, !tbaa !65
   %301 = getelementptr inbounds nuw i8, ptr %300, i64 504
   store i32 %297, ptr %301, align 8, !tbaa !66
-  call void @dt_iop_gui_update_blendif(ptr noundef %300) #16
+  call void @dt_iop_gui_update_blendif(ptr noundef %300) #17
   %302 = load ptr, ptr %290, align 8, !tbaa !65
   %303 = getelementptr inbounds nuw i8, ptr %302, i64 776
   %304 = load ptr, ptr %303, align 8, !tbaa !110
@@ -2590,12 +2589,12 @@ define internal void @_pop_undo(ptr nocapture noundef readonly %0, i32 noundef %
 306:                                              ; preds = %293
   %307 = getelementptr inbounds nuw i8, ptr %304, i64 280
   %308 = load ptr, ptr %307, align 8, !tbaa !144
-  %309 = tail call i64 @gtk_toggle_button_get_type() #18
-  %310 = call ptr @g_type_check_instance_cast(ptr noundef %308, i64 noundef %309) #16
+  %309 = tail call i64 @gtk_toggle_button_get_type() #19
+  %310 = call ptr @g_type_check_instance_cast(ptr noundef %308, i64 noundef %309) #17
   %311 = load i32, ptr %296, align 4, !tbaa !143
   %312 = icmp eq i32 %311, 1
   %313 = zext i1 %312 to i32
-  call void @gtk_toggle_button_set_active(ptr noundef %310, i32 noundef %313) #16
+  call void @gtk_toggle_button_set_active(ptr noundef %310, i32 noundef %313) #17
   br label %314
 
 314:                                              ; preds = %306, %293, %.loopexit, %5
@@ -2605,11 +2604,11 @@ define internal void @_pop_undo(ptr nocapture noundef readonly %0, i32 noundef %
 ; Function Attrs: nounwind uwtable
 define internal void @_history_undo_data_free(ptr nocapture noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8, !tbaa !59
-  tail call void @g_list_free_full(ptr noundef %2, ptr noundef nonnull @dt_dev_free_history_item) #16
+  tail call void @g_list_free_full(ptr noundef %2, ptr noundef nonnull @dt_dev_free_history_item) #17
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !64
-  tail call void @g_list_free_full(ptr noundef %4, ptr noundef nonnull @free) #16
-  tail call void @free(ptr noundef %0) #16
+  tail call void @g_list_free_full(ptr noundef %4, ptr noundef nonnull @free) #17
+  tail call void @free(ptr noundef %0) #17
   ret void
 }
 
@@ -2677,7 +2676,7 @@ define internal void @_undo_items_cb(ptr nocapture noundef readonly %0, i32 %1, 
 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %10) #19
+  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %10) #20
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %25
 
@@ -2790,16 +2789,16 @@ define internal noundef range(i32 0, 2) i32 @_lib_history_button_clicked_callbac
   br i1 %9, label %82, label %10
 
 10:                                               ; preds = %8
-  %11 = tail call i64 @gtk_toggle_button_get_type() #18
-  %12 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %11) #16
-  %13 = tail call i32 @gtk_toggle_button_get_active(ptr noundef %12) #16
+  %11 = tail call i64 @gtk_toggle_button_get_type() #19
+  %12 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %11) #17
+  %13 = tail call i32 @gtk_toggle_button_get_active(ptr noundef %12) #17
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %82
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %17 = load i32, ptr %16, align 8, !tbaa !32
-  %18 = tail call i32 @gtk_accelerator_get_default_mod_mask() #16
+  %18 = tail call i32 @gtk_accelerator_get_default_mod_mask() #17
   %19 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !34
   %20 = or i32 %19, %17
   %21 = and i32 %20, %18
@@ -2807,24 +2806,24 @@ define internal noundef range(i32 0, 2) i32 @_lib_history_button_clicked_callbac
   br i1 %22, label %23, label %38
 
 23:                                               ; preds = %15
-  %24 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef 80) #16
-  %25 = tail call ptr @g_object_get_data(ptr noundef %24, ptr noundef nonnull @.str.29) #16
+  %24 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef 80) #17
+  %25 = tail call ptr @g_object_get_data(ptr noundef %24, ptr noundef nonnull @.str.29) #17
   %26 = ptrtoint ptr %25 to i64
   %27 = trunc i64 %26 to i32
   %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 2024
   %30 = load ptr, ptr %29, align 8, !tbaa !58
   %31 = add nsw i32 %27, -1
-  %32 = tail call ptr @g_list_nth_data(ptr noundef %30, i32 noundef %31) #16
+  %32 = tail call ptr @g_list_nth_data(ptr noundef %30, i32 noundef %31) #17
   %33 = icmp eq ptr %32, null
   br i1 %33, label %82, label %34
 
 34:                                               ; preds = %23
   %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   %36 = load ptr, ptr %32, align 8, !tbaa !76
-  tail call void @dt_dev_modulegroups_switch(ptr noundef %35, ptr noundef %36) #16
+  tail call void @dt_dev_modulegroups_switch(ptr noundef %35, ptr noundef %36) #17
   %37 = load ptr, ptr %32, align 8, !tbaa !76
-  tail call void @dt_iop_gui_set_expanded(ptr noundef %37, i32 noundef 1, i32 noundef 1) #16
+  tail call void @dt_iop_gui_set_expanded(ptr noundef %37, i32 noundef 1, i32 noundef 1) #17
   br label %82
 
 38:                                               ; preds = %15
@@ -2832,14 +2831,14 @@ define internal noundef range(i32 0, 2) i32 @_lib_history_button_clicked_callbac
   %40 = load ptr, ptr %39, align 8, !tbaa !6
   store i1 true, ptr @_lib_history_button_clicked_callback.reset, align 4
   %41 = load ptr, ptr %40, align 8, !tbaa !17
-  %42 = tail call i64 @gtk_container_get_type() #18
-  %43 = tail call ptr @g_type_check_instance_cast(ptr noundef %41, i64 noundef %42) #16
-  %44 = tail call ptr @gtk_container_get_children(ptr noundef %43) #16
+  %42 = tail call i64 @gtk_container_get_type() #19
+  %43 = tail call ptr @g_type_check_instance_cast(ptr noundef %41, i64 noundef %42) #17
+  %44 = tail call ptr @gtk_container_get_children(ptr noundef %43) #17
   %45 = icmp eq ptr %44, null
   br i1 %45, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %59, %38
-  tail call void @g_list_free(ptr noundef %44) #16
+  tail call void @g_list_free(ptr noundef %44) #17
   store i1 false, ptr @_lib_history_button_clicked_callback.reset, align 4
   %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !126
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 120
@@ -2850,16 +2849,16 @@ define internal noundef range(i32 0, 2) i32 @_lib_history_button_clicked_callbac
 .preheader:                                       ; preds = %38, %59
   %50 = phi ptr [ %61, %59 ], [ %44, %38 ]
   %51 = load ptr, ptr %50, align 8, !tbaa !73
-  %52 = tail call ptr @g_type_check_instance_cast(ptr noundef %51, i64 noundef %42) #16
-  %53 = tail call ptr @dt_gui_container_nth_child(ptr noundef %52, i32 noundef 1) #16
-  %54 = tail call ptr @g_type_check_instance_cast(ptr noundef %53, i64 noundef %11) #16
-  %55 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %11) #16
+  %52 = tail call ptr @g_type_check_instance_cast(ptr noundef %51, i64 noundef %42) #17
+  %53 = tail call ptr @dt_gui_container_nth_child(ptr noundef %52, i32 noundef 1) #17
+  %54 = tail call ptr @g_type_check_instance_cast(ptr noundef %53, i64 noundef %11) #17
+  %55 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %11) #17
   %56 = icmp eq ptr %54, %55
   br i1 %56, label %59, label %57
 
 57:                                               ; preds = %.preheader
-  %58 = tail call ptr @g_type_check_instance_cast(ptr noundef %54, i64 noundef 80) #16
-  tail call void (ptr, ptr, ...) @g_object_set(ptr noundef %58, ptr noundef nonnull @.str.41, i32 noundef 0, ptr noundef null) #16
+  %58 = tail call ptr @g_type_check_instance_cast(ptr noundef %54, i64 noundef 80) #17
+  tail call void (ptr, ptr, ...) @g_object_set(ptr noundef %58, ptr noundef nonnull @.str.41, i32 noundef 0, ptr noundef null) #17
   br label %59
 
 59:                                               ; preds = %57, %.preheader
@@ -2870,31 +2869,31 @@ define internal noundef range(i32 0, 2) i32 @_lib_history_button_clicked_callbac
 
 63:                                               ; preds = %.loopexit
   %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
-  tail call void @dt_dev_undo_start_record(ptr noundef %64) #16
-  %65 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef 80) #16
-  %66 = tail call ptr @g_object_get_data(ptr noundef %65, ptr noundef nonnull @.str.29) #16
+  tail call void @dt_dev_undo_start_record(ptr noundef %64) #17
+  %65 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef 80) #17
+  %66 = tail call ptr @g_object_get_data(ptr noundef %65, ptr noundef nonnull @.str.29) #17
   %67 = ptrtoint ptr %66 to i64
   %68 = trunc i64 %67 to i32
   %69 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
-  tail call void @dt_dev_pop_history_items(ptr noundef %69, i32 noundef %68) #16
+  tail call void @dt_dev_pop_history_items(ptr noundef %69, i32 noundef %68) #17
   %70 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
-  tail call void @dt_dev_reorder_gui_module_list(ptr noundef %70) #16
-  tail call void @dt_image_update_final_size(i32 noundef %6) #16
+  tail call void @dt_dev_reorder_gui_module_list(ptr noundef %70) #17
+  tail call void @dt_image_update_final_size(i32 noundef %6) #17
   %71 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 112
-  %73 = tail call i32 @dt_image_is_raw(ptr noundef nonnull %72) #16
+  %73 = tail call i32 @dt_image_is_raw(ptr noundef nonnull %72) #17
   %74 = icmp eq i32 %73, 0
   %75 = select i1 %74, i32 0, i32 2
   %76 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 96
   %78 = load ptr, ptr %77, align 16, !tbaa !145
-  tail call void @dt_dev_pixelpipe_cache_invalidate_later(ptr noundef %78, i32 noundef %75) #16
+  tail call void @dt_dev_pixelpipe_cache_invalidate_later(ptr noundef %78, i32 noundef %75) #17
   %79 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
-  tail call void @dt_dev_undo_end_record(ptr noundef %79) #16
-  tail call void (...) @dt_iop_connect_accels_all() #16
+  tail call void @dt_dev_undo_end_record(ptr noundef %79) #17
+  tail call void (...) @dt_iop_connect_accels_all() #17
   %80 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
-  %81 = tail call i32 @dt_dev_modulegroups_get(ptr noundef %80) #16
-  tail call void @dt_dev_modulegroups_set(ptr noundef %80, i32 noundef %81) #16
+  %81 = tail call i32 @dt_dev_modulegroups_get(ptr noundef %80) #17
+  tail call void @dt_dev_modulegroups_set(ptr noundef %80, i32 noundef %81) #17
   br label %82
 
 82:                                               ; preds = %63, %.loopexit, %34, %23, %10, %8, %3
@@ -2964,7 +2963,7 @@ define internal fastcc ptr @_lib_history_change_text(ptr nocapture noundef reado
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = load i64, ptr %11, align 8, !tbaa !75
   %13 = add i64 %12, 1
-  %14 = tail call noalias ptr @g_malloc0_n(i64 noundef %13, i64 noundef 8) #20
+  %14 = tail call noalias ptr @g_malloc0_n(i64 noundef %13, i64 noundef 8) #21
   %15 = load i64, ptr %11, align 8, !tbaa !75
   %16 = icmp eq i64 %15, 0
   br i1 %16, label %76, label %17
@@ -2998,11 +2997,11 @@ define internal fastcc ptr @_lib_history_change_text(ptr nocapture noundef reado
 
 36:                                               ; preds = %33, %23
   %37 = phi ptr [ %35, %33 ], [ %30, %23 ]
-  %38 = tail call ptr @dcgettext(ptr noundef null, ptr noundef %37, i32 noundef 5) #16
+  %38 = tail call ptr @dcgettext(ptr noundef null, ptr noundef %37, i32 noundef 5) #17
   br i1 %19, label %41, label %39
 
 39:                                               ; preds = %36
-  %40 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.80, ptr noundef nonnull %1, ptr noundef %38) #16
+  %40 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.80, ptr noundef nonnull %1, ptr noundef %38) #17
   br label %41
 
 41:                                               ; preds = %39, %36
@@ -3015,7 +3014,7 @@ define internal fastcc ptr @_lib_history_change_text(ptr nocapture noundef reado
   %46 = load ptr, ptr %20, align 8, !tbaa !75
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 456
   %48 = load ptr, ptr %47, align 8, !tbaa !146
-  %49 = tail call ptr %48() #16
+  %49 = tail call ptr %48() #17
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 48
   %51 = load ptr, ptr %50, align 8, !tbaa !148
   %52 = icmp eq ptr %51, null
@@ -3025,14 +3024,14 @@ define internal fastcc ptr @_lib_history_change_text(ptr nocapture noundef reado
   %54 = getelementptr inbounds nuw i8, ptr %28, i64 48
   %55 = load i64, ptr %54, align 8, !tbaa !75
   %56 = inttoptr i64 %55 to ptr
-  %57 = tail call ptr @g_hash_table_lookup(ptr noundef nonnull %51, ptr noundef %56) #16
+  %57 = tail call ptr @g_hash_table_lookup(ptr noundef nonnull %51, ptr noundef %56) #17
   %58 = icmp eq ptr %57, null
   br i1 %58, label %62, label %59
 
 59:                                               ; preds = %53
-  %60 = tail call ptr @g_dpgettext(ptr noundef null, ptr noundef nonnull %57, i64 noundef 0) #16
-  %61 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.81, ptr noundef %60, ptr noundef nonnull %43) #16
-  tail call void @g_free(ptr noundef nonnull %43) #16
+  %60 = tail call ptr @g_dpgettext(ptr noundef null, ptr noundef nonnull %57, i64 noundef 0) #17
+  %61 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.81, ptr noundef %60, ptr noundef nonnull %43) #17
+  tail call void @g_free(ptr noundef nonnull %43) #17
   br label %62
 
 62:                                               ; preds = %59, %53, %45
@@ -3048,7 +3047,7 @@ define internal fastcc ptr @_lib_history_change_text(ptr nocapture noundef reado
   br i1 %19, label %70, label %69
 
 69:                                               ; preds = %67
-  tail call void @g_free(ptr noundef %42) #16
+  tail call void @g_free(ptr noundef %42) #17
   br label %70
 
 70:                                               ; preds = %69, %67
@@ -3058,12 +3057,12 @@ define internal fastcc ptr @_lib_history_change_text(ptr nocapture noundef reado
   br i1 %73, label %23, label %21
 
 74:                                               ; preds = %21
-  %75 = tail call noalias ptr @g_strjoinv(ptr noundef nonnull @.str.76, ptr noundef %14) #16
+  %75 = tail call noalias ptr @g_strjoinv(ptr noundef nonnull @.str.76, ptr noundef %14) #17
   br label %76
 
 76:                                               ; preds = %74, %21, %10
   %77 = phi ptr [ %75, %74 ], [ null, %21 ], [ null, %10 ]
-  tail call void @g_strfreev(ptr noundef %14) #16
+  tail call void @g_strfreev(ptr noundef %14) #17
   br label %268
 
 78:                                               ; preds = %4
@@ -3073,28 +3072,28 @@ define internal fastcc ptr @_lib_history_change_text(ptr nocapture noundef reado
   br i1 %81, label %82, label %95
 
 82:                                               ; preds = %78
-  %83 = tail call i32 @g_utf8_validate(ptr noundef %8, i64 noundef -1, ptr noundef null) #16
+  %83 = tail call i32 @g_utf8_validate(ptr noundef %8, i64 noundef -1, ptr noundef null) #17
   %84 = icmp eq i32 %83, 0
   br i1 %84, label %268, label %85
 
 85:                                               ; preds = %82
-  %86 = tail call i32 @g_utf8_validate(ptr noundef %7, i64 noundef -1, ptr noundef null) #16
+  %86 = tail call i32 @g_utf8_validate(ptr noundef %7, i64 noundef -1, ptr noundef null) #17
   %87 = icmp eq i32 %86, 0
   br i1 %87, label %268, label %88
 
 88:                                               ; preds = %85
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %90 = load i64, ptr %89, align 8, !tbaa !75
-  %91 = tail call i32 @strncmp(ptr noundef %8, ptr noundef %7, i64 noundef %90) #19
+  %91 = tail call i32 @strncmp(ptr noundef %8, ptr noundef %7, i64 noundef %90) #20
   %92 = icmp eq i32 %91, 0
   br i1 %92, label %268, label %93
 
 93:                                               ; preds = %88
-  %94 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.82, ptr noundef %1, ptr noundef %8, ptr noundef %7) #16
+  %94 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.82, ptr noundef %1, ptr noundef %8, ptr noundef %7) #17
   br label %268
 
 95:                                               ; preds = %78
-  %96 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 5, i64 noundef 8) #20
+  %96 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 5, i64 noundef 8) #21
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %98 = load i64, ptr %97, align 8, !tbaa !75
   %99 = icmp eq i64 %98, 0
@@ -3113,14 +3112,14 @@ define internal fastcc ptr @_lib_history_change_text(ptr nocapture noundef reado
   %106 = phi i64 [ 0, %100 ], [ %131, %125 ]
   %107 = phi i32 [ 0, %100 ], [ %126, %125 ]
   %108 = trunc i64 %105 to i32
-  %109 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.83, ptr noundef %1, i32 noundef %108) #16
+  %109 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.83, ptr noundef %1, i32 noundef %108) #17
   %110 = load ptr, ptr %101, align 8, !tbaa !75
   %111 = shl i64 %106, 32
   %112 = ashr exact i64 %111, 32
   %113 = getelementptr inbounds i8, ptr %2, i64 %112
   %114 = getelementptr inbounds i8, ptr %3, i64 %112
   %115 = tail call fastcc ptr @_lib_history_change_text(ptr noundef %110, ptr noundef %109, ptr noundef %113, ptr noundef %114)
-  tail call void @g_free(ptr noundef %109) #16
+  tail call void @g_free(ptr noundef %109) #17
   %116 = icmp eq ptr %115, null
   br i1 %116, label %123, label %117
 
@@ -3137,7 +3136,7 @@ define internal fastcc ptr @_lib_history_change_text(ptr nocapture noundef reado
 
 123:                                              ; preds = %117, %104
   %124 = phi i32 [ %118, %117 ], [ %107, %104 ]
-  tail call void @g_free(ptr noundef %115) #16
+  tail call void @g_free(ptr noundef %115) #17
   br label %125
 
 125:                                              ; preds = %123, %120
@@ -3152,7 +3151,7 @@ define internal fastcc ptr @_lib_history_change_text(ptr nocapture noundef reado
   br i1 %133, label %104, label %102
 
 134:                                              ; preds = %102
-  %135 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.84, ptr noundef %1, i32 noundef %126) #16
+  %135 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.84, ptr noundef %1, i32 noundef %126) #17
   br label %140
 
 136:                                              ; preds = %102
@@ -3160,12 +3159,12 @@ define internal fastcc ptr @_lib_history_change_text(ptr nocapture noundef reado
   br i1 %137, label %138, label %140
 
 138:                                              ; preds = %136
-  %139 = tail call noalias ptr @g_strjoinv(ptr noundef nonnull @.str.76, ptr noundef %96) #16
+  %139 = tail call noalias ptr @g_strjoinv(ptr noundef nonnull @.str.76, ptr noundef %96) #17
   br label %140
 
 140:                                              ; preds = %138, %136, %134, %95
   %141 = phi ptr [ %135, %134 ], [ %139, %138 ], [ null, %136 ], [ null, %95 ]
-  tail call void @g_strfreev(ptr noundef %96) #16
+  tail call void @g_strfreev(ptr noundef %96) #17
   br label %268
 
 142:                                              ; preds = %4
@@ -3185,7 +3184,7 @@ define internal fastcc ptr @_lib_history_change_text(ptr nocapture noundef reado
 152:                                              ; preds = %146
   %153 = fpext float %143 to double
   %154 = fpext float %144 to double
-  %155 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.85, ptr noundef %1, double noundef %153, double noundef %154) #16
+  %155 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.85, ptr noundef %1, double noundef %153, double noundef %154) #17
   br label %268
 
 156:                                              ; preds = %4
@@ -3195,7 +3194,7 @@ define internal fastcc ptr @_lib_history_change_text(ptr nocapture noundef reado
   br i1 %159, label %268, label %160
 
 160:                                              ; preds = %156
-  %161 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.44, ptr noundef %1, i32 noundef %157, i32 noundef %158) #16
+  %161 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.44, ptr noundef %1, i32 noundef %157, i32 noundef %158) #17
   br label %268
 
 162:                                              ; preds = %4
@@ -3205,7 +3204,7 @@ define internal fastcc ptr @_lib_history_change_text(ptr nocapture noundef reado
   br i1 %165, label %268, label %166
 
 166:                                              ; preds = %162
-  %167 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.86, ptr noundef %1, i32 noundef %163, i32 noundef %164) #16
+  %167 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.86, ptr noundef %1, i32 noundef %163, i32 noundef %164) #17
   br label %268
 
 168:                                              ; preds = %4
@@ -3217,7 +3216,7 @@ define internal fastcc ptr @_lib_history_change_text(ptr nocapture noundef reado
 172:                                              ; preds = %168
   %173 = zext i16 %170 to i32
   %174 = zext i16 %169 to i32
-  %175 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.87, ptr noundef %1, i32 noundef %174, i32 noundef %173) #16
+  %175 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.87, ptr noundef %1, i32 noundef %174, i32 noundef %173) #17
   br label %268
 
 176:                                              ; preds = %4
@@ -3229,7 +3228,7 @@ define internal fastcc ptr @_lib_history_change_text(ptr nocapture noundef reado
 180:                                              ; preds = %176
   %181 = zext i8 %178 to i32
   %182 = zext i8 %177 to i32
-  %183 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.44, ptr noundef %1, i32 noundef %182, i32 noundef %181) #16
+  %183 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.44, ptr noundef %1, i32 noundef %182, i32 noundef %181) #17
   br label %268
 
 184:                                              ; preds = %4
@@ -3241,7 +3240,7 @@ define internal fastcc ptr @_lib_history_change_text(ptr nocapture noundef reado
 188:                                              ; preds = %184
   %189 = sext i8 %186 to i32
   %190 = sext i8 %185 to i32
-  %191 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.88, ptr noundef %1, i32 noundef %190, i32 noundef %189) #16
+  %191 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.88, ptr noundef %1, i32 noundef %190, i32 noundef %189) #17
   br label %268
 
 192:                                              ; preds = %4
@@ -3261,7 +3260,7 @@ define internal fastcc ptr @_lib_history_change_text(ptr nocapture noundef reado
   %204 = fpext float %195 to double
   %205 = fpext float %196 to double
   %206 = fpext float %198 to double
-  %207 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.89, ptr noundef %1, double noundef %203, double noundef %204, double noundef %205, double noundef %206) #16
+  %207 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.89, ptr noundef %1, double noundef %203, double noundef %204, double noundef %205, double noundef %206) #17
   br label %268
 
 208:                                              ; preds = %4
@@ -3284,9 +3283,9 @@ define internal fastcc ptr @_lib_history_change_text(ptr nocapture noundef reado
 .loopexit:                                        ; preds = %246, %216, %212
   %219 = phi ptr [ @.str.90, %212 ], [ @.str.90, %216 ], [ %238, %246 ]
   %220 = phi ptr [ @.str.90, %212 ], [ @.str.90, %216 ], [ %247, %246 ]
-  %221 = tail call ptr @dcgettext(ptr noundef null, ptr noundef %219, i32 noundef 5) #16
-  %222 = tail call ptr @dcgettext(ptr noundef null, ptr noundef %220, i32 noundef 5) #16
-  %223 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.46, ptr noundef %1, ptr noundef %221, ptr noundef %222) #16
+  %221 = tail call ptr @dcgettext(ptr noundef null, ptr noundef %219, i32 noundef 5) #17
+  %222 = tail call ptr @dcgettext(ptr noundef null, ptr noundef %220, i32 noundef 5) #17
+  %223 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.46, ptr noundef %1, ptr noundef %221, ptr noundef %222) #17
   br label %268
 
 .preheader:                                       ; preds = %216, %246
@@ -3338,9 +3337,9 @@ define internal fastcc ptr @_lib_history_change_text(ptr nocapture noundef reado
   %257 = select i1 %256, ptr @.str.92, ptr @.str.91
   %258 = icmp eq i32 %253, 0
   %259 = select i1 %258, ptr @.str.92, ptr @.str.91
-  %260 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %257, i32 noundef 5) #16
-  %261 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %259, i32 noundef 5) #16
-  %262 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.46, ptr noundef %1, ptr noundef %260, ptr noundef %261) #16
+  %260 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %257, i32 noundef 5) #17
+  %261 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %259, i32 noundef 5) #17
+  %262 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.46, ptr noundef %1, ptr noundef %260, ptr noundef %261) #17
   br label %268
 
 263:                                              ; preds = %4
@@ -3348,7 +3347,7 @@ define internal fastcc ptr @_lib_history_change_text(ptr nocapture noundef reado
   %265 = load ptr, ptr %264, align 8, !tbaa !75
   %266 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %267 = load ptr, ptr %266, align 8, !tbaa !75
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.93, ptr noundef %265, ptr noundef %267) #16
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.93, ptr noundef %265, ptr noundef %267) #17
   br label %268
 
 268:                                              ; preds = %263, %255, %251, %.loopexit, %208, %202, %192, %188, %184, %180, %176, %172, %168, %166, %162, %160, %156, %152, %146, %142, %140, %93, %88, %85, %82, %76, %4
@@ -3421,77 +3420,77 @@ define internal fastcc void @_lib_history_truncate(i32 noundef range(i32 0, 2) %
   br i1 %6, label %7, label %76
 
 7:                                                ; preds = %1
-  tail call void @dt_dev_undo_start_record(ptr noundef nonnull %3) #16
+  tail call void @dt_dev_undo_start_record(ptr noundef nonnull %3) #17
   %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
-  tail call void @dt_dev_write_history(ptr noundef %8) #16
+  tail call void @dt_dev_write_history(ptr noundef %8) #17
   %9 = icmp eq i32 %0, 0
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %7
-  tail call void @dt_history_compress_on_image(i32 noundef %5) #16
+  tail call void @dt_history_compress_on_image(i32 noundef %5) #17
   br label %15
 
 11:                                               ; preds = %7
   %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 2016
   %14 = load i32, ptr %13, align 16, !tbaa !61
-  tail call void @dt_history_truncate_on_image(i32 noundef %5, i32 noundef %14) #16
+  tail call void @dt_history_truncate_on_image(i32 noundef %5, i32 noundef %14) #17
   br label %15
 
 15:                                               ; preds = %11, %10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #17
   %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
-  tail call void @dt_dev_reload_history_items(ptr noundef %16) #16
+  tail call void @dt_dev_reload_history_items(ptr noundef %16) #17
   %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
-  tail call void @dt_dev_write_history(ptr noundef %17) #16
-  tail call void @dt_image_synch_xmp(i32 noundef %5) #16
+  tail call void @dt_dev_write_history(ptr noundef %17) #17
+  tail call void @dt_image_synch_xmp(i32 noundef %5) #17
   %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !30
   %19 = and i32 %18, 256
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %22, label %21
 
 21:                                               ; preds = %15
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.11, i32 noundef 1213, ptr noundef nonnull @__FUNCTION__._lib_history_truncate, ptr noundef nonnull @.str.95) #16
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.11, i32 noundef 1213, ptr noundef nonnull @__FUNCTION__._lib_history_truncate, ptr noundef nonnull @.str.95) #17
   br label %22
 
 22:                                               ; preds = %21, %15
   %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !151
-  %24 = tail call ptr @dt_database_get(ptr noundef %23) #16
-  %25 = call i32 @sqlite3_prepare_v2(ptr noundef %24, ptr noundef nonnull @.str.95, i32 noundef -1, ptr noundef nonnull %2, ptr noundef null) #16
+  %24 = tail call ptr @dt_database_get(ptr noundef %23) #17
+  %25 = call i32 @sqlite3_prepare_v2(ptr noundef %24, ptr noundef nonnull @.str.95, i32 noundef -1, ptr noundef nonnull %2, ptr noundef null) #17
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %33, label %27
 
 27:                                               ; preds = %22
   %28 = load ptr, ptr @stderr, align 8, !tbaa !72
   %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !151
-  %30 = call ptr @dt_database_get(ptr noundef %29) #16
-  %31 = call ptr @sqlite3_errmsg(ptr noundef %30) #16
-  %32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.11, i32 noundef 1213, ptr noundef nonnull @__FUNCTION__._lib_history_truncate, ptr noundef nonnull @.str.95, ptr noundef %31) #21
+  %30 = call ptr @dt_database_get(ptr noundef %29) #17
+  %31 = call ptr @sqlite3_errmsg(ptr noundef %30) #17
+  %32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.11, i32 noundef 1213, ptr noundef nonnull @__FUNCTION__._lib_history_truncate, ptr noundef nonnull @.str.95, ptr noundef %31) #22
   br label %33
 
 33:                                               ; preds = %27, %22
   %34 = load ptr, ptr %2, align 8, !tbaa !72
-  %35 = call i32 @sqlite3_bind_int(ptr noundef %34, i32 noundef 1, i32 noundef %5) #16
+  %35 = call i32 @sqlite3_bind_int(ptr noundef %34, i32 noundef 1, i32 noundef %5) #17
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %43, label %37
 
 37:                                               ; preds = %33
   %38 = load ptr, ptr @stderr, align 8, !tbaa !72
   %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !151
-  %40 = call ptr @dt_database_get(ptr noundef %39) #16
-  %41 = call ptr @sqlite3_errmsg(ptr noundef %40) #16
-  %42 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str.97, ptr noundef nonnull @.str.11, i32 noundef 1215, ptr noundef nonnull @__FUNCTION__._lib_history_truncate, ptr noundef %41) #21
+  %40 = call ptr @dt_database_get(ptr noundef %39) #17
+  %41 = call ptr @sqlite3_errmsg(ptr noundef %40) #17
+  %42 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str.97, ptr noundef nonnull @.str.11, i32 noundef 1215, ptr noundef nonnull @__FUNCTION__._lib_history_truncate, ptr noundef %41) #22
   br label %43
 
 43:                                               ; preds = %37, %33
   %44 = load ptr, ptr %2, align 8, !tbaa !72
-  %45 = call i32 @sqlite3_step(ptr noundef %44) #16
+  %45 = call i32 @sqlite3_step(ptr noundef %44) #17
   %46 = icmp eq i32 %45, 100
   br i1 %46, label %47, label %52
 
 47:                                               ; preds = %43
   %48 = load ptr, ptr %2, align 8, !tbaa !72
-  %49 = call i32 @sqlite3_column_int(ptr noundef %48, i32 noundef 0) #16
+  %49 = call i32 @sqlite3_column_int(ptr noundef %48, i32 noundef 0) #17
   %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 2016
   store i32 %49, ptr %51, align 16, !tbaa !61
@@ -3499,18 +3498,18 @@ define internal fastcc void @_lib_history_truncate(i32 noundef range(i32 0, 2) %
 
 52:                                               ; preds = %47, %43
   %53 = load ptr, ptr %2, align 8, !tbaa !72
-  %54 = call i32 @sqlite3_finalize(ptr noundef %53) #16
+  %54 = call i32 @sqlite3_finalize(ptr noundef %53) #17
   %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 2016
   %57 = load i32, ptr %56, align 16, !tbaa !61
-  %58 = call i32 @dt_image_set_history_end(i32 noundef %5, i32 noundef %57) #16
+  %58 = call i32 @dt_image_set_history_end(i32 noundef %5, i32 noundef %57) #17
   %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
-  call void @dt_dev_reload_history_items(ptr noundef %59) #16
+  call void @dt_dev_reload_history_items(ptr noundef %59) #17
   %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
-  call void @dt_dev_undo_end_record(ptr noundef %60) #16
+  call void @dt_dev_undo_end_record(ptr noundef %60) #17
   %61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
-  %62 = call i32 @dt_dev_modulegroups_get(ptr noundef %61) #16
-  call void @dt_dev_modulegroups_set(ptr noundef %61, i32 noundef %62) #16
+  %62 = call i32 @dt_dev_modulegroups_get(ptr noundef %61) #17
+  call void @dt_dev_modulegroups_set(ptr noundef %61, i32 noundef %62) #17
   %63 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3120), align 8, !tbaa !20
   %64 = and i32 %63, 1
   %65 = icmp ne i32 %64, 0
@@ -3526,13 +3525,13 @@ define internal fastcc void @_lib_history_truncate(i32 noundef range(i32 0, 2) %
   br i1 %72, label %74, label %73
 
 73:                                               ; preds = %69
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.11, i32 noundef 1229, ptr noundef nonnull @__FUNCTION__._lib_history_truncate, ptr noundef nonnull @.str.99) #16
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.11, i32 noundef 1229, ptr noundef nonnull @__FUNCTION__._lib_history_truncate, ptr noundef nonnull @.str.99) #17
   br label %74
 
 74:                                               ; preds = %73, %69, %52
   %75 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !31
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %75, i32 noundef 26) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #16
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %75, i32 noundef 26) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #17
   br label %76
 
 76:                                               ; preds = %74, %1
@@ -3574,6 +3573,9 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #15
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #13
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smax.i64(i64, i64) #16
+
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "approx-func-fp-math"="true" "denormal-fp-math"="preserve-sign,preserve-sign" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" "unsafe-fp-math"="true" }
 attributes #1 = { nounwind uwtable "approx-func-fp-math"="true" "denormal-fp-math"="preserve-sign,preserve-sign" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" "unsafe-fp-math"="true" }
 attributes #2 = { nounwind "approx-func-fp-math"="true" "denormal-fp-math"="preserve-sign,preserve-sign" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" "unsafe-fp-math"="true" }
@@ -3590,12 +3592,13 @@ attributes #12 = { allocsize(0,1) "approx-func-fp-math"="true" "denormal-fp-math
 attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { nofree nounwind "approx-func-fp-math"="true" "denormal-fp-math"="preserve-sign,preserve-sign" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" "unsafe-fp-math"="true" }
 attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: read) }
-attributes #16 = { nounwind }
-attributes #17 = { nounwind allocsize(0) }
-attributes #18 = { nounwind willreturn memory(none) }
-attributes #19 = { nounwind willreturn memory(read) }
-attributes #20 = { nounwind allocsize(0,1) }
-attributes #21 = { cold nounwind }
+attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nounwind }
+attributes #18 = { nounwind allocsize(0) }
+attributes #19 = { nounwind willreturn memory(none) }
+attributes #20 = { nounwind willreturn memory(read) }
+attributes #21 = { nounwind allocsize(0,1) }
+attributes #22 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

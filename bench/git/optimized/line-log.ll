@@ -52,10 +52,10 @@ entry:
 
 range_set_grow.exit:                              ; preds = %entry
   %ranges = getelementptr inbounds nuw i8, ptr %rs, i64 8
-  %storemerge.i5 = tail call i64 @llvm.umax.i64(i64 %prealloc, i64 24)
-  %storemerge.i = trunc i64 %storemerge.i5 to i32
+  %storemerge15.i = tail call i64 @llvm.umax.i64(i64 %prealloc, i64 24)
+  %storemerge.i = trunc i64 %storemerge15.i to i32
   store i32 %storemerge.i, ptr %rs, align 8
-  %conv23.i = shl i64 %storemerge.i5, 4
+  %conv23.i = shl i64 %storemerge15.i, 4
   %mul.i.i = and i64 %conv23.i, 68719476720
   %call24.i = tail call ptr @xrealloc(ptr noundef null, i64 noundef %mul.i.i) #16
   store ptr %call24.i, ptr %ranges, align 8
@@ -93,17 +93,19 @@ entry.range_set_grow.exit_crit_edge:              ; preds = %entry
   br label %range_set_grow.exit
 
 if.then.i:                                        ; preds = %entry
-  %add.i = add i32 %0, 1
+  %conv.i = zext i32 %0 to i64
+  %add.i = add nuw nsw i64 %conv.i, 1
   %2 = mul i32 %1, 3
   %mul.i = add i32 %2, 48
   %div13.i = lshr i32 %mul.i, 1
-  %cmp9.i.not = icmp ult i32 %0, %div13.i
-  %storemerge.i = select i1 %cmp9.i.not, i32 %div13.i, i32 %add.i
+  %conv5.i = zext nneg i32 %div13.i to i64
+  %storemerge15.i = tail call i64 @llvm.umax.i64(i64 %add.i, i64 %conv5.i)
+  %storemerge.i = trunc i64 %storemerge15.i to i32
   store i32 %storemerge.i, ptr %rs, align 8
-  %conv23.i = zext i32 %storemerge.i to i64
   %ranges.i = getelementptr inbounds nuw i8, ptr %rs, i64 8
   %3 = load ptr, ptr %ranges.i, align 8
-  %mul.i.i = shl nuw nsw i64 %conv23.i, 4
+  %conv23.i = shl nuw nsw i64 %storemerge15.i, 4
+  %mul.i.i = and i64 %conv23.i, 68719476720
   %call24.i = tail call ptr @xrealloc(ptr noundef %3, i64 noundef %mul.i.i) #16
   store ptr %call24.i, ptr %ranges.i, align 8
   %.pre6 = load i32, ptr %nr.i, align 4
@@ -142,17 +144,19 @@ entry.range_set_grow.exit_crit_edge.i:            ; preds = %entry
   br label %range_set_append_unsafe.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %add.i.i = add i32 %0, 1
+  %conv.i.i = zext i32 %0 to i64
+  %add.i.i = add nuw nsw i64 %conv.i.i, 1
   %2 = mul i32 %1, 3
   %mul.i.i = add i32 %2, 48
   %div13.i.i = lshr i32 %mul.i.i, 1
-  %cmp9.i.not.i = icmp ult i32 %0, %div13.i.i
-  %storemerge.i.i = select i1 %cmp9.i.not.i, i32 %div13.i.i, i32 %add.i.i
+  %conv5.i.i = zext nneg i32 %div13.i.i to i64
+  %storemerge15.i.i = tail call i64 @llvm.umax.i64(i64 %add.i.i, i64 %conv5.i.i)
+  %storemerge.i.i = trunc i64 %storemerge15.i.i to i32
   store i32 %storemerge.i.i, ptr %rs, align 8
-  %conv23.i.i = zext i32 %storemerge.i.i to i64
   %ranges.i.i = getelementptr inbounds nuw i8, ptr %rs, i64 8
   %3 = load ptr, ptr %ranges.i.i, align 8
-  %mul.i.i.i = shl nuw nsw i64 %conv23.i.i, 4
+  %conv23.i.i = shl nuw nsw i64 %storemerge15.i.i, 4
+  %mul.i.i.i = and i64 %conv23.i.i, 68719476720
   %call24.i.i = tail call ptr @xrealloc(ptr noundef %3, i64 noundef %mul.i.i.i) #16
   store ptr %call24.i.i, ptr %ranges.i.i, align 8
   %.pre6.i = load i32, ptr %nr.i.i, align 4
@@ -564,17 +568,19 @@ entry.range_set_grow.exit_crit_edge.i.i.i:        ; preds = %if.then.i36.i
   br label %range_set_append_unsafe.exit.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i36.i
-  %add.i.i.i.i = add i32 %43, 1
+  %conv.i.i.i.i = zext i32 %43 to i64
+  %add.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i, 1
   %45 = mul i32 %44, 3
   %mul.i.i.i.i = add i32 %45, 48
   %div13.i.i.i.i = lshr i32 %mul.i.i.i.i, 1
-  %cmp9.i.not.i.i.i = icmp ult i32 %43, %div13.i.i.i.i
-  %storemerge.i.i.i.i = select i1 %cmp9.i.not.i.i.i, i32 %div13.i.i.i.i, i32 %add.i.i.i.i
+  %conv5.i.i.i.i = zext nneg i32 %div13.i.i.i.i to i64
+  %storemerge15.i.i.i.i = call i64 @llvm.umax.i64(i64 %add.i.i.i.i, i64 %conv5.i.i.i.i)
+  %storemerge.i.i.i.i = trunc i64 %storemerge15.i.i.i.i to i32
   store i32 %storemerge.i.i.i.i, ptr %ranges.i.i, align 8
-  %conv23.i.i.i.i = zext i32 %storemerge.i.i.i.i to i64
   %ranges.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.010.i.i.i, i64 24
   %46 = load ptr, ptr %ranges.i.i.i.i, align 8
-  %mul.i.i.i.i.i = shl nuw nsw i64 %conv23.i.i.i.i, 4
+  %conv23.i.i.i.i = shl nuw nsw i64 %storemerge15.i.i.i.i, 4
+  %mul.i.i.i.i.i = and i64 %conv23.i.i.i.i, 68719476720
   %call24.i.i.i.i = call ptr @xrealloc(ptr noundef %46, i64 noundef %mul.i.i.i.i.i) #16
   store ptr %call24.i.i.i.i, ptr %ranges.i.i.i.i, align 8
   %.pre6.i.i.i = load i32, ptr %nr.i.i.i.i, align 4
@@ -616,17 +622,19 @@ entry.range_set_grow.exit_crit_edge.i.i.i.i:      ; preds = %if.end.i.i
   br label %range_set_append.exit.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end.i.i
-  %add.i.i.i.i.i = add i32 %52, 1
+  %conv.i.i.i.i.i = zext i32 %52 to i64
+  %add.i.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i.i, 1
   %54 = mul i32 %53, 3
   %mul.i.i.i14.i.i = add i32 %54, 48
   %div13.i.i.i.i.i = lshr i32 %mul.i.i.i14.i.i, 1
-  %cmp9.i.not.i.i.i.i = icmp ult i32 %52, %div13.i.i.i.i.i
-  %storemerge.i.i.i.i.i = select i1 %cmp9.i.not.i.i.i.i, i32 %div13.i.i.i.i.i, i32 %add.i.i.i.i.i
+  %conv5.i.i.i.i.i = zext nneg i32 %div13.i.i.i.i.i to i64
+  %storemerge15.i.i.i.i.i = call i64 @llvm.umax.i64(i64 %add.i.i.i.i.i, i64 %conv5.i.i.i.i.i)
+  %storemerge.i.i.i.i.i = trunc i64 %storemerge15.i.i.i.i.i to i32
   store i32 %storemerge.i.i.i.i.i, ptr %ranges3.i.i, align 8
-  %conv23.i.i.i.i.i = zext i32 %storemerge.i.i.i.i.i to i64
   %ranges.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call1.i.i, i64 24
   %55 = load ptr, ptr %ranges.i.i.i.i.i, align 8
-  %mul.i.i.i.i.i.i = shl nuw nsw i64 %conv23.i.i.i.i.i, 4
+  %conv23.i.i.i.i.i = shl nuw nsw i64 %storemerge15.i.i.i.i.i, 4
+  %mul.i.i.i.i.i.i = and i64 %conv23.i.i.i.i.i, 68719476720
   %call24.i.i.i.i.i = call ptr @xrealloc(ptr noundef %55, i64 noundef %mul.i.i.i.i.i.i) #16
   store ptr %call24.i.i.i.i.i, ptr %ranges.i.i.i.i.i, align 8
   %.pre6.i.i.i.i = load i32, ptr %nr.i.i.i.i.i, align 4
@@ -876,9 +884,9 @@ if.else28.i:                                      ; preds = %if.end18.i
 range_set_grow.exit.i.i.i:                        ; preds = %if.else28.i
   %ranges.i.i.i = getelementptr inbounds nuw i8, ptr %call19.i, i64 24
   %9 = tail call i32 @llvm.umax.i32(i32 %8, i32 24)
-  %storemerge.i5.i.i.i = zext i32 %9 to i64
+  %storemerge15.i.i.i.i = zext i32 %9 to i64
   store i32 %9, ptr %ranges29.i, align 8
-  %conv23.i.i.i.i = shl nuw nsw i64 %storemerge.i5.i.i.i, 4
+  %conv23.i.i.i.i = shl nuw nsw i64 %storemerge15.i.i.i.i, 4
   %call24.i.i.i.i = tail call ptr @xrealloc(ptr noundef null, i64 noundef %conv23.i.i.i.i) #16
   store ptr %call24.i.i.i.i, ptr %ranges.i.i.i, align 8
   br label %range_set_init.exit.i.i
@@ -1731,9 +1739,9 @@ entry:
 range_set_grow.exit.i.i.i:                        ; preds = %entry
   %ranges.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   %1 = tail call i32 @llvm.umax.i32(i32 %0, i32 24)
-  %storemerge.i5.i.i.i = zext i32 %1 to i64
+  %storemerge15.i.i.i.i = zext i32 %1 to i64
   store i32 %1, ptr %ranges.i, align 8
-  %conv23.i.i.i.i = shl nuw nsw i64 %storemerge.i5.i.i.i, 4
+  %conv23.i.i.i.i = shl nuw nsw i64 %storemerge15.i.i.i.i, 4
   %call24.i.i.i.i = tail call ptr @xrealloc(ptr noundef null, i64 noundef %conv23.i.i.i.i) #16
   store ptr %call24.i.i.i.i, ptr %ranges.i.i.i, align 8
   br label %range_set_init.exit.i.i
@@ -1781,9 +1789,9 @@ while.body:                                       ; preds = %line_log_data_copy_
 range_set_grow.exit.i.i.i10:                      ; preds = %while.body
   %ranges.i.i.i11 = getelementptr inbounds nuw i8, ptr %call.i6, i64 24
   %8 = tail call i32 @llvm.umax.i32(i32 %7, i32 24)
-  %storemerge.i5.i.i.i12 = zext i32 %8 to i64
+  %storemerge15.i.i.i.i12 = zext i32 %8 to i64
   store i32 %8, ptr %ranges.i7, align 8
-  %conv23.i.i.i.i13 = shl nuw nsw i64 %storemerge.i5.i.i.i12, 4
+  %conv23.i.i.i.i13 = shl nuw nsw i64 %storemerge15.i.i.i.i12, 4
   %call24.i.i.i.i14 = tail call ptr @xrealloc(ptr noundef null, i64 noundef %conv23.i.i.i.i13) #16
   store ptr %call24.i.i.i.i14, ptr %ranges.i.i.i11, align 8
   br label %range_set_init.exit.i.i15
@@ -2237,15 +2245,17 @@ if.then69:                                        ; preds = %lor.lhs.false, %if.
   br i1 %cmp.i.not, label %range_set_grow.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then69
-  %add.i = add i32 %10, 1
+  %conv.i = zext i32 %10 to i64
+  %add.i = add nuw nsw i64 %conv.i, 1
   %13 = mul i32 %12, 3
   %mul.i = add i32 %13, 48
   %div13.i = lshr i32 %mul.i, 1
-  %cmp9.i.not = icmp ult i32 %10, %div13.i
-  %storemerge.i = select i1 %cmp9.i.not, i32 %div13.i, i32 %add.i
+  %conv5.i = zext nneg i32 %div13.i to i64
+  %storemerge15.i = tail call i64 @llvm.umax.i64(i64 %add.i, i64 %conv5.i)
+  %storemerge.i = trunc i64 %storemerge15.i to i32
   store i32 %storemerge.i, ptr %out, align 8
-  %conv23.i = zext i32 %storemerge.i to i64
-  %mul.i.i = shl nuw nsw i64 %conv23.i, 4
+  %conv23.i = shl nuw nsw i64 %storemerge15.i, 4
+  %mul.i.i = and i64 %conv23.i, 68719476720
   %call24.i = tail call ptr @xrealloc(ptr noundef %.pre54.pre, i64 noundef %mul.i.i) #16
   store ptr %call24.i, ptr %ranges62, align 8
   %.pre = load i64, ptr %new_range.0, align 8
@@ -2541,8 +2551,8 @@ for.body.lr.ph:                                   ; preds = %entry
   %nr.i.i.i = getelementptr inbounds nuw i8, ptr %diff.i, i64 20
   %ranges.i.i.i = getelementptr inbounds nuw i8, ptr %diff.i, i64 24
   %ranges17.i.i.i = getelementptr inbounds nuw i8, ptr %diff.i, i64 8
-  %nr.i.i.i.i37.i.i = getelementptr inbounds nuw i8, ptr %tmp2.i.i, i64 4
-  %ranges.i.i.i.i38.i.i = getelementptr inbounds nuw i8, ptr %tmp2.i.i, i64 8
+  %nr.i.i.i.i39.i.i = getelementptr inbounds nuw i8, ptr %tmp2.i.i, i64 4
+  %ranges.i.i.i.i40.i.i = getelementptr inbounds nuw i8, ptr %tmp2.i.i, i64 8
   %ranges.i23.i = getelementptr inbounds nuw i8, ptr %tmp.i, i64 8
   %nr.i.i = getelementptr inbounds nuw i8, ptr %tmp.i, i64 4
   %target.i.i = getelementptr inbounds nuw i8, ptr %diff.i, i64 16
@@ -2662,8 +2672,8 @@ if.end33.i:                                       ; preds = %if.end27.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tmp2.i.i, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call.i21.i, i8 0, i64 32, i1 false)
   %25 = load i32, ptr %nr.i.i.i, align 4
-  %cmp54.not.i.i.i = icmp eq i32 %25, 0
-  br i1 %cmp54.not.i.i.i, label %diff_ranges_filter_touched.exit.ithread-pre-split.i, label %while.cond.preheader.lr.ph.i.i.i
+  %cmp56.not.i.i.i = icmp eq i32 %25, 0
+  br i1 %cmp56.not.i.i.i, label %diff_ranges_filter_touched.exit.ithread-pre-split.i, label %while.cond.preheader.lr.ph.i.i.i
 
 while.cond.preheader.lr.ph.i.i.i:                 ; preds = %if.end33.i
   %ranges2.i.i.i = getelementptr inbounds nuw i8, ptr %rg.053.i, i64 24
@@ -2671,13 +2681,13 @@ while.cond.preheader.lr.ph.i.i.i:                 ; preds = %if.end33.i
   %ranges.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i21.i, i64 8
   %target26.i.i.i = getelementptr inbounds nuw i8, ptr %call.i21.i, i64 16
   %nr.i.i.i20.i.i.i = getelementptr inbounds nuw i8, ptr %call.i21.i, i64 20
-  %ranges.i.i.i29.i.i.i = getelementptr inbounds nuw i8, ptr %call.i21.i, i64 24
+  %ranges.i.i.i30.i.i.i = getelementptr inbounds nuw i8, ptr %call.i21.i, i64 24
   br label %while.cond.preheader.i.i.i
 
 while.cond.preheader.i.i.i:                       ; preds = %for.inc.i.i.i, %while.cond.preheader.lr.ph.i.i.i
   %26 = phi i32 [ %25, %while.cond.preheader.lr.ph.i.i.i ], [ %58, %for.inc.i.i.i ]
   %indvars.iv.i.i.i = phi i64 [ 0, %while.cond.preheader.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %for.inc.i.i.i ]
-  %j.056.i.i.i = phi i32 [ 0, %while.cond.preheader.lr.ph.i.i.i ], [ %j.1.i.i.i, %for.inc.i.i.i ]
+  %j.058.i.i.i = phi i32 [ 0, %while.cond.preheader.lr.ph.i.i.i ], [ %j.1.i.i.i, %for.inc.i.i.i ]
   %27 = load ptr, ptr %ranges.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds nuw %struct.range, ptr %27, i64 %indvars.iv.i.i.i
   %28 = load i64, ptr %arrayidx.i.i.i, align 8
@@ -2685,7 +2695,7 @@ while.cond.preheader.i.i.i:                       ; preds = %for.inc.i.i.i, %whi
   br label %while.cond.i.i.i
 
 while.cond.i.i.i:                                 ; preds = %while.body.i.i.i, %while.cond.preheader.i.i.i
-  %j.1.i.i.i = phi i32 [ %inc.i.i.i, %while.body.i.i.i ], [ %j.056.i.i.i, %while.cond.preheader.i.i.i ]
+  %j.1.i.i.i = phi i32 [ %inc.i.i.i, %while.body.i.i.i ], [ %j.058.i.i.i, %while.cond.preheader.i.i.i ]
   %idxprom3.i.i.i = zext i32 %j.1.i.i.i to i64
   %arrayidx4.i.i.i = getelementptr inbounds nuw %struct.range, ptr %29, i64 %idxprom3.i.i.i
   %end.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx4.i.i.i, i64 8
@@ -2724,16 +2734,18 @@ entry.range_set_grow.exit_crit_edge.i.i.i.i.i:    ; preds = %if.then15.i.i.i
   br label %range_set_append.exit.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then15.i.i.i
-  %add.i.i.i.i.i.i = add i32 %37, 1
+  %conv.i.i.i.i.i.i = zext i32 %37 to i64
+  %add.i.i.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i.i.i, 1
   %39 = mul i32 %38, 3
   %mul.i.i.i.i.i.i = add i32 %39, 48
   %div13.i.i.i.i.i.i = lshr i32 %mul.i.i.i.i.i.i, 1
-  %cmp9.i.not.i.i.i.i.i = icmp ult i32 %37, %div13.i.i.i.i.i.i
-  %storemerge.i.i.i.i.i.i = select i1 %cmp9.i.not.i.i.i.i.i, i32 %div13.i.i.i.i.i.i, i32 %add.i.i.i.i.i.i
+  %conv5.i.i.i.i.i.i = zext nneg i32 %div13.i.i.i.i.i.i to i64
+  %storemerge15.i.i.i.i.i.i = call i64 @llvm.umax.i64(i64 %add.i.i.i.i.i.i, i64 %conv5.i.i.i.i.i.i)
+  %storemerge.i.i.i.i.i.i = trunc i64 %storemerge15.i.i.i.i.i.i to i32
   store i32 %storemerge.i.i.i.i.i.i, ptr %call.i21.i, align 8
-  %conv23.i.i.i.i.i.i = zext i32 %storemerge.i.i.i.i.i.i to i64
   %40 = load ptr, ptr %ranges.i.i.i.i.i.i, align 8
-  %mul.i.i.i.i.i.i.i = shl nuw nsw i64 %conv23.i.i.i.i.i.i, 4
+  %conv23.i.i.i.i.i.i = shl nuw nsw i64 %storemerge15.i.i.i.i.i.i, 4
+  %mul.i.i.i.i.i.i.i = and i64 %conv23.i.i.i.i.i.i, 68719476720
   %call24.i.i.i.i.i.i = call ptr @xrealloc(ptr noundef %40, i64 noundef %mul.i.i.i.i.i.i.i) #16
   store ptr %call24.i.i.i.i.i.i, ptr %ranges.i.i.i.i.i.i, align 8
   %.pre6.i.i.i.i.i = load i32, ptr %nr.i.i.i.i.i.i, align 4
@@ -2761,47 +2773,49 @@ range_set_append.exit.i.i.i:                      ; preds = %if.then.i.i.i.i.i.i
   %49 = load i32, ptr %nr.i.i.i20.i.i.i, align 4
   %50 = load i32, ptr %target26.i.i.i, align 8
   %cmp.i.not.i.i21.i.i.i = icmp ult i32 %49, %50
-  br i1 %cmp.i.not.i.i21.i.i.i, label %entry.range_set_grow.exit_crit_edge.i.i39.i.i.i, label %if.then.i.i.i22.i.i.i
+  br i1 %cmp.i.not.i.i21.i.i.i, label %entry.range_set_grow.exit_crit_edge.i.i41.i.i.i, label %if.then.i.i.i22.i.i.i
 
-entry.range_set_grow.exit_crit_edge.i.i39.i.i.i:  ; preds = %range_set_append.exit.i.i.i
-  %.pre.i.i41.i.i.i = load ptr, ptr %ranges.i.i.i29.i.i.i, align 8
-  br label %range_set_append.exit42.i.i.i
+entry.range_set_grow.exit_crit_edge.i.i41.i.i.i:  ; preds = %range_set_append.exit.i.i.i
+  %.pre.i.i43.i.i.i = load ptr, ptr %ranges.i.i.i30.i.i.i, align 8
+  br label %range_set_append.exit44.i.i.i
 
 if.then.i.i.i22.i.i.i:                            ; preds = %range_set_append.exit.i.i.i
-  %add.i.i.i23.i.i.i = add i32 %49, 1
+  %conv.i.i.i23.i.i.i = zext i32 %49 to i64
+  %add.i.i.i24.i.i.i = add nuw nsw i64 %conv.i.i.i23.i.i.i, 1
   %51 = mul i32 %50, 3
-  %mul.i.i.i24.i.i.i = add i32 %51, 48
-  %div13.i.i.i25.i.i.i = lshr i32 %mul.i.i.i24.i.i.i, 1
-  %cmp9.i.not.i.i26.i.i.i = icmp ult i32 %49, %div13.i.i.i25.i.i.i
-  %storemerge.i.i.i27.i.i.i = select i1 %cmp9.i.not.i.i26.i.i.i, i32 %div13.i.i.i25.i.i.i, i32 %add.i.i.i23.i.i.i
-  store i32 %storemerge.i.i.i27.i.i.i, ptr %target26.i.i.i, align 8
-  %conv23.i.i.i28.i.i.i = zext i32 %storemerge.i.i.i27.i.i.i to i64
-  %52 = load ptr, ptr %ranges.i.i.i29.i.i.i, align 8
-  %mul.i.i.i.i30.i.i.i = shl nuw nsw i64 %conv23.i.i.i28.i.i.i, 4
-  %call24.i.i.i31.i.i.i = call ptr @xrealloc(ptr noundef %52, i64 noundef %mul.i.i.i.i30.i.i.i) #16
-  store ptr %call24.i.i.i31.i.i.i, ptr %ranges.i.i.i29.i.i.i, align 8
-  %.pre6.i.i32.i.i.i = load i32, ptr %nr.i.i.i20.i.i.i, align 4
-  br label %range_set_append.exit42.i.i.i
+  %mul.i.i.i25.i.i.i = add i32 %51, 48
+  %div13.i.i.i26.i.i.i = lshr i32 %mul.i.i.i25.i.i.i, 1
+  %conv5.i.i.i27.i.i.i = zext nneg i32 %div13.i.i.i26.i.i.i to i64
+  %storemerge15.i.i.i28.i.i.i = call i64 @llvm.umax.i64(i64 %add.i.i.i24.i.i.i, i64 %conv5.i.i.i27.i.i.i)
+  %storemerge.i.i.i29.i.i.i = trunc i64 %storemerge15.i.i.i28.i.i.i to i32
+  store i32 %storemerge.i.i.i29.i.i.i, ptr %target26.i.i.i, align 8
+  %52 = load ptr, ptr %ranges.i.i.i30.i.i.i, align 8
+  %conv23.i.i.i31.i.i.i = shl nuw nsw i64 %storemerge15.i.i.i28.i.i.i, 4
+  %mul.i.i.i.i32.i.i.i = and i64 %conv23.i.i.i31.i.i.i, 68719476720
+  %call24.i.i.i33.i.i.i = call ptr @xrealloc(ptr noundef %52, i64 noundef %mul.i.i.i.i32.i.i.i) #16
+  store ptr %call24.i.i.i33.i.i.i, ptr %ranges.i.i.i30.i.i.i, align 8
+  %.pre6.i.i34.i.i.i = load i32, ptr %nr.i.i.i20.i.i.i, align 4
+  br label %range_set_append.exit44.i.i.i
 
-range_set_append.exit42.i.i.i:                    ; preds = %if.then.i.i.i22.i.i.i, %entry.range_set_grow.exit_crit_edge.i.i39.i.i.i
-  %53 = phi i32 [ %49, %entry.range_set_grow.exit_crit_edge.i.i39.i.i.i ], [ %.pre6.i.i32.i.i.i, %if.then.i.i.i22.i.i.i ]
-  %54 = phi ptr [ %.pre.i.i41.i.i.i, %entry.range_set_grow.exit_crit_edge.i.i39.i.i.i ], [ %call24.i.i.i31.i.i.i, %if.then.i.i.i22.i.i.i ]
-  %idxprom.i.i34.i.i.i = zext i32 %53 to i64
-  %arrayidx.i.i35.i.i.i = getelementptr inbounds nuw %struct.range, ptr %54, i64 %idxprom.i.i34.i.i.i
-  store i64 %47, ptr %arrayidx.i.i35.i.i.i, align 8
-  %55 = load ptr, ptr %ranges.i.i.i29.i.i.i, align 8
+range_set_append.exit44.i.i.i:                    ; preds = %if.then.i.i.i22.i.i.i, %entry.range_set_grow.exit_crit_edge.i.i41.i.i.i
+  %53 = phi i32 [ %49, %entry.range_set_grow.exit_crit_edge.i.i41.i.i.i ], [ %.pre6.i.i34.i.i.i, %if.then.i.i.i22.i.i.i ]
+  %54 = phi ptr [ %.pre.i.i43.i.i.i, %entry.range_set_grow.exit_crit_edge.i.i41.i.i.i ], [ %call24.i.i.i33.i.i.i, %if.then.i.i.i22.i.i.i ]
+  %idxprom.i.i36.i.i.i = zext i32 %53 to i64
+  %arrayidx.i.i37.i.i.i = getelementptr inbounds nuw %struct.range, ptr %54, i64 %idxprom.i.i36.i.i.i
+  store i64 %47, ptr %arrayidx.i.i37.i.i.i, align 8
+  %55 = load ptr, ptr %ranges.i.i.i30.i.i.i, align 8
   %56 = load i32, ptr %nr.i.i.i20.i.i.i, align 4
-  %idxprom3.i.i36.i.i.i = zext i32 %56 to i64
-  %end.i.i37.i.i.i = getelementptr inbounds nuw %struct.range, ptr %55, i64 %idxprom3.i.i36.i.i.i, i32 1
-  store i64 %48, ptr %end.i.i37.i.i.i, align 8
+  %idxprom3.i.i38.i.i.i = zext i32 %56 to i64
+  %end.i.i39.i.i.i = getelementptr inbounds nuw %struct.range, ptr %55, i64 %idxprom3.i.i38.i.i.i, i32 1
+  store i64 %48, ptr %end.i.i39.i.i.i, align 8
   %57 = load i32, ptr %nr.i.i.i20.i.i.i, align 4
-  %inc.i.i38.i.i.i = add i32 %57, 1
-  store i32 %inc.i.i38.i.i.i, ptr %nr.i.i.i20.i.i.i, align 4
+  %inc.i.i40.i.i.i = add i32 %57, 1
+  store i32 %inc.i.i40.i.i.i, ptr %nr.i.i.i20.i.i.i, align 4
   %.pre.i.i.i = load i32, ptr %nr.i.i.i, align 4
   br label %for.inc.i.i.i
 
-for.inc.i.i.i:                                    ; preds = %range_set_append.exit42.i.i.i, %while.end.i.i.i
-  %58 = phi i32 [ %26, %while.end.i.i.i ], [ %.pre.i.i.i, %range_set_append.exit42.i.i.i ]
+for.inc.i.i.i:                                    ; preds = %range_set_append.exit44.i.i.i, %while.end.i.i.i
+  %58 = phi i32 [ %26, %while.end.i.i.i ], [ %.pre.i.i.i, %range_set_append.exit44.i.i.i ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %59 = zext i32 %58 to i64
   %cmp.i.i.i = icmp samesign ult i64 %indvars.iv.next.i.i.i, %59
@@ -2813,8 +2827,8 @@ diff_ranges_filter_touched.exit.ithread-pre-split.i: ; preds = %for.inc.i.i.i, %
 
 diff_ranges_filter_touched.exit.i.i:              ; preds = %while.body.i.i.i, %diff_ranges_filter_touched.exit.ithread-pre-split.i
   %60 = phi i32 [ %.pr.i, %diff_ranges_filter_touched.exit.ithread-pre-split.i ], [ %inc.i.i.i, %while.body.i.i.i ]
-  %cmp75.not.i.i.i = icmp eq i32 %60, 0
-  br i1 %cmp75.not.i.i.i, label %process_diff_filepair.exit, label %for.body.lr.ph.i.i.i
+  %cmp77.not.i.i.i = icmp eq i32 %60, 0
+  br i1 %cmp77.not.i.i.i, label %process_diff_filepair.exit, label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %diff_ranges_filter_touched.exit.i.i
   %ranges.i9.i.i = getelementptr inbounds nuw i8, ptr %rg.053.i, i64 24
@@ -2826,81 +2840,83 @@ for.body.i.i.i:                                   ; preds = %for.inc.i11.i.i, %f
   %tmp1.sroa.0.0.i.i = phi i32 [ 0, %for.body.lr.ph.i.i.i ], [ %tmp1.sroa.0.1.i.i, %for.inc.i11.i.i ]
   %tmp1.sroa.6.0.i.i = phi i32 [ 0, %for.body.lr.ph.i.i.i ], [ %tmp1.sroa.6.1.i.i, %for.inc.i11.i.i ]
   %tmp1.sroa.17.0.i.i = phi ptr [ null, %for.body.lr.ph.i.i.i ], [ %tmp1.sroa.17.1.i.i, %for.inc.i11.i.i ]
-  %indvars.iv84.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %indvars.iv.next85.i.i.i, %for.inc.i11.i.i ]
-  %j.076.i.i.i = phi i32 [ 0, %for.body.lr.ph.i.i.i ], [ %j.3.i.i.i, %for.inc.i11.i.i ]
+  %indvars.iv86.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %indvars.iv.next87.i.i.i, %for.inc.i11.i.i ]
+  %j.078.i.i.i = phi i32 [ 0, %for.body.lr.ph.i.i.i ], [ %j.3.i.i.i, %for.inc.i11.i.i ]
   %61 = load ptr, ptr %ranges.i9.i.i, align 8
-  %arrayidx.i10.i.i = getelementptr inbounds nuw %struct.range, ptr %61, i64 %indvars.iv84.i.i.i
+  %arrayidx.i10.i.i = getelementptr inbounds nuw %struct.range, ptr %61, i64 %indvars.iv86.i.i.i
   %62 = load i64, ptr %arrayidx.i10.i.i, align 8
   %end5.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i10.i.i, i64 8
   %63 = load i64, ptr %end5.i.i.i, align 8
-  %cmp671.i.i.i = icmp slt i64 %62, %63
-  br i1 %cmp671.i.i.i, label %while.cond7.preheader.i.i.i, label %for.inc.i11.i.i
+  %cmp673.i.i.i = icmp slt i64 %62, %63
+  br i1 %cmp673.i.i.i, label %while.cond7.preheader.i.i.i, label %for.inc.i11.i.i
 
 while.cond7.preheader.i.i.i:                      ; preds = %for.body.i.i.i, %if.end55.i.i.i
   %tmp1.sroa.0.2.i.i = phi i32 [ %tmp1.sroa.0.4.i.i, %if.end55.i.i.i ], [ %tmp1.sroa.0.0.i.i, %for.body.i.i.i ]
   %tmp1.sroa.6.2.i.i = phi i32 [ %tmp1.sroa.6.3.i.i, %if.end55.i.i.i ], [ %tmp1.sroa.6.0.i.i, %for.body.i.i.i ]
   %tmp1.sroa.17.2.i.i = phi ptr [ %tmp1.sroa.17.4.i.i, %if.end55.i.i.i ], [ %tmp1.sroa.17.0.i.i, %for.body.i.i.i ]
-  %start.073.i.i.i = phi i64 [ %start.1.i.i.i, %if.end55.i.i.i ], [ %62, %for.body.i.i.i ]
-  %j.172.i.i.i = phi i32 [ %68, %if.end55.i.i.i ], [ %j.076.i.i.i, %for.body.i.i.i ]
+  %start.075.i.i.i = phi i64 [ %start.1.i.i.i, %if.end55.i.i.i ], [ %62, %for.body.i.i.i ]
+  %j.174.i.i.i = phi i32 [ %68, %if.end55.i.i.i ], [ %j.078.i.i.i, %for.body.i.i.i ]
   %64 = load i32, ptr %nr8.i.i.i, align 4
-  %cmp966.i.i.i = icmp ult i32 %j.172.i.i.i, %64
-  br i1 %cmp966.i.i.i, label %land.rhs.lr.ph.i.i.i, label %if.then.i.i.i
+  %cmp968.i.i.i = icmp ult i32 %j.174.i.i.i, %64
+  br i1 %cmp968.i.i.i, label %land.rhs.lr.ph.i.i.i, label %if.then.i.i.i
 
 land.rhs.lr.ph.i.i.i:                             ; preds = %while.cond7.preheader.i.i.i
   %65 = load ptr, ptr %ranges10.i.i.i, align 8
-  %66 = zext i32 %j.172.i.i.i to i64
+  %66 = zext i32 %j.174.i.i.i to i64
   %wide.trip.count.i.i.i = zext i32 %64 to i64
   br label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %while.body15.i.i.i, %land.rhs.lr.ph.i.i.i
-  %indvars.iv.i32.i.i = phi i64 [ %66, %land.rhs.lr.ph.i.i.i ], [ %indvars.iv.next.i33.i.i, %while.body15.i.i.i ]
-  %end13.i.i.i = getelementptr inbounds nuw %struct.range, ptr %65, i64 %indvars.iv.i32.i.i, i32 1
+  %indvars.iv.i34.i.i = phi i64 [ %66, %land.rhs.lr.ph.i.i.i ], [ %indvars.iv.next.i35.i.i, %while.body15.i.i.i ]
+  %end13.i.i.i = getelementptr inbounds nuw %struct.range, ptr %65, i64 %indvars.iv.i34.i.i, i32 1
   %67 = load i64, ptr %end13.i.i.i, align 8
-  %cmp14.not.i.i.i = icmp slt i64 %start.073.i.i.i, %67
+  %cmp14.not.i.i.i = icmp slt i64 %start.075.i.i.i, %67
   br i1 %cmp14.not.i.i.i, label %lor.lhs.false.i.i.i, label %while.body15.i.i.i
 
 while.body15.i.i.i:                               ; preds = %land.rhs.i.i.i
-  %indvars.iv.next.i33.i.i = add nuw nsw i64 %indvars.iv.i32.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i33.i.i, %wide.trip.count.i.i.i
+  %indvars.iv.next.i35.i.i = add nuw nsw i64 %indvars.iv.i34.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i35.i.i, %wide.trip.count.i.i.i
   br i1 %exitcond.not.i.i.i, label %if.then.i.i.i, label %land.rhs.i.i.i, !llvm.loop !37
 
 lor.lhs.false.i.i.i:                              ; preds = %land.rhs.i.i.i
-  %68 = trunc nuw i64 %indvars.iv.i32.i.i to i32
-  %idxprom19.i.i.i = and i64 %indvars.iv.i32.i.i, 4294967295
+  %68 = trunc nuw i64 %indvars.iv.i34.i.i to i32
+  %idxprom19.i.i.i = and i64 %indvars.iv.i34.i.i, 4294967295
   %arrayidx20.i.i.i = getelementptr inbounds nuw %struct.range, ptr %65, i64 %idxprom19.i.i.i
   %69 = load i64, ptr %arrayidx20.i.i.i, align 8
   %cmp22.i.i.i = icmp slt i64 %63, %69
   br i1 %cmp22.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i, %while.cond7.preheader.i.i.i, %while.body15.i.i.i
-  %j.260.i.i.i = phi i32 [ %64, %while.body15.i.i.i ], [ %68, %lor.lhs.false.i.i.i ], [ %j.172.i.i.i, %while.cond7.preheader.i.i.i ]
+  %j.262.i.i.i = phi i32 [ %64, %while.body15.i.i.i ], [ %68, %lor.lhs.false.i.i.i ], [ %j.174.i.i.i, %while.cond7.preheader.i.i.i ]
   %cmp.i.not.i.i.i13.i.i = icmp ult i32 %tmp1.sroa.6.2.i.i, %tmp1.sroa.0.2.i.i
-  %.pre.i.i = add i32 %tmp1.sroa.6.2.i.i, 1
-  br i1 %cmp.i.not.i.i.i13.i.i, label %range_set_append.exit.i24.i.i, label %if.then.i.i.i.i14.i.i
+  %.pre.i.i = zext i32 %tmp1.sroa.6.2.i.i to i64
+  br i1 %cmp.i.not.i.i.i13.i.i, label %range_set_append.exit.i26.i.i, label %if.then.i.i.i.i14.i.i
 
 if.then.i.i.i.i14.i.i:                            ; preds = %if.then.i.i.i
+  %add.i.i.i.i16.i.i = add nuw nsw i64 %.pre.i.i, 1
   %70 = mul i32 %tmp1.sroa.0.2.i.i, 3
-  %mul.i.i.i.i16.i.i = add i32 %70, 48
-  %div13.i.i.i.i17.i.i = lshr i32 %mul.i.i.i.i16.i.i, 1
-  %cmp9.i.not.i.i.i18.i.i = icmp ult i32 %tmp1.sroa.6.2.i.i, %div13.i.i.i.i17.i.i
-  %storemerge.i.i.i.i19.i.i = select i1 %cmp9.i.not.i.i.i18.i.i, i32 %div13.i.i.i.i17.i.i, i32 %.pre.i.i
-  %conv23.i.i.i.i20.i.i = zext i32 %storemerge.i.i.i.i19.i.i to i64
-  %mul.i.i.i.i.i21.i.i = shl nuw nsw i64 %conv23.i.i.i.i20.i.i, 4
-  %call24.i.i.i.i22.i.i = call ptr @xrealloc(ptr noundef %tmp1.sroa.17.2.i.i, i64 noundef %mul.i.i.i.i.i21.i.i) #16
-  br label %range_set_append.exit.i24.i.i
+  %mul.i.i.i.i17.i.i = add i32 %70, 48
+  %div13.i.i.i.i18.i.i = lshr i32 %mul.i.i.i.i17.i.i, 1
+  %conv5.i.i.i.i19.i.i = zext nneg i32 %div13.i.i.i.i18.i.i to i64
+  %storemerge15.i.i.i.i20.i.i = call i64 @llvm.umax.i64(i64 %add.i.i.i.i16.i.i, i64 %conv5.i.i.i.i19.i.i)
+  %storemerge.i.i.i.i21.i.i = trunc i64 %storemerge15.i.i.i.i20.i.i to i32
+  %conv23.i.i.i.i22.i.i = shl nuw nsw i64 %storemerge15.i.i.i.i20.i.i, 4
+  %mul.i.i.i.i.i23.i.i = and i64 %conv23.i.i.i.i22.i.i, 68719476720
+  %call24.i.i.i.i24.i.i = call ptr @xrealloc(ptr noundef %tmp1.sroa.17.2.i.i, i64 noundef %mul.i.i.i.i.i23.i.i) #16
+  br label %range_set_append.exit.i26.i.i
 
-range_set_append.exit.i24.i.i:                    ; preds = %if.then.i.i.i.i14.i.i, %if.then.i.i.i
-  %tmp1.sroa.0.3.i.i = phi i32 [ %storemerge.i.i.i.i19.i.i, %if.then.i.i.i.i14.i.i ], [ %tmp1.sroa.0.2.i.i, %if.then.i.i.i ]
-  %tmp1.sroa.17.3.i.i = phi ptr [ %call24.i.i.i.i22.i.i, %if.then.i.i.i.i14.i.i ], [ %tmp1.sroa.17.2.i.i, %if.then.i.i.i ]
-  %idxprom.i.i.i25.i.i = zext i32 %tmp1.sroa.6.2.i.i to i64
-  %arrayidx.i.i.i26.i.i = getelementptr inbounds nuw %struct.range, ptr %tmp1.sroa.17.3.i.i, i64 %idxprom.i.i.i25.i.i
-  store i64 %start.073.i.i.i, ptr %arrayidx.i.i.i26.i.i, align 8
-  %end.i.i.i28.i.i = getelementptr inbounds nuw %struct.range, ptr %tmp1.sroa.17.3.i.i, i64 %idxprom.i.i.i25.i.i, i32 1
-  store i64 %63, ptr %end.i.i.i28.i.i, align 8
+range_set_append.exit.i26.i.i:                    ; preds = %if.then.i.i.i.i14.i.i, %if.then.i.i.i
+  %tmp1.sroa.0.3.i.i = phi i32 [ %storemerge.i.i.i.i21.i.i, %if.then.i.i.i.i14.i.i ], [ %tmp1.sroa.0.2.i.i, %if.then.i.i.i ]
+  %tmp1.sroa.17.3.i.i = phi ptr [ %call24.i.i.i.i24.i.i, %if.then.i.i.i.i14.i.i ], [ %tmp1.sroa.17.2.i.i, %if.then.i.i.i ]
+  %arrayidx.i.i.i28.i.i = getelementptr inbounds nuw %struct.range, ptr %tmp1.sroa.17.3.i.i, i64 %.pre.i.i
+  store i64 %start.075.i.i.i, ptr %arrayidx.i.i.i28.i.i, align 8
+  %end.i.i.i30.i.i = getelementptr inbounds nuw %struct.range, ptr %tmp1.sroa.17.3.i.i, i64 %.pre.i.i, i32 1
+  store i64 %63, ptr %end.i.i.i30.i.i, align 8
+  %inc.i.i.i31.i.i = add i32 %tmp1.sroa.6.2.i.i, 1
   br label %for.inc.i11.i.i
 
 if.end.i.i.i:                                     ; preds = %lor.lhs.false.i.i.i
-  %cmp27.not.i.i.i = icmp slt i64 %start.073.i.i.i, %69
+  %cmp27.not.i.i.i = icmp slt i64 %start.075.i.i.i, %69
   br i1 %cmp27.not.i.i.i, label %if.else.i.i.i, label %if.then28.i.i.i
 
 if.then28.i.i.i:                                  ; preds = %if.end.i.i.i
@@ -2914,28 +2930,30 @@ if.else.i.i.i:                                    ; preds = %if.end.i.i.i
 
 if.then44.i.i.i:                                  ; preds = %if.else.i.i.i
   %cmp.i.not.i.i36.i.i.i = icmp ult i32 %tmp1.sroa.6.2.i.i, %tmp1.sroa.0.2.i.i
-  %.pre153.i.i = add i32 %tmp1.sroa.6.2.i.i, 1
+  %.pre157.i.i = zext i32 %tmp1.sroa.6.2.i.i to i64
   br i1 %cmp.i.not.i.i36.i.i.i, label %if.end49.i.i.i, label %if.then.i.i.i37.i.i.i
 
 if.then.i.i.i37.i.i.i:                            ; preds = %if.then44.i.i.i
+  %add.i.i.i39.i.i.i = add nuw nsw i64 %.pre157.i.i, 1
   %72 = mul i32 %tmp1.sroa.0.2.i.i, 3
-  %mul.i.i.i39.i.i.i = add i32 %72, 48
-  %div13.i.i.i40.i.i.i = lshr i32 %mul.i.i.i39.i.i.i, 1
-  %cmp9.i.not.i.i41.i.i.i = icmp ult i32 %tmp1.sroa.6.2.i.i, %div13.i.i.i40.i.i.i
-  %storemerge.i.i.i42.i.i.i = select i1 %cmp9.i.not.i.i41.i.i.i, i32 %div13.i.i.i40.i.i.i, i32 %.pre153.i.i
-  %conv23.i.i.i43.i.i.i = zext i32 %storemerge.i.i.i42.i.i.i to i64
-  %mul.i.i.i.i45.i.i.i = shl nuw nsw i64 %conv23.i.i.i43.i.i.i, 4
-  %call24.i.i.i46.i.i.i = call ptr @xrealloc(ptr noundef %tmp1.sroa.17.2.i.i, i64 noundef %mul.i.i.i.i45.i.i.i) #16
+  %mul.i.i.i40.i.i.i = add i32 %72, 48
+  %div13.i.i.i41.i.i.i = lshr i32 %mul.i.i.i40.i.i.i, 1
+  %conv5.i.i.i42.i.i.i = zext nneg i32 %div13.i.i.i41.i.i.i to i64
+  %storemerge15.i.i.i43.i.i.i = call i64 @llvm.umax.i64(i64 %add.i.i.i39.i.i.i, i64 %conv5.i.i.i42.i.i.i)
+  %storemerge.i.i.i44.i.i.i = trunc i64 %storemerge15.i.i.i43.i.i.i to i32
+  %conv23.i.i.i46.i.i.i = shl nuw nsw i64 %storemerge15.i.i.i43.i.i.i, 4
+  %mul.i.i.i.i47.i.i.i = and i64 %conv23.i.i.i46.i.i.i, 68719476720
+  %call24.i.i.i48.i.i.i = call ptr @xrealloc(ptr noundef %tmp1.sroa.17.2.i.i, i64 noundef %mul.i.i.i.i47.i.i.i) #16
   br label %if.end49.i.i.i
 
 if.end49.i.i.i:                                   ; preds = %if.then.i.i.i37.i.i.i, %if.then44.i.i.i
-  %tmp1.sroa.0.5.i.i = phi i32 [ %storemerge.i.i.i42.i.i.i, %if.then.i.i.i37.i.i.i ], [ %tmp1.sroa.0.2.i.i, %if.then44.i.i.i ]
-  %tmp1.sroa.17.5.i.i = phi ptr [ %call24.i.i.i46.i.i.i, %if.then.i.i.i37.i.i.i ], [ %tmp1.sroa.17.2.i.i, %if.then44.i.i.i ]
-  %idxprom.i.i49.i.i.i = zext i32 %tmp1.sroa.6.2.i.i to i64
-  %arrayidx.i.i50.i.i.i = getelementptr inbounds nuw %struct.range, ptr %tmp1.sroa.17.5.i.i, i64 %idxprom.i.i49.i.i.i
-  store i64 %start.073.i.i.i, ptr %arrayidx.i.i50.i.i.i, align 8
-  %end.i.i52.i.i.i = getelementptr inbounds nuw %struct.range, ptr %tmp1.sroa.17.5.i.i, i64 %idxprom.i.i49.i.i.i, i32 1
-  store i64 %69, ptr %end.i.i52.i.i.i, align 8
+  %tmp1.sroa.0.5.i.i = phi i32 [ %storemerge.i.i.i44.i.i.i, %if.then.i.i.i37.i.i.i ], [ %tmp1.sroa.0.2.i.i, %if.then44.i.i.i ]
+  %tmp1.sroa.17.5.i.i = phi ptr [ %call24.i.i.i48.i.i.i, %if.then.i.i.i37.i.i.i ], [ %tmp1.sroa.17.2.i.i, %if.then44.i.i.i ]
+  %arrayidx.i.i52.i.i.i = getelementptr inbounds nuw %struct.range, ptr %tmp1.sroa.17.5.i.i, i64 %.pre157.i.i
+  store i64 %start.075.i.i.i, ptr %arrayidx.i.i52.i.i.i, align 8
+  %end.i.i54.i.i.i = getelementptr inbounds nuw %struct.range, ptr %tmp1.sroa.17.5.i.i, i64 %.pre157.i.i, i32 1
+  store i64 %69, ptr %end.i.i54.i.i.i, align 8
+  %inc.i.i55.i.i.i = add i32 %tmp1.sroa.6.2.i.i, 1
   %73 = load ptr, ptr %ranges10.i.i.i, align 8
   %end53.i.i.i = getelementptr inbounds nuw %struct.range, ptr %73, i64 %idxprom19.i.i.i, i32 1
   %74 = load i64, ptr %end53.i.i.i, align 8
@@ -2943,66 +2961,66 @@ if.end49.i.i.i:                                   ; preds = %if.then.i.i.i37.i.i
 
 if.end55.i.i.i:                                   ; preds = %if.end49.i.i.i, %if.else.i.i.i, %if.then28.i.i.i
   %tmp1.sroa.0.4.i.i = phi i32 [ %tmp1.sroa.0.5.i.i, %if.end49.i.i.i ], [ %tmp1.sroa.0.2.i.i, %if.else.i.i.i ], [ %tmp1.sroa.0.2.i.i, %if.then28.i.i.i ]
-  %tmp1.sroa.6.3.i.i = phi i32 [ %.pre153.i.i, %if.end49.i.i.i ], [ %tmp1.sroa.6.2.i.i, %if.else.i.i.i ], [ %tmp1.sroa.6.2.i.i, %if.then28.i.i.i ]
+  %tmp1.sroa.6.3.i.i = phi i32 [ %inc.i.i55.i.i.i, %if.end49.i.i.i ], [ %tmp1.sroa.6.2.i.i, %if.else.i.i.i ], [ %tmp1.sroa.6.2.i.i, %if.then28.i.i.i ]
   %tmp1.sroa.17.4.i.i = phi ptr [ %tmp1.sroa.17.5.i.i, %if.end49.i.i.i ], [ %tmp1.sroa.17.2.i.i, %if.else.i.i.i ], [ %tmp1.sroa.17.2.i.i, %if.then28.i.i.i ]
-  %start.1.i.i.i = phi i64 [ %74, %if.end49.i.i.i ], [ %start.073.i.i.i, %if.else.i.i.i ], [ %71, %if.then28.i.i.i ]
+  %start.1.i.i.i = phi i64 [ %74, %if.end49.i.i.i ], [ %start.075.i.i.i, %if.else.i.i.i ], [ %71, %if.then28.i.i.i ]
   %cmp6.i.i.i = icmp slt i64 %start.1.i.i.i, %63
   br i1 %cmp6.i.i.i, label %while.cond7.preheader.i.i.i, label %for.inc.i11.i.i, !llvm.loop !38
 
-for.inc.i11.i.i:                                  ; preds = %if.end55.i.i.i, %range_set_append.exit.i24.i.i, %for.body.i.i.i
-  %tmp1.sroa.0.1.i.i = phi i32 [ %tmp1.sroa.0.3.i.i, %range_set_append.exit.i24.i.i ], [ %tmp1.sroa.0.0.i.i, %for.body.i.i.i ], [ %tmp1.sroa.0.4.i.i, %if.end55.i.i.i ]
-  %tmp1.sroa.6.1.i.i = phi i32 [ %.pre.i.i, %range_set_append.exit.i24.i.i ], [ %tmp1.sroa.6.0.i.i, %for.body.i.i.i ], [ %tmp1.sroa.6.3.i.i, %if.end55.i.i.i ]
-  %tmp1.sroa.17.1.i.i = phi ptr [ %tmp1.sroa.17.3.i.i, %range_set_append.exit.i24.i.i ], [ %tmp1.sroa.17.0.i.i, %for.body.i.i.i ], [ %tmp1.sroa.17.4.i.i, %if.end55.i.i.i ]
-  %j.3.i.i.i = phi i32 [ %j.260.i.i.i, %range_set_append.exit.i24.i.i ], [ %j.076.i.i.i, %for.body.i.i.i ], [ %68, %if.end55.i.i.i ]
-  %indvars.iv.next85.i.i.i = add nuw nsw i64 %indvars.iv84.i.i.i, 1
+for.inc.i11.i.i:                                  ; preds = %if.end55.i.i.i, %range_set_append.exit.i26.i.i, %for.body.i.i.i
+  %tmp1.sroa.0.1.i.i = phi i32 [ %tmp1.sroa.0.3.i.i, %range_set_append.exit.i26.i.i ], [ %tmp1.sroa.0.0.i.i, %for.body.i.i.i ], [ %tmp1.sroa.0.4.i.i, %if.end55.i.i.i ]
+  %tmp1.sroa.6.1.i.i = phi i32 [ %inc.i.i.i31.i.i, %range_set_append.exit.i26.i.i ], [ %tmp1.sroa.6.0.i.i, %for.body.i.i.i ], [ %tmp1.sroa.6.3.i.i, %if.end55.i.i.i ]
+  %tmp1.sroa.17.1.i.i = phi ptr [ %tmp1.sroa.17.3.i.i, %range_set_append.exit.i26.i.i ], [ %tmp1.sroa.17.0.i.i, %for.body.i.i.i ], [ %tmp1.sroa.17.4.i.i, %if.end55.i.i.i ]
+  %j.3.i.i.i = phi i32 [ %j.262.i.i.i, %range_set_append.exit.i26.i.i ], [ %j.078.i.i.i, %for.body.i.i.i ], [ %68, %if.end55.i.i.i ]
+  %indvars.iv.next87.i.i.i = add nuw nsw i64 %indvars.iv86.i.i.i, 1
   %75 = load i32, ptr %nr.i, align 4
   %76 = zext i32 %75 to i64
-  %cmp.i12.i.i = icmp samesign ult i64 %indvars.iv.next85.i.i.i, %76
+  %cmp.i12.i.i = icmp samesign ult i64 %indvars.iv.next87.i.i.i, %76
   br i1 %cmp.i12.i.i, label %for.body.i.i.i, label %range_set_difference.exit.i.i, !llvm.loop !39
 
 range_set_difference.exit.i.i:                    ; preds = %for.inc.i11.i.i
   %77 = load ptr, ptr %ranges.i.i.i, align 8
   %78 = load ptr, ptr %ranges17.i.i.i, align 8
   %cmp8.not.i.i.i = icmp eq i32 %tmp1.sroa.6.1.i.i, 0
-  br i1 %cmp8.not.i.i.i, label %process_diff_filepair.exit, label %while.cond.preheader.lr.ph.i35.i.i
+  br i1 %cmp8.not.i.i.i, label %process_diff_filepair.exit, label %while.cond.preheader.lr.ph.i37.i.i
 
-while.cond.preheader.lr.ph.i35.i.i:               ; preds = %range_set_difference.exit.i.i
-  %wide.trip.count.i39.i.i = zext i32 %tmp1.sroa.6.1.i.i to i64
-  %nr.i.i.i.i37.promoted.i.i = load i32, ptr %nr.i.i.i.i37.i.i, align 4
+while.cond.preheader.lr.ph.i37.i.i:               ; preds = %range_set_difference.exit.i.i
+  %wide.trip.count.i41.i.i = zext i32 %tmp1.sroa.6.1.i.i to i64
+  %nr.i.i.i.i39.promoted.i.i = load i32, ptr %nr.i.i.i.i39.i.i, align 4
   %tmp2.promoted.i.i = load i32, ptr %tmp2.i.i, align 8
-  %ranges.i.i.i.i38.promoted.i.i = load ptr, ptr %ranges.i.i.i.i38.i.i, align 8
-  br label %while.cond.preheader.i40.i.i
+  %ranges.i.i.i.i40.promoted.i.i = load ptr, ptr %ranges.i.i.i.i40.i.i, align 8
+  br label %while.cond.preheader.i42.i.i
 
-while.cond.preheader.i40.i.i:                     ; preds = %range_set_append.exit.i54.i.i, %while.cond.preheader.lr.ph.i35.i.i
-  %.pre.i.i.i61128.i.i = phi ptr [ %ranges.i.i.i.i38.promoted.i.i, %while.cond.preheader.lr.ph.i35.i.i ], [ %.pre.i.i.i61127.i.i, %range_set_append.exit.i54.i.i ]
-  %storemerge.i.i.i.i49126.i.i = phi i32 [ %tmp2.promoted.i.i, %while.cond.preheader.lr.ph.i35.i.i ], [ %storemerge.i.i.i.i49125.i.i, %range_set_append.exit.i54.i.i ]
-  %inc.i.i.i59124.i.i = phi i32 [ %nr.i.i.i.i37.promoted.i.i, %while.cond.preheader.lr.ph.i35.i.i ], [ %.pre152.i.i, %range_set_append.exit.i54.i.i ]
-  %indvars.iv13.i.i.i = phi i64 [ 0, %while.cond.preheader.lr.ph.i35.i.i ], [ %indvars.iv.next14.i.i.i, %range_set_append.exit.i54.i.i ]
-  %j.010.i.i.i = phi i32 [ 0, %while.cond.preheader.lr.ph.i35.i.i ], [ %j.1.lcssa.i.i.i, %range_set_append.exit.i54.i.i ]
-  %offset.09.i.i.i = phi i64 [ 0, %while.cond.preheader.lr.ph.i35.i.i ], [ %offset.1.lcssa.i.i.i, %range_set_append.exit.i54.i.i ]
+while.cond.preheader.i42.i.i:                     ; preds = %range_set_append.exit.i58.i.i, %while.cond.preheader.lr.ph.i37.i.i
+  %.pre.i.i.i65132.i.i = phi ptr [ %ranges.i.i.i.i40.promoted.i.i, %while.cond.preheader.lr.ph.i37.i.i ], [ %.pre.i.i.i65131.i.i, %range_set_append.exit.i58.i.i ]
+  %storemerge.i.i.i.i53130.i.i = phi i32 [ %tmp2.promoted.i.i, %while.cond.preheader.lr.ph.i37.i.i ], [ %storemerge.i.i.i.i53129.i.i, %range_set_append.exit.i58.i.i ]
+  %inc.i.i.i63128.i.i = phi i32 [ %nr.i.i.i.i39.promoted.i.i, %while.cond.preheader.lr.ph.i37.i.i ], [ %inc.i.i.i63.i.i, %range_set_append.exit.i58.i.i ]
+  %indvars.iv13.i.i.i = phi i64 [ 0, %while.cond.preheader.lr.ph.i37.i.i ], [ %indvars.iv.next14.i.i.i, %range_set_append.exit.i58.i.i ]
+  %j.010.i.i.i = phi i32 [ 0, %while.cond.preheader.lr.ph.i37.i.i ], [ %j.1.lcssa.i.i.i, %range_set_append.exit.i58.i.i ]
+  %offset.09.i.i.i = phi i64 [ 0, %while.cond.preheader.lr.ph.i37.i.i ], [ %offset.1.lcssa.i.i.i, %range_set_append.exit.i58.i.i ]
   %79 = load i32, ptr %nr.i.i.i, align 4
   %cmp72.i.i.i = icmp ult i32 %j.010.i.i.i, %79
-  %arrayidx.i41.i.i = getelementptr inbounds nuw %struct.range, ptr %tmp1.sroa.17.1.i.i, i64 %indvars.iv13.i.i.i
-  %80 = load i64, ptr %arrayidx.i41.i.i, align 8
-  br i1 %cmp72.i.i.i, label %land.rhs.lr.ph.i62.i.i, label %while.end.i42.i.i
+  %arrayidx.i43.i.i = getelementptr inbounds nuw %struct.range, ptr %tmp1.sroa.17.1.i.i, i64 %indvars.iv13.i.i.i
+  %80 = load i64, ptr %arrayidx.i43.i.i, align 8
+  br i1 %cmp72.i.i.i, label %land.rhs.lr.ph.i66.i.i, label %while.end.i44.i.i
 
-land.rhs.lr.ph.i62.i.i:                           ; preds = %while.cond.preheader.i40.i.i
+land.rhs.lr.ph.i66.i.i:                           ; preds = %while.cond.preheader.i42.i.i
   %81 = zext i32 %j.010.i.i.i to i64
   %82 = zext i32 %79 to i64
-  br label %land.rhs.i63.i.i
+  br label %land.rhs.i67.i.i
 
-land.rhs.i63.i.i:                                 ; preds = %while.body.i65.i.i, %land.rhs.lr.ph.i62.i.i
-  %indvars.iv.i64.i.i = phi i64 [ %81, %land.rhs.lr.ph.i62.i.i ], [ %indvars.iv.next.i67.i.i, %while.body.i65.i.i ]
-  %offset.13.i.i.i = phi i64 [ %offset.09.i.i.i, %land.rhs.lr.ph.i62.i.i ], [ %add.i.i.i, %while.body.i65.i.i ]
-  %arrayidx9.i.i.i = getelementptr inbounds nuw %struct.range, ptr %77, i64 %indvars.iv.i64.i.i
+land.rhs.i67.i.i:                                 ; preds = %while.body.i69.i.i, %land.rhs.lr.ph.i66.i.i
+  %indvars.iv.i68.i.i = phi i64 [ %81, %land.rhs.lr.ph.i66.i.i ], [ %indvars.iv.next.i71.i.i, %while.body.i69.i.i ]
+  %offset.13.i.i.i = phi i64 [ %offset.09.i.i.i, %land.rhs.lr.ph.i66.i.i ], [ %add.i.i.i, %while.body.i69.i.i ]
+  %arrayidx9.i.i.i = getelementptr inbounds nuw %struct.range, ptr %77, i64 %indvars.iv.i68.i.i
   %83 = load i64, ptr %arrayidx9.i.i.i, align 8
   %cmp11.not.i.i.i = icmp slt i64 %80, %83
-  br i1 %cmp11.not.i.i.i, label %while.end.loopexit.split.loop.exit17.i.i.i, label %while.body.i65.i.i
+  br i1 %cmp11.not.i.i.i, label %while.end.loopexit.split.loop.exit17.i.i.i, label %while.body.i69.i.i
 
-while.body.i65.i.i:                               ; preds = %land.rhs.i63.i.i
-  %arrayidx13.i.i.i = getelementptr inbounds nuw %struct.range, ptr %78, i64 %indvars.iv.i64.i.i
-  %end.i66.i.i = getelementptr inbounds nuw i8, ptr %arrayidx13.i.i.i, i64 8
-  %84 = load i64, ptr %end.i66.i.i, align 8
+while.body.i69.i.i:                               ; preds = %land.rhs.i67.i.i
+  %arrayidx13.i.i.i = getelementptr inbounds nuw %struct.range, ptr %78, i64 %indvars.iv.i68.i.i
+  %end.i70.i.i = getelementptr inbounds nuw i8, ptr %arrayidx13.i.i.i, i64 8
+  %84 = load i64, ptr %end.i70.i.i, align 8
   %85 = load i64, ptr %arrayidx13.i.i.i, align 8
   %end19.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx9.i.i.i, i64 8
   %86 = load i64, ptr %end19.i.i.i, align 8
@@ -3010,50 +3028,52 @@ while.body.i65.i.i:                               ; preds = %land.rhs.i63.i.i
   %.neg26.i = add i64 %.neg23, %84
   %87 = add i64 %85, %86
   %add.i.i.i = sub i64 %.neg26.i, %87
-  %indvars.iv.next.i67.i.i = add nuw nsw i64 %indvars.iv.i64.i.i, 1
-  %exitcond.not.i68.i.i = icmp eq i64 %indvars.iv.next.i67.i.i, %82
-  br i1 %exitcond.not.i68.i.i, label %while.end.i42.i.i, label %land.rhs.i63.i.i, !llvm.loop !40
+  %indvars.iv.next.i71.i.i = add nuw nsw i64 %indvars.iv.i68.i.i, 1
+  %exitcond.not.i72.i.i = icmp eq i64 %indvars.iv.next.i71.i.i, %82
+  br i1 %exitcond.not.i72.i.i, label %while.end.i44.i.i, label %land.rhs.i67.i.i, !llvm.loop !40
 
-while.end.loopexit.split.loop.exit17.i.i.i:       ; preds = %land.rhs.i63.i.i
-  %88 = trunc nuw i64 %indvars.iv.i64.i.i to i32
-  br label %while.end.i42.i.i
+while.end.loopexit.split.loop.exit17.i.i.i:       ; preds = %land.rhs.i67.i.i
+  %88 = trunc nuw i64 %indvars.iv.i68.i.i to i32
+  br label %while.end.i44.i.i
 
-while.end.i42.i.i:                                ; preds = %while.body.i65.i.i, %while.end.loopexit.split.loop.exit17.i.i.i, %while.cond.preheader.i40.i.i
-  %offset.1.lcssa.i.i.i = phi i64 [ %offset.09.i.i.i, %while.cond.preheader.i40.i.i ], [ %offset.13.i.i.i, %while.end.loopexit.split.loop.exit17.i.i.i ], [ %add.i.i.i, %while.body.i65.i.i ]
-  %j.1.lcssa.i.i.i = phi i32 [ %j.010.i.i.i, %while.cond.preheader.i40.i.i ], [ %88, %while.end.loopexit.split.loop.exit17.i.i.i ], [ %79, %while.body.i65.i.i ]
+while.end.i44.i.i:                                ; preds = %while.body.i69.i.i, %while.end.loopexit.split.loop.exit17.i.i.i, %while.cond.preheader.i42.i.i
+  %offset.1.lcssa.i.i.i = phi i64 [ %offset.09.i.i.i, %while.cond.preheader.i42.i.i ], [ %offset.13.i.i.i, %while.end.loopexit.split.loop.exit17.i.i.i ], [ %add.i.i.i, %while.body.i69.i.i ]
+  %j.1.lcssa.i.i.i = phi i32 [ %j.010.i.i.i, %while.cond.preheader.i42.i.i ], [ %88, %while.end.loopexit.split.loop.exit17.i.i.i ], [ %79, %while.body.i69.i.i ]
   %add28.i.i.i = add nsw i64 %offset.1.lcssa.i.i.i, %80
   %end31.i.i.i = getelementptr inbounds nuw %struct.range, ptr %tmp1.sroa.17.1.i.i, i64 %indvars.iv13.i.i.i, i32 1
   %89 = load i64, ptr %end31.i.i.i, align 8
   %add32.i.i.i = add nsw i64 %89, %offset.1.lcssa.i.i.i
-  %cmp.i.not.i.i.i43.i.i = icmp ult i32 %inc.i.i.i59124.i.i, %storemerge.i.i.i.i49126.i.i
-  %.pre152.i.i = add i32 %inc.i.i.i59124.i.i, 1
-  br i1 %cmp.i.not.i.i.i43.i.i, label %range_set_append.exit.i54.i.i, label %if.then.i.i.i.i44.i.i
+  %cmp.i.not.i.i.i45.i.i = icmp ult i32 %inc.i.i.i63128.i.i, %storemerge.i.i.i.i53130.i.i
+  %.pre156.i.i = zext i32 %inc.i.i.i63128.i.i to i64
+  br i1 %cmp.i.not.i.i.i45.i.i, label %range_set_append.exit.i58.i.i, label %if.then.i.i.i.i46.i.i
 
-if.then.i.i.i.i44.i.i:                            ; preds = %while.end.i42.i.i
-  %90 = mul i32 %storemerge.i.i.i.i49126.i.i, 3
-  %mul.i.i.i.i46.i.i = add i32 %90, 48
-  %div13.i.i.i.i47.i.i = lshr i32 %mul.i.i.i.i46.i.i, 1
-  %cmp9.i.not.i.i.i48.i.i = icmp ult i32 %inc.i.i.i59124.i.i, %div13.i.i.i.i47.i.i
-  %storemerge.i.i.i.i49.i.i = select i1 %cmp9.i.not.i.i.i48.i.i, i32 %div13.i.i.i.i47.i.i, i32 %.pre152.i.i
-  store i32 %storemerge.i.i.i.i49.i.i, ptr %tmp2.i.i, align 8
-  %conv23.i.i.i.i50.i.i = zext i32 %storemerge.i.i.i.i49.i.i to i64
-  %mul.i.i.i.i.i51.i.i = shl nuw nsw i64 %conv23.i.i.i.i50.i.i, 4
-  %call24.i.i.i.i52.i.i = call ptr @xrealloc(ptr noundef %.pre.i.i.i61128.i.i, i64 noundef %mul.i.i.i.i.i51.i.i) #16
-  store ptr %call24.i.i.i.i52.i.i, ptr %ranges.i.i.i.i38.i.i, align 8
-  br label %range_set_append.exit.i54.i.i
+if.then.i.i.i.i46.i.i:                            ; preds = %while.end.i44.i.i
+  %add.i.i.i.i48.i.i = add nuw nsw i64 %.pre156.i.i, 1
+  %90 = mul i32 %storemerge.i.i.i.i53130.i.i, 3
+  %mul.i.i.i.i49.i.i = add i32 %90, 48
+  %div13.i.i.i.i50.i.i = lshr i32 %mul.i.i.i.i49.i.i, 1
+  %conv5.i.i.i.i51.i.i = zext nneg i32 %div13.i.i.i.i50.i.i to i64
+  %storemerge15.i.i.i.i52.i.i = call i64 @llvm.umax.i64(i64 %add.i.i.i.i48.i.i, i64 %conv5.i.i.i.i51.i.i)
+  %storemerge.i.i.i.i53.i.i = trunc i64 %storemerge15.i.i.i.i52.i.i to i32
+  store i32 %storemerge.i.i.i.i53.i.i, ptr %tmp2.i.i, align 8
+  %conv23.i.i.i.i54.i.i = shl nuw nsw i64 %storemerge15.i.i.i.i52.i.i, 4
+  %mul.i.i.i.i.i55.i.i = and i64 %conv23.i.i.i.i54.i.i, 68719476720
+  %call24.i.i.i.i56.i.i = call ptr @xrealloc(ptr noundef %.pre.i.i.i65132.i.i, i64 noundef %mul.i.i.i.i.i55.i.i) #16
+  store ptr %call24.i.i.i.i56.i.i, ptr %ranges.i.i.i.i40.i.i, align 8
+  br label %range_set_append.exit.i58.i.i
 
-range_set_append.exit.i54.i.i:                    ; preds = %if.then.i.i.i.i44.i.i, %while.end.i42.i.i
-  %.pre.i.i.i61127.i.i = phi ptr [ %call24.i.i.i.i52.i.i, %if.then.i.i.i.i44.i.i ], [ %.pre.i.i.i61128.i.i, %while.end.i42.i.i ]
-  %storemerge.i.i.i.i49125.i.i = phi i32 [ %storemerge.i.i.i.i49.i.i, %if.then.i.i.i.i44.i.i ], [ %storemerge.i.i.i.i49126.i.i, %while.end.i42.i.i ]
-  %idxprom.i.i.i55.i.i = zext i32 %inc.i.i.i59124.i.i to i64
-  %arrayidx.i.i.i56.i.i = getelementptr inbounds nuw %struct.range, ptr %.pre.i.i.i61127.i.i, i64 %idxprom.i.i.i55.i.i
-  store i64 %add28.i.i.i, ptr %arrayidx.i.i.i56.i.i, align 8
-  %end.i.i.i58.i.i = getelementptr inbounds nuw %struct.range, ptr %.pre.i.i.i61127.i.i, i64 %idxprom.i.i.i55.i.i, i32 1
-  store i64 %add32.i.i.i, ptr %end.i.i.i58.i.i, align 8
-  store i32 %.pre152.i.i, ptr %nr.i.i.i.i37.i.i, align 4
+range_set_append.exit.i58.i.i:                    ; preds = %if.then.i.i.i.i46.i.i, %while.end.i44.i.i
+  %.pre.i.i.i65131.i.i = phi ptr [ %call24.i.i.i.i56.i.i, %if.then.i.i.i.i46.i.i ], [ %.pre.i.i.i65132.i.i, %while.end.i44.i.i ]
+  %storemerge.i.i.i.i53129.i.i = phi i32 [ %storemerge.i.i.i.i53.i.i, %if.then.i.i.i.i46.i.i ], [ %storemerge.i.i.i.i53130.i.i, %while.end.i44.i.i ]
+  %arrayidx.i.i.i60.i.i = getelementptr inbounds nuw %struct.range, ptr %.pre.i.i.i65131.i.i, i64 %.pre156.i.i
+  store i64 %add28.i.i.i, ptr %arrayidx.i.i.i60.i.i, align 8
+  %end.i.i.i62.i.i = getelementptr inbounds nuw %struct.range, ptr %.pre.i.i.i65131.i.i, i64 %.pre156.i.i, i32 1
+  store i64 %add32.i.i.i, ptr %end.i.i.i62.i.i, align 8
+  %inc.i.i.i63.i.i = add i32 %inc.i.i.i63128.i.i, 1
+  store i32 %inc.i.i.i63.i.i, ptr %nr.i.i.i.i39.i.i, align 4
   %indvars.iv.next14.i.i.i = add nuw nsw i64 %indvars.iv13.i.i.i, 1
-  %exitcond16.not.i.i.i = icmp eq i64 %indvars.iv.next14.i.i.i, %wide.trip.count.i39.i.i
-  br i1 %exitcond16.not.i.i.i, label %process_diff_filepair.exit, label %while.cond.preheader.i40.i.i, !llvm.loop !41
+  %exitcond16.not.i.i.i = icmp eq i64 %indvars.iv.next14.i.i.i, %wide.trip.count.i41.i.i
+  br i1 %exitcond16.not.i.i.i, label %process_diff_filepair.exit, label %while.cond.preheader.i42.i.i, !llvm.loop !41
 
 process_diff_filepair.exit.thread:                ; preds = %if.end.i, %if.end5.i, %for.body
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tmp.i)
@@ -3062,11 +3082,11 @@ process_diff_filepair.exit.thread:                ; preds = %if.end.i, %if.end5.
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %file_target.i)
   br label %if.end
 
-process_diff_filepair.exit:                       ; preds = %range_set_append.exit.i54.i.i, %diff_ranges_filter_touched.exit.i.i, %range_set_difference.exit.i.i
-  %tmp1.sroa.17.698.i.i = phi ptr [ %tmp1.sroa.17.1.i.i, %range_set_difference.exit.i.i ], [ null, %diff_ranges_filter_touched.exit.i.i ], [ %tmp1.sroa.17.1.i.i, %range_set_append.exit.i54.i.i ]
+process_diff_filepair.exit:                       ; preds = %range_set_append.exit.i58.i.i, %diff_ranges_filter_touched.exit.i.i, %range_set_difference.exit.i.i
+  %tmp1.sroa.17.6102.i.i = phi ptr [ %tmp1.sroa.17.1.i.i, %range_set_difference.exit.i.i ], [ null, %diff_ranges_filter_touched.exit.i.i ], [ %tmp1.sroa.17.1.i.i, %range_set_append.exit.i58.i.i ]
   call fastcc void @range_set_union(ptr noundef nonnull %tmp.i, ptr noundef nonnull %tmp2.i.i, ptr noundef %call.i21.i)
-  call void @free(ptr noundef %tmp1.sroa.17.698.i.i) #16
-  %91 = load ptr, ptr %ranges.i.i.i.i38.i.i, align 8
+  call void @free(ptr noundef %tmp1.sroa.17.6102.i.i) #16
+  %91 = load ptr, ptr %ranges.i.i.i.i40.i.i, align 8
   call void @free(ptr noundef %91) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tmp2.i.i)
   %ranges.i.i = getelementptr inbounds nuw i8, ptr %rg.053.i, i64 24
@@ -3306,17 +3326,19 @@ entry.range_set_grow.exit_crit_edge.i.i:          ; preds = %if.then
   br label %range_set_append.exit
 
 if.then.i.i.i:                                    ; preds = %if.then
-  %add.i.i.i = add i32 %1, 1
+  %conv.i.i.i = zext i32 %1 to i64
+  %add.i.i.i = add nuw nsw i64 %conv.i.i.i, 1
   %3 = mul i32 %2, 3
   %mul.i.i.i = add i32 %3, 48
   %div13.i.i.i = lshr i32 %mul.i.i.i, 1
-  %cmp9.i.not.i.i = icmp ult i32 %1, %div13.i.i.i
-  %storemerge.i.i.i = select i1 %cmp9.i.not.i.i, i32 %div13.i.i.i, i32 %add.i.i.i
+  %conv5.i.i.i = zext nneg i32 %div13.i.i.i to i64
+  %storemerge15.i.i.i = tail call i64 @llvm.umax.i64(i64 %add.i.i.i, i64 %conv5.i.i.i)
+  %storemerge.i.i.i = trunc i64 %storemerge15.i.i.i to i32
   store i32 %storemerge.i.i.i, ptr %0, align 8
-  %conv23.i.i.i = zext i32 %storemerge.i.i.i to i64
   %ranges.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %ranges.i.i.i, align 8
-  %mul.i.i.i.i = shl nuw nsw i64 %conv23.i.i.i, 4
+  %conv23.i.i.i = shl nuw nsw i64 %storemerge15.i.i.i, 4
+  %mul.i.i.i.i = and i64 %conv23.i.i.i, 68719476720
   %call24.i.i.i = tail call ptr @xrealloc(ptr noundef %4, i64 noundef %mul.i.i.i.i) #16
   store ptr %call24.i.i.i, ptr %ranges.i.i.i, align 8
   %.pre6.i.i = load i32, ptr %nr.i.i.i, align 4
@@ -3351,48 +3373,50 @@ if.then2:                                         ; preds = %if.end
   %11 = load i32, ptr %nr.i.i.i6, align 4
   %12 = load i32, ptr %target, align 8
   %cmp.i.not.i.i7 = icmp ult i32 %11, %12
-  br i1 %cmp.i.not.i.i7, label %entry.range_set_grow.exit_crit_edge.i.i25, label %if.then.i.i.i8
+  br i1 %cmp.i.not.i.i7, label %entry.range_set_grow.exit_crit_edge.i.i27, label %if.then.i.i.i8
 
-entry.range_set_grow.exit_crit_edge.i.i25:        ; preds = %if.then2
-  %ranges.phi.trans.insert.i.i26 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %.pre.i.i27 = load ptr, ptr %ranges.phi.trans.insert.i.i26, align 8
-  br label %range_set_append.exit28
+entry.range_set_grow.exit_crit_edge.i.i27:        ; preds = %if.then2
+  %ranges.phi.trans.insert.i.i28 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %.pre.i.i29 = load ptr, ptr %ranges.phi.trans.insert.i.i28, align 8
+  br label %range_set_append.exit30
 
 if.then.i.i.i8:                                   ; preds = %if.then2
-  %add.i.i.i9 = add i32 %11, 1
+  %conv.i.i.i9 = zext i32 %11 to i64
+  %add.i.i.i10 = add nuw nsw i64 %conv.i.i.i9, 1
   %13 = mul i32 %12, 3
-  %mul.i.i.i10 = add i32 %13, 48
-  %div13.i.i.i11 = lshr i32 %mul.i.i.i10, 1
-  %cmp9.i.not.i.i12 = icmp ult i32 %11, %div13.i.i.i11
-  %storemerge.i.i.i13 = select i1 %cmp9.i.not.i.i12, i32 %div13.i.i.i11, i32 %add.i.i.i9
-  store i32 %storemerge.i.i.i13, ptr %target, align 8
-  %conv23.i.i.i14 = zext i32 %storemerge.i.i.i13 to i64
-  %ranges.i.i.i15 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %14 = load ptr, ptr %ranges.i.i.i15, align 8
-  %mul.i.i.i.i16 = shl nuw nsw i64 %conv23.i.i.i14, 4
-  %call24.i.i.i17 = tail call ptr @xrealloc(ptr noundef %14, i64 noundef %mul.i.i.i.i16) #16
-  store ptr %call24.i.i.i17, ptr %ranges.i.i.i15, align 8
-  %.pre6.i.i18 = load i32, ptr %nr.i.i.i6, align 4
-  br label %range_set_append.exit28
+  %mul.i.i.i11 = add i32 %13, 48
+  %div13.i.i.i12 = lshr i32 %mul.i.i.i11, 1
+  %conv5.i.i.i13 = zext nneg i32 %div13.i.i.i12 to i64
+  %storemerge15.i.i.i14 = tail call i64 @llvm.umax.i64(i64 %add.i.i.i10, i64 %conv5.i.i.i13)
+  %storemerge.i.i.i15 = trunc i64 %storemerge15.i.i.i14 to i32
+  store i32 %storemerge.i.i.i15, ptr %target, align 8
+  %ranges.i.i.i16 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %14 = load ptr, ptr %ranges.i.i.i16, align 8
+  %conv23.i.i.i17 = shl nuw nsw i64 %storemerge15.i.i.i14, 4
+  %mul.i.i.i.i18 = and i64 %conv23.i.i.i17, 68719476720
+  %call24.i.i.i19 = tail call ptr @xrealloc(ptr noundef %14, i64 noundef %mul.i.i.i.i18) #16
+  store ptr %call24.i.i.i19, ptr %ranges.i.i.i16, align 8
+  %.pre6.i.i20 = load i32, ptr %nr.i.i.i6, align 4
+  br label %range_set_append.exit30
 
-range_set_append.exit28:                          ; preds = %entry.range_set_grow.exit_crit_edge.i.i25, %if.then.i.i.i8
-  %15 = phi i32 [ %11, %entry.range_set_grow.exit_crit_edge.i.i25 ], [ %.pre6.i.i18, %if.then.i.i.i8 ]
-  %16 = phi ptr [ %.pre.i.i27, %entry.range_set_grow.exit_crit_edge.i.i25 ], [ %call24.i.i.i17, %if.then.i.i.i8 ]
-  %ranges.i.i19 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %idxprom.i.i20 = zext i32 %15 to i64
-  %arrayidx.i.i21 = getelementptr inbounds nuw %struct.range, ptr %16, i64 %idxprom.i.i20
-  store i64 %start_b, ptr %arrayidx.i.i21, align 8
-  %17 = load ptr, ptr %ranges.i.i19, align 8
+range_set_append.exit30:                          ; preds = %entry.range_set_grow.exit_crit_edge.i.i27, %if.then.i.i.i8
+  %15 = phi i32 [ %11, %entry.range_set_grow.exit_crit_edge.i.i27 ], [ %.pre6.i.i20, %if.then.i.i.i8 ]
+  %16 = phi ptr [ %.pre.i.i29, %entry.range_set_grow.exit_crit_edge.i.i27 ], [ %call24.i.i.i19, %if.then.i.i.i8 ]
+  %ranges.i.i21 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %idxprom.i.i22 = zext i32 %15 to i64
+  %arrayidx.i.i23 = getelementptr inbounds nuw %struct.range, ptr %16, i64 %idxprom.i.i22
+  store i64 %start_b, ptr %arrayidx.i.i23, align 8
+  %17 = load ptr, ptr %ranges.i.i21, align 8
   %18 = load i32, ptr %nr.i.i.i6, align 4
-  %idxprom3.i.i22 = zext i32 %18 to i64
-  %end.i.i23 = getelementptr inbounds nuw %struct.range, ptr %17, i64 %idxprom3.i.i22, i32 1
-  store i64 %add4, ptr %end.i.i23, align 8
+  %idxprom3.i.i24 = zext i32 %18 to i64
+  %end.i.i25 = getelementptr inbounds nuw %struct.range, ptr %17, i64 %idxprom3.i.i24, i32 1
+  store i64 %add4, ptr %end.i.i25, align 8
   %19 = load i32, ptr %nr.i.i.i6, align 4
-  %inc.i.i24 = add i32 %19, 1
-  store i32 %inc.i.i24, ptr %nr.i.i.i6, align 4
+  %inc.i.i26 = add i32 %19, 1
+  store i32 %inc.i.i26, ptr %nr.i.i.i6, align 4
   br label %if.end5
 
-if.end5:                                          ; preds = %range_set_append.exit28, %if.end
+if.end5:                                          ; preds = %range_set_append.exit30, %if.end
   ret i32 0
 }
 

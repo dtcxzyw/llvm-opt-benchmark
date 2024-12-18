@@ -97,7 +97,7 @@ define hidden range(i32 0, 2) i32 @imageio_fill_input_buffer(ptr noundef %0) #1 
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %10 = load i32, ptr %9, align 8
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %11, label %195
+  br i1 %.not, label %11, label %193
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -187,259 +187,258 @@ RELEASE_ARRAYS.exit:                              ; preds = %unpinStreamBuffer.e
   %63 = load i64, ptr %62, align 8
   %64 = tail call i32 (ptr, ptr, ptr, ...) %58(ptr noundef nonnull %8, ptr noundef %.1, ptr noundef %59, ptr noundef %61, i32 noundef 0, i64 noundef %63) #13
   %65 = icmp sgt i32 %64, 0
-  br i1 %65, label %66, label %71
+  br i1 %65, label %66, label %69
 
 66:                                               ; preds = %55
   %67 = zext nneg i32 %64 to i64
   %68 = load i64, ptr %62, align 8
-  %69 = icmp ult i64 %68, %67
-  %70 = trunc nuw nsw i64 %68 to i32
-  %spec.select = select i1 %69, i32 %70, i32 %64
-  br label %71
+  %spec.select89 = tail call i64 @llvm.umin.i64(i64 %68, i64 %67)
+  %spec.select = trunc nuw nsw i64 %spec.select89 to i32
+  br label %69
 
-71:                                               ; preds = %66, %55
+69:                                               ; preds = %66, %55
   %.056 = phi i32 [ %64, %55 ], [ %spec.select, %66 ]
-  %72 = load ptr, ptr %8, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 120
-  %74 = load ptr, ptr %73, align 8
-  %75 = tail call ptr %74(ptr noundef nonnull %8) #13
-  %.not65 = icmp eq ptr %75, null
-  br i1 %.not65, label %76, label %GET_ARRAYS.exit.thread
+  %70 = load ptr, ptr %8, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 120
+  %72 = load ptr, ptr %71, align 8
+  %73 = tail call ptr %72(ptr noundef nonnull %8) #13
+  %.not65 = icmp eq ptr %73, null
+  br i1 %.not65, label %74, label %GET_ARRAYS.exit.thread
 
-76:                                               ; preds = %71
-  %77 = load ptr, ptr %60, align 8
-  %.not.i.i69 = icmp eq ptr %77, null
-  br i1 %.not.i.i69, label %89, label %78
+74:                                               ; preds = %69
+  %75 = load ptr, ptr %60, align 8
+  %.not.i.i69 = icmp eq ptr %75, null
+  br i1 %.not.i.i69, label %87, label %76
 
-78:                                               ; preds = %76
-  %79 = load ptr, ptr %8, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 1776
-  %81 = load ptr, ptr %80, align 8
-  %82 = tail call ptr %81(ptr noundef nonnull %8, ptr noundef nonnull %77, ptr noundef null) #13
-  store ptr %82, ptr %18, align 8
-  %83 = icmp eq ptr %82, null
-  br i1 %83, label %GET_ARRAYS.exit.thread, label %84
+76:                                               ; preds = %74
+  %77 = load ptr, ptr %8, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 1776
+  %79 = load ptr, ptr %78, align 8
+  %80 = tail call ptr %79(ptr noundef nonnull %8, ptr noundef nonnull %75, ptr noundef null) #13
+  store ptr %80, ptr %18, align 8
+  %81 = icmp eq ptr %80, null
+  br i1 %81, label %GET_ARRAYS.exit.thread, label %82
 
-84:                                               ; preds = %78
-  %85 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %86 = load i64, ptr %85, align 8
-  %.not13.i.i = icmp eq i64 %86, -1
-  br i1 %.not13.i.i, label %89, label %87
+82:                                               ; preds = %76
+  %83 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %84 = load i64, ptr %83, align 8
+  %.not13.i.i = icmp eq i64 %84, -1
+  br i1 %.not13.i.i, label %87, label %85
 
-87:                                               ; preds = %84
-  %88 = getelementptr inbounds i8, ptr %82, i64 %86
-  store ptr %88, ptr %3, align 8
-  br label %89
+85:                                               ; preds = %82
+  %86 = getelementptr inbounds i8, ptr %80, i64 %84
+  store ptr %86, ptr %3, align 8
+  br label %87
 
-89:                                               ; preds = %87, %84, %76
-  %90 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %91 = load ptr, ptr %90, align 8
-  %.not.i8.i = icmp eq ptr %91, null
-  br i1 %.not.i8.i, label %GET_ARRAYS.exit, label %92
+87:                                               ; preds = %85, %82, %74
+  %88 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  %89 = load ptr, ptr %88, align 8
+  %.not.i8.i = icmp eq ptr %89, null
+  br i1 %.not.i8.i, label %GET_ARRAYS.exit, label %90
 
-92:                                               ; preds = %89
-  %93 = load ptr, ptr %8, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 1776
-  %95 = load ptr, ptr %94, align 8
-  %96 = tail call ptr %95(ptr noundef nonnull %8, ptr noundef nonnull %91, ptr noundef null) #13
-  store ptr %96, ptr %32, align 8
-  %97 = icmp eq ptr %96, null
-  br i1 %97, label %98, label %GET_ARRAYS.exit
+90:                                               ; preds = %87
+  %91 = load ptr, ptr %8, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 1776
+  %93 = load ptr, ptr %92, align 8
+  %94 = tail call ptr %93(ptr noundef nonnull %8, ptr noundef nonnull %89, ptr noundef null) #13
+  store ptr %94, ptr %32, align 8
+  %95 = icmp eq ptr %94, null
+  br i1 %95, label %96, label %GET_ARRAYS.exit
 
-98:                                               ; preds = %92
-  %99 = load ptr, ptr %18, align 8
-  %.not.i.i.i = icmp eq ptr %99, null
+96:                                               ; preds = %90
+  %97 = load ptr, ptr %18, align 8
+  %.not.i.i.i = icmp eq ptr %97, null
   br i1 %.not.i.i.i, label %GET_ARRAYS.exit.thread, label %unpinStreamBuffer.exit.i.i
 
-unpinStreamBuffer.exit.i.i:                       ; preds = %98
-  %100 = load ptr, ptr %3, align 8
-  %101 = icmp eq ptr %100, null
-  %102 = ptrtoint ptr %100 to i64
-  %103 = ptrtoint ptr %99 to i64
-  %104 = sub i64 %102, %103
-  %.sink.i.i.i = select i1 %101, i64 -1, i64 %104
-  %105 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i64 %.sink.i.i.i, ptr %105, align 8
-  %106 = load ptr, ptr %8, align 8
-  %107 = getelementptr inbounds nuw i8, ptr %106, i64 1784
-  %108 = load ptr, ptr %107, align 8
-  %109 = load ptr, ptr %60, align 8
-  tail call void %108(ptr noundef nonnull %8, ptr noundef %109, ptr noundef nonnull %99, i32 noundef 0) #13
+unpinStreamBuffer.exit.i.i:                       ; preds = %96
+  %98 = load ptr, ptr %3, align 8
+  %99 = icmp eq ptr %98, null
+  %100 = ptrtoint ptr %98 to i64
+  %101 = ptrtoint ptr %97 to i64
+  %102 = sub i64 %100, %101
+  %.sink.i.i.i = select i1 %99, i64 -1, i64 %102
+  %103 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  store i64 %.sink.i.i.i, ptr %103, align 8
+  %104 = load ptr, ptr %8, align 8
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 1784
+  %106 = load ptr, ptr %105, align 8
+  %107 = load ptr, ptr %60, align 8
+  tail call void %106(ptr noundef nonnull %8, ptr noundef %107, ptr noundef nonnull %97, i32 noundef 0) #13
   store ptr null, ptr %18, align 8
   %.pre.i = load ptr, ptr %32, align 8
   %.not.i5.i.i = icmp eq ptr %.pre.i, null
-  br i1 %.not.i5.i.i, label %GET_ARRAYS.exit.thread, label %110
+  br i1 %.not.i5.i.i, label %GET_ARRAYS.exit.thread, label %108
 
-110:                                              ; preds = %unpinStreamBuffer.exit.i.i
-  %111 = load ptr, ptr %8, align 8
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 1784
-  %113 = load ptr, ptr %112, align 8
-  %114 = load ptr, ptr %90, align 8
-  tail call void %113(ptr noundef nonnull %8, ptr noundef %114, ptr noundef nonnull %.pre.i, i32 noundef 0) #13
+108:                                              ; preds = %unpinStreamBuffer.exit.i.i
+  %109 = load ptr, ptr %8, align 8
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 1784
+  %111 = load ptr, ptr %110, align 8
+  %112 = load ptr, ptr %88, align 8
+  tail call void %111(ptr noundef nonnull %8, ptr noundef %112, ptr noundef nonnull %.pre.i, i32 noundef 0) #13
   store ptr null, ptr %32, align 8
   br label %GET_ARRAYS.exit.thread
 
-GET_ARRAYS.exit.thread:                           ; preds = %98, %110, %unpinStreamBuffer.exit.i.i, %78, %71
-  %115 = load ptr, ptr %0, align 8
-  %116 = load ptr, ptr %115, align 8
-  tail call void %116(ptr noundef nonnull %0) #13
+GET_ARRAYS.exit.thread:                           ; preds = %96, %108, %unpinStreamBuffer.exit.i.i, %76, %69
+  %113 = load ptr, ptr %0, align 8
+  %114 = load ptr, ptr %113, align 8
+  tail call void %114(ptr noundef nonnull %0) #13
   br label %GET_ARRAYS.exit
 
-GET_ARRAYS.exit:                                  ; preds = %92, %89, %GET_ARRAYS.exit.thread
-  %117 = icmp slt i32 %.056, 1
-  %.pre89 = load ptr, ptr %18, align 8
-  br i1 %117, label %118, label %191
+GET_ARRAYS.exit:                                  ; preds = %90, %87, %GET_ARRAYS.exit.thread
+  %115 = icmp slt i32 %.056, 1
+  %.pre90 = load ptr, ptr %18, align 8
+  br i1 %115, label %116, label %189
 
-118:                                              ; preds = %GET_ARRAYS.exit
-  %119 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %120 = load ptr, ptr %119, align 8
-  %.not.i.i70 = icmp eq ptr %.pre89, null
-  br i1 %.not.i.i70, label %unpinStreamBuffer.exit.i72, label %121
+116:                                              ; preds = %GET_ARRAYS.exit
+  %117 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %118 = load ptr, ptr %117, align 8
+  %.not.i.i70 = icmp eq ptr %.pre90, null
+  br i1 %.not.i.i70, label %unpinStreamBuffer.exit.i72, label %119
 
-121:                                              ; preds = %118
-  %122 = load ptr, ptr %3, align 8
-  %123 = icmp eq ptr %122, null
-  %124 = ptrtoint ptr %122 to i64
-  %125 = ptrtoint ptr %.pre89 to i64
-  %126 = sub i64 %124, %125
-  %.sink.i.i71 = select i1 %123, i64 -1, i64 %126
-  %127 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i64 %.sink.i.i71, ptr %127, align 8
-  %128 = load ptr, ptr %8, align 8
-  %129 = getelementptr inbounds nuw i8, ptr %128, i64 1784
-  %130 = load ptr, ptr %129, align 8
-  %131 = load ptr, ptr %60, align 8
-  tail call void %130(ptr noundef nonnull %8, ptr noundef %131, ptr noundef nonnull %.pre89, i32 noundef 0) #13
+119:                                              ; preds = %116
+  %120 = load ptr, ptr %3, align 8
+  %121 = icmp eq ptr %120, null
+  %122 = ptrtoint ptr %120 to i64
+  %123 = ptrtoint ptr %.pre90 to i64
+  %124 = sub i64 %122, %123
+  %.sink.i.i71 = select i1 %121, i64 -1, i64 %124
+  %125 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  store i64 %.sink.i.i71, ptr %125, align 8
+  %126 = load ptr, ptr %8, align 8
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 1784
+  %128 = load ptr, ptr %127, align 8
+  %129 = load ptr, ptr %60, align 8
+  tail call void %128(ptr noundef nonnull %8, ptr noundef %129, ptr noundef nonnull %.pre90, i32 noundef 0) #13
   store ptr null, ptr %18, align 8
   br label %unpinStreamBuffer.exit.i72
 
-unpinStreamBuffer.exit.i72:                       ; preds = %121, %118
-  %132 = load ptr, ptr %32, align 8
-  %.not.i5.i73 = icmp eq ptr %132, null
-  br i1 %.not.i5.i73, label %RELEASE_ARRAYS.exit74, label %133
+unpinStreamBuffer.exit.i72:                       ; preds = %119, %116
+  %130 = load ptr, ptr %32, align 8
+  %.not.i5.i73 = icmp eq ptr %130, null
+  br i1 %.not.i5.i73, label %RELEASE_ARRAYS.exit74, label %131
 
-133:                                              ; preds = %unpinStreamBuffer.exit.i72
-  %134 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %135 = load ptr, ptr %8, align 8
-  %136 = getelementptr inbounds nuw i8, ptr %135, i64 1784
-  %137 = load ptr, ptr %136, align 8
-  %138 = load ptr, ptr %134, align 8
-  tail call void %137(ptr noundef nonnull %8, ptr noundef %138, ptr noundef nonnull %132, i32 noundef 0) #13
+131:                                              ; preds = %unpinStreamBuffer.exit.i72
+  %132 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  %133 = load ptr, ptr %8, align 8
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 1784
+  %135 = load ptr, ptr %134, align 8
+  %136 = load ptr, ptr %132, align 8
+  tail call void %135(ptr noundef nonnull %8, ptr noundef %136, ptr noundef nonnull %130, i32 noundef 0) #13
   store ptr null, ptr %32, align 8
   br label %RELEASE_ARRAYS.exit74
 
-RELEASE_ARRAYS.exit74:                            ; preds = %unpinStreamBuffer.exit.i72, %133
-  %139 = load ptr, ptr %8, align 8
-  %140 = getelementptr inbounds nuw i8, ptr %139, i64 488
-  %141 = load ptr, ptr %140, align 8
-  %142 = load ptr, ptr @JPEGImageReader_warningOccurredID, align 8
-  tail call void (ptr, ptr, ptr, ...) %141(ptr noundef nonnull %8, ptr noundef %120, ptr noundef %142, i32 noundef 0) #13
-  %143 = load ptr, ptr %8, align 8
-  %144 = getelementptr inbounds nuw i8, ptr %143, i64 120
-  %145 = load ptr, ptr %144, align 8
-  %146 = tail call ptr %145(ptr noundef nonnull %8) #13
-  %.not67 = icmp eq ptr %146, null
-  br i1 %.not67, label %147, label %GET_ARRAYS.exit84.thread
+RELEASE_ARRAYS.exit74:                            ; preds = %unpinStreamBuffer.exit.i72, %131
+  %137 = load ptr, ptr %8, align 8
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 488
+  %139 = load ptr, ptr %138, align 8
+  %140 = load ptr, ptr @JPEGImageReader_warningOccurredID, align 8
+  tail call void (ptr, ptr, ptr, ...) %139(ptr noundef nonnull %8, ptr noundef %118, ptr noundef %140, i32 noundef 0) #13
+  %141 = load ptr, ptr %8, align 8
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 120
+  %143 = load ptr, ptr %142, align 8
+  %144 = tail call ptr %143(ptr noundef nonnull %8) #13
+  %.not67 = icmp eq ptr %144, null
+  br i1 %.not67, label %145, label %GET_ARRAYS.exit84.thread
 
-147:                                              ; preds = %RELEASE_ARRAYS.exit74
-  %148 = load ptr, ptr %60, align 8
-  %.not.i.i75 = icmp eq ptr %148, null
-  br i1 %.not.i.i75, label %160, label %149
+145:                                              ; preds = %RELEASE_ARRAYS.exit74
+  %146 = load ptr, ptr %60, align 8
+  %.not.i.i75 = icmp eq ptr %146, null
+  br i1 %.not.i.i75, label %158, label %147
 
-149:                                              ; preds = %147
-  %150 = load ptr, ptr %8, align 8
-  %151 = getelementptr inbounds nuw i8, ptr %150, i64 1776
-  %152 = load ptr, ptr %151, align 8
-  %153 = tail call ptr %152(ptr noundef nonnull %8, ptr noundef nonnull %148, ptr noundef null) #13
-  store ptr %153, ptr %18, align 8
-  %154 = icmp eq ptr %153, null
-  br i1 %154, label %GET_ARRAYS.exit84.thread, label %155
+147:                                              ; preds = %145
+  %148 = load ptr, ptr %8, align 8
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 1776
+  %150 = load ptr, ptr %149, align 8
+  %151 = tail call ptr %150(ptr noundef nonnull %8, ptr noundef nonnull %146, ptr noundef null) #13
+  store ptr %151, ptr %18, align 8
+  %152 = icmp eq ptr %151, null
+  br i1 %152, label %GET_ARRAYS.exit84.thread, label %153
 
-155:                                              ; preds = %149
-  %156 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %157 = load i64, ptr %156, align 8
-  %.not13.i.i76 = icmp eq i64 %157, -1
-  br i1 %.not13.i.i76, label %160, label %158
+153:                                              ; preds = %147
+  %154 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %155 = load i64, ptr %154, align 8
+  %.not13.i.i76 = icmp eq i64 %155, -1
+  br i1 %.not13.i.i76, label %158, label %156
 
-158:                                              ; preds = %155
-  %159 = getelementptr inbounds i8, ptr %153, i64 %157
-  store ptr %159, ptr %3, align 8
-  br label %160
+156:                                              ; preds = %153
+  %157 = getelementptr inbounds i8, ptr %151, i64 %155
+  store ptr %157, ptr %3, align 8
+  br label %158
 
-160:                                              ; preds = %158, %155, %147
-  %161 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %162 = load ptr, ptr %161, align 8
-  %.not.i8.i77 = icmp eq ptr %162, null
-  br i1 %.not.i8.i77, label %GET_ARRAYS.exit84, label %163
+158:                                              ; preds = %156, %153, %145
+  %159 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  %160 = load ptr, ptr %159, align 8
+  %.not.i8.i77 = icmp eq ptr %160, null
+  br i1 %.not.i8.i77, label %GET_ARRAYS.exit84, label %161
 
-163:                                              ; preds = %160
-  %164 = load ptr, ptr %8, align 8
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 1776
-  %166 = load ptr, ptr %165, align 8
-  %167 = tail call ptr %166(ptr noundef nonnull %8, ptr noundef nonnull %162, ptr noundef null) #13
-  store ptr %167, ptr %32, align 8
-  %168 = icmp eq ptr %167, null
-  br i1 %168, label %169, label %GET_ARRAYS.exit84
+161:                                              ; preds = %158
+  %162 = load ptr, ptr %8, align 8
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 1776
+  %164 = load ptr, ptr %163, align 8
+  %165 = tail call ptr %164(ptr noundef nonnull %8, ptr noundef nonnull %160, ptr noundef null) #13
+  store ptr %165, ptr %32, align 8
+  %166 = icmp eq ptr %165, null
+  br i1 %166, label %167, label %GET_ARRAYS.exit84
 
-169:                                              ; preds = %163
-  %170 = load ptr, ptr %18, align 8
-  %.not.i.i.i79 = icmp eq ptr %170, null
+167:                                              ; preds = %161
+  %168 = load ptr, ptr %18, align 8
+  %.not.i.i.i79 = icmp eq ptr %168, null
   br i1 %.not.i.i.i79, label %GET_ARRAYS.exit84.thread, label %unpinStreamBuffer.exit.i.i80
 
-unpinStreamBuffer.exit.i.i80:                     ; preds = %169
-  %171 = load ptr, ptr %3, align 8
-  %172 = icmp eq ptr %171, null
-  %173 = ptrtoint ptr %171 to i64
-  %174 = ptrtoint ptr %170 to i64
-  %175 = sub i64 %173, %174
-  %.sink.i.i.i81 = select i1 %172, i64 -1, i64 %175
-  %176 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i64 %.sink.i.i.i81, ptr %176, align 8
-  %177 = load ptr, ptr %8, align 8
-  %178 = getelementptr inbounds nuw i8, ptr %177, i64 1784
-  %179 = load ptr, ptr %178, align 8
-  %180 = load ptr, ptr %60, align 8
-  tail call void %179(ptr noundef nonnull %8, ptr noundef %180, ptr noundef nonnull %170, i32 noundef 0) #13
+unpinStreamBuffer.exit.i.i80:                     ; preds = %167
+  %169 = load ptr, ptr %3, align 8
+  %170 = icmp eq ptr %169, null
+  %171 = ptrtoint ptr %169 to i64
+  %172 = ptrtoint ptr %168 to i64
+  %173 = sub i64 %171, %172
+  %.sink.i.i.i81 = select i1 %170, i64 -1, i64 %173
+  %174 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  store i64 %.sink.i.i.i81, ptr %174, align 8
+  %175 = load ptr, ptr %8, align 8
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 1784
+  %177 = load ptr, ptr %176, align 8
+  %178 = load ptr, ptr %60, align 8
+  tail call void %177(ptr noundef nonnull %8, ptr noundef %178, ptr noundef nonnull %168, i32 noundef 0) #13
   store ptr null, ptr %18, align 8
   %.pre.i82 = load ptr, ptr %32, align 8
   %.not.i5.i.i83 = icmp eq ptr %.pre.i82, null
-  br i1 %.not.i5.i.i83, label %GET_ARRAYS.exit84.thread, label %181
+  br i1 %.not.i5.i.i83, label %GET_ARRAYS.exit84.thread, label %179
 
-181:                                              ; preds = %unpinStreamBuffer.exit.i.i80
-  %182 = load ptr, ptr %8, align 8
-  %183 = getelementptr inbounds nuw i8, ptr %182, i64 1784
-  %184 = load ptr, ptr %183, align 8
-  %185 = load ptr, ptr %161, align 8
-  tail call void %184(ptr noundef nonnull %8, ptr noundef %185, ptr noundef nonnull %.pre.i82, i32 noundef 0) #13
+179:                                              ; preds = %unpinStreamBuffer.exit.i.i80
+  %180 = load ptr, ptr %8, align 8
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 1784
+  %182 = load ptr, ptr %181, align 8
+  %183 = load ptr, ptr %159, align 8
+  tail call void %182(ptr noundef nonnull %8, ptr noundef %183, ptr noundef nonnull %.pre.i82, i32 noundef 0) #13
   store ptr null, ptr %32, align 8
   br label %GET_ARRAYS.exit84.thread
 
-GET_ARRAYS.exit84.thread:                         ; preds = %169, %181, %unpinStreamBuffer.exit.i.i80, %149, %RELEASE_ARRAYS.exit74
-  %186 = load ptr, ptr %0, align 8
-  %187 = load ptr, ptr %186, align 8
-  tail call void %187(ptr noundef nonnull %0) #13
+GET_ARRAYS.exit84.thread:                         ; preds = %167, %179, %unpinStreamBuffer.exit.i.i80, %147, %RELEASE_ARRAYS.exit74
+  %184 = load ptr, ptr %0, align 8
+  %185 = load ptr, ptr %184, align 8
+  tail call void %185(ptr noundef nonnull %0) #13
   br label %GET_ARRAYS.exit84
 
-GET_ARRAYS.exit84:                                ; preds = %163, %160, %GET_ARRAYS.exit84.thread
-  %188 = load ptr, ptr %18, align 8
-  store i8 -1, ptr %188, align 1
-  %189 = load ptr, ptr %18, align 8
-  %190 = getelementptr inbounds nuw i8, ptr %189, i64 1
-  store i8 -39, ptr %190, align 1
+GET_ARRAYS.exit84:                                ; preds = %161, %158, %GET_ARRAYS.exit84.thread
+  %186 = load ptr, ptr %18, align 8
+  store i8 -1, ptr %186, align 1
+  %187 = load ptr, ptr %18, align 8
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 1
+  store i8 -39, ptr %188, align 1
   %.pre = load ptr, ptr %18, align 8
-  br label %191
+  br label %189
 
-191:                                              ; preds = %GET_ARRAYS.exit84, %GET_ARRAYS.exit
-  %192 = phi ptr [ %.pre, %GET_ARRAYS.exit84 ], [ %.pre89, %GET_ARRAYS.exit ]
+189:                                              ; preds = %GET_ARRAYS.exit84, %GET_ARRAYS.exit
+  %190 = phi ptr [ %.pre, %GET_ARRAYS.exit84 ], [ %.pre90, %GET_ARRAYS.exit ]
   %.157 = phi i32 [ 2, %GET_ARRAYS.exit84 ], [ %.056, %GET_ARRAYS.exit ]
-  store ptr %192, ptr %3, align 8
-  %193 = zext nneg i32 %.157 to i64
-  %194 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %193, ptr %194, align 8
-  br label %195
+  store ptr %190, ptr %3, align 8
+  %191 = zext nneg i32 %.157 to i64
+  %192 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 %191, ptr %192, align 8
+  br label %193
 
-195:                                              ; preds = %1, %191
-  %.0 = phi i32 [ 1, %191 ], [ 0, %1 ]
+193:                                              ; preds = %1, %189
+  %.0 = phi i32 [ 1, %189 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -6079,6 +6078,9 @@ declare i32 @llvm.smax.i32(i32, i32) #10
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #10
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
 
@@ -6087,9 +6089,6 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #10
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

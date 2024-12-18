@@ -11235,15 +11235,14 @@ if.end14.i.i:                                     ; preds = %if.then9.i.i, %if.e
   %116 = phi i64 [ %114, %if.then9.i.i ], [ %.pre.i280.i, %if.end.if.end14_crit_edge.i.i ]
   %line.addr.0.i.i = phi i32 [ %conv.i.i, %if.then9.i.i ], [ %.mux.i.i, %if.end.if.end14_crit_edge.i.i ]
   %conv15.i.i = sext i32 %line.addr.0.i.i to i64
-  %cmp17.i.i = icmp ult i64 %116, %conv15.i.i
-  %conv21.i.i = trunc i64 %116 to i32
-  %spec.select42.i.i = select i1 %cmp17.i.i, i32 %conv21.i.i, i32 %line.addr.0.i.i
-  %cmp2381.i.i = icmp sgt i32 %spec.select42.i.i, 0
-  br i1 %cmp2381.i.i, label %for.body.lr.ph.i.i, label %for.cond26.preheader.i.i
+  %spec.select4247.i.i = call i64 @llvm.umin.i64(i64 %116, i64 %conv15.i.i)
+  %spec.select42.i.i = trunc i64 %spec.select4247.i.i to i32
+  %cmp2382.i.i = icmp sgt i32 %spec.select42.i.i, 0
+  br i1 %cmp2382.i.i, label %for.body.lr.ph.i.i, label %for.cond26.preheader.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %if.end14.i.i
   %117 = load ptr, ptr %line.i.i.i, align 8
-  %wide.trip.count.i.i = zext nneg i32 %spec.select42.i.i to i64
+  %wide.trip.count.i.i = and i64 %spec.select4247.i.i, 2147483647
   br label %for.body.i.i
 
 for.cond26.preheader.i.i:                         ; preds = %for.body.i.i, %if.end14.i.i
@@ -11254,16 +11253,16 @@ for.cond26.preheader.i.i:                         ; preds = %for.body.i.i, %if.e
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
-  %current.083.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %add.i289.i, %for.body.i.i ]
+  %current.084.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %add.i289.i, %for.body.i.i ]
   %arrayidx.i288.i = getelementptr inbounds nuw %struct.line, ptr %117, i64 %indvars.iv.i.i
   %118 = load i64, ptr %arrayidx.i288.i, align 8
-  %add.i289.i = add i64 %118, %current.083.i.i
+  %add.i289.i = add i64 %118, %current.084.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %for.cond26.preheader.i.i, label %for.body.i.i, !llvm.loop !48
 
 for.cond26.i.i:                                   ; preds = %for.inc66.i.i, %for.cond26.preheader.i.i
-  %119 = phi i64 [ %.pre120.i.i, %for.inc66.i.i ], [ %116, %for.cond26.preheader.i.i ]
+  %119 = phi i64 [ %.pre121.i.i, %for.inc66.i.i ], [ %116, %for.cond26.preheader.i.i ]
   %i.1.i.i = phi i32 [ %inc67.i.i, %for.inc66.i.i ], [ 0, %for.cond26.preheader.i.i ]
   %backwards.0.i.i = phi i64 [ %backwards.1.i.i, %for.inc66.i.i ], [ %current.0.lcssa.i.i, %for.cond26.preheader.i.i ]
   %forwards.0.i.i = phi i64 [ %forwards.1.i.i, %for.inc66.i.i ], [ %current.0.lcssa.i.i, %for.cond26.preheader.i.i ]
@@ -11793,8 +11792,8 @@ for.body210.lr.ph.i.i.i:                          ; preds = %for.body195.i.i.i
 
 for.cond205.i.i.i:                                ; preds = %for.body210.i.i.i
   %indvars.iv.next158.i.i.i = add i64 %indvars.iv157.i.i.i, 1
-  %exitcond119.not.i.i = icmp eq i64 %indvars.iv.next158.i.i.i, %196
-  br i1 %exitcond119.not.i.i, label %for.end224.i.i.i, label %for.body210.i.i.i, !llvm.loop !62
+  %exitcond120.not.i.i = icmp eq i64 %indvars.iv.next158.i.i.i, %196
+  br i1 %exitcond120.not.i.i, label %for.end224.i.i.i, label %for.body210.i.i.i, !llvm.loop !62
 
 for.body210.i.i.i:                                ; preds = %for.cond205.i.i.i, %for.body210.lr.ph.i.i.i
   %indvars.iv157.i.i.i = phi i64 [ %conv206126.i.i.i, %for.body210.lr.ph.i.i.i ], [ %indvars.iv.next158.i.i.i, %for.cond205.i.i.i ]
@@ -11847,11 +11846,11 @@ if.end38.i.us.preheader.i:                        ; preds = %again.preheader.i.s
 again.preheader.i.split.i:                        ; preds = %again.preheader.i.i
   %and45.i522.i = and i32 %i.1.i.i, 1
   %tobool39.not46.i523.i = icmp eq i32 %and45.i522.i, 0
-  %.pre120.pre.i.pre.i = load i64, ptr %nr16.i.i, align 8
+  %.pre121.pre.i.pre.i = load i64, ptr %nr16.i.i, align 8
   br i1 %tobool39.not46.i523.i, label %if.end38.thread.if.else51_crit_edge.i.lr.ph.i, label %if.end45.i.i
 
 if.end38.thread.if.else51_crit_edge.i.lr.ph.i:    ; preds = %again.preheader.i.split.i
-  %cmp54.i.i = icmp eq i64 %.pre120.pre.i.pre.i, %conv33.i.i
+  %cmp54.i.i = icmp eq i64 %.pre121.pre.i.pre.i, %conv33.i.i
   br i1 %cmp54.i.i, label %if.end45.i.i, label %if.end58.i.i
 
 if.end45.i.i:                                     ; preds = %if.end38.thread.if.else51_crit_edge.i.lr.ph.i, %again.preheader.i.split.i
@@ -11865,7 +11864,7 @@ if.end45.i.i:                                     ; preds = %if.end38.thread.if.
   br label %for.inc66.i.i
 
 if.end58.i.i:                                     ; preds = %if.end38.thread.if.else51_crit_edge.i.lr.ph.i, %if.end38.i.us.preheader.i
-  %.us-phi.i = phi i64 [ %.pre120.pre.i.pre.i, %if.end38.thread.if.else51_crit_edge.i.lr.ph.i ], [ %204, %if.end38.i.us.preheader.i ]
+  %.us-phi.i = phi i64 [ %.pre121.pre.i.pre.i, %if.end38.thread.if.else51_crit_edge.i.lr.ph.i ], [ %204, %if.end38.i.us.preheader.i ]
   %.us-phi521.i = phi i32 [ %i.1.i.i, %if.end38.thread.if.else51_crit_edge.i.lr.ph.i ], [ %205, %if.end38.i.us.preheader.i ]
   %208 = load ptr, ptr %line.i.i.i, align 8
   %arrayidx61.i.i = getelementptr inbounds %struct.line, ptr %208, i64 %conv33.i.i
@@ -11876,7 +11875,7 @@ if.end58.i.i:                                     ; preds = %if.end38.thread.if.
 
 for.inc66.i.i:                                    ; preds = %if.end58.i.i, %if.end45.i.i
   %i.2.i437.i = phi i32 [ %i.2.i.lcssa.i, %if.end45.i.i ], [ %.us-phi521.i, %if.end58.i.i ]
-  %.pre120.i.i = phi i64 [ %.pre120.pre.i.pre.i, %if.end45.i.i ], [ %.us-phi.i, %if.end58.i.i ]
+  %.pre121.i.i = phi i64 [ %.pre121.pre.i.pre.i, %if.end45.i.i ], [ %.us-phi.i, %if.end58.i.i ]
   %backwards.1.i.i = phi i64 [ %sub50.i.i, %if.end45.i.i ], [ %backwards.0.i.i, %if.end58.i.i ]
   %forwards.1.i.i = phi i64 [ %forwards.0.i.i, %if.end45.i.i ], [ %add63.i.i, %if.end58.i.i ]
   %current.2.i.i = phi i64 [ %sub50.i.i, %if.end45.i.i ], [ %add63.i.i, %if.end58.i.i ]
@@ -14434,6 +14433,9 @@ declare i64 @llvm.umax.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #19
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #19
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

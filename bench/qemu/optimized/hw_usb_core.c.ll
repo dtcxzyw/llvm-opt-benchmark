@@ -121,7 +121,7 @@ entry:
   br i1 %cmp.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 55, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_attach) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 55, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_attach) #13
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -131,7 +131,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool, label %if.end4, label %if.else3
 
 if.else3:                                         ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 56, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_attach) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 56, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_attach) #13
   unreachable
 
 if.end4:                                          ; preds = %if.end
@@ -141,7 +141,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp5, label %if.end8, label %if.else7
 
 if.else7:                                         ; preds = %if.end4
-  tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 57, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_attach) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 57, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_attach) #13
   unreachable
 
 if.end8:                                          ; preds = %if.end4
@@ -179,9 +179,9 @@ usb_pick_speed.exit:                              ; preds = %for.inc.i, %if.then
   %ops = getelementptr inbounds nuw i8, ptr %port, i64 32
   %6 = load ptr, ptr %ops, align 8
   %7 = load ptr, ptr %6, align 8
-  tail call void %7(ptr noundef nonnull %port) #13
+  tail call void %7(ptr noundef nonnull %port) #14
   store i32 1, ptr %state, align 4
-  tail call void @usb_device_handle_attach(ptr noundef nonnull %0) #13
+  tail call void @usb_device_handle_attach(ptr noundef nonnull %0) #14
   ret void
 }
 
@@ -198,7 +198,7 @@ entry:
   br i1 %cmp.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 68, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_detach) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 68, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_detach) #13
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -208,7 +208,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2.not, label %if.else4, label %if.end5
 
 if.else4:                                         ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 69, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_detach) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 69, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_detach) #13
   unreachable
 
 if.end5:                                          ; preds = %if.end
@@ -216,7 +216,7 @@ if.end5:                                          ; preds = %if.end
   %2 = load ptr, ptr %ops, align 8
   %detach = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load ptr, ptr %detach, align 8
-  tail call void %3(ptr noundef nonnull %port) #13
+  tail call void %3(ptr noundef nonnull %port) #14
   store i32 0, ptr %state, align 4
   ret void
 }
@@ -229,7 +229,7 @@ entry:
   br i1 %cmp.not, label %if.else, label %if.end.i
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 78, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_port_reset) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 78, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_port_reset) #13
   unreachable
 
 if.end.i:                                         ; preds = %entry
@@ -239,7 +239,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i, label %if.else4.i, label %lor.lhs.false.i
 
 if.else4.i:                                       ; preds = %if.end.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 69, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_detach) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 69, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_detach) #13
   unreachable
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
@@ -247,7 +247,7 @@ lor.lhs.false.i:                                  ; preds = %if.end.i
   %2 = load ptr, ptr %ops.i, align 8
   %detach.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load ptr, ptr %detach.i, align 8
-  tail call void %3(ptr noundef nonnull %port) #13
+  tail call void %3(ptr noundef nonnull %port) #14
   store i32 0, ptr %state.i, align 4
   tail call void @usb_attach(ptr noundef nonnull %port)
   %attached.i = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -256,7 +256,7 @@ lor.lhs.false.i:                                  ; preds = %if.end.i
   br i1 %tobool.i, label %if.end.i4, label %usb_device_reset.exit
 
 if.end.i4:                                        ; preds = %lor.lhs.false.i
-  tail call void @usb_device_handle_reset(ptr noundef nonnull %0) #13
+  tail call void @usb_device_handle_reset(ptr noundef nonnull %0) #14
   %remote_wakeup.i = getelementptr inbounds nuw i8, ptr %0, i64 4376
   store i32 0, ptr %remote_wakeup.i, align 8
   %addr.i = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -281,7 +281,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  tail call void @usb_device_handle_reset(ptr noundef nonnull %dev) #13
+  tail call void @usb_device_handle_reset(ptr noundef nonnull %dev) #14
   %remote_wakeup = getelementptr inbounds nuw i8, ptr %dev, i64 4376
   store i32 0, ptr %remote_wakeup, align 8
   %addr = getelementptr inbounds nuw i8, ptr %dev, i64 224
@@ -303,7 +303,7 @@ entry:
   %0 = load ptr, ptr %dev1, align 8
   %1 = getelementptr i8, ptr %0, i64 88
   %.val = load ptr, ptr %1, align 8
-  %call2 = tail call zeroext i1 @phase_check(i32 noundef 4) #13
+  %call2 = tail call zeroext i1 @phase_check(i32 noundef 4) #14
   br i1 %call2, label %if.end, label %if.end18
 
 if.end:                                           ; preds = %entry
@@ -327,7 +327,7 @@ land.lhs.true4:                                   ; preds = %land.lhs.true
   br i1 %tobool6.not, label %if.end12, label %if.then7
 
 if.then7:                                         ; preds = %land.lhs.true4
-  tail call void %5(ptr noundef nonnull %3) #13
+  tail call void %5(ptr noundef nonnull %3) #14
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then7, %land.lhs.true4, %land.lhs.true, %if.end
@@ -339,7 +339,7 @@ if.end12:                                         ; preds = %if.then7, %land.lhs
   br i1 %tobool14.not, label %if.end18, label %if.then15
 
 if.then15:                                        ; preds = %if.end12
-  tail call void %7(ptr noundef nonnull %.val, ptr noundef nonnull %ep, i32 noundef %stream) #13
+  tail call void %7(ptr noundef nonnull %.val, ptr noundef nonnull %ep, i32 noundef %stream) #14
   br label %if.end18
 
 if.end18:                                         ; preds = %entry, %if.then15, %if.end12
@@ -359,7 +359,7 @@ entry:
 if.then:                                          ; preds = %entry
   %setup_state = getelementptr inbounds nuw i8, ptr %s, i64 4380
   store i32 0, ptr %setup_state, align 4
-  tail call void @usb_pcap_ctrl(ptr noundef nonnull %p, i1 noundef zeroext false) #13
+  tail call void @usb_pcap_ctrl(ptr noundef nonnull %p, i1 noundef zeroext false) #14
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -392,7 +392,7 @@ sw.bb9:                                           ; preds = %if.end
   store i32 0, ptr %setup_state1, align 4
   %actual_length11 = getelementptr inbounds nuw i8, ptr %p, i64 88
   store i32 0, ptr %actual_length11, align 8
-  tail call void @usb_pcap_ctrl(ptr noundef nonnull %p, i1 noundef zeroext false) #13
+  tail call void @usb_pcap_ctrl(ptr noundef nonnull %p, i1 noundef zeroext false) #14
   br label %sw.epilog
 
 sw.bb12:                                          ; preds = %if.end
@@ -442,7 +442,7 @@ entry:
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.1, i32 noundef 611, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_packet_copy) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.1, i32 noundef 611, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_packet_copy) #13
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -454,7 +454,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp5.not, label %if.else8, label %if.end9
 
 if.else8:                                         ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 612, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_packet_copy) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 612, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_packet_copy) #13
   unreachable
 
 if.end9:                                          ; preds = %if.end
@@ -469,20 +469,20 @@ if.else.i:                                        ; preds = %if.end9, %if.end9
   %niov = getelementptr inbounds nuw i8, ptr %cond, i64 8
   %4 = load i32, ptr %niov, align 8
   %5 = load ptr, ptr %cond, align 8
-  %call.i = tail call i64 @iov_to_buf_full(ptr noundef %5, i32 noundef %4, i64 noundef range(i64 -2147483648, 2147483648) %conv, ptr noundef %ptr, i64 noundef %bytes) #13
+  %call.i = tail call i64 @iov_to_buf_full(ptr noundef %5, i32 noundef %4, i64 noundef range(i64 -2147483648, 2147483648) %conv, ptr noundef %ptr, i64 noundef %bytes) #14
   br label %sw.epilog
 
 if.else.i21:                                      ; preds = %if.end9
   %niov15 = getelementptr inbounds nuw i8, ptr %cond, i64 8
   %6 = load i32, ptr %niov15, align 8
   %7 = load ptr, ptr %cond, align 8
-  %call.i22 = tail call i64 @iov_from_buf_full(ptr noundef %7, i32 noundef %6, i64 noundef range(i64 0, 2147483648) %conv, ptr noundef %ptr, i64 noundef %bytes) #13
+  %call.i22 = tail call i64 @iov_from_buf_full(ptr noundef %7, i32 noundef %6, i64 noundef range(i64 0, 2147483648) %conv, ptr noundef %ptr, i64 noundef %bytes) #14
   br label %sw.epilog
 
 sw.default:                                       ; preds = %if.end9
   %8 = load ptr, ptr @stderr, align 8
-  %call20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.21, ptr noundef nonnull @__func__.usb_packet_copy, i32 noundef %3) #14
-  tail call void @abort() #12
+  %call20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.21, ptr noundef nonnull @__func__.usb_packet_copy, i32 noundef %3) #15
+  tail call void @abort() #13
   unreachable
 
 sw.epilog:                                        ; preds = %if.else.i21, %if.else.i
@@ -527,7 +527,7 @@ usb_packet_state_name.exit.i:                     ; preds = %if.then.i.i, %if.en
   %conv.i = zext i8 %6 to i32
   %path.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   tail call fastcc void @trace_usb_packet_state_fault(i32 noundef %4, ptr noundef nonnull %path.i, i32 noundef %conv.i, ptr noundef nonnull %p, ptr noundef %retval.0.i.i, ptr noundef nonnull @.str.40)
-  tail call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1, i32 noundef 563, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_packet_check_state) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1, i32 noundef 563, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_packet_check_state) #13
   unreachable
 
 usb_packet_check_state.exit:                      ; preds = %entry
@@ -557,7 +557,7 @@ if.then:                                          ; preds = %while.body
   %12 = load ptr, ptr %ops, align 8
   %complete = getelementptr inbounds nuw i8, ptr %12, i64 32
   %13 = load ptr, ptr %complete, align 8
-  tail call void %13(ptr noundef %11, ptr noundef nonnull %9) #13
+  tail call void %13(ptr noundef %11, ptr noundef nonnull %9) #14
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %if.then, %if.end10
@@ -599,7 +599,7 @@ usb_packet_state_name.exit.i25:                   ; preds = %if.then.i.i29, %if.
   %conv.i27 = zext i8 %21 to i32
   %path.i28 = getelementptr inbounds nuw i8, ptr %20, i64 16
   tail call fastcc void @trace_usb_packet_state_fault(i32 noundef %19, ptr noundef nonnull %path.i28, i32 noundef %conv.i27, ptr noundef nonnull %9, ptr noundef %retval.0.i.i26, ptr noundef nonnull @.str.39)
-  tail call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1, i32 noundef 563, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_packet_check_state) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1, i32 noundef 563, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_packet_check_state) #13
   unreachable
 
 usb_packet_check_state.exit32:                    ; preds = %if.end
@@ -648,7 +648,7 @@ if.end:                                           ; preds = %lor.lhs.false2
   br i1 %cmp6, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.end
-  %call = tail call ptr @usb_device_find_device(ptr noundef nonnull %0, i8 noundef zeroext %addr) #13
+  %call = tail call ptr @usb_device_find_device(ptr noundef nonnull %0, i8 noundef zeroext %addr) #14
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %lor.lhs.false, %lor.lhs.false2, %if.end9
@@ -678,7 +678,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %if.end4, label %if.else
 
 if.else:                                          ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 426, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_handle_packet) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 426, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_handle_packet) #13
   unreachable
 
 if.end4:                                          ; preds = %if.end
@@ -688,7 +688,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp5, label %if.end8, label %if.else7
 
 if.else7:                                         ; preds = %if.end4
-  tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 427, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_handle_packet) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 427, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_handle_packet) #13
   unreachable
 
 if.end8:                                          ; preds = %if.end4
@@ -719,7 +719,7 @@ usb_packet_state_name.exit.i:                     ; preds = %if.then.i.i, %if.en
   %conv.i = zext i8 %7 to i32
   %path.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   tail call fastcc void @trace_usb_packet_state_fault(i32 noundef %5, ptr noundef nonnull %path.i, i32 noundef %conv.i, ptr noundef nonnull %p, ptr noundef %retval.0.i.i, ptr noundef nonnull @.str.38)
-  tail call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1, i32 noundef 563, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_packet_check_state) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1, i32 noundef 563, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_packet_check_state) #13
   unreachable
 
 if.end13:                                         ; preds = %if.end8
@@ -735,7 +735,7 @@ if.then15:                                        ; preds = %if.end13
   br i1 %cmp17, label %if.end20, label %if.else19
 
 if.else19:                                        ; preds = %if.then15
-  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 433, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_handle_packet) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 433, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_handle_packet) #13
   unreachable
 
 if.end20:                                         ; preds = %if.then15
@@ -781,7 +781,7 @@ if.then34:                                        ; preds = %if.then31
   ]
 
 if.else39:                                        ; preds = %if.then34
-  tail call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 441, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_handle_packet) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 441, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_handle_packet) #13
   unreachable
 
 lor.lhs.false46:                                  ; preds = %if.then34
@@ -792,7 +792,7 @@ lor.lhs.false46:                                  ; preds = %if.then34
   br i1 %tobool47.not, label %if.else49, label %if.end50
 
 if.else49:                                        ; preds = %lor.lhs.false46
-  tail call void @__assert_fail(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 444, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_handle_packet) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 444, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_handle_packet) #13
   unreachable
 
 if.end50:                                         ; preds = %if.then34, %lor.lhs.false46
@@ -846,7 +846,7 @@ lor.lhs.false75:                                  ; preds = %lor.lhs.false71
   br i1 %cmp78, label %if.end82, label %if.else81
 
 if.else81:                                        ; preds = %lor.lhs.false75
-  tail call void @__assert_fail(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.1, i32 noundef 455, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_handle_packet) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.1, i32 noundef 455, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_handle_packet) #13
   unreachable
 
 if.end82:                                         ; preds = %if.else68, %lor.lhs.false71, %lor.lhs.false75
@@ -854,7 +854,7 @@ if.end82:                                         ; preds = %if.else68, %lor.lhs
   br i1 %cmp84.not, label %if.end91, label %if.then86
 
 if.then86:                                        ; preds = %if.end82
-  tail call void @usb_pcap_data(ptr noundef nonnull %p, i1 noundef zeroext false) #13
+  tail call void @usb_pcap_data(ptr noundef nonnull %p, i1 noundef zeroext false) #14
   tail call void @usb_packet_set_state(ptr noundef nonnull %p, i32 noundef 4)
   br label %if.end91
 
@@ -927,7 +927,7 @@ usb_packet_state_name.exit12:                     ; preds = %usb_packet_state_na
   %conv = zext i8 %6 to i32
   %path = getelementptr inbounds nuw i8, ptr %5, i64 16
   tail call fastcc void @trace_usb_packet_state_fault(i32 noundef %4, ptr noundef nonnull %path, i32 noundef %conv, ptr noundef nonnull %p, ptr noundef %retval.0.i, ptr noundef %retval.0.i8)
-  tail call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1, i32 noundef 563, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_packet_check_state) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1, i32 noundef 563, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_packet_check_state) #13
   unreachable
 }
 
@@ -998,7 +998,7 @@ for.end.i:                                        ; preds = %for.body.i
 
 if.then.i:                                        ; preds = %for.end.i
   %17 = load ptr, ptr @stderr, align 8
-  %call.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.33, i32 noundef %or30.i, i64 noundef 4096) #14
+  %call.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.33, i32 noundef %or30.i, i64 noundef 4096) #15
   store i32 -3, ptr %status, align 4
   br label %if.end13
 
@@ -1016,10 +1016,10 @@ if.then37.i:                                      ; preds = %if.end.i
   br label %if.end40.i
 
 if.end40.i:                                       ; preds = %if.then37.i, %if.end.i
-  tail call void @usb_pcap_ctrl(ptr noundef nonnull %p, i1 noundef zeroext true) #13
+  tail call void @usb_pcap_ctrl(ptr noundef nonnull %p, i1 noundef zeroext true) #14
   %19 = load i32, ptr %setup_len34.i, align 8
   %data_buf42.i = getelementptr inbounds nuw i8, ptr %1, i64 280
-  tail call void @usb_device_handle_control(ptr noundef nonnull %1, ptr noundef nonnull %p, i32 noundef %or.i, i32 noundef %11, i32 noundef %14, i32 noundef %19, ptr noundef nonnull %data_buf42.i) #13
+  tail call void @usb_device_handle_control(ptr noundef nonnull %1, ptr noundef nonnull %p, i32 noundef %or.i, i32 noundef %11, i32 noundef %14, i32 noundef %19, ptr noundef nonnull %data_buf42.i) #14
   %20 = load i32, ptr %status, align 4
   %cmp45.i = icmp eq i32 %20, -6
   br i1 %cmp45.i, label %if.end13, label %if.end48.i
@@ -1048,7 +1048,7 @@ if.then59.i:                                      ; preds = %if.end55.i
   br label %if.end65.i
 
 if.end65.i:                                       ; preds = %if.then59.i, %if.end55.i
-  tail call void @usb_pcap_ctrl(ptr noundef nonnull %p, i1 noundef zeroext false) #13
+  tail call void @usb_pcap_ctrl(ptr noundef nonnull %p, i1 noundef zeroext false) #14
   br label %if.end13
 
 if.end:                                           ; preds = %if.then
@@ -1089,7 +1089,7 @@ if.end.i19:                                       ; preds = %sw.bb
 
 if.then10.i:                                      ; preds = %if.end.i19
   %29 = load ptr, ptr @stderr, align 8
-  %call.i34 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.33, i32 noundef %or.i28, i64 noundef 4096) #14
+  %call.i34 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.33, i32 noundef %or.i28, i64 noundef 4096) #15
   store i32 -3, ptr %status, align 4
   br label %if.end13
 
@@ -1113,10 +1113,10 @@ if.then41.i:                                      ; preds = %if.end12.i
   %37 = load i8, ptr %arrayidx19.i, align 1
   %conv20.i = zext i8 %37 to i32
   %or21.i = or disjoint i32 %shl17.i, %conv20.i
-  tail call void @usb_pcap_ctrl(ptr noundef nonnull %p, i1 noundef zeroext true) #13
+  tail call void @usb_pcap_ctrl(ptr noundef nonnull %p, i1 noundef zeroext true) #14
   %38 = load i32, ptr %setup_len13.i, align 8
   %data_buf.i29 = getelementptr inbounds nuw i8, ptr %1, i64 280
-  tail call void @usb_device_handle_control(ptr noundef nonnull %1, ptr noundef nonnull %p, i32 noundef %or21.i, i32 noundef %36, i32 noundef %33, i32 noundef %38, ptr noundef nonnull %data_buf.i29) #13
+  tail call void @usb_device_handle_control(ptr noundef nonnull %1, ptr noundef nonnull %p, i32 noundef %or21.i, i32 noundef %36, i32 noundef %33, i32 noundef %38, ptr noundef nonnull %data_buf.i29) #14
   %39 = load i32, ptr %status, align 4
   %cmp45.i31 = icmp eq i32 %39, -6
   br i1 %cmp45.i31, label %if.then47.i, label %if.end48.i32
@@ -1191,11 +1191,11 @@ sw.bb.i:                                          ; preds = %if.end.i36
   br i1 %tobool.not.i43, label %if.then25.i, label %if.end13
 
 if.then25.i:                                      ; preds = %sw.bb.i
-  tail call void @usb_pcap_ctrl(ptr noundef nonnull %p, i1 noundef zeroext true) #13
+  tail call void @usb_pcap_ctrl(ptr noundef nonnull %p, i1 noundef zeroext true) #14
   %setup_len.i = getelementptr inbounds nuw i8, ptr %1, i64 4384
   %52 = load i32, ptr %setup_len.i, align 8
   %data_buf.i44 = getelementptr inbounds nuw i8, ptr %1, i64 280
-  tail call void @usb_device_handle_control(ptr noundef nonnull %1, ptr noundef nonnull %p, i32 noundef %or.i39, i32 noundef %47, i32 noundef %50, i32 noundef %52, ptr noundef nonnull %data_buf.i44) #13
+  tail call void @usb_device_handle_control(ptr noundef nonnull %1, ptr noundef nonnull %p, i32 noundef %or.i39, i32 noundef %47, i32 noundef %50, i32 noundef %52, ptr noundef nonnull %data_buf.i44) #14
   %53 = load i32, ptr %status, align 4
   %cmp26.i = icmp eq i32 %53, -6
   br i1 %cmp26.i, label %if.end13, label %if.end29.i
@@ -1204,7 +1204,7 @@ if.end29.i:                                       ; preds = %if.then25.i
   store i32 0, ptr %setup_state.i40, align 4
   %actual_length.i46 = getelementptr inbounds nuw i8, ptr %p, i64 88
   store i32 0, ptr %actual_length.i46, align 8
-  tail call void @usb_pcap_ctrl(ptr noundef nonnull %p, i1 noundef zeroext false) #13
+  tail call void @usb_pcap_ctrl(ptr noundef nonnull %p, i1 noundef zeroext false) #14
   br label %if.end13
 
 sw.bb32.i:                                        ; preds = %if.end.i36
@@ -1220,16 +1220,16 @@ if.then38.i:                                      ; preds = %sw.bb32.i
   %conv40.i = sext i32 %sub.i to i64
   %size.i42 = getelementptr inbounds nuw i8, ptr %p, i64 64
   %56 = load i64, ptr %size.i42, align 8
-  %cmp41.i = icmp ult i64 %56, %conv40.i
-  %conv46.i = trunc i64 %56 to i32
-  %spec.select.i = select i1 %cmp41.i, i32 %conv46.i, i32 %sub.i
+  %spec.select35.i = tail call i64 @llvm.umin.i64(i64 %56, i64 %conv40.i)
+  %spec.select.i = trunc i64 %spec.select35.i to i32
   %data_buf48.i = getelementptr inbounds nuw i8, ptr %1, i64 280
   %idx.ext.i = sext i32 %55 to i64
   %add.ptr.i = getelementptr i8, ptr %data_buf48.i, i64 %idx.ext.i
-  %conv51.i = sext i32 %spec.select.i to i64
+  %sext.i = shl i64 %spec.select35.i, 32
+  %conv51.i = ashr exact i64 %sext.i, 32
   tail call void @usb_packet_copy(ptr noundef nonnull %p, ptr noundef %add.ptr.i, i64 noundef %conv51.i)
   %57 = load i32, ptr %setup_index.i41, align 4
-  %add.i = add i32 %spec.select.i, %57
+  %add.i = add i32 %57, %spec.select.i
   store i32 %add.i, ptr %setup_index.i41, align 4
   %58 = load i32, ptr %setup_len39.i, align 8
   %cmp55.not.i = icmp slt i32 %add.i, %58
@@ -1242,7 +1242,7 @@ if.then57.i:                                      ; preds = %if.then38.i
 if.end60.i:                                       ; preds = %sw.bb32.i
   store i32 0, ptr %setup_state.i40, align 4
   store i32 -3, ptr %status, align 4
-  tail call void @usb_pcap_ctrl(ptr noundef nonnull %p, i1 noundef zeroext false) #13
+  tail call void @usb_pcap_ctrl(ptr noundef nonnull %p, i1 noundef zeroext false) #14
   br label %if.end13
 
 sw.default.i:                                     ; preds = %if.end.i36
@@ -1265,7 +1265,7 @@ sw.bb.i63:                                        ; preds = %if.end.i50
 
 if.then3.i:                                       ; preds = %sw.bb.i63
   store i32 0, ptr %setup_state.i51, align 4
-  tail call void @usb_pcap_ctrl(ptr noundef nonnull %p, i1 noundef zeroext false) #13
+  tail call void @usb_pcap_ctrl(ptr noundef nonnull %p, i1 noundef zeroext false) #14
   br label %if.end13
 
 sw.bb7.i:                                         ; preds = %if.end.i50
@@ -1283,16 +1283,16 @@ if.then13.i:                                      ; preds = %sw.bb7.i
   %conv14.i = sext i32 %sub.i55 to i64
   %size.i56 = getelementptr inbounds nuw i8, ptr %p, i64 64
   %64 = load i64, ptr %size.i56, align 8
-  %cmp15.i = icmp ult i64 %64, %conv14.i
-  %conv20.i57 = trunc i64 %64 to i32
-  %spec.select.i58 = select i1 %cmp15.i, i32 %conv20.i57, i32 %sub.i55
-  %data_buf.i59 = getelementptr inbounds nuw i8, ptr %1, i64 280
-  %idx.ext.i60 = sext i32 %63 to i64
-  %add.ptr.i61 = getelementptr i8, ptr %data_buf.i59, i64 %idx.ext.i60
-  %conv23.i = sext i32 %spec.select.i58 to i64
-  tail call void @usb_packet_copy(ptr noundef nonnull %p, ptr noundef %add.ptr.i61, i64 noundef %conv23.i)
+  %spec.select22.i = tail call i64 @llvm.umin.i64(i64 %64, i64 %conv14.i)
+  %spec.select.i57 = trunc i64 %spec.select22.i to i32
+  %data_buf.i58 = getelementptr inbounds nuw i8, ptr %1, i64 280
+  %idx.ext.i59 = sext i32 %63 to i64
+  %add.ptr.i60 = getelementptr i8, ptr %data_buf.i58, i64 %idx.ext.i59
+  %sext.i61 = shl i64 %spec.select22.i, 32
+  %conv23.i = ashr exact i64 %sext.i61, 32
+  tail call void @usb_packet_copy(ptr noundef nonnull %p, ptr noundef %add.ptr.i60, i64 noundef %conv23.i)
   %65 = load i32, ptr %setup_index.i54, align 4
-  %add.i62 = add i32 %spec.select.i58, %65
+  %add.i62 = add i32 %65, %spec.select.i57
   store i32 %add.i62, ptr %setup_index.i54, align 4
   %66 = load i32, ptr %setup_len.i53, align 8
   %cmp27.not.i = icmp slt i32 %add.i62, %66
@@ -1305,7 +1305,7 @@ if.then29.i:                                      ; preds = %if.then13.i
 if.end32.i:                                       ; preds = %sw.bb7.i
   store i32 0, ptr %setup_state.i51, align 4
   store i32 -3, ptr %status, align 4
-  tail call void @usb_pcap_ctrl(ptr noundef nonnull %p, i1 noundef zeroext false) #13
+  tail call void @usb_pcap_ctrl(ptr noundef nonnull %p, i1 noundef zeroext false) #14
   br label %if.end13
 
 sw.default.i66:                                   ; preds = %if.end.i50
@@ -1321,11 +1321,11 @@ if.else:                                          ; preds = %entry
   br i1 %cmp, label %if.end12, label %if.then11
 
 if.then11:                                        ; preds = %if.else
-  tail call void @usb_pcap_data(ptr noundef nonnull %p, i1 noundef zeroext true) #13
+  tail call void @usb_pcap_data(ptr noundef nonnull %p, i1 noundef zeroext true) #14
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then11, %if.else
-  tail call void @usb_device_handle_data(ptr noundef %1, ptr noundef nonnull %p) #13
+  tail call void @usb_device_handle_data(ptr noundef %1, ptr noundef nonnull %p) #14
   br label %if.end13
 
 if.end13:                                         ; preds = %sw.default.i66, %if.end32.i, %if.then29.i, %if.then13.i, %if.then3.i, %sw.bb.i63, %sw.default.i, %if.end60.i, %if.then57.i, %if.then38.i, %if.end29.i, %if.then25.i, %sw.bb.i, %if.end71.i, %if.end48.i32, %if.then10.i, %if.then.i17, %if.end65.i, %if.end40.i, %if.then.i, %sw.default, %if.end12
@@ -1398,16 +1398,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #13
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %13 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %14 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, i32 noundef %3, ptr noundef nonnull %path, i32 noundef range(i32 -1, 256) %conv, ptr noundef nonnull %p, ptr noundef %retval.0.i, ptr noundef %retval.0.i12) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, i32 noundef %3, ptr noundef nonnull %path, i32 noundef range(i32 -1, 256) %conv, ptr noundef nonnull %p, ptr noundef %retval.0.i, ptr noundef %retval.0.i12) #14
   br label %trace_usb_packet_state_change.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %3, ptr noundef nonnull %path, i32 noundef range(i32 -1, 256) %conv, ptr noundef nonnull %p, ptr noundef %retval.0.i, ptr noundef %retval.0.i12) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %3, ptr noundef nonnull %path, i32 noundef range(i32 -1, 256) %conv, ptr noundef nonnull %p, ptr noundef %retval.0.i, ptr noundef %retval.0.i12) #14
   br label %trace_usb_packet_state_change.exit
 
 trace_usb_packet_state_change.exit:               ; preds = %usb_packet_state_name.exit16, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -1459,16 +1459,16 @@ if.then.i.i36:                                    ; preds = %land.lhs.true5.i.i3
   br i1 %tobool7.i.i37, label %if.then8.i.i39, label %if.else.i.i38
 
 if.then8.i.i39:                                   ; preds = %if.then.i.i36
-  %call9.i.i40 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i29, ptr noundef null) #13
-  %call10.i.i41 = tail call i32 @qemu_get_thread_id() #13
+  %call9.i.i40 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i29, ptr noundef null) #14
+  %call10.i.i41 = tail call i32 @qemu_get_thread_id() #14
   %22 = load i64, ptr %_now.i.i29, align 8
   %tv_usec.i.i42 = getelementptr inbounds nuw i8, ptr %_now.i.i29, i64 8
   %23 = load i64, ptr %tv_usec.i.i42, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44, i32 noundef %call10.i.i41, i64 noundef %22, i64 noundef %23, i32 noundef -1, ptr noundef nonnull @.str.16, i32 noundef range(i32 -1, 256) -1, ptr noundef nonnull %p, ptr noundef %retval.0.i18, ptr noundef %retval.0.i24) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44, i32 noundef %call10.i.i41, i64 noundef %22, i64 noundef %23, i32 noundef -1, ptr noundef nonnull @.str.16, i32 noundef range(i32 -1, 256) -1, ptr noundef nonnull %p, ptr noundef %retval.0.i18, ptr noundef %retval.0.i24) #14
   br label %trace_usb_packet_state_change.exit43
 
 if.else.i.i38:                                    ; preds = %if.then.i.i36
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef -1, ptr noundef nonnull @.str.16, i32 noundef range(i32 -1, 256) -1, ptr noundef nonnull %p, ptr noundef %retval.0.i18, ptr noundef %retval.0.i24) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef -1, ptr noundef nonnull @.str.16, i32 noundef range(i32 -1, 256) -1, ptr noundef nonnull %p, ptr noundef %retval.0.i18, ptr noundef %retval.0.i24) #14
   br label %trace_usb_packet_state_change.exit43
 
 trace_usb_packet_state_change.exit43:             ; preds = %usb_packet_state_name.exit28, %land.lhs.true5.i.i33, %if.then8.i.i39, %if.else.i.i38
@@ -1500,7 +1500,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %lor.lhs.false
-  tail call void @__assert_fail(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 470, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_packet_complete_one) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 470, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_packet_complete_one) #13
   unreachable
 
 if.end:                                           ; preds = %entry, %lor.lhs.false
@@ -1513,7 +1513,7 @@ if.end:                                           ; preds = %entry, %lor.lhs.fal
   ]
 
 if.else6:                                         ; preds = %if.end, %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.1, i32 noundef 471, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_packet_complete_one) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.1, i32 noundef 471, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_packet_complete_one) #13
   unreachable
 
 lor.lhs.false10:                                  ; preds = %if.end
@@ -1537,7 +1537,7 @@ if.then15:                                        ; preds = %if.end, %land.lhs.t
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then15, %land.lhs.true12, %lor.lhs.false10
-  tail call void @usb_pcap_data(ptr noundef nonnull %p, i1 noundef zeroext false) #13
+  tail call void @usb_pcap_data(ptr noundef nonnull %p, i1 noundef zeroext false) #14
   tail call void @usb_packet_set_state(ptr noundef nonnull %p, i32 noundef 4)
   %queue17 = getelementptr inbounds nuw i8, ptr %p, i64 104
   %7 = load ptr, ptr %queue17, align 8
@@ -1566,7 +1566,7 @@ if.end30:                                         ; preds = %if.else25, %if.then
   %11 = load ptr, ptr %ops, align 8
   %complete = getelementptr inbounds nuw i8, ptr %11, i64 32
   %12 = load ptr, ptr %complete, align 8
-  tail call void %12(ptr noundef %10, ptr noundef nonnull %p) #13
+  tail call void %12(ptr noundef %10, ptr noundef nonnull %p) #14
   ret void
 }
 
@@ -1581,7 +1581,7 @@ entry:
   br i1 %spec.select.i, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.1, i32 noundef 520, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_cancel_packet) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.1, i32 noundef 520, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_cancel_packet) #13
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -1616,7 +1616,7 @@ if.then21:                                        ; preds = %if.end12
   %6 = load ptr, ptr %ep22, align 8
   %dev = getelementptr inbounds nuw i8, ptr %6, i64 16
   %7 = load ptr, ptr %dev, align 8
-  tail call void @usb_device_cancel_packet(ptr noundef %7, ptr noundef nonnull %p) #13
+  tail call void @usb_device_cancel_packet(ptr noundef %7, ptr noundef nonnull %p) #14
   br label %if.end23
 
 if.end23:                                         ; preds = %if.then21, %if.end12
@@ -1629,7 +1629,7 @@ declare void @usb_device_cancel_packet(ptr noundef, ptr noundef) local_unnamed_a
 define dso_local void @usb_packet_init(ptr noundef %p) local_unnamed_addr #1 {
 entry:
   %iov = getelementptr inbounds nuw i8, ptr %p, i64 32
-  tail call void @qemu_iovec_init(ptr noundef nonnull %iov, i32 noundef 1) #13
+  tail call void @qemu_iovec_init(ptr noundef nonnull %iov, i32 noundef 1) #14
   ret void
 }
 
@@ -1659,16 +1659,16 @@ if.then.i:                                        ; preds = %land.lhs.true5.i
   br i1 %tobool7.i, label %if.then8.i, label %if.else.i
 
 if.then8.i:                                       ; preds = %if.then.i
-  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #13
-  %call10.i = tail call i32 @qemu_get_thread_id() #13
+  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #14
+  %call10.i = tail call i32 @qemu_get_thread_id() #14
   %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds nuw i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef %bus, ptr noundef %port, i32 noundef range(i32 0, 256) %ep, ptr noundef %p, ptr noundef %o, ptr noundef %n) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef %bus, ptr noundef %port, i32 noundef range(i32 0, 256) %ep, ptr noundef %p, ptr noundef %o, ptr noundef %n) #14
   br label %_nocheck__trace_usb_packet_state_fault.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %bus, ptr noundef %port, i32 noundef range(i32 0, 256) %ep, ptr noundef %p, ptr noundef %o, ptr noundef %n) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %bus, ptr noundef %port, i32 noundef range(i32 0, 256) %ep, ptr noundef %p, ptr noundef %o, ptr noundef %n) #14
   br label %_nocheck__trace_usb_packet_state_fault.exit
 
 _nocheck__trace_usb_packet_state_fault.exit:      ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i
@@ -1686,7 +1686,7 @@ entry:
   br i1 %spec.select.i, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.1, i32 noundef 586, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_packet_setup) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.1, i32 noundef 586, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_packet_setup) #13
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -1696,7 +1696,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not, label %if.else4, label %if.end5
 
 if.else4:                                         ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.1, i32 noundef 587, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_packet_setup) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.1, i32 noundef 587, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_packet_setup) #13
   unreachable
 
 if.end5:                                          ; preds = %if.end
@@ -1721,7 +1721,7 @@ if.end5:                                          ; preds = %if.end
   store i8 %frombool1, ptr %int_req13, align 1
   %combined = getelementptr inbounds nuw i8, ptr %p, i64 96
   store ptr null, ptr %combined, align 8
-  tail call void @qemu_iovec_reset(ptr noundef nonnull %iov) #13
+  tail call void @qemu_iovec_reset(ptr noundef nonnull %iov) #14
   tail call void @usb_packet_set_state(ptr noundef nonnull %p, i32 noundef 1)
   ret void
 }
@@ -1732,7 +1732,7 @@ declare void @qemu_iovec_reset(ptr noundef) local_unnamed_addr #3
 define dso_local void @usb_packet_addbuf(ptr noundef %p, ptr noundef %ptr, i64 noundef %len) local_unnamed_addr #1 {
 entry:
   %iov = getelementptr inbounds nuw i8, ptr %p, i64 32
-  tail call void @qemu_iovec_add(ptr noundef nonnull %iov, ptr noundef %ptr, i64 noundef %len) #13
+  tail call void @qemu_iovec_add(ptr noundef nonnull %iov, ptr noundef %ptr, i64 noundef %len) #14
   ret void
 }
 
@@ -1759,7 +1759,7 @@ entry:
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.1, i32 noundef 632, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_packet_skip) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.1, i32 noundef 632, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_packet_skip) #13
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -1771,7 +1771,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp5.not, label %if.else8, label %if.end9
 
 if.else8:                                         ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 633, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_packet_skip) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 633, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_packet_skip) #13
   unreachable
 
 if.end9:                                          ; preds = %if.end
@@ -1783,7 +1783,7 @@ if.then12:                                        ; preds = %if.end9
   %4 = load ptr, ptr %cond, align 8
   %niov = getelementptr inbounds nuw i8, ptr %cond, i64 8
   %5 = load i32, ptr %niov, align 8
-  %call = tail call i64 @iov_memset(ptr noundef %4, i32 noundef %5, i64 noundef %conv, i32 noundef 0, i64 noundef %bytes) #13
+  %call = tail call i64 @iov_memset(ptr noundef %4, i32 noundef %5, i64 noundef %conv, i32 noundef 0, i64 noundef %bytes) #14
   %.pre = load i32, ptr %actual_length, align 8
   br label %if.end16
 
@@ -1820,12 +1820,12 @@ entry:
   br i1 %spec.select.i, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.1, i32 noundef 647, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_packet_cleanup) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.1, i32 noundef 647, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_packet_cleanup) #13
   unreachable
 
 if.end:                                           ; preds = %entry
   %iov = getelementptr inbounds nuw i8, ptr %p, i64 32
-  tail call void @qemu_iovec_destroy(ptr noundef nonnull %iov) #13
+  tail call void @qemu_iovec_destroy(ptr noundef nonnull %iov) #14
   ret void
 }
 
@@ -1990,7 +1990,7 @@ entry:
   %product_desc = getelementptr inbounds nuw i8, ptr %dev, i64 225
   %configuration = getelementptr inbounds nuw i8, ptr %dev, i64 5656
   %1 = load i32, ptr %configuration, align 8
-  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.26, ptr noundef nonnull %product_desc, i32 noundef %1) #14
+  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.26, ptr noundef nonnull %product_desc, i32 noundef %1) #15
   %ep_in = getelementptr inbounds nuw i8, ptr %dev, i64 4432
   %altsetting = getelementptr inbounds nuw i8, ptr %dev, i64 5664
   %ep_out = getelementptr inbounds nuw i8, ptr %dev, i64 5032
@@ -2026,7 +2026,7 @@ if.then:                                          ; preds = %land.lhs.true
 if.then13:                                        ; preds = %if.then
   %7 = load ptr, ptr @stderr, align 8
   %8 = load i32, ptr %arrayidx15, align 4
-  %call16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.27, i32 noundef %2, i32 noundef %8) #14
+  %call16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.27, i32 noundef %2, i32 noundef %8) #15
   %.pre = load i8, ptr %type, align 2
   br label %if.end
 
@@ -2039,7 +2039,7 @@ if.end:                                           ; preds = %if.then13, %if.then
   %max_packet_size = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   %12 = load i32, ptr %max_packet_size, align 4
   %13 = trunc nuw nsw i64 %indvars.iv to i32
-  %call26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.28, i32 noundef %13, ptr noundef %11, i32 noundef %12) #14
+  %call26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.28, i32 noundef %13, ptr noundef %11, i32 noundef %12) #15
   br label %if.end27
 
 if.end27:                                         ; preds = %if.end, %land.lhs.true, %for.body3
@@ -2064,7 +2064,7 @@ if.then42:                                        ; preds = %land.lhs.true34
 if.then44:                                        ; preds = %if.then42
   %17 = load ptr, ptr @stderr, align 8
   %18 = load i32, ptr %arrayidx15, align 4
-  %call48 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.27, i32 noundef %3, i32 noundef %18) #14
+  %call48 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.27, i32 noundef %3, i32 noundef %18) #15
   %.pre39 = load i8, ptr %type30, align 2
   br label %if.end49
 
@@ -2077,7 +2077,7 @@ if.end49:                                         ; preds = %if.then44, %if.then
   %max_packet_size59 = getelementptr inbounds nuw i8, ptr %arrayidx29, i64 4
   %22 = load i32, ptr %max_packet_size59, align 4
   %23 = trunc nuw nsw i64 %indvars.iv to i32
-  %call60 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.29, i32 noundef %23, ptr noundef %21, i32 noundef %22) #14
+  %call60 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.29, i32 noundef %23, ptr noundef %21, i32 noundef %22) #15
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end27, %land.lhs.true34, %if.end49
@@ -2093,7 +2093,7 @@ for.inc62:                                        ; preds = %for.inc
 
 for.end64:                                        ; preds = %for.inc62
   %24 = load ptr, ptr @stderr, align 8
-  %25 = tail call i64 @fwrite(ptr nonnull @.str.30, i64 3, i64 1, ptr %24) #14
+  %25 = tail call i64 @fwrite(ptr nonnull @.str.30, i64 3, i64 1, ptr %24) #15
   ret void
 }
 
@@ -2104,7 +2104,7 @@ entry:
   br i1 %cmp.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 740, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_ep_get) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 740, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_ep_get) #13
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -2123,7 +2123,7 @@ if.end3:                                          ; preds = %if.end
   ]
 
 if.else7:                                         ; preds = %if.end3
-  tail call void @__assert_fail(ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 744, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_ep_get) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 744, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_ep_get) #13
   unreachable
 
 if.end8:                                          ; preds = %if.end3, %if.end3
@@ -2131,7 +2131,7 @@ if.end8:                                          ; preds = %if.end3, %if.end3
   br i1 %or.cond1, label %if.end13, label %if.else12
 
 if.else12:                                        ; preds = %if.end8
-  tail call void @__assert_fail(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.1, i32 noundef 745, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_ep_get) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.1, i32 noundef 745, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_ep_get) #13
   unreachable
 
 if.end13:                                         ; preds = %if.end8
@@ -2154,7 +2154,7 @@ entry:
   br i1 %cmp.not.i, label %if.else.i, label %if.end.i
 
 if.else.i:                                        ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 740, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_ep_get) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 740, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_ep_get) #13
   unreachable
 
 if.end.i:                                         ; preds = %entry
@@ -2173,7 +2173,7 @@ if.end3.i:                                        ; preds = %if.end.i
   ]
 
 if.else7.i:                                       ; preds = %if.end3.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 744, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_ep_get) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 744, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_ep_get) #13
   unreachable
 
 if.end8.i:                                        ; preds = %if.end3.i, %if.end3.i
@@ -2181,7 +2181,7 @@ if.end8.i:                                        ; preds = %if.end3.i, %if.end3
   br i1 %or.cond1.i, label %if.end13.i, label %if.else12.i
 
 if.else12.i:                                      ; preds = %if.end8.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.1, i32 noundef 745, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_ep_get) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.1, i32 noundef 745, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_ep_get) #13
   unreachable
 
 if.end13.i:                                       ; preds = %if.end8.i
@@ -2206,7 +2206,7 @@ entry:
   br i1 %cmp.not.i, label %if.else.i, label %if.end.i
 
 if.else.i:                                        ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 740, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_ep_get) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 740, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_ep_get) #13
   unreachable
 
 if.end.i:                                         ; preds = %entry
@@ -2225,7 +2225,7 @@ if.end3.i:                                        ; preds = %if.end.i
   ]
 
 if.else7.i:                                       ; preds = %if.end3.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 744, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_ep_get) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 744, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_ep_get) #13
   unreachable
 
 if.end8.i:                                        ; preds = %if.end3.i, %if.end3.i
@@ -2233,7 +2233,7 @@ if.end8.i:                                        ; preds = %if.end3.i, %if.end3
   br i1 %or.cond1.i, label %if.end13.i, label %if.else12.i
 
 if.else12.i:                                      ; preds = %if.end8.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.1, i32 noundef 745, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_ep_get) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.1, i32 noundef 745, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_ep_get) #13
   unreachable
 
 if.end13.i:                                       ; preds = %if.end8.i
@@ -2258,7 +2258,7 @@ entry:
   br i1 %cmp.not.i, label %if.else.i, label %if.end.i
 
 if.else.i:                                        ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 740, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_ep_get) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 740, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_ep_get) #13
   unreachable
 
 if.end.i:                                         ; preds = %entry
@@ -2277,7 +2277,7 @@ if.end3.i:                                        ; preds = %if.end.i
   ]
 
 if.else7.i:                                       ; preds = %if.end3.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 744, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_ep_get) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 744, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_ep_get) #13
   unreachable
 
 if.end8.i:                                        ; preds = %if.end3.i, %if.end3.i
@@ -2285,7 +2285,7 @@ if.end8.i:                                        ; preds = %if.end3.i, %if.end3
   br i1 %or.cond1.i, label %if.end13.i, label %if.else12.i
 
 if.else12.i:                                      ; preds = %if.end8.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.1, i32 noundef 745, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_ep_get) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.1, i32 noundef 745, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_ep_get) #13
   unreachable
 
 if.end13.i:                                       ; preds = %if.end8.i
@@ -2310,7 +2310,7 @@ entry:
   br i1 %cmp.not.i, label %if.else.i, label %if.end.i
 
 if.else.i:                                        ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 740, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_ep_get) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 740, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_ep_get) #13
   unreachable
 
 if.end.i:                                         ; preds = %entry
@@ -2329,7 +2329,7 @@ if.end3.i:                                        ; preds = %if.end.i
   ]
 
 if.else7.i:                                       ; preds = %if.end3.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 744, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_ep_get) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 744, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_ep_get) #13
   unreachable
 
 if.end8.i:                                        ; preds = %if.end3.i, %if.end3.i
@@ -2337,7 +2337,7 @@ if.end8.i:                                        ; preds = %if.end3.i, %if.end3
   br i1 %or.cond1.i, label %if.end13.i, label %if.else12.i
 
 if.else12.i:                                      ; preds = %if.end8.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.1, i32 noundef 745, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_ep_get) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.1, i32 noundef 745, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_ep_get) #13
   unreachable
 
 if.end13.i:                                       ; preds = %if.end8.i
@@ -2371,7 +2371,7 @@ entry:
   br i1 %cmp.not.i, label %if.else.i, label %if.end.i
 
 if.else.i:                                        ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 740, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_ep_get) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 740, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_ep_get) #13
   unreachable
 
 if.end.i:                                         ; preds = %entry
@@ -2390,7 +2390,7 @@ if.end3.i:                                        ; preds = %if.end.i
   ]
 
 if.else7.i:                                       ; preds = %if.end3.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 744, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_ep_get) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 744, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_ep_get) #13
   unreachable
 
 if.end8.i:                                        ; preds = %if.end3.i, %if.end3.i
@@ -2398,7 +2398,7 @@ if.end8.i:                                        ; preds = %if.end3.i, %if.end3
   br i1 %or.cond1.i, label %if.end13.i, label %if.else12.i
 
 if.else12.i:                                      ; preds = %if.end8.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.1, i32 noundef 745, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_ep_get) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.1, i32 noundef 745, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_ep_get) #13
   unreachable
 
 if.end13.i:                                       ; preds = %if.end8.i
@@ -2428,7 +2428,7 @@ entry:
   br i1 %cmp.not.i, label %if.else.i, label %if.end.i
 
 if.else.i:                                        ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 740, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_ep_get) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 740, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_ep_get) #13
   unreachable
 
 if.end.i:                                         ; preds = %entry
@@ -2447,7 +2447,7 @@ if.end3.i:                                        ; preds = %if.end.i
   ]
 
 if.else7.i:                                       ; preds = %if.end3.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 744, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_ep_get) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 744, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_ep_get) #13
   unreachable
 
 if.end8.i:                                        ; preds = %if.end3.i, %if.end3.i
@@ -2455,7 +2455,7 @@ if.end8.i:                                        ; preds = %if.end3.i, %if.end3
   br i1 %or.cond1.i, label %if.end13.i, label %if.else12.i
 
 if.else12.i:                                      ; preds = %if.end8.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.1, i32 noundef 745, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_ep_get) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.1, i32 noundef 745, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_ep_get) #13
   unreachable
 
 if.end13.i:                                       ; preds = %if.end8.i
@@ -2481,7 +2481,7 @@ entry:
   br i1 %cmp.not.i, label %if.else.i, label %if.end.i
 
 if.else.i:                                        ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 740, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_ep_get) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 740, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_ep_get) #13
   unreachable
 
 if.end.i:                                         ; preds = %entry
@@ -2500,7 +2500,7 @@ if.end3.i:                                        ; preds = %if.end.i
   ]
 
 if.else7.i:                                       ; preds = %if.end3.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 744, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_ep_get) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 744, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_ep_get) #13
   unreachable
 
 if.end8.i:                                        ; preds = %if.end3.i, %if.end3.i
@@ -2508,7 +2508,7 @@ if.end8.i:                                        ; preds = %if.end3.i, %if.end3
   br i1 %or.cond1.i, label %if.end13.i, label %if.else12.i
 
 if.else12.i:                                      ; preds = %if.end8.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.1, i32 noundef 745, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_ep_get) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.1, i32 noundef 745, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_ep_get) #13
   unreachable
 
 if.end13.i:                                       ; preds = %if.end8.i
@@ -2571,6 +2571,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #12
+
 attributes #0 = { nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2583,9 +2586,10 @@ attributes #8 = { cold nofree nounwind sspstrong uwtable "frame-pointer"="all" "
 attributes #9 = { nofree nounwind }
 attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { noreturn nounwind }
-attributes #13 = { nounwind }
-attributes #14 = { cold }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { noreturn nounwind }
+attributes #14 = { nounwind }
+attributes #15 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

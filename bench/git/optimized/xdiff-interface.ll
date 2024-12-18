@@ -778,8 +778,8 @@ if.else:                                          ; preds = %land.lhs.true5, %if
 if.end13:                                         ; preds = %land.lhs.true5, %if.else, %land.lhs.true, %entry
   %len.addr.0 = phi i64 [ %dec, %if.else ], [ %len, %land.lhs.true ], [ %len, %entry ], [ %sub6, %land.lhs.true5 ]
   %3 = load i32, ptr %priv, align 8
-  %cmp1429 = icmp sgt i32 %3, 0
-  br i1 %cmp1429, label %for.body.lr.ph, label %return
+  %cmp1430 = icmp sgt i32 %3, 0
+  br i1 %cmp1430, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %if.end13
   %array = getelementptr inbounds nuw i8, ptr %priv, i64 8
@@ -816,9 +816,9 @@ for.inc:                                          ; preds = %for.body
 
 for.end:                                          ; preds = %for.inc, %if.then16.for.end_crit_edge
   %8 = phi i32 [ %.pre, %if.then16.for.end_crit_edge ], [ %6, %for.inc ]
-  %i.028.in = phi i64 [ %indvars.iv, %if.then16.for.end_crit_edge ], [ %indvars.iv.next, %for.inc ]
-  %i.028 = trunc i64 %i.028.in to i32
-  %cmp22.not = icmp sgt i32 %8, %i.028
+  %i.029.in = phi i64 [ %indvars.iv, %if.then16.for.end_crit_edge ], [ %indvars.iv.next, %for.inc ]
+  %i.029 = trunc i64 %i.029.in to i32
+  %cmp22.not = icmp sgt i32 %8, %i.029
   br i1 %cmp22.not, label %if.end25, label %return
 
 if.end25:                                         ; preds = %for.end
@@ -834,16 +834,15 @@ if.end25:                                         ; preds = %for.end
   %11 = load i32, ptr %rm_eo, align 4
   %sub38 = sub nsw i32 %11, %10
   %conv39 = sext i32 %sub38 to i64
-  %cmp40 = icmp slt i64 %buffer_size, %conv39
-  %conv43 = trunc i64 %buffer_size to i32
-  %spec.select = select i1 %cmp40, i32 %conv43, i32 %sub38
+  %spec.select27 = call i64 @llvm.smin.i64(i64 %buffer_size, i64 %conv39)
+  %spec.select = trunc i64 %spec.select27 to i32
   %invariant.gep = getelementptr i8, ptr %add.ptr32, i64 -1
-  %cmp4531 = icmp sgt i32 %spec.select, 0
-  br i1 %cmp4531, label %land.rhs, label %while.end
+  %cmp4532 = icmp sgt i32 %spec.select, 0
+  br i1 %cmp4532, label %land.rhs, label %while.end
 
 land.rhs:                                         ; preds = %if.end25, %while.body
-  %result.132 = phi i32 [ %dec55, %while.body ], [ %spec.select, %if.end25 ]
-  %12 = zext nneg i32 %result.132 to i64
+  %result.133 = phi i32 [ %dec55, %while.body ], [ %spec.select, %if.end25 ]
+  %12 = zext nneg i32 %result.133 to i64
   %gep = getelementptr i8, ptr %invariant.gep, i64 %12
   %13 = load i8, ptr %gep, align 1
   %idxprom50 = zext i8 %13 to i64
@@ -854,12 +853,12 @@ land.rhs:                                         ; preds = %if.end25, %while.bo
   br i1 %cmp53.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %land.rhs
-  %dec55 = add nsw i32 %result.132, -1
-  %cmp45 = icmp sgt i32 %result.132, 1
+  %dec55 = add nsw i32 %result.133, -1
+  %cmp45 = icmp sgt i32 %result.133, 1
   br i1 %cmp45, label %land.rhs, label %while.end, !llvm.loop !13
 
 while.end:                                        ; preds = %land.rhs, %while.body, %if.end25
-  %result.1.lcssa = phi i32 [ %spec.select, %if.end25 ], [ 0, %while.body ], [ %result.132, %land.rhs ]
+  %result.1.lcssa = phi i32 [ %spec.select, %if.end25 ], [ 0, %while.body ], [ %result.133, %land.rhs ]
   %conv56 = sext i32 %result.1.lcssa to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buffer, ptr align 1 %add.ptr32, i64 %conv56, i1 false)
   br label %return

@@ -45,37 +45,35 @@ entry:
 if.then:                                          ; preds = %entry
   %sub = sub nuw nsw i32 64, %conv
   %conv2 = zext nneg i32 %sub to i64
-  %cmp = icmp ult i64 %len, %conv2
-  %conv5 = trunc nuw nsw i64 %len to i32
-  %spec.select = select i1 %cmp, i32 %conv5, i32 %sub
+  %spec.select26 = tail call i64 @llvm.umin.i64(i64 %len, i64 %conv2)
+  %spec.select = trunc nuw nsw i64 %spec.select26 to i32
   %buf = getelementptr inbounds nuw i8, ptr %ctx, i64 44
   %idx.ext = and i64 %0, 63
   %add.ptr = getelementptr inbounds nuw i8, ptr %buf, i64 %idx.ext
-  %conv6 = zext nneg i32 %spec.select to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr align 1 %data, i64 %conv6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr align 1 %data, i64 %spec.select26, i1 false)
   %add7 = add i32 %spec.select, %1
   %and8 = and i32 %add7, 63
   %tobool13.not = icmp eq i32 %and8, 0
   br i1 %tobool13.not, label %if.end15, label %if.end27
 
 if.end15:                                         ; preds = %if.then
-  %add.ptr12 = getelementptr inbounds nuw i8, ptr %data, i64 %conv6
-  %sub10 = sub i64 %len, %conv6
+  %add.ptr12 = getelementptr inbounds nuw i8, ptr %data, i64 %spec.select26
+  %sub10 = sub i64 %len, %spec.select26
   tail call fastcc void @blk_SHA256_Transform(ptr noundef nonnull %ctx, ptr noundef nonnull %buf)
   br label %if.end18
 
 if.end18:                                         ; preds = %if.end15, %entry
   %data.addr.0 = phi ptr [ %add.ptr12, %if.end15 ], [ %data, %entry ]
   %len.addr.0 = phi i64 [ %sub10, %if.end15 ], [ %len, %entry ]
-  %cmp1926 = icmp ugt i64 %len.addr.0, 63
-  br i1 %cmp1926, label %while.body, label %while.end
+  %cmp1927 = icmp ugt i64 %len.addr.0, 63
+  br i1 %cmp1927, label %while.body, label %while.end
 
 while.body:                                       ; preds = %if.end18, %while.body
-  %len.addr.128 = phi i64 [ %sub22, %while.body ], [ %len.addr.0, %if.end18 ]
-  %data.addr.127 = phi ptr [ %add.ptr21, %while.body ], [ %data.addr.0, %if.end18 ]
-  tail call fastcc void @blk_SHA256_Transform(ptr noundef %ctx, ptr noundef %data.addr.127)
-  %add.ptr21 = getelementptr inbounds nuw i8, ptr %data.addr.127, i64 64
-  %sub22 = add i64 %len.addr.128, -64
+  %len.addr.129 = phi i64 [ %sub22, %while.body ], [ %len.addr.0, %if.end18 ]
+  %data.addr.128 = phi ptr [ %add.ptr21, %while.body ], [ %data.addr.0, %if.end18 ]
+  tail call fastcc void @blk_SHA256_Transform(ptr noundef %ctx, ptr noundef %data.addr.128)
+  %add.ptr21 = getelementptr inbounds nuw i8, ptr %data.addr.128, i64 64
+  %sub22 = add i64 %len.addr.129, -64
   %cmp19 = icmp ugt i64 %sub22, 63
   br i1 %cmp19, label %while.body, label %while.end, !llvm.loop !5
 
@@ -1898,37 +1896,35 @@ entry:
 if.then.i15:                                      ; preds = %entry
   %sub.i = sub nuw nsw i32 64, %conv.i
   %conv2.i = zext nneg i32 %sub.i to i64
-  %cmp.i = icmp samesign ult i64 %add, %conv2.i
-  %conv5.i = trunc nuw nsw i64 %add to i32
-  %spec.select.i = select i1 %cmp.i, i32 %conv5.i, i32 %sub.i
+  %spec.select26.i = tail call i64 @llvm.umin.i64(i64 %add, i64 %conv2.i)
+  %spec.select.i = trunc nuw nsw i64 %spec.select26.i to i32
   %buf.i = getelementptr inbounds nuw i8, ptr %ctx, i64 44
   %idx.ext.i = and i64 %0, 63
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 %idx.ext.i
-  %conv6.i = zext nneg i32 %spec.select.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i, ptr noundef nonnull align 16 dereferenceable(1) @blk_SHA256_Final.pad, i64 %conv6.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i, ptr noundef nonnull align 16 dereferenceable(1) @blk_SHA256_Final.pad, i64 %spec.select26.i, i1 false)
   %add7.i = add i32 %spec.select.i, %.tr
   %and8.i = and i32 %add7.i, 63
   %tobool13.not.i = icmp eq i32 %and8.i, 0
   br i1 %tobool13.not.i, label %if.end15.i, label %blk_SHA256_Update.exit
 
 if.end15.i:                                       ; preds = %if.then.i15
-  %add.ptr12.i = getelementptr inbounds nuw i8, ptr @blk_SHA256_Final.pad, i64 %conv6.i
-  %sub10.i = sub nsw i64 %add, %conv6.i
+  %add.ptr12.i = getelementptr inbounds nuw i8, ptr @blk_SHA256_Final.pad, i64 %spec.select26.i
+  %sub10.i = sub nsw i64 %add, %spec.select26.i
   tail call fastcc void @blk_SHA256_Transform(ptr noundef nonnull %ctx, ptr noundef nonnull %buf.i)
   br label %if.end18.i
 
 if.end18.i:                                       ; preds = %if.end15.i, %entry
   %data.addr.0.i = phi ptr [ %add.ptr12.i, %if.end15.i ], [ @blk_SHA256_Final.pad, %entry ]
   %len.addr.0.i = phi i64 [ %sub10.i, %if.end15.i ], [ %add, %entry ]
-  %cmp1926.i = icmp ugt i64 %len.addr.0.i, 63
-  br i1 %cmp1926.i, label %while.body.i, label %while.end.i
+  %cmp1927.i = icmp ugt i64 %len.addr.0.i, 63
+  br i1 %cmp1927.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end18.i, %while.body.i
-  %len.addr.128.i = phi i64 [ %sub22.i, %while.body.i ], [ %len.addr.0.i, %if.end18.i ]
-  %data.addr.127.i = phi ptr [ %add.ptr21.i, %while.body.i ], [ %data.addr.0.i, %if.end18.i ]
-  tail call fastcc void @blk_SHA256_Transform(ptr noundef %ctx, ptr noundef %data.addr.127.i)
-  %add.ptr21.i = getelementptr inbounds nuw i8, ptr %data.addr.127.i, i64 64
-  %sub22.i = add i64 %len.addr.128.i, -64
+  %len.addr.129.i = phi i64 [ %sub22.i, %while.body.i ], [ %len.addr.0.i, %if.end18.i ]
+  %data.addr.128.i = phi ptr [ %add.ptr21.i, %while.body.i ], [ %data.addr.0.i, %if.end18.i ]
+  tail call fastcc void @blk_SHA256_Transform(ptr noundef %ctx, ptr noundef %data.addr.128.i)
+  %add.ptr21.i = getelementptr inbounds nuw i8, ptr %data.addr.128.i, i64 64
+  %sub22.i = add i64 %len.addr.129.i, -64
   %cmp19.i = icmp ugt i64 %sub22.i, 63
   br i1 %cmp19.i, label %while.body.i, label %while.end.i, !llvm.loop !5
 
@@ -1950,59 +1946,59 @@ blk_SHA256_Update.exit:                           ; preds = %if.then.i15, %while
   %add.i18 = add i64 %3, 8
   store i64 %add.i18, ptr %size, align 8
   %tobool.not.i19 = icmp eq i32 %conv.i17, 0
-  br i1 %tobool.not.i19, label %if.then24.i43, label %if.then.i20
+  br i1 %tobool.not.i19, label %if.then24.i42, label %if.then.i20
 
 if.then.i20:                                      ; preds = %blk_SHA256_Update.exit
   %sub.i21 = sub nuw nsw i32 64, %conv.i17
-  %spec.select.i24 = tail call i32 @llvm.umin.i32(i32 %sub.i21, i32 8)
+  %5 = tail call i32 @llvm.umin.i32(i32 %sub.i21, i32 8)
+  %spec.select26.i23 = zext nneg i32 %5 to i64
   %buf.i25 = getelementptr inbounds nuw i8, ptr %ctx, i64 44
   %idx.ext.i26 = and i64 %3, 63
   %add.ptr.i27 = getelementptr inbounds nuw i8, ptr %buf.i25, i64 %idx.ext.i26
-  %conv6.i28 = zext nneg i32 %spec.select.i24 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i27, ptr noundef nonnull readonly align 4 dereferenceable(1) %padlen, i64 %conv6.i28, i1 false)
-  %add7.i29 = add i32 %spec.select.i24, %4
-  %and8.i30 = and i32 %add7.i29, 63
-  %tobool13.not.i31 = icmp eq i32 %and8.i30, 0
-  br i1 %tobool13.not.i31, label %while.end.i39, label %for.body.preheader
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i27, ptr noundef nonnull readonly align 4 dereferenceable(1) %padlen, i64 %spec.select26.i23, i1 false)
+  %add7.i28 = add i32 %5, %4
+  %and8.i29 = and i32 %add7.i28, 63
+  %tobool13.not.i30 = icmp eq i32 %and8.i29, 0
+  br i1 %tobool13.not.i30, label %while.end.i38, label %for.body.preheader
 
-while.end.i39:                                    ; preds = %if.then.i20
+while.end.i38:                                    ; preds = %if.then.i20
+  %add.ptr12.i32 = getelementptr inbounds nuw i8, ptr %padlen, i64 %spec.select26.i23
+  %sub10.i33 = sub nuw nsw i64 8, %spec.select26.i23
   tail call fastcc void @blk_SHA256_Transform(ptr noundef nonnull %ctx, ptr noundef nonnull %buf.i25)
-  %sub10.i34 = sub nuw nsw i64 8, %conv6.i28
-  %add.ptr12.i33 = getelementptr inbounds nuw i8, ptr %padlen, i64 %conv6.i28
-  %tobool23.not.i42 = icmp samesign ult i32 %conv.i17, 57
-  br i1 %tobool23.not.i42, label %for.body.preheader, label %if.then24.i43
+  %tobool23.not.i41 = icmp samesign ult i32 %conv.i17, 57
+  br i1 %tobool23.not.i41, label %for.body.preheader, label %if.then24.i42
 
-if.then24.i43:                                    ; preds = %blk_SHA256_Update.exit, %while.end.i39
-  %len.addr.1.lcssa.i4162 = phi i64 [ %sub10.i34, %while.end.i39 ], [ 8, %blk_SHA256_Update.exit ]
-  %data.addr.1.lcssa.i4061 = phi ptr [ %add.ptr12.i33, %while.end.i39 ], [ %padlen, %blk_SHA256_Update.exit ]
-  %buf25.i44 = getelementptr inbounds nuw i8, ptr %ctx, i64 44
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %buf25.i44, ptr noundef nonnull align 1 dereferenceable(1) %data.addr.1.lcssa.i4061, i64 %len.addr.1.lcssa.i4162, i1 false)
+if.then24.i42:                                    ; preds = %blk_SHA256_Update.exit, %while.end.i38
+  %len.addr.1.lcssa.i4057 = phi i64 [ %sub10.i33, %while.end.i38 ], [ 8, %blk_SHA256_Update.exit ]
+  %data.addr.1.lcssa.i3956 = phi ptr [ %add.ptr12.i32, %while.end.i38 ], [ %padlen, %blk_SHA256_Update.exit ]
+  %buf25.i43 = getelementptr inbounds nuw i8, ptr %ctx, i64 44
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %buf25.i43, ptr align 1 %data.addr.1.lcssa.i3956, i64 %len.addr.1.lcssa.i4057, i1 false)
   br label %for.body.preheader
 
-for.body.preheader:                               ; preds = %if.then.i20, %while.end.i39, %if.then24.i43
+for.body.preheader:                               ; preds = %if.then.i20, %while.end.i38, %if.then24.i42
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.body.preheader ]
-  %digest.addr.063 = phi ptr [ %add.ptr, %for.body ], [ %digest, %for.body.preheader ]
+  %digest.addr.058 = phi ptr [ %add.ptr, %for.body ], [ %digest, %for.body.preheader ]
   %arrayidx10 = getelementptr inbounds nuw [8 x i32], ptr %ctx, i64 0, i64 %indvars.iv
-  %5 = load i32, ptr %arrayidx10, align 4
-  %shr.i = lshr i32 %5, 24
-  %conv.i52 = trunc nuw i32 %shr.i to i8
-  store i8 %conv.i52, ptr %digest.addr.063, align 1
-  %shr1.i = lshr i32 %5, 16
-  %conv2.i53 = trunc i32 %shr1.i to i8
-  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %digest.addr.063, i64 1
-  store i8 %conv2.i53, ptr %arrayidx3.i, align 1
-  %shr4.i = lshr i32 %5, 8
-  %conv5.i54 = trunc i32 %shr4.i to i8
-  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %digest.addr.063, i64 2
-  store i8 %conv5.i54, ptr %arrayidx6.i, align 1
-  %conv8.i = trunc i32 %5 to i8
-  %arrayidx9.i = getelementptr inbounds nuw i8, ptr %digest.addr.063, i64 3
+  %6 = load i32, ptr %arrayidx10, align 4
+  %shr.i = lshr i32 %6, 24
+  %conv.i51 = trunc nuw i32 %shr.i to i8
+  store i8 %conv.i51, ptr %digest.addr.058, align 1
+  %shr1.i = lshr i32 %6, 16
+  %conv2.i52 = trunc i32 %shr1.i to i8
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %digest.addr.058, i64 1
+  store i8 %conv2.i52, ptr %arrayidx3.i, align 1
+  %shr4.i = lshr i32 %6, 8
+  %conv5.i = trunc i32 %shr4.i to i8
+  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %digest.addr.058, i64 2
+  store i8 %conv5.i, ptr %arrayidx6.i, align 1
+  %conv8.i = trunc i32 %6 to i8
+  %arrayidx9.i = getelementptr inbounds nuw i8, ptr %digest.addr.058, i64 3
   store i8 %conv8.i, ptr %arrayidx9.i, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %add.ptr = getelementptr inbounds nuw i8, ptr %digest.addr.063, i64 4
+  %add.ptr = getelementptr inbounds nuw i8, ptr %digest.addr.058, i64 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
 
@@ -2012,6 +2008,9 @@ for.end:                                          ; preds = %for.body
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #4
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #4

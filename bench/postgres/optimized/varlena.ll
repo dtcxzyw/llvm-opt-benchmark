@@ -3770,7 +3770,7 @@ define internal i64 @varstr_abbrev_convert(i64 noundef %0, ptr nocapture noundef
   %44 = tail call i32 @llvm.umin.i32(i32 %.0, i32 8)
   %45 = zext nneg i32 %44 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3, ptr nonnull align 1 %12, i64 %45, i1 false)
-  br label %131
+  br label %130
 
 46:                                               ; preds = %39
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -3822,7 +3822,7 @@ define internal i64 @varstr_abbrev_convert(i64 noundef %0, ptr nocapture noundef
   %spec.select125 = zext nneg i32 %narrow132 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3, ptr align 1 %68, i64 %spec.select125, i1 false)
   %.0..0..0..0.105.pre = load i64, ptr %3, align 8
-  br label %146
+  br label %145
 
 71:                                               ; preds = %._crit_edge, %63, %59
   %72 = phi ptr [ %.pre, %._crit_edge ], [ %.pre133, %63 ], [ %.pre133, %59 ]
@@ -3887,79 +3887,79 @@ define internal i64 @varstr_abbrev_convert(i64 noundef %0, ptr nocapture noundef
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %109 = phi i32 [ %125, %.lr.ph ], [ %89, %.preheader ]
-  %110 = phi i64 [ %123, %.lr.ph ], [ %86, %.preheader ]
+  %109 = phi i32 [ %124, %.lr.ph ], [ %89, %.preheader ]
+  %110 = phi i64 [ %122, %.lr.ph ], [ %86, %.preheader ]
   %111 = add i64 %110, 1
   %112 = shl i32 %109, 1
   %narrow131 = tail call i32 @llvm.umin.i32(i32 %112, i32 1073741823)
   %spec.select127 = zext nneg i32 %narrow131 to i64
-  %113 = icmp ugt i64 %111, %spec.select127
-  %114 = trunc i64 %111 to i32
-  %115 = select i1 %113, i32 %114, i32 %narrow131
-  store i32 %115, ptr %80, align 4
-  %116 = load ptr, ptr %79, align 8
-  %117 = sext i32 %115 to i64
-  %118 = tail call ptr @repalloc(ptr noundef %116, i64 noundef %117) #19
-  store ptr %118, ptr %79, align 8
-  %119 = load ptr, ptr %5, align 8
-  %120 = load i32, ptr %80, align 4
-  %121 = sext i32 %120 to i64
-  %122 = load ptr, ptr %76, align 8
-  %123 = tail call i64 @pg_strxfrm(ptr noundef %118, ptr noundef %119, i64 noundef %121, ptr noundef %122) #19
-  %124 = trunc i64 %123 to i32
-  store i32 %124, ptr %88, align 4
-  %125 = load i32, ptr %80, align 4
-  %126 = sext i32 %125 to i64
-  %127 = icmp ult i64 %123, %126
-  br i1 %127, label %.loopexit, label %.lr.ph
+  %113 = tail call i64 @llvm.umax.i64(i64 %111, i64 %spec.select127)
+  %114 = trunc i64 %113 to i32
+  store i32 %114, ptr %80, align 4
+  %115 = load ptr, ptr %79, align 8
+  %sext = shl i64 %113, 32
+  %116 = ashr exact i64 %sext, 32
+  %117 = tail call ptr @repalloc(ptr noundef %115, i64 noundef %116) #19
+  store ptr %117, ptr %79, align 8
+  %118 = load ptr, ptr %5, align 8
+  %119 = load i32, ptr %80, align 4
+  %120 = sext i32 %119 to i64
+  %121 = load ptr, ptr %76, align 8
+  %122 = tail call i64 @pg_strxfrm(ptr noundef %117, ptr noundef %118, i64 noundef %120, ptr noundef %121) #19
+  %123 = trunc i64 %122 to i32
+  store i32 %123, ptr %88, align 4
+  %124 = load i32, ptr %80, align 4
+  %125 = sext i32 %124 to i64
+  %126 = icmp ult i64 %122, %125
+  br i1 %126, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %102
-  %.0103 = phi i64 [ %106, %102 ], [ %86, %.preheader ], [ %123, %.lr.ph ]
-  %128 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %129 = load ptr, ptr %128, align 8
-  %130 = tail call i64 @llvm.umin.i64(i64 %.0103, i64 8)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3, ptr align 1 %129, i64 %130, i1 false)
-  br label %131
+  %.0103 = phi i64 [ %106, %102 ], [ %86, %.preheader ], [ %122, %.lr.ph ]
+  %127 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %128 = load ptr, ptr %127, align 8
+  %129 = tail call i64 @llvm.umin.i64(i64 %.0103, i64 8)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3, ptr align 1 %128, i64 %129, i1 false)
+  br label %130
 
-131:                                              ; preds = %.loopexit, %43
-  %132 = tail call i32 @llvm.smin.i32(i32 %.0, i32 128)
-  %133 = tail call i32 @hash_bytes(ptr noundef nonnull %12, i32 noundef %132) #19
-  %134 = icmp sgt i32 %.0, 128
-  br i1 %134, label %135, label %138
+130:                                              ; preds = %.loopexit, %43
+  %131 = tail call i32 @llvm.smin.i32(i32 %.0, i32 128)
+  %132 = tail call i32 @hash_bytes(ptr noundef nonnull %12, i32 noundef %131) #19
+  %133 = icmp sgt i32 %.0, 128
+  br i1 %133, label %134, label %137
 
-135:                                              ; preds = %131
-  %136 = tail call i32 @hash_bytes_uint32(i32 noundef %.0) #19
-  %137 = xor i32 %136, %133
-  br label %138
+134:                                              ; preds = %130
+  %135 = tail call i32 @hash_bytes_uint32(i32 noundef %.0) #19
+  %136 = xor i32 %135, %132
+  br label %137
 
-138:                                              ; preds = %135, %131
-  %.0102 = phi i32 [ %137, %135 ], [ %133, %131 ]
-  %139 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  tail call void @addHyperLogLog(ptr noundef nonnull %139, i32 noundef %.0102) #19
+137:                                              ; preds = %134, %130
+  %.0102 = phi i32 [ %136, %134 ], [ %132, %130 ]
+  %138 = getelementptr inbounds nuw i8, ptr %5, i64 88
+  tail call void @addHyperLogLog(ptr noundef nonnull %138, i32 noundef %.0102) #19
   %.0..0..0..0. = load i64, ptr %3, align 8
-  %140 = lshr i64 %.0..0..0..0., 32
-  %141 = xor i64 %140, %.0..0..0..0.
-  %142 = trunc i64 %141 to i32
-  %143 = tail call i32 @hash_bytes_uint32(i32 noundef %142) #19
-  %144 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  tail call void @addHyperLogLog(ptr noundef nonnull %144, i32 noundef %143) #19
-  %145 = getelementptr inbounds nuw i8, ptr %5, i64 36
-  store i8 1, ptr %145, align 4
-  br label %146
+  %139 = lshr i64 %.0..0..0..0., 32
+  %140 = xor i64 %139, %.0..0..0..0.
+  %141 = trunc i64 %140 to i32
+  %142 = tail call i32 @hash_bytes_uint32(i32 noundef %141) #19
+  %143 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  tail call void @addHyperLogLog(ptr noundef nonnull %143, i32 noundef %142) #19
+  %144 = getelementptr inbounds nuw i8, ptr %5, i64 36
+  store i8 1, ptr %144, align 4
+  br label %145
 
-146:                                              ; preds = %138, %66
-  %.0..0..0.105 = phi i64 [ %.0..0..0..0., %138 ], [ %.0..0..0..0.105.pre, %66 ]
-  %147 = ptrtoint ptr %7 to i64
-  %.not122 = icmp eq i64 %0, %147
-  br i1 %.not122, label %149, label %148
+145:                                              ; preds = %137, %66
+  %.0..0..0.105 = phi i64 [ %.0..0..0..0., %137 ], [ %.0..0..0..0.105.pre, %66 ]
+  %146 = ptrtoint ptr %7 to i64
+  %.not122 = icmp eq i64 %0, %146
+  br i1 %.not122, label %148, label %147
 
-148:                                              ; preds = %146
+147:                                              ; preds = %145
   tail call void @pfree(ptr noundef nonnull %7) #19
-  br label %149
+  br label %148
 
-149:                                              ; preds = %148, %146
-  %150 = tail call i64 @llvm.bswap.i64(i64 %.0..0..0.105)
-  ret i64 %150
+148:                                              ; preds = %147, %145
+  %149 = tail call i64 @llvm.bswap.i64(i64 %.0..0..0.105)
+  ret i64 %149
 }
 
 ; Function Attrs: nounwind uwtable
@@ -14354,6 +14354,9 @@ declare i32 @llvm.scmp.i32.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #14
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #17

@@ -1482,7 +1482,7 @@ define void @lv_draw_sw_mask_radius_init(ptr nocapture noundef initializes((0, 1
 30:                                               ; preds = %4
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr null, ptr %31, align 8, !tbaa !13
-  br label %315
+  br label %314
 
 32:                                               ; preds = %4
   %33 = tail call i32 @lv_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 556)) #7
@@ -1517,7 +1517,7 @@ define void @lv_draw_sw_mask_radius_init(ptr nocapture noundef initializes((0, 1
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %36, ptr %50, align 8, !tbaa !13
   %51 = tail call i32 @lv_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 556)) #7
-  br label %315
+  br label %314
 
 .preheader71:                                     ; preds = %34, %63
   %indvars.iv88 = phi i64 [ %indvars.iv.next89, %63 ], [ 0, %34 ]
@@ -1940,9 +1940,9 @@ circ_next.exit.i:                                 ; preds = %127, %123
   %285 = zext nneg i32 %.3182.lcssa.i to i64
   br label %286
 
-286:                                              ; preds = %312, %.lr.ph251.i
-  %indvars.iv272.i = phi i64 [ 0, %.lr.ph251.i ], [ %indvars.iv.next273.i, %312 ]
-  %.2248.i = phi i32 [ 0, %.lr.ph251.i ], [ %.3.lcssa.i, %312 ]
+286:                                              ; preds = %311, %.lr.ph251.i
+  %indvars.iv272.i = phi i64 [ 0, %.lr.ph251.i ], [ %indvars.iv.next273.i, %311 ]
+  %.2248.i = phi i32 [ 0, %.lr.ph251.i ], [ %.3.lcssa.i, %311 ]
   %287 = trunc i32 %.2248.i to i16
   %288 = getelementptr inbounds nuw i16, ptr %282, i64 %indvars.iv272.i
   store i16 %287, ptr %288, align 2, !tbaa !60
@@ -1956,48 +1956,47 @@ circ_next.exit.i:                                 ; preds = %127, %123
   %295 = load i32, ptr %294, align 4, !tbaa !61
   %296 = zext i32 %295 to i64
   %297 = icmp eq i64 %indvars.iv272.i, %296
-  br i1 %297, label %.lr.ph245.i, label %312
+  br i1 %297, label %.lr.ph245.i, label %311
 
 .lr.ph245.i:                                      ; preds = %286, %.lr.ph245.i
   %indvars.iv270.i = phi i64 [ %indvars.iv.next271.i, %.lr.ph245.i ], [ %289, %286 ]
-  %298 = phi i16 [ %304, %.lr.ph245.i ], [ %292, %286 ]
-  %299 = zext i16 %298 to i32
+  %298 = phi i32 [ %302, %.lr.ph245.i ], [ %291, %286 ]
+  %299 = and i32 %298, 65535
   %300 = getelementptr inbounds i32, ptr %109, i64 %indvars.iv270.i
   %301 = load i32, ptr %300, align 4, !tbaa !61
-  %302 = icmp sgt i32 %301, %299
-  %303 = trunc i32 %301 to i16
-  %304 = select i1 %302, i16 %298, i16 %303
+  %302 = tail call i32 @llvm.smin.i32(i32 %301, i32 %299)
   %indvars.iv.next271.i = add nsw i64 %indvars.iv270.i, 1
-  %305 = getelementptr inbounds i32, ptr %111, i64 %indvars.iv.next271.i
-  %306 = load i32, ptr %305, align 4, !tbaa !61
-  %307 = zext i32 %306 to i64
-  %308 = icmp eq i64 %indvars.iv272.i, %307
-  %309 = icmp slt i64 %indvars.iv.next271.i, %285
-  %310 = and i1 %309, %308
-  br i1 %310, label %.lr.ph245.i, label %._crit_edge246.i, !llvm.loop !65
+  %303 = getelementptr inbounds i32, ptr %111, i64 %indvars.iv.next271.i
+  %304 = load i32, ptr %303, align 4, !tbaa !61
+  %305 = zext i32 %304 to i64
+  %306 = icmp eq i64 %indvars.iv272.i, %305
+  %307 = icmp slt i64 %indvars.iv.next271.i, %285
+  %308 = and i1 %307, %306
+  br i1 %308, label %.lr.ph245.i, label %._crit_edge246.i, !llvm.loop !65
 
 ._crit_edge246.i:                                 ; preds = %.lr.ph245.i
-  %311 = trunc nsw i64 %indvars.iv.next271.i to i32
-  store i16 %304, ptr %293, align 2, !tbaa !60
-  br label %312
+  %309 = trunc i32 %302 to i16
+  %310 = trunc nsw i64 %indvars.iv.next271.i to i32
+  store i16 %309, ptr %293, align 2, !tbaa !60
+  br label %311
 
-312:                                              ; preds = %._crit_edge246.i, %286
-  %.3.lcssa.i = phi i32 [ %311, %._crit_edge246.i ], [ %.2248.i, %286 ]
+311:                                              ; preds = %._crit_edge246.i, %286
+  %.3.lcssa.i = phi i32 [ %310, %._crit_edge246.i ], [ %.2248.i, %286 ]
   %indvars.iv.next273.i = add nuw nsw i64 %indvars.iv272.i, 1
-  %313 = icmp slt i32 %.3.lcssa.i, %.3182.lcssa.i
-  br i1 %313, label %286, label %._crit_edge252.i, !llvm.loop !66
+  %312 = icmp slt i32 %.3.lcssa.i, %.3182.lcssa.i
+  br i1 %312, label %286, label %._crit_edge252.i, !llvm.loop !66
 
-._crit_edge252.i:                                 ; preds = %312, %._crit_edge.i
+._crit_edge252.i:                                 ; preds = %311, %._crit_edge.i
   tail call void @lv_free(ptr noundef nonnull %109) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
   br label %circ_calc_aa4.exit
 
 circ_calc_aa4.exit:                               ; preds = %100, %._crit_edge252.i
-  %314 = tail call i32 @lv_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 556)) #7
-  br label %315
+  %313 = tail call i32 @lv_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 556)) #7
+  br label %314
 
-315:                                              ; preds = %40, %circ_calc_aa4.exit, %30
+314:                                              ; preds = %40, %circ_calc_aa4.exit, %30
   ret void
 }
 

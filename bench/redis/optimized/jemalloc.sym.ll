@@ -8376,8 +8376,8 @@ if.then24:                                        ; preds = %sz_size2index.exit2
 
 if.end29:                                         ; preds = %if.then24, %sz_size2index.exit211
   %nregs.0 = phi i64 [ %conv26, %if.then24 ], [ 0, %sz_size2index.exit211 ]
-  %cmp30235.not = icmp eq i64 %num, 0
-  br i1 %cmp30235.not, label %label_done, label %while.body.lr.ph
+  %cmp30236.not = icmp eq i64 %num, 0
+  br i1 %cmp30236.not, label %label_done, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end29
   %cmp.i158.not = icmp ult i32 %flags, 1048576
@@ -8401,16 +8401,16 @@ while.body.lr.ph:                                 ; preds = %if.end29
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end140
-  %bin.0238 = phi ptr [ null, %while.body.lr.ph ], [ %bin.1, %if.end140 ]
-  %filled.1237 = phi i64 [ 0, %while.body.lr.ph ], [ %filled.4, %if.end140 ]
-  %arena.0236 = phi ptr [ null, %while.body.lr.ph ], [ %arena.1, %if.end140 ]
-  %sub = sub nuw i64 %num, %filled.1237
+  %bin.0239 = phi ptr [ null, %while.body.lr.ph ], [ %bin.1, %if.end140 ]
+  %filled.1238 = phi i64 [ 0, %while.body.lr.ph ], [ %filled.4, %if.end140 ]
+  %arena.0237 = phi ptr [ null, %while.body.lr.ph ], [ %arena.1, %if.end140 ]
+  %sub = sub nuw i64 %num, %filled.1238
   %cmp45.not = icmp ult i64 %sub, %nregs.0
   %or.cond187 = select i1 %cmp16, i1 true, i1 %cmp45.not
   br i1 %or.cond187, label %if.end77, label %if.then47
 
 if.then47:                                        ; preds = %while.body
-  %cmp48 = icmp eq ptr %arena.0236, null
+  %cmp48 = icmp eq ptr %arena.0237, null
   br i1 %cmp48, label %if.then50, label %if.end70
 
 if.then50:                                        ; preds = %if.then47
@@ -8442,17 +8442,17 @@ if.end59:                                         ; preds = %arena_get_from_ind.
   br i1 %cmp60, label %label_done, label %if.end70
 
 if.end70:                                         ; preds = %arena_get.exit, %if.end59, %if.then47
-  %arena.2 = phi ptr [ %call58, %if.end59 ], [ %arena.0236, %if.then47 ], [ %ret.0.i, %arena_get.exit ]
+  %arena.2 = phi ptr [ %call58, %if.end59 ], [ %arena.0237, %if.then47 ], [ %ret.0.i, %arena_get.exit ]
   %rem = urem i64 %sub, %nregs.0
   %sub71 = sub i64 %sub, %rem
-  %add.ptr = getelementptr inbounds ptr, ptr %ptrs, i64 %filled.1237
+  %add.ptr = getelementptr inbounds ptr, ptr %ptrs, i64 %filled.1238
   %call74 = call i64 @arena_fill_small_fresh(ptr noundef nonnull %retval.i294.0204, ptr noundef nonnull %arena.2, i32 noundef %retval.i201.0, ptr noundef %add.ptr, i64 noundef %sub71, i1 noundef zeroext %retval.i166.0) #18
-  %add76 = add i64 %call74, %filled.1237
+  %add76 = add i64 %call74, %filled.1238
   br label %if.end77
 
 if.end77:                                         ; preds = %if.end70, %while.body
-  %arena.1 = phi ptr [ %arena.2, %if.end70 ], [ %arena.0236, %while.body ]
-  %filled.2 = phi i64 [ %add76, %if.end70 ], [ %filled.1237, %while.body ]
+  %arena.1 = phi ptr [ %arena.2, %if.end70 ], [ %arena.0237, %while.body ]
+  %filled.2 = phi i64 [ %add76, %if.end70 ], [ %filled.1238, %while.body ]
   %progress.0 = phi i64 [ %call74, %if.end70 ], [ 0, %while.body ]
   %21 = load i32, ptr @nhbins, align 4
   %cmp78 = icmp ult i32 %retval.i201.0, %21
@@ -8461,7 +8461,7 @@ if.end77:                                         ; preds = %if.end70, %while.bo
   br i1 %or.cond188, label %if.then89, label %if.end121
 
 if.then89:                                        ; preds = %if.end77
-  %cmp90 = icmp eq ptr %bin.0238, null
+  %cmp90 = icmp eq ptr %bin.0239, null
   br i1 %cmp90, label %if.then92, label %if.then104
 
 if.then92:                                        ; preds = %if.then89
@@ -8513,7 +8513,7 @@ if.then97:                                        ; preds = %if.then18.i, %tcach
   br label %if.then104
 
 if.then104:                                       ; preds = %if.then89, %if.then97
-  %bin.2 = phi ptr [ %arrayidx99, %if.then97 ], [ %bin.0238, %if.then89 ]
+  %bin.2 = phi ptr [ %arrayidx99, %if.then97 ], [ %bin.0239, %if.then89 ]
   %sub105 = sub i64 %sub, %progress.0
   %add.ptr107 = getelementptr ptr, ptr %ptrs, i64 %filled.2
   %bin.2.val = load ptr, ptr %bin.2, align 8
@@ -8524,14 +8524,11 @@ if.then104:                                       ; preds = %if.then89, %if.then
   %sub.i.i200 = sub i16 %bin.2.val190, %conv.i
   %28 = lshr i16 %sub.i.i200, 3
   %conv.i223 = zext nneg i16 %28 to i64
-  %cmp.i224 = icmp ult i64 %sub105, %conv.i223
-  %conv2.i = trunc nuw nsw i64 %sub105 to i16
-  %spec.select = select i1 %cmp.i224, i16 %conv2.i, i16 %28
-  %conv3.i = zext i16 %spec.select to i64
-  %mul.i = shl nuw nsw i64 %conv3.i, 3
+  %spec.select233 = call i64 @llvm.umin.i64(i64 %sub105, i64 %conv.i223)
+  %mul.i = shl nuw nsw i64 %spec.select233, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %add.ptr107, ptr align 8 %bin.2.val, i64 %mul.i, i1 false)
   %29 = load ptr, ptr %bin.2, align 8
-  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %29, i64 %conv3.i
+  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %29, i64 %spec.select233
   store ptr %add.ptr.i, ptr %bin.2, align 8
   %bin.val3.i = load i16, ptr %26, align 4
   %30 = ptrtoint ptr %add.ptr.i to i64
@@ -8552,29 +8549,29 @@ if.then.i:                                        ; preds = %if.then104
 cache_bin_low_water_adjust.exit:                  ; preds = %if.then104, %if.then.i
   %tstats = getelementptr inbounds nuw i8, ptr %bin.2, i64 8
   %34 = load i64, ptr %tstats, align 8
-  %add110 = add i64 %34, %conv3.i
+  %add110 = add i64 %34, %spec.select233
   store i64 %add110, ptr %tstats, align 8
-  %cmp113233 = icmp ne i16 %spec.select, 0
-  %or.cond242 = and i1 %retval.i166.0, %cmp113233
-  br i1 %or.cond242, label %for.body, label %if.end117
+  %cmp113234 = icmp ne i64 %spec.select233, 0
+  %or.cond243 = and i1 %retval.i166.0, %cmp113234
+  br i1 %or.cond243, label %for.body, label %if.end117
 
 for.body:                                         ; preds = %cache_bin_low_water_adjust.exit, %for.body
-  %i.0234 = phi i64 [ %inc, %for.body ], [ 0, %cache_bin_low_water_adjust.exit ]
-  %arrayidx116 = getelementptr ptr, ptr %add.ptr107, i64 %i.0234
+  %i.0235 = phi i64 [ %inc, %for.body ], [ 0, %cache_bin_low_water_adjust.exit ]
+  %arrayidx116 = getelementptr ptr, ptr %add.ptr107, i64 %i.0235
   %35 = load ptr, ptr %arrayidx116, align 8
   call void @llvm.memset.p0.i64(ptr align 1 %35, i8 0, i64 %usize.1, i1 false)
-  %inc = add nuw nsw i64 %i.0234, 1
-  %exitcond.not = icmp eq i64 %inc, %conv3.i
+  %inc = add nuw nsw i64 %i.0235, 1
+  %exitcond.not = icmp eq i64 %inc, %spec.select233
   br i1 %exitcond.not, label %if.end117, label %for.body, !llvm.loop !14
 
 if.end117:                                        ; preds = %for.body, %cache_bin_low_water_adjust.exit
-  %add118 = add i64 %progress.0, %conv3.i
-  %add119 = add i64 %filled.2, %conv3.i
+  %add118 = add i64 %spec.select233, %progress.0
+  %add119 = add i64 %spec.select233, %filled.2
   br label %if.end121
 
 if.end121:                                        ; preds = %if.then92, %mallocx_tcache_get.exit, %if.then18.i, %tcache_get_from_ind.exit, %if.end117, %if.end77
   %filled.3 = phi i64 [ %add119, %if.end117 ], [ %filled.2, %if.end77 ], [ %filled.2, %tcache_get_from_ind.exit ], [ %filled.2, %if.then18.i ], [ %filled.2, %mallocx_tcache_get.exit ], [ %filled.2, %if.then92 ]
-  %bin.1 = phi ptr [ %bin.2, %if.end117 ], [ %bin.0238, %if.end77 ], [ null, %tcache_get_from_ind.exit ], [ null, %if.then18.i ], [ null, %mallocx_tcache_get.exit ], [ null, %if.then92 ]
+  %bin.1 = phi ptr [ %bin.2, %if.end117 ], [ %bin.0239, %if.end77 ], [ null, %tcache_get_from_ind.exit ], [ null, %if.then18.i ], [ null, %mallocx_tcache_get.exit ], [ null, %if.then92 ]
   %progress.1 = phi i64 [ %add118, %if.end117 ], [ %progress.0, %if.end77 ], [ %progress.0, %tcache_get_from_ind.exit ], [ %progress.0, %if.then18.i ], [ %progress.0, %mallocx_tcache_get.exit ], [ %progress.0, %if.then92 ]
   %mul = mul i64 %progress.1, %usize.1
   store i8 1, ptr %ctx.i, align 8
@@ -8615,7 +8612,7 @@ if.end140:                                        ; preds = %te_event_advance.ex
   br i1 %cmp30, label %while.body, label %label_done, !llvm.loop !15
 
 label_done:                                       ; preds = %arena_get_from_ind.exit, %if.end59, %if.then126, %if.end140, %if.end29, %sz_s2u.exit.i, %if.end5.i346, %if.end.i233, %tsd_fetch_impl.exit, %if.end26.i, %lor.rhs
-  %filled.0 = phi i64 [ 0, %lor.rhs ], [ 0, %if.end26.i ], [ 0, %tsd_fetch_impl.exit ], [ 0, %if.end.i233 ], [ 0, %if.end5.i346 ], [ 0, %sz_s2u.exit.i ], [ 0, %if.end29 ], [ %filled.1237, %arena_get_from_ind.exit ], [ %filled.1237, %if.end59 ], [ %filled.3, %if.then126 ], [ %filled.4, %if.end140 ]
+  %filled.0 = phi i64 [ 0, %lor.rhs ], [ 0, %if.end26.i ], [ 0, %tsd_fetch_impl.exit ], [ 0, %if.end.i233 ], [ 0, %if.end5.i346 ], [ 0, %sz_s2u.exit.i ], [ 0, %if.end29 ], [ %filled.1238, %arena_get_from_ind.exit ], [ %filled.1238, %if.end59 ], [ %filled.3, %if.then126 ], [ %filled.4, %if.end140 ]
   ret i64 %filled.0
 }
 

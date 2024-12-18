@@ -1637,8 +1637,8 @@ if.end.i58.i:                                     ; preds = %if.end57.i
 
 if.end.if.end17_crit_edge.i.i:                    ; preds = %if.end.i58.i
   %.pre.i.i = load ptr, ptr %dictBase.i.i, align 8
-  %.pre34.i.i = load i32, ptr %lowLimit.i.i, align 4
-  %.pre35.i.i = load i32, ptr %dictLimit.i.i, align 8
+  %.pre35.i.i = load i32, ptr %lowLimit.i.i, align 4
+  %.pre36.i.i = load i32, ptr %dictLimit.i.i, align 8
   br label %if.end17.i.i
 
 if.then2.i.i:                                     ; preds = %if.end.i58.i
@@ -1663,8 +1663,8 @@ if.then13.i.i:                                    ; preds = %if.then2.i.i
   br label %if.end17.i.i
 
 if.end17.i.i:                                     ; preds = %if.then13.i.i, %if.then2.i.i, %if.end.if.end17_crit_edge.i.i
-  %85 = phi i32 [ %.pre35.i.i, %if.end.if.end17_crit_edge.i.i ], [ %conv.i.i, %if.then13.i.i ], [ %conv.i.i, %if.then2.i.i ]
-  %86 = phi i32 [ %.pre34.i.i, %if.end.if.end17_crit_edge.i.i ], [ %conv.i.i, %if.then13.i.i ], [ %84, %if.then2.i.i ]
+  %85 = phi i32 [ %.pre36.i.i, %if.end.if.end17_crit_edge.i.i ], [ %conv.i.i, %if.then13.i.i ], [ %conv.i.i, %if.then2.i.i ]
+  %86 = phi i32 [ %.pre35.i.i, %if.end.if.end17_crit_edge.i.i ], [ %conv.i.i, %if.then13.i.i ], [ %84, %if.then2.i.i ]
   %87 = phi ptr [ %.pre.i.i, %if.end.if.end17_crit_edge.i.i ], [ %83, %if.then13.i.i ], [ %83, %if.then2.i.i ]
   store ptr %add.ptr.i, ptr %ldmState.i, align 8
   %idx.ext.i.i = zext i32 %86 to i64
@@ -1680,9 +1680,8 @@ if.then33.i.i:                                    ; preds = %if.end17.i.i
   %sub.ptr.lhs.cast36.i.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast37.i.i = ptrtoint ptr %87 to i64
   %sub.ptr.sub38.i.i = sub i64 %sub.ptr.lhs.cast36.i.i, %sub.ptr.rhs.cast37.i.i
-  %cmp41.i.i = icmp sgt i64 %sub.ptr.sub38.i.i, %idx.ext28.i.i
-  %conv44.i.i = trunc i64 %sub.ptr.sub38.i.i to i32
-  %cond.i.i = select i1 %cmp41.i.i, i32 %85, i32 %conv44.i.i
+  %cond34.i.i = call i64 @llvm.smin.i64(i64 %sub.ptr.sub38.i.i, i64 %idx.ext28.i.i)
+  %cond.i.i = trunc i64 %cond34.i.i to i32
   store i32 %cond.i.i, ptr %lowLimit.i.i, align 4
   br label %ZSTD_window_update.exit.i
 
@@ -3380,9 +3379,9 @@ if.end.if.end17_crit_edge.i.i:                    ; preds = %if.end.i.i
   %dictBase21.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %19, i64 320
   %.pre.i.i = load ptr, ptr %dictBase21.phi.trans.insert.i.i, align 8
   %lowLimit22.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %19, i64 332
-  %.pre34.i.i = load i32, ptr %lowLimit22.phi.trans.insert.i.i, align 4
+  %.pre35.i.i = load i32, ptr %lowLimit22.phi.trans.insert.i.i, align 4
   %dictLimit27.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %19, i64 328
-  %.pre35.i.i = load i32, ptr %dictLimit27.phi.trans.insert.i.i, align 8
+  %.pre36.i.i = load i32, ptr %dictLimit27.phi.trans.insert.i.i, align 8
   br label %if.end17.i.i
 
 if.then2.i.i:                                     ; preds = %if.end.i.i
@@ -3411,8 +3410,8 @@ if.then13.i.i:                                    ; preds = %if.then2.i.i
   br label %if.end17.i.i
 
 if.end17.i.i:                                     ; preds = %if.then13.i.i, %if.then2.i.i, %if.end.if.end17_crit_edge.i.i
-  %30 = phi i32 [ %.pre35.i.i, %if.end.if.end17_crit_edge.i.i ], [ %conv.i.i, %if.then13.i.i ], [ %conv.i.i, %if.then2.i.i ]
-  %31 = phi i32 [ %.pre34.i.i, %if.end.if.end17_crit_edge.i.i ], [ %conv.i.i, %if.then13.i.i ], [ %29, %if.then2.i.i ]
+  %30 = phi i32 [ %.pre36.i.i, %if.end.if.end17_crit_edge.i.i ], [ %conv.i.i, %if.then13.i.i ], [ %conv.i.i, %if.then2.i.i ]
+  %31 = phi i32 [ %.pre35.i.i, %if.end.if.end17_crit_edge.i.i ], [ %conv.i.i, %if.then13.i.i ], [ %29, %if.then2.i.i ]
   %32 = phi ptr [ %.pre.i.i, %if.end.if.end17_crit_edge.i.i ], [ %28, %if.then13.i.i ], [ %28, %if.then2.i.i ]
   %add.ptr18.i.i = getelementptr inbounds i8, ptr %21, i64 %23
   store ptr %add.ptr18.i.i, ptr %ldmState.i, align 8
@@ -3430,9 +3429,8 @@ if.then33.i.i:                                    ; preds = %if.end17.i.i
   %sub.ptr.lhs.cast36.i.i = ptrtoint ptr %add.ptr18.i.i to i64
   %sub.ptr.rhs.cast37.i.i = ptrtoint ptr %32 to i64
   %sub.ptr.sub38.i.i = sub i64 %sub.ptr.lhs.cast36.i.i, %sub.ptr.rhs.cast37.i.i
-  %cmp41.i.i = icmp sgt i64 %sub.ptr.sub38.i.i, %idx.ext28.i.i
-  %conv44.i.i = trunc i64 %sub.ptr.sub38.i.i to i32
-  %cond.i.i = select i1 %cmp41.i.i, i32 %30, i32 %conv44.i.i
+  %cond34.i.i = call i64 @llvm.smin.i64(i64 %sub.ptr.sub38.i.i, i64 %idx.ext28.i.i)
+  %cond.i.i = trunc i64 %cond34.i.i to i32
   store i32 %cond.i.i, ptr %lowLimit22.i.i, align 4
   br label %ZSTD_window_update.exit.i
 
@@ -3851,6 +3849,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smin.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #11

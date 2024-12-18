@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 define double @dasum_k(i64 noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca double, align 8
   %5 = alloca [256 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
   %6 = icmp slt i64 %0, 100001
   %7 = icmp slt i64 %2, 1
   %8 = or i1 %6, %7
@@ -19,220 +19,219 @@ define double @dasum_k(i64 noundef %0, ptr noundef %1, i64 noundef %2) local_unn
   %10 = load i32, ptr @blas_cpu_number, align 4, !tbaa !3
   %11 = sext i32 %10 to i64
   %12 = udiv i64 %0, 100000
-  %13 = icmp sgt i64 %12, %11
-  %14 = trunc i64 %12 to i32
-  %15 = select i1 %13, i32 %10, i32 %14
-  %16 = icmp eq i32 %15, 1
-  br i1 %16, label %.thread, label %155
+  %13 = tail call i64 @llvm.smin.i64(i64 %12, i64 %11)
+  %14 = trunc nsw i64 %13 to i32
+  %15 = icmp eq i64 %13, 1
+  br i1 %15, label %.thread, label %154
 
 .thread:                                          ; preds = %3, %9
-  %17 = icmp slt i64 %0, 1
-  %18 = or i1 %17, %7
-  br i1 %18, label %asum_compute.exit, label %19
+  %16 = icmp slt i64 %0, 1
+  %17 = or i1 %16, %7
+  br i1 %17, label %asum_compute.exit, label %18
 
-19:                                               ; preds = %.thread
-  %20 = icmp eq i64 %2, 1
-  br i1 %20, label %21, label %142
+18:                                               ; preds = %.thread
+  %19 = icmp eq i64 %2, 1
+  br i1 %19, label %20, label %141
 
-21:                                               ; preds = %19
-  %22 = icmp samesign ugt i64 %0, 255
-  br i1 %22, label %24, label %.thread.i
+20:                                               ; preds = %18
+  %21 = icmp samesign ugt i64 %0, 255
+  br i1 %21, label %23, label %.thread.i
 
-.thread.i:                                        ; preds = %21
-  %23 = and i64 %0, 248
-  br label %82
+.thread.i:                                        ; preds = %20
+  %22 = and i64 %0, 248
+  br label %81
 
-24:                                               ; preds = %21
-  %25 = ptrtoint ptr %1 to i64
-  %26 = sub i64 0, %25
-  %27 = lshr i64 %26, 3
-  %28 = and i64 %27, 7
-  %29 = icmp eq i64 %28, 0
-  br i1 %29, label %.loopexit7.i, label %.preheader6.i
+23:                                               ; preds = %20
+  %24 = ptrtoint ptr %1 to i64
+  %25 = sub i64 0, %24
+  %26 = lshr i64 %25, 3
+  %27 = and i64 %26, 7
+  %28 = icmp eq i64 %27, 0
+  br i1 %28, label %.loopexit7.i, label %.preheader6.i
 
-.preheader6.i:                                    ; preds = %24, %.preheader6.i
-  %30 = phi i64 [ %38, %.preheader6.i ], [ 0, %24 ]
-  %31 = phi double [ %37, %.preheader6.i ], [ 0.000000e+00, %24 ]
-  %32 = getelementptr inbounds nuw double, ptr %1, i64 %30
-  %33 = load double, ptr %32, align 8, !tbaa !7
-  %34 = fcmp ogt double %33, 0.000000e+00
-  %35 = fneg double %33
-  %36 = select i1 %34, double %33, double %35
-  %37 = fadd double %31, %36
-  %38 = add nuw nsw i64 %30, 1
-  %39 = icmp eq i64 %38, %28
-  br i1 %39, label %.loopexit7.i, label %.preheader6.i, !llvm.loop !9
+.preheader6.i:                                    ; preds = %23, %.preheader6.i
+  %29 = phi i64 [ %37, %.preheader6.i ], [ 0, %23 ]
+  %30 = phi double [ %36, %.preheader6.i ], [ 0.000000e+00, %23 ]
+  %31 = getelementptr inbounds nuw double, ptr %1, i64 %29
+  %32 = load double, ptr %31, align 8, !tbaa !7
+  %33 = fcmp ogt double %32, 0.000000e+00
+  %34 = fneg double %32
+  %35 = select i1 %33, double %32, double %34
+  %36 = fadd double %30, %35
+  %37 = add nuw nsw i64 %29, 1
+  %38 = icmp eq i64 %37, %27
+  br i1 %38, label %.loopexit7.i, label %.preheader6.i, !llvm.loop !9
 
-.loopexit7.i:                                     ; preds = %.preheader6.i, %24
-  %40 = phi double [ 0.000000e+00, %24 ], [ %37, %.preheader6.i ]
-  %41 = sub nuw nsw i64 %0, %28
-  %42 = getelementptr inbounds nuw double, ptr %1, i64 %28
-  %43 = and i64 %41, 9223372036854775800
-  %44 = and i64 %41, 9223372036854775552
-  %45 = icmp sgt i64 %41, 255
-  br i1 %45, label %.preheader5.i, label %82
+.loopexit7.i:                                     ; preds = %.preheader6.i, %23
+  %39 = phi double [ 0.000000e+00, %23 ], [ %36, %.preheader6.i ]
+  %40 = sub nuw nsw i64 %0, %27
+  %41 = getelementptr inbounds nuw double, ptr %1, i64 %27
+  %42 = and i64 %40, 9223372036854775800
+  %43 = and i64 %40, 9223372036854775552
+  %44 = icmp sgt i64 %40, 255
+  br i1 %44, label %.preheader5.i, label %81
 
 .preheader5.i:                                    ; preds = %.loopexit7.i, %.preheader5.i
-  %46 = phi <8 x double> [ %73, %.preheader5.i ], [ zeroinitializer, %.loopexit7.i ]
-  %47 = phi <8 x double> [ %67, %.preheader5.i ], [ zeroinitializer, %.loopexit7.i ]
-  %48 = phi <8 x double> [ %61, %.preheader5.i ], [ zeroinitializer, %.loopexit7.i ]
-  %49 = phi <8 x double> [ %55, %.preheader5.i ], [ zeroinitializer, %.loopexit7.i ]
-  %50 = phi i64 [ %74, %.preheader5.i ], [ 0, %.loopexit7.i ]
-  %51 = getelementptr inbounds nuw double, ptr %42, i64 %50
-  %52 = load <8 x i64>, ptr %51, align 64, !tbaa !12
-  %53 = and <8 x i64> %52, splat (i64 9223372036854775807)
-  %54 = bitcast <8 x i64> %53 to <8 x double>
-  %55 = fadd <8 x double> %49, %54
-  %56 = or disjoint i64 %50, 8
-  %57 = getelementptr inbounds nuw double, ptr %42, i64 %56
-  %58 = load <8 x i64>, ptr %57, align 64, !tbaa !12
-  %59 = and <8 x i64> %58, splat (i64 9223372036854775807)
-  %60 = bitcast <8 x i64> %59 to <8 x double>
-  %61 = fadd <8 x double> %48, %60
-  %62 = or disjoint i64 %50, 16
-  %63 = getelementptr inbounds nuw double, ptr %42, i64 %62
-  %64 = load <8 x i64>, ptr %63, align 64, !tbaa !12
-  %65 = and <8 x i64> %64, splat (i64 9223372036854775807)
-  %66 = bitcast <8 x i64> %65 to <8 x double>
-  %67 = fadd <8 x double> %47, %66
-  %68 = or disjoint i64 %50, 24
-  %69 = getelementptr inbounds nuw double, ptr %42, i64 %68
-  %70 = load <8 x i64>, ptr %69, align 64, !tbaa !12
-  %71 = and <8 x i64> %70, splat (i64 9223372036854775807)
-  %72 = bitcast <8 x i64> %71 to <8 x double>
-  %73 = fadd <8 x double> %46, %72
-  %74 = add nuw nsw i64 %50, 32
-  %75 = icmp samesign ult i64 %74, %44
-  br i1 %75, label %.preheader5.i, label %76, !llvm.loop !13
+  %45 = phi <8 x double> [ %72, %.preheader5.i ], [ zeroinitializer, %.loopexit7.i ]
+  %46 = phi <8 x double> [ %66, %.preheader5.i ], [ zeroinitializer, %.loopexit7.i ]
+  %47 = phi <8 x double> [ %60, %.preheader5.i ], [ zeroinitializer, %.loopexit7.i ]
+  %48 = phi <8 x double> [ %54, %.preheader5.i ], [ zeroinitializer, %.loopexit7.i ]
+  %49 = phi i64 [ %73, %.preheader5.i ], [ 0, %.loopexit7.i ]
+  %50 = getelementptr inbounds nuw double, ptr %41, i64 %49
+  %51 = load <8 x i64>, ptr %50, align 64, !tbaa !12
+  %52 = and <8 x i64> %51, splat (i64 9223372036854775807)
+  %53 = bitcast <8 x i64> %52 to <8 x double>
+  %54 = fadd <8 x double> %48, %53
+  %55 = or disjoint i64 %49, 8
+  %56 = getelementptr inbounds nuw double, ptr %41, i64 %55
+  %57 = load <8 x i64>, ptr %56, align 64, !tbaa !12
+  %58 = and <8 x i64> %57, splat (i64 9223372036854775807)
+  %59 = bitcast <8 x i64> %58 to <8 x double>
+  %60 = fadd <8 x double> %47, %59
+  %61 = or disjoint i64 %49, 16
+  %62 = getelementptr inbounds nuw double, ptr %41, i64 %61
+  %63 = load <8 x i64>, ptr %62, align 64, !tbaa !12
+  %64 = and <8 x i64> %63, splat (i64 9223372036854775807)
+  %65 = bitcast <8 x i64> %64 to <8 x double>
+  %66 = fadd <8 x double> %46, %65
+  %67 = or disjoint i64 %49, 24
+  %68 = getelementptr inbounds nuw double, ptr %41, i64 %67
+  %69 = load <8 x i64>, ptr %68, align 64, !tbaa !12
+  %70 = and <8 x i64> %69, splat (i64 9223372036854775807)
+  %71 = bitcast <8 x i64> %70 to <8 x double>
+  %72 = fadd <8 x double> %45, %71
+  %73 = add nuw nsw i64 %49, 32
+  %74 = icmp samesign ult i64 %73, %43
+  br i1 %74, label %.preheader5.i, label %75, !llvm.loop !13
 
-76:                                               ; preds = %.preheader5.i
-  %77 = fadd <8 x double> %55, %61
-  %78 = fadd <8 x double> %77, %67
-  %79 = fadd <8 x double> %78, %73
-  %80 = tail call reassoc double @llvm.vector.reduce.fadd.v8f64(double -0.000000e+00, <8 x double> %79)
-  %81 = fadd double %40, %80
-  br label %82
+75:                                               ; preds = %.preheader5.i
+  %76 = fadd <8 x double> %54, %60
+  %77 = fadd <8 x double> %76, %66
+  %78 = fadd <8 x double> %77, %72
+  %79 = tail call reassoc double @llvm.vector.reduce.fadd.v8f64(double -0.000000e+00, <8 x double> %78)
+  %80 = fadd double %39, %79
+  br label %81
 
-82:                                               ; preds = %76, %.loopexit7.i, %.thread.i
-  %83 = phi i64 [ %44, %76 ], [ %44, %.loopexit7.i ], [ 0, %.thread.i ]
-  %84 = phi i64 [ %43, %76 ], [ %43, %.loopexit7.i ], [ %23, %.thread.i ]
-  %85 = phi i64 [ %41, %76 ], [ %41, %.loopexit7.i ], [ %0, %.thread.i ]
-  %86 = phi ptr [ %42, %76 ], [ %42, %.loopexit7.i ], [ %1, %.thread.i ]
-  %87 = phi double [ %81, %76 ], [ %40, %.loopexit7.i ], [ 0.000000e+00, %.thread.i ]
-  %88 = icmp sgt i64 %85, 7
-  br i1 %88, label %89, label %130
+81:                                               ; preds = %75, %.loopexit7.i, %.thread.i
+  %82 = phi i64 [ %43, %75 ], [ %43, %.loopexit7.i ], [ 0, %.thread.i ]
+  %83 = phi i64 [ %42, %75 ], [ %42, %.loopexit7.i ], [ %22, %.thread.i ]
+  %84 = phi i64 [ %40, %75 ], [ %40, %.loopexit7.i ], [ %0, %.thread.i ]
+  %85 = phi ptr [ %41, %75 ], [ %41, %.loopexit7.i ], [ %1, %.thread.i ]
+  %86 = phi double [ %80, %75 ], [ %39, %.loopexit7.i ], [ 0.000000e+00, %.thread.i ]
+  %87 = icmp sgt i64 %84, 7
+  br i1 %87, label %88, label %129
 
-89:                                               ; preds = %82
-  %90 = icmp samesign ult i64 %83, %84
-  br i1 %90, label %.preheader4.i, label %125
+88:                                               ; preds = %81
+  %89 = icmp samesign ult i64 %82, %83
+  br i1 %89, label %.preheader4.i, label %124
 
-.preheader4.i:                                    ; preds = %89, %.preheader4.i
-  %91 = phi <2 x double> [ %118, %.preheader4.i ], [ zeroinitializer, %89 ]
-  %92 = phi <2 x double> [ %112, %.preheader4.i ], [ zeroinitializer, %89 ]
-  %93 = phi <2 x double> [ %106, %.preheader4.i ], [ zeroinitializer, %89 ]
-  %94 = phi <2 x double> [ %100, %.preheader4.i ], [ zeroinitializer, %89 ]
-  %95 = phi i64 [ %119, %.preheader4.i ], [ %83, %89 ]
-  %96 = getelementptr inbounds nuw double, ptr %86, i64 %95
-  %97 = load <2 x i64>, ptr %96, align 1, !tbaa !12
-  %98 = and <2 x i64> %97, splat (i64 9223372036854775807)
-  %99 = bitcast <2 x i64> %98 to <2 x double>
-  %100 = fadd <2 x double> %94, %99
-  %101 = or disjoint i64 %95, 2
-  %102 = getelementptr inbounds nuw double, ptr %86, i64 %101
-  %103 = load <2 x i64>, ptr %102, align 1, !tbaa !12
-  %104 = and <2 x i64> %103, splat (i64 9223372036854775807)
-  %105 = bitcast <2 x i64> %104 to <2 x double>
-  %106 = fadd <2 x double> %93, %105
-  %107 = or disjoint i64 %95, 4
-  %108 = getelementptr inbounds nuw double, ptr %86, i64 %107
-  %109 = load <2 x i64>, ptr %108, align 1, !tbaa !12
-  %110 = and <2 x i64> %109, splat (i64 9223372036854775807)
-  %111 = bitcast <2 x i64> %110 to <2 x double>
-  %112 = fadd <2 x double> %92, %111
-  %113 = or disjoint i64 %95, 6
-  %114 = getelementptr inbounds nuw double, ptr %86, i64 %113
-  %115 = load <2 x i64>, ptr %114, align 1, !tbaa !12
-  %116 = and <2 x i64> %115, splat (i64 9223372036854775807)
-  %117 = bitcast <2 x i64> %116 to <2 x double>
-  %118 = fadd <2 x double> %91, %117
-  %119 = add nuw nsw i64 %95, 8
-  %120 = icmp samesign ult i64 %119, %84
-  br i1 %120, label %.preheader4.i, label %121, !llvm.loop !14
+.preheader4.i:                                    ; preds = %88, %.preheader4.i
+  %90 = phi <2 x double> [ %117, %.preheader4.i ], [ zeroinitializer, %88 ]
+  %91 = phi <2 x double> [ %111, %.preheader4.i ], [ zeroinitializer, %88 ]
+  %92 = phi <2 x double> [ %105, %.preheader4.i ], [ zeroinitializer, %88 ]
+  %93 = phi <2 x double> [ %99, %.preheader4.i ], [ zeroinitializer, %88 ]
+  %94 = phi i64 [ %118, %.preheader4.i ], [ %82, %88 ]
+  %95 = getelementptr inbounds nuw double, ptr %85, i64 %94
+  %96 = load <2 x i64>, ptr %95, align 1, !tbaa !12
+  %97 = and <2 x i64> %96, splat (i64 9223372036854775807)
+  %98 = bitcast <2 x i64> %97 to <2 x double>
+  %99 = fadd <2 x double> %93, %98
+  %100 = or disjoint i64 %94, 2
+  %101 = getelementptr inbounds nuw double, ptr %85, i64 %100
+  %102 = load <2 x i64>, ptr %101, align 1, !tbaa !12
+  %103 = and <2 x i64> %102, splat (i64 9223372036854775807)
+  %104 = bitcast <2 x i64> %103 to <2 x double>
+  %105 = fadd <2 x double> %92, %104
+  %106 = or disjoint i64 %94, 4
+  %107 = getelementptr inbounds nuw double, ptr %85, i64 %106
+  %108 = load <2 x i64>, ptr %107, align 1, !tbaa !12
+  %109 = and <2 x i64> %108, splat (i64 9223372036854775807)
+  %110 = bitcast <2 x i64> %109 to <2 x double>
+  %111 = fadd <2 x double> %91, %110
+  %112 = or disjoint i64 %94, 6
+  %113 = getelementptr inbounds nuw double, ptr %85, i64 %112
+  %114 = load <2 x i64>, ptr %113, align 1, !tbaa !12
+  %115 = and <2 x i64> %114, splat (i64 9223372036854775807)
+  %116 = bitcast <2 x i64> %115 to <2 x double>
+  %117 = fadd <2 x double> %90, %116
+  %118 = add nuw nsw i64 %94, 8
+  %119 = icmp samesign ult i64 %118, %83
+  br i1 %119, label %.preheader4.i, label %120, !llvm.loop !14
 
-121:                                              ; preds = %.preheader4.i
-  %122 = fadd <2 x double> %100, %106
-  %123 = fadd <2 x double> %122, %112
-  %124 = fadd <2 x double> %123, %118
-  br label %125
+120:                                              ; preds = %.preheader4.i
+  %121 = fadd <2 x double> %99, %105
+  %122 = fadd <2 x double> %121, %111
+  %123 = fadd <2 x double> %122, %117
+  br label %124
 
-125:                                              ; preds = %121, %89
-  %126 = phi <2 x double> [ zeroinitializer, %89 ], [ %124, %121 ]
-  %127 = tail call <2 x double> @llvm.x86.sse3.hadd.pd(<2 x double> %126, <2 x double> %126)
-  %128 = extractelement <2 x double> %127, i64 0
-  %129 = fadd double %87, %128
-  br label %130
+124:                                              ; preds = %120, %88
+  %125 = phi <2 x double> [ zeroinitializer, %88 ], [ %123, %120 ]
+  %126 = tail call <2 x double> @llvm.x86.sse3.hadd.pd(<2 x double> %125, <2 x double> %125)
+  %127 = extractelement <2 x double> %126, i64 0
+  %128 = fadd double %86, %127
+  br label %129
 
-130:                                              ; preds = %125, %82
-  %131 = phi double [ %129, %125 ], [ %87, %82 ]
-  %.not.i = icmp eq i64 %84, %85
+129:                                              ; preds = %124, %81
+  %130 = phi double [ %128, %124 ], [ %86, %81 ]
+  %.not.i = icmp eq i64 %83, %84
   br i1 %.not.i, label %asum_compute.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %130, %.preheader.i
-  %132 = phi i64 [ %140, %.preheader.i ], [ %84, %130 ]
-  %133 = phi double [ %139, %.preheader.i ], [ %131, %130 ]
-  %134 = getelementptr inbounds nuw double, ptr %86, i64 %132
-  %135 = load double, ptr %134, align 8, !tbaa !7
-  %136 = fcmp ogt double %135, 0.000000e+00
-  %137 = fneg double %135
-  %138 = select i1 %136, double %135, double %137
-  %139 = fadd double %133, %138
-  %140 = add nuw nsw i64 %132, 1
-  %141 = icmp eq i64 %140, %85
-  br i1 %141, label %asum_compute.exit, label %.preheader.i, !llvm.loop !15
+.preheader.i:                                     ; preds = %129, %.preheader.i
+  %131 = phi i64 [ %139, %.preheader.i ], [ %83, %129 ]
+  %132 = phi double [ %138, %.preheader.i ], [ %130, %129 ]
+  %133 = getelementptr inbounds nuw double, ptr %85, i64 %131
+  %134 = load double, ptr %133, align 8, !tbaa !7
+  %135 = fcmp ogt double %134, 0.000000e+00
+  %136 = fneg double %134
+  %137 = select i1 %135, double %134, double %136
+  %138 = fadd double %132, %137
+  %139 = add nuw nsw i64 %131, 1
+  %140 = icmp eq i64 %139, %84
+  br i1 %140, label %asum_compute.exit, label %.preheader.i, !llvm.loop !15
 
-142:                                              ; preds = %19
-  %143 = mul nuw nsw i64 %2, %0
-  br label %144
+141:                                              ; preds = %18
+  %142 = mul nuw nsw i64 %2, %0
+  br label %143
 
-144:                                              ; preds = %144, %142
-  %145 = phi double [ %152, %144 ], [ 0.000000e+00, %142 ]
-  %146 = phi i64 [ %153, %144 ], [ 0, %142 ]
-  %147 = getelementptr inbounds nuw double, ptr %1, i64 %146
-  %148 = load double, ptr %147, align 8, !tbaa !7
-  %149 = fcmp ogt double %148, 0.000000e+00
-  %150 = fneg double %148
-  %151 = select i1 %149, double %148, double %150
-  %152 = fadd double %145, %151
-  %153 = add nuw nsw i64 %146, %2
-  %154 = icmp slt i64 %153, %143
-  br i1 %154, label %144, label %asum_compute.exit, !llvm.loop !16
+143:                                              ; preds = %143, %141
+  %144 = phi double [ %151, %143 ], [ 0.000000e+00, %141 ]
+  %145 = phi i64 [ %152, %143 ], [ 0, %141 ]
+  %146 = getelementptr inbounds nuw double, ptr %1, i64 %145
+  %147 = load double, ptr %146, align 8, !tbaa !7
+  %148 = fcmp ogt double %147, 0.000000e+00
+  %149 = fneg double %147
+  %150 = select i1 %148, double %147, double %149
+  %151 = fadd double %144, %150
+  %152 = add nuw nsw i64 %145, %2
+  %153 = icmp slt i64 %152, %142
+  br i1 %153, label %143, label %asum_compute.exit, !llvm.loop !16
 
-155:                                              ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #6
-  %156 = call i32 @blas_level1_thread_with_return_value(i32 noundef 3, i64 noundef %0, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %4, ptr noundef %1, i64 noundef %2, ptr noundef null, i64 noundef 0, ptr noundef nonnull %5, i64 noundef 0, ptr noundef nonnull @asum_thread_function, i32 noundef %15) #6
-  %157 = icmp sgt i32 %15, 0
-  br i1 %157, label %.preheader, label %.loopexit
+154:                                              ; preds = %9
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #7
+  %155 = call i32 @blas_level1_thread_with_return_value(i32 noundef 3, i64 noundef %0, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %4, ptr noundef %1, i64 noundef %2, ptr noundef null, i64 noundef 0, ptr noundef nonnull %5, i64 noundef 0, ptr noundef nonnull @asum_thread_function, i32 noundef %14) #7
+  %156 = icmp sgt i64 %13, 0
+  br i1 %156, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %155, %.preheader
-  %158 = phi ptr [ %163, %.preheader ], [ %5, %155 ]
-  %159 = phi i32 [ %164, %.preheader ], [ 0, %155 ]
-  %160 = phi double [ %162, %.preheader ], [ 0.000000e+00, %155 ]
-  %161 = load double, ptr %158, align 8, !tbaa !7
-  %162 = fadd double %160, %161
-  %163 = getelementptr inbounds nuw i8, ptr %158, i64 16
-  %164 = add nuw nsw i32 %159, 1
-  %165 = icmp eq i32 %164, %15
-  br i1 %165, label %.loopexit, label %.preheader, !llvm.loop !17
+.preheader:                                       ; preds = %154, %.preheader
+  %157 = phi ptr [ %162, %.preheader ], [ %5, %154 ]
+  %158 = phi i32 [ %163, %.preheader ], [ 0, %154 ]
+  %159 = phi double [ %161, %.preheader ], [ 0.000000e+00, %154 ]
+  %160 = load double, ptr %157, align 8, !tbaa !7
+  %161 = fadd double %159, %160
+  %162 = getelementptr inbounds nuw i8, ptr %157, i64 16
+  %163 = add nuw nsw i32 %158, 1
+  %164 = icmp eq i32 %163, %14
+  br i1 %164, label %.loopexit, label %.preheader, !llvm.loop !17
 
-.loopexit:                                        ; preds = %.preheader, %155
-  %166 = phi double [ 0.000000e+00, %155 ], [ %162, %.preheader ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #6
+.loopexit:                                        ; preds = %.preheader, %154
+  %165 = phi double [ 0.000000e+00, %154 ], [ %161, %.preheader ]
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #7
   br label %asum_compute.exit
 
-asum_compute.exit:                                ; preds = %144, %.preheader.i, %130, %.thread, %.loopexit
-  %167 = phi double [ %166, %.loopexit ], [ 0.000000e+00, %.thread ], [ %131, %130 ], [ %139, %.preheader.i ], [ %152, %144 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
-  ret double %167
+asum_compute.exit:                                ; preds = %143, %.preheader.i, %129, %.thread, %.loopexit
+  %166 = phi double [ %165, %.loopexit ], [ 0.000000e+00, %.thread ], [ %130, %129 ], [ %138, %.preheader.i ], [ %151, %143 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
+  ret double %166
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -439,13 +438,17 @@ declare double @llvm.vector.reduce.fadd.v8f64(double, <8 x double>) #4
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
 declare <2 x double> @llvm.x86.sse3.hadd.pd(<2 x double>, <2 x double>) #5
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smin.i64(i64, i64) #6
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="512" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
 attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="512" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #6 = { nounwind }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

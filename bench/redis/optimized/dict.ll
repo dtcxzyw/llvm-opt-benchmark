@@ -3195,22 +3195,19 @@ entry:
   %1 = load i64, ptr %arrayidx2, align 8
   %add = add i64 %1, %0
   %conv = zext i32 %count to i64
-  %cmp = icmp ult i64 %add, %conv
-  %conv9 = trunc nuw i64 %add to i32
-  %spec.select = select i1 %cmp, i32 %conv9, i32 %count
-  %mul = mul i32 %spec.select, 10
-  %conv10 = zext i32 %mul to i64
+  %spec.select67 = tail call i64 @llvm.umin.i64(i64 %add, i64 %conv)
+  %mul = mul nuw nsw i64 %spec.select67, 10
+  %conv10 = and i64 %mul, 4294967294
   %rehashidx = getelementptr inbounds nuw i8, ptr %d, i64 40
-  %conv11 = zext i32 %spec.select to i64
-  %cmp1275.not = icmp eq i32 %spec.select, 0
-  br i1 %cmp1275.not, label %for.endthread-pre-split, label %for.body.lr.ph
+  %cmp1276.not = icmp eq i64 %spec.select67, 0
+  br i1 %cmp1276.not, label %for.endthread-pre-split, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %pauserehash.i = getelementptr inbounds nuw i8, ptr %d, i64 48
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_dictRehashStep.exit
-  %j.076 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_dictRehashStep.exit ]
+  %j.077 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_dictRehashStep.exit ]
   %2 = load i64, ptr %rehashidx, align 8
   %cmp14.not = icmp eq i64 %2, -1
   br i1 %cmp14.not, label %for.end, label %if.then16
@@ -3225,8 +3222,8 @@ if.then.i:                                        ; preds = %if.then16
   br label %_dictRehashStep.exit
 
 _dictRehashStep.exit:                             ; preds = %if.then16, %if.then.i
-  %inc = add nuw nsw i64 %j.076, 1
-  %exitcond.not = icmp eq i64 %inc, %conv11
+  %inc = add nuw nsw i64 %j.077, 1
+  %exitcond.not = icmp eq i64 %inc, %spec.select67
   br i1 %exitcond.not, label %for.endthread-pre-split, label %for.body, !llvm.loop !25
 
 for.endthread-pre-split:                          ; preds = %_dictRehashStep.exit, %entry
@@ -3261,10 +3258,10 @@ land.lhs.true:                                    ; preds = %for.end
 if.end92:                                         ; preds = %land.lhs.true, %for.end
   %maxsizemask.0 = phi i64 [ %cond38, %for.end ], [ %spec.select66, %land.lhs.true ]
   %call = tail call i64 @genrand64_int64() #22
-  br i1 %cmp1275.not, label %end, label %land.rhs.lr.ph
+  br i1 %cmp1276.not, label %end, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %if.end92
-  %invariant.umax = tail call i64 @llvm.umax.i64(i64 %conv11, i64 4)
+  %invariant.umax = tail call i64 @llvm.umax.i64(i64 %spec.select67, i64 4)
   %arrayidx111 = getelementptr inbounds nuw i8, ptr %d, i64 51
   %ht_table = getelementptr inbounds nuw i8, ptr %d, i64 8
   br label %land.rhs
@@ -3302,8 +3299,8 @@ if.then109:                                       ; preds = %land.lhs.true105
   %conv112 = sext i8 %9 to i64
   %sh_prom120 = and i64 %conv112, 4294967295
   %i.1.highbits = lshr i64 %i.182, %sh_prom120
-  %cmp124.not68 = icmp eq i64 %i.1.highbits, 0
-  %cmp124.not = select i1 %cmp113, i1 %cmp124.not68, i1 false
+  %cmp124.not69 = icmp eq i64 %i.1.highbits, 0
+  %cmp124.not = select i1 %cmp113, i1 %cmp124.not69, i1 false
   br i1 %cmp124.not, label %for.inc192, label %if.end130
 
 if.end130:                                        ; preds = %if.then109, %land.lhs.true105, %for.body99
@@ -3314,8 +3311,8 @@ if.end130:                                        ; preds = %if.then109, %land.l
   %conv133 = sext i8 %10 to i64
   %sh_prom141 = and i64 %conv133, 4294967295
   %i.2.highbits = lshr i64 %i.2, %sh_prom141
-  %cmp145.not69 = icmp eq i64 %i.2.highbits, 0
-  %cmp145.not = select i1 %cmp134, i1 %cmp145.not69, i1 false
+  %cmp145.not70 = icmp eq i64 %i.2.highbits, 0
+  %cmp145.not = select i1 %cmp134, i1 %cmp145.not70, i1 false
   br i1 %cmp145.not, label %if.end148, label %for.inc192
 
 if.end148:                                        ; preds = %if.end130
@@ -3339,14 +3336,14 @@ if.then161:                                       ; preds = %if.then153
 while.body168:                                    ; preds = %if.end148, %if.end.i
   %he.079 = phi ptr [ %retval.0.i, %if.end.i ], [ %12, %if.end148 ]
   %stored.378 = phi i64 [ %inc185, %if.end.i ], [ %stored.181, %if.end148 ]
-  %cmp170 = icmp ult i64 %stored.378, %conv11
+  %cmp170 = icmp ult i64 %stored.378, %spec.select67
   br i1 %cmp170, label %if.end183.sink.split, label %if.else174
 
 if.else174:                                       ; preds = %while.body168
   %call175 = tail call i64 @genrand64_int64() #22
   %add176 = add i64 %stored.378, 1
   %rem = urem i64 %call175, %add176
-  %cmp178 = icmp ult i64 %rem, %conv11
+  %cmp178 = icmp ult i64 %rem, %spec.select67
   br i1 %cmp178, label %if.end183.sink.split, label %if.end183
 
 if.end183.sink.split:                             ; preds = %if.else174, %while.body168
@@ -3362,7 +3359,7 @@ if.end183:                                        ; preds = %if.end183.sink.spli
   br i1 %tobool.not.i, label %if.end.i, label %dictGetNext.exit.thread
 
 dictGetNext.exit.thread:                          ; preds = %if.end183
-  %inc18594 = add i64 %stored.378, 1
+  %inc18593 = add i64 %stored.378, 1
   br label %while.end
 
 if.end.i:                                         ; preds = %if.end183
@@ -3379,24 +3376,24 @@ if.end.i:                                         ; preds = %if.end183
   br i1 %tobool167.not, label %while.end, label %while.body168, !llvm.loop !26
 
 while.end:                                        ; preds = %if.end.i, %dictGetNext.exit.thread
-  %inc18596 = phi i64 [ %inc18594, %dictGetNext.exit.thread ], [ %inc185, %if.end.i ]
-  %cmp187.not = icmp ult i64 %inc18596, %conv11
+  %inc18595 = phi i64 [ %inc18593, %dictGetNext.exit.thread ], [ %inc185, %if.end.i ]
+  %cmp187.not = icmp ult i64 %inc18595, %spec.select67
   br i1 %cmp187.not, label %for.inc192, label %end
 
 for.inc192:                                       ; preds = %if.then161, %if.then153, %while.end, %if.end130, %if.then109
-  %stored.2 = phi i64 [ %stored.181, %if.end130 ], [ %stored.181, %if.then161 ], [ %stored.181, %if.then153 ], [ %inc18596, %while.end ], [ %stored.181, %if.then109 ]
+  %stored.2 = phi i64 [ %stored.181, %if.end130 ], [ %stored.181, %if.then161 ], [ %stored.181, %if.then153 ], [ %inc18595, %while.end ], [ %stored.181, %if.then109 ]
   %i.3 = phi i64 [ %i.2, %if.end130 ], [ %and163, %if.then161 ], [ %i.2, %if.then153 ], [ %i.2, %while.end ], [ %i.182, %if.then109 ]
   %emptylen.2 = phi i64 [ %emptylen.183, %if.end130 ], [ 0, %if.then161 ], [ %inc154, %if.then153 ], [ 0, %while.end ], [ %emptylen.183, %if.then109 ]
   br i1 %or.cond, label %for.body99, label %for.end194, !llvm.loop !27
 
 for.end194:                                       ; preds = %for.inc192
   %add195 = add i64 %i.3, 1
-  %cmp94 = icmp ult i64 %stored.2, %conv11
+  %cmp94 = icmp ult i64 %stored.2, %spec.select67
   br i1 %cmp94, label %land.rhs, label %end, !llvm.loop !28
 
 end:                                              ; preds = %for.end194, %land.rhs, %while.end, %if.end92
-  %stored.4 = phi i64 [ 0, %if.end92 ], [ %inc18596, %while.end ], [ %stored.2, %for.end194 ], [ %stored.085, %land.rhs ]
-  %cond205 = tail call i64 @llvm.umin.i64(i64 %stored.4, i64 %conv11)
+  %stored.4 = phi i64 [ 0, %if.end92 ], [ %inc18595, %while.end ], [ %stored.2, %for.end194 ], [ %stored.085, %land.rhs ]
+  %cond205 = tail call i64 @llvm.umin.i64(i64 %stored.4, i64 %spec.select67)
   %conv206 = trunc nuw i64 %cond205 to i32
   ret i32 %conv206
 }

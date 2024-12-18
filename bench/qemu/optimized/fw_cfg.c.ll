@@ -8,7 +8,7 @@ define dso_local void @qfw_cfg_select(ptr noundef %fw_cfg, i16 noundef zeroext %
 entry:
   %select = getelementptr inbounds nuw i8, ptr %fw_cfg, i64 16
   %0 = load ptr, ptr %select, align 8
-  tail call void %0(ptr noundef %fw_cfg, i16 noundef zeroext %key) #5
+  tail call void %0(ptr noundef %fw_cfg, i16 noundef zeroext %key) #6
   ret void
 }
 
@@ -17,7 +17,7 @@ define dso_local void @qfw_cfg_read_data(ptr noundef %fw_cfg, ptr noundef %data,
 entry:
   %read = getelementptr inbounds nuw i8, ptr %fw_cfg, i64 24
   %0 = load ptr, ptr %read, align 8
-  tail call void %0(ptr noundef %fw_cfg, ptr noundef %data, i64 noundef %len) #5
+  tail call void %0(ptr noundef %fw_cfg, ptr noundef %data, i64 noundef %len) #6
   ret void
 }
 
@@ -26,10 +26,10 @@ define dso_local void @qfw_cfg_get(ptr noundef %fw_cfg, i16 noundef zeroext %key
 entry:
   %select.i = getelementptr inbounds nuw i8, ptr %fw_cfg, i64 16
   %0 = load ptr, ptr %select.i, align 8
-  tail call void %0(ptr noundef %fw_cfg, i16 noundef zeroext %key) #5
+  tail call void %0(ptr noundef %fw_cfg, i16 noundef zeroext %key) #6
   %read.i = getelementptr inbounds nuw i8, ptr %fw_cfg, i64 24
   %1 = load ptr, ptr %read.i, align 8
-  tail call void %1(ptr noundef %fw_cfg, ptr noundef %data, i64 noundef %len) #5
+  tail call void %1(ptr noundef %fw_cfg, ptr noundef %data, i64 noundef %len) #6
   ret void
 }
 
@@ -39,10 +39,10 @@ entry:
   %value = alloca i16, align 2
   %select.i.i = getelementptr inbounds nuw i8, ptr %fw_cfg, i64 16
   %0 = load ptr, ptr %select.i.i, align 8
-  tail call void %0(ptr noundef %fw_cfg, i16 noundef zeroext %key) #5
+  tail call void %0(ptr noundef %fw_cfg, i16 noundef zeroext %key) #6
   %read.i.i = getelementptr inbounds nuw i8, ptr %fw_cfg, i64 24
   %1 = load ptr, ptr %read.i.i, align 8
-  call void %1(ptr noundef %fw_cfg, ptr noundef nonnull %value, i64 noundef 2) #5
+  call void %1(ptr noundef %fw_cfg, ptr noundef nonnull %value, i64 noundef 2) #6
   %2 = load i16, ptr %value, align 2
   ret i16 %2
 }
@@ -53,10 +53,10 @@ entry:
   %value = alloca i32, align 4
   %select.i.i = getelementptr inbounds nuw i8, ptr %fw_cfg, i64 16
   %0 = load ptr, ptr %select.i.i, align 8
-  tail call void %0(ptr noundef %fw_cfg, i16 noundef zeroext %key) #5
+  tail call void %0(ptr noundef %fw_cfg, i16 noundef zeroext %key) #6
   %read.i.i = getelementptr inbounds nuw i8, ptr %fw_cfg, i64 24
   %1 = load ptr, ptr %read.i.i, align 8
-  call void %1(ptr noundef %fw_cfg, ptr noundef nonnull %value, i64 noundef 4) #5
+  call void %1(ptr noundef %fw_cfg, ptr noundef nonnull %value, i64 noundef 4) #6
   %2 = load i32, ptr %value, align 4
   ret i32 %2
 }
@@ -67,10 +67,10 @@ entry:
   %value = alloca i64, align 8
   %select.i.i = getelementptr inbounds nuw i8, ptr %fw_cfg, i64 16
   %0 = load ptr, ptr %select.i.i, align 8
-  tail call void %0(ptr noundef %fw_cfg, i16 noundef zeroext %key) #5
+  tail call void %0(ptr noundef %fw_cfg, i16 noundef zeroext %key) #6
   %read.i.i = getelementptr inbounds nuw i8, ptr %fw_cfg, i64 24
   %1 = load ptr, ptr %read.i.i, align 8
-  call void %1(ptr noundef %fw_cfg, ptr noundef nonnull %value, i64 noundef 8) #5
+  call void %1(ptr noundef %fw_cfg, ptr noundef nonnull %value, i64 noundef 8) #6
   %2 = load i64, ptr %value, align 8
   ret i64 %2
 }
@@ -81,63 +81,60 @@ entry:
   %count = alloca i32, align 4
   %select.i.i = getelementptr inbounds nuw i8, ptr %fw_cfg, i64 16
   %0 = load ptr, ptr %select.i.i, align 8
-  tail call void %0(ptr noundef %fw_cfg, i16 noundef zeroext 25) #5
+  tail call void %0(ptr noundef %fw_cfg, i16 noundef zeroext 25) #6
   %read.i.i = getelementptr inbounds nuw i8, ptr %fw_cfg, i64 24
   %1 = load ptr, ptr %read.i.i, align 8
-  call void %1(ptr noundef %fw_cfg, ptr noundef nonnull %count, i64 noundef 4) #5
+  call void %1(ptr noundef %fw_cfg, ptr noundef nonnull %count, i64 noundef 4) #6
   %2 = load i32, ptr %count, align 4
   %3 = call noundef i32 @llvm.bswap.i32(i32 %2)
   store i32 %3, ptr %count, align 4
   %conv = zext i32 %3 to i64
   %mul = shl nuw nsw i64 %conv, 6
   %add = or disjoint i64 %mul, 4
-  %call1 = call noalias ptr @g_malloc(i64 noundef %add) #6
+  %call1 = call noalias ptr @g_malloc(i64 noundef %add) #7
   %4 = load ptr, ptr %select.i.i, align 8
-  call void %4(ptr noundef %fw_cfg, i16 noundef zeroext 25) #5
+  call void %4(ptr noundef %fw_cfg, i16 noundef zeroext 25) #6
   %5 = load ptr, ptr %read.i.i, align 8
-  call void %5(ptr noundef %fw_cfg, ptr noundef %call1, i64 noundef %add) #5
+  call void %5(ptr noundef %fw_cfg, ptr noundef %call1, i64 noundef %add) #6
   %6 = load i32, ptr %count, align 4
-  %cmp18.not = icmp eq i32 %6, 0
-  br i1 %cmp18.not, label %for.end, label %for.body.preheader
+  %cmp19.not = icmp eq i32 %6, 0
+  br i1 %cmp19.not, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %entry
   %add.ptr = getelementptr i8, ptr %call1, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %i.020 = phi i32 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
-  %pdir_entry.019 = phi ptr [ %incdec.ptr, %for.inc ], [ %add.ptr, %for.body.preheader ]
-  %name = getelementptr inbounds nuw i8, ptr %pdir_entry.019, i64 8
-  %call3 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) %filename) #7
+  %i.021 = phi i32 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
+  %pdir_entry.020 = phi ptr [ %incdec.ptr, %for.inc ], [ %add.ptr, %for.body.preheader ]
+  %name = getelementptr inbounds nuw i8, ptr %pdir_entry.020, i64 8
+  %call3 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) %filename) #8
   %tobool.not = icmp eq i32 %call3, 0
   br i1 %tobool.not, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
-  %7 = load i32, ptr %pdir_entry.019, align 4
+  %7 = load i32, ptr %pdir_entry.020, align 4
   %8 = call noundef i32 @llvm.bswap.i32(i32 %7)
-  %select = getelementptr inbounds nuw i8, ptr %pdir_entry.019, i64 4
+  %select = getelementptr inbounds nuw i8, ptr %pdir_entry.020, i64 4
   %9 = load i16, ptr %select, align 4
   %10 = call noundef i16 @llvm.bswap.i16(i16 %9)
   %conv6 = zext i32 %8 to i64
-  %cmp8 = icmp ult i64 %buflen, %conv6
-  %conv11 = trunc nuw i64 %buflen to i32
-  %spec.select = select i1 %cmp8, i32 %conv11, i32 %8
-  %conv12 = zext i32 %spec.select to i64
+  %spec.select17 = call i64 @llvm.umin.i64(i64 %buflen, i64 %conv6)
   %11 = load ptr, ptr %select.i.i, align 8
-  call void %11(ptr noundef %fw_cfg, i16 noundef zeroext %10) #5
+  call void %11(ptr noundef %fw_cfg, i16 noundef zeroext %10) #6
   %12 = load ptr, ptr %read.i.i, align 8
-  call void %12(ptr noundef %fw_cfg, ptr noundef %data, i64 noundef %conv12) #5
+  call void %12(ptr noundef %fw_cfg, ptr noundef %data, i64 noundef %spec.select17) #6
   br label %for.end
 
 for.inc:                                          ; preds = %for.body
-  %inc = add nuw i32 %i.020, 1
-  %incdec.ptr = getelementptr i8, ptr %pdir_entry.019, i64 64
+  %inc = add nuw i32 %i.021, 1
+  %incdec.ptr = getelementptr i8, ptr %pdir_entry.020, i64 64
   %exitcond.not = icmp eq i32 %inc, %6
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %for.inc, %entry, %if.then
   %filesize.0 = phi i64 [ %conv6, %if.then ], [ 0, %entry ], [ 0, %for.inc ]
-  call void @g_free(ptr noundef %call1) #5
+  call void @g_free(ptr noundef %call1) #6
   ret i64 %filesize.0
 }
 
@@ -152,7 +149,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noalias noundef ptr @mm_fw_cfg_init(ptr noundef %qts, i64 noundef %base) local_unnamed_addr #0 {
 entry:
-  %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #6
+  %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #7
   store i64 %base, ptr %call, align 8
   %qts2 = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %qts, ptr %qts2, align 8
@@ -172,7 +169,7 @@ entry:
   %qts = getelementptr inbounds nuw i8, ptr %fw_cfg, i64 8
   %0 = load ptr, ptr %qts, align 8
   %1 = load i64, ptr %fw_cfg, align 8
-  tail call void @qtest_writew(ptr noundef %0, i64 noundef %1, i16 noundef zeroext %key) #5
+  tail call void @qtest_writew(ptr noundef %0, i64 noundef %1, i16 noundef zeroext %key) #6
   ret void
 }
 
@@ -192,7 +189,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %0 = load ptr, ptr %qts, align 8
   %1 = load i64, ptr %fw_cfg, align 8
   %add = add i64 %1, 2
-  %call = tail call zeroext i8 @qtest_readb(ptr noundef %0, i64 noundef %add) #5
+  %call = tail call zeroext i8 @qtest_readb(ptr noundef %0, i64 noundef %add) #6
   %arrayidx = getelementptr i8, ptr %data, i64 %conv6
   store i8 %call, ptr %arrayidx, align 1
   %inc = add i32 %i.05, 1
@@ -207,14 +204,14 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @mm_fw_cfg_uninit(ptr noundef %fw_cfg) local_unnamed_addr #0 {
 entry:
-  tail call void @g_free(ptr noundef %fw_cfg) #5
+  tail call void @g_free(ptr noundef %fw_cfg) #6
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noalias noundef ptr @io_fw_cfg_init(ptr noundef %qts, i16 noundef zeroext %base) local_unnamed_addr #0 {
 entry:
-  %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #6
+  %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #7
   %conv = zext i16 %base to i64
   store i64 %conv, ptr %call, align 8
   %qts2 = getelementptr inbounds nuw i8, ptr %call, i64 8
@@ -233,7 +230,7 @@ entry:
   %0 = load ptr, ptr %qts, align 8
   %1 = load i64, ptr %fw_cfg, align 8
   %conv = trunc i64 %1 to i16
-  tail call void @qtest_outw(ptr noundef %0, i16 noundef zeroext %conv, i16 noundef zeroext %key) #5
+  tail call void @qtest_outw(ptr noundef %0, i16 noundef zeroext %conv, i16 noundef zeroext %key) #6
   ret void
 }
 
@@ -254,7 +251,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %1 = load i64, ptr %fw_cfg, align 8
   %2 = trunc i64 %1 to i16
   %conv2 = add i16 %2, 1
-  %call = tail call zeroext i8 @qtest_inb(ptr noundef %0, i16 noundef zeroext %conv2) #5
+  %call = tail call zeroext i8 @qtest_inb(ptr noundef %0, i16 noundef zeroext %conv2) #6
   %arrayidx = getelementptr i8, ptr %data, i64 %conv6
   store i8 %call, ptr %arrayidx, align 1
   %inc = add i32 %i.05, 1
@@ -269,7 +266,7 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @io_fw_cfg_uninit(ptr noundef %fw_cfg) local_unnamed_addr #0 {
 entry:
-  tail call void @g_free(ptr noundef %fw_cfg) #5
+  tail call void @g_free(ptr noundef %fw_cfg) #6
   ret void
 }
 
@@ -287,14 +284,18 @@ declare void @qtest_outw(ptr noundef, i16 noundef zeroext, i16 noundef zeroext) 
 
 declare zeroext i8 @qtest_inb(ptr noundef, i16 noundef zeroext) local_unnamed_addr #3
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #5
+
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
-attributes #6 = { nounwind allocsize(0) }
-attributes #7 = { nounwind willreturn memory(read) }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind }
+attributes #7 = { nounwind allocsize(0) }
+attributes #8 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

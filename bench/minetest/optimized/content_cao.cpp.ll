@@ -10363,8 +10363,8 @@ if.then7:                                         ; preds = %for.body
   %cond = call i32 @llvm.umax.i32(i32 %and, i32 %shr)
   %conv23 = zext i8 %light_at_pos_intensity.053 to i32
   %cmp24 = icmp samesign ugt i32 %cond, %conv23
-  %conv21 = trunc nuw i32 %cond to i8
-  %spec.select49 = select i1 %cmp24, i8 %conv21, i8 %light_at_pos_intensity.053
+  %spec.select491 = call i32 @llvm.umax.i32(i32 %cond, i32 %conv23)
+  %spec.select49 = trunc nuw i32 %spec.select491 to i8
   %spec.select50 = select i1 %cmp24, i16 %call13, i16 %light_at_pos.054
   br label %if.end27
 

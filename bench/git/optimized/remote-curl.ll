@@ -3744,8 +3744,8 @@ while.body.lr.ph.i:                               ; preds = %if.end5.thread
 
 while.body.i:                                     ; preds = %if.end60.i, %while.body.lr.ph.i
   %5 = phi i32 [ %.pre.i, %while.body.lr.ph.i ], [ %10, %if.end60.i ]
-  %size.addr.041.i = phi i64 [ %mul, %while.body.lr.ph.i ], [ %size.addr.2.i, %if.end60.i ]
-  %ptr.addr.040.i = phi ptr [ %ptr, %while.body.lr.ph.i ], [ %ptr.addr.2.i, %if.end60.i ]
+  %size.addr.044.i = phi i64 [ %mul, %while.body.lr.ph.i ], [ %size.addr.2.i, %if.end60.i ]
+  %ptr.addr.043.i = phi ptr [ %ptr, %while.body.lr.ph.i ], [ %ptr.addr.2.i, %if.end60.i ]
   %tobool1.not.i = icmp eq i32 %5, 0
   br i1 %tobool1.not.i, label %if.then.i, label %if.then45.i
 
@@ -3753,18 +3753,18 @@ if.then.i:                                        ; preds = %while.body.i
   %6 = load i32, ptr %len_filled.i, align 4
   %sub.i = sub nsw i32 4, %6
   %conv.i = sext i32 %sub.i to i64
-  %cmp.i = icmp ult i64 %size.addr.041.i, %conv.i
-  %conv4.i = trunc i64 %size.addr.041.i to i32
-  %spec.select.i = select i1 %cmp.i, i32 %conv4.i, i32 %sub.i
+  %spec.select39.i = call i64 @llvm.umin.i64(i64 %size.addr.044.i, i64 %conv.i)
+  %spec.select.i = trunc i64 %spec.select39.i to i32
   %idxprom.i = sext i32 %6 to i64
   %arrayidx.i = getelementptr inbounds [4 x i8], ptr %pktline_state13, i64 0, i64 %idxprom.i
-  %conv6.i = sext i32 %spec.select.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx.i, ptr align 1 %ptr.addr.040.i, i64 %conv6.i, i1 false)
+  %sext.i = shl i64 %spec.select39.i, 32
+  %conv6.i = ashr exact i64 %sext.i, 32
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx.i, ptr align 1 %ptr.addr.043.i, i64 %conv6.i, i1 false)
   %7 = load i32, ptr %len_filled.i, align 4
-  %add.i = add nsw i32 %spec.select.i, %7
+  %add.i = add nsw i32 %7, %spec.select.i
   store i32 %add.i, ptr %len_filled.i, align 4
-  %add.ptr.i = getelementptr inbounds i8, ptr %ptr.addr.040.i, i64 %conv6.i
-  %sub9.i = sub i64 %size.addr.041.i, %conv6.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %ptr.addr.043.i, i64 %conv6.i
+  %sub9.i = sub i64 %size.addr.044.i, %conv6.i
   %cmp11.i = icmp eq i32 %add.i, 4
   br i1 %cmp11.i, label %if.then13.i, label %if.end42thread-pre-split.i
 
@@ -3804,14 +3804,14 @@ if.end42.i:                                       ; preds = %if.end42thread-pre-
   br i1 %tobool44.not.i, label %if.end60.i, label %if.then45.i
 
 if.then45.i:                                      ; preds = %if.end42.i, %while.body.i
-  %size.addr.138.i = phi i64 [ %sub9.i, %if.end42.i ], [ %size.addr.041.i, %while.body.i ]
-  %ptr.addr.137.i = phi ptr [ %add.ptr.i, %if.end42.i ], [ %ptr.addr.040.i, %while.body.i ]
+  %size.addr.138.i = phi i64 [ %sub9.i, %if.end42.i ], [ %size.addr.044.i, %while.body.i ]
+  %ptr.addr.137.i = phi ptr [ %add.ptr.i, %if.end42.i ], [ %ptr.addr.043.i, %while.body.i ]
   %9 = phi i32 [ %8, %if.end42.i ], [ %5, %while.body.i ]
   %conv48.i = sext i32 %9 to i64
-  %cmp49.i = icmp ult i64 %size.addr.138.i, %conv48.i
-  %conv52.i = trunc i64 %size.addr.138.i to i32
-  %spec.select33.i = select i1 %cmp49.i, i32 %conv52.i, i32 %9
-  %idx.ext54.i = sext i32 %spec.select33.i to i64
+  %spec.select3340.i = call i64 @llvm.umin.i64(i64 %size.addr.138.i, i64 %conv48.i)
+  %spec.select33.i = trunc i64 %spec.select3340.i to i32
+  %sext41.i = shl i64 %spec.select3340.i, 32
+  %idx.ext54.i = ashr exact i64 %sext41.i, 32
   %add.ptr55.i = getelementptr inbounds i8, ptr %ptr.addr.137.i, i64 %idx.ext54.i
   %sub57.i = sub i64 %size.addr.138.i, %idx.ext54.i
   %sub59.i = sub nsw i32 %9, %spec.select33.i
@@ -4027,10 +4027,10 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.usub.sat.i32(i32, i32) #15
+declare i64 @llvm.umin.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #15
+declare i32 @llvm.usub.sat.i32(i32, i32) #15
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

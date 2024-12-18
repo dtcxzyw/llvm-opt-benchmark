@@ -3709,10 +3709,9 @@ if.then6:                                         ; preds = %if.end3
 
 if.end8:                                          ; preds = %if.end3
   %conv9 = zext i32 %len to i64
-  %cmp10 = icmp ult i64 %sub, %conv9
-  %conv13 = trunc nuw i64 %sub to i32
-  %read_now.0 = select i1 %cmp10, i32 %conv13, i32 %len
-  %cmp15 = icmp eq i32 %read_now.0, 0
+  %read_now.018 = tail call i64 @llvm.umin.i64(i64 %sub, i64 %conv9)
+  %read_now.0 = trunc nuw i64 %read_now.018 to i32
+  %cmp15 = icmp eq i64 %read_now.018, 0
   br i1 %cmp15, label %return, label %if.end18
 
 if.end18:                                         ; preds = %if.end8
@@ -3732,9 +3731,8 @@ if.end23:                                         ; preds = %if.end18
   %opaque = getelementptr inbounds nuw i8, ptr %0, i64 256
   %6 = load ptr, ptr %opaque, align 8
   %7 = load ptr, ptr %filestream, align 8
-  %conv28 = zext i32 %read_now.0 to i64
-  %call29 = tail call i64 %5(ptr noundef %6, ptr noundef %7, ptr noundef nonnull %buf, i64 noundef %conv28) #14
-  %cmp31.not = icmp eq i64 %call29, %conv28
+  %call29 = tail call i64 %5(ptr noundef %6, ptr noundef %7, ptr noundef nonnull %buf, i64 noundef %read_now.018) #14
+  %cmp31.not = icmp eq i64 %call29, %read_now.018
   %read_now.0. = select i1 %cmp31.not, i32 %read_now.0, i32 -1
   br label %return
 

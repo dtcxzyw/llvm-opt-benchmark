@@ -330,134 +330,129 @@ define internal i64 @usbdev_read(ptr nocapture noundef readonly %0, ptr noundef 
 
 21:                                               ; preds = %19
   %22 = icmp samesign ult i64 %10, 18
-  br i1 %22, label %23, label %40
+  br i1 %22, label %23, label %35
 
 23:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %5) #17
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 896
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %5, ptr noundef nonnull align 8 dereferenceable(18) %24, i64 18, i1 false)
-  %25 = trunc nuw nsw i64 %10 to i32
-  %26 = sub nuw nsw i32 18, %25
-  %27 = zext nneg i32 %26 to i64
-  %28 = icmp ult i64 %2, %27
-  %29 = trunc i64 %2 to i32
-  %30 = select i1 %28, i32 %29, i32 %26
-  %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr i8, ptr %5, i64 %10
-  %33 = call i64 @_copy_to_user(ptr noundef %1, ptr noundef %32, i64 noundef %31) #17
-  %34 = icmp eq i64 %33, 0
-  br i1 %34, label %.thread, label %39
+  %25 = sub nuw nsw i64 18, %10
+  %26 = tail call i64 @llvm.umin.i64(i64 %2, i64 %25)
+  %27 = getelementptr i8, ptr %5, i64 %10
+  %28 = call i64 @_copy_to_user(ptr noundef %1, ptr noundef %27, i64 noundef %26) #17
+  %29 = icmp eq i64 %28, 0
+  br i1 %29, label %.thread, label %34
 
 .thread:                                          ; preds = %23
-  %35 = load i64, ptr %3, align 8
-  %36 = add i64 %35, %31
-  store i64 %36, ptr %3, align 8
-  %37 = getelementptr i8, ptr %1, i64 %31
-  %38 = sub i64 %2, %31
+  %30 = load i64, ptr %3, align 8
+  %31 = add i64 %30, %26
+  store i64 %31, ptr %3, align 8
+  %32 = getelementptr i8, ptr %1, i64 %26
+  %33 = sub i64 %2, %26
   call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %5) #17
-  br label %40
+  br label %35
 
-39:                                               ; preds = %23
+34:                                               ; preds = %23
   call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %5) #17
   br label %.loopexit
 
-40:                                               ; preds = %.thread, %21
-  %41 = phi i64 [ 0, %21 ], [ %31, %.thread ]
-  %42 = phi i64 [ %2, %21 ], [ %38, %.thread ]
-  %43 = phi ptr [ %1, %21 ], [ %37, %.thread ]
-  %44 = icmp eq i64 %42, 0
-  br i1 %44, label %.loopexit, label %45
+35:                                               ; preds = %.thread, %21
+  %36 = phi i64 [ 0, %21 ], [ %26, %.thread ]
+  %37 = phi i64 [ %2, %21 ], [ %33, %.thread ]
+  %38 = phi ptr [ %1, %21 ], [ %32, %.thread ]
+  %39 = icmp eq i64 %37, 0
+  br i1 %39, label %.loopexit, label %40
 
-45:                                               ; preds = %40
-  %46 = getelementptr inbounds nuw i8, ptr %9, i64 913
-  %47 = getelementptr inbounds nuw i8, ptr %9, i64 1200
-  %48 = getelementptr inbounds nuw i8, ptr %9, i64 928
-  br label %49
+40:                                               ; preds = %35
+  %41 = getelementptr inbounds nuw i8, ptr %9, i64 913
+  %42 = getelementptr inbounds nuw i8, ptr %9, i64 1200
+  %43 = getelementptr inbounds nuw i8, ptr %9, i64 928
+  br label %44
 
-49:                                               ; preds = %98, %45
-  %50 = phi i64 [ 0, %45 ], [ %99, %98 ]
-  %51 = phi ptr [ %43, %45 ], [ %.ph13, %98 ]
-  %52 = phi i64 [ %42, %45 ], [ %.ph12, %98 ]
-  %53 = phi i64 [ 18, %45 ], [ %66, %98 ]
-  %54 = phi i64 [ %41, %45 ], [ %.ph, %98 ]
-  %55 = load i8, ptr %46, align 1
-  %56 = zext i8 %55 to i64
-  %57 = icmp samesign ult i64 %50, %56
-  br i1 %57, label %58, label %.loopexit
+44:                                               ; preds = %93, %40
+  %45 = phi i64 [ 0, %40 ], [ %94, %93 ]
+  %46 = phi ptr [ %38, %40 ], [ %.ph13, %93 ]
+  %47 = phi i64 [ %37, %40 ], [ %.ph12, %93 ]
+  %48 = phi i64 [ 18, %40 ], [ %61, %93 ]
+  %49 = phi i64 [ %36, %40 ], [ %.ph, %93 ]
+  %50 = load i8, ptr %41, align 1
+  %51 = zext i8 %50 to i64
+  %52 = icmp samesign ult i64 %45, %51
+  br i1 %52, label %53, label %.loopexit
 
-58:                                               ; preds = %49
-  %59 = load ptr, ptr %47, align 8
-  %60 = getelementptr ptr, ptr %59, i64 %50
-  %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 2
-  %63 = load i16, ptr %62, align 1
-  %64 = load i64, ptr %3, align 8
-  %65 = zext i16 %63 to i64
-  %66 = add i64 %53, %65
-  %67 = icmp slt i64 %64, %66
-  br i1 %67, label %68, label %98
+53:                                               ; preds = %44
+  %54 = load ptr, ptr %42, align 8
+  %55 = getelementptr ptr, ptr %54, i64 %45
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 2
+  %58 = load i16, ptr %57, align 1
+  %59 = load i64, ptr %3, align 8
+  %60 = zext i16 %58 to i64
+  %61 = add i64 %48, %60
+  %62 = icmp slt i64 %59, %61
+  br i1 %62, label %63, label %93
 
-68:                                               ; preds = %58
-  %69 = load ptr, ptr %48, align 8
-  %70 = getelementptr %struct.usb_host_config, ptr %69, i64 %50, i32 0, i32 2
-  %71 = load i16, ptr %70, align 2
-  %72 = sub i64 %53, %64
-  %73 = add i64 %72, %65
-  %74 = and i64 %73, 4294967295
-  %75 = icmp ugt i64 %74, %52
-  %76 = select i1 %75, i64 %52, i64 %73
-  %77 = zext i16 %71 to i64
-  %78 = sub i64 %64, %53
-  %79 = icmp slt i64 %78, %77
-  br i1 %79, label %80, label %91
+63:                                               ; preds = %53
+  %64 = load ptr, ptr %43, align 8
+  %65 = getelementptr %struct.usb_host_config, ptr %64, i64 %45, i32 0, i32 2
+  %66 = load i16, ptr %65, align 2
+  %67 = sub i64 %48, %59
+  %68 = add i64 %67, %60
+  %69 = and i64 %68, 4294967295
+  %70 = icmp ugt i64 %69, %47
+  %71 = select i1 %70, i64 %47, i64 %68
+  %72 = zext i16 %66 to i64
+  %73 = sub i64 %59, %48
+  %74 = icmp slt i64 %73, %72
+  br i1 %74, label %75, label %86
 
-80:                                               ; preds = %68
-  %81 = trunc i64 %76 to i32
-  %82 = sub i64 %77, %78
-  %83 = trunc i64 %82 to i32
-  %84 = call i32 @llvm.umin.i32(i32 %81, i32 %83)
-  %85 = icmp slt i32 %84, 0
-  br i1 %85, label %.critedge, label %86, !prof !12
+75:                                               ; preds = %63
+  %76 = trunc i64 %71 to i32
+  %77 = sub i64 %72, %73
+  %78 = trunc i64 %77 to i32
+  %79 = call i32 @llvm.umin.i32(i32 %76, i32 %78)
+  %80 = icmp slt i32 %79, 0
+  br i1 %80, label %.critedge, label %81, !prof !12
 
-.critedge:                                        ; preds = %80
+.critedge:                                        ; preds = %75
   call void asm sideeffect "42: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 42b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 42) #17, !srcloc !13
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.5, i32 249, i32 2307, i64 12) #17, !srcloc !14
   call void asm sideeffect "43: nop\0A\09.pushsection .discard.instr_end\0A\09.long 43b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 43) #17, !srcloc !15
   br label %.loopexit
 
-86:                                               ; preds = %80
-  %87 = zext nneg i32 %84 to i64
-  %88 = getelementptr i8, ptr %61, i64 %78
-  %89 = call i64 @_copy_to_user(ptr noundef %51, ptr noundef %88, i64 noundef %87) #17
-  %90 = icmp eq i64 %89, 0
-  br i1 %90, label %._crit_edge, label %.loopexit
+81:                                               ; preds = %75
+  %82 = zext nneg i32 %79 to i64
+  %83 = getelementptr i8, ptr %56, i64 %73
+  %84 = call i64 @_copy_to_user(ptr noundef %46, ptr noundef %83, i64 noundef %82) #17
+  %85 = icmp eq i64 %84, 0
+  br i1 %85, label %._crit_edge, label %.loopexit
 
-._crit_edge:                                      ; preds = %86
+._crit_edge:                                      ; preds = %81
   %.pre = load i64, ptr %3, align 8
-  br label %91
+  br label %86
 
-91:                                               ; preds = %._crit_edge, %68
-  %92 = phi i64 [ %.pre, %._crit_edge ], [ %64, %68 ]
-  %93 = and i64 %76, 4294967295
-  %94 = add i64 %92, %93
-  store i64 %94, ptr %3, align 8
-  %95 = getelementptr i8, ptr %51, i64 %93
-  %96 = sub i64 %52, %93
-  %97 = add i64 %93, %54
-  br label %98
+86:                                               ; preds = %._crit_edge, %63
+  %87 = phi i64 [ %.pre, %._crit_edge ], [ %59, %63 ]
+  %88 = and i64 %71, 4294967295
+  %89 = add i64 %87, %88
+  store i64 %89, ptr %3, align 8
+  %90 = getelementptr i8, ptr %46, i64 %88
+  %91 = sub i64 %47, %88
+  %92 = add i64 %88, %49
+  br label %93
 
-98:                                               ; preds = %58, %91
-  %.ph = phi i64 [ %97, %91 ], [ %54, %58 ]
-  %.ph12 = phi i64 [ %96, %91 ], [ %52, %58 ]
-  %.ph13 = phi ptr [ %95, %91 ], [ %51, %58 ]
-  %99 = add nuw nsw i64 %50, 1
-  %100 = icmp eq i64 %.ph12, 0
-  br i1 %100, label %.loopexit, label %49, !llvm.loop !16
+93:                                               ; preds = %53, %86
+  %.ph = phi i64 [ %92, %86 ], [ %49, %53 ]
+  %.ph12 = phi i64 [ %91, %86 ], [ %47, %53 ]
+  %.ph13 = phi ptr [ %90, %86 ], [ %46, %53 ]
+  %94 = add nuw nsw i64 %45, 1
+  %95 = icmp eq i64 %.ph12, 0
+  br i1 %95, label %.loopexit, label %44, !llvm.loop !16
 
-.loopexit:                                        ; preds = %49, %98, %86, %4, %14, %19, %40, %39, %.critedge
-  %101 = phi i64 [ -14, %39 ], [ -19, %14 ], [ -22, %19 ], [ %41, %40 ], [ -19, %4 ], [ -14, %.critedge ], [ -14, %86 ], [ %.ph, %98 ], [ %54, %49 ]
+.loopexit:                                        ; preds = %44, %93, %81, %4, %14, %19, %35, %34, %.critedge
+  %96 = phi i64 [ -14, %34 ], [ -19, %14 ], [ -22, %19 ], [ %36, %35 ], [ -19, %4 ], [ -14, %.critedge ], [ -14, %81 ], [ %.ph, %93 ], [ %49, %44 ]
   call void @mutex_unlock(ptr noundef nonnull %11) #17
-  ret i64 %101
+  ret i64 %96
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -7505,6 +7500,9 @@ declare i32 @llvm.umin.i32(i32, i32) #15
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #16

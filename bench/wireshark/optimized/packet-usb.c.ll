@@ -6471,15 +6471,15 @@ define internal i32 @dissect_usb_setup_get_descriptor_response(ptr noundef %0, p
   %39 = tail call ptr @val_to_str_ext(i32 noundef %38, ptr noundef nonnull @std_descriptor_type_vals_ext, ptr noundef nonnull @.str.833) #11
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %35, i32 noundef 25, ptr noundef nonnull @.str.832, ptr noundef %39) #11
   %40 = load i8, ptr %36, align 4
-  switch i8 %40, label %689 [
-    i8 4, label %699
-    i8 5, label %699
+  switch i8 %40, label %687 [
+    i8 4, label %697
+    i8 5, label %697
     i8 1, label %41
     i8 7, label %170
     i8 2, label %174
     i8 3, label %478
-    i8 6, label %525
-    i8 15, label %601
+    i8 6, label %523
+    i8 15, label %599
   ]
 
 41:                                               ; preds = %5
@@ -6693,7 +6693,7 @@ dissect_usb_device_descriptor.exit:               ; preds = %dissect_max_packet_
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %29)
-  br label %699
+  br label %697
 
 170:                                              ; preds = %5
   %171 = icmp eq i32 %33, 2
@@ -7192,7 +7192,7 @@ dissect_usb_configuration_descriptor.exit:        ; preds = %.thread.i, %258, %4
   call void @proto_item_set_len(ptr noundef %477, i32 noundef %476) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %22)
-  br label %699
+  br label %697
 
 478:                                              ; preds = %5
   %.val = load ptr, ptr %30, align 8
@@ -7239,16 +7239,16 @@ dissect_usb_configuration_descriptor.exit:        ; preds = %.thread.i, %258, %4
   br i1 %.not53.i, label %.preheader.i, label %512
 
 .preheader.i:                                     ; preds = %503
-  %.not541.i = icmp slt i32 %3, 2147483646
+  %.not542.i = icmp slt i32 %3, 2147483646
   %506 = icmp ne i8 %481, 2
-  %or.cond2.i = and i1 %.not541.i, %506
-  br i1 %or.cond2.i, label %.lr.ph.i52, label %.critedge.i
+  %or.cond3.i = and i1 %.not542.i, %506
+  br i1 %or.cond3.i, label %.lr.ph.i52, label %.critedge.i
 
 .lr.ph.i52:                                       ; preds = %.preheader.i, %.lr.ph.i52
-  %.0473.i = phi i32 [ %509, %.lr.ph.i52 ], [ %499, %.preheader.i ]
+  %.0474.i = phi i32 [ %509, %.lr.ph.i52 ], [ %499, %.preheader.i ]
   %507 = load i32, ptr @hf_usb_wLANGID, align 4
-  %508 = call ptr @proto_tree_add_item(ptr noundef %480, i32 noundef %507, ptr noundef %2, i32 noundef %.0473.i, i32 noundef 2, i32 noundef -2147483648) #11
-  %509 = add i32 %.0473.i, 2
+  %508 = call ptr @proto_tree_add_item(ptr noundef %480, i32 noundef %507, ptr noundef %2, i32 noundef %.0474.i, i32 noundef 2, i32 noundef -2147483648) #11
+  %509 = add i32 %.0474.i, 2
   %.not54.i = icmp sge i32 %509, %3
   %510 = sub i32 %509, %3
   %511 = icmp ult i32 %510, %482
@@ -7259,342 +7259,341 @@ dissect_usb_configuration_descriptor.exit:        ; preds = %.thread.i, %258, %4
   %513 = getelementptr inbounds nuw i8, ptr %.val, i64 34
   %514 = load i16, ptr %513, align 2
   %515 = zext i8 %481 to i16
-  %516 = icmp ugt i16 %514, %515
-  %517 = trunc i16 %514 to i8
-  %.in.i = select i1 %516, i8 %481, i8 %517
-  %518 = add i8 %.in.i, -2
-  %519 = load i32, ptr @hf_usb_bString, align 4
-  %520 = zext i8 %518 to i32
-  %521 = call ptr @proto_tree_add_item(ptr noundef %480, i32 noundef %519, ptr noundef %2, i32 noundef %499, i32 noundef %520, i32 noundef -2147483644) #11
-  %522 = add i32 %499, %520
+  %.in1.i = call i16 @llvm.umin.i16(i16 %514, i16 %515)
+  %narrow.i = add nuw nsw i16 %.in1.i, 254
+  %516 = load i32, ptr @hf_usb_bString, align 4
+  %517 = and i16 %narrow.i, 255
+  %518 = zext nneg i16 %517 to i32
+  %519 = call ptr @proto_tree_add_item(ptr noundef %480, i32 noundef %516, ptr noundef %2, i32 noundef %499, i32 noundef %518, i32 noundef -2147483644) #11
+  %520 = add i32 %499, %518
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.lr.ph.i52, %512, %.preheader.i
-  %.1.i50 = phi i32 [ %522, %512 ], [ %499, %.preheader.i ], [ %509, %.lr.ph.i52 ]
-  %523 = load ptr, ptr %15, align 8
-  %524 = sub i32 %.1.i50, %3
-  call void @proto_item_set_len(ptr noundef %523, i32 noundef %524) #11
+  %.1.i50 = phi i32 [ %520, %512 ], [ %499, %.preheader.i ], [ %509, %.lr.ph.i52 ]
+  %521 = load ptr, ptr %15, align 8
+  %522 = sub i32 %.1.i50, %3
+  call void @proto_item_set_len(ptr noundef %521, i32 noundef %522) #11
   br label %dissect_usb_string_descriptor.exit
 
 dissect_usb_string_descriptor.exit:               ; preds = %501, %.critedge.i
   %.0.i51 = phi i32 [ %499, %501 ], [ %.1.i50, %.critedge.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
-  br label %699
+  br label %697
 
-525:                                              ; preds = %5
+523:                                              ; preds = %5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14)
-  %526 = load i32, ptr @ett_descriptor_device, align 4
-  %527 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef -1, i32 noundef %526, ptr noundef nonnull %10, ptr noundef nonnull @.str.895) #11
-  %528 = load i32, ptr @hf_usb_bLength, align 4
-  %529 = call ptr @proto_tree_add_item(ptr noundef %527, i32 noundef %528, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef -2147483648) #11
-  %530 = add i32 %3, 1
-  %531 = call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %530) #11
-  %532 = load i32, ptr @hf_usb_bDescriptorType, align 4
-  %533 = zext i8 %531 to i32
-  %534 = call ptr @val_to_str_ext_const(i32 noundef %533, ptr noundef nonnull @std_descriptor_type_vals_ext, ptr noundef nonnull @.str.3) #11
-  %535 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %527, i32 noundef %532, ptr noundef %2, i32 noundef %530, i32 noundef 1, i32 noundef %533, ptr noundef nonnull @.str.2, i32 noundef %533, ptr noundef %534) #11
-  %536 = add i32 %3, 2
-  %537 = load i32, ptr @hf_usb_bcdUSB, align 4
-  %538 = call ptr @proto_tree_add_item(ptr noundef %527, i32 noundef %537, ptr noundef %2, i32 noundef %536, i32 noundef 2, i32 noundef -2147483648) #11
-  %539 = add i32 %3, 4
-  %540 = call i32 @tvb_get_ntoh24(ptr noundef %2, i32 noundef %539) #11
-  %541 = call ptr @val_to_str_ext_const(i32 noundef %540, ptr noundef nonnull @usb_protocols_ext, ptr noundef nonnull @.str.851) #11
-  %542 = load i32, ptr @hf_usb_bDeviceClass, align 4
-  %543 = call ptr @proto_tree_add_item(ptr noundef %527, i32 noundef %542, ptr noundef %2, i32 noundef %539, i32 noundef 1, i32 noundef -2147483648) #11
-  %544 = add i32 %3, 5
-  %545 = load i32, ptr @hf_usb_bDeviceSubClass, align 4
-  %546 = call ptr @proto_tree_add_item(ptr noundef %527, i32 noundef %545, ptr noundef %2, i32 noundef %544, i32 noundef 1, i32 noundef -2147483648) #11
-  %547 = add i32 %3, 6
-  %548 = load i32, ptr @hf_usb_bDeviceProtocol, align 4
-  %549 = call ptr @proto_tree_add_item(ptr noundef %527, i32 noundef %548, ptr noundef %2, i32 noundef %547, i32 noundef 1, i32 noundef -2147483648) #11
-  %550 = load i8, ptr %541, align 1
-  %.not.i54 = icmp eq i8 %550, 0
-  br i1 %.not.i54, label %552, label %551
+  %524 = load i32, ptr @ett_descriptor_device, align 4
+  %525 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef -1, i32 noundef %524, ptr noundef nonnull %10, ptr noundef nonnull @.str.895) #11
+  %526 = load i32, ptr @hf_usb_bLength, align 4
+  %527 = call ptr @proto_tree_add_item(ptr noundef %525, i32 noundef %526, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef -2147483648) #11
+  %528 = add i32 %3, 1
+  %529 = call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %528) #11
+  %530 = load i32, ptr @hf_usb_bDescriptorType, align 4
+  %531 = zext i8 %529 to i32
+  %532 = call ptr @val_to_str_ext_const(i32 noundef %531, ptr noundef nonnull @std_descriptor_type_vals_ext, ptr noundef nonnull @.str.3) #11
+  %533 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %525, i32 noundef %530, ptr noundef %2, i32 noundef %528, i32 noundef 1, i32 noundef %531, ptr noundef nonnull @.str.2, i32 noundef %531, ptr noundef %532) #11
+  %534 = add i32 %3, 2
+  %535 = load i32, ptr @hf_usb_bcdUSB, align 4
+  %536 = call ptr @proto_tree_add_item(ptr noundef %525, i32 noundef %535, ptr noundef %2, i32 noundef %534, i32 noundef 2, i32 noundef -2147483648) #11
+  %537 = add i32 %3, 4
+  %538 = call i32 @tvb_get_ntoh24(ptr noundef %2, i32 noundef %537) #11
+  %539 = call ptr @val_to_str_ext_const(i32 noundef %538, ptr noundef nonnull @usb_protocols_ext, ptr noundef nonnull @.str.851) #11
+  %540 = load i32, ptr @hf_usb_bDeviceClass, align 4
+  %541 = call ptr @proto_tree_add_item(ptr noundef %525, i32 noundef %540, ptr noundef %2, i32 noundef %537, i32 noundef 1, i32 noundef -2147483648) #11
+  %542 = add i32 %3, 5
+  %543 = load i32, ptr @hf_usb_bDeviceSubClass, align 4
+  %544 = call ptr @proto_tree_add_item(ptr noundef %525, i32 noundef %543, ptr noundef %2, i32 noundef %542, i32 noundef 1, i32 noundef -2147483648) #11
+  %545 = add i32 %3, 6
+  %546 = load i32, ptr @hf_usb_bDeviceProtocol, align 4
+  %547 = call ptr @proto_tree_add_item(ptr noundef %525, i32 noundef %546, ptr noundef %2, i32 noundef %545, i32 noundef 1, i32 noundef -2147483648) #11
+  %548 = load i8, ptr %539, align 1
+  %.not.i54 = icmp eq i8 %548, 0
+  br i1 %.not.i54, label %550, label %549
 
-551:                                              ; preds = %525
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %549, ptr noundef nonnull @.str.852, ptr noundef nonnull %541) #11
-  br label %552
+549:                                              ; preds = %523
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %547, ptr noundef nonnull @.str.852, ptr noundef nonnull %539) #11
+  br label %550
 
-552:                                              ; preds = %551, %525
-  %553 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %554 = load ptr, ptr %553, align 8
-  %555 = getelementptr inbounds nuw i8, ptr %554, i64 50
-  %556 = load i16, ptr %555, align 2
-  %557 = and i16 %556, 8
-  %.not54.i55 = icmp eq i16 %557, 0
-  br i1 %.not54.i55, label %558, label %582
+550:                                              ; preds = %549, %523
+  %551 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %552 = load ptr, ptr %551, align 8
+  %553 = getelementptr inbounds nuw i8, ptr %552, i64 50
+  %554 = load i16, ptr %553, align 2
+  %555 = and i16 %554, 8
+  %.not54.i55 = icmp eq i16 %555, 0
+  br i1 %.not54.i55, label %556, label %580
 
-558:                                              ; preds = %552
-  %559 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %560 = load i32, ptr %559, align 4
-  store i32 %560, ptr %13, align 4
-  %561 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  %562 = load i16, ptr %561, align 2
+556:                                              ; preds = %550
+  %557 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %558 = load i32, ptr %557, align 4
+  store i32 %558, ptr %13, align 4
+  %559 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  %560 = load i16, ptr %559, align 2
+  %561 = zext i16 %560 to i32
+  store i32 %561, ptr %12, align 4
+  %562 = load i16, ptr %4, align 8
   %563 = zext i16 %562 to i32
-  store i32 %563, ptr %12, align 4
-  %564 = load i16, ptr %4, align 8
-  %565 = zext i16 %564 to i32
-  store i32 %565, ptr %11, align 4
+  store i32 %563, ptr %11, align 4
   store i32 1, ptr %14, align 16
-  %566 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr %12, ptr %566, align 8
-  %567 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %564 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store ptr %12, ptr %564, align 8
+  %565 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  store i32 1, ptr %565, align 16
+  %566 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  store ptr %11, ptr %566, align 8
+  %567 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store i32 1, ptr %567, align 16
-  %568 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr %11, ptr %568, align 8
-  %569 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  store i32 1, ptr %569, align 16
-  %570 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  store ptr %13, ptr %570, align 8
-  %571 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  store i32 0, ptr %571, align 16
-  %572 = getelementptr inbounds nuw i8, ptr %14, i64 56
-  store ptr null, ptr %572, align 8
-  %573 = call ptr @wmem_file_scope() #11
-  %574 = call noalias ptr @wmem_alloc(ptr noundef %573, i64 noundef 12) #11
-  store i32 %540, ptr %574, align 4
-  %575 = load i16, ptr %4, align 8
-  %576 = zext i16 %575 to i32
-  %577 = getelementptr inbounds nuw i8, ptr %574, i64 4
-  store i32 %576, ptr %577, align 4
-  %578 = load i16, ptr %561, align 2
-  %579 = zext i16 %578 to i32
-  %580 = getelementptr inbounds nuw i8, ptr %574, i64 8
-  store i32 %579, ptr %580, align 4
-  %581 = load ptr, ptr @device_to_protocol_table, align 8
-  call void @wmem_tree_insert32_array(ptr noundef %581, ptr noundef nonnull %14, ptr noundef nonnull %574) #11
-  br label %582
+  %568 = getelementptr inbounds nuw i8, ptr %14, i64 40
+  store ptr %13, ptr %568, align 8
+  %569 = getelementptr inbounds nuw i8, ptr %14, i64 48
+  store i32 0, ptr %569, align 16
+  %570 = getelementptr inbounds nuw i8, ptr %14, i64 56
+  store ptr null, ptr %570, align 8
+  %571 = call ptr @wmem_file_scope() #11
+  %572 = call noalias ptr @wmem_alloc(ptr noundef %571, i64 noundef 12) #11
+  store i32 %538, ptr %572, align 4
+  %573 = load i16, ptr %4, align 8
+  %574 = zext i16 %573 to i32
+  %575 = getelementptr inbounds nuw i8, ptr %572, i64 4
+  store i32 %574, ptr %575, align 4
+  %576 = load i16, ptr %559, align 2
+  %577 = zext i16 %576 to i32
+  %578 = getelementptr inbounds nuw i8, ptr %572, i64 8
+  store i32 %577, ptr %578, align 4
+  %579 = load ptr, ptr @device_to_protocol_table, align 8
+  call void @wmem_tree_insert32_array(ptr noundef %579, ptr noundef nonnull %14, ptr noundef nonnull %572) #11
+  br label %580
 
-582:                                              ; preds = %558, %552
-  %583 = add i32 %3, 7
+580:                                              ; preds = %556, %550
+  %581 = add i32 %3, 7
   %.val.i56 = load i32, ptr %32, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
-  %584 = load i32, ptr @hf_usb_bMaxPacketSize0, align 4
-  %585 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %527, i32 noundef %584, ptr noundef %2, i32 noundef %583, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %9) #11
-  %586 = load i32, ptr %9, align 4
+  %582 = load i32, ptr @hf_usb_bMaxPacketSize0, align 4
+  %583 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %525, i32 noundef %582, ptr noundef %2, i32 noundef %581, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %9) #11
+  %584 = load i32, ptr %9, align 4
   switch i32 %.val.i56, label %dissect_usb_device_qualifier_descriptor.exit [
     i32 2, label %sanitize_usb_max_packet_size.exit.i.i57
     i32 3, label %.thread.i.i
     i32 1, label %sanitize_usb_max_packet_size.exit.i.fold.split.i
   ]
 
-.thread.i.i:                                      ; preds = %582
-  %587 = icmp ugt i32 %586, 32
+.thread.i.i:                                      ; preds = %580
+  %585 = icmp ugt i32 %584, 32
+  br i1 %585, label %sanitize_usb_max_packet_size.exit.i.i57, label %586
+
+586:                                              ; preds = %.thread.i.i
+  %587 = icmp samesign ugt i32 %584, 16
   br i1 %587, label %sanitize_usb_max_packet_size.exit.i.i57, label %588
 
-588:                                              ; preds = %.thread.i.i
-  %589 = icmp samesign ugt i32 %586, 16
-  br i1 %589, label %sanitize_usb_max_packet_size.exit.i.i57, label %590
-
-590:                                              ; preds = %588
-  %591 = icmp samesign ugt i32 %586, 8
-  %..i.i.i61 = select i1 %591, i32 16, i32 8
+588:                                              ; preds = %586
+  %589 = icmp samesign ugt i32 %584, 8
+  %..i.i.i61 = select i1 %589, i32 16, i32 8
   br label %sanitize_usb_max_packet_size.exit.i.i57
 
-sanitize_usb_max_packet_size.exit.i.fold.split.i: ; preds = %582
+sanitize_usb_max_packet_size.exit.i.fold.split.i: ; preds = %580
   br label %sanitize_usb_max_packet_size.exit.i.i57
 
-sanitize_usb_max_packet_size.exit.i.i57:          ; preds = %sanitize_usb_max_packet_size.exit.i.fold.split.i, %590, %588, %.thread.i.i, %582
-  %.03.i.i = phi i32 [ 2, %.thread.i.i ], [ 2, %588 ], [ 2, %590 ], [ 3, %582 ], [ 1, %sanitize_usb_max_packet_size.exit.i.fold.split.i ]
-  %.0.i.i.i58 = phi i32 [ 64, %.thread.i.i ], [ 32, %588 ], [ %..i.i.i61, %590 ], [ 64, %582 ], [ 8, %sanitize_usb_max_packet_size.exit.i.fold.split.i ]
-  %.not14.i.i59 = icmp eq i32 %.0.i.i.i58, %586
-  br i1 %.not14.i.i59, label %dissect_usb_device_qualifier_descriptor.exit, label %592
+sanitize_usb_max_packet_size.exit.i.i57:          ; preds = %sanitize_usb_max_packet_size.exit.i.fold.split.i, %588, %586, %.thread.i.i, %580
+  %.03.i.i = phi i32 [ 2, %.thread.i.i ], [ 2, %586 ], [ 2, %588 ], [ 3, %580 ], [ 1, %sanitize_usb_max_packet_size.exit.i.fold.split.i ]
+  %.0.i.i.i58 = phi i32 [ 64, %.thread.i.i ], [ 32, %586 ], [ %..i.i.i61, %588 ], [ 64, %580 ], [ 8, %sanitize_usb_max_packet_size.exit.i.fold.split.i ]
+  %.not14.i.i59 = icmp eq i32 %.0.i.i.i58, %584
+  br i1 %.not14.i.i59, label %dissect_usb_device_qualifier_descriptor.exit, label %590
 
-592:                                              ; preds = %sanitize_usb_max_packet_size.exit.i.i57
-  %593 = call ptr @try_val_to_str(i32 noundef %.03.i.i, ptr noundef nonnull @usb_speed_vals) #11
-  %594 = load i32, ptr %9, align 4
-  %595 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %0, ptr noundef %585, ptr noundef nonnull @ei_usb_invalid_max_packet_size0, ptr noundef nonnull @.str.881, ptr noundef %593, i32 noundef %594, i32 noundef %.0.i.i.i58) #11
+590:                                              ; preds = %sanitize_usb_max_packet_size.exit.i.i57
+  %591 = call ptr @try_val_to_str(i32 noundef %.03.i.i, ptr noundef nonnull @usb_speed_vals) #11
+  %592 = load i32, ptr %9, align 4
+  %593 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %0, ptr noundef %583, ptr noundef nonnull @ei_usb_invalid_max_packet_size0, ptr noundef nonnull @.str.881, ptr noundef %591, i32 noundef %592, i32 noundef %.0.i.i.i58) #11
   br label %dissect_usb_device_qualifier_descriptor.exit
 
-dissect_usb_device_qualifier_descriptor.exit:     ; preds = %582, %sanitize_usb_max_packet_size.exit.i.i57, %592
+dissect_usb_device_qualifier_descriptor.exit:     ; preds = %580, %sanitize_usb_max_packet_size.exit.i.i57, %590
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  %596 = add i32 %3, 8
-  %597 = load i32, ptr @hf_usb_bNumConfigurations, align 4
-  %598 = call ptr @proto_tree_add_item(ptr noundef %527, i32 noundef %597, ptr noundef %2, i32 noundef %596, i32 noundef 1, i32 noundef -2147483648) #11
-  %599 = add i32 %3, 10
-  %600 = load ptr, ptr %10, align 8
-  call void @proto_item_set_len(ptr noundef %600, i32 noundef 10) #11
+  %594 = add i32 %3, 8
+  %595 = load i32, ptr @hf_usb_bNumConfigurations, align 4
+  %596 = call ptr @proto_tree_add_item(ptr noundef %525, i32 noundef %595, ptr noundef %2, i32 noundef %594, i32 noundef 1, i32 noundef -2147483648) #11
+  %597 = add i32 %3, 10
+  %598 = load ptr, ptr %10, align 8
+  call void @proto_item_set_len(ptr noundef %598, i32 noundef 10) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14)
-  br label %699
+  br label %697
 
-601:                                              ; preds = %5
+599:                                              ; preds = %5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  %602 = load ptr, ptr %30, align 8
-  %603 = load i32, ptr @ett_descriptor_device, align 4
-  %604 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef -1, i32 noundef %603, ptr noundef nonnull %7, ptr noundef nonnull @.str.896) #11
-  %605 = load i32, ptr @hf_usb_bLength, align 4
-  %606 = call ptr @proto_tree_add_item(ptr noundef %604, i32 noundef %605, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef -2147483648) #11
-  %607 = add i32 %3, 1
-  %608 = call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %607) #11
-  %609 = load i32, ptr @hf_usb_bDescriptorType, align 4
-  %610 = zext i8 %608 to i32
-  %611 = call ptr @val_to_str_ext_const(i32 noundef %610, ptr noundef nonnull @std_descriptor_type_vals_ext, ptr noundef nonnull @.str.3) #11
-  %612 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %604, i32 noundef %609, ptr noundef %2, i32 noundef %607, i32 noundef 1, i32 noundef %610, ptr noundef nonnull @.str.2, i32 noundef %610, ptr noundef %611) #11
-  %613 = add i32 %3, 2
-  %614 = load i32, ptr @hf_usb_wTotalLength, align 4
-  %615 = call ptr @proto_tree_add_item(ptr noundef %604, i32 noundef %614, ptr noundef %2, i32 noundef %613, i32 noundef 2, i32 noundef -2147483648) #11
-  %616 = call zeroext i16 @tvb_get_letohs(ptr noundef %2, i32 noundef %613) #11
-  %617 = add i32 %3, 4
-  %618 = load i32, ptr @hf_usb_bNumDeviceCaps, align 4
-  %619 = call ptr @proto_tree_add_item(ptr noundef %604, i32 noundef %618, ptr noundef %2, i32 noundef %617, i32 noundef 1, i32 noundef -2147483648) #11
-  %620 = add i32 %3, 5
-  %621 = getelementptr inbounds nuw i8, ptr %602, i64 34
-  %622 = load i16, ptr %621, align 2
-  %623 = icmp ult i16 %622, 6
-  br i1 %623, label %dissect_usb_bos_descriptor.exit, label %.preheader.i62
+  %600 = load ptr, ptr %30, align 8
+  %601 = load i32, ptr @ett_descriptor_device, align 4
+  %602 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef -1, i32 noundef %601, ptr noundef nonnull %7, ptr noundef nonnull @.str.896) #11
+  %603 = load i32, ptr @hf_usb_bLength, align 4
+  %604 = call ptr @proto_tree_add_item(ptr noundef %602, i32 noundef %603, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef -2147483648) #11
+  %605 = add i32 %3, 1
+  %606 = call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %605) #11
+  %607 = load i32, ptr @hf_usb_bDescriptorType, align 4
+  %608 = zext i8 %606 to i32
+  %609 = call ptr @val_to_str_ext_const(i32 noundef %608, ptr noundef nonnull @std_descriptor_type_vals_ext, ptr noundef nonnull @.str.3) #11
+  %610 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %602, i32 noundef %607, ptr noundef %2, i32 noundef %605, i32 noundef 1, i32 noundef %608, ptr noundef nonnull @.str.2, i32 noundef %608, ptr noundef %609) #11
+  %611 = add i32 %3, 2
+  %612 = load i32, ptr @hf_usb_wTotalLength, align 4
+  %613 = call ptr @proto_tree_add_item(ptr noundef %602, i32 noundef %612, ptr noundef %2, i32 noundef %611, i32 noundef 2, i32 noundef -2147483648) #11
+  %614 = call zeroext i16 @tvb_get_letohs(ptr noundef %2, i32 noundef %611) #11
+  %615 = add i32 %3, 4
+  %616 = load i32, ptr @hf_usb_bNumDeviceCaps, align 4
+  %617 = call ptr @proto_tree_add_item(ptr noundef %602, i32 noundef %616, ptr noundef %2, i32 noundef %615, i32 noundef 1, i32 noundef -2147483648) #11
+  %618 = add i32 %3, 5
+  %619 = getelementptr inbounds nuw i8, ptr %600, i64 34
+  %620 = load i16, ptr %619, align 2
+  %621 = icmp ult i16 %620, 6
+  br i1 %621, label %dissect_usb_bos_descriptor.exit, label %.preheader.i62
 
-.preheader.i62:                                   ; preds = %601
-  %624 = zext i16 %616 to i32
-  %625 = icmp ugt i16 %616, 5
-  br i1 %625, label %.lr.ph.i65, label %.loopexit.i
+.preheader.i62:                                   ; preds = %599
+  %622 = zext i16 %614 to i32
+  %623 = icmp ugt i16 %614, 5
+  br i1 %623, label %.lr.ph.i65, label %.loopexit.i
 
-.lr.ph.i65:                                       ; preds = %.preheader.i62, %682
-  %.07379.i = phi i32 [ %.3.i, %682 ], [ %620, %.preheader.i62 ]
-  %626 = load i32, ptr @ett_descriptor_device, align 4
-  %627 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %2, i32 noundef %.07379.i, i32 noundef -1, i32 noundef %626, ptr noundef nonnull %8, ptr noundef nonnull @.str.897) #11
-  %628 = load i32, ptr @hf_usb_bLength, align 4
-  %629 = call ptr @proto_tree_add_item(ptr noundef %627, i32 noundef %628, ptr noundef %2, i32 noundef %.07379.i, i32 noundef 1, i32 noundef -2147483648) #11
-  store ptr %629, ptr %7, align 8
-  %630 = call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %.07379.i) #11
-  %631 = add i32 %.07379.i, 1
-  %632 = zext i8 %630 to i32
-  %633 = icmp ult i8 %630, 3
-  br i1 %633, label %634, label %637
+.lr.ph.i65:                                       ; preds = %.preheader.i62, %680
+  %.07379.i = phi i32 [ %.3.i, %680 ], [ %618, %.preheader.i62 ]
+  %624 = load i32, ptr @ett_descriptor_device, align 4
+  %625 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %2, i32 noundef %.07379.i, i32 noundef -1, i32 noundef %624, ptr noundef nonnull %8, ptr noundef nonnull @.str.897) #11
+  %626 = load i32, ptr @hf_usb_bLength, align 4
+  %627 = call ptr @proto_tree_add_item(ptr noundef %625, i32 noundef %626, ptr noundef %2, i32 noundef %.07379.i, i32 noundef 1, i32 noundef -2147483648) #11
+  store ptr %627, ptr %7, align 8
+  %628 = call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %.07379.i) #11
+  %629 = add i32 %.07379.i, 1
+  %630 = zext i8 %628 to i32
+  %631 = icmp ult i8 %628, 3
+  br i1 %631, label %632, label %635
 
-634:                                              ; preds = %.lr.ph.i65
-  %635 = load ptr, ptr %7, align 8
-  %636 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %0, ptr noundef %635, ptr noundef nonnull @ei_usb_bLength_too_short, ptr noundef nonnull @.str.898) #11
+632:                                              ; preds = %.lr.ph.i65
+  %633 = load ptr, ptr %7, align 8
+  %634 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %0, ptr noundef %633, ptr noundef nonnull @ei_usb_bLength_too_short, ptr noundef nonnull @.str.898) #11
   br label %.loopexit.i
 
-637:                                              ; preds = %.lr.ph.i65
-  %638 = load i32, ptr @hf_usb_bDescriptorType, align 4
-  %639 = call ptr @proto_tree_add_item(ptr noundef %627, i32 noundef %638, ptr noundef %2, i32 noundef %631, i32 noundef 1, i32 noundef -2147483648) #11
-  store ptr %639, ptr %7, align 8
-  %640 = call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %631) #11
-  %641 = icmp eq i8 %640, 16
-  br i1 %641, label %642, label %.thread.i66
+635:                                              ; preds = %.lr.ph.i65
+  %636 = load i32, ptr @hf_usb_bDescriptorType, align 4
+  %637 = call ptr @proto_tree_add_item(ptr noundef %625, i32 noundef %636, ptr noundef %2, i32 noundef %629, i32 noundef 1, i32 noundef -2147483648) #11
+  store ptr %637, ptr %7, align 8
+  %638 = call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %629) #11
+  %639 = icmp eq i8 %638, 16
+  br i1 %639, label %640, label %.thread.i66
 
-642:                                              ; preds = %637
-  %643 = add i32 %.07379.i, 2
-  %644 = add nsw i32 %632, -2
-  %645 = call ptr @tvb_new_subset_length(ptr noundef %2, i32 noundef %643, i32 noundef %644) #11
+640:                                              ; preds = %635
+  %641 = add i32 %.07379.i, 2
+  %642 = add nsw i32 %630, -2
+  %643 = call ptr @tvb_new_subset_length(ptr noundef %2, i32 noundef %641, i32 noundef %642) #11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  %646 = load i32, ptr @hf_usb_bDevCapabilityType, align 4
-  %647 = call ptr @proto_tree_add_item(ptr noundef %627, i32 noundef %646, ptr noundef %645, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #11
-  %648 = call zeroext i8 @tvb_get_guint8(ptr noundef %645, i32 noundef 0) #11
-  %649 = zext i8 %648 to i32
-  %650 = call ptr @try_val_to_str_ext(i32 noundef %649, ptr noundef nonnull @usb_capability_vals_ext) #11
-  switch i8 %648, label %.loopexit.i.i [
-    i8 2, label %651
-    i8 5, label %655
+  %644 = load i32, ptr @hf_usb_bDevCapabilityType, align 4
+  %645 = call ptr @proto_tree_add_item(ptr noundef %625, i32 noundef %644, ptr noundef %643, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #11
+  %646 = call zeroext i8 @tvb_get_guint8(ptr noundef %643, i32 noundef 0) #11
+  %647 = zext i8 %646 to i32
+  %648 = call ptr @try_val_to_str_ext(i32 noundef %647, ptr noundef nonnull @usb_capability_vals_ext) #11
+  switch i8 %646, label %.loopexit.i.i [
+    i8 2, label %649
+    i8 5, label %653
   ]
 
-651:                                              ; preds = %642
-  %652 = load i32, ptr @hf_usb_usb20ext_bmAttributes, align 4
-  %653 = load i32, ptr @ett_usb20ext_bmAttributes, align 4
-  %654 = call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %627, ptr noundef %645, i32 noundef 1, i32 noundef %652, i32 noundef %653, ptr noundef nonnull @dissect_usb_device_capability_descriptor.usb20ext_fields, i32 noundef -2147483648, i32 noundef 1) #11
+649:                                              ; preds = %640
+  %650 = load i32, ptr @hf_usb_usb20ext_bmAttributes, align 4
+  %651 = load i32, ptr @ett_usb20ext_bmAttributes, align 4
+  %652 = call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %625, ptr noundef %643, i32 noundef 1, i32 noundef %650, i32 noundef %651, ptr noundef nonnull @dissect_usb_device_capability_descriptor.usb20ext_fields, i32 noundef -2147483648, i32 noundef 1) #11
   br label %.loopexit.i.i
 
-655:                                              ; preds = %642
-  %656 = load i32, ptr @hf_usb_bReserved, align 4
-  %657 = call ptr @proto_tree_add_item(ptr noundef %627, i32 noundef %656, ptr noundef %645, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648) #11
-  call void @tvb_get_letohguid(ptr noundef %645, i32 noundef 2, ptr noundef nonnull %6) #11
-  %658 = load i32, ptr @hf_usb_PlatformCapabilityUUID, align 4
-  %659 = call ptr @proto_tree_add_guid(ptr noundef %627, i32 noundef %658, ptr noundef %645, i32 noundef 2, i32 noundef 16, ptr noundef nonnull %6) #11
-  br label %661
+653:                                              ; preds = %640
+  %654 = load i32, ptr @hf_usb_bReserved, align 4
+  %655 = call ptr @proto_tree_add_item(ptr noundef %625, i32 noundef %654, ptr noundef %643, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648) #11
+  call void @tvb_get_letohguid(ptr noundef %643, i32 noundef 2, ptr noundef nonnull %6) #11
+  %656 = load i32, ptr @hf_usb_PlatformCapabilityUUID, align 4
+  %657 = call ptr @proto_tree_add_guid(ptr noundef %625, i32 noundef %656, ptr noundef %643, i32 noundef 2, i32 noundef 16, ptr noundef nonnull %6) #11
+  br label %659
 
-660:                                              ; preds = %661
-  br i1 %662, label %661, label %.loopexit.i.i, !llvm.loop !16
+658:                                              ; preds = %659
+  br i1 %660, label %659, label %.loopexit.i.i, !llvm.loop !16
 
-661:                                              ; preds = %660, %655
-  %662 = phi i1 [ true, %655 ], [ false, %660 ]
-  %indvars.iv.i.i = phi i64 [ 0, %655 ], [ 1, %660 ]
-  %663 = getelementptr [2 x %struct.anon.5], ptr @bos_platform_uuids, i64 0, i64 %indvars.iv.i.i
-  %664 = call i32 @guid_cmp(ptr noundef %663, ptr noundef nonnull %6) #11
-  %665 = icmp eq i32 %664, 0
-  br i1 %665, label %666, label %660
+659:                                              ; preds = %658, %653
+  %660 = phi i1 [ true, %653 ], [ false, %658 ]
+  %indvars.iv.i.i = phi i64 [ 0, %653 ], [ 1, %658 ]
+  %661 = getelementptr [2 x %struct.anon.5], ptr @bos_platform_uuids, i64 0, i64 %indvars.iv.i.i
+  %662 = call i32 @guid_cmp(ptr noundef %661, ptr noundef nonnull %6) #11
+  %663 = icmp eq i32 %662, 0
+  br i1 %663, label %664, label %658
 
-666:                                              ; preds = %661
-  %667 = getelementptr inbounds nuw i8, ptr %663, i64 24
-  %668 = load ptr, ptr %667, align 8
-  %669 = call i32 %668(ptr noundef %0, ptr noundef %627, ptr noundef %645, i32 noundef 18, ptr noundef %4) #11
-  %670 = getelementptr inbounds nuw i8, ptr %663, i64 16
-  %671 = load ptr, ptr %670, align 16
+664:                                              ; preds = %659
+  %665 = getelementptr inbounds nuw i8, ptr %661, i64 24
+  %666 = load ptr, ptr %665, align 8
+  %667 = call i32 %666(ptr noundef %0, ptr noundef %625, ptr noundef %643, i32 noundef 18, ptr noundef %4) #11
+  %668 = getelementptr inbounds nuw i8, ptr %661, i64 16
+  %669 = load ptr, ptr %668, align 16
   br label %.loopexit.i.i
 
-.loopexit.i.i:                                    ; preds = %660, %666, %651, %642
-  %.037.i.i = phi i32 [ 5, %651 ], [ %669, %666 ], [ 1, %642 ], [ 18, %660 ]
-  %.036.i.i = phi ptr [ %650, %651 ], [ %671, %666 ], [ %650, %642 ], [ %650, %660 ]
+.loopexit.i.i:                                    ; preds = %658, %664, %649, %640
+  %.037.i.i = phi i32 [ 5, %649 ], [ %667, %664 ], [ 1, %640 ], [ 18, %658 ]
+  %.036.i.i = phi ptr [ %648, %649 ], [ %669, %664 ], [ %648, %640 ], [ %648, %658 ]
   %.not.i.i67 = icmp eq ptr %.036.i.i, null
-  br i1 %.not.i.i67, label %676, label %672
+  br i1 %.not.i.i67, label %674, label %670
 
-672:                                              ; preds = %.loopexit.i.i
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %627, ptr noundef nonnull @.str.899, ptr noundef nonnull %.036.i.i) #11
-  br label %676
+670:                                              ; preds = %.loopexit.i.i
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %625, ptr noundef nonnull @.str.899, ptr noundef nonnull %.036.i.i) #11
+  br label %674
 
-.thread.i66:                                      ; preds = %637
-  %673 = load ptr, ptr %7, align 8
-  %674 = call ptr @expert_add_info(ptr noundef %0, ptr noundef %673, ptr noundef nonnull @ei_usb_unexpected_desc_type) #11
-  %675 = add i32 %.07379.i, %632
-  br label %682
+.thread.i66:                                      ; preds = %635
+  %671 = load ptr, ptr %7, align 8
+  %672 = call ptr @expert_add_info(ptr noundef %0, ptr noundef %671, ptr noundef nonnull @ei_usb_unexpected_desc_type) #11
+  %673 = add i32 %.07379.i, %630
+  br label %680
 
-676:                                              ; preds = %672, %.loopexit.i.i
+674:                                              ; preds = %670, %.loopexit.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %677 = add i32 %.037.i.i, %643
-  %.pre.i = add i32 %.07379.i, %632
-  %678 = icmp slt i32 %677, %.pre.i
-  br i1 %678, label %679, label %682
+  %675 = add i32 %.037.i.i, %641
+  %.pre.i = add i32 %.07379.i, %630
+  %676 = icmp slt i32 %675, %.pre.i
+  br i1 %676, label %677, label %680
 
-679:                                              ; preds = %676
-  %680 = sub i32 %.pre.i, %677
-  %681 = call ptr @proto_tree_add_expert(ptr noundef %627, ptr noundef %0, ptr noundef nonnull @ei_usb_undecoded, ptr noundef %2, i32 noundef %677, i32 noundef %680) #11
-  br label %682
+677:                                              ; preds = %674
+  %678 = sub i32 %.pre.i, %675
+  %679 = call ptr @proto_tree_add_expert(ptr noundef %625, ptr noundef %0, ptr noundef nonnull @ei_usb_undecoded, ptr noundef %2, i32 noundef %675, i32 noundef %678) #11
+  br label %680
 
-682:                                              ; preds = %679, %676, %.thread.i66
-  %.3.i = phi i32 [ %.pre.i, %679 ], [ %677, %676 ], [ %675, %.thread.i66 ]
-  %683 = load ptr, ptr %7, align 8
-  %684 = sub i32 %.3.i, %.07379.i
-  call void @proto_item_set_len(ptr noundef %683, i32 noundef %684) #11
-  %685 = sub i32 %.3.i, %3
-  %686 = icmp slt i32 %685, %624
-  br i1 %686, label %.lr.ph.i65, label %.loopexit.i, !llvm.loop !17
+680:                                              ; preds = %677, %674, %.thread.i66
+  %.3.i = phi i32 [ %.pre.i, %677 ], [ %675, %674 ], [ %673, %.thread.i66 ]
+  %681 = load ptr, ptr %7, align 8
+  %682 = sub i32 %.3.i, %.07379.i
+  call void @proto_item_set_len(ptr noundef %681, i32 noundef %682) #11
+  %683 = sub i32 %.3.i, %3
+  %684 = icmp slt i32 %683, %622
+  br i1 %684, label %.lr.ph.i65, label %.loopexit.i, !llvm.loop !17
 
-.loopexit.i:                                      ; preds = %682, %634, %.preheader.i62
-  %.1.i63 = phi i32 [ %631, %634 ], [ %620, %.preheader.i62 ], [ %.3.i, %682 ]
-  %687 = load ptr, ptr %7, align 8
-  %688 = sub i32 %.1.i63, %3
-  call void @proto_item_set_len(ptr noundef %687, i32 noundef %688) #11
+.loopexit.i:                                      ; preds = %680, %632, %.preheader.i62
+  %.1.i63 = phi i32 [ %629, %632 ], [ %618, %.preheader.i62 ], [ %.3.i, %680 ]
+  %685 = load ptr, ptr %7, align 8
+  %686 = sub i32 %.1.i63, %3
+  call void @proto_item_set_len(ptr noundef %685, i32 noundef %686) #11
   br label %dissect_usb_bos_descriptor.exit
 
-dissect_usb_bos_descriptor.exit:                  ; preds = %601, %.loopexit.i
-  %.0.i64 = phi i32 [ %.1.i63, %.loopexit.i ], [ %620, %601 ]
+dissect_usb_bos_descriptor.exit:                  ; preds = %599, %.loopexit.i
+  %.0.i64 = phi i32 [ %.1.i63, %.loopexit.i ], [ %618, %599 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  br label %699
+  br label %697
 
-689:                                              ; preds = %5
-  %690 = tail call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %3) #11
-  %691 = load i32, ptr @hf_usb_get_descriptor_resp_generic, align 4
-  %692 = load i8, ptr %36, align 4
-  %693 = zext i8 %692 to i32
-  %694 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %695 = load ptr, ptr %694, align 8
-  %696 = tail call ptr @tvb_bytes_to_str(ptr noundef %695, ptr noundef %2, i32 noundef %3, i32 noundef %690) #11
-  %697 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %1, i32 noundef %691, ptr noundef %2, i32 noundef %3, i32 noundef %690, ptr noundef null, ptr noundef nonnull @.str.849, i32 noundef %693, ptr noundef %696) #11
-  %698 = add i32 %690, %3
-  br label %699
+687:                                              ; preds = %5
+  %688 = tail call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %3) #11
+  %689 = load i32, ptr @hf_usb_get_descriptor_resp_generic, align 4
+  %690 = load i8, ptr %36, align 4
+  %691 = zext i8 %690 to i32
+  %692 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  %693 = load ptr, ptr %692, align 8
+  %694 = tail call ptr @tvb_bytes_to_str(ptr noundef %693, ptr noundef %2, i32 noundef %3, i32 noundef %688) #11
+  %695 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %1, i32 noundef %689, ptr noundef %2, i32 noundef %3, i32 noundef %688, ptr noundef null, ptr noundef nonnull @.str.849, i32 noundef %691, ptr noundef %694) #11
+  %696 = add i32 %688, %3
+  br label %697
 
-699:                                              ; preds = %5, %5, %689, %dissect_usb_bos_descriptor.exit, %dissect_usb_device_qualifier_descriptor.exit, %dissect_usb_string_descriptor.exit, %dissect_usb_configuration_descriptor.exit, %dissect_usb_device_descriptor.exit
-  %.0 = phi i32 [ %698, %689 ], [ %.0.i64, %dissect_usb_bos_descriptor.exit ], [ %599, %dissect_usb_device_qualifier_descriptor.exit ], [ %.0.i51, %dissect_usb_string_descriptor.exit ], [ %.0142.i, %dissect_usb_configuration_descriptor.exit ], [ %.0.i, %dissect_usb_device_descriptor.exit ], [ %3, %5 ], [ %3, %5 ]
+697:                                              ; preds = %5, %5, %687, %dissect_usb_bos_descriptor.exit, %dissect_usb_device_qualifier_descriptor.exit, %dissect_usb_string_descriptor.exit, %dissect_usb_configuration_descriptor.exit, %dissect_usb_device_descriptor.exit
+  %.0 = phi i32 [ %696, %687 ], [ %.0.i64, %dissect_usb_bos_descriptor.exit ], [ %597, %dissect_usb_device_qualifier_descriptor.exit ], [ %.0.i51, %dissect_usb_string_descriptor.exit ], [ %.0142.i, %dissect_usb_configuration_descriptor.exit ], [ %.0.i, %dissect_usb_device_descriptor.exit ], [ %3, %5 ], [ %3, %5 ]
   ret i32 %.0
 }
 
@@ -7917,6 +7916,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.umin.i16(i16, i16) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #8

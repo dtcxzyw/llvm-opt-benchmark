@@ -81,8 +81,8 @@ if.then1:                                         ; preds = %if.end
   %skip = getelementptr inbounds nuw i8, ptr %state, i64 104
   %1 = load i64, ptr %skip, align 8
   %avail_in.i = getelementptr inbounds nuw i8, ptr %state, i64 136
-  %tobool.not15.i = icmp eq i64 %1, 0
-  br i1 %tobool.not15.i, label %if.end6, label %while.body.lr.ph.i
+  %tobool.not16.i = icmp eq i64 %1, 0
+  br i1 %tobool.not16.i, label %if.end6, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.then1
   %next.i = getelementptr inbounds nuw i8, ptr %state, i64 8
@@ -91,26 +91,25 @@ while.body.lr.ph.i:                               ; preds = %if.then1
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end24.i, %while.body.lr.ph.i
-  %len.addr.016.i = phi i64 [ %1, %while.body.lr.ph.i ], [ %len.addr.1.i, %if.end24.i ]
+  %len.addr.017.i = phi i64 [ %1, %while.body.lr.ph.i ], [ %len.addr.1.i, %if.end24.i ]
   %2 = load i32, ptr %state, align 8
   %tobool1.not.i = icmp eq i32 %2, 0
   br i1 %tobool1.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %while.body.i
   %conv.i = zext i32 %2 to i64
-  %cmp.i = icmp slt i64 %len.addr.016.i, %conv.i
-  %conv5.i = trunc i64 %len.addr.016.i to i32
-  %cond.i = select i1 %cmp.i, i32 %conv5.i, i32 %2
+  %cond15.i = tail call i64 @llvm.smin.i64(i64 %len.addr.017.i, i64 %conv.i)
+  %cond.i = trunc i64 %cond15.i to i32
   %sub.i = sub i32 %2, %cond.i
   store i32 %sub.i, ptr %state, align 8
   %3 = load ptr, ptr %next.i, align 8
-  %idx.ext.i = zext i32 %cond.i to i64
+  %idx.ext.i = and i64 %cond15.i, 4294967295
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext.i
   store ptr %add.ptr.i, ptr %next.i, align 8
   %4 = load i64, ptr %pos.i, align 8
   %add.i = add nsw i64 %4, %idx.ext.i
   store i64 %add.i, ptr %pos.i, align 8
-  %sub14.i = sub nsw i64 %len.addr.016.i, %idx.ext.i
+  %sub14.i = sub nsw i64 %len.addr.017.i, %idx.ext.i
   br label %if.end24.i
 
 if.else.i:                                        ; preds = %while.body.i
@@ -129,7 +128,7 @@ if.else19.i:                                      ; preds = %land.lhs.true.i, %i
   br i1 %cmp20.i, label %return, label %if.end24.i
 
 if.end24.i:                                       ; preds = %if.else19.i, %if.then.i
-  %len.addr.1.i = phi i64 [ %sub14.i, %if.then.i ], [ %len.addr.016.i, %if.else19.i ]
+  %len.addr.1.i = phi i64 [ %sub14.i, %if.then.i ], [ %len.addr.017.i, %if.else19.i ]
   %tobool.not.i = icmp eq i64 %len.addr.1.i, 0
   br i1 %tobool.not.i, label %if.end6, label %while.body.i, !llvm.loop !4
 
@@ -477,8 +476,8 @@ if.then15:                                        ; preds = %if.end14
   %skip = getelementptr inbounds nuw i8, ptr %file, i64 104
   %6 = load i64, ptr %skip, align 8
   %avail_in.i = getelementptr inbounds nuw i8, ptr %file, i64 136
-  %tobool.not15.i = icmp eq i64 %6, 0
-  br i1 %tobool.not15.i, label %gz_skip.exit, label %while.body.lr.ph.i
+  %tobool.not16.i = icmp eq i64 %6, 0
+  br i1 %tobool.not16.i, label %gz_skip.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.then15
   %next.i = getelementptr inbounds nuw i8, ptr %file, i64 8
@@ -487,26 +486,25 @@ while.body.lr.ph.i:                               ; preds = %if.then15
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end24.i, %while.body.lr.ph.i
-  %len.addr.016.i = phi i64 [ %6, %while.body.lr.ph.i ], [ %len.addr.1.i, %if.end24.i ]
+  %len.addr.017.i = phi i64 [ %6, %while.body.lr.ph.i ], [ %len.addr.1.i, %if.end24.i ]
   %7 = load i32, ptr %file, align 8
   %tobool1.not.i = icmp eq i32 %7, 0
   br i1 %tobool1.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %while.body.i
   %conv.i = zext i32 %7 to i64
-  %cmp.i = icmp slt i64 %len.addr.016.i, %conv.i
-  %conv5.i = trunc i64 %len.addr.016.i to i32
-  %cond.i = select i1 %cmp.i, i32 %conv5.i, i32 %7
+  %cond15.i = tail call i64 @llvm.smin.i64(i64 %len.addr.017.i, i64 %conv.i)
+  %cond.i = trunc i64 %cond15.i to i32
   %sub.i = sub i32 %7, %cond.i
   store i32 %sub.i, ptr %file, align 8
   %8 = load ptr, ptr %next.i, align 8
-  %idx.ext.i = zext i32 %cond.i to i64
+  %idx.ext.i = and i64 %cond15.i, 4294967295
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %8, i64 %idx.ext.i
   store ptr %add.ptr.i, ptr %next.i, align 8
   %9 = load i64, ptr %pos.i, align 8
   %add.i = add nsw i64 %9, %idx.ext.i
   store i64 %add.i, ptr %pos.i, align 8
-  %sub14.i = sub nsw i64 %len.addr.016.i, %idx.ext.i
+  %sub14.i = sub nsw i64 %len.addr.017.i, %idx.ext.i
   br label %if.end24.i
 
 if.else.i:                                        ; preds = %while.body.i
@@ -525,7 +523,7 @@ if.else19.i:                                      ; preds = %land.lhs.true.i, %i
   br i1 %cmp20.i, label %return, label %if.end24.i
 
 if.end24.i:                                       ; preds = %if.else19.i, %if.then.i
-  %len.addr.1.i = phi i64 [ %sub14.i, %if.then.i ], [ %len.addr.016.i, %if.else19.i ]
+  %len.addr.1.i = phi i64 [ %sub14.i, %if.then.i ], [ %len.addr.017.i, %if.else19.i ]
   %tobool.not.i = icmp eq i64 %len.addr.1.i, 0
   br i1 %tobool.not.i, label %gz_skip.exit, label %while.body.i, !llvm.loop !4
 
@@ -789,8 +787,8 @@ if.then11:                                        ; preds = %if.end10
   %skip = getelementptr inbounds nuw i8, ptr %file, i64 104
   %3 = load i64, ptr %skip, align 8
   %avail_in.i = getelementptr inbounds nuw i8, ptr %file, i64 136
-  %tobool.not15.i = icmp eq i64 %3, 0
-  br i1 %tobool.not15.i, label %if.end16, label %while.body.lr.ph.i
+  %tobool.not16.i = icmp eq i64 %3, 0
+  br i1 %tobool.not16.i, label %if.end16, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.then11
   %next.i = getelementptr inbounds nuw i8, ptr %file, i64 8
@@ -799,26 +797,25 @@ while.body.lr.ph.i:                               ; preds = %if.then11
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end24.i, %while.body.lr.ph.i
-  %len.addr.016.i = phi i64 [ %3, %while.body.lr.ph.i ], [ %len.addr.1.i, %if.end24.i ]
+  %len.addr.017.i = phi i64 [ %3, %while.body.lr.ph.i ], [ %len.addr.1.i, %if.end24.i ]
   %4 = load i32, ptr %file, align 8
   %tobool1.not.i = icmp eq i32 %4, 0
   br i1 %tobool1.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %while.body.i
   %conv.i = zext i32 %4 to i64
-  %cmp.i = icmp slt i64 %len.addr.016.i, %conv.i
-  %conv5.i = trunc i64 %len.addr.016.i to i32
-  %cond.i = select i1 %cmp.i, i32 %conv5.i, i32 %4
+  %cond15.i = tail call i64 @llvm.smin.i64(i64 %len.addr.017.i, i64 %conv.i)
+  %cond.i = trunc i64 %cond15.i to i32
   %sub.i = sub i32 %4, %cond.i
   store i32 %sub.i, ptr %file, align 8
   %5 = load ptr, ptr %next.i, align 8
-  %idx.ext.i = zext i32 %cond.i to i64
+  %idx.ext.i = and i64 %cond15.i, 4294967295
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %5, i64 %idx.ext.i
   store ptr %add.ptr.i, ptr %next.i, align 8
   %6 = load i64, ptr %pos.i, align 8
   %add.i = add nsw i64 %6, %idx.ext.i
   store i64 %add.i, ptr %pos.i, align 8
-  %sub14.i = sub nsw i64 %len.addr.016.i, %idx.ext.i
+  %sub14.i = sub nsw i64 %len.addr.017.i, %idx.ext.i
   br label %if.end24.i
 
 if.else.i:                                        ; preds = %while.body.i
@@ -837,7 +834,7 @@ if.else19.i:                                      ; preds = %land.lhs.true.i, %i
   br i1 %cmp20.i, label %return, label %if.end24.i
 
 if.end24.i:                                       ; preds = %if.else19.i, %if.then.i
-  %len.addr.1.i = phi i64 [ %sub14.i, %if.then.i ], [ %len.addr.016.i, %if.else19.i ]
+  %len.addr.1.i = phi i64 [ %sub14.i, %if.then.i ], [ %len.addr.017.i, %if.else19.i ]
   %tobool.not.i = icmp eq i64 %len.addr.1.i, 0
   br i1 %tobool.not.i, label %if.end16, label %while.body.i, !llvm.loop !4
 
@@ -1348,6 +1345,9 @@ declare i32 @llvm.umin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smin.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #9

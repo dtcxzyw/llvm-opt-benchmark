@@ -71,18 +71,18 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_moldudp64() local_unnamed_addr #0 {
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29) #4
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29) #5
   store i32 %1, ptr @proto_moldudp64, align 4
-  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_moldudp64.hf, i32 noundef 7) #4
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_moldudp64.ett, i32 noundef 2) #4
+  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_moldudp64.hf, i32 noundef 7) #5
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_moldudp64.ett, i32 noundef 2) #5
   %2 = load i32, ptr @proto_moldudp64, align 4
-  %3 = tail call ptr @expert_register_protocol(i32 noundef %2) #4
-  tail call void @expert_register_field_array(ptr noundef %3, ptr noundef nonnull @proto_register_moldudp64.ei, i32 noundef 4) #4
+  %3 = tail call ptr @expert_register_protocol(i32 noundef %2) #5
+  tail call void @expert_register_field_array(ptr noundef %3, ptr noundef nonnull @proto_register_moldudp64.ei, i32 noundef 4) #5
   %4 = load i32, ptr @proto_moldudp64, align 4
-  %5 = tail call ptr @register_decode_as_next_proto(i32 noundef %4, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, ptr noundef nonnull @moldudp64_prompt) #4
+  %5 = tail call ptr @register_decode_as_next_proto(i32 noundef %4, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, ptr noundef nonnull @moldudp64_prompt) #5
   store ptr %5, ptr @moldudp64_payload_table, align 8
   %6 = load i32, ptr @proto_moldudp64, align 4
-  %7 = tail call ptr @register_dissector(ptr noundef nonnull @.str.29, ptr noundef nonnull @dissect_moldudp64, i32 noundef %6) #4
+  %7 = tail call ptr @register_dissector(ptr noundef nonnull @.str.29, ptr noundef nonnull @dissect_moldudp64, i32 noundef %6) #5
   store ptr %7, ptr @moldudp64_handle, align 8
   ret void
 }
@@ -109,18 +109,18 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_moldudp64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
   %6 = icmp ult i32 %5, 20
-  br i1 %6, label %94, label %7
+  br i1 %6, label %93, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
-  tail call void @col_set_str(ptr noundef %9, i32 noundef 34, ptr noundef nonnull @.str.28) #4
+  tail call void @col_set_str(ptr noundef %9, i32 noundef 34, ptr noundef nonnull @.str.28) #5
   %10 = load ptr, ptr %8, align 8
-  tail call void @col_clear(ptr noundef %10, i32 noundef 25) #4
-  %11 = tail call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef 10) #4
-  %12 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 18) #4
+  tail call void @col_clear(ptr noundef %10, i32 noundef 25) #5
+  %11 = tail call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef 10) #5
+  %12 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 18) #5
   %13 = zext i16 %12 to i32
   switch i16 %12, label %18 [
     i16 0, label %14
@@ -129,164 +129,163 @@ define internal i32 @dissect_moldudp64(ptr noundef %0, ptr noundef %1, ptr nound
 
 14:                                               ; preds = %7
   %15 = load ptr, ptr %8, align 8
-  tail call void @col_set_str(ptr noundef %15, i32 noundef 25, ptr noundef nonnull @.str.34) #4
+  tail call void @col_set_str(ptr noundef %15, i32 noundef 25, ptr noundef nonnull @.str.34) #5
   br label %24
 
 16:                                               ; preds = %7
   %17 = load ptr, ptr %8, align 8
-  tail call void @col_set_str(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.35) #4
+  tail call void @col_set_str(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.35) #5
   br label %24
 
 18:                                               ; preds = %7
-  %19 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %19 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
   %20 = icmp eq i32 %19, 20
   %21 = load ptr, ptr %8, align 8
   br i1 %20, label %22, label %23
 
 22:                                               ; preds = %18
-  tail call void @col_set_str(ptr noundef %21, i32 noundef 25, ptr noundef nonnull @.str.36) #4
+  tail call void @col_set_str(ptr noundef %21, i32 noundef 25, ptr noundef nonnull @.str.36) #5
   br label %24
 
 23:                                               ; preds = %18
-  tail call void @col_set_str(ptr noundef %21, i32 noundef 25, ptr noundef nonnull @.str.37) #4
+  tail call void @col_set_str(ptr noundef %21, i32 noundef 25, ptr noundef nonnull @.str.37) #5
   br label %24
 
 24:                                               ; preds = %16, %23, %22, %14
   %25 = load i32, ptr @proto_moldudp64, align 4
-  %26 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %25, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
+  %26 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %25, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #5
   %27 = load i32, ptr @ett_moldudp64, align 4
-  %28 = tail call ptr @proto_item_add_subtree(ptr noundef %26, i32 noundef %27) #4
+  %28 = tail call ptr @proto_item_add_subtree(ptr noundef %26, i32 noundef %27) #5
   %29 = load i32, ptr @hf_moldudp64_session, align 4
-  %30 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %29, ptr noundef %0, i32 noundef 0, i32 noundef 10, i32 noundef 0) #4
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %29, ptr noundef %0, i32 noundef 0, i32 noundef 10, i32 noundef 0) #5
   %31 = load i32, ptr @hf_moldudp64_sequence, align 4
-  %32 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %31, ptr noundef %0, i32 noundef 10, i32 noundef 8, i32 noundef 0) #4
+  %32 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %31, ptr noundef %0, i32 noundef 10, i32 noundef 8, i32 noundef 0) #5
   %33 = load i32, ptr @hf_moldudp64_count, align 4
-  %34 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %33, ptr noundef %0, i32 noundef 18, i32 noundef 2, i32 noundef 0) #4
-  %35 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %34 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %33, ptr noundef %0, i32 noundef 18, i32 noundef 2, i32 noundef 0) #5
+  %35 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
   %.not64 = icmp ult i32 %35, 22
   br i1 %.not64, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %24, %dissect_moldudp64_msgblk.exit
-  %36 = phi i32 [ %78, %dissect_moldudp64_msgblk.exit ], [ 22, %24 ]
+  %36 = phi i32 [ %77, %dissect_moldudp64_msgblk.exit ], [ 22, %24 ]
   %.067 = phi i64 [ %37, %dissect_moldudp64_msgblk.exit ], [ %11, %24 ]
-  %.05866 = phi i16 [ %76, %dissect_moldudp64_msgblk.exit ], [ 0, %24 ]
-  %.06065 = phi i32 [ %75, %dissect_moldudp64_msgblk.exit ], [ 20, %24 ]
+  %.05866 = phi i16 [ %75, %dissect_moldudp64_msgblk.exit ], [ 0, %24 ]
+  %.06065 = phi i32 [ %74, %dissect_moldudp64_msgblk.exit ], [ 20, %24 ]
   %37 = add i64 %.067, 1
-  %38 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.06065) #4
+  %38 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.06065) #5
   %39 = icmp slt i32 %38, 2
   br i1 %39, label %dissect_moldudp64_msgblk.exit, label %40
 
 40:                                               ; preds = %.lr.ph
-  %41 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.06065) #4
-  %42 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %41 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.06065) #5
+  %42 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
   %43 = sub i32 %42, %.06065
   %44 = add i32 %43, -2
   %45 = icmp slt i32 %44, 0
   %46 = zext i16 %41 to i32
-  %.not.i = icmp slt i32 %44, %46
-  %47 = trunc nuw i32 %44 to i16
-  %spec.select.i = select i1 %.not.i, i16 %47, i16 %41
+  %spec.select49.i = tail call i32 @llvm.smin.i32(i32 %44, i32 %46)
+  %spec.select.i = trunc i32 %spec.select49.i to i16
   %.043.i = select i1 %45, i16 0, i16 %spec.select.i
-  %48 = zext i16 %.043.i to i32
-  %49 = add i16 %.043.i, 2
-  %50 = load i32, ptr @hf_moldudp64_msgblk, align 4
-  %51 = zext i16 %49 to i32
-  %52 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %50, ptr noundef %0, i32 noundef %.06065, i32 noundef %51, i32 noundef 0) #4
-  %53 = load i32, ptr @ett_moldudp64_msgblk, align 4
-  %54 = tail call ptr @proto_item_add_subtree(ptr noundef %52, i32 noundef %53) #4
-  %55 = load i32, ptr @hf_moldudp64_msgseq, align 4
-  %56 = tail call ptr @proto_tree_add_uint64(ptr noundef %54, i32 noundef %55, ptr noundef %0, i32 noundef %.06065, i32 noundef 0, i64 noundef %.067) #4
-  %.not.i.i = icmp eq ptr %56, null
-  br i1 %.not.i.i, label %proto_item_set_generated.exit.i, label %57
+  %47 = zext i16 %.043.i to i32
+  %48 = add i16 %.043.i, 2
+  %49 = load i32, ptr @hf_moldudp64_msgblk, align 4
+  %50 = zext i16 %48 to i32
+  %51 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %49, ptr noundef %0, i32 noundef %.06065, i32 noundef %50, i32 noundef 0) #5
+  %52 = load i32, ptr @ett_moldudp64_msgblk, align 4
+  %53 = tail call ptr @proto_item_add_subtree(ptr noundef %51, i32 noundef %52) #5
+  %54 = load i32, ptr @hf_moldudp64_msgseq, align 4
+  %55 = tail call ptr @proto_tree_add_uint64(ptr noundef %53, i32 noundef %54, ptr noundef %0, i32 noundef %.06065, i32 noundef 0, i64 noundef %.067) #5
+  %.not.i.i = icmp eq ptr %55, null
+  br i1 %.not.i.i, label %proto_item_set_generated.exit.i, label %56
 
-57:                                               ; preds = %40
-  %58 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  %59 = load ptr, ptr %58, align 8
-  %.not5.i.i = icmp eq ptr %59, null
-  br i1 %.not5.i.i, label %proto_item_set_generated.exit.i, label %60
+56:                                               ; preds = %40
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 32
+  %58 = load ptr, ptr %57, align 8
+  %.not5.i.i = icmp eq ptr %58, null
+  br i1 %.not5.i.i, label %proto_item_set_generated.exit.i, label %59
 
-60:                                               ; preds = %57
-  %61 = getelementptr inbounds nuw i8, ptr %59, i64 28
-  %62 = load i32, ptr %61, align 4
-  %63 = or i32 %62, 2
-  store i32 %63, ptr %61, align 4
+59:                                               ; preds = %56
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 28
+  %61 = load i32, ptr %60, align 4
+  %62 = or i32 %61, 2
+  store i32 %62, ptr %60, align 4
   br label %proto_item_set_generated.exit.i
 
-proto_item_set_generated.exit.i:                  ; preds = %60, %57, %40
-  %64 = load i32, ptr @hf_moldudp64_msglen, align 4
-  %65 = tail call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %64, ptr noundef %0, i32 noundef %.06065, i32 noundef 2, i32 noundef 0) #4
+proto_item_set_generated.exit.i:                  ; preds = %59, %56, %40
+  %63 = load i32, ptr @hf_moldudp64_msglen, align 4
+  %64 = tail call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %63, ptr noundef %0, i32 noundef %.06065, i32 noundef 2, i32 noundef 0) #5
   %.not47.i = icmp eq i16 %41, %.043.i
-  br i1 %.not47.i, label %68, label %66
+  br i1 %.not47.i, label %67, label %65
 
-66:                                               ; preds = %proto_item_set_generated.exit.i
-  %67 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %65, ptr noundef nonnull @ei_moldudp64_msglen_invalid, ptr noundef nonnull @.str.39, i32 noundef %46, i32 noundef %48) #4
-  br label %68
+65:                                               ; preds = %proto_item_set_generated.exit.i
+  %66 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %64, ptr noundef nonnull @ei_moldudp64_msglen_invalid, ptr noundef nonnull @.str.39, i32 noundef %46, i32 noundef %47) #5
+  br label %67
 
-68:                                               ; preds = %66, %proto_item_set_generated.exit.i
-  %69 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %36, i32 noundef %48) #4
-  %70 = load ptr, ptr @moldudp64_payload_table, align 8
-  %71 = tail call i32 @dissector_try_payload_new(ptr noundef %70, ptr noundef %69, ptr noundef %1, ptr noundef %28, i32 noundef 0, ptr noundef null) #4
-  %.not48.i = icmp eq i32 %71, 0
-  br i1 %.not48.i, label %72, label %dissect_moldudp64_msgblk.exit
+67:                                               ; preds = %65, %proto_item_set_generated.exit.i
+  %68 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %36, i32 noundef %47) #5
+  %69 = load ptr, ptr @moldudp64_payload_table, align 8
+  %70 = tail call i32 @dissector_try_payload_new(ptr noundef %69, ptr noundef %68, ptr noundef %1, ptr noundef %28, i32 noundef 0, ptr noundef null) #5
+  %.not48.i = icmp eq i32 %70, 0
+  br i1 %.not48.i, label %71, label %dissect_moldudp64_msgblk.exit
 
-72:                                               ; preds = %68
-  %73 = load i32, ptr @hf_moldudp64_msgdata, align 4
-  %74 = tail call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %73, ptr noundef %0, i32 noundef %36, i32 noundef %48, i32 noundef 0) #4
+71:                                               ; preds = %67
+  %72 = load i32, ptr @hf_moldudp64_msgdata, align 4
+  %73 = tail call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %72, ptr noundef %0, i32 noundef %36, i32 noundef %47, i32 noundef 0) #5
   br label %dissect_moldudp64_msgblk.exit
 
-dissect_moldudp64_msgblk.exit:                    ; preds = %.lr.ph, %68, %72
-  %.0.i = phi i32 [ 0, %.lr.ph ], [ %51, %72 ], [ %51, %68 ]
-  %75 = add i32 %.0.i, %.06065
-  %76 = add i16 %.05866, 1
-  %77 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %78 = add i32 %75, 2
-  %.not = icmp ult i32 %77, %78
+dissect_moldudp64_msgblk.exit:                    ; preds = %.lr.ph, %67, %71
+  %.0.i = phi i32 [ 0, %.lr.ph ], [ %50, %71 ], [ %50, %67 ]
+  %74 = add i32 %.0.i, %.06065
+  %75 = add i16 %.05866, 1
+  %76 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
+  %77 = add i32 %74, 2
+  %.not = icmp ult i32 %76, %77
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %dissect_moldudp64_msgblk.exit
-  %79 = icmp eq i16 %12, -1
-  %80 = zext i16 %76 to i32
-  %81 = icmp ne i16 %76, 0
-  %or.cond = select i1 %79, i1 %81, i1 false
-  br i1 %or.cond, label %82, label %._crit_edge.thread
+  %78 = icmp eq i16 %12, -1
+  %79 = zext i16 %75 to i32
+  %80 = icmp ne i16 %75, 0
+  %or.cond = select i1 %78, i1 %80, i1 false
+  br i1 %or.cond, label %81, label %._crit_edge.thread
 
-82:                                               ; preds = %._crit_edge
-  %83 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %34, ptr noundef nonnull @ei_moldudp64_end_of_session_extra) #4
-  br label %92
+81:                                               ; preds = %._crit_edge
+  %82 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %34, ptr noundef nonnull @ei_moldudp64_end_of_session_extra) #5
+  br label %91
 
 ._crit_edge.thread:                               ; preds = %24, %._crit_edge
-  %84 = phi i32 [ %80, %._crit_edge ], [ 0, %24 ]
-  %.058.lcssa70 = phi i16 [ %76, %._crit_edge ], [ 0, %24 ]
-  %85 = icmp ne i16 %12, 0
-  %86 = icmp eq i16 %.058.lcssa70, 0
-  %or.cond5 = select i1 %85, i1 %86, i1 false
-  br i1 %or.cond5, label %87, label %89
+  %83 = phi i32 [ %79, %._crit_edge ], [ 0, %24 ]
+  %.058.lcssa70 = phi i16 [ %75, %._crit_edge ], [ 0, %24 ]
+  %84 = icmp ne i16 %12, 0
+  %85 = icmp eq i16 %.058.lcssa70, 0
+  %or.cond5 = select i1 %84, i1 %85, i1 false
+  br i1 %or.cond5, label %86, label %88
 
-87:                                               ; preds = %._crit_edge.thread
-  %88 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %34, ptr noundef nonnull @ei_moldudp64_request) #4
-  br label %92
+86:                                               ; preds = %._crit_edge.thread
+  %87 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %34, ptr noundef nonnull @ei_moldudp64_request) #5
+  br label %91
 
-89:                                               ; preds = %._crit_edge.thread
+88:                                               ; preds = %._crit_edge.thread
   %.not63 = icmp eq i16 %.058.lcssa70, %12
-  br i1 %.not63, label %92, label %90
+  br i1 %.not63, label %91, label %89
 
-90:                                               ; preds = %89
-  %91 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %34, ptr noundef nonnull @ei_moldudp64_count_invalid, ptr noundef nonnull @.str.38, i32 noundef %13, i32 noundef %84) #4
-  br label %92
+89:                                               ; preds = %88
+  %90 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %34, ptr noundef nonnull @ei_moldudp64_count_invalid, ptr noundef nonnull @.str.38, i32 noundef %13, i32 noundef %83) #5
+  br label %91
 
-92:                                               ; preds = %87, %90, %89, %82
-  %93 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
-  br label %94
+91:                                               ; preds = %86, %89, %88, %81
+  %92 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
+  br label %93
 
-94:                                               ; preds = %4, %92
-  %.059 = phi i32 [ %93, %92 ], [ 0, %4 ]
+93:                                               ; preds = %4, %91
+  %.059 = phi i32 [ %92, %91 ], [ 0, %4 ]
   ret i32 %.059
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_reg_handoff_moldudp64() local_unnamed_addr #0 {
   %1 = load ptr, ptr @moldudp64_handle, align 8
-  tail call void @dissector_add_for_decode_as_with_preference(ptr noundef nonnull @.str.32, ptr noundef %1) #4
+  tail call void @dissector_add_for_decode_as_with_preference(ptr noundef nonnull @.str.32, ptr noundef %1) #5
   ret void
 }
 
@@ -323,11 +322,15 @@ declare i32 @dissector_try_payload_new(ptr noundef, ptr noundef, ptr noundef, pt
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #4
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nounwind }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

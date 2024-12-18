@@ -86,12 +86,9 @@ if.end44:                                         ; preds = %lor.lhs.false31
   %sub.i = sub nsw i32 %add.i, %conv7.i
   %shr.i30 = lshr i32 %conv5.i, %sub.i
   %conv46 = zext nneg i32 %shr.i30 to i64
-  %cmp47.not = icmp ugt i64 %s1, %conv46
-  %conv50 = trunc nuw nsw i64 %s1 to i32
-  %vl.0 = select i1 %cmp47.not, i32 %shr.i30, i32 %conv50
-  %conv52 = zext nneg i32 %vl.0 to i64
+  %vl.031 = tail call i64 @llvm.umin.i64(i64 %s1, i64 %conv46)
   %vl53 = getelementptr inbounds nuw i8, ptr %env, i64 4624
-  store i64 %conv52, ptr %vl53, align 16
+  store i64 %vl.031, ptr %vl53, align 16
   %vtype54 = getelementptr inbounds nuw i8, ptr %env, i64 4640
   store i64 %s2, ptr %vtype54, align 16
   %vstart55 = getelementptr inbounds nuw i8, ptr %env, i64 4632
@@ -101,7 +98,7 @@ if.end44:                                         ; preds = %lor.lhs.false31
   br label %return
 
 return:                                           ; preds = %if.end44, %if.then41
-  %retval.0 = phi i64 [ 0, %if.then41 ], [ %conv52, %if.end44 ]
+  %retval.0 = phi i64 [ 0, %if.then41 ], [ %vl.031, %if.end44 ]
   ret i64 %retval.0
 }
 

@@ -792,8 +792,8 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly %0, ptr noundef %
   call void @__free_pages(ptr noundef nonnull %396, i32 noundef 0) #8
   br label %.thread58.us
 
-.thread.split:                                    ; preds = %.thread.split.preheader, %558
-  %405 = phi ptr [ %559, %558 ], [ null, %.thread.split.preheader ]
+.thread.split:                                    ; preds = %.thread.split.preheader, %557
+  %405 = phi ptr [ %558, %557 ], [ null, %.thread.split.preheader ]
   %406 = load ptr, ptr %1, align 8
   %407 = getelementptr inbounds nuw i8, ptr %406, i64 144
   %408 = load i32, ptr %407, align 8
@@ -878,7 +878,7 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly %0, ptr noundef %
   %450 = icmp eq i64 %449, 0
   br i1 %450, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %446, %535
+.lr.ph:                                           ; preds = %446, %534
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %6, i8 0, i64 64, i1 false), !annotation !8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
@@ -903,7 +903,7 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly %0, ptr noundef %
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #8
-  br label %540
+  br label %539
 
 458:                                              ; preds = %452
   %459 = load i64, ptr %8, align 8
@@ -927,187 +927,186 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly %0, ptr noundef %
   %473 = icmp eq i64 %472, 0
   %474 = icmp sgt i32 %463, 0
   %475 = select i1 %473, i1 %474, i1 false
-  br i1 %475, label %476, label %509, !prof !16
+  br i1 %475, label %476, label %508, !prof !16
 
 476:                                              ; preds = %470
   %477 = and i64 %462, 2147483647
-  %478 = trunc i64 %459 to i32
-  br label %479
+  br label %478
 
-479:                                              ; preds = %502, %476
-  %480 = phi i32 [ %478, %476 ], [ 0, %502 ]
-  %481 = phi i64 [ 0, %476 ], [ %505, %502 ]
-  %482 = phi i64 [ %453, %476 ], [ %504, %502 ]
-  %483 = load ptr, ptr %7, align 8
-  %484 = getelementptr ptr, ptr %483, i64 %481
-  %485 = load ptr, ptr %484, align 8
-  %486 = sub i32 4096, %480
+478:                                              ; preds = %501, %476
+  %479 = phi i64 [ %459, %476 ], [ 0, %501 ]
+  %480 = phi i64 [ 0, %476 ], [ %504, %501 ]
+  %481 = phi i64 [ %453, %476 ], [ %503, %501 ]
+  %482 = load ptr, ptr %7, align 8
+  %483 = getelementptr ptr, ptr %482, i64 %480
+  %484 = load ptr, ptr %483, align 8
+  %485 = trunc i64 %479 to i32
+  %486 = sub i64 4096, %479
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #8
   store i8 0, ptr %9, align 1
-  %487 = zext i32 %486 to i64
-  %488 = icmp slt i64 %482, %487
-  %489 = trunc i64 %482 to i32
-  %490 = select i1 %488, i32 %489, i32 %486
-  %491 = load ptr, ptr %1, align 8
-  %492 = call i32 @bio_add_hw_page(ptr noundef %491, ptr noundef nonnull %433, ptr noundef %485, i32 noundef %490, i32 noundef %480, i32 noundef %408, ptr noundef nonnull %9) #8
-  %493 = icmp eq i32 %492, 0
-  br i1 %493, label %507, label %494
+  %487 = and i64 %486, 4294967295
+  %488 = call i64 @llvm.smin.i64(i64 %481, i64 %487)
+  %489 = trunc i64 %488 to i32
+  %490 = load ptr, ptr %1, align 8
+  %491 = call i32 @bio_add_hw_page(ptr noundef %490, ptr noundef nonnull %433, ptr noundef %484, i32 noundef %489, i32 noundef %485, i32 noundef %408, ptr noundef nonnull %9) #8
+  %492 = icmp eq i32 %491, 0
+  br i1 %492, label %506, label %493
 
-494:                                              ; preds = %479
-  %495 = load i8, ptr %9, align 1, !range !10, !noundef !11
-  %496 = icmp eq i8 %495, 0
-  br i1 %496, label %502, label %497
+493:                                              ; preds = %478
+  %494 = load i8, ptr %9, align 1, !range !10, !noundef !11
+  %495 = icmp eq i8 %494, 0
+  br i1 %495, label %501, label %496
 
-497:                                              ; preds = %494
-  %498 = load i16, ptr %448, align 4
-  %499 = and i16 %498, 1
-  %500 = icmp eq i16 %499, 0
-  br i1 %500, label %502, label %501
+496:                                              ; preds = %493
+  %497 = load i16, ptr %448, align 4
+  %498 = and i16 %497, 1
+  %499 = icmp eq i16 %498, 0
+  br i1 %499, label %501, label %500
 
-501:                                              ; preds = %497
-  call void @unpin_user_page(ptr noundef %485) #8
-  br label %502
+500:                                              ; preds = %496
+  call void @unpin_user_page(ptr noundef %484) #8
+  br label %501
 
-502:                                              ; preds = %501, %497, %494
-  %503 = zext i32 %490 to i64
-  %504 = sub i64 %482, %503
+501:                                              ; preds = %500, %496, %493
+  %502 = and i64 %488, 4294967295
+  %503 = sub i64 %481, %502
   store i64 0, ptr %8, align 8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #8
-  %505 = add nuw nsw i64 %481, 1
-  %506 = icmp eq i64 %505, %477
-  br i1 %506, label %.thread72, label %479, !llvm.loop !17
+  %504 = add nuw nsw i64 %480, 1
+  %505 = icmp eq i64 %504, %477
+  br i1 %505, label %.thread72, label %478, !llvm.loop !17
 
-507:                                              ; preds = %479
+506:                                              ; preds = %478
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #8
-  %508 = trunc i64 %481 to i32
-  br label %509
+  %507 = trunc i64 %480 to i32
+  br label %508
 
-509:                                              ; preds = %507, %470
-  %510 = phi i32 [ 0, %470 ], [ %508, %507 ]
-  %511 = phi i64 [ %453, %470 ], [ %482, %507 ]
-  %512 = icmp slt i32 %510, %463
-  br i1 %512, label %513, label %.thread72
+508:                                              ; preds = %506, %470
+  %509 = phi i32 [ 0, %470 ], [ %507, %506 ]
+  %510 = phi i64 [ %453, %470 ], [ %481, %506 ]
+  %511 = icmp slt i32 %509, %463
+  br i1 %511, label %512, label %.thread72
 
-513:                                              ; preds = %509
-  %514 = sext i32 %510 to i64
-  %515 = shl i64 %462, 32
-  %516 = ashr exact i64 %515, 32
-  br label %517
+512:                                              ; preds = %508
+  %513 = sext i32 %509 to i64
+  %514 = shl i64 %462, 32
+  %515 = ashr exact i64 %514, 32
+  br label %516
 
-517:                                              ; preds = %527, %513
-  %518 = phi i64 [ %514, %513 ], [ %519, %527 ]
-  %519 = add nsw i64 %518, 1
-  %520 = load i16, ptr %448, align 4
-  %521 = and i16 %520, 1
-  %522 = icmp eq i16 %521, 0
-  br i1 %522, label %527, label %523
+516:                                              ; preds = %526, %512
+  %517 = phi i64 [ %513, %512 ], [ %518, %526 ]
+  %518 = add nsw i64 %517, 1
+  %519 = load i16, ptr %448, align 4
+  %520 = and i16 %519, 1
+  %521 = icmp eq i16 %520, 0
+  br i1 %521, label %526, label %522
 
-523:                                              ; preds = %517
-  %524 = load ptr, ptr %7, align 8
-  %525 = getelementptr ptr, ptr %524, i64 %518
-  %526 = load ptr, ptr %525, align 8
-  call void @unpin_user_page(ptr noundef %526) #8
-  br label %527
+522:                                              ; preds = %516
+  %523 = load ptr, ptr %7, align 8
+  %524 = getelementptr ptr, ptr %523, i64 %517
+  %525 = load ptr, ptr %524, align 8
+  call void @unpin_user_page(ptr noundef %525) #8
+  br label %526
 
-527:                                              ; preds = %523, %517
-  %528 = icmp eq i64 %519, %516
-  br i1 %528, label %.thread72, label %517, !llvm.loop !18
+526:                                              ; preds = %522, %516
+  %527 = icmp eq i64 %518, %515
+  br i1 %527, label %.thread72, label %516, !llvm.loop !18
 
-.thread72:                                        ; preds = %502, %527, %509
-  %529 = phi i64 [ %511, %509 ], [ %511, %527 ], [ %504, %502 ]
-  %530 = load ptr, ptr %7, align 8
-  %531 = icmp eq ptr %530, %6
-  br i1 %531, label %533, label %532
+.thread72:                                        ; preds = %501, %526, %508
+  %528 = phi i64 [ %510, %508 ], [ %510, %526 ], [ %503, %501 ]
+  %529 = load ptr, ptr %7, align 8
+  %530 = icmp eq ptr %529, %6
+  br i1 %530, label %532, label %531
 
-532:                                              ; preds = %.thread72
-  call void @kvfree(ptr noundef %530) #8
-  br label %533
+531:                                              ; preds = %.thread72
+  call void @kvfree(ptr noundef %529) #8
+  br label %532
 
-533:                                              ; preds = %532, %.thread72
-  %534 = icmp eq i64 %529, 0
-  br i1 %534, label %535, label %.thread73
+532:                                              ; preds = %531, %.thread72
+  %533 = icmp eq i64 %528, 0
+  br i1 %533, label %534, label %.thread73
 
-.thread73:                                        ; preds = %533
-  call void @iov_iter_revert(ptr noundef nonnull %11, i64 noundef %529) #8
+.thread73:                                        ; preds = %532
+  call void @iov_iter_revert(ptr noundef nonnull %11, i64 noundef %528) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #8
   br label %.loopexit
 
-535:                                              ; preds = %533
+534:                                              ; preds = %532
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #8
-  %536 = load i64, ptr %166, align 8
-  %537 = icmp eq i64 %536, 0
-  br i1 %537, label %.loopexit, label %.lr.ph
+  %535 = load i64, ptr %166, align 8
+  %536 = icmp eq i64 %535, 0
+  br i1 %536, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %535, %446, %.thread73
-  %538 = call i32 @blk_rq_append_bio(ptr noundef %1, ptr noundef nonnull %433), !range !13
-  %539 = icmp eq i32 %538, 0
-  br i1 %539, label %.thread79, label %540
+.loopexit:                                        ; preds = %534, %446, %.thread73
+  %537 = call i32 @blk_rq_append_bio(ptr noundef %1, ptr noundef nonnull %433), !range !13
+  %538 = icmp eq i32 %537, 0
+  br i1 %538, label %.thread79, label %539
 
-540:                                              ; preds = %.thread74, %.loopexit
-  %541 = phi i32 [ %538, %.loopexit ], [ %457, %.thread74 ]
-  %542 = load i16, ptr %448, align 4
-  %543 = and i16 %542, 1
-  %544 = icmp eq i16 %543, 0
-  br i1 %544, label %546, label %545
+539:                                              ; preds = %.thread74, %.loopexit
+  %540 = phi i32 [ %537, %.loopexit ], [ %457, %.thread74 ]
+  %541 = load i16, ptr %448, align 4
+  %542 = and i16 %541, 1
+  %543 = icmp eq i16 %542, 0
+  br i1 %543, label %545, label %544
 
-545:                                              ; preds = %540
+544:                                              ; preds = %539
   call void @__bio_release_pages(ptr noundef nonnull %433, i1 noundef zeroext false) #8
-  br label %546
+  br label %545
 
-546:                                              ; preds = %545, %540
-  %547 = getelementptr inbounds nuw i8, ptr %433, i64 16
-  %548 = load i32, ptr %547, align 8
-  %549 = and i32 %548, 8388608
-  %550 = icmp eq i32 %549, 0
-  br i1 %550, label %552, label %551
+545:                                              ; preds = %544, %539
+  %546 = getelementptr inbounds nuw i8, ptr %433, i64 16
+  %547 = load i32, ptr %546, align 8
+  %548 = and i32 %547, 8388608
+  %549 = icmp eq i32 %548, 0
+  br i1 %549, label %551, label %550
 
-551:                                              ; preds = %546
+550:                                              ; preds = %545
   call void @bio_put(ptr noundef nonnull %433) #8
-  br label %553
+  br label %552
 
-552:                                              ; preds = %546
+551:                                              ; preds = %545
   call void @bio_uninit(ptr noundef nonnull %433) #8
   call void @kfree(ptr noundef nonnull %433) #8
-  br label %553
+  br label %552
 
-553:                                              ; preds = %552, %551
-  %554 = icmp eq i32 %541, 0
-  br i1 %554, label %.thread79, label %.thread77
+552:                                              ; preds = %551, %550
+  %553 = icmp eq i32 %540, 0
+  br i1 %553, label %.thread79, label %.thread77
 
-.thread79:                                        ; preds = %.loopexit, %553
-  %555 = icmp eq ptr %405, null
-  br i1 %555, label %556, label %558
+.thread79:                                        ; preds = %.loopexit, %552
+  %554 = icmp eq ptr %405, null
+  br i1 %554, label %555, label %557
 
-556:                                              ; preds = %.thread79
-  %557 = load ptr, ptr %164, align 8
-  br label %558
+555:                                              ; preds = %.thread79
+  %556 = load ptr, ptr %164, align 8
+  br label %557
 
-558:                                              ; preds = %556, %.thread79
-  %559 = phi ptr [ %405, %.thread79 ], [ %557, %556 ]
-  %560 = load i64, ptr %166, align 8
-  %561 = icmp eq i64 %560, 0
-  br i1 %561, label %.thread51, label %.thread.split, !llvm.loop !14
+557:                                              ; preds = %555, %.thread79
+  %558 = phi ptr [ %405, %.thread79 ], [ %556, %555 ]
+  %559 = load i64, ptr %166, align 8
+  %560 = icmp eq i64 %559, 0
+  br i1 %560, label %.thread51, label %.thread.split, !llvm.loop !14
 
-.thread77:                                        ; preds = %553, %.thread.split, %429, %423, %193, %189, %.loopexit82
-  %562 = phi ptr [ %183, %.loopexit82 ], [ %183, %189 ], [ %183, %193 ], [ %405, %423 ], [ %405, %429 ], [ %405, %.thread.split ], [ %405, %553 ]
-  %563 = phi i32 [ %415, %.loopexit82 ], [ -12, %189 ], [ -12, %193 ], [ %541, %553 ], [ -22, %.thread.split ], [ -12, %429 ], [ -12, %423 ]
-  %564 = call i32 @blk_rq_unmap_user(ptr noundef %562)
+.thread77:                                        ; preds = %552, %.thread.split, %429, %423, %193, %189, %.loopexit82
+  %561 = phi ptr [ %183, %.loopexit82 ], [ %183, %189 ], [ %183, %193 ], [ %405, %423 ], [ %405, %429 ], [ %405, %.thread.split ], [ %405, %552 ]
+  %562 = phi i32 [ %415, %.loopexit82 ], [ -12, %189 ], [ -12, %193 ], [ %540, %552 ], [ -22, %.thread.split ], [ -12, %429 ], [ -12, %423 ]
+  %563 = call i32 @blk_rq_unmap_user(ptr noundef %561)
   br label %.thread49
 
 .thread49:                                        ; preds = %62, %144, %143, %68, %52, %39, %46, %.thread77
-  %565 = phi i32 [ %563, %.thread77 ], [ -22, %144 ], [ -22, %143 ], [ -12, %68 ], [ -22, %52 ], [ -22, %39 ], [ -22, %46 ], [ -12, %62 ]
-  %566 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  store ptr null, ptr %566, align 8
+  %564 = phi i32 [ %562, %.thread77 ], [ -22, %144 ], [ -22, %143 ], [ -12, %68 ], [ -22, %52 ], [ -22, %39 ], [ -22, %46 ], [ -12, %62 ]
+  %565 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  store ptr null, ptr %565, align 8
   br label %.thread51
 
-.thread51:                                        ; preds = %558, %136, %388, %71, %.thread49
-  %567 = phi i32 [ %565, %.thread49 ], [ 0, %71 ], [ 0, %388 ], [ 0, %136 ], [ 0, %558 ]
+.thread51:                                        ; preds = %557, %136, %388, %71, %.thread49
+  %566 = phi i32 [ %564, %.thread49 ], [ 0, %71 ], [ 0, %388 ], [ 0, %136 ], [ 0, %557 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #8
-  ret i32 %567
+  ret i32 %566
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1852,6 +1851,9 @@ define internal void @bio_map_kern_endio(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smin.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #7

@@ -1771,15 +1771,15 @@ define internal fastcc ptr @setup_regexp_matches(ptr noundef %0, ptr noundef %1,
   %66 = getelementptr inbounds nuw i8, ptr %8, i64 8
   br label %67
 
-67:                                               ; preds = %150, %53
-  %.0148 = phi i32 [ 0, %53 ], [ %.2150, %150 ]
-  %.0147 = phi i64 [ 0, %53 ], [ %151, %150 ]
-  %.0144 = phi i32 [ 0, %53 ], [ %.2146, %150 ]
-  %.0141 = phi i32 [ 0, %53 ], [ %.2143, %150 ]
-  %.0138 = phi i32 [ %58, %53 ], [ %.1139, %150 ]
-  %.0134 = phi i32 [ %2, %53 ], [ %spec.select176, %150 ]
+67:                                               ; preds = %148, %53
+  %.0148 = phi i32 [ 0, %53 ], [ %.2150, %148 ]
+  %.0147 = phi i64 [ 0, %53 ], [ %149, %148 ]
+  %.0144 = phi i32 [ 0, %53 ], [ %.2146, %148 ]
+  %.0141 = phi i32 [ 0, %53 ], [ %.2143, %148 ]
+  %.0138 = phi i32 [ %58, %53 ], [ %.1139, %148 ]
+  %.0134 = phi i32 [ %2, %53 ], [ %spec.select176, %148 ]
   %68 = tail call fastcc zeroext i1 @RE_wchar_execute(ptr noundef %36, i32 noundef %40, i32 noundef %.0134, i32 noundef %.0137, ptr noundef %56)
-  br i1 %68, label %69, label %157
+  br i1 %68, label %69, label %155
 
 69:                                               ; preds = %67
   br i1 %5, label %70, label %77
@@ -1787,14 +1787,14 @@ define internal fastcc ptr @setup_regexp_matches(ptr noundef %0, ptr noundef %1,
 70:                                               ; preds = %69
   %71 = load i64, ptr %56, align 8
   %72 = icmp slt i64 %71, %63
-  br i1 %72, label %73, label %149
+  br i1 %72, label %73, label %147
 
 73:                                               ; preds = %70
   %74 = load i64, ptr %64, align 8
   %sext = shl i64 %.0147, 32
   %75 = ashr exact i64 %sext, 32
   %76 = icmp sgt i64 %74, %75
-  br i1 %76, label %77, label %149
+  br i1 %76, label %77, label %147
 
 77:                                               ; preds = %73, %69
   %78 = add i32 %.0148, 1
@@ -1805,8 +1805,8 @@ define internal fastcc ptr @setup_regexp_matches(ptr noundef %0, ptr noundef %1,
   br i1 %82, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %77, %88
-  %.23 = phi i32 [ %89, %88 ], [ %.0138, %77 ]
-  %reass.add = shl i32 %.23, 1
+  %.24 = phi i32 [ %89, %88 ], [ %.0138, %77 ]
+  %reass.add = shl i32 %.24, 1
   %83 = icmp ugt i32 %reass.add, 268435455
   br i1 %83, label %84, label %88
 
@@ -1837,14 +1837,14 @@ define internal fastcc ptr @setup_regexp_matches(ptr noundef %0, ptr noundef %1,
   br i1 %.0135, label %.preheader, label %119
 
 .preheader:                                       ; preds = %._crit_edge
-  %.not1704 = icmp slt i32 %98, 1
-  br i1 %.not1704, label %.loopexit, label %.lr.ph8
+  %.not1705 = icmp slt i32 %98, 1
+  br i1 %.not1705, label %.loopexit, label %.lr.ph9
 
-.lr.ph8:                                          ; preds = %.preheader, %.lr.ph8
-  %.01407 = phi i32 [ %117, %.lr.ph8 ], [ 1, %.preheader ]
-  %.36 = phi i32 [ %.4, %.lr.ph8 ], [ %.0141, %.preheader ]
-  %.31515 = phi i32 [ %111, %.lr.ph8 ], [ %.0148, %.preheader ]
-  %99 = sext i32 %.01407 to i64
+.lr.ph9:                                          ; preds = %.preheader, %.lr.ph9
+  %.01408 = phi i32 [ %117, %.lr.ph9 ], [ 1, %.preheader ]
+  %.37 = phi i32 [ %.4, %.lr.ph9 ], [ %.0141, %.preheader ]
+  %.31516 = phi i32 [ %111, %.lr.ph9 ], [ %.0148, %.preheader ]
+  %99 = sext i32 %.01408 to i64
   %100 = getelementptr %struct.regmatch_t, ptr %56, i64 %99
   %101 = load i64, ptr %100, align 8
   %102 = trunc i64 %101 to i32
@@ -1852,12 +1852,12 @@ define internal fastcc ptr @setup_regexp_matches(ptr noundef %0, ptr noundef %1,
   %104 = load i64, ptr %103, align 8
   %105 = trunc i64 %104 to i32
   %106 = load ptr, ptr %62, align 8
-  %107 = add i32 %.31515, 1
-  %108 = sext i32 %.31515 to i64
+  %107 = add i32 %.31516, 1
+  %108 = sext i32 %.31516 to i64
   %109 = getelementptr i32, ptr %106, i64 %108
   store i32 %102, ptr %109, align 4
   %110 = load ptr, ptr %62, align 8
-  %111 = add i32 %.31515, 2
+  %111 = add i32 %.31516, 2
   %112 = sext i32 %107 to i64
   %113 = getelementptr i32, ptr %110, i64 %112
   store i32 %105, ptr %113, align 4
@@ -1865,12 +1865,12 @@ define internal fastcc ptr @setup_regexp_matches(ptr noundef %0, ptr noundef %1,
   %115 = icmp sgt i32 %105, -1
   %or.cond = select i1 %114, i1 %115, i1 false
   %116 = sub nsw i32 %105, %102
-  %spec.select173 = tail call i32 @llvm.smax.i32(i32 %116, i32 %.36)
-  %.4 = select i1 %or.cond, i32 %spec.select173, i32 %.36
-  %117 = add i32 %.01407, 1
+  %spec.select173 = tail call i32 @llvm.smax.i32(i32 %116, i32 %.37)
+  %.4 = select i1 %or.cond, i32 %spec.select173, i32 %.37
+  %117 = add i32 %.01408, 1
   %118 = load i32, ptr %65, align 4
   %.not170 = icmp sgt i32 %117, %118
-  br i1 %.not170, label %.loopexit, label %.lr.ph8, !llvm.loop !10
+  br i1 %.not170, label %.loopexit, label %.lr.ph9, !llvm.loop !10
 
 119:                                              ; preds = %._crit_edge
   %120 = load i64, ptr %56, align 8
@@ -1896,92 +1896,91 @@ define internal fastcc ptr @setup_regexp_matches(ptr noundef %0, ptr noundef %1,
   %spec.select174 = tail call i32 @llvm.smax.i32(i32 %134, i32 %.0141)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph8, %.preheader, %133, %119
-  %.4152 = phi i32 [ %128, %119 ], [ %128, %133 ], [ %.0148, %.preheader ], [ %111, %.lr.ph8 ]
-  %.5 = phi i32 [ %.0141, %119 ], [ %spec.select174, %133 ], [ %.0141, %.preheader ], [ %.4, %.lr.ph8 ]
+.loopexit:                                        ; preds = %.lr.ph9, %.preheader, %133, %119
+  %.4152 = phi i32 [ %128, %119 ], [ %128, %133 ], [ %.0148, %.preheader ], [ %111, %.lr.ph9 ]
+  %.5 = phi i32 [ %.0141, %119 ], [ %spec.select174, %133 ], [ %.0141, %.preheader ], [ %.4, %.lr.ph9 ]
   %135 = load i32, ptr %66, align 8
   %136 = add i32 %135, 1
   store i32 %136, ptr %66, align 8
-  br i1 %6, label %137, label %146
+  br i1 %6, label %137, label %144
 
 137:                                              ; preds = %.loopexit
   %138 = load i64, ptr %56, align 8
   %139 = icmp sgt i64 %138, -1
-  br i1 %139, label %140, label %146
+  br i1 %139, label %140, label %144
 
 140:                                              ; preds = %137
   %141 = sext i32 %.0144 to i64
   %142 = sub i64 %138, %141
   %143 = sext i32 %.5 to i64
-  %144 = icmp sgt i64 %142, %143
-  %145 = trunc i64 %142 to i32
-  %spec.select175 = select i1 %144, i32 %145, i32 %.5
-  br label %146
+  %spec.select1751 = tail call i64 @llvm.smax.i64(i64 %142, i64 %143)
+  %spec.select175 = trunc i64 %spec.select1751 to i32
+  br label %144
 
-146:                                              ; preds = %140, %137, %.loopexit
+144:                                              ; preds = %140, %137, %.loopexit
   %.6 = phi i32 [ %.5, %137 ], [ %.5, %.loopexit ], [ %spec.select175, %140 ]
-  %147 = load i64, ptr %64, align 8
-  %148 = trunc i64 %147 to i32
-  br label %149
+  %145 = load i64, ptr %64, align 8
+  %146 = trunc i64 %145 to i32
+  br label %147
 
-149:                                              ; preds = %146, %73, %70
-  %.2150 = phi i32 [ %.4152, %146 ], [ %.0148, %73 ], [ %.0148, %70 ]
-  %.2146 = phi i32 [ %148, %146 ], [ %.0144, %73 ], [ %.0144, %70 ]
-  %.2143 = phi i32 [ %.6, %146 ], [ %.0141, %73 ], [ %.0141, %70 ]
-  %.1139 = phi i32 [ %.2.lcssa, %146 ], [ %.0138, %73 ], [ %.0138, %70 ]
-  br i1 %57, label %150, label %157
+147:                                              ; preds = %144, %73, %70
+  %.2150 = phi i32 [ %.4152, %144 ], [ %.0148, %73 ], [ %.0148, %70 ]
+  %.2146 = phi i32 [ %146, %144 ], [ %.0144, %73 ], [ %.0144, %70 ]
+  %.2143 = phi i32 [ %.6, %144 ], [ %.0141, %73 ], [ %.0141, %70 ]
+  %.1139 = phi i32 [ %.2.lcssa, %144 ], [ %.0138, %73 ], [ %.0138, %70 ]
+  br i1 %57, label %148, label %155
 
-150:                                              ; preds = %149
-  %151 = load i64, ptr %64, align 8
-  %152 = trunc i64 %151 to i32
-  %153 = load i64, ptr %56, align 8
-  %154 = icmp eq i64 %153, %151
-  %155 = zext i1 %154 to i32
-  %spec.select176 = add i32 %155, %152
-  %156 = icmp sgt i32 %spec.select176, %40
-  br i1 %156, label %157, label %67, !llvm.loop !11
+148:                                              ; preds = %147
+  %149 = load i64, ptr %64, align 8
+  %150 = trunc i64 %149 to i32
+  %151 = load i64, ptr %56, align 8
+  %152 = icmp eq i64 %151, %149
+  %153 = zext i1 %152 to i32
+  %spec.select176 = add i32 %153, %150
+  %154 = icmp sgt i32 %spec.select176, %40
+  br i1 %154, label %155, label %67, !llvm.loop !11
 
-157:                                              ; preds = %150, %149, %67
-  %.1149 = phi i32 [ %.2150, %150 ], [ %.2150, %149 ], [ %.0148, %67 ]
-  %.1145 = phi i32 [ %.2146, %150 ], [ %.2146, %149 ], [ %.0144, %67 ]
-  %.1142 = phi i32 [ %.2143, %150 ], [ %.2143, %149 ], [ %.0141, %67 ]
-  %158 = load ptr, ptr %62, align 8
-  %159 = sext i32 %.1149 to i64
-  %160 = getelementptr i32, ptr %158, i64 %159
-  store i32 %40, ptr %160, align 4
-  %161 = icmp sgt i32 %9, 1
-  br i1 %161, label %162, label %173
+155:                                              ; preds = %148, %147, %67
+  %.1149 = phi i32 [ %.2150, %148 ], [ %.2150, %147 ], [ %.0148, %67 ]
+  %.1145 = phi i32 [ %.2146, %148 ], [ %.2146, %147 ], [ %.0144, %67 ]
+  %.1142 = phi i32 [ %.2143, %148 ], [ %.2143, %147 ], [ %.0141, %67 ]
+  %156 = load ptr, ptr %62, align 8
+  %157 = sext i32 %.1149 to i64
+  %158 = getelementptr i32, ptr %156, i64 %157
+  store i32 %40, ptr %158, align 4
+  %159 = icmp sgt i32 %9, 1
+  br i1 %159, label %160, label %171
 
-162:                                              ; preds = %157
-  %163 = sub i32 %40, %.1145
-  %spec.select177 = tail call i32 @llvm.smax.i32(i32 %163, i32 %.1142)
+160:                                              ; preds = %155
+  %161 = sub i32 %40, %.1145
+  %spec.select177 = tail call i32 @llvm.smax.i32(i32 %161, i32 %.1142)
   %.7 = select i1 %6, i32 %spec.select177, i32 %.1142
-  %164 = zext nneg i32 %9 to i64
-  %165 = sext i32 %.7 to i64
-  %166 = mul nsw i64 %165, %164
-  %167 = sext i32 %32 to i64
-  %168 = icmp sgt i64 %166, %167
-  %169 = trunc i64 %166 to i32
-  %170 = add i32 %169, 1
-  %.0 = select i1 %168, i32 %33, i32 %170
-  %171 = sext i32 %.0 to i64
-  %172 = tail call ptr @palloc(i64 noundef %171) #8
-  br label %174
+  %162 = zext nneg i32 %9 to i64
+  %163 = sext i32 %.7 to i64
+  %164 = mul nsw i64 %163, %162
+  %165 = sext i32 %32 to i64
+  %166 = icmp sgt i64 %164, %165
+  %167 = trunc i64 %164 to i32
+  %168 = add i32 %167, 1
+  %.0 = select i1 %166, i32 %33, i32 %168
+  %169 = sext i32 %.0 to i64
+  %170 = tail call ptr @palloc(i64 noundef %169) #8
+  br label %172
 
-173:                                              ; preds = %157
+171:                                              ; preds = %155
   tail call void @pfree(ptr noundef %36) #8
-  br label %174
+  br label %172
 
-174:                                              ; preds = %173, %162
-  %.sink13 = phi ptr [ %172, %162 ], [ null, %173 ]
-  %.sink12 = phi i32 [ %.0, %162 ], [ 0, %173 ]
-  %.sink = phi ptr [ %36, %162 ], [ null, %173 ]
-  %175 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  store ptr %.sink13, ptr %175, align 8
-  %176 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  store i32 %.sink12, ptr %176, align 8
-  %177 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store ptr %.sink, ptr %177, align 8
+172:                                              ; preds = %171, %160
+  %.sink14 = phi ptr [ %170, %160 ], [ null, %171 ]
+  %.sink13 = phi i32 [ %.0, %160 ], [ 0, %171 ]
+  %.sink = phi ptr [ %36, %160 ], [ null, %171 ]
+  %173 = getelementptr inbounds nuw i8, ptr %8, i64 56
+  store ptr %.sink14, ptr %173, align 8
+  %174 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  store i32 %.sink13, ptr %174, align 8
+  %175 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  store ptr %.sink, ptr %175, align 8
   tail call void @pfree(ptr noundef %56) #8
   ret ptr %8
 }
@@ -3157,6 +3156,9 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smax.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #7

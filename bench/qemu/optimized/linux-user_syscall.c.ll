@@ -18828,8 +18828,8 @@ if.end:                                           ; preds = %cond.end
   br i1 %tobool.not, label %return, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %if.end
-  %tobool9142.not = icmp eq ptr %cond, null
-  br i1 %tobool9142.not, label %while.end, label %while.body.lr.ph
+  %tobool9143.not = icmp eq ptr %cond, null
+  br i1 %tobool9143.not, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
   %msg_flags37 = getelementptr inbounds nuw i8, ptr %target_msgh, i64 48
@@ -18837,16 +18837,16 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %sw.epilog238
-  %cmsg.0146 = phi ptr [ %cond, %while.body.lr.ph ], [ %call257, %sw.epilog238 ]
-  %msg_controllen1.0145 = phi i64 [ %2, %while.body.lr.ph ], [ %sub255, %sw.epilog238 ]
-  %target_cmsg.0144 = phi ptr [ %call6, %while.body.lr.ph ], [ %add.ptr.i, %sw.epilog238 ]
-  %space.1143 = phi i32 [ 0, %while.body.lr.ph ], [ %add256, %sw.epilog238 ]
-  %__cmsg_data = getelementptr inbounds nuw i8, ptr %cmsg.0146, i64 16
-  %add.ptr = getelementptr i8, ptr %target_cmsg.0144, i64 16
-  %4 = load i64, ptr %cmsg.0146, align 8
+  %cmsg.0147 = phi ptr [ %cond, %while.body.lr.ph ], [ %call257, %sw.epilog238 ]
+  %msg_controllen1.0146 = phi i64 [ %2, %while.body.lr.ph ], [ %sub255, %sw.epilog238 ]
+  %target_cmsg.0145 = phi ptr [ %call6, %while.body.lr.ph ], [ %add.ptr.i, %sw.epilog238 ]
+  %space.1144 = phi i32 [ 0, %while.body.lr.ph ], [ %add256, %sw.epilog238 ]
+  %__cmsg_data = getelementptr inbounds nuw i8, ptr %cmsg.0147, i64 16
+  %add.ptr = getelementptr i8, ptr %target_cmsg.0145, i64 16
+  %4 = load i64, ptr %cmsg.0147, align 8
   %5 = trunc i64 %4 to i32
   %conv = add i32 %5, -16
-  %cmp11 = icmp ult i64 %msg_controllen1.0145, 16
+  %cmp11 = icmp ult i64 %msg_controllen1.0146, 16
   br i1 %cmp11, label %if.then13, label %if.end15
 
 if.then13:                                        ; preds = %while.body
@@ -18856,13 +18856,13 @@ if.then13:                                        ; preds = %while.body
   br label %while.end
 
 if.end15:                                         ; preds = %while.body
-  %cmsg_level = getelementptr inbounds nuw i8, ptr %cmsg.0146, i64 8
+  %cmsg_level = getelementptr inbounds nuw i8, ptr %cmsg.0147, i64 8
   %7 = load i32, ptr %cmsg_level, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %target_cmsg.0144, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %target_cmsg.0145, i64 8
   store i32 %7, ptr %8, align 8
-  %cmsg_type = getelementptr inbounds nuw i8, ptr %cmsg.0146, i64 12
+  %cmsg_type = getelementptr inbounds nuw i8, ptr %cmsg.0147, i64 12
   %9 = load i32, ptr %cmsg_type, align 4
-  %cmsg_type26 = getelementptr inbounds nuw i8, ptr %target_cmsg.0144, i64 12
+  %cmsg_type26 = getelementptr inbounds nuw i8, ptr %target_cmsg.0145, i64 12
   store i32 %9, ptr %cmsg_type26, align 4
   %10 = load i32, ptr %cmsg_level, align 8
   %cond1 = icmp eq i32 %10, 1
@@ -18871,14 +18871,14 @@ if.end15:                                         ; preds = %while.body
   %tgt_len.0 = select i1 %11, i32 16, i32 %conv
   %conv32 = sext i32 %tgt_len.0 to i64
   %add = add nsw i64 %conv32, 16
-  %cmp33 = icmp ult i64 %msg_controllen1.0145, %add
+  %cmp33 = icmp ult i64 %msg_controllen1.0146, %add
   br i1 %cmp33, label %if.then35, label %if.end41
 
 if.then35:                                        ; preds = %if.end15
   %12 = load i32, ptr %msg_flags37, align 8
   %or38 = or i32 %12, 8
   store i32 %or38, ptr %msg_flags37, align 8
-  %13 = trunc i64 %msg_controllen1.0145 to i32
+  %13 = trunc i64 %msg_controllen1.0146 to i32
   %conv40 = add i32 %13, -16
   %.pre = load i32, ptr %cmsg_level, align 8
   br label %if.end41
@@ -18902,8 +18902,8 @@ sw.bb43:                                          ; preds = %if.end41
 
 sw.bb45:                                          ; preds = %sw.bb43
   %conv47 = ashr i32 %tgt_len.1, 2
-  %cmp48140 = icmp sgt i32 %conv47, 0
-  br i1 %cmp48140, label %do.body.preheader, label %sw.epilog238
+  %cmp48141 = icmp sgt i32 %conv47, 0
+  br i1 %cmp48141, label %do.body.preheader, label %sw.epilog238
 
 do.body.preheader:                                ; preds = %sw.bb45
   %wide.trip.count = zext nneg i32 %conv47 to i64
@@ -18928,8 +18928,8 @@ sw.bb51:                                          ; preds = %sw.bb43
 do.body60:                                        ; preds = %sw.bb51
   %17 = load i64, ptr %__cmsg_data, align 8
   store i64 %17, ptr %add.ptr, align 1
-  %tv_usec = getelementptr i8, ptr %target_cmsg.0144, i64 24
-  %tv_usec64 = getelementptr inbounds nuw i8, ptr %cmsg.0146, i64 24
+  %tv_usec = getelementptr i8, ptr %target_cmsg.0145, i64 24
+  %tv_usec64 = getelementptr inbounds nuw i8, ptr %cmsg.0147, i64 24
   %18 = load i64, ptr %tv_usec64, align 8
   store i64 %18, ptr %tv_usec, align 1
   br label %sw.epilog238
@@ -18937,12 +18937,12 @@ do.body60:                                        ; preds = %sw.bb51
 sw.bb66:                                          ; preds = %sw.bb43
   %19 = load i32, ptr %__cmsg_data, align 4
   store i32 %19, ptr %add.ptr, align 1
-  %uid = getelementptr i8, ptr %target_cmsg.0144, i64 20
-  %uid71 = getelementptr inbounds nuw i8, ptr %cmsg.0146, i64 20
+  %uid = getelementptr i8, ptr %target_cmsg.0145, i64 20
+  %uid71 = getelementptr inbounds nuw i8, ptr %cmsg.0147, i64 20
   %20 = load i32, ptr %uid71, align 4
   store i32 %20, ptr %uid, align 1
-  %gid = getelementptr i8, ptr %target_cmsg.0144, i64 24
-  %gid74 = getelementptr inbounds nuw i8, ptr %cmsg.0146, i64 24
+  %gid = getelementptr i8, ptr %target_cmsg.0145, i64 24
+  %gid74 = getelementptr inbounds nuw i8, ptr %cmsg.0147, i64 24
   %21 = load i32, ptr %gid74, align 4
   store i32 %21, ptr %gid, align 1
   br label %sw.epilog238
@@ -18974,38 +18974,38 @@ sw.bb92:                                          ; preds = %sw.bb78
 do.body102:                                       ; preds = %sw.bb92
   %24 = load i32, ptr %__cmsg_data, align 4
   store i32 %24, ptr %add.ptr, align 1
-  %ee_origin = getelementptr i8, ptr %target_cmsg.0144, i64 20
-  %ee_origin109 = getelementptr inbounds nuw i8, ptr %cmsg.0146, i64 20
+  %ee_origin = getelementptr i8, ptr %target_cmsg.0145, i64 20
+  %ee_origin109 = getelementptr inbounds nuw i8, ptr %cmsg.0147, i64 20
   %25 = load i8, ptr %ee_origin109, align 4
   store i8 %25, ptr %ee_origin, align 1
-  %ee_type = getelementptr i8, ptr %target_cmsg.0144, i64 21
-  %ee_type114 = getelementptr inbounds nuw i8, ptr %cmsg.0146, i64 21
+  %ee_type = getelementptr i8, ptr %target_cmsg.0145, i64 21
+  %ee_type114 = getelementptr inbounds nuw i8, ptr %cmsg.0147, i64 21
   %26 = load i8, ptr %ee_type114, align 1
   store i8 %26, ptr %ee_type, align 1
-  %ee_code = getelementptr i8, ptr %target_cmsg.0144, i64 22
-  %ee_code119 = getelementptr inbounds nuw i8, ptr %cmsg.0146, i64 22
+  %ee_code = getelementptr i8, ptr %target_cmsg.0145, i64 22
+  %ee_code119 = getelementptr inbounds nuw i8, ptr %cmsg.0147, i64 22
   %27 = load i8, ptr %ee_code119, align 2
   store i8 %27, ptr %ee_code, align 1
-  %ee_pad = getelementptr i8, ptr %target_cmsg.0144, i64 23
-  %ee_pad124 = getelementptr inbounds nuw i8, ptr %cmsg.0146, i64 23
+  %ee_pad = getelementptr i8, ptr %target_cmsg.0145, i64 23
+  %ee_pad124 = getelementptr inbounds nuw i8, ptr %cmsg.0147, i64 23
   %28 = load i8, ptr %ee_pad124, align 1
   store i8 %28, ptr %ee_pad, align 1
-  %ee_info = getelementptr i8, ptr %target_cmsg.0144, i64 24
-  %ee_info129 = getelementptr inbounds nuw i8, ptr %cmsg.0146, i64 24
+  %ee_info = getelementptr i8, ptr %target_cmsg.0145, i64 24
+  %ee_info129 = getelementptr inbounds nuw i8, ptr %cmsg.0147, i64 24
   %29 = load i32, ptr %ee_info129, align 4
   store i32 %29, ptr %ee_info, align 1
-  %30 = getelementptr i8, ptr %target_cmsg.0144, i64 28
-  %31 = getelementptr inbounds nuw i8, ptr %cmsg.0146, i64 28
+  %30 = getelementptr i8, ptr %target_cmsg.0145, i64 28
+  %31 = getelementptr inbounds nuw i8, ptr %cmsg.0147, i64 28
   %32 = load i32, ptr %31, align 4
   store i32 %32, ptr %30, align 1
-  %offender = getelementptr i8, ptr %target_cmsg.0144, i64 32
+  %offender = getelementptr i8, ptr %target_cmsg.0145, i64 32
   %33 = ptrtoint ptr %offender to i64
   %call.i = tail call ptr @lock_user(i32 noundef 3, i64 noundef %33, i64 noundef 16, i1 noundef zeroext false) #27
   %tobool3.not.i = icmp eq ptr %call.i, null
   br i1 %tobool3.not.i, label %sw.epilog238, label %if.end5.i
 
 if.end5.i:                                        ; preds = %do.body102
-  %offender135 = getelementptr inbounds nuw i8, ptr %cmsg.0146, i64 32
+  %offender135 = getelementptr inbounds nuw i8, ptr %cmsg.0147, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %call.i, ptr noundef nonnull readonly align 2 dereferenceable(16) %offender135, i64 16, i1 false)
   %34 = load i16, ptr %offender135, align 2
   store i16 %34, ptr %call.i, align 2
@@ -19038,38 +19038,38 @@ sw.bb155:                                         ; preds = %sw.bb139
 do.body167:                                       ; preds = %sw.bb155
   %37 = load i32, ptr %__cmsg_data, align 4
   store i32 %37, ptr %add.ptr, align 1
-  %ee_origin175 = getelementptr i8, ptr %target_cmsg.0144, i64 20
-  %ee_origin177 = getelementptr inbounds nuw i8, ptr %cmsg.0146, i64 20
+  %ee_origin175 = getelementptr i8, ptr %target_cmsg.0145, i64 20
+  %ee_origin177 = getelementptr inbounds nuw i8, ptr %cmsg.0147, i64 20
   %38 = load i8, ptr %ee_origin177, align 4
   store i8 %38, ptr %ee_origin175, align 1
-  %ee_type181 = getelementptr i8, ptr %target_cmsg.0144, i64 21
-  %ee_type183 = getelementptr inbounds nuw i8, ptr %cmsg.0146, i64 21
+  %ee_type181 = getelementptr i8, ptr %target_cmsg.0145, i64 21
+  %ee_type183 = getelementptr inbounds nuw i8, ptr %cmsg.0147, i64 21
   %39 = load i8, ptr %ee_type183, align 1
   store i8 %39, ptr %ee_type181, align 1
-  %ee_code187 = getelementptr i8, ptr %target_cmsg.0144, i64 22
-  %ee_code189 = getelementptr inbounds nuw i8, ptr %cmsg.0146, i64 22
+  %ee_code187 = getelementptr i8, ptr %target_cmsg.0145, i64 22
+  %ee_code189 = getelementptr inbounds nuw i8, ptr %cmsg.0147, i64 22
   %40 = load i8, ptr %ee_code189, align 2
   store i8 %40, ptr %ee_code187, align 1
-  %ee_pad193 = getelementptr i8, ptr %target_cmsg.0144, i64 23
-  %ee_pad195 = getelementptr inbounds nuw i8, ptr %cmsg.0146, i64 23
+  %ee_pad193 = getelementptr i8, ptr %target_cmsg.0145, i64 23
+  %ee_pad195 = getelementptr inbounds nuw i8, ptr %cmsg.0147, i64 23
   %41 = load i8, ptr %ee_pad195, align 1
   store i8 %41, ptr %ee_pad193, align 1
-  %ee_info199 = getelementptr i8, ptr %target_cmsg.0144, i64 24
-  %ee_info201 = getelementptr inbounds nuw i8, ptr %cmsg.0146, i64 24
+  %ee_info199 = getelementptr i8, ptr %target_cmsg.0145, i64 24
+  %ee_info201 = getelementptr inbounds nuw i8, ptr %cmsg.0147, i64 24
   %42 = load i32, ptr %ee_info201, align 4
   store i32 %42, ptr %ee_info199, align 1
-  %43 = getelementptr i8, ptr %target_cmsg.0144, i64 28
-  %44 = getelementptr inbounds nuw i8, ptr %cmsg.0146, i64 28
+  %43 = getelementptr i8, ptr %target_cmsg.0145, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %cmsg.0147, i64 28
   %45 = load i32, ptr %44, align 4
   store i32 %45, ptr %43, align 1
-  %offender207 = getelementptr i8, ptr %target_cmsg.0144, i64 32
+  %offender207 = getelementptr i8, ptr %target_cmsg.0145, i64 32
   %46 = ptrtoint ptr %offender207 to i64
   %call.i125 = tail call ptr @lock_user(i32 noundef 3, i64 noundef %46, i64 noundef 28, i1 noundef zeroext false) #27
   %tobool3.not.i126 = icmp eq ptr %call.i125, null
   br i1 %tobool3.not.i126, label %sw.epilog238, label %if.end5.i127
 
 if.end5.i127:                                     ; preds = %do.body167
-  %offender208 = getelementptr inbounds nuw i8, ptr %cmsg.0146, i64 32
+  %offender208 = getelementptr inbounds nuw i8, ptr %cmsg.0147, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(28) %call.i125, ptr noundef nonnull readonly align 2 dereferenceable(28) %offender208, i64 28, i1 false)
   %47 = load i16, ptr %offender208, align 2
   store i16 %47, ptr %call.i125, align 2
@@ -19112,36 +19112,36 @@ if.then232:                                       ; preds = %do.end222
 sw.epilog238:                                     ; preds = %do.body, %sw.bb45, %if.end5.i127, %if.end5.i, %if.then45.i, %do.body167, %do.body102, %do.end222, %if.then232, %do.body153, %do.body90, %do.body60, %sw.bb66
   %conv239 = sext i32 %tgt_len.1 to i64
   %add240 = add nsw i64 %conv239, 16
-  store i64 %add240, ptr %target_cmsg.0144, align 8
+  store i64 %add240, ptr %target_cmsg.0145, align 8
   %sub245 = add i32 %tgt_len.1, 7
   %and = and i32 %sub245, -8
   %add246 = add i32 %and, 16
   %conv248 = sext i32 %add246 to i64
-  %cmp249 = icmp slt i64 %msg_controllen1.0145, %conv248
-  %conv252 = trunc i64 %msg_controllen1.0145 to i32
-  %spec.select124 = select i1 %cmp249, i32 %conv252, i32 %add246
-  %conv254 = sext i32 %spec.select124 to i64
-  %sub255 = sub i64 %msg_controllen1.0145, %conv254
-  %add256 = add i32 %spec.select124, %space.1143
-  %call257 = tail call ptr @__cmsg_nxthdr(ptr noundef nonnull %msgh, ptr noundef nonnull %cmsg.0146) #27
+  %spec.select124138 = tail call i64 @llvm.smin.i64(i64 %msg_controllen1.0146, i64 %conv248)
+  %spec.select124 = trunc i64 %spec.select124138 to i32
+  %sext = shl i64 %spec.select124138, 32
+  %conv254 = ashr exact i64 %sext, 32
+  %sub255 = sub i64 %msg_controllen1.0146, %conv254
+  %add256 = add i32 %space.1144, %spec.select124
+  %call257 = tail call ptr @__cmsg_nxthdr(ptr noundef nonnull %msgh, ptr noundef nonnull %cmsg.0147) #27
   %target_msgh.val = load i64, ptr %msg_controllen2, align 8
-  %51 = load i64, ptr %target_cmsg.0144, align 8
+  %51 = load i64, ptr %target_cmsg.0145, align 8
   %sub.i = add i64 %51, 7
   %and.i135 = and i64 %sub.i, -8
-  %add.ptr.i = getelementptr i8, ptr %target_cmsg.0144, i64 %and.i135
+  %add.ptr.i = getelementptr i8, ptr %target_cmsg.0145, i64 %and.i135
   %add.ptr1.i = getelementptr i8, ptr %add.ptr.i, i64 16
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr1.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp.i136 = icmp ule i64 %sub.ptr.sub.i, %target_msgh.val
   %tobool9 = icmp ne ptr %call257, null
-  %tobool10151 = icmp ne ptr %add.ptr.i, null
+  %tobool10152 = icmp ne ptr %add.ptr.i, null
   %52 = select i1 %tobool9, i1 %cmp.i136, i1 false
-  %53 = select i1 %52, i1 %tobool10151, i1 false
+  %53 = select i1 %52, i1 %tobool10152, i1 false
   br i1 %53, label %while.body, label %while.end, !llvm.loop !55
 
 while.end:                                        ; preds = %sw.epilog238, %while.cond.preheader, %if.then13
-  %space.1139 = phi i32 [ %space.1143, %if.then13 ], [ 0, %while.cond.preheader ], [ %add256, %sw.epilog238 ]
-  %54 = zext i32 %space.1139 to i64
+  %space.1140 = phi i32 [ %space.1144, %if.then13 ], [ 0, %while.cond.preheader ], [ %add256, %sw.epilog238 ]
+  %54 = zext i32 %space.1140 to i64
   br label %the_end
 
 the_end:                                          ; preds = %cond.end, %while.end

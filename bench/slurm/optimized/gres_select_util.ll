@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define void @gres_select_util_job_set_defs(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef %6) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %85, label %8
+  br i1 %.not, label %83, label %8
 
 8:                                                ; preds = %7
   %9 = tail call i32 @gres_build_id(ptr noundef %1) #3
@@ -75,7 +75,7 @@ define void @gres_select_util_job_set_defs(ptr noundef %0, ptr noundef %1, i64 n
   br i1 %.not44, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
 .lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %.backedge.us59
-  %31 = phi ptr [ %57, %.backedge.us59 ], [ %11, %.lr.ph.split.split ]
+  %31 = phi ptr [ %56, %.backedge.us59 ], [ %11, %.lr.ph.split.split ]
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %33 = load i32, ptr %32, align 4
   %.not39.us54 = icmp eq i32 %33, %9
@@ -122,82 +122,80 @@ define void @gres_select_util_job_set_defs(ptr noundef %0, ptr noundef %1, i64 n
   %51 = load i16, ptr %6, align 2
   %52 = zext i16 %51 to i64
   %53 = mul i64 %49, %2
-  %54 = icmp ult i64 %53, %52
-  %55 = trunc i64 %53 to i16
-  %56 = select i1 %54, i16 %51, i16 %55
-  store i16 %56, ptr %6, align 2
+  %54 = tail call i64 @llvm.umax.i64(i64 %53, i64 %52)
+  %55 = trunc i64 %54 to i16
+  store i16 %55, ptr %6, align 2
   br label %.backedge.us59
 
 .backedge.us59:                                   ; preds = %47, %50, %34, %.lr.ph.split.split.split.us
-  %57 = tail call ptr @slurm_list_next(ptr noundef %10) #3
-  %.not38.us60 = icmp eq ptr %57, null
+  %56 = tail call ptr @slurm_list_next(ptr noundef %10) #3
+  %.not38.us60 = icmp eq ptr %56, null
   br i1 %.not38.us60, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !6
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %.backedge
-  %58 = phi ptr [ %84, %.backedge ], [ %11, %.lr.ph.split.split ]
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
-  %60 = load i32, ptr %59, align 4
-  %.not39 = icmp eq i32 %60, %9
-  br i1 %.not39, label %61, label %.backedge
+  %57 = phi ptr [ %82, %.backedge ], [ %11, %.lr.ph.split.split ]
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
+  %59 = load i32, ptr %58, align 4
+  %.not39 = icmp eq i32 %59, %9
+  br i1 %.not39, label %60, label %.backedge
 
-61:                                               ; preds = %.lr.ph.split.split.split
-  %62 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  %63 = load ptr, ptr %62, align 8
-  %.not40 = icmp eq ptr %63, null
-  br i1 %.not40, label %.backedge, label %64
+60:                                               ; preds = %.lr.ph.split.split.split
+  %61 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  %62 = load ptr, ptr %61, align 8
+  %.not40 = icmp eq ptr %62, null
+  br i1 %.not40, label %.backedge, label %63
 
-64:                                               ; preds = %61
-  %65 = getelementptr inbounds nuw i8, ptr %63, i64 66
-  store i16 %12, ptr %65, align 2
-  %66 = getelementptr inbounds nuw i8, ptr %63, i64 72
-  store i64 %3, ptr %66, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %63, i64 18
-  %68 = load i16, ptr %67, align 2
-  %.not41 = icmp eq i16 %68, 0
-  br i1 %.not41, label %69, label %70
+63:                                               ; preds = %60
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 66
+  store i16 %12, ptr %64, align 2
+  %65 = getelementptr inbounds nuw i8, ptr %62, i64 72
+  store i64 %3, ptr %65, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %62, i64 18
+  %67 = load i16, ptr %66, align 2
+  %.not41 = icmp eq i16 %67, 0
+  br i1 %.not41, label %68, label %69
 
-69:                                               ; preds = %64
+68:                                               ; preds = %63
   tail call void @slurm_xfree(ptr noundef %4) #3
   tail call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef %4, ptr noundef nonnull @.str, i64 noundef %2) #3
-  br label %70
+  br label %69
 
-70:                                               ; preds = %69, %64
-  %71 = getelementptr inbounds nuw i8, ptr %63, i64 56
-  %72 = load i64, ptr %71, align 8
-  %.not43 = icmp eq i64 %72, 0
-  br i1 %.not43, label %73, label %74
+69:                                               ; preds = %68, %63
+  %70 = getelementptr inbounds nuw i8, ptr %62, i64 56
+  %71 = load i64, ptr %70, align 8
+  %.not43 = icmp eq i64 %71, 0
+  br i1 %.not43, label %72, label %73
 
-73:                                               ; preds = %70
+72:                                               ; preds = %69
   tail call void @slurm_xfree(ptr noundef %5) #3
   tail call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef %5, ptr noundef nonnull @.str, i64 noundef %3) #3
-  br label %74
+  br label %73
 
-74:                                               ; preds = %73, %70
-  %75 = getelementptr inbounds nuw i8, ptr %63, i64 48
-  %76 = load i64, ptr %75, align 8
-  %.not46 = icmp eq i64 %76, 0
-  br i1 %.not46, label %.backedge, label %77
+73:                                               ; preds = %72, %69
+  %74 = getelementptr inbounds nuw i8, ptr %62, i64 48
+  %75 = load i64, ptr %74, align 8
+  %.not46 = icmp eq i64 %75, 0
+  br i1 %.not46, label %.backedge, label %76
 
-77:                                               ; preds = %74
-  %78 = load i16, ptr %6, align 2
-  %79 = zext i16 %78 to i64
-  %80 = mul i64 %76, %2
-  %81 = icmp ult i64 %80, %79
-  %82 = trunc i64 %80 to i16
-  %83 = select i1 %81, i16 %78, i16 %82
-  store i16 %83, ptr %6, align 2
+76:                                               ; preds = %73
+  %77 = load i16, ptr %6, align 2
+  %78 = zext i16 %77 to i64
+  %79 = mul i64 %75, %2
+  %80 = tail call i64 @llvm.umax.i64(i64 %79, i64 %78)
+  %81 = trunc i64 %80 to i16
+  store i16 %81, ptr %6, align 2
   br label %.backedge
 
-.backedge:                                        ; preds = %74, %77, %.lr.ph.split.split.split, %61
-  %84 = tail call ptr @slurm_list_next(ptr noundef %10) #3
-  %.not38 = icmp eq ptr %84, null
+.backedge:                                        ; preds = %73, %76, %.lr.ph.split.split.split, %60
+  %82 = tail call ptr @slurm_list_next(ptr noundef %10) #3
+  %.not38 = icmp eq ptr %82, null
   br i1 %.not38, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.backedge, %.backedge.us59, %.backedge.us, %8
   tail call void @slurm_list_iterator_destroy(ptr noundef %10) #3
-  br label %85
+  br label %83
 
-85:                                               ; preds = %7, %._crit_edge
+83:                                               ; preds = %7, %._crit_edge
   ret void
 }
 

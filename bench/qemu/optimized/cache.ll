@@ -1710,27 +1710,26 @@ sw.bb1.i:                                         ; preds = %if.then8
   %idxprom.i.i = ashr exact i64 %sext49, 32
   %lru_priorities.i.i = getelementptr inbounds %struct.CacheSet, ptr %14, i64 %idxprom.i.i, i32 1
   %15 = load ptr, ptr %lru_priorities.i.i, align 8
-  %cmp11.i.i = icmp sgt i32 %3, 1
-  br i1 %cmp11.i.i, label %for.body.preheader.i.i, label %if.end11
+  %cmp12.i.i = icmp sgt i32 %3, 1
+  br i1 %cmp12.i.i, label %for.body.preheader.i.i, label %if.end11
 
 for.body.preheader.i.i:                           ; preds = %sw.bb1.i
   %16 = load i64, ptr %15, align 8
-  %conv.i.i = trunc i64 %16 to i32
   %wide.trip.count.i.i = zext nneg i32 %3 to i64
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 1, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
-  %min_priority.014.i.i = phi i32 [ %conv.i.i, %for.body.preheader.i.i ], [ %spec.select10.i.i, %for.body.i.i ]
-  %min_idx.013.i.i = phi i32 [ 0, %for.body.preheader.i.i ], [ %spec.select.i.i, %for.body.i.i ]
+  %min_priority.015.i.i = phi i64 [ %16, %for.body.preheader.i.i ], [ %spec.select1011.i.i, %for.body.i.i ]
+  %min_idx.014.i.i = phi i32 [ 0, %for.body.preheader.i.i ], [ %spec.select.i.i, %for.body.i.i ]
   %arrayidx8.i.i = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv.i.i
   %17 = load i64, ptr %arrayidx8.i.i, align 8
-  %conv9.i.i = sext i32 %min_priority.014.i.i to i64
+  %sext.i.i = shl i64 %min_priority.015.i.i, 32
+  %conv9.i.i = ashr exact i64 %sext.i.i, 32
   %cmp10.i.i = icmp ult i64 %17, %conv9.i.i
-  %conv18.i.i = trunc i64 %17 to i32
   %18 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  %spec.select.i.i = select i1 %cmp10.i.i, i32 %18, i32 %min_idx.013.i.i
-  %spec.select10.i.i = select i1 %cmp10.i.i, i32 %conv18.i.i, i32 %min_priority.014.i.i
+  %spec.select.i.i = select i1 %cmp10.i.i, i32 %18, i32 %min_idx.014.i.i
+  %spec.select1011.i.i = tail call i64 @llvm.umin.i64(i64 %17, i64 %conv9.i.i)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %if.end11, label %for.body.i.i, !llvm.loop !23
@@ -1743,7 +1742,7 @@ sw.bb3.i:                                         ; preds = %if.then8
   %19 = load ptr, ptr %fifo_queue.i.i, align 8
   %call.i.i = tail call ptr @g_queue_pop_tail(ptr noundef %19) #11
   %20 = ptrtoint ptr %call.i.i to i64
-  %conv.i5.i = trunc i64 %20 to i32
+  %conv.i.i = trunc i64 %20 to i32
   br label %if.end11
 
 do.body.i:                                        ; preds = %if.then8
@@ -1751,7 +1750,7 @@ do.body.i:                                        ; preds = %if.then8
   unreachable
 
 if.end11:                                         ; preds = %for.body.i.i, %get_invalid_block.exit, %sw.bb3.i, %sw.bb1.i, %sw.bb.i
-  %replaced_blk.0 = phi i32 [ %11, %get_invalid_block.exit ], [ %conv.i5.i, %sw.bb3.i ], [ %call.i, %sw.bb.i ], [ 0, %sw.bb1.i ], [ %spec.select.i.i, %for.body.i.i ]
+  %replaced_blk.0 = phi i32 [ %11, %get_invalid_block.exit ], [ %conv.i.i, %sw.bb3.i ], [ %call.i, %sw.bb.i ], [ 0, %sw.bb1.i ], [ %spec.select.i.i, %for.body.i.i ]
   %21 = load ptr, ptr @update_miss, align 8
   %tobool12.not = icmp eq ptr %21, null
   br i1 %tobool12.not, label %if.end15, label %if.then13
@@ -1846,6 +1845,9 @@ declare i32 @llvm.ctpop.i32(i32) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
