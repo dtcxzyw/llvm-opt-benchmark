@@ -22537,9 +22537,7 @@ _ZNK5clang6interp7Pointer12getFieldDescEv.exit:   ; preds = %126, %_ZNK5clang6in
   %156 = icmp eq i64 %155, 0
   %157 = and i64 %.sroa.0.0.copyload.i.i.i.i.i58, -8
   %158 = inttoptr i64 %157 to ptr
-  %.not.i8.i59 = icmp ne i64 %157, 0
   call void @llvm.assume(i1 %156)
-  call void @llvm.assume(i1 %.not.i8.i59)
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 28
   %160 = load i32, ptr %159, align 4
   %161 = and i32 %160, 124

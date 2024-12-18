@@ -16733,14 +16733,14 @@ if.end30:                                         ; preds = %invoke.cont26, %inv
   %is_empty.2 = phi i1 [ %is_empty.1, %invoke.cont8 ], [ %spec.select15, %invoke.cont26 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %e.addr.i)
   store ptr %lo, ptr %e.addr.i, align 8
-  %call.i28 = invoke i64 @_ZN12seq_rewriter10min_lengthEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(497) %this, i32 noundef 1, ptr noundef nonnull %e.addr.i)
+  %call.i28 = invoke range(i64 0, -2147483648) i64 @_ZN12seq_rewriter10min_lengthEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(497) %this, i32 noundef 1, ptr noundef nonnull %e.addr.i)
           to label %invoke.cont31 unwind label %lpad
 
 invoke.cont31:                                    ; preds = %if.end30
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %e.addr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %e.addr.i29)
   store ptr %hi, ptr %e.addr.i29, align 8
-  %call.i30 = invoke i64 @_ZN12seq_rewriter10min_lengthEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(497) %this, i32 noundef 1, ptr noundef nonnull %e.addr.i29)
+  %call.i30 = invoke range(i64 0, -2147483648) i64 @_ZN12seq_rewriter10min_lengthEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(497) %this, i32 noundef 1, ptr noundef nonnull %e.addr.i29)
           to label %invoke.cont37 unwind label %lpad
 
 invoke.cont37:                                    ; preds = %invoke.cont31
@@ -18830,7 +18830,7 @@ for.body:                                         ; preds = %_ZNK15ref_vector_co
   %10 = load ptr, ptr %__begin1.0314, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %e.addr.i)
   store ptr %10, ptr %e.addr.i, align 8
-  %call.i28 = invoke i64 @_ZN12seq_rewriter10min_lengthEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(497) %this, i32 noundef 1, ptr noundef nonnull %e.addr.i)
+  %call.i28 = invoke range(i64 0, -2147483648) i64 @_ZN12seq_rewriter10min_lengthEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(497) %this, i32 noundef 1, ptr noundef nonnull %e.addr.i)
           to label %invoke.cont12 unwind label %lpad2.loopexit
 
 invoke.cont12:                                    ; preds = %for.body
@@ -19262,7 +19262,7 @@ land.lhs.true:                                    ; preds = %land.lhs.true.i113
   %73 = load ptr, ptr %arrayidx.i7.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %e.addr.i.i)
   store ptr %72, ptr %e.addr.i.i, align 8
-  %call.i.i120 = invoke i64 @_ZN12seq_rewriter10min_lengthEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(497) %this, i32 noundef 1, ptr noundef nonnull %e.addr.i.i)
+  %call.i.i120 = invoke range(i64 0, -2147483648) i64 @_ZN12seq_rewriter10min_lengthEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(497) %this, i32 noundef 1, ptr noundef nonnull %e.addr.i.i)
           to label %call.i.i.noexc unwind label %lpad2.loopexit.split-lp.loopexit.split-lp
 
 call.i.i.noexc:                                   ; preds = %land.lhs.true
@@ -19277,7 +19277,7 @@ call.i.i.noexc.invoke.cont86_crit_edge:           ; preds = %call.i.i.noexc
 if.end.i117:                                      ; preds = %call.i.i.noexc
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %e.addr.i1.i)
   store ptr %73, ptr %e.addr.i1.i, align 8
-  %call.i2.i121 = invoke i64 @_ZN12seq_rewriter10min_lengthEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(497) %this, i32 noundef 1, ptr noundef nonnull %e.addr.i1.i)
+  %call.i2.i121 = invoke range(i64 0, -2147483648) i64 @_ZN12seq_rewriter10min_lengthEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(497) %this, i32 noundef 1, ptr noundef nonnull %e.addr.i1.i)
           to label %call.i2.i.noexc unwind label %lpad2.loopexit.split-lp.loopexit.split-lp
 
 call.i2.i.noexc:                                  ; preds = %if.end.i117
@@ -21894,7 +21894,7 @@ if.end.i.i.i:                                     ; preds = %if.end106
 
 _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i: ; preds = %if.end.i.i.i, %if.end106
   %retval.0.i.i.i = phi i32 [ %60, %if.end.i.i.i ], [ 0, %if.end106 ]
-  %call3.i190 = invoke i64 @_ZN12seq_rewriter10min_lengthEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(497) %this, i32 noundef %retval.0.i.i.i, ptr noundef %59)
+  %call3.i190 = invoke range(i64 0, -2147483648) i64 @_ZN12seq_rewriter10min_lengthEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(497) %this, i32 noundef %retval.0.i.i.i, ptr noundef %59)
           to label %invoke.cont107 unwind label %lpad93.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont107:                                   ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i
@@ -21914,7 +21914,7 @@ if.end.i.i.i193:                                  ; preds = %if.then111
 
 _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i195: ; preds = %if.end.i.i.i193, %if.then111
   %retval.0.i.i.i196 = phi i32 [ %62, %if.end.i.i.i193 ], [ 0, %if.then111 ]
-  %call3.i197 = invoke i64 @_ZN12seq_rewriter10min_lengthEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(497) %this, i32 noundef %retval.0.i.i.i196, ptr noundef %61)
+  %call3.i197 = invoke range(i64 0, -2147483648) i64 @_ZN12seq_rewriter10min_lengthEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(497) %this, i32 noundef %retval.0.i.i.i196, ptr noundef %61)
           to label %invoke.cont113 unwind label %lpad93.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont113:                                   ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i195
@@ -24885,7 +24885,7 @@ terminate.lpad.i.i305:                            ; preds = %if.then2.i.i.i.i.i.
 if.end159:                                        ; preds = %land.rhs.i.i.i58, %invoke.cont13, %_ZNK8seq_util3str10is_extractEPK4expr.exit.i, %land.lhs.true.i65, %if.then.i.i.i.i.i301, %invoke.cont8.i.i298, %_ZN8rationalD2Ev.exit281, %invoke.cont22, %invoke.cont19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %e.addr.i)
   store ptr %a, ptr %e.addr.i, align 8
-  %call.i308 = invoke i64 @_ZN12seq_rewriter10min_lengthEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(497) %this, i32 noundef 1, ptr noundef nonnull %e.addr.i)
+  %call.i308 = invoke range(i64 0, -2147483648) i64 @_ZN12seq_rewriter10min_lengthEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(497) %this, i32 noundef 1, ptr noundef nonnull %e.addr.i)
           to label %invoke.cont160 unwind label %lpad2
 
 invoke.cont160:                                   ; preds = %if.end159
@@ -25530,7 +25530,7 @@ if.then71:                                        ; preds = %_ZNK11ast_manager6i
   %53 = load ptr, ptr %arrayidx.i6.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %e.addr.i)
   store ptr %39, ptr %e.addr.i, align 8
-  %call.i101 = invoke i64 @_ZN12seq_rewriter10min_lengthEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(497) %this, i32 noundef 1, ptr noundef nonnull %e.addr.i)
+  %call.i101 = invoke range(i64 0, -2147483648) i64 @_ZN12seq_rewriter10min_lengthEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(497) %this, i32 noundef 1, ptr noundef nonnull %e.addr.i)
           to label %invoke.cont72 unwind label %lpad47.loopexit
 
 invoke.cont72:                                    ; preds = %if.then71
@@ -26767,7 +26767,7 @@ invoke.cont343:                                   ; preds = %if.end342
 if.then347:                                       ; preds = %invoke.cont343
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %e.addr.i)
   store ptr %a, ptr %e.addr.i, align 8
-  %call.i377 = invoke i64 @_ZN12seq_rewriter10min_lengthEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(497) %this, i32 noundef 1, ptr noundef nonnull %e.addr.i)
+  %call.i377 = invoke range(i64 0, -2147483648) i64 @_ZN12seq_rewriter10min_lengthEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(497) %this, i32 noundef 1, ptr noundef nonnull %e.addr.i)
           to label %invoke.cont349 unwind label %lpad348
 
 invoke.cont349:                                   ; preds = %if.then347
@@ -27682,7 +27682,7 @@ invoke.cont147:                                   ; preds = %if.end146
 if.then150:                                       ; preds = %invoke.cont147
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %e.addr.i)
   store ptr %a, ptr %e.addr.i, align 8
-  %call.i222 = invoke i64 @_ZN12seq_rewriter10min_lengthEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(497) %this, i32 noundef 1, ptr noundef nonnull %e.addr.i)
+  %call.i222 = invoke range(i64 0, -2147483648) i64 @_ZN12seq_rewriter10min_lengthEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(497) %this, i32 noundef 1, ptr noundef nonnull %e.addr.i)
           to label %invoke.cont152 unwind label %lpad151
 
 invoke.cont152:                                   ; preds = %if.then150
@@ -31278,7 +31278,7 @@ if.end.i.i.i:                                     ; preds = %invoke.cont69
 
 _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i: ; preds = %if.end.i.i.i, %invoke.cont69
   %retval.0.i.i.i = phi i32 [ %36, %if.end.i.i.i ], [ 0, %invoke.cont69 ]
-  %call3.i147 = invoke i64 @_ZN12seq_rewriter10min_lengthEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(497) %this, i32 noundef %retval.0.i.i.i, ptr noundef %35)
+  %call3.i147 = invoke range(i64 0, -2147483648) i64 @_ZN12seq_rewriter10min_lengthEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(497) %this, i32 noundef %retval.0.i.i.i, ptr noundef %35)
           to label %invoke.cont72 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont72:                                    ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i
@@ -39217,7 +39217,7 @@ declare void @_ZNK7zstringplERKS_(ptr sret(%class.zstring) align 8, ptr noundef 
 declare void @_ZNK8seq_util3str10get_concatEP4exprR10ref_vectorIS1_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(20), ptr noundef, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden i64 @_ZN12seq_rewriter10min_lengthEP4expr(ptr noundef nonnull align 8 dereferenceable(497) %this, ptr noundef %e) local_unnamed_addr #3 align 2 {
+define hidden range(i64 0, -2147483648) i64 @_ZN12seq_rewriter10min_lengthEP4expr(ptr noundef nonnull align 8 dereferenceable(497) %this, ptr noundef %e) local_unnamed_addr #3 align 2 {
 entry:
   %e.addr = alloca ptr, align 8
   store ptr %e, ptr %e.addr, align 8
@@ -39515,7 +39515,7 @@ entry:
   %e.addr.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %e.addr.i)
   store ptr %x, ptr %e.addr.i, align 8
-  %call.i = call i64 @_ZN12seq_rewriter10min_lengthEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(497) %this, i32 noundef 1, ptr noundef nonnull %e.addr.i)
+  %call.i = call range(i64 0, -2147483648) i64 @_ZN12seq_rewriter10min_lengthEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(497) %this, i32 noundef 1, ptr noundef nonnull %e.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %e.addr.i)
   %tobool = trunc i64 %call.i to i1
   br i1 %tobool, label %if.end, label %return
@@ -39523,7 +39523,7 @@ entry:
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %e.addr.i1)
   store ptr %y, ptr %e.addr.i1, align 8
-  %call.i2 = call i64 @_ZN12seq_rewriter10min_lengthEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(497) %this, i32 noundef 1, ptr noundef nonnull %e.addr.i1)
+  %call.i2 = call range(i64 0, -2147483648) i64 @_ZN12seq_rewriter10min_lengthEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(497) %this, i32 noundef 1, ptr noundef nonnull %e.addr.i1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %e.addr.i1)
   %tobool7 = trunc i64 %call.i2 to i1
   br i1 %tobool7, label %if.end9, label %return
@@ -42871,7 +42871,7 @@ if.end.i.i.i:                                     ; preds = %entry
 
 invoke.cont:                                      ; preds = %if.end.i.i.i, %entry
   %retval.0.i.i.i = phi i32 [ %1, %if.end.i.i.i ], [ 0, %entry ]
-  %call3.i = tail call i64 @_ZN12seq_rewriter10min_lengthEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(497) %this, i32 noundef %retval.0.i.i.i, ptr noundef %0)
+  %call3.i = tail call range(i64 0, -2147483648) i64 @_ZN12seq_rewriter10min_lengthEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(497) %this, i32 noundef %retval.0.i.i.i, ptr noundef %0)
   %ref.tmp.sroa.1.0.extract.shift = lshr i64 %call3.i, 32
   %ref.tmp.sroa.1.0.extract.trunc = trunc nuw i64 %ref.tmp.sroa.1.0.extract.shift to i32
   store i32 0, ptr %pos, align 8
@@ -43023,7 +43023,7 @@ invoke.cont42:                                    ; preds = %cleanup.done37
   %14 = load ptr, ptr %arrayidx.i.i39, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %e.addr.i)
   store ptr %14, ptr %e.addr.i, align 8
-  %call.i40 = invoke i64 @_ZN12seq_rewriter10min_lengthEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(497) %this, i32 noundef 1, ptr noundef nonnull %e.addr.i)
+  %call.i40 = invoke range(i64 0, -2147483648) i64 @_ZN12seq_rewriter10min_lengthEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(497) %this, i32 noundef 1, ptr noundef nonnull %e.addr.i)
           to label %invoke.cont44 unwind label %lpad2.loopexit
 
 invoke.cont44:                                    ; preds = %invoke.cont42
@@ -43197,7 +43197,7 @@ ehcleanup:                                        ; preds = %lpad2.loopexit, %lp
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden i64 @_ZN12seq_rewriter10min_lengthERK10ref_vectorI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(497) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %es) local_unnamed_addr #3 align 2 {
+define hidden range(i64 0, -2147483648) i64 @_ZN12seq_rewriter10min_lengthERK10ref_vectorI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(497) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %es) local_unnamed_addr #3 align 2 {
 entry:
   %m_nodes.i = getelementptr inbounds nuw i8, ptr %es, i64 8
   %0 = load ptr, ptr %m_nodes.i, align 8
@@ -79272,7 +79272,7 @@ if.end.if.end.i.i.i_crit_edge:                    ; preds = %if.end
 
 _ZN12seq_rewriter10min_lengthERK10ref_vectorI4expr11ast_managerE.exit: ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5emptyEv.exit, %if.end.if.end.i.i.i_crit_edge, %if.end
   %retval.0.i.i.i = phi i32 [ 0, %if.end ], [ %.pre, %if.end.if.end.i.i.i_crit_edge ], [ %1, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5emptyEv.exit ]
-  %call3.i = tail call i64 @_ZN12seq_rewriter10min_lengthEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(497) %this, i32 noundef %retval.0.i.i.i, ptr noundef %0)
+  %call3.i = tail call range(i64 0, -2147483648) i64 @_ZN12seq_rewriter10min_lengthEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(497) %this, i32 noundef %retval.0.i.i.i, ptr noundef %0)
   %.sroa.3187.0.extract.shift = lshr i64 %call3.i, 32
   %m_nodes.i.i38 = getelementptr inbounds nuw i8, ptr %rs, i64 8
   %4 = load ptr, ptr %m_nodes.i.i38, align 8
@@ -79286,7 +79286,7 @@ if.end.i.i.i40:                                   ; preds = %_ZN12seq_rewriter10
 
 _ZN12seq_rewriter10min_lengthERK10ref_vectorI4expr11ast_managerE.exit44: ; preds = %_ZN12seq_rewriter10min_lengthERK10ref_vectorI4expr11ast_managerE.exit, %if.end.i.i.i40
   %retval.0.i.i.i42 = phi i32 [ %5, %if.end.i.i.i40 ], [ 0, %_ZN12seq_rewriter10min_lengthERK10ref_vectorI4expr11ast_managerE.exit ]
-  %call3.i43 = tail call i64 @_ZN12seq_rewriter10min_lengthEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(497) %this, i32 noundef %retval.0.i.i.i42, ptr noundef %4)
+  %call3.i43 = tail call range(i64 0, -2147483648) i64 @_ZN12seq_rewriter10min_lengthEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(497) %this, i32 noundef %retval.0.i.i.i42, ptr noundef %4)
   %.sroa.3179.0.extract.shift = lshr i64 %call3.i43, 32
   %tobool = trunc i64 %call3.i to i1
   %cmp = icmp samesign ult i64 %.sroa.3187.0.extract.shift, %.sroa.3179.0.extract.shift
@@ -79331,7 +79331,7 @@ for.body.i:                                       ; preds = %_ZNK15ref_vector_co
   %9 = load ptr, ptr %__begin1.05.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %e.addr.i.i)
   store ptr %9, ptr %e.addr.i.i, align 8
-  %call.i.i = call i64 @_ZN12seq_rewriter10min_lengthEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(497) %this, i32 noundef 1, ptr noundef nonnull %e.addr.i.i)
+  %call.i.i = call range(i64 0, -2147483648) i64 @_ZN12seq_rewriter10min_lengthEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(497) %this, i32 noundef 1, ptr noundef nonnull %e.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %e.addr.i.i)
   %cmp6.i = icmp ult i64 %call.i.i, 4294967296
   br i1 %cmp6.i, label %if.then24, label %for.cond.i
@@ -79530,7 +79530,7 @@ for.body.i89:                                     ; preds = %_ZNK15ref_vector_co
   %37 = load ptr, ptr %__begin1.05.i90, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %e.addr.i.i82)
   store ptr %37, ptr %e.addr.i.i82, align 8
-  %call.i.i91 = call i64 @_ZN12seq_rewriter10min_lengthEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(497) %this, i32 noundef 1, ptr noundef nonnull %e.addr.i.i82)
+  %call.i.i91 = call range(i64 0, -2147483648) i64 @_ZN12seq_rewriter10min_lengthEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(497) %this, i32 noundef 1, ptr noundef nonnull %e.addr.i.i82)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %e.addr.i.i82)
   %cmp6.i92 = icmp ult i64 %call.i.i91, 4294967296
   br i1 %cmp6.i92, label %if.then40, label %for.cond.i93
@@ -82431,7 +82431,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %0 = load ptr, ptr %arrayidx, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %e.addr.i)
   store ptr %0, ptr %e.addr.i, align 8
-  %call.i10 = invoke i64 @_ZN12seq_rewriter10min_lengthEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(497) %this, i32 noundef 1, ptr noundef nonnull %e.addr.i)
+  %call.i10 = invoke range(i64 0, -2147483648) i64 @_ZN12seq_rewriter10min_lengthEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(497) %this, i32 noundef 1, ptr noundef nonnull %e.addr.i)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %for.body
@@ -82567,7 +82567,7 @@ _ZN7zstringD2Ev.exit:                             ; preds = %entry, %cleanup, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden i64 @_ZN12seq_rewriter10min_lengthEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(497) %this, i32 noundef %sz, ptr nocapture noundef readonly %ss) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden range(i64 0, -2147483648) i64 @_ZN12seq_rewriter10min_lengthEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(497) %this, i32 noundef %sz, ptr nocapture noundef readonly %ss) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i100.i = alloca %"struct.obj_map<expr, std::pair<bool, unsigned int>>::key_data", align 8
   %ref.tmp.i96.i = alloca %"struct.obj_map<expr, std::pair<bool, unsigned int>>::key_data", align 8
@@ -84566,7 +84566,7 @@ for.body:                                         ; preds = %_ZNK15ref_vector_co
   %3 = load ptr, ptr %__begin1.05, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %e.addr.i)
   store ptr %3, ptr %e.addr.i, align 8
-  %call.i = call i64 @_ZN12seq_rewriter10min_lengthEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(497) %this, i32 noundef 1, ptr noundef nonnull %e.addr.i)
+  %call.i = call range(i64 0, -2147483648) i64 @_ZN12seq_rewriter10min_lengthEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(497) %this, i32 noundef 1, ptr noundef nonnull %e.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %e.addr.i)
   %cmp6 = icmp ult i64 %call.i, 4294967296
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin1.05, i64 8

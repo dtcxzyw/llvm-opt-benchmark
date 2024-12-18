@@ -1055,9 +1055,7 @@ select.unfold.i.i:                                ; preds = %2
   %7 = icmp eq i64 %6, 0
   %8 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i, -8
   %9 = inttoptr i64 %8 to ptr
-  %.not10.i.i = icmp ne i64 %8, 0
   tail call void @llvm.assume(i1 %7)
-  tail call void @llvm.assume(i1 %.not10.i.i)
   br label %2
 
 _ZNK4llvm3DIE10getUnitDieEv.exit.i:               ; preds = %2, %2, %2
@@ -3157,9 +3155,7 @@ select.unfold.i.i.i:                              ; preds = %22
   %27 = icmp eq i64 %26, 0
   %28 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i, -8
   %29 = inttoptr i64 %28 to ptr
-  %.not10.i.i.i = icmp ne i64 %28, 0
   tail call void @llvm.assume(i1 %27)
-  tail call void @llvm.assume(i1 %.not10.i.i.i)
   br label %22
 
 _ZNK4llvm3DIE21getDebugSectionOffsetEv.exit:      ; preds = %22, %22, %22
@@ -3195,9 +3191,7 @@ select.unfold.i.i:                                ; preds = %40
   %45 = icmp eq i64 %44, 0
   %46 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i, -8
   %47 = inttoptr i64 %46 to ptr
-  %.not10.i.i = icmp ne i64 %46, 0
   tail call void @llvm.assume(i1 %45)
-  tail call void @llvm.assume(i1 %.not10.i.i)
   br label %40
 
 _ZNK4llvm3DIE10getUnitDieEv.exit.i:               ; preds = %40, %40, %40

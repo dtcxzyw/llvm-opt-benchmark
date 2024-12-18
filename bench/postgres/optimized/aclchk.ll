@@ -5781,29 +5781,29 @@ define internal fastcc range(i64 0, 4294967296) i64 @restrict_and_check_grant(i1
   ]
 
 30:                                               ; preds = %29
-  %31 = tail call fastcc i64 @pg_class_aclmask_ext(i32 noundef %4, i32 noundef %5, i64 noundef range(i64 6, 70368744177664) %.0, i32 noundef 1, ptr noundef null)
-  %32 = tail call fastcc i64 @pg_attribute_aclmask_ext(i32 noundef %4, i16 noundef signext %8, i32 noundef %5, i64 noundef range(i64 6, 70368744177664) %.0, ptr noundef null)
+  %31 = tail call fastcc i64 @pg_class_aclmask_ext(i32 noundef %4, i32 noundef %5, i64 noundef range(i64 17179869184, 61572651155456) %.0, i32 noundef 1, ptr noundef null)
+  %32 = tail call fastcc i64 @pg_attribute_aclmask_ext(i32 noundef %4, i16 noundef signext %8, i32 noundef %5, i64 noundef range(i64 17179869184, 61572651155456) %.0, ptr noundef null)
   %33 = or i64 %32, %31
   br label %pg_aclmask.exit
 
 34:                                               ; preds = %29, %29
-  %35 = tail call fastcc i64 @pg_class_aclmask_ext(i32 noundef %4, i32 noundef %5, i64 noundef range(i64 6, 70368744177664) %.0, i32 noundef 1, ptr noundef null)
+  %35 = tail call fastcc i64 @pg_class_aclmask_ext(i32 noundef %4, i32 noundef %5, i64 noundef range(i64 17179869184, 61572651155456) %.0, i32 noundef 1, ptr noundef null)
   br label %pg_aclmask.exit
 
 36:                                               ; preds = %29
-  %37 = tail call fastcc i64 @object_aclmask_ext(i32 noundef 1262, i32 noundef %4, i32 noundef %5, i64 noundef range(i64 6, 70368744177664) %.0, ptr noundef null)
+  %37 = tail call fastcc i64 @object_aclmask_ext(i32 noundef 1262, i32 noundef %4, i32 noundef %5, i64 noundef range(i64 17179869184, 61572651155456) %.0, ptr noundef null)
   br label %pg_aclmask.exit
 
 38:                                               ; preds = %29
-  %39 = tail call fastcc i64 @object_aclmask_ext(i32 noundef 1255, i32 noundef %4, i32 noundef %5, i64 noundef range(i64 6, 70368744177664) %.0, ptr noundef null)
+  %39 = tail call fastcc i64 @object_aclmask_ext(i32 noundef 1255, i32 noundef %4, i32 noundef %5, i64 noundef range(i64 17179869184, 61572651155456) %.0, ptr noundef null)
   br label %pg_aclmask.exit
 
 40:                                               ; preds = %29
-  %41 = tail call fastcc i64 @object_aclmask_ext(i32 noundef 2612, i32 noundef %4, i32 noundef %5, i64 noundef range(i64 6, 70368744177664) %.0, ptr noundef null)
+  %41 = tail call fastcc i64 @object_aclmask_ext(i32 noundef 2612, i32 noundef %4, i32 noundef %5, i64 noundef range(i64 17179869184, 61572651155456) %.0, ptr noundef null)
   br label %pg_aclmask.exit
 
 42:                                               ; preds = %29
-  %43 = tail call fastcc i64 @pg_largeobject_aclmask_snapshot(i32 noundef %4, i32 noundef %5, i64 noundef range(i64 6, 70368744177664) %.0, ptr noundef null)
+  %43 = tail call fastcc i64 @pg_largeobject_aclmask_snapshot(i32 noundef %4, i32 noundef %5, i64 noundef range(i64 17179869184, 61572651155456) %.0, ptr noundef null)
   br label %pg_aclmask.exit
 
 44:                                               ; preds = %29
@@ -5843,7 +5843,7 @@ define internal fastcc range(i64 0, 4294967296) i64 @restrict_and_check_grant(i1
 62:                                               ; preds = %59, %57
   %.017.i.i = phi ptr [ null, %57 ], [ %60, %59 ]
   %.0.i.i = phi ptr [ %58, %57 ], [ %61, %59 ]
-  %63 = call i64 @aclmask(ptr noundef %.0.i.i, i32 noundef %5, i32 noundef 10, i64 noundef range(i64 6, 70368744177664) %.0, i32 noundef 1) #8
+  %63 = call i64 @aclmask(ptr noundef %.0.i.i, i32 noundef %5, i32 noundef 10, i64 noundef range(i64 17179869184, 61572651155456) %.0, i32 noundef 1) #8
   %.not20.i.i = icmp eq ptr %.0.i.i, null
   %.not21.i.i = icmp eq ptr %.0.i.i, %.017.i.i
   %or.cond.i.i = or i1 %.not20.i.i, %.not21.i.i
@@ -5863,7 +5863,7 @@ pg_parameter_acl_aclmask.exit.i:                  ; preds = %65, %44
   br label %pg_aclmask.exit
 
 66:                                               ; preds = %29
-  %67 = tail call fastcc i64 @object_aclmask_ext(i32 noundef 2615, i32 noundef %4, i32 noundef %5, i64 noundef range(i64 6, 70368744177664) %.0, ptr noundef null)
+  %67 = tail call fastcc i64 @object_aclmask_ext(i32 noundef 2615, i32 noundef %4, i32 noundef %5, i64 noundef range(i64 17179869184, 61572651155456) %.0, ptr noundef null)
   br label %pg_aclmask.exit
 
 68:                                               ; preds = %29
@@ -5874,15 +5874,15 @@ pg_parameter_acl_aclmask.exit.i:                  ; preds = %65, %44
   unreachable
 
 71:                                               ; preds = %29
-  %72 = tail call fastcc i64 @object_aclmask_ext(i32 noundef 1213, i32 noundef %4, i32 noundef %5, i64 noundef range(i64 6, 70368744177664) %.0, ptr noundef null)
+  %72 = tail call fastcc i64 @object_aclmask_ext(i32 noundef 1213, i32 noundef %4, i32 noundef %5, i64 noundef range(i64 17179869184, 61572651155456) %.0, ptr noundef null)
   br label %pg_aclmask.exit
 
 73:                                               ; preds = %29
-  %74 = tail call fastcc i64 @object_aclmask_ext(i32 noundef 2328, i32 noundef %4, i32 noundef %5, i64 noundef range(i64 6, 70368744177664) %.0, ptr noundef null)
+  %74 = tail call fastcc i64 @object_aclmask_ext(i32 noundef 2328, i32 noundef %4, i32 noundef %5, i64 noundef range(i64 17179869184, 61572651155456) %.0, ptr noundef null)
   br label %pg_aclmask.exit
 
 75:                                               ; preds = %29
-  %76 = tail call fastcc i64 @object_aclmask_ext(i32 noundef 1417, i32 noundef %4, i32 noundef %5, i64 noundef range(i64 6, 70368744177664) %.0, ptr noundef null)
+  %76 = tail call fastcc i64 @object_aclmask_ext(i32 noundef 1417, i32 noundef %4, i32 noundef %5, i64 noundef range(i64 17179869184, 61572651155456) %.0, ptr noundef null)
   br label %pg_aclmask.exit
 
 77:                                               ; preds = %29
@@ -5893,7 +5893,7 @@ pg_parameter_acl_aclmask.exit.i:                  ; preds = %65, %44
   unreachable
 
 80:                                               ; preds = %29
-  %81 = tail call fastcc i64 @object_aclmask_ext(i32 noundef 1247, i32 noundef %4, i32 noundef %5, i64 noundef range(i64 6, 70368744177664) %.0, ptr noundef null)
+  %81 = tail call fastcc i64 @object_aclmask_ext(i32 noundef 1247, i32 noundef %4, i32 noundef %5, i64 noundef range(i64 17179869184, 61572651155456) %.0, ptr noundef null)
   br label %pg_aclmask.exit
 
 82:                                               ; preds = %29

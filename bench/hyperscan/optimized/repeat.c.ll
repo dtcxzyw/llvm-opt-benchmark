@@ -2566,15 +2566,11 @@ if.end.i356.i:                                    ; preds = %sw.default.i.i, %sw
 if.end5.i80.i:                                    ; preds = %if.then2.i.i
   %50 = and i32 %add.i, 448
   %cond.i90.i = tail call i32 @llvm.umin.i32(i32 %spec.select274.i, i32 %50)
-  %cmp14.i929.not.i = icmp eq i32 %cond.i90.i, 0
-  br i1 %cmp14.i929.not.i, label %for.end.i93.i, label %for.body.i109.i.preheader
-
-for.body.i109.i.preheader:                        ; preds = %if.end5.i80.i
   %51 = zext nneg i32 %cond.i90.i to i64
   br label %for.body.i109.i
 
-for.body.i109.i:                                  ; preds = %for.body.i109.i.preheader, %if.end23.i117.i
-  %indvars.iv = phi i64 [ 0, %for.body.i109.i.preheader ], [ %indvars.iv.next, %if.end23.i117.i ]
+for.body.i109.i:                                  ; preds = %if.end23.i117.i, %if.end5.i80.i
+  %indvars.iv = phi i64 [ %indvars.iv.next, %if.end23.i117.i ], [ 0, %if.end5.i80.i ]
   %52 = lshr exact i64 %indvars.iv, 3
   %add.ptr.i112.i = getelementptr inbounds nuw i8, ptr %state, i64 %52
   %53 = load i64, ptr %add.ptr.i112.i, align 1
@@ -2594,7 +2590,7 @@ if.end23.i117.i:                                  ; preds = %for.body.i109.i
   %cmp14.i92.i = icmp samesign ult i64 %indvars.iv.next, %51
   br i1 %cmp14.i92.i, label %for.body.i109.i, label %for.end.i93.i, !llvm.loop !5
 
-for.end.i93.i:                                    ; preds = %if.end23.i117.i, %if.end5.i80.i
+for.end.i93.i:                                    ; preds = %if.end23.i117.i
   %cmp27.i94.i = icmp ugt i32 %spec.select274.i, %50
   br i1 %cmp27.i94.i, label %if.then29.i96.i, label %ringHasMatch.exit.thread45
 
@@ -5193,8 +5189,7 @@ if.then3.i454:                                    ; preds = %if.end.i1123
 if.end5.i403:                                     ; preds = %if.then2.i191
   %87 = and i32 %5, 448
   %cond.i413 = tail call i32 @llvm.umin.i32(i32 %87, i32 %conv38)
-  %cmp14.i415702.not = icmp eq i32 %87, 0
-  br i1 %cmp14.i415702.not, label %for.end.i416, label %for.body.i432
+  br label %for.body.i432
 
 for.body.i432:                                    ; preds = %if.end5.i403, %if.end23.i440
   %i.i394.0703 = phi i32 [ %add25.i442, %if.end23.i440 ], [ 0, %if.end5.i403 ]
@@ -5223,7 +5218,7 @@ if.end23.i440:                                    ; preds = %for.body.i432
   %cmp14.i415 = icmp samesign ult i32 %add25.i442, %cond.i413
   br i1 %cmp14.i415, label %for.body.i432, label %for.end.i416, !llvm.loop !5
 
-for.end.i416:                                     ; preds = %if.end23.i440, %if.end5.i403
+for.end.i416:                                     ; preds = %if.end23.i440
   %cmp27.i417 = icmp samesign ult i32 %87, %conv38
   br i1 %cmp27.i417, label %if.then29.i419, label %return
 

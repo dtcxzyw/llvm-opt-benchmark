@@ -15099,7 +15099,7 @@ common.resume:                                    ; preds = %43, %"_ZN63_$LT$all
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden i64 @"_ZN6brotli3enc9interface41PredictionModeContextMap$LT$SliceType$GT$17context_map_speed17h3bd846bdfe9ec372E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0) unnamed_addr #0 {
+define hidden range(i64 0, -4611686018427387904) i64 @"_ZN6brotli3enc9interface41PredictionModeContextMap$LT$SliceType$GT$17context_map_speed17h3bd846bdfe9ec372E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load ptr, ptr %2, align 8, !nonnull !62, !align !63, !noundef !62
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -15230,7 +15230,7 @@ define hidden i64 @"_ZN6brotli3enc9interface41PredictionModeContextMap$LT$SliceT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden i64 @"_ZN6brotli3enc9interface41PredictionModeContextMap$LT$SliceType$GT$20stride_context_speed17hfb44a4117ecb8261E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0) unnamed_addr #0 {
+define hidden range(i64 0, -4611686018427387904) i64 @"_ZN6brotli3enc9interface41PredictionModeContextMap$LT$SliceType$GT$20stride_context_speed17hfb44a4117ecb8261E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load ptr, ptr %2, align 8, !nonnull !62, !align !63, !noundef !62
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32

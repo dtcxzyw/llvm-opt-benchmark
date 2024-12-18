@@ -463,7 +463,7 @@ define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode10fdDatasyncEv(ptr
 declare i32 @fdatasync(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define i32 @_ZNK8WasmEdge4Host4WASI5INode11fdFdstatGetER15__wasi_fdstat_t(ptr nocapture noundef nonnull align 8 dereferenceable(200) initializes((8, 153)) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define range(i32 0, -32768) i32 @_ZNK8WasmEdge4Host4WASI5INode11fdFdstatGetER15__wasi_fdstat_t(ptr nocapture noundef nonnull align 8 dereferenceable(200) initializes((8, 153)) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %3, i8 0, i64 144, i1 false)
@@ -1078,7 +1078,7 @@ define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode6fdReadEN5cxx204sp
 declare i64 @readv(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define i32 @_ZN8WasmEdge4Host4WASI5INode9fdReaddirEN5cxx204spanIhLm18446744073709551615EEEmRj(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture writeonly %1, i64 %2, i64 noundef %3, ptr nocapture noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define range(i32 0, -32768) i32 @_ZN8WasmEdge4Host4WASI5INode9fdReaddirEN5cxx204spanIhLm18446744073709551615EEEmRj(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture writeonly %1, i64 %2, i64 noundef %3, ptr nocapture noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %7 = load ptr, ptr %6, align 8
   %.not75 = icmp eq ptr %7, null
@@ -2051,7 +2051,7 @@ define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode14pathUnlinkFileEN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define range(i32 0, 8388608) i32 @_ZN8WasmEdge4Host4WASI5INode11getAddrinfoESt17basic_string_viewIcSt11char_traitsIcEES6_RK17__wasi_addrinfo_tjN5cxx204spanIPS7_Lm18446744073709551615EEENSB_IP17__wasi_sockaddr_tLm18446744073709551615EEENSB_IPcLm18446744073709551615EEESI_Rj(i64 %0, ptr %1, i64 %2, ptr %3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %4, i32 noundef %5, ptr nocapture noundef readonly byval(%"struct.cxx20::span.46") align 8 %6, ptr nocapture noundef readonly byval(%"struct.cxx20::span.48") align 8 %7, ptr nocapture noundef readonly byval(%"struct.cxx20::span.50") align 8 %8, ptr nocapture noundef readonly byval(%"struct.cxx20::span.50") align 8 %9, ptr nocapture noundef nonnull align 4 dereferenceable(4) %10) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 6291456) i32 @_ZN8WasmEdge4Host4WASI5INode11getAddrinfoESt17basic_string_viewIcSt11char_traitsIcEES6_RK17__wasi_addrinfo_tjN5cxx204spanIPS7_Lm18446744073709551615EEENSB_IP17__wasi_sockaddr_tLm18446744073709551615EEENSB_IPcLm18446744073709551615EEESI_Rj(i64 %0, ptr %1, i64 %2, ptr %3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %4, i32 noundef %5, ptr nocapture noundef readonly byval(%"struct.cxx20::span.46") align 8 %6, ptr nocapture noundef readonly byval(%"struct.cxx20::span.48") align 8 %7, ptr nocapture noundef readonly byval(%"struct.cxx20::span.50") align 8 %8, ptr nocapture noundef readonly byval(%"struct.cxx20::span.50") align 8 %9, ptr nocapture noundef nonnull align 4 dereferenceable(4) %10) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %12 = alloca %struct.addrinfo, align 8
   %13 = alloca ptr, align 8
   %14 = icmp eq i64 %0, 0
@@ -2770,7 +2770,7 @@ _ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE1
 declare i32 @connect(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define i32 @_ZNK8WasmEdge4Host4WASI5INode8sockRecvEN5cxx204spanINS4_IhLm18446744073709551615EEELm18446744073709551615EEE16__wasi_riflags_tRjR16__wasi_roflags_t(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %0, ptr %1, i64 %2, i16 noundef zeroext %3, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %4, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define range(i32 0, -32768) i32 @_ZNK8WasmEdge4Host4WASI5INode8sockRecvEN5cxx204spanINS4_IhLm18446744073709551615EEELm18446744073709551615EEE16__wasi_riflags_tRjR16__wasi_roflags_t(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %0, ptr %1, i64 %2, i16 noundef zeroext %3, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %4, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.cxx20::span.25", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %8 = tail call i32 @_ZNK8WasmEdge4Host4WASI5INode12sockRecvFromEN5cxx204spanINS4_IhLm18446744073709551615EEELm18446744073709551615EEE16__wasi_riflags_tP23__wasi_address_family_tS5_PtRjR16__wasi_roflags_t(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr %1, i64 %2, i16 noundef zeroext %3, ptr noundef null, ptr noundef nonnull byval(%"struct.cxx20::span.25") align 8 %7, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 2 dereferenceable(2) %5) #24
@@ -2778,7 +2778,7 @@ define i32 @_ZNK8WasmEdge4Host4WASI5INode8sockRecvEN5cxx204spanINS4_IhLm18446744
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define i32 @_ZNK8WasmEdge4Host4WASI5INode12sockRecvFromEN5cxx204spanINS4_IhLm18446744073709551615EEELm18446744073709551615EEE16__wasi_riflags_tP23__wasi_address_family_tS5_PtRjR16__wasi_roflags_t(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %0, ptr readonly %1, i64 %2, i16 noundef zeroext %3, ptr noundef writeonly %4, ptr nocapture noundef readonly byval(%"struct.cxx20::span.25") align 8 %5, ptr noundef writeonly %6, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %7, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) %8) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define range(i32 0, -32768) i32 @_ZNK8WasmEdge4Host4WASI5INode12sockRecvFromEN5cxx204spanINS4_IhLm18446744073709551615EEELm18446744073709551615EEE16__wasi_riflags_tP23__wasi_address_family_tS5_PtRjR16__wasi_roflags_t(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %0, ptr readonly %1, i64 %2, i16 noundef zeroext %3, ptr noundef writeonly %4, ptr nocapture noundef readonly byval(%"struct.cxx20::span.25") align 8 %5, ptr noundef writeonly %6, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %7, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) %8) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %10 = alloca [1024 x %struct.iovec], align 16
   %11 = alloca %struct.sockaddr_storage, align 8
   %12 = alloca %struct.msghdr, align 8
@@ -3190,7 +3190,7 @@ define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode12sockShutdownE16_
 declare i32 @shutdown(i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define i32 @_ZNK8WasmEdge4Host4WASI5INode10sockGetOptE23__wasi_sock_opt_level_t20__wasi_sock_opt_so_tRN5cxx204spanIhLm18446744073709551615EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull align 8 dereferenceable(16) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define range(i32 0, -32768) i32 @_ZNK8WasmEdge4Host4WASI5INode10sockGetOptE23__wasi_sock_opt_level_t20__wasi_sock_opt_so_tRN5cxx204spanIhLm18446744073709551615EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull align 8 dereferenceable(16) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 switch.lookup:
   %4 = alloca i32, align 4
   %5 = sext i32 %2 to i64
@@ -3292,7 +3292,7 @@ switch.lookup:
 declare i32 @setsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define i32 @_ZNK8WasmEdge4Host4WASI5INode16sockGetLocalAddrEP23__wasi_address_family_tN5cxx204spanIhLm18446744073709551615EEEPt(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %0, ptr noundef writeonly %1, ptr nocapture writeonly %2, i64 %3, ptr noundef writeonly %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define range(i32 0, -32768) i32 @_ZNK8WasmEdge4Host4WASI5INode16sockGetLocalAddrEP23__wasi_address_family_tN5cxx204spanIhLm18446744073709551615EEEPt(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %0, ptr noundef writeonly %1, ptr nocapture writeonly %2, i64 %3, ptr noundef writeonly %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %struct.sockaddr_storage, align 8
   %7 = alloca i32, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, i8 0, i64 128, i1 false)
@@ -3410,7 +3410,7 @@ declare i32 @getsockname(i32 noundef, ptr noundef, ptr noundef) local_unnamed_ad
 declare zeroext i16 @ntohs(i16 noundef zeroext) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define i32 @_ZNK8WasmEdge4Host4WASI5INode15sockGetPeerAddrEP23__wasi_address_family_tN5cxx204spanIhLm18446744073709551615EEEPt(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %0, ptr noundef writeonly %1, ptr nocapture writeonly %2, i64 %3, ptr noundef writeonly %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define range(i32 0, -32768) i32 @_ZNK8WasmEdge4Host4WASI5INode15sockGetPeerAddrEP23__wasi_address_family_tN5cxx204spanIhLm18446744073709551615EEEPt(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %0, ptr noundef writeonly %1, ptr nocapture writeonly %2, i64 %3, ptr noundef writeonly %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %struct.sockaddr_storage, align 8
   %7 = alloca i32, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, i8 0, i64 128, i1 false)
@@ -3525,7 +3525,7 @@ define i32 @_ZNK8WasmEdge4Host4WASI5INode15sockGetPeerAddrEP23__wasi_address_fam
 declare i32 @getpeername(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define i32 @_ZNK8WasmEdge4Host4WASI5INode8filetypeEv(ptr nocapture noundef nonnull align 8 dereferenceable(200) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define range(i32 0, -32768) i32 @_ZNK8WasmEdge4Host4WASI5INode8filetypeEv(ptr nocapture noundef nonnull align 8 dereferenceable(200) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1

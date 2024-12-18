@@ -13031,7 +13031,7 @@ declare dso_local i32 @schedule_hrtimeout(ptr noundef, i32 noundef) local_unname
 declare dso_local void @__set_current_blocked(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 0, 512) i32 @io_uring_poll(ptr noundef %0, ptr noundef %1) #1 align 16 {
+define internal range(i32 0, 384) i32 @io_uring_poll(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -14894,56 +14894,52 @@ define internal fastcc i32 @io_allocate_scq_urings(ptr nocapture noundef nonnull
   %6 = load i32, ptr %5, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 404
   store i32 %6, ptr %7, align 4
-  %8 = zext i32 %6 to i64
-  %9 = shl nuw nsw i64 %8, 4
-  %10 = add nuw nsw i64 %9, 64
-  %11 = load i32, ptr %0, align 64
-  %12 = lshr i32 %11, 11
-  %13 = and i32 %12, 1
-  %14 = zext nneg i32 %13 to i64
-  %15 = shl nuw nsw i64 %10, %14
-  %16 = add nuw nsw i64 %15, 63
-  %17 = and i64 %16, 549755813824
-  %18 = icmp eq i64 %17, 0
-  br i1 %18, label %100, label %19
-
-19:                                               ; preds = %2
-  %20 = load i32, ptr %1, align 8
-  %21 = and i32 %11, 65536
-  %22 = icmp eq i32 %21, 0
-  %23 = zext i32 %20 to i64
-  %24 = shl nuw nsw i64 %23, 2
-  %.ph = select i1 %22, i64 %17, i64 -1
-  %25 = select i1 %22, i64 %24, i64 0
-  %.ph5 = add nuw nsw i64 %25, %17
-  %26 = and i32 %11, 16384
+  %8 = load i32, ptr %1, align 8
+  %9 = zext i32 %6 to i64
+  %10 = shl nuw nsw i64 %9, 4
+  %11 = add nuw nsw i64 %10, 64
+  %12 = load i32, ptr %0, align 64
+  %13 = lshr i32 %12, 11
+  %14 = and i32 %13, 1
+  %15 = zext nneg i32 %14 to i64
+  %16 = shl nuw nsw i64 %11, %15
+  %17 = add nuw nsw i64 %16, 63
+  %18 = and i64 %17, 549755813824
+  %19 = and i32 %12, 65536
+  %20 = icmp eq i32 %19, 0
+  %21 = zext i32 %8 to i64
+  %22 = shl nuw nsw i64 %21, 2
+  %23 = select i1 %20, i64 %18, i64 -1
+  %24 = select i1 %20, i64 %22, i64 0
+  %25 = add nuw nsw i64 %18, %24
+  %26 = and i32 %12, 16384
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %36
 
-28:                                               ; preds = %19
-  %29 = add nsw i64 %.ph5, -1
+28:                                               ; preds = %2
+  %29 = add nsw i64 %25, -1
   %30 = lshr i64 %29, 12
   %31 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %30, i32 -1) #25, !srcloc !137
   %32 = add i32 %31, 1
   %33 = tail call i64 @__get_free_pages(i32 noundef 4468160, i32 noundef %32) #24
   %34 = icmp eq i64 %33, 0
   %35 = inttoptr i64 %33 to ptr
-  br i1 %34, label %.thread6, label %42
+  br i1 %34, label %.thread, label %42
 
-36:                                               ; preds = %19
+36:                                               ; preds = %2
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %38 = load i64, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 1472
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 1464
-  %41 = tail call fastcc ptr @__io_uaddr_map(ptr noundef nonnull %39, ptr noundef nonnull %40, i64 noundef %38, i64 noundef %.ph5)
+  %41 = tail call fastcc ptr @__io_uaddr_map(ptr noundef nonnull %39, ptr noundef nonnull %40, i64 noundef %38, i64 noundef %25)
   br label %42
 
 42:                                               ; preds = %28, %36
   %43 = phi ptr [ %41, %36 ], [ %35, %28 ]
   %44 = icmp ugt ptr %43, inttoptr (i64 -4096 to ptr)
-  br i1 %44, label %.thread6, label %48
+  br i1 %44, label %.thread, label %48
 
-.thread6:                                         ; preds = %28, %42
+.thread:                                          ; preds = %28, %42
   %45 = phi ptr [ %43, %42 ], [ inttoptr (i64 -12 to ptr), %28 ]
   %46 = ptrtoint ptr %45 to i64
   %47 = trunc i64 %46 to i32
@@ -14958,7 +14954,7 @@ define internal fastcc i32 @io_allocate_scq_urings(ptr nocapture noundef nonnull
   br i1 %52, label %53, label %56
 
 53:                                               ; preds = %48
-  %54 = getelementptr i8, ptr %43, i64 %.ph
+  %54 = getelementptr i8, ptr %43, i64 %23
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %54, ptr %55, align 32
   br label %56
@@ -14999,7 +14995,7 @@ define internal fastcc i32 @io_allocate_scq_urings(ptr nocapture noundef nonnull
   %83 = tail call i64 @__get_free_pages(i32 noundef 4468160, i32 noundef %82) #24
   %84 = icmp eq i64 %83, 0
   %85 = inttoptr i64 %83 to ptr
-  br i1 %84, label %.thread8, label %92
+  br i1 %84, label %.thread6, label %92
 
 86:                                               ; preds = %56
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -15012,9 +15008,9 @@ define internal fastcc i32 @io_allocate_scq_urings(ptr nocapture noundef nonnull
 92:                                               ; preds = %78, %86
   %93 = phi ptr [ %91, %86 ], [ %85, %78 ]
   %94 = icmp ugt ptr %93, inttoptr (i64 -4096 to ptr)
-  br i1 %94, label %.thread8, label %98
+  br i1 %94, label %.thread6, label %98
 
-.thread8:                                         ; preds = %78, %92
+.thread6:                                         ; preds = %78, %92
   %95 = phi ptr [ %93, %92 ], [ inttoptr (i64 -12 to ptr), %78 ]
   tail call fastcc void @io_rings_free(ptr noundef nonnull %0)
   %96 = ptrtoint ptr %95 to i64
@@ -15026,8 +15022,8 @@ define internal fastcc i32 @io_allocate_scq_urings(ptr nocapture noundef nonnull
   store ptr %93, ptr %99, align 8
   br label %100
 
-100:                                              ; preds = %2, %98, %.thread8, %.thread6
-  %101 = phi i32 [ %47, %.thread6 ], [ %97, %.thread8 ], [ 0, %98 ], [ -75, %2 ]
+100:                                              ; preds = %98, %.thread6, %.thread
+  %101 = phi i32 [ %47, %.thread ], [ %97, %.thread6 ], [ 0, %98 ]
   ret i32 %101
 }
 

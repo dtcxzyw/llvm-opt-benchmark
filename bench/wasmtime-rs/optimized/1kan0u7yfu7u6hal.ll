@@ -3324,20 +3324,18 @@ define hidden void @"_ZN4core3ptr131drop_in_place$LT$crossbeam_utils..cache_padd
   %6 = load atomic i64, ptr %0 monotonic, align 128, !alias.scope !1444
   %7 = and i64 %6, -8
   %8 = inttoptr i64 %7 to ptr
-  %9 = icmp ne i64 %7, 0
-  tail call void @llvm.assume(i1 %9)
-  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %11 = load i64, ptr %10, align 8, !noalias !1444, !noundef !4
-  %12 = icmp eq i64 %11, 0
-  br i1 %12, label %"_ZN4core3ptr81drop_in_place$LT$crossbeam_deque..deque..Inner$LT$rayon_core..job..JobRef$GT$$GT$17hffec2d24f542fce8E.llvm.3847999990672408200.exit", label %13
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %10 = load i64, ptr %9, align 8, !noalias !1444, !noundef !4
+  %11 = icmp eq i64 %10, 0
+  br i1 %11, label %"_ZN4core3ptr81drop_in_place$LT$crossbeam_deque..deque..Inner$LT$rayon_core..job..JobRef$GT$$GT$17hffec2d24f542fce8E.llvm.3847999990672408200.exit", label %12
 
-13:                                               ; preds = %1
-  %14 = load ptr, ptr %8, align 8, !noalias !1444, !nonnull !4, !noundef !4
-  %15 = shl nuw i64 %11, 4
-  tail call void @__rust_dealloc(ptr noundef nonnull %14, i64 noundef %15, i64 noundef 8) #23, !noalias !1445
+12:                                               ; preds = %1
+  %13 = load ptr, ptr %8, align 8, !noalias !1444, !nonnull !4, !noundef !4
+  %14 = shl nuw i64 %10, 4
+  tail call void @__rust_dealloc(ptr noundef nonnull %13, i64 noundef %14, i64 noundef 8) #23, !noalias !1445
   br label %"_ZN4core3ptr81drop_in_place$LT$crossbeam_deque..deque..Inner$LT$rayon_core..job..JobRef$GT$$GT$17hffec2d24f542fce8E.llvm.3847999990672408200.exit"
 
-"_ZN4core3ptr81drop_in_place$LT$crossbeam_deque..deque..Inner$LT$rayon_core..job..JobRef$GT$$GT$17hffec2d24f542fce8E.llvm.3847999990672408200.exit": ; preds = %1, %13
+"_ZN4core3ptr81drop_in_place$LT$crossbeam_deque..deque..Inner$LT$rayon_core..job..JobRef$GT$$GT$17hffec2d24f542fce8E.llvm.3847999990672408200.exit": ; preds = %1, %12
   tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef 16, i64 noundef 8) #23, !noalias !1444
   ret void
 }
@@ -4515,20 +4513,18 @@ define hidden void @"_ZN4core3ptr160drop_in_place$LT$alloc..sync..ArcInner$LT$cr
   %7 = load atomic i64, ptr %2 monotonic, align 128, !alias.scope !1858
   %8 = and i64 %7, -8
   %9 = inttoptr i64 %8 to ptr
-  %10 = icmp ne i64 %8, 0
-  tail call void @llvm.assume(i1 %10)
-  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %12 = load i64, ptr %11, align 8, !noalias !1858, !noundef !4
-  %13 = icmp eq i64 %12, 0
-  br i1 %13, label %"_ZN4core3ptr131drop_in_place$LT$crossbeam_utils..cache_padded..CachePadded$LT$crossbeam_deque..deque..Inner$LT$rayon_core..job..JobRef$GT$$GT$$GT$17hfc282761384fc8adE.exit", label %14
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %11 = load i64, ptr %10, align 8, !noalias !1858, !noundef !4
+  %12 = icmp eq i64 %11, 0
+  br i1 %12, label %"_ZN4core3ptr131drop_in_place$LT$crossbeam_utils..cache_padded..CachePadded$LT$crossbeam_deque..deque..Inner$LT$rayon_core..job..JobRef$GT$$GT$$GT$17hfc282761384fc8adE.exit", label %13
 
-14:                                               ; preds = %1
-  %15 = load ptr, ptr %9, align 8, !noalias !1858, !nonnull !4, !noundef !4
-  %16 = shl nuw i64 %12, 4
-  tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %16, i64 noundef 8) #23, !noalias !1859
+13:                                               ; preds = %1
+  %14 = load ptr, ptr %9, align 8, !noalias !1858, !nonnull !4, !noundef !4
+  %15 = shl nuw i64 %11, 4
+  tail call void @__rust_dealloc(ptr noundef nonnull %14, i64 noundef %15, i64 noundef 8) #23, !noalias !1859
   br label %"_ZN4core3ptr131drop_in_place$LT$crossbeam_utils..cache_padded..CachePadded$LT$crossbeam_deque..deque..Inner$LT$rayon_core..job..JobRef$GT$$GT$$GT$17hfc282761384fc8adE.exit"
 
-"_ZN4core3ptr131drop_in_place$LT$crossbeam_utils..cache_padded..CachePadded$LT$crossbeam_deque..deque..Inner$LT$rayon_core..job..JobRef$GT$$GT$$GT$17hfc282761384fc8adE.exit": ; preds = %1, %14
+"_ZN4core3ptr131drop_in_place$LT$crossbeam_utils..cache_padded..CachePadded$LT$crossbeam_deque..deque..Inner$LT$rayon_core..job..JobRef$GT$$GT$$GT$17hfc282761384fc8adE.exit": ; preds = %1, %13
   tail call void @__rust_dealloc(ptr noundef nonnull %9, i64 noundef 16, i64 noundef 8) #23, !noalias !1858
   ret void
 }
@@ -14176,20 +14172,18 @@ define hidden void @"_ZN4core3ptr81drop_in_place$LT$crossbeam_deque..deque..Inne
   %6 = load atomic i64, ptr %0 monotonic, align 128, !alias.scope !6291
   %7 = and i64 %6, -8
   %8 = inttoptr i64 %7 to ptr
-  %9 = icmp ne i64 %7, 0
-  tail call void @llvm.assume(i1 %9)
-  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %11 = load i64, ptr %10, align 8, !noalias !6291, !noundef !4
-  %12 = icmp eq i64 %11, 0
-  br i1 %12, label %"_ZN80_$LT$crossbeam_deque..deque..Inner$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4634f3d4adebef54E.llvm.3847999990672408200.exit", label %13
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %10 = load i64, ptr %9, align 8, !noalias !6291, !noundef !4
+  %11 = icmp eq i64 %10, 0
+  br i1 %11, label %"_ZN80_$LT$crossbeam_deque..deque..Inner$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4634f3d4adebef54E.llvm.3847999990672408200.exit", label %12
 
-13:                                               ; preds = %1
-  %14 = load ptr, ptr %8, align 8, !noalias !6291, !nonnull !4, !noundef !4
-  %15 = shl nuw i64 %11, 4
-  tail call void @__rust_dealloc(ptr noundef nonnull %14, i64 noundef %15, i64 noundef 8) #23, !noalias !6294
+12:                                               ; preds = %1
+  %13 = load ptr, ptr %8, align 8, !noalias !6291, !nonnull !4, !noundef !4
+  %14 = shl nuw i64 %10, 4
+  tail call void @__rust_dealloc(ptr noundef nonnull %13, i64 noundef %14, i64 noundef 8) #23, !noalias !6294
   br label %"_ZN80_$LT$crossbeam_deque..deque..Inner$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4634f3d4adebef54E.llvm.3847999990672408200.exit"
 
-"_ZN80_$LT$crossbeam_deque..deque..Inner$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4634f3d4adebef54E.llvm.3847999990672408200.exit": ; preds = %1, %13
+"_ZN80_$LT$crossbeam_deque..deque..Inner$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4634f3d4adebef54E.llvm.3847999990672408200.exit": ; preds = %1, %12
   tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef 16, i64 noundef 8) #23, !noalias !6291
   ret void
 }
@@ -21806,20 +21800,18 @@ define hidden void @"_ZN80_$LT$crossbeam_deque..deque..Inner$LT$T$GT$$u20$as$u20
   %6 = load atomic i64, ptr %0 monotonic, align 128
   %7 = and i64 %6, -8
   %8 = inttoptr i64 %7 to ptr
-  %9 = icmp ne i64 %7, 0
-  tail call void @llvm.assume(i1 %9)
-  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %11 = load i64, ptr %10, align 8, !noundef !4
-  %12 = icmp eq i64 %11, 0
-  br i1 %12, label %"_ZN15crossbeam_deque5deque15Buffer$LT$T$GT$7dealloc17h395d7a358c084a71E.exit", label %13
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %10 = load i64, ptr %9, align 8, !noundef !4
+  %11 = icmp eq i64 %10, 0
+  br i1 %11, label %"_ZN15crossbeam_deque5deque15Buffer$LT$T$GT$7dealloc17h395d7a358c084a71E.exit", label %12
 
-13:                                               ; preds = %1
-  %14 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
-  %15 = shl nuw i64 %11, 4
-  tail call void @__rust_dealloc(ptr noundef nonnull %14, i64 noundef %15, i64 noundef 8) #23, !noalias !8310
+12:                                               ; preds = %1
+  %13 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
+  %14 = shl nuw i64 %10, 4
+  tail call void @__rust_dealloc(ptr noundef nonnull %13, i64 noundef %14, i64 noundef 8) #23, !noalias !8310
   br label %"_ZN15crossbeam_deque5deque15Buffer$LT$T$GT$7dealloc17h395d7a358c084a71E.exit"
 
-"_ZN15crossbeam_deque5deque15Buffer$LT$T$GT$7dealloc17h395d7a358c084a71E.exit": ; preds = %13, %1
+"_ZN15crossbeam_deque5deque15Buffer$LT$T$GT$7dealloc17h395d7a358c084a71E.exit": ; preds = %12, %1
   tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef 16, i64 noundef 8) #23
   ret void
 }

@@ -20296,36 +20296,30 @@ if.then16:                                        ; preds = %do.body
 
 if.else18:                                        ; preds = %do.body
   %add19 = add nuw nsw i32 %opc, 384
-  %and38.i = and i32 %add19, 66304
-  %tobool39.not.i = icmp eq i32 %and38.i, 0
-  br i1 %tobool39.not.i, label %tcg_out_opc.exit, label %if.then40.i
-
-if.then40.i:                                      ; preds = %if.else18
   %incdec.ptr.i38.i = getelementptr i8, ptr %s.val, i64 1
   store ptr %incdec.ptr.i38.i, ptr %2, align 8
   store i8 15, ptr %s.val, align 1
   %and41.i = and i32 %add19, 512
   %tobool42.not.i = icmp eq i32 %and41.i, 0
-  %.pre131 = load ptr, ptr %2, align 8
   br i1 %tobool42.not.i, label %tcg_out_opc.exit, label %if.end50.sink.split.i
 
-if.end50.sink.split.i:                            ; preds = %if.then40.i
-  %incdec.ptr.i40.i = getelementptr i8, ptr %.pre131, i64 1
+if.end50.sink.split.i:                            ; preds = %if.else18
+  %10 = load ptr, ptr %2, align 8
+  %incdec.ptr.i40.i = getelementptr i8, ptr %10, i64 1
   store ptr %incdec.ptr.i40.i, ptr %2, align 8
-  store i8 56, ptr %.pre131, align 1
-  %.pre = load ptr, ptr %2, align 8
+  store i8 56, ptr %10, align 1
   br label %tcg_out_opc.exit
 
-tcg_out_opc.exit:                                 ; preds = %if.then40.i, %if.else18, %if.end50.sink.split.i
-  %10 = phi ptr [ %.pre131, %if.then40.i ], [ %s.val, %if.else18 ], [ %.pre, %if.end50.sink.split.i ]
+tcg_out_opc.exit:                                 ; preds = %if.else18, %if.end50.sink.split.i
   %conv51.i = trunc i32 %add19 to i8
-  %incdec.ptr.i44.i = getelementptr i8, ptr %10, i64 1
-  store ptr %incdec.ptr.i44.i, ptr %2, align 8
-  store i8 %conv51.i, ptr %10, align 1
-  %sub20 = add i32 %conv, -6
   %11 = load ptr, ptr %2, align 8
-  store i32 %sub20, ptr %11, align 1
-  %add.ptr.i41 = getelementptr i8, ptr %11, i64 4
+  %incdec.ptr.i44.i = getelementptr i8, ptr %11, i64 1
+  store ptr %incdec.ptr.i44.i, ptr %2, align 8
+  store i8 %conv51.i, ptr %11, align 1
+  %sub20 = add i32 %conv, -6
+  %12 = load ptr, ptr %2, align 8
+  store i32 %sub20, ptr %12, align 1
+  %add.ptr.i41 = getelementptr i8, ptr %12, i64 4
   store ptr %add.ptr.i41, ptr %2, align 8
   br label %if.end45
 
@@ -20334,40 +20328,40 @@ if.else23:                                        ; preds = %entry
   br i1 %small, label %if.then25, label %if.else34
 
 if.then25:                                        ; preds = %if.else23
-  %12 = trunc i32 %opc to i8
-  %conv31 = add i8 %12, 112
+  %13 = trunc i32 %opc to i8
+  %conv31 = add i8 %13, 112
   %conv31.sink = select i1 %cmp26, i8 -21, i8 %conv31
   %code_ptr.i44 = getelementptr inbounds nuw i8, ptr %s, i64 128
-  %13 = load ptr, ptr %code_ptr.i44, align 8
-  %incdec.ptr.i45 = getelementptr i8, ptr %13, i64 1
+  %14 = load ptr, ptr %code_ptr.i44, align 8
+  %incdec.ptr.i45 = getelementptr i8, ptr %14, i64 1
   store ptr %incdec.ptr.i45, ptr %code_ptr.i44, align 8
-  store i8 %conv31.sink, ptr %13, align 1
+  store i8 %conv31.sink, ptr %14, align 1
   %code_ptr = getelementptr inbounds nuw i8, ptr %s, i64 128
-  %14 = load ptr, ptr %code_ptr, align 8
-  %15 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %16 = load ptr, ptr %15, align 8
+  %15 = load ptr, ptr %code_ptr, align 8
+  %16 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %17 = load ptr, ptr %16, align 8
-  %add.ptr.i.i46 = getelementptr i8, ptr %17, i64 32
-  %pool_end.i.i = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %18 = load ptr, ptr %pool_end.i.i, align 8
-  %cmp.i.i = icmp ugt ptr %add.ptr.i.i46, %18
+  %18 = load ptr, ptr %17, align 8
+  %add.ptr.i.i46 = getelementptr i8, ptr %18, i64 32
+  %pool_end.i.i = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %19 = load ptr, ptr %pool_end.i.i, align 8
+  %cmp.i.i = icmp ugt ptr %add.ptr.i.i46, %19
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then25
-  %pool_current.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %19 = load ptr, ptr %pool_current.i.i.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %19, null
+  %pool_current.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %20 = load ptr, ptr %pool_current.i.i.i, align 8
+  %tobool.not.i.i.i = icmp eq ptr %20, null
   br i1 %tobool.not.i.i.i, label %if.then3.i.i.i, label %if.else6.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %if.then.i.i
-  %pool_first.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %20 = load ptr, ptr %pool_first.i.i.i, align 8
-  %tobool4.not.i.i.i = icmp eq ptr %20, null
+  %pool_first.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %21 = load ptr, ptr %pool_first.i.i.i, align 8
+  %tobool4.not.i.i.i = icmp eq ptr %21, null
   br i1 %tobool4.not.i.i.i, label %new_pool.i.i.i, label %if.end27.i.i.i
 
 if.else6.i.i.i:                                   ; preds = %if.then.i.i
-  %21 = load ptr, ptr %19, align 16
-  %tobool8.not.i.i.i = icmp eq ptr %21, null
+  %22 = load ptr, ptr %20, align 16
+  %tobool8.not.i.i.i = icmp eq ptr %22, null
   br i1 %tobool8.not.i.i.i, label %new_pool.i.i.i, label %if.end27.i.i.i
 
 new_pool.i.i.i:                                   ; preds = %if.else6.i.i.i, %if.then3.i.i.i
@@ -20375,117 +20369,118 @@ new_pool.i.i.i:                                   ; preds = %if.else6.i.i.i, %if
   %size13.i.i.i = getelementptr inbounds nuw i8, ptr %call12.i.i.i, i64 8
   store i32 32768, ptr %size13.i.i.i, align 8
   store ptr null, ptr %call12.i.i.i, align 16
-  %22 = load ptr, ptr %pool_current.i.i.i, align 8
-  %tobool16.not.i.i.i = icmp eq ptr %22, null
+  %23 = load ptr, ptr %pool_current.i.i.i, align 8
+  %tobool16.not.i.i.i = icmp eq ptr %23, null
   br i1 %tobool16.not.i.i.i, label %if.else20.i.i.i, label %if.then17.i.i.i
 
 if.then17.i.i.i:                                  ; preds = %new_pool.i.i.i
-  store ptr %call12.i.i.i, ptr %22, align 16
+  store ptr %call12.i.i.i, ptr %23, align 16
   br label %if.end27.i.i.i
 
 if.else20.i.i.i:                                  ; preds = %new_pool.i.i.i
-  %pool_first21.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %pool_first21.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %call12.i.i.i, ptr %pool_first21.i.i.i, align 8
   br label %if.end27.i.i.i
 
 if.end27.i.i.i:                                   ; preds = %if.else20.i.i.i, %if.then17.i.i.i, %if.else6.i.i.i, %if.then3.i.i.i
-  %p.0.i.i.i = phi ptr [ %call12.i.i.i, %if.then17.i.i.i ], [ %call12.i.i.i, %if.else20.i.i.i ], [ %20, %if.then3.i.i.i ], [ %21, %if.else6.i.i.i ]
+  %p.0.i.i.i = phi ptr [ %call12.i.i.i, %if.then17.i.i.i ], [ %call12.i.i.i, %if.else20.i.i.i ], [ %21, %if.then3.i.i.i ], [ %22, %if.else6.i.i.i ]
   store ptr %p.0.i.i.i, ptr %pool_current.i.i.i, align 8
   %data29.i.i.i = getelementptr inbounds nuw i8, ptr %p.0.i.i.i, i64 16
   %add.ptr.i.i.i = getelementptr i8, ptr %p.0.i.i.i, i64 48
-  store ptr %add.ptr.i.i.i, ptr %16, align 8
+  store ptr %add.ptr.i.i.i, ptr %17, align 8
   %size33.i.i.i = getelementptr inbounds nuw i8, ptr %p.0.i.i.i, i64 8
-  %23 = load i32, ptr %size33.i.i.i, align 8
-  %idx.ext34.i.i.i = sext i32 %23 to i64
+  %24 = load i32, ptr %size33.i.i.i, align 8
+  %idx.ext34.i.i.i = sext i32 %24 to i64
   %add.ptr35.i.i.i = getelementptr i8, ptr %data29.i.i.i, i64 %idx.ext34.i.i.i
   store ptr %add.ptr35.i.i.i, ptr %pool_end.i.i, align 8
   br label %tcg_out_reloc.exit
 
 if.else.i.i:                                      ; preds = %if.then25
-  store ptr %add.ptr.i.i46, ptr %16, align 8
+  store ptr %add.ptr.i.i46, ptr %17, align 8
   br label %tcg_out_reloc.exit
 
 tcg_out_reloc.exit:                               ; preds = %if.end27.i.i.i, %if.else.i.i
-  %retval.0.i.i = phi ptr [ %17, %if.else.i.i ], [ %data29.i.i.i, %if.end27.i.i.i ]
+  %retval.0.i.i = phi ptr [ %18, %if.else.i.i ], [ %data29.i.i.i, %if.end27.i.i.i ]
   %type1.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 24
   store i32 23, ptr %type1.i, align 8
   %ptr.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 8
-  store ptr %14, ptr %ptr.i, align 8
+  store ptr %15, ptr %ptr.i, align 8
   %addend2.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 16
   store i64 -1, ptr %addend2.i, align 8
   store ptr null, ptr %retval.0.i.i, align 8
   %sqh_last.i = getelementptr inbounds nuw i8, ptr %l, i64 40
-  %24 = load ptr, ptr %sqh_last.i, align 8
-  store ptr %retval.0.i.i, ptr %24, align 8
+  %25 = load ptr, ptr %sqh_last.i, align 8
+  store ptr %retval.0.i.i, ptr %25, align 8
   store ptr %retval.0.i.i, ptr %sqh_last.i, align 8
-  %25 = load ptr, ptr %code_ptr, align 8
-  %add.ptr = getelementptr i8, ptr %25, i64 1
+  %26 = load ptr, ptr %code_ptr, align 8
+  %add.ptr = getelementptr i8, ptr %26, i64 1
   store ptr %add.ptr, ptr %code_ptr, align 8
   br label %if.end45
 
 if.else34:                                        ; preds = %if.else23
-  br i1 %cmp26, label %if.end40, label %if.else38
+  br i1 %cmp26, label %if.then37, label %if.else38
+
+if.then37:                                        ; preds = %if.else34
+  %code_ptr.i47 = getelementptr inbounds nuw i8, ptr %s, i64 128
+  %27 = load ptr, ptr %code_ptr.i47, align 8
+  %incdec.ptr.i48 = getelementptr i8, ptr %27, i64 1
+  store ptr %incdec.ptr.i48, ptr %code_ptr.i47, align 8
+  store i8 -23, ptr %27, align 1
+  br label %if.end40
 
 if.else38:                                        ; preds = %if.else34
   %add39 = add nuw nsw i32 %opc, 384
-  %and38.i78 = and i32 %add39, 66304
-  %tobool39.not.i79 = icmp eq i32 %and38.i78, 0
-  br i1 %tobool39.not.i79, label %tcg_out_opc.exit97, label %if.then40.i80
-
-if.then40.i80:                                    ; preds = %if.else38
   %code_ptr.i37.i81 = getelementptr inbounds nuw i8, ptr %s, i64 128
-  %26 = load ptr, ptr %code_ptr.i37.i81, align 8
-  %incdec.ptr.i38.i82 = getelementptr i8, ptr %26, i64 1
+  %28 = load ptr, ptr %code_ptr.i37.i81, align 8
+  %incdec.ptr.i38.i82 = getelementptr i8, ptr %28, i64 1
   store ptr %incdec.ptr.i38.i82, ptr %code_ptr.i37.i81, align 8
-  store i8 15, ptr %26, align 1
+  store i8 15, ptr %28, align 1
   %and41.i83 = and i32 %add39, 512
   %tobool42.not.i84 = icmp eq i32 %and41.i83, 0
   br i1 %tobool42.not.i84, label %tcg_out_opc.exit97, label %if.end50.sink.split.i85
 
-if.end50.sink.split.i85:                          ; preds = %if.then40.i80
-  %27 = load ptr, ptr %code_ptr.i37.i81, align 8
-  %incdec.ptr.i40.i87 = getelementptr i8, ptr %27, i64 1
+if.end50.sink.split.i85:                          ; preds = %if.else38
+  %29 = load ptr, ptr %code_ptr.i37.i81, align 8
+  %incdec.ptr.i40.i87 = getelementptr i8, ptr %29, i64 1
   store ptr %incdec.ptr.i40.i87, ptr %code_ptr.i37.i81, align 8
-  store i8 56, ptr %27, align 1
+  store i8 56, ptr %29, align 1
   br label %tcg_out_opc.exit97
 
-tcg_out_opc.exit97:                               ; preds = %if.then40.i80, %if.else38, %if.end50.sink.split.i85
+tcg_out_opc.exit97:                               ; preds = %if.else38, %if.end50.sink.split.i85
   %conv51.i88 = trunc i32 %add39 to i8
+  %30 = load ptr, ptr %code_ptr.i37.i81, align 8
+  %incdec.ptr.i44.i90 = getelementptr i8, ptr %30, i64 1
+  store ptr %incdec.ptr.i44.i90, ptr %code_ptr.i37.i81, align 8
+  store i8 %conv51.i88, ptr %30, align 1
   br label %if.end40
 
-if.end40:                                         ; preds = %if.else34, %tcg_out_opc.exit97
-  %conv51.i88.sink = phi i8 [ %conv51.i88, %tcg_out_opc.exit97 ], [ -23, %if.else34 ]
-  %code_ptr.i43.i89 = getelementptr inbounds nuw i8, ptr %s, i64 128
-  %28 = load ptr, ptr %code_ptr.i43.i89, align 8
-  %incdec.ptr.i44.i90 = getelementptr i8, ptr %28, i64 1
-  store ptr %incdec.ptr.i44.i90, ptr %code_ptr.i43.i89, align 8
-  store i8 %conv51.i88.sink, ptr %28, align 1
+if.end40:                                         ; preds = %tcg_out_opc.exit97, %if.then37
   %code_ptr41 = getelementptr inbounds nuw i8, ptr %s, i64 128
-  %29 = load ptr, ptr %code_ptr41, align 8
-  %30 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %31 = load ptr, ptr %30, align 8
-  %32 = load ptr, ptr %31, align 8
-  %add.ptr.i.i98 = getelementptr i8, ptr %32, i64 32
-  %pool_end.i.i99 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %33 = load ptr, ptr %pool_end.i.i99, align 8
-  %cmp.i.i100 = icmp ugt ptr %add.ptr.i.i98, %33
+  %31 = load ptr, ptr %code_ptr41, align 8
+  %32 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %33 = load ptr, ptr %32, align 8
+  %34 = load ptr, ptr %33, align 8
+  %add.ptr.i.i98 = getelementptr i8, ptr %34, i64 32
+  %pool_end.i.i99 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %35 = load ptr, ptr %pool_end.i.i99, align 8
+  %cmp.i.i100 = icmp ugt ptr %add.ptr.i.i98, %35
   br i1 %cmp.i.i100, label %if.then.i.i107, label %if.else.i.i101
 
 if.then.i.i107:                                   ; preds = %if.end40
-  %pool_current.i.i.i108 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  %34 = load ptr, ptr %pool_current.i.i.i108, align 8
-  %tobool.not.i.i.i109 = icmp eq ptr %34, null
+  %pool_current.i.i.i108 = getelementptr inbounds nuw i8, ptr %33, i64 24
+  %36 = load ptr, ptr %pool_current.i.i.i108, align 8
+  %tobool.not.i.i.i109 = icmp eq ptr %36, null
   br i1 %tobool.not.i.i.i109, label %if.then3.i.i.i126, label %if.else6.i.i.i110
 
 if.then3.i.i.i126:                                ; preds = %if.then.i.i107
-  %pool_first.i.i.i127 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %35 = load ptr, ptr %pool_first.i.i.i127, align 8
-  %tobool4.not.i.i.i128 = icmp eq ptr %35, null
+  %pool_first.i.i.i127 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %37 = load ptr, ptr %pool_first.i.i.i127, align 8
+  %tobool4.not.i.i.i128 = icmp eq ptr %37, null
   br i1 %tobool4.not.i.i.i128, label %new_pool.i.i.i119, label %if.end27.i.i.i112
 
 if.else6.i.i.i110:                                ; preds = %if.then.i.i107
-  %36 = load ptr, ptr %34, align 16
-  %tobool8.not.i.i.i111 = icmp eq ptr %36, null
+  %38 = load ptr, ptr %36, align 16
+  %tobool8.not.i.i.i111 = icmp eq ptr %38, null
   br i1 %tobool8.not.i.i.i111, label %new_pool.i.i.i119, label %if.end27.i.i.i112
 
 new_pool.i.i.i119:                                ; preds = %if.else6.i.i.i110, %if.then3.i.i.i126
@@ -20493,51 +20488,51 @@ new_pool.i.i.i119:                                ; preds = %if.else6.i.i.i110, 
   %size13.i.i.i121 = getelementptr inbounds nuw i8, ptr %call12.i.i.i120, i64 8
   store i32 32768, ptr %size13.i.i.i121, align 8
   store ptr null, ptr %call12.i.i.i120, align 16
-  %37 = load ptr, ptr %pool_current.i.i.i108, align 8
-  %tobool16.not.i.i.i122 = icmp eq ptr %37, null
+  %39 = load ptr, ptr %pool_current.i.i.i108, align 8
+  %tobool16.not.i.i.i122 = icmp eq ptr %39, null
   br i1 %tobool16.not.i.i.i122, label %if.else20.i.i.i124, label %if.then17.i.i.i123
 
 if.then17.i.i.i123:                               ; preds = %new_pool.i.i.i119
-  store ptr %call12.i.i.i120, ptr %37, align 16
+  store ptr %call12.i.i.i120, ptr %39, align 16
   br label %if.end27.i.i.i112
 
 if.else20.i.i.i124:                               ; preds = %new_pool.i.i.i119
-  %pool_first21.i.i.i125 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  %pool_first21.i.i.i125 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store ptr %call12.i.i.i120, ptr %pool_first21.i.i.i125, align 8
   br label %if.end27.i.i.i112
 
 if.end27.i.i.i112:                                ; preds = %if.else20.i.i.i124, %if.then17.i.i.i123, %if.else6.i.i.i110, %if.then3.i.i.i126
-  %p.0.i.i.i113 = phi ptr [ %call12.i.i.i120, %if.then17.i.i.i123 ], [ %call12.i.i.i120, %if.else20.i.i.i124 ], [ %35, %if.then3.i.i.i126 ], [ %36, %if.else6.i.i.i110 ]
+  %p.0.i.i.i113 = phi ptr [ %call12.i.i.i120, %if.then17.i.i.i123 ], [ %call12.i.i.i120, %if.else20.i.i.i124 ], [ %37, %if.then3.i.i.i126 ], [ %38, %if.else6.i.i.i110 ]
   store ptr %p.0.i.i.i113, ptr %pool_current.i.i.i108, align 8
   %data29.i.i.i114 = getelementptr inbounds nuw i8, ptr %p.0.i.i.i113, i64 16
   %add.ptr.i.i.i115 = getelementptr i8, ptr %p.0.i.i.i113, i64 48
-  store ptr %add.ptr.i.i.i115, ptr %31, align 8
+  store ptr %add.ptr.i.i.i115, ptr %33, align 8
   %size33.i.i.i116 = getelementptr inbounds nuw i8, ptr %p.0.i.i.i113, i64 8
-  %38 = load i32, ptr %size33.i.i.i116, align 8
-  %idx.ext34.i.i.i117 = sext i32 %38 to i64
+  %40 = load i32, ptr %size33.i.i.i116, align 8
+  %idx.ext34.i.i.i117 = sext i32 %40 to i64
   %add.ptr35.i.i.i118 = getelementptr i8, ptr %data29.i.i.i114, i64 %idx.ext34.i.i.i117
   store ptr %add.ptr35.i.i.i118, ptr %pool_end.i.i99, align 8
   br label %tcg_out_reloc.exit129
 
 if.else.i.i101:                                   ; preds = %if.end40
-  store ptr %add.ptr.i.i98, ptr %31, align 8
+  store ptr %add.ptr.i.i98, ptr %33, align 8
   br label %tcg_out_reloc.exit129
 
 tcg_out_reloc.exit129:                            ; preds = %if.end27.i.i.i112, %if.else.i.i101
-  %retval.0.i.i102 = phi ptr [ %32, %if.else.i.i101 ], [ %data29.i.i.i114, %if.end27.i.i.i112 ]
+  %retval.0.i.i102 = phi ptr [ %34, %if.else.i.i101 ], [ %data29.i.i.i114, %if.end27.i.i.i112 ]
   %type1.i103 = getelementptr inbounds nuw i8, ptr %retval.0.i.i102, i64 24
   store i32 2, ptr %type1.i103, align 8
   %ptr.i104 = getelementptr inbounds nuw i8, ptr %retval.0.i.i102, i64 8
-  store ptr %29, ptr %ptr.i104, align 8
+  store ptr %31, ptr %ptr.i104, align 8
   %addend2.i105 = getelementptr inbounds nuw i8, ptr %retval.0.i.i102, i64 16
   store i64 -4, ptr %addend2.i105, align 8
   store ptr null, ptr %retval.0.i.i102, align 8
   %sqh_last.i106 = getelementptr inbounds nuw i8, ptr %l, i64 40
-  %39 = load ptr, ptr %sqh_last.i106, align 8
-  store ptr %retval.0.i.i102, ptr %39, align 8
+  %41 = load ptr, ptr %sqh_last.i106, align 8
+  store ptr %retval.0.i.i102, ptr %41, align 8
   store ptr %retval.0.i.i102, ptr %sqh_last.i106, align 8
-  %40 = load ptr, ptr %code_ptr41, align 8
-  %add.ptr43 = getelementptr i8, ptr %40, i64 4
+  %42 = load ptr, ptr %code_ptr41, align 8
+  %add.ptr43 = getelementptr i8, ptr %42, i64 4
   store ptr %add.ptr43, ptr %code_ptr41, align 8
   br label %if.end45
 

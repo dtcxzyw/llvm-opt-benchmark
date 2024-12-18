@@ -49,7 +49,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.count_code_points = type { ptr }
 %class.anon = type { i8, %"class.fmt::v9::basic_string_view", ptr, i64 }
 %"struct.fmt::v9::detail::find_escape_result" = type { ptr, ptr, i32 }
-%"class.folly::BadExpectedAccess.12" = type { %"class.std::exception" }
 %"class.std::reverse_iterator" = type { %"class.__gnu_cxx::__normal_iterator" }
 %"class.__gnu_cxx::__normal_iterator" = type { ptr }
 %"class.fmt::v9::format_arg_store.24" = type { %"struct.fmt::v9::detail::arg_data" }
@@ -159,14 +158,6 @@ $_ZN5folly24IPAddressFormatExceptionD0Ev = comdat any
 
 $_ZN5folly6detail18ToAppendStrImplAllISt16integer_sequenceImJLm0ELm1ELm2ELm3EEEE4callIJA23_cNS_5RangeIPKcEEA2_cPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvDpRKT_ = comdat any
 
-$_ZNK5folly17BadExpectedAccessIvE4whatEv = comdat any
-
-$_ZN5folly17BadExpectedAccessIvED0Ev = comdat any
-
-$_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_ = comdat any
-
-$_ZN5folly15throw_exceptionINS_17BadExpectedAccessIvEEEEvOT_ = comdat any
-
 $_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA55_cmEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameIS9_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSC_EEEE5valueES9_E4typeEDpRKSB_ = comdat any
 
 $_ZN5folly11toAppendFitIJA55_cmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENSt9enable_ifIXsr12IsSomeStringINSt14remove_pointerI19__type_pack_elementIXmisPDpT_ELi1EEJSD_EEE4typeEEE5valueEvE4typeEDpRKSC_ = comdat any
@@ -229,12 +220,6 @@ $_ZTIN5folly24IPAddressFormatExceptionE = comdat any
 
 $_ZTVN5folly24IPAddressFormatExceptionE = comdat any
 
-$_ZTSN5folly17BadExpectedAccessIvEE = comdat any
-
-$_ZTIN5folly17BadExpectedAccessIvEE = comdat any
-
-$_ZTVN5folly17BadExpectedAccessIvEE = comdat any
-
 $_ZTSN5folly29InvalidAddressFamilyExceptionE = comdat any
 
 $_ZTIN5folly29InvalidAddressFamilyExceptionE = comdat any
@@ -258,7 +243,6 @@ $_ZZN5folly6detail5Bytes19longestCommonPrefixILm4EEESt4pairISt5arrayIhXT_EEhERKS
 @_ZGVZZN5folly13usingTCMallocEvENK11InitializerclEvE3ptr = linkonce_odr global i64 0, comdat, align 8
 @_ZTISt9bad_alloc = external constant ptr
 @_ZTVSt9bad_alloc = external unnamed_addr constant { [5 x ptr] }, align 8
-@_ZTISt9exception = external constant ptr
 @.str.2 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @_ZTISt12length_error = external constant ptr
 @_ZTVSt12length_error = external unnamed_addr constant { [5 x ptr] }, align 8
@@ -293,10 +277,6 @@ $_ZZN5folly6detail5Bytes19longestCommonPrefixILm4EEESt4pairISt5arrayIhXT_EEhERKS
 @_ZTVN5folly24IPAddressFormatExceptionE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN5folly24IPAddressFormatExceptionE, ptr @_ZNSt13runtime_errorD2Ev, ptr @_ZN5folly24IPAddressFormatExceptionD0Ev, ptr @_ZNKSt13runtime_error4whatEv] }, comdat, align 8
 @.str.27 = private unnamed_addr constant [23 x i8] c"Invalid IPv4 address '\00", align 1
 @.str.28 = private unnamed_addr constant [2 x i8] c"'\00", align 1
-@_ZTSN5folly17BadExpectedAccessIvEE = linkonce_odr constant [31 x i8] c"N5folly17BadExpectedAccessIvEE\00", comdat, align 1
-@_ZTIN5folly17BadExpectedAccessIvEE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN5folly17BadExpectedAccessIvEE, ptr @_ZTISt9exception }, comdat, align 8
-@_ZTVN5folly17BadExpectedAccessIvEE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN5folly17BadExpectedAccessIvEE, ptr @_ZNSt9exceptionD2Ev, ptr @_ZN5folly17BadExpectedAccessIvED0Ev, ptr @_ZNK5folly17BadExpectedAccessIvE4whatEv] }, comdat, align 8
-@.str.29 = private unnamed_addr constant [20 x i8] c"bad expected access\00", align 1
 @.str.30 = private unnamed_addr constant [55 x i8] c"Invalid IPv4 binary data: length must be 4 bytes, got \00", align 1
 @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE = external local_unnamed_addr global %"struct.folly::c_array", align 8
 @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE = external local_unnamed_addr global %"struct.folly::c_array.14", align 2
@@ -2078,7 +2058,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define range(i64 4294967296, 17179869184) i64 @_ZN5folly11IPAddressV413tryFromStringENS_5RangeIPKcEE(ptr %str.coerce0, ptr %str.coerce1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define range(i64 4294967296, 12884901888) i64 @_ZN5folly11IPAddressV413tryFromStringENS_5RangeIPKcEE(ptr %str.coerce0, ptr %str.coerce1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i = alloca i64, align 8
   %inAddr = alloca %struct.in_addr, align 4
@@ -6187,12 +6167,9 @@ entry:
   store ptr %addr.coerce1, ptr %0, align 8
   store i32 0, ptr %this, align 4
   %call = tail call i64 @_ZN5folly11IPAddressV413tryFromStringENS_5RangeIPKcEE(ptr %addr.coerce0, ptr %addr.coerce1) #31
-  %maybeIp.sroa.6.0.extract.shift = lshr i64 %call, 32
-  %maybeIp.sroa.6.0.extract.trunc = trunc nuw nsw i64 %maybeIp.sroa.6.0.extract.shift to i8
-  switch i8 %maybeIp.sroa.6.0.extract.trunc, label %if.end.i.i [
-    i8 2, label %if.then
-    i8 1, label %_ZNR5folly8ExpectedINS_11IPAddressV4ENS_20IPAddressFormatErrorEE5valueEv.exit
-  ], !prof !206
+  %maybeIp.sroa.6.0.extract.shift.mask = and i64 %call, 12884901888
+  %switch = icmp eq i64 %maybeIp.sroa.6.0.extract.shift.mask, 8589934592
+  br i1 %switch, label %if.then, label %_ZNR5folly8ExpectedINS_11IPAddressV4ENS_20IPAddressFormatErrorEE5valueEv.exit, !prof !206
 
 if.then:                                          ; preds = %entry
   %exception = tail call ptr @__cxa_allocate_exception(i64 16) #31
@@ -6277,10 +6254,6 @@ cleanup.done:                                     ; preds = %cleanup.action, %eh
   %.pn14 = phi { ptr, i32 } [ %.pn15, %cleanup.action ], [ %5, %ehcleanup ], [ %5, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
   resume { ptr, i32 } %.pn14
 
-if.end.i.i:                                       ; preds = %entry
-  tail call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #18
-  unreachable
-
 _ZNR5folly8ExpectedINS_11IPAddressV4ENS_20IPAddressFormatErrorEE5valueEv.exit: ; preds = %entry
   %maybeIp.sroa.0.0.extract.trunc = trunc i64 %call to i32
   store i32 %maybeIp.sroa.0.0.extract.trunc, ptr %this, align 4, !tbaa !7
@@ -6339,52 +6312,6 @@ if.then.i.i.i32:                                  ; preds = %_ZN5folly8toAppendI
 _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9enable_ifIXaasr3std14is_convertibleIT0_S8_EE5valuesr12IsSomeStringIT_EE5valueEvE4typeESA_PSB_.exit33: ; preds = %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXsr12IsSomeStringIT_EE5valueEvE4typeENS_5RangeIPKcEEPS8_.exit
   %call2.i.i31 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %v3, i64 noundef %call.i.i.i27)
   ret void
-}
-
-; Function Attrs: nounwind
-declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #13
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZNK5folly17BadExpectedAccessIvE4whatEv(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #10 comdat align 2 {
-entry:
-  ret ptr @.str.29
-}
-
-; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5folly17BadExpectedAccessIvED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #24 comdat align 2 {
-entry:
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #31
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #33
-  ret void
-}
-
-; Function Attrs: cold mustprogress noreturn optsize uwtable
-define linkonce_odr void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() local_unnamed_addr #17 comdat personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp = alloca %"class.folly::BadExpectedAccess.12", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #31
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly17BadExpectedAccessIvEE, i64 16), ptr %ref.tmp, align 8, !tbaa !53
-  invoke void @_ZN5folly15throw_exceptionINS_17BadExpectedAccessIvEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #18
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %entry
-  unreachable
-
-lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp) #31
-  resume { ptr, i32 } %0
-}
-
-; Function Attrs: cold mustprogress noreturn optsize uwtable
-define linkonce_odr void @_ZN5folly15throw_exceptionINS_17BadExpectedAccessIvEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ex) local_unnamed_addr #17 comdat personality ptr @__gxx_personality_v0 {
-entry:
-  %exception = tail call ptr @__cxa_allocate_exception(i64 8) #31
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly17BadExpectedAccessIvEE, i64 16), ptr %exception, align 8, !tbaa !53
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN5folly17BadExpectedAccessIvEE, ptr nonnull @_ZNSt9exceptionD2Ev) #34
-  unreachable
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
@@ -6486,7 +6413,7 @@ unreachable:                                      ; preds = %invoke.cont6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define range(i64 4294967296, 17179869184) i64 @_ZN5folly11IPAddressV413tryFromBinaryENS_5RangeIPKhEE(ptr %bytes.coerce0, ptr %bytes.coerce1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define range(i64 4294967296, 12884901888) i64 @_ZN5folly11IPAddressV413tryFromBinaryENS_5RangeIPKhEE(ptr %bytes.coerce0, ptr %bytes.coerce1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %addr = alloca %"class.folly::IPAddressV4", align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %addr) #31
@@ -9404,7 +9331,7 @@ attributes #38 = { builtin allocsize(0) }
 !203 = distinct !{!203, !121}
 !204 = distinct !{!204, !121}
 !205 = distinct !{!205, !121}
-!206 = !{!"branch_weights", i32 1, i32 4002001, i32 4002000}
+!206 = !{!"branch_weights", i32 4002001, i32 4002001}
 !207 = !{!208}
 !208 = distinct !{!208, !209, !"_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA23_cNS_5RangeIPKcEEA2_cEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameISE_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSH_EEEE5valueESE_E4typeEDpRKSG_: %agg.result"}
 !209 = distinct !{!209, !"_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA23_cNS_5RangeIPKcEEA2_cEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameISE_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSH_EEEE5valueESE_E4typeEDpRKSG_"}

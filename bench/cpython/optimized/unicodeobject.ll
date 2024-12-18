@@ -6052,7 +6052,7 @@ if.end.i34:                                       ; preds = %while.body.i46, %la
   br i1 %cmp3.i36, label %unicode_fromformat_arg.exit.thread, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end.i34
-  %call6.i = call fastcc i32 @unicode_fromformat_write_str(ptr noundef nonnull %writer, ptr noundef nonnull %call2.i, i64 noundef %width.1.i, i64 noundef -1, i32 noundef range(i32 0, 32) %flags.2.i)
+  %call6.i = call fastcc i32 @unicode_fromformat_write_str(ptr noundef nonnull %writer, ptr noundef nonnull %call2.i, i64 noundef %width.1.i, i64 noundef -1, i32 noundef %flags.2.i)
   %131 = load i64, ptr %call2.i, align 8
   %132 = and i64 %131, 2147483648
   %cmp.i8.not.i = icmp eq i64 %132, 0
@@ -6122,7 +6122,7 @@ if.end.i:                                         ; preds = %while.body.i29, %la
   br i1 %cmp3.i, label %unicode_fromformat_arg.exit.thread, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i
-  %call7.i = call fastcc i32 @unicode_fromformat_write_str(ptr noundef nonnull %writer, ptr noundef nonnull %call.i.i21, i64 noundef %width.1.i, i64 noundef -1, i32 noundef range(i32 0, 32) %flags.2.i)
+  %call7.i = call fastcc i32 @unicode_fromformat_write_str(ptr noundef nonnull %writer, ptr noundef nonnull %call.i.i21, i64 noundef %width.1.i, i64 noundef -1, i32 noundef %flags.2.i)
   %138 = load i64, ptr %call.i.i21, align 8
   %139 = and i64 %138, 2147483648
   %cmp.i9.not.i = icmp eq i64 %139, 0
@@ -49021,7 +49021,7 @@ declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapt
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @unicode_fromformat_write_wcstr(ptr nocapture noundef nonnull %writer, ptr noundef %str, i64 noundef %width, i64 noundef %precision, i32 noundef range(i32 0, 32) %flags) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @unicode_fromformat_write_wcstr(ptr nocapture noundef nonnull %writer, ptr noundef %str, i64 noundef %width, i64 noundef %precision, i32 noundef %flags) unnamed_addr #0 {
 entry:
   %cmp = icmp eq i64 %precision, -1
   br i1 %cmp, label %if.then, label %while.cond.preheader
@@ -49075,7 +49075,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @unicode_fromformat_write_cstr(ptr nocapture noundef nonnull %writer, ptr noundef %str, i64 noundef %width, i64 noundef %precision, i32 noundef range(i32 0, 32) %flags) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @unicode_fromformat_write_cstr(ptr nocapture noundef nonnull %writer, ptr noundef %str, i64 noundef %width, i64 noundef %precision, i32 noundef %flags) unnamed_addr #0 {
 entry:
   %cmp = icmp eq i64 %precision, -1
   br i1 %cmp, label %if.then, label %while.cond.preheader
@@ -49129,7 +49129,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @unicode_fromformat_write_str(ptr nocapture noundef nonnull %writer, ptr noundef %str, i64 noundef %width, i64 noundef %precision, i32 noundef range(i32 0, 32) %flags) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @unicode_fromformat_write_str(ptr nocapture noundef nonnull %writer, ptr noundef %str, i64 noundef %width, i64 noundef %precision, i32 noundef %flags) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %str, i64 16
   %str.val = load i64, ptr %0, align 8

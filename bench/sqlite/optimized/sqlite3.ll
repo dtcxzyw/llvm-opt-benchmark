@@ -47887,12 +47887,12 @@ sqlite3BitvecCreate.exit.i:                       ; preds = %118, %113
   %121 = sdiv i32 %120, 8
   %122 = add nsw i32 %121, 1
   %123 = sext i32 %122 to i64
-  %124 = call fastcc ptr @sqlite3Malloc(i64 noundef range(i64 -4294966874, 34359738361) %123)
+  %124 = call fastcc ptr @sqlite3Malloc(i64 noundef range(i64 -4294966746, 34359738361) %123)
   %.not.i.i97 = icmp eq ptr %124, null
   br i1 %.not.i.i97, label %sqlite3MallocZero.exit.i, label %125
 
 125:                                              ; preds = %sqlite3BitvecCreate.exit.i
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %124, i8 0, i64 range(i64 -4294966874, 34359738361) %123, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %124, i8 0, i64 range(i64 -4294966746, 34359738361) %123, i1 false)
   br label %sqlite3MallocZero.exit.i
 
 sqlite3MallocZero.exit.i:                         ; preds = %125, %sqlite3BitvecCreate.exit.i
@@ -58058,7 +58058,7 @@ sqlite3_mutex_enter.exit.i.i.i:                   ; preds = %209, %207
   %232 = add nuw nsw i64 %factor.i, %231
   %233 = add nsw i64 %232, %230
   %234 = add nsw i64 %233, %227
-  %235 = tail call fastcc ptr @sqlite3Malloc(i64 noundef range(i64 -4294966874, 34359738361) %234)
+  %235 = tail call fastcc ptr @sqlite3Malloc(i64 noundef range(i64 -4294966746, 34359738361) %234)
   %.not.i230.i = icmp eq ptr %235, null
   br i1 %.not.i230.i, label %236, label %256
 
@@ -58108,7 +58108,7 @@ sqlite3_mutex_enter.exit.i.i258.i:                ; preds = %241, %239
   br label %.thread361.sink.split
 
 256:                                              ; preds = %.thread.i
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %235, i8 0, i64 range(i64 -4294966874, 34359738361) %234, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %235, i8 0, i64 range(i64 -4294966746, 34359738361) %234, i1 false)
   %257 = getelementptr inbounds nuw i8, ptr %235, i64 312
   %258 = getelementptr inbounds nuw i8, ptr %235, i64 288
   store ptr %257, ptr %258, align 8
@@ -66384,12 +66384,12 @@ tailrecurse.i.i:                                  ; preds = %54, %tailrecurse.i.
   %81 = load i16, ptr %80, align 8
   %82 = zext i16 %81 to i64
   %83 = add nuw nsw i64 %82, 80
-  %84 = call fastcc ptr @sqlite3Malloc(i64 noundef range(i64 -4294966874, 34359738361) %83)
+  %84 = call fastcc ptr @sqlite3Malloc(i64 noundef range(i64 -4294966746, 34359738361) %83)
   %.not.i.i50 = icmp eq ptr %84, null
   br i1 %.not.i.i50, label %.thread62, label %85
 
 85:                                               ; preds = %79
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %84, i8 0, i64 range(i64 -4294966874, 34359738361) %83, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %84, i8 0, i64 range(i64 -4294966746, 34359738361) %83, i1 false)
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 80
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 16
   store ptr %86, ptr %87, align 8
@@ -68275,12 +68275,12 @@ sqlite3PagerSync.exit.thread:                     ; preds = %181, %.thread.i103,
   %204 = load i32, ptr %203, align 4
   %205 = shl nsw i32 %204, 1
   %206 = sext i32 %205 to i64
-  %207 = call fastcc ptr @sqlite3Malloc(i64 noundef range(i64 -4294966874, 34359738361) %206)
+  %207 = call fastcc ptr @sqlite3Malloc(i64 noundef range(i64 -4294966746, 34359738361) %206)
   %.not.i.i107 = icmp eq ptr %207, null
   br i1 %.not.i.i107, label %pager_delsuper.exit, label %208
 
 208:                                              ; preds = %201
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %207, i8 0, i64 range(i64 -4294966874, 34359738361) %206, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %207, i8 0, i64 range(i64 -4294966746, 34359738361) %206, i1 false)
   %209 = getelementptr inbounds nuw i8, ptr %.val, i64 40
   %210 = load ptr, ptr %209, align 8
   %211 = call i32 %210(ptr noundef nonnull %.val, ptr noundef nonnull %159, ptr noundef nonnull %207, i32 noundef 16385, ptr noundef null) #57
@@ -75404,12 +75404,12 @@ pagerExclusiveLock.exit:                          ; preds = %pagerLockDb.exit.i,
   %47 = load i32, ptr %46, align 4
   %48 = sext i32 %47 to i64
   %49 = add nsw i64 %48, 144
-  %50 = tail call fastcc ptr @sqlite3Malloc(i64 noundef range(i64 -4294966874, 34359738361) %49)
+  %50 = tail call fastcc ptr @sqlite3Malloc(i64 noundef range(i64 -4294966746, 34359738361) %49)
   %.not.i.i10 = icmp eq ptr %50, null
   br i1 %.not.i.i10, label %sqlite3WalOpen.exit, label %51
 
 51:                                               ; preds = %37
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %50, i8 0, i64 range(i64 -4294966874, 34359738361) %49, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %50, i8 0, i64 range(i64 -4294966746, 34359738361) %49, i1 false)
   store ptr %38, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 144
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 16
@@ -86922,12 +86922,12 @@ define internal fastcc i32 @sqlite3OsOpenMalloc(ptr noundef %0, ptr noundef %1, 
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = sext i32 %7 to i64
-  %9 = tail call fastcc ptr @sqlite3Malloc(i64 noundef range(i64 -4294966874, 34359738361) %8)
+  %9 = tail call fastcc ptr @sqlite3Malloc(i64 noundef range(i64 -4294966746, 34359738361) %8)
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %sqlite3_free.exit, label %10
 
 10:                                               ; preds = %5
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %9, i8 0, i64 range(i64 -4294966874, 34359738361) %8, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %9, i8 0, i64 range(i64 -4294966746, 34359738361) %8, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8
   %13 = and i32 %3, 32639
@@ -100744,12 +100744,12 @@ sqlite3FaultSim.exit.thread.i.i.i.i:              ; preds = %sqlite3FaultSim.exi
   %5634 = mul i32 %.0.i.i.i.i4039, 84
   %5635 = add i32 %5634, 32
   %5636 = sext i32 %5635 to i64
-  %5637 = call fastcc ptr @sqlite3Malloc(i64 noundef range(i64 -4294966874, 34359738361) %5636)
+  %5637 = call fastcc ptr @sqlite3Malloc(i64 noundef range(i64 -4294966746, 34359738361) %5636)
   %.not.i17.i.i.i.i = icmp eq ptr %5637, null
   br i1 %.not.i17.i.i.i.i, label %vdbeSorterMergeTreeBuild.exit.thread.i.i, label %vdbeMergeEngineNew.exit.i.i.i
 
 vdbeMergeEngineNew.exit.i.i.i:                    ; preds = %sqlite3FaultSim.exit.thread.i.i.i.i
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %5637, i8 0, i64 range(i64 -4294966874, 34359738361) %5636, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %5637, i8 0, i64 range(i64 -4294966746, 34359738361) %5636, i1 false)
   store i32 %.0.i.i.i.i4039, ptr %5637, align 8
   %5638 = getelementptr inbounds nuw i8, ptr %5637, i64 8
   store ptr null, ptr %5638, align 8
@@ -100817,7 +100817,7 @@ sqlite3FaultSim.exit.i58.i.i.i:                   ; preds = %vdbeSorterTreeDepth
   br i1 %.not.i59.i.i.i, label %sqlite3FaultSim.exit.thread.i60.i.i.i, label %.loopexit.thread.thread.i.i.i
 
 sqlite3FaultSim.exit.thread.i60.i.i.i:            ; preds = %sqlite3FaultSim.exit.i58.i.i.i, %vdbeSorterTreeDepth.exit.i.i.i
-  %5660 = call fastcc ptr @sqlite3Malloc(i64 noundef range(i64 -4294966874, 34359738361) 1376)
+  %5660 = call fastcc ptr @sqlite3Malloc(i64 noundef range(i64 -4294966746, 34359738361) 1376)
   %.not.i17.i61.i.i.i = icmp eq ptr %5660, null
   br i1 %.not.i17.i61.i.i.i, label %.loopexit.thread.thread.i.i.i, label %vdbeMergeEngineNew.exit62.i.i.i
 
@@ -100827,7 +100827,7 @@ sqlite3FaultSim.exit.thread.i60.i.i.i:            ; preds = %sqlite3FaultSim.exi
 
 vdbeMergeEngineNew.exit62.i.i.i:                  ; preds = %sqlite3FaultSim.exit.thread.i60.i.i.i
   %5661 = getelementptr inbounds nuw i8, ptr %5660, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1376) %5661, i8 0, i64 range(i64 -4294966874, 34359738361) 1372, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1376) %5661, i8 0, i64 range(i64 -4294966746, 34359738361) 1372, i1 false)
   store i32 16, ptr %5660, align 8
   %5662 = getelementptr inbounds nuw i8, ptr %5660, i64 32
   %5663 = getelementptr inbounds nuw i8, ptr %5660, i64 24
@@ -101032,7 +101032,7 @@ sqlite3Malloc.exit.i.i.i:                         ; preds = %5739, %5737, %mallo
 
 5742:                                             ; preds = %sqlite3Malloc.exit.i.i.i
   %5743 = getelementptr inbounds nuw i8, ptr %.0.i91.i.i.i, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1376) %5743, i8 0, i64 range(i64 -4294966874, 34359738361) 1372, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1376) %5743, i8 0, i64 range(i64 -4294966746, 34359738361) 1372, i1 false)
   store i32 16, ptr %.0.i91.i.i.i, align 8
   %5744 = getelementptr inbounds nuw i8, ptr %.0.i91.i.i.i, i64 32
   %5745 = getelementptr inbounds nuw i8, ptr %.0.i91.i.i.i, i64 24
@@ -104188,7 +104188,7 @@ tableOfTrigger.exit.i:                            ; preds = %sqlite3StrICmp.exit
   %7364 = lshr i32 %.val.i4129, 3
   %7365 = add nuw nsw i32 %7364, 1
   %7366 = zext nneg i32 %7365 to i64
-  %7367 = call fastcc ptr @sqlite3Malloc(i64 noundef range(i64 -4294966874, 34359738361) %7366)
+  %7367 = call fastcc ptr @sqlite3Malloc(i64 noundef range(i64 -4294966746, 34359738361) %7366)
   %.not.i.i4130 = icmp eq ptr %7367, null
   br i1 %.not.i.i4130, label %7368, label %7371
 
@@ -104201,7 +104201,7 @@ tableOfTrigger.exit.i:                            ; preds = %sqlite3StrICmp.exit
   br i1 %7370, label %checkOom.exit.i.sink.split, label %checkOom.exit.i
 
 7371:                                             ; preds = %7363
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %7367, i8 0, i64 range(i64 -4294966874, 34359738361) %7366, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %7367, i8 0, i64 range(i64 -4294966746, 34359738361) %7366, i1 false)
   store ptr %7367, ptr %321, align 8
   %7372 = getelementptr inbounds nuw i8, ptr %7349, i64 52
   %7373 = load i32, ptr %7372, align 4
@@ -134459,12 +134459,12 @@ sqlite3FaultSim.exit.thread:                      ; preds = %3, %sqlite3FaultSim
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = sext i32 %13 to i64
-  %15 = tail call fastcc ptr @sqlite3Malloc(i64 noundef range(i64 -4294966874, 34359738361) %14)
+  %15 = tail call fastcc ptr @sqlite3Malloc(i64 noundef range(i64 -4294966746, 34359738361) %14)
   %.not.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i, label %sqlite3OsOpenMalloc.exit.thread, label %16
 
 16:                                               ; preds = %sqlite3FaultSim.exit.thread
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %15, i8 0, i64 range(i64 -4294966874, 34359738361) %14, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %15, i8 0, i64 range(i64 -4294966746, 34359738361) %14, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %18 = load ptr, ptr %17, align 8
   %19 = call i32 %18(ptr noundef nonnull %11, ptr noundef null, ptr noundef nonnull %15, i32 noundef 4126, ptr noundef nonnull %7) #57
@@ -135192,12 +135192,12 @@ sqlite3FaultSim.exit.thread.i:                    ; preds = %sqlite3FaultSim.exi
   %14 = mul i32 %.0.i, 84
   %15 = add i32 %14, 32
   %16 = sext i32 %15 to i64
-  %17 = tail call fastcc ptr @sqlite3Malloc(i64 noundef range(i64 -4294966874, 34359738361) %16)
+  %17 = tail call fastcc ptr @sqlite3Malloc(i64 noundef range(i64 -4294966746, 34359738361) %16)
   %.not.i17.i = icmp eq ptr %17, null
   br i1 %.not.i17.i, label %vdbeMergeEngineFree.exit, label %vdbeMergeEngineNew.exit
 
 vdbeMergeEngineNew.exit:                          ; preds = %sqlite3FaultSim.exit.thread.i
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %17, i8 0, i64 range(i64 -4294966874, 34359738361) %16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %17, i8 0, i64 range(i64 -4294966746, 34359738361) %16, i1 false)
   store i32 %.0.i, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr null, ptr %18, align 8
@@ -234321,7 +234321,7 @@ sqlite3VdbeAddOp2.exit126:                        ; preds = %180, %sqlite3VdbeAd
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @sqlite3WhereBegin(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i16 noundef zeroext range(i16 0, -32768) %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc ptr @sqlite3WhereBegin(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i16 noundef zeroext range(i16 0, 24576) %6, i32 noundef %7) unnamed_addr #0 {
   %9 = alloca %struct.Walker, align 8
   %10 = alloca %struct.IdxCover, align 8
   %11 = alloca %struct.WhereScan, align 8
@@ -272045,7 +272045,7 @@ sqlite3VdbeJumpHere.exit158:                      ; preds = %.thread, %1051
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sqlite3WhereExplainOneScan(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, i16 noundef zeroext range(i16 0, -32768) %3) unnamed_addr #0 {
+define internal fastcc void @sqlite3WhereExplainOneScan(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, i16 noundef zeroext range(i16 0, 24576) %3) unnamed_addr #0 {
   %5 = alloca %struct.sqlite3_str, align 8
   %6 = alloca [100 x i8], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -377199,12 +377199,12 @@ define internal ptr @pcache1Create(i32 noundef %0, i32 noundef %1, i32 noundef %
   %5 = mul i32 %4, 80
   %6 = add i32 %5, 88
   %7 = sext i32 %6 to i64
-  %8 = tail call fastcc ptr @sqlite3Malloc(i64 noundef range(i64 -4294966874, 34359738361) %7)
+  %8 = tail call fastcc ptr @sqlite3Malloc(i64 noundef range(i64 -4294966746, 34359738361) %7)
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %sqlite3MallocZero.exit.thread, label %9
 
 9:                                                ; preds = %3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %8, i8 0, i64 range(i64 -4294966874, 34359738361) %7, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %8, i8 0, i64 range(i64 -4294966746, 34359738361) %7, i1 false)
   %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pcache1_g, i64 84), align 4
   %.not36 = icmp eq i32 %10, 0
   br i1 %.not36, label %14, label %11
@@ -378168,12 +378168,12 @@ define internal fastcc void @pcache1ResizeHash(ptr nocapture noundef %0) unnamed
 sqlite3BeginBenignMalloc.exit:                    ; preds = %7, %5, %1
   %8 = zext i32 %spec.store.select to i64
   %9 = shl nuw nsw i64 %8, 3
-  %10 = tail call fastcc ptr @sqlite3Malloc(i64 noundef range(i64 -4294966874, 34359738361) %9)
+  %10 = tail call fastcc ptr @sqlite3Malloc(i64 noundef range(i64 -4294966746, 34359738361) %9)
   %.not.i30 = icmp eq ptr %10, null
   br i1 %.not.i30, label %sqlite3MallocZero.exit, label %11
 
 11:                                               ; preds = %sqlite3BeginBenignMalloc.exit
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %10, i8 0, i64 range(i64 -4294966874, 34359738361) %9, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %10, i8 0, i64 range(i64 -4294966746, 34359738361) %9, i1 false)
   br label %sqlite3MallocZero.exit
 
 sqlite3MallocZero.exit:                           ; preds = %sqlite3BeginBenignMalloc.exit, %11

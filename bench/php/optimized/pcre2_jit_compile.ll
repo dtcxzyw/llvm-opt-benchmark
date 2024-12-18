@@ -12794,9 +12794,8 @@ define ptr @php_pcre2_jit_stack_create(i64 noundef %0, i64 noundef %1, ptr nound
   %12 = and i64 %11, -8192
   %13 = add nuw i64 %spec.select, 8191
   %14 = and i64 %13, -8192
-  %15 = add i64 %14, -1
-  %or.cond.not.i = icmp ult i64 %15, %12
-  br i1 %or.cond.not.i, label %16, label %42
+  %15 = icmp ugt i64 %14, %12
+  br i1 %15, label %42, label %16
 
 16:                                               ; preds = %10
   %.val.i = load ptr, ptr %8, align 8
@@ -13905,7 +13904,7 @@ default.unreachable135:                           ; preds = %21
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @sljit_emit_op2(ptr nocapture noundef %0, i32 noundef range(i32 32, 16384) %1, i32 noundef range(i32 1, 143) %2, i64 noundef range(i64 -2147483648, 2147483648) %3, i32 noundef %4, i64 noundef %5, i32 noundef range(i32 1, 143) %6, i64 noundef %7) unnamed_addr #0 {
+define internal fastcc i32 @sljit_emit_op2(ptr nocapture noundef %0, i32 noundef range(i32 32, 12288) %1, i32 noundef range(i32 1, 143) %2, i64 noundef range(i64 -2147483648, 2147483648) %3, i32 noundef %4, i64 noundef %5, i32 noundef range(i32 1, 143) %6, i64 noundef %7) unnamed_addr #0 {
   %9 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %emit_mul.exit
@@ -34725,7 +34724,7 @@ sljit_set_label.exit30:                           ; preds = %sljit_set_label.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @sljit_emit_op2u(ptr noundef %0, i32 noundef range(i32 66, 16384) %1, i32 noundef %2, i64 noundef %3, i32 noundef range(i32 1, 143) %4, i64 noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @sljit_emit_op2u(ptr noundef %0, i32 noundef range(i32 512, 12288) %1, i32 noundef %2, i64 noundef %3, i32 noundef range(i32 1, 143) %4, i64 noundef %5) unnamed_addr #0 {
   %7 = and i32 %1, 1279
   %8 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %8, 0
@@ -54030,7 +54029,7 @@ emit_load_imm64.exit:                             ; preds = %92, %83, %41, %40, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @emit_x86_instruction(ptr nocapture noundef %0, i64 noundef range(i64 1, 8388608) %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5) unnamed_addr #0 {
+define internal fastcc ptr @emit_x86_instruction(ptr nocapture noundef %0, i64 noundef range(i64 1, 3670016) %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5) unnamed_addr #0 {
   %7 = and i64 %1, 15
   %8 = add nuw nsw i64 %7, 1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -56478,7 +56477,7 @@ emit_mov.exit:                                    ; preds = %205
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @emit_shift_with_flags(ptr nocapture noundef %0, i8 noundef zeroext range(i8 0, 57) %1, i32 noundef range(i32 0, 14849) %2, i32 noundef range(i32 1, 143) %3, i64 noundef range(i64 -2147483648, 2147483648) %4, i32 noundef %5, i64 noundef %6, i32 noundef range(i32 1, 143) %7, i64 noundef %8) unnamed_addr #0 {
+define internal fastcc i32 @emit_shift_with_flags(ptr nocapture noundef %0, i8 noundef zeroext range(i8 0, 57) %1, i32 noundef range(i32 0, 12288) %2, i32 noundef range(i32 1, 143) %3, i64 noundef range(i64 -2147483648, 2147483648) %4, i32 noundef %5, i64 noundef %6, i32 noundef range(i32 1, 143) %7, i64 noundef %8) unnamed_addr #0 {
   %10 = icmp eq i32 %7, 127
   br i1 %10, label %11, label %23
 
@@ -59664,7 +59663,7 @@ sljit_alloc_memory.exit.thread:                   ; preds = %20, %3, %sljit_allo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sljit_emit_op_flags(ptr nocapture noundef %0, i32 noundef range(i32 32, 1024) %1, i32 noundef range(i32 1, 5) %2, i32 noundef range(i32 0, 6) %3) unnamed_addr #0 {
+define internal fastcc void @sljit_emit_op_flags(ptr nocapture noundef %0, i32 noundef range(i32 32, 768) %1, i32 noundef range(i32 1, 5) %2, i32 noundef range(i32 0, 6) %3) unnamed_addr #0 {
   %5 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %switch.lookup, label %89

@@ -214,49 +214,47 @@ define hidden void @"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$6resize28_$u7b$$
   %3 = alloca { { i64, ptr, {} }, i64 }, align 8
   %4 = and i64 %0, -8
   %5 = inttoptr i64 %4 to ptr
-  %6 = icmp ne i64 %4, 0
-  tail call void @llvm.assume(i1 %6)
-  %7 = load ptr, ptr %5, align 8, !nonnull !4, !noundef !4
-  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %9 = load i64, ptr %8, align 8, !noundef !4
+  %6 = load ptr, ptr %5, align 8, !nonnull !4, !noundef !4
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %8 = load i64, ptr %7, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  store i64 %9, ptr %3, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %7, ptr %10, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 0, ptr %11, align 8
+  store i64 %8, ptr %3, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %6, ptr %9, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i64 0, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !33
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0e6e0d89c801c3f1E.llvm.3531809010164697281"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3)
-          to label %.noexc unwind label %21
+          to label %.noexc unwind label %20
 
 .noexc:                                           ; preds = %1
-  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %13 = load i64, ptr %12, align 8, !range !40, !noalias !33, !noundef !4
-  %.not.i.i.i.i = icmp eq i64 %13, 0
-  br i1 %.not.i.i.i.i, label %20, label %14
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %12 = load i64, ptr %11, align 8, !range !40, !noalias !33, !noundef !4
+  %.not.i.i.i.i = icmp eq i64 %12, 0
+  br i1 %.not.i.i.i.i, label %19, label %13
 
-14:                                               ; preds = %.noexc
-  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %16 = load i64, ptr %15, align 8, !noalias !33, !noundef !4
-  %17 = icmp eq i64 %16, 0
-  br i1 %17, label %20, label %18
+13:                                               ; preds = %.noexc
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %15 = load i64, ptr %14, align 8, !noalias !33, !noundef !4
+  %16 = icmp eq i64 %15, 0
+  br i1 %16, label %19, label %17
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %2, align 8, !noalias !33, !nonnull !4, !noundef !4
-  call void @__rust_dealloc(ptr noundef nonnull %19, i64 noundef %16, i64 noundef %13) #30
-  br label %20
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %2, align 8, !noalias !33, !nonnull !4, !noundef !4
+  call void @__rust_dealloc(ptr noundef nonnull %18, i64 noundef %15, i64 noundef %12) #30
+  br label %19
 
-20:                                               ; preds = %18, %14, %.noexc
+19:                                               ; preds = %17, %13, %.noexc
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !33
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call void @__rust_dealloc(ptr noundef nonnull %5, i64 noundef 16, i64 noundef 8) #30, !noalias !41
   ret void
 
-21:                                               ; preds = %1
-  %22 = landingpad { ptr, i32 }
+20:                                               ; preds = %1
+  %21 = landingpad { ptr, i32 }
           cleanup
   call void @__rust_dealloc(ptr noundef nonnull %5, i64 noundef 16, i64 noundef 8) #30, !noalias !46
-  resume { ptr, i32 } %22
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -275,56 +273,54 @@ define hidden void @_ZN15crossbeam_epoch5guard5Guard15defer_unchecked17h415f7f7e
   store i64 %1, ptr %9, align 8, !alias.scope !51
   call void @_ZN15crossbeam_epoch8internal5Local5defer17hcf1987001642a368E(ptr noundef nonnull align 128 %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  br label %29
+  br label %28
 
 10:                                               ; preds = %2
   %11 = and i64 %1, -8
   %12 = inttoptr i64 %11 to ptr
-  %13 = icmp ne i64 %11, 0
-  tail call void @llvm.assume(i1 %13)
-  %14 = load ptr, ptr %12, align 8, !nonnull !4, !noundef !4
-  %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %16 = load i64, ptr %15, align 8, !noundef !4
+  %13 = load ptr, ptr %12, align 8, !nonnull !4, !noundef !4
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %15 = load i64, ptr %14, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  store i64 %16, ptr %4, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %14, ptr %17, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 0, ptr %18, align 8
+  store i64 %15, ptr %4, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %13, ptr %16, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i64 0, ptr %17, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !54
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0e6e0d89c801c3f1E.llvm.3531809010164697281"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4)
-          to label %.noexc.i unwind label %27
+          to label %.noexc.i unwind label %26
 
 .noexc.i:                                         ; preds = %10
-  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %20 = load i64, ptr %19, align 8, !range !40, !noalias !54, !noundef !4
-  %.not.i.i.i.i.i = icmp eq i64 %20, 0
-  br i1 %.not.i.i.i.i.i, label %"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$6resize28_$u7b$$u7b$closure$u7d$$u7d$17h488951ee9110316dE.llvm.7442906621139507621.exit", label %21
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %19 = load i64, ptr %18, align 8, !range !40, !noalias !54, !noundef !4
+  %.not.i.i.i.i.i = icmp eq i64 %19, 0
+  br i1 %.not.i.i.i.i.i, label %"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$6resize28_$u7b$$u7b$closure$u7d$$u7d$17h488951ee9110316dE.llvm.7442906621139507621.exit", label %20
 
-21:                                               ; preds = %.noexc.i
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %23 = load i64, ptr %22, align 8, !noalias !54, !noundef !4
-  %24 = icmp eq i64 %23, 0
-  br i1 %24, label %"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$6resize28_$u7b$$u7b$closure$u7d$$u7d$17h488951ee9110316dE.llvm.7442906621139507621.exit", label %25
+20:                                               ; preds = %.noexc.i
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %22 = load i64, ptr %21, align 8, !noalias !54, !noundef !4
+  %23 = icmp eq i64 %22, 0
+  br i1 %23, label %"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$6resize28_$u7b$$u7b$closure$u7d$$u7d$17h488951ee9110316dE.llvm.7442906621139507621.exit", label %24
 
-25:                                               ; preds = %21
-  %26 = load ptr, ptr %3, align 8, !noalias !54, !nonnull !4, !noundef !4
-  call void @__rust_dealloc(ptr noundef nonnull %26, i64 noundef %23, i64 noundef %20) #30
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %3, align 8, !noalias !54, !nonnull !4, !noundef !4
+  call void @__rust_dealloc(ptr noundef nonnull %25, i64 noundef %22, i64 noundef %19) #30
   br label %"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$6resize28_$u7b$$u7b$closure$u7d$$u7d$17h488951ee9110316dE.llvm.7442906621139507621.exit"
 
-27:                                               ; preds = %10
-  %28 = landingpad { ptr, i32 }
+26:                                               ; preds = %10
+  %27 = landingpad { ptr, i32 }
           cleanup
   call void @__rust_dealloc(ptr noundef nonnull %12, i64 noundef 16, i64 noundef 8) #30, !noalias !61
-  resume { ptr, i32 } %28
+  resume { ptr, i32 } %27
 
-"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$6resize28_$u7b$$u7b$closure$u7d$$u7d$17h488951ee9110316dE.llvm.7442906621139507621.exit": ; preds = %.noexc.i, %21, %25
+"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$6resize28_$u7b$$u7b$closure$u7d$$u7d$17h488951ee9110316dE.llvm.7442906621139507621.exit": ; preds = %.noexc.i, %20, %24
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !54
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @__rust_dealloc(ptr noundef nonnull %12, i64 noundef 16, i64 noundef 8) #30, !noalias !66
-  br label %29
+  br label %28
 
-29:                                               ; preds = %"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$6resize28_$u7b$$u7b$closure$u7d$$u7d$17h488951ee9110316dE.llvm.7442906621139507621.exit", %8
+28:                                               ; preds = %"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$6resize28_$u7b$$u7b$closure$u7d$$u7d$17h488951ee9110316dE.llvm.7442906621139507621.exit", %8
   ret void
 }
 
@@ -344,46 +340,44 @@ define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new4call17hc1ff338a3a
   %5 = load i64, ptr %4, align 8, !noundef !4
   %6 = and i64 %5, -8
   %7 = inttoptr i64 %6 to ptr
-  %8 = icmp ne i64 %6, 0
-  tail call void @llvm.assume(i1 %8)
-  %9 = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
-  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %11 = load i64, ptr %10, align 8, !noundef !4
+  %8 = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %10 = load i64, ptr %9, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  store i64 %11, ptr %3, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %9, ptr %12, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 0, ptr %13, align 8
+  store i64 %10, ptr %3, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %8, ptr %11, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i64 0, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !71
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0e6e0d89c801c3f1E.llvm.3531809010164697281"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3)
-          to label %.noexc.i.i unwind label %22
+          to label %.noexc.i.i unwind label %21
 
 .noexc.i.i:                                       ; preds = %1
-  %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %15 = load i64, ptr %14, align 8, !range !40, !noalias !71, !noundef !4
-  %.not.i.i.i.i.i.i = icmp eq i64 %15, 0
-  br i1 %.not.i.i.i.i.i.i, label %24, label %16
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %14 = load i64, ptr %13, align 8, !range !40, !noalias !71, !noundef !4
+  %.not.i.i.i.i.i.i = icmp eq i64 %14, 0
+  br i1 %.not.i.i.i.i.i.i, label %23, label %15
 
-16:                                               ; preds = %.noexc.i.i
-  %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %18 = load i64, ptr %17, align 8, !noalias !71, !noundef !4
-  %19 = icmp eq i64 %18, 0
-  br i1 %19, label %24, label %20
+15:                                               ; preds = %.noexc.i.i
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %17 = load i64, ptr %16, align 8, !noalias !71, !noundef !4
+  %18 = icmp eq i64 %17, 0
+  br i1 %18, label %23, label %19
 
-20:                                               ; preds = %16
-  %21 = load ptr, ptr %2, align 8, !noalias !71, !nonnull !4, !noundef !4
-  call void @__rust_dealloc(ptr noundef nonnull %21, i64 noundef %18, i64 noundef %15) #30
-  br label %24
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %2, align 8, !noalias !71, !nonnull !4, !noundef !4
+  call void @__rust_dealloc(ptr noundef nonnull %20, i64 noundef %17, i64 noundef %14) #30
+  br label %23
 
-22:                                               ; preds = %1
-  %23 = landingpad { ptr, i32 }
+21:                                               ; preds = %1
+  %22 = landingpad { ptr, i32 }
           cleanup
   call void @__rust_dealloc(ptr noundef nonnull %7, i64 noundef 16, i64 noundef 8) #30, !noalias !78
   call void @__rust_dealloc(ptr noundef nonnull %4, i64 noundef 8, i64 noundef 8) #30
-  resume { ptr, i32 } %23
+  resume { ptr, i32 } %22
 
-24:                                               ; preds = %20, %16, %.noexc.i.i
+23:                                               ; preds = %19, %15, %.noexc.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !71
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call void @__rust_dealloc(ptr noundef nonnull %7, i64 noundef 16, i64 noundef 8) #30, !noalias !83
@@ -398,45 +392,43 @@ define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new4call17heb71fa171c
   %4 = load i64, ptr %0, align 8, !noundef !4
   %5 = and i64 %4, -8
   %6 = inttoptr i64 %5 to ptr
-  %7 = icmp ne i64 %5, 0
-  tail call void @llvm.assume(i1 %7)
-  %8 = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
-  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %10 = load i64, ptr %9, align 8, !noundef !4
+  %7 = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %9 = load i64, ptr %8, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  store i64 %10, ptr %3, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %8, ptr %11, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 0, ptr %12, align 8
+  store i64 %9, ptr %3, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %7, ptr %10, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i64 0, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !88
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0e6e0d89c801c3f1E.llvm.3531809010164697281"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3)
-          to label %.noexc.i.i unwind label %21
+          to label %.noexc.i.i unwind label %20
 
 .noexc.i.i:                                       ; preds = %1
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %14 = load i64, ptr %13, align 8, !range !40, !noalias !88, !noundef !4
-  %.not.i.i.i.i.i.i = icmp eq i64 %14, 0
-  br i1 %.not.i.i.i.i.i.i, label %"_ZN15crossbeam_epoch5guard5Guard15defer_unchecked28_$u7b$$u7b$closure$u7d$$u7d$17h45881ecae94fe2edE.exit", label %15
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %13 = load i64, ptr %12, align 8, !range !40, !noalias !88, !noundef !4
+  %.not.i.i.i.i.i.i = icmp eq i64 %13, 0
+  br i1 %.not.i.i.i.i.i.i, label %"_ZN15crossbeam_epoch5guard5Guard15defer_unchecked28_$u7b$$u7b$closure$u7d$$u7d$17h45881ecae94fe2edE.exit", label %14
 
-15:                                               ; preds = %.noexc.i.i
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %17 = load i64, ptr %16, align 8, !noalias !88, !noundef !4
-  %18 = icmp eq i64 %17, 0
-  br i1 %18, label %"_ZN15crossbeam_epoch5guard5Guard15defer_unchecked28_$u7b$$u7b$closure$u7d$$u7d$17h45881ecae94fe2edE.exit", label %19
+14:                                               ; preds = %.noexc.i.i
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %16 = load i64, ptr %15, align 8, !noalias !88, !noundef !4
+  %17 = icmp eq i64 %16, 0
+  br i1 %17, label %"_ZN15crossbeam_epoch5guard5Guard15defer_unchecked28_$u7b$$u7b$closure$u7d$$u7d$17h45881ecae94fe2edE.exit", label %18
 
-19:                                               ; preds = %15
-  %20 = load ptr, ptr %2, align 8, !noalias !88, !nonnull !4, !noundef !4
-  call void @__rust_dealloc(ptr noundef nonnull %20, i64 noundef %17, i64 noundef %14) #30
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %2, align 8, !noalias !88, !nonnull !4, !noundef !4
+  call void @__rust_dealloc(ptr noundef nonnull %19, i64 noundef %16, i64 noundef %13) #30
   br label %"_ZN15crossbeam_epoch5guard5Guard15defer_unchecked28_$u7b$$u7b$closure$u7d$$u7d$17h45881ecae94fe2edE.exit"
 
-21:                                               ; preds = %1
-  %22 = landingpad { ptr, i32 }
+20:                                               ; preds = %1
+  %21 = landingpad { ptr, i32 }
           cleanup
   call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef 16, i64 noundef 8) #30, !noalias !95
-  resume { ptr, i32 } %22
+  resume { ptr, i32 } %21
 
-"_ZN15crossbeam_epoch5guard5Guard15defer_unchecked28_$u7b$$u7b$closure$u7d$$u7d$17h45881ecae94fe2edE.exit": ; preds = %.noexc.i.i, %15, %19
+"_ZN15crossbeam_epoch5guard5Guard15defer_unchecked28_$u7b$$u7b$closure$u7d$$u7d$17h45881ecae94fe2edE.exit": ; preds = %.noexc.i.i, %14, %18
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !88
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef 16, i64 noundef 8) #30, !noalias !100

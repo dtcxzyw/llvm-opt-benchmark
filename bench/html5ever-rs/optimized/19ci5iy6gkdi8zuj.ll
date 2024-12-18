@@ -38,7 +38,7 @@ define hidden void @"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$ten
   %3 = icmp eq i64 %2, 0
   br i1 %3, label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17h53f0d835b390e662E.llvm.5870598909725602671.exit", label %4
 
-"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17h53f0d835b390e662E.llvm.5870598909725602671.exit": ; preds = %.sink.split.i.i, %15, %4, %1
+"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17h53f0d835b390e662E.llvm.5870598909725602671.exit": ; preds = %.sink.split.i.i, %14, %4, %1
   ret void
 
 4:                                                ; preds = %1
@@ -54,31 +54,29 @@ define hidden void @"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$ten
   %10 = inttoptr i64 %9 to ptr
   %11 = and i64 %6, 1
   %.not.i.i.i = icmp eq i64 %11, 0
-  br i1 %.not.i.i.i, label %12, label %15
+  br i1 %.not.i.i.i, label %12, label %14
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %.03.i.i.i = load i32, ptr %13, align 4, !alias.scope !13, !noalias !14, !noundef !4
-  %14 = icmp ne i64 %9, 0
-  tail call void @llvm.assume(i1 %14)
   br label %.sink.split.i.i
 
-15:                                               ; preds = %8
-  %16 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.03.i8.i.i = load i32, ptr %16, align 4, !noalias !17, !noundef !4
-  %17 = load i64, ptr %10, align 8, !noalias !13, !noundef !4
-  %18 = add i64 %17, -1
-  store i64 %18, ptr %10, align 8, !noalias !13
-  %19 = icmp eq i64 %17, 1
-  br i1 %19, label %.sink.split.i.i, label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17h53f0d835b390e662E.llvm.5870598909725602671.exit"
+14:                                               ; preds = %8
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.03.i8.i.i = load i32, ptr %15, align 4, !noalias !17, !noundef !4
+  %16 = load i64, ptr %10, align 8, !noalias !13, !noundef !4
+  %17 = add i64 %16, -1
+  store i64 %17, ptr %10, align 8, !noalias !13
+  %18 = icmp eq i64 %16, 1
+  br i1 %18, label %.sink.split.i.i, label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17h53f0d835b390e662E.llvm.5870598909725602671.exit"
 
-.sink.split.i.i:                                  ; preds = %15, %12
-  %.03.i8.sink.i.i = phi i32 [ %.03.i.i.i, %12 ], [ %.03.i8.i.i, %15 ]
-  %20 = zext i32 %.03.i8.sink.i.i to i64
-  %21 = add nuw nsw i64 %20, 15
-  %22 = and i64 %21, 8589934576
-  %23 = add nuw nsw i64 %22, 16
-  tail call void @__rust_dealloc(ptr noundef nonnull %10, i64 noundef %23, i64 noundef 8) #17, !noalias !13
+.sink.split.i.i:                                  ; preds = %14, %12
+  %.03.i8.sink.i.i = phi i32 [ %.03.i.i.i, %12 ], [ %.03.i8.i.i, %14 ]
+  %19 = zext i32 %.03.i8.sink.i.i to i64
+  %20 = add nuw nsw i64 %19, 15
+  %21 = and i64 %20, 8589934576
+  %22 = add nuw nsw i64 %21, 16
+  tail call void @__rust_dealloc(ptr noundef nonnull %10, i64 noundef %22, i64 noundef 8) #17, !noalias !13
   br label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17h53f0d835b390e662E.llvm.5870598909725602671.exit"
 }
 
@@ -595,34 +593,32 @@ define hidden void @"_ZN4core3ptr54drop_in_place$LT$markup5ever..interface..Attr
   %11 = inttoptr i64 %10 to ptr
   %12 = and i64 %7, 1
   %.not.i.i.i = icmp eq i64 %12, 0
-  br i1 %.not.i.i.i, label %13, label %16
+  br i1 %.not.i.i.i, label %13, label %15
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %.03.i.i.i = load i32, ptr %14, align 4, !alias.scope !178, !noalias !179, !noundef !4
-  %15 = icmp ne i64 %10, 0
-  tail call void @llvm.assume(i1 %15)
   br label %.sink.split.i.i
 
-16:                                               ; preds = %9
-  %17 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.03.i8.i.i = load i32, ptr %17, align 4, !noalias !182, !noundef !4
-  %18 = load i64, ptr %11, align 8, !noalias !178, !noundef !4
-  %19 = add i64 %18, -1
-  store i64 %19, ptr %11, align 8, !noalias !178
-  %20 = icmp eq i64 %18, 1
-  br i1 %20, label %.sink.split.i.i, label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17h53f0d835b390e662E.llvm.5870598909725602671.exit"
+15:                                               ; preds = %9
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %.03.i8.i.i = load i32, ptr %16, align 4, !noalias !182, !noundef !4
+  %17 = load i64, ptr %11, align 8, !noalias !178, !noundef !4
+  %18 = add i64 %17, -1
+  store i64 %18, ptr %11, align 8, !noalias !178
+  %19 = icmp eq i64 %17, 1
+  br i1 %19, label %.sink.split.i.i, label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17h53f0d835b390e662E.llvm.5870598909725602671.exit"
 
-.sink.split.i.i:                                  ; preds = %16, %13
-  %.03.i8.sink.i.i = phi i32 [ %.03.i.i.i, %13 ], [ %.03.i8.i.i, %16 ]
-  %21 = zext i32 %.03.i8.sink.i.i to i64
-  %22 = add nuw nsw i64 %21, 15
-  %23 = and i64 %22, 8589934576
-  %24 = add nuw nsw i64 %23, 16
-  tail call void @__rust_dealloc(ptr noundef nonnull %11, i64 noundef %24, i64 noundef 8) #17, !noalias !178
+.sink.split.i.i:                                  ; preds = %15, %13
+  %.03.i8.sink.i.i = phi i32 [ %.03.i.i.i, %13 ], [ %.03.i8.i.i, %15 ]
+  %20 = zext i32 %.03.i8.sink.i.i to i64
+  %21 = add nuw nsw i64 %20, 15
+  %22 = and i64 %21, 8589934576
+  %23 = add nuw nsw i64 %22, 16
+  tail call void @__rust_dealloc(ptr noundef nonnull %11, i64 noundef %23, i64 noundef 8) #17, !noalias !178
   br label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17h53f0d835b390e662E.llvm.5870598909725602671.exit"
 
-"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17h53f0d835b390e662E.llvm.5870598909725602671.exit": ; preds = %5, %16, %.sink.split.i.i
+"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17h53f0d835b390e662E.llvm.5870598909725602671.exit": ; preds = %5, %15, %.sink.split.i.i
   ret void
 }
 
@@ -644,7 +640,7 @@ define hidden void @"_ZN4core3ptr64drop_in_place$LT$$u5b$markup5ever..interface.
           cleanup
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   tail call void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17h53f0d835b390e662E.llvm.5870598909725602671"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7) #18
-  br label %29
+  br label %28
 
 8:                                                ; preds = %.lr.ph
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -659,56 +655,54 @@ define hidden void @"_ZN4core3ptr64drop_in_place$LT$$u5b$markup5ever..interface.
   %14 = inttoptr i64 %13 to ptr
   %15 = and i64 %10, 1
   %.not.i.i.i.i = icmp eq i64 %15, 0
-  br i1 %.not.i.i.i.i, label %16, label %19
+  br i1 %.not.i.i.i.i, label %16, label %18
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 36
   %.03.i.i.i.i = load i32, ptr %17, align 4, !alias.scope !192, !noalias !193, !noundef !4
-  %18 = icmp ne i64 %13, 0
-  tail call void @llvm.assume(i1 %18)
   br label %.sink.split.i.i.i
 
-19:                                               ; preds = %12
-  %20 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %.03.i8.i.i.i = load i32, ptr %20, align 4, !noalias !196, !noundef !4
-  %21 = load i64, ptr %14, align 8, !noalias !192, !noundef !4
-  %22 = add i64 %21, -1
-  store i64 %22, ptr %14, align 8, !noalias !192
-  %23 = icmp eq i64 %21, 1
-  br i1 %23, label %.sink.split.i.i.i, label %"_ZN4core3ptr54drop_in_place$LT$markup5ever..interface..Attribute$GT$17hbe5f7200c00cd100E.llvm.5870598909725602671.exit"
+18:                                               ; preds = %12
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %.03.i8.i.i.i = load i32, ptr %19, align 4, !noalias !196, !noundef !4
+  %20 = load i64, ptr %14, align 8, !noalias !192, !noundef !4
+  %21 = add i64 %20, -1
+  store i64 %21, ptr %14, align 8, !noalias !192
+  %22 = icmp eq i64 %20, 1
+  br i1 %22, label %.sink.split.i.i.i, label %"_ZN4core3ptr54drop_in_place$LT$markup5ever..interface..Attribute$GT$17hbe5f7200c00cd100E.llvm.5870598909725602671.exit"
 
-.sink.split.i.i.i:                                ; preds = %19, %16
-  %.03.i8.sink.i.i.i = phi i32 [ %.03.i.i.i.i, %16 ], [ %.03.i8.i.i.i, %19 ]
-  %24 = zext i32 %.03.i8.sink.i.i.i to i64
-  %25 = add nuw nsw i64 %24, 15
-  %26 = and i64 %25, 8589934576
-  %27 = add nuw nsw i64 %26, 16
-  tail call void @__rust_dealloc(ptr noundef nonnull %14, i64 noundef %27, i64 noundef 8) #17, !noalias !192
+.sink.split.i.i.i:                                ; preds = %18, %16
+  %.03.i8.sink.i.i.i = phi i32 [ %.03.i.i.i.i, %16 ], [ %.03.i8.i.i.i, %18 ]
+  %23 = zext i32 %.03.i8.sink.i.i.i to i64
+  %24 = add nuw nsw i64 %23, 15
+  %25 = and i64 %24, 8589934576
+  %26 = add nuw nsw i64 %25, 16
+  tail call void @__rust_dealloc(ptr noundef nonnull %14, i64 noundef %26, i64 noundef 8) #17, !noalias !192
   br label %"_ZN4core3ptr54drop_in_place$LT$markup5ever..interface..Attribute$GT$17hbe5f7200c00cd100E.llvm.5870598909725602671.exit"
 
-"_ZN4core3ptr54drop_in_place$LT$markup5ever..interface..Attribute$GT$17hbe5f7200c00cd100E.llvm.5870598909725602671.exit": ; preds = %8, %19, %.sink.split.i.i.i
-  %28 = icmp eq i64 %5, %1
-  br i1 %28, label %._crit_edge, label %.lr.ph
+"_ZN4core3ptr54drop_in_place$LT$markup5ever..interface..Attribute$GT$17hbe5f7200c00cd100E.llvm.5870598909725602671.exit": ; preds = %8, %18, %.sink.split.i.i.i
+  %27 = icmp eq i64 %5, %1
+  br i1 %27, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %"_ZN4core3ptr54drop_in_place$LT$markup5ever..interface..Attribute$GT$17hbe5f7200c00cd100E.llvm.5870598909725602671.exit", %2
   ret void
 
-29:                                               ; preds = %31, %.body
-  %.1 = phi i64 [ %5, %.body ], [ %33, %31 ]
-  %30 = icmp eq i64 %.1, %1
-  br i1 %30, label %34, label %31
+28:                                               ; preds = %30, %.body
+  %.1 = phi i64 [ %5, %.body ], [ %32, %30 ]
+  %29 = icmp eq i64 %.1, %1
+  br i1 %29, label %33, label %30
 
-31:                                               ; preds = %29
-  %32 = getelementptr inbounds [0 x { { i64, i64, i64 }, { i64, { { [2 x i32] } }, {}, {} } }], ptr %0, i64 0, i64 %.1
-  %33 = add i64 %.1, 1
-  invoke void @"_ZN4core3ptr54drop_in_place$LT$markup5ever..interface..Attribute$GT$17hbe5f7200c00cd100E.llvm.5870598909725602671"(ptr noalias noundef nonnull align 8 dereferenceable(40) %32) #18
-          to label %29 unwind label %35
+30:                                               ; preds = %28
+  %31 = getelementptr inbounds [0 x { { i64, i64, i64 }, { i64, { { [2 x i32] } }, {}, {} } }], ptr %0, i64 0, i64 %.1
+  %32 = add i64 %.1, 1
+  invoke void @"_ZN4core3ptr54drop_in_place$LT$markup5ever..interface..Attribute$GT$17hbe5f7200c00cd100E.llvm.5870598909725602671"(ptr noalias noundef nonnull align 8 dereferenceable(40) %31) #18
+          to label %28 unwind label %34
 
-34:                                               ; preds = %29
+33:                                               ; preds = %28
   resume { ptr, i32 } %6
 
-35:                                               ; preds = %31
-  %36 = landingpad { ptr, i32 }
+34:                                               ; preds = %30
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #19
   unreachable
@@ -734,34 +728,32 @@ define hidden void @"_ZN4core3ptr69drop_in_place$LT$html5ever..tokenizer..char_r
   %10 = inttoptr i64 %9 to ptr
   %11 = and i64 %6, 1
   %.not.i.i.i.i = icmp eq i64 %11, 0
-  br i1 %.not.i.i.i.i, label %12, label %15
+  br i1 %.not.i.i.i.i, label %12, label %14
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %.03.i.i.i.i = load i32, ptr %13, align 4, !alias.scope !206, !noalias !207, !noundef !4
-  %14 = icmp ne i64 %9, 0
-  tail call void @llvm.assume(i1 %14)
   br label %.sink.split.i.i.i
 
-15:                                               ; preds = %8
-  %16 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.03.i8.i.i.i = load i32, ptr %16, align 4, !noalias !210, !noundef !4
-  %17 = load i64, ptr %10, align 8, !noalias !206, !noundef !4
-  %18 = add i64 %17, -1
-  store i64 %18, ptr %10, align 8, !noalias !206
-  %19 = icmp eq i64 %17, 1
-  br i1 %19, label %.sink.split.i.i.i, label %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$$GT$17h23157c58c58c6d9fE.llvm.5870598909725602671.exit"
+14:                                               ; preds = %8
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.03.i8.i.i.i = load i32, ptr %15, align 4, !noalias !210, !noundef !4
+  %16 = load i64, ptr %10, align 8, !noalias !206, !noundef !4
+  %17 = add i64 %16, -1
+  store i64 %17, ptr %10, align 8, !noalias !206
+  %18 = icmp eq i64 %16, 1
+  br i1 %18, label %.sink.split.i.i.i, label %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$$GT$17h23157c58c58c6d9fE.llvm.5870598909725602671.exit"
 
-.sink.split.i.i.i:                                ; preds = %15, %12
-  %.03.i8.sink.i.i.i = phi i32 [ %.03.i.i.i.i, %12 ], [ %.03.i8.i.i.i, %15 ]
-  %20 = zext i32 %.03.i8.sink.i.i.i to i64
-  %21 = add nuw nsw i64 %20, 15
-  %22 = and i64 %21, 8589934576
-  %23 = add nuw nsw i64 %22, 16
-  tail call void @__rust_dealloc(ptr noundef nonnull %10, i64 noundef %23, i64 noundef 8) #17, !noalias !206
+.sink.split.i.i.i:                                ; preds = %14, %12
+  %.03.i8.sink.i.i.i = phi i32 [ %.03.i.i.i.i, %12 ], [ %.03.i8.i.i.i, %14 ]
+  %19 = zext i32 %.03.i8.sink.i.i.i to i64
+  %20 = add nuw nsw i64 %19, 15
+  %21 = and i64 %20, 8589934576
+  %22 = add nuw nsw i64 %21, 16
+  tail call void @__rust_dealloc(ptr noundef nonnull %10, i64 noundef %22, i64 noundef 8) #17, !noalias !206
   br label %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$$GT$17h23157c58c58c6d9fE.llvm.5870598909725602671.exit"
 
-"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$$GT$17h23157c58c58c6d9fE.llvm.5870598909725602671.exit": ; preds = %1, %4, %15, %.sink.split.i.i.i
+"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$$GT$17h23157c58c58c6d9fE.llvm.5870598909725602671.exit": ; preds = %1, %4, %14, %.sink.split.i.i.i
   ret void
 }
 
@@ -777,34 +769,32 @@ define hidden void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT
   %6 = inttoptr i64 %5 to ptr
   %7 = and i64 %2, 1
   %.not.i.i = icmp eq i64 %7, 0
-  br i1 %.not.i.i, label %8, label %11
+  br i1 %.not.i.i, label %8, label %10
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %.03.i.i = load i32, ptr %9, align 4, !alias.scope !211, !noalias !214, !noundef !4
-  %10 = icmp ne i64 %5, 0
-  tail call void @llvm.assume(i1 %10)
   br label %.sink.split.i
 
-11:                                               ; preds = %4
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.03.i8.i = load i32, ptr %12, align 4, !noalias !217, !noundef !4
-  %13 = load i64, ptr %6, align 8, !noalias !211, !noundef !4
-  %14 = add i64 %13, -1
-  store i64 %14, ptr %6, align 8, !noalias !211
-  %15 = icmp eq i64 %13, 1
-  br i1 %15, label %.sink.split.i, label %"_ZN80_$LT$tendril..tendril..Tendril$LT$F$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he441cd10ab3a275aE.llvm.5870598909725602671.exit"
+10:                                               ; preds = %4
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.03.i8.i = load i32, ptr %11, align 4, !noalias !217, !noundef !4
+  %12 = load i64, ptr %6, align 8, !noalias !211, !noundef !4
+  %13 = add i64 %12, -1
+  store i64 %13, ptr %6, align 8, !noalias !211
+  %14 = icmp eq i64 %12, 1
+  br i1 %14, label %.sink.split.i, label %"_ZN80_$LT$tendril..tendril..Tendril$LT$F$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he441cd10ab3a275aE.llvm.5870598909725602671.exit"
 
-.sink.split.i:                                    ; preds = %11, %8
-  %.03.i8.sink.i = phi i32 [ %.03.i.i, %8 ], [ %.03.i8.i, %11 ]
-  %16 = zext i32 %.03.i8.sink.i to i64
-  %17 = add nuw nsw i64 %16, 15
-  %18 = and i64 %17, 8589934576
-  %19 = add nuw nsw i64 %18, 16
-  tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef %19, i64 noundef 8) #17, !noalias !211
+.sink.split.i:                                    ; preds = %10, %8
+  %.03.i8.sink.i = phi i32 [ %.03.i.i, %8 ], [ %.03.i8.i, %10 ]
+  %15 = zext i32 %.03.i8.sink.i to i64
+  %16 = add nuw nsw i64 %15, 15
+  %17 = and i64 %16, 8589934576
+  %18 = add nuw nsw i64 %17, 16
+  tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef %18, i64 noundef 8) #17, !noalias !211
   br label %"_ZN80_$LT$tendril..tendril..Tendril$LT$F$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he441cd10ab3a275aE.llvm.5870598909725602671.exit"
 
-"_ZN80_$LT$tendril..tendril..Tendril$LT$F$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he441cd10ab3a275aE.llvm.5870598909725602671.exit": ; preds = %1, %11, %.sink.split.i
+"_ZN80_$LT$tendril..tendril..Tendril$LT$F$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he441cd10ab3a275aE.llvm.5870598909725602671.exit": ; preds = %1, %10, %.sink.split.i
   ret void
 }
 
@@ -1345,41 +1335,39 @@ define hidden void @"_ZN80_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20
 define hidden void @"_ZN80_$LT$tendril..tendril..Tendril$LT$F$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he441cd10ab3a275aE.llvm.5870598909725602671"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !12, !noundef !4
   %3 = icmp ult i64 %2, 16
-  br i1 %3, label %20, label %4
+  br i1 %3, label %19, label %4
 
 4:                                                ; preds = %1
   %5 = and i64 %2, -2
   %6 = inttoptr i64 %5 to ptr
   %7 = and i64 %2, 1
   %.not.i = icmp eq i64 %7, 0
-  br i1 %.not.i, label %8, label %11
+  br i1 %.not.i, label %8, label %10
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %.03.i = load i32, ptr %9, align 4, !noalias !305, !noundef !4
-  %10 = icmp ne i64 %5, 0
-  tail call void @llvm.assume(i1 %10)
   br label %.sink.split
 
-11:                                               ; preds = %4
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.03.i8 = load i32, ptr %12, align 4, !noalias !305, !noundef !4
-  %13 = load i64, ptr %6, align 8, !noundef !4
-  %14 = add i64 %13, -1
-  store i64 %14, ptr %6, align 8
-  %15 = icmp eq i64 %13, 1
-  br i1 %15, label %.sink.split, label %20
+10:                                               ; preds = %4
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.03.i8 = load i32, ptr %11, align 4, !noalias !305, !noundef !4
+  %12 = load i64, ptr %6, align 8, !noundef !4
+  %13 = add i64 %12, -1
+  store i64 %13, ptr %6, align 8
+  %14 = icmp eq i64 %12, 1
+  br i1 %14, label %.sink.split, label %19
 
-.sink.split:                                      ; preds = %11, %8
-  %.03.i8.sink = phi i32 [ %.03.i, %8 ], [ %.03.i8, %11 ]
-  %16 = zext i32 %.03.i8.sink to i64
-  %17 = add nuw nsw i64 %16, 15
-  %18 = and i64 %17, 8589934576
-  %19 = add nuw nsw i64 %18, 16
-  tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef %19, i64 noundef 8) #17, !noalias !4
-  br label %20
+.sink.split:                                      ; preds = %10, %8
+  %.03.i8.sink = phi i32 [ %.03.i, %8 ], [ %.03.i8, %10 ]
+  %15 = zext i32 %.03.i8.sink to i64
+  %16 = add nuw nsw i64 %15, 15
+  %17 = and i64 %16, 8589934576
+  %18 = add nuw nsw i64 %17, 16
+  tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef %18, i64 noundef 8) #17, !noalias !4
+  br label %19
 
-20:                                               ; preds = %.sink.split, %11, %1
+19:                                               ; preds = %.sink.split, %10, %1
   ret void
 }
 

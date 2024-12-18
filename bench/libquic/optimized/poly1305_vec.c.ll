@@ -631,7 +631,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @poly1305_blocks(ptr nocapture noundef %st, ptr nocapture noundef readonly %m, i64 noundef range(i64 0, -63) %bytes) unnamed_addr #2 {
+define internal fastcc void @poly1305_blocks(ptr nocapture noundef %st, ptr nocapture noundef readonly %m, i64 noundef range(i64 64, -63) %bytes) unnamed_addr #2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %st, i64 288
   %1 = load <2 x i64>, ptr %0, align 16
@@ -643,10 +643,6 @@ entry:
   %4 = load <2 x i64>, ptr %arrayidx5, align 16
   %arrayidx6 = getelementptr inbounds nuw i8, ptr %st, i64 352
   %5 = load <2 x i64>, ptr %arrayidx6, align 16
-  %cmp268 = icmp ugt i64 %bytes, 63
-  br i1 %cmp268, label %while.body.lr.ph, label %while.end
-
-while.body.lr.ph:                                 ; preds = %entry
   %6 = load <2 x i64>, ptr %st, align 16
   %7 = and <2 x i64> %6, splat (i64 4294967295)
   %R21 = getelementptr inbounds nuw i8, ptr %st, i64 16
@@ -705,58 +701,58 @@ while.body.lr.ph:                                 ; preds = %entry
   %44 = and <2 x i64> %4, splat (i64 4294967295)
   br label %while.body
 
-while.body:                                       ; preds = %while.body.lr.ph, %while.body
-  %m.addr.0275 = phi ptr [ %m, %while.body.lr.ph ], [ %add.ptr214, %while.body ]
-  %bytes.addr.0274 = phi i64 [ %bytes, %while.body.lr.ph ], [ %sub, %while.body ]
-  %H0.0273 = phi <2 x i64> [ %42, %while.body.lr.ph ], [ %and.i366, %while.body ]
-  %H1.0272 = phi <2 x i64> [ %2, %while.body.lr.ph ], [ %add.i454, %while.body ]
-  %H2.0271 = phi <2 x i64> [ %43, %while.body.lr.ph ], [ %and.i369, %while.body ]
-  %H3.0270 = phi <2 x i64> [ %44, %while.body.lr.ph ], [ %and.i, %while.body ]
-  %H4.0269 = phi <2 x i64> [ %5, %while.body.lr.ph ], [ %add.i, %while.body ]
-  %45 = mul nuw <2 x i64> %7, %H0.0273
-  %46 = mul nuw <2 x i64> %9, %H0.0273
-  %47 = mul nuw <2 x i64> %11, %H0.0273
-  %48 = mul nuw <2 x i64> %13, %H0.0273
-  %49 = mul nuw <2 x i64> %15, %H0.0273
-  %50 = and <2 x i64> %H1.0272, splat (i64 4294967295)
+while.body:                                       ; preds = %entry, %while.body
+  %m.addr.0274 = phi ptr [ %m, %entry ], [ %add.ptr214, %while.body ]
+  %bytes.addr.0273 = phi i64 [ %bytes, %entry ], [ %sub, %while.body ]
+  %H0.0272 = phi <2 x i64> [ %42, %entry ], [ %and.i366, %while.body ]
+  %H1.0271 = phi <2 x i64> [ %2, %entry ], [ %add.i454, %while.body ]
+  %H2.0270 = phi <2 x i64> [ %43, %entry ], [ %and.i369, %while.body ]
+  %H3.0269 = phi <2 x i64> [ %44, %entry ], [ %and.i, %while.body ]
+  %H4.0268 = phi <2 x i64> [ %5, %entry ], [ %add.i, %while.body ]
+  %45 = mul nuw <2 x i64> %7, %H0.0272
+  %46 = mul nuw <2 x i64> %9, %H0.0272
+  %47 = mul nuw <2 x i64> %11, %H0.0272
+  %48 = mul nuw <2 x i64> %13, %H0.0272
+  %49 = mul nuw <2 x i64> %15, %H0.0272
+  %50 = and <2 x i64> %H1.0271, splat (i64 4294967295)
   %51 = mul nuw <2 x i64> %17, %50
   %52 = mul nuw <2 x i64> %7, %50
   %add.i619 = add <2 x i64> %51, %45
   %add.i616 = add <2 x i64> %46, %52
-  %53 = mul nuw <2 x i64> %19, %H2.0271
-  %54 = mul nuw <2 x i64> %17, %H2.0271
+  %53 = mul nuw <2 x i64> %19, %H2.0270
+  %54 = mul nuw <2 x i64> %17, %H2.0270
   %add.i613 = add <2 x i64> %add.i619, %53
   %add.i610 = add <2 x i64> %add.i616, %54
-  %55 = mul nuw <2 x i64> %21, %H3.0270
-  %56 = mul nuw <2 x i64> %19, %H3.0270
+  %55 = mul nuw <2 x i64> %21, %H3.0269
+  %56 = mul nuw <2 x i64> %19, %H3.0269
   %add.i607 = add <2 x i64> %add.i613, %55
   %add.i604 = add <2 x i64> %add.i610, %56
-  %57 = and <2 x i64> %H4.0269, splat (i64 4294967295)
+  %57 = and <2 x i64> %H4.0268, splat (i64 4294967295)
   %58 = mul nuw <2 x i64> %23, %57
   %59 = mul nuw <2 x i64> %21, %57
   %add.i601 = add <2 x i64> %add.i607, %58
   %add.i598 = add <2 x i64> %add.i604, %59
   %60 = mul nuw <2 x i64> %9, %50
   %61 = mul nuw <2 x i64> %11, %50
-  %62 = mul nuw <2 x i64> %7, %H2.0271
-  %63 = mul nuw <2 x i64> %9, %H2.0271
-  %64 = mul nuw <2 x i64> %17, %H3.0270
-  %65 = mul nuw <2 x i64> %7, %H3.0270
+  %62 = mul nuw <2 x i64> %7, %H2.0270
+  %63 = mul nuw <2 x i64> %9, %H2.0270
+  %64 = mul nuw <2 x i64> %17, %H3.0269
+  %65 = mul nuw <2 x i64> %7, %H3.0269
   %66 = mul nuw <2 x i64> %19, %57
   %67 = mul nuw <2 x i64> %17, %57
   %68 = mul nuw <2 x i64> %13, %50
-  %69 = mul nuw <2 x i64> %11, %H2.0271
-  %70 = mul nuw <2 x i64> %9, %H3.0270
+  %69 = mul nuw <2 x i64> %11, %H2.0270
+  %70 = mul nuw <2 x i64> %9, %H3.0269
   %71 = mul nuw <2 x i64> %7, %57
-  %72 = load i64, ptr %m.addr.0275, align 1
+  %72 = load i64, ptr %m.addr.0274, align 1
   %vecinit1.i361 = insertelement <2 x i64> poison, i64 %72, i64 0
-  %add.ptr70 = getelementptr inbounds nuw i8, ptr %m.addr.0275, i64 16
+  %add.ptr70 = getelementptr inbounds nuw i8, ptr %m.addr.0274, i64 16
   %73 = load i64, ptr %add.ptr70, align 1
   %shuffle.i332 = insertelement <2 x i64> %vecinit1.i361, i64 %73, i64 1
-  %add.ptr73 = getelementptr inbounds nuw i8, ptr %m.addr.0275, i64 8
+  %add.ptr73 = getelementptr inbounds nuw i8, ptr %m.addr.0274, i64 8
   %74 = load i64, ptr %add.ptr73, align 1
   %vecinit1.i353 = insertelement <2 x i64> poison, i64 %74, i64 0
-  %add.ptr75 = getelementptr inbounds nuw i8, ptr %m.addr.0275, i64 24
+  %add.ptr75 = getelementptr inbounds nuw i8, ptr %m.addr.0274, i64 24
   %75 = load i64, ptr %add.ptr75, align 1
   %shuffle.i329 = insertelement <2 x i64> %vecinit1.i353, i64 %75, i64 1
   %and.i405 = and <2 x i64> %shuffle.i332, splat (i64 67108863)
@@ -798,16 +794,16 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %101 = mul nuw nsw <2 x i64> %37, %and.i399
   %102 = mul nuw nsw <2 x i64> %and.i396, %27
   %103 = mul nuw nsw <2 x i64> %or.i442, %25
-  %add.ptr166 = getelementptr inbounds nuw i8, ptr %m.addr.0275, i64 32
+  %add.ptr166 = getelementptr inbounds nuw i8, ptr %m.addr.0274, i64 32
   %104 = load i64, ptr %add.ptr166, align 1
   %vecinit1.i345 = insertelement <2 x i64> poison, i64 %104, i64 0
-  %add.ptr168 = getelementptr inbounds nuw i8, ptr %m.addr.0275, i64 48
+  %add.ptr168 = getelementptr inbounds nuw i8, ptr %m.addr.0274, i64 48
   %105 = load i64, ptr %add.ptr168, align 1
   %shuffle.i326 = insertelement <2 x i64> %vecinit1.i345, i64 %105, i64 1
-  %add.ptr171 = getelementptr inbounds nuw i8, ptr %m.addr.0275, i64 40
+  %add.ptr171 = getelementptr inbounds nuw i8, ptr %m.addr.0274, i64 40
   %106 = load i64, ptr %add.ptr171, align 1
   %vecinit1.i337 = insertelement <2 x i64> poison, i64 %106, i64 0
-  %add.ptr173 = getelementptr inbounds nuw i8, ptr %m.addr.0275, i64 56
+  %add.ptr173 = getelementptr inbounds nuw i8, ptr %m.addr.0274, i64 56
   %107 = load i64, ptr %add.ptr173, align 1
   %shuffle.i = insertelement <2 x i64> %vecinit1.i337, i64 %107, i64 1
   %and.i393 = and <2 x i64> %shuffle.i326, splat (i64 67108863)
@@ -879,22 +875,17 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %119 = lshr <2 x i64> %add.i457, splat (i64 26)
   %and.i = and <2 x i64> %add.i457, splat (i64 67108863)
   %add.i = add nuw nsw <2 x i64> %and.i372, %119
-  %add.ptr214 = getelementptr inbounds nuw i8, ptr %m.addr.0275, i64 64
-  %sub = add i64 %bytes.addr.0274, -64
+  %add.ptr214 = getelementptr inbounds nuw i8, ptr %m.addr.0274, i64 64
+  %sub = add i64 %bytes.addr.0273, -64
   %cmp = icmp ugt i64 %sub, 63
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !9
 
-while.end:                                        ; preds = %while.body, %entry
-  %H4.0.lcssa = phi <2 x i64> [ %5, %entry ], [ %add.i, %while.body ]
-  %H3.0.lcssa = phi <2 x i64> [ %4, %entry ], [ %and.i, %while.body ]
-  %H2.0.lcssa = phi <2 x i64> [ %3, %entry ], [ %and.i369, %while.body ]
-  %H1.0.lcssa = phi <2 x i64> [ %2, %entry ], [ %add.i454, %while.body ]
-  %H0.0.lcssa = phi <2 x i64> [ %1, %entry ], [ %and.i366, %while.body ]
-  store <2 x i64> %H0.0.lcssa, ptr %0, align 16
-  store <2 x i64> %H1.0.lcssa, ptr %arrayidx3, align 16
-  store <2 x i64> %H2.0.lcssa, ptr %arrayidx4, align 16
-  store <2 x i64> %H3.0.lcssa, ptr %arrayidx5, align 16
-  store <2 x i64> %H4.0.lcssa, ptr %arrayidx6, align 16
+while.end:                                        ; preds = %while.body
+  store <2 x i64> %and.i366, ptr %0, align 16
+  store <2 x i64> %add.i454, ptr %arrayidx3, align 16
+  store <2 x i64> %and.i369, ptr %arrayidx4, align 16
+  store <2 x i64> %and.i, ptr %arrayidx5, align 16
+  store <2 x i64> %add.i, ptr %arrayidx6, align 16
   ret void
 }
 
