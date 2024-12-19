@@ -1195,14 +1195,12 @@ entry:
   %cond49 = tail call i32 @llvm.smax.i32(i32 %cond37, i32 0)
   %cond57 = tail call i32 @llvm.smin.i32(i32 %a, i32 255)
   %cond69 = tail call i32 @llvm.smax.i32(i32 %cond57, i32 0)
-  %retval.sroa.4.0.insert.ext = shl nuw i32 %cond69, 24
-  %retval.sroa.3.0.insert.ext = shl nuw nsw i32 %cond49, 16
-  %retval.sroa.3.0.insert.shift = and i32 %retval.sroa.3.0.insert.ext, 16711680
-  %retval.sroa.3.0.insert.insert = or disjoint i32 %retval.sroa.4.0.insert.ext, %retval.sroa.3.0.insert.shift
-  %retval.sroa.2.0.insert.ext = shl nuw nsw i32 %cond29, 8
-  %retval.sroa.2.0.insert.shift = and i32 %retval.sroa.2.0.insert.ext, 65280
+  %retval.sroa.4.0.insert.shift = shl nuw i32 %cond69, 24
+  %retval.sroa.3.0.insert.shift = shl nuw nsw i32 %cond49, 16
+  %retval.sroa.3.0.insert.insert = or disjoint i32 %retval.sroa.4.0.insert.shift, %retval.sroa.3.0.insert.shift
+  %retval.sroa.2.0.insert.shift = shl nuw nsw i32 %cond29, 8
   %retval.sroa.2.0.insert.insert = or disjoint i32 %retval.sroa.3.0.insert.insert, %retval.sroa.2.0.insert.shift
-  %retval.sroa.0.0.insert.insert = add nuw nsw i32 %retval.sroa.2.0.insert.insert, %cond10
+  %retval.sroa.0.0.insert.insert = or disjoint i32 %retval.sroa.2.0.insert.insert, %cond10
   ret i32 %retval.sroa.0.0.insert.insert
 }
 
@@ -1668,14 +1666,12 @@ entry:
   %cond49.i = tail call i32 @llvm.smax.i32(i32 %cond37.i, i32 0)
   %cond57.i = tail call i32 @llvm.smin.i32(i32 %3, i32 255)
   %cond69.i = tail call i32 @llvm.smax.i32(i32 %cond57.i, i32 0)
-  %retval.sroa.4.0.insert.ext.i = shl nuw i32 %cond69.i, 24
-  %retval.sroa.3.0.insert.ext.i = shl nuw nsw i32 %cond49.i, 16
-  %retval.sroa.3.0.insert.shift.i = and i32 %retval.sroa.3.0.insert.ext.i, 16711680
-  %retval.sroa.2.0.insert.ext.i = shl nuw nsw i32 %cond29.i, 8
-  %retval.sroa.2.0.insert.shift.i = and i32 %retval.sroa.2.0.insert.ext.i, 65280
-  %retval.sroa.2.0.insert.insert.i = add nuw nsw i32 %retval.sroa.2.0.insert.shift.i, %cond10.i
-  %retval.sroa.3.0.insert.insert.i = add nuw nsw i32 %retval.sroa.2.0.insert.insert.i, %retval.sroa.3.0.insert.shift.i
-  %retval.sroa.0.0.insert.insert.i = add nuw nsw i32 %retval.sroa.3.0.insert.insert.i, %retval.sroa.4.0.insert.ext.i
+  %retval.sroa.4.0.insert.shift.i = shl nuw i32 %cond69.i, 24
+  %retval.sroa.3.0.insert.shift.i = shl nuw nsw i32 %cond49.i, 16
+  %retval.sroa.3.0.insert.insert.i = or disjoint i32 %retval.sroa.4.0.insert.shift.i, %retval.sroa.3.0.insert.shift.i
+  %retval.sroa.2.0.insert.shift.i = shl nuw nsw i32 %cond29.i, 8
+  %retval.sroa.2.0.insert.insert.i = or disjoint i32 %retval.sroa.3.0.insert.insert.i, %retval.sroa.2.0.insert.shift.i
+  %retval.sroa.0.0.insert.insert.i = or disjoint i32 %retval.sroa.2.0.insert.insert.i, %cond10.i
   ret i32 %retval.sroa.0.0.insert.insert.i
 }
 
@@ -1695,12 +1691,11 @@ entry:
   %cond29 = tail call i32 @llvm.smax.i32(i32 %cond17, i32 0)
   %cond37 = tail call i32 @llvm.smin.i32(i32 %b, i32 255)
   %cond49 = tail call i32 @llvm.smax.i32(i32 %cond37, i32 0)
-  %retval.sroa.3.0.insert.ext = shl nuw nsw i32 %cond49, 16
-  %retval.sroa.2.0.insert.ext = shl nuw nsw i32 %cond29, 8
-  %retval.sroa.2.0.insert.shift = and i32 %retval.sroa.2.0.insert.ext, 65280
-  %retval.sroa.3.0.insert.insert = or disjoint i32 %retval.sroa.3.0.insert.ext, %retval.sroa.2.0.insert.shift
-  %retval.sroa.2.0.insert.insert = add nuw nsw i32 %retval.sroa.3.0.insert.insert, %cond10
-  %retval.sroa.0.0.insert.insert = or i32 %retval.sroa.2.0.insert.insert, -16777216
+  %retval.sroa.3.0.insert.shift = shl nuw nsw i32 %cond49, 16
+  %retval.sroa.2.0.insert.shift = shl nuw nsw i32 %cond29, 8
+  %retval.sroa.3.0.insert.insert = or disjoint i32 %retval.sroa.3.0.insert.shift, %retval.sroa.2.0.insert.shift
+  %retval.sroa.2.0.insert.insert = or disjoint i32 %retval.sroa.3.0.insert.insert, %cond10
+  %retval.sroa.0.0.insert.insert = or disjoint i32 %retval.sroa.2.0.insert.insert, -16777216
   ret i32 %retval.sroa.0.0.insert.insert
 }
 
@@ -1718,12 +1713,11 @@ entry:
   %cond29.i = tail call i32 @llvm.smax.i32(i32 %cond17.i, i32 0)
   %cond37.i = tail call i32 @llvm.smin.i32(i32 %2, i32 255)
   %cond49.i = tail call i32 @llvm.smax.i32(i32 %cond37.i, i32 0)
-  %retval.sroa.3.0.insert.ext.i = shl nuw nsw i32 %cond49.i, 16
-  %retval.sroa.2.0.insert.ext.i = shl nuw nsw i32 %cond29.i, 8
-  %retval.sroa.2.0.insert.shift.i = and i32 %retval.sroa.2.0.insert.ext.i, 65280
-  %retval.sroa.3.0.insert.insert.i = add nuw nsw i32 %retval.sroa.2.0.insert.shift.i, %cond10.i
-  %retval.sroa.2.0.insert.insert.i = add nuw nsw i32 %retval.sroa.3.0.insert.insert.i, %retval.sroa.3.0.insert.ext.i
-  %retval.sroa.0.0.insert.insert.i = or i32 %retval.sroa.2.0.insert.insert.i, -16777216
+  %retval.sroa.3.0.insert.shift.i = shl nuw nsw i32 %cond49.i, 16
+  %retval.sroa.2.0.insert.shift.i = shl nuw nsw i32 %cond29.i, 8
+  %retval.sroa.3.0.insert.insert.i = or disjoint i32 %retval.sroa.3.0.insert.shift.i, %retval.sroa.2.0.insert.shift.i
+  %retval.sroa.2.0.insert.insert.i = or disjoint i32 %retval.sroa.3.0.insert.insert.i, %cond10.i
+  %retval.sroa.0.0.insert.insert.i = or disjoint i32 %retval.sroa.2.0.insert.insert.i, -16777216
   ret i32 %retval.sroa.0.0.insert.insert.i
 }
 
@@ -11397,8 +11391,8 @@ nk_draw_vertex_layout_element_is_end_of_layout.exit.lr.ph: ; preds = %entry
   %arrayidx100.i = getelementptr inbounds nuw i8, ptr %col89.i, i64 4
   %cond50.i.i47.i = select i1 %cmp39.i.i68.i, i32 %18, i32 0
   %25 = shl nuw nsw i32 %11, 16
-  %retval.sroa.3.0.insert.ext.i.i = select i1 %cmp1.i.i60.i, i32 %25, i32 0
-  %26 = or disjoint i32 %retval.sroa.3.0.insert.ext.i.i, %cond50.i.i47.i
+  %retval.sroa.3.0.insert.shift.i.i = select i1 %cmp1.i.i60.i, i32 %25, i32 0
+  %26 = or disjoint i32 %retval.sroa.3.0.insert.shift.i.i, %cond50.i.i47.i
   %retval.sroa.2.0.insert.insert.i.i = or disjoint i32 %26, %cond29.i.i65.i
   %retval.sroa.0.0.insert.insert.i.i = or disjoint i32 %retval.sroa.2.0.insert.insert.i.i, %cond71.i.i73.i
   br label %nk_draw_vertex_layout_element_is_end_of_layout.exit

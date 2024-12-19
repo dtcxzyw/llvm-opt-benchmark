@@ -2809,7 +2809,7 @@ split_sdf_shape.exit.thread:                      ; preds = %.lr.ph96.i, %72, %s
   %108 = zext nneg i32 %3 to i64
   %109 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %110 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.5.0..sroa_idx.i26.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sroa.5.0..sroa_idx.i25.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %111 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %112 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -3079,14 +3079,14 @@ get_control_box.exit.i:                           ; preds = %.critedge4.i.i, %.l
   %.sroa.063.0.copyload.i.i.us.i = load i64, ptr %.0139164.sroa.9.0..0139.sroa_idx.i, align 8
   %.sroa.466.0.copyload.i.i.us.i = load i64, ptr %.0139164.sroa.11.0..0139.sroa_idx.i, align 8
   %.sroa.060.0.copyload.i.i.us.i = load i64, ptr %.0139164.sroa.13.0..0139.sroa_idx.i, align 8
-  %.sroa.3.0.copyload.i25.i.us.i = load i64, ptr %.0139164.sroa.14.0..0139.sroa_idx.i, align 8
+  %.sroa.3.0.copyload.i24.i.us.i = load i64, ptr %.0139164.sroa.14.0..0139.sroa_idx.i, align 8
   %.sroa.058.0.copyload.i.i.us.i = load i64, ptr %.0139164.sroa.7.0..0139.sroa_idx.i, align 8
   %.sroa.259.0.copyload.i.i.us.i = load i64, ptr %.0139164.sroa.8.0..0139.sroa_idx.i, align 8
   %228 = sub nsw i64 %.sroa.063.0.copyload.i.i.us.i, %.sroa.060.0.copyload.i.i.us.i
   %229 = mul nsw i64 %228, 3
   %230 = sub i64 %229, %.sroa.069.0.copyload.i.i.us.i
   %231 = add nsw i64 %230, %.sroa.058.0.copyload.i.i.us.i
-  %232 = sub nsw i64 %.sroa.466.0.copyload.i.i.us.i, %.sroa.3.0.copyload.i25.i.us.i
+  %232 = sub nsw i64 %.sroa.466.0.copyload.i.i.us.i, %.sroa.3.0.copyload.i24.i.us.i
   %233 = mul nsw i64 %232, 3
   %234 = sub i64 %233, %.sroa.573.0.copyload.i.i.us.i
   %235 = add nsw i64 %234, %.sroa.259.0.copyload.i.i.us.i
@@ -3095,7 +3095,7 @@ get_control_box.exit.i:                           ; preds = %.critedge4.i.i, %.l
   %238 = add nsw i64 %237, %.sroa.060.0.copyload.i.i.us.i
   %239 = shl nsw i64 %.sroa.466.0.copyload.i.i.us.i, 1
   %240 = sub nsw i64 %.sroa.573.0.copyload.i.i.us.i, %239
-  %241 = add nsw i64 %240, %.sroa.3.0.copyload.i25.i.us.i
+  %241 = add nsw i64 %240, %.sroa.3.0.copyload.i24.i.us.i
   %242 = sub nsw i64 %.sroa.063.0.copyload.i.i.us.i, %.sroa.069.0.copyload.i.i.us.i
   %243 = mul nsw i64 %242, 3
   %244 = sub nsw i64 %.sroa.466.0.copyload.i.i.us.i, %.sroa.573.0.copyload.i.i.us.i
@@ -3119,17 +3119,17 @@ get_control_box.exit.i:                           ; preds = %.critedge4.i.i, %.l
 254:                                              ; preds = %395, %227
   %255 = phi i64 [ 0, %227 ], [ %320, %395 ]
   %256 = phi i64 [ 0, %227 ], [ %321, %395 ]
-  %indvars.iv.i27.i.us.i = phi i32 [ 0, %227 ], [ %indvars.iv.next.i32.i.us.i, %395 ]
-  %.0114166.i.i.us.i = phi i32 [ 0, %227 ], [ %.2.i28.i.us.i, %395 ]
+  %indvars.iv.i26.i.us.i = phi i32 [ 0, %227 ], [ %indvars.iv.next.i31.i.us.i, %395 ]
+  %.0114166.i.i.us.i = phi i32 [ 0, %227 ], [ %.2.i27.i.us.i, %395 ]
   %.0115165.i.i.us.i = phi i32 [ 0, %227 ], [ %.2117.i.i.us.i, %395 ]
   %.0119164.i.i.us.i = phi i32 [ 2147483647, %227 ], [ %.2121.i.i.us.i, %395 ]
-  %257 = shl nuw nsw i32 %indvars.iv.i27.i.us.i, 14
+  %257 = shl nuw nsw i32 %indvars.iv.i26.i.us.i, 14
   br label %258
 
 258:                                              ; preds = %319, %254
   %259 = phi i64 [ %255, %254 ], [ %320, %319 ]
   %260 = phi i64 [ %256, %254 ], [ %321, %319 ]
-  %.1162.i.i.us.i = phi i32 [ %.0114166.i.i.us.i, %254 ], [ %.2.i28.i.us.i, %319 ]
+  %.1162.i.i.us.i = phi i32 [ %.0114166.i.i.us.i, %254 ], [ %.2.i27.i.us.i, %319 ]
   %.1116161.i.i.us.i = phi i32 [ %.0115165.i.i.us.i, %254 ], [ %.2117.i.i.us.i, %319 ]
   %.1120160.i.i.us.i = phi i32 [ %.0119164.i.i.us.i, %254 ], [ %.2121.i.i.us.i, %319 ]
   %.0124159.i.i.us.i = phi i16 [ 0, %254 ], [ %393, %319 ]
@@ -3205,7 +3205,7 @@ get_control_box.exit.i:                           ; preds = %.critedge4.i.i, %.l
   %321 = phi i64 [ %318, %315 ], [ %260, %258 ]
   %.2121.i.i.us.i = phi i32 [ %313, %315 ], [ %.1120160.i.i.us.i, %258 ]
   %.2117.i.i.us.i = phi i32 [ %316, %315 ], [ %.1116161.i.i.us.i, %258 ]
-  %.2.i28.i.us.i = phi i32 [ %.0125158.i.i.us.i, %315 ], [ %.1162.i.i.us.i, %258 ]
+  %.2.i27.i.us.i = phi i32 [ %.0125158.i.i.us.i, %315 ], [ %.1162.i.i.us.i, %258 ]
   %322 = mul nuw nsw i64 %264, 3
   %323 = and i64 %322, 4294967295
   %324 = mul nsw i64 %323, %246
@@ -3276,23 +3276,23 @@ get_control_box.exit.i:                           ; preds = %.critedge4.i.i, %.l
   %385 = add nuw nsw i64 %378, %380
   %386 = add nsw i64 %385, %382
   %387 = add nsw i64 %386, %384
-  %sext.i29.i.us.i = shl i64 %376, 32
-  %388 = ashr exact i64 %sext.i29.i.us.i, 32
+  %sext.i28.i.us.i = shl i64 %376, 32
+  %388 = ashr exact i64 %sext.i28.i.us.i, 32
   %sext131.i.i.us.i = shl i64 %387, 32
   %389 = ashr exact i64 %sext131.i.i.us.i, 32
   %390 = call i64 @FT_DivFix(i64 noundef %388, i64 noundef %389) #11
   %391 = trunc i64 %390 to i32
   %392 = sub i32 %.0125158.i.i.us.i, %391
-  %or.cond3.i30.i.us.i = icmp ult i32 %392, 65537
+  %or.cond3.i29.i.us.i = icmp ult i32 %392, 65537
   %393 = add nuw nsw i16 %.0124159.i.i.us.i, 1
   %394 = icmp samesign ult i16 %.0124159.i.i.us.i, 3
-  %or.cond.i31.i.us.i = select i1 %or.cond3.i30.i.us.i, i1 %394, i1 false
-  br i1 %or.cond.i31.i.us.i, label %258, label %395, !llvm.loop !33
+  %or.cond.i30.i.us.i = select i1 %or.cond3.i29.i.us.i, i1 %394, i1 false
+  br i1 %or.cond.i30.i.us.i, label %258, label %395, !llvm.loop !33
 
 395:                                              ; preds = %319
-  %indvars.iv.next.i32.i.us.i = add nuw nsw i32 %indvars.iv.i27.i.us.i, 1
-  %exitcond.not.i33.i.us.i = icmp eq i32 %indvars.iv.next.i32.i.us.i, 5
-  br i1 %exitcond.not.i33.i.us.i, label %396, label %254, !llvm.loop !34
+  %indvars.iv.next.i31.i.us.i = add nuw nsw i32 %indvars.iv.i26.i.us.i, 1
+  %exitcond.not.i32.i.us.i = icmp eq i32 %indvars.iv.next.i31.i.us.i, 5
+  br i1 %exitcond.not.i32.i.us.i, label %396, label %254, !llvm.loop !34
 
 396:                                              ; preds = %395
   %397 = mul nsw i32 %.2117.i.i.us.i, 3
@@ -3302,7 +3302,7 @@ get_control_box.exit.i:                           ; preds = %.critedge4.i.i, %.l
   %401 = add nsw i64 %399, 32768
   %402 = add nsw i64 %401, %400
   %403 = lshr i64 %402, 16
-  %404 = shl nuw nsw i32 %.2.i28.i.us.i, 1
+  %404 = shl nuw nsw i32 %.2.i27.i.us.i, 1
   %405 = zext nneg i32 %404 to i64
   %406 = mul nsw i64 %247, %405
   %407 = ashr i64 %406, 63
@@ -3354,17 +3354,17 @@ get_control_box.exit.i:                           ; preds = %.critedge4.i.i, %.l
   %445 = trunc i64 %444 to i32
   %446 = icmp slt i32 %436, %445
   %447 = select i1 %446, i8 1, i8 -1
-  %448 = and i32 %.2.i28.i.us.i, -65537
-  %or.cond5.not.i34.i.us.i = icmp eq i32 %448, 0
-  br i1 %or.cond5.not.i34.i.us.i, label %449, label %get_min_distance_cubic.exit.i.us.i
+  %448 = and i32 %.2.i27.i.us.i, -65537
+  %or.cond5.not.i33.i.us.i = icmp eq i32 %448, 0
+  br i1 %or.cond5.not.i33.i.us.i, label %449, label %get_min_distance_cubic.exit.i.us.i
 
 449:                                              ; preds = %396
   store i64 %428, ptr %6, align 8
-  store i64 %437, ptr %.sroa.5.0..sroa_idx.i26.i.i, align 8
+  store i64 %437, ptr %.sroa.5.0..sroa_idx.i25.i.i, align 8
   %450 = call i32 @FT_Vector_NormLen(ptr noundef nonnull %7) #11
   %451 = call i32 @FT_Vector_NormLen(ptr noundef nonnull %6) #11
   %452 = load i64, ptr %7, align 8
-  %453 = load i64, ptr %.sroa.5.0..sroa_idx.i26.i.i, align 8
+  %453 = load i64, ptr %.sroa.5.0..sroa_idx.i25.i.i, align 8
   %sext142.i.i.us.i = shl i64 %452, 32
   %454 = ashr exact i64 %sext142.i.i.us.i, 32
   %sext143.i.i.us.i = shl i64 %453, 32
@@ -3391,7 +3391,7 @@ get_control_box.exit.i:                           ; preds = %.critedge4.i.i, %.l
   br label %get_min_distance_cubic.exit.i.us.i
 
 get_min_distance_cubic.exit.i.us.i:               ; preds = %449, %396
-  %.sink.i36.i.us.i = phi i32 [ %472, %449 ], [ 65536, %396 ]
+  %.sink.i35.i.us.i = phi i32 [ %472, %449 ], [ 65536, %396 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
@@ -3544,10 +3544,10 @@ get_min_distance_cubic.exit.i.us.i:               ; preds = %449, %396
   %579 = call i64 @FT_DivFix(i64 noundef %577, i64 noundef %578) #11
   %580 = trunc i64 %579 to i32
   %581 = sub i32 %.093120.i.i.us.i, %580
-  %or.cond3.i19.i.us.i = icmp ult i32 %581, 65537
+  %or.cond3.i.i.us.i = icmp ult i32 %581, 65537
   %582 = add nuw nsw i16 %.092121.i.i.us.i, 1
   %583 = icmp samesign ult i16 %.092121.i.i.us.i, 3
-  %or.cond.i.i.us.i = select i1 %or.cond3.i19.i.us.i, i1 %583, i1 false
+  %or.cond.i.i.us.i = select i1 %or.cond3.i.i.us.i, i1 %583, i1 false
   br i1 %or.cond.i.i.us.i, label %494, label %584, !llvm.loop !35
 
 584:                                              ; preds = %538
@@ -3637,7 +3637,7 @@ get_min_distance_cubic.exit.i.us.i:               ; preds = %449, %396
   br label %get_min_distance_conic.exit.i.us.i
 
 get_min_distance_conic.exit.i.us.i:               ; preds = %623, %585
-  %.sink.i21.i.us.i = phi i32 [ %646, %623 ], [ 65536, %585 ]
+  %.sink.i20.i.us.i = phi i32 [ %646, %623 ], [ 65536, %585 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
@@ -3723,9 +3723,8 @@ get_min_distance_conic.exit.i.us.i:               ; preds = %623, %585
   %704 = select i1 %703, i8 1, i8 -1
   %705 = call i64 @FT_Vector_Length(ptr noundef nonnull %13) #11
   %706 = trunc i64 %705 to i32
-  %707 = add i32 %665, -1
-  %or.cond3.i.i.us.i = icmp ult i32 %707, 65535
-  br i1 %or.cond3.i.i.us.i, label %get_min_distance_line.exit.i.us.i, label %708
+  %707 = icmp sgt i32 %665, 0
+  br i1 %707, label %get_min_distance_line.exit.i.us.i, label %708
 
 708:                                              ; preds = %647
   %709 = call i32 @FT_Vector_NormLen(ptr noundef nonnull %12) #11
@@ -3764,7 +3763,7 @@ get_min_distance_line.exit.i.us.i:                ; preds = %708, %647
   br label %732
 
 732:                                              ; preds = %get_min_distance_line.exit.i.us.i, %get_min_distance_conic.exit.i.us.i, %get_min_distance_cubic.exit.i.us.i
-  %.sroa.0.sroa.10.0.ph.us.i = phi i32 [ %.sink.i.i.us.i, %get_min_distance_line.exit.i.us.i ], [ %.sink.i21.i.us.i, %get_min_distance_conic.exit.i.us.i ], [ %.sink.i36.i.us.i, %get_min_distance_cubic.exit.i.us.i ]
+  %.sroa.0.sroa.10.0.ph.us.i = phi i32 [ %.sink.i.i.us.i, %get_min_distance_line.exit.i.us.i ], [ %.sink.i20.i.us.i, %get_min_distance_conic.exit.i.us.i ], [ %.sink.i35.i.us.i, %get_min_distance_cubic.exit.i.us.i ]
   %.sroa.0.sroa.0.0.ph.us.i = phi i32 [ %706, %get_min_distance_line.exit.i.us.i ], [ %.289.i.i.us.i, %get_min_distance_conic.exit.i.us.i ], [ %.2121.i.i.us.i, %get_min_distance_cubic.exit.i.us.i ]
   %.sroa.13.1.ph.us.i = phi i8 [ %704, %get_min_distance_line.exit.i.us.i ], [ %621, %get_min_distance_conic.exit.i.us.i ], [ %447, %get_min_distance_cubic.exit.i.us.i ]
   store i32 0, ptr %14, align 4

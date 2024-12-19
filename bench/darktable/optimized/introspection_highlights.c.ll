@@ -4344,8 +4344,8 @@ define hidden noundef range(i32 0, 2) i32 @dt_segmentation_init_struct(ptr nocap
   %16 = tail call ptr @dt_alloc_aligned(i64 noundef %11) #34
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %16, ptr %17, align 8, !tbaa !59
-  %18 = zext nneg i32 %7 to i64
-  %19 = shl nuw nsw i64 %18, 2
+  %18 = shl nuw nsw i32 %7, 2
+  %19 = zext nneg i32 %18 to i64
   %20 = tail call ptr @dt_alloc_aligned(i64 noundef %19) #34
   call void @llvm.assume(i1 true) [ "align"(ptr %20, i64 64) ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
