@@ -157,6 +157,7 @@ def build_llvm():
         cmd.append("-DLLVM_ENABLE_ASSERTIONS=OFF")
     else:
         cmd.append("-DLLVM_ENABLE_ASSERTIONS=ON")
+        cmd.append("-DLLVM_ABI_BREAKING_CHECKS=FORCE_OFF")
 
     cmd.append("-B")
     cmd.append(build_dir)
