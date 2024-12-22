@@ -399,6 +399,7 @@ invoke.cont49:                                    ; preds = %land.lhs.true
   %mul2.i90 = fmul double %bt.0, %conv1.i
   %11 = tail call double @llvm.fmuladd.f64(double %sub.i, double %conv.i89, double %mul2.i90)
   %conv3.i = fptrunc double %11 to float
+  store float %conv3.i, ptr %rv, align 4
   %arrayidx32 = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 4
   %12 = load float, ptr %arrayidx32, align 4
   %arrayidx35 = getelementptr inbounds nuw i8, ptr %add.ptr.i88, i64 4
@@ -409,6 +410,7 @@ invoke.cont49:                                    ; preds = %land.lhs.true
   %14 = tail call double @llvm.fmuladd.f64(double %sub.i, double %conv.i102, double %mul2.i104)
   %conv3.i105 = fptrunc double %14 to float
   %arrayidx37 = getelementptr inbounds nuw i8, ptr %rv, i64 4
+  store float %conv3.i105, ptr %arrayidx37, align 4
   %arrayidx40 = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   %15 = load float, ptr %arrayidx40, align 4
   %arrayidx43 = getelementptr inbounds nuw i8, ptr %add.ptr.i88, i64 8
@@ -419,6 +421,7 @@ invoke.cont49:                                    ; preds = %land.lhs.true
   %17 = tail call double @llvm.fmuladd.f64(double %sub.i, double %conv.i117, double %mul2.i119)
   %conv3.i120 = fptrunc double %17 to float
   %arrayidx45 = getelementptr inbounds nuw i8, ptr %rv, i64 8
+  store float %conv3.i120, ptr %arrayidx45, align 4
   %cmp.i.i = fcmp olt float %conv3.i105, %conv3.i
   %cond.i.i = select i1 %cmp.i.i, float %conv3.i105, float %conv3.i
   %cmp.i3.i = fcmp olt float %conv3.i, %conv3.i105
@@ -468,6 +471,8 @@ lpad22:                                           ; preds = %lpad22.loopexit.spl
 
 if.end55:                                         ; preds = %_ZNSt6vectorIN7msdfgen8Scanline12IntersectionESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %invoke.cont49
   %19 = phi ptr [ %incdec.ptr.i.i, %_ZNSt6vectorIN7msdfgen8Scanline12IntersectionESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ null, %invoke.cont49 ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %rv, i64 32) ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %arrayidx37, i64 32) ]
   %cmp57262 = icmp sgt i32 %8, 1
   br i1 %cmp57262, label %for.body.lr.ph, label %for.end237
 
@@ -913,6 +918,7 @@ invoke.cont49:                                    ; preds = %land.lhs.true
   %mul2.i90 = fmul double %bt.0, %conv1.i
   %11 = tail call double @llvm.fmuladd.f64(double %sub.i, double %conv.i89, double %mul2.i90)
   %conv3.i = fptrunc double %11 to float
+  store float %conv3.i, ptr %rv, align 4
   %arrayidx32 = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 4
   %12 = load float, ptr %arrayidx32, align 4
   %arrayidx35 = getelementptr inbounds nuw i8, ptr %add.ptr.i88, i64 4
@@ -923,6 +929,7 @@ invoke.cont49:                                    ; preds = %land.lhs.true
   %14 = tail call double @llvm.fmuladd.f64(double %sub.i, double %conv.i102, double %mul2.i104)
   %conv3.i105 = fptrunc double %14 to float
   %arrayidx37 = getelementptr inbounds nuw i8, ptr %rv, i64 4
+  store float %conv3.i105, ptr %arrayidx37, align 4
   %arrayidx40 = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   %15 = load float, ptr %arrayidx40, align 4
   %arrayidx43 = getelementptr inbounds nuw i8, ptr %add.ptr.i88, i64 8
@@ -933,6 +940,7 @@ invoke.cont49:                                    ; preds = %land.lhs.true
   %17 = tail call double @llvm.fmuladd.f64(double %sub.i, double %conv.i117, double %mul2.i119)
   %conv3.i120 = fptrunc double %17 to float
   %arrayidx45 = getelementptr inbounds nuw i8, ptr %rv, i64 8
+  store float %conv3.i120, ptr %arrayidx45, align 4
   %cmp.i.i = fcmp olt float %conv3.i105, %conv3.i
   %cond.i.i = select i1 %cmp.i.i, float %conv3.i105, float %conv3.i
   %cmp.i3.i = fcmp olt float %conv3.i, %conv3.i105
@@ -982,6 +990,8 @@ lpad22:                                           ; preds = %lpad22.loopexit.spl
 
 if.end55:                                         ; preds = %_ZNSt6vectorIN7msdfgen8Scanline12IntersectionESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %invoke.cont49
   %19 = phi ptr [ %incdec.ptr.i.i, %_ZNSt6vectorIN7msdfgen8Scanline12IntersectionESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ null, %invoke.cont49 ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %rv, i64 32) ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %arrayidx37, i64 32) ]
   %cmp57262 = icmp sgt i32 %8, 1
   br i1 %cmp57262, label %for.body.lr.ph, label %for.end237
 

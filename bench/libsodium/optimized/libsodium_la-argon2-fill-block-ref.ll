@@ -5,7 +5,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.block_ = type { [128 x i64] }
 
-; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: write) uwtable
 define hidden void @_sodium_argon2_fill_segment_ref(ptr noundef readonly %instance, i64 %position.coerce0, i64 %position.coerce1) local_unnamed_addr #0 {
 entry:
   %blockR.i = alloca %struct.block_, align 8
@@ -128,6 +128,7 @@ if.end9:                                          ; preds = %if.end6.if.end9_cri
   %or.cond1 = select i1 %cmp11, i1 %cmp16, i1 false
   %spec.select39 = select i1 %or.cond1, i32 2, i32 0
   %lane_length = getelementptr inbounds nuw i8, ptr %instance, i64 32
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %lane_length, i64 32) ]
   %14 = trunc i64 %position.coerce1 to i32
   %conv21 = and i32 %14, 255
   %segment_length = getelementptr inbounds nuw i8, ptr %instance, i64 28
@@ -1698,12 +1699,16 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
 
-attributes #0 = { nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #6
+
+attributes #0 = { nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind ssp memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

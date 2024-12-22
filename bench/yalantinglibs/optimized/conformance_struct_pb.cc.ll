@@ -776,6 +776,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit14: ; pred
   br i1 %cmp4.not, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit14
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %__lhs, i64 0) ]
   %call3.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %__rhs, i64 noundef 0, i64 noundef 0, ptr noundef %2, i64 noundef %0)
   %7 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %call3.i.i) #23
@@ -1608,6 +1609,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
   br i1 %cmp.i, label %land.rhs.i, label %if.else
 
 land.rhs.i:                                       ; preds = %invoke.cont4
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %message_type, i64 0) ]
   %cmp.i.i = icmp eq i64 %0, 0
   br i1 %cmp.i.i, label %if.then, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
 
@@ -4910,6 +4912,7 @@ _ZN9struct_pb13UnknownFieldsD2Ev.exit:            ; preds = %invoke.cont54, %if.
   br i1 %cmp.i, label %land.rhs.i, label %if.then57
 
 land.rhs.i:                                       ; preds = %_ZN9struct_pb13UnknownFieldsD2Ev.exit
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %buf, i64 0) ]
   %cmp.i.i36 = icmp eq i64 %31, 0
   br i1 %cmp.i.i36, label %if.end67, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
 

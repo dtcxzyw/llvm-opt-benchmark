@@ -2240,7 +2240,7 @@ return:                                           ; preds = %if.end39, %_ZNSt11c
 declare void @_ZN4mold3elf12InputSectionINS0_11LOONGARCH32EE16apply_dyn_absrelERNS0_7ContextIS2_EERNS0_6SymbolIS2_EERKNS0_6ElfRelIS2_EEPhmlmPPSB_(ptr noundef nonnull align 8 dereferenceable(118), ptr noundef nonnull align 8 dereferenceable(4568), ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 1 dereferenceable(12), ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind
-define internal fastcc void @"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_1clElll"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i64 noundef %val, i64 noundef range(i64 -4194304, -131071) %lo, i64 noundef range(i64 131072, 4194305) %hi) unnamed_addr #4 align 2 {
+define internal fastcc void @"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_1clElll"(ptr noundef nonnull align 8 dereferenceable(40) %this, i64 noundef %val, i64 noundef range(i64 -4194304, -131071) %lo, i64 noundef range(i64 131072, 4194305) %hi) unnamed_addr #4 align 2 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.mold::Error", align 8
@@ -3486,6 +3486,11 @@ init:                                             ; preds = %init.check
   br label %init.end
 
 init.end:                                         ; preds = %init, %init.check, %entry
+  %buf2 = getelementptr inbounds nuw i8, ptr %ctx, i64 3368
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %buf2, i64 0) ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %this, i64 0) ]
+  %offset = getelementptr inbounds nuw i8, ptr %this, i64 8
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %offset, i64 64) ]
   %symbols = getelementptr inbounds nuw i8, ptr %this, i64 56
   %2 = load ptr, ptr %symbols, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -3494,16 +3499,14 @@ init.end:                                         ; preds = %init, %init.check, 
   br i1 %cmp.i16, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %init.end
-  %offset = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load i64, ptr %offset, align 8
   %5 = load ptr, ptr %this, align 8
+  %6 = load ptr, ptr %buf2, align 8
   %sh_addr = getelementptr inbounds nuw i8, ptr %5, i64 36
+  %sh_offset = getelementptr inbounds nuw i8, ptr %5, i64 40
   %x.0.copyload.i9 = load i32, ptr %sh_addr, align 1
   %conv = zext i32 %x.0.copyload.i9 to i64
   %add = add nsw i64 %4, %conv
-  %buf2 = getelementptr inbounds nuw i8, ptr %ctx, i64 3368
-  %6 = load ptr, ptr %buf2, align 8
-  %sh_offset = getelementptr inbounds nuw i8, ptr %5, i64 40
   %x.0.copyload.i = load i32, ptr %sh_offset, align 1
   %idx.ext = zext i32 %x.0.copyload.i to i64
   %add.ptr = getelementptr inbounds nuw i8, ptr %6, i64 %idx.ext

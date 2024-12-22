@@ -1885,10 +1885,14 @@ dissect_h265_st_ref_pic_set.exit:                 ; preds = %.lr.ph73.i, %._crit
   %188 = add nuw i8 %.1288, 1
   %189 = zext i8 %188 to i32
   %190 = icmp ult i8 %188, %129
-  br i1 %190, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %190, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %dissect_h265_st_ref_pic_set.exit, %.preheader284
-  %191 = phi i32 [ %.pre304, %.preheader284 ], [ %187, %dissect_h265_st_ref_pic_set.exit ]
+._crit_edge.loopexit:                             ; preds = %dissect_h265_st_ref_pic_set.exit
+  store i32 %187, ptr %7, align 1
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader284
+  %191 = phi i32 [ %.pre304, %.preheader284 ], [ %187, %._crit_edge.loopexit ]
   %192 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %1, i32 noundef %191, i32 noundef 1) #8
   %193 = load i32, ptr @hf_h265_long_term_ref_pics_present_flag, align 4
   %194 = tail call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %193, ptr noundef %1, i32 noundef %191, i32 noundef 1, i32 noundef 0) #8
@@ -1935,6 +1939,7 @@ dissect_h265_st_ref_pic_set.exit:                 ; preds = %.lr.ph73.i, %._crit
   %218 = load i32, ptr @hf_h265_vui_parameters_present_flag, align 4
   %219 = tail call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %218, ptr noundef %1, i32 noundef %216, i32 noundef 1, i32 noundef 0) #8
   %220 = add i32 %210, 3
+  store i32 %220, ptr %7, align 4
   %.not231 = icmp eq i8 %217, 0
   br i1 %.not231, label %369, label %221
 
@@ -2178,6 +2183,7 @@ dissect_h265_vui_parameters.exit:                 ; preds = %342, %348
   %393 = load i32, ptr @hf_h265_sps_extension_4bits, align 4
   %394 = tail call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %393, ptr noundef %1, i32 noundef %391, i32 noundef 4, i32 noundef 0) #8
   %395 = add i32 %370, 9
+  store i32 %395, ptr %7, align 4
   %396 = icmp eq i8 %376, 0
   %397 = icmp eq i8 %380, 0
   %398 = icmp eq i8 %384, 0
@@ -2213,6 +2219,7 @@ dissect_h265_vui_parameters.exit:                 ; preds = %342, %348
   %426 = load i32, ptr @hf_h265_cabac_bypass_alignment_enabled_flag, align 4
   %427 = tail call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %426, ptr noundef %1, i32 noundef %425, i32 noundef 1, i32 noundef 0) #8
   %428 = add i32 %370, 18
+  store i32 %428, ptr %7, align 4
   br i1 %397, label %436, label %430
 
 429:                                              ; preds = %375
@@ -2224,6 +2231,7 @@ dissect_h265_vui_parameters.exit:                 ; preds = %342, %348
   %433 = load i32, ptr @ett_h265_sps_multilayer_extension, align 4
   %434 = tail call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef %432, i32 noundef 1, i32 noundef %433, ptr noundef null, ptr noundef nonnull @.str.680) #8
   %435 = tail call ptr @proto_tree_add_expert(ptr noundef %434, ptr noundef %2, ptr noundef nonnull @ei_h265_undecoded, ptr noundef %1, i32 noundef %432, i32 noundef -1) #8
+  store i32 %431, ptr %7, align 4
   br i1 %398, label %443, label %438
 
 436:                                              ; preds = %401, %429
@@ -2240,6 +2248,7 @@ dissect_h265_vui_parameters.exit:                 ; preds = %342, %348
   %440 = load i32, ptr @ett_h265_sps_3d_extension, align 4
   %441 = tail call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef %.pre-phi, i32 noundef 1, i32 noundef %440, ptr noundef null, ptr noundef nonnull @.str.681) #8
   %442 = tail call ptr @proto_tree_add_expert(ptr noundef %441, ptr noundef %2, ptr noundef nonnull @ei_h265_undecoded, ptr noundef %1, i32 noundef %.pre-phi, i32 noundef -1) #8
+  store i32 %439, ptr %7, align 4
   br i1 %399, label %489, label %445
 
 443:                                              ; preds = %430, %436

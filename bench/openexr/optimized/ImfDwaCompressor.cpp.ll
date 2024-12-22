@@ -1586,16 +1586,17 @@ for.body347.lr.ph:                                ; preds = %for.end338
 
 for.body347:                                      ; preds = %for.body347.lr.ph, %for.inc425
   %indvars.iv492 = phi i64 [ %28, %for.body347.lr.ph ], [ %indvars.iv.next493, %for.inc425 ]
+  %223 = load ptr, ptr %_rowPtrs, align 8
+  %add.ptr.i268 = getelementptr inbounds %"class.std::vector.24", ptr %223, i64 %comp318.0428
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %add.ptr.i268, i64 0) ]
   br i1 %cmp443410, label %for.body361.preheader, label %for.inc425
 
 for.body361.preheader:                            ; preds = %for.body347
+  %224 = load ptr, ptr %add.ptr.i268, align 8
+  %add.ptr.i269 = getelementptr inbounds nuw ptr, ptr %224, i64 %indvars.iv492
   %and354 = shl i64 %indvars.iv492, 3
   %mul355 = and i64 %and354, 56
   %arrayidx357 = getelementptr inbounds nuw i16, ptr %222, i64 %mul355
-  %223 = load ptr, ptr %_rowPtrs, align 8
-  %add.ptr.i268 = getelementptr inbounds %"class.std::vector.24", ptr %223, i64 %comp318.0428
-  %224 = load ptr, ptr %add.ptr.i268, align 8
-  %add.ptr.i269 = getelementptr inbounds nuw ptr, ptr %224, i64 %indvars.iv492
   %225 = load ptr, ptr %add.ptr.i269, align 8
   br label %for.body361
 
@@ -1676,11 +1677,12 @@ for.body509.lr.ph:                                ; preds = %if.end500
 
 for.body509:                                      ; preds = %for.body509.lr.ph, %for.inc537
   %indvars.iv496 = phi i64 [ %28, %for.body509.lr.ph ], [ %indvars.iv.next497, %for.inc537 ]
+  %260 = load ptr, ptr %_rowPtrs, align 8
+  %add.ptr.i272 = getelementptr inbounds %"class.std::vector.24", ptr %260, i64 %comp318.0428
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %add.ptr.i272, i64 0) ]
   br i1 %cmp527421, label %for.body528.preheader, label %for.inc537
 
 for.body528.preheader:                            ; preds = %for.body509
-  %260 = load ptr, ptr %_rowPtrs, align 8
-  %add.ptr.i272 = getelementptr inbounds %"class.std::vector.24", ptr %260, i64 %comp318.0428
   %261 = load ptr, ptr %add.ptr.i272, align 8
   %add.ptr.i273 = getelementptr inbounds nuw ptr, ptr %261, i64 %indvars.iv496
   %262 = load ptr, ptr %add.ptr.i273, align 8
@@ -3146,19 +3148,19 @@ _ZN9Imath_3_24halfC2Ef.exit277.us:                ; preds = %if.end.i.i272.us, %
   %129 = load i16, ptr %arrayidx5.i.i287.us, align 2
   %conv6.i.i288.us = zext i16 %129 to i32
   %add.i.i289.us = add nuw nsw i32 %conv6.i.i288.us, %conv2.i.i284.us
-  %cmp11.not.i290.us = icmp eq i32 %add.i.i289.us, 0
-  br i1 %cmp11.not.i290.us, label %invoke.cont259.us, label %for.body.preheader.i291.us
+  %cmp11.not.i291.us = icmp eq i32 %add.i.i289.us, 0
+  br i1 %cmp11.not.i291.us, label %invoke.cont259.us, label %for.body.preheader.i292.us
 
-for.body.preheader.i291.us:                       ; preds = %_ZN9Imath_3_24halfC2Ef.exit277.us
-  %arrayidx.i292.us = getelementptr inbounds nuw [65536 x i32], ptr @_ZN7Imf_3_2L17closestDataOffsetE, i64 0, i64 %idxprom.i.i.i278.us
-  %130 = load i32, ptr %arrayidx.i292.us, align 4
+for.body.preheader.i292.us:                       ; preds = %_ZN9Imath_3_24halfC2Ef.exit277.us
+  %arrayidx.i290.us = getelementptr inbounds nuw [65536 x i32], ptr @_ZN7Imf_3_2L17closestDataOffsetE, i64 0, i64 %idxprom.i.i.i278.us
+  %130 = load i32, ptr %arrayidx.i290.us, align 4
   %idx.ext.i293.us = zext i32 %130 to i64
   %add.ptr.i294.us = getelementptr inbounds nuw i16, ptr @_ZN7Imf_3_2L11closestDataE, i64 %idx.ext.i293.us
   br label %for.body.i295.us
 
-for.body.i295.us:                                 ; preds = %for.cond.i302.us, %for.body.preheader.i291.us
-  %targetNumSetBits.013.in.i296.us = phi i32 [ %targetNumSetBits.013.i303.us, %for.cond.i302.us ], [ %add.i.i289.us, %for.body.preheader.i291.us ]
-  %closest.012.i297.us = phi ptr [ %incdec.ptr.i304.us, %for.cond.i302.us ], [ %add.ptr.i294.us, %for.body.preheader.i291.us ]
+for.body.i295.us:                                 ; preds = %for.cond.i302.us, %for.body.preheader.i292.us
+  %targetNumSetBits.013.in.i296.us = phi i32 [ %targetNumSetBits.013.i303.us, %for.cond.i302.us ], [ %add.i.i289.us, %for.body.preheader.i292.us ]
+  %closest.012.i297.us = phi ptr [ %incdec.ptr.i304.us, %for.cond.i302.us ], [ %add.ptr.i294.us, %for.body.preheader.i292.us ]
   %131 = load i16, ptr %closest.012.i297.us, align 2
   %idxprom.i.i4.i298.us = zext i16 %131 to i64
   %arrayidx.i.i5.i299.us = getelementptr inbounds nuw %union.imath_half_uif, ptr %118, i64 %idxprom.i.i4.i298.us
@@ -3571,7 +3573,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i343, %
   resume { ptr, i32 } %.pn
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
 define hidden i16 @_ZN7Imf_3_213DwaCompressor19LossyDctEncoderBase8quantizeEN9Imath_3_24halfEf(ptr nocapture noundef nonnull readnone align 8 dereferenceable(640) %this, i16 %src.coerce, float noundef %errorTolerance) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr @imath_half_to_float_table, align 8
@@ -20058,7 +20060,7 @@ attributes #11 = { cold nofree noreturn }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) }
 attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

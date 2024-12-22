@@ -2662,12 +2662,12 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.3712155024907033177.ex
 172:                                              ; preds = %"_ZN79_$LT$syntax..ast..generated..nodes..Literal$u20$as$u20$syntax..ast..AstNode$GT$4cast17h14ad986240d14d3eE.exit"
   store ptr %163, ptr %36, align 8, !noalias !658
   %173 = load i64, ptr %163, align 8, !range !30, !noundef !4
-  %switch.not.not.i.i197 = icmp eq i64 %173, 0
-  br i1 %switch.not.not.i.i197, label %186, label %174
+  %switch.not.not.i.i198 = icmp eq i64 %173, 0
+  br i1 %switch.not.not.i.i198, label %186, label %174
 
 174:                                              ; preds = %172
-  %.sroa.3.0.in.i.i.i198 = getelementptr inbounds nuw i8, ptr %163, i64 8
-  %.sroa.3.0.i.i.i199 = load ptr, ptr %.sroa.3.0.in.i.i.i198, align 8, !nonnull !4, !noundef !4
+  %.sroa.3.0.in.i.i.i197 = getelementptr inbounds nuw i8, ptr %163, i64 8
+  %.sroa.3.0.i.i.i199 = load ptr, ptr %.sroa.3.0.in.i.i.i197, align 8, !nonnull !4, !noundef !4
   %175 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i199, i64 8
   %176 = load i64, ptr %175, align 8, !noundef !4
   %177 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i199, i64 16
@@ -8058,11 +8058,11 @@ _ZN6syntax10validation21validate_numeric_name9int_token17he2955e0a5476c1a0E.exit
 
 60:                                               ; preds = %_ZN6syntax10validation21validate_numeric_name9int_token17he2955e0a5476c1a0E.exit
   %61 = load i64, ptr %.1.i, align 8, !range !30, !noundef !4
+  %.sroa.3.0.in.i.i = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %switch.not.not.i = icmp eq i64 %61, 0
   br i1 %switch.not.not.i, label %73, label %62
 
 62:                                               ; preds = %60
-  %.sroa.3.0.in.i.i = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %.sroa.3.0.i.i = load ptr, ptr %.sroa.3.0.in.i.i, align 8, !nonnull !4, !noundef !4
   %63 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i, i64 8
   %64 = load i64, ptr %63, align 8, !noundef !4
@@ -8181,8 +8181,7 @@ _ZN6syntax10validation21validate_numeric_name9int_token17he2955e0a5476c1a0E.exit
 .noexc13:                                         ; preds = %..noexc13_crit_edge, %121
   %126 = phi i64 [ %61, %121 ], [ %.pre, %..noexc13_crit_edge ]
   %.0.i.i11 = phi i32 [ %123, %121 ], [ %125, %..noexc13_crit_edge ]
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
-  %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !2127, !nonnull !4, !noundef !4
+  %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i, align 8, !noalias !2127, !nonnull !4, !noundef !4
   %switch.i.i.i = icmp eq i64 %126, 0
   br i1 %switch.i.i.i, label %127, label %129
 

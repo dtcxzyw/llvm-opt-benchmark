@@ -2871,11 +2871,12 @@ expand_.exit.i:                                   ; preds = %149, %145
   br i1 %exitcond137.not.i, label %._crit_edge119.i, label %138, !llvm.loop !16
 
 ._crit_edge119.i:                                 ; preds = %189, %134, %._crit_edge.i
+  %191 = getelementptr inbounds nuw i8, ptr %127, i64 56
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %191, i64 0) ]
   %.not126.i = icmp eq i32 %.091.lcssa.i, 0
   br i1 %.not126.i, label %._crit_edge123.i, label %.lr.ph122.i
 
 .lr.ph122.i:                                      ; preds = %._crit_edge119.i
-  %191 = getelementptr inbounds nuw i8, ptr %127, i64 56
   %192 = load ptr, ptr %191, align 8
   %193 = load ptr, ptr %192, align 8
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 176
@@ -7654,7 +7655,7 @@ declare i64 @int_to_u64(ptr noundef byval(%struct.Int) align 8) local_unnamed_ad
 declare zeroext i1 @expr_const_will_overflow(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @sema_check_section(ptr nocapture readonly %.32.val.0.val) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @sema_check_section(ptr %.32.val.0.val) unnamed_addr #0 {
   %1 = alloca %struct.StringSlice_, align 8
   %2 = alloca %struct.StringSlice_, align 8
   %3 = alloca %struct.StringSlice_, align 8
@@ -11968,11 +11969,11 @@ declare zeroext i1 @int_fits(ptr noundef byval(%struct.Int) align 8, i32 noundef
 
 declare ptr @i128_to_string(i64, i64, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #6
-
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #7
+declare void @llvm.assume(i1 noundef) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.ctpop.i64(i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
@@ -11981,7 +11982,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #6
+declare i32 @llvm.umax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
@@ -11992,8 +11993,8 @@ attributes #2 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #10 = { nounwind }

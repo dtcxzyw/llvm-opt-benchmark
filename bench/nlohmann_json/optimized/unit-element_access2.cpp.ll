@@ -21234,6 +21234,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %m_value.i.i.i3347 = getelementptr inbounds nuw i8, ptr %j, i64 8
   %1647 = load ptr, ptr %m_value.i.i.i3347, align 8, !noalias !198
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1647, i64 8
+  store ptr %add.ptr.i.i.i.i.i, ptr %m_it.i.i.i3344, align 8, !alias.scope !198
   %call.i4.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %add.ptr.i.i.i.i.i) #28
   store ptr %call.i4.i.i.i.i, ptr %m_it.i.i.i3344, align 8
   br label %_ZN8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEmmEv.exit.i
@@ -21309,6 +21310,7 @@ _ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_st
   %m_value.i.i.i3366 = getelementptr inbounds nuw i8, ptr %j_const, i64 8
   %1656 = load ptr, ptr %m_value.i.i.i3366, align 8, !noalias !201
   %add.ptr.i.i.i.i.i3367 = getelementptr inbounds nuw i8, ptr %1656, i64 8
+  store ptr %add.ptr.i.i.i.i.i3367, ptr %m_it.i.i.i3360, align 8, !alias.scope !201
   %call.i4.i.i.i.i3368 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %add.ptr.i.i.i.i.i3367) #28
   store ptr %call.i4.i.i.i.i3368, ptr %m_it.i.i.i3360, align 8
   br label %_ZN8nlohmann16json_abi_v3_11_36detail9iter_implIKNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEmmEv.exit.i

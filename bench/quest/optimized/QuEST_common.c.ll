@@ -564,28 +564,29 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind uwtable
-define void @reportQuregParams(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0) local_unnamed_addr #14 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
+define void @reportQuregParams(ptr noundef byval(%struct.Qureg) align 8 %0) local_unnamed_addr #14 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
-  %4 = icmp eq i32 %3, 0
-  br i1 %4, label %5, label %17
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %5 = load i32, ptr %4, align 8
+  %6 = icmp eq i32 %5, 0
+  br i1 %6, label %7, label %18
 
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i32, ptr %6, align 8
-  %8 = zext nneg i32 %7 to i64
-  %9 = shl nuw i64 1, %8
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %11 = load i32, ptr %10, align 4
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %9 = zext nneg i32 %3 to i64
+  %10 = shl nuw i64 1, %9
+  %11 = load i32, ptr %8, align 4
   %12 = sext i32 %11 to i64
-  %13 = sdiv i64 %9, %12
+  %13 = sdiv i64 %10, %12
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  %14 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %7)
-  %15 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i64 noundef %9)
-  %16 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i64 noundef %13)
-  br label %17
+  %14 = load i32, ptr %2, align 8
+  %15 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %14)
+  %16 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i64 noundef %10)
+  %17 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i64 noundef %13)
+  br label %18
 
-17:                                               ; preds = %5, %1
+18:                                               ; preds = %7, %1
   ret void
 }
 

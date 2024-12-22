@@ -1752,7 +1752,9 @@ _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge: ; preds = %_ZNK7nanogui13Tab
 94:                                               ; preds = %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge, %_ZNK7nanogui13TabWidgetBase15tab_at_positionERKNS_5ArrayIiLm2EEEb.exit
   %.0 = phi i8 [ 1, %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge ], [ 0, %_ZNK7nanogui13TabWidgetBase15tab_at_positionERKNS_5ArrayIiLm2EEEb.exit ]
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %95, i64 32) ]
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 268
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %96, i64 32) ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 384
@@ -1763,11 +1765,11 @@ _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge: ; preds = %_ZNK7nanogui13Tab
   br i1 %or.cond, label %102, label %170
 
 102:                                              ; preds = %94
-  %103 = load i32, ptr %95, align 8
-  %.not45 = icmp eq i32 %103, -1
-  %104 = load i32, ptr %96, align 4
+  %103 = load i32, ptr %96, align 4
+  %104 = load i32, ptr %95, align 8
+  %.not45 = icmp eq i32 %104, -1
   %105 = load i32, ptr %97, align 8
-  %106 = icmp eq i32 %104, %105
+  %106 = icmp eq i32 %103, %105
   %.not145 = select i1 %.not45, i1 true, i1 %106
   %107 = icmp ne i32 %.sroa.0111.0.extract.trunc, -1
   %or.cond3 = and i1 %3, %107

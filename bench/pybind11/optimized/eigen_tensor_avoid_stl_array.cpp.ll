@@ -39028,13 +39028,14 @@ _ZN5Eigen6TensorIdLi3ELi0ElE6resizeERKNS_5arrayIlLm3EEE.exit.i: ; preds = %.crit
 15:                                               ; preds = %_ZN5Eigen6TensorIdLi3ELi0ElE6resizeERKNS_5arrayIlLm3EEE.exit.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   %16 = load ptr, ptr %0, align 8
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %1, i64 0) ]
   %.not.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i, label %_ZN5Eigen8internal14TensorExecutorIKNS_14TensorAssignOpINS_6TensorIdLi3ELi0ElEEKNS_9TensorMapIS4_Li0ENS_11MakePointerEEEEENS_13DefaultDeviceELb1ELNS0_15TiledEvaluationE0EE3runERSA_RKSB_.exit, label %_ZN5Eigen15TensorEvaluatorIKNS_14TensorAssignOpINS_6TensorIdLi3ELi0ElEEKNS_9TensorMapIS3_Li0ENS_11MakePointerEEEEENS_13DefaultDeviceEE20evalSubExprsIfNeededEPd.exit.i
 
 _ZN5Eigen15TensorEvaluatorIKNS_14TensorAssignOpINS_6TensorIdLi3ELi0ElEEKNS_9TensorMapIS3_Li0ENS_11MakePointerEEEEENS_13DefaultDeviceEE20evalSubExprsIfNeededEPd.exit.i: ; preds = %15
   %.sroa.17.48..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.17.48.copyload.i = load i64, ptr %.sroa.17.48..sroa_idx.i, align 8
   %.sroa.15.48..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.17.48.copyload.i = load i64, ptr %.sroa.17.48..sroa_idx.i, align 8
   %.sroa.15.48.copyload.i = load i64, ptr %.sroa.15.48..sroa_idx.i, align 8
   %.sroa.12.48.copyload.i = load i64, ptr %4, align 8
   %17 = load ptr, ptr %1, align 8
@@ -43533,8 +43534,8 @@ _ZN5Eigen6TensorIdLi3ELi0ElE6resizeERKNS_6DSizesIlLi3EEE.exit.i41: ; preds = %.c
 .noexc49:                                         ; preds = %_ZN5Eigen6TensorIdLi3ELi0ElE6resizeERKNS_6DSizesIlLi3EEE.exit.i41
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   %125 = load ptr, ptr %0, align 8
-  %.not.i.i.i.i42 = icmp eq ptr %125, null
-  br i1 %.not.i.i.i.i42, label %_ZN5Eigen6TensorIdLi3ELi0ElEaSINS_9TensorMapIKS1_Li16ENS_11MakePointerEEEEERS1_RKT_.exit, label %_ZN5Eigen6TensorIdLi3ELi0ElEaSINS_9TensorMapIKS1_Li16ENS_11MakePointerEEEEERS1_RKT_.exit.sink.split
+  %.not.i.i.i.i44 = icmp eq ptr %125, null
+  br i1 %.not.i.i.i.i44, label %_ZN5Eigen6TensorIdLi3ELi0ElEaSINS_9TensorMapIKS1_Li16ENS_11MakePointerEEEEERS1_RKT_.exit, label %_ZN5Eigen6TensorIdLi3ELi0ElEaSINS_9TensorMapIKS1_Li16ENS_11MakePointerEEEEERS1_RKT_.exit.sink.split
 
 _ZN5Eigen6TensorIdLi3ELi0ElEaSINS_9TensorMapIKS1_Li16ENS_11MakePointerEEEEERS1_RKT_.exit.sink.split: ; preds = %.noexc49, %.noexc33
   %.sink = phi ptr [ %114, %.noexc33 ], [ %125, %.noexc49 ]
@@ -44798,8 +44799,8 @@ _ZN5Eigen6TensorIiLi3ELi0ElE6resizeERKNS_6DSizesIlLi3EEE.exit.i41: ; preds = %.c
 .noexc49:                                         ; preds = %_ZN5Eigen6TensorIiLi3ELi0ElE6resizeERKNS_6DSizesIlLi3EEE.exit.i41
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   %125 = load ptr, ptr %0, align 8
-  %.not.i.i.i.i42 = icmp eq ptr %125, null
-  br i1 %.not.i.i.i.i42, label %_ZN5Eigen6TensorIiLi3ELi0ElEaSINS_9TensorMapIKS1_Li16ENS_11MakePointerEEEEERS1_RKT_.exit, label %_ZN5Eigen6TensorIiLi3ELi0ElEaSINS_9TensorMapIKS1_Li16ENS_11MakePointerEEEEERS1_RKT_.exit.sink.split
+  %.not.i.i.i.i44 = icmp eq ptr %125, null
+  br i1 %.not.i.i.i.i44, label %_ZN5Eigen6TensorIiLi3ELi0ElEaSINS_9TensorMapIKS1_Li16ENS_11MakePointerEEEEERS1_RKT_.exit, label %_ZN5Eigen6TensorIiLi3ELi0ElEaSINS_9TensorMapIKS1_Li16ENS_11MakePointerEEEEERS1_RKT_.exit.sink.split
 
 _ZN5Eigen6TensorIiLi3ELi0ElEaSINS_9TensorMapIKS1_Li16ENS_11MakePointerEEEEERS1_RKT_.exit.sink.split: ; preds = %.noexc49, %.noexc33
   %.sink = phi ptr [ %112, %.noexc33 ], [ %125, %.noexc49 ]
@@ -47305,13 +47306,14 @@ _ZN5Eigen6TensorIdLi3ELi0ElE6resizeERKNS_5arrayIlLm3EEE.exit.i: ; preds = %.crit
 15:                                               ; preds = %_ZN5Eigen6TensorIdLi3ELi0ElE6resizeERKNS_5arrayIlLm3EEE.exit.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   %16 = load ptr, ptr %0, align 8
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %1, i64 0) ]
   %.not.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i, label %_ZN5Eigen8internal14TensorExecutorIKNS_14TensorAssignOpINS_6TensorIdLi3ELi0ElEEKNS_9TensorMapIS4_Li16ENS_11MakePointerEEEEENS_13DefaultDeviceELb1ELNS0_15TiledEvaluationE0EE3runERSA_RKSB_.exit, label %_ZN5Eigen15TensorEvaluatorIKNS_14TensorAssignOpINS_6TensorIdLi3ELi0ElEEKNS_9TensorMapIS3_Li16ENS_11MakePointerEEEEENS_13DefaultDeviceEE20evalSubExprsIfNeededEPd.exit.i
 
 _ZN5Eigen15TensorEvaluatorIKNS_14TensorAssignOpINS_6TensorIdLi3ELi0ElEEKNS_9TensorMapIS3_Li16ENS_11MakePointerEEEEENS_13DefaultDeviceEE20evalSubExprsIfNeededEPd.exit.i: ; preds = %15
   %.sroa.17.48..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.17.48.copyload.i = load i64, ptr %.sroa.17.48..sroa_idx.i, align 8
   %.sroa.15.48..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.17.48.copyload.i = load i64, ptr %.sroa.17.48..sroa_idx.i, align 8
   %.sroa.15.48.copyload.i = load i64, ptr %.sroa.15.48..sroa_idx.i, align 8
   %.sroa.12.48.copyload.i = load i64, ptr %4, align 8
   %17 = load ptr, ptr %1, align 8
@@ -47784,13 +47786,14 @@ _ZN5Eigen6TensorIdLi3ELi0ElE6resizeERKNS_5arrayIlLm3EEE.exit.i: ; preds = %.crit
 15:                                               ; preds = %_ZN5Eigen6TensorIdLi3ELi0ElE6resizeERKNS_5arrayIlLm3EEE.exit.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   %16 = load ptr, ptr %0, align 8
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %1, i64 0) ]
   %.not.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i, label %_ZN5Eigen8internal14TensorExecutorIKNS_14TensorAssignOpINS_6TensorIdLi3ELi0ElEEKNS_9TensorMapIKS4_Li0ENS_11MakePointerEEEEENS_13DefaultDeviceELb1ELNS0_15TiledEvaluationE0EE3runERSB_RKSC_.exit, label %_ZN5Eigen15TensorEvaluatorIKNS_14TensorAssignOpINS_6TensorIdLi3ELi0ElEEKNS_9TensorMapIKS3_Li0ENS_11MakePointerEEEEENS_13DefaultDeviceEE20evalSubExprsIfNeededEPd.exit.i
 
 _ZN5Eigen15TensorEvaluatorIKNS_14TensorAssignOpINS_6TensorIdLi3ELi0ElEEKNS_9TensorMapIKS3_Li0ENS_11MakePointerEEEEENS_13DefaultDeviceEE20evalSubExprsIfNeededEPd.exit.i: ; preds = %15
   %.sroa.17.48..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.17.48.copyload.i = load i64, ptr %.sroa.17.48..sroa_idx.i, align 8
   %.sroa.15.48..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.17.48.copyload.i = load i64, ptr %.sroa.17.48..sroa_idx.i, align 8
   %.sroa.15.48.copyload.i = load i64, ptr %.sroa.15.48..sroa_idx.i, align 8
   %.sroa.12.48.copyload.i = load i64, ptr %4, align 8
   %17 = load ptr, ptr %1, align 8
@@ -57539,13 +57542,14 @@ _ZN5Eigen6TensorIdLi3ELi1ElE6resizeERKNS_5arrayIlLm3EEE.exit.i: ; preds = %.crit
 15:                                               ; preds = %_ZN5Eigen6TensorIdLi3ELi1ElE6resizeERKNS_5arrayIlLm3EEE.exit.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   %16 = load ptr, ptr %0, align 8
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %1, i64 0) ]
   %.not.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i, label %_ZN5Eigen8internal14TensorExecutorIKNS_14TensorAssignOpINS_6TensorIdLi3ELi1ElEEKNS_9TensorMapIS4_Li0ENS_11MakePointerEEEEENS_13DefaultDeviceELb1ELNS0_15TiledEvaluationE0EE3runERSA_RKSB_.exit, label %_ZN5Eigen15TensorEvaluatorIKNS_14TensorAssignOpINS_6TensorIdLi3ELi1ElEEKNS_9TensorMapIS3_Li0ENS_11MakePointerEEEEENS_13DefaultDeviceEE20evalSubExprsIfNeededEPd.exit.i
 
 _ZN5Eigen15TensorEvaluatorIKNS_14TensorAssignOpINS_6TensorIdLi3ELi1ElEEKNS_9TensorMapIS3_Li0ENS_11MakePointerEEEEENS_13DefaultDeviceEE20evalSubExprsIfNeededEPd.exit.i: ; preds = %15
   %.sroa.17.48..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.17.48.copyload.i = load i64, ptr %.sroa.17.48..sroa_idx.i, align 8
   %.sroa.15.48..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.17.48.copyload.i = load i64, ptr %.sroa.17.48..sroa_idx.i, align 8
   %.sroa.15.48.copyload.i = load i64, ptr %.sroa.15.48..sroa_idx.i, align 8
   %.sroa.12.48.copyload.i = load i64, ptr %4, align 8
   %17 = load ptr, ptr %1, align 8
@@ -61993,8 +61997,8 @@ _ZN5Eigen6TensorIdLi3ELi1ElE6resizeERKNS_6DSizesIlLi3EEE.exit.i41: ; preds = %.c
 .noexc49:                                         ; preds = %_ZN5Eigen6TensorIdLi3ELi1ElE6resizeERKNS_6DSizesIlLi3EEE.exit.i41
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   %125 = load ptr, ptr %0, align 8
-  %.not.i.i.i.i42 = icmp eq ptr %125, null
-  br i1 %.not.i.i.i.i42, label %_ZN5Eigen6TensorIdLi3ELi1ElEaSINS_9TensorMapIKS1_Li16ENS_11MakePointerEEEEERS1_RKT_.exit, label %_ZN5Eigen6TensorIdLi3ELi1ElEaSINS_9TensorMapIKS1_Li16ENS_11MakePointerEEEEERS1_RKT_.exit.sink.split
+  %.not.i.i.i.i44 = icmp eq ptr %125, null
+  br i1 %.not.i.i.i.i44, label %_ZN5Eigen6TensorIdLi3ELi1ElEaSINS_9TensorMapIKS1_Li16ENS_11MakePointerEEEEERS1_RKT_.exit, label %_ZN5Eigen6TensorIdLi3ELi1ElEaSINS_9TensorMapIKS1_Li16ENS_11MakePointerEEEEERS1_RKT_.exit.sink.split
 
 _ZN5Eigen6TensorIdLi3ELi1ElEaSINS_9TensorMapIKS1_Li16ENS_11MakePointerEEEEERS1_RKT_.exit.sink.split: ; preds = %.noexc49, %.noexc33
   %.sink = phi ptr [ %112, %.noexc33 ], [ %125, %.noexc49 ]
@@ -62964,8 +62968,8 @@ _ZN5Eigen6TensorIiLi3ELi1ElE6resizeERKNS_6DSizesIlLi3EEE.exit.i41: ; preds = %.c
 .noexc49:                                         ; preds = %_ZN5Eigen6TensorIiLi3ELi1ElE6resizeERKNS_6DSizesIlLi3EEE.exit.i41
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   %125 = load ptr, ptr %0, align 8
-  %.not.i.i.i.i42 = icmp eq ptr %125, null
-  br i1 %.not.i.i.i.i42, label %_ZN5Eigen6TensorIiLi3ELi1ElEaSINS_9TensorMapIKS1_Li16ENS_11MakePointerEEEEERS1_RKT_.exit, label %_ZN5Eigen6TensorIiLi3ELi1ElEaSINS_9TensorMapIKS1_Li16ENS_11MakePointerEEEEERS1_RKT_.exit.sink.split
+  %.not.i.i.i.i44 = icmp eq ptr %125, null
+  br i1 %.not.i.i.i.i44, label %_ZN5Eigen6TensorIiLi3ELi1ElEaSINS_9TensorMapIKS1_Li16ENS_11MakePointerEEEEERS1_RKT_.exit, label %_ZN5Eigen6TensorIiLi3ELi1ElEaSINS_9TensorMapIKS1_Li16ENS_11MakePointerEEEEERS1_RKT_.exit.sink.split
 
 _ZN5Eigen6TensorIiLi3ELi1ElEaSINS_9TensorMapIKS1_Li16ENS_11MakePointerEEEEERS1_RKT_.exit.sink.split: ; preds = %.noexc49, %.noexc33
   %.sink = phi ptr [ %112, %.noexc33 ], [ %125, %.noexc49 ]
@@ -65298,13 +65302,14 @@ _ZN5Eigen6TensorIdLi3ELi1ElE6resizeERKNS_5arrayIlLm3EEE.exit.i: ; preds = %.crit
 15:                                               ; preds = %_ZN5Eigen6TensorIdLi3ELi1ElE6resizeERKNS_5arrayIlLm3EEE.exit.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   %16 = load ptr, ptr %0, align 8
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %1, i64 0) ]
   %.not.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i, label %_ZN5Eigen8internal14TensorExecutorIKNS_14TensorAssignOpINS_6TensorIdLi3ELi1ElEEKNS_9TensorMapIS4_Li16ENS_11MakePointerEEEEENS_13DefaultDeviceELb1ELNS0_15TiledEvaluationE0EE3runERSA_RKSB_.exit, label %_ZN5Eigen15TensorEvaluatorIKNS_14TensorAssignOpINS_6TensorIdLi3ELi1ElEEKNS_9TensorMapIS3_Li16ENS_11MakePointerEEEEENS_13DefaultDeviceEE20evalSubExprsIfNeededEPd.exit.i
 
 _ZN5Eigen15TensorEvaluatorIKNS_14TensorAssignOpINS_6TensorIdLi3ELi1ElEEKNS_9TensorMapIS3_Li16ENS_11MakePointerEEEEENS_13DefaultDeviceEE20evalSubExprsIfNeededEPd.exit.i: ; preds = %15
   %.sroa.17.48..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.17.48.copyload.i = load i64, ptr %.sroa.17.48..sroa_idx.i, align 8
   %.sroa.15.48..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.17.48.copyload.i = load i64, ptr %.sroa.17.48..sroa_idx.i, align 8
   %.sroa.15.48.copyload.i = load i64, ptr %.sroa.15.48..sroa_idx.i, align 8
   %.sroa.12.48.copyload.i = load i64, ptr %4, align 8
   %17 = load ptr, ptr %1, align 8
@@ -65777,13 +65782,14 @@ _ZN5Eigen6TensorIdLi3ELi1ElE6resizeERKNS_5arrayIlLm3EEE.exit.i: ; preds = %.crit
 15:                                               ; preds = %_ZN5Eigen6TensorIdLi3ELi1ElE6resizeERKNS_5arrayIlLm3EEE.exit.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   %16 = load ptr, ptr %0, align 8
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %1, i64 0) ]
   %.not.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i, label %_ZN5Eigen8internal14TensorExecutorIKNS_14TensorAssignOpINS_6TensorIdLi3ELi1ElEEKNS_9TensorMapIKS4_Li0ENS_11MakePointerEEEEENS_13DefaultDeviceELb1ELNS0_15TiledEvaluationE0EE3runERSB_RKSC_.exit, label %_ZN5Eigen15TensorEvaluatorIKNS_14TensorAssignOpINS_6TensorIdLi3ELi1ElEEKNS_9TensorMapIKS3_Li0ENS_11MakePointerEEEEENS_13DefaultDeviceEE20evalSubExprsIfNeededEPd.exit.i
 
 _ZN5Eigen15TensorEvaluatorIKNS_14TensorAssignOpINS_6TensorIdLi3ELi1ElEEKNS_9TensorMapIKS3_Li0ENS_11MakePointerEEEEENS_13DefaultDeviceEE20evalSubExprsIfNeededEPd.exit.i: ; preds = %15
   %.sroa.17.48..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.17.48.copyload.i = load i64, ptr %.sroa.17.48..sroa_idx.i, align 8
   %.sroa.15.48..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.17.48.copyload.i = load i64, ptr %.sroa.17.48..sroa_idx.i, align 8
   %.sroa.15.48.copyload.i = load i64, ptr %.sroa.15.48..sroa_idx.i, align 8
   %.sroa.12.48.copyload.i = load i64, ptr %4, align 8
   %17 = load ptr, ptr %1, align 8

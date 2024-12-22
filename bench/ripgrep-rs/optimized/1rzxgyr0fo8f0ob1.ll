@@ -250,7 +250,7 @@ define { ptr, i64 } @_ZN13grep_searcher11line_buffer10LineBuffer6buffer17h8f688a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define { ptr, i64 } @_ZN13grep_searcher11line_buffer10LineBuffer11free_buffer17h3180c133324235abE(ptr noalias nocapture noundef readonly align 8 dereferenceable(104) %0) unnamed_addr #2 {
+define { ptr, i64 } @_ZN13grep_searcher11line_buffer10LineBuffer11free_buffer17h3180c133324235abE(ptr noalias noundef align 8 dereferenceable(104) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i64, ptr %2, align 8, !noundef !18
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -354,7 +354,6 @@ define noundef ptr @_ZN13grep_searcher11line_buffer10LineBuffer15ensure_capacity
   %3 = alloca [1 x { ptr, ptr }], align 8
   %4 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %5 = alloca i64, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %7 = load i64, ptr %6, align 8, !alias.scope !37, !noundef !18
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -363,7 +362,7 @@ define noundef ptr @_ZN13grep_searcher11line_buffer10LineBuffer15ensure_capacity
   br i1 %10, label %11, label %_ZN13grep_searcher11line_buffer10LineBuffer11free_buffer17h3180c133324235abE.exit
 
 11:                                               ; preds = %1
-  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17hdaca407d67a34612E(i64 noundef %7, i64 noundef %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.063a6eda66e372215699932fa5a1275a.21) #12, !noalias !37
+  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17hdaca407d67a34612E(i64 noundef %7, i64 noundef %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.063a6eda66e372215699932fa5a1275a.21) #12
   unreachable
 
 _ZN13grep_searcher11line_buffer10LineBuffer11free_buffer17h3180c133324235abE.exit: ; preds = %1
@@ -448,12 +447,11 @@ _ZN13grep_searcher11line_buffer10LineBuffer11free_buffer17h3180c133324235abE.exi
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17ha747805b17fd1d65E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h8de0378bf96c9949E.llvm.12743913752286771008.exit.i", %34
   %35 = phi i64 [ %32, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h8de0378bf96c9949E.llvm.12743913752286771008.exit.i" ], [ %.pre11, %34 ]
   %36 = phi i64 [ %7, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h8de0378bf96c9949E.llvm.12743913752286771008.exit.i" ], [ %.pre, %34 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !58)
   %37 = icmp ugt i64 %36, %35
   br i1 %37, label %38, label %_ZN13grep_searcher11line_buffer10LineBuffer11free_buffer17h3180c133324235abE.exit6
 
 38:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17ha747805b17fd1d65E.exit"
-  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17hdaca407d67a34612E(i64 noundef %36, i64 noundef %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.063a6eda66e372215699932fa5a1275a.21) #12, !noalias !58
+  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17hdaca407d67a34612E(i64 noundef %36, i64 noundef %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.063a6eda66e372215699932fa5a1275a.21) #12
   unreachable
 
 _ZN13grep_searcher11line_buffer10LineBuffer11free_buffer17h3180c133324235abE.exit6: ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17ha747805b17fd1d65E.exit"

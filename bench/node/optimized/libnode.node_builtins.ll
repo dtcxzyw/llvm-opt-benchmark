@@ -2958,13 +2958,13 @@ for.body:                                         ; preds = %entry, %for.inc
   %2 = extractvalue { i64, ptr } %call10, 0
   %3 = load i64, ptr %__begin2.sroa.0.015, align 8
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %3, i64 %call9)
+  %_M_str.i.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.015, i64 8
   %.sroa.speculated.i1.i = call i64 @llvm.umin.i64(i64 %2, i64 %.sroa.speculated.i.i)
   %cmp.i2.i.i = icmp eq i64 %.sroa.speculated.i1.i, 0
   br i1 %cmp.i2.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE7compareEmmS2_.exit, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %for.body
   %4 = extractvalue { i64, ptr } %call10, 1
-  %_M_str.i.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.015, i64 8
   %5 = load ptr, ptr %_M_str.i.i, align 8
   %bcmp = call i32 @bcmp(ptr %5, ptr %4, i64 %.sroa.speculated.i1.i)
   %cmp.i.i7 = icmp eq i32 %bcmp, 0
@@ -2979,11 +2979,10 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE7compareEmmS2_.exit: ; preds = %fo
 if.end:                                           ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE7compareEmmS2_.exit
   %call13 = call noundef ptr @_ZN2v87Context10GetIsolateEv(ptr noundef nonnull align 1 dereferenceable(1) %context.coerce) #23
   call void @_ZN2v88TryCatchC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %bootstrapCatch, ptr noundef %call13) #23
-  %_M_str.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.015, i64 8
-  %6 = load ptr, ptr %_M_str.i, align 8
+  %6 = load ptr, ptr %_M_str.i.i, align 8
   %call19 = call ptr @_ZN4node8builtins13BuiltinLoader16LookupAndCompileEN2v85LocalINS2_7ContextEEEPKcPNS_5RealmE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nonnull %context.coerce, ptr noundef %6, ptr noundef null)
   %call24 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %bootstrapCatch) #23
-  %7 = load ptr, ptr %_M_str.i, align 8
+  %7 = load ptr, ptr %_M_str.i.i, align 8
   br i1 %call24, label %if.then25, label %if.else
 
 if.then25:                                        ; preds = %if.end
@@ -3290,7 +3289,7 @@ for.end:                                          ; preds = %for.body, %_ZNSt13u
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node8builtins13BuiltinLoader20GetBuiltinCategoriesEN2v85LocalINS2_4NameEEERKNS2_20PropertyCallbackInfoINS2_5ValueEEE(ptr nocapture readnone %property.coerce, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %info) #3 align 2 {
+define dso_local void @_ZN4node8builtins13BuiltinLoader20GetBuiltinCategoriesEN2v85LocalINS2_4NameEEERKNS2_20PropertyCallbackInfoINS2_5ValueEEE(ptr nocapture readnone %property.coerce, ptr noundef nonnull align 8 dereferenceable(8) %info) #3 align 2 {
 entry:
   %builtin_categories = alloca %"struct.node::builtins::BuiltinLoader::BuiltinCategories", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3403,16 +3402,16 @@ if.then.i.i21:                                    ; preds = %if.end72
 _ZN4node13OneByteStringEPN2v87IsolateEPKci.exit22: ; preds = %if.end72, %if.then.i.i21
   %call95 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call8, ptr %call2.i, ptr %call.i19, ptr nonnull %call64) #23
   %tobool.i = trunc i16 %call95 to i1
-  br i1 %tobool.i, label %if.else.i, label %cleanup
+  br i1 %tobool.i, label %if.end98, label %cleanup
 
-if.else.i:                                        ; preds = %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit22
+if.end98:                                         ; preds = %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit22
   %16 = load ptr, ptr %info, align 8
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %16, i64 32
   %17 = load i64, ptr %call8, align 8
   store i64 %17, ptr %arrayidx.i, align 8
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit22, %if.end57, %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit, %if.end, %if.else.i
+cleanup:                                          ; preds = %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit22, %if.end57, %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit, %if.end, %if.end98
   %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %builtin_categories, i64 64
   %18 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %cannot_be_required20, ptr noundef %18)
@@ -3510,7 +3509,7 @@ cleanup:                                          ; preds = %_ZN4node9ToV8ValueE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node8builtins13BuiltinLoader13GetCacheUsageERKN2v820FunctionCallbackInfoINS2_5ValueEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %args) #3 align 2 {
+define dso_local void @_ZN4node8builtins13BuiltinLoader13GetCacheUsageERKN2v820FunctionCallbackInfoINS2_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(20) %args) #3 align 2 {
 entry:
   %0 = load ptr, ptr %args, align 8
   %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3600,16 +3599,16 @@ if.then.i.i21:                                    ; preds = %if.end97
 _ZN4node13OneByteStringEPN2v87IsolateEPKci.exit22: ; preds = %if.end97, %if.then.i.i21
   %call120 = tail call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call5, ptr %call2, ptr %call.i19, ptr nonnull %call89) #23
   %tobool.i = trunc i16 %call120 to i1
-  br i1 %tobool.i, label %if.else.i, label %return
+  br i1 %tobool.i, label %if.end123, label %return
 
-if.else.i:                                        ; preds = %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit22
+if.end123:                                        ; preds = %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit22
   %14 = load ptr, ptr %args, align 8
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %14, i64 24
   %15 = load i64, ptr %call5, align 8
   store i64 %15, ptr %arrayidx.i, align 8
   br label %return
 
-return:                                           ; preds = %if.else.i, %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit22, %if.end83, %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit18, %if.end43, %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit, %entry
+return:                                           ; preds = %if.end123, %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit22, %if.end83, %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit18, %if.end43, %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit, %entry
   ret void
 }
 
@@ -4102,7 +4101,7 @@ _ZN2v811ReturnValueINS_5ValueEE3SetINS_6StringEEEvNS_5LocalIT_EE.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node8builtins13BuiltinLoader15CompileFunctionERKN2v820FunctionCallbackInfoINS2_5ValueEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %args) #3 align 2 {
+define dso_local void @_ZN4node8builtins13BuiltinLoader15CompileFunctionERKN2v820FunctionCallbackInfoINS2_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(20) %args) #3 align 2 {
 entry:
   %id_v = alloca %"class.node::Utf8Value", align 8
   %0 = load ptr, ptr %args, align 8
@@ -4213,16 +4212,16 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
   %call31 = call ptr %31(ptr noundef nonnull align 8 dereferenceable(872) %retval.0.i.i) #23
   %call38 = call ptr @_ZN4node8builtins13BuiltinLoader16LookupAndCompileEN2v85LocalINS2_7ContextEEEPKcPNS_5RealmE(ptr noundef nonnull align 8 dereferenceable(48) %builtin_loader_.i, ptr %call31, ptr noundef %29, ptr noundef nonnull %retval.0.i.i)
   %cmp.i.i.not = icmp eq ptr %call38, null
-  br i1 %cmp.i.i.not, label %if.end52, label %if.else.i
+  br i1 %cmp.i.i.not, label %if.end52, label %if.then44
 
-if.else.i:                                        ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
+if.then44:                                        ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
   %32 = load ptr, ptr %args, align 8
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %32, i64 24
   %33 = load i64, ptr %call38, align 8
   store i64 %33, ptr %arrayidx.i, align 8
   br label %if.end52
 
-if.end52:                                         ; preds = %if.else.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
+if.end52:                                         ; preds = %if.then44, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
   %34 = load ptr, ptr %buf_.i, align 8
   %cmp.i.i.i.i17 = icmp ne ptr %34, null
   %buf_st_.i.i.i = getelementptr inbounds nuw i8, ptr %id_v, i64 24

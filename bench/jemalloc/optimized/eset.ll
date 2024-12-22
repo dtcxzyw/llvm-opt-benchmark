@@ -395,6 +395,7 @@ cond.false.i:                                     ; preds = %if.then.i
 if.end.i:                                         ; preds = %sz_psz2ind.exit.i
   %div2.i26.i.i = lshr i64 %retval.i.0.i, 6
   %arrayidx.i.i.i = getelementptr inbounds nuw i64, ptr %eset, i64 %div2.i26.i.i
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %arrayidx.i.i.i, i64 64) ]
   %6 = load i64, ptr %arrayidx.i.i.i, align 8
   %rem3.i.i.i = and i64 %retval.i.0.i, 63
   %notmask.i.i = shl nsw i64 -1, %rem3.i.i.i
@@ -483,6 +484,7 @@ for.inc.i:                                        ; preds = %if.end46.i
   %add.i = add nuw nsw i64 %conv1056.i, 1
   %div2.i26.i26.i = lshr i64 %add.i, 6
   %arrayidx.i.i27.i = getelementptr inbounds nuw i64, ptr %eset, i64 %div2.i26.i26.i
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %arrayidx.i.i27.i, i64 64) ]
   %14 = load i64, ptr %arrayidx.i.i27.i, align 8
   %rem3.i.i28.i = and i64 %add.i, 63
   %notmask.i29.i = shl nsw i64 -1, %rem3.i.i28.i
@@ -571,6 +573,7 @@ sz_psz2ind.exit.i22:                              ; preds = %if.end.i.i13, %sz_p
   %retval.i.0.i23 = phi i32 [ %add13.i.i21, %if.end.i.i13 ], [ 199, %sz_psz2ind.exit71.i ]
   %div2.i26.i.i24 = lshr i64 %retval.i36.0.i, 6
   %arrayidx.i.i.i25 = getelementptr inbounds nuw i64, ptr %eset, i64 %div2.i26.i.i24
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %arrayidx.i.i.i25, i64 64) ]
   %28 = load i64, ptr %arrayidx.i.i.i25, align 8
   %rem3.i.i.i26 = and i64 %retval.i36.0.i, 63
   %notmask.i.i27 = shl nsw i64 -1, %rem3.i.i.i26
@@ -640,6 +643,7 @@ for.inc.i40:                                      ; preds = %do.end8.i
   %add33.i = add nuw nsw i64 %idxprom.i, 1
   %div2.i26.i29.i = lshr i64 %add33.i, 6
   %arrayidx.i.i30.i = getelementptr inbounds nuw i64, ptr %eset, i64 %div2.i26.i29.i
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %arrayidx.i.i30.i, i64 64) ]
   %35 = load i64, ptr %arrayidx.i.i30.i, align 8
   %rem3.i.i31.i = and i64 %add33.i, 63
   %notmask.i32.i = shl nsw i64 -1, %rem3.i.i31.i

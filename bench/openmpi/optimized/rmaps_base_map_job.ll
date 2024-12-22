@@ -3588,6 +3588,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %65, %100
   %139 = getelementptr inbounds nuw i8, ptr %8, i64 120
   %140 = getelementptr inbounds nuw i8, ptr %8, i64 240
   %141 = load ptr, ptr %140, align 8
+  %.0.in349 = getelementptr inbounds nuw i8, ptr %141, i64 120
   %.not255351 = icmp eq ptr %141, %139
   br i1 %2, label %142, label %266
 
@@ -3605,12 +3606,13 @@ pmix_pointer_array_get_item.exit:                 ; preds = %65, %100
   br label %149
 
 .loopexit303:                                     ; preds = %..loopexit_crit_edge.us, %.loopexit, %pmix_pointer_array_get_item.exit267.lr.ph.split, %154
+  %.0.in = getelementptr inbounds nuw i8, ptr %.0353, i64 120
   %.not255 = icmp eq ptr %.0353, %139
   br i1 %.not255, label %._crit_edge356, label %149, !llvm.loop !20
 
 149:                                              ; preds = %.lr.ph355, %.loopexit303
+  %.0353.in = phi ptr [ %.0.in349, %.lr.ph355 ], [ %.0.in, %.loopexit303 ]
   %.0215352 = phi ptr [ %141, %.lr.ph355 ], [ %.0353, %.loopexit303 ]
-  %.0353.in = getelementptr inbounds nuw i8, ptr %.0215352, i64 120
   %.0353 = load ptr, ptr %.0353.in, align 8
   %150 = call i32 @pthread_mutex_lock(ptr noundef nonnull %.0215352) #14
   %151 = icmp eq i32 %150, 35
@@ -3858,8 +3860,8 @@ pmix_pointer_array_get_item.exit267:              ; preds = %pmix_pointer_array_
   br label %.preheader308
 
 .preheader308:                                    ; preds = %.preheader308.lr.ph, %.loopexit307
+  %.1336.in = phi ptr [ %.0.in349, %.preheader308.lr.ph ], [ %.1.in, %.loopexit307 ]
   %.1216335 = phi ptr [ %141, %.preheader308.lr.ph ], [ %.1336, %.loopexit307 ]
-  %.1336.in = getelementptr inbounds nuw i8, ptr %.1216335, i64 120
   %.1336 = load ptr, ptr %.1336.in, align 8
   %273 = getelementptr inbounds nuw i8, ptr %.1216335, i64 208
   %274 = load ptr, ptr %273, align 8
@@ -4097,6 +4099,7 @@ pmix_obj_run_destructors.exit283:                 ; preds = %.lr.ph.i280, %374
   br i1 %394, label %pmix_pointer_array_get_item.exit278, label %.loopexit307, !llvm.loop !26
 
 .loopexit307:                                     ; preds = %._crit_edge330, %.preheader308, %303, %._crit_edge326
+  %.1.in = getelementptr inbounds nuw i8, ptr %.1336, i64 120
   %.not251 = icmp eq ptr %.1336, %139
   br i1 %.not251, label %._crit_edge337, label %.preheader308, !llvm.loop !27
 

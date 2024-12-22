@@ -7119,6 +7119,7 @@ define internal fastcc void @xtrans_markesteijn_interpolate(ptr nocapture nounde
   br i1 %2197, label %.loopexit253, label %.preheader252
 
 .preheader252:                                    ; preds = %359
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %53, i64 32) ]
   %361 = load i32, ptr %4, align 4, !tbaa !25
   %invariant.op301 = add i32 %361, 600
   %362 = load i32, ptr %53, align 4, !tbaa !27
@@ -7130,6 +7131,7 @@ define internal fastcc void @xtrans_markesteijn_interpolate(ptr nocapture nounde
   br i1 %2198, label %.loopexit251, label %.preheader250
 
 .preheader250:                                    ; preds = %.loopexit253
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %53, i64 32) ]
   %364 = load i32, ptr %4, align 4, !tbaa !25
   %invariant.op305 = add i32 %364, 601
   %365 = load i32, ptr %53, align 4, !tbaa !27
@@ -7140,6 +7142,7 @@ define internal fastcc void @xtrans_markesteijn_interpolate(ptr nocapture nounde
   br i1 %2199, label %.loopexit249, label %.preheader248
 
 .preheader248:                                    ; preds = %.loopexit251
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %53, i64 32) ]
   %366 = load i32, ptr %4, align 4, !tbaa !25
   %invariant.op309 = add i32 %366, 600
   %367 = load i32, ptr %53, align 4, !tbaa !27
@@ -7436,6 +7439,7 @@ define internal fastcc void @xtrans_markesteijn_interpolate(ptr nocapture nounde
   %567 = call i64 @llvm.smax.i64(i64 %563, i64 %566)
   %568 = trunc i64 %567 to i32
   %569 = add i32 %568, %562
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %53, i64 32) ]
   %570 = load i32, ptr %4, align 4, !tbaa !25
   %571 = add nsw i32 %570, %559
   %572 = load i32, ptr %53, align 4, !tbaa !27
@@ -7486,6 +7490,7 @@ define internal fastcc void @xtrans_markesteijn_interpolate(ptr nocapture nounde
   br label %655
 
 612:                                              ; preds = %607
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %53, i64 32) ]
   %613 = load i8, ptr %602, align 1, !tbaa !105
   %614 = icmp eq i8 %579, %613
   br i1 %614, label %648, label %.preheader323
@@ -7551,6 +7556,7 @@ define internal fastcc void @xtrans_markesteijn_interpolate(ptr nocapture nounde
   br i1 %657, label %.loopexit238, label %607
 
 658:                                              ; preds = %548
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %53, i64 32) ]
   %659 = load i32, ptr %4, align 4, !tbaa !25
   %660 = add nsw i32 %659, %559
   %661 = load i32, ptr %53, align 4, !tbaa !27
@@ -8183,6 +8189,7 @@ define internal fastcc void @xtrans_markesteijn_interpolate(ptr nocapture nounde
   br i1 %1224, label %.preheader257, label %.critedge
 
 .preheader257:                                    ; preds = %1221
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %53, i64 32) ]
   %1226 = load i32, ptr %4, align 4, !tbaa !25
   %invariant.op = add i32 %1226, 600
   %1227 = load i32, ptr %53, align 4, !tbaa !27
@@ -8332,6 +8339,7 @@ define internal fastcc void @xtrans_markesteijn_interpolate(ptr nocapture nounde
 
 1337:                                             ; preds = %1334
   %1338 = sext i32 %1223 to i64
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %53, i64 32) ]
   br label %1339
 
 1339:                                             ; preds = %1513, %1337

@@ -128,6 +128,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn10ROIPooling7forwardERKSt
   %73 = sext i32 %7 to i64
   %74 = sext i32 %9 to i64
   %wide.trip.count = zext nneg i32 %13 to i64
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %15, i64 0) ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %25, i64 64) ]
   br label %.lr.ph288.split
 
 .lr.ph288.split:                                  ; preds = %.lr.ph288.split.preheader, %._crit_edge266
@@ -144,16 +146,16 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn10ROIPooling7forwardERKSt
   %84 = getelementptr inbounds i8, ptr %79, i64 %83
   %85 = icmp sgt i32 %78, 0
   %86 = icmp sgt i32 %77, 0
-  %or.cond = select i1 %85, i1 %86, i1 false
-  br i1 %or.cond, label %.preheader234.preheader, label %._crit_edge266
+  %or.cond325 = select i1 %85, i1 %86, i1 false
+  br i1 %or.cond325, label %.preheader234.preheader, label %._crit_edge266
 
 .preheader234.preheader:                          ; preds = %.lr.ph288.split
-  %87 = load ptr, ptr %15, align 8
-  %88 = load i64, ptr %25, align 8
-  %89 = mul i64 %88, %indvars.iv309
+  %87 = load i64, ptr %25, align 8
+  %88 = load ptr, ptr %15, align 8
+  %89 = mul i64 %87, %indvars.iv309
   %90 = load i64, ptr %69, align 8
   %91 = mul i64 %89, %90
-  %92 = getelementptr inbounds i8, ptr %87, i64 %91
+  %92 = getelementptr inbounds i8, ptr %88, i64 %91
   br label %.preheader234
 
 .preheader234:                                    ; preds = %.preheader234.preheader, %._crit_edge
@@ -228,8 +230,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn10ROIPooling7forwardERKSt
 138:                                              ; preds = %116, %133
   %139 = phi fast float [ %137, %133 ], [ 0.000000e+00, %116 ]
   %140 = icmp slt i32 %129, %.sroa.speculated219
-  %or.cond322 = select i1 %111, i1 %140, i1 false
-  br i1 %or.cond322, label %.preheader.us.preheader, label %._crit_edge239
+  %or.cond = select i1 %111, i1 %140, i1 false
+  br i1 %or.cond, label %.preheader.us.preheader, label %._crit_edge239
 
 .preheader.us.preheader:                          ; preds = %138
   %141 = zext nneg i32 %129 to i64
@@ -312,14 +314,14 @@ declare float @llvm.ceil.f32(float) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4ncnn10ROIPoolingD2Ev(ptr noundef nonnull align 8 dereferenceable(220) %0) unnamed_addr #3 comdat align 2 {
-  tail call void @_ZN4ncnn5LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) #7
+  tail call void @_ZN4ncnn5LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) #8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4ncnn10ROIPoolingD0Ev(ptr noundef nonnull align 8 dereferenceable(220) %0) unnamed_addr #3 comdat align 2 {
-  tail call void @_ZN4ncnn5LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(220) %0) #7
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 224) #8
+  tail call void @_ZN4ncnn5LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(220) %0) #8
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 224) #9
   ret void
 }
 
@@ -350,6 +352,9 @@ declare i32 @llvm.smax.i32(i32, i32) #6
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #6
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #7
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #6
 
@@ -360,8 +365,9 @@ attributes #3 = { mustprogress nounwind uwtable "approx-func-fp-math"="true" "fr
 attributes #4 = { nounwind "approx-func-fp-math"="true" "frame-pointer"="all" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
 attributes #5 = { nobuiltin nounwind "approx-func-fp-math"="true" "frame-pointer"="all" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
-attributes #8 = { builtin nounwind }
+attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #8 = { nounwind }
+attributes #9 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

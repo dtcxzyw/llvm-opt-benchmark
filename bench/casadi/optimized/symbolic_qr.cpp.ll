@@ -3346,20 +3346,21 @@ _ZSt6fill_nIPPdxDnET_S2_T0_RKT1_.exit:            ; preds = %_ZSt6fill_nIPPKdxDn
   %.042 = phi i64 [ 0, %.lr.ph ], [ %71, %68 ]
   %.02741 = phi ptr [ %3, %.lr.ph ], [ %70, %68 ]
   %42 = tail call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %36)
-  %43 = icmp slt i64 %42, 1
-  br i1 %43, label %_ZSt6copy_nIPdxS0_ET1_T_T0_S1_.exit, label %_ZSt8__copy_nIPdxS0_ET1_T_T0_S1_St26random_access_iterator_tag.exit.i
+  %43 = load ptr, ptr %37, align 8
+  %44 = icmp slt i64 %42, 1
+  br i1 %44, label %_ZSt6copy_nIPdxS0_ET1_T_T0_S1_.exit, label %_ZSt8__copy_nIPdxS0_ET1_T_T0_S1_St26random_access_iterator_tag.exit.i
 
 _ZSt8__copy_nIPdxS0_ET1_T_T0_S1_St26random_access_iterator_tag.exit.i: ; preds = %41
-  %44 = load ptr, ptr %37, align 8
   %45 = load ptr, ptr %38, align 8
-  %46 = icmp eq ptr %44, %45
-  %spec.select.i34 = select i1 %46, ptr null, ptr %44
+  %46 = icmp eq ptr %43, %45
+  %spec.select.i34 = select i1 %46, ptr null, ptr %43
   %.idx.i.i35 = shl nsw i64 %42, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %spec.select.i34, ptr align 8 %.02741, i64 %.idx.i.i35, i1 false)
+  %.pre = load ptr, ptr %37, align 8
   br label %_ZSt6copy_nIPdxS0_ET1_T_T0_S1_.exit
 
 _ZSt6copy_nIPdxS0_ET1_T_T0_S1_.exit:              ; preds = %41, %_ZSt8__copy_nIPdxS0_ET1_T_T0_S1_St26random_access_iterator_tag.exit.i
-  %47 = load ptr, ptr %37, align 8
+  %47 = phi ptr [ %43, %41 ], [ %.pre, %_ZSt8__copy_nIPdxS0_ET1_T_T0_S1_St26random_access_iterator_tag.exit.i ]
   %48 = load ptr, ptr %38, align 8
   %49 = icmp eq ptr %47, %48
   %spec.select.i36 = select i1 %49, ptr null, ptr %47
@@ -3970,6 +3971,7 @@ _ZSt8_DestroyIPN6casadi6SXElemES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_Des
 _ZN6casadi6MatrixINS_6SXElemEED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN6casadi6SXElemES1_EvT_S3_RSaIT0_E.exit.i.i, %189
   %190 = getelementptr inbounds nuw i8, ptr %42, i64 8
   call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %190) #20
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %1, i64 0) ]
   %191 = icmp sgt i64 %7, 0
   br i1 %191, label %.lr.ph, label %._crit_edge
 

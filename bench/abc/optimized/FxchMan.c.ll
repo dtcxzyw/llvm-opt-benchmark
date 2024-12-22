@@ -1389,6 +1389,7 @@ define internal fastcc void @Fxch_ManDivSingleCube(ptr noundef %0, i32 noundef %
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %.not = icmp eq i32 %2, 0
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %11, i64 0) ]
   br label %17
 
 .critedge2.loopexit.loopexit:                     ; preds = %.loopexit

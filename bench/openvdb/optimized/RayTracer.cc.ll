@@ -46073,6 +46073,7 @@ land.rhs:                                         ; preds = %do.cond
   %38 = load ptr, ptr %37, align 8
   %retval.0.i.i = select i1 %cmp.i.i.i35, ptr %38, ptr %35
   %call2.i36 = call noundef zeroext i1 @_ZN3tbb6detail2r128is_group_execution_cancelledERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %retval.0.i.i)
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %my_size.i, i64 8) ]
   br i1 %call2.i36, label %if.end36, label %do.bodythread-pre-split, !llvm.loop !385
 
 if.end36:                                         ; preds = %land.rhs, %do.cond, %if.then
@@ -85312,6 +85313,7 @@ land.rhs:                                         ; preds = %do.cond
   %38 = load ptr, ptr %37, align 8
   %retval.0.i.i = select i1 %cmp.i.i.i35, ptr %38, ptr %35
   %call2.i36 = call noundef zeroext i1 @_ZN3tbb6detail2r128is_group_execution_cancelledERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %retval.0.i.i)
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %my_size.i, i64 8) ]
   br i1 %call2.i36, label %if.end31, label %do.bodythread-pre-split, !llvm.loop !568
 
 if.end31:                                         ; preds = %land.rhs, %do.cond, %if.then
@@ -88362,6 +88364,7 @@ land.rhs:                                         ; preds = %do.cond
   %45 = load ptr, ptr %44, align 8
   %retval.0.i.i = select i1 %cmp.i.i.i40, ptr %45, ptr %42
   %call2.i41 = call noundef zeroext i1 @_ZN3tbb6detail2r128is_group_execution_cancelledERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %retval.0.i.i)
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %my_size.i, i64 8) ]
   br i1 %call2.i41, label %if.end31, label %do.bodythread-pre-split, !llvm.loop !578
 
 if.end31:                                         ; preds = %land.rhs, %do.cond, %if.then
@@ -91000,6 +91003,7 @@ land.rhs:                                         ; preds = %do.cond
   %45 = load ptr, ptr %44, align 8
   %retval.0.i.i = select i1 %cmp.i.i.i40, ptr %45, ptr %42
   %call2.i41 = call noundef zeroext i1 @_ZN3tbb6detail2r128is_group_execution_cancelledERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %retval.0.i.i)
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %my_size.i, i64 8) ]
   br i1 %call2.i41, label %if.end31, label %do.bodythread-pre-split, !llvm.loop !597
 
 if.end31:                                         ; preds = %land.rhs, %do.cond, %if.then
@@ -91086,6 +91090,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #24
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #25
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #22
 
@@ -91109,9 +91116,6 @@ declare i64 @llvm.ctpop.i64(i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #22
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #25
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

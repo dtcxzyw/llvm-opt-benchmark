@@ -25,13 +25,13 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local range(i32 -1, 1) i32 @evutil_secure_rng_global_setup_locks_(i32 noundef %enable_locks) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @arc4rand_lock, align 8
-  %call = tail call ptr @evthread_setup_global_lock_(ptr noundef %0, i32 noundef 0, i32 noundef %enable_locks) #7
+  %call = tail call ptr @evthread_setup_global_lock_(ptr noundef %0, i32 noundef 0, i32 noundef %enable_locks) #8
   store ptr %call, ptr @arc4rand_lock, align 8
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #7
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #8
   br label %return
 
 return:                                           ; preds = %entry, %if.then
@@ -56,7 +56,7 @@ do.end.thread:                                    ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 24), align 8
-  %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #7
+  %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #8
   %.pr = load ptr, ptr @arc4rand_lock, align 8
   store ptr %fname, ptr @arc4random_urandom_filename, align 8
   %tobool2.not = icmp eq ptr %.pr, null
@@ -64,7 +64,7 @@ do.end:                                           ; preds = %entry
 
 if.then3:                                         ; preds = %do.end
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 32), align 8
-  %call4 = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %.pr) #7
+  %call4 = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %.pr) #8
   br label %do.end6
 
 do.end6:                                          ; preds = %do.end.thread, %do.end, %if.then3
@@ -80,7 +80,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 24), align 8
-  %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #7
+  %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #8
   br label %do.end
 
 do.end:                                           ; preds = %entry, %if.then
@@ -91,7 +91,7 @@ do.end:                                           ; preds = %entry, %if.then
 
 if.then5:                                         ; preds = %do.end
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 32), align 8
-  %call6 = tail call i32 %3(i32 noundef 0, ptr noundef nonnull %2) #7
+  %call6 = tail call i32 %3(i32 noundef 0, ptr noundef nonnull %2) #8
   br label %do.end8
 
 do.end8:                                          ; preds = %do.end, %if.then5
@@ -137,7 +137,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i, %if.e
   %len.05.i.i = phi i64 [ 0, %if.end ], [ %add.i.i, %for.cond.i.i ]
   %arrayidx.i.i = getelementptr inbounds nuw [32 x i8], ptr %buf.i.i, i64 0, i64 %len.05.i.i
   %sub.i.i = sub nuw nsw i64 32, %len.05.i.i
-  %call.i.i = call i64 @getrandom(ptr noundef nonnull %arrayidx.i.i, i64 noundef %sub.i.i, i32 noundef 0) #7
+  %call.i.i = call i64 @getrandom(ptr noundef nonnull %arrayidx.i.i, i64 noundef %sub.i.i, i32 noundef 0) #8
   %cmp1.i.i = icmp slt i64 %call.i.i, 0
   br i1 %cmp1.i.i, label %arc4_seed_getrandom.exit.i, label %for.cond.i.i
 
@@ -173,7 +173,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
 4:                                                ; preds = %for.body.i.i.i
   store i8 %add.i.i.i, ptr @rs, align 1
   store i8 %add.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @rs, i64 1), align 1
-  call void @evutil_memclear_(ptr noundef nonnull %buf.i.i, i64 noundef 32) #7
+  call void @evutil_memclear_(ptr noundef nonnull %buf.i.i, i64 noundef 32) #8
   br label %arc4_seed_getrandom.exit.i
 
 arc4_seed_getrandom.exit.i:                       ; preds = %for.body.i.i, %4
@@ -183,18 +183,19 @@ arc4_seed_getrandom.exit.i:                       ; preds = %for.body.i.i, %4
   %tobool.not.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i, label %for.body.i4.i, label %arc4_seed_urandom.exit.i
 
-for.cond.i7.i:                                    ; preds = %for.body.i4.i
+for.cond.i6.i:                                    ; preds = %for.body.i4.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %arrayidx.i7.i = getelementptr inbounds nuw [4 x ptr], ptr @arc4_seed_urandom.filenames, i64 0, i64 %indvars.iv.next.i.i
   %tobool1.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
   br i1 %tobool1.not.i.i, label %arc4_seed_urandom.exit.thread44.i, label %for.body.i4.i, !llvm.loop !9
 
-for.body.i4.i:                                    ; preds = %arc4_seed_getrandom.exit.i, %for.cond.i7.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.cond.i7.i ], [ 0, %arc4_seed_getrandom.exit.i ]
-  %arrayidx.i5.i = getelementptr inbounds nuw [4 x ptr], ptr @arc4_seed_urandom.filenames, i64 0, i64 %indvars.iv.i.i
-  %7 = load ptr, ptr %arrayidx.i5.i, align 8
+for.body.i4.i:                                    ; preds = %arc4_seed_getrandom.exit.i, %for.cond.i6.i
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.cond.i6.i ], [ 0, %arc4_seed_getrandom.exit.i ]
+  %arrayidx5.i.i = phi ptr [ %arrayidx.i7.i, %for.cond.i6.i ], [ @arc4_seed_urandom.filenames, %arc4_seed_getrandom.exit.i ]
+  %7 = load ptr, ptr %arrayidx5.i.i, align 8
   %call4.i.i = call fastcc i32 @arc4_seed_urandom_helper_(ptr noundef %7)
-  %cmp.i6.i = icmp eq i32 %call4.i.i, 0
-  br i1 %cmp.i6.i, label %arc4_seed_urandom.exit.thread.i, label %for.cond.i7.i
+  %cmp.i5.i = icmp eq i32 %call4.i.i, 0
+  br i1 %cmp.i5.i, label %arc4_seed_urandom.exit.thread.i, label %for.cond.i6.i
 
 arc4_seed_urandom.exit.i:                         ; preds = %arc4_seed_getrandom.exit.i
   %call.i2.i = call fastcc i32 @arc4_seed_urandom_helper_(ptr noundef %6)
@@ -205,8 +206,8 @@ arc4_seed_urandom.exit.i:                         ; preds = %arc4_seed_getrandom
 arc4_seed_urandom.exit.thread.i:                  ; preds = %for.body.i4.i, %arc4_seed_urandom.exit.i
   br label %arc4_seed_urandom.exit.thread44.i
 
-arc4_seed_urandom.exit.thread44.i:                ; preds = %for.cond.i7.i, %arc4_seed_urandom.exit.thread.i, %arc4_seed_urandom.exit.i
-  %8 = phi i32 [ 1, %arc4_seed_urandom.exit.thread.i ], [ %5, %arc4_seed_urandom.exit.i ], [ %5, %for.cond.i7.i ]
+arc4_seed_urandom.exit.thread44.i:                ; preds = %for.cond.i6.i, %arc4_seed_urandom.exit.thread.i, %arc4_seed_urandom.exit.i
+  %8 = phi i32 [ 1, %arc4_seed_urandom.exit.thread.i ], [ %5, %arc4_seed_urandom.exit.i ], [ %5, %for.cond.i6.i ]
   %9 = load ptr, ptr @arc4random_urandom_filename, align 8
   %cmp5.i = icmp eq ptr %9, null
   br i1 %cmp5.i, label %land.lhs.true.i, label %arc4_seed.exit
@@ -218,14 +219,14 @@ land.lhs.true.i:                                  ; preds = %arc4_seed_urandom.e
 
 for.body.i9.i:                                    ; preds = %arc4_addrandom.exit.i35.i, %land.lhs.true.i
   %bytes.018.i.i = phi i32 [ 0, %land.lhs.true.i ], [ %add.i36.i, %arc4_addrandom.exit.i35.i ]
-  %call.i10.i = call i32 @evutil_open_closeonexec_(ptr noundef nonnull @.str.5, i32 noundef 0, i32 noundef 0) #7
+  %call.i10.i = call i32 @evutil_open_closeonexec_(ptr noundef nonnull @.str.5, i32 noundef 0, i32 noundef 0) #8
   %cmp1.i11.i = icmp slt i32 %call.i10.i, 0
   br i1 %cmp1.i11.i, label %if.end9.sink.split.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body.i9.i
-  %call2.i.i = call i64 @read(i32 noundef %call.i10.i, ptr noundef nonnull %buf.i8.i, i64 noundef 128) #7
+  %call2.i.i = call i64 @read(i32 noundef %call.i10.i, ptr noundef nonnull %buf.i8.i, i64 noundef 128) #8
   %conv.i.i = trunc i64 %call2.i.i to i32
-  %call3.i.i = call i32 @close(i32 noundef %call.i10.i) #7
+  %call3.i.i = call i32 @close(i32 noundef %call.i10.i) #8
   %cmp4.i.i = icmp slt i32 %conv.i.i, 1
   br i1 %cmp4.i.i, label %if.end9.sink.split.i, label %if.end7.i.i
 
@@ -239,12 +240,12 @@ for.body12.i.i:                                   ; preds = %for.inc.i.i, %if.en
   %nybbles.017.i.i = phi i32 [ 0, %if.end7.i.i ], [ %nybbles.1.i.i, %for.inc.i.i ]
   %arrayidx.i13.i = getelementptr inbounds nuw [128 x i8], ptr %buf.i8.i, i64 0, i64 %indvars.iv.i12.i
   %10 = load i8, ptr %arrayidx.i13.i, align 1
-  %call13.i.i = call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %10) #7
+  %call13.i.i = call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %10) #8
   %tobool.not.i14.i = icmp eq i32 %call13.i.i, 0
   br i1 %tobool.not.i14.i, label %for.inc.i.i, label %if.then14.i.i
 
 if.then14.i.i:                                    ; preds = %for.body12.i.i
-  %call17.i.i = call i32 @evutil_hex_char_to_int_(i8 noundef signext %10) #7
+  %call17.i.i = call i32 @evutil_hex_char_to_int_(i8 noundef signext %10) #8
   %and.i.i = and i32 %nybbles.017.i.i, 1
   %tobool18.not.i.i = icmp eq i32 %and.i.i, 0
   %call17.tr.i.i = trunc i32 %call17.i.i to i8
@@ -321,8 +322,8 @@ arc4_addrandom.exit.i35.i:                        ; preds = %for.body.i.i19.i
   br i1 %cmp.i37.i, label %for.body.i9.i, label %18, !llvm.loop !11
 
 18:                                               ; preds = %arc4_addrandom.exit.i35.i
-  call void @evutil_memclear_(ptr noundef nonnull %entropy.i.i, i64 noundef 64) #7
-  call void @evutil_memclear_(ptr noundef nonnull %buf.i8.i, i64 noundef 128) #7
+  call void @evutil_memclear_(ptr noundef nonnull %entropy.i.i, i64 noundef 64) #8
+  call void @evutil_memclear_(ptr noundef nonnull %buf.i8.i, i64 noundef 128) #8
   br label %if.end9.sink.split.i
 
 if.end9.sink.split.i:                             ; preds = %for.end.i16.i, %if.end.i.i, %for.body.i9.i, %18
@@ -440,11 +441,11 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 24), align 8
-  %call.i.i = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #7
+  %call.i.i = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #8
   br label %do.end.i.i
 
 do.end.i.i:                                       ; preds = %if.then.i.i, %entry
-  %call.i.i.i = tail call i32 @getpid() #7
+  %call.i.i.i = tail call i32 @getpid() #8
   %2 = load i32, ptr @arc4_count, align 4
   %cmp.i.i.i = icmp sgt i32 %2, 0
   %.b.i.i.i = load i1, ptr @rs_initialized, align 4
@@ -513,7 +514,7 @@ do.body7.i.i:                                     ; preds = %if.end5.i.i, %arc4_
 
 if.then9.i.i:                                     ; preds = %do.body7.i.i
   %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 32), align 8
-  %call10.i.i = tail call i32 %12(i32 noundef 0, ptr noundef nonnull %11) #7
+  %call10.i.i = tail call i32 %12(i32 noundef 0, ptr noundef nonnull %11) #8
   br label %ev_arc4random_buf.exit
 
 ev_arc4random_buf.exit:                           ; preds = %do.body7.i.i, %if.then9.i.i
@@ -531,7 +532,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 24), align 8
-  %call.i = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #7
+  %call.i = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #8
   br label %do.end.i
 
 do.end.i:                                         ; preds = %if.then.i, %entry
@@ -543,6 +544,7 @@ if.then2.i:                                       ; preds = %do.end.i
   br label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.then2.i, %do.end.i
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr @rs, i64 8) ]
   %cmp8.i.not = icmp eq i64 %n, 0
   br i1 %cmp8.i.not, label %do.body5.i, label %for.body.preheader.i
 
@@ -601,7 +603,7 @@ do.body5.i:                                       ; preds = %for.cond.do.body5_c
 
 if.then7.i:                                       ; preds = %do.body5.i
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 32), align 8
-  %call8.i = tail call i32 %9(i32 noundef 0, ptr noundef nonnull %8) #7
+  %call8.i = tail call i32 %9(i32 noundef 0, ptr noundef nonnull %8) #8
   br label %arc4random_addrandom.exit
 
 arc4random_addrandom.exit:                        ; preds = %do.body5.i, %if.then7.i
@@ -621,7 +623,7 @@ land.lhs.true.i:                                  ; preds = %entry
   br i1 %tobool1.not.i, label %do.end.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %land.lhs.true.i
-  tail call void %1(ptr noundef nonnull %0, i32 noundef 0) #7
+  tail call void %1(ptr noundef nonnull %0, i32 noundef 0) #8
   br label %do.end.i
 
 do.end.i:                                         ; preds = %if.then2.i, %land.lhs.true.i
@@ -640,7 +642,7 @@ declare void @evutil_memclear_(ptr noundef, i64 noundef) local_unnamed_addr #1
 define internal fastcc range(i32 -1, 1) i32 @arc4_seed_urandom_helper_(ptr noundef nonnull %fname) unnamed_addr #0 {
 entry:
   %buf = alloca [32 x i8], align 16
-  %call = tail call i32 @evutil_open_closeonexec_(ptr noundef nonnull %fname, i32 noundef 0, i32 noundef 0) #7
+  %call = tail call i32 @evutil_open_closeonexec_(ptr noundef nonnull %fname, i32 noundef 0, i32 noundef 0) #8
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %return, label %while.body.i
 
@@ -653,16 +655,16 @@ while.body.i:                                     ; preds = %entry, %while.cond.
   %numread.08.i = phi i64 [ %add.i, %while.cond.i ], [ 0, %entry ]
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %buf, i64 %numread.08.i
   %sub.i = sub nuw nsw i64 32, %numread.08.i
-  %call.i = call i64 @read(i32 noundef range(i32 0, -2147483648) %call, ptr noundef nonnull %add.ptr.i, i64 noundef %sub.i) #7
+  %call.i = call i64 @read(i32 noundef range(i32 0, -2147483648) %call, ptr noundef nonnull %add.ptr.i, i64 noundef %sub.i) #8
   %or.cond = icmp slt i64 %call.i, 1
   br i1 %or.cond, label %read_all.exit.thread, label %while.cond.i
 
 read_all.exit.thread:                             ; preds = %while.body.i
-  %call25 = tail call i32 @close(i32 noundef %call) #7
+  %call25 = tail call i32 @close(i32 noundef %call) #8
   br label %return
 
 read_all.exit:                                    ; preds = %while.cond.i
-  %call2 = tail call i32 @close(i32 noundef %call) #7
+  %call2 = tail call i32 @close(i32 noundef %call) #8
   %cmp3.not = icmp eq i64 %add.i, 32
   br i1 %cmp3.not, label %if.end5, label %return
 
@@ -698,7 +700,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
 arc4_addrandom.exit:                              ; preds = %for.body.i
   store i8 %add.i3, ptr @rs, align 1
   store i8 %add.i3, ptr getelementptr inbounds nuw (i8, ptr @rs, i64 1), align 1
-  call void @evutil_memclear_(ptr noundef nonnull %buf, i64 noundef 32) #7
+  call void @evutil_memclear_(ptr noundef nonnull %buf, i64 noundef 32) #8
   br label %return
 
 return:                                           ; preds = %read_all.exit.thread, %read_all.exit, %entry, %arc4_addrandom.exit
@@ -726,11 +728,14 @@ declare i32 @getpid() local_unnamed_addr #4
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #5
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -738,8 +743,9 @@ attributes #2 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nounwind }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

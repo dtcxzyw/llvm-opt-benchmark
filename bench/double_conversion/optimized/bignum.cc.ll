@@ -45,8 +45,8 @@ if.end:                                           ; preds = %if.then, %entry
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @_ZN17double_conversion6Bignum12AssignUInt64Em(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(516) initializes((0, 4)) %this, i64 noundef %value) local_unnamed_addr #2 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write, inaccessiblemem: write) uwtable
+define void @_ZN17double_conversion6Bignum12AssignUInt64Em(ptr nocapture noundef nonnull align 4 dereferenceable(516) initializes((0, 4)) %this, i64 noundef %value) local_unnamed_addr #2 align 2 {
 entry:
   store i16 0, ptr %this, align 4
   %exponent_.i = getelementptr inbounds nuw i8, ptr %this, i64 2
@@ -255,12 +255,12 @@ _ZN17double_conversion6Bignum9AddUInt64Em.exit33: ; preds = %_ZN17double_convers
 
 land.rhs.lr.ph.i:                                 ; preds = %_ZN17double_conversion6Bignum9AddUInt64Em.exit33
   %bigits_buffer_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 4
+  %7 = zext nneg i16 %.pr.i to i64
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.body.i, %land.rhs.lr.ph.i
-  %7 = phi i16 [ %.pr.i, %land.rhs.lr.ph.i ], [ %dec.i, %while.body.i ]
-  %conv.i35 = zext nneg i16 %7 to i64
-  %sub.i36 = add nuw nsw i64 %conv.i35, 4294967295
+  %indvars.iv50 = phi i64 [ %indvars.iv.next51, %while.body.i ], [ %7, %land.rhs.lr.ph.i ]
+  %sub.i36 = add nuw nsw i64 %indvars.iv50, 4294967295
   %idxprom.i.i = and i64 %sub.i36, 4294967295
   %arrayidx.i.i37 = getelementptr inbounds nuw [128 x i32], ptr %bigits_buffer_.i.i, i64 0, i64 %idxprom.i.i
   %8 = load i32, ptr %arrayidx.i.i37, align 4
@@ -268,9 +268,10 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   br i1 %cmp4.i, label %while.body.i, label %_ZN17double_conversion6Bignum5ClampEv.exit
 
 while.body.i:                                     ; preds = %land.rhs.i
-  %dec.i = add nsw i16 %7, -1
-  store i16 %dec.i, ptr %this, align 4
-  %cmp.i38 = icmp sgt i16 %7, 1
+  %indvars.iv.next51 = add nsw i64 %indvars.iv50, -1
+  %9 = trunc nuw nsw i64 %indvars.iv.next51 to i16
+  store i16 %9, ptr %this, align 4
+  %cmp.i38 = icmp sgt i64 %indvars.iv50, 1
   br i1 %cmp.i38, label %land.rhs.i, label %if.then.i, !llvm.loop !9
 
 while.end.i:                                      ; preds = %_ZN17double_conversion6Bignum9AddUInt64Em.exit33
@@ -1689,7 +1690,7 @@ _ZN17double_conversion6Bignum5ClampEv.exit:       ; preds = %land.rhs.i, %while.
 declare void @abort() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN17double_conversion6Bignum17AssignPowerUInt16Eti(ptr nocapture noundef nonnull align 4 dereferenceable(516) initializes((0, 4)) %this, i16 noundef zeroext %base, i32 noundef %power_exponent) local_unnamed_addr #4 align 2 {
+define void @_ZN17double_conversion6Bignum17AssignPowerUInt16Eti(ptr noundef nonnull align 4 dereferenceable(516) initializes((0, 4)) %this, i16 noundef zeroext %base, i32 noundef %power_exponent) local_unnamed_addr #4 align 2 {
 entry:
   %cmp = icmp eq i32 %power_exponent, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -2834,7 +2835,7 @@ declare i16 @llvm.smin.i16(i16, i16) #8
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind memory(argmem: write, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

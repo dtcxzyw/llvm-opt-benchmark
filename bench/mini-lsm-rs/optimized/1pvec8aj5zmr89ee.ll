@@ -1793,7 +1793,7 @@ define hidden void @"_ZN4core3ptr126drop_in_place$LT$alloc..sync..Arc$LT$crossbe
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4core3ptr144drop_in_place$LT$alloc..boxed..Box$LT$moka..common..deque..DeqNode$LT$moka..common..concurrent..KeyDate$LT$$LP$usize$C$usize$RP$$GT$$GT$$GT$$GT$17he07241d0a0046033E.llvm.3998950267652723875"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN4core3ptr144drop_in_place$LT$alloc..boxed..Box$LT$moka..common..deque..DeqNode$LT$moka..common..concurrent..KeyDate$LT$$LP$usize$C$usize$RP$$GT$$GT$$GT$$GT$17he07241d0a0046033E.llvm.3998950267652723875"(ptr noalias noundef align 8 dereferenceable(8) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !240)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !243)
@@ -1814,7 +1814,7 @@ define hidden void @"_ZN4core3ptr144drop_in_place$LT$alloc..boxed..Box$LT$moka..
           cleanup
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   invoke void @"_ZN4core3ptr94drop_in_place$LT$triomphe..arc..Arc$LT$moka..common..concurrent..entry_info..EntryInfo$GT$$GT$17h89616983217475abE.llvm.14689451251361528239"(ptr noalias noundef nonnull align 8 dereferenceable(8) %9) #36
-          to label %21 unwind label %17
+          to label %22 unwind label %17
 
 "_ZN4core3ptr66drop_in_place$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$GT$17hf53f4971760d06a4E.llvm.14689451251361528239.exit.i.i": ; preds = %6, %1
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1843,15 +1843,17 @@ define hidden void @"_ZN4core3ptr144drop_in_place$LT$alloc..boxed..Box$LT$moka..
 19:                                               ; preds = %.noexc, %14
   %20 = landingpad { ptr, i32 }
           cleanup
-  br label %21
+  br label %22
 
 "_ZN4core3ptr119drop_in_place$LT$moka..common..deque..DeqNode$LT$moka..common..concurrent..KeyDate$LT$$LP$usize$C$usize$RP$$GT$$GT$$GT$17hffe544757c5e02d8E.exit": ; preds = %"_ZN4core3ptr66drop_in_place$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$GT$17hf53f4971760d06a4E.llvm.14689451251361528239.exit.i.i", %.noexc
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef 32, i64 noundef 8) #32, !noalias !261
+  %21 = load ptr, ptr %0, align 8, !alias.scope !261, !nonnull !9, !noundef !9
+  tail call void @__rust_dealloc(ptr noundef nonnull %21, i64 noundef 32, i64 noundef 8) #32
   ret void
 
-21:                                               ; preds = %19, %7
+22:                                               ; preds = %19, %7
   %eh.lpad-body = phi { ptr, i32 } [ %20, %19 ], [ %8, %7 ]
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef 32, i64 noundef 8) #32, !noalias !264
+  %23 = load ptr, ptr %0, align 8, !alias.scope !264, !nonnull !9, !noundef !9
+  tail call void @__rust_dealloc(ptr noundef nonnull %23, i64 noundef 32, i64 noundef 8) #32
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -1872,7 +1874,7 @@ define hidden void @"_ZN4core3ptr146drop_in_place$LT$lock_api..mutex..MutexGuard
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4core3ptr148drop_in_place$LT$alloc..boxed..Box$LT$moka..common..deque..DeqNode$LT$moka..common..concurrent..KeyHashDate$LT$$LP$usize$C$usize$RP$$GT$$GT$$GT$$GT$17h11600bf058949a64E.llvm.3998950267652723875"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN4core3ptr148drop_in_place$LT$alloc..boxed..Box$LT$moka..common..deque..DeqNode$LT$moka..common..concurrent..KeyHashDate$LT$$LP$usize$C$usize$RP$$GT$$GT$$GT$$GT$17h11600bf058949a64E.llvm.3998950267652723875"(ptr noalias noundef align 8 dereferenceable(8) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !270)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !273)
@@ -1893,7 +1895,7 @@ define hidden void @"_ZN4core3ptr148drop_in_place$LT$alloc..boxed..Box$LT$moka..
           cleanup
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   invoke void @"_ZN4core3ptr94drop_in_place$LT$triomphe..arc..Arc$LT$moka..common..concurrent..entry_info..EntryInfo$GT$$GT$17h89616983217475abE.llvm.14689451251361528239"(ptr noalias noundef nonnull align 8 dereferenceable(8) %9) #36
-          to label %21 unwind label %17
+          to label %22 unwind label %17
 
 "_ZN4core3ptr66drop_in_place$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$GT$17hf53f4971760d06a4E.llvm.14689451251361528239.exit.i.i": ; preds = %6, %1
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1922,15 +1924,17 @@ define hidden void @"_ZN4core3ptr148drop_in_place$LT$alloc..boxed..Box$LT$moka..
 19:                                               ; preds = %.noexc, %14
   %20 = landingpad { ptr, i32 }
           cleanup
-  br label %21
+  br label %22
 
 "_ZN4core3ptr123drop_in_place$LT$moka..common..deque..DeqNode$LT$moka..common..concurrent..KeyHashDate$LT$$LP$usize$C$usize$RP$$GT$$GT$$GT$17h947396d0e91e23e6E.exit": ; preds = %"_ZN4core3ptr66drop_in_place$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$GT$17hf53f4971760d06a4E.llvm.14689451251361528239.exit.i.i", %.noexc
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef 40, i64 noundef 8) #32, !noalias !291
+  %21 = load ptr, ptr %0, align 8, !alias.scope !291, !nonnull !9, !noundef !9
+  tail call void @__rust_dealloc(ptr noundef nonnull %21, i64 noundef 40, i64 noundef 8) #32
   ret void
 
-21:                                               ; preds = %19, %7
+22:                                               ; preds = %19, %7
   %eh.lpad-body = phi { ptr, i32 } [ %20, %19 ], [ %8, %7 ]
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef 40, i64 noundef 8) #32, !noalias !294
+  %23 = load ptr, ptr %0, align 8, !alias.scope !294, !nonnull !9, !noundef !9
+  tail call void @__rust_dealloc(ptr noundef nonnull %23, i64 noundef 40, i64 noundef 8) #32
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -9200,7 +9204,7 @@ common.resume:                                    ; preds = %49, %13
 50:                                               ; preds = %49
   %51 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #37
+  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #37
   unreachable
 }
 
@@ -13694,14 +13698,14 @@ _ZN15crossbeam_epoch8internal5Local5unpin17h7d37cf07c3b2d8d6E.llvm.3998950267652
 }
 
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
-define hidden void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h036bb7424c234386E.llvm.3998950267652723875"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #14 {
+define hidden void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h036bb7424c234386E.llvm.3998950267652723875"(ptr noalias noundef align 8 dereferenceable(8) %0) unnamed_addr #14 {
   %2 = load ptr, ptr %0, align 8, !nonnull !9, !noundef !9
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef 32, i64 noundef 8) #32
   ret void
 }
 
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
-define hidden void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc9cc3ccb15129f95E.llvm.3998950267652723875"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #14 {
+define hidden void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc9cc3ccb15129f95E.llvm.3998950267652723875"(ptr noalias noundef align 8 dereferenceable(8) %0) unnamed_addr #14 {
   %2 = load ptr, ptr %0, align 8, !nonnull !9, !noundef !9
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef 40, i64 noundef 8) #32
   ret void
