@@ -190,19 +190,19 @@ define internal void @start_output_pass(ptr noundef %0) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %8 = load i32, ptr %7, align 8
   %.not7 = icmp eq i32 %8, 0
-  br i1 %.not7, label %smoothing_ok.exit.thread, label %9
+  br i1 %.not7, label %.sink.split, label %9
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %11 = load i32, ptr %10, align 8
   %.not.i = icmp eq i32 %11, 0
-  br i1 %.not.i, label %smoothing_ok.exit.thread, label %12
+  br i1 %.not.i, label %.sink.split, label %12
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %smoothing_ok.exit.thread, label %16
+  br i1 %15, label %.sink.split, label %16
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 256
@@ -228,7 +228,7 @@ define internal void @start_output_pass(ptr noundef %0) #0 {
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %33 = load i32, ptr %32, align 8
   %34 = icmp sgt i32 %33, 0
-  br i1 %34, label %.lr.ph.i, label %smoothing_ok.exit.thread
+  br i1 %34, label %.lr.ph.i, label %.sink.split
 
 .lr.ph.i:                                         ; preds = %30
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 304
@@ -249,66 +249,66 @@ define internal void @start_output_pass(ptr noundef %0) #0 {
   %43 = getelementptr inbounds nuw i8, ptr %.05765.i, i64 80
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, null
-  br i1 %45, label %smoothing_ok.exit.thread, label %46
+  br i1 %45, label %.sink.split, label %46
 
 46:                                               ; preds = %41
   %47 = load i16, ptr %44, align 4
   %48 = icmp eq i16 %47, 0
-  br i1 %48, label %smoothing_ok.exit.thread, label %49
+  br i1 %48, label %.sink.split, label %49
 
 49:                                               ; preds = %46
   %50 = getelementptr inbounds nuw i8, ptr %44, i64 2
   %51 = load i16, ptr %50, align 2
   %52 = icmp eq i16 %51, 0
-  br i1 %52, label %smoothing_ok.exit.thread, label %53
+  br i1 %52, label %.sink.split, label %53
 
 53:                                               ; preds = %49
   %54 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %55 = load i16, ptr %54, align 4
   %56 = icmp eq i16 %55, 0
-  br i1 %56, label %smoothing_ok.exit.thread, label %57
+  br i1 %56, label %.sink.split, label %57
 
 57:                                               ; preds = %53
   %58 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %59 = load i16, ptr %58, align 4
   %60 = icmp eq i16 %59, 0
-  br i1 %60, label %smoothing_ok.exit.thread, label %61
+  br i1 %60, label %.sink.split, label %61
 
 61:                                               ; preds = %57
   %62 = getelementptr inbounds nuw i8, ptr %44, i64 18
   %63 = load i16, ptr %62, align 2
   %64 = icmp eq i16 %63, 0
-  br i1 %64, label %smoothing_ok.exit.thread, label %65
+  br i1 %64, label %.sink.split, label %65
 
 65:                                               ; preds = %61
   %66 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %67 = load i16, ptr %66, align 4
   %68 = icmp eq i16 %67, 0
-  br i1 %68, label %smoothing_ok.exit.thread, label %69
+  br i1 %68, label %.sink.split, label %69
 
 69:                                               ; preds = %65
   %70 = getelementptr inbounds nuw i8, ptr %44, i64 6
   %71 = load i16, ptr %70, align 2
   %72 = icmp eq i16 %71, 0
-  br i1 %72, label %smoothing_ok.exit.thread, label %73
+  br i1 %72, label %.sink.split, label %73
 
 73:                                               ; preds = %69
   %74 = getelementptr inbounds nuw i8, ptr %44, i64 20
   %75 = load i16, ptr %74, align 4
   %76 = icmp eq i16 %75, 0
-  br i1 %76, label %smoothing_ok.exit.thread, label %77
+  br i1 %76, label %.sink.split, label %77
 
 77:                                               ; preds = %73
   %78 = getelementptr inbounds nuw i8, ptr %44, i64 34
   %79 = load i16, ptr %78, align 2
   %80 = icmp eq i16 %79, 0
-  br i1 %80, label %smoothing_ok.exit.thread, label %81
+  br i1 %80, label %.sink.split, label %81
 
 81:                                               ; preds = %77
   %82 = getelementptr inbounds nuw i8, ptr %44, i64 48
   %83 = load i16, ptr %82, align 4
   %84 = icmp eq i16 %83, 0
-  br i1 %84, label %smoothing_ok.exit.thread, label %85
+  br i1 %84, label %.sink.split, label %85
 
 85:                                               ; preds = %81
   %86 = load ptr, ptr %13, align 8
@@ -319,7 +319,7 @@ define internal void @start_output_pass(ptr noundef %0) #0 {
   %91 = getelementptr inbounds [64 x i32], ptr %86, i64 %90
   %92 = load i32, ptr %87, align 4
   %93 = icmp slt i32 %92, 0
-  br i1 %93, label %smoothing_ok.exit.thread, label %94
+  br i1 %93, label %.sink.split, label %94
 
 94:                                               ; preds = %85
   store i32 %92, ptr %.05368.i, align 4
@@ -363,13 +363,11 @@ define internal void @start_output_pass(ptr noundef %0) #0 {
 
 smoothing_ok.exit:                                ; preds = %106
   %.not8 = icmp eq i32 %spec.select.i, 0
-  br i1 %.not8, label %smoothing_ok.exit.thread, label %.sink.split
-
-smoothing_ok.exit.thread:                         ; preds = %85, %46, %49, %53, %57, %61, %65, %69, %73, %77, %81, %41, %30, %9, %12, %smoothing_ok.exit, %6
+  %spec.select = select i1 %.not8, ptr @decompress_data, ptr @decompress_smooth_data
   br label %.sink.split
 
-.sink.split:                                      ; preds = %smoothing_ok.exit, %smoothing_ok.exit.thread
-  %decompress_smooth_data.sink = phi ptr [ @decompress_data, %smoothing_ok.exit.thread ], [ @decompress_smooth_data, %smoothing_ok.exit ]
+.sink.split:                                      ; preds = %41, %81, %77, %73, %69, %65, %61, %57, %53, %49, %46, %85, %6, %12, %9, %30, %smoothing_ok.exit
+  %decompress_smooth_data.sink = phi ptr [ %spec.select, %smoothing_ok.exit ], [ @decompress_data, %30 ], [ @decompress_data, %9 ], [ @decompress_data, %12 ], [ @decompress_data, %6 ], [ @decompress_data, %85 ], [ @decompress_data, %46 ], [ @decompress_data, %49 ], [ @decompress_data, %53 ], [ @decompress_data, %57 ], [ @decompress_data, %61 ], [ @decompress_data, %65 ], [ @decompress_data, %69 ], [ @decompress_data, %73 ], [ @decompress_data, %77 ], [ @decompress_data, %81 ], [ @decompress_data, %41 ]
   %113 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %decompress_smooth_data.sink, ptr %113, align 8
   br label %114

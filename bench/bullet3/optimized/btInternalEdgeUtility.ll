@@ -1434,13 +1434,11 @@ _Z27btNearestPointInLineSegmentRK9btVector3S1_S1_RS_.exit293: ; preds = %if.then
   %95 = call noundef float @llvm.fmuladd.f32(float %sub14.i300, float %sub14.i300, float %94)
   %sqrt.i309 = call noundef float @llvm.sqrt.f32(float %95)
   %cmp105 = fcmp olt float %sqrt.i309, %disttobestedge.1
-  br i1 %cmp105, label %if.then106, label %if.end108
-
-if.then106:                                       ; preds = %_Z27btNearestPointInLineSegmentRK9btVector3S1_S1_RS_.exit293
+  %spec.select = select i1 %cmp105, i32 2, i32 %bestedge.1
   br label %if.end108
 
-if.end108:                                        ; preds = %_Z27btNearestPointInLineSegmentRK9btVector3S1_S1_RS_.exit293, %if.then106, %if.end93
-  %bestedge.2 = phi i32 [ 2, %if.then106 ], [ %bestedge.1, %_Z27btNearestPointInLineSegmentRK9btVector3S1_S1_RS_.exit293 ], [ %bestedge.1, %if.end93 ]
+if.end108:                                        ; preds = %_Z27btNearestPointInLineSegmentRK9btVector3S1_S1_RS_.exit293, %if.end93
+  %bestedge.2 = phi i32 [ %spec.select, %_Z27btNearestPointInLineSegmentRK9btVector3S1_S1_RS_.exit293 ], [ %bestedge.1, %if.end93 ]
   br i1 %cmp67, label %if.then113, label %if.end198
 
 if.then113:                                       ; preds = %if.end108

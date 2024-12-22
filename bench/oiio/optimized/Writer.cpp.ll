@@ -533,7 +533,7 @@ entry:
   %sub7 = sub i64 %mul, %.fr
   %conv8 = trunc i64 %sub7 to i32
   %cmp = icmp sgt i32 %conv8, 0
-  br i1 %cmp, label %if.then, label %if.end21
+  br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
   %conv9 = and i64 %sub7, 2147483647
@@ -561,14 +561,11 @@ invoke.cont13:                                    ; preds = %invoke.cont
   store i64 %add16, ptr %fileLoc, align 8
   %cmp19.not.not = icmp eq i64 %add16, %conv5
   %tobool.not.i.i.i = icmp eq ptr %pad.sroa.0.0, null
-  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %if.then.i.i.i
+  br i1 %tobool.not.i.i.i, label %return, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont13
   tail call void @_ZdlPv(ptr noundef nonnull %pad.sroa.0.0) #18
-  br label %_ZNSt6vectorIhSaIhEED2Ev.exit
-
-_ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %invoke.cont13, %if.then.i.i.i
-  br i1 %cmp19.not.not, label %if.end21, label %return
+  br label %return
 
 lpad12:                                           ; preds = %invoke.cont
   %5 = landingpad { ptr, i32 }
@@ -580,11 +577,8 @@ if.then.i.i.i9:                                   ; preds = %lpad12
   tail call void @_ZdlPv(ptr noundef nonnull %pad.sroa.0.0) #18
   br label %eh.resume
 
-if.end21:                                         ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit, %entry
-  br label %return
-
-return:                                           ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit, %if.end21
-  %retval.1 = phi i1 [ false, %_ZNSt6vectorIhSaIhEED2Ev.exit ], [ true, %if.end21 ]
+return:                                           ; preds = %if.then.i.i.i, %invoke.cont13, %entry
+  %retval.1 = phi i1 [ true, %entry ], [ %cmp19.not.not, %invoke.cont13 ], [ %cmp19.not.not, %if.then.i.i.i ]
   ret i1 %retval.1
 
 eh.resume:                                        ; preds = %if.then.i.i.i9, %lpad12

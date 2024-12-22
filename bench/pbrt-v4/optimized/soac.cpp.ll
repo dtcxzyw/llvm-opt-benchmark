@@ -1589,13 +1589,13 @@ if.then.i470:                                     ; preds = %invoke.cont242
   %103 = load ptr, ptr %12, align 8
   %incdec.ptr.i471 = getelementptr inbounds nuw i8, ptr %103, i64 88
   store ptr %incdec.ptr.i471, ptr %12, align 8
-  br label %if.end256.critedge
+  br label %cleanup244
 
 if.else.i473:                                     ; preds = %invoke.cont242
   invoke void @_ZNSt6vectorI3SOASaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %soaTypes, ptr %101, ptr noundef nonnull align 8 dereferenceable(88) %soa)
-          to label %if.end256.critedge unwind label %lpad77.loopexit.split-lp.loopexit
+          to label %cleanup244 unwind label %lpad77.loopexit.split-lp.loopexit
 
-cleanup244:                                       ; preds = %if.then103
+cleanup244:                                       ; preds = %if.then103, %.noexc474, %if.else.i473
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(33) %tok75) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(33) %typeTok46) #26
   call void @_ZNSt6vectorI6MemberSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %members.i) #26
@@ -1621,17 +1621,11 @@ if.else252:                                       ; preds = %if.else
   call fastcc void @_ZL5errorIJPKcEEvS1_DpT_(ptr noundef nonnull @.str.21, ptr noundef %call253)
   unreachable
 
-if.end256.critedge:                               ; preds = %.noexc474, %if.else.i473
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(33) %tok75) #26
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(33) %typeTok46) #26
-  call void @_ZNSt6vectorI6MemberSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %members.i) #26
-  br label %cleanup259
-
-cleanup259:                                       ; preds = %invoke.cont42, %if.end256.critedge, %cleanup244
-  %type.sink = phi ptr [ %type, %invoke.cont42 ], [ %templateType.i, %if.end256.critedge ], [ %templateType.i, %cleanup244 ]
-  %typeTok.sink = phi ptr [ %typeTok, %invoke.cont42 ], [ %soa, %if.end256.critedge ], [ %soa, %cleanup244 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %type.sink) #26
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(33) %typeTok.sink) #26
+cleanup259:                                       ; preds = %cleanup244, %invoke.cont42
+  %templateType.i.sink = phi ptr [ %templateType.i, %cleanup244 ], [ %type, %invoke.cont42 ]
+  %soa.sink = phi ptr [ %soa, %cleanup244 ], [ %typeTok, %invoke.cont42 ]
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %templateType.i.sink) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(33) %soa.sink) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %tok) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(33) %os) #26
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__args.addr.i)

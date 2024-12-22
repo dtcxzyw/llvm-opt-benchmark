@@ -763,14 +763,14 @@ if.then38.i:                                      ; preds = %while.end.i
   br label %for.inc40
 
 for.inc40:                                        ; preds = %lor.lhs.false3.i, %lor.lhs.false.i, %if.else, %while.end.i, %if.then38.i, %for.body4, %lor.lhs.false
-  %.sink73 = phi i64 [ 16, %lor.lhs.false ], [ 16, %for.body4 ], [ 12, %if.then38.i ], [ 12, %while.end.i ], [ 16, %if.else ], [ 16, %lor.lhs.false.i ], [ 16, %lor.lhs.false3.i ]
-  %.sink72 = phi i32 [ 0, %lor.lhs.false ], [ 0, %for.body4 ], [ %retval.sroa.0.0.extract.trunc.i, %if.then38.i ], [ %retval.sroa.0.0.extract.trunc.i, %while.end.i ], [ 2147483647, %if.else ], [ 2147483647, %lor.lhs.false.i ], [ 2147483647, %lor.lhs.false3.i ]
-  %.sink71 = phi i64 [ 12, %lor.lhs.false ], [ 12, %for.body4 ], [ 16, %if.then38.i ], [ 16, %while.end.i ], [ 12, %if.else ], [ 12, %lor.lhs.false.i ], [ 12, %lor.lhs.false3.i ]
-  %.sink = phi i32 [ 0, %lor.lhs.false ], [ 0, %for.body4 ], [ %retval.sroa.7.0.extract.trunc.i, %if.then38.i ], [ %retval.sroa.7.0.extract.trunc.i, %while.end.i ], [ 2147483647, %if.else ], [ 2147483647, %lor.lhs.false.i ], [ 2147483647, %lor.lhs.false3.i ]
-  %y = getelementptr inbounds nuw i8, ptr %arrayidx6, i64 %.sink73
-  store i32 %.sink72, ptr %y, align 4
-  %x = getelementptr inbounds nuw i8, ptr %arrayidx6, i64 %.sink71
-  store i32 %.sink, ptr %x, align 4
+  %.sink74 = phi i64 [ 16, %lor.lhs.false ], [ 16, %for.body4 ], [ 12, %if.then38.i ], [ 12, %while.end.i ], [ 16, %if.else ], [ 16, %lor.lhs.false.i ], [ 16, %lor.lhs.false3.i ]
+  %.sink73 = phi i32 [ 0, %lor.lhs.false ], [ 0, %for.body4 ], [ %retval.sroa.0.0.extract.trunc.i, %if.then38.i ], [ %retval.sroa.0.0.extract.trunc.i, %while.end.i ], [ 2147483647, %if.else ], [ 2147483647, %lor.lhs.false.i ], [ 2147483647, %lor.lhs.false3.i ]
+  %.sink72 = phi i64 [ 12, %lor.lhs.false ], [ 12, %for.body4 ], [ 16, %if.then38.i ], [ 16, %while.end.i ], [ 12, %if.else ], [ 12, %lor.lhs.false.i ], [ 12, %lor.lhs.false3.i ]
+  %.sink71 = phi i32 [ 0, %lor.lhs.false ], [ 0, %for.body4 ], [ %retval.sroa.7.0.extract.trunc.i, %if.then38.i ], [ %retval.sroa.7.0.extract.trunc.i, %while.end.i ], [ 2147483647, %if.else ], [ 2147483647, %lor.lhs.false.i ], [ 2147483647, %lor.lhs.false3.i ]
+  %y = getelementptr inbounds nuw i8, ptr %arrayidx6, i64 %.sink74
+  store i32 %.sink73, ptr %y, align 4
+  %x = getelementptr inbounds nuw i8, ptr %arrayidx6, i64 %.sink72
+  store i32 %.sink71, ptr %x, align 4
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
   br i1 %exitcond62.not, label %for.end42, label %for.body4, !llvm.loop !13
@@ -782,17 +782,12 @@ for.end42:                                        ; preds = %for.inc40
 
 for.body47:                                       ; preds = %for.end42, %for.cond44
   %indvars.iv63 = phi i64 [ 0, %for.end42 ], [ %indvars.iv.next64, %for.cond44 ]
-  %all_rects_packed.055 = phi i32 [ 1, %for.end42 ], [ %20, %for.cond44 ]
+  %all_rects_packed.055 = phi i32 [ 1, %for.end42 ], [ %19, %for.cond44 ]
   %arrayidx49 = getelementptr inbounds nuw %struct.stbrp_rect, ptr %rects, i64 %indvars.iv63
   %x50 = getelementptr inbounds nuw i8, ptr %arrayidx49, i64 12
   %17 = load i32, ptr %x50, align 4
   %cmp51 = icmp eq i32 %17, 2147483647
-  br i1 %cmp51, label %land.end, label %land.end.thread
-
-land.end.thread:                                  ; preds = %for.body47
-  %was_packed6048 = getelementptr inbounds nuw i8, ptr %arrayidx49, i64 20
-  store i32 1, ptr %was_packed6048, align 4
-  br label %19
+  br i1 %cmp51, label %land.end, label %for.cond44
 
 land.end:                                         ; preds = %for.body47
   %y55 = getelementptr inbounds nuw i8, ptr %arrayidx49, i64 16
@@ -800,21 +795,20 @@ land.end:                                         ; preds = %for.body47
   %.fr = freeze i32 %18
   %cmp56 = icmp ne i32 %.fr, 2147483647
   %lnot.ext = zext i1 %cmp56 to i32
-  %was_packed60 = getelementptr inbounds nuw i8, ptr %arrayidx49, i64 20
-  store i32 %lnot.ext, ptr %was_packed60, align 4
-  br i1 %cmp56, label %19, label %for.cond44
-
-19:                                               ; preds = %land.end.thread, %land.end
+  %spec.select = select i1 %cmp56, i32 %all_rects_packed.055, i32 0
   br label %for.cond44
 
-for.cond44:                                       ; preds = %land.end, %19
-  %20 = phi i32 [ %all_rects_packed.055, %19 ], [ 0, %land.end ]
+for.cond44:                                       ; preds = %for.body47, %land.end
+  %.sink = phi i32 [ %lnot.ext, %land.end ], [ 1, %for.body47 ]
+  %19 = phi i32 [ %spec.select, %land.end ], [ %all_rects_packed.055, %for.body47 ]
+  %20 = getelementptr inbounds nuw i8, ptr %arrayidx49, i64 20
+  store i32 %.sink, ptr %20, align 4
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond67.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count66
   br i1 %exitcond67.not, label %for.end69, label %for.body47, !llvm.loop !14
 
 for.end69:                                        ; preds = %for.cond44, %for.end.thread
-  %all_rects_packed.0.lcssa = phi i32 [ 1, %for.end.thread ], [ %20, %for.cond44 ]
+  %all_rects_packed.0.lcssa = phi i32 [ 1, %for.end.thread ], [ %19, %for.cond44 ]
   ret i32 %all_rects_packed.0.lcssa
 }
 

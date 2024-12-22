@@ -4153,9 +4153,9 @@ _ZN5drjit9dr_vectorImED2Ev.exit1242:              ; preds = %_ZN5drjit9dr_vector
   %389 = fadd contract float %342, %388
   %390 = fcmp contract ole float %125, %.01536
   %391 = fcmp contract ole float %.01536, %133
-  %.not1650.not1653 = and i1 %390, %391
+  %.not1652.not1655 = and i1 %390, %391
   %.not = xor i1 %narrow, true
-  %brmerge.not = select i1 %narrow, i1 %.not1650.not1653, i1 false
+  %brmerge.not = select i1 %narrow, i1 %.not1652.not1655, i1 false
   br i1 %brmerge.not, label %392, label %.thread1629
 
 392:                                              ; preds = %380
@@ -4181,12 +4181,12 @@ _ZN5drjit9dr_vectorImED2Ev.exit1242:              ; preds = %_ZN5drjit9dr_vector
   %412 = fcmp contract ole float %411, 0.000000e+00
   %spec.select = select i1 %412, float %.01536, float %133
   %413 = fcmp contract ogt float %411, 0.000000e+00
-  %spec.select1644 = select i1 %413, float %.01536, float %125
+  %spec.select1646 = select i1 %413, float %.01536, float %125
   br label %.thread1629
 
 .thread1629:                                      ; preds = %392, %380
   %.0158516281631 = phi float [ %133, %380 ], [ %spec.select, %392 ]
-  %.01584 = phi float [ %125, %380 ], [ %spec.select1644, %392 ]
+  %.01584 = phi float [ %125, %380 ], [ %spec.select1646, %392 ]
   %414 = fcmp contract ugt float %.01584, %.01537
   %415 = fcmp contract ugt float %.01537, %.0158516281631
   %416 = select i1 %.not, i1 true, i1 %414
@@ -4207,12 +4207,12 @@ _ZN5drjit9dr_vectorImED2Ev.exit1242:              ; preds = %_ZN5drjit9dr_vector
   %428 = fcmp contract ole float %427, 0.000000e+00
   %spec.select1641 = select i1 %428, float %.01537, float %.0158516281631
   %429 = fcmp contract ogt float %427, 0.000000e+00
-  %spec.select1645 = select i1 %429, float %.01537, float %.01584
+  %spec.select1647 = select i1 %429, float %.01537, float %.01584
   br label %.thread1638
 
 .thread1638:                                      ; preds = %417, %.thread1629
   %.1158616371640 = phi float [ %.0158516281631, %.thread1629 ], [ %spec.select1641, %417 ]
-  %.1 = phi float [ %.01584, %.thread1629 ], [ %spec.select1645, %417 ]
+  %.1 = phi float [ %.01584, %.thread1629 ], [ %spec.select1647, %417 ]
   %430 = fmul contract float %359, %.1
   %431 = fmul contract float %.1, %430
   %432 = fmul contract float %.1, %431
@@ -4318,21 +4318,20 @@ _ZN5drjit9dr_vectorImED2Ev.exit1253:              ; preds = %_ZZNK7mitsuba7SDFGr
   %506 = fcmp oge <4 x float> %102, %98
   %507 = extractelement <4 x i1> %506, i64 0
   %508 = and i1 %505, %507
-  %509 = fcmp contract ult float %.sroa.41582.0, 0.000000e+00
+  %509 = fcmp contract oge float %.sroa.41582.0, 0.000000e+00
   %510 = select i1 %508, i1 %.sroa.01580.0.in, i1 false
-  %not. = xor i1 %510, true
-  %or.cond = select i1 %not., i1 true, i1 %509
-  %511 = fcmp contract ugt float %.sroa.41582.0, %496
-  %or.cond1659 = select i1 %or.cond, i1 true, i1 %511
-  %512 = select contract i1 %or.cond1659, float 0x7FF0000000000000, float %.sroa.41582.0
+  %or.cond = select i1 %510, i1 %509, i1 false
+  %511 = fcmp contract ole float %.sroa.41582.0, %496
+  %512 = select i1 %or.cond, i1 %511, i1 false
+  %513 = select contract i1 %512, float %.sroa.41582.0, float 0x7FF0000000000000
   tail call void @_ZdaPv(ptr noundef nonnull %36) #36
-  store float %512, ptr %0, align 4
-  %513 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i64 0, ptr %513, align 4
-  %514 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 -1, ptr %514, align 4
-  %515 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %3, ptr %515, align 4
+  store float %513, ptr %0, align 4
+  %514 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i64 0, ptr %514, align 4
+  %515 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 -1, ptr %515, align 4
+  %516 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %3, ptr %516, align 4
   ret void
 }
 

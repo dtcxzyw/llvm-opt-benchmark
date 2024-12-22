@@ -579,8 +579,8 @@ ft_stroker_inside.exit:                           ; preds = %.critedge.i, %53
   %.neg.i13 = select i1 %71, i64 -11796480, i64 0
   %83 = add nuw nsw i64 %.neg.i13, 5898240
   %84 = icmp eq i32 %75, 1
-  %.not72.i = icmp eq i32 %75, 2
-  br i1 %84, label %.thread77.i, label %85
+  %.not72.i = icmp ne i32 %75, 2
+  br i1 %84, label %.thread83.i, label %85
 
 85:                                               ; preds = %80
   %86 = load i64, ptr %0, align 8
@@ -598,43 +598,47 @@ ft_stroker_inside.exit:                           ; preds = %.critedge.i, %53
   %97 = load i64, ptr %96, align 8
   call void @FT_Vector_From_Polar(ptr noundef nonnull %3, i64 noundef %97, i64 noundef %spec.select.i14) #11
   %98 = load i64, ptr %3, align 8
-  %99 = icmp slt i64 %98, 65536
-  br i1 %99, label %100, label %177
+  %99 = icmp sgt i64 %98, 65535
+  %brmerge.i = or i1 %.not72.i, %99
+  br i1 %brmerge.i, label %103, label %100
 
 100:                                              ; preds = %85
-  br i1 %.not72.i, label %101, label %.thread77.i
+  %101 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %spec.select.i14, i1 true)
+  %102 = icmp samesign ult i64 %101, 58
+  br i1 %102, label %177, label %.thread80.i
 
-101:                                              ; preds = %100
-  %102 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %spec.select.i14, i1 true)
-  %103 = icmp samesign ugt i64 %102, 57
-  br i1 %103, label %117, label %177
+103:                                              ; preds = %85
+  br i1 %99, label %177, label %104
 
-.thread77.i:                                      ; preds = %100, %80
-  %104 = load i64, ptr %11, align 8
-  %105 = add nsw i64 %104, %83
-  call void @FT_Vector_From_Polar(ptr noundef nonnull %4, i64 noundef %82, i64 noundef %105) #11
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %107 = load i64, ptr %106, align 8
-  %108 = load i64, ptr %4, align 8
-  %109 = add nsw i64 %108, %107
-  store i64 %109, ptr %4, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %111 = load i64, ptr %110, align 8
-  %112 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %113 = load i64, ptr %112, align 8
-  %114 = add nsw i64 %113, %111
-  store i64 %114, ptr %112, align 8
-  %115 = getelementptr inbounds nuw i8, ptr %73, i64 24
-  store i8 0, ptr %115, align 8
-  %116 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef %73, ptr noundef %4, i8 noundef zeroext 0)
+104:                                              ; preds = %103
+  br i1 %.not72.i, label %.thread83.i, label %.thread80.i
+
+.thread83.i:                                      ; preds = %104, %80
+  %105 = load i64, ptr %11, align 8
+  %106 = add nsw i64 %105, %83
+  call void @FT_Vector_From_Polar(ptr noundef nonnull %4, i64 noundef %82, i64 noundef %106) #11
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %108 = load i64, ptr %107, align 8
+  %109 = load i64, ptr %4, align 8
+  %110 = add nsw i64 %109, %108
+  store i64 %110, ptr %4, align 8
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %112 = load i64, ptr %111, align 8
+  %113 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %114 = load i64, ptr %113, align 8
+  %115 = add nsw i64 %114, %112
+  store i64 %115, ptr %113, align 8
+  %116 = getelementptr inbounds nuw i8, ptr %73, i64 24
+  store i8 0, ptr %116, align 8
+  %117 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef %73, ptr noundef %4, i8 noundef zeroext 0)
   br label %ft_stroker_outside.exit
 
-117:                                              ; preds = %101
+.thread80.i:                                      ; preds = %104, %100
   %118 = load i64, ptr %96, align 8
   %sext.i = shl i64 %82, 32
   %119 = ashr exact i64 %sext.i, 32
-  %sext80.i = shl i64 %118, 32
-  %120 = ashr exact i64 %sext80.i, 32
+  %sext85.i = shl i64 %118, 32
+  %120 = ashr exact i64 %sext85.i, 32
   %121 = mul nsw i64 %120, %119
   %122 = ashr i64 %121, 63
   %123 = add nsw i64 %121, 32768
@@ -649,10 +653,10 @@ ft_stroker_inside.exit:                           ; preds = %.critedge.i, %53
   %131 = call i64 @FT_DivFix(i64 noundef %128, i64 noundef %130) #11
   %132 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %133 = load i64, ptr %132, align 8
-  %sext82.i = shl i64 %133, 32
-  %134 = ashr exact i64 %sext82.i, 32
-  %sext83.i = shl i64 %131, 32
-  %135 = ashr exact i64 %sext83.i, 32
+  %sext87.i = shl i64 %133, 32
+  %134 = ashr exact i64 %sext87.i, 32
+  %sext88.i = shl i64 %131, 32
+  %135 = ashr exact i64 %sext88.i, 32
   %136 = mul nsw i64 %134, %135
   %137 = ashr i64 %136, 63
   %138 = add nsw i64 %136, 32768
@@ -660,8 +664,8 @@ ft_stroker_inside.exit:                           ; preds = %.critedge.i, %53
   %140 = shl i64 %139, 16
   %141 = ashr i64 %140, 32
   %142 = load i64, ptr %5, align 8
-  %.neg86.i = mul i64 %142, -4294967296
-  %143 = ashr exact i64 %.neg86.i, 32
+  %.neg91.i = mul i64 %142, -4294967296
+  %143 = ashr exact i64 %.neg91.i, 32
   %144 = mul nsw i64 %143, %135
   %145 = ashr i64 %144, 63
   %146 = add nsw i64 %144, 32768
@@ -685,14 +689,14 @@ ft_stroker_inside.exit:                           ; preds = %.critedge.i, %53
   %.not73.i = icmp eq i32 %159, 0
   br i1 %.not73.i, label %160, label %ft_stroker_outside.exit
 
-160:                                              ; preds = %117
+160:                                              ; preds = %.thread80.i
   %161 = load i64, ptr %5, align 8
   %factor.i = shl i64 %161, 1
   %162 = sub i64 %factor.i, %157
   store i64 %162, ptr %6, align 8
   %163 = load i64, ptr %132, align 8
-  %factor90.i = shl i64 %163, 1
-  %164 = sub i64 %factor90.i, %158
+  %factor95.i = shl i64 %163, 1
+  %164 = sub i64 %factor95.i, %158
   store i64 %164, ptr %150, align 8
   %165 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef %73, ptr noundef %6, i8 noundef zeroext 0)
   %166 = icmp eq i32 %165, 0
@@ -714,7 +718,7 @@ ft_stroker_inside.exit:                           ; preds = %.critedge.i, %53
   %176 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef %73, ptr noundef %6, i8 noundef zeroext 0)
   br label %ft_stroker_outside.exit
 
-177:                                              ; preds = %101, %85
+177:                                              ; preds = %103, %100
   %178 = load i64, ptr %81, align 8
   %179 = load i64, ptr %96, align 8
   %180 = call i64 @FT_MulDiv(i64 noundef %178, i64 noundef %179, i64 noundef %98) #11
@@ -751,8 +755,8 @@ ft_stroker_inside.exit:                           ; preds = %.critedge.i, %53
   %202 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef %73, ptr noundef %7, i8 noundef zeroext 0)
   br label %ft_stroker_outside.exit
 
-ft_stroker_outside.exit:                          ; preds = %77, %.thread77.i, %117, %160, %167, %177, %192
-  %.0.i = phi i32 [ %79, %77 ], [ %116, %.thread77.i ], [ %159, %117 ], [ %176, %167 ], [ %165, %160 ], [ %202, %192 ], [ %190, %177 ]
+ft_stroker_outside.exit:                          ; preds = %77, %.thread83.i, %.thread80.i, %160, %167, %177, %192
+  %.0.i = phi i32 [ %79, %77 ], [ %117, %.thread83.i ], [ %159, %.thread80.i ], [ %176, %167 ], [ %165, %160 ], [ %202, %192 ], [ %190, %177 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)

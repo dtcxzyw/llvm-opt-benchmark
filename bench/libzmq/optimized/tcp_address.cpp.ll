@@ -663,7 +663,7 @@ do.end:                                           ; preds = %entry, %if.then
 if.end9:                                          ; preds = %do.end
   %5 = load i32, ptr %_address_mask, align 4
   %cmp11 = icmp sgt i32 %5, 0
-  br i1 %cmp11, label %if.then12, label %if.end64
+  br i1 %cmp11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %if.end9
   %cmp15 = icmp eq i16 %3, 10
@@ -689,7 +689,7 @@ if.then34:                                        ; preds = %do.body29
 
 if.end41.sink.split:                              ; preds = %if.then22, %if.then34
   %.str.6.sink = phi ptr [ @.str.6, %if.then34 ], [ @.str.5, %if.then22 ]
-  %.sink16.ph = phi i64 [ 4, %if.then34 ], [ 8, %if.then22 ]
+  %.sink17.ph = phi i64 [ 4, %if.then34 ], [ 8, %if.then22 ]
   %mask.0.ph = phi i32 [ 32, %if.then34 ], [ 128, %if.then22 ]
   %8 = load ptr, ptr @stderr, align 8
   %call36 = tail call i32 @fflush(ptr noundef %8)
@@ -697,10 +697,10 @@ if.end41.sink.split:                              ; preds = %if.then22, %if.then
   br label %if.end41
 
 if.end41:                                         ; preds = %if.end41.sink.split, %do.body29, %do.body17
-  %.sink16 = phi i64 [ 8, %do.body17 ], [ 4, %do.body29 ], [ %.sink16.ph, %if.end41.sink.split ]
+  %.sink17 = phi i64 [ 8, %do.body17 ], [ 4, %do.body29 ], [ %.sink17.ph, %if.end41.sink.split ]
   %mask.0 = phi i32 [ 128, %do.body17 ], [ 32, %do.body29 ], [ %mask.0.ph, %if.end41.sink.split ]
-  %sin_addr = getelementptr inbounds nuw i8, ptr %ss_, i64 %.sink16
-  %sin_addr40 = getelementptr inbounds nuw i8, ptr %this, i64 %.sink16
+  %sin_addr = getelementptr inbounds nuw i8, ptr %ss_, i64 %.sink17
+  %sin_addr40 = getelementptr inbounds nuw i8, ptr %this, i64 %.sink17
   %9 = load i32, ptr %_address_mask, align 4
   %spec.select15 = tail call i32 @llvm.smin.i32(i32 %9, i32 %mask.0)
   %div = sdiv i32 %spec.select15, 8
@@ -715,7 +715,7 @@ if.end51:                                         ; preds = %if.end41
   %shl = shl nuw nsw i32 255, %sub
   %10 = and i32 %shl, 255
   %tobool.not = icmp eq i32 %10, 0
-  br i1 %tobool.not, label %if.end64, label %if.then53
+  br i1 %tobool.not, label %return, label %if.then53
 
 if.then53:                                        ; preds = %if.end51
   %arrayidx = getelementptr inbounds i8, ptr %sin_addr, i64 %conv47
@@ -726,13 +726,10 @@ if.then53:                                        ; preds = %if.end51
   %14 = zext i8 %13 to i32
   %15 = and i32 %shl, %14
   %cmp60.not = icmp eq i32 %15, 0
-  br i1 %cmp60.not, label %if.end64, label %return
-
-if.end64:                                         ; preds = %if.end51, %if.then53, %if.end9
   br label %return
 
-return:                                           ; preds = %if.then53, %if.end41, %do.end, %if.end64
-  %retval.0 = phi i1 [ true, %if.end64 ], [ false, %do.end ], [ false, %if.end41 ], [ false, %if.then53 ]
+return:                                           ; preds = %if.end9, %if.end51, %if.then53, %if.end41, %do.end
+  %retval.0 = phi i1 [ false, %do.end ], [ false, %if.end41 ], [ %cmp60.not, %if.then53 ], [ true, %if.end51 ], [ true, %if.end9 ]
   ret i1 %retval.0
 }
 

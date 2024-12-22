@@ -562,12 +562,12 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn13Convolution1D10load_mode
           cleanup
   %96 = load ptr, ptr %.phi.trans.insert, align 8
   %.not107 = icmp eq ptr %96, null
-  br i1 %.not107, label %219, label %97
+  br i1 %.not107, label %218, label %97
 
 97:                                               ; preds = %94
   %98 = atomicrmw add ptr %96, i32 -1 acq_rel, align 4
   %99 = icmp eq i32 %98, 1
-  br i1 %99, label %100, label %219
+  br i1 %99, label %100, label %218
 
 100:                                              ; preds = %97
   %101 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -581,11 +581,11 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn13Convolution1D10load_mode
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 24
   %107 = load ptr, ptr %106, align 8
   invoke void %107(ptr noundef nonnull align 8 dereferenceable(8) %102, ptr noundef %103)
-          to label %219 unwind label %109
+          to label %218 unwind label %109
 
 108:                                              ; preds = %100
   %.not109 = icmp eq ptr %103, null
-  br i1 %.not109, label %219, label %.sink.split
+  br i1 %.not109, label %218, label %.sink.split
 
 109:                                              ; preds = %104
   %110 = landingpad { ptr, i32 }
@@ -598,7 +598,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn13Convolution1D10load_mode
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %114 = load i32, ptr %113, align 4
   %.not113 = icmp eq i32 %114, 0
-  br i1 %.not113, label %218, label %115
+  br i1 %.not113, label %.critedge, label %115
 
 115:                                              ; preds = %112
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -749,19 +749,20 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn13Convolution1D10load_mode
   %197 = sext i32 %196 to i64
   %198 = mul i64 %194, %197
   %199 = icmp eq i64 %198, 0
-  br i1 %199, label %.critedge, label %218
+  %spec.select = select i1 %199, i32 -100, i32 0
+  br label %.critedge
 
 200:                                              ; preds = %136
   %201 = landingpad { ptr, i32 }
           cleanup
   %202 = load ptr, ptr %.phi.trans.insert126, align 8
   %.not118 = icmp eq ptr %202, null
-  br i1 %.not118, label %219, label %203
+  br i1 %.not118, label %218, label %203
 
 203:                                              ; preds = %200
   %204 = atomicrmw add ptr %202, i32 -1 acq_rel, align 4
   %205 = icmp eq i32 %204, 1
-  br i1 %205, label %206, label %219
+  br i1 %205, label %206, label %218
 
 206:                                              ; preds = %203
   %207 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -775,11 +776,11 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn13Convolution1D10load_mode
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 24
   %213 = load ptr, ptr %212, align 8
   invoke void %213(ptr noundef nonnull align 8 dereferenceable(8) %208, ptr noundef %209)
-          to label %219 unwind label %215
+          to label %218 unwind label %215
 
 214:                                              ; preds = %206
   %.not120 = icmp eq ptr %209, null
-  br i1 %.not120, label %219, label %.sink.split
+  br i1 %.not120, label %218, label %.sink.split
 
 215:                                              ; preds = %210
   %216 = landingpad { ptr, i32 }
@@ -788,20 +789,17 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn13Convolution1D10load_mode
   call void @__clang_call_terminate(ptr %217) #13
   unreachable
 
-218:                                              ; preds = %192, %112
-  br label %.critedge
-
-.critedge:                                        ; preds = %192, %186, %86, %78, %2, %218
-  %.078 = phi i32 [ 0, %218 ], [ 0, %2 ], [ -100, %78 ], [ -100, %86 ], [ -100, %186 ], [ -100, %192 ]
+.critedge:                                        ; preds = %112, %192, %186, %86, %78, %2
+  %.078 = phi i32 [ 0, %2 ], [ -100, %78 ], [ -100, %86 ], [ -100, %186 ], [ %spec.select, %192 ], [ 0, %112 ]
   ret i32 %.078
 
 .sink.split:                                      ; preds = %214, %108
   %.sink = phi ptr [ %103, %108 ], [ %209, %214 ]
   %.pn.ph = phi { ptr, i32 } [ %95, %108 ], [ %201, %214 ]
   call void @free(ptr noundef nonnull %.sink) #12
-  br label %219
+  br label %218
 
-219:                                              ; preds = %.sink.split, %200, %203, %214, %210, %94, %97, %108, %104
+218:                                              ; preds = %.sink.split, %200, %203, %214, %210, %94, %97, %108, %104
   %.pn = phi { ptr, i32 } [ %95, %104 ], [ %95, %108 ], [ %95, %97 ], [ %95, %94 ], [ %201, %210 ], [ %201, %214 ], [ %201, %203 ], [ %201, %200 ], [ %.pn.ph, %.sink.split ]
   resume { ptr, i32 } %.pn
 }

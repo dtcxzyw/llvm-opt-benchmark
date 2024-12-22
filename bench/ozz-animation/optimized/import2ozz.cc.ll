@@ -146,37 +146,36 @@ define dso_local noundef range(i32 0, 2) i32 @_Z20InitializeEndiannessv() local_
 
 5:                                                ; preds = %0
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(4) @.str.9) #14
-  %7 = icmp eq i32 %6, 0
-  br i1 %7, label %9, label %8
+  %7 = icmp ne i32 %6, 0
+  %spec.select = zext i1 %7 to i32
+  %spec.select7 = select i1 %7, ptr @.str.10, ptr @.str.11
+  br label %8
 
 8:                                                ; preds = %0, %5
-  br label %9
-
-9:                                                ; preds = %5, %8
-  %.05 = phi i32 [ 1, %8 ], [ 0, %5 ]
-  %10 = phi ptr [ @.str.10, %8 ], [ @.str.11, %5 ]
+  %.05 = phi i32 [ %spec.select, %5 ], [ 1, %0 ]
+  %9 = phi ptr [ %spec.select7, %5 ], [ @.str.10, %0 ]
   call void @_ZN3ozz3log4LogVC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %1)
-  %11 = load ptr, ptr %1, align 8
-  %12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull %10)
-          to label %_ZN3ozz3log6LoggerlsIPKcEERSoRKT_.exit unwind label %17
+  %10 = load ptr, ptr %1, align 8
+  %11 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull %9)
+          to label %_ZN3ozz3log6LoggerlsIPKcEERSoRKT_.exit unwind label %16
 
-_ZN3ozz3log6LoggerlsIPKcEERSoRKT_.exit:           ; preds = %9
-  %13 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull @.str.12)
-          to label %14 unwind label %17
+_ZN3ozz3log6LoggerlsIPKcEERSoRKT_.exit:           ; preds = %8
+  %12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull @.str.12)
+          to label %13 unwind label %16
 
-14:                                               ; preds = %_ZN3ozz3log6LoggerlsIPKcEERSoRKT_.exit
-  %15 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-          to label %16 unwind label %17
+13:                                               ; preds = %_ZN3ozz3log6LoggerlsIPKcEERSoRKT_.exit
+  %14 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+          to label %15 unwind label %16
 
-16:                                               ; preds = %14
+15:                                               ; preds = %13
   call void @_ZN3ozz3log6LoggerD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %1) #15
   ret i32 %.05
 
-17:                                               ; preds = %9, %14, %_ZN3ozz3log6LoggerlsIPKcEERSoRKT_.exit
-  %18 = landingpad { ptr, i32 }
+16:                                               ; preds = %8, %13, %_ZN3ozz3log6LoggerlsIPKcEERSoRKT_.exit
+  %17 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ozz3log6LoggerD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %1) #15
-  resume { ptr, i32 } %18
+  resume { ptr, i32 } %17
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

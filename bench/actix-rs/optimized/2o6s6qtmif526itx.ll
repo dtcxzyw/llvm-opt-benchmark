@@ -3787,8 +3787,8 @@ define hidden { i64, ptr } @"_ZN2h25codec12framed_write24FramedWrite$LT$T$C$B$GT
   %10 = sub i64 %7, %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %12 = load i64, ptr %11, align 8, !noundef !10
-  %.not15 = icmp ult i64 %10, %12
-  br i1 %.not15, label %.critedge, label %28
+  %.not16 = icmp ult i64 %10, %12
+  br i1 %.not16, label %.critedge, label %.critedge14
 
 .critedge:                                        ; preds = %2, %5
   %13 = tail call { i64, ptr } @"_ZN2h25codec12framed_write24FramedWrite$LT$T$C$B$GT$5flush17h1af54a484cc553dcE"(ptr noalias noundef nonnull align 8 dereferenceable(320) %0, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
@@ -3814,18 +3814,16 @@ define hidden { i64, ptr } @"_ZN2h25codec12framed_write24FramedWrite$LT$T$C$B$GT
   %25 = sub i64 %22, %24
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %27 = load i64, ptr %26, align 8, !noundef !10
-  %.not16 = icmp ult i64 %25, %27
-  br i1 %.not16, label %.critedge14, label %28
-
-28:                                               ; preds = %20, %5
+  %.not17 = icmp ult i64 %25, %27
+  %spec.select15 = zext i1 %.not17 to i64
   br label %.critedge14
 
-.critedge14:                                      ; preds = %18, %.critedge, %15, %20, %28
-  %.sroa.5.2 = phi ptr [ null, %28 ], [ undef, %20 ], [ undef, %.critedge ], [ %16, %15 ], [ undef, %18 ]
-  %.sroa.0.2 = phi i64 [ 0, %28 ], [ 1, %20 ], [ %14, %.critedge ], [ 0, %15 ], [ 1, %18 ]
-  %29 = insertvalue { i64, ptr } poison, i64 %.sroa.0.2, 0
-  %30 = insertvalue { i64, ptr } %29, ptr %.sroa.5.2, 1
-  ret { i64, ptr } %30
+.critedge14:                                      ; preds = %5, %18, %20, %.critedge, %15
+  %.sroa.5.2 = phi ptr [ null, %20 ], [ undef, %.critedge ], [ %16, %15 ], [ undef, %18 ], [ null, %5 ]
+  %.sroa.0.2 = phi i64 [ %spec.select15, %20 ], [ %14, %.critedge ], [ 0, %15 ], [ 1, %18 ], [ 0, %5 ]
+  %28 = insertvalue { i64, ptr } poison, i64 %.sroa.0.2, 0
+  %29 = insertvalue { i64, ptr } %28, ptr %.sroa.5.2, 1
+  ret { i64, ptr } %29
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3843,8 +3841,8 @@ define hidden { i64, ptr } @"_ZN2h25codec12framed_write24FramedWrite$LT$T$C$B$GT
   %10 = sub i64 %7, %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %12 = load i64, ptr %11, align 8, !noundef !10
-  %.not15 = icmp ult i64 %10, %12
-  br i1 %.not15, label %.critedge, label %28
+  %.not16 = icmp ult i64 %10, %12
+  br i1 %.not16, label %.critedge, label %.critedge14
 
 .critedge:                                        ; preds = %2, %5
   %13 = tail call { i64, ptr } @"_ZN2h25codec12framed_write24FramedWrite$LT$T$C$B$GT$5flush17h84e957494f32f90aE"(ptr noalias noundef nonnull align 8 dereferenceable(328) %0, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
@@ -3870,18 +3868,16 @@ define hidden { i64, ptr } @"_ZN2h25codec12framed_write24FramedWrite$LT$T$C$B$GT
   %25 = sub i64 %22, %24
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %27 = load i64, ptr %26, align 8, !noundef !10
-  %.not16 = icmp ult i64 %25, %27
-  br i1 %.not16, label %.critedge14, label %28
-
-28:                                               ; preds = %20, %5
+  %.not17 = icmp ult i64 %25, %27
+  %spec.select15 = zext i1 %.not17 to i64
   br label %.critedge14
 
-.critedge14:                                      ; preds = %18, %.critedge, %15, %20, %28
-  %.sroa.5.2 = phi ptr [ null, %28 ], [ undef, %20 ], [ undef, %.critedge ], [ %16, %15 ], [ undef, %18 ]
-  %.sroa.0.2 = phi i64 [ 0, %28 ], [ 1, %20 ], [ %14, %.critedge ], [ 0, %15 ], [ 1, %18 ]
-  %29 = insertvalue { i64, ptr } poison, i64 %.sroa.0.2, 0
-  %30 = insertvalue { i64, ptr } %29, ptr %.sroa.5.2, 1
-  ret { i64, ptr } %30
+.critedge14:                                      ; preds = %5, %18, %20, %.critedge, %15
+  %.sroa.5.2 = phi ptr [ null, %20 ], [ undef, %.critedge ], [ %16, %15 ], [ undef, %18 ], [ null, %5 ]
+  %.sroa.0.2 = phi i64 [ %spec.select15, %20 ], [ %14, %.critedge ], [ 0, %15 ], [ 1, %18 ], [ 0, %5 ]
+  %28 = insertvalue { i64, ptr } poison, i64 %.sroa.0.2, 0
+  %29 = insertvalue { i64, ptr } %28, ptr %.sroa.5.2, 1
+  ret { i64, ptr } %29
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -3004,25 +3004,25 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %50 = load i32, ptr %49, align 8, !range !96, !noalias !854, !noundef !14
   %51 = icmp eq i32 %47, %50
-  br i1 %51, label %52, label %"_ZN99_$LT$tokenizers..pre_tokenizers..metaspace..Metaspace$u20$as$u20$tokenizers..tokenizer..Decoder$GT$12decode_chain28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc92fb4c94b1ea8b6E.llvm.12993343960315125427.exit.thread3.i.i"
+  br i1 %51, label %52, label %"_ZN99_$LT$tokenizers..pre_tokenizers..metaspace..Metaspace$u20$as$u20$tokenizers..tokenizer..Decoder$GT$12decode_chain28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc92fb4c94b1ea8b6E.llvm.12993343960315125427.exit.thread.i.i"
 
 52:                                               ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.llvm.12993343960315125427.exit.thread.i"
   %53 = load i64, ptr %9, align 8, !noalias !854, !noundef !14
   %54 = icmp eq i64 %53, 0
-  br i1 %54, label %55, label %"_ZN99_$LT$tokenizers..pre_tokenizers..metaspace..Metaspace$u20$as$u20$tokenizers..tokenizer..Decoder$GT$12decode_chain28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc92fb4c94b1ea8b6E.llvm.12993343960315125427.exit.thread3.i.i"
+  br i1 %54, label %55, label %"_ZN99_$LT$tokenizers..pre_tokenizers..metaspace..Metaspace$u20$as$u20$tokenizers..tokenizer..Decoder$GT$12decode_chain28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc92fb4c94b1ea8b6E.llvm.12993343960315125427.exit.thread.i.i"
 
 55:                                               ; preds = %52
   %56 = getelementptr inbounds nuw i8, ptr %48, i64 29
   %57 = load i8, ptr %56, align 1, !range !859, !noalias !854, !noundef !14
   %.not.i.i.i = icmp eq i8 %57, 1
-  br i1 %.not.i.i.i, label %"_ZN99_$LT$tokenizers..pre_tokenizers..metaspace..Metaspace$u20$as$u20$tokenizers..tokenizer..Decoder$GT$12decode_chain28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc92fb4c94b1ea8b6E.llvm.12993343960315125427.exit.thread3.i.i", label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc895f6aee0208f64E.llvm.12993343960315125427.exit.i"
+  br i1 %.not.i.i.i, label %"_ZN99_$LT$tokenizers..pre_tokenizers..metaspace..Metaspace$u20$as$u20$tokenizers..tokenizer..Decoder$GT$12decode_chain28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc92fb4c94b1ea8b6E.llvm.12993343960315125427.exit.thread.i.i", label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc895f6aee0208f64E.llvm.12993343960315125427.exit.i"
 
-"_ZN99_$LT$tokenizers..pre_tokenizers..metaspace..Metaspace$u20$as$u20$tokenizers..tokenizer..Decoder$GT$12decode_chain28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc92fb4c94b1ea8b6E.llvm.12993343960315125427.exit.thread3.i.i": ; preds = %55, %52, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.llvm.12993343960315125427.exit.thread.i"
-  %.0.i5.i.i = phi i32 [ 32, %52 ], [ 32, %55 ], [ %47, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.llvm.12993343960315125427.exit.thread.i" ]
-  tail call void @_ZN5alloc6string6String4push17h552cb35310221f05E.llvm.12993343960315125427(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i32 noundef range(i32 1114113, 1114112) %.0.i5.i.i), !noalias !860
+"_ZN99_$LT$tokenizers..pre_tokenizers..metaspace..Metaspace$u20$as$u20$tokenizers..tokenizer..Decoder$GT$12decode_chain28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc92fb4c94b1ea8b6E.llvm.12993343960315125427.exit.thread.i.i": ; preds = %55, %52, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.llvm.12993343960315125427.exit.thread.i"
+  %.0.i3.i.i = phi i32 [ 32, %52 ], [ 32, %55 ], [ %47, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.llvm.12993343960315125427.exit.thread.i" ]
+  tail call void @_ZN5alloc6string6String4push17h552cb35310221f05E.llvm.12993343960315125427(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i32 noundef range(i32 1114113, 1114112) %.0.i3.i.i), !noalias !860
   br label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc895f6aee0208f64E.llvm.12993343960315125427.exit.i"
 
-"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc895f6aee0208f64E.llvm.12993343960315125427.exit.i": ; preds = %"_ZN99_$LT$tokenizers..pre_tokenizers..metaspace..Metaspace$u20$as$u20$tokenizers..tokenizer..Decoder$GT$12decode_chain28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc92fb4c94b1ea8b6E.llvm.12993343960315125427.exit.thread3.i.i", %55
+"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc895f6aee0208f64E.llvm.12993343960315125427.exit.i": ; preds = %"_ZN99_$LT$tokenizers..pre_tokenizers..metaspace..Metaspace$u20$as$u20$tokenizers..tokenizer..Decoder$GT$12decode_chain28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc92fb4c94b1ea8b6E.llvm.12993343960315125427.exit.thread.i.i", %55
   %58 = icmp eq ptr %.sroa.0.15.i, %5
   br i1 %58, label %_ZN4core4iter6traits8iterator8Iterator4fold17h0d1d9de66fbf779aE.llvm.12993343960315125427.exit, label %.lr.ph.i
 
@@ -9841,25 +9841,25 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h0d1d9de66fbf77
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %50 = load i32, ptr %49, align 8, !range !96, !noalias !3292, !noundef !14
   %51 = icmp eq i32 %47, %50
-  br i1 %51, label %52, label %"_ZN99_$LT$tokenizers..pre_tokenizers..metaspace..Metaspace$u20$as$u20$tokenizers..tokenizer..Decoder$GT$12decode_chain28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc92fb4c94b1ea8b6E.llvm.12993343960315125427.exit.thread3.i"
+  br i1 %51, label %52, label %"_ZN99_$LT$tokenizers..pre_tokenizers..metaspace..Metaspace$u20$as$u20$tokenizers..tokenizer..Decoder$GT$12decode_chain28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc92fb4c94b1ea8b6E.llvm.12993343960315125427.exit.thread.i"
 
 52:                                               ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.llvm.12993343960315125427.exit.thread"
   %53 = load i64, ptr %9, align 8, !noalias !3292, !noundef !14
   %54 = icmp eq i64 %53, 0
-  br i1 %54, label %55, label %"_ZN99_$LT$tokenizers..pre_tokenizers..metaspace..Metaspace$u20$as$u20$tokenizers..tokenizer..Decoder$GT$12decode_chain28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc92fb4c94b1ea8b6E.llvm.12993343960315125427.exit.thread3.i"
+  br i1 %54, label %55, label %"_ZN99_$LT$tokenizers..pre_tokenizers..metaspace..Metaspace$u20$as$u20$tokenizers..tokenizer..Decoder$GT$12decode_chain28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc92fb4c94b1ea8b6E.llvm.12993343960315125427.exit.thread.i"
 
 55:                                               ; preds = %52
   %56 = getelementptr inbounds nuw i8, ptr %48, i64 29
   %57 = load i8, ptr %56, align 1, !range !859, !noalias !3292, !noundef !14
   %.not.i.i = icmp eq i8 %57, 1
-  br i1 %.not.i.i, label %"_ZN99_$LT$tokenizers..pre_tokenizers..metaspace..Metaspace$u20$as$u20$tokenizers..tokenizer..Decoder$GT$12decode_chain28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc92fb4c94b1ea8b6E.llvm.12993343960315125427.exit.thread3.i", label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc895f6aee0208f64E.llvm.12993343960315125427.exit"
+  br i1 %.not.i.i, label %"_ZN99_$LT$tokenizers..pre_tokenizers..metaspace..Metaspace$u20$as$u20$tokenizers..tokenizer..Decoder$GT$12decode_chain28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc92fb4c94b1ea8b6E.llvm.12993343960315125427.exit.thread.i", label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc895f6aee0208f64E.llvm.12993343960315125427.exit"
 
-"_ZN99_$LT$tokenizers..pre_tokenizers..metaspace..Metaspace$u20$as$u20$tokenizers..tokenizer..Decoder$GT$12decode_chain28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc92fb4c94b1ea8b6E.llvm.12993343960315125427.exit.thread3.i": ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.llvm.12993343960315125427.exit.thread", %55, %52
-  %.0.i5.i = phi i32 [ 32, %52 ], [ 32, %55 ], [ %47, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.llvm.12993343960315125427.exit.thread" ]
-  tail call void @_ZN5alloc6string6String4push17h552cb35310221f05E.llvm.12993343960315125427(ptr noalias noundef nonnull align 8 dereferenceable(24) %.val.i.i, i32 noundef range(i32 1114113, 1114112) %.0.i5.i), !noalias !3297
+"_ZN99_$LT$tokenizers..pre_tokenizers..metaspace..Metaspace$u20$as$u20$tokenizers..tokenizer..Decoder$GT$12decode_chain28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc92fb4c94b1ea8b6E.llvm.12993343960315125427.exit.thread.i": ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.llvm.12993343960315125427.exit.thread", %55, %52
+  %.0.i3.i = phi i32 [ 32, %52 ], [ 32, %55 ], [ %47, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.llvm.12993343960315125427.exit.thread" ]
+  tail call void @_ZN5alloc6string6String4push17h552cb35310221f05E.llvm.12993343960315125427(ptr noalias noundef nonnull align 8 dereferenceable(24) %.val.i.i, i32 noundef range(i32 1114113, 1114112) %.0.i3.i), !noalias !3297
   br label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc895f6aee0208f64E.llvm.12993343960315125427.exit"
 
-"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc895f6aee0208f64E.llvm.12993343960315125427.exit": ; preds = %55, %"_ZN99_$LT$tokenizers..pre_tokenizers..metaspace..Metaspace$u20$as$u20$tokenizers..tokenizer..Decoder$GT$12decode_chain28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc92fb4c94b1ea8b6E.llvm.12993343960315125427.exit.thread3.i"
+"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc895f6aee0208f64E.llvm.12993343960315125427.exit": ; preds = %55, %"_ZN99_$LT$tokenizers..pre_tokenizers..metaspace..Metaspace$u20$as$u20$tokenizers..tokenizer..Decoder$GT$12decode_chain28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc92fb4c94b1ea8b6E.llvm.12993343960315125427.exit.thread.i"
   %58 = icmp eq ptr %.sroa.0.15, %1
   br i1 %58, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.llvm.12993343960315125427.exit.thread6", label %10
 
@@ -20591,26 +20591,26 @@ define hidden void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d
   %11 = load ptr, ptr %10, align 8, !alias.scope !5956, !nonnull !14, !align !31, !noundef !14
   %12 = load i64, ptr %11, align 8, !noalias !5956, !noundef !14
   %13 = icmp eq i64 %12, 0
-  br i1 %13, label %14, label %"_ZN99_$LT$tokenizers..pre_tokenizers..metaspace..Metaspace$u20$as$u20$tokenizers..tokenizer..Decoder$GT$12decode_chain28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc92fb4c94b1ea8b6E.llvm.12993343960315125427.exit.thread3"
+  br i1 %13, label %14, label %"_ZN99_$LT$tokenizers..pre_tokenizers..metaspace..Metaspace$u20$as$u20$tokenizers..tokenizer..Decoder$GT$12decode_chain28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc92fb4c94b1ea8b6E.llvm.12993343960315125427.exit.thread"
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 29
   %16 = load i8, ptr %15, align 1, !range !859, !noalias !5956, !noundef !14
   %.not.i = icmp eq i8 %16, 1
-  br i1 %.not.i, label %"_ZN99_$LT$tokenizers..pre_tokenizers..metaspace..Metaspace$u20$as$u20$tokenizers..tokenizer..Decoder$GT$12decode_chain28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc92fb4c94b1ea8b6E.llvm.12993343960315125427.exit.thread3", label %"_ZN4core4iter8adapters7flatten11flatten_one28_$u7b$$u7b$closure$u7d$$u7d$17h94d8316a25772abaE.llvm.12993343960315125427.exit"
+  br i1 %.not.i, label %"_ZN99_$LT$tokenizers..pre_tokenizers..metaspace..Metaspace$u20$as$u20$tokenizers..tokenizer..Decoder$GT$12decode_chain28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc92fb4c94b1ea8b6E.llvm.12993343960315125427.exit.thread", label %"_ZN4core4iter8adapters7flatten11flatten_one28_$u7b$$u7b$closure$u7d$$u7d$17h94d8316a25772abaE.llvm.12993343960315125427.exit"
 
 "_ZN99_$LT$tokenizers..pre_tokenizers..metaspace..Metaspace$u20$as$u20$tokenizers..tokenizer..Decoder$GT$12decode_chain28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc92fb4c94b1ea8b6E.llvm.12993343960315125427.exit": ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5959)
   %17 = icmp eq i32 %1, 1114112
-  br i1 %17, label %"_ZN4core4iter8adapters7flatten11flatten_one28_$u7b$$u7b$closure$u7d$$u7d$17h94d8316a25772abaE.llvm.12993343960315125427.exit", label %"_ZN99_$LT$tokenizers..pre_tokenizers..metaspace..Metaspace$u20$as$u20$tokenizers..tokenizer..Decoder$GT$12decode_chain28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc92fb4c94b1ea8b6E.llvm.12993343960315125427.exit.thread3"
+  br i1 %17, label %"_ZN4core4iter8adapters7flatten11flatten_one28_$u7b$$u7b$closure$u7d$$u7d$17h94d8316a25772abaE.llvm.12993343960315125427.exit", label %"_ZN99_$LT$tokenizers..pre_tokenizers..metaspace..Metaspace$u20$as$u20$tokenizers..tokenizer..Decoder$GT$12decode_chain28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc92fb4c94b1ea8b6E.llvm.12993343960315125427.exit.thread"
 
-"_ZN99_$LT$tokenizers..pre_tokenizers..metaspace..Metaspace$u20$as$u20$tokenizers..tokenizer..Decoder$GT$12decode_chain28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc92fb4c94b1ea8b6E.llvm.12993343960315125427.exit.thread3": ; preds = %14, %9, %"_ZN99_$LT$tokenizers..pre_tokenizers..metaspace..Metaspace$u20$as$u20$tokenizers..tokenizer..Decoder$GT$12decode_chain28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc92fb4c94b1ea8b6E.llvm.12993343960315125427.exit"
-  %.0.i5 = phi i32 [ %1, %"_ZN99_$LT$tokenizers..pre_tokenizers..metaspace..Metaspace$u20$as$u20$tokenizers..tokenizer..Decoder$GT$12decode_chain28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc92fb4c94b1ea8b6E.llvm.12993343960315125427.exit" ], [ 32, %9 ], [ 32, %14 ]
+"_ZN99_$LT$tokenizers..pre_tokenizers..metaspace..Metaspace$u20$as$u20$tokenizers..tokenizer..Decoder$GT$12decode_chain28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc92fb4c94b1ea8b6E.llvm.12993343960315125427.exit.thread": ; preds = %14, %9, %"_ZN99_$LT$tokenizers..pre_tokenizers..metaspace..Metaspace$u20$as$u20$tokenizers..tokenizer..Decoder$GT$12decode_chain28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc92fb4c94b1ea8b6E.llvm.12993343960315125427.exit"
+  %.0.i3 = phi i32 [ %1, %"_ZN99_$LT$tokenizers..pre_tokenizers..metaspace..Metaspace$u20$as$u20$tokenizers..tokenizer..Decoder$GT$12decode_chain28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc92fb4c94b1ea8b6E.llvm.12993343960315125427.exit" ], [ 32, %9 ], [ 32, %14 ]
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !5959, !nonnull !14, !align !31, !noundef !14
-  tail call void @_ZN5alloc6string6String4push17h552cb35310221f05E.llvm.12993343960315125427(ptr noalias noundef nonnull align 8 dereferenceable(24) %.val.i, i32 noundef range(i32 1114113, 1114112) %.0.i5), !noalias !5959
+  tail call void @_ZN5alloc6string6String4push17h552cb35310221f05E.llvm.12993343960315125427(ptr noalias noundef nonnull align 8 dereferenceable(24) %.val.i, i32 noundef range(i32 1114113, 1114112) %.0.i3), !noalias !5959
   br label %"_ZN4core4iter8adapters7flatten11flatten_one28_$u7b$$u7b$closure$u7d$$u7d$17h94d8316a25772abaE.llvm.12993343960315125427.exit"
 
-"_ZN4core4iter8adapters7flatten11flatten_one28_$u7b$$u7b$closure$u7d$$u7d$17h94d8316a25772abaE.llvm.12993343960315125427.exit": ; preds = %14, %"_ZN99_$LT$tokenizers..pre_tokenizers..metaspace..Metaspace$u20$as$u20$tokenizers..tokenizer..Decoder$GT$12decode_chain28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc92fb4c94b1ea8b6E.llvm.12993343960315125427.exit", %"_ZN99_$LT$tokenizers..pre_tokenizers..metaspace..Metaspace$u20$as$u20$tokenizers..tokenizer..Decoder$GT$12decode_chain28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc92fb4c94b1ea8b6E.llvm.12993343960315125427.exit.thread3"
+"_ZN4core4iter8adapters7flatten11flatten_one28_$u7b$$u7b$closure$u7d$$u7d$17h94d8316a25772abaE.llvm.12993343960315125427.exit": ; preds = %14, %"_ZN99_$LT$tokenizers..pre_tokenizers..metaspace..Metaspace$u20$as$u20$tokenizers..tokenizer..Decoder$GT$12decode_chain28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc92fb4c94b1ea8b6E.llvm.12993343960315125427.exit", %"_ZN99_$LT$tokenizers..pre_tokenizers..metaspace..Metaspace$u20$as$u20$tokenizers..tokenizer..Decoder$GT$12decode_chain28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc92fb4c94b1ea8b6E.llvm.12993343960315125427.exit.thread"
   ret void
 }
 
@@ -28813,19 +28813,17 @@ define hidden noundef i32 @"_ZN99_$LT$tokenizers..pre_tokenizers..metaspace..Met
   %10 = load ptr, ptr %9, align 8, !nonnull !14, !align !31, !noundef !14
   %11 = load i64, ptr %10, align 8, !noundef !14
   %12 = icmp eq i64 %11, 0
-  br i1 %12, label %14, label %17
+  br i1 %12, label %14, label %13
 
-13:                                               ; preds = %14, %2, %17
-  %.0 = phi i32 [ 32, %17 ], [ %1, %2 ], [ 1114112, %14 ]
+13:                                               ; preds = %8, %14, %2
+  %.0 = phi i32 [ %1, %2 ], [ %spec.select, %14 ], [ 32, %8 ]
   ret i32 %.0
 
 14:                                               ; preds = %8
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 29
   %16 = load i8, ptr %15, align 1, !range !859, !noundef !14
   %.not = icmp eq i8 %16, 1
-  br i1 %.not, label %17, label %13
-
-17:                                               ; preds = %14, %8
+  %spec.select = select i1 %.not, i32 32, i32 1114112
   br label %13
 }
 

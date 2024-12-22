@@ -164,8 +164,9 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN10Subprocess6FinishEv(ptr nocap
 
 16:                                               ; preds = %12
   %17 = and i32 %13, 65280
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %24, label %23
+  %18 = icmp ne i32 %17, 0
+  %spec.select = zext i1 %18 to i32
+  br label %24
 
 19:                                               ; preds = %12
   %20 = shl nuw nsw i32 %14, 24
@@ -180,11 +181,11 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN10Subprocess6FinishEv(ptr nocap
     i32 1, label %24
   ]
 
-23:                                               ; preds = %22, %19, %16
+23:                                               ; preds = %22, %19
   br label %24
 
-24:                                               ; preds = %22, %22, %22, %16, %23
-  %.0 = phi i32 [ 1, %23 ], [ 0, %16 ], [ 2, %22 ], [ 2, %22 ], [ 2, %22 ]
+24:                                               ; preds = %16, %22, %22, %22, %23
+  %.0 = phi i32 [ 1, %23 ], [ %spec.select, %16 ], [ 2, %22 ], [ 2, %22 ], [ 2, %22 ]
   ret i32 %.0
 }
 

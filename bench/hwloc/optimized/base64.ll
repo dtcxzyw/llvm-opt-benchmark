@@ -156,12 +156,12 @@ define hidden i32 @hwloc_decode_from_base64(ptr nocapture noundef readonly %0, p
   %.not74 = icmp eq ptr %1, null
   br label %.outer.outer
 
-.unreachabledefault171:                           ; preds = %18
+.unreachabledefault168:                           ; preds = %18
   unreachable
 
 .outer:                                           ; preds = %.outer.backedge, %.outer.outer
   %.060.ph = phi ptr [ %.060.ph.ph, %.outer.outer ], [ %7, %.outer.backedge ]
-  %.not83 = phi i1 [ %.not83.ph, %.outer.outer ], [ false, %.outer.backedge ]
+  %.not83 = phi i32 [ %.not83.ph, %.outer.outer ], [ -1, %.outer.backedge ]
   %.056.ph = phi i32 [ %.056.ph.ph, %.outer.outer ], [ 1, %.outer.backedge ]
   br label %4
 
@@ -169,7 +169,7 @@ define hidden i32 @hwloc_decode_from_base64(ptr nocapture noundef readonly %0, p
   %.060 = phi ptr [ %7, %6 ], [ %.060.ph, %.outer ]
   %5 = load i8, ptr %.060, align 1
   %cond = icmp eq i8 %5, 0
-  br i1 %cond, label %98, label %6
+  br i1 %cond, label %.loopexit, label %6
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %.060, i64 1
@@ -193,7 +193,7 @@ define hidden i32 @hwloc_decode_from_base64(ptr nocapture noundef readonly %0, p
   br i1 %17, label %.loopexit, label %18
 
 18:                                               ; preds = %15
-  switch i32 %.056.ph, label %.unreachabledefault171 [
+  switch i32 %.056.ph, label %.unreachabledefault168 [
     i32 0, label %19
     i32 1, label %26
     i32 2, label %40
@@ -243,19 +243,19 @@ define hidden i32 @hwloc_decode_from_base64(ptr nocapture noundef readonly %0, p
   br label %.outer.outer.backedge
 
 40:                                               ; preds = %18
-  %.pre137 = add i32 %.058.ph.ph, 1
+  %.pre136 = add i32 %.058.ph.ph, 1
   br i1 %.not74, label %.outer.outer.backedge, label %43
 
 .outer.outer.backedge:                            ; preds = %40, %26, %45, %29, %66
-  %.058.ph.ph.be = phi i32 [ %67, %66 ], [ %.pre, %29 ], [ %.pre137, %45 ], [ %.pre, %26 ], [ %.pre137, %40 ]
-  %.not83.ph.be = phi i1 [ true, %66 ], [ false, %29 ], [ false, %45 ], [ false, %26 ], [ false, %40 ]
+  %.058.ph.ph.be = phi i32 [ %67, %66 ], [ %.pre, %29 ], [ %.pre136, %45 ], [ %.pre, %26 ], [ %.pre136, %40 ]
+  %.not83.ph.be = phi i32 [ %67, %66 ], [ -1, %29 ], [ -1, %45 ], [ -1, %26 ], [ -1, %40 ]
   %.056.ph.ph.be = phi i32 [ 0, %66 ], [ 2, %29 ], [ 3, %45 ], [ 2, %26 ], [ 3, %40 ]
   br label %.outer.outer, !llvm.loop !7
 
 .outer.outer:                                     ; preds = %.outer.outer.backedge, %3
   %.060.ph.ph = phi ptr [ %0, %3 ], [ %7, %.outer.outer.backedge ]
   %.058.ph.ph = phi i32 [ 0, %3 ], [ %.058.ph.ph.be, %.outer.outer.backedge ]
-  %.not83.ph = phi i1 [ true, %3 ], [ %.not83.ph.be, %.outer.outer.backedge ]
+  %.not83.ph = phi i32 [ 0, %3 ], [ %.not83.ph.be, %.outer.outer.backedge ]
   %.056.ph.ph = phi i32 [ 0, %3 ], [ %.056.ph.ph.be, %.outer.outer.backedge ]
   %41 = zext i32 %.058.ph.ph to i64
   %.not82 = icmp ugt i64 %2, %41
@@ -263,7 +263,7 @@ define hidden i32 @hwloc_decode_from_base64(ptr nocapture noundef readonly %0, p
   br label %.outer
 
 43:                                               ; preds = %40
-  %44 = zext i32 %.pre137 to i64
+  %44 = zext i32 %.pre136 to i64
   %.not77 = icmp ugt i64 %2, %44
   br i1 %.not77, label %45, label %.loopexit
 
@@ -371,26 +371,21 @@ define hidden i32 @hwloc_decode_from_base64(ptr nocapture noundef readonly %0, p
   br i1 %.not87, label %._crit_edge, label %.lr.ph118, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %90, %85
-  br i1 %.not74, label %99, label %94
+  br i1 %.not74, label %.loopexit, label %94
 
 94:                                               ; preds = %._crit_edge
   %95 = zext i32 %.058.ph.ph to i64
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 %95
   %97 = load i8, ptr %96, align 1
   %.not89 = icmp eq i8 %97, 0
-  br i1 %.not89, label %99, label %.loopexit
-
-98:                                               ; preds = %4
-  br i1 %.not83, label %99, label %.loopexit
+  %spec.select = select i1 %.not89, i32 %.058.ph.ph, i32 -1
+  br label %.loopexit
 
 .unreachabledefault:                              ; preds = %68
   unreachable
 
-99:                                               ; preds = %98, %94, %._crit_edge
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %20, %15, %57, %43, %27, %76, %.lr.ph118, %.preheader, %98, %94, %80, %68, %68, %99
-  %.0 = phi i32 [ %.058.ph.ph, %99 ], [ -1, %68 ], [ -1, %68 ], [ -1, %80 ], [ -1, %94 ], [ -1, %98 ], [ -1, %.preheader ], [ -1, %.lr.ph118 ], [ -1, %76 ], [ -1, %27 ], [ -1, %43 ], [ -1, %57 ], [ -1, %15 ], [ -1, %20 ]
+.loopexit:                                        ; preds = %20, %15, %57, %43, %27, %76, %.lr.ph118, %4, %._crit_edge, %.preheader, %94, %80, %68, %68
+  %.0 = phi i32 [ -1, %68 ], [ -1, %68 ], [ -1, %80 ], [ %spec.select, %94 ], [ -1, %.preheader ], [ %.058.ph.ph, %._crit_edge ], [ %.not83, %4 ], [ -1, %.lr.ph118 ], [ -1, %76 ], [ -1, %27 ], [ -1, %43 ], [ -1, %57 ], [ -1, %15 ], [ -1, %20 ]
   ret i32 %.0
 }
 

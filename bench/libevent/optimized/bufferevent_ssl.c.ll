@@ -1092,8 +1092,8 @@ if.end:                                           ; preds = %sw.bb
   %6 = load ptr, ptr %ssl, align 8
   tail call void %5(ptr noundef %6) #7
   %call4 = tail call fastcc i32 @set_handshake_callbacks(ptr noundef nonnull %bev_ssl, i32 noundef %fd)
-  %cmp = icmp slt i32 %call4, 0
-  br i1 %cmp, label %return, label %sw.epilog
+  %call4.lobit = ashr i32 %call4, 31
+  br label %return
 
 sw.bb7:                                           ; preds = %entry
   %ssl_ops8 = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 536
@@ -1113,19 +1113,15 @@ if.end14:                                         ; preds = %sw.bb7
   %12 = load ptr, ptr %ssl10, align 8
   tail call void %11(ptr noundef %12) #7
   %call17 = tail call fastcc i32 @set_handshake_callbacks(ptr noundef nonnull %bev_ssl, i32 noundef %fd)
-  %cmp18 = icmp slt i32 %call17, 0
-  br i1 %cmp18, label %return, label %sw.epilog
+  %call17.lobit = ashr i32 %call17, 31
+  br label %return
 
 sw.bb21:                                          ; preds = %entry
   %call22 = tail call fastcc i32 @set_open_callbacks(ptr noundef nonnull %bev_ssl, i32 noundef %fd)
-  %cmp23 = icmp slt i32 %call22, 0
-  br i1 %cmp23, label %return, label %sw.epilog
-
-sw.epilog:                                        ; preds = %sw.bb21, %if.end14, %if.end
   br label %return
 
-return:                                           ; preds = %entry, %sw.bb21, %if.end14, %sw.bb7, %if.end, %sw.bb, %sw.epilog
-  %retval.0 = phi i32 [ 0, %sw.epilog ], [ -1, %sw.bb ], [ -1, %if.end ], [ -1, %sw.bb7 ], [ -1, %if.end14 ], [ -1, %sw.bb21 ], [ -1, %entry ]
+return:                                           ; preds = %sw.bb21, %if.end14, %if.end, %entry, %sw.bb7, %sw.bb
+  %retval.0 = phi i32 [ -1, %sw.bb ], [ %call4.lobit, %if.end ], [ -1, %sw.bb7 ], [ %call17.lobit, %if.end14 ], [ -1, %entry ], [ %call22, %sw.bb21 ]
   ret i32 %retval.0
 }
 

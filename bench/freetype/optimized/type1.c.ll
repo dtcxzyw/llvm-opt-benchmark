@@ -2965,7 +2965,7 @@ define internal noundef i32 @t1_ps_get_font_private(ptr nocapture noundef readon
 ; Function Attrs: nounwind uwtable
 define internal range(i64 1, 0) i64 @t1_ps_get_font_value(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly %3, i64 noundef %4) #2 {
   %6 = tail call i64 @llvm.smax.i64(i64 %4, i64 0)
-  switch i32 %1, label %.thread499 [
+  switch i32 %1, label %.thread495 [
     i32 0, label %7
     i32 1, label %11
     i32 2, label %19
@@ -3028,7 +3028,7 @@ define internal range(i64 1, 0) i64 @t1_ps_get_font_value(ptr noundef readonly %
 
 11:                                               ; preds = %5
   %12 = icmp ult i32 %2, 4
-  br i1 %12, label %13, label %.thread499
+  br i1 %12, label %13, label %.thread495
 
 13:                                               ; preds = %11
   %.not441 = icmp ne ptr %3, null
@@ -3047,15 +3047,15 @@ switch.lookup:                                    ; preds = %13
 
 19:                                               ; preds = %5
   %20 = icmp ult i32 %2, 4
-  br i1 %20, label %21, label %.thread499
+  br i1 %20, label %21, label %.thread495
 
 21:                                               ; preds = %19
   %.not440 = icmp ne ptr %3, null
   %22 = icmp sgt i64 %4, 7
   %or.cond445 = and i1 %.not440, %22
-  br i1 %or.cond445, label %switch.lookup505, label %.thread495
+  br i1 %or.cond445, label %switch.lookup506, label %.thread495
 
-switch.lookup505:                                 ; preds = %21
+switch.lookup506:                                 ; preds = %21
   %23 = shl nuw nsw i32 %2, 3
   %24 = zext nneg i32 %23 to i64
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 %24
@@ -3080,7 +3080,7 @@ switch.lookup505:                                 ; preds = %21
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %33 = load ptr, ptr %32, align 8
   %.not435 = icmp eq ptr %33, null
-  br i1 %.not435, label %.thread499, label %34
+  br i1 %.not435, label %.thread495, label %34
 
 34:                                               ; preds = %31
   %35 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %33) #17
@@ -3122,7 +3122,7 @@ switch.lookup505:                                 ; preds = %21
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %50 = load i32, ptr %49, align 8
   %51 = icmp ult i32 %2, %50
-  br i1 %51, label %52, label %.thread499
+  br i1 %51, label %52, label %.thread495
 
 52:                                               ; preds = %48
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 648
@@ -3145,7 +3145,7 @@ switch.lookup505:                                 ; preds = %21
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %63 = load i32, ptr %62, align 8
   %64 = icmp ult i32 %2, %63
-  br i1 %64, label %65, label %.thread499
+  br i1 %64, label %65, label %.thread495
 
 65:                                               ; preds = %61
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 664
@@ -3187,13 +3187,13 @@ switch.lookup505:                                 ; preds = %21
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %87 = load i32, ptr %86, align 8
   %88 = icmp eq i32 %87, 1
-  br i1 %88, label %89, label %.thread499
+  br i1 %88, label %89, label %.thread495
 
 89:                                               ; preds = %85
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %91 = load i32, ptr %90, align 8
   %92 = icmp ult i32 %2, %91
-  br i1 %92, label %93, label %.thread499
+  br i1 %92, label %93, label %.thread495
 
 93:                                               ; preds = %89
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 576
@@ -3233,7 +3233,7 @@ switch.lookup505:                                 ; preds = %21
 110:                                              ; preds = %107
   %111 = tail call ptr @ft_hash_num_lookup(i32 noundef %2, ptr noundef nonnull %109) #16
   %.not420 = icmp eq ptr %111, null
-  br i1 %.not420, label %.thread499, label %.thread491
+  br i1 %.not420, label %.thread495, label %.thread491
 
 .thread491:                                       ; preds = %110
   %112 = load i64, ptr %111, align 8
@@ -3243,15 +3243,15 @@ switch.lookup505:                                 ; preds = %21
 114:                                              ; preds = %107
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %116 = load i32, ptr %115, align 8
-  %.not503 = icmp ult i32 %2, %116
-  br i1 %.not503, label %117, label %.thread499
+  %.not504 = icmp ult i32 %2, %116
+  br i1 %.not504, label %117, label %.thread495
 
 117:                                              ; preds = %.thread491, %114
   %.0494 = phi i32 [ %113, %.thread491 ], [ %2, %114 ]
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %119 = load ptr, ptr %118, align 8
   %.not422 = icmp eq ptr %119, null
-  br i1 %.not422, label %.thread499, label %120
+  br i1 %.not422, label %.thread495, label %120
 
 120:                                              ; preds = %117
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 624
@@ -3316,7 +3316,7 @@ switch.lookup505:                                 ; preds = %21
   %149 = load i8, ptr %148, align 8
   %150 = zext i8 %149 to i32
   %151 = icmp ult i32 %2, %150
-  br i1 %151, label %152, label %.thread499
+  br i1 %151, label %152, label %.thread495
 
 152:                                              ; preds = %147
   %.not414 = icmp ne ptr %3, null
@@ -3385,7 +3385,7 @@ switch.lookup505:                                 ; preds = %21
   %180 = load i8, ptr %179, align 1
   %181 = zext i8 %180 to i32
   %182 = icmp ult i32 %2, %181
-  br i1 %182, label %183, label %.thread499
+  br i1 %182, label %183, label %.thread495
 
 183:                                              ; preds = %178
   %.not408 = icmp ne ptr %3, null
@@ -3418,7 +3418,7 @@ switch.lookup505:                                 ; preds = %21
   %196 = load i8, ptr %195, align 2
   %197 = zext i8 %196 to i32
   %198 = icmp ult i32 %2, %197
-  br i1 %198, label %199, label %.thread499
+  br i1 %198, label %199, label %.thread495
 
 199:                                              ; preds = %194
   %.not405 = icmp ne ptr %3, null
@@ -3451,7 +3451,7 @@ switch.lookup505:                                 ; preds = %21
   %212 = load i8, ptr %211, align 1
   %213 = zext i8 %212 to i32
   %214 = icmp ult i32 %2, %213
-  br i1 %214, label %215, label %.thread499
+  br i1 %214, label %215, label %.thread495
 
 215:                                              ; preds = %210
   %.not402 = icmp ne ptr %3, null
@@ -3484,7 +3484,7 @@ switch.lookup505:                                 ; preds = %21
   %228 = load i8, ptr %227, align 4
   %229 = zext i8 %228 to i32
   %230 = icmp ult i32 %2, %229
-  br i1 %230, label %231, label %.thread499
+  br i1 %230, label %231, label %.thread495
 
 231:                                              ; preds = %226
   %.not399 = icmp ne ptr %3, null
@@ -3517,7 +3517,7 @@ switch.lookup505:                                 ; preds = %21
   %244 = load i8, ptr %243, align 1
   %245 = zext i8 %244 to i32
   %246 = icmp ult i32 %2, %245
-  br i1 %246, label %247, label %.thread499
+  br i1 %246, label %247, label %.thread495
 
 247:                                              ; preds = %242
   %.not396 = icmp ne ptr %3, null
@@ -3560,7 +3560,7 @@ switch.lookup505:                                 ; preds = %21
 262:                                              ; preds = %5
   %263 = zext i32 %2 to i64
   %264 = icmp ult i32 %2, 2
-  br i1 %264, label %265, label %.thread499
+  br i1 %264, label %265, label %.thread495
 
 265:                                              ; preds = %262
   %.not391 = icmp ne ptr %3, null
@@ -3663,7 +3663,7 @@ switch.lookup505:                                 ; preds = %21
   %306 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %307 = load ptr, ptr %306, align 8
   %.not380 = icmp eq ptr %307, null
-  br i1 %.not380, label %.thread499, label %308
+  br i1 %.not380, label %.thread495, label %308
 
 308:                                              ; preds = %305
   %309 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %307) #17
@@ -3681,7 +3681,7 @@ switch.lookup505:                                 ; preds = %21
   %313 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %314 = load ptr, ptr %313, align 8
   %.not377 = icmp eq ptr %314, null
-  br i1 %.not377, label %.thread499, label %315
+  br i1 %.not377, label %.thread495, label %315
 
 315:                                              ; preds = %312
   %316 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %314) #17
@@ -3699,7 +3699,7 @@ switch.lookup505:                                 ; preds = %21
   %320 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %321 = load ptr, ptr %320, align 8
   %.not374 = icmp eq ptr %321, null
-  br i1 %.not374, label %.thread499, label %322
+  br i1 %.not374, label %.thread495, label %322
 
 322:                                              ; preds = %319
   %323 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %321) #17
@@ -3717,7 +3717,7 @@ switch.lookup505:                                 ; preds = %21
   %327 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %328 = load ptr, ptr %327, align 8
   %.not371 = icmp eq ptr %328, null
-  br i1 %.not371, label %.thread499, label %329
+  br i1 %.not371, label %.thread495, label %329
 
 329:                                              ; preds = %326
   %330 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %328) #17
@@ -3735,7 +3735,7 @@ switch.lookup505:                                 ; preds = %21
   %334 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %335 = load ptr, ptr %334, align 8
   %.not368 = icmp eq ptr %335, null
-  br i1 %.not368, label %.thread499, label %336
+  br i1 %.not368, label %.thread495, label %336
 
 336:                                              ; preds = %333
   %337 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %335) #17
@@ -3765,13 +3765,11 @@ switch.lookup505:                                 ; preds = %21
   %.0325 = phi i64 [ %338, %339 ], [ %338, %336 ], [ %331, %332 ], [ %331, %329 ], [ %324, %325 ], [ %324, %322 ], [ %317, %318 ], [ %317, %315 ], [ %310, %311 ], [ %310, %308 ], [ %127, %128 ], [ %127, %120 ], [ %100, %101 ], [ %100, %93 ], [ %72, %73 ], [ %72, %65 ], [ %59, %60 ], [ %59, %52 ], [ %36, %37 ], [ %36, %34 ]
   %.0325.fr = freeze i64 %.0325
   %346 = icmp eq i64 %.0325.fr, 0
-  br i1 %346, label %.thread499, label %.thread495
-
-.thread499:                                       ; preds = %110, %11, %19, %31, %48, %61, %85, %89, %114, %117, %147, %178, %194, %210, %226, %242, %262, %305, %312, %319, %326, %333, %5, %345
+  %spec.select503 = select i1 %346, i64 -1, i64 %.0325.fr
   br label %.thread495
 
-.thread495:                                       ; preds = %7, %8, %13, %switch.lookup, %21, %switch.lookup505, %27, %28, %38, %40, %43, %45, %80, %82, %102, %104, %133, %135, %138, %140, %143, %144, %152, %154, %159, %161, %164, %166, %169, %171, %174, %175, %183, %185, %190, %191, %199, %201, %206, %207, %215, %217, %222, %223, %231, %233, %238, %239, %247, %249, %254, %255, %258, %259, %265, %267, %271, %273, %276, %278, %281, %283, %286, %287, %290, %292, %295, %297, %300, %302, %340, %342, %345, %.thread499
-  %347 = phi i64 [ -1, %.thread499 ], [ %.0325.fr, %345 ], [ 1, %7 ], [ 1, %8 ], [ 8, %13 ], [ 8, %switch.lookup ], [ 8, %21 ], [ 8, %switch.lookup505 ], [ 1, %27 ], [ 1, %28 ], [ 4, %38 ], [ 4, %40 ], [ 4, %43 ], [ 4, %45 ], [ 4, %80 ], [ 4, %82 ], [ 4, %102 ], [ 4, %104 ], [ 2, %133 ], [ 2, %135 ], [ 2, %138 ], [ 2, %140 ], [ 1, %143 ], [ 1, %144 ], [ 2, %152 ], [ 2, %154 ], [ 8, %159 ], [ 8, %161 ], [ 4, %164 ], [ 4, %166 ], [ 4, %169 ], [ 4, %171 ], [ 1, %174 ], [ 1, %175 ], [ 2, %183 ], [ 2, %185 ], [ 1, %190 ], [ 1, %191 ], [ 2, %199 ], [ 2, %201 ], [ 1, %206 ], [ 1, %207 ], [ 2, %215 ], [ 2, %217 ], [ 1, %222 ], [ 1, %223 ], [ 2, %231 ], [ 2, %233 ], [ 1, %238 ], [ 1, %239 ], [ 2, %247 ], [ 2, %249 ], [ 1, %254 ], [ 1, %255 ], [ 1, %258 ], [ 1, %259 ], [ 2, %265 ], [ 2, %267 ], [ 4, %271 ], [ 4, %273 ], [ 8, %276 ], [ 8, %278 ], [ 8, %281 ], [ 8, %283 ], [ 1, %286 ], [ 1, %287 ], [ 2, %290 ], [ 2, %292 ], [ 2, %295 ], [ 2, %297 ], [ 2, %300 ], [ 2, %302 ], [ 8, %340 ], [ 8, %342 ]
+.thread495:                                       ; preds = %5, %333, %326, %319, %312, %305, %262, %242, %226, %210, %194, %178, %147, %117, %114, %89, %85, %61, %48, %31, %19, %11, %110, %345, %7, %8, %13, %switch.lookup, %21, %switch.lookup506, %27, %28, %38, %40, %43, %45, %80, %82, %102, %104, %133, %135, %138, %140, %143, %144, %152, %154, %159, %161, %164, %166, %169, %171, %174, %175, %183, %185, %190, %191, %199, %201, %206, %207, %215, %217, %222, %223, %231, %233, %238, %239, %247, %249, %254, %255, %258, %259, %265, %267, %271, %273, %276, %278, %281, %283, %286, %287, %290, %292, %295, %297, %300, %302, %340, %342
+  %347 = phi i64 [ %spec.select503, %345 ], [ 1, %7 ], [ 1, %8 ], [ 8, %13 ], [ 8, %switch.lookup ], [ 8, %21 ], [ 8, %switch.lookup506 ], [ 1, %27 ], [ 1, %28 ], [ 4, %38 ], [ 4, %40 ], [ 4, %43 ], [ 4, %45 ], [ 4, %80 ], [ 4, %82 ], [ 4, %102 ], [ 4, %104 ], [ 2, %133 ], [ 2, %135 ], [ 2, %138 ], [ 2, %140 ], [ 1, %143 ], [ 1, %144 ], [ 2, %152 ], [ 2, %154 ], [ 8, %159 ], [ 8, %161 ], [ 4, %164 ], [ 4, %166 ], [ 4, %169 ], [ 4, %171 ], [ 1, %174 ], [ 1, %175 ], [ 2, %183 ], [ 2, %185 ], [ 1, %190 ], [ 1, %191 ], [ 2, %199 ], [ 2, %201 ], [ 1, %206 ], [ 1, %207 ], [ 2, %215 ], [ 2, %217 ], [ 1, %222 ], [ 1, %223 ], [ 2, %231 ], [ 2, %233 ], [ 1, %238 ], [ 1, %239 ], [ 2, %247 ], [ 2, %249 ], [ 1, %254 ], [ 1, %255 ], [ 1, %258 ], [ 1, %259 ], [ 2, %265 ], [ 2, %267 ], [ 4, %271 ], [ 4, %273 ], [ 8, %276 ], [ 8, %278 ], [ 8, %281 ], [ 8, %283 ], [ 1, %286 ], [ 1, %287 ], [ 2, %290 ], [ 2, %292 ], [ 2, %295 ], [ 2, %297 ], [ 2, %300 ], [ 2, %302 ], [ 8, %340 ], [ 8, %342 ], [ -1, %110 ], [ -1, %11 ], [ -1, %19 ], [ -1, %31 ], [ -1, %48 ], [ -1, %61 ], [ -1, %85 ], [ -1, %89 ], [ -1, %114 ], [ -1, %117 ], [ -1, %147 ], [ -1, %178 ], [ -1, %194 ], [ -1, %210 ], [ -1, %226 ], [ -1, %242 ], [ -1, %262 ], [ -1, %305 ], [ -1, %312 ], [ -1, %319 ], [ -1, %326 ], [ -1, %333 ], [ -1, %5 ]
   ret i64 %347
 }
 

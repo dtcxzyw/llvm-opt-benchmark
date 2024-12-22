@@ -752,30 +752,28 @@ declare ptr @type_get_vector(ptr noundef, i32 noundef) local_unnamed_addr #1
 define dso_local i32 @type_alloca_alignment(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @type_abi_alignment(ptr noundef %0) #4
   %3 = icmp ult i32 %2, 16
-  br i1 %3, label %4, label %13
+  br i1 %3, label %4, label %12
 
 4:                                                ; preds = %1
   %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 56), align 8
   %.off = add i32 %5, -1
   %switch = icmp ult i32 %.off, 2
-  br i1 %switch, label %6, label %13
+  br i1 %switch, label %6, label %12
 
 6:                                                ; preds = %4
   %7 = tail call fastcc ptr @type_lowering(ptr noundef %0)
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 33
-  br i1 %9, label %10, label %13
+  br i1 %9, label %10, label %12
 
 10:                                               ; preds = %6
   %11 = tail call i32 @type_size(ptr noundef nonnull %7) #4
-  %12 = icmp ugt i32 %11, 15
-  br i1 %12, label %14, label %13
+  %.inv = icmp ult i32 %11, 16
+  %spec.select = select i1 %.inv, i32 %2, i32 16
+  br label %12
 
-13:                                               ; preds = %4, %6, %10, %1
-  br label %14
-
-14:                                               ; preds = %10, %13
-  %.0 = phi i32 [ %2, %13 ], [ 16, %10 ]
+12:                                               ; preds = %1, %6, %4, %10
+  %.0 = phi i32 [ %spec.select, %10 ], [ %2, %4 ], [ %2, %6 ], [ %2, %1 ]
   ret i32 %.0
 }
 

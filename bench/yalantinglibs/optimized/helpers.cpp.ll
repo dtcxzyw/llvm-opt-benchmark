@@ -805,21 +805,18 @@ entry:
 
 land.rhs:                                         ; preds = %entry
   %cmp.i2.i.i = icmp eq i64 %suffix.coerce0, 0
-  br i1 %cmp.i2.i.i, label %if.then.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
+  br i1 %cmp.i2.i.i, label %land.end, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %land.rhs
   %sub = sub nuw i64 %s.coerce0, %suffix.coerce0
   %add.ptr.i.i = getelementptr inbounds i8, ptr %s.coerce1, i64 %sub
   %bcmp = tail call i32 @bcmp(ptr %add.ptr.i.i, ptr %suffix.coerce1, i64 %suffix.coerce0)
-  %cmp.i.i = icmp eq i32 %bcmp, 0
-  br i1 %cmp.i.i, label %if.then.i.i, label %land.end
-
-if.then.i.i:                                      ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %land.rhs
+  %0 = icmp eq i32 %bcmp, 0
   br label %land.end
 
-land.end:                                         ; preds = %if.then.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %entry
-  %0 = phi i1 [ false, %entry ], [ true, %if.then.i.i ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ]
-  ret i1 %0
+land.end:                                         ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %land.rhs, %entry
+  %1 = phi i1 [ false, %entry ], [ %0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ true, %land.rhs ]
+  ret i1 %1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -834,20 +831,20 @@ entry:
 land.rhs.i:                                       ; preds = %entry
   %cmp.i2.i.i.i = icmp eq i64 %suffix.coerce0, 0
   %.pre = sub nuw i64 %s.coerce0, %suffix.coerce0
-  br i1 %cmp.i2.i.i.i, label %if.then, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
+  br i1 %cmp.i2.i.i.i, label %if.then, label %_ZN9struct_pb8compiler16string_ends_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %land.rhs.i
+_ZN9struct_pb8compiler16string_ends_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit: ; preds = %land.rhs.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %s.coerce1, i64 %.pre
   %bcmp.i = tail call i32 @bcmp(ptr readonly %add.ptr.i.i.i, ptr readonly %suffix.coerce1, i64 %suffix.coerce0)
-  %cmp.i.i.i = icmp eq i32 %bcmp.i, 0
-  br i1 %cmp.i.i.i, label %if.then, label %return
+  %0 = icmp eq i32 %bcmp.i, 0
+  br i1 %0, label %if.then, label %return
 
-if.then:                                          ; preds = %land.rhs.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
+if.then:                                          ; preds = %land.rhs.i, %_ZN9struct_pb8compiler16string_ends_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %s.coerce0, i64 %.pre)
   br label %return
 
-return:                                           ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %entry, %if.then
-  %.sroa.speculated.i.pn = phi i64 [ %.sroa.speculated.i, %if.then ], [ %s.coerce0, %entry ], [ %s.coerce0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ]
+return:                                           ; preds = %_ZN9struct_pb8compiler16string_ends_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit, %entry, %if.then
+  %.sroa.speculated.i.pn = phi i64 [ %.sroa.speculated.i, %if.then ], [ %s.coerce0, %entry ], [ %s.coerce0, %_ZN9struct_pb8compiler16string_ends_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit ]
   %.fca.0.insert.i.pn = insertvalue { i64, ptr } poison, i64 %.sroa.speculated.i.pn, 0
   %.fca.1.insert.merged = insertvalue { i64, ptr } %.fca.0.insert.i.pn, ptr %s.coerce1, 1
   ret { i64, ptr } %.fca.1.insert.merged
@@ -862,61 +859,61 @@ entry:
   %_M_string_length.i.i = getelementptr inbounds nuw i8, ptr %filename, i64 8
   %1 = load i64, ptr %_M_string_length.i.i, align 8
   %cmp.not.i = icmp ult i64 %1, 11
-  br i1 %cmp.not.i, label %if.else, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
+  br i1 %cmp.not.i, label %if.else, label %_ZN9struct_pb8compiler16string_ends_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %entry
+_ZN9struct_pb8compiler16string_ends_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit: ; preds = %entry
   %2 = getelementptr i8, ptr %0, i64 %1
   %add.ptr.i.i.i = getelementptr i8, ptr %2, i64 -11
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(11) %add.ptr.i.i.i, ptr noundef nonnull readonly dereferenceable(11) @.str.3, i64 11)
-  %cmp.i.i.i = icmp eq i32 %bcmp.i, 0
-  br i1 %cmp.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, label %land.rhs.i.i15
+  %3 = icmp eq i32 %bcmp.i, 0
+  br i1 %3, label %_ZN9struct_pb8compiler16string_ends_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i, label %land.rhs.i.i15
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
+_ZN9struct_pb8compiler16string_ends_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i: ; preds = %_ZN9struct_pb8compiler16string_ends_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit
   %.pre.i = add i64 %1, -11
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 %.pre.i
   %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(11) %add.ptr.i.i.i.i, ptr noundef nonnull readonly dereferenceable(11) @.str.3, i64 11)
-  %cmp.i.i.i.i = icmp eq i32 %bcmp.i.i, 0
-  %.sroa.speculated.i.pn.i = select i1 %cmp.i.i.i.i, i64 %.pre.i, i64 %1
+  %4 = icmp eq i32 %bcmp.i.i, 0
+  %.sroa.speculated.i.pn.i = select i1 %4, i64 %.pre.i, i64 %1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7) #20
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %0, i64 noundef %.sroa.speculated.i.pn.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7)
           to label %return unwind label %lpad
 
-lpad:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
-  %3 = landingpad { ptr, i32 }
+lpad:                                             ; preds = %_ZN9struct_pb8compiler16string_ends_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i
+  %5 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 if.else:                                          ; preds = %entry
   %cmp.not.i.i14 = icmp samesign ult i64 %1, 6
-  br i1 %cmp.not.i.i14, label %_ZN9struct_pb8compiler19string_strip_suffixESt17basic_string_viewIcSt11char_traitsIcEES4_.exit27, label %land.rhs.i.i15
+  br i1 %cmp.not.i.i14, label %_ZN9struct_pb8compiler19string_strip_suffixESt17basic_string_viewIcSt11char_traitsIcEES4_.exit26, label %land.rhs.i.i15
 
-land.rhs.i.i15:                                   ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %if.else
+land.rhs.i.i15:                                   ; preds = %_ZN9struct_pb8compiler16string_ends_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit, %if.else
   %.pre.i17 = add i64 %1, -6
   %add.ptr.i.i.i.i19 = getelementptr inbounds i8, ptr %0, i64 %.pre.i17
   %bcmp.i.i20 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %add.ptr.i.i.i.i19, ptr noundef nonnull readonly dereferenceable(6) @.str.4, i64 6)
-  %cmp.i.i.i.i21 = icmp eq i32 %bcmp.i.i20, 0
-  %spec.select = select i1 %cmp.i.i.i.i21, i64 %.pre.i17, i64 %1
-  br label %_ZN9struct_pb8compiler19string_strip_suffixESt17basic_string_viewIcSt11char_traitsIcEES4_.exit27
+  %6 = icmp eq i32 %bcmp.i.i20, 0
+  %spec.select = select i1 %6, i64 %.pre.i17, i64 %1
+  br label %_ZN9struct_pb8compiler19string_strip_suffixESt17basic_string_viewIcSt11char_traitsIcEES4_.exit26
 
-_ZN9struct_pb8compiler19string_strip_suffixESt17basic_string_viewIcSt11char_traitsIcEES4_.exit27: ; preds = %land.rhs.i.i15, %if.else
-  %.sroa.speculated.i.pn.i22 = phi i64 [ %1, %if.else ], [ %spec.select, %land.rhs.i.i15 ]
+_ZN9struct_pb8compiler19string_strip_suffixESt17basic_string_viewIcSt11char_traitsIcEES4_.exit26: ; preds = %land.rhs.i.i15, %if.else
+  %.sroa.speculated.i.pn.i21 = phi i64 [ %1, %if.else ], [ %spec.select, %land.rhs.i.i15 ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13) #20
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %0, i64 noundef %.sroa.speculated.i.pn.i22, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %0, i64 noundef %.sroa.speculated.i.pn.i21, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13)
           to label %return unwind label %lpad14
 
-lpad14:                                           ; preds = %_ZN9struct_pb8compiler19string_strip_suffixESt17basic_string_viewIcSt11char_traitsIcEES4_.exit27
-  %4 = landingpad { ptr, i32 }
+lpad14:                                           ; preds = %_ZN9struct_pb8compiler19string_strip_suffixESt17basic_string_viewIcSt11char_traitsIcEES4_.exit26
+  %7 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
-return:                                           ; preds = %_ZN9struct_pb8compiler19string_strip_suffixESt17basic_string_viewIcSt11char_traitsIcEES4_.exit27, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
-  %ref.tmp13.sink = phi ptr [ %ref.tmp7, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ], [ %ref.tmp13, %_ZN9struct_pb8compiler19string_strip_suffixESt17basic_string_viewIcSt11char_traitsIcEES4_.exit27 ]
+return:                                           ; preds = %_ZN9struct_pb8compiler19string_strip_suffixESt17basic_string_viewIcSt11char_traitsIcEES4_.exit26, %_ZN9struct_pb8compiler16string_ends_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i
+  %ref.tmp13.sink = phi ptr [ %ref.tmp7, %_ZN9struct_pb8compiler16string_ends_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i ], [ %ref.tmp13, %_ZN9struct_pb8compiler19string_strip_suffixESt17basic_string_viewIcSt11char_traitsIcEES4_.exit26 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13.sink) #20
   ret void
 
 eh.resume:                                        ; preds = %lpad14, %lpad
   %ref.tmp13.sink36 = phi ptr [ %ref.tmp13, %lpad14 ], [ %ref.tmp7, %lpad ]
-  %.pn = phi { ptr, i32 } [ %4, %lpad14 ], [ %3, %lpad ]
+  %.pn = phi { ptr, i32 } [ %7, %lpad14 ], [ %5, %lpad ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13.sink36) #20
   resume { ptr, i32 } %.pn
 }

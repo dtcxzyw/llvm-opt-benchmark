@@ -1639,7 +1639,7 @@ _ZN3re26Regexp10ParseState12FinishRegexpEPS0_.exit: ; preds = %if.end.i, %land.l
   %cmp27 = icmp sgt i32 %min, 1
   %cmp29 = icmp sgt i32 %max, 1
   %or.cond = or i1 %cmp27, %cmp29
-  br i1 %or.cond, label %if.then30, label %if.end43
+  br i1 %or.cond, label %if.then30, label %return
 
 if.then30:                                        ; preds = %_ZN3re26Regexp10ParseState12FinishRegexpEPS0_.exit
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3re26Regexp6WalkerIiEE, i64 16), ptr %w, align 8
@@ -1657,8 +1657,8 @@ if.then30:                                        ; preds = %_ZN3re26Regexp10Par
           to label %invoke.cont33 unwind label %lpad32
 
 invoke.cont33:                                    ; preds = %if.then30
-  %cmp35.not = icmp eq i32 %call.i2728, 0
-  br i1 %cmp35.not, label %if.then36, label %cleanup
+  %cmp35 = icmp ne i32 %call.i2728, 0
+  br i1 %cmp35, label %cleanup, label %if.then36
 
 if.then36:                                        ; preds = %invoke.cont33
   %status_37 = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1691,7 +1691,7 @@ cleanup:                                          ; preds = %invoke.cont33, %if.
 invoke.cont.i.i:                                  ; preds = %cleanup
   %26 = load ptr, ptr %stack_.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %26, null
-  br i1 %tobool.not.i.i.i.i.i, label %_ZN3re216RepetitionWalkerD2Ev.exit, label %if.then.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i, label %return, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %invoke.cont.i.i
   %_M_node5.i.i6.i.i.i.i = getelementptr inbounds nuw i8, ptr %w, i64 80
@@ -1717,7 +1717,7 @@ _ZNSt11_Deque_baseIN3re29WalkStateIiEESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.l
 _ZNSt11_Deque_baseIN3re29WalkStateIiEESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i.i.i.i.i: ; preds = %_ZNSt11_Deque_baseIN3re29WalkStateIiEESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i.i.i.i, %if.then.i.i.i.i.i
   %30 = phi ptr [ %.pre.i.i.i.i.i, %_ZNSt11_Deque_baseIN3re29WalkStateIiEESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i.i.i.i ], [ %26, %if.then.i.i.i.i.i ]
   call void @_ZdlPv(ptr noundef %30) #29
-  br label %_ZN3re216RepetitionWalkerD2Ev.exit
+  br label %return
 
 terminate.lpad.i.i:                               ; preds = %cleanup
   %31 = landingpad { ptr, i32 }
@@ -1726,14 +1726,8 @@ terminate.lpad.i.i:                               ; preds = %cleanup
   call void @__clang_call_terminate(ptr %32) #30
   unreachable
 
-_ZN3re216RepetitionWalkerD2Ev.exit:               ; preds = %invoke.cont.i.i, %_ZNSt11_Deque_baseIN3re29WalkStateIiEESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i.i.i.i.i
-  br i1 %cmp35.not, label %return, label %if.end43
-
-if.end43:                                         ; preds = %_ZN3re216RepetitionWalkerD2Ev.exit, %_ZN3re26Regexp10ParseState12FinishRegexpEPS0_.exit
-  br label %return
-
-return:                                           ; preds = %_ZN3re216RepetitionWalkerD2Ev.exit, %if.end43, %if.then11, %if.then
-  %retval.0 = phi i1 [ false, %if.then ], [ false, %if.then11 ], [ false, %_ZN3re216RepetitionWalkerD2Ev.exit ], [ true, %if.end43 ]
+return:                                           ; preds = %_ZNSt11_Deque_baseIN3re29WalkStateIiEESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i.i.i.i.i, %invoke.cont.i.i, %_ZN3re26Regexp10ParseState12FinishRegexpEPS0_.exit, %if.then11, %if.then
+  %retval.0 = phi i1 [ false, %if.then ], [ false, %if.then11 ], [ true, %_ZN3re26Regexp10ParseState12FinishRegexpEPS0_.exit ], [ %cmp35, %invoke.cont.i.i ], [ %cmp35, %_ZNSt11_Deque_baseIN3re29WalkStateIiEESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i.i.i.i.i ]
   ret i1 %retval.0
 
 eh.resume:                                        ; preds = %lpad32, %lpad

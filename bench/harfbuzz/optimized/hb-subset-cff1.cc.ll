@@ -2786,7 +2786,7 @@ if.end9.i.i.i:                                    ; preds = %if.end.i.i.i.i, %if
 
 if.end:                                           ; preds = %if.end9.i.i.i
   store i8 %format, ptr %this, align 1
-  switch i8 %format, label %sw.epilog [
+  switch i8 %format, label %return [
     i8 0, label %sw.bb
     i8 1, label %sw.bb27
     i8 2, label %sw.bb63
@@ -2826,8 +2826,8 @@ _ZN22hb_serialize_context_t13allocate_sizeIN3CFF8Charset0EEEPT_mb.exit: ; preds 
 for.cond.preheader:                               ; preds = %_ZN22hb_serialize_context_t13allocate_sizeIN3CFF8Charset0EEEPT_mb.exit
   %length = getelementptr inbounds nuw i8, ptr %sid_ranges, i64 4
   %8 = load i32, ptr %length, align 4
-  %cmp108.not = icmp eq i32 %8, 0
-  br i1 %cmp108.not, label %sw.epilog, label %for.body.lr.ph
+  %cmp109.not = icmp eq i32 %8, 0
+  br i1 %cmp109.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %arrayZ = getelementptr inbounds nuw i8, ptr %sid_ranges, i64 8
@@ -2835,28 +2835,28 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc24
   %9 = phi i32 [ %8, %for.body.lr.ph ], [ %15, %for.inc24 ]
-  %indvars.iv115 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next116, %for.inc24 ]
-  %glyph.0110 = phi i32 [ 0, %for.body.lr.ph ], [ %glyph.1.lcssa, %for.inc24 ]
+  %indvars.iv116 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next117, %for.inc24 ]
+  %glyph.0111 = phi i32 [ 0, %for.body.lr.ph ], [ %glyph.1.lcssa, %for.inc24 ]
   %10 = load ptr, ptr %arrayZ, align 8
-  %arrayidx = getelementptr inbounds nuw %"struct.CFF::code_pair_t", ptr %10, i64 %indvars.iv115
+  %arrayidx = getelementptr inbounds nuw %"struct.CFF::code_pair_t", ptr %10, i64 %indvars.iv116
   %glyph16 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   %11 = load i32, ptr %glyph16, align 4
-  %cmp18103 = icmp sgt i32 %11, -1
-  br i1 %cmp18103, label %for.body19.preheader, label %for.inc24
+  %cmp18104 = icmp sgt i32 %11, -1
+  br i1 %cmp18104, label %for.body19.preheader, label %for.inc24
 
 for.body19.preheader:                             ; preds = %for.body
   %12 = load i32, ptr %arrayidx, align 4
-  %13 = add i32 %glyph.0110, 1
+  %13 = add i32 %glyph.0111, 1
   %14 = add i32 %13, %11
   br label %for.body19
 
 for.body19:                                       ; preds = %for.body19.preheader, %for.body19
-  %glyph.1106 = phi i32 [ %inc21, %for.body19 ], [ %glyph.0110, %for.body19.preheader ]
-  %sid.0105 = phi i32 [ %inc, %for.body19 ], [ %12, %for.body19.preheader ]
-  %inc = add i32 %sid.0105, 1
-  %conv20 = trunc i32 %sid.0105 to i16
-  %inc21 = add i32 %glyph.1106, 1
-  %idxprom.i = zext i32 %glyph.1106 to i64
+  %glyph.1107 = phi i32 [ %inc21, %for.body19 ], [ %glyph.0111, %for.body19.preheader ]
+  %sid.0106 = phi i32 [ %inc, %for.body19 ], [ %12, %for.body19.preheader ]
+  %inc = add i32 %sid.0106, 1
+  %conv20 = trunc i32 %sid.0106 to i16
+  %inc21 = add i32 %glyph.1107, 1
+  %idxprom.i = zext i32 %glyph.1107 to i64
   %arrayidx.i = getelementptr inbounds nuw [1 x %"struct.OT::IntType"], ptr %7, i64 0, i64 %idxprom.i
   %ref.tmp.sroa.0.0.insert.insert.i = tail call i16 @llvm.bswap.i16(i16 %conv20)
   store i16 %ref.tmp.sroa.0.0.insert.insert.i, ptr %arrayidx.i, align 1
@@ -2869,11 +2869,11 @@ for.inc24.loopexit:                               ; preds = %for.body19
 
 for.inc24:                                        ; preds = %for.inc24.loopexit, %for.body
   %15 = phi i32 [ %9, %for.body ], [ %.pre, %for.inc24.loopexit ]
-  %glyph.1.lcssa = phi i32 [ %glyph.0110, %for.body ], [ %14, %for.inc24.loopexit ]
-  %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
+  %glyph.1.lcssa = phi i32 [ %glyph.0111, %for.body ], [ %14, %for.inc24.loopexit ]
+  %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %16 = zext i32 %15 to i64
-  %cmp = icmp samesign ult i64 %indvars.iv.next116, %16
-  br i1 %cmp, label %for.body, label %sw.epilog, !llvm.loop !25
+  %cmp = icmp samesign ult i64 %indvars.iv.next117, %16
+  br i1 %cmp, label %for.body, label %return, !llvm.loop !25
 
 sw.bb27:                                          ; preds = %if.end
   %length28 = getelementptr inbounds nuw i8, ptr %sid_ranges, i64 4
@@ -2909,39 +2909,39 @@ _ZN22hb_serialize_context_t13allocate_sizeIN3CFF10Charset1_2IN2OT7IntTypeIhLj1EE
 
 for.cond38.preheader:                             ; preds = %_ZN22hb_serialize_context_t13allocate_sizeIN3CFF10Charset1_2IN2OT7IntTypeIhLj1EEEEEEEPT_mb.exit
   %21 = load i32, ptr %length28, align 4
-  %cmp4099.not = icmp eq i32 %21, 0
-  br i1 %cmp4099.not, label %sw.epilog, label %for.body41.lr.ph
+  %cmp40100.not = icmp eq i32 %21, 0
+  br i1 %cmp40100.not, label %return, label %for.body41.lr.ph
 
 for.body41.lr.ph:                                 ; preds = %for.cond38.preheader
   %arrayZ42 = getelementptr inbounds nuw i8, ptr %sid_ranges, i64 8
   br label %for.body41
 
 for.body41:                                       ; preds = %for.body41.lr.ph, %for.body41
-  %indvars.iv112 = phi i64 [ 0, %for.body41.lr.ph ], [ %indvars.iv.next113, %for.body41 ]
-  %all_glyphs.0100 = phi i32 [ 0, %for.body41.lr.ph ], [ %or, %for.body41 ]
+  %indvars.iv113 = phi i64 [ 0, %for.body41.lr.ph ], [ %indvars.iv.next114, %for.body41 ]
+  %all_glyphs.0101 = phi i32 [ 0, %for.body41.lr.ph ], [ %or, %for.body41 ]
   %22 = load ptr, ptr %arrayZ42, align 8
-  %arrayidx44 = getelementptr inbounds nuw %"struct.CFF::code_pair_t", ptr %22, i64 %indvars.iv112
+  %arrayidx44 = getelementptr inbounds nuw %"struct.CFF::code_pair_t", ptr %22, i64 %indvars.iv113
   %glyph45 = getelementptr inbounds nuw i8, ptr %arrayidx44, i64 4
   %23 = load i32, ptr %glyph45, align 4
-  %or = or i32 %23, %all_glyphs.0100
+  %or = or i32 %23, %all_glyphs.0101
   %24 = load i32, ptr %arrayidx44, align 4
   %conv47 = trunc i32 %24 to i16
-  %arrayidx.i57 = getelementptr inbounds nuw [1 x %"struct.CFF::Charset_Range"], ptr %20, i64 0, i64 %indvars.iv112
+  %arrayidx.i57 = getelementptr inbounds nuw [1 x %"struct.CFF::Charset_Range"], ptr %20, i64 0, i64 %indvars.iv113
   %ref.tmp.sroa.0.0.insert.insert.i58 = tail call i16 @llvm.bswap.i16(i16 %conv47)
   store i16 %ref.tmp.sroa.0.0.insert.insert.i58, ptr %arrayidx.i57, align 1
   %25 = load i32, ptr %glyph45, align 4
   %conv51 = trunc i32 %25 to i8
   %nLeft = getelementptr inbounds nuw i8, ptr %arrayidx.i57, i64 2
   store i8 %conv51, ptr %nLeft, align 1
-  %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
+  %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %26 = load i32, ptr %length28, align 4
   %27 = zext i32 %26 to i64
-  %cmp40 = icmp samesign ult i64 %indvars.iv.next113, %27
-  br i1 %cmp40, label %for.body41, label %for.end57, !llvm.loop !26
+  %cmp40 = icmp samesign ult i64 %indvars.iv.next114, %27
+  br i1 %cmp40, label %for.body41, label %for.end57.loopexit, !llvm.loop !26
 
-for.end57:                                        ; preds = %for.body41
+for.end57.loopexit:                               ; preds = %for.body41
   %28 = icmp ult i32 %or, 256
-  br i1 %28, label %sw.epilog, label %return
+  br label %return
 
 sw.bb63:                                          ; preds = %if.end
   %length64 = getelementptr inbounds nuw i8, ptr %sid_ranges, i64 4
@@ -2977,8 +2977,8 @@ _ZN22hb_serialize_context_t13allocate_sizeIN3CFF10Charset1_2IN2OT7IntTypeItLj2EE
 
 for.cond75.preheader:                             ; preds = %_ZN22hb_serialize_context_t13allocate_sizeIN3CFF10Charset1_2IN2OT7IntTypeItLj2EEEEEEEPT_mb.exit
   %33 = load i32, ptr %length64, align 4
-  %cmp7796.not = icmp eq i32 %33, 0
-  br i1 %cmp7796.not, label %sw.epilog, label %for.body78.lr.ph
+  %cmp7797.not = icmp eq i32 %33, 0
+  br i1 %cmp7797.not, label %return, label %for.body78.lr.ph
 
 for.body78.lr.ph:                                 ; preds = %for.cond75.preheader
   %arrayZ80 = getelementptr inbounds nuw i8, ptr %sid_ranges, i64 8
@@ -2986,12 +2986,12 @@ for.body78.lr.ph:                                 ; preds = %for.cond75.preheade
 
 for.body78:                                       ; preds = %for.body78.lr.ph, %for.body78
   %indvars.iv = phi i64 [ 0, %for.body78.lr.ph ], [ %indvars.iv.next, %for.body78 ]
-  %all_glyphs73.097 = phi i32 [ 0, %for.body78.lr.ph ], [ %or84, %for.body78 ]
+  %all_glyphs73.098 = phi i32 [ 0, %for.body78.lr.ph ], [ %or84, %for.body78 ]
   %34 = load ptr, ptr %arrayZ80, align 8
   %arrayidx82 = getelementptr inbounds nuw %"struct.CFF::code_pair_t", ptr %34, i64 %indvars.iv
   %glyph83 = getelementptr inbounds nuw i8, ptr %arrayidx82, i64 4
   %35 = load i32, ptr %glyph83, align 4
-  %or84 = or i32 %35, %all_glyphs73.097
+  %or84 = or i32 %35, %all_glyphs73.098
   %36 = load i32, ptr %arrayidx82, align 4
   %conv86 = trunc i32 %36 to i16
   %arrayidx.i81 = getelementptr inbounds nuw [1 x %"struct.CFF::Charset_Range.22"], ptr %32, i64 0, i64 %indvars.iv
@@ -3006,17 +3006,14 @@ for.body78:                                       ; preds = %for.body78.lr.ph, %
   %38 = load i32, ptr %length64, align 4
   %39 = zext i32 %38 to i64
   %cmp77 = icmp samesign ult i64 %indvars.iv.next, %39
-  br i1 %cmp77, label %for.body78, label %for.end99, !llvm.loop !27
+  br i1 %cmp77, label %for.body78, label %for.end99.loopexit, !llvm.loop !27
 
-for.end99:                                        ; preds = %for.body78
+for.end99.loopexit:                               ; preds = %for.body78
   %40 = icmp ult i32 %or84, 65536
-  br i1 %40, label %sw.epilog, label %return
-
-sw.epilog:                                        ; preds = %for.inc24, %for.cond75.preheader, %for.cond38.preheader, %for.cond.preheader, %for.end99, %for.end57, %if.end
   br label %return
 
-return:                                           ; preds = %sw.bb63, %if.then3.i78, %sw.bb27, %if.then3.i54, %sw.bb, %if.then3.i, %if.end9.i.i.i, %for.end99, %_ZN22hb_serialize_context_t13allocate_sizeIN3CFF10Charset1_2IN2OT7IntTypeItLj2EEEEEEEPT_mb.exit, %for.end57, %_ZN22hb_serialize_context_t13allocate_sizeIN3CFF10Charset1_2IN2OT7IntTypeIhLj1EEEEEEEPT_mb.exit, %_ZN22hb_serialize_context_t13allocate_sizeIN3CFF8Charset0EEEPT_mb.exit, %if.then3.i.i.i, %entry, %sw.epilog
-  %retval.0 = phi i1 [ true, %sw.epilog ], [ false, %entry ], [ false, %if.then3.i.i.i ], [ false, %_ZN22hb_serialize_context_t13allocate_sizeIN3CFF8Charset0EEEPT_mb.exit ], [ false, %_ZN22hb_serialize_context_t13allocate_sizeIN3CFF10Charset1_2IN2OT7IntTypeIhLj1EEEEEEEPT_mb.exit ], [ false, %for.end57 ], [ false, %_ZN22hb_serialize_context_t13allocate_sizeIN3CFF10Charset1_2IN2OT7IntTypeItLj2EEEEEEEPT_mb.exit ], [ false, %for.end99 ], [ false, %if.end9.i.i.i ], [ false, %if.then3.i ], [ false, %sw.bb ], [ false, %if.then3.i54 ], [ false, %sw.bb27 ], [ false, %if.then3.i78 ], [ false, %sw.bb63 ]
+return:                                           ; preds = %for.inc24, %for.cond75.preheader, %for.end99.loopexit, %for.cond38.preheader, %for.end57.loopexit, %for.cond.preheader, %if.end, %sw.bb63, %if.then3.i78, %sw.bb27, %if.then3.i54, %sw.bb, %if.then3.i, %if.end9.i.i.i, %_ZN22hb_serialize_context_t13allocate_sizeIN3CFF10Charset1_2IN2OT7IntTypeItLj2EEEEEEEPT_mb.exit, %_ZN22hb_serialize_context_t13allocate_sizeIN3CFF10Charset1_2IN2OT7IntTypeIhLj1EEEEEEEPT_mb.exit, %_ZN22hb_serialize_context_t13allocate_sizeIN3CFF8Charset0EEEPT_mb.exit, %if.then3.i.i.i, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then3.i.i.i ], [ false, %_ZN22hb_serialize_context_t13allocate_sizeIN3CFF8Charset0EEEPT_mb.exit ], [ false, %_ZN22hb_serialize_context_t13allocate_sizeIN3CFF10Charset1_2IN2OT7IntTypeIhLj1EEEEEEEPT_mb.exit ], [ false, %_ZN22hb_serialize_context_t13allocate_sizeIN3CFF10Charset1_2IN2OT7IntTypeItLj2EEEEEEEPT_mb.exit ], [ false, %if.end9.i.i.i ], [ false, %if.then3.i ], [ false, %sw.bb ], [ false, %if.then3.i54 ], [ false, %sw.bb27 ], [ false, %if.then3.i78 ], [ false, %sw.bb63 ], [ true, %if.end ], [ true, %for.cond.preheader ], [ true, %for.cond38.preheader ], [ %28, %for.end57.loopexit ], [ true, %for.cond75.preheader ], [ %40, %for.end99.loopexit ], [ true, %for.inc24 ]
   ret i1 %retval.0
 }
 

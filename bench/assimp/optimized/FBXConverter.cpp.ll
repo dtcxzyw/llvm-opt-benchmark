@@ -10535,9 +10535,6 @@ if.then20:                                        ; preds = %invoke.cont17
   %6 = call float @llvm.fmuladd.f32(float %sub.i, float %sub.i, float %mul4.i)
   %7 = call noundef float @llvm.fmuladd.f32(float %sub5.i, float %sub5.i, float %6)
   %cmp25 = fcmp ogt float %7, 0x3E80000000000000
-  br i1 %cmp25, label %return, label %for.inc.thread
-
-for.inc.thread:                                   ; preds = %if.then20
   br label %return
 
 lpad:                                             ; preds = %call.i.noexc, %if.end
@@ -10573,8 +10570,8 @@ for.inc:                                          ; preds = %switch.early.test, 
   %exitcond.not = icmp eq i64 %inc, 17
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !53
 
-return:                                           ; preds = %for.inc, %if.then29, %for.inc.thread, %if.then20
-  %cmp.lcssa = phi i1 [ true, %if.then20 ], [ false, %for.inc.thread ], [ true, %if.then29 ], [ false, %for.inc ]
+return:                                           ; preds = %for.inc, %if.then29, %if.then20
+  %cmp.lcssa = phi i1 [ %cmp25, %if.then20 ], [ true, %if.then29 ], [ false, %for.inc ]
   ret i1 %cmp.lcssa
 }
 

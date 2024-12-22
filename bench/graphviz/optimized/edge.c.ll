@@ -1724,11 +1724,12 @@ define internal range(i32 -1, 2) i32 @agedgeseqcmpf(ptr nocapture readnone %0, p
   %12 = load i32, ptr %8, align 8
   %13 = lshr i32 %12, 4
   %14 = icmp samesign ult i32 %11, %13
-  br i1 %14, label %26, label %15
+  br i1 %14, label %25, label %15
 
 15:                                               ; preds = %9
   %16 = icmp samesign ugt i32 %11, %13
-  br i1 %16, label %26, label %25
+  %spec.select = zext i1 %16 to i32
+  br label %25
 
 17:                                               ; preds = %4
   %18 = load i32, ptr %1, align 8
@@ -1736,17 +1737,15 @@ define internal range(i32 -1, 2) i32 @agedgeseqcmpf(ptr nocapture readnone %0, p
   %20 = load i32, ptr %2, align 8
   %21 = lshr i32 %20, 4
   %22 = icmp samesign ult i32 %19, %21
-  br i1 %22, label %26, label %23
+  br i1 %22, label %25, label %23
 
 23:                                               ; preds = %17
   %24 = icmp samesign ugt i32 %19, %21
-  br i1 %24, label %26, label %25
+  %spec.select18 = zext i1 %24 to i32
+  br label %25
 
-25:                                               ; preds = %23, %15
-  br label %26
-
-26:                                               ; preds = %23, %17, %15, %9, %25
-  %.0 = phi i32 [ 0, %25 ], [ -1, %9 ], [ 1, %15 ], [ -1, %17 ], [ 1, %23 ]
+25:                                               ; preds = %23, %15, %17, %9
+  %.0 = phi i32 [ -1, %9 ], [ %spec.select, %15 ], [ -1, %17 ], [ %spec.select18, %23 ]
   ret i32 %.0
 }
 
@@ -1761,11 +1760,11 @@ define internal range(i32 -1, 2) i32 @agedgeidcmpf(ptr nocapture readnone %0, pt
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = icmp ult i64 %8, %12
-  br i1 %13, label %31, label %14
+  br i1 %13, label %30, label %14
 
 14:                                               ; preds = %4
   %15 = icmp ugt i64 %8, %12
-  br i1 %15, label %31, label %16
+  br i1 %15, label %30, label %16
 
 16:                                               ; preds = %14
   %17 = load i32, ptr %1, align 8
@@ -1785,17 +1784,15 @@ define internal range(i32 -1, 2) i32 @agedgeidcmpf(ptr nocapture readnone %0, pt
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = load i64, ptr %25, align 8
   %27 = icmp ult i64 %24, %26
-  br i1 %27, label %31, label %28
+  br i1 %27, label %30, label %28
 
 28:                                               ; preds = %22
   %29 = icmp ugt i64 %24, %26
-  br i1 %29, label %31, label %30
+  %spec.select = zext i1 %29 to i32
+  br label %30
 
-30:                                               ; preds = %28, %19, %16
-  br label %31
-
-31:                                               ; preds = %28, %22, %14, %4, %30
-  %.0 = phi i32 [ 0, %30 ], [ -1, %4 ], [ 1, %14 ], [ -1, %22 ], [ 1, %28 ]
+30:                                               ; preds = %16, %19, %28, %22, %14, %4
+  %.0 = phi i32 [ -1, %4 ], [ 1, %14 ], [ -1, %22 ], [ %spec.select, %28 ], [ 0, %19 ], [ 0, %16 ]
   ret i32 %.0
 }
 

@@ -244,7 +244,7 @@ define dso_local ptr @abi_arg_new_direct_int_ext(ptr nocapture noundef readonly 
 
 9:                                                ; preds = %1
   %.not.i = icmp eq i32 %7, 37
-  br i1 %.not.i, label %10, label %.critedge15.i
+  br i1 %.not.i, label %10, label %abi_arg_new_direct_int_ext_by_reg.exit
 
 10:                                               ; preds = %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -252,13 +252,11 @@ define dso_local ptr @abi_arg_new_direct_int_ext(ptr nocapture noundef readonly 
   %13 = load i32, ptr %12, align 8
   %14 = add i32 %13, -3
   %15 = icmp ult i32 %14, 5
-  br i1 %15, label %abi_arg_new_direct_int_ext_by_reg.exit, label %.critedge15.i
-
-.critedge15.i:                                    ; preds = %10, %9
+  %spec.select.i = select i1 %15, i8 4, i8 2
   br label %abi_arg_new_direct_int_ext_by_reg.exit
 
-abi_arg_new_direct_int_ext_by_reg.exit:           ; preds = %1, %10, %.critedge15.i
-  %.sink16.i = phi i8 [ 2, %.critedge15.i ], [ 4, %1 ], [ 4, %10 ]
+abi_arg_new_direct_int_ext_by_reg.exit:           ; preds = %1, %9, %10
+  %.sink16.i = phi i8 [ 4, %1 ], [ %spec.select.i, %10 ], [ 2, %9 ]
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 5
   %17 = load i8, ptr %16, align 1
   %.masked.i = and i8 %17, -2
@@ -282,7 +280,7 @@ define dso_local ptr @abi_arg_new_direct_int_ext_by_reg(ptr nocapture noundef re
 
 10:                                               ; preds = %2
   %.not = icmp eq i32 %8, 37
-  br i1 %.not, label %11, label %.critedge15
+  br i1 %.not, label %11, label %.critedge
 
 11:                                               ; preds = %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -290,13 +288,11 @@ define dso_local ptr @abi_arg_new_direct_int_ext_by_reg(ptr nocapture noundef re
   %14 = load i32, ptr %13, align 8
   %15 = add i32 %14, -3
   %16 = icmp ult i32 %15, 5
-  br i1 %16, label %.critedge, label %.critedge15
-
-.critedge15:                                      ; preds = %10, %11
+  %spec.select = select i1 %16, i8 4, i8 2
   br label %.critedge
 
-.critedge:                                        ; preds = %11, %2, %.critedge15
-  %.sink16 = phi i8 [ 2, %.critedge15 ], [ 4, %2 ], [ 4, %11 ]
+.critedge:                                        ; preds = %10, %11, %2
+  %.sink16 = phi i8 [ 4, %2 ], [ %spec.select, %11 ], [ 2, %10 ]
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 5
   %18 = load i8, ptr %17, align 1
   %19 = zext i1 %1 to i8
@@ -327,7 +323,7 @@ define dso_local ptr @abi_arg_new_direct_coerce_int_ext(ptr nocapture noundef re
 
 12:                                               ; preds = %1
   %.not.i = icmp eq i32 %10, 37
-  br i1 %.not.i, label %13, label %.critedge16.i
+  br i1 %.not.i, label %13, label %abi_arg_new_direct_coerce_int_ext_by_reg.exit
 
 13:                                               ; preds = %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -335,13 +331,11 @@ define dso_local ptr @abi_arg_new_direct_coerce_int_ext(ptr nocapture noundef re
   %16 = load i32, ptr %15, align 8
   %17 = add i32 %16, -3
   %18 = icmp ult i32 %17, 5
-  br i1 %18, label %abi_arg_new_direct_coerce_int_ext_by_reg.exit, label %.critedge16.i
-
-.critedge16.i:                                    ; preds = %13, %12
+  %spec.select.i = select i1 %18, i8 4, i8 2
   br label %abi_arg_new_direct_coerce_int_ext_by_reg.exit
 
-abi_arg_new_direct_coerce_int_ext_by_reg.exit:    ; preds = %1, %13, %.critedge16.i
-  %.sink17.i = phi i8 [ 2, %.critedge16.i ], [ 4, %1 ], [ 4, %13 ]
+abi_arg_new_direct_coerce_int_ext_by_reg.exit:    ; preds = %1, %12, %13
+  %.sink17.i = phi i8 [ 4, %1 ], [ %spec.select.i, %13 ], [ 2, %12 ]
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 5
   %20 = load i8, ptr %19, align 1
   %.masked.i = and i8 %20, -2
@@ -369,7 +363,7 @@ define dso_local ptr @abi_arg_new_direct_coerce_int_ext_by_reg(ptr nocapture nou
 
 13:                                               ; preds = %2
   %.not = icmp eq i32 %11, 37
-  br i1 %.not, label %14, label %.critedge16
+  br i1 %.not, label %14, label %.critedge
 
 14:                                               ; preds = %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -377,13 +371,11 @@ define dso_local ptr @abi_arg_new_direct_coerce_int_ext_by_reg(ptr nocapture nou
   %17 = load i32, ptr %16, align 8
   %18 = add i32 %17, -3
   %19 = icmp ult i32 %18, 5
-  br i1 %19, label %.critedge, label %.critedge16
-
-.critedge16:                                      ; preds = %13, %14
+  %spec.select = select i1 %19, i8 4, i8 2
   br label %.critedge
 
-.critedge:                                        ; preds = %14, %2, %.critedge16
-  %.sink17 = phi i8 [ 2, %.critedge16 ], [ 4, %2 ], [ 4, %14 ]
+.critedge:                                        ; preds = %13, %14, %2
+  %.sink17 = phi i8 [ 4, %2 ], [ %spec.select, %14 ], [ 2, %13 ]
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 5
   %21 = load i8, ptr %20, align 1
   %22 = zext i1 %1 to i8
@@ -679,20 +671,18 @@ define dso_local ptr @c_abi_classify_argument_type_default(ptr nocapture noundef
 
 57:                                               ; preds = %49
   %.not.i.i = icmp eq i32 %55, 37
-  br i1 %.not.i.i, label %58, label %.critedge15.i.i
+  br i1 %.not.i.i, label %58, label %abi_arg_new_direct_int_ext.exit
 
 58:                                               ; preds = %57
   %59 = load ptr, ptr %44, align 8
   %60 = load i32, ptr %59, align 8
   %61 = add i32 %60, -3
   %62 = icmp ult i32 %61, 5
-  br i1 %62, label %abi_arg_new_direct_int_ext.exit, label %.critedge15.i.i
-
-.critedge15.i.i:                                  ; preds = %58, %57
+  %spec.select.i.i = select i1 %62, i8 4, i8 2
   br label %abi_arg_new_direct_int_ext.exit
 
-abi_arg_new_direct_int_ext.exit:                  ; preds = %49, %58, %.critedge15.i.i
-  %.sink16.i.i = phi i8 [ 2, %.critedge15.i.i ], [ 4, %49 ], [ 4, %58 ]
+abi_arg_new_direct_int_ext.exit:                  ; preds = %49, %57, %58
+  %.sink16.i.i = phi i8 [ 4, %49 ], [ %spec.select.i.i, %58 ], [ 2, %57 ]
   %63 = getelementptr inbounds nuw i8, ptr %50, i64 5
   %64 = load i8, ptr %63, align 1
   %.masked.i.i = and i8 %64, -2

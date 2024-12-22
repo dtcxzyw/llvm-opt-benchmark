@@ -643,9 +643,9 @@ define internal fastcc void @ReadColorMap(ptr nocapture noundef readonly %0, i32
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %8
 
-8:                                                ; preds = %3, %59
-  %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %59 ]
-  %.032 = phi i32 [ 1, %3 ], [ %.1, %59 ]
+8:                                                ; preds = %3, %58
+  %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %58 ]
+  %.032 = phi i32 [ 1, %3 ], [ %.1, %58 ]
   %9 = load ptr, ptr %4, align 8
   %10 = tail call i32 @getc(ptr noundef %9)
   %11 = icmp eq i32 %10, -1
@@ -726,34 +726,32 @@ ReadByte.exit30:                                  ; preds = %ReadByte.exit29, %3
   %56 = getelementptr inbounds nuw i16, ptr %55, i64 %indvars.iv
   %57 = load i16, ptr %56, align 2
   %.not28 = icmp eq i16 %50, %57
-  br i1 %.not28, label %59, label %58
+  %spec.select = select i1 %.not28, i32 %.032, i32 0
+  br label %58
 
-58:                                               ; preds = %54, %ReadByte.exit30
-  br label %59
-
-59:                                               ; preds = %54, %58
-  %.1 = phi i32 [ 0, %58 ], [ %.032, %54 ]
+58:                                               ; preds = %ReadByte.exit30, %54
+  %.1 = phi i32 [ %spec.select, %54 ], [ 0, %ReadByte.exit30 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %60, label %8, !llvm.loop !8
+  br i1 %exitcond.not, label %59, label %8, !llvm.loop !8
 
-60:                                               ; preds = %59
-  %61 = load ptr, ptr %5, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 60
-  %63 = load i32, ptr %62, align 4
-  %64 = icmp eq i32 %63, 2
-  %65 = icmp ne i32 %.1, 0
-  %or.cond = select i1 %64, i1 %65, i1 false
-  br i1 %or.cond, label %66, label %69
+59:                                               ; preds = %58
+  %60 = load ptr, ptr %5, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 60
+  %62 = load i32, ptr %61, align 4
+  %63 = icmp eq i32 %62, 2
+  %64 = icmp ne i32 %.1, 0
+  %or.cond = select i1 %63, i1 %64, i1 false
+  br i1 %or.cond, label %65, label %68
 
-66:                                               ; preds = %60
-  store i32 1, ptr %62, align 4
-  %67 = load ptr, ptr %5, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 56
-  store i32 1, ptr %68, align 8
-  br label %69
+65:                                               ; preds = %59
+  store i32 1, ptr %61, align 4
+  %66 = load ptr, ptr %5, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 56
+  store i32 1, ptr %67, align 8
+  br label %68
 
-69:                                               ; preds = %66, %60
+68:                                               ; preds = %65, %59
   ret void
 }
 

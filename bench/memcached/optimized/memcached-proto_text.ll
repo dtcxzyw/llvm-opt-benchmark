@@ -6044,7 +6044,8 @@ lor.lhs.false:                                    ; preds = %if.then4
   %5 = load i32, ptr %clsid, align 4
   %cmp13 = icmp ult i32 %5, 64
   %or.cond33 = select i1 %call10, i1 %cmp13, i1 false
-  br i1 %or.cond33, label %if.else132, label %if.end133
+  %spec.select = select i1 %or.cond33, ptr @.str.95, ptr @.str.15
+  br label %if.end133
 
 if.else17:                                        ; preds = %if.else
   %call20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(10) @.str.162) #12
@@ -6055,7 +6056,8 @@ if.then22:                                        ; preds = %if.else17
   %arrayidx23 = getelementptr inbounds nuw i8, ptr %tokens, i64 32
   %6 = load ptr, ptr %arrayidx23, align 8
   %call25 = tail call zeroext i1 @safe_strtoul(ptr noundef %6, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @settings, i64 264)) #11
-  br i1 %call25, label %if.else132, label %if.end133
+  %spec.select34 = select i1 %call25, ptr @.str.95, ptr @.str.15
+  br label %if.end133
 
 if.else28:                                        ; preds = %if.else17
   %call31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(9) @.str.163) #12
@@ -6066,7 +6068,8 @@ if.then33:                                        ; preds = %if.else28
   %arrayidx34 = getelementptr inbounds nuw i8, ptr %tokens, i64 32
   %7 = load ptr, ptr %arrayidx34, align 8
   %call36 = tail call zeroext i1 @safe_strtoul(ptr noundef %7, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @settings, i64 268)) #11
-  br i1 %call36, label %if.else132, label %if.end133
+  %spec.select35 = select i1 %call36, ptr @.str.95, ptr @.str.15
+  br label %if.end133
 
 if.else39:                                        ; preds = %if.else28
   %call42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(8) @.str.164) #12
@@ -6077,7 +6080,8 @@ if.then44:                                        ; preds = %if.else39
   %arrayidx45 = getelementptr inbounds nuw i8, ptr %tokens, i64 32
   %8 = load ptr, ptr %arrayidx45, align 8
   %call47 = tail call zeroext i1 @safe_strtoul(ptr noundef %8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @settings, i64 272)) #11
-  br i1 %call47, label %if.else132, label %if.end133
+  %spec.select36 = select i1 %call47, ptr @.str.95, ptr @.str.15
+  br label %if.end133
 
 if.else50:                                        ; preds = %if.else39
   %call53 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(13) @.str.165) #12
@@ -6088,7 +6092,8 @@ if.then55:                                        ; preds = %if.else50
   %arrayidx56 = getelementptr inbounds nuw i8, ptr %tokens, i64 32
   %9 = load ptr, ptr %arrayidx56, align 8
   %call58 = tail call zeroext i1 @safe_strtoul(ptr noundef %9, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @settings, i64 276)) #11
-  br i1 %call58, label %if.else132, label %if.end133
+  %spec.select37 = select i1 %call58, ptr @.str.95, ptr @.str.15
+  br label %if.end133
 
 if.else61:                                        ; preds = %if.else50
   %call64 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(14) @.str.166) #12
@@ -6099,7 +6104,8 @@ if.then66:                                        ; preds = %if.else61
   %arrayidx67 = getelementptr inbounds nuw i8, ptr %tokens, i64 32
   %10 = load ptr, ptr %arrayidx67, align 8
   %call69 = tail call zeroext i1 @safe_strtoul(ptr noundef %10, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @settings, i64 284)) #11
-  br i1 %call69, label %if.else132, label %if.end133
+  %spec.select38 = select i1 %call69, ptr @.str.95, ptr @.str.15
+  br label %if.end133
 
 if.else72:                                        ; preds = %if.else61
   %call75 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(11) @.str.167) #12
@@ -6110,7 +6116,8 @@ if.then77:                                        ; preds = %if.else72
   %arrayidx78 = getelementptr inbounds nuw i8, ptr %tokens, i64 32
   %11 = load ptr, ptr %arrayidx78, align 8
   %call80 = tail call zeroext i1 @safe_strtoul(ptr noundef %11, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @settings, i64 288)) #11
-  br i1 %call80, label %if.else132, label %if.end133
+  %spec.select39 = select i1 %call80, ptr @.str.95, ptr @.str.15
+  br label %if.end133
 
 if.else83:                                        ; preds = %if.else72
   %call86 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(10) @.str.168) #12
@@ -6121,7 +6128,8 @@ if.then88:                                        ; preds = %if.else83
   %arrayidx89 = getelementptr inbounds nuw i8, ptr %tokens, i64 32
   %12 = load ptr, ptr %arrayidx89, align 8
   %call91 = tail call zeroext i1 @safe_strtoul(ptr noundef %12, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @settings, i64 292)) #11
-  br i1 %call91, label %if.else132, label %if.end133
+  %spec.select40 = select i1 %call91, ptr @.str.95, ptr @.str.15
+  br label %if.end133
 
 if.else94:                                        ; preds = %if.else83
   %call97 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(9) @.str.169) #12
@@ -6144,19 +6152,17 @@ if.else115:                                       ; preds = %if.then110
   %cmp116 = icmp ne i32 %14, 0
   %frombool = zext i1 %cmp116 to i8
   store i8 %frombool, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 312), align 8
-  br label %if.else132
+  br label %if.end133
 
 if.end129:                                        ; preds = %if.else94
   %arrayidx100 = getelementptr inbounds nuw i8, ptr %tokens, i64 32
   %15 = load ptr, ptr %arrayidx100, align 8
   %call102 = tail call zeroext i1 @safe_strtod(ptr noundef %15, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @settings, i64 296)) #11
-  br i1 %call102, label %if.else132, label %if.end133
-
-if.else132:                                       ; preds = %lor.lhs.false, %if.then88, %if.then77, %if.then66, %if.then55, %if.then44, %if.then33, %if.then22, %if.else115, %if.end129
+  %spec.select41 = select i1 %call102, ptr @.str.95, ptr @.str.15
   br label %if.end133
 
-if.end133:                                        ; preds = %if.end129, %if.else105, %if.then110, %if.then4, %lor.lhs.false, %set_noreply_maybe.exit, %if.then22, %if.then33, %if.then44, %if.then55, %if.then66, %if.then77, %if.then88, %if.else132
-  %.str.95.sink = phi ptr [ @.str.95, %if.else132 ], [ @.str.15, %if.then88 ], [ @.str.15, %if.then77 ], [ @.str.15, %if.then66 ], [ @.str.15, %if.then55 ], [ @.str.15, %if.then44 ], [ @.str.15, %if.then33 ], [ @.str.15, %if.then22 ], [ @.str.15, %set_noreply_maybe.exit ], [ @.str.15, %lor.lhs.false ], [ @.str.15, %if.then4 ], [ @.str.15, %if.then110 ], [ @.str.15, %if.else105 ], [ @.str.15, %if.end129 ]
+if.end133:                                        ; preds = %if.end129, %if.then88, %if.then77, %if.then66, %if.then55, %if.then44, %if.then33, %if.then22, %lor.lhs.false, %if.else105, %if.then110, %if.then4, %set_noreply_maybe.exit, %if.else115
+  %.str.95.sink = phi ptr [ @.str.95, %if.else115 ], [ %spec.select40, %if.then88 ], [ %spec.select39, %if.then77 ], [ %spec.select38, %if.then66 ], [ %spec.select37, %if.then55 ], [ %spec.select36, %if.then44 ], [ %spec.select35, %if.then33 ], [ %spec.select34, %if.then22 ], [ @.str.15, %set_noreply_maybe.exit ], [ %spec.select, %lor.lhs.false ], [ @.str.15, %if.then4 ], [ @.str.15, %if.then110 ], [ @.str.15, %if.else105 ], [ %spec.select41, %if.end129 ]
   call void @out_string(ptr noundef nonnull %c, ptr noundef nonnull %.str.95.sink) #11
   ret void
 }

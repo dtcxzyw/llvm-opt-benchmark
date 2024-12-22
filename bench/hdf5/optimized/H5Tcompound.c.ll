@@ -243,32 +243,30 @@ define i32 @H5Tget_member_class(i64 noundef %0, i32 noundef %1) local_unnamed_ad
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 12
   %51 = load i32, ptr %50, align 4
   %52 = icmp eq i32 %51, 9
-  br i1 %52, label %53, label %57
+  br i1 %52, label %53, label %58
 
 53:                                               ; preds = %42
   %54 = getelementptr inbounds nuw i8, ptr %49, i64 48
   %55 = load i32, ptr %54, align 8
   %56 = icmp eq i32 %55, 1
-  br i1 %56, label %59, label %57
-
-57:                                               ; preds = %53, %42
-  br label %59
+  %spec.select = select i1 %56, i32 3, i32 9
+  br label %58
 
 .thread35:                                        ; preds = %38, %31
-  %58 = tail call i32 @H5CX_pop(i1 noundef zeroext true) #6
+  %57 = tail call i32 @H5CX_pop(i1 noundef zeroext true) #6
   br label %.thread29
 
-59:                                               ; preds = %57, %53
-  %.017.ph = phi i32 [ 3, %53 ], [ %51, %57 ]
-  %60 = tail call i32 @H5CX_pop(i1 noundef zeroext true) #6
-  br label %62
+58:                                               ; preds = %42, %53
+  %.017.ph = phi i32 [ %spec.select, %53 ], [ %51, %42 ]
+  %59 = tail call i32 @H5CX_pop(i1 noundef zeroext true) #6
+  br label %61
 
 .thread29:                                        ; preds = %18, %11, %.thread35
-  %61 = tail call i32 @H5E_dump_api_stack() #6
-  br label %62
+  %60 = tail call i32 @H5E_dump_api_stack() #6
+  br label %61
 
-62:                                               ; preds = %59, %.thread29
-  %.0172432 = phi i32 [ -1, %.thread29 ], [ %.017.ph, %59 ]
+61:                                               ; preds = %58, %.thread29
+  %.0172432 = phi i32 [ -1, %.thread29 ], [ %.017.ph, %58 ]
   ret i32 %.0172432
 }
 

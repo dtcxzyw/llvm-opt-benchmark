@@ -3054,7 +3054,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$
   store i64 0, ptr %0, align 8
   %29 = shl i64 %11, 1
   %30 = tail call fastcc noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$GT$8try_grow17hfe240a24cd2b7f35E"(ptr noalias noundef align 8 dereferenceable(96) %0, i64 noundef %29)
-  br i1 %30, label %128, label %"_ZN4http6header3map18HeaderMap$LT$T$GT$7rebuild17hf0dc069e9c9cdcbaE.exit"
+  br label %"_ZN4http6header3map18HeaderMap$LT$T$GT$7rebuild17hf0dc069e9c9cdcbaE.exit"
 
 ._crit_edge:                                      ; preds = %.lr.ph, %22
   tail call void @llvm.experimental.noalias.scope.decl(metadata !579)
@@ -3084,20 +3084,20 @@ define internal fastcc noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$
   %47 = zext nneg i16 %46 to i64
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.0.046.i, i64 96
   store i16 %45, ptr %48, align 8, !noalias !579
-  br label %.outer39
+  br label %.outer40
 
-.outer39:                                         ; preds = %62, %41
+.outer40:                                         ; preds = %62, %41
   %.028.i.ph = phi i64 [ %63, %62 ], [ 0, %41 ]
-  %.0.i23.ph = phi i64 [ %64, %62 ], [ %47, %41 ]
+  %.0.i24.ph = phi i64 [ %64, %62 ], [ %47, %41 ]
   br label %49
 
-49:                                               ; preds = %.outer39, %49
-  %.0.i23 = phi i64 [ 0, %49 ], [ %.0.i23.ph, %.outer39 ]
-  %50 = icmp ult i64 %.0.i23, %38
+49:                                               ; preds = %.outer40, %49
+  %.0.i24 = phi i64 [ 0, %49 ], [ %.0.i24.ph, %.outer40 ]
+  %50 = icmp ult i64 %.0.i24, %38
   br i1 %50, label %51, label %49
 
 51:                                               ; preds = %49
-  %52 = getelementptr inbounds [0 x { i16, i16 }], ptr %39, i64 0, i64 %.0.i23
+  %52 = getelementptr inbounds [0 x { i16, i16 }], ptr %39, i64 0, i64 %.0.i24
   %53 = load i16, ptr %52, align 2, !noalias !579, !noundef !21
   %.not.not.i = icmp eq i16 %53, -1
   br i1 %.not.not.i, label %80, label %54
@@ -3107,15 +3107,15 @@ define internal fastcc noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$
   %56 = load i16, ptr %55, align 2, !noalias !579, !noundef !21
   %57 = and i16 %56, %37
   %58 = zext i16 %57 to i64
-  %59 = sub i64 %.0.i23, %58
+  %59 = sub i64 %.0.i24, %58
   %60 = and i64 %59, %40
   %61 = icmp samesign ult i64 %60, %.028.i.ph
   br i1 %61, label %65, label %62
 
 62:                                               ; preds = %54
   %63 = add nuw nsw i64 %.028.i.ph, 1
-  %64 = add nuw i64 %.0.i23, 1
-  br label %.outer39
+  %64 = add nuw i64 %.0.i24, 1
+  br label %.outer40
 
 65:                                               ; preds = %54
   %66 = trunc i64 %.sroa.7.045.i to i16
@@ -3124,7 +3124,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$
 .outer:                                           ; preds = %73, %65
   %.sroa.4.0.i.i.ph = phi i16 [ %75, %73 ], [ %45, %65 ]
   %.sroa.0.0.i32.i.ph = phi i16 [ %71, %73 ], [ %66, %65 ]
-  %.0.i.i.ph = phi i64 [ %76, %73 ], [ %.0.i23, %65 ]
+  %.0.i.i.ph = phi i64 [ %76, %73 ], [ %.0.i24, %65 ]
   br label %67
 
 67:                                               ; preds = %.outer, %67
@@ -3151,7 +3151,7 @@ _ZN4http6header3map19do_insert_phase_two17h1435585878cd4442E.exit.i: ; preds = %
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %80, %_ZN4http6header3map19do_insert_phase_two17h1435585878cd4442E.exit.i
-  %77 = phi i64 [ %.0.i.i, %_ZN4http6header3map19do_insert_phase_two17h1435585878cd4442E.exit.i ], [ %.0.i23, %80 ]
+  %77 = phi i64 [ %.0.i.i, %_ZN4http6header3map19do_insert_phase_two17h1435585878cd4442E.exit.i ], [ %.0.i24, %80 ]
   %.sroa.4.0.i.lcssa.sink.i = phi i16 [ %.sroa.4.0.i.i.ph, %_ZN4http6header3map19do_insert_phase_two17h1435585878cd4442E.exit.i ], [ %45, %80 ]
   %78 = getelementptr inbounds [0 x { i16, i16 }], ptr %39, i64 0, i64 %77, i32 1
   store i16 %.sroa.4.0.i.lcssa.sink.i, ptr %78, align 2, !noalias !579
@@ -3164,16 +3164,13 @@ _ZN4http6header3map19do_insert_phase_two17h1435585878cd4442E.exit.i: ; preds = %
   br label %.backedge.i
 
 .lr.ph:                                           ; preds = %22, %.lr.ph
-  %.sroa.0.029 = phi ptr [ %82, %.lr.ph ], [ %24, %22 ]
-  %82 = getelementptr inbounds nuw i8, ptr %.sroa.0.029, i64 4
-  store i16 -1, ptr %.sroa.0.029, align 2
-  %83 = getelementptr inbounds nuw i8, ptr %.sroa.0.029, i64 2
+  %.sroa.0.030 = phi ptr [ %82, %.lr.ph ], [ %24, %22 ]
+  %82 = getelementptr inbounds nuw i8, ptr %.sroa.0.030, i64 4
+  store i16 -1, ptr %.sroa.0.030, align 2
+  %83 = getelementptr inbounds nuw i8, ptr %.sroa.0.030, i64 2
   store i16 0, ptr %83, align 2
   %84 = icmp eq ptr %82, %26
   br i1 %84, label %._crit_edge, label %.lr.ph
-
-"_ZN4http6header3map18HeaderMap$LT$T$GT$7rebuild17hf0dc069e9c9cdcbaE.exit": ; preds = %.backedge.i, %._crit_edge, %104, %28, %127, %17
-  br label %128
 
 85:                                               ; preds = %17
   %86 = icmp eq i64 %7, 0
@@ -3218,20 +3215,20 @@ common.resume:                                    ; preds = %94, %.body
   %99 = extractvalue { ptr, i64 } %98, 0
   %100 = extractvalue { ptr, i64 } %98, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  %.val22 = load i64, ptr %10, align 8, !noundef !21
-  %101 = icmp eq i64 %.val22, 0
+  %.val23 = load i64, ptr %10, align 8, !noundef !21
+  %101 = icmp eq i64 %.val23, 0
   br i1 %101, label %"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$$u5b$http..header..map..Pos$u5d$$GT$$GT$17hfbc3678b54a28a01E.exit", label %102
 
 102:                                              ; preds = %"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h0a016f8a9554ef1dE.exit"
   %.val = load ptr, ptr %18, align 8, !nonnull !21, !noundef !21
-  %103 = shl nsw i64 %.val22, 2
+  %103 = shl nsw i64 %.val23, 2
   call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef range(i64 1, 0) %103, i64 noundef 2) #34
   br label %"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$$u5b$http..header..map..Pos$u5d$$GT$$GT$17hfbc3678b54a28a01E.exit"
 
 104:                                              ; preds = %85
   %105 = shl i64 %11, 1
   %106 = tail call fastcc noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$GT$8try_grow17hfe240a24cd2b7f35E"(ptr noalias noundef align 8 dereferenceable(96) %0, i64 noundef %105)
-  br i1 %106, label %128, label %"_ZN4http6header3map18HeaderMap$LT$T$GT$7rebuild17hf0dc069e9c9cdcbaE.exit"
+  br label %"_ZN4http6header3map18HeaderMap$LT$T$GT$7rebuild17hf0dc069e9c9cdcbaE.exit"
 
 "_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$$u5b$http..header..map..Pos$u5d$$GT$$GT$17hfbc3678b54a28a01E.exit": ; preds = %102, %"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h0a016f8a9554ef1dE.exit"
   store ptr %99, ptr %18, align 8
@@ -3299,8 +3296,8 @@ common.resume:                                    ; preds = %94, %.body
   store i64 0, ptr %6, align 8
   br label %"_ZN4http6header3map18HeaderMap$LT$T$GT$7rebuild17hf0dc069e9c9cdcbaE.exit"
 
-128:                                              ; preds = %104, %28, %"_ZN4http6header3map18HeaderMap$LT$T$GT$7rebuild17hf0dc069e9c9cdcbaE.exit"
-  %.0 = phi i1 [ false, %"_ZN4http6header3map18HeaderMap$LT$T$GT$7rebuild17hf0dc069e9c9cdcbaE.exit" ], [ true, %28 ], [ true, %104 ]
+"_ZN4http6header3map18HeaderMap$LT$T$GT$7rebuild17hf0dc069e9c9cdcbaE.exit": ; preds = %.backedge.i, %._crit_edge, %17, %127, %104, %28
+  %.0 = phi i1 [ %30, %28 ], [ %106, %104 ], [ false, %127 ], [ false, %17 ], [ false, %._crit_edge ], [ false, %.backedge.i ]
   ret i1 %.0
 }
 

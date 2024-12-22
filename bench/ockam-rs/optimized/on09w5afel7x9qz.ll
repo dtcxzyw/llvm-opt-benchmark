@@ -901,7 +901,7 @@ define hidden noundef align 8 ptr @_ZN10serde_bare2de10from_slice17h436ff1719e6f
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load ptr, ptr %11, align 8, !noalias !70
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !70
-  br i1 %trunc.i.i.i.i.i.i.i.i, label %_ZN5serde2de10EnumAccess7variant17h7e63dc9e3cffb193E.llvm.18428608733601957610.exit.i.i.i, label %13
+  br i1 %trunc.i.i.i.i.i.i.i.i, label %"_ZN19ockam_transport_tcp6portal14portal_message1_119_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_tcp..portal..portal_message..PortalInternalMessage$GT$11deserialize17hbd8f38880316137fE.exit", label %13
 
 13:                                               ; preds = %2
   %.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %12 to i64
@@ -914,7 +914,7 @@ define hidden noundef align 8 ptr @_ZN10serde_bare2de10from_slice17h436ff1719e6f
 
 16:                                               ; preds = %13
   %17 = icmp eq ptr %12, null
-  br i1 %17, label %.thread.i.i.i, label %18
+  br i1 %17, label %"_ZN19ockam_transport_tcp6portal14portal_message1_119_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_tcp..portal..portal_message..PortalInternalMessage$GT$11deserialize17hbd8f38880316137fE.exit", label %18
 
 18:                                               ; preds = %16
   %19 = and i64 %.cast.i.i.i.i.i.i.i.i, 4294967295
@@ -926,15 +926,8 @@ define hidden noundef align 8 ptr @_ZN10serde_bare2de10from_slice17h436ff1719e6f
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !70
   br label %"_ZN19ockam_transport_tcp6portal14portal_message1_119_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_tcp..portal..portal_message..PortalInternalMessage$GT$11deserialize17hbd8f38880316137fE.exit"
 
-_ZN5serde2de10EnumAccess7variant17h7e63dc9e3cffb193E.llvm.18428608733601957610.exit.i.i.i: ; preds = %2
-  %.not.i.i.i = icmp eq ptr %12, null
-  br i1 %.not.i.i.i, label %.thread.i.i.i, label %"_ZN19ockam_transport_tcp6portal14portal_message1_119_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_tcp..portal..portal_message..PortalInternalMessage$GT$11deserialize17hbd8f38880316137fE.exit"
-
-.thread.i.i.i:                                    ; preds = %_ZN5serde2de10EnumAccess7variant17h7e63dc9e3cffb193E.llvm.18428608733601957610.exit.i.i.i, %16
-  br label %"_ZN19ockam_transport_tcp6portal14portal_message1_119_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_tcp..portal..portal_message..PortalInternalMessage$GT$11deserialize17hbd8f38880316137fE.exit"
-
-"_ZN19ockam_transport_tcp6portal14portal_message1_119_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_tcp..portal..portal_message..PortalInternalMessage$GT$11deserialize17hbd8f38880316137fE.exit": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h9171ca3c5176642cE.exit.i.i.i.i.i.i.i.i", %18, %_ZN5serde2de10EnumAccess7variant17h7e63dc9e3cffb193E.llvm.18428608733601957610.exit.i.i.i, %.thread.i.i.i
-  %.1.i.i.i = phi ptr [ null, %.thread.i.i.i ], [ %12, %_ZN5serde2de10EnumAccess7variant17h7e63dc9e3cffb193E.llvm.18428608733601957610.exit.i.i.i ], [ %21, %18 ], [ %15, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h9171ca3c5176642cE.exit.i.i.i.i.i.i.i.i" ]
+"_ZN19ockam_transport_tcp6portal14portal_message1_119_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_tcp..portal..portal_message..PortalInternalMessage$GT$11deserialize17hbd8f38880316137fE.exit": ; preds = %2, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h9171ca3c5176642cE.exit.i.i.i.i.i.i.i.i", %16, %18
+  %.1.i.i.i = phi ptr [ %21, %18 ], [ %15, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h9171ca3c5176642cE.exit.i.i.i.i.i.i.i.i" ], [ null, %16 ], [ %12, %2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   ret ptr %.1.i.i.i
 }
@@ -958,7 +951,7 @@ define hidden noundef align 8 ptr @_ZN10serde_bare2de10from_slice17h91facd4f8aee
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load ptr, ptr %11, align 8, !noalias !91
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !91
-  br i1 %trunc.i.i.i.i.i.i.i.i, label %_ZN5serde2de10EnumAccess7variant17h479959ff5b93339fE.llvm.18428608733601957610.exit.i.i.i, label %13
+  br i1 %trunc.i.i.i.i.i.i.i.i, label %"_ZN19ockam_transport_tcp7workers6sender1_107_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_tcp..workers..sender..TcpSendWorkerMsg$GT$11deserialize17h29690c21e9504a72E.exit", label %13
 
 13:                                               ; preds = %2
   %.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %12 to i64
@@ -971,7 +964,7 @@ define hidden noundef align 8 ptr @_ZN10serde_bare2de10from_slice17h91facd4f8aee
 
 16:                                               ; preds = %13
   %17 = icmp eq ptr %12, null
-  br i1 %17, label %.thread.i.i.i, label %18
+  br i1 %17, label %"_ZN19ockam_transport_tcp7workers6sender1_107_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_tcp..workers..sender..TcpSendWorkerMsg$GT$11deserialize17h29690c21e9504a72E.exit", label %18
 
 18:                                               ; preds = %16
   %19 = and i64 %.cast.i.i.i.i.i.i.i.i, 4294967295
@@ -983,15 +976,8 @@ define hidden noundef align 8 ptr @_ZN10serde_bare2de10from_slice17h91facd4f8aee
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !91
   br label %"_ZN19ockam_transport_tcp7workers6sender1_107_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_tcp..workers..sender..TcpSendWorkerMsg$GT$11deserialize17h29690c21e9504a72E.exit"
 
-_ZN5serde2de10EnumAccess7variant17h479959ff5b93339fE.llvm.18428608733601957610.exit.i.i.i: ; preds = %2
-  %.not.i.i.i = icmp eq ptr %12, null
-  br i1 %.not.i.i.i, label %.thread.i.i.i, label %"_ZN19ockam_transport_tcp7workers6sender1_107_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_tcp..workers..sender..TcpSendWorkerMsg$GT$11deserialize17h29690c21e9504a72E.exit"
-
-.thread.i.i.i:                                    ; preds = %_ZN5serde2de10EnumAccess7variant17h479959ff5b93339fE.llvm.18428608733601957610.exit.i.i.i, %16
-  br label %"_ZN19ockam_transport_tcp7workers6sender1_107_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_tcp..workers..sender..TcpSendWorkerMsg$GT$11deserialize17h29690c21e9504a72E.exit"
-
-"_ZN19ockam_transport_tcp7workers6sender1_107_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_tcp..workers..sender..TcpSendWorkerMsg$GT$11deserialize17h29690c21e9504a72E.exit": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h5a5ae2d6cea47d45E.exit.i.i.i.i.i.i.i.i", %18, %_ZN5serde2de10EnumAccess7variant17h479959ff5b93339fE.llvm.18428608733601957610.exit.i.i.i, %.thread.i.i.i
-  %.1.i.i.i = phi ptr [ null, %.thread.i.i.i ], [ %12, %_ZN5serde2de10EnumAccess7variant17h479959ff5b93339fE.llvm.18428608733601957610.exit.i.i.i ], [ %21, %18 ], [ %15, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h5a5ae2d6cea47d45E.exit.i.i.i.i.i.i.i.i" ]
+"_ZN19ockam_transport_tcp7workers6sender1_107_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_tcp..workers..sender..TcpSendWorkerMsg$GT$11deserialize17h29690c21e9504a72E.exit": ; preds = %2, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h5a5ae2d6cea47d45E.exit.i.i.i.i.i.i.i.i", %16, %18
+  %.1.i.i.i = phi ptr [ %21, %18 ], [ %15, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h5a5ae2d6cea47d45E.exit.i.i.i.i.i.i.i.i" ], [ null, %16 ], [ %12, %2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   ret ptr %.1.i.i.i
 }
@@ -10816,7 +10802,7 @@ define hidden noundef align 8 ptr @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deseri
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load ptr, ptr %9, align 8, !noalias !1623
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !1623
-  br i1 %trunc.i.i.i.i.i.i, label %_ZN5serde2de10EnumAccess7variant17h7e63dc9e3cffb193E.llvm.18428608733601957610.exit.i, label %11
+  br i1 %trunc.i.i.i.i.i.i, label %"_ZN229_$LT$ockam_transport_tcp..portal..portal_message.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_tcp..portal..portal_message..PortalInternalMessage$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h13a4f44e8e374233E.exit", label %11
 
 11:                                               ; preds = %5
   %.cast.i.i.i.i.i.i = ptrtoint ptr %10 to i64
@@ -10829,7 +10815,7 @@ define hidden noundef align 8 ptr @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deseri
 
 14:                                               ; preds = %11
   %15 = icmp eq ptr %10, null
-  br i1 %15, label %.thread.i, label %16
+  br i1 %15, label %"_ZN229_$LT$ockam_transport_tcp..portal..portal_message.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_tcp..portal..portal_message..PortalInternalMessage$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h13a4f44e8e374233E.exit", label %16
 
 16:                                               ; preds = %14
   %17 = and i64 %.cast.i.i.i.i.i.i, 4294967295
@@ -10841,15 +10827,8 @@ define hidden noundef align 8 ptr @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deseri
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !1623
   br label %"_ZN229_$LT$ockam_transport_tcp..portal..portal_message.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_tcp..portal..portal_message..PortalInternalMessage$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h13a4f44e8e374233E.exit"
 
-_ZN5serde2de10EnumAccess7variant17h7e63dc9e3cffb193E.llvm.18428608733601957610.exit.i: ; preds = %5
-  %.not.i = icmp eq ptr %10, null
-  br i1 %.not.i, label %.thread.i, label %"_ZN229_$LT$ockam_transport_tcp..portal..portal_message.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_tcp..portal..portal_message..PortalInternalMessage$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h13a4f44e8e374233E.exit"
-
-.thread.i:                                        ; preds = %_ZN5serde2de10EnumAccess7variant17h7e63dc9e3cffb193E.llvm.18428608733601957610.exit.i, %14
-  br label %"_ZN229_$LT$ockam_transport_tcp..portal..portal_message.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_tcp..portal..portal_message..PortalInternalMessage$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h13a4f44e8e374233E.exit"
-
-"_ZN229_$LT$ockam_transport_tcp..portal..portal_message.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_tcp..portal..portal_message..PortalInternalMessage$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h13a4f44e8e374233E.exit": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h9171ca3c5176642cE.exit.i.i.i.i.i.i", %16, %_ZN5serde2de10EnumAccess7variant17h7e63dc9e3cffb193E.llvm.18428608733601957610.exit.i, %.thread.i
-  %.1.i = phi ptr [ null, %.thread.i ], [ %10, %_ZN5serde2de10EnumAccess7variant17h7e63dc9e3cffb193E.llvm.18428608733601957610.exit.i ], [ %19, %16 ], [ %13, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h9171ca3c5176642cE.exit.i.i.i.i.i.i" ]
+"_ZN229_$LT$ockam_transport_tcp..portal..portal_message.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_tcp..portal..portal_message..PortalInternalMessage$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h13a4f44e8e374233E.exit": ; preds = %5, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h9171ca3c5176642cE.exit.i.i.i.i.i.i", %14, %16
+  %.1.i = phi ptr [ %19, %16 ], [ %13, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h9171ca3c5176642cE.exit.i.i.i.i.i.i" ], [ null, %14 ], [ %10, %5 ]
   ret ptr %.1.i
 }
 
@@ -10864,7 +10843,7 @@ define hidden noundef align 8 ptr @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deseri
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load ptr, ptr %9, align 8, !noalias !1639
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !1639
-  br i1 %trunc.i.i.i.i.i.i, label %_ZN5serde2de10EnumAccess7variant17h479959ff5b93339fE.llvm.18428608733601957610.exit.i, label %11
+  br i1 %trunc.i.i.i.i.i.i, label %"_ZN210_$LT$ockam_transport_tcp..workers..sender.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_tcp..workers..sender..TcpSendWorkerMsg$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17ha94afd0f97c22714E.exit", label %11
 
 11:                                               ; preds = %5
   %.cast.i.i.i.i.i.i = ptrtoint ptr %10 to i64
@@ -10877,7 +10856,7 @@ define hidden noundef align 8 ptr @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deseri
 
 14:                                               ; preds = %11
   %15 = icmp eq ptr %10, null
-  br i1 %15, label %.thread.i, label %16
+  br i1 %15, label %"_ZN210_$LT$ockam_transport_tcp..workers..sender.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_tcp..workers..sender..TcpSendWorkerMsg$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17ha94afd0f97c22714E.exit", label %16
 
 16:                                               ; preds = %14
   %17 = and i64 %.cast.i.i.i.i.i.i, 4294967295
@@ -10889,15 +10868,8 @@ define hidden noundef align 8 ptr @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deseri
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !1639
   br label %"_ZN210_$LT$ockam_transport_tcp..workers..sender.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_tcp..workers..sender..TcpSendWorkerMsg$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17ha94afd0f97c22714E.exit"
 
-_ZN5serde2de10EnumAccess7variant17h479959ff5b93339fE.llvm.18428608733601957610.exit.i: ; preds = %5
-  %.not.i = icmp eq ptr %10, null
-  br i1 %.not.i, label %.thread.i, label %"_ZN210_$LT$ockam_transport_tcp..workers..sender.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_tcp..workers..sender..TcpSendWorkerMsg$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17ha94afd0f97c22714E.exit"
-
-.thread.i:                                        ; preds = %_ZN5serde2de10EnumAccess7variant17h479959ff5b93339fE.llvm.18428608733601957610.exit.i, %14
-  br label %"_ZN210_$LT$ockam_transport_tcp..workers..sender.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_tcp..workers..sender..TcpSendWorkerMsg$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17ha94afd0f97c22714E.exit"
-
-"_ZN210_$LT$ockam_transport_tcp..workers..sender.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_tcp..workers..sender..TcpSendWorkerMsg$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17ha94afd0f97c22714E.exit": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h5a5ae2d6cea47d45E.exit.i.i.i.i.i.i", %16, %_ZN5serde2de10EnumAccess7variant17h479959ff5b93339fE.llvm.18428608733601957610.exit.i, %.thread.i
-  %.1.i = phi ptr [ null, %.thread.i ], [ %10, %_ZN5serde2de10EnumAccess7variant17h479959ff5b93339fE.llvm.18428608733601957610.exit.i ], [ %19, %16 ], [ %13, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h5a5ae2d6cea47d45E.exit.i.i.i.i.i.i" ]
+"_ZN210_$LT$ockam_transport_tcp..workers..sender.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_tcp..workers..sender..TcpSendWorkerMsg$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17ha94afd0f97c22714E.exit": ; preds = %5, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h5a5ae2d6cea47d45E.exit.i.i.i.i.i.i", %14, %16
+  %.1.i = phi ptr [ %19, %16 ], [ %13, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h5a5ae2d6cea47d45E.exit.i.i.i.i.i.i" ], [ null, %14 ], [ %10, %5 ]
   ret ptr %.1.i
 }
 

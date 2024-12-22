@@ -1317,14 +1317,10 @@ define hidden noundef i32 @_ZN8nanobind6detail16nb_enum_traverseEP7_objectPFiS2_
 
 6:                                                ; preds = %3
   %7 = tail call noundef i32 %1(ptr noundef nonnull %5, ptr noundef %2)
-  %.not8 = icmp eq i32 %7, 0
-  br i1 %.not8, label %8, label %9
+  br label %8
 
 8:                                                ; preds = %3, %6
-  br label %9
-
-9:                                                ; preds = %6, %8
-  %.0 = phi i32 [ 0, %8 ], [ %7, %6 ]
+  %.0 = phi i32 [ %7, %6 ], [ 0, %3 ]
   ret i32 %.0
 }
 

@@ -37637,13 +37637,13 @@ default.unreachable25.i:                          ; preds = %40
 
 "_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit": ; preds = %40, %40, %40
   %41 = icmp eq i64 %7, 1
-  br i1 %41, label %"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit.thread55", label %_ZN5image4flat12SampleLayout19has_aliased_samples17h77b933853ff0f0c7E.exit.thread
+  br i1 %41, label %"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit.thread56", label %_ZN5image4flat12SampleLayout19has_aliased_samples17h77b933853ff0f0c7E.exit.thread
 
-"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit.thread55": ; preds = %"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit"
+"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit.thread56": ; preds = %"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit"
   %switch14.i = icmp eq i8 %1, 1
   br i1 %switch14.i, label %_ZN5image4flat12SampleLayout19has_aliased_samples17h77b933853ff0f0c7E.exit.thread, label %.critedge
 
-.critedge:                                        ; preds = %40, %"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit.thread55"
+.critedge:                                        ; preds = %40, %"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit.thread56"
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !7075
   store i64 %7, ptr %4, align 8, !noalias !7075
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -37664,8 +37664,8 @@ default.unreachable25.i:                          ; preds = %40
   %49 = load i64, ptr %45, align 8, !noalias !7075, !noundef !4
   %.not.i = icmp ugt i64 %47, %48
   %.not5.i = icmp ugt i64 %48, %49
-  %or.cond.i41 = or i1 %.not.i, %.not5.i
-  br i1 %or.cond.i41, label %50, label %_ZN5image4flat12SampleLayout22increasing_stride_dims17ha5e890988dc661afE.exit
+  %or.cond.i42 = or i1 %.not.i, %.not5.i
+  br i1 %or.cond.i42, label %50, label %_ZN5image4flat12SampleLayout22increasing_stride_dims17ha5e890988dc661afE.exit
 
 50:                                               ; preds = %.critedge
   call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.485243c0b6e0c52e847d698bbee735f0.174, i64 noundef 94, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.485243c0b6e0c52e847d698bbee735f0.175) #42, !noalias !7075
@@ -37677,34 +37677,36 @@ _ZN5image4flat12SampleLayout22increasing_stride_dims17ha5e890988dc661afE.exit: ;
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !7075
   %51 = icmp eq i64 %47, 1
   %.not23 = icmp eq i64 %.sroa.5.0.copyload, %48
-  %or.cond72 = select i1 %51, i1 %.not23, i1 false
+  %or.cond73 = select i1 %51, i1 %.not23, i1 false
   %52 = mul i64 %.sroa.7.0.copyload, %48
   %.not24 = icmp eq i64 %52, %49
-  %or.cond73 = select i1 %or.cond72, i1 %.not24, i1 false
-  br i1 %or.cond73, label %"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit40", label %_ZN5image4flat12SampleLayout19has_aliased_samples17h77b933853ff0f0c7E.exit.thread
+  %or.cond74 = select i1 %or.cond73, i1 %.not24, i1 false
+  br i1 %or.cond74, label %"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit41", label %_ZN5image4flat12SampleLayout19has_aliased_samples17h77b933853ff0f0c7E.exit.thread
 
-"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit40": ; preds = %_ZN5image4flat12SampleLayout22increasing_stride_dims17ha5e890988dc661afE.exit
+"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit41": ; preds = %_ZN5image4flat12SampleLayout22increasing_stride_dims17ha5e890988dc661afE.exit
   switch i8 %1, label %_ZN5image4flat12SampleLayout19has_aliased_samples17h77b933853ff0f0c7E.exit.thread [
     i8 3, label %.critedge32
     i8 4, label %.critedge34
   ]
 
-.critedge32:                                      ; preds = %"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit40"
+.critedge32:                                      ; preds = %"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit41"
   %.not26 = icmp eq i64 %11, %9
   %53 = mul nuw nsw i64 %11, %14
   %.not27 = icmp eq i64 %53, %16
-  %or.cond76 = select i1 %.not26, i1 %.not27, i1 false
+  %or.cond77 = select i1 %.not26, i1 %.not27, i1 false
   br label %_ZN5image4flat12SampleLayout19has_aliased_samples17h77b933853ff0f0c7E.exit.thread
 
-.critedge34:                                      ; preds = %"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit40"
+.critedge34:                                      ; preds = %"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit41"
   %.not29 = icmp eq i64 %16, %9
-  %54 = mul nuw nsw i64 %16, %19
-  %.not30 = icmp eq i64 %54, %11
-  %or.cond77 = select i1 %.not29, i1 %.not30, i1 false
+  br i1 %.not29, label %54, label %_ZN5image4flat12SampleLayout19has_aliased_samples17h77b933853ff0f0c7E.exit.thread
+
+54:                                               ; preds = %.critedge34
+  %55 = mul nuw nsw i64 %9, %19
+  %.not30 = icmp eq i64 %55, %11
   br label %_ZN5image4flat12SampleLayout19has_aliased_samples17h77b933853ff0f0c7E.exit.thread
 
-_ZN5image4flat12SampleLayout19has_aliased_samples17h77b933853ff0f0c7E.exit.thread: ; preds = %.critedge32, %"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit40", %"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit.thread55", %40, %.critedge34, %_ZN5image4flat12SampleLayout22increasing_stride_dims17ha5e890988dc661afE.exit.i, %32, %_ZN5image4flat12SampleLayout22increasing_stride_dims17ha5e890988dc661afE.exit, %"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit", %_ZN5image4flat12SampleLayout19has_aliased_samples17h77b933853ff0f0c7E.exit
-  %.0 = phi i1 [ false, %_ZN5image4flat12SampleLayout19has_aliased_samples17h77b933853ff0f0c7E.exit ], [ false, %"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit" ], [ false, %_ZN5image4flat12SampleLayout22increasing_stride_dims17ha5e890988dc661afE.exit ], [ false, %32 ], [ false, %_ZN5image4flat12SampleLayout22increasing_stride_dims17ha5e890988dc661afE.exit.i ], [ %or.cond77, %.critedge34 ], [ true, %40 ], [ true, %"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit.thread55" ], [ true, %"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit40" ], [ %or.cond76, %.critedge32 ]
+_ZN5image4flat12SampleLayout19has_aliased_samples17h77b933853ff0f0c7E.exit.thread: ; preds = %.critedge32, %"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit41", %"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit.thread56", %40, %_ZN5image4flat12SampleLayout22increasing_stride_dims17ha5e890988dc661afE.exit.i, %32, %_ZN5image4flat12SampleLayout22increasing_stride_dims17ha5e890988dc661afE.exit, %.critedge34, %54, %"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit", %_ZN5image4flat12SampleLayout19has_aliased_samples17h77b933853ff0f0c7E.exit
+  %.0 = phi i1 [ false, %_ZN5image4flat12SampleLayout19has_aliased_samples17h77b933853ff0f0c7E.exit ], [ false, %"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit" ], [ %.not30, %54 ], [ false, %.critedge34 ], [ false, %_ZN5image4flat12SampleLayout22increasing_stride_dims17ha5e890988dc661afE.exit ], [ false, %32 ], [ false, %_ZN5image4flat12SampleLayout22increasing_stride_dims17ha5e890988dc661afE.exit.i ], [ true, %40 ], [ true, %"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit.thread56" ], [ true, %"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit41" ], [ %or.cond77, %.critedge32 ]
   ret i1 %.0
 }
 
@@ -38222,10 +38224,10 @@ define hidden void @_ZN5image6codecs3ico7encoder8IcoFrame12with_encoded17h280130
   store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u32$GT$3fmt17h40e5aa725d9a9391E", ptr %20, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8), !noalias !7134
   store ptr @anon.485243c0b6e0c52e847d698bbee735f0.207, ptr %8, align 8, !noalias !7145
-  %.sroa.527.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 2, ptr %.sroa.527.0..sroa_idx, align 8, !noalias !7145
-  %.sroa.728.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %11, ptr %.sroa.728.0..sroa_idx, align 8, !noalias !7145
+  %.sroa.528.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i64 2, ptr %.sroa.528.0..sroa_idx, align 8, !noalias !7145
+  %.sroa.729.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr %11, ptr %.sroa.729.0..sroa_idx, align 8, !noalias !7145
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 1, ptr %.sroa.8.0..sroa_idx, align 8, !noalias !7145
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -38299,14 +38301,14 @@ define hidden void @_ZN5image6codecs3ico7encoder8IcoFrame12with_encoded17h280130
   store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u32$GT$3fmt17h40e5aa725d9a9391E", ptr %40, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !7156
   store ptr @anon.485243c0b6e0c52e847d698bbee735f0.209, ptr %6, align 8, !noalias !7167
-  %.sroa.532.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 2, ptr %.sroa.532.0..sroa_idx, align 8, !noalias !7167
-  %.sroa.733.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %9, ptr %.sroa.733.0..sroa_idx, align 8, !noalias !7167
-  %.sroa.834.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 1, ptr %.sroa.834.0..sroa_idx, align 8, !noalias !7167
-  %.sroa.1035.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store ptr null, ptr %.sroa.1035.0..sroa_idx, align 8, !noalias !7167
+  %.sroa.533.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 2, ptr %.sroa.533.0..sroa_idx, align 8, !noalias !7167
+  %.sroa.734.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr %9, ptr %.sroa.734.0..sroa_idx, align 8, !noalias !7167
+  %.sroa.835.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i64 1, ptr %.sroa.835.0..sroa_idx, align 8, !noalias !7167
+  %.sroa.1036.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store ptr null, ptr %.sroa.1036.0..sroa_idx, align 8, !noalias !7167
   invoke void @_ZN5alloc3fmt6format12format_inner17h4f5d4c1ba302c88bE(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 dereferenceable(24) %10, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6)
           to label %41 unwind label %17
 

@@ -273,13 +273,11 @@ define i32 @png_get_pixels_per_meter(ptr noalias noundef readnone %0, ptr noalia
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 228
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %15, %17
-  br i1 %18, label %20, label %19
+  %spec.select = select i1 %18, i32 %15, i32 0
+  br label %19
 
-19:                                               ; preds = %9, %13, %5, %2
-  br label %20
-
-20:                                               ; preds = %13, %19
-  %.0 = phi i32 [ 0, %19 ], [ %15, %13 ]
+19:                                               ; preds = %2, %5, %9, %13
+  %.0 = phi i32 [ %spec.select, %13 ], [ 0, %9 ], [ 0, %5 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -508,7 +506,7 @@ define i32 @png_get_pixels_per_inch(ptr noalias noundef readnone %0, ptr noalias
   %19 = icmp eq i32 %16, %18
   br i1 %19, label %png_get_pixels_per_meter.exit, label %png_get_pixels_per_meter.exit.thread
 
-png_get_pixels_per_meter.exit.thread:             ; preds = %2, %6, %10, %14
+png_get_pixels_per_meter.exit.thread:             ; preds = %14, %10, %6, %2
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   br label %21
 
@@ -518,15 +516,15 @@ png_get_pixels_per_meter.exit:                    ; preds = %14
   br i1 %20, label %21, label %ppi_from_ppm.exit
 
 21:                                               ; preds = %png_get_pixels_per_meter.exit.thread, %png_get_pixels_per_meter.exit
-  %.0.i5 = phi i32 [ 0, %png_get_pixels_per_meter.exit.thread ], [ %16, %png_get_pixels_per_meter.exit ]
-  %22 = call i32 @png_muldiv(ptr noundef nonnull %3, i32 noundef %.0.i5, i32 noundef 127, i32 noundef 5000) #10
+  %.0.i6 = phi i32 [ 0, %png_get_pixels_per_meter.exit.thread ], [ %16, %png_get_pixels_per_meter.exit ]
+  %22 = call i32 @png_muldiv(ptr noundef nonnull %3, i32 noundef %.0.i6, i32 noundef 127, i32 noundef 5000) #10
   %.not.i3 = icmp eq i32 %22, 0
   %23 = load i32, ptr %3, align 4
-  %spec.select.i = select i1 %.not.i3, i32 0, i32 %23
+  %spec.select.i4 = select i1 %.not.i3, i32 0, i32 %23
   br label %ppi_from_ppm.exit
 
 ppi_from_ppm.exit:                                ; preds = %png_get_pixels_per_meter.exit, %21
-  %.0.i2 = phi i32 [ 0, %png_get_pixels_per_meter.exit ], [ %spec.select.i, %21 ]
+  %.0.i2 = phi i32 [ 0, %png_get_pixels_per_meter.exit ], [ %spec.select.i4, %21 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   ret i32 %.0.i2
 }

@@ -114,7 +114,7 @@ define internal fastcc align 8 ptr @_ZN13logos_codegen5graph4meta4Meta10first_pa
 
 32:                                               ; preds = %21
   %33 = call align 8 ptr @"_ZN112_$LT$logos_codegen..graph..meta..Meta$u20$as$u20$core..ops..index..Index$LT$logos_codegen..graph..NodeId$GT$$GT$5index17h32a65f1ab15be109E"(ptr nonnull align 8 %0, i32 %22, ptr nonnull align 8 @anon.500f6382b5209e0b01e44d7e64a76b80.7)
-  br label %157
+  br label %156
 
 default.unreachable:                              ; preds = %.noexc, %26
   unreachable
@@ -243,12 +243,12 @@ default.unreachable:                              ; preds = %.noexc, %26
   %107 = invoke i32 @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3466cbdf43532cd5E"(ptr nonnull align 8 %7)
           to label %108 unwind label %.loopexit.split-lp.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph.i, %144, %.backedge.i
+.loopexit:                                        ; preds = %.lr.ph.i, %143, %.backedge.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit:                      ; preds = %142, %.noexc20, %125, %.noexc18, %118, %113, %106
+.loopexit.split-lp.loopexit:                      ; preds = %._crit_edge.thread.i, %.noexc20, %125, %.noexc18, %118, %113, %106
   %lpad.loopexit27 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -261,7 +261,7 @@ default.unreachable:                              ; preds = %.noexc, %26
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit27, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp28, %.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr88drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$logos_codegen..graph..NodeId$GT$$GT$17h95489f4cb6c657b9E"(ptr nonnull align 8 %7) #7
-          to label %160 unwind label %158
+          to label %159 unwind label %157
 
 108:                                              ; preds = %106
   %109 = icmp eq i32 %107, 0
@@ -271,7 +271,7 @@ default.unreachable:                              ; preds = %.noexc, %26
   call void @"_ZN4core3ptr88drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$logos_codegen..graph..NodeId$GT$$GT$17h95489f4cb6c657b9E"(ptr nonnull align 8 %7)
   %111 = load i32, ptr %11, align 4
   %112 = call align 8 ptr @"_ZN112_$LT$logos_codegen..graph..meta..Meta$u20$as$u20$core..ops..index..Index$LT$logos_codegen..graph..NodeId$GT$$GT$5index17h32a65f1ab15be109E"(ptr nonnull align 8 %0, i32 %111, ptr nonnull align 8 @anon.500f6382b5209e0b01e44d7e64a76b80.6)
-  br label %157
+  br label %156
 
 113:                                              ; preds = %108
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
@@ -321,7 +321,7 @@ default.unreachable:                              ; preds = %.noexc, %26
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 40
   %133 = load i8, ptr %132, align 8
   %134 = trunc i8 %133 to i1
-  br i1 %134, label %142, label %152
+  br i1 %134, label %._crit_edge.thread.i, label %151
 
 135:                                              ; preds = %.noexc
   invoke void @_ZN4core9panicking5panic17h75b3c9209f97d725E(ptr nonnull align 1 @anon.500f6382b5209e0b01e44d7e64a76b80.12, i64 40, ptr nonnull align 8 @anon.500f6382b5209e0b01e44d7e64a76b80.13) #9
@@ -332,13 +332,11 @@ default.unreachable:                              ; preds = %.noexc, %26
 
 ._crit_edge.i:                                    ; preds = %.noexc26
   %136 = icmp eq i64 %.sroa.02.0.be.i, -1
-  br i1 %136, label %._crit_edge.thread.i, label %142
-
-._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %.noexc19
-  br label %142
+  %spec.select.i = select i1 %136, i64 0, i64 %.sroa.02.0.be.i
+  br label %._crit_edge.thread.i
 
 .lr.ph.i:                                         ; preds = %.noexc19, %.noexc26
-  %137 = phi i64 [ %150, %.noexc26 ], [ %123, %.noexc19 ]
+  %137 = phi i64 [ %149, %.noexc26 ], [ %123, %.noexc19 ]
   %.sroa.02.07.i = phi i64 [ %.sroa.02.0.be.i, %.noexc26 ], [ -1, %.noexc19 ]
   %.sroa.2.0.extract.shift.i = lshr i64 %137, 32
   %.sroa.2.0.extract.trunc.i = trunc nuw i64 %.sroa.2.0.extract.shift.i to i32
@@ -349,56 +347,56 @@ default.unreachable:                              ; preds = %.noexc, %26
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 40
   %140 = load i8, ptr %139, align 8
   %141 = trunc i8 %140 to i1
-  br i1 %141, label %.backedge.i, label %144
+  br i1 %141, label %.backedge.i, label %143
 
-142:                                              ; preds = %152, %._crit_edge.thread.i, %._crit_edge.i, %.noexc21
-  %.sroa.02.1.i = phi i64 [ %128, %.noexc21 ], [ %155, %152 ], [ 0, %._crit_edge.thread.i ], [ %.sroa.02.0.be.i, %._crit_edge.i ]
-  %143 = invoke align 8 ptr @"_ZN115_$LT$logos_codegen..graph..meta..Meta$u20$as$u20$core..ops..index..IndexMut$LT$logos_codegen..graph..NodeId$GT$$GT$9index_mut17hef05b57c02ea21e8E"(ptr nonnull align 8 %0, i32 range(i32 1, 0) %107, ptr nonnull align 8 @anon.500f6382b5209e0b01e44d7e64a76b80.11)
+._crit_edge.thread.i:                             ; preds = %151, %._crit_edge.i, %.noexc21, %.noexc19
+  %.sroa.02.1.i = phi i64 [ %128, %.noexc21 ], [ %154, %151 ], [ %spec.select.i, %._crit_edge.i ], [ 0, %.noexc19 ]
+  %142 = invoke align 8 ptr @"_ZN115_$LT$logos_codegen..graph..meta..Meta$u20$as$u20$core..ops..index..IndexMut$LT$logos_codegen..graph..NodeId$GT$$GT$9index_mut17hef05b57c02ea21e8E"(ptr nonnull align 8 %0, i32 range(i32 1, 0) %107, ptr nonnull align 8 @anon.500f6382b5209e0b01e44d7e64a76b80.11)
           to label %_ZN13logos_codegen5graph4meta4Meta16meta_second_pass17hcd3604a2eaff6252E.exit unwind label %.loopexit.split-lp.loopexit
 
-144:                                              ; preds = %.noexc23
-  %145 = getelementptr inbounds nuw i8, ptr %138, i64 32
-  %146 = load i64, ptr %145, align 8
-  %147 = add i64 %146, 1
-  %148 = invoke i64 @_ZN4core3cmp6min_by17ha10094c908c23ed5E(i64 %.sroa.02.07.i, i64 %147)
+143:                                              ; preds = %.noexc23
+  %144 = getelementptr inbounds nuw i8, ptr %138, i64 32
+  %145 = load i64, ptr %144, align 8
+  %146 = add i64 %145, 1
+  %147 = invoke i64 @_ZN4core3cmp6min_by17ha10094c908c23ed5E(i64 %.sroa.02.07.i, i64 %146)
           to label %.noexc25 unwind label %.loopexit
 
-.noexc25:                                         ; preds = %144
-  %149 = freeze i64 %148
+.noexc25:                                         ; preds = %143
+  %148 = freeze i64 %147
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %.noexc25, %.noexc23
-  %.sroa.02.0.be.i = phi i64 [ %149, %.noexc25 ], [ 1, %.noexc23 ]
-  %150 = invoke i64 @"_ZN95_$LT$logos_codegen..graph..fork..ForkIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h31bda62dc7938527E"(ptr nonnull align 8 %6)
+  %.sroa.02.0.be.i = phi i64 [ %148, %.noexc25 ], [ 1, %.noexc23 ]
+  %149 = invoke i64 @"_ZN95_$LT$logos_codegen..graph..fork..ForkIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h31bda62dc7938527E"(ptr nonnull align 8 %6)
           to label %.noexc26 unwind label %.loopexit
 
 .noexc26:                                         ; preds = %.backedge.i
-  %151 = icmp ult i64 %150, 4294967296
-  br i1 %151, label %._crit_edge.i, label %.lr.ph.i
+  %150 = icmp ult i64 %149, 4294967296
+  br i1 %150, label %._crit_edge.i, label %.lr.ph.i
 
-152:                                              ; preds = %.noexc21
-  %153 = getelementptr inbounds nuw i8, ptr %131, i64 32
-  %154 = load i64, ptr %153, align 8
-  %155 = add i64 %154, %128
-  br label %142
+151:                                              ; preds = %.noexc21
+  %152 = getelementptr inbounds nuw i8, ptr %131, i64 32
+  %153 = load i64, ptr %152, align 8
+  %154 = add i64 %153, %128
+  br label %._crit_edge.thread.i
 
-_ZN13logos_codegen5graph4meta4Meta16meta_second_pass17hcd3604a2eaff6252E.exit: ; preds = %142
-  %156 = getelementptr inbounds nuw i8, ptr %143, i64 32
-  store i64 %.sroa.02.1.i, ptr %156, align 8
+_ZN13logos_codegen5graph4meta4Meta16meta_second_pass17hcd3604a2eaff6252E.exit: ; preds = %._crit_edge.thread.i
+  %155 = getelementptr inbounds nuw i8, ptr %142, i64 32
+  store i64 %.sroa.02.1.i, ptr %155, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br label %106
 
-157:                                              ; preds = %110, %32
+156:                                              ; preds = %110, %32
   %.sroa.0.0 = phi ptr [ %33, %32 ], [ %112, %110 ]
   ret ptr %.sroa.0.0
 
-158:                                              ; preds = %.loopexit.split-lp
-  %159 = landingpad { ptr, i32 }
+157:                                              ; preds = %.loopexit.split-lp
+  %158 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #8
   unreachable
 
-160:                                              ; preds = %.loopexit.split-lp
+159:                                              ; preds = %.loopexit.split-lp
   resume { ptr, i32 } %lpad.phi
 }
 

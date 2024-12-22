@@ -1082,15 +1082,13 @@ sub_1.i.i:                                        ; preds = %if.end.i
   %8 = getelementptr inbounds nuw i8, ptr %tok1.0.val.i, i64 1
   %9 = load i8, ptr %8, align 1
   %.not1.i.i = icmp eq i8 %9, 56
-  br i1 %.not1.i.i, label %entry.tail.i.i, label %sw.bb2.i.i
+  br i1 %.not1.i.i, label %entry.tail.i.i, label %for.body11.preheader.i
 
 entry.tail.i.i:                                   ; preds = %sub_1.i.i
   %10 = getelementptr inbounds nuw i8, ptr %tok1.0.val.i, i64 2
   %11 = load i8, ptr %10, align 1
   %12 = icmp eq i8 %11, 0
-  br i1 %12, label %for.body11.preheader.i, label %sw.bb2.i.i
-
-sw.bb2.i.i:                                       ; preds = %entry.tail.i.i, %sub_1.i.i
+  %spec.select.i.i = select i1 %12, i32 1, i32 2
   br label %for.body11.preheader.i
 
 sw.bb3.i.i:                                       ; preds = %if.end.i
@@ -1103,8 +1101,8 @@ sw.epilog.i.i:                                    ; preds = %if.end.i
   tail call void (ptr, ...) @error(ptr noundef nonnull @.str.114, ptr noundef nonnull @.str.115, i32 noundef 1129) #16
   unreachable
 
-for.body11.preheader.i:                           ; preds = %sw.bb4.i.i, %sw.bb3.i.i, %sw.bb2.i.i, %entry.tail.i.i, %if.end.i
-  %retval.0.i.i = phi i32 [ 4, %sw.bb4.i.i ], [ 3, %sw.bb3.i.i ], [ 2, %sw.bb2.i.i ], [ 1, %entry.tail.i.i ], [ 0, %if.end.i ]
+for.body11.preheader.i:                           ; preds = %sw.bb4.i.i, %sw.bb3.i.i, %entry.tail.i.i, %sub_1.i.i, %if.end.i
+  %retval.0.i.i = phi i32 [ 4, %sw.bb4.i.i ], [ 3, %sw.bb3.i.i ], [ %spec.select.i.i, %entry.tail.i.i ], [ 0, %if.end.i ], [ 2, %sub_1.i.i ]
   %ty.i = getelementptr inbounds nuw i8, ptr %tok1.0.i, i64 64
   %13 = load ptr, ptr %ty.i, align 16
   %base.i = getelementptr inbounds nuw i8, ptr %13, i64 24
@@ -1129,15 +1127,13 @@ sub_1.i57.i:                                      ; preds = %for.body11.i
   %17 = getelementptr inbounds nuw i8, ptr %t.0.val.i, i64 1
   %18 = load i8, ptr %17, align 1
   %.not1.i58.i = icmp eq i8 %18, 56
-  br i1 %.not1.i58.i, label %entry.tail.i60.i, label %sw.bb2.i59.i
+  br i1 %.not1.i58.i, label %entry.tail.i59.i, label %getStringKind.exit62.i
 
-entry.tail.i60.i:                                 ; preds = %sub_1.i57.i
+entry.tail.i59.i:                                 ; preds = %sub_1.i57.i
   %19 = getelementptr inbounds nuw i8, ptr %t.0.val.i, i64 2
   %20 = load i8, ptr %19, align 1
   %21 = icmp eq i8 %20, 0
-  br i1 %21, label %getStringKind.exit62.i, label %sw.bb2.i59.i
-
-sw.bb2.i59.i:                                     ; preds = %entry.tail.i60.i, %sub_1.i57.i
+  %spec.select.i60.i = select i1 %21, i32 1, i32 2
   br label %getStringKind.exit62.i
 
 sw.bb3.i54.i:                                     ; preds = %for.body11.i
@@ -1150,9 +1146,8 @@ sw.epilog.i61.i:                                  ; preds = %for.body11.i
   tail call void (ptr, ...) @error(ptr noundef nonnull @.str.114, ptr noundef nonnull @.str.115, i32 noundef 1129) #16
   unreachable
 
-getStringKind.exit62.i:                           ; preds = %sw.bb4.i56.i, %sw.bb3.i54.i, %sw.bb2.i59.i, %entry.tail.i60.i, %for.body11.i
-  %cmp17.not.i = phi i1 [ false, %sw.bb4.i56.i ], [ false, %sw.bb3.i54.i ], [ false, %sw.bb2.i59.i ], [ false, %entry.tail.i60.i ], [ true, %for.body11.i ]
-  %retval.0.i55.i = phi i32 [ 4, %sw.bb4.i56.i ], [ 3, %sw.bb3.i54.i ], [ 2, %sw.bb2.i59.i ], [ 1, %entry.tail.i60.i ], [ 0, %for.body11.i ]
+getStringKind.exit62.i:                           ; preds = %sw.bb4.i56.i, %sw.bb3.i54.i, %entry.tail.i59.i, %sub_1.i57.i, %for.body11.i
+  %retval.0.i55.i = phi i32 [ 4, %sw.bb4.i56.i ], [ 3, %sw.bb3.i54.i ], [ %spec.select.i60.i, %entry.tail.i59.i ], [ 0, %for.body11.i ], [ 2, %sub_1.i57.i ]
   %cmp13.i = icmp eq i32 %kind6.075.i, 0
   br i1 %cmp13.i, label %if.then14.i, label %if.else.i
 
@@ -1164,6 +1159,7 @@ if.then14.i:                                      ; preds = %getStringKind.exit6
   br label %for.inc.i
 
 if.else.i:                                        ; preds = %getStringKind.exit62.i
+  %cmp17.not.i = icmp eq i32 %retval.0.i55.i, 0
   %cmp18.not.i = icmp eq i32 %kind6.075.i, %retval.0.i55.i
   %or.cond.i = select i1 %cmp17.not.i, i1 true, i1 %cmp18.not.i
   br i1 %or.cond.i, label %for.inc.i, label %if.then19.i

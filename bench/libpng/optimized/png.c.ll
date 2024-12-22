@@ -2183,7 +2183,7 @@ png_muldiv.exit140.i:                             ; preds = %152, %141
   %323 = add nsw i32 %320, 5
   %324 = icmp sgt i32 %318, %323
   %or.cond.i12 = select i1 %322, i1 true, i1 %324
-  br i1 %or.cond.i12, label %png_colorspace_endpoints_match.exit.thread, label %325
+  br i1 %or.cond.i12, label %png_XYZ_from_xy.exit.thread, label %325
 
 325:                                              ; preds = %317
   %326 = load i32, ptr %33, align 4
@@ -2194,7 +2194,7 @@ png_muldiv.exit140.i:                             ; preds = %152, %141
   %331 = add nsw i32 %328, 5
   %332 = icmp sgt i32 %326, %331
   %or.cond58.i = select i1 %330, i1 true, i1 %332
-  br i1 %or.cond58.i, label %png_colorspace_endpoints_match.exit.thread, label %333
+  br i1 %or.cond58.i, label %png_XYZ_from_xy.exit.thread, label %333
 
 333:                                              ; preds = %325
   %334 = load i32, ptr %1, align 4
@@ -2204,7 +2204,7 @@ png_muldiv.exit140.i:                             ; preds = %152, %141
   %338 = add nsw i32 %335, 5
   %339 = icmp sgt i32 %334, %338
   %or.cond60.i = select i1 %337, i1 true, i1 %339
-  br i1 %or.cond60.i, label %png_colorspace_endpoints_match.exit.thread, label %340
+  br i1 %or.cond60.i, label %png_XYZ_from_xy.exit.thread, label %340
 
 340:                                              ; preds = %333
   %341 = load i32, ptr %6, align 4
@@ -2215,7 +2215,7 @@ png_muldiv.exit140.i:                             ; preds = %152, %141
   %346 = add nsw i32 %343, 5
   %347 = icmp sgt i32 %341, %346
   %or.cond62.i = select i1 %345, i1 true, i1 %347
-  br i1 %or.cond62.i, label %png_colorspace_endpoints_match.exit.thread, label %348
+  br i1 %or.cond62.i, label %png_XYZ_from_xy.exit.thread, label %348
 
 348:                                              ; preds = %340
   %349 = load i32, ptr %12, align 4
@@ -2226,7 +2226,7 @@ png_muldiv.exit140.i:                             ; preds = %152, %141
   %354 = add nsw i32 %351, 5
   %355 = icmp sgt i32 %349, %354
   %or.cond64.i = select i1 %353, i1 true, i1 %355
-  br i1 %or.cond64.i, label %png_colorspace_endpoints_match.exit.thread, label %356
+  br i1 %or.cond64.i, label %png_XYZ_from_xy.exit.thread, label %356
 
 356:                                              ; preds = %348
   %357 = load i32, ptr %15, align 4
@@ -2237,7 +2237,7 @@ png_muldiv.exit140.i:                             ; preds = %152, %141
   %362 = add nsw i32 %359, 5
   %363 = icmp sgt i32 %357, %362
   %or.cond66.i = select i1 %361, i1 true, i1 %363
-  br i1 %or.cond66.i, label %png_colorspace_endpoints_match.exit.thread, label %364
+  br i1 %or.cond66.i, label %png_XYZ_from_xy.exit.thread, label %364
 
 364:                                              ; preds = %356
   %365 = load i32, ptr %21, align 4
@@ -2248,7 +2248,7 @@ png_muldiv.exit140.i:                             ; preds = %152, %141
   %370 = add nsw i32 %367, 5
   %371 = icmp sgt i32 %365, %370
   %or.cond68.i = select i1 %369, i1 true, i1 %371
-  br i1 %or.cond68.i, label %png_colorspace_endpoints_match.exit.thread, label %png_colorspace_endpoints_match.exit
+  br i1 %or.cond68.i, label %png_XYZ_from_xy.exit.thread, label %png_colorspace_endpoints_match.exit
 
 png_colorspace_endpoints_match.exit:              ; preds = %364
   %372 = load i32, ptr %24, align 4
@@ -2260,13 +2260,11 @@ png_colorspace_endpoints_match.exit:              ; preds = %364
   %378 = icmp sgt i32 %372, %377
   %or.cond70.not.i.not = select i1 %376, i1 true, i1 %378
   %cond.fr = freeze i1 %or.cond70.not.i.not
-  br i1 %cond.fr, label %png_colorspace_endpoints_match.exit.thread, label %png_XYZ_from_xy.exit.thread
-
-png_colorspace_endpoints_match.exit.thread:       ; preds = %317, %325, %333, %340, %348, %356, %364, %png_colorspace_endpoints_match.exit
+  %spec.select = zext i1 %cond.fr to i32
   br label %png_XYZ_from_xy.exit.thread
 
-png_XYZ_from_xy.exit.thread:                      ; preds = %286, %271, %256, %240, %226, %211, %195, %181, %139, %142, %99, %103, %303, %128, %116, %88, %74, %59, %43, %154, %png_muldiv.exit140.i, %png_muldiv.exit121.i, %32, %29, %23, %20, %14, %11, %5, %2, %png_colorspace_endpoints_match.exit.thread, %png_colorspace_endpoints_match.exit, %315
-  %.0 = phi i32 [ 1, %315 ], [ 1, %png_colorspace_endpoints_match.exit.thread ], [ 0, %png_colorspace_endpoints_match.exit ], [ 1, %286 ], [ 1, %271 ], [ 1, %256 ], [ 1, %240 ], [ 1, %226 ], [ 1, %211 ], [ 1, %195 ], [ 1, %181 ], [ 1, %139 ], [ 1, %142 ], [ 1, %99 ], [ 1, %103 ], [ 1, %303 ], [ 2, %128 ], [ 2, %116 ], [ 2, %88 ], [ 2, %74 ], [ 2, %59 ], [ 2, %43 ], [ 1, %154 ], [ 1, %png_muldiv.exit140.i ], [ 1, %png_muldiv.exit121.i ], [ 1, %32 ], [ 1, %29 ], [ 1, %23 ], [ 1, %20 ], [ 1, %14 ], [ 1, %11 ], [ 1, %5 ], [ 1, %2 ]
+png_XYZ_from_xy.exit.thread:                      ; preds = %364, %356, %348, %340, %333, %325, %317, %png_colorspace_endpoints_match.exit, %286, %271, %256, %240, %226, %211, %195, %181, %139, %142, %99, %103, %303, %128, %116, %88, %74, %59, %43, %154, %png_muldiv.exit140.i, %png_muldiv.exit121.i, %32, %29, %23, %20, %14, %11, %5, %2, %315
+  %.0 = phi i32 [ 1, %315 ], [ %spec.select, %png_colorspace_endpoints_match.exit ], [ 1, %286 ], [ 1, %271 ], [ 1, %256 ], [ 1, %240 ], [ 1, %226 ], [ 1, %211 ], [ 1, %195 ], [ 1, %181 ], [ 1, %139 ], [ 1, %142 ], [ 1, %99 ], [ 1, %103 ], [ 1, %303 ], [ 2, %128 ], [ 2, %116 ], [ 2, %88 ], [ 2, %74 ], [ 2, %59 ], [ 2, %43 ], [ 1, %154 ], [ 1, %png_muldiv.exit140.i ], [ 1, %png_muldiv.exit121.i ], [ 1, %32 ], [ 1, %29 ], [ 1, %23 ], [ 1, %20 ], [ 1, %14 ], [ 1, %11 ], [ 1, %5 ], [ 1, %2 ], [ 1, %317 ], [ 1, %325 ], [ 1, %333 ], [ 1, %340 ], [ 1, %348 ], [ 1, %356 ], [ 1, %364 ]
   ret i32 %.0
 }
 
@@ -2553,7 +2551,7 @@ png_XYZ_normalize.exit.i:                         ; preds = %png_muldiv.exit101.
   %.not11.i = icmp eq i32 %167, 0
   br i1 %.not11.i, label %png_colorspace_check_XYZ.exit, label %png_colorspace_check_XYZ.exit.thread
 
-png_colorspace_check_XYZ.exit.thread:             ; preds = %png_XYZ_normalize.exit.i, %38, %34, %30, %26, %22, %19, %15, %11, %4, %44, %52, %65, %78, %91, %104, %117, %130, %143, %156, %48
+png_colorspace_check_XYZ.exit.thread:             ; preds = %png_XYZ_normalize.exit.i, %38, %34, %30, %26, %22, %19, %15, %11, %4, %44, %156, %52, %65, %78, %91, %104, %117, %130, %143, %48
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5)
   br label %286
 

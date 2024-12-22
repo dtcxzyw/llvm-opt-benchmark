@@ -991,7 +991,7 @@ define range(i32 0, 2) i32 @clean_cache_check(ptr noundef readonly %0, i64 nound
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 1
   %36 = tail call fastcc i32 @splay(i64 %.sroa.0.0.copyload.i.i, i64 %.sroa.2.0.copyload.i.i, i64 noundef %1, ptr noundef nonnull %31)
   %.not.i.i = icmp eq i32 %36, 0
-  br i1 %.not.i.i, label %58, label %37
+  br i1 %.not.i.i, label %cacheset_lookup.exit.i, label %37
 
 37:                                               ; preds = %35
   %38 = getelementptr inbounds nuw i8, ptr %31, i64 8
@@ -1034,13 +1034,12 @@ define range(i32 0, 2) i32 @clean_cache_check(ptr noundef readonly %0, i64 nound
   %56 = getelementptr inbounds nuw i8, ptr %39, i64 60
   %57 = load i32, ptr %56, align 4
   %.not27.i.i = icmp ult i32 %23, %57
-  br i1 %.not27.i.i, label %58, label %cacheset_lookup.exit.i
-
-58:                                               ; preds = %55, %35
+  %.not27.i.i.fr = freeze i1 %.not27.i.i
+  %58 = zext i1 %.not27.i.i.fr to i32
   br label %cacheset_lookup.exit.i
 
-cacheset_lookup.exit.i:                           ; preds = %58, %55
-  %.0.i.i = phi i32 [ 1, %58 ], [ 0, %55 ]
+cacheset_lookup.exit.i:                           ; preds = %55, %35
+  %.0.i.i = phi i32 [ %58, %55 ], [ 1, %35 ]
   %59 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %32) #7
   br label %cache_lookup_hash.exit
 

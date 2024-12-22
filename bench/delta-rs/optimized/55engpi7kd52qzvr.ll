@@ -1496,22 +1496,21 @@ define hidden { ptr, i64 } @"_ZN4core3str6traits110_$LT$impl$u20$core..slice..in
 
 6:                                                ; preds = %5
   %7 = icmp eq i64 %0, %2
-  br i1 %7, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread", label %11
+  %spec.select = select i1 %7, ptr %1, ptr null
+  br label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread"
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit": ; preds = %5
   %8 = getelementptr inbounds i8, ptr %1, i64 %0
   %9 = load i8, ptr %8, align 1, !alias.scope !236, !noundef !4
   %10 = icmp sgt i8 %9, -65
-  br i1 %10, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread", label %11
+  %spec.select5 = select i1 %10, ptr %1, ptr null
+  br label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread"
 
-"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread": ; preds = %3, %6, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit"
-  br label %11
-
-11:                                               ; preds = %6, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit", %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread"
-  %12 = phi ptr [ %1, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread" ], [ null, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit" ], [ null, %6 ]
-  %13 = insertvalue { ptr, i64 } poison, ptr %12, 0
-  %14 = insertvalue { ptr, i64 } %13, i64 %0, 1
-  ret { ptr, i64 } %14
+"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread": ; preds = %3, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit", %6
+  %11 = phi ptr [ %spec.select5, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit" ], [ %spec.select, %6 ], [ %1, %3 ]
+  %12 = insertvalue { ptr, i64 } poison, ptr %11, 0
+  %13 = insertvalue { ptr, i64 } %12, i64 %0, 1
+  ret { ptr, i64 } %13
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -3042,7 +3041,7 @@ define hidden { ptr, i64 } @"_ZN70_$LT$core..ops..range..RangeTo$LT$u32$GT$$u20$
   %4 = load i32, ptr %0, align 4, !noundef !4
   %5 = zext i32 %4 to i64
   %6 = icmp eq i32 %4, 0
-  br i1 %6, label %14, label %7
+  br i1 %6, label %select.unfold, label %7
 
 7:                                                ; preds = %3
   %.not.i.i = icmp ugt i64 %2, %5
@@ -3050,22 +3049,22 @@ define hidden { ptr, i64 } @"_ZN70_$LT$core..ops..range..RangeTo$LT$u32$GT$$u20$
 
 8:                                                ; preds = %7
   %9 = icmp eq i64 %2, %5
-  br i1 %9, label %14, label %13
+  br i1 %9, label %select.unfold, label %13
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i": ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 %5
   %11 = load i8, ptr %10, align 1, !alias.scope !381, !noundef !4
   %12 = icmp sgt i8 %11, -65
-  br i1 %12, label %14, label %13
+  br i1 %12, label %select.unfold, label %13
 
 13:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i", %8
   tail call void @_ZN4core3str16slice_error_fail17he2ff12236fb0c056E(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef 0, i64 noundef %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.dee3bdcda8cbc6b8397243ced7e17d45.66.llvm.7144237729116928069) #14
   unreachable
 
-14:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i", %8, %3
-  %15 = insertvalue { ptr, i64 } poison, ptr %1, 0
-  %16 = insertvalue { ptr, i64 } %15, i64 %5, 1
-  ret { ptr, i64 } %16
+select.unfold:                                    ; preds = %8, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i", %3
+  %14 = insertvalue { ptr, i64 } poison, ptr %1, 0
+  %15 = insertvalue { ptr, i64 } %14, i64 %5, 1
+  ret { ptr, i64 } %15
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

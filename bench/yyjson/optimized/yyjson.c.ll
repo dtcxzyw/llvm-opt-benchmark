@@ -1524,7 +1524,7 @@ return:                                           ; preds = %if.end3, %if.end3.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @yyjson_mut_val_mut_copy(ptr noundef %doc, ptr noundef readonly %val) local_unnamed_addr #7 {
+define dso_local ptr @yyjson_mut_val_mut_copy(ptr noundef %doc, ptr noundef readonly %val) local_unnamed_addr #7 {
 entry:
   %tobool = icmp ne ptr %doc, null
   %tobool1 = icmp ne ptr %val, null
@@ -1541,7 +1541,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef nonnull %m_doc, ptr nocapture noundef readonly %m_vals) unnamed_addr #7 {
+define internal fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef nonnull %m_doc, ptr nocapture noundef readonly %m_vals) unnamed_addr #7 {
 entry:
   %alc1.i = getelementptr inbounds nuw i8, ptr %m_doc, i64 8
   %val_pool.i = getelementptr inbounds nuw i8, ptr %m_doc, i64 80
@@ -1580,8 +1580,8 @@ unsafe_yyjson_mut_val.exit.thread:                ; preds = %if.then.i
   %cmp31.i = icmp ult i64 %mul20..i, %6
   %spec.select.i = select i1 %cmp31.i, i64 %7, i64 %mul20..i
   store i64 %spec.select.i, ptr %chunk_size.i, align 8
-  %add.ptr.i79 = getelementptr inbounds nuw i8, ptr %call.i46, i64 48
-  store ptr %add.ptr.i79, ptr %val_pool.i, align 8
+  %add.ptr.i76 = getelementptr inbounds nuw i8, ptr %call.i46, i64 48
+  store ptr %add.ptr.i76, ptr %val_pool.i, align 8
   br label %if.end
 
 unsafe_yyjson_mut_val.exit:                       ; preds = %entry
@@ -1619,20 +1619,20 @@ if.then9:                                         ; preds = %sw.bb
 if.end14:                                         ; preds = %if.then9
   %uni15 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %call11, ptr %uni15, align 8
-  %cmp16.not75 = icmp eq ptr %11, %10
-  br i1 %cmp16.not75, label %while.end, label %while.body
+  %cmp16.not72 = icmp eq ptr %11, %10
+  br i1 %cmp16.not72, label %while.end, label %while.body
 
 while.body:                                       ; preds = %if.end14, %if.end23
-  %prev.077 = phi ptr [ %call18, %if.end23 ], [ %call11, %if.end14 ]
-  %next.076 = phi ptr [ %12, %if.end23 ], [ %11, %if.end14 ]
-  %call18 = tail call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef %m_doc, ptr noundef %next.076)
-  %next19 = getelementptr inbounds nuw i8, ptr %prev.077, i64 16
+  %prev.074 = phi ptr [ %call18, %if.end23 ], [ %call11, %if.end14 ]
+  %next.073 = phi ptr [ %12, %if.end23 ], [ %11, %if.end14 ]
+  %call18 = tail call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef %m_doc, ptr noundef %next.073)
+  %next19 = getelementptr inbounds nuw i8, ptr %prev.074, i64 16
   store ptr %call18, ptr %next19, align 8
   %tobool21.not = icmp eq ptr %call18, null
   br i1 %tobool21.not, label %return, label %if.end23
 
 if.end23:                                         ; preds = %while.body
-  %next25 = getelementptr inbounds nuw i8, ptr %next.076, i64 16
+  %next25 = getelementptr inbounds nuw i8, ptr %next.073, i64 16
   %12 = load ptr, ptr %next25, align 8
   %cmp16.not = icmp eq ptr %12, %10
   br i1 %cmp16.not, label %while.end.loopexit, label %while.body, !llvm.loop !18
@@ -1672,7 +1672,7 @@ if.end.i:                                         ; preds = %sw.bb29
   %19 = load ptr, ptr %ctx.i52, align 8
   %call.i = tail call ptr %18(ptr noundef %19, i64 noundef %.add.i) #28
   %tobool5.not.i53 = icmp eq ptr %call.i, null
-  br i1 %tobool5.not.i53, label %unsafe_yyjson_mut_strncpy.exit.thread, label %unsafe_yyjson_mut_str_alc.exit.thread
+  br i1 %tobool5.not.i53, label %unsafe_yyjson_mut_strncpy.exit, label %unsafe_yyjson_mut_str_alc.exit.thread
 
 unsafe_yyjson_mut_str_alc.exit.thread:            ; preds = %if.end.i
   %chunks.i55 = getelementptr inbounds nuw i8, ptr %m_doc, i64 72
@@ -1692,30 +1692,31 @@ unsafe_yyjson_mut_str_alc.exit.thread:            ; preds = %if.end.i
   %cmp30.i = icmp ult i64 %mul..i, %21
   %spec.select.i62 = select i1 %cmp30.i, i64 %22, i64 %mul..i
   store i64 %spec.select.i62, ptr %chunk_size.i51, align 8
-  %add.ptr.i6881 = getelementptr inbounds nuw i8, ptr %add.ptr.i57, i64 %shr.i
-  %add.ptr14.i82 = getelementptr inbounds nuw i8, ptr %add.ptr.i6881, i64 1
-  store ptr %add.ptr14.i82, ptr %str_pool.i, align 8
-  br label %unsafe_yyjson_mut_strncpy.exit
+  %add.ptr.i6878 = getelementptr inbounds nuw i8, ptr %add.ptr.i57, i64 %shr.i
+  %add.ptr14.i79 = getelementptr inbounds nuw i8, ptr %add.ptr.i6878, i64 1
+  store ptr %add.ptr14.i79, ptr %str_pool.i, align 8
+  br label %if.end.i50
 
 unsafe_yyjson_mut_str_alc.exit:                   ; preds = %sw.bb29
   %add.ptr.i68 = getelementptr inbounds nuw i8, ptr %16, i64 %shr.i
   %add.ptr14.i = getelementptr inbounds nuw i8, ptr %add.ptr.i68, i64 1
   store ptr %add.ptr14.i, ptr %str_pool.i, align 8
   %tobool.i.not = icmp eq ptr %16, null
-  br i1 %tobool.i.not, label %unsafe_yyjson_mut_strncpy.exit.thread, label %unsafe_yyjson_mut_strncpy.exit
+  br i1 %tobool.i.not, label %unsafe_yyjson_mut_strncpy.exit, label %if.end.i50
 
-unsafe_yyjson_mut_strncpy.exit.thread:            ; preds = %unsafe_yyjson_mut_str_alc.exit, %if.end.i
-  %uni3372 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr null, ptr %uni3372, align 8
-  br label %return
-
-unsafe_yyjson_mut_strncpy.exit:                   ; preds = %unsafe_yyjson_mut_str_alc.exit.thread, %unsafe_yyjson_mut_str_alc.exit
-  %add.ptr.i6884 = phi ptr [ %add.ptr.i6881, %unsafe_yyjson_mut_str_alc.exit.thread ], [ %add.ptr.i68, %unsafe_yyjson_mut_str_alc.exit ]
+if.end.i50:                                       ; preds = %unsafe_yyjson_mut_str_alc.exit.thread, %unsafe_yyjson_mut_str_alc.exit
+  %add.ptr.i6881 = phi ptr [ %add.ptr.i6878, %unsafe_yyjson_mut_str_alc.exit.thread ], [ %add.ptr.i68, %unsafe_yyjson_mut_str_alc.exit ]
   %23 = phi ptr [ %add.ptr.i57, %unsafe_yyjson_mut_str_alc.exit.thread ], [ %16, %unsafe_yyjson_mut_str_alc.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr align 1 %14, i64 %shr.i, i1 false)
-  store i8 0, ptr %add.ptr.i6884, align 1
+  store i8 0, ptr %add.ptr.i6881, align 1
+  br label %unsafe_yyjson_mut_strncpy.exit
+
+unsafe_yyjson_mut_strncpy.exit:                   ; preds = %if.end.i, %unsafe_yyjson_mut_str_alc.exit, %if.end.i50
+  %retval.i44.0 = phi ptr [ %23, %if.end.i50 ], [ null, %unsafe_yyjson_mut_str_alc.exit ], [ null, %if.end.i ]
   %uni33 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %23, ptr %uni33, align 8
+  store ptr %retval.i44.0, ptr %uni33, align 8
+  %tobool35.not = icmp eq ptr %retval.i44.0, null
+  %spec.select = select i1 %tobool35.not, ptr null, ptr %8
   br label %return
 
 sw.default:                                       ; preds = %if.end
@@ -1725,8 +1726,8 @@ sw.default:                                       ; preds = %if.end
   store i64 %24, ptr %uni38, align 8
   br label %return
 
-return:                                           ; preds = %while.body, %if.then.i, %sw.default, %while.end, %sw.bb, %unsafe_yyjson_mut_strncpy.exit, %unsafe_yyjson_mut_strncpy.exit.thread, %if.then9, %unsafe_yyjson_mut_val.exit
-  %retval.0 = phi ptr [ null, %unsafe_yyjson_mut_val.exit ], [ null, %if.then9 ], [ null, %unsafe_yyjson_mut_strncpy.exit.thread ], [ %8, %unsafe_yyjson_mut_strncpy.exit ], [ %8, %sw.bb ], [ %8, %while.end ], [ %8, %sw.default ], [ null, %if.then.i ], [ null, %while.body ]
+return:                                           ; preds = %while.body, %if.then.i, %sw.default, %while.end, %sw.bb, %unsafe_yyjson_mut_strncpy.exit, %if.then9, %unsafe_yyjson_mut_val.exit
+  %retval.0 = phi ptr [ null, %unsafe_yyjson_mut_val.exit ], [ null, %if.then9 ], [ %spec.select, %unsafe_yyjson_mut_strncpy.exit ], [ %8, %sw.bb ], [ %8, %while.end ], [ %8, %sw.default ], [ null, %if.then.i ], [ null, %while.body ]
   ret ptr %retval.0
 }
 
@@ -7686,7 +7687,7 @@ yyjson_mut_val_mut_copy.exit149:                  ; preds = %yyjson_mut_val_mut_
   %and.i.i209131 = and i64 %25, 7
   %cmp.i212 = icmp ne i64 %and.i.i209131, 7
   %tobool.i214.not = icmp eq ptr %call.i141, null
-  %or.cond215 = or i1 %tobool.i214.not, %cmp.i212
+  %or.cond215 = select i1 %cmp.i212, i1 true, i1 %tobool.i214.not
   br i1 %or.cond215, label %return, label %yyjson_mut_is_str.exit
 
 yyjson_mut_is_str.exit:                           ; preds = %yyjson_mut_val_mut_copy.exit149
@@ -7694,7 +7695,7 @@ yyjson_mut_is_str.exit:                           ; preds = %yyjson_mut_val_mut_
   %and.i.i383132 = and i64 %26, 7
   %cmp.i386 = icmp eq i64 %and.i.i383132, 5
   %tobool.i110 = icmp ne ptr %retval.0.i146, null
-  %or.cond = and i1 %tobool.i110, %cmp.i386
+  %or.cond = select i1 %cmp.i386, i1 %tobool.i110, i1 false
   br i1 %or.cond, label %if.then.i105, label %return
 
 if.then.i105:                                     ; preds = %yyjson_mut_is_str.exit
@@ -7842,7 +7843,7 @@ yyjson_mut_obj_getn.exit:                         ; preds = %if.end.i290, %cond.
   %and.i.i200125 = and i64 %48, 7
   %cmp.i203 = icmp ne i64 %and.i.i200125, 7
   %tobool.i221.not = icmp eq ptr %retval.0.i153, null
-  %or.cond216 = or i1 %tobool.i221.not, %cmp.i203
+  %or.cond216 = select i1 %cmp.i203, i1 true, i1 %tobool.i221.not
   br i1 %or.cond216, label %return, label %yyjson_mut_is_str.exit228
 
 yyjson_mut_is_str.exit228:                        ; preds = %yyjson_mut_obj_getn.exit
@@ -33596,13 +33597,14 @@ land.lhs.true290:                                 ; preds = %land.lhs.true285
   %arrayidx291 = getelementptr inbounds nuw i8, ptr %cur.0, i64 2
   %2642 = load i8, ptr %arrayidx291, align 1
   %cmp293 = icmp eq i8 %2642, 0
-  br i1 %cmp293, label %land.lhs.true295, label %if.then325
+  br i1 %cmp293, label %land.lhs.true295, label %if.end330.sink.split
 
 land.lhs.true295:                                 ; preds = %land.lhs.true290
   %arrayidx296 = getelementptr inbounds nuw i8, ptr %cur.0, i64 3
   %2643 = load i8, ptr %arrayidx296, align 1
   %cmp298 = icmp eq i8 %2643, 0
-  br i1 %cmp298, label %if.end330.sink.split, label %if.then325
+  %spec.select = select i1 %cmp298, ptr @.str.32, ptr @.str.33
+  br label %if.end330.sink.split
 
 if.else302:                                       ; preds = %if.else258
   %cmp303.not = icmp eq i64 %len, 1
@@ -33618,19 +33620,16 @@ land.lhs.true310:                                 ; preds = %land.lhs.true261, %
   %arrayidx311 = getelementptr inbounds nuw i8, ptr %cur.0, i64 1
   %2644 = load i8, ptr %arrayidx311, align 1
   %cmp313 = icmp eq i8 %2644, -1
-  br i1 %cmp313, label %if.then325, label %if.end330
+  br i1 %cmp313, label %if.end330.sink.split, label %if.end330
 
 land.lhs.true320:                                 ; preds = %land.lhs.true305
   %arrayidx321.phi.trans.insert = getelementptr inbounds nuw i8, ptr %cur.0, i64 1
   %.pre11288 = load i8, ptr %arrayidx321.phi.trans.insert, align 1
   %2645 = icmp eq i8 %.pre11288, -2
-  br i1 %2645, label %if.then325, label %if.end330
+  br i1 %2645, label %if.end330.sink.split, label %if.end330
 
-if.then325:                                       ; preds = %land.lhs.true295, %land.lhs.true290, %land.lhs.true320, %land.lhs.true310
-  br label %if.end330.sink.split
-
-if.end330.sink.split:                             ; preds = %land.lhs.true276, %land.lhs.true295, %land.lhs.true251, %if.then325
-  %.str.31.sink = phi ptr [ @.str.33, %if.then325 ], [ @.str.31, %land.lhs.true251 ], [ @.str.32, %land.lhs.true295 ], [ @.str.32, %land.lhs.true276 ]
+if.end330.sink.split:                             ; preds = %land.lhs.true310, %land.lhs.true320, %land.lhs.true290, %land.lhs.true295, %land.lhs.true276, %land.lhs.true251
+  %.str.31.sink = phi ptr [ @.str.31, %land.lhs.true251 ], [ %spec.select, %land.lhs.true295 ], [ @.str.32, %land.lhs.true276 ], [ @.str.33, %land.lhs.true290 ], [ @.str.33, %land.lhs.true320 ], [ @.str.33, %land.lhs.true310 ]
   store ptr %.str.31.sink, ptr %err.addr.0.sroa.phi7622.v.sroa.sel.v.sroa.sel, align 8
   br label %if.end330
 

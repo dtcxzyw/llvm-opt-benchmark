@@ -313,22 +313,21 @@ define hidden { ptr, i64 } @"_ZN4core3str6traits110_$LT$impl$u20$core..slice..in
 
 6:                                                ; preds = %5
   %7 = icmp eq i64 %0, %2
-  br i1 %7, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.llvm.17794941744620341598.exit.thread", label %11
+  %spec.select = select i1 %7, ptr %1, ptr null
+  br label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.llvm.17794941744620341598.exit.thread"
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.llvm.17794941744620341598.exit": ; preds = %5
   %8 = getelementptr inbounds i8, ptr %1, i64 %0
   %9 = load i8, ptr %8, align 1, !alias.scope !15, !noundef !4
   %10 = icmp sgt i8 %9, -65
-  br i1 %10, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.llvm.17794941744620341598.exit.thread", label %11
+  %spec.select5 = select i1 %10, ptr %1, ptr null
+  br label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.llvm.17794941744620341598.exit.thread"
 
-"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.llvm.17794941744620341598.exit.thread": ; preds = %3, %6, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.llvm.17794941744620341598.exit"
-  br label %11
-
-11:                                               ; preds = %6, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.llvm.17794941744620341598.exit", %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.llvm.17794941744620341598.exit.thread"
-  %12 = phi ptr [ %1, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.llvm.17794941744620341598.exit.thread" ], [ null, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.llvm.17794941744620341598.exit" ], [ null, %6 ]
-  %13 = insertvalue { ptr, i64 } poison, ptr %12, 0
-  %14 = insertvalue { ptr, i64 } %13, i64 %0, 1
-  ret { ptr, i64 } %14
+"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.llvm.17794941744620341598.exit.thread": ; preds = %3, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.llvm.17794941744620341598.exit", %6
+  %11 = phi ptr [ %spec.select5, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.llvm.17794941744620341598.exit" ], [ %spec.select, %6 ], [ %1, %3 ]
+  %12 = insertvalue { ptr, i64 } poison, ptr %11, 0
+  %13 = insertvalue { ptr, i64 } %12, i64 %0, 1
+  ret { ptr, i64 } %13
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -14594,7 +14593,7 @@ define hidden noundef i64 @_ZN12typst_syntax6parser6Parser6column17h83b854ecc578
   tail call void @_ZN4core3str16slice_error_fail17hc482bbaa01e121c2E(ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %7, i64 noundef 0, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.cbbb257abe6dee889b44eb762842009f.147.llvm.17794941744620341598) #23
   unreachable
 
-"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7d4e6bac97f1e81aE.llvm.17794941744620341598.exit": ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.llvm.17794941744620341598.exit.i", %10, %2
+"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7d4e6bac97f1e81aE.llvm.17794941744620341598.exit": ; preds = %10, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.llvm.17794941744620341598.exit.i", %2
   %16 = getelementptr inbounds i8, ptr %5, i64 %1
   store ptr %5, ptr %3, align 8
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8

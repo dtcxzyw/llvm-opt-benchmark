@@ -4362,7 +4362,7 @@ define zeroext i1 @CheckCollisionCircleRec(<2 x float> %0, float noundef %1, <2 
 declare float @llvm.fabs.f32(float) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @CheckCollisionLines(<2 x float> %0, <2 x float> %1, <2 x float> %2, <2 x float> %3, ptr noundef writeonly %4) local_unnamed_addr #13 {
+define zeroext i1 @CheckCollisionLines(<2 x float> %0, <2 x float> %1, <2 x float> %2, <2 x float> %3, ptr noundef writeonly %4) local_unnamed_addr #13 {
   %.sroa.0.4.vec.extract = extractelement <2 x float> %3, i64 1
   %.sroa.042.4.vec.extract = extractelement <2 x float> %2, i64 1
   %6 = fsub float %.sroa.0.4.vec.extract, %.sroa.042.4.vec.extract
@@ -4449,25 +4449,30 @@ define noundef zeroext i1 @CheckCollisionLines(<2 x float> %0, <2 x float> %1, <
 
 63:                                               ; preds = %60
   %64 = tail call float @llvm.minnum.f32(float %.sroa.042.4.vec.extract, float %.sroa.0.4.vec.extract)
-  %65 = fcmp olt float %36, %64
+  %65 = fcmp uge float %36, %64
   %66 = tail call float @llvm.maxnum.f32(float %.sroa.042.4.vec.extract, float %.sroa.0.4.vec.extract)
-  %67 = fcmp ogt float %36, %66
-  %or.cond129 = select i1 %65, i1 true, i1 %67
-  br i1 %or.cond129, label %.thread, label %68
+  %67 = fcmp ule float %36, %66
+  %or.cond129.not = select i1 %65, i1 %67, i1 false
+  %spec.select = zext i1 %or.cond129.not to i8
+  br label %68
 
 68:                                               ; preds = %63, %60
-  %.not = icmp eq ptr %4, null
-  br i1 %.not, label %.thread, label %69
+  %.1 = phi i8 [ 1, %60 ], [ %spec.select, %63 ]
+  %69 = trunc nuw i8 %.1 to i1
+  %70 = icmp ne ptr %4, null
+  %or.cond = and i1 %70, %69
+  br i1 %or.cond, label %71, label %.thread
 
-69:                                               ; preds = %68
+71:                                               ; preds = %68
   store float %31, ptr %4, align 4
-  %70 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store float %36, ptr %70, align 4
+  %72 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store float %36, ptr %72, align 4
   br label %.thread
 
-.thread:                                          ; preds = %63, %55, %47, %39, %68, %69, %5
-  %.0 = phi i1 [ true, %69 ], [ true, %68 ], [ false, %5 ], [ false, %39 ], [ false, %47 ], [ false, %55 ], [ false, %63 ]
-  ret i1 %.0
+.thread:                                          ; preds = %39, %47, %55, %68, %71, %5
+  %.0 = phi i8 [ %.1, %71 ], [ %.1, %68 ], [ 0, %5 ], [ 0, %55 ], [ 0, %47 ], [ 0, %39 ]
+  %73 = trunc nuw i8 %.0 to i1
+  ret i1 %73
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

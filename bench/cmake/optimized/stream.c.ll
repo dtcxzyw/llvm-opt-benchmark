@@ -1433,10 +1433,11 @@ uv__handle_fd.exit.i:                             ; preds = %24, %21, %21
   %.sink3.i.i = phi i64 [ 176, %24 ], [ 184, %21 ], [ 184, %21 ]
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink3.i.i
   %26 = load i32, ptr %25, align 8
-  %27 = icmp slt i32 %26, 0
+  %.fr.i = freeze i32 %26
+  %27 = icmp slt i32 %.fr.i, 0
   br i1 %27, label %uv__check_before_write.exit.thread, label %uv__check_before_write.exit
 
-uv__check_before_write.exit:                      ; preds = %uv__handle_fd.exit.i, %14
+uv__check_before_write.exit:                      ; preds = %14, %uv__handle_fd.exit.i
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %29 = load i64, ptr %28, align 8
   %30 = icmp eq i64 %29, 0
@@ -1510,8 +1511,8 @@ uv__check_before_write.exit:                      ; preds = %uv__handle_fd.exit.
   tail call void @uv__io_start(ptr noundef %65, ptr noundef nonnull %66, i32 noundef 4) #12
   br label %uv__check_before_write.exit.thread
 
-uv__check_before_write.exit.thread:               ; preds = %21, %uv__handle_fd.exit.i, %15, %18, %10, %6, %.thread, %64, %63, %48
-  %.0 = phi i32 [ -12, %48 ], [ 0, %63 ], [ 0, %64 ], [ 0, %.thread ], [ -9, %21 ], [ -9, %uv__handle_fd.exit.i ], [ -22, %15 ], [ -22, %18 ], [ -32, %10 ], [ -9, %6 ]
+uv__check_before_write.exit.thread:               ; preds = %uv__handle_fd.exit.i, %21, %15, %18, %10, %6, %.thread, %64, %63, %48
+  %.0 = phi i32 [ -12, %48 ], [ 0, %63 ], [ 0, %64 ], [ 0, %.thread ], [ -9, %21 ], [ -22, %15 ], [ -22, %18 ], [ -32, %10 ], [ -9, %6 ], [ -9, %uv__handle_fd.exit.i ]
   ret i32 %.0
 }
 

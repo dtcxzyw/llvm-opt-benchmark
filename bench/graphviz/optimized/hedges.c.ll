@@ -197,7 +197,7 @@ define noundef ptr @hintersect(ptr nocapture noundef readonly %0, ptr nocapture 
   %40 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %41 = load double, ptr %40, align 8
   %42 = fcmp olt double %39, %41
-  br i1 %42, label %50, label %43
+  br i1 %42, label %49, label %43
 
 43:                                               ; preds = %26
   %44 = fcmp oeq double %39, %41
@@ -207,25 +207,26 @@ define noundef ptr @hintersect(ptr nocapture noundef readonly %0, ptr nocapture 
   %46 = load double, ptr %11, align 8
   %47 = load double, ptr %13, align 8
   %48 = fcmp olt double %46, %47
-  br i1 %48, label %50, label %49
+  %spec.select = select i1 %48, ptr %0, ptr %1
+  %spec.select55 = select i1 %48, ptr %4, ptr %6
+  br label %49
 
-49:                                               ; preds = %45, %43
-  br label %50
-
-50:                                               ; preds = %26, %45, %49
-  %51 = phi ptr [ %13, %49 ], [ %11, %45 ], [ %11, %26 ]
-  %.048 = phi ptr [ %1, %49 ], [ %0, %45 ], [ %0, %26 ]
+49:                                               ; preds = %43, %45, %26
+  %.048 = phi ptr [ %spec.select, %45 ], [ %0, %26 ], [ %1, %43 ]
+  %.047 = phi ptr [ %spec.select55, %45 ], [ %4, %26 ], [ %6, %43 ]
+  %50 = getelementptr inbounds nuw i8, ptr %.047, i64 48
+  %51 = load ptr, ptr %50, align 8
   %52 = load double, ptr %51, align 8
   %53 = fcmp ult double %34, %52
   %54 = getelementptr inbounds nuw i8, ptr %.048, i64 28
   %55 = load i8, ptr %54, align 4
   br i1 %53, label %.critedge, label %56
 
-56:                                               ; preds = %50
+56:                                               ; preds = %49
   %57 = icmp eq i8 %55, 0
   br i1 %57, label %63, label %59
 
-.critedge:                                        ; preds = %50
+.critedge:                                        ; preds = %49
   %58 = icmp eq i8 %55, 1
   br i1 %58, label %63, label %59
 

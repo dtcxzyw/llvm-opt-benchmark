@@ -2247,16 +2247,16 @@ _ZNK8simdjson8internal29available_implementation_list3endEv.exit: ; preds = %_ZN
   %.b = load i1, ptr @_ZZN8simdjson8internalL37get_available_implementation_pointersEvE33available_implementation_pointers.1, align 8
   %6 = select i1 %.b, i64 4, i64 0
   %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %5, i64 %6
-  %cmp.not7 = icmp eq ptr %2, %add.ptr.i.i
-  br i1 %cmp.not7, label %return, label %for.body.lr.ph
+  %cmp.not8 = icmp eq ptr %2, %add.ptr.i.i
+  br i1 %cmp.not8, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZNK8simdjson8internal29available_implementation_list3endEv.exit
   %agg.tmp5.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %name, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %__begin2.08 = phi ptr [ %2, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
-  %7 = load ptr, ptr %__begin2.08, align 8
+  %__begin2.09 = phi ptr [ %2, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
+  %7 = load ptr, ptr %__begin2.09, align 8
   %vtable = load ptr, ptr %7, align 8
   %8 = load ptr, ptr %vtable, align 8
   %call3 = invoke noundef nonnull align 8 dereferenceable(32) ptr %8(ptr noundef nonnull align 8 dereferenceable(76) %7)
@@ -2273,20 +2273,20 @@ invoke.cont:                                      ; preds = %for.body
 
 land.rhs.i:                                       ; preds = %invoke.cont
   %cmp.i2.i.i = icmp eq i64 %9, 0
-  br i1 %cmp.i2.i.i, label %return, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
+  br i1 %cmp.i2.i.i, label %return, label %_ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4typeES6_.exit
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %land.rhs.i
+_ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4typeES6_.exit: ; preds = %land.rhs.i
   %bcmp.i = tail call i32 @bcmp(ptr %10, ptr %agg.tmp5.sroa.2.0.copyload, i64 %9)
   %cmp.i.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp.i.i, label %return, label %for.inc
 
-for.inc:                                          ; preds = %invoke.cont, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin2.08, i64 8
+for.inc:                                          ; preds = %invoke.cont, %_ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4typeES6_.exit
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin2.09, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i.i
   br i1 %cmp.not, label %return, label %for.body
 
-return:                                           ; preds = %for.inc, %land.rhs.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %_ZNK8simdjson8internal29available_implementation_list3endEv.exit
-  %retval.0 = phi ptr [ null, %_ZNK8simdjson8internal29available_implementation_list3endEv.exit ], [ %7, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ %7, %land.rhs.i ], [ null, %for.inc ]
+return:                                           ; preds = %_ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4typeES6_.exit, %for.inc, %land.rhs.i, %_ZNK8simdjson8internal29available_implementation_list3endEv.exit
+  %retval.0 = phi ptr [ null, %_ZNK8simdjson8internal29available_implementation_list3endEv.exit ], [ %7, %land.rhs.i ], [ null, %for.inc ], [ %7, %_ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4typeES6_.exit ]
   ret ptr %retval.0
 
 terminate.lpad:                                   ; preds = %for.body
@@ -2723,7 +2723,7 @@ if.end178.i.i.i:                                  ; preds = %lor.rhs151.i.i.i
   %cmp184.i.i.i = icmp eq i8 %3, -16
   %cmp192.i.i.i = icmp samesign ult i8 %8, -112
   %or.cond11.i.i.i = select i1 %cmp184.i.i.i, i1 %cmp192.i.i.i, i1 false
-  br i1 %or.cond11.i.i.i, label %if.end212.i.i.i.thread, label %if.end195.i.i.i
+  br i1 %or.cond11.i.i.i, label %if.end221.i.i.i, label %if.end195.i.i.i
 
 if.end195.i.i.i:                                  ; preds = %if.end178.i.i.i
   %cmp201.i.i.i = icmp eq i8 %3, -12
@@ -2731,29 +2731,27 @@ if.end195.i.i.i:                                  ; preds = %if.end178.i.i.i
 
 land.lhs.true202.i.i.i:                           ; preds = %if.end195.i.i.i
   %cmp209.i.i.i = icmp samesign ugt i8 %8, -113
-  br i1 %cmp209.i.i.i, label %if.end212.i.i.i.thread, label %if.end221.i.i.i
-
-if.end212.i.i.i.thread:                           ; preds = %land.lhs.true202.i.i.i, %if.end178.i.i.i
+  %spec.select41 = select i1 %cmp209.i.i.i, i32 10, i32 %scanner.sroa.44.5
   br label %if.end221.i.i.i
 
 if.end212.i.i.i:                                  ; preds = %if.end195.i.i.i
   %cmp218.i.i.i = icmp samesign ugt i8 %3, -12
-  %spec.select41 = select i1 %cmp218.i.i.i, i32 10, i32 %scanner.sroa.44.5
+  %spec.select42 = select i1 %cmp218.i.i.i, i32 10, i32 %scanner.sroa.44.5
   br label %if.end221.i.i.i
 
-if.end221.i.i.i:                                  ; preds = %if.end212.i.i.i, %if.end212.i.i.i.thread, %land.lhs.true202.i.i.i
-  %scanner.sroa.44.9 = phi i32 [ %scanner.sroa.44.5, %land.lhs.true202.i.i.i ], [ 10, %if.end212.i.i.i.thread ], [ %spec.select41, %if.end212.i.i.i ]
+if.end221.i.i.i:                                  ; preds = %if.end212.i.i.i, %if.end178.i.i.i, %land.lhs.true202.i.i.i
+  %scanner.sroa.44.9 = phi i32 [ %spec.select41, %land.lhs.true202.i.i.i ], [ 10, %if.end178.i.i.i ], [ %spec.select42, %if.end212.i.i.i ]
   %add223.i.i.i = add i32 %add223.sink.i25.i.i, 4
   br label %if.end31.i.i
 
 if.else20.i.i:                                    ; preds = %if.else.i.i
   %cmp26.i.i = icmp samesign ult i8 %3, 32
-  %spec.select42 = select i1 %cmp26.i.i, i32 13, i32 %scanner.sroa.44.5
+  %spec.select43 = select i1 %cmp26.i.i, i32 13, i32 %scanner.sroa.44.5
   %inc29.i.i = add nuw i32 %add223.sink.i25.i.i, 1
   br label %if.end31.i.i
 
 if.end31.i.i:                                     ; preds = %lor.lhs.false.i.i.i, %lor.rhs68.i.i.i, %land.lhs.true85.if.end91_crit_edge.i.i.i, %if.then12.i.i.i, %if.else20.i.i, %if.end221.i.i.i, %if.end174.i.i.i, %if.end95.i.i.i, %if.end37.i.i.i, %if.then.i.i.i, %if.then.i.i
-  %scanner.sroa.44.6 = phi i32 [ %spec.select42, %if.else20.i.i ], [ 10, %if.then.i.i.i ], [ %spec.select, %if.end37.i.i.i ], [ %scanner.sroa.44.11, %if.end95.i.i.i ], [ 10, %if.end174.i.i.i ], [ %scanner.sroa.44.9, %if.end221.i.i.i ], [ %scanner.sroa.44.5, %if.then.i.i ], [ 10, %if.then12.i.i.i ], [ 10, %land.lhs.true85.if.end91_crit_edge.i.i.i ], [ 10, %lor.rhs68.i.i.i ], [ 10, %lor.lhs.false.i.i.i ]
+  %scanner.sroa.44.6 = phi i32 [ %spec.select43, %if.else20.i.i ], [ 10, %if.then.i.i.i ], [ %spec.select, %if.end37.i.i.i ], [ %scanner.sroa.44.11, %if.end95.i.i.i ], [ 10, %if.end174.i.i.i ], [ %scanner.sroa.44.9, %if.end221.i.i.i ], [ %scanner.sroa.44.5, %if.then.i.i ], [ 10, %if.then12.i.i.i ], [ 10, %land.lhs.true85.if.end91_crit_edge.i.i.i ], [ 10, %lor.rhs68.i.i.i ], [ 10, %lor.lhs.false.i.i.i ]
   %add223.sink.i.sink.i.i = phi i32 [ %inc29.i.i, %if.else20.i.i ], [ %inc.i.i.i, %if.then.i.i.i ], [ %add48.i.i.i, %if.end37.i.i.i ], [ %add131.i.i.i, %if.end95.i.i.i ], [ %inc177.i.i.i, %if.end174.i.i.i ], [ %add223.i.i.i, %if.end221.i.i.i ], [ %add.i.i, %if.then.i.i ], [ %add.i.i.i, %if.then12.i.i.i ], [ %.pre13.i.i.i, %land.lhs.true85.if.end91_crit_edge.i.i.i ], [ %add64.i.i.i, %lor.rhs68.i.i.i ], [ %add64.i.i.i, %lor.lhs.false.i.i.i ]
   %cmp.i.i = icmp ult i32 %add223.sink.i.sink.i.i, %conv.i
   br i1 %cmp.i.i, label %land.rhs.i.i, label %_ZN8simdjson8fallback12_GLOBAL__N_16stage118structural_scanner15validate_stringEv.exit.i, !llvm.loop !31
@@ -2895,15 +2893,15 @@ if.end79.i:                                       ; preds = %if.then75.i, %if.th
   store i32 %conv.i, ptr %arrayidx.i17.i, align 4
   %22 = load i32, ptr %n_structural_indexes.i, align 8
   %cmp106.i = icmp eq i32 %22, 0
-  %spec.select44 = select i1 %cmp106.i, i32 12, i32 %scanner.sroa.44.0
+  %spec.select45 = select i1 %cmp106.i, i32 12, i32 %scanner.sroa.44.0
   br label %invoke.cont2
 
 if.else109.i:                                     ; preds = %if.end.i
-  %spec.select45 = select i1 %unclosed_string.0.lcssa.i, i32 14, i32 %scanner.sroa.44.0
+  %spec.select46 = select i1 %unclosed_string.0.lcssa.i, i32 14, i32 %scanner.sroa.44.0
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %if.else109.i, %if.end79.i, %if.else.i, %if.then59.i, %if.then41.i, %for.end.i, %if.end67.i
-  %retval.0.i = phi i32 [ 12, %if.else.i ], [ 12, %for.end.i ], [ 1, %if.then41.i ], [ 1, %if.then59.i ], [ %scanner.sroa.44.0, %if.end67.i ], [ %spec.select45, %if.else109.i ], [ %spec.select44, %if.end79.i ]
+  %retval.0.i = phi i32 [ 12, %if.else.i ], [ 12, %for.end.i ], [ 1, %if.then41.i ], [ 1, %if.then59.i ], [ %scanner.sroa.44.0, %if.end67.i ], [ %spec.select46, %if.else109.i ], [ %spec.select45, %if.end79.i ]
   ret i32 %retval.0.i
 }
 

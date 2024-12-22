@@ -13387,7 +13387,7 @@ define noundef zeroext i1 @_ZN14regex_automata4util8alphabet7ByteSet8contains17h
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN14regex_automata4util8alphabet7ByteSet14contains_range17h0acd3c136499bc32E(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0, i8 noundef %1, i8 noundef %2) unnamed_addr #31 personality ptr @rust_eh_personality {
   %.not.i = icmp ugt i8 %1, %2
-  br i1 %.not.i, label %.sink.split.i.thread, label %.preheader.i
+  br i1 %.not.i, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h09d75b53c03d931aE.llvm.8347807780687254574.exit", label %.preheader.i
 
 .preheader.i:                                     ; preds = %3, %5
   %4 = phi i8 [ %6, %5 ], [ %1, %3 ]
@@ -13416,14 +13416,11 @@ define hidden noundef zeroext i1 @_ZN14regex_automata4util8alphabet7ByteSet14con
   %18 = zext nneg i8 %17 to i128
   %19 = shl nuw i128 1, %18
   %20 = and i128 %16, %19
-  %.not.i14.not.i = icmp eq i128 %20, 0
-  br i1 %.not.i14.not.i, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h09d75b53c03d931aE.llvm.8347807780687254574.exit", label %.sink.split.i.thread
-
-.sink.split.i.thread:                             ; preds = %"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..iter..range..RangeInclusiveIteratorImpl$GT$13spec_try_fold17h1edd916a31d9f845E.llvm.8347807780687254574.exit", %3
+  %.not.i14.not.i = icmp ne i128 %20, 0
   br label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h09d75b53c03d931aE.llvm.8347807780687254574.exit"
 
-"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h09d75b53c03d931aE.llvm.8347807780687254574.exit": ; preds = %5, %"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..iter..range..RangeInclusiveIteratorImpl$GT$13spec_try_fold17h1edd916a31d9f845E.llvm.8347807780687254574.exit", %.sink.split.i.thread
-  %21 = phi i1 [ false, %"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..iter..range..RangeInclusiveIteratorImpl$GT$13spec_try_fold17h1edd916a31d9f845E.llvm.8347807780687254574.exit" ], [ true, %.sink.split.i.thread ], [ false, %5 ]
+"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h09d75b53c03d931aE.llvm.8347807780687254574.exit": ; preds = %5, %3, %"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..iter..range..RangeInclusiveIteratorImpl$GT$13spec_try_fold17h1edd916a31d9f845E.llvm.8347807780687254574.exit"
+  %21 = phi i1 [ %.not.i14.not.i, %"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..iter..range..RangeInclusiveIteratorImpl$GT$13spec_try_fold17h1edd916a31d9f845E.llvm.8347807780687254574.exit" ], [ true, %3 ], [ false, %5 ]
   ret i1 %21
 }
 

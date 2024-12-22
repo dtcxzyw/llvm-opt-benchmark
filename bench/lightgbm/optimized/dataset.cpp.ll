@@ -937,13 +937,13 @@ _ZNSt6vectorIdN8LightGBM6Common18AlignmentAllocatorIdLm32EEEE17_S_check_init_len
 197:                                              ; preds = %193
   %198 = load ptr, ptr %91, align 8
   %.not.i = icmp eq ptr %198, null
-  br i1 %.not.i, label %_ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit.thread, label %199
+  br i1 %.not.i, label %_ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit.thread.invoke, label %199
 
 199:                                              ; preds = %197
   %200 = getelementptr inbounds nuw i8, ptr %198, i64 8
   %201 = load ptr, ptr %200, align 8
   %.not.i.i93 = icmp eq ptr %201, null
-  br i1 %.not.i.i93, label %_ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit.thread, label %202
+  br i1 %.not.i.i93, label %_ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit.thread.invoke, label %202
 
 202:                                              ; preds = %199
   %203 = load ptr, ptr %201, align 8
@@ -953,13 +953,11 @@ _ZNSt6vectorIdN8LightGBM6Common18AlignmentAllocatorIdLm32EEEE17_S_check_init_len
           to label %_ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit unwind label %190
 
 _ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit: ; preds = %202
-  br i1 %206, label %_ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit.thread.invoke, label %_ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit.thread
-
-_ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit.thread: ; preds = %199, %197, %_ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit
+  %spec.select = select i1 %206, ptr @.str.5, ptr @.str.6
   br label %_ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit.thread.invoke
 
-_ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit.thread.invoke: ; preds = %_ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit, %_ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit.thread
-  %207 = phi ptr [ @.str.6, %_ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit.thread ], [ @.str.5, %_ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit ]
+_ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit.thread.invoke: ; preds = %197, %199, %_ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit
+  %207 = phi ptr [ %spec.select, %_ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit ], [ @.str.6, %199 ], [ @.str.6, %197 ]
   invoke void (ptr, ...) @_ZN8LightGBM3Log5DebugEPKcz(ptr noundef nonnull %207)
           to label %208 unwind label %190
 
@@ -5054,13 +5052,13 @@ _ZNSt6vectorIdN8LightGBM6Common18AlignmentAllocatorIdLm32EEEE17_S_check_init_len
 197:                                              ; preds = %193
   %198 = load ptr, ptr %91, align 8
   %.not.i = icmp eq ptr %198, null
-  br i1 %.not.i, label %_ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit.thread, label %199
+  br i1 %.not.i, label %_ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit.thread.invoke, label %199
 
 199:                                              ; preds = %197
   %200 = getelementptr inbounds nuw i8, ptr %198, i64 8
   %201 = load ptr, ptr %200, align 8
   %.not.i.i93 = icmp eq ptr %201, null
-  br i1 %.not.i.i93, label %_ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit.thread, label %202
+  br i1 %.not.i.i93, label %_ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit.thread.invoke, label %202
 
 202:                                              ; preds = %199
   %203 = load ptr, ptr %201, align 8
@@ -5070,13 +5068,11 @@ _ZNSt6vectorIdN8LightGBM6Common18AlignmentAllocatorIdLm32EEEE17_S_check_init_len
           to label %_ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit unwind label %190
 
 _ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit: ; preds = %202
-  br i1 %206, label %_ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit.thread.invoke, label %_ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit.thread
-
-_ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit.thread: ; preds = %199, %197, %_ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit
+  %spec.select = select i1 %206, ptr @.str.5, ptr @.str.6
   br label %_ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit.thread.invoke
 
-_ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit.thread.invoke: ; preds = %_ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit, %_ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit.thread
-  %207 = phi ptr [ @.str.6, %_ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit.thread ], [ @.str.5, %_ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit ]
+_ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit.thread.invoke: ; preds = %197, %199, %_ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit
+  %207 = phi ptr [ %spec.select, %_ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit ], [ @.str.6, %199 ], [ @.str.6, %197 ]
   invoke void (ptr, ...) @_ZN8LightGBM3Log5DebugEPKcz(ptr noundef nonnull %207)
           to label %208 unwind label %190
 
@@ -7554,13 +7550,13 @@ _ZNSt6vectorIdN8LightGBM6Common18AlignmentAllocatorIdLm32EEEE17_S_check_init_len
 197:                                              ; preds = %193
   %198 = load ptr, ptr %91, align 8
   %.not.i = icmp eq ptr %198, null
-  br i1 %.not.i, label %_ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit.thread, label %199
+  br i1 %.not.i, label %_ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit.thread.invoke, label %199
 
 199:                                              ; preds = %197
   %200 = getelementptr inbounds nuw i8, ptr %198, i64 8
   %201 = load ptr, ptr %200, align 8
   %.not.i.i93 = icmp eq ptr %201, null
-  br i1 %.not.i.i93, label %_ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit.thread, label %202
+  br i1 %.not.i.i93, label %_ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit.thread.invoke, label %202
 
 202:                                              ; preds = %199
   %203 = load ptr, ptr %201, align 8
@@ -7570,13 +7566,11 @@ _ZNSt6vectorIdN8LightGBM6Common18AlignmentAllocatorIdLm32EEEE17_S_check_init_len
           to label %_ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit unwind label %190
 
 _ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit: ; preds = %202
-  br i1 %206, label %_ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit.thread.invoke, label %_ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit.thread
-
-_ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit.thread: ; preds = %199, %197, %_ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit
+  %spec.select = select i1 %206, ptr @.str.5, ptr @.str.6
   br label %_ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit.thread.invoke
 
-_ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit.thread.invoke: ; preds = %_ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit, %_ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit.thread
-  %207 = phi ptr [ @.str.6, %_ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit.thread ], [ @.str.5, %_ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit ]
+_ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit.thread.invoke: ; preds = %197, %199, %_ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit
+  %207 = phi ptr [ %spec.select, %_ZN8LightGBM19TrainingShareStates15IsSparseRowwiseEv.exit ], [ @.str.6, %199 ], [ @.str.6, %197 ]
   invoke void (ptr, ...) @_ZN8LightGBM3Log5DebugEPKcz(ptr noundef nonnull %207)
           to label %208 unwind label %190
 

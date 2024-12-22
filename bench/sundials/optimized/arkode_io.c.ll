@@ -904,9 +904,9 @@ define i32 @arkSetFixedStep(ptr noundef %0, double noundef %1) local_unnamed_add
 arkSetInitStep.exit:                              ; preds = %27, %7, %5
   %.sink.i = phi double [ 0.000000e+00, %27 ], [ 0.000000e+00, %7 ], [ %1, %5 ]
   %28 = fcmp une double %1, 0.000000e+00
-  %.sink = zext i1 %28 to i32
+  %spec.select = zext i1 %28 to i32
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  store i32 %.sink, ptr %29, align 8
+  store i32 %spec.select, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 368
   store double %.sink.i, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 560
@@ -2439,7 +2439,7 @@ define i32 @arkPrintAllStats(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
 
 5:                                                ; preds = %3
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1942, ptr noundef nonnull @__func__.arkPrintAllStats, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #8
-  br label %95
+  br label %94
 
 6:                                                ; preds = %3
   switch i32 %2, label %85 [
@@ -2533,7 +2533,7 @@ define i32 @arkPrintAllStats(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
 
 85:                                               ; preds = %6
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 1993, ptr noundef nonnull @__func__.arkPrintAllStats, ptr noundef nonnull @.str, ptr noundef nonnull @.str.56) #8
-  br label %95
+  br label %94
 
 .sink.split:                                      ; preds = %46, %7
   %.sink = phi ptr [ %45, %7 ], [ %84, %46 ]
@@ -2551,14 +2551,10 @@ define i32 @arkPrintAllStats(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
 
 92:                                               ; preds = %89
   %93 = tail call i32 @arkRelaxPrintAllStats(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) #8
-  %.not68 = icmp eq i32 %93, 0
-  br i1 %.not68, label %94, label %95
+  br label %94
 
-94:                                               ; preds = %92, %89
-  br label %95
-
-95:                                               ; preds = %92, %94, %85, %5
-  %.0 = phi i32 [ -21, %5 ], [ -22, %85 ], [ 0, %94 ], [ %93, %92 ]
+94:                                               ; preds = %89, %92, %85, %5
+  %.0 = phi i32 [ -21, %5 ], [ -22, %85 ], [ %93, %92 ], [ 0, %89 ]
   ret i32 %.0
 }
 

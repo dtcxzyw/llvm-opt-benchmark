@@ -6835,7 +6835,7 @@ define linkonce_odr noundef i32 @_ZN3vcg3tri2io15ImporterExpePTSI6CMeshOE21getSi
 
 _ZeqRK10QByteArrayPKc.exit:                       ; preds = %1
   %6 = icmp eq i32 %2, 0
-  br i1 %6, label %42, label %7
+  br i1 %6, label %41, label %7
 
 7:                                                ; preds = %_ZeqRK10QByteArrayPKc.exit
   %8 = invoke noundef i32 @_Z7qstrcmpRK10QByteArrayPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.44)
@@ -6850,7 +6850,7 @@ _ZeqRK10QByteArrayPKc.exit:                       ; preds = %1
 
 _ZeqRK10QByteArrayPKc.exit8:                      ; preds = %7
   %12 = icmp eq i32 %8, 0
-  br i1 %12, label %42, label %13
+  br i1 %12, label %41, label %13
 
 13:                                               ; preds = %_ZeqRK10QByteArrayPKc.exit8
   %14 = invoke noundef i32 @_Z7qstrcmpRK10QByteArrayPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.45)
@@ -6865,7 +6865,7 @@ _ZeqRK10QByteArrayPKc.exit8:                      ; preds = %7
 
 _ZeqRK10QByteArrayPKc.exit9:                      ; preds = %13
   %18 = icmp eq i32 %14, 0
-  br i1 %18, label %42, label %19
+  br i1 %18, label %41, label %19
 
 19:                                               ; preds = %_ZeqRK10QByteArrayPKc.exit9
   %20 = invoke noundef i32 @_Z7qstrcmpRK10QByteArrayPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.46)
@@ -6880,7 +6880,7 @@ _ZeqRK10QByteArrayPKc.exit9:                      ; preds = %13
 
 _ZeqRK10QByteArrayPKc.exit10:                     ; preds = %19
   %24 = icmp eq i32 %20, 0
-  br i1 %24, label %42, label %25
+  br i1 %24, label %41, label %25
 
 25:                                               ; preds = %_ZeqRK10QByteArrayPKc.exit10
   %26 = invoke noundef i32 @_Z7qstrcmpRK10QByteArrayPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.47)
@@ -6895,7 +6895,7 @@ _ZeqRK10QByteArrayPKc.exit10:                     ; preds = %19
 
 _ZeqRK10QByteArrayPKc.exit11:                     ; preds = %25
   %30 = icmp eq i32 %26, 0
-  br i1 %30, label %42, label %31
+  br i1 %30, label %41, label %31
 
 31:                                               ; preds = %_ZeqRK10QByteArrayPKc.exit11
   %32 = invoke noundef i32 @_Z7qstrcmpRK10QByteArrayPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.48)
@@ -6910,7 +6910,7 @@ _ZeqRK10QByteArrayPKc.exit11:                     ; preds = %25
 
 _ZeqRK10QByteArrayPKc.exit12:                     ; preds = %31
   %36 = icmp eq i32 %32, 0
-  br i1 %36, label %42, label %37
+  br i1 %36, label %41, label %37
 
 37:                                               ; preds = %_ZeqRK10QByteArrayPKc.exit12
   %38 = tail call noundef zeroext i1 @_ZeqRK10QByteArrayPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.49) #22
@@ -6918,13 +6918,11 @@ _ZeqRK10QByteArrayPKc.exit12:                     ; preds = %31
 
 39:                                               ; preds = %37
   %40 = tail call noundef zeroext i1 @_ZeqRK10QByteArrayPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.50) #22
-  br i1 %40, label %41, label %42
+  %spec.select = zext i1 %40 to i32
+  br label %41
 
-41:                                               ; preds = %39, %37
-  br label %42
-
-42:                                               ; preds = %_ZeqRK10QByteArrayPKc.exit10, %_ZeqRK10QByteArrayPKc.exit11, %_ZeqRK10QByteArrayPKc.exit12, %_ZeqRK10QByteArrayPKc.exit, %_ZeqRK10QByteArrayPKc.exit8, %_ZeqRK10QByteArrayPKc.exit9, %41, %39
-  %.0 = phi i32 [ 1, %41 ], [ 0, %39 ], [ 4, %_ZeqRK10QByteArrayPKc.exit9 ], [ 4, %_ZeqRK10QByteArrayPKc.exit8 ], [ 4, %_ZeqRK10QByteArrayPKc.exit ], [ 2, %_ZeqRK10QByteArrayPKc.exit12 ], [ 2, %_ZeqRK10QByteArrayPKc.exit11 ], [ 2, %_ZeqRK10QByteArrayPKc.exit10 ]
+41:                                               ; preds = %37, %39, %_ZeqRK10QByteArrayPKc.exit10, %_ZeqRK10QByteArrayPKc.exit11, %_ZeqRK10QByteArrayPKc.exit12, %_ZeqRK10QByteArrayPKc.exit, %_ZeqRK10QByteArrayPKc.exit8, %_ZeqRK10QByteArrayPKc.exit9
+  %.0 = phi i32 [ %spec.select, %39 ], [ 4, %_ZeqRK10QByteArrayPKc.exit9 ], [ 4, %_ZeqRK10QByteArrayPKc.exit8 ], [ 4, %_ZeqRK10QByteArrayPKc.exit ], [ 2, %_ZeqRK10QByteArrayPKc.exit12 ], [ 2, %_ZeqRK10QByteArrayPKc.exit11 ], [ 2, %_ZeqRK10QByteArrayPKc.exit10 ], [ 1, %37 ]
   ret i32 %.0
 }
 

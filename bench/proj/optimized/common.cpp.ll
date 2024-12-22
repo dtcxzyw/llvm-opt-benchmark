@@ -6842,7 +6842,7 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj6common16IdentifiedObject15_isE
   %15 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK5osgeo4proj8metadata10Identifier11descriptionB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) %14) #40
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = tail call noundef zeroext i1 @_ZN5osgeo4proj8internal8ci_equalERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %16) #35
-  br i1 %17, label %32, label %33
+  br label %32
 
 18:                                               ; preds = %4
   %19 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #35
@@ -6860,20 +6860,17 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj6common16IdentifiedObject15_isE
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %30 = load ptr, ptr %29, align 8
   %31 = invoke noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(16) %3)
-          to label %33 unwind label %34
+          to label %32 unwind label %33
 
-32:                                               ; preds = %18, %11
-  br label %33
-
-33:                                               ; preds = %27, %11, %32
-  %.0 = phi i1 [ true, %32 ], [ false, %11 ], [ %31, %27 ]
+32:                                               ; preds = %18, %11, %27
+  %.0 = phi i1 [ %17, %11 ], [ %31, %27 ], [ true, %18 ]
   ret i1 %.0
 
-34:                                               ; preds = %27
-  %35 = landingpad { ptr, i32 }
+33:                                               ; preds = %27
+  %34 = landingpad { ptr, i32 }
           catch ptr null
-  %36 = extractvalue { ptr, i32 } %35, 0
-  tail call void @__clang_call_terminate(ptr %36) #39
+  %35 = extractvalue { ptr, i32 } %34, 0
+  tail call void @__clang_call_terminate(ptr %35) #39
   unreachable
 }
 
@@ -11004,7 +11001,7 @@ define linkonce_odr noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5osgeo4proj6com
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
-  br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
+  br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %9
 
 9:                                                ; preds = %5
   %10 = load i8, ptr %7, align 1
@@ -11015,13 +11012,11 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %9
   %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #35
   %.fr = freeze i32 %11
   %12 = icmp eq i32 %.fr, 0
-  br i1 %12, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %_ZNKSt9type_infoeqERKS_.exit.thread8
-
-_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %5, %_ZNKSt9type_infoeqERKS_.exit
+  %spec.select = select i1 %12, ptr %3, ptr null
   br label %_ZNKSt9type_infoeqERKS_.exit.thread8
 
-_ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %2
-  %.0 = phi ptr [ %3, %2 ], [ %3, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %9 ]
+_ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %5, %_ZNKSt9type_infoeqERKS_.exit, %9, %2
+  %.0 = phi ptr [ %3, %2 ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %9 ], [ %3, %5 ]
   ret ptr %.0
 }
 

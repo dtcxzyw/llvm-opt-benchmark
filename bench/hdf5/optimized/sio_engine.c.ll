@@ -1494,22 +1494,26 @@ define dso_local range(i64 -1, -9223372036854775808) i64 @set_vfd(ptr nocapture 
 13:                                               ; preds = %12
   %14 = tail call i32 @H5Pset_fapl_sec2(i64 noundef %10) #18
   %15 = icmp slt i32 %14, 0
-  br i1 %15, label %47, label %46
+  %spec.select = select i1 %15, i64 -1, i64 %10
+  br label %47
 
 16:                                               ; preds = %12
   %17 = tail call i32 @H5Pset_fapl_stdio(i64 noundef %10) #18
   %18 = icmp slt i32 %17, 0
-  br i1 %18, label %47, label %46
+  %spec.select34 = select i1 %18, i64 -1, i64 %10
+  br label %47
 
 19:                                               ; preds = %12
   %20 = tail call i32 @H5Pset_fapl_core(i64 noundef %10, i64 noundef 1048576, i1 noundef zeroext true) #18
   %21 = icmp slt i32 %20, 0
-  br i1 %21, label %47, label %46
+  %spec.select35 = select i1 %21, i64 -1, i64 %10
+  br label %47
 
 22:                                               ; preds = %12
   %23 = tail call i32 @H5Pset_fapl_split(i64 noundef %10, ptr noundef nonnull @.str.13, i64 noundef 0, ptr noundef nonnull @.str.14, i64 noundef 0) #18
   %24 = icmp slt i32 %23, 0
-  br i1 %24, label %47, label %46
+  %spec.select36 = select i1 %24, i64 -1, i64 %10
+  br label %47
 
 25:                                               ; preds = %12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(28) %2, i8 0, i64 28, i1 false)
@@ -1545,18 +1549,20 @@ define dso_local range(i64 -1, -9223372036854775808) i64 @set_vfd(ptr nocapture 
   %41 = call i32 @H5Pset_fapl_multi(i64 noundef %10, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i1 noundef zeroext false) #18
   %42 = icmp slt i32 %41, 0
   call void @free(ptr noundef %26) #18
-  br i1 %42, label %47, label %46
+  %spec.select40 = select i1 %42, i64 -1, i64 %10
+  br label %47
 
 43:                                               ; preds = %12
   %44 = tail call i32 @H5Pset_fapl_family(i64 noundef %10, i64 noundef 1048576, i64 noundef 0) #18
   %45 = icmp slt i32 %44, 0
-  br i1 %45, label %47, label %46
-
-46:                                               ; preds = %40, %12, %16, %22, %43, %19, %13
+  %spec.select37 = select i1 %45, i64 -1, i64 %10
   br label %47
 
-47:                                               ; preds = %40, %12, %43, %25, %22, %19, %16, %13, %1, %46
-  %.0 = phi i64 [ %10, %46 ], [ -1, %1 ], [ -1, %13 ], [ -1, %16 ], [ -1, %19 ], [ -1, %22 ], [ -1, %25 ], [ -1, %43 ], [ -1, %12 ], [ -1, %40 ]
+46:                                               ; preds = %12
+  br label %47
+
+47:                                               ; preds = %40, %43, %22, %19, %16, %13, %12, %25, %1, %46
+  %.0 = phi i64 [ %10, %46 ], [ -1, %1 ], [ %spec.select, %13 ], [ %spec.select34, %16 ], [ %spec.select35, %19 ], [ %spec.select36, %22 ], [ -1, %25 ], [ %spec.select37, %43 ], [ -1, %12 ], [ %spec.select40, %40 ]
   ret i64 %.0
 }
 

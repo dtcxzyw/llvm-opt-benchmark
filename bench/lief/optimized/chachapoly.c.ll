@@ -138,7 +138,7 @@ define hidden i32 @mbedtls_chachapoly_update(ptr noundef %0, i64 noundef %1, ptr
   %7 = load i32, ptr %6, align 8
   %.off = add i32 %7, -1
   %switch = icmp ult i32 %.off, 2
-  br i1 %switch, label %8, label %38
+  br i1 %switch, label %8, label %37
 
 8:                                                ; preds = %4
   %9 = icmp eq i32 %7, 1
@@ -166,7 +166,7 @@ chachapoly_pad_aad.exit:                          ; preds = %10
   %19 = call i32 @mbedtls_poly1305_update(ptr noundef nonnull %16, ptr noundef nonnull %5, i64 noundef %18) #7
   call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %5)
   %.not39 = icmp eq i32 %19, 0
-  br i1 %.not39, label %20, label %38
+  br i1 %.not39, label %20, label %37
 
 20:                                               ; preds = %chachapoly_pad_aad.exit.thread, %chachapoly_pad_aad.exit, %8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -181,30 +181,25 @@ chachapoly_pad_aad.exit:                          ; preds = %10
 27:                                               ; preds = %20
   %28 = call i32 @mbedtls_chacha20_update(ptr noundef nonnull %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) #7
   %.not42 = icmp eq i32 %28, 0
-  br i1 %.not42, label %29, label %38
+  br i1 %.not42, label %29, label %37
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %31 = call i32 @mbedtls_poly1305_update(ptr noundef nonnull %30, ptr noundef %3, i64 noundef %1) #7
-  %.not43 = icmp eq i32 %31, 0
-  br i1 %.not43, label %37, label %38
+  br label %37
 
 32:                                               ; preds = %20
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %34 = call i32 @mbedtls_poly1305_update(ptr noundef nonnull %33, ptr noundef %2, i64 noundef %1) #7
   %.not40 = icmp eq i32 %34, 0
-  br i1 %.not40, label %35, label %38
+  br i1 %.not40, label %35, label %37
 
 35:                                               ; preds = %32
   %36 = call i32 @mbedtls_chacha20_update(ptr noundef nonnull %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) #7
-  %.not41 = icmp eq i32 %36, 0
-  br i1 %.not41, label %37, label %38
+  br label %37
 
-37:                                               ; preds = %35, %29
-  br label %38
-
-38:                                               ; preds = %4, %35, %32, %29, %27, %chachapoly_pad_aad.exit, %37
-  %.0 = phi i32 [ 0, %37 ], [ -84, %4 ], [ %19, %chachapoly_pad_aad.exit ], [ %28, %27 ], [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
+37:                                               ; preds = %35, %29, %4, %32, %27, %chachapoly_pad_aad.exit
+  %.0 = phi i32 [ -84, %4 ], [ %19, %chachapoly_pad_aad.exit ], [ %28, %27 ], [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   ret i32 %.0
 }
 

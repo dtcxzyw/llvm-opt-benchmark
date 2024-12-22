@@ -666,7 +666,7 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_211sort_helperEEclIPiS6_EEbT_T0_.exit.thread26
-  %__secondChild.030 = phi i64 [ %__holeIndex, %while.body.lr.ph ], [ %9, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_211sort_helperEEclIPiS6_EEbT_T0_.exit.thread26 ]
+  %__secondChild.030 = phi i64 [ %__holeIndex, %while.body.lr.ph ], [ %8, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_211sort_helperEEclIPiS6_EEbT_T0_.exit.thread26 ]
   %add = shl i64 %__secondChild.030, 1
   %mul = add i64 %add, 2
   %add.ptr = getelementptr inbounds i32, ptr %__first, i64 %mul
@@ -682,7 +682,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %arrayidx6.i.i = getelementptr inbounds float, ptr %2, i64 %idxprom5.i.i
   %4 = load float, ptr %arrayidx6.i.i, align 4
   %cmp.i.i = fcmp olt float %3, %4
-  br i1 %cmp.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_211sort_helperEEclIPiS6_EEbT_T0_.exit.thread, label %if.end.i.i
+  br i1 %cmp.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_211sort_helperEEclIPiS6_EEbT_T0_.exit.thread26, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.body
   %cmp15.i.i = fcmp ogt float %3, %4
@@ -695,7 +695,7 @@ if.end17.i.i:                                     ; preds = %if.end.i.i
   %arrayidx25.i.i = getelementptr inbounds float, ptr %5, i64 %idxprom5.i.i
   %7 = load float, ptr %arrayidx25.i.i, align 4
   %cmp26.i.i = fcmp olt float %6, %7
-  br i1 %cmp26.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_211sort_helperEEclIPiS6_EEbT_T0_.exit.thread, label %if.end28.i.i
+  br i1 %cmp26.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_211sort_helperEEclIPiS6_EEbT_T0_.exit.thread26, label %if.end28.i.i
 
 if.end28.i.i:                                     ; preds = %if.end17.i.i
   %cmp37.i.i = fcmp ogt float %6, %7
@@ -704,21 +704,20 @@ if.end28.i.i:                                     ; preds = %if.end17.i.i
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_211sort_helperEEclIPiS6_EEbT_T0_.exit: ; preds = %if.end28.i.i
   %cmp40.i.i = icmp slt i32 %0, %1
   %cond.fr = freeze i1 %cmp40.i.i
-  br i1 %cond.fr, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_211sort_helperEEclIPiS6_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_211sort_helperEEclIPiS6_EEbT_T0_.exit.thread26
-
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_211sort_helperEEclIPiS6_EEbT_T0_.exit.thread: ; preds = %if.end17.i.i, %while.body, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_211sort_helperEEclIPiS6_EEbT_T0_.exit
+  %spec.select = select i1 %cond.fr, i64 %sub2, i64 %mul
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_211sort_helperEEclIPiS6_EEbT_T0_.exit.thread26
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_211sort_helperEEclIPiS6_EEbT_T0_.exit.thread26: ; preds = %if.end28.i.i, %if.end.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_211sort_helperEEclIPiS6_EEbT_T0_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_211sort_helperEEclIPiS6_EEbT_T0_.exit.thread
-  %8 = phi i32 [ %1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_211sort_helperEEclIPiS6_EEbT_T0_.exit.thread ], [ %0, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_211sort_helperEEclIPiS6_EEbT_T0_.exit ], [ %0, %if.end.i.i ], [ %0, %if.end28.i.i ]
-  %9 = phi i64 [ %sub2, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_211sort_helperEEclIPiS6_EEbT_T0_.exit.thread ], [ %mul, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_211sort_helperEEclIPiS6_EEbT_T0_.exit ], [ %mul, %if.end.i.i ], [ %mul, %if.end28.i.i ]
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_211sort_helperEEclIPiS6_EEbT_T0_.exit.thread26: ; preds = %while.body, %if.end17.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_211sort_helperEEclIPiS6_EEbT_T0_.exit, %if.end28.i.i, %if.end.i.i
+  %8 = phi i64 [ %spec.select, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_211sort_helperEEclIPiS6_EEbT_T0_.exit ], [ %mul, %if.end.i.i ], [ %mul, %if.end28.i.i ], [ %sub2, %if.end17.i.i ], [ %sub2, %while.body ]
+  %add.ptr4 = getelementptr inbounds i32, ptr %__first, i64 %8
+  %9 = load i32, ptr %add.ptr4, align 4
   %add.ptr5 = getelementptr inbounds i32, ptr %__first, i64 %__secondChild.030
-  store i32 %8, ptr %add.ptr5, align 4
-  %cmp = icmp slt i64 %9, %div
+  store i32 %9, ptr %add.ptr5, align 4
+  %cmp = icmp slt i64 %8, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !17
 
 while.end:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_211sort_helperEEclIPiS6_EEbT_T0_.exit.thread26, %entry
-  %__secondChild.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %9, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_211sort_helperEEclIPiS6_EEbT_T0_.exit.thread26 ]
+  %__secondChild.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %8, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_211sort_helperEEclIPiS6_EEbT_T0_.exit.thread26 ]
   %and = and i64 %__len, 1
   %cmp6 = icmp eq i64 %and, 0
   br i1 %cmp6, label %land.lhs.true, label %if.end17
@@ -864,7 +863,7 @@ if.else:                                          ; preds = %if.end28.i.i31, %if
 
 if.end.i.i42:                                     ; preds = %if.else
   %cmp15.i.i43 = fcmp ogt float %3, %9
-  br i1 %cmp15.i.i43, label %if.else6, label %if.end17.i.i44
+  br i1 %cmp15.i.i43, label %if.end17, label %if.end17.i.i44
 
 if.end17.i.i44:                                   ; preds = %if.end.i.i42
   %arrayidx19.i.i45 = getelementptr inbounds nuw i8, ptr %__comp.coerce, i64 8
@@ -880,9 +879,8 @@ if.end28.i.i49:                                   ; preds = %if.end17.i.i44
   %cmp37.i.i50 = fcmp ule float %14, %15
   %cmp40.i.i52 = icmp slt i32 %0, %8
   %or.cond116 = and i1 %cmp40.i.i52, %cmp37.i.i50
-  br i1 %or.cond116, label %if.end17, label %if.else6
-
-if.else6:                                         ; preds = %if.end28.i.i49, %if.end.i.i42
+  %spec.select = select i1 %or.cond116, i32 %8, i32 %0
+  %spec.select120 = select i1 %or.cond116, ptr %__c, ptr %__a
   br label %if.end17
 
 if.else8:                                         ; preds = %if.end28.i.i, %if.end.i.i
@@ -919,7 +917,7 @@ if.else11:                                        ; preds = %if.end28.i.i67, %if
 
 if.end.i.i78:                                     ; preds = %if.else11
   %cmp15.i.i79 = fcmp ogt float %4, %17
-  br i1 %cmp15.i.i79, label %if.else14, label %if.end17.i.i80
+  br i1 %cmp15.i.i79, label %if.end17, label %if.end17.i.i80
 
 if.end17.i.i80:                                   ; preds = %if.end.i.i78
   %arrayidx19.i.i81 = getelementptr inbounds nuw i8, ptr %__comp.coerce, i64 8
@@ -935,14 +933,13 @@ if.end28.i.i85:                                   ; preds = %if.end17.i.i80
   %cmp37.i.i86 = fcmp ule float %22, %23
   %cmp40.i.i88 = icmp slt i32 %1, %16
   %or.cond118 = and i1 %cmp40.i.i88, %cmp37.i.i86
-  br i1 %or.cond118, label %if.end17, label %if.else14
-
-if.else14:                                        ; preds = %if.end28.i.i85, %if.end.i.i78
+  %spec.select121 = select i1 %or.cond118, i32 %16, i32 %1
+  %spec.select122 = select i1 %or.cond118, ptr %__c, ptr %__b
   br label %if.end17
 
-if.end17:                                         ; preds = %if.else11, %if.end17.i.i80, %if.end28.i.i85, %if.else8, %if.end17.i.i62, %if.end28.i.i67, %if.else, %if.end17.i.i44, %if.end28.i.i49, %if.then, %if.end17.i.i26, %if.end28.i.i31, %if.else14, %if.else6
-  %.sink119 = phi i32 [ %1, %if.else14 ], [ %0, %if.else6 ], [ %1, %if.end28.i.i31 ], [ %1, %if.end17.i.i26 ], [ %1, %if.then ], [ %8, %if.end28.i.i49 ], [ %8, %if.end17.i.i44 ], [ %8, %if.else ], [ %0, %if.end28.i.i67 ], [ %0, %if.end17.i.i62 ], [ %0, %if.else8 ], [ %16, %if.end28.i.i85 ], [ %16, %if.end17.i.i80 ], [ %16, %if.else11 ]
-  %__a.sink = phi ptr [ %__b, %if.else14 ], [ %__a, %if.else6 ], [ %__b, %if.end28.i.i31 ], [ %__b, %if.end17.i.i26 ], [ %__b, %if.then ], [ %__c, %if.end28.i.i49 ], [ %__c, %if.end17.i.i44 ], [ %__c, %if.else ], [ %__a, %if.end28.i.i67 ], [ %__a, %if.end17.i.i62 ], [ %__a, %if.else8 ], [ %__c, %if.end28.i.i85 ], [ %__c, %if.end17.i.i80 ], [ %__c, %if.else11 ]
+if.end17:                                         ; preds = %if.end.i.i78, %if.end28.i.i85, %if.end.i.i42, %if.end28.i.i49, %if.else11, %if.end17.i.i80, %if.else8, %if.end17.i.i62, %if.end28.i.i67, %if.else, %if.end17.i.i44, %if.then, %if.end17.i.i26, %if.end28.i.i31
+  %.sink119 = phi i32 [ %1, %if.end28.i.i31 ], [ %1, %if.end17.i.i26 ], [ %1, %if.then ], [ %spec.select, %if.end28.i.i49 ], [ %8, %if.end17.i.i44 ], [ %8, %if.else ], [ %0, %if.end28.i.i67 ], [ %0, %if.end17.i.i62 ], [ %0, %if.else8 ], [ %spec.select121, %if.end28.i.i85 ], [ %16, %if.end17.i.i80 ], [ %16, %if.else11 ], [ %0, %if.end.i.i42 ], [ %1, %if.end.i.i78 ]
+  %__a.sink = phi ptr [ %__b, %if.end28.i.i31 ], [ %__b, %if.end17.i.i26 ], [ %__b, %if.then ], [ %spec.select120, %if.end28.i.i49 ], [ %__c, %if.end17.i.i44 ], [ %__c, %if.else ], [ %__a, %if.end28.i.i67 ], [ %__a, %if.end17.i.i62 ], [ %__a, %if.else8 ], [ %spec.select122, %if.end28.i.i85 ], [ %__c, %if.end17.i.i80 ], [ %__c, %if.else11 ], [ %__a, %if.end.i.i42 ], [ %__b, %if.end.i.i78 ]
   %24 = load i32, ptr %__result, align 4
   store i32 %.sink119, ptr %__result, align 4
   store i32 %24, ptr %__a.sink, align 4

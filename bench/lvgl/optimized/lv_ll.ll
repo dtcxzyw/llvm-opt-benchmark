@@ -779,9 +779,9 @@ node_set_prev.exit:                               ; preds = %lv_ll_remove.exit, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @lv_ll_is_empty(ptr noundef readonly %0) local_unnamed_addr #3 {
+define zeroext i1 @lv_ll_is_empty(ptr noundef readonly %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %12, label %3
+  br i1 %2, label %11, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -793,13 +793,10 @@ define noundef zeroext i1 @lv_ll_is_empty(ptr noundef readonly %0) local_unnamed
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !11
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %12, label %11
+  br label %11
 
-11:                                               ; preds = %7, %3
-  br label %12
-
-12:                                               ; preds = %7, %1, %11
-  %.0 = phi i1 [ false, %11 ], [ true, %1 ], [ true, %7 ]
+11:                                               ; preds = %3, %7, %1
+  %.0 = phi i1 [ true, %1 ], [ %10, %7 ], [ false, %3 ]
   ret i1 %.0
 }
 

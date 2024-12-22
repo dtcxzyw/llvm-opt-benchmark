@@ -540,19 +540,19 @@ define void @_ZN11dtNodeQueue11trickleDownEiP6dtNode(ptr nocapture noundef nonnu
   %6 = icmp slt i32 %.016, %5
   br i1 %6, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %3, %.lr.ph._crit_edge
-  %7 = phi i32 [ %27, %.lr.ph._crit_edge ], [ %5, %3 ]
-  %.019 = phi i32 [ %.0, %.lr.ph._crit_edge ], [ %.016, %3 ]
-  %.0.in18 = phi i32 [ %.0.in, %.lr.ph._crit_edge ], [ %.0.in15, %3 ]
-  %.01217 = phi i32 [ %.1, %.lr.ph._crit_edge ], [ %1, %3 ]
+.lr.ph:                                           ; preds = %3, %22
+  %7 = phi i32 [ %28, %22 ], [ %5, %3 ]
+  %.019 = phi i32 [ %.0, %22 ], [ %.016, %3 ]
+  %.0.in18 = phi i32 [ %.0.in, %22 ], [ %.0.in15, %3 ]
+  %.01217 = phi i32 [ %.1, %22 ], [ %1, %3 ]
   %8 = add nsw i32 %.0.in18, 2
   %9 = icmp slt i32 %8, %7
   %.pre = load ptr, ptr %0, align 8
-  %10 = sext i32 %.019 to i64
-  br i1 %9, label %11, label %.lr.ph._crit_edge
+  br i1 %9, label %10, label %22
 
-11:                                               ; preds = %.lr.ph
-  %12 = getelementptr inbounds ptr, ptr %.pre, i64 %10
+10:                                               ; preds = %.lr.ph
+  %11 = sext i32 %.019 to i64
+  %12 = getelementptr inbounds ptr, ptr %.pre, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load float, ptr %14, align 4
@@ -562,61 +562,59 @@ define void @_ZN11dtNodeQueue11trickleDownEiP6dtNode(ptr nocapture noundef nonnu
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load float, ptr %19, align 4
   %21 = fcmp ogt float %15, %20
-  br i1 %21, label %22, label %.lr.ph._crit_edge
+  %spec.select = select i1 %21, i32 %8, i32 %.019
+  br label %22
 
-22:                                               ; preds = %11
-  br label %.lr.ph._crit_edge
-
-.lr.ph._crit_edge:                                ; preds = %.lr.ph, %22, %11
-  %.pre-phi = phi i64 [ %16, %22 ], [ %10, %11 ], [ %10, %.lr.ph ]
-  %.1 = phi i32 [ %8, %22 ], [ %.019, %11 ], [ %.019, %.lr.ph ]
-  %23 = getelementptr inbounds ptr, ptr %.pre, i64 %.pre-phi
-  %24 = load ptr, ptr %23, align 8
-  %25 = sext i32 %.01217 to i64
-  %26 = getelementptr inbounds ptr, ptr %.pre, i64 %25
-  store ptr %24, ptr %26, align 8
+22:                                               ; preds = %10, %.lr.ph
+  %.1 = phi i32 [ %spec.select, %10 ], [ %.019, %.lr.ph ]
+  %23 = sext i32 %.1 to i64
+  %24 = getelementptr inbounds ptr, ptr %.pre, i64 %23
+  %25 = load ptr, ptr %24, align 8
+  %26 = sext i32 %.01217 to i64
+  %27 = getelementptr inbounds ptr, ptr %.pre, i64 %26
+  store ptr %25, ptr %27, align 8
   %.0.in = shl nsw i32 %.1, 1
   %.0 = or disjoint i32 %.0.in, 1
-  %27 = load i32, ptr %4, align 4
-  %28 = icmp slt i32 %.0, %27
-  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  %28 = load i32, ptr %4, align 4
+  %29 = icmp slt i32 %.0, %28
+  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %.lr.ph._crit_edge, %3
-  %.012.lcssa = phi i32 [ %1, %3 ], [ %.1, %.lr.ph._crit_edge ]
-  %29 = icmp sgt i32 %.012.lcssa, 0
-  br i1 %29, label %.lr.ph.i, label %_ZN11dtNodeQueue8bubbleUpEiP6dtNode.exit
+._crit_edge:                                      ; preds = %22, %3
+  %.012.lcssa = phi i32 [ %1, %3 ], [ %.1, %22 ]
+  %30 = icmp sgt i32 %.012.lcssa, 0
+  br i1 %30, label %.lr.ph.i, label %_ZN11dtNodeQueue8bubbleUpEiP6dtNode.exit
 
 .lr.ph.i:                                         ; preds = %._crit_edge
-  %30 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  br label %31
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  br label %32
 
-31:                                               ; preds = %40, %.lr.ph.i
-  %.01013.i = phi i32 [ %.012.lcssa, %.lr.ph.i ], [ %.014.i, %40 ]
+32:                                               ; preds = %41, %.lr.ph.i
+  %.01013.i = phi i32 [ %.012.lcssa, %.lr.ph.i ], [ %.014.i, %41 ]
   %.014.in.i = add nsw i32 %.01013.i, -1
   %.014.i = sdiv i32 %.014.in.i, 2
-  %32 = load ptr, ptr %0, align 8
-  %33 = sext i32 %.014.i to i64
-  %34 = getelementptr inbounds ptr, ptr %32, i64 %33
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %37 = load float, ptr %36, align 4
-  %38 = load float, ptr %30, align 4
-  %39 = fcmp ogt float %37, %38
-  br i1 %39, label %40, label %_ZN11dtNodeQueue8bubbleUpEiP6dtNode.exit
+  %33 = load ptr, ptr %0, align 8
+  %34 = sext i32 %.014.i to i64
+  %35 = getelementptr inbounds ptr, ptr %33, i64 %34
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %38 = load float, ptr %37, align 4
+  %39 = load float, ptr %31, align 4
+  %40 = fcmp ogt float %38, %39
+  br i1 %40, label %41, label %_ZN11dtNodeQueue8bubbleUpEiP6dtNode.exit
 
-40:                                               ; preds = %31
-  %41 = zext nneg i32 %.01013.i to i64
-  %42 = getelementptr inbounds nuw ptr, ptr %32, i64 %41
-  store ptr %35, ptr %42, align 8
-  %43 = icmp sgt i32 %.01013.i, 2
-  br i1 %43, label %31, label %_ZN11dtNodeQueue8bubbleUpEiP6dtNode.exit, !llvm.loop !8
+41:                                               ; preds = %32
+  %42 = zext nneg i32 %.01013.i to i64
+  %43 = getelementptr inbounds nuw ptr, ptr %33, i64 %42
+  store ptr %36, ptr %43, align 8
+  %44 = icmp sgt i32 %.01013.i, 2
+  br i1 %44, label %32, label %_ZN11dtNodeQueue8bubbleUpEiP6dtNode.exit, !llvm.loop !8
 
-_ZN11dtNodeQueue8bubbleUpEiP6dtNode.exit:         ; preds = %31, %40, %._crit_edge
-  %.010.lcssa.i = phi i32 [ %.012.lcssa, %._crit_edge ], [ %.01013.i, %31 ], [ %.014.i, %40 ]
-  %44 = load ptr, ptr %0, align 8
-  %45 = sext i32 %.010.lcssa.i to i64
-  %46 = getelementptr inbounds ptr, ptr %44, i64 %45
-  store ptr %2, ptr %46, align 8
+_ZN11dtNodeQueue8bubbleUpEiP6dtNode.exit:         ; preds = %32, %41, %._crit_edge
+  %.010.lcssa.i = phi i32 [ %.012.lcssa, %._crit_edge ], [ %.01013.i, %32 ], [ %.014.i, %41 ]
+  %45 = load ptr, ptr %0, align 8
+  %46 = sext i32 %.010.lcssa.i to i64
+  %47 = getelementptr inbounds ptr, ptr %45, i64 %46
+  store ptr %2, ptr %47, align 8
   ret void
 }
 

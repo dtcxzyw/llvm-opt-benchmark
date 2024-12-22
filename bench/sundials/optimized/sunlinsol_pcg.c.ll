@@ -245,7 +245,7 @@ define i32 @SUNLinSolSolve_PCG(ptr nocapture noundef readonly %0, ptr nocapture 
   store i32 0, ptr %28, align 4
   %36 = icmp slt i32 %34, 0
   %37 = select i1 %36, i32 -805, i32 803
-  br label %105
+  br label %104
 
 38:                                               ; preds = %33
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %3, double noundef -1.000000e+00, ptr noundef %9, ptr noundef %9) #10
@@ -279,7 +279,7 @@ define i32 @SUNLinSolSolve_PCG(ptr nocapture noundef readonly %0, ptr nocapture 
 
 50:                                               ; preds = %47
   store i32 0, ptr %28, align 4
-  br label %105
+  br label %104
 
 51:                                               ; preds = %47
   %.off = add i32 %27, -1
@@ -295,7 +295,7 @@ define i32 @SUNLinSolSolve_PCG(ptr nocapture noundef readonly %0, ptr nocapture 
   store i32 0, ptr %28, align 4
   %55 = icmp slt i32 %53, 0
   %56 = select i1 %55, i32 -808, i32 805
-  br label %105
+  br label %104
 
 57:                                               ; preds = %51
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %9, ptr noundef %13) #10
@@ -325,7 +325,7 @@ define i32 @SUNLinSolSolve_PCG(ptr nocapture noundef readonly %0, ptr nocapture 
   store i32 0, ptr %28, align 4
   %65 = icmp slt i32 %.lcssa, 0
   %66 = select i1 %65, i32 -805, i32 803
-  br label %105
+  br label %104
 
 .lr.ph209:                                        ; preds = %.lr.ph, %95
   %.0147175208 = phi i32 [ %98, %95 ], [ 0, %.lr.ph ]
@@ -392,7 +392,7 @@ define i32 @SUNLinSolSolve_PCG(ptr nocapture noundef readonly %0, ptr nocapture 
   store i32 0, ptr %28, align 4
   %92 = icmp slt i32 %90, 0
   %93 = select i1 %92, i32 -808, i32 805
-  br label %105
+  br label %104
 
 94:                                               ; preds = %88
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %9, ptr noundef %13) #10
@@ -412,24 +412,22 @@ define i32 @SUNLinSolSolve_PCG(ptr nocapture noundef readonly %0, ptr nocapture 
 
 102:                                              ; preds = %83
   store i32 0, ptr %28, align 4
-  br label %105
+  br label %104
 
 ._crit_edge:                                      ; preds = %86
   store i32 0, ptr %28, align 4
   %103 = fcmp olt double %84, %48
-  br i1 %103, label %105, label %104
+  %spec.select = select i1 %103, i32 801, i32 802
+  br label %104
 
-104:                                              ; preds = %._crit_edge.thread, %._crit_edge
-  br label %105
-
-105:                                              ; preds = %102, %104, %._crit_edge, %91, %._crit_edge210, %54, %50, %35
-  %.sink.sink = phi i32 [ %93, %91 ], [ %66, %._crit_edge210 ], [ %56, %54 ], [ 0, %50 ], [ %37, %35 ], [ 802, %104 ], [ 0, %102 ], [ 801, %._crit_edge ]
-  %106 = load ptr, ptr %0, align 8
-  %107 = getelementptr inbounds nuw i8, ptr %106, i64 24
-  store i32 %.sink.sink, ptr %107, align 8
-  %108 = load ptr, ptr %0, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 24
-  %.0 = load i32, ptr %109, align 8
+104:                                              ; preds = %._crit_edge, %102, %._crit_edge.thread, %91, %._crit_edge210, %54, %50, %35
+  %.sink.sink = phi i32 [ %93, %91 ], [ %66, %._crit_edge210 ], [ %56, %54 ], [ 0, %50 ], [ %37, %35 ], [ 802, %._crit_edge.thread ], [ 0, %102 ], [ %spec.select, %._crit_edge ]
+  %105 = load ptr, ptr %0, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 24
+  store i32 %.sink.sink, ptr %106, align 8
+  %107 = load ptr, ptr %0, align 8
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 24
+  %.0 = load i32, ptr %108, align 8
   ret i32 %.0
 }
 

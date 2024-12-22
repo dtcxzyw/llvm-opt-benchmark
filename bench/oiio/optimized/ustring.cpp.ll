@@ -275,25 +275,25 @@ for.body.i.i.i.i:                                 ; preds = %if.end12.i.i.i.i, %
   %__first.addr.049.i.i.i.i = phi ptr [ %incdec.ptr13.i.i.i.i, %if.end12.i.i.i.i ], [ %7, %for.body.preheader.i.i.i.i ]
   %9 = load i8, ptr %__first.addr.049.i.i.i.i, align 1
   %cmp.i.i.i.i.i.i.i = icmp eq i8 %9, 0
-  br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont.i20, label %if.end.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont.i19, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %for.body.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.049.i.i.i.i, i64 1
   %10 = load i8, ptr %incdec.ptr.i.i.i.i, align 1
   %cmp.i.i.i26.i.i.i.i = icmp eq i8 %10, 0
-  br i1 %cmp.i.i.i26.i.i.i.i, label %invoke.cont.i20.loopexit.split.loop.exit304, label %if.end4.i.i.i.i
+  br i1 %cmp.i.i.i26.i.i.i.i, label %invoke.cont.i19.loopexit.split.loop.exit304, label %if.end4.i.i.i.i
 
 if.end4.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
   %incdec.ptr5.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.049.i.i.i.i, i64 2
   %11 = load i8, ptr %incdec.ptr5.i.i.i.i, align 1
   %cmp.i.i.i27.i.i.i.i = icmp eq i8 %11, 0
-  br i1 %cmp.i.i.i27.i.i.i.i, label %invoke.cont.i20.loopexit.split.loop.exit302, label %if.end8.i.i.i.i
+  br i1 %cmp.i.i.i27.i.i.i.i, label %invoke.cont.i19.loopexit.split.loop.exit302, label %if.end8.i.i.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.end4.i.i.i.i
   %incdec.ptr9.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.049.i.i.i.i, i64 3
   %12 = load i8, ptr %incdec.ptr9.i.i.i.i, align 1
   %cmp.i.i.i28.i.i.i.i = icmp eq i8 %12, 0
-  br i1 %cmp.i.i.i28.i.i.i.i, label %invoke.cont.i20.loopexit.split.loop.exit, label %if.end12.i.i.i.i
+  br i1 %cmp.i.i.i28.i.i.i.i, label %invoke.cont.i19.loopexit.split.loop.exit, label %if.end12.i.i.i.i
 
 if.end12.i.i.i.i:                                 ; preds = %if.end8.i.i.i.i
   %incdec.ptr13.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.049.i.i.i.i, i64 4
@@ -314,7 +314,7 @@ for.end.i.i.i.i:                                  ; preds = %if.end12.i.i.i.i, %
 sw.bb.i.i.i.i:                                    ; preds = %for.end.i.i.i.i
   %13 = load i8, ptr %__first.addr.0.lcssa.i.i.i.i, align 1
   %cmp.i.i.i29.i.i.i.i = icmp eq i8 %13, 0
-  br i1 %cmp.i.i.i29.i.i.i.i, label %invoke.cont.i20, label %if.end19.i.i.i.i
+  br i1 %cmp.i.i.i29.i.i.i.i, label %invoke.cont.i19, label %if.end19.i.i.i.i
 
 if.end19.i.i.i.i:                                 ; preds = %sw.bb.i.i.i.i
   %incdec.ptr20.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0.lcssa.i.i.i.i, i64 1
@@ -324,7 +324,7 @@ sw.bb21.i.i.i.i:                                  ; preds = %if.end19.i.i.i.i, %
   %__first.addr.1.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i, %for.end.i.i.i.i ], [ %incdec.ptr20.i.i.i.i, %if.end19.i.i.i.i ]
   %14 = load i8, ptr %__first.addr.1.i.i.i.i, align 1
   %cmp.i.i.i30.i.i.i.i = icmp eq i8 %14, 0
-  br i1 %cmp.i.i.i30.i.i.i.i, label %invoke.cont.i20, label %if.end24.i.i.i.i
+  br i1 %cmp.i.i.i30.i.i.i.i, label %invoke.cont.i19, label %if.end24.i.i.i.i
 
 if.end24.i.i.i.i:                                 ; preds = %sw.bb21.i.i.i.i
   %incdec.ptr25.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.1.i.i.i.i, i64 1
@@ -334,26 +334,27 @@ sw.bb26.i.i.i.i:                                  ; preds = %if.end24.i.i.i.i, %
   %__first.addr.2.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i, %for.end.i.i.i.i ], [ %incdec.ptr25.i.i.i.i, %if.end24.i.i.i.i ]
   %15 = load i8, ptr %__first.addr.2.i.i.i.i, align 1
   %cmp.i.i.i31.i.i.i.i = icmp eq i8 %15, 0
-  br i1 %cmp.i.i.i31.i.i.i.i, label %invoke.cont.i20, label %if.end18
+  %spec.select.i.i.i.i = select i1 %cmp.i.i.i31.i.i.i.i, ptr %__first.addr.2.i.i.i.i, ptr %add.ptr.i.i
+  br label %invoke.cont.i19
 
-invoke.cont.i20.loopexit.split.loop.exit:         ; preds = %if.end8.i.i.i.i
+invoke.cont.i19.loopexit.split.loop.exit:         ; preds = %if.end8.i.i.i.i
   %incdec.ptr9.i.i.i.i.le = getelementptr inbounds nuw i8, ptr %__first.addr.049.i.i.i.i, i64 3
-  br label %invoke.cont.i20
+  br label %invoke.cont.i19
 
-invoke.cont.i20.loopexit.split.loop.exit302:      ; preds = %if.end4.i.i.i.i
+invoke.cont.i19.loopexit.split.loop.exit302:      ; preds = %if.end4.i.i.i.i
   %incdec.ptr5.i.i.i.i.le = getelementptr inbounds nuw i8, ptr %__first.addr.049.i.i.i.i, i64 2
-  br label %invoke.cont.i20
+  br label %invoke.cont.i19
 
-invoke.cont.i20.loopexit.split.loop.exit304:      ; preds = %if.end.i.i.i.i
+invoke.cont.i19.loopexit.split.loop.exit304:      ; preds = %if.end.i.i.i.i
   %incdec.ptr.i.i.i.i.le = getelementptr inbounds nuw i8, ptr %__first.addr.049.i.i.i.i, i64 1
-  br label %invoke.cont.i20
+  br label %invoke.cont.i19
 
-invoke.cont.i20:                                  ; preds = %for.body.i.i.i.i, %invoke.cont.i20.loopexit.split.loop.exit, %invoke.cont.i20.loopexit.split.loop.exit302, %invoke.cont.i20.loopexit.split.loop.exit304, %sw.bb26.i.i.i.i, %sw.bb21.i.i.i.i, %sw.bb.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i, %sw.bb.i.i.i.i ], [ %__first.addr.1.i.i.i.i, %sw.bb21.i.i.i.i ], [ %__first.addr.2.i.i.i.i, %sw.bb26.i.i.i.i ], [ %incdec.ptr9.i.i.i.i.le, %invoke.cont.i20.loopexit.split.loop.exit ], [ %incdec.ptr5.i.i.i.i.le, %invoke.cont.i20.loopexit.split.loop.exit302 ], [ %incdec.ptr.i.i.i.i.le, %invoke.cont.i20.loopexit.split.loop.exit304 ], [ %__first.addr.049.i.i.i.i, %for.body.i.i.i.i ]
+invoke.cont.i19:                                  ; preds = %for.body.i.i.i.i, %invoke.cont.i19.loopexit.split.loop.exit, %invoke.cont.i19.loopexit.split.loop.exit302, %invoke.cont.i19.loopexit.split.loop.exit304, %sw.bb26.i.i.i.i, %sw.bb21.i.i.i.i, %sw.bb.i.i.i.i
+  %retval.0.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i, %sw.bb.i.i.i.i ], [ %__first.addr.1.i.i.i.i, %sw.bb21.i.i.i.i ], [ %spec.select.i.i.i.i, %sw.bb26.i.i.i.i ], [ %incdec.ptr9.i.i.i.i.le, %invoke.cont.i19.loopexit.split.loop.exit ], [ %incdec.ptr5.i.i.i.i.le, %invoke.cont.i19.loopexit.split.loop.exit302 ], [ %incdec.ptr.i.i.i.i.le, %invoke.cont.i19.loopexit.split.loop.exit304 ], [ %__first.addr.049.i.i.i.i, %for.body.i.i.i.i ]
   %cmp7.i = icmp eq ptr %retval.0.i.i.i.i, %add.ptr.i.i
   br i1 %cmp7.i, label %if.end18, label %_ZNK18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEE4findEcm.exit
 
-_ZNK18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEE4findEcm.exit: ; preds = %invoke.cont.i20
+_ZNK18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEE4findEcm.exit: ; preds = %invoke.cont.i19
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %retval.0.i.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
@@ -401,7 +402,7 @@ _ZN18OpenImageIO_v2_6_07Strutil9strhash64ENS_17basic_string_viewIcSt11char_trait
   %tobool15.not = icmp eq ptr %call2.i37, null
   br i1 %tobool15.not, label %if.end18, label %return
 
-if.end18:                                         ; preds = %sw.bb26.i.i.i.i, %for.end.i.i.i.i, %invoke.cont.i20, %_ZN18OpenImageIO_v2_6_07Strutil9strhash64ENS_17basic_string_viewIcSt11char_traitsIcEEE.exit29, %_ZNK18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEE4findEcm.exit
+if.end18:                                         ; preds = %for.end.i.i.i.i, %invoke.cont.i19, %_ZN18OpenImageIO_v2_6_07Strutil9strhash64ENS_17basic_string_viewIcSt11char_traitsIcEEE.exit29, %_ZNK18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEE4findEcm.exit
   %18 = load atomic i8, ptr @_ZGVZN18OpenImageIO_v2_6_012_GLOBAL__N_111reverse_mapEvE2rm acquire, align 8
   %guard.uninitialized.i38 = icmp eq i8 %18, 0
   br i1 %guard.uninitialized.i38, label %init.check.i39, label %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_111reverse_mapEv.exit, !prof !4

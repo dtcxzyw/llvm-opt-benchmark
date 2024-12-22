@@ -2908,7 +2908,7 @@ _ZN5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEED2Ev.exit: ; preds = %270, %2
   br label %_ZN5Ipopt8SmartPtrIKNS_9IpoptDataEED2Ev.exit
 
 _ZN5Ipopt8SmartPtrIKNS_9IpoptDataEED2Ev.exit:     ; preds = %_ZN5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEED2Ev.exit, %282, %287
-  br i1 %269, label %313, label %563
+  br i1 %269, label %313, label %562
 
 291:                                              ; preds = %265
   %292 = landingpad { ptr, i32 }
@@ -3040,7 +3040,7 @@ _ZN5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEED2Ev.exit163: ; preds = %299,
   %387 = load double, ptr %386, align 8
   %388 = fcmp ugt double %336, %387
   %or.cond87 = select i1 %or.cond84, i1 true, i1 %388
-  br i1 %or.cond87, label %389, label %563
+  br i1 %or.cond87, label %389, label %562
 
 389:                                              ; preds = %374
   %390 = getelementptr inbounds nuw i8, ptr %376, i64 16
@@ -3111,7 +3111,7 @@ _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit177: ; preds = %_ZN5Ipopt8Smar
 423:                                              ; preds = %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit177
   %424 = load double, ptr %383, align 8
   %425 = fcmp ugt double %329, %424
-  br i1 %425, label %426, label %563
+  br i1 %425, label %426, label %562
 
 426:                                              ; preds = %423
   %427 = call ptr @__cxa_allocate_exception(i64 112) #16
@@ -3130,7 +3130,7 @@ _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit177: ; preds = %_ZN5Ipopt8Smar
 
 430:                                              ; preds = %429
   invoke void @__cxa_throw(ptr nonnull %427, ptr nonnull @_ZTIN5Ipopt18LOCALLY_INFEASIBLEE, ptr nonnull @_ZN5Ipopt18LOCALLY_INFEASIBLED2Ev) #18
-          to label %564 unwind label %434
+          to label %563 unwind label %434
 
 .thread307:                                       ; preds = %426
   %431 = landingpad { ptr, i32 }
@@ -3210,7 +3210,7 @@ _ZN5Ipopt9IpoptData18Append_info_stringERKNSt7__cxx1112basic_stringIcSt11char_tr
   store i32 %456, ptr %454, align 8
   %457 = load i32, ptr %439, align 8
   %.not = icmp slt i32 %456, %457
-  br i1 %.not, label %464, label %563
+  br i1 %.not, label %464, label %562
 
 458:                                              ; preds = %.noexc182, %447
   %459 = landingpad { ptr, i32 }
@@ -3332,7 +3332,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit201:     ; preds = %501, %492
   br label %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit203
 
 _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit203: ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit201, %509
-  br i1 %496, label %563, label %532
+  br i1 %496, label %562, label %532
 
 513:                                              ; preds = %485
   %514 = landingpad { ptr, i32 }
@@ -3373,7 +3373,7 @@ _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit203: ; preds = %_ZN5Ipopt8Smar
   %536 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %537 = load i32, ptr %536, align 4
   %.not73 = icmp slt i32 %535, %537
-  br i1 %.not73, label %538, label %563
+  br i1 %.not73, label %538, label %562
 
 538:                                              ; preds = %532
   %539 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -3389,7 +3389,7 @@ _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit203: ; preds = %_ZN5Ipopt8Smar
   %547 = fsub double %543, %546
   %548 = load double, ptr %539, align 8
   %549 = fcmp ult double %547, %548
-  br i1 %549, label %550, label %563
+  br i1 %549, label %550, label %562
 
 550:                                              ; preds = %542, %538
   %551 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -3405,20 +3405,18 @@ _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit203: ; preds = %_ZN5Ipopt8Smar
   %559 = fsub double %555, %558
   %560 = load double, ptr %551, align 8
   %561 = fcmp ult double %559, %560
-  br i1 %561, label %562, label %563
+  %spec.select = select i1 %561, i32 0, i32 5
+  br label %562
 
-562:                                              ; preds = %554, %550
-  br label %563
-
-563:                                              ; preds = %554, %542, %532, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit203, %_ZN5Ipopt9IpoptData18Append_info_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %423, %374, %_ZN5Ipopt8SmartPtrIKNS_9IpoptDataEED2Ev.exit, %562
-  %.034 = phi i32 [ 0, %562 ], [ 7, %_ZN5Ipopt8SmartPtrIKNS_9IpoptDataEED2Ev.exit ], [ 1, %374 ], [ 1, %423 ], [ 2, %_ZN5Ipopt9IpoptData18Append_info_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ 6, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit203 ], [ 3, %532 ], [ 4, %542 ], [ 5, %554 ]
+562:                                              ; preds = %550, %554, %542, %532, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit203, %_ZN5Ipopt9IpoptData18Append_info_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %423, %374, %_ZN5Ipopt8SmartPtrIKNS_9IpoptDataEED2Ev.exit
+  %.034 = phi i32 [ 7, %_ZN5Ipopt8SmartPtrIKNS_9IpoptDataEED2Ev.exit ], [ 1, %374 ], [ 1, %423 ], [ 2, %_ZN5Ipopt9IpoptData18Append_info_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ 6, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit203 ], [ 3, %532 ], [ 4, %542 ], [ %spec.select, %554 ], [ 0, %550 ]
   ret i32 %.034
 
 _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit154: ; preds = %528, %523, %309, %304, %_ZN5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEED2Ev.exit163, %236, %231, %436, %437, %.body
   %.pn74.pn.pn = phi { ptr, i32 } [ %.pn74.pn310, %437 ], [ %.pn74, %436 ], [ %.pn69, %.body ], [ %.pn61.pn, %231 ], [ %.pn61.pn, %236 ], [ %292, %_ZN5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEED2Ev.exit163 ], [ %292, %304 ], [ %292, %309 ], [ %514, %523 ], [ %514, %528 ]
   resume { ptr, i32 } %.pn74.pn.pn
 
-564:                                              ; preds = %430
+563:                                              ; preds = %430
   unreachable
 }
 

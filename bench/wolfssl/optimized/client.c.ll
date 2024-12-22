@@ -2596,7 +2596,7 @@ if.then36.i.i:                                    ; preds = %while.cond691
   %cmp44.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %cmp44.not.i.i, label %tcp_select.exit.thread, label %while.body696
 
-tcp_select.exit.thread:                           ; preds = %if.then36.i.i, %while.cond691
+tcp_select.exit.thread:                           ; preds = %while.cond691, %if.then36.i.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %fds.i.i)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %errfds.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %timeout.i.i)
@@ -3824,7 +3824,7 @@ if.then12:                                        ; preds = %while.body
 
 if.else33.i.i:                                    ; preds = %if.then12
   %cmp34.i.i = icmp sgt i32 %call.i.i, 0
-  br i1 %cmp34.i.i, label %if.then36.i.i, label %if.end65.i.i
+  br i1 %cmp34.i.i, label %if.then36.i.i, label %tcp_select_tx.exit
 
 if.then36.i.i:                                    ; preds = %if.else33.i.i
   %4 = load i64, ptr %arrayidx6.i.i, align 8
@@ -3836,13 +3836,11 @@ if.else50.i.i:                                    ; preds = %if.then36.i.i
   %5 = load i64, ptr %arrayidx28.i.i, align 8
   %and58.i.i = and i64 %5, %shl.i.i
   %cmp59.not.i.i = icmp eq i64 %and58.i.i, 0
-  br i1 %cmp59.not.i.i, label %if.end65.i.i, label %tcp_select_tx.exit
-
-if.end65.i.i:                                     ; preds = %if.else50.i.i, %if.else33.i.i
+  %spec.select.i.i = select i1 %cmp59.not.i.i, i32 0, i32 4
   br label %tcp_select_tx.exit
 
-tcp_select_tx.exit:                               ; preds = %if.then12, %if.then36.i.i, %if.else50.i.i, %if.end65.i.i
-  %retval.0.i.i = phi i32 [ 0, %if.end65.i.i ], [ 1, %if.then12 ], [ 4, %if.else50.i.i ], [ 3, %if.then36.i.i ]
+tcp_select_tx.exit:                               ; preds = %if.then12, %if.else33.i.i, %if.then36.i.i, %if.else50.i.i
+  %retval.0.i.i = phi i32 [ 1, %if.then12 ], [ %spec.select.i.i, %if.else50.i.i ], [ 0, %if.else33.i.i ], [ 3, %if.then36.i.i ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %fds.i.i)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %errfds.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %timeout.i.i)
@@ -3869,32 +3867,30 @@ if.else14:                                        ; preds = %while.body
 
 if.else33.i.i37:                                  ; preds = %if.else14
   %cmp34.i.i38 = icmp sgt i32 %call.i.i35, 0
-  br i1 %cmp34.i.i38, label %if.then36.i.i41, label %if.end65.i.i39
+  br i1 %cmp34.i.i38, label %if.then36.i.i40, label %tcp_select.exit
 
-if.then36.i.i41:                                  ; preds = %if.else33.i.i37
+if.then36.i.i40:                                  ; preds = %if.else33.i.i37
   %8 = load i64, ptr %arrayidx6.i.i30, align 8
-  %and.i.i42 = and i64 %8, %shl.i.i
-  %cmp44.not.i.i43 = icmp eq i64 %and.i.i42, 0
-  br i1 %cmp44.not.i.i43, label %if.else50.i.i44, label %tcp_select.exit
+  %and.i.i41 = and i64 %8, %shl.i.i
+  %cmp44.not.i.i42 = icmp eq i64 %and.i.i41, 0
+  br i1 %cmp44.not.i.i42, label %if.else50.i.i43, label %tcp_select.exit
 
-if.else50.i.i44:                                  ; preds = %if.then36.i.i41
+if.else50.i.i43:                                  ; preds = %if.then36.i.i40
   %9 = load i64, ptr %arrayidx28.i.i33, align 8
-  %and58.i.i45 = and i64 %9, %shl.i.i
-  %cmp59.not.i.i46 = icmp eq i64 %and58.i.i45, 0
-  br i1 %cmp59.not.i.i46, label %if.end65.i.i39, label %tcp_select.exit
-
-if.end65.i.i39:                                   ; preds = %if.else50.i.i44, %if.else33.i.i37
+  %and58.i.i44 = and i64 %9, %shl.i.i
+  %cmp59.not.i.i45 = icmp eq i64 %and58.i.i44, 0
+  %spec.select.i.i46 = select i1 %cmp59.not.i.i45, i32 0, i32 4
   br label %tcp_select.exit
 
-tcp_select.exit:                                  ; preds = %if.else14, %if.then36.i.i41, %if.else50.i.i44, %if.end65.i.i39
-  %retval.0.i.i40 = phi i32 [ 0, %if.end65.i.i39 ], [ 1, %if.else14 ], [ 4, %if.else50.i.i44 ], [ 2, %if.then36.i.i41 ]
+tcp_select.exit:                                  ; preds = %if.else14, %if.else33.i.i37, %if.then36.i.i40, %if.else50.i.i43
+  %retval.0.i.i39 = phi i32 [ 1, %if.else14 ], [ %spec.select.i.i46, %if.else50.i.i43 ], [ 0, %if.else33.i.i37 ], [ 2, %if.then36.i.i40 ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %fds.i.i21)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %errfds.i.i22)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %timeout.i.i23)
   br label %if.end16
 
 if.end16:                                         ; preds = %tcp_select.exit, %tcp_select_tx.exit
-  %select_ret.0 = phi i32 [ %retval.0.i.i, %tcp_select_tx.exit ], [ %retval.0.i.i40, %tcp_select.exit ]
+  %select_ret.0 = phi i32 [ %retval.0.i.i, %tcp_select_tx.exit ], [ %retval.0.i.i39, %tcp_select.exit ]
   %10 = and i32 %select_ret.0, 6
   %or.cond = icmp eq i32 %10, 2
   %cmp20 = icmp eq i32 %select_ret.0, 4

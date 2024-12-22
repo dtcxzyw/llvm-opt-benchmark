@@ -2802,16 +2802,16 @@ entry:
   %add = fadd float %5, %6
   %mul = fmul float %add, 5.000000e-01
   %cmp = fcmp oeq float %mul, 0.000000e+00
-  %du.0 = select i1 %cmp, float 0x3F40624DE0000000, float %mul
+  %spec.select = select i1 %cmp, float 0x3F40624DE0000000, float %mul
   %dpdu3 = getelementptr inbounds nuw i8, ptr %ctx, i64 44
   %agg.tmp2.sroa.0.0.copyload = load <2 x float>, ptr %dpdu3, align 4
   %agg.tmp2.sroa.2.0.dpdu3.sroa_idx = getelementptr inbounds nuw i8, ptr %ctx, i64 52
   %agg.tmp2.sroa.2.0.copyload = load float, ptr %agg.tmp2.sroa.2.0.dpdu3.sroa_idx, align 4
   %t.sroa.0.0.vec.extract.i = extractelement <2 x float> %agg.tmp2.sroa.0.0.copyload, i64 0
-  %mul.i.i = fmul float %du.0, %t.sroa.0.0.vec.extract.i
+  %mul.i.i = fmul float %spec.select, %t.sroa.0.0.vec.extract.i
   %t.sroa.0.4.vec.extract.i = extractelement <2 x float> %agg.tmp2.sroa.0.0.copyload, i64 1
-  %mul2.i.i = fmul float %du.0, %t.sroa.0.4.vec.extract.i
-  %mul3.i.i = fmul float %du.0, %agg.tmp2.sroa.2.0.copyload
+  %mul2.i.i = fmul float %spec.select, %t.sroa.0.4.vec.extract.i
+  %mul3.i.i = fmul float %spec.select, %agg.tmp2.sroa.2.0.copyload
   %7 = load float, ptr %ctx, align 4
   %add.i = fadd float %mul.i.i, %7
   %y.i = getelementptr inbounds nuw i8, ptr %ctx, i64 4
@@ -2822,7 +2822,7 @@ entry:
   %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %add.i, i64 0
   %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %add4.i, i64 1
   %10 = load float, ptr %uv.i, align 4
-  %add.i28 = fadd float %du.0, %10
+  %add.i28 = fadd float %spec.select, %10
   %y.i29 = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   %11 = load float, ptr %y.i29, align 4
   %add4.i31 = fadd float %11, 0.000000e+00
@@ -2966,7 +2966,7 @@ entry:
   store i32 %29, ptr %faceIndex14.i.i95, align 8, !alias.scope !77
   %call50 = call noundef float @_ZN4pbrt25UniversalTextureEvaluatorclENS_12FloatTextureENS_18TextureEvalContextE(ptr noundef nonnull align 1 dereferenceable(1) %texEval, ptr noundef nonnull %agg.tmp48, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %agg.tmp49)
   %sub = fsub float %call17, %call50
-  %div = fdiv float %sub, %du.0
+  %div = fdiv float %sub, %spec.select
   %agg.tmp58.sroa.0.0.copyload = load <2 x float>, ptr %shading, align 4
   %agg.tmp58.sroa.2.0.n.sroa_idx = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   %agg.tmp58.sroa.2.0.copyload = load float, ptr %agg.tmp58.sroa.2.0.n.sroa_idx, align 4
@@ -5750,9 +5750,9 @@ _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit:           ; preds = %if.then29, %if.then
 
 if.end.i:                                         ; preds = %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit
   %cmp1.i = fcmp oeq float %15, 0.000000e+00
-  %v.addr.0.i = select i1 %cmp1.i, float 0.000000e+00, float %15
-  %16 = bitcast float %v.addr.0.i to i32
-  %cmp5.i = fcmp ult float %v.addr.0.i, 0.000000e+00
+  %spec.select.i = select i1 %cmp1.i, float 0.000000e+00, float %15
+  %16 = bitcast float %spec.select.i to i32
+  %cmp5.i = fcmp ult float %spec.select.i, 0.000000e+00
   %ui.0.v.i = select i1 %cmp5.i, i32 -1, i32 1
   %ui.0.i = add i32 %ui.0.v.i, %16
   %17 = bitcast i32 %ui.0.i to float
@@ -5813,9 +5813,9 @@ _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit70:         ; preds = %if.then35, %if.then
 
 if.end.i72:                                       ; preds = %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit70
   %cmp1.i73 = fcmp oeq float %18, 0.000000e+00
-  %v.addr.0.i74 = select i1 %cmp1.i73, float -0.000000e+00, float %18
-  %19 = bitcast float %v.addr.0.i74 to i32
-  %cmp5.i75 = fcmp ogt float %v.addr.0.i74, 0.000000e+00
+  %spec.select.i74 = select i1 %cmp1.i73, float -0.000000e+00, float %18
+  %19 = bitcast float %spec.select.i74 to i32
+  %cmp5.i75 = fcmp ogt float %spec.select.i74, 0.000000e+00
   %ui.0.v.i76 = select i1 %cmp5.i75, i32 -1, i32 1
   %ui.0.i77 = add i32 %ui.0.v.i76, %19
   %20 = bitcast i32 %ui.0.i77 to float
@@ -13117,30 +13117,22 @@ if.else:                                          ; preds = %if.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i, i8 0, i64 16, i1 false)
   br label %for.body.i
 
-for.body.i:                                       ; preds = %_ZN4pbrt5ClampIfidEET_S1_T0_T1_.exit.i, %if.else
-  %indvars.iv.i = phi i64 [ 0, %if.else ], [ %indvars.iv.next.i, %_ZN4pbrt5ClampIfidEET_S1_T0_T1_.exit.i ]
+for.body.i:                                       ; preds = %for.body.i, %if.else
+  %indvars.iv.i = phi i64 [ 0, %if.else ], [ %indvars.iv.next.i, %for.body.i ]
   %arrayidx.i.i.i = getelementptr inbounds nuw [4 x float], ptr %ref.tmp23, i64 0, i64 %indvars.iv.i
   %13 = load float, ptr %arrayidx.i.i.i, align 4
   %cmp.i.i = fcmp olt float %13, 0.000000e+00
-  br i1 %cmp.i.i, label %_ZN4pbrt5ClampIfidEET_S1_T0_T1_.exit.i, label %if.else.i.i
-
-if.else.i.i:                                      ; preds = %for.body.i
   %conv2.i.i = fpext float %13 to double
   %cmp3.i.i = fcmp ogt double %conv2.i.i, 9.999000e-01
-  br i1 %cmp3.i.i, label %if.then4.i.i, label %_ZN4pbrt5ClampIfidEET_S1_T0_T1_.exit.i
-
-if.then4.i.i:                                     ; preds = %if.else.i.i
-  br label %_ZN4pbrt5ClampIfidEET_S1_T0_T1_.exit.i
-
-_ZN4pbrt5ClampIfidEET_S1_T0_T1_.exit.i:           ; preds = %if.then4.i.i, %if.else.i.i, %for.body.i
-  %retval.0.i.i = phi float [ 0x3FEFFF2E40000000, %if.then4.i.i ], [ 0.000000e+00, %for.body.i ], [ %13, %if.else.i.i ]
+  %spec.select.i = select i1 %cmp3.i.i, float 0x3FEFFF2E40000000, float %13
+  %retval.0.i.i = select i1 %cmp.i.i, float 0.000000e+00, float %spec.select.i
   %arrayidx.i.i6.i = getelementptr inbounds nuw [4 x float], ptr %retval.i, i64 0, i64 %indvars.iv.i
   store float %retval.0.i.i, ptr %arrayidx.i.i6.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %_ZN4pbrt5ClampIidEENS_15SampledSpectrumERKS1_T_T0_.exit, label %for.body.i, !llvm.loop !230
 
-_ZN4pbrt5ClampIidEENS_15SampledSpectrumERKS1_T_T0_.exit: ; preds = %_ZN4pbrt5ClampIfidEET_S1_T0_T1_.exit.i
+_ZN4pbrt5ClampIidEENS_15SampledSpectrumERKS1_T_T0_.exit: ; preds = %for.body.i
   %.fca.0.load.i = load <2 x float>, ptr %retval.i, align 8
   %.fca.1.gep.i = getelementptr inbounds nuw i8, ptr %retval.i, i64 8
   %.fca.1.load.i = load <2 x float>, ptr %.fca.1.gep.i, align 8
@@ -13506,8 +13498,8 @@ if.then.i:                                        ; preds = %if.end15
 _ZN4pbrt27TrowbridgeReitzDistributionC2Eff.exit:  ; preds = %if.end15, %if.then.i
   %distrib.sroa.0.0 = phi <2 x float> [ %distrib.sroa.0.4.vec.insert, %if.end15 ], [ %distrib.sroa.0.4.vec.insert10, %if.then.i ]
   %cmp = fcmp oeq float %call3.i.i, 0.000000e+00
-  %sampledEta.0 = select i1 %cmp, float 1.000000e+00, float %call3.i.i
-  store float %sampledEta.0, ptr %retval, align 8
+  %spec.select = select i1 %cmp, float 1.000000e+00, float %call3.i.i
+  store float %spec.select, ptr %retval, align 8
   %retval.4.retval.4.retval.4.mfDistrib3.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval, i64 4
   store <2 x float> %distrib.sroa.0.0, ptr %retval.4.retval.4.retval.4.mfDistrib3.i.sroa_idx, align 4
   %retval.0.retval.0.retval.0.retval.coerce.sroa.0.0.copyload = load <2 x float>, ptr %retval, align 8
@@ -14888,8 +14880,8 @@ for.body.preheader.i.i:                           ; preds = %_ZNK4pbrt18SampledW
 _ZNK4pbrt22ThinDielectricMaterial7GetBxDFINS_25UniversalTextureEvaluatorEEENS_18ThinDielectricBxDFET_NS_19MaterialEvalContextERNS_18SampledWavelengthsE.exit: ; preds = %entry, %_ZNK4pbrt18SampledWavelengths19SecondaryTerminatedEv.exit.i.i, %for.body.preheader.i.i
   %9 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %cmp.i = fcmp oeq float %call3.i.i.i, 0.000000e+00
-  %sampledEta.0.i = select i1 %cmp.i, float 1.000000e+00, float %call3.i.i.i
-  store float %sampledEta.0.i, ptr %call, align 4
+  %spec.select.i = select i1 %cmp.i, float 1.000000e+00, float %call3.i.i.i
+  store float %spec.select.i, ptr %call, align 4
   %10 = load ptr, ptr %9, align 8
   %ns = getelementptr inbounds nuw i8, ptr %10, i64 88
   %agg.tmp4.sroa.0.0.copyload = load <2 x float>, ptr %ns, align 4

@@ -3767,7 +3767,7 @@ while.body.i:                                     ; preds = %while.cond.i
   %arrayidx.i1.i8 = getelementptr i8, ptr %11, i64 11
   %12 = load i8, ptr %arrayidx.i1.i8, align 1
   %cmp.i.not.i9 = icmp eq i8 %12, 0
-  br i1 %cmp.i.not.i9, label %while.cond.i, label %if.end, !llvm.loop !69
+  br i1 %cmp.i.not.i9, label %while.cond.i, label %return, !llvm.loop !69
 
 land.lhs.true:                                    ; preds = %while.cond.i
   %conv.i10 = sext i32 %iter.sroa.7.0.i to i64
@@ -3780,7 +3780,9 @@ land.lhs.true:                                    ; preds = %while.cond.i
 
 if.then.i.i.i.i:                                  ; preds = %land.lhs.true
   %cmp4.i.i.i.i = icmp ult i64 %0, %13
-  br i1 %cmp4.i.i.i.i, label %if.end, label %return
+  %spec.select = select i1 %cmp4.i.i.i.i, i32 0, i32 %iter.sroa.7.0.i
+  %spec.select20 = select i1 %cmp4.i.i.i.i, ptr null, ptr %iter.sroa.0.0.i2
+  br label %return
 
 if.end.i.i.i.i:                                   ; preds = %land.lhs.true
   %cmp5.i.i.i.i = icmp eq ptr %1, null
@@ -3790,14 +3792,13 @@ _ZNK4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8prot
   %14 = load ptr, ptr %arrayidx.i.i.i, align 8
   %call11.i.i.i.i = tail call i32 @memcmp(ptr noundef nonnull %1, ptr noundef %14, i64 noundef %0) #23
   %cmp12.i.i.i.i = icmp slt i32 %call11.i.i.i.i, 0
-  br i1 %cmp12.i.i.i.i, label %if.end, label %return
-
-if.end:                                           ; preds = %while.body.i, %if.then.i.i.i.i, %_ZNK4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE12compare_keysIS7_S7_EEbRKT_RKT0_.exit
+  %spec.select21 = select i1 %cmp12.i.i.i.i, i32 0, i32 %iter.sroa.7.0.i
+  %spec.select22 = select i1 %cmp12.i.i.i.i, ptr null, ptr %iter.sroa.0.0.i2
   br label %return
 
-return:                                           ; preds = %if.end.i.i.i.i, %if.then.i.i.i.i, %_ZNK4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE12compare_keysIS7_S7_EEbRKT_RKT0_.exit, %if.end
-  %retval.sroa.4.0 = phi i32 [ 0, %if.end ], [ %iter.sroa.7.0.i, %_ZNK4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE12compare_keysIS7_S7_EEbRKT_RKT0_.exit ], [ %iter.sroa.7.0.i, %if.then.i.i.i.i ], [ %iter.sroa.7.0.i, %if.end.i.i.i.i ]
-  %retval.sroa.0.0 = phi ptr [ null, %if.end ], [ %iter.sroa.0.0.i2, %_ZNK4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE12compare_keysIS7_S7_EEbRKT_RKT0_.exit ], [ %iter.sroa.0.0.i2, %if.then.i.i.i.i ], [ %iter.sroa.0.0.i2, %if.end.i.i.i.i ]
+return:                                           ; preds = %while.body.i, %_ZNK4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE12compare_keysIS7_S7_EEbRKT_RKT0_.exit, %if.then.i.i.i.i, %if.end.i.i.i.i
+  %retval.sroa.4.0 = phi i32 [ %spec.select21, %_ZNK4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE12compare_keysIS7_S7_EEbRKT_RKT0_.exit ], [ %spec.select, %if.then.i.i.i.i ], [ %iter.sroa.7.0.i, %if.end.i.i.i.i ], [ 0, %while.body.i ]
+  %retval.sroa.0.0 = phi ptr [ %spec.select22, %_ZNK4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE12compare_keysIS7_S7_EEbRKT_RKT0_.exit ], [ %spec.select20, %if.then.i.i.i.i ], [ %iter.sroa.0.0.i2, %if.end.i.i.i.i ], [ null, %while.body.i ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %retval.sroa.4.0, 1
   ret { ptr, i32 } %.fca.1.insert

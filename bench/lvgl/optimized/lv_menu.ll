@@ -618,7 +618,7 @@ define internal void @lv_menu_back_event_cb(ptr noundef %0) #0 {
   %20 = icmp eq ptr %5, %19
   %21 = icmp ult i8 %16, 2
   %or.cond = select i1 %20, i1 true, i1 %21
-  br i1 %or.cond, label %.critedge, label %lv_menu_back_button_is_root.exit
+  br i1 %or.cond, label %.critedge, label %lv_menu_back_button_is_root.exit.thread31
 
 .thread:                                          ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 184
@@ -627,14 +627,14 @@ define internal void @lv_menu_back_event_cb(ptr noundef %0) #0 {
   store i8 %23, ptr %24, align 1, !tbaa !13
   br label %.critedge
 
-lv_menu_back_button_is_root.exit:                 ; preds = %14
+lv_menu_back_button_is_root.exit.thread31:        ; preds = %14
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 160
   %26 = tail call ptr @lv_ll_get_head(ptr noundef nonnull %25) #4
   %27 = tail call ptr @lv_ll_get_next(ptr noundef nonnull %25, ptr noundef %26) #4
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %.critedge, label %28
 
-28:                                               ; preds = %lv_menu_back_button_is_root.exit
+28:                                               ; preds = %lv_menu_back_button_is_root.exit.thread31
   tail call void @lv_ll_remove(ptr noundef nonnull %25, ptr noundef %26) #4
   tail call void @lv_free(ptr noundef %26) #4
   %29 = load i8, ptr %15, align 8, !tbaa !3
@@ -649,7 +649,7 @@ lv_menu_back_button_is_root.exit:                 ; preds = %14
   tail call void @lv_free(ptr noundef nonnull %27) #4
   br label %.critedge
 
-.critedge:                                        ; preds = %.thread, %14, %10, %1, %lv_menu_back_button_is_root.exit, %28
+.critedge:                                        ; preds = %.thread, %14, %10, %1, %lv_menu_back_button_is_root.exit.thread31, %28
   ret void
 }
 
@@ -999,11 +999,11 @@ define ptr @lv_menu_get_sidebar_header_back_button(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @lv_menu_back_button_is_root(ptr nocapture noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #2 {
+define zeroext i1 @lv_menu_back_button_is_root(ptr nocapture noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load ptr, ptr %3, align 8, !tbaa !30
   %5 = icmp eq ptr %1, %4
-  br i1 %5, label %15, label %6
+  br i1 %5, label %14, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -1015,13 +1015,10 @@ define noundef zeroext i1 @lv_menu_back_button_is_root(ptr nocapture noundef rea
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 185
   %12 = load i8, ptr %11, align 1, !tbaa !13
   %13 = icmp ult i8 %12, 2
-  br i1 %13, label %15, label %14
+  br label %14
 
-14:                                               ; preds = %10, %6
-  br label %15
-
-15:                                               ; preds = %10, %2, %14
-  %.0 = phi i1 [ false, %14 ], [ true, %2 ], [ true, %10 ]
+14:                                               ; preds = %6, %10, %2
+  %.0 = phi i1 [ true, %2 ], [ %13, %10 ], [ false, %6 ]
   ret i1 %.0
 }
 
