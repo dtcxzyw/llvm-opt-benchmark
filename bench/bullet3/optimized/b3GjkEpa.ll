@@ -899,6 +899,8 @@ if.then127:                                       ; preds = %sw.epilog
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_ray, i8 0, i64 16, i1 false)
   store i32 %sub, ptr %m_current, align 4
   %56 = load i32, ptr %rank56, align 8
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %m_ray, i64 32) ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %arrayidx3.i.i, i64 32) ]
   %cmp138112.not = icmp eq i32 %56, 0
   %.pre125 = load i32, ptr %mask, align 4
   br i1 %cmp138112.not, label %for.end181, label %for.body139.lr.ph
@@ -2021,21 +2023,21 @@ _ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit163: ; preds = %_ZN
   %inc.i162 = add i32 %110, 1
   store i32 %inc.i162, ptr %count.i161, align 16
   %111 = load ptr, ptr %m_hull, align 8
-  %f.0.in9.i165 = getelementptr inbounds nuw i8, ptr %111, i64 80
-  %f.010.i166 = load ptr, ptr %f.0.in9.i165, align 8
-  %tobool.not11.i167 = icmp eq ptr %f.010.i166, null
-  br i1 %tobool.not11.i167, label %_ZN13gjkepa2_impl25b3EPA8findbestEv.exit184, label %for.body.preheader.i168
+  %f.0.in9.i166 = getelementptr inbounds nuw i8, ptr %111, i64 80
+  %f.010.i167 = load ptr, ptr %f.0.in9.i166, align 8
+  %tobool.not11.i168 = icmp eq ptr %f.010.i167, null
+  br i1 %tobool.not11.i168, label %_ZN13gjkepa2_impl25b3EPA8findbestEv.exit184, label %for.body.preheader.i169
 
-for.body.preheader.i168:                          ; preds = %_ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit163
-  %d.i169 = getelementptr inbounds nuw i8, ptr %111, i64 16
-  %112 = load float, ptr %d.i169, align 16
+for.body.preheader.i169:                          ; preds = %_ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit163
+  %d.i165 = getelementptr inbounds nuw i8, ptr %111, i64 16
+  %112 = load float, ptr %d.i165, align 16
   %mul.i170 = fmul float %112, %112
   br label %for.body.i171
 
-for.body.i171:                                    ; preds = %for.body.i171, %for.body.preheader.i168
-  %f.014.i172 = phi ptr [ %f.0.i181, %for.body.i171 ], [ %f.010.i166, %for.body.preheader.i168 ]
-  %minf.013.i173 = phi ptr [ %minf.1.i179, %for.body.i171 ], [ %111, %for.body.preheader.i168 ]
-  %mind.012.i174 = phi float [ %mind.1.i178, %for.body.i171 ], [ %mul.i170, %for.body.preheader.i168 ]
+for.body.i171:                                    ; preds = %for.body.i171, %for.body.preheader.i169
+  %f.014.i172 = phi ptr [ %f.0.i181, %for.body.i171 ], [ %f.010.i167, %for.body.preheader.i169 ]
+  %minf.013.i173 = phi ptr [ %minf.1.i179, %for.body.i171 ], [ %111, %for.body.preheader.i169 ]
+  %mind.012.i174 = phi float [ %mind.1.i178, %for.body.i171 ], [ %mul.i170, %for.body.preheader.i169 ]
   %d3.i175 = getelementptr inbounds nuw i8, ptr %f.014.i172, i64 16
   %113 = load float, ptr %d3.i175, align 16
   %mul5.i176 = fmul float %113, %113
@@ -4081,6 +4083,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #9
+
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4090,6 +4095,7 @@ attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #6 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -3206,13 +3206,14 @@ delete.notnull.i31.i.i:                           ; preds = %sw.bb7.i.i
   store i64 0, ptr %nStored.le.i.i.i.i.i.i, align 8, !noalias !7
   %ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %234, i64 48
   %238 = load ptr, ptr %ptr.i.i.i.i.i, align 8, !noalias !7
+  %nAlloc.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %234, i64 56
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %nAlloc.i.i.i.i.i, i64 64) ]
   %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %238, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %return.sink.split.i.i, label %if.end.i.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i:                           ; preds = %delete.notnull.i31.i.i
-  %X.i.i.i.i = getelementptr inbounds nuw i8, ptr %234, i64 40
-  %nAlloc.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %234, i64 56
   %239 = load i64, ptr %nAlloc.i.i.i.i.i, align 8, !noalias !7
+  %X.i.i.i.i = getelementptr inbounds nuw i8, ptr %234, i64 40
   %mul.i.i.i.i.i.i330 = shl i64 %239, 5
   %240 = load ptr, ptr %X.i.i.i.i, align 8, !noalias !7
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %240, align 8, !noalias !7
@@ -3246,13 +3247,14 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i.i.i.i.i:          ; preds = %if.then.i.i.i.i.i.i
   store i64 0, ptr %nStored.le.i.i.i.i.i.i.i.i, align 8, !noalias !7
   %ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %234, i64 48
   %245 = load ptr, ptr %ptr.i.i.i.i.i.i.i, align 8, !noalias !7
+  %nAlloc.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %234, i64 56
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %nAlloc.i.i.i.i.i.i.i, i64 64) ]
   %tobool.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %245, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i, label %return.sink.split.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i.i.i:                       ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i.i.i.i
-  %X.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %234, i64 40
-  %nAlloc.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %234, i64 56
   %246 = load i64, ptr %nAlloc.i.i.i.i.i.i.i, align 8, !noalias !7
+  %X.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %234, i64 40
   %mul.i.i.i.i.i.i.i.i = shl i64 %246, 5
   %247 = load ptr, ptr %X.i.i.i.i.i.i, align 8, !noalias !7
   %vtable.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %247, align 8, !noalias !7
@@ -8287,6 +8289,7 @@ entry:
   %0 = load i32, ptr %sampleIndex, align 8
   %dimension = getelementptr inbounds nuw i8, ptr %this, i64 36
   %1 = load i32, ptr %dimension, align 4
+  %div = sdiv i32 %1, 2
   %cmp = icmp sgt i32 %1, 9
   %pixel = getelementptr inbounds nuw i8, ptr %this, i64 24
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %pixel, align 8
@@ -8387,6 +8390,12 @@ _ZN4pbrt18PermutationElementEjjj.exit:            ; preds = %do.body.i
 
 if.end:                                           ; preds = %entry, %_ZN4pbrt18PermutationElementEjjj.exit
   %index.0 = phi i32 [ %rem.i, %_ZN4pbrt18PermutationElementEjjj.exit ], [ %0, %entry ]
+  %rem.i3 = srem i32 %div, 5
+  %rem1.i = srem i32 %index.0, 65536
+  %idxprom.i = sext i32 %rem.i3 to i64
+  %idxprom2.i = sext i32 %rem1.i to i64
+  %arrayidx3.i = getelementptr inbounds [5 x [65536 x [2 x i32]]], ptr @_ZN4pbrt14pmj02bnSamplesE, i64 0, i64 %idxprom.i, i64 %idxprom2.i
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %arrayidx3.i, i64 32) ]
   %cmp.i = icmp sgt i32 %1, -1
   %4 = and i64 %agg.tmp.sroa.0.0.copyload, -9223372034707292160
   %5 = icmp eq i64 %4, 0
@@ -8398,17 +8407,11 @@ land.rhs.i:                                       ; preds = %if.end
   unreachable
 
 _ZN4pbrt9BlueNoiseEiNS_6Point2IiEE.exit18:        ; preds = %if.end
-  %div51 = lshr i32 %1, 1
-  %rem.i3 = urem i32 %div51, 5
-  %idxprom.i = zext nneg i32 %rem.i3 to i64
-  %rem1.i = srem i32 %index.0, 65536
-  %idxprom2.i = sext i32 %rem1.i to i64
-  %arrayidx3.i = getelementptr inbounds [5 x [65536 x [2 x i32]]], ptr @_ZN4pbrt14pmj02bnSamplesE, i64 0, i64 %idxprom.i, i64 %idxprom2.i
   %6 = load i32, ptr %arrayidx3.i, align 8
+  %arrayidx10.i = getelementptr inbounds nuw i8, ptr %arrayidx3.i, i64 4
   %conv.i = uitofp i32 %6 to double
   %mul.i4 = fmul double %conv.i, 0x3DF0000000000000
   %conv5.i = fptrunc double %mul.i4 to float
-  %arrayidx10.i = getelementptr inbounds nuw i8, ptr %arrayidx3.i, i64 4
   %7 = load i32, ptr %arrayidx10.i, align 4
   %conv11.i = uitofp i32 %7 to double
   %mul12.i = fmul double %conv11.i, 0x3DF0000000000000
@@ -8813,14 +8816,14 @@ define linkonce_odr dso_local noundef float @_ZNK4pbrt13HaltonSampler15SampleDim
 entry:
   %randomize = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load i32, ptr %randomize, align 4
+  %haltonIndex9 = getelementptr inbounds nuw i8, ptr %this, i64 40
   switch i32 %0, label %do.end [
     i32 0, label %if.then
     i32 1, label %if.then4
   ]
 
 if.then:                                          ; preds = %entry
-  %haltonIndex = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %1 = load i64, ptr %haltonIndex, align 8
+  %1 = load i64, ptr %haltonIndex9, align 8
   %idxprom.i = sext i32 %dimension to i64
   %arrayidx.i = getelementptr inbounds [1000 x i32], ptr @_ZN4pbrt6PrimesE, i64 0, i64 %idxprom.i
   %2 = load i32, ptr %arrayidx.i, align 4
@@ -8858,6 +8861,8 @@ _ZN4pbrt14RadicalInverseEim.exit:                 ; preds = %if.then, %while.end
   br label %return
 
 if.then4:                                         ; preds = %entry
+  %digitPermutations = getelementptr inbounds nuw i8, ptr %this, i64 8
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %digitPermutations, i64 0) ]
   %conv = sext i32 %dimension to i64
   %arrayidx.i7 = getelementptr inbounds [1000 x i32], ptr @_ZN4pbrt6PrimesE, i64 0, i64 %conv
   %6 = load i32, ptr %arrayidx.i7, align 4
@@ -8873,13 +8878,11 @@ if.then4:                                         ; preds = %entry
   br i1 %cmp15.i, label %while.body.lr.ph.i, label %_ZN4pbrt23ScrambledRadicalInverseEimRKNS_16DigitPermutationE.exit
 
 while.body.lr.ph.i:                               ; preds = %if.then4
-  %digitPermutations = getelementptr inbounds nuw i8, ptr %this, i64 8
   %7 = load ptr, ptr %digitPermutations, align 8
   %ptr.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %8 = load ptr, ptr %ptr.i, align 8
   %arrayidx.i5 = getelementptr inbounds %"class.pbrt::DigitPermutation", ptr %8, i64 %conv
-  %haltonIndex5 = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %9 = load i64, ptr %haltonIndex5, align 8
+  %9 = load i64, ptr %haltonIndex9, align 8
   %permutations.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i5, i64 8
   %10 = load ptr, ptr %permutations.i.i, align 8
   %11 = load i32, ptr %arrayidx.i5, align 8
@@ -8923,7 +8926,6 @@ _ZN4pbrt23ScrambledRadicalInverseEimRKNS_16DigitPermutationE.exit: ; preds = %if
   br label %return
 
 do.end:                                           ; preds = %entry
-  %haltonIndex9 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %16 = load i64, ptr %haltonIndex9, align 8
   %shl = shl i32 %dimension, 4
   %add = or disjoint i32 %shl, 1
@@ -12291,14 +12293,14 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #29
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #30
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #31
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #27
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #27

@@ -17,13 +17,13 @@ define dso_local void @sort_job_list(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %1
-  %5 = tail call ptr @xstrdup(ptr noundef nonnull @.str) #7
+  %5 = tail call ptr @xstrdup(ptr noundef nonnull @.str) #8
   store ptr %5, ptr getelementptr inbounds nuw (i8, ptr @params, i64 64), align 8
   br label %6
 
 6:                                                ; preds = %4, %1
   %7 = phi ptr [ %5, %4 ], [ %2, %1 ]
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #8
+  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #9
   %9 = trunc i64 %8 to i32
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %.lr.ph.preheader, label %._crit_edge
@@ -113,13 +113,13 @@ define dso_local void @sort_job_list(ptr noundef %0) local_unnamed_addr #0 {
 
 33:                                               ; preds = %15
   %34 = sext i8 %14 to i32
-  %35 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.1, i32 noundef %34) #7
-  tail call void @exit(i32 noundef 1) #9
+  %35 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.1, i32 noundef %34) #8
+  tail call void @exit(i32 noundef 1) #10
   unreachable
 
 .backedge.sink.split:                             ; preds = %15, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20
   %_sort_by_cluster_name.sink = phi ptr [ @_sort_by_job_id, %20 ], [ @_sort_by_nice_level, %21 ], [ @_sort_by_qos_name, %22 ], [ @_sort_by_account, %23 ], [ @_sort_by_partition, %24 ], [ @_sort_by_username, %25 ], [ @_sort_by_age_prio, %26 ], [ @_sort_by_fairshare_prio, %27 ], [ @_sort_by_jobsize_prio, %28 ], [ @_sort_by_partition_prio, %29 ], [ @_sort_by_qos_prio, %30 ], [ @_sort_by_tres_prio, %31 ], [ @_sort_by_job_prio, %32 ], [ @_sort_by_cluster_name, %15 ]
-  tail call void @list_sort(ptr noundef %0, ptr noundef nonnull %_sort_by_cluster_name.sink) #7
+  tail call void @list_sort(ptr noundef %0, ptr noundef nonnull %_sort_by_cluster_name.sink) #8
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.sink.split, %.lr.ph
@@ -145,7 +145,7 @@ define internal i32 @_sort_by_cluster_name(ptr nocapture noundef readonly %0, pt
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call i32 @xstrcmp(ptr noundef %5, ptr noundef %7) #7
+  %8 = tail call i32 @xstrcmp(ptr noundef %5, ptr noundef %7) #8
   %.b3 = load i1, ptr @sort_descend, align 1
   %9 = sub nsw i32 0, %8
   %10 = select i1 %.b3, i32 %9, i32 %8
@@ -167,8 +167,8 @@ define internal range(i32 -1, 2) i32 @_sort_by_job_id(ptr nocapture noundef read
   ret i32 %10
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @_sort_by_nice_level(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable
+define internal range(i32 -1, 2) i32 @_sort_by_nice_level(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %.val, i64 40
   %4 = load ptr, ptr %3, align 8
@@ -201,7 +201,7 @@ define internal i32 @_sort_by_qos_name(ptr nocapture noundef readonly %0, ptr no
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call i32 @xstrcmp(ptr noundef %5, ptr noundef %7) #7
+  %8 = tail call i32 @xstrcmp(ptr noundef %5, ptr noundef %7) #8
   %.b3 = load i1, ptr @sort_descend, align 1
   %9 = sub nsw i32 0, %8
   %10 = select i1 %.b3, i32 %9, i32 %8
@@ -214,7 +214,7 @@ define internal i32 @_sort_by_account(ptr nocapture noundef readonly %0, ptr noc
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %.val, align 8
   %5 = load ptr, ptr %3, align 8
-  %6 = tail call i32 @xstrcmp(ptr noundef %4, ptr noundef %5) #7
+  %6 = tail call i32 @xstrcmp(ptr noundef %4, ptr noundef %5) #8
   %.b3 = load i1, ptr @sort_descend, align 1
   %7 = sub nsw i32 0, %6
   %8 = select i1 %.b3, i32 %7, i32 %6
@@ -229,7 +229,7 @@ define internal i32 @_sort_by_partition(ptr nocapture noundef readonly %0, ptr n
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call i32 @xstrcmp(ptr noundef %5, ptr noundef %7) #7
+  %8 = tail call i32 @xstrcmp(ptr noundef %5, ptr noundef %7) #8
   %.b3 = load i1, ptr @sort_descend, align 1
   %9 = sub nsw i32 0, %8
   %10 = select i1 %.b3, i32 %9, i32 %8
@@ -242,19 +242,19 @@ define internal i32 @_sort_by_username(ptr nocapture noundef readonly %0, ptr no
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 56
   %5 = load i32, ptr %4, align 8
-  %6 = tail call ptr @uid_to_string_cached(i32 noundef %5) #7
+  %6 = tail call ptr @uid_to_string_cached(i32 noundef %5) #8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %8 = load i32, ptr %7, align 8
-  %9 = tail call ptr @uid_to_string_cached(i32 noundef %8) #7
-  %10 = tail call i32 @xstrcmp(ptr noundef %6, ptr noundef %9) #7
+  %9 = tail call ptr @uid_to_string_cached(i32 noundef %8) #8
+  %10 = tail call i32 @xstrcmp(ptr noundef %6, ptr noundef %9) #8
   %.b5 = load i1, ptr @sort_descend, align 1
   %11 = sub nsw i32 0, %10
   %12 = select i1 %.b5, i32 %11, i32 %10
   ret i32 %12
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @_sort_by_age_prio(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable
+define internal i32 @_sort_by_age_prio(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %.val, i64 40
   %4 = load ptr, ptr %3, align 8
@@ -287,8 +287,8 @@ define internal i32 @_sort_by_age_prio(ptr nocapture noundef readonly %0, ptr no
   ret i32 %21
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @_sort_by_fairshare_prio(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable
+define internal i32 @_sort_by_fairshare_prio(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %.val, i64 40
   %4 = load ptr, ptr %3, align 8
@@ -321,8 +321,8 @@ define internal i32 @_sort_by_fairshare_prio(ptr nocapture noundef readonly %0, 
   ret i32 %21
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @_sort_by_jobsize_prio(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable
+define internal i32 @_sort_by_jobsize_prio(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %.val, i64 40
   %4 = load ptr, ptr %3, align 8
@@ -355,8 +355,8 @@ define internal i32 @_sort_by_jobsize_prio(ptr nocapture noundef readonly %0, pt
   ret i32 %21
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @_sort_by_partition_prio(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable
+define internal i32 @_sort_by_partition_prio(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %.val, i64 40
   %4 = load ptr, ptr %3, align 8
@@ -389,8 +389,8 @@ define internal i32 @_sort_by_partition_prio(ptr nocapture noundef readonly %0, 
   ret i32 %21
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @_sort_by_qos_prio(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable
+define internal i32 @_sort_by_qos_prio(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %.val, i64 40
   %4 = load ptr, ptr %3, align 8
@@ -424,7 +424,7 @@ define internal i32 @_sort_by_qos_prio(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal i32 @_sort_by_tres_prio(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal i32 @_sort_by_tres_prio(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
   %.val = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 40
@@ -501,8 +501,8 @@ define internal i32 @_sort_by_tres_prio(ptr nocapture noundef readonly %0, ptr n
 define internal i32 @_sort_by_job_prio(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
   %.val = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %1, align 8
-  %4 = tail call double @get_priority_from_factors(ptr noundef %.val) #7
-  %5 = tail call double @get_priority_from_factors(ptr noundef %3) #7
+  %4 = tail call double @get_priority_from_factors(ptr noundef %.val) #8
+  %5 = tail call double @get_priority_from_factors(ptr noundef %3) #8
   %6 = fsub double %4, %5
   %7 = tail call double @llvm.fabs.f64(double %6)
   %or.cond.i = fcmp olt double %7, 1.000000e-05
@@ -519,7 +519,7 @@ define internal i32 @_sort_by_job_prio(ptr nocapture noundef readonly %0, ptr no
 declare i32 @error(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #5
+declare void @exit(i32 noundef) local_unnamed_addr #6
 
 declare i32 @xstrcmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -528,24 +528,25 @@ declare ptr @uid_to_string_cached(i32 noundef) local_unnamed_addr #1
 declare double @get_priority_from_factors(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.scmp.i32.i32(i32, i32) #6
+declare i32 @llvm.scmp.i32.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #6
+declare double @llvm.fabs.f64(double) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ucmp.i32.i32(i32, i32) #6
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
-attributes #8 = { nounwind willreturn memory(read) }
-attributes #9 = { cold noreturn nounwind }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
+attributes #9 = { nounwind willreturn memory(read) }
+attributes #10 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

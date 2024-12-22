@@ -302,7 +302,7 @@ terminate.lpad:                                   ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i64 0, 4294967296) i64 @meshopt_generateVertexRemapMulti(ptr nocapture noundef %destination, ptr noundef readonly %indices, i64 noundef %index_count, i64 noundef %vertex_count, ptr nocapture noundef readonly %streams, i64 noundef %stream_count) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local range(i64 0, 4294967296) i64 @meshopt_generateVertexRemapMulti(ptr nocapture noundef %destination, ptr noundef readonly %indices, i64 noundef %index_count, i64 noundef %vertex_count, ptr noundef %streams, i64 noundef %stream_count) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %allocator = alloca %class.meshopt_Allocator, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %allocator, i8 0, i64 200, i1 false)
@@ -446,6 +446,7 @@ for.body.i.i:                                     ; preds = %cond.end, %_ZN7mesh
   %h.08.i.i = phi i32 [ %h.addr.0.lcssa.i.i.i, %_ZN7meshoptL11hashUpdate4EjPKhm.exit.i.i ], [ 0, %cond.end ]
   %i.07.i.i = phi i64 [ %inc.i.i, %_ZN7meshoptL11hashUpdate4EjPKhm.exit.i.i ], [ 0, %cond.end ]
   %arrayidx.i.i = getelementptr inbounds %struct.meshopt_Stream, ptr %streams, i64 %i.07.i.i
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %arrayidx.i.i, i64 0) ]
   %size.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 8
   %10 = load i64, ptr %size.i.i, align 8
   %cmp9.i.i.i = icmp ugt i64 %10, 3
@@ -1043,7 +1044,7 @@ _ZN17meshopt_AllocatorD2Ev.exit:                  ; preds = %for.cond.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @meshopt_generateShadowIndexBufferMulti(ptr nocapture noundef writeonly %destination, ptr nocapture noundef readonly %indices, i64 noundef %index_count, i64 noundef %vertex_count, ptr nocapture noundef readonly %streams, i64 noundef %stream_count) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @meshopt_generateShadowIndexBufferMulti(ptr nocapture noundef writeonly %destination, ptr nocapture noundef readonly %indices, i64 noundef %index_count, i64 noundef %vertex_count, ptr noundef %streams, i64 noundef %stream_count) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %allocator = alloca %class.meshopt_Allocator, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %allocator, i8 0, i64 200, i1 false)
@@ -1136,6 +1137,7 @@ for.body.i.i:                                     ; preds = %for.body11, %_ZN7me
   %h.08.i.i = phi i32 [ %h.addr.0.lcssa.i.i.i, %_ZN7meshoptL11hashUpdate4EjPKhm.exit.i.i ], [ 0, %for.body11 ]
   %i.07.i.i = phi i64 [ %inc.i.i, %_ZN7meshoptL11hashUpdate4EjPKhm.exit.i.i ], [ 0, %for.body11 ]
   %arrayidx.i.i = getelementptr inbounds %struct.meshopt_Stream, ptr %streams, i64 %i.07.i.i
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %arrayidx.i.i, i64 0) ]
   %size.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 8
   %9 = load i64, ptr %size.i.i, align 8
   %cmp9.i.i.i = icmp ugt i64 %9, 3

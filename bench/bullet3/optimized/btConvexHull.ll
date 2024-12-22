@@ -4502,6 +4502,7 @@ invoke.cont63:                                    ; preds = %for.body8.i176, %in
   %36 = load i32, ptr %desc, align 8
   %and.i213 = and i32 %36, 2
   %tobool.not.i214.not = icmp eq i32 %and.i213, 0
+  %m_data.i219 = getelementptr inbounds nuw i8, ptr %result, i64 64
   br i1 %tobool.not.i214.not, label %if.else, label %if.then72
 
 if.then72:                                        ; preds = %invoke.cont63
@@ -4509,8 +4510,7 @@ if.then72:                                        ; preds = %invoke.cont63
   br i1 %cmp82366.not, label %if.end163, label %for.body83.preheader
 
 for.body83.preheader:                             ; preds = %if.then72
-  %m_data.i217 = getelementptr inbounds nuw i8, ptr %result, i64 64
-  %37 = load ptr, ptr %m_data.i217, align 8
+  %37 = load ptr, ptr %m_data.i219, align 8
   br label %for.body83
 
 for.body83:                                       ; preds = %for.body83.preheader, %for.body83
@@ -4540,7 +4540,6 @@ lpad43:                                           ; preds = %if.then3.i.i.i337, 
   br label %ehcleanup
 
 if.else:                                          ; preds = %invoke.cont63
-  %m_data.i219 = getelementptr inbounds nuw i8, ptr %result, i64 64
   %42 = load ptr, ptr %m_data.i219, align 8
   %conv101 = zext i32 %mul.i to i64
   %mul102 = shl nuw nsw i64 %conv101, 2

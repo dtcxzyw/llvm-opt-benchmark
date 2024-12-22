@@ -3857,13 +3857,14 @@ if.end25:                                         ; preds = %entry
   %.fr = freeze i32 %7
   %cmp.i = icmp slt i32 %.fr, 0
   %8 = getelementptr inbounds nuw i8, ptr %this, i64 712
+  %_M_before_begin.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 728
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %_M_before_begin.i.i.i.i, i64 0) ]
   %idx.ext.i = zext nneg i32 %.fr to i64
   %add.ptr.i10 = getelementptr inbounds nuw %"class.base::ManualConstructor", ptr %8, i64 %idx.ext.i
   %retval.sroa.0.0.i11 = select i1 %cmp.i, ptr null, ptr %add.ptr.i10
   br i1 %cmp.i, label %for.cond.us.preheader, label %for.cond.outer
 
 for.cond.us.preheader:                            ; preds = %if.end25
-  %_M_before_begin.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 728
   %9 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8
   %cmp.i.i.i.us74 = icmp eq ptr %9, null
   br i1 %cmp.i.i.i.us74, label %for.end, label %for.body.us
@@ -3930,13 +3931,14 @@ for.end:                                          ; preds = %if.then.i.i, %_ZN4b
   %.fr67 = freeze i32 %15
   %cmp.i16 = icmp slt i32 %.fr67, 0
   %16 = getelementptr inbounds nuw i8, ptr %this, i64 776
+  %_M_before_begin.i.i.i.i17 = getelementptr inbounds nuw i8, ptr %this, i64 792
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %_M_before_begin.i.i.i.i17, i64 0) ]
   %idx.ext.i23 = zext nneg i32 %.fr67 to i64
   %add.ptr.i24 = getelementptr inbounds nuw %"class.base::ManualConstructor", ptr %16, i64 %idx.ext.i23
   %retval.sroa.0.0.i25 = select i1 %cmp.i16, ptr null, ptr %add.ptr.i24
   br i1 %cmp.i16, label %for.cond36.us.preheader, label %for.cond36.outer
 
 for.cond36.us.preheader:                          ; preds = %for.end
-  %_M_before_begin.i.i.i.i17 = getelementptr inbounds nuw i8, ptr %this, i64 792
   %17 = load ptr, ptr %_M_before_begin.i.i.i.i17, align 8
   %cmp.i.i.i38.us78 = icmp eq ptr %17, null
   br i1 %cmp.i.i.i38.us78, label %for.end44, label %for.body38.us
@@ -5694,13 +5696,14 @@ entry:
   %.fr = freeze i32 %0
   %cmp.i = icmp slt i32 %.fr, 0
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 712
+  %_M_before_begin.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 728
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %_M_before_begin.i.i.i.i, i64 0) ]
   %idx.ext.i = zext nneg i32 %.fr to i64
   %add.ptr.i = getelementptr inbounds nuw %"class.base::ManualConstructor", ptr %1, i64 %idx.ext.i
   %retval.sroa.0.0.i4 = select i1 %cmp.i, ptr null, ptr %add.ptr.i
   br i1 %cmp.i, label %for.cond.us.preheader, label %for.cond.outer
 
 for.cond.us.preheader:                            ; preds = %entry
-  %_M_before_begin.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 728
   %2 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8
   %cmp.i.i.i.us82 = icmp eq ptr %2, null
   br i1 %cmp.i.i.i.us82, label %for.end, label %for.body.us
@@ -5779,13 +5782,14 @@ for.end:                                          ; preds = %if.then.i.i, %_ZN4b
   %.fr66 = freeze i32 %8
   %cmp.i9 = icmp slt i32 %.fr66, 0
   %9 = getelementptr inbounds nuw i8, ptr %this, i64 776
+  %_M_before_begin.i.i.i.i10 = getelementptr inbounds nuw i8, ptr %this, i64 792
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %_M_before_begin.i.i.i.i10, i64 0) ]
   %idx.ext.i16 = zext nneg i32 %.fr66 to i64
   %add.ptr.i17 = getelementptr inbounds nuw %"class.base::ManualConstructor", ptr %9, i64 %idx.ext.i16
   %retval.sroa.0.0.i18 = select i1 %cmp.i9, ptr null, ptr %add.ptr.i17
   br i1 %cmp.i9, label %for.cond13.us.preheader, label %for.cond13.outer
 
 for.cond13.us.preheader:                          ; preds = %for.end
-  %_M_before_begin.i.i.i.i10 = getelementptr inbounds nuw i8, ptr %this, i64 792
   %10 = load ptr, ptr %_M_before_begin.i.i.i.i10, align 8
   %cmp.i.i.i31.us86 = icmp eq ptr %10, null
   br i1 %cmp.i.i.i31.us86, label %return, label %for.body15.us

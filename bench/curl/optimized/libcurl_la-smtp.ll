@@ -88,13 +88,13 @@ entry:
   %host.i.i.i = alloca %struct.hostname, align 8
   %host39.i.i.i = alloca %struct.hostname, align 8
   store i8 0, ptr %done, align 1
+  %p.i = getelementptr inbounds nuw i8, ptr %data, i64 392
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %data, i64 1864
   %0 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.end, label %smtp_parse_custom_request.exit
 
 smtp_parse_custom_request.exit:                   ; preds = %entry
-  %p.i = getelementptr inbounds nuw i8, ptr %data, i64 392
   %1 = load ptr, ptr %p.i, align 8
   %custom1.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %call.i = tail call i32 @Curl_urldecode(ptr noundef nonnull %0, i64 noundef 0, ptr noundef nonnull %custom1.i, ptr noundef null, i32 noundef 3) #8
@@ -108,8 +108,7 @@ if.end:                                           ; preds = %entry, %smtp_parse_
   %call.i5 = tail call i32 @Curl_pgrsSetDownloadCounter(ptr noundef nonnull %data, i64 noundef 0) #8
   tail call void @Curl_pgrsSetUploadSize(ptr noundef nonnull %data, i64 noundef -1) #8
   tail call void @Curl_pgrsSetDownloadSize(ptr noundef nonnull %data, i64 noundef -1) #8
-  %p.i.i = getelementptr inbounds nuw i8, ptr %data, i64 392
-  %2 = load ptr, ptr %p.i.i, align 8
+  %2 = load ptr, ptr %p.i, align 8
   %no_body.i.i = getelementptr inbounds nuw i8, ptr %data, i64 411
   %bf.load.i.i = load i16, ptr %no_body.i.i, align 1
   %3 = and i16 %bf.load.i.i, 4096
@@ -506,7 +505,7 @@ if.end160.thread.i.i.i:                           ; preds = %land.lhs.true147.i.
   br label %50
 
 if.then149.i.i.i:                                 ; preds = %land.lhs.true147.i.i.i
-  %48 = load ptr, ptr %p.i.i, align 8
+  %48 = load ptr, ptr %p.i, align 8
   %rcpt150.i.i.i = getelementptr inbounds nuw i8, ptr %48, i64 16
   %rcpt.0107.i.i.i = load ptr, ptr %rcpt150.i.i.i, align 8
   %tobool151108.i.i.i = icmp eq ptr %rcpt.0107.i.i.i, null
@@ -645,7 +644,7 @@ land.lhs.true.i:                                  ; preds = %smtp_perform.exit.i
   br i1 %tobool2.i, label %if.then.i8, label %return
 
 if.then.i8:                                       ; preds = %land.lhs.true.i
-  %64 = load ptr, ptr %p.i.i, align 8
+  %64 = load ptr, ptr %p.i, align 8
   %65 = load i32, ptr %64, align 8
   %cmp.not.i.i = icmp eq i32 %65, 0
   br i1 %cmp.not.i.i, label %return, label %if.then.i10.i

@@ -3451,6 +3451,7 @@ _ZN12AstCoverDecl12unlinkFrBackEP10VNRelinker.exit: ; preds = %66
   br label %79
 
 79:                                               ; preds = %.noexc63, %_ZN12AstCoverDecl12unlinkFrBackEP10VNRelinker.exit
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %42, i64 0) ]
   %.not.i.i.i = icmp eq ptr %69, null
   br i1 %.not.i.i.i, label %_ZN15V3CCtorsBuilder3addEP7AstNode.exit, label %80
 
@@ -4287,18 +4288,18 @@ define linkonce_odr dso_local void @_ZN15V3CCtorsBuilder3addEP7AstNode(ptr nound
   br label %15
 
 15:                                               ; preds = %7, %2
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %17 = load ptr, ptr %16, align 8
   %.not.i.i = icmp eq ptr %1, null
-  br i1 %.not.i.i, label %_ZN8AstCFunc9addStmtspEP7AstNode.exit, label %16
+  br i1 %.not.i.i, label %_ZN8AstCFunc9addStmtspEP7AstNode.exit, label %18
 
-16:                                               ; preds = %15
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
+18:                                               ; preds = %15
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %20 = load ptr, ptr %19, align 8
   tail call void @_ZN7AstNode7addOp3pEPS_(ptr noundef nonnull align 8 dereferenceable(328) %20, ptr noundef nonnull %1)
   br label %_ZN8AstCFunc9addStmtspEP7AstNode.exit
 
-_ZN8AstCFunc9addStmtspEP7AstNode.exit:            ; preds = %15, %16
+_ZN8AstCFunc9addStmtspEP7AstNode.exit:            ; preds = %15, %18
   %21 = load i32, ptr %4, align 8
   %22 = add nsw i32 %21, 1
   store i32 %22, ptr %4, align 8

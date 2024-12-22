@@ -4974,26 +4974,25 @@ return:                                           ; preds = %if.then143, %if.end
 define internal fastcc i32 @ftp_state_stor_resp(ptr noundef %data, i32 noundef range(i32 1, 0) %ftpcode, i8 noundef zeroext %instate) unnamed_addr #0 {
 entry:
   %connected = alloca i8, align 1
+  %conn1 = getelementptr i8, ptr %data, i64 32
   %cmp = icmp sgt i32 %ftpcode, 399
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.110, i32 noundef %ftpcode) #10
-  %0 = getelementptr i8, ptr %data, i64 32
-  %data.val13 = load ptr, ptr %0, align 8
+  %data.val13 = load ptr, ptr %conn1, align 8
   %state.i = getelementptr inbounds nuw i8, ptr %data.val13, i64 1102
   store i8 0, ptr %state.i, align 2
   br label %return
 
 if.end:                                           ; preds = %entry
-  %conn1 = getelementptr inbounds nuw i8, ptr %data, i64 32
-  %1 = load ptr, ptr %conn1, align 8
-  %state_saved = getelementptr inbounds nuw i8, ptr %1, i64 1103
+  %0 = load ptr, ptr %conn1, align 8
+  %state_saved = getelementptr inbounds nuw i8, ptr %0, i64 1103
   store i8 %instate, ptr %state_saved, align 1
   %ftp_use_port = getelementptr inbounds nuw i8, ptr %data, i64 2706
   %bf.load = load i64, ptr %ftp_use_port, align 2
-  %2 = and i64 %bf.load, 8192
-  %tobool.not = icmp eq i64 %2, 0
+  %1 = and i64 %bf.load, 8192
+  %tobool.not = icmp eq i64 %1, 0
   br i1 %tobool.not, label %if.end21, label %if.then2
 
 if.then2:                                         ; preds = %if.end
@@ -5005,14 +5004,14 @@ if.then2:                                         ; preds = %if.end
   br i1 %tobool3.not, label %if.end5, label %return
 
 if.end5:                                          ; preds = %if.then2
-  %3 = load i8, ptr %connected, align 1
-  %tobool6 = trunc i8 %3 to i1
+  %2 = load i8, ptr %connected, align 1
+  %tobool6 = trunc i8 %2 to i1
   br i1 %tobool6, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end5
   %bf.load11 = load i64, ptr %ftp_use_port, align 2
-  %4 = and i64 %bf.load11, 536870912
-  %tobool15.not = icmp eq i64 %4, 0
+  %3 = and i64 %bf.load11, 536870912
+  %tobool15.not = icmp eq i64 %3, 0
   br i1 %tobool15.not, label %do.end, label %if.then16
 
 if.then16:                                        ; preds = %land.lhs.true
@@ -5020,7 +5019,7 @@ if.then16:                                        ; preds = %land.lhs.true
   br label %do.end
 
 do.end:                                           ; preds = %land.lhs.true, %if.then16
-  %wait_data_conn = getelementptr inbounds nuw i8, ptr %1, i64 1106
+  %wait_data_conn = getelementptr inbounds nuw i8, ptr %0, i64 1106
   %bf.load18 = load i8, ptr %wait_data_conn, align 2
   %bf.set = or i8 %bf.load18, 32
   store i8 %bf.set, ptr %wait_data_conn, align 2

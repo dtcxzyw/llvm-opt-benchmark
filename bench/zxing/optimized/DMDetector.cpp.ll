@@ -1057,6 +1057,7 @@ _ZNK5ZXing14RegressionLine6lengthEv.exit.i.i:     ; preds = %437, %430
   %465 = call noundef double @llvm.fmuladd.f64(double %462, double %462, double %464)
   %sqrt.i.i242.i.i = call noundef double @llvm.sqrt.f64(double %465)
   %466 = fadd double %sqrt.i.i242.i.i, -1.000000e+00
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %32, i64 64) ]
   %467 = fsub double %466, %402
   %468 = call noundef double @llvm.fabs.f64(double %467)
   %469 = fdiv double %468, %402
@@ -4391,21 +4392,25 @@ _ZNSt6vectorIdSaIdEED2Ev.exit77:                  ; preds = %_ZNSt6vectorIdSaIdE
   %96 = tail call noundef double @llvm.fmuladd.f64(double %93, double %93, double %95)
   %sqrt.i = tail call noundef double @llvm.sqrt.f64(double %96)
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %97, i64 64) ]
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %98, i64 64) ]
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %99, i64 64) ]
   %.sroa.3.0..sroa_idx.i.i.i79 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %.sroa.3.0..sroa_idx.i.i.i79, i64 64) ]
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.not208247 = icmp eq ptr %.sroa.0190.1.lcssa, %.sroa.8.0.lcssa
   br i1 %.not208247, label %_ZNSt6vectorIdSaIdEED2Ev.exit136, label %.lr.ph255
 
 .lr.ph255:                                        ; preds = %._crit_edge
-  %101 = load double, ptr %97, align 8
-  %102 = fcmp ord double %101, 0.000000e+00
-  %.sroa.0.0.copyload.i.i.i78 = load double, ptr %99, align 8
-  %.sroa.0.0.i.i.i82 = select i1 %102, double %101, double %.sroa.0.0.copyload.i.i.i78
-  %103 = load double, ptr %98, align 8
   %.sroa.3.0.copyload.i.i.i80 = load double, ptr %.sroa.3.0..sroa_idx.i.i.i79, align 8
-  %.sroa.3.0.i.i.i81 = select i1 %102, double %103, double %.sroa.3.0.copyload.i.i.i80
+  %.sroa.0.0.copyload.i.i.i78 = load double, ptr %99, align 8
+  %101 = load double, ptr %98, align 8
+  %102 = load double, ptr %97, align 8
+  %103 = fcmp ord double %102, 0.000000e+00
+  %.sroa.0.0.i.i.i82 = select i1 %103, double %102, double %.sroa.0.0.copyload.i.i.i78
+  %.sroa.3.0.i.i.i81 = select i1 %103, double %101, double %.sroa.3.0.copyload.i.i.i80
   %104 = fmul double %88, %.sroa.3.0.i.i.i81
   %105 = tail call noundef double @llvm.fmuladd.f64(double %.sroa.0.0.i.i.i82, double %83, double %104)
   %106 = load double, ptr %100, align 8

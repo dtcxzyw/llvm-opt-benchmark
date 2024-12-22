@@ -521,16 +521,17 @@ define internal i32 @bsdf_raster_render(ptr noundef readonly %0, ptr noundef rea
   %3 = alloca i32, align 4
   %4 = alloca %struct.BSDF_Worker_, align 8
   store i32 0, ptr %3, align 4
+  store ptr null, ptr %4, align 8
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %1, null
   %or.cond = and i1 %5, %6
-  br i1 %or.cond, label %7, label %.thread
+  br i1 %or.cond, label %7, label %thread-pre-split.sink.split
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %8, align 8
   %.not = icmp eq i32 %9, 8
-  br i1 %.not, label %10, label %.thread
+  br i1 %.not, label %10, label %thread-pre-split.sink.split
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -539,19 +540,19 @@ define internal i32 @bsdf_raster_render(ptr noundef readonly %0, ptr noundef rea
   %14 = icmp ne ptr %12, null
   %15 = icmp ne ptr %13, null
   %or.cond3 = select i1 %14, i1 %15, i1 false
-  br i1 %or.cond3, label %16, label %.thread
+  br i1 %or.cond3, label %16, label %thread-pre-split.sink.split
 
 16:                                               ; preds = %10
   %17 = load ptr, ptr %0, align 8
   %.not32 = icmp eq ptr %17, null
-  br i1 %.not32, label %.thread, label %18
+  br i1 %.not32, label %thread-pre-split.sink.split, label %18
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %20 = load i32, ptr %19, align 8
   %21 = add i32 %20, -33
   %or.cond38 = icmp ult i32 %21, -31
-  br i1 %or.cond38, label %.thread, label %22
+  br i1 %or.cond38, label %thread-pre-split.sink.split, label %22
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -564,7 +565,7 @@ define internal i32 @bsdf_raster_render(ptr noundef readonly %0, ptr noundef rea
   store ptr %29, ptr %4, align 8
   %30 = load i32, ptr %3, align 4
   %.not33 = icmp eq i32 %30, 0
-  br i1 %.not33, label %31, label %44
+  br i1 %.not33, label %31, label %45
 
 31:                                               ; preds = %22
   %32 = load i32, ptr %23, align 4
@@ -578,38 +579,51 @@ define internal i32 @bsdf_raster_render(ptr noundef readonly %0, ptr noundef rea
   %37 = call fastcc i32 @bsdf_init_distance_map(ptr noundef %12, ptr noundef %4)
   store i32 %37, ptr %3, align 4
   %.not34 = icmp eq i32 %37, 0
-  br i1 %.not34, label %38, label %44
+  br i1 %.not34, label %38, label %thread-pre-split
 
 38:                                               ; preds = %31
   %39 = call fastcc i32 @bsdf_approximate_edge(ptr noundef %4)
   store i32 %39, ptr %3, align 4
   %.not35 = icmp eq i32 %39, 0
-  br i1 %.not35, label %40, label %44
+  br i1 %.not35, label %40, label %thread-pre-split
 
 40:                                               ; preds = %38
   %41 = call fastcc i32 @edt8(ptr noundef %4)
   store i32 %41, ptr %3, align 4
   %.not36 = icmp eq i32 %41, 0
-  br i1 %.not36, label %42, label %44
+  br i1 %.not36, label %42, label %thread-pre-split
 
 42:                                               ; preds = %40
   %43 = call fastcc i32 @finalize_sdf(ptr noundef %4, ptr noundef %13)
-  store i32 %43, ptr %3, align 4
-  br label %44
+  br label %thread-pre-split.sink.split
 
-44:                                               ; preds = %42, %40, %38, %31, %22
-  %45 = phi i32 [ %43, %42 ], [ %41, %40 ], [ %39, %38 ], [ %37, %31 ], [ %30, %22 ]
-  %.not37 = icmp eq ptr %29, null
-  br i1 %.not37, label %.thread, label %46
+thread-pre-split.sink.split:                      ; preds = %18, %16, %10, %7, %2, %42
+  %.sink = phi i32 [ %43, %42 ], [ 6, %2 ], [ 97, %7 ], [ 6, %10 ], [ 32, %16 ], [ 6, %18 ]
+  %.0.ph.ph = phi ptr [ %17, %42 ], [ null, %2 ], [ null, %7 ], [ null, %10 ], [ null, %16 ], [ %17, %18 ]
+  store i32 %.sink, ptr %3, align 4
+  br label %thread-pre-split
 
-46:                                               ; preds = %44
-  call void @ft_mem_free(ptr noundef nonnull %17, ptr noundef nonnull %29) #11
+thread-pre-split:                                 ; preds = %thread-pre-split.sink.split, %31, %38, %40
+  %44 = phi i32 [ %41, %40 ], [ %39, %38 ], [ %37, %31 ], [ %.sink, %thread-pre-split.sink.split ]
+  %.0.ph = phi ptr [ %17, %40 ], [ %17, %38 ], [ %17, %31 ], [ %.0.ph.ph, %thread-pre-split.sink.split ]
+  %.pr = load ptr, ptr %4, align 8
+  br label %45
+
+45:                                               ; preds = %thread-pre-split, %22
+  %46 = phi i32 [ %44, %thread-pre-split ], [ %30, %22 ]
+  %47 = phi ptr [ %.pr, %thread-pre-split ], [ %29, %22 ]
+  %.0 = phi ptr [ %.0.ph, %thread-pre-split ], [ %17, %22 ]
+  %.not37 = icmp eq ptr %47, null
+  br i1 %.not37, label %49, label %48
+
+48:                                               ; preds = %45
+  call void @ft_mem_free(ptr noundef %.0, ptr noundef nonnull %47) #11
   %.pre = load i32, ptr %3, align 4
-  br label %.thread
+  br label %49
 
-.thread:                                          ; preds = %18, %16, %10, %7, %2, %46, %44
-  %47 = phi i32 [ %.pre, %46 ], [ %45, %44 ], [ 6, %2 ], [ 97, %7 ], [ 6, %10 ], [ 32, %16 ], [ 6, %18 ]
-  ret i32 %47
+49:                                               ; preds = %48, %45
+  %50 = phi i32 [ %.pre, %48 ], [ %46, %45 ]
+  ret i32 %50
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1519,7 +1533,7 @@ bsdf_is_edge.exit.thread46:                       ; preds = %84, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 7) i32 @edt8(ptr nocapture noundef nonnull readonly %0) unnamed_addr #2 {
+define internal fastcc range(i32 0, 7) i32 @edt8(ptr noundef nonnull %0) unnamed_addr #2 {
   %2 = alloca %struct.FT_Vector_, align 8
   %3 = alloca %struct.FT_Vector_, align 8
   %4 = alloca %struct.FT_Vector_, align 8
@@ -3934,7 +3948,7 @@ declare hidden ptr @ft_mem_qalloc(ptr noundef, i64 noundef, ptr noundef) local_u
 declare i32 @FT_Outline_Decompose(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sdf_move_to(ptr noundef readonly %0, ptr nocapture noundef %1) #2 {
+define internal i32 @sdf_move_to(ptr noundef readonly %0, ptr noundef %1) #2 {
   %3 = alloca i32, align 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %13, label %4
@@ -4163,7 +4177,7 @@ sdf_line_to.exit:                                 ; preds = %sdf_edge_new.exit.t
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sdf_cubic_to(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef readonly %3) #2 {
+define internal i32 @sdf_cubic_to(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef %3) #2 {
   %5 = alloca i32, align 4
   %6 = icmp ne ptr %1, null
   %7 = icmp ne ptr %0, null

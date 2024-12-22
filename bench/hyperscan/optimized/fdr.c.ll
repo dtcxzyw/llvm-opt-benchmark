@@ -654,13 +654,15 @@ for.cond.i814.us:                                 ; preds = %lor.lhs.false57.i12
 for.body.i1242.us:                                ; preds = %for.cond.i814.us
   %idx.ext44.i1243.us = zext i32 %j.i741.1.us to i64
   %add.ptr45.i1244.us = getelementptr inbounds nuw i8, ptr %49, i64 %idx.ext44.i1243.us
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %add.ptr45.i1244.us, i64 64) ]
+  %add.ptr48.i1247.us = getelementptr inbounds nuw i8, ptr %add.ptr45.i1244.us, i64 8
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %add.ptr48.i1247.us, i64 64) ]
   %add.ptr54.i1253.us = getelementptr inbounds nuw i8, ptr %add.ptr45.i1244.us, i64 24
   %62 = load i64, ptr %add.ptr54.i1253.us, align 8
   %cmp55.i1254.not.us = icmp eq i64 %62, %or18.i792.us
   br i1 %cmp55.i1254.not.us, label %lor.lhs.false57.i1255.us, label %for.cond69.i819.us.preheader
 
 lor.lhs.false57.i1255.us:                         ; preds = %for.body.i1242.us
-  %add.ptr48.i1247.us = getelementptr inbounds nuw i8, ptr %add.ptr45.i1244.us, i64 8
   %63 = load i64, ptr %add.ptr48.i1247.us, align 8
   %64 = load i64, ptr %add.ptr45.i1244.us, align 8
   %add.ptr51.i1250.us = getelementptr inbounds nuw i8, ptr %add.ptr45.i1244.us, i64 16
@@ -1916,13 +1918,15 @@ for.cond.i268.us:                                 ; preds = %lor.lhs.false57.i70
 for.body.i696.us:                                 ; preds = %for.cond.i268.us
   %idx.ext44.i697.us = zext i32 %j.i195.1.us to i64
   %add.ptr45.i698.us = getelementptr inbounds nuw i8, ptr %248, i64 %idx.ext44.i697.us
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %add.ptr45.i698.us, i64 64) ]
+  %add.ptr48.i701.us = getelementptr inbounds nuw i8, ptr %add.ptr45.i698.us, i64 8
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %add.ptr48.i701.us, i64 64) ]
   %add.ptr54.i707.us = getelementptr inbounds nuw i8, ptr %add.ptr45.i698.us, i64 24
   %261 = load i64, ptr %add.ptr54.i707.us, align 8
   %cmp55.i708.not.us = icmp eq i64 %261, %or18.i246.us
   br i1 %cmp55.i708.not.us, label %lor.lhs.false57.i709.us, label %for.cond69.i273.us.preheader
 
 lor.lhs.false57.i709.us:                          ; preds = %for.body.i696.us
-  %add.ptr48.i701.us = getelementptr inbounds nuw i8, ptr %add.ptr45.i698.us, i64 8
   %262 = load i64, ptr %add.ptr48.i701.us, align 8
   %263 = load i64, ptr %add.ptr45.i698.us, align 8
   %add.ptr51.i704.us = getelementptr inbounds nuw i8, ptr %add.ptr45.i698.us, i64 16
@@ -3098,13 +3102,15 @@ for.cond.i.us:                                    ; preds = %lor.lhs.false57.i.u
 for.body.i.us:                                    ; preds = %for.cond.i.us
   %idx.ext44.i.us = zext i32 %j.i.1.us to i64
   %add.ptr45.i.us = getelementptr inbounds nuw i8, ptr %431, i64 %idx.ext44.i.us
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %add.ptr45.i.us, i64 64) ]
+  %add.ptr48.i.us = getelementptr inbounds nuw i8, ptr %add.ptr45.i.us, i64 8
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %add.ptr48.i.us, i64 64) ]
   %add.ptr54.i.us = getelementptr inbounds nuw i8, ptr %add.ptr45.i.us, i64 24
   %444 = load i64, ptr %add.ptr54.i.us, align 8
   %cmp55.i.not.us = icmp eq i64 %444, %or18.i.us
   br i1 %cmp55.i.not.us, label %lor.lhs.false57.i.us, label %for.cond69.i.us.preheader
 
 lor.lhs.false57.i.us:                             ; preds = %for.body.i.us
-  %add.ptr48.i.us = getelementptr inbounds nuw i8, ptr %add.ptr45.i.us, i64 8
   %445 = load i64, ptr %add.ptr48.i.us, align 8
   %446 = load i64, ptr %add.ptr45.i.us, align 8
   %add.ptr51.i.us = getelementptr inbounds nuw i8, ptr %add.ptr45.i.us, i64 16

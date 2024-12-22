@@ -4838,8 +4838,9 @@ define hidden void @_ZN2h25proto7streams5store5Store12try_for_each17h2b1d65e28ce
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %37, i64 0) ]
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 8
   %.sroa.58.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 12
   %.sroa.5.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %31, i64 8
@@ -4932,7 +4933,7 @@ define hidden void @_ZN2h25proto7streams5store5Store12try_for_each17h2b1d65e28ce
 92:                                               ; preds = %.lr.ph, %266
   %.069 = phi i64 [ 0, %.lr.ph ], [ %.1, %266 ]
   %.02368 = phi i64 [ %36, %.lr.ph ], [ %.124, %266 ]
-  %93 = load i64, ptr %37, align 8, !alias.scope !479, !noundef !4
+  %93 = load i64, ptr %38, align 8, !alias.scope !479, !noundef !4
   %.not.i.not = icmp ult i64 %.069, %93
   br i1 %.not.i.not, label %96, label %95
 
@@ -4944,7 +4945,7 @@ define hidden void @_ZN2h25proto7streams5store5Store12try_for_each17h2b1d65e28ce
   unreachable
 
 96:                                               ; preds = %92
-  %97 = load ptr, ptr %38, align 8, !alias.scope !479, !nonnull !4
+  %97 = load ptr, ptr %37, align 8, !alias.scope !479, !nonnull !4
   %98 = getelementptr inbounds { i64, i32, i32 }, ptr %97, i64 %.069
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 12
@@ -5467,8 +5468,9 @@ define hidden void @_ZN2h25proto7streams5store5Store12try_for_each17h36989e10fc0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %7, i64 0) ]
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.58.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 12
   %9 = load ptr, ptr %2, align 8, !nonnull !4, !align !61
@@ -5489,7 +5491,7 @@ define hidden void @_ZN2h25proto7streams5store5Store12try_for_each17h36989e10fc0
 18:                                               ; preds = %.lr.ph, %36
   %.045 = phi i64 [ 0, %.lr.ph ], [ %.1, %36 ]
   %.02344 = phi i64 [ %6, %.lr.ph ], [ %.124, %36 ]
-  %19 = load i64, ptr %7, align 8, !alias.scope !518, !noundef !4
+  %19 = load i64, ptr %8, align 8, !alias.scope !518, !noundef !4
   %.not.i.not = icmp ult i64 %.045, %19
   br i1 %.not.i.not, label %22, label %21
 
@@ -5501,7 +5503,7 @@ define hidden void @_ZN2h25proto7streams5store5Store12try_for_each17h36989e10fc0
   unreachable
 
 22:                                               ; preds = %18
-  %23 = load ptr, ptr %8, align 8, !alias.scope !518, !nonnull !4
+  %23 = load ptr, ptr %7, align 8, !alias.scope !518, !nonnull !4
   %24 = getelementptr inbounds { i64, i32, i32 }, ptr %23, i64 %.045
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 12
@@ -5560,8 +5562,9 @@ define hidden void @_ZN2h25proto7streams5store5Store12try_for_each17h8cf68fb1257
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %7, i64 0) ]
   %.sroa.4.0..sroa_idx15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 12
   %9 = load ptr, ptr %1, align 8, !nonnull !4, !align !61
@@ -5579,7 +5582,7 @@ define hidden void @_ZN2h25proto7streams5store5Store12try_for_each17h8cf68fb1257
 16:                                               ; preds = %.lr.ph, %19
   %.017 = phi i64 [ 0, %.lr.ph ], [ %.1, %19 ]
   %.01316 = phi i64 [ %6, %.lr.ph ], [ %.114, %19 ]
-  %17 = load i64, ptr %7, align 8, !alias.scope !527, !noundef !4
+  %17 = load i64, ptr %8, align 8, !alias.scope !527, !noundef !4
   %.not.i.not = icmp ult i64 %.017, %17
   br i1 %.not.i.not, label %19, label %18
 
@@ -5588,7 +5591,7 @@ define hidden void @_ZN2h25proto7streams5store5Store12try_for_each17h8cf68fb1257
   unreachable
 
 19:                                               ; preds = %16
-  %20 = load ptr, ptr %8, align 8, !alias.scope !527, !nonnull !4
+  %20 = load ptr, ptr %7, align 8, !alias.scope !527, !nonnull !4
   %21 = getelementptr inbounds { i64, i32, i32 }, ptr %20, i64 %.017
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 12
@@ -5638,8 +5641,9 @@ define hidden void @_ZN2h25proto7streams5store5Store12try_for_each17hb096cc980ae
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %8, i64 0) ]
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 12
   %10 = load ptr, ptr %1, align 8, !nonnull !4, !align !517
@@ -5661,7 +5665,7 @@ define hidden void @_ZN2h25proto7streams5store5Store12try_for_each17hb096cc980ae
 19:                                               ; preds = %.lr.ph, %"_ZN2h25proto7streams5store5Store8for_each28_$u7b$$u7b$closure$u7d$$u7d$17h63ea681ee5b38a8dE.exit"
   %.021 = phi i64 [ 0, %.lr.ph ], [ %.1, %"_ZN2h25proto7streams5store5Store8for_each28_$u7b$$u7b$closure$u7d$$u7d$17h63ea681ee5b38a8dE.exit" ]
   %.01320 = phi i64 [ %7, %.lr.ph ], [ %.114, %"_ZN2h25proto7streams5store5Store8for_each28_$u7b$$u7b$closure$u7d$$u7d$17h63ea681ee5b38a8dE.exit" ]
-  %20 = load i64, ptr %8, align 8, !alias.scope !554, !noundef !4
+  %20 = load i64, ptr %9, align 8, !alias.scope !554, !noundef !4
   %.not.i.not = icmp ult i64 %.021, %20
   br i1 %.not.i.not, label %22, label %21
 
@@ -5670,7 +5674,7 @@ define hidden void @_ZN2h25proto7streams5store5Store12try_for_each17hb096cc980ae
   unreachable
 
 22:                                               ; preds = %19
-  %23 = load ptr, ptr %9, align 8, !alias.scope !554, !nonnull !4
+  %23 = load ptr, ptr %8, align 8, !alias.scope !554, !nonnull !4
   %24 = getelementptr inbounds { i64, i32, i32 }, ptr %23, i64 %.021
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 12
@@ -5735,8 +5739,9 @@ define hidden void @_ZN2h25proto7streams5store5Store12try_for_each17hef44caf1a5b
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %7, i64 0) ]
   %.sroa.4.0..sroa_idx15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 12
   %9 = load ptr, ptr %1, align 8, !nonnull !4, !align !61
@@ -5752,7 +5757,7 @@ define hidden void @_ZN2h25proto7streams5store5Store12try_for_each17hef44caf1a5b
 14:                                               ; preds = %.lr.ph, %17
   %.017 = phi i64 [ 0, %.lr.ph ], [ %.1, %17 ]
   %.01316 = phi i64 [ %6, %.lr.ph ], [ %.114, %17 ]
-  %15 = load i64, ptr %7, align 8, !alias.scope !583, !noundef !4
+  %15 = load i64, ptr %8, align 8, !alias.scope !583, !noundef !4
   %.not.i.not = icmp ult i64 %.017, %15
   br i1 %.not.i.not, label %17, label %16
 
@@ -5761,7 +5766,7 @@ define hidden void @_ZN2h25proto7streams5store5Store12try_for_each17hef44caf1a5b
   unreachable
 
 17:                                               ; preds = %14
-  %18 = load ptr, ptr %8, align 8, !alias.scope !583, !nonnull !4
+  %18 = load ptr, ptr %7, align 8, !alias.scope !583, !nonnull !4
   %19 = getelementptr inbounds { i64, i32, i32 }, ptr %18, i64 %.017
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 12
@@ -6467,23 +6472,23 @@ define hidden { ptr, i64 } @"_ZN62_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$bytes..buf..b
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN62_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h5b0b05ddc38aa96aE.llvm.13402347524827553107"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden void @"_ZN62_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h5b0b05ddc38aa96aE.llvm.13402347524827553107"(ptr noalias noundef align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = icmp ult i64 %4, %1
-  br i1 %5, label %6, label %7
+  br i1 %5, label %10, label %6
 
 6:                                                ; preds = %2
+  %7 = load ptr, ptr %0, align 8, !nonnull !4, !align !22, !noundef !4
+  %8 = sub nuw i64 %4, %1
+  %9 = getelementptr inbounds i8, ptr %7, i64 %1
+  store ptr %9, ptr %0, align 8
+  store i64 %8, ptr %3, align 8
+  ret void
+
+10:                                               ; preds = %2
   tail call void @_ZN5bytes13panic_advance17hbcbf46f7b21e6291E(i64 noundef %1, i64 noundef %4) #23
   unreachable
-
-7:                                                ; preds = %2
-  %8 = load ptr, ptr %0, align 8, !nonnull !4, !align !22, !noundef !4
-  %9 = sub nuw i64 %4, %1
-  %10 = getelementptr inbounds i8, ptr %8, i64 %1
-  store ptr %10, ptr %0, align 8
-  store i64 %9, ptr %3, align 8
-  ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

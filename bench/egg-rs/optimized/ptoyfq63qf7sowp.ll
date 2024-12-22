@@ -177,7 +177,6 @@ define noundef nonnull align 8 dereferenceable(40) ptr @_ZN3egg3run16BackoffSche
   %44 = getelementptr inbounds i64, ptr %40, i64 %43
   %45 = getelementptr inbounds i8, ptr %44, i64 -8
   %46 = load i64, ptr %45, align 8, !noalias !47, !noundef !14
-  call void @llvm.experimental.noalias.scope.decl(metadata !53)
   %47 = load i64, ptr %32, align 8, !alias.scope !53, !noalias !56, !noundef !14
   %48 = icmp ult i64 %46, %47
   br i1 %48, label %"_ZN8indexmap3map4core3raw26OccupiedEntry$LT$K$C$V$GT$8into_mut17h05f0c6143d412a40E.exit.i", label %49, !prof !58
@@ -193,17 +192,16 @@ define noundef nonnull align 8 dereferenceable(40) ptr @_ZN3egg3run16BackoffSche
 
 52:                                               ; preds = %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12contains_key17h470a3ec433032820E.exit.thread"
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %54 = load i64, ptr %53, align 8, !noundef !14
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %56 = load i64, ptr %55, align 8, !noundef !14
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %55 = load i64, ptr %53, align 8, !noundef !14
+  %56 = load i64, ptr %54, align 8, !noundef !14
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5), !noalias !62
   %.sroa.63.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   store i64 %56, ptr %.sroa.63.0..sroa_idx, align 8, !noalias !63
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i64 %54, ptr %.sroa.7.0..sroa_idx, align 8, !noalias !63
+  store i64 %55, ptr %.sroa.7.0..sroa_idx, align 8, !noalias !63
   %57 = call noundef i64 @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$4push17h109105af211dc453E.llvm.3488692421967456325"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %29, i32 noundef %.sink.i.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %5), !noalias !64
-  call void @llvm.experimental.noalias.scope.decl(metadata !67)
   %58 = load i64, ptr %32, align 8, !alias.scope !67, !noalias !70, !noundef !14
   %59 = icmp ult i64 %57, %58
   br i1 %59, label %"_ZN8indexmap3map4core24VacantEntry$LT$K$C$V$GT$6insert17h659361e6e1c76466E.llvm.3488692421967456325.exit.i", label %60, !prof !58
@@ -847,7 +845,7 @@ attributes #12 = { noreturn }
 !56 = !{!57, !48, !50, !52}
 !57 = distinct !{!57, !55, !"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hc19996dc9490530eE.llvm.16079354848027093366: argument 1"}
 !58 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!59 = !{!60, !54, !48, !50, !52}
+!59 = !{!60, !48, !50, !52}
 !60 = distinct !{!60, !61, !"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h3bffe445e68c4870E.llvm.16079354848027093366: argument 0"}
 !61 = distinct !{!61, !"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h3bffe445e68c4870E.llvm.16079354848027093366"}
 !62 = !{!50, !52}
@@ -861,7 +859,7 @@ attributes #12 = { noreturn }
 !70 = !{!71, !65, !72, !50, !52}
 !71 = distinct !{!71, !69, !"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hc19996dc9490530eE.llvm.3488692421967456325: argument 1"}
 !72 = distinct !{!72, !66, !"_ZN8indexmap3map4core24VacantEntry$LT$K$C$V$GT$6insert17h659361e6e1c76466E.llvm.3488692421967456325: argument 1"}
-!73 = !{!74, !68, !65, !72, !50, !52}
+!73 = !{!74, !65, !72, !50, !52}
 !74 = distinct !{!74, !75, !"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h3bffe445e68c4870E.llvm.3488692421967456325: argument 0"}
 !75 = distinct !{!75, !"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h3bffe445e68c4870E.llvm.3488692421967456325"}
 !76 = !{!77}

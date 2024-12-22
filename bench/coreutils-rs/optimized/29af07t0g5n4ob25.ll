@@ -392,7 +392,6 @@ define void @_ZN7uu_comm4comm17h56c35c3df2f4775bE(ptr noalias noundef align 8 de
   br label %97
 
 97:                                               ; preds = %.lr.ph, %144
-  %.val167229 = phi i64 [ %68, %.lr.ph ], [ %149, %144 ]
   %98 = phi i1 [ %69, %.lr.ph ], [ %150, %144 ]
   %99 = phi i1 [ %67, %.lr.ph ], [ %148, %144 ]
   br i1 %99, label %100, label %101
@@ -441,8 +440,8 @@ define void @_ZN7uu_comm4comm17h56c35c3df2f4775bE(ptr noalias noundef align 8 de
           to label %190 unwind label %.loopexit.split-lp
 
 115:                                              ; preds = %.loopexit, %.loopexit.split-lp, %176, %156, %128
-  %.val167 = phi i64 [ %.val167229, %176 ], [ %.val167229, %156 ], [ %.val167229, %128 ], [ %.val167229, %.loopexit ], [ %.val167.pre, %.loopexit.split-lp ]
   %.pn = phi { ptr, i32 } [ %177, %176 ], [ %157, %156 ], [ %129, %128 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.val167 = load i64, ptr %35, align 8, !range !43, !noundef !5
   %116 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %.val168 = load ptr, ptr %116, align 8
   invoke fastcc void @"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h1b49e9cb1fa1bba9E"(i64 %.val167, ptr %.val168) #14
@@ -456,7 +455,6 @@ define void @_ZN7uu_comm4comm17h56c35c3df2f4775bE(ptr noalias noundef align 8 de
 .loopexit.split-lp:                               ; preds = %._crit_edge, %117, %197, %199, %201
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  %.val167.pre = load i64, ptr %35, align 8, !range !43
   br label %115
 
 117:                                              ; preds = %101

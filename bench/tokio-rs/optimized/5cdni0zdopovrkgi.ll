@@ -3126,15 +3126,16 @@ define hidden void @_ZN5tokio7runtime9scheduler5defer5Defer3new17hc9ccbb65ba5bda
 define hidden void @_ZN5tokio7runtime9scheduler5defer5Defer5defer17hee69addc8ea0ee2fE(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %0, align 8, !noundef !5
   %4 = icmp eq i64 %3, 0
-  br i1 %4, label %5, label %9
+  br i1 %4, label %5, label %10
 
 5:                                                ; preds = %2
   store i64 -1, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %8 = load i64, ptr %7, align 8, !noundef !5
-  %.not = icmp eq i64 %8, 0
-  br i1 %.not, label %..critedge_crit_edge, label %10
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = load i64, ptr %8, align 8, !noundef !5
+  %.not = icmp eq i64 %9, 0
+  br i1 %.not, label %..critedge_crit_edge, label %11
 
 ..critedge_crit_edge:                             ; preds = %5
   %.pre = load ptr, ptr %1, align 8
@@ -3142,14 +3143,13 @@ define hidden void @_ZN5tokio7runtime9scheduler5defer5Defer5defer17hee69addc8ea0
   %.pre22 = load ptr, ptr %.phi.trans.insert, align 8
   br label %.critedge
 
-9:                                                ; preds = %2
+10:                                               ; preds = %2
   tail call void @_ZN4core4cell22panic_already_borrowed17h3ef59d0d58797532E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ba4985a049956e0df762c1765696dc31.60) #27
   unreachable
 
-10:                                               ; preds = %5
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8, !nonnull !5, !noundef !5
-  %13 = add i64 %8, -1
+11:                                               ; preds = %5
+  %12 = load ptr, ptr %7, align 8, !nonnull !5, !noundef !5
+  %13 = add i64 %9, -1
   %14 = getelementptr inbounds [0 x { ptr, ptr }], ptr %12, i64 0, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8, !noundef !5
@@ -3159,14 +3159,14 @@ define hidden void @_ZN5tokio7runtime9scheduler5defer5Defer5defer17hee69addc8ea0
   %.pre21 = load ptr, ptr %1, align 8
   br i1 %19, label %24, label %.critedge
 
-.critedge:                                        ; preds = %..critedge_crit_edge, %24, %29, %35, %"_ZN73_$LT$core..task..wake..RawWakerVTable$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1d424b7343833c28E.exit", %10
-  %20 = phi ptr [ %.pre22, %..critedge_crit_edge ], [ %18, %24 ], [ %18, %29 ], [ %18, %35 ], [ %18, %"_ZN73_$LT$core..task..wake..RawWakerVTable$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1d424b7343833c28E.exit" ], [ %18, %10 ]
-  %21 = phi ptr [ %.pre, %..critedge_crit_edge ], [ %.pre21, %24 ], [ %.pre21, %29 ], [ %.pre21, %35 ], [ %.pre21, %"_ZN73_$LT$core..task..wake..RawWakerVTable$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1d424b7343833c28E.exit" ], [ %.pre21, %10 ]
+.critedge:                                        ; preds = %..critedge_crit_edge, %24, %29, %35, %"_ZN73_$LT$core..task..wake..RawWakerVTable$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1d424b7343833c28E.exit", %11
+  %20 = phi ptr [ %.pre22, %..critedge_crit_edge ], [ %18, %24 ], [ %18, %29 ], [ %18, %35 ], [ %18, %"_ZN73_$LT$core..task..wake..RawWakerVTable$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1d424b7343833c28E.exit" ], [ %18, %11 ]
+  %21 = phi ptr [ %.pre, %..critedge_crit_edge ], [ %.pre21, %24 ], [ %.pre21, %29 ], [ %.pre21, %35 ], [ %.pre21, %"_ZN73_$LT$core..task..wake..RawWakerVTable$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1d424b7343833c28E.exit" ], [ %.pre21, %11 ]
   %22 = load ptr, ptr %21, align 8, !nonnull !5, !noundef !5
   %23 = invoke { ptr, ptr } %22(ptr noundef %20)
           to label %49 unwind label %41
 
-24:                                               ; preds = %10
+24:                                               ; preds = %11
   %25 = load ptr, ptr %14, align 8, !nonnull !5, !align !45, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !436)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !439)
@@ -3194,7 +3194,7 @@ define hidden void @_ZN5tokio7runtime9scheduler5defer5Defer5defer17hee69addc8ea0
 41:                                               ; preds = %.critedge
   %42 = landingpad { ptr, i32 }
           cleanup
-  br label %72
+  br label %71
 
 "_ZN73_$LT$core..task..wake..RawWakerVTable$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1d424b7343833c28E.exit": ; preds = %35
   %43 = getelementptr inbounds nuw i8, ptr %25, i64 24
@@ -3205,7 +3205,7 @@ define hidden void @_ZN5tokio7runtime9scheduler5defer5Defer5defer17hee69addc8ea0
   br i1 %47, label %48, label %.critedge
 
 48:                                               ; preds = %"_ZN73_$LT$core..task..wake..RawWakerVTable$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1d424b7343833c28E.exit", %63
-  %storemerge.in = phi i64 [ 0, %"_ZN73_$LT$core..task..wake..RawWakerVTable$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1d424b7343833c28E.exit" ], [ %71, %63 ]
+  %storemerge.in = phi i64 [ 0, %"_ZN73_$LT$core..task..wake..RawWakerVTable$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1d424b7343833c28E.exit" ], [ %70, %63 ]
   store i64 %storemerge.in, ptr %0, align 8, !noalias !5
   ret void
 
@@ -3216,7 +3216,7 @@ define hidden void @_ZN5tokio7runtime9scheduler5defer5Defer5defer17hee69addc8ea0
   tail call void @llvm.assume(i1 %52)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !441)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !444)
-  %53 = load i64, ptr %7, align 8, !alias.scope !441, !noalias !444, !noundef !5
+  %53 = load i64, ptr %8, align 8, !alias.scope !441, !noalias !444, !noundef !5
   %54 = load i64, ptr %6, align 8, !alias.scope !441, !noalias !444, !noundef !5
   %55 = icmp eq i64 %53, %54
   br i1 %55, label %56, label %63
@@ -3226,7 +3226,7 @@ define hidden void @_ZN5tokio7runtime9scheduler5defer5Defer5defer17hee69addc8ea0
           to label %._crit_edge.i unwind label %57, !noalias !444
 
 ._crit_edge.i:                                    ; preds = %56
-  %.pre.i = load i64, ptr %7, align 8, !alias.scope !441, !noalias !444
+  %.pre.i = load i64, ptr %8, align 8, !alias.scope !441, !noalias !444
   br label %63
 
 57:                                               ; preds = %56
@@ -3235,7 +3235,7 @@ define hidden void @_ZN5tokio7runtime9scheduler5defer5Defer5defer17hee69addc8ea0
   %59 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %60 = load ptr, ptr %59, align 8, !alias.scope !444, !noalias !446, !nonnull !5, !noundef !5
   invoke void %60(ptr noundef %51)
-          to label %72 unwind label %61, !noalias !444
+          to label %71 unwind label %61, !noalias !444
 
 61:                                               ; preds = %57
   %62 = landingpad { ptr, i32 }
@@ -3245,24 +3245,23 @@ define hidden void @_ZN5tokio7runtime9scheduler5defer5Defer5defer17hee69addc8ea0
 
 63:                                               ; preds = %._crit_edge.i, %49
   %64 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %53, %49 ]
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %66 = load ptr, ptr %65, align 8, !alias.scope !441, !noalias !444, !nonnull !5, !noundef !5
-  %67 = getelementptr inbounds { ptr, ptr }, ptr %66, i64 %64
-  store ptr %50, ptr %67, align 8, !noalias !444
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  store ptr %51, ptr %68, align 8
-  %69 = load i64, ptr %7, align 8, !alias.scope !441, !noalias !444, !noundef !5
-  %70 = add i64 %69, 1
-  store i64 %70, ptr %7, align 8, !alias.scope !441, !noalias !444
+  %65 = load ptr, ptr %7, align 8, !alias.scope !441, !noalias !444, !nonnull !5, !noundef !5
+  %66 = getelementptr inbounds { ptr, ptr }, ptr %65, i64 %64
+  store ptr %50, ptr %66, align 8, !noalias !444
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  store ptr %51, ptr %67, align 8
+  %68 = load i64, ptr %8, align 8, !alias.scope !441, !noalias !444, !noundef !5
+  %69 = add i64 %68, 1
+  store i64 %69, ptr %8, align 8, !alias.scope !441, !noalias !444
   %storemerge.in.pre = load i64, ptr %0, align 8, !noalias !5
-  %71 = add i64 %storemerge.in.pre, 1
+  %70 = add i64 %storemerge.in.pre, 1
   br label %48
 
-72:                                               ; preds = %41, %57
+71:                                               ; preds = %41, %57
   %eh.lpad-body = phi { ptr, i32 } [ %42, %41 ], [ %58, %57 ]
-  %73 = load i64, ptr %0, align 8, !noalias !451, !noundef !5
-  %74 = add i64 %73, 1
-  store i64 %74, ptr %0, align 8, !noalias !451
+  %72 = load i64, ptr %0, align 8, !noalias !451, !noundef !5
+  %73 = add i64 %72, 1
+  store i64 %73, ptr %0, align 8, !noalias !451
   resume { ptr, i32 } %eh.lpad-body
 }
 

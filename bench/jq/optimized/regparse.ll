@@ -7095,8 +7095,8 @@ define internal fastcc i32 @prs_branch(ptr nocapture noundef nonnull writeonly i
   br i1 %19, label %onig_node_free.exit, label %20
 
 20:                                               ; preds = %17
-  tail call fastcc void @node_free_body(ptr noundef nonnull %18)
-  tail call void @free(ptr noundef nonnull %18) #25
+  call fastcc void @node_free_body(ptr noundef nonnull %18)
+  call void @free(ptr noundef nonnull %18) #25
   br label %onig_node_free.exit
 
 21:                                               ; preds = %14
@@ -7116,12 +7116,12 @@ define internal fastcc i32 @prs_branch(ptr nocapture noundef nonnull writeonly i
 
 28:                                               ; preds = %23
   %29 = load ptr, ptr %8, align 8
-  %calloc.i.i = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
+  %calloc.i.i = call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
   %30 = icmp eq ptr %calloc.i.i, null
   br i1 %30, label %31, label %35
 
-.thread:                                          ; preds = %53
-  store ptr null, ptr %.060, align 8
+.thread:                                          ; preds = %54
+  store ptr null, ptr %.061, align 8
   br label %33
 
 31:                                               ; preds = %28
@@ -7131,8 +7131,8 @@ define internal fastcc i32 @prs_branch(ptr nocapture noundef nonnull writeonly i
 
 33:                                               ; preds = %.thread, %31
   %34 = phi ptr [ %43, %.thread ], [ %29, %31 ]
-  tail call fastcc void @node_free_body(ptr noundef nonnull %34)
-  tail call void @free(ptr noundef nonnull %34) #25
+  call fastcc void @node_free_body(ptr noundef nonnull %34)
+  call void @free(ptr noundef nonnull %34) #25
   br label %onig_node_free.exit
 
 35:                                               ; preds = %28
@@ -7142,12 +7142,12 @@ define internal fastcc i32 @prs_branch(ptr nocapture noundef nonnull writeonly i
   store ptr %calloc.i.i, ptr %0, align 8
   br label %37
 
-37:                                               ; preds = %35, %58
-  %calloc.i.i.pn = phi ptr [ %calloc.i.i, %35 ], [ %calloc.i.i52.pn, %58 ]
-  %.14059 = phi i32 [ %15, %35 ], [ %41, %58 ]
-  %.060 = getelementptr inbounds nuw i8, ptr %calloc.i.i.pn, i64 24
-  %38 = icmp ne i32 %.14059, %2
-  %39 = icmp ne i32 %.14059, 13
+37:                                               ; preds = %35, %.loopexit
+  %calloc.i.i.pn = phi ptr [ %calloc.i.i, %35 ], [ %calloc.i.i52.pn, %.loopexit ]
+  %.14060 = phi i32 [ %15, %35 ], [ %41, %.loopexit ]
+  %.061 = getelementptr inbounds nuw i8, ptr %calloc.i.i.pn, i64 24
+  %38 = icmp ne i32 %.14060, %2
+  %39 = icmp ne i32 %.14060, 13
   %or.cond3 = and i1 %38, %39
   br i1 %or.cond3, label %40, label %.critedge
 
@@ -7158,50 +7158,53 @@ define internal fastcc i32 @prs_branch(ptr nocapture noundef nonnull writeonly i
   br i1 %42, label %44, label %45
 
 44:                                               ; preds = %40
-  tail call void @onig_node_free(ptr noundef %43)
+  call void @onig_node_free(ptr noundef %43)
   br label %onig_node_free.exit
 
 45:                                               ; preds = %40
   %46 = load i32, ptr %43, align 8
   %47 = icmp eq i32 %46, 7
-  br i1 %47, label %48, label %53
+  br i1 %47, label %48, label %54
 
 48:                                               ; preds = %45
-  store ptr %43, ptr %.060, align 8
-  br label %49
+  store ptr %43, ptr %.061, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %43, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %.not5059 = icmp eq ptr %50, null
+  br i1 %.not5059, label %.loopexit, label %.lr.ph
 
-49:                                               ; preds = %49, %48
-  %50 = phi ptr [ %52, %49 ], [ %43, %48 ]
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %52 = load ptr, ptr %51, align 8
-  %.not50 = icmp eq ptr %52, null
-  br i1 %.not50, label %.loopexit, label %49, !llvm.loop !44
+.lr.ph:                                           ; preds = %48, %.lr.ph
+  %51 = phi ptr [ %53, %.lr.ph ], [ %50, %48 ]
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 24
+  %53 = load ptr, ptr %52, align 8
+  %.not50 = icmp eq ptr %53, null
+  br i1 %.not50, label %..loopexit_crit_edge, label %.lr.ph, !llvm.loop !44
 
-53:                                               ; preds = %45
-  %calloc.i.i52 = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
-  %54 = icmp eq ptr %calloc.i.i52, null
-  br i1 %54, label %.thread, label %55
+54:                                               ; preds = %45
+  %calloc.i.i52 = call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
+  %55 = icmp eq ptr %calloc.i.i52, null
+  br i1 %55, label %.thread, label %56
 
-55:                                               ; preds = %53
+56:                                               ; preds = %54
   store i32 7, ptr %calloc.i.i52, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %calloc.i.i52, i64 16
-  store ptr %43, ptr %56, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %calloc.i.i52, i64 24
-  store ptr null, ptr %57, align 8
-  store ptr %calloc.i.i52, ptr %.060, align 8
-  br label %58
+  %57 = getelementptr inbounds nuw i8, ptr %calloc.i.i52, i64 16
+  store ptr %43, ptr %57, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %calloc.i.i52, i64 24
+  store ptr null, ptr %58, align 8
+  store ptr %calloc.i.i52, ptr %.061, align 8
+  br label %.loopexit
 
-.loopexit:                                        ; preds = %49
-  store ptr %50, ptr %8, align 8
-  br label %58
+..loopexit_crit_edge:                             ; preds = %.lr.ph
+  store ptr %51, ptr %8, align 8
+  br label %.loopexit
 
-58:                                               ; preds = %.loopexit, %55
-  %calloc.i.i52.pn = phi ptr [ %calloc.i.i52, %55 ], [ %50, %.loopexit ]
+.loopexit:                                        ; preds = %48, %..loopexit_crit_edge, %56
+  %calloc.i.i52.pn = phi ptr [ %calloc.i.i52, %56 ], [ %51, %..loopexit_crit_edge ], [ %43, %48 ]
   %.not = icmp eq i32 %41, 0
   br i1 %.not, label %.critedge, label %37, !llvm.loop !45
 
-.critedge:                                        ; preds = %58, %37, %26
-  %.039 = phi i32 [ %15, %26 ], [ 0, %58 ], [ %.14059, %37 ]
+.critedge:                                        ; preds = %.loopexit, %37, %26
+  %.039 = phi i32 [ %15, %26 ], [ 0, %.loopexit ], [ %.14060, %37 ]
   %59 = load i32, ptr %9, align 8
   %60 = add i32 %59, -1
   store i32 %60, ptr %9, align 8
@@ -7213,7 +7216,7 @@ onig_node_free.exit:                              ; preds = %33, %31, %20, %17, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @prs_exp(ptr nocapture noundef nonnull initializes((0, 8)) %0, ptr noundef nonnull %1, i32 noundef range(i32 0, 16) %2, ptr nocapture noundef nonnull %3, ptr noundef %4, ptr noundef %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #2 {
+define internal fastcc i32 @prs_exp(ptr noundef nonnull initializes((0, 8)) %0, ptr noundef nonnull %1, i32 noundef range(i32 0, 16) %2, ptr nocapture noundef nonnull %3, ptr noundef %4, ptr noundef %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #2 {
   %8 = alloca [2 x ptr], align 16
   %9 = alloca [14 x i8], align 1
   %10 = alloca [1 x i8], align 1
@@ -12884,8 +12887,8 @@ str_node_can_be_split.exit:                       ; preds = %17
   %32 = sub i64 %30, %31
   %.not85 = icmp sgt i64 %32, %27
   %33 = icmp ugt ptr %28, %29
-  %or.cond86 = and i1 %.not85, %33
-  br i1 %or.cond86, label %34, label %str_node_can_be_split.exit.thread
+  %or.cond92 = and i1 %.not85, %33
+  br i1 %or.cond92, label %34, label %str_node_can_be_split.exit.thread
 
 34:                                               ; preds = %str_node_can_be_split.exit
   %35 = load ptr, ptr %18, align 8
@@ -13018,12 +13021,12 @@ quantifier_type_num.exit:                         ; preds = %60, %63, %68, %71, 
   br i1 %89, label %quantifier_type_num.exit75, label %.thread
 
 quantifier_type_num.exit75.sink.split:            ; preds = %85, %80
-  %.sink88 = phi i32 [ 1, %80 ], [ 4, %85 ]
+  %.sink87 = phi i32 [ 1, %80 ], [ 4, %85 ]
   %.sink = phi i32 [ %79, %80 ], [ 3, %85 ]
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %91 = load i32, ptr %90, align 4
   %switch.selectcmp.i67 = icmp eq i32 %91, -1
-  %switch.select.i68 = select i1 %switch.selectcmp.i67, i32 %.sink88, i32 -1
+  %switch.select.i68 = select i1 %switch.selectcmp.i67, i32 %.sink87, i32 -1
   %switch.selectcmp15.i69 = icmp eq i32 %91, 1
   %switch.select16.i70 = select i1 %switch.selectcmp15.i69, i32 %.sink, i32 %switch.select.i68
   br label %quantifier_type_num.exit75

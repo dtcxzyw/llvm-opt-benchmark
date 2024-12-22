@@ -112,7 +112,7 @@ common.resume:                                    ; preds = %16, %19, %6
 16:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1901a67b92b931bbE.exit"
   %17 = landingpad { ptr, i32 }
           cleanup
-  store i8 0, ptr %12, align 1
+  store i8 0, ptr %12, align 1, !noalias !10
   %18 = icmp eq i64 %14, 0
   br i1 %18, label %common.resume, label %19
 
@@ -121,15 +121,15 @@ common.resume:                                    ; preds = %16, %19, %6
   br label %common.resume
 
 20:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1901a67b92b931bbE.exit"
-  store i8 0, ptr %12, align 1
+  store i8 0, ptr %12, align 1, !noalias !13
   %21 = icmp eq i64 %14, 0
-  br i1 %21, label %"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h66c7b83b18eb3a5cE.exit4", label %22
+  br i1 %21, label %"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h66c7b83b18eb3a5cE.exit2", label %22
 
 22:                                               ; preds = %20
   tail call void @__rust_dealloc(ptr noundef nonnull %12, i64 noundef range(i64 1, 0) %14, i64 noundef 1) #12
-  br label %"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h66c7b83b18eb3a5cE.exit4"
+  br label %"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h66c7b83b18eb3a5cE.exit2"
 
-"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h66c7b83b18eb3a5cE.exit4": ; preds = %20, %22
+"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h66c7b83b18eb3a5cE.exit2": ; preds = %20, %22
   store ptr %15, ptr @_ZN8pyo3_ffi8datetime18PyDateTimeAPI_impl17hab7e42c407a85f3aE, align 8
   ret void
 }
@@ -248,3 +248,9 @@ attributes #12 = { nounwind }
 !7 = distinct !{!7, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1901a67b92b931bbE"}
 !8 = !{i64 0, i64 -9223372036854775807}
 !9 = !{i64 1}
+!10 = !{!11}
+!11 = distinct !{!11, !12, !"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h66c7b83b18eb3a5cE: argument 0"}
+!12 = distinct !{!12, !"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h66c7b83b18eb3a5cE"}
+!13 = !{!14}
+!14 = distinct !{!14, !15, !"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h66c7b83b18eb3a5cE: argument 0"}
+!15 = distinct !{!15, !"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h66c7b83b18eb3a5cE"}

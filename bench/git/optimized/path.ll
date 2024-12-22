@@ -1457,27 +1457,30 @@ if.then2:                                         ; preds = %if.end
   %conv = trunc i64 %call to i32
   %invariant.gep = getelementptr i8, ptr %path, i64 -1
   %cmp36 = icmp sgt i32 %conv, 1
-  br i1 %cmp36, label %land.rhs, label %if.end10
+  br i1 %cmp36, label %land.rhs.preheader, label %if.end10
 
-land.rhs:                                         ; preds = %if.then2, %while.body
-  %len.037 = phi i32 [ %dec, %while.body ], [ %conv, %if.then2 ]
-  %0 = zext nneg i32 %len.037 to i64
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %0
+land.rhs.preheader:                               ; preds = %if.then2
+  %0 = and i64 %call, 2147483647
+  br label %land.rhs
+
+land.rhs:                                         ; preds = %land.rhs.preheader, %while.body
+  %indvars.iv = phi i64 [ %0, %land.rhs.preheader ], [ %indvars.iv.next, %while.body ]
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
   %1 = load i8, ptr %gep, align 1
   %cmp5 = icmp eq i8 %1, 47
   br i1 %cmp5, label %while.body, label %while.end
 
 while.body:                                       ; preds = %land.rhs
-  %dec = add nsw i32 %len.037, -1
-  %cmp = icmp sgt i32 %len.037, 2
+  %indvars.iv.next = add nsw i64 %indvars.iv, -1
+  %cmp = icmp sgt i64 %indvars.iv, 2
   br i1 %cmp, label %land.rhs, label %if.end10, !llvm.loop !11
 
 while.end:                                        ; preds = %land.rhs
-  %cmp7 = icmp samesign ugt i32 %len.037, 4095
+  %cmp7 = icmp samesign ugt i64 %indvars.iv, 4095
   br i1 %cmp7, label %return, label %if.end10
 
 if.end10:                                         ; preds = %while.body, %if.then2, %while.end
-  %len.035 = phi i32 [ %len.037, %while.end ], [ %conv, %if.then2 ], [ 1, %while.body ]
+  %len.035 = phi i64 [ %indvars.iv, %while.end ], [ %call, %if.then2 ], [ %indvars.iv.next, %while.body ]
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @enter_repo.used_path, i64 8), align 8
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @enter_repo.used_path, i64 16), align 8
   %cmp3.not.i = icmp eq ptr %2, @strbuf_slopbuf
@@ -1498,7 +1501,8 @@ if.then4.i24:                                     ; preds = %strbuf_setlen.exit
   br label %strbuf_setlen.exit25
 
 strbuf_setlen.exit25:                             ; preds = %strbuf_setlen.exit, %if.then4.i24
-  %conv11 = sext i32 %len.035 to i64
+  %sext = shl i64 %len.035, 32
+  %conv11 = ashr exact i64 %sext, 32
   tail call void @strbuf_add(ptr noundef nonnull @enter_repo.used_path, ptr noundef nonnull %path, i64 noundef %conv11) #26
   tail call void @strbuf_add(ptr noundef nonnull @enter_repo.validated_path, ptr noundef nonnull %path, i64 noundef %conv11) #26
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @enter_repo.used_path, i64 16), align 8
@@ -1518,14 +1522,14 @@ if.end21:                                         ; preds = %if.then17
 
 if.end24:                                         ; preds = %if.end21, %strbuf_setlen.exit25
   %st_mode = getelementptr inbounds nuw i8, ptr %st, i64 24
-  %.pre43 = load i64, ptr getelementptr inbounds nuw (i8, ptr @enter_repo.used_path, i64 8), align 8
+  %.pre47 = load i64, ptr getelementptr inbounds nuw (i8, ptr @enter_repo.used_path, i64 8), align 8
   br label %for.body
 
 for.body:                                         ; preds = %if.end24, %strbuf_setlen.exit30
-  %6 = phi i64 [ %.pre43, %if.end24 ], [ %14, %strbuf_setlen.exit30 ]
-  %indvars.iv = phi i64 [ 0, %if.end24 ], [ %indvars.iv.next, %strbuf_setlen.exit30 ]
-  %arrayidx26 = getelementptr inbounds nuw [5 x ptr], ptr @enter_repo.suffix, i64 0, i64 %indvars.iv
-  %7 = load ptr, ptr %arrayidx26, align 8
+  %6 = phi i64 [ %.pre47, %if.end24 ], [ %14, %strbuf_setlen.exit30 ]
+  %indvars.iv44 = phi i64 [ 0, %if.end24 ], [ %indvars.iv.next45, %strbuf_setlen.exit30 ]
+  %arrayidx2639 = phi ptr [ @enter_repo.suffix, %if.end24 ], [ %arrayidx26, %strbuf_setlen.exit30 ]
+  %7 = load ptr, ptr %arrayidx2639, align 8
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #28
   tail call void @strbuf_add(ptr noundef nonnull @enter_repo.used_path, ptr noundef %7, i64 noundef %call.i) #26
   %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @enter_repo.used_path, i64 16), align 8
@@ -1572,8 +1576,9 @@ if.then4.i29:                                     ; preds = %if.end.i
 
 strbuf_setlen.exit30:                             ; preds = %if.end.i, %if.then4.i29
   %14 = phi i64 [ %6, %if.end.i ], [ %.pre, %if.then4.i29 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cond = icmp eq i64 %indvars.iv.next, 4
+  %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
+  %arrayidx26 = getelementptr inbounds nuw [5 x ptr], ptr @enter_repo.suffix, i64 0, i64 %indvars.iv.next45
+  %cond = icmp eq i64 %indvars.iv.next45, 4
   br i1 %cond, label %return, label %for.body, !llvm.loop !12
 
 if.end49:                                         ; preds = %land.lhs.true38, %land.lhs.true

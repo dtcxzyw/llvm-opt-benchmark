@@ -10418,14 +10418,15 @@ define internal fastcc void @_retouch_fill(ptr nocapture noundef %0, ptr nocaptu
   %12 = load i32, ptr %11, align 4, !tbaa !218
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load i32, ptr %13, align 4, !tbaa !218
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %3, i64 32) ]
   %15 = icmp sgt i32 %12, 0
   br i1 %15, label %16, label %.loopexit7
 
 16:                                               ; preds = %10
-  %17 = load i32, ptr %1, align 4, !tbaa !217
-  %18 = load i32, ptr %3, align 4, !tbaa !217
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %20 = load i32, ptr %19, align 4, !tbaa !215
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %18 = load i32, ptr %1, align 4, !tbaa !217
+  %19 = load i32, ptr %3, align 4, !tbaa !217
+  %20 = load i32, ptr %17, align 4, !tbaa !215
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %22 = load i32, ptr %21, align 4, !tbaa !215
   %23 = zext nneg i32 %12 to i64
@@ -10445,7 +10446,7 @@ define internal fastcc void @_retouch_fill(ptr nocapture noundef %0, ptr nocaptu
   %37 = insertelement <8 x float> poison, float %4, i64 0
   %38 = shufflevector <8 x float> %37, <8 x float> poison, <8 x i32> zeroinitializer
   %39 = icmp eq i64 %36, %23
-  %40 = sub i32 %18, %17
+  %40 = sub i32 %19, %18
   br label %41
 
 41:                                               ; preds = %.loopexit, %16
@@ -10587,15 +10588,16 @@ define internal fastcc void @rt_copy_mask_to_alpha(ptr nocapture noundef %0, ptr
   %12 = load i32, ptr %11, align 4, !tbaa !218
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load i32, ptr %13, align 4, !tbaa !218
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %4, i64 32) ]
   %15 = icmp sgt i32 %12, 0
   %16 = sext i32 %2 to i64
   br i1 %15, label %17, label %.loopexit13
 
 17:                                               ; preds = %10
-  %18 = load i32, ptr %1, align 4, !tbaa !217
-  %19 = load i32, ptr %4, align 4, !tbaa !217
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %21 = load i32, ptr %20, align 4, !tbaa !215
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %19 = load i32, ptr %1, align 4, !tbaa !217
+  %20 = load i32, ptr %4, align 4, !tbaa !217
+  %21 = load i32, ptr %18, align 4, !tbaa !215
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %23 = load i32, ptr %22, align 4, !tbaa !215
   %24 = zext nneg i32 %12 to i64
@@ -10605,7 +10607,7 @@ define internal fastcc void @rt_copy_mask_to_alpha(ptr nocapture noundef %0, ptr
   %28 = and i32 %12, 2147483644
   %29 = icmp eq i32 %26, 0
   %30 = sub i32 %23, %21
-  %31 = sub i32 %19, %18
+  %31 = sub i32 %20, %19
   br i1 %27, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %17

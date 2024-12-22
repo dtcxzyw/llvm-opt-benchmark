@@ -3780,8 +3780,8 @@ return:                                           ; preds = %while.body, %xorbuf
   ret i32 %retval.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @GenerateM0(ptr noundef initializes((16, 32)) %gcm) local_unnamed_addr #4 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable
+define void @GenerateM0(ptr noundef initializes((16, 32)) %gcm) local_unnamed_addr #5 {
 entry:
   %M0 = getelementptr inbounds nuw i8, ptr %gcm, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %M0, i8 0, i64 16, i1 false)
@@ -3953,6 +3953,7 @@ for.body.i.i115:                                  ; preds = %while.cond.preheade
   br i1 %exitcond.not.i.i123, label %xorbuf.exit125, label %for.body.i.i115, !llvm.loop !12
 
 xorbuf.exit125.loopexit479:                       ; preds = %xorbuf.exit
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %arrayidx17, i64 8) ]
   %.pre485 = load i8, ptr %arrayidx31, align 1
   %.pre484 = load i8, ptr %arrayidx17, align 1
   %xor1516.i100 = xor i8 %.pre485, %.pre484
@@ -4002,6 +4003,7 @@ for.body.i.i149:                                  ; preds = %while.cond.preheade
   br i1 %exitcond.not.i.i157, label %xorbuf.exit159, label %for.body.i.i149, !llvm.loop !12
 
 xorbuf.exit159.loopexit477:                       ; preds = %xorbuf.exit125
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %arrayidx11, i64 8) ]
   %.pre487 = load i8, ptr %arrayidx39, align 1
   %.pre486 = load i8, ptr %arrayidx11, align 1
   %xor1516.i134 = xor i8 %.pre487, %.pre486
@@ -4049,6 +4051,7 @@ for.body.i.i183:                                  ; preds = %while.cond.preheade
   br i1 %exitcond.not.i.i191, label %xorbuf.exit193, label %for.body.i.i183, !llvm.loop !12
 
 xorbuf.exit193.loopexit475:                       ; preds = %xorbuf.exit159
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %arrayidx23, i64 8) ]
   %.pre489 = load i8, ptr %arrayidx47, align 1
   %.pre488 = load i8, ptr %arrayidx23, align 1
   %xor1516.i168 = xor i8 %.pre489, %.pre488
@@ -4096,6 +4099,7 @@ for.body.i.i217:                                  ; preds = %while.cond.preheade
   br i1 %exitcond.not.i.i225, label %xorbuf.exit227, label %for.body.i.i217, !llvm.loop !12
 
 xorbuf.exit227.loopexit473:                       ; preds = %xorbuf.exit193
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %arrayidx17, i64 8) ]
   %.pre491 = load i8, ptr %arrayidx55, align 1
   %.pre490 = load i8, ptr %arrayidx17, align 1
   %xor1516.i202 = xor i8 %.pre491, %.pre490
@@ -4143,6 +4147,7 @@ for.body.i.i251:                                  ; preds = %while.cond.preheade
   br i1 %exitcond.not.i.i259, label %xorbuf.exit261, label %for.body.i.i251, !llvm.loop !12
 
 xorbuf.exit261.loopexit471:                       ; preds = %xorbuf.exit227
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %arrayidx11, i64 8) ]
   %.pre493 = load i8, ptr %arrayidx63, align 1
   %.pre492 = load i8, ptr %arrayidx11, align 1
   %xor1516.i236 = xor i8 %.pre493, %.pre492
@@ -4190,6 +4195,7 @@ for.body.i.i285:                                  ; preds = %while.cond.preheade
   br i1 %exitcond.not.i.i293, label %xorbuf.exit295, label %for.body.i.i285, !llvm.loop !12
 
 xorbuf.exit295.loopexit469:                       ; preds = %xorbuf.exit261
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %arrayidx23, i64 8) ]
   %.pre495 = load i8, ptr %arrayidx71, align 1
   %.pre494 = load i8, ptr %arrayidx23, align 1
   %xor1516.i270 = xor i8 %.pre495, %.pre494
@@ -4239,6 +4245,7 @@ for.body.i.i319:                                  ; preds = %while.cond.preheade
   br i1 %exitcond.not.i.i327, label %xorbuf.exit329, label %for.body.i.i319, !llvm.loop !12
 
 xorbuf.exit329.loopexit467:                       ; preds = %xorbuf.exit295
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %arrayidx5, i64 8) ]
   %.pre497 = load i8, ptr %arrayidx79, align 1
   %.pre496 = load i8, ptr %arrayidx5, align 1
   %xor1516.i304 = xor i8 %.pre497, %.pre496
@@ -4286,6 +4293,7 @@ for.body.i.i353:                                  ; preds = %while.cond.preheade
   br i1 %exitcond.not.i.i361, label %xorbuf.exit363, label %for.body.i.i353, !llvm.loop !12
 
 xorbuf.exit363.loopexit465:                       ; preds = %xorbuf.exit329
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %arrayidx31, i64 8) ]
   %.pre499 = load i8, ptr %arrayidx87, align 1
   %.pre498 = load i8, ptr %arrayidx31, align 1
   %xor1516.i338 = xor i8 %.pre499, %.pre498
@@ -4333,6 +4341,7 @@ for.body.i.i387:                                  ; preds = %while.cond.preheade
   br i1 %exitcond.not.i.i395, label %xorbuf.exit397, label %for.body.i.i387, !llvm.loop !12
 
 xorbuf.exit397.loopexit463:                       ; preds = %xorbuf.exit363
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %arrayidx39, i64 8) ]
   %.pre501 = load i8, ptr %arrayidx95, align 1
   %.pre500 = load i8, ptr %arrayidx39, align 1
   %xor1516.i372 = xor i8 %.pre501, %.pre500
@@ -4380,6 +4389,7 @@ for.body.i.i421:                                  ; preds = %while.cond.preheade
   br i1 %exitcond.not.i.i429, label %for.body.preheader, label %for.body.i.i421, !llvm.loop !12
 
 xorbuf.exit431.loopexit461:                       ; preds = %xorbuf.exit397
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %arrayidx47, i64 8) ]
   %.pre503 = load i8, ptr %arrayidx103, align 1
   %.pre502 = load i8, ptr %arrayidx47, align 1
   %xor1516.i406 = xor i8 %.pre503, %.pre502
@@ -4815,7 +4825,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -226, 1) i32 @wc_AesGcmEncrypt(ptr noundef %aes, ptr noundef %out, ptr noundef %in, i32 noundef %sz, ptr noundef %iv, i32 noundef %ivSz, ptr noundef %authTag, i32 noundef %authTagSz, ptr noundef %authIn, i32 noundef %authInSz) local_unnamed_addr #5 {
+define range(i32 -226, 1) i32 @wc_AesGcmEncrypt(ptr noundef %aes, ptr noundef %out, ptr noundef %in, i32 noundef %sz, ptr noundef %iv, i32 noundef %ivSz, ptr noundef %authTag, i32 noundef %authTagSz, ptr noundef %authIn, i32 noundef %authInSz) local_unnamed_addr #6 {
 entry:
   %counter.i = alloca [16 x i8], align 16
   %initialCounter.i = alloca [16 x i8], align 16
@@ -5144,7 +5154,7 @@ return:                                           ; preds = %entry, %AES_GCM_enc
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -226, 1) i32 @wc_AesGcmDecrypt(ptr noundef %aes, ptr noundef %out, ptr noundef %in, i32 noundef %sz, ptr noundef %iv, i32 noundef %ivSz, ptr noundef readonly %authTag, i32 noundef %authTagSz, ptr noundef %authIn, i32 noundef %authInSz) local_unnamed_addr #5 {
+define range(i32 -226, 1) i32 @wc_AesGcmDecrypt(ptr noundef %aes, ptr noundef %out, ptr noundef %in, i32 noundef %sz, ptr noundef %iv, i32 noundef %ivSz, ptr noundef readonly %authTag, i32 noundef %authTagSz, ptr noundef %authIn, i32 noundef %authInSz) local_unnamed_addr #6 {
 entry:
   %counter.i = alloca [16 x i8], align 16
   %scratch.i = alloca [16 x i8], align 16
@@ -5471,7 +5481,7 @@ if.end9:                                          ; preds = %lor.lhs.false2, %en
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_AesGcmSetIV(ptr noundef %aes, i32 noundef %ivSz, ptr noundef readonly %ivFixed, i32 noundef %ivFixedSz, ptr noundef %rng) local_unnamed_addr #6 {
+define i32 @wc_AesGcmSetIV(ptr noundef %aes, i32 noundef %ivSz, ptr noundef readonly %ivFixed, i32 noundef %ivFixedSz, ptr noundef %rng) local_unnamed_addr #7 {
 entry:
   %cmp = icmp eq ptr %aes, null
   %cmp1 = icmp eq ptr %rng, null
@@ -5511,7 +5521,7 @@ if.end16:                                         ; preds = %if.then11, %if.then
   %idx.ext.pre-phi = phi i64 [ %conv, %if.then13 ], [ 0, %if.then11 ]
   %add.ptr = getelementptr inbounds nuw i8, ptr %reg, i64 %idx.ext.pre-phi
   %sub = sub i32 %ivSz, %ivFixedSz
-  %call15 = tail call i32 @wc_RNG_GenerateBlock(ptr noundef nonnull %rng, ptr noundef nonnull %add.ptr, i32 noundef %sub) #13
+  %call15 = tail call i32 @wc_RNG_GenerateBlock(ptr noundef nonnull %rng, ptr noundef nonnull %add.ptr, i32 noundef %sub) #15
   %cmp17 = icmp eq i32 %call15, 0
   br i1 %cmp17, label %if.then19, label %if.end24
 
@@ -5531,10 +5541,10 @@ if.end24:                                         ; preds = %lor.lhs.false2, %lo
   ret i32 %ret.125
 }
 
-declare i32 @wc_RNG_GenerateBlock(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
+declare i32 @wc_RNG_GenerateBlock(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -260, 1) i32 @wc_AesGcmEncrypt_ex(ptr noundef %aes, ptr noundef %out, ptr noundef %in, i32 noundef %sz, ptr noundef writeonly %ivOut, i32 noundef %ivOutSz, ptr noundef %authTag, i32 noundef %authTagSz, ptr noundef %authIn, i32 noundef %authInSz) local_unnamed_addr #5 {
+define range(i32 -260, 1) i32 @wc_AesGcmEncrypt_ex(ptr noundef %aes, ptr noundef %out, ptr noundef %in, i32 noundef %sz, ptr noundef writeonly %ivOut, i32 noundef %ivOutSz, ptr noundef %authTag, i32 noundef %authTagSz, ptr noundef %authIn, i32 noundef %authInSz) local_unnamed_addr #6 {
 entry:
   %cmp = icmp eq ptr %aes, null
   br i1 %cmp, label %if.end39, label %lor.lhs.false
@@ -5612,7 +5622,7 @@ if.end39:                                         ; preds = %for.body.i, %for.co
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_Gmac(ptr noundef readonly %key, i32 noundef %keySz, ptr noundef writeonly %iv, i32 noundef %ivSz, ptr noundef %authIn, i32 noundef %authInSz, ptr noundef %authTag, i32 noundef %authTagSz, ptr noundef %rng) local_unnamed_addr #6 {
+define i32 @wc_Gmac(ptr noundef readonly %key, i32 noundef %keySz, ptr noundef writeonly %iv, i32 noundef %ivSz, ptr noundef %authIn, i32 noundef %authInSz, ptr noundef %authTag, i32 noundef %authTagSz, ptr noundef %rng) local_unnamed_addr #7 {
 entry:
   %iv.i = alloca [16 x i8], align 16
   %aes = alloca [1 x %struct.Aes], align 16
@@ -5673,7 +5683,7 @@ lor.lhs.false2.i:                                 ; preds = %if.end15.i
 
 lor.lhs.false3.i:                                 ; preds = %lor.lhs.false2.i, %lor.lhs.false2.i, %lor.lhs.false2.i
   %reg.i = getelementptr inbounds nuw i8, ptr %aes, i64 256
-  %call15.i = call i32 @wc_RNG_GenerateBlock(ptr noundef nonnull %rng, ptr noundef nonnull %reg.i, i32 noundef %ivSz) #13
+  %call15.i = call i32 @wc_RNG_GenerateBlock(ptr noundef nonnull %rng, ptr noundef nonnull %reg.i, i32 noundef %ivSz) #15
   %cmp17.i = icmp eq i32 %call15.i, 0
   br i1 %cmp17.i, label %if.then30.i, label %for.cond.preheader.i
 
@@ -5726,7 +5736,7 @@ return:                                           ; preds = %for.body.i, %entry,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -173, 1) i32 @wc_AesInit(ptr noundef writeonly %aes, ptr noundef %heap, i32 noundef %devId) local_unnamed_addr #8 {
+define range(i32 -173, 1) i32 @wc_AesInit(ptr noundef writeonly %aes, ptr noundef %heap, i32 noundef %devId) local_unnamed_addr #9 {
 entry:
   %cmp = icmp eq ptr %aes, null
   br i1 %cmp, label %return, label %if.end
@@ -5744,13 +5754,13 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @wc_AesFree(ptr nocapture noundef readnone %aes) local_unnamed_addr #9 {
+define void @wc_AesFree(ptr nocapture noundef readnone %aes) local_unnamed_addr #10 {
 entry:
   ret void
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define range(i32 -226, 1) i32 @wc_GmacVerify(ptr noundef readonly %key, i32 noundef %keySz, ptr noundef %iv, i32 noundef %ivSz, ptr noundef %authIn, i32 noundef %authInSz, ptr noundef %authTag, i32 noundef %authTagSz) local_unnamed_addr #10 {
+define range(i32 -226, 1) i32 @wc_GmacVerify(ptr noundef readonly %key, i32 noundef %keySz, ptr noundef %iv, i32 noundef %ivSz, ptr noundef %authIn, i32 noundef %authInSz, ptr noundef %authTag, i32 noundef %authTagSz) local_unnamed_addr #11 {
 entry:
   %iv.i = alloca [16 x i8], align 16
   %aes = alloca [1 x %struct.Aes], align 16
@@ -5867,7 +5877,7 @@ return:                                           ; preds = %entry, %wc_AesGcmSe
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -226, 1) i32 @wc_GmacUpdate(ptr noundef %gmac, ptr noundef %iv, i32 noundef %ivSz, ptr noundef %authIn, i32 noundef %authInSz, ptr noundef %authTag, i32 noundef %authTagSz) local_unnamed_addr #5 {
+define range(i32 -226, 1) i32 @wc_GmacUpdate(ptr noundef %gmac, ptr noundef %iv, i32 noundef %ivSz, ptr noundef %authIn, i32 noundef %authInSz, ptr noundef %authTag, i32 noundef %authTagSz) local_unnamed_addr #6 {
 entry:
   %cmp = icmp eq ptr %gmac, null
   br i1 %cmp, label %return, label %if.end
@@ -5917,37 +5927,42 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.fshl.i8(i8, i8, i8) #11
+declare i8 @llvm.fshl.i8(i8, i8, i8) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #11
+declare i64 @llvm.fshl.i64(i64, i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #11
+declare i32 @llvm.bswap.i32(i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #11
+declare i32 @llvm.umin.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #14
 
 attributes #0 = { nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree norecurse nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nounwind }
+attributes #5 = { nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree norecurse nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #15 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

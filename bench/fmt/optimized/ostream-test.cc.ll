@@ -6855,8 +6855,8 @@ invoke.cont:                                      ; preds = %.noexc
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %line_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %2 = load i32, ptr %line_.i, align 8
   %file_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %2 = load i32, ptr %line_.i, align 8
   %3 = load ptr, ptr %file_.i, align 8
   %call.i.i56 = invoke noundef ptr @_ZN7testing8internal18GetFailureReporterEv()
           to label %call.i.i5.noexc unwind label %lpad3
@@ -16743,6 +16743,12 @@ do.body:                                          ; preds = %if.end21, %if.then1
   %dec.i.i3284 = phi i64 [ %decode.sroa.3.0.copyload.promoted, %if.then13 ], [ %dec.i.i32, %if.end21 ]
   %buf_ptr.0 = phi ptr [ %buf, %if.then13 ], [ %cond15.i64, %if.end21 ]
   %p.2 = phi ptr [ %p.0, %if.then13 ], [ %add.ptr25, %if.end21 ]
+  %19 = load i8, ptr %buf_ptr.0, align 1
+  %conv.i.i18 = zext i8 %19 to i32
+  %shr.i.i19 = lshr i32 %conv.i.i18, 3
+  %idxprom.i.i20 = zext nneg i32 %shr.i.i19 to i64
+  %arrayidx.i.i21 = getelementptr inbounds nuw [32 x i8], ptr @.str.239, i64 0, i64 %idxprom.i.i20
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %arrayidx.i.i21, i64 8) ]
   %cmp.not.i.not.i30 = icmp eq i64 %dec.i.i3284, 0
   br i1 %cmp.not.i.not.i30, label %_ZZN3fmt3v106detail18for_each_codepointIZNS1_16code_point_indexENS0_17basic_string_viewIcEEmEUljS4_E_EEvS4_T_ENKUlPKcS8_E_clES8_S8_.exit70.thread, label %if.end21
 
@@ -16753,26 +16759,21 @@ _ZZN3fmt3v106detail18for_each_codepointIZNS1_16code_point_indexENS0_17basic_stri
   br label %if.end31
 
 if.end21:                                         ; preds = %do.body
-  %19 = load i8, ptr %buf_ptr.0, align 1
-  %conv.i.i18 = zext i8 %19 to i32
-  %shr.i.i19 = lshr i32 %conv.i.i18, 3
-  %idxprom.i.i20 = zext nneg i32 %shr.i.i19 to i64
-  %arrayidx.i.i21 = getelementptr inbounds nuw [32 x i8], ptr @.str.239, i64 0, i64 %idxprom.i.i20
   %20 = load i8, ptr %arrayidx.i.i21, align 1
   %idx.ext.i.i22 = sext i8 %20 to i64
   %arrayidx54.i.i29 = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shifte, i64 0, i64 %idx.ext.i.i22
-  %21 = load i32, ptr %arrayidx54.i.i29, align 4
   %arrayidx27.i.i28 = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.mins, i64 0, i64 %idx.ext.i.i22
-  %22 = load i32, ptr %arrayidx27.i.i28, align 4
   %arrayidx24.i.i27 = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shiftc, i64 0, i64 %idx.ext.i.i22
-  %23 = load i32, ptr %arrayidx24.i.i27, align 4
   %arrayidx18.i.i26 = getelementptr inbounds nuw i8, ptr %buf_ptr.0, i64 3
-  %24 = load i8, ptr %arrayidx18.i.i26, align 1
   %arrayidx13.i.i25 = getelementptr inbounds nuw i8, ptr %buf_ptr.0, i64 2
-  %25 = load i8, ptr %arrayidx13.i.i25, align 1
   %arrayidx9.i.i24 = getelementptr inbounds nuw i8, ptr %buf_ptr.0, i64 1
-  %26 = load i8, ptr %arrayidx9.i.i24, align 1
   %arrayidx8.i.i23 = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.masks, i64 0, i64 %idx.ext.i.i22
+  %21 = load i32, ptr %arrayidx54.i.i29, align 4
+  %22 = load i32, ptr %arrayidx27.i.i28, align 4
+  %23 = load i32, ptr %arrayidx24.i.i27, align 4
+  %24 = load i8, ptr %arrayidx18.i.i26, align 1
+  %25 = load i8, ptr %arrayidx13.i.i25, align 1
+  %26 = load i8, ptr %arrayidx9.i.i24, align 1
   %27 = load i32, ptr %arrayidx8.i.i23, align 4
   %dec.i.i32 = add i64 %dec.i.i3284, -1
   store i64 %dec.i.i32, ptr %decode.sroa.3.0.copyload, align 8

@@ -7654,13 +7654,17 @@ for.cond25.preheader:                             ; preds = %for.cond25.preheade
   %17 = getelementptr i8, ptr %16, i64 240
   %slices.val2031 = load ptr, ptr %17, align 8
   %cmp2836.not = icmp eq ptr %slices.val2031, %slices.val30
-  br i1 %cmp2836.not, label %for.inc62, label %for.body29
+  br i1 %cmp2836.not, label %for.inc62, label %for.body29.lr.ph
 
-for.body29:                                       ; preds = %for.cond25.preheader, %for.inc
-  %slices.val39 = phi ptr [ %slices.val, %for.inc ], [ %slices.val30, %for.cond25.preheader ]
-  %18 = phi ptr [ %43, %for.inc ], [ %16, %for.cond25.preheader ]
-  %conv38 = phi i64 [ %conv, %for.inc ], [ 0, %for.cond25.preheader ]
-  %i.037 = phi i32 [ %inc, %for.inc ], [ 0, %for.cond25.preheader ]
+for.body29.lr.ph:                                 ; preds = %for.cond25.preheader
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %tileRange, i64 32) ]
+  br label %for.body29
+
+for.body29:                                       ; preds = %for.body29.lr.ph, %for.inc
+  %slices.val39 = phi ptr [ %slices.val30, %for.body29.lr.ph ], [ %slices.val, %for.inc ]
+  %18 = phi ptr [ %16, %for.body29.lr.ph ], [ %43, %for.inc ]
+  %conv38 = phi i64 [ 0, %for.body29.lr.ph ], [ %conv, %for.inc ]
+  %i.037 = phi i32 [ 0, %for.body29.lr.ph ], [ %inc, %for.inc ]
   %add.ptr.i = getelementptr inbounds nuw %"struct.Imf_3_2::(anonymous namespace)::TOutSliceInfo", ptr %slices.val39, i64 %conv38
   %zero = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 32
   %19 = load i8, ptr %zero, align 8
@@ -7740,11 +7744,11 @@ invoke.cont112:                                   ; preds = %if.then109
 
 if.else:                                          ; preds = %for.body29
   %yTileCoords = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 40
-  %32 = load i32, ptr %yTileCoords, align 8
-  %33 = load i32, ptr %y14, align 4
-  %mul38 = mul nsw i32 %33, %32
   %xTileCoords = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 36
-  %34 = load i32, ptr %xTileCoords, align 4
+  %32 = load i32, ptr %yTileCoords, align 8
+  %33 = load i32, ptr %xTileCoords, align 4
+  %34 = load i32, ptr %y14, align 4
+  %mul38 = mul nsw i32 %34, %32
   %35 = load i32, ptr %tileRange, align 4
   %base42 = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   %36 = load ptr, ptr %base42, align 8
@@ -7755,7 +7759,7 @@ if.else:                                          ; preds = %for.body29
   %38 = load i64, ptr %yStride, align 8
   %mul45 = mul i64 %38, %conv44
   %add46 = add i64 %mul45, %37
-  %mul18 = sub i32 1, %34
+  %mul18 = sub i32 1, %33
   %sub49 = mul i32 %35, %mul18
   %conv50 = sext i32 %sub49 to i64
   %xStride = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 16

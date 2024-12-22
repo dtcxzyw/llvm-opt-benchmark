@@ -5228,6 +5228,9 @@ _ZStmiRKSt15_Deque_iteratorIP4NodeRS1_PS1_El.exit71: ; preds = %412, %418
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !220
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !220
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !217
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %1, i64 0) ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %43, i64 0) ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %.sroa.4172.0..sroa_idx, i64 0) ]
   %450 = ptrtoint ptr %3 to i64
   %451 = ptrtoint ptr %2 to i64
   %452 = sub i64 %450, %451
@@ -5362,6 +5365,9 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPP4NodeSt6vectorIS3_SaIS3_EEEElEvRT_
   store ptr %.sroa.3180.0, ptr %68, align 8
   store ptr %.sroa.5.0, ptr %342, align 8
   store ptr %.sroa.7185.0, ptr %59, align 8
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %1, i64 0) ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %43, i64 0) ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %.sroa.4172.0..sroa_idx, i64 0) ]
   %511 = icmp sgt i64 %374, 0
   br i1 %511, label %.lr.ph.i.i.i103.preheader, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPP4NodeSt6vectorIS3_SaIS3_EEEESt15_Deque_iteratorIS3_RS3_S4_EET0_T_SD_SC_.exit
 

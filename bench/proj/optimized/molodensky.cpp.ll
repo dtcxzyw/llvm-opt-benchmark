@@ -61,7 +61,7 @@ define hidden noundef ptr @pj_molodensky(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z39pj_projection_specific_setup_molodenskyP8PJconsts(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #8
+  %2 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #9
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %6
 
@@ -235,6 +235,8 @@ define internal void @_ZL24pj_molodensky_forward_4dR8PJ_COORDP8PJconsts(ptr noca
   %.sink.i.sroa.phi12 = phi ptr [ %.sink.i.sroa.gep13, %11 ], [ %.sink.i.sroa.gep14, %10 ]
   %.sink.i = phi ptr [ %4, %11 ], [ %3, %10 ]
   %.sroa.0.0.copyload = load double, ptr %.sink.i, align 8, !noalias !4
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %.sink.i.sroa.phi, i64 64) ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %.sink.i.sroa.phi12, i64 64) ]
   %13 = fcmp oeq double %.sroa.0.0.copyload, 0x7FF0000000000000
   br i1 %13, label %14, label %16
 
@@ -296,8 +298,8 @@ define internal void @_ZL24pj_molodensky_reverse_4dR8PJ_COORDP8PJconsts(ptr noca
   br i1 %.not.i, label %13, label %12
 
 12:                                               ; preds = %2
-  %.sink27.i.sroa.gep15 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sink27.i.sroa.gep12 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.sink27.i.sroa.gep15 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.sink27.i.sroa.gep12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store double %.sroa.010.0.copyload, ptr %4, align 8, !noalias !7
   %.sroa.7.0..sroa_idx11.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store double %.sroa.2.0.copyload, ptr %.sroa.7.0..sroa_idx11.i, align 8, !noalias !7
@@ -307,8 +309,8 @@ define internal void @_ZL24pj_molodensky_reverse_4dR8PJ_COORDP8PJconsts(ptr noca
   br label %14
 
 13:                                               ; preds = %2
-  %.sink27.i.sroa.gep14 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sink27.i.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.sink27.i.sroa.gep14 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.sink27.i.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 8
   store double %.sroa.010.0.copyload, ptr %6, align 8, !noalias !7
   %.sroa.7.0..sroa_idx13.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store double %.sroa.2.0.copyload, ptr %.sroa.7.0..sroa_idx13.i, align 8, !noalias !7
@@ -321,12 +323,13 @@ define internal void @_ZL24pj_molodensky_reverse_4dR8PJ_COORDP8PJconsts(ptr noca
   %.sink27.i.sroa.phi = phi ptr [ %.sink27.i.sroa.gep, %13 ], [ %.sink27.i.sroa.gep12, %12 ]
   %.sink27.i.sroa.phi13 = phi ptr [ %.sink27.i.sroa.gep14, %13 ], [ %.sink27.i.sroa.gep15, %12 ]
   %.sink27.i = phi ptr [ %5, %13 ], [ %3, %12 ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %.sink27.i.sroa.phi, i64 64) ]
   %.sroa.0.0.i = load double, ptr %.sink27.i, align 8, !noalias !7
   %15 = fcmp oeq double %.sroa.0.0.i, 0x7FF0000000000000
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %14
-  %17 = tail call i32 @proj_errno_set(ptr noundef nonnull %1, i32 noundef 2050), !noalias !7
+  %17 = call i32 @proj_errno_set(ptr noundef nonnull %1, i32 noundef 2050), !noalias !7
   call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %7), !noalias !7
   %.sroa.0.0.copyload3 = load double, ptr %7, align 8
   %.sroa.3.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -336,8 +339,8 @@ define internal void @_ZL24pj_molodensky_reverse_4dR8PJ_COORDP8PJconsts(ptr noca
   br label %_ZL24pj_molodensky_reverse_3d6PJ_XYZP8PJconsts.exit
 
 18:                                               ; preds = %14
-  %.sroa.5.0.copyload6.i = load double, ptr %.sink27.i.sroa.phi, align 8, !noalias !7
-  %.sroa.4.0.copyload4.i = load double, ptr %.sink27.i.sroa.phi13, align 8, !noalias !7
+  %.sroa.5.0.copyload6.i = load double, ptr %.sink27.i.sroa.phi13, align 8, !noalias !7
+  %.sroa.4.0.copyload4.i = load double, ptr %.sink27.i.sroa.phi, align 8, !noalias !7
   %19 = fsub double %.sroa.2.0.copyload, %.sroa.4.0.copyload4.i
   %20 = fsub double %.sroa.010.0.copyload, %.sroa.0.0.i
   %21 = fsub double %.sroa.311.0.copyload, %.sroa.5.0.copyload6.i
@@ -568,7 +571,7 @@ define internal { double, double } @_ZL24pj_molodensky_reverse_2d5PJ_XYP8PJconst
   br i1 %.not.i, label %14, label %13
 
 13:                                               ; preds = %3
-  %.sink27.i.sroa.gep17 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sink27.i.sroa.gep14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store double %0, ptr %5, align 8, !noalias !13
   %.sroa.7.0..sroa_idx11.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store double %1, ptr %.sroa.7.0..sroa_idx11.i, align 8, !noalias !13
@@ -578,7 +581,7 @@ define internal { double, double } @_ZL24pj_molodensky_reverse_2d5PJ_XYP8PJconst
   br label %15
 
 14:                                               ; preds = %3
-  %.sink27.i.sroa.gep16 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sink27.i.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 8
   store double %0, ptr %7, align 8, !noalias !13
   %.sroa.7.0..sroa_idx13.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   store double %1, ptr %.sroa.7.0..sroa_idx13.i, align 8, !noalias !13
@@ -588,14 +591,15 @@ define internal { double, double } @_ZL24pj_molodensky_reverse_2d5PJ_XYP8PJconst
   br label %15
 
 15:                                               ; preds = %14, %13
-  %.sink27.i.sroa.phi15 = phi ptr [ %.sink27.i.sroa.gep16, %14 ], [ %.sink27.i.sroa.gep17, %13 ]
+  %.sink27.i.sroa.phi = phi ptr [ %.sink27.i.sroa.gep, %14 ], [ %.sink27.i.sroa.gep14, %13 ]
   %.sink27.i = phi ptr [ %6, %14 ], [ %4, %13 ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %.sink27.i.sroa.phi, i64 64) ]
   %.sroa.0.0.i = load double, ptr %.sink27.i, align 8, !noalias !13
   %16 = fcmp oeq double %.sroa.0.0.i, 0x7FF0000000000000
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %15
-  %18 = tail call i32 @proj_errno_set(ptr noundef nonnull %2, i32 noundef 2050), !noalias !13
+  %18 = call i32 @proj_errno_set(ptr noundef nonnull %2, i32 noundef 2050), !noalias !13
   call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %8), !noalias !13
   %.sroa.011.0.copyload = load double, ptr %8, align 8
   %.sroa.312.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -603,7 +607,7 @@ define internal { double, double } @_ZL24pj_molodensky_reverse_2d5PJ_XYP8PJconst
   br label %_ZL24pj_molodensky_reverse_3d6PJ_XYZP8PJconsts.exit
 
 19:                                               ; preds = %15
-  %.sroa.4.0.copyload4.i = load double, ptr %.sink27.i.sroa.phi15, align 8, !noalias !13
+  %.sroa.4.0.copyload4.i = load double, ptr %.sink27.i.sroa.phi, align 8, !noalias !13
   %20 = fsub double %1, %.sroa.4.0.copyload4.i
   %21 = fsub double %0, %.sroa.0.0.i
   br label %_ZL24pj_molodensky_reverse_3d6PJ_XYZP8PJconsts.exit
@@ -633,12 +637,12 @@ define internal fastcc void @_ZL20calc_abridged_params6PJ_LPZP8PJconsts(ptr dead
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8
   %6 = load double, ptr %1, align 8
-  %7 = tail call double @sin(double noundef %6) #9
-  %8 = tail call double @cos(double noundef %6) #9
+  %7 = tail call double @sin(double noundef %6) #10
+  %8 = tail call double @cos(double noundef %6) #10
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load double, ptr %9, align 8
-  %11 = tail call double @sin(double noundef %10) #9
-  %12 = tail call double @cos(double noundef %10) #9
+  %11 = tail call double @sin(double noundef %10) #10
+  %12 = tail call double @cos(double noundef %10) #10
   %13 = load double, ptr %5, align 8
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %15 = load double, ptr %14, align 8
@@ -653,11 +657,11 @@ define internal fastcc void @_ZL20calc_abridged_params6PJ_LPZP8PJconsts(ptr dead
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 272
   %25 = load double, ptr %24, align 8
   %26 = fmul double %10, 2.000000e+00
-  %27 = tail call double @sin(double noundef %26) #9
+  %27 = tail call double @sin(double noundef %26) #10
   %28 = load double, ptr %22, align 8
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %30 = load double, ptr %29, align 8
-  %31 = tail call double @sin(double noundef %10) #9
+  %31 = tail call double @sin(double noundef %10) #10
   %32 = fcmp oeq double %30, 0.000000e+00
   br i1 %32, label %_ZL2RMddd.exit, label %33
 
@@ -677,7 +681,7 @@ define internal fastcc void @_ZL20calc_abridged_params6PJ_LPZP8PJconsts(ptr dead
   br i1 %40, label %42, label %45
 
 42:                                               ; preds = %38
-  %43 = tail call double @sqrt(double noundef %41) #9
+  %43 = tail call double @sqrt(double noundef %41) #10
   %44 = fdiv double %28, %43
   br label %_ZL2RMddd.exit
 
@@ -686,7 +690,7 @@ define internal fastcc void @_ZL20calc_abridged_params6PJ_LPZP8PJconsts(ptr dead
   %47 = fneg double %31
   %48 = fmul double %30, %47
   %49 = tail call double @llvm.fmuladd.f64(double %48, double %31, double 1.000000e+00)
-  %50 = tail call double @pow(double noundef %49, double noundef 1.500000e+00) #9
+  %50 = tail call double @pow(double noundef %49, double noundef 1.500000e+00) #10
   %51 = fdiv double %46, %50
   br label %_ZL2RMddd.exit
 
@@ -694,7 +698,7 @@ _ZL2RMddd.exit:                                   ; preds = %3, %35, %42, %45
   %.0.i = phi double [ %37, %35 ], [ %44, %42 ], [ %51, %45 ], [ %28, %3 ]
   %52 = load double, ptr %22, align 8
   %53 = load double, ptr %29, align 8
-  %54 = tail call double @sin(double noundef %10) #9
+  %54 = tail call double @sin(double noundef %10) #10
   %55 = fcmp oeq double %53, 0.000000e+00
   br i1 %55, label %_ZL2RNddd.exit, label %56
 
@@ -702,7 +706,7 @@ _ZL2RMddd.exit:                                   ; preds = %3, %35, %42, %45
   %57 = fneg double %54
   %58 = fmul double %53, %57
   %59 = tail call double @llvm.fmuladd.f64(double %58, double %54, double 1.000000e+00)
-  %60 = tail call double @sqrt(double noundef %59) #9
+  %60 = tail call double @sqrt(double noundef %59) #10
   %61 = fdiv double %52, %60
   br label %_ZL2RNddd.exit
 
@@ -751,16 +755,16 @@ _ZL2RNddd.exit:                                   ; preds = %_ZL2RMddd.exit, %56
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @_ZL20calc_standard_params6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 24)) %0, ptr nocapture noundef byval(%struct.PJ_LPZ) align 8 %1, ptr nocapture noundef readonly %2) unnamed_addr #4 {
+define internal fastcc void @_ZL20calc_standard_params6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 24)) %0, ptr nocapture noundef byval(%struct.PJ_LPZ) align 8 %1, ptr noundef %2) unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8
   %6 = load double, ptr %1, align 8
-  %7 = tail call double @sin(double noundef %6) #9
-  %8 = tail call double @cos(double noundef %6) #9
+  %7 = tail call double @sin(double noundef %6) #10
+  %8 = tail call double @cos(double noundef %6) #10
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load double, ptr %9, align 8
-  %11 = tail call double @sin(double noundef %10) #9
-  %12 = tail call double @cos(double noundef %10) #9
+  %11 = tail call double @sin(double noundef %10) #10
+  %12 = tail call double @cos(double noundef %10) #10
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 272
   %14 = load double, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 168
@@ -776,7 +780,7 @@ define internal fastcc void @_ZL20calc_standard_params6PJ_LPZP8PJconsts(ptr dead
   %25 = load double, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %27 = load double, ptr %26, align 8
-  %28 = tail call double @sin(double noundef %10) #9
+  %28 = tail call double @sin(double noundef %10) #10
   %29 = fcmp oeq double %27, 0.000000e+00
   br i1 %29, label %_ZL2RMddd.exit, label %30
 
@@ -796,7 +800,7 @@ define internal fastcc void @_ZL20calc_standard_params6PJ_LPZP8PJconsts(ptr dead
   br i1 %37, label %39, label %42
 
 39:                                               ; preds = %35
-  %40 = tail call double @sqrt(double noundef %38) #9
+  %40 = tail call double @sqrt(double noundef %38) #10
   %41 = fdiv double %16, %40
   br label %_ZL2RMddd.exit
 
@@ -805,14 +809,14 @@ define internal fastcc void @_ZL20calc_standard_params6PJ_LPZP8PJconsts(ptr dead
   %44 = fneg double %28
   %45 = fmul double %27, %44
   %46 = tail call double @llvm.fmuladd.f64(double %45, double %28, double 1.000000e+00)
-  %47 = tail call double @pow(double noundef %46, double noundef 1.500000e+00) #9
+  %47 = tail call double @pow(double noundef %46, double noundef 1.500000e+00) #10
   %48 = fdiv double %43, %47
   br label %_ZL2RMddd.exit
 
 _ZL2RMddd.exit:                                   ; preds = %3, %32, %39, %42
   %.0.i = phi double [ %34, %32 ], [ %41, %39 ], [ %48, %42 ], [ %16, %3 ]
   %49 = load double, ptr %26, align 8
-  %50 = tail call double @sin(double noundef %10) #9
+  %50 = tail call double @sin(double noundef %10) #10
   %51 = fcmp oeq double %49, 0.000000e+00
   br i1 %51, label %_ZL2RNddd.exit, label %52
 
@@ -820,7 +824,7 @@ _ZL2RMddd.exit:                                   ; preds = %3, %32, %39, %42
   %53 = fneg double %50
   %54 = fmul double %49, %53
   %55 = tail call double @llvm.fmuladd.f64(double %54, double %50, double 1.000000e+00)
-  %56 = tail call double @sqrt(double noundef %55) #9
+  %56 = tail call double @sqrt(double noundef %55) #10
   %57 = fdiv double %16, %56
   br label %_ZL2RNddd.exit
 
@@ -915,11 +919,14 @@ declare double @sqrt(double noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @pow(double noundef, double noundef) local_unnamed_addr #5
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -928,9 +935,10 @@ attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #4 = { mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nounwind allocsize(0,1) }
-attributes #9 = { nounwind }
+attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nounwind allocsize(0,1) }
+attributes #10 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

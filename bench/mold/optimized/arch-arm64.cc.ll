@@ -3357,6 +3357,9 @@ init:                                             ; preds = %init.check
   br label %init.end
 
 init.end:                                         ; preds = %init, %init.check, %entry
+  %buf2 = getelementptr inbounds nuw i8, ptr %ctx, i64 3368
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %buf2, i64 0) ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %this, i64 0) ]
   %symbols = getelementptr inbounds nuw i8, ptr %this, i64 56
   %2 = load ptr, ptr %symbols, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -3366,17 +3369,16 @@ init.end:                                         ; preds = %init, %init.check, 
 
 for.body.preheader:                               ; preds = %init.end
   %4 = load ptr, ptr %this, align 8
+  %5 = load ptr, ptr %buf2, align 8
   %sh_addr = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %x.0.copyload.i8 = load i64, ptr %sh_addr, align 1
   %offset = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %5 = load i64, ptr %offset, align 8
-  %add = add i64 %x.0.copyload.i8, %5
-  %buf2 = getelementptr inbounds nuw i8, ptr %ctx, i64 3368
-  %6 = load ptr, ptr %buf2, align 8
   %sh_offset = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %x.0.copyload.i8 = load i64, ptr %sh_addr, align 1
+  %6 = load i64, ptr %offset, align 8
+  %add = add i64 %x.0.copyload.i8, %6
   %x.0.copyload.i = load i64, ptr %sh_offset, align 1
-  %add.ptr = getelementptr inbounds i8, ptr %6, i64 %x.0.copyload.i
-  %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr, i64 %5
+  %add.ptr = getelementptr inbounds i8, ptr %5, i64 %x.0.copyload.i
+  %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr, i64 %6
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body

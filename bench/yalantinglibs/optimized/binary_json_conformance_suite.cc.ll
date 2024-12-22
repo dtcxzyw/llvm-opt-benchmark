@@ -6280,6 +6280,7 @@ sw.bb._ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKN
   br label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i
 
 land.rhs.i.i:                                     ; preds = %sw.bb.i
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %second, i64 0) ]
   %cmp.i.i.i146 = icmp eq i64 %121, 0
   %.pre105.i = load ptr, ptr %ref.tmp.i142, align 8
   br i1 %cmp.i.i.i146, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i, label %if.end.i.i.i
@@ -6328,6 +6329,7 @@ sw.bb1._ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERK
   br label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit17.i
 
 land.rhs.i13.i:                                   ; preds = %sw.bb1.i
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %second, i64 0) ]
   %cmp.i.i14.i = icmp eq i64 %127, 0
   %.pre103.i = load ptr, ptr %ref.tmp2.i, align 8
   br i1 %cmp.i.i14.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit17.i, label %if.end.i.i15.i
@@ -6387,6 +6389,7 @@ sw.bb4._ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERK
   br label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit31.i
 
 land.rhs.i27.i:                                   ; preds = %.noexc
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %second, i64 0) ]
   %cmp.i.i28.i = icmp eq i64 %133, 0
   %.pre101.i = load ptr, ptr %ref.tmp5.i, align 8
   br i1 %cmp.i.i28.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit31.i, label %if.end.i.i29.i
@@ -6447,6 +6450,7 @@ sw.bb7._ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERK
   br label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit48.i
 
 land.rhs.i44.i:                                   ; preds = %sw.bb7.i
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %second, i64 0) ]
   %cmp.i.i45.i = icmp eq i64 %139, 0
   %.pre99.i = load ptr, ptr %ref.tmp8.i, align 8
   br i1 %cmp.i.i45.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit48.i, label %if.end.i.i46.i
@@ -6507,6 +6511,7 @@ sw.bb10._ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeER
   br label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit65.i
 
 land.rhs.i61.i:                                   ; preds = %sw.bb10.i
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %second, i64 0) ]
   %cmp.i.i62.i = icmp eq i64 %145, 0
   %.pre97.i = load ptr, ptr %ref.tmp11.i, align 8
   br i1 %cmp.i.i62.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit65.i, label %if.end.i.i63.i
@@ -6601,6 +6606,7 @@ invoke.cont18._ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__
   br label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit80.i
 
 land.rhs.i76.i:                                   ; preds = %invoke.cont18.i
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %second, i64 0) ]
   %cmp.i.i77.i = icmp eq i64 %154, 0
   %.pre95.i = load ptr, ptr %ref.tmp14.i, align 8
   br i1 %cmp.i.i77.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit80.i, label %if.end.i.i78.i
@@ -6990,6 +6996,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit14.i2779: 
   br i1 %cmp4.not.i2781, label %if.end7.i2751, label %if.then5.i2782
 
 if.then5.i2782:                                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit14.i2779
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %ref.tmp.i1574, i64 0) ], !noalias !81
   %sub3.i.i3144 = sub i64 9223372036854775807, %180
   %cmp.i.i3145 = icmp ult i64 %sub3.i.i3144, %179
   br i1 %cmp.i.i3145, label %if.then.i.i.i.i2776.invoke, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i3146
@@ -7379,6 +7386,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit14.i: ; pr
   br i1 %cmp4.not.i, label %if.end7.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit14.i
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %ref.tmp.i181, i64 0) ]
   %sub3.i.i = sub i64 9223372036854775807, %210
   %cmp.i.i2719 = icmp ult i64 %sub3.i.i, %209
   br i1 %cmp.i.i2719, label %if.then.i.i.i.i1564.invoke, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i
@@ -7897,6 +7905,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit14.i2990: 
   br i1 %cmp4.not.i2992, label %if.end7.i2962, label %if.then5.i2993
 
 if.then5.i2993:                                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit14.i2990
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %ref.tmp.i1675, i64 0) ], !noalias !97
   %sub3.i.i3324 = sub i64 9223372036854775807, %247
   %cmp.i.i3325 = icmp ult i64 %sub3.i.i3324, %246
   br i1 %cmp.i.i3325, label %if.then.i.i.i.i2987.invoke, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i3326
@@ -8286,6 +8295,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit14.i1653: 
   br i1 %cmp4.not.i1655, label %if.end7.i1625, label %if.then5.i1656
 
 if.then5.i1656:                                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit14.i1653
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %ref.tmp.i202, i64 0) ]
   %sub3.i.i2879 = sub i64 9223372036854775807, %277
   %cmp.i.i2880 = icmp ult i64 %sub3.i.i2879, %276
   br i1 %cmp.i.i2880, label %if.then.i.i.i.i1650.invoke, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i2881
@@ -46920,6 +46930,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit14: ; pred
   br i1 %cmp4.not, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit14
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %__lhs, i64 0) ]
   %call3.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %__rhs, i64 noundef 0, i64 noundef 0, ptr noundef %2, i64 noundef %0)
   %7 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %call3.i.i) #23

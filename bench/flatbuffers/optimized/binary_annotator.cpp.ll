@@ -13570,11 +13570,12 @@ ehcleanup402:                                     ; preds = %lpad397, %lpad393, 
   br label %ehcleanup677
 
 invoke.cont404:                                   ; preds = %if.end369
+  %binary_.i1122 = getelementptr inbounds nuw i8, ptr %this, i64 24
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %binary_.i1122, i64 0) ]
   %cmp4131992.not = icmp eq i64 %vector_length.sroa.0.0.ph, 0
   br i1 %cmp4131992.not, label %sw.epilog, label %for.body414.lr.ph
 
 for.body414.lr.ph:                                ; preds = %invoke.cont404
-  %binary_.i1122 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %274 = load ptr, ptr %binary_.i1122, align 8
   %add.ptr.i1123 = getelementptr inbounds i8, ptr %274, i64 %add372
   %275 = load i16, ptr %add.ptr.i1123, align 2
@@ -32115,14 +32116,14 @@ declare i64 @llvm.abs.i64(i64, i1 immarg) #25
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #26
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #27
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #25
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #28

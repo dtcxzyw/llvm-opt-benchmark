@@ -1050,7 +1050,7 @@ _ZN4ring2ec7suite_b3ops15PublicScalarOps19elem_equals_vartime17hd61349d7740fa831
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZN4ring2ec7suite_b5ecdsa12verification14split_rs_fixed17he1e47c4bedf8b8e4E(ptr noalias nocapture noundef writeonly sret({ ptr, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1, ptr noalias nocapture noundef align 8 dereferenceable(24) %2) unnamed_addr #9 {
+define void @_ZN4ring2ec7suite_b5ecdsa12verification14split_rs_fixed17he1e47c4bedf8b8e4E(ptr noalias nocapture noundef writeonly sret({ ptr, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1, ptr noalias noundef align 8 dereferenceable(24) %2) unnamed_addr #9 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !200)
   %4 = load ptr, ptr %1, align 8, !alias.scope !200, !nonnull !4, !align !9, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -1061,46 +1061,48 @@ define void @_ZN4ring2ec7suite_b5ecdsa12verification14split_rs_fixed17he1e47c4be
   %10 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %9, i64 %7)
   %11 = extractvalue { i64, i1 } %10, 0
   %12 = extractvalue { i64, i1 } %10, 1
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %14 = load i64, ptr %13, align 8, !alias.scope !206
-  %15 = icmp ugt i64 %11, %14
-  %or.cond.i = select i1 %12, i1 true, i1 %15
-  br i1 %or.cond.i, label %22, label %16
+  br i1 %12, label %23, label %13
 
-16:                                               ; preds = %3
-  %17 = load ptr, ptr %2, align 8, !alias.scope !206, !nonnull !4, !align !5, !noundef !4
+13:                                               ; preds = %3
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %15 = load i64, ptr %14, align 8, !alias.scope !206, !noundef !4
+  %16 = icmp ugt i64 %11, %15
+  br i1 %16, label %23, label %17
+
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %2, align 8, !alias.scope !206, !nonnull !4, !align !5, !noundef !4
   store i64 %11, ptr %8, align 8, !alias.scope !206
-  %18 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %11, i64 %7)
-  %19 = extractvalue { i64, i1 } %18, 0
-  %20 = extractvalue { i64, i1 } %18, 1
-  %21 = icmp ugt i64 %19, %14
-  %or.cond.i14 = select i1 %20, i1 true, i1 %21
-  br i1 %or.cond.i14, label %28, label %23
+  %19 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %11, i64 %7)
+  %20 = extractvalue { i64, i1 } %19, 0
+  %21 = extractvalue { i64, i1 } %19, 1
+  %22 = icmp ugt i64 %20, %15
+  %or.cond = or i1 %21, %22
+  br i1 %or.cond, label %29, label %24
 
-22:                                               ; preds = %3
+23:                                               ; preds = %3, %13
   store ptr null, ptr %0, align 8
-  br label %29
+  br label %30
 
-23:                                               ; preds = %16
-  %24 = sub nuw i64 %11, %9
-  %25 = getelementptr inbounds i8, ptr %17, i64 %9
-  %26 = sub nuw i64 %19, %11
-  %27 = getelementptr inbounds i8, ptr %17, i64 %11
-  store i64 %19, ptr %8, align 8, !alias.scope !209
+24:                                               ; preds = %17
+  %25 = getelementptr inbounds i8, ptr %18, i64 %9
+  %26 = sub nuw i64 %11, %9
+  %27 = sub nuw i64 %20, %11
+  %28 = getelementptr inbounds i8, ptr %18, i64 %11
+  store i64 %20, ptr %8, align 8, !alias.scope !209
   store ptr %25, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %24, ptr %.sroa.4.0..sroa_idx, align 8
+  store i64 %26, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.513.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %27, ptr %.sroa.513.0..sroa_idx, align 8
+  store ptr %28, ptr %.sroa.513.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %26, ptr %.sroa.6.0..sroa_idx, align 8
-  br label %29
+  store i64 %27, ptr %.sroa.6.0..sroa_idx, align 8
+  br label %30
 
-28:                                               ; preds = %16
+29:                                               ; preds = %17
   store ptr null, ptr %0, align 8
-  br label %29
+  br label %30
 
-29:                                               ; preds = %28, %23, %22
+30:                                               ; preds = %29, %24, %23
   ret void
 }
 
@@ -1302,7 +1304,7 @@ define hidden void @_ZN4ring2ec7suite_b3ops13PrivateKeyOps9point_mul17h36123dcdc
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN4ring2ec7suite_b3ops12PublicKeyOps10elem_parse17h2c4b2e31dc8bca06E(ptr noalias nocapture noundef writeonly sret({ i64, [6 x i64] }) align 8 dereferenceable(56) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN4ring2ec7suite_b3ops12PublicKeyOps10elem_parse17h2c4b2e31dc8bca06E(ptr noalias nocapture noundef writeonly sret({ i64, [6 x i64] }) align 8 dereferenceable(56) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, ptr noalias noundef align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = alloca { [6 x i64], {}, {} }, align 8
   %5 = alloca { [6 x i64], {}, {} }, align 8
   %6 = alloca { [6 x i64], {}, {} }, align 8
@@ -1316,10 +1318,10 @@ define hidden void @_ZN4ring2ec7suite_b3ops12PublicKeyOps10elem_parse17h2c4b2e31
   %14 = extractvalue { i64, i1 } %13, 0
   %15 = extractvalue { i64, i1 } %13, 1
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %17 = load i64, ptr %16, align 8, !alias.scope !266
+  %17 = load i64, ptr %16, align 8
   %18 = icmp ugt i64 %14, %17
-  %or.cond.i = select i1 %15, i1 true, i1 %18
-  br i1 %or.cond.i, label %28, label %19
+  %or.cond = select i1 %15, i1 true, i1 %18
+  br i1 %or.cond, label %28, label %19
 
 19:                                               ; preds = %3
   %20 = load ptr, ptr %2, align 8, !alias.scope !266, !nonnull !4, !align !5, !noundef !4
