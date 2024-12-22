@@ -20,7 +20,7 @@ define void @jinit_upsampler(ptr noundef %0) local_unnamed_addr #0 {
   store i32 %7, ptr %9, align 4
   %10 = load ptr, ptr %0, align 8
   %11 = load ptr, ptr %10, align 8
-  tail call void %11(ptr noundef nonnull %0) #7
+  tail call void %11(ptr noundef nonnull %0) #8
   br label %12
 
 12:                                               ; preds = %4, %1
@@ -35,7 +35,7 @@ define void @jinit_upsampler(ptr noundef %0) local_unnamed_addr #0 {
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call ptr %20(ptr noundef nonnull %0, i32 noundef 1, i64 noundef 272) #7
+  %21 = tail call ptr %20(ptr noundef nonnull %0, i32 noundef 1, i64 noundef 272) #8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 608
   store ptr %21, ptr %22, align 8
   store ptr @start_pass_upsample, ptr %21, align 8
@@ -63,7 +63,7 @@ define void @jinit_upsampler(ptr noundef %0) local_unnamed_addr #0 {
   store i32 25, ptr %33, align 8
   %34 = load ptr, ptr %0, align 8
   %35 = load ptr, ptr %34, align 8
-  tail call void %35(ptr noundef nonnull %0) #7
+  tail call void %35(ptr noundef nonnull %0) #8
   br label %36
 
 36:                                               ; preds = %31, %28
@@ -146,7 +146,7 @@ define void @jinit_upsampler(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %88, label %89, label %94
 
 89:                                               ; preds = %85
-  %90 = tail call i32 @jsimd_can_h2v1_fancy_upsample() #7
+  %90 = tail call i32 @jsimd_can_h2v1_fancy_upsample() #8
   %.not119 = icmp eq i32 %90, 0
   %91 = getelementptr inbounds nuw [10 x ptr], ptr %54, i64 0, i64 %indvars.iv
   br i1 %.not119, label %93, label %92
@@ -160,7 +160,7 @@ define void @jinit_upsampler(ptr noundef %0) local_unnamed_addr #0 {
   br label %138
 
 94:                                               ; preds = %85, %84
-  %95 = tail call i32 @jsimd_can_h2v1_upsample() #7
+  %95 = tail call i32 @jsimd_can_h2v1_upsample() #8
   %.not118 = icmp eq i32 %95, 0
   %96 = getelementptr inbounds nuw [10 x ptr], ptr %54, i64 0, i64 %indvars.iv
   br i1 %.not118, label %98, label %97
@@ -201,7 +201,7 @@ define void @jinit_upsampler(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %110, label %111, label %114
 
 111:                                              ; preds = %107
-  %112 = tail call i32 @jsimd_can_h2v2_fancy_upsample() #7
+  %112 = tail call i32 @jsimd_can_h2v2_fancy_upsample() #8
   %.not117 = icmp eq i32 %112, 0
   %113 = getelementptr inbounds nuw [10 x ptr], ptr %54, i64 0, i64 %indvars.iv
   %h2v2_fancy_upsample.jsimd_h2v2_fancy_upsample = select i1 %.not117, ptr @h2v2_fancy_upsample, ptr @jsimd_h2v2_fancy_upsample
@@ -210,7 +210,7 @@ define void @jinit_upsampler(ptr noundef %0) local_unnamed_addr #0 {
   br label %138
 
 114:                                              ; preds = %107, %106
-  %115 = tail call i32 @jsimd_can_h2v2_upsample() #7
+  %115 = tail call i32 @jsimd_can_h2v2_upsample() #8
   %.not116 = icmp eq i32 %115, 0
   %116 = getelementptr inbounds nuw [10 x ptr], ptr %54, i64 0, i64 %indvars.iv
   br i1 %.not116, label %118, label %117
@@ -252,7 +252,7 @@ define void @jinit_upsampler(ptr noundef %0) local_unnamed_addr #0 {
   store i32 38, ptr %135, align 8
   %136 = load ptr, ptr %0, align 8
   %137 = load ptr, ptr %136, align 8
-  tail call void %137(ptr noundef nonnull %0) #7
+  tail call void %137(ptr noundef nonnull %0) #8
   br label %138
 
 138:                                              ; preds = %97, %98, %92, %93, %117, %118, %111, %133, %127, %103
@@ -270,10 +270,10 @@ define void @jinit_upsampler(ptr noundef %0) local_unnamed_addr #0 {
   %147 = zext i32 %146 to i64
   %148 = load i32, ptr %51, align 8
   %149 = sext i32 %148 to i64
-  %150 = tail call i64 @jround_up(i64 noundef %147, i64 noundef %149) #7
+  %150 = tail call i64 @jround_up(i64 noundef %147, i64 noundef %149) #8
   %151 = trunc i64 %150 to i32
   %152 = load i32, ptr %52, align 4
-  %153 = tail call ptr %145(ptr noundef nonnull %0, i32 noundef 1, i32 noundef %151, i32 noundef %152) #7
+  %153 = tail call ptr %145(ptr noundef nonnull %0, i32 noundef 1, i32 noundef %151, i32 noundef %152) #8
   br label %.critedge.sink.split
 
 .critedge.sink.split:                             ; preds = %78, %61, %142
@@ -349,7 +349,7 @@ define internal void @sep_upsample(ptr noundef %0, ptr nocapture noundef readonl
   %32 = zext i32 %31 to i64
   %33 = getelementptr inbounds nuw ptr, ptr %27, i64 %32
   %34 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
-  tail call void %25(ptr noundef nonnull %0, ptr noundef %.04552, ptr noundef %33, ptr noundef nonnull %34) #7
+  tail call void %25(ptr noundef nonnull %0, ptr noundef %.04552, ptr noundef %33, ptr noundef nonnull %34) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = getelementptr inbounds nuw i8, ptr %.04552, i64 96
   %36 = load i32, ptr %15, align 8
@@ -379,7 +379,7 @@ define internal void @sep_upsample(ptr noundef %0, ptr nocapture noundef readonl
   %51 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %52 = zext i32 %45 to i64
   %53 = getelementptr inbounds nuw ptr, ptr %4, i64 %52
-  tail call void %50(ptr noundef nonnull %0, ptr noundef nonnull %51, i32 noundef %40, ptr noundef %53, i32 noundef %.1) #7
+  tail call void %50(ptr noundef nonnull %0, ptr noundef nonnull %51, i32 noundef %40, ptr noundef %53, i32 noundef %.1) #8
   %54 = load i32, ptr %5, align 4
   %55 = add i32 %54, %.1
   store i32 %55, ptr %5, align 4
@@ -517,8 +517,8 @@ declare i32 @jsimd_can_h2v1_upsample() local_unnamed_addr #3
 
 declare void @jsimd_h2v1_upsample(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @h2v1_upsample(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) #4 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
+define internal void @h2v1_upsample(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) #5 {
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 412
   %7 = load i32, ptr %6, align 4
@@ -572,8 +572,8 @@ define internal void @h2v1_upsample(ptr nocapture noundef readonly %0, ptr nocap
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @h1v2_fancy_upsample(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) #4 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
+define internal void @h1v2_fancy_upsample(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) #5 {
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 412
   %7 = load i32, ptr %6, align 4
@@ -615,9 +615,9 @@ define internal void @h1v2_fancy_upsample(ptr nocapture noundef readonly %0, ptr
 
 .lr.ph.preheader:                                 ; preds = %.preheader.split
   %19 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv
-  %20 = load ptr, ptr %19, align 8
   %.028.in.v = select i1 %18, i64 -8, i64 8
   %.028.in = getelementptr i8, ptr %14, i64 %.028.in.v
+  %20 = load ptr, ptr %19, align 8
   %.028 = load ptr, ptr %.028.in, align 8
   %21 = load ptr, ptr %14, align 8
   br label %.lr.ph
@@ -853,7 +853,7 @@ define internal void @h2v2_upsample(ptr nocapture noundef readonly %0, ptr nocap
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %10
   %23 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ 0, %10 ]
   %24 = or disjoint i32 %indvars34, 1
-  tail call void @jcopy_sample_rows(ptr noundef %5, i32 noundef %indvars34, ptr noundef %5, i32 noundef %24, i32 noundef 1, i32 noundef %23) #7
+  tail call void @jcopy_sample_rows(ptr noundef %5, i32 noundef %indvars34, ptr noundef %5, i32 noundef %24, i32 noundef 1, i32 noundef %23) #8
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %25 = load i32, ptr %6, align 4
@@ -934,7 +934,7 @@ define internal void @int_upsample(ptr nocapture noundef readonly %0, ptr nocapt
 ._crit_edge.split.us.us.us:                       ; preds = %._crit_edge.split.us.us.us.loopexit, %.lr.ph.split.us.split.us
   %38 = phi i32 [ %.pre72, %._crit_edge.split.us.us.us.loopexit ], [ 0, %.lr.ph.split.us.split.us ]
   %39 = add nuw nsw i32 %indvars69, 1
-  tail call void @jcopy_sample_rows(ptr noundef %7, i32 noundef %indvars69, ptr noundef %7, i32 noundef %39, i32 noundef %24, i32 noundef %38) #7
+  tail call void @jcopy_sample_rows(ptr noundef %7, i32 noundef %indvars69, ptr noundef %7, i32 noundef %39, i32 noundef %24, i32 noundef %38) #8
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, %30
   %40 = load i32, ptr %19, align 4
@@ -1003,7 +1003,7 @@ define internal void @int_upsample(ptr nocapture noundef readonly %0, ptr nocapt
 
 62:                                               ; preds = %.lr.ph.split.split.us
   %63 = add nuw nsw i32 %.042.us45, 1
-  tail call void @jcopy_sample_rows(ptr noundef %7, i32 noundef %.042.us45, ptr noundef %7, i32 noundef %63, i32 noundef %24, i32 noundef 0) #7
+  tail call void @jcopy_sample_rows(ptr noundef %7, i32 noundef %.042.us45, ptr noundef %7, i32 noundef %63, i32 noundef %24, i32 noundef 0) #8
   %64 = add nuw nsw i32 %.042.us45, %18
   %65 = load i32, ptr %19, align 4
   %66 = icmp slt i32 %64, %65
@@ -1038,19 +1038,20 @@ declare i64 @jround_up(i64 noundef, i64 noundef) local_unnamed_addr #3
 declare void @jcopy_sample_rows(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #6
+declare i32 @llvm.umin.i32(i32, i32) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
+attributes #5 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

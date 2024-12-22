@@ -1472,9 +1472,12 @@ define void @"_ZN81_$LT$grep_printer..color..UserColorSpec$u20$as$u20$core..str.
   %.sroa.4128 = alloca [2 x i64], align 8
   %7 = alloca { i64, [3 x i64] }, align 8
   %8 = alloca { [3 x i64], i64, [2 x i64] }, align 8
+  %.sroa.574 = alloca [2 x i64], align 8
   %9 = alloca { i64, [3 x i64] }, align 8
   %10 = alloca { [3 x i64], i64, [2 x i64] }, align 8
+  %.sroa.554 = alloca [2 x i64], align 8
   %11 = alloca { [3 x i64], i64, [2 x i64] }, align 8
+  %.sroa.532 = alloca [2 x i64], align 8
   %12 = alloca { [3 x i64], i64, [2 x i64] }, align 8
   %13 = alloca { [3 x i64], i64, [2 x i64] }, align 8
   %14 = alloca { { i64, i64, { { ptr, i64 }, i64, i64, i64, [4 x i8], i32 }, i8, i8, [6 x i8] } }, align 8
@@ -1631,6 +1634,7 @@ default.unreachable:                              ; preds = %51
   br label %82
 
 64:                                               ; preds = %53
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.554)
   %65 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h0decea5e8c6e3a6dE"(i64 noundef %2, i1 noundef zeroext false)
           to label %100 unwind label %72
 
@@ -1748,9 +1752,13 @@ default.unreachable:                              ; preds = %51
   store i64 %2, ptr %.sroa.052.sroa.5.0..sroa_idx, align 8
   %.sroa.453.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 -9223372036854775804, ptr %.sroa.453.0..sroa_idx, align 8
+  %.sroa.554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.554.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.554, i64 16, i1 false)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.554)
   br label %91
 
 104:                                              ; preds = %56
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.574)
   %105 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h0decea5e8c6e3a6dE"(i64 noundef %2, i1 noundef zeroext false)
           to label %120 unwind label %72
 
@@ -1816,9 +1824,13 @@ default.unreachable:                              ; preds = %51
   store i64 %2, ptr %.sroa.072.sroa.5.0..sroa_idx, align 8
   %.sroa.473.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 -9223372036854775804, ptr %.sroa.473.0..sroa_idx, align 8
+  %.sroa.574.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.574.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.574, i64 16, i1 false)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.574)
   br label %91
 
 124:                                              ; preds = %59
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.532)
   %125 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h0decea5e8c6e3a6dE"(i64 noundef %2, i1 noundef zeroext false)
           to label %140 unwind label %72
 
@@ -1877,6 +1889,9 @@ default.unreachable:                              ; preds = %51
   store i64 %2, ptr %.sroa.030.sroa.5.0..sroa_idx, align 8
   %.sroa.431.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 -9223372036854775804, ptr %.sroa.431.0..sroa_idx, align 8
+  %.sroa.532.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.532.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.532, i64 16, i1 false)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.532)
   br label %91
 
 144:                                              ; preds = %72, %27

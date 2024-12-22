@@ -3258,8 +3258,8 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaIS
   %776 = icmp slt i32 %772, 0
   %777 = load ptr, ptr %20, align 8
   %.not.i200 = icmp eq ptr %777, null
-  %or.cond.i = select i1 %776, i1 true, i1 %.not.i200
-  br i1 %or.cond.i, label %_ZNK5Yosys9arg_map_t4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPi.exit.thread.i, label %778
+  %or.cond = select i1 %776, i1 true, i1 %.not.i200
+  br i1 %or.cond, label %_ZNK5Yosys9arg_map_t4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPi.exit.thread.i, label %778
 
 778:                                              ; preds = %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE4findERS9_.exit.i.i
   %.19.i.i.i.i.sroa.sel71.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %769, ptr %.0812.i.i.i.i.i, ptr %.013.i.i.i.i.i
@@ -4999,24 +4999,24 @@ define internal fastcc void @_ZN5YosysL11return_charEc(i8 noundef signext %0) un
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5YosysL17restore_macro_argERNS_12define_map_tERSt5stackISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13define_body_tEESt5dequeISB_SaISB_EEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5YosysL17restore_macro_argERNS_12define_map_tERSt5stackISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13define_body_tEESt5dequeISB_SaISB_EEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load ptr, ptr %3, align 8, !noalias !42
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %6 = load ptr, ptr %5, align 8, !noalias !42
-  %7 = icmp eq ptr %4, %6
-  br i1 %7, label %8, label %_ZNSt5stackISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys13define_body_tEESt5dequeIS9_SaIS9_EEE3topEv.exit
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %8 = icmp eq ptr %4, %6
+  br i1 %8, label %9, label %_ZNSt5stackISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys13define_body_tEESt5dequeIS9_SaIS9_EEE3topEv.exit
 
-8:                                                ; preds = %2
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %10 = load ptr, ptr %9, align 8, !noalias !42
+9:                                                ; preds = %2
+  %10 = load ptr, ptr %7, align 8, !noalias !42
   %11 = getelementptr inbounds i8, ptr %10, i64 -8
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 432
   br label %_ZNSt5stackISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys13define_body_tEESt5dequeIS9_SaIS9_EEE3topEv.exit
 
-_ZNSt5stackISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys13define_body_tEESt5dequeIS9_SaIS9_EEE3topEv.exit: ; preds = %2, %8
-  %14 = phi ptr [ %13, %8 ], [ %4, %2 ]
+_ZNSt5stackISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys13define_body_tEESt5dequeIS9_SaIS9_EEE3topEv.exit: ; preds = %2, %9
+  %14 = phi ptr [ %13, %9 ], [ %4, %2 ]
   %15 = getelementptr inbounds i8, ptr %14, i64 -144
   %16 = getelementptr inbounds i8, ptr %14, i64 -112
   tail call void @_ZN5Yosys12define_map_t3addERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_13define_body_tE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(112) %16)
@@ -5031,20 +5031,19 @@ _ZNSt5stackISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys1
 
 21:                                               ; preds = %_ZNSt5stackISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys13define_body_tEESt5dequeIS9_SaIS9_EEE3topEv.exit
   tail call void @_ZdlPv(ptr noundef %18) #24
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 -8
-  store ptr %24, ptr %22, align 8
-  %25 = load ptr, ptr %24, align 8
-  store ptr %25, ptr %5, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 432
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store ptr %26, ptr %27, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %25, i64 288
+  %22 = load ptr, ptr %7, align 8
+  %23 = getelementptr inbounds i8, ptr %22, i64 -8
+  store ptr %23, ptr %7, align 8
+  %24 = load ptr, ptr %23, align 8
+  store ptr %24, ptr %5, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 432
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  store ptr %25, ptr %26, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 288
   br label %_ZNSt5stackISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys13define_body_tEESt5dequeIS9_SaIS9_EEE3popEv.exit
 
 _ZNSt5stackISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys13define_body_tEESt5dequeIS9_SaIS9_EEE3popEv.exit: ; preds = %19, %21
-  %.sink1.i.i = phi ptr [ %28, %21 ], [ %20, %19 ]
+  %.sink1.i.i = phi ptr [ %27, %21 ], [ %20, %19 ]
   store ptr %.sink1.i.i, ptr %3, align 8
   tail call void @_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys13define_body_tEED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %.sink1.i.i) #23
   ret void

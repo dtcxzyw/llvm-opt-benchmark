@@ -2056,7 +2056,7 @@ $_ZZN3vcg3tri2io11ExporterOBJI4MeshE8ErrorMsgEiE13obj_error_msg = comdat any
 @.str.91 = private unnamed_addr constant [49 x i8] c"cannot create std::vector larger than max_size()\00", align 1
 @.str.92 = private unnamed_addr constant [26 x i8] c"vector::_M_default_append\00", align 1
 @_ZZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI10MeshVertexE12AsVertexTypeENS4_I8MeshFaceE10AsFaceTypeENS4_I8MeshEdgeE10AsEdgeTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cVEiE2vp = linkonce_odr local_unnamed_addr global ptr null, comdat, align 8
-@_ZZN3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI10MeshVertexE12AsVertexTypeENS4_I8MeshFaceE10AsFaceTypeENS4_I8MeshEdgeE10AsEdgeTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE1VEiE2vp = linkonce_odr local_unnamed_addr global ptr null, comdat, align 8
+@_ZZN3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI10MeshVertexE12AsVertexTypeENS4_I8MeshFaceE10AsFaceTypeENS4_I8MeshEdgeE10AsEdgeTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE1VEiE2vp = linkonce_odr global ptr null, comdat, align 8
 @_ZZN3vcg6vertex9EmptyCoreI13MeshUsedTypesE1REvE1v = linkonce_odr local_unnamed_addr global float 0.000000e+00, comdat, align 4
 @.str.93 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 @.str.94 = private unnamed_addr constant [40 x i8] c"Vertex Vector Contains deleted elements\00", align 1
@@ -60210,8 +60210,8 @@ define void @_Z13CutAlongSeamsR4Mesh(ptr noundef nonnull align 8 dereferenceable
 
 24:                                               ; preds = %14
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.not124.i = icmp eq ptr %18, %16
-  br i1 %.not124.i, label %31, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
+  %.not126.i = icmp eq ptr %18, %16
+  br i1 %.not126.i, label %31, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
 
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %24
   %26 = shl nuw nsw i64 %22, 2
@@ -60226,25 +60226,29 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %24
   store ptr %30, ptr %25, align 8
   store i32 -2, ptr %5, align 4
   invoke void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr nonnull %27, i64 noundef %22, ptr noundef nonnull align 4 dereferenceable(4) %5)
-          to label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i unwind label %.loopexit.split-lp.loopexit.split-lp.i
+          to label %._ZNSt6vectorIiSaIiEE6resizeEmRKi.exit_crit_edge122.i unwind label %.loopexit.split-lp.loopexit.split-lp.i
+
+._ZNSt6vectorIiSaIiEE6resizeEmRKi.exit_crit_edge122.i: ; preds = %28
+  %.pre.i = load ptr, ptr %17, align 8
+  br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i
 
 31:                                               ; preds = %24
   store i32 -2, ptr %5, align 4
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i
 
-_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i:          ; preds = %31, %28
-  %33 = phi ptr [ %32, %31 ], [ %29, %28 ]
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %37 = load ptr, ptr %36, align 8
-  %.not114.i = icmp eq ptr %35, %37
+_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i:          ; preds = %31, %._ZNSt6vectorIiSaIiEE6resizeEmRKi.exit_crit_edge122.i
+  %33 = phi ptr [ %29, %._ZNSt6vectorIiSaIiEE6resizeEmRKi.exit_crit_edge122.i ], [ %32, %31 ]
+  %34 = phi ptr [ %.pre.i, %._ZNSt6vectorIiSaIiEE6resizeEmRKi.exit_crit_edge122.i ], [ %16, %31 ]
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %38 = load ptr, ptr %37, align 8
+  %.not114.i = icmp eq ptr %36, %38
   br i1 %.not114.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i
-  %38 = load ptr, ptr %17, align 8
-  %39 = ptrtoint ptr %38 to i64
+  %39 = ptrtoint ptr %34 to i64
   %40 = load ptr, ptr %15, align 8
   %41 = ptrtoint ptr %40 to i64
   %42 = sub i64 %39, %41
@@ -60257,9 +60261,9 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i:          ; preds = %31, %28
   br label %49
 
 49:                                               ; preds = %.loopexit92.i, %.lr.ph.i
-  %50 = phi ptr [ %37, %.lr.ph.i ], [ %268, %.loopexit92.i ]
+  %50 = phi ptr [ %38, %.lr.ph.i ], [ %268, %.loopexit92.i ]
   %.051118.i = phi i32 [ %44, %.lr.ph.i ], [ %.152.i, %.loopexit92.i ]
-  %.sroa.069.0117.i = phi ptr [ %35, %.lr.ph.i ], [ %269, %.loopexit92.i ]
+  %.sroa.069.0117.i = phi ptr [ %36, %.lr.ph.i ], [ %269, %.loopexit92.i ]
   %.0116.i = phi ptr [ %16, %.lr.ph.i ], [ %.181.i, %.loopexit92.i ]
   %.084115.i = phi ptr [ %13, %.lr.ph.i ], [ %.185.i, %.loopexit92.i ]
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.069.0117.i, i64 200
@@ -60436,8 +60440,8 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i:          ; preds = %31, %28
   %153 = load double, ptr %152, align 8
   %154 = fcmp une double %116, %153
   %155 = select i1 %151, i1 true, i1 %154
-  %.fr.i.i = freeze i1 %155
   %156 = getelementptr inbounds nuw i8, ptr %148, i64 40
+  %.fr.i.i = freeze i1 %155
   %157 = load i16, ptr %156, align 2
   %.not.i.i14 = icmp eq i16 %117, %157
   %.not.fr.i.i = freeze i1 %.not.i.i14
@@ -60466,7 +60470,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i:          ; preds = %31, %28
   %167 = load ptr, ptr %33, align 8
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 4
   store ptr %168, ptr %33, align 8
-  %.pre122.i = load ptr, ptr %4, align 8
+  %.pre124.i = load ptr, ptr %4, align 8
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i
 
 169:                                              ; preds = %.thread.i
@@ -60518,7 +60522,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i
 
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i:        ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i, %166
-  %188 = phi ptr [ %181, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %.pre122.i, %166 ]
+  %188 = phi ptr [ %181, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %.pre124.i, %166 ]
   %189 = getelementptr inbounds i32, ptr %188, i64 %109
   store i32 %.2112.i, ptr %189, align 4
   %190 = invoke ptr @_ZN3vcg3tri9AllocatorI4MeshE11AddVerticesERS2_mRNS3_14PointerUpdaterIP10MeshVertexEE(ptr noundef nonnull align 8 dereferenceable(808) %0, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(57) %3)
@@ -60643,11 +60647,11 @@ _ZN3vcg3tri9AllocatorI4MeshE14PointerUpdaterIP10MeshVertexE6UpdateERS6_.exit.i: 
   br i1 %exitcond.not.i, label %.loopexit92.loopexit.i, label %60, !llvm.loop !430
 
 .loopexit92.loopexit.i:                           ; preds = %264
-  %.pre123.i = load ptr, ptr %36, align 8
+  %.pre125.i = load ptr, ptr %37, align 8
   br label %.loopexit92.i
 
 .loopexit92.i:                                    ; preds = %.loopexit92.loopexit.i, %49
-  %268 = phi ptr [ %50, %49 ], [ %.pre123.i, %.loopexit92.loopexit.i ]
+  %268 = phi ptr [ %50, %49 ], [ %.pre125.i, %.loopexit92.loopexit.i ]
   %.185.i = phi ptr [ %.084115.i, %49 ], [ %.387.i, %.loopexit92.loopexit.i ]
   %.181.i = phi ptr [ %.0116.i, %49 ], [ %.383.i, %.loopexit92.loopexit.i ]
   %.152.i = phi i32 [ %.051118.i, %49 ], [ %.3.i, %.loopexit92.loopexit.i ]

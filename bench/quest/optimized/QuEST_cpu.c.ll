@@ -2412,13 +2412,14 @@ define internal void @densmatr_calcPurityLocal.omp_outlined(ptr noalias nocaptur
   br i1 %.not19, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15
+  %.promoted = load double, ptr %7, align 8
   %20 = load ptr, ptr %4, align 8
   %21 = load ptr, ptr %5, align 8
   br label %22
 
 22:                                               ; preds = %.lr.ph, %22
   %.020 = phi i64 [ %19, %.lr.ph ], [ %31, %22 ]
-  %23 = phi double [ 0.000000e+00, %.lr.ph ], [ %30, %22 ]
+  %23 = phi double [ %.promoted, %.lr.ph ], [ %30, %22 ]
   %24 = getelementptr inbounds double, ptr %20, i64 %.020
   %25 = load double, ptr %24, align 8
   %26 = getelementptr inbounds double, ptr %21, i64 %.020
@@ -2637,6 +2638,7 @@ define internal void @densmatr_calcHilbertSchmidtDistanceSquaredLocal.omp_outlin
   br i1 %.not25, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17
+  %.promoted = load double, ptr %9, align 8
   %22 = load ptr, ptr %3, align 8
   %23 = load ptr, ptr %4, align 8
   %24 = load ptr, ptr %5, align 8
@@ -2645,7 +2647,7 @@ define internal void @densmatr_calcHilbertSchmidtDistanceSquaredLocal.omp_outlin
 
 26:                                               ; preds = %.lr.ph, %26
   %.026 = phi i64 [ %21, %.lr.ph ], [ %41, %26 ]
-  %27 = phi double [ 0.000000e+00, %.lr.ph ], [ %40, %26 ]
+  %27 = phi double [ %.promoted, %.lr.ph ], [ %40, %26 ]
   %28 = getelementptr inbounds double, ptr %22, i64 %.026
   %29 = load double, ptr %28, align 8
   %30 = getelementptr inbounds double, ptr %23, i64 %.026
@@ -2763,6 +2765,7 @@ define internal void @densmatr_calcInnerProductLocal.omp_outlined(ptr noalias no
   br i1 %.not21, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17
+  %.promoted = load double, ptr %9, align 8
   %22 = load ptr, ptr %4, align 8
   %23 = load ptr, ptr %5, align 8
   %24 = load ptr, ptr %6, align 8
@@ -2771,7 +2774,7 @@ define internal void @densmatr_calcInnerProductLocal.omp_outlined(ptr noalias no
 
 26:                                               ; preds = %.lr.ph, %26
   %.022 = phi i64 [ %21, %.lr.ph ], [ %39, %26 ]
-  %27 = phi double [ 0.000000e+00, %.lr.ph ], [ %38, %26 ]
+  %27 = phi double [ %.promoted, %.lr.ph ], [ %38, %26 ]
   %28 = getelementptr inbounds double, ptr %22, i64 %.022
   %29 = load double, ptr %28, align 8
   %30 = getelementptr inbounds double, ptr %23, i64 %.022
@@ -2898,6 +2901,7 @@ define internal void @densmatr_calcFidelityLocal.omp_outlined(ptr noalias nocapt
   br i1 %.not50, label %._crit_edge54, label %.lr.ph53
 
 .lr.ph53:                                         ; preds = %19
+  %.promoted = load double, ptr %11, align 8
   %24 = load ptr, ptr %3, align 8
   %25 = load ptr, ptr %4, align 8
   %26 = load i32, ptr %5, align 4
@@ -2923,7 +2927,7 @@ define internal void @densmatr_calcFidelityLocal.omp_outlined(ptr noalias nocapt
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv62 = phi i64 [ %36, %.lr.ph.us.preheader ], [ %indvars.iv.next63, %._crit_edge.us ]
-  %38 = phi double [ 0.000000e+00, %.lr.ph.us.preheader ], [ %64, %._crit_edge.us ]
+  %38 = phi double [ %.promoted, %.lr.ph.us.preheader ], [ %64, %._crit_edge.us ]
   %39 = getelementptr inbounds double, ptr %24, i64 %indvars.iv62
   %40 = load double, ptr %39, align 8
   %41 = getelementptr inbounds double, ptr %25, i64 %indvars.iv62
@@ -2968,7 +2972,7 @@ define internal void @densmatr_calcFidelityLocal.omp_outlined(ptr noalias nocapt
 
 .lr.ph53.split:                                   ; preds = %.lr.ph53.split.preheader, %.lr.ph53.split
   %indvars.iv = phi i64 [ %30, %.lr.ph53.split.preheader ], [ %indvars.iv.next, %.lr.ph53.split ]
-  %65 = phi double [ 0.000000e+00, %.lr.ph53.split.preheader ], [ %72, %.lr.ph53.split ]
+  %65 = phi double [ %.promoted, %.lr.ph53.split.preheader ], [ %72, %.lr.ph53.split ]
   %66 = getelementptr inbounds double, ptr %24, i64 %indvars.iv
   %67 = load double, ptr %66, align 8
   %68 = getelementptr inbounds double, ptr %25, i64 %indvars.iv
@@ -3091,6 +3095,8 @@ define internal void @statevec_calcInnerProductLocal.omp_outlined(ptr noalias no
   br i1 %.not31, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19
+  %.promoted30 = load double, ptr %11, align 8
+  %.promoted = load double, ptr %10, align 8
   %24 = load ptr, ptr %3, align 8
   %25 = load ptr, ptr %4, align 8
   %26 = load ptr, ptr %5, align 8
@@ -3099,8 +3105,8 @@ define internal void @statevec_calcInnerProductLocal.omp_outlined(ptr noalias no
 
 28:                                               ; preds = %.lr.ph, %28
   %.032 = phi i64 [ %23, %.lr.ph ], [ %46, %28 ]
-  %29 = phi double [ 0.000000e+00, %.lr.ph ], [ %41, %28 ]
-  %30 = phi double [ 0.000000e+00, %.lr.ph ], [ %45, %28 ]
+  %29 = phi double [ %.promoted, %.lr.ph ], [ %41, %28 ]
+  %30 = phi double [ %.promoted30, %.lr.ph ], [ %45, %28 ]
   %31 = getelementptr inbounds double, ptr %24, i64 %.032
   %32 = load double, ptr %31, align 8
   %33 = getelementptr inbounds double, ptr %25, i64 %.032
@@ -4764,7 +4770,7 @@ define void @statevec_multiControlledTwoQubitUnitaryLocal(ptr nocapture noundef 
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @statevec_multiControlledTwoQubitUnitaryLocal.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %8, ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %9) #2 {
+define internal void @statevec_multiControlledTwoQubitUnitaryLocal.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %8, ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %9) #2 {
   %11 = alloca i64, align 8
   %12 = alloca i64, align 8
   %13 = alloca i64, align 8
@@ -5122,7 +5128,7 @@ define void @statevec_multiControlledMultiQubitUnitaryLocal(ptr nocapture nounde
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #15
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @statevec_multiControlledMultiQubitUnitaryLocal.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %3, i64 %4, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %8, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %9, i64 noundef %10, i64 noundef %11, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %12, i64 noundef %13, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %14, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %15) #2 {
+define internal void @statevec_multiControlledMultiQubitUnitaryLocal.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %3, i64 %4, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %8, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %9, i64 noundef %10, i64 noundef %11, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %12, i64 noundef %13, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %14, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %15) #2 {
   %17 = alloca i64, align 8
   %18 = alloca i64, align 8
   %19 = alloca i64, align 8
@@ -7032,7 +7038,7 @@ define void @statevec_multiControlledMultiQubitNotLocal(ptr nocapture noundef re
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @statevec_multiControlledMultiQubitNotLocal.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %4, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7) #2 {
+define internal void @statevec_multiControlledMultiQubitNotLocal.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %4, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7) #2 {
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
   %11 = alloca i64, align 8
@@ -8590,6 +8596,7 @@ define internal void @densmatr_findProbabilityOfZeroLocal.omp_outlined(ptr noali
   br i1 %.not22, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18
+  %.promoted = load double, ptr %10, align 8
   %23 = load i64, ptr %3, align 8
   %24 = load i32, ptr %6, align 4
   %25 = zext i32 %24 to i64
@@ -8602,7 +8609,7 @@ define internal void @densmatr_findProbabilityOfZeroLocal.omp_outlined(ptr noali
 
 31:                                               ; preds = %.lr.ph, %43
   %.023 = phi i64 [ %22, %.lr.ph ], [ %45, %43 ]
-  %32 = phi double [ 0.000000e+00, %.lr.ph ], [ %44, %43 ]
+  %32 = phi double [ %.promoted, %.lr.ph ], [ %44, %43 ]
   %33 = add nsw i64 %23, %.023
   %34 = and i64 %26, %33
   %35 = ashr i64 %34, %25
@@ -8723,6 +8730,7 @@ define internal void @statevec_findProbabilityOfZeroLocal.omp_outlined(ptr noali
   br i1 %.not24, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17
+  %.promoted = load double, ptr %9, align 8
   %22 = load i64, ptr %3, align 8
   %23 = load i64, ptr %4, align 8
   %24 = load ptr, ptr %6, align 8
@@ -8731,7 +8739,7 @@ define internal void @statevec_findProbabilityOfZeroLocal.omp_outlined(ptr noali
 
 26:                                               ; preds = %.lr.ph, %26
   %.025 = phi i64 [ %21, %.lr.ph ], [ %39, %26 ]
-  %27 = phi double [ 0.000000e+00, %.lr.ph ], [ %38, %26 ]
+  %27 = phi double [ %.promoted, %.lr.ph ], [ %38, %26 ]
   %28 = sdiv i64 %.025, %22
   %29 = mul nsw i64 %23, %28
   %30 = srem i64 %.025, %22
@@ -8839,13 +8847,14 @@ define internal void @statevec_findProbabilityOfZeroDistributed.omp_outlined(ptr
   br i1 %.not19, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15
+  %.promoted = load double, ptr %7, align 8
   %20 = load ptr, ptr %4, align 8
   %21 = load ptr, ptr %5, align 8
   br label %22
 
 22:                                               ; preds = %.lr.ph, %22
   %.020 = phi i64 [ %19, %.lr.ph ], [ %31, %22 ]
-  %23 = phi double [ 0.000000e+00, %.lr.ph ], [ %30, %22 ]
+  %23 = phi double [ %.promoted, %.lr.ph ], [ %30, %22 ]
   %24 = getelementptr inbounds double, ptr %20, i64 %.020
   %25 = load double, ptr %24, align 8
   %26 = getelementptr inbounds double, ptr %21, i64 %.020
@@ -10370,6 +10379,8 @@ define internal void @statevec_calcExpecDiagonalOpLocal.omp_outlined(ptr noalias
   br i1 %.not31, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19
+  %.promoted30 = load double, ptr %11, align 8
+  %.promoted = load double, ptr %10, align 8
   %24 = load ptr, ptr %3, align 8
   %25 = load ptr, ptr %4, align 8
   %26 = load ptr, ptr %5, align 8
@@ -10378,8 +10389,8 @@ define internal void @statevec_calcExpecDiagonalOpLocal.omp_outlined(ptr noalias
 
 28:                                               ; preds = %.lr.ph, %28
   %.032 = phi i64 [ %23, %.lr.ph ], [ %43, %28 ]
-  %29 = phi double [ 0.000000e+00, %.lr.ph ], [ %41, %28 ]
-  %30 = phi double [ 0.000000e+00, %.lr.ph ], [ %42, %28 ]
+  %29 = phi double [ %.promoted, %.lr.ph ], [ %41, %28 ]
+  %30 = phi double [ %.promoted30, %.lr.ph ], [ %42, %28 ]
   %31 = getelementptr inbounds double, ptr %24, i64 %.032
   %32 = load double, ptr %31, align 8
   %33 = getelementptr inbounds double, ptr %25, i64 %.032
@@ -10558,6 +10569,8 @@ define internal void @densmatr_calcExpecDiagonalOpLocal.omp_outlined(ptr noalias
   br i1 %33, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %23
+  %.promoted41 = load double, ptr %13, align 8
+  %.promoted = load double, ptr %12, align 8
   %34 = load ptr, ptr %5, align 8
   %35 = load ptr, ptr %6, align 8
   %36 = load i64, ptr %2, align 8
@@ -10568,8 +10581,8 @@ define internal void @densmatr_calcExpecDiagonalOpLocal.omp_outlined(ptr noalias
 
 40:                                               ; preds = %.lr.ph, %40
   %.042 = phi i64 [ %31, %.lr.ph ], [ %62, %40 ]
-  %41 = phi double [ 0.000000e+00, %.lr.ph ], [ %58, %40 ]
-  %42 = phi double [ 0.000000e+00, %.lr.ph ], [ %61, %40 ]
+  %41 = phi double [ %.promoted, %.lr.ph ], [ %58, %40 ]
+  %42 = phi double [ %.promoted41, %.lr.ph ], [ %61, %40 ]
   %43 = mul i64 %.042, %21
   %44 = add i64 %43, %19
   %45 = getelementptr inbounds double, ptr %34, i64 %44

@@ -4371,15 +4371,14 @@ invoke.cont.lr.ph:                                ; preds = %entry
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %invoke.cont.lr.ph, %for.inc
-  %0 = phi ptr [ null, %invoke.cont.lr.ph ], [ %5, %for.inc ]
   %s.sroa.5.017 = phi ptr [ %data.coerce1, %invoke.cont.lr.ph ], [ %add.ptr.i, %for.inc ]
   %s.sroa.0.016 = phi i64 [ %data.coerce0, %invoke.cont.lr.ph ], [ %sub.i, %for.inc ]
   %call5.i.i.i.i.i.i41315 = phi ptr [ null, %invoke.cont.lr.ph ], [ %call5.i.i.i.i.i.i412, %for.inc ]
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %s.sroa.0.016, i64 %chunk_size)
   %cmp.i.i.i = icmp ult i64 %.sroa.speculated.i, 20
   %spec.store.select.i.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.speculated.i, i64 4083)
-  %1 = add nuw nsw i64 %spec.store.select.i.i.i, 13
-  %len.addr.0.i.i.i = select i1 %cmp.i.i.i, i64 32, i64 %1
+  %0 = add nuw nsw i64 %spec.store.select.i.i.i, 13
+  %len.addr.0.i.i.i = select i1 %cmp.i.i.i, i64 32, i64 %0
   %cmp.i.i.i.i = icmp samesign ult i64 %len.addr.0.i.i.i, 513
   %conv.i.neg.i.i.i = select i1 %cmp.i.i.i.i, i64 -8, i64 -64
   %conv.i.i.i.i = select i1 %cmp.i.i.i.i, i64 8, i64 64
@@ -4390,8 +4389,8 @@ invoke.cont:                                      ; preds = %invoke.cont.lr.ph, 
           to label %invoke.cont2 unwind label %lpad.loopexit
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  %2 = getelementptr inbounds nuw i8, ptr %call4.i.i.i2, i64 8
-  store i64 2, ptr %2, align 8
+  %1 = getelementptr inbounds nuw i8, ptr %call4.i.i.i2, i64 8
+  store i64 2, ptr %1, align 8
   %cmp.i.i.i.i.i = icmp samesign ult i64 %and.i.i.i.i.i, 513
   %.sink8.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 3, i64 6
   %.sink.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 2, i64 58
@@ -4403,18 +4402,19 @@ invoke.cont2:                                     ; preds = %invoke.cont
   store i64 %.sroa.speculated.i, ptr %call4.i.i.i2, align 8
   %storage.i.i = getelementptr inbounds nuw i8, ptr %call4.i.i.i2, i64 13
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %storage.i.i, ptr align 1 %s.sroa.5.017, i64 %.sroa.speculated.i, i1 false)
+  %2 = load ptr, ptr %_M_finish.i.i, align 8
   %3 = load ptr, ptr %_M_end_of_storage.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %0, %3
+  %cmp.not.i.i = icmp eq ptr %2, %3
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont2
-  store ptr %call4.i.i.i2, ptr %0, align 8
-  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %call4.i.i.i2, ptr %2, align 8
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %for.inc
 
 if.else.i.i:                                      ; preds = %invoke.cont2
-  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %0 to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %call5.i.i.i.i.i.i41315 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %cmp.i.i.i.i3 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i, 9223372036854775800
@@ -4467,7 +4467,6 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEv
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, %if.then.i.i
-  %5 = phi ptr [ %incdec.ptr.i.i.i, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %incdec.ptr.i.i, %if.then.i.i ]
   %call5.i.i.i.i.i.i412 = phi ptr [ %call5.i.i.i.i.i.i4, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %call5.i.i.i.i.i.i41315, %if.then.i.i ]
   %add.ptr.i = getelementptr inbounds i8, ptr %s.sroa.5.017, i64 %chunk_size
   %sub.i = sub i64 %s.sroa.0.016, %chunk_size
@@ -4486,12 +4485,12 @@ lpad.loopexit.split-lp:                           ; preds = %if.then.i.i.i.i
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit10, %lpad.loopexit ], [ %lpad.loopexit.split-lp11, %lpad.loopexit.split-lp ]
-  %6 = load ptr, ptr %agg.result, align 8
-  %tobool.not.i.i.i = icmp eq ptr %6, null
+  %5 = load ptr, ptr %agg.result, align 8
+  %tobool.not.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %lpad
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #32
+  tail call void @_ZdlPv(ptr noundef nonnull %5) #32
   br label %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EED2Ev.exit: ; preds = %lpad, %if.then.i.i.i

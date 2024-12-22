@@ -5182,8 +5182,10 @@ for.body115:                                      ; preds = %for.body115.lr.ph, 
   %arrayidx.i196 = getelementptr inbounds nuw %struct.btFace, ptr %131, i64 %indvars.iv460
   %m_size.i197 = getelementptr inbounds nuw i8, ptr %arrayidx.i196, i64 4
   %132 = load i32, ptr %m_size.i197, align 4
+  %tobool122.not = icmp ne i32 %132, 0
   %cmp134435 = icmp sgt i32 %132, 0
-  br i1 %cmp134435, label %for.body135.preheader, label %if.end159
+  %or.cond = and i1 %tobool122.not, %cmp134435
+  br i1 %or.cond, label %for.body135.preheader, label %if.end159
 
 for.body135.preheader:                            ; preds = %for.body115
   %m_data.i201 = getelementptr inbounds nuw i8, ptr %arrayidx.i196, i64 16

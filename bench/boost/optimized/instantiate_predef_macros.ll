@@ -8474,7 +8474,7 @@ define linkonce_odr hidden void @_ZNK5boost6spirit7classic11alternativeINS1_5chl
 14:                                               ; preds = %12, %3
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #28
   invoke void @_ZNK5boost6spirit7classic11char_parserINS1_5chlitINS_4wave8token_idEEEE5parseINS1_7scannerINS4_8cpplexer12lex_iteratorINSA_9lex_tokenINS4_4util13file_positionINSD_11flex_stringIcSt11char_traitsIcESaIcENSD_9CowStringINSD_22AllocatorStringStorageIcSI_EEPcEEEEEEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_15pt_match_policyISR_NS1_21node_val_data_factoryINS1_5nil_tEEESW_EENS1_13action_policyEEEEEEENS1_13parser_resultIS6_T_E4typeERKS13_(ptr dead_on_unwind nonnull writable sret(%"class.boost::spirit::classic::tree_match.157") align 8 %5, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
-          to label %15 unwind label %61
+          to label %15 unwind label %60
 
 15:                                               ; preds = %14
   %16 = load i64, ptr %5, align 8, !tbaa !220
@@ -8519,7 +8519,7 @@ _ZNSt6vectorIN5boost6spirit7classic9tree_nodeINS2_13node_val_dataINS0_4wave8cppl
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %36 = load i8, ptr %35, align 8, !tbaa !225, !range !90, !noundef !91
   %37 = trunc nuw i8 %36 to i1
-  br i1 %37, label %38, label %59
+  br i1 %37, label %38, label %_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit
 
 38:                                               ; preds = %_ZNSt6vectorIN5boost6spirit7classic9tree_nodeINS2_13node_val_dataINS0_4wave8cpplexer12lex_iteratorINS6_9lex_tokenINS5_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEENS2_5nil_tEEEEESaISQ_EED2Ev.exit.i
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -8579,41 +8579,38 @@ _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traits
   %58 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #28
   br label %_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit
 
-_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit: ; preds = %38, %41, %45, %_ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i
-  %.pre = load i64, ptr %0, align 8, !tbaa !28
-  br label %59
-
-59:                                               ; preds = %_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit, %_ZNSt6vectorIN5boost6spirit7classic9tree_nodeINS2_13node_val_dataINS0_4wave8cpplexer12lex_iteratorINS6_9lex_tokenINS5_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEENS2_5nil_tEEEEESaISQ_EED2Ev.exit.i
-  %60 = phi i64 [ %.pre, %_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit ], [ %16, %_ZNSt6vectorIN5boost6spirit7classic9tree_nodeINS2_13node_val_dataINS0_4wave8cpplexer12lex_iteratorINS6_9lex_tokenINS5_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEENS2_5nil_tEEEEESaISQ_EED2Ev.exit.i ]
+_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit: ; preds = %_ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i, %45, %41, %38, %_ZNSt6vectorIN5boost6spirit7classic9tree_nodeINS2_13node_val_dataINS0_4wave8cpplexer12lex_iteratorINS6_9lex_tokenINS5_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEENS2_5nil_tEEEEESaISQ_EED2Ev.exit.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #28
-  %.not.not = icmp slt i64 %60, 0
-  br i1 %.not.not, label %63, label %.critedge
+  %59 = load i64, ptr %0, align 8, !tbaa !28
+  %.not.not = icmp slt i64 %59, 0
+  br i1 %.not.not, label %62, label %.critedge
 
-61:                                               ; preds = %14
-  %62 = landingpad { ptr, i32 }
+60:                                               ; preds = %14
+  %61 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #28
   br label %146
 
-63:                                               ; preds = %59
-  %64 = load ptr, ptr %17, align 8, !tbaa !32
-  %65 = load ptr, ptr %19, align 8, !tbaa !30
-  invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN5boost6spirit7classic9tree_nodeINS4_13node_val_dataINS2_4wave8cpplexer12lex_iteratorINS8_9lex_tokenINS7_4util13file_positionINSB_11flex_stringIcSt11char_traitsIcESaIcENSB_9CowStringINSB_22AllocatorStringStorageIcSG_EEPcEEEEEEEEEENS4_5nil_tEEEEEEEvT_SU_(ptr noundef %64, ptr noundef %65)
+62:                                               ; preds = %_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit
+  %63 = load ptr, ptr %17, align 8, !tbaa !32
+  %64 = load ptr, ptr %19, align 8, !tbaa !30
+  invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN5boost6spirit7classic9tree_nodeINS4_13node_val_dataINS2_4wave8cpplexer12lex_iteratorINS8_9lex_tokenINS7_4util13file_positionINSB_11flex_stringIcSt11char_traitsIcESaIcENSB_9CowStringINSB_22AllocatorStringStorageIcSG_EEPcEEEEEEEEEENS4_5nil_tEEEEEEEvT_SU_(ptr noundef %63, ptr noundef %64)
           to label %_ZSt8_DestroyIPN5boost6spirit7classic9tree_nodeINS2_13node_val_dataINS0_4wave8cpplexer12lex_iteratorINS6_9lex_tokenINS5_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEENS2_5nil_tEEEEESQ_EvT_SS_RSaIT0_E.exit.i.i21 unwind label %71
 
-_ZSt8_DestroyIPN5boost6spirit7classic9tree_nodeINS2_13node_val_dataINS0_4wave8cpplexer12lex_iteratorINS6_9lex_tokenINS5_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEENS2_5nil_tEEEEESQ_EvT_SS_RSaIT0_E.exit.i.i21: ; preds = %63
-  %.not.i.i.i.i22 = icmp eq ptr %64, null
+_ZSt8_DestroyIPN5boost6spirit7classic9tree_nodeINS2_13node_val_dataINS0_4wave8cpplexer12lex_iteratorINS6_9lex_tokenINS5_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEENS2_5nil_tEEEEESQ_EvT_SS_RSaIT0_E.exit.i.i21: ; preds = %62
+  %65 = load ptr, ptr %17, align 8, !tbaa !32
+  %.not.i.i.i.i22 = icmp eq ptr %65, null
   br i1 %.not.i.i.i.i22, label %_ZN5boost6spirit7classic10tree_matchINS_4wave8cpplexer12lex_iteratorINS4_9lex_tokenINS3_4util13file_positionINS7_11flex_stringIcSt11char_traitsIcESaIcENS7_9CowStringINS7_22AllocatorStringStorageIcSC_EEPcEEEEEEEEEENS1_21node_val_data_factoryINS1_5nil_tEEESN_ED2Ev.exit, label %66
 
 66:                                               ; preds = %_ZSt8_DestroyIPN5boost6spirit7classic9tree_nodeINS2_13node_val_dataINS0_4wave8cpplexer12lex_iteratorINS6_9lex_tokenINS5_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEENS2_5nil_tEEEEESQ_EvT_SS_RSaIT0_E.exit.i.i21
   %67 = load ptr, ptr %20, align 8, !tbaa !42
   %68 = ptrtoint ptr %67 to i64
-  %69 = ptrtoint ptr %64 to i64
+  %69 = ptrtoint ptr %65 to i64
   %70 = sub i64 %68, %69
-  call void @_ZdlPvm(ptr noundef nonnull %64, i64 noundef %70) #32
+  call void @_ZdlPvm(ptr noundef nonnull %65, i64 noundef %70) #32
   br label %_ZN5boost6spirit7classic10tree_matchINS_4wave8cpplexer12lex_iteratorINS4_9lex_tokenINS3_4util13file_positionINS7_11flex_stringIcSt11char_traitsIcESaIcENS7_9CowStringINS7_22AllocatorStringStorageIcSC_EEPcEEEEEEEEEENS1_21node_val_data_factoryINS1_5nil_tEEESN_ED2Ev.exit
 
-71:                                               ; preds = %63
+71:                                               ; preds = %62
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
@@ -8625,7 +8622,7 @@ _ZN5boost6spirit7classic10tree_matchINS_4wave8cpplexer12lex_iteratorINS4_9lex_to
   %75 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEEaSERKSY_(ptr noundef nonnull align 8 dereferenceable(16) %74, ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %.critedge unwind label %144
 
-.critedge:                                        ; preds = %_ZN5boost6spirit7classic10tree_matchINS_4wave8cpplexer12lex_iteratorINS4_9lex_tokenINS3_4util13file_positionINS7_11flex_stringIcSt11char_traitsIcESaIcENS7_9CowStringINS7_22AllocatorStringStorageIcSC_EEPcEEEEEEEEEENS1_21node_val_data_factoryINS1_5nil_tEEESN_ED2Ev.exit, %59
+.critedge:                                        ; preds = %_ZN5boost6spirit7classic10tree_matchINS_4wave8cpplexer12lex_iteratorINS4_9lex_tokenINS3_4util13file_positionINS7_11flex_stringIcSt11char_traitsIcESaIcENS7_9CowStringINS7_22AllocatorStringStorageIcSC_EEPcEEEEEEEEEENS1_21node_val_data_factoryINS1_5nil_tEEESN_ED2Ev.exit, %_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit
   %76 = load ptr, ptr %4, align 8, !tbaa !17
   %.not.i.i.i = icmp eq ptr %76, null
   br i1 %.not.i.i.i, label %_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit, label %_ZN5boost6spirit17iterator_policies17multi_pass_uniqueISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6uniqueENS1_8no_check6uniqueENS1_19split_functor_input6uniqueISR_Lb1EEENS1_15split_std_deque6uniqueISM_EELb1ELb1ELb1EE7releaseINS0_10multi_passISR_NS1_14default_policyISS_SU_SW_SZ_EEEEEEbRT_.exit.i
@@ -8807,8 +8804,8 @@ _ZN5boost6spirit7classic10tree_matchINS_4wave8cpplexer12lex_iteratorINS4_9lex_to
           cleanup
   br label %146
 
-146:                                              ; preds = %144, %61
-  %.pn16 = phi { ptr, i32 } [ %145, %144 ], [ %62, %61 ]
+146:                                              ; preds = %144, %60
+  %.pn16 = phi { ptr, i32 } [ %145, %144 ], [ %61, %60 ]
   call void @_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #28
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #28
   resume { ptr, i32 } %.pn16
@@ -13151,6 +13148,7 @@ _ZSt10_ConstructIN5boost4wave8cpplexer9lex_tokenINS1_4util13file_positionINS4_11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %30, i64 16, i1 false)
   %40 = getelementptr inbounds nuw i8, ptr %.pre, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, i8 0, i64 24, i1 false)
   %41 = load ptr, ptr %34, align 8, !tbaa !30
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 72
   store ptr %42, ptr %34, align 8, !tbaa !30

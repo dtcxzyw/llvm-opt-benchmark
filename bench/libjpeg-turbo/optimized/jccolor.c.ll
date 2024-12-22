@@ -22,14 +22,14 @@ define void @jinit_color_converter(ptr noundef %0) local_unnamed_addr #0 {
   store i32 %7, ptr %9, align 4
   %10 = load ptr, ptr %0, align 8
   %11 = load ptr, ptr %10, align 8
-  tail call void %11(ptr noundef nonnull %0) #4
+  tail call void %11(ptr noundef nonnull %0) #5
   br label %12
 
 12:                                               ; preds = %4, %1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call ptr %15(ptr noundef nonnull %0, i32 noundef 1, i64 noundef 40) #4
+  %16 = tail call ptr %15(ptr noundef nonnull %0, i32 noundef 1, i64 noundef 40) #5
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 472
   store ptr %16, ptr %17, align 8
   store ptr @null_method, ptr %16, align 8
@@ -92,7 +92,7 @@ define void @jinit_color_converter(ptr noundef %0) local_unnamed_addr #0 {
   store i32 9, ptr %40, align 8
   %41 = load ptr, ptr %0, align 8
   %42 = load ptr, ptr %41, align 8
-  tail call void %42(ptr noundef nonnull %0) #4
+  tail call void %42(ptr noundef nonnull %0) #5
   br label %43
 
 43:                                               ; preds = %.sink.split, %35, %32, %29, %23, %20
@@ -125,7 +125,7 @@ define void @jinit_color_converter(ptr noundef %0) local_unnamed_addr #0 {
   store i32 27, ptr %55, align 8
   %56 = load ptr, ptr %0, align 8
   %57 = load ptr, ptr %56, align 8
-  tail call void %57(ptr noundef nonnull %0) #4
+  tail call void %57(ptr noundef nonnull %0) #5
   br label %58
 
 58:                                               ; preds = %53, %51, %46
@@ -140,7 +140,7 @@ define void @jinit_color_converter(ptr noundef %0) local_unnamed_addr #0 {
   store i32 10, ptr %63, align 8
   %64 = load ptr, ptr %0, align 8
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull %0) #4
+  tail call void %65(ptr noundef nonnull %0) #5
   br label %66
 
 66:                                               ; preds = %61, %58
@@ -161,7 +161,7 @@ define void @jinit_color_converter(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %or.cond, label %72, label %78
 
 72:                                               ; preds = %70, %66
-  %73 = tail call i32 @jsimd_can_rgb_gray() #4
+  %73 = tail call i32 @jsimd_can_rgb_gray() #5
   %.not170 = icmp eq i32 %73, 0
   br i1 %.not170, label %76, label %74
 
@@ -191,7 +191,7 @@ define void @jinit_color_converter(ptr noundef %0) local_unnamed_addr #0 {
   store i32 27, ptr %84, align 8
   %85 = load ptr, ptr %0, align 8
   %86 = load ptr, ptr %85, align 8
-  tail call void %86(ptr noundef nonnull %0) #4
+  tail call void %86(ptr noundef nonnull %0) #5
   br label %241
 
 87:                                               ; preds = %43
@@ -216,7 +216,7 @@ define void @jinit_color_converter(ptr noundef %0) local_unnamed_addr #0 {
   store i32 27, ptr %98, align 8
   %99 = load ptr, ptr %0, align 8
   %100 = load ptr, ptr %99, align 8
-  tail call void %100(ptr noundef nonnull %0) #4
+  tail call void %100(ptr noundef nonnull %0) #5
   br label %101
 
 101:                                              ; preds = %96, %92, %87
@@ -231,7 +231,7 @@ define void @jinit_color_converter(ptr noundef %0) local_unnamed_addr #0 {
   store i32 10, ptr %106, align 8
   %107 = load ptr, ptr %0, align 8
   %108 = load ptr, ptr %107, align 8
-  tail call void %108(ptr noundef nonnull %0) #4
+  tail call void %108(ptr noundef nonnull %0) #5
   br label %109
 
 109:                                              ; preds = %104, %101
@@ -268,7 +268,7 @@ define void @jinit_color_converter(ptr noundef %0) local_unnamed_addr #0 {
   store i32 27, ptr %124, align 8
   %125 = load ptr, ptr %0, align 8
   %126 = load ptr, ptr %125, align 8
-  tail call void %126(ptr noundef nonnull %0) #4
+  tail call void %126(ptr noundef nonnull %0) #5
   br label %241
 
 127:                                              ; preds = %43
@@ -290,7 +290,7 @@ define void @jinit_color_converter(ptr noundef %0) local_unnamed_addr #0 {
   store i32 27, ptr %136, align 8
   %137 = load ptr, ptr %0, align 8
   %138 = load ptr, ptr %137, align 8
-  tail call void %138(ptr noundef nonnull %0) #4
+  tail call void %138(ptr noundef nonnull %0) #5
   br label %139
 
 139:                                              ; preds = %134, %132, %127
@@ -305,7 +305,7 @@ define void @jinit_color_converter(ptr noundef %0) local_unnamed_addr #0 {
   store i32 10, ptr %144, align 8
   %145 = load ptr, ptr %0, align 8
   %146 = load ptr, ptr %145, align 8
-  tail call void %146(ptr noundef nonnull %0) #4
+  tail call void %146(ptr noundef nonnull %0) #5
   br label %147
 
 147:                                              ; preds = %142, %139
@@ -317,7 +317,7 @@ define void @jinit_color_converter(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %or.cond180, label %151, label %157
 
 151:                                              ; preds = %147
-  %152 = tail call i32 @jsimd_can_rgb_ycc() #4
+  %152 = tail call i32 @jsimd_can_rgb_ycc() #5
   %.not160 = icmp eq i32 %152, 0
   br i1 %.not160, label %155, label %153
 
@@ -347,7 +347,7 @@ define void @jinit_color_converter(ptr noundef %0) local_unnamed_addr #0 {
   store i32 27, ptr %163, align 8
   %164 = load ptr, ptr %0, align 8
   %165 = load ptr, ptr %164, align 8
-  tail call void %165(ptr noundef nonnull %0) #4
+  tail call void %165(ptr noundef nonnull %0) #5
   br label %241
 
 166:                                              ; preds = %43
@@ -369,7 +369,7 @@ define void @jinit_color_converter(ptr noundef %0) local_unnamed_addr #0 {
   store i32 27, ptr %175, align 8
   %176 = load ptr, ptr %0, align 8
   %177 = load ptr, ptr %176, align 8
-  tail call void %177(ptr noundef nonnull %0) #4
+  tail call void %177(ptr noundef nonnull %0) #5
   br label %178
 
 178:                                              ; preds = %173, %171, %166
@@ -384,7 +384,7 @@ define void @jinit_color_converter(ptr noundef %0) local_unnamed_addr #0 {
   store i32 10, ptr %183, align 8
   %184 = load ptr, ptr %0, align 8
   %185 = load ptr, ptr %184, align 8
-  tail call void %185(ptr noundef nonnull %0) #4
+  tail call void %185(ptr noundef nonnull %0) #5
   br label %186
 
 186:                                              ; preds = %181, %178
@@ -403,7 +403,7 @@ define void @jinit_color_converter(ptr noundef %0) local_unnamed_addr #0 {
   store i32 27, ptr %193, align 8
   %194 = load ptr, ptr %0, align 8
   %195 = load ptr, ptr %194, align 8
-  tail call void %195(ptr noundef nonnull %0) #4
+  tail call void %195(ptr noundef nonnull %0) #5
   br label %241
 
 196:                                              ; preds = %43
@@ -425,7 +425,7 @@ define void @jinit_color_converter(ptr noundef %0) local_unnamed_addr #0 {
   store i32 27, ptr %205, align 8
   %206 = load ptr, ptr %0, align 8
   %207 = load ptr, ptr %206, align 8
-  tail call void %207(ptr noundef nonnull %0) #4
+  tail call void %207(ptr noundef nonnull %0) #5
   br label %208
 
 208:                                              ; preds = %203, %201, %196
@@ -440,7 +440,7 @@ define void @jinit_color_converter(ptr noundef %0) local_unnamed_addr #0 {
   store i32 10, ptr %213, align 8
   %214 = load ptr, ptr %0, align 8
   %215 = load ptr, ptr %214, align 8
-  tail call void %215(ptr noundef nonnull %0) #4
+  tail call void %215(ptr noundef nonnull %0) #5
   br label %216
 
 216:                                              ; preds = %211, %208
@@ -467,7 +467,7 @@ define void @jinit_color_converter(ptr noundef %0) local_unnamed_addr #0 {
   store i32 27, ptr %224, align 8
   %225 = load ptr, ptr %0, align 8
   %226 = load ptr, ptr %225, align 8
-  tail call void %226(ptr noundef nonnull %0) #4
+  tail call void %226(ptr noundef nonnull %0) #5
   br label %241
 
 227:                                              ; preds = %43
@@ -489,7 +489,7 @@ define void @jinit_color_converter(ptr noundef %0) local_unnamed_addr #0 {
   store i32 27, ptr %236, align 8
   %237 = load ptr, ptr %0, align 8
   %238 = load ptr, ptr %237, align 8
-  tail call void %238(ptr noundef nonnull %0) #4
+  tail call void %238(ptr noundef nonnull %0) #5
   br label %239
 
 239:                                              ; preds = %234, %229
@@ -506,7 +506,7 @@ define internal void @null_method(ptr nocapture readnone %0) #1 {
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
 define internal void @grayscale_convert(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) #2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i32, ptr %6, align 8
@@ -568,7 +568,7 @@ define internal void @rgb_ycc_start(ptr noundef %0) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call ptr %6(ptr noundef %0, i32 noundef 1, i64 noundef 16384) #4
+  %7 = tail call ptr %6(ptr noundef %0, i32 noundef 1, i64 noundef 16384) #5
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %7, ptr %8, align 8
   br label %9
@@ -617,7 +617,7 @@ define internal void @rgb_ycc_start(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @rgb_gray_convert(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) #2 {
+define internal void @rgb_gray_convert(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) #4 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %7 = load i32, ptr %6, align 4
   switch i32 %7, label %250 [
@@ -1088,7 +1088,7 @@ define internal void @rgb_gray_convert(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @null_convert(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) #2 {
+define internal void @null_convert(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) #4 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %7 = load i32, ptr %6, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1278,7 +1278,7 @@ define internal void @null_convert(ptr nocapture noundef readonly %0, ptr nocapt
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
 define internal void @rgb_rgb_convert(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) #2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %7 = load i32, ptr %6, align 4
@@ -1718,7 +1718,7 @@ declare i32 @jsimd_can_rgb_ycc() local_unnamed_addr #3
 
 declare void @jsimd_rgb_ycc_convert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #3
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
 define internal void @rgb_ycc_convert(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) #2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %7 = load i32, ptr %6, align 4
@@ -2533,7 +2533,7 @@ define internal void @rgb_ycc_convert(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cmyk_ycck_convert(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) #2 {
+define internal void @cmyk_ycck_convert(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) #4 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -2663,9 +2663,10 @@ define internal void @cmyk_ycck_convert(ptr nocapture noundef readonly %0, ptr n
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
+attributes #4 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

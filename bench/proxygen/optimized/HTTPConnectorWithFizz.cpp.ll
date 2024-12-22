@@ -9471,6 +9471,7 @@ _ZN5folly8OptionalIN4fizz6client16AsyncFizzClientTINS2_18ClientStateMachineEE14E
   %conv = zext i32 %11 to i64
   %cmp = icmp ugt i64 %call13, %conv
   %or.cond = select i1 %cmp.i.i, i1 true, i1 %cmp
+  %writeAeadOptions_.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 168
   br i1 %or.cond, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EEaSEOS4_.exit, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EEaSEOS4_.exit42
 
 _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EEaSEOS4_.exit: ; preds = %_ZN5folly8OptionalIN4fizz6client16AsyncFizzClientTINS2_18ClientStateMachineEE14EarlyDataStateEEptEv.exit
@@ -9480,13 +9481,12 @@ _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EEaSEOS4_.exit: ; preds = 
   %12 = load ptr, ptr %buf, align 8
   store ptr null, ptr %buf, align 8
   store ptr %12, ptr %data, align 8
-  %.pre99 = load i8, ptr %hasValue.i.i, align 8
-  %writeAeadOptions_.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 168
-  %.pre98 = load i64, ptr %writeAeadOptions_.phi.trans.insert, align 8
+  %.pre100 = load i8, ptr %hasValue.i.i, align 8
+  %.pre99 = load i64, ptr %writeAeadOptions_.phi.trans.insert, align 8
   %flags22 = getelementptr inbounds nuw i8, ptr %w, i64 16
   store i32 %flags, ptr %flags22, align 8
-  store i64 %.pre98, ptr %aeadOptions.i, align 4
-  %tobool.i.i.i27 = trunc i8 %.pre99 to i1
+  store i64 %.pre99, ptr %aeadOptions.i, align 4
+  %tobool.i.i.i27 = trunc i8 %.pre100 to i1
   br i1 %tobool.i.i.i27, label %invoke.cont29, label %if.then.i.i.i28
 
 if.then.i.i.i28:                                  ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EEaSEOS4_.exit
@@ -9522,13 +9522,13 @@ if.else.i.i:                                      ; preds = %invoke.cont29
           to label %invoke.cont32 unwind label %lpad24
 
 invoke.cont32:                                    ; preds = %if.else.i.i
-  %.pre100 = load ptr, ptr %data, align 8
-  %cmp.not.i.i37 = icmp eq ptr %.pre100, null
+  %.pre101 = load ptr, ptr %data, align 8
+  %cmp.not.i.i37 = icmp eq ptr %.pre101, null
   br i1 %cmp.not.i.i37, label %if.end93, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i: ; preds = %invoke.cont32
-  call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.pre100) #30
-  call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %.pre100) #30
+  call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.pre101) #30
+  call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %.pre101) #30
   br label %if.end93
 
 lpad24:                                           ; preds = %if.else.i.i, %if.then.i.i.i28
@@ -9545,13 +9545,12 @@ _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EEaSEOS4_.exit42: ; preds 
   store ptr null, ptr %buf, align 8
   store ptr %18, ptr %data36, align 8
   %earlyDataRejectionPolicy_.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 2160
-  %.pre97 = load i32, ptr %earlyDataRejectionPolicy_.phi.trans.insert, align 8
-  %writeAeadOptions_39.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 168
-  %.pre96 = load i64, ptr %writeAeadOptions_39.phi.trans.insert, align 8
+  %.pre98 = load i32, ptr %earlyDataRejectionPolicy_.phi.trans.insert, align 8
+  %.pre97 = load i64, ptr %writeAeadOptions_.phi.trans.insert, align 8
   %flags38 = getelementptr inbounds nuw i8, ptr %w34, i64 16
   store i32 %flags, ptr %flags38, align 8
-  store i64 %.pre96, ptr %aeadOptions.i38, align 4
-  %cmp41 = icmp eq i32 %.pre97, 1
+  store i64 %.pre97, ptr %aeadOptions.i38, align 4
+  %cmp41 = icmp eq i32 %.pre98, 1
   br i1 %cmp41, label %if.then42, label %if.end55
 
 if.then42:                                        ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EEaSEOS4_.exit42
@@ -9693,15 +9692,15 @@ _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EEaSEOS4_.exit68: ; preds 
   store ptr null, ptr %buf, align 8
   store ptr %36, ptr %data70, align 8
   %37 = ptrtoint ptr %36 to i64
+  %writeAeadOptions_73.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 168
   %vtable75.pre = load ptr, ptr %this, align 8
   %vfn76.phi.trans.insert = getelementptr inbounds nuw i8, ptr %vtable75.pre, i64 104
-  %.pre95 = load ptr, ptr %vfn76.phi.trans.insert, align 8
-  %writeAeadOptions_73.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 168
+  %.pre96 = load ptr, ptr %vfn76.phi.trans.insert, align 8
   %.pre = load i64, ptr %writeAeadOptions_73.phi.trans.insert, align 8
   %flags72 = getelementptr inbounds nuw i8, ptr %w68, i64 16
   store i32 %flags, ptr %flags72, align 8
   store i64 %.pre, ptr %aeadOptions.i64, align 4
-  %call79 = invoke noundef zeroext i1 %.pre95(ptr noundef nonnull align 8 dereferenceable(2272) %this)
+  %call79 = invoke noundef zeroext i1 %.pre96(ptr noundef nonnull align 8 dereferenceable(2272) %this)
           to label %invoke.cont78 unwind label %lpad77
 
 invoke.cont78:                                    ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EEaSEOS4_.exit68
@@ -9722,7 +9721,7 @@ if.then83:                                        ; preds = %land.lhs.true
   %41 = load ptr, ptr %_M_last.i.i70, align 8
   %add.ptr.i.i71 = getelementptr inbounds i8, ptr %41, i64 -32
   %cmp.not.i.i72 = icmp eq ptr %40, %add.ptr.i.i71
-  br i1 %cmp.not.i.i72, label %if.else.i.i79, label %if.then.i.i73
+  br i1 %cmp.not.i.i72, label %if.else.i.i80, label %if.then.i.i73
 
 if.then.i.i73:                                    ; preds = %if.then83
   store ptr %callback, ptr %40, align 8
@@ -9737,12 +9736,12 @@ if.then.i.i73:                                    ; preds = %if.then83
   store ptr %incdec.ptr.i.i78, ptr %_M_finish.i.i69, align 8
   br label %if.end91
 
-if.else.i.i79:                                    ; preds = %if.then83
+if.else.i.i80:                                    ; preds = %if.then83
   %pendingHandshakeAppWrites_ = getelementptr inbounds nuw i8, ptr %this, i64 2192
   invoke void @_ZNSt5dequeIN4fizz8AppWriteESaIS1_EE16_M_push_back_auxIJS1_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %pendingHandshakeAppWrites_, ptr noundef nonnull align 8 dereferenceable(28) %w68)
           to label %if.end91 unwind label %lpad77
 
-lpad77:                                           ; preds = %if.else.i.i79, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EEaSEOS4_.exit68
+lpad77:                                           ; preds = %if.else.i.i80, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EEaSEOS4_.exit68
   %44 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup92
@@ -9750,26 +9749,26 @@ lpad77:                                           ; preds = %if.else.i.i79, %_ZN
 if.else85:                                        ; preds = %land.lhs.true, %invoke.cont78
   %fizzClient_86 = getelementptr inbounds nuw i8, ptr %this, i64 1824
   store ptr %callback, ptr %agg.tmp87, align 8
-  %data.i82 = getelementptr inbounds nuw i8, ptr %agg.tmp87, i64 8
-  store i64 %37, ptr %data.i82, align 8
+  %data.i83 = getelementptr inbounds nuw i8, ptr %agg.tmp87, i64 8
+  store i64 %37, ptr %data.i83, align 8
   store ptr null, ptr %data70, align 8
-  %flags.i84 = getelementptr inbounds nuw i8, ptr %agg.tmp87, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %flags.i84, ptr noundef nonnull align 8 dereferenceable(12) %flags72, i64 12, i1 false)
+  %flags.i85 = getelementptr inbounds nuw i8, ptr %agg.tmp87, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %flags.i85, ptr noundef nonnull align 8 dereferenceable(12) %flags72, i64 12, i1 false)
   invoke void @_ZN4fizz8FizzBaseINS_6client10FizzClientINS1_16AsyncFizzClientTINS1_18ClientStateMachineEE17ActionMoveVisitorES4_EES6_S4_E8appWriteENS_8AppWriteE(ptr noundef nonnull align 8 dereferenceable(163) %fizzClient_86, ptr noundef nonnull %agg.tmp87)
           to label %invoke.cont89 unwind label %lpad88
 
 invoke.cont89:                                    ; preds = %if.else85
-  %45 = load ptr, ptr %data.i82, align 8
-  %cmp.not.i.i87 = icmp eq ptr %45, null
-  br i1 %cmp.not.i.i87, label %_ZN4fizz8AppWriteD2Ev.exit89, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i88
+  %45 = load ptr, ptr %data.i83, align 8
+  %cmp.not.i.i88 = icmp eq ptr %45, null
+  br i1 %cmp.not.i.i88, label %_ZN4fizz8AppWriteD2Ev.exit90, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i89
 
-_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i88: ; preds = %invoke.cont89
+_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i89: ; preds = %invoke.cont89
   call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %45) #30
   call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %45) #30
-  br label %_ZN4fizz8AppWriteD2Ev.exit89
+  br label %_ZN4fizz8AppWriteD2Ev.exit90
 
-_ZN4fizz8AppWriteD2Ev.exit89:                     ; preds = %invoke.cont89, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i88
-  store ptr null, ptr %data.i82, align 8
+_ZN4fizz8AppWriteD2Ev.exit90:                     ; preds = %invoke.cont89, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i89
+  store ptr null, ptr %data.i83, align 8
   br label %if.end91
 
 lpad88:                                           ; preds = %if.else85
@@ -9778,12 +9777,12 @@ lpad88:                                           ; preds = %if.else85
   call void @_ZN4fizz8AppWriteD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %agg.tmp87) #30
   br label %ehcleanup92
 
-if.end91:                                         ; preds = %if.then.i.i73, %if.else.i.i79, %_ZN4fizz8AppWriteD2Ev.exit89
+if.end91:                                         ; preds = %if.then.i.i73, %if.else.i.i80, %_ZN4fizz8AppWriteD2Ev.exit90
   %47 = load ptr, ptr %data70, align 8
-  %cmp.not.i.i91 = icmp eq ptr %47, null
-  br i1 %cmp.not.i.i91, label %if.end93, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i92
+  %cmp.not.i.i92 = icmp eq ptr %47, null
+  br i1 %cmp.not.i.i92, label %if.end93, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i93
 
-_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i92: ; preds = %if.end91
+_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i93: ; preds = %if.end91
   call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %47) #30
   call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %47) #30
   br label %if.end93
@@ -9793,7 +9792,7 @@ ehcleanup92:                                      ; preds = %lpad88, %lpad77
   call void @_ZN4fizz8AppWriteD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %w68) #30
   br label %eh.resume
 
-if.end93:                                         ; preds = %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i92, %if.end91, %invoke.cont63, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i59, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i, %invoke.cont32, %invoke.cont32.thread, %if.then, %invoke.cont6
+if.end93:                                         ; preds = %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i93, %if.end91, %invoke.cont63, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i59, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i, %invoke.cont32, %invoke.cont32.thread, %if.then, %invoke.cont6
   ret void
 
 eh.resume:                                        ; preds = %ehcleanup92, %ehcleanup65, %lpad24, %ehcleanup

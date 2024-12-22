@@ -1413,16 +1413,18 @@ define dso_local void @_Z17drawDetailOverlayPK11dtTileCacheiiPdS2_Pi(ptr noundef
   %10 = alloca double, align 8
   %11 = alloca double, align 8
   %12 = call noundef i32 @_ZNK11dtTileCache10getTilesAtEiiPji(ptr noundef nonnull align 8 dereferenceable(912) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %7, i32 noundef 32)
+  %.not = icmp ne i32 %12, 0
   %13 = icmp sgt i32 %12, 0
-  br i1 %13, label %.lr.ph, label %.loopexit
+  %or.cond = and i1 %.not, %13
+  br i1 %or.cond, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %15 = load i32, ptr %14, align 4
-  %16 = shl i32 %15, 2
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %18 = load i32, ptr %17, align 4
-  %19 = mul i32 %16, %18
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %17 = shl i32 %15, 2
+  %18 = load i32, ptr %16, align 4
+  %19 = mul i32 %17, %18
   %20 = add nsw i32 %19, 56
   %21 = sitofp i32 %20 to float
   %22 = fmul float %21, 0x3F50000000000000

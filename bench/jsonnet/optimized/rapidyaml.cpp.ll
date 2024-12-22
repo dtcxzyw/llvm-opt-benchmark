@@ -1724,20 +1724,20 @@ define dso_local noundef i64 @_ZN2c413base64_decodeENS_15basic_substringIKcEENS_
   br i1 %70, label %71, label %89
 
 71:                                               ; preds = %69
-  %72 = getelementptr inbounds nuw i8, ptr %.068.lcssa, i64 1
-  %73 = load i8, ptr %72, align 1
-  %74 = sext i8 %73 to i64
-  %75 = getelementptr inbounds [128 x i8], ptr @_ZN2c46detailL22base64_char_to_sextet_E, i64 0, i64 %74
-  %76 = load i8, ptr %75, align 1
-  %77 = sext i8 %76 to i32
-  %78 = shl nsw i32 %77, 12
-  %79 = load i8, ptr %.068.lcssa, align 1
-  %80 = sext i8 %79 to i64
-  %81 = getelementptr inbounds [128 x i8], ptr @_ZN2c46detailL22base64_char_to_sextet_E, i64 0, i64 %80
-  %82 = load i8, ptr %81, align 1
+  %72 = load i8, ptr %.068.lcssa, align 1
+  %73 = getelementptr inbounds nuw i8, ptr %.068.lcssa, i64 1
+  %74 = load i8, ptr %73, align 1
+  %75 = sext i8 %74 to i64
+  %76 = getelementptr inbounds [128 x i8], ptr @_ZN2c46detailL22base64_char_to_sextet_E, i64 0, i64 %75
+  %77 = load i8, ptr %76, align 1
+  %78 = sext i8 %72 to i64
+  %79 = getelementptr inbounds [128 x i8], ptr @_ZN2c46detailL22base64_char_to_sextet_E, i64 0, i64 %78
+  %80 = sext i8 %77 to i32
+  %81 = shl nsw i32 %80, 12
+  %82 = load i8, ptr %79, align 1
   %83 = sext i8 %82 to i32
   %84 = shl nsw i32 %83, 18
-  %85 = or i32 %84, %78
+  %85 = or i32 %84, %81
   %86 = lshr i32 %85, 16
   %87 = trunc i32 %86 to i8
   %88 = getelementptr inbounds i8, ptr %2, i64 %.069.lcssa
@@ -3314,7 +3314,7 @@ define dso_local void @_ZN2c43yml4TreeC2ERKNS0_9CallbacksE(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml4TreeC2EmmRKNS0_9CallbacksE(ptr nocapture noundef nonnull align 8 dereferenceable(256) initializes((0, 96)) %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN2c43yml4TreeC2EmmRKNS0_9CallbacksE(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 96)) %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -3394,7 +3394,7 @@ _ZN2c43yml4TreeD2Ev.exit:                         ; preds = %27
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml4Tree7reserveEm(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0, i64 noundef %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN2c43yml4Tree7reserveEm(ptr noundef nonnull align 8 dereferenceable(256) %0, i64 noundef %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [28 x i8], align 16
   %4 = alloca %"struct.c4::yml::Location", align 8
   %5 = alloca [23 x i8], align 16
@@ -4829,7 +4829,7 @@ define dso_local void @_ZN2c43yml4Tree12_clear_rangeEmm(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml4Tree11_claim_rootEv(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN2c43yml4Tree11_claim_rootEv(ptr noundef nonnull align 8 dereferenceable(256) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca [28 x i8], align 16
   %3 = alloca %"struct.c4::yml::Location", align 8
   %4 = alloca [23 x i8], align 16
@@ -4894,7 +4894,7 @@ _ZN2c43yml4Tree14_set_hierarchyEmmm.exit:         ; preds = %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml4Tree5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN2c43yml4Tree5clearEv(ptr noundef nonnull align 8 dereferenceable(256) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca [28 x i8], align 16
   %3 = alloca %"struct.c4::yml::Location", align 8
   %4 = alloca [23 x i8], align 16
@@ -5032,7 +5032,7 @@ _ZN2c43yml4Tree11_claim_rootEv.exit:              ; preds = %.split2.i, %_ZN2c43
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN2c43yml4Tree6_claimEv(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i64 @_ZN2c43yml4Tree6_claimEv(ptr noundef nonnull align 8 dereferenceable(256) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca [36 x i8], align 16
   %3 = alloca %"struct.c4::yml::Location", align 8
   %4 = alloca [31 x i8], align 16
@@ -5105,8 +5105,8 @@ define dso_local noundef i64 @_ZN2c43yml4Tree6_claimEv(ptr nocapture noundef non
   %.pre = load i64, ptr %33, align 8
   br label %45
 
-45:                                               ; preds = %30, %36
-  %46 = phi i64 [ %34, %30 ], [ %.pre, %36 ]
+45:                                               ; preds = %36, %30
+  %46 = phi i64 [ %.pre, %36 ], [ %34, %30 ]
   %47 = load i64, ptr %10, align 8
   %48 = icmp ult i64 %47, %46
   br i1 %48, label %58, label %49
@@ -5982,7 +5982,7 @@ _ZN2c43yml4Tree14_rem_hierarchyEm.exit:           ; preds = %53, %55
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml4Tree7reorderEv(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN2c43yml4Tree7reorderEv(ptr noundef nonnull align 8 dereferenceable(256) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
@@ -7931,7 +7931,7 @@ _ZN2c43yml4Tree14_rem_hierarchyEm.exit:           ; preds = %123, %125
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN2c43yml4Tree4moveEPS1_mmm(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #1 align 2 {
+define dso_local noundef i64 @_ZN2c43yml4Tree4moveEPS1_mmm(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #1 align 2 {
   %6 = alloca [31 x i8], align 16
   %7 = alloca %"struct.c4::yml::Location", align 8
   %8 = alloca [29 x i8], align 16
@@ -8035,7 +8035,7 @@ define dso_local noundef i64 @_ZN2c43yml4Tree4moveEPS1_mmm(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN2c43yml4Tree9duplicateEPKS1_mmm(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #1 align 2 {
+define dso_local noundef i64 @_ZN2c43yml4Tree9duplicateEPKS1_mmm(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #1 align 2 {
   %6 = alloca [31 x i8], align 16
   %7 = alloca %"struct.c4::yml::Location", align 8
   %8 = alloca [29 x i8], align 16
@@ -8154,7 +8154,7 @@ define dso_local noundef i64 @_ZN2c43yml4Tree9duplicateEPKS1_mmm(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml4Tree18set_root_as_streamEv(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN2c43yml4Tree18set_root_as_streamEv(ptr noundef nonnull align 8 dereferenceable(256) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca [31 x i8], align 16
   %3 = alloca %"struct.c4::yml::Location", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8577,7 +8577,7 @@ define dso_local noundef i64 @_ZN2c43yml4Tree9duplicateEmmm(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN2c43yml4Tree18duplicate_childrenEPKS1_mmm(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #1 align 2 {
+define dso_local noundef i64 @_ZN2c43yml4Tree18duplicate_childrenEPKS1_mmm(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #1 align 2 {
   %6 = alloca [31 x i8], align 16
   %7 = alloca %"struct.c4::yml::Location", align 8
   %8 = alloca [29 x i8], align 16
@@ -8715,7 +8715,7 @@ define dso_local void @_ZN2c43yml4Tree18duplicate_contentsEmm(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml4Tree18duplicate_contentsEPKS1_mm(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN2c43yml4Tree18duplicate_contentsEPKS1_mm(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #1 align 2 {
   %5 = alloca [31 x i8], align 16
   %6 = alloca %"struct.c4::yml::Location", align 8
   %7 = alloca [29 x i8], align 16
@@ -12500,7 +12500,7 @@ _ZNK2c415basic_substringIKcE4findEcm.exit205.thread: ; preds = %._crit_edge.thre
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml4Tree12resolve_tagsEv(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN2c43yml4Tree12resolve_tagsEv(ptr noundef nonnull align 8 dereferenceable(256) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   %4 = icmp eq i64 %3, 0
@@ -12663,7 +12663,7 @@ define internal fastcc noundef i64 @_ZN2c43yml12_GLOBAL__N_125_count_resolved_ta
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2c43yml12_GLOBAL__N_113_resolve_tagsEPNS0_4TreeEm(ptr nocapture noundef nonnull %0, i64 noundef %1) unnamed_addr #1 {
+define internal fastcc void @_ZN2c43yml12_GLOBAL__N_113_resolve_tagsEPNS0_4TreeEm(ptr noundef nonnull %0, i64 noundef %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds %"struct.c4::yml::NodeData", ptr %3, i64 %1, i32 4
   %.051 = load i64, ptr %4, align 8
@@ -12787,7 +12787,7 @@ define dso_local { ptr, i64 } @_ZNK2c43yml4Tree13lookup_result10unresolvedEv(ptr
   ret { ptr, i64 } %.fca.1.insert4
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
 define dso_local void @_ZNK2c43yml4Tree8_advanceEPNS1_13lookup_resultEm(ptr nocapture noundef nonnull readnone align 8 dereferenceable(256) %0, ptr nocapture noundef %1, i64 noundef %2) local_unnamed_addr #30 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8
@@ -12816,7 +12816,7 @@ _ZNK2c415basic_substringIKcE11begins_withEc.exit.thread: ; preds = %3, %14, %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK2c43yml4Tree11lookup_pathENS_15basic_substringIKcEEm(ptr dead_on_unwind noalias nocapture writable sret(%"struct.c4::yml::Tree::lookup_result") align 8 initializes((0, 40)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %1, ptr %2, i64 %3, i64 noundef %4) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK2c43yml4Tree11lookup_pathENS_15basic_substringIKcEEm(ptr dead_on_unwind noalias writable sret(%"struct.c4::yml::Tree::lookup_result") align 8 initializes((0, 40)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %1, ptr %2, i64 %3, i64 noundef %4) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.c4::yml::Tree::_lookup_path_token", align 8
   %7 = icmp eq i64 %4, -1
   %spec.select = select i1 %7, i64 0, i64 %4
@@ -12882,16 +12882,18 @@ _ZNK2c43yml4Tree12_lookup_pathEPNS1_13lookup_resultE.exit: ; preds = %_ZNK2c43ym
   %29 = load i64, ptr %8, align 8
   %30 = icmp eq i64 %29, %spec.select
   %or.cond7 = select i1 %28, i1 %30, i1 false
-  %spec.store.select = select i1 %or.cond7, i64 -1, i64 %29
-  store i64 %spec.store.select, ptr %8, align 8
+  br i1 %or.cond7, label %31, label %.critedge
+
+31:                                               ; preds = %_ZNK2c43yml4Tree12_lookup_pathEPNS1_13lookup_resultE.exit
+  store i64 -1, ptr %8, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZNK2c43yml4Tree12_lookup_pathEPNS1_13lookup_resultE.exit, %5
+.critedge:                                        ; preds = %5, %_ZNK2c43yml4Tree12_lookup_pathEPNS1_13lookup_resultE.exit, %31
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK2c43yml4Tree12_lookup_pathEPNS1_13lookup_resultE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0, ptr nocapture noundef %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK2c43yml4Tree12_lookup_pathEPNS1_13lookup_resultE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0, ptr noundef %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.c4::yml::Tree::_lookup_path_token", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
@@ -13272,7 +13274,7 @@ define dso_local noundef i64 @_ZN2c43yml4Tree21lookup_path_or_modifyEPKS1_mNS_15
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml4Tree19_lookup_path_modifyEPNS1_13lookup_resultE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr nocapture noundef %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN2c43yml4Tree19_lookup_path_modifyEPNS1_13lookup_resultE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.c4::yml::Tree::_lookup_path_token", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
@@ -13319,7 +13321,7 @@ define dso_local void @_ZN2c43yml4Tree19_lookup_path_modifyEPNS1_13lookup_result
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZNK2c43yml4Tree10_next_nodeEPNS1_13lookup_resultEPNS1_18_lookup_path_tokenE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0, ptr nocapture noundef %1, ptr nocapture noundef nonnull %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i64 @_ZNK2c43yml4Tree10_next_nodeEPNS1_13lookup_resultEPNS1_18_lookup_path_tokenE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0, ptr noundef %1, ptr nocapture noundef nonnull %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [29 x i8], align 16
   %5 = alloca %"struct.c4::yml::Location", align 8
   %6 = alloca %"struct.c4::yml::Tree::_lookup_path_token", align 8
@@ -13665,7 +13667,7 @@ _ZNK2c415basic_substringIKcE11begins_withEc.exit67.thread: ; preds = %.thread, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN2c43yml4Tree17_next_node_modifyEPNS1_13lookup_resultEPNS1_18_lookup_path_tokenE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr nocapture noundef %1, ptr nocapture noundef nonnull %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i64 @_ZN2c43yml4Tree17_next_node_modifyEPNS1_13lookup_resultEPNS1_18_lookup_path_tokenE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef %1, ptr nocapture noundef nonnull %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [37 x i8], align 16
   %5 = alloca %"struct.c4::yml::Location", align 8
   %6 = alloca [62 x i8], align 16
@@ -14697,7 +14699,7 @@ _ZN2c43yml4Tree6to_valEmNS_15basic_substringIKcEEm.exit: ; preds = %445, %450, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK2c43yml4Tree11_next_tokenEPNS1_13lookup_resultERKNS1_18_lookup_path_tokenE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.c4::yml::Tree::_lookup_path_token") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %1, ptr nocapture noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK2c43yml4Tree11_next_tokenEPNS1_13lookup_resultERKNS1_18_lookup_path_tokenE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.c4::yml::Tree::_lookup_path_token") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %1, ptr noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca [55 x i8], align 16
   %6 = alloca %"struct.c4::yml::Location", align 8
   %7 = alloca [25 x i8], align 16
@@ -32795,7 +32797,7 @@ _ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit: ; preds = %2
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
 define dso_local void @_ZN2c43yml6Parser24_move_val_tag_to_key_tagEv(ptr nocapture noundef nonnull align 8 dereferenceable(2736) %0) local_unnamed_addr #30 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2608
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2616
@@ -50943,7 +50945,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK2c415basic_substringIKcE7compareE
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc { ptr, i64 } @_ZN2c43yml12_GLOBAL__N_114_transform_tagEPNS0_4TreeENS_15basic_substringIKcEEm(ptr nocapture noundef nonnull %0, ptr %1, i64 %2, i64 noundef range(i64 0, -1) %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc { ptr, i64 } @_ZN2c43yml12_GLOBAL__N_114_transform_tagEPNS0_4TreeENS_15basic_substringIKcEEm(ptr noundef nonnull %0, ptr %1, i64 %2, i64 noundef range(i64 0, -1) %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %5 = alloca [45 x i8], align 16
   %6 = alloca %"struct.c4::yml::Location", align 8
   %7 = alloca [45 x i8], align 16
@@ -52213,6 +52215,8 @@ _ZZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_ENKUlS5_E_clES5_.e
   %53 = load ptr, ptr %6, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 %52
   %55 = sub i64 %10, %52
+  store ptr %54, ptr %6, align 8
+  store i64 %55, ptr %9, align 8
   %56 = add i64 %0, 1
   %57 = icmp eq i64 %.sroa.5.0, -1
   %58 = icmp ugt i64 %56, %.sroa.5.0
@@ -53770,6 +53774,8 @@ _ZZNK2c43yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS5_DprRKT_ENKUlS5_E_clES5
   %53 = load ptr, ptr %6, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 %52
   %55 = sub i64 %10, %52
+  store ptr %54, ptr %6, align 8
+  store i64 %55, ptr %9, align 8
   %56 = add i64 %0, 1
   %57 = icmp eq i64 %.sroa.5.0, -1
   %58 = icmp ugt i64 %56, %.sroa.5.0
@@ -54515,7 +54521,7 @@ attributes #26 = { cold nofree noreturn }
 attributes #27 = { mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #28 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #29 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #30 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #30 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #31 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #32 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #33 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

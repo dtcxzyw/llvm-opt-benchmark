@@ -6433,16 +6433,16 @@ ignore_slash_options.exit:                        ; preds = %.lr.ph.i, %29, %8, 
 define internal fastcc range(i32 2, 6) i32 @exec_command_pset(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = alloca [32 x i8], align 16
   %4 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #17
-  br i1 %1, label %5, label %222
+  br i1 %1, label %5, label %223
 
 5:                                                ; preds = %2
   %6 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #17
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %.preheader, label %217
+  br i1 %.not, label %.preheader, label %218
 
 .preheader:                                       ; preds = %5, %pset_value_string.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %pset_value_string.exit ], [ 0, %5 ]
-  %7 = getelementptr [23 x ptr], ptr @exec_command_pset.my_list, i64 0, i64 %indvars.iv
+  %7 = phi ptr [ %217, %pset_value_string.exit ], [ @exec_command_pset.my_list, %5 ]
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   %9 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %8, ptr noundef nonnull dereferenceable(7) @.str.43) #18
@@ -6882,35 +6882,36 @@ pset_value_string.exit:                           ; preds = %11, %18, %pset_quot
   %216 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.245, ptr noundef nonnull %8, ptr noundef %.0.i) #17
   call void @free(ptr noundef %.0.i) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %217 = getelementptr [23 x ptr], ptr @exec_command_pset.my_list, i64 0, i64 %indvars.iv.next
   %.not18 = icmp eq i64 %indvars.iv.next, 22
   br i1 %.not18, label %.loopexit, label %.preheader, !llvm.loop !22
 
-217:                                              ; preds = %5
-  %218 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 386), align 2
-  %219 = trunc i8 %218 to i1
-  %220 = tail call zeroext i1 @do_pset(ptr noundef nonnull %4, ptr noundef %6, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pset, i64 48), i1 noundef zeroext %219)
-  %221 = select i1 %220, i32 2, i32 5
+218:                                              ; preds = %5
+  %219 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 386), align 2
+  %220 = trunc i8 %219 to i1
+  %221 = tail call zeroext i1 @do_pset(ptr noundef nonnull %4, ptr noundef %6, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pset, i64 48), i1 noundef zeroext %220)
+  %222 = select i1 %221, i32 2, i32 5
   br label %.loopexit
 
-.loopexit:                                        ; preds = %pset_value_string.exit, %217
-  %.0 = phi i32 [ %221, %217 ], [ 2, %pset_value_string.exit ]
+.loopexit:                                        ; preds = %pset_value_string.exit, %218
+  %.0 = phi i32 [ %222, %218 ], [ 2, %pset_value_string.exit ]
   call void @free(ptr noundef %4) #17
   call void @free(ptr noundef %6) #17
   br label %ignore_slash_options.exit
 
-222:                                              ; preds = %2
+223:                                              ; preds = %2
   %.not2.i = icmp eq ptr %4, null
   br i1 %.not2.i, label %ignore_slash_options.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %222, %.lr.ph.i
-  %223 = phi ptr [ %224, %.lr.ph.i ], [ %4, %222 ]
-  tail call void @free(ptr noundef nonnull %223) #17
-  %224 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #17
-  %.not.i19 = icmp eq ptr %224, null
+.lr.ph.i:                                         ; preds = %223, %.lr.ph.i
+  %224 = phi ptr [ %225, %.lr.ph.i ], [ %4, %223 ]
+  tail call void @free(ptr noundef nonnull %224) #17
+  %225 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #17
+  %.not.i19 = icmp eq ptr %225, null
   br i1 %.not.i19, label %ignore_slash_options.exit, label %.lr.ph.i, !llvm.loop !9
 
-ignore_slash_options.exit:                        ; preds = %.lr.ph.i, %222, %.loopexit
-  %.1 = phi i32 [ %.0, %.loopexit ], [ 2, %222 ], [ 2, %.lr.ph.i ]
+ignore_slash_options.exit:                        ; preds = %.lr.ph.i, %223, %.loopexit
+  %.1 = phi i32 [ %.0, %.loopexit ], [ 2, %223 ], [ 2, %.lr.ph.i ]
   ret i32 %.1
 }
 

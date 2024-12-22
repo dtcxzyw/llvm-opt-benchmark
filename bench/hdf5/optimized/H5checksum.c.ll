@@ -151,8 +151,8 @@ H5__checksum_crc_update.exit:                     ; preds = %H5__checksum_crc_up
   ret i32 %.07.lcssa.i
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @H5_checksum_lookup3(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read, inaccessiblemem: write) uwtable
+define i32 @H5_checksum_lookup3(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = trunc i64 %1 to i32
   %5 = add i32 %4, -559038737
   %6 = add i32 %5, %2
@@ -376,10 +376,7 @@ define i32 @H5_checksum_lookup3(ptr nocapture noundef readonly %0, i64 noundef %
   %154 = add i32 %153, %.2143
   br label %155
 
-default.unreachable:                              ; preds = %._crit_edge
-  unreachable
-
-155:                                              ; preds = %._crit_edge, %149
+155:                                              ; preds = %149, %._crit_edge
   %.3144 = phi i32 [ %.0141.lcssa, %._crit_edge ], [ %154, %149 ]
   %.7139 = phi i32 [ %.0132.lcssa, %._crit_edge ], [ %.6138, %149 ]
   %.11 = phi i32 [ %.0.lcssa, %._crit_edge ], [ %.10, %149 ]
@@ -409,13 +406,16 @@ default.unreachable:                              ; preds = %._crit_edge
   %179 = sub i32 %177, %178
   br label %180
 
+default.unreachable:                              ; preds = %._crit_edge
+  unreachable
+
 180:                                              ; preds = %._crit_edge, %155
   %.12 = phi i32 [ %179, %155 ], [ %.0.lcssa, %._crit_edge ]
   ret i32 %.12
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @H5_checksum_metadata(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read, inaccessiblemem: write) uwtable
+define i32 @H5_checksum_metadata(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = tail call i32 @H5_checksum_lookup3(ptr noundef %0, i64 noundef %1, i32 noundef %2)
   ret i32 %4
 }
@@ -444,14 +444,15 @@ define i32 @H5_hash_string(ptr nocapture noundef readonly %0) local_unnamed_addr
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #2
+declare i64 @llvm.umin.i64(i64, i64) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #2
+declare i32 @llvm.fshl.i32(i32, i32, i32) #3
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(readwrite, argmem: read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { nofree norecurse nosync nounwind memory(argmem: read, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

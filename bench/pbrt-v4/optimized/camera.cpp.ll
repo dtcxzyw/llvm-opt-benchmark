@@ -2019,10 +2019,10 @@ _ZN4pbrt9BlueNoiseEiNS_6Point2IiEE.exit18:        ; preds = %if.end
   %idxprom2.i = sext i32 %rem1.i to i64
   %arrayidx3.i = getelementptr inbounds [5 x [65536 x [2 x i32]]], ptr @_ZN4pbrt14pmj02bnSamplesE, i64 0, i64 %idxprom.i, i64 %idxprom2.i
   %6 = load i32, ptr %arrayidx3.i, align 8
+  %arrayidx10.i = getelementptr inbounds nuw i8, ptr %arrayidx3.i, i64 4
   %conv.i = uitofp i32 %6 to double
   %mul.i4 = fmul double %conv.i, 0x3DF0000000000000
   %conv5.i = fptrunc double %mul.i4 to float
-  %arrayidx10.i = getelementptr inbounds nuw i8, ptr %arrayidx3.i, i64 4
   %7 = load i32, ptr %arrayidx10.i, align 4
   %conv11.i = uitofp i32 %7 to double
   %mul12.i = fmul double %conv11.i, 0x3DF0000000000000
@@ -7080,14 +7080,14 @@ define linkonce_odr dso_local noundef float @_ZNK4pbrt13HaltonSampler15SampleDim
 entry:
   %randomize = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load i32, ptr %randomize, align 4
+  %haltonIndex9 = getelementptr inbounds nuw i8, ptr %this, i64 40
   switch i32 %0, label %do.end [
     i32 0, label %if.then
     i32 1, label %if.then4
   ]
 
 if.then:                                          ; preds = %entry
-  %haltonIndex = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %1 = load i64, ptr %haltonIndex, align 8
+  %1 = load i64, ptr %haltonIndex9, align 8
   %idxprom.i = sext i32 %dimension to i64
   %arrayidx.i = getelementptr inbounds [1000 x i32], ptr @_ZN4pbrt6PrimesE, i64 0, i64 %idxprom.i
   %2 = load i32, ptr %arrayidx.i, align 4
@@ -7145,8 +7145,7 @@ while.body.lr.ph.i:                               ; preds = %if.then4
   %ptr.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %8 = load ptr, ptr %ptr.i, align 8
   %arrayidx.i5 = getelementptr inbounds %"class.pbrt::DigitPermutation", ptr %8, i64 %conv
-  %haltonIndex5 = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %9 = load i64, ptr %haltonIndex5, align 8
+  %9 = load i64, ptr %haltonIndex9, align 8
   %permutations.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i5, i64 8
   %10 = load ptr, ptr %permutations.i.i, align 8
   %11 = load i32, ptr %arrayidx.i5, align 8
@@ -7190,7 +7189,6 @@ _ZN4pbrt23ScrambledRadicalInverseEimRKNS_16DigitPermutationE.exit: ; preds = %if
   br label %return
 
 do.end:                                           ; preds = %entry
-  %haltonIndex9 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %16 = load i64, ptr %haltonIndex9, align 8
   %shl = shl i32 %dimension, 4
   %add = or disjoint i32 %shl, 1

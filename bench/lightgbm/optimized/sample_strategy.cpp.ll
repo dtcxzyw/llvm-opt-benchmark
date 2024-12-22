@@ -1949,58 +1949,61 @@ define internal void @_ZN8LightGBM23ParallelPartitionRunnerIiLb0EE3RunILb1EEEiiR
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZSt6copy_nIPiiS0_ET1_T_T0_S1_.exit26
   %indvars.iv = phi i64 [ %27, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZSt6copy_nIPiiS0_ET1_T_T0_S1_.exit26 ]
-  %28 = load ptr, ptr %21, align 8
-  %29 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv
-  %30 = load i32, ptr %29, align 4
-  %31 = icmp slt i32 %30, 1
-  br i1 %31, label %_ZSt6copy_nIPiiS0_ET1_T_T0_S1_.exit, label %_ZSt8__copy_nIPiiS0_ET1_T_T0_S1_St26random_access_iterator_tag.exit.i
+  %28 = load ptr, ptr %19, align 8
+  %29 = load ptr, ptr %20, align 8
+  %30 = load ptr, ptr %21, align 8
+  %31 = getelementptr inbounds i32, ptr %30, i64 %indvars.iv
+  %32 = load i32, ptr %31, align 4
+  %33 = icmp slt i32 %32, 1
+  br i1 %33, label %_ZSt6copy_nIPiiS0_ET1_T_T0_S1_.exit, label %_ZSt8__copy_nIPiiS0_ET1_T_T0_S1_St26random_access_iterator_tag.exit.i
 
 _ZSt8__copy_nIPiiS0_ET1_T_T0_S1_St26random_access_iterator_tag.exit.i: ; preds = %.lr.ph
-  %32 = load ptr, ptr %4, align 8
-  %33 = load ptr, ptr %22, align 8
-  %34 = getelementptr inbounds i32, ptr %33, i64 %indvars.iv
-  %35 = load i32, ptr %34, align 4
-  %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds i32, ptr %32, i64 %36
-  %38 = load ptr, ptr %19, align 8
-  %39 = load ptr, ptr %20, align 8
-  %40 = getelementptr inbounds i32, ptr %39, i64 %indvars.iv
-  %41 = load i32, ptr %40, align 4
+  %34 = load ptr, ptr %22, align 8
+  %35 = load ptr, ptr %4, align 8
+  %36 = getelementptr inbounds i32, ptr %34, i64 %indvars.iv
+  %37 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv
+  %38 = load i32, ptr %36, align 4
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr inbounds i32, ptr %35, i64 %39
+  %41 = load i32, ptr %37, align 4
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds i32, ptr %38, i64 %42
-  %44 = zext nneg i32 %30 to i64
+  %43 = getelementptr inbounds i32, ptr %28, i64 %42
+  %44 = zext nneg i32 %32 to i64
   %.idx.i.i = shl nuw nsw i64 %44, 2
-  call void @llvm.memmove.p0.p0.i64(ptr align 4 %37, ptr align 4 %43, i64 %.idx.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %40, ptr align 4 %43, i64 %.idx.i.i, i1 false)
+  %.pre = load ptr, ptr %19, align 8
+  %.pre33 = load ptr, ptr %20, align 8
+  %.pre34 = load ptr, ptr %21, align 8
   br label %_ZSt6copy_nIPiiS0_ET1_T_T0_S1_.exit
 
 _ZSt6copy_nIPiiS0_ET1_T_T0_S1_.exit:              ; preds = %_ZSt8__copy_nIPiiS0_ET1_T_T0_S1_St26random_access_iterator_tag.exit.i, %.lr.ph
-  %45 = load ptr, ptr %23, align 8
-  %46 = getelementptr inbounds i32, ptr %45, i64 %indvars.iv
-  %47 = load i32, ptr %46, align 4
-  %48 = icmp slt i32 %47, 1
-  br i1 %48, label %_ZSt6copy_nIPiiS0_ET1_T_T0_S1_.exit26, label %_ZSt8__copy_nIPiiS0_ET1_T_T0_S1_St26random_access_iterator_tag.exit.i23
+  %45 = phi ptr [ %.pre34, %_ZSt8__copy_nIPiiS0_ET1_T_T0_S1_St26random_access_iterator_tag.exit.i ], [ %30, %.lr.ph ]
+  %46 = phi ptr [ %.pre33, %_ZSt8__copy_nIPiiS0_ET1_T_T0_S1_St26random_access_iterator_tag.exit.i ], [ %29, %.lr.ph ]
+  %47 = phi ptr [ %.pre, %_ZSt8__copy_nIPiiS0_ET1_T_T0_S1_St26random_access_iterator_tag.exit.i ], [ %28, %.lr.ph ]
+  %48 = load ptr, ptr %23, align 8
+  %49 = getelementptr inbounds i32, ptr %48, i64 %indvars.iv
+  %50 = load i32, ptr %49, align 4
+  %51 = icmp slt i32 %50, 1
+  br i1 %51, label %_ZSt6copy_nIPiiS0_ET1_T_T0_S1_.exit26, label %_ZSt8__copy_nIPiiS0_ET1_T_T0_S1_St26random_access_iterator_tag.exit.i23
 
 _ZSt8__copy_nIPiiS0_ET1_T_T0_S1_St26random_access_iterator_tag.exit.i23: ; preds = %_ZSt6copy_nIPiiS0_ET1_T_T0_S1_.exit
-  %49 = load ptr, ptr %5, align 8
-  %50 = load ptr, ptr %24, align 8
-  %51 = getelementptr inbounds i32, ptr %50, i64 %indvars.iv
-  %52 = load i32, ptr %51, align 4
-  %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds i32, ptr %49, i64 %53
-  %55 = load ptr, ptr %19, align 8
-  %56 = load ptr, ptr %20, align 8
-  %57 = getelementptr inbounds i32, ptr %56, i64 %indvars.iv
-  %58 = load i32, ptr %57, align 4
+  %52 = load ptr, ptr %24, align 8
+  %53 = load ptr, ptr %5, align 8
+  %54 = getelementptr inbounds i32, ptr %46, i64 %indvars.iv
+  %55 = load i32, ptr %54, align 4
+  %56 = getelementptr inbounds i32, ptr %52, i64 %indvars.iv
+  %57 = getelementptr inbounds i32, ptr %45, i64 %indvars.iv
+  %58 = load i32, ptr %56, align 4
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds i32, ptr %55, i64 %59
-  %61 = load ptr, ptr %21, align 8
-  %62 = getelementptr inbounds i32, ptr %61, i64 %indvars.iv
-  %63 = load i32, ptr %62, align 4
+  %60 = getelementptr inbounds i32, ptr %53, i64 %59
+  %61 = sext i32 %55 to i64
+  %62 = getelementptr inbounds i32, ptr %47, i64 %61
+  %63 = load i32, ptr %57, align 4
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds i32, ptr %60, i64 %64
-  %66 = zext nneg i32 %47 to i64
+  %65 = getelementptr inbounds i32, ptr %62, i64 %64
+  %66 = zext nneg i32 %50 to i64
   %.idx.i.i24 = shl nuw nsw i64 %66, 2
-  call void @llvm.memmove.p0.p0.i64(ptr align 4 %54, ptr align 4 %65, i64 %.idx.i.i24, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %60, ptr align 4 %65, i64 %.idx.i.i24, i1 false)
   br label %_ZSt6copy_nIPiiS0_ET1_T_T0_S1_.exit26
 
 _ZSt6copy_nIPiiS0_ET1_T_T0_S1_.exit26:            ; preds = %_ZSt8__copy_nIPiiS0_ET1_T_T0_S1_St26random_access_iterator_tag.exit.i23, %_ZSt6copy_nIPiiS0_ET1_T_T0_S1_.exit
@@ -2011,11 +2014,11 @@ _ZSt6copy_nIPiiS0_ET1_T_T0_S1_.exit26:            ; preds = %_ZSt8__copy_nIPiiS0
   br i1 %.not22.not, label %.lr.ph, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %_ZSt6copy_nIPiiS0_ET1_T_T0_S1_.exit26
-  %.pre = load i32, ptr %7, align 4
+  %.pre35 = load i32, ptr %7, align 4
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %69 = phi i32 [ %26, %.preheader ], [ %.pre, %._crit_edge.loopexit ]
+  %69 = phi i32 [ %26, %.preheader ], [ %.pre35, %._crit_edge.loopexit ]
   %.lcssa = phi i32 [ %25, %.preheader ], [ %67, %._crit_edge.loopexit ]
   %70 = load i32, ptr %9, align 4
   %71 = add nsw i32 %70, %69

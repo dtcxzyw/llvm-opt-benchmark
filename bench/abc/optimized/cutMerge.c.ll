@@ -70,11 +70,11 @@ define noundef ptr @Cut_CutMergeTwo2(ptr noundef %0, ptr nocapture noundef reado
   br label %.loopexit.sink.split
 
 30:                                               ; preds = %3
-  %.not = icmp ult i32 %8, 268435456
   br i1 %10, label %.preheader166, label %.preheader173
 
 .preheader173:                                    ; preds = %30
-  br i1 %.not, label %._crit_edge, label %.preheader172.lr.ph
+  %.not199 = icmp ult i32 %8, 268435456
+  br i1 %.not199, label %._crit_edge, label %.preheader172.lr.ph
 
 .preheader172.lr.ph:                              ; preds = %.preheader173
   %.promoted179 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Cut_CutMergeTwo2.M, i64 8), align 8
@@ -88,6 +88,7 @@ define noundef ptr @Cut_CutMergeTwo2(ptr noundef %0, ptr nocapture noundef reado
   br label %.preheader172
 
 .preheader166:                                    ; preds = %30
+  %.not = icmp ult i32 %8, 268435456
   br i1 %.not, label %._crit_edge188, label %.preheader165.lr.ph
 
 .preheader165.lr.ph:                              ; preds = %.preheader166

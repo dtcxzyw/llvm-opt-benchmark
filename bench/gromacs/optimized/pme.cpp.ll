@@ -9354,15 +9354,17 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit247: ; preds = %1049, 
   %1098 = add nsw i32 %1096, -1
   %1099 = zext i32 %1098 to i64
   %1100 = icmp eq i64 %indvars.iv458, %1099
-  %.val = load ptr, ptr %1090, align 8
-  %.not397 = icmp eq ptr %.val, null
   br i1 %1100, label %1101, label %.thread
 
 1101:                                             ; preds = %1095
+  %.val = load ptr, ptr %1090, align 8
+  %.not397 = icmp eq ptr %.val, null
   br i1 %.not397, label %1121, label %1110
 
 .thread:                                          ; preds = %1095
-  br i1 %.not397, label %1121, label %.thread391
+  %.val386 = load ptr, ptr %1090, align 8
+  %.not396 = icmp eq ptr %.val386, null
+  br i1 %.not396, label %1121, label %.thread391
 
 .thread391:                                       ; preds = %.thread
   %1102 = getelementptr inbounds nuw i8, ptr %1097, i64 440

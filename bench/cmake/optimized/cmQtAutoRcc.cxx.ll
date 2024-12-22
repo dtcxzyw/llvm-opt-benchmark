@@ -3448,6 +3448,7 @@ _ZN12_GLOBAL__N_112cmQtAutoRccT11GenerateRccEv.exit.thread: ; preds = %660
           to label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit.i unwind label %732
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit.i: ; preds = %670
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %671, i64 0) ]
   %.pre68.i = load ptr, ptr %42, align 8
   %.pre67.i = load ptr, ptr %135, align 8
   %.pre65.i = load ptr, ptr %133, align 8

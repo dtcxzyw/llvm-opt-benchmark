@@ -1383,9 +1383,11 @@ if.end86:                                         ; preds = %if.end72
 
 if.then.i.i113:                                   ; preds = %if.end86
   call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(48) %str8, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef %add, i64 noundef 1) #10
+  %.pre.i = load ptr, ptr %str8, align 8
   br label %if.end.i.i112
 
 if.end.i.i112:                                    ; preds = %if.then.i.i113, %if.end86
+  %44 = phi ptr [ %.pre.i, %if.then.i.i113 ], [ %add.ptr.i.i.i.i.i, %if.end86 ]
   %conv.i3.i.i = trunc i64 %add to i32
   store i32 %conv.i3.i.i, ptr %Size.i.i.i.i.i, align 8
   %conv.i4.i.i = and i64 %add, 4294967295
@@ -1393,7 +1395,6 @@ if.end.i.i112:                                    ; preds = %if.then.i.i113, %if
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN4llvh11SmallVectorIcLj32EEC2EmRKc.exit, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.end.i.i112
-  %44 = load ptr, ptr %str8, align 8
   call void @llvm.memset.p0.i64(ptr align 1 %44, i8 0, i64 %conv.i4.i.i, i1 false)
   br label %_ZN4llvh11SmallVectorIcLj32EEC2EmRKc.exit
 

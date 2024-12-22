@@ -3451,6 +3451,7 @@ sw.bb47.i:                                        ; preds = %if.else12.i, %if.th
   br i1 %tobool50.not.i, label %if.then1680, label %if.end52.i
 
 if.end52.i:                                       ; preds = %sw.bb47.i
+  %height58.i = getelementptr inbounds nuw i8, ptr %ref.tmp1674, i64 12
   switch i32 %format.2, label %default.unreachable1897 [
     i32 6, label %if.then54.i
     i32 7, label %if.then63.i
@@ -3459,7 +3460,6 @@ if.end52.i:                                       ; preds = %sw.bb47.i
 
 if.then54.i:                                      ; preds = %if.end52.i
   %309 = load i32, ptr %279, align 8
-  %height58.i = getelementptr inbounds nuw i8, ptr %ref.tmp1674, i64 12
   %310 = load i32, ptr %height58.i, align 4
   %mul59.i = mul nsw i32 %310, %309
   %cmp2.i.i = icmp sgt i32 %mul59.i, 0
@@ -3488,8 +3488,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
 if.then63.i:                                      ; preds = %if.end52.i
   %315 = load ptr, ptr %ref.tmp1674, align 8
   %316 = load i32, ptr %279, align 8
-  %height67.i = getelementptr inbounds nuw i8, ptr %ref.tmp1674, i64 12
-  %317 = load i32, ptr %height67.i, align 4
+  %317 = load i32, ptr %height58.i, align 4
   %mul68.i = mul nsw i32 %317, %316
   %conv.i143.i = sext i32 %mul68.i to i64
   %call.i144.i = call i64 @fwrite(ptr noundef %315, i64 noundef 4, i64 noundef %conv.i143.i, ptr noundef nonnull %call49.i)
@@ -3497,8 +3496,7 @@ if.then63.i:                                      ; preds = %if.end52.i
 
 if.then72.i:                                      ; preds = %if.end52.i
   %318 = load i32, ptr %279, align 8
-  %height76.i = getelementptr inbounds nuw i8, ptr %ref.tmp1674, i64 12
-  %319 = load i32, ptr %height76.i, align 4
+  %319 = load i32, ptr %height58.i, align 4
   %mul77.i = mul nsw i32 %319, %318
   %cmp5.i145.i = icmp sgt i32 %mul77.i, 0
   br i1 %cmp5.i145.i, label %for.body.i146.preheader.i, label %if.end1683.sink.split
@@ -4072,6 +4070,7 @@ sw.bb47.i968:                                     ; preds = %if.else12.i1165, %i
   br i1 %tobool50.not.i970, label %if.then1764, label %if.end52.i971
 
 if.end52.i971:                                    ; preds = %sw.bb47.i968
+  %height58.i1004 = getelementptr inbounds nuw i8, ptr %ref.tmp1758, i64 12
   switch i32 %format.8, label %default.unreachable1899 [
     i32 6, label %if.then54.i1002
     i32 7, label %if.then63.i996
@@ -4081,7 +4080,6 @@ if.end52.i971:                                    ; preds = %sw.bb47.i968
 if.then54.i1002:                                  ; preds = %if.end52.i971
   %378 = load i32, ptr %348, align 8
   %mul57.i = mul nsw i32 %378, 3
-  %height58.i1004 = getelementptr inbounds nuw i8, ptr %ref.tmp1758, i64 12
   %379 = load i32, ptr %height58.i1004, align 4
   %mul59.i1005 = mul nsw i32 %mul57.i, %379
   %cmp2.i.i1006 = icmp sgt i32 %mul59.i1005, 0
@@ -4111,8 +4109,7 @@ if.then63.i996:                                   ; preds = %if.end52.i971
   %384 = load ptr, ptr %ref.tmp1758, align 8
   %385 = load i32, ptr %348, align 8
   %mul66.i = mul nsw i32 %385, 3
-  %height67.i998 = getelementptr inbounds nuw i8, ptr %ref.tmp1758, i64 12
-  %386 = load i32, ptr %height67.i998, align 4
+  %386 = load i32, ptr %height58.i1004, align 4
   %mul68.i999 = mul nsw i32 %mul66.i, %386
   %conv.i143.i1000 = sext i32 %mul68.i999 to i64
   %call.i144.i1001 = call i64 @fwrite(ptr noundef %384, i64 noundef 4, i64 noundef %conv.i143.i1000, ptr noundef nonnull %call49.i969)
@@ -4121,8 +4118,7 @@ if.then63.i996:                                   ; preds = %if.end52.i971
 if.then72.i972:                                   ; preds = %if.end52.i971
   %387 = load i32, ptr %348, align 8
   %mul75.i = mul nsw i32 %387, 3
-  %height76.i974 = getelementptr inbounds nuw i8, ptr %ref.tmp1758, i64 12
-  %388 = load i32, ptr %height76.i974, align 4
+  %388 = load i32, ptr %height58.i1004, align 4
   %mul77.i975 = mul nsw i32 %mul75.i, %388
   %cmp5.i145.i976 = icmp sgt i32 %mul77.i975, 0
   br i1 %cmp5.i145.i976, label %for.body.i146.preheader.i980, label %if.end1767.sink.split
@@ -4698,6 +4694,7 @@ sw.bb47.i1298:                                    ; preds = %if.else12.i1499, %i
   br i1 %tobool50.not.i1300, label %if.then1850, label %if.end52.i1301
 
 if.end52.i1301:                                   ; preds = %sw.bb47.i1298
+  %height58.i1337 = getelementptr inbounds nuw i8, ptr %ref.tmp1844, i64 12
   switch i32 %format.14, label %default.unreachable1901 [
     i32 6, label %if.then54.i1334
     i32 7, label %if.then63.i1327
@@ -4707,7 +4704,6 @@ if.end52.i1301:                                   ; preds = %sw.bb47.i1298
 if.then54.i1334:                                  ; preds = %if.end52.i1301
   %447 = load i32, ptr %417, align 8
   %mul57.i1336 = shl nsw i32 %447, 2
-  %height58.i1337 = getelementptr inbounds nuw i8, ptr %ref.tmp1844, i64 12
   %448 = load i32, ptr %height58.i1337, align 4
   %mul59.i1338 = mul nsw i32 %mul57.i1336, %448
   %cmp2.i.i1339 = icmp sgt i32 %mul59.i1338, 0
@@ -4737,8 +4733,7 @@ if.then63.i1327:                                  ; preds = %if.end52.i1301
   %453 = load ptr, ptr %ref.tmp1844, align 8
   %454 = load i32, ptr %417, align 8
   %mul66.i1329 = shl nsw i32 %454, 2
-  %height67.i1330 = getelementptr inbounds nuw i8, ptr %ref.tmp1844, i64 12
-  %455 = load i32, ptr %height67.i1330, align 4
+  %455 = load i32, ptr %height58.i1337, align 4
   %mul68.i1331 = mul nsw i32 %mul66.i1329, %455
   %conv.i143.i1332 = sext i32 %mul68.i1331 to i64
   %call.i144.i1333 = call i64 @fwrite(ptr noundef %453, i64 noundef 4, i64 noundef %conv.i143.i1332, ptr noundef nonnull %call49.i1299)
@@ -4747,8 +4742,7 @@ if.then63.i1327:                                  ; preds = %if.end52.i1301
 if.then72.i1302:                                  ; preds = %if.end52.i1301
   %456 = load i32, ptr %417, align 8
   %mul75.i1304 = shl nsw i32 %456, 2
-  %height76.i1305 = getelementptr inbounds nuw i8, ptr %ref.tmp1844, i64 12
-  %457 = load i32, ptr %height76.i1305, align 4
+  %457 = load i32, ptr %height58.i1337, align 4
   %mul77.i1306 = mul nsw i32 %mul75.i1304, %457
   %cmp5.i145.i1307 = icmp sgt i32 %mul77.i1306, 0
   br i1 %cmp5.i145.i1307, label %for.body.i146.preheader.i1311, label %if.end1853.sink.split

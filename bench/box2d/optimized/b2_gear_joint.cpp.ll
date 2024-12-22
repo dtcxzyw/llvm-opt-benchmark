@@ -59,6 +59,7 @@ entry:
   %m_bodyA = getelementptr inbounds nuw i8, ptr %this, i64 96
   store ptr %5, ptr %m_bodyA, align 8
   %cmp = icmp eq i32 %2, 1
+  %m_localAxisC25 = getelementptr inbounds nuw i8, ptr %this, i64 200
   br i1 %cmp, label %if.then, label %invoke.cont52
 
 if.then:                                          ; preds = %entry
@@ -79,7 +80,6 @@ if.then:                                          ; preds = %entry
   %11 = load float, ptr %m_referenceAngle, align 4
   %m_referenceAngleA = getelementptr inbounds nuw i8, ptr %this, i64 216
   store float %11, ptr %m_referenceAngleA, align 8
-  %m_localAxisC25 = getelementptr inbounds nuw i8, ptr %this, i64 200
   store float 0.000000e+00, ptr %m_localAxisC25, align 8
   %y.i = getelementptr inbounds nuw i8, ptr %this, i64 204
   store float 0.000000e+00, ptr %y.i, align 4
@@ -90,19 +90,19 @@ if.then:                                          ; preds = %entry
 invoke.cont52:                                    ; preds = %entry
   %xfC.sroa.4.0.m_xf15.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   %xfC.sroa.4.0.copyload = load float, ptr %xfC.sroa.4.0.m_xf15.sroa_idx, align 4
-  %m_xf15 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %xfC.sroa.3.0.m_xf15.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 20
   %xfC.sroa.3.0.copyload = load float, ptr %xfC.sroa.3.0.m_xf15.sroa_idx, align 4
   %xfC.sroa.2.0.m_xf15.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   %xfC.sroa.2.0.copyload = load float, ptr %xfC.sroa.2.0.m_xf15.sroa_idx, align 4
+  %m_xf15 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %xfC.sroa.0.0.copyload = load float, ptr %m_xf15, align 4
   %xfA.sroa.4.0.m_xf.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
   %xfA.sroa.4.0.copyload = load float, ptr %xfA.sroa.4.0.m_xf.sroa_idx, align 4
-  %m_xf = getelementptr inbounds nuw i8, ptr %5, i64 12
   %xfA.sroa.3.0.m_xf.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 20
   %xfA.sroa.3.0.copyload = load float, ptr %xfA.sroa.3.0.m_xf.sroa_idx, align 4
   %xfA.sroa.2.0.m_xf.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   %xfA.sroa.2.0.copyload = load float, ptr %xfA.sroa.2.0.m_xf.sroa_idx, align 4
+  %m_xf = getelementptr inbounds nuw i8, ptr %5, i64 12
   %xfA.sroa.0.0.copyload = load float, ptr %m_xf, align 4
   %12 = load ptr, ptr %joint1, align 8
   %m_localAnchorA30 = getelementptr inbounds nuw i8, ptr %12, i64 128
@@ -118,9 +118,8 @@ invoke.cont52:                                    ; preds = %entry
   %m_referenceAngleA35 = getelementptr inbounds nuw i8, ptr %this, i64 216
   store float %15, ptr %m_referenceAngleA35, align 8
   %m_localXAxisA = getelementptr inbounds nuw i8, ptr %12, i64 144
-  %m_localAxisC36 = getelementptr inbounds nuw i8, ptr %this, i64 200
   %16 = load i64, ptr %m_localXAxisA, align 8
-  store i64 %16, ptr %m_localAxisC36, align 8
+  store i64 %16, ptr %m_localAxisC25, align 8
   %17 = trunc i64 %13 to i32
   %18 = bitcast i32 %17 to float
   %19 = lshr i64 %13, 32
@@ -170,6 +169,7 @@ if.end:                                           ; preds = %invoke.cont52, %if.
   %m_bodyB = getelementptr inbounds nuw i8, ptr %this, i64 104
   store ptr %40, ptr %m_bodyB, align 8
   %cmp75 = icmp eq i32 %3, 1
+  %m_localAxisD84 = getelementptr inbounds nuw i8, ptr %this, i64 208
   br i1 %cmp75, label %if.then76, label %invoke.cont118
 
 if.then76:                                        ; preds = %if.end
@@ -190,7 +190,6 @@ if.then76:                                        ; preds = %if.end
   %46 = load float, ptr %m_referenceAngle83, align 4
   %m_referenceAngleB = getelementptr inbounds nuw i8, ptr %this, i64 220
   store float %46, ptr %m_referenceAngleB, align 4
-  %m_localAxisD84 = getelementptr inbounds nuw i8, ptr %this, i64 208
   store float 0.000000e+00, ptr %m_localAxisD84, align 8
   %y.i42 = getelementptr inbounds nuw i8, ptr %this, i64 212
   store float 0.000000e+00, ptr %y.i42, align 4
@@ -201,19 +200,19 @@ if.then76:                                        ; preds = %if.end
 invoke.cont118:                                   ; preds = %if.end
   %xfD.sroa.4.0.m_xf70.sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 24
   %xfD.sroa.4.0.copyload = load float, ptr %xfD.sroa.4.0.m_xf70.sroa_idx, align 4
-  %m_xf70 = getelementptr inbounds nuw i8, ptr %39, i64 12
   %xfD.sroa.3.0.m_xf70.sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 20
   %xfD.sroa.3.0.copyload = load float, ptr %xfD.sroa.3.0.m_xf70.sroa_idx, align 4
   %xfD.sroa.2.0.m_xf70.sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 16
   %xfD.sroa.2.0.copyload = load float, ptr %xfD.sroa.2.0.m_xf70.sroa_idx, align 4
+  %m_xf70 = getelementptr inbounds nuw i8, ptr %39, i64 12
   %xfD.sroa.0.0.copyload = load float, ptr %m_xf70, align 4
   %xfB.sroa.4.0.m_xf65.sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 24
   %xfB.sroa.4.0.copyload = load float, ptr %xfB.sroa.4.0.m_xf65.sroa_idx, align 4
-  %m_xf65 = getelementptr inbounds nuw i8, ptr %40, i64 12
   %xfB.sroa.3.0.m_xf65.sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 20
   %xfB.sroa.3.0.copyload = load float, ptr %xfB.sroa.3.0.m_xf65.sroa_idx, align 4
   %xfB.sroa.2.0.m_xf65.sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 16
   %xfB.sroa.2.0.copyload = load float, ptr %xfB.sroa.2.0.m_xf65.sroa_idx, align 4
+  %m_xf65 = getelementptr inbounds nuw i8, ptr %40, i64 12
   %xfB.sroa.0.0.copyload = load float, ptr %m_xf65, align 4
   %47 = load ptr, ptr %joint2, align 8
   %m_localAnchorA92 = getelementptr inbounds nuw i8, ptr %47, i64 128
@@ -229,9 +228,8 @@ invoke.cont118:                                   ; preds = %if.end
   %m_referenceAngleB97 = getelementptr inbounds nuw i8, ptr %this, i64 220
   store float %50, ptr %m_referenceAngleB97, align 4
   %m_localXAxisA98 = getelementptr inbounds nuw i8, ptr %47, i64 144
-  %m_localAxisD99 = getelementptr inbounds nuw i8, ptr %this, i64 208
   %51 = load i64, ptr %m_localXAxisA98, align 8
-  store i64 %51, ptr %m_localAxisD99, align 8
+  store i64 %51, ptr %m_localAxisD84, align 8
   %52 = trunc i64 %48 to i32
   %53 = bitcast i32 %52 to float
   %54 = lshr i64 %48, 32

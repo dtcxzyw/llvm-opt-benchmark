@@ -309,6 +309,7 @@ agxblen.exit.i57:                                 ; preds = %121
 
 agxbdisown.exit59:                                ; preds = %agxblen.exit.i57, %131
   %.0.i58 = phi ptr [ %132, %131 ], [ %125, %agxblen.exit.i57 ]
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   %133 = load i64, ptr %13, align 8
   %134 = add i64 %133, 1
   %135 = load ptr, ptr %12, align 8
@@ -1221,11 +1222,11 @@ define void @emit_label(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_un
 
 .lr.ph:                                           ; preds = %43
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 344
-  %46 = load i16, ptr %45, align 8
-  %47 = and i16 %46, 512
-  %.not = icmp eq i16 %47, 0
-  %48 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %49 = load double, ptr %48, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %47 = load i16, ptr %45, align 8
+  %48 = and i16 %47, 512
+  %.not = icmp eq i16 %48, 0
+  %49 = load double, ptr %46, align 8
   %50 = fsub double %.sink, %49
   %51 = fsub double %50, %24
   %.sroa.4.1 = select i1 %.not, double %50, double %51

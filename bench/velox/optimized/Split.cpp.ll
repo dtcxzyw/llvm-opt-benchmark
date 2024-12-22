@@ -12061,8 +12061,10 @@ while.body:                                       ; preds = %_ZN8facebook5velox1
   br i1 %cmp.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.body
+  %cmp4.not.i.i.not = icmp eq i64 %sinput.sroa.0.0, 0
   %cmp11.not20.i.i = icmp ult i64 %sinput.sroa.0.0, %conv.i12
-  br i1 %cmp11.not20.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit, label %while.body.lr.ph.i.i
+  %or.cond = select i1 %cmp4.not.i.i.not, i1 true, i1 %cmp11.not20.i.i
+  br i1 %or.cond, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %if.end.i.i
   %add.ptr9.i.i = getelementptr inbounds i8, ptr %sinput.sroa.6.0, i64 %sinput.sroa.0.0
@@ -12543,8 +12545,10 @@ while.body:                                       ; preds = %_ZN8facebook5velox1
   br i1 %cmp.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.body
+  %cmp4.not.i.i.not = icmp eq i64 %sinput.sroa.0.0, 0
   %cmp11.not20.i.i = icmp ult i64 %sinput.sroa.0.0, %conv.i26
-  br i1 %cmp11.not20.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit, label %while.body.lr.ph.i.i
+  %or.cond = select i1 %cmp4.not.i.i.not, i1 true, i1 %cmp11.not20.i.i
+  br i1 %or.cond, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %if.end.i.i
   %add.ptr9.i.i = getelementptr inbounds i8, ptr %sinput.sroa.6.0, i64 %sinput.sroa.0.0
@@ -13185,8 +13189,10 @@ while.body:                                       ; preds = %_ZN8facebook5velox1
   br i1 %cmp.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.body
+  %cmp4.not.i.i.not = icmp eq i64 %sinput.sroa.0.0, 0
   %cmp11.not20.i.i = icmp ult i64 %sinput.sroa.0.0, %conv.i12
-  br i1 %cmp11.not20.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit, label %while.body.lr.ph.i.i
+  %or.cond = select i1 %cmp4.not.i.i.not, i1 true, i1 %cmp11.not20.i.i
+  br i1 %or.cond, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %if.end.i.i
   %add.ptr9.i.i = getelementptr inbounds i8, ptr %sinput.sroa.6.0, i64 %sinput.sroa.0.0
@@ -13658,8 +13664,10 @@ while.body:                                       ; preds = %_ZN8facebook5velox1
   br i1 %cmp.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.body
+  %cmp4.not.i.i.not = icmp eq i64 %sinput.sroa.0.0, 0
   %cmp11.not20.i.i = icmp ult i64 %sinput.sroa.0.0, %conv.i26
-  br i1 %cmp11.not20.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit, label %while.body.lr.ph.i.i
+  %or.cond = select i1 %cmp4.not.i.i.not, i1 true, i1 %cmp11.not20.i.i
+  br i1 %or.cond, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %if.end.i.i
   %add.ptr9.i.i = getelementptr inbounds i8, ptr %sinput.sroa.6.0, i64 %sinput.sroa.0.0

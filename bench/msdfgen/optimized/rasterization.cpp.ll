@@ -290,20 +290,20 @@ call5.i.i.i.i.i.noexc.i:                          ; preds = %_ZNKSt6vectorIcSaIc
   store i8 0, ptr %call5.i.i.i.i.i62.i, align 1
   %sub.i.i.i23.i.i.i = add nsw i64 %conv.i, -1
   %cmp.i.i.i.i.i24.i.i.i = icmp eq i64 %sub.i.i.i23.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i24.i.i.i, label %invoke.cont.i, label %if.then.i.i.i.i.i.i.i25.i.i.i
+  br i1 %cmp.i.i.i.i.i24.i.i.i, label %invoke.cont.i, label %if.end.i.i.i.i.i25.i.i.i
 
-if.then.i.i.i.i.i.i.i25.i.i.i:                    ; preds = %call5.i.i.i.i.i.noexc.i
+if.end.i.i.i.i.i25.i.i.i:                         ; preds = %call5.i.i.i.i.i.noexc.i
   %incdec.ptr.i.i.i22.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i62.i, i64 1
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr.i.i.i22.i.i.i, i8 0, i64 %sub.i.i.i23.i.i.i, i1 false)
   br label %invoke.cont.i
 
-invoke.cont.i:                                    ; preds = %if.then.i.i.i.i.i.i.i25.i.i.i, %call5.i.i.i.i.i.noexc.i
+invoke.cont.i:                                    ; preds = %if.end.i.i.i.i.i25.i.i.i, %call5.i.i.i.i.i.noexc.i
   store ptr %call5.i.i.i.i.i62.i, ptr %matchMap.i, align 8
   %add.ptr36.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i62.i, i64 %conv.i
   store ptr %add.ptr36.i.i.i, ptr %_M_finish.i.i.i, align 8
   store ptr %add.ptr36.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   %cmp90.i = icmp sgt i32 %1, 0
-  br i1 %cmp90.i, label %for.body.lr.ph.i, label %if.then.i.i.i72.i
+  br i1 %cmp90.i, label %for.body.lr.ph.i, label %if.end117.i
 
 for.body.lr.ph.i:                                 ; preds = %invoke.cont.i
   %inverseYAxis.i = getelementptr inbounds nuw i8, ptr %shape, i64 24
@@ -623,13 +623,12 @@ if.end109.us.us.i:                                ; preds = %if.then95.us.us.i, 
   %exitcond156.not.i = icmp eq i32 %inc112.us.us.i, %.fr.i
   br i1 %exitcond156.not.i, label %for.cond63.for.inc114_crit_edge.us.i, label %for.body65.us.us.i, !llvm.loop !12
 
-if.end117.i:                                      ; preds = %for.cond8.preheader.i, %for.cond63.for.inc114_crit_edge.us.i, %for.end45.i
-  %.pr.i = load ptr, ptr %matchMap.i, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %.pr.i, null
+if.end117.i:                                      ; preds = %for.cond8.preheader.i, %for.cond63.for.inc114_crit_edge.us.i, %for.end45.i, %invoke.cont.i
+  %33 = load ptr, ptr %matchMap.i, align 8
+  %tobool.not.i.i.i.i = icmp eq ptr %33, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIcSaIcEED2Ev.exit.i, label %if.then.i.i.i72.i
 
-if.then.i.i.i72.i:                                ; preds = %if.end117.i, %invoke.cont.i
-  %33 = phi ptr [ %.pr.i, %if.end117.i ], [ %call5.i.i.i.i.i62.i, %invoke.cont.i ]
+if.then.i.i.i72.i:                                ; preds = %if.end117.i
   call void @_ZdlPv(ptr noundef nonnull %33) #9
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit.i
 
@@ -690,20 +689,20 @@ call5.i.i.i.i.i.noexc.i:                          ; preds = %_ZNKSt6vectorIcSaIc
   store i8 0, ptr %call5.i.i.i.i.i66.i, align 1
   %sub.i.i.i23.i.i.i = add nsw i64 %conv.i, -1
   %cmp.i.i.i.i.i24.i.i.i = icmp eq i64 %sub.i.i.i23.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i24.i.i.i, label %invoke.cont.i, label %if.then.i.i.i.i.i.i.i25.i.i.i
+  br i1 %cmp.i.i.i.i.i24.i.i.i, label %invoke.cont.i, label %if.end.i.i.i.i.i25.i.i.i
 
-if.then.i.i.i.i.i.i.i25.i.i.i:                    ; preds = %call5.i.i.i.i.i.noexc.i
+if.end.i.i.i.i.i25.i.i.i:                         ; preds = %call5.i.i.i.i.i.noexc.i
   %incdec.ptr.i.i.i22.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i66.i, i64 1
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr.i.i.i22.i.i.i, i8 0, i64 %sub.i.i.i23.i.i.i, i1 false)
   br label %invoke.cont.i
 
-invoke.cont.i:                                    ; preds = %if.then.i.i.i.i.i.i.i25.i.i.i, %call5.i.i.i.i.i.noexc.i
+invoke.cont.i:                                    ; preds = %if.end.i.i.i.i.i25.i.i.i, %call5.i.i.i.i.i.noexc.i
   store ptr %call5.i.i.i.i.i66.i, ptr %matchMap.i, align 8
   %add.ptr36.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i66.i, i64 %conv.i
   store ptr %add.ptr36.i.i.i, ptr %_M_finish.i.i.i, align 8
   store ptr %add.ptr36.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   %cmp94.i = icmp sgt i32 %1, 0
-  br i1 %cmp94.i, label %for.body.lr.ph.i, label %if.then.i.i.i76.i
+  br i1 %cmp94.i, label %for.body.lr.ph.i, label %if.end128.i
 
 for.body.lr.ph.i:                                 ; preds = %invoke.cont.i
   %inverseYAxis.i = getelementptr inbounds nuw i8, ptr %shape, i64 24
@@ -1035,13 +1034,12 @@ if.end120.us.us.i:                                ; preds = %if.then106.us.us.i,
   %exitcond160.not.i = icmp eq i32 %inc123.us.us.i, %.fr.i
   br i1 %exitcond160.not.i, label %for.cond74.for.inc125_crit_edge.us.i, label %for.body76.us.us.i, !llvm.loop !16
 
-if.end128.i:                                      ; preds = %for.cond8.preheader.i, %for.cond74.for.inc125_crit_edge.us.i, %for.end56.i
-  %.pr.i = load ptr, ptr %matchMap.i, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %.pr.i, null
+if.end128.i:                                      ; preds = %for.cond8.preheader.i, %for.cond74.for.inc125_crit_edge.us.i, %for.end56.i, %invoke.cont.i
+  %35 = load ptr, ptr %matchMap.i, align 8
+  %tobool.not.i.i.i.i = icmp eq ptr %35, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIcSaIcEED2Ev.exit.i, label %if.then.i.i.i76.i
 
-if.then.i.i.i76.i:                                ; preds = %if.end128.i, %invoke.cont.i
-  %35 = phi ptr [ %.pr.i, %if.end128.i ], [ %call5.i.i.i.i.i66.i, %invoke.cont.i ]
+if.then.i.i.i76.i:                                ; preds = %if.end128.i
   call void @_ZdlPv(ptr noundef nonnull %35) #9
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit.i
 

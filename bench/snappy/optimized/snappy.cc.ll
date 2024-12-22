@@ -2047,9 +2047,9 @@ if.end.i:                                         ; preds = %if.end11.i.i
 
 for.body.i.preheader.i.i.i:                       ; preds = %if.end.i
   %op_base_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %writer, i64 72
+  %op_ptr_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %writer, i64 80
   %10 = load ptr, ptr %op_base_.i.i.i.i.i, align 8
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %10 to i64
-  %op_ptr_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %writer, i64 80
   %11 = load ptr, ptr %op_ptr_.i.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %11 to i64
   %12 = load i64, ptr %full_size_.i, align 8
@@ -2239,16 +2239,16 @@ _ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEEC2ERKS1_.exit: ; pre
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %blocks_.i.i, i8 0, i64 48, i1 false)
   store i64 %conv, ptr %expected_.i.i, align 8
   call void @_ZN6snappy18SnappyDecompressor17DecompressAllTagsINS_21SnappyScatteredWriterINS_19SnappySinkAllocatorEEEEEvPT_(ptr noundef nonnull align 8 dereferenceable(42) %decompressor, ptr noundef nonnull %writer12)
+  %op_ptr_.i.i.i.i = getelementptr inbounds nuw i8, ptr %writer12, i64 80
+  %op_base_.i.i.i.i = getelementptr inbounds nuw i8, ptr %writer12, i64 72
   %16 = load ptr, ptr %blocks_.i.i, align 8
   %17 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %cmp.i.not9.i.i.i = icmp eq ptr %16, %17
   br i1 %cmp.i.not9.i.i.i, label %_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE5FlushEv.exit.i, label %for.body.i.preheader.i.i
 
 for.body.i.preheader.i.i:                         ; preds = %_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEEC2ERKS1_.exit
-  %op_base_.i.i.i.i = getelementptr inbounds nuw i8, ptr %writer12, i64 72
   %18 = load ptr, ptr %op_base_.i.i.i.i, align 8
   %sub.ptr.rhs.cast.i.i.i.i10 = ptrtoint ptr %18 to i64
-  %op_ptr_.i.i.i.i = getelementptr inbounds nuw i8, ptr %writer12, i64 80
   %19 = load ptr, ptr %op_ptr_.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i11 = ptrtoint ptr %19 to i64
   %20 = load i64, ptr %full_size_.i, align 8
@@ -2292,10 +2292,8 @@ _ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE5FlushEv.exit.i: ; p
 
 land.rhs.i14:                                     ; preds = %_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE5FlushEv.exit.i
   %29 = load i64, ptr %full_size_.i, align 8
-  %op_ptr_.i.i.i = getelementptr inbounds nuw i8, ptr %writer12, i64 80
-  %30 = load ptr, ptr %op_ptr_.i.i.i, align 8
-  %op_base_.i.i.i = getelementptr inbounds nuw i8, ptr %writer12, i64 72
-  %31 = load ptr, ptr %op_base_.i.i.i, align 8
+  %30 = load ptr, ptr %op_ptr_.i.i.i.i, align 8
+  %31 = load ptr, ptr %op_base_.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %30 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %31 to i64
   %sub.ptr.sub.i.i.i = add i64 %29, %sub.ptr.lhs.cast.i.i.i
@@ -4293,8 +4291,8 @@ if.end6:                                          ; preds = %if.end, %entry
   %ip.0 = phi ptr [ %3, %if.end ], [ %0, %entry ]
   %5 = load i8, ptr %ip.0, align 1
   %conv = zext i8 %5 to i32
-  %op_base_.i = getelementptr inbounds nuw i8, ptr %writer, i64 72
   %op_limit_min_slop_.i = getelementptr inbounds nuw i8, ptr %writer, i64 96
+  %op_base_.i = getelementptr inbounds nuw i8, ptr %writer, i64 72
   %op_limit_.i = getelementptr inbounds nuw i8, ptr %writer, i64 88
   %peeked_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   br label %for.cond

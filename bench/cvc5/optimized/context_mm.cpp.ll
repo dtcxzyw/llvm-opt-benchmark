@@ -42,7 +42,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4cvc57context20ContextMemoryManager8newChunkEv(ptr nocapture noundef nonnull align 8 dereferenceable(200) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4cvc57context20ContextMemoryManager8newChunkEv(ptr noundef nonnull align 8 dereferenceable(200) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_indexChunkList = getelementptr inbounds nuw i8, ptr %this, i64 120
   %0 = load i32, ptr %d_indexChunkList, align 8
@@ -134,11 +134,11 @@ if.then5:                                         ; preds = %_ZNSt6vectorIPcSaIS
 if.else:                                          ; preds = %entry
   %_M_first3.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %10 = load ptr, ptr %_M_first3.i.i.i, align 8, !noalias !4
+  %_M_node5.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   %cmp.i.i3 = icmp eq ptr %1, %10
   br i1 %cmp.i.i3, label %if.then.i.i5, label %_ZNSt5dequeIPcSaIS0_EE4backEv.exit
 
 if.then.i.i5:                                     ; preds = %if.else
-  %_M_node5.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   %11 = load ptr, ptr %_M_node5.i.i.i, align 8, !noalias !4
   %add.ptr.i.i6 = getelementptr inbounds i8, ptr %11, i64 -8
   %12 = load ptr, ptr %add.ptr.i.i6, align 8
@@ -225,10 +225,9 @@ if.then.i13:                                      ; preds = %_ZNSt6vectorIPcSaIS
 
 if.else.i15:                                      ; preds = %_ZNSt6vectorIPcSaIS0_EE9push_backERKS0_.exit
   tail call void @_ZdlPv(ptr noundef %22) #22
-  %_M_node.i.i = getelementptr inbounds nuw i8, ptr %this, i64 96
-  %23 = load ptr, ptr %_M_node.i.i, align 8
+  %23 = load ptr, ptr %_M_node5.i.i.i, align 8
   %add.ptr.i.i16 = getelementptr inbounds i8, ptr %23, i64 -8
-  store ptr %add.ptr.i.i16, ptr %_M_node.i.i, align 8
+  store ptr %add.ptr.i.i16, ptr %_M_node5.i.i.i, align 8
   %24 = load ptr, ptr %add.ptr.i.i16, align 8
   store ptr %24, ptr %_M_first3.i.i.i, align 8
   %add.ptr.i.i.i17 = getelementptr inbounds nuw i8, ptr %24, i64 512
@@ -466,7 +465,7 @@ _ZNSt11_Deque_baseIPcSaIS0_EED2Ev.exit:           ; preds = %entry, %_ZNSt11_Deq
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4cvc57context20ContextMemoryManagerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4cvc57context20ContextMemoryManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %this, align 8
@@ -627,7 +626,7 @@ _ZNSt6vectorIPcSaIS0_EED2Ev.exit21:               ; preds = %_ZNSt5dequeIPcSaIS0
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN4cvc57context20ContextMemoryManager7newDataEm(ptr nocapture noundef nonnull align 8 dereferenceable(200) %this, i64 noundef %size) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN4cvc57context20ContextMemoryManager7newDataEm(ptr noundef nonnull align 8 dereferenceable(200) %this, i64 noundef %size) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp11 = alloca %"class.cvc5::internal::FatalStream", align 1
   %d_nextFree = getelementptr inbounds nuw i8, ptr %this, i64 104

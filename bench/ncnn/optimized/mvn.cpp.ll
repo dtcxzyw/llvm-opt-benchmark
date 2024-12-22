@@ -339,20 +339,14 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn3MVN7forwardERKNS_3MatERS
 ._crit_edge662:                                   ; preds = %._crit_edge658
   %152 = load i32, ptr %118, align 4
   %.not617 = icmp eq i32 %152, 0
-  br i1 %.not617, label %.preheader, label %.preheader625
+  br i1 %.not617, label %.lr.ph680, label %.lr.ph665
 
-.preheader625:                                    ; preds = %._crit_edge662
-  br i1 %43, label %.critedge4, label %.lr.ph665
-
-.lr.ph665:                                        ; preds = %.preheader625
+.lr.ph665:                                        ; preds = %._crit_edge662
   %153 = load ptr, ptr %6, align 8
   %wide.trip.count731 = zext nneg i32 %12 to i64
   br label %159
 
-.preheader:                                       ; preds = %._crit_edge662
-  br i1 %43, label %.critedge4, label %.lr.ph680
-
-.lr.ph680:                                        ; preds = %.preheader
+.lr.ph680:                                        ; preds = %._crit_edge662
   %154 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %155 = sitofp i32 %15 to float
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 216
@@ -370,14 +364,14 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn3MVN7forwardERKNS_3MatERS
   %162 = fadd fast float %161, %.0399663
   %indvars.iv.next729 = add nuw nsw i64 %indvars.iv728, 1
   %exitcond732.not = icmp eq i64 %indvars.iv.next729, %wide.trip.count731
-  br i1 %exitcond732.not, label %.lr.ph674, label %159, !llvm.loop !14
+  br i1 %exitcond732.not, label %._crit_edge666, label %159, !llvm.loop !14
 
-.lr.ph674:                                        ; preds = %159
+._crit_edge666:                                   ; preds = %159
   %163 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %164 = icmp sgt i32 %15, 0
   br i1 %164, label %.lr.ph670.us.preheader, label %.critedge4
 
-.lr.ph670.us.preheader:                           ; preds = %.lr.ph674
+.lr.ph670.us.preheader:                           ; preds = %._crit_edge666
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %166 = load float, ptr %165, align 8
   %167 = mul nuw nsw i32 %12, %15
@@ -451,8 +445,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn3MVN7forwardERKNS_3MatERS
   %exitcond752.not = icmp eq i64 %indvars.iv.next749, %wide.trip.count751
   br i1 %exitcond752.not, label %.critedge4, label %183, !llvm.loop !18
 
-.critedge4:                                       ; preds = %._crit_edge671.us, %._crit_edge678, %131, %.preheader625, %.lr.ph674, %.preheader, %128
-  %cond = phi i1 [ false, %128 ], [ %not., %131 ], [ true, %.preheader ], [ true, %.lr.ph674 ], [ true, %.preheader625 ], [ true, %._crit_edge678 ], [ true, %._crit_edge671.us ]
+.critedge4:                                       ; preds = %._crit_edge671.us, %._crit_edge678, %131, %._crit_edge666, %128
+  %cond = phi i1 [ false, %128 ], [ %not., %131 ], [ true, %._crit_edge666 ], [ true, %._crit_edge678 ], [ true, %._crit_edge671.us ]
   %201 = load ptr, ptr %123, align 8
   %.not618 = icmp eq ptr %201, null
   br i1 %.not618, label %214, label %202

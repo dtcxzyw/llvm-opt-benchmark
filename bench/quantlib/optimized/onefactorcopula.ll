@@ -778,7 +778,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #12 align 2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib15OneFactorCopula22conditionalProbabilityERKSt6vectorIdSaIdEEd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(104) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %prob, double noundef %m) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib15OneFactorCopula22conditionalProbabilityERKSt6vectorIdSaIdEEd(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(104) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %prob, double noundef %m) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vtable = load ptr, ptr %this, align 8, !tbaa !13
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
@@ -819,23 +819,22 @@ invoke.cont:                                      ; preds = %_ZNSt6vectorIdSaIdE
   %_M_finish.i.i7.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %add.ptr.i.i.i, ptr %_M_finish.i.i7.i, align 8, !tbaa !33
   %sub.ptr.div.i11 = lshr exact i64 %sub.ptr.sub.i, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i11, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %invoke.cont, %invoke.cont6
-  %i.016 = phi i64 [ %inc, %invoke.cont6 ], [ 0, %invoke.cont ]
+  %i.018 = phi i64 [ %inc, %invoke.cont6 ], [ 0, %invoke.cont ]
   %7 = load ptr, ptr %prob, align 8, !tbaa !35
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %7, i64 %i.016
+  %add.ptr.i = getelementptr inbounds nuw double, ptr %7, i64 %i.018
   %8 = load double, ptr %add.ptr.i, align 8, !tbaa !37
   %call7 = invoke noundef double @_ZNK8QuantLib15OneFactorCopula22conditionalProbabilityEdd(ptr noundef nonnull align 8 dereferenceable(104) %this, double noundef %8, double noundef %m)
           to label %invoke.cont6 unwind label %eh.resume
 
 invoke.cont6:                                     ; preds = %for.body
-  %add.ptr.i12 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i6, i64 %i.016
+  %add.ptr.i12 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i6, i64 %i.018
   store double %call7, ptr %add.ptr.i12, align 8, !tbaa !37
-  %inc = add nuw i64 %i.016, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
-  br i1 %exitcond.not, label %nrvo.skipdtor, label %for.body, !llvm.loop !39
+  %inc = add nuw i64 %i.018, 1
+  %cmp = icmp ult i64 %inc, %sub.ptr.div.i11
+  br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !39
 
 nrvo.skipdtor:                                    ; preds = %invoke.cont6, %invoke.cont.thread
   ret void

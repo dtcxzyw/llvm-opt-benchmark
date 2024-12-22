@@ -5346,15 +5346,15 @@ thread-pre-split1142:                             ; preds = %1054
   %1105 = or disjoint i32 %1104, 1
   %1106 = zext nneg i32 %1105 to i64
   %1107 = getelementptr inbounds nuw [28 x i32], ptr @posix_substitutes, i64 0, i64 %1106
-  %1108 = load i32, ptr %1107, align 4
-  %1109 = zext nneg i32 %1104 to i64
-  %1110 = getelementptr inbounds nuw [28 x i32], ptr @posix_substitutes, i64 0, i64 %1109
-  %1111 = load i32, ptr %1110, align 8
+  %1108 = zext nneg i32 %1104 to i64
+  %1109 = getelementptr inbounds nuw [28 x i32], ptr @posix_substitutes, i64 0, i64 %1108
+  %1110 = load i32, ptr %1107, align 4
+  %1111 = load i32, ptr %1109, align 8
   %1112 = select i1 %.not1008.not.not, i32 -2145910769, i32 -2145910768
   %1113 = getelementptr inbounds nuw i8, ptr %.15, i64 4
   store i32 %1112, ptr %.15, align 4
   %1114 = shl i32 %1111, 16
-  %1115 = or i32 %1114, %1108
+  %1115 = or i32 %1114, %1110
   %1116 = getelementptr inbounds nuw i8, ptr %.15, i64 8
   store i32 %1115, ptr %1113, align 4
   br label %1300
@@ -13797,8 +13797,8 @@ define internal fastcc range(i32 15, 14) i32 @check_posix_name(ptr noundef %0, i
 
 4:                                                ; preds = %2, %12
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %12 ]
+  %5 = phi ptr [ @posix_name_lengths, %2 ], [ %16, %12 ]
   %.01014 = phi ptr [ @posix_names, %2 ], [ %15, %12 ]
-  %5 = getelementptr inbounds nuw [15 x i8], ptr @posix_name_lengths, i64 0, i64 %indvars.iv
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
   %8 = icmp eq i32 %1, %7
@@ -13814,15 +13814,16 @@ define internal fastcc range(i32 15, 14) i32 @check_posix_name(ptr noundef %0, i
   %14 = getelementptr inbounds nuw i8, ptr %.01014, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %16 = getelementptr inbounds nuw [15 x i8], ptr @posix_name_lengths, i64 0, i64 %indvars.iv.next
   %.not = icmp eq i64 %indvars.iv.next, 14
   br i1 %.not, label %.split.loop.exit, label %4
 
 .split.loop.exit17:                               ; preds = %9
-  %16 = trunc nuw nsw i64 %indvars.iv to i32
+  %17 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.split.loop.exit
 
 .split.loop.exit:                                 ; preds = %12, %.split.loop.exit17
-  %.011 = phi i32 [ %16, %.split.loop.exit17 ], [ -1, %12 ]
+  %.011 = phi i32 [ %17, %.split.loop.exit17 ], [ -1, %12 ]
   ret i32 %.011
 }
 

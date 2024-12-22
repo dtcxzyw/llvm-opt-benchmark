@@ -917,11 +917,11 @@ entry:
   %0 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !8
   %_M_first3.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %1 = load ptr, ptr %_M_first3.i.i.i.i, align 8, !noalias !8
+  %_M_node5.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %cmp.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNSt5stackImSt5dequeImSaImEEE3topEv.exit
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_node5.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %2 = load ptr, ptr %_M_node5.i.i.i.i, align 8, !noalias !8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %2, i64 -8
   %3 = load ptr, ptr %add.ptr.i.i.i, align 8
@@ -945,10 +945,9 @@ if.then.i.i:                                      ; preds = %_ZNSt5stackImSt5deq
 
 if.else.i.i:                                      ; preds = %_ZNSt5stackImSt5dequeImSaImEEE3topEv.exit
   call void @_ZdlPv(ptr noundef %8) #19
-  %_M_node.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 144
-  %9 = load ptr, ptr %_M_node.i.i.i, align 8
+  %9 = load ptr, ptr %_M_node5.i.i.i.i, align 8
   %add.ptr.i.i.i2 = getelementptr inbounds i8, ptr %9, i64 -8
-  store ptr %add.ptr.i.i.i2, ptr %_M_node.i.i.i, align 8
+  store ptr %add.ptr.i.i.i2, ptr %_M_node5.i.i.i.i, align 8
   %10 = load ptr, ptr %add.ptr.i.i.i2, align 8
   store ptr %10, ptr %_M_first3.i.i.i.i, align 8
   %add.ptr.i.i.i.i3 = getelementptr inbounds nuw i8, ptr %10, i64 512

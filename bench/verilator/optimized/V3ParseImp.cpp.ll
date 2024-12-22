@@ -2717,7 +2717,7 @@ _ZNSt5dequeI8FileLineSaIS0_EE9push_backERKS0_.exit: ; preds = %8, %11
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10V3ParseImp26lexVerilatorCmtLintRestoreEP8FileLine(ptr nocapture noundef nonnull align 8 dereferenceable(496) %0, ptr noundef %1) #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10V3ParseImp26lexVerilatorCmtLintRestoreEP8FileLine(ptr noundef nonnull align 8 dereferenceable(496) %0, ptr noundef %1) #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.24", align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 360
@@ -2756,7 +2756,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 17:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
-  br label %47
+  br label %46
 
 18:                                               ; preds = %.noexc, %10
   %19 = landingpad { ptr, i32 }
@@ -2777,19 +2777,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 22:                                               ; preds = %2
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %24 = load ptr, ptr %23, align 8, !noalias !48
-  %25 = icmp eq ptr %7, %24
-  br i1 %25, label %26, label %_ZNSt5dequeI8FileLineSaIS0_EE4backEv.exit
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  %26 = icmp eq ptr %7, %24
+  br i1 %26, label %27, label %_ZNSt5dequeI8FileLineSaIS0_EE4backEv.exit
 
-26:                                               ; preds = %22
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %28 = load ptr, ptr %27, align 8, !noalias !48
+27:                                               ; preds = %22
+  %28 = load ptr, ptr %25, align 8, !noalias !48
   %29 = getelementptr inbounds i8, ptr %28, i64 -8
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 480
   br label %_ZNSt5dequeI8FileLineSaIS0_EE4backEv.exit
 
-_ZNSt5dequeI8FileLineSaIS0_EE4backEv.exit:        ; preds = %22, %26
-  %32 = phi ptr [ %31, %26 ], [ %7, %22 ]
+_ZNSt5dequeI8FileLineSaIS0_EE4backEv.exit:        ; preds = %22, %27
+  %32 = phi ptr [ %31, %27 ], [ %7, %22 ]
   %33 = getelementptr inbounds i8, ptr %32, i64 -40
   %34 = load i16, ptr %33, align 8
   store i16 %34, ptr %1, align 8
@@ -2804,25 +2804,24 @@ _ZNSt5dequeI8FileLineSaIS0_EE4backEv.exit:        ; preds = %22, %26
 
 39:                                               ; preds = %_ZNSt5dequeI8FileLineSaIS0_EE4backEv.exit
   tail call void @_ZdlPv(ptr noundef %36) #24
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 -8
-  store ptr %42, ptr %40, align 8
-  %43 = load ptr, ptr %42, align 8
-  store ptr %43, ptr %23, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 480
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  store ptr %44, ptr %45, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %43, i64 440
+  %40 = load ptr, ptr %25, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 -8
+  store ptr %41, ptr %25, align 8
+  %42 = load ptr, ptr %41, align 8
+  store ptr %42, ptr %23, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 480
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 376
+  store ptr %43, ptr %44, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 440
   br label %_ZNSt5dequeI8FileLineSaIS0_EE8pop_backEv.exit
 
 _ZNSt5dequeI8FileLineSaIS0_EE8pop_backEv.exit:    ; preds = %37, %39
-  %.sink1.i = phi ptr [ %46, %39 ], [ %38, %37 ]
+  %.sink1.i = phi ptr [ %45, %39 ], [ %38, %37 ]
   store ptr %.sink1.i, ptr %5, align 8
   tail call void @_ZN8FileLineD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink1.i) #23
-  br label %47
+  br label %46
 
-47:                                               ; preds = %_ZNSt5dequeI8FileLineSaIS0_EE8pop_backEv.exit, %17
+46:                                               ; preds = %_ZNSt5dequeI8FileLineSaIS0_EE8pop_backEv.exit, %17
   ret void
 }
 

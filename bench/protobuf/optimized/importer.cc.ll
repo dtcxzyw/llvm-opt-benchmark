@@ -2056,7 +2056,7 @@ entry:
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nounwind memory(read, inaccessiblemem: write) uwtable
 define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8compilerL23ContainsParentReferenceESt17basic_string_viewIcSt11char_traitsIcEE(i64 %path.coerce0, ptr %path.coerce1) unnamed_addr #12 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.i = icmp eq i64 %path.coerce0, 2
@@ -2065,11 +2065,11 @@ entry:
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %entry
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %path.coerce1, ptr noundef nonnull dereferenceable(2) @.str.10, i64 2)
   %cmp.i.i = icmp eq i32 %bcmp.i, 0
-  br i1 %cmp.i.i, label %lor.end, label %if.end.i.i.i.thread
+  br label %lor.end
 
 lor.rhs.i:                                        ; preds = %entry
   %cmp.not.i = icmp ult i64 %path.coerce0, 3
-  br i1 %cmp.not.i, label %if.end.i.i.i.thread, label %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit
+  br i1 %cmp.not.i, label %lor.end, label %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit
 
 _ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit: ; preds = %lor.rhs.i
   %bcmp.i8 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %path.coerce1, ptr noundef nonnull dereferenceable(3) @.str.11, i64 3)
@@ -2081,16 +2081,13 @@ _ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.ex
   %add.ptr.i = getelementptr i8, ptr %0, i64 -3
   %bcmp.i15 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %add.ptr.i, ptr noundef nonnull dereferenceable(3) @.str.12, i64 3)
   %cmp9.i = icmp eq i32 %bcmp.i15, 0
-  br i1 %cmp9.i, label %lor.end, label %if.end.i.i.i
+  br i1 %cmp9.i, label %lor.end, label %if.end6.i.i.i
 
-if.end.i.i.i.thread:                              ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %lor.rhs.i
-  br label %lor.end
-
-if.end.i.i.i:                                     ; preds = %_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit
+if.end6.i.i.i:                                    ; preds = %_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit
   %cmp11.not20.i.i.i = icmp eq i64 %path.coerce0, 3
   br i1 %cmp11.not20.i.i.i, label %lor.end, label %while.body.lr.ph.i.i.i
 
-while.body.lr.ph.i.i.i:                           ; preds = %if.end.i.i.i
+while.body.lr.ph.i.i.i:                           ; preds = %if.end6.i.i.i
   %add.ptr9.i.i.i = getelementptr inbounds i8, ptr %path.coerce1, i64 %path.coerce0
   %sub.ptr.lhs.cast20.i.i.i = ptrtoint ptr %add.ptr9.i.i.i to i64
   br label %while.body.i.i.i
@@ -2122,8 +2119,8 @@ if.end19.i.i.i:                                   ; preds = %_ZNSt11char_traitsI
   %cmp11.not.i.i.i = icmp ult i64 %sub.ptr.sub22.i.i.i, 4
   br i1 %cmp11.not.i.i.i, label %lor.end, label %while.body.i.i.i, !llvm.loop !36
 
-lor.end:                                          ; preds = %if.end19.i.i.i, %while.body.i.i.i, %if.end.i.i.i.thread, %if.then17.i.i.i, %if.end.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit
-  %2 = phi i1 [ true, %_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit ], [ true, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit ], [ true, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ %1, %if.then17.i.i.i ], [ false, %if.end.i.i.i ], [ false, %if.end.i.i.i.thread ], [ false, %while.body.i.i.i ], [ false, %if.end19.i.i.i ]
+lor.end:                                          ; preds = %if.end19.i.i.i, %while.body.i.i.i, %lor.rhs.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %if.then17.i.i.i, %if.end6.i.i.i, %_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit
+  %2 = phi i1 [ true, %_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit ], [ true, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit ], [ %1, %if.then17.i.i.i ], [ false, %if.end6.i.i.i ], [ %cmp.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ false, %lor.rhs.i ], [ false, %while.body.i.i.i ], [ false, %if.end19.i.i.i ]
   ret i1 %2
 }
 
@@ -2496,7 +2493,7 @@ attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="t
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nounwind memory(read, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

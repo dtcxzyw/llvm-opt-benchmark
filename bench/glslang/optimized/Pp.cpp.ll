@@ -8506,25 +8506,25 @@ define linkonce_odr void @_ZN7glslang10TPpContext22TokenizableIncludeFile13notif
   %11 = load ptr, ptr %10, align 8, !noalias !107
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 528
   %13 = load ptr, ptr %12, align 8, !noalias !107
-  %14 = icmp eq ptr %11, %13
-  br i1 %14, label %18, label %15
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 544
+  %15 = icmp eq ptr %11, %13
+  br i1 %15, label %19, label %16
 
-15:                                               ; preds = %1
-  %16 = getelementptr inbounds i8, ptr %11, i64 -8
-  %17 = load ptr, ptr %16, align 8
+16:                                               ; preds = %1
+  %17 = getelementptr inbounds i8, ptr %11, i64 -8
+  %18 = load ptr, ptr %17, align 8
   br label %_ZNSt5stackIPN7glslang7TShader8Includer13IncludeResultESt5dequeIS4_SaIS4_EEE3popEv.exit.i
 
-18:                                               ; preds = %1
-  %19 = getelementptr inbounds nuw i8, ptr %9, i64 544
-  %20 = load ptr, ptr %19, align 8, !noalias !107
+19:                                               ; preds = %1
+  %20 = load ptr, ptr %14, align 8, !noalias !107
   %21 = getelementptr inbounds i8, ptr %20, i64 -8
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 504
   %24 = load ptr, ptr %23, align 8
   tail call void @_ZdlPvm(ptr noundef %13, i64 noundef 512) #21
-  %25 = load ptr, ptr %19, align 8
+  %25 = load ptr, ptr %14, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 -8
-  store ptr %26, ptr %19, align 8
+  store ptr %26, ptr %14, align 8
   %27 = load ptr, ptr %26, align 8
   store ptr %27, ptr %12, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 512
@@ -8533,9 +8533,9 @@ define linkonce_odr void @_ZN7glslang10TPpContext22TokenizableIncludeFile13notif
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 504
   br label %_ZNSt5stackIPN7glslang7TShader8Includer13IncludeResultESt5dequeIS4_SaIS4_EEE3popEv.exit.i
 
-_ZNSt5stackIPN7glslang7TShader8Includer13IncludeResultESt5dequeIS4_SaIS4_EEE3popEv.exit.i: ; preds = %18, %15
-  %31 = phi ptr [ %17, %15 ], [ %24, %18 ]
-  %storemerge.i.i.i = phi ptr [ %16, %15 ], [ %30, %18 ]
+_ZNSt5stackIPN7glslang7TShader8Includer13IncludeResultESt5dequeIS4_SaIS4_EEE3popEv.exit.i: ; preds = %19, %16
+  %31 = phi ptr [ %18, %16 ], [ %24, %19 ]
+  %storemerge.i.i.i = phi ptr [ %17, %16 ], [ %30, %19 ]
   store ptr %storemerge.i.i.i, ptr %10, align 8
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 424
   %33 = load ptr, ptr %32, align 8
@@ -8559,23 +8559,22 @@ _ZNSt5stackIPN7glslang7TShader8Includer13IncludeResultESt5dequeIS4_SaIS4_EEE3pop
   br i1 %45, label %46, label %_ZNSt5stackIPN7glslang7TShader8Includer13IncludeResultESt5dequeIS4_SaIS4_EEE3topEv.exit2.i
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds nuw i8, ptr %9, i64 544
-  %48 = load ptr, ptr %47, align 8, !noalias !110
-  %49 = getelementptr inbounds i8, ptr %48, i64 -8
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 512
+  %47 = load ptr, ptr %14, align 8, !noalias !110
+  %48 = getelementptr inbounds i8, ptr %47, i64 -8
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 512
   br label %_ZNSt5stackIPN7glslang7TShader8Includer13IncludeResultESt5dequeIS4_SaIS4_EEE3topEv.exit2.i
 
 _ZNSt5stackIPN7glslang7TShader8Includer13IncludeResultESt5dequeIS4_SaIS4_EEE3topEv.exit2.i: ; preds = %46, %43
-  %52 = phi ptr [ %51, %46 ], [ %38, %43 ]
-  %53 = getelementptr inbounds i8, ptr %52, i64 -8
-  %54 = load ptr, ptr %53, align 8
+  %51 = phi ptr [ %50, %46 ], [ %38, %43 ]
+  %52 = getelementptr inbounds i8, ptr %51, i64 -8
+  %53 = load ptr, ptr %52, align 8
   br label %_ZN7glslang10TPpContext11pop_includeEv.exit
 
 _ZN7glslang10TPpContext11pop_includeEv.exit:      ; preds = %41, %_ZNSt5stackIPN7glslang7TShader8Includer13IncludeResultESt5dequeIS4_SaIS4_EEE3topEv.exit2.i
-  %.sink3.i = phi ptr [ %54, %_ZNSt5stackIPN7glslang7TShader8Includer13IncludeResultESt5dequeIS4_SaIS4_EEE3topEv.exit2.i ], [ %42, %41 ]
-  %55 = getelementptr inbounds nuw i8, ptr %9, i64 552
-  %56 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %55, ptr noundef nonnull align 8 dereferenceable(32) %.sink3.i) #17
+  %.sink3.i = phi ptr [ %53, %_ZNSt5stackIPN7glslang7TShader8Includer13IncludeResultESt5dequeIS4_SaIS4_EEE3topEv.exit2.i ], [ %42, %41 ]
+  %54 = getelementptr inbounds nuw i8, ptr %9, i64 552
+  %55 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(32) %.sink3.i) #17
   ret void
 }
 

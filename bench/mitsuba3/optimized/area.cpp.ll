@@ -1287,17 +1287,20 @@ define weak_odr void @_ZNK7mitsuba9AreaLightIfN5drjit6MatrixINS_8SpectrumIfLm4EE
   %13 = alloca %"struct.mitsuba::SurfaceInteraction", align 16
   %14 = alloca %"struct.drjit::Matrix.10", align 16
   %15 = alloca %"struct.drjit::Matrix.10", align 16
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  %17 = load ptr, ptr %16, align 16
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 176
+  store float 0x7FF0000000000000, ptr %10, align 16
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 64
+  store ptr null, ptr %16, align 16
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 232
+  store ptr null, ptr %17, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %19 = load ptr, ptr %18, align 16
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(40) %17)
-  br i1 %21, label %64, label %22
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 176
+  %22 = load ptr, ptr %21, align 8
+  %23 = tail call noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(40) %19)
+  br i1 %23, label %64, label %24
 
-22:                                               ; preds = %5
-  %23 = getelementptr inbounds nuw i8, ptr %10, i64 232
-  %24 = getelementptr inbounds nuw i8, ptr %10, i64 64
+24:                                               ; preds = %5
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr %26, align 16
@@ -1374,7 +1377,7 @@ define weak_odr void @_ZNK7mitsuba9AreaLightIfN5drjit6MatrixINS_8SpectrumIfLm4EE
   store <4 x float> %.sroa.0236.0.copyload, ptr %.sroa.4.0..sroa_idx, align 16
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 48
   store <4 x float> %.sroa.5240.0.copyload, ptr %.sroa.5.0..sroa_idx, align 16
-  store ptr null, ptr %24, align 16
+  store ptr null, ptr %16, align 16
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 72
   store i64 %.sroa.10246.0.copyload, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 80
@@ -1383,11 +1386,11 @@ define weak_odr void @_ZNK7mitsuba9AreaLightIfN5drjit6MatrixINS_8SpectrumIfLm4EE
   store <4 x float> %63, ptr %.sroa.9.0..sroa_idx, align 16
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 112
   store <4 x float> %.sroa.5240.0.copyload, ptr %.sroa.10.0..sroa_idx, align 16
-  store ptr null, ptr %23, align 8
+  store ptr null, ptr %17, align 8
   br label %125
 
 64:                                               ; preds = %5
-  %65 = load ptr, ptr %16, align 16
+  %65 = load ptr, ptr %18, align 16
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 96
   %68 = load ptr, ptr %67, align 8
@@ -1442,15 +1445,15 @@ define weak_odr void @_ZNK7mitsuba9AreaLightIfN5drjit6MatrixINS_8SpectrumIfLm4EE
 103:                                              ; preds = %64
   %104 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %105 = load <4 x float>, ptr %104, align 16
-  %106 = shufflevector <4 x float> %105, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
-  %107 = getelementptr inbounds nuw i8, ptr %10, i64 144
-  %108 = load <4 x float>, ptr %107, align 16
+  %106 = getelementptr inbounds nuw i8, ptr %10, i64 144
+  %107 = shufflevector <4 x float> %105, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
+  %108 = load <4 x float>, ptr %106, align 16
   %109 = shufflevector <4 x float> %108, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
   %110 = shufflevector <4 x float> %105, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
   %111 = shufflevector <4 x float> %108, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
   %112 = fneg contract <4 x float> %111
   %113 = fmul contract <4 x float> %110, %112
-  %114 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %106, <4 x float> %109, <4 x float> %113)
+  %114 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %107, <4 x float> %109, <4 x float> %113)
   %115 = fmul contract <4 x float> %114, %114
   %shift300 = shufflevector <4 x float> %115, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
   %116 = fadd contract <4 x float> %115, %shift300
@@ -1465,18 +1468,18 @@ define weak_odr void @_ZNK7mitsuba9AreaLightIfN5drjit6MatrixINS_8SpectrumIfLm4EE
   %124 = fdiv contract float %122, %123
   br label %125
 
-125:                                              ; preds = %103, %64, %22
-  %.sroa.0236.0 = phi <4 x float> [ %.sroa.0236.0.copyload, %22 ], [ %.sroa.0236.0.copyload239, %64 ], [ %.sroa.0236.0.copyload239, %103 ]
-  %.sroa.5240.0 = phi <4 x float> [ %.sroa.5240.0.copyload, %22 ], [ %.sroa.5240.16.copyload, %64 ], [ %.sroa.5240.16.copyload, %103 ]
-  %.sroa.10246.0 = phi i64 [ %.sroa.10246.0.copyload, %22 ], [ %84, %64 ], [ %84, %103 ]
-  %.sroa.12249.0 = phi float [ %.sroa.12249.0.copyload, %22 ], [ %86, %64 ], [ %86, %103 ]
-  %.sroa.14.0 = phi float [ %.sroa.14.0.copyload, %22 ], [ 0.000000e+00, %64 ], [ %124, %103 ]
-  %.sroa.17.0 = phi i8 [ %.sroa.17.0.copyload, %22 ], [ 0, %64 ], [ 0, %103 ]
-  %.sroa.18258.0 = phi <4 x float> [ %.sroa.18258.0.copyload, %22 ], [ %98, %64 ], [ %98, %103 ]
-  %.sroa.23.0 = phi float [ %.sroa.23.0.copyload, %22 ], [ %94, %64 ], [ %94, %103 ]
-  %.sroa.24.0 = phi i32 [ %.sroa.24.0.copyload, %22 ], [ undef, %64 ], [ undef, %103 ]
-  %.0297 = phi i1 [ %narrow, %22 ], [ false, %64 ], [ true, %103 ]
-  %126 = load ptr, ptr %16, align 16
+125:                                              ; preds = %103, %64, %24
+  %.sroa.0236.0 = phi <4 x float> [ %.sroa.0236.0.copyload, %24 ], [ %.sroa.0236.0.copyload239, %64 ], [ %.sroa.0236.0.copyload239, %103 ]
+  %.sroa.5240.0 = phi <4 x float> [ %.sroa.5240.0.copyload, %24 ], [ %.sroa.5240.16.copyload, %64 ], [ %.sroa.5240.16.copyload, %103 ]
+  %.sroa.10246.0 = phi i64 [ %.sroa.10246.0.copyload, %24 ], [ %84, %64 ], [ %84, %103 ]
+  %.sroa.12249.0 = phi float [ %.sroa.12249.0.copyload, %24 ], [ %86, %64 ], [ %86, %103 ]
+  %.sroa.14.0 = phi float [ %.sroa.14.0.copyload, %24 ], [ 0.000000e+00, %64 ], [ %124, %103 ]
+  %.sroa.17.0 = phi i8 [ %.sroa.17.0.copyload, %24 ], [ 0, %64 ], [ 0, %103 ]
+  %.sroa.18258.0 = phi <4 x float> [ %.sroa.18258.0.copyload, %24 ], [ %98, %64 ], [ %98, %103 ]
+  %.sroa.23.0 = phi float [ %.sroa.23.0.copyload, %24 ], [ %94, %64 ], [ %94, %103 ]
+  %.sroa.24.0 = phi i32 [ %.sroa.24.0.copyload, %24 ], [ undef, %64 ], [ undef, %103 ]
+  %.0297 = phi i1 [ %narrow, %24 ], [ false, %64 ], [ true, %103 ]
+  %126 = load ptr, ptr %18, align 16
   %127 = load ptr, ptr %126, align 8
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 72
   %129 = load ptr, ptr %128, align 8

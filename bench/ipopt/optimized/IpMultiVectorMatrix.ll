@@ -799,17 +799,17 @@ define void @_ZNK5Ipopt17MultiVectorMatrix14MultVectorImplEdRKNS_6VectorEdRS1_(p
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 233
   %14 = load i8, ptr %13, align 1
   %15 = trunc i8 %14 to i1
-  br i1 %15, label %16, label %43
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  br i1 %15, label %17, label %43
 
-16:                                               ; preds = %12
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %18 = load ptr, ptr %17, align 8
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %16, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load i32, ptr %19, align 8
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %.lr.ph29, label %.loopexit
 
-.lr.ph29:                                         ; preds = %16
+.lr.ph29:                                         ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 240
   %23 = load double, ptr %22, align 8
   %24 = fmul double %1, %23
@@ -839,7 +839,7 @@ _ZNK5Ipopt17MultiVectorMatrix8ConstVecEi.exit:    ; preds = %27, %31
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(205) %4, double noundef %24, ptr noundef nonnull align 8 dereferenceable(205) %.0.i, double noundef 0.000000e+00, ptr noundef nonnull align 8 dereferenceable(205) %.0.i, double noundef 1.000000e+00)
   tail call void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %4)
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
-  %38 = load ptr, ptr %17, align 8
+  %38 = load ptr, ptr %16, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load i32, ptr %39, align 8
   %41 = sext i32 %40 to i64
@@ -849,51 +849,50 @@ _ZNK5Ipopt17MultiVectorMatrix8ConstVecEi.exit:    ; preds = %27, %31
 43:                                               ; preds = %12
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %49 = load i32, ptr %48, align 8
-  %50 = icmp sgt i32 %49, 0
-  br i1 %50, label %.lr.ph, label %.loopexit
+  %46 = load ptr, ptr %16, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
+  %48 = load i32, ptr %47, align 8
+  %49 = icmp sgt i32 %48, 0
+  br i1 %49, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %43
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  br label %53
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  br label %52
 
-53:                                               ; preds = %.lr.ph, %_ZNK5Ipopt17MultiVectorMatrix8ConstVecEi.exit25
+52:                                               ; preds = %.lr.ph, %_ZNK5Ipopt17MultiVectorMatrix8ConstVecEi.exit25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK5Ipopt17MultiVectorMatrix8ConstVecEi.exit25 ]
-  %54 = getelementptr inbounds nuw double, ptr %45, i64 %indvars.iv
-  %55 = load double, ptr %54, align 8
-  %56 = fmul double %1, %55
-  %57 = load ptr, ptr %51, align 8
-  %58 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.11", ptr %57, i64 %indvars.iv
-  %59 = load ptr, ptr %58, align 8
-  %.not.i23 = icmp eq ptr %59, null
-  br i1 %.not.i23, label %60, label %_ZNK5Ipopt17MultiVectorMatrix8ConstVecEi.exit25
+  %53 = getelementptr inbounds nuw double, ptr %45, i64 %indvars.iv
+  %54 = load double, ptr %53, align 8
+  %55 = fmul double %1, %54
+  %56 = load ptr, ptr %50, align 8
+  %57 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.11", ptr %56, i64 %indvars.iv
+  %58 = load ptr, ptr %57, align 8
+  %.not.i23 = icmp eq ptr %58, null
+  br i1 %.not.i23, label %59, label %_ZNK5Ipopt17MultiVectorMatrix8ConstVecEi.exit25
 
-60:                                               ; preds = %53
-  %61 = load ptr, ptr %52, align 8
-  %62 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.12", ptr %61, i64 %indvars.iv
-  %63 = load ptr, ptr %62, align 8
+59:                                               ; preds = %52
+  %60 = load ptr, ptr %51, align 8
+  %61 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.12", ptr %60, i64 %indvars.iv
+  %62 = load ptr, ptr %61, align 8
   br label %_ZNK5Ipopt17MultiVectorMatrix8ConstVecEi.exit25
 
-_ZNK5Ipopt17MultiVectorMatrix8ConstVecEi.exit25:  ; preds = %53, %60
-  %.0.i24 = phi ptr [ %63, %60 ], [ %59, %53 ]
-  %64 = load ptr, ptr %4, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 192
-  %66 = load ptr, ptr %65, align 8
-  tail call void %66(ptr noundef nonnull align 8 dereferenceable(205) %4, double noundef %56, ptr noundef nonnull align 8 dereferenceable(205) %.0.i24, double noundef 0.000000e+00, ptr noundef nonnull align 8 dereferenceable(205) %.0.i24, double noundef 1.000000e+00)
+_ZNK5Ipopt17MultiVectorMatrix8ConstVecEi.exit25:  ; preds = %52, %59
+  %.0.i24 = phi ptr [ %62, %59 ], [ %58, %52 ]
+  %63 = load ptr, ptr %4, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 192
+  %65 = load ptr, ptr %64, align 8
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(205) %4, double noundef %55, ptr noundef nonnull align 8 dereferenceable(205) %.0.i24, double noundef 0.000000e+00, ptr noundef nonnull align 8 dereferenceable(205) %.0.i24, double noundef 1.000000e+00)
   tail call void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %67 = load ptr, ptr %46, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
-  %69 = load i32, ptr %68, align 8
-  %70 = sext i32 %69 to i64
-  %71 = icmp slt i64 %indvars.iv.next, %70
-  br i1 %71, label %53, label %.loopexit, !llvm.loop !8
+  %66 = load ptr, ptr %16, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
+  %68 = load i32, ptr %67, align 8
+  %69 = sext i32 %68 to i64
+  %70 = icmp slt i64 %indvars.iv.next, %69
+  br i1 %70, label %52, label %.loopexit, !llvm.loop !8
 
-.loopexit:                                        ; preds = %_ZNK5Ipopt17MultiVectorMatrix8ConstVecEi.exit25, %_ZNK5Ipopt17MultiVectorMatrix8ConstVecEi.exit, %43, %16
+.loopexit:                                        ; preds = %_ZNK5Ipopt17MultiVectorMatrix8ConstVecEi.exit25, %_ZNK5Ipopt17MultiVectorMatrix8ConstVecEi.exit, %43, %17
   ret void
 }
 

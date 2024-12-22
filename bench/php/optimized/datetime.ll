@@ -97,66 +97,72 @@ define hidden void @zif_strptime(ptr noundef %0, ptr noundef %1) local_unnamed_a
 
 8:                                                ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 2, i32 noundef 2) #4
-  br label %28
+  br label %.thread184
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %12 = load i8, ptr %11, align 8
   %13 = icmp eq i8 %12, 6
-  br i1 %13, label %.thread174, label %15
+  br i1 %13, label %.thread, label %15
 
-.thread174:                                       ; preds = %9
+.thread:                                          ; preds = %9
   %14 = load ptr, ptr %10, align 8
   store ptr %14, ptr %3, align 8
-  br label %18
+  br label %17
 
 15:                                               ; preds = %9
   %16 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %10, ptr noundef nonnull %3, i32 noundef 1) #4
-  %17 = load ptr, ptr %3, align 8
-  br i1 %16, label %18, label %28
+  br i1 %16, label %._crit_edge, label %.thread184
 
-18:                                               ; preds = %.thread174, %15
-  %.pn = phi ptr [ %14, %.thread174 ], [ %17, %15 ]
-  %19 = getelementptr inbounds nuw i8, ptr %.pn, i64 24
+._crit_edge:                                      ; preds = %15
+  %.pre = load ptr, ptr %3, align 8
+  br label %17
+
+17:                                               ; preds = %._crit_edge, %.thread
+  %18 = phi ptr [ %.pre, %._crit_edge ], [ %14, %.thread ]
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %22 = load i8, ptr %21, align 8
   %23 = icmp eq i8 %22, 6
   br i1 %23, label %.thread180, label %25
 
-.thread180:                                       ; preds = %18
+.thread180:                                       ; preds = %17
   %24 = load ptr, ptr %20, align 8
   store ptr %24, ptr %4, align 8
-  br label %29
+  br label %27
 
-25:                                               ; preds = %18
+25:                                               ; preds = %17
   %26 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %20, ptr noundef nonnull %4, i32 noundef 2) #4
-  %27 = load ptr, ptr %4, align 8
-  br i1 %26, label %29, label %28
+  br i1 %26, label %._crit_edge202, label %.thread184
 
-28:                                               ; preds = %8, %15, %25
-  %.0160.ph = phi ptr [ %20, %25 ], [ %10, %15 ], [ null, %8 ]
-  %.0159.ph = phi i32 [ 4, %25 ], [ 4, %15 ], [ 0, %8 ]
-  %.0158.ph = phi i32 [ 2, %25 ], [ 1, %15 ], [ 0, %8 ]
-  %.0155.ph = phi i32 [ 9, %25 ], [ 9, %15 ], [ 1, %8 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0155.ph, i32 noundef %.0158.ph, ptr noundef null, i32 noundef %.0159.ph, ptr noundef %.0160.ph) #4
+._crit_edge202:                                   ; preds = %25
+  %.pre203 = load ptr, ptr %4, align 8
+  br label %27
+
+.thread184:                                       ; preds = %25, %15, %8
+  %.0155195 = phi i32 [ 9, %15 ], [ 1, %8 ], [ 9, %25 ]
+  %.0158194 = phi i32 [ 1, %15 ], [ 0, %8 ], [ 2, %25 ]
+  %.0159193 = phi i32 [ 4, %15 ], [ 0, %8 ], [ 4, %25 ]
+  %.0160192 = phi ptr [ %10, %15 ], [ null, %8 ], [ %20, %25 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0155195, i32 noundef %.0158194, ptr noundef null, i32 noundef %.0159193, ptr noundef %.0160192) #4
   br label %60
 
-29:                                               ; preds = %25, %.thread180
-  %.pn194 = phi ptr [ %24, %.thread180 ], [ %27, %25 ]
-  %.0163 = getelementptr inbounds nuw i8, ptr %.pn194, i64 24
+27:                                               ; preds = %._crit_edge202, %.thread180
+  %28 = phi ptr [ %.pre203, %._crit_edge202 ], [ %24, %.thread180 ]
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  %30 = call ptr @strptime(ptr noundef nonnull %19, ptr noundef nonnull %.0163, ptr noundef nonnull %5) #4
+  %30 = call ptr @strptime(ptr noundef nonnull %19, ptr noundef nonnull %29, ptr noundef nonnull %5) #4
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %34
 
-32:                                               ; preds = %29
+32:                                               ; preds = %27
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %33, align 8
   br label %60
 
-34:                                               ; preds = %29
+34:                                               ; preds = %27
   %35 = call ptr @_zend_new_array_0() #4
   store ptr %35, ptr %1, align 8
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -195,7 +201,7 @@ define hidden void @zif_strptime(ptr noundef %0, ptr noundef %1) local_unnamed_a
   call void @add_assoc_string_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.9, i64 noundef 8, ptr noundef nonnull %30) #4
   br label %60
 
-60:                                               ; preds = %34, %32, %28
+60:                                               ; preds = %34, %32, %.thread184
   ret void
 }
 

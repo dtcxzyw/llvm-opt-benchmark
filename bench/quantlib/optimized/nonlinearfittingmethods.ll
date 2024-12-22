@@ -346,7 +346,7 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib25ExponentialSplinesFittingC2EbRKNS_5ArrayERKN5boost10shared_ptrINS_18OptimizationMethodEEES3_ddmdNS_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(192) %this, i1 noundef zeroext %constrainAtZero, ptr noundef nonnull align 8 dereferenceable(16) %weights, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %optimizationMethod, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %l2, double noundef %minCutoffTime, double noundef %maxCutoffTime, i64 noundef %numCoeffs, double noundef %fixedKappa, ptr nocapture noundef %constraint) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib25ExponentialSplinesFittingC2EbRKNS_5ArrayERKN5boost10shared_ptrINS_18OptimizationMethodEEES3_ddmdNS_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(192) %this, i1 noundef zeroext %constrainAtZero, ptr noundef nonnull align 8 dereferenceable(16) %weights, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %optimizationMethod, ptr noundef nonnull align 8 dereferenceable(16) %l2, double noundef %minCutoffTime, double noundef %maxCutoffTime, i64 noundef %numCoeffs, double noundef %fixedKappa, ptr nocapture noundef %constraint) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.boost::shared_ptr.50", align 8
   %agg.tmp2 = alloca %"class.QuantLib::Array", align 8
@@ -784,7 +784,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib25ExponentialSplinesFittingC2EbRKNS_5ArrayES3_ddmdNS_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(192) %this, i1 noundef zeroext %constrainAtZero, ptr noundef nonnull align 8 dereferenceable(16) %weights, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %l2, double noundef %minCutoffTime, double noundef %maxCutoffTime, i64 noundef %numCoeffs, double noundef %fixedKappa, ptr nocapture noundef %constraint) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib25ExponentialSplinesFittingC2EbRKNS_5ArrayES3_ddmdNS_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(192) %this, i1 noundef zeroext %constrainAtZero, ptr noundef nonnull align 8 dereferenceable(16) %weights, ptr noundef nonnull align 8 dereferenceable(16) %l2, double noundef %minCutoffTime, double noundef %maxCutoffTime, i64 noundef %numCoeffs, double noundef %fixedKappa, ptr nocapture noundef %constraint) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr.50", align 8
   %agg.tmp = alloca %"class.QuantLib::Constraint", align 8
@@ -908,7 +908,7 @@ invoke.cont:
   store ptr %1, ptr %pn.i.i, align 8, !tbaa !16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %constraint, i8 0, i64 16, i1 false)
   invoke void @_ZN8QuantLib25ExponentialSplinesFittingC2EbRKNS_5ArrayERKN5boost10shared_ptrINS_18OptimizationMethodEEES3_ddmdNS_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(192) %this, i1 noundef zeroext %constrainAtZero, ptr noundef nonnull align 8 dereferenceable(16) %weights, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2, double noundef 0.000000e+00, double noundef 0x7FEFFFFFFFFFFFFF, i64 noundef %numCoeffs, double noundef %fixedKappa, ptr noundef nonnull %agg.tmp)
-          to label %invoke.cont4 unwind label %_ZN8QuantLib5ArrayD2Ev.exit11
+          to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
   %2 = load ptr, ptr %pn.i.i, align 8, !tbaa !16
@@ -945,7 +945,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i, 
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #23
+  call void @__clang_call_terminate(ptr %8) #23
   unreachable
 
 _ZN8QuantLib10ConstraintD2Ev.exit:                ; preds = %invoke.cont4, %if.then.i.i.i, %.noexc.i.i.i, %if.then.i.i.i.i.i
@@ -954,7 +954,7 @@ _ZN8QuantLib10ConstraintD2Ev.exit:                ; preds = %invoke.cont4, %if.t
   br i1 %cmp.not.i.i, label %_ZN8QuantLib5ArrayD2Ev.exit, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i: ; preds = %_ZN8QuantLib10ConstraintD2Ev.exit
-  tail call void @_ZdaPv(ptr noundef nonnull %9) #26
+  call void @_ZdaPv(ptr noundef nonnull %9) #26
   br label %_ZN8QuantLib5ArrayD2Ev.exit
 
 _ZN8QuantLib5ArrayD2Ev.exit:                      ; preds = %_ZN8QuantLib10ConstraintD2Ev.exit, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
@@ -994,17 +994,26 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i6, %
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  tail call void @__clang_call_terminate(ptr %16) #23
+  call void @__clang_call_terminate(ptr %16) #23
   unreachable
 
 _ZN5boost10shared_ptrIN8QuantLib18OptimizationMethodEED2Ev.exit: ; preds = %_ZN8QuantLib5ArrayD2Ev.exit, %if.then.i.i, %.noexc.i.i, %if.then.i.i.i.i6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp) #22
   ret void
 
-_ZN8QuantLib5ArrayD2Ev.exit11:                    ; preds = %invoke.cont
+lpad3:                                            ; preds = %invoke.cont
   %17 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8QuantLib10ConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #22
+  %18 = load ptr, ptr %ref.tmp2, align 8, !tbaa !28
+  %cmp.not.i.i9 = icmp eq ptr %18, null
+  br i1 %cmp.not.i.i9, label %_ZN8QuantLib5ArrayD2Ev.exit11, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i10
+
+_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i10: ; preds = %lpad3
+  call void @_ZdaPv(ptr noundef nonnull %18) #26
+  br label %_ZN8QuantLib5ArrayD2Ev.exit11
+
+_ZN8QuantLib5ArrayD2Ev.exit11:                    ; preds = %lpad3, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2) #22
   call void @_ZN5boost10shared_ptrIN8QuantLib18OptimizationMethodEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #22
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp) #22
@@ -1134,7 +1143,7 @@ declare double @exp(double noundef) local_unnamed_addr #10
 declare double @llvm.fmuladd.f64(double, double, double) #11
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib19NelsonSiegelFittingC2ERKNS_5ArrayERKN5boost10shared_ptrINS_18OptimizationMethodEEES3_ddNS_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(16) %weights, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %optimizationMethod, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %l2, double noundef %minCutoffTime, double noundef %maxCutoffTime, ptr nocapture noundef %constraint) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib19NelsonSiegelFittingC2ERKNS_5ArrayERKN5boost10shared_ptrINS_18OptimizationMethodEEES3_ddNS_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(16) %weights, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %optimizationMethod, ptr noundef nonnull align 8 dereferenceable(16) %l2, double noundef %minCutoffTime, double noundef %maxCutoffTime, ptr nocapture noundef %constraint) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.boost::shared_ptr.50", align 8
   %agg.tmp2 = alloca %"class.QuantLib::Array", align 8
@@ -1307,7 +1316,7 @@ ehcleanup:                                        ; preds = %_ZN8QuantLib5ArrayD
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib19NelsonSiegelFittingC2ERKNS_5ArrayES3_ddNS_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(16) %weights, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %l2, double noundef %minCutoffTime, double noundef %maxCutoffTime, ptr nocapture noundef %constraint) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib19NelsonSiegelFittingC2ERKNS_5ArrayES3_ddNS_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(16) %weights, ptr noundef nonnull align 8 dereferenceable(16) %l2, double noundef %minCutoffTime, double noundef %maxCutoffTime, ptr nocapture noundef %constraint) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr.50", align 8
   %agg.tmp = alloca %"class.QuantLib::Constraint", align 8
@@ -1475,7 +1484,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib15SvenssonFittingC2ERKNS_5ArrayERKN5boost10shared_ptrINS_18OptimizationMethodEEES3_ddNS_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(16) %weights, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %optimizationMethod, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %l2, double noundef %minCutoffTime, double noundef %maxCutoffTime, ptr nocapture noundef %constraint) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib15SvenssonFittingC2ERKNS_5ArrayERKN5boost10shared_ptrINS_18OptimizationMethodEEES3_ddNS_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(16) %weights, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %optimizationMethod, ptr noundef nonnull align 8 dereferenceable(16) %l2, double noundef %minCutoffTime, double noundef %maxCutoffTime, ptr nocapture noundef %constraint) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.boost::shared_ptr.50", align 8
   %agg.tmp2 = alloca %"class.QuantLib::Array", align 8
@@ -1648,7 +1657,7 @@ ehcleanup:                                        ; preds = %_ZN8QuantLib5ArrayD
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib15SvenssonFittingC2ERKNS_5ArrayES3_ddNS_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(16) %weights, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %l2, double noundef %minCutoffTime, double noundef %maxCutoffTime, ptr nocapture noundef %constraint) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib15SvenssonFittingC2ERKNS_5ArrayES3_ddNS_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(16) %weights, ptr noundef nonnull align 8 dereferenceable(16) %l2, double noundef %minCutoffTime, double noundef %maxCutoffTime, ptr nocapture noundef %constraint) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr.50", align 8
   %agg.tmp = alloca %"class.QuantLib::Constraint", align 8
@@ -1836,7 +1845,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib20CubicBSplinesFittingC2ERKSt6vectorIdSaIdEEbRKNS_5ArrayERKN5boost10shared_ptrINS_18OptimizationMethodEEES8_ddNS_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(220) %this, ptr noundef nonnull align 8 dereferenceable(24) %knots, i1 noundef zeroext %constrainAtZero, ptr noundef nonnull align 8 dereferenceable(16) %weights, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %optimizationMethod, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %l2, double noundef %minCutoffTime, double noundef %maxCutoffTime, ptr nocapture noundef %constraint) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib20CubicBSplinesFittingC2ERKSt6vectorIdSaIdEEbRKNS_5ArrayERKN5boost10shared_ptrINS_18OptimizationMethodEEES8_ddNS_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(220) %this, ptr noundef nonnull align 8 dereferenceable(24) %knots, i1 noundef zeroext %constrainAtZero, ptr noundef nonnull align 8 dereferenceable(16) %weights, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %optimizationMethod, ptr noundef nonnull align 8 dereferenceable(16) %l2, double noundef %minCutoffTime, double noundef %maxCutoffTime, ptr nocapture noundef %constraint) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.boost::shared_ptr.50", align 8
   %agg.tmp2 = alloca %"class.QuantLib::Array", align 8
@@ -2446,7 +2455,7 @@ declare void @_ZN8QuantLib7BSplineC1EjjRKSt6vectorIdSaIdEE(ptr noundef nonnull a
 declare noundef double @_ZNK8QuantLib7BSplineclEjd(ptr noundef nonnull align 8 dereferenceable(32), i32 noundef, double noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib20CubicBSplinesFittingC2ERKSt6vectorIdSaIdEEbRKNS_5ArrayES8_ddNS_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(220) %this, ptr noundef nonnull align 8 dereferenceable(24) %knots, i1 noundef zeroext %constrainAtZero, ptr noundef nonnull align 8 dereferenceable(16) %weights, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %l2, double noundef %minCutoffTime, double noundef %maxCutoffTime, ptr nocapture noundef %constraint) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib20CubicBSplinesFittingC2ERKSt6vectorIdSaIdEEbRKNS_5ArrayES8_ddNS_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(220) %this, ptr noundef nonnull align 8 dereferenceable(24) %knots, i1 noundef zeroext %constrainAtZero, ptr noundef nonnull align 8 dereferenceable(16) %weights, ptr noundef nonnull align 8 dereferenceable(16) %l2, double noundef %minCutoffTime, double noundef %maxCutoffTime, ptr nocapture noundef %constraint) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr.50", align 8
   %agg.tmp = alloca %"class.QuantLib::Constraint", align 8
@@ -2738,7 +2747,7 @@ if.end39:                                         ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib23SimplePolynomialFittingC2EjbRKNS_5ArrayERKN5boost10shared_ptrINS_18OptimizationMethodEEES3_ddNS_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(184) %this, i32 noundef %degree, i1 noundef zeroext %constrainAtZero, ptr noundef nonnull align 8 dereferenceable(16) %weights, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %optimizationMethod, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %l2, double noundef %minCutoffTime, double noundef %maxCutoffTime, ptr nocapture noundef %constraint) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib23SimplePolynomialFittingC2EjbRKNS_5ArrayERKN5boost10shared_ptrINS_18OptimizationMethodEEES3_ddNS_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(184) %this, i32 noundef %degree, i1 noundef zeroext %constrainAtZero, ptr noundef nonnull align 8 dereferenceable(16) %weights, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %optimizationMethod, ptr noundef nonnull align 8 dereferenceable(16) %l2, double noundef %minCutoffTime, double noundef %maxCutoffTime, ptr nocapture noundef %constraint) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.boost::shared_ptr.50", align 8
   %agg.tmp2 = alloca %"class.QuantLib::Array", align 8
@@ -2917,7 +2926,7 @@ ehcleanup:                                        ; preds = %_ZN8QuantLib5ArrayD
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib23SimplePolynomialFittingC2EjbRKNS_5ArrayES3_ddNS_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(184) %this, i32 noundef %degree, i1 noundef zeroext %constrainAtZero, ptr noundef nonnull align 8 dereferenceable(16) %weights, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %l2, double noundef %minCutoffTime, double noundef %maxCutoffTime, ptr nocapture noundef %constraint) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib23SimplePolynomialFittingC2EjbRKNS_5ArrayES3_ddNS_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(184) %this, i32 noundef %degree, i1 noundef zeroext %constrainAtZero, ptr noundef nonnull align 8 dereferenceable(16) %weights, ptr noundef nonnull align 8 dereferenceable(16) %l2, double noundef %minCutoffTime, double noundef %maxCutoffTime, ptr nocapture noundef %constraint) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr.50", align 8
   %agg.tmp = alloca %"class.QuantLib::Constraint", align 8

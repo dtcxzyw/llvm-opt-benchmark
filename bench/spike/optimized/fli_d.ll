@@ -253,44 +253,41 @@ define noundef i64 @_Z16fast_rv64i_fli_dP11processor_t6insn_tm(ptr nocapture nou
   %.sink.i24 = load i64, ptr %23, align 8
   %24 = and i64 %.sink.i24, 2
   %.0.i25.not = icmp eq i64 %24, 0
-  br i1 %.0.i25.not, label %35, label %25
+  %25 = lshr i64 %1, 15
+  %26 = and i64 %25, 31
+  %27 = getelementptr inbounds nuw [32 x i64], ptr @__const._Z18logged_rv64e_fli_dP11processor_t6insn_tm.bits, i64 0, i64 %26
+  br i1 %.0.i25.not, label %35, label %28
 
-25:                                               ; preds = %20
-  %26 = lshr i64 %1, 7
-  %27 = and i64 %26, 31
-  %.not.i = icmp eq i64 %27, 0
-  br i1 %.not.i, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %28
+28:                                               ; preds = %20
+  %29 = lshr i64 %1, 7
+  %30 = and i64 %29, 31
+  %.not.i = icmp eq i64 %30, 0
+  br i1 %.not.i, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %31
 
-28:                                               ; preds = %25
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %30 = lshr i64 %1, 15
-  %31 = and i64 %30, 31
-  %32 = getelementptr inbounds nuw [32 x i64], ptr @__const._Z18logged_rv64e_fli_dP11processor_t6insn_tm.bits, i64 0, i64 %31
-  %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds nuw [32 x i64], ptr %29, i64 0, i64 %27
+31:                                               ; preds = %28
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %33 = load i64, ptr %27, align 8
+  %34 = getelementptr inbounds nuw [32 x i64], ptr %32, i64 0, i64 %30
   store i64 %33, ptr %34, align 8
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 35:                                               ; preds = %20
-  %36 = lshr i64 %1, 15
-  %37 = and i64 %36, 31
-  %38 = getelementptr inbounds nuw [32 x i64], ptr @__const._Z18logged_rv64e_fli_dP11processor_t6insn_tm.bits, i64 0, i64 %37
-  %39 = load i64, ptr %38, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  %41 = lshr i64 %1, 7
-  %42 = and i64 %41, 31
-  %43 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %40, i64 0, i64 %42
-  store i64 %39, ptr %43, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %36 = load i64, ptr %27, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 376
+  %38 = lshr i64 %1, 7
+  %39 = and i64 %38, 31
+  %40 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %37, i64 0, i64 %39
+  store i64 %36, ptr %40, align 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %40, i64 8
   store i64 -1, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 2024
-  %45 = load ptr, ptr %44, align 8
-  tail call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %45, i64 noundef 24576)
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 2024
+  %42 = load ptr, ptr %41, align 8
+  tail call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %42, i64 noundef 24576)
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
-_ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %28, %25, %35
-  %46 = add i64 %2, 4
-  ret i64 %46
+_ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %31, %28, %35
+  %43 = add i64 %2, 4
+  ret i64 %43
 }
 
 ; Function Attrs: mustprogress uwtable

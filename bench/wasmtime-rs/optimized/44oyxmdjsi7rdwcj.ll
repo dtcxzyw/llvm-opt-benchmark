@@ -49,7 +49,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.304bba644805482b0b0ee601cf72fdb7.65.llvm.1794947692966531476 = external hidden unnamed_addr constant <{ ptr, [16 x i8] }>, align 8
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef ptr @_ZN3std2io16default_read_buf17h30e530dbdc7be931E(ptr noalias noundef align 8 dereferenceable(72) %0, ptr noalias nocapture noundef align 8 dereferenceable(32) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef ptr @_ZN3std2io16default_read_buf17h30e530dbdc7be931E(ptr noalias noundef align 8 dereferenceable(72) %0, ptr noalias noundef align 8 dereferenceable(32) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -68,37 +68,41 @@ _ZN4core2io12borrowed_buf14BorrowedCursor10uninit_mut17hbba1705b8c0e2f83E.exit: 
   %12 = sub nuw i64 %6, %8
   %13 = getelementptr inbounds i8, ptr %11, i64 %8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %13, i8 0, i64 %12, i1 false)
-  store i64 %6, ptr %7, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %15 = load i64, ptr %14, align 8, !noundef !4
-  %16 = icmp ugt i64 %15, %6
-  br i1 %16, label %17, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd481e48d27d03db3E.exit"
+  %14 = load i64, ptr %5, align 8, !noundef !4
+  store i64 %14, ptr %7, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %16 = load i64, ptr %15, align 8, !noundef !4
+  %17 = icmp ugt i64 %16, %14
+  br i1 %17, label %18, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd481e48d27d03db3E.exit"
 
-17:                                               ; preds = %_ZN4core2io12borrowed_buf14BorrowedCursor10uninit_mut17hbba1705b8c0e2f83E.exit
-  tail call void @_ZN4core5slice5index22slice_index_order_fail17h2e9882225a126cdcE(i64 noundef %15, i64 noundef %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9103e26e1b04f09e76cd4c8ee2d36832.1) #28, !noalias !6
+18:                                               ; preds = %_ZN4core2io12borrowed_buf14BorrowedCursor10uninit_mut17hbba1705b8c0e2f83E.exit
+  tail call void @_ZN4core5slice5index22slice_index_order_fail17h2e9882225a126cdcE(i64 noundef %16, i64 noundef %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9103e26e1b04f09e76cd4c8ee2d36832.1) #28, !noalias !6
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd481e48d27d03db3E.exit": ; preds = %_ZN4core2io12borrowed_buf14BorrowedCursor10uninit_mut17hbba1705b8c0e2f83E.exit
-  %18 = sub nuw i64 %6, %15
-  %19 = getelementptr inbounds i8, ptr %11, i64 %15
-  call void @"_ZN80_$LT$zstd..stream..zio..reader..Reader$LT$R$C$D$GT$$u20$as$u20$std..io..Read$GT$4read17ha0651c5d0bef5cb6E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(72) %0, ptr noalias noundef nonnull align 1 %19, i64 noundef %18)
-  %20 = load i64, ptr %4, align 8, !range !9, !noundef !4
-  %trunc = trunc nuw i64 %20 to i1
-  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %22 = load ptr, ptr %21, align 8
+  %19 = load ptr, ptr %1, align 8, !nonnull !4, !align !5, !noundef !4
+  %20 = sub nuw i64 %14, %16
+  %21 = getelementptr inbounds i8, ptr %19, i64 %16
+  call void @"_ZN80_$LT$zstd..stream..zio..reader..Reader$LT$R$C$D$GT$$u20$as$u20$std..io..Read$GT$4read17ha0651c5d0bef5cb6E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(72) %0, ptr noalias noundef nonnull align 1 %21, i64 noundef %20)
+  %22 = load i64, ptr %4, align 8, !range !9, !noundef !4
+  %trunc = trunc nuw i64 %22 to i1
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %24 = load ptr, ptr %23, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  br i1 %trunc, label %25, label %23
+  br i1 %trunc, label %29, label %25
 
-23:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd481e48d27d03db3E.exit"
-  %.cast = ptrtoint ptr %22 to i64
-  %24 = add i64 %15, %.cast
-  store i64 %24, ptr %14, align 8
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %6, i64 %24)
+25:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd481e48d27d03db3E.exit"
+  %.cast = ptrtoint ptr %24 to i64
+  %26 = load i64, ptr %15, align 8, !noundef !4
+  %27 = add i64 %26, %.cast
+  store i64 %27, ptr %15, align 8
+  %28 = load i64, ptr %7, align 8, !noundef !4
+  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %28, i64 %27)
   store i64 %.0.sroa.speculated.i, ptr %7, align 8
-  br label %25
+  br label %29
 
-25:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd481e48d27d03db3E.exit", %23
-  %.0 = phi ptr [ null, %23 ], [ %22, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd481e48d27d03db3E.exit" ]
+29:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd481e48d27d03db3E.exit", %25
+  %.0 = phi ptr [ null, %25 ], [ %24, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd481e48d27d03db3E.exit" ]
   ret ptr %.0
 }
 

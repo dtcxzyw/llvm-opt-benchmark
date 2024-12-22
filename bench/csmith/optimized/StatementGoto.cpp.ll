@@ -2313,26 +2313,28 @@ define dso_local noundef zeroext i1 @_ZN13StatementGoto21has_init_skipped_varsEP
   br label %_ZNSt6vectorIP8VariableSaIS1_EE6insertIN9__gnu_cxx17__normal_iteratorIPS1_S3_EEvEES8_NS6_IPKS1_S3_EET_SC_.exit
 
 _ZNSt6vectorIP8VariableSaIS1_EE6insertIN9__gnu_cxx17__normal_iteratorIPS1_S3_EEvEES8_NS6_IPKS1_S3_EET_SC_.exit: ; preds = %11, %2
-  %.pn = phi ptr [ %1, %2 ], [ %.019.fr, %11 ]
+  %.pn = phi ptr [ %1, %2 ], [ %.019, %11 ]
   %.019.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %.019 = load ptr, ptr %.019.in, align 8
-  %.019.fr = freeze ptr %.019
-  %5 = icmp ne ptr %.019.fr, null
-  %6 = icmp ne ptr %.019.fr, %0
+  %5 = icmp ne ptr %.019, null
+  %6 = icmp ne ptr %.019, %0
   %7 = and i1 %5, %6
   %8 = load ptr, ptr %4, align 8
   br i1 %7, label %11, label %_ZNSt6vectorIPK8VariableSaIS2_EE5clearEv.exit.preheader
 
 _ZNSt6vectorIPK8VariableSaIS2_EE5clearEv.exit.preheader: ; preds = %_ZNSt6vectorIP8VariableSaIS1_EE6insertIN9__gnu_cxx17__normal_iteratorIPS1_S3_EEvEES8_NS6_IPKS1_S3_EET_SC_.exit
   %9 = load ptr, ptr %3, align 8
-  %10 = icmp ne ptr %8, %9
-  %or.cond33.not = and i1 %6, %10
-  br i1 %or.cond33.not, label %.lr.ph.split, label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit23
+  %.not = icmp eq ptr %8, %9
+  br i1 %.not, label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit23, label %.lr.ph
+
+.lr.ph:                                           ; preds = %_ZNSt6vectorIPK8VariableSaIS2_EE5clearEv.exit.preheader
+  %10 = icmp eq ptr %.019, %0
+  br i1 %10, label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit23, label %.lr.ph.split
 
 11:                                               ; preds = %_ZNSt6vectorIP8VariableSaIS1_EE6insertIN9__gnu_cxx17__normal_iteratorIPS1_S3_EEvEES8_NS6_IPKS1_S3_EET_SC_.exit
-  %12 = getelementptr inbounds nuw i8, ptr %.019.fr, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %.019, i64 80
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %.019.fr, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %.019, i64 88
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %3, align 8
   %17 = ptrtoint ptr %8 to i64
@@ -2342,7 +2344,7 @@ _ZNSt6vectorIPK8VariableSaIS2_EE5clearEv.exit.preheader: ; preds = %_ZNSt6vector
   invoke void @_ZNSt6vectorIP8VariableSaIS1_EE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPS1_S3_EEEEvS8_T_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr %20, ptr %13, ptr %15)
           to label %_ZNSt6vectorIP8VariableSaIS1_EE6insertIN9__gnu_cxx17__normal_iteratorIPS1_S3_EEvEES8_NS6_IPKS1_S3_EET_SC_.exit unwind label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit.loopexit.split-lp
 
-_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit.loopexit.split: ; preds = %.lr.ph.split
+_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit.loopexit: ; preds = %.lr.ph.split
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit
@@ -2352,8 +2354,8 @@ _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit.loopexit.split-lp: ; preds = %11
           cleanup
   br label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit
 
-_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit:        ; preds = %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit.loopexit.split, %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit.loopexit.split-lp
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit.loopexit.split-lp ], [ %lpad.loopexit, %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit.loopexit.split ]
+_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit:        ; preds = %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit.loopexit.split-lp, %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit.loopexit
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit.loopexit ], [ %lpad.loopexit.split-lp, %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit.loopexit.split-lp ]
   %21 = load ptr, ptr %3, align 8
   %.not.i.i.i21 = icmp eq ptr %21, null
   br i1 %.not.i.i.i21, label %_ZNSt6vectorIP8VariableSaIS1_EED2Ev.exit, label %22
@@ -2366,7 +2368,7 @@ _ZNSt6vectorIP8VariableSaIS1_EED2Ev.exit:         ; preds = %_ZNSt6vectorIPK8Var
   resume { ptr, i32 } %lpad.phi
 
 _ZNSt6vectorIPK8VariableSaIS2_EE5clearEv.exit:    ; preds = %37
-  %23 = add nuw i64 %.01834, 1
+  %23 = add nuw i64 %.01832, 1
   %24 = load ptr, ptr %4, align 8
   %25 = ptrtoint ptr %24 to i64
   %26 = ptrtoint ptr %.pre.pre to i64
@@ -2375,16 +2377,16 @@ _ZNSt6vectorIPK8VariableSaIS2_EE5clearEv.exit:    ; preds = %37
   %29 = icmp ult i64 %23, %28
   br i1 %29, label %.lr.ph.split, label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit23.loopexit, !llvm.loop !17
 
-.lr.ph.split:                                     ; preds = %_ZNSt6vectorIPK8VariableSaIS2_EE5clearEv.exit.preheader, %_ZNSt6vectorIPK8VariableSaIS2_EE5clearEv.exit
-  %30 = phi ptr [ %.pre.pre, %_ZNSt6vectorIPK8VariableSaIS2_EE5clearEv.exit ], [ %9, %_ZNSt6vectorIPK8VariableSaIS2_EE5clearEv.exit.preheader ]
-  %.01834 = phi i64 [ %23, %_ZNSt6vectorIPK8VariableSaIS2_EE5clearEv.exit ], [ 0, %_ZNSt6vectorIPK8VariableSaIS2_EE5clearEv.exit.preheader ]
-  %31 = getelementptr inbounds ptr, ptr %30, i64 %.01834
+.lr.ph.split:                                     ; preds = %.lr.ph, %_ZNSt6vectorIPK8VariableSaIS2_EE5clearEv.exit
+  %30 = phi ptr [ %.pre.pre, %_ZNSt6vectorIPK8VariableSaIS2_EE5clearEv.exit ], [ %9, %.lr.ph ]
+  %.01832 = phi i64 [ %23, %_ZNSt6vectorIPK8VariableSaIS2_EE5clearEv.exit ], [ 0, %.lr.ph ]
+  %31 = getelementptr inbounds ptr, ptr %30, i64 %.01832
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %35 = load ptr, ptr %34, align 8
   %36 = invoke noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(200) %32, ptr noundef %0)
-          to label %37 unwind label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit.loopexit.split
+          to label %37 unwind label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit.loopexit
 
 37:                                               ; preds = %.lr.ph.split
   %.pre.pre = load ptr, ptr %3, align 8
@@ -2394,9 +2396,9 @@ _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit23.loopexit: ; preds = %37, %_ZNSt6vect
   %.lcssa.ph = xor i1 %36, true
   br label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit23
 
-_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit23:      ; preds = %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit23.loopexit, %_ZNSt6vectorIPK8VariableSaIS2_EE5clearEv.exit.preheader
-  %38 = phi ptr [ %9, %_ZNSt6vectorIPK8VariableSaIS2_EE5clearEv.exit.preheader ], [ %.pre.pre, %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit23.loopexit ]
-  %.lcssa = phi i1 [ %10, %_ZNSt6vectorIPK8VariableSaIS2_EE5clearEv.exit.preheader ], [ %.lcssa.ph, %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit23.loopexit ]
+_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit23:      ; preds = %.lr.ph, %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit23.loopexit, %_ZNSt6vectorIPK8VariableSaIS2_EE5clearEv.exit.preheader
+  %38 = phi ptr [ %9, %_ZNSt6vectorIPK8VariableSaIS2_EE5clearEv.exit.preheader ], [ %.pre.pre, %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit23.loopexit ], [ %9, %.lr.ph ]
+  %.lcssa = phi i1 [ false, %_ZNSt6vectorIPK8VariableSaIS2_EE5clearEv.exit.preheader ], [ %.lcssa.ph, %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit23.loopexit ], [ true, %.lr.ph ]
   %.not.i.i.i24 = icmp eq ptr %38, null
   br i1 %.not.i.i.i24, label %_ZNSt6vectorIP8VariableSaIS1_EED2Ev.exit25, label %39
 
@@ -4604,14 +4606,14 @@ define internal void @_GLOBAL__sub_I_StatementGoto.cpp() #13 section ".text.star
   ret void
 }
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #14
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #14
-
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #15
+declare void @llvm.assume(i1 noundef) #14
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
@@ -4633,8 +4635,8 @@ attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #11 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #13 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #17 = { noreturn nounwind }
 attributes #18 = { noreturn }

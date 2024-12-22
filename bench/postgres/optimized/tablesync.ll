@@ -1602,11 +1602,11 @@ walrcv_clear_result.exit150.i.i.i:                ; preds = %366, %364
 .lr.ph192.split.us.i.i.i:                         ; preds = %.lr.ph192.i.i.i
   %406 = load i16, ptr %403, align 2
   %407 = icmp slt i16 %406, 1
-  br i1 %407, label %slot_getsomeattrs.exit.i151.us.i.i.i, label %slot_getattr.exit152.us.i.i.i
+  br i1 %407, label %slot_getsomeattrs.exit.i151.us.i.i.i, label %.split.i.i.i
 
 slot_getsomeattrs.exit.i151.us.i.i.i:             ; preds = %.lr.ph192.split.us.i.i.i
   call void @slot_getsomeattrs_int(ptr noundef nonnull %399, i32 noundef range(i32 1, 5) 1) #12
-  br label %slot_getattr.exit152.usthread-pre-split.i.i.i
+  br label %.split.i.i.i
 
 .lr.ph192.split.i.i.i:                            ; preds = %.lr.ph192.i.i.i, %415
   %408 = load i16, ptr %403, align 2
@@ -1624,7 +1624,7 @@ slot_getattr.exit152.i.i.i:                       ; preds = %slot_getsomeattrs.e
   %sext.i.i.i = shl i32 %412, 16
   %413 = ashr exact i32 %sext.i.i.i, 16
   %414 = call zeroext i1 @bms_is_member(i32 noundef %413, ptr noundef nonnull %.0121.i.i.i) #12
-  br i1 %414, label %slot_getattr.exit152.usthread-pre-split.i.i.i, label %415
+  br i1 %414, label %.split.i.i.i, label %415
 
 415:                                              ; preds = %slot_getattr.exit152.i.i.i
   %416 = load ptr, ptr %405, align 8
@@ -1635,20 +1635,16 @@ slot_getattr.exit152.i.i.i:                       ; preds = %slot_getsomeattrs.e
   %420 = call zeroext i1 @tuplestore_gettupleslot(ptr noundef %419, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull %399) #12
   br i1 %420, label %.lr.ph192.split.i.i.i, label %.outer._crit_edge.loopexit.i.i.i, !llvm.loop !13
 
-slot_getattr.exit152.usthread-pre-split.i.i.i:    ; preds = %slot_getattr.exit152.i.i.i, %slot_getsomeattrs.exit.i151.us.i.i.i
-  %.pr.i.i.i = load i16, ptr %403, align 2
-  br label %slot_getattr.exit152.us.i.i.i
-
-slot_getattr.exit152.us.i.i.i:                    ; preds = %slot_getattr.exit152.usthread-pre-split.i.i.i, %.lr.ph192.split.us.i.i.i
-  %421 = phi i16 [ %.pr.i.i.i, %slot_getattr.exit152.usthread-pre-split.i.i.i ], [ %406, %.lr.ph192.split.us.i.i.i ]
+.split.i.i.i:                                     ; preds = %slot_getattr.exit152.i.i.i, %.lr.ph192.split.us.i.i.i, %slot_getsomeattrs.exit.i151.us.i.i.i
+  %421 = load i16, ptr %403, align 2
   %422 = icmp slt i16 %421, 2
   br i1 %422, label %slot_getsomeattrs.exit.i153.i.i.i, label %slot_getattr.exit154.i.i.i
 
-slot_getsomeattrs.exit.i153.i.i.i:                ; preds = %slot_getattr.exit152.us.i.i.i
+slot_getsomeattrs.exit.i153.i.i.i:                ; preds = %.split.i.i.i
   call void @slot_getsomeattrs_int(ptr noundef nonnull %399, i32 noundef range(i32 1, 5) 2) #12
   br label %slot_getattr.exit154.i.i.i
 
-slot_getattr.exit154.i.i.i:                       ; preds = %slot_getsomeattrs.exit.i153.i.i.i, %slot_getattr.exit152.us.i.i.i
+slot_getattr.exit154.i.i.i:                       ; preds = %slot_getsomeattrs.exit.i153.i.i.i, %.split.i.i.i
   %423 = load ptr, ptr %404, align 8
   %424 = getelementptr i8, ptr %423, i64 8
   %425 = load i64, ptr %424, align 8

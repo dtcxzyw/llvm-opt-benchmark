@@ -19263,6 +19263,7 @@ _ZStmiRKSt15_Deque_iteratorIcRcPcEl.exit76:       ; preds = %400, %406
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !513
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !513
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10), !noalias !510
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %1, i64 0) ]
   %438 = ptrtoint ptr %3 to i64
   %439 = ptrtoint ptr %2 to i64
   %440 = sub i64 %438, %439
@@ -19384,6 +19385,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11ch
   store ptr %.sroa.6181.0, ptr %67, align 8, !tbaa !17
   store ptr %.sroa.8184.0, ptr %333, align 8, !tbaa !17
   store ptr %.sroa.10187.0, ptr %58, align 8, !tbaa !17
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %1, i64 0) ]
   %492 = icmp sgt i64 %365, 0
   br i1 %492, label %.lr.ph.i.i.i104.preheader, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt15_Deque_iteratorIcRcPcEET0_T_SG_SF_.exit
 
@@ -28642,6 +28644,7 @@ _ZStmiRKSt15_Deque_iteratorIcRcPcEl.exit72:       ; preds = %400, %406
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !856
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !856
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10), !noalias !853
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %1, i64 0) ]
   %438 = ptrtoint ptr %3 to i64
   %439 = ptrtoint ptr %2 to i64
   %440 = sub i64 %438, %439
@@ -28763,6 +28766,7 @@ _ZSt7advanceIPKclEvRT_T0_.exit97:                 ; preds = %_ZStmiRKSt15_Deque_
   store ptr %.sroa.6178.0, ptr %67, align 8, !tbaa !17
   store ptr %.sroa.8181.0, ptr %333, align 8, !tbaa !17
   store ptr %.sroa.10184.0, ptr %58, align 8, !tbaa !17
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %1, i64 0) ]
   %492 = icmp sgt i64 %365, 0
   br i1 %492, label %.lr.ph.i.i.i100.preheader, label %_ZSt4copyIPKcSt15_Deque_iteratorIcRcPcEET0_T_S7_S6_.exit
 

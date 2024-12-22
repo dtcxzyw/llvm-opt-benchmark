@@ -7512,6 +7512,7 @@ _ZStmiRKSt15_Deque_iteratorIPKN4llvm4LoopERS3_PS3_El.exit66: ; preds = %414, %42
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11), !noalias !297
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12), !noalias !297
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13), !noalias !294
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %1, i64 0) ]
   %450 = ptrtoint ptr %3 to i64
   %451 = ptrtoint ptr %2 to i64
   %452 = sub i64 %450, %451
@@ -7720,6 +7721,7 @@ _ZSt25__uninitialized_copy_moveIN9__gnu_cxx17__normal_iteratorIPKPN4llvm4LoopESt
   store ptr %.sroa.3209.0, ptr %68, align 8
   store ptr %.sroa.5.0, ptr %344, align 8
   store ptr %.sroa.7214.0, ptr %59, align 8
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %1, i64 0) ]
   %548 = icmp sgt i64 %376, 0
   br i1 %548, label %.lr.ph.i.i.i114.preheader, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKPN4llvm4LoopESt6vectorIS4_SaIS4_EEEESt15_Deque_iteratorIPKS3_RSD_PSD_EET0_T_SI_SH_.exit
 

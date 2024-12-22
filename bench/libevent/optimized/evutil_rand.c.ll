@@ -183,18 +183,19 @@ arc4_seed_getrandom.exit.i:                       ; preds = %for.body.i.i, %4
   %tobool.not.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i, label %for.body.i4.i, label %arc4_seed_urandom.exit.i
 
-for.cond.i7.i:                                    ; preds = %for.body.i4.i
+for.cond.i6.i:                                    ; preds = %for.body.i4.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %arrayidx.i7.i = getelementptr inbounds nuw [4 x ptr], ptr @arc4_seed_urandom.filenames, i64 0, i64 %indvars.iv.next.i.i
   %tobool1.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
   br i1 %tobool1.not.i.i, label %arc4_seed_urandom.exit.thread44.i, label %for.body.i4.i, !llvm.loop !9
 
-for.body.i4.i:                                    ; preds = %arc4_seed_getrandom.exit.i, %for.cond.i7.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.cond.i7.i ], [ 0, %arc4_seed_getrandom.exit.i ]
-  %arrayidx.i5.i = getelementptr inbounds nuw [4 x ptr], ptr @arc4_seed_urandom.filenames, i64 0, i64 %indvars.iv.i.i
-  %7 = load ptr, ptr %arrayidx.i5.i, align 8
+for.body.i4.i:                                    ; preds = %arc4_seed_getrandom.exit.i, %for.cond.i6.i
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.cond.i6.i ], [ 0, %arc4_seed_getrandom.exit.i ]
+  %arrayidx5.i.i = phi ptr [ %arrayidx.i7.i, %for.cond.i6.i ], [ @arc4_seed_urandom.filenames, %arc4_seed_getrandom.exit.i ]
+  %7 = load ptr, ptr %arrayidx5.i.i, align 8
   %call4.i.i = call fastcc i32 @arc4_seed_urandom_helper_(ptr noundef %7)
-  %cmp.i6.i = icmp eq i32 %call4.i.i, 0
-  br i1 %cmp.i6.i, label %arc4_seed_urandom.exit.thread.i, label %for.cond.i7.i
+  %cmp.i5.i = icmp eq i32 %call4.i.i, 0
+  br i1 %cmp.i5.i, label %arc4_seed_urandom.exit.thread.i, label %for.cond.i6.i
 
 arc4_seed_urandom.exit.i:                         ; preds = %arc4_seed_getrandom.exit.i
   %call.i2.i = call fastcc i32 @arc4_seed_urandom_helper_(ptr noundef %6)
@@ -205,8 +206,8 @@ arc4_seed_urandom.exit.i:                         ; preds = %arc4_seed_getrandom
 arc4_seed_urandom.exit.thread.i:                  ; preds = %for.body.i4.i, %arc4_seed_urandom.exit.i
   br label %arc4_seed_urandom.exit.thread44.i
 
-arc4_seed_urandom.exit.thread44.i:                ; preds = %for.cond.i7.i, %arc4_seed_urandom.exit.thread.i, %arc4_seed_urandom.exit.i
-  %8 = phi i32 [ 1, %arc4_seed_urandom.exit.thread.i ], [ %5, %arc4_seed_urandom.exit.i ], [ %5, %for.cond.i7.i ]
+arc4_seed_urandom.exit.thread44.i:                ; preds = %for.cond.i6.i, %arc4_seed_urandom.exit.thread.i, %arc4_seed_urandom.exit.i
+  %8 = phi i32 [ 1, %arc4_seed_urandom.exit.thread.i ], [ %5, %arc4_seed_urandom.exit.i ], [ %5, %for.cond.i6.i ]
   %9 = load ptr, ptr @arc4random_urandom_filename, align 8
   %cmp5.i = icmp eq ptr %9, null
   br i1 %cmp5.i, label %land.lhs.true.i, label %arc4_seed.exit

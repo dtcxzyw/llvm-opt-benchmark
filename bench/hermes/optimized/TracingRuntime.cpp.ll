@@ -6782,25 +6782,25 @@ for.body.lr.ph:                                   ; preds = %_ZNSt12_Vector_base
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %1 = phi ptr [ %call5.i.i.i.i4, %for.body.lr.ph ], [ %6, %for.inc ]
   %i.021 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %2 = phi ptr [ %add.ptr21.i, %for.body.lr.ph ], [ %7, %for.inc ]
+  %1 = phi ptr [ %add.ptr21.i, %for.body.lr.ph ], [ %6, %for.inc ]
   %call5.i.i.i.i.i81820 = phi ptr [ %call5.i.i.i.i4, %for.body.lr.ph ], [ %call5.i.i.i.i.i817, %for.inc ]
   %arrayidx = getelementptr inbounds %"class.facebook::jsi::Value", ptr %args, i64 %i.021
   %call = invoke { i32, i64 } @_ZN8facebook6hermes7tracing14TracingRuntime12toTraceValueERKNS_3jsi5ValueE(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx)
           to label %invoke.cont2 unwind label %lpad.loopexit
 
 invoke.cont2:                                     ; preds = %for.body
-  %3 = extractvalue { i32, i64 } %call, 0
-  %4 = extractvalue { i32, i64 } %call, 1
-  %cmp.not.i = icmp eq ptr %1, %2
+  %2 = extractvalue { i32, i64 } %call, 0
+  %3 = extractvalue { i32, i64 } %call, 1
+  %4 = load ptr, ptr %_M_finish.i, align 8
+  %cmp.not.i = icmp eq ptr %4, %1
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i5
 
 if.then.i5:                                       ; preds = %invoke.cont2
-  store i32 %3, ptr %1, align 8
-  %ref.tmp.sroa.313.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %4, ptr %ref.tmp.sroa.313.0..sroa_idx, align 8
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i32 %2, ptr %4, align 8
+  %ref.tmp.sroa.313.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 %3, ptr %ref.tmp.sroa.313.0..sroa_idx, align 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %for.inc
 
@@ -6826,9 +6826,9 @@ _ZNKSt6vectorIN8facebook6hermes7tracing10SynthTrace10TraceValueESaIS4_EE12_M_che
 
 call5.i.i.i.i.i.noexc:                            ; preds = %_ZNKSt6vectorIN8facebook6hermes7tracing10SynthTrace10TraceValueESaIS4_EE12_M_check_lenEmPKc.exit.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i8, i64 %sub.ptr.sub.i.i.i.i
-  store i32 %3, ptr %add.ptr.i.i, align 8
+  store i32 %2, ptr %add.ptr.i.i, align 8
   %ref.tmp.sroa.313.0.add.ptr.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 8
-  store i64 %4, ptr %ref.tmp.sroa.313.0.add.ptr.i.i.sroa_idx, align 8
+  store i64 %3, ptr %ref.tmp.sroa.313.0.add.ptr.i.i.sroa_idx, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %call5.i.i.i.i.i81820, %1
   br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt6vectorIN8facebook6hermes7tracing10SynthTrace10TraceValueESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i, label %for.body.i.i.i.i.i
 
@@ -6859,9 +6859,8 @@ _ZNSt6vectorIN8facebook6hermes7tracing10SynthTrace10TraceValueESaIS4_EE17_M_real
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNSt6vectorIN8facebook6hermes7tracing10SynthTrace10TraceValueESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, %if.then.i5
-  %6 = phi ptr [ %incdec.ptr.i.i, %_ZNSt6vectorIN8facebook6hermes7tracing10SynthTrace10TraceValueESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i ], [ %incdec.ptr.i, %if.then.i5 ]
   %call5.i.i.i.i.i817 = phi ptr [ %call5.i.i.i.i.i8, %_ZNSt6vectorIN8facebook6hermes7tracing10SynthTrace10TraceValueESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i ], [ %call5.i.i.i.i.i81820, %if.then.i5 ]
-  %7 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIN8facebook6hermes7tracing10SynthTrace10TraceValueESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i ], [ %2, %if.then.i5 ]
+  %6 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIN8facebook6hermes7tracing10SynthTrace10TraceValueESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i ], [ %1, %if.then.i5 ]
   %inc = add nuw i64 %i.021, 1
   %exitcond.not = icmp eq i64 %inc, %count
   br i1 %exitcond.not, label %nrvo.skipdtor, label %for.body, !llvm.loop !272
@@ -6878,12 +6877,12 @@ lpad.loopexit.split-lp:                           ; preds = %if.then.i.invoke, %
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit15, %lpad.loopexit ], [ %lpad.loopexit.split-lp16, %lpad.loopexit.split-lp ]
-  %8 = load ptr, ptr %agg.result, align 8
-  %tobool.not.i.i.i9 = icmp eq ptr %8, null
+  %7 = load ptr, ptr %agg.result, align 8
+  %tobool.not.i.i.i9 = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i9, label %_ZNSt6vectorIN8facebook6hermes7tracing10SynthTrace10TraceValueESaIS4_EED2Ev.exit, label %if.then.i.i.i10
 
 if.then.i.i.i10:                                  ; preds = %lpad
-  tail call void @_ZdlPv(ptr noundef nonnull %8) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %7) #30
   br label %_ZNSt6vectorIN8facebook6hermes7tracing10SynthTrace10TraceValueESaIS4_EED2Ev.exit
 
 _ZNSt6vectorIN8facebook6hermes7tracing10SynthTrace10TraceValueESaIS4_EED2Ev.exit: ; preds = %lpad, %if.then.i.i.i10

@@ -305,7 +305,7 @@ default.unreachable:                              ; preds = %57
 declare void @lv_point_set(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 3) i32 @lv_draw_mask_line(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal range(i32 0, 3) i32 @lv_draw_mask_line(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 36
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %8 = load i32, ptr %7, align 4, !tbaa !32
@@ -1129,7 +1129,7 @@ define void @lv_draw_sw_mask_angle_init(ptr noundef initializes((24, 32), (160, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 3) i32 @lv_draw_mask_angle(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal range(i32 0, 3) i32 @lv_draw_mask_angle(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %8 = load i32, ptr %7, align 4, !tbaa !44
@@ -2396,7 +2396,7 @@ define void @lv_draw_sw_mask_fade_init(ptr nocapture noundef writeonly initializ
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define internal range(i32 1, 3) i32 @lv_draw_mask_fade(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) #4 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -2480,10 +2480,10 @@ mask_mix.exit:                                    ; preds = %32, %38, %40
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 36
   %49 = load i32, ptr %48, align 4, !tbaa !74
   %.not74 = icmp slt i32 %2, %49
-  %50 = icmp sgt i32 %.166, 0
   br i1 %.not74, label %68, label %.preheader
 
 .preheader:                                       ; preds = %47
+  %50 = icmp sgt i32 %.166, 0
   br i1 %50, label %.lr.ph87, label %.loopexit
 
 .lr.ph87:                                         ; preds = %.preheader
@@ -2520,50 +2520,51 @@ mask_mix.exit76:                                  ; preds = %53, %59, %61
   br i1 %67, label %53, label %.loopexit, !llvm.loop !82
 
 68:                                               ; preds = %47
-  br i1 %50, label %.lr.ph89, label %.loopexit
+  %69 = icmp sgt i32 %.166, 0
+  br i1 %69, label %.lr.ph89, label %.loopexit
 
 .lr.ph89:                                         ; preds = %68
-  %69 = getelementptr inbounds nuw i8, ptr %4, i64 41
-  %70 = load i8, ptr %69, align 1, !tbaa !72
-  %71 = zext i8 %70 to i32
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 41
+  %71 = load i8, ptr %70, align 1, !tbaa !72
   %72 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %73 = load i8, ptr %72, align 8, !tbaa !69
-  %74 = zext i8 %73 to i32
-  %75 = sub nsw i32 %71, %74
-  %76 = sub nsw i32 %2, %28
-  %77 = mul nsw i32 %75, %76
-  %78 = ashr i32 %77, 8
+  %73 = zext i8 %71 to i32
+  %74 = load i8, ptr %72, align 8, !tbaa !69
+  %75 = zext i8 %74 to i32
+  %76 = sub nsw i32 %73, %75
+  %77 = sub nsw i32 %2, %28
+  %78 = mul nsw i32 %76, %77
+  %79 = ashr i32 %78, 8
   %reass.sub = sub i32 %49, %28
-  %79 = add i32 %reass.sub, 1
-  %80 = sdiv i32 %78, %79
-  %81 = trunc i32 %80 to i8
-  %82 = add i8 %73, %81
-  %83 = zext i8 %82 to i32
-  %84 = icmp ugt i8 %82, -4
-  %85 = mul nuw nsw i32 %83, 32897
-  br i1 %84, label %.loopexit, label %.lr.ph89.split
+  %80 = add i32 %reass.sub, 1
+  %81 = sdiv i32 %79, %80
+  %82 = trunc i32 %81 to i8
+  %83 = add i8 %74, %82
+  %84 = zext i8 %83 to i32
+  %85 = icmp ugt i8 %83, -4
+  %86 = mul nuw nsw i32 %84, 32897
+  br i1 %85, label %.loopexit, label %.lr.ph89.split
 
 .lr.ph89.split:                                   ; preds = %.lr.ph89
-  %86 = icmp ult i8 %82, 3
-  %87 = zext nneg i32 %.166 to i64
-  br i1 %86, label %mask_mix.exit78.us91.preheader, label %mask_mix.exit78
+  %87 = icmp ult i8 %83, 3
+  %88 = zext nneg i32 %.166 to i64
+  br i1 %87, label %mask_mix.exit78.us91.preheader, label %mask_mix.exit78
 
 mask_mix.exit78.us91.preheader:                   ; preds = %.lr.ph89.split
-  tail call void @llvm.memset.p0.i64(ptr align 1 %.062, i8 0, i64 %87, i1 false), !tbaa !34
+  tail call void @llvm.memset.p0.i64(ptr align 1 %.062, i8 0, i64 %88, i1 false), !tbaa !34
   br label %.loopexit
 
 mask_mix.exit78:                                  ; preds = %.lr.ph89.split, %mask_mix.exit78
   %indvars.iv104 = phi i64 [ %indvars.iv.next105, %mask_mix.exit78 ], [ 0, %.lr.ph89.split ]
-  %88 = getelementptr inbounds nuw i8, ptr %.062, i64 %indvars.iv104
-  %89 = load i8, ptr %88, align 1, !tbaa !34
-  %90 = zext i8 %89 to i32
-  %91 = mul nuw nsw i32 %85, %90
-  %92 = lshr i32 %91, 23
-  %93 = trunc nuw i32 %92 to i8
-  store i8 %93, ptr %88, align 1, !tbaa !34
+  %89 = getelementptr inbounds nuw i8, ptr %.062, i64 %indvars.iv104
+  %90 = load i8, ptr %89, align 1, !tbaa !34
+  %91 = zext i8 %90 to i32
+  %92 = mul nuw nsw i32 %86, %91
+  %93 = lshr i32 %92, 23
+  %94 = trunc nuw i32 %93 to i8
+  store i8 %94, ptr %89, align 1, !tbaa !34
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
-  %94 = icmp samesign ult i64 %indvars.iv.next105, %87
-  br i1 %94, label %mask_mix.exit78, label %.loopexit, !llvm.loop !83
+  %95 = icmp samesign ult i64 %indvars.iv.next105, %88
+  br i1 %95, label %mask_mix.exit78, label %.loopexit, !llvm.loop !83
 
 .loopexit:                                        ; preds = %mask_mix.exit, %mask_mix.exit76, %mask_mix.exit78, %.lr.ph89, %mask_mix.exit78.us91.preheader, %.preheader83, %.preheader, %68, %18, %14, %10, %5
   %.0 = phi i32 [ 1, %5 ], [ 1, %10 ], [ 1, %14 ], [ 1, %18 ], [ 2, %68 ], [ 2, %.preheader ], [ 2, %.preheader83 ], [ 2, %mask_mix.exit78.us91.preheader ], [ 2, %.lr.ph89 ], [ 2, %mask_mix.exit78 ], [ 2, %mask_mix.exit76 ], [ 2, %mask_mix.exit ]
@@ -2720,7 +2721,7 @@ attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-mat
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { nounwind }

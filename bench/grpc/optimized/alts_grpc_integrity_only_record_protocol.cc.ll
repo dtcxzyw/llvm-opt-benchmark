@@ -114,18 +114,18 @@ if.then4:                                         ; preds = %if.end
   %3 = load i64, ptr %tag_length.i, align 8
   %add2.i = add i64 %add.i, %3
   call void @grpc_slice_malloc(ptr nonnull sret(%struct.grpc_slice) align 8 %protected_slice.i, i64 noundef %add2.i)
+  %4 = load ptr, ptr %protected_slice.i, align 8
   %bytes.i = getelementptr inbounds nuw i8, ptr %protected_slice.i, i64 16
+  %5 = load ptr, ptr %bytes.i, align 8
   %bytes5.i = getelementptr inbounds nuw i8, ptr %protected_slice.i, i64 9
   %count.i = getelementptr inbounds nuw i8, ptr %unprotected_slices, i64 16
-  %4 = load i64, ptr %count.i, align 8
-  %cmp38.not.i = icmp eq i64 %4, 0
+  %6 = load i64, ptr %count.i, align 8
+  %cmp38.not.i = icmp eq i64 %6, 0
   br i1 %cmp38.not.i, label %for.end.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then4
-  %5 = load ptr, ptr %protected_slice.i, align 8
-  %tobool.not.i = icmp eq ptr %5, null
-  %6 = load ptr, ptr %bytes.i, align 8
-  %cond.i = select i1 %tobool.not.i, ptr %bytes5.i, ptr %6
+  %tobool.not.i = icmp eq ptr %4, null
+  %cond.i = select i1 %tobool.not.i, ptr %bytes5.i, ptr %5
   %7 = load i64, ptr %header_length.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %cond.i, i64 %7
   %slices.i = getelementptr inbounds nuw i8, ptr %unprotected_slices, i64 8
@@ -181,14 +181,19 @@ cond.end53.i:                                     ; preds = %cond.false47.i, %co
   %inc.i = add nuw i64 %i.039.i, 1
   %17 = load i64, ptr %count.i, align 8
   %cmp.i = icmp ult i64 %inc.i, %17
-  br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !4
+  br i1 %cmp.i, label %for.body.i, label %for.end.loopexit.i, !llvm.loop !4
 
-for.end.i:                                        ; preds = %cond.end53.i, %if.then4
+for.end.loopexit.i:                               ; preds = %cond.end53.i
+  %.pre41.i = load ptr, ptr %protected_slice.i, align 8
+  %.pre42.i = load ptr, ptr %bytes.i, align 8
+  br label %for.end.i
+
+for.end.i:                                        ; preds = %for.end.loopexit.i, %if.then4
+  %18 = phi ptr [ %.pre42.i, %for.end.loopexit.i ], [ %5, %if.then4 ]
+  %19 = phi ptr [ %.pre41.i, %for.end.loopexit.i ], [ %4, %if.then4 ]
   store ptr null, ptr %error_details.i, align 8
-  %18 = load ptr, ptr %protected_slice.i, align 8
-  %tobool57.not.i = icmp eq ptr %18, null
-  %19 = load ptr, ptr %bytes.i, align 8
-  %cond66.i = select i1 %tobool57.not.i, ptr %bytes5.i, ptr %19
+  %tobool57.not.i = icmp eq ptr %19, null
+  %cond66.i = select i1 %tobool57.not.i, ptr %bytes5.i, ptr %18
   %20 = load i64, ptr %header_length.i, align 8
   %add.ptr81.i = getelementptr inbounds i8, ptr %cond66.i, i64 %20
   %add.ptr82.i = getelementptr inbounds i8, ptr %add.ptr81.i, i64 %1

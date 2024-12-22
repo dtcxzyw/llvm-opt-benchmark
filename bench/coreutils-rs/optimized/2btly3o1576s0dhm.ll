@@ -544,7 +544,7 @@ define hidden { ptr, i64 } @"_ZN86_$LT$clap_builder..builder..str..Str$u20$as$u2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN94_$LT$uu_cut..searcher..Searcher$LT$M$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6e23b887daca6a2bE"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(32) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @"_ZN94_$LT$uu_cut..searcher..Searcher$LT$M$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6e23b887daca6a2bE"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(32) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !13
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -596,13 +596,14 @@ _ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf16fe1276752952fE.llvm.1
 
 .loopexit:                                        ; preds = %25, %.lr.ph.i, %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf16fe1276752952fE.llvm.18437011518490787362.exit.i
   %.sroa.6.0.ph = phi i64 [ %.016.i, %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf16fe1276752952fE.llvm.18437011518490787362.exit.i ], [ %11, %25 ], [ %.017.i, %.lr.ph.i ]
-  %28 = add i64 %20, %6
-  %29 = add i64 %.sroa.6.0.ph, %6
-  store i64 %29, ptr %5, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %28, ptr %30, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %28 = load i64, ptr %5, align 8, !noundef !13
+  %29 = add i64 %28, %20
+  %30 = add i64 %28, %.sroa.6.0.ph
+  store i64 %30, ptr %5, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %29, ptr %31, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %30, ptr %32, align 8
   br label %"_ZN79_$LT$uu_cut..matcher..WhitespaceMatcher$u20$as$u20$uu_cut..matcher..Matcher$GT$10next_match17h70b02bb3eb0d28cbE.exit"
 
 "_ZN79_$LT$uu_cut..matcher..WhitespaceMatcher$u20$as$u20$uu_cut..matcher..Matcher$GT$10next_match17h70b02bb3eb0d28cbE.exit": ; preds = %8, %.loopexit
@@ -612,7 +613,7 @@ _ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf16fe1276752952fE.llvm.1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN94_$LT$uu_cut..searcher..Searcher$LT$M$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h92485434d55b2249E"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(32) %1) unnamed_addr #2 {
+define hidden void @"_ZN94_$LT$uu_cut..searcher..Searcher$LT$M$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h92485434d55b2249E"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(32) %1) unnamed_addr #2 {
   %3 = alloca { i64, [2 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -631,7 +632,7 @@ define hidden void @"_ZN94_$LT$uu_cut..searcher..Searcher$LT$M$GT$$u20$as$u20$co
   call void @"_ZN74_$LT$uu_cut..matcher..ExactMatcher$u20$as$u20$uu_cut..matcher..Matcher$GT$10next_match17hd452d9749b1037e0E"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %12, ptr noalias noundef nonnull readonly align 1 %14, i64 noundef %13)
   %15 = load i64, ptr %3, align 8, !range !99, !noundef !13
   %trunc = trunc nuw i64 %15 to i1
-  br i1 %trunc, label %17, label %26
+  br i1 %trunc, label %17, label %27
 
 16:                                               ; preds = %2
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %7, i64 noundef %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.61fab05b91fe711afd0fa8b31be1b8b0.11.llvm.4803845676742659809) #17
@@ -642,16 +643,17 @@ define hidden void @"_ZN94_$LT$uu_cut..searcher..Searcher$LT$M$GT$$u20$as$u20$co
   %19 = load i64, ptr %18, align 8, !noundef !13
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %21 = load i64, ptr %20, align 8, !noundef !13
-  %22 = add i64 %19, %7
-  %23 = add i64 %21, %7
-  store i64 %23, ptr %6, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %22, ptr %24, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %22 = load i64, ptr %6, align 8, !noundef !13
+  %23 = add i64 %22, %19
+  %24 = add i64 %22, %21
+  store i64 %24, ptr %6, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %23, ptr %25, align 8
-  br label %26
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %24, ptr %26, align 8
+  br label %27
 
-26:                                               ; preds = %9, %17
+27:                                               ; preds = %9, %17
   %storemerge = phi i64 [ 1, %17 ], [ 0, %9 ]
   store i64 %storemerge, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)

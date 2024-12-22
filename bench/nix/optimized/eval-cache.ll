@@ -17414,23 +17414,24 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZS
 
 _ZNK3nix9StorePathltERKS0_.exit.i.i.i.i.i.i.i.i:  ; preds = %_ZSt3getILm0EJN3nix17DerivedPathOpaqueENS0_20NixStringContextElem7DrvDeepENS0_22SingleDerivedPathBuiltEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKS9_.exit.i.i.i.i
   %19 = sub i64 %12, %14
-  %20 = icmp slt i64 %19, 0
-  br i1 %20, label %_ZNK3nix17DerivedPathOpaqueltERKS0_.exit.i.i.i.i, label %_ZNKSt8__detail10_Synth3wayclIN3nix9StorePathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i.i.i.i.i
+  %.lobit.i.i.i.i = lshr i64 %19, 63
+  %20 = trunc nuw nsw i64 %.lobit.i.i.i.i to i8
+  br label %_ZNK3nix17DerivedPathOpaqueltERKS0_.exit.i.i.i.i
 
 _ZNK3nix9StorePathltERKS0_.exit.thread16.i.i.i.i.i.i.i.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i.i.i
   %21 = sub i64 %12, %14
   %22 = icmp slt i64 %21, 0
-  br i1 %22, label %_ZNK3nix17DerivedPathOpaqueltERKS0_.exit.i.i.i.i, label %_ZNKSt8__detail10_Synth3wayclIN3nix9StorePathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i.i.i.i.i
+  br i1 %22, label %_ZNK3nix17DerivedPathOpaqueltERKS0_.exit.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i7.i.i.i.i.i.i.i.i
 
 _ZNK3nix9StorePathltERKS0_.exit.thread.i.i.i.i.i.i.i.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i.i.i
   %23 = icmp slt i32 %18, 0
-  br i1 %23, label %_ZNK3nix17DerivedPathOpaqueltERKS0_.exit.i.i.i.i, label %_ZNKSt8__detail10_Synth3wayclIN3nix9StorePathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i.i.i.i.i
+  br i1 %23, label %_ZNK3nix17DerivedPathOpaqueltERKS0_.exit.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i7.i.i.i.i.i.i.i.i
 
-_ZNKSt8__detail10_Synth3wayclIN3nix9StorePathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i.i.i.i.i: ; preds = %_ZNK3nix9StorePathltERKS0_.exit.thread.i.i.i.i.i.i.i.i, %_ZNK3nix9StorePathltERKS0_.exit.thread16.i.i.i.i.i.i.i.i, %_ZNK3nix9StorePathltERKS0_.exit.i.i.i.i.i.i.i.i
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i7.i.i.i.i.i.i.i.i: ; preds = %_ZNK3nix9StorePathltERKS0_.exit.thread.i.i.i.i.i.i.i.i, %_ZNK3nix9StorePathltERKS0_.exit.thread16.i.i.i.i.i.i.i.i
   br label %_ZNK3nix17DerivedPathOpaqueltERKS0_.exit.i.i.i.i
 
-_ZNK3nix17DerivedPathOpaqueltERKS0_.exit.i.i.i.i: ; preds = %_ZNKSt8__detail10_Synth3wayclIN3nix9StorePathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i.i.i.i.i, %_ZNK3nix9StorePathltERKS0_.exit.thread.i.i.i.i.i.i.i.i, %_ZNK3nix9StorePathltERKS0_.exit.thread16.i.i.i.i.i.i.i.i, %_ZNK3nix9StorePathltERKS0_.exit.i.i.i.i.i.i.i.i
-  %.sroa.05.0.i.i.i.i.i.i.i = phi i8 [ 1, %_ZNK3nix9StorePathltERKS0_.exit.i.i.i.i.i.i.i.i ], [ 1, %_ZNK3nix9StorePathltERKS0_.exit.thread.i.i.i.i.i.i.i.i ], [ 1, %_ZNK3nix9StorePathltERKS0_.exit.thread16.i.i.i.i.i.i.i.i ], [ 0, %_ZNKSt8__detail10_Synth3wayclIN3nix9StorePathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i.i.i.i.i ]
+_ZNK3nix17DerivedPathOpaqueltERKS0_.exit.i.i.i.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i7.i.i.i.i.i.i.i.i, %_ZNK3nix9StorePathltERKS0_.exit.thread.i.i.i.i.i.i.i.i, %_ZNK3nix9StorePathltERKS0_.exit.thread16.i.i.i.i.i.i.i.i, %_ZNK3nix9StorePathltERKS0_.exit.i.i.i.i.i.i.i.i
+  %.sroa.05.0.i.i.i.i.i.i.i = phi i8 [ 1, %_ZNK3nix9StorePathltERKS0_.exit.thread.i.i.i.i.i.i.i.i ], [ 1, %_ZNK3nix9StorePathltERKS0_.exit.thread16.i.i.i.i.i.i.i.i ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i7.i.i.i.i.i.i.i.i ], [ %20, %_ZNK3nix9StorePathltERKS0_.exit.i.i.i.i.i.i.i.i ]
   %24 = load ptr, ptr %0, align 8
   store i8 %.sroa.05.0.i.i.i.i.i.i.i, ptr %24, align 1
   br label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZStltIJN3nix17DerivedPathOpaqueENS5_20NixStringContextElem7DrvDeepENS5_22SingleDerivedPathBuiltEEEbRKSt7variantIJDpT_EESF_EUlOT_T0_E_RKSA_IJS6_S8_S9_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESK_SN_.exit
@@ -17468,23 +17469,24 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i.i.i11: ; preds = %_
 
 _ZNK3nix9StorePathltERKS0_.exit.i.i.i.i.i.i.i.i17: ; preds = %_ZSt3getILm1EJN3nix17DerivedPathOpaqueENS0_20NixStringContextElem7DrvDeepENS0_22SingleDerivedPathBuiltEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKS9_.exit.i.i.i.i
   %43 = sub i64 %36, %38
-  %44 = icmp slt i64 %43, 0
-  br i1 %44, label %_ZNK3nix20NixStringContextElem7DrvDeepltERKS1_.exit.i.i.i.i, label %_ZNKSt8__detail10_Synth3wayclIN3nix9StorePathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i.i.i.i.i14
+  %.lobit.i.i.i.i18 = lshr i64 %43, 63
+  %44 = trunc nuw nsw i64 %.lobit.i.i.i.i18 to i8
+  br label %_ZNK3nix20NixStringContextElem7DrvDeepltERKS1_.exit.i.i.i.i
 
 _ZNK3nix9StorePathltERKS0_.exit.thread16.i.i.i.i.i.i.i.i16: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i.i.i11
   %45 = sub i64 %36, %38
   %46 = icmp slt i64 %45, 0
-  br i1 %46, label %_ZNK3nix20NixStringContextElem7DrvDeepltERKS1_.exit.i.i.i.i, label %_ZNKSt8__detail10_Synth3wayclIN3nix9StorePathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i.i.i.i.i14
+  br i1 %46, label %_ZNK3nix20NixStringContextElem7DrvDeepltERKS1_.exit.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i7.i.i.i.i.i.i.i.i14
 
 _ZNK3nix9StorePathltERKS0_.exit.thread.i.i.i.i.i.i.i.i13: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i.i.i11
   %47 = icmp slt i32 %42, 0
-  br i1 %47, label %_ZNK3nix20NixStringContextElem7DrvDeepltERKS1_.exit.i.i.i.i, label %_ZNKSt8__detail10_Synth3wayclIN3nix9StorePathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i.i.i.i.i14
+  br i1 %47, label %_ZNK3nix20NixStringContextElem7DrvDeepltERKS1_.exit.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i7.i.i.i.i.i.i.i.i14
 
-_ZNKSt8__detail10_Synth3wayclIN3nix9StorePathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i.i.i.i.i14: ; preds = %_ZNK3nix9StorePathltERKS0_.exit.thread.i.i.i.i.i.i.i.i13, %_ZNK3nix9StorePathltERKS0_.exit.thread16.i.i.i.i.i.i.i.i16, %_ZNK3nix9StorePathltERKS0_.exit.i.i.i.i.i.i.i.i17
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i7.i.i.i.i.i.i.i.i14: ; preds = %_ZNK3nix9StorePathltERKS0_.exit.thread.i.i.i.i.i.i.i.i13, %_ZNK3nix9StorePathltERKS0_.exit.thread16.i.i.i.i.i.i.i.i16
   br label %_ZNK3nix20NixStringContextElem7DrvDeepltERKS1_.exit.i.i.i.i
 
-_ZNK3nix20NixStringContextElem7DrvDeepltERKS1_.exit.i.i.i.i: ; preds = %_ZNKSt8__detail10_Synth3wayclIN3nix9StorePathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i.i.i.i.i14, %_ZNK3nix9StorePathltERKS0_.exit.thread.i.i.i.i.i.i.i.i13, %_ZNK3nix9StorePathltERKS0_.exit.thread16.i.i.i.i.i.i.i.i16, %_ZNK3nix9StorePathltERKS0_.exit.i.i.i.i.i.i.i.i17
-  %.sroa.05.0.i.i.i.i.i.i.i15 = phi i8 [ 1, %_ZNK3nix9StorePathltERKS0_.exit.i.i.i.i.i.i.i.i17 ], [ 1, %_ZNK3nix9StorePathltERKS0_.exit.thread.i.i.i.i.i.i.i.i13 ], [ 1, %_ZNK3nix9StorePathltERKS0_.exit.thread16.i.i.i.i.i.i.i.i16 ], [ 0, %_ZNKSt8__detail10_Synth3wayclIN3nix9StorePathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i.i.i.i.i14 ]
+_ZNK3nix20NixStringContextElem7DrvDeepltERKS1_.exit.i.i.i.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i7.i.i.i.i.i.i.i.i14, %_ZNK3nix9StorePathltERKS0_.exit.thread.i.i.i.i.i.i.i.i13, %_ZNK3nix9StorePathltERKS0_.exit.thread16.i.i.i.i.i.i.i.i16, %_ZNK3nix9StorePathltERKS0_.exit.i.i.i.i.i.i.i.i17
+  %.sroa.05.0.i.i.i.i.i.i.i15 = phi i8 [ 1, %_ZNK3nix9StorePathltERKS0_.exit.thread.i.i.i.i.i.i.i.i13 ], [ 1, %_ZNK3nix9StorePathltERKS0_.exit.thread16.i.i.i.i.i.i.i.i16 ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i7.i.i.i.i.i.i.i.i14 ], [ %44, %_ZNK3nix9StorePathltERKS0_.exit.i.i.i.i.i.i.i.i17 ]
   %48 = load ptr, ptr %0, align 8
   store i8 %.sroa.05.0.i.i.i.i.i.i.i15, ptr %48, align 1
   br label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZStltIJN3nix17DerivedPathOpaqueENS5_20NixStringContextElem7DrvDeepENS5_22SingleDerivedPathBuiltEEEbRKSt7variantIJDpT_EESF_EUlOT_T0_E_RKSA_IJS6_S8_S9_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESK_SN_.exit
@@ -31562,7 +31564,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i19.i.i: ; preds = %_ZNS
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3nix6SymbolESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_10eval_cache10AttrCursor8getAttrsEvE3$_0EEEvT_T0_SG_T1_T2_"(ptr nocapture %0, i64 noundef %1, i64 noundef %2, i32 %3, ptr nocapture readonly %4) unnamed_addr #20 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3nix6SymbolESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_10eval_cache10AttrCursor8getAttrsEvE3$_0EEEvT_T0_SG_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, i32 %3, ptr nocapture readonly %4) unnamed_addr #20 {
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
   %8 = icmp slt i64 %1, %7
@@ -31879,7 +31881,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3nix6SymbolESt6vectorIS3_Sa
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3nix6SymbolESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_10eval_cache10AttrCursor8getAttrsEvE3$_0EEEvT_T0_"(ptr nocapture %0, ptr nocapture readonly %1) unnamed_addr #20 {
+define internal fastcc void @"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3nix6SymbolESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_10eval_cache10AttrCursor8getAttrsEvE3$_0EEEvT_T0_"(ptr %0, ptr nocapture readonly %1) unnamed_addr #20 {
   %3 = load i32, ptr %0, align 4
   %4 = getelementptr i8, ptr %1, i64 16
   %5 = add i32 %3, -1

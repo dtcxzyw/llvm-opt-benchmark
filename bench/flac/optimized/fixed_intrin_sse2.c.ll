@@ -46,6 +46,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.end:                                          ; preds = %for.body
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %prev_err0_scalar, i64 32) ]
   %cmp67255 = icmp sgt i32 %data_len, 3
   br i1 %cmp67255, label %for.body68.lr.ph, label %for.end117
 
@@ -164,15 +165,15 @@ for.body193.preheader:                            ; preds = %for.end117
   %45 = getelementptr i32, ptr %data, i64 %44
   %arrayidx175 = getelementptr i8, ptr %45, i64 -12
   %46 = load i32, ptr %arrayidx175, align 4
-  %mul184.neg278.neg = shl i32 %46, 1
   %arrayidx168 = getelementptr i8, ptr %45, i64 -8
   %47 = load i32, ptr %arrayidx168, align 4
   %arrayidx188 = getelementptr i8, ptr %45, i64 -16
+  %arrayidx162 = getelementptr i8, ptr %45, i64 -4
+  %mul184.neg278.neg = shl i32 %46, 1
   %48 = load i32, ptr %arrayidx188, align 4
   %49 = add i32 %47, %48
   %add189.neg = sub i32 %mul184.neg278.neg, %49
   %sub176.neg = sub i32 %46, %47
-  %arrayidx162 = getelementptr i8, ptr %45, i64 -4
   %50 = load i32, ptr %arrayidx162, align 4
   %sub169 = sub nsw i32 %50, %47
   %sub177 = add i32 %sub176.neg, %sub169
@@ -249,7 +250,7 @@ cond.true305:                                     ; preds = %if.else, %if.else28
   %mul306 = fmul reassoc nsz arcp double %conv, 0x3FE62E42FEFA39EF
   %conv307 = uitofp i32 %data_len to double
   %div308 = fdiv reassoc nsz arcp double %mul306, %conv307
-  %call309 = tail call reassoc nsz arcp double @log(double noundef %div308) #3
+  %call309 = tail call reassoc nsz arcp double @log(double noundef %div308) #4
   %div310 = fmul reassoc nsz arcp double %call309, 0x3FF71547652B82FE
   %53 = fptrunc double %div310 to float
   br label %cond.end312
@@ -266,7 +267,7 @@ cond.true318:                                     ; preds = %cond.end312
   %mul320 = fmul reassoc nsz arcp double %conv319, 0x3FE62E42FEFA39EF
   %conv321 = uitofp i32 %data_len to double
   %div322 = fdiv reassoc nsz arcp double %mul320, %conv321
-  %call323 = tail call reassoc nsz arcp double @log(double noundef %div322) #3
+  %call323 = tail call reassoc nsz arcp double @log(double noundef %div322) #4
   %div324 = fmul reassoc nsz arcp double %call323, 0x3FF71547652B82FE
   %54 = fptrunc double %div324 to float
   br label %cond.end326
@@ -283,7 +284,7 @@ cond.true332:                                     ; preds = %cond.end326
   %mul334 = fmul reassoc nsz arcp double %conv333, 0x3FE62E42FEFA39EF
   %conv335 = uitofp i32 %data_len to double
   %div336 = fdiv reassoc nsz arcp double %mul334, %conv335
-  %call337 = tail call reassoc nsz arcp double @log(double noundef %div336) #3
+  %call337 = tail call reassoc nsz arcp double @log(double noundef %div336) #4
   %div338 = fmul reassoc nsz arcp double %call337, 0x3FF71547652B82FE
   %55 = fptrunc double %div338 to float
   br label %cond.end340
@@ -300,7 +301,7 @@ cond.true346:                                     ; preds = %cond.end340
   %mul348 = fmul reassoc nsz arcp double %conv347, 0x3FE62E42FEFA39EF
   %conv349 = uitofp i32 %data_len to double
   %div350 = fdiv reassoc nsz arcp double %mul348, %conv349
-  %call351 = tail call reassoc nsz arcp double @log(double noundef %div350) #3
+  %call351 = tail call reassoc nsz arcp double @log(double noundef %div350) #4
   %div352 = fmul reassoc nsz arcp double %call351, 0x3FF71547652B82FE
   %56 = fptrunc double %div352 to float
   br label %cond.end354
@@ -317,7 +318,7 @@ cond.true360:                                     ; preds = %cond.end354
   %mul362 = fmul reassoc nsz arcp double %conv361, 0x3FE62E42FEFA39EF
   %conv363 = uitofp i32 %data_len to double
   %div364 = fdiv reassoc nsz arcp double %mul362, %conv363
-  %call365 = tail call reassoc nsz arcp double @log(double noundef %div364) #3
+  %call365 = tail call reassoc nsz arcp double @log(double noundef %div364) #4
   %div366 = fmul reassoc nsz arcp double %call365, 0x3FF71547652B82FE
   %57 = fptrunc double %div366 to float
   br label %cond.end368
@@ -341,10 +342,14 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #2
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <4 x i32> @llvm.abs.v4i32(<4 x i32>, i1 immarg) #2
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #3
+
 attributes #0 = { nofree nounwind sspstrong memory(write, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { nounwind }
+attributes #3 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

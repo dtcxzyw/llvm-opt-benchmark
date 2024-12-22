@@ -404,7 +404,7 @@ if.end.i.thread.i:                                ; preds = %while.cond.i.i.preh
   %.pre227 = zext i32 %.pre13.pre.i.i to i64
   br label %_ZN6hermes2vm12SmallXStringIDsLj32EE6appendEPKDs.exit
 
-_ZN6hermes2vm12SmallXStringIDsLj32EE6appendEPKDs.exit: ; preds = %if.end.i.thread.i, %while.cond.i.i.preheader
+_ZN6hermes2vm12SmallXStringIDsLj32EE6appendEPKDs.exit: ; preds = %while.cond.i.i.preheader, %if.end.i.thread.i
   %conv.i9.i.i.pre-phi = phi i64 [ %.pre227, %if.end.i.thread.i ], [ %conv.i5.i.i, %while.cond.i.i.preheader ]
   %44 = load ptr, ptr %R, align 8
   %add.ptr.i.i.i = getelementptr inbounds nuw i16, ptr %44, i64 %conv.i9.i.i.pre-phi
@@ -4262,18 +4262,18 @@ if.then.i:                                        ; preds = %if.then
   tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %add.ptr.i.i.i.i, i64 noundef %add.i, i64 noundef 2) #11
   %.pre.i = load i32, ptr %Size.i, align 8
   %.pre12.i = zext i32 %.pre.i to i64
-  %.pre85.pre = load ptr, ptr %this, align 8
+  %.pre86.pre = load ptr, ptr %this, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.then
-  %.pre85 = phi ptr [ %.pre85.pre, %if.then.i ], [ %0, %if.then ]
+  %.pre86 = phi ptr [ %.pre86.pre, %if.then.i ], [ %0, %if.then ]
   %conv.i7.pre-phi.i = phi i64 [ %.pre12.i, %if.then.i ], [ %conv.i, %if.then ]
   %3 = phi i32 [ %.pre.i, %if.then.i ], [ %1, %if.then ]
   %cmp15.i.i.i.i.i.i.i.i.i = icmp sgt i64 %retval.0.i.i.i.i, 0
   br i1 %cmp15.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.preheader.i, label %_ZN4llvh15SmallVectorImplIDsE6appendIN6hermes2vm10StringView14const_iteratorEvEEvT_S7_.exit
 
 for.body.i.i.i.i.i.i.i.i.preheader.i:             ; preds = %if.end.i
-  %add.ptr.i.i = getelementptr inbounds nuw i16, ptr %.pre85, i64 %conv.i7.pre-phi.i
+  %add.ptr.i.i = getelementptr inbounds nuw i16, ptr %.pre86, i64 %conv.i7.pre-phi.i
   br label %for.body.i.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.preheader.i
@@ -4307,11 +4307,11 @@ _ZN6hermes2vm10StringView14const_iteratorppEv.exit.i.i.i.i.i.i.i.i.i: ; preds = 
 
 _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE18uninitialized_copyIN6hermes2vm10StringView14const_iteratorEPDsEEvT_S8_T0_.exit.loopexit.i: ; preds = %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i.i.i.i.i.i.i.i.i
   %.pre11.i = load i32, ptr %Size.i, align 8
-  %.pre84 = load ptr, ptr %this, align 8
+  %.pre85 = load ptr, ptr %this, align 8
   br label %_ZN4llvh15SmallVectorImplIDsE6appendIN6hermes2vm10StringView14const_iteratorEvEEvT_S7_.exit
 
 _ZN4llvh15SmallVectorImplIDsE6appendIN6hermes2vm10StringView14const_iteratorEvEEvT_S7_.exit: ; preds = %if.end.i, %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE18uninitialized_copyIN6hermes2vm10StringView14const_iteratorEPDsEEvT_S8_T0_.exit.loopexit.i
-  %7 = phi ptr [ %.pre84, %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE18uninitialized_copyIN6hermes2vm10StringView14const_iteratorEPDsEEvT_S8_T0_.exit.loopexit.i ], [ %.pre85, %if.end.i ]
+  %7 = phi ptr [ %.pre85, %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE18uninitialized_copyIN6hermes2vm10StringView14const_iteratorEPDsEEvT_S8_T0_.exit.loopexit.i ], [ %.pre86, %if.end.i ]
   %8 = phi i32 [ %.pre11.i, %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE18uninitialized_copyIN6hermes2vm10StringView14const_iteratorEPDsEEvT_S8_T0_.exit.loopexit.i ], [ %3, %if.end.i ]
   %9 = trunc i64 %retval.0.i.i.i.i to i32
   %conv.i10.i = add i32 %8, %9
@@ -4332,11 +4332,11 @@ if.then.i27:                                      ; preds = %if.end
   tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %add.ptr.i.i.i.i28, i64 noundef %add, i64 noundef 2) #11
   %.pre = load ptr, ptr %this, align 8
   %.pre83 = load i32, ptr %Size.i, align 8
-  %.pre87 = zext i32 %.pre83 to i64
+  %.pre88 = zext i32 %.pre83 to i64
   br label %_ZN4llvh15SmallVectorImplIDsE7reserveEm.exit
 
 _ZN4llvh15SmallVectorImplIDsE7reserveEm.exit:     ; preds = %if.end, %if.then.i27
-  %conv.i30.pre-phi = phi i64 [ %conv.i, %if.end ], [ %.pre87, %if.then.i27 ]
+  %conv.i30.pre-phi = phi i64 [ %conv.i, %if.end ], [ %.pre88, %if.then.i27 ]
   %11 = phi i32 [ %1, %if.end ], [ %.pre83, %if.then.i27 ]
   %12 = phi ptr [ %0, %if.end ], [ %.pre, %if.then.i27 ]
   %add.ptr10 = getelementptr inbounds i8, ptr %12, i64 %sub.ptr.sub
@@ -4365,15 +4365,16 @@ if.then.i52:                                      ; preds = %if.then17
   %add.ptr.i.i.i.i54 = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %add.ptr.i.i.i.i54, i64 noundef %add.i53, i64 noundef 2) #11
   %.pre11.pre.i = load i32, ptr %Size.i, align 8
+  %.pre84 = load ptr, ptr %this, align 8
   br label %if.end.i47
 
 if.end.i47:                                       ; preds = %if.then.i52, %if.then17
+  %14 = phi ptr [ %.pre84, %if.then.i52 ], [ %12, %if.then17 ]
   %.pre11.i48 = phi i32 [ %.pre11.pre.i, %if.then.i52 ], [ %11, %if.then17 ]
   %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %retval.0.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %_ZN4llvh15SmallVectorImplIDsE6appendISt13move_iteratorIPDsEvEEvT_S6_.exit, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.end.i47
-  %14 = load ptr, ptr %this, align 8
   %conv.i7.i = zext i32 %.pre11.i48 to i64
   %add.ptr.i.i49 = getelementptr inbounds nuw i16, ptr %14, i64 %conv.i7.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %add.ptr.i.i49, ptr nonnull align 2 %add.ptr21, i64 %sub.ptr.sub.i.i.i.i39, i1 false)
@@ -4476,16 +4477,16 @@ _ZN6hermes2vm10StringView14const_iteratorppEv.exit: ; preds = %if.then.i63, %if.
   br i1 %cmp43.not, label %for.end.loopexit, label %for.body, !llvm.loop !28
 
 for.end.loopexit:                                 ; preds = %_ZN6hermes2vm10StringView14const_iteratorppEv.exit
-  %.pre88 = ptrtoint ptr %From.sroa.0.1 to i64
-  %.pre89 = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %.pre88
-  %.pre90 = ptrtoint ptr %From.sroa.8.1 to i64
-  %.pre91 = sub i64 %sub.ptr.lhs.cast5.i.i.i.i, %.pre90
-  %.pre92 = ashr exact i64 %.pre91, 1
-  %.pre93 = select i1 %tobool.not.i.i.i.i, i64 %.pre92, i64 %.pre89
+  %.pre89 = ptrtoint ptr %From.sroa.0.1 to i64
+  %.pre90 = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %.pre89
+  %.pre91 = ptrtoint ptr %From.sroa.8.1 to i64
+  %.pre92 = sub i64 %sub.ptr.lhs.cast5.i.i.i.i, %.pre91
+  %.pre93 = ashr exact i64 %.pre92, 1
+  %.pre94 = select i1 %tobool.not.i.i.i.i, i64 %.pre93, i64 %.pre90
   br label %for.end
 
 for.end:                                          ; preds = %if.end31, %for.end.loopexit
-  %retval.0.i.i.i.i.i.i.i.i.i.pre-phi = phi i64 [ %.pre93, %for.end.loopexit ], [ %retval.0.i.i.i.i, %if.end31 ]
+  %retval.0.i.i.i.i.i.i.i.i.i.pre-phi = phi i64 [ %.pre94, %for.end.loopexit ], [ %retval.0.i.i.i.i, %if.end31 ]
   %From.sroa.0.0.lcssa = phi ptr [ %From.sroa.0.1, %for.end.loopexit ], [ %From.coerce0, %if.end31 ]
   %From.sroa.8.0.lcssa = phi ptr [ %From.sroa.8.1, %for.end.loopexit ], [ %From.coerce1, %if.end31 ]
   %cmp15.i.i.i.i.i.i.i.i = icmp sgt i64 %retval.0.i.i.i.i.i.i.i.i.i.pre-phi, 0

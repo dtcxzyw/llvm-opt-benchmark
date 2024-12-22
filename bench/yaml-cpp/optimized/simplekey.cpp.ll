@@ -179,8 +179,8 @@ if.end12:                                         ; preds = %if.then9, %if.end7
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK4YAML7Scanner27CanInsertPotentialSimpleKeyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(480) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable
+define noundef zeroext i1 @_ZNK4YAML7Scanner27CanInsertPotentialSimpleKeyEv(ptr noundef nonnull align 8 dereferenceable(480) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_simpleKeyAllowed = getelementptr inbounds nuw i8, ptr %this, i64 210
   %0 = load i8, ptr %m_simpleKeyAllowed, align 2
@@ -251,8 +251,8 @@ return:                                           ; preds = %_ZNKSt5stackIN4YAML
   ret i1 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK4YAML7Scanner21ExistsActiveSimpleKeyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(480) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable
+define noundef zeroext i1 @_ZNK4YAML7Scanner21ExistsActiveSimpleKeyEv(ptr noundef nonnull align 8 dereferenceable(480) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 264
   %_M_start.i.i = getelementptr inbounds nuw i8, ptr %this, i64 232
@@ -628,7 +628,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4YAML7Scanner19InvalidateSimpleKeyEv(ptr nocapture noundef nonnull align 8 dereferenceable(480) %this) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4YAML7Scanner19InvalidateSimpleKeyEv(ptr noundef nonnull align 8 dereferenceable(480) %this) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 264
   %_M_start.i.i = getelementptr inbounds nuw i8, ptr %this, i64 232
@@ -640,11 +640,11 @@ entry:
 if.end:                                           ; preds = %entry
   %_M_first3.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 272
   %2 = load ptr, ptr %_M_first3.i.i.i.i, align 8, !noalias !18
+  %_M_node5.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 288
   %cmp.i.i.i2 = icmp eq ptr %0, %2
   br i1 %cmp.i.i.i2, label %if.then.i.i.i, label %_ZNSt5stackIN4YAML7Scanner9SimpleKeyESt5dequeIS2_SaIS2_EEE3topEv.exit
 
 if.then.i.i.i:                                    ; preds = %if.end
-  %_M_node5.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 288
   %3 = load ptr, ptr %_M_node5.i.i.i.i, align 8, !noalias !18
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 -8
   %4 = load ptr, ptr %add.ptr.i.i.i, align 8
@@ -731,10 +731,9 @@ if.then.i.i:                                      ; preds = %_ZN4YAML7Scanner9Si
 
 if.else.i.i:                                      ; preds = %_ZN4YAML7Scanner9SimpleKey10InvalidateEv.exit
   tail call void @_ZdlPv(ptr noundef %17) #18
-  %_M_node.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 288
-  %18 = load ptr, ptr %_M_node.i.i.i, align 8
+  %18 = load ptr, ptr %_M_node5.i.i.i.i, align 8
   %add.ptr.i.i.i5 = getelementptr inbounds i8, ptr %18, i64 -8
-  store ptr %add.ptr.i.i.i5, ptr %_M_node.i.i.i, align 8
+  store ptr %add.ptr.i.i.i5, ptr %_M_node5.i.i.i.i, align 8
   %19 = load ptr, ptr %add.ptr.i.i.i5, align 8
   store ptr %19, ptr %_M_first3.i.i.i.i, align 8
   %add.ptr.i.i.i.i6 = getelementptr inbounds nuw i8, ptr %19, i64 480
@@ -753,7 +752,7 @@ return:                                           ; preds = %_ZNSt5stackIN4YAML7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN4YAML7Scanner15VerifySimpleKeyEv(ptr nocapture noundef nonnull align 8 dereferenceable(480) %this) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN4YAML7Scanner15VerifySimpleKeyEv(ptr noundef nonnull align 8 dereferenceable(480) %this) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 264
   %_M_start.i.i = getelementptr inbounds nuw i8, ptr %this, i64 232
@@ -765,11 +764,11 @@ entry:
 if.end:                                           ; preds = %entry
   %_M_first3.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 272
   %2 = load ptr, ptr %_M_first3.i.i.i.i, align 8, !noalias !21
+  %_M_node5.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 288
   %cmp.i.i.i2 = icmp eq ptr %0, %2
   br i1 %cmp.i.i.i2, label %if.then.i.i.i, label %_ZNSt5stackIN4YAML7Scanner9SimpleKeyESt5dequeIS2_SaIS2_EEE3topEv.exit
 
 if.then.i.i.i:                                    ; preds = %if.end
-  %_M_node5.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 288
   %3 = load ptr, ptr %_M_node5.i.i.i.i, align 8, !noalias !21
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 -8
   %4 = load ptr, ptr %add.ptr.i.i.i, align 8
@@ -832,10 +831,9 @@ if.then.i.i:                                      ; preds = %if.end6
 
 if.else.i.i:                                      ; preds = %if.end6
   tail call void @_ZdlPv(ptr noundef %2) #18
-  %_M_node.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 288
-  %12 = load ptr, ptr %_M_node.i.i.i, align 8
+  %12 = load ptr, ptr %_M_node5.i.i.i.i, align 8
   %add.ptr.i.i.i5 = getelementptr inbounds i8, ptr %12, i64 -8
-  store ptr %add.ptr.i.i.i5, ptr %_M_node.i.i.i, align 8
+  store ptr %add.ptr.i.i.i5, ptr %_M_node5.i.i.i.i, align 8
   %13 = load ptr, ptr %add.ptr.i.i.i5, align 8
   store ptr %13, ptr %_M_first3.i.i.i.i, align 8
   %add.ptr.i.i.i.i6 = getelementptr inbounds nuw i8, ptr %13, i64 480
@@ -1826,7 +1824,7 @@ attributes #3 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

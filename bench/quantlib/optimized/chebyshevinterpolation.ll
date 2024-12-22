@@ -372,7 +372,7 @@ _ZN8QuantLib5ArrayD2Ev.exit:                      ; preds = %ehcleanup, %_ZNKSt1
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib22ChebyshevInterpolationC2ERKNS_5ArrayENS0_10PointsTypeE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 9), (16, 48)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %y, i32 noundef %pointsType) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib22ChebyshevInterpolationC2ERKNS_5ArrayENS0_10PointsTypeE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 9), (16, 48)) %this, ptr noundef nonnull align 8 dereferenceable(16) %y, i32 noundef %pointsType) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr.3", align 8
   %ref.tmp5 = alloca ptr, align 8
@@ -1107,16 +1107,17 @@ invoke.cont4:                                     ; preds = %invoke.cont
   br i1 %cmp.not.i.i, label %_ZN8QuantLib5ArrayD2Ev.exit, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i: ; preds = %invoke.cont4
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #26
+  call void @_ZdaPv(ptr noundef nonnull %0) #26
   br label %_ZN8QuantLib5ArrayD2Ev.exit
 
 _ZN8QuantLib5ArrayD2Ev.exit:                      ; preds = %invoke.cont4, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
+  store ptr null, ptr %ref.tmp, align 8, !tbaa !15
   %1 = load ptr, ptr %ref.tmp2, align 8, !tbaa !15
   %cmp.not.i.i3 = icmp eq ptr %1, null
   br i1 %cmp.not.i.i3, label %_ZN8QuantLib5ArrayD2Ev.exit5, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i4
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i4: ; preds = %_ZN8QuantLib5ArrayD2Ev.exit
-  tail call void @_ZdaPv(ptr noundef nonnull %1) #26
+  call void @_ZdaPv(ptr noundef nonnull %1) #26
   br label %_ZN8QuantLib5ArrayD2Ev.exit5
 
 _ZN8QuantLib5ArrayD2Ev.exit5:                     ; preds = %_ZN8QuantLib5ArrayD2Ev.exit, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i4
@@ -1134,20 +1135,24 @@ lpad3:                                            ; preds = %invoke.cont
           cleanup
   %4 = load ptr, ptr %ref.tmp, align 8, !tbaa !15
   %cmp.not.i.i6 = icmp eq ptr %4, null
-  br i1 %cmp.not.i.i6, label %ehcleanup, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i7
+  br i1 %cmp.not.i.i6, label %_ZN8QuantLib5ArrayD2Ev.exit8, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i7
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i7: ; preds = %lpad3
-  tail call void @_ZdaPv(ptr noundef nonnull %4) #26
+  call void @_ZdaPv(ptr noundef nonnull %4) #26
+  br label %_ZN8QuantLib5ArrayD2Ev.exit8
+
+_ZN8QuantLib5ArrayD2Ev.exit8:                     ; preds = %lpad3, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i7
+  store ptr null, ptr %ref.tmp, align 8, !tbaa !15
   br label %ehcleanup
 
-ehcleanup:                                        ; preds = %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i7, %lpad3, %lpad
-  %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %3, %lpad3 ], [ %3, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i7 ]
+ehcleanup:                                        ; preds = %_ZN8QuantLib5ArrayD2Ev.exit8, %lpad
+  %.pn = phi { ptr, i32 } [ %3, %_ZN8QuantLib5ArrayD2Ev.exit8 ], [ %2, %lpad ]
   %5 = load ptr, ptr %ref.tmp2, align 8, !tbaa !15
   %cmp.not.i.i9 = icmp eq ptr %5, null
   br i1 %cmp.not.i.i9, label %_ZN8QuantLib5ArrayD2Ev.exit11, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i10
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i10: ; preds = %ehcleanup
-  tail call void @_ZdaPv(ptr noundef nonnull %5) #26
+  call void @_ZdaPv(ptr noundef nonnull %5) #26
   br label %_ZN8QuantLib5ArrayD2Ev.exit11
 
 _ZN8QuantLib5ArrayD2Ev.exit11:                    ; preds = %ehcleanup, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i10
@@ -1157,7 +1162,7 @@ _ZN8QuantLib5ArrayD2Ev.exit11:                    ; preds = %ehcleanup, %_ZNKSt1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib22ChebyshevInterpolation5nodesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib22ChebyshevInterpolation5nodesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %n_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %n_.i, align 8, !tbaa !3
@@ -1485,8 +1490,8 @@ do.end:                                           ; preds = %entry
 
 if.then.i.i.i.i.i:                                ; preds = %do.end
   %23 = load ptr, ptr %y, align 8, !tbaa !15
-  %add.ptr.i.idx = shl nuw nsw i64 %0, 3
   %y_ = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %add.ptr.i.idx = shl nuw nsw i64 %0, 3
   %24 = load ptr, ptr %y_, align 8, !tbaa !15
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %24, ptr align 8 %23, i64 %add.ptr.i.idx, i1 false)
   br label %_ZSt4copyIPKdPdET0_T_S4_S3_.exit

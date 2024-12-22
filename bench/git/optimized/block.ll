@@ -461,11 +461,11 @@ if.end22:                                         ; preds = %if.then5
 if.end29:                                         ; preds = %if.end22
   %source1.i = getelementptr inbounds nuw i8, ptr %block, i64 16
   %source.sroa.0.0.copyload.i = load ptr, ptr %source1.i, align 8
+  %source.sroa.3.0.source1.sroa_idx.i = getelementptr inbounds nuw i8, ptr %block, i64 24
   %tobool2.not.i = icmp eq ptr %source.sroa.0.0.copyload.i, null
   br i1 %tobool2.not.i, label %reftable_block_done.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end29
-  %source.sroa.3.0.source1.sroa_idx.i = getelementptr inbounds nuw i8, ptr %block, i64 24
   %source.sroa.3.0.copyload.i = load ptr, ptr %source.sroa.3.0.source1.sroa_idx.i, align 8
   %return_block.i = getelementptr inbounds nuw i8, ptr %source.sroa.0.0.copyload.i, i64 16
   %6 = load ptr, ptr %return_block.i, align 8
@@ -480,8 +480,7 @@ reftable_block_done.exit:                         ; preds = %if.end29, %if.then.
   %7 = extractvalue { ptr, ptr } %call32, 0
   %8 = extractvalue { ptr, ptr } %call32, 1
   store ptr %7, ptr %source1.i, align 8
-  %tmp.sroa.2.0.source.sroa_idx = getelementptr inbounds nuw i8, ptr %block, i64 24
-  store ptr %8, ptr %tmp.sroa.2.0.source.sroa_idx, align 8
+  store ptr %8, ptr %source.sroa.3.0.source1.sroa_idx.i, align 8
   %9 = load i64, ptr %src_len, align 8
   %10 = trunc i64 %9 to i32
   %conv35 = add i32 %add, %10

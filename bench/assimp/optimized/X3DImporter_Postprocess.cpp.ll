@@ -168,7 +168,7 @@ terminate.lpad:                                   ; preds = %if.then
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK6Assimp11X3DImporter40PostprocessHelper_Matrix_GlobalToCurrentEv(ptr noalias nocapture writeonly sret(%class.aiMatrix4x4t) align 4 initializes((0, 64)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK6Assimp11X3DImporter40PostprocessHelper_Matrix_GlobalToCurrentEv(ptr noalias nocapture sret(%class.aiMatrix4x4t) align 4 initializes((0, 64)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %matr = alloca %"class.std::__cxx11::list", align 8
   %_M_prev.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %matr, i64 8
@@ -192,7 +192,14 @@ entry:
   %mNodeElementCur = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %mNodeElementCur, align 8
   %cmp.not = icmp eq ptr %0, null
-  br i1 %cmp.not, label %_ZNSt7__cxx114listI12aiMatrix4x4tIfESaIS2_EED2Ev.exit13, label %do.body
+  br i1 %cmp.not, label %if.end5.thread, label %do.body
+
+if.end5.thread:                                   ; preds = %entry
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %agg.result, i64 32) ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %a2.i, i64 32) ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %b2.i, i64 32) ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %b3.i, i64 32) ]
+  br label %_ZNSt7__cxx114listI12aiMatrix4x4tIfESaIS2_EED2Ev.exit13
 
 do.body:                                          ; preds = %entry, %if.end
   %cur_node.0 = phi ptr [ %6, %if.end ], [ %0, %entry ]
@@ -240,6 +247,10 @@ if.end:                                           ; preds = %_ZNSt7__cxx114listI
 
 if.end5:                                          ; preds = %if.end
   %.pre = load ptr, ptr %matr, align 8, !noalias !7
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %agg.result, i64 32) ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %a2.i, i64 32) ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %b2.i, i64 32) ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %b3.i, i64 32) ]
   %cmp.i.i.i.not52 = icmp eq ptr %matr, %.pre
   br i1 %cmp.i.i.i.not52, label %_ZNSt7__cxx114listI12aiMatrix4x4tIfESaIS2_EED2Ev.exit13, label %invoke.cont10.lr.ph
 
@@ -400,7 +411,7 @@ while.body.i.i.i10:                               ; preds = %for.end, %while.bod
   %cmp.not.i.i.i12 = icmp eq ptr %87, %matr
   br i1 %cmp.not.i.i.i12, label %_ZNSt7__cxx114listI12aiMatrix4x4tIfESaIS2_EED2Ev.exit13, label %while.body.i.i.i10, !llvm.loop !4
 
-_ZNSt7__cxx114listI12aiMatrix4x4tIfESaIS2_EED2Ev.exit13: ; preds = %while.body.i.i.i10, %entry, %if.end5
+_ZNSt7__cxx114listI12aiMatrix4x4tIfESaIS2_EED2Ev.exit13: ; preds = %while.body.i.i.i10, %if.end5, %if.end5.thread
   ret void
 }
 
@@ -4801,23 +4812,23 @@ entry:
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #18
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #20
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #20
-
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #21
+declare void @llvm.assume(i1 noundef) #19
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #20
+declare i64 @llvm.umax.i64(i64, i64) #21
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #21
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #21
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }
@@ -4838,9 +4849,9 @@ attributes #15 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "sta
 attributes #16 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #19 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #21 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #20 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #22 = { noreturn nounwind }
 attributes #23 = { builtin allocsize(0) }
 attributes #24 = { nounwind }

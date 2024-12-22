@@ -4079,18 +4079,20 @@ while.body.i.i:                                   ; preds = %"_ZN9__gnu_cxx5__op
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw %"class.date::time_zone", ptr %__first.sroa.0.07.i.i, i64 %shr.i.i
   %call2.i.i.i.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(88) %add.ptr.i.i.i.i.i) #27
   %3 = extractvalue { i64, ptr } %call2.i.i.i.i, 0
-  %.sroa.speculated.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %tz_name.coerce0, i64 %3)
+  %agg.tmp3.sroa.0.0.copyload.i.i.i.i = load i64, ptr %tz_name, align 8
+  %.sroa.speculated.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %agg.tmp3.sroa.0.0.copyload.i.i.i.i, i64 %3)
   %cmp.i2.i.i.i.i.i.i = icmp eq i64 %.sroa.speculated.i.i.i.i.i.i, 0
   br i1 %cmp.i2.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %while.body.i.i
+  %agg.tmp3.sroa.2.0.copyload.i.i.i.i = load ptr, ptr %0, align 8
   %4 = extractvalue { i64, ptr } %call2.i.i.i.i, 1
-  %call.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %4, ptr noundef %tz_name.coerce1, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #27
+  %call.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %4, ptr noundef %agg.tmp3.sroa.2.0.copyload.i.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #27
   %cmp.i.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4date4tzdb11locate_zoneESt17basic_string_viewIcSt11char_traitsIcEEE3$_0EclINS_17__normal_iteratorIPKNS2_9time_zoneESt6vectorISC_SaISC_EEEEKS7_EEbT_RT0_.exit.i.i"
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i, %while.body.i.i
-  %sub.i.i.i.i.i.i.i = sub i64 %3, %tz_name.coerce0
+  %sub.i.i.i.i.i.i.i = sub i64 %3, %agg.tmp3.sroa.0.0.copyload.i.i.i.i
   %spec.select3.i.i.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i, i64 -2147483648)
   %retval.04.i.i.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select3.i.i.i.i.i.i.i, i64 2147483647)
   %retval.0.i3.i.i.i.i.i.i = trunc nsw i64 %retval.04.i.i.i.i.i.i.i to i32
@@ -4121,15 +4123,17 @@ lor.rhs:                                          ; preds = %"_ZSt11lower_boundI
   %call18 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %__first.sroa.0.0.lcssa.i.i) #27
   %7 = extractvalue { i64, ptr } %call18, 0
   %8 = extractvalue { i64, ptr } %call18, 1
-  %cmp.i.i4 = icmp eq i64 %7, %tz_name.coerce0
+  %agg.tmp19.sroa.0.0.copyload = load i64, ptr %tz_name, align 8
+  %agg.tmp19.sroa.2.0.copyload = load ptr, ptr %0, align 8
+  %cmp.i.i4 = icmp eq i64 %7, %agg.tmp19.sroa.0.0.copyload
   br i1 %cmp.i.i4, label %land.rhs.i.i, label %if.then
 
 land.rhs.i.i:                                     ; preds = %lor.rhs
-  %cmp.i2.i.i.i = icmp eq i64 %tz_name.coerce0, 0
+  %cmp.i2.i.i.i = icmp eq i64 %7, 0
   br i1 %cmp.i2.i.i.i, label %if.end, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %land.rhs.i.i
-  %bcmp.i.i = tail call i32 @bcmp(ptr %8, ptr %tz_name.coerce1, i64 %tz_name.coerce0)
+  %bcmp.i.i = tail call i32 @bcmp(ptr %8, ptr %agg.tmp19.sroa.2.0.copyload, i64 %7)
   %cmp.i.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %cmp.i.i.i, label %if.end, label %if.then
 
@@ -9421,17 +9425,17 @@ declare i64 @llvm.umax.i64(i64, i64) #22
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #23
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #24
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #24
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #25
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #22
@@ -9466,8 +9470,8 @@ attributes #20 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "n
 attributes #21 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #23 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #24 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #25 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #24 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #25 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #26 = { builtin nounwind }
 attributes #27 = { nounwind }
 attributes #28 = { builtin allocsize(0) }

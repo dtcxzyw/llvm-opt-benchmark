@@ -404,8 +404,8 @@ for.end135:                                       ; preds = %for.inc133
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbcc__build_all_connections_for_cluster(ptr nocapture noundef %g, i32 noundef %cx, i32 noundef %cy) local_unnamed_addr #3 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable
+define void @stbcc__build_all_connections_for_cluster(ptr noundef %g, i32 noundef %cx, i32 noundef %cy) local_unnamed_addr #3 {
 entry:
   %connected = alloca [64 x [8 x i8]], align 16
   %num_adj = alloca [512 x i8], align 16
@@ -616,8 +616,8 @@ for.end154:                                       ; preds = %for.body132, %if.en
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbcc__add_connections_to_adjacent_cluster(ptr nocapture noundef %g, i32 noundef %cx, i32 noundef %cy, i32 noundef %dx, i32 noundef %dy) local_unnamed_addr #3 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable
+define void @stbcc__add_connections_to_adjacent_cluster(ptr noundef %g, i32 noundef %cx, i32 noundef %cy, i32 noundef %dx, i32 noundef %dy) local_unnamed_addr #3 {
 entry:
   %connected = alloca [64 x [8 x i8]], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %connected, i8 0, i64 512, i1 false)
@@ -809,8 +809,8 @@ for.end:                                          ; preds = %stbcc__add_clump_co
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbcc__add_connections_to_adjacent_cluster_with_rebuild(ptr nocapture noundef %g, i32 noundef %cx, i32 noundef %cy, i32 noundef %dx, i32 noundef %dy) local_unnamed_addr #3 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable
+define void @stbcc__add_connections_to_adjacent_cluster_with_rebuild(ptr noundef %g, i32 noundef %cx, i32 noundef %cy, i32 noundef %dx, i32 noundef %dy) local_unnamed_addr #3 {
 entry:
   %cmp = icmp sgt i32 %cx, -1
   br i1 %cmp, label %land.lhs.true, label %if.end9
@@ -850,8 +850,8 @@ if.end9:                                          ; preds = %if.then, %if.then8,
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbcc_update_grid(ptr nocapture noundef %g, i32 noundef %x, i32 noundef %y, i32 noundef %solid) local_unnamed_addr #2 {
+; Function Attrs: nofree nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable
+define void @stbcc_update_grid(ptr noundef %g, i32 noundef %x, i32 noundef %y, i32 noundef %solid) local_unnamed_addr #5 {
 entry:
   %tobool.not = icmp eq i32 %solid, 0
   %map = getelementptr inbounds nuw i8, ptr %g, i64 20
@@ -1043,7 +1043,7 @@ if.end55:                                         ; preds = %entry, %if.then54, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbcc__remove_connections_to_adjacent_cluster(ptr nocapture noundef %g, i32 noundef %cx, i32 noundef %cy, i32 noundef %dx, i32 noundef %dy) local_unnamed_addr #3 {
+define void @stbcc__remove_connections_to_adjacent_cluster(ptr nocapture noundef %g, i32 noundef %cx, i32 noundef %cy, i32 noundef %dx, i32 noundef %dy) local_unnamed_addr #6 {
 entry:
   %disconnected = alloca [64 x [8 x i8]], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %disconnected, i8 0, i64 512, i1 false)
@@ -1241,8 +1241,8 @@ for.end:                                          ; preds = %if.end108, %if.else
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbcc__build_clumps_for_cluster(ptr nocapture noundef %g, i32 noundef %cx, i32 noundef %cy) local_unnamed_addr #2 {
+; Function Attrs: nofree nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable
+define void @stbcc__build_clumps_for_cluster(ptr nocapture noundef %g, i32 noundef %cx, i32 noundef %cy) local_unnamed_addr #5 {
 entry:
   %cbi = alloca %struct.stbcc__cluster_build_info, align 2
   %mul = shl i32 %cx, 5
@@ -1862,7 +1862,7 @@ for.end597:                                       ; preds = %for.body582, %for.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @stbcc_update_batch_begin(ptr nocapture noundef writeonly initializes((16, 20)) %g) local_unnamed_addr #5 {
+define void @stbcc_update_batch_begin(ptr nocapture noundef writeonly initializes((16, 20)) %g) local_unnamed_addr #7 {
 entry:
   %in_batched_update = getelementptr inbounds nuw i8, ptr %g, i64 16
   store i32 1, ptr %in_batched_update, align 4
@@ -1879,13 +1879,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @stbcc_grid_sizeof() local_unnamed_addr #6 {
+define noundef i64 @stbcc_grid_sizeof() local_unnamed_addr #8 {
 entry:
   ret i64 6688788
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbcc_init_grid(ptr nocapture noundef initializes((0, 20)) %g, ptr nocapture noundef readonly %map, i32 noundef %w, i32 noundef %h) local_unnamed_addr #2 {
+; Function Attrs: nofree nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable
+define void @stbcc_init_grid(ptr noundef initializes((0, 20)) %g, ptr nocapture noundef readonly %map, i32 noundef %w, i32 noundef %h) local_unnamed_addr #5 {
 entry:
   store i32 %w, ptr %g, align 4
   %h2 = getelementptr inbounds nuw i8, ptr %g, i64 4
@@ -2022,8 +2022,8 @@ for.end58:                                        ; preds = %for.inc56, %for.con
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stbcc__add_clump_connection(ptr nocapture noundef %g, i32 noundef %x1, i32 noundef %y1, i32 noundef %x2, i32 noundef %y2) local_unnamed_addr #7 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
+define void @stbcc__add_clump_connection(ptr noundef %g, i32 noundef %x1, i32 noundef %y1, i32 noundef %x2, i32 noundef %y2) local_unnamed_addr #9 {
 entry:
   %shr = ashr i32 %x1, 5
   %shr1 = ashr i32 %y1, 5
@@ -2083,7 +2083,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbcc__remove_clump_connection(ptr nocapture noundef %g, i32 noundef %x1, i32 noundef %y1, i32 noundef %x2, i32 noundef %y2) local_unnamed_addr #3 {
+define void @stbcc__remove_clump_connection(ptr nocapture noundef %g, i32 noundef %x1, i32 noundef %y1, i32 noundef %x2, i32 noundef %y2) local_unnamed_addr #6 {
 entry:
   %shr = ashr i32 %x1, 5
   %shr1 = ashr i32 %y1, 5
@@ -2230,7 +2230,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @stbcc__switch_root(ptr nocapture noundef writeonly %cbi, i32 noundef %x, i32 noundef %y, i16 %p.coerce) local_unnamed_addr #5 {
+define void @stbcc__switch_root(ptr nocapture noundef writeonly %cbi, i32 noundef %x, i32 noundef %y, i16 %p.coerce) local_unnamed_addr #7 {
 entry:
   %p.sroa.3.0.extract.shift = lshr i16 %p.coerce, 8
   %p.sroa.3.0.extract.trunc = zext nneg i16 %p.sroa.3.0.extract.shift to i64
@@ -2252,17 +2252,19 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #8
+declare i32 @llvm.umin.i32(i32, i32) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { nofree nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nofree nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -105,8 +105,8 @@ define void @Psr_ManWriteVerilogArray(ptr nocapture noundef %0, ptr nocapture no
   br i1 %7, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %6
-  %.not.not = icmp eq i32 %5, 0
   %8 = getelementptr i8, ptr %2, i64 8
+  %.not.not = icmp eq i32 %5, 0
   %9 = add nsw i32 %4, -1
   %10 = sext i32 %3 to i64
   %sext20 = sext i32 %9 to i64
@@ -533,25 +533,28 @@ Ptr_TypeToName.exit.i.i:                          ; preds = %132, %switch.lookup
   %151 = add nsw i32 %Psr_BoxSignals.V.val.i.i, -3
   %sext20.i.i.i = zext nneg i32 %151 to i64
   %zext.i.i = zext nneg i32 %150 to i64
+  %.val.i56.pre69.i.i = load ptr, ptr @Psr_BoxSignals.V.2, align 8
   br label %.lr.ph.split.i.i.i
 
 .lr.ph.split.i.i.i:                               ; preds = %158, %.lr.ph.i54.i.i
+  %.val.i56.i.i = phi ptr [ %.val.i5670.i.i, %158 ], [ %.val.i56.pre69.i.i, %.lr.ph.i54.i.i ]
   %indvars.iv.i55.i.i = phi i64 [ %indvars.iv.next.i58.i.i, %158 ], [ 0, %.lr.ph.i54.i.i ]
   %152 = and i64 %indvars.iv.i55.i.i, 1
   %.not14.i.i.i = icmp eq i64 %152, 0
   br i1 %.not14.i.i.i, label %158, label %153
 
 153:                                              ; preds = %.lr.ph.split.i.i.i
-  %.val.i56.i.i = load ptr, ptr @Psr_BoxSignals.V.2, align 8
   %154 = getelementptr inbounds nuw i32, ptr %.val.i56.i.i, i64 %indvars.iv.i55.i.i
   %155 = load i32, ptr %154, align 4
   tail call fastcc void @Psr_ManWriteVerilogSignal(ptr noundef nonnull %11, ptr noundef nonnull readonly %31, i32 noundef %155)
   %156 = icmp eq i64 %indvars.iv.i55.i.i, %sext20.i.i.i
   %157 = select i1 %156, ptr @.str.1, ptr @.str.2
   %fputs.i57.i.i = tail call i32 @fputs(ptr nonnull %157, ptr nonnull %11)
+  %.val.i56.pre.i.i = load ptr, ptr @Psr_BoxSignals.V.2, align 8
   br label %158
 
 158:                                              ; preds = %153, %.lr.ph.split.i.i.i
+  %.val.i5670.i.i = phi ptr [ %.val.i56.pre.i.i, %153 ], [ %.val.i56.i.i, %.lr.ph.split.i.i.i ]
   %indvars.iv.next.i58.i.i = add nuw nsw i64 %indvars.iv.i55.i.i, 1
   %159 = icmp eq i64 %indvars.iv.next.i58.i.i, %zext.i.i
   br i1 %159, label %Psr_ManWriteVerilogMux.exit.sink.split.i.i, label %.lr.ph.split.i.i.i, !llvm.loop !4

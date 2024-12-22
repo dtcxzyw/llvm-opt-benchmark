@@ -25797,13 +25797,15 @@ entry:
   %ref.tmp26 = alloca %"class.symfpu::unpackedFloat", align 8
   %0 = load i8, ptr %left, align 8
   %tobool = trunc i8 %0 to i1
-  %inf.i = getelementptr inbounds nuw i8, ptr %left, i64 1
-  %1 = load i8, ptr %inf.i, align 1
-  %tobool4 = trunc i8 %1 to i1
-  %brmerge = select i1 %tobool, i1 true, i1 %tobool4
-  br i1 %brmerge, label %lor.rhs21.sink.split, label %land.lhs.true
+  br i1 %tobool, label %lor.rhs21.sink.split, label %lor.end.thread
 
-land.lhs.true:                                    ; preds = %entry
+lor.end.thread:                                   ; preds = %entry
+  %inf.i20 = getelementptr inbounds nuw i8, ptr %left, i64 1
+  %1 = load i8, ptr %inf.i20, align 1
+  %tobool421 = trunc i8 %1 to i1
+  br i1 %tobool421, label %lor.rhs21.sink.split, label %land.lhs.true
+
+land.lhs.true:                                    ; preds = %lor.end.thread
   %2 = load i8, ptr %right, align 8
   %tobool2 = trunc i8 %2 to i1
   %zero.i22 = getelementptr inbounds nuw i8, ptr %right, i64 2
@@ -25816,7 +25818,7 @@ land.lhs.true:                                    ; preds = %entry
   %tobool20 = trunc i8 %5 to i1
   br i1 %tobool20, label %lor.end24, label %lor.rhs21
 
-lor.rhs21.sink.split:                             ; preds = %entry
+lor.rhs21.sink.split:                             ; preds = %entry, %lor.end.thread
   store i8 1, ptr %isNan, align 1
   br label %lor.rhs21
 

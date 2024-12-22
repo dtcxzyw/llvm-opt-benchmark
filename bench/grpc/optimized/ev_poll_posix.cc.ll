@@ -2522,6 +2522,7 @@ _ZN4absl12lts_2023080213InlinedVectorIPN17grpc_event_engine12experimental15PollE
   %lock98 = alloca %"class.absl::lts_20230802::ReleasableMutexLock", align 8
   %ref.tmp135 = alloca %"class.absl::lts_20230802::Status", align 8
   %lock159 = alloca %"class.absl::lts_20230802::ReleasableMutexLock", align 8
+  %data_.i.i.i = getelementptr inbounds nuw i8, ptr %pending_events, i64 8
   store i64 0, ptr %pending_events, align 8
   %call = invoke noundef i64 @_ZN17grpc_event_engine12experimental12MillisecondsENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE(i64 %timeout.coerce)
           to label %invoke.cont unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -2544,7 +2545,6 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
   %wakeup_fd_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %poll_handles_list_head_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %use_phony_poll_ = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %data_.i1.i.i = getelementptr inbounds nuw i8, ptr %pending_events, i64 8
   %allocated_capacity.i.i.i = getelementptr inbounds nuw i8, ptr %pending_events, i64 16
   %was_kicked_ = getelementptr inbounds nuw i8, ptr %this, i64 49
   %was_kicked_ext_ = getelementptr inbounds nuw i8, ptr %this, i64 50
@@ -3150,9 +3150,9 @@ if.then194:                                       ; preds = %if.then5.i151
   %78 = load i64, ptr %pending_events, align 8, !noalias !18
   %and.i.i.i216 = and i64 %78, 1
   %tobool.i.not.i.i217 = icmp eq i64 %and.i.i.i216, 0
-  %79 = load ptr, ptr %data_.i1.i.i, align 8, !noalias !18
+  %79 = load ptr, ptr %data_.i.i.i, align 8, !noalias !18
   %80 = load i64, ptr %allocated_capacity.i.i.i, align 8, !noalias !18
-  %.sink3.i.i = select i1 %tobool.i.not.i.i217, ptr %data_.i1.i.i, ptr %79
+  %.sink3.i.i = select i1 %tobool.i.not.i.i217, ptr %data_.i.i.i, ptr %79
   %.sink.i.i = select i1 %tobool.i.not.i.i217, i64 5, i64 %80
   %shr.i.sink.i.i = lshr i64 %78, 1
   %cmp.not.i218 = icmp eq i64 %shr.i.sink.i.i, %.sink.i.i
@@ -3220,7 +3220,7 @@ if.then.i.i.i223:                                 ; preds = %invoke.cont21.i.i
 
 _ZN4absl12lts_2023080223inlined_vector_internal7StorageIPN17grpc_event_engine12experimental15PollEventHandleELm5ESaIS6_EE15EmplaceBackSlowIJRKS6_EEERS6_DpOT_.exit.i: ; preds = %if.then.i.i.i223, %invoke.cont21.i.i
   %84 = phi i64 [ %.pre.i.i, %if.then.i.i.i223 ], [ %78, %invoke.cont21.i.i ]
-  store ptr %call5.i.i.i.i5.i.i226, ptr %data_.i1.i.i, align 8
+  store ptr %call5.i.i.i.i5.i.i226, ptr %data_.i.i.i, align 8
   store i64 %mul.i.i.i, ptr %allocated_capacity.i.i.i, align 8
   %or.i.i.i = or i64 %84, 1
   br label %_ZN4absl12lts_2023080213InlinedVectorIPN17grpc_event_engine12experimental15PollEventHandleELm5ESaIS5_EE9push_backERKS5_.exit173
@@ -3389,9 +3389,8 @@ invoke.cont233:                                   ; preds = %if.end232
   %100 = load i64, ptr %pending_events, align 8
   %and.i.i.i204 = and i64 %100, 1
   %tobool.i.not.i.i205 = icmp eq i64 %and.i.i.i204, 0
-  %data_.i.i.i206 = getelementptr inbounds nuw i8, ptr %pending_events, i64 8
-  %101 = load ptr, ptr %data_.i.i.i206, align 8
-  %cond.i.i = select i1 %tobool.i.not.i.i205, ptr %data_.i.i.i206, ptr %101
+  %101 = load ptr, ptr %data_.i.i.i, align 8
+  %cond.i.i = select i1 %tobool.i.not.i.i205, ptr %data_.i.i.i, ptr %101
   %shr.i.i.i = lshr i64 %100, 1
   %add.ptr.i = getelementptr inbounds nuw ptr, ptr %cond.i.i, i64 %shr.i.i.i
   %cmp237.not299 = icmp ult i64 %100, 2
@@ -3420,8 +3419,7 @@ cleanup:                                          ; preds = %invoke.cont233, %fo
   br i1 %tobool.i.not.i.i.i, label %_ZN4absl12lts_2023080213InlinedVectorIPN17grpc_event_engine12experimental15PollEventHandleELm5ESaIS5_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %cleanup
-  %data_.i.i.i.i = getelementptr inbounds nuw i8, ptr %pending_events, i64 8
-  %104 = load ptr, ptr %data_.i.i.i.i, align 8
+  %104 = load ptr, ptr %data_.i.i.i, align 8
   call void @_ZdlPv(ptr noundef %104) #22
   br label %_ZN4absl12lts_2023080213InlinedVectorIPN17grpc_event_engine12experimental15PollEventHandleELm5ESaIS5_EED2Ev.exit
 
@@ -3437,8 +3435,7 @@ ehcleanup243:                                     ; preds = %lpad.loopexit, %lpa
   br i1 %tobool.i.not.i.i.i212, label %_ZN4absl12lts_2023080213InlinedVectorIPN17grpc_event_engine12experimental15PollEventHandleELm5ESaIS5_EED2Ev.exit215, label %if.then.i.i.i213
 
 if.then.i.i.i213:                                 ; preds = %ehcleanup243
-  %data_.i.i.i.i214 = getelementptr inbounds nuw i8, ptr %pending_events, i64 8
-  %106 = load ptr, ptr %data_.i.i.i.i214, align 8
+  %106 = load ptr, ptr %data_.i.i.i, align 8
   call void @_ZdlPv(ptr noundef %106) #22
   br label %_ZN4absl12lts_2023080213InlinedVectorIPN17grpc_event_engine12experimental15PollEventHandleELm5ESaIS5_EED2Ev.exit215
 

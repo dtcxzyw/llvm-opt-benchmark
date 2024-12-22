@@ -2603,7 +2603,7 @@ define dso_local zeroext i1 @int_fits(ptr nocapture noundef readonly byval(%stru
     i32 5, label %4
     i32 4, label %5
     i32 3, label %6
-    i32 12, label %36
+    i32 12, label %35
     i32 11, label %7
     i32 10, label %8
     i32 9, label %9
@@ -2623,16 +2623,16 @@ define dso_local zeroext i1 @int_fits(ptr nocapture noundef readonly byval(%stru
   br label %12
 
 7:                                                ; preds = %2
-  br label %36
+  br label %35
 
 8:                                                ; preds = %2
-  br label %36
+  br label %35
 
 9:                                                ; preds = %2
-  br label %36
+  br label %35
 
 10:                                               ; preds = %2
-  br label %36
+  br label %35
 
 11:                                               ; preds = %2
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.int_fits, ptr noundef nonnull @.str.2, i32 noundef 686) #20
@@ -2648,23 +2648,23 @@ define dso_local zeroext i1 @int_fits(ptr nocapture noundef readonly byval(%stru
   %15 = add i32 %14, -3
   %16 = icmp ult i32 %15, 5
   %17 = load i64, ptr %0, align 8
-  br i1 %16, label %18, label %29
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br i1 %16, label %19, label %29
 
-18:                                               ; preds = %12
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = load i64, ptr %19, align 8
+19:                                               ; preds = %12
+  %20 = load i64, ptr %18, align 8
   %.not.i = icmp sgt i64 %17, -1
   %21 = icmp ugt i64 %17, %.sroa.038.0.ph
   %or.cond = or i1 %.not.i, %21
   br i1 %or.cond, label %select.unfold62, label %22
 
-22:                                               ; preds = %18
+22:                                               ; preds = %19
   %23 = icmp samesign ult i64 %17, %.sroa.038.0.ph
   %or.cond.not = icmp ult i64 %20, %.sroa.6.0.ph
   %or.cond80 = select i1 %23, i1 true, i1 %or.cond.not
   br i1 %or.cond80, label %i128_scomp.exit, label %i128_scomp.exit47.thread
 
-select.unfold62:                                  ; preds = %18
+select.unfold62:                                  ; preds = %19
   br i1 %.not.i, label %24, label %i128_scomp.exit47.thread
 
 24:                                               ; preds = %select.unfold62
@@ -2685,51 +2685,50 @@ i128_scomp.exit47.thread:                         ; preds = %22, %select.unfold6
   br i1 %30, label %i128_scomp.exit, label %31
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %33 = load i64, ptr %32, align 8
-  %34 = icmp samesign ult i64 %17, %.sroa.031.0.ph
-  %35 = icmp ule i64 %33, %.sroa.14.0.ph
-  %spec.select = select i1 %34, i1 true, i1 %35
+  %32 = load i64, ptr %18, align 8
+  %33 = icmp samesign ult i64 %17, %.sroa.031.0.ph
+  %34 = icmp ule i64 %32, %.sroa.14.0.ph
+  %spec.select = select i1 %33, i1 true, i1 %34
   br label %i128_scomp.exit
 
-36:                                               ; preds = %2, %7, %8, %9, %10
+35:                                               ; preds = %2, %7, %8, %9, %10
   %.sroa.031.0 = phi i64 [ 0, %10 ], [ 0, %9 ], [ 0, %8 ], [ 0, %7 ], [ -1, %2 ]
   %.sroa.14.0 = phi i64 [ 255, %10 ], [ 65535, %9 ], [ 4294967295, %8 ], [ -1, %7 ], [ -1, %2 ]
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %38 = load i32, ptr %37, align 8
-  %39 = add i32 %38, -3
-  %40 = icmp ult i32 %39, 5
-  %41 = load i64, ptr %0, align 8
-  br i1 %40, label %42, label %50
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %37 = load i32, ptr %36, align 8
+  %38 = add i32 %37, -3
+  %39 = icmp ult i32 %38, 5
+  %40 = load i64, ptr %0, align 8
+  br i1 %39, label %41, label %49
 
-42:                                               ; preds = %36
-  %43 = icmp slt i64 %41, 0
-  %44 = icmp ugt i64 %41, %.sroa.031.0
-  %or.cond82 = or i1 %43, %44
-  br i1 %or.cond82, label %i128_scomp.exit, label %45
+41:                                               ; preds = %35
+  %42 = icmp slt i64 %40, 0
+  %43 = icmp ugt i64 %40, %.sroa.031.0
+  %or.cond84 = or i1 %42, %43
+  br i1 %or.cond84, label %i128_scomp.exit, label %44
 
-45:                                               ; preds = %42
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %47 = load i64, ptr %46, align 8
-  %48 = icmp ult i64 %41, %.sroa.031.0
-  %49 = icmp ule i64 %47, %.sroa.14.0
-  %or.cond74.not = select i1 %48, i1 true, i1 %49
+44:                                               ; preds = %41
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %46 = load i64, ptr %45, align 8
+  %47 = icmp ult i64 %40, %.sroa.031.0
+  %48 = icmp ule i64 %46, %.sroa.14.0
+  %or.cond74.not = select i1 %47, i1 true, i1 %48
   br label %i128_scomp.exit
 
-50:                                               ; preds = %36
-  %51 = icmp ugt i64 %41, %.sroa.031.0
-  br i1 %51, label %i128_scomp.exit, label %52
+49:                                               ; preds = %35
+  %50 = icmp ugt i64 %40, %.sroa.031.0
+  br i1 %50, label %i128_scomp.exit, label %51
 
-52:                                               ; preds = %50
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %54 = load i64, ptr %53, align 8
-  %55 = icmp ult i64 %41, %.sroa.031.0
-  %56 = icmp ule i64 %54, %.sroa.14.0
-  %spec.select84 = select i1 %55, i1 true, i1 %56
+51:                                               ; preds = %49
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %53 = load i64, ptr %52, align 8
+  %54 = icmp ult i64 %40, %.sroa.031.0
+  %55 = icmp ule i64 %53, %.sroa.14.0
+  %spec.select83 = select i1 %54, i1 true, i1 %55
   br label %i128_scomp.exit
 
-i128_scomp.exit:                                  ; preds = %52, %31, %50, %29, %45, %26, %i128_scomp.exit47.thread, %24, %22, %42
-  %.0 = phi i1 [ false, %42 ], [ false, %22 ], [ true, %i128_scomp.exit47.thread ], [ false, %24 ], [ false, %26 ], [ %or.cond74.not, %45 ], [ false, %29 ], [ false, %50 ], [ %spec.select, %31 ], [ %spec.select84, %52 ]
+i128_scomp.exit:                                  ; preds = %51, %31, %49, %29, %44, %26, %i128_scomp.exit47.thread, %24, %22, %41
+  %.0 = phi i1 [ false, %41 ], [ false, %22 ], [ true, %i128_scomp.exit47.thread ], [ false, %24 ], [ false, %26 ], [ %or.cond74.not, %44 ], [ false, %29 ], [ false, %49 ], [ %spec.select, %31 ], [ %spec.select83, %51 ]
   ret i1 %.0
 }
 
