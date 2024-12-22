@@ -2451,6 +2451,8 @@ while.end:                                        ; preds = %_ZN5eastl9allocator
   %add.ptr.idx = mul i64 %10, 24
   %11 = getelementptr i8, ptr %segment.0.lcssa, i64 %add.ptr.idx
   %add.ptr.ptr = getelementptr i8, ptr %11, i64 16
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr @_ZN10TestObject16sMagicErrorCountE, i64 32) ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr @_ZN10TestObject8sTOCountE, i64 64) ]
   %cmp4.not20 = icmp eq i64 %10, 0
   br i1 %cmp4.not20, label %delete.notnull.i12, label %for.body.preheader
 
@@ -3901,9 +3903,9 @@ _ZNK5eastl16segmented_vectorIiLm4ENS_9allocatorEE4sizeEv.exit360: ; preds = %cal
   %retval.0.i.i337 = phi ptr [ %add.ptr.i.i341, %if.then2.i.i338 ], [ %mData6.i.i336, %call.i.i.i.i.i.noexc347 ]
   store i32 46, ptr %retval.0.i.i337, align 4
   %104 = load i64, ptr %mSegmentCount.i249, align 8
+  %105 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %sub.i356 = shl i64 %104, 2
   %mul.i357 = add i64 %sub.i356, -4
-  %105 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %106 = load i64, ptr %105, align 8
   %add.i358 = add i64 %mul.i357, %106
   %107 = icmp eq i64 %add.i358, 5
@@ -4231,6 +4233,8 @@ while.end:                                        ; preds = %_ZN5eastl9allocator
   %add.ptr.idx = mul i64 %10, 24
   %11 = getelementptr i8, ptr %segment.0.lcssa, i64 %add.ptr.idx
   %add.ptr.ptr = getelementptr i8, ptr %11, i64 16
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr @_ZN10TestObject16sMagicErrorCountE, i64 32) ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr @_ZN10TestObject8sTOCountE, i64 64) ]
   %cmp4.not20 = icmp eq i64 %10, 0
   br i1 %cmp4.not20, label %delete.notnull.i12, label %for.body.preheader
 

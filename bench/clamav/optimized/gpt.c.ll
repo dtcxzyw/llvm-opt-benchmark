@@ -709,13 +709,15 @@ fmap_readn.exit.thread:                           ; preds = %32, %28, %fmap_read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @gpt_scan_partitions(ptr noundef nonnull %0, ptr nocapture noundef readonly byval(%struct.gpt_header) align 8 %1, i64 noundef range(i64 1, 0) %2) unnamed_addr #0 {
+define internal fastcc i32 @gpt_scan_partitions(ptr noundef nonnull %0, ptr nocapture noundef byval(%struct.gpt_header) align 8 %1, i64 noundef range(i64 1, 0) %2) unnamed_addr #0 {
   %4 = alloca %struct.gpt_partition_entry, align 1
   %5 = load i64, ptr %1, align 8
   %6 = tail call i64 @llvm.bswap.i64(i64 %5)
+  store i64 %6, ptr %1, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = tail call i32 @llvm.bswap.i32(i32 %8)
+  store i32 %9, ptr %7, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 84
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.21) #7

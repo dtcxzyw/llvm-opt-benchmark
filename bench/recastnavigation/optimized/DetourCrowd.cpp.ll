@@ -43,7 +43,7 @@ define void @_Z11dtFreeCrowdP7dtCrowd(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %3, label %2
 
 2:                                                ; preds = %1
-  tail call void @_ZN7dtCrowdD1Ev(ptr noundef nonnull align 8 dereferenceable(5072) %0) #17
+  tail call void @_ZN7dtCrowdD1Ev(ptr noundef nonnull align 8 dereferenceable(5072) %0) #18
   tail call void @_Z6dtFreePv(ptr noundef nonnull %0)
   br label %3
 
@@ -83,7 +83,7 @@ define void @_ZN7dtCrowdC2Ev(ptr noundef nonnull align 8 dereferenceable(5072) i
 10:                                               ; preds = %5
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN11dtPathQueueD1Ev(ptr noundef nonnull align 8 dereferenceable(600) %3) #17
+  tail call void @_ZN11dtPathQueueD1Ev(ptr noundef nonnull align 8 dereferenceable(600) %3) #18
   resume { ptr, i32 } %11
 }
 
@@ -103,14 +103,14 @@ define void @_ZN7dtCrowdD2Ev(ptr noundef nonnull align 8 dereferenceable(5072) %
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN11dtPathQueueD1Ev(ptr noundef nonnull align 8 dereferenceable(600) %3) #17
+  tail call void @_ZN11dtPathQueueD1Ev(ptr noundef nonnull align 8 dereferenceable(600) %3) #18
   ret void
 
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #18
+  tail call void @__clang_call_terminate(ptr %6) #19
   unreachable
 }
 
@@ -129,9 +129,9 @@ define void @_ZN7dtCrowd5purgeEv(ptr nocapture noundef nonnull align 8 dereferen
   %6 = load ptr, ptr %4, align 8
   %7 = getelementptr inbounds nuw %struct.dtCrowdAgent, ptr %6, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  tail call void @_ZN15dtLocalBoundaryD1Ev(ptr noundef nonnull align 4 dereferenceable(308) %8) #17
+  tail call void @_ZN15dtLocalBoundaryD1Ev(ptr noundef nonnull align 4 dereferenceable(308) %8) #18
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  tail call void @_ZN14dtPathCorridorD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #17
+  tail call void @_ZN14dtPathCorridorD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = load i32, ptr %0, align 8
   %11 = sext i32 %10 to i64
@@ -173,8 +173,8 @@ define void @_ZN7dtCrowd5purgeEv(ptr nocapture noundef nonnull align 8 dereferen
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #4 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #17
-  tail call void @_ZSt9terminatev() #18
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #18
+  tail call void @_ZSt9terminatev() #19
   unreachable
 }
 
@@ -333,7 +333,7 @@ define noundef zeroext i1 @_ZN7dtCrowd4initEifP9dtNavMesh(ptr noundef nonnull al
 73:                                               ; preds = %.lr.ph
   %74 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN14dtPathCorridorD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %71) #17
+  tail call void @_ZN14dtPathCorridorD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %71) #18
   resume { ptr, i32 } %74
 
 _ZN12dtCrowdAgentC2Ev.exit:                       ; preds = %.lr.ph
@@ -1711,16 +1711,16 @@ _ZNK14dtPathCorridor11getLastPolyEv.exit:         ; preds = %122, %123
   br i1 %or.cond.i, label %.sink.split.i, label %_ZN7dtCrowd23requestMoveTargetReplanEijPKf.exit
 
 .sink.split.i:                                    ; preds = %134
-  %137 = getelementptr inbounds nuw i8, ptr %22, i64 600
-  %138 = getelementptr inbounds nuw i8, ptr %22, i64 596
-  %139 = load i32, ptr %138, align 4
+  %137 = getelementptr inbounds nuw i8, ptr %22, i64 596
+  %138 = getelementptr inbounds nuw i8, ptr %22, i64 600
+  %139 = load i32, ptr %137, align 4
   %140 = load ptr, ptr %10, align 8
   %141 = and i64 %33, 2147483647
   %142 = getelementptr inbounds nuw %struct.dtCrowdAgent, ptr %140, i64 %141
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 596
   store i32 %139, ptr %143, align 4
   %144 = getelementptr inbounds nuw i8, ptr %142, i64 600
-  %145 = load float, ptr %137, align 4
+  %145 = load float, ptr %138, align 4
   store float %145, ptr %144, align 4
   %146 = getelementptr inbounds nuw i8, ptr %22, i64 604
   %147 = load float, ptr %146, align 4
@@ -1967,10 +1967,12 @@ _ZL13getNeighboursPKfffPK12dtCrowdAgentP16dtCrowdNeighbouriPPS1_iP15dtProximityG
   br i1 %127, label %_ZL12addNeighbourifP16dtCrowdNeighbourii.exit.i, label %128
 
 128:                                              ; preds = %121
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %69, i64 32) ]
   %129 = load float, ptr %119, align 4
   %130 = getelementptr inbounds nuw i8, ptr %126, i64 420
   %131 = load float, ptr %130, align 4
   %132 = fsub float %129, %131
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %76, i64 32) ]
   %133 = call noundef float @llvm.fabs.f32(float %132)
   %134 = getelementptr inbounds nuw i8, ptr %126, i64 484
   %135 = load float, ptr %134, align 4
@@ -1981,15 +1983,15 @@ _ZL13getNeighboursPKfffPK12dtCrowdAgentP16dtCrowdNeighbouriPPS1_iP15dtProximityG
 
 139:                                              ; preds = %128
   %140 = load float, ptr %76, align 4
-  %141 = getelementptr inbounds nuw i8, ptr %126, i64 424
-  %142 = load float, ptr %141, align 4
-  %143 = fsub float %140, %142
-  %144 = getelementptr inbounds nuw i8, ptr %126, i64 416
-  %145 = load float, ptr %69, align 4
-  %146 = load float, ptr %144, align 4
-  %147 = fsub float %145, %146
+  %141 = load float, ptr %69, align 4
+  %142 = getelementptr inbounds nuw i8, ptr %126, i64 424
+  %143 = getelementptr inbounds nuw i8, ptr %126, i64 416
+  %144 = load float, ptr %142, align 4
+  %145 = fsub float %140, %144
+  %146 = load float, ptr %143, align 4
+  %147 = fsub float %141, %146
   %148 = call float @llvm.fmuladd.f32(float %147, float %147, float 0.000000e+00)
-  %149 = call noundef float @llvm.fmuladd.f32(float %143, float %143, float %148)
+  %149 = call noundef float @llvm.fmuladd.f32(float %145, float %145, float %148)
   %150 = fcmp ogt float %149, %120
   br i1 %150, label %_ZL12addNeighbourifP16dtCrowdNeighbourii.exit.i, label %151
 
@@ -2735,7 +2737,7 @@ _ZL17getDistanceToGoalPK12dtCrowdAgentf.exit:     ; preds = %_ZL24calcSmoothStee
   %591 = load ptr, ptr %338, align 8
   br label %592
 
-592:                                              ; preds = %._crit_edge468, %590
+592:                                              ; preds = %590, %._crit_edge468
   %.0346 = phi ptr [ %591, %590 ], [ null, %._crit_edge468 ]
   %593 = getelementptr inbounds nuw i8, ptr %528, i64 509
   %594 = load i8, ptr %593, align 1
@@ -3282,17 +3284,20 @@ declare noundef i32 @_ZNK15dtProximityGrid10queryItemsEffffPti(ptr noundef nonnu
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #15
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.sqrt.f32(float) #15
+declare i32 @llvm.smin.i32(i32, i32) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.sqrt.f32(float) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3309,10 +3314,11 @@ attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #17 = { nounwind }
-attributes #18 = { noreturn nounwind }
+attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #18 = { nounwind }
+attributes #19 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -44,6 +44,8 @@ if.end15.i:
 
 if.then17.i:                                      ; preds = %if.end15.i
   %and.i2 = and i64 %inlen, -16
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %state, i64 64) ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %arrayidx6.i, i64 64) ]
   %arrayidx9.i = getelementptr inbounds nuw i8, ptr %state, i64 32
   %arrayidx11.i = getelementptr inbounds nuw i8, ptr %state, i64 40
   %mul12.i = mul nuw nsw i64 %and8.i, 20
@@ -66,7 +68,7 @@ while.body.i:                                     ; preds = %while.body.i, %if.t
   %arrayidx15.val.i = load i64, ptr %arrayidx15.i, align 1
   %and.i7 = and i64 %m.addr.0.val.i, 17592186044415
   %add.i8 = add nuw nsw i64 %and.i7, %h0.059.i
-  %or.i9 = tail call i64 @llvm.fshl.i64(i64 %arrayidx15.val.i, i64 %m.addr.0.val.i, i64 20)
+  %or.i9 = call i64 @llvm.fshl.i64(i64 %arrayidx15.val.i, i64 %m.addr.0.val.i, i64 20)
   %and17.i = and i64 %or.i9, 17592186044415
   %add18.i = add nuw nsw i64 %and17.i, %h1.058.i
   %shr19.i = lshr i64 %arrayidx15.val.i, 24
@@ -160,7 +162,7 @@ define internal i32 @crypto_onetimeauth_poly1305_donna_verify(ptr noundef %h, pt
 entry:
   %correct = alloca [16 x i8], align 16
   %call = call i32 @crypto_onetimeauth_poly1305_donna(ptr noundef nonnull %correct, ptr noundef %in, i64 noundef %inlen, ptr noundef %k)
-  %call2 = call i32 @crypto_verify_16(ptr noundef %h, ptr noundef nonnull %correct) #6
+  %call2 = call i32 @crypto_verify_16(ptr noundef %h, ptr noundef nonnull %correct) #7
   ret i32 %call2
 }
 
@@ -197,7 +199,7 @@ entry:
   ret i32 0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind ssp memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind ssp memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define internal noundef i32 @crypto_onetimeauth_poly1305_donna_update(ptr nocapture noundef %state, ptr nocapture noundef readonly %in, i64 noundef %inlen) #2 {
 entry:
   %leftover.i = getelementptr inbounds nuw i8, ptr %state, i64 64
@@ -398,11 +400,11 @@ if.end:                                           ; preds = %for.end, %entry
   store i64 %or64, ptr %mac, align 1
   %arrayidx69 = getelementptr i8, ptr %mac, i64 8
   store i64 %or67, ptr %arrayidx69, align 1
-  tail call void @sodium_memzero(ptr noundef nonnull %st, i64 noundef 96) #6
+  tail call void @sodium_memzero(ptr noundef nonnull %st, i64 noundef 96) #7
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind ssp memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind ssp memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define internal fastcc void @poly1305_blocks(ptr nocapture noundef %st, ptr nocapture noundef readonly %m, i64 noundef range(i64 0, -15) %bytes) unnamed_addr #2 {
 entry:
   %final = getelementptr inbounds nuw i8, ptr %st, i64 88
@@ -420,9 +422,9 @@ entry:
 
 while.body.lr.ph:                                 ; preds = %entry
   %arrayidx6 = getelementptr i8, ptr %st, i64 16
+  %arrayidx4 = getelementptr i8, ptr %st, i64 8
   %4 = load i64, ptr %arrayidx6, align 8
   %mul12 = mul i64 %4, 20
-  %arrayidx4 = getelementptr i8, ptr %st, i64 8
   %5 = load i64, ptr %arrayidx4, align 8
   %mul = mul i64 %5, 20
   %6 = load i64, ptr %st, align 8
@@ -509,19 +511,23 @@ declare i32 @crypto_verify_16(ptr noundef, ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #4
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #5
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #4
 
 attributes #0 = { nounwind ssp uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree norecurse nosync nounwind ssp memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind ssp memory(argmem: readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nounwind }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

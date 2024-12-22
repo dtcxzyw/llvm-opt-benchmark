@@ -6059,6 +6059,8 @@ define internal fastcc noundef zeroext i1 @parse_asm_scale(ptr noundef %0, ptr n
   %10 = tail call ptr @parse_integer(ptr noundef nonnull %0, ptr noundef null) #5
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %.sroa.0.0.copyload = load i64, ptr %11, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 40
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %.sroa.2.0..sroa_idx, i64 64) ]
   %.not = icmp eq i64 %.sroa.0.0.copyload, 0
   br i1 %.not, label %16, label %12
 
@@ -6070,7 +6072,6 @@ define internal fastcc noundef zeroext i1 @parse_asm_scale(ptr noundef %0, ptr n
   br label %35
 
 16:                                               ; preds = %9
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 40
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   switch i64 %.sroa.2.0.copyload, label %32 [
     i64 1, label %17

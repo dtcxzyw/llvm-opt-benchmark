@@ -1012,7 +1012,7 @@ _ZNSt10unique_ptrIN5ceres8internal31BlockSparseJacobiPreconditionerESt14default_
 .body:                                            ; preds = %60, %22, %62
   %.pn = phi { ptr, i32 } [ %63, %62 ], [ %61, %60 ], [ %23, %22 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #26
-  br label %230
+  br label %229
 
 64:                                               ; preds = %78, %68, %50
   %65 = landingpad { ptr, i32 }
@@ -1119,7 +1119,7 @@ _ZN5ceres8internal14Preconditioner7OptionsD2Ev.exit53: ; preds = %85, %83, %24
 .noexc54:                                         ; preds = %92
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %110, i8 0, i64 16, i1 false)
   %.not.i.i.i.i.i.i.i.i = icmp eq i32 %114, 0
-  br i1 %.not.i.i.i.i.i.i.i.i, label %128, label %115
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN5Eigen8internal17resize_if_allowedINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEENS_14CwiseNullaryOpINS0_18scalar_constant_opIdEES3_EEddEEvRT_RKT0_RKNS0_9assign_opIT1_T2_EE.exit.i.i.i.i.i.thread.i.i, label %115
 
 115:                                              ; preds = %.noexc54
   %116 = sext i32 %114 to i64
@@ -1129,7 +1129,7 @@ _ZN5ceres8internal14Preconditioner7OptionsD2Ev.exit53: ; preds = %85, %83, %24
 
 _ZN5Eigen8internal17resize_if_allowedINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEENS_14CwiseNullaryOpINS0_18scalar_constant_opIdEES3_EEddEEvRT_RKT0_RKNS0_9assign_opIT1_T2_EE.exit.i.i.i.i.i.i.i.thread: ; preds = %115
   store i64 %116, ptr %117, align 8
-  br label %128
+  br label %_ZN5Eigen8internal17resize_if_allowedINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEENS_14CwiseNullaryOpINS0_18scalar_constant_opIdEES3_EEddEEvRT_RKT0_RKNS0_9assign_opIT1_T2_EE.exit.i.i.i.i.i.thread.i.i
 
 119:                                              ; preds = %115
   %120 = shl nuw nsw i64 %116, 3
@@ -1151,14 +1151,16 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2INS_14CwiseNullaryOpINS_8internal18sc
   store i64 %116, ptr %117, align 8
   %125 = shl nuw nsw i64 %116, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %121, i8 0, i64 %125, i1 false)
-  br label %128
+  br label %_ZN5Eigen8internal17resize_if_allowedINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEENS_14CwiseNullaryOpINS0_18scalar_constant_opIdEES3_EEddEEvRT_RKT0_RKNS0_9assign_opIT1_T2_EE.exit.i.i.i.i.i.thread.i.i
 
 126:                                              ; preds = %123
   %127 = landingpad { ptr, i32 }
           cleanup
+  %128 = load ptr, ptr %110, align 8
+  call void @free(ptr noundef %128) #26
   br label %_ZN5ceres8internal14Preconditioner7OptionsD2Ev.exit
 
-128:                                              ; preds = %_ZN5Eigen8internal17resize_if_allowedINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEENS_14CwiseNullaryOpINS0_18scalar_constant_opIdEES3_EEddEEvRT_RKT0_RKNS0_9assign_opIT1_T2_EE.exit.i.i.i.i.i.i.i.thread, %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEES1_EEEERKT_.exit.loopexit.i, %.noexc54
+_ZN5Eigen8internal17resize_if_allowedINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEENS_14CwiseNullaryOpINS0_18scalar_constant_opIdEES3_EEddEEvRT_RKT0_RKNS0_9assign_opIT1_T2_EE.exit.i.i.i.i.i.thread.i.i: ; preds = %.noexc54, %_ZN5Eigen8internal17resize_if_allowedINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEENS_14CwiseNullaryOpINS0_18scalar_constant_opIdEES3_EEddEEvRT_RKT0_RKNS0_9assign_opIT1_T2_EE.exit.i.i.i.i.i.i.i.thread, %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEES1_EEEERKT_.exit.loopexit.i
   %129 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store ptr %104, ptr %129, align 8
   %130 = getelementptr inbounds nuw i8, ptr %13, i64 48
@@ -1171,11 +1173,11 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2INS_14CwiseNullaryOpINS_8internal18sc
   %.not.i80 = icmp eq i32 %132, 0
   br i1 %.not.i80, label %.thread, label %135
 
-.thread:                                          ; preds = %128
+.thread:                                          ; preds = %_ZN5Eigen8internal17resize_if_allowedINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEENS_14CwiseNullaryOpINS0_18scalar_constant_opIdEES3_EEddEEvRT_RKT0_RKNS0_9assign_opIT1_T2_EE.exit.i.i.i.i.i.thread.i.i
   store i64 %133, ptr %134, align 8
   br label %146
 
-135:                                              ; preds = %128
+135:                                              ; preds = %_ZN5Eigen8internal17resize_if_allowedINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEENS_14CwiseNullaryOpINS0_18scalar_constant_opIdEES3_EEddEEvRT_RKT0_RKNS0_9assign_opIT1_T2_EE.exit.i.i.i.i.i.thread.i.i
   %136 = icmp sgt i32 %132, 0
   br i1 %136, label %137, label %.thread102
 
@@ -1273,7 +1275,7 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSINS_14CwiseNullaryOpINS_8internal18sc
   %171 = load ptr, ptr %166, align 8
   call void @free(ptr noundef %171) #26
   call void @_ZdlPv(ptr noundef nonnull %166) #27
-  br label %227
+  br label %.body57
 
 _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2IiEERKT_.exit66: ; preds = %167
   store ptr %166, ptr %162, align 8
@@ -1287,12 +1289,12 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2IiEERKT_.exit66: ; preds = %167
 .loopexit:                                        ; preds = %165
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %227
+  br label %.body57
 
 .loopexit.split-lp:                               ; preds = %146, %179, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.i.i.i.i.i.i.i.i60
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %227
+  br label %.body57
 
 174:                                              ; preds = %161, %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2IiEERKT_.exit66
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1454,7 +1456,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit76: ; 
 .body69:                                          ; preds = %218, %177, %220
   %.pn34 = phi { ptr, i32 } [ %221, %220 ], [ %219, %218 ], [ %178, %177 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #26
-  br label %227
+  br label %.body57
 
 222:                                              ; preds = %.noexc72, %_ZN5Eigen3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEaSIS2_EERS5_RKNS_9DenseBaseIT_EE.exit
   %223 = landingpad { ptr, i32 }
@@ -1472,26 +1474,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit76: ; 
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #26
   %226 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %226) #26
-  br label %227
-
-227:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.body74, %.body69, %.body64
-  %.pn39 = phi { ptr, i32 } [ %170, %.body64 ], [ %.pn36, %.body74 ], [ %.pn34, %.body69 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %228 = load ptr, ptr %14, align 8
-  call void @free(ptr noundef %228) #26
   br label %.body57
 
-.body57:                                          ; preds = %143, %227
-  %.pn39.pn = phi { ptr, i32 } [ %.pn39, %227 ], [ %144, %143 ]
-  %229 = load ptr, ptr %110, align 8
-  call void @free(ptr noundef %229) #26
+.body57:                                          ; preds = %.body64, %.body69, %.body74, %.loopexit.split-lp, %.loopexit, %143
+  %.pn39.pn = phi { ptr, i32 } [ %144, %143 ], [ %170, %.body64 ], [ %.pn36, %.body74 ], [ %.pn34, %.body69 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %227 = load ptr, ptr %14, align 8
+  call void @free(ptr noundef %227) #26
+  %228 = load ptr, ptr %110, align 8
+  call void @free(ptr noundef %228) #26
   br label %_ZN5ceres8internal14Preconditioner7OptionsD2Ev.exit
 
 _ZN5ceres8internal14Preconditioner7OptionsD2Ev.exit: ; preds = %172, %126, %67, %64, %.body57
   %.pn39.pn.pn = phi { ptr, i32 } [ %.pn39.pn, %.body57 ], [ %65, %64 ], [ %65, %67 ], [ %173, %172 ], [ %127, %126 ]
   call void @_ZN5ceres8internal11EventLoggerD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #26
-  br label %230
+  br label %229
 
-230:                                              ; preds = %_ZN5ceres8internal14Preconditioner7OptionsD2Ev.exit, %.body
+229:                                              ; preds = %_ZN5ceres8internal14Preconditioner7OptionsD2Ev.exit, %.body
   %.pn39.pn.pn.pn = phi { ptr, i32 } [ %.pn39.pn.pn, %_ZN5ceres8internal14Preconditioner7OptionsD2Ev.exit ], [ %.pn, %.body ]
   resume { ptr, i32 } %.pn39.pn.pn.pn
 }

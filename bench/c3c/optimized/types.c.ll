@@ -1634,8 +1634,8 @@ define dso_local noundef zeroext i1 @type_func_match(ptr nocapture noundef reado
   %or.cond.not = select i1 %.not33, i1 %exitcond.not, i1 false
   br i1 %or.cond.not, label %35, label %.sink.split, !llvm.loop !11
 
-.sink.split:                                      ; preds = %47, %29, %27
-  %.026.ph = phi i1 [ true, %27 ], [ true, %29 ], [ %.not33, %47 ]
+.sink.split:                                      ; preds = %47, %27, %29
+  %.026.ph = phi i1 [ true, %29 ], [ true, %27 ], [ %.not33, %47 ]
   call void @llvm.va_end.p0(ptr nonnull %4)
   br label %58
 
@@ -2844,7 +2844,7 @@ type_flatten.exit86:                              ; preds = %type_flatten.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @array_structurally_equivalent_to_struct(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @array_structurally_equivalent_to_struct(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load i32, ptr %4, align 8
@@ -2893,8 +2893,8 @@ define internal fastcc zeroext i1 @array_structurally_equivalent_to_struct(ptr n
 29:                                               ; preds = %22
   %30 = getelementptr inbounds i8, ptr %26, i64 -8
   %31 = load i32, ptr %30, align 4
-  %.not = icmp eq i32 %31, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph.preheader
+  %.not47 = icmp eq i32 %31, 0
+  br i1 %.not47, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %29
   %wide.trip.count = zext i32 %31 to i64
@@ -6184,13 +6184,14 @@ tailrecurse:                                      ; preds = %48
   br label %.critedge120
 
 149:                                              ; preds = %120
-  %150 = load i32, ptr %spec.select118, align 8
-  %151 = icmp eq i32 %150, 34
-  br i1 %151, label %152, label %.thread126
+  %150 = getelementptr inbounds nuw i8, ptr %122, i64 56
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %150, i64 0) ]
+  %151 = load i32, ptr %spec.select118, align 8
+  %152 = icmp eq i32 %151, 34
+  br i1 %152, label %153, label %.thread126
 
-152:                                              ; preds = %149
-  %153 = getelementptr inbounds nuw i8, ptr %122, i64 56
-  %154 = load ptr, ptr %153, align 8
+153:                                              ; preds = %149
+  %154 = load ptr, ptr %150, align 8
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %156 = load ptr, ptr %155, align 8
   %157 = getelementptr inbounds nuw i8, ptr %spec.select118, i64 56
@@ -6200,7 +6201,7 @@ tailrecurse:                                      ; preds = %48
   %161 = icmp eq ptr %156, %160
   br i1 %161, label %.critedge120, label %.thread126
 
-.thread126:                                       ; preds = %120, %124, %130, %136, %141, %149, %152
+.thread126:                                       ; preds = %120, %124, %130, %136, %141, %149, %153
   %162 = tail call ptr @type_decay_array_pointer(ptr noundef nonnull %spec.select)
   %163 = load i32, ptr %spec.select118, align 8
   %164 = icmp eq i32 %163, 23
@@ -6264,8 +6265,8 @@ tailrecurse:                                      ; preds = %48
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_find_max_type, ptr noundef nonnull @.str.2, i32 noundef 2190) #13
   unreachable
 
-.critedge120:                                     ; preds = %tailrecurse, %9, %13, %.critedge2, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %48, %.lr.ph176, %.thread, %2, %90, %169, %188, %188, %188, %188, %175, %152, %130, %109, %105, %190, %177, %173, %167, %147, %116, %112, %.thread124, %.thread123
-  %.0106 = phi ptr [ null, %190 ], [ %187, %177 ], [ %174, %173 ], [ %148, %147 ], [ %168, %167 ], [ %119, %116 ], [ %115, %112 ], [ %108, %.thread124 ], [ %89, %.thread123 ], [ %spec.select118, %105 ], [ %spec.select118, %109 ], [ %spec.select118, %130 ], [ %spec.select118, %152 ], [ null, %175 ], [ %spec.select118, %188 ], [ %spec.select118, %188 ], [ %spec.select118, %188 ], [ %spec.select118, %188 ], [ %spec.select121, %169 ], [ %spec.select118, %90 ], [ %4, %2 ], [ %spec.select118, %.thread ], [ %spec.select118, %.lr.ph176 ], [ %85, %tailrecurse ], [ %10, %9 ], [ %11, %13 ], [ %.0104.lcssa, %.critedge2 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ %spec.select118, %48 ]
+.critedge120:                                     ; preds = %tailrecurse, %9, %13, %.critedge2, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %48, %.lr.ph176, %.thread, %2, %90, %169, %188, %188, %188, %188, %175, %153, %130, %109, %105, %190, %177, %173, %167, %147, %116, %112, %.thread124, %.thread123
+  %.0106 = phi ptr [ null, %190 ], [ %187, %177 ], [ %174, %173 ], [ %148, %147 ], [ %168, %167 ], [ %119, %116 ], [ %115, %112 ], [ %108, %.thread124 ], [ %89, %.thread123 ], [ %spec.select118, %105 ], [ %spec.select118, %109 ], [ %spec.select118, %130 ], [ %spec.select118, %153 ], [ null, %175 ], [ %spec.select118, %188 ], [ %spec.select118, %188 ], [ %spec.select118, %188 ], [ %spec.select118, %188 ], [ %spec.select121, %169 ], [ %spec.select118, %90 ], [ %4, %2 ], [ %spec.select118, %.thread ], [ %spec.select118, %.lr.ph176 ], [ %85, %tailrecurse ], [ %10, %9 ], [ %11, %13 ], [ %.0104.lcssa, %.critedge2 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ %spec.select118, %48 ]
   ret ptr %.0106
 }
 

@@ -6540,9 +6540,9 @@ entry.split:                                      ; preds = %entry
   %0 = getelementptr i8, ptr %self, i64 16
   %self.val4 = load ptr, ptr %0, align 8
   %tobool.not.i = icmp eq ptr %self.val4, null
-  br i1 %tobool.not.i, label %if.then.i, label %cond.end.i
+  br i1 %tobool.not.i, label %if.then.i, label %cond.true.i
 
-cond.end.i:                                       ; preds = %entry.split
+cond.true.i:                                      ; preds = %entry.split
   %_maxy.i = getelementptr inbounds nuw i8, ptr %self.val4, i64 4
   %1 = load i16, ptr %_maxy.i, align 4
   %conv.i = sext i16 %1 to i32
@@ -6552,13 +6552,13 @@ cond.end.i:                                       ; preds = %entry.split
   %or.cond.i = or i1 %cmp6.i, %cmp3.i
   br i1 %or.cond.i, label %if.then.i, label %cond.end12.i
 
-cond.end12.i:                                     ; preds = %cond.end.i
+cond.end12.i:                                     ; preds = %cond.true.i
   %call.i = tail call zeroext i1 @is_linetouched(ptr noundef nonnull %self.val4, i32 noundef %call) #9
   %conv16.i = zext i1 %call.i to i64
   %call17.i = tail call ptr @PyBool_FromLong(i64 noundef %conv16.i) #9
   br label %exit
 
-if.then.i:                                        ; preds = %cond.end.i, %entry.split
+if.then.i:                                        ; preds = %cond.true.i, %entry.split
   %2 = load ptr, ptr @PyExc_TypeError, align 8
   tail call void @PyErr_SetString(ptr noundef %2, ptr noundef nonnull @.str.231) #9
   br label %exit
@@ -6929,6 +6929,11 @@ sw.default:                                       ; preds = %entry
 
 if.then.i:                                        ; preds = %sw.bb2
   %2 = load ptr, ptr %destwin, align 8
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %sminrow, i64 32) ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %smincol, i64 32) ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %dminrow, i64 32) ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %dmincol, i64 32) ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %dmaxrow, i64 32) ]
   %win3.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %3 = load ptr, ptr %win3.i, align 8
   %win4.i = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -6945,6 +6950,11 @@ if.then.i:                                        ; preds = %sw.bb2
 
 if.else.i:                                        ; preds = %sw.bb
   %11 = load ptr, ptr %destwin, align 8
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %sminrow, i64 32) ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %smincol, i64 32) ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %dminrow, i64 32) ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %dmincol, i64 32) ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %dmaxrow, i64 32) ]
   %win3.i4 = getelementptr inbounds nuw i8, ptr %self, i64 16
   %12 = load ptr, ptr %win3.i4, align 8
   %win4.i5 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -7004,6 +7014,11 @@ sw.default:                                       ; preds = %entry
 
 if.then.i:                                        ; preds = %sw.bb2
   %2 = load ptr, ptr %destwin, align 8
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %sminrow, i64 32) ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %smincol, i64 32) ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %dminrow, i64 32) ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %dmincol, i64 32) ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %dmaxrow, i64 32) ]
   %win3.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %3 = load ptr, ptr %win3.i, align 8
   %win4.i = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -7020,6 +7035,11 @@ if.then.i:                                        ; preds = %sw.bb2
 
 if.else.i:                                        ; preds = %sw.bb
   %11 = load ptr, ptr %destwin, align 8
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %sminrow, i64 32) ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %smincol, i64 32) ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %dminrow, i64 32) ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %dmincol, i64 32) ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %dmaxrow, i64 32) ]
   %win3.i4 = getelementptr inbounds nuw i8, ptr %self, i64 16
   %12 = load ptr, ptr %win3.i4, align 8
   %win4.i5 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -11971,6 +11991,9 @@ sw.default:                                       ; preds = %entry
   br label %exit
 
 sw.epilog:                                        ; preds = %sw.bb2, %sw.bb
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %nlines, i64 32) ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %ncols, i64 32) ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %begin_y, i64 32) ]
   %.b.i = load i1, ptr @initialised, align 4
   br i1 %.b.i, label %if.end.i, label %if.then.i
 
@@ -13556,6 +13579,15 @@ entry:
   br i1 %tobool.not, label %exit, label %if.end
 
 if.end:                                           ; preds = %entry
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %str, i64 0) ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %i1, i64 32) ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %i2, i64 32) ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %i3, i64 32) ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %i4, i64 32) ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %i5, i64 32) ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %i6, i64 32) ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %i7, i64 32) ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %i8, i64 32) ]
   %.b.i = load i1, ptr @initialised_setupterm, align 4
   br i1 %.b.i, label %if.end.i, label %if.then.i
 
@@ -14343,20 +14375,20 @@ declare void @PyStructSequence_SetItem(ptr noundef, i64 noundef, ptr noundef) lo
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #5
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #8
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -14364,9 +14396,9 @@ attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) "
 attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #9 = { nounwind }
 attributes #10 = { nounwind willreturn memory(read) }
 

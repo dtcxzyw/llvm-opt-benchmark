@@ -666,8 +666,12 @@ if.end42:                                         ; preds = %if.else, %if.then25
   %frameBworld.sroa.6.0.copyload = load float, ptr %frameBworld.sroa.6.0.m_frameInB.sroa_idx, align 8
   %arrayidx6.i68 = getelementptr inbounds nuw i8, ptr %this, i64 208
   %frameBworld.sroa.9.16.copyload = load float, ptr %arrayidx6.i68, align 8
+  %frameBworld.sroa.13.16.arrayidx6.i68.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 212
+  %frameBworld.sroa.15.16.arrayidx6.i68.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 216
   %arrayidx10.i70 = getelementptr inbounds nuw i8, ptr %this, i64 224
   %frameBworld.sroa.18.32.copyload = load float, ptr %arrayidx10.i70, align 8
+  %frameBworld.sroa.22.32.arrayidx10.i70.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 228
+  %frameBworld.sroa.24.32.arrayidx10.i70.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 232
   %m_rigidBodyB = getelementptr inbounds nuw i8, ptr %this, i64 104
   %88 = load ptr, ptr %m_rigidBodyB, align 8
   %tobool43.not = icmp eq ptr %88, null
@@ -721,14 +725,10 @@ if.then44:                                        ; preds = %if.end42
   store <2 x float> %retval.sroa.0.4.vec.insert.i3.i.i93, ptr %pivotBworld, align 8
   %ref.tmp45.sroa.2.0.pivotBworld.sroa_idx = getelementptr inbounds nuw i8, ptr %pivotBworld, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i4.i.i94, ptr %ref.tmp45.sroa.2.0.pivotBworld.sroa_idx, align 8
-  %arrayidx.i1.i100 = getelementptr inbounds nuw i8, ptr %this, i64 212
-  %arrayidx.i2.i101 = getelementptr inbounds nuw i8, ptr %this, i64 228
-  %arrayidx.i4.i103 = getelementptr inbounds nuw i8, ptr %this, i64 216
-  %arrayidx.i5.i104 = getelementptr inbounds nuw i8, ptr %this, i64 232
-  %110 = load float, ptr %arrayidx.i1.i100, align 4, !noalias !11
-  %111 = load float, ptr %arrayidx.i2.i101, align 4, !noalias !11
-  %112 = load float, ptr %arrayidx.i4.i103, align 8, !noalias !11
-  %113 = load float, ptr %arrayidx.i5.i104, align 8, !noalias !11
+  %110 = load float, ptr %frameBworld.sroa.13.16.arrayidx6.i68.sroa_idx, align 4, !noalias !11
+  %111 = load float, ptr %frameBworld.sroa.22.32.arrayidx10.i70.sroa_idx, align 4, !noalias !11
+  %112 = load float, ptr %frameBworld.sroa.15.16.arrayidx6.i68.sroa_idx, align 8, !noalias !11
+  %113 = load float, ptr %frameBworld.sroa.24.32.arrayidx10.i70.sroa_idx, align 8, !noalias !11
   %call57 = call { <2 x float>, <2 x float> } @_ZNK11btRigidBody14getOrientationEv(ptr noundef nonnull align 8 dereferenceable(744) %88)
   %114 = extractvalue { <2 x float>, <2 x float> } %call57, 0
   %115 = extractvalue { <2 x float>, <2 x float> } %call57, 1
@@ -795,13 +795,9 @@ if.then44:                                        ; preds = %if.end42
   br label %if.end75
 
 if.else61:                                        ; preds = %if.end42
-  %frameBworld.sroa.24.32.arrayidx10.i70.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 232
   %frameBworld.sroa.24.32.copyload = load float, ptr %frameBworld.sroa.24.32.arrayidx10.i70.sroa_idx, align 8
-  %frameBworld.sroa.22.32.arrayidx10.i70.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 228
   %frameBworld.sroa.22.32.copyload = load float, ptr %frameBworld.sroa.22.32.arrayidx10.i70.sroa_idx, align 4
-  %frameBworld.sroa.15.16.arrayidx6.i68.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 216
   %frameBworld.sroa.15.16.copyload = load float, ptr %frameBworld.sroa.15.16.arrayidx6.i68.sroa_idx, align 8
-  %frameBworld.sroa.13.16.arrayidx6.i68.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 212
   %frameBworld.sroa.13.16.copyload = load float, ptr %frameBworld.sroa.13.16.arrayidx6.i68.sroa_idx, align 4
   %m_bodyB = getelementptr inbounds nuw i8, ptr %this, i64 16
   %137 = load ptr, ptr %m_bodyB, align 8

@@ -65208,16 +65208,16 @@ for.body600:                                      ; preds = %invoke.cont598
   store i64 %retval.sroa.0.0.copyload.i, ptr %chunk, align 8
   store ptr %retval.sroa.2.0.copyload.i, ptr %376, align 8
   %cmp.i9311161 = icmp eq i64 %retval.sroa.0.0.copyload.i, 0
-  br i1 %cmp.i9311161, label %for.inc631, label %while.body605.preheader
+  br i1 %cmp.i9311161, label %for.inc631, label %while.body605.lr.ph
 
-while.body605.preheader:                          ; preds = %for.body600
+while.body605.lr.ph:                              ; preds = %for.body600
   %retval.sroa.0.0.copyload.i.i.pre = load i64, ptr %it589, align 8
   br label %while.body605
 
-while.body605:                                    ; preds = %while.body605.preheader, %_ZN4absl4Cord12CharIteratorppEv.exit969
-  %agg.tmp1.sroa.2.0.copyload.i.i = phi ptr [ %add.ptr.i, %_ZN4absl4Cord12CharIteratorppEv.exit969 ], [ %retval.sroa.2.0.copyload.i, %while.body605.preheader ]
-  %retval.sroa.0.0.copyload.i.i = phi i64 [ %retval.sroa.0.0.copyload.i.i1174, %_ZN4absl4Cord12CharIteratorppEv.exit969 ], [ %retval.sroa.0.0.copyload.i.i.pre, %while.body605.preheader ]
-  %379 = phi i64 [ %sub.i, %_ZN4absl4Cord12CharIteratorppEv.exit969 ], [ %retval.sroa.0.0.copyload.i, %while.body605.preheader ]
+while.body605:                                    ; preds = %while.body605.lr.ph, %_ZN4absl4Cord12CharIteratorppEv.exit969
+  %agg.tmp1.sroa.2.0.copyload.i.i = phi ptr [ %retval.sroa.2.0.copyload.i, %while.body605.lr.ph ], [ %add.ptr.i, %_ZN4absl4Cord12CharIteratorppEv.exit969 ]
+  %retval.sroa.0.0.copyload.i.i = phi i64 [ %retval.sroa.0.0.copyload.i.i.pre, %while.body605.lr.ph ], [ %retval.sroa.0.0.copyload.i.i1174, %_ZN4absl4Cord12CharIteratorppEv.exit969 ]
+  %379 = phi i64 [ %retval.sroa.0.0.copyload.i, %while.body605.lr.ph ], [ %sub.i, %_ZN4absl4Cord12CharIteratorppEv.exit969 ]
   %retval.sroa.2.0.copyload.i.i = load ptr, ptr %retval.sroa.2.0.current_chunk_.sroa_idx.i.i, align 8
   store i64 %retval.sroa.0.0.copyload.i.i, ptr %ref.tmp607, align 8
   store ptr %retval.sroa.2.0.copyload.i.i, ptr %377, align 8
@@ -78910,6 +78910,7 @@ _ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i2205: ; preds = %cond.f
 
 invoke.cont874.thread:                            ; preds = %if.then.i2188
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %ref.tmp873, i8 0, i64 16, i1 false)
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %ref.tmp873, i64 64) ]
   br label %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit1400.thread2897
 
 if.else6.i2270:                                   ; preds = %for.end869
@@ -78924,6 +78925,7 @@ invoke.cont874:                                   ; preds = %_ZN4absl13cord_inte
   %retval.sroa.3.0.i.sink.i.i2210.sink = phi ptr [ %spec.select.i.i2275, %if.else6.i2270 ], [ %retval.sroa.3.0.i.i.i2207, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i2205 ], [ %retval.sroa.3.0.i.i.i.i2257, %_ZN4absl13cord_internal18CordRepBtreeReader4InitEPNS0_12CordRepBtreeE.exit.i.i2255 ]
   store i64 %.sink.i.i2209.sink, ptr %ref.tmp873, align 8
   store ptr %retval.sroa.3.0.i.sink.i.i2210.sink, ptr %ref.tmp4.sroa.2.0.current_chunk_6.sroa_idx.i.i2211, align 8
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %ref.tmp873, i64 64) ]
   %cmp.not.i1396 = icmp ult i64 %.sink.i.i2209.sink, 5
   br i1 %cmp.not.i1396, label %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit1400.thread2897, label %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit1400
 
@@ -79970,10 +79972,12 @@ if.then5.i.i1543.invoke.cont978_crit_edge:        ; preds = %if.then5.i.i1543
 
 invoke.cont978.thread:                            ; preds = %if.else.i.i1532, %_ZNK4absl13cord_internal18CordRepBtreeReadercvbEv.exit.i.i1538
   store i64 0, ptr %bytes_remaining_.i2377, align 8
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %char_it, i64 64) ]
   br label %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit1560.thread2912
 
 invoke.cont978:                                   ; preds = %if.then5.i.i1543.invoke.cont978_crit_edge, %if.then.i.i1544
   %retval.sroa.0.0.copyload.i.i = phi i64 [ %retval.sroa.0.0.copyload.i.i.pre, %if.then5.i.i1543.invoke.cont978_crit_edge ], [ %sub.i.i.i.i1547, %if.then.i.i1544 ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %char_it, i64 64) ]
   %cmp.not.i1556 = icmp ult i64 %retval.sroa.0.0.copyload.i.i, 3
   br i1 %cmp.not.i1556, label %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit1560.thread2912, label %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit1560
 

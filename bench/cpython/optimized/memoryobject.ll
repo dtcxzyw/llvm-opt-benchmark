@@ -4326,7 +4326,7 @@ return:                                           ; preds = %if.end5, %if.then4,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @memory_item(ptr nocapture noundef readonly %_self, i64 noundef %index) #0 {
+define internal ptr @memory_item(ptr noundef %_self, i64 noundef %index) #0 {
 entry:
   %view1 = getelementptr inbounds nuw i8, ptr %_self, i64 56
   %flags = getelementptr inbounds nuw i8, ptr %_self, i64 40
@@ -8359,11 +8359,11 @@ if.end6:                                          ; preds = %if.end
   %cmp9 = icmp slt i64 %call8, 0
   %.old = load i8, ptr %destchar, align 1
   %.fr = freeze i8 %.old
-  %cmp21.old = icmp eq i8 %.fr, 98
   br i1 %cmp9, label %land.lhs.true, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end6
-  br i1 %cmp21.old, label %if.end32, label %switch.early.test
+  %cmp21 = icmp eq i8 %.fr, 98
+  br i1 %cmp21, label %if.end32, label %switch.early.test
 
 switch.early.test:                                ; preds = %lor.lhs.false
   %2 = load i8, ptr %srcchar, align 1
@@ -8374,20 +8374,24 @@ switch.early.test:                                ; preds = %lor.lhs.false
   ]
 
 land.lhs.true:                                    ; preds = %if.end6
-  br i1 %cmp21.old, label %if.end32, label %lor.lhs.false23
+  switch i8 %.fr, label %if.then31 [
+    i8 98, label %if.end32
+    i8 99, label %if.end32
+    i8 66, label %if.end32
+  ]
 
-lor.lhs.false23:                                  ; preds = %switch.early.test, %land.lhs.true
+lor.lhs.false23:                                  ; preds = %switch.early.test
   switch i8 %.fr, label %if.then31 [
     i8 99, label %if.end32
     i8 66, label %if.end32
   ]
 
-if.then31:                                        ; preds = %lor.lhs.false23
+if.then31:                                        ; preds = %land.lhs.true, %lor.lhs.false23
   %3 = load ptr, ptr @PyExc_TypeError, align 8
   tail call void @PyErr_SetString(ptr noundef %3, ptr noundef nonnull @.str.75) #11
   br label %out
 
-if.end32:                                         ; preds = %lor.lhs.false23, %lor.lhs.false23, %switch.early.test, %switch.early.test, %switch.early.test, %lor.lhs.false, %land.lhs.true
+if.end32:                                         ; preds = %land.lhs.true, %land.lhs.true, %land.lhs.true, %lor.lhs.false23, %lor.lhs.false23, %switch.early.test, %switch.early.test, %switch.early.test, %lor.lhs.false
   %len = getelementptr inbounds nuw i8, ptr %mv, i64 72
   %4 = load i64, ptr %len, align 8
   %rem = srem i64 %4, %call3

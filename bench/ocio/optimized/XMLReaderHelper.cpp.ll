@@ -2472,7 +2472,6 @@ while.body.lr.ph:                                 ; preds = %invoke.cont
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit
-  %1 = phi ptr [ null, %while.body.lr.ph ], [ %9, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit ]
   %pos.026 = phi i64 [ %retval.0.i, %while.body.lr.ph ], [ %pos.1, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit ]
   %call5.i.i.i.i.i132325 = phi ptr [ null, %while.body.lr.ph ], [ %call5.i.i.i.i.i1322, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit ]
   store double 0.000000e+00, ptr %num, align 8
@@ -2486,8 +2485,8 @@ if.end.i.i:                                       ; preds = %while.body
 while.cond.i.i:                                   ; preds = %while.body.i.i, %if.end.i.i
   %pos.addr.0.i.i = phi i64 [ %pos.026, %if.end.i.i ], [ %inc.i.i, %while.body.i.i ]
   %ptr.0.i.i = phi ptr [ %add.ptr.i.i, %if.end.i.i ], [ %incdec.ptr.i.i, %while.body.i.i ]
-  %2 = load i8, ptr %ptr.0.i.i, align 1
-  switch i8 %2, label %_ZN19OpenColorIO_v2_4dev18FindNextTokenStartEPKcmm.exit.i [
+  %1 = load i8, ptr %ptr.0.i.i, align 1
+  switch i8 %1, label %_ZN19OpenColorIO_v2_4dev18FindNextTokenStartEPKcmm.exit.i [
     i8 32, label %while.body.i.i
     i8 13, label %while.body.i.i
     i8 11, label %while.body.i.i
@@ -2518,8 +2517,8 @@ if.end.i19.i:                                     ; preds = %if.then.i
 while.cond.i21.i:                                 ; preds = %while.body.i24.i, %if.end.i19.i
   %pos.addr.0.i22.i = phi i64 [ %pos.addr.0.i.i, %if.end.i19.i ], [ %inc.i26.i, %while.body.i24.i ]
   %ptr.0.i23.i = phi ptr [ %add.ptr.i20.i, %if.end.i19.i ], [ %incdec.ptr.i25.i, %while.body.i24.i ]
-  %3 = load i8, ptr %ptr.0.i23.i, align 1
-  switch i8 %3, label %while.body.i24.i [
+  %2 = load i8, ptr %ptr.0.i23.i, align 1
+  switch i8 %2, label %while.body.i24.i [
     i8 32, label %_ZN19OpenColorIO_v2_4dev9FindDelimEPKcmm.exit.i
     i8 13, label %_ZN19OpenColorIO_v2_4dev9FindDelimEPKcmm.exit.i
     i8 11, label %_ZN19OpenColorIO_v2_4dev9FindDelimEPKcmm.exit.i
@@ -2554,8 +2553,8 @@ if.end.i30.i:                                     ; preds = %.noexc5
 while.cond.i32.i:                                 ; preds = %while.body.i35.i, %if.end.i30.i
   %pos.addr.0.i33.i = phi i64 [ %pos.addr.0.i22.i, %if.end.i30.i ], [ %inc.i37.i, %while.body.i35.i ]
   %ptr.0.i34.i = phi ptr [ %add.ptr.i31.i, %if.end.i30.i ], [ %incdec.ptr.i36.i, %while.body.i35.i ]
-  %4 = load i8, ptr %ptr.0.i34.i, align 1
-  switch i8 %4, label %invoke.cont1 [
+  %3 = load i8, ptr %ptr.0.i34.i, align 1
+  switch i8 %3, label %invoke.cont1 [
     i8 32, label %while.body.i35.i
     i8 13, label %while.body.i35.i
     i8 11, label %while.body.i35.i
@@ -2573,19 +2572,20 @@ while.body.i35.i:                                 ; preds = %while.cond.i32.i, %
 
 invoke.cont1:                                     ; preds = %while.body.i.i, %while.body.i35.i, %while.cond.i32.i, %.noexc5, %_ZN19OpenColorIO_v2_4dev18FindNextTokenStartEPKcmm.exit.i, %_ZN19OpenColorIO_v2_4dev9FindDelimEPKcmm.exit.thread.i, %while.body
   %pos.1 = phi i64 [ %len, %_ZN19OpenColorIO_v2_4dev18FindNextTokenStartEPKcmm.exit.i ], [ %len, %.noexc5 ], [ %len, %while.body ], [ %len, %_ZN19OpenColorIO_v2_4dev9FindDelimEPKcmm.exit.thread.i ], [ %pos.addr.0.i33.i, %while.cond.i32.i ], [ %len, %while.body.i35.i ], [ %len, %while.body.i.i ]
+  %4 = load ptr, ptr %_M_finish.i, align 8
   %5 = load ptr, ptr %_M_end_of_storage.i, align 8
-  %cmp.not.i6 = icmp eq ptr %1, %5
+  %cmp.not.i6 = icmp eq ptr %4, %5
   br i1 %cmp.not.i6, label %if.else.i, label %if.then.i7
 
 if.then.i7:                                       ; preds = %invoke.cont1
   %6 = load double, ptr %num, align 8
-  store double %6, ptr %1, align 8
-  %incdec.ptr.i8 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store double %6, ptr %4, align 8
+  %incdec.ptr.i8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %incdec.ptr.i8, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIdSaIdEE9push_backERKd.exit
 
 if.else.i:                                        ; preds = %invoke.cont1
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %1 to i64
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %call5.i.i.i.i.i132325 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775800
@@ -2639,7 +2639,6 @@ _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %_ZNSt6vectorIdSaIdEE9push_backERKd.exit
 
 _ZNSt6vectorIdSaIdEE9push_backERKd.exit:          ; preds = %if.then.i7, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i
-  %9 = phi ptr [ %incdec.ptr.i8, %if.then.i7 ], [ %incdec.ptr.i.i11, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i ]
   %call5.i.i.i.i.i1322 = phi ptr [ %call5.i.i.i.i.i132325, %if.then.i7 ], [ %call5.i.i.i.i.i13, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i ]
   %cmp.not = icmp eq i64 %pos.1, %len
   br i1 %cmp.not, label %nrvo.skipdtor, label %while.body
@@ -2656,12 +2655,12 @@ lpad.loopexit.split-lp:                           ; preds = %if.then.i.i.i
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit18, %lpad.loopexit ], [ %lpad.loopexit.split-lp19, %lpad.loopexit.split-lp ]
-  %10 = load ptr, ptr %agg.result, align 8
-  %tobool.not.i.i.i14 = icmp eq ptr %10, null
+  %9 = load ptr, ptr %agg.result, align 8
+  %tobool.not.i.i.i14 = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.i14, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %if.then.i.i.i15
 
 if.then.i.i.i15:                                  ; preds = %lpad
-  call void @_ZdlPv(ptr noundef nonnull %10) #32
+  call void @_ZdlPv(ptr noundef nonnull %9) #32
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %lpad, %if.then.i.i.i15

@@ -125,12 +125,16 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12PixelShuffle7forwardERK
   %.0108160 = phi i32 [ %99, %._crit_edge ], [ 0, %.preheader.preheader ]
   %58 = icmp slt i32 %57, 1
   %brmerge = or i1 %58, %36
-  br i1 %brmerge, label %._crit_edge, label %.lr.ph.split.us
+  br i1 %brmerge, label %._crit_edge, label %.lr.ph.split.us.preheader
 
-.lr.ph.split.us:                                  ; preds = %.preheader, %._crit_edge154.us
-  %59 = phi i32 [ %82, %._crit_edge154.us ], [ %56, %.preheader ]
-  %60 = phi i32 [ %83, %._crit_edge154.us ], [ %57, %.preheader ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge154.us ], [ 0, %.preheader ]
+.lr.ph.split.us.preheader:                        ; preds = %.preheader
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %1, i64 0) ]
+  br label %.lr.ph.split.us
+
+.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %._crit_edge154.us
+  %59 = phi i32 [ %82, %._crit_edge154.us ], [ %56, %.lr.ph.split.us.preheader ]
+  %60 = phi i32 [ %83, %._crit_edge154.us ], [ %57, %.lr.ph.split.us.preheader ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge154.us ], [ 0, %.lr.ph.split.us.preheader ]
   %61 = load i32, ptr %34, align 4
   %62 = icmp eq i32 %61, 0
   br i1 %62, label %69, label %63
@@ -161,13 +165,13 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12PixelShuffle7forwardERK
   br label %._crit_edge154.us
 
 .lr.ph.us.us.preheader:                           ; preds = %.lr.ph153.us
-  %75 = load ptr, ptr %1, align 8
-  %76 = load i64, ptr %35, align 8
+  %75 = load i64, ptr %35, align 8
+  %76 = load ptr, ptr %1, align 8
   %77 = sext i32 %.0106.us to i64
-  %78 = mul i64 %76, %77
+  %78 = mul i64 %75, %77
   %79 = load i64, ptr %11, align 8
   %80 = mul i64 %78, %79
-  %81 = getelementptr inbounds i8, ptr %75, i64 %80
+  %81 = getelementptr inbounds i8, ptr %76, i64 %80
   br label %.lr.ph.us.us
 
 ._crit_edge154.us:                                ; preds = %._crit_edge.us.us, %.lr.ph153.split.us158.preheader
@@ -233,14 +237,14 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4ncnn12PixelShuffleD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #2 comdat align 2 {
-  tail call void @_ZN4ncnn5LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) #5
+  tail call void @_ZN4ncnn5LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) #6
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4ncnn12PixelShuffleD0Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #2 comdat align 2 {
-  tail call void @_ZN4ncnn5LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) #5
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 216) #6
+  tail call void @_ZN4ncnn5LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) #6
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 216) #7
   ret void
 }
 
@@ -262,13 +266,17 @@ declare void @_ZN4ncnn5LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(208
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #4
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #5
+
 attributes #0 = { mustprogress uwtable "approx-func-fp-math"="true" "frame-pointer"="all" "min-legal-vector-width"="0" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
 attributes #1 = { "approx-func-fp-math"="true" "frame-pointer"="all" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
 attributes #2 = { mustprogress nounwind uwtable "approx-func-fp-math"="true" "frame-pointer"="all" "min-legal-vector-width"="0" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
 attributes #3 = { nounwind "approx-func-fp-math"="true" "frame-pointer"="all" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
 attributes #4 = { nobuiltin nounwind "approx-func-fp-math"="true" "frame-pointer"="all" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
-attributes #5 = { nounwind }
-attributes #6 = { builtin nounwind }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #6 = { nounwind }
+attributes #7 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

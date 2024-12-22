@@ -3377,6 +3377,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_14Heap9checkHeapEv.exit.i: ; preds = %_ZN7jsonn
 
 .noexc495:                                        ; preds = %.noexc494
   %.sroa.0.0.copyload.i = load i32, ptr %253, align 8
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %.sroa.28.0..sroa_idx, i64 0) ]
   %513 = and i32 %.sroa.0.0.copyload.i, 16
   %.not.i.i489 = icmp eq i32 %513, 0
   br i1 %.not.i.i489, label %_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromENS1_5ValueE.exit.i, label %514
@@ -4661,6 +4662,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_14Heap9checkHeapEv.exit.i.i: ; preds = %_ZN7jso
 
 .noexc22.i:                                       ; preds = %.noexc21.i
   %.sroa.0.0.copyload.i.i = load i32, ptr %253, align 8
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %.sroa.28.0..sroa_idx, i64 0) ]
   %910 = and i32 %.sroa.0.0.copyload.i.i, 16
   %.not.i.i.i522 = icmp eq i32 %910, 0
   br i1 %.not.i.i.i522, label %_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromENS1_5ValueE.exit.i.i, label %911
@@ -5476,6 +5478,7 @@ _ZNSt12_Vector_baseIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE
           to label %_ZNSt12_Vector_baseIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE13_M_deallocateEPS4_m.exit.i unwind label %.loopexit.split-lp3136.loopexit
 
 _ZNSt12_Vector_baseIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE13_M_deallocateEPS4_m.exit.i: ; preds = %_ZNSt12_Vector_baseIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE11_M_allocateEm.exit.i
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %416, i64 0) ]
   %.pre6094.pre = load ptr, ptr %417, align 8
   %.pre6093.pre = load ptr, ptr %416, align 8
   store ptr %428, ptr %10, align 8
@@ -5706,6 +5709,7 @@ _ZNSt12_Vector_baseIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE
           to label %_ZNSt12_Vector_baseIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE13_M_deallocateEPS4_m.exit.i1652 unwind label %.loopexit.split-lp3141.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZNSt12_Vector_baseIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE13_M_deallocateEPS4_m.exit.i1652: ; preds = %_ZNSt12_Vector_baseIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE11_M_allocateEm.exit.i1643
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %492, i64 0) ]
   %.pre6087.pre = load ptr, ptr %493, align 8
   %.pre6086.pre = load ptr, ptr %492, align 8
   store ptr %504, ptr %12, align 8
@@ -6038,6 +6042,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_14Heap9checkHeapEv.exit.i.i: ; preds = %_ZN7jso
 
 .noexc1677:                                       ; preds = %.noexc1676
   %.sroa.0.0.copyload.i.i = load i32, ptr %198, align 8
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %199, i64 0) ]
   %600 = and i32 %.sroa.0.0.copyload.i.i, 16
   %.not.i.i.i1670 = icmp eq i32 %600, 0
   br i1 %.not.i.i.i1670, label %_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromENS1_5ValueE.exit.i.i, label %601
@@ -6338,14 +6343,15 @@ _ZN7jsonnet8internal12_GLOBAL__N_14Heap9checkHeapEv.exit.i.i1689: ; preds = %_ZN
 
 .noexc15.i:                                       ; preds = %.noexc14.i
   %.sroa.0.0.copyload.i.i1691 = load i32, ptr %198, align 8
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %199, i64 0) ]
   %713 = and i32 %.sroa.0.0.copyload.i.i1691, 16
-  %.not.i.i.i1692 = icmp eq i32 %713, 0
-  br i1 %.not.i.i.i1692, label %_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromENS1_5ValueE.exit.i.i1696, label %714
+  %.not.i.i.i1693 = icmp eq i32 %713, 0
+  br i1 %.not.i.i.i1693, label %_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromENS1_5ValueE.exit.i.i1696, label %714
 
 714:                                              ; preds = %.noexc15.i
-  %.val18.i.i1693 = load i8, ptr %223, align 8
+  %.val18.i.i1694 = load i8, ptr %223, align 8
   %.sroa.28.0.copyload.i.i1695 = load ptr, ptr %199, align 8
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromEPNS1_10HeapEntityE(i8 %.val18.i.i1693, ptr noundef %.sroa.28.0.copyload.i.i1695)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromEPNS1_10HeapEntityE(i8 %.val18.i.i1694, ptr noundef %.sroa.28.0.copyload.i.i1695)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromENS1_5ValueE.exit.i.i1696 unwind label %.loopexit.split-lp.loopexit.split-lp.i.loopexit
 
 _ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromENS1_5ValueE.exit.i.i1696: ; preds = %714, %.noexc15.i
@@ -6921,6 +6927,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_14Heap9checkHeapEv.exit.i: ; preds = %_ZN7jsonn
   %.val20.i = load ptr, ptr %197, align 8
   call fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack4markERNS1_4HeapE(ptr %.val19.i, ptr %.val20.i, ptr noundef nonnull align 8 dereferenceable(480) %0)
   %.sroa.0.0.copyload.i = load i32, ptr %198, align 8
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %199, i64 0) ]
   %942 = and i32 %.sroa.0.0.copyload.i, 16
   %.not.i.i1765 = icmp eq i32 %942, 0
   br i1 %.not.i.i1765, label %_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromENS1_5ValueE.exit.i, label %943
@@ -8588,14 +8595,15 @@ _ZN7jsonnet8internal12_GLOBAL__N_14Heap9checkHeapEv.exit.i1890: ; preds = %_ZN7j
 
 .noexc1944:                                       ; preds = %.noexc1943
   %.sroa.0.0.copyload.i1893 = load i32, ptr %198, align 8
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %199, i64 0) ]
   %1511 = and i32 %.sroa.0.0.copyload.i1893, 16
-  %.not.i.i1894 = icmp eq i32 %1511, 0
-  br i1 %.not.i.i1894, label %_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromENS1_5ValueE.exit.i1898, label %1512
+  %.not.i.i1895 = icmp eq i32 %1511, 0
+  br i1 %.not.i.i1895, label %_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromENS1_5ValueE.exit.i1898, label %1512
 
 1512:                                             ; preds = %.noexc1944
-  %.val18.i1895 = load i8, ptr %223, align 8
+  %.val18.i1896 = load i8, ptr %223, align 8
   %.sroa.28.0.copyload.i1897 = load ptr, ptr %199, align 8
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromEPNS1_10HeapEntityE(i8 %.val18.i1895, ptr noundef %.sroa.28.0.copyload.i1897)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromEPNS1_10HeapEntityE(i8 %.val18.i1896, ptr noundef %.sroa.28.0.copyload.i1897)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromENS1_5ValueE.exit.i1898 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromENS1_5ValueE.exit.i1898: ; preds = %1512, %.noexc1944
@@ -10887,14 +10895,15 @@ _ZN7jsonnet8internal12_GLOBAL__N_14Heap9checkHeapEv.exit.i.i2138: ; preds = %_ZN
   %.val18.i.i2140 = load ptr, ptr %197, align 8
   call fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack4markERNS1_4HeapE(ptr %.val17.i.i2139, ptr %.val18.i.i2140, ptr noundef nonnull align 8 dereferenceable(480) %0)
   %.sroa.0.0.copyload.i.i2141 = load i32, ptr %198, align 8
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %199, i64 0) ]
   %2304 = and i32 %.sroa.0.0.copyload.i.i2141, 16
-  %.not.i.i.i2142 = icmp eq i32 %2304, 0
-  br i1 %.not.i.i.i2142, label %_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromENS1_5ValueE.exit.i.i2146, label %2305
+  %.not.i.i.i2143 = icmp eq i32 %2304, 0
+  br i1 %.not.i.i.i2143, label %_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromENS1_5ValueE.exit.i.i2146, label %2305
 
 2305:                                             ; preds = %2303
-  %.val16.i.i2143 = load i8, ptr %223, align 8
+  %.val16.i.i2144 = load i8, ptr %223, align 8
   %.sroa.28.0.copyload.i.i2145 = load ptr, ptr %199, align 8
-  call fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromEPNS1_10HeapEntityE(i8 %.val16.i.i2143, ptr noundef %.sroa.28.0.copyload.i.i2145)
+  call fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromEPNS1_10HeapEntityE(i8 %.val16.i.i2144, ptr noundef %.sroa.28.0.copyload.i.i2145)
   br label %_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromENS1_5ValueE.exit.i.i2146
 
 _ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromENS1_5ValueE.exit.i.i2146: ; preds = %2305, %2303
@@ -20652,6 +20661,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_14Heap9checkHeapEv.exit.i: ; preds = %_ZN7jsonn
 
 .noexc96:                                         ; preds = %.noexc95
   %.sroa.0.0.copyload.i = load i32, ptr %95, align 8
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %.sroa.28.0..sroa_idx.i, i64 0) ]
   %157 = and i32 %.sroa.0.0.copyload.i, 16
   %.not.i.i = icmp eq i32 %157, 0
   br i1 %.not.i.i, label %_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromENS1_5ValueE.exit.i, label %158
@@ -20971,14 +20981,15 @@ _ZN7jsonnet8internal12_GLOBAL__N_14Heap9checkHeapEv.exit.i109: ; preds = %_ZN7js
 
 .noexc152:                                        ; preds = %.noexc151
   %.sroa.0.0.copyload.i112 = load i32, ptr %95, align 8
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %.sroa.28.0..sroa_idx.i, i64 0) ]
   %275 = and i32 %.sroa.0.0.copyload.i112, 16
-  %.not.i.i113 = icmp eq i32 %275, 0
-  br i1 %.not.i.i113, label %_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromENS1_5ValueE.exit.i117, label %276
+  %.not.i.i114 = icmp eq i32 %275, 0
+  br i1 %.not.i.i114, label %_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromENS1_5ValueE.exit.i117, label %276
 
 276:                                              ; preds = %.noexc152
-  %.val18.i114 = load i8, ptr %90, align 8
+  %.val18.i115 = load i8, ptr %90, align 8
   %.sroa.28.0.copyload.i116 = load ptr, ptr %.sroa.28.0..sroa_idx.i, align 8
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromEPNS1_10HeapEntityE(i8 %.val18.i114, ptr noundef %.sroa.28.0.copyload.i116)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromEPNS1_10HeapEntityE(i8 %.val18.i115, ptr noundef %.sroa.28.0.copyload.i116)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromENS1_5ValueE.exit.i117 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromENS1_5ValueE.exit.i117: ; preds = %276, %.noexc152
@@ -26916,6 +26927,7 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE4findERKS4_m.exit: ; pr
 
 _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE4findERKS4_m.exit.thread59: ; preds = %62, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE4findERKS4_m.exit
   %.027.i.i61 = phi i64 [ %96, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE4findERKS4_m.exit ], [ %.02971, %62 ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %60, i64 0) ]
   %98 = icmp ugt i64 %.027.i.i61, %63
   br i1 %98, label %99, label %_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE7replaceEmmPKDim.exit.i
 
@@ -31742,13 +31754,14 @@ _ZN7jsonnet8internal12_GLOBAL__N_14Heap9checkHeapEv.exit.i: ; preds = %_ZN7jsonn
   tail call fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack4markERNS1_4HeapE(ptr %.val16.i, ptr %.val17.i, ptr noundef nonnull align 8 dereferenceable(480) %0)
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i = load i32, ptr %73, align 8
+  %.sroa.28.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 72
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %.sroa.28.0..sroa_idx.i, i64 0) ]
   %74 = and i32 %.sroa.0.0.copyload.i, 16
   %.not.i.i = icmp eq i32 %74, 0
   br i1 %.not.i.i, label %_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromENS1_5ValueE.exit.i, label %75
 
 75:                                               ; preds = %70
   %.val15.i = load i8, ptr %51, align 8
-  %.sroa.28.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.sroa.28.0.copyload.i = load ptr, ptr %.sroa.28.0..sroa_idx.i, align 8
   tail call fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromEPNS1_10HeapEntityE(i8 %.val15.i, ptr noundef %.sroa.28.0.copyload.i)
   br label %_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromENS1_5ValueE.exit.i
@@ -34294,7 +34307,7 @@ _ZNSt6vectorIZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromEPNS2_10HeapEntityEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack4markERNS1_4HeapE(ptr readonly %.16.val, ptr readnone %.24.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack4markERNS1_4HeapE(ptr %.16.val, ptr readnone %.24.val, ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not2 = icmp eq ptr %.16.val, %.24.val
   br i1 %.not2, label %._crit_edge, label %.lr.ph
 
@@ -34311,8 +34324,8 @@ define internal fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack4markERNS1_
   br i1 %.not.i.i, label %_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromENS1_5ValueE.exit.i, label %6
 
 6:                                                ; preds = %3
-  %.val36.i = load i8, ptr %2, align 8
   %.sroa.212.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.01.03, i64 96
+  %.val36.i = load i8, ptr %2, align 8
   %.sroa.212.0.copyload.i = load ptr, ptr %.sroa.212.0..sroa_idx.i, align 8
   tail call fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromEPNS1_10HeapEntityE(i8 %.val36.i, ptr noundef %.sroa.212.0.copyload.i)
   br label %_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromENS1_5ValueE.exit.i
@@ -34320,13 +34333,14 @@ define internal fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack4markERNS1_
 _ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromENS1_5ValueE.exit.i: ; preds = %6, %3
   %7 = getelementptr inbounds nuw i8, ptr %.sroa.01.03, i64 104
   %.sroa.0.0.copyload.i = load i32, ptr %7, align 8
+  %.sroa.29.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.01.03, i64 112
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %.sroa.29.0..sroa_idx.i, i64 0) ]
   %8 = and i32 %.sroa.0.0.copyload.i, 16
   %.not.i42.i = icmp eq i32 %8, 0
   br i1 %.not.i42.i, label %_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromENS1_5ValueE.exit43.i, label %9
 
 9:                                                ; preds = %_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromENS1_5ValueE.exit.i
   %.val35.i = load i8, ptr %2, align 8
-  %.sroa.29.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.01.03, i64 112
   %.sroa.29.0.copyload.i = load ptr, ptr %.sroa.29.0..sroa_idx.i, align 8
   tail call fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromEPNS1_10HeapEntityE(i8 %.val35.i, ptr noundef %.sroa.29.0.copyload.i)
   br label %_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromENS1_5ValueE.exit43.i
@@ -35243,13 +35257,14 @@ _ZN7jsonnet8internal12_GLOBAL__N_14Heap9checkHeapEv.exit.i: ; preds = %_ZN7jsonn
   tail call fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack4markERNS1_4HeapE(ptr %.val16.i, ptr %.val17.i, ptr noundef nonnull align 8 dereferenceable(480) %0)
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i = load i32, ptr %70, align 8
+  %.sroa.28.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 72
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %.sroa.28.0..sroa_idx.i, i64 0) ]
   %71 = and i32 %.sroa.0.0.copyload.i, 16
   %.not.i.i = icmp eq i32 %71, 0
   br i1 %.not.i.i, label %_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromENS1_5ValueE.exit.i, label %72
 
 72:                                               ; preds = %67
   %.val15.i = load i8, ptr %48, align 8
-  %.sroa.28.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.sroa.28.0.copyload.i = load ptr, ptr %.sroa.28.0..sroa_idx.i, align 8
   tail call fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromEPNS1_10HeapEntityE(i8 %.val15.i, ptr noundef %.sroa.28.0.copyload.i)
   br label %_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromENS1_5ValueE.exit.i
@@ -36501,13 +36516,14 @@ _ZN7jsonnet8internal12_GLOBAL__N_14Heap9checkHeapEv.exit: ; preds = %_ZN7jsonnet
   tail call fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack4markERNS1_4HeapE(ptr %.val19, ptr %.val20, ptr noundef nonnull align 8 dereferenceable(64) %0)
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload = load i32, ptr %63, align 8
+  %.sroa.28.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 72
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %.sroa.28.0..sroa_idx, i64 0) ]
   %64 = and i32 %.sroa.0.0.copyload, 16
   %.not.i = icmp eq i32 %64, 0
   br i1 %.not.i, label %_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromENS1_5ValueE.exit, label %65
 
 65:                                               ; preds = %60
   %.val18 = load i8, ptr %41, align 8
-  %.sroa.28.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.sroa.28.0.copyload = load ptr, ptr %.sroa.28.0..sroa_idx, align 8
   tail call fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromEPNS1_10HeapEntityE(i8 %.val18, ptr noundef %.sroa.28.0.copyload)
   br label %_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromENS1_5ValueE.exit
@@ -37642,13 +37658,14 @@ _ZN7jsonnet8internal12_GLOBAL__N_14Heap9checkHeapEv.exit.i: ; preds = %_ZN7jsonn
 .noexc10:                                         ; preds = %.noexc9
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i = load i32, ptr %64, align 8
+  %.sroa.28.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 72
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %.sroa.28.0..sroa_idx.i, i64 0) ]
   %65 = and i32 %.sroa.0.0.copyload.i, 16
   %.not.i.i = icmp eq i32 %65, 0
   br i1 %.not.i.i, label %_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromENS1_5ValueE.exit.i, label %66
 
 66:                                               ; preds = %.noexc10
   %.val20.i = load i8, ptr %42, align 8
-  %.sroa.28.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.sroa.28.0.copyload.i = load ptr, ptr %.sroa.28.0..sroa_idx.i, align 8
   invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromEPNS1_10HeapEntityE(i8 %.val20.i, ptr noundef %.sroa.28.0.copyload.i)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromENS1_5ValueE.exit.i unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -38603,7 +38620,7 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE6appendERKS4_.exit26: ; 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9joinArrayERbRSt6vectorIPNS1_9HeapThunkESaIS6_EERKNS1_5ValueEjSC_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(480) %0, ptr nocapture noundef nonnull align 1 dereferenceable(1) %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2, ptr nocapture readonly %.8.val, i32 noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9joinArrayERbRSt6vectorIPNS1_9HeapThunkESaIS6_EERKNS1_5ValueEjSC_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(480) %0, ptr nocapture noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr nocapture readonly %.8.val, i32 noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -38728,7 +38745,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE6insertIN9__gnu_cxx17__normal_iteratorIPS4_S6_EEvEESB_NS9_IPKS4_S6_EET_SF_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr %2, ptr %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE6insertIN9__gnu_cxx17__normal_iteratorIPS4_S6_EEvEESB_NS9_IPKS4_S6_EET_SF_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr %2, ptr %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.val10 = load ptr, ptr %0, align 8
   %5 = ptrtoint ptr %1 to i64
   %6 = ptrtoint ptr %.val10 to i64
@@ -53523,13 +53540,14 @@ _ZN7jsonnet8internal12_GLOBAL__N_14Heap9checkHeapEv.exit.i: ; preds = %_ZN7jsonn
   tail call fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack4markERNS1_4HeapE(ptr %.val19.i, ptr %.val20.i, ptr noundef nonnull align 8 dereferenceable(480) %0)
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i = load i32, ptr %60, align 8
+  %.sroa.28.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 72
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %.sroa.28.0..sroa_idx.i, i64 0) ]
   %61 = and i32 %.sroa.0.0.copyload.i, 16
   %.not.i.i = icmp eq i32 %61, 0
   br i1 %.not.i.i, label %_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromENS1_5ValueE.exit.i, label %62
 
 62:                                               ; preds = %57
   %.val18.i = load i8, ptr %38, align 8
-  %.sroa.28.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.sroa.28.0.copyload.i = load ptr, ptr %.sroa.28.0..sroa_idx.i, align 8
   tail call fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromEPNS1_10HeapEntityE(i8 %.val18.i, ptr noundef %.sroa.28.0.copyload.i)
   br label %_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromENS1_5ValueE.exit.i
@@ -62550,13 +62568,14 @@ _ZN7jsonnet8internal12_GLOBAL__N_14Heap9checkHeapEv.exit: ; preds = %_ZN7jsonnet
   tail call fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack4markERNS1_4HeapE(ptr %.val19, ptr %.val20, ptr noundef nonnull align 8 dereferenceable(64) %0)
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload = load i32, ptr %64, align 8
+  %.sroa.28.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 72
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %.sroa.28.0..sroa_idx, i64 0) ]
   %65 = and i32 %.sroa.0.0.copyload, 16
   %.not.i = icmp eq i32 %65, 0
   br i1 %.not.i, label %_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromENS1_5ValueE.exit, label %66
 
 66:                                               ; preds = %61
   %.val18 = load i8, ptr %42, align 8
-  %.sroa.28.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.sroa.28.0.copyload = load ptr, ptr %.sroa.28.0..sroa_idx, align 8
   tail call fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromEPNS1_10HeapEntityE(i8 %.val18, ptr noundef %.sroa.28.0.copyload)
   br label %_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromENS1_5ValueE.exit
@@ -63502,13 +63521,14 @@ _ZN7jsonnet8internal12_GLOBAL__N_14Heap9checkHeapEv.exit.i: ; preds = %_ZN7jsonn
   call fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack4markERNS1_4HeapE(ptr %.val18.i, ptr %.val19.i, ptr noundef nonnull align 8 dereferenceable(480) %0)
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i = load i32, ptr %146, align 8
+  %.sroa.28.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 72
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %.sroa.28.0..sroa_idx.i, i64 0) ]
   %147 = and i32 %.sroa.0.0.copyload.i, 16
   %.not.i.i = icmp eq i32 %147, 0
   br i1 %.not.i.i, label %_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromENS1_5ValueE.exit.i, label %148
 
 148:                                              ; preds = %143
   %.val17.i = load i8, ptr %124, align 8
-  %.sroa.28.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.sroa.28.0.copyload.i = load ptr, ptr %.sroa.28.0..sroa_idx.i, align 8
   call fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromEPNS1_10HeapEntityE(i8 %.val17.i, ptr noundef %.sroa.28.0.copyload.i)
   br label %_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromENS1_5ValueE.exit.i
@@ -66007,6 +66027,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_14Heap9checkHeapEv.exit.i: ; preds = %_ZN7jsonn
   %.val20.i = load ptr, ptr %26, align 8
   tail call fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack4markERNS1_4HeapE(ptr %.val19.i, ptr %.val20.i, ptr noundef nonnull align 8 dereferenceable(480) %0)
   %.sroa.0.0.copyload.i = load i32, ptr %27, align 8
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %.sroa.28.0..sroa_idx.i, i64 0) ]
   %91 = and i32 %.sroa.0.0.copyload.i, 16
   %.not.i.i = icmp eq i32 %91, 0
   br i1 %.not.i.i, label %_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromENS1_5ValueE.exit.i, label %92
@@ -66575,13 +66596,14 @@ _ZN7jsonnet8internal12_GLOBAL__N_14Heap9checkHeapEv.exit.i: ; preds = %_ZN7jsonn
   tail call fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack4markERNS1_4HeapE(ptr %.val19.i, ptr %.val20.i, ptr noundef nonnull align 8 dereferenceable(480) %0)
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i = load i32, ptr %60, align 8
+  %.sroa.28.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 72
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %.sroa.28.0..sroa_idx.i, i64 0) ]
   %61 = and i32 %.sroa.0.0.copyload.i, 16
   %.not.i.i = icmp eq i32 %61, 0
   br i1 %.not.i.i, label %_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromENS1_5ValueE.exit.i, label %62
 
 62:                                               ; preds = %57
   %.val18.i = load i8, ptr %38, align 8
-  %.sroa.28.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.sroa.28.0.copyload.i = load ptr, ptr %.sroa.28.0..sroa_idx.i, align 8
   tail call fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromEPNS1_10HeapEntityE(i8 %.val18.i, ptr noundef %.sroa.28.0.copyload.i)
   br label %_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromENS1_5ValueE.exit.i

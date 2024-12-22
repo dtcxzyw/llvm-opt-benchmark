@@ -1569,16 +1569,15 @@ land.rhs.i.i.preheader:                           ; preds = %for.inc73.i.i, %for
   br label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %land.rhs.i.i.preheader, %while.body.i144.i
-  %minIdx.058.i.i = phi i32 [ %dec.i.i, %while.body.i144.i ], [ 14, %land.rhs.i.i.preheader ]
-  %idxprom79.i.i = zext nneg i32 %minIdx.058.i.i to i64
-  %arrayidx80.i.i = getelementptr inbounds nuw [60 x i64], ptr %_ljBase.i.i, i64 0, i64 %idxprom79.i.i
+  %indvars.iv = phi i64 [ %indvars.iv.next, %while.body.i144.i ], [ 14, %land.rhs.i.i.preheader ]
+  %arrayidx80.i.i = getelementptr inbounds nuw [60 x i64], ptr %_ljBase.i.i, i64 0, i64 %indvars.iv
   %51 = load i64, ptr %arrayidx80.i.i, align 8
   %cmp81.i.i = icmp eq i64 %51, -1
   br i1 %cmp81.i.i, label %while.body.i144.i, label %if.then31
 
 while.body.i144.i:                                ; preds = %land.rhs.i.i
-  %dec.i.i = add nsw i32 %minIdx.058.i.i, -1
-  %cmp76.i.i = icmp ugt i32 %minIdx.058.i.i, 1
+  %indvars.iv.next = add nsw i64 %indvars.iv, -1
+  %cmp76.i.i = icmp ugt i64 %indvars.iv, 1
   br i1 %cmp76.i.i, label %land.rhs.i.i, label %if.then31, !llvm.loop !30
 
 fasthuf_initialize.exit.thread.sink.split:        ; preds = %if.else65.i.i, %if.then221.i, %if.then90.i, %if.then63.i, %if.then45.i, %if.then.i
@@ -1622,7 +1621,7 @@ if.else:                                          ; preds = %if.end22
   br i1 %cmp.not68.i, label %if.else.for.end.i_crit_edge, label %for.body.lr.ph.i
 
 if.else.for.end.i_crit_edge:                      ; preds = %if.else
-  %.pre88 = ptrtoint ptr %add.ptr17 to i64
+  %.pre89 = ptrtoint ptr %add.ptr17 to i64
   br label %for.end.i
 
 for.body.lr.ph.i:                                 ; preds = %if.else
@@ -1716,7 +1715,7 @@ if.else.i45:                                      ; preds = %getBits.exit.i
   br i1 %cmp22.i, label %if.then24.i, label %if.else.i45.for.inc.i_crit_edge
 
 if.else.i45.for.inc.i_crit_edge:                  ; preds = %if.else.i45
-  %.pre89 = add i32 %im.addr.072.i, 1
+  %.pre90 = add i32 %im.addr.072.i, 1
   br label %for.inc.i
 
 if.then24.i:                                      ; preds = %if.else.i45
@@ -1737,7 +1736,7 @@ while.body38.i:                                   ; preds = %if.then24.i, %while
   br i1 %tobool37.not.i, label %for.inc.i, label %while.body38.i, !llvm.loop !33
 
 for.inc.i:                                        ; preds = %while.body38.i, %while.body.i, %if.else.i45.for.inc.i_crit_edge
-  %inc46.i.pre-phi = phi i32 [ %.pre89, %if.else.i45.for.inc.i_crit_edge ], [ %inc.i, %while.body.i ], [ %inc39.i50, %while.body38.i ]
+  %inc46.i.pre-phi = phi i32 [ %.pre90, %if.else.i45.for.inc.i_crit_edge ], [ %inc.i, %while.body.i ], [ %inc39.i50, %while.body38.i ]
   %p.1.i = phi ptr [ %in.0.lcssa.i.i, %if.else.i45.for.inc.i_crit_edge ], [ %in.0.lcssa.i29.i, %while.body.i ], [ %in.0.lcssa.i.i, %while.body38.i ]
   %c.1.i = phi i64 [ %c.3.i, %if.else.i45.for.inc.i_crit_edge ], [ %c.5.i, %while.body.i ], [ %c.3.i, %while.body38.i ]
   %lc.1.i = phi i32 [ %sub.i.i41, %if.else.i45.for.inc.i_crit_edge ], [ %sub.i30.i, %while.body.i ], [ %sub.i.i41, %while.body38.i ]
@@ -1745,7 +1744,7 @@ for.inc.i:                                        ; preds = %while.body38.i, %wh
   br i1 %cmp.not.i, label %for.end.i, label %for.body.i, !llvm.loop !34
 
 for.end.i:                                        ; preds = %for.inc.i, %if.else.for.end.i_crit_edge
-  %.pre-phi = phi i64 [ %.pre88, %if.else.for.end.i_crit_edge ], [ %54, %for.inc.i ]
+  %.pre-phi = phi i64 [ %.pre89, %if.else.for.end.i_crit_edge ], [ %54, %for.inc.i ]
   %p.0.lcssa.i = phi ptr [ %add.ptr17, %if.else.for.end.i_crit_edge ], [ %p.1.i, %for.inc.i ]
   %sub47.neg.i = add i64 %sub41, %.pre-phi
   call void @llvm.lifetime.start.p0(i64 472, ptr nonnull %n.i.i)
@@ -1862,7 +1861,7 @@ return:                                           ; preds = %for.inc.i64, %fasth
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 24) i32 @fasthuf_decode(ptr noundef %pctxt, ptr nocapture noundef readonly %fhd, ptr nocapture noundef readonly %src, i64 noundef range(i64 0, 4294967296) %numSrcBits, ptr nocapture noundef %dst, i64 noundef %numDstElems) unnamed_addr #2 {
+define internal fastcc range(i32 0, 24) i32 @fasthuf_decode(ptr noundef %pctxt, ptr nocapture noundef readonly %fhd, ptr noundef %src, i64 noundef range(i64 0, 4294967296) %numSrcBits, ptr nocapture noundef %dst, i64 noundef %numDstElems) unnamed_addr #2 {
 entry:
   %sub = add nsw i64 %numSrcBits, -128
   %cmp156.not = icmp eq i64 %numDstElems, 0

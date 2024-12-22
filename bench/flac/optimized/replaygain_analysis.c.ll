@@ -81,8 +81,8 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #1
 define dso_local range(i32 0, 2) i32 @InitGainAnalysis(i64 noundef %samplefreq) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr @replaygainfilter, align 8
-  tail call void @free(ptr noundef %0) #13
-  %call.i.i = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #14
+  tail call void @free(ptr noundef %0) #14
+  %call.i.i = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #15
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i.i, label %CreateGainFilter.exit.thread.i, label %while.body.i.i.outer
 
@@ -127,7 +127,7 @@ while.body26.i.i:                                 ; preds = %while.cond23.prehea
   br i1 %cmp24.i.i, label %while.body26.i.i, label %while.body.i.i.outer, !llvm.loop !7
 
 while.end27.i.i:                                  ; preds = %for.end.i.i
-  tail call void @free(ptr noundef %call.i.i) #13
+  tail call void @free(ptr noundef %call.i.i) #14
   br label %CreateGainFilter.exit.thread.i
 
 CreateGainFilter.exit.thread.i:                   ; preds = %while.end27.i.i, %entry
@@ -149,14 +149,14 @@ CreateGainFilter.exit.i:                          ; preds = %for.body.i.i
   %add.i.i = add i32 %conv.i, 10
   %conv.i.i = zext i32 %add.i.i to i64
   %mul.i8.i = shl nuw nsw i64 %conv.i.i, 2
-  %call.i.i.i = tail call ptr @realloc(ptr noundef %3, i64 noundef range(i64 0, 17179869181) %mul.i8.i) #15
+  %call.i.i.i = tail call ptr @realloc(ptr noundef %3, i64 noundef range(i64 0, 17179869181) %mul.i8.i) #16
   %cmp.i.i.i = icmp ne i32 %add.i.i, 0
   %cmp1.i.i.i = icmp eq ptr %call.i.i.i, null
   %or.cond.i.i.i = and i1 %cmp1.i.i.i, %cmp.i.i.i
   br i1 %or.cond.i.i.i, label %ReallocateWindowBuffer.exit.thread.i, label %ReallocateWindowBuffer.exit.i
 
 ReallocateWindowBuffer.exit.thread.i:             ; preds = %CreateGainFilter.exit.i
-  tail call void @free(ptr noundef %3) #13
+  tail call void @free(ptr noundef %3) #14
   store ptr null, ptr @lstepbuf, align 8
   br label %return
 
@@ -166,13 +166,13 @@ ReallocateWindowBuffer.exit.i:                    ; preds = %CreateGainFilter.ex
 
 lor.lhs.false.i:                                  ; preds = %ReallocateWindowBuffer.exit.i
   %4 = load ptr, ptr @rstepbuf, align 8
-  %call.i.i12.i = tail call ptr @realloc(ptr noundef %4, i64 noundef range(i64 0, 17179869181) %mul.i8.i) #15
+  %call.i.i12.i = tail call ptr @realloc(ptr noundef %4, i64 noundef range(i64 0, 17179869181) %mul.i8.i) #16
   %cmp1.i.i14.i = icmp eq ptr %call.i.i12.i, null
   %or.cond.i.i15.i = and i1 %cmp.i.i.i, %cmp1.i.i14.i
   br i1 %or.cond.i.i15.i, label %ReallocateWindowBuffer.exit17.thread.i, label %ReallocateWindowBuffer.exit17.i
 
 ReallocateWindowBuffer.exit17.thread.i:           ; preds = %lor.lhs.false.i
-  tail call void @free(ptr noundef %4) #13
+  tail call void @free(ptr noundef %4) #14
   store ptr null, ptr @rstepbuf, align 8
   br label %return
 
@@ -182,13 +182,13 @@ ReallocateWindowBuffer.exit17.i:                  ; preds = %lor.lhs.false.i
 
 lor.lhs.false5.i:                                 ; preds = %ReallocateWindowBuffer.exit17.i
   %5 = load ptr, ptr @loutbuf, align 8
-  %call.i.i21.i = tail call ptr @realloc(ptr noundef %5, i64 noundef range(i64 0, 17179869181) %mul.i8.i) #15
+  %call.i.i21.i = tail call ptr @realloc(ptr noundef %5, i64 noundef range(i64 0, 17179869181) %mul.i8.i) #16
   %cmp1.i.i23.i = icmp eq ptr %call.i.i21.i, null
   %or.cond.i.i24.i = and i1 %cmp.i.i.i, %cmp1.i.i23.i
   br i1 %or.cond.i.i24.i, label %ReallocateWindowBuffer.exit26.thread.i, label %ReallocateWindowBuffer.exit26.i
 
 ReallocateWindowBuffer.exit26.thread.i:           ; preds = %lor.lhs.false5.i
-  tail call void @free(ptr noundef %5) #13
+  tail call void @free(ptr noundef %5) #14
   store ptr null, ptr @loutbuf, align 8
   br label %return
 
@@ -198,13 +198,13 @@ ReallocateWindowBuffer.exit26.i:                  ; preds = %lor.lhs.false5.i
 
 lor.lhs.false8.i:                                 ; preds = %ReallocateWindowBuffer.exit26.i
   %6 = load ptr, ptr @routbuf, align 8
-  %call.i.i30.i = tail call ptr @realloc(ptr noundef %6, i64 noundef range(i64 0, 17179869181) %mul.i8.i) #15
+  %call.i.i30.i = tail call ptr @realloc(ptr noundef %6, i64 noundef range(i64 0, 17179869181) %mul.i8.i) #16
   %cmp1.i.i32.i = icmp eq ptr %call.i.i30.i, null
   %or.cond.i.i33.i = and i1 %cmp.i.i.i, %cmp1.i.i32.i
   br i1 %or.cond.i.i33.i, label %ReallocateWindowBuffer.exit35.thread.i, label %ReallocateWindowBuffer.exit35.i
 
 ReallocateWindowBuffer.exit35.thread.i:           ; preds = %lor.lhs.false8.i
-  tail call void @free(ptr noundef %6) #13
+  tail call void @free(ptr noundef %6) #14
   store ptr null, ptr @routbuf, align 8
   br label %return
 
@@ -350,7 +350,7 @@ if.end43:                                         ; preds = %if.then28, %if.else
   %curleft.0 = phi ptr [ %add.ptr39, %if.else ], [ %add.ptr, %if.then28 ]
   %curright.0 = phi ptr [ %add.ptr42, %if.else ], [ %add.ptr29, %if.then28 ]
   %cmp19.not.i = icmp eq i64 %7, %conv21
-  br i1 %cmp19.not.i, label %for.end86, label %for.body.lr.ph.i
+  br i1 %cmp19.not.i, label %filter.exit166.thread, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then28, %if.end43
   %cursamples.0180 = phi i64 [ %cond, %if.end43 ], [ %sub30, %if.then28 ]
@@ -455,6 +455,10 @@ for.end.i99:                                      ; preds = %for.body4.i85
   %exitcond23.not.i105 = icmp eq i64 %inc13.i102, %cursamples.0180
   br i1 %exitcond23.not.i105, label %filter.exit106, label %for.body.i79, !llvm.loop !11
 
+filter.exit166.thread:                            ; preds = %if.end43
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr @lsum, i64 64) ]
+  br label %for.end86
+
 filter.exit106:                                   ; preds = %for.end.i99
   %30 = load ptr, ptr @lout, align 8
   %add.ptr52 = getelementptr float, ptr %30, i64 %7
@@ -552,6 +556,7 @@ for.end.i159:                                     ; preds = %for.body4.i145
   br i1 %exitcond23.not.i165, label %filter.exit166, label %for.body.i139, !llvm.loop !11
 
 filter.exit166:                                   ; preds = %for.end.i159
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr @lsum, i64 64) ]
   %cmp63230 = icmp sgt i64 %cursamples.0180, 0
   br i1 %cmp63230, label %for.body65.lr.ph, label %for.end86
 
@@ -585,8 +590,8 @@ for.cond61.for.end86_crit_edge:                   ; preds = %for.body65
   store double %add83, ptr @rsum, align 8
   br label %for.end86
 
-for.end86:                                        ; preds = %if.end43, %for.cond61.for.end86_crit_edge, %filter.exit166
-  %cursamples.0181200210223249 = phi i64 [ %cursamples.0180, %for.cond61.for.end86_crit_edge ], [ %cursamples.0180, %filter.exit166 ], [ 0, %if.end43 ]
+for.end86:                                        ; preds = %filter.exit166.thread, %for.cond61.for.end86_crit_edge, %filter.exit166
+  %cursamples.0181200210223249 = phi i64 [ 0, %filter.exit166.thread ], [ %cursamples.0180, %for.cond61.for.end86_crit_edge ], [ %cursamples.0180, %filter.exit166 ]
   %sub87 = sub nsw i64 %batchsamples.0, %cursamples.0181200210223249
   %add88 = add nsw i64 %cursamples.0181200210223249, %cursamplepos.0
   %add89 = add i64 %cursamples.0181200210223249, %7
@@ -601,7 +606,7 @@ if.then93:                                        ; preds = %for.end86
   %conv95 = uitofp i32 %6 to double
   %div96 = fdiv double %add94, %conv95
   %54 = tail call double @llvm.fmuladd.f64(double %div96, double 5.000000e-01, double 1.000000e-37)
-  %call = tail call double @log10(double noundef %54) #13
+  %call = tail call double @log10(double noundef %54) #14
   %mul98 = fmul double %call, 1.000000e+03
   %conv99 = fptosi double %mul98 to i32
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %conv99, i32 0)
@@ -873,6 +878,9 @@ declare i64 @llvm.smax.i64(i64, i64) #12
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #12
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #13
+
 attributes #0 = { nofree norecurse nosync nounwind sspstrong memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -886,9 +894,10 @@ attributes #9 = { nofree norecurse nosync nounwind sspstrong memory(read, argmem
 attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nounwind }
-attributes #14 = { nounwind allocsize(0) }
-attributes #15 = { nounwind allocsize(1) }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #14 = { nounwind }
+attributes #15 = { nounwind allocsize(0) }
+attributes #16 = { nounwind allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

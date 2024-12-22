@@ -4437,8 +4437,19 @@ invoke.cont141.i.i.i.i:                           ; preds = %if.then131.i.i.i.i
 
 if.end147.i.i.i.i:                                ; preds = %invoke.cont141.i.i.i.i, %if.then131.i.i.i.i
   %ray.sroa.14.0.i.i.i.i = phi i64 [ %72, %invoke.cont141.i.i.i.i ], [ 0, %if.then131.i.i.i.i ]
-  %73 = load i8, ptr %set.i.i.i.i.i, align 4
-  %tobool.i.i254.i.i.i.i = trunc i8 %73 to i1
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %ssi.i.i.i.i, i64 32) ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %agg.tmp.sroa.0.sroa.2.0.this.sroa_idx.i.i.i.i.i.i, i64 32) ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %agg.tmp.sroa.0.sroa.3.0.this.sroa_idx.i.i.i.i.i.i, i64 32) ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %agg.tmp.sroa.0.sroa.4.0.this.sroa_idx.i.i.i.i.i.i, i64 32) ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %agg.tmp.sroa.0.sroa.5.0.this.sroa_idx.i.i.i.i.i.i, i64 32) ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %agg.tmp.sroa.0.sroa.6.0.this.sroa_idx.i.i.i.i.i.i, i64 32) ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %n.i.i.i.i.i, i64 32) ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %agg.tmp14.sroa.2.0.n.sroa_idx.i.i.i.i.i, i64 32) ]
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %ns.i.i.i.i.i, i64 32) ]
+  %73 = getelementptr inbounds nuw i8, ptr %call.val, i64 8
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %73, i64 0) ]
+  %74 = load i8, ptr %set.i.i.i.i.i, align 4
+  %tobool.i.i254.i.i.i.i = trunc i8 %74 to i1
   br i1 %tobool.i.i254.i.i.i.i, label %invoke.cont158.i.i.i.i, label %land.rhs.i.i255.i.i.i.i
 
 land.rhs.i.i255.i.i.i.i:                          ; preds = %if.end147.i.i.i.i
@@ -4446,10 +4457,9 @@ land.rhs.i.i255.i.i.i.i:                          ; preds = %if.end147.i.i.i.i
   unreachable
 
 invoke.cont158.i.i.i.i:                           ; preds = %if.end147.i.i.i.i
-  %74 = load i32, ptr %depth.i.i.i.i, align 8
-  %add.i.i.i.i = add nsw i32 %74, 1
-  %75 = getelementptr inbounds nuw i8, ptr %call.val, i64 8
-  %76 = load ptr, ptr %75, align 8
+  %75 = load i32, ptr %depth.i.i.i.i, align 8
+  %add.i.i.i.i = add nsw i32 %75, 1
+  %76 = load ptr, ptr %73, align 8
   %agg.tmp152.sroa.2.0.copyload.i.i.i.i = load float, ptr %agg.tmp.sroa.2.0.ns.sroa_idx.i.i.i.i.i, align 4
   %agg.tmp152.sroa.0.0.copyload.i.i.i.i = load <2 x float>, ptr %ns.i.i.i.i.i, align 4
   %agg.tmp150.sroa.2.0.copyload.i.i.i.i = load float, ptr %agg.tmp14.sroa.2.0.n.sroa_idx.i.i.i.i.i, align 8
@@ -5597,6 +5607,10 @@ return:                                           ; preds = %if.then24, %invoke.
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt4BSDF1fINS_21NormalizedFresnelBxDFEEENS_15SampledSpectrumENS_7Vector3IfEES5_NS_13TransportModeE(ptr noundef nonnull align 8 dereferenceable(44) %this, <2 x float> %woRender.coerce0, float %woRender.coerce1, <2 x float> %wiRender.coerce0, float %wiRender.coerce1, i32 noundef %mode) local_unnamed_addr #8 comdat align 2 {
 entry:
+  %shadingFrame.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %shadingFrame.i, i64 32) ]
+  %agg.tmp2.sroa.2.0.x.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %agg.tmp2.sroa.2.0.x.sroa_idx.i.i, i64 32) ]
   %z.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %agg.tmp7.sroa.0.0.copyload.i.i = load <2 x float>, ptr %z.i.i, align 8
   %agg.tmp7.sroa.2.0.z.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -5613,11 +5627,11 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %agg.tmp2.sroa.2.0.x.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %agg.tmp2.sroa.2.0.copyload.i.i = load float, ptr %agg.tmp2.sroa.2.0.x.sroa_idx.i.i, align 8
-  %mul6.i.i.i12 = fmul float %woRender.coerce1, %agg.tmp2.sroa.2.0.copyload.i.i
-  %shadingFrame.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %agg.tmp2.sroa.0.0.copyload.i.i = load <2 x float>, ptr %shadingFrame.i, align 8
+  %agg.tmp4.sroa.2.0.y.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %this, i64 28
+  %y.i.i = getelementptr inbounds nuw i8, ptr %this, i64 20
+  %mul6.i.i.i12 = fmul float %woRender.coerce1, %agg.tmp2.sroa.2.0.copyload.i.i
   %1 = fmul <2 x float> %woRender.coerce0, %agg.tmp2.sroa.0.0.copyload.i.i
   %mul.i.i.i7 = extractelement <2 x float> %1, i64 0
   %w.sroa.0.4.vec.extract.i.i.i = extractelement <2 x float> %agg.tmp2.sroa.0.0.copyload.i.i, i64 1
@@ -5625,10 +5639,8 @@ if.end:                                           ; preds = %entry
   %add.i.i.i11 = fadd float %mul.i.i.i7, %mul4.i.i.i10
   %add7.i.i.i13 = fadd float %mul6.i.i.i12, %add.i.i.i11
   %retval.sroa.0.0.vec.insert.i.i36 = insertelement <2 x float> poison, float %add7.i.i.i13, i64 0
-  %agg.tmp4.sroa.2.0.y.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %agg.tmp4.sroa.2.0.copyload.i.i = load float, ptr %agg.tmp4.sroa.2.0.y.sroa_idx.i.i, align 4
   %mul6.i10.i.i23 = fmul float %woRender.coerce1, %agg.tmp4.sroa.2.0.copyload.i.i
-  %y.i.i = getelementptr inbounds nuw i8, ptr %this, i64 20
   %agg.tmp4.sroa.0.0.copyload.i.i = load <2 x float>, ptr %y.i.i, align 4
   %2 = fmul <2 x float> %woRender.coerce0, %agg.tmp4.sroa.0.0.copyload.i.i
   %mul.i5.i.i19 = extractelement <2 x float> %2, i64 0

@@ -117,7 +117,7 @@ define hidden range(i32 0, 3) i32 @WebPAllocateDecBuffer(i32 noundef %0, i32 nou
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %23 = load i32, ptr %22, align 4
   %24 = and i32 %23, -2
-  %25 = tail call i32 @WebPCheckCropDimensions(i32 noundef %0, i32 noundef %1, i32 noundef %21, i32 noundef %24, i32 noundef %16, i32 noundef %18) #8
+  %25 = tail call i32 @WebPCheckCropDimensions(i32 noundef %0, i32 noundef %1, i32 noundef %21, i32 noundef %24, i32 noundef %16, i32 noundef %18) #9
   %.not48 = icmp eq i32 %25, 0
   br i1 %.not48, label %WebPFlipBuffer.exit, label %26
 
@@ -136,7 +136,7 @@ define hidden range(i32 0, 3) i32 @WebPAllocateDecBuffer(i32 noundef %0, i32 nou
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %33 = load i32, ptr %32, align 4
   store i32 %33, ptr %6, align 4
-  %34 = call i32 @WebPRescalerGetScaledDimensions(i32 noundef %.1, i32 noundef %.138, ptr noundef nonnull %5, ptr noundef nonnull %6) #8
+  %34 = call i32 @WebPRescalerGetScaledDimensions(i32 noundef %.1, i32 noundef %.138, ptr noundef nonnull %5, ptr noundef nonnull %6) #9
   %.not50 = icmp eq i32 %34, 0
   br i1 %.not50, label %WebPFlipBuffer.exit, label %35
 
@@ -213,7 +213,7 @@ define hidden range(i32 0, 3) i32 @WebPAllocateDecBuffer(i32 noundef %0, i32 nou
   %79 = shl nuw nsw i64 %.072.i, 1
   %80 = add nuw nsw i64 %.073.i, %66
   %81 = add nuw i64 %80, %79
-  %82 = call ptr @WebPSafeMalloc(i64 noundef %81, i64 noundef 1) #8
+  %82 = call ptr @WebPSafeMalloc(i64 noundef %81, i64 noundef 1) #9
   %83 = icmp eq ptr %82, null
   br i1 %83, label %WebPFlipBuffer.exit, label %84
 
@@ -389,7 +389,7 @@ define void @WebPFreeDecBuffer(ptr noundef %0) local_unnamed_addr #1 {
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %8 = load ptr, ptr %7, align 8
-  tail call void @WebPSafeFree(ptr noundef %8) #8
+  tail call void @WebPSafeFree(ptr noundef %8) #9
   br label %9
 
 9:                                                ; preds = %6, %2
@@ -456,7 +456,7 @@ define hidden void @WebPGrabDecBuffer(ptr noundef %0, ptr noundef writeonly %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 3) i32 @WebPCopyDecBufferPixels(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((4, 12)) %1) local_unnamed_addr #1 {
+define hidden range(i32 0, 3) i32 @WebPCopyDecBufferPixels(ptr nocapture noundef readonly %0, ptr noundef initializes((4, 12)) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -489,7 +489,7 @@ define hidden range(i32 0, 3) i32 @WebPCopyDecBufferPixels(ptr nocapture noundef
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
   %27 = mul nsw i32 %17, %26
-  tail call void @WebPCopyPlane(ptr noundef %15, i32 noundef %20, ptr noundef %16, i32 noundef %22, i32 noundef %27, i32 noundef %7) #8
+  tail call void @WebPCopyPlane(ptr noundef %15, i32 noundef %20, ptr noundef %16, i32 noundef %22, i32 noundef %27, i32 noundef %7) #9
   br label %73
 
 28:                                               ; preds = %10
@@ -497,7 +497,7 @@ define hidden range(i32 0, 3) i32 @WebPCopyDecBufferPixels(ptr nocapture noundef
   %30 = load i32, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %32 = load i32, ptr %31, align 8
-  tail call void @WebPCopyPlane(ptr noundef %15, i32 noundef %30, ptr noundef %16, i32 noundef %32, i32 noundef %17, i32 noundef %7) #8
+  tail call void @WebPCopyPlane(ptr noundef %15, i32 noundef %30, ptr noundef %16, i32 noundef %32, i32 noundef %17, i32 noundef %7) #9
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -512,7 +512,7 @@ define hidden range(i32 0, 3) i32 @WebPCopyDecBufferPixels(ptr nocapture noundef
   %44 = load i32, ptr %6, align 8
   %45 = add nsw i32 %44, 1
   %46 = sdiv i32 %45, 2
-  tail call void @WebPCopyPlane(ptr noundef %34, i32 noundef %36, ptr noundef %38, i32 noundef %40, i32 noundef %43, i32 noundef %46) #8
+  tail call void @WebPCopyPlane(ptr noundef %34, i32 noundef %36, ptr noundef %38, i32 noundef %40, i32 noundef %43, i32 noundef %46) #9
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -527,7 +527,7 @@ define hidden range(i32 0, 3) i32 @WebPCopyDecBufferPixels(ptr nocapture noundef
   %58 = load i32, ptr %6, align 8
   %59 = add nsw i32 %58, 1
   %60 = sdiv i32 %59, 2
-  tail call void @WebPCopyPlane(ptr noundef %48, i32 noundef %50, ptr noundef %52, i32 noundef %54, i32 noundef %57, i32 noundef %60) #8
+  tail call void @WebPCopyPlane(ptr noundef %48, i32 noundef %50, ptr noundef %52, i32 noundef %54, i32 noundef %57, i32 noundef %60) #9
   %61 = load i32, ptr %0, align 8
   switch i32 %61, label %WebPIsAlphaMode.exit [
     i32 12, label %WebPIsAlphaMode.exit.thread
@@ -553,7 +553,7 @@ WebPIsAlphaMode.exit.thread:                      ; preds = %28, %28, %28, %28, 
   %70 = load i32, ptr %69, align 4
   %71 = load i32, ptr %3, align 4
   %72 = load i32, ptr %6, align 8
-  tail call void @WebPCopyPlane(ptr noundef %64, i32 noundef %66, ptr noundef %68, i32 noundef %70, i32 noundef %71, i32 noundef %72) #8
+  tail call void @WebPCopyPlane(ptr noundef %64, i32 noundef %66, ptr noundef %68, i32 noundef %70, i32 noundef %71, i32 noundef %72) #9
   br label %73
 
 73:                                               ; preds = %18, %WebPIsAlphaMode.exit.thread, %WebPIsAlphaMode.exit, %2
@@ -561,8 +561,8 @@ WebPIsAlphaMode.exit.thread:                      ; preds = %28, %28, %28, %28, 
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc range(i32 0, 3) i32 @CheckDecBuffer(ptr nocapture noundef readonly %0) unnamed_addr #6 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
+define internal fastcc range(i32 0, 3) i32 @CheckDecBuffer(ptr noundef %0) unnamed_addr #6 {
   %2 = load i32, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
@@ -699,7 +699,7 @@ define internal fastcc range(i32 0, 3) i32 @CheckDecBuffer(ptr nocapture noundef
 declare void @WebPCopyPlane(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @WebPAvoidSlowMemory(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #6 {
+define hidden range(i32 0, 2) i32 @WebPAvoidSlowMemory(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 1
@@ -728,7 +728,7 @@ define hidden range(i32 0, 2) i32 @WebPAvoidSlowMemory(ptr nocapture noundef rea
 declare ptr @WebPSafeMalloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #7
+declare i32 @llvm.abs.i32(i32, i1 immarg) #8
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -736,9 +736,10 @@ attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -20,14 +20,14 @@ define void @jinit_d_main_controller(ptr noundef %0, i32 noundef %1) local_unnam
   store i32 %8, ptr %10, align 4
   %11 = load ptr, ptr %0, align 8
   %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr noundef nonnull %0) #2
+  tail call void %12(ptr noundef nonnull %0) #3
   br label %13
 
 13:                                               ; preds = %5, %2
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call ptr %16(ptr noundef nonnull %0, i32 noundef 1, i64 noundef 152) #2
+  %17 = tail call ptr %16(ptr noundef nonnull %0, i32 noundef 1, i64 noundef 152) #3
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 552
   store ptr %17, ptr %18, align 8
   store ptr @start_pass_main, ptr %17, align 8
@@ -40,7 +40,7 @@ define void @jinit_d_main_controller(ptr noundef %0, i32 noundef %1) local_unnam
   store i32 4, ptr %21, align 8
   %22 = load ptr, ptr %0, align 8
   %23 = load ptr, ptr %22, align 8
-  tail call void %23(ptr noundef nonnull %0) #2
+  tail call void %23(ptr noundef nonnull %0) #3
   br label %24
 
 24:                                               ; preds = %19, %13
@@ -63,7 +63,7 @@ define void @jinit_d_main_controller(ptr noundef %0, i32 noundef %1) local_unnam
   store i32 47, ptr %35, align 8
   %36 = load ptr, ptr %0, align 8
   %37 = load ptr, ptr %36, align 8
-  tail call void %37(ptr noundef nonnull %0) #2
+  tail call void %37(ptr noundef nonnull %0) #3
   %.pre = load i32, ptr %29, align 8
   br label %38
 
@@ -77,7 +77,7 @@ define void @jinit_d_main_controller(ptr noundef %0, i32 noundef %1) local_unnam
   %45 = shl nsw i32 %44, 1
   %46 = sext i32 %45 to i64
   %47 = shl nsw i64 %46, 3
-  %48 = tail call ptr %42(ptr noundef nonnull %0, i32 noundef 1, i64 noundef %47) #2
+  %48 = tail call ptr %42(ptr noundef nonnull %0, i32 noundef 1, i64 noundef %47) #3
   %49 = getelementptr inbounds nuw i8, ptr %40, i64 120
   store ptr %48, ptr %49, align 8
   %50 = load i32, ptr %43, align 8
@@ -111,7 +111,7 @@ define void @jinit_d_main_controller(ptr noundef %0, i32 noundef %1) local_unnam
   %70 = shl nsw i32 %69, 1
   %71 = sext i32 %70 to i64
   %72 = shl nsw i64 %71, 3
-  %73 = tail call ptr %68(ptr noundef nonnull %0, i32 noundef 1, i64 noundef %72) #2
+  %73 = tail call ptr %68(ptr noundef nonnull %0, i32 noundef 1, i64 noundef %72) #3
   %74 = sext i32 %66 to i64
   %75 = getelementptr inbounds ptr, ptr %73, i64 %74
   %76 = load ptr, ptr %49, align 8
@@ -171,7 +171,7 @@ alloc_funny_pointers.exit:                        ; preds = %59, %38
   %110 = load i32, ptr %109, align 4
   %111 = mul i32 %110, %102
   %112 = mul nsw i32 %105, %.038
-  %113 = tail call ptr %108(ptr noundef nonnull %0, i32 noundef 1, i32 noundef %111, i32 noundef %112) #2
+  %113 = tail call ptr %108(ptr noundef nonnull %0, i32 noundef 1, i32 noundef %111, i32 noundef %112) #3
   %114 = getelementptr inbounds nuw [10 x ptr], ptr %97, i64 0, i64 %indvars.iv
   store ptr %113, ptr %114, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -344,7 +344,7 @@ make_funny_pointers.exit:                         ; preds = %._crit_edge.i, %11
   store i32 4, ptr %80, align 8
   %81 = load ptr, ptr %0, align 8
   %82 = load ptr, ptr %81, align 8
-  tail call void %82(ptr noundef nonnull %0) #2
+  tail call void %82(ptr noundef nonnull %0) #3
   br label %83
 
 83:                                               ; preds = %78, %76, %73
@@ -371,7 +371,7 @@ define internal void @process_data_context_main(ptr noundef %0, ptr noundef %1, 
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds [2 x ptr], ptr %14, i64 0, i64 %17
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call i32 %13(ptr noundef nonnull %0, ptr noundef %19) #2
+  %20 = tail call i32 %13(ptr noundef nonnull %0, ptr noundef %19) #3
   %.not49 = icmp eq i32 %20, 0
   br i1 %.not49, label %182, label %21
 
@@ -406,7 +406,7 @@ define internal void @process_data_context_main(ptr noundef %0, ptr noundef %1, 
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 116
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %41 = load i32, ptr %40, align 8
-  tail call void %32(ptr noundef nonnull %0, ptr noundef %38, ptr noundef nonnull %39, i32 noundef %41, ptr noundef %1, ptr noundef %2, i32 noundef %3) #2
+  tail call void %32(ptr noundef nonnull %0, ptr noundef %38, ptr noundef nonnull %39, i32 noundef %41, ptr noundef %1, ptr noundef %2, i32 noundef %3) #3
   %42 = load i32, ptr %39, align 4
   %43 = load i32, ptr %40, align 8
   %44 = icmp ult i32 %42, %43
@@ -474,14 +474,15 @@ define internal void @process_data_context_main(ptr noundef %0, ptr noundef %1, 
   br label %85
 
 85:                                               ; preds = %81, %68
-  %86 = icmp sgt i32 %75, 0
-  br i1 %86, label %.lr.ph.i, label %._crit_edge.i
+  %86 = load i32, ptr %67, align 8
+  %87 = sext i32 %86 to i64
+  %88 = getelementptr inbounds [2 x ptr], ptr %66, i64 0, i64 %87
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %88, i64 0) ]
+  %89 = icmp sgt i32 %75, 0
+  br i1 %89, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %85
-  %87 = load i32, ptr %67, align 8
-  %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds [2 x ptr], ptr %66, i64 0, i64 %88
-  %90 = load ptr, ptr %89, align 8
+  %90 = load ptr, ptr %88, align 8
   %91 = getelementptr inbounds nuw ptr, ptr %90, i64 %indvars.iv39.i
   %92 = load ptr, ptr %91, align 8
   %93 = shl nuw i32 %75, 1
@@ -528,7 +529,7 @@ set_bottom_pointers.exit:                         ; preds = %._crit_edge.i, %58,
   %111 = getelementptr inbounds nuw i8, ptr %6, i64 116
   %112 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %113 = load i32, ptr %112, align 8
-  tail call void %104(ptr noundef nonnull %0, ptr noundef %110, ptr noundef nonnull %111, i32 noundef %113, ptr noundef %1, ptr noundef %2, i32 noundef %3) #2
+  tail call void %104(ptr noundef nonnull %0, ptr noundef %110, ptr noundef nonnull %111, i32 noundef %113, ptr noundef %1, ptr noundef %2, i32 noundef %3) #3
   %114 = load i32, ptr %111, align 4
   %115 = load i32, ptr %112, align 8
   %116 = icmp ult i32 %114, %115
@@ -657,7 +658,7 @@ define internal void @process_data_simple_main(ptr noundef %0, ptr noundef %1, p
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %15 = tail call i32 %13(ptr noundef nonnull %0, ptr noundef nonnull %14) #2
+  %15 = tail call i32 %13(ptr noundef nonnull %0, ptr noundef nonnull %14) #3
   %.not18 = icmp eq i32 %15, 0
   br i1 %.not18, label %28, label %16
 
@@ -674,7 +675,7 @@ define internal void @process_data_simple_main(ptr noundef %0, ptr noundef %1, p
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 116
-  tail call void %23(ptr noundef nonnull %0, ptr noundef nonnull %24, ptr noundef nonnull %25, i32 noundef %19, ptr noundef %1, ptr noundef %2, i32 noundef %3) #2
+  tail call void %23(ptr noundef nonnull %0, ptr noundef nonnull %24, ptr noundef nonnull %25, i32 noundef %19, ptr noundef %1, ptr noundef %2, i32 noundef %3) #3
   %26 = load i32, ptr %25, align 4
   %.not19 = icmp ult i32 %26, %19
   br i1 %.not19, label %28, label %27
@@ -694,16 +695,20 @@ define internal void @process_data_crank_post(ptr noundef %0, ptr noundef %1, pt
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  tail call void %8(ptr noundef %0, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #2
+  tail call void %8(ptr noundef %0, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #3
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #1
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #1
+declare i32 @llvm.smax.i32(i32, i32) #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #2 = { nounwind }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

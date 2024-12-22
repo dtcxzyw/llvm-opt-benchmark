@@ -5003,14 +5003,15 @@ define linkonce_odr hidden void @_ZN5ceres8internal27SchurEliminatorForOneFBlock
   %indvars.iv = phi i64 [ 0, %.lr.ph219 ], [ %indvars.iv.next, %_ZN5Eigen7NoAliasINS_6MatrixIdLi3ELi6ELi0ELi3ELi6EEENS_10MatrixBaseEEaSINS_7ProductINS_3MapINS1_IdLi3ELi3ELi1ELi3ELi3EEELi0ENS_6StrideILi0ELi0EEEEES2_Li0EEEEERS2_RKNS3_IT_EE.exit ]
   %102 = phi ptr [ %64, %.lr.ph219 ], [ %510, %_ZN5Eigen7NoAliasINS_6MatrixIdLi3ELi6ELi0ELi3ELi6EEENS_10MatrixBaseEEaSINS_7ProductINS_3MapINS1_IdLi3ELi3ELi1ELi3ELi3EEELi0ENS_6StrideILi0ELi0EEEEES2_Li0EEEEERS2_RKNS3_IT_EE.exit ]
   %103 = getelementptr inbounds nuw %"struct.ceres::internal::SchurEliminatorForOneFBlock<2, 3, 6>::Chunk", ptr %102, i64 %indvars.iv
-  br i1 %.not, label %125, label %104
+  %104 = load i32, ptr %103, align 4
+  %105 = sext i32 %104 to i64
+  %106 = load ptr, ptr %65, align 8
+  %107 = getelementptr inbounds %"struct.ceres::internal::CompressedList", ptr %106, i64 %105, i32 1
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %107, i64 0) ]
+  br i1 %.not, label %125, label %108
 
-104:                                              ; preds = %101
-  %105 = load ptr, ptr %65, align 8
-  %106 = load i32, ptr %103, align 4
-  %107 = sext i32 %106 to i64
-  %108 = getelementptr inbounds %"struct.ceres::internal::CompressedList", ptr %105, i64 %107, i32 1
-  %109 = load ptr, ptr %108, align 8
+108:                                              ; preds = %101
+  %109 = load ptr, ptr %107, align 8
   %110 = load i32, ptr %109, align 4
   %111 = sext i32 %110 to i64
   %112 = load ptr, ptr %26, align 8
@@ -5036,9 +5037,9 @@ define linkonce_odr hidden void @_ZN5ceres8internal27SchurEliminatorForOneFBlock
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %18, i8 0, i64 72, i1 false)
   br label %126
 
-126:                                              ; preds = %125, %104
-  %127 = phi double [ 0.000000e+00, %125 ], [ %124, %104 ]
-  %128 = phi double [ 0.000000e+00, %125 ], [ %121, %104 ]
+126:                                              ; preds = %125, %108
+  %127 = phi double [ 0.000000e+00, %125 ], [ %124, %108 ]
+  %128 = phi double [ 0.000000e+00, %125 ], [ %121, %108 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(144) %19, i8 0, i64 144, i1 false)
   %129 = getelementptr inbounds nuw i8, ptr %103, i64 4
   %130 = load i32, ptr %129, align 4

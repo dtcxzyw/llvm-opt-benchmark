@@ -6,8 +6,8 @@ target triple = "x86_64-unknown-linux-gnu"
 @base64Decode = internal unnamed_addr constant [80 x i8] c">\FF\FF\FF?456789:;<=\FF\FF\FF\FF\FF\FF\FF\00\01\02\03\04\05\06\07\08\09\0A\0B\0C\0D\0E\0F\10\11\12\13\14\15\16\17\18\19\FF\FF\FF\FF\FF\FF\1A\1B\1C\1D\1E\1F !\22#$%&'()*+,-./0123", align 64
 @base64Encode = internal unnamed_addr constant [64 x i8] c"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/", align 16
 
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -154, 1) i32 @Base64_SkipNewline(ptr nocapture noundef readonly %in, ptr nocapture noundef %inLen, ptr nocapture noundef %outJ) local_unnamed_addr #0 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable
+define range(i32 -154, 1) i32 @Base64_SkipNewline(ptr nocapture noundef readonly %in, ptr nocapture noundef %inLen, ptr noundef %outJ) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %inLen, align 4
   %cmp = icmp eq i32 %0, 0
@@ -113,7 +113,7 @@ return:                                           ; preds = %while.body45, %if.e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @Base64_Decode(ptr nocapture noundef readonly %in, i32 noundef %inLen, ptr noundef writeonly %out, ptr nocapture noundef %outLen) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @Base64_Decode(ptr nocapture noundef readonly %in, i32 noundef %inLen, ptr noundef writeonly %out, ptr nocapture noundef %outLen) local_unnamed_addr #1 {
 entry:
   %add = add i32 %inLen, 63
   %div62 = lshr i32 %add, 6
@@ -712,14 +712,14 @@ return:                                           ; preds = %if.end31.i209, %if.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -202, 1) i32 @Base64_Encode(ptr nocapture noundef readonly %in, i32 noundef %inLen, ptr noundef %out, ptr noundef %outLen) local_unnamed_addr #0 {
+define range(i32 -202, 1) i32 @Base64_Encode(ptr nocapture noundef readonly %in, i32 noundef %inLen, ptr noundef %out, ptr noundef %outLen) local_unnamed_addr #1 {
 entry:
   %call = tail call fastcc i32 @DoBase64_Encode(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, ptr noundef %outLen, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 -202, 1) i32 @DoBase64_Encode(ptr nocapture noundef readonly %in, i32 noundef %inLen, ptr noundef writeonly %out, ptr noundef %outLen, i32 noundef range(i32 0, 3) %escaped) unnamed_addr #0 {
+define internal fastcc range(i32 -202, 1) i32 @DoBase64_Encode(ptr nocapture noundef readonly %in, i32 noundef %inLen, ptr noundef writeonly %out, ptr noundef %outLen, i32 noundef range(i32 0, 3) %escaped) unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %out, null
   %sub = add i32 %inLen, 2
@@ -1779,20 +1779,21 @@ return:                                           ; preds = %39, %if.end158, %if
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -202, 1) i32 @Base64_EncodeEsc(ptr nocapture noundef readonly %in, i32 noundef %inLen, ptr noundef %out, ptr noundef %outLen) local_unnamed_addr #0 {
+define range(i32 -202, 1) i32 @Base64_EncodeEsc(ptr nocapture noundef readonly %in, i32 noundef %inLen, ptr noundef %out, ptr noundef %outLen) local_unnamed_addr #1 {
 entry:
   %call = tail call fastcc i32 @DoBase64_Encode(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, ptr noundef %outLen, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -202, 1) i32 @Base64_Encode_NoNl(ptr nocapture noundef readonly %in, i32 noundef %inLen, ptr noundef %out, ptr noundef %outLen) local_unnamed_addr #0 {
+define range(i32 -202, 1) i32 @Base64_Encode_NoNl(ptr nocapture noundef readonly %in, i32 noundef %inLen, ptr noundef %out, ptr noundef %outLen) local_unnamed_addr #1 {
 entry:
   %call = tail call fastcc i32 @DoBase64_Encode(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, ptr noundef %outLen, i32 noundef 2)
   ret i32 %call
 }
 
-attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

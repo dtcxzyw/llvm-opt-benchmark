@@ -9064,6 +9064,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i70: ; preds = %_ZN9QtPrivate8RefC
   unreachable
 
 164:                                              ; preds = %143, %_ZN5QListIP13QGraphicsItemE18detach_helper_growEii.exit.i
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %27, i64 0) ]
   %.pre293 = load ptr, ptr %28, align 8
   %.pre = load ptr, ptr %27, align 8
   %165 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
@@ -9442,6 +9443,7 @@ _ZN5QListIP13QGraphicsItemE18detach_helper_growEii.exit.i177: ; preds = %_ZN9QtP
   br label %_ZN9QtPrivate17QForeachContainerI5QListIP8TFHandleEED2Ev.exit75.sink.split
 
 321:                                              ; preds = %307, %_ZN5QListIP13QGraphicsItemE18detach_helper_growEii.exit.i177
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %221, i64 0) ]
   %.pre297 = load ptr, ptr %228, align 8
   %.pre296 = load ptr, ptr %221, align 8
   %322 = getelementptr inbounds nuw i8, ptr %.pre296, i64 8
@@ -9757,6 +9759,7 @@ _ZN5QListIP13QGraphicsItemE18detach_helper_growEii.exit.i199: ; preds = %_ZN9QtP
   br label %_ZN9QtPrivate17QForeachContainerI5QListIP8TFHandleEED2Ev.exit75.sink.split
 
 453:                                              ; preds = %439, %_ZN5QListIP13QGraphicsItemE18detach_helper_growEii.exit.i199
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %353, i64 0) ]
   %.pre301 = load ptr, ptr %360, align 8
   %.pre300 = load ptr, ptr %353, align 8
   %454 = getelementptr inbounds nuw i8, ptr %.pre300, i64 8
@@ -10072,6 +10075,7 @@ _ZN5QListIP13QGraphicsItemE18detach_helper_growEii.exit.i221: ; preds = %_ZN9QtP
   br label %_ZN9QtPrivate17QForeachContainerI5QListIP8TFHandleEED2Ev.exit75.sink.split
 
 585:                                              ; preds = %571, %_ZN5QListIP13QGraphicsItemE18detach_helper_growEii.exit.i221
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %485, i64 0) ]
   %.pre305 = load ptr, ptr %492, align 8
   %.pre304 = load ptr, ptr %485, align 8
   %586 = getelementptr inbounds nuw i8, ptr %.pre304, i64 8
@@ -10994,6 +10998,7 @@ _ZN5QListIP13QGraphicsItemE18detach_helper_growEii.exit.i: ; preds = %_ZN9QtPriv
   br label %196
 
 128:                                              ; preds = %114, %_ZN5QListIP13QGraphicsItemE18detach_helper_growEii.exit.i
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %36, i64 0) ]
   %.pre49 = load ptr, ptr %43, align 8
   %.pre = load ptr, ptr %36, align 8
   %129 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
@@ -16266,6 +16271,7 @@ _ZN9QtPrivate21qMakeForeachContainerIR5QListIP8TFHandleEEENS_17QForeachContainer
           to label %61 unwind label %.split.us
 
 61:                                               ; preds = %.lr.ph.split.us.preheader
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %8, i64 0) ]
   %.pre23 = load ptr, ptr %9, align 8
   %.pre22 = load ptr, ptr %8, align 8
   %62 = getelementptr inbounds nuw i8, ptr %.pre22, i64 8
@@ -16333,6 +16339,7 @@ _ZN9QtPrivate17QForeachContainerI5QListIP8TFHandleEED2Ev.exit: ; preds = %.crite
   resume { ptr, i32 } %.us-phi
 
 77:                                               ; preds = %.lr.ph.split.preheader
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %8, i64 0) ]
   %.pre21 = load ptr, ptr %9, align 8
   %.pre = load ptr, ptr %8, align 8
   %78 = getelementptr inbounds nuw i8, ptr %.pre, i64 8

@@ -3109,6 +3109,7 @@ if.then36:                                        ; preds = %if.end33
 
 invoke.cont38:                                    ; preds = %if.then36
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #27
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %call14, i64 0) ]
   %field_names = getelementptr inbounds nuw i8, ptr %14, i64 16
   %15 = load ptr, ptr %field_names, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %14, i64 24
@@ -5619,10 +5620,10 @@ invoke.cont33:                                    ; preds = %for.cond11.preheade
   br i1 %tobool.not.i.i.i.i.i, label %invoke.cont37, label %if.then.i.i.i.i.i34
 
 if.then.i.i.i.i.i34:                              ; preds = %invoke.cont33
+  %data_.i.i.i = getelementptr inbounds nuw i8, ptr %param, i64 80
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %37 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %38 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
-  %data_.i.i.i = getelementptr inbounds nuw i8, ptr %param, i64 80
   %39 = load ptr, ptr %data_.i.i.i, align 8
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %39, ptr align 4 %38, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %invoke.cont37
@@ -6645,10 +6646,10 @@ invoke.cont31:                                    ; preds = %for.cond11.preheade
   br i1 %tobool.not.i.i.i.i.i, label %invoke.cont35, label %if.then.i.i.i.i.i34
 
 if.then.i.i.i.i.i34:                              ; preds = %invoke.cont31
+  %data_.i.i.i = getelementptr inbounds nuw i8, ptr %param, i64 80
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %37 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %38 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
-  %data_.i.i.i = getelementptr inbounds nuw i8, ptr %param, i64 80
   %39 = load ptr, ptr %data_.i.i.i, align 8
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %39, ptr align 4 %38, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %invoke.cont35

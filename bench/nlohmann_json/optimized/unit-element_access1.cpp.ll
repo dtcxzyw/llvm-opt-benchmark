@@ -5744,6 +5744,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %m_value.i.i.i1104 = getelementptr inbounds nuw i8, ptr %j, i64 8
   %409 = load ptr, ptr %m_value.i.i.i1104, align 8, !noalias !27
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %409, i64 8
+  store ptr %add.ptr.i.i.i.i.i, ptr %m_it.i.i.i1101, align 8, !alias.scope !27
   %call.i4.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %add.ptr.i.i.i.i.i) #26
   store ptr %call.i4.i.i.i.i, ptr %m_it.i.i.i1101, align 8
   br label %_ZN8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEmmEv.exit.i
@@ -5861,6 +5862,7 @@ _ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_st
   %m_value.i.i.i1131 = getelementptr inbounds nuw i8, ptr %j_const, i64 8
   %422 = load ptr, ptr %m_value.i.i.i1131, align 8, !noalias !30
   %add.ptr.i.i.i.i.i1132 = getelementptr inbounds nuw i8, ptr %422, i64 8
+  store ptr %add.ptr.i.i.i.i.i1132, ptr %m_it.i.i.i1125, align 8, !alias.scope !30
   %call.i4.i.i.i.i1133 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %add.ptr.i.i.i.i.i1132) #26
   store ptr %call.i4.i.i.i.i1133, ptr %m_it.i.i.i1125, align 8
   br label %_ZN8nlohmann16json_abi_v3_11_36detail9iter_implIKNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEmmEv.exit.i
@@ -22388,6 +22390,7 @@ invoke.cont7811:                                  ; preds = %invoke.cont7809
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit.thread.i3636: ; preds = %invoke.cont7811
   %2156 = load ptr, ptr %m_value.i.i.i3609, align 8, !noalias !223
   %add.ptr.i.i.i.i.i3638 = getelementptr inbounds nuw i8, ptr %2156, i64 8
+  store ptr %add.ptr.i.i.i.i.i3638, ptr %m_it.i.i.i3628, align 8, !alias.scope !223
   %call.i4.i.i.i.i3639 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %add.ptr.i.i.i.i.i3638) #26
   store ptr %call.i4.i.i.i.i3639, ptr %m_it.i.i.i3628, align 8
   br label %_ZN8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEmmEv.exit.i3635
@@ -22698,6 +22701,7 @@ invoke.cont7904:                                  ; preds = %invoke.cont7902
 _ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4cendEv.exit.thread.i3676: ; preds = %invoke.cont7904
   %2189 = load ptr, ptr %m_value.i.i.i3649, align 8, !noalias !231
   %add.ptr.i.i.i.i.i3678 = getelementptr inbounds nuw i8, ptr %2189, i64 8
+  store ptr %add.ptr.i.i.i.i.i3678, ptr %m_it.i.i.i3668, align 8, !alias.scope !231
   %call.i4.i.i.i.i3679 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %add.ptr.i.i.i.i.i3678) #26
   store ptr %call.i4.i.i.i.i3679, ptr %m_it.i.i.i3668, align 8
   br label %_ZN8nlohmann16json_abi_v3_11_36detail9iter_implIKNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEmmEv.exit.i3675
@@ -22932,6 +22936,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %m_value.i.i.i3718 = getelementptr inbounds nuw i8, ptr %j7952, i64 8
   %2213 = load ptr, ptr %m_value.i.i.i3718, align 8, !noalias !238
   %add.ptr.i.i.i.i.i3719 = getelementptr inbounds nuw i8, ptr %2213, i64 8
+  store ptr %add.ptr.i.i.i.i.i3719, ptr %m_it.i.i.i3709, align 8, !alias.scope !238
   %call.i4.i.i.i.i3720 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %add.ptr.i.i.i.i.i3719) #26
   store ptr %call.i4.i.i.i.i3720, ptr %m_it.i.i.i3709, align 8
   br label %_ZN8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEmmEv.exit.i3716
@@ -23077,6 +23082,7 @@ _ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_st
   %m_value.i.i.i3761 = getelementptr inbounds nuw i8, ptr %j7982, i64 8
   %2230 = load ptr, ptr %m_value.i.i.i3761, align 8, !noalias !244
   %add.ptr.i.i.i.i.i3762 = getelementptr inbounds nuw i8, ptr %2230, i64 8
+  store ptr %add.ptr.i.i.i.i.i3762, ptr %m_it.i.i.i3752, align 8, !alias.scope !244
   %call.i4.i.i.i.i3763 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %add.ptr.i.i.i.i.i3762) #26
   store ptr %call.i4.i.i.i.i3763, ptr %m_it.i.i.i3752, align 8
   br label %_ZN8nlohmann16json_abi_v3_11_36detail9iter_implIKNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEmmEv.exit.i3759
@@ -23293,6 +23299,7 @@ invoke.cont8043:                                  ; preds = %invoke.cont8037
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit.thread.i3807: ; preds = %invoke.cont8043
   %2254 = load ptr, ptr %m_value.i.i3777, align 8, !noalias !250
   %add.ptr.i.i.i.i.i3809 = getelementptr inbounds nuw i8, ptr %2254, i64 8
+  store ptr %add.ptr.i.i.i.i.i3809, ptr %m_it.i.i.i3799, align 8, !alias.scope !250
   %call.i4.i.i.i.i3810 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %add.ptr.i.i.i.i.i3809) #26
   store ptr %call.i4.i.i.i.i3810, ptr %m_it.i.i.i3799, align 8
   br label %_ZN8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEmmEv.exit.i3806
@@ -23426,6 +23433,7 @@ invoke.cont8073:                                  ; preds = %invoke.cont8067
 _ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4cendEv.exit.thread.i3850: ; preds = %invoke.cont8073
   %2270 = load ptr, ptr %m_value.i.i3820, align 8, !noalias !256
   %add.ptr.i.i.i.i.i3852 = getelementptr inbounds nuw i8, ptr %2270, i64 8
+  store ptr %add.ptr.i.i.i.i.i3852, ptr %m_it.i.i.i3842, align 8, !alias.scope !256
   %call.i4.i.i.i.i3853 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %add.ptr.i.i.i.i.i3852) #26
   store ptr %call.i4.i.i.i.i3853, ptr %m_it.i.i.i3842, align 8
   br label %_ZN8nlohmann16json_abi_v3_11_36detail9iter_implIKNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEmmEv.exit.i3849
@@ -23640,6 +23648,7 @@ invoke.cont8115:                                  ; preds = %invoke.cont8109
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit.thread.i3897: ; preds = %invoke.cont8115
   %2294 = load ptr, ptr %m_value.i.i3867, align 8, !noalias !262
   %add.ptr.i.i.i.i.i3899 = getelementptr inbounds nuw i8, ptr %2294, i64 8
+  store ptr %add.ptr.i.i.i.i.i3899, ptr %m_it.i.i.i3889, align 8, !alias.scope !262
   %call.i4.i.i.i.i3900 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %add.ptr.i.i.i.i.i3899) #26
   store ptr %call.i4.i.i.i.i3900, ptr %m_it.i.i.i3889, align 8
   br label %_ZN8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEmmEv.exit.i3896
@@ -23773,6 +23782,7 @@ invoke.cont8145:                                  ; preds = %invoke.cont8139
 _ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4cendEv.exit.thread.i3940: ; preds = %invoke.cont8145
   %2310 = load ptr, ptr %m_value.i.i3910, align 8, !noalias !268
   %add.ptr.i.i.i.i.i3942 = getelementptr inbounds nuw i8, ptr %2310, i64 8
+  store ptr %add.ptr.i.i.i.i.i3942, ptr %m_it.i.i.i3932, align 8, !alias.scope !268
   %call.i4.i.i.i.i3943 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %add.ptr.i.i.i.i.i3942) #26
   store ptr %call.i4.i.i.i.i3943, ptr %m_it.i.i.i3932, align 8
   br label %_ZN8nlohmann16json_abi_v3_11_36detail9iter_implIKNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEmmEv.exit.i3939
@@ -23987,6 +23997,7 @@ invoke.cont8187:                                  ; preds = %invoke.cont8181
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit.thread.i3987: ; preds = %invoke.cont8187
   %2334 = load ptr, ptr %m_value.i.i3957, align 8, !noalias !274
   %add.ptr.i.i.i.i.i3989 = getelementptr inbounds nuw i8, ptr %2334, i64 8
+  store ptr %add.ptr.i.i.i.i.i3989, ptr %m_it.i.i.i3979, align 8, !alias.scope !274
   %call.i4.i.i.i.i3990 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %add.ptr.i.i.i.i.i3989) #26
   store ptr %call.i4.i.i.i.i3990, ptr %m_it.i.i.i3979, align 8
   br label %_ZN8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEmmEv.exit.i3986
@@ -24120,6 +24131,7 @@ invoke.cont8217:                                  ; preds = %invoke.cont8211
 _ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4cendEv.exit.thread.i4030: ; preds = %invoke.cont8217
   %2350 = load ptr, ptr %m_value.i.i4000, align 8, !noalias !280
   %add.ptr.i.i.i.i.i4032 = getelementptr inbounds nuw i8, ptr %2350, i64 8
+  store ptr %add.ptr.i.i.i.i.i4032, ptr %m_it.i.i.i4022, align 8, !alias.scope !280
   %call.i4.i.i.i.i4033 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %add.ptr.i.i.i.i.i4032) #26
   store ptr %call.i4.i.i.i.i4033, ptr %m_it.i.i.i4022, align 8
   br label %_ZN8nlohmann16json_abi_v3_11_36detail9iter_implIKNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEmmEv.exit.i4029
@@ -24334,6 +24346,7 @@ invoke.cont8259:                                  ; preds = %invoke.cont8253
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit.thread.i4076: ; preds = %invoke.cont8259
   %2374 = load ptr, ptr %m_value.i.i4047, align 8, !noalias !286
   %add.ptr.i.i.i.i.i4078 = getelementptr inbounds nuw i8, ptr %2374, i64 8
+  store ptr %add.ptr.i.i.i.i.i4078, ptr %m_it.i.i.i4068, align 8, !alias.scope !286
   %call.i4.i.i.i.i4079 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %add.ptr.i.i.i.i.i4078) #26
   store ptr %call.i4.i.i.i.i4079, ptr %m_it.i.i.i4068, align 8
   br label %_ZN8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEmmEv.exit.i4075
@@ -24467,6 +24480,7 @@ invoke.cont8289:                                  ; preds = %invoke.cont8283
 _ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4cendEv.exit.thread.i4118: ; preds = %invoke.cont8289
   %2390 = load ptr, ptr %m_value.i.i4089, align 8, !noalias !292
   %add.ptr.i.i.i.i.i4120 = getelementptr inbounds nuw i8, ptr %2390, i64 8
+  store ptr %add.ptr.i.i.i.i.i4120, ptr %m_it.i.i.i4110, align 8, !alias.scope !292
   %call.i4.i.i.i.i4121 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %add.ptr.i.i.i.i.i4120) #26
   store ptr %call.i4.i.i.i.i4121, ptr %m_it.i.i.i4110, align 8
   br label %_ZN8nlohmann16json_abi_v3_11_36detail9iter_implIKNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEmmEv.exit.i4117

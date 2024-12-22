@@ -162,28 +162,31 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %timestamp.062 = phi i32 [ %timestamp.3, %for.end ], [ %add, %for.body.lr.ph ]
   %i.061 = phi i64 [ %add54, %for.end ], [ 0, %for.body.lr.ph ]
   %arrayidx = getelementptr inbounds i32, ptr %indices, i64 %i.061
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %arrayidx, i64 32) ]
+  %arrayidx3 = getelementptr i8, ptr %arrayidx, i64 4
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %arrayidx3, i64 32) ]
+  %arrayidx5 = getelementptr i8, ptr %arrayidx, i64 8
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %arrayidx5, i64 32) ]
   %cmp18 = icmp eq i32 %primgroup_offset.063, %primgroup_size
   %or.cond = select i1 %tobool.not, i1 %cmp18, i1 false
   br i1 %or.cond, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.body
-  %arrayidx5 = getelementptr i8, ptr %arrayidx, i64 8
   %5 = load i32, ptr %arrayidx5, align 4
+  %6 = load i32, ptr %arrayidx3, align 4
+  %7 = load i32, ptr %arrayidx, align 4
   %idxprom13 = zext i32 %5 to i64
   %arrayidx14 = getelementptr inbounds nuw i32, ptr %call.i53, i64 %idxprom13
-  %6 = load i32, ptr %arrayidx14, align 4
-  %sub15 = sub i32 %timestamp.062, %6
-  %cmp16 = icmp ugt i32 %sub15, %cache_size
-  %arrayidx3 = getelementptr i8, ptr %arrayidx, i64 4
-  %7 = load i32, ptr %arrayidx3, align 4
-  %idxprom8 = zext i32 %7 to i64
+  %idxprom8 = zext i32 %6 to i64
   %arrayidx9 = getelementptr inbounds nuw i32, ptr %call.i53, i64 %idxprom8
-  %8 = load i32, ptr %arrayidx9, align 4
-  %sub10 = sub i32 %timestamp.062, %8
-  %cmp11 = icmp ugt i32 %sub10, %cache_size
-  %9 = load i32, ptr %arrayidx, align 4
-  %idxprom = zext i32 %9 to i64
+  %idxprom = zext i32 %7 to i64
   %arrayidx6 = getelementptr inbounds nuw i32, ptr %call.i53, i64 %idxprom
+  %8 = load i32, ptr %arrayidx14, align 4
+  %sub15 = sub i32 %timestamp.062, %8
+  %cmp16 = icmp ugt i32 %sub15, %cache_size
+  %9 = load i32, ptr %arrayidx9, align 4
+  %sub10 = sub i32 %timestamp.062, %9
+  %cmp11 = icmp ugt i32 %sub10, %cache_size
   %10 = load i32, ptr %arrayidx6, align 4
   %sub = sub i32 %timestamp.062, %10
   %cmp7 = icmp ugt i32 %sub, %cache_size
@@ -206,7 +209,7 @@ if.then:                                          ; preds = %for.body, %lor.lhs.
 lpad:                                             ; preds = %entry
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %allocator) #7
+  call void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %allocator) #8
   resume { ptr, i32 } %11
 
 if.end:                                           ; preds = %if.then, %lor.lhs.false
@@ -295,7 +298,7 @@ terminate.lpad.i:                                 ; preds = %for.body.i
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
-  tail call void @__clang_call_terminate(ptr %18) #8
+  tail call void @__clang_call_terminate(ptr %18) #9
   unreachable
 
 _ZN17meshopt_AllocatorD2Ev.exit:                  ; preds = %for.cond.i
@@ -350,14 +353,14 @@ terminate.lpad:                                   ; preds = %for.body
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #8
+  tail call void @__clang_call_terminate(ptr %4) #9
   unreachable
 }
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #3 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #7
-  tail call void @_ZSt9terminatev() #8
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #8
+  tail call void @_ZSt9terminatev() #9
   unreachable
 }
 
@@ -372,6 +375,9 @@ declare void @_ZdlPv(ptr noundef) #5
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znwm(i64 noundef) #6
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #7
+
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -379,8 +385,9 @@ attributes #3 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-m
 attributes #4 = { cold nofree noreturn }
 attributes #5 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind }
-attributes #8 = { noreturn nounwind }
+attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #8 = { nounwind }
+attributes #9 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

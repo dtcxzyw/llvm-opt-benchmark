@@ -5438,7 +5438,10 @@ if.end:                                           ; preds = %entry
   %add.ptr.i63 = getelementptr inbounds i32, ptr %3, i64 %conv4
   %5 = load i32, ptr %add.ptr.i63, align 4
   %m_knotsArray = getelementptr inbounds nuw i8, ptr %this, i64 80
+  %conv14 = sext i32 %5 to i64
   %6 = load ptr, ptr %m_knotsArray, align 8
+  %add.ptr.i64 = getelementptr inbounds float, ptr %6, i64 %conv14
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %add.ptr.i64, i64 32) ]
   %add17 = add nsw i32 %5, %4
   %7 = sext i32 %add17 to i64
   %8 = getelementptr float, ptr %6, i64 %7
@@ -5458,30 +5461,29 @@ if.end:                                           ; preds = %entry
   %14 = load float, ptr %add.ptr.i67, align 4
   %add.ptr.i68 = getelementptr i8, ptr %add.ptr.i66, i64 -4
   %15 = load float, ptr %add.ptr.i68, align 4
+  %mul36 = mul nsw i32 %div, 3
+  %add37 = add nsw i32 %2, %mul36
+  %16 = sext i32 %add37 to i64
+  %17 = getelementptr float, ptr %10, i64 %16
+  %add.ptr.i69 = getelementptr i8, ptr %17, i64 -4
+  call void @llvm.assume(i1 true) [ "dereferenceable"(ptr %add.ptr.i69, i64 32) ]
   %cmp49 = fcmp ugt float %y, %11
   br i1 %cmp49, label %if.else, label %if.then50
 
 if.then50:                                        ; preds = %if.end
-  %conv14 = sext i32 %5 to i64
-  %add.ptr.i64 = getelementptr inbounds float, ptr %6, i64 %conv14
-  %16 = load float, ptr %add.ptr.i64, align 4
-  %17 = load float, ptr %13, align 4
-  %18 = tail call noundef float @llvm.fabs.f32(float %17)
-  %cmp63 = fcmp olt float %18, 0x3EE4F8B580000000
+  %18 = load float, ptr %add.ptr.i64, align 4
+  %19 = load float, ptr %13, align 4
+  %20 = tail call noundef float @llvm.fabs.f32(float %19)
+  %cmp63 = fcmp olt float %20, 0x3EE4F8B580000000
   %sub64 = fsub float %y, %11
-  %div65 = fdiv float %sub64, %17
-  %add66 = fadd float %16, %div65
-  %cond = select i1 %cmp63, float %16, float %add66
+  %div65 = fdiv float %sub64, %19
+  %add66 = fadd float %18, %div65
+  %cond = select i1 %cmp63, float %18, float %add66
   br label %return
 
 if.else:                                          ; preds = %if.end
-  %add.ptr.i70 = getelementptr i8, ptr %8, i64 -8
-  %mul36 = mul nsw i32 %div, 3
-  %add37 = add nsw i32 %2, %mul36
-  %19 = sext i32 %add37 to i64
-  %20 = getelementptr float, ptr %10, i64 %19
-  %add.ptr.i69 = getelementptr i8, ptr %20, i64 -4
   %21 = load float, ptr %add.ptr.i69, align 4
+  %add.ptr.i70 = getelementptr i8, ptr %8, i64 -8
   %22 = load float, ptr %add.ptr.i70, align 4
   %sub46 = fsub float %9, %22
   %23 = tail call float @llvm.fmuladd.f32(float %14, float %sub46, float %15)

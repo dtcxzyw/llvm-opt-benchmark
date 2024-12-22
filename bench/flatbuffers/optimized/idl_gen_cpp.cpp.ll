@@ -62583,13 +62583,13 @@ invoke.cont53:                                    ; preds = %cond.false.i130, %_
   %cmp.i.i.i = icmp eq i32 %47, 14
   %cmp1.i.i.i = icmp eq i32 %47, 18
   %48 = or i1 %cmp.i.i.i, %cmp1.i.i.i
-  %cmp.i135 = icmp eq i32 %46, 15
-  %or.cond.i = select i1 %48, i1 %cmp.i135, i1 false
+  %cmp.i136 = icmp eq i32 %46, 15
+  %or.cond.i = select i1 %48, i1 %cmp.i136, i1 false
   br i1 %or.cond.i, label %land.lhs.true2.i, label %lor.rhs59
 
 land.lhs.true2.i:                                 ; preds = %invoke.cont53
-  %struct_def.i.i136 = getelementptr inbounds nuw i8, ptr %45, i64 208
-  %49 = load ptr, ptr %struct_def.i.i136, align 8, !noalias !392
+  %struct_def.i.i135 = getelementptr inbounds nuw i8, ptr %45, i64 208
+  %49 = load ptr, ptr %struct_def.i.i135, align 8, !noalias !392
   %fixed.i137 = getelementptr inbounds nuw i8, ptr %49, i64 272
   %50 = load i8, ptr %fixed.i137, align 8
   %tobool.i138 = trunc i8 %50 to i1
@@ -67238,13 +67238,13 @@ cond.end141:                                      ; preds = %cond.false139, %con
   %cmp.i.i.i = icmp eq i32 %80, 14
   %cmp1.i.i.i = icmp eq i32 %80, 18
   %81 = or i1 %cmp.i.i.i, %cmp1.i.i.i
-  %cmp.i261 = icmp eq i32 %79, 15
-  %or.cond.i = select i1 %81, i1 %cmp.i261, i1 false
+  %cmp.i262 = icmp eq i32 %79, 15
+  %or.cond.i = select i1 %81, i1 %cmp.i262, i1 false
   br i1 %or.cond.i, label %land.lhs.true2.i, label %invoke.cont144
 
 land.lhs.true2.i:                                 ; preds = %cond.end141
-  %struct_def.i.i262 = getelementptr inbounds nuw i8, ptr %78, i64 208
-  %82 = load ptr, ptr %struct_def.i.i262, align 8, !noalias !422
+  %struct_def.i.i261 = getelementptr inbounds nuw i8, ptr %78, i64 208
+  %82 = load ptr, ptr %struct_def.i.i261, align 8, !noalias !422
   %fixed.i263 = getelementptr inbounds nuw i8, ptr %82, i64 272
   %83 = load i8, ptr %fixed.i263, align 8
   %tobool.i264 = trunc i8 %83 to i1
@@ -69173,6 +69173,7 @@ if.else196.critedge:                              ; preds = %invoke.cont116, %_Z
 
 if.else196:                                       ; preds = %if.else196.critedge, %cond.false.i
   %48 = load i32, ptr %element, align 4, !noalias !428
+  %struct_def.i.i = getelementptr inbounds nuw i8, ptr %field, i64 208
   %49 = load i32, ptr %value, align 8
   %cmp.i.i.i = icmp eq i32 %49, 14
   %cmp1.i.i.i = icmp eq i32 %49, 18
@@ -69182,7 +69183,6 @@ if.else196:                                       ; preds = %if.else196.critedge
   br i1 %or.cond.i, label %land.lhs.true2.i, label %if.end231
 
 land.lhs.true2.i:                                 ; preds = %if.else196
-  %struct_def.i.i = getelementptr inbounds nuw i8, ptr %field, i64 208
   %51 = load ptr, ptr %struct_def.i.i, align 8, !noalias !428
   %fixed.i = getelementptr inbounds nuw i8, ptr %51, i64 272
   %52 = load i8, ptr %fixed.i, align 8
@@ -69332,8 +69332,7 @@ invoke.cont254:                                   ; preds = %invoke.cont242
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp235) #23
   call void @llvm.experimental.noalias.scope.decl(metadata !431)
   %63 = load i32, ptr %element, align 4, !noalias !431
-  %struct_def.i = getelementptr inbounds nuw i8, ptr %field, i64 208
-  %64 = load ptr, ptr %struct_def.i, align 8, !noalias !431
+  %64 = load ptr, ptr %struct_def.i.i, align 8, !noalias !431
   %65 = load ptr, ptr %enum_def, align 8, !noalias !431
   %fixed_length.i = getelementptr inbounds nuw i8, ptr %field, i64 224
   %66 = load i16, ptr %fixed_length.i, align 8, !noalias !431
