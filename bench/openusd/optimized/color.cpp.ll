@@ -704,8 +704,7 @@ define <2 x float> @_ZNK32pxrInternal_v0_24__pxrReserved__7GfColor16_GetChromati
   %11 = tail call { <2 x float>, float } @pxr_nc_1_0_XYZToYxy(<2 x float> %.fca.0.extract7, float %.fca.1.extract8)
   %.fca.0.extract = extractvalue { <2 x float>, float } %11, 0
   %.fca.1.extract = extractvalue { <2 x float>, float } %11, 1
-  %.sroa.05.4.vec.extract = extractelement <2 x float> %.fca.0.extract, i64 1
-  %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %.sroa.05.4.vec.extract, i64 0
+  %.sroa.0.0.vec.insert = shufflevector <2 x float> %.fca.0.extract, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %.fca.1.extract, i64 1
   ret <2 x float> %.sroa.0.4.vec.insert
 }
