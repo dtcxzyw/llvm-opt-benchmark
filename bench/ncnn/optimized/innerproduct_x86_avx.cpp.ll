@@ -10582,14 +10582,14 @@ define internal fastcc void @_ZN4ncnnL21innerproduct_gemm_sseERKNS_3MatERS0_S2_S
   %2357 = shufflevector <8 x float> %.019465418438473, <8 x float> %.019466440471, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
   %2358 = shufflevector <8 x float> %.019467475, <8 x float> %.019468, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
   %2359 = shufflevector <8 x float> %.019467475, <8 x float> %.019468, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
-  %2360 = shufflevector <8 x float> %2356, <8 x float> %2358, <8 x i32> <i32 0, i32 1, i32 8, i32 9, i32 4, i32 5, i32 12, i32 13>
-  %2361 = shufflevector <8 x float> %2356, <8 x float> %2358, <8 x i32> <i32 2, i32 3, i32 10, i32 11, i32 6, i32 7, i32 14, i32 15>
-  %2362 = shufflevector <8 x float> %2357, <8 x float> %2359, <8 x i32> <i32 0, i32 1, i32 8, i32 9, i32 4, i32 5, i32 12, i32 13>
-  %2363 = shufflevector <8 x float> %2357, <8 x float> %2359, <8 x i32> <i32 2, i32 3, i32 10, i32 11, i32 6, i32 7, i32 14, i32 15>
+  %2360 = shufflevector <8 x float> %2356, <8 x float> %2358, <8 x i32> <i32 0, i32 1, i32 8, i32 9, i32 poison, i32 poison, i32 poison, i32 poison>
+  %2361 = shufflevector <8 x float> %2356, <8 x float> %2358, <8 x i32> <i32 2, i32 3, i32 10, i32 11, i32 poison, i32 poison, i32 poison, i32 poison>
+  %2362 = shufflevector <8 x float> %2357, <8 x float> %2359, <8 x i32> <i32 0, i32 1, i32 8, i32 9, i32 poison, i32 poison, i32 poison, i32 poison>
+  %2363 = shufflevector <8 x float> %2357, <8 x float> %2359, <8 x i32> <i32 2, i32 3, i32 10, i32 11, i32 poison, i32 poison, i32 poison, i32 poison>
   %2364 = shufflevector <8 x float> %2360, <8 x float> %2361, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 10, i32 11>
   %2365 = shufflevector <8 x float> %2362, <8 x float> %2363, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 10, i32 11>
-  %2366 = shufflevector <8 x float> %2360, <8 x float> %2361, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
-  %2367 = shufflevector <8 x float> %2362, <8 x float> %2363, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
+  %2366 = shufflevector <8 x float> %2356, <8 x float> %2358, <8 x i32> <i32 4, i32 5, i32 12, i32 13, i32 6, i32 7, i32 14, i32 15>
+  %2367 = shufflevector <8 x float> %2357, <8 x float> %2359, <8 x i32> <i32 4, i32 5, i32 12, i32 13, i32 6, i32 7, i32 14, i32 15>
   store <8 x float> %2364, ptr %.019431905, align 1
   %2368 = getelementptr inbounds nuw i8, ptr %.019431905, i64 32
   store <8 x float> %2365, ptr %2368, align 1

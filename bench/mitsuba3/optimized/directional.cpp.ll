@@ -434,10 +434,10 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   br i1 %exitcond.not.i.i, label %119, label %110, !llvm.loop !10
 
 119:                                              ; preds = %110
-  %120 = shufflevector <4 x float> %102, <4 x float> %103, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  %121 = shufflevector <4 x float> %104, <4 x float> %117, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  %122 = shufflevector <4 x float> %102, <4 x float> %103, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
-  %123 = shufflevector <4 x float> %104, <4 x float> %117, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
+  %120 = shufflevector <4 x float> %92, <4 x float> %97, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %121 = shufflevector <4 x float> %100, <4 x float> %117, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
+  %122 = shufflevector <4 x float> %76, <4 x float> <float 0.000000e+00, float 0.000000e+00, float poison, float poison>, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %123 = shufflevector <4 x float> %101, <4 x float> %117, <4 x i32> <i32 0, i32 6, i32 1, i32 7>
   %124 = shufflevector <4 x float> %120, <4 x float> %121, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %125 = shufflevector <4 x float> %121, <4 x float> %120, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
   %126 = shufflevector <4 x float> %122, <4 x float> %123, <4 x i32> <i32 0, i32 1, i32 4, i32 5>

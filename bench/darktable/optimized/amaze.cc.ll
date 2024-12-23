@@ -5266,7 +5266,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %4300 = shufflevector <2 x float> %4299, <2 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 0>
   %4301 = shufflevector <4 x float> %4289, <4 x float> %4292, <4 x i32> <i32 0, i32 1, i32 4, i32 7>
   %4302 = fmul reassoc nsz arcp contract afn <4 x float> %4300, %4301
-  %4303 = shufflevector <4 x float> %4291, <4 x float> %4289, <4 x i32> <i32 0, i32 1, i32 6, i32 1>
+  %4303 = shufflevector <4 x float> %4290, <4 x float> %4289, <4 x i32> <i32 0, i32 7, i32 6, i32 7>
   %4304 = fmul reassoc nsz arcp contract afn <4 x float> %4303, %4297
   %4305 = fadd reassoc nsz arcp contract afn <4 x float> %4302, %4304
   %4306 = fdiv reassoc nsz arcp contract afn <4 x float> %4295, %4305

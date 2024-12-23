@@ -974,10 +974,10 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   br i1 %exitcond.not.i.i, label %142, label %133, !llvm.loop !13
 
 142:                                              ; preds = %133
-  %143 = shufflevector <4 x float> %125, <4 x float> %126, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  %144 = shufflevector <4 x float> %127, <4 x float> %140, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  %145 = shufflevector <4 x float> %125, <4 x float> %126, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
-  %146 = shufflevector <4 x float> %127, <4 x float> %140, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
+  %143 = shufflevector <4 x float> %115, <4 x float> %120, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %144 = shufflevector <4 x float> %123, <4 x float> %140, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
+  %145 = shufflevector <4 x float> %99, <4 x float> <float 0.000000e+00, float 0.000000e+00, float poison, float poison>, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %146 = shufflevector <4 x float> %124, <4 x float> %140, <4 x i32> <i32 0, i32 6, i32 1, i32 7>
   %147 = shufflevector <4 x float> %143, <4 x float> %144, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %148 = shufflevector <4 x float> %144, <4 x float> %143, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
   %149 = shufflevector <4 x float> %145, <4 x float> %146, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
@@ -1392,10 +1392,10 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   br i1 %exitcond.not.i.i, label %141, label %132, !llvm.loop !13
 
 141:                                              ; preds = %132
-  %142 = shufflevector <4 x float> %124, <4 x float> %125, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  %143 = shufflevector <4 x float> %126, <4 x float> %139, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  %144 = shufflevector <4 x float> %124, <4 x float> %125, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
-  %145 = shufflevector <4 x float> %126, <4 x float> %139, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
+  %142 = shufflevector <4 x float> %114, <4 x float> %119, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %143 = shufflevector <4 x float> %122, <4 x float> %139, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
+  %144 = shufflevector <4 x float> %98, <4 x float> <float 0.000000e+00, float 0.000000e+00, float poison, float poison>, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %145 = shufflevector <4 x float> %123, <4 x float> %139, <4 x i32> <i32 0, i32 6, i32 1, i32 7>
   %146 = shufflevector <4 x float> %142, <4 x float> %143, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %147 = shufflevector <4 x float> %143, <4 x float> %142, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
   %148 = shufflevector <4 x float> %144, <4 x float> %145, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
@@ -1726,10 +1726,10 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   br i1 %exitcond.not.i.i, label %141, label %132, !llvm.loop !13
 
 141:                                              ; preds = %132
-  %142 = shufflevector <4 x float> %124, <4 x float> %125, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  %143 = shufflevector <4 x float> %126, <4 x float> %139, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  %144 = shufflevector <4 x float> %124, <4 x float> %125, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
-  %145 = shufflevector <4 x float> %126, <4 x float> %139, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
+  %142 = shufflevector <4 x float> %114, <4 x float> %119, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %143 = shufflevector <4 x float> %122, <4 x float> %139, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
+  %144 = shufflevector <4 x float> %98, <4 x float> <float 0.000000e+00, float 0.000000e+00, float poison, float poison>, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %145 = shufflevector <4 x float> %123, <4 x float> %139, <4 x i32> <i32 0, i32 6, i32 1, i32 7>
   %146 = shufflevector <4 x float> %142, <4 x float> %143, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %147 = shufflevector <4 x float> %143, <4 x float> %142, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
   %148 = shufflevector <4 x float> %144, <4 x float> %145, <4 x i32> <i32 0, i32 1, i32 4, i32 5>

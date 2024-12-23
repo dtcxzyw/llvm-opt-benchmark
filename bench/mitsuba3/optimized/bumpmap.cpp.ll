@@ -909,9 +909,9 @@ define weak_odr void @_ZNK7mitsuba7BumpMapIfN5drjit6MatrixINS_8SpectrumIfLm4EEEL
   %87 = insertelement <4 x float> poison, float %86, i64 0
   %88 = shufflevector <4 x float> %87, <4 x float> poison, <4 x i32> zeroinitializer
   %89 = fmul contract <4 x float> %80, %88
-  %90 = shufflevector <4 x float> %76, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
+  %90 = shufflevector <4 x float> %75, <4 x float> %73, <4 x i32> <i32 1, i32 4, i32 0, i32 3>
   %91 = shufflevector <4 x float> %89, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
-  %92 = shufflevector <4 x float> %76, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
+  %92 = shufflevector <4 x float> %73, <4 x float> %75, <4 x i32> <i32 0, i32 4, i32 5, i32 7>
   %93 = shufflevector <4 x float> %89, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
   %94 = fneg contract <4 x float> %93
   %95 = fmul contract <4 x float> %92, %94
@@ -1103,9 +1103,9 @@ _ZNK5drjit9ArrayBaseIfLb0EN7mitsuba6VectorIfLm2EEEE4mul_ERKS3_.exit.critedge:
   %80 = shufflevector <4 x float> %79, <4 x float> poison, <4 x i32> zeroinitializer
   %81 = fmul contract <4 x float> %72, %80
   store <4 x float> %81, ptr %0, align 16
-  %82 = shufflevector <4 x float> %68, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
+  %82 = shufflevector <4 x float> %67, <4 x float> %65, <4 x i32> <i32 1, i32 4, i32 0, i32 3>
   %83 = shufflevector <4 x float> %81, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
-  %84 = shufflevector <4 x float> %68, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
+  %84 = shufflevector <4 x float> %65, <4 x float> %67, <4 x i32> <i32 0, i32 4, i32 5, i32 7>
   %85 = shufflevector <4 x float> %81, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
   %86 = fneg contract <4 x float> %85
   %87 = fmul contract <4 x float> %84, %86
@@ -1210,9 +1210,9 @@ define weak_odr void @_ZNK7mitsuba7BumpMapIfN5drjit6MatrixINS_8SpectrumIfLm4EEEL
   %90 = insertelement <4 x float> poison, float %89, i64 0
   %91 = shufflevector <4 x float> %90, <4 x float> poison, <4 x i32> zeroinitializer
   %92 = fmul contract <4 x float> %83, %91
-  %93 = shufflevector <4 x float> %79, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
+  %93 = shufflevector <4 x float> %78, <4 x float> %76, <4 x i32> <i32 1, i32 4, i32 0, i32 3>
   %94 = shufflevector <4 x float> %92, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
-  %95 = shufflevector <4 x float> %79, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
+  %95 = shufflevector <4 x float> %76, <4 x float> %78, <4 x i32> <i32 0, i32 4, i32 5, i32 7>
   %96 = shufflevector <4 x float> %92, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
   %97 = fneg contract <4 x float> %96
   %98 = fmul contract <4 x float> %95, %97
@@ -1426,9 +1426,9 @@ define weak_odr noundef float @_ZNK7mitsuba7BumpMapIfN5drjit6MatrixINS_8Spectrum
   %82 = insertelement <4 x float> poison, float %81, i64 0
   %83 = shufflevector <4 x float> %82, <4 x float> poison, <4 x i32> zeroinitializer
   %84 = fmul contract <4 x float> %75, %83
-  %85 = shufflevector <4 x float> %71, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
+  %85 = shufflevector <4 x float> %70, <4 x float> %68, <4 x i32> <i32 1, i32 4, i32 0, i32 3>
   %86 = shufflevector <4 x float> %84, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
-  %87 = shufflevector <4 x float> %71, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
+  %87 = shufflevector <4 x float> %68, <4 x float> %70, <4 x i32> <i32 0, i32 4, i32 5, i32 7>
   %88 = shufflevector <4 x float> %84, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
   %89 = fneg contract <4 x float> %88
   %90 = fmul contract <4 x float> %87, %89
@@ -1563,9 +1563,9 @@ define weak_odr void @_ZNK7mitsuba7BumpMapIfN5drjit6MatrixINS_8SpectrumIfLm4EEEL
   %87 = insertelement <4 x float> poison, float %86, i64 0
   %88 = shufflevector <4 x float> %87, <4 x float> poison, <4 x i32> zeroinitializer
   %89 = fmul contract <4 x float> %80, %88
-  %90 = shufflevector <4 x float> %76, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
+  %90 = shufflevector <4 x float> %75, <4 x float> %73, <4 x i32> <i32 1, i32 4, i32 0, i32 3>
   %91 = shufflevector <4 x float> %89, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
-  %92 = shufflevector <4 x float> %76, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
+  %92 = shufflevector <4 x float> %73, <4 x float> %75, <4 x i32> <i32 0, i32 4, i32 5, i32 7>
   %93 = shufflevector <4 x float> %89, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
   %94 = fneg contract <4 x float> %93
   %95 = fmul contract <4 x float> %92, %94

@@ -979,7 +979,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %672 = insertelement <2 x float> %671, float %629, i64 1
   %673 = fmul reassoc nsz arcp contract afn <2 x float> %672, %657
   %674 = fadd reassoc nsz arcp contract afn <2 x float> %673, %670
-  %675 = shufflevector <2 x float> %665, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  %675 = insertelement <2 x float> %533, float %536, i64 1
   %676 = fmul reassoc nsz arcp contract afn <2 x float> %674, %675
   %677 = fadd reassoc nsz arcp contract afn <2 x float> %676, %666
   %678 = shufflevector <2 x float> %559, <2 x float> %533, <2 x i32> <i32 1, i32 3>
@@ -1003,7 +1003,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %696 = fadd reassoc nsz arcp contract afn <2 x float> %686, %683
   %697 = fmul reassoc nsz arcp contract afn <2 x float> %696, %665
   %698 = fadd reassoc nsz arcp contract afn <2 x float> %695, %697
-  %699 = shufflevector <2 x float> %678, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  %699 = shufflevector <2 x float> %533, <2 x float> %559, <2 x i32> <i32 1, i32 3>
   %700 = fmul reassoc nsz arcp contract afn <2 x float> %698, %699
   %701 = fadd reassoc nsz arcp contract afn <2 x float> %700, %679
   %702 = insertelement <2 x float> poison, float %652, i64 0

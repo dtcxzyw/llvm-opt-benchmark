@@ -36672,32 +36672,29 @@ define internal void @stbir__simple_alpha_weight_4ch(ptr noundef %0, i32 noundef
   %5 = load <4 x float>, ptr %.pn60, align 1
   %6 = getelementptr inbounds nuw i8, ptr %.pn60, i64 16
   %7 = load <4 x float>, ptr %6, align 1
-  %8 = shufflevector <4 x float> <float poison, float poison, float 1.000000e+00, float poison>, <4 x float> %5, <4 x i32> <i32 poison, i32 7, i32 2, i32 poison>
-  %9 = shufflevector <4 x float> %8, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 2>
-  %10 = shufflevector <4 x float> <float poison, float poison, float 1.000000e+00, float poison>, <4 x float> %7, <4 x i32> <i32 poison, i32 7, i32 2, i32 poison>
-  %11 = shufflevector <4 x float> %10, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 2>
-  %12 = fmul <4 x float> %5, %9
-  %13 = fmul <4 x float> %7, %11
-  store <4 x float> %12, ptr %.pn60, align 1
-  store <4 x float> %13, ptr %6, align 1
+  %8 = shufflevector <4 x float> %5, <4 x float> <float poison, float poison, float 1.000000e+00, float poison>, <4 x i32> <i32 3, i32 3, i32 3, i32 6>
+  %9 = shufflevector <4 x float> %7, <4 x float> <float poison, float poison, float 1.000000e+00, float poison>, <4 x i32> <i32 3, i32 3, i32 3, i32 6>
+  %10 = fmul <4 x float> %5, %8
+  %11 = fmul <4 x float> %7, %9
+  store <4 x float> %10, ptr %.pn60, align 1
+  store <4 x float> %11, ptr %6, align 1
   %.0 = getelementptr inbounds nuw i8, ptr %.061, i64 32
   %.not = icmp ugt ptr %.0, %4
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.pn.lcssa = phi ptr [ %0, %2 ], [ %.061, %.lr.ph ]
-  %14 = icmp ult ptr %.pn.lcssa, %4
-  br i1 %14, label %15, label %20
+  %12 = icmp ult ptr %.pn.lcssa, %4
+  br i1 %12, label %13, label %17
 
-15:                                               ; preds = %._crit_edge
-  %16 = load <4 x float>, ptr %.pn.lcssa, align 1
-  %17 = shufflevector <4 x float> <float poison, float poison, float 1.000000e+00, float poison>, <4 x float> %16, <4 x i32> <i32 poison, i32 7, i32 2, i32 poison>
-  %18 = shufflevector <4 x float> %17, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 2>
-  %19 = fmul <4 x float> %16, %18
-  store <4 x float> %19, ptr %.pn.lcssa, align 1
-  br label %20
+13:                                               ; preds = %._crit_edge
+  %14 = load <4 x float>, ptr %.pn.lcssa, align 1
+  %15 = shufflevector <4 x float> %14, <4 x float> <float poison, float poison, float 1.000000e+00, float poison>, <4 x i32> <i32 3, i32 3, i32 3, i32 6>
+  %16 = fmul <4 x float> %14, %15
+  store <4 x float> %16, ptr %.pn.lcssa, align 1
+  br label %17
 
-20:                                               ; preds = %15, %._crit_edge
+17:                                               ; preds = %13, %._crit_edge
   ret void
 }
 
@@ -38759,10 +38756,10 @@ define internal void @stbir__horizontal_gather_3_channels_with_n_coeffs_mod0(ptr
   %10 = sext i32 %5 to i64
   br label %11
 
-11:                                               ; preds = %63, %6
-  %.0128 = phi ptr [ %4, %6 ], [ %65, %63 ]
-  %.0127 = phi ptr [ %3, %6 ], [ %64, %63 ]
-  %.0126 = phi ptr [ %0, %6 ], [ %61, %63 ]
+11:                                               ; preds = %61, %6
+  %.0128 = phi ptr [ %4, %6 ], [ %63, %61 ]
+  %.0127 = phi ptr [ %3, %6 ], [ %62, %61 ]
+  %.0126 = phi ptr [ %0, %6 ], [ %59, %61 ]
   %12 = load i32, ptr %.0127, align 4
   %13 = mul nsw i32 %12, 3
   %14 = sext i32 %13 to i64
@@ -38816,31 +38813,29 @@ define internal void @stbir__horizontal_gather_3_channels_with_n_coeffs_mod0(ptr
   br i1 %51, label %32, label %52
 
 52:                                               ; preds = %32
-  %53 = shufflevector <4 x float> %44, <4 x float> %39, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  %54 = shufflevector <4 x float> %53, <4 x float> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
-  %55 = shufflevector <4 x float> %49, <4 x float> %44, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  %56 = shufflevector <4 x float> %55, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
-  %57 = shufflevector <4 x float> %49, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
-  %58 = fadd <4 x float> %39, %56
-  %59 = fadd <4 x float> %54, %57
-  %60 = fadd <4 x float> %59, %58
-  %61 = getelementptr inbounds nuw i8, ptr %.0126, i64 12
-  %62 = icmp ult ptr %61, %9
-  br i1 %62, label %63, label %66
+  %53 = shufflevector <4 x float> %39, <4 x float> %44, <4 x i32> <i32 3, i32 4, i32 5, i32 2>
+  %54 = shufflevector <4 x float> %44, <4 x float> %49, <4 x i32> <i32 2, i32 3, i32 4, i32 5>
+  %55 = shufflevector <4 x float> %49, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
+  %56 = fadd <4 x float> %39, %54
+  %57 = fadd <4 x float> %53, %55
+  %58 = fadd <4 x float> %57, %56
+  %59 = getelementptr inbounds nuw i8, ptr %.0126, i64 12
+  %60 = icmp ult ptr %59, %9
+  br i1 %60, label %61, label %64
 
-63:                                               ; preds = %52
-  %64 = getelementptr inbounds nuw i8, ptr %.0127, i64 8
-  %65 = getelementptr inbounds float, ptr %.0128, i64 %10
-  store <4 x float> %60, ptr %.0126, align 1
+61:                                               ; preds = %52
+  %62 = getelementptr inbounds nuw i8, ptr %.0127, i64 8
+  %63 = getelementptr inbounds float, ptr %.0128, i64 %10
+  store <4 x float> %58, ptr %.0126, align 1
   br label %11
 
-66:                                               ; preds = %52
-  %67 = bitcast <4 x float> %60 to <2 x i64>
-  %68 = extractelement <2 x i64> %67, i64 0
-  store i64 %68, ptr %.0126, align 1
-  %69 = getelementptr inbounds nuw i8, ptr %.0126, i64 8
-  %70 = extractelement <4 x float> %60, i64 2
-  store float %70, ptr %69, align 1
+64:                                               ; preds = %52
+  %65 = bitcast <4 x float> %58 to <2 x i64>
+  %66 = extractelement <2 x i64> %65, i64 0
+  store i64 %66, ptr %.0126, align 1
+  %67 = getelementptr inbounds nuw i8, ptr %.0126, i64 8
+  %68 = extractelement <4 x float> %58, i64 2
+  store float %68, ptr %67, align 1
   ret void
 }
 
@@ -38852,10 +38847,10 @@ define internal void @stbir__horizontal_gather_3_channels_with_n_coeffs_mod1(ptr
   %10 = sext i32 %5 to i64
   br label %11
 
-11:                                               ; preds = %72, %6
-  %.0144 = phi ptr [ %4, %6 ], [ %74, %72 ]
-  %.0143 = phi ptr [ %3, %6 ], [ %73, %72 ]
-  %.0142 = phi ptr [ %0, %6 ], [ %70, %72 ]
+11:                                               ; preds = %70, %6
+  %.0144 = phi ptr [ %4, %6 ], [ %72, %70 ]
+  %.0143 = phi ptr [ %3, %6 ], [ %71, %70 ]
+  %.0142 = phi ptr [ %0, %6 ], [ %68, %70 ]
   %12 = load i32, ptr %.0143, align 4
   %13 = mul nsw i32 %12, 3
   %14 = sext i32 %13 to i64
@@ -38919,31 +38914,29 @@ define internal void @stbir__horizontal_gather_3_channels_with_n_coeffs_mod1(ptr
   %59 = load <4 x float>, ptr %58, align 1
   %60 = fmul <4 x float> %59, %57
   %61 = fadd <4 x float> %40, %60
-  %62 = shufflevector <4 x float> %45, <4 x float> %61, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  %63 = shufflevector <4 x float> %62, <4 x float> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
-  %64 = shufflevector <4 x float> %50, <4 x float> %45, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  %65 = shufflevector <4 x float> %64, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
-  %66 = shufflevector <4 x float> %50, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
-  %67 = fadd <4 x float> %65, %61
-  %68 = fadd <4 x float> %66, %63
-  %69 = fadd <4 x float> %67, %68
-  %70 = getelementptr inbounds nuw i8, ptr %.0142, i64 12
-  %71 = icmp ult ptr %70, %9
-  br i1 %71, label %72, label %75
+  %62 = shufflevector <4 x float> %61, <4 x float> %45, <4 x i32> <i32 3, i32 4, i32 5, i32 2>
+  %63 = shufflevector <4 x float> %45, <4 x float> %50, <4 x i32> <i32 2, i32 3, i32 4, i32 5>
+  %64 = shufflevector <4 x float> %50, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
+  %65 = fadd <4 x float> %63, %61
+  %66 = fadd <4 x float> %64, %62
+  %67 = fadd <4 x float> %65, %66
+  %68 = getelementptr inbounds nuw i8, ptr %.0142, i64 12
+  %69 = icmp ult ptr %68, %9
+  br i1 %69, label %70, label %73
 
-72:                                               ; preds = %53
-  %73 = getelementptr inbounds nuw i8, ptr %.0143, i64 8
-  %74 = getelementptr inbounds float, ptr %.0144, i64 %10
-  store <4 x float> %69, ptr %.0142, align 1
+70:                                               ; preds = %53
+  %71 = getelementptr inbounds nuw i8, ptr %.0143, i64 8
+  %72 = getelementptr inbounds float, ptr %.0144, i64 %10
+  store <4 x float> %67, ptr %.0142, align 1
   br label %11
 
-75:                                               ; preds = %53
-  %76 = bitcast <4 x float> %69 to <2 x i64>
-  %77 = extractelement <2 x i64> %76, i64 0
-  store i64 %77, ptr %.0142, align 1
-  %78 = getelementptr inbounds nuw i8, ptr %.0142, i64 8
-  %79 = extractelement <4 x float> %69, i64 2
-  store float %79, ptr %78, align 1
+73:                                               ; preds = %53
+  %74 = bitcast <4 x float> %67 to <2 x i64>
+  %75 = extractelement <2 x i64> %74, i64 0
+  store i64 %75, ptr %.0142, align 1
+  %76 = getelementptr inbounds nuw i8, ptr %.0142, i64 8
+  %77 = extractelement <4 x float> %67, i64 2
+  store float %77, ptr %76, align 1
   ret void
 }
 
@@ -38955,10 +38948,10 @@ define internal void @stbir__horizontal_gather_3_channels_with_n_coeffs_mod2(ptr
   %10 = sext i32 %5 to i64
   br label %11
 
-11:                                               ; preds = %79, %6
-  %.0158 = phi ptr [ %4, %6 ], [ %81, %79 ]
-  %.0157 = phi ptr [ %0, %6 ], [ %77, %79 ]
-  %.0 = phi ptr [ %3, %6 ], [ %80, %79 ]
+11:                                               ; preds = %77, %6
+  %.0158 = phi ptr [ %4, %6 ], [ %79, %77 ]
+  %.0157 = phi ptr [ %0, %6 ], [ %75, %77 ]
+  %.0 = phi ptr [ %3, %6 ], [ %78, %77 ]
   %12 = load i32, ptr %.0, align 4
   %13 = mul nsw i32 %12, 3
   %14 = sext i32 %13 to i64
@@ -39030,31 +39023,29 @@ define internal void @stbir__horizontal_gather_3_channels_with_n_coeffs_mod2(ptr
   %66 = bitcast <2 x i64> %65 to <4 x float>
   %67 = fmul <4 x float> %62, %66
   %68 = fadd <4 x float> %44, %67
-  %69 = shufflevector <4 x float> %68, <4 x float> %61, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  %70 = shufflevector <4 x float> %69, <4 x float> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
-  %71 = shufflevector <4 x float> %49, <4 x float> %68, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  %72 = shufflevector <4 x float> %71, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
-  %73 = shufflevector <4 x float> %49, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
-  %74 = fadd <4 x float> %61, %72
-  %75 = fadd <4 x float> %73, %70
-  %76 = fadd <4 x float> %74, %75
-  %77 = getelementptr inbounds nuw i8, ptr %.0157, i64 12
-  %78 = icmp ult ptr %77, %9
-  br i1 %78, label %79, label %82
+  %69 = shufflevector <4 x float> %61, <4 x float> %68, <4 x i32> <i32 3, i32 4, i32 5, i32 2>
+  %70 = shufflevector <4 x float> %68, <4 x float> %49, <4 x i32> <i32 2, i32 3, i32 4, i32 5>
+  %71 = shufflevector <4 x float> %49, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
+  %72 = fadd <4 x float> %61, %70
+  %73 = fadd <4 x float> %71, %69
+  %74 = fadd <4 x float> %72, %73
+  %75 = getelementptr inbounds nuw i8, ptr %.0157, i64 12
+  %76 = icmp ult ptr %75, %9
+  br i1 %76, label %77, label %80
 
-79:                                               ; preds = %52
-  %80 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %81 = getelementptr inbounds float, ptr %.0158, i64 %10
-  store <4 x float> %76, ptr %.0157, align 1
+77:                                               ; preds = %52
+  %78 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  %79 = getelementptr inbounds float, ptr %.0158, i64 %10
+  store <4 x float> %74, ptr %.0157, align 1
   br label %11
 
-82:                                               ; preds = %52
-  %83 = bitcast <4 x float> %76 to <2 x i64>
-  %84 = extractelement <2 x i64> %83, i64 0
-  store i64 %84, ptr %.0157, align 1
-  %85 = getelementptr inbounds nuw i8, ptr %.0157, i64 8
-  %86 = extractelement <4 x float> %76, i64 2
-  store float %86, ptr %85, align 1
+80:                                               ; preds = %52
+  %81 = bitcast <4 x float> %74 to <2 x i64>
+  %82 = extractelement <2 x i64> %81, i64 0
+  store i64 %82, ptr %.0157, align 1
+  %83 = getelementptr inbounds nuw i8, ptr %.0157, i64 8
+  %84 = extractelement <4 x float> %74, i64 2
+  store float %84, ptr %83, align 1
   ret void
 }
 
@@ -39066,10 +39057,10 @@ define internal void @stbir__horizontal_gather_3_channels_with_n_coeffs_mod3(ptr
   %10 = sext i32 %5 to i64
   br label %11
 
-11:                                               ; preds = %81, %6
-  %.0167 = phi ptr [ %4, %6 ], [ %83, %81 ]
-  %.0166 = phi ptr [ %0, %6 ], [ %79, %81 ]
-  %.0 = phi ptr [ %3, %6 ], [ %82, %81 ]
+11:                                               ; preds = %79, %6
+  %.0167 = phi ptr [ %4, %6 ], [ %81, %79 ]
+  %.0166 = phi ptr [ %0, %6 ], [ %77, %79 ]
+  %.0 = phi ptr [ %3, %6 ], [ %80, %79 ]
   %12 = load i32, ptr %.0, align 4
   %13 = mul nsw i32 %12, 3
   %14 = sext i32 %13 to i64
@@ -39143,31 +39134,29 @@ define internal void @stbir__horizontal_gather_3_channels_with_n_coeffs_mod3(ptr
   %68 = insertelement <4 x float> <float poison, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, float %67, i64 0
   %69 = fmul <4 x float> %65, %68
   %70 = fadd <4 x float> %49, %69
-  %71 = shufflevector <4 x float> %64, <4 x float> %59, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  %72 = shufflevector <4 x float> %71, <4 x float> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
-  %73 = shufflevector <4 x float> %70, <4 x float> %64, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  %74 = shufflevector <4 x float> %73, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
-  %75 = shufflevector <4 x float> %70, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
-  %76 = fadd <4 x float> %59, %74
-  %77 = fadd <4 x float> %72, %75
-  %78 = fadd <4 x float> %77, %76
-  %79 = getelementptr inbounds nuw i8, ptr %.0166, i64 12
-  %80 = icmp ult ptr %79, %9
-  br i1 %80, label %81, label %84
+  %71 = shufflevector <4 x float> %59, <4 x float> %64, <4 x i32> <i32 3, i32 4, i32 5, i32 2>
+  %72 = shufflevector <4 x float> %64, <4 x float> %70, <4 x i32> <i32 2, i32 3, i32 4, i32 5>
+  %73 = shufflevector <4 x float> %70, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
+  %74 = fadd <4 x float> %59, %72
+  %75 = fadd <4 x float> %71, %73
+  %76 = fadd <4 x float> %75, %74
+  %77 = getelementptr inbounds nuw i8, ptr %.0166, i64 12
+  %78 = icmp ult ptr %77, %9
+  br i1 %78, label %79, label %82
 
-81:                                               ; preds = %52
-  %82 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %83 = getelementptr inbounds float, ptr %.0167, i64 %10
-  store <4 x float> %78, ptr %.0166, align 1
+79:                                               ; preds = %52
+  %80 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  %81 = getelementptr inbounds float, ptr %.0167, i64 %10
+  store <4 x float> %76, ptr %.0166, align 1
   br label %11
 
-84:                                               ; preds = %52
-  %85 = bitcast <4 x float> %78 to <2 x i64>
-  %86 = extractelement <2 x i64> %85, i64 0
-  store i64 %86, ptr %.0166, align 1
-  %87 = getelementptr inbounds nuw i8, ptr %.0166, i64 8
-  %88 = extractelement <4 x float> %78, i64 2
-  store float %88, ptr %87, align 1
+82:                                               ; preds = %52
+  %83 = bitcast <4 x float> %76 to <2 x i64>
+  %84 = extractelement <2 x i64> %83, i64 0
+  store i64 %84, ptr %.0166, align 1
+  %85 = getelementptr inbounds nuw i8, ptr %.0166, i64 8
+  %86 = extractelement <4 x float> %76, i64 2
+  store float %86, ptr %85, align 1
   ret void
 }
 
@@ -41388,10 +41377,10 @@ define internal void @stbir__horizontal_gather_3_channels_with_4_coeffs(ptr noun
   %10 = sext i32 %5 to i64
   br label %11
 
-11:                                               ; preds = %38, %6
-  %.080 = phi ptr [ %0, %6 ], [ %36, %38 ]
-  %.079 = phi ptr [ %4, %6 ], [ %40, %38 ]
-  %.0 = phi ptr [ %3, %6 ], [ %39, %38 ]
+11:                                               ; preds = %36, %6
+  %.080 = phi ptr [ %0, %6 ], [ %34, %36 ]
+  %.079 = phi ptr [ %4, %6 ], [ %38, %36 ]
+  %.0 = phi ptr [ %3, %6 ], [ %37, %36 ]
   %12 = load i32, ptr %.0, align 4
   %13 = mul nsw i32 %12, 3
   %14 = sext i32 %13 to i64
@@ -41409,31 +41398,29 @@ define internal void @stbir__horizontal_gather_3_channels_with_4_coeffs(ptr noun
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %26 = load <4 x float>, ptr %25, align 1
   %27 = fmul <4 x float> %24, %26
-  %28 = shufflevector <4 x float> %23, <4 x float> %19, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  %29 = shufflevector <4 x float> %28, <4 x float> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
-  %30 = shufflevector <4 x float> %27, <4 x float> %23, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  %31 = shufflevector <4 x float> %30, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
-  %32 = shufflevector <4 x float> %27, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
-  %33 = fadd <4 x float> %19, %31
-  %34 = fadd <4 x float> %29, %32
-  %35 = fadd <4 x float> %34, %33
-  %36 = getelementptr inbounds nuw i8, ptr %.080, i64 12
-  %37 = icmp ult ptr %36, %9
-  br i1 %37, label %38, label %41
+  %28 = shufflevector <4 x float> %19, <4 x float> %23, <4 x i32> <i32 3, i32 4, i32 5, i32 2>
+  %29 = shufflevector <4 x float> %23, <4 x float> %27, <4 x i32> <i32 2, i32 3, i32 4, i32 5>
+  %30 = shufflevector <4 x float> %27, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
+  %31 = fadd <4 x float> %19, %29
+  %32 = fadd <4 x float> %28, %30
+  %33 = fadd <4 x float> %32, %31
+  %34 = getelementptr inbounds nuw i8, ptr %.080, i64 12
+  %35 = icmp ult ptr %34, %9
+  br i1 %35, label %36, label %39
 
-38:                                               ; preds = %11
-  %39 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %40 = getelementptr inbounds float, ptr %.079, i64 %10
-  store <4 x float> %35, ptr %.080, align 1
+36:                                               ; preds = %11
+  %37 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  %38 = getelementptr inbounds float, ptr %.079, i64 %10
+  store <4 x float> %33, ptr %.080, align 1
   br label %11
 
-41:                                               ; preds = %11
-  %42 = bitcast <4 x float> %35 to <2 x i64>
-  %43 = extractelement <2 x i64> %42, i64 0
-  store i64 %43, ptr %.080, align 1
-  %44 = getelementptr inbounds nuw i8, ptr %.080, i64 8
-  %45 = extractelement <4 x float> %35, i64 2
-  store float %45, ptr %44, align 1
+39:                                               ; preds = %11
+  %40 = bitcast <4 x float> %33 to <2 x i64>
+  %41 = extractelement <2 x i64> %40, i64 0
+  store i64 %41, ptr %.080, align 1
+  %42 = getelementptr inbounds nuw i8, ptr %.080, i64 8
+  %43 = extractelement <4 x float> %33, i64 2
+  store float %43, ptr %42, align 1
   ret void
 }
 
@@ -41445,10 +41432,10 @@ define internal void @stbir__horizontal_gather_3_channels_with_5_coeffs(ptr noun
   %10 = sext i32 %5 to i64
   br label %11
 
-11:                                               ; preds = %46, %6
-  %.096 = phi ptr [ %0, %6 ], [ %44, %46 ]
-  %.095 = phi ptr [ %4, %6 ], [ %48, %46 ]
-  %.0 = phi ptr [ %3, %6 ], [ %47, %46 ]
+11:                                               ; preds = %44, %6
+  %.096 = phi ptr [ %0, %6 ], [ %42, %44 ]
+  %.095 = phi ptr [ %4, %6 ], [ %46, %44 ]
+  %.0 = phi ptr [ %3, %6 ], [ %45, %44 ]
   %12 = load i32, ptr %.0, align 4
   %13 = mul nsw i32 %12, 3
   %14 = sext i32 %13 to i64
@@ -41475,31 +41462,29 @@ define internal void @stbir__horizontal_gather_3_channels_with_5_coeffs(ptr noun
   %33 = load <4 x float>, ptr %32, align 1
   %34 = fmul <4 x float> %33, %31
   %35 = fadd <4 x float> %19, %34
-  %36 = shufflevector <4 x float> %23, <4 x float> %35, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  %37 = shufflevector <4 x float> %36, <4 x float> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
-  %38 = shufflevector <4 x float> %27, <4 x float> %23, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  %39 = shufflevector <4 x float> %38, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
-  %40 = shufflevector <4 x float> %27, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
-  %41 = fadd <4 x float> %39, %35
-  %42 = fadd <4 x float> %40, %37
-  %43 = fadd <4 x float> %41, %42
-  %44 = getelementptr inbounds nuw i8, ptr %.096, i64 12
-  %45 = icmp ult ptr %44, %9
-  br i1 %45, label %46, label %49
+  %36 = shufflevector <4 x float> %35, <4 x float> %23, <4 x i32> <i32 3, i32 4, i32 5, i32 2>
+  %37 = shufflevector <4 x float> %23, <4 x float> %27, <4 x i32> <i32 2, i32 3, i32 4, i32 5>
+  %38 = shufflevector <4 x float> %27, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
+  %39 = fadd <4 x float> %37, %35
+  %40 = fadd <4 x float> %38, %36
+  %41 = fadd <4 x float> %39, %40
+  %42 = getelementptr inbounds nuw i8, ptr %.096, i64 12
+  %43 = icmp ult ptr %42, %9
+  br i1 %43, label %44, label %47
 
-46:                                               ; preds = %11
-  %47 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %48 = getelementptr inbounds float, ptr %.095, i64 %10
-  store <4 x float> %43, ptr %.096, align 1
+44:                                               ; preds = %11
+  %45 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  %46 = getelementptr inbounds float, ptr %.095, i64 %10
+  store <4 x float> %41, ptr %.096, align 1
   br label %11
 
-49:                                               ; preds = %11
-  %50 = bitcast <4 x float> %43 to <2 x i64>
-  %51 = extractelement <2 x i64> %50, i64 0
-  store i64 %51, ptr %.096, align 1
-  %52 = getelementptr inbounds nuw i8, ptr %.096, i64 8
-  %53 = extractelement <4 x float> %43, i64 2
-  store float %53, ptr %52, align 1
+47:                                               ; preds = %11
+  %48 = bitcast <4 x float> %41 to <2 x i64>
+  %49 = extractelement <2 x i64> %48, i64 0
+  store i64 %49, ptr %.096, align 1
+  %50 = getelementptr inbounds nuw i8, ptr %.096, i64 8
+  %51 = extractelement <4 x float> %41, i64 2
+  store float %51, ptr %50, align 1
   ret void
 }
 
@@ -41511,10 +41496,10 @@ define internal void @stbir__horizontal_gather_3_channels_with_6_coeffs(ptr noun
   %10 = sext i32 %5 to i64
   br label %11
 
-11:                                               ; preds = %54, %6
-  %.0110 = phi ptr [ %0, %6 ], [ %52, %54 ]
-  %.0109 = phi ptr [ %4, %6 ], [ %56, %54 ]
-  %.0 = phi ptr [ %3, %6 ], [ %55, %54 ]
+11:                                               ; preds = %52, %6
+  %.0110 = phi ptr [ %0, %6 ], [ %50, %52 ]
+  %.0109 = phi ptr [ %4, %6 ], [ %54, %52 ]
+  %.0 = phi ptr [ %3, %6 ], [ %53, %52 ]
   %12 = load i32, ptr %.0, align 4
   %13 = mul nsw i32 %12, 3
   %14 = sext i32 %13 to i64
@@ -41549,31 +41534,29 @@ define internal void @stbir__horizontal_gather_3_channels_with_6_coeffs(ptr noun
   %41 = bitcast <2 x i64> %40 to <4 x float>
   %42 = fmul <4 x float> %37, %41
   %43 = fadd <4 x float> %23, %42
-  %44 = shufflevector <4 x float> %43, <4 x float> %36, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  %45 = shufflevector <4 x float> %44, <4 x float> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
-  %46 = shufflevector <4 x float> %27, <4 x float> %43, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  %47 = shufflevector <4 x float> %46, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
-  %48 = shufflevector <4 x float> %27, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
-  %49 = fadd <4 x float> %36, %47
-  %50 = fadd <4 x float> %48, %45
-  %51 = fadd <4 x float> %49, %50
-  %52 = getelementptr inbounds nuw i8, ptr %.0110, i64 12
-  %53 = icmp ult ptr %52, %9
-  br i1 %53, label %54, label %57
+  %44 = shufflevector <4 x float> %36, <4 x float> %43, <4 x i32> <i32 3, i32 4, i32 5, i32 2>
+  %45 = shufflevector <4 x float> %43, <4 x float> %27, <4 x i32> <i32 2, i32 3, i32 4, i32 5>
+  %46 = shufflevector <4 x float> %27, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
+  %47 = fadd <4 x float> %36, %45
+  %48 = fadd <4 x float> %46, %44
+  %49 = fadd <4 x float> %47, %48
+  %50 = getelementptr inbounds nuw i8, ptr %.0110, i64 12
+  %51 = icmp ult ptr %50, %9
+  br i1 %51, label %52, label %55
 
-54:                                               ; preds = %11
-  %55 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %56 = getelementptr inbounds float, ptr %.0109, i64 %10
-  store <4 x float> %51, ptr %.0110, align 1
+52:                                               ; preds = %11
+  %53 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  %54 = getelementptr inbounds float, ptr %.0109, i64 %10
+  store <4 x float> %49, ptr %.0110, align 1
   br label %11
 
-57:                                               ; preds = %11
-  %58 = bitcast <4 x float> %51 to <2 x i64>
-  %59 = extractelement <2 x i64> %58, i64 0
-  store i64 %59, ptr %.0110, align 1
-  %60 = getelementptr inbounds nuw i8, ptr %.0110, i64 8
-  %61 = extractelement <4 x float> %51, i64 2
-  store float %61, ptr %60, align 1
+55:                                               ; preds = %11
+  %56 = bitcast <4 x float> %49 to <2 x i64>
+  %57 = extractelement <2 x i64> %56, i64 0
+  store i64 %57, ptr %.0110, align 1
+  %58 = getelementptr inbounds nuw i8, ptr %.0110, i64 8
+  %59 = extractelement <4 x float> %49, i64 2
+  store float %59, ptr %58, align 1
   ret void
 }
 
@@ -41585,10 +41568,10 @@ define internal void @stbir__horizontal_gather_3_channels_with_7_coeffs(ptr noun
   %10 = sext i32 %5 to i64
   br label %11
 
-11:                                               ; preds = %56, %6
-  %.0119 = phi ptr [ %0, %6 ], [ %54, %56 ]
-  %.0118 = phi ptr [ %4, %6 ], [ %58, %56 ]
-  %.0 = phi ptr [ %3, %6 ], [ %57, %56 ]
+11:                                               ; preds = %54, %6
+  %.0119 = phi ptr [ %0, %6 ], [ %52, %54 ]
+  %.0118 = phi ptr [ %4, %6 ], [ %56, %54 ]
+  %.0 = phi ptr [ %3, %6 ], [ %55, %54 ]
   %12 = load i32, ptr %.0, align 4
   %13 = mul nsw i32 %12, 3
   %14 = sext i32 %13 to i64
@@ -41625,31 +41608,29 @@ define internal void @stbir__horizontal_gather_3_channels_with_7_coeffs(ptr noun
   %43 = insertelement <4 x float> <float poison, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, float %42, i64 0
   %44 = fmul <4 x float> %40, %43
   %45 = fadd <4 x float> %27, %44
-  %46 = shufflevector <4 x float> %39, <4 x float> %34, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  %47 = shufflevector <4 x float> %46, <4 x float> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
-  %48 = shufflevector <4 x float> %45, <4 x float> %39, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  %49 = shufflevector <4 x float> %48, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
-  %50 = shufflevector <4 x float> %45, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
-  %51 = fadd <4 x float> %34, %49
-  %52 = fadd <4 x float> %47, %50
-  %53 = fadd <4 x float> %52, %51
-  %54 = getelementptr inbounds nuw i8, ptr %.0119, i64 12
-  %55 = icmp ult ptr %54, %9
-  br i1 %55, label %56, label %59
+  %46 = shufflevector <4 x float> %34, <4 x float> %39, <4 x i32> <i32 3, i32 4, i32 5, i32 2>
+  %47 = shufflevector <4 x float> %39, <4 x float> %45, <4 x i32> <i32 2, i32 3, i32 4, i32 5>
+  %48 = shufflevector <4 x float> %45, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
+  %49 = fadd <4 x float> %34, %47
+  %50 = fadd <4 x float> %46, %48
+  %51 = fadd <4 x float> %50, %49
+  %52 = getelementptr inbounds nuw i8, ptr %.0119, i64 12
+  %53 = icmp ult ptr %52, %9
+  br i1 %53, label %54, label %57
 
-56:                                               ; preds = %11
-  %57 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %58 = getelementptr inbounds float, ptr %.0118, i64 %10
-  store <4 x float> %53, ptr %.0119, align 1
+54:                                               ; preds = %11
+  %55 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  %56 = getelementptr inbounds float, ptr %.0118, i64 %10
+  store <4 x float> %51, ptr %.0119, align 1
   br label %11
 
-59:                                               ; preds = %11
-  %60 = bitcast <4 x float> %53 to <2 x i64>
-  %61 = extractelement <2 x i64> %60, i64 0
-  store i64 %61, ptr %.0119, align 1
-  %62 = getelementptr inbounds nuw i8, ptr %.0119, i64 8
-  %63 = extractelement <4 x float> %53, i64 2
-  store float %63, ptr %62, align 1
+57:                                               ; preds = %11
+  %58 = bitcast <4 x float> %51 to <2 x i64>
+  %59 = extractelement <2 x i64> %58, i64 0
+  store i64 %59, ptr %.0119, align 1
+  %60 = getelementptr inbounds nuw i8, ptr %.0119, i64 8
+  %61 = extractelement <4 x float> %51, i64 2
+  store float %61, ptr %60, align 1
   ret void
 }
 
@@ -41661,10 +41642,10 @@ define internal void @stbir__horizontal_gather_3_channels_with_8_coeffs(ptr noun
   %10 = sext i32 %5 to i64
   br label %11
 
-11:                                               ; preds = %55, %6
-  %.0116 = phi ptr [ %0, %6 ], [ %53, %55 ]
-  %.0115 = phi ptr [ %4, %6 ], [ %57, %55 ]
-  %.0 = phi ptr [ %3, %6 ], [ %56, %55 ]
+11:                                               ; preds = %53, %6
+  %.0116 = phi ptr [ %0, %6 ], [ %51, %53 ]
+  %.0115 = phi ptr [ %4, %6 ], [ %55, %53 ]
+  %.0 = phi ptr [ %3, %6 ], [ %54, %53 ]
   %12 = load i32, ptr %.0, align 4
   %13 = mul nsw i32 %12, 3
   %14 = sext i32 %13 to i64
@@ -41700,31 +41681,29 @@ define internal void @stbir__horizontal_gather_3_channels_with_8_coeffs(ptr noun
   %42 = load <4 x float>, ptr %41, align 1
   %43 = fmul <4 x float> %40, %42
   %44 = fadd <4 x float> %27, %43
-  %45 = shufflevector <4 x float> %39, <4 x float> %34, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  %46 = shufflevector <4 x float> %45, <4 x float> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
-  %47 = shufflevector <4 x float> %44, <4 x float> %39, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  %48 = shufflevector <4 x float> %47, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
-  %49 = shufflevector <4 x float> %44, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
-  %50 = fadd <4 x float> %34, %48
-  %51 = fadd <4 x float> %46, %49
-  %52 = fadd <4 x float> %51, %50
-  %53 = getelementptr inbounds nuw i8, ptr %.0116, i64 12
-  %54 = icmp ult ptr %53, %9
-  br i1 %54, label %55, label %58
+  %45 = shufflevector <4 x float> %34, <4 x float> %39, <4 x i32> <i32 3, i32 4, i32 5, i32 2>
+  %46 = shufflevector <4 x float> %39, <4 x float> %44, <4 x i32> <i32 2, i32 3, i32 4, i32 5>
+  %47 = shufflevector <4 x float> %44, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
+  %48 = fadd <4 x float> %34, %46
+  %49 = fadd <4 x float> %45, %47
+  %50 = fadd <4 x float> %49, %48
+  %51 = getelementptr inbounds nuw i8, ptr %.0116, i64 12
+  %52 = icmp ult ptr %51, %9
+  br i1 %52, label %53, label %56
 
-55:                                               ; preds = %11
-  %56 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %57 = getelementptr inbounds float, ptr %.0115, i64 %10
-  store <4 x float> %52, ptr %.0116, align 1
+53:                                               ; preds = %11
+  %54 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  %55 = getelementptr inbounds float, ptr %.0115, i64 %10
+  store <4 x float> %50, ptr %.0116, align 1
   br label %11
 
-58:                                               ; preds = %11
-  %59 = bitcast <4 x float> %52 to <2 x i64>
-  %60 = extractelement <2 x i64> %59, i64 0
-  store i64 %60, ptr %.0116, align 1
-  %61 = getelementptr inbounds nuw i8, ptr %.0116, i64 8
-  %62 = extractelement <4 x float> %52, i64 2
-  store float %62, ptr %61, align 1
+56:                                               ; preds = %11
+  %57 = bitcast <4 x float> %50 to <2 x i64>
+  %58 = extractelement <2 x i64> %57, i64 0
+  store i64 %58, ptr %.0116, align 1
+  %59 = getelementptr inbounds nuw i8, ptr %.0116, i64 8
+  %60 = extractelement <4 x float> %50, i64 2
+  store float %60, ptr %59, align 1
   ret void
 }
 
@@ -41736,10 +41715,10 @@ define internal void @stbir__horizontal_gather_3_channels_with_9_coeffs(ptr noun
   %10 = sext i32 %5 to i64
   br label %11
 
-11:                                               ; preds = %63, %6
-  %.0132 = phi ptr [ %0, %6 ], [ %61, %63 ]
-  %.0131 = phi ptr [ %4, %6 ], [ %65, %63 ]
-  %.0 = phi ptr [ %3, %6 ], [ %64, %63 ]
+11:                                               ; preds = %61, %6
+  %.0132 = phi ptr [ %0, %6 ], [ %59, %61 ]
+  %.0131 = phi ptr [ %4, %6 ], [ %63, %61 ]
+  %.0 = phi ptr [ %3, %6 ], [ %62, %61 ]
   %12 = load i32, ptr %.0, align 4
   %13 = mul nsw i32 %12, 3
   %14 = sext i32 %13 to i64
@@ -41784,31 +41763,29 @@ define internal void @stbir__horizontal_gather_3_channels_with_9_coeffs(ptr noun
   %50 = load <4 x float>, ptr %49, align 1
   %51 = fmul <4 x float> %50, %48
   %52 = fadd <4 x float> %34, %51
-  %53 = shufflevector <4 x float> %39, <4 x float> %52, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  %54 = shufflevector <4 x float> %53, <4 x float> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
-  %55 = shufflevector <4 x float> %44, <4 x float> %39, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  %56 = shufflevector <4 x float> %55, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
-  %57 = shufflevector <4 x float> %44, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
-  %58 = fadd <4 x float> %56, %52
-  %59 = fadd <4 x float> %57, %54
-  %60 = fadd <4 x float> %58, %59
-  %61 = getelementptr inbounds nuw i8, ptr %.0132, i64 12
-  %62 = icmp ult ptr %61, %9
-  br i1 %62, label %63, label %66
+  %53 = shufflevector <4 x float> %52, <4 x float> %39, <4 x i32> <i32 3, i32 4, i32 5, i32 2>
+  %54 = shufflevector <4 x float> %39, <4 x float> %44, <4 x i32> <i32 2, i32 3, i32 4, i32 5>
+  %55 = shufflevector <4 x float> %44, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
+  %56 = fadd <4 x float> %54, %52
+  %57 = fadd <4 x float> %55, %53
+  %58 = fadd <4 x float> %56, %57
+  %59 = getelementptr inbounds nuw i8, ptr %.0132, i64 12
+  %60 = icmp ult ptr %59, %9
+  br i1 %60, label %61, label %64
 
-63:                                               ; preds = %11
-  %64 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %65 = getelementptr inbounds float, ptr %.0131, i64 %10
-  store <4 x float> %60, ptr %.0132, align 1
+61:                                               ; preds = %11
+  %62 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  %63 = getelementptr inbounds float, ptr %.0131, i64 %10
+  store <4 x float> %58, ptr %.0132, align 1
   br label %11
 
-66:                                               ; preds = %11
-  %67 = bitcast <4 x float> %60 to <2 x i64>
-  %68 = extractelement <2 x i64> %67, i64 0
-  store i64 %68, ptr %.0132, align 1
-  %69 = getelementptr inbounds nuw i8, ptr %.0132, i64 8
-  %70 = extractelement <4 x float> %60, i64 2
-  store float %70, ptr %69, align 1
+64:                                               ; preds = %11
+  %65 = bitcast <4 x float> %58 to <2 x i64>
+  %66 = extractelement <2 x i64> %65, i64 0
+  store i64 %66, ptr %.0132, align 1
+  %67 = getelementptr inbounds nuw i8, ptr %.0132, i64 8
+  %68 = extractelement <4 x float> %58, i64 2
+  store float %68, ptr %67, align 1
   ret void
 }
 
@@ -41820,10 +41797,10 @@ define internal void @stbir__horizontal_gather_3_channels_with_10_coeffs(ptr nou
   %10 = sext i32 %5 to i64
   br label %11
 
-11:                                               ; preds = %71, %6
-  %.0146 = phi ptr [ %0, %6 ], [ %69, %71 ]
-  %.0145 = phi ptr [ %4, %6 ], [ %73, %71 ]
-  %.0 = phi ptr [ %3, %6 ], [ %72, %71 ]
+11:                                               ; preds = %69, %6
+  %.0146 = phi ptr [ %0, %6 ], [ %67, %69 ]
+  %.0145 = phi ptr [ %4, %6 ], [ %71, %69 ]
+  %.0 = phi ptr [ %3, %6 ], [ %70, %69 ]
   %12 = load i32, ptr %.0, align 4
   %13 = mul nsw i32 %12, 3
   %14 = sext i32 %13 to i64
@@ -41876,31 +41853,29 @@ define internal void @stbir__horizontal_gather_3_channels_with_10_coeffs(ptr nou
   %58 = bitcast <2 x i64> %57 to <4 x float>
   %59 = fmul <4 x float> %54, %58
   %60 = fadd <4 x float> %39, %59
-  %61 = shufflevector <4 x float> %60, <4 x float> %53, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  %62 = shufflevector <4 x float> %61, <4 x float> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
-  %63 = shufflevector <4 x float> %44, <4 x float> %60, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  %64 = shufflevector <4 x float> %63, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
-  %65 = shufflevector <4 x float> %44, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
-  %66 = fadd <4 x float> %53, %64
-  %67 = fadd <4 x float> %65, %62
-  %68 = fadd <4 x float> %66, %67
-  %69 = getelementptr inbounds nuw i8, ptr %.0146, i64 12
-  %70 = icmp ult ptr %69, %9
-  br i1 %70, label %71, label %74
+  %61 = shufflevector <4 x float> %53, <4 x float> %60, <4 x i32> <i32 3, i32 4, i32 5, i32 2>
+  %62 = shufflevector <4 x float> %60, <4 x float> %44, <4 x i32> <i32 2, i32 3, i32 4, i32 5>
+  %63 = shufflevector <4 x float> %44, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
+  %64 = fadd <4 x float> %53, %62
+  %65 = fadd <4 x float> %63, %61
+  %66 = fadd <4 x float> %64, %65
+  %67 = getelementptr inbounds nuw i8, ptr %.0146, i64 12
+  %68 = icmp ult ptr %67, %9
+  br i1 %68, label %69, label %72
 
-71:                                               ; preds = %11
-  %72 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %73 = getelementptr inbounds float, ptr %.0145, i64 %10
-  store <4 x float> %68, ptr %.0146, align 1
+69:                                               ; preds = %11
+  %70 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  %71 = getelementptr inbounds float, ptr %.0145, i64 %10
+  store <4 x float> %66, ptr %.0146, align 1
   br label %11
 
-74:                                               ; preds = %11
-  %75 = bitcast <4 x float> %68 to <2 x i64>
-  %76 = extractelement <2 x i64> %75, i64 0
-  store i64 %76, ptr %.0146, align 1
-  %77 = getelementptr inbounds nuw i8, ptr %.0146, i64 8
-  %78 = extractelement <4 x float> %68, i64 2
-  store float %78, ptr %77, align 1
+72:                                               ; preds = %11
+  %73 = bitcast <4 x float> %66 to <2 x i64>
+  %74 = extractelement <2 x i64> %73, i64 0
+  store i64 %74, ptr %.0146, align 1
+  %75 = getelementptr inbounds nuw i8, ptr %.0146, i64 8
+  %76 = extractelement <4 x float> %66, i64 2
+  store float %76, ptr %75, align 1
   ret void
 }
 
@@ -41912,10 +41887,10 @@ define internal void @stbir__horizontal_gather_3_channels_with_11_coeffs(ptr nou
   %10 = sext i32 %5 to i64
   br label %11
 
-11:                                               ; preds = %73, %6
-  %.0155 = phi ptr [ %0, %6 ], [ %71, %73 ]
-  %.0154 = phi ptr [ %4, %6 ], [ %75, %73 ]
-  %.0 = phi ptr [ %3, %6 ], [ %74, %73 ]
+11:                                               ; preds = %71, %6
+  %.0155 = phi ptr [ %0, %6 ], [ %69, %71 ]
+  %.0154 = phi ptr [ %4, %6 ], [ %73, %71 ]
+  %.0 = phi ptr [ %3, %6 ], [ %72, %71 ]
   %12 = load i32, ptr %.0, align 4
   %13 = mul nsw i32 %12, 3
   %14 = sext i32 %13 to i64
@@ -41970,31 +41945,29 @@ define internal void @stbir__horizontal_gather_3_channels_with_11_coeffs(ptr nou
   %60 = insertelement <4 x float> <float poison, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, float %59, i64 0
   %61 = fmul <4 x float> %57, %60
   %62 = fadd <4 x float> %44, %61
-  %63 = shufflevector <4 x float> %56, <4 x float> %51, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  %64 = shufflevector <4 x float> %63, <4 x float> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
-  %65 = shufflevector <4 x float> %62, <4 x float> %56, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  %66 = shufflevector <4 x float> %65, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
-  %67 = shufflevector <4 x float> %62, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
-  %68 = fadd <4 x float> %51, %66
-  %69 = fadd <4 x float> %64, %67
-  %70 = fadd <4 x float> %69, %68
-  %71 = getelementptr inbounds nuw i8, ptr %.0155, i64 12
-  %72 = icmp ult ptr %71, %9
-  br i1 %72, label %73, label %76
+  %63 = shufflevector <4 x float> %51, <4 x float> %56, <4 x i32> <i32 3, i32 4, i32 5, i32 2>
+  %64 = shufflevector <4 x float> %56, <4 x float> %62, <4 x i32> <i32 2, i32 3, i32 4, i32 5>
+  %65 = shufflevector <4 x float> %62, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
+  %66 = fadd <4 x float> %51, %64
+  %67 = fadd <4 x float> %63, %65
+  %68 = fadd <4 x float> %67, %66
+  %69 = getelementptr inbounds nuw i8, ptr %.0155, i64 12
+  %70 = icmp ult ptr %69, %9
+  br i1 %70, label %71, label %74
 
-73:                                               ; preds = %11
-  %74 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %75 = getelementptr inbounds float, ptr %.0154, i64 %10
-  store <4 x float> %70, ptr %.0155, align 1
+71:                                               ; preds = %11
+  %72 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  %73 = getelementptr inbounds float, ptr %.0154, i64 %10
+  store <4 x float> %68, ptr %.0155, align 1
   br label %11
 
-76:                                               ; preds = %11
-  %77 = bitcast <4 x float> %70 to <2 x i64>
-  %78 = extractelement <2 x i64> %77, i64 0
-  store i64 %78, ptr %.0155, align 1
-  %79 = getelementptr inbounds nuw i8, ptr %.0155, i64 8
-  %80 = extractelement <4 x float> %70, i64 2
-  store float %80, ptr %79, align 1
+74:                                               ; preds = %11
+  %75 = bitcast <4 x float> %68 to <2 x i64>
+  %76 = extractelement <2 x i64> %75, i64 0
+  store i64 %76, ptr %.0155, align 1
+  %77 = getelementptr inbounds nuw i8, ptr %.0155, i64 8
+  %78 = extractelement <4 x float> %68, i64 2
+  store float %78, ptr %77, align 1
   ret void
 }
 
@@ -42006,10 +41979,10 @@ define internal void @stbir__horizontal_gather_3_channels_with_12_coeffs(ptr nou
   %10 = sext i32 %5 to i64
   br label %11
 
-11:                                               ; preds = %72, %6
-  %.0152 = phi ptr [ %0, %6 ], [ %70, %72 ]
-  %.0151 = phi ptr [ %4, %6 ], [ %74, %72 ]
-  %.0 = phi ptr [ %3, %6 ], [ %73, %72 ]
+11:                                               ; preds = %70, %6
+  %.0152 = phi ptr [ %0, %6 ], [ %68, %70 ]
+  %.0151 = phi ptr [ %4, %6 ], [ %72, %70 ]
+  %.0 = phi ptr [ %3, %6 ], [ %71, %70 ]
   %12 = load i32, ptr %.0, align 4
   %13 = mul nsw i32 %12, 3
   %14 = sext i32 %13 to i64
@@ -42063,31 +42036,29 @@ define internal void @stbir__horizontal_gather_3_channels_with_12_coeffs(ptr nou
   %59 = load <4 x float>, ptr %58, align 1
   %60 = fmul <4 x float> %57, %59
   %61 = fadd <4 x float> %44, %60
-  %62 = shufflevector <4 x float> %56, <4 x float> %51, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  %63 = shufflevector <4 x float> %62, <4 x float> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
-  %64 = shufflevector <4 x float> %61, <4 x float> %56, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  %65 = shufflevector <4 x float> %64, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
-  %66 = shufflevector <4 x float> %61, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
-  %67 = fadd <4 x float> %51, %65
-  %68 = fadd <4 x float> %63, %66
-  %69 = fadd <4 x float> %68, %67
-  %70 = getelementptr inbounds nuw i8, ptr %.0152, i64 12
-  %71 = icmp ult ptr %70, %9
-  br i1 %71, label %72, label %75
+  %62 = shufflevector <4 x float> %51, <4 x float> %56, <4 x i32> <i32 3, i32 4, i32 5, i32 2>
+  %63 = shufflevector <4 x float> %56, <4 x float> %61, <4 x i32> <i32 2, i32 3, i32 4, i32 5>
+  %64 = shufflevector <4 x float> %61, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
+  %65 = fadd <4 x float> %51, %63
+  %66 = fadd <4 x float> %62, %64
+  %67 = fadd <4 x float> %66, %65
+  %68 = getelementptr inbounds nuw i8, ptr %.0152, i64 12
+  %69 = icmp ult ptr %68, %9
+  br i1 %69, label %70, label %73
 
-72:                                               ; preds = %11
-  %73 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %74 = getelementptr inbounds float, ptr %.0151, i64 %10
-  store <4 x float> %69, ptr %.0152, align 1
+70:                                               ; preds = %11
+  %71 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  %72 = getelementptr inbounds float, ptr %.0151, i64 %10
+  store <4 x float> %67, ptr %.0152, align 1
   br label %11
 
-75:                                               ; preds = %11
-  %76 = bitcast <4 x float> %69 to <2 x i64>
-  %77 = extractelement <2 x i64> %76, i64 0
-  store i64 %77, ptr %.0152, align 1
-  %78 = getelementptr inbounds nuw i8, ptr %.0152, i64 8
-  %79 = extractelement <4 x float> %69, i64 2
-  store float %79, ptr %78, align 1
+73:                                               ; preds = %11
+  %74 = bitcast <4 x float> %67 to <2 x i64>
+  %75 = extractelement <2 x i64> %74, i64 0
+  store i64 %75, ptr %.0152, align 1
+  %76 = getelementptr inbounds nuw i8, ptr %.0152, i64 8
+  %77 = extractelement <4 x float> %67, i64 2
+  store float %77, ptr %76, align 1
   ret void
 }
 
@@ -48010,203 +47981,201 @@ define internal void @stbir__encode_uint8_srgb(ptr noundef writeonly %0, i32 nou
   %117 = lshr <4 x i32> %116, splat (i32 16)
   %118 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %96, <4 x i32> %103)
   %119 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %110, <4 x i32> %117)
-  %120 = shufflevector <8 x i16> %118, <8 x i16> %119, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %121 = shufflevector <8 x i16> %118, <8 x i16> %119, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %122 = shufflevector <8 x i16> %120, <8 x i16> %121, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %123 = shufflevector <8 x i16> %120, <8 x i16> %121, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %124 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %122, <8 x i16> %123)
-  store <16 x i8> %124, ptr %.0272, align 1
-  %125 = getelementptr inbounds nuw i8, ptr %.0, i64 64
-  %126 = getelementptr inbounds nuw i8, ptr %.0272, i64 16
-  %.not278 = icmp ugt ptr %126, %10
-  br i1 %.not278, label %127, label %.backedge.backedge
+  %120 = shufflevector <8 x i16> %118, <8 x i16> %119, <8 x i32> <i32 0, i32 4, i32 8, i32 12, i32 1, i32 5, i32 9, i32 13>
+  %121 = shufflevector <8 x i16> %118, <8 x i16> %119, <8 x i32> <i32 2, i32 6, i32 10, i32 14, i32 3, i32 7, i32 11, i32 15>
+  %122 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %120, <8 x i16> %121)
+  store <16 x i8> %122, ptr %.0272, align 1
+  %123 = getelementptr inbounds nuw i8, ptr %.0, i64 64
+  %124 = getelementptr inbounds nuw i8, ptr %.0272, i64 16
+  %.not278 = icmp ugt ptr %124, %10
+  br i1 %.not278, label %125, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %.backedge, %127
-  %.0272.be = phi ptr [ %126, %.backedge ], [ %10, %127 ]
-  %.0.be = phi ptr [ %125, %.backedge ], [ %9, %127 ]
+.backedge.backedge:                               ; preds = %.backedge, %125
+  %.0272.be = phi ptr [ %124, %.backedge ], [ %10, %125 ]
+  %.0.be = phi ptr [ %123, %.backedge ], [ %9, %125 ]
   br label %.backedge
 
-127:                                              ; preds = %.backedge
-  %128 = icmp eq ptr %126, %5
-  br i1 %128, label %.loopexit, label %.backedge.backedge
+125:                                              ; preds = %.backedge
+  %126 = icmp eq ptr %124, %5
+  br i1 %126, label %.loopexit, label %.backedge.backedge
 
 .preheader:                                       ; preds = %stbir__linear_to_srgb_uchar.exit284, %.preheader288
   %.pn.lcssa = phi ptr [ %0, %.preheader288 ], [ %.1273293, %stbir__linear_to_srgb_uchar.exit284 ]
-  %.1.lcssa = phi ptr [ %2, %.preheader288 ], [ %216, %stbir__linear_to_srgb_uchar.exit284 ]
-  %129 = icmp ult ptr %.pn.lcssa, %5
-  br i1 %129, label %.lr.ph297, label %.loopexit
+  %.1.lcssa = phi ptr [ %2, %.preheader288 ], [ %214, %stbir__linear_to_srgb_uchar.exit284 ]
+  %127 = icmp ult ptr %.pn.lcssa, %5
+  br i1 %127, label %.lr.ph297, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %stbir__linear_to_srgb_uchar.exit284
   %.1273293 = phi ptr [ %.1273, %stbir__linear_to_srgb_uchar.exit284 ], [ %.1273289, %.lr.ph.preheader ]
-  %.1292 = phi ptr [ %216, %stbir__linear_to_srgb_uchar.exit284 ], [ %2, %.lr.ph.preheader ]
+  %.1292 = phi ptr [ %214, %stbir__linear_to_srgb_uchar.exit284 ], [ %2, %.lr.ph.preheader ]
   %.pn291 = phi ptr [ %.1273293, %stbir__linear_to_srgb_uchar.exit284 ], [ %0, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1292) #49, !srcloc !291
-  %130 = load float, ptr %.1292, align 4
-  %131 = fcmp ogt float %130, 0x3F20000000000000
-  br i1 %131, label %132, label %stbir__linear_to_srgb_uchar.exit
+  %128 = load float, ptr %.1292, align 4
+  %129 = fcmp ogt float %128, 0x3F20000000000000
+  br i1 %129, label %130, label %stbir__linear_to_srgb_uchar.exit
 
-132:                                              ; preds = %.lr.ph
-  %133 = fcmp ogt float %130, 0x3FEFFFFFE0000000
-  br i1 %133, label %stbir__linear_to_srgb_uchar.exit, label %134
+130:                                              ; preds = %.lr.ph
+  %131 = fcmp ogt float %128, 0x3FEFFFFFE0000000
+  br i1 %131, label %stbir__linear_to_srgb_uchar.exit, label %132
 
-134:                                              ; preds = %132
-  %135 = bitcast float %130 to i32
-  %136 = add nsw i32 %135, -956301312
-  %137 = lshr i32 %136, 20
-  %138 = zext nneg i32 %137 to i64
-  %139 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %138
-  %140 = load i32, ptr %139, align 4
-  %141 = lshr i32 %140, 7
-  %142 = and i32 %141, 16776704
-  %143 = and i32 %140, 65535
-  %144 = lshr i32 %135, 12
-  %145 = and i32 %144, 255
-  %146 = mul nuw nsw i32 %143, %145
-  %147 = add nuw nsw i32 %142, %146
-  %148 = lshr i32 %147, 16
-  %149 = trunc i32 %148 to i8
+132:                                              ; preds = %130
+  %133 = bitcast float %128 to i32
+  %134 = add nsw i32 %133, -956301312
+  %135 = lshr i32 %134, 20
+  %136 = zext nneg i32 %135 to i64
+  %137 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %136
+  %138 = load i32, ptr %137, align 4
+  %139 = lshr i32 %138, 7
+  %140 = and i32 %139, 16776704
+  %141 = and i32 %138, 65535
+  %142 = lshr i32 %133, 12
+  %143 = and i32 %142, 255
+  %144 = mul nuw nsw i32 %141, %143
+  %145 = add nuw nsw i32 %140, %144
+  %146 = lshr i32 %145, 16
+  %147 = trunc i32 %146 to i8
   br label %stbir__linear_to_srgb_uchar.exit
 
-stbir__linear_to_srgb_uchar.exit:                 ; preds = %.lr.ph, %132, %134
-  %.0.i = phi i8 [ %149, %134 ], [ 0, %.lr.ph ], [ -1, %132 ]
+stbir__linear_to_srgb_uchar.exit:                 ; preds = %.lr.ph, %130, %132
+  %.0.i = phi i8 [ %147, %132 ], [ 0, %.lr.ph ], [ -1, %130 ]
   store i8 %.0.i, ptr %.pn291, align 1
-  %150 = getelementptr inbounds nuw i8, ptr %.1292, i64 4
-  %151 = load float, ptr %150, align 4
-  %152 = fcmp ogt float %151, 0x3F20000000000000
-  br i1 %152, label %153, label %stbir__linear_to_srgb_uchar.exit280
+  %148 = getelementptr inbounds nuw i8, ptr %.1292, i64 4
+  %149 = load float, ptr %148, align 4
+  %150 = fcmp ogt float %149, 0x3F20000000000000
+  br i1 %150, label %151, label %stbir__linear_to_srgb_uchar.exit280
 
-153:                                              ; preds = %stbir__linear_to_srgb_uchar.exit
-  %154 = fcmp ogt float %151, 0x3FEFFFFFE0000000
-  br i1 %154, label %stbir__linear_to_srgb_uchar.exit280, label %155
+151:                                              ; preds = %stbir__linear_to_srgb_uchar.exit
+  %152 = fcmp ogt float %149, 0x3FEFFFFFE0000000
+  br i1 %152, label %stbir__linear_to_srgb_uchar.exit280, label %153
 
-155:                                              ; preds = %153
-  %156 = bitcast float %151 to i32
-  %157 = add nsw i32 %156, -956301312
-  %158 = lshr i32 %157, 20
-  %159 = zext nneg i32 %158 to i64
-  %160 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %159
-  %161 = load i32, ptr %160, align 4
-  %162 = lshr i32 %161, 7
-  %163 = and i32 %162, 16776704
-  %164 = and i32 %161, 65535
-  %165 = lshr i32 %156, 12
-  %166 = and i32 %165, 255
-  %167 = mul nuw nsw i32 %164, %166
-  %168 = add nuw nsw i32 %163, %167
-  %169 = lshr i32 %168, 16
-  %170 = trunc i32 %169 to i8
+153:                                              ; preds = %151
+  %154 = bitcast float %149 to i32
+  %155 = add nsw i32 %154, -956301312
+  %156 = lshr i32 %155, 20
+  %157 = zext nneg i32 %156 to i64
+  %158 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %157
+  %159 = load i32, ptr %158, align 4
+  %160 = lshr i32 %159, 7
+  %161 = and i32 %160, 16776704
+  %162 = and i32 %159, 65535
+  %163 = lshr i32 %154, 12
+  %164 = and i32 %163, 255
+  %165 = mul nuw nsw i32 %162, %164
+  %166 = add nuw nsw i32 %161, %165
+  %167 = lshr i32 %166, 16
+  %168 = trunc i32 %167 to i8
   br label %stbir__linear_to_srgb_uchar.exit280
 
-stbir__linear_to_srgb_uchar.exit280:              ; preds = %stbir__linear_to_srgb_uchar.exit, %153, %155
-  %.0.i279 = phi i8 [ %170, %155 ], [ 0, %stbir__linear_to_srgb_uchar.exit ], [ -1, %153 ]
-  %171 = getelementptr inbounds nuw i8, ptr %.pn291, i64 1
-  store i8 %.0.i279, ptr %171, align 1
-  %172 = getelementptr inbounds nuw i8, ptr %.1292, i64 8
-  %173 = load float, ptr %172, align 4
-  %174 = fcmp ogt float %173, 0x3F20000000000000
-  br i1 %174, label %175, label %stbir__linear_to_srgb_uchar.exit282
+stbir__linear_to_srgb_uchar.exit280:              ; preds = %stbir__linear_to_srgb_uchar.exit, %151, %153
+  %.0.i279 = phi i8 [ %168, %153 ], [ 0, %stbir__linear_to_srgb_uchar.exit ], [ -1, %151 ]
+  %169 = getelementptr inbounds nuw i8, ptr %.pn291, i64 1
+  store i8 %.0.i279, ptr %169, align 1
+  %170 = getelementptr inbounds nuw i8, ptr %.1292, i64 8
+  %171 = load float, ptr %170, align 4
+  %172 = fcmp ogt float %171, 0x3F20000000000000
+  br i1 %172, label %173, label %stbir__linear_to_srgb_uchar.exit282
 
-175:                                              ; preds = %stbir__linear_to_srgb_uchar.exit280
-  %176 = fcmp ogt float %173, 0x3FEFFFFFE0000000
-  br i1 %176, label %stbir__linear_to_srgb_uchar.exit282, label %177
+173:                                              ; preds = %stbir__linear_to_srgb_uchar.exit280
+  %174 = fcmp ogt float %171, 0x3FEFFFFFE0000000
+  br i1 %174, label %stbir__linear_to_srgb_uchar.exit282, label %175
 
-177:                                              ; preds = %175
-  %178 = bitcast float %173 to i32
-  %179 = add nsw i32 %178, -956301312
-  %180 = lshr i32 %179, 20
-  %181 = zext nneg i32 %180 to i64
-  %182 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %181
-  %183 = load i32, ptr %182, align 4
-  %184 = lshr i32 %183, 7
-  %185 = and i32 %184, 16776704
-  %186 = and i32 %183, 65535
-  %187 = lshr i32 %178, 12
-  %188 = and i32 %187, 255
-  %189 = mul nuw nsw i32 %186, %188
-  %190 = add nuw nsw i32 %185, %189
-  %191 = lshr i32 %190, 16
-  %192 = trunc i32 %191 to i8
+175:                                              ; preds = %173
+  %176 = bitcast float %171 to i32
+  %177 = add nsw i32 %176, -956301312
+  %178 = lshr i32 %177, 20
+  %179 = zext nneg i32 %178 to i64
+  %180 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %179
+  %181 = load i32, ptr %180, align 4
+  %182 = lshr i32 %181, 7
+  %183 = and i32 %182, 16776704
+  %184 = and i32 %181, 65535
+  %185 = lshr i32 %176, 12
+  %186 = and i32 %185, 255
+  %187 = mul nuw nsw i32 %184, %186
+  %188 = add nuw nsw i32 %183, %187
+  %189 = lshr i32 %188, 16
+  %190 = trunc i32 %189 to i8
   br label %stbir__linear_to_srgb_uchar.exit282
 
-stbir__linear_to_srgb_uchar.exit282:              ; preds = %stbir__linear_to_srgb_uchar.exit280, %175, %177
-  %.0.i281 = phi i8 [ %192, %177 ], [ 0, %stbir__linear_to_srgb_uchar.exit280 ], [ -1, %175 ]
-  %193 = getelementptr inbounds nuw i8, ptr %.pn291, i64 2
-  store i8 %.0.i281, ptr %193, align 1
-  %194 = getelementptr inbounds nuw i8, ptr %.1292, i64 12
-  %195 = load float, ptr %194, align 4
-  %196 = fcmp ogt float %195, 0x3F20000000000000
-  br i1 %196, label %197, label %stbir__linear_to_srgb_uchar.exit284
+stbir__linear_to_srgb_uchar.exit282:              ; preds = %stbir__linear_to_srgb_uchar.exit280, %173, %175
+  %.0.i281 = phi i8 [ %190, %175 ], [ 0, %stbir__linear_to_srgb_uchar.exit280 ], [ -1, %173 ]
+  %191 = getelementptr inbounds nuw i8, ptr %.pn291, i64 2
+  store i8 %.0.i281, ptr %191, align 1
+  %192 = getelementptr inbounds nuw i8, ptr %.1292, i64 12
+  %193 = load float, ptr %192, align 4
+  %194 = fcmp ogt float %193, 0x3F20000000000000
+  br i1 %194, label %195, label %stbir__linear_to_srgb_uchar.exit284
 
-197:                                              ; preds = %stbir__linear_to_srgb_uchar.exit282
-  %198 = fcmp ogt float %195, 0x3FEFFFFFE0000000
-  br i1 %198, label %stbir__linear_to_srgb_uchar.exit284, label %199
+195:                                              ; preds = %stbir__linear_to_srgb_uchar.exit282
+  %196 = fcmp ogt float %193, 0x3FEFFFFFE0000000
+  br i1 %196, label %stbir__linear_to_srgb_uchar.exit284, label %197
 
-199:                                              ; preds = %197
-  %200 = bitcast float %195 to i32
-  %201 = add nsw i32 %200, -956301312
-  %202 = lshr i32 %201, 20
-  %203 = zext nneg i32 %202 to i64
-  %204 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %203
-  %205 = load i32, ptr %204, align 4
-  %206 = lshr i32 %205, 7
-  %207 = and i32 %206, 16776704
-  %208 = and i32 %205, 65535
-  %209 = lshr i32 %200, 12
-  %210 = and i32 %209, 255
-  %211 = mul nuw nsw i32 %208, %210
-  %212 = add nuw nsw i32 %207, %211
-  %213 = lshr i32 %212, 16
-  %214 = trunc i32 %213 to i8
+197:                                              ; preds = %195
+  %198 = bitcast float %193 to i32
+  %199 = add nsw i32 %198, -956301312
+  %200 = lshr i32 %199, 20
+  %201 = zext nneg i32 %200 to i64
+  %202 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %201
+  %203 = load i32, ptr %202, align 4
+  %204 = lshr i32 %203, 7
+  %205 = and i32 %204, 16776704
+  %206 = and i32 %203, 65535
+  %207 = lshr i32 %198, 12
+  %208 = and i32 %207, 255
+  %209 = mul nuw nsw i32 %206, %208
+  %210 = add nuw nsw i32 %205, %209
+  %211 = lshr i32 %210, 16
+  %212 = trunc i32 %211 to i8
   br label %stbir__linear_to_srgb_uchar.exit284
 
-stbir__linear_to_srgb_uchar.exit284:              ; preds = %stbir__linear_to_srgb_uchar.exit282, %197, %199
-  %.0.i283 = phi i8 [ %214, %199 ], [ 0, %stbir__linear_to_srgb_uchar.exit282 ], [ -1, %197 ]
-  %215 = getelementptr inbounds nuw i8, ptr %.pn291, i64 3
-  store i8 %.0.i283, ptr %215, align 1
-  %216 = getelementptr inbounds nuw i8, ptr %.1292, i64 16
+stbir__linear_to_srgb_uchar.exit284:              ; preds = %stbir__linear_to_srgb_uchar.exit282, %195, %197
+  %.0.i283 = phi i8 [ %212, %197 ], [ 0, %stbir__linear_to_srgb_uchar.exit282 ], [ -1, %195 ]
+  %213 = getelementptr inbounds nuw i8, ptr %.pn291, i64 3
+  store i8 %.0.i283, ptr %213, align 1
+  %214 = getelementptr inbounds nuw i8, ptr %.1292, i64 16
   %.1273 = getelementptr inbounds nuw i8, ptr %.1273293, i64 4
   %.not = icmp ugt ptr %.1273, %5
   br i1 %.not, label %.preheader, label %.lr.ph
 
 .lr.ph297:                                        ; preds = %.preheader, %stbir__linear_to_srgb_uchar.exit286
-  %.2296 = phi ptr [ %238, %stbir__linear_to_srgb_uchar.exit286 ], [ %.1.lcssa, %.preheader ]
-  %.2274295 = phi ptr [ %237, %stbir__linear_to_srgb_uchar.exit286 ], [ %.pn.lcssa, %.preheader ]
+  %.2296 = phi ptr [ %236, %stbir__linear_to_srgb_uchar.exit286 ], [ %.1.lcssa, %.preheader ]
+  %.2274295 = phi ptr [ %235, %stbir__linear_to_srgb_uchar.exit286 ], [ %.pn.lcssa, %.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2296) #49, !srcloc !292
-  %217 = load float, ptr %.2296, align 4
-  %218 = fcmp ogt float %217, 0x3F20000000000000
-  br i1 %218, label %219, label %stbir__linear_to_srgb_uchar.exit286
+  %215 = load float, ptr %.2296, align 4
+  %216 = fcmp ogt float %215, 0x3F20000000000000
+  br i1 %216, label %217, label %stbir__linear_to_srgb_uchar.exit286
 
-219:                                              ; preds = %.lr.ph297
-  %220 = fcmp ogt float %217, 0x3FEFFFFFE0000000
-  br i1 %220, label %stbir__linear_to_srgb_uchar.exit286, label %221
+217:                                              ; preds = %.lr.ph297
+  %218 = fcmp ogt float %215, 0x3FEFFFFFE0000000
+  br i1 %218, label %stbir__linear_to_srgb_uchar.exit286, label %219
 
-221:                                              ; preds = %219
-  %222 = bitcast float %217 to i32
-  %223 = add nsw i32 %222, -956301312
-  %224 = lshr i32 %223, 20
-  %225 = zext nneg i32 %224 to i64
-  %226 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %225
-  %227 = load i32, ptr %226, align 4
-  %228 = lshr i32 %227, 7
-  %229 = and i32 %228, 16776704
-  %230 = and i32 %227, 65535
-  %231 = lshr i32 %222, 12
-  %232 = and i32 %231, 255
-  %233 = mul nuw nsw i32 %230, %232
-  %234 = add nuw nsw i32 %229, %233
-  %235 = lshr i32 %234, 16
-  %236 = trunc i32 %235 to i8
+219:                                              ; preds = %217
+  %220 = bitcast float %215 to i32
+  %221 = add nsw i32 %220, -956301312
+  %222 = lshr i32 %221, 20
+  %223 = zext nneg i32 %222 to i64
+  %224 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %223
+  %225 = load i32, ptr %224, align 4
+  %226 = lshr i32 %225, 7
+  %227 = and i32 %226, 16776704
+  %228 = and i32 %225, 65535
+  %229 = lshr i32 %220, 12
+  %230 = and i32 %229, 255
+  %231 = mul nuw nsw i32 %228, %230
+  %232 = add nuw nsw i32 %227, %231
+  %233 = lshr i32 %232, 16
+  %234 = trunc i32 %233 to i8
   br label %stbir__linear_to_srgb_uchar.exit286
 
-stbir__linear_to_srgb_uchar.exit286:              ; preds = %.lr.ph297, %219, %221
-  %.0.i285 = phi i8 [ %236, %221 ], [ 0, %.lr.ph297 ], [ -1, %219 ]
+stbir__linear_to_srgb_uchar.exit286:              ; preds = %.lr.ph297, %217, %219
+  %.0.i285 = phi i8 [ %234, %219 ], [ 0, %.lr.ph297 ], [ -1, %217 ]
   store i8 %.0.i285, ptr %.2274295, align 1
-  %237 = getelementptr inbounds nuw i8, ptr %.2274295, i64 1
-  %238 = getelementptr inbounds nuw i8, ptr %.2296, i64 4
-  %239 = icmp ult ptr %237, %5
-  br i1 %239, label %.lr.ph297, label %.loopexit
+  %235 = getelementptr inbounds nuw i8, ptr %.2274295, i64 1
+  %236 = getelementptr inbounds nuw i8, ptr %.2296, i64 4
+  %237 = icmp ult ptr %235, %5
+  br i1 %237, label %.lr.ph297, label %.loopexit
 
-.loopexit:                                        ; preds = %stbir__linear_to_srgb_uchar.exit286, %127, %.preheader
+.loopexit:                                        ; preds = %stbir__linear_to_srgb_uchar.exit286, %125, %.preheader
   ret void
 }
 
@@ -48675,138 +48644,136 @@ define internal void @stbir__encode_uint8_srgb4_linearalpha(ptr noundef writeonl
   %99 = lshr <4 x i32> %98, splat (i32 16)
   %100 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %85, <4 x i32> %92)
   %101 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %99, <4 x i32> %42)
-  %102 = shufflevector <8 x i16> %100, <8 x i16> %101, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %103 = shufflevector <8 x i16> %100, <8 x i16> %101, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %104 = shufflevector <8 x i16> %102, <8 x i16> %103, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %105 = shufflevector <8 x i16> %102, <8 x i16> %103, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %106 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %104, <8 x i16> %105)
-  store <16 x i8> %106, ptr %.0241, align 1
-  %107 = getelementptr inbounds nuw i8, ptr %.0241, i64 16
-  %108 = getelementptr inbounds nuw i8, ptr %.0239, i64 64
-  %.not = icmp ugt ptr %107, %10
-  br i1 %.not, label %109, label %.backedge.backedge
+  %102 = shufflevector <8 x i16> %100, <8 x i16> %101, <8 x i32> <i32 0, i32 4, i32 8, i32 12, i32 1, i32 5, i32 9, i32 13>
+  %103 = shufflevector <8 x i16> %100, <8 x i16> %101, <8 x i32> <i32 2, i32 6, i32 10, i32 14, i32 3, i32 7, i32 11, i32 15>
+  %104 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %102, <8 x i16> %103)
+  store <16 x i8> %104, ptr %.0241, align 1
+  %105 = getelementptr inbounds nuw i8, ptr %.0241, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %.0239, i64 64
+  %.not = icmp ugt ptr %105, %10
+  br i1 %.not, label %107, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %.backedge, %109
-  %.0241.be = phi ptr [ %107, %.backedge ], [ %10, %109 ]
-  %.0239.be = phi ptr [ %108, %.backedge ], [ %9, %109 ]
+.backedge.backedge:                               ; preds = %.backedge, %107
+  %.0241.be = phi ptr [ %105, %.backedge ], [ %10, %107 ]
+  %.0239.be = phi ptr [ %106, %.backedge ], [ %9, %107 ]
   br label %.backedge
 
-109:                                              ; preds = %.backedge
-  %110 = icmp eq ptr %107, %5
-  br i1 %110, label %.loopexit, label %.backedge.backedge
+107:                                              ; preds = %.backedge
+  %108 = icmp eq ptr %105, %5
+  br i1 %108, label %.loopexit, label %.backedge.backedge
 
 .preheader:                                       ; preds = %3, %stbir__linear_to_srgb_uchar.exit250
-  %.1242 = phi ptr [ %183, %stbir__linear_to_srgb_uchar.exit250 ], [ %0, %3 ]
-  %.1240 = phi ptr [ %184, %stbir__linear_to_srgb_uchar.exit250 ], [ %2, %3 ]
+  %.1242 = phi ptr [ %181, %stbir__linear_to_srgb_uchar.exit250 ], [ %0, %3 ]
+  %.1240 = phi ptr [ %182, %stbir__linear_to_srgb_uchar.exit250 ], [ %2, %3 ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1240) #49, !srcloc !297
-  %111 = load float, ptr %.1240, align 4
-  %112 = fcmp ogt float %111, 0x3F20000000000000
-  br i1 %112, label %113, label %stbir__linear_to_srgb_uchar.exit
+  %109 = load float, ptr %.1240, align 4
+  %110 = fcmp ogt float %109, 0x3F20000000000000
+  br i1 %110, label %111, label %stbir__linear_to_srgb_uchar.exit
 
-113:                                              ; preds = %.preheader
-  %114 = fcmp ogt float %111, 0x3FEFFFFFE0000000
-  br i1 %114, label %stbir__linear_to_srgb_uchar.exit, label %115
+111:                                              ; preds = %.preheader
+  %112 = fcmp ogt float %109, 0x3FEFFFFFE0000000
+  br i1 %112, label %stbir__linear_to_srgb_uchar.exit, label %113
 
-115:                                              ; preds = %113
-  %116 = bitcast float %111 to i32
-  %117 = add nsw i32 %116, -956301312
-  %118 = lshr i32 %117, 20
-  %119 = zext nneg i32 %118 to i64
-  %120 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %119
-  %121 = load i32, ptr %120, align 4
-  %122 = lshr i32 %121, 7
-  %123 = and i32 %122, 16776704
-  %124 = and i32 %121, 65535
-  %125 = lshr i32 %116, 12
-  %126 = and i32 %125, 255
-  %127 = mul nuw nsw i32 %124, %126
-  %128 = add nuw nsw i32 %123, %127
-  %129 = lshr i32 %128, 16
-  %130 = trunc i32 %129 to i8
+113:                                              ; preds = %111
+  %114 = bitcast float %109 to i32
+  %115 = add nsw i32 %114, -956301312
+  %116 = lshr i32 %115, 20
+  %117 = zext nneg i32 %116 to i64
+  %118 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %117
+  %119 = load i32, ptr %118, align 4
+  %120 = lshr i32 %119, 7
+  %121 = and i32 %120, 16776704
+  %122 = and i32 %119, 65535
+  %123 = lshr i32 %114, 12
+  %124 = and i32 %123, 255
+  %125 = mul nuw nsw i32 %122, %124
+  %126 = add nuw nsw i32 %121, %125
+  %127 = lshr i32 %126, 16
+  %128 = trunc i32 %127 to i8
   br label %stbir__linear_to_srgb_uchar.exit
 
-stbir__linear_to_srgb_uchar.exit:                 ; preds = %.preheader, %113, %115
-  %.0.i = phi i8 [ %130, %115 ], [ 0, %.preheader ], [ -1, %113 ]
+stbir__linear_to_srgb_uchar.exit:                 ; preds = %.preheader, %111, %113
+  %.0.i = phi i8 [ %128, %113 ], [ 0, %.preheader ], [ -1, %111 ]
   store i8 %.0.i, ptr %.1242, align 1
-  %131 = getelementptr inbounds nuw i8, ptr %.1240, i64 4
-  %132 = load float, ptr %131, align 4
-  %133 = fcmp ogt float %132, 0x3F20000000000000
-  br i1 %133, label %134, label %stbir__linear_to_srgb_uchar.exit248
+  %129 = getelementptr inbounds nuw i8, ptr %.1240, i64 4
+  %130 = load float, ptr %129, align 4
+  %131 = fcmp ogt float %130, 0x3F20000000000000
+  br i1 %131, label %132, label %stbir__linear_to_srgb_uchar.exit248
 
-134:                                              ; preds = %stbir__linear_to_srgb_uchar.exit
-  %135 = fcmp ogt float %132, 0x3FEFFFFFE0000000
-  br i1 %135, label %stbir__linear_to_srgb_uchar.exit248, label %136
+132:                                              ; preds = %stbir__linear_to_srgb_uchar.exit
+  %133 = fcmp ogt float %130, 0x3FEFFFFFE0000000
+  br i1 %133, label %stbir__linear_to_srgb_uchar.exit248, label %134
 
-136:                                              ; preds = %134
-  %137 = bitcast float %132 to i32
-  %138 = add nsw i32 %137, -956301312
-  %139 = lshr i32 %138, 20
-  %140 = zext nneg i32 %139 to i64
-  %141 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %140
-  %142 = load i32, ptr %141, align 4
-  %143 = lshr i32 %142, 7
-  %144 = and i32 %143, 16776704
-  %145 = and i32 %142, 65535
-  %146 = lshr i32 %137, 12
-  %147 = and i32 %146, 255
-  %148 = mul nuw nsw i32 %145, %147
-  %149 = add nuw nsw i32 %144, %148
-  %150 = lshr i32 %149, 16
-  %151 = trunc i32 %150 to i8
+134:                                              ; preds = %132
+  %135 = bitcast float %130 to i32
+  %136 = add nsw i32 %135, -956301312
+  %137 = lshr i32 %136, 20
+  %138 = zext nneg i32 %137 to i64
+  %139 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %138
+  %140 = load i32, ptr %139, align 4
+  %141 = lshr i32 %140, 7
+  %142 = and i32 %141, 16776704
+  %143 = and i32 %140, 65535
+  %144 = lshr i32 %135, 12
+  %145 = and i32 %144, 255
+  %146 = mul nuw nsw i32 %143, %145
+  %147 = add nuw nsw i32 %142, %146
+  %148 = lshr i32 %147, 16
+  %149 = trunc i32 %148 to i8
   br label %stbir__linear_to_srgb_uchar.exit248
 
-stbir__linear_to_srgb_uchar.exit248:              ; preds = %stbir__linear_to_srgb_uchar.exit, %134, %136
-  %.0.i247 = phi i8 [ %151, %136 ], [ 0, %stbir__linear_to_srgb_uchar.exit ], [ -1, %134 ]
-  %152 = getelementptr inbounds nuw i8, ptr %.1242, i64 1
-  store i8 %.0.i247, ptr %152, align 1
-  %153 = getelementptr inbounds nuw i8, ptr %.1240, i64 8
-  %154 = load float, ptr %153, align 4
-  %155 = fcmp ogt float %154, 0x3F20000000000000
-  br i1 %155, label %156, label %stbir__linear_to_srgb_uchar.exit250
+stbir__linear_to_srgb_uchar.exit248:              ; preds = %stbir__linear_to_srgb_uchar.exit, %132, %134
+  %.0.i247 = phi i8 [ %149, %134 ], [ 0, %stbir__linear_to_srgb_uchar.exit ], [ -1, %132 ]
+  %150 = getelementptr inbounds nuw i8, ptr %.1242, i64 1
+  store i8 %.0.i247, ptr %150, align 1
+  %151 = getelementptr inbounds nuw i8, ptr %.1240, i64 8
+  %152 = load float, ptr %151, align 4
+  %153 = fcmp ogt float %152, 0x3F20000000000000
+  br i1 %153, label %154, label %stbir__linear_to_srgb_uchar.exit250
 
-156:                                              ; preds = %stbir__linear_to_srgb_uchar.exit248
-  %157 = fcmp ogt float %154, 0x3FEFFFFFE0000000
-  br i1 %157, label %stbir__linear_to_srgb_uchar.exit250, label %158
+154:                                              ; preds = %stbir__linear_to_srgb_uchar.exit248
+  %155 = fcmp ogt float %152, 0x3FEFFFFFE0000000
+  br i1 %155, label %stbir__linear_to_srgb_uchar.exit250, label %156
 
-158:                                              ; preds = %156
-  %159 = bitcast float %154 to i32
-  %160 = add nsw i32 %159, -956301312
-  %161 = lshr i32 %160, 20
-  %162 = zext nneg i32 %161 to i64
-  %163 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %162
-  %164 = load i32, ptr %163, align 4
-  %165 = lshr i32 %164, 7
-  %166 = and i32 %165, 16776704
-  %167 = and i32 %164, 65535
-  %168 = lshr i32 %159, 12
-  %169 = and i32 %168, 255
-  %170 = mul nuw nsw i32 %167, %169
-  %171 = add nuw nsw i32 %166, %170
-  %172 = lshr i32 %171, 16
-  %173 = trunc i32 %172 to i8
+156:                                              ; preds = %154
+  %157 = bitcast float %152 to i32
+  %158 = add nsw i32 %157, -956301312
+  %159 = lshr i32 %158, 20
+  %160 = zext nneg i32 %159 to i64
+  %161 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %160
+  %162 = load i32, ptr %161, align 4
+  %163 = lshr i32 %162, 7
+  %164 = and i32 %163, 16776704
+  %165 = and i32 %162, 65535
+  %166 = lshr i32 %157, 12
+  %167 = and i32 %166, 255
+  %168 = mul nuw nsw i32 %165, %167
+  %169 = add nuw nsw i32 %164, %168
+  %170 = lshr i32 %169, 16
+  %171 = trunc i32 %170 to i8
   br label %stbir__linear_to_srgb_uchar.exit250
 
-stbir__linear_to_srgb_uchar.exit250:              ; preds = %stbir__linear_to_srgb_uchar.exit248, %156, %158
-  %.0.i249 = phi i8 [ %173, %158 ], [ 0, %stbir__linear_to_srgb_uchar.exit248 ], [ -1, %156 ]
-  %174 = getelementptr inbounds nuw i8, ptr %.1242, i64 2
-  store i8 %.0.i249, ptr %174, align 1
-  %175 = getelementptr inbounds nuw i8, ptr %.1240, i64 12
-  %176 = load float, ptr %175, align 4
-  %177 = fmul float %176, 2.550000e+02
-  %178 = fadd float %177, 5.000000e-01
-  %179 = fcmp olt float %178, 0.000000e+00
-  %.0 = select i1 %179, float 0.000000e+00, float %178
-  %180 = fcmp ogt float %.0, 2.550000e+02
-  %.1 = select i1 %180, float 2.550000e+02, float %.0
-  %181 = fptoui float %.1 to i8
-  %182 = getelementptr inbounds nuw i8, ptr %.1242, i64 3
-  store i8 %181, ptr %182, align 1
-  %183 = getelementptr inbounds nuw i8, ptr %.1242, i64 4
-  %184 = getelementptr inbounds nuw i8, ptr %.1240, i64 16
-  %185 = icmp ult ptr %183, %5
-  br i1 %185, label %.preheader, label %.loopexit
+stbir__linear_to_srgb_uchar.exit250:              ; preds = %stbir__linear_to_srgb_uchar.exit248, %154, %156
+  %.0.i249 = phi i8 [ %171, %156 ], [ 0, %stbir__linear_to_srgb_uchar.exit248 ], [ -1, %154 ]
+  %172 = getelementptr inbounds nuw i8, ptr %.1242, i64 2
+  store i8 %.0.i249, ptr %172, align 1
+  %173 = getelementptr inbounds nuw i8, ptr %.1240, i64 12
+  %174 = load float, ptr %173, align 4
+  %175 = fmul float %174, 2.550000e+02
+  %176 = fadd float %175, 5.000000e-01
+  %177 = fcmp olt float %176, 0.000000e+00
+  %.0 = select i1 %177, float 0.000000e+00, float %176
+  %178 = fcmp ogt float %.0, 2.550000e+02
+  %.1 = select i1 %178, float 2.550000e+02, float %.0
+  %179 = fptoui float %.1 to i8
+  %180 = getelementptr inbounds nuw i8, ptr %.1242, i64 3
+  store i8 %179, ptr %180, align 1
+  %181 = getelementptr inbounds nuw i8, ptr %.1242, i64 4
+  %182 = getelementptr inbounds nuw i8, ptr %.1240, i64 16
+  %183 = icmp ult ptr %181, %5
+  br i1 %183, label %.preheader, label %.loopexit
 
-.loopexit:                                        ; preds = %stbir__linear_to_srgb_uchar.exit250, %109
+.loopexit:                                        ; preds = %stbir__linear_to_srgb_uchar.exit250, %107
   ret void
 }
 
@@ -48942,138 +48909,136 @@ define internal void @stbir__encode_uint8_srgb4_linearalpha_BGRA(ptr noundef wri
   %99 = lshr <4 x i32> %98, splat (i32 16)
   %100 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %99, <4 x i32> %92)
   %101 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %85, <4 x i32> %42)
-  %102 = shufflevector <8 x i16> %100, <8 x i16> %101, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %103 = shufflevector <8 x i16> %100, <8 x i16> %101, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %104 = shufflevector <8 x i16> %102, <8 x i16> %103, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %105 = shufflevector <8 x i16> %102, <8 x i16> %103, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %106 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %104, <8 x i16> %105)
-  store <16 x i8> %106, ptr %.0241, align 1
-  %107 = getelementptr inbounds nuw i8, ptr %.0241, i64 16
-  %108 = getelementptr inbounds nuw i8, ptr %.0239, i64 64
-  %.not = icmp ugt ptr %107, %10
-  br i1 %.not, label %109, label %.backedge.backedge
+  %102 = shufflevector <8 x i16> %100, <8 x i16> %101, <8 x i32> <i32 0, i32 4, i32 8, i32 12, i32 1, i32 5, i32 9, i32 13>
+  %103 = shufflevector <8 x i16> %100, <8 x i16> %101, <8 x i32> <i32 2, i32 6, i32 10, i32 14, i32 3, i32 7, i32 11, i32 15>
+  %104 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %102, <8 x i16> %103)
+  store <16 x i8> %104, ptr %.0241, align 1
+  %105 = getelementptr inbounds nuw i8, ptr %.0241, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %.0239, i64 64
+  %.not = icmp ugt ptr %105, %10
+  br i1 %.not, label %107, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %.backedge, %109
-  %.0241.be = phi ptr [ %107, %.backedge ], [ %10, %109 ]
-  %.0239.be = phi ptr [ %108, %.backedge ], [ %9, %109 ]
+.backedge.backedge:                               ; preds = %.backedge, %107
+  %.0241.be = phi ptr [ %105, %.backedge ], [ %10, %107 ]
+  %.0239.be = phi ptr [ %106, %.backedge ], [ %9, %107 ]
   br label %.backedge
 
-109:                                              ; preds = %.backedge
-  %110 = icmp eq ptr %107, %5
-  br i1 %110, label %.loopexit, label %.backedge.backedge
+107:                                              ; preds = %.backedge
+  %108 = icmp eq ptr %105, %5
+  br i1 %108, label %.loopexit, label %.backedge.backedge
 
 .preheader:                                       ; preds = %3, %stbir__linear_to_srgb_uchar.exit250
-  %.1242 = phi ptr [ %183, %stbir__linear_to_srgb_uchar.exit250 ], [ %0, %3 ]
-  %.1240 = phi ptr [ %184, %stbir__linear_to_srgb_uchar.exit250 ], [ %2, %3 ]
+  %.1242 = phi ptr [ %181, %stbir__linear_to_srgb_uchar.exit250 ], [ %0, %3 ]
+  %.1240 = phi ptr [ %182, %stbir__linear_to_srgb_uchar.exit250 ], [ %2, %3 ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1240) #49, !srcloc !299
-  %111 = load float, ptr %.1240, align 4
-  %112 = fcmp ogt float %111, 0x3F20000000000000
-  br i1 %112, label %113, label %stbir__linear_to_srgb_uchar.exit
+  %109 = load float, ptr %.1240, align 4
+  %110 = fcmp ogt float %109, 0x3F20000000000000
+  br i1 %110, label %111, label %stbir__linear_to_srgb_uchar.exit
 
-113:                                              ; preds = %.preheader
-  %114 = fcmp ogt float %111, 0x3FEFFFFFE0000000
-  br i1 %114, label %stbir__linear_to_srgb_uchar.exit, label %115
+111:                                              ; preds = %.preheader
+  %112 = fcmp ogt float %109, 0x3FEFFFFFE0000000
+  br i1 %112, label %stbir__linear_to_srgb_uchar.exit, label %113
 
-115:                                              ; preds = %113
-  %116 = bitcast float %111 to i32
-  %117 = add nsw i32 %116, -956301312
-  %118 = lshr i32 %117, 20
-  %119 = zext nneg i32 %118 to i64
-  %120 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %119
-  %121 = load i32, ptr %120, align 4
-  %122 = lshr i32 %121, 7
-  %123 = and i32 %122, 16776704
-  %124 = and i32 %121, 65535
-  %125 = lshr i32 %116, 12
-  %126 = and i32 %125, 255
-  %127 = mul nuw nsw i32 %124, %126
-  %128 = add nuw nsw i32 %123, %127
-  %129 = lshr i32 %128, 16
-  %130 = trunc i32 %129 to i8
+113:                                              ; preds = %111
+  %114 = bitcast float %109 to i32
+  %115 = add nsw i32 %114, -956301312
+  %116 = lshr i32 %115, 20
+  %117 = zext nneg i32 %116 to i64
+  %118 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %117
+  %119 = load i32, ptr %118, align 4
+  %120 = lshr i32 %119, 7
+  %121 = and i32 %120, 16776704
+  %122 = and i32 %119, 65535
+  %123 = lshr i32 %114, 12
+  %124 = and i32 %123, 255
+  %125 = mul nuw nsw i32 %122, %124
+  %126 = add nuw nsw i32 %121, %125
+  %127 = lshr i32 %126, 16
+  %128 = trunc i32 %127 to i8
   br label %stbir__linear_to_srgb_uchar.exit
 
-stbir__linear_to_srgb_uchar.exit:                 ; preds = %.preheader, %113, %115
-  %.0.i = phi i8 [ %130, %115 ], [ 0, %.preheader ], [ -1, %113 ]
-  %131 = getelementptr inbounds nuw i8, ptr %.1242, i64 2
-  store i8 %.0.i, ptr %131, align 1
-  %132 = getelementptr inbounds nuw i8, ptr %.1240, i64 4
-  %133 = load float, ptr %132, align 4
-  %134 = fcmp ogt float %133, 0x3F20000000000000
-  br i1 %134, label %135, label %stbir__linear_to_srgb_uchar.exit248
+stbir__linear_to_srgb_uchar.exit:                 ; preds = %.preheader, %111, %113
+  %.0.i = phi i8 [ %128, %113 ], [ 0, %.preheader ], [ -1, %111 ]
+  %129 = getelementptr inbounds nuw i8, ptr %.1242, i64 2
+  store i8 %.0.i, ptr %129, align 1
+  %130 = getelementptr inbounds nuw i8, ptr %.1240, i64 4
+  %131 = load float, ptr %130, align 4
+  %132 = fcmp ogt float %131, 0x3F20000000000000
+  br i1 %132, label %133, label %stbir__linear_to_srgb_uchar.exit248
 
-135:                                              ; preds = %stbir__linear_to_srgb_uchar.exit
-  %136 = fcmp ogt float %133, 0x3FEFFFFFE0000000
-  br i1 %136, label %stbir__linear_to_srgb_uchar.exit248, label %137
+133:                                              ; preds = %stbir__linear_to_srgb_uchar.exit
+  %134 = fcmp ogt float %131, 0x3FEFFFFFE0000000
+  br i1 %134, label %stbir__linear_to_srgb_uchar.exit248, label %135
 
-137:                                              ; preds = %135
-  %138 = bitcast float %133 to i32
-  %139 = add nsw i32 %138, -956301312
-  %140 = lshr i32 %139, 20
-  %141 = zext nneg i32 %140 to i64
-  %142 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %141
-  %143 = load i32, ptr %142, align 4
-  %144 = lshr i32 %143, 7
-  %145 = and i32 %144, 16776704
-  %146 = and i32 %143, 65535
-  %147 = lshr i32 %138, 12
-  %148 = and i32 %147, 255
-  %149 = mul nuw nsw i32 %146, %148
-  %150 = add nuw nsw i32 %145, %149
-  %151 = lshr i32 %150, 16
-  %152 = trunc i32 %151 to i8
+135:                                              ; preds = %133
+  %136 = bitcast float %131 to i32
+  %137 = add nsw i32 %136, -956301312
+  %138 = lshr i32 %137, 20
+  %139 = zext nneg i32 %138 to i64
+  %140 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %139
+  %141 = load i32, ptr %140, align 4
+  %142 = lshr i32 %141, 7
+  %143 = and i32 %142, 16776704
+  %144 = and i32 %141, 65535
+  %145 = lshr i32 %136, 12
+  %146 = and i32 %145, 255
+  %147 = mul nuw nsw i32 %144, %146
+  %148 = add nuw nsw i32 %143, %147
+  %149 = lshr i32 %148, 16
+  %150 = trunc i32 %149 to i8
   br label %stbir__linear_to_srgb_uchar.exit248
 
-stbir__linear_to_srgb_uchar.exit248:              ; preds = %stbir__linear_to_srgb_uchar.exit, %135, %137
-  %.0.i247 = phi i8 [ %152, %137 ], [ 0, %stbir__linear_to_srgb_uchar.exit ], [ -1, %135 ]
-  %153 = getelementptr inbounds nuw i8, ptr %.1242, i64 1
-  store i8 %.0.i247, ptr %153, align 1
-  %154 = getelementptr inbounds nuw i8, ptr %.1240, i64 8
-  %155 = load float, ptr %154, align 4
-  %156 = fcmp ogt float %155, 0x3F20000000000000
-  br i1 %156, label %157, label %stbir__linear_to_srgb_uchar.exit250
+stbir__linear_to_srgb_uchar.exit248:              ; preds = %stbir__linear_to_srgb_uchar.exit, %133, %135
+  %.0.i247 = phi i8 [ %150, %135 ], [ 0, %stbir__linear_to_srgb_uchar.exit ], [ -1, %133 ]
+  %151 = getelementptr inbounds nuw i8, ptr %.1242, i64 1
+  store i8 %.0.i247, ptr %151, align 1
+  %152 = getelementptr inbounds nuw i8, ptr %.1240, i64 8
+  %153 = load float, ptr %152, align 4
+  %154 = fcmp ogt float %153, 0x3F20000000000000
+  br i1 %154, label %155, label %stbir__linear_to_srgb_uchar.exit250
 
-157:                                              ; preds = %stbir__linear_to_srgb_uchar.exit248
-  %158 = fcmp ogt float %155, 0x3FEFFFFFE0000000
-  br i1 %158, label %stbir__linear_to_srgb_uchar.exit250, label %159
+155:                                              ; preds = %stbir__linear_to_srgb_uchar.exit248
+  %156 = fcmp ogt float %153, 0x3FEFFFFFE0000000
+  br i1 %156, label %stbir__linear_to_srgb_uchar.exit250, label %157
 
-159:                                              ; preds = %157
-  %160 = bitcast float %155 to i32
-  %161 = add nsw i32 %160, -956301312
-  %162 = lshr i32 %161, 20
-  %163 = zext nneg i32 %162 to i64
-  %164 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %163
-  %165 = load i32, ptr %164, align 4
-  %166 = lshr i32 %165, 7
-  %167 = and i32 %166, 16776704
-  %168 = and i32 %165, 65535
-  %169 = lshr i32 %160, 12
-  %170 = and i32 %169, 255
-  %171 = mul nuw nsw i32 %168, %170
-  %172 = add nuw nsw i32 %167, %171
-  %173 = lshr i32 %172, 16
-  %174 = trunc i32 %173 to i8
+157:                                              ; preds = %155
+  %158 = bitcast float %153 to i32
+  %159 = add nsw i32 %158, -956301312
+  %160 = lshr i32 %159, 20
+  %161 = zext nneg i32 %160 to i64
+  %162 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %161
+  %163 = load i32, ptr %162, align 4
+  %164 = lshr i32 %163, 7
+  %165 = and i32 %164, 16776704
+  %166 = and i32 %163, 65535
+  %167 = lshr i32 %158, 12
+  %168 = and i32 %167, 255
+  %169 = mul nuw nsw i32 %166, %168
+  %170 = add nuw nsw i32 %165, %169
+  %171 = lshr i32 %170, 16
+  %172 = trunc i32 %171 to i8
   br label %stbir__linear_to_srgb_uchar.exit250
 
-stbir__linear_to_srgb_uchar.exit250:              ; preds = %stbir__linear_to_srgb_uchar.exit248, %157, %159
-  %.0.i249 = phi i8 [ %174, %159 ], [ 0, %stbir__linear_to_srgb_uchar.exit248 ], [ -1, %157 ]
+stbir__linear_to_srgb_uchar.exit250:              ; preds = %stbir__linear_to_srgb_uchar.exit248, %155, %157
+  %.0.i249 = phi i8 [ %172, %157 ], [ 0, %stbir__linear_to_srgb_uchar.exit248 ], [ -1, %155 ]
   store i8 %.0.i249, ptr %.1242, align 1
-  %175 = getelementptr inbounds nuw i8, ptr %.1240, i64 12
-  %176 = load float, ptr %175, align 4
-  %177 = fmul float %176, 2.550000e+02
-  %178 = fadd float %177, 5.000000e-01
-  %179 = fcmp olt float %178, 0.000000e+00
-  %.0 = select i1 %179, float 0.000000e+00, float %178
-  %180 = fcmp ogt float %.0, 2.550000e+02
-  %.1 = select i1 %180, float 2.550000e+02, float %.0
-  %181 = fptoui float %.1 to i8
-  %182 = getelementptr inbounds nuw i8, ptr %.1242, i64 3
-  store i8 %181, ptr %182, align 1
-  %183 = getelementptr inbounds nuw i8, ptr %.1242, i64 4
-  %184 = getelementptr inbounds nuw i8, ptr %.1240, i64 16
-  %185 = icmp ult ptr %183, %5
-  br i1 %185, label %.preheader, label %.loopexit
+  %173 = getelementptr inbounds nuw i8, ptr %.1240, i64 12
+  %174 = load float, ptr %173, align 4
+  %175 = fmul float %174, 2.550000e+02
+  %176 = fadd float %175, 5.000000e-01
+  %177 = fcmp olt float %176, 0.000000e+00
+  %.0 = select i1 %177, float 0.000000e+00, float %176
+  %178 = fcmp ogt float %.0, 2.550000e+02
+  %.1 = select i1 %178, float 2.550000e+02, float %.0
+  %179 = fptoui float %.1 to i8
+  %180 = getelementptr inbounds nuw i8, ptr %.1242, i64 3
+  store i8 %179, ptr %180, align 1
+  %181 = getelementptr inbounds nuw i8, ptr %.1242, i64 4
+  %182 = getelementptr inbounds nuw i8, ptr %.1240, i64 16
+  %183 = icmp ult ptr %181, %5
+  br i1 %183, label %.preheader, label %.loopexit
 
-.loopexit:                                        ; preds = %stbir__linear_to_srgb_uchar.exit250, %109
+.loopexit:                                        ; preds = %stbir__linear_to_srgb_uchar.exit250, %107
   ret void
 }
 
@@ -49243,159 +49208,157 @@ define internal void @stbir__encode_uint8_srgb_BGRA(ptr noundef writeonly %0, i3
   %117 = lshr <4 x i32> %116, splat (i32 16)
   %118 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %110, <4 x i32> %103)
   %119 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %96, <4 x i32> %117)
-  %120 = shufflevector <8 x i16> %118, <8 x i16> %119, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %121 = shufflevector <8 x i16> %118, <8 x i16> %119, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %122 = shufflevector <8 x i16> %120, <8 x i16> %121, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %123 = shufflevector <8 x i16> %120, <8 x i16> %121, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %124 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %122, <8 x i16> %123)
-  store <16 x i8> %124, ptr %.0265, align 1
-  %125 = getelementptr inbounds nuw i8, ptr %.0, i64 64
-  %126 = getelementptr inbounds nuw i8, ptr %.0265, i64 16
-  %.not269 = icmp ugt ptr %126, %10
-  br i1 %.not269, label %127, label %.backedge.backedge
+  %120 = shufflevector <8 x i16> %118, <8 x i16> %119, <8 x i32> <i32 0, i32 4, i32 8, i32 12, i32 1, i32 5, i32 9, i32 13>
+  %121 = shufflevector <8 x i16> %118, <8 x i16> %119, <8 x i32> <i32 2, i32 6, i32 10, i32 14, i32 3, i32 7, i32 11, i32 15>
+  %122 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %120, <8 x i16> %121)
+  store <16 x i8> %122, ptr %.0265, align 1
+  %123 = getelementptr inbounds nuw i8, ptr %.0, i64 64
+  %124 = getelementptr inbounds nuw i8, ptr %.0265, i64 16
+  %.not269 = icmp ugt ptr %124, %10
+  br i1 %.not269, label %125, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %.backedge, %127
-  %.0265.be = phi ptr [ %126, %.backedge ], [ %10, %127 ]
-  %.0.be = phi ptr [ %125, %.backedge ], [ %9, %127 ]
+.backedge.backedge:                               ; preds = %.backedge, %125
+  %.0265.be = phi ptr [ %124, %.backedge ], [ %10, %125 ]
+  %.0.be = phi ptr [ %123, %.backedge ], [ %9, %125 ]
   br label %.backedge
 
-127:                                              ; preds = %.backedge
-  %128 = icmp eq ptr %126, %5
-  br i1 %128, label %.loopexit, label %.backedge.backedge
+125:                                              ; preds = %.backedge
+  %126 = icmp eq ptr %124, %5
+  br i1 %126, label %.loopexit, label %.backedge.backedge
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %stbir__linear_to_srgb_uchar.exit275
   %.1266281 = phi ptr [ %.1266, %stbir__linear_to_srgb_uchar.exit275 ], [ %.1266277, %.lr.ph.preheader ]
-  %.1280 = phi ptr [ %215, %stbir__linear_to_srgb_uchar.exit275 ], [ %2, %.lr.ph.preheader ]
+  %.1280 = phi ptr [ %213, %stbir__linear_to_srgb_uchar.exit275 ], [ %2, %.lr.ph.preheader ]
   %.pn279 = phi ptr [ %.1266281, %stbir__linear_to_srgb_uchar.exit275 ], [ %0, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1280) #49, !srcloc !301
-  %129 = getelementptr inbounds nuw i8, ptr %.1280, i64 8
-  %130 = load float, ptr %129, align 4
-  %131 = fcmp ogt float %130, 0x3F20000000000000
-  br i1 %131, label %132, label %stbir__linear_to_srgb_uchar.exit
+  %127 = getelementptr inbounds nuw i8, ptr %.1280, i64 8
+  %128 = load float, ptr %127, align 4
+  %129 = fcmp ogt float %128, 0x3F20000000000000
+  br i1 %129, label %130, label %stbir__linear_to_srgb_uchar.exit
 
-132:                                              ; preds = %.lr.ph
-  %133 = fcmp ogt float %130, 0x3FEFFFFFE0000000
-  br i1 %133, label %stbir__linear_to_srgb_uchar.exit, label %134
+130:                                              ; preds = %.lr.ph
+  %131 = fcmp ogt float %128, 0x3FEFFFFFE0000000
+  br i1 %131, label %stbir__linear_to_srgb_uchar.exit, label %132
 
-134:                                              ; preds = %132
-  %135 = bitcast float %130 to i32
-  %136 = add nsw i32 %135, -956301312
-  %137 = lshr i32 %136, 20
-  %138 = zext nneg i32 %137 to i64
-  %139 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %138
-  %140 = load i32, ptr %139, align 4
-  %141 = lshr i32 %140, 7
-  %142 = and i32 %141, 16776704
-  %143 = and i32 %140, 65535
-  %144 = lshr i32 %135, 12
-  %145 = and i32 %144, 255
-  %146 = mul nuw nsw i32 %143, %145
-  %147 = add nuw nsw i32 %142, %146
-  %148 = lshr i32 %147, 16
-  %149 = trunc i32 %148 to i8
+132:                                              ; preds = %130
+  %133 = bitcast float %128 to i32
+  %134 = add nsw i32 %133, -956301312
+  %135 = lshr i32 %134, 20
+  %136 = zext nneg i32 %135 to i64
+  %137 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %136
+  %138 = load i32, ptr %137, align 4
+  %139 = lshr i32 %138, 7
+  %140 = and i32 %139, 16776704
+  %141 = and i32 %138, 65535
+  %142 = lshr i32 %133, 12
+  %143 = and i32 %142, 255
+  %144 = mul nuw nsw i32 %141, %143
+  %145 = add nuw nsw i32 %140, %144
+  %146 = lshr i32 %145, 16
+  %147 = trunc i32 %146 to i8
   br label %stbir__linear_to_srgb_uchar.exit
 
-stbir__linear_to_srgb_uchar.exit:                 ; preds = %.lr.ph, %132, %134
-  %.0.i = phi i8 [ %149, %134 ], [ 0, %.lr.ph ], [ -1, %132 ]
+stbir__linear_to_srgb_uchar.exit:                 ; preds = %.lr.ph, %130, %132
+  %.0.i = phi i8 [ %147, %132 ], [ 0, %.lr.ph ], [ -1, %130 ]
   store i8 %.0.i, ptr %.pn279, align 1
-  %150 = getelementptr inbounds nuw i8, ptr %.1280, i64 4
-  %151 = load float, ptr %150, align 4
-  %152 = fcmp ogt float %151, 0x3F20000000000000
-  br i1 %152, label %153, label %stbir__linear_to_srgb_uchar.exit271
+  %148 = getelementptr inbounds nuw i8, ptr %.1280, i64 4
+  %149 = load float, ptr %148, align 4
+  %150 = fcmp ogt float %149, 0x3F20000000000000
+  br i1 %150, label %151, label %stbir__linear_to_srgb_uchar.exit271
 
-153:                                              ; preds = %stbir__linear_to_srgb_uchar.exit
-  %154 = fcmp ogt float %151, 0x3FEFFFFFE0000000
-  br i1 %154, label %stbir__linear_to_srgb_uchar.exit271, label %155
+151:                                              ; preds = %stbir__linear_to_srgb_uchar.exit
+  %152 = fcmp ogt float %149, 0x3FEFFFFFE0000000
+  br i1 %152, label %stbir__linear_to_srgb_uchar.exit271, label %153
 
-155:                                              ; preds = %153
-  %156 = bitcast float %151 to i32
-  %157 = add nsw i32 %156, -956301312
-  %158 = lshr i32 %157, 20
-  %159 = zext nneg i32 %158 to i64
-  %160 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %159
-  %161 = load i32, ptr %160, align 4
-  %162 = lshr i32 %161, 7
-  %163 = and i32 %162, 16776704
-  %164 = and i32 %161, 65535
-  %165 = lshr i32 %156, 12
-  %166 = and i32 %165, 255
-  %167 = mul nuw nsw i32 %164, %166
-  %168 = add nuw nsw i32 %163, %167
-  %169 = lshr i32 %168, 16
-  %170 = trunc i32 %169 to i8
+153:                                              ; preds = %151
+  %154 = bitcast float %149 to i32
+  %155 = add nsw i32 %154, -956301312
+  %156 = lshr i32 %155, 20
+  %157 = zext nneg i32 %156 to i64
+  %158 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %157
+  %159 = load i32, ptr %158, align 4
+  %160 = lshr i32 %159, 7
+  %161 = and i32 %160, 16776704
+  %162 = and i32 %159, 65535
+  %163 = lshr i32 %154, 12
+  %164 = and i32 %163, 255
+  %165 = mul nuw nsw i32 %162, %164
+  %166 = add nuw nsw i32 %161, %165
+  %167 = lshr i32 %166, 16
+  %168 = trunc i32 %167 to i8
   br label %stbir__linear_to_srgb_uchar.exit271
 
-stbir__linear_to_srgb_uchar.exit271:              ; preds = %stbir__linear_to_srgb_uchar.exit, %153, %155
-  %.0.i270 = phi i8 [ %170, %155 ], [ 0, %stbir__linear_to_srgb_uchar.exit ], [ -1, %153 ]
-  %171 = getelementptr inbounds nuw i8, ptr %.pn279, i64 1
-  store i8 %.0.i270, ptr %171, align 1
-  %172 = load float, ptr %.1280, align 4
-  %173 = fcmp ogt float %172, 0x3F20000000000000
-  br i1 %173, label %174, label %stbir__linear_to_srgb_uchar.exit273
+stbir__linear_to_srgb_uchar.exit271:              ; preds = %stbir__linear_to_srgb_uchar.exit, %151, %153
+  %.0.i270 = phi i8 [ %168, %153 ], [ 0, %stbir__linear_to_srgb_uchar.exit ], [ -1, %151 ]
+  %169 = getelementptr inbounds nuw i8, ptr %.pn279, i64 1
+  store i8 %.0.i270, ptr %169, align 1
+  %170 = load float, ptr %.1280, align 4
+  %171 = fcmp ogt float %170, 0x3F20000000000000
+  br i1 %171, label %172, label %stbir__linear_to_srgb_uchar.exit273
 
-174:                                              ; preds = %stbir__linear_to_srgb_uchar.exit271
-  %175 = fcmp ogt float %172, 0x3FEFFFFFE0000000
-  br i1 %175, label %stbir__linear_to_srgb_uchar.exit273, label %176
+172:                                              ; preds = %stbir__linear_to_srgb_uchar.exit271
+  %173 = fcmp ogt float %170, 0x3FEFFFFFE0000000
+  br i1 %173, label %stbir__linear_to_srgb_uchar.exit273, label %174
 
-176:                                              ; preds = %174
-  %177 = bitcast float %172 to i32
-  %178 = add nsw i32 %177, -956301312
-  %179 = lshr i32 %178, 20
-  %180 = zext nneg i32 %179 to i64
-  %181 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %180
-  %182 = load i32, ptr %181, align 4
-  %183 = lshr i32 %182, 7
-  %184 = and i32 %183, 16776704
-  %185 = and i32 %182, 65535
-  %186 = lshr i32 %177, 12
-  %187 = and i32 %186, 255
-  %188 = mul nuw nsw i32 %185, %187
-  %189 = add nuw nsw i32 %184, %188
-  %190 = lshr i32 %189, 16
-  %191 = trunc i32 %190 to i8
+174:                                              ; preds = %172
+  %175 = bitcast float %170 to i32
+  %176 = add nsw i32 %175, -956301312
+  %177 = lshr i32 %176, 20
+  %178 = zext nneg i32 %177 to i64
+  %179 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %178
+  %180 = load i32, ptr %179, align 4
+  %181 = lshr i32 %180, 7
+  %182 = and i32 %181, 16776704
+  %183 = and i32 %180, 65535
+  %184 = lshr i32 %175, 12
+  %185 = and i32 %184, 255
+  %186 = mul nuw nsw i32 %183, %185
+  %187 = add nuw nsw i32 %182, %186
+  %188 = lshr i32 %187, 16
+  %189 = trunc i32 %188 to i8
   br label %stbir__linear_to_srgb_uchar.exit273
 
-stbir__linear_to_srgb_uchar.exit273:              ; preds = %stbir__linear_to_srgb_uchar.exit271, %174, %176
-  %.0.i272 = phi i8 [ %191, %176 ], [ 0, %stbir__linear_to_srgb_uchar.exit271 ], [ -1, %174 ]
-  %192 = getelementptr inbounds nuw i8, ptr %.pn279, i64 2
-  store i8 %.0.i272, ptr %192, align 1
-  %193 = getelementptr inbounds nuw i8, ptr %.1280, i64 12
-  %194 = load float, ptr %193, align 4
-  %195 = fcmp ogt float %194, 0x3F20000000000000
-  br i1 %195, label %196, label %stbir__linear_to_srgb_uchar.exit275
+stbir__linear_to_srgb_uchar.exit273:              ; preds = %stbir__linear_to_srgb_uchar.exit271, %172, %174
+  %.0.i272 = phi i8 [ %189, %174 ], [ 0, %stbir__linear_to_srgb_uchar.exit271 ], [ -1, %172 ]
+  %190 = getelementptr inbounds nuw i8, ptr %.pn279, i64 2
+  store i8 %.0.i272, ptr %190, align 1
+  %191 = getelementptr inbounds nuw i8, ptr %.1280, i64 12
+  %192 = load float, ptr %191, align 4
+  %193 = fcmp ogt float %192, 0x3F20000000000000
+  br i1 %193, label %194, label %stbir__linear_to_srgb_uchar.exit275
 
-196:                                              ; preds = %stbir__linear_to_srgb_uchar.exit273
-  %197 = fcmp ogt float %194, 0x3FEFFFFFE0000000
-  br i1 %197, label %stbir__linear_to_srgb_uchar.exit275, label %198
+194:                                              ; preds = %stbir__linear_to_srgb_uchar.exit273
+  %195 = fcmp ogt float %192, 0x3FEFFFFFE0000000
+  br i1 %195, label %stbir__linear_to_srgb_uchar.exit275, label %196
 
-198:                                              ; preds = %196
-  %199 = bitcast float %194 to i32
-  %200 = add nsw i32 %199, -956301312
-  %201 = lshr i32 %200, 20
-  %202 = zext nneg i32 %201 to i64
-  %203 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %202
-  %204 = load i32, ptr %203, align 4
-  %205 = lshr i32 %204, 7
-  %206 = and i32 %205, 16776704
-  %207 = and i32 %204, 65535
-  %208 = lshr i32 %199, 12
-  %209 = and i32 %208, 255
-  %210 = mul nuw nsw i32 %207, %209
-  %211 = add nuw nsw i32 %206, %210
-  %212 = lshr i32 %211, 16
-  %213 = trunc i32 %212 to i8
+196:                                              ; preds = %194
+  %197 = bitcast float %192 to i32
+  %198 = add nsw i32 %197, -956301312
+  %199 = lshr i32 %198, 20
+  %200 = zext nneg i32 %199 to i64
+  %201 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %200
+  %202 = load i32, ptr %201, align 4
+  %203 = lshr i32 %202, 7
+  %204 = and i32 %203, 16776704
+  %205 = and i32 %202, 65535
+  %206 = lshr i32 %197, 12
+  %207 = and i32 %206, 255
+  %208 = mul nuw nsw i32 %205, %207
+  %209 = add nuw nsw i32 %204, %208
+  %210 = lshr i32 %209, 16
+  %211 = trunc i32 %210 to i8
   br label %stbir__linear_to_srgb_uchar.exit275
 
-stbir__linear_to_srgb_uchar.exit275:              ; preds = %stbir__linear_to_srgb_uchar.exit273, %196, %198
-  %.0.i274 = phi i8 [ %213, %198 ], [ 0, %stbir__linear_to_srgb_uchar.exit273 ], [ -1, %196 ]
-  %214 = getelementptr inbounds nuw i8, ptr %.pn279, i64 3
-  store i8 %.0.i274, ptr %214, align 1
-  %215 = getelementptr inbounds nuw i8, ptr %.1280, i64 16
+stbir__linear_to_srgb_uchar.exit275:              ; preds = %stbir__linear_to_srgb_uchar.exit273, %194, %196
+  %.0.i274 = phi i8 [ %211, %196 ], [ 0, %stbir__linear_to_srgb_uchar.exit273 ], [ -1, %194 ]
+  %212 = getelementptr inbounds nuw i8, ptr %.pn279, i64 3
+  store i8 %.0.i274, ptr %212, align 1
+  %213 = getelementptr inbounds nuw i8, ptr %.1280, i64 16
   %.1266 = getelementptr inbounds nuw i8, ptr %.1266281, i64 4
   %.not = icmp ugt ptr %.1266, %5
   br i1 %.not, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %stbir__linear_to_srgb_uchar.exit275, %127, %.preheader
+.loopexit:                                        ; preds = %stbir__linear_to_srgb_uchar.exit275, %125, %.preheader
   ret void
 }
 
@@ -49865,138 +49828,136 @@ define internal void @stbir__encode_uint8_srgb4_linearalpha_ARGB(ptr noundef wri
   %99 = lshr <4 x i32> %98, splat (i32 16)
   %100 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %42, <4 x i32> %85)
   %101 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %92, <4 x i32> %99)
-  %102 = shufflevector <8 x i16> %100, <8 x i16> %101, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %103 = shufflevector <8 x i16> %100, <8 x i16> %101, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %104 = shufflevector <8 x i16> %102, <8 x i16> %103, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %105 = shufflevector <8 x i16> %102, <8 x i16> %103, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %106 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %104, <8 x i16> %105)
-  store <16 x i8> %106, ptr %.0241, align 1
-  %107 = getelementptr inbounds nuw i8, ptr %.0241, i64 16
-  %108 = getelementptr inbounds nuw i8, ptr %.0239, i64 64
-  %.not = icmp ugt ptr %107, %10
-  br i1 %.not, label %109, label %.backedge.backedge
+  %102 = shufflevector <8 x i16> %100, <8 x i16> %101, <8 x i32> <i32 0, i32 4, i32 8, i32 12, i32 1, i32 5, i32 9, i32 13>
+  %103 = shufflevector <8 x i16> %100, <8 x i16> %101, <8 x i32> <i32 2, i32 6, i32 10, i32 14, i32 3, i32 7, i32 11, i32 15>
+  %104 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %102, <8 x i16> %103)
+  store <16 x i8> %104, ptr %.0241, align 1
+  %105 = getelementptr inbounds nuw i8, ptr %.0241, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %.0239, i64 64
+  %.not = icmp ugt ptr %105, %10
+  br i1 %.not, label %107, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %.backedge, %109
-  %.0241.be = phi ptr [ %107, %.backedge ], [ %10, %109 ]
-  %.0239.be = phi ptr [ %108, %.backedge ], [ %9, %109 ]
+.backedge.backedge:                               ; preds = %.backedge, %107
+  %.0241.be = phi ptr [ %105, %.backedge ], [ %10, %107 ]
+  %.0239.be = phi ptr [ %106, %.backedge ], [ %9, %107 ]
   br label %.backedge
 
-109:                                              ; preds = %.backedge
-  %110 = icmp eq ptr %107, %5
-  br i1 %110, label %.loopexit, label %.backedge.backedge
+107:                                              ; preds = %.backedge
+  %108 = icmp eq ptr %105, %5
+  br i1 %108, label %.loopexit, label %.backedge.backedge
 
 .preheader:                                       ; preds = %3, %stbir__linear_to_srgb_uchar.exit250
-  %.1242 = phi ptr [ %183, %stbir__linear_to_srgb_uchar.exit250 ], [ %0, %3 ]
-  %.1240 = phi ptr [ %184, %stbir__linear_to_srgb_uchar.exit250 ], [ %2, %3 ]
+  %.1242 = phi ptr [ %181, %stbir__linear_to_srgb_uchar.exit250 ], [ %0, %3 ]
+  %.1240 = phi ptr [ %182, %stbir__linear_to_srgb_uchar.exit250 ], [ %2, %3 ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1240) #49, !srcloc !307
-  %111 = load float, ptr %.1240, align 4
-  %112 = fcmp ogt float %111, 0x3F20000000000000
-  br i1 %112, label %113, label %stbir__linear_to_srgb_uchar.exit
+  %109 = load float, ptr %.1240, align 4
+  %110 = fcmp ogt float %109, 0x3F20000000000000
+  br i1 %110, label %111, label %stbir__linear_to_srgb_uchar.exit
 
-113:                                              ; preds = %.preheader
-  %114 = fcmp ogt float %111, 0x3FEFFFFFE0000000
-  br i1 %114, label %stbir__linear_to_srgb_uchar.exit, label %115
+111:                                              ; preds = %.preheader
+  %112 = fcmp ogt float %109, 0x3FEFFFFFE0000000
+  br i1 %112, label %stbir__linear_to_srgb_uchar.exit, label %113
 
-115:                                              ; preds = %113
-  %116 = bitcast float %111 to i32
-  %117 = add nsw i32 %116, -956301312
-  %118 = lshr i32 %117, 20
-  %119 = zext nneg i32 %118 to i64
-  %120 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %119
-  %121 = load i32, ptr %120, align 4
-  %122 = lshr i32 %121, 7
-  %123 = and i32 %122, 16776704
-  %124 = and i32 %121, 65535
-  %125 = lshr i32 %116, 12
-  %126 = and i32 %125, 255
-  %127 = mul nuw nsw i32 %124, %126
-  %128 = add nuw nsw i32 %123, %127
-  %129 = lshr i32 %128, 16
-  %130 = trunc i32 %129 to i8
+113:                                              ; preds = %111
+  %114 = bitcast float %109 to i32
+  %115 = add nsw i32 %114, -956301312
+  %116 = lshr i32 %115, 20
+  %117 = zext nneg i32 %116 to i64
+  %118 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %117
+  %119 = load i32, ptr %118, align 4
+  %120 = lshr i32 %119, 7
+  %121 = and i32 %120, 16776704
+  %122 = and i32 %119, 65535
+  %123 = lshr i32 %114, 12
+  %124 = and i32 %123, 255
+  %125 = mul nuw nsw i32 %122, %124
+  %126 = add nuw nsw i32 %121, %125
+  %127 = lshr i32 %126, 16
+  %128 = trunc i32 %127 to i8
   br label %stbir__linear_to_srgb_uchar.exit
 
-stbir__linear_to_srgb_uchar.exit:                 ; preds = %.preheader, %113, %115
-  %.0.i = phi i8 [ %130, %115 ], [ 0, %.preheader ], [ -1, %113 ]
-  %131 = getelementptr inbounds nuw i8, ptr %.1242, i64 1
-  store i8 %.0.i, ptr %131, align 1
-  %132 = getelementptr inbounds nuw i8, ptr %.1240, i64 4
-  %133 = load float, ptr %132, align 4
-  %134 = fcmp ogt float %133, 0x3F20000000000000
-  br i1 %134, label %135, label %stbir__linear_to_srgb_uchar.exit248
+stbir__linear_to_srgb_uchar.exit:                 ; preds = %.preheader, %111, %113
+  %.0.i = phi i8 [ %128, %113 ], [ 0, %.preheader ], [ -1, %111 ]
+  %129 = getelementptr inbounds nuw i8, ptr %.1242, i64 1
+  store i8 %.0.i, ptr %129, align 1
+  %130 = getelementptr inbounds nuw i8, ptr %.1240, i64 4
+  %131 = load float, ptr %130, align 4
+  %132 = fcmp ogt float %131, 0x3F20000000000000
+  br i1 %132, label %133, label %stbir__linear_to_srgb_uchar.exit248
 
-135:                                              ; preds = %stbir__linear_to_srgb_uchar.exit
-  %136 = fcmp ogt float %133, 0x3FEFFFFFE0000000
-  br i1 %136, label %stbir__linear_to_srgb_uchar.exit248, label %137
+133:                                              ; preds = %stbir__linear_to_srgb_uchar.exit
+  %134 = fcmp ogt float %131, 0x3FEFFFFFE0000000
+  br i1 %134, label %stbir__linear_to_srgb_uchar.exit248, label %135
 
-137:                                              ; preds = %135
-  %138 = bitcast float %133 to i32
-  %139 = add nsw i32 %138, -956301312
-  %140 = lshr i32 %139, 20
-  %141 = zext nneg i32 %140 to i64
-  %142 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %141
-  %143 = load i32, ptr %142, align 4
-  %144 = lshr i32 %143, 7
-  %145 = and i32 %144, 16776704
-  %146 = and i32 %143, 65535
-  %147 = lshr i32 %138, 12
-  %148 = and i32 %147, 255
-  %149 = mul nuw nsw i32 %146, %148
-  %150 = add nuw nsw i32 %145, %149
-  %151 = lshr i32 %150, 16
-  %152 = trunc i32 %151 to i8
+135:                                              ; preds = %133
+  %136 = bitcast float %131 to i32
+  %137 = add nsw i32 %136, -956301312
+  %138 = lshr i32 %137, 20
+  %139 = zext nneg i32 %138 to i64
+  %140 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %139
+  %141 = load i32, ptr %140, align 4
+  %142 = lshr i32 %141, 7
+  %143 = and i32 %142, 16776704
+  %144 = and i32 %141, 65535
+  %145 = lshr i32 %136, 12
+  %146 = and i32 %145, 255
+  %147 = mul nuw nsw i32 %144, %146
+  %148 = add nuw nsw i32 %143, %147
+  %149 = lshr i32 %148, 16
+  %150 = trunc i32 %149 to i8
   br label %stbir__linear_to_srgb_uchar.exit248
 
-stbir__linear_to_srgb_uchar.exit248:              ; preds = %stbir__linear_to_srgb_uchar.exit, %135, %137
-  %.0.i247 = phi i8 [ %152, %137 ], [ 0, %stbir__linear_to_srgb_uchar.exit ], [ -1, %135 ]
-  %153 = getelementptr inbounds nuw i8, ptr %.1242, i64 2
-  store i8 %.0.i247, ptr %153, align 1
-  %154 = getelementptr inbounds nuw i8, ptr %.1240, i64 8
-  %155 = load float, ptr %154, align 4
-  %156 = fcmp ogt float %155, 0x3F20000000000000
-  br i1 %156, label %157, label %stbir__linear_to_srgb_uchar.exit250
+stbir__linear_to_srgb_uchar.exit248:              ; preds = %stbir__linear_to_srgb_uchar.exit, %133, %135
+  %.0.i247 = phi i8 [ %150, %135 ], [ 0, %stbir__linear_to_srgb_uchar.exit ], [ -1, %133 ]
+  %151 = getelementptr inbounds nuw i8, ptr %.1242, i64 2
+  store i8 %.0.i247, ptr %151, align 1
+  %152 = getelementptr inbounds nuw i8, ptr %.1240, i64 8
+  %153 = load float, ptr %152, align 4
+  %154 = fcmp ogt float %153, 0x3F20000000000000
+  br i1 %154, label %155, label %stbir__linear_to_srgb_uchar.exit250
 
-157:                                              ; preds = %stbir__linear_to_srgb_uchar.exit248
-  %158 = fcmp ogt float %155, 0x3FEFFFFFE0000000
-  br i1 %158, label %stbir__linear_to_srgb_uchar.exit250, label %159
+155:                                              ; preds = %stbir__linear_to_srgb_uchar.exit248
+  %156 = fcmp ogt float %153, 0x3FEFFFFFE0000000
+  br i1 %156, label %stbir__linear_to_srgb_uchar.exit250, label %157
 
-159:                                              ; preds = %157
-  %160 = bitcast float %155 to i32
-  %161 = add nsw i32 %160, -956301312
-  %162 = lshr i32 %161, 20
-  %163 = zext nneg i32 %162 to i64
-  %164 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %163
-  %165 = load i32, ptr %164, align 4
-  %166 = lshr i32 %165, 7
-  %167 = and i32 %166, 16776704
-  %168 = and i32 %165, 65535
-  %169 = lshr i32 %160, 12
-  %170 = and i32 %169, 255
-  %171 = mul nuw nsw i32 %168, %170
-  %172 = add nuw nsw i32 %167, %171
-  %173 = lshr i32 %172, 16
-  %174 = trunc i32 %173 to i8
+157:                                              ; preds = %155
+  %158 = bitcast float %153 to i32
+  %159 = add nsw i32 %158, -956301312
+  %160 = lshr i32 %159, 20
+  %161 = zext nneg i32 %160 to i64
+  %162 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %161
+  %163 = load i32, ptr %162, align 4
+  %164 = lshr i32 %163, 7
+  %165 = and i32 %164, 16776704
+  %166 = and i32 %163, 65535
+  %167 = lshr i32 %158, 12
+  %168 = and i32 %167, 255
+  %169 = mul nuw nsw i32 %166, %168
+  %170 = add nuw nsw i32 %165, %169
+  %171 = lshr i32 %170, 16
+  %172 = trunc i32 %171 to i8
   br label %stbir__linear_to_srgb_uchar.exit250
 
-stbir__linear_to_srgb_uchar.exit250:              ; preds = %stbir__linear_to_srgb_uchar.exit248, %157, %159
-  %.0.i249 = phi i8 [ %174, %159 ], [ 0, %stbir__linear_to_srgb_uchar.exit248 ], [ -1, %157 ]
-  %175 = getelementptr inbounds nuw i8, ptr %.1242, i64 3
-  store i8 %.0.i249, ptr %175, align 1
-  %176 = getelementptr inbounds nuw i8, ptr %.1240, i64 12
-  %177 = load float, ptr %176, align 4
-  %178 = fmul float %177, 2.550000e+02
-  %179 = fadd float %178, 5.000000e-01
-  %180 = fcmp olt float %179, 0.000000e+00
-  %.0 = select i1 %180, float 0.000000e+00, float %179
-  %181 = fcmp ogt float %.0, 2.550000e+02
-  %.1 = select i1 %181, float 2.550000e+02, float %.0
-  %182 = fptoui float %.1 to i8
-  store i8 %182, ptr %.1242, align 1
-  %183 = getelementptr inbounds nuw i8, ptr %.1242, i64 4
-  %184 = getelementptr inbounds nuw i8, ptr %.1240, i64 16
-  %185 = icmp ult ptr %183, %5
-  br i1 %185, label %.preheader, label %.loopexit
+stbir__linear_to_srgb_uchar.exit250:              ; preds = %stbir__linear_to_srgb_uchar.exit248, %155, %157
+  %.0.i249 = phi i8 [ %172, %157 ], [ 0, %stbir__linear_to_srgb_uchar.exit248 ], [ -1, %155 ]
+  %173 = getelementptr inbounds nuw i8, ptr %.1242, i64 3
+  store i8 %.0.i249, ptr %173, align 1
+  %174 = getelementptr inbounds nuw i8, ptr %.1240, i64 12
+  %175 = load float, ptr %174, align 4
+  %176 = fmul float %175, 2.550000e+02
+  %177 = fadd float %176, 5.000000e-01
+  %178 = fcmp olt float %177, 0.000000e+00
+  %.0 = select i1 %178, float 0.000000e+00, float %177
+  %179 = fcmp ogt float %.0, 2.550000e+02
+  %.1 = select i1 %179, float 2.550000e+02, float %.0
+  %180 = fptoui float %.1 to i8
+  store i8 %180, ptr %.1242, align 1
+  %181 = getelementptr inbounds nuw i8, ptr %.1242, i64 4
+  %182 = getelementptr inbounds nuw i8, ptr %.1240, i64 16
+  %183 = icmp ult ptr %181, %5
+  br i1 %183, label %.preheader, label %.loopexit
 
-.loopexit:                                        ; preds = %stbir__linear_to_srgb_uchar.exit250, %109
+.loopexit:                                        ; preds = %stbir__linear_to_srgb_uchar.exit250, %107
   ret void
 }
 
@@ -50166,159 +50127,157 @@ define internal void @stbir__encode_uint8_srgb_ARGB(ptr noundef writeonly %0, i3
   %117 = lshr <4 x i32> %116, splat (i32 16)
   %118 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %117, <4 x i32> %96)
   %119 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %103, <4 x i32> %110)
-  %120 = shufflevector <8 x i16> %118, <8 x i16> %119, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %121 = shufflevector <8 x i16> %118, <8 x i16> %119, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %122 = shufflevector <8 x i16> %120, <8 x i16> %121, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %123 = shufflevector <8 x i16> %120, <8 x i16> %121, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %124 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %122, <8 x i16> %123)
-  store <16 x i8> %124, ptr %.0265, align 1
-  %125 = getelementptr inbounds nuw i8, ptr %.0, i64 64
-  %126 = getelementptr inbounds nuw i8, ptr %.0265, i64 16
-  %.not269 = icmp ugt ptr %126, %10
-  br i1 %.not269, label %127, label %.backedge.backedge
+  %120 = shufflevector <8 x i16> %118, <8 x i16> %119, <8 x i32> <i32 0, i32 4, i32 8, i32 12, i32 1, i32 5, i32 9, i32 13>
+  %121 = shufflevector <8 x i16> %118, <8 x i16> %119, <8 x i32> <i32 2, i32 6, i32 10, i32 14, i32 3, i32 7, i32 11, i32 15>
+  %122 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %120, <8 x i16> %121)
+  store <16 x i8> %122, ptr %.0265, align 1
+  %123 = getelementptr inbounds nuw i8, ptr %.0, i64 64
+  %124 = getelementptr inbounds nuw i8, ptr %.0265, i64 16
+  %.not269 = icmp ugt ptr %124, %10
+  br i1 %.not269, label %125, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %.backedge, %127
-  %.0265.be = phi ptr [ %126, %.backedge ], [ %10, %127 ]
-  %.0.be = phi ptr [ %125, %.backedge ], [ %9, %127 ]
+.backedge.backedge:                               ; preds = %.backedge, %125
+  %.0265.be = phi ptr [ %124, %.backedge ], [ %10, %125 ]
+  %.0.be = phi ptr [ %123, %.backedge ], [ %9, %125 ]
   br label %.backedge
 
-127:                                              ; preds = %.backedge
-  %128 = icmp eq ptr %126, %5
-  br i1 %128, label %.loopexit, label %.backedge.backedge
+125:                                              ; preds = %.backedge
+  %126 = icmp eq ptr %124, %5
+  br i1 %126, label %.loopexit, label %.backedge.backedge
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %stbir__linear_to_srgb_uchar.exit275
   %.1266281 = phi ptr [ %.1266, %stbir__linear_to_srgb_uchar.exit275 ], [ %.1266277, %.lr.ph.preheader ]
-  %.1280 = phi ptr [ %215, %stbir__linear_to_srgb_uchar.exit275 ], [ %2, %.lr.ph.preheader ]
+  %.1280 = phi ptr [ %213, %stbir__linear_to_srgb_uchar.exit275 ], [ %2, %.lr.ph.preheader ]
   %.pn279 = phi ptr [ %.1266281, %stbir__linear_to_srgb_uchar.exit275 ], [ %0, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1280) #49, !srcloc !309
-  %129 = getelementptr inbounds nuw i8, ptr %.1280, i64 12
-  %130 = load float, ptr %129, align 4
-  %131 = fcmp ogt float %130, 0x3F20000000000000
-  br i1 %131, label %132, label %stbir__linear_to_srgb_uchar.exit
+  %127 = getelementptr inbounds nuw i8, ptr %.1280, i64 12
+  %128 = load float, ptr %127, align 4
+  %129 = fcmp ogt float %128, 0x3F20000000000000
+  br i1 %129, label %130, label %stbir__linear_to_srgb_uchar.exit
 
-132:                                              ; preds = %.lr.ph
-  %133 = fcmp ogt float %130, 0x3FEFFFFFE0000000
-  br i1 %133, label %stbir__linear_to_srgb_uchar.exit, label %134
+130:                                              ; preds = %.lr.ph
+  %131 = fcmp ogt float %128, 0x3FEFFFFFE0000000
+  br i1 %131, label %stbir__linear_to_srgb_uchar.exit, label %132
 
-134:                                              ; preds = %132
-  %135 = bitcast float %130 to i32
-  %136 = add nsw i32 %135, -956301312
-  %137 = lshr i32 %136, 20
-  %138 = zext nneg i32 %137 to i64
-  %139 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %138
-  %140 = load i32, ptr %139, align 4
-  %141 = lshr i32 %140, 7
-  %142 = and i32 %141, 16776704
-  %143 = and i32 %140, 65535
-  %144 = lshr i32 %135, 12
-  %145 = and i32 %144, 255
-  %146 = mul nuw nsw i32 %143, %145
-  %147 = add nuw nsw i32 %142, %146
-  %148 = lshr i32 %147, 16
-  %149 = trunc i32 %148 to i8
+132:                                              ; preds = %130
+  %133 = bitcast float %128 to i32
+  %134 = add nsw i32 %133, -956301312
+  %135 = lshr i32 %134, 20
+  %136 = zext nneg i32 %135 to i64
+  %137 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %136
+  %138 = load i32, ptr %137, align 4
+  %139 = lshr i32 %138, 7
+  %140 = and i32 %139, 16776704
+  %141 = and i32 %138, 65535
+  %142 = lshr i32 %133, 12
+  %143 = and i32 %142, 255
+  %144 = mul nuw nsw i32 %141, %143
+  %145 = add nuw nsw i32 %140, %144
+  %146 = lshr i32 %145, 16
+  %147 = trunc i32 %146 to i8
   br label %stbir__linear_to_srgb_uchar.exit
 
-stbir__linear_to_srgb_uchar.exit:                 ; preds = %.lr.ph, %132, %134
-  %.0.i = phi i8 [ %149, %134 ], [ 0, %.lr.ph ], [ -1, %132 ]
+stbir__linear_to_srgb_uchar.exit:                 ; preds = %.lr.ph, %130, %132
+  %.0.i = phi i8 [ %147, %132 ], [ 0, %.lr.ph ], [ -1, %130 ]
   store i8 %.0.i, ptr %.pn279, align 1
-  %150 = load float, ptr %.1280, align 4
-  %151 = fcmp ogt float %150, 0x3F20000000000000
-  br i1 %151, label %152, label %stbir__linear_to_srgb_uchar.exit271
+  %148 = load float, ptr %.1280, align 4
+  %149 = fcmp ogt float %148, 0x3F20000000000000
+  br i1 %149, label %150, label %stbir__linear_to_srgb_uchar.exit271
 
-152:                                              ; preds = %stbir__linear_to_srgb_uchar.exit
-  %153 = fcmp ogt float %150, 0x3FEFFFFFE0000000
-  br i1 %153, label %stbir__linear_to_srgb_uchar.exit271, label %154
+150:                                              ; preds = %stbir__linear_to_srgb_uchar.exit
+  %151 = fcmp ogt float %148, 0x3FEFFFFFE0000000
+  br i1 %151, label %stbir__linear_to_srgb_uchar.exit271, label %152
 
-154:                                              ; preds = %152
-  %155 = bitcast float %150 to i32
-  %156 = add nsw i32 %155, -956301312
-  %157 = lshr i32 %156, 20
-  %158 = zext nneg i32 %157 to i64
-  %159 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %158
-  %160 = load i32, ptr %159, align 4
-  %161 = lshr i32 %160, 7
-  %162 = and i32 %161, 16776704
-  %163 = and i32 %160, 65535
-  %164 = lshr i32 %155, 12
-  %165 = and i32 %164, 255
-  %166 = mul nuw nsw i32 %163, %165
-  %167 = add nuw nsw i32 %162, %166
-  %168 = lshr i32 %167, 16
-  %169 = trunc i32 %168 to i8
+152:                                              ; preds = %150
+  %153 = bitcast float %148 to i32
+  %154 = add nsw i32 %153, -956301312
+  %155 = lshr i32 %154, 20
+  %156 = zext nneg i32 %155 to i64
+  %157 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %156
+  %158 = load i32, ptr %157, align 4
+  %159 = lshr i32 %158, 7
+  %160 = and i32 %159, 16776704
+  %161 = and i32 %158, 65535
+  %162 = lshr i32 %153, 12
+  %163 = and i32 %162, 255
+  %164 = mul nuw nsw i32 %161, %163
+  %165 = add nuw nsw i32 %160, %164
+  %166 = lshr i32 %165, 16
+  %167 = trunc i32 %166 to i8
   br label %stbir__linear_to_srgb_uchar.exit271
 
-stbir__linear_to_srgb_uchar.exit271:              ; preds = %stbir__linear_to_srgb_uchar.exit, %152, %154
-  %.0.i270 = phi i8 [ %169, %154 ], [ 0, %stbir__linear_to_srgb_uchar.exit ], [ -1, %152 ]
-  %170 = getelementptr inbounds nuw i8, ptr %.pn279, i64 1
-  store i8 %.0.i270, ptr %170, align 1
-  %171 = getelementptr inbounds nuw i8, ptr %.1280, i64 4
-  %172 = load float, ptr %171, align 4
-  %173 = fcmp ogt float %172, 0x3F20000000000000
-  br i1 %173, label %174, label %stbir__linear_to_srgb_uchar.exit273
+stbir__linear_to_srgb_uchar.exit271:              ; preds = %stbir__linear_to_srgb_uchar.exit, %150, %152
+  %.0.i270 = phi i8 [ %167, %152 ], [ 0, %stbir__linear_to_srgb_uchar.exit ], [ -1, %150 ]
+  %168 = getelementptr inbounds nuw i8, ptr %.pn279, i64 1
+  store i8 %.0.i270, ptr %168, align 1
+  %169 = getelementptr inbounds nuw i8, ptr %.1280, i64 4
+  %170 = load float, ptr %169, align 4
+  %171 = fcmp ogt float %170, 0x3F20000000000000
+  br i1 %171, label %172, label %stbir__linear_to_srgb_uchar.exit273
 
-174:                                              ; preds = %stbir__linear_to_srgb_uchar.exit271
-  %175 = fcmp ogt float %172, 0x3FEFFFFFE0000000
-  br i1 %175, label %stbir__linear_to_srgb_uchar.exit273, label %176
+172:                                              ; preds = %stbir__linear_to_srgb_uchar.exit271
+  %173 = fcmp ogt float %170, 0x3FEFFFFFE0000000
+  br i1 %173, label %stbir__linear_to_srgb_uchar.exit273, label %174
 
-176:                                              ; preds = %174
-  %177 = bitcast float %172 to i32
-  %178 = add nsw i32 %177, -956301312
-  %179 = lshr i32 %178, 20
-  %180 = zext nneg i32 %179 to i64
-  %181 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %180
-  %182 = load i32, ptr %181, align 4
-  %183 = lshr i32 %182, 7
-  %184 = and i32 %183, 16776704
-  %185 = and i32 %182, 65535
-  %186 = lshr i32 %177, 12
-  %187 = and i32 %186, 255
-  %188 = mul nuw nsw i32 %185, %187
-  %189 = add nuw nsw i32 %184, %188
-  %190 = lshr i32 %189, 16
-  %191 = trunc i32 %190 to i8
+174:                                              ; preds = %172
+  %175 = bitcast float %170 to i32
+  %176 = add nsw i32 %175, -956301312
+  %177 = lshr i32 %176, 20
+  %178 = zext nneg i32 %177 to i64
+  %179 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %178
+  %180 = load i32, ptr %179, align 4
+  %181 = lshr i32 %180, 7
+  %182 = and i32 %181, 16776704
+  %183 = and i32 %180, 65535
+  %184 = lshr i32 %175, 12
+  %185 = and i32 %184, 255
+  %186 = mul nuw nsw i32 %183, %185
+  %187 = add nuw nsw i32 %182, %186
+  %188 = lshr i32 %187, 16
+  %189 = trunc i32 %188 to i8
   br label %stbir__linear_to_srgb_uchar.exit273
 
-stbir__linear_to_srgb_uchar.exit273:              ; preds = %stbir__linear_to_srgb_uchar.exit271, %174, %176
-  %.0.i272 = phi i8 [ %191, %176 ], [ 0, %stbir__linear_to_srgb_uchar.exit271 ], [ -1, %174 ]
-  %192 = getelementptr inbounds nuw i8, ptr %.pn279, i64 2
-  store i8 %.0.i272, ptr %192, align 1
-  %193 = getelementptr inbounds nuw i8, ptr %.1280, i64 8
-  %194 = load float, ptr %193, align 4
-  %195 = fcmp ogt float %194, 0x3F20000000000000
-  br i1 %195, label %196, label %stbir__linear_to_srgb_uchar.exit275
+stbir__linear_to_srgb_uchar.exit273:              ; preds = %stbir__linear_to_srgb_uchar.exit271, %172, %174
+  %.0.i272 = phi i8 [ %189, %174 ], [ 0, %stbir__linear_to_srgb_uchar.exit271 ], [ -1, %172 ]
+  %190 = getelementptr inbounds nuw i8, ptr %.pn279, i64 2
+  store i8 %.0.i272, ptr %190, align 1
+  %191 = getelementptr inbounds nuw i8, ptr %.1280, i64 8
+  %192 = load float, ptr %191, align 4
+  %193 = fcmp ogt float %192, 0x3F20000000000000
+  br i1 %193, label %194, label %stbir__linear_to_srgb_uchar.exit275
 
-196:                                              ; preds = %stbir__linear_to_srgb_uchar.exit273
-  %197 = fcmp ogt float %194, 0x3FEFFFFFE0000000
-  br i1 %197, label %stbir__linear_to_srgb_uchar.exit275, label %198
+194:                                              ; preds = %stbir__linear_to_srgb_uchar.exit273
+  %195 = fcmp ogt float %192, 0x3FEFFFFFE0000000
+  br i1 %195, label %stbir__linear_to_srgb_uchar.exit275, label %196
 
-198:                                              ; preds = %196
-  %199 = bitcast float %194 to i32
-  %200 = add nsw i32 %199, -956301312
-  %201 = lshr i32 %200, 20
-  %202 = zext nneg i32 %201 to i64
-  %203 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %202
-  %204 = load i32, ptr %203, align 4
-  %205 = lshr i32 %204, 7
-  %206 = and i32 %205, 16776704
-  %207 = and i32 %204, 65535
-  %208 = lshr i32 %199, 12
-  %209 = and i32 %208, 255
-  %210 = mul nuw nsw i32 %207, %209
-  %211 = add nuw nsw i32 %206, %210
-  %212 = lshr i32 %211, 16
-  %213 = trunc i32 %212 to i8
+196:                                              ; preds = %194
+  %197 = bitcast float %192 to i32
+  %198 = add nsw i32 %197, -956301312
+  %199 = lshr i32 %198, 20
+  %200 = zext nneg i32 %199 to i64
+  %201 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %200
+  %202 = load i32, ptr %201, align 4
+  %203 = lshr i32 %202, 7
+  %204 = and i32 %203, 16776704
+  %205 = and i32 %202, 65535
+  %206 = lshr i32 %197, 12
+  %207 = and i32 %206, 255
+  %208 = mul nuw nsw i32 %205, %207
+  %209 = add nuw nsw i32 %204, %208
+  %210 = lshr i32 %209, 16
+  %211 = trunc i32 %210 to i8
   br label %stbir__linear_to_srgb_uchar.exit275
 
-stbir__linear_to_srgb_uchar.exit275:              ; preds = %stbir__linear_to_srgb_uchar.exit273, %196, %198
-  %.0.i274 = phi i8 [ %213, %198 ], [ 0, %stbir__linear_to_srgb_uchar.exit273 ], [ -1, %196 ]
-  %214 = getelementptr inbounds nuw i8, ptr %.pn279, i64 3
-  store i8 %.0.i274, ptr %214, align 1
-  %215 = getelementptr inbounds nuw i8, ptr %.1280, i64 16
+stbir__linear_to_srgb_uchar.exit275:              ; preds = %stbir__linear_to_srgb_uchar.exit273, %194, %196
+  %.0.i274 = phi i8 [ %211, %196 ], [ 0, %stbir__linear_to_srgb_uchar.exit273 ], [ -1, %194 ]
+  %212 = getelementptr inbounds nuw i8, ptr %.pn279, i64 3
+  store i8 %.0.i274, ptr %212, align 1
+  %213 = getelementptr inbounds nuw i8, ptr %.1280, i64 16
   %.1266 = getelementptr inbounds nuw i8, ptr %.1266281, i64 4
   %.not = icmp ugt ptr %.1266, %5
   br i1 %.not, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %stbir__linear_to_srgb_uchar.exit275, %127, %.preheader
+.loopexit:                                        ; preds = %stbir__linear_to_srgb_uchar.exit275, %125, %.preheader
   ret void
 }
 
@@ -50788,138 +50747,136 @@ define internal void @stbir__encode_uint8_srgb4_linearalpha_ABGR(ptr noundef wri
   %99 = lshr <4 x i32> %98, splat (i32 16)
   %100 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %42, <4 x i32> %99)
   %101 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %92, <4 x i32> %85)
-  %102 = shufflevector <8 x i16> %100, <8 x i16> %101, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %103 = shufflevector <8 x i16> %100, <8 x i16> %101, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %104 = shufflevector <8 x i16> %102, <8 x i16> %103, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %105 = shufflevector <8 x i16> %102, <8 x i16> %103, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %106 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %104, <8 x i16> %105)
-  store <16 x i8> %106, ptr %.0241, align 1
-  %107 = getelementptr inbounds nuw i8, ptr %.0241, i64 16
-  %108 = getelementptr inbounds nuw i8, ptr %.0239, i64 64
-  %.not = icmp ugt ptr %107, %10
-  br i1 %.not, label %109, label %.backedge.backedge
+  %102 = shufflevector <8 x i16> %100, <8 x i16> %101, <8 x i32> <i32 0, i32 4, i32 8, i32 12, i32 1, i32 5, i32 9, i32 13>
+  %103 = shufflevector <8 x i16> %100, <8 x i16> %101, <8 x i32> <i32 2, i32 6, i32 10, i32 14, i32 3, i32 7, i32 11, i32 15>
+  %104 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %102, <8 x i16> %103)
+  store <16 x i8> %104, ptr %.0241, align 1
+  %105 = getelementptr inbounds nuw i8, ptr %.0241, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %.0239, i64 64
+  %.not = icmp ugt ptr %105, %10
+  br i1 %.not, label %107, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %.backedge, %109
-  %.0241.be = phi ptr [ %107, %.backedge ], [ %10, %109 ]
-  %.0239.be = phi ptr [ %108, %.backedge ], [ %9, %109 ]
+.backedge.backedge:                               ; preds = %.backedge, %107
+  %.0241.be = phi ptr [ %105, %.backedge ], [ %10, %107 ]
+  %.0239.be = phi ptr [ %106, %.backedge ], [ %9, %107 ]
   br label %.backedge
 
-109:                                              ; preds = %.backedge
-  %110 = icmp eq ptr %107, %5
-  br i1 %110, label %.loopexit, label %.backedge.backedge
+107:                                              ; preds = %.backedge
+  %108 = icmp eq ptr %105, %5
+  br i1 %108, label %.loopexit, label %.backedge.backedge
 
 .preheader:                                       ; preds = %3, %stbir__linear_to_srgb_uchar.exit250
-  %.1242 = phi ptr [ %183, %stbir__linear_to_srgb_uchar.exit250 ], [ %0, %3 ]
-  %.1240 = phi ptr [ %184, %stbir__linear_to_srgb_uchar.exit250 ], [ %2, %3 ]
+  %.1242 = phi ptr [ %181, %stbir__linear_to_srgb_uchar.exit250 ], [ %0, %3 ]
+  %.1240 = phi ptr [ %182, %stbir__linear_to_srgb_uchar.exit250 ], [ %2, %3 ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1240) #49, !srcloc !315
-  %111 = load float, ptr %.1240, align 4
-  %112 = fcmp ogt float %111, 0x3F20000000000000
-  br i1 %112, label %113, label %stbir__linear_to_srgb_uchar.exit
+  %109 = load float, ptr %.1240, align 4
+  %110 = fcmp ogt float %109, 0x3F20000000000000
+  br i1 %110, label %111, label %stbir__linear_to_srgb_uchar.exit
 
-113:                                              ; preds = %.preheader
-  %114 = fcmp ogt float %111, 0x3FEFFFFFE0000000
-  br i1 %114, label %stbir__linear_to_srgb_uchar.exit, label %115
+111:                                              ; preds = %.preheader
+  %112 = fcmp ogt float %109, 0x3FEFFFFFE0000000
+  br i1 %112, label %stbir__linear_to_srgb_uchar.exit, label %113
 
-115:                                              ; preds = %113
-  %116 = bitcast float %111 to i32
-  %117 = add nsw i32 %116, -956301312
-  %118 = lshr i32 %117, 20
-  %119 = zext nneg i32 %118 to i64
-  %120 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %119
-  %121 = load i32, ptr %120, align 4
-  %122 = lshr i32 %121, 7
-  %123 = and i32 %122, 16776704
-  %124 = and i32 %121, 65535
-  %125 = lshr i32 %116, 12
-  %126 = and i32 %125, 255
-  %127 = mul nuw nsw i32 %124, %126
-  %128 = add nuw nsw i32 %123, %127
-  %129 = lshr i32 %128, 16
-  %130 = trunc i32 %129 to i8
+113:                                              ; preds = %111
+  %114 = bitcast float %109 to i32
+  %115 = add nsw i32 %114, -956301312
+  %116 = lshr i32 %115, 20
+  %117 = zext nneg i32 %116 to i64
+  %118 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %117
+  %119 = load i32, ptr %118, align 4
+  %120 = lshr i32 %119, 7
+  %121 = and i32 %120, 16776704
+  %122 = and i32 %119, 65535
+  %123 = lshr i32 %114, 12
+  %124 = and i32 %123, 255
+  %125 = mul nuw nsw i32 %122, %124
+  %126 = add nuw nsw i32 %121, %125
+  %127 = lshr i32 %126, 16
+  %128 = trunc i32 %127 to i8
   br label %stbir__linear_to_srgb_uchar.exit
 
-stbir__linear_to_srgb_uchar.exit:                 ; preds = %.preheader, %113, %115
-  %.0.i = phi i8 [ %130, %115 ], [ 0, %.preheader ], [ -1, %113 ]
-  %131 = getelementptr inbounds nuw i8, ptr %.1242, i64 3
-  store i8 %.0.i, ptr %131, align 1
-  %132 = getelementptr inbounds nuw i8, ptr %.1240, i64 4
-  %133 = load float, ptr %132, align 4
-  %134 = fcmp ogt float %133, 0x3F20000000000000
-  br i1 %134, label %135, label %stbir__linear_to_srgb_uchar.exit248
+stbir__linear_to_srgb_uchar.exit:                 ; preds = %.preheader, %111, %113
+  %.0.i = phi i8 [ %128, %113 ], [ 0, %.preheader ], [ -1, %111 ]
+  %129 = getelementptr inbounds nuw i8, ptr %.1242, i64 3
+  store i8 %.0.i, ptr %129, align 1
+  %130 = getelementptr inbounds nuw i8, ptr %.1240, i64 4
+  %131 = load float, ptr %130, align 4
+  %132 = fcmp ogt float %131, 0x3F20000000000000
+  br i1 %132, label %133, label %stbir__linear_to_srgb_uchar.exit248
 
-135:                                              ; preds = %stbir__linear_to_srgb_uchar.exit
-  %136 = fcmp ogt float %133, 0x3FEFFFFFE0000000
-  br i1 %136, label %stbir__linear_to_srgb_uchar.exit248, label %137
+133:                                              ; preds = %stbir__linear_to_srgb_uchar.exit
+  %134 = fcmp ogt float %131, 0x3FEFFFFFE0000000
+  br i1 %134, label %stbir__linear_to_srgb_uchar.exit248, label %135
 
-137:                                              ; preds = %135
-  %138 = bitcast float %133 to i32
-  %139 = add nsw i32 %138, -956301312
-  %140 = lshr i32 %139, 20
-  %141 = zext nneg i32 %140 to i64
-  %142 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %141
-  %143 = load i32, ptr %142, align 4
-  %144 = lshr i32 %143, 7
-  %145 = and i32 %144, 16776704
-  %146 = and i32 %143, 65535
-  %147 = lshr i32 %138, 12
-  %148 = and i32 %147, 255
-  %149 = mul nuw nsw i32 %146, %148
-  %150 = add nuw nsw i32 %145, %149
-  %151 = lshr i32 %150, 16
-  %152 = trunc i32 %151 to i8
+135:                                              ; preds = %133
+  %136 = bitcast float %131 to i32
+  %137 = add nsw i32 %136, -956301312
+  %138 = lshr i32 %137, 20
+  %139 = zext nneg i32 %138 to i64
+  %140 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %139
+  %141 = load i32, ptr %140, align 4
+  %142 = lshr i32 %141, 7
+  %143 = and i32 %142, 16776704
+  %144 = and i32 %141, 65535
+  %145 = lshr i32 %136, 12
+  %146 = and i32 %145, 255
+  %147 = mul nuw nsw i32 %144, %146
+  %148 = add nuw nsw i32 %143, %147
+  %149 = lshr i32 %148, 16
+  %150 = trunc i32 %149 to i8
   br label %stbir__linear_to_srgb_uchar.exit248
 
-stbir__linear_to_srgb_uchar.exit248:              ; preds = %stbir__linear_to_srgb_uchar.exit, %135, %137
-  %.0.i247 = phi i8 [ %152, %137 ], [ 0, %stbir__linear_to_srgb_uchar.exit ], [ -1, %135 ]
-  %153 = getelementptr inbounds nuw i8, ptr %.1242, i64 2
-  store i8 %.0.i247, ptr %153, align 1
-  %154 = getelementptr inbounds nuw i8, ptr %.1240, i64 8
-  %155 = load float, ptr %154, align 4
-  %156 = fcmp ogt float %155, 0x3F20000000000000
-  br i1 %156, label %157, label %stbir__linear_to_srgb_uchar.exit250
+stbir__linear_to_srgb_uchar.exit248:              ; preds = %stbir__linear_to_srgb_uchar.exit, %133, %135
+  %.0.i247 = phi i8 [ %150, %135 ], [ 0, %stbir__linear_to_srgb_uchar.exit ], [ -1, %133 ]
+  %151 = getelementptr inbounds nuw i8, ptr %.1242, i64 2
+  store i8 %.0.i247, ptr %151, align 1
+  %152 = getelementptr inbounds nuw i8, ptr %.1240, i64 8
+  %153 = load float, ptr %152, align 4
+  %154 = fcmp ogt float %153, 0x3F20000000000000
+  br i1 %154, label %155, label %stbir__linear_to_srgb_uchar.exit250
 
-157:                                              ; preds = %stbir__linear_to_srgb_uchar.exit248
-  %158 = fcmp ogt float %155, 0x3FEFFFFFE0000000
-  br i1 %158, label %stbir__linear_to_srgb_uchar.exit250, label %159
+155:                                              ; preds = %stbir__linear_to_srgb_uchar.exit248
+  %156 = fcmp ogt float %153, 0x3FEFFFFFE0000000
+  br i1 %156, label %stbir__linear_to_srgb_uchar.exit250, label %157
 
-159:                                              ; preds = %157
-  %160 = bitcast float %155 to i32
-  %161 = add nsw i32 %160, -956301312
-  %162 = lshr i32 %161, 20
-  %163 = zext nneg i32 %162 to i64
-  %164 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %163
-  %165 = load i32, ptr %164, align 4
-  %166 = lshr i32 %165, 7
-  %167 = and i32 %166, 16776704
-  %168 = and i32 %165, 65535
-  %169 = lshr i32 %160, 12
-  %170 = and i32 %169, 255
-  %171 = mul nuw nsw i32 %168, %170
-  %172 = add nuw nsw i32 %167, %171
-  %173 = lshr i32 %172, 16
-  %174 = trunc i32 %173 to i8
+157:                                              ; preds = %155
+  %158 = bitcast float %153 to i32
+  %159 = add nsw i32 %158, -956301312
+  %160 = lshr i32 %159, 20
+  %161 = zext nneg i32 %160 to i64
+  %162 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %161
+  %163 = load i32, ptr %162, align 4
+  %164 = lshr i32 %163, 7
+  %165 = and i32 %164, 16776704
+  %166 = and i32 %163, 65535
+  %167 = lshr i32 %158, 12
+  %168 = and i32 %167, 255
+  %169 = mul nuw nsw i32 %166, %168
+  %170 = add nuw nsw i32 %165, %169
+  %171 = lshr i32 %170, 16
+  %172 = trunc i32 %171 to i8
   br label %stbir__linear_to_srgb_uchar.exit250
 
-stbir__linear_to_srgb_uchar.exit250:              ; preds = %stbir__linear_to_srgb_uchar.exit248, %157, %159
-  %.0.i249 = phi i8 [ %174, %159 ], [ 0, %stbir__linear_to_srgb_uchar.exit248 ], [ -1, %157 ]
-  %175 = getelementptr inbounds nuw i8, ptr %.1242, i64 1
-  store i8 %.0.i249, ptr %175, align 1
-  %176 = getelementptr inbounds nuw i8, ptr %.1240, i64 12
-  %177 = load float, ptr %176, align 4
-  %178 = fmul float %177, 2.550000e+02
-  %179 = fadd float %178, 5.000000e-01
-  %180 = fcmp olt float %179, 0.000000e+00
-  %.0 = select i1 %180, float 0.000000e+00, float %179
-  %181 = fcmp ogt float %.0, 2.550000e+02
-  %.1 = select i1 %181, float 2.550000e+02, float %.0
-  %182 = fptoui float %.1 to i8
-  store i8 %182, ptr %.1242, align 1
-  %183 = getelementptr inbounds nuw i8, ptr %.1242, i64 4
-  %184 = getelementptr inbounds nuw i8, ptr %.1240, i64 16
-  %185 = icmp ult ptr %183, %5
-  br i1 %185, label %.preheader, label %.loopexit
+stbir__linear_to_srgb_uchar.exit250:              ; preds = %stbir__linear_to_srgb_uchar.exit248, %155, %157
+  %.0.i249 = phi i8 [ %172, %157 ], [ 0, %stbir__linear_to_srgb_uchar.exit248 ], [ -1, %155 ]
+  %173 = getelementptr inbounds nuw i8, ptr %.1242, i64 1
+  store i8 %.0.i249, ptr %173, align 1
+  %174 = getelementptr inbounds nuw i8, ptr %.1240, i64 12
+  %175 = load float, ptr %174, align 4
+  %176 = fmul float %175, 2.550000e+02
+  %177 = fadd float %176, 5.000000e-01
+  %178 = fcmp olt float %177, 0.000000e+00
+  %.0 = select i1 %178, float 0.000000e+00, float %177
+  %179 = fcmp ogt float %.0, 2.550000e+02
+  %.1 = select i1 %179, float 2.550000e+02, float %.0
+  %180 = fptoui float %.1 to i8
+  store i8 %180, ptr %.1242, align 1
+  %181 = getelementptr inbounds nuw i8, ptr %.1242, i64 4
+  %182 = getelementptr inbounds nuw i8, ptr %.1240, i64 16
+  %183 = icmp ult ptr %181, %5
+  br i1 %183, label %.preheader, label %.loopexit
 
-.loopexit:                                        ; preds = %stbir__linear_to_srgb_uchar.exit250, %109
+.loopexit:                                        ; preds = %stbir__linear_to_srgb_uchar.exit250, %107
   ret void
 }
 
@@ -51089,159 +51046,157 @@ define internal void @stbir__encode_uint8_srgb_ABGR(ptr noundef writeonly %0, i3
   %117 = lshr <4 x i32> %116, splat (i32 16)
   %118 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %117, <4 x i32> %110)
   %119 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %103, <4 x i32> %96)
-  %120 = shufflevector <8 x i16> %118, <8 x i16> %119, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %121 = shufflevector <8 x i16> %118, <8 x i16> %119, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %122 = shufflevector <8 x i16> %120, <8 x i16> %121, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %123 = shufflevector <8 x i16> %120, <8 x i16> %121, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %124 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %122, <8 x i16> %123)
-  store <16 x i8> %124, ptr %.0265, align 1
-  %125 = getelementptr inbounds nuw i8, ptr %.0, i64 64
-  %126 = getelementptr inbounds nuw i8, ptr %.0265, i64 16
-  %.not269 = icmp ugt ptr %126, %10
-  br i1 %.not269, label %127, label %.backedge.backedge
+  %120 = shufflevector <8 x i16> %118, <8 x i16> %119, <8 x i32> <i32 0, i32 4, i32 8, i32 12, i32 1, i32 5, i32 9, i32 13>
+  %121 = shufflevector <8 x i16> %118, <8 x i16> %119, <8 x i32> <i32 2, i32 6, i32 10, i32 14, i32 3, i32 7, i32 11, i32 15>
+  %122 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %120, <8 x i16> %121)
+  store <16 x i8> %122, ptr %.0265, align 1
+  %123 = getelementptr inbounds nuw i8, ptr %.0, i64 64
+  %124 = getelementptr inbounds nuw i8, ptr %.0265, i64 16
+  %.not269 = icmp ugt ptr %124, %10
+  br i1 %.not269, label %125, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %.backedge, %127
-  %.0265.be = phi ptr [ %126, %.backedge ], [ %10, %127 ]
-  %.0.be = phi ptr [ %125, %.backedge ], [ %9, %127 ]
+.backedge.backedge:                               ; preds = %.backedge, %125
+  %.0265.be = phi ptr [ %124, %.backedge ], [ %10, %125 ]
+  %.0.be = phi ptr [ %123, %.backedge ], [ %9, %125 ]
   br label %.backedge
 
-127:                                              ; preds = %.backedge
-  %128 = icmp eq ptr %126, %5
-  br i1 %128, label %.loopexit, label %.backedge.backedge
+125:                                              ; preds = %.backedge
+  %126 = icmp eq ptr %124, %5
+  br i1 %126, label %.loopexit, label %.backedge.backedge
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %stbir__linear_to_srgb_uchar.exit275
   %.1266281 = phi ptr [ %.1266, %stbir__linear_to_srgb_uchar.exit275 ], [ %.1266277, %.lr.ph.preheader ]
-  %.1280 = phi ptr [ %215, %stbir__linear_to_srgb_uchar.exit275 ], [ %2, %.lr.ph.preheader ]
+  %.1280 = phi ptr [ %213, %stbir__linear_to_srgb_uchar.exit275 ], [ %2, %.lr.ph.preheader ]
   %.pn279 = phi ptr [ %.1266281, %stbir__linear_to_srgb_uchar.exit275 ], [ %0, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1280) #49, !srcloc !317
-  %129 = getelementptr inbounds nuw i8, ptr %.1280, i64 12
-  %130 = load float, ptr %129, align 4
-  %131 = fcmp ogt float %130, 0x3F20000000000000
-  br i1 %131, label %132, label %stbir__linear_to_srgb_uchar.exit
+  %127 = getelementptr inbounds nuw i8, ptr %.1280, i64 12
+  %128 = load float, ptr %127, align 4
+  %129 = fcmp ogt float %128, 0x3F20000000000000
+  br i1 %129, label %130, label %stbir__linear_to_srgb_uchar.exit
 
-132:                                              ; preds = %.lr.ph
-  %133 = fcmp ogt float %130, 0x3FEFFFFFE0000000
-  br i1 %133, label %stbir__linear_to_srgb_uchar.exit, label %134
+130:                                              ; preds = %.lr.ph
+  %131 = fcmp ogt float %128, 0x3FEFFFFFE0000000
+  br i1 %131, label %stbir__linear_to_srgb_uchar.exit, label %132
 
-134:                                              ; preds = %132
-  %135 = bitcast float %130 to i32
-  %136 = add nsw i32 %135, -956301312
-  %137 = lshr i32 %136, 20
-  %138 = zext nneg i32 %137 to i64
-  %139 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %138
-  %140 = load i32, ptr %139, align 4
-  %141 = lshr i32 %140, 7
-  %142 = and i32 %141, 16776704
-  %143 = and i32 %140, 65535
-  %144 = lshr i32 %135, 12
-  %145 = and i32 %144, 255
-  %146 = mul nuw nsw i32 %143, %145
-  %147 = add nuw nsw i32 %142, %146
-  %148 = lshr i32 %147, 16
-  %149 = trunc i32 %148 to i8
+132:                                              ; preds = %130
+  %133 = bitcast float %128 to i32
+  %134 = add nsw i32 %133, -956301312
+  %135 = lshr i32 %134, 20
+  %136 = zext nneg i32 %135 to i64
+  %137 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %136
+  %138 = load i32, ptr %137, align 4
+  %139 = lshr i32 %138, 7
+  %140 = and i32 %139, 16776704
+  %141 = and i32 %138, 65535
+  %142 = lshr i32 %133, 12
+  %143 = and i32 %142, 255
+  %144 = mul nuw nsw i32 %141, %143
+  %145 = add nuw nsw i32 %140, %144
+  %146 = lshr i32 %145, 16
+  %147 = trunc i32 %146 to i8
   br label %stbir__linear_to_srgb_uchar.exit
 
-stbir__linear_to_srgb_uchar.exit:                 ; preds = %.lr.ph, %132, %134
-  %.0.i = phi i8 [ %149, %134 ], [ 0, %.lr.ph ], [ -1, %132 ]
+stbir__linear_to_srgb_uchar.exit:                 ; preds = %.lr.ph, %130, %132
+  %.0.i = phi i8 [ %147, %132 ], [ 0, %.lr.ph ], [ -1, %130 ]
   store i8 %.0.i, ptr %.pn279, align 1
-  %150 = getelementptr inbounds nuw i8, ptr %.1280, i64 8
-  %151 = load float, ptr %150, align 4
-  %152 = fcmp ogt float %151, 0x3F20000000000000
-  br i1 %152, label %153, label %stbir__linear_to_srgb_uchar.exit271
+  %148 = getelementptr inbounds nuw i8, ptr %.1280, i64 8
+  %149 = load float, ptr %148, align 4
+  %150 = fcmp ogt float %149, 0x3F20000000000000
+  br i1 %150, label %151, label %stbir__linear_to_srgb_uchar.exit271
 
-153:                                              ; preds = %stbir__linear_to_srgb_uchar.exit
-  %154 = fcmp ogt float %151, 0x3FEFFFFFE0000000
-  br i1 %154, label %stbir__linear_to_srgb_uchar.exit271, label %155
+151:                                              ; preds = %stbir__linear_to_srgb_uchar.exit
+  %152 = fcmp ogt float %149, 0x3FEFFFFFE0000000
+  br i1 %152, label %stbir__linear_to_srgb_uchar.exit271, label %153
 
-155:                                              ; preds = %153
-  %156 = bitcast float %151 to i32
-  %157 = add nsw i32 %156, -956301312
-  %158 = lshr i32 %157, 20
-  %159 = zext nneg i32 %158 to i64
-  %160 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %159
-  %161 = load i32, ptr %160, align 4
-  %162 = lshr i32 %161, 7
-  %163 = and i32 %162, 16776704
-  %164 = and i32 %161, 65535
-  %165 = lshr i32 %156, 12
-  %166 = and i32 %165, 255
-  %167 = mul nuw nsw i32 %164, %166
-  %168 = add nuw nsw i32 %163, %167
-  %169 = lshr i32 %168, 16
-  %170 = trunc i32 %169 to i8
+153:                                              ; preds = %151
+  %154 = bitcast float %149 to i32
+  %155 = add nsw i32 %154, -956301312
+  %156 = lshr i32 %155, 20
+  %157 = zext nneg i32 %156 to i64
+  %158 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %157
+  %159 = load i32, ptr %158, align 4
+  %160 = lshr i32 %159, 7
+  %161 = and i32 %160, 16776704
+  %162 = and i32 %159, 65535
+  %163 = lshr i32 %154, 12
+  %164 = and i32 %163, 255
+  %165 = mul nuw nsw i32 %162, %164
+  %166 = add nuw nsw i32 %161, %165
+  %167 = lshr i32 %166, 16
+  %168 = trunc i32 %167 to i8
   br label %stbir__linear_to_srgb_uchar.exit271
 
-stbir__linear_to_srgb_uchar.exit271:              ; preds = %stbir__linear_to_srgb_uchar.exit, %153, %155
-  %.0.i270 = phi i8 [ %170, %155 ], [ 0, %stbir__linear_to_srgb_uchar.exit ], [ -1, %153 ]
-  %171 = getelementptr inbounds nuw i8, ptr %.pn279, i64 1
-  store i8 %.0.i270, ptr %171, align 1
-  %172 = getelementptr inbounds nuw i8, ptr %.1280, i64 4
-  %173 = load float, ptr %172, align 4
-  %174 = fcmp ogt float %173, 0x3F20000000000000
-  br i1 %174, label %175, label %stbir__linear_to_srgb_uchar.exit273
+stbir__linear_to_srgb_uchar.exit271:              ; preds = %stbir__linear_to_srgb_uchar.exit, %151, %153
+  %.0.i270 = phi i8 [ %168, %153 ], [ 0, %stbir__linear_to_srgb_uchar.exit ], [ -1, %151 ]
+  %169 = getelementptr inbounds nuw i8, ptr %.pn279, i64 1
+  store i8 %.0.i270, ptr %169, align 1
+  %170 = getelementptr inbounds nuw i8, ptr %.1280, i64 4
+  %171 = load float, ptr %170, align 4
+  %172 = fcmp ogt float %171, 0x3F20000000000000
+  br i1 %172, label %173, label %stbir__linear_to_srgb_uchar.exit273
 
-175:                                              ; preds = %stbir__linear_to_srgb_uchar.exit271
-  %176 = fcmp ogt float %173, 0x3FEFFFFFE0000000
-  br i1 %176, label %stbir__linear_to_srgb_uchar.exit273, label %177
+173:                                              ; preds = %stbir__linear_to_srgb_uchar.exit271
+  %174 = fcmp ogt float %171, 0x3FEFFFFFE0000000
+  br i1 %174, label %stbir__linear_to_srgb_uchar.exit273, label %175
 
-177:                                              ; preds = %175
-  %178 = bitcast float %173 to i32
-  %179 = add nsw i32 %178, -956301312
-  %180 = lshr i32 %179, 20
-  %181 = zext nneg i32 %180 to i64
-  %182 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %181
-  %183 = load i32, ptr %182, align 4
-  %184 = lshr i32 %183, 7
-  %185 = and i32 %184, 16776704
-  %186 = and i32 %183, 65535
-  %187 = lshr i32 %178, 12
-  %188 = and i32 %187, 255
-  %189 = mul nuw nsw i32 %186, %188
-  %190 = add nuw nsw i32 %185, %189
-  %191 = lshr i32 %190, 16
-  %192 = trunc i32 %191 to i8
+175:                                              ; preds = %173
+  %176 = bitcast float %171 to i32
+  %177 = add nsw i32 %176, -956301312
+  %178 = lshr i32 %177, 20
+  %179 = zext nneg i32 %178 to i64
+  %180 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %179
+  %181 = load i32, ptr %180, align 4
+  %182 = lshr i32 %181, 7
+  %183 = and i32 %182, 16776704
+  %184 = and i32 %181, 65535
+  %185 = lshr i32 %176, 12
+  %186 = and i32 %185, 255
+  %187 = mul nuw nsw i32 %184, %186
+  %188 = add nuw nsw i32 %183, %187
+  %189 = lshr i32 %188, 16
+  %190 = trunc i32 %189 to i8
   br label %stbir__linear_to_srgb_uchar.exit273
 
-stbir__linear_to_srgb_uchar.exit273:              ; preds = %stbir__linear_to_srgb_uchar.exit271, %175, %177
-  %.0.i272 = phi i8 [ %192, %177 ], [ 0, %stbir__linear_to_srgb_uchar.exit271 ], [ -1, %175 ]
-  %193 = getelementptr inbounds nuw i8, ptr %.pn279, i64 2
-  store i8 %.0.i272, ptr %193, align 1
-  %194 = load float, ptr %.1280, align 4
-  %195 = fcmp ogt float %194, 0x3F20000000000000
-  br i1 %195, label %196, label %stbir__linear_to_srgb_uchar.exit275
+stbir__linear_to_srgb_uchar.exit273:              ; preds = %stbir__linear_to_srgb_uchar.exit271, %173, %175
+  %.0.i272 = phi i8 [ %190, %175 ], [ 0, %stbir__linear_to_srgb_uchar.exit271 ], [ -1, %173 ]
+  %191 = getelementptr inbounds nuw i8, ptr %.pn279, i64 2
+  store i8 %.0.i272, ptr %191, align 1
+  %192 = load float, ptr %.1280, align 4
+  %193 = fcmp ogt float %192, 0x3F20000000000000
+  br i1 %193, label %194, label %stbir__linear_to_srgb_uchar.exit275
 
-196:                                              ; preds = %stbir__linear_to_srgb_uchar.exit273
-  %197 = fcmp ogt float %194, 0x3FEFFFFFE0000000
-  br i1 %197, label %stbir__linear_to_srgb_uchar.exit275, label %198
+194:                                              ; preds = %stbir__linear_to_srgb_uchar.exit273
+  %195 = fcmp ogt float %192, 0x3FEFFFFFE0000000
+  br i1 %195, label %stbir__linear_to_srgb_uchar.exit275, label %196
 
-198:                                              ; preds = %196
-  %199 = bitcast float %194 to i32
-  %200 = add nsw i32 %199, -956301312
-  %201 = lshr i32 %200, 20
-  %202 = zext nneg i32 %201 to i64
-  %203 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %202
-  %204 = load i32, ptr %203, align 4
-  %205 = lshr i32 %204, 7
-  %206 = and i32 %205, 16776704
-  %207 = and i32 %204, 65535
-  %208 = lshr i32 %199, 12
-  %209 = and i32 %208, 255
-  %210 = mul nuw nsw i32 %207, %209
-  %211 = add nuw nsw i32 %206, %210
-  %212 = lshr i32 %211, 16
-  %213 = trunc i32 %212 to i8
+196:                                              ; preds = %194
+  %197 = bitcast float %192 to i32
+  %198 = add nsw i32 %197, -956301312
+  %199 = lshr i32 %198, 20
+  %200 = zext nneg i32 %199 to i64
+  %201 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %200
+  %202 = load i32, ptr %201, align 4
+  %203 = lshr i32 %202, 7
+  %204 = and i32 %203, 16776704
+  %205 = and i32 %202, 65535
+  %206 = lshr i32 %197, 12
+  %207 = and i32 %206, 255
+  %208 = mul nuw nsw i32 %205, %207
+  %209 = add nuw nsw i32 %204, %208
+  %210 = lshr i32 %209, 16
+  %211 = trunc i32 %210 to i8
   br label %stbir__linear_to_srgb_uchar.exit275
 
-stbir__linear_to_srgb_uchar.exit275:              ; preds = %stbir__linear_to_srgb_uchar.exit273, %196, %198
-  %.0.i274 = phi i8 [ %213, %198 ], [ 0, %stbir__linear_to_srgb_uchar.exit273 ], [ -1, %196 ]
-  %214 = getelementptr inbounds nuw i8, ptr %.pn279, i64 3
-  store i8 %.0.i274, ptr %214, align 1
-  %215 = getelementptr inbounds nuw i8, ptr %.1280, i64 16
+stbir__linear_to_srgb_uchar.exit275:              ; preds = %stbir__linear_to_srgb_uchar.exit273, %194, %196
+  %.0.i274 = phi i8 [ %211, %196 ], [ 0, %stbir__linear_to_srgb_uchar.exit273 ], [ -1, %194 ]
+  %212 = getelementptr inbounds nuw i8, ptr %.pn279, i64 3
+  store i8 %.0.i274, ptr %212, align 1
+  %213 = getelementptr inbounds nuw i8, ptr %.1280, i64 16
   %.1266 = getelementptr inbounds nuw i8, ptr %.1266281, i64 4
   %.not = icmp ugt ptr %.1266, %5
   br i1 %.not, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %stbir__linear_to_srgb_uchar.exit275, %127, %.preheader
+.loopexit:                                        ; preds = %stbir__linear_to_srgb_uchar.exit275, %125, %.preheader
   ret void
 }
 
@@ -51685,76 +51640,74 @@ define internal void @stbir__encode_uint8_srgb2_linearalpha(ptr noundef writeonl
   %81 = lshr <4 x i32> %80, splat (i32 16)
   %82 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %74, <4 x i32> %34)
   %83 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %81, <4 x i32> %43)
-  %84 = shufflevector <8 x i16> %82, <8 x i16> %83, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %85 = shufflevector <8 x i16> %82, <8 x i16> %83, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %86 = shufflevector <8 x i16> %84, <8 x i16> %85, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %87 = shufflevector <8 x i16> %84, <8 x i16> %85, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %88 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %86, <8 x i16> %87)
-  store <16 x i8> %88, ptr %.0210, align 1
-  %89 = getelementptr inbounds nuw i8, ptr %.0210, i64 16
-  %90 = getelementptr inbounds nuw i8, ptr %.0208, i64 64
-  %.not = icmp ugt ptr %89, %10
-  br i1 %.not, label %91, label %.backedge.backedge
+  %84 = shufflevector <8 x i16> %82, <8 x i16> %83, <8 x i32> <i32 0, i32 4, i32 8, i32 12, i32 1, i32 5, i32 9, i32 13>
+  %85 = shufflevector <8 x i16> %82, <8 x i16> %83, <8 x i32> <i32 2, i32 6, i32 10, i32 14, i32 3, i32 7, i32 11, i32 15>
+  %86 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %84, <8 x i16> %85)
+  store <16 x i8> %86, ptr %.0210, align 1
+  %87 = getelementptr inbounds nuw i8, ptr %.0210, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %.0208, i64 64
+  %.not = icmp ugt ptr %87, %10
+  br i1 %.not, label %89, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %.backedge, %91
-  %.0210.be = phi ptr [ %89, %.backedge ], [ %10, %91 ]
-  %.0208.be = phi ptr [ %90, %.backedge ], [ %9, %91 ]
+.backedge.backedge:                               ; preds = %.backedge, %89
+  %.0210.be = phi ptr [ %87, %.backedge ], [ %10, %89 ]
+  %.0208.be = phi ptr [ %88, %.backedge ], [ %9, %89 ]
   br label %.backedge
 
-91:                                               ; preds = %.backedge
-  %92 = icmp eq ptr %89, %5
-  br i1 %92, label %.loopexit, label %.backedge.backedge
+89:                                               ; preds = %.backedge
+  %90 = icmp eq ptr %87, %5
+  br i1 %90, label %.loopexit, label %.backedge.backedge
 
 .preheader:                                       ; preds = %3, %stbir__linear_to_srgb_uchar.exit
-  %.1211 = phi ptr [ %121, %stbir__linear_to_srgb_uchar.exit ], [ %0, %3 ]
-  %.1209 = phi ptr [ %122, %stbir__linear_to_srgb_uchar.exit ], [ %2, %3 ]
+  %.1211 = phi ptr [ %119, %stbir__linear_to_srgb_uchar.exit ], [ %0, %3 ]
+  %.1209 = phi ptr [ %120, %stbir__linear_to_srgb_uchar.exit ], [ %2, %3 ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1209) #49, !srcloc !323
-  %93 = load float, ptr %.1209, align 4
-  %94 = fcmp ogt float %93, 0x3F20000000000000
-  br i1 %94, label %95, label %stbir__linear_to_srgb_uchar.exit
+  %91 = load float, ptr %.1209, align 4
+  %92 = fcmp ogt float %91, 0x3F20000000000000
+  br i1 %92, label %93, label %stbir__linear_to_srgb_uchar.exit
 
-95:                                               ; preds = %.preheader
-  %96 = fcmp ogt float %93, 0x3FEFFFFFE0000000
-  br i1 %96, label %stbir__linear_to_srgb_uchar.exit, label %97
+93:                                               ; preds = %.preheader
+  %94 = fcmp ogt float %91, 0x3FEFFFFFE0000000
+  br i1 %94, label %stbir__linear_to_srgb_uchar.exit, label %95
 
-97:                                               ; preds = %95
-  %98 = bitcast float %93 to i32
-  %99 = add nsw i32 %98, -956301312
-  %100 = lshr i32 %99, 20
-  %101 = zext nneg i32 %100 to i64
-  %102 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %101
-  %103 = load i32, ptr %102, align 4
-  %104 = lshr i32 %103, 7
-  %105 = and i32 %104, 16776704
-  %106 = and i32 %103, 65535
-  %107 = lshr i32 %98, 12
-  %108 = and i32 %107, 255
-  %109 = mul nuw nsw i32 %106, %108
-  %110 = add nuw nsw i32 %105, %109
-  %111 = lshr i32 %110, 16
-  %112 = trunc i32 %111 to i8
+95:                                               ; preds = %93
+  %96 = bitcast float %91 to i32
+  %97 = add nsw i32 %96, -956301312
+  %98 = lshr i32 %97, 20
+  %99 = zext nneg i32 %98 to i64
+  %100 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %99
+  %101 = load i32, ptr %100, align 4
+  %102 = lshr i32 %101, 7
+  %103 = and i32 %102, 16776704
+  %104 = and i32 %101, 65535
+  %105 = lshr i32 %96, 12
+  %106 = and i32 %105, 255
+  %107 = mul nuw nsw i32 %104, %106
+  %108 = add nuw nsw i32 %103, %107
+  %109 = lshr i32 %108, 16
+  %110 = trunc i32 %109 to i8
   br label %stbir__linear_to_srgb_uchar.exit
 
-stbir__linear_to_srgb_uchar.exit:                 ; preds = %.preheader, %95, %97
-  %.0.i = phi i8 [ %112, %97 ], [ 0, %.preheader ], [ -1, %95 ]
+stbir__linear_to_srgb_uchar.exit:                 ; preds = %.preheader, %93, %95
+  %.0.i = phi i8 [ %110, %95 ], [ 0, %.preheader ], [ -1, %93 ]
   store i8 %.0.i, ptr %.1211, align 1
-  %113 = getelementptr inbounds nuw i8, ptr %.1209, i64 4
-  %114 = load float, ptr %113, align 4
-  %115 = fmul float %114, 2.550000e+02
-  %116 = fadd float %115, 5.000000e-01
-  %117 = fcmp olt float %116, 0.000000e+00
-  %.0 = select i1 %117, float 0.000000e+00, float %116
-  %118 = fcmp ogt float %.0, 2.550000e+02
-  %.1 = select i1 %118, float 2.550000e+02, float %.0
-  %119 = fptoui float %.1 to i8
-  %120 = getelementptr inbounds nuw i8, ptr %.1211, i64 1
-  store i8 %119, ptr %120, align 1
-  %121 = getelementptr inbounds nuw i8, ptr %.1211, i64 2
-  %122 = getelementptr inbounds nuw i8, ptr %.1209, i64 8
-  %123 = icmp ult ptr %121, %5
-  br i1 %123, label %.preheader, label %.loopexit
+  %111 = getelementptr inbounds nuw i8, ptr %.1209, i64 4
+  %112 = load float, ptr %111, align 4
+  %113 = fmul float %112, 2.550000e+02
+  %114 = fadd float %113, 5.000000e-01
+  %115 = fcmp olt float %114, 0.000000e+00
+  %.0 = select i1 %115, float 0.000000e+00, float %114
+  %116 = fcmp ogt float %.0, 2.550000e+02
+  %.1 = select i1 %116, float 2.550000e+02, float %.0
+  %117 = fptoui float %.1 to i8
+  %118 = getelementptr inbounds nuw i8, ptr %.1211, i64 1
+  store i8 %117, ptr %118, align 1
+  %119 = getelementptr inbounds nuw i8, ptr %.1211, i64 2
+  %120 = getelementptr inbounds nuw i8, ptr %.1209, i64 8
+  %121 = icmp ult ptr %119, %5
+  br i1 %121, label %.preheader, label %.loopexit
 
-.loopexit:                                        ; preds = %stbir__linear_to_srgb_uchar.exit, %91
+.loopexit:                                        ; preds = %stbir__linear_to_srgb_uchar.exit, %89
   ret void
 }
 
@@ -51864,76 +51817,74 @@ define internal void @stbir__encode_uint8_srgb2_linearalpha_AR(ptr noundef write
   %81 = lshr <4 x i32> %80, splat (i32 16)
   %82 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %34, <4 x i32> %74)
   %83 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %43, <4 x i32> %81)
-  %84 = shufflevector <8 x i16> %82, <8 x i16> %83, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %85 = shufflevector <8 x i16> %82, <8 x i16> %83, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %86 = shufflevector <8 x i16> %84, <8 x i16> %85, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %87 = shufflevector <8 x i16> %84, <8 x i16> %85, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %88 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %86, <8 x i16> %87)
-  store <16 x i8> %88, ptr %.0210, align 1
-  %89 = getelementptr inbounds nuw i8, ptr %.0210, i64 16
-  %90 = getelementptr inbounds nuw i8, ptr %.0208, i64 64
-  %.not = icmp ugt ptr %89, %10
-  br i1 %.not, label %91, label %.backedge.backedge
+  %84 = shufflevector <8 x i16> %82, <8 x i16> %83, <8 x i32> <i32 0, i32 4, i32 8, i32 12, i32 1, i32 5, i32 9, i32 13>
+  %85 = shufflevector <8 x i16> %82, <8 x i16> %83, <8 x i32> <i32 2, i32 6, i32 10, i32 14, i32 3, i32 7, i32 11, i32 15>
+  %86 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %84, <8 x i16> %85)
+  store <16 x i8> %86, ptr %.0210, align 1
+  %87 = getelementptr inbounds nuw i8, ptr %.0210, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %.0208, i64 64
+  %.not = icmp ugt ptr %87, %10
+  br i1 %.not, label %89, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %.backedge, %91
-  %.0210.be = phi ptr [ %89, %.backedge ], [ %10, %91 ]
-  %.0208.be = phi ptr [ %90, %.backedge ], [ %9, %91 ]
+.backedge.backedge:                               ; preds = %.backedge, %89
+  %.0210.be = phi ptr [ %87, %.backedge ], [ %10, %89 ]
+  %.0208.be = phi ptr [ %88, %.backedge ], [ %9, %89 ]
   br label %.backedge
 
-91:                                               ; preds = %.backedge
-  %92 = icmp eq ptr %89, %5
-  br i1 %92, label %.loopexit, label %.backedge.backedge
+89:                                               ; preds = %.backedge
+  %90 = icmp eq ptr %87, %5
+  br i1 %90, label %.loopexit, label %.backedge.backedge
 
 .preheader:                                       ; preds = %3, %stbir__linear_to_srgb_uchar.exit
-  %.1211 = phi ptr [ %121, %stbir__linear_to_srgb_uchar.exit ], [ %0, %3 ]
-  %.1209 = phi ptr [ %122, %stbir__linear_to_srgb_uchar.exit ], [ %2, %3 ]
+  %.1211 = phi ptr [ %119, %stbir__linear_to_srgb_uchar.exit ], [ %0, %3 ]
+  %.1209 = phi ptr [ %120, %stbir__linear_to_srgb_uchar.exit ], [ %2, %3 ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1209) #49, !srcloc !325
-  %93 = load float, ptr %.1209, align 4
-  %94 = fcmp ogt float %93, 0x3F20000000000000
-  br i1 %94, label %95, label %stbir__linear_to_srgb_uchar.exit
+  %91 = load float, ptr %.1209, align 4
+  %92 = fcmp ogt float %91, 0x3F20000000000000
+  br i1 %92, label %93, label %stbir__linear_to_srgb_uchar.exit
 
-95:                                               ; preds = %.preheader
-  %96 = fcmp ogt float %93, 0x3FEFFFFFE0000000
-  br i1 %96, label %stbir__linear_to_srgb_uchar.exit, label %97
+93:                                               ; preds = %.preheader
+  %94 = fcmp ogt float %91, 0x3FEFFFFFE0000000
+  br i1 %94, label %stbir__linear_to_srgb_uchar.exit, label %95
 
-97:                                               ; preds = %95
-  %98 = bitcast float %93 to i32
-  %99 = add nsw i32 %98, -956301312
-  %100 = lshr i32 %99, 20
-  %101 = zext nneg i32 %100 to i64
-  %102 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %101
-  %103 = load i32, ptr %102, align 4
-  %104 = lshr i32 %103, 7
-  %105 = and i32 %104, 16776704
-  %106 = and i32 %103, 65535
-  %107 = lshr i32 %98, 12
-  %108 = and i32 %107, 255
-  %109 = mul nuw nsw i32 %106, %108
-  %110 = add nuw nsw i32 %105, %109
-  %111 = lshr i32 %110, 16
-  %112 = trunc i32 %111 to i8
+95:                                               ; preds = %93
+  %96 = bitcast float %91 to i32
+  %97 = add nsw i32 %96, -956301312
+  %98 = lshr i32 %97, 20
+  %99 = zext nneg i32 %98 to i64
+  %100 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %99
+  %101 = load i32, ptr %100, align 4
+  %102 = lshr i32 %101, 7
+  %103 = and i32 %102, 16776704
+  %104 = and i32 %101, 65535
+  %105 = lshr i32 %96, 12
+  %106 = and i32 %105, 255
+  %107 = mul nuw nsw i32 %104, %106
+  %108 = add nuw nsw i32 %103, %107
+  %109 = lshr i32 %108, 16
+  %110 = trunc i32 %109 to i8
   br label %stbir__linear_to_srgb_uchar.exit
 
-stbir__linear_to_srgb_uchar.exit:                 ; preds = %.preheader, %95, %97
-  %.0.i = phi i8 [ %112, %97 ], [ 0, %.preheader ], [ -1, %95 ]
-  %113 = getelementptr inbounds nuw i8, ptr %.1211, i64 1
-  store i8 %.0.i, ptr %113, align 1
-  %114 = getelementptr inbounds nuw i8, ptr %.1209, i64 4
-  %115 = load float, ptr %114, align 4
-  %116 = fmul float %115, 2.550000e+02
-  %117 = fadd float %116, 5.000000e-01
-  %118 = fcmp olt float %117, 0.000000e+00
-  %.0 = select i1 %118, float 0.000000e+00, float %117
-  %119 = fcmp ogt float %.0, 2.550000e+02
-  %.1 = select i1 %119, float 2.550000e+02, float %.0
-  %120 = fptoui float %.1 to i8
-  store i8 %120, ptr %.1211, align 1
-  %121 = getelementptr inbounds nuw i8, ptr %.1211, i64 2
-  %122 = getelementptr inbounds nuw i8, ptr %.1209, i64 8
-  %123 = icmp ult ptr %121, %5
-  br i1 %123, label %.preheader, label %.loopexit
+stbir__linear_to_srgb_uchar.exit:                 ; preds = %.preheader, %93, %95
+  %.0.i = phi i8 [ %110, %95 ], [ 0, %.preheader ], [ -1, %93 ]
+  %111 = getelementptr inbounds nuw i8, ptr %.1211, i64 1
+  store i8 %.0.i, ptr %111, align 1
+  %112 = getelementptr inbounds nuw i8, ptr %.1209, i64 4
+  %113 = load float, ptr %112, align 4
+  %114 = fmul float %113, 2.550000e+02
+  %115 = fadd float %114, 5.000000e-01
+  %116 = fcmp olt float %115, 0.000000e+00
+  %.0 = select i1 %116, float 0.000000e+00, float %115
+  %117 = fcmp ogt float %.0, 2.550000e+02
+  %.1 = select i1 %117, float 2.550000e+02, float %.0
+  %118 = fptoui float %.1 to i8
+  store i8 %118, ptr %.1211, align 1
+  %119 = getelementptr inbounds nuw i8, ptr %.1211, i64 2
+  %120 = getelementptr inbounds nuw i8, ptr %.1209, i64 8
+  %121 = icmp ult ptr %119, %5
+  br i1 %121, label %.preheader, label %.loopexit
 
-.loopexit:                                        ; preds = %stbir__linear_to_srgb_uchar.exit, %91
+.loopexit:                                        ; preds = %stbir__linear_to_srgb_uchar.exit, %89
   ret void
 }
 
@@ -52103,234 +52054,232 @@ define internal void @stbir__encode_uint8_srgb_AR(ptr noundef writeonly %0, i32 
   %117 = lshr <4 x i32> %116, splat (i32 16)
   %118 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %103, <4 x i32> %96)
   %119 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %117, <4 x i32> %110)
-  %120 = shufflevector <8 x i16> %118, <8 x i16> %119, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %121 = shufflevector <8 x i16> %118, <8 x i16> %119, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %122 = shufflevector <8 x i16> %120, <8 x i16> %121, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %123 = shufflevector <8 x i16> %120, <8 x i16> %121, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %124 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %122, <8 x i16> %123)
-  store <16 x i8> %124, ptr %.0274, align 1
-  %125 = getelementptr inbounds nuw i8, ptr %.0, i64 64
-  %126 = getelementptr inbounds nuw i8, ptr %.0274, i64 16
-  %.not280 = icmp ugt ptr %126, %10
-  br i1 %.not280, label %127, label %.backedge.backedge
+  %120 = shufflevector <8 x i16> %118, <8 x i16> %119, <8 x i32> <i32 0, i32 4, i32 8, i32 12, i32 1, i32 5, i32 9, i32 13>
+  %121 = shufflevector <8 x i16> %118, <8 x i16> %119, <8 x i32> <i32 2, i32 6, i32 10, i32 14, i32 3, i32 7, i32 11, i32 15>
+  %122 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %120, <8 x i16> %121)
+  store <16 x i8> %122, ptr %.0274, align 1
+  %123 = getelementptr inbounds nuw i8, ptr %.0, i64 64
+  %124 = getelementptr inbounds nuw i8, ptr %.0274, i64 16
+  %.not280 = icmp ugt ptr %124, %10
+  br i1 %.not280, label %125, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %.backedge, %127
-  %.0274.be = phi ptr [ %126, %.backedge ], [ %10, %127 ]
-  %.0.be = phi ptr [ %125, %.backedge ], [ %9, %127 ]
+.backedge.backedge:                               ; preds = %.backedge, %125
+  %.0274.be = phi ptr [ %124, %.backedge ], [ %10, %125 ]
+  %.0.be = phi ptr [ %123, %.backedge ], [ %9, %125 ]
   br label %.backedge
 
-127:                                              ; preds = %.backedge
-  %128 = icmp eq ptr %126, %5
-  br i1 %128, label %.loopexit, label %.backedge.backedge
+125:                                              ; preds = %.backedge
+  %126 = icmp eq ptr %124, %5
+  br i1 %126, label %.loopexit, label %.backedge.backedge
 
 .preheader:                                       ; preds = %stbir__linear_to_srgb_uchar.exit286, %.preheader292
   %.pn.lcssa = phi ptr [ %0, %.preheader292 ], [ %.1275297, %stbir__linear_to_srgb_uchar.exit286 ]
-  %.1.lcssa = phi ptr [ %2, %.preheader292 ], [ %216, %stbir__linear_to_srgb_uchar.exit286 ]
-  %129 = icmp ult ptr %.pn.lcssa, %5
-  br i1 %129, label %.lr.ph301, label %.loopexit
+  %.1.lcssa = phi ptr [ %2, %.preheader292 ], [ %214, %stbir__linear_to_srgb_uchar.exit286 ]
+  %127 = icmp ult ptr %.pn.lcssa, %5
+  br i1 %127, label %.lr.ph301, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %stbir__linear_to_srgb_uchar.exit286
   %.1275297 = phi ptr [ %.1275, %stbir__linear_to_srgb_uchar.exit286 ], [ %.1275293, %.lr.ph.preheader ]
-  %.1296 = phi ptr [ %216, %stbir__linear_to_srgb_uchar.exit286 ], [ %2, %.lr.ph.preheader ]
+  %.1296 = phi ptr [ %214, %stbir__linear_to_srgb_uchar.exit286 ], [ %2, %.lr.ph.preheader ]
   %.pn295 = phi ptr [ %.1275297, %stbir__linear_to_srgb_uchar.exit286 ], [ %0, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1296) #49, !srcloc !327
-  %130 = getelementptr inbounds nuw i8, ptr %.1296, i64 4
-  %131 = load float, ptr %130, align 4
-  %132 = fcmp ogt float %131, 0x3F20000000000000
-  br i1 %132, label %133, label %stbir__linear_to_srgb_uchar.exit
+  %128 = getelementptr inbounds nuw i8, ptr %.1296, i64 4
+  %129 = load float, ptr %128, align 4
+  %130 = fcmp ogt float %129, 0x3F20000000000000
+  br i1 %130, label %131, label %stbir__linear_to_srgb_uchar.exit
 
-133:                                              ; preds = %.lr.ph
-  %134 = fcmp ogt float %131, 0x3FEFFFFFE0000000
-  br i1 %134, label %stbir__linear_to_srgb_uchar.exit, label %135
+131:                                              ; preds = %.lr.ph
+  %132 = fcmp ogt float %129, 0x3FEFFFFFE0000000
+  br i1 %132, label %stbir__linear_to_srgb_uchar.exit, label %133
 
-135:                                              ; preds = %133
-  %136 = bitcast float %131 to i32
-  %137 = add nsw i32 %136, -956301312
-  %138 = lshr i32 %137, 20
-  %139 = zext nneg i32 %138 to i64
-  %140 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %139
-  %141 = load i32, ptr %140, align 4
-  %142 = lshr i32 %141, 7
-  %143 = and i32 %142, 16776704
-  %144 = and i32 %141, 65535
-  %145 = lshr i32 %136, 12
-  %146 = and i32 %145, 255
-  %147 = mul nuw nsw i32 %144, %146
-  %148 = add nuw nsw i32 %143, %147
-  %149 = lshr i32 %148, 16
-  %150 = trunc i32 %149 to i8
+133:                                              ; preds = %131
+  %134 = bitcast float %129 to i32
+  %135 = add nsw i32 %134, -956301312
+  %136 = lshr i32 %135, 20
+  %137 = zext nneg i32 %136 to i64
+  %138 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %137
+  %139 = load i32, ptr %138, align 4
+  %140 = lshr i32 %139, 7
+  %141 = and i32 %140, 16776704
+  %142 = and i32 %139, 65535
+  %143 = lshr i32 %134, 12
+  %144 = and i32 %143, 255
+  %145 = mul nuw nsw i32 %142, %144
+  %146 = add nuw nsw i32 %141, %145
+  %147 = lshr i32 %146, 16
+  %148 = trunc i32 %147 to i8
   br label %stbir__linear_to_srgb_uchar.exit
 
-stbir__linear_to_srgb_uchar.exit:                 ; preds = %.lr.ph, %133, %135
-  %.0.i = phi i8 [ %150, %135 ], [ 0, %.lr.ph ], [ -1, %133 ]
+stbir__linear_to_srgb_uchar.exit:                 ; preds = %.lr.ph, %131, %133
+  %.0.i = phi i8 [ %148, %133 ], [ 0, %.lr.ph ], [ -1, %131 ]
   store i8 %.0.i, ptr %.pn295, align 1
-  %151 = load float, ptr %.1296, align 4
-  %152 = fcmp ogt float %151, 0x3F20000000000000
-  br i1 %152, label %153, label %stbir__linear_to_srgb_uchar.exit282
+  %149 = load float, ptr %.1296, align 4
+  %150 = fcmp ogt float %149, 0x3F20000000000000
+  br i1 %150, label %151, label %stbir__linear_to_srgb_uchar.exit282
 
-153:                                              ; preds = %stbir__linear_to_srgb_uchar.exit
-  %154 = fcmp ogt float %151, 0x3FEFFFFFE0000000
-  br i1 %154, label %stbir__linear_to_srgb_uchar.exit282, label %155
+151:                                              ; preds = %stbir__linear_to_srgb_uchar.exit
+  %152 = fcmp ogt float %149, 0x3FEFFFFFE0000000
+  br i1 %152, label %stbir__linear_to_srgb_uchar.exit282, label %153
 
-155:                                              ; preds = %153
-  %156 = bitcast float %151 to i32
-  %157 = add nsw i32 %156, -956301312
-  %158 = lshr i32 %157, 20
-  %159 = zext nneg i32 %158 to i64
-  %160 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %159
-  %161 = load i32, ptr %160, align 4
-  %162 = lshr i32 %161, 7
-  %163 = and i32 %162, 16776704
-  %164 = and i32 %161, 65535
-  %165 = lshr i32 %156, 12
-  %166 = and i32 %165, 255
-  %167 = mul nuw nsw i32 %164, %166
-  %168 = add nuw nsw i32 %163, %167
-  %169 = lshr i32 %168, 16
-  %170 = trunc i32 %169 to i8
+153:                                              ; preds = %151
+  %154 = bitcast float %149 to i32
+  %155 = add nsw i32 %154, -956301312
+  %156 = lshr i32 %155, 20
+  %157 = zext nneg i32 %156 to i64
+  %158 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %157
+  %159 = load i32, ptr %158, align 4
+  %160 = lshr i32 %159, 7
+  %161 = and i32 %160, 16776704
+  %162 = and i32 %159, 65535
+  %163 = lshr i32 %154, 12
+  %164 = and i32 %163, 255
+  %165 = mul nuw nsw i32 %162, %164
+  %166 = add nuw nsw i32 %161, %165
+  %167 = lshr i32 %166, 16
+  %168 = trunc i32 %167 to i8
   br label %stbir__linear_to_srgb_uchar.exit282
 
-stbir__linear_to_srgb_uchar.exit282:              ; preds = %stbir__linear_to_srgb_uchar.exit, %153, %155
-  %.0.i281 = phi i8 [ %170, %155 ], [ 0, %stbir__linear_to_srgb_uchar.exit ], [ -1, %153 ]
-  %171 = getelementptr inbounds nuw i8, ptr %.pn295, i64 1
-  store i8 %.0.i281, ptr %171, align 1
-  %172 = getelementptr inbounds nuw i8, ptr %.1296, i64 12
-  %173 = load float, ptr %172, align 4
-  %174 = fcmp ogt float %173, 0x3F20000000000000
-  br i1 %174, label %175, label %stbir__linear_to_srgb_uchar.exit284
+stbir__linear_to_srgb_uchar.exit282:              ; preds = %stbir__linear_to_srgb_uchar.exit, %151, %153
+  %.0.i281 = phi i8 [ %168, %153 ], [ 0, %stbir__linear_to_srgb_uchar.exit ], [ -1, %151 ]
+  %169 = getelementptr inbounds nuw i8, ptr %.pn295, i64 1
+  store i8 %.0.i281, ptr %169, align 1
+  %170 = getelementptr inbounds nuw i8, ptr %.1296, i64 12
+  %171 = load float, ptr %170, align 4
+  %172 = fcmp ogt float %171, 0x3F20000000000000
+  br i1 %172, label %173, label %stbir__linear_to_srgb_uchar.exit284
 
-175:                                              ; preds = %stbir__linear_to_srgb_uchar.exit282
-  %176 = fcmp ogt float %173, 0x3FEFFFFFE0000000
-  br i1 %176, label %stbir__linear_to_srgb_uchar.exit284, label %177
+173:                                              ; preds = %stbir__linear_to_srgb_uchar.exit282
+  %174 = fcmp ogt float %171, 0x3FEFFFFFE0000000
+  br i1 %174, label %stbir__linear_to_srgb_uchar.exit284, label %175
 
-177:                                              ; preds = %175
-  %178 = bitcast float %173 to i32
-  %179 = add nsw i32 %178, -956301312
-  %180 = lshr i32 %179, 20
-  %181 = zext nneg i32 %180 to i64
-  %182 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %181
-  %183 = load i32, ptr %182, align 4
-  %184 = lshr i32 %183, 7
-  %185 = and i32 %184, 16776704
-  %186 = and i32 %183, 65535
-  %187 = lshr i32 %178, 12
-  %188 = and i32 %187, 255
-  %189 = mul nuw nsw i32 %186, %188
-  %190 = add nuw nsw i32 %185, %189
-  %191 = lshr i32 %190, 16
-  %192 = trunc i32 %191 to i8
+175:                                              ; preds = %173
+  %176 = bitcast float %171 to i32
+  %177 = add nsw i32 %176, -956301312
+  %178 = lshr i32 %177, 20
+  %179 = zext nneg i32 %178 to i64
+  %180 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %179
+  %181 = load i32, ptr %180, align 4
+  %182 = lshr i32 %181, 7
+  %183 = and i32 %182, 16776704
+  %184 = and i32 %181, 65535
+  %185 = lshr i32 %176, 12
+  %186 = and i32 %185, 255
+  %187 = mul nuw nsw i32 %184, %186
+  %188 = add nuw nsw i32 %183, %187
+  %189 = lshr i32 %188, 16
+  %190 = trunc i32 %189 to i8
   br label %stbir__linear_to_srgb_uchar.exit284
 
-stbir__linear_to_srgb_uchar.exit284:              ; preds = %stbir__linear_to_srgb_uchar.exit282, %175, %177
-  %.0.i283 = phi i8 [ %192, %177 ], [ 0, %stbir__linear_to_srgb_uchar.exit282 ], [ -1, %175 ]
-  %193 = getelementptr inbounds nuw i8, ptr %.pn295, i64 2
-  store i8 %.0.i283, ptr %193, align 1
-  %194 = getelementptr inbounds nuw i8, ptr %.1296, i64 8
-  %195 = load float, ptr %194, align 4
-  %196 = fcmp ogt float %195, 0x3F20000000000000
-  br i1 %196, label %197, label %stbir__linear_to_srgb_uchar.exit286
+stbir__linear_to_srgb_uchar.exit284:              ; preds = %stbir__linear_to_srgb_uchar.exit282, %173, %175
+  %.0.i283 = phi i8 [ %190, %175 ], [ 0, %stbir__linear_to_srgb_uchar.exit282 ], [ -1, %173 ]
+  %191 = getelementptr inbounds nuw i8, ptr %.pn295, i64 2
+  store i8 %.0.i283, ptr %191, align 1
+  %192 = getelementptr inbounds nuw i8, ptr %.1296, i64 8
+  %193 = load float, ptr %192, align 4
+  %194 = fcmp ogt float %193, 0x3F20000000000000
+  br i1 %194, label %195, label %stbir__linear_to_srgb_uchar.exit286
 
-197:                                              ; preds = %stbir__linear_to_srgb_uchar.exit284
-  %198 = fcmp ogt float %195, 0x3FEFFFFFE0000000
-  br i1 %198, label %stbir__linear_to_srgb_uchar.exit286, label %199
+195:                                              ; preds = %stbir__linear_to_srgb_uchar.exit284
+  %196 = fcmp ogt float %193, 0x3FEFFFFFE0000000
+  br i1 %196, label %stbir__linear_to_srgb_uchar.exit286, label %197
 
-199:                                              ; preds = %197
-  %200 = bitcast float %195 to i32
-  %201 = add nsw i32 %200, -956301312
-  %202 = lshr i32 %201, 20
-  %203 = zext nneg i32 %202 to i64
-  %204 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %203
-  %205 = load i32, ptr %204, align 4
-  %206 = lshr i32 %205, 7
-  %207 = and i32 %206, 16776704
-  %208 = and i32 %205, 65535
-  %209 = lshr i32 %200, 12
-  %210 = and i32 %209, 255
-  %211 = mul nuw nsw i32 %208, %210
-  %212 = add nuw nsw i32 %207, %211
-  %213 = lshr i32 %212, 16
-  %214 = trunc i32 %213 to i8
+197:                                              ; preds = %195
+  %198 = bitcast float %193 to i32
+  %199 = add nsw i32 %198, -956301312
+  %200 = lshr i32 %199, 20
+  %201 = zext nneg i32 %200 to i64
+  %202 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %201
+  %203 = load i32, ptr %202, align 4
+  %204 = lshr i32 %203, 7
+  %205 = and i32 %204, 16776704
+  %206 = and i32 %203, 65535
+  %207 = lshr i32 %198, 12
+  %208 = and i32 %207, 255
+  %209 = mul nuw nsw i32 %206, %208
+  %210 = add nuw nsw i32 %205, %209
+  %211 = lshr i32 %210, 16
+  %212 = trunc i32 %211 to i8
   br label %stbir__linear_to_srgb_uchar.exit286
 
-stbir__linear_to_srgb_uchar.exit286:              ; preds = %stbir__linear_to_srgb_uchar.exit284, %197, %199
-  %.0.i285 = phi i8 [ %214, %199 ], [ 0, %stbir__linear_to_srgb_uchar.exit284 ], [ -1, %197 ]
-  %215 = getelementptr inbounds nuw i8, ptr %.pn295, i64 3
-  store i8 %.0.i285, ptr %215, align 1
-  %216 = getelementptr inbounds nuw i8, ptr %.1296, i64 16
+stbir__linear_to_srgb_uchar.exit286:              ; preds = %stbir__linear_to_srgb_uchar.exit284, %195, %197
+  %.0.i285 = phi i8 [ %212, %197 ], [ 0, %stbir__linear_to_srgb_uchar.exit284 ], [ -1, %195 ]
+  %213 = getelementptr inbounds nuw i8, ptr %.pn295, i64 3
+  store i8 %.0.i285, ptr %213, align 1
+  %214 = getelementptr inbounds nuw i8, ptr %.1296, i64 16
   %.1275 = getelementptr inbounds nuw i8, ptr %.1275297, i64 4
   %.not = icmp ugt ptr %.1275, %5
   br i1 %.not, label %.preheader, label %.lr.ph
 
 .lr.ph301:                                        ; preds = %.preheader, %stbir__linear_to_srgb_uchar.exit290
-  %.2300 = phi ptr [ %260, %stbir__linear_to_srgb_uchar.exit290 ], [ %.1.lcssa, %.preheader ]
-  %.2276299 = phi ptr [ %259, %stbir__linear_to_srgb_uchar.exit290 ], [ %.pn.lcssa, %.preheader ]
+  %.2300 = phi ptr [ %258, %stbir__linear_to_srgb_uchar.exit290 ], [ %.1.lcssa, %.preheader ]
+  %.2276299 = phi ptr [ %257, %stbir__linear_to_srgb_uchar.exit290 ], [ %.pn.lcssa, %.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2300) #49, !srcloc !328
-  %217 = getelementptr inbounds nuw i8, ptr %.2300, i64 4
-  %218 = load float, ptr %217, align 4
-  %219 = fcmp ogt float %218, 0x3F20000000000000
-  br i1 %219, label %220, label %stbir__linear_to_srgb_uchar.exit288
+  %215 = getelementptr inbounds nuw i8, ptr %.2300, i64 4
+  %216 = load float, ptr %215, align 4
+  %217 = fcmp ogt float %216, 0x3F20000000000000
+  br i1 %217, label %218, label %stbir__linear_to_srgb_uchar.exit288
 
-220:                                              ; preds = %.lr.ph301
-  %221 = fcmp ogt float %218, 0x3FEFFFFFE0000000
-  br i1 %221, label %stbir__linear_to_srgb_uchar.exit288, label %222
+218:                                              ; preds = %.lr.ph301
+  %219 = fcmp ogt float %216, 0x3FEFFFFFE0000000
+  br i1 %219, label %stbir__linear_to_srgb_uchar.exit288, label %220
 
-222:                                              ; preds = %220
-  %223 = bitcast float %218 to i32
-  %224 = add nsw i32 %223, -956301312
-  %225 = lshr i32 %224, 20
-  %226 = zext nneg i32 %225 to i64
-  %227 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %226
-  %228 = load i32, ptr %227, align 4
-  %229 = lshr i32 %228, 7
-  %230 = and i32 %229, 16776704
-  %231 = and i32 %228, 65535
-  %232 = lshr i32 %223, 12
-  %233 = and i32 %232, 255
-  %234 = mul nuw nsw i32 %231, %233
-  %235 = add nuw nsw i32 %230, %234
-  %236 = lshr i32 %235, 16
-  %237 = trunc i32 %236 to i8
+220:                                              ; preds = %218
+  %221 = bitcast float %216 to i32
+  %222 = add nsw i32 %221, -956301312
+  %223 = lshr i32 %222, 20
+  %224 = zext nneg i32 %223 to i64
+  %225 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %224
+  %226 = load i32, ptr %225, align 4
+  %227 = lshr i32 %226, 7
+  %228 = and i32 %227, 16776704
+  %229 = and i32 %226, 65535
+  %230 = lshr i32 %221, 12
+  %231 = and i32 %230, 255
+  %232 = mul nuw nsw i32 %229, %231
+  %233 = add nuw nsw i32 %228, %232
+  %234 = lshr i32 %233, 16
+  %235 = trunc i32 %234 to i8
   br label %stbir__linear_to_srgb_uchar.exit288
 
-stbir__linear_to_srgb_uchar.exit288:              ; preds = %.lr.ph301, %220, %222
-  %.0.i287 = phi i8 [ %237, %222 ], [ 0, %.lr.ph301 ], [ -1, %220 ]
+stbir__linear_to_srgb_uchar.exit288:              ; preds = %.lr.ph301, %218, %220
+  %.0.i287 = phi i8 [ %235, %220 ], [ 0, %.lr.ph301 ], [ -1, %218 ]
   store i8 %.0.i287, ptr %.2276299, align 1
-  %238 = load float, ptr %.2300, align 4
-  %239 = fcmp ogt float %238, 0x3F20000000000000
-  br i1 %239, label %240, label %stbir__linear_to_srgb_uchar.exit290
+  %236 = load float, ptr %.2300, align 4
+  %237 = fcmp ogt float %236, 0x3F20000000000000
+  br i1 %237, label %238, label %stbir__linear_to_srgb_uchar.exit290
 
-240:                                              ; preds = %stbir__linear_to_srgb_uchar.exit288
-  %241 = fcmp ogt float %238, 0x3FEFFFFFE0000000
-  br i1 %241, label %stbir__linear_to_srgb_uchar.exit290, label %242
+238:                                              ; preds = %stbir__linear_to_srgb_uchar.exit288
+  %239 = fcmp ogt float %236, 0x3FEFFFFFE0000000
+  br i1 %239, label %stbir__linear_to_srgb_uchar.exit290, label %240
 
-242:                                              ; preds = %240
-  %243 = bitcast float %238 to i32
-  %244 = add nsw i32 %243, -956301312
-  %245 = lshr i32 %244, 20
-  %246 = zext nneg i32 %245 to i64
-  %247 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %246
-  %248 = load i32, ptr %247, align 4
-  %249 = lshr i32 %248, 7
-  %250 = and i32 %249, 16776704
-  %251 = and i32 %248, 65535
-  %252 = lshr i32 %243, 12
-  %253 = and i32 %252, 255
-  %254 = mul nuw nsw i32 %251, %253
-  %255 = add nuw nsw i32 %250, %254
-  %256 = lshr i32 %255, 16
-  %257 = trunc i32 %256 to i8
+240:                                              ; preds = %238
+  %241 = bitcast float %236 to i32
+  %242 = add nsw i32 %241, -956301312
+  %243 = lshr i32 %242, 20
+  %244 = zext nneg i32 %243 to i64
+  %245 = getelementptr inbounds nuw [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %244
+  %246 = load i32, ptr %245, align 4
+  %247 = lshr i32 %246, 7
+  %248 = and i32 %247, 16776704
+  %249 = and i32 %246, 65535
+  %250 = lshr i32 %241, 12
+  %251 = and i32 %250, 255
+  %252 = mul nuw nsw i32 %249, %251
+  %253 = add nuw nsw i32 %248, %252
+  %254 = lshr i32 %253, 16
+  %255 = trunc i32 %254 to i8
   br label %stbir__linear_to_srgb_uchar.exit290
 
-stbir__linear_to_srgb_uchar.exit290:              ; preds = %stbir__linear_to_srgb_uchar.exit288, %240, %242
-  %.0.i289 = phi i8 [ %257, %242 ], [ 0, %stbir__linear_to_srgb_uchar.exit288 ], [ -1, %240 ]
-  %258 = getelementptr inbounds nuw i8, ptr %.2276299, i64 1
-  store i8 %.0.i289, ptr %258, align 1
-  %259 = getelementptr inbounds nuw i8, ptr %.2276299, i64 2
-  %260 = getelementptr inbounds nuw i8, ptr %.2300, i64 8
-  %261 = icmp ult ptr %259, %5
-  br i1 %261, label %.lr.ph301, label %.loopexit
+stbir__linear_to_srgb_uchar.exit290:              ; preds = %stbir__linear_to_srgb_uchar.exit288, %238, %240
+  %.0.i289 = phi i8 [ %255, %240 ], [ 0, %stbir__linear_to_srgb_uchar.exit288 ], [ -1, %238 ]
+  %256 = getelementptr inbounds nuw i8, ptr %.2276299, i64 1
+  store i8 %.0.i289, ptr %256, align 1
+  %257 = getelementptr inbounds nuw i8, ptr %.2276299, i64 2
+  %258 = getelementptr inbounds nuw i8, ptr %.2300, i64 8
+  %259 = icmp ult ptr %257, %5
+  br i1 %259, label %.lr.ph301, label %.loopexit
 
-.loopexit:                                        ; preds = %stbir__linear_to_srgb_uchar.exit290, %127, %.preheader
+.loopexit:                                        ; preds = %stbir__linear_to_srgb_uchar.exit290, %125, %.preheader
   ret void
 }
 

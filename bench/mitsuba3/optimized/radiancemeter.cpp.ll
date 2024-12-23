@@ -453,10 +453,10 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
 
 144:                                              ; preds = %135
   %.sroa.012.12.vec.insert.i258.i = insertelement <4 x float> %52, float 1.000000e+00, i64 3
-  %145 = shufflevector <4 x float> %125, <4 x float> %126, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  %146 = shufflevector <4 x float> %127, <4 x float> %142, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  %147 = shufflevector <4 x float> %125, <4 x float> %126, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
-  %148 = shufflevector <4 x float> %127, <4 x float> %142, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
+  %145 = shufflevector <4 x float> %115, <4 x float> %120, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %146 = shufflevector <4 x float> %123, <4 x float> %142, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
+  %147 = shufflevector <4 x float> %99, <4 x float> <float 0.000000e+00, float 0.000000e+00, float poison, float poison>, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %148 = shufflevector <4 x float> %124, <4 x float> %142, <4 x i32> <i32 0, i32 6, i32 1, i32 7>
   %149 = shufflevector <4 x float> %145, <4 x float> %146, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %150 = shufflevector <4 x float> %146, <4 x float> %145, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
   %151 = shufflevector <4 x float> %147, <4 x float> %148, <4 x i32> <i32 0, i32 1, i32 4, i32 5>

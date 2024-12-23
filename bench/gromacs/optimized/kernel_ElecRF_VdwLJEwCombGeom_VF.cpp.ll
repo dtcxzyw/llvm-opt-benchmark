@@ -2133,7 +2133,7 @@ _ZN3gmx17EnergyAccumulatorILb0ELb1EE11addEnergiesILi0ELi2EL12KernelLayout1ELi4EL
   %1630 = load <4 x float>, ptr %1624, align 16
   %1631 = fadd <4 x float> %1629, %1630
   store <4 x float> %1631, ptr %1624, align 16
-  %1632 = shufflevector <4 x float> %1629, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
+  %1632 = shufflevector <4 x float> %1628, <4 x float> poison, <4 x i32> <i32 1, i32 3, i32 poison, i32 poison>
   %1633 = fadd <4 x float> %1629, %1632
   %shift = shufflevector <4 x float> %1633, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %1634 = fadd <4 x float> %1633, %shift
@@ -2147,7 +2147,7 @@ _ZN3gmx17EnergyAccumulatorILb0ELb1EE11addEnergiesILi0ELi2EL12KernelLayout1ELi4EL
   %1642 = load <4 x float>, ptr %1636, align 16
   %1643 = fadd <4 x float> %1641, %1642
   store <4 x float> %1643, ptr %1636, align 16
-  %1644 = shufflevector <4 x float> %1641, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
+  %1644 = shufflevector <4 x float> %1640, <4 x float> poison, <4 x i32> <i32 1, i32 3, i32 poison, i32 poison>
   %1645 = fadd <4 x float> %1641, %1644
   %shift2877 = shufflevector <4 x float> %1645, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %1646 = fadd <4 x float> %1645, %shift2877
@@ -2161,7 +2161,7 @@ _ZN3gmx17EnergyAccumulatorILb0ELb1EE11addEnergiesILi0ELi2EL12KernelLayout1ELi4EL
   %1654 = load <4 x float>, ptr %1648, align 16
   %1655 = fadd <4 x float> %1653, %1654
   store <4 x float> %1655, ptr %1648, align 16
-  %1656 = shufflevector <4 x float> %1653, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
+  %1656 = shufflevector <4 x float> %1652, <4 x float> poison, <4 x i32> <i32 1, i32 3, i32 poison, i32 poison>
   %1657 = fadd <4 x float> %1653, %1656
   %shift2878 = shufflevector <4 x float> %1657, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %1658 = fadd <4 x float> %1657, %shift2878

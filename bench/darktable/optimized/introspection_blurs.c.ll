@@ -1860,7 +1860,7 @@ define internal fastcc void @blur_2D_Bspline(ptr noalias nocapture noundef nonnu
   br label %24
 
 24:                                               ; preds = %.loopexit, %12
-  %25 = phi i64 [ %202, %.loopexit ], [ 0, %12 ]
+  %25 = phi i64 [ %201, %.loopexit ], [ 0, %12 ]
   %26 = mul i64 %25, %2
   %27 = trunc i64 %25 to i32
   %28 = add i32 %27, -2
@@ -2030,7 +2030,7 @@ define internal fastcc void @blur_2D_Bspline(ptr noalias nocapture noundef nonnu
   br label %160
 
 160:                                              ; preds = %160, %150
-  %161 = phi i64 [ %200, %160 ], [ %151, %150 ]
+  %161 = phi i64 [ %199, %160 ], [ %151, %150 ]
   %162 = trunc i64 %161 to i32
   %163 = add i32 %162, -2
   %164 = add i32 %162, -1
@@ -2056,28 +2056,27 @@ define internal fastcc void @blur_2D_Bspline(ptr noalias nocapture noundef nonnu
   %184 = fmul reassoc nsz arcp contract afn <16 x float> %183, <float 3.906250e-03, float 1.562500e-02, float 2.343750e-02, float 1.562500e-02, float 3.906250e-03, float 1.562500e-02, float 6.250000e-02, float 9.375000e-02, float 6.250000e-02, float 1.562500e-02, float 2.343750e-02, float 9.375000e-02, float 1.406250e-01, float 9.375000e-02, float 2.343750e-02, float 1.562500e-02>
   %185 = insertelement <8 x i64> poison, i64 %168, i64 0
   %186 = shufflevector <4 x i64> %178, <4 x i64> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison>
-  %187 = shufflevector <8 x i64> %185, <8 x i64> %186, <8 x i32> <i32 0, i32 8, i32 9, i32 10, i32 11, i32 poison, i32 poison, i32 poison>
-  %188 = shufflevector <8 x i64> %187, <8 x i64> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 0, i32 1, i32 2>
-  %189 = getelementptr float, <8 x ptr> %159, <8 x i64> %188
-  %190 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %189, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !37
-  %191 = fmul reassoc nsz arcp contract afn <8 x float> %190, <float 6.250000e-02, float 9.375000e-02, float 6.250000e-02, float 1.562500e-02, float 3.906250e-03, float 1.562500e-02, float 2.343750e-02, float 1.562500e-02>
-  %192 = extractelement <4 x i64> %178, i64 2
-  %193 = getelementptr float, ptr %36, i64 %192
-  %194 = load float, ptr %193, align 4, !tbaa !37
-  %195 = fmul reassoc nsz arcp contract afn float %194, 3.906250e-03
-  %196 = tail call reassoc nsz arcp contract afn float @llvm.vector.reduce.fadd.v8f32(float -0.000000e+00, <8 x float> %191)
-  %197 = tail call reassoc nsz arcp contract afn float @llvm.vector.reduce.fadd.v16f32(float %196, <16 x float> %184)
-  %198 = fadd reassoc nsz arcp contract afn float %197, %195
-  %199 = getelementptr float, ptr %29, i64 %161
-  store float %198, ptr %199, align 4, !tbaa !37
-  %200 = add nuw i64 %161, 1
-  %201 = icmp eq i64 %200, %2
-  br i1 %201, label %.loopexit, label %160, !llvm.loop !107
+  %187 = shufflevector <8 x i64> %185, <8 x i64> %186, <8 x i32> <i32 0, i32 8, i32 9, i32 10, i32 11, i32 0, i32 8, i32 9>
+  %188 = getelementptr float, <8 x ptr> %159, <8 x i64> %187
+  %189 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %188, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !37
+  %190 = fmul reassoc nsz arcp contract afn <8 x float> %189, <float 6.250000e-02, float 9.375000e-02, float 6.250000e-02, float 1.562500e-02, float 3.906250e-03, float 1.562500e-02, float 2.343750e-02, float 1.562500e-02>
+  %191 = extractelement <4 x i64> %178, i64 2
+  %192 = getelementptr float, ptr %36, i64 %191
+  %193 = load float, ptr %192, align 4, !tbaa !37
+  %194 = fmul reassoc nsz arcp contract afn float %193, 3.906250e-03
+  %195 = tail call reassoc nsz arcp contract afn float @llvm.vector.reduce.fadd.v8f32(float -0.000000e+00, <8 x float> %190)
+  %196 = tail call reassoc nsz arcp contract afn float @llvm.vector.reduce.fadd.v16f32(float %195, <16 x float> %184)
+  %197 = fadd reassoc nsz arcp contract afn float %196, %194
+  %198 = getelementptr float, ptr %29, i64 %161
+  store float %197, ptr %198, align 4, !tbaa !37
+  %199 = add nuw i64 %161, 1
+  %200 = icmp eq i64 %199, %2
+  br i1 %200, label %.loopexit, label %160, !llvm.loop !107
 
 .loopexit:                                        ; preds = %160, %149
-  %202 = add nuw i64 %25, 1
-  %203 = icmp eq i64 %202, %3
-  br i1 %203, label %.loopexit26, label %24
+  %201 = add nuw i64 %25, 1
+  %202 = icmp eq i64 %201, %3
+  br i1 %202, label %.loopexit26, label %24
 
 .loopexit26:                                      ; preds = %.loopexit, %6, %4
   ret void

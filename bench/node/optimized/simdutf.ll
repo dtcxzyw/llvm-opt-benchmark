@@ -14401,25 +14401,24 @@ if.then113.i:                                     ; preds = %if.then103.i
   br label %_ZN7simdutf7icelake12_GLOBAL__N_126valid_utf8_to_fixed_lengthILNS_10endiannessE0EDsEESt4pairIPKcPT0_ES6_mS8_.exit
 
 if.else130.i:                                     ; preds = %if.then103.i
-  %216 = bitcast <8 x i64> %208 to <16 x i32>
-  %217 = bitcast <8 x i64> %208 to <64 x i8>
-  %218 = shufflevector <64 x i8> %217, <64 x i8> poison, <64 x i32> <i32 0, i32 1, i32 2, i32 3, i32 1, i32 2, i32 3, i32 4, i32 2, i32 3, i32 4, i32 5, i32 3, i32 4, i32 5, i32 6, i32 4, i32 5, i32 6, i32 7, i32 5, i32 6, i32 7, i32 8, i32 6, i32 7, i32 8, i32 9, i32 7, i32 8, i32 9, i32 10, i32 8, i32 9, i32 10, i32 11, i32 9, i32 10, i32 11, i32 12, i32 10, i32 11, i32 12, i32 13, i32 11, i32 12, i32 13, i32 14, i32 12, i32 13, i32 14, i32 15, i32 13, i32 14, i32 15, i32 16, i32 14, i32 15, i32 16, i32 17, i32 15, i32 16, i32 17, i32 18>
-  %219 = bitcast <64 x i8> %218 to <16 x i32>
-  %220 = and <16 x i32> %219, splat (i32 192)
-  %221 = icmp ne <16 x i32> %220, splat (i32 128)
-  %222 = bitcast <16 x i1> %221 to i16
-  %223 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %222)
-  %cast.i.i576.i = zext nneg i16 %223 to i32
-  %224 = tail call <16 x i32> @llvm.x86.avx512.mask.compress.v16i32(<16 x i32> %219, <16 x i32> zeroinitializer, <16 x i1> %221)
-  %225 = bitcast <8 x i64> %208 to <64 x i8>
-  %226 = shufflevector <64 x i8> %225, <64 x i8> poison, <64 x i32> <i32 16, i32 17, i32 18, i32 19, i32 17, i32 18, i32 19, i32 20, i32 18, i32 19, i32 20, i32 21, i32 19, i32 20, i32 21, i32 22, i32 20, i32 21, i32 22, i32 23, i32 21, i32 22, i32 23, i32 24, i32 22, i32 23, i32 24, i32 25, i32 23, i32 24, i32 25, i32 26, i32 24, i32 25, i32 26, i32 27, i32 25, i32 26, i32 27, i32 28, i32 26, i32 27, i32 28, i32 29, i32 27, i32 28, i32 29, i32 30, i32 28, i32 29, i32 30, i32 31, i32 29, i32 30, i32 31, i32 32, i32 30, i32 31, i32 32, i32 33, i32 31, i32 32, i32 33, i32 34>
-  %227 = bitcast <64 x i8> %226 to <16 x i32>
-  %228 = and <16 x i32> %227, splat (i32 192)
-  %229 = icmp ne <16 x i32> %228, splat (i32 128)
-  %230 = bitcast <16 x i1> %229 to i16
-  %231 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %230)
-  %cast.i.i.i = zext nneg i16 %231 to i32
-  %232 = tail call <16 x i32> @llvm.x86.avx512.mask.compress.v16i32(<16 x i32> %227, <16 x i32> zeroinitializer, <16 x i1> %229)
+  %216 = bitcast <8 x i64> %208 to <64 x i8>
+  %217 = shufflevector <64 x i8> %216, <64 x i8> poison, <64 x i32> <i32 0, i32 1, i32 2, i32 3, i32 1, i32 2, i32 3, i32 4, i32 2, i32 3, i32 4, i32 5, i32 3, i32 4, i32 5, i32 6, i32 4, i32 5, i32 6, i32 7, i32 5, i32 6, i32 7, i32 8, i32 6, i32 7, i32 8, i32 9, i32 7, i32 8, i32 9, i32 10, i32 8, i32 9, i32 10, i32 11, i32 9, i32 10, i32 11, i32 12, i32 10, i32 11, i32 12, i32 13, i32 11, i32 12, i32 13, i32 14, i32 12, i32 13, i32 14, i32 15, i32 13, i32 14, i32 15, i32 16, i32 14, i32 15, i32 16, i32 17, i32 15, i32 16, i32 17, i32 18>
+  %218 = bitcast <64 x i8> %217 to <16 x i32>
+  %219 = and <16 x i32> %218, splat (i32 192)
+  %220 = icmp ne <16 x i32> %219, splat (i32 128)
+  %221 = bitcast <16 x i1> %220 to i16
+  %222 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %221)
+  %cast.i.i576.i = zext nneg i16 %222 to i32
+  %223 = tail call <16 x i32> @llvm.x86.avx512.mask.compress.v16i32(<16 x i32> %218, <16 x i32> zeroinitializer, <16 x i1> %220)
+  %224 = bitcast <8 x i64> %208 to <64 x i8>
+  %225 = shufflevector <64 x i8> %224, <64 x i8> poison, <64 x i32> <i32 16, i32 17, i32 18, i32 19, i32 17, i32 18, i32 19, i32 20, i32 18, i32 19, i32 20, i32 21, i32 19, i32 20, i32 21, i32 22, i32 20, i32 21, i32 22, i32 23, i32 21, i32 22, i32 23, i32 24, i32 22, i32 23, i32 24, i32 25, i32 23, i32 24, i32 25, i32 26, i32 24, i32 25, i32 26, i32 27, i32 25, i32 26, i32 27, i32 28, i32 26, i32 27, i32 28, i32 29, i32 27, i32 28, i32 29, i32 30, i32 28, i32 29, i32 30, i32 31, i32 29, i32 30, i32 31, i32 32, i32 30, i32 31, i32 32, i32 33, i32 31, i32 32, i32 33, i32 34>
+  %226 = bitcast <64 x i8> %225 to <16 x i32>
+  %227 = and <16 x i32> %226, splat (i32 192)
+  %228 = icmp ne <16 x i32> %227, splat (i32 128)
+  %229 = bitcast <16 x i1> %228 to i16
+  %230 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %229)
+  %cast.i.i.i = zext nneg i16 %230 to i32
+  %231 = tail call <16 x i32> @llvm.x86.avx512.mask.compress.v16i32(<16 x i32> %226, <16 x i32> zeroinitializer, <16 x i1> %228)
   %add150.i = add nuw nsw i32 %cast.i.i576.i, %cast.i.i.i
   %cmp151.i = icmp samesign ult i32 %add150.i, 17
   br i1 %cmp151.i, label %if.then152.i, label %if.else167.i
@@ -14429,61 +14428,61 @@ if.then152.i:                                     ; preds = %if.else130.i
   %sub154.i = xor i32 %notmask2132.i, -1
   %shl155.i = shl nuw i32 %sub154.i, %cast.i.i576.i
   %conv156.i = trunc i32 %shl155.i to i16
-  %233 = bitcast i16 %conv156.i to <16 x i1>
-  %234 = tail call <16 x i32> @llvm.x86.avx512.mask.expand.v16i32(<16 x i32> %232, <16 x i32> %224, <16 x i1> %233)
-  %235 = lshr <16 x i32> %234, splat (i32 4)
-  %236 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %235, <16 x i32> splat (i32 15), <16 x i32> splat (i32 -2139062272), i32 234)
-  %237 = bitcast <16 x i32> %234 to <64 x i8>
-  %238 = and <64 x i8> %237, <i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63>
-  %239 = tail call <32 x i16> @llvm.x86.avx512.pmaddubs.w.512(<64 x i8> %238, <64 x i8> <i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1>)
-  %240 = tail call <16 x i32> @llvm.x86.avx512.pmaddw.d.512(<32 x i16> %239, <32 x i16> <i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1>)
-  %241 = bitcast <16 x i32> %236 to <64 x i8>
-  %242 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11>, <64 x i8> %241)
-  %243 = bitcast <64 x i8> %242 to <16 x i32>
-  %244 = tail call <16 x i32> @llvm.x86.avx512.psllv.d.512(<16 x i32> %240, <16 x i32> %243)
-  %245 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11>, <64 x i8> %241)
-  %246 = bitcast <64 x i8> %245 to <16 x i32>
-  %247 = tail call <16 x i32> @llvm.x86.avx512.psrlv.d.512(<16 x i32> %244, <16 x i32> %246)
+  %232 = bitcast i16 %conv156.i to <16 x i1>
+  %233 = tail call <16 x i32> @llvm.x86.avx512.mask.expand.v16i32(<16 x i32> %231, <16 x i32> %223, <16 x i1> %232)
+  %234 = lshr <16 x i32> %233, splat (i32 4)
+  %235 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %234, <16 x i32> splat (i32 15), <16 x i32> splat (i32 -2139062272), i32 234)
+  %236 = bitcast <16 x i32> %233 to <64 x i8>
+  %237 = and <64 x i8> %236, <i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63>
+  %238 = tail call <32 x i16> @llvm.x86.avx512.pmaddubs.w.512(<64 x i8> %237, <64 x i8> <i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1>)
+  %239 = tail call <16 x i32> @llvm.x86.avx512.pmaddw.d.512(<32 x i16> %238, <32 x i16> <i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1>)
+  %240 = bitcast <16 x i32> %235 to <64 x i8>
+  %241 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11>, <64 x i8> %240)
+  %242 = bitcast <64 x i8> %241 to <16 x i32>
+  %243 = tail call <16 x i32> @llvm.x86.avx512.psllv.d.512(<16 x i32> %239, <16 x i32> %242)
+  %244 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11>, <64 x i8> %240)
+  %245 = bitcast <64 x i8> %244 to <16 x i32>
+  %246 = tail call <16 x i32> @llvm.x86.avx512.psrlv.d.512(<16 x i32> %243, <16 x i32> %245)
   %notmask2133.i = shl nsw i32 -1, %add150.i
-  %248 = trunc i32 %notmask2133.i to i16
-  %conv.i2671.i = xor i16 %248, -1
-  %249 = icmp ugt <16 x i32> %247, splat (i32 65535)
-  %250 = bitcast i16 %conv.i2671.i to <16 x i1>
-  %251 = and <16 x i1> %249, %250
-  %252 = bitcast <16 x i1> %251 to i16
-  %cmp.i2689.i = icmp eq i16 %252, 0
+  %247 = trunc i32 %notmask2133.i to i16
+  %conv.i2671.i = xor i16 %247, -1
+  %248 = icmp ugt <16 x i32> %246, splat (i32 65535)
+  %249 = bitcast i16 %conv.i2671.i to <16 x i1>
+  %250 = and <16 x i1> %248, %249
+  %251 = bitcast <16 x i1> %250 to i16
+  %cmp.i2689.i = icmp eq i16 %251, 0
   br i1 %cmp.i2689.i, label %if.then.i2777.i, label %if.end.i2690.i
 
 if.then.i2777.i:                                  ; preds = %if.then152.i
-  %253 = trunc <16 x i32> %247 to <16 x i16>
-  tail call void @llvm.masked.store.v16i16.p0(<16 x i16> %253, ptr %output.0.lcssa.i, i32 1, <16 x i1> %250)
+  %252 = trunc <16 x i32> %246 to <16 x i16>
+  tail call void @llvm.masked.store.v16i16.p0(<16 x i16> %252, ptr %output.0.lcssa.i, i32 1, <16 x i1> %249)
   br label %_ZN7simdutf7icelake12_GLOBAL__N_121utf32_to_utf16_maskedILNS_10endiannessE0EEEmDv8_xS4_jPDs.exit2780.i
 
 if.end.i2690.i:                                   ; preds = %if.then152.i
-  %sub.i4252.i = add <16 x i32> %247, splat (i32 -65536)
-  %254 = shl <16 x i32> %sub.i4252.i, splat (i32 6)
-  %255 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %254, <16 x i32> %sub.i4252.i, <16 x i32> splat (i32 -65536), i32 228)
-  %256 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %255, <16 x i32> splat (i32 -67044352), <16 x i32> splat (i32 -671032320), i32 186)
-  %257 = select <16 x i1> %251, <16 x i32> %256, <16 x i32> %247
-  %258 = tail call <16 x i32> @llvm.fshl.v16i32(<16 x i32> %257, <16 x i32> %257, <16 x i32> splat (i32 16))
-  %259 = bitcast <16 x i32> %258 to <32 x i16>
-  %260 = icmp ne <32 x i16> %259, zeroinitializer
-  %261 = or <32 x i1> %260, <i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true>
+  %sub.i4252.i = add <16 x i32> %246, splat (i32 -65536)
+  %253 = shl <16 x i32> %sub.i4252.i, splat (i32 6)
+  %254 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %253, <16 x i32> %sub.i4252.i, <16 x i32> splat (i32 -65536), i32 228)
+  %255 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %254, <16 x i32> splat (i32 -67044352), <16 x i32> splat (i32 -671032320), i32 186)
+  %256 = select <16 x i1> %250, <16 x i32> %255, <16 x i32> %246
+  %257 = tail call <16 x i32> @llvm.fshl.v16i32(<16 x i32> %256, <16 x i32> %256, <16 x i32> splat (i32 16))
+  %258 = bitcast <16 x i32> %257 to <32 x i16>
+  %259 = icmp ne <32 x i16> %258, zeroinitializer
+  %260 = or <32 x i1> %259, <i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true>
   %mul.i2758.i = shl nuw nsw i32 %add150.i, 1
   %sh_prom.i2759.i = zext nneg i32 %mul.i2758.i to i64
   %notmask2134.i = shl nsw i64 -1, %sh_prom.i2759.i
-  %262 = trunc i64 %notmask2134.i to i32
-  %conv21.i2762.i = xor i32 %262, -1
-  %263 = bitcast i32 %conv21.i2762.i to <32 x i1>
-  %264 = and <32 x i1> %261, %263
-  %265 = tail call <32 x i16> @llvm.x86.avx512.mask.compress.v32i16(<32 x i16> %259, <32 x i16> zeroinitializer, <32 x i1> %264)
-  %266 = tail call range(i16 1, 17) i16 @llvm.ctpop.i16(i16 %252)
-  %cast.i.i2766.i = zext nneg i16 %266 to i32
+  %261 = trunc i64 %notmask2134.i to i32
+  %conv21.i2762.i = xor i32 %261, -1
+  %262 = bitcast i32 %conv21.i2762.i to <32 x i1>
+  %263 = and <32 x i1> %260, %262
+  %264 = tail call <32 x i16> @llvm.x86.avx512.mask.compress.v32i16(<32 x i16> %258, <32 x i16> zeroinitializer, <32 x i1> %263)
+  %265 = tail call range(i16 1, 17) i16 @llvm.ctpop.i16(i16 %251)
+  %cast.i.i2766.i = zext nneg i16 %265 to i32
   %add.i2768.i = add nuw nsw i32 %add150.i, %cast.i.i2766.i
   %notmask2135.i = shl nsw i32 -1, %add.i2768.i
   %sub29.i2770.i = xor i32 %notmask2135.i, -1
-  %267 = bitcast i32 %sub29.i2770.i to <32 x i1>
-  tail call void @llvm.masked.store.v32i16.p0(<32 x i16> %265, ptr %output.0.lcssa.i, i32 1, <32 x i1> %267)
+  %266 = bitcast i32 %sub29.i2770.i to <32 x i1>
+  tail call void @llvm.masked.store.v32i16.p0(<32 x i16> %264, ptr %output.0.lcssa.i, i32 1, <32 x i1> %266)
   br label %_ZN7simdutf7icelake12_GLOBAL__N_121utf32_to_utf16_maskedILNS_10endiannessE0EEEmDv8_xS4_jPDs.exit2780.i
 
 _ZN7simdutf7icelake12_GLOBAL__N_121utf32_to_utf16_maskedILNS_10endiannessE0EEEmDv8_xS4_jPDs.exit2780.i: ; preds = %if.end.i2690.i, %if.then.i2777.i
@@ -14493,194 +14492,193 @@ _ZN7simdutf7icelake12_GLOBAL__N_121utf32_to_utf16_maskedILNS_10endiannessE0EEEmD
   br label %if.end180.i
 
 if.else167.i:                                     ; preds = %if.else130.i
-  %268 = lshr <16 x i32> %224, splat (i32 4)
-  %269 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %268, <16 x i32> splat (i32 15), <16 x i32> splat (i32 -2139062272), i32 234)
-  %270 = bitcast <16 x i32> %224 to <64 x i8>
-  %271 = and <64 x i8> %270, <i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63>
-  %272 = tail call <32 x i16> @llvm.x86.avx512.pmaddubs.w.512(<64 x i8> %271, <64 x i8> <i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1>)
-  %273 = tail call <16 x i32> @llvm.x86.avx512.pmaddw.d.512(<32 x i16> %272, <32 x i16> <i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1>)
-  %274 = bitcast <16 x i32> %269 to <64 x i8>
-  %275 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11>, <64 x i8> %274)
-  %276 = bitcast <64 x i8> %275 to <16 x i32>
-  %277 = tail call <16 x i32> @llvm.x86.avx512.psllv.d.512(<16 x i32> %273, <16 x i32> %276)
-  %278 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11>, <64 x i8> %274)
-  %279 = bitcast <64 x i8> %278 to <16 x i32>
-  %280 = tail call <16 x i32> @llvm.x86.avx512.psrlv.d.512(<16 x i32> %277, <16 x i32> %279)
-  %281 = lshr <16 x i32> %232, splat (i32 4)
-  %282 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %281, <16 x i32> splat (i32 15), <16 x i32> splat (i32 -2139062272), i32 234)
-  %283 = bitcast <16 x i32> %232 to <64 x i8>
-  %284 = and <64 x i8> %283, <i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63>
-  %285 = tail call <32 x i16> @llvm.x86.avx512.pmaddubs.w.512(<64 x i8> %284, <64 x i8> <i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1>)
-  %286 = tail call <16 x i32> @llvm.x86.avx512.pmaddw.d.512(<32 x i16> %285, <32 x i16> <i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1>)
-  %287 = bitcast <16 x i32> %282 to <64 x i8>
-  %288 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11>, <64 x i8> %287)
-  %289 = bitcast <64 x i8> %288 to <16 x i32>
-  %290 = tail call <16 x i32> @llvm.x86.avx512.psllv.d.512(<16 x i32> %286, <16 x i32> %289)
-  %291 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11>, <64 x i8> %287)
-  %292 = bitcast <64 x i8> %291 to <16 x i32>
-  %293 = tail call <16 x i32> @llvm.x86.avx512.psrlv.d.512(<16 x i32> %290, <16 x i32> %292)
+  %267 = lshr <16 x i32> %223, splat (i32 4)
+  %268 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %267, <16 x i32> splat (i32 15), <16 x i32> splat (i32 -2139062272), i32 234)
+  %269 = bitcast <16 x i32> %223 to <64 x i8>
+  %270 = and <64 x i8> %269, <i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63>
+  %271 = tail call <32 x i16> @llvm.x86.avx512.pmaddubs.w.512(<64 x i8> %270, <64 x i8> <i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1>)
+  %272 = tail call <16 x i32> @llvm.x86.avx512.pmaddw.d.512(<32 x i16> %271, <32 x i16> <i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1>)
+  %273 = bitcast <16 x i32> %268 to <64 x i8>
+  %274 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11>, <64 x i8> %273)
+  %275 = bitcast <64 x i8> %274 to <16 x i32>
+  %276 = tail call <16 x i32> @llvm.x86.avx512.psllv.d.512(<16 x i32> %272, <16 x i32> %275)
+  %277 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11>, <64 x i8> %273)
+  %278 = bitcast <64 x i8> %277 to <16 x i32>
+  %279 = tail call <16 x i32> @llvm.x86.avx512.psrlv.d.512(<16 x i32> %276, <16 x i32> %278)
+  %280 = lshr <16 x i32> %231, splat (i32 4)
+  %281 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %280, <16 x i32> splat (i32 15), <16 x i32> splat (i32 -2139062272), i32 234)
+  %282 = bitcast <16 x i32> %231 to <64 x i8>
+  %283 = and <64 x i8> %282, <i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63>
+  %284 = tail call <32 x i16> @llvm.x86.avx512.pmaddubs.w.512(<64 x i8> %283, <64 x i8> <i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1>)
+  %285 = tail call <16 x i32> @llvm.x86.avx512.pmaddw.d.512(<32 x i16> %284, <32 x i16> <i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1>)
+  %286 = bitcast <16 x i32> %281 to <64 x i8>
+  %287 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11>, <64 x i8> %286)
+  %288 = bitcast <64 x i8> %287 to <16 x i32>
+  %289 = tail call <16 x i32> @llvm.x86.avx512.psllv.d.512(<16 x i32> %285, <16 x i32> %288)
+  %290 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11>, <64 x i8> %286)
+  %291 = bitcast <64 x i8> %290 to <16 x i32>
+  %292 = tail call <16 x i32> @llvm.x86.avx512.psrlv.d.512(<16 x i32> %289, <16 x i32> %291)
   %notmask.i = shl nsw i32 -1, %cast.i.i576.i
-  %294 = trunc i32 %notmask.i to i16
-  %conv.i2504.i = xor i16 %294, -1
-  %295 = icmp ugt <16 x i32> %280, splat (i32 65535)
-  %296 = bitcast i16 %conv.i2504.i to <16 x i1>
-  %297 = and <16 x i1> %295, %296
-  %298 = bitcast <16 x i1> %297 to i16
-  %cmp.i2522.i = icmp eq i16 %298, 0
+  %293 = trunc i32 %notmask.i to i16
+  %conv.i2504.i = xor i16 %293, -1
+  %294 = icmp ugt <16 x i32> %279, splat (i32 65535)
+  %295 = bitcast i16 %conv.i2504.i to <16 x i1>
+  %296 = and <16 x i1> %294, %295
+  %297 = bitcast <16 x i1> %296 to i16
+  %cmp.i2522.i = icmp eq i16 %297, 0
   br i1 %cmp.i2522.i, label %if.then.i2610.i, label %if.end.i2523.i
 
 if.then.i2610.i:                                  ; preds = %if.else167.i
-  %299 = trunc <16 x i32> %280 to <16 x i16>
-  tail call void @llvm.masked.store.v16i16.p0(<16 x i16> %299, ptr %output.0.lcssa.i, i32 1, <16 x i1> %296)
+  %298 = trunc <16 x i32> %279 to <16 x i16>
+  tail call void @llvm.masked.store.v16i16.p0(<16 x i16> %298, ptr %output.0.lcssa.i, i32 1, <16 x i1> %295)
   br label %_ZN7simdutf7icelake12_GLOBAL__N_121utf32_to_utf16_maskedILNS_10endiannessE0EEEmDv8_xS4_jPDs.exit2613.i
 
 if.end.i2523.i:                                   ; preds = %if.else167.i
-  %sub.i4259.i = add <16 x i32> %280, splat (i32 -65536)
-  %300 = shl <16 x i32> %sub.i4259.i, splat (i32 6)
-  %301 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %300, <16 x i32> %sub.i4259.i, <16 x i32> splat (i32 -65536), i32 228)
-  %302 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %301, <16 x i32> splat (i32 -67044352), <16 x i32> splat (i32 -671032320), i32 186)
-  %303 = select <16 x i1> %297, <16 x i32> %302, <16 x i32> %280
-  %304 = tail call <16 x i32> @llvm.fshl.v16i32(<16 x i32> %303, <16 x i32> %303, <16 x i32> splat (i32 16))
-  %305 = bitcast <16 x i32> %304 to <32 x i16>
-  %306 = icmp ne <32 x i16> %305, zeroinitializer
-  %307 = or <32 x i1> %306, <i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true>
+  %sub.i4259.i = add <16 x i32> %279, splat (i32 -65536)
+  %299 = shl <16 x i32> %sub.i4259.i, splat (i32 6)
+  %300 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %299, <16 x i32> %sub.i4259.i, <16 x i32> splat (i32 -65536), i32 228)
+  %301 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %300, <16 x i32> splat (i32 -67044352), <16 x i32> splat (i32 -671032320), i32 186)
+  %302 = select <16 x i1> %296, <16 x i32> %301, <16 x i32> %279
+  %303 = tail call <16 x i32> @llvm.fshl.v16i32(<16 x i32> %302, <16 x i32> %302, <16 x i32> splat (i32 16))
+  %304 = bitcast <16 x i32> %303 to <32 x i16>
+  %305 = icmp ne <32 x i16> %304, zeroinitializer
+  %306 = or <32 x i1> %305, <i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true>
   %mul.i2591.i = shl nuw nsw i32 %cast.i.i576.i, 1
   %sh_prom.i2592.i = zext nneg i32 %mul.i2591.i to i64
   %notmask2126.i = shl nsw i64 -1, %sh_prom.i2592.i
-  %308 = trunc i64 %notmask2126.i to i32
-  %conv21.i2595.i = xor i32 %308, -1
-  %309 = bitcast i32 %conv21.i2595.i to <32 x i1>
-  %310 = and <32 x i1> %307, %309
-  %311 = tail call <32 x i16> @llvm.x86.avx512.mask.compress.v32i16(<32 x i16> %305, <32 x i16> zeroinitializer, <32 x i1> %310)
-  %312 = tail call range(i16 1, 17) i16 @llvm.ctpop.i16(i16 %298)
-  %narrow.i = add nuw nsw i16 %312, %223
+  %307 = trunc i64 %notmask2126.i to i32
+  %conv21.i2595.i = xor i32 %307, -1
+  %308 = bitcast i32 %conv21.i2595.i to <32 x i1>
+  %309 = and <32 x i1> %306, %308
+  %310 = tail call <32 x i16> @llvm.x86.avx512.mask.compress.v32i16(<32 x i16> %304, <32 x i16> zeroinitializer, <32 x i1> %309)
+  %311 = tail call range(i16 1, 17) i16 @llvm.ctpop.i16(i16 %297)
+  %narrow.i = add nuw nsw i16 %311, %222
   %add.i2601.i = zext nneg i16 %narrow.i to i32
   %notmask2127.i = shl nsw i32 -1, %add.i2601.i
   %sub29.i2603.i = xor i32 %notmask2127.i, -1
-  %313 = bitcast i32 %sub29.i2603.i to <32 x i1>
-  tail call void @llvm.masked.store.v32i16.p0(<32 x i16> %311, ptr %output.0.lcssa.i, i32 1, <32 x i1> %313)
+  %312 = bitcast i32 %sub29.i2603.i to <32 x i1>
+  tail call void @llvm.masked.store.v32i16.p0(<32 x i16> %310, ptr %output.0.lcssa.i, i32 1, <32 x i1> %312)
   br label %_ZN7simdutf7icelake12_GLOBAL__N_121utf32_to_utf16_maskedILNS_10endiannessE0EEEmDv8_xS4_jPDs.exit2613.i
 
 _ZN7simdutf7icelake12_GLOBAL__N_121utf32_to_utf16_maskedILNS_10endiannessE0EEEmDv8_xS4_jPDs.exit2613.i: ; preds = %if.end.i2523.i, %if.then.i2610.i
-  %retval.i2470.0.in.i = phi i16 [ %223, %if.then.i2610.i ], [ %narrow.i, %if.end.i2523.i ]
+  %retval.i2470.0.in.i = phi i16 [ %222, %if.then.i2610.i ], [ %narrow.i, %if.end.i2523.i ]
   %retval.i2470.0.i = zext nneg i16 %retval.i2470.0.in.i to i64
   %add.ptr175.i = getelementptr inbounds nuw i16, ptr %output.0.lcssa.i, i64 %retval.i2470.0.i
   %notmask2128.i = shl nsw i32 -1, %cast.i.i.i
-  %314 = trunc i32 %notmask2128.i to i16
-  %conv.i2337.i = xor i16 %314, -1
-  %315 = icmp ugt <16 x i32> %293, splat (i32 65535)
-  %316 = bitcast i16 %conv.i2337.i to <16 x i1>
-  %317 = and <16 x i1> %315, %316
-  %318 = bitcast <16 x i1> %317 to i16
-  %cmp.i2355.i = icmp eq i16 %318, 0
+  %313 = trunc i32 %notmask2128.i to i16
+  %conv.i2337.i = xor i16 %313, -1
+  %314 = icmp ugt <16 x i32> %292, splat (i32 65535)
+  %315 = bitcast i16 %conv.i2337.i to <16 x i1>
+  %316 = and <16 x i1> %314, %315
+  %317 = bitcast <16 x i1> %316 to i16
+  %cmp.i2355.i = icmp eq i16 %317, 0
   br i1 %cmp.i2355.i, label %if.then.i2443.i, label %if.end.i2356.i
 
 if.then.i2443.i:                                  ; preds = %_ZN7simdutf7icelake12_GLOBAL__N_121utf32_to_utf16_maskedILNS_10endiannessE0EEEmDv8_xS4_jPDs.exit2613.i
-  %319 = trunc <16 x i32> %293 to <16 x i16>
-  tail call void @llvm.masked.store.v16i16.p0(<16 x i16> %319, ptr %add.ptr175.i, i32 1, <16 x i1> %316)
+  %318 = trunc <16 x i32> %292 to <16 x i16>
+  tail call void @llvm.masked.store.v16i16.p0(<16 x i16> %318, ptr %add.ptr175.i, i32 1, <16 x i1> %315)
   br label %_ZN7simdutf7icelake12_GLOBAL__N_121utf32_to_utf16_maskedILNS_10endiannessE0EEEmDv8_xS4_jPDs.exit2446.i
 
 if.end.i2356.i:                                   ; preds = %_ZN7simdutf7icelake12_GLOBAL__N_121utf32_to_utf16_maskedILNS_10endiannessE0EEEmDv8_xS4_jPDs.exit2613.i
-  %sub.i4266.i = add <16 x i32> %293, splat (i32 -65536)
-  %320 = shl <16 x i32> %sub.i4266.i, splat (i32 6)
-  %321 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %320, <16 x i32> %sub.i4266.i, <16 x i32> splat (i32 -65536), i32 228)
-  %322 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %321, <16 x i32> splat (i32 -67044352), <16 x i32> splat (i32 -671032320), i32 186)
-  %323 = select <16 x i1> %317, <16 x i32> %322, <16 x i32> %293
-  %324 = tail call <16 x i32> @llvm.fshl.v16i32(<16 x i32> %323, <16 x i32> %323, <16 x i32> splat (i32 16))
-  %325 = bitcast <16 x i32> %324 to <32 x i16>
-  %326 = icmp ne <32 x i16> %325, zeroinitializer
-  %327 = or <32 x i1> %326, <i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true>
+  %sub.i4266.i = add <16 x i32> %292, splat (i32 -65536)
+  %319 = shl <16 x i32> %sub.i4266.i, splat (i32 6)
+  %320 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %319, <16 x i32> %sub.i4266.i, <16 x i32> splat (i32 -65536), i32 228)
+  %321 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %320, <16 x i32> splat (i32 -67044352), <16 x i32> splat (i32 -671032320), i32 186)
+  %322 = select <16 x i1> %316, <16 x i32> %321, <16 x i32> %292
+  %323 = tail call <16 x i32> @llvm.fshl.v16i32(<16 x i32> %322, <16 x i32> %322, <16 x i32> splat (i32 16))
+  %324 = bitcast <16 x i32> %323 to <32 x i16>
+  %325 = icmp ne <32 x i16> %324, zeroinitializer
+  %326 = or <32 x i1> %325, <i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true>
   %mul.i2424.i = shl nuw nsw i32 %cast.i.i.i, 1
   %sh_prom.i2425.i = zext nneg i32 %mul.i2424.i to i64
   %notmask2129.i = shl nsw i64 -1, %sh_prom.i2425.i
-  %328 = trunc i64 %notmask2129.i to i32
-  %conv21.i2428.i = xor i32 %328, -1
-  %329 = bitcast i32 %conv21.i2428.i to <32 x i1>
-  %330 = and <32 x i1> %327, %329
-  %331 = tail call <32 x i16> @llvm.x86.avx512.mask.compress.v32i16(<32 x i16> %325, <32 x i16> zeroinitializer, <32 x i1> %330)
-  %332 = tail call range(i16 1, 17) i16 @llvm.ctpop.i16(i16 %318)
-  %narrow2130.i = add nuw nsw i16 %332, %231
+  %327 = trunc i64 %notmask2129.i to i32
+  %conv21.i2428.i = xor i32 %327, -1
+  %328 = bitcast i32 %conv21.i2428.i to <32 x i1>
+  %329 = and <32 x i1> %326, %328
+  %330 = tail call <32 x i16> @llvm.x86.avx512.mask.compress.v32i16(<32 x i16> %324, <32 x i16> zeroinitializer, <32 x i1> %329)
+  %331 = tail call range(i16 1, 17) i16 @llvm.ctpop.i16(i16 %317)
+  %narrow2130.i = add nuw nsw i16 %331, %230
   %add.i2434.i = zext nneg i16 %narrow2130.i to i32
   %notmask2131.i = shl nsw i32 -1, %add.i2434.i
   %sub29.i2436.i = xor i32 %notmask2131.i, -1
-  %333 = bitcast i32 %sub29.i2436.i to <32 x i1>
-  tail call void @llvm.masked.store.v32i16.p0(<32 x i16> %331, ptr %add.ptr175.i, i32 1, <32 x i1> %333)
+  %332 = bitcast i32 %sub29.i2436.i to <32 x i1>
+  tail call void @llvm.masked.store.v32i16.p0(<32 x i16> %330, ptr %add.ptr175.i, i32 1, <32 x i1> %332)
   br label %_ZN7simdutf7icelake12_GLOBAL__N_121utf32_to_utf16_maskedILNS_10endiannessE0EEEmDv8_xS4_jPDs.exit2446.i
 
 _ZN7simdutf7icelake12_GLOBAL__N_121utf32_to_utf16_maskedILNS_10endiannessE0EEEmDv8_xS4_jPDs.exit2446.i: ; preds = %if.end.i2356.i, %if.then.i2443.i
-  %retval.i2303.0.in.i = phi i16 [ %231, %if.then.i2443.i ], [ %narrow2130.i, %if.end.i2356.i ]
+  %retval.i2303.0.in.i = phi i16 [ %230, %if.then.i2443.i ], [ %narrow2130.i, %if.end.i2356.i ]
   %retval.i2303.0.i = zext nneg i16 %retval.i2303.0.in.i to i64
   %add.ptr179.i = getelementptr inbounds nuw i16, ptr %add.ptr175.i, i64 %retval.i2303.0.i
   br label %if.end180.i
 
 if.end180.i:                                      ; preds = %_ZN7simdutf7icelake12_GLOBAL__N_121utf32_to_utf16_maskedILNS_10endiannessE0EEEmDv8_xS4_jPDs.exit2446.i, %_ZN7simdutf7icelake12_GLOBAL__N_121utf32_to_utf16_maskedILNS_10endiannessE0EEEmDv8_xS4_jPDs.exit2780.i
   %storemerge.i = phi ptr [ %add.ptr179.i, %_ZN7simdutf7icelake12_GLOBAL__N_121utf32_to_utf16_maskedILNS_10endiannessE0EEEmDv8_xS4_jPDs.exit2446.i ], [ %add.ptr166.i, %_ZN7simdutf7icelake12_GLOBAL__N_121utf32_to_utf16_maskedILNS_10endiannessE0EEEmDv8_xS4_jPDs.exit2780.i ]
-  %334 = shufflevector <16 x i32> %216, <16 x i32> poison, <16 x i32> <i32 8, i32 9, i32 poison, i32 poison, i32 poison, i32 9, i32 10, i32 poison, i32 poison, i32 poison, i32 10, i32 11, i32 12, i32 poison, i32 poison, i32 11>
-  %335 = bitcast <16 x i32> %334 to <64 x i8>
-  %336 = shufflevector <64 x i8> %335, <64 x i8> poison, <64 x i32> <i32 0, i32 1, i32 2, i32 3, i32 1, i32 2, i32 3, i32 4, i32 2, i32 3, i32 4, i32 5, i32 3, i32 4, i32 5, i32 6, i32 20, i32 21, i32 22, i32 23, i32 21, i32 22, i32 23, i32 24, i32 22, i32 23, i32 24, i32 25, i32 23, i32 24, i32 25, i32 26, i32 40, i32 41, i32 42, i32 43, i32 41, i32 42, i32 43, i32 44, i32 42, i32 43, i32 44, i32 45, i32 43, i32 44, i32 45, i32 46, i32 60, i32 61, i32 62, i32 63, i32 61, i32 62, i32 63, i32 48, i32 62, i32 63, i32 48, i32 49, i32 63, i32 48, i32 49, i32 50>
-  %337 = bitcast <64 x i8> %336 to <16 x i32>
-  %338 = and <16 x i32> %337, splat (i32 192)
-  %339 = icmp ne <16 x i32> %338, splat (i32 128)
-  %340 = bitcast <16 x i1> %339 to i16
-  %341 = lshr <16 x i32> %337, splat (i32 4)
-  %342 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %341, <16 x i32> splat (i32 15), <16 x i32> splat (i32 -2139062272), i32 234)
-  %343 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %340)
-  %cast.i.i = zext nneg i16 %343 to i32
-  %344 = and <64 x i8> %336, <i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63>
-  %345 = tail call <32 x i16> @llvm.x86.avx512.pmaddubs.w.512(<64 x i8> %344, <64 x i8> <i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1>)
-  %346 = tail call <16 x i32> @llvm.x86.avx512.pmaddw.d.512(<32 x i16> %345, <32 x i16> <i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1>)
-  %347 = bitcast <16 x i32> %342 to <64 x i8>
-  %348 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11>, <64 x i8> %347)
-  %349 = bitcast <64 x i8> %348 to <16 x i32>
-  %350 = tail call <16 x i32> @llvm.x86.avx512.psllv.d.512(<16 x i32> %346, <16 x i32> %349)
-  %351 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11>, <64 x i8> %347)
-  %352 = bitcast <64 x i8> %351 to <16 x i32>
-  %353 = tail call <16 x i32> @llvm.x86.avx512.psrlv.d.512(<16 x i32> %350, <16 x i32> %352)
-  %354 = tail call <16 x i32> @llvm.x86.avx512.mask.compress.v16i32(<16 x i32> %353, <16 x i32> zeroinitializer, <16 x i1> %339)
+  %333 = bitcast <8 x i64> %208 to <64 x i8>
+  %334 = shufflevector <64 x i8> %333, <64 x i8> poison, <64 x i32> <i32 32, i32 33, i32 34, i32 35, i32 33, i32 34, i32 35, i32 36, i32 34, i32 35, i32 36, i32 37, i32 35, i32 36, i32 37, i32 38, i32 36, i32 37, i32 38, i32 39, i32 37, i32 38, i32 39, i32 40, i32 38, i32 39, i32 40, i32 41, i32 39, i32 40, i32 41, i32 42, i32 40, i32 41, i32 42, i32 43, i32 41, i32 42, i32 43, i32 44, i32 42, i32 43, i32 44, i32 45, i32 43, i32 44, i32 45, i32 46, i32 44, i32 45, i32 46, i32 47, i32 45, i32 46, i32 47, i32 48, i32 46, i32 47, i32 48, i32 49, i32 47, i32 48, i32 49, i32 50>
+  %335 = bitcast <64 x i8> %334 to <16 x i32>
+  %336 = and <16 x i32> %335, splat (i32 192)
+  %337 = icmp ne <16 x i32> %336, splat (i32 128)
+  %338 = bitcast <16 x i1> %337 to i16
+  %339 = lshr <16 x i32> %335, splat (i32 4)
+  %340 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %339, <16 x i32> splat (i32 15), <16 x i32> splat (i32 -2139062272), i32 234)
+  %341 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %338)
+  %cast.i.i = zext nneg i16 %341 to i32
+  %342 = and <64 x i8> %334, <i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63>
+  %343 = tail call <32 x i16> @llvm.x86.avx512.pmaddubs.w.512(<64 x i8> %342, <64 x i8> <i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1>)
+  %344 = tail call <16 x i32> @llvm.x86.avx512.pmaddw.d.512(<32 x i16> %343, <32 x i16> <i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1>)
+  %345 = bitcast <16 x i32> %340 to <64 x i8>
+  %346 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11>, <64 x i8> %345)
+  %347 = bitcast <64 x i8> %346 to <16 x i32>
+  %348 = tail call <16 x i32> @llvm.x86.avx512.psllv.d.512(<16 x i32> %344, <16 x i32> %347)
+  %349 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11>, <64 x i8> %345)
+  %350 = bitcast <64 x i8> %349 to <16 x i32>
+  %351 = tail call <16 x i32> @llvm.x86.avx512.psrlv.d.512(<16 x i32> %348, <16 x i32> %350)
+  %352 = tail call <16 x i32> @llvm.x86.avx512.mask.compress.v16i32(<16 x i32> %351, <16 x i32> zeroinitializer, <16 x i1> %337)
   %notmask2136.i = shl nsw i32 -1, %cast.i.i
-  %355 = trunc i32 %notmask2136.i to i16
-  %conv.i2255.i = xor i16 %355, -1
-  %356 = icmp ugt <16 x i32> %354, splat (i32 65535)
-  %357 = bitcast i16 %conv.i2255.i to <16 x i1>
-  %358 = and <16 x i1> %356, %357
-  %359 = bitcast <16 x i1> %358 to i16
-  %cmp.i2256.i = icmp eq i16 %359, 0
+  %353 = trunc i32 %notmask2136.i to i16
+  %conv.i2255.i = xor i16 %353, -1
+  %354 = icmp ugt <16 x i32> %352, splat (i32 65535)
+  %355 = bitcast i16 %conv.i2255.i to <16 x i1>
+  %356 = and <16 x i1> %354, %355
+  %357 = bitcast <16 x i1> %356 to i16
+  %cmp.i2256.i = icmp eq i16 %357, 0
   br i1 %cmp.i2256.i, label %if.then.i2279.i, label %if.end.i2257.i
 
 if.then.i2279.i:                                  ; preds = %if.end180.i
-  %360 = trunc <16 x i32> %354 to <16 x i16>
-  tail call void @llvm.masked.store.v16i16.p0(<16 x i16> %360, ptr %storemerge.i, i32 1, <16 x i1> %357)
+  %358 = trunc <16 x i32> %352 to <16 x i16>
+  tail call void @llvm.masked.store.v16i16.p0(<16 x i16> %358, ptr %storemerge.i, i32 1, <16 x i1> %355)
   br label %_ZN7simdutf7icelake12_GLOBAL__N_121utf32_to_utf16_maskedILNS_10endiannessE0EEEmDv8_xS4_jPDs.exit.i
 
 if.end.i2257.i:                                   ; preds = %if.end180.i
-  %sub.i4273.i = add <16 x i32> %354, splat (i32 -65536)
-  %361 = shl <16 x i32> %sub.i4273.i, splat (i32 6)
-  %362 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %361, <16 x i32> %sub.i4273.i, <16 x i32> splat (i32 -65536), i32 228)
-  %363 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %362, <16 x i32> splat (i32 -67044352), <16 x i32> splat (i32 -671032320), i32 186)
-  %364 = select <16 x i1> %358, <16 x i32> %363, <16 x i32> %354
-  %365 = tail call <16 x i32> @llvm.fshl.v16i32(<16 x i32> %364, <16 x i32> %364, <16 x i32> splat (i32 16))
-  %366 = bitcast <16 x i32> %365 to <32 x i16>
-  %367 = icmp ne <32 x i16> %366, zeroinitializer
-  %368 = or <32 x i1> %367, <i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true>
+  %sub.i4273.i = add <16 x i32> %352, splat (i32 -65536)
+  %359 = shl <16 x i32> %sub.i4273.i, splat (i32 6)
+  %360 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %359, <16 x i32> %sub.i4273.i, <16 x i32> splat (i32 -65536), i32 228)
+  %361 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %360, <16 x i32> splat (i32 -67044352), <16 x i32> splat (i32 -671032320), i32 186)
+  %362 = select <16 x i1> %356, <16 x i32> %361, <16 x i32> %352
+  %363 = tail call <16 x i32> @llvm.fshl.v16i32(<16 x i32> %362, <16 x i32> %362, <16 x i32> splat (i32 16))
+  %364 = bitcast <16 x i32> %363 to <32 x i16>
+  %365 = icmp ne <32 x i16> %364, zeroinitializer
+  %366 = or <32 x i1> %365, <i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true>
   %mul.i.i = shl nuw nsw i32 %cast.i.i, 1
   %sh_prom.i.i = zext nneg i32 %mul.i.i to i64
   %notmask2137.i = shl nsw i64 -1, %sh_prom.i.i
-  %369 = trunc i64 %notmask2137.i to i32
-  %conv21.i.i = xor i32 %369, -1
-  %370 = bitcast i32 %conv21.i.i to <32 x i1>
-  %371 = and <32 x i1> %368, %370
-  %372 = tail call <32 x i16> @llvm.x86.avx512.mask.compress.v32i16(<32 x i16> %366, <32 x i16> zeroinitializer, <32 x i1> %371)
-  %373 = tail call range(i16 1, 17) i16 @llvm.ctpop.i16(i16 %359)
-  %narrow2138.i = add nuw nsw i16 %373, %343
+  %367 = trunc i64 %notmask2137.i to i32
+  %conv21.i.i = xor i32 %367, -1
+  %368 = bitcast i32 %conv21.i.i to <32 x i1>
+  %369 = and <32 x i1> %366, %368
+  %370 = tail call <32 x i16> @llvm.x86.avx512.mask.compress.v32i16(<32 x i16> %364, <32 x i16> zeroinitializer, <32 x i1> %369)
+  %371 = tail call range(i16 1, 17) i16 @llvm.ctpop.i16(i16 %357)
+  %narrow2138.i = add nuw nsw i16 %371, %341
   %add.i2277.i = zext nneg i16 %narrow2138.i to i32
   %notmask2139.i = shl nsw i32 -1, %add.i2277.i
   %sub29.i.i = xor i32 %notmask2139.i, -1
-  %374 = bitcast i32 %sub29.i.i to <32 x i1>
-  tail call void @llvm.masked.store.v32i16.p0(<32 x i16> %372, ptr %storemerge.i, i32 1, <32 x i1> %374)
+  %372 = bitcast i32 %sub29.i.i to <32 x i1>
+  tail call void @llvm.masked.store.v32i16.p0(<32 x i16> %370, ptr %storemerge.i, i32 1, <32 x i1> %372)
   br label %_ZN7simdutf7icelake12_GLOBAL__N_121utf32_to_utf16_maskedILNS_10endiannessE0EEEmDv8_xS4_jPDs.exit.i
 
 _ZN7simdutf7icelake12_GLOBAL__N_121utf32_to_utf16_maskedILNS_10endiannessE0EEEmDv8_xS4_jPDs.exit.i: ; preds = %if.end.i2257.i, %if.then.i2279.i
-  %retval.i2225.0.in.i = phi i16 [ %343, %if.then.i2279.i ], [ %narrow2138.i, %if.end.i2257.i ]
+  %retval.i2225.0.in.i = phi i16 [ %341, %if.then.i2279.i ], [ %narrow2138.i, %if.end.i2257.i ]
   %retval.i2225.0.i = zext nneg i16 %retval.i2225.0.in.i to i64
   %add.ptr213.i = getelementptr inbounds nuw i16, ptr %storemerge.i, i64 %retval.i2225.0.i
   %add.ptr214.i = getelementptr inbounds nuw i8, ptr %ptr.0.lcssa.i, i64 48
@@ -14698,8 +14696,8 @@ _ZN7simdutf7icelake12_GLOBAL__N_126valid_utf8_to_fixed_lengthILNS_10endiannessE0
 
 land.rhs:                                         ; preds = %_ZN7simdutf7icelake12_GLOBAL__N_126valid_utf8_to_fixed_lengthILNS_10endiannessE0EDsEESt4pairIPKcPT0_ES6_mS8_.exit, %while.body
   %ret.sroa.0.019 = phi ptr [ %add.ptr7, %while.body ], [ %ptr.1.i, %_ZN7simdutf7icelake12_GLOBAL__N_126valid_utf8_to_fixed_lengthILNS_10endiannessE0EDsEESt4pairIPKcPT0_ES6_mS8_.exit ]
-  %375 = load i8, ptr %ret.sroa.0.019, align 1
-  %cmp5 = icmp slt i8 %375, -64
+  %373 = load i8, ptr %ret.sroa.0.019, align 1
+  %cmp5 = icmp slt i8 %373, -64
   br i1 %cmp5, label %while.body, label %if.then10
 
 while.body:                                       ; preds = %land.rhs
@@ -15186,25 +15184,24 @@ if.then119.i:                                     ; preds = %if.then109.i
   br label %_ZN7simdutf7icelake12_GLOBAL__N_126valid_utf8_to_fixed_lengthILNS_10endiannessE1EDsEESt4pairIPKcPT0_ES6_mS8_.exit
 
 if.else142.i:                                     ; preds = %if.then109.i
-  %254 = bitcast <8 x i64> %242 to <16 x i32>
-  %255 = bitcast <8 x i64> %242 to <64 x i8>
-  %256 = shufflevector <64 x i8> %255, <64 x i8> poison, <64 x i32> <i32 0, i32 1, i32 2, i32 3, i32 1, i32 2, i32 3, i32 4, i32 2, i32 3, i32 4, i32 5, i32 3, i32 4, i32 5, i32 6, i32 4, i32 5, i32 6, i32 7, i32 5, i32 6, i32 7, i32 8, i32 6, i32 7, i32 8, i32 9, i32 7, i32 8, i32 9, i32 10, i32 8, i32 9, i32 10, i32 11, i32 9, i32 10, i32 11, i32 12, i32 10, i32 11, i32 12, i32 13, i32 11, i32 12, i32 13, i32 14, i32 12, i32 13, i32 14, i32 15, i32 13, i32 14, i32 15, i32 16, i32 14, i32 15, i32 16, i32 17, i32 15, i32 16, i32 17, i32 18>
-  %257 = bitcast <64 x i8> %256 to <16 x i32>
-  %258 = and <16 x i32> %257, splat (i32 192)
-  %259 = icmp ne <16 x i32> %258, splat (i32 128)
-  %260 = bitcast <16 x i1> %259 to i16
-  %261 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %260)
-  %cast.i.i612.i = zext nneg i16 %261 to i32
-  %262 = tail call <16 x i32> @llvm.x86.avx512.mask.compress.v16i32(<16 x i32> %257, <16 x i32> zeroinitializer, <16 x i1> %259)
-  %263 = bitcast <8 x i64> %242 to <64 x i8>
-  %264 = shufflevector <64 x i8> %263, <64 x i8> poison, <64 x i32> <i32 16, i32 17, i32 18, i32 19, i32 17, i32 18, i32 19, i32 20, i32 18, i32 19, i32 20, i32 21, i32 19, i32 20, i32 21, i32 22, i32 20, i32 21, i32 22, i32 23, i32 21, i32 22, i32 23, i32 24, i32 22, i32 23, i32 24, i32 25, i32 23, i32 24, i32 25, i32 26, i32 24, i32 25, i32 26, i32 27, i32 25, i32 26, i32 27, i32 28, i32 26, i32 27, i32 28, i32 29, i32 27, i32 28, i32 29, i32 30, i32 28, i32 29, i32 30, i32 31, i32 29, i32 30, i32 31, i32 32, i32 30, i32 31, i32 32, i32 33, i32 31, i32 32, i32 33, i32 34>
-  %265 = bitcast <64 x i8> %264 to <16 x i32>
-  %266 = and <16 x i32> %265, splat (i32 192)
-  %267 = icmp ne <16 x i32> %266, splat (i32 128)
-  %268 = bitcast <16 x i1> %267 to i16
-  %269 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %268)
-  %cast.i.i.i = zext nneg i16 %269 to i32
-  %270 = tail call <16 x i32> @llvm.x86.avx512.mask.compress.v16i32(<16 x i32> %265, <16 x i32> zeroinitializer, <16 x i1> %267)
+  %254 = bitcast <8 x i64> %242 to <64 x i8>
+  %255 = shufflevector <64 x i8> %254, <64 x i8> poison, <64 x i32> <i32 0, i32 1, i32 2, i32 3, i32 1, i32 2, i32 3, i32 4, i32 2, i32 3, i32 4, i32 5, i32 3, i32 4, i32 5, i32 6, i32 4, i32 5, i32 6, i32 7, i32 5, i32 6, i32 7, i32 8, i32 6, i32 7, i32 8, i32 9, i32 7, i32 8, i32 9, i32 10, i32 8, i32 9, i32 10, i32 11, i32 9, i32 10, i32 11, i32 12, i32 10, i32 11, i32 12, i32 13, i32 11, i32 12, i32 13, i32 14, i32 12, i32 13, i32 14, i32 15, i32 13, i32 14, i32 15, i32 16, i32 14, i32 15, i32 16, i32 17, i32 15, i32 16, i32 17, i32 18>
+  %256 = bitcast <64 x i8> %255 to <16 x i32>
+  %257 = and <16 x i32> %256, splat (i32 192)
+  %258 = icmp ne <16 x i32> %257, splat (i32 128)
+  %259 = bitcast <16 x i1> %258 to i16
+  %260 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %259)
+  %cast.i.i612.i = zext nneg i16 %260 to i32
+  %261 = tail call <16 x i32> @llvm.x86.avx512.mask.compress.v16i32(<16 x i32> %256, <16 x i32> zeroinitializer, <16 x i1> %258)
+  %262 = bitcast <8 x i64> %242 to <64 x i8>
+  %263 = shufflevector <64 x i8> %262, <64 x i8> poison, <64 x i32> <i32 16, i32 17, i32 18, i32 19, i32 17, i32 18, i32 19, i32 20, i32 18, i32 19, i32 20, i32 21, i32 19, i32 20, i32 21, i32 22, i32 20, i32 21, i32 22, i32 23, i32 21, i32 22, i32 23, i32 24, i32 22, i32 23, i32 24, i32 25, i32 23, i32 24, i32 25, i32 26, i32 24, i32 25, i32 26, i32 27, i32 25, i32 26, i32 27, i32 28, i32 26, i32 27, i32 28, i32 29, i32 27, i32 28, i32 29, i32 30, i32 28, i32 29, i32 30, i32 31, i32 29, i32 30, i32 31, i32 32, i32 30, i32 31, i32 32, i32 33, i32 31, i32 32, i32 33, i32 34>
+  %264 = bitcast <64 x i8> %263 to <16 x i32>
+  %265 = and <16 x i32> %264, splat (i32 192)
+  %266 = icmp ne <16 x i32> %265, splat (i32 128)
+  %267 = bitcast <16 x i1> %266 to i16
+  %268 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %267)
+  %cast.i.i.i = zext nneg i16 %268 to i32
+  %269 = tail call <16 x i32> @llvm.x86.avx512.mask.compress.v16i32(<16 x i32> %264, <16 x i32> zeroinitializer, <16 x i1> %266)
   %add162.i = add nuw nsw i32 %cast.i.i612.i, %cast.i.i.i
   %cmp163.i = icmp samesign ult i32 %add162.i, 17
   br i1 %cmp163.i, label %if.then164.i, label %if.else179.i
@@ -15214,67 +15211,67 @@ if.then164.i:                                     ; preds = %if.else142.i
   %sub166.i = xor i32 %notmask2166.i, -1
   %shl167.i = shl nuw i32 %sub166.i, %cast.i.i612.i
   %conv168.i = trunc i32 %shl167.i to i16
-  %271 = bitcast i16 %conv168.i to <16 x i1>
-  %272 = tail call <16 x i32> @llvm.x86.avx512.mask.expand.v16i32(<16 x i32> %270, <16 x i32> %262, <16 x i1> %271)
-  %273 = lshr <16 x i32> %272, splat (i32 4)
-  %274 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %273, <16 x i32> splat (i32 15), <16 x i32> splat (i32 -2139062272), i32 234)
-  %275 = bitcast <16 x i32> %272 to <64 x i8>
-  %276 = and <64 x i8> %275, <i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63>
-  %277 = tail call <32 x i16> @llvm.x86.avx512.pmaddubs.w.512(<64 x i8> %276, <64 x i8> <i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1>)
-  %278 = tail call <16 x i32> @llvm.x86.avx512.pmaddw.d.512(<32 x i16> %277, <32 x i16> <i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1>)
-  %279 = bitcast <16 x i32> %274 to <64 x i8>
-  %280 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11>, <64 x i8> %279)
-  %281 = bitcast <64 x i8> %280 to <16 x i32>
-  %282 = tail call <16 x i32> @llvm.x86.avx512.psllv.d.512(<16 x i32> %278, <16 x i32> %281)
-  %283 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11>, <64 x i8> %279)
-  %284 = bitcast <64 x i8> %283 to <16 x i32>
-  %285 = tail call <16 x i32> @llvm.x86.avx512.psrlv.d.512(<16 x i32> %282, <16 x i32> %284)
+  %270 = bitcast i16 %conv168.i to <16 x i1>
+  %271 = tail call <16 x i32> @llvm.x86.avx512.mask.expand.v16i32(<16 x i32> %269, <16 x i32> %261, <16 x i1> %270)
+  %272 = lshr <16 x i32> %271, splat (i32 4)
+  %273 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %272, <16 x i32> splat (i32 15), <16 x i32> splat (i32 -2139062272), i32 234)
+  %274 = bitcast <16 x i32> %271 to <64 x i8>
+  %275 = and <64 x i8> %274, <i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63>
+  %276 = tail call <32 x i16> @llvm.x86.avx512.pmaddubs.w.512(<64 x i8> %275, <64 x i8> <i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1>)
+  %277 = tail call <16 x i32> @llvm.x86.avx512.pmaddw.d.512(<32 x i16> %276, <32 x i16> <i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1>)
+  %278 = bitcast <16 x i32> %273 to <64 x i8>
+  %279 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11>, <64 x i8> %278)
+  %280 = bitcast <64 x i8> %279 to <16 x i32>
+  %281 = tail call <16 x i32> @llvm.x86.avx512.psllv.d.512(<16 x i32> %277, <16 x i32> %280)
+  %282 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11>, <64 x i8> %278)
+  %283 = bitcast <64 x i8> %282 to <16 x i32>
+  %284 = tail call <16 x i32> @llvm.x86.avx512.psrlv.d.512(<16 x i32> %281, <16 x i32> %283)
   %notmask2167.i = shl nsw i32 -1, %add162.i
-  %286 = trunc i32 %notmask2167.i to i16
-  %conv.i4743.i = xor i16 %286, -1
-  %287 = icmp ugt <16 x i32> %285, splat (i32 65535)
-  %288 = bitcast i16 %conv.i4743.i to <16 x i1>
-  %289 = and <16 x i1> %287, %288
-  %290 = bitcast <16 x i1> %289 to i16
-  %cmp.i4761.i = icmp eq i16 %290, 0
+  %285 = trunc i32 %notmask2167.i to i16
+  %conv.i4743.i = xor i16 %285, -1
+  %286 = icmp ugt <16 x i32> %284, splat (i32 65535)
+  %287 = bitcast i16 %conv.i4743.i to <16 x i1>
+  %288 = and <16 x i1> %286, %287
+  %289 = bitcast <16 x i1> %288 to i16
+  %cmp.i4761.i = icmp eq i16 %289, 0
   br i1 %cmp.i4761.i, label %if.then.i4853.i, label %if.end.i4762.i
 
 if.then.i4853.i:                                  ; preds = %if.then164.i
-  %291 = trunc <16 x i32> %285 to <16 x i16>
-  %292 = bitcast <16 x i16> %291 to <32 x i8>
-  %293 = shufflevector <32 x i8> %292, <32 x i8> poison, <32 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6, i32 9, i32 8, i32 11, i32 10, i32 13, i32 12, i32 15, i32 14, i32 17, i32 16, i32 19, i32 18, i32 21, i32 20, i32 23, i32 22, i32 25, i32 24, i32 27, i32 26, i32 29, i32 28, i32 31, i32 30>
-  %294 = bitcast <32 x i8> %293 to <16 x i16>
-  tail call void @llvm.masked.store.v16i16.p0(<16 x i16> %294, ptr %output.0.lcssa.i, i32 1, <16 x i1> %288)
+  %290 = trunc <16 x i32> %284 to <16 x i16>
+  %291 = bitcast <16 x i16> %290 to <32 x i8>
+  %292 = shufflevector <32 x i8> %291, <32 x i8> poison, <32 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6, i32 9, i32 8, i32 11, i32 10, i32 13, i32 12, i32 15, i32 14, i32 17, i32 16, i32 19, i32 18, i32 21, i32 20, i32 23, i32 22, i32 25, i32 24, i32 27, i32 26, i32 29, i32 28, i32 31, i32 30>
+  %293 = bitcast <32 x i8> %292 to <16 x i16>
+  tail call void @llvm.masked.store.v16i16.p0(<16 x i16> %293, ptr %output.0.lcssa.i, i32 1, <16 x i1> %287)
   br label %_ZN7simdutf7icelake12_GLOBAL__N_121utf32_to_utf16_maskedILNS_10endiannessE1EEEmDv8_xS4_jPDs.exit4861.i
 
 if.end.i4762.i:                                   ; preds = %if.then164.i
-  %sub.i.i4781.i = add <16 x i32> %285, splat (i32 -65536)
-  %295 = shl <16 x i32> %sub.i.i4781.i, splat (i32 6)
-  %296 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %295, <16 x i32> %sub.i.i4781.i, <16 x i32> splat (i32 -65536), i32 228)
-  %297 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %296, <16 x i32> splat (i32 -67044352), <16 x i32> splat (i32 -671032320), i32 186)
-  %298 = select <16 x i1> %289, <16 x i32> %297, <16 x i32> %285
-  %299 = tail call <16 x i32> @llvm.fshl.v16i32(<16 x i32> %298, <16 x i32> %298, <16 x i32> splat (i32 16))
-  %300 = bitcast <16 x i32> %299 to <32 x i16>
-  %301 = icmp ne <32 x i16> %300, zeroinitializer
-  %302 = or <32 x i1> %301, <i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true>
+  %sub.i.i4781.i = add <16 x i32> %284, splat (i32 -65536)
+  %294 = shl <16 x i32> %sub.i.i4781.i, splat (i32 6)
+  %295 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %294, <16 x i32> %sub.i.i4781.i, <16 x i32> splat (i32 -65536), i32 228)
+  %296 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %295, <16 x i32> splat (i32 -67044352), <16 x i32> splat (i32 -671032320), i32 186)
+  %297 = select <16 x i1> %288, <16 x i32> %296, <16 x i32> %284
+  %298 = tail call <16 x i32> @llvm.fshl.v16i32(<16 x i32> %297, <16 x i32> %297, <16 x i32> splat (i32 16))
+  %299 = bitcast <16 x i32> %298 to <32 x i16>
+  %300 = icmp ne <32 x i16> %299, zeroinitializer
+  %301 = or <32 x i1> %300, <i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true>
   %mul.i4833.i = shl nuw nsw i32 %add162.i, 1
   %sh_prom.i4834.i = zext nneg i32 %mul.i4833.i to i64
   %notmask2168.i = shl nsw i64 -1, %sh_prom.i4834.i
-  %303 = trunc i64 %notmask2168.i to i32
-  %conv26.i4837.i = xor i32 %303, -1
-  %304 = bitcast i32 %conv26.i4837.i to <32 x i1>
-  %305 = and <32 x i1> %302, %304
-  %306 = bitcast <16 x i32> %299 to <64 x i8>
-  %307 = shufflevector <64 x i8> %306, <64 x i8> poison, <64 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6, i32 9, i32 8, i32 11, i32 10, i32 13, i32 12, i32 15, i32 14, i32 17, i32 16, i32 19, i32 18, i32 21, i32 20, i32 23, i32 22, i32 25, i32 24, i32 27, i32 26, i32 29, i32 28, i32 31, i32 30, i32 33, i32 32, i32 35, i32 34, i32 37, i32 36, i32 39, i32 38, i32 41, i32 40, i32 43, i32 42, i32 45, i32 44, i32 47, i32 46, i32 49, i32 48, i32 51, i32 50, i32 53, i32 52, i32 55, i32 54, i32 57, i32 56, i32 59, i32 58, i32 61, i32 60, i32 63, i32 62>
-  %308 = bitcast <64 x i8> %307 to <32 x i16>
-  %309 = tail call <32 x i16> @llvm.x86.avx512.mask.compress.v32i16(<32 x i16> %308, <32 x i16> zeroinitializer, <32 x i1> %305)
-  %310 = tail call range(i16 1, 17) i16 @llvm.ctpop.i16(i16 %290)
-  %cast.i.i4842.i = zext nneg i16 %310 to i32
+  %302 = trunc i64 %notmask2168.i to i32
+  %conv26.i4837.i = xor i32 %302, -1
+  %303 = bitcast i32 %conv26.i4837.i to <32 x i1>
+  %304 = and <32 x i1> %301, %303
+  %305 = bitcast <16 x i32> %298 to <64 x i8>
+  %306 = shufflevector <64 x i8> %305, <64 x i8> poison, <64 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6, i32 9, i32 8, i32 11, i32 10, i32 13, i32 12, i32 15, i32 14, i32 17, i32 16, i32 19, i32 18, i32 21, i32 20, i32 23, i32 22, i32 25, i32 24, i32 27, i32 26, i32 29, i32 28, i32 31, i32 30, i32 33, i32 32, i32 35, i32 34, i32 37, i32 36, i32 39, i32 38, i32 41, i32 40, i32 43, i32 42, i32 45, i32 44, i32 47, i32 46, i32 49, i32 48, i32 51, i32 50, i32 53, i32 52, i32 55, i32 54, i32 57, i32 56, i32 59, i32 58, i32 61, i32 60, i32 63, i32 62>
+  %307 = bitcast <64 x i8> %306 to <32 x i16>
+  %308 = tail call <32 x i16> @llvm.x86.avx512.mask.compress.v32i16(<32 x i16> %307, <32 x i16> zeroinitializer, <32 x i1> %304)
+  %309 = tail call range(i16 1, 17) i16 @llvm.ctpop.i16(i16 %289)
+  %cast.i.i4842.i = zext nneg i16 %309 to i32
   %add.i4844.i = add nuw nsw i32 %add162.i, %cast.i.i4842.i
   %notmask2169.i = shl nsw i32 -1, %add.i4844.i
   %sub37.i4846.i = xor i32 %notmask2169.i, -1
-  %311 = bitcast i32 %sub37.i4846.i to <32 x i1>
-  tail call void @llvm.masked.store.v32i16.p0(<32 x i16> %309, ptr %output.0.lcssa.i, i32 1, <32 x i1> %311)
+  %310 = bitcast i32 %sub37.i4846.i to <32 x i1>
+  tail call void @llvm.masked.store.v32i16.p0(<32 x i16> %308, ptr %output.0.lcssa.i, i32 1, <32 x i1> %310)
   br label %_ZN7simdutf7icelake12_GLOBAL__N_121utf32_to_utf16_maskedILNS_10endiannessE1EEEmDv8_xS4_jPDs.exit4861.i
 
 _ZN7simdutf7icelake12_GLOBAL__N_121utf32_to_utf16_maskedILNS_10endiannessE1EEEmDv8_xS4_jPDs.exit4861.i: ; preds = %if.end.i4762.i, %if.then.i4853.i
@@ -15284,212 +15281,211 @@ _ZN7simdutf7icelake12_GLOBAL__N_121utf32_to_utf16_maskedILNS_10endiannessE1EEEmD
   br label %if.end192.i
 
 if.else179.i:                                     ; preds = %if.else142.i
-  %312 = lshr <16 x i32> %262, splat (i32 4)
-  %313 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %312, <16 x i32> splat (i32 15), <16 x i32> splat (i32 -2139062272), i32 234)
-  %314 = bitcast <16 x i32> %262 to <64 x i8>
-  %315 = and <64 x i8> %314, <i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63>
-  %316 = tail call <32 x i16> @llvm.x86.avx512.pmaddubs.w.512(<64 x i8> %315, <64 x i8> <i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1>)
-  %317 = tail call <16 x i32> @llvm.x86.avx512.pmaddw.d.512(<32 x i16> %316, <32 x i16> <i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1>)
-  %318 = bitcast <16 x i32> %313 to <64 x i8>
-  %319 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11>, <64 x i8> %318)
-  %320 = bitcast <64 x i8> %319 to <16 x i32>
-  %321 = tail call <16 x i32> @llvm.x86.avx512.psllv.d.512(<16 x i32> %317, <16 x i32> %320)
-  %322 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11>, <64 x i8> %318)
-  %323 = bitcast <64 x i8> %322 to <16 x i32>
-  %324 = tail call <16 x i32> @llvm.x86.avx512.psrlv.d.512(<16 x i32> %321, <16 x i32> %323)
-  %325 = lshr <16 x i32> %270, splat (i32 4)
-  %326 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %325, <16 x i32> splat (i32 15), <16 x i32> splat (i32 -2139062272), i32 234)
-  %327 = bitcast <16 x i32> %270 to <64 x i8>
-  %328 = and <64 x i8> %327, <i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63>
-  %329 = tail call <32 x i16> @llvm.x86.avx512.pmaddubs.w.512(<64 x i8> %328, <64 x i8> <i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1>)
-  %330 = tail call <16 x i32> @llvm.x86.avx512.pmaddw.d.512(<32 x i16> %329, <32 x i16> <i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1>)
-  %331 = bitcast <16 x i32> %326 to <64 x i8>
-  %332 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11>, <64 x i8> %331)
-  %333 = bitcast <64 x i8> %332 to <16 x i32>
-  %334 = tail call <16 x i32> @llvm.x86.avx512.psllv.d.512(<16 x i32> %330, <16 x i32> %333)
-  %335 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11>, <64 x i8> %331)
-  %336 = bitcast <64 x i8> %335 to <16 x i32>
-  %337 = tail call <16 x i32> @llvm.x86.avx512.psrlv.d.512(<16 x i32> %334, <16 x i32> %336)
+  %311 = lshr <16 x i32> %261, splat (i32 4)
+  %312 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %311, <16 x i32> splat (i32 15), <16 x i32> splat (i32 -2139062272), i32 234)
+  %313 = bitcast <16 x i32> %261 to <64 x i8>
+  %314 = and <64 x i8> %313, <i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63>
+  %315 = tail call <32 x i16> @llvm.x86.avx512.pmaddubs.w.512(<64 x i8> %314, <64 x i8> <i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1>)
+  %316 = tail call <16 x i32> @llvm.x86.avx512.pmaddw.d.512(<32 x i16> %315, <32 x i16> <i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1>)
+  %317 = bitcast <16 x i32> %312 to <64 x i8>
+  %318 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11>, <64 x i8> %317)
+  %319 = bitcast <64 x i8> %318 to <16 x i32>
+  %320 = tail call <16 x i32> @llvm.x86.avx512.psllv.d.512(<16 x i32> %316, <16 x i32> %319)
+  %321 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11>, <64 x i8> %317)
+  %322 = bitcast <64 x i8> %321 to <16 x i32>
+  %323 = tail call <16 x i32> @llvm.x86.avx512.psrlv.d.512(<16 x i32> %320, <16 x i32> %322)
+  %324 = lshr <16 x i32> %269, splat (i32 4)
+  %325 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %324, <16 x i32> splat (i32 15), <16 x i32> splat (i32 -2139062272), i32 234)
+  %326 = bitcast <16 x i32> %269 to <64 x i8>
+  %327 = and <64 x i8> %326, <i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63>
+  %328 = tail call <32 x i16> @llvm.x86.avx512.pmaddubs.w.512(<64 x i8> %327, <64 x i8> <i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1>)
+  %329 = tail call <16 x i32> @llvm.x86.avx512.pmaddw.d.512(<32 x i16> %328, <32 x i16> <i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1>)
+  %330 = bitcast <16 x i32> %325 to <64 x i8>
+  %331 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11>, <64 x i8> %330)
+  %332 = bitcast <64 x i8> %331 to <16 x i32>
+  %333 = tail call <16 x i32> @llvm.x86.avx512.psllv.d.512(<16 x i32> %329, <16 x i32> %332)
+  %334 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11>, <64 x i8> %330)
+  %335 = bitcast <64 x i8> %334 to <16 x i32>
+  %336 = tail call <16 x i32> @llvm.x86.avx512.psrlv.d.512(<16 x i32> %333, <16 x i32> %335)
   %notmask.i = shl nsw i32 -1, %cast.i.i612.i
-  %338 = trunc i32 %notmask.i to i16
-  %conv.i4528.i = xor i16 %338, -1
-  %339 = icmp ugt <16 x i32> %324, splat (i32 65535)
-  %340 = bitcast i16 %conv.i4528.i to <16 x i1>
-  %341 = and <16 x i1> %339, %340
-  %342 = bitcast <16 x i1> %341 to i16
-  %cmp.i4546.i = icmp eq i16 %342, 0
+  %337 = trunc i32 %notmask.i to i16
+  %conv.i4528.i = xor i16 %337, -1
+  %338 = icmp ugt <16 x i32> %323, splat (i32 65535)
+  %339 = bitcast i16 %conv.i4528.i to <16 x i1>
+  %340 = and <16 x i1> %338, %339
+  %341 = bitcast <16 x i1> %340 to i16
+  %cmp.i4546.i = icmp eq i16 %341, 0
   br i1 %cmp.i4546.i, label %if.then.i4638.i, label %if.end.i4547.i
 
 if.then.i4638.i:                                  ; preds = %if.else179.i
-  %343 = trunc <16 x i32> %324 to <16 x i16>
-  %344 = bitcast <16 x i16> %343 to <32 x i8>
-  %345 = shufflevector <32 x i8> %344, <32 x i8> poison, <32 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6, i32 9, i32 8, i32 11, i32 10, i32 13, i32 12, i32 15, i32 14, i32 17, i32 16, i32 19, i32 18, i32 21, i32 20, i32 23, i32 22, i32 25, i32 24, i32 27, i32 26, i32 29, i32 28, i32 31, i32 30>
-  %346 = bitcast <32 x i8> %345 to <16 x i16>
-  tail call void @llvm.masked.store.v16i16.p0(<16 x i16> %346, ptr %output.0.lcssa.i, i32 1, <16 x i1> %340)
+  %342 = trunc <16 x i32> %323 to <16 x i16>
+  %343 = bitcast <16 x i16> %342 to <32 x i8>
+  %344 = shufflevector <32 x i8> %343, <32 x i8> poison, <32 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6, i32 9, i32 8, i32 11, i32 10, i32 13, i32 12, i32 15, i32 14, i32 17, i32 16, i32 19, i32 18, i32 21, i32 20, i32 23, i32 22, i32 25, i32 24, i32 27, i32 26, i32 29, i32 28, i32 31, i32 30>
+  %345 = bitcast <32 x i8> %344 to <16 x i16>
+  tail call void @llvm.masked.store.v16i16.p0(<16 x i16> %345, ptr %output.0.lcssa.i, i32 1, <16 x i1> %339)
   br label %_ZN7simdutf7icelake12_GLOBAL__N_121utf32_to_utf16_maskedILNS_10endiannessE1EEEmDv8_xS4_jPDs.exit4646.i
 
 if.end.i4547.i:                                   ; preds = %if.else179.i
-  %sub.i.i4566.i = add <16 x i32> %324, splat (i32 -65536)
-  %347 = shl <16 x i32> %sub.i.i4566.i, splat (i32 6)
-  %348 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %347, <16 x i32> %sub.i.i4566.i, <16 x i32> splat (i32 -65536), i32 228)
-  %349 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %348, <16 x i32> splat (i32 -67044352), <16 x i32> splat (i32 -671032320), i32 186)
-  %350 = select <16 x i1> %341, <16 x i32> %349, <16 x i32> %324
-  %351 = tail call <16 x i32> @llvm.fshl.v16i32(<16 x i32> %350, <16 x i32> %350, <16 x i32> splat (i32 16))
-  %352 = bitcast <16 x i32> %351 to <32 x i16>
-  %353 = icmp ne <32 x i16> %352, zeroinitializer
-  %354 = or <32 x i1> %353, <i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true>
+  %sub.i.i4566.i = add <16 x i32> %323, splat (i32 -65536)
+  %346 = shl <16 x i32> %sub.i.i4566.i, splat (i32 6)
+  %347 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %346, <16 x i32> %sub.i.i4566.i, <16 x i32> splat (i32 -65536), i32 228)
+  %348 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %347, <16 x i32> splat (i32 -67044352), <16 x i32> splat (i32 -671032320), i32 186)
+  %349 = select <16 x i1> %340, <16 x i32> %348, <16 x i32> %323
+  %350 = tail call <16 x i32> @llvm.fshl.v16i32(<16 x i32> %349, <16 x i32> %349, <16 x i32> splat (i32 16))
+  %351 = bitcast <16 x i32> %350 to <32 x i16>
+  %352 = icmp ne <32 x i16> %351, zeroinitializer
+  %353 = or <32 x i1> %352, <i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true>
   %mul.i4618.i = shl nuw nsw i32 %cast.i.i612.i, 1
   %sh_prom.i4619.i = zext nneg i32 %mul.i4618.i to i64
   %notmask2160.i = shl nsw i64 -1, %sh_prom.i4619.i
-  %355 = trunc i64 %notmask2160.i to i32
-  %conv26.i4622.i = xor i32 %355, -1
-  %356 = bitcast i32 %conv26.i4622.i to <32 x i1>
-  %357 = and <32 x i1> %354, %356
-  %358 = bitcast <16 x i32> %351 to <64 x i8>
-  %359 = shufflevector <64 x i8> %358, <64 x i8> poison, <64 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6, i32 9, i32 8, i32 11, i32 10, i32 13, i32 12, i32 15, i32 14, i32 17, i32 16, i32 19, i32 18, i32 21, i32 20, i32 23, i32 22, i32 25, i32 24, i32 27, i32 26, i32 29, i32 28, i32 31, i32 30, i32 33, i32 32, i32 35, i32 34, i32 37, i32 36, i32 39, i32 38, i32 41, i32 40, i32 43, i32 42, i32 45, i32 44, i32 47, i32 46, i32 49, i32 48, i32 51, i32 50, i32 53, i32 52, i32 55, i32 54, i32 57, i32 56, i32 59, i32 58, i32 61, i32 60, i32 63, i32 62>
-  %360 = bitcast <64 x i8> %359 to <32 x i16>
-  %361 = tail call <32 x i16> @llvm.x86.avx512.mask.compress.v32i16(<32 x i16> %360, <32 x i16> zeroinitializer, <32 x i1> %357)
-  %362 = tail call range(i16 1, 17) i16 @llvm.ctpop.i16(i16 %342)
-  %narrow.i = add nuw nsw i16 %362, %261
+  %354 = trunc i64 %notmask2160.i to i32
+  %conv26.i4622.i = xor i32 %354, -1
+  %355 = bitcast i32 %conv26.i4622.i to <32 x i1>
+  %356 = and <32 x i1> %353, %355
+  %357 = bitcast <16 x i32> %350 to <64 x i8>
+  %358 = shufflevector <64 x i8> %357, <64 x i8> poison, <64 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6, i32 9, i32 8, i32 11, i32 10, i32 13, i32 12, i32 15, i32 14, i32 17, i32 16, i32 19, i32 18, i32 21, i32 20, i32 23, i32 22, i32 25, i32 24, i32 27, i32 26, i32 29, i32 28, i32 31, i32 30, i32 33, i32 32, i32 35, i32 34, i32 37, i32 36, i32 39, i32 38, i32 41, i32 40, i32 43, i32 42, i32 45, i32 44, i32 47, i32 46, i32 49, i32 48, i32 51, i32 50, i32 53, i32 52, i32 55, i32 54, i32 57, i32 56, i32 59, i32 58, i32 61, i32 60, i32 63, i32 62>
+  %359 = bitcast <64 x i8> %358 to <32 x i16>
+  %360 = tail call <32 x i16> @llvm.x86.avx512.mask.compress.v32i16(<32 x i16> %359, <32 x i16> zeroinitializer, <32 x i1> %356)
+  %361 = tail call range(i16 1, 17) i16 @llvm.ctpop.i16(i16 %341)
+  %narrow.i = add nuw nsw i16 %361, %260
   %add.i4629.i = zext nneg i16 %narrow.i to i32
   %notmask2161.i = shl nsw i32 -1, %add.i4629.i
   %sub37.i4631.i = xor i32 %notmask2161.i, -1
-  %363 = bitcast i32 %sub37.i4631.i to <32 x i1>
-  tail call void @llvm.masked.store.v32i16.p0(<32 x i16> %361, ptr %output.0.lcssa.i, i32 1, <32 x i1> %363)
+  %362 = bitcast i32 %sub37.i4631.i to <32 x i1>
+  tail call void @llvm.masked.store.v32i16.p0(<32 x i16> %360, ptr %output.0.lcssa.i, i32 1, <32 x i1> %362)
   br label %_ZN7simdutf7icelake12_GLOBAL__N_121utf32_to_utf16_maskedILNS_10endiannessE1EEEmDv8_xS4_jPDs.exit4646.i
 
 _ZN7simdutf7icelake12_GLOBAL__N_121utf32_to_utf16_maskedILNS_10endiannessE1EEEmDv8_xS4_jPDs.exit4646.i: ; preds = %if.end.i4547.i, %if.then.i4638.i
-  %retval.i4489.0.in.i = phi i16 [ %261, %if.then.i4638.i ], [ %narrow.i, %if.end.i4547.i ]
+  %retval.i4489.0.in.i = phi i16 [ %260, %if.then.i4638.i ], [ %narrow.i, %if.end.i4547.i ]
   %retval.i4489.0.i = zext nneg i16 %retval.i4489.0.in.i to i64
   %add.ptr187.i = getelementptr inbounds nuw i16, ptr %output.0.lcssa.i, i64 %retval.i4489.0.i
   %notmask2162.i = shl nsw i32 -1, %cast.i.i.i
-  %364 = trunc i32 %notmask2162.i to i16
-  %conv.i4313.i = xor i16 %364, -1
-  %365 = icmp ugt <16 x i32> %337, splat (i32 65535)
-  %366 = bitcast i16 %conv.i4313.i to <16 x i1>
-  %367 = and <16 x i1> %365, %366
-  %368 = bitcast <16 x i1> %367 to i16
-  %cmp.i4331.i = icmp eq i16 %368, 0
+  %363 = trunc i32 %notmask2162.i to i16
+  %conv.i4313.i = xor i16 %363, -1
+  %364 = icmp ugt <16 x i32> %336, splat (i32 65535)
+  %365 = bitcast i16 %conv.i4313.i to <16 x i1>
+  %366 = and <16 x i1> %364, %365
+  %367 = bitcast <16 x i1> %366 to i16
+  %cmp.i4331.i = icmp eq i16 %367, 0
   br i1 %cmp.i4331.i, label %if.then.i4423.i, label %if.end.i4332.i
 
 if.then.i4423.i:                                  ; preds = %_ZN7simdutf7icelake12_GLOBAL__N_121utf32_to_utf16_maskedILNS_10endiannessE1EEEmDv8_xS4_jPDs.exit4646.i
-  %369 = trunc <16 x i32> %337 to <16 x i16>
-  %370 = bitcast <16 x i16> %369 to <32 x i8>
-  %371 = shufflevector <32 x i8> %370, <32 x i8> poison, <32 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6, i32 9, i32 8, i32 11, i32 10, i32 13, i32 12, i32 15, i32 14, i32 17, i32 16, i32 19, i32 18, i32 21, i32 20, i32 23, i32 22, i32 25, i32 24, i32 27, i32 26, i32 29, i32 28, i32 31, i32 30>
-  %372 = bitcast <32 x i8> %371 to <16 x i16>
-  tail call void @llvm.masked.store.v16i16.p0(<16 x i16> %372, ptr %add.ptr187.i, i32 1, <16 x i1> %366)
+  %368 = trunc <16 x i32> %336 to <16 x i16>
+  %369 = bitcast <16 x i16> %368 to <32 x i8>
+  %370 = shufflevector <32 x i8> %369, <32 x i8> poison, <32 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6, i32 9, i32 8, i32 11, i32 10, i32 13, i32 12, i32 15, i32 14, i32 17, i32 16, i32 19, i32 18, i32 21, i32 20, i32 23, i32 22, i32 25, i32 24, i32 27, i32 26, i32 29, i32 28, i32 31, i32 30>
+  %371 = bitcast <32 x i8> %370 to <16 x i16>
+  tail call void @llvm.masked.store.v16i16.p0(<16 x i16> %371, ptr %add.ptr187.i, i32 1, <16 x i1> %365)
   br label %_ZN7simdutf7icelake12_GLOBAL__N_121utf32_to_utf16_maskedILNS_10endiannessE1EEEmDv8_xS4_jPDs.exit4431.i
 
 if.end.i4332.i:                                   ; preds = %_ZN7simdutf7icelake12_GLOBAL__N_121utf32_to_utf16_maskedILNS_10endiannessE1EEEmDv8_xS4_jPDs.exit4646.i
-  %sub.i.i4351.i = add <16 x i32> %337, splat (i32 -65536)
-  %373 = shl <16 x i32> %sub.i.i4351.i, splat (i32 6)
-  %374 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %373, <16 x i32> %sub.i.i4351.i, <16 x i32> splat (i32 -65536), i32 228)
-  %375 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %374, <16 x i32> splat (i32 -67044352), <16 x i32> splat (i32 -671032320), i32 186)
-  %376 = select <16 x i1> %367, <16 x i32> %375, <16 x i32> %337
-  %377 = tail call <16 x i32> @llvm.fshl.v16i32(<16 x i32> %376, <16 x i32> %376, <16 x i32> splat (i32 16))
-  %378 = bitcast <16 x i32> %377 to <32 x i16>
-  %379 = icmp ne <32 x i16> %378, zeroinitializer
-  %380 = or <32 x i1> %379, <i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true>
+  %sub.i.i4351.i = add <16 x i32> %336, splat (i32 -65536)
+  %372 = shl <16 x i32> %sub.i.i4351.i, splat (i32 6)
+  %373 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %372, <16 x i32> %sub.i.i4351.i, <16 x i32> splat (i32 -65536), i32 228)
+  %374 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %373, <16 x i32> splat (i32 -67044352), <16 x i32> splat (i32 -671032320), i32 186)
+  %375 = select <16 x i1> %366, <16 x i32> %374, <16 x i32> %336
+  %376 = tail call <16 x i32> @llvm.fshl.v16i32(<16 x i32> %375, <16 x i32> %375, <16 x i32> splat (i32 16))
+  %377 = bitcast <16 x i32> %376 to <32 x i16>
+  %378 = icmp ne <32 x i16> %377, zeroinitializer
+  %379 = or <32 x i1> %378, <i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true>
   %mul.i4403.i = shl nuw nsw i32 %cast.i.i.i, 1
   %sh_prom.i4404.i = zext nneg i32 %mul.i4403.i to i64
   %notmask2163.i = shl nsw i64 -1, %sh_prom.i4404.i
-  %381 = trunc i64 %notmask2163.i to i32
-  %conv26.i4407.i = xor i32 %381, -1
-  %382 = bitcast i32 %conv26.i4407.i to <32 x i1>
-  %383 = and <32 x i1> %380, %382
-  %384 = bitcast <16 x i32> %377 to <64 x i8>
-  %385 = shufflevector <64 x i8> %384, <64 x i8> poison, <64 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6, i32 9, i32 8, i32 11, i32 10, i32 13, i32 12, i32 15, i32 14, i32 17, i32 16, i32 19, i32 18, i32 21, i32 20, i32 23, i32 22, i32 25, i32 24, i32 27, i32 26, i32 29, i32 28, i32 31, i32 30, i32 33, i32 32, i32 35, i32 34, i32 37, i32 36, i32 39, i32 38, i32 41, i32 40, i32 43, i32 42, i32 45, i32 44, i32 47, i32 46, i32 49, i32 48, i32 51, i32 50, i32 53, i32 52, i32 55, i32 54, i32 57, i32 56, i32 59, i32 58, i32 61, i32 60, i32 63, i32 62>
-  %386 = bitcast <64 x i8> %385 to <32 x i16>
-  %387 = tail call <32 x i16> @llvm.x86.avx512.mask.compress.v32i16(<32 x i16> %386, <32 x i16> zeroinitializer, <32 x i1> %383)
-  %388 = tail call range(i16 1, 17) i16 @llvm.ctpop.i16(i16 %368)
-  %narrow2164.i = add nuw nsw i16 %388, %269
+  %380 = trunc i64 %notmask2163.i to i32
+  %conv26.i4407.i = xor i32 %380, -1
+  %381 = bitcast i32 %conv26.i4407.i to <32 x i1>
+  %382 = and <32 x i1> %379, %381
+  %383 = bitcast <16 x i32> %376 to <64 x i8>
+  %384 = shufflevector <64 x i8> %383, <64 x i8> poison, <64 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6, i32 9, i32 8, i32 11, i32 10, i32 13, i32 12, i32 15, i32 14, i32 17, i32 16, i32 19, i32 18, i32 21, i32 20, i32 23, i32 22, i32 25, i32 24, i32 27, i32 26, i32 29, i32 28, i32 31, i32 30, i32 33, i32 32, i32 35, i32 34, i32 37, i32 36, i32 39, i32 38, i32 41, i32 40, i32 43, i32 42, i32 45, i32 44, i32 47, i32 46, i32 49, i32 48, i32 51, i32 50, i32 53, i32 52, i32 55, i32 54, i32 57, i32 56, i32 59, i32 58, i32 61, i32 60, i32 63, i32 62>
+  %385 = bitcast <64 x i8> %384 to <32 x i16>
+  %386 = tail call <32 x i16> @llvm.x86.avx512.mask.compress.v32i16(<32 x i16> %385, <32 x i16> zeroinitializer, <32 x i1> %382)
+  %387 = tail call range(i16 1, 17) i16 @llvm.ctpop.i16(i16 %367)
+  %narrow2164.i = add nuw nsw i16 %387, %268
   %add.i4414.i = zext nneg i16 %narrow2164.i to i32
   %notmask2165.i = shl nsw i32 -1, %add.i4414.i
   %sub37.i4416.i = xor i32 %notmask2165.i, -1
-  %389 = bitcast i32 %sub37.i4416.i to <32 x i1>
-  tail call void @llvm.masked.store.v32i16.p0(<32 x i16> %387, ptr %add.ptr187.i, i32 1, <32 x i1> %389)
+  %388 = bitcast i32 %sub37.i4416.i to <32 x i1>
+  tail call void @llvm.masked.store.v32i16.p0(<32 x i16> %386, ptr %add.ptr187.i, i32 1, <32 x i1> %388)
   br label %_ZN7simdutf7icelake12_GLOBAL__N_121utf32_to_utf16_maskedILNS_10endiannessE1EEEmDv8_xS4_jPDs.exit4431.i
 
 _ZN7simdutf7icelake12_GLOBAL__N_121utf32_to_utf16_maskedILNS_10endiannessE1EEEmDv8_xS4_jPDs.exit4431.i: ; preds = %if.end.i4332.i, %if.then.i4423.i
-  %retval.i4274.0.in.i = phi i16 [ %269, %if.then.i4423.i ], [ %narrow2164.i, %if.end.i4332.i ]
+  %retval.i4274.0.in.i = phi i16 [ %268, %if.then.i4423.i ], [ %narrow2164.i, %if.end.i4332.i ]
   %retval.i4274.0.i = zext nneg i16 %retval.i4274.0.in.i to i64
   %add.ptr191.i = getelementptr inbounds nuw i16, ptr %add.ptr187.i, i64 %retval.i4274.0.i
   br label %if.end192.i
 
 if.end192.i:                                      ; preds = %_ZN7simdutf7icelake12_GLOBAL__N_121utf32_to_utf16_maskedILNS_10endiannessE1EEEmDv8_xS4_jPDs.exit4431.i, %_ZN7simdutf7icelake12_GLOBAL__N_121utf32_to_utf16_maskedILNS_10endiannessE1EEEmDv8_xS4_jPDs.exit4861.i
   %storemerge.i = phi ptr [ %add.ptr191.i, %_ZN7simdutf7icelake12_GLOBAL__N_121utf32_to_utf16_maskedILNS_10endiannessE1EEEmDv8_xS4_jPDs.exit4431.i ], [ %add.ptr178.i, %_ZN7simdutf7icelake12_GLOBAL__N_121utf32_to_utf16_maskedILNS_10endiannessE1EEEmDv8_xS4_jPDs.exit4861.i ]
-  %390 = shufflevector <16 x i32> %254, <16 x i32> poison, <16 x i32> <i32 8, i32 9, i32 poison, i32 poison, i32 poison, i32 9, i32 10, i32 poison, i32 poison, i32 poison, i32 10, i32 11, i32 12, i32 poison, i32 poison, i32 11>
-  %391 = bitcast <16 x i32> %390 to <64 x i8>
-  %392 = shufflevector <64 x i8> %391, <64 x i8> poison, <64 x i32> <i32 0, i32 1, i32 2, i32 3, i32 1, i32 2, i32 3, i32 4, i32 2, i32 3, i32 4, i32 5, i32 3, i32 4, i32 5, i32 6, i32 20, i32 21, i32 22, i32 23, i32 21, i32 22, i32 23, i32 24, i32 22, i32 23, i32 24, i32 25, i32 23, i32 24, i32 25, i32 26, i32 40, i32 41, i32 42, i32 43, i32 41, i32 42, i32 43, i32 44, i32 42, i32 43, i32 44, i32 45, i32 43, i32 44, i32 45, i32 46, i32 60, i32 61, i32 62, i32 63, i32 61, i32 62, i32 63, i32 48, i32 62, i32 63, i32 48, i32 49, i32 63, i32 48, i32 49, i32 50>
-  %393 = bitcast <64 x i8> %392 to <16 x i32>
-  %394 = and <16 x i32> %393, splat (i32 192)
-  %395 = icmp ne <16 x i32> %394, splat (i32 128)
-  %396 = bitcast <16 x i1> %395 to i16
-  %397 = lshr <16 x i32> %393, splat (i32 4)
-  %398 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %397, <16 x i32> splat (i32 15), <16 x i32> splat (i32 -2139062272), i32 234)
-  %399 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %396)
-  %cast.i.i = zext nneg i16 %399 to i32
-  %400 = and <64 x i8> %392, <i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63>
-  %401 = tail call <32 x i16> @llvm.x86.avx512.pmaddubs.w.512(<64 x i8> %400, <64 x i8> <i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1>)
-  %402 = tail call <16 x i32> @llvm.x86.avx512.pmaddw.d.512(<32 x i16> %401, <32 x i16> <i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1>)
-  %403 = bitcast <16 x i32> %398 to <64 x i8>
-  %404 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11>, <64 x i8> %403)
-  %405 = bitcast <64 x i8> %404 to <16 x i32>
-  %406 = tail call <16 x i32> @llvm.x86.avx512.psllv.d.512(<16 x i32> %402, <16 x i32> %405)
-  %407 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11>, <64 x i8> %403)
-  %408 = bitcast <64 x i8> %407 to <16 x i32>
-  %409 = tail call <16 x i32> @llvm.x86.avx512.psrlv.d.512(<16 x i32> %406, <16 x i32> %408)
-  %410 = tail call <16 x i32> @llvm.x86.avx512.mask.compress.v16i32(<16 x i32> %409, <16 x i32> zeroinitializer, <16 x i1> %395)
+  %389 = bitcast <8 x i64> %242 to <64 x i8>
+  %390 = shufflevector <64 x i8> %389, <64 x i8> poison, <64 x i32> <i32 32, i32 33, i32 34, i32 35, i32 33, i32 34, i32 35, i32 36, i32 34, i32 35, i32 36, i32 37, i32 35, i32 36, i32 37, i32 38, i32 36, i32 37, i32 38, i32 39, i32 37, i32 38, i32 39, i32 40, i32 38, i32 39, i32 40, i32 41, i32 39, i32 40, i32 41, i32 42, i32 40, i32 41, i32 42, i32 43, i32 41, i32 42, i32 43, i32 44, i32 42, i32 43, i32 44, i32 45, i32 43, i32 44, i32 45, i32 46, i32 44, i32 45, i32 46, i32 47, i32 45, i32 46, i32 47, i32 48, i32 46, i32 47, i32 48, i32 49, i32 47, i32 48, i32 49, i32 50>
+  %391 = bitcast <64 x i8> %390 to <16 x i32>
+  %392 = and <16 x i32> %391, splat (i32 192)
+  %393 = icmp ne <16 x i32> %392, splat (i32 128)
+  %394 = bitcast <16 x i1> %393 to i16
+  %395 = lshr <16 x i32> %391, splat (i32 4)
+  %396 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %395, <16 x i32> splat (i32 15), <16 x i32> splat (i32 -2139062272), i32 234)
+  %397 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %394)
+  %cast.i.i = zext nneg i16 %397 to i32
+  %398 = and <64 x i8> %390, <i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63>
+  %399 = tail call <32 x i16> @llvm.x86.avx512.pmaddubs.w.512(<64 x i8> %398, <64 x i8> <i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1>)
+  %400 = tail call <16 x i32> @llvm.x86.avx512.pmaddw.d.512(<32 x i16> %399, <32 x i16> <i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1>)
+  %401 = bitcast <16 x i32> %396 to <64 x i8>
+  %402 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11>, <64 x i8> %401)
+  %403 = bitcast <64 x i8> %402 to <16 x i32>
+  %404 = tail call <16 x i32> @llvm.x86.avx512.psllv.d.512(<16 x i32> %400, <16 x i32> %403)
+  %405 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11>, <64 x i8> %401)
+  %406 = bitcast <64 x i8> %405 to <16 x i32>
+  %407 = tail call <16 x i32> @llvm.x86.avx512.psrlv.d.512(<16 x i32> %404, <16 x i32> %406)
+  %408 = tail call <16 x i32> @llvm.x86.avx512.mask.compress.v16i32(<16 x i32> %407, <16 x i32> zeroinitializer, <16 x i1> %393)
   %notmask2170.i = shl nsw i32 -1, %cast.i.i
-  %411 = trunc i32 %notmask2170.i to i16
-  %conv.i4186.i = xor i16 %411, -1
-  %412 = icmp ugt <16 x i32> %410, splat (i32 65535)
-  %413 = bitcast i16 %conv.i4186.i to <16 x i1>
-  %414 = and <16 x i1> %412, %413
-  %415 = bitcast <16 x i1> %414 to i16
-  %cmp.i4187.i = icmp eq i16 %415, 0
+  %409 = trunc i32 %notmask2170.i to i16
+  %conv.i4186.i = xor i16 %409, -1
+  %410 = icmp ugt <16 x i32> %408, splat (i32 65535)
+  %411 = bitcast i16 %conv.i4186.i to <16 x i1>
+  %412 = and <16 x i1> %410, %411
+  %413 = bitcast <16 x i1> %412 to i16
+  %cmp.i4187.i = icmp eq i16 %413, 0
   br i1 %cmp.i4187.i, label %if.then.i4213.i, label %if.end.i4188.i
 
 if.then.i4213.i:                                  ; preds = %if.end192.i
-  %416 = trunc <16 x i32> %410 to <16 x i16>
-  %417 = bitcast <16 x i16> %416 to <32 x i8>
-  %418 = shufflevector <32 x i8> %417, <32 x i8> poison, <32 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6, i32 9, i32 8, i32 11, i32 10, i32 13, i32 12, i32 15, i32 14, i32 17, i32 16, i32 19, i32 18, i32 21, i32 20, i32 23, i32 22, i32 25, i32 24, i32 27, i32 26, i32 29, i32 28, i32 31, i32 30>
-  %419 = bitcast <32 x i8> %418 to <16 x i16>
-  tail call void @llvm.masked.store.v16i16.p0(<16 x i16> %419, ptr %storemerge.i, i32 1, <16 x i1> %413)
+  %414 = trunc <16 x i32> %408 to <16 x i16>
+  %415 = bitcast <16 x i16> %414 to <32 x i8>
+  %416 = shufflevector <32 x i8> %415, <32 x i8> poison, <32 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6, i32 9, i32 8, i32 11, i32 10, i32 13, i32 12, i32 15, i32 14, i32 17, i32 16, i32 19, i32 18, i32 21, i32 20, i32 23, i32 22, i32 25, i32 24, i32 27, i32 26, i32 29, i32 28, i32 31, i32 30>
+  %417 = bitcast <32 x i8> %416 to <16 x i16>
+  tail call void @llvm.masked.store.v16i16.p0(<16 x i16> %417, ptr %storemerge.i, i32 1, <16 x i1> %411)
   br label %_ZN7simdutf7icelake12_GLOBAL__N_121utf32_to_utf16_maskedILNS_10endiannessE1EEEmDv8_xS4_jPDs.exit.i
 
 if.end.i4188.i:                                   ; preds = %if.end192.i
-  %sub.i.i4189.i = add <16 x i32> %410, splat (i32 -65536)
-  %420 = shl <16 x i32> %sub.i.i4189.i, splat (i32 6)
-  %421 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %420, <16 x i32> %sub.i.i4189.i, <16 x i32> splat (i32 -65536), i32 228)
-  %422 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %421, <16 x i32> splat (i32 -67044352), <16 x i32> splat (i32 -671032320), i32 186)
-  %423 = select <16 x i1> %414, <16 x i32> %422, <16 x i32> %410
-  %424 = tail call <16 x i32> @llvm.fshl.v16i32(<16 x i32> %423, <16 x i32> %423, <16 x i32> splat (i32 16))
-  %425 = bitcast <16 x i32> %424 to <32 x i16>
-  %426 = icmp ne <32 x i16> %425, zeroinitializer
-  %427 = or <32 x i1> %426, <i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true>
+  %sub.i.i4189.i = add <16 x i32> %408, splat (i32 -65536)
+  %418 = shl <16 x i32> %sub.i.i4189.i, splat (i32 6)
+  %419 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %418, <16 x i32> %sub.i.i4189.i, <16 x i32> splat (i32 -65536), i32 228)
+  %420 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %419, <16 x i32> splat (i32 -67044352), <16 x i32> splat (i32 -671032320), i32 186)
+  %421 = select <16 x i1> %412, <16 x i32> %420, <16 x i32> %408
+  %422 = tail call <16 x i32> @llvm.fshl.v16i32(<16 x i32> %421, <16 x i32> %421, <16 x i32> splat (i32 16))
+  %423 = bitcast <16 x i32> %422 to <32 x i16>
+  %424 = icmp ne <32 x i16> %423, zeroinitializer
+  %425 = or <32 x i1> %424, <i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true, i1 false, i1 true>
   %mul.i.i = shl nuw nsw i32 %cast.i.i, 1
   %sh_prom.i.i = zext nneg i32 %mul.i.i to i64
   %notmask2171.i = shl nsw i64 -1, %sh_prom.i.i
-  %428 = trunc i64 %notmask2171.i to i32
-  %conv26.i.i = xor i32 %428, -1
-  %429 = bitcast i32 %conv26.i.i to <32 x i1>
-  %430 = and <32 x i1> %427, %429
-  %431 = bitcast <16 x i32> %424 to <64 x i8>
-  %432 = shufflevector <64 x i8> %431, <64 x i8> poison, <64 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6, i32 9, i32 8, i32 11, i32 10, i32 13, i32 12, i32 15, i32 14, i32 17, i32 16, i32 19, i32 18, i32 21, i32 20, i32 23, i32 22, i32 25, i32 24, i32 27, i32 26, i32 29, i32 28, i32 31, i32 30, i32 33, i32 32, i32 35, i32 34, i32 37, i32 36, i32 39, i32 38, i32 41, i32 40, i32 43, i32 42, i32 45, i32 44, i32 47, i32 46, i32 49, i32 48, i32 51, i32 50, i32 53, i32 52, i32 55, i32 54, i32 57, i32 56, i32 59, i32 58, i32 61, i32 60, i32 63, i32 62>
-  %433 = bitcast <64 x i8> %432 to <32 x i16>
-  %434 = tail call <32 x i16> @llvm.x86.avx512.mask.compress.v32i16(<32 x i16> %433, <32 x i16> zeroinitializer, <32 x i1> %430)
-  %435 = tail call range(i16 1, 17) i16 @llvm.ctpop.i16(i16 %415)
-  %narrow2172.i = add nuw nsw i16 %435, %399
+  %426 = trunc i64 %notmask2171.i to i32
+  %conv26.i.i = xor i32 %426, -1
+  %427 = bitcast i32 %conv26.i.i to <32 x i1>
+  %428 = and <32 x i1> %425, %427
+  %429 = bitcast <16 x i32> %422 to <64 x i8>
+  %430 = shufflevector <64 x i8> %429, <64 x i8> poison, <64 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6, i32 9, i32 8, i32 11, i32 10, i32 13, i32 12, i32 15, i32 14, i32 17, i32 16, i32 19, i32 18, i32 21, i32 20, i32 23, i32 22, i32 25, i32 24, i32 27, i32 26, i32 29, i32 28, i32 31, i32 30, i32 33, i32 32, i32 35, i32 34, i32 37, i32 36, i32 39, i32 38, i32 41, i32 40, i32 43, i32 42, i32 45, i32 44, i32 47, i32 46, i32 49, i32 48, i32 51, i32 50, i32 53, i32 52, i32 55, i32 54, i32 57, i32 56, i32 59, i32 58, i32 61, i32 60, i32 63, i32 62>
+  %431 = bitcast <64 x i8> %430 to <32 x i16>
+  %432 = tail call <32 x i16> @llvm.x86.avx512.mask.compress.v32i16(<32 x i16> %431, <32 x i16> zeroinitializer, <32 x i1> %428)
+  %433 = tail call range(i16 1, 17) i16 @llvm.ctpop.i16(i16 %413)
+  %narrow2172.i = add nuw nsw i16 %433, %397
   %add.i4212.i = zext nneg i16 %narrow2172.i to i32
   %notmask2173.i = shl nsw i32 -1, %add.i4212.i
   %sub37.i.i = xor i32 %notmask2173.i, -1
-  %436 = bitcast i32 %sub37.i.i to <32 x i1>
-  tail call void @llvm.masked.store.v32i16.p0(<32 x i16> %434, ptr %storemerge.i, i32 1, <32 x i1> %436)
+  %434 = bitcast i32 %sub37.i.i to <32 x i1>
+  tail call void @llvm.masked.store.v32i16.p0(<32 x i16> %432, ptr %storemerge.i, i32 1, <32 x i1> %434)
   br label %_ZN7simdutf7icelake12_GLOBAL__N_121utf32_to_utf16_maskedILNS_10endiannessE1EEEmDv8_xS4_jPDs.exit.i
 
 _ZN7simdutf7icelake12_GLOBAL__N_121utf32_to_utf16_maskedILNS_10endiannessE1EEEmDv8_xS4_jPDs.exit.i: ; preds = %if.end.i4188.i, %if.then.i4213.i
-  %retval.i4153.0.in.i = phi i16 [ %399, %if.then.i4213.i ], [ %narrow2172.i, %if.end.i4188.i ]
+  %retval.i4153.0.in.i = phi i16 [ %397, %if.then.i4213.i ], [ %narrow2172.i, %if.end.i4188.i ]
   %retval.i4153.0.i = zext nneg i16 %retval.i4153.0.in.i to i64
   %add.ptr225.i = getelementptr inbounds nuw i16, ptr %storemerge.i, i64 %retval.i4153.0.i
   %add.ptr226.i = getelementptr inbounds nuw i8, ptr %ptr.0.lcssa.i, i64 48
@@ -15507,8 +15503,8 @@ _ZN7simdutf7icelake12_GLOBAL__N_126valid_utf8_to_fixed_lengthILNS_10endiannessE1
 
 land.rhs:                                         ; preds = %_ZN7simdutf7icelake12_GLOBAL__N_126valid_utf8_to_fixed_lengthILNS_10endiannessE1EDsEESt4pairIPKcPT0_ES6_mS8_.exit, %while.body
   %ret.sroa.0.019 = phi ptr [ %add.ptr7, %while.body ], [ %ptr.1.i, %_ZN7simdutf7icelake12_GLOBAL__N_126valid_utf8_to_fixed_lengthILNS_10endiannessE1EDsEESt4pairIPKcPT0_ES6_mS8_.exit ]
-  %437 = load i8, ptr %ret.sroa.0.019, align 1
-  %cmp5 = icmp slt i8 %437, -64
+  %435 = load i8, ptr %ret.sroa.0.019, align 1
+  %cmp5 = icmp slt i8 %435, -64
   br i1 %cmp5, label %while.body, label %if.then10
 
 while.body:                                       ; preds = %land.rhs
@@ -15823,42 +15819,42 @@ while.end.i:                                      ; preds = %if.end97.i, %if.the
 
 if.then101.i:                                     ; preds = %while.end.i
   %159 = load <8 x i64>, ptr %ptr.0.lcssa.i, align 1
-  %160 = bitcast <8 x i64> %159 to <16 x i32>
-  %161 = bitcast <8 x i64> %159 to <64 x i8>
-  %162 = icmp slt <64 x i8> %161, zeroinitializer
-  %163 = bitcast <64 x i1> %162 to i64
-  %cmp.i260.i = icmp eq i64 %163, 0
+  %160 = bitcast <8 x i64> %159 to <64 x i8>
+  %161 = icmp slt <64 x i8> %160, zeroinitializer
+  %162 = bitcast <64 x i1> %161 to i64
+  %cmp.i260.i = icmp eq i64 %162, 0
   br i1 %cmp.i260.i, label %if.then106.i, label %if.else133.i
 
 if.then106.i:                                     ; preds = %if.then101.i
   %checker.sroa.0.32380.i = or <8 x i64> %checker.sroa.0.0.lcssa.i, %checker.sroa.24.0.ph.lcssa.i
-  %164 = bitcast <8 x i64> %159 to <64 x i8>
-  %165 = shufflevector <64 x i8> %164, <64 x i8> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %conv.i2086.i = zext <16 x i8> %165 to <16 x i32>
+  %163 = bitcast <8 x i64> %159 to <64 x i8>
+  %164 = shufflevector <64 x i8> %163, <64 x i8> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %conv.i2086.i = zext <16 x i8> %164 to <16 x i32>
   store <16 x i32> %conv.i2086.i, ptr %output.0.lcssa.i, align 1
   %add.ptr122.i = getelementptr inbounds nuw i8, ptr %output.0.lcssa.i, i64 64
-  %166 = bitcast <8 x i64> %159 to <64 x i8>
-  %167 = shufflevector <64 x i8> %166, <64 x i8> poison, <16 x i32> <i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
-  %conv.i2084.i = zext <16 x i8> %167 to <16 x i32>
+  %165 = bitcast <8 x i64> %159 to <64 x i8>
+  %166 = shufflevector <64 x i8> %165, <64 x i8> poison, <16 x i32> <i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
+  %conv.i2084.i = zext <16 x i8> %166 to <16 x i32>
   store <16 x i32> %conv.i2084.i, ptr %add.ptr122.i, align 1
   %add.ptr125.i = getelementptr inbounds nuw i8, ptr %output.0.lcssa.i, i64 128
-  %168 = bitcast <8 x i64> %159 to <64 x i8>
-  %169 = shufflevector <64 x i8> %168, <64 x i8> poison, <16 x i32> <i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 46, i32 47>
-  %conv.i2082.i = zext <16 x i8> %169 to <16 x i32>
+  %167 = bitcast <8 x i64> %159 to <64 x i8>
+  %168 = shufflevector <64 x i8> %167, <64 x i8> poison, <16 x i32> <i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 46, i32 47>
+  %conv.i2082.i = zext <16 x i8> %168 to <16 x i32>
   store <16 x i32> %conv.i2082.i, ptr %add.ptr125.i, align 1
   %add.ptr128.i = getelementptr inbounds nuw i8, ptr %output.0.lcssa.i, i64 192
-  %170 = bitcast <8 x i64> %159 to <64 x i8>
-  %171 = shufflevector <64 x i8> %170, <64 x i8> poison, <16 x i32> <i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61, i32 62, i32 63>
-  %conv.i.i = zext <16 x i8> %171 to <16 x i32>
+  %169 = bitcast <8 x i64> %159 to <64 x i8>
+  %170 = shufflevector <64 x i8> %169, <64 x i8> poison, <16 x i32> <i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61, i32 62, i32 63>
+  %conv.i.i = zext <16 x i8> %170 to <16 x i32>
   store <16 x i32> %conv.i.i, ptr %add.ptr128.i, align 1
   %add.ptr131.i = getelementptr inbounds nuw i8, ptr %output.0.lcssa.i, i64 256
   br label %if.end231.i
 
 if.else133.i:                                     ; preds = %if.then101.i
+  %171 = bitcast <8 x i64> %159 to <16 x i32>
   %172 = bitcast <8 x i64> %checker.sroa.17.0.ph.lcssa.i to <16 x i32>
-  %173 = shufflevector <16 x i32> %160, <16 x i32> %172, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 31, i32 poison, i32 poison, i32 poison, i32 3, i32 poison, i32 poison, i32 poison, i32 7, i32 poison, i32 poison, i32 poison, i32 11>
+  %173 = shufflevector <16 x i32> %171, <16 x i32> %172, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 31, i32 poison, i32 poison, i32 poison, i32 3, i32 poison, i32 poison, i32 poison, i32 7, i32 poison, i32 poison, i32 poison, i32 11>
   %174 = bitcast <16 x i32> %173 to <64 x i8>
-  %palignr.i2332.i = shufflevector <64 x i8> %174, <64 x i8> %161, <64 x i32> <i32 15, i32 64, i32 65, i32 66, i32 67, i32 68, i32 69, i32 70, i32 71, i32 72, i32 73, i32 74, i32 75, i32 76, i32 77, i32 78, i32 31, i32 80, i32 81, i32 82, i32 83, i32 84, i32 85, i32 86, i32 87, i32 88, i32 89, i32 90, i32 91, i32 92, i32 93, i32 94, i32 47, i32 96, i32 97, i32 98, i32 99, i32 100, i32 101, i32 102, i32 103, i32 104, i32 105, i32 106, i32 107, i32 108, i32 109, i32 110, i32 63, i32 112, i32 113, i32 114, i32 115, i32 116, i32 117, i32 118, i32 119, i32 120, i32 121, i32 122, i32 123, i32 124, i32 125, i32 126>
+  %palignr.i2332.i = shufflevector <64 x i8> %174, <64 x i8> %160, <64 x i32> <i32 15, i32 64, i32 65, i32 66, i32 67, i32 68, i32 69, i32 70, i32 71, i32 72, i32 73, i32 74, i32 75, i32 76, i32 77, i32 78, i32 31, i32 80, i32 81, i32 82, i32 83, i32 84, i32 85, i32 86, i32 87, i32 88, i32 89, i32 90, i32 91, i32 92, i32 93, i32 94, i32 47, i32 96, i32 97, i32 98, i32 99, i32 100, i32 101, i32 102, i32 103, i32 104, i32 105, i32 106, i32 107, i32 108, i32 109, i32 110, i32 63, i32 112, i32 113, i32 114, i32 115, i32 116, i32 117, i32 118, i32 119, i32 120, i32 121, i32 122, i32 123, i32 124, i32 125, i32 126>
   %175 = bitcast <64 x i8> %palignr.i2332.i to <32 x i16>
   %176 = lshr <32 x i16> %175, splat (i16 4)
   %177 = bitcast <32 x i16> %176 to <64 x i8>
@@ -15875,8 +15871,8 @@ if.else133.i:                                     ; preds = %if.then101.i
   %188 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1>, <64 x i8> %187)
   %189 = bitcast <64 x i8> %188 to <8 x i64>
   %190 = tail call noundef <8 x i64> @llvm.x86.avx512.pternlog.q.512(<8 x i64> %180, <8 x i64> %183, <8 x i64> %189, i32 128)
-  %palignr.i2333.i = shufflevector <64 x i8> %174, <64 x i8> %161, <64 x i32> <i32 14, i32 15, i32 64, i32 65, i32 66, i32 67, i32 68, i32 69, i32 70, i32 71, i32 72, i32 73, i32 74, i32 75, i32 76, i32 77, i32 30, i32 31, i32 80, i32 81, i32 82, i32 83, i32 84, i32 85, i32 86, i32 87, i32 88, i32 89, i32 90, i32 91, i32 92, i32 93, i32 46, i32 47, i32 96, i32 97, i32 98, i32 99, i32 100, i32 101, i32 102, i32 103, i32 104, i32 105, i32 106, i32 107, i32 108, i32 109, i32 62, i32 63, i32 112, i32 113, i32 114, i32 115, i32 116, i32 117, i32 118, i32 119, i32 120, i32 121, i32 122, i32 123, i32 124, i32 125>
-  %palignr.i2334.i = shufflevector <64 x i8> %174, <64 x i8> %161, <64 x i32> <i32 13, i32 14, i32 15, i32 64, i32 65, i32 66, i32 67, i32 68, i32 69, i32 70, i32 71, i32 72, i32 73, i32 74, i32 75, i32 76, i32 29, i32 30, i32 31, i32 80, i32 81, i32 82, i32 83, i32 84, i32 85, i32 86, i32 87, i32 88, i32 89, i32 90, i32 91, i32 92, i32 45, i32 46, i32 47, i32 96, i32 97, i32 98, i32 99, i32 100, i32 101, i32 102, i32 103, i32 104, i32 105, i32 106, i32 107, i32 108, i32 61, i32 62, i32 63, i32 112, i32 113, i32 114, i32 115, i32 116, i32 117, i32 118, i32 119, i32 120, i32 121, i32 122, i32 123, i32 124>
+  %palignr.i2333.i = shufflevector <64 x i8> %174, <64 x i8> %160, <64 x i32> <i32 14, i32 15, i32 64, i32 65, i32 66, i32 67, i32 68, i32 69, i32 70, i32 71, i32 72, i32 73, i32 74, i32 75, i32 76, i32 77, i32 30, i32 31, i32 80, i32 81, i32 82, i32 83, i32 84, i32 85, i32 86, i32 87, i32 88, i32 89, i32 90, i32 91, i32 92, i32 93, i32 46, i32 47, i32 96, i32 97, i32 98, i32 99, i32 100, i32 101, i32 102, i32 103, i32 104, i32 105, i32 106, i32 107, i32 108, i32 109, i32 62, i32 63, i32 112, i32 113, i32 114, i32 115, i32 116, i32 117, i32 118, i32 119, i32 120, i32 121, i32 122, i32 123, i32 124, i32 125>
+  %palignr.i2334.i = shufflevector <64 x i8> %174, <64 x i8> %160, <64 x i32> <i32 13, i32 14, i32 15, i32 64, i32 65, i32 66, i32 67, i32 68, i32 69, i32 70, i32 71, i32 72, i32 73, i32 74, i32 75, i32 76, i32 29, i32 30, i32 31, i32 80, i32 81, i32 82, i32 83, i32 84, i32 85, i32 86, i32 87, i32 88, i32 89, i32 90, i32 91, i32 92, i32 45, i32 46, i32 47, i32 96, i32 97, i32 98, i32 99, i32 100, i32 101, i32 102, i32 103, i32 104, i32 105, i32 106, i32 107, i32 108, i32 61, i32 62, i32 63, i32 112, i32 113, i32 114, i32 115, i32 116, i32 117, i32 118, i32 119, i32 120, i32 121, i32 122, i32 123, i32 124>
   %elt.sat.i2023.i = tail call <64 x i8> @llvm.usub.sat.v64i8(<64 x i8> %palignr.i2333.i, <64 x i8> splat (i8 -33))
   %elt.sat.i2016.i = tail call <64 x i8> @llvm.usub.sat.v64i8(<64 x i8> %palignr.i2334.i, <64 x i8> splat (i8 -17))
   %or.i.i14692313.i = or <64 x i8> %elt.sat.i2023.i, %elt.sat.i2016.i
@@ -15885,7 +15881,7 @@ if.else133.i:                                     ; preds = %if.then101.i
   %192 = bitcast <8 x i64> %190 to <16 x i32>
   %193 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %191, <16 x i32> splat (i32 -2139062144), <16 x i32> %192, i32 106)
   %194 = bitcast <16 x i32> %193 to <8 x i64>
-  %elt.sat.i2051.i = tail call <64 x i8> @llvm.usub.sat.v64i8(<64 x i8> %161, <64 x i8> <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -17, i8 -33, i8 -65>)
+  %elt.sat.i2051.i = tail call <64 x i8> @llvm.usub.sat.v64i8(<64 x i8> %160, <64 x i8> <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -17, i8 -33, i8 -65>)
   %195 = bitcast <64 x i8> %elt.sat.i2051.i to <8 x i64>
   %checker.sroa.0.3.i = or <8 x i64> %checker.sroa.0.0.lcssa.i, %194
   %196 = bitcast <8 x i64> %159 to <64 x i8>
@@ -15984,34 +15980,33 @@ if.else172.i:                                     ; preds = %if.else133.i
 
 if.end191.i:                                      ; preds = %if.else172.i, %if.then155.i
   %storemerge.i = phi ptr [ %add.ptr190.i, %if.else172.i ], [ %add.ptr171.i, %if.then155.i ]
-  %259 = shufflevector <16 x i32> %160, <16 x i32> poison, <16 x i32> <i32 8, i32 9, i32 poison, i32 poison, i32 poison, i32 9, i32 10, i32 poison, i32 poison, i32 poison, i32 10, i32 11, i32 12, i32 poison, i32 poison, i32 11>
-  %260 = bitcast <16 x i32> %259 to <64 x i8>
-  %261 = shufflevector <64 x i8> %260, <64 x i8> poison, <64 x i32> <i32 0, i32 1, i32 2, i32 3, i32 1, i32 2, i32 3, i32 4, i32 2, i32 3, i32 4, i32 5, i32 3, i32 4, i32 5, i32 6, i32 20, i32 21, i32 22, i32 23, i32 21, i32 22, i32 23, i32 24, i32 22, i32 23, i32 24, i32 25, i32 23, i32 24, i32 25, i32 26, i32 40, i32 41, i32 42, i32 43, i32 41, i32 42, i32 43, i32 44, i32 42, i32 43, i32 44, i32 45, i32 43, i32 44, i32 45, i32 46, i32 60, i32 61, i32 62, i32 63, i32 61, i32 62, i32 63, i32 48, i32 62, i32 63, i32 48, i32 49, i32 63, i32 48, i32 49, i32 50>
-  %262 = bitcast <64 x i8> %261 to <16 x i32>
-  %263 = and <16 x i32> %262, splat (i32 192)
-  %264 = icmp ne <16 x i32> %263, splat (i32 128)
-  %265 = bitcast <16 x i1> %264 to i16
-  %266 = lshr <16 x i32> %262, splat (i32 4)
-  %267 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %266, <16 x i32> splat (i32 15), <16 x i32> splat (i32 -2139062272), i32 234)
-  %268 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %265)
-  %cast.i.i = zext nneg i16 %268 to i32
-  %conv.i2103.i = zext nneg i16 %268 to i64
-  %269 = and <64 x i8> %261, <i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63>
-  %270 = tail call <32 x i16> @llvm.x86.avx512.pmaddubs.w.512(<64 x i8> %269, <64 x i8> <i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1>)
-  %271 = tail call <16 x i32> @llvm.x86.avx512.pmaddw.d.512(<32 x i16> %270, <32 x i16> <i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1>)
-  %272 = bitcast <16 x i32> %267 to <64 x i8>
-  %273 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11>, <64 x i8> %272)
-  %274 = bitcast <64 x i8> %273 to <16 x i32>
-  %275 = tail call <16 x i32> @llvm.x86.avx512.psllv.d.512(<16 x i32> %271, <16 x i32> %274)
-  %276 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11>, <64 x i8> %272)
-  %277 = bitcast <64 x i8> %276 to <16 x i32>
-  %278 = tail call <16 x i32> @llvm.x86.avx512.psrlv.d.512(<16 x i32> %275, <16 x i32> %277)
-  %279 = tail call <16 x i32> @llvm.x86.avx512.mask.compress.v16i32(<16 x i32> %278, <16 x i32> zeroinitializer, <16 x i1> %264)
+  %259 = bitcast <8 x i64> %159 to <64 x i8>
+  %260 = shufflevector <64 x i8> %259, <64 x i8> poison, <64 x i32> <i32 32, i32 33, i32 34, i32 35, i32 33, i32 34, i32 35, i32 36, i32 34, i32 35, i32 36, i32 37, i32 35, i32 36, i32 37, i32 38, i32 36, i32 37, i32 38, i32 39, i32 37, i32 38, i32 39, i32 40, i32 38, i32 39, i32 40, i32 41, i32 39, i32 40, i32 41, i32 42, i32 40, i32 41, i32 42, i32 43, i32 41, i32 42, i32 43, i32 44, i32 42, i32 43, i32 44, i32 45, i32 43, i32 44, i32 45, i32 46, i32 44, i32 45, i32 46, i32 47, i32 45, i32 46, i32 47, i32 48, i32 46, i32 47, i32 48, i32 49, i32 47, i32 48, i32 49, i32 50>
+  %261 = bitcast <64 x i8> %260 to <16 x i32>
+  %262 = and <16 x i32> %261, splat (i32 192)
+  %263 = icmp ne <16 x i32> %262, splat (i32 128)
+  %264 = bitcast <16 x i1> %263 to i16
+  %265 = lshr <16 x i32> %261, splat (i32 4)
+  %266 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %265, <16 x i32> splat (i32 15), <16 x i32> splat (i32 -2139062272), i32 234)
+  %267 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %264)
+  %cast.i.i = zext nneg i16 %267 to i32
+  %conv.i2103.i = zext nneg i16 %267 to i64
+  %268 = and <64 x i8> %260, <i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63>
+  %269 = tail call <32 x i16> @llvm.x86.avx512.pmaddubs.w.512(<64 x i8> %268, <64 x i8> <i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1>)
+  %270 = tail call <16 x i32> @llvm.x86.avx512.pmaddw.d.512(<32 x i16> %269, <32 x i16> <i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1>)
+  %271 = bitcast <16 x i32> %266 to <64 x i8>
+  %272 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11>, <64 x i8> %271)
+  %273 = bitcast <64 x i8> %272 to <16 x i32>
+  %274 = tail call <16 x i32> @llvm.x86.avx512.psllv.d.512(<16 x i32> %270, <16 x i32> %273)
+  %275 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11>, <64 x i8> %271)
+  %276 = bitcast <64 x i8> %275 to <16 x i32>
+  %277 = tail call <16 x i32> @llvm.x86.avx512.psrlv.d.512(<16 x i32> %274, <16 x i32> %276)
+  %278 = tail call <16 x i32> @llvm.x86.avx512.mask.compress.v16i32(<16 x i32> %277, <16 x i32> zeroinitializer, <16 x i1> %263)
   %notmask2317.i = shl nsw i32 -1, %cast.i.i
-  %280 = trunc i32 %notmask2317.i to i16
-  %conv224.i = xor i16 %280, -1
-  %281 = bitcast i16 %conv224.i to <16 x i1>
-  tail call void @llvm.masked.store.v16i32.p0(<16 x i32> %279, ptr %storemerge.i, i32 1, <16 x i1> %281)
+  %279 = trunc i32 %notmask2317.i to i16
+  %conv224.i = xor i16 %279, -1
+  %280 = bitcast i16 %conv224.i to <16 x i1>
+  tail call void @llvm.masked.store.v16i32.p0(<16 x i32> %278, ptr %storemerge.i, i32 1, <16 x i1> %280)
   %add.ptr227.i = getelementptr inbounds nuw i32, ptr %storemerge.i, i64 %conv.i2103.i
   %add.ptr228.i = getelementptr inbounds nuw i8, ptr %ptr.0.lcssa.i, i64 48
   br label %if.end231.i
@@ -16028,58 +16023,58 @@ if.end231.i:                                      ; preds = %if.end191.i, %if.th
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %notmask2319.i = shl nsw i64 -1, %sub.ptr.sub.i
   %sub234.i = xor i64 %notmask2319.i, -1
-  %282 = bitcast i64 %sub234.i to <64 x i1>
-  %283 = tail call <64 x i8> @llvm.masked.load.v64i8.p0(ptr %validatedptr.0.i, i32 1, <64 x i1> %282, <64 x i8> zeroinitializer)
-  %284 = icmp slt <64 x i8> %283, zeroinitializer
-  %285 = bitcast <64 x i1> %284 to i64
-  %cmp.i.i = icmp eq i64 %285, 0
+  %281 = bitcast i64 %sub234.i to <64 x i1>
+  %282 = tail call <64 x i8> @llvm.masked.load.v64i8.p0(ptr %validatedptr.0.i, i32 1, <64 x i1> %281, <64 x i8> zeroinitializer)
+  %283 = icmp slt <64 x i8> %282, zeroinitializer
+  %284 = bitcast <64 x i1> %283 to i64
+  %cmp.i.i = icmp eq i64 %284, 0
   br i1 %cmp.i.i, label %_ZN7simdutf7icelake12_GLOBAL__N_131validating_utf8_to_fixed_lengthILNS_10endiannessE0EjEESt4pairIPKcPT0_ES6_mS8_.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end231.i
-  %286 = bitcast <8 x i64> %checker.sroa.17.2.i to <16 x i32>
-  %287 = bitcast <64 x i8> %283 to <16 x i32>
-  %288 = shufflevector <16 x i32> %287, <16 x i32> %286, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 31, i32 poison, i32 poison, i32 poison, i32 3, i32 poison, i32 poison, i32 poison, i32 7, i32 poison, i32 poison, i32 poison, i32 11>
-  %289 = bitcast <16 x i32> %288 to <64 x i8>
-  %palignr.i2339.i = shufflevector <64 x i8> %289, <64 x i8> %283, <64 x i32> <i32 15, i32 64, i32 65, i32 66, i32 67, i32 68, i32 69, i32 70, i32 71, i32 72, i32 73, i32 74, i32 75, i32 76, i32 77, i32 78, i32 31, i32 80, i32 81, i32 82, i32 83, i32 84, i32 85, i32 86, i32 87, i32 88, i32 89, i32 90, i32 91, i32 92, i32 93, i32 94, i32 47, i32 96, i32 97, i32 98, i32 99, i32 100, i32 101, i32 102, i32 103, i32 104, i32 105, i32 106, i32 107, i32 108, i32 109, i32 110, i32 63, i32 112, i32 113, i32 114, i32 115, i32 116, i32 117, i32 118, i32 119, i32 120, i32 121, i32 122, i32 123, i32 124, i32 125, i32 126>
-  %290 = bitcast <64 x i8> %palignr.i2339.i to <32 x i16>
-  %291 = lshr <32 x i16> %290, splat (i16 4)
-  %292 = bitcast <32 x i16> %291 to <64 x i8>
-  %293 = and <64 x i8> %292, splat (i8 15)
-  %294 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73>, <64 x i8> %293)
-  %295 = bitcast <64 x i8> %294 to <8 x i64>
-  %296 = and <64 x i8> %palignr.i2339.i, splat (i8 15)
-  %297 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53, i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53, i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53, i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53>, <64 x i8> %296)
-  %298 = bitcast <64 x i8> %297 to <8 x i64>
-  %299 = bitcast <64 x i8> %283 to <32 x i16>
-  %300 = lshr <32 x i16> %299, splat (i16 4)
-  %301 = bitcast <32 x i16> %300 to <64 x i8>
-  %302 = and <64 x i8> %301, splat (i8 15)
-  %303 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1>, <64 x i8> %302)
-  %304 = bitcast <64 x i8> %303 to <8 x i64>
-  %305 = tail call noundef <8 x i64> @llvm.x86.avx512.pternlog.q.512(<8 x i64> %295, <8 x i64> %298, <8 x i64> %304, i32 128)
-  %palignr.i2340.i = shufflevector <64 x i8> %289, <64 x i8> %283, <64 x i32> <i32 14, i32 15, i32 64, i32 65, i32 66, i32 67, i32 68, i32 69, i32 70, i32 71, i32 72, i32 73, i32 74, i32 75, i32 76, i32 77, i32 30, i32 31, i32 80, i32 81, i32 82, i32 83, i32 84, i32 85, i32 86, i32 87, i32 88, i32 89, i32 90, i32 91, i32 92, i32 93, i32 46, i32 47, i32 96, i32 97, i32 98, i32 99, i32 100, i32 101, i32 102, i32 103, i32 104, i32 105, i32 106, i32 107, i32 108, i32 109, i32 62, i32 63, i32 112, i32 113, i32 114, i32 115, i32 116, i32 117, i32 118, i32 119, i32 120, i32 121, i32 122, i32 123, i32 124, i32 125>
-  %palignr.i2341.i = shufflevector <64 x i8> %289, <64 x i8> %283, <64 x i32> <i32 13, i32 14, i32 15, i32 64, i32 65, i32 66, i32 67, i32 68, i32 69, i32 70, i32 71, i32 72, i32 73, i32 74, i32 75, i32 76, i32 29, i32 30, i32 31, i32 80, i32 81, i32 82, i32 83, i32 84, i32 85, i32 86, i32 87, i32 88, i32 89, i32 90, i32 91, i32 92, i32 45, i32 46, i32 47, i32 96, i32 97, i32 98, i32 99, i32 100, i32 101, i32 102, i32 103, i32 104, i32 105, i32 106, i32 107, i32 108, i32 61, i32 62, i32 63, i32 112, i32 113, i32 114, i32 115, i32 116, i32 117, i32 118, i32 119, i32 120, i32 121, i32 122, i32 123, i32 124>
+  %285 = bitcast <8 x i64> %checker.sroa.17.2.i to <16 x i32>
+  %286 = bitcast <64 x i8> %282 to <16 x i32>
+  %287 = shufflevector <16 x i32> %286, <16 x i32> %285, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 31, i32 poison, i32 poison, i32 poison, i32 3, i32 poison, i32 poison, i32 poison, i32 7, i32 poison, i32 poison, i32 poison, i32 11>
+  %288 = bitcast <16 x i32> %287 to <64 x i8>
+  %palignr.i2339.i = shufflevector <64 x i8> %288, <64 x i8> %282, <64 x i32> <i32 15, i32 64, i32 65, i32 66, i32 67, i32 68, i32 69, i32 70, i32 71, i32 72, i32 73, i32 74, i32 75, i32 76, i32 77, i32 78, i32 31, i32 80, i32 81, i32 82, i32 83, i32 84, i32 85, i32 86, i32 87, i32 88, i32 89, i32 90, i32 91, i32 92, i32 93, i32 94, i32 47, i32 96, i32 97, i32 98, i32 99, i32 100, i32 101, i32 102, i32 103, i32 104, i32 105, i32 106, i32 107, i32 108, i32 109, i32 110, i32 63, i32 112, i32 113, i32 114, i32 115, i32 116, i32 117, i32 118, i32 119, i32 120, i32 121, i32 122, i32 123, i32 124, i32 125, i32 126>
+  %289 = bitcast <64 x i8> %palignr.i2339.i to <32 x i16>
+  %290 = lshr <32 x i16> %289, splat (i16 4)
+  %291 = bitcast <32 x i16> %290 to <64 x i8>
+  %292 = and <64 x i8> %291, splat (i8 15)
+  %293 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73>, <64 x i8> %292)
+  %294 = bitcast <64 x i8> %293 to <8 x i64>
+  %295 = and <64 x i8> %palignr.i2339.i, splat (i8 15)
+  %296 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53, i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53, i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53, i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53>, <64 x i8> %295)
+  %297 = bitcast <64 x i8> %296 to <8 x i64>
+  %298 = bitcast <64 x i8> %282 to <32 x i16>
+  %299 = lshr <32 x i16> %298, splat (i16 4)
+  %300 = bitcast <32 x i16> %299 to <64 x i8>
+  %301 = and <64 x i8> %300, splat (i8 15)
+  %302 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1>, <64 x i8> %301)
+  %303 = bitcast <64 x i8> %302 to <8 x i64>
+  %304 = tail call noundef <8 x i64> @llvm.x86.avx512.pternlog.q.512(<8 x i64> %294, <8 x i64> %297, <8 x i64> %303, i32 128)
+  %palignr.i2340.i = shufflevector <64 x i8> %288, <64 x i8> %282, <64 x i32> <i32 14, i32 15, i32 64, i32 65, i32 66, i32 67, i32 68, i32 69, i32 70, i32 71, i32 72, i32 73, i32 74, i32 75, i32 76, i32 77, i32 30, i32 31, i32 80, i32 81, i32 82, i32 83, i32 84, i32 85, i32 86, i32 87, i32 88, i32 89, i32 90, i32 91, i32 92, i32 93, i32 46, i32 47, i32 96, i32 97, i32 98, i32 99, i32 100, i32 101, i32 102, i32 103, i32 104, i32 105, i32 106, i32 107, i32 108, i32 109, i32 62, i32 63, i32 112, i32 113, i32 114, i32 115, i32 116, i32 117, i32 118, i32 119, i32 120, i32 121, i32 122, i32 123, i32 124, i32 125>
+  %palignr.i2341.i = shufflevector <64 x i8> %288, <64 x i8> %282, <64 x i32> <i32 13, i32 14, i32 15, i32 64, i32 65, i32 66, i32 67, i32 68, i32 69, i32 70, i32 71, i32 72, i32 73, i32 74, i32 75, i32 76, i32 29, i32 30, i32 31, i32 80, i32 81, i32 82, i32 83, i32 84, i32 85, i32 86, i32 87, i32 88, i32 89, i32 90, i32 91, i32 92, i32 45, i32 46, i32 47, i32 96, i32 97, i32 98, i32 99, i32 100, i32 101, i32 102, i32 103, i32 104, i32 105, i32 106, i32 107, i32 108, i32 61, i32 62, i32 63, i32 112, i32 113, i32 114, i32 115, i32 116, i32 117, i32 118, i32 119, i32 120, i32 121, i32 122, i32 123, i32 124>
   %elt.sat.i2037.i = tail call <64 x i8> @llvm.usub.sat.v64i8(<64 x i8> %palignr.i2340.i, <64 x i8> splat (i8 -33))
   %elt.sat.i2030.i = tail call <64 x i8> @llvm.usub.sat.v64i8(<64 x i8> %palignr.i2341.i, <64 x i8> splat (i8 -17))
   %or.i.i12302320.i = or <64 x i8> %elt.sat.i2037.i, %elt.sat.i2030.i
   %elt.sat.i2079.i = add nuw <64 x i8> %or.i.i12302320.i, splat (i8 127)
-  %306 = bitcast <64 x i8> %elt.sat.i2079.i to <16 x i32>
-  %307 = bitcast <8 x i64> %305 to <16 x i32>
-  %308 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %306, <16 x i32> splat (i32 -2139062144), <16 x i32> %307, i32 106)
-  %309 = bitcast <16 x i32> %308 to <8 x i64>
-  %elt.sat.i2044.i = tail call <64 x i8> @llvm.usub.sat.v64i8(<64 x i8> %283, <64 x i8> <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -17, i8 -33, i8 -65>)
-  %310 = bitcast <64 x i8> %elt.sat.i2044.i to <8 x i64>
+  %305 = bitcast <64 x i8> %elt.sat.i2079.i to <16 x i32>
+  %306 = bitcast <8 x i64> %304 to <16 x i32>
+  %307 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %305, <16 x i32> splat (i32 -2139062144), <16 x i32> %306, i32 106)
+  %308 = bitcast <16 x i32> %307 to <8 x i64>
+  %elt.sat.i2044.i = tail call <64 x i8> @llvm.usub.sat.v64i8(<64 x i8> %282, <64 x i8> <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -17, i8 -33, i8 -65>)
+  %309 = bitcast <64 x i8> %elt.sat.i2044.i to <8 x i64>
   br label %_ZN7simdutf7icelake12_GLOBAL__N_131validating_utf8_to_fixed_lengthILNS_10endiannessE0EjEESt4pairIPKcPT0_ES6_mS8_.exit
 
 _ZN7simdutf7icelake12_GLOBAL__N_131validating_utf8_to_fixed_lengthILNS_10endiannessE0EjEESt4pairIPKcPT0_ES6_mS8_.exit: ; preds = %if.end231.i, %if.else.i.i
-  %checker.sroa.24.2.pn.i = phi <8 x i64> [ %309, %if.else.i.i ], [ %checker.sroa.24.2.i, %if.end231.i ]
-  %checker.sroa.24.4.i = phi <8 x i64> [ %310, %if.else.i.i ], [ %checker.sroa.24.2.i, %if.end231.i ]
+  %checker.sroa.24.2.pn.i = phi <8 x i64> [ %308, %if.else.i.i ], [ %checker.sroa.24.2.i, %if.end231.i ]
+  %checker.sroa.24.4.i = phi <8 x i64> [ %309, %if.else.i.i ], [ %checker.sroa.24.2.i, %if.end231.i ]
   %checker.sroa.0.4.i = or <8 x i64> %checker.sroa.24.2.pn.i, %checker.sroa.0.2.i
   %or.i.i = or <8 x i64> %checker.sroa.0.4.i, %checker.sroa.24.4.i
-  %311 = bitcast <8 x i64> %or.i.i to <64 x i8>
-  %312 = icmp ne <64 x i8> %311, zeroinitializer
-  %313 = bitcast <64 x i1> %312 to i64
-  %cmp.i308.not.i = icmp ne i64 %313, 0
+  %310 = bitcast <8 x i64> %or.i.i to <64 x i8>
+  %311 = icmp ne <64 x i8> %310, zeroinitializer
+  %312 = bitcast <64 x i1> %311 to i64
+  %cmp.i308.not.i = icmp ne i64 %312, 0
   %cmp21 = icmp eq ptr %output.1.i, null
   %cmp = select i1 %cmp.i308.not.i, i1 true, i1 %cmp21
   br i1 %cmp, label %return, label %if.end
@@ -16094,8 +16089,8 @@ if.end:                                           ; preds = %_ZN7simdutf7icelake
 
 land.rhs:                                         ; preds = %if.end, %while.body
   %ret.sroa.0.035 = phi ptr [ %add.ptr11, %while.body ], [ %ptr.1.i, %if.end ]
-  %314 = load i8, ptr %ret.sroa.0.035, align 1
-  %cmp9 = icmp slt i8 %314, -64
+  %313 = load i8, ptr %ret.sroa.0.035, align 1
+  %cmp9 = icmp slt i8 %313, -64
   br i1 %cmp9, label %while.body, label %if.then14
 
 while.body:                                       ; preds = %land.rhs
@@ -16419,42 +16414,42 @@ while.end.i:                                      ; preds = %if.end100.i, %if.th
 
 if.then104.i:                                     ; preds = %while.end.i
   %162 = load <8 x i64>, ptr %ptr.0.lcssa.i, align 1, !noalias !132
-  %163 = bitcast <8 x i64> %162 to <16 x i32>
-  %164 = bitcast <8 x i64> %162 to <64 x i8>
-  %165 = icmp slt <64 x i8> %164, zeroinitializer
-  %166 = bitcast <64 x i1> %165 to i64
-  %cmp.i270.i = icmp eq i64 %166, 0
+  %163 = bitcast <8 x i64> %162 to <64 x i8>
+  %164 = icmp slt <64 x i8> %163, zeroinitializer
+  %165 = bitcast <64 x i1> %164 to i64
+  %cmp.i270.i = icmp eq i64 %165, 0
   br i1 %cmp.i270.i, label %if.then109.i, label %if.else136.i
 
 if.then109.i:                                     ; preds = %if.then104.i
   %checker.sroa.0.32391.i = or <8 x i64> %checker.sroa.0.0.lcssa.i, %checker.sroa.28.0.ph.lcssa2404.i
-  %167 = bitcast <8 x i64> %162 to <64 x i8>
-  %168 = shufflevector <64 x i8> %167, <64 x i8> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %conv.i2142.i = zext <16 x i8> %168 to <16 x i32>
+  %166 = bitcast <8 x i64> %162 to <64 x i8>
+  %167 = shufflevector <64 x i8> %166, <64 x i8> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %conv.i2142.i = zext <16 x i8> %167 to <16 x i32>
   store <16 x i32> %conv.i2142.i, ptr %output.0.lcssa.i, align 1, !noalias !132
   %add.ptr125.i = getelementptr inbounds nuw i8, ptr %output.0.lcssa.i, i64 64
-  %169 = bitcast <8 x i64> %162 to <64 x i8>
-  %170 = shufflevector <64 x i8> %169, <64 x i8> poison, <16 x i32> <i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
-  %conv.i2140.i = zext <16 x i8> %170 to <16 x i32>
+  %168 = bitcast <8 x i64> %162 to <64 x i8>
+  %169 = shufflevector <64 x i8> %168, <64 x i8> poison, <16 x i32> <i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
+  %conv.i2140.i = zext <16 x i8> %169 to <16 x i32>
   store <16 x i32> %conv.i2140.i, ptr %add.ptr125.i, align 1, !noalias !132
   %add.ptr128.i = getelementptr inbounds nuw i8, ptr %output.0.lcssa.i, i64 128
-  %171 = bitcast <8 x i64> %162 to <64 x i8>
-  %172 = shufflevector <64 x i8> %171, <64 x i8> poison, <16 x i32> <i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 46, i32 47>
-  %conv.i2138.i = zext <16 x i8> %172 to <16 x i32>
+  %170 = bitcast <8 x i64> %162 to <64 x i8>
+  %171 = shufflevector <64 x i8> %170, <64 x i8> poison, <16 x i32> <i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 46, i32 47>
+  %conv.i2138.i = zext <16 x i8> %171 to <16 x i32>
   store <16 x i32> %conv.i2138.i, ptr %add.ptr128.i, align 1, !noalias !132
   %add.ptr131.i = getelementptr inbounds nuw i8, ptr %output.0.lcssa.i, i64 192
-  %173 = bitcast <8 x i64> %162 to <64 x i8>
-  %174 = shufflevector <64 x i8> %173, <64 x i8> poison, <16 x i32> <i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61, i32 62, i32 63>
-  %conv.i.i = zext <16 x i8> %174 to <16 x i32>
+  %172 = bitcast <8 x i64> %162 to <64 x i8>
+  %173 = shufflevector <64 x i8> %172, <64 x i8> poison, <16 x i32> <i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61, i32 62, i32 63>
+  %conv.i.i = zext <16 x i8> %173 to <16 x i32>
   store <16 x i32> %conv.i.i, ptr %add.ptr131.i, align 1, !noalias !132
   %add.ptr134.i = getelementptr inbounds nuw i8, ptr %output.0.lcssa.i, i64 256
   br label %if.end239.i
 
 if.else136.i:                                     ; preds = %if.then104.i
+  %174 = bitcast <8 x i64> %162 to <16 x i32>
   %175 = bitcast <8 x i64> %checker.sroa.21.0.ph.lcssa2405.i to <16 x i32>
-  %176 = shufflevector <16 x i32> %163, <16 x i32> %175, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 31, i32 poison, i32 poison, i32 poison, i32 3, i32 poison, i32 poison, i32 poison, i32 7, i32 poison, i32 poison, i32 poison, i32 11>
+  %176 = shufflevector <16 x i32> %174, <16 x i32> %175, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 31, i32 poison, i32 poison, i32 poison, i32 3, i32 poison, i32 poison, i32 poison, i32 7, i32 poison, i32 poison, i32 poison, i32 11>
   %177 = bitcast <16 x i32> %176 to <64 x i8>
-  %palignr.i2336.i = shufflevector <64 x i8> %177, <64 x i8> %164, <64 x i32> <i32 15, i32 64, i32 65, i32 66, i32 67, i32 68, i32 69, i32 70, i32 71, i32 72, i32 73, i32 74, i32 75, i32 76, i32 77, i32 78, i32 31, i32 80, i32 81, i32 82, i32 83, i32 84, i32 85, i32 86, i32 87, i32 88, i32 89, i32 90, i32 91, i32 92, i32 93, i32 94, i32 47, i32 96, i32 97, i32 98, i32 99, i32 100, i32 101, i32 102, i32 103, i32 104, i32 105, i32 106, i32 107, i32 108, i32 109, i32 110, i32 63, i32 112, i32 113, i32 114, i32 115, i32 116, i32 117, i32 118, i32 119, i32 120, i32 121, i32 122, i32 123, i32 124, i32 125, i32 126>
+  %palignr.i2336.i = shufflevector <64 x i8> %177, <64 x i8> %163, <64 x i32> <i32 15, i32 64, i32 65, i32 66, i32 67, i32 68, i32 69, i32 70, i32 71, i32 72, i32 73, i32 74, i32 75, i32 76, i32 77, i32 78, i32 31, i32 80, i32 81, i32 82, i32 83, i32 84, i32 85, i32 86, i32 87, i32 88, i32 89, i32 90, i32 91, i32 92, i32 93, i32 94, i32 47, i32 96, i32 97, i32 98, i32 99, i32 100, i32 101, i32 102, i32 103, i32 104, i32 105, i32 106, i32 107, i32 108, i32 109, i32 110, i32 63, i32 112, i32 113, i32 114, i32 115, i32 116, i32 117, i32 118, i32 119, i32 120, i32 121, i32 122, i32 123, i32 124, i32 125, i32 126>
   %178 = bitcast <64 x i8> %palignr.i2336.i to <32 x i16>
   %179 = lshr <32 x i16> %178, splat (i16 4)
   %180 = bitcast <32 x i16> %179 to <64 x i8>
@@ -16471,8 +16466,8 @@ if.else136.i:                                     ; preds = %if.then104.i
   %191 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1>, <64 x i8> %190)
   %192 = bitcast <64 x i8> %191 to <8 x i64>
   %193 = tail call noundef <8 x i64> @llvm.x86.avx512.pternlog.q.512(<8 x i64> %183, <8 x i64> %186, <8 x i64> %192, i32 128)
-  %palignr.i2337.i = shufflevector <64 x i8> %177, <64 x i8> %164, <64 x i32> <i32 14, i32 15, i32 64, i32 65, i32 66, i32 67, i32 68, i32 69, i32 70, i32 71, i32 72, i32 73, i32 74, i32 75, i32 76, i32 77, i32 30, i32 31, i32 80, i32 81, i32 82, i32 83, i32 84, i32 85, i32 86, i32 87, i32 88, i32 89, i32 90, i32 91, i32 92, i32 93, i32 46, i32 47, i32 96, i32 97, i32 98, i32 99, i32 100, i32 101, i32 102, i32 103, i32 104, i32 105, i32 106, i32 107, i32 108, i32 109, i32 62, i32 63, i32 112, i32 113, i32 114, i32 115, i32 116, i32 117, i32 118, i32 119, i32 120, i32 121, i32 122, i32 123, i32 124, i32 125>
-  %palignr.i2338.i = shufflevector <64 x i8> %177, <64 x i8> %164, <64 x i32> <i32 13, i32 14, i32 15, i32 64, i32 65, i32 66, i32 67, i32 68, i32 69, i32 70, i32 71, i32 72, i32 73, i32 74, i32 75, i32 76, i32 29, i32 30, i32 31, i32 80, i32 81, i32 82, i32 83, i32 84, i32 85, i32 86, i32 87, i32 88, i32 89, i32 90, i32 91, i32 92, i32 45, i32 46, i32 47, i32 96, i32 97, i32 98, i32 99, i32 100, i32 101, i32 102, i32 103, i32 104, i32 105, i32 106, i32 107, i32 108, i32 61, i32 62, i32 63, i32 112, i32 113, i32 114, i32 115, i32 116, i32 117, i32 118, i32 119, i32 120, i32 121, i32 122, i32 123, i32 124>
+  %palignr.i2337.i = shufflevector <64 x i8> %177, <64 x i8> %163, <64 x i32> <i32 14, i32 15, i32 64, i32 65, i32 66, i32 67, i32 68, i32 69, i32 70, i32 71, i32 72, i32 73, i32 74, i32 75, i32 76, i32 77, i32 30, i32 31, i32 80, i32 81, i32 82, i32 83, i32 84, i32 85, i32 86, i32 87, i32 88, i32 89, i32 90, i32 91, i32 92, i32 93, i32 46, i32 47, i32 96, i32 97, i32 98, i32 99, i32 100, i32 101, i32 102, i32 103, i32 104, i32 105, i32 106, i32 107, i32 108, i32 109, i32 62, i32 63, i32 112, i32 113, i32 114, i32 115, i32 116, i32 117, i32 118, i32 119, i32 120, i32 121, i32 122, i32 123, i32 124, i32 125>
+  %palignr.i2338.i = shufflevector <64 x i8> %177, <64 x i8> %163, <64 x i32> <i32 13, i32 14, i32 15, i32 64, i32 65, i32 66, i32 67, i32 68, i32 69, i32 70, i32 71, i32 72, i32 73, i32 74, i32 75, i32 76, i32 29, i32 30, i32 31, i32 80, i32 81, i32 82, i32 83, i32 84, i32 85, i32 86, i32 87, i32 88, i32 89, i32 90, i32 91, i32 92, i32 45, i32 46, i32 47, i32 96, i32 97, i32 98, i32 99, i32 100, i32 101, i32 102, i32 103, i32 104, i32 105, i32 106, i32 107, i32 108, i32 61, i32 62, i32 63, i32 112, i32 113, i32 114, i32 115, i32 116, i32 117, i32 118, i32 119, i32 120, i32 121, i32 122, i32 123, i32 124>
   %elt.sat.i2079.i = tail call <64 x i8> @llvm.usub.sat.v64i8(<64 x i8> %palignr.i2337.i, <64 x i8> splat (i8 -33))
   %elt.sat.i2072.i = tail call <64 x i8> @llvm.usub.sat.v64i8(<64 x i8> %palignr.i2338.i, <64 x i8> splat (i8 -17))
   %or.i.i15252317.i = or <64 x i8> %elt.sat.i2079.i, %elt.sat.i2072.i
@@ -16481,7 +16476,7 @@ if.else136.i:                                     ; preds = %if.then104.i
   %195 = bitcast <8 x i64> %193 to <16 x i32>
   %196 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %194, <16 x i32> splat (i32 -2139062144), <16 x i32> %195, i32 106)
   %197 = bitcast <16 x i32> %196 to <8 x i64>
-  %elt.sat.i2107.i = tail call <64 x i8> @llvm.usub.sat.v64i8(<64 x i8> %164, <64 x i8> <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -17, i8 -33, i8 -65>)
+  %elt.sat.i2107.i = tail call <64 x i8> @llvm.usub.sat.v64i8(<64 x i8> %163, <64 x i8> <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -17, i8 -33, i8 -65>)
   %198 = bitcast <64 x i8> %elt.sat.i2107.i to <8 x i64>
   %checker.sroa.0.3.i = or <8 x i64> %checker.sroa.0.0.lcssa.i, %197
   %199 = bitcast <8 x i64> %checker.sroa.0.3.i to <64 x i8>
@@ -16587,34 +16582,33 @@ if.else179.i:                                     ; preds = %if.else140.i
 
 if.end198.i:                                      ; preds = %if.else179.i, %if.then162.i
   %storemerge.i = phi ptr [ %add.ptr197.i, %if.else179.i ], [ %add.ptr178.i, %if.then162.i ]
-  %265 = shufflevector <16 x i32> %163, <16 x i32> poison, <16 x i32> <i32 8, i32 9, i32 poison, i32 poison, i32 poison, i32 9, i32 10, i32 poison, i32 poison, i32 poison, i32 10, i32 11, i32 12, i32 poison, i32 poison, i32 11>
-  %266 = bitcast <16 x i32> %265 to <64 x i8>
-  %267 = shufflevector <64 x i8> %266, <64 x i8> poison, <64 x i32> <i32 0, i32 1, i32 2, i32 3, i32 1, i32 2, i32 3, i32 4, i32 2, i32 3, i32 4, i32 5, i32 3, i32 4, i32 5, i32 6, i32 20, i32 21, i32 22, i32 23, i32 21, i32 22, i32 23, i32 24, i32 22, i32 23, i32 24, i32 25, i32 23, i32 24, i32 25, i32 26, i32 40, i32 41, i32 42, i32 43, i32 41, i32 42, i32 43, i32 44, i32 42, i32 43, i32 44, i32 45, i32 43, i32 44, i32 45, i32 46, i32 60, i32 61, i32 62, i32 63, i32 61, i32 62, i32 63, i32 48, i32 62, i32 63, i32 48, i32 49, i32 63, i32 48, i32 49, i32 50>
-  %268 = bitcast <64 x i8> %267 to <16 x i32>
-  %269 = and <16 x i32> %268, splat (i32 192)
-  %270 = icmp ne <16 x i32> %269, splat (i32 128)
-  %271 = bitcast <16 x i1> %270 to i16
-  %272 = lshr <16 x i32> %268, splat (i32 4)
-  %273 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %272, <16 x i32> splat (i32 15), <16 x i32> splat (i32 -2139062272), i32 234)
-  %274 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %271)
-  %cast.i.i = zext nneg i16 %274 to i32
-  %conv.i2159.i = zext nneg i16 %274 to i64
-  %275 = and <64 x i8> %267, <i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63>
-  %276 = tail call <32 x i16> @llvm.x86.avx512.pmaddubs.w.512(<64 x i8> %275, <64 x i8> <i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1>)
-  %277 = tail call <16 x i32> @llvm.x86.avx512.pmaddw.d.512(<32 x i16> %276, <32 x i16> <i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1>)
-  %278 = bitcast <16 x i32> %273 to <64 x i8>
-  %279 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11>, <64 x i8> %278)
-  %280 = bitcast <64 x i8> %279 to <16 x i32>
-  %281 = tail call <16 x i32> @llvm.x86.avx512.psllv.d.512(<16 x i32> %277, <16 x i32> %280)
-  %282 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11>, <64 x i8> %278)
-  %283 = bitcast <64 x i8> %282 to <16 x i32>
-  %284 = tail call <16 x i32> @llvm.x86.avx512.psrlv.d.512(<16 x i32> %281, <16 x i32> %283)
-  %285 = tail call <16 x i32> @llvm.x86.avx512.mask.compress.v16i32(<16 x i32> %284, <16 x i32> zeroinitializer, <16 x i1> %270)
+  %265 = bitcast <8 x i64> %162 to <64 x i8>
+  %266 = shufflevector <64 x i8> %265, <64 x i8> poison, <64 x i32> <i32 32, i32 33, i32 34, i32 35, i32 33, i32 34, i32 35, i32 36, i32 34, i32 35, i32 36, i32 37, i32 35, i32 36, i32 37, i32 38, i32 36, i32 37, i32 38, i32 39, i32 37, i32 38, i32 39, i32 40, i32 38, i32 39, i32 40, i32 41, i32 39, i32 40, i32 41, i32 42, i32 40, i32 41, i32 42, i32 43, i32 41, i32 42, i32 43, i32 44, i32 42, i32 43, i32 44, i32 45, i32 43, i32 44, i32 45, i32 46, i32 44, i32 45, i32 46, i32 47, i32 45, i32 46, i32 47, i32 48, i32 46, i32 47, i32 48, i32 49, i32 47, i32 48, i32 49, i32 50>
+  %267 = bitcast <64 x i8> %266 to <16 x i32>
+  %268 = and <16 x i32> %267, splat (i32 192)
+  %269 = icmp ne <16 x i32> %268, splat (i32 128)
+  %270 = bitcast <16 x i1> %269 to i16
+  %271 = lshr <16 x i32> %267, splat (i32 4)
+  %272 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %271, <16 x i32> splat (i32 15), <16 x i32> splat (i32 -2139062272), i32 234)
+  %273 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %270)
+  %cast.i.i = zext nneg i16 %273 to i32
+  %conv.i2159.i = zext nneg i16 %273 to i64
+  %274 = and <64 x i8> %266, <i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63>
+  %275 = tail call <32 x i16> @llvm.x86.avx512.pmaddubs.w.512(<64 x i8> %274, <64 x i8> <i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1>)
+  %276 = tail call <16 x i32> @llvm.x86.avx512.pmaddw.d.512(<32 x i16> %275, <32 x i16> <i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1>)
+  %277 = bitcast <16 x i32> %272 to <64 x i8>
+  %278 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11>, <64 x i8> %277)
+  %279 = bitcast <64 x i8> %278 to <16 x i32>
+  %280 = tail call <16 x i32> @llvm.x86.avx512.psllv.d.512(<16 x i32> %276, <16 x i32> %279)
+  %281 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11>, <64 x i8> %277)
+  %282 = bitcast <64 x i8> %281 to <16 x i32>
+  %283 = tail call <16 x i32> @llvm.x86.avx512.psrlv.d.512(<16 x i32> %280, <16 x i32> %282)
+  %284 = tail call <16 x i32> @llvm.x86.avx512.mask.compress.v16i32(<16 x i32> %283, <16 x i32> zeroinitializer, <16 x i1> %269)
   %notmask2321.i = shl nsw i32 -1, %cast.i.i
-  %286 = trunc i32 %notmask2321.i to i16
-  %conv231.i = xor i16 %286, -1
-  %287 = bitcast i16 %conv231.i to <16 x i1>
-  tail call void @llvm.masked.store.v16i32.p0(<16 x i32> %285, ptr %storemerge.i, i32 1, <16 x i1> %287), !noalias !132
+  %285 = trunc i32 %notmask2321.i to i16
+  %conv231.i = xor i16 %285, -1
+  %286 = bitcast i16 %conv231.i to <16 x i1>
+  tail call void @llvm.masked.store.v16i32.p0(<16 x i32> %284, ptr %storemerge.i, i32 1, <16 x i1> %286), !noalias !132
   %add.ptr234.i = getelementptr inbounds nuw i32, ptr %storemerge.i, i64 %conv.i2159.i
   %add.ptr235.i = getelementptr inbounds nuw i8, ptr %ptr.0.lcssa.i, i64 48
   br label %if.end239.i
@@ -16631,58 +16625,58 @@ if.end239.i:                                      ; preds = %if.end198.i, %if.th
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %notmask2323.i = shl nsw i64 -1, %sub.ptr.sub.i
   %sub242.i = xor i64 %notmask2323.i, -1
-  %288 = bitcast i64 %sub242.i to <64 x i1>
-  %289 = tail call <64 x i8> @llvm.masked.load.v64i8.p0(ptr %validatedptr.0.i, i32 1, <64 x i1> %288, <64 x i8> zeroinitializer), !noalias !132
-  %290 = icmp slt <64 x i8> %289, zeroinitializer
-  %291 = bitcast <64 x i1> %290 to i64
-  %cmp.i.i = icmp eq i64 %291, 0
+  %287 = bitcast i64 %sub242.i to <64 x i1>
+  %288 = tail call <64 x i8> @llvm.masked.load.v64i8.p0(ptr %validatedptr.0.i, i32 1, <64 x i1> %287, <64 x i8> zeroinitializer), !noalias !132
+  %289 = icmp slt <64 x i8> %288, zeroinitializer
+  %290 = bitcast <64 x i1> %289 to i64
+  %cmp.i.i = icmp eq i64 %290, 0
   br i1 %cmp.i.i, label %_ZN7simdutf7icelake12_GLOBAL__N_119avx512_utf8_checker16check_next_inputEDv8_x.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end239.i
-  %292 = bitcast <8 x i64> %checker.sroa.21.2.i to <16 x i32>
-  %293 = bitcast <64 x i8> %289 to <16 x i32>
-  %294 = shufflevector <16 x i32> %293, <16 x i32> %292, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 31, i32 poison, i32 poison, i32 poison, i32 3, i32 poison, i32 poison, i32 poison, i32 7, i32 poison, i32 poison, i32 poison, i32 11>
-  %295 = bitcast <16 x i32> %294 to <64 x i8>
-  %palignr.i2344.i = shufflevector <64 x i8> %295, <64 x i8> %289, <64 x i32> <i32 15, i32 64, i32 65, i32 66, i32 67, i32 68, i32 69, i32 70, i32 71, i32 72, i32 73, i32 74, i32 75, i32 76, i32 77, i32 78, i32 31, i32 80, i32 81, i32 82, i32 83, i32 84, i32 85, i32 86, i32 87, i32 88, i32 89, i32 90, i32 91, i32 92, i32 93, i32 94, i32 47, i32 96, i32 97, i32 98, i32 99, i32 100, i32 101, i32 102, i32 103, i32 104, i32 105, i32 106, i32 107, i32 108, i32 109, i32 110, i32 63, i32 112, i32 113, i32 114, i32 115, i32 116, i32 117, i32 118, i32 119, i32 120, i32 121, i32 122, i32 123, i32 124, i32 125, i32 126>
-  %296 = bitcast <64 x i8> %palignr.i2344.i to <32 x i16>
-  %297 = lshr <32 x i16> %296, splat (i16 4)
-  %298 = bitcast <32 x i16> %297 to <64 x i8>
-  %299 = and <64 x i8> %298, splat (i8 15)
-  %300 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73>, <64 x i8> %299)
-  %301 = bitcast <64 x i8> %300 to <8 x i64>
-  %302 = and <64 x i8> %palignr.i2344.i, splat (i8 15)
-  %303 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53, i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53, i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53, i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53>, <64 x i8> %302)
-  %304 = bitcast <64 x i8> %303 to <8 x i64>
-  %305 = bitcast <64 x i8> %289 to <32 x i16>
-  %306 = lshr <32 x i16> %305, splat (i16 4)
-  %307 = bitcast <32 x i16> %306 to <64 x i8>
-  %308 = and <64 x i8> %307, splat (i8 15)
-  %309 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1>, <64 x i8> %308)
-  %310 = bitcast <64 x i8> %309 to <8 x i64>
-  %311 = tail call noundef <8 x i64> @llvm.x86.avx512.pternlog.q.512(<8 x i64> %301, <8 x i64> %304, <8 x i64> %310, i32 128)
-  %palignr.i2345.i = shufflevector <64 x i8> %295, <64 x i8> %289, <64 x i32> <i32 14, i32 15, i32 64, i32 65, i32 66, i32 67, i32 68, i32 69, i32 70, i32 71, i32 72, i32 73, i32 74, i32 75, i32 76, i32 77, i32 30, i32 31, i32 80, i32 81, i32 82, i32 83, i32 84, i32 85, i32 86, i32 87, i32 88, i32 89, i32 90, i32 91, i32 92, i32 93, i32 46, i32 47, i32 96, i32 97, i32 98, i32 99, i32 100, i32 101, i32 102, i32 103, i32 104, i32 105, i32 106, i32 107, i32 108, i32 109, i32 62, i32 63, i32 112, i32 113, i32 114, i32 115, i32 116, i32 117, i32 118, i32 119, i32 120, i32 121, i32 122, i32 123, i32 124, i32 125>
-  %palignr.i2346.i = shufflevector <64 x i8> %295, <64 x i8> %289, <64 x i32> <i32 13, i32 14, i32 15, i32 64, i32 65, i32 66, i32 67, i32 68, i32 69, i32 70, i32 71, i32 72, i32 73, i32 74, i32 75, i32 76, i32 29, i32 30, i32 31, i32 80, i32 81, i32 82, i32 83, i32 84, i32 85, i32 86, i32 87, i32 88, i32 89, i32 90, i32 91, i32 92, i32 45, i32 46, i32 47, i32 96, i32 97, i32 98, i32 99, i32 100, i32 101, i32 102, i32 103, i32 104, i32 105, i32 106, i32 107, i32 108, i32 61, i32 62, i32 63, i32 112, i32 113, i32 114, i32 115, i32 116, i32 117, i32 118, i32 119, i32 120, i32 121, i32 122, i32 123, i32 124>
+  %291 = bitcast <8 x i64> %checker.sroa.21.2.i to <16 x i32>
+  %292 = bitcast <64 x i8> %288 to <16 x i32>
+  %293 = shufflevector <16 x i32> %292, <16 x i32> %291, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 31, i32 poison, i32 poison, i32 poison, i32 3, i32 poison, i32 poison, i32 poison, i32 7, i32 poison, i32 poison, i32 poison, i32 11>
+  %294 = bitcast <16 x i32> %293 to <64 x i8>
+  %palignr.i2344.i = shufflevector <64 x i8> %294, <64 x i8> %288, <64 x i32> <i32 15, i32 64, i32 65, i32 66, i32 67, i32 68, i32 69, i32 70, i32 71, i32 72, i32 73, i32 74, i32 75, i32 76, i32 77, i32 78, i32 31, i32 80, i32 81, i32 82, i32 83, i32 84, i32 85, i32 86, i32 87, i32 88, i32 89, i32 90, i32 91, i32 92, i32 93, i32 94, i32 47, i32 96, i32 97, i32 98, i32 99, i32 100, i32 101, i32 102, i32 103, i32 104, i32 105, i32 106, i32 107, i32 108, i32 109, i32 110, i32 63, i32 112, i32 113, i32 114, i32 115, i32 116, i32 117, i32 118, i32 119, i32 120, i32 121, i32 122, i32 123, i32 124, i32 125, i32 126>
+  %295 = bitcast <64 x i8> %palignr.i2344.i to <32 x i16>
+  %296 = lshr <32 x i16> %295, splat (i16 4)
+  %297 = bitcast <32 x i16> %296 to <64 x i8>
+  %298 = and <64 x i8> %297, splat (i8 15)
+  %299 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73>, <64 x i8> %298)
+  %300 = bitcast <64 x i8> %299 to <8 x i64>
+  %301 = and <64 x i8> %palignr.i2344.i, splat (i8 15)
+  %302 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53, i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53, i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53, i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53>, <64 x i8> %301)
+  %303 = bitcast <64 x i8> %302 to <8 x i64>
+  %304 = bitcast <64 x i8> %288 to <32 x i16>
+  %305 = lshr <32 x i16> %304, splat (i16 4)
+  %306 = bitcast <32 x i16> %305 to <64 x i8>
+  %307 = and <64 x i8> %306, splat (i8 15)
+  %308 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1>, <64 x i8> %307)
+  %309 = bitcast <64 x i8> %308 to <8 x i64>
+  %310 = tail call noundef <8 x i64> @llvm.x86.avx512.pternlog.q.512(<8 x i64> %300, <8 x i64> %303, <8 x i64> %309, i32 128)
+  %palignr.i2345.i = shufflevector <64 x i8> %294, <64 x i8> %288, <64 x i32> <i32 14, i32 15, i32 64, i32 65, i32 66, i32 67, i32 68, i32 69, i32 70, i32 71, i32 72, i32 73, i32 74, i32 75, i32 76, i32 77, i32 30, i32 31, i32 80, i32 81, i32 82, i32 83, i32 84, i32 85, i32 86, i32 87, i32 88, i32 89, i32 90, i32 91, i32 92, i32 93, i32 46, i32 47, i32 96, i32 97, i32 98, i32 99, i32 100, i32 101, i32 102, i32 103, i32 104, i32 105, i32 106, i32 107, i32 108, i32 109, i32 62, i32 63, i32 112, i32 113, i32 114, i32 115, i32 116, i32 117, i32 118, i32 119, i32 120, i32 121, i32 122, i32 123, i32 124, i32 125>
+  %palignr.i2346.i = shufflevector <64 x i8> %294, <64 x i8> %288, <64 x i32> <i32 13, i32 14, i32 15, i32 64, i32 65, i32 66, i32 67, i32 68, i32 69, i32 70, i32 71, i32 72, i32 73, i32 74, i32 75, i32 76, i32 29, i32 30, i32 31, i32 80, i32 81, i32 82, i32 83, i32 84, i32 85, i32 86, i32 87, i32 88, i32 89, i32 90, i32 91, i32 92, i32 45, i32 46, i32 47, i32 96, i32 97, i32 98, i32 99, i32 100, i32 101, i32 102, i32 103, i32 104, i32 105, i32 106, i32 107, i32 108, i32 61, i32 62, i32 63, i32 112, i32 113, i32 114, i32 115, i32 116, i32 117, i32 118, i32 119, i32 120, i32 121, i32 122, i32 123, i32 124>
   %elt.sat.i2093.i = tail call <64 x i8> @llvm.usub.sat.v64i8(<64 x i8> %palignr.i2345.i, <64 x i8> splat (i8 -33))
   %elt.sat.i2086.i = tail call <64 x i8> @llvm.usub.sat.v64i8(<64 x i8> %palignr.i2346.i, <64 x i8> splat (i8 -17))
   %or.i.i12862324.i = or <64 x i8> %elt.sat.i2093.i, %elt.sat.i2086.i
   %elt.sat.i2135.i = add nuw <64 x i8> %or.i.i12862324.i, splat (i8 127)
-  %312 = bitcast <64 x i8> %elt.sat.i2135.i to <16 x i32>
-  %313 = bitcast <8 x i64> %311 to <16 x i32>
-  %314 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %312, <16 x i32> splat (i32 -2139062144), <16 x i32> %313, i32 106)
-  %315 = bitcast <16 x i32> %314 to <8 x i64>
-  %elt.sat.i2100.i = tail call <64 x i8> @llvm.usub.sat.v64i8(<64 x i8> %289, <64 x i8> <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -17, i8 -33, i8 -65>)
-  %316 = bitcast <64 x i8> %elt.sat.i2100.i to <8 x i64>
+  %311 = bitcast <64 x i8> %elt.sat.i2135.i to <16 x i32>
+  %312 = bitcast <8 x i64> %310 to <16 x i32>
+  %313 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %311, <16 x i32> splat (i32 -2139062144), <16 x i32> %312, i32 106)
+  %314 = bitcast <16 x i32> %313 to <8 x i64>
+  %elt.sat.i2100.i = tail call <64 x i8> @llvm.usub.sat.v64i8(<64 x i8> %288, <64 x i8> <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -17, i8 -33, i8 -65>)
+  %315 = bitcast <64 x i8> %elt.sat.i2100.i to <8 x i64>
   br label %_ZN7simdutf7icelake12_GLOBAL__N_119avx512_utf8_checker16check_next_inputEDv8_x.exit.i
 
 _ZN7simdutf7icelake12_GLOBAL__N_119avx512_utf8_checker16check_next_inputEDv8_x.exit.i: ; preds = %if.else.i.i, %if.end239.i
-  %checker.sroa.28.2.pn.i = phi <8 x i64> [ %315, %if.else.i.i ], [ %checker.sroa.28.2.i, %if.end239.i ]
-  %checker.sroa.28.4.i = phi <8 x i64> [ %316, %if.else.i.i ], [ %checker.sroa.28.2.i, %if.end239.i ]
+  %checker.sroa.28.2.pn.i = phi <8 x i64> [ %314, %if.else.i.i ], [ %checker.sroa.28.2.i, %if.end239.i ]
+  %checker.sroa.28.4.i = phi <8 x i64> [ %315, %if.else.i.i ], [ %checker.sroa.28.2.i, %if.end239.i ]
   %checker.sroa.0.4.i = or <8 x i64> %checker.sroa.28.2.pn.i, %checker.sroa.0.2.i
   %or.i.i = or <8 x i64> %checker.sroa.0.4.i, %checker.sroa.28.4.i
-  %317 = bitcast <8 x i64> %or.i.i to <64 x i8>
-  %318 = icmp ne <64 x i8> %317, zeroinitializer
-  %319 = bitcast <64 x i1> %318 to i64
-  %cmp.i318.not.i = icmp eq i64 %319, 0
+  %316 = bitcast <8 x i64> %or.i.i to <64 x i8>
+  %317 = icmp ne <64 x i8> %316, zeroinitializer
+  %318 = bitcast <64 x i1> %317 to i64
+  %cmp.i318.not.i = icmp eq i64 %318, 0
   br i1 %cmp.i318.not.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %if.end.i, %if.else136.i, %_ZN7simdutf7icelake12_GLOBAL__N_119avx512_utf8_checker16check_next_inputEDv8_x.exit.i
@@ -16693,9 +16687,9 @@ if.then:                                          ; preds = %if.end.i, %if.else1
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub = sub i64 %len, %sub.ptr.sub
   %call7 = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf3230rewind_and_convert_with_errorsEmPKcmPDi(i64 noundef %sub.ptr.sub, ptr noundef %ret.sroa.12.1.ph, i64 noundef %sub, ptr noundef %ret.sroa.5.0.ph)
-  %320 = extractvalue { i32, i64 } %call7, 0
-  %321 = extractvalue { i32, i64 } %call7, 1
-  %add = add i64 %321, %sub.ptr.sub
+  %319 = extractvalue { i32, i64 } %call7, 0
+  %320 = extractvalue { i32, i64 } %call7, 1
+  %add = add i64 %320, %sub.ptr.sub
   br label %return
 
 if.end:                                           ; preds = %_ZN7simdutf7icelake12_GLOBAL__N_119avx512_utf8_checker16check_next_inputEDv8_x.exit.i
@@ -16708,8 +16702,8 @@ if.end:                                           ; preds = %_ZN7simdutf7icelake
 
 land.rhs:                                         ; preds = %if.end, %while.body
   %ret.sroa.12.074 = phi ptr [ %add.ptr24, %while.body ], [ %ptr.1.i, %if.end ]
-  %322 = load i8, ptr %ret.sroa.12.074, align 1
-  %cmp22 = icmp slt i8 %322, -64
+  %321 = load i8, ptr %ret.sroa.12.074, align 1
+  %cmp22 = icmp slt i8 %321, -64
   br i1 %cmp22, label %while.body, label %if.then27
 
 while.body:                                       ; preds = %land.rhs
@@ -16724,23 +16718,23 @@ if.then27:                                        ; preds = %land.rhs
   %sub33 = sub i64 %sub.ptr.sub32.neg, %sub.ptr.lhs.cast30
   %add.ptr34 = getelementptr inbounds i8, ptr %utf32, i64 %sub.ptr.sub15
   %call35 = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf3219convert_with_errorsEPKcmPDi(ptr noundef nonnull %ret.sroa.12.074, i64 noundef %sub33, ptr noundef %add.ptr34)
-  %323 = extractvalue { i32, i64 } %call35, 0
-  %324 = extractvalue { i32, i64 } %call35, 1
-  %cmp36.not = icmp eq i32 %323, 0
+  %322 = extractvalue { i32, i64 } %call35, 0
+  %323 = extractvalue { i32, i64 } %call35, 1
+  %cmp36.not = icmp eq i32 %322, 0
   br i1 %cmp36.not, label %if.else, label %if.then37
 
 if.then37:                                        ; preds = %if.then27
   %sub.ptr.sub41 = sub i64 %sub.ptr.lhs.cast30, %sub.ptr.rhs.cast31
-  %add43 = add i64 %sub.ptr.sub41, %324
+  %add43 = add i64 %sub.ptr.sub41, %323
   br label %return
 
 if.else:                                          ; preds = %if.then27
-  %add45 = add i64 %324, %sub.ptr.div
+  %add45 = add i64 %323, %sub.ptr.div
   br label %return
 
 return:                                           ; preds = %while.body, %if.end, %if.then37, %if.else, %if.then
   %retval.sroa.6.0 = phi i64 [ %add43, %if.then37 ], [ %add45, %if.else ], [ %add, %if.then ], [ %sub.ptr.div, %if.end ], [ %sub.ptr.div, %while.body ]
-  %retval.sroa.0.0 = phi i32 [ %323, %if.then37 ], [ 0, %if.else ], [ %320, %if.then ], [ 0, %if.end ], [ 0, %while.body ]
+  %retval.sroa.0.0 = phi i32 [ %322, %if.then37 ], [ 0, %if.else ], [ %319, %if.then ], [ 0, %if.end ], [ 0, %while.body ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.6.0, 1
   ret { i32, i64 } %.fca.1.insert
@@ -17021,51 +17015,50 @@ if.then104.i:                                     ; preds = %while.end.i
   %130 = icmp slt <64 x i8> %129, zeroinitializer
   %131 = bitcast <64 x i1> %130 to i64
   %cmp113.i = icmp eq i64 %131, 0
-  %132 = bitcast <8 x i64> %128 to <16 x i32>
   br i1 %cmp113.i, label %if.then114.i, label %if.else141.i
 
 if.then114.i:                                     ; preds = %if.then104.i
-  %133 = bitcast <8 x i64> %128 to <64 x i8>
-  %134 = shufflevector <64 x i8> %133, <64 x i8> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %conv.i521.i = zext <16 x i8> %134 to <16 x i32>
+  %132 = bitcast <8 x i64> %128 to <64 x i8>
+  %133 = shufflevector <64 x i8> %132, <64 x i8> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %conv.i521.i = zext <16 x i8> %133 to <16 x i32>
   store <16 x i32> %conv.i521.i, ptr %output.0.lcssa.i, align 1
   %add.ptr130.i = getelementptr inbounds nuw i8, ptr %output.0.lcssa.i, i64 64
-  %135 = bitcast <8 x i64> %128 to <64 x i8>
-  %136 = shufflevector <64 x i8> %135, <64 x i8> poison, <16 x i32> <i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
-  %conv.i519.i = zext <16 x i8> %136 to <16 x i32>
+  %134 = bitcast <8 x i64> %128 to <64 x i8>
+  %135 = shufflevector <64 x i8> %134, <64 x i8> poison, <16 x i32> <i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
+  %conv.i519.i = zext <16 x i8> %135 to <16 x i32>
   store <16 x i32> %conv.i519.i, ptr %add.ptr130.i, align 1
   %add.ptr133.i = getelementptr inbounds nuw i8, ptr %output.0.lcssa.i, i64 128
-  %137 = bitcast <8 x i64> %128 to <64 x i8>
-  %138 = shufflevector <64 x i8> %137, <64 x i8> poison, <16 x i32> <i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 46, i32 47>
-  %conv.i517.i = zext <16 x i8> %138 to <16 x i32>
+  %136 = bitcast <8 x i64> %128 to <64 x i8>
+  %137 = shufflevector <64 x i8> %136, <64 x i8> poison, <16 x i32> <i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 46, i32 47>
+  %conv.i517.i = zext <16 x i8> %137 to <16 x i32>
   store <16 x i32> %conv.i517.i, ptr %add.ptr133.i, align 1
   %add.ptr136.i = getelementptr inbounds nuw i8, ptr %output.0.lcssa.i, i64 192
-  %139 = bitcast <8 x i64> %128 to <64 x i8>
-  %140 = shufflevector <64 x i8> %139, <64 x i8> poison, <16 x i32> <i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61, i32 62, i32 63>
-  %conv.i.i = zext <16 x i8> %140 to <16 x i32>
+  %138 = bitcast <8 x i64> %128 to <64 x i8>
+  %139 = shufflevector <64 x i8> %138, <64 x i8> poison, <16 x i32> <i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61, i32 62, i32 63>
+  %conv.i.i = zext <16 x i8> %139 to <16 x i32>
   store <16 x i32> %conv.i.i, ptr %add.ptr136.i, align 1
   %add.ptr139.i = getelementptr inbounds nuw i8, ptr %output.0.lcssa.i, i64 256
   br label %_ZN7simdutf7icelake12_GLOBAL__N_126valid_utf8_to_fixed_lengthILNS_10endiannessE0EjEESt4pairIPKcPT0_ES6_mS8_.exit
 
 if.else141.i:                                     ; preds = %if.then104.i
-  %141 = bitcast <8 x i64> %128 to <64 x i8>
-  %142 = shufflevector <64 x i8> %141, <64 x i8> poison, <64 x i32> <i32 0, i32 1, i32 2, i32 3, i32 1, i32 2, i32 3, i32 4, i32 2, i32 3, i32 4, i32 5, i32 3, i32 4, i32 5, i32 6, i32 4, i32 5, i32 6, i32 7, i32 5, i32 6, i32 7, i32 8, i32 6, i32 7, i32 8, i32 9, i32 7, i32 8, i32 9, i32 10, i32 8, i32 9, i32 10, i32 11, i32 9, i32 10, i32 11, i32 12, i32 10, i32 11, i32 12, i32 13, i32 11, i32 12, i32 13, i32 14, i32 12, i32 13, i32 14, i32 15, i32 13, i32 14, i32 15, i32 16, i32 14, i32 15, i32 16, i32 17, i32 15, i32 16, i32 17, i32 18>
-  %143 = bitcast <64 x i8> %142 to <16 x i32>
-  %144 = and <16 x i32> %143, splat (i32 192)
-  %145 = icmp ne <16 x i32> %144, splat (i32 128)
-  %146 = bitcast <16 x i1> %145 to i16
-  %147 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %146)
-  %cast.i.i638.i = zext nneg i16 %147 to i32
-  %148 = tail call <16 x i32> @llvm.x86.avx512.mask.compress.v16i32(<16 x i32> %143, <16 x i32> zeroinitializer, <16 x i1> %145)
-  %149 = bitcast <8 x i64> %128 to <64 x i8>
-  %150 = shufflevector <64 x i8> %149, <64 x i8> poison, <64 x i32> <i32 16, i32 17, i32 18, i32 19, i32 17, i32 18, i32 19, i32 20, i32 18, i32 19, i32 20, i32 21, i32 19, i32 20, i32 21, i32 22, i32 20, i32 21, i32 22, i32 23, i32 21, i32 22, i32 23, i32 24, i32 22, i32 23, i32 24, i32 25, i32 23, i32 24, i32 25, i32 26, i32 24, i32 25, i32 26, i32 27, i32 25, i32 26, i32 27, i32 28, i32 26, i32 27, i32 28, i32 29, i32 27, i32 28, i32 29, i32 30, i32 28, i32 29, i32 30, i32 31, i32 29, i32 30, i32 31, i32 32, i32 30, i32 31, i32 32, i32 33, i32 31, i32 32, i32 33, i32 34>
-  %151 = bitcast <64 x i8> %150 to <16 x i32>
-  %152 = and <16 x i32> %151, splat (i32 192)
-  %153 = icmp ne <16 x i32> %152, splat (i32 128)
-  %154 = bitcast <16 x i1> %153 to i16
-  %155 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %154)
-  %cast.i.i.i = zext nneg i16 %155 to i32
-  %156 = tail call <16 x i32> @llvm.x86.avx512.mask.compress.v16i32(<16 x i32> %151, <16 x i32> zeroinitializer, <16 x i1> %153)
+  %140 = bitcast <8 x i64> %128 to <64 x i8>
+  %141 = shufflevector <64 x i8> %140, <64 x i8> poison, <64 x i32> <i32 0, i32 1, i32 2, i32 3, i32 1, i32 2, i32 3, i32 4, i32 2, i32 3, i32 4, i32 5, i32 3, i32 4, i32 5, i32 6, i32 4, i32 5, i32 6, i32 7, i32 5, i32 6, i32 7, i32 8, i32 6, i32 7, i32 8, i32 9, i32 7, i32 8, i32 9, i32 10, i32 8, i32 9, i32 10, i32 11, i32 9, i32 10, i32 11, i32 12, i32 10, i32 11, i32 12, i32 13, i32 11, i32 12, i32 13, i32 14, i32 12, i32 13, i32 14, i32 15, i32 13, i32 14, i32 15, i32 16, i32 14, i32 15, i32 16, i32 17, i32 15, i32 16, i32 17, i32 18>
+  %142 = bitcast <64 x i8> %141 to <16 x i32>
+  %143 = and <16 x i32> %142, splat (i32 192)
+  %144 = icmp ne <16 x i32> %143, splat (i32 128)
+  %145 = bitcast <16 x i1> %144 to i16
+  %146 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %145)
+  %cast.i.i638.i = zext nneg i16 %146 to i32
+  %147 = tail call <16 x i32> @llvm.x86.avx512.mask.compress.v16i32(<16 x i32> %142, <16 x i32> zeroinitializer, <16 x i1> %144)
+  %148 = bitcast <8 x i64> %128 to <64 x i8>
+  %149 = shufflevector <64 x i8> %148, <64 x i8> poison, <64 x i32> <i32 16, i32 17, i32 18, i32 19, i32 17, i32 18, i32 19, i32 20, i32 18, i32 19, i32 20, i32 21, i32 19, i32 20, i32 21, i32 22, i32 20, i32 21, i32 22, i32 23, i32 21, i32 22, i32 23, i32 24, i32 22, i32 23, i32 24, i32 25, i32 23, i32 24, i32 25, i32 26, i32 24, i32 25, i32 26, i32 27, i32 25, i32 26, i32 27, i32 28, i32 26, i32 27, i32 28, i32 29, i32 27, i32 28, i32 29, i32 30, i32 28, i32 29, i32 30, i32 31, i32 29, i32 30, i32 31, i32 32, i32 30, i32 31, i32 32, i32 33, i32 31, i32 32, i32 33, i32 34>
+  %150 = bitcast <64 x i8> %149 to <16 x i32>
+  %151 = and <16 x i32> %150, splat (i32 192)
+  %152 = icmp ne <16 x i32> %151, splat (i32 128)
+  %153 = bitcast <16 x i1> %152 to i16
+  %154 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %153)
+  %cast.i.i.i = zext nneg i16 %154 to i32
+  %155 = tail call <16 x i32> @llvm.x86.avx512.mask.compress.v16i32(<16 x i32> %150, <16 x i32> zeroinitializer, <16 x i1> %152)
   %add161.i = add nuw nsw i32 %cast.i.i638.i, %cast.i.i.i
   %cmp162.i = icmp samesign ult i32 %add161.i, 17
   br i1 %cmp162.i, label %if.then163.i, label %if.else180.i
@@ -17075,103 +17068,102 @@ if.then163.i:                                     ; preds = %if.else141.i
   %sub165.i = xor i32 %notmask1254.i, -1
   %shl166.i = shl nuw i32 %sub165.i, %cast.i.i638.i
   %conv167.i = trunc i32 %shl166.i to i16
-  %157 = bitcast i16 %conv167.i to <16 x i1>
-  %158 = tail call <16 x i32> @llvm.x86.avx512.mask.expand.v16i32(<16 x i32> %156, <16 x i32> %148, <16 x i1> %157)
-  %159 = lshr <16 x i32> %158, splat (i32 4)
-  %160 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %159, <16 x i32> splat (i32 15), <16 x i32> splat (i32 -2139062272), i32 234)
-  %161 = bitcast <16 x i32> %158 to <64 x i8>
-  %162 = and <64 x i8> %161, <i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63>
-  %163 = tail call <32 x i16> @llvm.x86.avx512.pmaddubs.w.512(<64 x i8> %162, <64 x i8> <i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1>)
-  %164 = tail call <16 x i32> @llvm.x86.avx512.pmaddw.d.512(<32 x i16> %163, <32 x i16> <i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1>)
-  %165 = bitcast <16 x i32> %160 to <64 x i8>
-  %166 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11>, <64 x i8> %165)
-  %167 = bitcast <64 x i8> %166 to <16 x i32>
-  %168 = tail call <16 x i32> @llvm.x86.avx512.psllv.d.512(<16 x i32> %164, <16 x i32> %167)
-  %169 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11>, <64 x i8> %165)
-  %170 = bitcast <64 x i8> %169 to <16 x i32>
-  %171 = tail call <16 x i32> @llvm.x86.avx512.psrlv.d.512(<16 x i32> %168, <16 x i32> %170)
+  %156 = bitcast i16 %conv167.i to <16 x i1>
+  %157 = tail call <16 x i32> @llvm.x86.avx512.mask.expand.v16i32(<16 x i32> %155, <16 x i32> %147, <16 x i1> %156)
+  %158 = lshr <16 x i32> %157, splat (i32 4)
+  %159 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %158, <16 x i32> splat (i32 15), <16 x i32> splat (i32 -2139062272), i32 234)
+  %160 = bitcast <16 x i32> %157 to <64 x i8>
+  %161 = and <64 x i8> %160, <i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63>
+  %162 = tail call <32 x i16> @llvm.x86.avx512.pmaddubs.w.512(<64 x i8> %161, <64 x i8> <i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1>)
+  %163 = tail call <16 x i32> @llvm.x86.avx512.pmaddw.d.512(<32 x i16> %162, <32 x i16> <i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1>)
+  %164 = bitcast <16 x i32> %159 to <64 x i8>
+  %165 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11>, <64 x i8> %164)
+  %166 = bitcast <64 x i8> %165 to <16 x i32>
+  %167 = tail call <16 x i32> @llvm.x86.avx512.psllv.d.512(<16 x i32> %163, <16 x i32> %166)
+  %168 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11>, <64 x i8> %164)
+  %169 = bitcast <64 x i8> %168 to <16 x i32>
+  %170 = tail call <16 x i32> @llvm.x86.avx512.psrlv.d.512(<16 x i32> %167, <16 x i32> %169)
   %notmask1255.i = shl nsw i32 -1, %add161.i
-  %172 = trunc i32 %notmask1255.i to i16
-  %conv176.i = xor i16 %172, -1
-  %173 = bitcast i16 %conv176.i to <16 x i1>
-  tail call void @llvm.masked.store.v16i32.p0(<16 x i32> %171, ptr %output.0.lcssa.i, i32 1, <16 x i1> %173)
+  %171 = trunc i32 %notmask1255.i to i16
+  %conv176.i = xor i16 %171, -1
+  %172 = bitcast i16 %conv176.i to <16 x i1>
+  tail call void @llvm.masked.store.v16i32.p0(<16 x i32> %170, ptr %output.0.lcssa.i, i32 1, <16 x i1> %172)
   %idx.ext178.i = zext nneg i32 %add161.i to i64
   %add.ptr179.i = getelementptr inbounds nuw i32, ptr %output.0.lcssa.i, i64 %idx.ext178.i
   br label %if.end199.i
 
 if.else180.i:                                     ; preds = %if.else141.i
-  %174 = lshr <16 x i32> %148, splat (i32 4)
-  %175 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %174, <16 x i32> splat (i32 15), <16 x i32> splat (i32 -2139062272), i32 234)
-  %176 = bitcast <16 x i32> %148 to <64 x i8>
-  %177 = and <64 x i8> %176, <i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63>
-  %178 = tail call <32 x i16> @llvm.x86.avx512.pmaddubs.w.512(<64 x i8> %177, <64 x i8> <i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1>)
-  %179 = tail call <16 x i32> @llvm.x86.avx512.pmaddw.d.512(<32 x i16> %178, <32 x i16> <i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1>)
-  %180 = bitcast <16 x i32> %175 to <64 x i8>
-  %181 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11>, <64 x i8> %180)
-  %182 = bitcast <64 x i8> %181 to <16 x i32>
-  %183 = tail call <16 x i32> @llvm.x86.avx512.psllv.d.512(<16 x i32> %179, <16 x i32> %182)
-  %184 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11>, <64 x i8> %180)
-  %185 = bitcast <64 x i8> %184 to <16 x i32>
-  %186 = tail call <16 x i32> @llvm.x86.avx512.psrlv.d.512(<16 x i32> %183, <16 x i32> %185)
-  %187 = lshr <16 x i32> %156, splat (i32 4)
-  %188 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %187, <16 x i32> splat (i32 15), <16 x i32> splat (i32 -2139062272), i32 234)
-  %189 = bitcast <16 x i32> %156 to <64 x i8>
-  %190 = and <64 x i8> %189, <i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63>
-  %191 = tail call <32 x i16> @llvm.x86.avx512.pmaddubs.w.512(<64 x i8> %190, <64 x i8> <i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1>)
-  %192 = tail call <16 x i32> @llvm.x86.avx512.pmaddw.d.512(<32 x i16> %191, <32 x i16> <i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1>)
-  %193 = bitcast <16 x i32> %188 to <64 x i8>
-  %194 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11>, <64 x i8> %193)
-  %195 = bitcast <64 x i8> %194 to <16 x i32>
-  %196 = tail call <16 x i32> @llvm.x86.avx512.psllv.d.512(<16 x i32> %192, <16 x i32> %195)
-  %197 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11>, <64 x i8> %193)
-  %198 = bitcast <64 x i8> %197 to <16 x i32>
-  %199 = tail call <16 x i32> @llvm.x86.avx512.psrlv.d.512(<16 x i32> %196, <16 x i32> %198)
+  %173 = lshr <16 x i32> %147, splat (i32 4)
+  %174 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %173, <16 x i32> splat (i32 15), <16 x i32> splat (i32 -2139062272), i32 234)
+  %175 = bitcast <16 x i32> %147 to <64 x i8>
+  %176 = and <64 x i8> %175, <i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63>
+  %177 = tail call <32 x i16> @llvm.x86.avx512.pmaddubs.w.512(<64 x i8> %176, <64 x i8> <i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1>)
+  %178 = tail call <16 x i32> @llvm.x86.avx512.pmaddw.d.512(<32 x i16> %177, <32 x i16> <i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1>)
+  %179 = bitcast <16 x i32> %174 to <64 x i8>
+  %180 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11>, <64 x i8> %179)
+  %181 = bitcast <64 x i8> %180 to <16 x i32>
+  %182 = tail call <16 x i32> @llvm.x86.avx512.psllv.d.512(<16 x i32> %178, <16 x i32> %181)
+  %183 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11>, <64 x i8> %179)
+  %184 = bitcast <64 x i8> %183 to <16 x i32>
+  %185 = tail call <16 x i32> @llvm.x86.avx512.psrlv.d.512(<16 x i32> %182, <16 x i32> %184)
+  %186 = lshr <16 x i32> %155, splat (i32 4)
+  %187 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %186, <16 x i32> splat (i32 15), <16 x i32> splat (i32 -2139062272), i32 234)
+  %188 = bitcast <16 x i32> %155 to <64 x i8>
+  %189 = and <64 x i8> %188, <i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63>
+  %190 = tail call <32 x i16> @llvm.x86.avx512.pmaddubs.w.512(<64 x i8> %189, <64 x i8> <i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1>)
+  %191 = tail call <16 x i32> @llvm.x86.avx512.pmaddw.d.512(<32 x i16> %190, <32 x i16> <i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1>)
+  %192 = bitcast <16 x i32> %187 to <64 x i8>
+  %193 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11>, <64 x i8> %192)
+  %194 = bitcast <64 x i8> %193 to <16 x i32>
+  %195 = tail call <16 x i32> @llvm.x86.avx512.psllv.d.512(<16 x i32> %191, <16 x i32> %194)
+  %196 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11>, <64 x i8> %192)
+  %197 = bitcast <64 x i8> %196 to <16 x i32>
+  %198 = tail call <16 x i32> @llvm.x86.avx512.psrlv.d.512(<16 x i32> %195, <16 x i32> %197)
   %notmask.i = shl nsw i32 -1, %cast.i.i638.i
-  %200 = trunc i32 %notmask.i to i16
-  %conv188.i = xor i16 %200, -1
-  %201 = bitcast i16 %conv188.i to <16 x i1>
-  tail call void @llvm.masked.store.v16i32.p0(<16 x i32> %186, ptr %output.0.lcssa.i, i32 1, <16 x i1> %201)
-  %idx.ext190.i = zext nneg i16 %147 to i64
+  %199 = trunc i32 %notmask.i to i16
+  %conv188.i = xor i16 %199, -1
+  %200 = bitcast i16 %conv188.i to <16 x i1>
+  tail call void @llvm.masked.store.v16i32.p0(<16 x i32> %185, ptr %output.0.lcssa.i, i32 1, <16 x i1> %200)
+  %idx.ext190.i = zext nneg i16 %146 to i64
   %add.ptr191.i = getelementptr inbounds nuw i32, ptr %output.0.lcssa.i, i64 %idx.ext190.i
   %notmask1253.i = shl nsw i32 -1, %cast.i.i.i
-  %202 = trunc i32 %notmask1253.i to i16
-  %conv195.i = xor i16 %202, -1
-  %203 = bitcast i16 %conv195.i to <16 x i1>
-  tail call void @llvm.masked.store.v16i32.p0(<16 x i32> %199, ptr %add.ptr191.i, i32 1, <16 x i1> %203)
-  %idx.ext197.i = zext nneg i16 %155 to i64
+  %201 = trunc i32 %notmask1253.i to i16
+  %conv195.i = xor i16 %201, -1
+  %202 = bitcast i16 %conv195.i to <16 x i1>
+  tail call void @llvm.masked.store.v16i32.p0(<16 x i32> %198, ptr %add.ptr191.i, i32 1, <16 x i1> %202)
+  %idx.ext197.i = zext nneg i16 %154 to i64
   %add.ptr198.i = getelementptr inbounds nuw i32, ptr %add.ptr191.i, i64 %idx.ext197.i
   br label %if.end199.i
 
 if.end199.i:                                      ; preds = %if.else180.i, %if.then163.i
   %storemerge.i = phi ptr [ %add.ptr198.i, %if.else180.i ], [ %add.ptr179.i, %if.then163.i ]
-  %204 = shufflevector <16 x i32> %132, <16 x i32> poison, <16 x i32> <i32 8, i32 9, i32 poison, i32 poison, i32 poison, i32 9, i32 10, i32 poison, i32 poison, i32 poison, i32 10, i32 11, i32 12, i32 poison, i32 poison, i32 11>
-  %205 = bitcast <16 x i32> %204 to <64 x i8>
-  %206 = shufflevector <64 x i8> %205, <64 x i8> poison, <64 x i32> <i32 0, i32 1, i32 2, i32 3, i32 1, i32 2, i32 3, i32 4, i32 2, i32 3, i32 4, i32 5, i32 3, i32 4, i32 5, i32 6, i32 20, i32 21, i32 22, i32 23, i32 21, i32 22, i32 23, i32 24, i32 22, i32 23, i32 24, i32 25, i32 23, i32 24, i32 25, i32 26, i32 40, i32 41, i32 42, i32 43, i32 41, i32 42, i32 43, i32 44, i32 42, i32 43, i32 44, i32 45, i32 43, i32 44, i32 45, i32 46, i32 60, i32 61, i32 62, i32 63, i32 61, i32 62, i32 63, i32 48, i32 62, i32 63, i32 48, i32 49, i32 63, i32 48, i32 49, i32 50>
-  %207 = bitcast <64 x i8> %206 to <16 x i32>
-  %208 = and <16 x i32> %207, splat (i32 192)
-  %209 = icmp ne <16 x i32> %208, splat (i32 128)
-  %210 = bitcast <16 x i1> %209 to i16
-  %211 = lshr <16 x i32> %207, splat (i32 4)
-  %212 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %211, <16 x i32> splat (i32 15), <16 x i32> splat (i32 -2139062272), i32 234)
-  %213 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %210)
-  %cast.i.i = zext nneg i16 %213 to i32
-  %conv.i538.i = zext nneg i16 %213 to i64
-  %214 = and <64 x i8> %206, <i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63>
-  %215 = tail call <32 x i16> @llvm.x86.avx512.pmaddubs.w.512(<64 x i8> %214, <64 x i8> <i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1>)
-  %216 = tail call <16 x i32> @llvm.x86.avx512.pmaddw.d.512(<32 x i16> %215, <32 x i16> <i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1>)
-  %217 = bitcast <16 x i32> %212 to <64 x i8>
-  %218 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11>, <64 x i8> %217)
-  %219 = bitcast <64 x i8> %218 to <16 x i32>
-  %220 = tail call <16 x i32> @llvm.x86.avx512.psllv.d.512(<16 x i32> %216, <16 x i32> %219)
-  %221 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11>, <64 x i8> %217)
-  %222 = bitcast <64 x i8> %221 to <16 x i32>
-  %223 = tail call <16 x i32> @llvm.x86.avx512.psrlv.d.512(<16 x i32> %220, <16 x i32> %222)
-  %224 = tail call <16 x i32> @llvm.x86.avx512.mask.compress.v16i32(<16 x i32> %223, <16 x i32> zeroinitializer, <16 x i1> %209)
+  %203 = bitcast <8 x i64> %128 to <64 x i8>
+  %204 = shufflevector <64 x i8> %203, <64 x i8> poison, <64 x i32> <i32 32, i32 33, i32 34, i32 35, i32 33, i32 34, i32 35, i32 36, i32 34, i32 35, i32 36, i32 37, i32 35, i32 36, i32 37, i32 38, i32 36, i32 37, i32 38, i32 39, i32 37, i32 38, i32 39, i32 40, i32 38, i32 39, i32 40, i32 41, i32 39, i32 40, i32 41, i32 42, i32 40, i32 41, i32 42, i32 43, i32 41, i32 42, i32 43, i32 44, i32 42, i32 43, i32 44, i32 45, i32 43, i32 44, i32 45, i32 46, i32 44, i32 45, i32 46, i32 47, i32 45, i32 46, i32 47, i32 48, i32 46, i32 47, i32 48, i32 49, i32 47, i32 48, i32 49, i32 50>
+  %205 = bitcast <64 x i8> %204 to <16 x i32>
+  %206 = and <16 x i32> %205, splat (i32 192)
+  %207 = icmp ne <16 x i32> %206, splat (i32 128)
+  %208 = bitcast <16 x i1> %207 to i16
+  %209 = lshr <16 x i32> %205, splat (i32 4)
+  %210 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %209, <16 x i32> splat (i32 15), <16 x i32> splat (i32 -2139062272), i32 234)
+  %211 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %208)
+  %cast.i.i = zext nneg i16 %211 to i32
+  %conv.i538.i = zext nneg i16 %211 to i64
+  %212 = and <64 x i8> %204, <i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63, i8 127, i8 63, i8 63, i8 63>
+  %213 = tail call <32 x i16> @llvm.x86.avx512.pmaddubs.w.512(<64 x i8> %212, <64 x i8> <i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1>)
+  %214 = tail call <16 x i32> @llvm.x86.avx512.pmaddw.d.512(<32 x i16> %213, <32 x i16> <i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1>)
+  %215 = bitcast <16 x i32> %210 to <64 x i8>
+  %216 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 0, i8 0, i8 0, i8 0, i8 9, i8 9, i8 10, i8 11>, <64 x i8> %215)
+  %217 = bitcast <64 x i8> %216 to <16 x i32>
+  %218 = tail call <16 x i32> @llvm.x86.avx512.psllv.d.512(<16 x i32> %214, <16 x i32> %217)
+  %219 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 0, i8 0, i8 0, i8 0, i8 21, i8 21, i8 16, i8 11>, <64 x i8> %215)
+  %220 = bitcast <64 x i8> %219 to <16 x i32>
+  %221 = tail call <16 x i32> @llvm.x86.avx512.psrlv.d.512(<16 x i32> %218, <16 x i32> %220)
+  %222 = tail call <16 x i32> @llvm.x86.avx512.mask.compress.v16i32(<16 x i32> %221, <16 x i32> zeroinitializer, <16 x i1> %207)
   %notmask1256.i = shl nsw i32 -1, %cast.i.i
-  %225 = trunc i32 %notmask1256.i to i16
-  %conv232.i = xor i16 %225, -1
-  %226 = bitcast i16 %conv232.i to <16 x i1>
-  tail call void @llvm.masked.store.v16i32.p0(<16 x i32> %224, ptr %storemerge.i, i32 1, <16 x i1> %226)
+  %223 = trunc i32 %notmask1256.i to i16
+  %conv232.i = xor i16 %223, -1
+  %224 = bitcast i16 %conv232.i to <16 x i1>
+  tail call void @llvm.masked.store.v16i32.p0(<16 x i32> %222, ptr %storemerge.i, i32 1, <16 x i1> %224)
   %add.ptr235.i = getelementptr inbounds nuw i32, ptr %storemerge.i, i64 %conv.i538.i
   %add.ptr236.i = getelementptr inbounds nuw i8, ptr %ptr.0.lcssa.i, i64 48
   br label %_ZN7simdutf7icelake12_GLOBAL__N_126valid_utf8_to_fixed_lengthILNS_10endiannessE0EjEESt4pairIPKcPT0_ES6_mS8_.exit
@@ -17188,8 +17180,8 @@ _ZN7simdutf7icelake12_GLOBAL__N_126valid_utf8_to_fixed_lengthILNS_10endiannessE0
 
 land.rhs:                                         ; preds = %_ZN7simdutf7icelake12_GLOBAL__N_126valid_utf8_to_fixed_lengthILNS_10endiannessE0EjEESt4pairIPKcPT0_ES6_mS8_.exit, %while.body
   %ret.sroa.0.020 = phi ptr [ %add.ptr7, %while.body ], [ %ptr.1.i, %_ZN7simdutf7icelake12_GLOBAL__N_126valid_utf8_to_fixed_lengthILNS_10endiannessE0EjEESt4pairIPKcPT0_ES6_mS8_.exit ]
-  %227 = load i8, ptr %ret.sroa.0.020, align 1
-  %cmp5 = icmp slt i8 %227, -64
+  %225 = load i8, ptr %ret.sroa.0.020, align 1
+  %cmp5 = icmp slt i8 %225, -64
   br i1 %cmp5, label %while.body, label %if.then10
 
 while.body:                                       ; preds = %land.rhs
@@ -47913,8 +47905,9 @@ if.then.i:                                        ; preds = %while.body.i
   %conv.i89.i = zext <4 x i16> %shuffle.i88.i to <4 x i32>
   store <4 x i32> %conv.i89.i, ptr %utf32_output.addr.055.i, align 1
   %add.ptr12.i = getelementptr inbounds nuw i8, ptr %utf32_output.addr.055.i, i64 16
-  %7 = bitcast <16 x i8> %1 to <8 x i16>
-  %shuffle.i.i = shufflevector <8 x i16> %7, <8 x i16> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %psrldq.i = shufflevector <16 x i8> %0, <16 x i8> poison, <16 x i32> <i32 9, i32 8, i32 11, i32 10, i32 13, i32 12, i32 15, i32 14, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %7 = bitcast <16 x i8> %psrldq.i to <8 x i16>
+  %shuffle.i.i = shufflevector <8 x i16> %7, <8 x i16> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %conv.i.i = zext <4 x i16> %shuffle.i.i to <4 x i32>
   store <4 x i32> %conv.i.i, ptr %add.ptr12.i, align 1
   %add.ptr15.i = getelementptr inbounds nuw i8, ptr %utf32_output.addr.055.i, i64 32
@@ -48289,8 +48282,9 @@ if.then.i:                                        ; preds = %while.body.i
   %conv.i103.i = zext <4 x i16> %shuffle.i102.i to <4 x i32>
   store <4 x i32> %conv.i103.i, ptr %utf32_output.addr.064.i, align 1, !noalias !678
   %add.ptr12.i = getelementptr inbounds nuw i8, ptr %utf32_output.addr.064.i, i64 16
-  %7 = bitcast <16 x i8> %1 to <8 x i16>
-  %shuffle.i.i = shufflevector <8 x i16> %7, <8 x i16> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %psrldq.i = shufflevector <16 x i8> %0, <16 x i8> poison, <16 x i32> <i32 9, i32 8, i32 11, i32 10, i32 13, i32 12, i32 15, i32 14, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %7 = bitcast <16 x i8> %psrldq.i to <8 x i16>
+  %shuffle.i.i = shufflevector <8 x i16> %7, <8 x i16> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %conv.i.i = zext <4 x i16> %shuffle.i.i to <4 x i32>
   store <4 x i32> %conv.i.i, ptr %add.ptr12.i, align 1, !noalias !678
   %add.ptr15.i = getelementptr inbounds nuw i8, ptr %utf32_output.addr.064.i, i64 32
@@ -49967,8 +49961,9 @@ if.then.i.i:                                      ; preds = %while.body.i.i
   %conv.i89.i.i = zext <4 x i16> %shuffle.i88.i.i to <4 x i32>
   store <4 x i32> %conv.i89.i.i, ptr %utf32_output.addr.055.i.i, align 1
   %add.ptr12.i.i = getelementptr inbounds nuw i8, ptr %utf32_output.addr.055.i.i, i64 16
-  %7 = bitcast <16 x i8> %1 to <8 x i16>
-  %shuffle.i.i.i = shufflevector <8 x i16> %7, <8 x i16> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %psrldq.i.i = shufflevector <16 x i8> %0, <16 x i8> poison, <16 x i32> <i32 9, i32 8, i32 11, i32 10, i32 13, i32 12, i32 15, i32 14, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %7 = bitcast <16 x i8> %psrldq.i.i to <8 x i16>
+  %shuffle.i.i.i = shufflevector <8 x i16> %7, <8 x i16> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %conv.i.i.i = zext <4 x i16> %shuffle.i.i.i to <4 x i32>
   store <4 x i32> %conv.i.i.i, ptr %add.ptr12.i.i, align 1
   %add.ptr15.i.i = getelementptr inbounds nuw i8, ptr %utf32_output.addr.055.i.i, i64 32

@@ -315,7 +315,6 @@ required_blocks.exit:                             ; preds = %lor.lhs.false6.i
   store <2 x i64> zeroinitializer, ptr %sth, align 16
   %j.sroa.0.0.copyload = load <12 x i8>, ptr %npub, align 1
   %j.sroa.0.0.vec.expand = shufflevector <12 x i8> %j.sroa.0.0.copyload, <12 x i8> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 poison, i32 poison, i32 poison, i32 poison>
-  %j.sroa.0.12.vec.insert = shufflevector <16 x i8> %j.sroa.0.0.vec.expand, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 2>, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 28, i32 29, i32 30, i32 31>
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %last_blocks.i)
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %rev_counters.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %pad.i)
@@ -348,7 +347,7 @@ if.then4.i:                                       ; preds = %if.then.i
   br label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.then4.i, %if.then.i, %required_blocks.exit
-  %2 = shufflevector <16 x i8> %j.sroa.0.12.vec.insert, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
+  %2 = shufflevector <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 2>, <16 x i8> %j.sroa.0.0.vec.expand, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 27, i32 26, i32 25, i32 24, i32 23, i32 22, i32 21, i32 20, i32 19, i32 18, i32 17, i32 16>
   %3 = bitcast <16 x i8> %2 to <2 x i64>
   %cmp12.i = icmp samesign ugt i64 %m_len_, 223
   br i1 %cmp12.i, label %for.body.i.i, label %if.end89.i
@@ -1341,7 +1340,7 @@ for.end246.i:                                     ; preds = %for.end246.i.loopex
   %mul248.i = shl nuw nsw i64 %m_len_, 3
   %vecinit.i446.i = insertelement <2 x i64> poison, i64 %mul248.i, i64 0
   %vecinit1.i447.i = insertelement <2 x i64> %vecinit.i446.i, i64 %mul247.i, i64 1
-  %j.sroa.0.12.vec.insert16 = shufflevector <16 x i8> %j.sroa.0.12.vec.insert, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 1>, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 28, i32 29, i32 30, i32 31>
+  %j.sroa.0.12.vec.insert16 = shufflevector <16 x i8> %j.sroa.0.0.vec.expand, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 1>, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 28, i32 29, i32 30, i32 31>
   %224 = bitcast <16 x i8> %j.sroa.0.12.vec.insert16 to <2 x i64>
   %225 = load <2 x i64>, ptr %st_, align 16
   %xor.i.i563.i = xor <2 x i64> %225, %224
@@ -1654,7 +1653,6 @@ required_blocks.exit:                             ; preds = %lor.lhs.false6.i
   store <2 x i64> zeroinitializer, ptr %sth, align 16
   %j.sroa.0.0.copyload = load <12 x i8>, ptr %npub, align 1
   %j.sroa.0.0.vec.expand = shufflevector <12 x i8> %j.sroa.0.0.copyload, <12 x i8> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 poison, i32 poison, i32 poison, i32 poison>
-  %j.sroa.0.12.vec.insert = shufflevector <16 x i8> %j.sroa.0.0.vec.expand, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 2>, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 28, i32 29, i32 30, i32 31>
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %last_blocks.i)
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %rev_counters.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %pad.i16)
@@ -1682,7 +1680,7 @@ if.then4.i:                                       ; preds = %if.then.i
   br label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.then4.i, %if.then.i, %required_blocks.exit
-  %17 = shufflevector <16 x i8> %j.sroa.0.12.vec.insert, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
+  %17 = shufflevector <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 2>, <16 x i8> %j.sroa.0.0.vec.expand, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 27, i32 26, i32 25, i32 24, i32 23, i32 22, i32 21, i32 20, i32 19, i32 18, i32 17, i32 16>
   %18 = bitcast <16 x i8> %17 to <2 x i64>
   %cmp12.not439.i = icmp samesign ult i64 %c_len_, 224
   br i1 %cmp12.not439.i, label %for.cond45.preheader.i, label %for.body.i.preheader.lr.ph.i
@@ -2400,7 +2398,7 @@ for.end171.i:                                     ; preds = %for.end171.i.loopex
   %mul173.i = shl nuw nsw i64 %c_len_, 3
   %vecinit.i371.i = insertelement <2 x i64> poison, i64 %mul173.i, i64 0
   %vecinit1.i372.i = insertelement <2 x i64> %vecinit.i371.i, i64 %mul172.i, i64 1
-  %j.sroa.0.12.vec.insert38 = shufflevector <16 x i8> %j.sroa.0.12.vec.insert, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 1>, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 28, i32 29, i32 30, i32 31>
+  %j.sroa.0.12.vec.insert38 = shufflevector <16 x i8> %j.sroa.0.0.vec.expand, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 1>, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 28, i32 29, i32 30, i32 31>
   %175 = bitcast <16 x i8> %j.sroa.0.12.vec.insert38 to <2 x i64>
   %176 = load <2 x i64>, ptr %st_, align 16
   %xor.i.i386.i = xor <2 x i64> %176, %175
