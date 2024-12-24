@@ -2672,79 +2672,72 @@ define internal i32 @gen8_reset_engines(ptr nocapture noundef readonly %0, i32 n
 .thread12:                                        ; preds = %.lr.ph, %109, %108
   %128 = phi i32 [ 1, %108 ], [ 0, %109 ], [ %126, %.lr.ph ]
   %129 = load ptr, ptr %5, align 8
-  %130 = zext nneg i8 %104 to i32
-  %131 = shl nuw nsw i32 %130, 8
-  %132 = getelementptr inbounds nuw i8, ptr %102, i64 7177
-  %133 = load i8, ptr %132, align 1
-  %134 = zext i8 %133 to i32
-  %135 = or disjoint i32 %131, %134
-  %136 = icmp samesign ugt i32 %135, 3141
-  %137 = getelementptr inbounds nuw i8, ptr %129, i64 36
-  br label %138
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 36
+  br label %131
 
-138:                                              ; preds = %138, %.thread12
-  %139 = phi i1 [ %136, %.thread12 ], [ true, %138 ]
-  %140 = load i32, ptr %137, align 4
-  %141 = add i32 %140, 37916
-  %142 = load ptr, ptr %129, align 8
-  %143 = zext i32 %141 to i64
-  %144 = getelementptr i8, ptr %142, i64 %143
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %128, ptr elementtype(i32) %144) #10, !srcloc !16
-  %145 = tail call i32 @__intel_wait_for_register_fw(ptr noundef %129, i32 37916, i32 noundef %128, i32 noundef 0, i32 noundef 2000, i32 noundef 0, ptr noundef null) #10
-  %146 = icmp ne i32 %145, 0
-  %147 = select i1 %146, i1 true, i1 %139
-  br i1 %147, label %148, label %138
+131:                                              ; preds = %131, %.thread12
+  %132 = phi i1 [ false, %.thread12 ], [ true, %131 ]
+  %133 = load i32, ptr %130, align 4
+  %134 = add i32 %133, 37916
+  %135 = load ptr, ptr %129, align 8
+  %136 = zext i32 %134 to i64
+  %137 = getelementptr i8, ptr %135, i64 %136
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %128, ptr elementtype(i32) %137) #10, !srcloc !16
+  %138 = tail call i32 @__intel_wait_for_register_fw(ptr noundef %129, i32 37916, i32 noundef %128, i32 noundef 0, i32 noundef 2000, i32 noundef 0, ptr noundef null) #10
+  %139 = icmp ne i32 %138, 0
+  %140 = or i1 %132, %139
+  br i1 %140, label %141, label %131
 
-148:                                              ; preds = %138
+141:                                              ; preds = %131
   tail call void @__const_udelay(i64 noundef 214750) #10
   br label %.loopexit
 
-.loopexit:                                        ; preds = %86, %148, %106
-  %149 = phi i32 [ %107, %106 ], [ %145, %148 ], [ %87, %86 ]
-  %150 = load i32, ptr %9, align 4
-  %151 = and i32 %150, %1
-  %152 = icmp eq i32 %151, 0
-  br i1 %152, label %._crit_edge, label %.lr.ph16
+.loopexit:                                        ; preds = %86, %141, %106
+  %142 = phi i32 [ %107, %106 ], [ %138, %141 ], [ %87, %86 ]
+  %143 = load i32, ptr %9, align 4
+  %144 = and i32 %143, %1
+  %145 = icmp eq i32 %144, 0
+  br i1 %145, label %._crit_edge, label %.lr.ph16
 
-.lr.ph16:                                         ; preds = %.loopexit, %173
-  %153 = phi i32 [ %159, %173 ], [ %151, %.loopexit ]
-  %154 = tail call i32 asm "bsfl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %153, i32 -1) #13, !srcloc !39
-  %155 = zext nneg i32 %154 to i64
-  %156 = shl nuw i64 1, %155
-  %157 = trunc i64 %156 to i32
-  %158 = xor i32 %157, -1
-  %159 = and i32 %153, %158
-  %160 = sext i32 %154 to i64
-  %161 = getelementptr [27 x ptr], ptr %12, i64 0, i64 %160
-  %162 = load ptr, ptr %161, align 8
-  %163 = getelementptr inbounds nuw i8, ptr %162, i64 16
-  %164 = load ptr, ptr %163, align 8
-  %165 = getelementptr inbounds nuw i8, ptr %162, i64 72
-  %166 = load i32, ptr %165, align 8
-  %167 = add i32 %166, 208
-  %168 = icmp ult i32 %167, 262144
-  br i1 %168, label %169, label %173
+.lr.ph16:                                         ; preds = %.loopexit, %166
+  %146 = phi i32 [ %152, %166 ], [ %144, %.loopexit ]
+  %147 = tail call i32 asm "bsfl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %146, i32 -1) #13, !srcloc !39
+  %148 = zext nneg i32 %147 to i64
+  %149 = shl nuw i64 1, %148
+  %150 = trunc i64 %149 to i32
+  %151 = xor i32 %150, -1
+  %152 = and i32 %146, %151
+  %153 = sext i32 %147 to i64
+  %154 = getelementptr [27 x ptr], ptr %12, i64 0, i64 %153
+  %155 = load ptr, ptr %154, align 8
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 16
+  %157 = load ptr, ptr %156, align 8
+  %158 = getelementptr inbounds nuw i8, ptr %155, i64 72
+  %159 = load i32, ptr %158, align 8
+  %160 = add i32 %159, 208
+  %161 = icmp ult i32 %160, 262144
+  br i1 %161, label %162, label %166
 
-169:                                              ; preds = %.lr.ph16
-  %170 = getelementptr inbounds nuw i8, ptr %164, i64 36
-  %171 = load i32, ptr %170, align 4
-  %172 = add i32 %171, %167
-  br label %173
+162:                                              ; preds = %.lr.ph16
+  %163 = getelementptr inbounds nuw i8, ptr %157, i64 36
+  %164 = load i32, ptr %163, align 4
+  %165 = add i32 %164, %160
+  br label %166
 
-173:                                              ; preds = %169, %.lr.ph16
-  %174 = phi i32 [ %172, %169 ], [ %167, %.lr.ph16 ]
-  %175 = load ptr, ptr %164, align 8
-  %176 = zext i32 %174 to i64
-  %177 = getelementptr i8, ptr %175, i64 %176
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 65536, ptr elementtype(i32) %177) #10, !srcloc !16
-  %178 = icmp eq i32 %159, 0
-  br i1 %178, label %._crit_edge, label %.lr.ph16, !llvm.loop !63
+166:                                              ; preds = %162, %.lr.ph16
+  %167 = phi i32 [ %165, %162 ], [ %160, %.lr.ph16 ]
+  %168 = load ptr, ptr %157, align 8
+  %169 = zext i32 %167 to i64
+  %170 = getelementptr i8, ptr %168, i64 %169
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 65536, ptr elementtype(i32) %170) #10, !srcloc !16
+  %171 = icmp eq i32 %152, 0
+  br i1 %171, label %._crit_edge, label %.lr.ph16, !llvm.loop !63
 
-._crit_edge:                                      ; preds = %173, %.loopexit
-  %179 = load ptr, ptr %5, align 8
-  %180 = getelementptr inbounds nuw i8, ptr %179, i64 32
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %180, i64 noundef %8) #10
-  ret i32 %149
+._crit_edge:                                      ; preds = %166, %.loopexit
+  %172 = load ptr, ptr %5, align 8
+  %173 = getelementptr inbounds nuw i8, ptr %172, i64 32
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %173, i64 noundef %8) #10
+  ret i32 %142
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -23297,7 +23297,7 @@ define internal range(i32 0, 4) i32 @default_pack(ptr nocapture noundef %0) #29 
   br i1 %or.cond.i, label %float_to_half.exit, label %124
 
 124:                                              ; preds = %121, %109
-  %125 = add i16 %119, 1
+  %125 = add nuw i16 %119, 1
   br label %float_to_half.exit
 
 float_to_half.exit:                               ; preds = %83, %86, %96, %98, %107, %121, %124
@@ -25154,8 +25154,8 @@ define internal fastcc i32 @internal_exr_apply_pxr24(ptr nocapture noundef %0) u
   %109 = tail call float @llvm.fabs.f32(float %108)
   %110 = bitcast float %109 to i32
   %111 = and i32 %.0130.val.i, 128
-  %112 = add nuw i32 %111, %110
-  %113 = icmp ugt i32 %112, 2139095039
+  %112 = add nuw nsw i32 %111, %110
+  %113 = icmp samesign ugt i32 %112, 2139095039
   %spec.select.v.i.i = select i1 %113, i32 %110, i32 %112
   %spec.select.i.i = lshr i32 %spec.select.v.i.i, 8
   br label %float_to_float24.exit.i
@@ -39183,7 +39183,7 @@ define internal void @convertFloatToHalf64_scalar(ptr nocapture noundef writeonl
   br i1 %or.cond.i, label %float_to_half.exit, label %56
 
 56:                                               ; preds = %53, %41
-  %57 = add i16 %51, 1
+  %57 = add nuw i16 %51, 1
   br label %float_to_half.exit
 
 float_to_half.exit:                               ; preds = %15, %18, %28, %30, %39, %53, %56
@@ -41906,7 +41906,7 @@ define internal void @convertFloatToHalf64_f16c(ptr nocapture noundef writeonly 
   br i1 %or.cond.i.i, label %float_to_half.exit.i, label %56
 
 56:                                               ; preds = %53, %41
-  %57 = add i16 %51, 1
+  %57 = add nuw i16 %51, 1
   br label %float_to_half.exit.i
 
 float_to_half.exit.i:                             ; preds = %56, %53, %39, %30, %28, %18, %15
@@ -43866,7 +43866,7 @@ define internal fastcc range(i32 0, 2) i32 @LossyDctEncoder_execute(ptr nocaptur
   br i1 %or.cond.i, label %float_to_half.exit, label %111
 
 111:                                              ; preds = %108, %96
-  %112 = add i16 %106, 1
+  %112 = add nuw i16 %106, 1
   br label %float_to_half.exit
 
 float_to_half.exit:                               ; preds = %70, %73, %83, %85, %94, %108, %111
@@ -44298,7 +44298,7 @@ LossyDctEncoder_rleAc.exit.us:                    ; preds = %.backedge.i.us
   br i1 %or.cond.i.i.us, label %float_to_half.exit.i.us, label %363
 
 363:                                              ; preds = %360, %348
-  %364 = add i16 %358, 1
+  %364 = add nuw i16 %358, 1
   br label %float_to_half.exit.i.us
 
 365:                                              ; preds = %334
@@ -55735,7 +55735,7 @@ dctInverse8x8DcOnly.exit:                         ; preds = %198, %dctInverse8x8
   br i1 %or.cond.i, label %float_to_half.exit, label %484
 
 484:                                              ; preds = %481, %469
-  %485 = add i16 %479, 1
+  %485 = add nuw i16 %479, 1
   br label %float_to_half.exit
 
 float_to_half.exit:                               ; preds = %443, %446, %456, %458, %467, %481, %484
@@ -56679,7 +56679,7 @@ float_to_uint_int.exit.us.us:                     ; preds = %114, %.lr.ph228.us.
   br i1 %or.cond.i.i.us.us, label %float_to_half_int.exit.us.us, label %149
 
 149:                                              ; preds = %146, %134
-  %150 = add i16 %144, 1
+  %150 = add nuw i16 %144, 1
   br label %float_to_half_int.exit.us.us
 
 151:                                              ; preds = %.lr.ph236.us.us
@@ -57255,7 +57255,7 @@ float_to_uint_int.exit.us.us:                     ; preds = %108, %.lr.ph238.us.
   br i1 %or.cond.i.i.us.us, label %float_to_half_int.exit.us.us, label %143
 
 143:                                              ; preds = %140, %128
-  %144 = add i16 %138, 1
+  %144 = add nuw i16 %138, 1
   br label %float_to_half_int.exit.us.us
 
 145:                                              ; preds = %.lr.ph248.us.us
@@ -58817,7 +58817,7 @@ half_to_uint.exit:                                ; preds = %97, %103, %half_to_
   br i1 %or.cond.i.i, label %float_to_half_int.exit, label %187
 
 187:                                              ; preds = %184, %172
-  %188 = add i16 %182, 1
+  %188 = add nuw i16 %182, 1
   br label %float_to_half_int.exit
 
 float_to_half_int.exit:                           ; preds = %146, %149, %159, %161, %170, %184, %187

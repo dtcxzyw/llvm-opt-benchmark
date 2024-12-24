@@ -1634,16 +1634,16 @@ define internal range(i32 -30, 1) i32 @iso9660_finish_entry(ptr noundef %0) #0 {
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %wb_consume.exit.thread.i.i, %33
-  %.151.i.i = phi i64 [ %87, %wb_consume.exit.thread.i.i ], [ 16, %33 ]
-  %.13550.i.i = phi ptr [ %88, %wb_consume.exit.thread.i.i ], [ %2, %33 ]
+  %.150.i.i = phi i64 [ %87, %wb_consume.exit.thread.i.i ], [ 16, %33 ]
+  %.13549.i.i = phi ptr [ %88, %wb_consume.exit.thread.i.i ], [ %2, %33 ]
   %72 = load ptr, ptr %3, align 8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 66272
   %74 = load i64, ptr %73, align 8
-  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %.151.i.i, i64 %74)
+  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %.150.i.i, i64 %74)
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 732
   %76 = sub i64 65536, %74
   %77 = getelementptr inbounds [65536 x i8], ptr %75, i64 0, i64 %76
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %77, ptr align 1 %.13550.i.i, i64 %spec.select.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %77, ptr align 1 %.13549.i.i, i64 %spec.select.i.i, i1 false)
   %78 = load ptr, ptr %3, align 8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 66272
   %80 = load i64, ptr %79, align 8
@@ -1668,8 +1668,8 @@ wb_consume.exit.i.i:                              ; preds = %83
   br i1 %.not40.i.i, label %wb_consume.exit.thread.i.i, label %zisofs_finish_entry.exit.thread
 
 wb_consume.exit.thread.i.i:                       ; preds = %wb_consume.exit.i.i, %83
-  %87 = sub i64 %.151.i.i, %spec.select.i.i
-  %88 = getelementptr inbounds i8, ptr %.13550.i.i, i64 %spec.select.i.i
+  %87 = sub i64 %.150.i.i, %spec.select.i.i
+  %88 = getelementptr inbounds i8, ptr %.13549.i.i, i64 %spec.select.i.i
   %.not39.i.i = icmp eq i64 %87, 0
   br i1 %.not39.i.i, label %wb_write_to_temp.exit.i, label %.lr.ph.i.i, !llvm.loop !9
 
@@ -6953,71 +6953,67 @@ define internal fastcc range(i32 -30, 1) i32 @wb_write_to_temp(ptr noundef %0, p
   %8 = icmp eq i64 %7, 65536
   %9 = icmp ugt i64 %2, 16384
   %or.cond = and i1 %9, %8
-  br i1 %or.cond, label %10, label %29
+  br i1 %or.cond, label %.lr.ph.i, label %29
 
-10:                                               ; preds = %3
-  %11 = and i64 %2, 2047
-  %12 = and i64 %2, -2048
-  %13 = getelementptr inbounds nuw i8, ptr %5, i64 66288
-  %14 = load i64, ptr %13, align 8
-  %15 = add i64 %14, %12
-  store i64 %15, ptr %13, align 8
-  %.not15.i = icmp eq i64 %12, 0
-  br i1 %.not15.i, label %.loopexit48, label %.lr.ph.i
+.lr.ph.i:                                         ; preds = %3
+  %10 = and i64 %2, 2047
+  %11 = and i64 %2, -2048
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 66288
+  %13 = load i64, ptr %12, align 8
+  %14 = add i64 %13, %11
+  store i64 %14, ptr %12, align 8
+  %15 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  br label %17
 
-.lr.ph.i:                                         ; preds = %10
-  %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  br label %18
+17:                                               ; preds = %21, %.lr.ph.i
+  %.017.i = phi ptr [ %1, %.lr.ph.i ], [ %23, %21 ]
+  %.01316.i = phi i64 [ %11, %.lr.ph.i ], [ %22, %21 ]
+  %18 = load i32, ptr %16, align 8
+  %19 = tail call i64 @write(i32 noundef %18, ptr noundef %.017.i, i64 noundef %.01316.i) #23
+  %20 = icmp slt i64 %19, 0
+  br i1 %20, label %write_to_temp.exit, label %21
 
-18:                                               ; preds = %22, %.lr.ph.i
-  %.017.i = phi ptr [ %1, %.lr.ph.i ], [ %24, %22 ]
-  %.01316.i = phi i64 [ %12, %.lr.ph.i ], [ %23, %22 ]
-  %19 = load i32, ptr %17, align 8
-  %20 = tail call i64 @write(i32 noundef %19, ptr noundef %.017.i, i64 noundef %.01316.i) #23
-  %21 = icmp slt i64 %20, 0
-  br i1 %21, label %write_to_temp.exit, label %22
+21:                                               ; preds = %17
+  %22 = sub i64 %.01316.i, %19
+  %23 = getelementptr inbounds nuw i8, ptr %.017.i, i64 %19
+  %.not.i = icmp eq i64 %22, 0
+  br i1 %.not.i, label %26, label %17, !llvm.loop !36
 
-22:                                               ; preds = %18
-  %23 = sub i64 %.01316.i, %20
-  %24 = getelementptr inbounds nuw i8, ptr %.017.i, i64 %20
-  %.not.i = icmp eq i64 %23, 0
-  br i1 %.not.i, label %.loopexit48, label %18, !llvm.loop !36
-
-write_to_temp.exit:                               ; preds = %18
-  %25 = tail call ptr @__errno_location() #26
-  %26 = load i32, ptr %25, align 4
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef %26, ptr noundef nonnull @.str.58) #23
+write_to_temp.exit:                               ; preds = %17
+  %24 = tail call ptr @__errno_location() #26
+  %25 = load i32, ptr %24, align 4
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef %25, ptr noundef nonnull @.str.58) #23
   br label %.loopexit
 
-.loopexit48:                                      ; preds = %22, %10
-  %27 = icmp eq i64 %11, 0
+26:                                               ; preds = %21
+  %27 = icmp eq i64 %10, 0
   br i1 %27, label %.loopexit, label %.thread
 
-.thread:                                          ; preds = %.loopexit48
-  %28 = getelementptr inbounds i8, ptr %1, i64 %12
+.thread:                                          ; preds = %26
+  %28 = getelementptr inbounds i8, ptr %1, i64 %11
   br label %.lr.ph.preheader
 
 29:                                               ; preds = %3
-  %.not3949 = icmp eq i64 %2, 0
-  br i1 %.not3949, label %.loopexit, label %.lr.ph.preheader
+  %.not3948 = icmp eq i64 %2, 0
+  br i1 %.not3948, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.thread, %29
-  %.151.ph = phi i64 [ %2, %29 ], [ %11, %.thread ]
-  %.13550.ph = phi ptr [ %1, %29 ], [ %28, %.thread ]
+  %.150.ph = phi i64 [ %2, %29 ], [ %10, %.thread ]
+  %.13549.ph = phi ptr [ %1, %29 ], [ %28, %.thread ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %wb_consume.exit.thread
-  %.151 = phi i64 [ %45, %wb_consume.exit.thread ], [ %.151.ph, %.lr.ph.preheader ]
-  %.13550 = phi ptr [ %46, %wb_consume.exit.thread ], [ %.13550.ph, %.lr.ph.preheader ]
+  %.150 = phi i64 [ %45, %wb_consume.exit.thread ], [ %.150.ph, %.lr.ph.preheader ]
+  %.13549 = phi ptr [ %46, %wb_consume.exit.thread ], [ %.13549.ph, %.lr.ph.preheader ]
   %30 = load ptr, ptr %4, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 66272
   %32 = load i64, ptr %31, align 8
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %.151, i64 %32)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %.150, i64 %32)
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 732
   %34 = sub i64 65536, %32
   %35 = getelementptr inbounds [65536 x i8], ptr %33, i64 0, i64 %34
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %35, ptr align 1 %.13550, i64 %spec.select, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %35, ptr align 1 %.13549, i64 %spec.select, i1 false)
   %36 = load ptr, ptr %4, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 66272
   %38 = load i64, ptr %37, align 8
@@ -7042,13 +7038,13 @@ wb_consume.exit:                                  ; preds = %41
   br i1 %.not40, label %wb_consume.exit.thread, label %.loopexit
 
 wb_consume.exit.thread:                           ; preds = %41, %wb_consume.exit
-  %45 = sub i64 %.151, %spec.select
-  %46 = getelementptr inbounds i8, ptr %.13550, i64 %spec.select
+  %45 = sub i64 %.150, %spec.select
+  %46 = getelementptr inbounds i8, ptr %.13549, i64 %spec.select
   %.not39 = icmp eq i64 %45, 0
   br i1 %.not39, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
-.loopexit:                                        ; preds = %wb_consume.exit, %wb_consume.exit.thread, %29, %wb_consume.exit.thread45, %write_to_temp.exit, %.loopexit48
-  %.032 = phi i32 [ -30, %write_to_temp.exit ], [ 0, %.loopexit48 ], [ -30, %wb_consume.exit.thread45 ], [ 0, %29 ], [ -30, %wb_consume.exit ], [ 0, %wb_consume.exit.thread ]
+.loopexit:                                        ; preds = %wb_consume.exit, %wb_consume.exit.thread, %29, %wb_consume.exit.thread45, %write_to_temp.exit, %26
+  %.032 = phi i32 [ -30, %write_to_temp.exit ], [ 0, %26 ], [ -30, %wb_consume.exit.thread45 ], [ 0, %29 ], [ -30, %wb_consume.exit ], [ 0, %wb_consume.exit.thread ]
   ret i32 %.032
 }
 

@@ -6155,20 +6155,20 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPmSt6
   %39 = phi i64 [ %41, %45 ], [ %34, %.preheader21 ]
   %40 = add nsw i64 %39, -1
   %41 = sdiv i64 %40, 2
-  %42 = getelementptr inbounds nuw i64, ptr %0, i64 %41
+  %42 = getelementptr inbounds i64, ptr %0, i64 %41
   %43 = load i64, ptr %42, align 8, !tbaa !7
   %44 = icmp ult i64 %43, %23
   br i1 %44, label %45, label %.loopexit19
 
 45:                                               ; preds = %.preheader18
-  %46 = getelementptr inbounds nuw i64, ptr %0, i64 %39
+  %46 = getelementptr inbounds i64, ptr %0, i64 %39
   store i64 %43, ptr %46, align 8, !tbaa !7
   %47 = icmp sgt i64 %41, %21
   br i1 %47, label %.preheader18, label %.loopexit19, !llvm.loop !171
 
 .loopexit19:                                      ; preds = %45, %.preheader18, %.preheader22
   %48 = phi i64 [ %21, %.preheader22 ], [ %39, %.preheader18 ], [ %41, %45 ]
-  %49 = getelementptr inbounds nuw i64, ptr %0, i64 %48
+  %49 = getelementptr inbounds i64, ptr %0, i64 %48
   store i64 %23, ptr %49, align 8, !tbaa !7
   %50 = icmp eq i64 %21, 0
   %51 = add nsw i64 %21, -1
@@ -6218,20 +6218,20 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPmSt6
   %78 = phi i64 [ %80, %84 ], [ %76, %75 ]
   %79 = add nsw i64 %78, -1
   %80 = sdiv i64 %79, 2
-  %81 = getelementptr inbounds nuw i64, ptr %0, i64 %80
+  %81 = getelementptr inbounds i64, ptr %0, i64 %80
   %82 = load i64, ptr %81, align 8, !tbaa !7
   %83 = icmp ult i64 %82, %55
   br i1 %83, label %84, label %.loopexit
 
 84:                                               ; preds = %.preheader
-  %85 = getelementptr inbounds nuw i64, ptr %0, i64 %78
+  %85 = getelementptr inbounds i64, ptr %0, i64 %78
   store i64 %82, ptr %85, align 8, !tbaa !7
   %86 = icmp sgt i64 %80, %53
   br i1 %86, label %.preheader, label %.loopexit, !llvm.loop !171
 
 .loopexit:                                        ; preds = %84, %.preheader, %75
   %87 = phi i64 [ %76, %75 ], [ %78, %.preheader ], [ %80, %84 ]
-  %88 = getelementptr inbounds nuw i64, ptr %0, i64 %87
+  %88 = getelementptr inbounds i64, ptr %0, i64 %87
   store i64 %55, ptr %88, align 8, !tbaa !7
   %89 = icmp eq i64 %53, 0
   %90 = add nsw i64 %53, -1

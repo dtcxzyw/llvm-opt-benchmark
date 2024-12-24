@@ -1583,28 +1583,26 @@ define hidden void @_ZN4moka3cht3map6bucket21defer_acquire_destroy17h49adfbb71c8
   fence acquire
   %12 = and i64 %1, -8
   %13 = inttoptr i64 %12 to ptr
-  %14 = icmp ne i64 %12, 0
-  tail call void @llvm.assume(i1 %14)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !369)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !372)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !375)
-  %15 = load ptr, ptr %13, align 8, !alias.scope !378, !noalias !379, !nonnull !5, !noundef !5
-  %16 = atomicrmw sub ptr %15, i64 1 release, align 8, !noalias !386
-  %17 = icmp eq i64 %16, 1
-  br i1 %17, label %18, label %"_ZN4moka3cht3map6bucket21defer_acquire_destroy28_$u7b$$u7b$closure$u7d$$u7d$17hb3f0b31939783805E.llvm.16478127874811385373.exit.i"
+  %14 = load ptr, ptr %13, align 8, !alias.scope !378, !noalias !379, !nonnull !5, !noundef !5
+  %15 = atomicrmw sub ptr %14, i64 1 release, align 8, !noalias !386
+  %16 = icmp eq i64 %15, 1
+  br i1 %16, label %17, label %"_ZN4moka3cht3map6bucket21defer_acquire_destroy28_$u7b$$u7b$closure$u7d$$u7d$17hb3f0b31939783805E.llvm.16478127874811385373.exit.i"
 
-18:                                               ; preds = %11
+17:                                               ; preds = %11
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h366f64372751430eE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %13)
-          to label %"_ZN4moka3cht3map6bucket21defer_acquire_destroy28_$u7b$$u7b$closure$u7d$$u7d$17hb3f0b31939783805E.llvm.16478127874811385373.exit.i" unwind label %19, !noalias !379
+          to label %"_ZN4moka3cht3map6bucket21defer_acquire_destroy28_$u7b$$u7b$closure$u7d$$u7d$17hb3f0b31939783805E.llvm.16478127874811385373.exit.i" unwind label %18, !noalias !379
 
-19:                                               ; preds = %18
-  %20 = landingpad { ptr, i32 }
+18:                                               ; preds = %17
+  %19 = landingpad { ptr, i32 }
           cleanup
   tail call void @__rust_dealloc(ptr noundef nonnull %13, i64 noundef 16, i64 noundef 8) #25, !noalias !387
-  resume { ptr, i32 } %20
+  resume { ptr, i32 } %19
 
-"_ZN4moka3cht3map6bucket21defer_acquire_destroy28_$u7b$$u7b$closure$u7d$$u7d$17hb3f0b31939783805E.llvm.16478127874811385373.exit.i": ; preds = %18, %11
+"_ZN4moka3cht3map6bucket21defer_acquire_destroy28_$u7b$$u7b$closure$u7d$$u7d$17hb3f0b31939783805E.llvm.16478127874811385373.exit.i": ; preds = %17, %11
   tail call void @__rust_dealloc(ptr noundef nonnull %13, i64 noundef 16, i64 noundef 8) #25, !noalias !390
   br label %_ZN15crossbeam_epoch5guard5Guard15defer_unchecked17hda8cea00dcdd2078E.exit
 
@@ -1643,8 +1641,6 @@ define hidden void @_ZN4moka3cht3map6bucket21defer_acquire_destroy17h51a5ba65bdd
   %13 = and i64 %1, -8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !399
   %14 = inttoptr i64 %13 to ptr
-  %15 = icmp ne i64 %13, 0
-  tail call void @llvm.assume(i1 %15)
   store ptr %14, ptr %3, align 8, !noalias !399
   call void @"_ZN4core3ptr465drop_in_place$LT$alloc..boxed..Box$LT$moka..cht..map..bucket..BucketArray$LT$$LP$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$core..any..TypeId$RP$$C$triomphe..arc..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$core..option..Option$LT$core..result..Result$LT$alloc..sync..Arc$LT$mini_lsm_starter..block..Block$GT$$C$alloc..sync..Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$$GT$$GT$$GT$$GT$$GT$17h811fd5c20b19a81bE.llvm.3849484896252022153"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3), !noalias !399
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !399
@@ -1683,28 +1679,26 @@ define hidden void @_ZN4moka3cht3map6bucket21defer_acquire_destroy17h931f407ff31
   fence acquire
   %12 = and i64 %1, -8
   %13 = inttoptr i64 %12 to ptr
-  %14 = icmp ne i64 %12, 0
-  tail call void @llvm.assume(i1 %14)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !410)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !413)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !416)
-  %15 = load ptr, ptr %13, align 8, !alias.scope !419, !noalias !420, !nonnull !5, !noundef !5
-  %16 = atomicrmw sub ptr %15, i64 1 release, align 8, !noalias !427
-  %17 = icmp eq i64 %16, 1
-  br i1 %17, label %18, label %"_ZN4moka3cht3map6bucket21defer_acquire_destroy28_$u7b$$u7b$closure$u7d$$u7d$17h71387598b4594f49E.llvm.16478127874811385373.exit.i"
+  %14 = load ptr, ptr %13, align 8, !alias.scope !419, !noalias !420, !nonnull !5, !noundef !5
+  %15 = atomicrmw sub ptr %14, i64 1 release, align 8, !noalias !427
+  %16 = icmp eq i64 %15, 1
+  br i1 %16, label %17, label %"_ZN4moka3cht3map6bucket21defer_acquire_destroy28_$u7b$$u7b$closure$u7d$$u7d$17h71387598b4594f49E.llvm.16478127874811385373.exit.i"
 
-18:                                               ; preds = %11
+17:                                               ; preds = %11
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h366f64372751430eE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %13)
-          to label %"_ZN4moka3cht3map6bucket21defer_acquire_destroy28_$u7b$$u7b$closure$u7d$$u7d$17h71387598b4594f49E.llvm.16478127874811385373.exit.i" unwind label %19, !noalias !420
+          to label %"_ZN4moka3cht3map6bucket21defer_acquire_destroy28_$u7b$$u7b$closure$u7d$$u7d$17h71387598b4594f49E.llvm.16478127874811385373.exit.i" unwind label %18, !noalias !420
 
-19:                                               ; preds = %18
-  %20 = landingpad { ptr, i32 }
+18:                                               ; preds = %17
+  %19 = landingpad { ptr, i32 }
           cleanup
   tail call void @__rust_dealloc(ptr noundef nonnull %13, i64 noundef 16, i64 noundef 8) #25, !noalias !428
-  resume { ptr, i32 } %20
+  resume { ptr, i32 } %19
 
-"_ZN4moka3cht3map6bucket21defer_acquire_destroy28_$u7b$$u7b$closure$u7d$$u7d$17h71387598b4594f49E.llvm.16478127874811385373.exit.i": ; preds = %18, %11
+"_ZN4moka3cht3map6bucket21defer_acquire_destroy28_$u7b$$u7b$closure$u7d$$u7d$17h71387598b4594f49E.llvm.16478127874811385373.exit.i": ; preds = %17, %11
   tail call void @__rust_dealloc(ptr noundef nonnull %13, i64 noundef 16, i64 noundef 8) #25, !noalias !431
   br label %_ZN15crossbeam_epoch5guard5Guard15defer_unchecked17h183e0e1798a735a7E.exit
 
@@ -1743,8 +1737,6 @@ define hidden void @_ZN4moka3cht3map6bucket21defer_acquire_destroy17ha3ae156a769
   %13 = and i64 %1, -8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !440
   %14 = inttoptr i64 %13 to ptr
-  %15 = icmp ne i64 %13, 0
-  tail call void @llvm.assume(i1 %15)
   store ptr %14, ptr %3, align 8, !noalias !440
   call void @"_ZN4core3ptr236drop_in_place$LT$alloc..boxed..Box$LT$moka..cht..map..bucket..BucketArray$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$$GT$$GT$17h0ade02ab968ff36cE.llvm.3849484896252022153"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3), !noalias !440
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !440
@@ -1783,29 +1775,27 @@ define hidden void @_ZN4moka3cht3map6bucket21defer_acquire_destroy17hddb910c8338
   fence acquire
   %12 = and i64 %1, -8
   %13 = inttoptr i64 %12 to ptr
-  %14 = icmp ne i64 %12, 0
-  tail call void @llvm.assume(i1 %14)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !451)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !454)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !457)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !460)
-  %15 = load ptr, ptr %13, align 8, !alias.scope !463, !noalias !464, !nonnull !5, !noundef !5
-  %16 = atomicrmw sub ptr %15, i64 1 release, align 8, !noalias !471
-  %17 = icmp eq i64 %16, 1
-  br i1 %17, label %18, label %"_ZN4moka3cht3map6bucket21defer_acquire_destroy28_$u7b$$u7b$closure$u7d$$u7d$17h1a2c84dd9c7553e6E.llvm.16478127874811385373.exit.i"
+  %14 = load ptr, ptr %13, align 8, !alias.scope !463, !noalias !464, !nonnull !5, !noundef !5
+  %15 = atomicrmw sub ptr %14, i64 1 release, align 8, !noalias !471
+  %16 = icmp eq i64 %15, 1
+  br i1 %16, label %17, label %"_ZN4moka3cht3map6bucket21defer_acquire_destroy28_$u7b$$u7b$closure$u7d$$u7d$17h1a2c84dd9c7553e6E.llvm.16478127874811385373.exit.i"
 
-18:                                               ; preds = %11
+17:                                               ; preds = %11
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h366f64372751430eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13)
-          to label %"_ZN4moka3cht3map6bucket21defer_acquire_destroy28_$u7b$$u7b$closure$u7d$$u7d$17h1a2c84dd9c7553e6E.llvm.16478127874811385373.exit.i" unwind label %19, !noalias !464
+          to label %"_ZN4moka3cht3map6bucket21defer_acquire_destroy28_$u7b$$u7b$closure$u7d$$u7d$17h1a2c84dd9c7553e6E.llvm.16478127874811385373.exit.i" unwind label %18, !noalias !464
 
-19:                                               ; preds = %18
-  %20 = landingpad { ptr, i32 }
+18:                                               ; preds = %17
+  %19 = landingpad { ptr, i32 }
           cleanup
   tail call void @__rust_dealloc(ptr noundef nonnull %13, i64 noundef 32, i64 noundef 8) #25, !noalias !472
-  resume { ptr, i32 } %20
+  resume { ptr, i32 } %19
 
-"_ZN4moka3cht3map6bucket21defer_acquire_destroy28_$u7b$$u7b$closure$u7d$$u7d$17h1a2c84dd9c7553e6E.llvm.16478127874811385373.exit.i": ; preds = %18, %11
+"_ZN4moka3cht3map6bucket21defer_acquire_destroy28_$u7b$$u7b$closure$u7d$$u7d$17h1a2c84dd9c7553e6E.llvm.16478127874811385373.exit.i": ; preds = %17, %11
   tail call void @__rust_dealloc(ptr noundef nonnull %13, i64 noundef 32, i64 noundef 8) #25, !noalias !475
   br label %_ZN15crossbeam_epoch5guard5Guard15defer_unchecked17h833877056ab4d3daE.exit
 
@@ -1844,8 +1834,6 @@ define hidden void @_ZN4moka3cht3map6bucket21defer_acquire_destroy17he64297c71ee
   %13 = and i64 %1, -8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !484
   %14 = inttoptr i64 %13 to ptr
-  %15 = icmp ne i64 %13, 0
-  tail call void @llvm.assume(i1 %15)
   store ptr %14, ptr %3, align 8, !noalias !484
   call void @"_ZN4core3ptr285drop_in_place$LT$alloc..boxed..Box$LT$moka..cht..map..bucket..BucketArray$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_starter..block..Block$GT$$GT$$GT$$GT$$GT$$GT$17h2265e321e1c0ed41E.llvm.3849484896252022153"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3), !noalias !484
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !484

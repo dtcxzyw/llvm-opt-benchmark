@@ -46,8 +46,8 @@ if.then17.i:                                      ; preds = %if.end15.i
   %and.i2 = and i64 %inlen, -16
   %arrayidx9.i = getelementptr inbounds nuw i8, ptr %state, i64 32
   %arrayidx11.i = getelementptr inbounds nuw i8, ptr %state, i64 40
-  %mul12.i = mul nuw nsw i64 %and8.i, 20
   %mul.i = mul nuw nsw i64 %and4.i, 20
+  %mul12.i = mul nuw nsw i64 %and8.i, 20
   %conv24.i = zext nneg i64 %and.i to i128
   %conv27.i = zext nneg i64 %mul12.i to i128
   %conv31.i = zext nneg i64 %mul.i to i128
@@ -56,21 +56,21 @@ if.then17.i:                                      ; preds = %if.end15.i
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %if.then17.i
-  %m.addr.061.i = phi ptr [ %m, %if.then17.i ], [ %add.ptr.i10, %while.body.i ]
-  %bytes.addr.060.i = phi i64 [ %and.i2, %if.then17.i ], [ %sub.i11, %while.body.i ]
-  %h0.059.i = phi i64 [ 0, %if.then17.i ], [ %and75.i, %while.body.i ]
-  %h1.058.i = phi i64 [ 0, %if.then17.i ], [ %add76.i, %while.body.i ]
-  %h2.057.i = phi i64 [ 0, %if.then17.i ], [ %and71.i, %while.body.i ]
-  %m.addr.0.val.i = load i64, ptr %m.addr.061.i, align 1
-  %arrayidx15.i = getelementptr i8, ptr %m.addr.061.i, i64 8
+  %m.addr.060.i = phi ptr [ %m, %if.then17.i ], [ %add.ptr.i10, %while.body.i ]
+  %bytes.addr.059.i = phi i64 [ %and.i2, %if.then17.i ], [ %sub.i11, %while.body.i ]
+  %h0.058.i = phi i64 [ 0, %if.then17.i ], [ %and75.i, %while.body.i ]
+  %h1.057.i = phi i64 [ 0, %if.then17.i ], [ %add76.i, %while.body.i ]
+  %h2.056.i = phi i64 [ 0, %if.then17.i ], [ %and71.i, %while.body.i ]
+  %m.addr.0.val.i = load i64, ptr %m.addr.060.i, align 1
+  %arrayidx15.i = getelementptr i8, ptr %m.addr.060.i, i64 8
   %arrayidx15.val.i = load i64, ptr %arrayidx15.i, align 1
   %and.i7 = and i64 %m.addr.0.val.i, 17592186044415
-  %add.i8 = add nuw nsw i64 %and.i7, %h0.059.i
+  %add.i8 = add nuw nsw i64 %and.i7, %h0.058.i
   %or.i9 = tail call i64 @llvm.fshl.i64(i64 %arrayidx15.val.i, i64 %m.addr.0.val.i, i64 20)
   %and17.i = and i64 %or.i9, 17592186044415
-  %add18.i = add nuw nsw i64 %and17.i, %h1.058.i
+  %add18.i = add nuw nsw i64 %and17.i, %h1.057.i
   %shr19.i = lshr i64 %arrayidx15.val.i, 24
-  %or21.i = add nuw nsw i64 %h2.057.i, 1099511627776
+  %or21.i = add nuw nsw i64 %h2.056.i, 1099511627776
   %add22.i = add nuw nsw i64 %or21.i, %shr19.i
   %conv23.i = zext nneg i64 %add.i8 to i128
   %mul25.i = mul nuw nsw i128 %conv23.i, %conv24.i
@@ -109,8 +109,8 @@ while.body.i:                                     ; preds = %while.body.i, %if.t
   %shr74.i = lshr i64 %add73.i, 44
   %and75.i = and i64 %add73.i, 17592186044415
   %add76.i = add nuw nsw i64 %shr74.i, %and65.i
-  %add.ptr.i10 = getelementptr i8, ptr %m.addr.061.i, i64 16
-  %sub.i11 = add i64 %bytes.addr.060.i, -16
+  %add.ptr.i10 = getelementptr i8, ptr %m.addr.060.i, i64 16
+  %sub.i11 = add i64 %bytes.addr.059.i, -16
   %cmp.i.not = icmp eq i64 %sub.i11, 0
   br i1 %cmp.i.not, label %poly1305_blocks.exit, label %while.body.i, !llvm.loop !4
 
@@ -403,52 +403,48 @@ if.end:                                           ; preds = %for.end, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind ssp memory(argmem: readwrite) uwtable
-define internal fastcc void @poly1305_blocks(ptr nocapture noundef %st, ptr nocapture noundef readonly %m, i64 noundef range(i64 0, -15) %bytes) unnamed_addr #2 {
+define internal fastcc void @poly1305_blocks(ptr nocapture noundef %st, ptr nocapture noundef readonly %m, i64 noundef range(i64 16, -15) %bytes) unnamed_addr #2 {
 entry:
   %final = getelementptr inbounds nuw i8, ptr %st, i64 88
   %0 = load i8, ptr %final, align 8
   %tobool.not = icmp eq i8 %0, 0
   %cond = select i1 %tobool.not, i64 1099511627776, i64 0
-  %h = getelementptr inbounds nuw i8, ptr %st, i64 24
-  %1 = load i64, ptr %h, align 8
-  %arrayidx9 = getelementptr i8, ptr %st, i64 32
-  %2 = load i64, ptr %arrayidx9, align 8
-  %arrayidx11 = getelementptr i8, ptr %st, i64 40
-  %3 = load i64, ptr %arrayidx11, align 8
-  %cmp56 = icmp ugt i64 %bytes, 15
-  br i1 %cmp56, label %while.body.lr.ph, label %while.end
-
-while.body.lr.ph:                                 ; preds = %entry
-  %arrayidx6 = getelementptr i8, ptr %st, i64 16
-  %4 = load i64, ptr %arrayidx6, align 8
-  %mul12 = mul i64 %4, 20
+  %1 = load i64, ptr %st, align 8
   %arrayidx4 = getelementptr i8, ptr %st, i64 8
-  %5 = load i64, ptr %arrayidx4, align 8
-  %mul = mul i64 %5, 20
-  %6 = load i64, ptr %st, align 8
-  %conv24 = zext i64 %6 to i128
+  %2 = load i64, ptr %arrayidx4, align 8
+  %arrayidx6 = getelementptr i8, ptr %st, i64 16
+  %3 = load i64, ptr %arrayidx6, align 8
+  %h = getelementptr inbounds nuw i8, ptr %st, i64 24
+  %4 = load i64, ptr %h, align 8
+  %arrayidx9 = getelementptr i8, ptr %st, i64 32
+  %5 = load i64, ptr %arrayidx9, align 8
+  %arrayidx11 = getelementptr i8, ptr %st, i64 40
+  %6 = load i64, ptr %arrayidx11, align 8
+  %mul = mul i64 %2, 20
+  %mul12 = mul i64 %3, 20
+  %conv24 = zext i64 %1 to i128
   %conv27 = zext i64 %mul12 to i128
   %conv31 = zext i64 %mul to i128
-  %conv35 = zext i64 %5 to i128
-  %conv46 = zext i64 %4 to i128
+  %conv35 = zext i64 %2 to i128
+  %conv46 = zext i64 %3 to i128
   br label %while.body
 
-while.body:                                       ; preds = %while.body.lr.ph, %while.body
-  %m.addr.061 = phi ptr [ %m, %while.body.lr.ph ], [ %add.ptr, %while.body ]
-  %bytes.addr.060 = phi i64 [ %bytes, %while.body.lr.ph ], [ %sub, %while.body ]
-  %h0.059 = phi i64 [ %1, %while.body.lr.ph ], [ %and75, %while.body ]
-  %h1.058 = phi i64 [ %2, %while.body.lr.ph ], [ %add76, %while.body ]
-  %h2.057 = phi i64 [ %3, %while.body.lr.ph ], [ %and71, %while.body ]
-  %m.addr.0.val = load i64, ptr %m.addr.061, align 1
-  %arrayidx15 = getelementptr i8, ptr %m.addr.061, i64 8
+while.body:                                       ; preds = %entry, %while.body
+  %m.addr.060 = phi ptr [ %m, %entry ], [ %add.ptr, %while.body ]
+  %bytes.addr.059 = phi i64 [ %bytes, %entry ], [ %sub, %while.body ]
+  %h0.058 = phi i64 [ %4, %entry ], [ %and75, %while.body ]
+  %h1.057 = phi i64 [ %5, %entry ], [ %add76, %while.body ]
+  %h2.056 = phi i64 [ %6, %entry ], [ %and71, %while.body ]
+  %m.addr.0.val = load i64, ptr %m.addr.060, align 1
+  %arrayidx15 = getelementptr i8, ptr %m.addr.060, i64 8
   %arrayidx15.val = load i64, ptr %arrayidx15, align 1
   %and = and i64 %m.addr.0.val, 17592186044415
-  %add = add i64 %and, %h0.059
+  %add = add i64 %and, %h0.058
   %or = tail call i64 @llvm.fshl.i64(i64 %arrayidx15.val, i64 %m.addr.0.val, i64 20)
   %and17 = and i64 %or, 17592186044415
-  %add18 = add i64 %and17, %h1.058
+  %add18 = add i64 %and17, %h1.057
   %shr19 = lshr i64 %arrayidx15.val, 24
-  %or21 = add i64 %h2.057, %cond
+  %or21 = add i64 %h2.056, %cond
   %add22 = add i64 %or21, %shr19
   %conv23 = zext i64 %add to i128
   %mul25 = mul nuw i128 %conv23, %conv24
@@ -487,18 +483,15 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %shr74 = lshr i64 %add73, 44
   %and75 = and i64 %add73, 17592186044415
   %add76 = add nuw nsw i64 %shr74, %and65
-  %add.ptr = getelementptr i8, ptr %m.addr.061, i64 16
-  %sub = add i64 %bytes.addr.060, -16
+  %add.ptr = getelementptr i8, ptr %m.addr.060, i64 16
+  %sub = add i64 %bytes.addr.059, -16
   %cmp = icmp ugt i64 %sub, 15
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !4
 
-while.end:                                        ; preds = %while.body, %entry
-  %h2.0.lcssa = phi i64 [ %3, %entry ], [ %and71, %while.body ]
-  %h1.0.lcssa = phi i64 [ %2, %entry ], [ %add76, %while.body ]
-  %h0.0.lcssa = phi i64 [ %1, %entry ], [ %and75, %while.body ]
-  store i64 %h0.0.lcssa, ptr %h, align 8
-  store i64 %h1.0.lcssa, ptr %arrayidx9, align 8
-  store i64 %h2.0.lcssa, ptr %arrayidx11, align 8
+while.end:                                        ; preds = %while.body
+  store i64 %and75, ptr %h, align 8
+  store i64 %add76, ptr %arrayidx9, align 8
+  store i64 %and71, ptr %arrayidx11, align 8
   ret void
 }
 

@@ -51,46 +51,39 @@ declare void @lv_free(ptr noundef) local_unnamed_addr #1
 define zeroext i8 @lv_style_register_prop(i8 noundef zeroext %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 88), align 8, !tbaa !10
   %3 = icmp eq ptr %2, null
-  br i1 %3, label %.thread22, label %.thread20
+  br i1 %3, label %4, label %.thread18
 
-.thread22:                                        ; preds = %1
+4:                                                ; preds = %1
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 76), align 4, !tbaa !21
   store i32 140, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 80), align 8, !tbaa !22
-  br label %10
+  br label %7
 
-.thread20:                                        ; preds = %1
+.thread18:                                        ; preds = %1
   %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 80), align 8, !tbaa !22
-  %.pre19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 76), align 4, !tbaa !21
-  %4 = add i32 %.pre, -139
-  %5 = icmp ult i32 %.pre19, %4
-  br i1 %5, label %6, label %.thread21
+  %.pre17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 76), align 4, !tbaa !21
+  %5 = add i32 %.pre, -139
+  %6 = icmp ult i32 %.pre17, %5
+  br i1 %6, label %7, label %.thread19
 
-6:                                                ; preds = %.thread20
-  %7 = zext i32 %4 to i64
-  %8 = add nuw nsw i64 %7, 31
-  %9 = and i64 %8, 8589934560
-  %.not = icmp eq i64 %9, 0
-  br i1 %.not, label %.preheader, label %10
-
-.preheader:                                       ; preds = %6, %.preheader
-  br label %.preheader
-
-10:                                               ; preds = %.thread22, %6
-  %11 = phi i64 [ 32, %.thread22 ], [ %9, %6 ]
+7:                                                ; preds = %4, %.thread18
+  %8 = phi i32 [ %5, %.thread18 ], [ 1, %4 ]
+  %9 = zext i32 %8 to i64
+  %10 = add nuw nsw i64 %9, 31
+  %11 = and i64 %10, 8589934560
   %12 = tail call ptr @lv_realloc(ptr noundef %2, i64 noundef %11) #8
-  %.not15 = icmp eq ptr %12, null
-  br i1 %.not15, label %.critedge, label %.thread
+  %.not = icmp eq ptr %12, null
+  br i1 %.not, label %.critedge, label %.thread
 
-.thread:                                          ; preds = %10
+.thread:                                          ; preds = %7
   store ptr %12, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 88), align 8, !tbaa !10
   %13 = trunc i64 %11 to i32
   store i32 %13, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 76), align 4, !tbaa !21
   %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 80), align 8, !tbaa !22
-  br label %.thread21
+  br label %.thread19
 
-.thread21:                                        ; preds = %.thread20, %.thread
-  %.pre.sink = phi i32 [ %14, %.thread ], [ %.pre, %.thread20 ]
-  %15 = phi ptr [ %12, %.thread ], [ %2, %.thread20 ]
+.thread19:                                        ; preds = %.thread18, %.thread
+  %.pre.sink = phi i32 [ %14, %.thread ], [ %.pre, %.thread18 ]
+  %15 = phi ptr [ %12, %.thread ], [ %2, %.thread18 ]
   %16 = add i32 %.pre.sink, 1
   store i32 %16, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 80), align 8, !tbaa !22
   %17 = add i32 %.pre.sink, -140
@@ -101,8 +94,8 @@ define zeroext i8 @lv_style_register_prop(i8 noundef zeroext %0) local_unnamed_a
   %21 = trunc i32 %20 to i8
   br label %.critedge
 
-.critedge:                                        ; preds = %10, %.thread21
-  %.1 = phi i8 [ %21, %.thread21 ], [ 0, %10 ]
+.critedge:                                        ; preds = %7, %.thread19
+  %.1 = phi i8 [ %21, %.thread19 ], [ 0, %7 ]
   ret i8 %.1
 }
 
