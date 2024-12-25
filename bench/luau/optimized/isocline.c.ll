@@ -9106,7 +9106,7 @@ define internal fastcc i64 @attr_from_sgr(ptr nocapture noundef readonly %0, i64
 
 .lr.ph:                                           ; preds = %2, %.thread48
   %.sroa.025.050 = phi i64 [ %.sroa.025.1, %.thread48 ], [ 0, %2 ]
-  %storemerge49 = phi i64 [ %159, %.thread48 ], [ 0, %2 ]
+  %storemerge49 = phi i64 [ %158, %.thread48 ], [ 0, %2 ]
   %10 = getelementptr inbounds i8, ptr %0, i64 %storemerge49
   %11 = load i8, ptr %10, align 1
   %.not = icmp eq i8 %11, 0
@@ -9246,7 +9246,7 @@ sgr_next_par.exit:                                ; preds = %20
   br label %.thread48
 
 78:                                               ; preds = %70
-  switch i64 %.pr, label %157 [
+  switch i64 %.pr, label %156 [
     i64 48, label %79
     i64 38, label %79
   ]
@@ -9255,7 +9255,7 @@ sgr_next_par.exit:                                ; preds = %20
   %80 = load i8, ptr %21, align 1
   %81 = and i8 %80, -2
   %82 = icmp eq i8 %81, 58
-  br i1 %82, label %83, label %157
+  br i1 %82, label %83, label %156
 
 83:                                               ; preds = %79
   store i64 0, ptr %5, align 8
@@ -9352,42 +9352,41 @@ color_from_ansi256.exit:                          ; preds = %100, %105, %108
   %135 = load i64, ptr %8, align 8
   %136 = call i64 @llvm.smin.i64(i64 %133, i64 255)
   %137 = call i64 @llvm.smax.i64(i64 %136, i64 0)
-  %138 = shl nsw i64 %137, 16
+  %138 = shl nuw nsw i64 %137, 16
   %139 = call i64 @llvm.smin.i64(i64 %134, i64 255)
   %140 = call i64 @llvm.smax.i64(i64 %139, i64 0)
-  %141 = shl nsw i64 %140, 8
-  %142 = call i64 @llvm.smin.i64(i64 %135, i64 255)
-  %143 = call i64 @llvm.smax.i64(i64 %142, i64 0)
-  %144 = or i64 %138, %141
-  %145 = or i64 %144, %143
-  %146 = load i64, ptr %4, align 8
-  %147 = icmp eq i64 %146, 38
-  %148 = and i64 %145, 4278190079
-  %149 = or disjoint i64 %148, 16777216
-  br i1 %147, label %150, label %153
+  %141 = shl nuw nsw i64 %140, 8
+  %142 = or disjoint i64 %141, %138
+  %143 = call i64 @llvm.smin.i64(i64 %135, i64 255)
+  %144 = call i64 @llvm.smax.i64(i64 %143, i64 0)
+  %145 = or disjoint i64 %142, %144
+  %146 = or disjoint i64 %145, 16777216
+  %147 = load i64, ptr %4, align 8
+  %148 = icmp eq i64 %147, 38
+  br i1 %148, label %149, label %152
 
-150:                                              ; preds = %132
-  %151 = and i64 %.sroa.025.050, -268435456
-  %152 = or disjoint i64 %151, %149
+149:                                              ; preds = %132
+  %150 = and i64 %.sroa.025.050, -268435456
+  %151 = or disjoint i64 %150, %146
   br label %.thread48
 
-153:                                              ; preds = %132
-  %154 = shl nuw nsw i64 %149, 32
-  %155 = and i64 %.sroa.025.050, -1152921500311879681
-  %156 = add nuw nsw i64 %154, %155
+152:                                              ; preds = %132
+  %153 = shl nuw nsw i64 %146, 32
+  %154 = and i64 %.sroa.025.050, -1152921500311879681
+  %155 = or disjoint i64 %153, %154
   br label %.thread48
 
-157:                                              ; preds = %78, %79
+156:                                              ; preds = %78, %79
   call void (ptr, ...) @debug_msg(ptr noundef nonnull @.str.29, i64 noundef %.pr)
   br label %.thread48
 
-.thread48:                                        ; preds = %20, %86, %88, %25, %26, %29, %32, %35, %38, %40, %42, %44, %46, %49, %59, %72, %83, %123, %150, %153, %129, %94, %119, %116, %157, %67, %54, %sgr_next_par.exit
-  %.sroa.025.1 = phi i64 [ %56, %54 ], [ %64, %59 ], [ %69, %67 ], [ %77, %72 ], [ %118, %116 ], [ %122, %119 ], [ %.sroa.025.050, %94 ], [ %152, %150 ], [ %156, %153 ], [ %.sroa.025.050, %129 ], [ %.sroa.025.050, %123 ], [ %.sroa.025.050, %83 ], [ %.sroa.025.050, %157 ], [ %51, %49 ], [ %48, %46 ], [ %45, %44 ], [ %43, %42 ], [ %41, %40 ], [ %39, %38 ], [ %37, %35 ], [ %34, %32 ], [ %31, %29 ], [ %28, %26 ], [ %.sroa.025.050, %sgr_next_par.exit ], [ -1152921333076590553, %25 ], [ %.sroa.025.050, %88 ], [ %.sroa.025.050, %86 ], [ -1152921333076590553, %20 ]
-  %158 = load i64, ptr %3, align 8
-  %159 = add nsw i64 %158, 1
-  store i64 %159, ptr %3, align 8
-  %160 = icmp slt i64 %159, %1
-  br i1 %160, label %.lr.ph, label %.critedge, !llvm.loop !56
+.thread48:                                        ; preds = %20, %86, %88, %25, %26, %29, %32, %35, %38, %40, %42, %44, %46, %49, %59, %72, %83, %123, %149, %152, %129, %94, %119, %116, %156, %67, %54, %sgr_next_par.exit
+  %.sroa.025.1 = phi i64 [ %56, %54 ], [ %64, %59 ], [ %69, %67 ], [ %77, %72 ], [ %118, %116 ], [ %122, %119 ], [ %.sroa.025.050, %94 ], [ %151, %149 ], [ %155, %152 ], [ %.sroa.025.050, %129 ], [ %.sroa.025.050, %123 ], [ %.sroa.025.050, %83 ], [ %.sroa.025.050, %156 ], [ %51, %49 ], [ %48, %46 ], [ %45, %44 ], [ %43, %42 ], [ %41, %40 ], [ %39, %38 ], [ %37, %35 ], [ %34, %32 ], [ %31, %29 ], [ %28, %26 ], [ %.sroa.025.050, %sgr_next_par.exit ], [ -1152921333076590553, %25 ], [ %.sroa.025.050, %88 ], [ %.sroa.025.050, %86 ], [ -1152921333076590553, %20 ]
+  %157 = load i64, ptr %3, align 8
+  %158 = add nsw i64 %157, 1
+  store i64 %158, ptr %3, align 8
+  %159 = icmp slt i64 %158, %1
+  br i1 %159, label %.lr.ph, label %.critedge, !llvm.loop !56
 
 .critedge:                                        ; preds = %.lr.ph, %.thread48, %2
   %.sroa.025.0.lcssa = phi i64 [ 0, %2 ], [ %.sroa.025.1, %.thread48 ], [ %.sroa.025.050, %.lr.ph ]

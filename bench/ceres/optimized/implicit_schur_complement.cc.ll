@@ -9171,7 +9171,7 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit: ; preds = %4,
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %17
-  %23 = and i64 %.sroa.speculated177, 9223372036854775800
+  %23 = and i64 %.sroa.speculated177, 504
   store i64 %23, ptr %0, align 8
   br label %24
 
@@ -12149,7 +12149,7 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit: ; preds = %4,
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %17
-  %23 = and i64 %.sroa.speculated177, 9223372036854775800
+  %23 = and i64 %.sroa.speculated177, 504
   store i64 %23, ptr %0, align 8
   br label %24
 

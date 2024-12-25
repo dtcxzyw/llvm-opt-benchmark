@@ -1061,7 +1061,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr noundef readon
   %212 = getelementptr inbounds nuw [53 x float], ptr %201, i64 0, i64 %211
   store float 1.000000e+00, ptr %212, align 4, !tbaa !11
   switch i32 %27, label %678 [
-    i32 0, label %1825
+    i32 0, label %1824
     i32 1, label %220
     i32 2, label %235
     i32 3, label %301
@@ -1098,7 +1098,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr noundef readon
   %233 = load float, ptr %232, align 4, !tbaa !11
   %234 = fdiv reassoc nsz arcp contract afn float %231, %233
   store float %234, ptr %212, align 4, !tbaa !11
-  br label %1825
+  br label %1824
 
 235:                                              ; preds = %.loopexit99
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #22
@@ -1126,7 +1126,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr noundef readon
 249:                                              ; preds = %235
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #22
-  br label %1825
+  br label %1824
 
 250:                                              ; preds = %235
   %251 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -1165,7 +1165,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr noundef readon
 271:                                              ; preds = %250
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #22
-  br label %1825
+  br label %1824
 
 272:                                              ; preds = %250
   %273 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -1215,7 +1215,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr noundef readon
 300:                                              ; preds = %293, %272
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #22
-  br label %1825
+  br label %1824
 
 301:                                              ; preds = %.loopexit99
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %11) #22
@@ -1276,7 +1276,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr noundef readon
 345:                                              ; preds = %301
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #22
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %11) #22
-  br label %1825
+  br label %1824
 
 346:                                              ; preds = %301
   %347 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -1342,7 +1342,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr noundef readon
 390:                                              ; preds = %346
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #22
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %13) #22
-  br label %1825
+  br label %1824
 
 391:                                              ; preds = %346
   %392 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -1426,7 +1426,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr noundef readon
 448:                                              ; preds = %437, %391
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16) #22
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %15) #22
-  br label %1825
+  br label %1824
 
 449:                                              ; preds = %.loopexit99
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %17) #22
@@ -1743,7 +1743,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr noundef readon
 677:                                              ; preds = %502, %449
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #22
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %17) #22
-  br label %1825
+  br label %1824
 
 678:                                              ; preds = %.loopexit99
   %679 = shl nuw nsw i64 %200, 3
@@ -2025,7 +2025,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr noundef readon
 
 873:                                              ; preds = %.loopexit91
   %874 = and i64 %685, 60
-  br label %940
+  br label %939
 
 875:                                              ; preds = %875, %817
   %876 = phi i64 [ 0, %817 ], [ %912, %875 ]
@@ -2076,8 +2076,8 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr noundef readon
   %913 = icmp eq i64 %912, %818
   br i1 %913, label %.loopexit92, label %875
 
-.loopexit89:                                      ; preds = %940, %.loopexit91
-  %914 = phi i64 [ 0, %.loopexit91 ], [ %874, %940 ]
+.loopexit89:                                      ; preds = %939, %.loopexit91
+  %914 = phi i64 [ 0, %.loopexit91 ], [ %874, %939 ]
   br i1 %799, label %.loopexit88, label %.preheader87
 
 .preheader87:                                     ; preds = %.loopexit89, %.preheader87
@@ -2100,1280 +2100,1280 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr noundef readon
 
 .loopexit88:                                      ; preds = %.preheader87, %.loopexit89, %678
   %928 = icmp ult i32 %26, %28
-  br i1 %928, label %929, label %989
+  br i1 %928, label %929, label %988
 
 929:                                              ; preds = %.loopexit88
   %930 = mul nuw nsw i32 %28, %26
   %931 = add nuw nsw i32 %930, %27
   %932 = zext nneg i32 %931 to i64
   %933 = shl nuw nsw i64 %932, 3
-  %934 = zext nneg i32 %27 to i64
-  %935 = shl nuw nsw i64 %934, 3
-  %936 = add nuw nsw i64 %935, 32
-  %937 = sub nuw nsw i32 %28, %26
-  %938 = getelementptr i8, ptr %681, i64 %933
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %938, i8 0, i64 32, i1 false), !tbaa !63
-  %939 = icmp eq i32 %937, 1
-  br i1 %939, label %989, label %979
+  %934 = shl nuw nsw i32 %27, 3
+  %narrow = add nuw nsw i32 %934, 32
+  %935 = zext nneg i32 %narrow to i64
+  %936 = sub nuw nsw i32 %28, %26
+  %937 = getelementptr i8, ptr %681, i64 %933
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %937, i8 0, i64 32, i1 false), !tbaa !63
+  %938 = icmp eq i32 %936, 1
+  br i1 %938, label %988, label %978
 
-940:                                              ; preds = %940, %873
-  %941 = phi i64 [ 0, %873 ], [ %977, %940 ]
-  %942 = mul nuw nsw i64 %941, 3
-  %943 = or disjoint i64 %942, 2
-  %944 = getelementptr inbounds nuw [147 x float], ptr %684, i64 0, i64 %943
-  %945 = load float, ptr %944, align 4, !tbaa !11
-  %946 = fpext float %945 to double
-  %947 = getelementptr double, ptr %871, i64 %941
-  store double %946, ptr %947, align 8, !tbaa !63
-  %948 = mul nuw nsw i64 %941, %200
-  %949 = getelementptr double, ptr %872, i64 %948
-  store double %946, ptr %949, align 8, !tbaa !63
-  %950 = or disjoint i64 %941, 1
-  %951 = mul nuw nsw i64 %950, 3
-  %952 = add nuw nsw i64 %951, 2
-  %953 = getelementptr inbounds nuw [147 x float], ptr %684, i64 0, i64 %952
-  %954 = load float, ptr %953, align 4, !tbaa !11
-  %955 = fpext float %954 to double
-  %956 = getelementptr double, ptr %871, i64 %950
-  store double %955, ptr %956, align 8, !tbaa !63
-  %957 = mul nuw nsw i64 %950, %200
-  %958 = getelementptr double, ptr %872, i64 %957
-  store double %955, ptr %958, align 8, !tbaa !63
-  %959 = or disjoint i64 %941, 2
-  %960 = mul nuw nsw i64 %959, 3
-  %961 = add nuw nsw i64 %960, 2
-  %962 = getelementptr inbounds nuw [147 x float], ptr %684, i64 0, i64 %961
-  %963 = load float, ptr %962, align 4, !tbaa !11
-  %964 = fpext float %963 to double
-  %965 = getelementptr double, ptr %871, i64 %959
-  store double %964, ptr %965, align 8, !tbaa !63
-  %966 = mul nuw nsw i64 %959, %200
-  %967 = getelementptr double, ptr %872, i64 %966
-  store double %964, ptr %967, align 8, !tbaa !63
-  %968 = or disjoint i64 %941, 3
-  %969 = mul nuw nsw i64 %968, 3
-  %970 = or disjoint i64 %969, 2
-  %971 = getelementptr inbounds nuw [147 x float], ptr %684, i64 0, i64 %970
-  %972 = load float, ptr %971, align 4, !tbaa !11
-  %973 = fpext float %972 to double
-  %974 = getelementptr double, ptr %871, i64 %968
-  store double %973, ptr %974, align 8, !tbaa !63
-  %975 = mul nuw nsw i64 %968, %200
-  %976 = getelementptr double, ptr %872, i64 %975
-  store double %973, ptr %976, align 8, !tbaa !63
-  %977 = add nuw nsw i64 %941, 4
-  %978 = icmp eq i64 %977, %874
-  br i1 %978, label %.loopexit89, label %940
+939:                                              ; preds = %939, %873
+  %940 = phi i64 [ 0, %873 ], [ %976, %939 ]
+  %941 = mul nuw nsw i64 %940, 3
+  %942 = or disjoint i64 %941, 2
+  %943 = getelementptr inbounds nuw [147 x float], ptr %684, i64 0, i64 %942
+  %944 = load float, ptr %943, align 4, !tbaa !11
+  %945 = fpext float %944 to double
+  %946 = getelementptr double, ptr %871, i64 %940
+  store double %945, ptr %946, align 8, !tbaa !63
+  %947 = mul nuw nsw i64 %940, %200
+  %948 = getelementptr double, ptr %872, i64 %947
+  store double %945, ptr %948, align 8, !tbaa !63
+  %949 = or disjoint i64 %940, 1
+  %950 = mul nuw nsw i64 %949, 3
+  %951 = add nuw nsw i64 %950, 2
+  %952 = getelementptr inbounds nuw [147 x float], ptr %684, i64 0, i64 %951
+  %953 = load float, ptr %952, align 4, !tbaa !11
+  %954 = fpext float %953 to double
+  %955 = getelementptr double, ptr %871, i64 %949
+  store double %954, ptr %955, align 8, !tbaa !63
+  %956 = mul nuw nsw i64 %949, %200
+  %957 = getelementptr double, ptr %872, i64 %956
+  store double %954, ptr %957, align 8, !tbaa !63
+  %958 = or disjoint i64 %940, 2
+  %959 = mul nuw nsw i64 %958, 3
+  %960 = add nuw nsw i64 %959, 2
+  %961 = getelementptr inbounds nuw [147 x float], ptr %684, i64 0, i64 %960
+  %962 = load float, ptr %961, align 4, !tbaa !11
+  %963 = fpext float %962 to double
+  %964 = getelementptr double, ptr %871, i64 %958
+  store double %963, ptr %964, align 8, !tbaa !63
+  %965 = mul nuw nsw i64 %958, %200
+  %966 = getelementptr double, ptr %872, i64 %965
+  store double %963, ptr %966, align 8, !tbaa !63
+  %967 = or disjoint i64 %940, 3
+  %968 = mul nuw nsw i64 %967, 3
+  %969 = or disjoint i64 %968, 2
+  %970 = getelementptr inbounds nuw [147 x float], ptr %684, i64 0, i64 %969
+  %971 = load float, ptr %970, align 4, !tbaa !11
+  %972 = fpext float %971 to double
+  %973 = getelementptr double, ptr %871, i64 %967
+  store double %972, ptr %973, align 8, !tbaa !63
+  %974 = mul nuw nsw i64 %967, %200
+  %975 = getelementptr double, ptr %872, i64 %974
+  store double %972, ptr %975, align 8, !tbaa !63
+  %976 = add nuw nsw i64 %940, 4
+  %977 = icmp eq i64 %976, %874
+  br i1 %977, label %.loopexit89, label %939
 
-979:                                              ; preds = %929
-  %980 = getelementptr i8, ptr %938, i64 %936
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %980, i8 0, i64 32, i1 false), !tbaa !63
-  %981 = icmp eq i32 %937, 2
-  br i1 %981, label %989, label %982
+978:                                              ; preds = %929
+  %979 = getelementptr i8, ptr %937, i64 %935
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %979, i8 0, i64 32, i1 false), !tbaa !63
+  %980 = icmp eq i32 %936, 2
+  br i1 %980, label %988, label %981
 
-982:                                              ; preds = %979
-  %983 = shl nuw nsw i64 %936, 1
-  %984 = getelementptr i8, ptr %938, i64 %983
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %984, i8 0, i64 32, i1 false), !tbaa !63
-  %985 = icmp eq i32 %937, 3
-  br i1 %985, label %989, label %986
+981:                                              ; preds = %978
+  %982 = shl nuw nsw i64 %935, 1
+  %983 = getelementptr i8, ptr %937, i64 %982
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %983, i8 0, i64 32, i1 false), !tbaa !63
+  %984 = icmp eq i32 %936, 3
+  br i1 %984, label %988, label %985
 
-986:                                              ; preds = %982
-  %987 = mul nuw nsw i64 %936, 3
-  %988 = getelementptr i8, ptr %938, i64 %987
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %988, i8 0, i64 32, i1 false), !tbaa !63
-  br label %989
+985:                                              ; preds = %981
+  %986 = mul nuw nsw i64 %935, 3
+  %987 = getelementptr i8, ptr %937, i64 %986
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %987, i8 0, i64 32, i1 false), !tbaa !63
+  br label %988
 
-989:                                              ; preds = %986, %982, %979, %929, %.loopexit88
-  %990 = shl nuw nsw i64 %200, 2
-  %991 = tail call noalias ptr @malloc(i64 noundef %990) #26
-  %992 = tail call fastcc i32 @gauss_make_triangular(ptr noundef %681, ptr noundef %991, i32 noundef %28)
-  %993 = icmp eq i32 %992, 0
-  br i1 %993, label %.loopexit, label %994
+988:                                              ; preds = %985, %981, %978, %929, %.loopexit88
+  %989 = shl nuw nsw i64 %200, 2
+  %990 = tail call noalias ptr @malloc(i64 noundef %989) #26
+  %991 = tail call fastcc i32 @gauss_make_triangular(ptr noundef %681, ptr noundef %990, i32 noundef %28)
+  %992 = icmp eq i32 %991, 0
+  br i1 %992, label %.loopexit, label %993
 
-994:                                              ; preds = %989
-  br i1 %29, label %995, label %.loopexit86
+993:                                              ; preds = %988
+  br i1 %29, label %994, label %.loopexit86
 
-995:                                              ; preds = %994
-  %996 = getelementptr inbounds nuw i8, ptr %1, i64 588
-  %997 = zext nneg i32 %26 to i64
-  %998 = icmp samesign ult i32 %25, 16
-  br i1 %998, label %.preheader133, label %999
+994:                                              ; preds = %993
+  %995 = getelementptr inbounds nuw i8, ptr %1, i64 588
+  %996 = zext nneg i32 %26 to i64
+  %997 = icmp samesign ult i32 %25, 16
+  br i1 %997, label %.preheader133, label %998
 
-.preheader133:                                    ; preds = %1051, %995
-  %.ph134 = phi i64 [ %1000, %1051 ], [ 0, %995 ]
-  br label %1058
+.preheader133:                                    ; preds = %1050, %994
+  %.ph134 = phi i64 [ %999, %1050 ], [ 0, %994 ]
+  br label %1057
 
-999:                                              ; preds = %995
-  %1000 = and i64 %997, 48
-  %1001 = getelementptr inbounds nuw i8, ptr %1, i64 604
-  %1002 = getelementptr inbounds nuw i8, ptr %1, i64 620
-  %1003 = getelementptr inbounds nuw i8, ptr %1, i64 636
-  %1004 = load <4 x float>, ptr %996, align 4, !tbaa !11
+998:                                              ; preds = %994
+  %999 = and i64 %996, 48
+  %1000 = getelementptr inbounds nuw i8, ptr %1, i64 604
+  %1001 = getelementptr inbounds nuw i8, ptr %1, i64 620
+  %1002 = getelementptr inbounds nuw i8, ptr %1, i64 636
+  %1003 = load <4 x float>, ptr %995, align 4, !tbaa !11
+  %1004 = load <4 x float>, ptr %1000, align 4, !tbaa !11
   %1005 = load <4 x float>, ptr %1001, align 4, !tbaa !11
   %1006 = load <4 x float>, ptr %1002, align 4, !tbaa !11
-  %1007 = load <4 x float>, ptr %1003, align 4, !tbaa !11
+  %1007 = fpext <4 x float> %1003 to <4 x double>
   %1008 = fpext <4 x float> %1004 to <4 x double>
   %1009 = fpext <4 x float> %1005 to <4 x double>
   %1010 = fpext <4 x float> %1006 to <4 x double>
-  %1011 = fpext <4 x float> %1007 to <4 x double>
-  %1012 = getelementptr inbounds nuw i8, ptr %682, i64 32
-  %1013 = getelementptr inbounds nuw i8, ptr %682, i64 64
-  %1014 = getelementptr inbounds nuw i8, ptr %682, i64 96
-  store <4 x double> %1008, ptr %682, align 8, !tbaa !63
+  %1011 = getelementptr inbounds nuw i8, ptr %682, i64 32
+  %1012 = getelementptr inbounds nuw i8, ptr %682, i64 64
+  %1013 = getelementptr inbounds nuw i8, ptr %682, i64 96
+  store <4 x double> %1007, ptr %682, align 8, !tbaa !63
+  store <4 x double> %1008, ptr %1011, align 8, !tbaa !63
   store <4 x double> %1009, ptr %1012, align 8, !tbaa !63
   store <4 x double> %1010, ptr %1013, align 8, !tbaa !63
-  store <4 x double> %1011, ptr %1014, align 8, !tbaa !63
-  %1015 = icmp eq i64 %1000, 16
-  br i1 %1015, label %1051, label %1016, !llvm.loop !69
+  %1014 = icmp eq i64 %999, 16
+  br i1 %1014, label %1050, label %1015, !llvm.loop !69
 
-1016:                                             ; preds = %999
-  %1017 = getelementptr inbounds nuw i8, ptr %1, i64 652
-  %1018 = getelementptr inbounds nuw i8, ptr %1, i64 668
-  %1019 = getelementptr inbounds nuw i8, ptr %1, i64 684
-  %1020 = getelementptr inbounds nuw i8, ptr %1, i64 700
+1015:                                             ; preds = %998
+  %1016 = getelementptr inbounds nuw i8, ptr %1, i64 652
+  %1017 = getelementptr inbounds nuw i8, ptr %1, i64 668
+  %1018 = getelementptr inbounds nuw i8, ptr %1, i64 684
+  %1019 = getelementptr inbounds nuw i8, ptr %1, i64 700
+  %1020 = load <4 x float>, ptr %1016, align 4, !tbaa !11
   %1021 = load <4 x float>, ptr %1017, align 4, !tbaa !11
   %1022 = load <4 x float>, ptr %1018, align 4, !tbaa !11
   %1023 = load <4 x float>, ptr %1019, align 4, !tbaa !11
-  %1024 = load <4 x float>, ptr %1020, align 4, !tbaa !11
+  %1024 = fpext <4 x float> %1020 to <4 x double>
   %1025 = fpext <4 x float> %1021 to <4 x double>
   %1026 = fpext <4 x float> %1022 to <4 x double>
   %1027 = fpext <4 x float> %1023 to <4 x double>
-  %1028 = fpext <4 x float> %1024 to <4 x double>
-  %1029 = getelementptr inbounds nuw i8, ptr %682, i64 128
-  %1030 = getelementptr inbounds nuw i8, ptr %682, i64 160
-  %1031 = getelementptr inbounds nuw i8, ptr %682, i64 192
-  %1032 = getelementptr inbounds nuw i8, ptr %682, i64 224
+  %1028 = getelementptr inbounds nuw i8, ptr %682, i64 128
+  %1029 = getelementptr inbounds nuw i8, ptr %682, i64 160
+  %1030 = getelementptr inbounds nuw i8, ptr %682, i64 192
+  %1031 = getelementptr inbounds nuw i8, ptr %682, i64 224
+  store <4 x double> %1024, ptr %1028, align 8, !tbaa !63
   store <4 x double> %1025, ptr %1029, align 8, !tbaa !63
   store <4 x double> %1026, ptr %1030, align 8, !tbaa !63
   store <4 x double> %1027, ptr %1031, align 8, !tbaa !63
-  store <4 x double> %1028, ptr %1032, align 8, !tbaa !63
-  %1033 = icmp eq i64 %1000, 32
-  br i1 %1033, label %1051, label %1034, !llvm.loop !69
+  %1032 = icmp eq i64 %999, 32
+  br i1 %1032, label %1050, label %1033, !llvm.loop !69
 
-1034:                                             ; preds = %1016
-  %1035 = getelementptr inbounds nuw i8, ptr %1, i64 716
-  %1036 = getelementptr inbounds nuw i8, ptr %1, i64 732
-  %1037 = getelementptr inbounds nuw i8, ptr %1, i64 748
-  %1038 = getelementptr inbounds nuw i8, ptr %1, i64 764
+1033:                                             ; preds = %1015
+  %1034 = getelementptr inbounds nuw i8, ptr %1, i64 716
+  %1035 = getelementptr inbounds nuw i8, ptr %1, i64 732
+  %1036 = getelementptr inbounds nuw i8, ptr %1, i64 748
+  %1037 = getelementptr inbounds nuw i8, ptr %1, i64 764
+  %1038 = load <4 x float>, ptr %1034, align 4, !tbaa !11
   %1039 = load <4 x float>, ptr %1035, align 4, !tbaa !11
   %1040 = load <4 x float>, ptr %1036, align 4, !tbaa !11
   %1041 = load <4 x float>, ptr %1037, align 4, !tbaa !11
-  %1042 = load <4 x float>, ptr %1038, align 4, !tbaa !11
+  %1042 = fpext <4 x float> %1038 to <4 x double>
   %1043 = fpext <4 x float> %1039 to <4 x double>
   %1044 = fpext <4 x float> %1040 to <4 x double>
   %1045 = fpext <4 x float> %1041 to <4 x double>
-  %1046 = fpext <4 x float> %1042 to <4 x double>
-  %1047 = getelementptr inbounds nuw i8, ptr %682, i64 256
-  %1048 = getelementptr inbounds nuw i8, ptr %682, i64 288
-  %1049 = getelementptr inbounds nuw i8, ptr %682, i64 320
-  %1050 = getelementptr inbounds nuw i8, ptr %682, i64 352
+  %1046 = getelementptr inbounds nuw i8, ptr %682, i64 256
+  %1047 = getelementptr inbounds nuw i8, ptr %682, i64 288
+  %1048 = getelementptr inbounds nuw i8, ptr %682, i64 320
+  %1049 = getelementptr inbounds nuw i8, ptr %682, i64 352
+  store <4 x double> %1042, ptr %1046, align 8, !tbaa !63
   store <4 x double> %1043, ptr %1047, align 8, !tbaa !63
   store <4 x double> %1044, ptr %1048, align 8, !tbaa !63
   store <4 x double> %1045, ptr %1049, align 8, !tbaa !63
-  store <4 x double> %1046, ptr %1050, align 8, !tbaa !63
-  br label %1051
+  br label %1050
 
-1051:                                             ; preds = %1034, %1016, %999
-  %1052 = icmp eq i64 %1000, %997
-  br i1 %1052, label %.loopexit86, label %.preheader133
+1050:                                             ; preds = %1033, %1015, %998
+  %1051 = icmp eq i64 %999, %996
+  br i1 %1051, label %.loopexit86, label %.preheader133
 
-.loopexit86:                                      ; preds = %1058, %1051, %994
-  %1053 = zext nneg i32 %27 to i64
-  %1054 = shl nuw nsw i64 %1053, 3
-  %1055 = getelementptr i8, ptr %682, i64 %1054
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1055, i8 0, i64 32, i1 false), !tbaa !63
-  %1056 = insertelement <4 x i64> poison, i64 %200, i64 0
-  %1057 = shufflevector <4 x i64> %1056, <4 x i64> poison, <4 x i32> zeroinitializer
-  br label %1073
+.loopexit86:                                      ; preds = %1057, %1050, %993
+  %1052 = shl nuw nsw i32 %27, 3
+  %1053 = zext nneg i32 %1052 to i64
+  %1054 = getelementptr i8, ptr %682, i64 %1053
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1054, i8 0, i64 32, i1 false), !tbaa !63
+  %1055 = insertelement <4 x i64> poison, i64 %200, i64 0
+  %1056 = shufflevector <4 x i64> %1055, <4 x i64> poison, <4 x i32> zeroinitializer
+  br label %1072
 
-1058:                                             ; preds = %.preheader133, %1058
-  %1059 = phi i64 [ %1064, %1058 ], [ %.ph134, %.preheader133 ]
-  %1060 = getelementptr inbounds nuw [49 x float], ptr %996, i64 0, i64 %1059
-  %1061 = load float, ptr %1060, align 4, !tbaa !11
-  %1062 = fpext float %1061 to double
-  %1063 = getelementptr inbounds nuw double, ptr %682, i64 %1059
-  store double %1062, ptr %1063, align 8, !tbaa !63
-  %1064 = add nuw nsw i64 %1059, 1
-  %1065 = icmp eq i64 %1064, %997
-  br i1 %1065, label %.loopexit86, label %1058, !llvm.loop !70
+1057:                                             ; preds = %.preheader133, %1057
+  %1058 = phi i64 [ %1063, %1057 ], [ %.ph134, %.preheader133 ]
+  %1059 = getelementptr inbounds nuw [49 x float], ptr %995, i64 0, i64 %1058
+  %1060 = load float, ptr %1059, align 4, !tbaa !11
+  %1061 = fpext float %1060 to double
+  %1062 = getelementptr inbounds nuw double, ptr %682, i64 %1058
+  store double %1061, ptr %1062, align 8, !tbaa !63
+  %1063 = add nuw nsw i64 %1058, 1
+  %1064 = icmp eq i64 %1063, %996
+  br i1 %1064, label %.loopexit86, label %1057, !llvm.loop !70
 
-.loopexit85:                                      ; preds = %1134, %1131
+.loopexit85:                                      ; preds = %1133, %1130
+  %1065 = add nuw nsw i64 %1073, 1
   %1066 = add nuw nsw i64 %1074, 1
-  %1067 = add nuw nsw i64 %1075, 1
-  %1068 = icmp eq i64 %1066, %211
-  br i1 %1068, label %1069, label %1073
+  %1067 = icmp eq i64 %1065, %211
+  br i1 %1067, label %1068, label %1072
 
-1069:                                             ; preds = %.loopexit85
-  %1070 = add nuw nsw i32 %27, 5
-  %1071 = zext nneg i32 %1070 to i64
-  %1072 = add nsw i64 %200, -1
-  br label %1145
+1068:                                             ; preds = %.loopexit85
+  %1069 = add nuw nsw i32 %27, 5
+  %1070 = zext nneg i32 %1069 to i64
+  %1071 = add nsw i64 %200, -1
+  br label %1144
 
-1073:                                             ; preds = %.loopexit85, %.loopexit86
-  %1074 = phi i64 [ 0, %.loopexit86 ], [ %1066, %.loopexit85 ]
-  %1075 = phi i64 [ 1, %.loopexit86 ], [ %1067, %.loopexit85 ]
-  %1076 = sub nsw i64 %211, %1074
-  %1077 = getelementptr inbounds nuw i32, ptr %991, i64 %1074
-  %1078 = load i32, ptr %1077, align 4, !tbaa !15
-  %1079 = sext i32 %1078 to i64
-  %1080 = getelementptr inbounds double, ptr %682, i64 %1079
-  %1081 = load double, ptr %1080, align 8, !tbaa !63
-  %1082 = getelementptr inbounds nuw double, ptr %682, i64 %1074
-  %1083 = load double, ptr %1082, align 8, !tbaa !63
-  store double %1083, ptr %1080, align 8, !tbaa !63
-  store double %1081, ptr %1082, align 8, !tbaa !63
-  %1084 = getelementptr double, ptr %681, i64 %1074
-  %1085 = icmp ult i64 %1076, 16
-  br i1 %1085, label %.preheader131, label %1086
+1072:                                             ; preds = %.loopexit85, %.loopexit86
+  %1073 = phi i64 [ 0, %.loopexit86 ], [ %1065, %.loopexit85 ]
+  %1074 = phi i64 [ 1, %.loopexit86 ], [ %1066, %.loopexit85 ]
+  %1075 = sub nsw i64 %211, %1073
+  %1076 = getelementptr inbounds nuw i32, ptr %990, i64 %1073
+  %1077 = load i32, ptr %1076, align 4, !tbaa !15
+  %1078 = sext i32 %1077 to i64
+  %1079 = getelementptr inbounds double, ptr %682, i64 %1078
+  %1080 = load double, ptr %1079, align 8, !tbaa !63
+  %1081 = getelementptr inbounds nuw double, ptr %682, i64 %1073
+  %1082 = load double, ptr %1081, align 8, !tbaa !63
+  store double %1082, ptr %1079, align 8, !tbaa !63
+  store double %1080, ptr %1081, align 8, !tbaa !63
+  %1083 = getelementptr double, ptr %681, i64 %1073
+  %1084 = icmp ult i64 %1075, 16
+  br i1 %1084, label %.preheader131, label %1085
 
-1086:                                             ; preds = %1073
-  %1087 = and i64 %1076, -16
-  %1088 = insertelement <4 x i64> poison, i64 %1075, i64 0
-  %1089 = shufflevector <4 x i64> %1088, <4 x i64> poison, <4 x i32> zeroinitializer
-  %1090 = add nuw <4 x i64> %1089, <i64 0, i64 1, i64 2, i64 3>
-  %1091 = insertelement <4 x double> poison, double %1081, i64 0
-  %1092 = shufflevector <4 x double> %1091, <4 x double> poison, <4 x i32> zeroinitializer
-  %1093 = getelementptr double, ptr %682, i64 %1075
-  br label %1094
+1085:                                             ; preds = %1072
+  %1086 = and i64 %1075, -16
+  %1087 = insertelement <4 x i64> poison, i64 %1074, i64 0
+  %1088 = shufflevector <4 x i64> %1087, <4 x i64> poison, <4 x i32> zeroinitializer
+  %1089 = add nuw <4 x i64> %1088, <i64 0, i64 1, i64 2, i64 3>
+  %1090 = insertelement <4 x double> poison, double %1080, i64 0
+  %1091 = shufflevector <4 x double> %1090, <4 x double> poison, <4 x i32> zeroinitializer
+  %1092 = getelementptr double, ptr %682, i64 %1074
+  br label %1093
 
-1094:                                             ; preds = %1094, %1086
-  %1095 = phi i64 [ 0, %1086 ], [ %1128, %1094 ]
-  %1096 = phi <4 x i64> [ %1090, %1086 ], [ %1129, %1094 ]
-  %1097 = add <4 x i64> %1096, splat (i64 4)
-  %1098 = add <4 x i64> %1096, splat (i64 8)
-  %1099 = add <4 x i64> %1096, splat (i64 12)
-  %1100 = mul nuw nsw <4 x i64> %1096, %1057
-  %1101 = mul nuw nsw <4 x i64> %1097, %1057
-  %1102 = mul nuw nsw <4 x i64> %1098, %1057
-  %1103 = mul nuw nsw <4 x i64> %1099, %1057
-  %1104 = getelementptr double, ptr %1084, <4 x i64> %1100
-  %1105 = getelementptr double, ptr %1084, <4 x i64> %1101
-  %1106 = getelementptr double, ptr %1084, <4 x i64> %1102
-  %1107 = getelementptr double, ptr %1084, <4 x i64> %1103
+1093:                                             ; preds = %1093, %1085
+  %1094 = phi i64 [ 0, %1085 ], [ %1127, %1093 ]
+  %1095 = phi <4 x i64> [ %1089, %1085 ], [ %1128, %1093 ]
+  %1096 = add <4 x i64> %1095, splat (i64 4)
+  %1097 = add <4 x i64> %1095, splat (i64 8)
+  %1098 = add <4 x i64> %1095, splat (i64 12)
+  %1099 = mul nuw nsw <4 x i64> %1095, %1056
+  %1100 = mul nuw nsw <4 x i64> %1096, %1056
+  %1101 = mul nuw nsw <4 x i64> %1097, %1056
+  %1102 = mul nuw nsw <4 x i64> %1098, %1056
+  %1103 = getelementptr double, ptr %1083, <4 x i64> %1099
+  %1104 = getelementptr double, ptr %1083, <4 x i64> %1100
+  %1105 = getelementptr double, ptr %1083, <4 x i64> %1101
+  %1106 = getelementptr double, ptr %1083, <4 x i64> %1102
+  %1107 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %1103, i32 8, <4 x i1> splat (i1 true), <4 x double> poison), !tbaa !63
   %1108 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %1104, i32 8, <4 x i1> splat (i1 true), <4 x double> poison), !tbaa !63
   %1109 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %1105, i32 8, <4 x i1> splat (i1 true), <4 x double> poison), !tbaa !63
   %1110 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %1106, i32 8, <4 x i1> splat (i1 true), <4 x double> poison), !tbaa !63
-  %1111 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %1107, i32 8, <4 x i1> splat (i1 true), <4 x double> poison), !tbaa !63
-  %1112 = fmul reassoc nsz arcp contract afn <4 x double> %1108, %1092
-  %1113 = fmul reassoc nsz arcp contract afn <4 x double> %1109, %1092
-  %1114 = fmul reassoc nsz arcp contract afn <4 x double> %1110, %1092
-  %1115 = fmul reassoc nsz arcp contract afn <4 x double> %1111, %1092
-  %1116 = getelementptr double, ptr %1093, i64 %1095
-  %1117 = getelementptr inbounds nuw i8, ptr %1116, i64 32
-  %1118 = getelementptr inbounds nuw i8, ptr %1116, i64 64
-  %1119 = getelementptr inbounds nuw i8, ptr %1116, i64 96
+  %1111 = fmul reassoc nsz arcp contract afn <4 x double> %1107, %1091
+  %1112 = fmul reassoc nsz arcp contract afn <4 x double> %1108, %1091
+  %1113 = fmul reassoc nsz arcp contract afn <4 x double> %1109, %1091
+  %1114 = fmul reassoc nsz arcp contract afn <4 x double> %1110, %1091
+  %1115 = getelementptr double, ptr %1092, i64 %1094
+  %1116 = getelementptr inbounds nuw i8, ptr %1115, i64 32
+  %1117 = getelementptr inbounds nuw i8, ptr %1115, i64 64
+  %1118 = getelementptr inbounds nuw i8, ptr %1115, i64 96
+  %1119 = load <4 x double>, ptr %1115, align 8, !tbaa !63
   %1120 = load <4 x double>, ptr %1116, align 8, !tbaa !63
   %1121 = load <4 x double>, ptr %1117, align 8, !tbaa !63
   %1122 = load <4 x double>, ptr %1118, align 8, !tbaa !63
-  %1123 = load <4 x double>, ptr %1119, align 8, !tbaa !63
+  %1123 = fadd reassoc nsz arcp contract afn <4 x double> %1119, %1111
   %1124 = fadd reassoc nsz arcp contract afn <4 x double> %1120, %1112
   %1125 = fadd reassoc nsz arcp contract afn <4 x double> %1121, %1113
   %1126 = fadd reassoc nsz arcp contract afn <4 x double> %1122, %1114
-  %1127 = fadd reassoc nsz arcp contract afn <4 x double> %1123, %1115
+  store <4 x double> %1123, ptr %1115, align 8, !tbaa !63
   store <4 x double> %1124, ptr %1116, align 8, !tbaa !63
   store <4 x double> %1125, ptr %1117, align 8, !tbaa !63
   store <4 x double> %1126, ptr %1118, align 8, !tbaa !63
-  store <4 x double> %1127, ptr %1119, align 8, !tbaa !63
-  %1128 = add nuw i64 %1095, 16
-  %1129 = add <4 x i64> %1096, splat (i64 16)
-  %1130 = icmp eq i64 %1128, %1087
-  br i1 %1130, label %1131, label %1094, !llvm.loop !71
+  %1127 = add nuw i64 %1094, 16
+  %1128 = add <4 x i64> %1095, splat (i64 16)
+  %1129 = icmp eq i64 %1127, %1086
+  br i1 %1129, label %1130, label %1093, !llvm.loop !71
 
-1131:                                             ; preds = %1094
-  %1132 = add i64 %1087, %1075
-  %1133 = icmp eq i64 %1076, %1087
-  br i1 %1133, label %.loopexit85, label %.preheader131
+1130:                                             ; preds = %1093
+  %1131 = add i64 %1086, %1074
+  %1132 = icmp eq i64 %1075, %1086
+  br i1 %1132, label %.loopexit85, label %.preheader131
 
-.preheader131:                                    ; preds = %1131, %1073
-  %.ph132 = phi i64 [ %1132, %1131 ], [ %1075, %1073 ]
-  br label %1134
+.preheader131:                                    ; preds = %1130, %1072
+  %.ph132 = phi i64 [ %1131, %1130 ], [ %1074, %1072 ]
+  br label %1133
 
-1134:                                             ; preds = %.preheader131, %1134
-  %1135 = phi i64 [ %1143, %1134 ], [ %.ph132, %.preheader131 ]
-  %1136 = mul nuw nsw i64 %1135, %200
-  %1137 = getelementptr double, ptr %1084, i64 %1136
-  %1138 = load double, ptr %1137, align 8, !tbaa !63
-  %1139 = fmul reassoc nsz arcp contract afn double %1138, %1081
-  %1140 = getelementptr inbounds double, ptr %682, i64 %1135
-  %1141 = load double, ptr %1140, align 8, !tbaa !63
-  %1142 = fadd reassoc nsz arcp contract afn double %1141, %1139
-  store double %1142, ptr %1140, align 8, !tbaa !63
-  %1143 = add nuw nsw i64 %1135, 1
-  %1144 = icmp eq i64 %1143, %200
-  br i1 %1144, label %.loopexit85, label %1134, !llvm.loop !72
+1133:                                             ; preds = %.preheader131, %1133
+  %1134 = phi i64 [ %1142, %1133 ], [ %.ph132, %.preheader131 ]
+  %1135 = mul nuw nsw i64 %1134, %200
+  %1136 = getelementptr double, ptr %1083, i64 %1135
+  %1137 = load double, ptr %1136, align 8, !tbaa !63
+  %1138 = fmul reassoc nsz arcp contract afn double %1137, %1080
+  %1139 = getelementptr inbounds double, ptr %682, i64 %1134
+  %1140 = load double, ptr %1139, align 8, !tbaa !63
+  %1141 = fadd reassoc nsz arcp contract afn double %1140, %1138
+  store double %1141, ptr %1139, align 8, !tbaa !63
+  %1142 = add nuw nsw i64 %1134, 1
+  %1143 = icmp eq i64 %1142, %200
+  br i1 %1143, label %.loopexit85, label %1133, !llvm.loop !72
 
-1145:                                             ; preds = %.loopexit84, %1069
-  %1146 = phi i64 [ %1201, %.loopexit84 ], [ 0, %1069 ]
-  %1147 = phi i64 [ %1149, %.loopexit84 ], [ %200, %1069 ]
-  %1148 = sub nsw i64 %211, %1146
-  %1149 = add nsw i64 %1147, -1
-  %1150 = mul nuw i64 %1149, %1071
-  %1151 = getelementptr inbounds double, ptr %681, i64 %1150
-  %1152 = load double, ptr %1151, align 8, !tbaa !63
-  %1153 = getelementptr inbounds double, ptr %682, i64 %1149
-  %1154 = load double, ptr %1153, align 8, !tbaa !63
-  %1155 = fdiv reassoc nsz arcp contract afn double %1154, %1152
-  store double %1155, ptr %1153, align 8, !tbaa !63
-  %1156 = getelementptr double, ptr %681, i64 %1149
-  %1157 = icmp ult i64 %1148, 16
-  br i1 %1157, label %.preheader129, label %1158
+1144:                                             ; preds = %.loopexit84, %1068
+  %1145 = phi i64 [ %1200, %.loopexit84 ], [ 0, %1068 ]
+  %1146 = phi i64 [ %1148, %.loopexit84 ], [ %200, %1068 ]
+  %1147 = sub nsw i64 %211, %1145
+  %1148 = add nsw i64 %1146, -1
+  %1149 = mul nuw i64 %1148, %1070
+  %1150 = getelementptr inbounds double, ptr %681, i64 %1149
+  %1151 = load double, ptr %1150, align 8, !tbaa !63
+  %1152 = getelementptr inbounds double, ptr %682, i64 %1148
+  %1153 = load double, ptr %1152, align 8, !tbaa !63
+  %1154 = fdiv reassoc nsz arcp contract afn double %1153, %1151
+  store double %1154, ptr %1152, align 8, !tbaa !63
+  %1155 = getelementptr double, ptr %681, i64 %1148
+  %1156 = icmp ult i64 %1147, 16
+  br i1 %1156, label %.preheader129, label %1157
 
-.preheader129:                                    ; preds = %1199, %1145
-  %.ph130 = phi i64 [ %1159, %1199 ], [ 0, %1145 ]
-  br label %1202
+.preheader129:                                    ; preds = %1198, %1144
+  %.ph130 = phi i64 [ %1158, %1198 ], [ 0, %1144 ]
+  br label %1201
 
-1158:                                             ; preds = %1145
-  %1159 = and i64 %1148, -16
-  %1160 = insertelement <4 x double> poison, double %1155, i64 0
-  %1161 = shufflevector <4 x double> %1160, <4 x double> poison, <4 x i32> zeroinitializer
-  br label %1162
+1157:                                             ; preds = %1144
+  %1158 = and i64 %1147, -16
+  %1159 = insertelement <4 x double> poison, double %1154, i64 0
+  %1160 = shufflevector <4 x double> %1159, <4 x double> poison, <4 x i32> zeroinitializer
+  br label %1161
 
-1162:                                             ; preds = %1162, %1158
-  %1163 = phi i64 [ 0, %1158 ], [ %1196, %1162 ]
-  %1164 = phi <4 x i64> [ <i64 0, i64 1, i64 2, i64 3>, %1158 ], [ %1197, %1162 ]
-  %1165 = add <4 x i64> %1164, splat (i64 4)
-  %1166 = add <4 x i64> %1164, splat (i64 8)
-  %1167 = add <4 x i64> %1164, splat (i64 12)
-  %1168 = mul nuw nsw <4 x i64> %1164, %1057
-  %1169 = mul nuw nsw <4 x i64> %1165, %1057
-  %1170 = mul nuw nsw <4 x i64> %1166, %1057
-  %1171 = mul nuw nsw <4 x i64> %1167, %1057
-  %1172 = getelementptr double, ptr %1156, <4 x i64> %1168
-  %1173 = getelementptr double, ptr %1156, <4 x i64> %1169
-  %1174 = getelementptr double, ptr %1156, <4 x i64> %1170
-  %1175 = getelementptr double, ptr %1156, <4 x i64> %1171
+1161:                                             ; preds = %1161, %1157
+  %1162 = phi i64 [ 0, %1157 ], [ %1195, %1161 ]
+  %1163 = phi <4 x i64> [ <i64 0, i64 1, i64 2, i64 3>, %1157 ], [ %1196, %1161 ]
+  %1164 = add <4 x i64> %1163, splat (i64 4)
+  %1165 = add <4 x i64> %1163, splat (i64 8)
+  %1166 = add <4 x i64> %1163, splat (i64 12)
+  %1167 = mul nuw nsw <4 x i64> %1163, %1056
+  %1168 = mul nuw nsw <4 x i64> %1164, %1056
+  %1169 = mul nuw nsw <4 x i64> %1165, %1056
+  %1170 = mul nuw nsw <4 x i64> %1166, %1056
+  %1171 = getelementptr double, ptr %1155, <4 x i64> %1167
+  %1172 = getelementptr double, ptr %1155, <4 x i64> %1168
+  %1173 = getelementptr double, ptr %1155, <4 x i64> %1169
+  %1174 = getelementptr double, ptr %1155, <4 x i64> %1170
+  %1175 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %1171, i32 8, <4 x i1> splat (i1 true), <4 x double> poison), !tbaa !63
   %1176 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %1172, i32 8, <4 x i1> splat (i1 true), <4 x double> poison), !tbaa !63
   %1177 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %1173, i32 8, <4 x i1> splat (i1 true), <4 x double> poison), !tbaa !63
   %1178 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %1174, i32 8, <4 x i1> splat (i1 true), <4 x double> poison), !tbaa !63
-  %1179 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %1175, i32 8, <4 x i1> splat (i1 true), <4 x double> poison), !tbaa !63
-  %1180 = fmul reassoc nsz arcp contract afn <4 x double> %1176, %1161
-  %1181 = fmul reassoc nsz arcp contract afn <4 x double> %1177, %1161
-  %1182 = fmul reassoc nsz arcp contract afn <4 x double> %1178, %1161
-  %1183 = fmul reassoc nsz arcp contract afn <4 x double> %1179, %1161
-  %1184 = getelementptr inbounds double, ptr %682, i64 %1163
-  %1185 = getelementptr inbounds nuw i8, ptr %1184, i64 32
-  %1186 = getelementptr inbounds nuw i8, ptr %1184, i64 64
-  %1187 = getelementptr inbounds nuw i8, ptr %1184, i64 96
+  %1179 = fmul reassoc nsz arcp contract afn <4 x double> %1175, %1160
+  %1180 = fmul reassoc nsz arcp contract afn <4 x double> %1176, %1160
+  %1181 = fmul reassoc nsz arcp contract afn <4 x double> %1177, %1160
+  %1182 = fmul reassoc nsz arcp contract afn <4 x double> %1178, %1160
+  %1183 = getelementptr inbounds double, ptr %682, i64 %1162
+  %1184 = getelementptr inbounds nuw i8, ptr %1183, i64 32
+  %1185 = getelementptr inbounds nuw i8, ptr %1183, i64 64
+  %1186 = getelementptr inbounds nuw i8, ptr %1183, i64 96
+  %1187 = load <4 x double>, ptr %1183, align 8, !tbaa !63
   %1188 = load <4 x double>, ptr %1184, align 8, !tbaa !63
   %1189 = load <4 x double>, ptr %1185, align 8, !tbaa !63
   %1190 = load <4 x double>, ptr %1186, align 8, !tbaa !63
-  %1191 = load <4 x double>, ptr %1187, align 8, !tbaa !63
+  %1191 = fsub reassoc nsz arcp contract afn <4 x double> %1187, %1179
   %1192 = fsub reassoc nsz arcp contract afn <4 x double> %1188, %1180
   %1193 = fsub reassoc nsz arcp contract afn <4 x double> %1189, %1181
   %1194 = fsub reassoc nsz arcp contract afn <4 x double> %1190, %1182
-  %1195 = fsub reassoc nsz arcp contract afn <4 x double> %1191, %1183
+  store <4 x double> %1191, ptr %1183, align 8, !tbaa !63
   store <4 x double> %1192, ptr %1184, align 8, !tbaa !63
   store <4 x double> %1193, ptr %1185, align 8, !tbaa !63
   store <4 x double> %1194, ptr %1186, align 8, !tbaa !63
-  store <4 x double> %1195, ptr %1187, align 8, !tbaa !63
-  %1196 = add nuw i64 %1163, 16
-  %1197 = add <4 x i64> %1164, splat (i64 16)
-  %1198 = icmp eq i64 %1196, %1159
-  br i1 %1198, label %1199, label %1162, !llvm.loop !73
+  %1195 = add nuw i64 %1162, 16
+  %1196 = add <4 x i64> %1163, splat (i64 16)
+  %1197 = icmp eq i64 %1195, %1158
+  br i1 %1197, label %1198, label %1161, !llvm.loop !73
 
-1199:                                             ; preds = %1162
-  %1200 = icmp eq i64 %1148, %1159
-  br i1 %1200, label %.loopexit84, label %.preheader129
+1198:                                             ; preds = %1161
+  %1199 = icmp eq i64 %1147, %1158
+  br i1 %1199, label %.loopexit84, label %.preheader129
 
-.loopexit84:                                      ; preds = %1202, %1199
-  %1201 = add nuw nsw i64 %1146, 1
-  %exitcond.not = icmp eq i64 %1201, %1072
-  br i1 %exitcond.not, label %1213, label %1145
+.loopexit84:                                      ; preds = %1201, %1198
+  %1200 = add nuw nsw i64 %1145, 1
+  %exitcond.not = icmp eq i64 %1200, %1071
+  br i1 %exitcond.not, label %1212, label %1144
 
-1202:                                             ; preds = %.preheader129, %1202
-  %1203 = phi i64 [ %1211, %1202 ], [ %.ph130, %.preheader129 ]
-  %1204 = mul nuw nsw i64 %1203, %200
-  %1205 = getelementptr double, ptr %1156, i64 %1204
-  %1206 = load double, ptr %1205, align 8, !tbaa !63
-  %1207 = fmul reassoc nsz arcp contract afn double %1206, %1155
-  %1208 = getelementptr inbounds double, ptr %682, i64 %1203
-  %1209 = load double, ptr %1208, align 8, !tbaa !63
-  %1210 = fsub reassoc nsz arcp contract afn double %1209, %1207
-  store double %1210, ptr %1208, align 8, !tbaa !63
-  %1211 = add nuw nsw i64 %1203, 1
-  %1212 = icmp eq i64 %1211, %1149
-  br i1 %1212, label %.loopexit84, label %1202, !llvm.loop !74
+1201:                                             ; preds = %.preheader129, %1201
+  %1202 = phi i64 [ %1210, %1201 ], [ %.ph130, %.preheader129 ]
+  %1203 = mul nuw nsw i64 %1202, %200
+  %1204 = getelementptr double, ptr %1155, i64 %1203
+  %1205 = load double, ptr %1204, align 8, !tbaa !63
+  %1206 = fmul reassoc nsz arcp contract afn double %1205, %1154
+  %1207 = getelementptr inbounds double, ptr %682, i64 %1202
+  %1208 = load double, ptr %1207, align 8, !tbaa !63
+  %1209 = fsub reassoc nsz arcp contract afn double %1208, %1206
+  store double %1209, ptr %1207, align 8, !tbaa !63
+  %1210 = add nuw nsw i64 %1202, 1
+  %1211 = icmp eq i64 %1210, %1148
+  br i1 %1211, label %.loopexit84, label %1201, !llvm.loop !74
 
-1213:                                             ; preds = %.loopexit84
-  %1214 = load double, ptr %681, align 8, !tbaa !63
-  %1215 = load double, ptr %682, align 8, !tbaa !63
-  %1216 = fdiv reassoc nsz arcp contract afn double %1215, %1214
-  store double %1216, ptr %682, align 8, !tbaa !63
-  br i1 %199, label %.preheader127, label %1217
+1212:                                             ; preds = %.loopexit84
+  %1213 = load double, ptr %681, align 8, !tbaa !63
+  %1214 = load double, ptr %682, align 8, !tbaa !63
+  %1215 = fdiv reassoc nsz arcp contract afn double %1214, %1213
+  store double %1215, ptr %682, align 8, !tbaa !63
+  br i1 %199, label %.preheader127, label %1216
 
-.preheader127:                                    ; preds = %1269, %1213
-  %.ph128 = phi i64 [ %1218, %1269 ], [ 0, %1213 ]
-  br label %1329
+.preheader127:                                    ; preds = %1268, %1212
+  %.ph128 = phi i64 [ %1217, %1268 ], [ 0, %1212 ]
+  br label %1328
 
-1217:                                             ; preds = %1213
-  %1218 = and i64 %200, 112
-  %1219 = getelementptr inbounds nuw i8, ptr %682, i64 32
-  %1220 = getelementptr inbounds nuw i8, ptr %682, i64 64
-  %1221 = getelementptr inbounds nuw i8, ptr %682, i64 96
-  %1222 = load <4 x double>, ptr %682, align 8, !tbaa !63
+1216:                                             ; preds = %1212
+  %1217 = and i64 %200, 112
+  %1218 = getelementptr inbounds nuw i8, ptr %682, i64 32
+  %1219 = getelementptr inbounds nuw i8, ptr %682, i64 64
+  %1220 = getelementptr inbounds nuw i8, ptr %682, i64 96
+  %1221 = load <4 x double>, ptr %682, align 8, !tbaa !63
+  %1222 = load <4 x double>, ptr %1218, align 8, !tbaa !63
   %1223 = load <4 x double>, ptr %1219, align 8, !tbaa !63
   %1224 = load <4 x double>, ptr %1220, align 8, !tbaa !63
-  %1225 = load <4 x double>, ptr %1221, align 8, !tbaa !63
+  %1225 = fptrunc <4 x double> %1221 to <4 x float>
   %1226 = fptrunc <4 x double> %1222 to <4 x float>
   %1227 = fptrunc <4 x double> %1223 to <4 x float>
   %1228 = fptrunc <4 x double> %1224 to <4 x float>
-  %1229 = fptrunc <4 x double> %1225 to <4 x float>
-  %1230 = getelementptr inbounds nuw i8, ptr %23, i64 608
-  %1231 = getelementptr inbounds nuw i8, ptr %23, i64 624
-  %1232 = getelementptr inbounds nuw i8, ptr %23, i64 640
-  store <4 x float> %1226, ptr %203, align 4, !tbaa !11
+  %1229 = getelementptr inbounds nuw i8, ptr %23, i64 608
+  %1230 = getelementptr inbounds nuw i8, ptr %23, i64 624
+  %1231 = getelementptr inbounds nuw i8, ptr %23, i64 640
+  store <4 x float> %1225, ptr %203, align 4, !tbaa !11
+  store <4 x float> %1226, ptr %1229, align 4, !tbaa !11
   store <4 x float> %1227, ptr %1230, align 4, !tbaa !11
   store <4 x float> %1228, ptr %1231, align 4, !tbaa !11
-  store <4 x float> %1229, ptr %1232, align 4, !tbaa !11
-  %1233 = icmp eq i64 %1218, 16
-  br i1 %1233, label %1269, label %1234, !llvm.loop !75
+  %1232 = icmp eq i64 %1217, 16
+  br i1 %1232, label %1268, label %1233, !llvm.loop !75
 
-1234:                                             ; preds = %1217
-  %1235 = getelementptr inbounds nuw i8, ptr %682, i64 128
-  %1236 = getelementptr inbounds nuw i8, ptr %682, i64 160
-  %1237 = getelementptr inbounds nuw i8, ptr %682, i64 192
-  %1238 = getelementptr inbounds nuw i8, ptr %682, i64 224
+1233:                                             ; preds = %1216
+  %1234 = getelementptr inbounds nuw i8, ptr %682, i64 128
+  %1235 = getelementptr inbounds nuw i8, ptr %682, i64 160
+  %1236 = getelementptr inbounds nuw i8, ptr %682, i64 192
+  %1237 = getelementptr inbounds nuw i8, ptr %682, i64 224
+  %1238 = load <4 x double>, ptr %1234, align 8, !tbaa !63
   %1239 = load <4 x double>, ptr %1235, align 8, !tbaa !63
   %1240 = load <4 x double>, ptr %1236, align 8, !tbaa !63
   %1241 = load <4 x double>, ptr %1237, align 8, !tbaa !63
-  %1242 = load <4 x double>, ptr %1238, align 8, !tbaa !63
+  %1242 = fptrunc <4 x double> %1238 to <4 x float>
   %1243 = fptrunc <4 x double> %1239 to <4 x float>
   %1244 = fptrunc <4 x double> %1240 to <4 x float>
   %1245 = fptrunc <4 x double> %1241 to <4 x float>
-  %1246 = fptrunc <4 x double> %1242 to <4 x float>
-  %1247 = getelementptr inbounds nuw i8, ptr %23, i64 656
-  %1248 = getelementptr inbounds nuw i8, ptr %23, i64 672
-  %1249 = getelementptr inbounds nuw i8, ptr %23, i64 688
-  %1250 = getelementptr inbounds nuw i8, ptr %23, i64 704
+  %1246 = getelementptr inbounds nuw i8, ptr %23, i64 656
+  %1247 = getelementptr inbounds nuw i8, ptr %23, i64 672
+  %1248 = getelementptr inbounds nuw i8, ptr %23, i64 688
+  %1249 = getelementptr inbounds nuw i8, ptr %23, i64 704
+  store <4 x float> %1242, ptr %1246, align 4, !tbaa !11
   store <4 x float> %1243, ptr %1247, align 4, !tbaa !11
   store <4 x float> %1244, ptr %1248, align 4, !tbaa !11
   store <4 x float> %1245, ptr %1249, align 4, !tbaa !11
-  store <4 x float> %1246, ptr %1250, align 4, !tbaa !11
-  %1251 = icmp eq i64 %1218, 32
-  br i1 %1251, label %1269, label %1252, !llvm.loop !75
+  %1250 = icmp eq i64 %1217, 32
+  br i1 %1250, label %1268, label %1251, !llvm.loop !75
 
-1252:                                             ; preds = %1234
-  %1253 = getelementptr inbounds nuw i8, ptr %682, i64 256
-  %1254 = getelementptr inbounds nuw i8, ptr %682, i64 288
-  %1255 = getelementptr inbounds nuw i8, ptr %682, i64 320
-  %1256 = getelementptr inbounds nuw i8, ptr %682, i64 352
+1251:                                             ; preds = %1233
+  %1252 = getelementptr inbounds nuw i8, ptr %682, i64 256
+  %1253 = getelementptr inbounds nuw i8, ptr %682, i64 288
+  %1254 = getelementptr inbounds nuw i8, ptr %682, i64 320
+  %1255 = getelementptr inbounds nuw i8, ptr %682, i64 352
+  %1256 = load <4 x double>, ptr %1252, align 8, !tbaa !63
   %1257 = load <4 x double>, ptr %1253, align 8, !tbaa !63
   %1258 = load <4 x double>, ptr %1254, align 8, !tbaa !63
   %1259 = load <4 x double>, ptr %1255, align 8, !tbaa !63
-  %1260 = load <4 x double>, ptr %1256, align 8, !tbaa !63
+  %1260 = fptrunc <4 x double> %1256 to <4 x float>
   %1261 = fptrunc <4 x double> %1257 to <4 x float>
   %1262 = fptrunc <4 x double> %1258 to <4 x float>
   %1263 = fptrunc <4 x double> %1259 to <4 x float>
-  %1264 = fptrunc <4 x double> %1260 to <4 x float>
-  %1265 = getelementptr inbounds nuw i8, ptr %23, i64 720
-  %1266 = getelementptr inbounds nuw i8, ptr %23, i64 736
-  %1267 = getelementptr inbounds nuw i8, ptr %23, i64 752
-  %1268 = getelementptr inbounds nuw i8, ptr %23, i64 768
+  %1264 = getelementptr inbounds nuw i8, ptr %23, i64 720
+  %1265 = getelementptr inbounds nuw i8, ptr %23, i64 736
+  %1266 = getelementptr inbounds nuw i8, ptr %23, i64 752
+  %1267 = getelementptr inbounds nuw i8, ptr %23, i64 768
+  store <4 x float> %1260, ptr %1264, align 4, !tbaa !11
   store <4 x float> %1261, ptr %1265, align 4, !tbaa !11
   store <4 x float> %1262, ptr %1266, align 4, !tbaa !11
   store <4 x float> %1263, ptr %1267, align 4, !tbaa !11
-  store <4 x float> %1264, ptr %1268, align 4, !tbaa !11
-  br label %1269
+  br label %1268
 
-1269:                                             ; preds = %1252, %1234, %1217
-  %1270 = icmp eq i64 %1218, %200
-  br i1 %1270, label %.loopexit83, label %.preheader127
+1268:                                             ; preds = %1251, %1233, %1216
+  %1269 = icmp eq i64 %1217, %200
+  br i1 %1269, label %.loopexit83, label %.preheader127
 
-.loopexit83:                                      ; preds = %1329, %1269
-  br i1 %29, label %1271, label %.loopexit82
+.loopexit83:                                      ; preds = %1328, %1268
+  br i1 %29, label %1270, label %.loopexit82
 
-1271:                                             ; preds = %.loopexit83
-  %1272 = getelementptr inbounds nuw i8, ptr %1, i64 784
-  %1273 = zext nneg i32 %26 to i64
-  %1274 = icmp samesign ult i32 %25, 16
-  br i1 %1274, label %.preheader125, label %1275
+1270:                                             ; preds = %.loopexit83
+  %1271 = getelementptr inbounds nuw i8, ptr %1, i64 784
+  %1272 = zext nneg i32 %26 to i64
+  %1273 = icmp samesign ult i32 %25, 16
+  br i1 %1273, label %.preheader125, label %1274
 
-.preheader125:                                    ; preds = %1327, %1271
-  %.ph126 = phi i64 [ %1276, %1327 ], [ 0, %1271 ]
-  br label %1337
+.preheader125:                                    ; preds = %1326, %1270
+  %.ph126 = phi i64 [ %1275, %1326 ], [ 0, %1270 ]
+  br label %1336
 
-1275:                                             ; preds = %1271
-  %1276 = and i64 %1273, 48
-  %1277 = getelementptr inbounds nuw i8, ptr %1, i64 800
-  %1278 = getelementptr inbounds nuw i8, ptr %1, i64 816
-  %1279 = getelementptr inbounds nuw i8, ptr %1, i64 832
-  %1280 = load <4 x float>, ptr %1272, align 4, !tbaa !11
+1274:                                             ; preds = %1270
+  %1275 = and i64 %1272, 48
+  %1276 = getelementptr inbounds nuw i8, ptr %1, i64 800
+  %1277 = getelementptr inbounds nuw i8, ptr %1, i64 816
+  %1278 = getelementptr inbounds nuw i8, ptr %1, i64 832
+  %1279 = load <4 x float>, ptr %1271, align 4, !tbaa !11
+  %1280 = load <4 x float>, ptr %1276, align 4, !tbaa !11
   %1281 = load <4 x float>, ptr %1277, align 4, !tbaa !11
   %1282 = load <4 x float>, ptr %1278, align 4, !tbaa !11
-  %1283 = load <4 x float>, ptr %1279, align 4, !tbaa !11
+  %1283 = fpext <4 x float> %1279 to <4 x double>
   %1284 = fpext <4 x float> %1280 to <4 x double>
   %1285 = fpext <4 x float> %1281 to <4 x double>
   %1286 = fpext <4 x float> %1282 to <4 x double>
-  %1287 = fpext <4 x float> %1283 to <4 x double>
-  %1288 = getelementptr inbounds nuw i8, ptr %682, i64 32
-  %1289 = getelementptr inbounds nuw i8, ptr %682, i64 64
-  %1290 = getelementptr inbounds nuw i8, ptr %682, i64 96
-  store <4 x double> %1284, ptr %682, align 8, !tbaa !63
+  %1287 = getelementptr inbounds nuw i8, ptr %682, i64 32
+  %1288 = getelementptr inbounds nuw i8, ptr %682, i64 64
+  %1289 = getelementptr inbounds nuw i8, ptr %682, i64 96
+  store <4 x double> %1283, ptr %682, align 8, !tbaa !63
+  store <4 x double> %1284, ptr %1287, align 8, !tbaa !63
   store <4 x double> %1285, ptr %1288, align 8, !tbaa !63
   store <4 x double> %1286, ptr %1289, align 8, !tbaa !63
-  store <4 x double> %1287, ptr %1290, align 8, !tbaa !63
-  %1291 = icmp eq i64 %1276, 16
-  br i1 %1291, label %1327, label %1292, !llvm.loop !76
+  %1290 = icmp eq i64 %1275, 16
+  br i1 %1290, label %1326, label %1291, !llvm.loop !76
 
-1292:                                             ; preds = %1275
-  %1293 = getelementptr inbounds nuw i8, ptr %1, i64 848
-  %1294 = getelementptr inbounds nuw i8, ptr %1, i64 864
-  %1295 = getelementptr inbounds nuw i8, ptr %1, i64 880
-  %1296 = getelementptr inbounds nuw i8, ptr %1, i64 896
+1291:                                             ; preds = %1274
+  %1292 = getelementptr inbounds nuw i8, ptr %1, i64 848
+  %1293 = getelementptr inbounds nuw i8, ptr %1, i64 864
+  %1294 = getelementptr inbounds nuw i8, ptr %1, i64 880
+  %1295 = getelementptr inbounds nuw i8, ptr %1, i64 896
+  %1296 = load <4 x float>, ptr %1292, align 4, !tbaa !11
   %1297 = load <4 x float>, ptr %1293, align 4, !tbaa !11
   %1298 = load <4 x float>, ptr %1294, align 4, !tbaa !11
   %1299 = load <4 x float>, ptr %1295, align 4, !tbaa !11
-  %1300 = load <4 x float>, ptr %1296, align 4, !tbaa !11
+  %1300 = fpext <4 x float> %1296 to <4 x double>
   %1301 = fpext <4 x float> %1297 to <4 x double>
   %1302 = fpext <4 x float> %1298 to <4 x double>
   %1303 = fpext <4 x float> %1299 to <4 x double>
-  %1304 = fpext <4 x float> %1300 to <4 x double>
-  %1305 = getelementptr inbounds nuw i8, ptr %682, i64 128
-  %1306 = getelementptr inbounds nuw i8, ptr %682, i64 160
-  %1307 = getelementptr inbounds nuw i8, ptr %682, i64 192
-  %1308 = getelementptr inbounds nuw i8, ptr %682, i64 224
+  %1304 = getelementptr inbounds nuw i8, ptr %682, i64 128
+  %1305 = getelementptr inbounds nuw i8, ptr %682, i64 160
+  %1306 = getelementptr inbounds nuw i8, ptr %682, i64 192
+  %1307 = getelementptr inbounds nuw i8, ptr %682, i64 224
+  store <4 x double> %1300, ptr %1304, align 8, !tbaa !63
   store <4 x double> %1301, ptr %1305, align 8, !tbaa !63
   store <4 x double> %1302, ptr %1306, align 8, !tbaa !63
   store <4 x double> %1303, ptr %1307, align 8, !tbaa !63
-  store <4 x double> %1304, ptr %1308, align 8, !tbaa !63
-  %1309 = icmp eq i64 %1276, 32
-  br i1 %1309, label %1327, label %1310, !llvm.loop !76
+  %1308 = icmp eq i64 %1275, 32
+  br i1 %1308, label %1326, label %1309, !llvm.loop !76
 
-1310:                                             ; preds = %1292
-  %1311 = getelementptr inbounds nuw i8, ptr %1, i64 912
-  %1312 = getelementptr inbounds nuw i8, ptr %1, i64 928
-  %1313 = getelementptr inbounds nuw i8, ptr %1, i64 944
-  %1314 = getelementptr inbounds nuw i8, ptr %1, i64 960
+1309:                                             ; preds = %1291
+  %1310 = getelementptr inbounds nuw i8, ptr %1, i64 912
+  %1311 = getelementptr inbounds nuw i8, ptr %1, i64 928
+  %1312 = getelementptr inbounds nuw i8, ptr %1, i64 944
+  %1313 = getelementptr inbounds nuw i8, ptr %1, i64 960
+  %1314 = load <4 x float>, ptr %1310, align 4, !tbaa !11
   %1315 = load <4 x float>, ptr %1311, align 4, !tbaa !11
   %1316 = load <4 x float>, ptr %1312, align 4, !tbaa !11
   %1317 = load <4 x float>, ptr %1313, align 4, !tbaa !11
-  %1318 = load <4 x float>, ptr %1314, align 4, !tbaa !11
+  %1318 = fpext <4 x float> %1314 to <4 x double>
   %1319 = fpext <4 x float> %1315 to <4 x double>
   %1320 = fpext <4 x float> %1316 to <4 x double>
   %1321 = fpext <4 x float> %1317 to <4 x double>
-  %1322 = fpext <4 x float> %1318 to <4 x double>
-  %1323 = getelementptr inbounds nuw i8, ptr %682, i64 256
-  %1324 = getelementptr inbounds nuw i8, ptr %682, i64 288
-  %1325 = getelementptr inbounds nuw i8, ptr %682, i64 320
-  %1326 = getelementptr inbounds nuw i8, ptr %682, i64 352
+  %1322 = getelementptr inbounds nuw i8, ptr %682, i64 256
+  %1323 = getelementptr inbounds nuw i8, ptr %682, i64 288
+  %1324 = getelementptr inbounds nuw i8, ptr %682, i64 320
+  %1325 = getelementptr inbounds nuw i8, ptr %682, i64 352
+  store <4 x double> %1318, ptr %1322, align 8, !tbaa !63
   store <4 x double> %1319, ptr %1323, align 8, !tbaa !63
   store <4 x double> %1320, ptr %1324, align 8, !tbaa !63
   store <4 x double> %1321, ptr %1325, align 8, !tbaa !63
-  store <4 x double> %1322, ptr %1326, align 8, !tbaa !63
-  br label %1327
+  br label %1326
 
-1327:                                             ; preds = %1310, %1292, %1275
-  %1328 = icmp eq i64 %1276, %1273
-  br i1 %1328, label %.loopexit82, label %.preheader125
+1326:                                             ; preds = %1309, %1291, %1274
+  %1327 = icmp eq i64 %1275, %1272
+  br i1 %1327, label %.loopexit82, label %.preheader125
 
-1329:                                             ; preds = %.preheader127, %1329
-  %1330 = phi i64 [ %1335, %1329 ], [ %.ph128, %.preheader127 ]
-  %1331 = getelementptr inbounds nuw double, ptr %682, i64 %1330
-  %1332 = load double, ptr %1331, align 8, !tbaa !63
-  %1333 = fptrunc double %1332 to float
-  %1334 = getelementptr inbounds nuw [53 x float], ptr %203, i64 0, i64 %1330
-  store float %1333, ptr %1334, align 4, !tbaa !11
-  %1335 = add nuw nsw i64 %1330, 1
-  %1336 = icmp eq i64 %1335, %200
-  br i1 %1336, label %.loopexit83, label %1329, !llvm.loop !77
+1328:                                             ; preds = %.preheader127, %1328
+  %1329 = phi i64 [ %1334, %1328 ], [ %.ph128, %.preheader127 ]
+  %1330 = getelementptr inbounds nuw double, ptr %682, i64 %1329
+  %1331 = load double, ptr %1330, align 8, !tbaa !63
+  %1332 = fptrunc double %1331 to float
+  %1333 = getelementptr inbounds nuw [53 x float], ptr %203, i64 0, i64 %1329
+  store float %1332, ptr %1333, align 4, !tbaa !11
+  %1334 = add nuw nsw i64 %1329, 1
+  %1335 = icmp eq i64 %1334, %200
+  br i1 %1335, label %.loopexit83, label %1328, !llvm.loop !77
 
-.loopexit82:                                      ; preds = %1337, %1327, %.loopexit83
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1055, i8 0, i64 32, i1 false), !tbaa !63
-  br label %1348
+.loopexit82:                                      ; preds = %1336, %1326, %.loopexit83
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1054, i8 0, i64 32, i1 false), !tbaa !63
+  br label %1347
 
-1337:                                             ; preds = %.preheader125, %1337
-  %1338 = phi i64 [ %1343, %1337 ], [ %.ph126, %.preheader125 ]
-  %1339 = getelementptr inbounds nuw [49 x float], ptr %1272, i64 0, i64 %1338
-  %1340 = load float, ptr %1339, align 4, !tbaa !11
-  %1341 = fpext float %1340 to double
-  %1342 = getelementptr inbounds nuw double, ptr %682, i64 %1338
-  store double %1341, ptr %1342, align 8, !tbaa !63
-  %1343 = add nuw nsw i64 %1338, 1
-  %1344 = icmp eq i64 %1343, %1273
-  br i1 %1344, label %.loopexit82, label %1337, !llvm.loop !78
+1336:                                             ; preds = %.preheader125, %1336
+  %1337 = phi i64 [ %1342, %1336 ], [ %.ph126, %.preheader125 ]
+  %1338 = getelementptr inbounds nuw [49 x float], ptr %1271, i64 0, i64 %1337
+  %1339 = load float, ptr %1338, align 4, !tbaa !11
+  %1340 = fpext float %1339 to double
+  %1341 = getelementptr inbounds nuw double, ptr %682, i64 %1337
+  store double %1340, ptr %1341, align 8, !tbaa !63
+  %1342 = add nuw nsw i64 %1337, 1
+  %1343 = icmp eq i64 %1342, %1272
+  br i1 %1343, label %.loopexit82, label %1336, !llvm.loop !78
 
-.loopexit81:                                      ; preds = %1409, %1406
+.loopexit81:                                      ; preds = %1408, %1405
+  %1344 = add nuw nsw i64 %1348, 1
   %1345 = add nuw nsw i64 %1349, 1
-  %1346 = add nuw nsw i64 %1350, 1
-  %1347 = icmp eq i64 %1345, %211
-  br i1 %1347, label %.preheader80, label %1348
+  %1346 = icmp eq i64 %1344, %211
+  br i1 %1346, label %.preheader80, label %1347
 
-1348:                                             ; preds = %.loopexit81, %.loopexit82
-  %1349 = phi i64 [ 0, %.loopexit82 ], [ %1345, %.loopexit81 ]
-  %1350 = phi i64 [ 1, %.loopexit82 ], [ %1346, %.loopexit81 ]
-  %1351 = sub nsw i64 %211, %1349
-  %1352 = getelementptr inbounds nuw i32, ptr %991, i64 %1349
-  %1353 = load i32, ptr %1352, align 4, !tbaa !15
-  %1354 = sext i32 %1353 to i64
-  %1355 = getelementptr inbounds double, ptr %682, i64 %1354
-  %1356 = load double, ptr %1355, align 8, !tbaa !63
-  %1357 = getelementptr inbounds nuw double, ptr %682, i64 %1349
-  %1358 = load double, ptr %1357, align 8, !tbaa !63
-  store double %1358, ptr %1355, align 8, !tbaa !63
-  store double %1356, ptr %1357, align 8, !tbaa !63
-  %1359 = getelementptr double, ptr %681, i64 %1349
-  %1360 = icmp ult i64 %1351, 16
-  br i1 %1360, label %.preheader123, label %1361
+1347:                                             ; preds = %.loopexit81, %.loopexit82
+  %1348 = phi i64 [ 0, %.loopexit82 ], [ %1344, %.loopexit81 ]
+  %1349 = phi i64 [ 1, %.loopexit82 ], [ %1345, %.loopexit81 ]
+  %1350 = sub nsw i64 %211, %1348
+  %1351 = getelementptr inbounds nuw i32, ptr %990, i64 %1348
+  %1352 = load i32, ptr %1351, align 4, !tbaa !15
+  %1353 = sext i32 %1352 to i64
+  %1354 = getelementptr inbounds double, ptr %682, i64 %1353
+  %1355 = load double, ptr %1354, align 8, !tbaa !63
+  %1356 = getelementptr inbounds nuw double, ptr %682, i64 %1348
+  %1357 = load double, ptr %1356, align 8, !tbaa !63
+  store double %1357, ptr %1354, align 8, !tbaa !63
+  store double %1355, ptr %1356, align 8, !tbaa !63
+  %1358 = getelementptr double, ptr %681, i64 %1348
+  %1359 = icmp ult i64 %1350, 16
+  br i1 %1359, label %.preheader123, label %1360
 
-1361:                                             ; preds = %1348
-  %1362 = and i64 %1351, -16
-  %1363 = insertelement <4 x i64> poison, i64 %1350, i64 0
-  %1364 = shufflevector <4 x i64> %1363, <4 x i64> poison, <4 x i32> zeroinitializer
-  %1365 = add nuw <4 x i64> %1364, <i64 0, i64 1, i64 2, i64 3>
-  %1366 = insertelement <4 x double> poison, double %1356, i64 0
-  %1367 = shufflevector <4 x double> %1366, <4 x double> poison, <4 x i32> zeroinitializer
-  %1368 = getelementptr double, ptr %682, i64 %1350
-  br label %1369
+1360:                                             ; preds = %1347
+  %1361 = and i64 %1350, -16
+  %1362 = insertelement <4 x i64> poison, i64 %1349, i64 0
+  %1363 = shufflevector <4 x i64> %1362, <4 x i64> poison, <4 x i32> zeroinitializer
+  %1364 = add nuw <4 x i64> %1363, <i64 0, i64 1, i64 2, i64 3>
+  %1365 = insertelement <4 x double> poison, double %1355, i64 0
+  %1366 = shufflevector <4 x double> %1365, <4 x double> poison, <4 x i32> zeroinitializer
+  %1367 = getelementptr double, ptr %682, i64 %1349
+  br label %1368
 
-1369:                                             ; preds = %1369, %1361
-  %1370 = phi i64 [ 0, %1361 ], [ %1403, %1369 ]
-  %1371 = phi <4 x i64> [ %1365, %1361 ], [ %1404, %1369 ]
-  %1372 = add <4 x i64> %1371, splat (i64 4)
-  %1373 = add <4 x i64> %1371, splat (i64 8)
-  %1374 = add <4 x i64> %1371, splat (i64 12)
-  %1375 = mul nuw nsw <4 x i64> %1371, %1057
-  %1376 = mul nuw nsw <4 x i64> %1372, %1057
-  %1377 = mul nuw nsw <4 x i64> %1373, %1057
-  %1378 = mul nuw nsw <4 x i64> %1374, %1057
-  %1379 = getelementptr double, ptr %1359, <4 x i64> %1375
-  %1380 = getelementptr double, ptr %1359, <4 x i64> %1376
-  %1381 = getelementptr double, ptr %1359, <4 x i64> %1377
-  %1382 = getelementptr double, ptr %1359, <4 x i64> %1378
+1368:                                             ; preds = %1368, %1360
+  %1369 = phi i64 [ 0, %1360 ], [ %1402, %1368 ]
+  %1370 = phi <4 x i64> [ %1364, %1360 ], [ %1403, %1368 ]
+  %1371 = add <4 x i64> %1370, splat (i64 4)
+  %1372 = add <4 x i64> %1370, splat (i64 8)
+  %1373 = add <4 x i64> %1370, splat (i64 12)
+  %1374 = mul nuw nsw <4 x i64> %1370, %1056
+  %1375 = mul nuw nsw <4 x i64> %1371, %1056
+  %1376 = mul nuw nsw <4 x i64> %1372, %1056
+  %1377 = mul nuw nsw <4 x i64> %1373, %1056
+  %1378 = getelementptr double, ptr %1358, <4 x i64> %1374
+  %1379 = getelementptr double, ptr %1358, <4 x i64> %1375
+  %1380 = getelementptr double, ptr %1358, <4 x i64> %1376
+  %1381 = getelementptr double, ptr %1358, <4 x i64> %1377
+  %1382 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %1378, i32 8, <4 x i1> splat (i1 true), <4 x double> poison), !tbaa !63
   %1383 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %1379, i32 8, <4 x i1> splat (i1 true), <4 x double> poison), !tbaa !63
   %1384 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %1380, i32 8, <4 x i1> splat (i1 true), <4 x double> poison), !tbaa !63
   %1385 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %1381, i32 8, <4 x i1> splat (i1 true), <4 x double> poison), !tbaa !63
-  %1386 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %1382, i32 8, <4 x i1> splat (i1 true), <4 x double> poison), !tbaa !63
-  %1387 = fmul reassoc nsz arcp contract afn <4 x double> %1383, %1367
-  %1388 = fmul reassoc nsz arcp contract afn <4 x double> %1384, %1367
-  %1389 = fmul reassoc nsz arcp contract afn <4 x double> %1385, %1367
-  %1390 = fmul reassoc nsz arcp contract afn <4 x double> %1386, %1367
-  %1391 = getelementptr double, ptr %1368, i64 %1370
-  %1392 = getelementptr inbounds nuw i8, ptr %1391, i64 32
-  %1393 = getelementptr inbounds nuw i8, ptr %1391, i64 64
-  %1394 = getelementptr inbounds nuw i8, ptr %1391, i64 96
+  %1386 = fmul reassoc nsz arcp contract afn <4 x double> %1382, %1366
+  %1387 = fmul reassoc nsz arcp contract afn <4 x double> %1383, %1366
+  %1388 = fmul reassoc nsz arcp contract afn <4 x double> %1384, %1366
+  %1389 = fmul reassoc nsz arcp contract afn <4 x double> %1385, %1366
+  %1390 = getelementptr double, ptr %1367, i64 %1369
+  %1391 = getelementptr inbounds nuw i8, ptr %1390, i64 32
+  %1392 = getelementptr inbounds nuw i8, ptr %1390, i64 64
+  %1393 = getelementptr inbounds nuw i8, ptr %1390, i64 96
+  %1394 = load <4 x double>, ptr %1390, align 8, !tbaa !63
   %1395 = load <4 x double>, ptr %1391, align 8, !tbaa !63
   %1396 = load <4 x double>, ptr %1392, align 8, !tbaa !63
   %1397 = load <4 x double>, ptr %1393, align 8, !tbaa !63
-  %1398 = load <4 x double>, ptr %1394, align 8, !tbaa !63
+  %1398 = fadd reassoc nsz arcp contract afn <4 x double> %1394, %1386
   %1399 = fadd reassoc nsz arcp contract afn <4 x double> %1395, %1387
   %1400 = fadd reassoc nsz arcp contract afn <4 x double> %1396, %1388
   %1401 = fadd reassoc nsz arcp contract afn <4 x double> %1397, %1389
-  %1402 = fadd reassoc nsz arcp contract afn <4 x double> %1398, %1390
+  store <4 x double> %1398, ptr %1390, align 8, !tbaa !63
   store <4 x double> %1399, ptr %1391, align 8, !tbaa !63
   store <4 x double> %1400, ptr %1392, align 8, !tbaa !63
   store <4 x double> %1401, ptr %1393, align 8, !tbaa !63
-  store <4 x double> %1402, ptr %1394, align 8, !tbaa !63
-  %1403 = add nuw i64 %1370, 16
-  %1404 = add <4 x i64> %1371, splat (i64 16)
-  %1405 = icmp eq i64 %1403, %1362
-  br i1 %1405, label %1406, label %1369, !llvm.loop !79
+  %1402 = add nuw i64 %1369, 16
+  %1403 = add <4 x i64> %1370, splat (i64 16)
+  %1404 = icmp eq i64 %1402, %1361
+  br i1 %1404, label %1405, label %1368, !llvm.loop !79
 
-1406:                                             ; preds = %1369
-  %1407 = add i64 %1362, %1350
-  %1408 = icmp eq i64 %1351, %1362
-  br i1 %1408, label %.loopexit81, label %.preheader123
+1405:                                             ; preds = %1368
+  %1406 = add i64 %1361, %1349
+  %1407 = icmp eq i64 %1350, %1361
+  br i1 %1407, label %.loopexit81, label %.preheader123
 
-.preheader123:                                    ; preds = %1406, %1348
-  %.ph124 = phi i64 [ %1407, %1406 ], [ %1350, %1348 ]
-  br label %1409
+.preheader123:                                    ; preds = %1405, %1347
+  %.ph124 = phi i64 [ %1406, %1405 ], [ %1349, %1347 ]
+  br label %1408
 
-1409:                                             ; preds = %.preheader123, %1409
-  %1410 = phi i64 [ %1418, %1409 ], [ %.ph124, %.preheader123 ]
-  %1411 = mul nuw nsw i64 %1410, %200
-  %1412 = getelementptr double, ptr %1359, i64 %1411
-  %1413 = load double, ptr %1412, align 8, !tbaa !63
-  %1414 = fmul reassoc nsz arcp contract afn double %1413, %1356
-  %1415 = getelementptr inbounds double, ptr %682, i64 %1410
-  %1416 = load double, ptr %1415, align 8, !tbaa !63
-  %1417 = fadd reassoc nsz arcp contract afn double %1416, %1414
-  store double %1417, ptr %1415, align 8, !tbaa !63
-  %1418 = add nuw nsw i64 %1410, 1
-  %1419 = icmp eq i64 %1418, %200
-  br i1 %1419, label %.loopexit81, label %1409, !llvm.loop !80
+1408:                                             ; preds = %.preheader123, %1408
+  %1409 = phi i64 [ %1417, %1408 ], [ %.ph124, %.preheader123 ]
+  %1410 = mul nuw nsw i64 %1409, %200
+  %1411 = getelementptr double, ptr %1358, i64 %1410
+  %1412 = load double, ptr %1411, align 8, !tbaa !63
+  %1413 = fmul reassoc nsz arcp contract afn double %1412, %1355
+  %1414 = getelementptr inbounds double, ptr %682, i64 %1409
+  %1415 = load double, ptr %1414, align 8, !tbaa !63
+  %1416 = fadd reassoc nsz arcp contract afn double %1415, %1413
+  store double %1416, ptr %1414, align 8, !tbaa !63
+  %1417 = add nuw nsw i64 %1409, 1
+  %1418 = icmp eq i64 %1417, %200
+  br i1 %1418, label %.loopexit81, label %1408, !llvm.loop !80
 
 .preheader80:                                     ; preds = %.loopexit81, %.loopexit79
-  %1420 = phi i64 [ %1475, %.loopexit79 ], [ 0, %.loopexit81 ]
-  %1421 = phi i64 [ %1423, %.loopexit79 ], [ %200, %.loopexit81 ]
-  %1422 = sub nsw i64 %211, %1420
-  %1423 = add nsw i64 %1421, -1
-  %1424 = mul nuw i64 %1423, %1071
-  %1425 = getelementptr inbounds double, ptr %681, i64 %1424
-  %1426 = load double, ptr %1425, align 8, !tbaa !63
-  %1427 = getelementptr inbounds double, ptr %682, i64 %1423
-  %1428 = load double, ptr %1427, align 8, !tbaa !63
-  %1429 = fdiv reassoc nsz arcp contract afn double %1428, %1426
-  store double %1429, ptr %1427, align 8, !tbaa !63
-  %1430 = getelementptr double, ptr %681, i64 %1423
-  %1431 = icmp ult i64 %1422, 16
-  br i1 %1431, label %.preheader121, label %1432
+  %1419 = phi i64 [ %1474, %.loopexit79 ], [ 0, %.loopexit81 ]
+  %1420 = phi i64 [ %1422, %.loopexit79 ], [ %200, %.loopexit81 ]
+  %1421 = sub nsw i64 %211, %1419
+  %1422 = add nsw i64 %1420, -1
+  %1423 = mul nuw i64 %1422, %1070
+  %1424 = getelementptr inbounds double, ptr %681, i64 %1423
+  %1425 = load double, ptr %1424, align 8, !tbaa !63
+  %1426 = getelementptr inbounds double, ptr %682, i64 %1422
+  %1427 = load double, ptr %1426, align 8, !tbaa !63
+  %1428 = fdiv reassoc nsz arcp contract afn double %1427, %1425
+  store double %1428, ptr %1426, align 8, !tbaa !63
+  %1429 = getelementptr double, ptr %681, i64 %1422
+  %1430 = icmp ult i64 %1421, 16
+  br i1 %1430, label %.preheader121, label %1431
 
-.preheader121:                                    ; preds = %1473, %.preheader80
-  %.ph122 = phi i64 [ %1433, %1473 ], [ 0, %.preheader80 ]
-  br label %1476
+.preheader121:                                    ; preds = %1472, %.preheader80
+  %.ph122 = phi i64 [ %1432, %1472 ], [ 0, %.preheader80 ]
+  br label %1475
 
-1432:                                             ; preds = %.preheader80
-  %1433 = and i64 %1422, -16
-  %1434 = insertelement <4 x double> poison, double %1429, i64 0
-  %1435 = shufflevector <4 x double> %1434, <4 x double> poison, <4 x i32> zeroinitializer
-  br label %1436
+1431:                                             ; preds = %.preheader80
+  %1432 = and i64 %1421, -16
+  %1433 = insertelement <4 x double> poison, double %1428, i64 0
+  %1434 = shufflevector <4 x double> %1433, <4 x double> poison, <4 x i32> zeroinitializer
+  br label %1435
 
-1436:                                             ; preds = %1436, %1432
-  %1437 = phi i64 [ 0, %1432 ], [ %1470, %1436 ]
-  %1438 = phi <4 x i64> [ <i64 0, i64 1, i64 2, i64 3>, %1432 ], [ %1471, %1436 ]
-  %1439 = add <4 x i64> %1438, splat (i64 4)
-  %1440 = add <4 x i64> %1438, splat (i64 8)
-  %1441 = add <4 x i64> %1438, splat (i64 12)
-  %1442 = mul nuw nsw <4 x i64> %1438, %1057
-  %1443 = mul nuw nsw <4 x i64> %1439, %1057
-  %1444 = mul nuw nsw <4 x i64> %1440, %1057
-  %1445 = mul nuw nsw <4 x i64> %1441, %1057
-  %1446 = getelementptr double, ptr %1430, <4 x i64> %1442
-  %1447 = getelementptr double, ptr %1430, <4 x i64> %1443
-  %1448 = getelementptr double, ptr %1430, <4 x i64> %1444
-  %1449 = getelementptr double, ptr %1430, <4 x i64> %1445
+1435:                                             ; preds = %1435, %1431
+  %1436 = phi i64 [ 0, %1431 ], [ %1469, %1435 ]
+  %1437 = phi <4 x i64> [ <i64 0, i64 1, i64 2, i64 3>, %1431 ], [ %1470, %1435 ]
+  %1438 = add <4 x i64> %1437, splat (i64 4)
+  %1439 = add <4 x i64> %1437, splat (i64 8)
+  %1440 = add <4 x i64> %1437, splat (i64 12)
+  %1441 = mul nuw nsw <4 x i64> %1437, %1056
+  %1442 = mul nuw nsw <4 x i64> %1438, %1056
+  %1443 = mul nuw nsw <4 x i64> %1439, %1056
+  %1444 = mul nuw nsw <4 x i64> %1440, %1056
+  %1445 = getelementptr double, ptr %1429, <4 x i64> %1441
+  %1446 = getelementptr double, ptr %1429, <4 x i64> %1442
+  %1447 = getelementptr double, ptr %1429, <4 x i64> %1443
+  %1448 = getelementptr double, ptr %1429, <4 x i64> %1444
+  %1449 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %1445, i32 8, <4 x i1> splat (i1 true), <4 x double> poison), !tbaa !63
   %1450 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %1446, i32 8, <4 x i1> splat (i1 true), <4 x double> poison), !tbaa !63
   %1451 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %1447, i32 8, <4 x i1> splat (i1 true), <4 x double> poison), !tbaa !63
   %1452 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %1448, i32 8, <4 x i1> splat (i1 true), <4 x double> poison), !tbaa !63
-  %1453 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %1449, i32 8, <4 x i1> splat (i1 true), <4 x double> poison), !tbaa !63
-  %1454 = fmul reassoc nsz arcp contract afn <4 x double> %1450, %1435
-  %1455 = fmul reassoc nsz arcp contract afn <4 x double> %1451, %1435
-  %1456 = fmul reassoc nsz arcp contract afn <4 x double> %1452, %1435
-  %1457 = fmul reassoc nsz arcp contract afn <4 x double> %1453, %1435
-  %1458 = getelementptr inbounds double, ptr %682, i64 %1437
-  %1459 = getelementptr inbounds nuw i8, ptr %1458, i64 32
-  %1460 = getelementptr inbounds nuw i8, ptr %1458, i64 64
-  %1461 = getelementptr inbounds nuw i8, ptr %1458, i64 96
+  %1453 = fmul reassoc nsz arcp contract afn <4 x double> %1449, %1434
+  %1454 = fmul reassoc nsz arcp contract afn <4 x double> %1450, %1434
+  %1455 = fmul reassoc nsz arcp contract afn <4 x double> %1451, %1434
+  %1456 = fmul reassoc nsz arcp contract afn <4 x double> %1452, %1434
+  %1457 = getelementptr inbounds double, ptr %682, i64 %1436
+  %1458 = getelementptr inbounds nuw i8, ptr %1457, i64 32
+  %1459 = getelementptr inbounds nuw i8, ptr %1457, i64 64
+  %1460 = getelementptr inbounds nuw i8, ptr %1457, i64 96
+  %1461 = load <4 x double>, ptr %1457, align 8, !tbaa !63
   %1462 = load <4 x double>, ptr %1458, align 8, !tbaa !63
   %1463 = load <4 x double>, ptr %1459, align 8, !tbaa !63
   %1464 = load <4 x double>, ptr %1460, align 8, !tbaa !63
-  %1465 = load <4 x double>, ptr %1461, align 8, !tbaa !63
+  %1465 = fsub reassoc nsz arcp contract afn <4 x double> %1461, %1453
   %1466 = fsub reassoc nsz arcp contract afn <4 x double> %1462, %1454
   %1467 = fsub reassoc nsz arcp contract afn <4 x double> %1463, %1455
   %1468 = fsub reassoc nsz arcp contract afn <4 x double> %1464, %1456
-  %1469 = fsub reassoc nsz arcp contract afn <4 x double> %1465, %1457
+  store <4 x double> %1465, ptr %1457, align 8, !tbaa !63
   store <4 x double> %1466, ptr %1458, align 8, !tbaa !63
   store <4 x double> %1467, ptr %1459, align 8, !tbaa !63
   store <4 x double> %1468, ptr %1460, align 8, !tbaa !63
-  store <4 x double> %1469, ptr %1461, align 8, !tbaa !63
-  %1470 = add nuw i64 %1437, 16
-  %1471 = add <4 x i64> %1438, splat (i64 16)
-  %1472 = icmp eq i64 %1470, %1433
-  br i1 %1472, label %1473, label %1436, !llvm.loop !81
+  %1469 = add nuw i64 %1436, 16
+  %1470 = add <4 x i64> %1437, splat (i64 16)
+  %1471 = icmp eq i64 %1469, %1432
+  br i1 %1471, label %1472, label %1435, !llvm.loop !81
 
-1473:                                             ; preds = %1436
-  %1474 = icmp eq i64 %1422, %1433
-  br i1 %1474, label %.loopexit79, label %.preheader121
+1472:                                             ; preds = %1435
+  %1473 = icmp eq i64 %1421, %1432
+  br i1 %1473, label %.loopexit79, label %.preheader121
 
-.loopexit79:                                      ; preds = %1476, %1473
-  %1475 = add nuw nsw i64 %1420, 1
-  %exitcond108.not = icmp eq i64 %1475, %1072
-  br i1 %exitcond108.not, label %1487, label %.preheader80
+.loopexit79:                                      ; preds = %1475, %1472
+  %1474 = add nuw nsw i64 %1419, 1
+  %exitcond108.not = icmp eq i64 %1474, %1071
+  br i1 %exitcond108.not, label %1486, label %.preheader80
 
-1476:                                             ; preds = %.preheader121, %1476
-  %1477 = phi i64 [ %1485, %1476 ], [ %.ph122, %.preheader121 ]
-  %1478 = mul nuw nsw i64 %1477, %200
-  %1479 = getelementptr double, ptr %1430, i64 %1478
-  %1480 = load double, ptr %1479, align 8, !tbaa !63
-  %1481 = fmul reassoc nsz arcp contract afn double %1480, %1429
-  %1482 = getelementptr inbounds double, ptr %682, i64 %1477
-  %1483 = load double, ptr %1482, align 8, !tbaa !63
-  %1484 = fsub reassoc nsz arcp contract afn double %1483, %1481
-  store double %1484, ptr %1482, align 8, !tbaa !63
-  %1485 = add nuw nsw i64 %1477, 1
-  %1486 = icmp eq i64 %1485, %1423
-  br i1 %1486, label %.loopexit79, label %1476, !llvm.loop !82
+1475:                                             ; preds = %.preheader121, %1475
+  %1476 = phi i64 [ %1484, %1475 ], [ %.ph122, %.preheader121 ]
+  %1477 = mul nuw nsw i64 %1476, %200
+  %1478 = getelementptr double, ptr %1429, i64 %1477
+  %1479 = load double, ptr %1478, align 8, !tbaa !63
+  %1480 = fmul reassoc nsz arcp contract afn double %1479, %1428
+  %1481 = getelementptr inbounds double, ptr %682, i64 %1476
+  %1482 = load double, ptr %1481, align 8, !tbaa !63
+  %1483 = fsub reassoc nsz arcp contract afn double %1482, %1480
+  store double %1483, ptr %1481, align 8, !tbaa !63
+  %1484 = add nuw nsw i64 %1476, 1
+  %1485 = icmp eq i64 %1484, %1422
+  br i1 %1485, label %.loopexit79, label %1475, !llvm.loop !82
 
-1487:                                             ; preds = %.loopexit79
-  %1488 = load double, ptr %682, align 8, !tbaa !63
-  %1489 = fdiv reassoc nsz arcp contract afn double %1488, %1214
-  store double %1489, ptr %682, align 8, !tbaa !63
-  br i1 %199, label %.preheader119, label %1490
+1486:                                             ; preds = %.loopexit79
+  %1487 = load double, ptr %682, align 8, !tbaa !63
+  %1488 = fdiv reassoc nsz arcp contract afn double %1487, %1213
+  store double %1488, ptr %682, align 8, !tbaa !63
+  br i1 %199, label %.preheader119, label %1489
 
-.preheader119:                                    ; preds = %1542, %1487
-  %.ph120 = phi i64 [ %1491, %1542 ], [ 0, %1487 ]
-  br label %1602
+.preheader119:                                    ; preds = %1541, %1486
+  %.ph120 = phi i64 [ %1490, %1541 ], [ 0, %1486 ]
+  br label %1601
 
-1490:                                             ; preds = %1487
-  %1491 = and i64 %200, 112
-  %1492 = getelementptr inbounds nuw i8, ptr %682, i64 32
-  %1493 = getelementptr inbounds nuw i8, ptr %682, i64 64
-  %1494 = getelementptr inbounds nuw i8, ptr %682, i64 96
-  %1495 = load <4 x double>, ptr %682, align 8, !tbaa !63
+1489:                                             ; preds = %1486
+  %1490 = and i64 %200, 112
+  %1491 = getelementptr inbounds nuw i8, ptr %682, i64 32
+  %1492 = getelementptr inbounds nuw i8, ptr %682, i64 64
+  %1493 = getelementptr inbounds nuw i8, ptr %682, i64 96
+  %1494 = load <4 x double>, ptr %682, align 8, !tbaa !63
+  %1495 = load <4 x double>, ptr %1491, align 8, !tbaa !63
   %1496 = load <4 x double>, ptr %1492, align 8, !tbaa !63
   %1497 = load <4 x double>, ptr %1493, align 8, !tbaa !63
-  %1498 = load <4 x double>, ptr %1494, align 8, !tbaa !63
+  %1498 = fptrunc <4 x double> %1494 to <4 x float>
   %1499 = fptrunc <4 x double> %1495 to <4 x float>
   %1500 = fptrunc <4 x double> %1496 to <4 x float>
   %1501 = fptrunc <4 x double> %1497 to <4 x float>
-  %1502 = fptrunc <4 x double> %1498 to <4 x float>
-  %1503 = getelementptr inbounds nuw i8, ptr %23, i64 820
-  %1504 = getelementptr inbounds nuw i8, ptr %23, i64 836
-  %1505 = getelementptr inbounds nuw i8, ptr %23, i64 852
-  store <4 x float> %1499, ptr %202, align 4, !tbaa !11
+  %1502 = getelementptr inbounds nuw i8, ptr %23, i64 820
+  %1503 = getelementptr inbounds nuw i8, ptr %23, i64 836
+  %1504 = getelementptr inbounds nuw i8, ptr %23, i64 852
+  store <4 x float> %1498, ptr %202, align 4, !tbaa !11
+  store <4 x float> %1499, ptr %1502, align 4, !tbaa !11
   store <4 x float> %1500, ptr %1503, align 4, !tbaa !11
   store <4 x float> %1501, ptr %1504, align 4, !tbaa !11
-  store <4 x float> %1502, ptr %1505, align 4, !tbaa !11
-  %1506 = icmp eq i64 %1491, 16
-  br i1 %1506, label %1542, label %1507, !llvm.loop !83
+  %1505 = icmp eq i64 %1490, 16
+  br i1 %1505, label %1541, label %1506, !llvm.loop !83
 
-1507:                                             ; preds = %1490
-  %1508 = getelementptr inbounds nuw i8, ptr %682, i64 128
-  %1509 = getelementptr inbounds nuw i8, ptr %682, i64 160
-  %1510 = getelementptr inbounds nuw i8, ptr %682, i64 192
-  %1511 = getelementptr inbounds nuw i8, ptr %682, i64 224
+1506:                                             ; preds = %1489
+  %1507 = getelementptr inbounds nuw i8, ptr %682, i64 128
+  %1508 = getelementptr inbounds nuw i8, ptr %682, i64 160
+  %1509 = getelementptr inbounds nuw i8, ptr %682, i64 192
+  %1510 = getelementptr inbounds nuw i8, ptr %682, i64 224
+  %1511 = load <4 x double>, ptr %1507, align 8, !tbaa !63
   %1512 = load <4 x double>, ptr %1508, align 8, !tbaa !63
   %1513 = load <4 x double>, ptr %1509, align 8, !tbaa !63
   %1514 = load <4 x double>, ptr %1510, align 8, !tbaa !63
-  %1515 = load <4 x double>, ptr %1511, align 8, !tbaa !63
+  %1515 = fptrunc <4 x double> %1511 to <4 x float>
   %1516 = fptrunc <4 x double> %1512 to <4 x float>
   %1517 = fptrunc <4 x double> %1513 to <4 x float>
   %1518 = fptrunc <4 x double> %1514 to <4 x float>
-  %1519 = fptrunc <4 x double> %1515 to <4 x float>
-  %1520 = getelementptr inbounds nuw i8, ptr %23, i64 868
-  %1521 = getelementptr inbounds nuw i8, ptr %23, i64 884
-  %1522 = getelementptr inbounds nuw i8, ptr %23, i64 900
-  %1523 = getelementptr inbounds nuw i8, ptr %23, i64 916
+  %1519 = getelementptr inbounds nuw i8, ptr %23, i64 868
+  %1520 = getelementptr inbounds nuw i8, ptr %23, i64 884
+  %1521 = getelementptr inbounds nuw i8, ptr %23, i64 900
+  %1522 = getelementptr inbounds nuw i8, ptr %23, i64 916
+  store <4 x float> %1515, ptr %1519, align 4, !tbaa !11
   store <4 x float> %1516, ptr %1520, align 4, !tbaa !11
   store <4 x float> %1517, ptr %1521, align 4, !tbaa !11
   store <4 x float> %1518, ptr %1522, align 4, !tbaa !11
-  store <4 x float> %1519, ptr %1523, align 4, !tbaa !11
-  %1524 = icmp eq i64 %1491, 32
-  br i1 %1524, label %1542, label %1525, !llvm.loop !83
+  %1523 = icmp eq i64 %1490, 32
+  br i1 %1523, label %1541, label %1524, !llvm.loop !83
 
-1525:                                             ; preds = %1507
-  %1526 = getelementptr inbounds nuw i8, ptr %682, i64 256
-  %1527 = getelementptr inbounds nuw i8, ptr %682, i64 288
-  %1528 = getelementptr inbounds nuw i8, ptr %682, i64 320
-  %1529 = getelementptr inbounds nuw i8, ptr %682, i64 352
+1524:                                             ; preds = %1506
+  %1525 = getelementptr inbounds nuw i8, ptr %682, i64 256
+  %1526 = getelementptr inbounds nuw i8, ptr %682, i64 288
+  %1527 = getelementptr inbounds nuw i8, ptr %682, i64 320
+  %1528 = getelementptr inbounds nuw i8, ptr %682, i64 352
+  %1529 = load <4 x double>, ptr %1525, align 8, !tbaa !63
   %1530 = load <4 x double>, ptr %1526, align 8, !tbaa !63
   %1531 = load <4 x double>, ptr %1527, align 8, !tbaa !63
   %1532 = load <4 x double>, ptr %1528, align 8, !tbaa !63
-  %1533 = load <4 x double>, ptr %1529, align 8, !tbaa !63
+  %1533 = fptrunc <4 x double> %1529 to <4 x float>
   %1534 = fptrunc <4 x double> %1530 to <4 x float>
   %1535 = fptrunc <4 x double> %1531 to <4 x float>
   %1536 = fptrunc <4 x double> %1532 to <4 x float>
-  %1537 = fptrunc <4 x double> %1533 to <4 x float>
-  %1538 = getelementptr inbounds nuw i8, ptr %23, i64 932
-  %1539 = getelementptr inbounds nuw i8, ptr %23, i64 948
-  %1540 = getelementptr inbounds nuw i8, ptr %23, i64 964
-  %1541 = getelementptr inbounds nuw i8, ptr %23, i64 980
+  %1537 = getelementptr inbounds nuw i8, ptr %23, i64 932
+  %1538 = getelementptr inbounds nuw i8, ptr %23, i64 948
+  %1539 = getelementptr inbounds nuw i8, ptr %23, i64 964
+  %1540 = getelementptr inbounds nuw i8, ptr %23, i64 980
+  store <4 x float> %1533, ptr %1537, align 4, !tbaa !11
   store <4 x float> %1534, ptr %1538, align 4, !tbaa !11
   store <4 x float> %1535, ptr %1539, align 4, !tbaa !11
   store <4 x float> %1536, ptr %1540, align 4, !tbaa !11
-  store <4 x float> %1537, ptr %1541, align 4, !tbaa !11
-  br label %1542
+  br label %1541
 
-1542:                                             ; preds = %1525, %1507, %1490
-  %1543 = icmp eq i64 %1491, %200
-  br i1 %1543, label %.loopexit78, label %.preheader119
+1541:                                             ; preds = %1524, %1506, %1489
+  %1542 = icmp eq i64 %1490, %200
+  br i1 %1542, label %.loopexit78, label %.preheader119
 
-.loopexit78:                                      ; preds = %1602, %1542
-  br i1 %29, label %1544, label %.loopexit77
+.loopexit78:                                      ; preds = %1601, %1541
+  br i1 %29, label %1543, label %.loopexit77
 
-1544:                                             ; preds = %.loopexit78
-  %1545 = getelementptr inbounds nuw i8, ptr %1, i64 980
-  %1546 = zext nneg i32 %26 to i64
-  %1547 = icmp samesign ult i32 %25, 16
-  br i1 %1547, label %.preheader117, label %1548
+1543:                                             ; preds = %.loopexit78
+  %1544 = getelementptr inbounds nuw i8, ptr %1, i64 980
+  %1545 = zext nneg i32 %26 to i64
+  %1546 = icmp samesign ult i32 %25, 16
+  br i1 %1546, label %.preheader117, label %1547
 
-.preheader117:                                    ; preds = %1600, %1544
-  %.ph118 = phi i64 [ %1549, %1600 ], [ 0, %1544 ]
-  br label %1610
+.preheader117:                                    ; preds = %1599, %1543
+  %.ph118 = phi i64 [ %1548, %1599 ], [ 0, %1543 ]
+  br label %1609
 
-1548:                                             ; preds = %1544
-  %1549 = and i64 %1546, 48
-  %1550 = getelementptr inbounds nuw i8, ptr %1, i64 996
-  %1551 = getelementptr inbounds nuw i8, ptr %1, i64 1012
-  %1552 = getelementptr inbounds nuw i8, ptr %1, i64 1028
-  %1553 = load <4 x float>, ptr %1545, align 4, !tbaa !11
+1547:                                             ; preds = %1543
+  %1548 = and i64 %1545, 48
+  %1549 = getelementptr inbounds nuw i8, ptr %1, i64 996
+  %1550 = getelementptr inbounds nuw i8, ptr %1, i64 1012
+  %1551 = getelementptr inbounds nuw i8, ptr %1, i64 1028
+  %1552 = load <4 x float>, ptr %1544, align 4, !tbaa !11
+  %1553 = load <4 x float>, ptr %1549, align 4, !tbaa !11
   %1554 = load <4 x float>, ptr %1550, align 4, !tbaa !11
   %1555 = load <4 x float>, ptr %1551, align 4, !tbaa !11
-  %1556 = load <4 x float>, ptr %1552, align 4, !tbaa !11
+  %1556 = fpext <4 x float> %1552 to <4 x double>
   %1557 = fpext <4 x float> %1553 to <4 x double>
   %1558 = fpext <4 x float> %1554 to <4 x double>
   %1559 = fpext <4 x float> %1555 to <4 x double>
-  %1560 = fpext <4 x float> %1556 to <4 x double>
-  %1561 = getelementptr inbounds nuw i8, ptr %682, i64 32
-  %1562 = getelementptr inbounds nuw i8, ptr %682, i64 64
-  %1563 = getelementptr inbounds nuw i8, ptr %682, i64 96
-  store <4 x double> %1557, ptr %682, align 8, !tbaa !63
+  %1560 = getelementptr inbounds nuw i8, ptr %682, i64 32
+  %1561 = getelementptr inbounds nuw i8, ptr %682, i64 64
+  %1562 = getelementptr inbounds nuw i8, ptr %682, i64 96
+  store <4 x double> %1556, ptr %682, align 8, !tbaa !63
+  store <4 x double> %1557, ptr %1560, align 8, !tbaa !63
   store <4 x double> %1558, ptr %1561, align 8, !tbaa !63
   store <4 x double> %1559, ptr %1562, align 8, !tbaa !63
-  store <4 x double> %1560, ptr %1563, align 8, !tbaa !63
-  %1564 = icmp eq i64 %1549, 16
-  br i1 %1564, label %1600, label %1565, !llvm.loop !84
+  %1563 = icmp eq i64 %1548, 16
+  br i1 %1563, label %1599, label %1564, !llvm.loop !84
 
-1565:                                             ; preds = %1548
-  %1566 = getelementptr inbounds nuw i8, ptr %1, i64 1044
-  %1567 = getelementptr inbounds nuw i8, ptr %1, i64 1060
-  %1568 = getelementptr inbounds nuw i8, ptr %1, i64 1076
-  %1569 = getelementptr inbounds nuw i8, ptr %1, i64 1092
+1564:                                             ; preds = %1547
+  %1565 = getelementptr inbounds nuw i8, ptr %1, i64 1044
+  %1566 = getelementptr inbounds nuw i8, ptr %1, i64 1060
+  %1567 = getelementptr inbounds nuw i8, ptr %1, i64 1076
+  %1568 = getelementptr inbounds nuw i8, ptr %1, i64 1092
+  %1569 = load <4 x float>, ptr %1565, align 4, !tbaa !11
   %1570 = load <4 x float>, ptr %1566, align 4, !tbaa !11
   %1571 = load <4 x float>, ptr %1567, align 4, !tbaa !11
   %1572 = load <4 x float>, ptr %1568, align 4, !tbaa !11
-  %1573 = load <4 x float>, ptr %1569, align 4, !tbaa !11
+  %1573 = fpext <4 x float> %1569 to <4 x double>
   %1574 = fpext <4 x float> %1570 to <4 x double>
   %1575 = fpext <4 x float> %1571 to <4 x double>
   %1576 = fpext <4 x float> %1572 to <4 x double>
-  %1577 = fpext <4 x float> %1573 to <4 x double>
-  %1578 = getelementptr inbounds nuw i8, ptr %682, i64 128
-  %1579 = getelementptr inbounds nuw i8, ptr %682, i64 160
-  %1580 = getelementptr inbounds nuw i8, ptr %682, i64 192
-  %1581 = getelementptr inbounds nuw i8, ptr %682, i64 224
+  %1577 = getelementptr inbounds nuw i8, ptr %682, i64 128
+  %1578 = getelementptr inbounds nuw i8, ptr %682, i64 160
+  %1579 = getelementptr inbounds nuw i8, ptr %682, i64 192
+  %1580 = getelementptr inbounds nuw i8, ptr %682, i64 224
+  store <4 x double> %1573, ptr %1577, align 8, !tbaa !63
   store <4 x double> %1574, ptr %1578, align 8, !tbaa !63
   store <4 x double> %1575, ptr %1579, align 8, !tbaa !63
   store <4 x double> %1576, ptr %1580, align 8, !tbaa !63
-  store <4 x double> %1577, ptr %1581, align 8, !tbaa !63
-  %1582 = icmp eq i64 %1549, 32
-  br i1 %1582, label %1600, label %1583, !llvm.loop !84
+  %1581 = icmp eq i64 %1548, 32
+  br i1 %1581, label %1599, label %1582, !llvm.loop !84
 
-1583:                                             ; preds = %1565
-  %1584 = getelementptr inbounds nuw i8, ptr %1, i64 1108
-  %1585 = getelementptr inbounds nuw i8, ptr %1, i64 1124
-  %1586 = getelementptr inbounds nuw i8, ptr %1, i64 1140
-  %1587 = getelementptr inbounds nuw i8, ptr %1, i64 1156
+1582:                                             ; preds = %1564
+  %1583 = getelementptr inbounds nuw i8, ptr %1, i64 1108
+  %1584 = getelementptr inbounds nuw i8, ptr %1, i64 1124
+  %1585 = getelementptr inbounds nuw i8, ptr %1, i64 1140
+  %1586 = getelementptr inbounds nuw i8, ptr %1, i64 1156
+  %1587 = load <4 x float>, ptr %1583, align 4, !tbaa !11
   %1588 = load <4 x float>, ptr %1584, align 4, !tbaa !11
   %1589 = load <4 x float>, ptr %1585, align 4, !tbaa !11
   %1590 = load <4 x float>, ptr %1586, align 4, !tbaa !11
-  %1591 = load <4 x float>, ptr %1587, align 4, !tbaa !11
+  %1591 = fpext <4 x float> %1587 to <4 x double>
   %1592 = fpext <4 x float> %1588 to <4 x double>
   %1593 = fpext <4 x float> %1589 to <4 x double>
   %1594 = fpext <4 x float> %1590 to <4 x double>
-  %1595 = fpext <4 x float> %1591 to <4 x double>
-  %1596 = getelementptr inbounds nuw i8, ptr %682, i64 256
-  %1597 = getelementptr inbounds nuw i8, ptr %682, i64 288
-  %1598 = getelementptr inbounds nuw i8, ptr %682, i64 320
-  %1599 = getelementptr inbounds nuw i8, ptr %682, i64 352
+  %1595 = getelementptr inbounds nuw i8, ptr %682, i64 256
+  %1596 = getelementptr inbounds nuw i8, ptr %682, i64 288
+  %1597 = getelementptr inbounds nuw i8, ptr %682, i64 320
+  %1598 = getelementptr inbounds nuw i8, ptr %682, i64 352
+  store <4 x double> %1591, ptr %1595, align 8, !tbaa !63
   store <4 x double> %1592, ptr %1596, align 8, !tbaa !63
   store <4 x double> %1593, ptr %1597, align 8, !tbaa !63
   store <4 x double> %1594, ptr %1598, align 8, !tbaa !63
-  store <4 x double> %1595, ptr %1599, align 8, !tbaa !63
-  br label %1600
+  br label %1599
 
-1600:                                             ; preds = %1583, %1565, %1548
-  %1601 = icmp eq i64 %1549, %1546
-  br i1 %1601, label %.loopexit77, label %.preheader117
+1599:                                             ; preds = %1582, %1564, %1547
+  %1600 = icmp eq i64 %1548, %1545
+  br i1 %1600, label %.loopexit77, label %.preheader117
 
-1602:                                             ; preds = %.preheader119, %1602
-  %1603 = phi i64 [ %1608, %1602 ], [ %.ph120, %.preheader119 ]
-  %1604 = getelementptr inbounds nuw double, ptr %682, i64 %1603
-  %1605 = load double, ptr %1604, align 8, !tbaa !63
-  %1606 = fptrunc double %1605 to float
-  %1607 = getelementptr inbounds nuw [53 x float], ptr %202, i64 0, i64 %1603
-  store float %1606, ptr %1607, align 4, !tbaa !11
-  %1608 = add nuw nsw i64 %1603, 1
-  %1609 = icmp eq i64 %1608, %200
-  br i1 %1609, label %.loopexit78, label %1602, !llvm.loop !85
+1601:                                             ; preds = %.preheader119, %1601
+  %1602 = phi i64 [ %1607, %1601 ], [ %.ph120, %.preheader119 ]
+  %1603 = getelementptr inbounds nuw double, ptr %682, i64 %1602
+  %1604 = load double, ptr %1603, align 8, !tbaa !63
+  %1605 = fptrunc double %1604 to float
+  %1606 = getelementptr inbounds nuw [53 x float], ptr %202, i64 0, i64 %1602
+  store float %1605, ptr %1606, align 4, !tbaa !11
+  %1607 = add nuw nsw i64 %1602, 1
+  %1608 = icmp eq i64 %1607, %200
+  br i1 %1608, label %.loopexit78, label %1601, !llvm.loop !85
 
-.loopexit77:                                      ; preds = %1610, %1600, %.loopexit78
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1055, i8 0, i64 32, i1 false), !tbaa !63
-  br label %1621
+.loopexit77:                                      ; preds = %1609, %1599, %.loopexit78
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1054, i8 0, i64 32, i1 false), !tbaa !63
+  br label %1620
 
-1610:                                             ; preds = %.preheader117, %1610
-  %1611 = phi i64 [ %1616, %1610 ], [ %.ph118, %.preheader117 ]
-  %1612 = getelementptr inbounds nuw [49 x float], ptr %1545, i64 0, i64 %1611
-  %1613 = load float, ptr %1612, align 4, !tbaa !11
-  %1614 = fpext float %1613 to double
-  %1615 = getelementptr inbounds nuw double, ptr %682, i64 %1611
-  store double %1614, ptr %1615, align 8, !tbaa !63
-  %1616 = add nuw nsw i64 %1611, 1
-  %1617 = icmp eq i64 %1616, %1546
-  br i1 %1617, label %.loopexit77, label %1610, !llvm.loop !86
+1609:                                             ; preds = %.preheader117, %1609
+  %1610 = phi i64 [ %1615, %1609 ], [ %.ph118, %.preheader117 ]
+  %1611 = getelementptr inbounds nuw [49 x float], ptr %1544, i64 0, i64 %1610
+  %1612 = load float, ptr %1611, align 4, !tbaa !11
+  %1613 = fpext float %1612 to double
+  %1614 = getelementptr inbounds nuw double, ptr %682, i64 %1610
+  store double %1613, ptr %1614, align 8, !tbaa !63
+  %1615 = add nuw nsw i64 %1610, 1
+  %1616 = icmp eq i64 %1615, %1545
+  br i1 %1616, label %.loopexit77, label %1609, !llvm.loop !86
 
-.loopexit76:                                      ; preds = %1682, %1679
+.loopexit76:                                      ; preds = %1681, %1678
+  %1617 = add nuw nsw i64 %1621, 1
   %1618 = add nuw nsw i64 %1622, 1
-  %1619 = add nuw nsw i64 %1623, 1
-  %1620 = icmp eq i64 %1618, %211
-  br i1 %1620, label %.preheader, label %1621
+  %1619 = icmp eq i64 %1617, %211
+  br i1 %1619, label %.preheader, label %1620
 
-1621:                                             ; preds = %.loopexit76, %.loopexit77
-  %1622 = phi i64 [ 0, %.loopexit77 ], [ %1618, %.loopexit76 ]
-  %1623 = phi i64 [ 1, %.loopexit77 ], [ %1619, %.loopexit76 ]
-  %1624 = sub nsw i64 %211, %1622
-  %1625 = getelementptr inbounds nuw i32, ptr %991, i64 %1622
-  %1626 = load i32, ptr %1625, align 4, !tbaa !15
-  %1627 = sext i32 %1626 to i64
-  %1628 = getelementptr inbounds double, ptr %682, i64 %1627
-  %1629 = load double, ptr %1628, align 8, !tbaa !63
-  %1630 = getelementptr inbounds nuw double, ptr %682, i64 %1622
-  %1631 = load double, ptr %1630, align 8, !tbaa !63
-  store double %1631, ptr %1628, align 8, !tbaa !63
-  store double %1629, ptr %1630, align 8, !tbaa !63
-  %1632 = getelementptr double, ptr %681, i64 %1622
-  %1633 = icmp ult i64 %1624, 16
-  br i1 %1633, label %.preheader115, label %1634
+1620:                                             ; preds = %.loopexit76, %.loopexit77
+  %1621 = phi i64 [ 0, %.loopexit77 ], [ %1617, %.loopexit76 ]
+  %1622 = phi i64 [ 1, %.loopexit77 ], [ %1618, %.loopexit76 ]
+  %1623 = sub nsw i64 %211, %1621
+  %1624 = getelementptr inbounds nuw i32, ptr %990, i64 %1621
+  %1625 = load i32, ptr %1624, align 4, !tbaa !15
+  %1626 = sext i32 %1625 to i64
+  %1627 = getelementptr inbounds double, ptr %682, i64 %1626
+  %1628 = load double, ptr %1627, align 8, !tbaa !63
+  %1629 = getelementptr inbounds nuw double, ptr %682, i64 %1621
+  %1630 = load double, ptr %1629, align 8, !tbaa !63
+  store double %1630, ptr %1627, align 8, !tbaa !63
+  store double %1628, ptr %1629, align 8, !tbaa !63
+  %1631 = getelementptr double, ptr %681, i64 %1621
+  %1632 = icmp ult i64 %1623, 16
+  br i1 %1632, label %.preheader115, label %1633
 
-1634:                                             ; preds = %1621
-  %1635 = and i64 %1624, -16
-  %1636 = insertelement <4 x i64> poison, i64 %1623, i64 0
-  %1637 = shufflevector <4 x i64> %1636, <4 x i64> poison, <4 x i32> zeroinitializer
-  %1638 = add nuw <4 x i64> %1637, <i64 0, i64 1, i64 2, i64 3>
-  %1639 = insertelement <4 x double> poison, double %1629, i64 0
-  %1640 = shufflevector <4 x double> %1639, <4 x double> poison, <4 x i32> zeroinitializer
-  %1641 = getelementptr double, ptr %682, i64 %1623
-  br label %1642
+1633:                                             ; preds = %1620
+  %1634 = and i64 %1623, -16
+  %1635 = insertelement <4 x i64> poison, i64 %1622, i64 0
+  %1636 = shufflevector <4 x i64> %1635, <4 x i64> poison, <4 x i32> zeroinitializer
+  %1637 = add nuw <4 x i64> %1636, <i64 0, i64 1, i64 2, i64 3>
+  %1638 = insertelement <4 x double> poison, double %1628, i64 0
+  %1639 = shufflevector <4 x double> %1638, <4 x double> poison, <4 x i32> zeroinitializer
+  %1640 = getelementptr double, ptr %682, i64 %1622
+  br label %1641
 
-1642:                                             ; preds = %1642, %1634
-  %1643 = phi i64 [ 0, %1634 ], [ %1676, %1642 ]
-  %1644 = phi <4 x i64> [ %1638, %1634 ], [ %1677, %1642 ]
-  %1645 = add <4 x i64> %1644, splat (i64 4)
-  %1646 = add <4 x i64> %1644, splat (i64 8)
-  %1647 = add <4 x i64> %1644, splat (i64 12)
-  %1648 = mul nuw nsw <4 x i64> %1644, %1057
-  %1649 = mul nuw nsw <4 x i64> %1645, %1057
-  %1650 = mul nuw nsw <4 x i64> %1646, %1057
-  %1651 = mul nuw nsw <4 x i64> %1647, %1057
-  %1652 = getelementptr double, ptr %1632, <4 x i64> %1648
-  %1653 = getelementptr double, ptr %1632, <4 x i64> %1649
-  %1654 = getelementptr double, ptr %1632, <4 x i64> %1650
-  %1655 = getelementptr double, ptr %1632, <4 x i64> %1651
+1641:                                             ; preds = %1641, %1633
+  %1642 = phi i64 [ 0, %1633 ], [ %1675, %1641 ]
+  %1643 = phi <4 x i64> [ %1637, %1633 ], [ %1676, %1641 ]
+  %1644 = add <4 x i64> %1643, splat (i64 4)
+  %1645 = add <4 x i64> %1643, splat (i64 8)
+  %1646 = add <4 x i64> %1643, splat (i64 12)
+  %1647 = mul nuw nsw <4 x i64> %1643, %1056
+  %1648 = mul nuw nsw <4 x i64> %1644, %1056
+  %1649 = mul nuw nsw <4 x i64> %1645, %1056
+  %1650 = mul nuw nsw <4 x i64> %1646, %1056
+  %1651 = getelementptr double, ptr %1631, <4 x i64> %1647
+  %1652 = getelementptr double, ptr %1631, <4 x i64> %1648
+  %1653 = getelementptr double, ptr %1631, <4 x i64> %1649
+  %1654 = getelementptr double, ptr %1631, <4 x i64> %1650
+  %1655 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %1651, i32 8, <4 x i1> splat (i1 true), <4 x double> poison), !tbaa !63
   %1656 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %1652, i32 8, <4 x i1> splat (i1 true), <4 x double> poison), !tbaa !63
   %1657 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %1653, i32 8, <4 x i1> splat (i1 true), <4 x double> poison), !tbaa !63
   %1658 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %1654, i32 8, <4 x i1> splat (i1 true), <4 x double> poison), !tbaa !63
-  %1659 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %1655, i32 8, <4 x i1> splat (i1 true), <4 x double> poison), !tbaa !63
-  %1660 = fmul reassoc nsz arcp contract afn <4 x double> %1656, %1640
-  %1661 = fmul reassoc nsz arcp contract afn <4 x double> %1657, %1640
-  %1662 = fmul reassoc nsz arcp contract afn <4 x double> %1658, %1640
-  %1663 = fmul reassoc nsz arcp contract afn <4 x double> %1659, %1640
-  %1664 = getelementptr double, ptr %1641, i64 %1643
-  %1665 = getelementptr inbounds nuw i8, ptr %1664, i64 32
-  %1666 = getelementptr inbounds nuw i8, ptr %1664, i64 64
-  %1667 = getelementptr inbounds nuw i8, ptr %1664, i64 96
+  %1659 = fmul reassoc nsz arcp contract afn <4 x double> %1655, %1639
+  %1660 = fmul reassoc nsz arcp contract afn <4 x double> %1656, %1639
+  %1661 = fmul reassoc nsz arcp contract afn <4 x double> %1657, %1639
+  %1662 = fmul reassoc nsz arcp contract afn <4 x double> %1658, %1639
+  %1663 = getelementptr double, ptr %1640, i64 %1642
+  %1664 = getelementptr inbounds nuw i8, ptr %1663, i64 32
+  %1665 = getelementptr inbounds nuw i8, ptr %1663, i64 64
+  %1666 = getelementptr inbounds nuw i8, ptr %1663, i64 96
+  %1667 = load <4 x double>, ptr %1663, align 8, !tbaa !63
   %1668 = load <4 x double>, ptr %1664, align 8, !tbaa !63
   %1669 = load <4 x double>, ptr %1665, align 8, !tbaa !63
   %1670 = load <4 x double>, ptr %1666, align 8, !tbaa !63
-  %1671 = load <4 x double>, ptr %1667, align 8, !tbaa !63
+  %1671 = fadd reassoc nsz arcp contract afn <4 x double> %1667, %1659
   %1672 = fadd reassoc nsz arcp contract afn <4 x double> %1668, %1660
   %1673 = fadd reassoc nsz arcp contract afn <4 x double> %1669, %1661
   %1674 = fadd reassoc nsz arcp contract afn <4 x double> %1670, %1662
-  %1675 = fadd reassoc nsz arcp contract afn <4 x double> %1671, %1663
+  store <4 x double> %1671, ptr %1663, align 8, !tbaa !63
   store <4 x double> %1672, ptr %1664, align 8, !tbaa !63
   store <4 x double> %1673, ptr %1665, align 8, !tbaa !63
   store <4 x double> %1674, ptr %1666, align 8, !tbaa !63
-  store <4 x double> %1675, ptr %1667, align 8, !tbaa !63
-  %1676 = add nuw i64 %1643, 16
-  %1677 = add <4 x i64> %1644, splat (i64 16)
-  %1678 = icmp eq i64 %1676, %1635
-  br i1 %1678, label %1679, label %1642, !llvm.loop !87
+  %1675 = add nuw i64 %1642, 16
+  %1676 = add <4 x i64> %1643, splat (i64 16)
+  %1677 = icmp eq i64 %1675, %1634
+  br i1 %1677, label %1678, label %1641, !llvm.loop !87
 
-1679:                                             ; preds = %1642
-  %1680 = add i64 %1635, %1623
-  %1681 = icmp eq i64 %1624, %1635
-  br i1 %1681, label %.loopexit76, label %.preheader115
+1678:                                             ; preds = %1641
+  %1679 = add i64 %1634, %1622
+  %1680 = icmp eq i64 %1623, %1634
+  br i1 %1680, label %.loopexit76, label %.preheader115
 
-.preheader115:                                    ; preds = %1679, %1621
-  %.ph116 = phi i64 [ %1680, %1679 ], [ %1623, %1621 ]
-  br label %1682
+.preheader115:                                    ; preds = %1678, %1620
+  %.ph116 = phi i64 [ %1679, %1678 ], [ %1622, %1620 ]
+  br label %1681
 
-1682:                                             ; preds = %.preheader115, %1682
-  %1683 = phi i64 [ %1691, %1682 ], [ %.ph116, %.preheader115 ]
-  %1684 = mul nuw nsw i64 %1683, %200
-  %1685 = getelementptr double, ptr %1632, i64 %1684
-  %1686 = load double, ptr %1685, align 8, !tbaa !63
-  %1687 = fmul reassoc nsz arcp contract afn double %1686, %1629
-  %1688 = getelementptr inbounds double, ptr %682, i64 %1683
-  %1689 = load double, ptr %1688, align 8, !tbaa !63
-  %1690 = fadd reassoc nsz arcp contract afn double %1689, %1687
-  store double %1690, ptr %1688, align 8, !tbaa !63
-  %1691 = add nuw nsw i64 %1683, 1
-  %1692 = icmp eq i64 %1691, %200
-  br i1 %1692, label %.loopexit76, label %1682, !llvm.loop !88
+1681:                                             ; preds = %.preheader115, %1681
+  %1682 = phi i64 [ %1690, %1681 ], [ %.ph116, %.preheader115 ]
+  %1683 = mul nuw nsw i64 %1682, %200
+  %1684 = getelementptr double, ptr %1631, i64 %1683
+  %1685 = load double, ptr %1684, align 8, !tbaa !63
+  %1686 = fmul reassoc nsz arcp contract afn double %1685, %1628
+  %1687 = getelementptr inbounds double, ptr %682, i64 %1682
+  %1688 = load double, ptr %1687, align 8, !tbaa !63
+  %1689 = fadd reassoc nsz arcp contract afn double %1688, %1686
+  store double %1689, ptr %1687, align 8, !tbaa !63
+  %1690 = add nuw nsw i64 %1682, 1
+  %1691 = icmp eq i64 %1690, %200
+  br i1 %1691, label %.loopexit76, label %1681, !llvm.loop !88
 
 .preheader:                                       ; preds = %.loopexit76, %.loopexit75
-  %1693 = phi i64 [ %1748, %.loopexit75 ], [ 0, %.loopexit76 ]
-  %1694 = phi i64 [ %1696, %.loopexit75 ], [ %200, %.loopexit76 ]
-  %1695 = sub nsw i64 %211, %1693
-  %1696 = add nsw i64 %1694, -1
-  %1697 = mul nuw i64 %1696, %1071
-  %1698 = getelementptr inbounds double, ptr %681, i64 %1697
-  %1699 = load double, ptr %1698, align 8, !tbaa !63
-  %1700 = getelementptr inbounds double, ptr %682, i64 %1696
-  %1701 = load double, ptr %1700, align 8, !tbaa !63
-  %1702 = fdiv reassoc nsz arcp contract afn double %1701, %1699
-  store double %1702, ptr %1700, align 8, !tbaa !63
-  %1703 = getelementptr double, ptr %681, i64 %1696
-  %1704 = icmp ult i64 %1695, 16
-  br i1 %1704, label %.preheader113, label %1705
+  %1692 = phi i64 [ %1747, %.loopexit75 ], [ 0, %.loopexit76 ]
+  %1693 = phi i64 [ %1695, %.loopexit75 ], [ %200, %.loopexit76 ]
+  %1694 = sub nsw i64 %211, %1692
+  %1695 = add nsw i64 %1693, -1
+  %1696 = mul nuw i64 %1695, %1070
+  %1697 = getelementptr inbounds double, ptr %681, i64 %1696
+  %1698 = load double, ptr %1697, align 8, !tbaa !63
+  %1699 = getelementptr inbounds double, ptr %682, i64 %1695
+  %1700 = load double, ptr %1699, align 8, !tbaa !63
+  %1701 = fdiv reassoc nsz arcp contract afn double %1700, %1698
+  store double %1701, ptr %1699, align 8, !tbaa !63
+  %1702 = getelementptr double, ptr %681, i64 %1695
+  %1703 = icmp ult i64 %1694, 16
+  br i1 %1703, label %.preheader113, label %1704
 
-.preheader113:                                    ; preds = %1746, %.preheader
-  %.ph114 = phi i64 [ %1706, %1746 ], [ 0, %.preheader ]
-  br label %1749
+.preheader113:                                    ; preds = %1745, %.preheader
+  %.ph114 = phi i64 [ %1705, %1745 ], [ 0, %.preheader ]
+  br label %1748
 
-1705:                                             ; preds = %.preheader
-  %1706 = and i64 %1695, -16
-  %1707 = insertelement <4 x double> poison, double %1702, i64 0
-  %1708 = shufflevector <4 x double> %1707, <4 x double> poison, <4 x i32> zeroinitializer
-  br label %1709
+1704:                                             ; preds = %.preheader
+  %1705 = and i64 %1694, -16
+  %1706 = insertelement <4 x double> poison, double %1701, i64 0
+  %1707 = shufflevector <4 x double> %1706, <4 x double> poison, <4 x i32> zeroinitializer
+  br label %1708
 
-1709:                                             ; preds = %1709, %1705
-  %1710 = phi i64 [ 0, %1705 ], [ %1743, %1709 ]
-  %1711 = phi <4 x i64> [ <i64 0, i64 1, i64 2, i64 3>, %1705 ], [ %1744, %1709 ]
-  %1712 = add <4 x i64> %1711, splat (i64 4)
-  %1713 = add <4 x i64> %1711, splat (i64 8)
-  %1714 = add <4 x i64> %1711, splat (i64 12)
-  %1715 = mul nuw nsw <4 x i64> %1711, %1057
-  %1716 = mul nuw nsw <4 x i64> %1712, %1057
-  %1717 = mul nuw nsw <4 x i64> %1713, %1057
-  %1718 = mul nuw nsw <4 x i64> %1714, %1057
-  %1719 = getelementptr double, ptr %1703, <4 x i64> %1715
-  %1720 = getelementptr double, ptr %1703, <4 x i64> %1716
-  %1721 = getelementptr double, ptr %1703, <4 x i64> %1717
-  %1722 = getelementptr double, ptr %1703, <4 x i64> %1718
+1708:                                             ; preds = %1708, %1704
+  %1709 = phi i64 [ 0, %1704 ], [ %1742, %1708 ]
+  %1710 = phi <4 x i64> [ <i64 0, i64 1, i64 2, i64 3>, %1704 ], [ %1743, %1708 ]
+  %1711 = add <4 x i64> %1710, splat (i64 4)
+  %1712 = add <4 x i64> %1710, splat (i64 8)
+  %1713 = add <4 x i64> %1710, splat (i64 12)
+  %1714 = mul nuw nsw <4 x i64> %1710, %1056
+  %1715 = mul nuw nsw <4 x i64> %1711, %1056
+  %1716 = mul nuw nsw <4 x i64> %1712, %1056
+  %1717 = mul nuw nsw <4 x i64> %1713, %1056
+  %1718 = getelementptr double, ptr %1702, <4 x i64> %1714
+  %1719 = getelementptr double, ptr %1702, <4 x i64> %1715
+  %1720 = getelementptr double, ptr %1702, <4 x i64> %1716
+  %1721 = getelementptr double, ptr %1702, <4 x i64> %1717
+  %1722 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %1718, i32 8, <4 x i1> splat (i1 true), <4 x double> poison), !tbaa !63
   %1723 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %1719, i32 8, <4 x i1> splat (i1 true), <4 x double> poison), !tbaa !63
   %1724 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %1720, i32 8, <4 x i1> splat (i1 true), <4 x double> poison), !tbaa !63
   %1725 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %1721, i32 8, <4 x i1> splat (i1 true), <4 x double> poison), !tbaa !63
-  %1726 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %1722, i32 8, <4 x i1> splat (i1 true), <4 x double> poison), !tbaa !63
-  %1727 = fmul reassoc nsz arcp contract afn <4 x double> %1723, %1708
-  %1728 = fmul reassoc nsz arcp contract afn <4 x double> %1724, %1708
-  %1729 = fmul reassoc nsz arcp contract afn <4 x double> %1725, %1708
-  %1730 = fmul reassoc nsz arcp contract afn <4 x double> %1726, %1708
-  %1731 = getelementptr inbounds double, ptr %682, i64 %1710
-  %1732 = getelementptr inbounds nuw i8, ptr %1731, i64 32
-  %1733 = getelementptr inbounds nuw i8, ptr %1731, i64 64
-  %1734 = getelementptr inbounds nuw i8, ptr %1731, i64 96
+  %1726 = fmul reassoc nsz arcp contract afn <4 x double> %1722, %1707
+  %1727 = fmul reassoc nsz arcp contract afn <4 x double> %1723, %1707
+  %1728 = fmul reassoc nsz arcp contract afn <4 x double> %1724, %1707
+  %1729 = fmul reassoc nsz arcp contract afn <4 x double> %1725, %1707
+  %1730 = getelementptr inbounds double, ptr %682, i64 %1709
+  %1731 = getelementptr inbounds nuw i8, ptr %1730, i64 32
+  %1732 = getelementptr inbounds nuw i8, ptr %1730, i64 64
+  %1733 = getelementptr inbounds nuw i8, ptr %1730, i64 96
+  %1734 = load <4 x double>, ptr %1730, align 8, !tbaa !63
   %1735 = load <4 x double>, ptr %1731, align 8, !tbaa !63
   %1736 = load <4 x double>, ptr %1732, align 8, !tbaa !63
   %1737 = load <4 x double>, ptr %1733, align 8, !tbaa !63
-  %1738 = load <4 x double>, ptr %1734, align 8, !tbaa !63
+  %1738 = fsub reassoc nsz arcp contract afn <4 x double> %1734, %1726
   %1739 = fsub reassoc nsz arcp contract afn <4 x double> %1735, %1727
   %1740 = fsub reassoc nsz arcp contract afn <4 x double> %1736, %1728
   %1741 = fsub reassoc nsz arcp contract afn <4 x double> %1737, %1729
-  %1742 = fsub reassoc nsz arcp contract afn <4 x double> %1738, %1730
+  store <4 x double> %1738, ptr %1730, align 8, !tbaa !63
   store <4 x double> %1739, ptr %1731, align 8, !tbaa !63
   store <4 x double> %1740, ptr %1732, align 8, !tbaa !63
   store <4 x double> %1741, ptr %1733, align 8, !tbaa !63
-  store <4 x double> %1742, ptr %1734, align 8, !tbaa !63
-  %1743 = add nuw i64 %1710, 16
-  %1744 = add <4 x i64> %1711, splat (i64 16)
-  %1745 = icmp eq i64 %1743, %1706
-  br i1 %1745, label %1746, label %1709, !llvm.loop !89
+  %1742 = add nuw i64 %1709, 16
+  %1743 = add <4 x i64> %1710, splat (i64 16)
+  %1744 = icmp eq i64 %1742, %1705
+  br i1 %1744, label %1745, label %1708, !llvm.loop !89
 
-1746:                                             ; preds = %1709
-  %1747 = icmp eq i64 %1695, %1706
-  br i1 %1747, label %.loopexit75, label %.preheader113
+1745:                                             ; preds = %1708
+  %1746 = icmp eq i64 %1694, %1705
+  br i1 %1746, label %.loopexit75, label %.preheader113
 
-.loopexit75:                                      ; preds = %1749, %1746
-  %1748 = add nuw nsw i64 %1693, 1
-  %exitcond109.not = icmp eq i64 %1748, %1072
-  br i1 %exitcond109.not, label %1760, label %.preheader
+.loopexit75:                                      ; preds = %1748, %1745
+  %1747 = add nuw nsw i64 %1692, 1
+  %exitcond109.not = icmp eq i64 %1747, %1071
+  br i1 %exitcond109.not, label %1759, label %.preheader
 
-1749:                                             ; preds = %.preheader113, %1749
-  %1750 = phi i64 [ %1758, %1749 ], [ %.ph114, %.preheader113 ]
-  %1751 = mul nuw nsw i64 %1750, %200
-  %1752 = getelementptr double, ptr %1703, i64 %1751
-  %1753 = load double, ptr %1752, align 8, !tbaa !63
-  %1754 = fmul reassoc nsz arcp contract afn double %1753, %1702
-  %1755 = getelementptr inbounds double, ptr %682, i64 %1750
-  %1756 = load double, ptr %1755, align 8, !tbaa !63
-  %1757 = fsub reassoc nsz arcp contract afn double %1756, %1754
-  store double %1757, ptr %1755, align 8, !tbaa !63
-  %1758 = add nuw nsw i64 %1750, 1
-  %1759 = icmp eq i64 %1758, %1696
-  br i1 %1759, label %.loopexit75, label %1749, !llvm.loop !90
+1748:                                             ; preds = %.preheader113, %1748
+  %1749 = phi i64 [ %1757, %1748 ], [ %.ph114, %.preheader113 ]
+  %1750 = mul nuw nsw i64 %1749, %200
+  %1751 = getelementptr double, ptr %1702, i64 %1750
+  %1752 = load double, ptr %1751, align 8, !tbaa !63
+  %1753 = fmul reassoc nsz arcp contract afn double %1752, %1701
+  %1754 = getelementptr inbounds double, ptr %682, i64 %1749
+  %1755 = load double, ptr %1754, align 8, !tbaa !63
+  %1756 = fsub reassoc nsz arcp contract afn double %1755, %1753
+  store double %1756, ptr %1754, align 8, !tbaa !63
+  %1757 = add nuw nsw i64 %1749, 1
+  %1758 = icmp eq i64 %1757, %1695
+  br i1 %1758, label %.loopexit75, label %1748, !llvm.loop !90
 
-1760:                                             ; preds = %.loopexit75
-  %1761 = load double, ptr %682, align 8, !tbaa !63
-  %1762 = fdiv reassoc nsz arcp contract afn double %1761, %1214
-  store double %1762, ptr %682, align 8, !tbaa !63
-  br i1 %199, label %.preheader112, label %1763
+1759:                                             ; preds = %.loopexit75
+  %1760 = load double, ptr %682, align 8, !tbaa !63
+  %1761 = fdiv reassoc nsz arcp contract afn double %1760, %1213
+  store double %1761, ptr %682, align 8, !tbaa !63
+  br i1 %199, label %.preheader112, label %1762
 
-1763:                                             ; preds = %1760
-  %1764 = and i64 %200, 112
-  %1765 = getelementptr inbounds nuw i8, ptr %682, i64 32
-  %1766 = getelementptr inbounds nuw i8, ptr %682, i64 64
-  %1767 = getelementptr inbounds nuw i8, ptr %682, i64 96
-  %1768 = load <4 x double>, ptr %682, align 8, !tbaa !63
+1762:                                             ; preds = %1759
+  %1763 = and i64 %200, 112
+  %1764 = getelementptr inbounds nuw i8, ptr %682, i64 32
+  %1765 = getelementptr inbounds nuw i8, ptr %682, i64 64
+  %1766 = getelementptr inbounds nuw i8, ptr %682, i64 96
+  %1767 = load <4 x double>, ptr %682, align 8, !tbaa !63
+  %1768 = load <4 x double>, ptr %1764, align 8, !tbaa !63
   %1769 = load <4 x double>, ptr %1765, align 8, !tbaa !63
   %1770 = load <4 x double>, ptr %1766, align 8, !tbaa !63
-  %1771 = load <4 x double>, ptr %1767, align 8, !tbaa !63
+  %1771 = fptrunc <4 x double> %1767 to <4 x float>
   %1772 = fptrunc <4 x double> %1768 to <4 x float>
   %1773 = fptrunc <4 x double> %1769 to <4 x float>
   %1774 = fptrunc <4 x double> %1770 to <4 x float>
-  %1775 = fptrunc <4 x double> %1771 to <4 x float>
-  %1776 = getelementptr inbounds nuw i8, ptr %23, i64 1032
-  %1777 = getelementptr inbounds nuw i8, ptr %23, i64 1048
-  %1778 = getelementptr inbounds nuw i8, ptr %23, i64 1064
-  store <4 x float> %1772, ptr %201, align 4, !tbaa !11
+  %1775 = getelementptr inbounds nuw i8, ptr %23, i64 1032
+  %1776 = getelementptr inbounds nuw i8, ptr %23, i64 1048
+  %1777 = getelementptr inbounds nuw i8, ptr %23, i64 1064
+  store <4 x float> %1771, ptr %201, align 4, !tbaa !11
+  store <4 x float> %1772, ptr %1775, align 4, !tbaa !11
   store <4 x float> %1773, ptr %1776, align 4, !tbaa !11
   store <4 x float> %1774, ptr %1777, align 4, !tbaa !11
-  store <4 x float> %1775, ptr %1778, align 4, !tbaa !11
-  %1779 = icmp eq i64 %1764, 16
-  br i1 %1779, label %1815, label %1780, !llvm.loop !91
+  %1778 = icmp eq i64 %1763, 16
+  br i1 %1778, label %1814, label %1779, !llvm.loop !91
 
-1780:                                             ; preds = %1763
-  %1781 = getelementptr inbounds nuw i8, ptr %682, i64 128
-  %1782 = getelementptr inbounds nuw i8, ptr %682, i64 160
-  %1783 = getelementptr inbounds nuw i8, ptr %682, i64 192
-  %1784 = getelementptr inbounds nuw i8, ptr %682, i64 224
+1779:                                             ; preds = %1762
+  %1780 = getelementptr inbounds nuw i8, ptr %682, i64 128
+  %1781 = getelementptr inbounds nuw i8, ptr %682, i64 160
+  %1782 = getelementptr inbounds nuw i8, ptr %682, i64 192
+  %1783 = getelementptr inbounds nuw i8, ptr %682, i64 224
+  %1784 = load <4 x double>, ptr %1780, align 8, !tbaa !63
   %1785 = load <4 x double>, ptr %1781, align 8, !tbaa !63
   %1786 = load <4 x double>, ptr %1782, align 8, !tbaa !63
   %1787 = load <4 x double>, ptr %1783, align 8, !tbaa !63
-  %1788 = load <4 x double>, ptr %1784, align 8, !tbaa !63
+  %1788 = fptrunc <4 x double> %1784 to <4 x float>
   %1789 = fptrunc <4 x double> %1785 to <4 x float>
   %1790 = fptrunc <4 x double> %1786 to <4 x float>
   %1791 = fptrunc <4 x double> %1787 to <4 x float>
-  %1792 = fptrunc <4 x double> %1788 to <4 x float>
-  %1793 = getelementptr inbounds nuw i8, ptr %23, i64 1080
-  %1794 = getelementptr inbounds nuw i8, ptr %23, i64 1096
-  %1795 = getelementptr inbounds nuw i8, ptr %23, i64 1112
-  %1796 = getelementptr inbounds nuw i8, ptr %23, i64 1128
+  %1792 = getelementptr inbounds nuw i8, ptr %23, i64 1080
+  %1793 = getelementptr inbounds nuw i8, ptr %23, i64 1096
+  %1794 = getelementptr inbounds nuw i8, ptr %23, i64 1112
+  %1795 = getelementptr inbounds nuw i8, ptr %23, i64 1128
+  store <4 x float> %1788, ptr %1792, align 4, !tbaa !11
   store <4 x float> %1789, ptr %1793, align 4, !tbaa !11
   store <4 x float> %1790, ptr %1794, align 4, !tbaa !11
   store <4 x float> %1791, ptr %1795, align 4, !tbaa !11
-  store <4 x float> %1792, ptr %1796, align 4, !tbaa !11
-  %1797 = icmp eq i64 %1764, 32
-  br i1 %1797, label %1815, label %1798, !llvm.loop !91
+  %1796 = icmp eq i64 %1763, 32
+  br i1 %1796, label %1814, label %1797, !llvm.loop !91
 
-1798:                                             ; preds = %1780
-  %1799 = getelementptr inbounds nuw i8, ptr %682, i64 256
-  %1800 = getelementptr inbounds nuw i8, ptr %682, i64 288
-  %1801 = getelementptr inbounds nuw i8, ptr %682, i64 320
-  %1802 = getelementptr inbounds nuw i8, ptr %682, i64 352
+1797:                                             ; preds = %1779
+  %1798 = getelementptr inbounds nuw i8, ptr %682, i64 256
+  %1799 = getelementptr inbounds nuw i8, ptr %682, i64 288
+  %1800 = getelementptr inbounds nuw i8, ptr %682, i64 320
+  %1801 = getelementptr inbounds nuw i8, ptr %682, i64 352
+  %1802 = load <4 x double>, ptr %1798, align 8, !tbaa !63
   %1803 = load <4 x double>, ptr %1799, align 8, !tbaa !63
   %1804 = load <4 x double>, ptr %1800, align 8, !tbaa !63
   %1805 = load <4 x double>, ptr %1801, align 8, !tbaa !63
-  %1806 = load <4 x double>, ptr %1802, align 8, !tbaa !63
+  %1806 = fptrunc <4 x double> %1802 to <4 x float>
   %1807 = fptrunc <4 x double> %1803 to <4 x float>
   %1808 = fptrunc <4 x double> %1804 to <4 x float>
   %1809 = fptrunc <4 x double> %1805 to <4 x float>
-  %1810 = fptrunc <4 x double> %1806 to <4 x float>
-  %1811 = getelementptr inbounds nuw i8, ptr %23, i64 1144
-  %1812 = getelementptr inbounds nuw i8, ptr %23, i64 1160
-  %1813 = getelementptr inbounds nuw i8, ptr %23, i64 1176
-  %1814 = getelementptr inbounds nuw i8, ptr %23, i64 1192
+  %1810 = getelementptr inbounds nuw i8, ptr %23, i64 1144
+  %1811 = getelementptr inbounds nuw i8, ptr %23, i64 1160
+  %1812 = getelementptr inbounds nuw i8, ptr %23, i64 1176
+  %1813 = getelementptr inbounds nuw i8, ptr %23, i64 1192
+  store <4 x float> %1806, ptr %1810, align 4, !tbaa !11
   store <4 x float> %1807, ptr %1811, align 4, !tbaa !11
   store <4 x float> %1808, ptr %1812, align 4, !tbaa !11
   store <4 x float> %1809, ptr %1813, align 4, !tbaa !11
-  store <4 x float> %1810, ptr %1814, align 4, !tbaa !11
-  br label %1815
+  br label %1814
 
-1815:                                             ; preds = %1798, %1780, %1763
-  %1816 = icmp eq i64 %1764, %200
-  br i1 %1816, label %.loopexit, label %.preheader112
+1814:                                             ; preds = %1797, %1779, %1762
+  %1815 = icmp eq i64 %1763, %200
+  br i1 %1815, label %.loopexit, label %.preheader112
 
-.preheader112:                                    ; preds = %1815, %1760
-  %.ph = phi i64 [ %1764, %1815 ], [ 0, %1760 ]
-  br label %1817
+.preheader112:                                    ; preds = %1814, %1759
+  %.ph = phi i64 [ %1763, %1814 ], [ 0, %1759 ]
+  br label %1816
 
-1817:                                             ; preds = %.preheader112, %1817
-  %1818 = phi i64 [ %1823, %1817 ], [ %.ph, %.preheader112 ]
-  %1819 = getelementptr inbounds nuw double, ptr %682, i64 %1818
-  %1820 = load double, ptr %1819, align 8, !tbaa !63
-  %1821 = fptrunc double %1820 to float
-  %1822 = getelementptr inbounds nuw [53 x float], ptr %201, i64 0, i64 %1818
-  store float %1821, ptr %1822, align 4, !tbaa !11
-  %1823 = add nuw nsw i64 %1818, 1
-  %1824 = icmp eq i64 %1823, %200
-  br i1 %1824, label %.loopexit, label %1817, !llvm.loop !92
+1816:                                             ; preds = %.preheader112, %1816
+  %1817 = phi i64 [ %1822, %1816 ], [ %.ph, %.preheader112 ]
+  %1818 = getelementptr inbounds nuw double, ptr %682, i64 %1817
+  %1819 = load double, ptr %1818, align 8, !tbaa !63
+  %1820 = fptrunc double %1819 to float
+  %1821 = getelementptr inbounds nuw [53 x float], ptr %201, i64 0, i64 %1817
+  store float %1820, ptr %1821, align 4, !tbaa !11
+  %1822 = add nuw nsw i64 %1817, 1
+  %1823 = icmp eq i64 %1822, %200
+  br i1 %1823, label %.loopexit, label %1816, !llvm.loop !92
 
-.loopexit:                                        ; preds = %1817, %1815, %989
-  tail call void @free(ptr noundef %991) #22
+.loopexit:                                        ; preds = %1816, %1814, %988
+  tail call void @free(ptr noundef %990) #22
   tail call void @free(ptr noundef %682) #22
   tail call void @free(ptr noundef %681) #22
-  br label %1825
+  br label %1824
 
-1825:                                             ; preds = %.loopexit, %677, %448, %390, %345, %300, %271, %249, %220, %.loopexit99
+1824:                                             ; preds = %.loopexit, %677, %448, %390, %345, %300, %271, %249, %220, %.loopexit99
   ret void
 }
 

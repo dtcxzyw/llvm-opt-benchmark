@@ -15781,12 +15781,11 @@ _ZN7QStringD2Ev.exit515:                          ; preds = %341, %_ZN9QtPrivate
   %376 = fptosi float %375 to i32
   %..i5.i.i = call i32 @llvm.smin.i32(i32 %376, i32 255)
   %.0.i6.i.i = call i32 @llvm.smax.i32(i32 %..i5.i.i, i32 0)
-  %.sroa.317.0.insert.ext.i.i = shl nuw nsw i32 %.0.i6.i.i, 16
-  %.sroa.216.0.insert.ext.i.i = shl nuw nsw i32 %.0.i4.i.i, 8
-  %.sroa.216.0.insert.shift.i.i = and i32 %.sroa.216.0.insert.ext.i.i, 65280
-  %.sroa.317.0.insert.insert.i.i = add nuw nsw i32 %.sroa.216.0.insert.shift.i.i, %.0.i.i.i
-  %.sroa.216.0.insert.insert.i.i = add nuw nsw i32 %.sroa.317.0.insert.insert.i.i, %.sroa.317.0.insert.ext.i.i
-  %.sroa.015.0.insert.insert.i.i = or i32 %.sroa.216.0.insert.insert.i.i, -16777216
+  %.sroa.317.0.insert.shift.i.i = shl nuw nsw i32 %.0.i6.i.i, 16
+  %.sroa.216.0.insert.shift.i.i = shl nuw nsw i32 %.0.i4.i.i, 8
+  %.sroa.317.0.insert.insert.i.i = or disjoint i32 %.sroa.317.0.insert.shift.i.i, %.sroa.216.0.insert.shift.i.i
+  %.sroa.216.0.insert.insert.i.i = or disjoint i32 %.sroa.317.0.insert.insert.i.i, %.0.i.i.i
+  %.sroa.015.0.insert.insert.i.i = or disjoint i32 %.sroa.216.0.insert.insert.i.i, -16777216
   store i32 %.sroa.015.0.insert.insert.i.i, ptr %361, align 1
   %.pre.i523 = load ptr, ptr %348, align 8
   br label %377
@@ -16733,12 +16732,11 @@ _ZN7QStringD2Ev.exit704:                          ; preds = %647, %_ZN9QtPrivate
   %697 = fptosi float %696 to i32
   %..i.i5.i.i = call i32 @llvm.smin.i32(i32 %697, i32 255)
   %.0.i.i6.i.i = call noundef i32 @llvm.smax.i32(i32 %..i.i5.i.i, i32 0)
-  %.sroa.313.0.insert.ext.i.i = shl nuw nsw i32 %.0.i.i6.i.i, 16
-  %.sroa.212.0.insert.ext.i.i = shl nuw nsw i32 %.0.i.i4.i.i, 8
-  %.sroa.212.0.insert.shift.i.i = and i32 %.sroa.212.0.insert.ext.i.i, 65280
-  %.sroa.313.0.insert.insert.i.i = add nuw nsw i32 %.sroa.313.0.insert.ext.i.i, %.0.i.i.i.i
-  %.sroa.212.0.insert.insert.i.i = add nuw nsw i32 %.sroa.313.0.insert.insert.i.i, %.sroa.212.0.insert.shift.i.i
-  %.sroa.011.0.insert.insert.i.i = or i32 %.sroa.212.0.insert.insert.i.i, -16777216
+  %.sroa.313.0.insert.shift.i.i = shl nuw nsw i32 %.0.i.i6.i.i, 16
+  %.sroa.212.0.insert.shift.i.i = shl nuw nsw i32 %.0.i.i4.i.i, 8
+  %.sroa.313.0.insert.insert.i.i = or disjoint i32 %.sroa.313.0.insert.shift.i.i, %.sroa.212.0.insert.shift.i.i
+  %.sroa.212.0.insert.insert.i.i = or disjoint i32 %.sroa.313.0.insert.insert.i.i, %.0.i.i.i.i
+  %.sroa.011.0.insert.insert.i.i = or disjoint i32 %.sroa.212.0.insert.insert.i.i, -16777216
   store i32 %.sroa.011.0.insert.insert.i.i, ptr %679, align 1
   %.pre.i712 = load ptr, ptr %658, align 8
   br label %698
@@ -17229,12 +17227,11 @@ _ZN7QStringD2Ev.exit788:                          ; preds = %831, %_ZN9QtPrivate
   %864 = fptosi float %863 to i32
   %..i3.i.i806 = call i32 @llvm.smin.i32(i32 %864, i32 255)
   %.0.i4.i.i807 = call i32 @llvm.smax.i32(i32 %..i3.i.i806, i32 0)
-  %.sroa.320.0.insert.ext.i.i = shl nuw nsw i32 %.0.i4.i.i807, 16
-  %.sroa.219.0.insert.ext.i.i = shl nuw nsw i32 %.0.i2.i.i, 8
-  %.sroa.219.0.insert.shift.i.i = and i32 %.sroa.219.0.insert.ext.i.i, 65280
-  %.sroa.320.0.insert.insert.i.i = add nuw nsw i32 %.sroa.320.0.insert.ext.i.i, %.0.i.i.i805
-  %.sroa.219.0.insert.insert.i.i = add nuw nsw i32 %.sroa.320.0.insert.insert.i.i, %.sroa.219.0.insert.shift.i.i
-  %.sroa.018.0.insert.insert.i.i = or i32 %.sroa.219.0.insert.insert.i.i, -16777216
+  %.sroa.320.0.insert.shift.i.i = shl nuw nsw i32 %.0.i4.i.i807, 16
+  %.sroa.219.0.insert.shift.i.i = shl nuw nsw i32 %.0.i2.i.i, 8
+  %.sroa.320.0.insert.insert.i.i = or disjoint i32 %.sroa.320.0.insert.shift.i.i, %.sroa.219.0.insert.shift.i.i
+  %.sroa.219.0.insert.insert.i.i = or disjoint i32 %.sroa.320.0.insert.insert.i.i, %.0.i.i.i805
+  %.sroa.018.0.insert.insert.i.i = or disjoint i32 %.sroa.219.0.insert.insert.i.i, -16777216
   store i32 %.sroa.018.0.insert.insert.i.i, ptr %855, align 1
   %.pre.i808 = load ptr, ptr %838, align 8
   br label %865
@@ -33466,12 +33463,10 @@ _ZN3vcg3tri11UpdateColorI6CMeshOE23ValueBrightnessContrastEhff.exit15: ; preds =
   %60 = fptosi double %59 to i32
   %..i.i13 = tail call i32 @llvm.smin.i32(i32 %60, i32 255)
   %.0.i.i14 = tail call noundef i32 @llvm.smax.i32(i32 %..i.i13, i32 0)
-  %.sroa.318.0.insert.ext = shl nuw nsw i32 %.0.i.i14, 16
-  %.sroa.318.0.insert.shift = and i32 %.sroa.318.0.insert.ext, 16711680
-  %.sroa.217.0.insert.ext = shl nuw nsw i32 %.0.i.i9, 8
-  %.sroa.217.0.insert.shift = and i32 %.sroa.217.0.insert.ext, 65280
-  %.sroa.318.0.insert.insert = or disjoint i32 %.0.i.i, %.sroa.217.0.insert.shift
-  %.sroa.217.0.insert.insert = or disjoint i32 %.sroa.318.0.insert.insert, %.sroa.318.0.insert.shift
+  %.sroa.318.0.insert.shift = shl nuw nsw i32 %.0.i.i14, 16
+  %.sroa.217.0.insert.shift = shl nuw nsw i32 %.0.i.i9, 8
+  %.sroa.318.0.insert.insert = or disjoint i32 %.sroa.318.0.insert.shift, %.sroa.217.0.insert.shift
+  %.sroa.217.0.insert.insert = or disjoint i32 %.sroa.318.0.insert.insert, %.0.i.i
   %.sroa.016.0.insert.insert = or disjoint i32 %.sroa.217.0.insert.insert, 16777216
   ret i32 %.sroa.016.0.insert.insert
 }
