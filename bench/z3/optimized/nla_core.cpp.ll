@@ -605,7 +605,7 @@ $_ZTI11value_trailIbE = comdat any
 @_ZTS11value_trailIbE = linkonce_odr hidden constant [17 x i8] c"11value_trailIbE\00", comdat, align 1
 @_ZTI11value_trailIbE = linkonce_odr hidden constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS11value_trailIbE, ptr @_ZTI5trail }, comdat, align 8
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_nla_core.cpp, ptr null }]
-@switch.table._Z11apply_minusN2lp16lconstraint_kindE = private unnamed_addr constant [5 x i32] [i32 2, i32 1, i32 2, i32 -1, i32 -2], align 4
+@switch.table._Z11apply_minusN2lp16lconstraint_kindE = private unnamed_addr constant [5 x i32] [i32 2, i32 1, i32 poison, i32 -1, i32 -2], align 4
 @switch.table._ZN3nla4core23set_active_vars_weightsERNS_11nex_creatorE = private unnamed_addr constant [5 x i32] [i32 9, i32 6, i32 6, i32 3, i32 0], align 4
 
 @_ZN3nla4coreC1ERN2lp10lar_solverERK10params_refR8reslimit = hidden unnamed_addr alias void (ptr, ptr, ptr, ptr), ptr @_ZN3nla4coreC2ERN2lp10lar_solverERK10params_refR8reslimit

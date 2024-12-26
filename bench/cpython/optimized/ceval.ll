@@ -1019,7 +1019,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.91 = private unnamed_addr constant [103 x i8] c"cannot import name %R from partially initialized module %R (most likely due to a circular import) (%S)\00", align 1
 @.str.92 = private unnamed_addr constant [35 x i8] c"cannot import name %R from %R (%S)\00", align 1
 @.str.93 = private unnamed_addr constant [52 x i8] c"%U argument after * must be an iterable, not %.200s\00", align 1
-@switch.table._PyEval_EvalFrameDefault.53 = private unnamed_addr constant [8 x i64] [i64 56, i64 64, i64 72, i64 112, i64 72, i64 72, i64 72, i64 72], align 8
+@switch.table._PyEval_EvalFrameDefault.53 = private unnamed_addr constant [8 x i64] [i64 56, i64 64, i64 poison, i64 112, i64 poison, i64 poison, i64 poison, i64 72], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local i32 @Py_GetRecursionLimit() local_unnamed_addr #0 {

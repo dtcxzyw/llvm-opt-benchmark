@@ -132,9 +132,9 @@ $_ZZN4llvm8hexdigitEjbE3LUT = comdat any
 @.str.19 = private unnamed_addr constant [2 x i8] c"x\00", align 1
 @.str.20 = private unnamed_addr constant [2 x i8] c"o\00", align 1
 @_ZZL15EncodeUCNEscapePKcRS0_S0_RPcRbN5clang13FullSourceLocEjPNS5_17DiagnosticsEngineERKNS5_11LangOptionsEE13firstByteMark = internal unnamed_addr constant [5 x i8] c"\00\00\C0\E0\F0", align 1
-@switch.table._ZN5clang20NumericLiteralParser18GetFixedPointValueERN4llvm5APIntEj = private unnamed_addr constant [8 x i32] [i32 65, i32 65, i32 65, i32 22, i32 20, i32 65, i32 65, i32 17], align 4
-@switch.table._ZN5clang19StringLiteralParser4initEN4llvm8ArrayRefINS_5TokenEEE = private unnamed_addr constant [11 x i32] [i32 0, i32 1, i32 2, i32 1, i32 1, i32 0, i32 1, i32 0, i32 2, i32 1, i32 1], align 4
-@switch.table._ZN5clang19StringLiteralParser4initEN4llvm8ArrayRefINS_5TokenEEE.7 = private unnamed_addr constant [11 x i64] [i64 0, i64 1, i64 2, i64 1, i64 1, i64 0, i64 1, i64 0, i64 2, i64 1, i64 1], align 8
+@switch.table._ZN5clang20NumericLiteralParser18GetFixedPointValueERN4llvm5APIntEj = private unnamed_addr constant [8 x i32] [i32 65, i32 poison, i32 poison, i32 22, i32 20, i32 poison, i32 poison, i32 17], align 4
+@switch.table._ZN5clang19StringLiteralParser4initEN4llvm8ArrayRefINS_5TokenEEE = private unnamed_addr constant [11 x i32] [i32 0, i32 1, i32 2, i32 1, i32 1, i32 poison, i32 1, i32 poison, i32 2, i32 1, i32 1], align 4
+@switch.table._ZN5clang19StringLiteralParser4initEN4llvm8ArrayRefINS_5TokenEEE.7 = private unnamed_addr constant [11 x i64] [i64 0, i64 1, i64 2, i64 1, i64 1, i64 0, i64 1, i64 poison, i64 2, i64 1, i64 1], align 8
 
 @_ZN5clang20NumericLiteralParserC1EN4llvm9StringRefENS_14SourceLocationERKNS_13SourceManagerERKNS_11LangOptionsERKNS_10TargetInfoERNS_17DiagnosticsEngineE = unnamed_addr alias void (ptr, ptr, i64, i32, ptr, ptr, ptr, ptr), ptr @_ZN5clang20NumericLiteralParserC2EN4llvm9StringRefENS_14SourceLocationERKNS_13SourceManagerERKNS_11LangOptionsERKNS_10TargetInfoERNS_17DiagnosticsEngineE
 @_ZN5clang17CharLiteralParserC1EPKcS2_NS_14SourceLocationERNS_12PreprocessorENS_3tok9TokenKindE = unnamed_addr alias void (ptr, ptr, ptr, i32, ptr, i16), ptr @_ZN5clang17CharLiteralParserC2EPKcS2_NS_14SourceLocationERNS_12PreprocessorENS_3tok9TokenKindE

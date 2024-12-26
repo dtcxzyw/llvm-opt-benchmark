@@ -924,7 +924,7 @@ switch.hole_check:                                ; preds = %26
 switch.lookup:                                    ; preds = %switch.hole_check
   %33 = shl nuw nsw i32 %31, 3
   %switch.shiftamt = zext nneg i32 %33 to i64
-  %switch.downshift = lshr i64 652188559272970764, %switch.shiftamt
+  %switch.downshift = lshr i64 652177563988262924, %switch.shiftamt
   %switch.masked = trunc i64 %switch.downshift to i8
   br label %34
 

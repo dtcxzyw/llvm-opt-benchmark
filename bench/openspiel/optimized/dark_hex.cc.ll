@@ -543,7 +543,7 @@ $_ZTIN10open_spiel8dark_hex27ImperfectRecallDarkHexStateE = comdat any
 @.str.102 = private unnamed_addr constant [149 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/openspiel/open_spiel/open_spiel/../open_spiel/games/dark_hex/dark_hex.h\00", align 1
 @.str.103 = private unnamed_addr constant [2 x i8] c"P\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_dark_hex.cc, ptr null }]
-@switch.table._ZN10open_spiel8dark_hex12DarkHexState13DoApplyActionEl = private unnamed_addr constant [9 x i32] [i32 -4, i32 -1, i32 -1, i32 -1, i32 1, i32 1, i32 1, i32 1, i32 4], align 4
+@switch.table._ZN10open_spiel8dark_hex12DarkHexState13DoApplyActionEl = private unnamed_addr constant [9 x i32] [i32 -4, i32 -1, i32 -1, i32 -1, i32 poison, i32 1, i32 1, i32 1, i32 4], align 4
 
 @_ZN10open_spiel8dark_hex26ImperfectRecallDarkHexGameC1ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13GameParameterESt4lessIS8_ESaISt4pairIKS8_S9_EEE = unnamed_addr alias void (ptr, ptr), ptr @_ZN10open_spiel8dark_hex26ImperfectRecallDarkHexGameC2ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13GameParameterESt4lessIS8_ESaISt4pairIKS8_S9_EEE
 @_ZN10open_spiel8dark_hex12DarkHexStateC1ESt10shared_ptrIKNS_4GameEEiiNS0_11GameVersionENS0_15ObservationTypeE = unnamed_addr alias void (ptr, ptr, i32, i32, i32, i32), ptr @_ZN10open_spiel8dark_hex12DarkHexStateC2ESt10shared_ptrIKNS_4GameEEiiNS0_11GameVersionENS0_15ObservationTypeE

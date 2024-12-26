@@ -61,7 +61,7 @@ $_ZN11hb_vector_tI13hb_bit_page_tLb0EE6resizeEibb = comdat any
 @_hb_modified_combining_class = external local_unnamed_addr constant [256 x i8], align 16
 @.str.3 = private unnamed_addr constant [25 x i8] c"start postprocess-glyphs\00", align 1
 @.str.4 = private unnamed_addr constant [23 x i8] c"end postprocess-glyphs\00", align 1
-@switch.table._hb_ot_shape = private unnamed_addr constant [23 x i32] [i32 65041, i32 65042, i32 65041, i32 65041, i32 65041, i32 65041, i32 65041, i32 65087, i32 65088, i32 65085, i32 65086, i32 65089, i32 65090, i32 65091, i32 65092, i32 65083, i32 65084, i32 65041, i32 65041, i32 65081, i32 65082, i32 65047, i32 65048], align 4
+@switch.table._hb_ot_shape = private unnamed_addr constant [23 x i32] [i32 65041, i32 65042, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 65087, i32 65088, i32 65085, i32 65086, i32 65089, i32 65090, i32 65091, i32 65092, i32 65083, i32 65084, i32 poison, i32 poison, i32 65081, i32 65082, i32 65047, i32 65048], align 4
 
 @_ZN21hb_ot_shape_planner_tC1EP9hb_face_tRK23hb_segment_properties_t = hidden unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN21hb_ot_shape_planner_tC2EP9hb_face_tRK23hb_segment_properties_t
 

@@ -79,7 +79,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.saophash_compute_size = private unnamed_addr constant [22 x i8] c"saophash_compute_size\00", align 1
 @.str.33 = private unnamed_addr constant [25 x i8] c"hash table size exceeded\00", align 1
 @__func__.saophash_insert_hash_internal = private unnamed_addr constant [30 x i8] c"saophash_insert_hash_internal\00", align 1
-@switch.table.ExecReadyInterpretedExpr = private unnamed_addr constant [13 x ptr] [ptr @ExecJustInnerVarVirt, ptr @ExecJustOuterVarVirt, ptr @ExecJustScanVarVirt, ptr @ExecJustConst, ptr @ExecJustConst, ptr @ExecJustConst, ptr @ExecJustConst, ptr @ExecJustAssignInnerVarVirt, ptr @ExecJustAssignOuterVarVirt, ptr @ExecJustAssignScanVarVirt, ptr @ExecJustConst, ptr @ExecJustConst, ptr @ExecJustConst], align 8
+@switch.table.ExecReadyInterpretedExpr = private unnamed_addr constant [13 x ptr] [ptr @ExecJustInnerVarVirt, ptr @ExecJustOuterVarVirt, ptr @ExecJustScanVarVirt, ptr poison, ptr poison, ptr poison, ptr poison, ptr @ExecJustAssignInnerVarVirt, ptr @ExecJustAssignOuterVarVirt, ptr @ExecJustAssignScanVarVirt, ptr poison, ptr poison, ptr @ExecJustConst], align 8
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecReadyInterpretedExpr(ptr nocapture noundef %0) local_unnamed_addr #0 {

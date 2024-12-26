@@ -28,7 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.20 = private unnamed_addr constant [30 x i8] c"Major device number too large\00", align 1
 @.str.21 = private unnamed_addr constant [30 x i8] c"Minor device number too large\00", align 1
 @template_header = internal unnamed_addr constant <{ [264 x i8], [248 x i8] }> <{ [264 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\000000000\000000000\000000000\0000000000000\0000000000000\00        0\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00ustar  ", [248 x i8] zeroinitializer }>, align 16
-@switch.table.archive_write_gnutar_header = private unnamed_addr constant [10 x i32] [i32 54, i32 51, i32 48, i32 53, i32 48, i32 52, i32 48, i32 48, i32 48, i32 50], align 4
+@switch.table.archive_write_gnutar_header = private unnamed_addr constant [10 x i32] [i32 54, i32 51, i32 poison, i32 53, i32 poison, i32 52, i32 poison, i32 48, i32 poison, i32 50], align 4
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -30, 1) i32 @archive_write_set_format_gnutar(ptr noundef %0) local_unnamed_addr #0 {

@@ -118,9 +118,9 @@ $_ZN4llvm12PatternMatch14cstval_pred_tyINS0_14is_neg_zero_fpENS_10ConstantFPELb1
 @_ZN4llvm24DisableABIBreakingChecksE = external global i32, align 4
 @_ZN4llvm30VerifyDisableABIBreakingChecksE = weak hidden local_unnamed_addr global ptr @_ZN4llvm24DisableABIBreakingChecksE, align 8
 @switch.table._ZN4llvm30ConstantFoldCompareInstructionENS_7CmpInst9PredicateEPNS_8ConstantES3_ = private unnamed_addr constant [6 x i64] [i64 0, i64 1, i64 0, i64 0, i64 1, i64 1], align 8
-@switch.table._ZN4llvm30ConstantFoldCompareInstructionENS_7CmpInst9PredicateEPNS_8ConstantES3_.21 = private unnamed_addr constant [10 x i64] [i64 0, i64 1, i64 1, i64 1, i64 1, i64 1, i64 0, i64 0, i64 1, i64 1], align 8
+@switch.table._ZN4llvm30ConstantFoldCompareInstructionENS_7CmpInst9PredicateEPNS_8ConstantES3_.21 = private unnamed_addr constant [10 x i64] [i64 0, i64 1, i64 poison, i64 poison, i64 poison, i64 poison, i64 0, i64 0, i64 1, i64 1], align 8
 @switch.table._ZN4llvm30ConstantFoldCompareInstructionENS_7CmpInst9PredicateEPNS_8ConstantES3_.22 = private unnamed_addr constant [6 x i64] [i64 0, i64 1, i64 1, i64 1, i64 0, i64 0], align 8
-@switch.table._ZN4llvm30ConstantFoldCompareInstructionENS_7CmpInst9PredicateEPNS_8ConstantES3_.23 = private unnamed_addr constant [10 x i64] [i64 0, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 0, i64 0], align 8
+@switch.table._ZN4llvm30ConstantFoldCompareInstructionENS_7CmpInst9PredicateEPNS_8ConstantES3_.23 = private unnamed_addr constant [10 x i64] [i64 0, i64 1, i64 poison, i64 poison, i64 poison, i64 poison, i64 1, i64 1, i64 0, i64 0], align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN4llvm27ConstantFoldCastInstructionEjPNS_8ConstantEPNS_4TypeE(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {

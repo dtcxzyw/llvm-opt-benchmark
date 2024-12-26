@@ -506,8 +506,8 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.407 = private unnamed_addr constant [8 x i8] c"GPS IFD\00", align 1
 @.str.408 = private unnamed_addr constant [21 x i8] c"Interoperability IFD\00", align 1
 @.str.409 = private unnamed_addr constant [5 x i8] c"FPXR\00", align 1
-@switch.table.process_tiff_ifd_chain = private unnamed_addr constant [10 x ptr] [ptr @hf_ifd_value_byte, ptr @hf_ifd_value_ascii, ptr @hf_ifd_value_short, ptr @hf_ifd_value_long, ptr @hf_ifd_value_rational, ptr @hf_ifd_value_byte, ptr @hf_ifd_value_undefined, ptr @hf_ifd_value_byte, ptr @hf_ifd_value_slong, ptr @hf_ifd_value_srational], align 8
-@switch.table.process_tiff_ifd_chain.1 = private unnamed_addr constant [10 x i32] [i32 1, i32 1, i32 2, i32 4, i32 8, i32 1, i32 1, i32 1, i32 4, i32 8], align 4
+@switch.table.process_tiff_ifd_chain = private unnamed_addr constant [10 x ptr] [ptr @hf_ifd_value_byte, ptr @hf_ifd_value_ascii, ptr @hf_ifd_value_short, ptr @hf_ifd_value_long, ptr @hf_ifd_value_rational, ptr poison, ptr @hf_ifd_value_undefined, ptr poison, ptr @hf_ifd_value_slong, ptr @hf_ifd_value_srational], align 8
+@switch.table.process_tiff_ifd_chain.1 = private unnamed_addr constant [10 x i32] [i32 1, i32 1, i32 2, i32 4, i32 8, i32 poison, i32 1, i32 poison, i32 4, i32 8], align 4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_jfif() local_unnamed_addr #0 {

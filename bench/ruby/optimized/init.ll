@@ -47,7 +47,7 @@ target triple = "x86_64-pc-linux-gnu"
 @rb_cUNIXSocket = local_unnamed_addr global i64 0, align 8
 @rb_cUNIXServer = local_unnamed_addr global i64 0, align 8
 @rb_cAddrinfo = local_unnamed_addr global i64 0, align 8
-@switch.table.rsock_connect = private unnamed_addr constant [9 x i32] [i32 106, i32 113, i32 113, i32 113, i32 113, i32 111, i32 113, i32 113, i32 114], align 4
+@switch.table.rsock_connect = private unnamed_addr constant [9 x i32] [i32 106, i32 poison, i32 poison, i32 poison, i32 poison, i32 111, i32 poison, i32 113, i32 114], align 4
 
 ; Function Attrs: nounwind uwtable
 define weak i64 @ruby_abi_version() local_unnamed_addr #0 {

@@ -125,7 +125,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.71 = private unnamed_addr constant [19 x i8] c"Key can't be blank\00", align 1
 @.str.72 = private unnamed_addr constant [70 x i8] c"Expecting %d hexadecimal bytes or\0Aa %d character double-quoted string\00", align 1
 @g_ascii_table = external local_unnamed_addr constant ptr, align 8
-@switch.table.dissect_zbee_secure = private unnamed_addr constant [7 x i32] [i32 4, i32 8, i32 16, i32 16, i32 4, i32 8, i32 16], align 4
+@switch.table.dissect_zbee_secure = private unnamed_addr constant [7 x i32] [i32 4, i32 8, i32 16, i32 poison, i32 4, i32 8, i32 16], align 4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zbee_security_register(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {

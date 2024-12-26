@@ -236,7 +236,7 @@ $_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable = comdat any
 @switch.table._ZN12_GLOBAL__N_111X86FastISel21fastSelectInstructionEPKN4llvm11InstructionE.20 = private unnamed_addr constant [3 x i64] [i64 -4204, i64 -4392, i64 -3943], align 8
 @switch.table._ZN12_GLOBAL__N_111X86FastISel21fastSelectInstructionEPKN4llvm11InstructionE.21 = private unnamed_addr constant [3 x i64] [i64 -4234, i64 -4422, i64 -3973], align 8
 @switch.table._ZN12_GLOBAL__N_111X86FastISel21fastSelectInstructionEPKN4llvm11InstructionE.22 = private unnamed_addr constant [3 x i64] [i64 -4264, i64 -4452, i64 -4003], align 8
-@switch.table._ZN12_GLOBAL__N_111X86FastISel21fastSelectInstructionEPKN4llvm11InstructionE.23 = private unnamed_addr constant [5 x i64] [i64 2, i64 0, i64 0, i64 3, i64 1], align 8
+@switch.table._ZN12_GLOBAL__N_111X86FastISel21fastSelectInstructionEPKN4llvm11InstructionE.23 = private unnamed_addr constant [5 x i64] [i64 2, i64 0, i64 poison, i64 3, i64 1], align 8
 @switch.table._ZN12_GLOBAL__N_111X86FastISel13X86SelectZExtEPKN4llvm11InstructionE = private unnamed_addr constant [3 x i64] [i64 -2702, i64 -2701, i64 -2529], align 8
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -39,8 +39,8 @@ target triple = "x86_64-pc-linux-gnu"
 @observer_blocks_supported = internal constant [1 x %struct.supported_block_type] [%struct.supported_block_type { i32 5, i32 2, i64 0, ptr null }], align 16
 @.str.20 = private unnamed_addr constant [44 x i8] c"This capture was saved from Wireshark on %s\00", align 1
 @.str.21 = private unnamed_addr constant [38 x i8] c"This capture was saved from Wireshark\00", align 1
-@switch.table.observer_open = private unnamed_addr constant [10 x i32] [i32 1, i32 2, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 122, i32 22], align 4
-@switch.table.observer_open.1 = private unnamed_addr constant [10 x i8] c"\00\01\00\00\00\00\00\00\08\FF", align 1
+@switch.table.observer_open = private unnamed_addr constant [10 x i32] [i32 1, i32 2, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 122, i32 22], align 4
+@switch.table.observer_open.1 = private unnamed_addr constant [10 x i8] [i8 0, i8 1, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 8, i8 -1], align 1
 @switch.table.process_packet_header = private unnamed_addr constant [10 x i32] [i32 1, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 122, i32 22], align 4
 
 ; Function Attrs: nounwind uwtable

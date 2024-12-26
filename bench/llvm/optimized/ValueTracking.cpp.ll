@@ -648,7 +648,7 @@ $_ZTVN4llvm2cl11OptionValueIjEE = comdat any
 @_ZTVN4llvm2cl11OptionValueIjEE = linkonce_odr unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr null, ptr @_ZNK4llvm2cl15OptionValueCopyIjE7compareERKNS0_18GenericOptionValueE, ptr @_ZN4llvm2cl18GenericOptionValue6anchorEv] }, comdat, align 8
 @_ZTVN4llvm2cl6parserIjEE = external unnamed_addr constant { [6 x ptr] }, align 8
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_ValueTracking.cpp, ptr null }]
-@switch.table._ZL18matchSelectPatternN4llvm7CmpInst9PredicateENS_13FastMathFlagsEPNS_5ValueES4_S4_S4_RS4_S5_j = private unnamed_addr constant [7 x i64] [i64 2, i64 1, i64 4, i64 1, i64 1, i64 1, i64 3], align 8
+@switch.table._ZL18matchSelectPatternN4llvm7CmpInst9PredicateENS_13FastMathFlagsEPNS_5ValueES4_S4_S4_RS4_S5_j = private unnamed_addr constant [7 x i64] [i64 2, i64 poison, i64 4, i64 poison, i64 1, i64 poison, i64 3], align 8
 @switch.table._ZL18matchSelectPatternN4llvm7CmpInst9PredicateENS_13FastMathFlagsEPNS_5ValueES4_S4_S4_RS4_S5_j.64 = private unnamed_addr constant [7 x i64] [i64 4, i64 0, i64 2, i64 0, i64 3, i64 0, i64 1], align 8
 @switch.table._ZL19isSignedMinMaxClampPKN4llvm5ValueERS2_RPKNS_5APIntES7_ = private unnamed_addr constant [3 x i32] [i32 3, i32 4, i32 1], align 4
 

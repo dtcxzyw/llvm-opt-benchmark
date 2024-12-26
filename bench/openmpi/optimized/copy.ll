@@ -35,7 +35,7 @@ target triple = "x86_64-pc-linux-gnu"
 @pmix_buffer_t_class = external global %struct.pmix_class_t, align 8
 @.str.3 = private unnamed_addr constant [37 x i8] c"COPY-PMIX-VALUE: UNSUPPORTED TYPE %d\00", align 1
 @pmix_kval_t_class = external global %struct.pmix_class_t, align 8
-@switch.table.pmix20_bfrop_std_copy = private unnamed_addr constant [43 x i64] [i64 1, i64 1, i64 1, i64 8, i64 4, i64 4, i64 1, i64 2, i64 4, i64 8, i64 4, i64 1, i64 2, i64 4, i64 8, i64 4, i64 1, i64 16, i64 8, i64 4, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 8, i64 1, i64 1, i64 1, i64 4, i64 1, i64 1, i64 1, i64 1, i64 4, i64 1, i64 1, i64 1], align 8
+@switch.table.pmix20_bfrop_std_copy = private unnamed_addr constant [43 x i64] [i64 1, i64 1, i64 poison, i64 8, i64 4, i64 4, i64 1, i64 2, i64 4, i64 8, i64 4, i64 1, i64 2, i64 4, i64 8, i64 4, i64 poison, i64 16, i64 8, i64 4, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 1, i64 8, i64 1, i64 1, i64 1, i64 4, i64 poison, i64 1, i64 poison, i64 poison, i64 4, i64 poison, i64 poison, i64 1], align 8
 
 ; Function Attrs: nounwind uwtable
 define i32 @pmix20_bfrop_copy(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {

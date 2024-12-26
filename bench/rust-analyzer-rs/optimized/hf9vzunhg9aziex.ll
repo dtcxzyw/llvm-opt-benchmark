@@ -4023,7 +4023,7 @@ switch.hole_check:                                ; preds = %272
 switch.lookup:                                    ; preds = %switch.hole_check
   %268 = shl nuw nsw i8 %switch.tableidx, 3
   %switch.shiftamt = zext nneg i8 %268 to i48
-  %switch.downshift = lshr i48 6601431908865, %switch.shiftamt
+  %switch.downshift = lshr i48 6597136876033, %switch.shiftamt
   %switch.masked = trunc i48 %switch.downshift to i8
   br label %"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write$GT$10write_char17hcbccb4a8c051a34eE.exit"
 
@@ -7630,7 +7630,7 @@ switch.hole_check:                                ; preds = %286
 switch.lookup:                                    ; preds = %switch.hole_check
   %282 = shl nuw nsw i8 %switch.tableidx, 3
   %switch.shiftamt = zext nneg i8 %282 to i48
-  %switch.downshift = lshr i48 6601431908865, %switch.shiftamt
+  %switch.downshift = lshr i48 6597136876033, %switch.shiftamt
   %switch.masked = trunc i48 %switch.downshift to i8
   br label %"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write$GT$10write_char17hcbccb4a8c051a34eE.exit"
 

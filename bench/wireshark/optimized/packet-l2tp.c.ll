@@ -1018,7 +1018,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.735 = private unnamed_addr constant [14 x i8] c"LAPD-Specific\00", align 1
 @.str.736 = private unnamed_addr constant [5 x i8] c"dmpt\00", align 1
 @.str.737 = private unnamed_addr constant [21 x i8] c"DOCSIS DMPT-Specific\00", align 1
-@switch.table.process_control_avps.2 = private unnamed_addr constant [5 x i64] [i64 4, i64 16, i64 4, i64 4, i64 16], align 8
+@switch.table.process_control_avps.2 = private unnamed_addr constant [5 x i64] [i64 4, i64 16, i64 poison, i64 4, i64 16], align 8
 @switch.table.process_control_avps.3 = private unnamed_addr constant [4 x i32] [i32 0, i32 1, i32 2, i32 4], align 4
 
 ; Function Attrs: nounwind uwtable

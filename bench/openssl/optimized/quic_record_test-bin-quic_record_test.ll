@@ -301,7 +301,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @tx_script_6_iovec = internal constant [1 x %struct.ossl_qtx_iovec_st] [%struct.ossl_qtx_iovec_st { ptr @tx_script_6_body, i64 8 }], align 16
 @tx_script_6_hdr = internal global { i8, i8, i8, i32, %struct.quic_conn_id_st, { i8, <{ [12 x i8], [8 x i8] }> }, [4 x i8], ptr, i64, i64, ptr } { i8 6, i8 0, i8 0, i32 0, %struct.quic_conn_id_st zeroinitializer, { i8, <{ [12 x i8], [8 x i8] }> } { i8 12, <{ [12 x i8], [8 x i8] }> <{ [12 x i8] c"5<\1B\97\CA\F8\99\119\ADy\1F", [8 x i8] zeroinitializer }> }, [4 x i8] zeroinitializer, ptr null, i64 0, i64 5555, ptr null }, align 8
 @tx_script_6_body = internal constant [8 x i8] c"\00\00\00\01\AA\9A:\9A", align 1
-@switch.table.test_tx_script = private unnamed_addr constant [5 x i32] [i32 0, i32 2, i32 1, i32 0, i32 3], align 4
+@switch.table.test_tx_script = private unnamed_addr constant [5 x i32] [i32 0, i32 2, i32 1, i32 poison, i32 3], align 4
 @switch.table.test_wire_pkt_hdr_actual = private unnamed_addr constant [3 x i64] [i64 16, i64 32, i64 32], align 8
 
 ; Function Attrs: nounwind uwtable

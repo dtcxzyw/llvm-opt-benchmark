@@ -646,7 +646,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.377 = private unnamed_addr constant [32 x i8] c"unable to close source datatype\00", align 1
 @.str.378 = private unnamed_addr constant [37 x i8] c"unable to close destination datatype\00", align 1
 @__func__.H5T__compiler_conv = private unnamed_addr constant [19 x i8] c"H5T__compiler_conv\00", align 1
-@switch.table.H5T__create = private unnamed_addr constant [8 x ptr] [ptr @H5T_NATIVE_SCHAR_g, ptr @H5T_NATIVE_SHORT_g, ptr @H5T_NATIVE_SCHAR_g, ptr @H5T_NATIVE_INT_g, ptr @H5T_NATIVE_SCHAR_g, ptr @H5T_NATIVE_SCHAR_g, ptr @H5T_NATIVE_SCHAR_g, ptr @H5T_NATIVE_LONG_g], align 8
+@switch.table.H5T__create = private unnamed_addr constant [8 x ptr] [ptr @H5T_NATIVE_SCHAR_g, ptr @H5T_NATIVE_SHORT_g, ptr poison, ptr @H5T_NATIVE_INT_g, ptr poison, ptr poison, ptr poison, ptr @H5T_NATIVE_LONG_g], align 8
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5T_init() local_unnamed_addr #0 {

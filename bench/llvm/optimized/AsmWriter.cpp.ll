@@ -875,7 +875,7 @@ $_ZZN4llvm10toIRStringENS_14AtomicOrderingEE5names = comdat any
 @switch.table._ZN12_GLOBAL__N_114AssemblyWriter16printSummaryInfoEjRKN4llvm9ValueInfoE = private unnamed_addr constant [3 x ptr] [ptr @.str.426, ptr @.str.427, ptr @.str.428], align 8
 @switch.table._ZN12_GLOBAL__N_114AssemblyWriter16printSummaryInfoEjRKN4llvm9ValueInfoE.48 = private unnamed_addr constant [3 x ptr] [ptr @.str.429, ptr @.str.430, ptr @.str.431], align 8
 @switch.table._ZN12_GLOBAL__N_114AssemblyWriter16printSummaryInfoEjRKN4llvm9ValueInfoE.49 = private unnamed_addr constant [5 x ptr] [ptr @.str.465, ptr @.str.466, ptr @.str.394, ptr @.str.467, ptr @.str.468], align 8
-@switch.table._ZN12_GLOBAL__N_114AssemblyWriter16printSummaryInfoEjRKN4llvm9ValueInfoE.51 = private unnamed_addr constant [5 x ptr] [ptr @.str.394, ptr @.str.478, ptr @.str.466, ptr @.str.394, ptr @.str.467], align 8
+@switch.table._ZN12_GLOBAL__N_114AssemblyWriter16printSummaryInfoEjRKN4llvm9ValueInfoE.51 = private unnamed_addr constant [5 x ptr] [ptr @.str.394, ptr @.str.478, ptr @.str.466, ptr poison, ptr @.str.467], align 8
 
 @_ZN4llvm24AssemblyAnnotationWriterD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm24AssemblyAnnotationWriterD2Ev
 @_ZN4llvm26AbstractSlotTrackerStorageD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm26AbstractSlotTrackerStorageD2Ev

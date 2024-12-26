@@ -147,7 +147,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.2a96bd4dd818a19cee4438642de1cd2a.46.llvm.12663281897316000666 = external hidden unnamed_addr constant <{ [51 x i8] }>, align 1
 @anon.2a96bd4dd818a19cee4438642de1cd2a.48.llvm.12663281897316000666 = external hidden unnamed_addr constant <{ ptr, [16 x i8] }>, align 8
 @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E = external global { i64 }
-@"switch.table._ZN121_$LT$ockam_transport_websocket..error..WebSocketError$u20$as$u20$core..convert..From$LT$tungstenite..error..Error$GT$$GT$4from17h6b3f324def24eb74E" = private unnamed_addr constant [12 x i8] c"\04\04\0D\04\0A\0C\01\0B\10\09\11\09", align 1
+@"switch.table._ZN121_$LT$ockam_transport_websocket..error..WebSocketError$u20$as$u20$core..convert..From$LT$tungstenite..error..Error$GT$$GT$4from17h6b3f324def24eb74E" = private unnamed_addr constant [12 x i8] [i8 4, i8 4, i8 13, i8 poison, i8 10, i8 12, i8 1, i8 11, i8 16, i8 9, i8 17, i8 9], align 1
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN106_$LT$futures_util..stream..stream..split..SplitStream$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h02132f7f7dd67b4aE.llvm.17971264473161138775"(ptr noalias nocapture noundef sret({ i64, [16 x i64] }) align 8 dereferenceable(136) %0, ptr noalias noundef align 8 dereferenceable(8) %1, ptr noalias noundef align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @rust_eh_personality {

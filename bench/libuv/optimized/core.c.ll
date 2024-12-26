@@ -40,7 +40,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.7 = private unnamed_addr constant [5 x i8] c"PATH\00", align 1
 @.str.8 = private unnamed_addr constant [2 x i8] c":\00", align 1
 @.str.9 = private unnamed_addr constant [6 x i8] c"%s/%s\00", align 1
-@switch.table.uv__getsockpeername = private unnamed_addr constant [9 x i64] [i64 184, i64 152, i64 184, i64 184, i64 184, i64 184, i64 184, i64 184, i64 176], align 8
+@switch.table.uv__getsockpeername = private unnamed_addr constant [9 x i64] [i64 184, i64 152, i64 poison, i64 poison, i64 poison, i64 184, i64 poison, i64 184, i64 176], align 8
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -2147483647, -2147483648) i32 @uv_clock_gettime(i32 noundef %clock_id, ptr noundef writeonly %ts) local_unnamed_addr #0 {

@@ -15,8 +15,8 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [2 x i8] c".\00", align 1
 @_ZTIN19OpenColorIO_v2_4dev9ExceptionE = external constant ptr
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_BitDepthUtils.cpp, ptr null }]
-@switch.table._ZN19OpenColorIO_v2_4dev19GetBitDepthMaxValueENS_8BitDepthE = private unnamed_addr constant [8 x double] [double 2.550000e+02, double 1.023000e+03, double 4.095000e+03, double 2.550000e+02, double 6.553500e+04, double 2.550000e+02, double 1.000000e+00, double 1.000000e+00], align 8
-@switch.table._ZN19OpenColorIO_v2_4dev21GetChannelSizeInBytesENS_8BitDepthE = private unnamed_addr constant [8 x i32] [i32 1, i32 2, i32 2, i32 1, i32 2, i32 1, i32 2, i32 4], align 4
+@switch.table._ZN19OpenColorIO_v2_4dev19GetBitDepthMaxValueENS_8BitDepthE = private unnamed_addr constant [8 x double] [double 2.550000e+02, double 1.023000e+03, double 4.095000e+03, double poison, double 6.553500e+04, double poison, double 1.000000e+00, double 1.000000e+00], align 8
+@switch.table._ZN19OpenColorIO_v2_4dev21GetChannelSizeInBytesENS_8BitDepthE = private unnamed_addr constant [8 x i32] [i32 1, i32 2, i32 2, i32 poison, i32 2, i32 poison, i32 2, i32 4], align 4
 
 declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 

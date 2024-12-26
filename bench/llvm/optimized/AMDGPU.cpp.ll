@@ -1650,9 +1650,9 @@ $_ZGVZNK5clang7targets16AMDGPUTargetInfo21validateAsmConstraintERPKcRNS_10Target
 @.str.1337 = private unnamed_addr constant [29 x i8] c"__opencl_c_read_write_images\00", align 1
 @.str.1338 = private unnamed_addr constant [42 x i8] c"__opencl_c_program_scope_global_variables\00", align 1
 @.str.1339 = private unnamed_addr constant [4 x i8] c"all\00", align 1
-@switch.table._ZNK5clang7targets16AMDGPUTargetInfo28getOpenCLBuiltinAddressSpaceEj = private unnamed_addr constant [6 x i32] [i32 5, i32 1, i32 5, i32 2, i32 3, i32 4], align 4
-@switch.table._ZNK5clang7targets16AMDGPUTargetInfo26getCUDABuiltinAddressSpaceEj = private unnamed_addr constant [5 x i32] [i32 0, i32 8, i32 0, i32 10, i32 9], align 4
-@switch.table._ZNK5clang7targets16AMDGPUTargetInfo22getOpenCLTypeAddrSpaceENS_14OpenCLTypeKindE = private unnamed_addr constant [6 x i32] [i32 1, i32 3, i32 3, i32 3, i32 1, i32 1], align 4
+@switch.table._ZNK5clang7targets16AMDGPUTargetInfo28getOpenCLBuiltinAddressSpaceEj = private unnamed_addr constant [6 x i32] [i32 5, i32 1, i32 poison, i32 2, i32 3, i32 4], align 4
+@switch.table._ZNK5clang7targets16AMDGPUTargetInfo26getCUDABuiltinAddressSpaceEj = private unnamed_addr constant [5 x i32] [i32 0, i32 8, i32 poison, i32 10, i32 9], align 4
+@switch.table._ZNK5clang7targets16AMDGPUTargetInfo22getOpenCLTypeAddrSpaceENS_14OpenCLTypeKindE = private unnamed_addr constant [6 x i32] [i32 1, i32 poison, i32 3, i32 poison, i32 1, i32 1], align 4
 
 @_ZN5clang7targets16AMDGPUTargetInfoC1ERKN4llvm6TripleERKNS_13TargetOptionsE = hidden unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN5clang7targets16AMDGPUTargetInfoC2ERKN4llvm6TripleERKNS_13TargetOptionsE
 

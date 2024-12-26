@@ -186,8 +186,8 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.167 = private unnamed_addr constant [18 x i8] c"GetStringUTFChars\00", align 1
 @.str.168 = private unnamed_addr constant [22 x i8] c"ReleaseStringUTFChars\00", align 1
 @.str.169 = private unnamed_addr constant [37 x i8] c"JDWP Can't get property value for %s\00", align 1
-@switch.table.sharedGetFieldValues.1 = private unnamed_addr constant [26 x i8] c"BCDLFLLIJLLLLLLLLSLLVLLLZ[", align 1
-@switch.table.jvmti2EventIndex = private unnamed_addr constant [39 x i32] [i32 19, i32 20, i32 5, i32 6, i32 1, i32 9, i32 7, i32 1, i32 4, i32 12, i32 1, i32 3, i32 2, i32 10, i32 11, i32 13, i32 14, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 17, i32 18, i32 15, i32 16, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 21, i32 22], align 4
+@switch.table.sharedGetFieldValues.1 = private unnamed_addr constant [26 x i8] [i8 66, i8 67, i8 68, i8 poison, i8 70, i8 poison, i8 poison, i8 73, i8 74, i8 poison, i8 76, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 83, i8 poison, i8 poison, i8 86, i8 poison, i8 poison, i8 poison, i8 90, i8 91], align 1
+@switch.table.jvmti2EventIndex = private unnamed_addr constant [39 x i32] [i32 19, i32 20, i32 5, i32 6, i32 poison, i32 9, i32 7, i32 poison, i32 4, i32 12, i32 1, i32 3, i32 2, i32 10, i32 11, i32 13, i32 14, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 17, i32 18, i32 15, i32 16, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 21, i32 22], align 4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @saveGlobalRef(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {

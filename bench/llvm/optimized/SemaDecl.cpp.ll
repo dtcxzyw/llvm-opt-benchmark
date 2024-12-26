@@ -1703,8 +1703,8 @@ $_ZTVN5clang13DeclFilterCCCINS_12FunctionDeclEEE = comdat any
 @switch.table._ZL23isTagTypeWithMissingTagRN5clang4SemaERNS_12LookupResultEPNS_5ScopeERNS_12CXXScopeSpecERPNS_14IdentifierInfoENS_14SourceLocationE.155 = private unnamed_addr constant [5 x ptr] [ptr @.str.50, ptr @.str.51, ptr @.str.52, ptr @.str.48, ptr @.str.49], align 8
 @switch.table._ZN5clang4Sema28MergeCompatibleFunctionDeclsEPNS_12FunctionDeclES2_PNS_5ScopeEb = private unnamed_addr constant [4 x i32] [i32 30, i32 76, i32 31, i32 32], align 4
 @switch.table._ZN5clang4Sema24GetNameFromUnqualifiedIdERKNS_13UnqualifiedIdE = private unnamed_addr constant [5 x i32] [i32 4, i32 2, i32 3, i32 1, i32 0], align 4
-@switch.table._ZN5clang4Sema21getNonTagTypeDeclKindEPKNS_4DeclENS_11TagTypeKindE = private unnamed_addr constant [9 x i32] [i32 4, i32 5, i32 4, i32 4, i32 8, i32 4, i32 7, i32 4, i32 6], align 4
-@switch.table._ZN5clang4Sema28isAcceptableTagRedeclarationEPKNS_7TagDeclENS_11TagTypeKindEbNS_14SourceLocationEPKNS_14IdentifierInfoE.165 = private unnamed_addr constant [4 x i32] [i32 0, i32 1, i32 0, i32 2], align 4
+@switch.table._ZN5clang4Sema21getNonTagTypeDeclKindEPKNS_4DeclENS_11TagTypeKindE = private unnamed_addr constant [9 x i32] [i32 4, i32 5, i32 poison, i32 poison, i32 8, i32 poison, i32 7, i32 poison, i32 6], align 4
+@switch.table._ZN5clang4Sema28isAcceptableTagRedeclarationEPKNS_7TagDeclENS_11TagTypeKindEbNS_14SourceLocationEPKNS_14IdentifierInfoE.165 = private unnamed_addr constant [4 x i32] [i32 0, i32 1, i32 poison, i32 2], align 4
 @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv = private unnamed_addr constant [12 x i64] [i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 1, i64 2, i64 0], align 8
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -125,8 +125,8 @@ $_ZTV14IntervalWalker = comdat any
 @all_RegisterImpls = external hidden global [33 x %"class.Register::RegisterImpl"], align 16
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_c1_LinearScan.cpp, ptr null }]
 @switch.table._ZN10LinearScan30append_scope_value_for_operandE7LIR_OprP13GrowableArrayIP10ScopeValueE = private unnamed_addr constant [7 x i32] [i32 6, i32 4, i32 6, i32 6, i32 6, i32 6, i32 6], align 4
-@switch.table._ZN10LinearScan14assign_reg_numEP13GrowableArrayIP6LIR_OpEP14IntervalWalker = private unnamed_addr constant [12 x i32] [i32 41, i32 177, i32 25, i32 25, i32 9, i32 145, i32 25, i32 25, i32 25, i32 33, i32 25, i32 57], align 4
-@switch.table._ZN12MoveResolver16resolve_mappingsEv.8 = private unnamed_addr constant [12 x i32] [i32 4141, i32 4277, i32 4123, i32 4123, i32 4107, i32 4243, i32 4123, i32 4123, i32 4123, i32 4131, i32 4123, i32 4155], align 4
+@switch.table._ZN10LinearScan14assign_reg_numEP13GrowableArrayIP6LIR_OpEP14IntervalWalker = private unnamed_addr constant [12 x i32] [i32 41, i32 177, i32 poison, i32 poison, i32 9, i32 145, i32 25, i32 25, i32 poison, i32 33, i32 poison, i32 57], align 4
+@switch.table._ZN12MoveResolver16resolve_mappingsEv.8 = private unnamed_addr constant [12 x i32] [i32 4141, i32 4277, i32 poison, i32 poison, i32 4107, i32 4243, i32 4123, i32 4123, i32 poison, i32 4131, i32 poison, i32 4155], align 4
 
 @_ZN10LinearScanC1EP2IRP12LIRGeneratorP8FrameMap = hidden unnamed_addr alias void (ptr, ptr, ptr, ptr), ptr @_ZN10LinearScanC2EP2IRP12LIRGeneratorP8FrameMap
 @_ZN12MoveResolverC1EP10LinearScan = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN12MoveResolverC2EP10LinearScan

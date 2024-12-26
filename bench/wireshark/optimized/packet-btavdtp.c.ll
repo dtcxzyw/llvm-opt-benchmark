@@ -879,8 +879,8 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.573 = private unnamed_addr constant [18 x i8] c"Video stream - %s\00", align 1
 @.str.574 = private unnamed_addr constant [5 x i8] c"H263\00", align 1
 @.str.575 = private unnamed_addr constant [10 x i8] c"MPEG4 VSP\00", align 1
-@switch.table.dissect_aptx = private unnamed_addr constant [8 x double] [double 9.600000e+04, double 8.820000e+04, double 9.600000e+04, double 6.400000e+04, double 9.600000e+04, double 9.600000e+04, double 9.600000e+04, double 3.200000e+04], align 8
-@switch.table.dissect_aptx.1 = private unnamed_addr constant [8 x double] [double 2.000000e+00, double 2.000000e+00, double 2.000000e+00, double 2.000000e+00, double 2.000000e+00, double 2.000000e+00, double 2.000000e+00, double 1.000000e+00], align 8
+@switch.table.dissect_aptx = private unnamed_addr constant [8 x double] [double 9.600000e+04, double 8.820000e+04, double poison, double 6.400000e+04, double poison, double poison, double poison, double 3.200000e+04], align 8
+@switch.table.dissect_aptx.1 = private unnamed_addr constant [8 x double] [double 2.000000e+00, double 2.000000e+00, double poison, double 2.000000e+00, double poison, double poison, double poison, double 1.000000e+00], align 8
 @switch.table.dissect_ldac = private unnamed_addr constant [6 x i32] [i32 44100, i32 48000, i32 88200, i32 96000, i32 176400, i32 192000], align 4
 @switch.table.dissect_ldac.2 = private unnamed_addr constant [6 x i32] [i32 128000, i32 128000, i32 256000, i32 256000, i32 512000, i32 512000], align 4
 

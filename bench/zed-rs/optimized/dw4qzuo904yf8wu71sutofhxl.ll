@@ -246,10 +246,10 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.016171bddf9f7a1edf0e85f18f45b325.21.llvm.16247273651722951349 = external hidden unnamed_addr constant <{ [24 x i8], ptr }>, align 8
 @anon.1c484348ba8ee3732de274f0fe7cde14.198.llvm.2598247465398355875 = external hidden unnamed_addr constant <{ [23 x i8] }>, align 1
 @__rust_no_alloc_shim_is_unstable = external global i8
-@"switch.table._ZN59_$LT$png..common..ColorType$u20$as$u20$core..fmt..Debug$GT$3fmt17h752083991626e1e2E" = private unnamed_addr constant [7 x i64] [i64 9, i64 9, i64 3, i64 7, i64 14, i64 9, i64 4], align 8
-@"switch.table._ZN59_$LT$png..common..ColorType$u20$as$u20$core..fmt..Debug$GT$3fmt17h752083991626e1e2E.96" = private unnamed_addr constant [7 x ptr] [ptr @anon.57e5e1f439f9c7771713c2845affd91d.308, ptr @anon.57e5e1f439f9c7771713c2845affd91d.308, ptr @anon.57e5e1f439f9c7771713c2845affd91d.309, ptr @anon.57e5e1f439f9c7771713c2845affd91d.310, ptr @anon.57e5e1f439f9c7771713c2845affd91d.311, ptr @anon.57e5e1f439f9c7771713c2845affd91d.308, ptr @anon.57e5e1f439f9c7771713c2845affd91d.312], align 8
+@"switch.table._ZN59_$LT$png..common..ColorType$u20$as$u20$core..fmt..Debug$GT$3fmt17h752083991626e1e2E" = private unnamed_addr constant [7 x i64] [i64 9, i64 poison, i64 3, i64 7, i64 14, i64 poison, i64 4], align 8
+@"switch.table._ZN59_$LT$png..common..ColorType$u20$as$u20$core..fmt..Debug$GT$3fmt17h752083991626e1e2E.96" = private unnamed_addr constant [7 x ptr] [ptr @anon.57e5e1f439f9c7771713c2845affd91d.308, ptr poison, ptr @anon.57e5e1f439f9c7771713c2845affd91d.309, ptr @anon.57e5e1f439f9c7771713c2845affd91d.310, ptr @anon.57e5e1f439f9c7771713c2845affd91d.311, ptr poison, ptr @anon.57e5e1f439f9c7771713c2845affd91d.312], align 8
 @switch.table._ZN5image5image12ImageDecoder19original_color_type17ha61bcef63cfcefafE = private unnamed_addr constant [10 x i8] c"\0D\0E\0F\10\11\12\13\14\17\18", align 1
-@"switch.table._ZN5image6codecs3png19PngDecoder$LT$R$GT$11with_limits17h9e376f84c996c43aE" = private unnamed_addr constant [7 x i64] [i64 1, i64 1, i64 3, i64 1, i64 2, i64 1, i64 4], align 8
+@"switch.table._ZN5image6codecs3png19PngDecoder$LT$R$GT$11with_limits17h9e376f84c996c43aE" = private unnamed_addr constant [7 x i64] [i64 1, i64 poison, i64 3, i64 1, i64 2, i64 poison, i64 4], align 8
 @"switch.table._ZN86_$LT$image..codecs..png..PngDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$16read_image_boxed17h66cd4b08ce13006aE" = private unnamed_addr constant [10 x i64] [i64 1, i64 2, i64 3, i64 4, i64 2, i64 4, i64 6, i64 8, i64 12, i64 16], align 8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -29404,7 +29404,7 @@ default.unreachable:                              ; preds = %279, %267, %265
   %124 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %switch.cast = zext i8 %84 to i56
   %switch.shiftamt = shl nuw nsw i56 %switch.cast, 3
-  %switch.downshift = lshr i56 1127008025379073, %switch.shiftamt
+  %switch.downshift = lshr i56 1125908513751041, %switch.shiftamt
   %switch.masked = trunc i56 %switch.downshift to i8
   %125 = mul nuw nsw i8 %85, %switch.masked
   br label %.noexc53.i

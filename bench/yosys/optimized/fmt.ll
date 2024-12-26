@@ -2069,7 +2069,7 @@ switch.hole_check:                                ; preds = %62
 switch.lookup:                                    ; preds = %switch.hole_check
   %68 = shl nuw nsw i32 %66, 3
   %switch.shiftamt = zext nneg i32 %68 to i64
-  %switch.downshift = lshr i64 7521682511167119970, %switch.shiftamt
+  %switch.downshift = lshr i64 7493990211303506018, %switch.shiftamt
   %switch.masked = trunc i64 %switch.downshift to i8
   %69 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 noundef signext %switch.masked)
           to label %70 unwind label %.loopexit.split-lp.loopexit
@@ -4909,7 +4909,7 @@ switch.hole_check:                                ; preds = %100
 switch.lookup:                                    ; preds = %switch.hole_check
   %106 = shl nuw nsw i32 %104, 3
   %switch.shiftamt = zext nneg i32 %106 to i64
-  %switch.downshift = lshr i64 7521682511167119970, %switch.shiftamt
+  %switch.downshift = lshr i64 7493990211303506018, %switch.shiftamt
   %switch.masked = trunc i64 %switch.downshift to i8
   %107 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 noundef signext %switch.masked)
           to label %110 unwind label %.loopexit108

@@ -41,7 +41,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZTSN3zmq17socks_connecter_tE = constant [26 x i8] c"N3zmq17socks_connecter_tE\00", align 1
 @_ZTIN3zmq23stream_connecter_base_tE = external constant ptr
 @_ZTIN3zmq17socks_connecter_tE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3zmq17socks_connecter_tE, ptr @_ZTIN3zmq23stream_connecter_base_tE }, align 8
-@switch.table._ZN3zmq17socks_connecter_t9out_eventEv = private unnamed_addr constant [6 x i32] [i32 2, i32 3, i32 2, i32 5, i32 2, i32 7], align 4
+@switch.table._ZN3zmq17socks_connecter_t9out_eventEv = private unnamed_addr constant [6 x i32] [i32 2, i32 3, i32 poison, i32 5, i32 poison, i32 7], align 4
 
 @_ZN3zmq17socks_connecter_tC1EPNS_11io_thread_tEPNS_14session_base_tERKNS_9options_tEPNS_9address_tES9_b = unnamed_addr alias void (ptr, ptr, ptr, ptr, ptr, ptr, i1), ptr @_ZN3zmq17socks_connecter_tC2EPNS_11io_thread_tEPNS_14session_base_tERKNS_9options_tEPNS_9address_tES9_b
 @_ZN3zmq17socks_connecter_tD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3zmq17socks_connecter_tD2Ev

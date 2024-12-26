@@ -148,7 +148,7 @@ $_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits = comdat any
 @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits = linkonce_odr local_unnamed_addr constant [201 x i8] c"00010203040506070809101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899\00", comdat, align 16
 @.str.11 = private unnamed_addr constant [27 x i8] c"Refresh() is not supported\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_write_batch_with_index_internal.cc, ptr null }]
-@switch.table._ZNK7rocksdb18ReadableWriteBatch22GetEntryFromDataOffsetEmPNS_9WriteTypeEPNS_5SliceES4_S4_S4_ = private unnamed_addr constant [24 x i32] [i32 2, i32 0, i32 1, i32 5, i32 2, i32 0, i32 1, i32 3, i32 3, i32 6, i32 6, i32 6, i32 6, i32 6, i32 4, i32 4, i32 0, i32 0, i32 6, i32 6, i32 0, i32 0, i32 7, i32 7], align 4
+@switch.table._ZNK7rocksdb18ReadableWriteBatch22GetEntryFromDataOffsetEmPNS_9WriteTypeEPNS_5SliceES4_S4_S4_ = private unnamed_addr constant [24 x i32] [i32 2, i32 0, i32 1, i32 5, i32 2, i32 0, i32 1, i32 3, i32 3, i32 6, i32 6, i32 6, i32 6, i32 6, i32 4, i32 4, i32 poison, i32 poison, i32 6, i32 6, i32 poison, i32 poison, i32 7, i32 7], align 4
 
 @_ZN7rocksdb17BaseDeltaIteratorC1EPNS_18ColumnFamilyHandleEPNS_8IteratorEPNS_16WBWIIteratorImplEPKNS_10ComparatorE = unnamed_addr alias void (ptr, ptr, ptr, ptr, ptr), ptr @_ZN7rocksdb17BaseDeltaIteratorC2EPNS_18ColumnFamilyHandleEPNS_8IteratorEPNS_16WBWIIteratorImplEPKNS_10ComparatorE
 

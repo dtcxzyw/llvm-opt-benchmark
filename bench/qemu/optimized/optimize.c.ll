@@ -38,8 +38,8 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.fold_movcond = private unnamed_addr constant [13 x i8] c"fold_movcond\00", align 1
 @__func__.fold_multiply2 = private unnamed_addr constant [15 x i8] c"fold_multiply2\00", align 1
 @__func__.fold_sub_to_neg = private unnamed_addr constant [16 x i8] c"fold_sub_to_neg\00", align 1
-@switch.table.tcg_opt_gen_mov = private unnamed_addr constant [6 x i32] [i32 5, i32 63, i32 5, i32 149, i32 149, i32 149], align 4
-@switch.table.do_constant_folding_cond2 = private unnamed_addr constant [12 x i32] [i32 0, i32 1, i32 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1, i32 0, i32 1, i32 0], align 4
+@switch.table.tcg_opt_gen_mov = private unnamed_addr constant [6 x i32] [i32 5, i32 63, i32 poison, i32 149, i32 149, i32 149], align 4
+@switch.table.do_constant_folding_cond2 = private unnamed_addr constant [12 x i32] [i32 0, i32 1, i32 0, i32 1, i32 poison, i32 poison, i32 1, i32 0, i32 1, i32 0, i32 1, i32 0], align 4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tcg_optimize(ptr noundef %s) local_unnamed_addr #0 {

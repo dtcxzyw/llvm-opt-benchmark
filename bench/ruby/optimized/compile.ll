@@ -388,8 +388,8 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [22 x i8] c"-- raw disasm--------\00", align 1
 @str.1 = private unnamed_addr constant [22 x i8] c"---------------------\00", align 1
 @switch.table.rb_insn_unified_local_var_level = private unnamed_addr constant [6 x i32] [i32 0, i32 1, i32 0, i32 1, i32 1, i32 3], align 4
-@switch.table.iseq_peephole_optimize = private unnamed_addr constant [10 x i64] [i64 19, i64 17, i64 19, i64 19, i64 19, i64 18, i64 19, i64 19, i64 19, i64 22], align 8
-@switch.table.ibf_dump_object_list_i = private unnamed_addr constant [10 x i32] [i32 19, i32 17, i32 19, i32 19, i32 19, i32 18, i32 19, i32 19, i32 19, i32 22], align 4
+@switch.table.iseq_peephole_optimize = private unnamed_addr constant [10 x i64] [i64 19, i64 17, i64 poison, i64 poison, i64 poison, i64 18, i64 poison, i64 poison, i64 poison, i64 22], align 8
+@switch.table.ibf_dump_object_list_i = private unnamed_addr constant [10 x i32] [i32 19, i32 17, i32 poison, i32 poison, i32 poison, i32 18, i32 poison, i32 poison, i32 poison, i32 22], align 4
 @switch.table.ibf_load_object_class = private unnamed_addr constant [6 x ptr] [ptr @rb_cObject, ptr @rb_cArray, ptr @rb_eStandardError, ptr @rb_eNoMatchingPatternError, ptr @rb_eTypeError, ptr @rb_eNoMatchingPatternKeyError], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable

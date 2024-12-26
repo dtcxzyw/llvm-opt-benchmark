@@ -253,7 +253,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.LoadImageFromMemory = private unnamed_addr constant [4 x i32] [i32 1, i32 2, i32 4, i32 7], align 4
 @switch.table.ExportImageToMemory = private unnamed_addr constant [4 x i32] [i32 1, i32 2, i32 4, i32 3], align 4
 @switch.table.ImageDraw.29 = private unnamed_addr constant [24 x i32] [i32 8, i32 16, i32 16, i32 24, i32 16, i32 16, i32 32, i32 32, i32 96, i32 128, i32 16, i32 48, i32 64, i32 4, i32 4, i32 8, i32 8, i32 4, i32 4, i32 8, i32 4, i32 4, i32 8, i32 2], align 4
-@switch.table.ImageResize = private unnamed_addr constant [7 x i32] [i32 1, i32 2, i32 1, i32 3, i32 1, i32 1, i32 4], align 4
+@switch.table.ImageResize = private unnamed_addr constant [7 x i32] [i32 1, i32 2, i32 poison, i32 3, i32 poison, i32 poison, i32 4], align 4
 @switch.table.SetTextureWrap = private unnamed_addr constant [4 x i32] [i32 10497, i32 33071, i32 33648, i32 34626], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable

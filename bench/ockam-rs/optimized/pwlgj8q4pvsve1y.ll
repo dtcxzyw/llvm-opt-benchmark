@@ -169,8 +169,8 @@ target triple = "x86_64-unknown-linux-gnu"
 @__rust_no_alloc_shim_is_unstable = external global i8
 @_ZN12tracing_core10dispatcher6EXISTS17ha75096dd2289f006E = external local_unnamed_addr global { i8 }
 @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E = external local_unnamed_addr global { i64 }
-@"switch.table._ZN123_$LT$ockam_transport_websocket..workers..listener..WebSocketListenProcessor$u20$as$u20$ockam_core..processor..Processor$GT$7process28_$u7b$$u7b$closure$u7d$$u7d$17h0ccf93a4b388c17dE" = private unnamed_addr constant [12 x i8] c"\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0F\0E", align 1
-@"switch.table._ZN123_$LT$ockam_transport_websocket..workers..listener..WebSocketListenProcessor$u20$as$u20$ockam_core..processor..Processor$GT$7process28_$u7b$$u7b$closure$u7d$$u7d$17h0ccf93a4b388c17dE.49" = private unnamed_addr constant [12 x i8] c"\04\04\0D\04\0A\0C\01\0B\10\09\11\09", align 1
+@"switch.table._ZN123_$LT$ockam_transport_websocket..workers..listener..WebSocketListenProcessor$u20$as$u20$ockam_core..processor..Processor$GT$7process28_$u7b$$u7b$closure$u7d$$u7d$17h0ccf93a4b388c17dE" = private unnamed_addr constant [12 x i8] [i8 14, i8 14, i8 14, i8 poison, i8 14, i8 14, i8 14, i8 14, i8 14, i8 14, i8 15, i8 14], align 1
+@"switch.table._ZN123_$LT$ockam_transport_websocket..workers..listener..WebSocketListenProcessor$u20$as$u20$ockam_core..processor..Processor$GT$7process28_$u7b$$u7b$closure$u7d$$u7d$17h0ccf93a4b388c17dE.49" = private unnamed_addr constant [12 x i8] [i8 4, i8 4, i8 13, i8 poison, i8 10, i8 12, i8 1, i8 11, i8 16, i8 9, i8 17, i8 9], align 1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc void @"_ZN10ockam_core7routing7mailbox9Mailboxes22is_outgoing_authorized28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h34d2ca95a6bd7eb4E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 {

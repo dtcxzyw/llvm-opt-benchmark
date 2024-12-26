@@ -879,7 +879,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.835 = private unnamed_addr constant [9 x i8] c"SI_TKILL\00", align 1
 @switch.table.print_prlimit64 = private unnamed_addr constant [15 x ptr] [ptr @.str.671, ptr @.str.673, ptr @.str.672, ptr @.str.683, ptr @.str.670, ptr @.str.680, ptr @.str.679, ptr @.str.678, ptr @.str.675, ptr @.str.669, ptr @.str.674, ptr @.str.682, ptr @.str.676, ptr @.str.677, ptr @.str.681], align 8
 @switch.table.print_rt_sigprocmask = private unnamed_addr constant [3 x ptr] [ptr @.str.688, ptr @.str.689, ptr @.str.690], align 8
-@switch.table.print_socket = private unnamed_addr constant [10 x ptr] [ptr @.str.720, ptr @.str.719, ptr @.str.721, ptr @.str.722, ptr @.str.723, ptr @.str.719, ptr @.str.719, ptr @.str.719, ptr @.str.719, ptr @.str.724], align 8
+@switch.table.print_socket = private unnamed_addr constant [10 x ptr] [ptr @.str.720, ptr @.str.719, ptr @.str.721, ptr @.str.722, ptr @.str.723, ptr poison, ptr poison, ptr poison, ptr poison, ptr @.str.724], align 8
 @switch.table.print_syslog = private unnamed_addr constant [11 x ptr] [ptr @.str.754, ptr @.str.755, ptr @.str.756, ptr @.str.757, ptr @.str.758, ptr @.str.759, ptr @.str.760, ptr @.str.761, ptr @.str.762, ptr @.str.763, ptr @.str.764], align 8
 
 ; Function Attrs: nounwind sspstrong uwtable

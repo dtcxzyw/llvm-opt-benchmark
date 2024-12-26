@@ -62,7 +62,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.42 = private unnamed_addr constant [16 x i8] c"PMIX_INFO_ARRAY\00", align 1
 @pmix_class_init_epoch = external local_unnamed_addr global i32, align 4
 @.str.43 = private unnamed_addr constant [21 x i8] c"pthread_mutex_lock()\00", align 1
-@switch.table.pmix12_bfrop_get_data_type = private unnamed_addr constant [12 x i16] [i16 0, i16 0, i16 44, i16 22, i16 23, i16 24, i16 25, i16 26, i16 27, i16 28, i16 29, i16 30], align 2
+@switch.table.pmix12_bfrop_get_data_type = private unnamed_addr constant [12 x i16] [i16 0, i16 poison, i16 44, i16 22, i16 23, i16 24, i16 25, i16 26, i16 27, i16 28, i16 29, i16 30], align 2
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @init() #0 {

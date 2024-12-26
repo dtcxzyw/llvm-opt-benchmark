@@ -3,7 +3,7 @@ source_filename = "bench/graphviz/original/chresc.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-@switch.table.chresc = private unnamed_addr constant [55 x i32] [i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -55, i32 -55, i32 -55, i32 -55, i32 -55, i32 -55, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87], align 4
+@switch.table.chresc = private unnamed_addr constant [55 x i32] [i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 -55, i32 -55, i32 -55, i32 -55, i32 -55, i32 -55, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87], align 4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define i32 @chresc(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {

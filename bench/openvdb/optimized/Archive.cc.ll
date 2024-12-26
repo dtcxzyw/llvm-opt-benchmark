@@ -2252,8 +2252,8 @@ $_ZTVN7openvdb5v11_09TypeErrorE = comdat any
 @_ZTVN7openvdb5v11_09TypeErrorE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN7openvdb5v11_09TypeErrorE, ptr @_ZN7openvdb5v11_09TypeErrorD2Ev, ptr @_ZN7openvdb5v11_09TypeErrorD0Ev, ptr @_ZNK7openvdb5v11_09Exception4whatEv] }, comdat, align 8
 @llvm.global_ctors = appending global [2 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.2, ptr @_ZN5boost12interprocess13mapped_region16page_size_holderILi0EE8PageSizeE }, { i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_Archive.cc, ptr null }]
 @llvm.used = appending global [1 x ptr] [ptr @_ZN5boost12interprocess13mapped_region16page_size_holderILi0EE8PageSizeE], section "llvm.metadata"
-@switch.table._ZN5boost12interprocess13mapped_regionC2INS0_12file_mappingEEERKT_NS0_6mode_tElmPKvi = private unnamed_addr constant [5 x i32] [i32 1, i32 1, i32 1, i32 2, i32 2], align 4
-@switch.table._ZN5boost12interprocess13mapped_regionC2INS0_12file_mappingEEERKT_NS0_6mode_tElmPKvi.85 = private unnamed_addr constant [5 x i32] [i32 1, i32 1, i32 3, i32 3, i32 1], align 4
+@switch.table._ZN5boost12interprocess13mapped_regionC2INS0_12file_mappingEEERKT_NS0_6mode_tElmPKvi = private unnamed_addr constant [5 x i32] [i32 1, i32 poison, i32 1, i32 2, i32 2], align 4
+@switch.table._ZN5boost12interprocess13mapped_regionC2INS0_12file_mappingEEERKT_NS0_6mode_tElmPKvi.85 = private unnamed_addr constant [5 x i32] [i32 1, i32 poison, i32 3, i32 3, i32 1], align 4
 
 @_ZN7openvdb5v11_02io14StreamMetadataC1Ev = unnamed_addr alias void (ptr), ptr @_ZN7openvdb5v11_02io14StreamMetadataC2Ev
 @_ZN7openvdb5v11_02io14StreamMetadataC1ERKS2_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN7openvdb5v11_02io14StreamMetadataC2ERKS2_

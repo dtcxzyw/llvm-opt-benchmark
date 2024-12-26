@@ -224,7 +224,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.131 = private unnamed_addr constant [39 x i8] c"unable to encode object header message\00", align 1
 @.str.132 = private unnamed_addr constant [25 x i8] c"memory allocation failed\00", align 1
 @__func__.H5SM__read_mesg_fh_cb = private unnamed_addr constant [22 x i8] c"H5SM__read_mesg_fh_cb\00", align 1
-@switch.table.H5SM_get_refcount = private unnamed_addr constant [12 x i32] [i32 1, i32 5, i32 3, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 11, i32 12], align 4
+@switch.table.H5SM_get_refcount = private unnamed_addr constant [12 x i32] [i32 1, i32 poison, i32 3, i32 5, i32 5, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 11, i32 12], align 4
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5SM_init(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {

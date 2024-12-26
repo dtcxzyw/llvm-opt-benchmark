@@ -76,9 +76,9 @@ $_ZTV13C2GeneralStubIJ8Register11XMMRegisterPhEE = comdat any
 @_ZN12StubRoutines3x8631_vector_count_leading_zeros_lutE = external local_unnamed_addr global ptr, align 8
 @_ZTV13C2GeneralStubIJ8Register11XMMRegisterPhEE = linkonce_odr hidden unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr null, ptr @_ZN13C2GeneralStubIJ8Register11XMMRegisterPhEE4emitER17C2_MacroAssembler, ptr @_ZNK13C2GeneralStubIJ8Register11XMMRegisterPhEE8max_sizeEv] }, comdat, align 8
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
-@switch.table._ZN17C2_MacroAssembler15arrays_hashcodeE8RegisterS0_S0_S0_S0_S0_11XMMRegisterS1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_9BasicType = private unnamed_addr constant [7 x i32] [i32 0, i32 1, i32 0, i32 0, i32 0, i32 1, i32 2], align 4
-@switch.table._ZN17C2_MacroAssembler15arrays_hashcodeE8RegisterS0_S0_S0_S0_S0_11XMMRegisterS1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_9BasicType.1 = private unnamed_addr constant [7 x i32] [i32 1, i32 2, i32 1, i32 1, i32 1, i32 2, i32 4], align 4
-@switch.table._ZN17C2_MacroAssembler15arrays_hashcodeE8RegisterS0_S0_S0_S0_S0_11XMMRegisterS1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_9BasicType.2 = private unnamed_addr constant [7 x i32] [i32 8, i32 16, i32 8, i32 8, i32 8, i32 16, i32 32], align 4
+@switch.table._ZN17C2_MacroAssembler15arrays_hashcodeE8RegisterS0_S0_S0_S0_S0_11XMMRegisterS1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_9BasicType = private unnamed_addr constant [7 x i32] [i32 0, i32 1, i32 poison, i32 poison, i32 0, i32 1, i32 2], align 4
+@switch.table._ZN17C2_MacroAssembler15arrays_hashcodeE8RegisterS0_S0_S0_S0_S0_11XMMRegisterS1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_9BasicType.1 = private unnamed_addr constant [7 x i32] [i32 1, i32 2, i32 poison, i32 poison, i32 1, i32 2, i32 4], align 4
+@switch.table._ZN17C2_MacroAssembler15arrays_hashcodeE8RegisterS0_S0_S0_S0_S0_11XMMRegisterS1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_9BasicType.2 = private unnamed_addr constant [7 x i32] [i32 8, i32 16, i32 poison, i32 poison, i32 8, i32 16, i32 32], align 4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN17C2_MacroAssembler14verified_entryEiibb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {

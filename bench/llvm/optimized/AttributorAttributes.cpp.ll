@@ -3026,7 +3026,7 @@ $_ZTVN4llvm2cl11OptionValueIiEE = comdat any
 @.str.469 = private unnamed_addr constant [3 x i8] c";\0A\00", align 1
 @.str.470 = private unnamed_addr constant [3 x i8] c"}\0A\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_AttributorAttributes.cpp, ptr null }]
-@switch.table._ZN4llvm12function_refIFbRNS_11InstructionEEE11callback_fnIZN12_GLOBAL__N_123AAUndefinedBehaviorImpl10updateImplERNS_10AttributorEEUlS2_E_EEblS2_ = private unnamed_addr constant [6 x i64] [i64 -32, i64 -32, i64 -32, i64 -32, i64 -96, i64 -64], align 8
+@switch.table._ZN4llvm12function_refIFbRNS_11InstructionEEE11callback_fnIZN12_GLOBAL__N_123AAUndefinedBehaviorImpl10updateImplERNS_10AttributorEEUlS2_E_EEblS2_ = private unnamed_addr constant [6 x i64] [i64 -32, i64 -32, i64 poison, i64 poison, i64 -96, i64 -64], align 8
 @switch.table._ZNK4llvm12DenormalMode5printERNS_11raw_ostreamE.647 = private unnamed_addr constant [4 x i64] [i64 4, i64 13, i64 13, i64 7], align 8
 @switch.table._ZNK4llvm12DenormalMode5printERNS_11raw_ostreamE.648 = private unnamed_addr constant [4 x ptr] [ptr @.str.393, ptr @.str.394, ptr @.str.395, ptr @.str.396], align 8
 

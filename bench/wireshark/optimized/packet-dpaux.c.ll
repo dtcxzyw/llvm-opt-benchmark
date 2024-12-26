@@ -148,7 +148,7 @@ target triple = "x86_64-pc-linux-gnu"
 @reg00002_fields = internal constant [5 x ptr] [ptr @hf_00002_MAX_LANE_COUNT, ptr @hf_00002_POST_LT_ADJ_REQ_SUPPORTED, ptr @hf_00002_TPS3_SUPPORTED, ptr @hf_00002_ENHANCED_FRAME_CAP, ptr null], align 16
 @reg00003_fields = internal constant [4 x ptr] [ptr @hf_00003_MAX_DOWNSPREAD, ptr @hf_00003_NO_AUX_TRANSACTION_LINK_TRAINING, ptr @hf_00003_TPS4_SUPPORTED, ptr null], align 16
 @reg00004_fields = internal constant [5 x ptr] [ptr @hf_00004_NORP, ptr @hf_00004_5V_DP_PWR_CAP, ptr @hf_00004_12V_DP_PWR_CAP, ptr @hf_00004_18V_DP_PWR_CAP, ptr null], align 16
-@switch.table.dissect_dpaux = private unnamed_addr constant [9 x ptr] [ptr @.str.86, ptr @.str.87, ptr @.str.88, ptr @.str.86, ptr @.str.87, ptr @.str.86, ptr @.str.86, ptr @.str.86, ptr @.str.88], align 8
+@switch.table.dissect_dpaux = private unnamed_addr constant [9 x ptr] [ptr @.str.86, ptr @.str.87, ptr @.str.88, ptr poison, ptr @.str.87, ptr poison, ptr poison, ptr poison, ptr @.str.88], align 8
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_dpaux() local_unnamed_addr #0 {

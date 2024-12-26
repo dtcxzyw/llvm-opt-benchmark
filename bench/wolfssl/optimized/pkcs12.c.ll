@@ -18,7 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @WC_PKCS12_ENCRYPTED_OID = internal unnamed_addr constant [9 x i8] c"*\86H\86\F7\0D\01\07\06", align 1
 @WC_PKCS12_CertBag_OID = internal unnamed_addr constant [11 x i8] c"*\86H\86\F7\0D\01\0C\0A\01\03", align 1
 @WC_PKCS12_CertBag_Type1_OID = internal unnamed_addr constant [10 x i8] c"*\86H\86\F7\0D\01\09\16\01", align 1
-@switch.table.wc_PKCS12_create = private unnamed_addr constant [5 x i32] [i32 651, i32 656, i32 656, i32 656, i32 656], align 4
+@switch.table.wc_PKCS12_create = private unnamed_addr constant [5 x i32] [i32 651, i32 poison, i32 656, i32 656, i32 656], align 4
 
 ; Function Attrs: nounwind uwtable
 define ptr @wc_PKCS12_new() local_unnamed_addr #0 {

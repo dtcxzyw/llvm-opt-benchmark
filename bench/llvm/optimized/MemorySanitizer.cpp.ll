@@ -690,10 +690,10 @@ $_ZTVN4llvm2cl11OptionValueIbEE = comdat any
 @__PRETTY_FUNCTION__._ZN4llvm11getTypeNameINS_19MemorySanitizerPassEEENS_9StringRefEv = private unnamed_addr constant [76 x i8] c"StringRef llvm::getTypeName() [DesiredTypeName = llvm::MemorySanitizerPass]\00", align 1
 @.str.164 = private unnamed_addr constant [19 x i8] c"DesiredTypeName = \00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_MemorySanitizer.cpp, ptr null }]
-@switch.table._ZN12_GLOBAL__N_122MemorySanitizerVisitor13runOnFunctionEv = private unnamed_addr constant [8 x i16] [i16 0, i16 512, i16 512, i16 0, i16 512, i16 768, i16 768, i16 896], align 2
-@switch.table._ZN12_GLOBAL__N_122MemorySanitizerVisitor13runOnFunctionEv.70 = private unnamed_addr constant [8 x i16] [i16 0, i16 20, i16 20, i16 0, i16 24, i16 20, i16 24, i16 28], align 2
-@switch.table._ZN12_GLOBAL__N_122MemorySanitizerVisitor13runOnFunctionEv.71 = private unnamed_addr constant [8 x i16] [i16 0, i16 10, i16 10, i16 0, i16 12, i16 10, i16 12, i16 14], align 2
-@switch.table._ZN12_GLOBAL__N_122MemorySanitizerVisitor13runOnFunctionEv.72 = private unnamed_addr constant [8 x i16] [i16 0, i16 640, i16 640, i16 0, i16 768, i16 640, i16 768, i16 896], align 2
+@switch.table._ZN12_GLOBAL__N_122MemorySanitizerVisitor13runOnFunctionEv = private unnamed_addr constant [8 x i16] [i16 0, i16 512, i16 512, i16 poison, i16 512, i16 768, i16 768, i16 896], align 2
+@switch.table._ZN12_GLOBAL__N_122MemorySanitizerVisitor13runOnFunctionEv.70 = private unnamed_addr constant [8 x i16] [i16 0, i16 20, i16 20, i16 poison, i16 24, i16 20, i16 24, i16 28], align 2
+@switch.table._ZN12_GLOBAL__N_122MemorySanitizerVisitor13runOnFunctionEv.71 = private unnamed_addr constant [8 x i16] [i16 0, i16 10, i16 10, i16 poison, i16 12, i16 10, i16 12, i16 14], align 2
+@switch.table._ZN12_GLOBAL__N_122MemorySanitizerVisitor13runOnFunctionEv.72 = private unnamed_addr constant [8 x i16] [i16 0, i16 640, i16 640, i16 poison, i16 768, i16 640, i16 768, i16 896], align 2
 
 @_ZN4llvm22MemorySanitizerOptionsC1Eibbb = unnamed_addr alias void (ptr, i32, i1, i1, i1), ptr @_ZN4llvm22MemorySanitizerOptionsC2Eibbb
 

@@ -5128,7 +5128,7 @@ switch.hole_check:                                ; preds = %25
 switch.lookup:                                    ; preds = %switch.hole_check
   %29 = shl nuw nsw i8 %.sroa.1076.sroa.17.0.copyload, 3
   %switch.shiftamt = zext nneg i8 %29 to i40
-  %switch.downshift = lshr i40 25887375623, %switch.shiftamt
+  %switch.downshift = lshr i40 25769935111, %switch.shiftamt
   %switch.masked = trunc i40 %switch.downshift to i8
   br label %_ZN11wasi_common4sync4file13filetype_from17hd53e7a46c3969dfaE.exit
 
@@ -5512,7 +5512,7 @@ switch.hole_check:                                ; preds = %49
 switch.lookup:                                    ; preds = %switch.hole_check
   %53 = shl nuw nsw i8 %.sroa.17103.0, 3
   %switch.shiftamt = zext nneg i8 %53 to i40
-  %switch.downshift = lshr i40 25887375623, %switch.shiftamt
+  %switch.downshift = lshr i40 25769935111, %switch.shiftamt
   %switch.masked = trunc i40 %switch.downshift to i8
   br label %_ZN11wasi_common4sync4file13filetype_from17hd53e7a46c3969dfaE.exit
 

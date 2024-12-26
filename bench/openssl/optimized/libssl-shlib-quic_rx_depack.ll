@@ -85,7 +85,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.depack_do_frame_conn_close = private unnamed_addr constant [27 x i8] c"depack_do_frame_conn_close\00", align 1
 @.str.45 = private unnamed_addr constant [45 x i8] c"internal error (decode frame handshake done)\00", align 1
 @__func__.depack_do_frame_handshake_done = private unnamed_addr constant [31 x i8] c"depack_do_frame_handshake_done\00", align 1
-@switch.table.ossl_quic_handle_frames = private unnamed_addr constant [5 x i32] [i32 0, i32 2, i32 1, i32 0, i32 3], align 4
+@switch.table.ossl_quic_handle_frames = private unnamed_addr constant [5 x i32] [i32 0, i32 2, i32 1, i32 poison, i32 3], align 4
 @switch.table.ossl_quic_handle_frames.23 = private unnamed_addr constant [4 x i32] [i32 0, i32 1, i32 2, i32 2], align 4
 
 ; Function Attrs: nounwind uwtable

@@ -1102,8 +1102,8 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.787 = private unnamed_addr constant [23 x i8] c"Paging Package Info %u\00", align 1
 @.str.788 = private unnamed_addr constant [18 x i8] c"Channel and eMLPP\00", align 1
 @.str.789 = private unnamed_addr constant [19 x i8] c"Paging Group Paras\00", align 1
-@switch.table.req_ref_ra_est_cause_convert = private unnamed_addr constant [8 x ptr] [ptr @.str.471, ptr @.str.471, ptr @.str.471, ptr @.str.471, ptr @.str.472, ptr @.str.473, ptr @.str.474, ptr @.str.475], align 8
-@switch.table.req_ref_ra_est_cause_convert.55 = private unnamed_addr constant [8 x ptr] [ptr @.str.476, ptr @.str.477, ptr @.str.478, ptr @.str.479, ptr @.str.480, ptr @.str.481, ptr @.str.476, ptr @.str.482], align 8
+@switch.table.req_ref_ra_est_cause_convert = private unnamed_addr constant [8 x ptr] [ptr @.str.471, ptr poison, ptr poison, ptr poison, ptr @.str.472, ptr @.str.473, ptr @.str.474, ptr @.str.475], align 8
+@switch.table.req_ref_ra_est_cause_convert.55 = private unnamed_addr constant [8 x ptr] [ptr @.str.476, ptr @.str.477, ptr @.str.478, ptr @.str.479, ptr @.str.480, ptr @.str.481, ptr poison, ptr @.str.482], align 8
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_rsl() local_unnamed_addr #0 {

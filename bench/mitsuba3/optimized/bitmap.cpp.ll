@@ -949,9 +949,9 @@ $_ZTIZN7mitsuba6detail23get_unserialize_functorINS_6BitmapETnNSt3__19enable_ifIX
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_bitmap.cpp, ptr null }]
 @switch.table._ZN7mitsuba6Bitmap8read_exrEPNS_6StreamE = private unnamed_addr constant [3 x i32] [i32 5, i32 9, i32 10], align 4
 @switch.table._ZN7mitsuba6Bitmap8read_exrEPNS_6StreamE.87 = private unnamed_addr constant [11 x i64] [i64 1, i64 1, i64 2, i64 2, i64 4, i64 4, i64 8, i64 8, i64 2, i64 4, i64 8], align 8
-@switch.table._ZN7mitsuba6Bitmap8read_pngEPNS_6StreamE = private unnamed_addr constant [7 x i32] [i32 0, i32 0, i32 2, i32 0, i32 1, i32 0, i32 3], align 4
+@switch.table._ZN7mitsuba6Bitmap8read_pngEPNS_6StreamE = private unnamed_addr constant [7 x i32] [i32 0, i32 poison, i32 2, i32 poison, i32 1, i32 poison, i32 3], align 4
 @switch.table._ZNK7mitsuba6Bitmap9write_pngEPNS_6StreamEi = private unnamed_addr constant [4 x i32] [i32 0, i32 4, i32 2, i32 6], align 4
-@switch.table._ZNK7mitsuba6Bitmap10write_rgbeEPNS_6StreamE = private unnamed_addr constant [6 x ptr] [ptr @.str.113, ptr @.str.113, ptr @.str.113, ptr @.str.113, ptr @.str.114, ptr @.str.114], align 8
+@switch.table._ZNK7mitsuba6Bitmap10write_rgbeEPNS_6StreamE = private unnamed_addr constant [6 x ptr] [ptr @.str.113, ptr @.str.113, ptr poison, ptr poison, ptr @.str.114, ptr @.str.114], align 8
 
 @_ZN7mitsuba6BitmapC1ENS0_11PixelFormatENS_6Struct4TypeERKNS_6VectorIjLm2EEEmRKNSt3__16vectorINS8_12basic_stringIcNS8_11char_traitsIcEENS8_9allocatorIcEEEENSD_ISF_EEEEPh = unnamed_addr alias void (ptr, i32, i32, ptr, i64, ptr, ptr), ptr @_ZN7mitsuba6BitmapC2ENS0_11PixelFormatENS_6Struct4TypeERKNS_6VectorIjLm2EEEmRKNSt3__16vectorINS8_12basic_stringIcNS8_11char_traitsIcEENS8_9allocatorIcEEEENSD_ISF_EEEEPh
 @_ZN7mitsuba6BitmapC1ERKS0_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN7mitsuba6BitmapC2ERKS0_

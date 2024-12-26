@@ -338,7 +338,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_TRACE_E1000E_LINK_AUTONEG_FLOWCTL_DSTATE = external local_unnamed_addr global i16, align 2
 @.str.200 = private unnamed_addr constant [83 x i8] c"%d@%zu.%06zu:e1000e_link_autoneg_flowctl Auto-negotiated flow control state is %d\0A\00", align 1
 @.str.201 = private unnamed_addr constant [70 x i8] c"e1000e_link_autoneg_flowctl Auto-negotiated flow control state is %d\0A\00", align 1
-@switch.table.igb_rss_parse_packet = private unnamed_addr constant [8 x i32] [i32 1, i32 0, i32 5, i32 4, i32 3, i32 0, i32 6, i32 7], align 4
+@switch.table.igb_rss_parse_packet = private unnamed_addr constant [8 x i32] [i32 1, i32 0, i32 5, i32 4, i32 3, i32 poison, i32 6, i32 7], align 4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @igb_start_recv(ptr nocapture noundef readonly %core) local_unnamed_addr #0 {

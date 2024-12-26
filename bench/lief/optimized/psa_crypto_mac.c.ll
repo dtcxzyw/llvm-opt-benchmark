@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.0 = type { %struct.mbedtls_sha512_context }
 %struct.mbedtls_sha512_context = type { [2 x i64], [8 x i64], [128 x i8], i32 }
 
-@switch.table.psa_mac_finish_internal = private unnamed_addr constant [16 x i64] [i64 64, i64 64, i64 64, i64 64, i64 64, i64 64, i64 64, i64 128, i64 128, i64 128, i64 128, i64 64, i64 64, i64 144, i64 136, i64 104], align 8
+@switch.table.psa_mac_finish_internal = private unnamed_addr constant [16 x i64] [i64 64, i64 64, i64 64, i64 poison, i64 poison, i64 64, i64 64, i64 128, i64 128, i64 128, i64 128, i64 poison, i64 poison, i64 144, i64 136, i64 104], align 8
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -137, 1) i32 @mbedtls_psa_mac_abort(ptr noundef %0) local_unnamed_addr #0 {

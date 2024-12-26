@@ -50,9 +50,9 @@ $_ZN9CMoveNodeC2EP4NodeS1_S1_PK4Type = comdat any
 @_ZTV8AbsDNode = external unnamed_addr constant { [26 x ptr] }, align 8
 @_ZTV8SubDNode = external unnamed_addr constant { [28 x ptr] }, align 8
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
-@switch.table._ZN10CMoveDNode5IdealEP8PhaseGVNb = private unnamed_addr constant [7 x i64] [i64 2, i64 2, i64 2, i64 2, i64 3, i64 2, i64 3], align 8
-@switch.table._ZN10CMoveDNode5IdealEP8PhaseGVNb.3 = private unnamed_addr constant [7 x i64] [i64 3, i64 3, i64 3, i64 3, i64 2, i64 3, i64 2], align 8
-@switch.table._ZN10CMoveDNode5IdealEP8PhaseGVNb.4 = private unnamed_addr constant [7 x i32] [i32 2, i32 1, i32 1, i32 1, i32 2, i32 1, i32 1], align 4
+@switch.table._ZN10CMoveDNode5IdealEP8PhaseGVNb = private unnamed_addr constant [7 x i64] [i64 2, i64 poison, i64 2, i64 poison, i64 3, i64 poison, i64 3], align 8
+@switch.table._ZN10CMoveDNode5IdealEP8PhaseGVNb.3 = private unnamed_addr constant [7 x i64] [i64 3, i64 poison, i64 3, i64 poison, i64 2, i64 poison, i64 2], align 8
+@switch.table._ZN10CMoveDNode5IdealEP8PhaseGVNb.4 = private unnamed_addr constant [7 x i32] [i32 2, i32 poison, i32 1, i32 poison, i32 2, i32 poison, i32 1], align 4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN9CMoveNode5IdealEP8PhaseGVNb(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {

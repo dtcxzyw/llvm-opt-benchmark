@@ -218,7 +218,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.175 = private unnamed_addr constant [36 x i8] c"calling %li\0B.allocate is prohibited\00", align 1
 @.str.176 = private unnamed_addr constant [26 x i8] c"already initialized class\00", align 1
 @.str.177 = private unnamed_addr constant [34 x i8] c"can't inherit uninitialized class\00", align 1
-@switch.table.rb_check_convert_type_with_id.7 = private unnamed_addr constant [10 x i32] [i32 19, i32 17, i32 19, i32 19, i32 19, i32 18, i32 19, i32 19, i32 19, i32 22], align 4
+@switch.table.rb_check_convert_type_with_id.7 = private unnamed_addr constant [10 x i32] [i32 19, i32 17, i32 poison, i32 poison, i32 poison, i32 18, i32 poison, i32 poison, i32 poison, i32 22], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
 define hidden range(i64 16, 34359738377) i64 @rb_obj_embedded_size(i32 noundef %0) local_unnamed_addr #0 {

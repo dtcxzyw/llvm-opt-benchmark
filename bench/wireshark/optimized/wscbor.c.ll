@@ -45,7 +45,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.23 = private unnamed_addr constant [29 x i8] c"CBOR array is the wrong size\00", align 1
 @.str.24 = private unnamed_addr constant [24 x i8] c"_ws.wscbor.indef_string\00", align 1
 @.str.25 = private unnamed_addr constant [39 x i8] c"String uses indefinite-length encoding\00", align 1
-@switch.table.proto_tree_add_cbor_bitmask = private unnamed_addr constant [8 x i32] [i32 1, i32 2, i32 1, i32 4, i32 1, i32 1, i32 1, i32 8], align 4
+@switch.table.proto_tree_add_cbor_bitmask = private unnamed_addr constant [8 x i32] [i32 1, i32 2, i32 poison, i32 4, i32 poison, i32 poison, i32 poison, i32 8], align 4
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @wscbor_error_new(ptr noundef %0, ptr noundef %1, ptr noundef %2, ...) local_unnamed_addr #0 {

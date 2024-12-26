@@ -166,7 +166,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.93 = private unnamed_addr constant [112 x i8] c"/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/qemu/qemu/include/sysemu/block-backend-io.h\00", section "llvm.metadata"
 @.str.94 = private unnamed_addr constant [19 x i8] c"coroutine_mixed_fn\00", section "llvm.metadata"
 @llvm.global.annotations = appending global [4 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @blk_is_inserted, ptr @.str.92, ptr @.str.93, i32 69, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_is_inserted, ptr @.str.94, ptr @.str.93, i32 69, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_getlength, ptr @.str.92, ptr @.str.93, i32 81, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_getlength, ptr @.str.94, ptr @.str.93, i32 81, ptr null }], section "llvm.metadata"
-@switch.table.virtio_blk_zone_report_complete = private unnamed_addr constant [16 x i8] c"\00\01\02\03\04\0D\0D\0D\0D\0D\0D\0D\0D\0D\0E\0F", align 1
+@switch.table.virtio_blk_zone_report_complete = private unnamed_addr constant [16 x i8] [i8 0, i8 1, i8 2, i8 3, i8 4, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 13, i8 14, i8 15], align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @virtio_blk_handle_vq(ptr noundef %s, ptr noundef %vq) local_unnamed_addr #0 {

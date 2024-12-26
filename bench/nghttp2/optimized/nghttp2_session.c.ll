@@ -154,8 +154,8 @@ target triple = "x86_64-unknown-linux-gnu"
 @__PRETTY_FUNCTION__.session_process_settings_frame = private unnamed_addr constant [54 x i8] c"int session_process_settings_frame(nghttp2_session *)\00", align 1
 @__PRETTY_FUNCTION__.session_sched_reschedule_stream = private unnamed_addr constant [74 x i8] c"void session_sched_reschedule_stream(nghttp2_session *, nghttp2_stream *)\00", align 1
 @.str.105 = private unnamed_addr constant [8 x i8] c"0 == rv\00", align 1
-@switch.table.nghttp2_session_get_remote_settings = private unnamed_addr constant [9 x i64] [i64 2796, i64 2800, i64 2804, i64 2808, i64 2812, i64 2816, i64 2796, i64 2820, i64 2824], align 8
-@switch.table.nghttp2_session_get_local_settings = private unnamed_addr constant [9 x i64] [i64 2828, i64 2832, i64 2836, i64 2840, i64 2844, i64 2848, i64 2828, i64 2852, i64 2856], align 8
+@switch.table.nghttp2_session_get_remote_settings = private unnamed_addr constant [9 x i64] [i64 2796, i64 2800, i64 2804, i64 2808, i64 2812, i64 2816, i64 poison, i64 2820, i64 2824], align 8
+@switch.table.nghttp2_session_get_local_settings = private unnamed_addr constant [9 x i64] [i64 2828, i64 2832, i64 2836, i64 2840, i64 2844, i64 2848, i64 poison, i64 2852, i64 2856], align 8
 @switch.table.session_handle_invalid_stream2 = private unnamed_addr constant [10 x i32] [i32 7, i32 1, i32 1, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 3], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

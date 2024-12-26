@@ -459,9 +459,9 @@ target triple = "x86_64-unknown-linux-gnu"
 @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hff9906722db275d7E" = private unnamed_addr constant [4 x i64] [i64 6, i64 8, i64 11, i64 13], align 8
 @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hff9906722db275d7E.133" = private unnamed_addr constant [4 x ptr] [ptr @anon.a0b7298307f3a1649f818ae4a5b23c61.98, ptr @anon.a0b7298307f3a1649f818ae4a5b23c61.99, ptr @anon.a0b7298307f3a1649f818ae4a5b23c61.100, ptr @anon.a0b7298307f3a1649f818ae4a5b23c61.101], align 8
 @switch.table._ZN17cranelift_codegen2ir5types4Type14log2_lane_bits17h96ee7a58341145dcE = private unnamed_addr constant [10 x i32] [i32 3, i32 4, i32 5, i32 6, i32 7, i32 5, i32 6, i32 0, i32 5, i32 6], align 4
-@switch.table._ZN17cranelift_codegen2ir5types4Type6as_int17hc5779713b144069cE = private unnamed_addr constant [10 x i16] [i16 6, i16 7, i16 8, i16 9, i16 10, i16 8, i16 9, i16 6, i16 8, i16 9], align 2
-@switch.table._ZN17cranelift_codegen2ir5types4Type11split_lanes17he32986c1bcf6ce56E = private unnamed_addr constant [6 x i16] [i16 6, i16 7, i16 8, i16 9, i16 6, i16 11], align 2
-@switch.table._ZN17cranelift_codegen2ir5types4Type11merge_lanes17h56d6c0c6b4fbbffdE = private unnamed_addr constant [6 x i16] [i16 7, i16 8, i16 9, i16 10, i16 7, i16 12], align 2
+@switch.table._ZN17cranelift_codegen2ir5types4Type6as_int17hc5779713b144069cE = private unnamed_addr constant [10 x i16] [i16 6, i16 7, i16 8, i16 9, i16 10, i16 8, i16 9, i16 poison, i16 8, i16 9], align 2
+@switch.table._ZN17cranelift_codegen2ir5types4Type11split_lanes17he32986c1bcf6ce56E = private unnamed_addr constant [6 x i16] [i16 6, i16 7, i16 8, i16 9, i16 poison, i16 11], align 2
+@switch.table._ZN17cranelift_codegen2ir5types4Type11merge_lanes17h56d6c0c6b4fbbffdE = private unnamed_addr constant [6 x i16] [i16 7, i16 8, i16 9, i16 10, i16 poison, i16 12], align 2
 @"switch.table._ZN71_$LT$cranelift_codegen..ir..types..Type$u20$as$u20$core..fmt..Debug$GT$3fmt17h409409f0761bfeb4E" = private unnamed_addr constant [5 x i32] [i32 8, i32 16, i32 32, i32 64, i32 128], align 4
 @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$10fits_in_1617h5f0dd6d86d1b5d74E" = private unnamed_addr constant [10 x i32] [i32 8, i32 16, i32 32, i32 64, i32 128, i32 32, i32 64, i32 0, i32 32, i32 64], align 4
 

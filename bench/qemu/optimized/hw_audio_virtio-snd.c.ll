@@ -154,7 +154,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.79 = private unnamed_addr constant [52 x i8] c"virtio_snd_get_features snd %p: get_features 0x%lx\0A\00", align 1
 @__func__.virtio_snd_reset = private unnamed_addr constant [17 x i8] c"virtio_snd_reset\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @do_qemu_init_do_qemu_init_virtio_snd_types, ptr null }]
-@switch.table.virtio_snd_pcm_prepare = private unnamed_addr constant [17 x i32] [i32 1, i32 0, i32 3, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 5, i32 4, i32 6], align 4
+@switch.table.virtio_snd_pcm_prepare = private unnamed_addr constant [17 x i32] [i32 1, i32 0, i32 3, i32 2, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 5, i32 4, i32 6], align 4
 @switch.table.virtio_snd_pcm_prepare.9 = private unnamed_addr constant [14 x i32] [i32 5512, i32 8000, i32 11025, i32 16000, i32 22050, i32 32000, i32 44100, i32 48000, i32 64000, i32 88200, i32 96000, i32 176400, i32 192000, i32 384000], align 4
 
 ; Function Attrs: nounwind sspstrong uwtable

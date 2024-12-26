@@ -5127,7 +5127,7 @@ switch.hole_check:                                ; preds = %128
 switch.lookup:                                    ; preds = %switch.hole_check
   %132 = shl nuw nsw i8 %switch.tableidx, 3
   %switch.shiftamt = zext nneg i8 %132 to i64
-  %switch.downshift = lshr i64 288795533752008968, %switch.shiftamt
+  %switch.downshift = lshr i64 288230376185266440, %switch.shiftamt
   %switch.masked = trunc i64 %switch.downshift to i8
   br label %invflip_side.exit
 
@@ -5139,7 +5139,7 @@ switch.hole_check174:                             ; preds = %130
 switch.lookup175:                                 ; preds = %switch.hole_check174
   %133 = shl nuw nsw i8 %switch.tableidx173, 3
   %switch.shiftamt179 = zext nneg i8 %133 to i64
-  %switch.downshift180 = lshr i64 72622751638225928, %switch.shiftamt179
+  %switch.downshift180 = lshr i64 72057594071483400, %switch.shiftamt179
   %switch.masked181 = trunc i64 %switch.downshift180 to i8
   br label %invflip_side.exit
 

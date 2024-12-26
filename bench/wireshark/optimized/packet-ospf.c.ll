@@ -1359,7 +1359,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.862 = private unnamed_addr constant [7 x i8] c" Added\00", align 1
 @.str.863 = private unnamed_addr constant [9 x i8] c" Deleted\00", align 1
 @.str.864 = private unnamed_addr constant [17 x i8] c"Request From LTV\00", align 1
-@switch.table.dissect_ospf = private unnamed_addr constant [8 x ptr] [ptr @hf_ospf_v3_lls_ext_options_tlv, ptr @hf_ospf_v3_lls_ext_options_tlv, ptr @hf_ospf_v3_lls_state_tlv, ptr @hf_ospf_v3_lls_drop_tlv, ptr @hf_ospf_v3_lls_rf_tlv, ptr @hf_ospf_v3_lls_fsf_tlv, ptr @hf_ospf_v3_lls_relay_tlv, ptr @hf_ospf_v3_lls_willingness_tlv], align 8
+@switch.table.dissect_ospf = private unnamed_addr constant [8 x ptr] [ptr @hf_ospf_v3_lls_ext_options_tlv, ptr poison, ptr @hf_ospf_v3_lls_state_tlv, ptr @hf_ospf_v3_lls_drop_tlv, ptr @hf_ospf_v3_lls_rf_tlv, ptr @hf_ospf_v3_lls_fsf_tlv, ptr @hf_ospf_v3_lls_relay_tlv, ptr @hf_ospf_v3_lls_willingness_tlv], align 8
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_ospf() local_unnamed_addr #0 {

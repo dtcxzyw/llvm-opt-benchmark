@@ -154,8 +154,8 @@ $_ZSt19piecewise_construct = comdat any
 @_ZL9necessary = internal global %"struct.gmx::EnumerationArray.48" zeroinitializer, align 8
 @.str.65 = private unnamed_addr constant [3 x i8] c"*n\00", align 1
 @.str.66 = private unnamed_addr constant [2 x i8] c"D\00", align 1
-@switch.table._Z11ifunc_index9Directivei = private unnamed_addr constant [10 x i32] [i32 10, i32 11, i32 14, i32 15, i32 16, i32 17, i32 10, i32 18, i32 13, i32 12], align 4
-@switch.table._Z11ifunc_index9Directivei.7 = private unnamed_addr constant [11 x i32] [i32 19, i32 24, i32 20, i32 25, i32 23, i32 19, i32 19, i32 26, i32 19, i32 21, i32 22], align 4
+@switch.table._Z11ifunc_index9Directivei = private unnamed_addr constant [10 x i32] [i32 10, i32 11, i32 14, i32 15, i32 16, i32 17, i32 poison, i32 18, i32 13, i32 12], align 4
+@switch.table._Z11ifunc_index9Directivei.7 = private unnamed_addr constant [11 x i32] [i32 19, i32 24, i32 20, i32 25, i32 23, i32 poison, i32 poison, i32 26, i32 19, i32 21, i32 22], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef ptr @_Z17enumValueToString9Directive(i32 noundef %0) local_unnamed_addr #0 {

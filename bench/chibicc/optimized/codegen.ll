@@ -350,9 +350,9 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.281 = private unnamed_addr constant [23 x i8] c"  mov %d(%%rbp), %%rdi\00", align 1
 @.str.282 = private unnamed_addr constant [22 x i8] c"  mov %d(%%rax), %%dl\00", align 1
 @.str.283 = private unnamed_addr constant [22 x i8] c"  mov %%dl, %d(%%rdi)\00", align 1
-@switch.table.codegen.2 = private unnamed_addr constant [8 x ptr] [ptr @argreg8, ptr @argreg16, ptr @argreg8, ptr @argreg32, ptr @argreg8, ptr @argreg8, ptr @argreg8, ptr @argreg64], align 8
-@switch.table.gen_expr = private unnamed_addr constant [8 x ptr] [ptr @.str.56, ptr @.str.62, ptr @.str.56, ptr @.str.68, ptr @.str.56, ptr @.str.56, ptr @.str.56, ptr @.str.74], align 8
-@switch.table.gen_expr.4 = private unnamed_addr constant [8 x ptr] [ptr @.str.262, ptr @.str.263, ptr @.str.262, ptr @.str.88, ptr @.str.262, ptr @.str.262, ptr @.str.262, ptr @.str.87], align 8
+@switch.table.codegen.2 = private unnamed_addr constant [8 x ptr] [ptr @argreg8, ptr @argreg16, ptr poison, ptr @argreg32, ptr poison, ptr poison, ptr poison, ptr @argreg64], align 8
+@switch.table.gen_expr = private unnamed_addr constant [8 x ptr] [ptr @.str.56, ptr @.str.62, ptr poison, ptr @.str.68, ptr poison, ptr poison, ptr poison, ptr @.str.74], align 8
+@switch.table.gen_expr.4 = private unnamed_addr constant [8 x ptr] [ptr @.str.262, ptr @.str.263, ptr poison, ptr @.str.88, ptr poison, ptr poison, ptr poison, ptr @.str.87], align 8
 @switch.table.gen_expr.5 = private unnamed_addr constant [3 x ptr] [ptr @.str.132, ptr @.str.167, ptr @.str.170], align 8
 @switch.table.store = private unnamed_addr constant [4 x ptr] [ptr @.str.227, ptr @.str.228, ptr @.str.230, ptr @.str.229], align 8
 

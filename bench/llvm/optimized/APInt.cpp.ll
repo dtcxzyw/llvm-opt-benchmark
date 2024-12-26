@@ -49,7 +49,7 @@ $_ZN4llvm7hashing6detail23hash_combine_range_implImEENSt9enable_ifIXsr16is_hasha
 @.str.2 = private unnamed_addr constant [2 x i8] c"0\00", align 1
 @.str.3 = private unnamed_addr constant [3 x i8] c"0x\00", align 1
 @_ZZNK4llvm5APInt8toStringERNS_15SmallVectorImplIcEEjbbbbE10BothDigits = internal unnamed_addr constant [73 x i8] c"0123456789abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ\00", align 16
-@switch.table._ZNK4llvm5APInt8toStringERNS_15SmallVectorImplIcEEjbbbb = private unnamed_addr constant [8 x ptr] [ptr @.str.1, ptr @.str.1, ptr @.str.1, ptr @.str.2, ptr @.str, ptr @.str.1, ptr @.str.1, ptr @.str.3], align 8
+@switch.table._ZNK4llvm5APInt8toStringERNS_15SmallVectorImplIcEEjbbbb = private unnamed_addr constant [8 x ptr] [ptr @.str.1, ptr poison, ptr poison, ptr @.str.2, ptr @.str, ptr poison, ptr poison, ptr @.str.3], align 8
 
 @_ZN4llvm5APIntC1EjNS_8ArrayRefImEE = unnamed_addr alias void (ptr, i32, ptr, i64), ptr @_ZN4llvm5APIntC2EjNS_8ArrayRefImEE
 @_ZN4llvm5APIntC1EjjPKm = unnamed_addr alias void (ptr, i32, i32, ptr), ptr @_ZN4llvm5APIntC2EjjPKm

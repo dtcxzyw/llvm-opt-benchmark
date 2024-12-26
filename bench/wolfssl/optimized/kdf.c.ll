@@ -7,8 +7,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.wc_HmacHash = type { %struct.wc_Sha3 }
 %struct.wc_Sha3 = type { [25 x i64], [200 x i8], i8, ptr }
 
-@switch.table.wc_PRF = private unnamed_addr constant [6 x i32] [i32 16, i32 20, i32 16, i32 32, i32 48, i32 64], align 4
-@switch.table.wc_PRF.1 = private unnamed_addr constant [6 x i32] [i32 3, i32 4, i32 3, i32 6, i32 7, i32 8], align 4
+@switch.table.wc_PRF = private unnamed_addr constant [6 x i32] [i32 16, i32 20, i32 poison, i32 32, i32 48, i32 64], align 4
+@switch.table.wc_PRF.1 = private unnamed_addr constant [6 x i32] [i32 3, i32 4, i32 poison, i32 6, i32 7, i32 8], align 4
 
 ; Function Attrs: nounwind uwtable
 define i32 @wc_PRF(ptr nocapture noundef writeonly %result, i32 noundef %resLen, ptr noundef %secret, i32 noundef %secLen, ptr noundef %seed, i32 noundef %seedLen, i32 noundef %hash, ptr noundef %heap, i32 noundef %devId) local_unnamed_addr #0 {

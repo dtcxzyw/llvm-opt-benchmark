@@ -7260,7 +7260,7 @@ $_ZTIN2cv6detail8TypeHintINS_7Point3_IdEEEE = comdat any
 @switch.table._ZN2cvlsERSoNS_10MorphTypesE = private unnamed_addr constant [8 x ptr] [ptr @.str.167, ptr @.str.168, ptr @.str.169, ptr @.str.170, ptr @.str.171, ptr @.str.172, ptr @.str.173, ptr @.str.174], align 8
 @switch.table._ZN2cvlsERSoNS_14RetrievalModesE = private unnamed_addr constant [5 x ptr] [ptr @.str.185, ptr @.str.186, ptr @.str.187, ptr @.str.188, ptr @.str.189], align 8
 @switch.table._ZN2cvlsERSoNS_25ContourApproximationModesE = private unnamed_addr constant [4 x ptr] [ptr @.str.191, ptr @.str.192, ptr @.str.193, ptr @.str.194], align 8
-@switch.table._ZN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test26FitLine3DVector64FPerfTestEE13RegisterTestsEv = private unnamed_addr constant [9 x ptr] [ptr @.str.201, ptr @.str.201, ptr @.str.202, ptr @.str.203, ptr @.str.204, ptr @.str.205, ptr @.str.206, ptr @.str.207, ptr @.str.208], align 8
+@switch.table._ZN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test26FitLine3DVector64FPerfTestEE13RegisterTestsEv = private unnamed_addr constant [9 x ptr] [ptr @.str.201, ptr poison, ptr @.str.202, ptr @.str.203, ptr @.str.204, ptr @.str.205, ptr @.str.206, ptr @.str.207, ptr @.str.208], align 8
 
 declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 

@@ -210,7 +210,7 @@ $_ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcE
 @.str.16 = private unnamed_addr constant [3 x i8] c"as\00", align 1
 @.str.18 = private unnamed_addr constant [3 x i8] c"ld\00", align 1
 @.str.19 = private unnamed_addr constant [6 x i8] c"posix\00", align 1
-@switch.table._ZN5clang6driver10toolchains13HLSLToolChain18parseTargetProfileB5cxx11EN4llvm9StringRefE = private unnamed_addr constant [16 x i32] [i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 56], align 4
+@switch.table._ZN5clang6driver10toolchains13HLSLToolChain18parseTargetProfileB5cxx11EN4llvm9StringRefE = private unnamed_addr constant [16 x i32] [i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 56], align 4
 
 @_ZN5clang6driver10toolchains13HLSLToolChainC1ERKNS0_6DriverERKN4llvm6TripleERKNS6_3opt7ArgListE = hidden unnamed_addr alias void (ptr, ptr, ptr, ptr), ptr @_ZN5clang6driver10toolchains13HLSLToolChainC2ERKNS0_6DriverERKN4llvm6TripleERKNS6_3opt7ArgListE
 

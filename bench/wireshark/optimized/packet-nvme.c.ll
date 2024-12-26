@@ -2702,7 +2702,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2110 = private unnamed_addr constant [23 x i8] c"Generic Command Status\00", align 1
 @.str.2111 = private unnamed_addr constant [24 x i8] c"Command Specific Status\00", align 1
 @.str.2112 = private unnamed_addr constant [20 x i8] c"Path Related Status\00", align 1
-@switch.table.dissect_nvme_cqe = private unnamed_addr constant [7 x ptr] [ptr @nvme_cqe_aev_status_error_tbl, ptr @nvme_cqe_aev_status_smart_tbl, ptr @nvme_cqe_aev_status_notice_tbl, ptr @nvme_cqe_aev_status_error_tbl, ptr @nvme_cqe_aev_status_error_tbl, ptr @nvme_cqe_aev_status_error_tbl, ptr @nvme_cqe_aev_status_nvm_tbl], align 8
+@switch.table.dissect_nvme_cqe = private unnamed_addr constant [7 x ptr] [ptr @nvme_cqe_aev_status_error_tbl, ptr @nvme_cqe_aev_status_smart_tbl, ptr @nvme_cqe_aev_status_notice_tbl, ptr poison, ptr poison, ptr poison, ptr @nvme_cqe_aev_status_nvm_tbl], align 8
 
 ; Function Attrs: nounwind uwtable
 define hidden void @nvme_publish_qid(ptr noundef %0, i32 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {

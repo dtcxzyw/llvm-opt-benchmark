@@ -1523,7 +1523,7 @@ $_ZSt19piecewise_construct = comdat any
 @_ZTVN4llvm13format_objectIJjEEE = linkonce_odr unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr null, ptr @_ZN4llvm18format_object_base4homeEv, ptr @_ZNK4llvm13format_objectIJjEE7snprintEPcj] }, comdat, align 8
 @_ZSt19piecewise_construct = linkonce_odr constant %"struct.std::piecewise_construct_t" zeroinitializer, comdat, align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_OMPIRBuilder.cpp, ptr null }]
-@switch.table._ZN4llvm15OpenMPIRBuilder19createAtomicCompareERKNS0_19LocationDescriptionERNS0_13AtomicOpValueES5_S5_PNS_5ValueES7_NS_14AtomicOrderingENS_3omp18OMPAtomicCompareOpEbbb = private unnamed_addr constant [6 x i32] [i32 2, i32 2, i32 4, i32 2, i32 4, i32 7], align 4
+@switch.table._ZN4llvm15OpenMPIRBuilder19createAtomicCompareERKNS0_19LocationDescriptionERNS0_13AtomicOpValueES5_S5_PNS_5ValueES7_NS_14AtomicOrderingENS_3omp18OMPAtomicCompareOpEbbb = private unnamed_addr constant [6 x i32] [i32 2, i32 poison, i32 4, i32 2, i32 4, i32 7], align 4
 
 @_ZN4llvm21OpenMPIRBuilderConfigC1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm21OpenMPIRBuilderConfigC2Ev
 @_ZN4llvm21OpenMPIRBuilderConfigC1Ebbbbbbb = unnamed_addr alias void (ptr, i1, i1, i1, i1, i1, i1, i1), ptr @_ZN4llvm21OpenMPIRBuilderConfigC2Ebbbbbbb

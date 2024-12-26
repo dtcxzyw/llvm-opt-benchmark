@@ -1771,7 +1771,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.de_bearer_cap = private unnamed_addr constant [4 x ptr] [ptr @.str.123, ptr @.str.140, ptr @.str.141, ptr @.str.142], align 8
 @switch.table.de_bearer_cap.1 = private unnamed_addr constant [4 x ptr] [ptr @.str.123, ptr @.str.143, ptr @.str.144, ptr @.str.145], align 8
 @switch.table.de_bearer_cap.2 = private unnamed_addr constant [4 x ptr] [ptr @.str.123, ptr @.str.146, ptr @.str.147, ptr @.str.148], align 8
-@switch.table.de_tp_sub_channel = private unnamed_addr constant [7 x ptr] [ptr @.str.938, ptr @.str.937, ptr @.str.936, ptr @.str.935, ptr @.str.935, ptr @.str.935, ptr @.str.935], align 8
+@switch.table.de_tp_sub_channel = private unnamed_addr constant [7 x ptr] [ptr @.str.938, ptr @.str.937, ptr @.str.936, ptr poison, ptr poison, ptr poison, ptr @.str.935], align 8
 
 declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #0
 

@@ -12675,7 +12675,7 @@ switch.hole_check:                                ; preds = %2
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %switch.cast = zext nneg i8 %switch.tableidx to i12
-  %switch.downshift = lshr i12 1884, %switch.cast
+  %switch.downshift = lshr i12 8, %switch.cast
   %switch.masked = trunc i12 %switch.downshift to i1
   br label %_ZZNK5vcpkg14RealFilesystem29get_directories_non_recursiveERKNS_4PathERSt10error_codeENKUlN12_GLOBAL__N_110PosixDTypeES3_E_clES7_S3_.exit
 
@@ -12712,7 +12712,7 @@ switch.hole_check:                                ; preds = %2
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %switch.cast = zext nneg i8 %switch.tableidx to i12
-  %switch.downshift = lshr i12 2004, %switch.cast
+  %switch.downshift = lshr i12 128, %switch.cast
   %switch.masked = trunc i12 %switch.downshift to i1
   br label %_ZZNK5vcpkg14RealFilesystem31get_regular_files_non_recursiveERKNS_4PathERSt10error_codeENKUlN12_GLOBAL__N_110PosixDTypeES3_E_clES7_S3_.exit
 

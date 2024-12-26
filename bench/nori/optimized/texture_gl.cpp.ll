@@ -25,11 +25,11 @@ $__clang_call_terminate = comdat any
 @.str.11 = private unnamed_addr constant [82 x i8] c"gl_map_texture_format(): component format unsupported for the given pixel format!\00", align 1
 @switch.table._ZN7nanogui7Texture4initEv = private unnamed_addr constant [3 x i32] [i32 9728, i32 9729, i32 9987], align 4
 @switch.table._ZN7nanogui7Texture4initEv.1 = private unnamed_addr constant [3 x i32] [i32 33071, i32 10497, i32 33648], align 4
-@switch.table._ZN7nanoguiL21gl_map_texture_formatERNS_7Texture11PixelFormatERNS0_15ComponentFormatERjS5_S5_ = private unnamed_addr constant [10 x i32] [i32 36756, i32 33321, i32 36760, i32 33322, i32 33321, i32 33321, i32 33321, i32 33321, i32 33325, i32 33326], align 4
-@switch.table._ZN7nanoguiL21gl_map_texture_formatERNS_7Texture11PixelFormatERNS0_15ComponentFormatERjS5_S5_.2 = private unnamed_addr constant [10 x i32] [i32 36757, i32 33323, i32 36761, i32 33324, i32 33323, i32 33323, i32 33323, i32 33323, i32 33327, i32 33328], align 4
-@switch.table._ZN7nanoguiL21gl_map_texture_formatERNS_7Texture11PixelFormatERNS0_15ComponentFormatERjS5_S5_.3 = private unnamed_addr constant [10 x i32] [i32 36758, i32 32849, i32 36762, i32 32852, i32 32849, i32 32849, i32 32849, i32 32849, i32 34843, i32 34837], align 4
-@switch.table._ZN7nanoguiL21gl_map_texture_formatERNS_7Texture11PixelFormatERNS0_15ComponentFormatERjS5_S5_.4 = private unnamed_addr constant [10 x i32] [i32 36759, i32 32856, i32 36763, i32 32859, i32 32856, i32 32856, i32 32856, i32 32856, i32 34842, i32 34836], align 4
-@switch.table._ZN7nanoguiL21gl_map_texture_formatERNS_7Texture11PixelFormatERNS0_15ComponentFormatERjS5_S5_.5 = private unnamed_addr constant [10 x i32] [i32 5120, i32 5121, i32 5122, i32 5123, i32 5120, i32 5120, i32 5120, i32 5120, i32 5131, i32 5126], align 4
+@switch.table._ZN7nanoguiL21gl_map_texture_formatERNS_7Texture11PixelFormatERNS0_15ComponentFormatERjS5_S5_ = private unnamed_addr constant [10 x i32] [i32 36756, i32 33321, i32 36760, i32 33322, i32 poison, i32 poison, i32 poison, i32 poison, i32 33325, i32 33326], align 4
+@switch.table._ZN7nanoguiL21gl_map_texture_formatERNS_7Texture11PixelFormatERNS0_15ComponentFormatERjS5_S5_.2 = private unnamed_addr constant [10 x i32] [i32 36757, i32 33323, i32 36761, i32 33324, i32 poison, i32 poison, i32 poison, i32 poison, i32 33327, i32 33328], align 4
+@switch.table._ZN7nanoguiL21gl_map_texture_formatERNS_7Texture11PixelFormatERNS0_15ComponentFormatERjS5_S5_.3 = private unnamed_addr constant [10 x i32] [i32 36758, i32 32849, i32 36762, i32 32852, i32 poison, i32 poison, i32 poison, i32 poison, i32 34843, i32 34837], align 4
+@switch.table._ZN7nanoguiL21gl_map_texture_formatERNS_7Texture11PixelFormatERNS0_15ComponentFormatERjS5_S5_.4 = private unnamed_addr constant [10 x i32] [i32 36759, i32 32856, i32 36763, i32 32859, i32 poison, i32 poison, i32 poison, i32 poison, i32 34842, i32 34836], align 4
+@switch.table._ZN7nanoguiL21gl_map_texture_formatERNS_7Texture11PixelFormatERNS0_15ComponentFormatERjS5_S5_.5 = private unnamed_addr constant [10 x i32] [i32 5120, i32 5121, i32 5122, i32 5123, i32 poison, i32 poison, i32 poison, i32 poison, i32 5131, i32 5126], align 4
 
 @_ZN7nanogui7TextureD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN7nanogui7TextureD2Ev
 

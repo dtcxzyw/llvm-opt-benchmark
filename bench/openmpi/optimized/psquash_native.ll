@@ -34,7 +34,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [25 x i8] c"psquash: native finalize\00", align 1
 @.str.3 = private unnamed_addr constant [37 x i8] c"PMIX ERROR: %s in file %s at line %d\00", align 1
 @.str.4 = private unnamed_addr constant [17 x i8] c"psquash_native.c\00", align 1
-@switch.table.native_decode_int = private unnamed_addr constant [12 x i64] [i64 8, i64 2, i64 4, i64 2, i64 2, i64 4, i64 8, i64 4, i64 2, i64 2, i64 4, i64 8], align 8
+@switch.table.native_decode_int = private unnamed_addr constant [12 x i64] [i64 8, i64 poison, i64 4, i64 poison, i64 2, i64 4, i64 8, i64 4, i64 poison, i64 2, i64 4, i64 8], align 8
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @native_init() #0 {

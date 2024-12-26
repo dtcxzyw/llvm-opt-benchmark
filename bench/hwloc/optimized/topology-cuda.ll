@@ -28,7 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.15 = private unnamed_addr constant [26 x i8] c"CUDASharedMemorySizePerMP\00", align 1
 @.str.16 = private unnamed_addr constant [8 x i8] c"Backend\00", align 1
 @switch.table.hwloc_cuda_discover = private unnamed_addr constant [3 x i32] [i32 64, i32 128, i32 128], align 4
-@switch.table.hwloc_cuda_discover.3 = private unnamed_addr constant [10 x i32] [i32 64, i32 64, i32 64, i32 64, i32 64, i32 64, i32 128, i32 128, i32 64, i32 128], align 4
+@switch.table.hwloc_cuda_discover.3 = private unnamed_addr constant [10 x i32] [i32 64, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 128, i32 128, i32 poison, i32 128], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal range(i32 -1, 1) i32 @hwloc_cuda_component_init(i64 noundef %0) #0 {

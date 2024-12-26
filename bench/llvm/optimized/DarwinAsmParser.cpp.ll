@@ -255,7 +255,7 @@ $_ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcE
 @.str.205 = private unnamed_addr constant [40 x i8] c"version number required, comma expected\00", align 1
 @.str.206 = private unnamed_addr constant [31 x i8] c" in '.build_version' directive\00", align 1
 @switch.table._ZN12_GLOBAL__N_115DarwinAsmParser15parseVersionMinEN4llvm9StringRefENS1_5SMLocENS1_16MCVersionMinTypeE = private unnamed_addr constant [4 x i32] [i32 5, i32 9, i32 26, i32 27], align 4
-@switch.table._ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_17parseBuildVersionES5_S6_EEEEbPS0_S5_S6_ = private unnamed_addr constant [11 x i32] [i32 9, i32 5, i32 26, i32 27, i32 5, i32 5, i32 5, i32 5, i32 5, i32 29, i32 30], align 4
+@switch.table._ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_17parseBuildVersionES5_S6_EEEEbPS0_S5_S6_ = private unnamed_addr constant [11 x i32] [i32 9, i32 5, i32 26, i32 27, i32 poison, i32 5, i32 poison, i32 poison, i32 poison, i32 29, i32 30], align 4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef nonnull ptr @_ZN4llvm21createDarwinAsmParserEv() local_unnamed_addr #0 {

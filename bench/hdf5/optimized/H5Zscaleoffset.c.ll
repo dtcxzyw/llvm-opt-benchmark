@@ -51,8 +51,8 @@ target triple = "x86_64-pc-linux-gnu"
 @H5E_NOSPACE_g = external local_unnamed_addr global i64, align 8
 @.str.26 = private unnamed_addr constant [55 x i8] c"memory allocation failed for scaleoffset decompression\00", align 1
 @.str.29 = private unnamed_addr constant [53 x i8] c"memory allocation failed for scaleoffset compression\00", align 1
-@switch.table.H5Z__scaleoffset_get_type = private unnamed_addr constant [8 x i32] [i32 1, i32 2, i32 1, i32 3, i32 1, i32 1, i32 1, i32 4], align 4
-@switch.table.H5Z__scaleoffset_get_type.3 = private unnamed_addr constant [8 x i32] [i32 6, i32 7, i32 6, i32 8, i32 6, i32 6, i32 6, i32 9], align 4
+@switch.table.H5Z__scaleoffset_get_type = private unnamed_addr constant [8 x i32] [i32 1, i32 2, i32 poison, i32 3, i32 poison, i32 poison, i32 poison, i32 4], align 4
+@switch.table.H5Z__scaleoffset_get_type.3 = private unnamed_addr constant [8 x i32] [i32 6, i32 7, i32 poison, i32 8, i32 poison, i32 poison, i32 poison, i32 9], align 4
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 2) i32 @H5Z__can_apply_scaleoffset(i64 %0, i64 noundef %1, i64 %2) #0 {

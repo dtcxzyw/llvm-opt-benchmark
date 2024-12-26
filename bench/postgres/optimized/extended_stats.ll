@@ -41,7 +41,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.13 = private unnamed_addr constant [29 x i8] c"unsupported byval length: %d\00", align 1
 @.str.14 = private unnamed_addr constant [38 x i8] c"../../../src/include/access/tupmacs.h\00", align 1
 @__func__.fetch_att = private unnamed_addr constant [10 x i8] c"fetch_att\00", align 1
-@switch.table.statext_is_kind_built = private unnamed_addr constant [10 x i32] [i32 3, i32 6, i32 4, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 5], align 4
+@switch.table.statext_is_kind_built = private unnamed_addr constant [10 x i32] [i32 3, i32 6, i32 4, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 5], align 4
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @BuildRelationExtStatistics(ptr noundef %0, i1 noundef zeroext %1, double noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr nocapture noundef readonly %6) local_unnamed_addr #0 {

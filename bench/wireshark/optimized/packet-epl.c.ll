@@ -1498,9 +1498,9 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1115 = private unnamed_addr constant [28 x i8] c"e.g. 1 or 00-00-5E-00-53-00\00", align 1
 @.str.1116 = private unnamed_addr constant [67 x i8] c"Invalid argument. Expected either a CN ID [1-239] or a MAC address\00", align 1
 @.str.1117 = private unnamed_addr constant [12 x i8] c"Loading %s\0A\00", align 1
-@switch.table.dissect_eplpdu = private unnamed_addr constant [13 x ptr] [ptr @.str.668, ptr @.str.668, ptr @.str.669, ptr @.str.670, ptr @.str.671, ptr @.str.672, ptr @.str.674, ptr @.str.668, ptr @.str.668, ptr @.str.668, ptr @.str.668, ptr @.str.668, ptr @.str.673], align 8
-@switch.table.dissect_eplpdu.3 = private unnamed_addr constant [13 x ptr] [ptr @hf_epl_soc, ptr @hf_epl_soc, ptr @hf_epl_preq, ptr @hf_epl_pres, ptr @hf_epl_soa, ptr @hf_epl_asnd, ptr @hf_epl_amni, ptr @hf_epl_soc, ptr @hf_epl_soc, ptr @hf_epl_soc, ptr @hf_epl_soc, ptr @hf_epl_soc, ptr @hf_epl_ainv], align 8
-@switch.table.dissect_eplpdu.4 = private unnamed_addr constant [13 x i64] [i64 1, i64 1, i64 3, i64 4, i64 5, i64 6, i64 7, i64 1, i64 1, i64 1, i64 1, i64 1, i64 13], align 8
+@switch.table.dissect_eplpdu = private unnamed_addr constant [13 x ptr] [ptr @.str.668, ptr poison, ptr @.str.669, ptr @.str.670, ptr @.str.671, ptr @.str.672, ptr @.str.674, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr @.str.673], align 8
+@switch.table.dissect_eplpdu.3 = private unnamed_addr constant [13 x ptr] [ptr @hf_epl_soc, ptr poison, ptr @hf_epl_preq, ptr @hf_epl_pres, ptr @hf_epl_soa, ptr @hf_epl_asnd, ptr @hf_epl_amni, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr @hf_epl_ainv], align 8
+@switch.table.dissect_eplpdu.4 = private unnamed_addr constant [13 x i64] [i64 1, i64 poison, i64 3, i64 4, i64 5, i64 6, i64 7, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 13], align 8
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
 define hidden noundef ptr @epl_type_to_hf(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {

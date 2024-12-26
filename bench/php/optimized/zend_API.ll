@@ -252,7 +252,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.186 = private unnamed_addr constant [23 x i8] c"class \22%.*s\22 not found\00", align 1
 @.str.187 = private unnamed_addr constant [7 x i8] c"<?php \00", align 1
 @.str.188 = private unnamed_addr constant [2 x i8] c";\00", align 1
-@switch.table.zend_get_type_by_const = private unnamed_addr constant [19 x ptr] [ptr @.str.8, ptr @.str.2, ptr @.str.2, ptr @.str.3, ptr @.str.4, ptr @.str.5, ptr @.str.11, ptr @.str.6, ptr @.str.7, ptr @.str.2, ptr @.str.2, ptr @.str.9, ptr @.str.10, ptr @.str.12, ptr @.str.2, ptr @.str.13, ptr @.str.2, ptr @.str.2, ptr @.str.14], align 8
+@switch.table.zend_get_type_by_const = private unnamed_addr constant [19 x ptr] [ptr @.str.8, ptr @.str.2, ptr @.str.2, ptr @.str.3, ptr @.str.4, ptr @.str.5, ptr @.str.11, ptr @.str.6, ptr @.str.7, ptr poison, ptr poison, ptr @.str.9, ptr @.str.10, ptr @.str.12, ptr poison, ptr @.str.13, ptr poison, ptr @.str.2, ptr @.str.14], align 8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define range(i32 -1, 1) i32 @zend_get_parameters_array_ex(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {

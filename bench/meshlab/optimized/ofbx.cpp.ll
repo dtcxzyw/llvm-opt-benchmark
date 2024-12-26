@@ -736,7 +736,7 @@ $_ZTIN4ofbx8NullImplE = comdat any
 @.str.125 = private unnamed_addr constant [13 x i8] c"TimeSpanStop\00", align 1
 @.str.126 = private unnamed_addr constant [9 x i8] c"TimeMode\00", align 1
 @.str.127 = private unnamed_addr constant [16 x i8] c"CustomFrameRate\00", align 1
-@switch.table._ZN4ofbxL13parseArrayRawINS_6MatrixEEEbRKNS_8PropertyEPT_i = private unnamed_addr constant [9 x i32] [i32 8, i32 8, i32 4, i32 8, i32 8, i32 4, i32 8, i32 8, i32 8], align 4
+@switch.table._ZN4ofbxL13parseArrayRawINS_6MatrixEEEbRKNS_8PropertyEPT_i = private unnamed_addr constant [9 x i32] [i32 8, i32 poison, i32 4, i32 poison, i32 poison, i32 4, i32 poison, i32 poison, i32 8], align 4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
 define noundef i64 @_ZNK4ofbx8DataView5toU64Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0) local_unnamed_addr #0 align 2 {

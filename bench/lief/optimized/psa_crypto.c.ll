@@ -31,12 +31,12 @@ target triple = "x86_64-pc-linux-gnu"
 
 @global_data = internal global %struct.psa_global_data_t zeroinitializer, align 8
 @mbedtls_psa_random_state = hidden local_unnamed_addr constant ptr getelementptr inbounds nuw (i8, ptr @global_data, i64 1056), align 8
-@switch.table.psa_key_derivation_setup_kdf = private unnamed_addr constant [17 x i64] [i64 16, i64 20, i64 20, i64 16, i64 16, i64 28, i64 32, i64 48, i64 64, i64 28, i64 32, i64 16, i64 16, i64 28, i64 32, i64 48, i64 64], align 8
-@switch.table.psa_key_derivation_input_internal.23 = private unnamed_addr constant [16 x i64] [i64 16, i64 20, i64 20, i64 16, i64 16, i64 28, i64 32, i64 48, i64 64, i64 28, i64 32, i64 16, i64 16, i64 28, i64 32, i64 48], align 8
-@switch.table.psa_key_derivation_input_internal.24 = private unnamed_addr constant [16 x i8] c"\10\14\14\10\10\1C 0@\1C \10\10\1C 0", align 1
+@switch.table.psa_key_derivation_setup_kdf = private unnamed_addr constant [17 x i64] [i64 16, i64 20, i64 20, i64 poison, i64 poison, i64 28, i64 32, i64 48, i64 64, i64 28, i64 32, i64 poison, i64 poison, i64 28, i64 32, i64 48, i64 64], align 8
+@switch.table.psa_key_derivation_input_internal.23 = private unnamed_addr constant [16 x i64] [i64 16, i64 20, i64 20, i64 poison, i64 poison, i64 28, i64 32, i64 48, i64 64, i64 28, i64 32, i64 poison, i64 poison, i64 28, i64 32, i64 48], align 8
+@switch.table.psa_key_derivation_input_internal.24 = private unnamed_addr constant [16 x i8] [i8 16, i8 20, i8 20, i8 poison, i8 poison, i8 28, i8 32, i8 48, i8 64, i8 28, i8 32, i8 poison, i8 poison, i8 28, i8 32, i8 48], align 1
 @switch.table.psa_key_agreement_raw_internal = private unnamed_addr constant [13 x i64] [i64 192, i64 224, i64 256, i64 384, i64 521, i64 256, i64 384, i64 512, i64 255, i64 192, i64 224, i64 256, i64 448], align 8
 @switch.table.psa_key_agreement_raw_internal.25 = private unnamed_addr constant [13 x i16] [i16 16658, i16 16658, i16 16658, i16 16658, i16 16658, i16 16688, i16 16688, i16 16688, i16 16705, i16 16663, i16 16663, i16 16663, i16 16705], align 2
-@switch.table.psa_key_policy_algorithm_intersection.26 = private unnamed_addr constant [16 x i32] [i32 16, i32 20, i32 20, i32 16, i32 16, i32 28, i32 32, i32 48, i32 64, i32 28, i32 32, i32 16, i32 16, i32 28, i32 32, i32 48], align 4
+@switch.table.psa_key_policy_algorithm_intersection.26 = private unnamed_addr constant [16 x i32] [i32 16, i32 20, i32 20, i32 poison, i32 poison, i32 28, i32 32, i32 48, i32 64, i32 28, i32 32, i32 poison, i32 poison, i32 28, i32 32, i32 48], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden range(i32 -151, 1) i32 @mbedtls_to_psa_error(i32 noundef %0) local_unnamed_addr #0 {

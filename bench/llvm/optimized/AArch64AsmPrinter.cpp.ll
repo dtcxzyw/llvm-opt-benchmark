@@ -344,7 +344,7 @@ $_ZSt19piecewise_construct = comdat any
 @.str.62 = private unnamed_addr constant [2 x i8] c"[\00", align 1
 @.str.63 = private unnamed_addr constant [17 x i8] c"arm64ec_exp_name\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_AArch64AsmPrinter.cpp, ptr null }]
-@switch.table._ZN12_GLOBAL__N_117AArch64AsmPrinter15emitInstructionEPKN4llvm12MachineInstrE = private unnamed_addr constant [4 x i32] [i32 4379, i32 4395, i32 4379, i32 4432], align 4
+@switch.table._ZN12_GLOBAL__N_117AArch64AsmPrinter15emitInstructionEPKN4llvm12MachineInstrE = private unnamed_addr constant [4 x i32] [i32 4379, i32 4395, i32 poison, i32 4432], align 4
 @switch.table._ZN12_GLOBAL__N_117AArch64AsmPrinter15emitInstructionEPKN4llvm12MachineInstrE.17 = private unnamed_addr constant [3 x i64] [i64 2160, i64 2192, i64 5390], align 8
 @switch.table._ZN12_GLOBAL__N_117AArch64AsmPrinter15emitInstructionEPKN4llvm12MachineInstrE.18 = private unnamed_addr constant [3 x i64] [i64 9208409882624, i64 9345848836096, i64 23132693856256], align 8
 @switch.table._ZN12_GLOBAL__N_117AArch64AsmPrinter15emitInstructionEPKN4llvm12MachineInstrE.19 = private unnamed_addr constant [3 x i32] [i32 2128, i32 2112, i32 5371], align 4
@@ -7311,7 +7311,7 @@ switch.lookup:
   %switch.tableidx = add nsw i32 %19, -1
   %switch.cast = zext i32 %switch.tableidx to i64
   %switch.shiftamt = shl nuw nsw i64 %switch.cast, 4
-  %switch.downshift = lshr i64 1125929972137991, %switch.shiftamt
+  %switch.downshift = lshr i64 1125899907366919, %switch.shiftamt
   %switch.masked = trunc i64 %switch.downshift to i16
   store i16 %switch.masked, ptr %0, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8

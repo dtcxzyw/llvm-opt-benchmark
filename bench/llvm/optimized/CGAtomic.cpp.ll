@@ -240,7 +240,7 @@ $_ZZN4llvm6toCABIENS_14AtomicOrderingEE6lookup = comdat any
 @.str.42 = private unnamed_addr constant [12 x i8] c"atomic_exit\00", align 1
 @switch.table._ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprENS0_7AddressES5_S5_S5_PN4llvm5ValueES8_mNS6_14AtomicOrderingES8_ = private unnamed_addr constant [14 x i64] [i64 12, i64 12, i64 15, i64 15, i64 12, i64 16, i64 13, i64 13, i64 9, i64 10, i64 16, i64 13, i64 20, i64 15], align 8
 @switch.table._ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprENS0_7AddressES5_S5_S5_PN4llvm5ValueES8_mNS6_14AtomicOrderingES8_.18 = private unnamed_addr constant [14 x ptr] [ptr @.str.26, ptr @.str.27, ptr @.str.28, ptr @.str.29, ptr @.str.30, ptr @.str.31, ptr @.str.32, ptr @.str.33, ptr @.str.34, ptr @.str.35, ptr @.str.36, ptr @.str.37, ptr @.str.38, ptr @.str.39], align 8
-@switch.table._ZN5clang7CodeGen15CodeGenFunction16EmitAtomicUpdateENS0_6LValueEN4llvm14AtomicOrderingERKNS3_12function_refIFNS0_6RValueES6_EEEb.20 = private unnamed_addr constant [6 x i32] [i32 2, i32 2, i32 4, i32 2, i32 4, i32 7], align 4
+@switch.table._ZN5clang7CodeGen15CodeGenFunction16EmitAtomicUpdateENS0_6LValueEN4llvm14AtomicOrderingERKNS3_12function_refIFNS0_6RValueES6_EEEb.20 = private unnamed_addr constant [6 x i32] [i32 2, i32 poison, i32 4, i32 2, i32 4, i32 7], align 4
 @switch.table._ZL27emitAtomicCmpXchgFailureSetRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprEbNS0_7AddressES5_S5_S5_PN4llvm5ValueEmNS6_14AtomicOrderingEh = private unnamed_addr constant [5 x i32] [i32 4, i32 4, i32 2, i32 2, i32 7], align 4
 
 ; Function Attrs: mustprogress nounwind uwtable

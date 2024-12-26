@@ -243,8 +243,8 @@ $_ZTVSt18bad_variant_access = comdat any
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_fpa_decl_plugin.cpp, ptr null }]
 @switch.table._ZN15fpa_decl_plugin15mk_bin_rel_declEijPK9parameterjPKP4sortS4_ = private unnamed_addr constant [5 x ptr] [ptr @.str.28, ptr @.str.29, ptr @.str.30, ptr @.str.31, ptr @.str.32], align 8
 @switch.table._ZN15fpa_decl_plugin17mk_unary_rel_declEijPK9parameterjPKP4sortS4_ = private unnamed_addr constant [7 x ptr] [ptr @.str.37, ptr @.str.38, ptr @.str.34, ptr @.str.39, ptr @.str.40, ptr @.str.35, ptr @.str.36], align 8
-@switch.table._ZN15fpa_decl_plugin14mk_binary_declEijPK9parameterjPKP4sortS4_ = private unnamed_addr constant [6 x ptr] [ptr @.str.45, ptr @.str.45, ptr @.str.46, ptr @.str.47, ptr @.str.48, ptr @.str.49], align 8
-@switch.table._ZN15fpa_decl_plugin17mk_rm_binary_declEijPK9parameterjPKP4sortS4_ = private unnamed_addr constant [5 x ptr] [ptr @.str.52, ptr @.str.53, ptr @.str.52, ptr @.str.54, ptr @.str.55], align 8
+@switch.table._ZN15fpa_decl_plugin14mk_binary_declEijPK9parameterjPKP4sortS4_ = private unnamed_addr constant [6 x ptr] [ptr @.str.45, ptr poison, ptr @.str.46, ptr @.str.47, ptr @.str.48, ptr @.str.49], align 8
+@switch.table._ZN15fpa_decl_plugin17mk_rm_binary_declEijPK9parameterjPKP4sortS4_ = private unnamed_addr constant [5 x ptr] [ptr @.str.52, ptr @.str.53, ptr poison, ptr @.str.54, ptr @.str.55], align 8
 
 @_ZN15fpa_decl_pluginC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN15fpa_decl_pluginC2Ev
 @_ZN15fpa_decl_pluginD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN15fpa_decl_pluginD2Ev

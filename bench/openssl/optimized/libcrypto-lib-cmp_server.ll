@@ -39,7 +39,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.19 = private unnamed_addr constant [5 x i8] c"with\00", align 1
 @.str.20 = private unnamed_addr constant [10 x i8] c"PKIStatus\00", align 1
 @__func__.process_pollReq = private unnamed_addr constant [16 x i8] c"process_pollReq\00", align 1
-@switch.table.process_cert_request = private unnamed_addr constant [8 x i32] [i32 1, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 8], align 4
+@switch.table.process_cert_request = private unnamed_addr constant [8 x i32] [i32 1, i32 poison, i32 3, i32 poison, i32 3, i32 poison, i32 poison, i32 8], align 4
 
 ; Function Attrs: nounwind uwtable
 define void @OSSL_CMP_SRV_CTX_free(ptr noundef %srv_ctx) local_unnamed_addr #0 {

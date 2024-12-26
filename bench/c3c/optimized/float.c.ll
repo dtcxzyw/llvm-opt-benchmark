@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [33 x i8] c"The float value is out of range.\00", align 1
 @.str.3 = private unnamed_addr constant [29 x i8] c"The float format is invalid.\00", align 1
 @hex_conv = internal unnamed_addr constant <{ [103 x i8], [153 x i8] }> <{ [103 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\01\02\03\04\05\06\07\08\09\0A\00\00\00\00\00\00\00\0B\0C\0D\0E\0F\10\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\0B\0C\0D\0E\0F\10", [153 x i8] zeroinitializer }>, align 16
-@switch.table.float_from_hex = private unnamed_addr constant [9 x i32] [i32 15, i32 13, i32 15, i32 15, i32 16, i32 15, i32 15, i32 15, i32 17], align 4
+@switch.table.float_from_hex = private unnamed_addr constant [9 x i32] [i32 15, i32 13, i32 15, i32 poison, i32 16, i32 poison, i32 poison, i32 poison, i32 17], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local { double, i32 } @float_add(double %0, i32 %1, double %2, i32 %3) local_unnamed_addr #0 {

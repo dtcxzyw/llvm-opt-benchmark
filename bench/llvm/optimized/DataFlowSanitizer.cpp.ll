@@ -563,10 +563,10 @@ $_ZTVN4llvm2cl11OptionValueIiEE = comdat any
 @_ZN4llvm21TargetLibraryAnalysis3KeyE = external global %"struct.llvm::AnalysisKey", align 8
 @_ZN4llvm9GlobalsAA3KeyE = external global %"struct.llvm::AnalysisKey", align 8
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_DataFlowSanitizer.cpp, ptr null }]
-@switch.table._ZN12_GLOBAL__N_117DataFlowSanitizer7runImplERN4llvm6ModuleENS1_12function_refIFRNS1_17TargetLibraryInfoERNS1_8FunctionEEEE = private unnamed_addr constant [8 x i16] [i16 0, i16 512, i16 512, i16 0, i16 512, i16 768, i16 768, i16 896], align 2
-@switch.table._ZN12_GLOBAL__N_117DataFlowSanitizer7runImplERN4llvm6ModuleENS1_12function_refIFRNS1_17TargetLibraryInfoERNS1_8FunctionEEEE.121 = private unnamed_addr constant [8 x i16] [i16 0, i16 640, i16 640, i16 0, i16 768, i16 640, i16 768, i16 896], align 2
-@switch.table._ZN12_GLOBAL__N_117DataFlowSanitizer7runImplERN4llvm6ModuleENS1_12function_refIFRNS1_17TargetLibraryInfoERNS1_8FunctionEEEE.122 = private unnamed_addr constant [8 x i16] [i16 0, i16 20, i16 20, i16 0, i16 24, i16 20, i16 24, i16 28], align 2
-@switch.table._ZN12_GLOBAL__N_117DataFlowSanitizer7runImplERN4llvm6ModuleENS1_12function_refIFRNS1_17TargetLibraryInfoERNS1_8FunctionEEEE.123 = private unnamed_addr constant [8 x i16] [i16 0, i16 10, i16 10, i16 0, i16 12, i16 10, i16 12, i16 14], align 2
+@switch.table._ZN12_GLOBAL__N_117DataFlowSanitizer7runImplERN4llvm6ModuleENS1_12function_refIFRNS1_17TargetLibraryInfoERNS1_8FunctionEEEE = private unnamed_addr constant [8 x i16] [i16 0, i16 512, i16 512, i16 poison, i16 512, i16 768, i16 768, i16 896], align 2
+@switch.table._ZN12_GLOBAL__N_117DataFlowSanitizer7runImplERN4llvm6ModuleENS1_12function_refIFRNS1_17TargetLibraryInfoERNS1_8FunctionEEEE.121 = private unnamed_addr constant [8 x i16] [i16 0, i16 640, i16 640, i16 poison, i16 768, i16 640, i16 768, i16 896], align 2
+@switch.table._ZN12_GLOBAL__N_117DataFlowSanitizer7runImplERN4llvm6ModuleENS1_12function_refIFRNS1_17TargetLibraryInfoERNS1_8FunctionEEEE.122 = private unnamed_addr constant [8 x i16] [i16 0, i16 20, i16 20, i16 poison, i16 24, i16 20, i16 24, i16 28], align 2
+@switch.table._ZN12_GLOBAL__N_117DataFlowSanitizer7runImplERN4llvm6ModuleENS1_12function_refIFRNS1_17TargetLibraryInfoERNS1_8FunctionEEEE.123 = private unnamed_addr constant [8 x i16] [i16 0, i16 10, i16 10, i16 poison, i16 12, i16 10, i16 12, i16 14], align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEED2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #0 comdat align 2 {

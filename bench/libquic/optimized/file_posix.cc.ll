@@ -44,7 +44,7 @@ $__clang_call_terminate = comdat any
 @.str.15 = private unnamed_addr constant [16 x i8] c"File::Duplicate\00", align 1
 @.str.16 = private unnamed_addr constant [33 x i8] c"PlatformFile.UnknownErrors.Posix\00", align 1
 @.str.17 = private unnamed_addr constant [12 x i8] c"File::Flush\00", align 1
-@switch.table._ZN4base4File18OSErrorToFileErrorEi = private unnamed_addr constant [30 x i32] [i32 -5, i32 -4, i32 -5, i32 -5, i32 -16, i32 -5, i32 -5, i32 -5, i32 -5, i32 -5, i32 -5, i32 -7, i32 -5, i32 -5, i32 -5, i32 -2, i32 -3, i32 -5, i32 -5, i32 -9, i32 -5, i32 -5, i32 -5, i32 -6, i32 -5, i32 -2, i32 -5, i32 -8, i32 -5, i32 -5], align 4
+@switch.table._ZN4base4File18OSErrorToFileErrorEi = private unnamed_addr constant [30 x i32] [i32 -5, i32 -4, i32 poison, i32 poison, i32 -16, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 -7, i32 -5, i32 poison, i32 poison, i32 -2, i32 -3, i32 poison, i32 poison, i32 -9, i32 -5, i32 poison, i32 poison, i32 -6, i32 poison, i32 -2, i32 poison, i32 -8, i32 poison, i32 -5], align 4
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4base4File4Info8FromStatERK6stat64(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 10), (16, 40)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %stat_info) local_unnamed_addr #0 align 2 {

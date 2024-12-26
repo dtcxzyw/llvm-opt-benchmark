@@ -616,8 +616,8 @@ $_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang14SourceLocationENS_6detail13D
 @.str.251 = private unnamed_addr constant [6 x i8] c"__cpp\00", align 1
 @.str.252 = private unnamed_addr constant [3 x i8] c"::\00", align 1
 @.str.254 = private unnamed_addr constant [24 x i8] c"vector::_M_range_insert\00", align 1
-@switch.table._ZN5clang12Preprocessor27HandleHeaderIncludeOrImportENS_14SourceLocationERNS_5TokenES3_S1_NS_6detail21SearchDirIteratorImplILb1EEEPKNS_9FileEntryE = private unnamed_addr constant [10 x i64] [i64 0, i64 3, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 1, i64 2], align 8
-@"switch.table._ZZN5clang12Preprocessor18LexEmbedParametersERNS_5TokenEbENK3$_3clERN4llvm15SmallVectorImplIS1_EE" = private unnamed_addr constant [5 x i16] [i16 21, i16 23, i16 23, i16 23, i16 25], align 2
+@switch.table._ZN5clang12Preprocessor27HandleHeaderIncludeOrImportENS_14SourceLocationERNS_5TokenES3_S1_NS_6detail21SearchDirIteratorImplILb1EEEPKNS_9FileEntryE = private unnamed_addr constant [10 x i64] [i64 0, i64 3, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 1, i64 2], align 8
+@"switch.table._ZZN5clang12Preprocessor18LexEmbedParametersERNS_5TokenEbENK3$_3clERN4llvm15SmallVectorImplIS1_EE" = private unnamed_addr constant [5 x i16] [i16 21, i16 poison, i16 23, i16 poison, i16 25], align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN5clang12Preprocessor17AllocateMacroInfoENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(3288) %0, i32 %1) local_unnamed_addr #0 align 2 {

@@ -171,9 +171,9 @@ $_ZN4llvm9StringMapIPKNS_11GlobalValueENS_15MallocAllocatorEE21try_emplace_with_
 @.str.2 = private unnamed_addr constant [3 x i8] c"@@\00", align 1
 @.str.3 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @.str.4 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
-@switch.table._ZN4llvm14RecordStreamer21flushSymverDirectivesEv = private unnamed_addr constant [6 x i32] [i32 9, i32 9, i32 9, i32 24, i32 9, i32 24], align 4
+@switch.table._ZN4llvm14RecordStreamer21flushSymverDirectivesEv = private unnamed_addr constant [6 x i32] [i32 9, i32 poison, i32 9, i32 24, i32 poison, i32 24], align 4
 @switch.table._ZN4llvm14RecordStreamer21flushSymverDirectivesEv.1 = private unnamed_addr constant [9 x i32] [i32 24, i32 24, i32 24, i32 24, i32 0, i32 0, i32 0, i32 24, i32 24], align 4
-@switch.table._ZN4llvm14RecordStreamer21flushSymverDirectivesEv.2 = private unnamed_addr constant [7 x i32] [i32 2, i32 3, i32 2, i32 3, i32 3, i32 2, i32 4], align 4
+@switch.table._ZN4llvm14RecordStreamer21flushSymverDirectivesEv.2 = private unnamed_addr constant [7 x i32] [i32 2, i32 3, i32 2, i32 3, i32 poison, i32 2, i32 4], align 4
 
 @_ZN4llvm14RecordStreamerC1ERNS_9MCContextERKNS_6ModuleE = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN4llvm14RecordStreamerC2ERNS_9MCContextERKNS_6ModuleE
 

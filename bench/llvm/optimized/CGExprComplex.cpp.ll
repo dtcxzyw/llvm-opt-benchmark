@@ -258,8 +258,8 @@ $_ZN4llvm13IRBuilderBase17CreateAlignedLoadEPNS_4TypeEPNS_5ValueENS_10MaybeAlign
 @.str.50 = private unnamed_addr constant [7 x i8] c"cond.i\00", align 1
 @.str.51 = private unnamed_addr constant [6 x i8] c".real\00", align 1
 @.str.52 = private unnamed_addr constant [6 x i8] c".imag\00", align 1
-@switch.table._ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinMulERKNS0_9BinOpInfoE = private unnamed_addr constant [7 x ptr] [ptr @.str.27, ptr @.str.27, ptr @.str.28, ptr @.str.29, ptr @.str.31, ptr @.str.30, ptr @.str.30], align 8
-@switch.table._ZN12_GLOBAL__N_118ComplexExprEmitter16getPromotionTypeEN5clang17FPOptionsOverrideENS1_8QualTypeEb = private unnamed_addr constant [5 x i64] [i64 18600, i64 18608, i64 18592, i64 18592, i64 18600], align 8
+@switch.table._ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinMulERKNS0_9BinOpInfoE = private unnamed_addr constant [7 x ptr] [ptr @.str.27, ptr poison, ptr @.str.28, ptr @.str.29, ptr @.str.31, ptr @.str.30, ptr @.str.30], align 8
+@switch.table._ZN12_GLOBAL__N_118ComplexExprEmitter16getPromotionTypeEN5clang17FPOptionsOverrideENS1_8QualTypeEb = private unnamed_addr constant [5 x i64] [i64 18600, i64 18608, i64 poison, i64 18592, i64 18600], align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang7CodeGen15CodeGenFunction23emitAddrOfRealComponentENS0_7AddressENS_8QualTypeE(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::Address") align 8 initializes((0, 24), (32, 48)) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::Address") align 8 %2, i64 %3) local_unnamed_addr #0 align 2 {

@@ -66,7 +66,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.H5Z__xform_copy_tree = private unnamed_addr constant [21 x i8] c"H5Z__xform_copy_tree\00", align 1
 @.str.27 = private unnamed_addr constant [44 x i8] c"Ran out of memory trying to copy parse tree\00", align 1
 @.str.28 = private unnamed_addr constant [41 x i8] c"Error in parse tree while trying to copy\00", align 1
-@switch.table.H5Z__get_token = private unnamed_addr constant [8 x i32] [i32 8, i32 9, i32 6, i32 4, i32 4, i32 5, i32 4, i32 7], align 4
+@switch.table.H5Z__get_token = private unnamed_addr constant [8 x i32] [i32 8, i32 9, i32 6, i32 4, i32 poison, i32 5, i32 poison, i32 7], align 4
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5Z_xform_eval(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {

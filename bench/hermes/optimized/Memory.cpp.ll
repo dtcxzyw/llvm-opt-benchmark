@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZGVZN4llvh3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_codeE8PageSize = internal global i64 0, align 8
 @_ZZN4llvh3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEjE8PageSize = internal unnamed_addr global i64 0, align 8
 @_ZGVZN4llvh3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEjE8PageSize = internal global i64 0, align 8
-@switch.table._ZN4llvh3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEj = private unnamed_addr constant [7 x i32] [i32 1, i32 2, i32 3, i32 4, i32 5, i32 1, i32 7], align 4
+@switch.table._ZN4llvh3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEj = private unnamed_addr constant [7 x i32] [i32 1, i32 2, i32 3, i32 4, i32 5, i32 poison, i32 7], align 4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden { ptr, i64 } @_ZN4llvh3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_code(i64 noundef %NumBytes, ptr noundef readonly %NearBlock, i32 noundef %PFlags, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %EC) local_unnamed_addr #0 align 2 {

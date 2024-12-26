@@ -33,7 +33,7 @@ $_ZN26GrowableArrayWithAllocatorIN13ConstantTable8ConstantE13GrowableArrayIS1_EE
 @_type2aelembytes = external local_unnamed_addr global [20 x i32], align 16
 @_ZN4Type10_type_infoE = external local_unnamed_addr global [0 x %"struct.Type::TypeInfo"], align 8
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
-@switch.table._ZN13ConstantTable26calculate_offsets_and_sizeEv = private unnamed_addr constant [12 x i32] [i32 4, i32 8, i32 4, i32 4, i32 4, i32 8, i32 8, i32 4, i32 8, i32 8, i32 4, i32 8], align 4
+@switch.table._ZN13ConstantTable26calculate_offsets_and_sizeEv = private unnamed_addr constant [12 x i32] [i32 4, i32 8, i32 poison, i32 poison, i32 4, i32 8, i32 8, i32 poison, i32 8, i32 8, i32 poison, i32 8], align 4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN13ConstantTable8ConstanteqERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %1) local_unnamed_addr #0 align 2 {

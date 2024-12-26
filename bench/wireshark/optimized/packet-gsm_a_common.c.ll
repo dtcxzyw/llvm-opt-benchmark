@@ -1255,8 +1255,8 @@ target triple = "x86_64-pc-linux-gnu"
 @gsm_a_dtap_msg_ss_strings = external constant [0 x %struct._value_string], align 8
 @.str.830 = private unnamed_addr constant [27 x i8] c"GSM A-I/F SACCH Statistics\00", align 1
 @gsm_a_rr_short_pd_msg_strings = external constant [0 x %struct._value_string], align 8
-@switch.table.elem_t = private unnamed_addr constant [20 x ptr] [ptr @hf_gsm_a_bssmap_elem_id, ptr @hf_gsm_a_dtap_elem_id, ptr @hf_gsm_a_rp_elem_id, ptr @hf_gsm_a_rr_elem_id, ptr @hf_gsm_a_common_elem_id, ptr @hf_gsm_a_gm_elem_id, ptr @hf_gsm_a_bsslap_elem_id, ptr @hf_gsm_a_bssmap_elem_id, ptr @hf_gsm_bssmap_le_elem_id, ptr @hf_nas_eps_common_elem_id, ptr @hf_nas_eps_emm_elem_id, ptr @hf_nas_eps_esm_elem_id, ptr @hf_sgsap_elem_id, ptr @hf_bssgp_elem_id, ptr @hf_gmr1_elem_id, ptr @hf_gmr1_elem_id, ptr @hf_nas_5gs_common_elem_id, ptr @hf_nas_5gs_mm_elem_id, ptr @hf_nas_5gs_sm_elem_id, ptr @hf_nas_5gs_updp_elem_id], align 8
-@switch.table.de_ms_cm_3 = private unnamed_addr constant [6 x ptr] [ptr @hf_gsm_a_spare_bits, ptr @hf_gsm_a_spare_bits, ptr @hf_gsm_a_ass_radio_cap2, ptr @hf_gsm_a_spare_bits, ptr @hf_gsm_a_ass_radio_cap2, ptr @hf_gsm_a_ass_radio_cap2], align 8
+@switch.table.elem_t = private unnamed_addr constant [20 x ptr] [ptr @hf_gsm_a_bssmap_elem_id, ptr @hf_gsm_a_dtap_elem_id, ptr @hf_gsm_a_rp_elem_id, ptr @hf_gsm_a_rr_elem_id, ptr @hf_gsm_a_common_elem_id, ptr @hf_gsm_a_gm_elem_id, ptr @hf_gsm_a_bsslap_elem_id, ptr poison, ptr @hf_gsm_bssmap_le_elem_id, ptr @hf_nas_eps_common_elem_id, ptr @hf_nas_eps_emm_elem_id, ptr @hf_nas_eps_esm_elem_id, ptr @hf_sgsap_elem_id, ptr @hf_bssgp_elem_id, ptr @hf_gmr1_elem_id, ptr @hf_gmr1_elem_id, ptr @hf_nas_5gs_common_elem_id, ptr @hf_nas_5gs_mm_elem_id, ptr @hf_nas_5gs_sm_elem_id, ptr @hf_nas_5gs_updp_elem_id], align 8
+@switch.table.de_ms_cm_3 = private unnamed_addr constant [6 x ptr] [ptr @hf_gsm_a_spare_bits, ptr @hf_gsm_a_spare_bits, ptr poison, ptr @hf_gsm_a_spare_bits, ptr @hf_gsm_a_ass_radio_cap2, ptr @hf_gsm_a_ass_radio_cap2], align 8
 
 declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #0
 

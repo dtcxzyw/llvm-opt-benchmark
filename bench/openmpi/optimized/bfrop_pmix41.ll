@@ -99,7 +99,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.70 = private unnamed_addr constant [36 x i8] c"pmix_bfrops_base_pack_integer * %d\0A\00", align 1
 @.str.71 = private unnamed_addr constant [38 x i8] c"pmix_bfrops_base_unpack_integer * %d\0A\00", align 1
 @.str.72 = private unnamed_addr constant [21 x i8] c"pthread_mutex_lock()\00", align 1
-@switch.table.pmix41_bfrops_base_unpack_general_int = private unnamed_addr constant [12 x i64] [i64 8, i64 2, i64 4, i64 2, i64 2, i64 4, i64 8, i64 4, i64 2, i64 2, i64 4, i64 8], align 8
+@switch.table.pmix41_bfrops_base_unpack_general_int = private unnamed_addr constant [12 x i64] [i64 8, i64 poison, i64 4, i64 poison, i64 2, i64 4, i64 8, i64 4, i64 poison, i64 2, i64 4, i64 8], align 8
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @init() #0 {

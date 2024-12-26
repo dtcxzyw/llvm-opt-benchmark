@@ -198,7 +198,7 @@ $_ZGVZN4llvh7hashing6detail18get_execution_seedEvE4seed = comdat any
 @__libc_single_threaded = external local_unnamed_addr global i8, align 1
 @.str.10 = private unnamed_addr constant [23 x i8] c"vector::_M_fill_insert\00", align 1
 @.str.11 = private unnamed_addr constant [24 x i8] c"vector::_M_range_insert\00", align 1
-@switch.table._ZN6hermes3hbc25BytecodeFunctionGenerator10shrinkJumpEj = private unnamed_addr constant [49 x i8] c"\8E\8E\90\8E\92\8E\94\8E\96\8E\98\8E\9A\8E\9C\8E\9E\8E\A0\8E\A2\8E\A4\8E\A6\8E\A8\8E\AA\8E\AC\8E\AE\8E\B0\8E\B2\8E\B4\8E\B6\8E\B8\8E\BA\8E\BC\8E\BE", align 1
+@switch.table._ZN6hermes3hbc25BytecodeFunctionGenerator10shrinkJumpEj = private unnamed_addr constant [49 x i8] [i8 -114, i8 poison, i8 -112, i8 poison, i8 -110, i8 poison, i8 -108, i8 poison, i8 -106, i8 poison, i8 -104, i8 poison, i8 -102, i8 poison, i8 -100, i8 poison, i8 -98, i8 poison, i8 -96, i8 poison, i8 -94, i8 poison, i8 -92, i8 poison, i8 -90, i8 poison, i8 -88, i8 poison, i8 -86, i8 poison, i8 -84, i8 poison, i8 -82, i8 poison, i8 -80, i8 poison, i8 -78, i8 poison, i8 -76, i8 poison, i8 -74, i8 poison, i8 -72, i8 poison, i8 -70, i8 poison, i8 -68, i8 poison, i8 -66], align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZNK6hermes3hbc25BytecodeFunctionGenerator11getStringIDEPNS_13LiteralStringE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this, ptr nocapture noundef readonly %value) local_unnamed_addr #0 align 2 {

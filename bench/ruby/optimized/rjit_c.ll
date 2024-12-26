@@ -749,7 +749,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ruby_cmethod__return_semaphore = external global i16, section ".probes", align 2
 @ruby_current_ec = external thread_local local_unnamed_addr global ptr, align 8
 @rb_rjit_call_p = external local_unnamed_addr global i8, align 1
-@switch.table.builtin_inline_class_84 = private unnamed_addr constant [10 x i32] [i32 19, i32 17, i32 19, i32 19, i32 19, i32 18, i32 19, i32 19, i32 19, i32 22], align 4
+@switch.table.builtin_inline_class_84 = private unnamed_addr constant [10 x i32] [i32 19, i32 17, i32 poison, i32 poison, i32 poison, i32 18, i32 poison, i32 poison, i32 poison, i32 22], align 4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @Init_builtin_rjit_c() local_unnamed_addr #0 {

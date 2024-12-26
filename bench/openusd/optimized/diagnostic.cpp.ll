@@ -103,7 +103,7 @@ $_ZTIN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticTypeE = comdat any
 @.str.41 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
 @llvm.global_ctors = appending global [3 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.17, ptr null }, { i32, ptr, ptr } { i32 200, ptr @_ZN32pxrInternal_v0_24__pxrReserved__L17_Tf_RegistryAdd28EPNS_6TfEnumE, ptr null }, { i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_diagnostic.cpp, ptr null }]
 @llvm.compiler.used = appending global [1 x ptr] [ptr @_ZN32pxrInternal_v0_24__pxrReserved__L17_Tf_RegistryAdd28EPNS_6TfEnumE], section "llvm.metadata"
-@switch.table._ZN32pxrInternal_v0_24__pxrReserved__L19_fatalSignalHandlerEiP9siginfo_tPv = private unnamed_addr constant [8 x ptr] [ptr @.str.40, ptr @.str.36, ptr @.str.39, ptr @.str.37, ptr @.str.38, ptr @.str.36, ptr @.str.36, ptr @.str.36], align 8
+@switch.table._ZN32pxrInternal_v0_24__pxrReserved__L19_fatalSignalHandlerEiP9siginfo_tPv = private unnamed_addr constant [8 x ptr] [ptr @.str.40, ptr poison, ptr @.str.39, ptr @.str.37, ptr @.str.38, ptr poison, ptr poison, ptr @.str.36], align 8
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L17_Tf_RegistryAdd28EPNS_6TfEnumE(ptr nocapture readnone %0) #0 section ".pxrctor" {

@@ -329,7 +329,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.222 = private unnamed_addr constant [19 x i8] c"coroutine_mixed_fn\00", section "llvm.metadata"
 @.str.223 = private unnamed_addr constant [114 x i8] c"/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/qemu/qemu/include/migration/qemu-file-types.h\00", section "llvm.metadata"
 @llvm.global.annotations = appending global [1 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @qemu_get_buffer, ptr @.str.222, ptr @.str.223, i32 38, ptr null }], section "llvm.metadata"
-@switch.table.pci_vga_init = private unnamed_addr constant [9 x ptr] [ptr @.str.37, ptr @.str.35, ptr @.str.38, ptr @.str.35, ptr @.str.36, ptr @.str.35, ptr @.str.35, ptr @.str.35, ptr @.str.39], align 8
+@switch.table.pci_vga_init = private unnamed_addr constant [9 x ptr] [ptr @.str.37, ptr @.str.35, ptr @.str.38, ptr poison, ptr @.str.36, ptr poison, ptr poison, ptr poison, ptr @.str.39], align 8
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i32 16, 13) i32 @pci_bar(ptr nocapture noundef readonly %d, i32 noundef %reg) local_unnamed_addr #0 {

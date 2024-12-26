@@ -364,7 +364,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.295 = private unnamed_addr constant [83 x i8] c"Using ${expr} (variable variables) in strings is deprecated, use {${expr}} instead\00", align 1
 @.str.297 = private unnamed_addr constant [51 x i8] c"Match expressions may only contain one default arm\00", align 1
 @switch.table.zend_modifier_token_to_flag = private unnamed_addr constant [3 x ptr] [ptr @.str.1, ptr @.str.2, ptr @.str.3], align 8
-@switch.table.zend_compile_use.26 = private unnamed_addr constant [4 x ptr] [ptr @.str.136, ptr @.str.272, ptr @.str.136, ptr @.str.273], align 8
+@switch.table.zend_compile_use.26 = private unnamed_addr constant [4 x ptr] [ptr @.str.136, ptr @.str.272, ptr poison, ptr @.str.273], align 8
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zend_assert_valid_class_name(ptr noundef %0) local_unnamed_addr #0 {

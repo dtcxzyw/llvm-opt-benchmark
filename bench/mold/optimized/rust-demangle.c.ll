@@ -86,7 +86,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.88 = private unnamed_addr constant [5 x i8] c"for<\00", align 1
 @.str.89 = private unnamed_addr constant [3 x i8] c"> \00", align 1
 @.str.90 = private unnamed_addr constant [4 x i8] c" = \00", align 1
-@switch.table.demangle_const_uint = private unnamed_addr constant [26 x ptr] [ptr @.str.55, ptr @.str.51, ptr @.str.52, ptr @.str.68, ptr @.str.53, ptr @.str.67, ptr @.str.51, ptr @.str.61, ptr @.str.60, ptr @.str.66, ptr @.str.51, ptr @.str.57, ptr @.str.63, ptr @.str.59, ptr @.str.65, ptr @.str.70, ptr @.str.51, ptr @.str.51, ptr @.str.56, ptr @.str.62, ptr @.str.54, ptr @.str.71, ptr @.str.51, ptr @.str.58, ptr @.str.64, ptr @.str.69], align 8
+@switch.table.demangle_const_uint = private unnamed_addr constant [26 x ptr] [ptr @.str.55, ptr @.str.51, ptr @.str.52, ptr @.str.68, ptr @.str.53, ptr @.str.67, ptr poison, ptr @.str.61, ptr @.str.60, ptr @.str.66, ptr poison, ptr @.str.57, ptr @.str.63, ptr @.str.59, ptr @.str.65, ptr @.str.70, ptr poison, ptr poison, ptr @.str.56, ptr @.str.62, ptr @.str.54, ptr @.str.71, ptr poison, ptr @.str.58, ptr @.str.64, ptr @.str.69], align 8
 
 ; Function Attrs: nounwind
 define dso_local zeroext i1 @rust_demangle_with_callback(ptr noundef %whole_mangled_symbol, i32 noundef %flags, ptr noundef %callback, ptr noundef %opaque) local_unnamed_addr #0 {

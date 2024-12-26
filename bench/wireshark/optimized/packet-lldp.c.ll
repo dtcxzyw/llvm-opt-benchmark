@@ -1740,8 +1740,8 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1149 = private unnamed_addr constant [17 x i8] c"Measurement data\00", align 1
 @.str.1150 = private unnamed_addr constant [10 x i8] c"MAC Trace\00", align 1
 @.str.1151 = private unnamed_addr constant [12 x i8] c"Unknown TLV\00", align 1
-@switch.table.dissect_dcbx_tlv = private unnamed_addr constant [6 x ptr] [ptr @ett_org_spc_dcbx_cee_1, ptr @ett_org_spc_dcbx_cee_2, ptr @ett_org_spc_dcbx_cee_3, ptr @ett_org_spc_dcbx_cee_4, ptr @ett_org_spc_dcbx_cee_1, ptr @ett_org_spc_dcbx_cin_6], align 8
-@switch.table.dissect_dcbx_tlv.14 = private unnamed_addr constant [6 x i32] [i32 1, i32 2, i32 3, i32 4, i32 1, i32 6], align 4
+@switch.table.dissect_dcbx_tlv = private unnamed_addr constant [6 x ptr] [ptr @ett_org_spc_dcbx_cee_1, ptr @ett_org_spc_dcbx_cee_2, ptr @ett_org_spc_dcbx_cee_3, ptr @ett_org_spc_dcbx_cee_4, ptr poison, ptr @ett_org_spc_dcbx_cin_6], align 8
+@switch.table.dissect_dcbx_tlv.14 = private unnamed_addr constant [6 x i32] [i32 1, i32 2, i32 3, i32 4, i32 poison, i32 6], align 4
 @switch.table.dissect_ieee_802_3_tlv = private unnamed_addr constant [4 x ptr] [ptr @media_power_pse_device, ptr @media_power_pd_device, ptr @media_power_pse_device, ptr @media_power_pd_device], align 8
 
 ; Function Attrs: nounwind uwtable

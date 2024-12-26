@@ -1126,7 +1126,7 @@ $_ZSt19piecewise_construct = comdat any
 @.str.309 = private unnamed_addr constant [24 x i8] c"vector::_M_range_insert\00", align 1
 @.str.310 = private unnamed_addr constant [48 x i8] c"cannot create std::deque larger than max_size()\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_cmMakefile.cxx, ptr null }]
-@switch.table._ZNK10cmMakefile17EnforceUniqueNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_b = private unnamed_addr constant [8 x ptr] [ptr @.str.260, ptr @.str.261, ptr @.str.262, ptr @.str.263, ptr @.str.260, ptr @.str.264, ptr @.str.260, ptr @.str.265], align 8
+@switch.table._ZNK10cmMakefile17EnforceUniqueNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_b = private unnamed_addr constant [8 x ptr] [ptr @.str.260, ptr @.str.261, ptr @.str.262, ptr @.str.263, ptr poison, ptr @.str.264, ptr poison, ptr @.str.265], align 8
 
 @_ZN13cmDirectoryIdC1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE = dso_local unnamed_addr alias void (ptr, ptr), ptr @_ZN13cmDirectoryIdC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 @_ZN10cmMakefileC1EP17cmGlobalGeneratorRK15cmStateSnapshot = dso_local unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN10cmMakefileC2EP17cmGlobalGeneratorRK15cmStateSnapshot

@@ -104,7 +104,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.22 = private unnamed_addr constant [10 x i8] c"CFuncHash\00", align 1
 @__func__.fmgr_info_other_lang = private unnamed_addr constant [21 x i8] c"fmgr_info_other_lang\00", align 1
 @fmgr_nbuiltins = external local_unnamed_addr constant i32, align 4
-@switch.table.get_call_expr_arg_stable = private unnamed_addr constant [8 x i64] [i64 24, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32], align 8
+@switch.table.get_call_expr_arg_stable = private unnamed_addr constant [8 x i64] [i64 24, i64 poison, i64 32, i64 poison, i64 32, i64 32, i64 32, i64 32], align 8
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @fmgr_info(i32 noundef %0, ptr nocapture noundef writeonly initializes((8, 12), (24, 48)) %1) local_unnamed_addr #0 {

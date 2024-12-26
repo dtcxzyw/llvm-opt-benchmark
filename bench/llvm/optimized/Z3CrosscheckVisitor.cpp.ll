@@ -162,7 +162,7 @@ $_ZZN5clang4ento17ProgramStateTraitIN4llvm12ImmutableMapIPKNS0_7SymExprENS0_8Ran
 @_ZZN5clang4ento17ProgramStateTraitIN4llvm12ImmutableMapIPKNS0_7SymExprENS0_8RangeSetENS2_16ImutKeyValueInfoIS6_S7_EEEEE8GDMIndexEvE5Index = linkonce_odr global i32 0, comdat, align 4
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 @switch.table._ZN5clang4ento7SMTConv10getSymExprERSt10shared_ptrIN4llvm9SMTSolverEERNS_10ASTContextEPKNS0_7SymExprEPNS_8QualTypeEPb = private unnamed_addr constant [3 x i64] [i64 160, i64 168, i64 264], align 8
-@switch.table._ZN4llvm9SMTSolver12getFloatSortEj = private unnamed_addr constant [8 x i64] [i64 32, i64 40, i64 32, i64 48, i64 32, i64 32, i64 32, i64 56], align 8
+@switch.table._ZN4llvm9SMTSolver12getFloatSortEj = private unnamed_addr constant [8 x i64] [i64 32, i64 40, i64 poison, i64 48, i64 poison, i64 poison, i64 poison, i64 56], align 8
 
 @_ZN5clang4ento19Z3CrosscheckVisitorC1ERNS1_8Z3ResultERKNS_15AnalyzerOptionsE = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN5clang4ento19Z3CrosscheckVisitorC2ERNS1_8Z3ResultERKNS_15AnalyzerOptionsE
 

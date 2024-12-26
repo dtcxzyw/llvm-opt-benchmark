@@ -1013,7 +1013,7 @@ $_ZZN13opencv_tflite31EnumNamesActivationFunctionTypeEvE5names = comdat any
 @.str.359 = private unnamed_addr constant [137 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/opencv/opencv/modules/core/include/opencv2/core/mat.inl.hpp\00", align 1
 @.str.360 = private unnamed_addr constant [26 x i8] c"size_total == list.size()\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_tflite_importer.cpp, ptr null }]
-@switch.table._ZN2cv3dnn14dnn4_v2024052114TFLiteImporter11parseTensorERKN13opencv_tflite6TensorE = private unnamed_addr constant [10 x i32] [i32 5, i32 7, i32 4, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 1], align 4
+@switch.table._ZN2cv3dnn14dnn4_v2024052114TFLiteImporter11parseTensorERKN13opencv_tflite6TensorE = private unnamed_addr constant [10 x i32] [i32 5, i32 7, i32 4, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 1], align 4
 @switch.table._ZN2cv3dnn14dnn4_v2024052114estimateLayoutERKN13opencv_tflite6TensorE = private unnamed_addr constant [4 x i32] [i32 6, i32 0, i32 4, i32 5], align 4
 
 @_ZN2cv3dnn14dnn4_v2024052114TFLiteImporterC1ERNS1_3NetEPKcm = hidden unnamed_addr alias void (ptr, ptr, ptr, i64), ptr @_ZN2cv3dnn14dnn4_v2024052114TFLiteImporterC2ERNS1_3NetEPKcm

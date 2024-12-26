@@ -416,7 +416,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.310 = private unnamed_addr constant [18 x i8] c"%s:%ld: warning: \00", align 1
 @rb_warn_m.rbimpl_id.311 = internal unnamed_addr global i64 0, align 8
 @.str.312 = private unnamed_addr constant [7 x i8] c"lineno\00", align 1
-@switch.table.rb_type = private unnamed_addr constant [10 x i32] [i32 19, i32 17, i32 19, i32 19, i32 19, i32 18, i32 19, i32 19, i32 19, i32 22], align 4
+@switch.table.rb_type = private unnamed_addr constant [10 x i32] [i32 19, i32 17, i32 poison, i32 poison, i32 poison, i32 18, i32 poison, i32 poison, i32 poison, i32 22], align 4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden noundef i64 @rb_syntax_error_append(i64 noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {

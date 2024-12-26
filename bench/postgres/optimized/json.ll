@@ -78,7 +78,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.47 = private unnamed_addr constant [3 x i8] c"{ \00", align 1
 @__func__.add_json = private unnamed_addr constant [9 x i8] c"add_json\00", align 1
 @.str.48 = private unnamed_addr constant [22 x i8] c"json object hashtable\00", align 1
-@switch.table.json_typeof = private unnamed_addr constant [11 x ptr] [ptr @.str.32, ptr @.str.33, ptr @.str.30, ptr @.str.30, ptr @.str.31, ptr @.str.30, ptr @.str.30, ptr @.str.30, ptr @.str.34, ptr @.str.34, ptr @.str.19], align 8
+@switch.table.json_typeof = private unnamed_addr constant [11 x ptr] [ptr @.str.32, ptr @.str.33, ptr @.str.30, ptr poison, ptr @.str.31, ptr poison, ptr poison, ptr poison, ptr @.str.34, ptr @.str.34, ptr @.str.19], align 8
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @json_in(ptr nocapture noundef %0) local_unnamed_addr #0 {

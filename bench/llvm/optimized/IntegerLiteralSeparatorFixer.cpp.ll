@@ -139,7 +139,7 @@ switch.hole_check:                                ; preds = %4
 switch.lookup:                                    ; preds = %switch.hole_check
   %28 = shl nuw nsw i8 %switch.tableidx, 3
   %switch.shiftamt = zext nneg i8 %28 to i48
-  %switch.downshift = lshr i48 43050057293607, %switch.shiftamt
+  %switch.downshift = lshr i48 42882553569063, %switch.shiftamt
   %switch.masked = trunc i48 %switch.downshift to i8
   store i8 %switch.masked, ptr %1, align 1
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 384

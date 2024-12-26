@@ -21,7 +21,7 @@ switch.hole_check:                                ; preds = %4
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %switch.cast = zext nneg i8 %switch.tableidx to i38
-  %switch.downshift = lshr i38 137438953439, %switch.cast
+  %switch.downshift = lshr i38 4294967297, %switch.cast
   %switch.masked = trunc i38 %switch.downshift to i1
   %9 = load i32, ptr %1, align 4
   %10 = icmp slt i32 %9, 0

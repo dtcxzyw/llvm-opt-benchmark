@@ -2262,7 +2262,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1659 = private unnamed_addr constant [107 x i8] c"Length of SK_ar (%u octets) does not match the key length (%u octets) of the selected integrity algorithm.\00", align 1
 @switch.table.dissect_payloads = private unnamed_addr constant [5 x ptr] [ptr @hf_isakmp_trans_encr, ptr @hf_isakmp_trans_prf, ptr @hf_isakmp_trans_integ, ptr @hf_isakmp_trans_dh, ptr @hf_isakmp_trans_esn], align 8
 @switch.table.dissect_payloads.1 = private unnamed_addr constant [5 x ptr] [ptr @hf_isakmp_notify_data_rohc_attr_max_cid, ptr @hf_isakmp_notify_data_rohc_attr_profile, ptr @hf_isakmp_notify_data_rohc_attr_integ, ptr @hf_isakmp_notify_data_rohc_attr_icv_len, ptr @hf_isakmp_notify_data_rohc_attr_mrru], align 8
-@switch.table.prepare_decrypt = private unnamed_addr constant [6 x i32] [i32 1, i32 2, i32 1, i32 8, i32 9, i32 10], align 4
+@switch.table.prepare_decrypt = private unnamed_addr constant [6 x i32] [i32 1, i32 2, i32 poison, i32 8, i32 9, i32 10], align 4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @isakmp_dissect_payloads(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {

@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_pcre2_ucd_stage1_8 = external local_unnamed_addr constant [0 x i16], align 2
 @_pcre2_ucd_script_sets_8 = external local_unnamed_addr constant [0 x i32], align 4
 @_pcre2_ucd_digit_sets_8 = external local_unnamed_addr constant [0 x i32], align 4
-@switch.table._pcre2_script_run_8.1 = private unnamed_addr constant [6 x i32] [i32 5, i32 2, i32 3, i32 3, i32 4, i32 2], align 4
+@switch.table._pcre2_script_run_8.1 = private unnamed_addr constant [6 x i32] [i32 5, i32 poison, i32 3, i32 3, i32 4, i32 2], align 4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define hidden range(i32 0, 2) i32 @_pcre2_script_run_8(ptr noundef readonly %0, ptr noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {

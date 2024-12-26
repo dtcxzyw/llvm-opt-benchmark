@@ -1032,7 +1032,7 @@ $_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable = comdat any
 @.str.29 = private unnamed_addr constant [16 x i8] c"vector::reserve\00", align 1
 @.str.30 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 @_ZSt7nothrow = external global %"struct.std::nothrow_t", align 1
-@switch.table._ZNK4llvm14TargetLowering21expandVECTOR_COMPRESSEPNS_6SDNodeERNS_12SelectionDAGE.108 = private unnamed_addr constant [12 x i16] [i16 17, i16 17, i16 17, i16 34, i16 46, i16 57, i16 77, i16 87, i16 17, i16 88, i16 107, i16 127], align 2
+@switch.table._ZNK4llvm14TargetLowering21expandVECTOR_COMPRESSEPNS_6SDNodeERNS_12SelectionDAGE.108 = private unnamed_addr constant [12 x i16] [i16 17, i16 poison, i16 poison, i16 34, i16 46, i16 57, i16 77, i16 87, i16 poison, i16 88, i16 107, i16 127], align 2
 @"switch.table._ZSt17__merge_sort_loopIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS3_24getConstraintPreferencesERNS3_14AsmOperandInfoEE3$_0EEEvT_SE_T0_T1_T2_.126" = private unnamed_addr constant [7 x i32] [i32 1, i32 2, i32 3, i32 3, i32 4, i32 4, i32 0], align 4
 
 @_ZN4llvm14TargetLoweringC1ERKNS_13TargetMachineE = unnamed_addr alias void (ptr, ptr), ptr @_ZN4llvm14TargetLoweringC2ERKNS_13TargetMachineE

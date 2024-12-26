@@ -479,7 +479,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.335 = private unnamed_addr constant [29 x i8] c"DSP Outgoing:  PSTN --> HOST\00", align 1
 @.str.336 = private unnamed_addr constant [33 x i8] c"fragment of previous ACDR packet\00", align 1
 @switch.table.dissect_acdr_ssh = private unnamed_addr constant [3 x ptr] [ptr @.str.321, ptr @.str.322, ptr @.str.323], align 8
-@switch.table.dissect_acdr_signaling = private unnamed_addr constant [10 x ptr] [ptr @.str.332, ptr @.str.333, ptr @.str.332, ptr @.str.332, ptr @.str.332, ptr @.str.332, ptr @.str.332, ptr @.str.332, ptr @.str.334, ptr @.str.335], align 8
+@switch.table.dissect_acdr_signaling = private unnamed_addr constant [10 x ptr] [ptr @.str.332, ptr @.str.333, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr @.str.334, ptr @.str.335], align 8
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_acdr() local_unnamed_addr #0 {

@@ -50,7 +50,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_cache_line_size = external local_unnamed_addr global i32, align 4
 @opal_hwloc_my_cpuset = external local_unnamed_addr global ptr, align 8
 @opal_class_init_epoch = external local_unnamed_addr global i32, align 4
-@switch.table.opal_hwloc_base_get_location = private unnamed_addr constant [13 x ptr] [ptr @.str.21, ptr @.str.25, ptr @.str.26, ptr @.str.24, ptr @.str.23, ptr @.str.22, ptr @.str.20, ptr @.str.20, ptr @.str.20, ptr @.str.20, ptr @.str.20, ptr @.str.20, ptr @.str.20], align 8
+@switch.table.opal_hwloc_base_get_location = private unnamed_addr constant [13 x ptr] [ptr @.str.21, ptr @.str.25, ptr @.str.26, ptr @.str.24, ptr @.str.23, ptr @.str.22, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr @.str.20], align 8
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -21, 1) i32 @opal_hwloc_base_get_topology() local_unnamed_addr #0 {

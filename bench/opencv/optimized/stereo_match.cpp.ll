@@ -102,7 +102,7 @@ $_ZN2cv3PtrINS_8StereoBMEED2Ev = comdat any
 @str.7 = private unnamed_addr constant [114 x i8] c"Command-line parameter error: The max disparity (--maxdisparity=<...>) must be a positive integer divisible by 16\00", align 1
 @str.8 = private unnamed_addr constant [56 x i8] c"Command-line parameter error: Unknown stereo algorithm\0A\00", align 1
 @str.9 = private unnamed_addr constant [80 x i8] c"\0ADemo stereo matching converting L and R images into disparity and point clouds\00", align 1
-@switch.table.main = private unnamed_addr constant [5 x i32] [i32 0, i32 1, i32 1, i32 2, i32 3], align 4
+@switch.table.main = private unnamed_addr constant [5 x i32] [i32 0, i32 1, i32 poison, i32 2, i32 3], align 4
 
 declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 

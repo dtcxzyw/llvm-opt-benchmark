@@ -100,8 +100,8 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.59 = private unnamed_addr constant [8 x i8] c"RSA-PSS\00", align 1
 @.str.60 = private unnamed_addr constant [4 x i8] c"PSS\00", align 1
 @.str.61 = private unnamed_addr constant [6 x i8] c"ECDSA\00", align 1
-@switch.table.tls1_check_chain = private unnamed_addr constant [7 x i32] [i32 65, i32 65, i32 113, i32 416, i32 807, i32 985, i32 986], align 4
-@switch.table.tls1_check_chain.6 = private unnamed_addr constant [7 x i32] [i32 6, i32 6, i32 116, i32 408, i32 811, i32 979, i32 980], align 4
+@switch.table.tls1_check_chain = private unnamed_addr constant [7 x i32] [i32 65, i32 poison, i32 113, i32 416, i32 807, i32 985, i32 986], align 4
+@switch.table.tls1_check_chain.6 = private unnamed_addr constant [7 x i32] [i32 6, i32 poison, i32 116, i32 408, i32 811, i32 979, i32 980], align 4
 
 declare i32 @tls1_setup_key_block(ptr noundef) #0
 

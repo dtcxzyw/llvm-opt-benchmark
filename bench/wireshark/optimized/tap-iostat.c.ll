@@ -114,8 +114,8 @@ target triple = "x86_64-pc-linux-gnu"
 @__const.printcenter.spaces = private unnamed_addr constant [7 x i8] c"      \00", align 1
 @.str.82 = private unnamed_addr constant [8 x i8] c"%s%s%s|\00", align 1
 @str.1 = private unnamed_addr constant [2 x i8] c"|\00", align 1
-@switch.table.iostat_draw = private unnamed_addr constant [11 x ptr] [ptr @.str.63, ptr @.str.61, ptr @.str.62, ptr @.str.62, ptr @.str.61, ptr @.str.61, ptr @.str.61, ptr @.str.61, ptr @.str.62, ptr @.str.62, ptr @.str.63], align 8
-@switch.table.iostat_draw.2 = private unnamed_addr constant [11 x i32] [i32 11, i32 11, i32 16, i32 16, i32 11, i32 11, i32 11, i32 11, i32 16, i32 16, i32 11], align 4
+@switch.table.iostat_draw = private unnamed_addr constant [11 x ptr] [ptr @.str.63, ptr @.str.61, ptr @.str.62, ptr @.str.62, ptr poison, ptr poison, ptr poison, ptr poison, ptr @.str.62, ptr @.str.62, ptr @.str.63], align 8
+@switch.table.iostat_draw.2 = private unnamed_addr constant [11 x i32] [i32 11, i32 11, i32 16, i32 16, i32 poison, i32 poison, i32 poison, i32 poison, i32 16, i32 16, i32 11], align 4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @register_tap_listener_iostat() local_unnamed_addr #0 {

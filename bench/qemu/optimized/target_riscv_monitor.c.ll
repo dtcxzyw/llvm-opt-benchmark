@@ -11,9 +11,9 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.4 = private unnamed_addr constant [57 x i8] c"vaddr            paddr            size             attr\0A\00", align 1
 @.str.5 = private unnamed_addr constant [60 x i8] c"---------------- ---------------- ---------------- -------\0A\00", align 1
 @.str.6 = private unnamed_addr constant [37 x i8] c"%016lx %016lx %016lx %c%c%c%c%c%c%c\0A\00", align 1
-@switch.table.hmp_info_mem = private unnamed_addr constant [10 x i32] [i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 9, i32 9, i32 9], align 4
-@switch.table.hmp_info_mem.2 = private unnamed_addr constant [10 x i32] [i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 8, i32 8, i32 8], align 4
-@switch.table.hmp_info_mem.3 = private unnamed_addr constant [10 x i32] [i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 3, i32 4, i32 5], align 4
+@switch.table.hmp_info_mem = private unnamed_addr constant [10 x i32] [i32 10, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 9, i32 9, i32 9], align 4
+@switch.table.hmp_info_mem.2 = private unnamed_addr constant [10 x i32] [i32 4, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 8, i32 8, i32 8], align 4
+@switch.table.hmp_info_mem.3 = private unnamed_addr constant [10 x i32] [i32 2, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 3, i32 4, i32 5], align 4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @hmp_info_mem(ptr noundef %mon, ptr nocapture noundef readnone %qdict) local_unnamed_addr #0 {

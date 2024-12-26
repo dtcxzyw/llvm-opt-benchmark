@@ -771,7 +771,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.644 = private unnamed_addr constant [20 x i8] c"Descriptor Type: %u\00", align 1
 @.str.645 = private unnamed_addr constant [6 x i8] c"%s: $\00", align 1
 @.str.646 = private unnamed_addr constant [5 x i8] c"%02X\00", align 1
-@switch.table.dissect_pid_ext = private unnamed_addr constant [18 x ptr] [ptr @pid0_vals, ptr @pid1_vals, ptr @pid0_vals, ptr @pid0_vals, ptr @pid0_vals, ptr @pid0_vals, ptr @pid6_vals, ptr @pid7_vals, ptr @pid8_vals, ptr @pid9_vals, ptr @pid0_vals, ptr @pid11_vals, ptr @pid0_vals, ptr @pid0_vals, ptr @pid0_vals, ptr @pid0_vals, ptr @pid0_vals, ptr @pid17_vals], align 8
+@switch.table.dissect_pid_ext = private unnamed_addr constant [18 x ptr] [ptr @pid0_vals, ptr @pid1_vals, ptr poison, ptr poison, ptr poison, ptr poison, ptr @pid6_vals, ptr @pid7_vals, ptr @pid8_vals, ptr @pid9_vals, ptr poison, ptr @pid11_vals, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr @pid17_vals], align 8
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_cemi() local_unnamed_addr #0 {

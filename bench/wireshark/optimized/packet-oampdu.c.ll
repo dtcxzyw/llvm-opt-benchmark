@@ -1180,7 +1180,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.941 = private unnamed_addr constant [34 x i8] c" (Upstream link %i queue %i size)\00", align 1
 @.str.942 = private unnamed_addr constant [22 x i8] c" (Downstream port %i)\00", align 1
 @.str.943 = private unnamed_addr constant [36 x i8] c" (Downstream port %i queue %i size)\00", align 1
-@switch.table.dissect_oampdu = private unnamed_addr constant [5 x ptr] [ptr @hf_oampdu_variable_object, ptr @hf_oampdu_variable_package, ptr @hf_oampdu_variable_object, ptr @hf_oampdu_variable_binding, ptr @hf_oampdu_variable_attribute], align 8
+@switch.table.dissect_oampdu = private unnamed_addr constant [5 x ptr] [ptr @hf_oampdu_variable_object, ptr @hf_oampdu_variable_package, ptr poison, ptr @hf_oampdu_variable_binding, ptr @hf_oampdu_variable_attribute], align 8
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_oampdu() local_unnamed_addr #0 {

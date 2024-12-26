@@ -24,9 +24,9 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.18 = private unnamed_addr constant [3 x i8] c"HC\00", align 1
 @.str.19 = private unnamed_addr constant [2 x i8] c"O\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_g1HeapRegionType.cpp, ptr null }]
-@switch.table._ZNK16G1HeapRegionType7get_strEv = private unnamed_addr constant [9 x ptr] [ptr @.str, ptr @.str, ptr @.str.8, ptr @.str.9, ptr @.str.10, ptr @.str.11, ptr @.str, ptr @.str, ptr @.str.12], align 8
-@switch.table._ZNK16G1HeapRegionType13get_short_strEv = private unnamed_addr constant [9 x ptr] [ptr @.str.14, ptr @.str.14, ptr @.str.15, ptr @.str.16, ptr @.str.17, ptr @.str.18, ptr @.str.14, ptr @.str.14, ptr @.str.19], align 8
-@switch.table._ZN16G1HeapRegionType14get_trace_typeEv = private unnamed_addr constant [9 x i32] [i32 0, i32 0, i32 1, i32 2, i32 3, i32 4, i32 0, i32 0, i32 5], align 4
+@switch.table._ZNK16G1HeapRegionType7get_strEv = private unnamed_addr constant [9 x ptr] [ptr @.str, ptr poison, ptr @.str.8, ptr @.str.9, ptr @.str.10, ptr @.str.11, ptr poison, ptr poison, ptr @.str.12], align 8
+@switch.table._ZNK16G1HeapRegionType13get_short_strEv = private unnamed_addr constant [9 x ptr] [ptr @.str.14, ptr poison, ptr @.str.15, ptr @.str.16, ptr @.str.17, ptr @.str.18, ptr poison, ptr poison, ptr @.str.19], align 8
+@switch.table._ZN16G1HeapRegionType14get_trace_typeEv = private unnamed_addr constant [9 x i32] [i32 0, i32 poison, i32 1, i32 2, i32 3, i32 4, i32 poison, i32 poison, i32 5], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef zeroext i1 @_ZN16G1HeapRegionType8is_validENS_3TagE(i32 noundef %0) local_unnamed_addr #0 align 2 {

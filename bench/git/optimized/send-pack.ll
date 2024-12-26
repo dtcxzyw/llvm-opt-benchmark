@@ -87,8 +87,8 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.65 = private unnamed_addr constant [19 x i8] c"option old-oid %s\0A\00", align 1
 @.str.66 = private unnamed_addr constant [19 x i8] c"option new-oid %s\0A\00", align 1
 @.str.67 = private unnamed_addr constant [22 x i8] c"option forced-update\0A\00", align 1
-@switch.table.cmd_send_pack = private unnamed_addr constant [13 x ptr] [ptr @.str.52, ptr null, ptr @.str.55, ptr @.str.60, ptr null, ptr @.str.56, ptr @.str.57, ptr @.str.58, ptr @.str.52, ptr @.str.59, ptr @.str.54, ptr null, ptr @.str.61], align 8
-@switch.table.cmd_send_pack.3 = private unnamed_addr constant [13 x ptr] [ptr @.str.51, ptr @.str.53, ptr @.str.51, ptr @.str.51, ptr @.str.51, ptr @.str.51, ptr @.str.51, ptr @.str.51, ptr @.str.51, ptr @.str.51, ptr @.str.53, ptr @.str.51, ptr @.str.51], align 8
+@switch.table.cmd_send_pack = private unnamed_addr constant [13 x ptr] [ptr @.str.52, ptr null, ptr @.str.55, ptr @.str.60, ptr null, ptr @.str.56, ptr @.str.57, ptr @.str.58, ptr poison, ptr @.str.59, ptr @.str.54, ptr null, ptr @.str.61], align 8
+@switch.table.cmd_send_pack.3 = private unnamed_addr constant [13 x ptr] [ptr @.str.51, ptr @.str.53, ptr @.str.51, ptr @.str.51, ptr @.str.51, ptr @.str.51, ptr @.str.51, ptr @.str.51, ptr poison, ptr @.str.51, ptr @.str.53, ptr @.str.51, ptr @.str.51], align 8
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @cmd_send_pack(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix) local_unnamed_addr #0 {

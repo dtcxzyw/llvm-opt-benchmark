@@ -72,7 +72,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.3 = private unnamed_addr constant [9 x i8] c"packets:\00", align 1
 @str.4 = private unnamed_addr constant [68 x i8] c"===================================================================\00", align 1
 @str.5 = private unnamed_addr constant [21 x i8] c"    data: !!binary |\00", align 1
-@switch.table.follow_draw = private unnamed_addr constant [7 x ptr] [ptr @.str.50, ptr @.str.49, ptr @.str.51, ptr @.str.49, ptr @.str.52, ptr @.str.53, ptr @.str.54], align 8
+@switch.table.follow_draw = private unnamed_addr constant [7 x ptr] [ptr @.str.50, ptr poison, ptr @.str.51, ptr @.str.49, ptr @.str.52, ptr @.str.53, ptr @.str.54], align 8
 
 ; Function Attrs: nounwind uwtable
 define hidden void @register_tap_listener_follow() local_unnamed_addr #0 {

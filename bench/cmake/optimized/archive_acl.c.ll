@@ -48,7 +48,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.35 = private unnamed_addr constant [5 x i8] c"mask\00", align 1
 @.str.36 = private unnamed_addr constant [6 x i8] c"other\00", align 1
 @.str.37 = private unnamed_addr constant [11 x i8] c"0123456789\00", align 1
-@switch.table.archive_acl_to_text_w = private unnamed_addr constant [8 x ptr] [ptr @.str.15, ptr @.str.14, ptr @.str.15, ptr @.str.16, ptr @.str.15, ptr @.str.15, ptr @.str.15, ptr @.str.17], align 8
+@switch.table.archive_acl_to_text_w = private unnamed_addr constant [8 x ptr] [ptr @.str.15, ptr @.str.14, ptr poison, ptr @.str.16, ptr poison, ptr poison, ptr poison, ptr @.str.17], align 8
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @archive_acl_clear(ptr nocapture noundef %0) local_unnamed_addr #0 {

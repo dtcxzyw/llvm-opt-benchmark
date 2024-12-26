@@ -29348,7 +29348,7 @@ switch.hole_check:                                ; preds = %land.lhs.true2.i.i
 switch.lookup:                                    ; preds = %switch.hole_check
   %10 = shl nuw nsw i8 %switch.tableidx, 3
   %switch.shiftamt = zext nneg i8 %10 to i40
-  %switch.downshift = lshr i40 38806160901, %switch.shiftamt
+  %switch.downshift = lshr i40 38655165957, %switch.shiftamt
   %switch.masked = trunc i40 %switch.downshift to i8
   br label %_ZN8nlohmann16json_abi_v3_11_3neERKNS0_10basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvEESA_.exit
 

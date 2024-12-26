@@ -523,7 +523,7 @@ $_ZTVN24json11_internal_lightgbm5ValueILNS_4Json4TypeE5ESt3mapINSt7__cxx1112basi
 @.str.52 = private unnamed_addr constant [3 x i8] c": \00", align 1
 @.str.53 = private unnamed_addr constant [2 x i8] c"}\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_json11.cpp, ptr null }]
-@switch.table._ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser12parse_stringB5cxx11Ev = private unnamed_addr constant [10 x i8] c"\08\08\0C\08\08\08\0A\08\0D\09", align 1
+@switch.table._ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser12parse_stringB5cxx11Ev = private unnamed_addr constant [10 x i8] [i8 8, i8 poison, i8 12, i8 poison, i8 poison, i8 poison, i8 10, i8 poison, i8 13, i8 9], align 1
 
 @_ZN24json11_internal_lightgbm4JsonC1Ev = unnamed_addr alias void (ptr), ptr @_ZN24json11_internal_lightgbm4JsonC2Ev
 @_ZN24json11_internal_lightgbm4JsonC1EDn = unnamed_addr alias void (ptr, ptr), ptr @_ZN24json11_internal_lightgbm4JsonC2EDn

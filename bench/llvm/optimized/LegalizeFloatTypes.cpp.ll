@@ -135,7 +135,7 @@ $_ZZNK4llvm3MVT23getVectorMinNumElementsEvE10NElemTable = comdat any
 @.str.13 = private unnamed_addr constant [51 x i8] c"Attempt at an invalid promotion-related conversion\00", align 1
 @.str.14 = private unnamed_addr constant [146 x i8] c"Possible incorrect use of EVT::getVectorNumElements() for scalable vector. Scalable flag may be dropped, use EVT::getVectorElementCount() instead\00", align 1
 @.str.15 = private unnamed_addr constant [146 x i8] c"Possible incorrect use of MVT::getVectorNumElements() for scalable vector. Scalable flag may be dropped, use MVT::getVectorElementCount() instead\00", align 1
-@switch.table._ZN4llvm16DAGTypeLegalizer22SoftenFloatOp_FP_ROUNDEPNS_6SDNodeE = private unnamed_addr constant [7 x i16] [i16 11, i16 11, i16 11, i16 11, i16 10, i16 11, i16 10], align 2
+@switch.table._ZN4llvm16DAGTypeLegalizer22SoftenFloatOp_FP_ROUNDEPNS_6SDNodeE = private unnamed_addr constant [7 x i16] [i16 11, i16 poison, i16 11, i16 poison, i16 10, i16 poison, i16 10], align 2
 @switch.table._ZN4llvm16DAGTypeLegalizer25ExpandFloatRes_XINT_TO_FPEPNS_6SDNodeERNS_7SDValueES4_ = private unnamed_addr constant [3 x ptr] [ptr @_ZZN4llvm16DAGTypeLegalizer25ExpandFloatRes_XINT_TO_FPEPNS_6SDNodeERNS_7SDValueES4_E6TwoE32, ptr @_ZZN4llvm16DAGTypeLegalizer25ExpandFloatRes_XINT_TO_FPEPNS_6SDNodeERNS_7SDValueES4_E6TwoE64, ptr @_ZZN4llvm16DAGTypeLegalizer25ExpandFloatRes_XINT_TO_FPEPNS_6SDNodeERNS_7SDValueES4_E7TwoE128], align 8
 
 ; Function Attrs: mustprogress nounwind uwtable

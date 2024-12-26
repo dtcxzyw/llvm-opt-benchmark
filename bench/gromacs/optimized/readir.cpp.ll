@@ -1021,7 +1021,7 @@ $_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh
 @.str.744 = private unnamed_addr constant [120 x i8] c"With nstlist=0 atoms are only put into the box at step 0, therefore drifting atoms might cause the simulation to crash.\00", align 1
 @.str.745 = private unnamed_addr constant [162 x i8] c"ERROR: The cut-off length is longer than half the shortest box vector or longer than the smallest box diagonal element. Increase the box size or decrease rlist.\0A\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_readir.cpp, ptr null }]
-@switch.table._Z8check_irPKcRKN3gmx18MDModulesNotifiersEP10t_inputrecP12t_gromppoptsP14WarningHandler = private unnamed_addr constant [13 x i32] [i32 0, i32 0, i32 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 0, i32 9, i32 10, i32 11, i32 12], align 4
+@switch.table._Z8check_irPKcRKN3gmx18MDModulesNotifiersEP10t_inputrecP12t_gromppoptsP14WarningHandler = private unnamed_addr constant [13 x i32] [i32 0, i32 poison, i32 poison, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 9, i32 10, i32 11, i32 12], align 4
 
 ; Function Attrs: nounwind
 declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0

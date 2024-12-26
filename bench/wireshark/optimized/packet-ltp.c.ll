@@ -351,7 +351,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.217 = private unnamed_addr constant [26 x i8] c"Block Size (by Engine ID)\00", align 1
 @st_node_segs = internal unnamed_addr global i32 -1, align 4
 @switch.table.ltp_endp_packet = private unnamed_addr constant [7 x i32] [i32 0, i32 1, i32 1, i32 1, i32 1, i32 0, i32 0], align 4
-@switch.table.ltp_stats_tree_packet = private unnamed_addr constant [16 x i64] [i64 208, i64 208, i64 208, i64 208, i64 208, i64 208, i64 208, i64 208, i64 232, i64 208, i64 208, i64 208, i64 208, i64 232, i64 232, i64 208], align 8
+@switch.table.ltp_stats_tree_packet = private unnamed_addr constant [16 x i64] [i64 208, i64 208, i64 208, i64 208, i64 208, i64 poison, i64 poison, i64 208, i64 232, i64 208, i64 poison, i64 poison, i64 208, i64 232, i64 232, i64 208], align 8
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_ltp() local_unnamed_addr #0 {

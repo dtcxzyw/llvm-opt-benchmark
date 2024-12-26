@@ -34,7 +34,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.20 = private unnamed_addr constant [9 x i8] c"codesign\00", align 1
 @.str.21 = private unnamed_addr constant [4 x i8] c"RSA\00", align 1
 @__func__.setup_dp = private unnamed_addr constant [9 x i8] c"setup_dp\00", align 1
-@switch.table.ossl_x509v3_cache_extensions = private unnamed_addr constant [9 x i32] [i32 262144, i32 65536, i32 65536, i32 524288, i32 65536, i32 65536, i32 65536, i32 65536, i32 131072], align 4
+@switch.table.ossl_x509v3_cache_extensions = private unnamed_addr constant [9 x i32] [i32 262144, i32 poison, i32 poison, i32 524288, i32 poison, i32 65536, i32 poison, i32 poison, i32 131072], align 4
 
 ; Function Attrs: nounwind uwtable
 define i32 @X509_check_purpose(ptr noundef %x, i32 noundef %id, i32 noundef %non_leaf) local_unnamed_addr #0 {

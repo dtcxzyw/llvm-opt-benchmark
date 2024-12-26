@@ -214,7 +214,7 @@ $_ZTVSt15_Sp_counted_ptrIPN5clang6format18CommaSeparatedListELN9__gnu_cxx12_Lock
 @.str.45 = private unnamed_addr constant [15 x i8] c"forwardDeclare\00", align 1
 @.str.46 = private unnamed_addr constant [3 x i8] c"\22\22\00", align 1
 @.str.49 = private unnamed_addr constant [7 x i8] c" \09\0A\0B\0C\0D\00", align 1
-@switch.table._ZN5clang6format12_GLOBAL__N_116AnnotatingParser4nextEv = private unnamed_addr constant [19 x i16] [i16 1, i16 13, i16 13, i16 13, i16 13, i16 13, i16 7, i16 8, i16 9, i16 10, i16 11, i16 12, i16 13, i16 14, i16 15, i16 16, i16 17, i16 18, i16 19], align 2
+@switch.table._ZN5clang6format12_GLOBAL__N_116AnnotatingParser4nextEv = private unnamed_addr constant [19 x i16] [i16 1, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 7, i16 8, i16 9, i16 10, i16 11, i16 12, i16 13, i16 14, i16 15, i16 16, i16 17, i16 18, i16 19], align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK5clang6format14TokenAnnotator20setCommentLineLevelsERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1000) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 {

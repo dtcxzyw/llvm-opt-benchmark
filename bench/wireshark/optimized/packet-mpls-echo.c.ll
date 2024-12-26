@@ -900,11 +900,11 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.657 = private unnamed_addr constant [27 x i8] c", Label: %u , Protocol: %u\00", align 1
 @.str.658 = private unnamed_addr constant [21 x i8] c"Stack change sub-TLV\00", align 1
 @.str.659 = private unnamed_addr constant [25 x i8] c"Error processing sub-TLV\00", align 1
-@switch.table.dissect_mpls_echo_tlv_fec = private unnamed_addr constant [7 x ptr] [ptr @hf_mpls_echo_tlv_fec_igp_adj_local_ident, ptr @hf_mpls_echo_tlv_fec_igp_adj_local_ident, ptr @hf_mpls_echo_tlv_fec_igp_adj_local_ipv4, ptr @hf_mpls_echo_tlv_fec_igp_adj_local_ipv4, ptr @hf_mpls_echo_tlv_fec_igp_adj_local_ipv4, ptr @hf_mpls_echo_tlv_fec_igp_adj_local_ipv4, ptr @hf_mpls_echo_tlv_fec_igp_adj_local_ipv6], align 8
-@switch.table.dissect_mpls_echo_tlv_fec.1 = private unnamed_addr constant [7 x i32] [i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 16], align 4
-@switch.table.dissect_mpls_echo_tlv_fec.2 = private unnamed_addr constant [7 x i32] [i32 12, i32 12, i32 12, i32 12, i32 12, i32 12, i32 24], align 4
-@switch.table.dissect_mpls_echo_tlv_fec.3 = private unnamed_addr constant [7 x ptr] [ptr @hf_mpls_echo_tlv_fec_igp_adj_remote_ident, ptr @hf_mpls_echo_tlv_fec_igp_adj_remote_ident, ptr @hf_mpls_echo_tlv_fec_igp_adj_remote_ipv4, ptr @hf_mpls_echo_tlv_fec_igp_adj_remote_ipv4, ptr @hf_mpls_echo_tlv_fec_igp_adj_remote_ipv4, ptr @hf_mpls_echo_tlv_fec_igp_adj_remote_ipv4, ptr @hf_mpls_echo_tlv_fec_igp_adj_remote_ipv6], align 8
-@switch.table.dissect_mpls_echo_tlv_fec.4 = private unnamed_addr constant [7 x i32] [i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 40], align 4
+@switch.table.dissect_mpls_echo_tlv_fec = private unnamed_addr constant [7 x ptr] [ptr @hf_mpls_echo_tlv_fec_igp_adj_local_ident, ptr @hf_mpls_echo_tlv_fec_igp_adj_local_ident, ptr poison, ptr poison, ptr @hf_mpls_echo_tlv_fec_igp_adj_local_ipv4, ptr poison, ptr @hf_mpls_echo_tlv_fec_igp_adj_local_ipv6], align 8
+@switch.table.dissect_mpls_echo_tlv_fec.1 = private unnamed_addr constant [7 x i32] [i32 4, i32 4, i32 poison, i32 poison, i32 4, i32 poison, i32 16], align 4
+@switch.table.dissect_mpls_echo_tlv_fec.2 = private unnamed_addr constant [7 x i32] [i32 12, i32 12, i32 poison, i32 poison, i32 12, i32 poison, i32 24], align 4
+@switch.table.dissect_mpls_echo_tlv_fec.3 = private unnamed_addr constant [7 x ptr] [ptr @hf_mpls_echo_tlv_fec_igp_adj_remote_ident, ptr @hf_mpls_echo_tlv_fec_igp_adj_remote_ident, ptr poison, ptr poison, ptr @hf_mpls_echo_tlv_fec_igp_adj_remote_ipv4, ptr poison, ptr @hf_mpls_echo_tlv_fec_igp_adj_remote_ipv6], align 8
+@switch.table.dissect_mpls_echo_tlv_fec.4 = private unnamed_addr constant [7 x i32] [i32 16, i32 16, i32 poison, i32 poison, i32 16, i32 poison, i32 40], align 4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_mpls_echo() local_unnamed_addr #0 {

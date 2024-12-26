@@ -416,7 +416,7 @@ $_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null = comdat any
 @.str.76 = private unnamed_addr constant [26 x i8] c"vector::_M_default_append\00", align 1
 @llvm.global_ctors = appending global [2 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.71, ptr @_ZN4cvc58internal12NodeTemplateILb1EE6s_nullE }, { i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_lfsc_node_converter.cpp, ptr null }]
 @llvm.used = appending global [1 x ptr] [ptr @_ZN4cvc58internal12NodeTemplateILb1EE6s_nullE], section "llvm.metadata"
-@switch.table._ZN4cvc58internal5proof17LfscNodeConverter17getOperatorOfTermENS0_12NodeTemplateILb1EEEb = private unnamed_addr constant [7 x ptr] [ptr @.str.64, ptr @.str.63, ptr @.str.63, ptr @.str.63, ptr @.str.66, ptr @.str.63, ptr @.str.65], align 8
+@switch.table._ZN4cvc58internal5proof17LfscNodeConverter17getOperatorOfTermENS0_12NodeTemplateILb1EEEb = private unnamed_addr constant [7 x ptr] [ptr @.str.64, ptr poison, ptr @.str.63, ptr poison, ptr @.str.66, ptr poison, ptr @.str.65], align 8
 
 @_ZN4cvc58internal5proof17LfscNodeConverterC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN4cvc58internal5proof17LfscNodeConverterC2Ev
 

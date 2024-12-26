@@ -73,7 +73,7 @@ $_ZTV9Assembler = comdat any
 @_ZTV17C2_MacroAssembler = linkonce_odr hidden unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr null, ptr @_ZN14MacroAssembler22bang_stack_with_offsetEi, ptr @_ZN14MacroAssembler17call_VM_leaf_baseEPhi, ptr @_ZN14MacroAssembler12call_VM_baseE8RegisterS0_S0_Phib, ptr @_ZN14MacroAssembler25check_and_handle_popframeE8Register, ptr @_ZN14MacroAssembler25check_and_handle_earlyretE8Register] }, comdat, align 8
 @_ZTV9Assembler = linkonce_odr hidden unnamed_addr constant { [3 x ptr] } { [3 x ptr] [ptr null, ptr null, ptr @__cxa_pure_virtual] }, comdat, align 8
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
-@switch.table._ZN17SaveLiveRegisters20xmm_register_restoreERKNS_15XMMRegisterDataE = private unnamed_addr constant [8 x i32] [i32 10, i32 11, i32 10, i32 12, i32 10, i32 10, i32 10, i32 13], align 4
+@switch.table._ZN17SaveLiveRegisters20xmm_register_restoreERKNS_15XMMRegisterDataE = private unnamed_addr constant [8 x i32] [i32 10, i32 11, i32 poison, i32 12, i32 poison, i32 poison, i32 poison, i32 13], align 4
 
 @_ZN17SaveLiveRegistersC1EP14MacroAssemblerP13BarrierStubC2 = hidden unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN17SaveLiveRegistersC2EP14MacroAssemblerP13BarrierStubC2
 @_ZN17SaveLiveRegistersD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN17SaveLiveRegistersD2Ev

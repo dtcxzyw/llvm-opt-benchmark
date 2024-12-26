@@ -368,7 +368,7 @@ $_ZTVN4llvm2cl11OptionValueIjEE = comdat any
 @.str.45 = private unnamed_addr constant [49 x i8] c"cannot create std::vector larger than max_size()\00", align 1
 @.str.46 = private unnamed_addr constant [16 x i8] c"vector::reserve\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_SampleProfileMatcher.cpp, ptr null }]
-@switch.table._ZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSamplesERKNS_10sampleprof15FunctionSamplesE = private unnamed_addr constant [5 x i64] [i64 400, i64 400, i64 400, i64 408, i64 400], align 8
+@switch.table._ZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSamplesERKNS_10sampleprof15FunctionSamplesE = private unnamed_addr constant [5 x i64] [i64 400, i64 poison, i64 400, i64 408, i64 400], align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl3optIjLb0ENS0_6parserIjEEED2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #0 comdat align 2 {

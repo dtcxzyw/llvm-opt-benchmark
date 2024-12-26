@@ -1363,7 +1363,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.939 = private unnamed_addr constant [4 x i8] c"EA_\00", align 1
 @.str.940 = private unnamed_addr constant [4 x i8] c"EB_\00", align 1
 @.str.941 = private unnamed_addr constant [4 x i8] c"EC_\00", align 1
-@switch.table.dissect_omron_fins_tcp_pdu = private unnamed_addr constant [7 x i32] [i32 20, i32 24, i32 16, i32 16, i32 20, i32 20, i32 16], align 4
+@switch.table.dissect_omron_fins_tcp_pdu = private unnamed_addr constant [7 x i32] [i32 20, i32 24, i32 16, i32 16, i32 poison, i32 poison, i32 16], align 4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_omron_fins() local_unnamed_addr #0 {

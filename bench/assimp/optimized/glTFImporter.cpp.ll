@@ -1534,7 +1534,7 @@ $_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits = comdat any
 @switch.table._ZN6Assimp12glTFImporter12ImportMeshesERN4glTF5AssetE = private unnamed_addr constant [7 x i32] [i32 1, i32 2, i32 2, i32 2, i32 4, i32 4, i32 4], align 4
 @switch.table._ZN6Assimp12glTFImporter12ImportLightsERN4glTF5AssetE = private unnamed_addr constant [4 x i32] [i32 4, i32 1, i32 2, i32 3], align 4
 @switch.table._ZN9rapidjson16GetParseError_EnENS_14ParseErrorCodeE = private unnamed_addr constant [18 x ptr] [ptr @.str.148, ptr @.str.149, ptr @.str.150, ptr @.str.151, ptr @.str.152, ptr @.str.153, ptr @.str.154, ptr @.str.155, ptr @.str.156, ptr @.str.157, ptr @.str.158, ptr @.str.159, ptr @.str.160, ptr @.str.161, ptr @.str.162, ptr @.str.163, ptr @.str.164, ptr @.str.165], align 8
-@switch.table._ZN4glTF17ComponentTypeSizeENS_13ComponentTypeE = private unnamed_addr constant [7 x i32] [i32 1, i32 1, i32 2, i32 2, i32 2, i32 4, i32 4], align 4
+@switch.table._ZN4glTF17ComponentTypeSizeENS_13ComponentTypeE = private unnamed_addr constant [7 x i32] [i32 1, i32 1, i32 2, i32 2, i32 poison, i32 4, i32 4], align 4
 
 @_ZN6Assimp12glTFImporterC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN6Assimp12glTFImporterC2Ev
 @_ZN6Assimp12glTFImporterD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN6Assimp12glTFImporterD2Ev

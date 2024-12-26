@@ -139,7 +139,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.131 = private unnamed_addr constant [116 x i8] c"At t = %lg, the quadrature sensitivity right-hand side failed in a recoverable manner, but no recovery is possible.\00", align 1
 @.str.132 = private unnamed_addr constant [88 x i8] c"At t = %lg repeated recoverable quadrature sensitivity right-hand side function errors.\00", align 1
 @.str.133 = private unnamed_addr constant [43 x i8] c"tout too close to t0 to start integration.\00", align 1
-@switch.table.cvHandleNFlag = private unnamed_addr constant [10 x i32] [i32 -4, i32 -4, i32 -4, i32 -4, i32 -4, i32 -10, i32 -4, i32 -33, i32 -43, i32 -53], align 4
+@switch.table.cvHandleNFlag = private unnamed_addr constant [10 x i32] [i32 -4, i32 poison, i32 poison, i32 poison, i32 poison, i32 -10, i32 poison, i32 -33, i32 -43, i32 -53], align 4
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @CVodeCreate(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {

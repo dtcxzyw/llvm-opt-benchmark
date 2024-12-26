@@ -162,7 +162,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.392cefa9c5b04f3e9fef0cc6bf6e8142.423.llvm.3533412349758872646 = external hidden unnamed_addr constant <{ ptr, [8 x i8], ptr, [8 x i8] }>, align 8
 @anon.392cefa9c5b04f3e9fef0cc6bf6e8142.451.llvm.3533412349758872646 = external hidden unnamed_addr constant <{ ptr, [16 x i8] }>, align 8
 @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E = external local_unnamed_addr global { i64 }
-@switch.table._ZN11tungstenite8protocol5frame5frame5Frame10into_close17hb3f98dfe3f695730E = private unnamed_addr constant [16 x i16] [i16 0, i16 1, i16 2, i16 3, i16 0, i16 4, i16 5, i16 6, i16 7, i16 8, i16 9, i16 10, i16 11, i16 12, i16 0, i16 13], align 2
+@switch.table._ZN11tungstenite8protocol5frame5frame5Frame10into_close17hb3f98dfe3f695730E = private unnamed_addr constant [16 x i16] [i16 0, i16 1, i16 2, i16 3, i16 poison, i16 4, i16 5, i16 6, i16 7, i16 8, i16 9, i16 10, i16 11, i16 12, i16 poison, i16 13], align 2
 @"switch.table._ZN62_$LT$prost..encoding..WireType$u20$as$u20$core..fmt..Debug$GT$3fmt17hfe05588e38c59ee0E.llvm.3989114562954315390" = private unnamed_addr constant [6 x i64] [i64 6, i64 12, i64 15, i64 10, i64 8, i64 12], align 8
 @"switch.table._ZN62_$LT$prost..encoding..WireType$u20$as$u20$core..fmt..Debug$GT$3fmt17hfe05588e38c59ee0E.llvm.3989114562954315390.145" = private unnamed_addr constant [6 x ptr] [ptr @anon.c3d04b84e2565fd3ff3193c83f8ea8ff.141, ptr @anon.c3d04b84e2565fd3ff3193c83f8ea8ff.142, ptr @anon.c3d04b84e2565fd3ff3193c83f8ea8ff.143, ptr @anon.c3d04b84e2565fd3ff3193c83f8ea8ff.144, ptr @anon.c3d04b84e2565fd3ff3193c83f8ea8ff.145, ptr @anon.c3d04b84e2565fd3ff3193c83f8ea8ff.146], align 8
 

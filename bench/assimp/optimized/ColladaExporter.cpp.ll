@@ -596,7 +596,7 @@ $_ZTV17DeadlyExportError = comdat any
 @.str.357 = private unnamed_addr constant [26 x i8] c"vector::_M_default_append\00", align 1
 @.str.358 = private unnamed_addr constant [16 x i8] c"vector::reserve\00", align 1
 @.str.359 = private unnamed_addr constant [24 x i8] c"vector::_M_range_insert\00", align 1
-@switch.table._ZN6Assimp15ColladaExporter14WriteMaterialsEv = private unnamed_addr constant [8 x ptr] [ptr @.str.145, ptr @.str.141, ptr @.str.143, ptr @.str.141, ptr @.str.141, ptr @.str.141, ptr @.str.141, ptr @.str.144], align 8
+@switch.table._ZN6Assimp15ColladaExporter14WriteMaterialsEv = private unnamed_addr constant [8 x ptr] [ptr @.str.145, ptr @.str.141, ptr @.str.143, ptr poison, ptr poison, ptr poison, ptr poison, ptr @.str.144], align 8
 @switch.table._ZN6Assimp15ColladaExporter15WriteFloatArrayERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13FloatDataTypeEPKfm = private unnamed_addr constant [7 x i64] [i64 3, i64 2, i64 3, i64 3, i64 16, i64 1, i64 1], align 8
 
 @_ZN6Assimp15ColladaExporterC1EPK7aiScenePNS_8IOSystemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_ = hidden unnamed_addr alias void (ptr, ptr, ptr, ptr, ptr), ptr @_ZN6Assimp15ColladaExporterC2EPK7aiScenePNS_8IOSystemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_

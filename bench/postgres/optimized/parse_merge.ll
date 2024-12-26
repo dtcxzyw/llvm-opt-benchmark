@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.5 = private unnamed_addr constant [35 x i8] c"name \22%s\22 specified more than once\00", align 1
 @.str.6 = private unnamed_addr constant [61 x i8] c"The name is used both as MERGE target table and data source.\00", align 1
 @.str.7 = private unnamed_addr constant [5 x i8] c"WHEN\00", align 1
-@switch.table.transformMergeStmt = private unnamed_addr constant [6 x i64] [i64 4, i64 1, i64 8, i64 1, i64 1, i64 2], align 8
+@switch.table.transformMergeStmt = private unnamed_addr constant [6 x i64] [i64 4, i64 1, i64 8, i64 poison, i64 poison, i64 2], align 8
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @transformMergeStmt(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {

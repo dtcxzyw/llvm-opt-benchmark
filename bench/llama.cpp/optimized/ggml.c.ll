@@ -649,7 +649,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @str.1 = private unnamed_addr constant [85 x i8] c"WARNING: Behavior may be unexpected when allocating 0 bytes for ggml_aligned_malloc!\00", align 1
 @str.2 = private unnamed_addr constant [14 x i8] c"=== GRAPH ===\00", align 1
 @str.3 = private unnamed_addr constant [41 x i8] c"========================================\00", align 1
-@switch.table.ggml_ftype_to_ggml_type = private unnamed_addr constant [15 x i32] [i32 0, i32 1, i32 2, i32 3, i32 0, i32 0, i32 0, i32 8, i32 6, i32 7, i32 10, i32 11, i32 12, i32 13, i32 14], align 4
+@switch.table.ggml_ftype_to_ggml_type = private unnamed_addr constant [15 x i32] [i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 8, i32 6, i32 7, i32 10, i32 11, i32 12, i32 13, i32 14], align 4
 
 ; Function Attrs: nounwind uwtable
 define void @ggml_print_backtrace() local_unnamed_addr #0 {

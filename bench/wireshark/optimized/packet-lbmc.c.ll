@@ -3587,7 +3587,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1974 = private unnamed_addr constant [8 x i8] c"%s (%u)\00", align 1
 @.str.1975 = private unnamed_addr constant [16 x i8] c"%s <-> %s [%lu]\00", align 1
 @.str.1976 = private unnamed_addr constant [28 x i8] c"%u:%s:%u <-> %u:%s:%u [%lu]\00", align 1
-@switch.table.lbmc_dissect_lbmc_packet = private unnamed_addr constant [11 x i32] [i32 1, i32 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1], align 4
+@switch.table.lbmc_dissect_lbmc_packet = private unnamed_addr constant [11 x i32] [i32 1, i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 0, i32 poison, i32 1], align 4
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @lbmc_test_lbmc_header(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {

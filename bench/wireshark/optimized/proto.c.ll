@@ -580,11 +580,11 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.410 = private unnamed_addr constant [81 x i8] c"field %s passed to proto_tree_add_bits_format_value() has a bit width of %u > 65\00", align 1
 @.str.411 = private unnamed_addr constant [76 x i8] c"field %s has type %d (%s) not handled in proto_tree_add_bits_format_value()\00", align 1
 @switch.table.get_hfi_length = private unnamed_addr constant [4 x i32] [i32 1, i32 2, i32 4, i32 8], align 4
-@switch.table.hfinfo_char_value_format_display = private unnamed_addr constant [14 x i8] c"0000000abtnvfr", align 1
-@switch.table.hfinfo_numeric_value_format = private unnamed_addr constant [7 x i32] [i32 1, i32 1, i32 1, i32 1, i32 1, i32 2, i32 1], align 4
+@switch.table.hfinfo_char_value_format_display = private unnamed_addr constant [14 x i8] [i8 48, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 97, i8 98, i8 116, i8 110, i8 118, i8 102, i8 114], align 1
+@switch.table.hfinfo_numeric_value_format = private unnamed_addr constant [7 x i32] [i32 1, i32 poison, i32 poison, i32 1, i32 1, i32 2, i32 1], align 4
 @switch.table.hfinfo_number_value_format_display64.23 = private unnamed_addr constant [17 x i32] [i32 2, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14, i32 16, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14, i32 16], align 4
 @switch.table.fill_label_number = private unnamed_addr constant [4 x i32] [i32 3, i32 2, i32 4, i32 1], align 4
-@switch.table.proto_registrar_dump_elastic = private unnamed_addr constant [34 x ptr] [ptr @.str.390, ptr @.str.385, ptr @.str.386, ptr @.str.385, ptr @.str.385, ptr @.str.387, ptr @.str.387, ptr @.str.387, ptr @.str.387, ptr @.str.387, ptr @.str.386, ptr @.str.385, ptr @.str.385, ptr @.str.385, ptr @.str.385, ptr @.str.387, ptr @.str.385, ptr @.str.387, ptr @.str.385, ptr @.str.385, ptr @.str.388, ptr @.str.388, ptr @.str.160, ptr @.str.160, ptr @.str.385, ptr @.str.385, ptr @.str.385, ptr @.str.385, ptr @.str.389, ptr @.str.389, ptr @.str.110, ptr @.str.110, ptr @.str.385, ptr @.str.387], align 8
+@switch.table.proto_registrar_dump_elastic = private unnamed_addr constant [34 x ptr] [ptr @.str.390, ptr poison, ptr @.str.386, ptr @.str.385, ptr @.str.385, ptr @.str.387, ptr @.str.387, ptr @.str.387, ptr @.str.387, ptr @.str.387, ptr @.str.386, ptr @.str.385, ptr @.str.385, ptr @.str.385, ptr poison, ptr @.str.387, ptr poison, ptr @.str.387, ptr poison, ptr poison, ptr @.str.388, ptr @.str.388, ptr @.str.160, ptr @.str.160, ptr poison, ptr poison, ptr poison, ptr poison, ptr @.str.389, ptr @.str.389, ptr @.str.110, ptr @.str.110, ptr poison, ptr @.str.387], align 8
 
 ; Function Attrs: nounwind uwtable
 define void @proto_register_plugin(ptr noundef %0) local_unnamed_addr #0 {

@@ -599,7 +599,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.453 = private unnamed_addr constant [4 x i8] c"wtp\00", align 1
 @.str.454 = private unnamed_addr constant [8 x i8] c"wtp-udp\00", align 1
 @.str.455 = private unnamed_addr constant [4 x i8] c"gtp\00", align 1
-@switch.table.dissect_catapult_dct2000 = private unnamed_addr constant [21 x ptr] [ptr @.str.387, ptr @.str.387, ptr @.str.387, ptr @.str.387, ptr @.str.387, ptr @.str.387, ptr @.str.387, ptr @.str.387, ptr @.str.387, ptr @.str.387, ptr @.str.387, ptr @.str.387, ptr @.str.387, ptr @.str.387, ptr @.str.387, ptr @.str.387, ptr @.str.387, ptr @.str.388, ptr @.str.387, ptr @.str.387, ptr @.str.389], align 8
+@switch.table.dissect_catapult_dct2000 = private unnamed_addr constant [21 x ptr] [ptr @.str.387, ptr @.str.387, ptr @.str.387, ptr @.str.387, ptr @.str.387, ptr @.str.387, ptr @.str.387, ptr @.str.387, ptr @.str.387, ptr @.str.387, ptr @.str.387, ptr @.str.387, ptr @.str.387, ptr @.str.387, ptr @.str.387, ptr poison, ptr poison, ptr @.str.388, ptr poison, ptr poison, ptr @.str.389], align 8
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_reg_handoff_catapult_dct2000() local_unnamed_addr #0 {

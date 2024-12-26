@@ -506,7 +506,7 @@ $_ZTIN4pkpy3Py_IdEE = comdat any
 @_ZTSN4pkpy3Py_IdEE = linkonce_odr constant [15 x i8] c"N4pkpy3Py_IdEE\00", comdat, align 1
 @_ZTIN4pkpy3Py_IdEE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4pkpy3Py_IdEE, ptr @_ZTIN4pkpy8PyObjectE }, comdat, align 8
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_expr.cpp, ptr null }]
-@switch.table._ZN4pkpy10BinaryExpr13_emit_compareEPNS_15CodeEmitContextERNS_14small_vector_2IiLm6EEE = private unnamed_addr constant [10 x i8] c";777779:<8", align 1
+@switch.table._ZN4pkpy10BinaryExpr13_emit_compareEPNS_15CodeEmitContextERNS_14small_vector_2IiLm6EEE = private unnamed_addr constant [10 x i8] [i8 59, i8 55, i8 poison, i8 poison, i8 poison, i8 poison, i8 57, i8 58, i8 60, i8 56], align 1
 
 declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 

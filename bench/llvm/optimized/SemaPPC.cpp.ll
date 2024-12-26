@@ -104,7 +104,7 @@ $_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE = comdat any
 @.str.13 = private unnamed_addr constant [17 x i8] c"vW512*VVi15i15i3\00", align 1
 @.str.14 = private unnamed_addr constant [15 x i8] c"vW512*VVi15i15\00", align 1
 @.str.15 = private unnamed_addr constant [17 x i8] c"vW512*W256Vi15i3\00", align 1
-@switch.table._ZN5clang7SemaPPC27CheckPPCBuiltinFunctionCallERKNS_10TargetInfoEjPNS_8CallExprE = private unnamed_addr constant [5 x i64] [i64 18600, i64 18592, i64 18600, i64 18600, i64 18592], align 8
+@switch.table._ZN5clang7SemaPPC27CheckPPCBuiltinFunctionCallERKNS_10TargetInfoEjPNS_8CallExprE = private unnamed_addr constant [5 x i64] [i64 18600, i64 18592, i64 poison, i64 18600, i64 18592], align 8
 
 @_ZN5clang7SemaPPCC1ERNS_4SemaE = unnamed_addr alias void (ptr, ptr), ptr @_ZN5clang7SemaPPCC2ERNS_4SemaE
 

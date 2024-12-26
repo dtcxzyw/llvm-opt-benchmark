@@ -75,7 +75,7 @@ $_ZTV20CachedNMTInformation = comdat any
 @_ZTV20CachedNMTInformation = linkonce_odr hidden unnamed_addr constant { [3 x ptr] } { [3 x ptr] [ptr null, ptr null, ptr @_ZN20CachedNMTInformation18do_allocation_siteEPK20ReservedMemoryRegion] }, comdat, align 8
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.31, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE76ELS1_159ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE }]
 @llvm.used = appending global [1 x ptr] [ptr @_ZN16LogTagSetMappingILN6LogTag4typeE76ELS1_159ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE], section "llvm.metadata"
-@switch.table._ZNK19MappingPrintSession25print_nmt_info_for_regionEPKvS1_ = private unnamed_addr constant [25 x ptr] [ptr @.str.16, ptr @.str.8, ptr @.str.4, ptr @.str.24, ptr @.str.10, ptr @.str.12, ptr @.str.4, ptr @.str.4, ptr @.str.4, ptr @.str.14, ptr @.str.18, ptr @.str.4, ptr @.str.4, ptr @.str.6, ptr @.str.4, ptr @.str.26, ptr @.str.4, ptr @.str.4, ptr @.str.4, ptr @.str.4, ptr @.str.4, ptr @.str.22, ptr @.str.4, ptr @.str.4, ptr @.str.20], align 8
+@switch.table._ZNK19MappingPrintSession25print_nmt_info_for_regionEPKvS1_ = private unnamed_addr constant [25 x ptr] [ptr @.str.16, ptr @.str.8, ptr poison, ptr @.str.24, ptr @.str.10, ptr @.str.12, ptr @.str.4, ptr poison, ptr poison, ptr @.str.14, ptr @.str.18, ptr poison, ptr poison, ptr @.str.6, ptr poison, ptr @.str.26, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr @.str.22, ptr poison, ptr poison, ptr @.str.20], align 8
 
 @_ZN19MappingPrintSessionC1EP12outputStreamRK20CachedNMTInformation = hidden unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN19MappingPrintSessionC2EP12outputStreamRK20CachedNMTInformation
 

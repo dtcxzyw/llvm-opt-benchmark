@@ -770,7 +770,7 @@ $_ZTVN5clang12ast_matchers8internal24ForEachDescendantMatcherINS_4StmtES3_EE = c
 @.str.186 = private unnamed_addr constant [22 x i8] c"Use of zero allocated\00", align 1
 @.str.187 = private unnamed_addr constant [39 x i8] c"Use of memory allocated with size zero\00", align 1
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
-@switch.table._ZNK12_GLOBAL__N_113MallocChecker17checkKernelMallocERKN5clang4ento9CallEventERNS2_14CheckerContextE = private unnamed_addr constant [9 x i64] [i64 256, i64 256, i64 256, i64 256, i64 32768, i64 256, i64 256, i64 2, i64 8], align 8
+@switch.table._ZNK12_GLOBAL__N_113MallocChecker17checkKernelMallocERKN5clang4ento9CallEventERNS2_14CheckerContextE = private unnamed_addr constant [9 x i64] [i64 256, i64 poison, i64 poison, i64 poison, i64 32768, i64 poison, i64 poison, i64 2, i64 8], align 8
 @switch.table._ZN12_GLOBAL__N_116MallocBugVisitor39StackHintGeneratorForReallocationFailed16getMessageForArgB5cxx11EPKN5clang4ExprEj = private unnamed_addr constant [3 x ptr] [ptr @.str.105, ptr @.str.106, ptr @.str.107], align 8
 
 ; Function Attrs: nounwind

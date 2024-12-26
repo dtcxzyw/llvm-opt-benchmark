@@ -632,7 +632,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.443 = private unnamed_addr constant [54 x i8] c"--nodes is incompatible with --distribution=arbitrary\00", align 1
 @.str.444 = private unnamed_addr constant [110 x i8] c"--gres-flags=one-task-per-sharing requested, but that shared gres needs to appear in --tres-per-task as well.\00", align 1
 @switch.table.arg_get_bell = private unnamed_addr constant [3 x ptr] [ptr @.str.80, ptr @.str.79, ptr @.str.78], align 8
-@switch.table.arg_get_exclusive = private unnamed_addr constant [6 x ptr] [ptr @.str.94, ptr @.str.136, ptr @.str.136, ptr @.str.137, ptr @.str.138, ptr @.str.139], align 8
+@switch.table.arg_get_exclusive = private unnamed_addr constant [6 x ptr] [ptr @.str.94, ptr poison, ptr @.str.136, ptr @.str.137, ptr @.str.138, ptr @.str.139], align 8
 
 ; Function Attrs: nounwind uwtable
 define range(i32 1, 5) i32 @_foreach_data_switches(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {

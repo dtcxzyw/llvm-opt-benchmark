@@ -105,7 +105,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.76 = private unnamed_addr constant [29 x i8] c"known incorrect sRGB profile\00", align 1
 @.str.77 = private unnamed_addr constant [43 x i8] c"out-of-date sRGB profile with no signature\00", align 1
 @.str.78 = private unnamed_addr constant [56 x i8] c"Not recognizing known sRGB profile that has been edited\00", align 1
-@switch.table.png_build_grayscale_palette = private unnamed_addr constant [8 x i64] [i64 2, i64 4, i64 2, i64 16, i64 2, i64 2, i64 2, i64 256], align 8
+@switch.table.png_build_grayscale_palette = private unnamed_addr constant [8 x i64] [i64 2, i64 4, i64 poison, i64 16, i64 poison, i64 poison, i64 poison, i64 256], align 8
 @switch.table.png_zstream_error = private unnamed_addr constant [10 x ptr] [ptr @.str.19, ptr @.str.18, ptr @.str.17, ptr @.str.16, ptr @.str.15, ptr @.str.14, ptr @.str.13, ptr @.str.10, ptr @.str.11, ptr @.str.12], align 8
 
 ; Function Attrs: nounwind uwtable
@@ -1187,7 +1187,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %switch.load = load i64, ptr %switch.gep, align 8
   %7 = shl nuw nsw i32 %switch.tableidx, 3
   %switch.shiftamt = zext nneg i32 %7 to i64
-  %switch.downshift = lshr i64 144115184082834943, %switch.shiftamt
+  %switch.downshift = lshr i64 72057594323162623, %switch.shiftamt
   %switch.masked = trunc i64 %switch.downshift to i8
   br label %.lr.ph
 

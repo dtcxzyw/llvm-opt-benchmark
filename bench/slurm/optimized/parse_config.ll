@@ -90,7 +90,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.51 = private unnamed_addr constant [110 x i8] c"parsing %s=%s : count is not coherent with the amount of records or there must be no more than one (%d vs %d)\00", align 1
 @.str.52 = private unnamed_addr constant [31 x i8] c"parsing %s=%s after expansion.\00", align 1
 @.str.53 = private unnamed_addr constant [32 x i8] c"Key \22%s\22 is not typed correctly\00", align 1
-@switch.table._keyvalue_regex = private unnamed_addr constant [6 x i32] [i32 3, i32 1, i32 1, i32 2, i32 1, i32 4], align 4
+@switch.table._keyvalue_regex = private unnamed_addr constant [6 x i32] [i32 3, i32 1, i32 poison, i32 2, i32 poison, i32 4], align 4
 
 @slurm_s_p_hashtbl_create = alias ptr (ptr), ptr @s_p_hashtbl_create
 @slurm_s_p_hashtbl_destroy = alias void (ptr), ptr @s_p_hashtbl_destroy

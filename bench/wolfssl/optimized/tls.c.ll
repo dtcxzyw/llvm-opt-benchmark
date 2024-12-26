@@ -17,11 +17,11 @@ target triple = "x86_64-unknown-linux-gnu"
 @master_label = internal constant [14 x i8] c"master secret\00", align 1
 @ext_master_label = internal constant [23 x i8] c"extended master secret\00", align 16
 @switch.table.TLS_hmac = private unnamed_addr constant [5 x i32] [i32 3, i32 4, i32 -1, i32 6, i32 7], align 4
-@switch.table.TLS_hmac.26 = private unnamed_addr constant [5 x i32] [i32 64, i32 64, i32 64, i32 128, i32 128], align 4
-@switch.table.TLS_hmac.27 = private unnamed_addr constant [5 x i32] [i32 9, i32 9, i32 9, i32 17, i32 17], align 4
-@switch.table.TLS_hmac.28 = private unnamed_addr constant [5 x i32] [i32 6, i32 6, i32 6, i32 7, i32 7], align 4
-@switch.table.TLSX_ValidateSupportedCurves.32 = private unnamed_addr constant [5 x i32] [i32 209, i32 209, i32 526, i32 210, i32 211], align 4
-@switch.table.TLSX_ValidateSupportedCurves.33 = private unnamed_addr constant [5 x i32] [i32 28, i32 28, i32 32, i32 48, i32 66], align 4
+@switch.table.TLS_hmac.26 = private unnamed_addr constant [5 x i32] [i32 64, i32 poison, i32 64, i32 128, i32 128], align 4
+@switch.table.TLS_hmac.27 = private unnamed_addr constant [5 x i32] [i32 9, i32 poison, i32 9, i32 17, i32 17], align 4
+@switch.table.TLS_hmac.28 = private unnamed_addr constant [5 x i32] [i32 6, i32 poison, i32 6, i32 7, i32 7], align 4
+@switch.table.TLSX_ValidateSupportedCurves.32 = private unnamed_addr constant [5 x i32] [i32 209, i32 poison, i32 526, i32 210, i32 211], align 4
+@switch.table.TLSX_ValidateSupportedCurves.33 = private unnamed_addr constant [5 x i32] [i32 28, i32 poison, i32 32, i32 48, i32 66], align 4
 @switch.table.TLSX_KeyShare_GenKey = private unnamed_addr constant [3 x i32] [i32 32, i32 48, i32 66], align 4
 @switch.table.TLSX_KeyShare_Process = private unnamed_addr constant [3 x i32] [i32 7, i32 15, i32 16], align 4
 

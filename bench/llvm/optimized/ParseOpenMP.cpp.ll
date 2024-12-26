@@ -598,7 +598,7 @@ $_ZTVN4llvm3omp10OMPContextE = comdat any
 @_ZTVN4llvm3omp10OMPContextE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr null, ptr @_ZN4llvm3omp10OMPContextD2Ev, ptr @_ZN4llvm3omp10OMPContextD0Ev, ptr @_ZNK4llvm3omp10OMPContext15matchesISATraitENS_9StringRefE] }, comdat, align 8
 @.str.77 = private unnamed_addr constant [16 x i8] c"step expression\00", align 1
 @.str.78 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
-@switch.table._ZN5clang6Parser18ParseOpenMPVarListEN4llvm3omp9DirectiveENS2_6ClauseERNS1_15SmallVectorImplIPNS_4ExprEEERNS_10SemaOpenMP19OpenMPVarListDataTyE = private unnamed_addr constant [5 x i64] [i64 82, i64 84, i64 80, i64 84, i64 84], align 8
+@switch.table._ZN5clang6Parser18ParseOpenMPVarListEN4llvm3omp9DirectiveENS2_6ClauseERNS1_15SmallVectorImplIPNS_4ExprEEERNS_10SemaOpenMP19OpenMPVarListDataTyE = private unnamed_addr constant [5 x i64] [i64 82, i64 poison, i64 80, i64 poison, i64 84], align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZN5clang6Parser36ParseOpenMPDeclareReductionDirectiveENS_15AccessSpecifierE(ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {

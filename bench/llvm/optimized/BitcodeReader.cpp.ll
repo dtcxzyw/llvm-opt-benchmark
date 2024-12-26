@@ -1391,7 +1391,7 @@ $_ZTVN4llvm2cl11OptionValueIbEE = comdat any
 @.str.218 = private unnamed_addr constant [13 x i8] c"llvm.bitcode\00", align 1
 @.str.219 = private unnamed_addr constant [18 x i8] c"Corrupted bitcode\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_BitcodeReader.cpp, ptr null }]
-@switch.table._ZN12_GLOBAL__N_113BitcodeReader17parseFunctionBodyEPN4llvm8FunctionE = private unnamed_addr constant [6 x i32] [i32 2, i32 2, i32 4, i32 2, i32 4, i32 7], align 4
+@switch.table._ZN12_GLOBAL__N_113BitcodeReader17parseFunctionBodyEPN4llvm8FunctionE = private unnamed_addr constant [6 x i32] [i32 2, i32 poison, i32 4, i32 2, i32 4, i32 7], align 4
 @switch.table._ZN12_GLOBAL__N_113BitcodeReader11parseModuleEmbN4llvm15ParserCallbacksE.140 = private unnamed_addr constant [19 x i32] [i32 4, i32 6, i32 7, i32 2, i32 0, i32 0, i32 9, i32 10, i32 8, i32 5, i32 3, i32 1, i32 8, i32 8, i32 0, i32 4, i32 5, i32 2, i32 3], align 4
 
 ; Function Attrs: mustprogress nounwind uwtable

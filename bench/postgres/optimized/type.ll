@@ -91,8 +91,8 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.81 = private unnamed_addr constant [42 x i8] c"indicator struct \22%s\22 has too few members\00", align 1
 @.str.82 = private unnamed_addr constant [43 x i8] c"indicator struct \22%s\22 has too many members\00", align 1
 @.str.83 = private unnamed_addr constant [13 x i8] c"no_indicator\00", align 1
-@switch.table.ECPGdump_a_simple.1 = private unnamed_addr constant [32 x ptr] [ptr @.str.53, ptr @.str.54, ptr @.str.55, ptr @.str.56, ptr @.str.57, ptr @.str.58, ptr @.str.59, ptr @.str.60, ptr @.str.61, ptr @.str.62, ptr @.str.65, ptr @.str.63, ptr @.str.64, ptr @.str.66, ptr @.str.53, ptr @.str.72, ptr @.str.71, ptr @.str.76, ptr @.str.77, ptr @.str.73, ptr @.str.53, ptr @.str.53, ptr @.str.53, ptr @.str.74, ptr @.str.69, ptr @.str.70, ptr @.str.53, ptr @.str.53, ptr @.str.53, ptr @.str.78, ptr @.str.75, ptr @.str.67], align 8
-@switch.table.get_dtype = private unnamed_addr constant [17 x ptr] [ptr @.str.16, ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr @.str.20, ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.24, ptr @.str.25, ptr @.str.26, ptr @.str.27, ptr @.str.28, ptr @.str.29, ptr @.str.30, ptr @.str.16, ptr @.str.31], align 8
+@switch.table.ECPGdump_a_simple.1 = private unnamed_addr constant [32 x ptr] [ptr @.str.53, ptr @.str.54, ptr @.str.55, ptr @.str.56, ptr @.str.57, ptr @.str.58, ptr @.str.59, ptr @.str.60, ptr @.str.61, ptr @.str.62, ptr @.str.65, ptr @.str.63, ptr @.str.64, ptr @.str.66, ptr poison, ptr @.str.72, ptr @.str.71, ptr @.str.76, ptr @.str.77, ptr @.str.73, ptr poison, ptr poison, ptr poison, ptr @.str.74, ptr @.str.69, ptr @.str.70, ptr poison, ptr poison, ptr poison, ptr @.str.78, ptr @.str.75, ptr @.str.67], align 8
+@switch.table.get_dtype = private unnamed_addr constant [17 x ptr] [ptr @.str.16, ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr @.str.20, ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.24, ptr @.str.25, ptr @.str.26, ptr @.str.27, ptr @.str.28, ptr @.str.29, ptr @.str.30, ptr poison, ptr @.str.31], align 8
 
 ; Function Attrs: nounwind uwtable
 define dso_local noalias nonnull ptr @mm_alloc(i64 noundef %0) local_unnamed_addr #0 {

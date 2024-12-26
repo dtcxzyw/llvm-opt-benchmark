@@ -21,8 +21,8 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.6 = private unnamed_addr constant [16 x i8] c"fpexcept.ignore\00", align 1
 @.str.7 = private unnamed_addr constant [17 x i8] c"fpexcept.maytrap\00", align 1
 @.str.8 = private unnamed_addr constant [16 x i8] c"fpexcept.strict\00", align 1
-@switch.table._ZN4llvm24convertRoundingModeToStrENS_12RoundingModeE = private unnamed_addr constant [8 x ptr] [ptr @.str.5, ptr @.str.1, ptr @.str.4, ptr @.str.3, ptr @.str.2, ptr @.str, ptr @.str, ptr @.str], align 8
-@switch.table._ZN4llvm24convertRoundingModeToStrENS_12RoundingModeE.1 = private unnamed_addr constant [8 x i64] [i64 16, i64 15, i64 12, i64 14, i64 19, i64 13, i64 13, i64 13], align 8
+@switch.table._ZN4llvm24convertRoundingModeToStrENS_12RoundingModeE = private unnamed_addr constant [8 x ptr] [ptr @.str.5, ptr @.str.1, ptr @.str.4, ptr @.str.3, ptr @.str.2, ptr poison, ptr poison, ptr @.str], align 8
+@switch.table._ZN4llvm24convertRoundingModeToStrENS_12RoundingModeE.1 = private unnamed_addr constant [8 x i64] [i64 16, i64 15, i64 12, i64 14, i64 19, i64 poison, i64 poison, i64 13], align 8
 @switch.table._ZN4llvm29convertExceptionBehaviorToStrENS_2fp17ExceptionBehaviorE = private unnamed_addr constant [3 x ptr] [ptr @.str.6, ptr @.str.7, ptr @.str.8], align 8
 @switch.table._ZN4llvm29convertExceptionBehaviorToStrENS_2fp17ExceptionBehaviorE.2 = private unnamed_addr constant [3 x i64] [i64 15, i64 16, i64 15], align 8
 

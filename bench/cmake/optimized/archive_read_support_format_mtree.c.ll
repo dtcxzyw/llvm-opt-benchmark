@@ -89,7 +89,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.71 = private unnamed_addr constant [34 x i8] c"incorrect digest length, ignoring\00", align 1
 @.str.72 = private unnamed_addr constant [30 x i8] c"invalid digest data, ignoring\00", align 1
 @.str.73 = private unnamed_addr constant [11 x i8] c"Can't read\00", align 1
-@switch.table.bid_keyword_list = private unnamed_addr constant [19 x ptr] [ptr @bid_keyword.keys_c, ptr @bid_keyword.keys_df, ptr @bid_keyword.keys_c, ptr @bid_keyword.keys_df, ptr @bid_keyword.keys_g, ptr @bid_keyword.keys_c, ptr @bid_keyword.keys_il, ptr @bid_keyword.keys_c, ptr @bid_keyword.keys_c, ptr @bid_keyword.keys_il, ptr @bid_keyword.keys_m, ptr @bid_keyword.keys_no, ptr @bid_keyword.keys_no, ptr @bid_keyword.keys_c, ptr @bid_keyword.keys_c, ptr @bid_keyword.keys_r, ptr @bid_keyword.keys_s, ptr @bid_keyword.keys_t, ptr @bid_keyword.keys_u], align 8
+@switch.table.bid_keyword_list = private unnamed_addr constant [19 x ptr] [ptr @bid_keyword.keys_c, ptr @bid_keyword.keys_df, ptr poison, ptr @bid_keyword.keys_df, ptr @bid_keyword.keys_g, ptr poison, ptr @bid_keyword.keys_il, ptr poison, ptr poison, ptr @bid_keyword.keys_il, ptr @bid_keyword.keys_m, ptr @bid_keyword.keys_no, ptr @bid_keyword.keys_no, ptr poison, ptr poison, ptr @bid_keyword.keys_r, ptr @bid_keyword.keys_s, ptr @bid_keyword.keys_t, ptr @bid_keyword.keys_u], align 8
 @switch.table.parse_digest = private unnamed_addr constant [6 x i64] [i64 32, i64 40, i64 40, i64 64, i64 96, i64 128], align 8
 
 ; Function Attrs: nounwind uwtable

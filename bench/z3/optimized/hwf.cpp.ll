@@ -55,7 +55,7 @@ $__clang_call_terminate = comdat any
 @.str.3 = private unnamed_addr constant [29 x i8] c"UNEXPECTED CODE WAS REACHED.\00", align 1
 @.str.4 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_hwf.cpp, ptr null }]
-@switch.table._ZN11hwf_manager17round_to_integralE17mpf_rounding_modeRK3hwfRS1_ = private unnamed_addr constant [5 x i32] [i32 0, i32 0, i32 2048, i32 1024, i32 3072], align 4
+@switch.table._ZN11hwf_manager17round_to_integralE17mpf_rounding_modeRK3hwfRS1_ = private unnamed_addr constant [5 x i32] [i32 0, i32 poison, i32 2048, i32 1024, i32 3072], align 4
 
 @_ZN11hwf_managerC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN11hwf_managerC2Ev
 @_ZN11hwf_managerD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN11hwf_managerD2Ev

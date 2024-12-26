@@ -54,7 +54,7 @@ $_ZN6icu_7527LocalUResourceBundlePointerD2Ev = comdat any
 @.str.3 = private unnamed_addr constant [11 x i8] c"characters\00", align 1
 @.str.4 = private unnamed_addr constant [6 x i8] c"lines\00", align 1
 @.str.5 = private unnamed_addr constant [7 x i8] c"layout\00", align 1
-@switch.table._ZL26_uloc_getOrientationHelperPKcS0_P10UErrorCode = private unnamed_addr constant [10 x i32] [i32 3, i32 3, i32 3, i32 3, i32 3, i32 0, i32 3, i32 3, i32 1, i32 2], align 4
+@switch.table._ZL26_uloc_getOrientationHelperPKcS0_P10UErrorCode = private unnamed_addr constant [10 x i32] [i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 0, i32 poison, i32 poison, i32 1, i32 2], align 4
 
 @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev = weak_odr unnamed_addr alias void (ptr), ptr @_ZN6icu_7515MaybeStackArrayIcLi40EEC2Ev
 @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ei10UErrorCode = weak_odr unnamed_addr alias void (ptr, i32, i32), ptr @_ZN6icu_7515MaybeStackArrayIcLi40EEC2Ei10UErrorCode

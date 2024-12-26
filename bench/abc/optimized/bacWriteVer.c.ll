@@ -97,7 +97,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.81 = private unnamed_addr constant [2 x i8] c"]\00", align 1
 @str = private unnamed_addr constant [74 x i8] c"Genlib library used in the mapped design is not longer a current library.\00", align 1
 @switch.table.Psr_ManWriteVerilog = private unnamed_addr constant [16 x ptr] [ptr @.str.47, ptr @.str.48, ptr @.str.49, ptr @.str.50, ptr @.str.51, ptr @.str.52, ptr @.str.53, ptr @.str.54, ptr @.str.55, ptr @.str.56, ptr @.str.57, ptr @.str.58, ptr @.str.61, ptr @.str.62, ptr @.str.63, ptr @.str.60], align 8
-@switch.table.Bac_ManWriteVerilogBoxes = private unnamed_addr constant [8 x ptr] [ptr @.str.72, ptr @.str.75, ptr @.str.74, ptr @.str.73, ptr @.str.72, ptr @.str.72, ptr @.str.73, ptr @.str.72], align 8
+@switch.table.Bac_ManWriteVerilogBoxes = private unnamed_addr constant [8 x ptr] [ptr @.str.72, ptr @.str.75, ptr @.str.74, ptr @.str.73, ptr poison, ptr poison, ptr @.str.73, ptr @.str.72], align 8
 
 ; Function Attrs: nounwind uwtable
 define void @Psr_ManWriteVerilogArray(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {

@@ -199,7 +199,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.ir_emit_code.59 = private unnamed_addr constant [9 x i32] [i32 20511, i32 20518, i32 20525, i32 20532, i32 20539, i32 4845, i32 20546, i32 20553, i32 20560], align 4
 @switch.table.ir_emit_code.66 = private unnamed_addr constant [7 x i32] [i32 4745, i32 4737, i32 4746, i32 4737, i32 4737, i32 4737, i32 4754], align 4
 @switch.table.ir_emit_mul_div_mod.73 = private unnamed_addr constant [7 x i32] [i32 15159, i32 15162, i32 15157, i32 15162, i32 15162, i32 15162, i32 15156], align 4
-@switch.table.ir_match_insn = private unnamed_addr constant [8 x i32] [i32 116, i32 117, i32 116, i32 117, i32 116, i32 116, i32 116, i32 117], align 4
+@switch.table.ir_match_insn = private unnamed_addr constant [8 x i32] [i32 116, i32 117, i32 116, i32 117, i32 poison, i32 poison, i32 116, i32 117], align 4
 @switch.table.ir_parallel_copy.78 = private unnamed_addr constant [7 x i32] [i32 2156, i32 2148, i32 2157, i32 2148, i32 2148, i32 2148, i32 2165], align 4
 @switch.table.ir_emit_dessa_move = private unnamed_addr constant [7 x i32] [i32 2131, i32 2123, i32 2132, i32 2123, i32 2123, i32 2123, i32 2140], align 4
 

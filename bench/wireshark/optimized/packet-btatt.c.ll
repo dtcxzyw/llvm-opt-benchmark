@@ -9342,7 +9342,7 @@ switch.hole_check:                                ; preds = %283
 switch.lookup:                                    ; preds = %switch.hole_check
   %289 = shl nuw nsw i8 %switch.tableidx, 3
   %switch.shiftamt = zext nneg i8 %289 to i56
-  %switch.downshift = lshr i56 4236474355223817, %switch.shiftamt
+  %switch.downshift = lshr i56 4222180485955593, %switch.shiftamt
   %switch.masked = trunc i56 %switch.downshift to i8
   br label %is_readable_response.exit5555.thread
 
@@ -9565,7 +9565,7 @@ switch.hole_check9053:                            ; preds = %329
 switch.lookup9054:                                ; preds = %switch.hole_check9053
   %335 = shl nuw nsw i8 %switch.tableidx9052, 3
   %switch.shiftamt9058 = zext nneg i8 %335 to i56
-  %switch.downshift9059 = lshr i56 4236474355223817, %switch.shiftamt9058
+  %switch.downshift9059 = lshr i56 4222180485955593, %switch.shiftamt9058
   %switch.masked9060 = trunc i56 %switch.downshift9059 to i8
   br label %is_readable_response.exit5565.thread
 
@@ -9936,7 +9936,7 @@ switch.hole_check9063:                            ; preds = %480
 switch.lookup9064:                                ; preds = %switch.hole_check9063
   %486 = shl nuw nsw i8 %switch.tableidx9062, 3
   %switch.shiftamt9068 = zext nneg i8 %486 to i56
-  %switch.downshift9069 = lshr i56 4236474355223817, %switch.shiftamt9068
+  %switch.downshift9069 = lshr i56 4222180485955593, %switch.shiftamt9068
   %switch.masked9070 = trunc i56 %switch.downshift9069 to i8
   br label %is_readable_response.exit5598.thread
 
@@ -10105,7 +10105,7 @@ switch.hole_check9073:                            ; preds = %557
 switch.lookup9074:                                ; preds = %switch.hole_check9073
   %563 = shl nuw nsw i8 %switch.tableidx9072, 3
   %switch.shiftamt9078 = zext nneg i8 %563 to i56
-  %switch.downshift9079 = lshr i56 4236474355223817, %switch.shiftamt9078
+  %switch.downshift9079 = lshr i56 4222180485955593, %switch.shiftamt9078
   %switch.masked9080 = trunc i56 %switch.downshift9079 to i8
   br label %is_readable_response.exit5612.thread
 
@@ -10287,7 +10287,7 @@ switch.hole_check9083:                            ; preds = %622
 switch.lookup9084:                                ; preds = %switch.hole_check9083
   %627 = shl nuw nsw i8 %switch.tableidx9082, 3
   %switch.shiftamt9088 = zext nneg i8 %627 to i56
-  %switch.downshift9089 = lshr i56 4236474355223817, %switch.shiftamt9088
+  %switch.downshift9089 = lshr i56 4222180485955593, %switch.shiftamt9088
   %switch.masked9090 = trunc i56 %switch.downshift9089 to i8
   br label %is_readable_response.exit5623.thread
 
@@ -10487,7 +10487,7 @@ switch.hole_check9093:                            ; preds = %692
 switch.lookup9094:                                ; preds = %switch.hole_check9093
   %697 = shl nuw nsw i8 %switch.tableidx9092, 3
   %switch.shiftamt9098 = zext nneg i8 %697 to i56
-  %switch.downshift9099 = lshr i56 4236474355223817, %switch.shiftamt9098
+  %switch.downshift9099 = lshr i56 4222180485955593, %switch.shiftamt9098
   %switch.masked9100 = trunc i56 %switch.downshift9099 to i8
   br label %is_readable_response.exit5639.thread
 
@@ -10750,7 +10750,7 @@ switch.hole_check9103:                            ; preds = %773
 switch.lookup9104:                                ; preds = %switch.hole_check9103
   %778 = shl nuw nsw i8 %switch.tableidx9102, 3
   %switch.shiftamt9108 = zext nneg i8 %778 to i56
-  %switch.downshift9109 = lshr i56 4236474355223817, %switch.shiftamt9108
+  %switch.downshift9109 = lshr i56 4222180485955593, %switch.shiftamt9108
   %switch.masked9110 = trunc i56 %switch.downshift9109 to i8
   br label %is_readable_response.exit5666.thread
 
@@ -13225,7 +13225,7 @@ switch.hole_check9113:                            ; preds = %1699
 switch.lookup9114:                                ; preds = %switch.hole_check9113
   %1705 = shl nuw nsw i8 %switch.tableidx9112, 3
   %switch.shiftamt9118 = zext nneg i8 %1705 to i56
-  %switch.downshift9119 = lshr i56 4236474355223817, %switch.shiftamt9118
+  %switch.downshift9119 = lshr i56 4222180485955593, %switch.shiftamt9118
   %switch.masked9120 = trunc i56 %switch.downshift9119 to i8
   br label %is_readable_response.exit5880.thread
 
@@ -16183,7 +16183,7 @@ switch.hole_check9123:                            ; preds = %2879
 switch.lookup9124:                                ; preds = %switch.hole_check9123
   %2884 = shl nuw nsw i8 %switch.tableidx9122, 3
   %switch.shiftamt9128 = zext nneg i8 %2884 to i56
-  %switch.downshift9129 = lshr i56 4236474355223817, %switch.shiftamt9128
+  %switch.downshift9129 = lshr i56 4222180485955593, %switch.shiftamt9128
   %switch.masked9130 = trunc i56 %switch.downshift9129 to i8
   br label %is_readable_response.exit6081.thread
 
@@ -16246,7 +16246,7 @@ switch.hole_check9133:                            ; preds = %2896
 switch.lookup9134:                                ; preds = %switch.hole_check9133
   %2901 = shl nuw nsw i8 %switch.tableidx9132, 3
   %switch.shiftamt9138 = zext nneg i8 %2901 to i56
-  %switch.downshift9139 = lshr i56 4236474355223817, %switch.shiftamt9138
+  %switch.downshift9139 = lshr i56 4222180485955593, %switch.shiftamt9138
   %switch.masked9140 = trunc i56 %switch.downshift9139 to i8
   br label %is_readable_response.exit6086.thread
 
@@ -16309,7 +16309,7 @@ switch.hole_check9143:                            ; preds = %2913
 switch.lookup9144:                                ; preds = %switch.hole_check9143
   %2918 = shl nuw nsw i8 %switch.tableidx9142, 3
   %switch.shiftamt9148 = zext nneg i8 %2918 to i56
-  %switch.downshift9149 = lshr i56 4236474355223817, %switch.shiftamt9148
+  %switch.downshift9149 = lshr i56 4222180485955593, %switch.shiftamt9148
   %switch.masked9150 = trunc i56 %switch.downshift9149 to i8
   br label %is_readable_response.exit6091.thread
 
@@ -16372,7 +16372,7 @@ switch.hole_check9153:                            ; preds = %2930
 switch.lookup9154:                                ; preds = %switch.hole_check9153
   %2935 = shl nuw nsw i8 %switch.tableidx9152, 3
   %switch.shiftamt9158 = zext nneg i8 %2935 to i56
-  %switch.downshift9159 = lshr i56 4236474355223817, %switch.shiftamt9158
+  %switch.downshift9159 = lshr i56 4222180485955593, %switch.shiftamt9158
   %switch.masked9160 = trunc i56 %switch.downshift9159 to i8
   br label %is_readable_response.exit6096.thread
 
@@ -16435,7 +16435,7 @@ switch.hole_check9163:                            ; preds = %2947
 switch.lookup9164:                                ; preds = %switch.hole_check9163
   %2952 = shl nuw nsw i8 %switch.tableidx9162, 3
   %switch.shiftamt9168 = zext nneg i8 %2952 to i56
-  %switch.downshift9169 = lshr i56 4236474355223817, %switch.shiftamt9168
+  %switch.downshift9169 = lshr i56 4222180485955593, %switch.shiftamt9168
   %switch.masked9170 = trunc i56 %switch.downshift9169 to i8
   br label %is_readable_response.exit6101.thread
 
@@ -16498,7 +16498,7 @@ switch.hole_check9173:                            ; preds = %2964
 switch.lookup9174:                                ; preds = %switch.hole_check9173
   %2969 = shl nuw nsw i8 %switch.tableidx9172, 3
   %switch.shiftamt9178 = zext nneg i8 %2969 to i56
-  %switch.downshift9179 = lshr i56 4236474355223817, %switch.shiftamt9178
+  %switch.downshift9179 = lshr i56 4222180485955593, %switch.shiftamt9178
   %switch.masked9180 = trunc i56 %switch.downshift9179 to i8
   br label %is_readable_response.exit6106.thread
 
@@ -16561,7 +16561,7 @@ switch.hole_check9183:                            ; preds = %2981
 switch.lookup9184:                                ; preds = %switch.hole_check9183
   %2986 = shl nuw nsw i8 %switch.tableidx9182, 3
   %switch.shiftamt9188 = zext nneg i8 %2986 to i56
-  %switch.downshift9189 = lshr i56 4236474355223817, %switch.shiftamt9188
+  %switch.downshift9189 = lshr i56 4222180485955593, %switch.shiftamt9188
   %switch.masked9190 = trunc i56 %switch.downshift9189 to i8
   br label %is_readable_response.exit6111.thread
 
@@ -16630,7 +16630,7 @@ switch.hole_check9193:                            ; preds = %3004
 switch.lookup9194:                                ; preds = %switch.hole_check9193
   %3009 = shl nuw nsw i8 %switch.tableidx9192, 3
   %switch.shiftamt9198 = zext nneg i8 %3009 to i56
-  %switch.downshift9199 = lshr i56 4236474355223817, %switch.shiftamt9198
+  %switch.downshift9199 = lshr i56 4222180485955593, %switch.shiftamt9198
   %switch.masked9200 = trunc i56 %switch.downshift9199 to i8
   br label %is_readable_response.exit6116.thread
 
@@ -16695,7 +16695,7 @@ switch.hole_check9203:                            ; preds = %3023
 switch.lookup9204:                                ; preds = %switch.hole_check9203
   %3028 = shl nuw nsw i8 %switch.tableidx9202, 3
   %switch.shiftamt9208 = zext nneg i8 %3028 to i56
-  %switch.downshift9209 = lshr i56 4236474355223817, %switch.shiftamt9208
+  %switch.downshift9209 = lshr i56 4222180485955593, %switch.shiftamt9208
   %switch.masked9210 = trunc i56 %switch.downshift9209 to i8
   br label %is_readable_response.exit6121.thread
 
@@ -16758,7 +16758,7 @@ switch.hole_check9213:                            ; preds = %3040
 switch.lookup9214:                                ; preds = %switch.hole_check9213
   %3045 = shl nuw nsw i8 %switch.tableidx9212, 3
   %switch.shiftamt9218 = zext nneg i8 %3045 to i56
-  %switch.downshift9219 = lshr i56 4236474355223817, %switch.shiftamt9218
+  %switch.downshift9219 = lshr i56 4222180485955593, %switch.shiftamt9218
   %switch.masked9220 = trunc i56 %switch.downshift9219 to i8
   br label %is_readable_response.exit6126.thread
 
@@ -16821,7 +16821,7 @@ switch.hole_check9223:                            ; preds = %3057
 switch.lookup9224:                                ; preds = %switch.hole_check9223
   %3062 = shl nuw nsw i8 %switch.tableidx9222, 3
   %switch.shiftamt9228 = zext nneg i8 %3062 to i56
-  %switch.downshift9229 = lshr i56 4236474355223817, %switch.shiftamt9228
+  %switch.downshift9229 = lshr i56 4222180485955593, %switch.shiftamt9228
   %switch.masked9230 = trunc i56 %switch.downshift9229 to i8
   br label %is_readable_response.exit6131.thread
 
@@ -16886,7 +16886,7 @@ switch.hole_check9233:                            ; preds = %3076
 switch.lookup9234:                                ; preds = %switch.hole_check9233
   %3081 = shl nuw nsw i8 %switch.tableidx9232, 3
   %switch.shiftamt9238 = zext nneg i8 %3081 to i56
-  %switch.downshift9239 = lshr i56 4236474355223817, %switch.shiftamt9238
+  %switch.downshift9239 = lshr i56 4222180485955593, %switch.shiftamt9238
   %switch.masked9240 = trunc i56 %switch.downshift9239 to i8
   br label %is_readable_response.exit6136.thread
 
@@ -16958,7 +16958,7 @@ switch.hole_check9243:                            ; preds = %3102
 switch.lookup9244:                                ; preds = %switch.hole_check9243
   %3107 = shl nuw nsw i8 %switch.tableidx9242, 3
   %switch.shiftamt9248 = zext nneg i8 %3107 to i56
-  %switch.downshift9249 = lshr i56 4236474355223817, %switch.shiftamt9248
+  %switch.downshift9249 = lshr i56 4222180485955593, %switch.shiftamt9248
   %switch.masked9250 = trunc i56 %switch.downshift9249 to i8
   br label %is_readable_response.exit6141.thread
 
@@ -17021,7 +17021,7 @@ switch.hole_check9253:                            ; preds = %3119
 switch.lookup9254:                                ; preds = %switch.hole_check9253
   %3124 = shl nuw nsw i8 %switch.tableidx9252, 3
   %switch.shiftamt9258 = zext nneg i8 %3124 to i56
-  %switch.downshift9259 = lshr i56 4236474355223817, %switch.shiftamt9258
+  %switch.downshift9259 = lshr i56 4222180485955593, %switch.shiftamt9258
   %switch.masked9260 = trunc i56 %switch.downshift9259 to i8
   br label %is_readable_response.exit6146.thread
 
@@ -17084,7 +17084,7 @@ switch.hole_check9263:                            ; preds = %3136
 switch.lookup9264:                                ; preds = %switch.hole_check9263
   %3141 = shl nuw nsw i8 %switch.tableidx9262, 3
   %switch.shiftamt9268 = zext nneg i8 %3141 to i56
-  %switch.downshift9269 = lshr i56 4236474355223817, %switch.shiftamt9268
+  %switch.downshift9269 = lshr i56 4222180485955593, %switch.shiftamt9268
   %switch.masked9270 = trunc i56 %switch.downshift9269 to i8
   br label %is_readable_response.exit6151.thread
 
@@ -17147,7 +17147,7 @@ switch.hole_check9273:                            ; preds = %3153
 switch.lookup9274:                                ; preds = %switch.hole_check9273
   %3158 = shl nuw nsw i8 %switch.tableidx9272, 3
   %switch.shiftamt9278 = zext nneg i8 %3158 to i56
-  %switch.downshift9279 = lshr i56 4236474355223817, %switch.shiftamt9278
+  %switch.downshift9279 = lshr i56 4222180485955593, %switch.shiftamt9278
   %switch.masked9280 = trunc i56 %switch.downshift9279 to i8
   br label %is_readable_response.exit6156.thread
 
@@ -17210,7 +17210,7 @@ switch.hole_check9283:                            ; preds = %3170
 switch.lookup9284:                                ; preds = %switch.hole_check9283
   %3175 = shl nuw nsw i8 %switch.tableidx9282, 3
   %switch.shiftamt9288 = zext nneg i8 %3175 to i56
-  %switch.downshift9289 = lshr i56 4236474355223817, %switch.shiftamt9288
+  %switch.downshift9289 = lshr i56 4222180485955593, %switch.shiftamt9288
   %switch.masked9290 = trunc i56 %switch.downshift9289 to i8
   br label %is_readable_response.exit6161.thread
 
@@ -17275,7 +17275,7 @@ switch.hole_check9293:                            ; preds = %3189
 switch.lookup9294:                                ; preds = %switch.hole_check9293
   %3194 = shl nuw nsw i8 %switch.tableidx9292, 3
   %switch.shiftamt9298 = zext nneg i8 %3194 to i56
-  %switch.downshift9299 = lshr i56 4236474355223817, %switch.shiftamt9298
+  %switch.downshift9299 = lshr i56 4222180485955593, %switch.shiftamt9298
   %switch.masked9300 = trunc i56 %switch.downshift9299 to i8
   br label %is_readable_response.exit6166.thread
 
@@ -17338,7 +17338,7 @@ switch.hole_check9303:                            ; preds = %3206
 switch.lookup9304:                                ; preds = %switch.hole_check9303
   %3211 = shl nuw nsw i8 %switch.tableidx9302, 3
   %switch.shiftamt9308 = zext nneg i8 %3211 to i56
-  %switch.downshift9309 = lshr i56 4236474355223817, %switch.shiftamt9308
+  %switch.downshift9309 = lshr i56 4222180485955593, %switch.shiftamt9308
   %switch.masked9310 = trunc i56 %switch.downshift9309 to i8
   br label %is_readable_response.exit6171.thread
 
@@ -17401,7 +17401,7 @@ switch.hole_check9313:                            ; preds = %3223
 switch.lookup9314:                                ; preds = %switch.hole_check9313
   %3228 = shl nuw nsw i8 %switch.tableidx9312, 3
   %switch.shiftamt9318 = zext nneg i8 %3228 to i56
-  %switch.downshift9319 = lshr i56 4236474355223817, %switch.shiftamt9318
+  %switch.downshift9319 = lshr i56 4222180485955593, %switch.shiftamt9318
   %switch.masked9320 = trunc i56 %switch.downshift9319 to i8
   br label %is_readable_response.exit6176.thread
 
@@ -17464,7 +17464,7 @@ switch.hole_check9323:                            ; preds = %3240
 switch.lookup9324:                                ; preds = %switch.hole_check9323
   %3245 = shl nuw nsw i8 %switch.tableidx9322, 3
   %switch.shiftamt9328 = zext nneg i8 %3245 to i56
-  %switch.downshift9329 = lshr i56 4236474355223817, %switch.shiftamt9328
+  %switch.downshift9329 = lshr i56 4222180485955593, %switch.shiftamt9328
   %switch.masked9330 = trunc i56 %switch.downshift9329 to i8
   br label %is_readable_response.exit6181.thread
 
@@ -17530,7 +17530,7 @@ switch.hole_check9333:                            ; preds = %3260
 switch.lookup9334:                                ; preds = %switch.hole_check9333
   %3265 = shl nuw nsw i8 %switch.tableidx9332, 3
   %switch.shiftamt9338 = zext nneg i8 %3265 to i56
-  %switch.downshift9339 = lshr i56 4236474355223817, %switch.shiftamt9338
+  %switch.downshift9339 = lshr i56 4222180485955593, %switch.shiftamt9338
   %switch.masked9340 = trunc i56 %switch.downshift9339 to i8
   br label %is_readable_response.exit6186.thread
 
@@ -17593,7 +17593,7 @@ switch.hole_check9343:                            ; preds = %3277
 switch.lookup9344:                                ; preds = %switch.hole_check9343
   %3282 = shl nuw nsw i8 %switch.tableidx9342, 3
   %switch.shiftamt9348 = zext nneg i8 %3282 to i56
-  %switch.downshift9349 = lshr i56 4236474355223817, %switch.shiftamt9348
+  %switch.downshift9349 = lshr i56 4222180485955593, %switch.shiftamt9348
   %switch.masked9350 = trunc i56 %switch.downshift9349 to i8
   br label %is_readable_response.exit6191.thread
 
@@ -17656,7 +17656,7 @@ switch.hole_check9353:                            ; preds = %3294
 switch.lookup9354:                                ; preds = %switch.hole_check9353
   %3299 = shl nuw nsw i8 %switch.tableidx9352, 3
   %switch.shiftamt9358 = zext nneg i8 %3299 to i56
-  %switch.downshift9359 = lshr i56 4236474355223817, %switch.shiftamt9358
+  %switch.downshift9359 = lshr i56 4222180485955593, %switch.shiftamt9358
   %switch.masked9360 = trunc i56 %switch.downshift9359 to i8
   br label %is_readable_response.exit6196.thread
 
@@ -17719,7 +17719,7 @@ switch.hole_check9363:                            ; preds = %3311
 switch.lookup9364:                                ; preds = %switch.hole_check9363
   %3316 = shl nuw nsw i8 %switch.tableidx9362, 3
   %switch.shiftamt9368 = zext nneg i8 %3316 to i56
-  %switch.downshift9369 = lshr i56 4236474355223817, %switch.shiftamt9368
+  %switch.downshift9369 = lshr i56 4222180485955593, %switch.shiftamt9368
   %switch.masked9370 = trunc i56 %switch.downshift9369 to i8
   br label %is_readable_response.exit6201.thread
 
@@ -18389,7 +18389,7 @@ switch.hole_check9373:                            ; preds = %3572
 switch.lookup9374:                                ; preds = %switch.hole_check9373
   %3577 = shl nuw nsw i8 %switch.tableidx9372, 3
   %switch.shiftamt9378 = zext nneg i8 %3577 to i56
-  %switch.downshift9379 = lshr i56 4236474355223817, %switch.shiftamt9378
+  %switch.downshift9379 = lshr i56 4222180485955593, %switch.shiftamt9378
   %switch.masked9380 = trunc i56 %switch.downshift9379 to i8
   br label %is_readable_response.exit6240.thread
 
@@ -18884,7 +18884,7 @@ switch.hole_check9383:                            ; preds = %3779
 switch.lookup9384:                                ; preds = %switch.hole_check9383
   %3784 = shl nuw nsw i8 %switch.tableidx9382, 3
   %switch.shiftamt9388 = zext nneg i8 %3784 to i56
-  %switch.downshift9389 = lshr i56 4236474355223817, %switch.shiftamt9388
+  %switch.downshift9389 = lshr i56 4222180485955593, %switch.shiftamt9388
   %switch.masked9390 = trunc i56 %switch.downshift9389 to i8
   br label %is_readable_response.exit6276.thread
 
@@ -18960,7 +18960,7 @@ switch.hole_check9393:                            ; preds = %3807
 switch.lookup9394:                                ; preds = %switch.hole_check9393
   %3812 = shl nuw nsw i8 %switch.tableidx9392, 3
   %switch.shiftamt9398 = zext nneg i8 %3812 to i56
-  %switch.downshift9399 = lshr i56 4236474355223817, %switch.shiftamt9398
+  %switch.downshift9399 = lshr i56 4222180485955593, %switch.shiftamt9398
   %switch.masked9400 = trunc i56 %switch.downshift9399 to i8
   br label %is_readable_response.exit6281.thread
 
@@ -19761,7 +19761,7 @@ switch.hole_check9403:                            ; preds = %4082
 switch.lookup9404:                                ; preds = %switch.hole_check9403
   %4087 = shl nuw nsw i8 %switch.tableidx9402, 3
   %switch.shiftamt9408 = zext nneg i8 %4087 to i56
-  %switch.downshift9409 = lshr i56 4236474355223817, %switch.shiftamt9408
+  %switch.downshift9409 = lshr i56 4222180485955593, %switch.shiftamt9408
   %switch.masked9410 = trunc i56 %switch.downshift9409 to i8
   br label %is_readable_response.exit6337.thread
 
@@ -19868,7 +19868,7 @@ switch.hole_check9413:                            ; preds = %4121
 switch.lookup9414:                                ; preds = %switch.hole_check9413
   %4126 = shl nuw nsw i8 %switch.tableidx9412, 3
   %switch.shiftamt9418 = zext nneg i8 %4126 to i56
-  %switch.downshift9419 = lshr i56 4236474355223817, %switch.shiftamt9418
+  %switch.downshift9419 = lshr i56 4222180485955593, %switch.shiftamt9418
   %switch.masked9420 = trunc i56 %switch.downshift9419 to i8
   br label %is_readable_response.exit6345.thread
 
@@ -20114,7 +20114,7 @@ switch.hole_check9423:                            ; preds = %4204
 switch.lookup9424:                                ; preds = %switch.hole_check9423
   %4209 = shl nuw nsw i8 %switch.tableidx9422, 3
   %switch.shiftamt9428 = zext nneg i8 %4209 to i56
-  %switch.downshift9429 = lshr i56 4236474355223817, %switch.shiftamt9428
+  %switch.downshift9429 = lshr i56 4222180485955593, %switch.shiftamt9428
   %switch.masked9430 = trunc i56 %switch.downshift9429 to i8
   br label %is_readable_response.exit6366.thread
 
@@ -20262,7 +20262,7 @@ switch.hole_check9433:                            ; preds = %4246
 switch.lookup9434:                                ; preds = %switch.hole_check9433
   %4251 = shl nuw nsw i8 %switch.tableidx9432, 3
   %switch.shiftamt9438 = zext nneg i8 %4251 to i56
-  %switch.downshift9439 = lshr i56 4236474355223817, %switch.shiftamt9438
+  %switch.downshift9439 = lshr i56 4222180485955593, %switch.shiftamt9438
   %switch.masked9440 = trunc i56 %switch.downshift9439 to i8
   br label %is_readable_response.exit6381.thread
 
@@ -20329,7 +20329,7 @@ switch.hole_check9443:                            ; preds = %4266
 switch.lookup9444:                                ; preds = %switch.hole_check9443
   %4271 = shl nuw nsw i8 %switch.tableidx9442, 3
   %switch.shiftamt9448 = zext nneg i8 %4271 to i56
-  %switch.downshift9449 = lshr i56 4236474355223817, %switch.shiftamt9448
+  %switch.downshift9449 = lshr i56 4222180485955593, %switch.shiftamt9448
   %switch.masked9450 = trunc i56 %switch.downshift9449 to i8
   br label %is_readable_response.exit6386.thread
 
@@ -20437,7 +20437,7 @@ switch.hole_check9453:                            ; preds = %4297
 switch.lookup9454:                                ; preds = %switch.hole_check9453
   %4302 = shl nuw nsw i8 %switch.tableidx9452, 3
   %switch.shiftamt9458 = zext nneg i8 %4302 to i56
-  %switch.downshift9459 = lshr i56 4236474355223817, %switch.shiftamt9458
+  %switch.downshift9459 = lshr i56 4222180485955593, %switch.shiftamt9458
   %switch.masked9460 = trunc i56 %switch.downshift9459 to i8
   br label %is_readable_response.exit6396.thread
 
@@ -20682,7 +20682,7 @@ switch.hole_check9463:                            ; preds = %4403
 switch.lookup9464:                                ; preds = %switch.hole_check9463
   %4408 = shl nuw nsw i8 %switch.tableidx9462, 3
   %switch.shiftamt9468 = zext nneg i8 %4408 to i56
-  %switch.downshift9469 = lshr i56 4236474355223817, %switch.shiftamt9468
+  %switch.downshift9469 = lshr i56 4222180485955593, %switch.shiftamt9468
   %switch.masked9470 = trunc i56 %switch.downshift9469 to i8
   br label %is_readable_response.exit6407.thread
 

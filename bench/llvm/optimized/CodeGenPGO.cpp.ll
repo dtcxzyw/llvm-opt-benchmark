@@ -308,7 +308,7 @@ $_ZGVZNK5clang24TemplateTemplateParmDecl18getDefaultArgumentEvE7NoneLoc = comdat
 @_ZZNK5clang24TemplateTemplateParmDecl18getDefaultArgumentEvE7NoneLoc = linkonce_odr global %"class.clang::TemplateArgumentLoc" zeroinitializer, comdat, align 8
 @_ZGVZNK5clang24TemplateTemplateParmDecl18getDefaultArgumentEvE7NoneLoc = linkonce_odr global i64 0, comdat, align 8
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_CodeGenPGO.cpp, ptr null }]
-@switch.table._ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE = private unnamed_addr constant [11 x i8] c"\1B\1C\1D\1E\1F \0E\0E\0E\0E\0F", align 1
+@switch.table._ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE = private unnamed_addr constant [11 x i8] [i8 27, i8 28, i8 29, i8 30, i8 31, i8 32, i8 poison, i8 poison, i8 poison, i8 14, i8 15], align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEED2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #0 comdat align 2 {

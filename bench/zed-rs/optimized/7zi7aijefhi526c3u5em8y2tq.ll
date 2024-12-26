@@ -194,8 +194,8 @@ target triple = "x86_64-unknown-linux-gnu"
 @__rust_no_alloc_shim_is_unstable = external global i8
 @anon.311cef96afb9f49807ae4777134cf68c.71.llvm.9703273269600088984 = external hidden unnamed_addr constant <{ ptr, [16 x i8] }>, align 8
 @anon.311cef96afb9f49807ae4777134cf68c.72.llvm.9703273269600088984 = external hidden unnamed_addr constant <{ [4 x i8] }>, align 1
-@switch.table._ZN6search13SearchOptions9as_button17he0f18cc2334b3b98E.68 = private unnamed_addr constant [8 x i64] [i64 17, i64 22, i64 17, i64 42, i64 17, i64 17, i64 17, i64 23], align 8
-@switch.table._ZN6search13SearchOptions9as_button17he0f18cc2334b3b98E.69 = private unnamed_addr constant [8 x ptr] [ptr @anon.cfae85451d85cf72f2eced67e2a83e68.176.llvm.1856919498638270738, ptr @anon.cfae85451d85cf72f2eced67e2a83e68.177.llvm.1856919498638270738, ptr @anon.cfae85451d85cf72f2eced67e2a83e68.176.llvm.1856919498638270738, ptr @anon.cfae85451d85cf72f2eced67e2a83e68.178.llvm.1856919498638270738, ptr @anon.cfae85451d85cf72f2eced67e2a83e68.176.llvm.1856919498638270738, ptr @anon.cfae85451d85cf72f2eced67e2a83e68.176.llvm.1856919498638270738, ptr @anon.cfae85451d85cf72f2eced67e2a83e68.176.llvm.1856919498638270738, ptr @anon.cfae85451d85cf72f2eced67e2a83e68.179.llvm.1856919498638270738], align 8
+@switch.table._ZN6search13SearchOptions9as_button17he0f18cc2334b3b98E.68 = private unnamed_addr constant [8 x i64] [i64 17, i64 22, i64 poison, i64 42, i64 poison, i64 poison, i64 poison, i64 23], align 8
+@switch.table._ZN6search13SearchOptions9as_button17he0f18cc2334b3b98E.69 = private unnamed_addr constant [8 x ptr] [ptr @anon.cfae85451d85cf72f2eced67e2a83e68.176.llvm.1856919498638270738, ptr @anon.cfae85451d85cf72f2eced67e2a83e68.177.llvm.1856919498638270738, ptr poison, ptr @anon.cfae85451d85cf72f2eced67e2a83e68.178.llvm.1856919498638270738, ptr poison, ptr poison, ptr poison, ptr @anon.cfae85451d85cf72f2eced67e2a83e68.179.llvm.1856919498638270738], align 8
 
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
 define hidden void @"_ZN110_$LT$hashbrown..raw..inner..alloc..inner..Global$u20$as$u20$hashbrown..raw..inner..alloc..inner..Allocator$GT$10deallocate17heace5a6aa29ad9fdE.llvm.3518678287117667287"(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noundef nonnull %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 {
@@ -24960,7 +24960,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 31:                                               ; preds = %switch.lookup
   %32 = shl nuw nsw i8 %switch.tableidx, 3
   %switch.shiftamt = zext nneg i8 %32 to i64
-  %switch.downshift = lshr i64 8188568470257081251, %switch.shiftamt
+  %switch.downshift = lshr i64 8142508128567565219, %switch.shiftamt
   %switch.masked = trunc i64 %switch.downshift to i8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(872) %18, ptr noundef nonnull align 8 dereferenceable(872) %15, i64 872, i1 false)
   %33 = getelementptr inbounds nuw i8, ptr %18, i64 892
@@ -25185,7 +25185,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 31:                                               ; preds = %switch.lookup
   %32 = shl nuw nsw i8 %switch.tableidx, 3
   %switch.shiftamt = zext nneg i8 %32 to i64
-  %switch.downshift = lshr i64 8188568470257081251, %switch.shiftamt
+  %switch.downshift = lshr i64 8142508128567565219, %switch.shiftamt
   %switch.masked = trunc i64 %switch.downshift to i8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(872) %18, ptr noundef nonnull align 8 dereferenceable(872) %15, i64 872, i1 false)
   %33 = getelementptr inbounds nuw i8, ptr %18, i64 892
@@ -25410,7 +25410,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 31:                                               ; preds = %switch.lookup
   %32 = shl nuw nsw i8 %switch.tableidx, 3
   %switch.shiftamt = zext nneg i8 %32 to i64
-  %switch.downshift = lshr i64 8188568470257081251, %switch.shiftamt
+  %switch.downshift = lshr i64 8142508128567565219, %switch.shiftamt
   %switch.masked = trunc i64 %switch.downshift to i8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(872) %18, ptr noundef nonnull align 8 dereferenceable(872) %15, i64 872, i1 false)
   %33 = getelementptr inbounds nuw i8, ptr %18, i64 892
@@ -25635,7 +25635,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 31:                                               ; preds = %switch.lookup
   %32 = shl nuw nsw i8 %switch.tableidx, 3
   %switch.shiftamt = zext nneg i8 %32 to i64
-  %switch.downshift = lshr i64 8188568470257081251, %switch.shiftamt
+  %switch.downshift = lshr i64 8142508128567565219, %switch.shiftamt
   %switch.masked = trunc i64 %switch.downshift to i8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(872) %18, ptr noundef nonnull align 8 dereferenceable(872) %15, i64 872, i1 false)
   %33 = getelementptr inbounds nuw i8, ptr %18, i64 892
@@ -25860,7 +25860,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 31:                                               ; preds = %switch.lookup
   %32 = shl nuw nsw i8 %switch.tableidx, 3
   %switch.shiftamt = zext nneg i8 %32 to i64
-  %switch.downshift = lshr i64 8188568470257081251, %switch.shiftamt
+  %switch.downshift = lshr i64 8142508128567565219, %switch.shiftamt
   %switch.masked = trunc i64 %switch.downshift to i8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(872) %18, ptr noundef nonnull align 8 dereferenceable(872) %15, i64 872, i1 false)
   %33 = getelementptr inbounds nuw i8, ptr %18, i64 892
@@ -26085,7 +26085,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 31:                                               ; preds = %switch.lookup
   %32 = shl nuw nsw i8 %switch.tableidx, 3
   %switch.shiftamt = zext nneg i8 %32 to i64
-  %switch.downshift = lshr i64 8188568470257081251, %switch.shiftamt
+  %switch.downshift = lshr i64 8142508128567565219, %switch.shiftamt
   %switch.masked = trunc i64 %switch.downshift to i8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(872) %18, ptr noundef nonnull align 8 dereferenceable(872) %15, i64 872, i1 false)
   %33 = getelementptr inbounds nuw i8, ptr %18, i64 892
@@ -26310,7 +26310,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 31:                                               ; preds = %switch.lookup
   %32 = shl nuw nsw i8 %switch.tableidx, 3
   %switch.shiftamt = zext nneg i8 %32 to i64
-  %switch.downshift = lshr i64 8188568470257081251, %switch.shiftamt
+  %switch.downshift = lshr i64 8142508128567565219, %switch.shiftamt
   %switch.masked = trunc i64 %switch.downshift to i8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(872) %18, ptr noundef nonnull align 8 dereferenceable(872) %15, i64 872, i1 false)
   %33 = getelementptr inbounds nuw i8, ptr %18, i64 892

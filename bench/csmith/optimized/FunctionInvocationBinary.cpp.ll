@@ -59,7 +59,7 @@ $_ZNK24FunctionInvocationBinary15safe_invocationEv = comdat any
 @.str.24 = private unnamed_addr constant [3 x i8] c"<<\00", align 1
 @.str.25 = private unnamed_addr constant [3 x i8] c">>\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_FunctionInvocationBinary.cpp, ptr null }]
-@switch.table._ZN24FunctionInvocationBinary16get_binop_stringB5cxx11E10eBinaryOps = private unnamed_addr constant [16 x ptr] [ptr @.str.2, ptr @.str.3, ptr @.str.4, ptr @.str.5, ptr @.str.6, ptr @.str.2, ptr @.str.2, ptr @.str.2, ptr @.str.2, ptr @.str.2, ptr @.str.2, ptr @.str.2, ptr @.str.2, ptr @.str.8, ptr @.str.7, ptr @.str.9], align 8
+@switch.table._ZN24FunctionInvocationBinary16get_binop_stringB5cxx11E10eBinaryOps = private unnamed_addr constant [16 x ptr] [ptr @.str.2, ptr @.str.3, ptr @.str.4, ptr @.str.5, ptr @.str.6, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr @.str.8, ptr @.str.7, ptr @.str.9], align 8
 @switch.table._ZNK24FunctionInvocationBinary15indented_outputERSoi = private unnamed_addr constant [18 x ptr] [ptr @.str.2, ptr @.str.3, ptr @.str.4, ptr @.str.5, ptr @.str.6, ptr @.str.20, ptr @.str.21, ptr @.str.23, ptr @.str.22, ptr @.str.18, ptr @.str.19, ptr @.str.16, ptr @.str.17, ptr @.str.8, ptr @.str.7, ptr @.str.9, ptr @.str.25, ptr @.str.24], align 8
 
 @_ZN24FunctionInvocationBinaryC1E10eBinaryOpsPK11SafeOpFlags = dso_local unnamed_addr alias void (ptr, i32, ptr), ptr @_ZN24FunctionInvocationBinaryC2E10eBinaryOpsPK11SafeOpFlags

@@ -31,7 +31,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.19 = private unnamed_addr constant [20 x i8] c"%12d %10s %18s  %s\0A\00", align 1
 @str = private unnamed_addr constant [14 x i8] c"=============\00", align 1
 @str.1 = private unnamed_addr constant [52 x i8] c"   Frequency      Group           Protocol  Summary\00", align 1
-@switch.table.expert_stat_packet = private unnamed_addr constant [8 x i32] [i32 0, i32 1, i32 0, i32 2, i32 0, i32 3, i32 0, i32 4], align 4
+@switch.table.expert_stat_packet = private unnamed_addr constant [8 x i32] [i32 0, i32 1, i32 poison, i32 2, i32 poison, i32 3, i32 poison, i32 4], align 4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @register_tap_listener_expert_info() local_unnamed_addr #0 {

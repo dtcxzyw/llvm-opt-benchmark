@@ -2417,7 +2417,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang4Sema20CodeSynthesisContext21isIn
 switch.lookup:
   %1 = load i32, ptr %0, align 8
   %switch.cast = trunc i32 %1 to i27
-  %switch.downshift = lshr i27 16812639, %switch.cast
+  %switch.downshift = lshr i27 35423, %switch.cast
   %switch.masked = trunc i27 %switch.downshift to i1
   ret i1 %switch.masked
 }

@@ -379,7 +379,7 @@ $_ZSt19piecewise_construct = comdat any
 @_ZSt19piecewise_construct = linkonce_odr dso_local constant %"struct.std::piecewise_construct_t" zeroinitializer, comdat, align 1
 @.str.62 = private unnamed_addr constant [74 x i8] c"vector::_M_range_check: __n (which is %zu) >= this->size() (which is %zu)\00", align 1
 @.str.63 = private unnamed_addr constant [16 x i8] c"vector::reserve\00", align 1
-@switch.table._ZNK3net22QuicCryptoServerConfig19ValidateServerNonceEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_12QuicWallTimeE = private unnamed_addr constant [6 x i32] [i32 0, i32 0, i32 9, i32 10, i32 9, i32 11], align 4
+@switch.table._ZNK3net22QuicCryptoServerConfig19ValidateServerNonceEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_12QuicWallTimeE = private unnamed_addr constant [6 x i32] [i32 0, i32 poison, i32 9, i32 10, i32 9, i32 11], align 4
 
 @_ZN3net15ClientHelloInfoC1ERKNS_9IPAddressENS_12QuicWallTimeE = dso_local unnamed_addr alias void (ptr, ptr, i64), ptr @_ZN3net15ClientHelloInfoC2ERKNS_9IPAddressENS_12QuicWallTimeE
 @_ZN3net15ClientHelloInfoC1ERKS0_ = dso_local unnamed_addr alias void (ptr, ptr), ptr @_ZN3net15ClientHelloInfoC2ERKS0_

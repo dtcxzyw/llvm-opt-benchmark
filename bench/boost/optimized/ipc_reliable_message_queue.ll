@@ -503,8 +503,8 @@ $_ZTVN5boost10wrapexceptINS_3log11v2_mt_posix9bad_allocEEE = comdat any
 @_ZTVN5boost3log11v2_mt_posix9bad_allocE = external unnamed_addr constant { [5 x ptr] }, align 8
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init, ptr @_ZN5boost12interprocess13mapped_region16page_size_holderILi0EE8PageSizeE }]
 @llvm.used = appending global [1 x ptr] [ptr @_ZN5boost12interprocess13mapped_region16page_size_holderILi0EE8PageSizeE], section "llvm.metadata"
-@switch.table._ZN5boost12interprocess13mapped_regionC2INS0_20shared_memory_objectEEERKT_NS0_6mode_tElmPKvi = private unnamed_addr constant [5 x i32] [i32 1, i32 1, i32 1, i32 2, i32 2], align 4
-@switch.table._ZN5boost12interprocess13mapped_regionC2INS0_20shared_memory_objectEEERKT_NS0_6mode_tElmPKvi.1 = private unnamed_addr constant [5 x i32] [i32 1, i32 1, i32 3, i32 3, i32 1], align 4
+@switch.table._ZN5boost12interprocess13mapped_regionC2INS0_20shared_memory_objectEEERKT_NS0_6mode_tElmPKvi = private unnamed_addr constant [5 x i32] [i32 1, i32 poison, i32 1, i32 2, i32 2], align 4
+@switch.table._ZN5boost12interprocess13mapped_regionC2INS0_20shared_memory_objectEEERKT_NS0_6mode_tElmPKvi.1 = private unnamed_addr constant [5 x i32] [i32 1, i32 poison, i32 3, i32 3, i32 1], align 4
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden { i32, ptr } @_ZNK5boost6system6detail21system_error_category23default_error_conditionEi(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {

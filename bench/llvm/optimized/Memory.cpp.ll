@@ -34,7 +34,7 @@ $_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5
 @.str.1 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 @_ZTVN4llvm9ErrorListE = external unnamed_addr constant { [10 x ptr] }, align 8
 @_ZN4llvm13ErrorInfoBase2IDE = external global i8, align 1
-@switch.table._ZN4llvm3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEj = private unnamed_addr constant [7 x i32] [i32 1, i32 2, i32 3, i32 4, i32 5, i32 1, i32 7], align 4
+@switch.table._ZN4llvm3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEj = private unnamed_addr constant [7 x i32] [i32 1, i32 2, i32 3, i32 4, i32 5, i32 poison, i32 7], align 4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_code(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::sys::MemoryBlock") align 8 %0, i64 noundef %1, ptr noundef readonly %2, i32 noundef %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %4) local_unnamed_addr #0 align 2 {

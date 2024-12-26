@@ -26,7 +26,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.8 = private unnamed_addr constant [56 x i8] c"Module name here '%s' did not match actual module '%s'.\00", align 1
 @global_context = external local_unnamed_addr global %struct.GlobalContext, align 8
 @decl_arena = external global %struct.Vmem, align 8
-@switch.table.context_set_module_from_filename = private unnamed_addr constant [58 x i8] c"abcdefghijklmnopqrstuvwxyzaaaaaaabcdefghijklmnopqrstuvwxyz", align 1
+@switch.table.context_set_module_from_filename = private unnamed_addr constant [58 x i8] [i8 97, i8 98, i8 99, i8 100, i8 101, i8 102, i8 103, i8 104, i8 105, i8 106, i8 107, i8 108, i8 109, i8 110, i8 111, i8 112, i8 113, i8 114, i8 115, i8 116, i8 117, i8 118, i8 119, i8 120, i8 121, i8 122, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 97, i8 98, i8 99, i8 100, i8 101, i8 102, i8 103, i8 104, i8 105, i8 106, i8 107, i8 108, i8 109, i8 110, i8 111, i8 112, i8 113, i8 114, i8 115, i8 116, i8 117, i8 118, i8 119, i8 120, i8 121, i8 122], align 1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @unit_create(ptr noundef %0) local_unnamed_addr #0 {

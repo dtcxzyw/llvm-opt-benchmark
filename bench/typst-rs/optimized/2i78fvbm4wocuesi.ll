@@ -57218,7 +57218,7 @@ switch.hole_check:                                ; preds = %351, %361
 switch.lookup:                                    ; preds = %switch.hole_check
   %394 = shl nuw nsw i8 %spec.select135, 3
   %switch.shiftamt = zext nneg i8 %394 to i56
-  %switch.downshift = lshr i56 1695472750297344, %switch.shiftamt
+  %switch.downshift = lshr i56 1688849910726912, %switch.shiftamt
   %switch.masked = trunc i56 %switch.downshift to i8
   br label %"_ZN9hayagriva3csl16Context$LT$T$GT$9push_case17hfc6ed1518e316664E.exit"
 
@@ -57680,7 +57680,7 @@ select.unfold.i:                                  ; preds = %559, %.thread173.i
 switch.lookup516:                                 ; preds = %select.unfold.i
   %switch.cast519 = zext i8 %565 to i56
   %switch.shiftamt520 = shl nuw nsw i56 %switch.cast519, 3
-  %switch.downshift521 = lshr i56 1695472750297344, %switch.shiftamt520
+  %switch.downshift521 = lshr i56 1688849910726912, %switch.shiftamt520
   %switch.masked522 = trunc i56 %switch.downshift521 to i8
   br label %"_ZN9hayagriva3csl16Context$LT$T$GT$9push_case17hfc6ed1518e316664E.exit.i"
 
@@ -59650,7 +59650,7 @@ switch.hole_check:                                ; preds = %"_ZN9hayagriva3csl1
 switch.lookup:                                    ; preds = %switch.hole_check
   %99 = shl nuw nsw i8 %69, 3
   %switch.shiftamt = zext nneg i8 %99 to i56
-  %switch.downshift = lshr i56 1695472750297344, %switch.shiftamt
+  %switch.downshift = lshr i56 1688849910726912, %switch.shiftamt
   %switch.masked = trunc i56 %switch.downshift to i8
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17hf3f9dfb2435f9684E.llvm.16978709814855407318.exit.thread.i"
 
@@ -61788,7 +61788,7 @@ switch.hole_check:                                ; preds = %55
 switch.lookup:                                    ; preds = %switch.hole_check
   %89 = shl nuw nsw i8 %59, 3
   %switch.shiftamt = zext nneg i8 %89 to i56
-  %switch.downshift = lshr i56 1695472750297344, %switch.shiftamt
+  %switch.downshift = lshr i56 1688849910726912, %switch.shiftamt
   %switch.masked = trunc i56 %switch.downshift to i8
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17hf3f9dfb2435f9684E.llvm.16978709814855407318.exit.thread.i"
 
@@ -78677,7 +78677,7 @@ switch.hole_check:                                ; preds = %2
 switch.lookup:                                    ; preds = %switch.hole_check
   %33 = shl nuw nsw i8 %1, 3
   %switch.shiftamt = zext nneg i8 %33 to i56
-  %switch.downshift = lshr i56 1695472750297344, %switch.shiftamt
+  %switch.downshift = lshr i56 1688849910726912, %switch.shiftamt
   %switch.masked = trunc i56 %switch.downshift to i8
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17hf3f9dfb2435f9684E.llvm.16978709814855407318.exit.thread"
 
@@ -90517,7 +90517,7 @@ switch.hole_check:                                ; preds = %4
 switch.lookup:                                    ; preds = %switch.hole_check
   %44 = shl nuw nsw i8 %14, 3
   %switch.shiftamt = zext nneg i8 %44 to i56
-  %switch.downshift = lshr i56 1695472750297344, %switch.shiftamt
+  %switch.downshift = lshr i56 1688849910726912, %switch.shiftamt
   %switch.masked = trunc i56 %switch.downshift to i8
   br label %"_ZN9hayagriva3csl16Context$LT$T$GT$9push_case17hfc6ed1518e316664E.exit"
 

@@ -9564,7 +9564,7 @@ switch.hole_check:                                ; preds = %2
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %switch.cast = trunc nuw i32 %switch.tableidx to i24
-  %switch.downshift = lshr i24 -3, %switch.cast
+  %switch.downshift = lshr i24 -8388579, %switch.cast
   %switch.masked = trunc i24 %switch.downshift to i1
   br label %"_ZN15rustfmt_nightly6string22trim_end_but_line_feed28_$u7b$$u7b$closure$u7d$$u7d$17ha2700b3f3270a0b7E.llvm.5923418642108526555.exit"
 
@@ -47464,7 +47464,7 @@ switch.hole_check:                                ; preds = %2
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %switch.cast = trunc nuw i32 %switch.tableidx to i24
-  %switch.downshift = lshr i24 -3, %switch.cast
+  %switch.downshift = lshr i24 -8388579, %switch.cast
   %switch.masked = trunc i24 %switch.downshift to i1
   br label %.critedge6
 

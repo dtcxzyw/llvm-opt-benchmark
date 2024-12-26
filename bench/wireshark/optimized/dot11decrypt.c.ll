@@ -88,17 +88,17 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.Dot11DecryptTDLSDeriveKey = private unnamed_addr constant [26 x i8] c"Dot11DecryptTDLSDeriveKey\00", align 1
 @.str.53 = private unnamed_addr constant [12 x i8] c"Bad MAC len\00", align 1
 @.str.54 = private unnamed_addr constant [15 x i8] c"MAC read error\00", align 1
-@switch.table.Dot11DecryptGetKCK = private unnamed_addr constant [18 x i32] [i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 24, i32 24, i32 16, i32 16, i32 16, i32 16, i32 16], align 4
-@switch.table.Dot11DecryptGetKEK.5 = private unnamed_addr constant [18 x i32] [i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 32, i32 32, i32 16, i32 16, i32 16, i32 16, i32 16], align 4
-@switch.table.Dot11DecryptGetTK = private unnamed_addr constant [18 x i8] c"\01\02\03\04\05\06\01\08\09\01\0B\0C\0D\01\01\01\01\12", align 1
+@switch.table.Dot11DecryptGetKCK = private unnamed_addr constant [18 x i32] [i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 poison, i32 16, i32 16, i32 poison, i32 16, i32 24, i32 24, i32 poison, i32 poison, i32 poison, i32 poison, i32 16], align 4
+@switch.table.Dot11DecryptGetKEK.5 = private unnamed_addr constant [18 x i32] [i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 poison, i32 16, i32 16, i32 poison, i32 16, i32 32, i32 32, i32 poison, i32 poison, i32 poison, i32 poison, i32 16], align 4
+@switch.table.Dot11DecryptGetTK = private unnamed_addr constant [18 x i8] [i8 1, i8 2, i8 3, i8 4, i8 5, i8 6, i8 poison, i8 8, i8 9, i8 poison, i8 11, i8 12, i8 13, i8 poison, i8 poison, i8 poison, i8 poison, i8 18], align 1
 @switch.table.Dot11DecryptGetTkLen = private unnamed_addr constant [13 x i32] [i32 40, i32 256, i32 -1, i32 128, i32 104, i32 128, i32 -1, i32 128, i32 256, i32 256, i32 128, i32 256, i32 256], align 4
 @switch.table.Dot11DecryptScanEapolForKeys = private unnamed_addr constant [18 x i32] [i32 2, i32 2, i32 -1, i32 -1, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 9, i32 9, i32 -1, i32 -1, i32 -1, i32 -1, i32 8], align 4
-@switch.table.Dot11DecryptRsnaMng.11 = private unnamed_addr constant [18 x i64] [i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 32, i64 32, i64 16, i64 16, i64 16, i64 16, i64 16], align 8
+@switch.table.Dot11DecryptRsnaMng.11 = private unnamed_addr constant [18 x i64] [i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 poison, i64 16, i64 16, i64 poison, i64 16, i64 32, i64 32, i64 poison, i64 poison, i64 poison, i64 poison, i64 16], align 8
 @switch.table.Dot11DecryptRsnaMng.12 = private unnamed_addr constant [13 x i32] [i32 5, i32 32, i32 0, i32 16, i32 13, i32 16, i32 0, i32 16, i32 32, i32 32, i32 16, i32 32, i32 32], align 4
 @switch.table.Dot11DecryptRsnaMng.13 = private unnamed_addr constant [10 x i8] c"\01d\FFe\02\FF\FFghf", align 1
-@switch.table.Dot11DecryptScanFtAssocForKeys.14 = private unnamed_addr constant [18 x i64] [i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 24, i64 24, i64 16, i64 16, i64 16, i64 16, i64 16], align 8
+@switch.table.Dot11DecryptScanFtAssocForKeys.14 = private unnamed_addr constant [18 x i64] [i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 poison, i64 16, i64 16, i64 poison, i64 16, i64 24, i64 24, i64 poison, i64 poison, i64 poison, i64 poison, i64 16], align 8
 @switch.table.Dot11DecryptScanFtAssocForKeys.15 = private unnamed_addr constant [4 x i64] [i64 130, i64 136, i64 130, i64 136], align 8
-@switch.table.Dot11DecryptScanFtAssocForKeys.16 = private unnamed_addr constant [18 x i16] [i16 16, i16 16, i16 16, i16 16, i16 16, i16 16, i16 16, i16 16, i16 16, i16 16, i16 16, i16 32, i16 32, i16 16, i16 16, i16 16, i16 16, i16 16], align 2
+@switch.table.Dot11DecryptScanFtAssocForKeys.16 = private unnamed_addr constant [18 x i16] [i16 16, i16 16, i16 16, i16 16, i16 16, i16 16, i16 poison, i16 16, i16 16, i16 poison, i16 16, i16 32, i16 32, i16 poison, i16 poison, i16 poison, i16 poison, i16 16], align 2
 @switch.table.Dot11DecryptFtDerivePtk = private unnamed_addr constant [18 x i32] [i32 2, i32 2, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 9, i32 9, i32 -1, i32 -1, i32 -1, i32 -1, i32 8], align 4
 
 ; Function Attrs: nounwind uwtable

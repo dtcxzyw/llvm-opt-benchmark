@@ -203,7 +203,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.167 = private unnamed_addr constant [4 x i8] c"NaN\00", align 1
 @.str.169 = private unnamed_addr constant [3 x i8] c"0.\00", align 1
 @.str.170 = private unnamed_addr constant [7 x i8] c"e%+03d\00", align 1
-@switch.table.num_eql.2 = private unnamed_addr constant [10 x i32] [i32 19, i32 17, i32 19, i32 19, i32 19, i32 18, i32 19, i32 19, i32 19, i32 22], align 4
+@switch.table.num_eql.2 = private unnamed_addr constant [10 x i32] [i32 19, i32 17, i32 poison, i32 poison, i32 poison, i32 18, i32 poison, i32 poison, i32 poison, i32 22], align 4
 
 ; Function Attrs: cold noreturn nounwind sspstrong uwtable
 define dso_local void @rb_num_zerodiv() local_unnamed_addr #0 {

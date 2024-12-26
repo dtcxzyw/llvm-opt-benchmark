@@ -2756,7 +2756,7 @@ $_ZTIN5glTF29AnimationE = comdat any
 @.str.384 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
 @switch.table._ZN6Assimp13glTF2Importer12ImportMeshesERN5glTF25AssetE.26 = private unnamed_addr constant [7 x i32] [i32 1, i32 2, i32 2, i32 2, i32 4, i32 4, i32 4], align 4
 @switch.table._ZN9rapidjson16GetParseError_EnENS_14ParseErrorCodeE = private unnamed_addr constant [18 x ptr] [ptr @.str.229, ptr @.str.230, ptr @.str.231, ptr @.str.232, ptr @.str.233, ptr @.str.234, ptr @.str.235, ptr @.str.236, ptr @.str.237, ptr @.str.238, ptr @.str.239, ptr @.str.240, ptr @.str.241, ptr @.str.242, ptr @.str.243, ptr @.str.244, ptr @.str.245, ptr @.str.246], align 8
-@switch.table._ZN5glTF217ComponentTypeSizeENS_13ComponentTypeE = private unnamed_addr constant [7 x i32] [i32 1, i32 1, i32 2, i32 2, i32 2, i32 4, i32 4], align 4
+@switch.table._ZN5glTF217ComponentTypeSizeENS_13ComponentTypeE = private unnamed_addr constant [7 x i32] [i32 1, i32 1, i32 2, i32 2, i32 poison, i32 4, i32 4], align 4
 
 @_ZN6Assimp13glTF2ImporterC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN6Assimp13glTF2ImporterC2Ev
 

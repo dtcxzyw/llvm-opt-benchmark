@@ -2227,7 +2227,7 @@ $_ZTIN4cvc58internal23StatisticHistogramValueINS_4KindEEE = comdat any
 @.str.734 = private unnamed_addr constant [16 x i8] c"vector::reserve\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_cvc5.cpp, ptr null }]
 @switch.table._ZNK4cvc54Sort7getKindEv = private unnamed_addr constant [6 x i32] [i32 4, i32 11, i32 10, i32 13, i32 16, i32 12], align 4
-@switch.table._ZNK4cvc54Term13getKindHelperEv = private unnamed_addr constant [26 x i32] [i32 255, i32 255, i32 256, i32 257, i32 258, i32 259, i32 260, i32 255, i32 255, i32 261, i32 255, i32 262, i32 263, i32 255, i32 255, i32 265, i32 266, i32 255, i32 255, i32 255, i32 255, i32 255, i32 255, i32 255, i32 255, i32 264], align 4
+@switch.table._ZNK4cvc54Term13getKindHelperEv = private unnamed_addr constant [26 x i32] [i32 255, i32 poison, i32 256, i32 257, i32 258, i32 259, i32 260, i32 poison, i32 poison, i32 261, i32 poison, i32 262, i32 263, i32 poison, i32 poison, i32 265, i32 266, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 264], align 4
 
 @_ZN4cvc56ResultC1ERKNS_8internal6ResultE = unnamed_addr alias void (ptr, ptr), ptr @_ZN4cvc56ResultC2ERKNS_8internal6ResultE
 @_ZN4cvc56ResultC1Ev = unnamed_addr alias void (ptr), ptr @_ZN4cvc56ResultC2Ev

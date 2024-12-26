@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.wc_Sha3 = type { [25 x i64], [200 x i8], i8, ptr }
 
 @switch.table.wc_HmacSizeByType = private unnamed_addr constant [11 x i32] [i32 16, i32 20, i32 28, i32 32, i32 48, i32 64, i32 -173, i32 28, i32 32, i32 48, i32 64], align 4
-@switch.table.wc_HKDF_Expand_ex = private unnamed_addr constant [11 x i32] [i32 16, i32 20, i32 28, i32 32, i32 48, i32 64, i32 16, i32 28, i32 32, i32 48, i32 64], align 4
+@switch.table.wc_HKDF_Expand_ex = private unnamed_addr constant [11 x i32] [i32 16, i32 20, i32 28, i32 32, i32 48, i32 64, i32 poison, i32 28, i32 32, i32 48, i32 64], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define range(i32 -173, 65) i32 @wc_HmacSizeByType(i32 noundef %type) local_unnamed_addr #0 {

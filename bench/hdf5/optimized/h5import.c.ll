@@ -534,8 +534,8 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.489 = private unnamed_addr constant [49 x i8] c"Unable to get unsigned integer value from file.\0A\00", align 1
 @.str.490 = private unnamed_addr constant [4 x i8] c"%hu\00", align 1
 @.str.491 = private unnamed_addr constant [3 x i8] c"%u\00", align 1
-@switch.table.createInputDataType = private unnamed_addr constant [8 x ptr] [ptr @H5T_NATIVE_SCHAR_g, ptr @H5T_NATIVE_SHORT_g, ptr @H5T_NATIVE_SCHAR_g, ptr @H5T_NATIVE_INT_g, ptr @H5T_NATIVE_SCHAR_g, ptr @H5T_NATIVE_SCHAR_g, ptr @H5T_NATIVE_SCHAR_g, ptr @H5T_NATIVE_LLONG_g], align 8
-@switch.table.createInputDataType.2 = private unnamed_addr constant [8 x ptr] [ptr @H5T_NATIVE_UCHAR_g, ptr @H5T_NATIVE_USHORT_g, ptr @H5T_NATIVE_UCHAR_g, ptr @H5T_NATIVE_UINT_g, ptr @H5T_NATIVE_UCHAR_g, ptr @H5T_NATIVE_UCHAR_g, ptr @H5T_NATIVE_UCHAR_g, ptr @H5T_NATIVE_ULLONG_g], align 8
+@switch.table.createInputDataType = private unnamed_addr constant [8 x ptr] [ptr @H5T_NATIVE_SCHAR_g, ptr @H5T_NATIVE_SHORT_g, ptr poison, ptr @H5T_NATIVE_INT_g, ptr poison, ptr poison, ptr poison, ptr @H5T_NATIVE_LLONG_g], align 8
+@switch.table.createInputDataType.2 = private unnamed_addr constant [8 x ptr] [ptr @H5T_NATIVE_UCHAR_g, ptr @H5T_NATIVE_USHORT_g, ptr poison, ptr @H5T_NATIVE_UINT_g, ptr poison, ptr poison, ptr poison, ptr @H5T_NATIVE_ULLONG_g], align 8
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {

@@ -120,7 +120,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @str.16 = private unnamed_addr constant [34 x i8] c"    [/subtest]  To run a subtest \00", align 1
 @str.17 = private unnamed_addr constant [64 x i8] c"    eg: to run just the utility tests type: cintltest /tsutil) \00", align 1
 @str.18 = private unnamed_addr constant [38 x i8] c"* Could not find any matching subtree\00", align 1
-@switch.table.setTestOption = private unnamed_addr constant [7 x ptr] [ptr @REPEAT_TESTS, ptr @VERBOSITY, ptr @VERBOSITY, ptr @QUICK, ptr @WARN_ON_MISSING_DATA, ptr @ICU_TRACE, ptr @WRITE_GOLDEN_DATA], align 8
+@switch.table.setTestOption = private unnamed_addr constant [7 x ptr] [ptr @REPEAT_TESTS, ptr @VERBOSITY, ptr poison, ptr @QUICK, ptr @WARN_ON_MISSING_DATA, ptr @ICU_TRACE, ptr @WRITE_GOLDEN_DATA], align 8
 
 ; Function Attrs: nounwind uwtable
 define void @cleanUpTestTree(ptr nocapture noundef %tn) local_unnamed_addr #0 {

@@ -57,7 +57,7 @@ $_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8
 @.str.24 = private unnamed_addr constant [23 x i8] c"arith.simplex_strategy\00", align 1
 @.str.25 = private unnamed_addr constant [15 x i8] c"arith.nl.delay\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_lp_settings.cpp, ptr null }]
-@switch.table._ZN2lp19lp_status_to_stringENS_9lp_statusE = private unnamed_addr constant [12 x ptr] [ptr @.str.7, ptr @.str.8, ptr @.str.7, ptr @.str.9, ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14, ptr @.str.15, ptr @.str.16, ptr @.str.17], align 8
+@switch.table._ZN2lp19lp_status_to_stringENS_9lp_statusE = private unnamed_addr constant [12 x ptr] [ptr @.str.7, ptr @.str.8, ptr poison, ptr @.str.9, ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14, ptr @.str.15, ptr @.str.16, ptr @.str.17], align 8
 
 declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 

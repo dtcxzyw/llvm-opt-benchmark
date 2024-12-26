@@ -302,8 +302,8 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.194 = private unnamed_addr constant [37 x i8] c"Service %s Version %s.%s Instance %s\00", align 1
 @.str.195 = private unnamed_addr constant [53 x i8] c"Service %s (%s) Version %s Instance %s Eventgroup %s\00", align 1
 @.str.196 = private unnamed_addr constant [48 x i8] c"Service %s Version %s Instance %s Eventgroup %s\00", align 1
-@switch.table.dissect_someip_sd_pdu = private unnamed_addr constant [8 x ptr] [ptr @hf_someip_sd_entry_type_findservice, ptr @hf_someip_sd_entry_type_offerservice, ptr @hf_someip_sd_entry_type_findservice, ptr @hf_someip_sd_entry_type_findservice, ptr @hf_someip_sd_entry_type_findservice, ptr @hf_someip_sd_entry_type_findservice, ptr @hf_someip_sd_entry_type_subscribeeventgroup, ptr @hf_someip_sd_entry_type_subscribeeventgroupack], align 8
-@switch.table.someipsd_entries_stats_tree_packet = private unnamed_addr constant [8 x ptr] [ptr @.str.82, ptr @.str.78, ptr @.str.82, ptr @.str.82, ptr @.str.82, ptr @.str.82, ptr @.str.84, ptr @.str.172], align 8
+@switch.table.dissect_someip_sd_pdu = private unnamed_addr constant [8 x ptr] [ptr @hf_someip_sd_entry_type_findservice, ptr @hf_someip_sd_entry_type_offerservice, ptr poison, ptr poison, ptr poison, ptr poison, ptr @hf_someip_sd_entry_type_subscribeeventgroup, ptr @hf_someip_sd_entry_type_subscribeeventgroupack], align 8
+@switch.table.someipsd_entries_stats_tree_packet = private unnamed_addr constant [8 x ptr] [ptr @.str.82, ptr @.str.78, ptr poison, ptr poison, ptr poison, ptr poison, ptr @.str.84, ptr @.str.172], align 8
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_someip_sd() local_unnamed_addr #0 {

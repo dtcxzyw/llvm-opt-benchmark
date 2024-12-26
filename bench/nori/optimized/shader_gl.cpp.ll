@@ -82,7 +82,7 @@ $_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits = comdat any
 @.str.31 = private unnamed_addr constant [54 x i8] c"Shader::Shader(): unsupported uniform/attribute type!\00", align 1
 @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits = linkonce_odr dso_local local_unnamed_addr constant [201 x i8] c"00010203040506070809101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899\00", comdat, align 16
 @.str.32 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
-@switch.table._ZN7nanogui6Shader5beginEv = private unnamed_addr constant [10 x i32] [i32 5120, i32 5121, i32 5122, i32 5123, i32 5124, i32 5125, i32 5120, i32 5120, i32 5131, i32 5126], align 4
+@switch.table._ZN7nanogui6Shader5beginEv = private unnamed_addr constant [10 x i32] [i32 5120, i32 5121, i32 5122, i32 5123, i32 5124, i32 5125, i32 poison, i32 poison, i32 5131, i32 5126], align 4
 @switch.table._ZN7nanogui6Shader10draw_arrayENS0_13PrimitiveTypeEmmb = private unnamed_addr constant [5 x i32] [i32 0, i32 1, i32 3, i32 4, i32 5], align 4
 
 @_ZN7nanogui6ShaderC1EPNS_10RenderPassERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SA_NS0_9BlendModeE = hidden unnamed_addr alias void (ptr, ptr, ptr, ptr, ptr, i32), ptr @_ZN7nanogui6ShaderC2EPNS_10RenderPassERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SA_NS0_9BlendModeE

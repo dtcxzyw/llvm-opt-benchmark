@@ -81,7 +81,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_TRACE_USER_DUMP_CORE_AND_ABORT_DSTATE = external local_unnamed_addr global i16, align 2
 @.str.41 = private unnamed_addr constant [66 x i8] c"%d@%zu.%06zu:user_dump_core_and_abort env=%p signal %d (host %d)\0A\00", align 1
 @.str.42 = private unnamed_addr constant [53 x i8] c"user_dump_core_and_abort env=%p signal %d (host %d)\0A\00", align 1
-@switch.table.die_from_signal = private unnamed_addr constant [7 x ptr] [ptr @.str.19, ptr @.str.20, ptr @.str.21, ptr @.str.19, ptr @.str.22, ptr @.str.23, ptr @.str.24], align 8
+@switch.table.die_from_signal = private unnamed_addr constant [7 x ptr] [ptr @.str.19, ptr @.str.20, ptr @.str.21, ptr poison, ptr @.str.22, ptr @.str.23, ptr @.str.24], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local range(i32 -2147483648, 256) i32 @host_to_target_signal(i32 noundef %sig) local_unnamed_addr #0 {

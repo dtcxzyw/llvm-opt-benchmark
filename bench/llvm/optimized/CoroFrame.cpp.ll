@@ -762,8 +762,8 @@ $_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits = comdat any
 @.str.35 = private unnamed_addr constant [54 x i8] c"Coroutines cannot handle copying of array allocas yet\00", align 1
 @.str.36 = private unnamed_addr constant [6 x i8] c".cast\00", align 1
 @_ZN4llvm9DbgMarker14EmptyDbgMarkerE = external global %"class.llvm::DbgMarker", align 8
-@switch.table._ZL11solveDITypeRN4llvm9DIBuilderEPNS_4TypeERKNS_10DataLayoutEPNS_7DIScopeEjRNS_8DenseMapIS3_PNS_6DITypeENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SB_EEEE = private unnamed_addr constant [6 x i64] [i64 16, i64 16, i64 8, i64 9, i64 8, i64 16], align 8
-@switch.table._ZL11solveDITypeRN4llvm9DIBuilderEPNS_4TypeERKNS_10DataLayoutEPNS_7DIScopeEjRNS_8DenseMapIS3_PNS_6DITypeENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SB_EEEE.362 = private unnamed_addr constant [6 x ptr] [ptr @.str.26, ptr @.str.26, ptr @.str.24, ptr @.str.25, ptr @.str.24, ptr @.str.26], align 8
+@switch.table._ZL11solveDITypeRN4llvm9DIBuilderEPNS_4TypeERKNS_10DataLayoutEPNS_7DIScopeEjRNS_8DenseMapIS3_PNS_6DITypeENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SB_EEEE = private unnamed_addr constant [6 x i64] [i64 16, i64 16, i64 8, i64 9, i64 poison, i64 16], align 8
+@switch.table._ZL11solveDITypeRN4llvm9DIBuilderEPNS_4TypeERKNS_10DataLayoutEPNS_7DIScopeEjRNS_8DenseMapIS3_PNS_6DITypeENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SB_EEEE.362 = private unnamed_addr constant [6 x ptr] [ptr @.str.26, ptr @.str.26, ptr @.str.24, ptr @.str.25, ptr poison, ptr @.str.26], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm4coro21defaultMaterializableERNS_11InstructionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0) local_unnamed_addr #0 {

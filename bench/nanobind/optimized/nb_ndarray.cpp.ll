@@ -110,8 +110,8 @@ $_ZN8nanobind4castINS_6detail8accessorINS1_8str_attrEEEEENS_6objectEOT_NS_9rv_po
 @.str.52 = private unnamed_addr constant [68 x i8] c"Don't know how to convert DLPack dtype into buffer protocol format!\00", align 1
 @_Py_TrueStruct = external global %struct._longobject, align 8
 @_Py_FalseStruct = external global %struct._longobject, align 8
-@switch.table._ZN8nanobind6detailL19nd_ndarray_tpbufferEP7_objectP10bufferinfoi = private unnamed_addr constant [8 x ptr] [ptr @.str.38, ptr @.str.39, ptr @.str.38, ptr @.str.40, ptr @.str.38, ptr @.str.38, ptr @.str.38, ptr @.str.41], align 8
-@switch.table._ZN8nanobind6detailL19nd_ndarray_tpbufferEP7_objectP10bufferinfoi.8 = private unnamed_addr constant [8 x ptr] [ptr @.str.42, ptr @.str.43, ptr @.str.42, ptr @.str.44, ptr @.str.42, ptr @.str.42, ptr @.str.42, ptr @.str.45], align 8
+@switch.table._ZN8nanobind6detailL19nd_ndarray_tpbufferEP7_objectP10bufferinfoi = private unnamed_addr constant [8 x ptr] [ptr @.str.38, ptr @.str.39, ptr poison, ptr @.str.40, ptr poison, ptr poison, ptr poison, ptr @.str.41], align 8
+@switch.table._ZN8nanobind6detailL19nd_ndarray_tpbufferEP7_objectP10bufferinfoi.8 = private unnamed_addr constant [8 x ptr] [ptr @.str.42, ptr @.str.43, ptr poison, ptr @.str.44, ptr poison, ptr poison, ptr poison, ptr @.str.45], align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef zeroext i1 @_ZN8nanobind6detail13ndarray_checkEP7_object(ptr noundef %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {

@@ -243,7 +243,7 @@ $_ZTV11LIR_Address = comdat any
 @_ZTV11LIR_Address = linkonce_odr hidden unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr null, ptr @_ZN10LIR_OprPtr11as_constantEv, ptr @_ZN11LIR_Address10as_addressEv, ptr @_ZNK11LIR_Address4typeEv, ptr @_ZNK11LIR_Address14print_value_onEP12outputStream] }, comdat, align 8
 @_ZTV14DeoptimizeStub = external unnamed_addr constant { [8 x ptr] }, align 8
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
-@switch.table._ZN11LIR_Address5scaleE9BasicType = private unnamed_addr constant [8 x i32] [i32 0, i32 1, i32 0, i32 2, i32 0, i32 0, i32 0, i32 3], align 4
+@switch.table._ZN11LIR_Address5scaleE9BasicType = private unnamed_addr constant [8 x i32] [i32 0, i32 1, i32 poison, i32 2, i32 poison, i32 poison, i32 poison, i32 3], align 4
 @switch.table._ZN12LIR_OpBranch11negate_condEv = private unnamed_addr constant [6 x i32] [i32 1, i32 0, i32 4, i32 5, i32 2, i32 3], align 4
 
 @_ZN12LIR_OpBranchC1E13LIR_ConditionP10BlockBegin = hidden unnamed_addr alias void (ptr, i32, ptr), ptr @_ZN12LIR_OpBranchC2E13LIR_ConditionP10BlockBegin

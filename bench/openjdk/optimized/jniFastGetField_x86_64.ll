@@ -40,7 +40,7 @@ $_ZTV9Assembler = comdat any
 @_ZTV10Relocation = external unnamed_addr constant { [11 x ptr] }, align 8
 @UseXmmLoadAndClearUpper = external local_unnamed_addr global i8, align 1
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
-@switch.table._ZN16JNI_FastGetField28generate_fast_get_int_field0E9BasicType = private unnamed_addr constant [8 x ptr] [ptr @.str, ptr @.str.5, ptr @.str, ptr @.str, ptr @.str.4, ptr @.str.6, ptr @.str.7, ptr @.str.8], align 8
+@switch.table._ZN16JNI_FastGetField28generate_fast_get_int_field0E9BasicType = private unnamed_addr constant [8 x ptr] [ptr @.str, ptr @.str.5, ptr poison, ptr poison, ptr @.str.4, ptr @.str.6, ptr @.str.7, ptr @.str.8], align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN16JNI_FastGetField28generate_fast_get_int_field0E9BasicType(i8 noundef zeroext %0) local_unnamed_addr #0 align 2 {

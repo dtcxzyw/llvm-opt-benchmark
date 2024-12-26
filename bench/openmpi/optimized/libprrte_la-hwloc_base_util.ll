@@ -110,9 +110,9 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.87 = private unnamed_addr constant [45 x i8] c"%s%sBind MEM proc:   %s%sBind MEM thread: %s\00", align 1
 @.str.88 = private unnamed_addr constant [6 x i8] c"%s%s\0A\00", align 1
 @.str.89 = private unnamed_addr constant [4 x i8] c"%s\09\00", align 1
-@switch.table.prte_hwloc_base_get_relative_locality_by_depth = private unnamed_addr constant [13 x i16] [i16 32, i16 1024, i16 2048, i16 512, i16 256, i16 128, i16 32, i16 32, i16 32, i16 32, i16 32, i16 32, i16 64], align 2
+@switch.table.prte_hwloc_base_get_relative_locality_by_depth = private unnamed_addr constant [13 x i16] [i16 32, i16 1024, i16 2048, i16 512, i16 256, i16 128, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 64], align 2
 @switch.table.prte_hwloc_base_print_binding = private unnamed_addr constant [8 x ptr] [ptr @.str.31, ptr @.str.36, ptr @.str.37, ptr @.str.38, ptr @.str.39, ptr @.str.40, ptr @.str.41, ptr @.str.42], align 8
-@switch.table.prte_hwloc_base_get_location = private unnamed_addr constant [13 x ptr] [ptr @.str.70, ptr @.str.74, ptr @.str.75, ptr @.str.73, ptr @.str.72, ptr @.str.71, ptr @.str.69, ptr @.str.69, ptr @.str.69, ptr @.str.69, ptr @.str.69, ptr @.str.69, ptr @.str.69], align 8
+@switch.table.prte_hwloc_base_get_location = private unnamed_addr constant [13 x ptr] [ptr @.str.70, ptr @.str.74, ptr @.str.75, ptr @.str.73, ptr @.str.72, ptr @.str.71, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr @.str.69], align 8
 
 ; Function Attrs: nounwind uwtable
 define zeroext i1 @prte_hwloc_base_core_cpus(ptr noundef %0) local_unnamed_addr #0 {

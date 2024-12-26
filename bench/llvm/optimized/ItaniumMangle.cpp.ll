@@ -1131,8 +1131,8 @@ $_ZN4llvm15SmallVectorImplINS_9StringRefEE10resizeImplILb0EEEvm = comdat any
 @.str.825 = private unnamed_addr constant [5 x i8] c"_ZTW\00", align 1
 @.str.826 = private unnamed_addr constant [12 x i8] c"__finalize_\00", align 1
 @.str.827 = private unnamed_addr constant [5 x i8] c"_ZGI\00", align 1
-@switch.table._ZN12_GLOBAL__N_114CXXNameMangler10mangleTypeEPKN5clang10VectorTypeE = private unnamed_addr constant [9 x i64] [i64 5, i64 5, i64 5, i64 5, i64 5, i64 6, i64 5, i64 6, i64 6], align 8
-@switch.table._ZN12_GLOBAL__N_114CXXNameMangler10mangleTypeEPKN5clang10VectorTypeE.51 = private unnamed_addr constant [9 x ptr] [ptr @.str.756, ptr @.str.756, ptr @.str.756, ptr @.str.756, ptr @.str.756, ptr @.str.757, ptr @.str.756, ptr @.str.758, ptr @.str.758], align 8
+@switch.table._ZN12_GLOBAL__N_114CXXNameMangler10mangleTypeEPKN5clang10VectorTypeE = private unnamed_addr constant [9 x i64] [i64 5, i64 poison, i64 poison, i64 poison, i64 poison, i64 6, i64 poison, i64 6, i64 6], align 8
+@switch.table._ZN12_GLOBAL__N_114CXXNameMangler10mangleTypeEPKN5clang10VectorTypeE.51 = private unnamed_addr constant [9 x ptr] [ptr @.str.756, ptr poison, ptr poison, ptr poison, ptr poison, ptr @.str.757, ptr poison, ptr @.str.758, ptr @.str.758], align 8
 @switch.table._ZN12_GLOBAL__N_114CXXNameMangler10mangleTypeEPKN5clang10VectorTypeE.52 = private unnamed_addr constant [3 x i32] [i32 1, i32 2, i32 4], align 4
 @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv = private unnamed_addr constant [12 x i64] [i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 1, i64 2, i64 0], align 8
 

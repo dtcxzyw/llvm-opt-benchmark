@@ -48,8 +48,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.35 = private unnamed_addr constant [19 x i8] c"SetLongArrayRegion\00", align 1
 @.str.36 = private unnamed_addr constant [20 x i8] c"SetShortArrayRegion\00", align 1
 @.str.37 = private unnamed_addr constant [22 x i8] c"SetBooleanArrayRegion\00", align 1
-@switch.table.writeComponents = private unnamed_addr constant [26 x i8] c"BCDLFLLIJLLLLLLLLSLLVLLLZ[", align 1
-@switch.table.readComponents = private unnamed_addr constant [26 x i8] c"BCD[F[[IJ[L[[[[[[S[[V[[[Z[", align 1
+@switch.table.readComponents = private unnamed_addr constant [26 x i8] [i8 66, i8 67, i8 68, i8 poison, i8 70, i8 poison, i8 poison, i8 73, i8 74, i8 poison, i8 76, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 83, i8 poison, i8 poison, i8 86, i8 poison, i8 poison, i8 poison, i8 90, i8 91], align 1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i8 @length(ptr noundef %0, ptr noundef %1) #0 {
@@ -449,7 +448,7 @@ switch.hole_check:                                ; preds = %12
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %16 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [26 x i8], ptr @switch.table.writeComponents, i64 0, i64 %16
+  %switch.gep = getelementptr inbounds nuw [26 x i8], ptr @switch.table.readComponents, i64 0, i64 %16
   br label %jdwpTag.exit
 
 jdwpTag.exit:                                     ; preds = %6, %9, %15, %switch.lookup

@@ -126,7 +126,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__._SPI_cursor_operation = private unnamed_addr constant [22 x i8] c"_SPI_cursor_operation\00", align 1
 @.str.70 = private unnamed_addr constant [48 x i8] c"SPI cursor operation called while not connected\00", align 1
 @.str.71 = private unnamed_addr constant [9 x i8] c"SPI Plan\00", align 1
-@switch.table.SPI_result_code_string = private unnamed_addr constant [32 x ptr] [ptr @.str.27, ptr @.str.26, ptr @.str.25, ptr @.str.24, ptr @.str.23, ptr @.str.22, ptr @.str.21, ptr @.str.20, ptr @.str.16, ptr @.str.19, ptr @.str.18, ptr @.str.17, ptr @.str.16, ptr @.str.16, ptr @.str.28, ptr @.str.29, ptr @.str.30, ptr @.str.31, ptr @.str.32, ptr @.str.33, ptr @.str.34, ptr @.str.35, ptr @.str.36, ptr @.str.37, ptr @.str.38, ptr @.str.39, ptr @.str.40, ptr @.str.41, ptr @.str.42, ptr @.str.43, ptr @.str.44, ptr @.str.45], align 8
+@switch.table.SPI_result_code_string = private unnamed_addr constant [32 x ptr] [ptr @.str.27, ptr @.str.26, ptr @.str.25, ptr @.str.24, ptr @.str.23, ptr @.str.22, ptr @.str.21, ptr @.str.20, ptr poison, ptr @.str.19, ptr @.str.18, ptr @.str.17, ptr @.str.16, ptr poison, ptr @.str.28, ptr @.str.29, ptr @.str.30, ptr @.str.31, ptr @.str.32, ptr @.str.33, ptr @.str.34, ptr @.str.35, ptr @.str.36, ptr @.str.37, ptr @.str.38, ptr @.str.39, ptr @.str.40, ptr @.str.41, ptr @.str.42, ptr @.str.43, ptr @.str.44, ptr @.str.45], align 8
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @SPI_connect() local_unnamed_addr #0 {

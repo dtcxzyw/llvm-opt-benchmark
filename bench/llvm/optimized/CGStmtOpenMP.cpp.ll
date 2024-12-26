@@ -1096,9 +1096,9 @@ $_ZTVN5clang7CodeGen15CodeGenFunction19OMPBuilderCBHelpers20OMPAllocateCleanupTy
 @.str.82 = private unnamed_addr constant [8 x i8] c"ordered\00", align 1
 @.str.83 = private unnamed_addr constant [17 x i8] c"taskloop.if.then\00", align 1
 @.str.84 = private unnamed_addr constant [16 x i8] c"taskloop.if.end\00", align 1
-@switch.table._ZN5clang7CodeGen15CodeGenFunction22EmitOMPAtomicDirectiveERKNS_18OMPAtomicDirectiveE = private unnamed_addr constant [6 x i32] [i32 2, i32 2, i32 4, i32 2, i32 4, i32 7], align 4
+@switch.table._ZN5clang7CodeGen15CodeGenFunction22EmitOMPAtomicDirectiveERKNS_18OMPAtomicDirectiveE = private unnamed_addr constant [6 x i32] [i32 2, i32 poison, i32 4, i32 2, i32 4, i32 7], align 4
 @switch.table._ZN5clang7CodeGen15CodeGenFunction22EmitOMPAtomicDirectiveERKNS_18OMPAtomicDirectiveE.526 = private unnamed_addr constant [4 x i32] [i32 4, i32 5, i32 6, i32 6], align 4
-@switch.table._ZN5clang7CodeGen15CodeGenFunction22EmitOMPAtomicDirectiveERKNS_18OMPAtomicDirectiveE.527 = private unnamed_addr constant [5 x i32] [i32 1, i32 2, i32 0, i32 0, i32 0], align 4
+@switch.table._ZN5clang7CodeGen15CodeGenFunction22EmitOMPAtomicDirectiveERKNS_18OMPAtomicDirectiveE.527 = private unnamed_addr constant [5 x i32] [i32 1, i32 2, i32 poison, i32 poison, i32 0], align 4
 @switch.table._ZL24emitWorksharingDirectiveRN5clang7CodeGen15CodeGenFunctionERKNS_16OMPLoopDirectiveEb.528 = private unnamed_addr constant [3 x i32] [i32 18, i32 36, i32 65], align 4
 
 ; Function Attrs: mustprogress nounwind uwtable

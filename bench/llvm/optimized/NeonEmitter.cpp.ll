@@ -15532,7 +15532,7 @@ switch.lookup:                                    ; preds = %83
   %88 = call i32 @llvm.fshl.i32(i32 %87, i32 %87, i32 29)
   %switch.cast = zext i32 %88 to i64
   %switch.shiftamt = shl nuw nsw i64 %switch.cast, 3
-  %switch.downshift = lshr i64 7233452126492584034, %switch.shiftamt
+  %switch.downshift = lshr i64 7205759405722200162, %switch.shiftamt
   %switch.masked = trunc i64 %switch.downshift to i8
   store i8 %switch.masked, ptr %13, align 1
   %89 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 noundef signext 95, i64 noundef 0) #22

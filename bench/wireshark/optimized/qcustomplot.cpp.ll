@@ -2443,8 +2443,8 @@ $_ZZN11QMetaTypeIdIN18QCPPolarAxisRadial14SelectablePartEE14qt_metatype_idEvE11m
 @_ZN18QCPPolarLegendItem16staticMetaObjectE = external global %struct.QMetaObject, align 8
 @switch.table._ZN15QCPAxisTickerPi15getSubTickCountEd = private unnamed_addr constant [9 x i32] [i32 4, i32 3, i32 2, i32 3, i32 4, i32 2, i32 6, i32 3, i32 2], align 4
 @switch.table._ZN15QCPAxisTickerPi15getSubTickCountEd.4 = private unnamed_addr constant [9 x i32] [i32 2, i32 4, i32 4, i32 2, i32 4, i32 4, i32 2, i32 4, i32 4], align 4
-@switch.table._ZN7QCPAxis20marginSideToAxisTypeEN3QCP10MarginSideE = private unnamed_addr constant [8 x i32] [i32 1, i32 2, i32 1, i32 4, i32 1, i32 1, i32 1, i32 8], align 4
-@switch.table._ZN7QCPAxis8oppositeENS_8AxisTypeE = private unnamed_addr constant [8 x i32] [i32 2, i32 1, i32 2, i32 8, i32 2, i32 2, i32 2, i32 4], align 4
+@switch.table._ZN7QCPAxis20marginSideToAxisTypeEN3QCP10MarginSideE = private unnamed_addr constant [8 x i32] [i32 1, i32 2, i32 poison, i32 4, i32 poison, i32 poison, i32 poison, i32 8], align 4
+@switch.table._ZN7QCPAxis8oppositeENS_8AxisTypeE = private unnamed_addr constant [8 x i32] [i32 2, i32 1, i32 poison, i32 8, i32 poison, i32 poison, i32 poison, i32 4], align 4
 
 @_ZN11QCPVector2DC1Ev = unnamed_addr alias void (ptr), ptr @_ZN11QCPVector2DC2Ev
 @_ZN11QCPVector2DC1Edd = unnamed_addr alias void (ptr, double, double), ptr @_ZN11QCPVector2DC2Edd

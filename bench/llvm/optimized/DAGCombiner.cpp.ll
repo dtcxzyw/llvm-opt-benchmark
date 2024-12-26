@@ -1127,9 +1127,9 @@ $_ZTVN4llvm2cl11OptionValueIjEE = comdat any
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_DAGCombiner.cpp, ptr null }]
 @switch.table._ZN12_GLOBAL__N_111DAGCombiner12visitIMINMAXEPN4llvm6SDNodeE = private unnamed_addr constant [4 x i32] [i32 181, i32 182, i32 179, i32 180], align 4
 @switch.table._ZN12_GLOBAL__N_111DAGCombiner12visitIMINMAXEPN4llvm6SDNodeE.525 = private unnamed_addr constant [4 x i32] [i32 382, i32 381, i32 384, i32 383], align 4
-@switch.table._ZN12_GLOBAL__N_111DAGCombiner24visitEXTEND_VECTOR_INREGEPN4llvm6SDNodeE = private unnamed_addr constant [13 x i32] [i32 212, i32 213, i32 214, i32 214, i32 214, i32 214, i32 214, i32 214, i32 214, i32 214, i32 214, i32 212, i32 213], align 4
-@switch.table._ZN12_GLOBAL__N_111DAGCombiner10visitSTOREEPN4llvm6SDNodeE = private unnamed_addr constant [8 x i16] [i16 6, i16 7, i16 9, i16 8, i16 9, i16 9, i16 9, i16 9], align 2
-@switch.table._ZN12_GLOBAL__N_111DAGCombiner19visitCONCAT_VECTORSEPN4llvm6SDNodeE = private unnamed_addr constant [5 x i16] [i16 11, i16 12, i16 11, i16 13, i16 14], align 2
+@switch.table._ZN12_GLOBAL__N_111DAGCombiner24visitEXTEND_VECTOR_INREGEPN4llvm6SDNodeE = private unnamed_addr constant [13 x i32] [i32 212, i32 213, i32 214, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 214, i32 212, i32 213], align 4
+@switch.table._ZN12_GLOBAL__N_111DAGCombiner10visitSTOREEPN4llvm6SDNodeE = private unnamed_addr constant [8 x i16] [i16 6, i16 7, i16 poison, i16 8, i16 poison, i16 poison, i16 poison, i16 9], align 2
+@switch.table._ZN12_GLOBAL__N_111DAGCombiner19visitCONCAT_VECTORSEPN4llvm6SDNodeE = private unnamed_addr constant [5 x i16] [i16 11, i16 12, i16 poison, i16 13, i16 14], align 2
 @switch.table._ZL32isConstantSplatVectorMaskForTypePN4llvm6SDNodeENS_3EVTE = private unnamed_addr constant [3 x i64] [i64 255, i64 65535, i64 4294967295], align 8
 
 ; Function Attrs: mustprogress nounwind uwtable

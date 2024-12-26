@@ -53,7 +53,7 @@ $_ZGVZN4llvh7hashing6detail18get_execution_seedEvE4seed = comdat any
 @_ZGVZN4llvh7hashing6detail18get_execution_seedEvE4seed = linkonce_odr hidden global i64 0, comdat, align 8
 @_ZN4llvh7hashing6detail19fixed_seed_overrideE = external local_unnamed_addr global i64, align 8
 @_ZN4llvhL18BitReverseTable256E = internal unnamed_addr constant [256 x i8] c"\00\80@\C0 \A0`\E0\10\90P\D00\B0p\F0\08\88H\C8(\A8h\E8\18\98X\D88\B8x\F8\04\84D\C4$\A4d\E4\14\94T\D44\B4t\F4\0C\8CL\CC,\ACl\EC\1C\9C\\\DC<\BC|\FC\02\82B\C2\22\A2b\E2\12\92R\D22\B2r\F2\0A\8AJ\CA*\AAj\EA\1A\9AZ\DA:\BAz\FA\06\86F\C6&\A6f\E6\16\96V\D66\B6v\F6\0E\8EN\CE.\AEn\EE\1E\9E^\DE>\BE~\FE\01\81A\C1!\A1a\E1\11\91Q\D11\B1q\F1\09\89I\C9)\A9i\E9\19\99Y\D99\B9y\F9\05\85E\C5%\A5e\E5\15\95U\D55\B5u\F5\0D\8DM\CD-\ADm\ED\1D\9D]\DD=\BD}\FD\03\83C\C3#\A3c\E3\13\93S\D33\B3s\F3\0B\8BK\CB+\ABk\EB\1B\9B[\DB;\BB{\FB\07\87G\C7'\A7g\E7\17\97W\D77\B7w\F7\0F\8FO\CF/\AFo\EF\1F\9F_\DF?\BF\7F\FF", align 16
-@switch.table._ZNK4llvh5APInt8toStringERNS_15SmallVectorImplIcEEjbb = private unnamed_addr constant [8 x ptr] [ptr @.str.1, ptr @.str.1, ptr @.str.1, ptr @.str.2, ptr @.str, ptr @.str.1, ptr @.str.1, ptr @.str.3], align 8
+@switch.table._ZNK4llvh5APInt8toStringERNS_15SmallVectorImplIcEEjbb = private unnamed_addr constant [8 x ptr] [ptr @.str.1, ptr poison, ptr poison, ptr @.str.2, ptr @.str, ptr poison, ptr poison, ptr @.str.3], align 8
 
 @_ZN4llvh5APIntC1EjNS_8ArrayRefImEE = hidden unnamed_addr alias void (ptr, i32, ptr, i64), ptr @_ZN4llvh5APIntC2EjNS_8ArrayRefImEE
 @_ZN4llvh5APIntC1EjjPKm = hidden unnamed_addr alias void (ptr, i32, i32, ptr), ptr @_ZN4llvh5APIntC2EjjPKm

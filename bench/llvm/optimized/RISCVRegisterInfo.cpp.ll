@@ -638,9 +638,9 @@ $_ZTVN4llvm2cl11OptionValueIbEE = comdat any
 @_ZTVN4llvm2cl11OptionValueIbEE = linkonce_odr unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr null, ptr @_ZNK4llvm2cl15OptionValueCopyIbE7compareERKNS0_18GenericOptionValueE, ptr @_ZN4llvm2cl18GenericOptionValue6anchorEv] }, comdat, align 8
 @_ZTVN4llvm2cl6parserIbEE = external unnamed_addr constant { [6 x ptr] }, align 8
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_RISCVRegisterInfo.cpp, ptr null }]
-@switch.table._ZNK4llvm17RISCVRegisterInfo11lowerVSPILLENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.4 = private unnamed_addr constant [4 x i64] [i64 -13574, i64 -13575, i64 -13574, i64 -13576], align 8
-@switch.table._ZNK4llvm17RISCVRegisterInfo12lowerVRELOADENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE = private unnamed_addr constant [4 x i32] [i32 5, i32 13, i32 5, i32 17], align 4
-@switch.table._ZNK4llvm17RISCVRegisterInfo12lowerVRELOADENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.5 = private unnamed_addr constant [4 x i64] [i64 -13266, i64 -13270, i64 -13266, i64 -13274], align 8
+@switch.table._ZNK4llvm17RISCVRegisterInfo11lowerVSPILLENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.4 = private unnamed_addr constant [4 x i64] [i64 -13574, i64 -13575, i64 poison, i64 -13576], align 8
+@switch.table._ZNK4llvm17RISCVRegisterInfo12lowerVRELOADENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE = private unnamed_addr constant [4 x i32] [i32 5, i32 13, i32 poison, i32 17], align 4
+@switch.table._ZNK4llvm17RISCVRegisterInfo12lowerVRELOADENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.5 = private unnamed_addr constant [4 x i64] [i64 -13266, i64 -13270, i64 poison, i64 -13274], align 8
 
 @_ZN4llvm17RISCVRegisterInfoC1Ej = unnamed_addr alias void (ptr, i32), ptr @_ZN4llvm17RISCVRegisterInfoC2Ej
 

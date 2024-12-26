@@ -852,7 +852,7 @@ $_ZSt19piecewise_construct = comdat any
 @.str.21 = private unnamed_addr constant [10 x i8] c".highbits\00", align 1
 @.str.22 = private unnamed_addr constant [8 x i8] c".scalar\00", align 1
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
-@switch.table._ZN4llvm16InstCombinerImpl19foldICmpCommutativeENS_7CmpInst9PredicateEPNS_5ValueES4_RNS_8ICmpInstE = private unnamed_addr constant [9 x i32] [i32 37, i32 34, i32 37, i32 37, i32 34, i32 37, i32 37, i32 41, i32 38], align 4
+@switch.table._ZN4llvm16InstCombinerImpl19foldICmpCommutativeENS_7CmpInst9PredicateEPNS_5ValueES4_RNS_8ICmpInstE = private unnamed_addr constant [9 x i32] [i32 37, i32 34, i32 poison, i32 37, i32 34, i32 poison, i32 poison, i32 41, i32 38], align 4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN4llvm16InstCombinerImpl28foldCmpLoadFromIndexedGlobalEPNS_8LoadInstEPNS_17GetElementPtrInstEPNS_14GlobalVariableERNS_7CmpInstEPNS_11ConstantIntE(ptr noundef nonnull align 8 dereferenceable(1088) %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef %5) local_unnamed_addr #0 align 2 {

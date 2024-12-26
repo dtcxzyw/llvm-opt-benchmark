@@ -784,7 +784,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.c12b500a9dbc3a7785a3e66a12bc69a1.235.llvm.3875224068774112026 = external hidden unnamed_addr constant <{ [16 x i8] }>, align 1
 @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hbbccba2957c3343dE" = private unnamed_addr constant [4 x i64] [i64 10, i64 10, i64 10, i64 12], align 8
 @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hbbccba2957c3343dE.26" = private unnamed_addr constant [4 x ptr] [ptr @anon.ad5063a02d8bdc6ace820a31447ddce3.34, ptr @anon.ad5063a02d8bdc6ace820a31447ddce3.35, ptr @anon.ad5063a02d8bdc6ace820a31447ddce3.36, ptr @anon.ad5063a02d8bdc6ace820a31447ddce3.37], align 8
-@"switch.table._ZN6rustls6suites31compatible_sigscheme_for_suites28_$u7b$$u7b$closure$u7d$$u7d$17h556f7cdaf9d8cc26E.llvm.6030771845222660662" = private unnamed_addr constant [13 x i8] c"\01\01\01\03\01\03\01\03\01\01\01\04\05", align 1
+@"switch.table._ZN6rustls6suites31compatible_sigscheme_for_suites28_$u7b$$u7b$closure$u7d$$u7d$17h556f7cdaf9d8cc26E.llvm.6030771845222660662" = private unnamed_addr constant [13 x i8] [i8 1, i8 poison, i8 1, i8 3, i8 1, i8 3, i8 1, i8 3, i8 1, i8 1, i8 1, i8 4, i8 5], align 1
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden { i16, i16 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h151b2abca596c2d6E.llvm.6030771845222660662"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0) unnamed_addr #0 {

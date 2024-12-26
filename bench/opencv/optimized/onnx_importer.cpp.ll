@@ -1205,7 +1205,7 @@ $_ZN2cv3dnn14dnn4_v2024052112ONNXImporterD2Ev = comdat any
 @__func__._ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIiEET_NS_3MatE = private unnamed_addr constant [17 x i8] c"getScalarFromMat\00", align 1
 @_ZN2cv3dnn14dnn4_v2024052120DNN_SKIP_REAL_IMPORTE = external local_unnamed_addr global i8, align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_onnx_importer.cpp, ptr null }]
-@switch.table._ZN2cv3dnn14dnn4_v2024052112ONNXImporter9parseCastERNS1_11LayerParamsERKN11opencv_onnx9NodeProtoE = private unnamed_addr constant [10 x i32] [i32 5, i32 0, i32 4, i32 2, i32 4, i32 4, i32 4, i32 5, i32 5, i32 7], align 4
+@switch.table._ZN2cv3dnn14dnn4_v2024052112ONNXImporter9parseCastERNS1_11LayerParamsERKN11opencv_onnx9NodeProtoE = private unnamed_addr constant [10 x i32] [i32 5, i32 0, i32 4, i32 2, i32 4, i32 4, i32 4, i32 poison, i32 poison, i32 7], align 4
 
 @_ZN2cv3dnn14dnn4_v2024052116ONNXLayerHandlerC1EPNS1_12ONNXImporterE = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN2cv3dnn14dnn4_v2024052116ONNXLayerHandlerC2EPNS1_12ONNXImporterE
 @_ZN2cv3dnn14dnn4_v2024052112ONNXImporterC1ERNS1_3NetEPKc = hidden unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN2cv3dnn14dnn4_v2024052112ONNXImporterC2ERNS1_3NetEPKc

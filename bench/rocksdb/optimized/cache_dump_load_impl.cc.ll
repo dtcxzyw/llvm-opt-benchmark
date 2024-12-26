@@ -3526,7 +3526,7 @@ switch.hole_check:                                ; preds = %if.end.i.i.i
 switch.lookup:                                    ; preds = %switch.hole_check
   %5 = shl nuw nsw i32 %3, 3
   %switch.shiftamt = zext nneg i32 %5 to i40
-  %switch.downshift = lshr i40 47295824899, %switch.shiftamt
+  %switch.downshift = lshr i40 47245493251, %switch.shiftamt
   %switch.masked = trunc i40 %switch.downshift to i8
   %call.i.i.i = tail call noundef zeroext i1 @_ZN7rocksdb15CacheDumperImpl15ShouldFilterOutERKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %__args)
   br i1 %call.i.i.i, label %"_ZSt10__invoke_rIvRZN7rocksdb15CacheDumperImpl20DumpOneBlockCallBackERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JRKNS0_5SliceEPvmPKNS0_5Cache15CacheItemHelperEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.exit", label %invoke.cont.i.i.i

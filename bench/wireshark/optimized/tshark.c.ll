@@ -432,7 +432,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.write_finale = private unnamed_addr constant [13 x i8] c"write_finale\00", align 1
 @tshark_epan_new.funcs = internal constant %struct.packet_provider_funcs { ptr @cap_file_provider_get_frame_ts, ptr @cap_file_provider_get_interface_name, ptr @cap_file_provider_get_interface_description, ptr null }, align 8
 @.str.329 = private unnamed_addr constant [9 x i8] c"tshark: \00", align 1
-@switch.table.main = private unnamed_addr constant [5 x i32] [i32 2, i32 3, i32 4, i32 6, i32 6], align 4
+@switch.table.main = private unnamed_addr constant [5 x i32] [i32 2, i32 3, i32 4, i32 poison, i32 6], align 4
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {

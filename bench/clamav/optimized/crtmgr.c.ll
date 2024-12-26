@@ -32,7 +32,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__._padding_check_PKCS1_type_1 = private unnamed_addr constant [28 x i8] c"_padding_check_PKCS1_type_1\00", align 1
 @.str.26 = private unnamed_addr constant [20 x i8] c"%s: Bad block type\0A\00", align 1
 @.str.27 = private unnamed_addr constant [16 x i8] c"%s: Bad header\0A\00", align 1
-@switch.table.crtmgr_rsa_verify = private unnamed_addr constant [7 x i32] [i32 20, i32 16, i32 20, i32 20, i32 32, i32 48, i32 64], align 4
+@switch.table.crtmgr_rsa_verify = private unnamed_addr constant [7 x i32] [i32 20, i32 16, i32 poison, i32 poison, i32 32, i32 48, i32 64], align 4
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @cli_crt_init(ptr nocapture noundef initializes((0, 408)) %0) local_unnamed_addr #0 {

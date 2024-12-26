@@ -38,7 +38,7 @@ $_ZTIN5ZXing5ErrorE = comdat any
 @__const._ZN5ZXing6QRCode18CharacterCountBitsENS0_9CodecModeERKNS0_7VersionE.byte = private unnamed_addr constant [32 x i8] c"\03\04\05\05\06\04\05\05\06\06\03\05\05\06\06\07\04\05\06\06\07\07\06\06\07\07\07\06\06\07\07\08", align 16
 @__const._ZN5ZXing6QRCode18CharacterCountBitsENS0_9CodecModeERKNS0_7VersionE.kanji = private unnamed_addr constant [32 x i8] c"\02\03\04\05\05\03\04\05\05\06\02\04\05\05\06\06\03\05\05\06\06\07\05\05\06\06\07\05\06\06\06\07", align 16
 @.str.3 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
-@switch.table._ZN5ZXing6QRCode16CodecModeForBitsEiNS0_4TypeE = private unnamed_addr constant [7 x i32] [i32 7, i32 8, i32 9, i32 13, i32 13, i32 13, i32 13], align 4
+@switch.table._ZN5ZXing6QRCode16CodecModeForBitsEiNS0_4TypeE = private unnamed_addr constant [7 x i32] [i32 7, i32 8, i32 9, i32 poison, i32 poison, i32 poison, i32 13], align 4
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN5ZXing6QRCode16CodecModeForBitsEiNS0_4TypeE(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {

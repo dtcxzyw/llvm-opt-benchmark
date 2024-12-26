@@ -1804,7 +1804,7 @@ $_ZTVN7glslang16TConstUnionArrayE = comdat any
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 @switch.table._ZNK7glslang8TSampler9getStringB5cxx11Ev = private unnamed_addr constant [8 x ptr] [ptr @.str.1324, ptr @.str.1321, ptr @.str.1322, ptr @.str.1323, ptr @.str.1325, ptr @.str.1326, ptr @.str.1327, ptr @.str.64], align 8
 @switch.table._ZN7glslang9TBuiltIns17addImageFunctionsENS_8TSamplerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEi8EProfile = private unnamed_addr constant [4 x ptr] [ptr @.str.452, ptr @.str.453, ptr @.str.454, ptr @.str.455], align 8
-@switch.table._ZN7glslang9TBuiltIns20addSamplingFunctionsENS_8TSamplerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEi8EProfile = private unnamed_addr constant [8 x ptr] [ptr @.str.188, ptr @.str.196, ptr @.str.192, ptr @.str.188, ptr @.str.188, ptr @.str.188, ptr @.str.188, ptr @.str.208], align 8
+@switch.table._ZN7glslang9TBuiltIns20addSamplingFunctionsENS_8TSamplerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEi8EProfile = private unnamed_addr constant [8 x ptr] [ptr @.str.188, ptr @.str.196, ptr @.str.192, ptr poison, ptr poison, ptr poison, ptr poison, ptr @.str.208], align 8
 
 @_ZN7glslang18TBuiltInParseablesD1Ev = unnamed_addr alias void (ptr), ptr @_ZN7glslang18TBuiltInParseablesD2Ev
 @_ZN7glslang9TBuiltInsC1Ev = unnamed_addr alias void (ptr), ptr @_ZN7glslang9TBuiltInsC2Ev

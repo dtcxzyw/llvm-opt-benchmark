@@ -568,7 +568,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @"switch.table._ZN60_$LT$vte..ansi..CharsetIndex$u20$as$u20$core..fmt..Debug$GT$3fmt17hadbe98ed2b3a24aaE" = private unnamed_addr constant [4 x ptr] [ptr @anon.06746a4451b6ea2a415cc45f0e9123e2.289, ptr @anon.06746a4451b6ea2a415cc45f0e9123e2.290, ptr @anon.06746a4451b6ea2a415cc45f0e9123e2.291, ptr @anon.06746a4451b6ea2a415cc45f0e9123e2.292], align 8
 @"switch.table._ZN61_$LT$vte..ansi..LineClearMode$u20$as$u20$core..fmt..Debug$GT$3fmt17hc1e175624ef51fc7E" = private unnamed_addr constant [3 x ptr] [ptr @anon.06746a4451b6ea2a415cc45f0e9123e2.295, ptr @anon.06746a4451b6ea2a415cc45f0e9123e2.296, ptr @anon.06746a4451b6ea2a415cc45f0e9123e2.265], align 8
 @"switch.table._ZN95_$LT$image..codecs..tga..decoder..TgaDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$16read_image_boxed17h9781a739576d1348E.136" = private unnamed_addr constant [10 x i64] [i64 1, i64 2, i64 3, i64 4, i64 2, i64 4, i64 6, i64 8, i64 12, i64 16], align 8
-@switch.table._ZN4repl7outputs5image9ImageView4from17had21a0d703972e0cE = private unnamed_addr constant [9 x i8] c"\00\01\03\02\00\06\00\00\05", align 1
+@switch.table._ZN4repl7outputs5image9ImageView4from17had21a0d703972e0cE = private unnamed_addr constant [9 x i8] [i8 0, i8 1, i8 3, i8 2, i8 poison, i8 6, i8 poison, i8 poison, i8 5], align 1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal { i16, i16 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h427965fd8fc23360E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #0 {

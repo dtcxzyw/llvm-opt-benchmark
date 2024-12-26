@@ -70,7 +70,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.29 = private unnamed_addr constant [36 x i8] c"pmix20_bfrop_unpack: %d info arrays\00", align 1
 @.str.30 = private unnamed_addr constant [36 x i8] c"pmix20_bfrop_unpack: init array[%d]\00", align 1
 @.str.31 = private unnamed_addr constant [39 x i8] c"UNPACK-PMIX-VALUE: UNSUPPORTED TYPE %d\00", align 1
-@switch.table.pmix20_bfrop_unpack_darray = private unnamed_addr constant [42 x i64] [i64 1, i64 1, i64 8, i64 8, i64 4, i64 4, i64 1, i64 2, i64 4, i64 8, i64 4, i64 1, i64 2, i64 4, i64 8, i64 4, i64 8, i64 16, i64 8, i64 4, i64 1, i64 260, i64 1, i64 552, i64 1, i64 1, i64 16, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 296, i64 1, i64 1, i64 24, i64 16], align 8
+@switch.table.pmix20_bfrop_unpack_darray = private unnamed_addr constant [42 x i64] [i64 1, i64 1, i64 8, i64 8, i64 4, i64 4, i64 1, i64 2, i64 4, i64 8, i64 4, i64 1, i64 2, i64 4, i64 8, i64 4, i64 8, i64 16, i64 8, i64 4, i64 poison, i64 260, i64 poison, i64 552, i64 poison, i64 poison, i64 16, i64 poison, i64 poison, i64 1, i64 poison, i64 1, i64 1, i64 poison, i64 poison, i64 poison, i64 1, i64 296, i64 poison, i64 poison, i64 24, i64 16], align 8
 
 ; Function Attrs: nounwind uwtable
 define i32 @pmix20_bfrop_unpack(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3) local_unnamed_addr #0 {

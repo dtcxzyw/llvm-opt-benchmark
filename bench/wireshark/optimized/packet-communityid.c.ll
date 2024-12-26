@@ -39,7 +39,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.19 = private unnamed_addr constant [5 x i8] c"%s%s\00", align 1
 @.str.20 = private unnamed_addr constant [3 x i8] c"1:\00", align 1
 @.str.21 = private unnamed_addr constant [5 x i8] c"%02x\00", align 1
-@switch.table.communityid_calc = private unnamed_addr constant [19 x i16] [i16 8, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 10, i16 9, i16 0, i16 0, i16 14, i16 13, i16 16, i16 15, i16 18, i16 17], align 2
+@switch.table.communityid_calc = private unnamed_addr constant [19 x i16] [i16 8, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 10, i16 9, i16 poison, i16 poison, i16 14, i16 13, i16 16, i16 15, i16 18, i16 17], align 2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_communityid() local_unnamed_addr #0 {

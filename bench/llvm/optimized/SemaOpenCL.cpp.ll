@@ -150,7 +150,7 @@ $_ZN4llvm8toStringB5cxx11ERKNS_5APIntEjbbbb = comdat any
 @.str.10 = private unnamed_addr constant [8 x i8] c"integer\00", align 1
 @.str.11 = private unnamed_addr constant [10 x i8] c"read_only\00", align 1
 @.str.12 = private unnamed_addr constant [11 x i8] c"write_only\00", align 1
-@switch.table._ZN5clang10SemaOpenCL18checkBuiltinToAddrEjPNS_8CallExprE = private unnamed_addr constant [4 x i64] [i64 512, i64 1024, i64 512, i64 2048], align 8
+@switch.table._ZN5clang10SemaOpenCL18checkBuiltinToAddrEjPNS_8CallExprE = private unnamed_addr constant [4 x i64] [i64 512, i64 1024, i64 poison, i64 2048], align 8
 
 @_ZN5clang10SemaOpenCLC1ERNS_4SemaE = unnamed_addr alias void (ptr, ptr), ptr @_ZN5clang10SemaOpenCLC2ERNS_4SemaE
 

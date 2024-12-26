@@ -106,7 +106,7 @@ target triple = "x86_64-pc-linux-gnu"
 @sll_ct_dissector_info = internal global %struct._ct_dissector_info { ptr @sll_conv_get_filter_type }, align 8
 @.str.57 = private unnamed_addr constant [8 x i8] c"INVALID\00", align 1
 @sll_endpoint_dissector_info = internal global %struct._et_dissector_info { ptr @sll_endpoint_get_filter_type }, align 8
-@switch.table.dissect_sll_common = private unnamed_addr constant [5 x i32] [i32 1, i32 1, i32 1, i32 1, i32 0], align 4
+@switch.table.dissect_sll_common = private unnamed_addr constant [5 x i32] [i32 1, i32 1, i32 1, i32 poison, i32 0], align 4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_sll() local_unnamed_addr #0 {

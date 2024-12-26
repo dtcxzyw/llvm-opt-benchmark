@@ -1327,7 +1327,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.383 = private unnamed_addr constant [34 x i8] c"super(): __class__ cell not found\00", align 1
 @.str.384 = private unnamed_addr constant [8 x i8] c"super()\00", align 1
 @.str.385 = private unnamed_addr constant [46 x i8] c"super() argument 1 must be a type, not %.200s\00", align 1
-@switch.table._PyType_GetTextSignatureFromInternalDoc = private unnamed_addr constant [10 x ptr] [ptr @.str.24, ptr @.str.27, ptr @.str.24, ptr @.str.24, ptr @.str.25, ptr @.str.28, ptr @.str.24, ptr @.str.24, ptr @.str.26, ptr @.str.29], align 8
+@switch.table._PyType_GetTextSignatureFromInternalDoc = private unnamed_addr constant [10 x ptr] [ptr @.str.24, ptr @.str.27, ptr poison, ptr poison, ptr @.str.25, ptr @.str.28, ptr poison, ptr poison, ptr @.str.26, ptr @.str.29], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @_PyStaticType_GetState(ptr noundef readnone %interp, ptr nocapture noundef readonly %self) local_unnamed_addr #0 {

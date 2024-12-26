@@ -177,7 +177,7 @@ $_ZTV19DecodeNarrowPtrNode = comdat any
 @_ZTV13VectorBoxNode = external unnamed_addr constant { [26 x ptr] }, align 8
 @_ZN4Node14NotAMachineRegE = external local_unnamed_addr constant i32, align 4
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
-@switch.table._ZL11is_absoluteP8PhaseGVNP7PhiNodei = private unnamed_addr constant [6 x ptr] [ptr @_ZN5TypeD4ZEROE, ptr @_ZN7TypeInt4ZEROE, ptr @_ZN5TypeF4ZEROE, ptr @_ZN7TypeInt4ZEROE, ptr @_ZN7TypeInt4ZEROE, ptr @_ZN8TypeLong4ZEROE], align 8
+@switch.table._ZL11is_absoluteP8PhaseGVNP7PhiNodei = private unnamed_addr constant [6 x ptr] [ptr @_ZN5TypeD4ZEROE, ptr poison, ptr @_ZN5TypeF4ZEROE, ptr poison, ptr @_ZN7TypeInt4ZEROE, ptr @_ZN8TypeLong4ZEROE], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef ptr @_ZNK10RegionNode5ValueEP8PhaseGVN(ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {

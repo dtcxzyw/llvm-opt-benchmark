@@ -28,8 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.16 = private unnamed_addr constant [13 x i8] c"NewLongArray\00", align 1
 @.str.17 = private unnamed_addr constant [14 x i8] c"NewShortArray\00", align 1
 @.str.18 = private unnamed_addr constant [16 x i8] c"NewBooleanArray\00", align 1
-@switch.table.newInstance = private unnamed_addr constant [26 x i8] c"BCD[F[[IJ[L[[[[[[S[[V[[[Z[", align 1
-@switch.table.writeNewPrimitiveArray = private unnamed_addr constant [26 x i8] c"BCDLFLLIJLLLLLLLLSLLVLLLZ[", align 1
+@switch.table.writeNewPrimitiveArray = private unnamed_addr constant [26 x i8] [i8 66, i8 67, i8 68, i8 poison, i8 70, i8 poison, i8 poison, i8 73, i8 74, i8 poison, i8 76, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 83, i8 poison, i8 poison, i8 86, i8 poison, i8 poison, i8 poison, i8 90, i8 91], align 1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i8 @newInstance(ptr noundef %0, ptr noundef %1) #0 {
@@ -128,7 +127,7 @@ switch.hole_check:                                ; preds = %switch.early.test.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %34 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [26 x i8], ptr @switch.table.newInstance, i64 0, i64 %34
+  %switch.gep = getelementptr inbounds nuw [26 x i8], ptr @switch.table.writeNewPrimitiveArray, i64 0, i64 %34
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %isReferenceTag.exit
 

@@ -332,7 +332,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.238 = private unnamed_addr constant [34 x i8] c"epan/dissectors/packet-gsm_gsup.c\00", align 1
 @.str.239 = private unnamed_addr constant [2 x i8] c"0\00", align 1
 @switch.table.dissect_gsup_tlvs = private unnamed_addr constant [3 x i32] [i32 0, i32 1, i32 1], align 4
-@switch.table.dissect_gsup_tlvs.1 = private unnamed_addr constant [7 x i32] [i32 1, i32 1, i32 1, i32 1, i32 0, i32 0, i32 0], align 4
+@switch.table.dissect_gsup_tlvs.1 = private unnamed_addr constant [7 x i32] [i32 1, i32 1, i32 1, i32 poison, i32 0, i32 0, i32 0], align 4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_gsup() local_unnamed_addr #0 {

@@ -16867,7 +16867,7 @@ switch.lookup:                                    ; preds = %_ZNK4llvm15MCRegist
   %.164 = phi i32 [ 72, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit77 ], [ 35, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit80 ], [ 7, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit83 ]
   %switch.tableidx = add nsw i32 %51, -16
   %switch.cast = zext nneg i32 %switch.tableidx to i47
-  %switch.downshift = lshr i47 -549755814914, %switch.cast
+  %switch.downshift = lshr i47 -52776558067712, %switch.cast
   %switch.masked = trunc i47 %switch.downshift to i1
   switch i32 %.164, label %104 [
     i32 72, label %105

@@ -1443,11 +1443,11 @@ $_ZTI23llama_data_file_context = comdat any
 @_ZGVZL20unicode_to_bytes_bpeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3mapB5cxx11 = internal global i64 0, align 8
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_llama.cpp, ptr null }]
 @switch.table.llama_model_desc = private unnamed_addr constant [11 x ptr] [ptr @.str.415, ptr @.str.416, ptr @.str.417, ptr @.str.418, ptr @.str.419, ptr @.str.420, ptr @.str.421, ptr @.str.422, ptr @.str.423, ptr @.str.424, ptr @.str.425], align 8
-@switch.table.llama_model_quantize = private unnamed_addr constant [19 x i32] [i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 8, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14], align 4
-@switch.table.llama_model_quantize.90 = private unnamed_addr constant [19 x i32] [i32 0, i32 1, i32 2, i32 3, i32 2, i32 2, i32 2, i32 8, i32 6, i32 7, i32 10, i32 11, i32 11, i32 11, i32 12, i32 12, i32 13, i32 13, i32 14], align 4
+@switch.table.llama_model_quantize = private unnamed_addr constant [19 x i32] [i32 14, i32 14, i32 14, i32 14, i32 poison, i32 poison, i32 poison, i32 8, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14], align 4
+@switch.table.llama_model_quantize.90 = private unnamed_addr constant [19 x i32] [i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 8, i32 6, i32 7, i32 10, i32 11, i32 11, i32 11, i32 12, i32 12, i32 13, i32 13, i32 14], align 4
 @switch.table.llama_model_quantize.91 = private unnamed_addr constant [5 x i32] [i32 2, i32 3, i32 6, i32 7, i32 8], align 4
 @switch.table._ZN18llama_model_loaderC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbPK23llama_model_kv_override = private unnamed_addr constant [3 x ptr] [ptr @.str.273, ptr @.str.274, ptr @.str.275], align 8
-@switch.table._ZN18llama_model_loaderC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbPK23llama_model_kv_override.92 = private unnamed_addr constant [15 x i32] [i32 1024, i32 1025, i32 1026, i32 1027, i32 1024, i32 1024, i32 1032, i32 1033, i32 1031, i32 1024, i32 1034, i32 1036, i32 1039, i32 1041, i32 1042], align 4
+@switch.table._ZN18llama_model_loaderC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbPK23llama_model_kv_override.92 = private unnamed_addr constant [15 x i32] [i32 1024, i32 1025, i32 1026, i32 1027, i32 poison, i32 poison, i32 1032, i32 1033, i32 1031, i32 poison, i32 1034, i32 1036, i32 1039, i32 1041, i32 1042], align 4
 @switch.table._ZL16llm_load_hparamsR18llama_model_loaderR11llama_model = private unnamed_addr constant [10 x i32] [i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 0, i32 6, i32 3], align 4
 @switch.table._ZN8GGUFMeta3GKVIfE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.101 = private unnamed_addr constant [3 x ptr] [ptr @.str.305, ptr @.str.306, ptr @.str.304], align 8
 

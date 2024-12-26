@@ -41,7 +41,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.27 = private unnamed_addr constant [28 x i8] c"Tag is not a JVM basic type\00", align 1
 @.str.28 = private unnamed_addr constant [6 x i8] c"JVMTI\00", align 1
 @.str.29 = private unnamed_addr constant [22 x i8] c"GetObjectMonitorUsage\00", align 1
-@switch.table.setValues = private unnamed_addr constant [26 x i8] c"BCD[F[[IJ[L[[[[[[S[[V[[[Z[", align 1
+@switch.table.setValues = private unnamed_addr constant [26 x i8] [i8 66, i8 67, i8 68, i8 poison, i8 70, i8 poison, i8 poison, i8 73, i8 74, i8 poison, i8 76, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 83, i8 poison, i8 poison, i8 86, i8 poison, i8 poison, i8 poison, i8 90, i8 91], align 1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i8 @referenceType(ptr noundef %0, ptr noundef %1) #0 {

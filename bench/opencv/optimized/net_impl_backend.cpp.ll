@@ -76,7 +76,7 @@ $_ZNSt8_Rb_treeIPvSt4pairIKS0_N2cv3PtrINS3_3dnn14dnn4_v2024052114BackendWrapperE
 @.str.22 = private unnamed_addr constant [49 x i8] c"cannot create std::vector larger than max_size()\00", align 1
 @_ZStL19piecewise_construct = internal constant %"struct.std::piecewise_construct_t" zeroinitializer, align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_net_impl_backend.cpp, ptr null }]
-@switch.table._ZN2cv3dnn14dnn4_v202405213Net4Impl19setPreferableTargetEi = private unnamed_addr constant [10 x i32] [i32 0, i32 1, i32 2, i32 9, i32 9, i32 9, i32 9, i32 9, i32 9, i32 9], align 4
+@switch.table._ZN2cv3dnn14dnn4_v202405213Net4Impl19setPreferableTargetEi = private unnamed_addr constant [10 x i32] [i32 0, i32 1, i32 2, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 9], align 4
 
 declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 

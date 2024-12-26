@@ -74,8 +74,8 @@ $_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairI
 @__dso_handle = external hidden global i8
 @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE = external local_unnamed_addr global %"struct.folly::c_array", align 8
 @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE = external local_unnamed_addr global %"struct.folly::c_array.13", align 2
-@switch.table._ZN8facebook5velox6common22compressionKindToCodecENS1_15CompressionKindE = private unnamed_addr constant [7 x i32] [i32 1, i32 4, i32 3, i32 1, i32 8, i32 2, i32 9], align 4
-@switch.table._ZN8facebook5velox6common26codecTypeToCompressionKindEN5folly2io9CodecTypeE = private unnamed_addr constant [9 x i64] [i64 0, i64 5, i64 2, i64 1, i64 0, i64 0, i64 0, i64 4, i64 6], align 8
+@switch.table._ZN8facebook5velox6common22compressionKindToCodecENS1_15CompressionKindE = private unnamed_addr constant [7 x i32] [i32 1, i32 4, i32 3, i32 poison, i32 8, i32 2, i32 9], align 4
+@switch.table._ZN8facebook5velox6common26codecTypeToCompressionKindEN5folly2io9CodecTypeE = private unnamed_addr constant [9 x i64] [i64 0, i64 5, i64 2, i64 1, i64 poison, i64 poison, i64 poison, i64 4, i64 6], align 8
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8facebook5velox6common22compressionKindToCodecENS1_15CompressionKindE(ptr noalias sret(%"class.std::unique_ptr") align 8 %agg.result, i64 noundef %kind) local_unnamed_addr #0 {

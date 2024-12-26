@@ -106,7 +106,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.79 = private unnamed_addr constant [9 x i8] c"?column?\00", align 1
 @.str.80 = private unnamed_addr constant [27 x i8] c"unrecognized node type: %d\00", align 1
 @__func__.markQueryForLocking = private unnamed_addr constant [20 x i8] c"markQueryForLocking\00", align 1
-@switch.table.RewriteQuery = private unnamed_addr constant [6 x i64] [i64 24, i64 24, i64 24, i64 96, i64 112, i64 120], align 8
+@switch.table.RewriteQuery = private unnamed_addr constant [6 x i64] [i64 24, i64 poison, i64 poison, i64 96, i64 112, i64 120], align 8
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @AcquireRewriteLocks(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #0 {

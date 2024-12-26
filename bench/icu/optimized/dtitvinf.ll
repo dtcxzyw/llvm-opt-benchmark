@@ -86,8 +86,8 @@ $_ZN6icu_7516DateIntervalInfo16DateIntervalSink26setIntervalPatternIfAbsentEPKc1
 @_ZTVN6icu_7513UnicodeStringE = external unnamed_addr constant { [13 x ptr] }, align 8
 @_ZN6icu_75L11PATH_PREFIXE = internal constant [17 x i16] [i16 47, i16 76, i16 79, i16 67, i16 65, i16 76, i16 69, i16 47, i16 99, i16 97, i16 108, i16 101, i16 110, i16 100, i16 97, i16 114, i16 47], align 16
 @_ZN6icu_75L11PATH_SUFFIXE = internal constant [16 x i16] [i16 47, i16 105, i16 110, i16 116, i16 101, i16 114, i16 118, i16 97, i16 108, i16 70, i16 111, i16 114, i16 109, i16 97, i16 116, i16 115], align 16
-@switch.table._ZN6icu_7516DateIntervalInfo28calendarFieldToIntervalIndexE19UCalendarDateFieldsR10UErrorCode = private unnamed_addr constant [15 x i32] [i32 0, i32 1, i32 2, i32 0, i32 0, i32 3, i32 0, i32 3, i32 0, i32 4, i32 5, i32 5, i32 6, i32 7, i32 8], align 4
-@switch.table._ZN6icu_7516DateIntervalInfo16DateIntervalSink26setIntervalPatternIfAbsentEPKc19UCalendarDateFieldsRKNS_13ResourceValueER10UErrorCode = private unnamed_addr constant [15 x i64] [i64 0, i64 1, i64 2, i64 0, i64 0, i64 3, i64 0, i64 3, i64 0, i64 4, i64 5, i64 5, i64 6, i64 7, i64 8], align 8
+@switch.table._ZN6icu_7516DateIntervalInfo28calendarFieldToIntervalIndexE19UCalendarDateFieldsR10UErrorCode = private unnamed_addr constant [15 x i32] [i32 0, i32 1, i32 2, i32 poison, i32 poison, i32 3, i32 poison, i32 3, i32 poison, i32 4, i32 5, i32 5, i32 6, i32 7, i32 8], align 4
+@switch.table._ZN6icu_7516DateIntervalInfo16DateIntervalSink26setIntervalPatternIfAbsentEPKc19UCalendarDateFieldsRKNS_13ResourceValueER10UErrorCode = private unnamed_addr constant [15 x i64] [i64 0, i64 1, i64 2, i64 poison, i64 poison, i64 3, i64 poison, i64 3, i64 poison, i64 4, i64 5, i64 5, i64 6, i64 7, i64 8], align 8
 
 @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev = weak_odr unnamed_addr alias void (ptr), ptr @_ZN6icu_7515MaybeStackArrayIcLi40EEC2Ev
 @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ei10UErrorCode = weak_odr unnamed_addr alias void (ptr, i32, i32), ptr @_ZN6icu_7515MaybeStackArrayIcLi40EEC2Ei10UErrorCode

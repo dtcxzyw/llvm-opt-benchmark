@@ -703,7 +703,7 @@ $_ZTIN3fmt2v819basic_memory_bufferIcLm500ESaIcEEE = comdat any
 @.str.172 = private unnamed_addr constant [25 x i8] c"unknown canonical option\00", align 1
 @.str.173 = private unnamed_addr constant [15 x i8] c"malformed name\00", align 1
 @.str.174 = private unnamed_addr constant [30 x i8] c"invalid export in core module\00", align 1
-@switch.table._ZNK8WasmEdge8Executor8Executor18runArrayInitDataOpEjjjRKNS_10RefVariantERKNS_3AST13CompositeTypeERKNS_7Runtime8Instance12DataInstanceERKNS5_11InstructionE = private unnamed_addr constant [9 x i32] [i32 2, i32 1, i32 1, i32 1, i32 16, i32 8, i32 4, i32 8, i32 4], align 4
+@switch.table._ZNK8WasmEdge8Executor8Executor18runArrayInitDataOpEjjjRKNS_10RefVariantERKNS_3AST13CompositeTypeERKNS_7Runtime8Instance12DataInstanceERKNS5_11InstructionE = private unnamed_addr constant [9 x i32] [i32 2, i32 1, i32 poison, i32 poison, i32 16, i32 8, i32 4, i32 8, i32 4], align 4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZNK8WasmEdge8Executor8Executor12runRefNullOpERNS_7Runtime12StackManagerERKNS_7ValTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 4 dereferenceable(8) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {

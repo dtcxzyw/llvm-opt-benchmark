@@ -24,7 +24,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.try_pkcs12 = private unnamed_addr constant [11 x i8] c"try_pkcs12\00", align 1
 @.str.10 = private unnamed_addr constant [15 x i8] c"empty password\00", align 1
 @.str.11 = private unnamed_addr constant [21 x i8] c"maybe wrong password\00", align 1
-@switch.table.ossl_store_handle_load_result = private unnamed_addr constant [5 x i32] [i32 0, i32 0, i32 132, i32 134, i32 135], align 4
+@switch.table.ossl_store_handle_load_result = private unnamed_addr constant [5 x i32] [i32 0, i32 poison, i32 132, i32 134, i32 135], align 4
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_store_handle_load_result(ptr noundef %params, ptr nocapture noundef %arg) local_unnamed_addr #0 {

@@ -49,9 +49,9 @@ target triple = "x86_64-pc-linux-gnu"
 @str.1 = private unnamed_addr constant [8 x i8] c"dst is \00", align 1
 @str.6 = private unnamed_addr constant [7 x i8] c"src is\00", align 1
 @str.7 = private unnamed_addr constant [7 x i8] c"dst is\00", align 1
-@switch.table.storeImageArray = private unnamed_addr constant [7 x i64] [i64 1, i64 1, i64 1, i64 1, i64 2, i64 3, i64 3], align 8
-@switch.table.storeImageArray.15 = private unnamed_addr constant [7 x i64] [i64 2, i64 2, i64 2, i64 2, i64 1, i64 2, i64 2], align 8
-@switch.table.storeImageArray.16 = private unnamed_addr constant [7 x i64] [i64 3, i64 3, i64 3, i64 3, i64 0, i64 1, i64 1], align 8
+@switch.table.storeImageArray = private unnamed_addr constant [7 x i64] [i64 1, i64 1, i64 1, i64 poison, i64 2, i64 3, i64 3], align 8
+@switch.table.storeImageArray.15 = private unnamed_addr constant [7 x i64] [i64 2, i64 2, i64 2, i64 poison, i64 1, i64 2, i64 2], align 8
+@switch.table.storeImageArray.16 = private unnamed_addr constant [7 x i64] [i64 3, i64 3, i64 3, i64 poison, i64 0, i64 1, i64 1], align 8
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Java_sun_awt_image_ImagingLib_convolveBI(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 {

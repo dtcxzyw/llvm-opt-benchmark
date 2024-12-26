@@ -1759,10 +1759,10 @@ $_ZTVN4llvm12AliasSummaryE = comdat any
 @_ZTVN4llvm16GlobalVarSummaryE = linkonce_odr unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr null, ptr @_ZN4llvm16GlobalVarSummaryD2Ev, ptr @_ZN4llvm16GlobalVarSummaryD0Ev] }, comdat, align 8
 @_ZTVN4llvm12AliasSummaryE = linkonce_odr unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr null, ptr @_ZN4llvm12AliasSummaryD2Ev, ptr @_ZN4llvm12AliasSummaryD0Ev] }, comdat, align 8
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_LLParser.cpp, ptr null }]
-@switch.table._ZN4llvm8LLParser20parseOptionalLinkageERjRbS1_S1_S2_ = private unnamed_addr constant [19 x i32] [i32 8, i32 7, i32 2, i32 3, i32 4, i32 5, i32 6, i32 8, i32 8, i32 10, i32 1, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 9, i32 0], align 4
+@switch.table._ZN4llvm8LLParser20parseOptionalLinkageERjRbS1_S1_S2_ = private unnamed_addr constant [19 x i32] [i32 8, i32 7, i32 2, i32 3, i32 4, i32 5, i32 6, i32 poison, i32 poison, i32 10, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 9, i32 0], align 4
 @switch.table._ZN4llvm8LLParser14parseAtomicRMWERPNS_11InstructionERNS0_16PerFunctionStateE = private unnamed_addr constant [6 x i32] [i32 1, i32 2, i32 4, i32 5, i32 6, i32 7], align 4
 @switch.table._ZN4llvm8LLParser17parseCmpPredicateERjj = private unnamed_addr constant [10 x i32] [i32 32, i32 33, i32 40, i32 38, i32 41, i32 39, i32 36, i32 34, i32 37, i32 35], align 4
-@switch.table._ZN4llvm8LLParser21parseOptionalResByArgERSt3mapISt6vectorImSaImEENS_28WholeProgramDevirtResolution5ByArgESt4lessIS4_ESaISt4pairIKS4_S6_EEE = private unnamed_addr constant [9 x i32] [i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 2, i32 3], align 4
+@switch.table._ZN4llvm8LLParser21parseOptionalResByArgERSt3mapISt6vectorImSaImEENS_28WholeProgramDevirtResolution5ByArgESt4lessIS4_ESaISt4pairIKS4_S6_EEE = private unnamed_addr constant [9 x i32] [i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 1, i32 2, i32 3], align 4
 @switch.table._ZN4llvm8LLParser12parseGVFlagsERNS_18GlobalValueSummary7GVFlagsE = private unnamed_addr constant [18 x i16] [i16 8, i16 7, i16 2, i16 3, i16 4, i16 5, i16 6, i16 0, i16 0, i16 10, i16 1, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 9], align 2
 
 @_ZN4llvm8LLParser16PerFunctionStateC1ERS0_RNS_8FunctionEiNS_8ArrayRefIjEE = unnamed_addr alias void (ptr, ptr, ptr, i32, ptr, i64), ptr @_ZN4llvm8LLParser16PerFunctionStateC2ERS0_RNS_8FunctionEiNS_8ArrayRefIjEE

@@ -308,7 +308,7 @@ $_ZN4llvm15SmallVectorImplIPKcE6appendIPKS2_vEEvT_S7_ = comdat any
 @.str.138 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
 @.str.139 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 @_ZTVN4llvm18raw_string_ostreamE = external unnamed_addr constant { [15 x ptr] }, align 8
-@switch.table._ZNK5clang6driver10toolchains5Linux18getMultiarchTripleB5cxx11ERKNS0_6DriverERKN4llvm6TripleENS6_9StringRefE = private unnamed_addr constant [8 x ptr] [ptr @.str.18, ptr @.str.16, ptr @.str.16, ptr @.str.16, ptr @.str.16, ptr @.str.17, ptr @.str.18, ptr @.str.16], align 8
+@switch.table._ZNK5clang6driver10toolchains5Linux18getMultiarchTripleB5cxx11ERKNS0_6DriverERKN4llvm6TripleENS6_9StringRefE = private unnamed_addr constant [8 x ptr] [ptr @.str.18, ptr poison, ptr poison, ptr poison, ptr poison, ptr @.str.17, ptr @.str.18, ptr @.str.16], align 8
 
 @_ZN5clang6driver10toolchains5LinuxC1ERKNS0_6DriverERKN4llvm6TripleERKNS6_3opt7ArgListE = hidden unnamed_addr alias void (ptr, ptr, ptr, ptr), ptr @_ZN5clang6driver10toolchains5LinuxC2ERKNS0_6DriverERKN4llvm6TripleERKNS6_3opt7ArgListE
 

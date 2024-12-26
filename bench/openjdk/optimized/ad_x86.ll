@@ -3453,8 +3453,8 @@ $_ZN26GrowableArrayWithAllocatorI6jvalue13GrowableArrayIS0_EE9expand_toEi = comd
 @llvm.used = appending global [4 x ptr] [ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE], section "llvm.metadata"
 @switch.table._ZN7Matcher19vector_return_valueEj = private unnamed_addr constant [3 x i32] [i32 4194371, i32 4194375, i32 4194383], align 4
 @switch.table._ZN9vcmpuNode13eval_constantEP7Compile = private unnamed_addr constant [4 x i64] [i64 -9187201950435737472, i64 -9223231297218904064, i64 -9223372034707292160, i64 -9223372036854775808], align 8
-@switch.table._ZNK16evcmp_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc.7 = private unnamed_addr constant [24 x i32] [i32 0, i32 6, i32 0, i32 1, i32 4, i32 2, i32 0, i32 5, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 6, i32 0, i32 1, i32 0, i32 2, i32 0, i32 5], align 4
-@switch.table._ZNK16evcmp_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc.9 = private unnamed_addr constant [8 x i32] [i32 0, i32 30, i32 0, i32 17, i32 4, i32 18, i32 0, i32 29], align 4
+@switch.table._ZNK16evcmp_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc.7 = private unnamed_addr constant [24 x i32] [i32 0, i32 6, i32 poison, i32 1, i32 4, i32 2, i32 poison, i32 5, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 6, i32 poison, i32 1, i32 poison, i32 2, i32 poison, i32 5], align 4
+@switch.table._ZNK16evcmp_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc.9 = private unnamed_addr constant [8 x i32] [i32 0, i32 30, i32 poison, i32 17, i32 4, i32 18, i32 poison, i32 29], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_Z13reg_mask_initv() local_unnamed_addr #0 {

@@ -2953,7 +2953,7 @@ $_ZTIN7cvflann8LshIndexINS_2L1IfEEEE = comdat any
 @.str.131 = private unnamed_addr constant [66 x i8] c"DataType<ElementType>::type == data.type() && data.isContinuous()\00", align 1
 @__func__._ZN2cv5flann10loadIndex_IN7cvflann10HammingLUTENS2_5IndexIS3_EEEEbPNS0_5IndexERPvRKNS_3MatEP8_IO_FILERKT_ = private unnamed_addr constant [11 x i8] c"loadIndex_\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_miniflann.cpp, ptr null }]
-@switch.table._ZN2cv5flann5Index5load_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE = private unnamed_addr constant [6 x i32] [i32 1, i32 3, i32 4, i32 0, i32 0, i32 2], align 4
+@switch.table._ZN2cv5flann5Index5load_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE = private unnamed_addr constant [6 x i32] [i32 1, i32 3, i32 4, i32 poison, i32 0, i32 2], align 4
 
 @_ZN2cv5flann11IndexParamsD1Ev = unnamed_addr alias void (ptr), ptr @_ZN2cv5flann11IndexParamsD2Ev
 @_ZN2cv5flann11IndexParamsC1Ev = unnamed_addr alias void (ptr), ptr @_ZN2cv5flann11IndexParamsC2Ev

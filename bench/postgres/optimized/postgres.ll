@@ -310,7 +310,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MyStartTimestamp = external local_unnamed_addr global i64, align 8
 @.str.158 = private unnamed_addr constant [79 x i8] c"disconnection: session time: %d:%02d:%02d.%03d user=%s database=%s host=%s%s%s\00", align 1
 @.str.159 = private unnamed_addr constant [7 x i8] c" port=\00", align 1
-@switch.table.process_postgres_switches = private unnamed_addr constant [19 x ptr] [ptr @.str.52, ptr @.str.49, ptr @.str.49, ptr @.str.49, ptr @.str.49, ptr @.str.49, ptr @.str.56, ptr @.str.50, ptr @.str.49, ptr @.str.49, ptr @.str.49, ptr @.str.55, ptr @.str.54, ptr @.str.51, ptr @.str.49, ptr @.str.49, ptr @.str.49, ptr @.str.49, ptr @.str.53], align 8
+@switch.table.process_postgres_switches = private unnamed_addr constant [19 x ptr] [ptr @.str.52, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr @.str.56, ptr @.str.50, ptr poison, ptr poison, ptr poison, ptr @.str.55, ptr @.str.54, ptr @.str.51, ptr poison, ptr poison, ptr poison, ptr @.str.49, ptr @.str.53], align 8
 @switch.table.errdetail_recovery_conflict = private unnamed_addr constant [7 x ptr] [ptr @.str.114, ptr @.str.110, ptr @.str.109, ptr @.str.111, ptr @.str.112, ptr @.str.108, ptr @.str.113], align 8
 
 ; Function Attrs: nounwind uwtable

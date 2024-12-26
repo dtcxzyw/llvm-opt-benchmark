@@ -225,7 +225,7 @@ $_ZTVN4llvm13format_objectIJlEEE = comdat any
 @.str.35 = private unnamed_addr constant [4 x i8] c" | \00", align 1
 @_ZTVN4llvm19raw_svector_ostreamE = external unnamed_addr constant { [16 x ptr] }, align 8
 @.str.36 = private unnamed_addr constant [14 x i8] c"           | \00", align 1
-@switch.table._ZN12_GLOBAL__N_126ItaniumRecordLayoutBuilder17CheckFieldPaddingEmmmjbPKN5clang9FieldDeclE.57 = private unnamed_addr constant [4 x i64] [i64 0, i64 1, i64 0, i64 2], align 8
+@switch.table._ZN12_GLOBAL__N_126ItaniumRecordLayoutBuilder17CheckFieldPaddingEmmmjbPKN5clang9FieldDeclE.57 = private unnamed_addr constant [4 x i64] [i64 0, i64 1, i64 poison, i64 2], align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef nonnull align 8 dereferenceable(80) ptr @_ZNK5clang10ASTContext18getASTRecordLayoutEPKNS_10RecordDeclE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {

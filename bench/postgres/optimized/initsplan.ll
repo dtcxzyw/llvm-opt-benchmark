@@ -22,8 +22,8 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.6 = private unnamed_addr constant [59 x i8] c"%s cannot be applied to the nullable side of an outer join\00", align 1
 @__func__.make_outerjoininfo = private unnamed_addr constant [19 x i8] c"make_outerjoininfo\00", align 1
 @enable_hashagg = external local_unnamed_addr global i8, align 1
-@switch.table.find_lateral_references = private unnamed_addr constant [6 x i64] [i64 24, i64 40, i64 24, i64 96, i64 112, i64 120], align 8
-@switch.table.find_lateral_references.5 = private unnamed_addr constant [6 x i32] [i32 0, i32 1, i32 0, i32 0, i32 0, i32 0], align 4
+@switch.table.find_lateral_references = private unnamed_addr constant [6 x i64] [i64 24, i64 40, i64 poison, i64 96, i64 112, i64 120], align 8
+@switch.table.find_lateral_references.5 = private unnamed_addr constant [6 x i32] [i32 0, i32 1, i32 poison, i32 0, i32 0, i32 0], align 4
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @add_base_rels_to_query(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {

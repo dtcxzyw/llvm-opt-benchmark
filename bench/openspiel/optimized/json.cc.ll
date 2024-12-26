@@ -194,7 +194,7 @@ $_ZTSSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel4js
 @.str.48 = private unnamed_addr constant [18 x i8] c"Unfinished object\00", align 1
 @.str.49 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_json.cc, ptr null }]
-@switch.table._ZN10open_spiel4json12_GLOBAL__N_111ParseStringB5cxx11EPN4absl7debian211string_viewE = private unnamed_addr constant [10 x ptr] [ptr @.str.37, ptr @.str.37, ptr @.str.38, ptr @.str.37, ptr @.str.37, ptr @.str.37, ptr @.str.2, ptr @.str.37, ptr @.str.39, ptr @.str.40], align 8
+@switch.table._ZN10open_spiel4json12_GLOBAL__N_111ParseStringB5cxx11EPN4absl7debian211string_viewE = private unnamed_addr constant [10 x ptr] [ptr @.str.37, ptr poison, ptr @.str.38, ptr poison, ptr poison, ptr poison, ptr @.str.2, ptr poison, ptr @.str.39, ptr @.str.40], align 8
 
 declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 

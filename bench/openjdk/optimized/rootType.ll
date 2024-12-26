@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.13 = private unnamed_addr constant [21 x i8] c"Global Object Handle\00", align 1
 @.str.14 = private unnamed_addr constant [12 x i8] c"Handle Area\00", align 1
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
-@switch.table._ZN13OldObjectRoot18system_descriptionENS_6SystemE = private unnamed_addr constant [11 x ptr] [ptr @.str, ptr @.str.4, ptr @.str.5, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str.6, ptr @.str.7, ptr @.str.8], align 8
+@switch.table._ZN13OldObjectRoot18system_descriptionENS_6SystemE = private unnamed_addr constant [11 x ptr] [ptr @.str, ptr @.str.4, ptr @.str.5, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr @.str.6, ptr @.str.7, ptr @.str.8], align 8
 @switch.table._ZN13OldObjectRoot16type_descriptionENS_4TypeE = private unnamed_addr constant [6 x ptr] [ptr @.str, ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14], align 8
 
 ; Function Attrs: mustprogress nounwind uwtable

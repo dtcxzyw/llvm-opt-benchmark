@@ -6619,7 +6619,7 @@ switch.hole_check404:                             ; preds = %_ZN4llvm8dyn_castIN
 
 switch.lookup:                                    ; preds = %switch.hole_check404
   %switch.cast = trunc nuw i32 %switch.tableidx403 to i15
-  %switch.downshift = lshr i15 15869, %switch.cast
+  %switch.downshift = lshr i15 257, %switch.cast
   %switch.masked = trunc i15 %switch.downshift to i1
   %2696 = call noundef i32 @_ZN4llvm33getArithmeticReductionInstructionEj(i32 noundef %2694) #22
   %2697 = getelementptr inbounds nuw i8, ptr %0, i64 4

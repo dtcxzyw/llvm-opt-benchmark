@@ -256,9 +256,9 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.209 = private unnamed_addr constant [8 x i8] c"DEFAULT\00", align 1
 @.str.210 = private unnamed_addr constant [5 x i8] c"HIGH\00", align 1
 @.str.211 = private unnamed_addr constant [6 x i8] c"ECDSA\00", align 1
-@switch.table.DoServerKeyExchange = private unnamed_addr constant [5 x i32] [i32 209, i32 209, i32 526, i32 210, i32 211], align 4
-@switch.table.SendCertificateVerify.20 = private unnamed_addr constant [5 x i64] [i64 196, i64 196, i64 216, i64 248, i64 296], align 8
-@switch.table.SendCertificateVerify.21 = private unnamed_addr constant [5 x i32] [i32 20, i32 20, i32 32, i32 48, i32 64], align 4
+@switch.table.DoServerKeyExchange = private unnamed_addr constant [5 x i32] [i32 209, i32 poison, i32 526, i32 210, i32 211], align 4
+@switch.table.SendCertificateVerify.20 = private unnamed_addr constant [5 x i64] [i64 196, i64 poison, i64 216, i64 248, i64 296], align 8
+@switch.table.SendCertificateVerify.21 = private unnamed_addr constant [5 x i32] [i32 20, i32 poison, i32 32, i32 48, i32 64], align 4
 @switch.table.SendServerKeyExchange.23 = private unnamed_addr constant [5 x i32] [i32 88, i32 417, i32 414, i32 415, i32 416], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

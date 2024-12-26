@@ -67,7 +67,7 @@ $_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE4growEm = comdat any
 
 @_ZN4llvm24DisableABIBreakingChecksE = external global i32, align 4
 @_ZN4llvm30VerifyDisableABIBreakingChecksE = weak hidden local_unnamed_addr global ptr @_ZN4llvm24DisableABIBreakingChecksE, align 8
-@switch.table._ZN5clang16SourceMgrAdapter10handleDiagERKN4llvm12SMDiagnosticE = private unnamed_addr constant [4 x i64] [i64 16, i64 20, i64 16, i64 24], align 8
+@switch.table._ZN5clang16SourceMgrAdapter10handleDiagERKN4llvm12SMDiagnosticE = private unnamed_addr constant [4 x i64] [i64 16, i64 20, i64 poison, i64 24], align 8
 
 @_ZN5clang16SourceMgrAdapterC1ERNS_13SourceManagerERNS_17DiagnosticsEngineEjjjNS_20CustomizableOptionalINS_12FileEntryRefEEE = unnamed_addr alias void (ptr, ptr, ptr, i32, i32, i32, i64), ptr @_ZN5clang16SourceMgrAdapterC2ERNS_13SourceManagerERNS_17DiagnosticsEngineEjjjNS_20CustomizableOptionalINS_12FileEntryRefEEE
 @_ZN5clang16SourceMgrAdapterD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5clang16SourceMgrAdapterD2Ev

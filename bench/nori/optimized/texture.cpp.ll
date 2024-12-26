@@ -20,7 +20,7 @@ $__clang_call_terminate = comdat any
 @.str.3 = private unnamed_addr constant [64 x i8] c"Texture::Texture(): pixel format not supported by the hardware!\00", align 1
 @.str.4 = private unnamed_addr constant [54 x i8] c"Texture::bytes_per_pixel(): invalid component format!\00", align 1
 @.str.5 = private unnamed_addr constant [43 x i8] c"Texture::channels(): invalid pixel format!\00", align 1
-@switch.table._ZNK7nanogui7Texture15bytes_per_pixelEv = private unnamed_addr constant [10 x i64] [i64 1, i64 1, i64 2, i64 2, i64 4, i64 4, i64 1, i64 1, i64 2, i64 4], align 8
+@switch.table._ZNK7nanogui7Texture15bytes_per_pixelEv = private unnamed_addr constant [10 x i64] [i64 1, i64 1, i64 2, i64 2, i64 4, i64 4, i64 poison, i64 poison, i64 2, i64 4], align 8
 @switch.table._ZNK7nanogui7Texture8channelsEv = private unnamed_addr constant [8 x i64] [i64 1, i64 2, i64 3, i64 4, i64 3, i64 4, i64 1, i64 2], align 8
 
 @_ZN7nanogui7TextureC1ENS0_11PixelFormatENS0_15ComponentFormatERKNS_5ArrayIiLm2EEENS0_17InterpolationModeES7_NS0_8WrapModeEhhb = hidden unnamed_addr alias void (ptr, i8, i8, ptr, i8, i8, i8, i8, i8, i1), ptr @_ZN7nanogui7TextureC2ENS0_11PixelFormatENS0_15ComponentFormatERKNS_5ArrayIiLm2EEENS0_17InterpolationModeES7_NS0_8WrapModeEhhb

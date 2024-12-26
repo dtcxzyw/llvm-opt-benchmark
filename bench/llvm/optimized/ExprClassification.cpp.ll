@@ -22,7 +22,7 @@ $_ZNK5clang18DesignatedInitExpr7getInitEv = comdat any
 @_ZN4llvm24DisableABIBreakingChecksE = external global i32, align 4
 @_ZN4llvm30VerifyDisableABIBreakingChecksE = weak hidden local_unnamed_addr global ptr @_ZN4llvm24DisableABIBreakingChecksE, align 8
 @switch.table._ZNK5clang4Expr14ClassifyLValueERNS_10ASTContextE = private unnamed_addr constant [12 x i32] [i32 0, i32 4, i32 1, i32 4, i32 2, i32 3, i32 6, i32 7, i32 8, i32 9, i32 5, i32 4], align 4
-@switch.table._ZNK5clang4Expr18isModifiableLvalueERNS_10ASTContextEPNS_14SourceLocationE = private unnamed_addr constant [10 x i32] [i32 0, i32 6, i32 1, i32 6, i32 11, i32 7, i32 8, i32 9, i32 10, i32 6], align 4
+@switch.table._ZNK5clang4Expr18isModifiableLvalueERNS_10ASTContextEPNS_14SourceLocationE = private unnamed_addr constant [10 x i32] [i32 0, i32 poison, i32 1, i32 poison, i32 11, i32 7, i32 8, i32 9, i32 10, i32 6], align 4
 @switch.table._ZL12ClassifyDeclRN5clang10ASTContextEPKNS_4DeclE = private unnamed_addr constant [6 x i32] [i32 0, i32 0, i32 11, i32 11, i32 11, i32 0], align 4
 
 ; Function Attrs: mustprogress nounwind uwtable

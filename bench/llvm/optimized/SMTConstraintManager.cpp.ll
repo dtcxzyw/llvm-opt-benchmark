@@ -231,7 +231,7 @@ $_ZTVN5clang4ento20SMTConstraintManagerE = comdat any
 @.str.10 = private unnamed_addr constant [2 x i8] c" \00", align 1
 @.str.11 = private unnamed_addr constant [2 x i8] c"1\00", align 1
 @.str.12 = private unnamed_addr constant [2 x i8] c"0\00", align 1
-@switch.table._ZN4llvm9SMTSolver12getFloatSortEj = private unnamed_addr constant [8 x i64] [i64 32, i64 40, i64 32, i64 48, i64 32, i64 32, i64 32, i64 56], align 8
+@switch.table._ZN4llvm9SMTSolver12getFloatSortEj = private unnamed_addr constant [8 x i64] [i64 32, i64 40, i64 poison, i64 48, i64 poison, i64 poison, i64 poison, i64 56], align 8
 @switch.table._ZN5clang4ento7SMTConv10getSymExprERSt10shared_ptrIN4llvm9SMTSolverEERNS_10ASTContextEPKNS0_7SymExprEPNS_8QualTypeEPb = private unnamed_addr constant [3 x i64] [i64 160, i64 168, i64 264], align 8
 
 ; Function Attrs: mustprogress nounwind uwtable

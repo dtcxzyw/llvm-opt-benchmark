@@ -74,7 +74,7 @@ $_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5
 @_ZN4llvm13ErrorInfoBase2IDE = external global i8, align 1
 @_ZTVN4llvm18raw_string_ostreamE = external unnamed_addr constant { [15 x ptr] }, align 8
 @.str.3 = private unnamed_addr constant [18 x i8] c"Allocation failed\00", align 1
-@switch.table.LLVMBinaryGetType = private unnamed_addr constant [23 x i32] [i32 0, i32 1, i32 2, i32 3, i32 0, i32 0, i32 0, i32 4, i32 15, i32 0, i32 5, i32 0, i32 0, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 0, i32 14], align 4
+@switch.table.LLVMBinaryGetType = private unnamed_addr constant [23 x i32] [i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 4, i32 15, i32 poison, i32 5, i32 poison, i32 poison, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 poison, i32 14], align 4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @LLVMCreateBinary(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {

@@ -188,7 +188,7 @@ $_ZZN4llvm23isAtLeastOrStrongerThanENS_14AtomicOrderingES0_E6lookup = comdat any
 @_ZSt15__once_callable = external thread_local local_unnamed_addr global ptr, align 8
 @_ZSt11__once_call = external thread_local local_unnamed_addr global ptr, align 8
 @switch.table._ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectCMP_SWAPEPN4llvm6SDNodeE = private unnamed_addr constant [4 x i32] [i32 458, i32 455, i32 456, i32 457], align 4
-@switch.table._ZL18SelectOpcodeFromVTIL14SelectTypeKind2EEjN4llvm3EVTENS1_8ArrayRefIjEE = private unnamed_addr constant [8 x i64] [i64 3, i64 2, i64 0, i64 1, i64 0, i64 0, i64 0, i64 0], align 8
+@switch.table._ZL18SelectOpcodeFromVTIL14SelectTypeKind2EEjN4llvm3EVTENS1_8ArrayRefIjEE = private unnamed_addr constant [8 x i64] [i64 3, i64 2, i64 poison, i64 1, i64 poison, i64 poison, i64 poison, i64 0], align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm39initializeAArch64DAGToDAGISelLegacyPassERNS_12PassRegistryE(ptr noundef nonnull align 8 dereferenceable(160) %0) local_unnamed_addr #0 {

@@ -186,7 +186,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.173 = private unnamed_addr constant [8 x i8] c"} else \00", align 1
 @.str.175 = private unnamed_addr constant [11 x i8] c"namespace\\\00", align 1
 @switch.table.zend_ast_export_ex = private unnamed_addr constant [8 x ptr] [ptr @.str.28, ptr @.str.29, ptr @.str.30, ptr @.str.9, ptr @.str.31, ptr @.str.32, ptr @.str.33, ptr @.str.34], align 8
-@switch.table.zend_ast_export_ex.2 = private unnamed_addr constant [10 x ptr] [ptr @.str.35, ptr @.str.35, ptr @.str.35, ptr @.str.35, ptr @.str.35, ptr @.str.36, ptr @.str.35, ptr @.str.35, ptr @.str.37, ptr @.str.38], align 8
+@switch.table.zend_ast_export_ex.2 = private unnamed_addr constant [10 x ptr] [ptr @.str.35, ptr poison, ptr poison, ptr poison, ptr poison, ptr @.str.36, ptr poison, ptr poison, ptr @.str.37, ptr @.str.38], align 8
 @switch.table.zend_ast_export_ex.3 = private unnamed_addr constant [12 x ptr] [ptr @.str.82, ptr @.str.83, ptr @.str.84, ptr @.str.85, ptr @.str.86, ptr @.str.87, ptr @.str.88, ptr @.str.89, ptr @.str.90, ptr @.str.91, ptr @.str.92, ptr @.str.93], align 8
 
 ; Function Attrs: nounwind uwtable

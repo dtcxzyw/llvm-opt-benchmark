@@ -137,8 +137,8 @@ $_ZTVN4llvm13format_objectIJyEEE = comdat any
 @.str.30 = private unnamed_addr constant [3 x i8] c"0x\00", align 1
 @.str.31 = private unnamed_addr constant [23 x i8] c"0123456789abcdefABCDEF\00", align 1
 @.str.33 = private unnamed_addr constant [11 x i8] c"0123456789\00", align 1
-@switch.table._ZN4llvm4yaml7yamlizeINS_7msgpack7DocNodeEEENSt9enable_ifIXsr21has_PolymorphicTraitsIT_EE5valueEvE4typeERNS0_2IOERS5_bRNS0_12EmptyContextE = private unnamed_addr constant [6 x ptr] [ptr @.str.5, ptr @.str.5, ptr @.str.10, ptr @.str.7, ptr @.str.8, ptr @.str.10], align 8
-@switch.table._ZN4llvm4yaml7yamlizeINS_7msgpack7DocNodeEEENSt9enable_ifIXsr21has_PolymorphicTraitsIT_EE5valueEvE4typeERNS0_2IOERS5_bRNS0_12EmptyContextE.6 = private unnamed_addr constant [6 x i64] [i64 4, i64 4, i64 4, i64 5, i64 6, i64 4], align 8
+@switch.table._ZN4llvm4yaml7yamlizeINS_7msgpack7DocNodeEEENSt9enable_ifIXsr21has_PolymorphicTraitsIT_EE5valueEvE4typeERNS0_2IOERS5_bRNS0_12EmptyContextE = private unnamed_addr constant [6 x ptr] [ptr @.str.5, ptr @.str.5, ptr poison, ptr @.str.7, ptr @.str.8, ptr @.str.10], align 8
+@switch.table._ZN4llvm4yaml7yamlizeINS_7msgpack7DocNodeEEENSt9enable_ifIXsr21has_PolymorphicTraitsIT_EE5valueEvE4typeERNS0_2IOERS5_bRNS0_12EmptyContextE.6 = private unnamed_addr constant [6 x i64] [i64 4, i64 4, i64 poison, i64 5, i64 6, i64 4], align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK4llvm7msgpack7DocNode8toStringB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #0 align 2 {

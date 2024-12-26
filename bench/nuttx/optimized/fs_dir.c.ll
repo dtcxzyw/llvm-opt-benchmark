@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [6 x i8] c"%s%s/\00", align 1
 @g_dir_inode = internal global %struct.inode { ptr null, ptr null, ptr null, i16 1, i16 0, %union.inode_ops_u { ptr @g_dir_fileops }, i16 0, ptr null, [1 x i8] zeroinitializer }, align 8
 @g_dir_fileops = internal constant %struct.file_operations { ptr @dir_open, ptr @dir_close, ptr @dir_read, ptr null, ptr @dir_seek, ptr @dir_ioctl, ptr null, ptr null, ptr null, ptr null }, align 8
-@switch.table.dir_read = private unnamed_addr constant [10 x i8] c"\02\06\04\03\05\07\09\06\06\01", align 1
+@switch.table.dir_read = private unnamed_addr constant [10 x i8] [i8 2, i8 6, i8 4, i8 3, i8 5, i8 7, i8 9, i8 poison, i8 poison, i8 1], align 1
 
 ; Function Attrs: nounwind uwtable
 define i32 @dir_allocate(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {

@@ -512,7 +512,7 @@ $_ZTISt23_Sp_counted_ptr_inplaceIN6json1110JsonObjectESaIvELN9__gnu_cxx12_Lock_p
 @.str.48 = private unnamed_addr constant [2 x i8] c"{\00", align 1
 @.str.49 = private unnamed_addr constant [3 x i8] c": \00", align 1
 @.str.50 = private unnamed_addr constant [2 x i8] c"}\00", align 1
-@switch.table._ZN6json1112_GLOBAL__N_110JsonParser12parse_stringB5cxx11Ev = private unnamed_addr constant [10 x i8] c"\08\08\0C\08\08\08\0A\08\0D\09", align 1
+@switch.table._ZN6json1112_GLOBAL__N_110JsonParser12parse_stringB5cxx11Ev = private unnamed_addr constant [10 x i8] [i8 8, i8 poison, i8 12, i8 poison, i8 poison, i8 poison, i8 10, i8 poison, i8 13, i8 9], align 1
 
 @_ZN6json114JsonC1Ev = unnamed_addr alias void (ptr), ptr @_ZN6json114JsonC2Ev
 @_ZN6json114JsonC1EDn = unnamed_addr alias void (ptr, ptr), ptr @_ZN6json114JsonC2EDn

@@ -207,7 +207,7 @@ $_ZTVN4llvm2cl11OptionValueIbEE = comdat any
 @_ZTVN4llvm2cl11OptionValueIbEE = linkonce_odr unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr null, ptr @_ZNK4llvm2cl15OptionValueCopyIbE7compareERKNS0_18GenericOptionValueE, ptr @_ZN4llvm2cl18GenericOptionValue6anchorEv] }, comdat, align 8
 @_ZTVN4llvm2cl6parserIbEE = external unnamed_addr constant { [6 x ptr] }, align 8
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_RISCVAsmBackend.cpp, ptr null }]
-@switch.table._ZNK4llvm15RISCVAsmBackend18relaxDwarfLineAddrERKNS_11MCAssemblerERNS_23MCDwarfLineAddrFragmentERb = private unnamed_addr constant [8 x i64] [i64 1258425418017, i64 1262720385314, i64 1258425418017, i64 1267015352611, i64 1258425418017, i64 1258425418017, i64 1258425418017, i64 1271310319908], align 8
+@switch.table._ZNK4llvm15RISCVAsmBackend18relaxDwarfLineAddrERKNS_11MCAssemblerERNS_23MCDwarfLineAddrFragmentERb = private unnamed_addr constant [8 x i64] [i64 1258425418017, i64 1262720385314, i64 poison, i64 1267015352611, i64 poison, i64 poison, i64 poison, i64 1271310319908], align 8
 @switch.table._ZNK4llvm15RISCVAsmBackend23handleAddSubRelocationsERKNS_11MCAssemblerERKNS_10MCFragmentERKNS_7MCFixupERKNS_7MCValueERm = private unnamed_addr constant [5 x i32] [i32 293, i32 294, i32 295, i32 296, i32 317], align 4
 @switch.table._ZNK4llvm15RISCVAsmBackend23handleAddSubRelocationsERKNS_11MCAssemblerERKNS_10MCFragmentERKNS_7MCFixupERKNS_7MCValueERm.3 = private unnamed_addr constant [5 x i32] [i32 289, i32 290, i32 291, i32 292, i32 316], align 4
 

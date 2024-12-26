@@ -57040,7 +57040,7 @@ switch.hole_check:                                ; preds = %114
 switch.lookup:                                    ; preds = %switch.hole_check
   %148 = shl nuw nsw i8 %119, 3
   %switch.shiftamt = zext nneg i8 %148 to i56
-  %switch.downshift = lshr i56 1695472750297344, %switch.shiftamt
+  %switch.downshift = lshr i56 1688849910726912, %switch.shiftamt
   %switch.masked = trunc i56 %switch.downshift to i8
   br label %"_ZN9hayagriva3csl16Context$LT$T$GT$9push_case17hfc6ed1518e316664E.exit"
 
@@ -57190,7 +57190,7 @@ switch.hole_check187:                             ; preds = %207, %170
 switch.lookup188:                                 ; preds = %switch.hole_check187
   %203 = shl nuw nsw i8 %174, 3
   %switch.shiftamt192 = zext nneg i8 %203 to i56
-  %switch.downshift193 = lshr i56 1695472750297344, %switch.shiftamt192
+  %switch.downshift193 = lshr i56 1688849910726912, %switch.shiftamt192
   %switch.masked194 = trunc i56 %switch.downshift193 to i8
   br label %"_ZN9hayagriva3csl16Context$LT$T$GT$9push_case17hfc6ed1518e316664E.exit159"
 
@@ -57377,7 +57377,7 @@ switch.hole_check196:                             ; preds = %250, %248
 switch.lookup197:                                 ; preds = %switch.hole_check196
   %285 = shl nuw nsw i8 %256, 3
   %switch.shiftamt201 = zext nneg i8 %285 to i56
-  %switch.downshift202 = lshr i56 1695472750297344, %switch.shiftamt201
+  %switch.downshift202 = lshr i56 1688849910726912, %switch.shiftamt201
   %switch.masked203 = trunc i56 %switch.downshift202 to i8
   br label %"_ZN9hayagriva3csl16Context$LT$T$GT$9push_case17hfc6ed1518e316664E.exit164"
 
@@ -57565,7 +57565,7 @@ switch.hole_check:
 switch.lookup:                                    ; preds = %switch.hole_check
   %37 = shl nuw nsw i8 %7, 3
   %switch.shiftamt = zext nneg i8 %37 to i56
-  %switch.downshift = lshr i56 1695472750297344, %switch.shiftamt
+  %switch.downshift = lshr i56 1688849910726912, %switch.shiftamt
   %switch.masked = trunc i56 %switch.downshift to i8
   br label %"_ZN9hayagriva3csl16Context$LT$T$GT$9push_case17hfc6ed1518e316664E.exit"
 
@@ -57686,7 +57686,7 @@ switch.hole_check:
 switch.lookup:                                    ; preds = %switch.hole_check
   %38 = shl nuw nsw i8 %8, 3
   %switch.shiftamt = zext nneg i8 %38 to i56
-  %switch.downshift = lshr i56 1695472750297344, %switch.shiftamt
+  %switch.downshift = lshr i56 1688849910726912, %switch.shiftamt
   %switch.masked = trunc i56 %switch.downshift to i8
   br label %"_ZN9hayagriva3csl16Context$LT$T$GT$9push_case17hfc6ed1518e316664E.exit"
 
@@ -57812,7 +57812,7 @@ switch.hole_check41:                              ; preds = %62
 switch.lookup42:                                  ; preds = %switch.hole_check41
   %104 = shl nuw nsw i8 %74, 3
   %switch.shiftamt46 = zext nneg i8 %104 to i56
-  %switch.downshift47 = lshr i56 1695472750297344, %switch.shiftamt46
+  %switch.downshift47 = lshr i56 1688849910726912, %switch.shiftamt46
   %switch.masked48 = trunc i56 %switch.downshift47 to i8
   br label %"_ZN9hayagriva3csl16Context$LT$T$GT$9push_case17hfc6ed1518e316664E.exit39"
 
@@ -58026,7 +58026,7 @@ switch.hole_check:
 switch.lookup:                                    ; preds = %switch.hole_check
   %38 = shl nuw nsw i8 %8, 3
   %switch.shiftamt = zext nneg i8 %38 to i56
-  %switch.downshift = lshr i56 1695472750297344, %switch.shiftamt
+  %switch.downshift = lshr i56 1688849910726912, %switch.shiftamt
   %switch.masked = trunc i56 %switch.downshift to i8
   br label %"_ZN9hayagriva3csl16Context$LT$T$GT$9push_case17hfc6ed1518e316664E.exit"
 
@@ -58151,7 +58151,7 @@ switch.hole_check40:                              ; preds = %61
 switch.lookup41:                                  ; preds = %switch.hole_check40
   %103 = shl nuw nsw i8 %73, 3
   %switch.shiftamt45 = zext nneg i8 %103 to i56
-  %switch.downshift46 = lshr i56 1695472750297344, %switch.shiftamt45
+  %switch.downshift46 = lshr i56 1688849910726912, %switch.shiftamt45
   %switch.masked47 = trunc i56 %switch.downshift46 to i8
   br label %"_ZN9hayagriva3csl16Context$LT$T$GT$9push_case17hfc6ed1518e316664E.exit38"
 

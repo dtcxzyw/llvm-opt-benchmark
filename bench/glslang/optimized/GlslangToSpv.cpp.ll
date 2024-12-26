@@ -760,10 +760,10 @@ $_ZTVN7glslang17TSmallArrayVectorE = comdat any
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_GlslangToSpv.cpp, ptr null }]
 @switch.table._ZN12_GLOBAL__N_122TGlslangToSpvTraverserC2EjPKN7glslang13TIntermediateEPN3spv14SpvBuildLoggerERNS1_10SpvOptionsE = private unnamed_addr constant [8 x i32] [i32 2, i32 2, i32 0, i32 2, i32 0, i32 0, i32 0, i32 1], align 4
 @switch.table._ZN12_GLOBAL__N_122TGlslangToSpvTraverserC2EjPKN7glslang13TIntermediateEPN3spv14SpvBuildLoggerERNS1_10SpvOptionsE.37 = private unnamed_addr constant [6 x i32] [i32 5378, i32 5378, i32 5363, i32 5363, i32 5372, i32 5372], align 4
-@switch.table._ZN12_GLOBAL__N_122TGlslangToSpvTraverserC2EjPKN7glslang13TIntermediateEPN3spv14SpvBuildLoggerERNS1_10SpvOptionsE.38 = private unnamed_addr constant [6 x i32] [i32 19, i32 20, i32 21, i32 19, i32 22, i32 23], align 4
+@switch.table._ZN12_GLOBAL__N_122TGlslangToSpvTraverserC2EjPKN7glslang13TIntermediateEPN3spv14SpvBuildLoggerERNS1_10SpvOptionsE.38 = private unnamed_addr constant [6 x i32] [i32 19, i32 20, i32 21, i32 poison, i32 22, i32 23], align 4
 @switch.table._ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeENS1_14TLayoutPackingERKNS1_10TQualifierEbb = private unnamed_addr constant [8 x i32] [i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 4173], align 4
 @switch.table._ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeENS1_14TLayoutPackingERKNS1_10TQualifierEbb.39 = private unnamed_addr constant [47 x i32] [i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 2147483647, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 2147483647, i32 21, i32 22, i32 23, i32 24, i32 2147483647, i32 25, i32 26, i32 27, i32 28, i32 29, i32 41, i32 2147483647, i32 30, i32 31, i32 32, i32 33, i32 2147483647, i32 35, i32 36, i32 34, i32 37, i32 38, i32 39, i32 40], align 4
-@switch.table._ZN12_GLOBAL__N_122TGlslangToSpvTraverser30collectRayTracingLinkerObjectsEv = private unnamed_addr constant [6 x i64] [i64 0, i64 0, i64 0, i64 1, i64 1, i64 2], align 8
+@switch.table._ZN12_GLOBAL__N_122TGlslangToSpvTraverser30collectRayTracingLinkerObjectsEv = private unnamed_addr constant [6 x i64] [i64 0, i64 0, i64 poison, i64 1, i64 1, i64 2], align 8
 
 declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 

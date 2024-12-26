@@ -120,7 +120,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.48 = private unnamed_addr constant [10 x i8] c"assert_ok\00", align 1
 @.str.49 = private unnamed_addr constant [17 x i8] c"Assert violation\00", align 1
 @active_target = external local_unnamed_addr global %struct.BuildTarget, align 8
-@switch.table.llvm_emit_break = private unnamed_addr constant [8 x i64] [i64 32, i64 24, i64 32, i64 24, i64 24, i64 24, i64 24, i64 32], align 8
+@switch.table.llvm_emit_break = private unnamed_addr constant [8 x i64] [i64 32, i64 poison, i64 32, i64 24, i64 poison, i64 poison, i64 poison, i64 32], align 8
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @llvm_emit_compound_stmt(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {

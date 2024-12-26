@@ -736,7 +736,7 @@ $_ZTVN4llvm2cl11OptionValueIiEE = comdat any
 @__PRETTY_FUNCTION__._ZN4llvm11getTypeNameINS_22HWAddressSanitizerPassEEENS_9StringRefEv = private unnamed_addr constant [79 x i8] c"StringRef llvm::getTypeName() [DesiredTypeName = llvm::HWAddressSanitizerPass]\00", align 1
 @.str.163 = private unnamed_addr constant [19 x i8] c"DesiredTypeName = \00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_HWAddressSanitizer.cpp, ptr null }]
-@switch.table._ZN12_GLOBAL__N_118HWAddressSanitizer16sanitizeFunctionERN4llvm8FunctionERNS1_15AnalysisManagerIS2_JEEE = private unnamed_addr constant [6 x i64] [i64 0, i64 1, i64 0, i64 0, i64 0, i64 0], align 8
+@switch.table._ZN12_GLOBAL__N_118HWAddressSanitizer16sanitizeFunctionERN4llvm8FunctionERNS1_15AnalysisManagerIS2_JEEE = private unnamed_addr constant [6 x i64] [i64 0, i64 1, i64 poison, i64 poison, i64 0, i64 0], align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ENS0_6parserIS7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #0 comdat align 2 {

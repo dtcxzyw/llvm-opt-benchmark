@@ -23,7 +23,7 @@ $_ZN26GrowableArrayWithAllocatorI7LIR_Opr13GrowableArrayIS0_EE9expand_toEi = com
 @all_VMRegs = external hidden global [610 x %class.VMRegImpl], align 16
 @all_RegisterImpls = external hidden global [33 x %"class.Register::RegisterImpl"], align 16
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
-@switch.table._ZN8FrameMapC2EP8ciMethodii = private unnamed_addr constant [12 x i32] [i32 41, i32 177, i32 25, i32 25, i32 9, i32 145, i32 25, i32 25, i32 25, i32 33, i32 25, i32 57], align 4
+@switch.table._ZN8FrameMapC2EP8ciMethodii = private unnamed_addr constant [12 x i32] [i32 41, i32 177, i32 poison, i32 poison, i32 9, i32 145, i32 25, i32 25, i32 poison, i32 33, i32 poison, i32 57], align 4
 @switch.table._ZN8FrameMap14finalize_frameEi = private unnamed_addr constant [7 x i64] [i64 10, i64 11, i64 12, i64 15, i64 6, i64 7, i64 17], align 8
 
 @_ZN8FrameMapC1EP8ciMethodii = hidden unnamed_addr alias void (ptr, ptr, i32, i32), ptr @_ZN8FrameMapC2EP8ciMethodii

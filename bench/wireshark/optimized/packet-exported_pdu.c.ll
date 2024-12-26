@@ -185,7 +185,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.120 = private unnamed_addr constant [38 x i8] c"epan/dissectors/packet-exported_pdu.c\00", align 1
 @.str.121 = private unnamed_addr constant [4 x i8] c"(0)\00", align 1
 @.str.122 = private unnamed_addr constant [5 x i8] c"data\00", align 1
-@switch.table.dissect_exported_pdu = private unnamed_addr constant [16 x i32] [i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 0, i32 0, i32 6, i32 0, i32 7, i32 0, i32 8, i32 9, i32 10, i32 11], align 4
+@switch.table.dissect_exported_pdu = private unnamed_addr constant [16 x i32] [i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 poison, i32 poison, i32 6, i32 poison, i32 7, i32 poison, i32 8, i32 9, i32 10, i32 11], align 4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_exported_pdu() local_unnamed_addr #0 {

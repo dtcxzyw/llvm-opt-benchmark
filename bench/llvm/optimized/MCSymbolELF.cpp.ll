@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN4llvm24DisableABIBreakingChecksE = external global i32, align 4
 @_ZN4llvm30VerifyDisableABIBreakingChecksE = weak hidden local_unnamed_addr global ptr @_ZN4llvm24DisableABIBreakingChecksE, align 8
 @switch.table._ZNK4llvm11MCSymbolELF10getBindingEv = private unnamed_addr constant [4 x i32] [i32 0, i32 1, i32 2, i32 10], align 4
-@switch.table._ZNK4llvm11MCSymbolELF7setTypeEj = private unnamed_addr constant [11 x i64] [i64 0, i64 4294967296, i64 8589934592, i64 12884901888, i64 0, i64 17179869184, i64 21474836480, i64 0, i64 0, i64 0, i64 25769803776], align 8
+@switch.table._ZNK4llvm11MCSymbolELF7setTypeEj = private unnamed_addr constant [11 x i64] [i64 0, i64 4294967296, i64 8589934592, i64 12884901888, i64 poison, i64 17179869184, i64 21474836480, i64 poison, i64 poison, i64 poison, i64 25769803776], align 8
 @switch.table._ZNK4llvm11MCSymbolELF7getTypeEv = private unnamed_addr constant [7 x i32] [i32 0, i32 1, i32 2, i32 3, i32 5, i32 6, i32 10], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable

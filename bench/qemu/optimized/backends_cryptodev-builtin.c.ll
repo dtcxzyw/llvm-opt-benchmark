@@ -42,8 +42,8 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.cryptodev_builtin_asym_operation = private unnamed_addr constant [33 x i8] c"cryptodev_builtin_asym_operation\00", align 1
 @.str.18 = private unnamed_addr constant [21 x i8] c"dst buffer too short\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @do_qemu_init_cryptodev_builtin_register_types, ptr null }]
-@switch.table.cryptodev_builtin_create_session = private unnamed_addr constant [7 x i32] [i32 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 2], align 4
-@switch.table.cryptodev_builtin_create_session.1 = private unnamed_addr constant [5 x i32] [i32 0, i32 1, i32 3, i32 0, i32 5], align 4
+@switch.table.cryptodev_builtin_create_session = private unnamed_addr constant [7 x i32] [i32 0, i32 1, i32 0, i32 poison, i32 poison, i32 poison, i32 2], align 4
+@switch.table.cryptodev_builtin_create_session.1 = private unnamed_addr constant [5 x i32] [i32 0, i32 1, i32 3, i32 poison, i32 5], align 4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @do_qemu_init_cryptodev_builtin_register_types() #0 {

@@ -152,7 +152,7 @@ $_ZN4llvm15SmallVectorImplIN5clang5RISCV6PolicyEE6appendIPKS3_vEEvT_S8_ = comdat
 @.str.65 = private unnamed_addr constant [4 x i8] c"},\0A\00", align 1
 @.str.67 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 @.str.68 = private unnamed_addr constant [49 x i8] c"cannot create std::vector larger than max_size()\00", align 1
-@switch.table._ZN5clang5RISCV7RVVType14initBuiltinStrEv = private unnamed_addr constant [8 x ptr] [ptr @.str.10, ptr @.str.11, ptr @.str.10, ptr @.str.12, ptr @.str.10, ptr @.str.10, ptr @.str.10, ptr @.str.13], align 8
+@switch.table._ZN5clang5RISCV7RVVType14initBuiltinStrEv = private unnamed_addr constant [8 x ptr] [ptr @.str.10, ptr @.str.11, ptr poison, ptr @.str.12, ptr poison, ptr poison, ptr poison, ptr @.str.13], align 8
 
 @_ZN5clang5RISCV8LMULTypeC1Ei = unnamed_addr alias void (ptr, i32), ptr @_ZN5clang5RISCV8LMULTypeC2Ei
 @_ZN5clang5RISCV7RVVTypeC1ENS0_9BasicTypeEiRKNS0_19PrototypeDescriptorE = unnamed_addr alias void (ptr, i8, i32, ptr), ptr @_ZN5clang5RISCV7RVVTypeC2ENS0_9BasicTypeEiRKNS0_19PrototypeDescriptorE
@@ -4222,7 +4222,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit38.thread:       ; preds = %_ZN4llvmeqENS_9Stri
   %62 = call i32 @llvm.fshl.i32(i32 %61, i32 %61, i32 29)
   %switch.cast = zext i32 %62 to i64
   %switch.shiftamt = shl nuw nsw i64 %switch.cast, 3
-  %switch.downshift = lshr i64 867234337690028553, %switch.shiftamt
+  %switch.downshift = lshr i64 864691128639687177, %switch.shiftamt
   %switch.masked = trunc i64 %switch.downshift to i8
   br label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread154
 

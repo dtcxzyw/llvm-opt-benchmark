@@ -668,7 +668,7 @@ $_ZN5clang17DiagnosticStorageD2Ev = comdat any
 @.str.602 = private unnamed_addr constant [20 x i8] c"#__include_macros \22\00", align 1
 @.str.603 = private unnamed_addr constant [3 x i8] c"##\00", align 1
 @.str.604 = private unnamed_addr constant [11 x i8] c"#include \22\00", align 1
-@switch.table._ZL27DefineExactWidthIntTypeSizeN5clang23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE = private unnamed_addr constant [9 x i32] [i32 2, i32 2, i32 4, i32 2, i32 6, i32 2, i32 8, i32 2, i32 10], align 4
+@switch.table._ZL27DefineExactWidthIntTypeSizeN5clang23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE = private unnamed_addr constant [9 x i32] [i32 2, i32 poison, i32 4, i32 poison, i32 6, i32 poison, i32 8, i32 poison, i32 10], align 4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_Z33InitializeOpenCLFeatureTestMacrosRKN5clang10TargetInfoERKNS_11LangOptionsERNS_12MacroBuilderE(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(841) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 {

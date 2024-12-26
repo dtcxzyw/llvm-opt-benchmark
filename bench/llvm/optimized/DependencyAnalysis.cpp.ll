@@ -617,7 +617,7 @@ switch.hole_check:                                ; preds = %13
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %switch.cast = trunc nuw i32 %switch.tableidx to i20
-  %switch.downshift = lshr i20 229368, %switch.cast
+  %switch.downshift = lshr i20 8, %switch.cast
   %switch.masked = trunc i20 %switch.downshift to i1
   br label %_ZN4llvm7objcarc16CanAlterRefCountEPKNS_11InstructionEPKNS_5ValueERNS0_18ProvenanceAnalysisENS0_11ARCInstKindE.exit
 

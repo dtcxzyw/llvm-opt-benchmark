@@ -231,7 +231,7 @@ $_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable = comdat any
 @.str.15 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 @.str.16 = private unnamed_addr constant [26 x i8] c"vector::_M_default_append\00", align 1
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
-@switch.table._ZNK4llvm8FastISel20optimizeCmpPredicateEPKNS_7CmpInstE = private unnamed_addr constant [42 x i32] [i32 0, i32 7, i32 0, i32 7, i32 0, i32 7, i32 0, i32 7, i32 8, i32 15, i32 8, i32 15, i32 8, i32 15, i32 8, i32 15, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 15, i32 0, i32 0, i32 15, i32 0, i32 15, i32 0, i32 15, i32 0, i32 15], align 4
+@switch.table._ZNK4llvm8FastISel20optimizeCmpPredicateEPKNS_7CmpInstE = private unnamed_addr constant [42 x i32] [i32 0, i32 7, i32 0, i32 7, i32 0, i32 7, i32 0, i32 7, i32 8, i32 15, i32 8, i32 15, i32 8, i32 15, i32 8, i32 15, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 15, i32 0, i32 0, i32 15, i32 0, i32 15, i32 0, i32 15, i32 0, i32 15], align 4
 
 @_ZN4llvm8FastISelD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm8FastISelD2Ev
 

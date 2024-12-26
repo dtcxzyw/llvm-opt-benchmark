@@ -9793,7 +9793,7 @@ switch.hole_check:                                ; preds = %29
 switch.lookup:                                    ; preds = %switch.hole_check
   %33 = shl nuw nsw i8 %.sroa.849.0.copyload, 3
   %switch.shiftamt = zext nneg i8 %33 to i40
-  %switch.downshift = lshr i40 25887375623, %switch.shiftamt
+  %switch.downshift = lshr i40 25769935111, %switch.shiftamt
   %switch.masked = trunc i40 %switch.downshift to i8
   br label %_ZN11wasi_common4sync4file13filetype_from17hd53e7a46c3969dfaE.exit
 

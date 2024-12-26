@@ -534,7 +534,7 @@ target triple = "x86_64-pc-linux-gnu"
 @gc_compact_stats.rbimpl_id.441 = internal unnamed_addr global i64 0, align 8
 @.str.442 = private unnamed_addr constant [11 x i8] c"moved_down\00", align 1
 @switch.table.rb_method_type_name = private unnamed_addr constant [12 x ptr] [ptr @.str.38, ptr @.str.44, ptr @.str.39, ptr @.str.40, ptr @.str.41, ptr @.str.45, ptr @.str.42, ptr @.str.48, ptr @.str.49, ptr @.str.47, ptr @.str.46, ptr @.str.43], align 8
-@switch.table.obj_type_name = private unnamed_addr constant [10 x ptr] [ptr @.str.323, ptr @.str.321, ptr @.str.323, ptr @.str.323, ptr @.str.323, ptr @.str.322, ptr @.str.323, ptr @.str.323, ptr @.str.323, ptr @.str.326], align 8
+@switch.table.obj_type_name = private unnamed_addr constant [10 x ptr] [ptr @.str.323, ptr @.str.321, ptr poison, ptr poison, ptr poison, ptr @.str.322, ptr poison, ptr poison, ptr poison, ptr @.str.326], align 8
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden i64 @rb_malloc_grow_capa(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {

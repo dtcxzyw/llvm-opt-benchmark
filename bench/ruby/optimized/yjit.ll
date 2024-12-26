@@ -91,7 +91,7 @@ target triple = "x86_64-pc-linux-gnu"
 @rb_yjit_enabled_p = external local_unnamed_addr global i8, align 1
 @rb_shape_tree_ptr = external local_unnamed_addr global ptr, align 8
 @.str.50 = private unnamed_addr constant [10 x i8] c"yjit_root\00", align 1
-@switch.table.rb_RB_TYPE_P = private unnamed_addr constant [10 x i32] [i32 19, i32 17, i32 19, i32 19, i32 19, i32 18, i32 19, i32 19, i32 19, i32 22], align 4
+@switch.table.rb_RB_TYPE_P = private unnamed_addr constant [10 x i32] [i32 19, i32 17, i32 poison, i32 poison, i32 poison, i32 18, i32 poison, i32 poison, i32 poison, i32 22], align 4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden zeroext i1 @rb_yjit_mark_writable(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {

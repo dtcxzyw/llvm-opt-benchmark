@@ -97,7 +97,7 @@ $_ZNSt6vectorIN7rocksdb13PinnableSliceESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__g
 @.str.20 = private unnamed_addr constant [16 x i8] c"vector::reserve\00", align 1
 @.str.21 = private unnamed_addr constant [26 x i8] c"vector::_M_default_append\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_trace_replay.cc, ptr null }]
-@switch.table._ZN7rocksdb6Tracer15ShouldSkipTraceERKNS_9TraceTypeE = private unnamed_addr constant [11 x i64] [i64 2, i64 1, i64 4, i64 8, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16], align 8
+@switch.table._ZN7rocksdb6Tracer15ShouldSkipTraceERKNS_9TraceTypeE = private unnamed_addr constant [11 x i64] [i64 2, i64 1, i64 4, i64 8, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 16], align 8
 
 @_ZN7rocksdb6TracerC1EPNS_11SystemClockERKNS_12TraceOptionsEOSt10unique_ptrINS_11TraceWriterESt14default_deleteIS7_EE = unnamed_addr alias void (ptr, ptr, ptr, ptr), ptr @_ZN7rocksdb6TracerC2EPNS_11SystemClockERKNS_12TraceOptionsEOSt10unique_ptrINS_11TraceWriterESt14default_deleteIS7_EE
 @_ZN7rocksdb6TracerD1Ev = unnamed_addr alias void (ptr), ptr @_ZN7rocksdb6TracerD2Ev

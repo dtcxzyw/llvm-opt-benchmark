@@ -432,7 +432,7 @@ $_ZTI21cmBoundsCheckerParser = comdat any
 @.str.236 = private unnamed_addr constant [49 x i8] c"cannot create std::vector larger than max_size()\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_cmCTestMemCheckHandler.cxx, ptr null }]
 @switch.table._ZN22cmCTestMemCheckHandler24InitializeMemoryCheckingEv = private unnamed_addr constant [5 x ptr] [ptr @.str.133, ptr @.str.134, ptr @.str.135, ptr @.str.136, ptr @.str.137], align 8
-@switch.table._ZN22cmCTestMemCheckHandler30ProcessMemCheckSanitizerOutputERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_RSt6vectorIiSaIiEE = private unnamed_addr constant [5 x ptr] [ptr @.str.143, ptr @.str.143, ptr @.str.144, ptr @.str.145, ptr @.str.146], align 8
+@switch.table._ZN22cmCTestMemCheckHandler30ProcessMemCheckSanitizerOutputERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_RSt6vectorIiSaIiEE = private unnamed_addr constant [5 x ptr] [ptr @.str.143, ptr poison, ptr @.str.144, ptr @.str.145, ptr @.str.146], align 8
 
 @_ZN22cmCTestMemCheckHandlerC1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN22cmCTestMemCheckHandlerC2Ev
 

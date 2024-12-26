@@ -331,7 +331,7 @@ $_ZTVN4llvm8DbgLabelE = comdat any
 @_ZTVN4llvm11DbgVariableE = linkonce_odr unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr null, ptr @_ZN4llvm11DbgVariableD2Ev, ptr @_ZN4llvm11DbgVariableD0Ev] }, comdat, align 8
 @_ZTVN4llvm8DbgLabelE = linkonce_odr unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr null, ptr @_ZN4llvm8DbgLabelD2Ev, ptr @_ZN4llvm8DbgLabelD0Ev] }, comdat, align 8
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_DwarfCompileUnit.cpp, ptr null }]
-@switch.table._ZNK4llvm16DwarfCompileUnit18getDwarf5OrGNUAttrENS_5dwarf9AttributeE = private unnamed_addr constant [10 x i16] [i16 8471, i16 8471, i16 8471, i16 17, i16 8465, i16 49, i16 8471, i16 8471, i16 8469, i16 8467], align 2
+@switch.table._ZNK4llvm16DwarfCompileUnit18getDwarf5OrGNUAttrENS_5dwarf9AttributeE = private unnamed_addr constant [10 x i16] [i16 8471, i16 poison, i16 poison, i16 17, i16 8465, i16 49, i16 poison, i16 poison, i16 8469, i16 8467], align 2
 
 @_ZN4llvm16DwarfCompileUnitC1EjPKNS_13DICompileUnitEPNS_10AsmPrinterEPNS_10DwarfDebugEPNS_9DwarfFileENS_8UnitKindE = unnamed_addr alias void (ptr, i32, ptr, ptr, ptr, ptr, i32), ptr @_ZN4llvm16DwarfCompileUnitC2EjPKNS_13DICompileUnitEPNS_10AsmPrinterEPNS_10DwarfDebugEPNS_9DwarfFileENS_8UnitKindE
 

@@ -544,7 +544,7 @@ $_ZN5clang13SanitizerKind13ShiftExponentE = comdat any
 @.str.104 = private unnamed_addr constant [4 x i8] c"and\00", align 1
 @.str.105 = private unnamed_addr constant [4 x i8] c"xor\00", align 1
 @switch.table._ZN12_GLOBAL__N_117ScalarExprEmitter23EmitScalarPrePostIncDecEPKN5clang13UnaryOperatorENS1_7CodeGen6LValueEbb = private unnamed_addr constant [7 x i64] [i64 80, i64 88, i64 112, i64 112, i64 112, i64 120, i64 128], align 8
-@switch.table._ZN12_GLOBAL__N_117ScalarExprEmitter14EmitBinOpCheckEN4llvm8ArrayRefISt4pairIPNS1_5ValueEN5clang13SanitizerMaskEEEERKNS_9BinOpInfoE = private unnamed_addr constant [5 x i32] [i32 12, i32 0, i32 0, i32 0, i32 21], align 4
+@switch.table._ZN12_GLOBAL__N_117ScalarExprEmitter14EmitBinOpCheckEN4llvm8ArrayRefISt4pairIPNS1_5ValueEN5clang13SanitizerMaskEEEERKNS_9BinOpInfoE = private unnamed_addr constant [5 x i32] [i32 12, i32 poison, i32 poison, i32 0, i32 21], align 4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang7CodeGen15CodeGenFunction27EmitBitfieldConversionCheckEPN4llvm5ValueENS_8QualTypeES4_S5_RKNS0_14CGBitFieldInfoENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef %1, i64 %2, ptr noundef %3, i64 %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %5, i32 %6) local_unnamed_addr #0 align 2 {

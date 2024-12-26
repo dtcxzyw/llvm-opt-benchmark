@@ -75,7 +75,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.51 = private unnamed_addr constant [46 x i8] c"nonstandard use of escape in a string literal\00", align 1
 @.str.52 = private unnamed_addr constant [57 x i8] c"Use the escape string syntax for escapes, e.g., E'\\r\\n'.\00", align 1
 @__func__.check_escape_warning = private unnamed_addr constant [21 x i8] c"check_escape_warning\00", align 1
-@switch.table.core_yylex = private unnamed_addr constant [11 x i8] c"\08\08\0C\08\08\08\0A\08\0D\09\0B", align 1
+@switch.table.core_yylex = private unnamed_addr constant [11 x i8] [i8 8, i8 poison, i8 12, i8 poison, i8 poison, i8 poison, i8 10, i8 poison, i8 13, i8 9, i8 11], align 1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -128, 65536) i32 @core_yylex(ptr noundef %0, ptr noundef %1, ptr noundef initializes((144, 160)) %2) local_unnamed_addr #0 {

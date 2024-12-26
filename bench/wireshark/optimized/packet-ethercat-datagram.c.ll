@@ -2290,7 +2290,7 @@ switch.hole_check:                                ; preds = %7
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %switch.cast = zext nneg i8 %switch.tableidx to i14
-  %switch.downshift = lshr i14 3657, %switch.cast
+  %switch.downshift = lshr i14 73, %switch.cast
   %switch.masked = trunc i14 %switch.downshift to i1
   %9 = zext i16 %.6.val to i32
   %10 = add nuw nsw i32 %4, %9

@@ -467,7 +467,7 @@ switch.hole_check:                                ; preds = %83
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %switch.cast = zext nneg i8 %switch.tableidx to i50
-  %switch.downshift = lshr i50 -2216203125253, %switch.cast
+  %switch.downshift = lshr i50 -562945658322943, %switch.cast
   %switch.masked = trunc i50 %switch.downshift to i1
   br label %87
 
@@ -533,7 +533,7 @@ switch.hole_check164:                             ; preds = %103
 
 switch.lookup165:                                 ; preds = %switch.hole_check164
   %switch.cast169 = zext nneg i8 %switch.tableidx163 to i50
-  %switch.downshift171 = lshr i50 -2216203125253, %switch.cast169
+  %switch.downshift171 = lshr i50 -562945658322943, %switch.cast169
   %switch.masked172 = trunc i50 %switch.downshift171 to i1
   br label %107
 

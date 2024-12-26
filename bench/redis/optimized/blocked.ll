@@ -35,7 +35,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.11 = private unnamed_addr constant [104 x i8] c"c->bstate.btype == BLOCKED_STREAM || c->bstate.btype == BLOCKED_LIST || c->bstate.btype == BLOCKED_ZSET\00", align 1
 @getMonotonicUs = external local_unnamed_addr global ptr, align 8
 @switch.table.handleClientsBlockedOnKeys = private unnamed_addr constant [6 x i32] [i32 1, i32 0, i32 6, i32 0, i32 4, i32 5], align 4
-@switch.table.signalKeyAsReadyLogic = private unnamed_addr constant [6 x i64] [i64 1, i64 1, i64 6, i64 1, i64 4, i64 5], align 8
+@switch.table.signalKeyAsReadyLogic = private unnamed_addr constant [6 x i64] [i64 1, i64 poison, i64 6, i64 poison, i64 4, i64 5], align 8
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @initClientBlockingState(ptr nocapture noundef writeonly initializes((464, 468), (472, 484), (488, 500), (504, 512), (520, 528)) %c) local_unnamed_addr #0 {

@@ -615,7 +615,7 @@ $_ZTIN7jsonnet8internal3VarE = comdat any
 @_ZTSN7jsonnet8internal3VarE = linkonce_odr constant [24 x i8] c"N7jsonnet8internal3VarE\00", comdat, align 1
 @_ZTIN7jsonnet8internal3VarE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN7jsonnet8internal3VarE, ptr @_ZTIN7jsonnet8internal3ASTE }, comdat, align 8
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_pass.cpp, ptr null }]
-@switch.table._ZN7jsonnet8internal12CompilerPass9visitExprERPNS0_3ASTE = private unnamed_addr constant [31 x i64] [i64 56, i64 64, i64 72, i64 80, i64 56, i64 88, i64 96, i64 104, i64 112, i64 232, i64 120, i64 128, i64 136, i64 144, i64 152, i64 160, i64 176, i64 168, i64 192, i64 216, i64 200, i64 208, i64 184, i64 224, i64 240, i64 248, i64 256, i64 264, i64 272, i64 280, i64 288], align 8
+@switch.table._ZN7jsonnet8internal12CompilerPass9visitExprERPNS0_3ASTE = private unnamed_addr constant [31 x i64] [i64 56, i64 64, i64 72, i64 80, i64 poison, i64 88, i64 96, i64 104, i64 112, i64 232, i64 120, i64 128, i64 136, i64 144, i64 152, i64 160, i64 176, i64 168, i64 192, i64 216, i64 200, i64 208, i64 184, i64 224, i64 240, i64 248, i64 256, i64 264, i64 272, i64 280, i64 288], align 8
 
 declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 

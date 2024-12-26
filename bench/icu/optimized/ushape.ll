@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZL14convertLamAlef = internal unnamed_addr constant [8 x i16] [i16 1570, i16 1570, i16 1571, i16 1571, i16 1573, i16 1573, i16 1575, i16 1575], align 16
 @_ZL13yehHamzaToYeh = internal unnamed_addr constant [2 x i16] [i16 -273, i16 -272], align 2
 @_ZL14tashkeelMedial = internal unnamed_addr constant [16 x i8] c"\00\01\00\00\00\00\00\01\00\01\00\01\00\01\00\01", align 16
-@switch.table._ZL12shapeUnicodePDsiijP10UErrorCodei15uShapeVariables = private unnamed_addr constant [6 x i16] [i16 1628, i16 1629, i16 1628, i16 1630, i16 1628, i16 1631], align 2
+@switch.table._ZL12shapeUnicodePDsiijP10UErrorCodei15uShapeVariables = private unnamed_addr constant [6 x i16] [i16 1628, i16 1629, i16 poison, i16 1630, i16 poison, i16 1631], align 2
 
 ; Function Attrs: mustprogress uwtable
 define i32 @u_shapeArabic_75(ptr noundef %source, i32 noundef %sourceLength, ptr noundef %dest, i32 noundef %destCapacity, i32 noundef %options, ptr noundef %pErrorCode) local_unnamed_addr #0 {

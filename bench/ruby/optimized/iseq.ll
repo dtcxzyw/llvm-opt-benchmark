@@ -382,7 +382,7 @@ target triple = "x86_64-pc-linux-gnu"
 @make_compile_option_value.rbimpl_id.294 = internal unnamed_addr global i64 0, align 8
 @make_compile_option_value.rbimpl_id.295 = internal unnamed_addr global i64 0, align 8
 @switch.table.iseq_type_id = private unnamed_addr constant [9 x ptr] [ptr @iseq_type_id.id_top, ptr @iseq_type_id.id_method, ptr @iseq_type_id.id_block, ptr @iseq_type_id.id_class, ptr @iseq_type_id.id_rescue, ptr @iseq_type_id.id_ensure, ptr @iseq_type_id.id_eval, ptr @iseq_type_id.id_main, ptr @iseq_type_id.id_plain], align 8
-@switch.table.rb_iseq_disasm_recursive = private unnamed_addr constant [11 x ptr] [ptr @.str.120, ptr @.str.120, ptr @.str.122, ptr @.str.120, ptr @.str.173, ptr @.str.120, ptr @.str.174, ptr @.str.120, ptr @.str.175, ptr @.str.120, ptr @.str.176], align 8
+@switch.table.rb_iseq_disasm_recursive = private unnamed_addr constant [11 x ptr] [ptr @.str.120, ptr poison, ptr @.str.122, ptr poison, ptr @.str.173, ptr poison, ptr @.str.174, ptr poison, ptr @.str.175, ptr poison, ptr @.str.176], align 8
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @rb_iseq_free(ptr noundef %0) local_unnamed_addr #0 {

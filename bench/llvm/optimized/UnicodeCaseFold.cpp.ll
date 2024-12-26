@@ -3,16 +3,16 @@ source_filename = "bench/llvm/original/UnicodeCaseFold.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-@switch.table._ZN4llvm3sys7unicode14foldCharSimpleEi = private unnamed_addr constant [21 x i32] [i32 396, i32 396, i32 396, i32 477, i32 601, i32 603, i32 402, i32 396, i32 608, i32 611, i32 396, i32 617, i32 616, i32 409, i32 396, i32 396, i32 396, i32 623, i32 626, i32 396, i32 629], align 4
-@switch.table._ZN4llvm3sys7unicode14foldCharSimpleEi.1 = private unnamed_addr constant [10 x i32] [i32 640, i32 424, i32 640, i32 643, i32 640, i32 640, i32 429, i32 640, i32 648, i32 432], align 4
-@switch.table._ZN4llvm3sys7unicode14foldCharSimpleEi.2 = private unnamed_addr constant [7 x i32] [i32 454, i32 454, i32 454, i32 457, i32 457, i32 454, i32 460], align 4
-@switch.table._ZN4llvm3sys7unicode14foldCharSimpleEi.3 = private unnamed_addr constant [12 x i32] [i32 11365, i32 572, i32 11365, i32 410, i32 11366, i32 11365, i32 11365, i32 578, i32 11365, i32 384, i32 649, i32 652], align 4
-@switch.table._ZN4llvm3sys7unicode14foldCharSimpleEi.4 = private unnamed_addr constant [11 x i32] [i32 954, i32 961, i32 954, i32 954, i32 952, i32 949, i32 954, i32 1016, i32 954, i32 1010, i32 1019], align 4
+@switch.table._ZN4llvm3sys7unicode14foldCharSimpleEi = private unnamed_addr constant [21 x i32] [i32 396, i32 poison, i32 poison, i32 477, i32 601, i32 603, i32 402, i32 poison, i32 608, i32 611, i32 poison, i32 617, i32 616, i32 409, i32 poison, i32 poison, i32 poison, i32 623, i32 626, i32 poison, i32 629], align 4
+@switch.table._ZN4llvm3sys7unicode14foldCharSimpleEi.1 = private unnamed_addr constant [10 x i32] [i32 640, i32 424, i32 poison, i32 643, i32 poison, i32 poison, i32 429, i32 poison, i32 648, i32 432], align 4
+@switch.table._ZN4llvm3sys7unicode14foldCharSimpleEi.2 = private unnamed_addr constant [7 x i32] [i32 454, i32 454, i32 poison, i32 457, i32 457, i32 poison, i32 460], align 4
+@switch.table._ZN4llvm3sys7unicode14foldCharSimpleEi.3 = private unnamed_addr constant [12 x i32] [i32 11365, i32 572, i32 poison, i32 410, i32 11366, i32 poison, i32 poison, i32 578, i32 poison, i32 384, i32 649, i32 652], align 4
+@switch.table._ZN4llvm3sys7unicode14foldCharSimpleEi.4 = private unnamed_addr constant [11 x i32] [i32 954, i32 961, i32 poison, i32 poison, i32 952, i32 949, i32 poison, i32 1016, i32 poison, i32 1010, i32 1019], align 4
 @switch.table._ZN4llvm3sys7unicode14foldCharSimpleEi.5 = private unnamed_addr constant [3 x i32] [i32 1074, i32 1076, i32 1086], align 4
 @switch.table._ZN4llvm3sys7unicode14foldCharSimpleEi.6 = private unnamed_addr constant [4 x i32] [i32 1090, i32 1098, i32 1123, i32 42571], align 4
-@switch.table._ZN4llvm3sys7unicode14foldCharSimpleEi.7 = private unnamed_addr constant [5 x i32] [i32 11361, i32 11361, i32 619, i32 7549, i32 637], align 4
+@switch.table._ZN4llvm3sys7unicode14foldCharSimpleEi.7 = private unnamed_addr constant [5 x i32] [i32 11361, i32 poison, i32 619, i32 7549, i32 637], align 4
 @switch.table._ZN4llvm3sys7unicode14foldCharSimpleEi.8 = private unnamed_addr constant [4 x i32] [i32 593, i32 625, i32 592, i32 594], align 4
-@switch.table._ZN4llvm3sys7unicode14foldCharSimpleEi.9 = private unnamed_addr constant [10 x i32] [i32 614, i32 604, i32 609, i32 620, i32 618, i32 614, i32 670, i32 647, i32 669, i32 43859], align 4
+@switch.table._ZN4llvm3sys7unicode14foldCharSimpleEi.9 = private unnamed_addr constant [10 x i32] [i32 614, i32 604, i32 609, i32 620, i32 618, i32 poison, i32 670, i32 647, i32 669, i32 43859], align 4
 @switch.table._ZN4llvm3sys7unicode14foldCharSimpleEi.10 = private unnamed_addr constant [3 x i32] [i32 42900, i32 642, i32 7566], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

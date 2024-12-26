@@ -1425,7 +1425,7 @@ $_ZTIN5glTF29AnimationE = comdat any
 @_ZTVN5glTF29AnimationE = linkonce_odr hidden unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN5glTF29AnimationE, ptr @_ZNK5glTF26Object9IsSpecialEv, ptr @_ZN5glTF29AnimationD2Ev, ptr @_ZN5glTF29AnimationD0Ev] }, comdat, align 8
 @_ZTSN5glTF29AnimationE = linkonce_odr hidden constant [19 x i8] c"N5glTF29AnimationE\00", comdat, align 1
 @_ZTIN5glTF29AnimationE = linkonce_odr hidden constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN5glTF29AnimationE, ptr @_ZTIN5glTF26ObjectE }, comdat, align 8
-@switch.table._ZN5glTF217ComponentTypeSizeENS_13ComponentTypeE = private unnamed_addr constant [7 x i32] [i32 1, i32 1, i32 2, i32 2, i32 2, i32 4, i32 4], align 4
+@switch.table._ZN5glTF217ComponentTypeSizeENS_13ComponentTypeE = private unnamed_addr constant [7 x i32] [i32 1, i32 1, i32 2, i32 2, i32 poison, i32 4, i32 4], align 4
 
 @_ZN6Assimp13glTF2ExporterC1EPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesEb = hidden unnamed_addr alias void (ptr, ptr, ptr, ptr, ptr, i1), ptr @_ZN6Assimp13glTF2ExporterC2EPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesEb
 @_ZN6Assimp13glTF2ExporterD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN6Assimp13glTF2ExporterD2Ev

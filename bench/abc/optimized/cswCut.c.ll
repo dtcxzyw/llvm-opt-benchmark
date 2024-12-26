@@ -5,7 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.timespec = type { i64, i64 }
 
-@switch.table.Csw_ObjTwoVarCut = private unnamed_addr constant [8 x i32] [i32 8, i32 1, i32 1, i32 1, i32 4, i32 1, i32 2, i32 1], align 4
+@switch.table.Csw_ObjTwoVarCut = private unnamed_addr constant [8 x i32] [i32 8, i32 poison, i32 poison, i32 poison, i32 4, i32 poison, i32 2, i32 1], align 4
 
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @Csw_CutComputeTruth(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {

@@ -122,9 +122,9 @@ $_ZTVN4llvm11ms_demangle9DemanglerE = comdat any
 @_ZTVN4llvm11ms_demangle13ArrayTypeNodeE = external unnamed_addr constant { [7 x ptr] }, align 8
 @_ZTVN4llvm11ms_demangle18IntegerLiteralNodeE = external unnamed_addr constant { [5 x ptr] }, align 8
 @_ZTVN4llvm11ms_demangle30TemplateParameterReferenceNodeE = external unnamed_addr constant { [5 x ptr] }, align 8
-@switch.table._ZN4llvm11ms_demangle9Demangler18demangleQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE = private unnamed_addr constant [20 x i16] [i16 0, i16 1, i16 2, i16 3, i16 256, i16 256, i16 256, i16 256, i16 256, i16 256, i16 256, i16 256, i16 256, i16 256, i16 256, i16 256, i16 256, i16 257, i16 258, i16 259], align 2
-@switch.table._ZN4llvm11ms_demangle9Demangler21demangleStringLiteralERSt17basic_string_viewIcSt11char_traitsIcEE = private unnamed_addr constant [4 x i32] [i32 0, i32 1, i32 0, i32 2], align 4
-@switch.table._ZN4llvm11ms_demangle9Demangler20demangleFunctionTypeERSt17basic_string_viewIcSt11char_traitsIcEEb = private unnamed_addr constant [20 x i8] c"\00\01\02\03\00\00\00\00\00\00\00\00\00\00\00\00\00\01\02\03", align 1
+@switch.table._ZN4llvm11ms_demangle9Demangler18demangleQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE = private unnamed_addr constant [20 x i16] [i16 0, i16 1, i16 2, i16 3, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 256, i16 257, i16 258, i16 259], align 2
+@switch.table._ZN4llvm11ms_demangle9Demangler21demangleStringLiteralERSt17basic_string_viewIcSt11char_traitsIcEE = private unnamed_addr constant [4 x i32] [i32 0, i32 1, i32 poison, i32 2], align 4
+@switch.table._ZN4llvm11ms_demangle9Demangler20demangleFunctionTypeERSt17basic_string_viewIcSt11char_traitsIcEEb = private unnamed_addr constant [20 x i8] [i8 0, i8 1, i8 2, i8 3, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 1, i8 2, i8 3], align 1
 @switch.table._ZN4llvm11ms_demangle9Demangler20demangleFunctionTypeERSt17basic_string_viewIcSt11char_traitsIcEEb.2 = private unnamed_addr constant [23 x i8] c"\01\01\02\02\03\03\04\04\05\05\00\00\06\06\07\07\08\00\0A\00\00\00\0B", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -38,7 +38,7 @@ $_ZN6icu_7515MaybeStackArrayIcLi40EE13orphanOrCloneEiRi = comdat any
 $_ZN6icu_7515MaybeStackArrayIcLi40EE8copyFromERKS1_R10UErrorCode = comdat any
 
 @_ZTVN6icu_7513UnicodeStringE = external unnamed_addr constant { [13 x ptr] }, align 8
-@switch.table._ZN6icu_758RBBINodeC2ENS0_8NodeTypeE = private unnamed_addr constant [9 x i32] [i32 1, i32 4, i32 3, i32 4, i32 4, i32 4, i32 4, i32 4, i32 2], align 4
+@switch.table._ZN6icu_758RBBINodeC2ENS0_8NodeTypeE = private unnamed_addr constant [9 x i32] [i32 1, i32 4, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 2], align 4
 
 @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev = weak_odr unnamed_addr alias void (ptr), ptr @_ZN6icu_7515MaybeStackArrayIcLi40EEC2Ev
 @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ei10UErrorCode = weak_odr unnamed_addr alias void (ptr, i32, i32), ptr @_ZN6icu_7515MaybeStackArrayIcLi40EEC2Ei10UErrorCode

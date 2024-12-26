@@ -106,7 +106,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 @switch.table._ZN13LIR_Assembler5cmoveE13LIR_Condition7LIR_OprS1_S1_9BasicTypeS1_S1_ = private unnamed_addr constant [8 x i32] [i32 5, i32 4, i32 13, i32 15, i32 12, i32 14, i32 7, i32 2], align 4
 @switch.table._ZN13LIR_Assembler5cmoveE13LIR_Condition7LIR_OprS1_S1_9BasicTypeS1_S1_.2 = private unnamed_addr constant [8 x i32] [i32 4, i32 5, i32 12, i32 14, i32 13, i32 15, i32 6, i32 3], align 4
 @switch.table._ZN13LIR_Assembler10align_callE8LIR_Code = private unnamed_addr constant [4 x i32] [i32 1, i32 1, i32 11, i32 1], align 4
-@switch.table._ZN13LIR_Assembler14emit_arraycopyEP15LIR_OpArrayCopy = private unnamed_addr constant [8 x i32] [i32 0, i32 1, i32 0, i32 2, i32 0, i32 0, i32 0, i32 3], align 4
+@switch.table._ZN13LIR_Assembler14emit_arraycopyEP15LIR_OpArrayCopy = private unnamed_addr constant [8 x i32] [i32 0, i32 1, i32 poison, i32 2, i32 poison, i32 poison, i32 poison, i32 3], align 4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN13LIR_Assembler17is_small_constantE7LIR_Opr(i64 %0) local_unnamed_addr #0 align 2 {

@@ -156,7 +156,7 @@ target triple = "x86_64-pc-linux-gnu"
 @fltoa.digits = internal unnamed_addr constant [11 x i8] c"0123456789\00", align 1
 @.str.101 = private unnamed_addr constant [3 x i8] c"C*\00", align 1
 @.str.102 = private unnamed_addr constant [4 x i8] c"raw\00", align 1
-@switch.table.generate_json_string = private unnamed_addr constant [6 x ptr] [ptr @.str.93, ptr @.str.91, ptr @.str.89, ptr @.str.89, ptr @.str.92, ptr @.str.90], align 8
+@switch.table.generate_json_string = private unnamed_addr constant [6 x ptr] [ptr @.str.93, ptr @.str.91, ptr @.str.89, ptr poison, ptr @.str.92, ptr @.str.90], align 8
 
 ; Function Attrs: nounwind uwtable
 define weak i64 @ruby_abi_version() local_unnamed_addr #0 {

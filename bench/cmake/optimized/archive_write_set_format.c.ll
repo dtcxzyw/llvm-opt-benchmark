@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.6 = private unnamed_addr constant [8 x i8] c"sockets\00", align 1
 @.str.7 = private unnamed_addr constant [32 x i8] c"%s: %s format cannot archive %s\00", align 1
 @.str.8 = private unnamed_addr constant [50 x i8] c"%s: %s format cannot archive files with mode 0%lo\00", align 1
-@switch.table.__archive_write_entry_filetype_unsupported = private unnamed_addr constant [12 x ptr] [ptr @.str.5, ptr @.str.3, ptr @.str.1, ptr @.str.1, ptr @.str.1, ptr @.str.4, ptr @.str.1, ptr @.str.1, ptr @.str.1, ptr @.str.2, ptr @.str.1, ptr @.str.6], align 8
+@switch.table.__archive_write_entry_filetype_unsupported = private unnamed_addr constant [12 x ptr] [ptr @.str.5, ptr @.str.3, ptr poison, ptr @.str.1, ptr poison, ptr @.str.4, ptr poison, ptr poison, ptr poison, ptr @.str.2, ptr poison, ptr @.str.6], align 8
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @archive_write_set_format(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {

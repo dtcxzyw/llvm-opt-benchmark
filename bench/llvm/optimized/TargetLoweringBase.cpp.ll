@@ -640,8 +640,8 @@ $_ZTVN4llvm2cl11OptionValueIjEE = comdat any
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_TargetLoweringBase.cpp, ptr null }]
 @switch.table._ZN4llvm5RTLIB8getFPEXTENS_3EVTES1_ = private unnamed_addr constant [4 x i32] [i32 321, i32 320, i32 318, i32 317], align 4
 @switch.table._ZN4llvm5RTLIB8getFPEXTENS_3EVTES1_.7 = private unnamed_addr constant [4 x i32] [i32 319, i32 700, i32 316, i32 312], align 4
-@switch.table._ZN4llvm5RTLIB17getOUTLINE_ATOMICEjNS_14AtomicOrderingENS_3MVTE.12 = private unnamed_addr constant [6 x i64] [i64 0, i64 0, i64 1, i64 2, i64 3, i64 3], align 8
-@switch.table._ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE.13 = private unnamed_addr constant [8 x i16] [i16 6, i16 7, i16 9, i16 8, i16 9, i16 9, i16 9, i16 9], align 2
+@switch.table._ZN4llvm5RTLIB17getOUTLINE_ATOMICEjNS_14AtomicOrderingENS_3MVTE.12 = private unnamed_addr constant [6 x i64] [i64 0, i64 poison, i64 1, i64 2, i64 3, i64 3], align 8
+@switch.table._ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE.13 = private unnamed_addr constant [8 x i16] [i16 6, i16 7, i16 poison, i16 8, i16 poison, i16 poison, i16 poison, i16 9], align 2
 @switch.table._ZNK4llvm18TargetLoweringBase22InstructionOpcodeToISDEj = private unnamed_addr constant [67 x i32] [i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 243, i32 56, i32 96, i32 57, i32 97, i32 58, i32 98, i32 60, i32 59, i32 99, i32 62, i32 61, i32 100, i32 189, i32 191, i32 190, i32 185, i32 186, i32 187, i32 0, i32 294, i32 295, i32 0, i32 0, i32 0, i32 0, i32 215, i32 213, i32 212, i32 226, i32 225, i32 220, i32 219, i32 229, i32 232, i32 233, i32 233, i32 233, i32 234, i32 0, i32 0, i32 207, i32 207, i32 0, i32 0, i32 204, i32 0, i32 0, i32 0, i32 157, i32 156, i32 164, i32 55, i32 55, i32 0, i32 52], align 4
 
 @_ZN4llvm18TargetLoweringBaseC1ERKNS_13TargetMachineE = unnamed_addr alias void (ptr, ptr), ptr @_ZN4llvm18TargetLoweringBaseC2ERKNS_13TargetMachineE

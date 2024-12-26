@@ -73,7 +73,7 @@ $_ZTVN4llvm13format_objectIJmEEE = comdat any
 @.str.10 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 @_ZTVN4llvm13format_objectIJmmmEEE = linkonce_odr unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr null, ptr @_ZN4llvm18format_object_base4homeEv, ptr @_ZNK4llvm13format_objectIJmmmEE7snprintEPcj] }, comdat, align 8
 @_ZTVN4llvm13format_objectIJmEEE = linkonce_odr unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr null, ptr @_ZN4llvm18format_object_base4homeEv, ptr @_ZNK4llvm13format_objectIJmEE7snprintEPcj] }, comdat, align 8
-@switch.table._ZNK4llvm19DWARFDebugRangeList4dumpERNS_11raw_ostreamE = private unnamed_addr constant [7 x ptr] [ptr @.str.3, ptr @.str.3, ptr @.str.4, ptr @.str.3, ptr @.str.3, ptr @.str.3, ptr @.str.5], align 8
+@switch.table._ZNK4llvm19DWARFDebugRangeList4dumpERNS_11raw_ostreamE = private unnamed_addr constant [7 x ptr] [ptr @.str.3, ptr poison, ptr @.str.4, ptr poison, ptr poison, ptr poison, ptr @.str.5], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm19DWARFDebugRangeList14RangeListEntry27isBaseAddressSelectionEntryEh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i8 noundef zeroext %1) local_unnamed_addr #0 align 2 {

@@ -148,7 +148,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.56 = private unnamed_addr constant [7 x i8] c"%s[%u]\00", align 1
 @.str.57 = private unnamed_addr constant [3 x i8] c", \00", align 1
 @decl_arena = external global %struct.Vmem, align 8
-@switch.table.type_kind_bitsize = private unnamed_addr constant [15 x i32] [i32 8, i32 16, i32 32, i32 64, i32 128, i32 8, i32 16, i32 32, i32 64, i32 128, i32 16, i32 8, i32 32, i32 64, i32 128], align 4
+@switch.table.type_kind_bitsize = private unnamed_addr constant [15 x i32] [i32 8, i32 16, i32 32, i32 64, i32 128, i32 8, i32 16, i32 32, i32 64, i32 128, i32 16, i32 poison, i32 32, i32 64, i32 128], align 4
 @switch.table.type_from_token = private unnamed_addr constant [23 x ptr] [ptr @type_void, ptr @type_bool, ptr @type_char, ptr @type_double, ptr @type_float, ptr @type_float16, ptr @type_i128, ptr @type_ichar, ptr @type_int, ptr @type_iptr, ptr @type_isz, ptr @type_long, ptr @type_short, ptr @type_u128, ptr @type_uint, ptr @type_ulong, ptr @type_uptr, ptr @type_ushort, ptr @type_usz, ptr @type_f128, ptr @type_any, ptr @type_anyfault, ptr @type_typeid], align 8
 
 ; Function Attrs: nounwind uwtable

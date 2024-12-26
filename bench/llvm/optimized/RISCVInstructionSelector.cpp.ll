@@ -198,7 +198,7 @@ $_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup = comdat any
 @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup = linkonce_odr local_unnamed_addr constant [8 x [8 x i8]] [[8 x i8] zeroinitializer, [8 x i8] c"\01\00\00\00\00\00\00\00", [8 x i8] c"\01\01\00\00\00\00\00\00", [8 x i8] c"\01\01\01\00\00\00\00\00", [8 x i8] c"\01\01\01\01\00\00\00\00", [8 x i8] c"\01\01\01\00\00\00\00\00", [8 x i8] c"\01\01\01\01\01\01\00\00", [8 x i8] c"\01\01\01\01\01\01\01\00"], comdat, align 16
 @.str.2 = private unnamed_addr constant [36 x i8] c"Unsupported code model for lowering\00", align 1
 @.str.3 = private unnamed_addr constant [11 x i8] c"riscv-isel\00", align 1
-@switch.table._ZL20getOperandsForBranchN4llvm8RegisterERNS_19MachineRegisterInfoERNS_7RISCVCC8CondCodeERS0_S6_ = private unnamed_addr constant [9 x i32] [i32 0, i32 1, i32 0, i32 5, i32 4, i32 0, i32 0, i32 3, i32 2], align 4
+@switch.table._ZL20getOperandsForBranchN4llvm8RegisterERNS_19MachineRegisterInfoERNS_7RISCVCC8CondCodeERS0_S6_ = private unnamed_addr constant [9 x i32] [i32 0, i32 1, i32 poison, i32 5, i32 4, i32 poison, i32 poison, i32 3, i32 2], align 4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef nonnull ptr @_ZN4llvm30createRISCVInstructionSelectorERKNS_18RISCVTargetMachineERKNS_14RISCVSubtargetERKNS_21RISCVRegisterBankInfoE(ptr noundef nonnull align 8 dereferenceable(1264) %0, ptr noundef nonnull align 8 dereferenceable(409192) %1, ptr noundef nonnull align 8 dereferenceable(160) %2) local_unnamed_addr #0 {

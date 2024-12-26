@@ -3515,7 +3515,7 @@ $_ZTIN5Catch9MatchExprINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_
 @.str.782 = private unnamed_addr constant [3 x i8] c"us\00", align 1
 @.str.783 = private unnamed_addr constant [3 x i8] c"ms\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_catch_amalgamated.cpp, ptr null }]
-@switch.table._ZN5Catch6Detail17convertIntoStringB5cxx11ENS_9StringRefEb = private unnamed_addr constant [5 x ptr] [ptr @.str.47, ptr @.str.46, ptr @.str.45, ptr @.str.48, ptr @.str.45], align 8
+@switch.table._ZN5Catch6Detail17convertIntoStringB5cxx11ENS_9StringRefEb = private unnamed_addr constant [5 x ptr] [ptr @.str.47, ptr @.str.46, ptr poison, ptr @.str.48, ptr @.str.45], align 8
 
 @_ZN5Catch9Benchmark6Detail18ChronometerConceptD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN5Catch9Benchmark6Detail18ChronometerConceptD2Ev
 @_ZN5Catch9Benchmark6Detail17BenchmarkFunction8callableD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN5Catch9Benchmark6Detail17BenchmarkFunction8callableD2Ev

@@ -973,7 +973,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.66 = private unnamed_addr constant [59 x i8] c"make_encoder() argument 1 must be dict or None, not %.200s\00", align 1
 @PyCFunction_Type = external global %struct._typeobject, align 8
 @switch.table.py_encode_basestring_ascii.15 = private unnamed_addr constant [6 x i64] [i64 2, i64 2, i64 2, i64 6, i64 2, i64 2], align 8
-@switch.table.scanstring_unicode.16 = private unnamed_addr constant [55 x i32] [i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -55, i32 -55, i32 -55, i32 -55, i32 -55, i32 -55, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87], align 4
+@switch.table.scanstring_unicode.16 = private unnamed_addr constant [55 x i32] [i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 -55, i32 -55, i32 -55, i32 -55, i32 -55, i32 -55, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87], align 4
 
 ; Function Attrs: nounwind uwtable
 define ptr @PyInit__json() local_unnamed_addr #0 {

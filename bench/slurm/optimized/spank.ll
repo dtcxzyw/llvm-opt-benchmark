@@ -121,7 +121,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__._spank_option_copy = private unnamed_addr constant [19 x i8] c"_spank_option_copy\00", align 1
 @.str.92 = private unnamed_addr constant [18 x i8] c"spank_set_job_env\00", align 1
 @switch.table._do_call_stack = private unnamed_addr constant [13 x ptr] [ptr @.str.59, ptr @.str.71, ptr @.str.60, ptr @.str.61, ptr @.str.62, ptr @.str.63, ptr @.str.64, ptr @.str.65, ptr @.str.66, ptr @.str.67, ptr @.str.68, ptr @.str.69, ptr @.str.70], align 8
-@switch.table._do_call_stack.7 = private unnamed_addr constant [13 x i64] [i64 40, i64 40, i64 48, i64 56, i64 64, i64 72, i64 80, i64 88, i64 96, i64 104, i64 112, i64 120, i64 128], align 8
+@switch.table._do_call_stack.7 = private unnamed_addr constant [13 x i64] [i64 40, i64 poison, i64 48, i64 56, i64 64, i64 72, i64 80, i64 88, i64 96, i64 104, i64 112, i64 120, i64 128], align 8
 @switch.table.spank_get_item = private unnamed_addr constant [11 x i32] [i32 3001, i32 3001, i32 3001, i32 3001, i32 3001, i32 3006, i32 3006, i32 3001, i32 3006, i32 3001, i32 3001], align 4
 
 ; Function Attrs: nounwind uwtable
