@@ -354,7 +354,7 @@ def update_baseline():
 
     if not os_do(
             "git commit -m 'llvm: Update baseline to {}'".format(LLVM_REV)):
-        return False
+        return True
 
     if not os_do("git push"):
         return False
