@@ -86,7 +86,8 @@ if.end19:                                         ; preds = %if.else7.i, %if.end
   br i1 %cmp20, label %land.lhs.true22, label %lor.lhs.false
 
 land.lhs.true22:                                  ; preds = %if.end19
-  %div14 = udiv i64 %max, %retval.0.i.ph
+  %4 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %retval.0.i.ph, i1 true)
+  %div14 = lshr i64 %max, %4
   %div = sub nsw i64 0, %div14
   %cmp23 = icmp slt i64 %call4, %div
   br i1 %cmp23, label %if.then31, label %if.end33
@@ -96,7 +97,8 @@ lor.lhs.false:                                    ; preds = %if.end19
   br i1 %cmp25.not, label %if.end33, label %land.lhs.true27
 
 land.lhs.true27:                                  ; preds = %lor.lhs.false
-  %div28 = udiv i64 %max, %retval.0.i.ph
+  %5 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %retval.0.i.ph, i1 true)
+  %div28 = lshr i64 %max, %5
   %cmp29 = icmp samesign ult i64 %div28, %call4
   br i1 %cmp29, label %if.then31, label %if.end33
 
@@ -461,6 +463,9 @@ declare ptr @gettext(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9

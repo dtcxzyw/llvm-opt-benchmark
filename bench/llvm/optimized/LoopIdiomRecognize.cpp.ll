@@ -9366,33 +9366,34 @@ define internal fastcc noundef ptr @_ZL21getMemSetPatternValuePN4llvm5ValueEPKNS
   br i1 %27, label %_ZNSt6vectorIPN4llvm8ConstantESaIS2_EED2Ev.exit, label %28
 
 28:                                               ; preds = %26
-  %29 = udiv i64 16, %24
-  %30 = load ptr, ptr %13, align 8
-  %31 = call noundef ptr @_ZN4llvm9ArrayType3getEPNS_4TypeEm(ptr noundef %30, i64 noundef %29) #22
-  call void @_ZNSt6vectorIPN4llvm8ConstantESaIS2_EEC2EmRKS2_RKS3_(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %29, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %6)
-  %32 = load ptr, ptr %5, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %34 = load ptr, ptr %33, align 8
-  %35 = ptrtoint ptr %34 to i64
-  %36 = ptrtoint ptr %32 to i64
-  %37 = sub i64 %35, %36
-  %38 = ashr exact i64 %37, 3
-  %39 = call noundef ptr @_ZN4llvm13ConstantArray3getEPNS_9ArrayTypeENS_8ArrayRefIPNS_8ConstantEEE(ptr noundef %31, ptr %32, i64 %38) #22
-  %40 = load ptr, ptr %5, align 8
-  %.not.i.i.i = icmp eq ptr %40, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIPN4llvm8ConstantESaIS2_EED2Ev.exit, label %41
+  %29 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %24, i1 true)
+  %30 = lshr i64 16, %29
+  %31 = load ptr, ptr %13, align 8
+  %32 = call noundef ptr @_ZN4llvm9ArrayType3getEPNS_4TypeEm(ptr noundef %31, i64 noundef %30) #22
+  call void @_ZNSt6vectorIPN4llvm8ConstantESaIS2_EEC2EmRKS2_RKS3_(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %30, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %6)
+  %33 = load ptr, ptr %5, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %35 = load ptr, ptr %34, align 8
+  %36 = ptrtoint ptr %35 to i64
+  %37 = ptrtoint ptr %33 to i64
+  %38 = sub i64 %36, %37
+  %39 = ashr exact i64 %38, 3
+  %40 = call noundef ptr @_ZN4llvm13ConstantArray3getEPNS_9ArrayTypeENS_8ArrayRefIPNS_8ConstantEEE(ptr noundef %32, ptr %33, i64 %39) #22
+  %41 = load ptr, ptr %5, align 8
+  %.not.i.i.i = icmp eq ptr %41, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIPN4llvm8ConstantESaIS2_EED2Ev.exit, label %42
 
-41:                                               ; preds = %28
-  %42 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %43 = load ptr, ptr %42, align 8
-  %44 = ptrtoint ptr %43 to i64
-  %45 = ptrtoint ptr %40 to i64
-  %46 = sub i64 %44, %45
-  call void @_ZdlPvm(ptr noundef nonnull %40, i64 noundef %46) #24
+42:                                               ; preds = %28
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %44 = load ptr, ptr %43, align 8
+  %45 = ptrtoint ptr %44 to i64
+  %46 = ptrtoint ptr %41 to i64
+  %47 = sub i64 %45, %46
+  call void @_ZdlPvm(ptr noundef nonnull %41, i64 noundef %47) #24
   br label %_ZNSt6vectorIPN4llvm8ConstantESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIPN4llvm8ConstantESaIS2_EED2Ev.exit:  ; preds = %26, %41, %28, %23, %20, %12, %2, %9
-  %.0 = phi ptr [ null, %9 ], [ null, %2 ], [ null, %12 ], [ null, %20 ], [ null, %23 ], [ %39, %28 ], [ %39, %41 ], [ %0, %26 ]
+_ZNSt6vectorIPN4llvm8ConstantESaIS2_EED2Ev.exit:  ; preds = %26, %42, %28, %23, %20, %12, %2, %9
+  %.0 = phi ptr [ null, %9 ], [ null, %2 ], [ null, %12 ], [ null, %20 ], [ null, %23 ], [ %40, %28 ], [ %40, %42 ], [ %0, %26 ]
   ret ptr %.0
 }
 
@@ -20355,6 +20356,9 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #19
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20

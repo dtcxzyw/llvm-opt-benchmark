@@ -7680,7 +7680,7 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
 10:                                               ; preds = %3
   %11 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %2)
   %12 = icmp eq i64 %11, 1
-  br i1 %12, label %13, label %27
+  br i1 %12, label %13, label %28
 
 13:                                               ; preds = %10
   %14 = tail call noundef i64 @_ZN7dashmap3ncb17h30bae42c71bbea1bE(i64 noundef %2)
@@ -7691,8 +7691,9 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
   %19 = and i64 %17, %18
   %.0 = select i1 %15, i64 0, i64 %19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %20 = udiv i64 %.0, %2
-  store i64 %20, ptr %7, align 8
+  %20 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2, i1 true)
+  %21 = lshr i64 %.0, %20
+  store i64 %21, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !2028
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !2031
   store ptr %7, ptr %5, align 8
@@ -7704,20 +7705,20 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
   store i64 %2, ptr %.sroa.6.0..sroa_idx, align 8
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h4cfe393fd927e71cE.llvm.17050508828239973313"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %5), !noalias !2038
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !2031
-  %21 = call { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17hfdda071a02032d2fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6), !noalias !2028
+  %22 = call { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17hfdda071a02032d2fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6), !noalias !2028
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !2028
-  %22 = sub i64 64, %14
-  %23 = extractvalue { ptr, i64 } %21, 0
-  %24 = extractvalue { ptr, i64 } %21, 1
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %22, ptr %25, align 8
-  store ptr %23, ptr %0, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %24, ptr %26, align 8
+  %23 = sub i64 64, %14
+  %24 = extractvalue { ptr, i64 } %22, 0
+  %25 = extractvalue { ptr, i64 } %22, 1
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %23, ptr %26, align 8
+  store ptr %24, ptr %0, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %25, ptr %27, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret void
 
-27:                                               ; preds = %10
+28:                                               ; preds = %10
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.43da44c97f12b6aba74ab6c1fca3fc3e.200, i64 noundef 48, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.43da44c97f12b6aba74ab6c1fca3fc3e.201) #23
   unreachable
 }
@@ -7738,7 +7739,7 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
 10:                                               ; preds = %3
   %11 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %2)
   %12 = icmp eq i64 %11, 1
-  br i1 %12, label %13, label %27
+  br i1 %12, label %13, label %28
 
 13:                                               ; preds = %10
   %14 = tail call noundef i64 @_ZN7dashmap3ncb17h30bae42c71bbea1bE(i64 noundef %2)
@@ -7749,8 +7750,9 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
   %19 = and i64 %17, %18
   %.0 = select i1 %15, i64 0, i64 %19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %20 = udiv i64 %.0, %2
-  store i64 %20, ptr %7, align 8
+  %20 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2, i1 true)
+  %21 = lshr i64 %.0, %20
+  store i64 %21, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !2039
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !2042
   store ptr %7, ptr %5, align 8
@@ -7762,20 +7764,20 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
   store i64 %2, ptr %.sroa.6.0..sroa_idx, align 8
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h8225b1e862f22440E.llvm.17050508828239973313"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %5), !noalias !2049
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !2042
-  %21 = call { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17h0d94083adc77e9d9E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6), !noalias !2039
+  %22 = call { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17h0d94083adc77e9d9E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6), !noalias !2039
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !2039
-  %22 = sub i64 64, %14
-  %23 = extractvalue { ptr, i64 } %21, 0
-  %24 = extractvalue { ptr, i64 } %21, 1
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %22, ptr %25, align 8
-  store ptr %23, ptr %0, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %24, ptr %26, align 8
+  %23 = sub i64 64, %14
+  %24 = extractvalue { ptr, i64 } %22, 0
+  %25 = extractvalue { ptr, i64 } %22, 1
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %23, ptr %26, align 8
+  store ptr %24, ptr %0, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %25, ptr %27, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret void
 
-27:                                               ; preds = %10
+28:                                               ; preds = %10
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.43da44c97f12b6aba74ab6c1fca3fc3e.200, i64 noundef 48, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.43da44c97f12b6aba74ab6c1fca3fc3e.201) #23
   unreachable
 }
@@ -7796,7 +7798,7 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
 10:                                               ; preds = %3
   %11 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %2)
   %12 = icmp eq i64 %11, 1
-  br i1 %12, label %13, label %27
+  br i1 %12, label %13, label %28
 
 13:                                               ; preds = %10
   %14 = tail call noundef i64 @_ZN7dashmap3ncb17h30bae42c71bbea1bE(i64 noundef %2)
@@ -7807,8 +7809,9 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
   %19 = and i64 %17, %18
   %.0 = select i1 %15, i64 0, i64 %19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %20 = udiv i64 %.0, %2
-  store i64 %20, ptr %7, align 8
+  %20 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2, i1 true)
+  %21 = lshr i64 %.0, %20
+  store i64 %21, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !2050
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !2053
   store ptr %7, ptr %5, align 8
@@ -7820,20 +7823,20 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
   store i64 %2, ptr %.sroa.6.0..sroa_idx, align 8
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17heb81b72bc356080dE.llvm.17050508828239973313"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %5), !noalias !2060
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !2053
-  %21 = call { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17h0e62b153760e9479E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6), !noalias !2050
+  %22 = call { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17h0e62b153760e9479E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6), !noalias !2050
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !2050
-  %22 = sub i64 64, %14
-  %23 = extractvalue { ptr, i64 } %21, 0
-  %24 = extractvalue { ptr, i64 } %21, 1
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %22, ptr %25, align 8
-  store ptr %23, ptr %0, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %24, ptr %26, align 8
+  %23 = sub i64 64, %14
+  %24 = extractvalue { ptr, i64 } %22, 0
+  %25 = extractvalue { ptr, i64 } %22, 1
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %23, ptr %26, align 8
+  store ptr %24, ptr %0, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %25, ptr %27, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret void
 
-27:                                               ; preds = %10
+28:                                               ; preds = %10
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.43da44c97f12b6aba74ab6c1fca3fc3e.200, i64 noundef 48, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.43da44c97f12b6aba74ab6c1fca3fc3e.201) #23
   unreachable
 }
@@ -7854,7 +7857,7 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
 10:                                               ; preds = %3
   %11 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %2)
   %12 = icmp eq i64 %11, 1
-  br i1 %12, label %13, label %27
+  br i1 %12, label %13, label %28
 
 13:                                               ; preds = %10
   %14 = tail call noundef i64 @_ZN7dashmap3ncb17h30bae42c71bbea1bE(i64 noundef %2)
@@ -7865,8 +7868,9 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
   %19 = and i64 %17, %18
   %.0 = select i1 %15, i64 0, i64 %19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %20 = udiv i64 %.0, %2
-  store i64 %20, ptr %7, align 8
+  %20 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2, i1 true)
+  %21 = lshr i64 %.0, %20
+  store i64 %21, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !2061
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !2064
   store ptr %7, ptr %5, align 8
@@ -7878,20 +7882,20 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
   store i64 %2, ptr %.sroa.6.0..sroa_idx, align 8
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hf1f6df82db308f4dE.llvm.17050508828239973313"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %5), !noalias !2071
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !2064
-  %21 = call { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17hb36699f4a79ee486E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6), !noalias !2061
+  %22 = call { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17hb36699f4a79ee486E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6), !noalias !2061
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !2061
-  %22 = sub i64 64, %14
-  %23 = extractvalue { ptr, i64 } %21, 0
-  %24 = extractvalue { ptr, i64 } %21, 1
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %22, ptr %25, align 8
-  store ptr %23, ptr %0, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %24, ptr %26, align 8
+  %23 = sub i64 64, %14
+  %24 = extractvalue { ptr, i64 } %22, 0
+  %25 = extractvalue { ptr, i64 } %22, 1
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %23, ptr %26, align 8
+  store ptr %24, ptr %0, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %25, ptr %27, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret void
 
-27:                                               ; preds = %10
+28:                                               ; preds = %10
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.43da44c97f12b6aba74ab6c1fca3fc3e.200, i64 noundef 48, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.43da44c97f12b6aba74ab6c1fca3fc3e.201) #23
   unreachable
 }
@@ -7912,7 +7916,7 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
 10:                                               ; preds = %3
   %11 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %2)
   %12 = icmp eq i64 %11, 1
-  br i1 %12, label %13, label %27
+  br i1 %12, label %13, label %28
 
 13:                                               ; preds = %10
   %14 = tail call noundef i64 @_ZN7dashmap3ncb17h30bae42c71bbea1bE(i64 noundef %2)
@@ -7923,8 +7927,9 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
   %19 = and i64 %17, %18
   %.0 = select i1 %15, i64 0, i64 %19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %20 = udiv i64 %.0, %2
-  store i64 %20, ptr %7, align 8
+  %20 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2, i1 true)
+  %21 = lshr i64 %.0, %20
+  store i64 %21, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !2072
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !2075
   store ptr %7, ptr %5, align 8
@@ -7936,20 +7941,20 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
   store i64 %2, ptr %.sroa.6.0..sroa_idx, align 8
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h16bda605eea801adE.llvm.17050508828239973313"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %5), !noalias !2082
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !2075
-  %21 = call { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17hf3ae92169368344eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6), !noalias !2072
+  %22 = call { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17hf3ae92169368344eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6), !noalias !2072
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !2072
-  %22 = sub i64 64, %14
-  %23 = extractvalue { ptr, i64 } %21, 0
-  %24 = extractvalue { ptr, i64 } %21, 1
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %22, ptr %25, align 8
-  store ptr %23, ptr %0, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %24, ptr %26, align 8
+  %23 = sub i64 64, %14
+  %24 = extractvalue { ptr, i64 } %22, 0
+  %25 = extractvalue { ptr, i64 } %22, 1
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %23, ptr %26, align 8
+  store ptr %24, ptr %0, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %25, ptr %27, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret void
 
-27:                                               ; preds = %10
+28:                                               ; preds = %10
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.43da44c97f12b6aba74ab6c1fca3fc3e.200, i64 noundef 48, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.43da44c97f12b6aba74ab6c1fca3fc3e.201) #23
   unreachable
 }
@@ -7970,7 +7975,7 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
 10:                                               ; preds = %3
   %11 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %2)
   %12 = icmp eq i64 %11, 1
-  br i1 %12, label %13, label %27
+  br i1 %12, label %13, label %28
 
 13:                                               ; preds = %10
   %14 = tail call noundef i64 @_ZN7dashmap3ncb17h30bae42c71bbea1bE(i64 noundef %2)
@@ -7981,8 +7986,9 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
   %19 = and i64 %17, %18
   %.0 = select i1 %15, i64 0, i64 %19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %20 = udiv i64 %.0, %2
-  store i64 %20, ptr %7, align 8
+  %20 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2, i1 true)
+  %21 = lshr i64 %.0, %20
+  store i64 %21, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !2083
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !2086
   store ptr %7, ptr %5, align 8
@@ -7994,20 +8000,20 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
   store i64 %2, ptr %.sroa.6.0..sroa_idx, align 8
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hd53700f5049830ffE.llvm.17050508828239973313"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %5), !noalias !2093
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !2086
-  %21 = call { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17hb42db1e0fcdf7a83E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6), !noalias !2083
+  %22 = call { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17hb42db1e0fcdf7a83E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6), !noalias !2083
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !2083
-  %22 = sub i64 64, %14
-  %23 = extractvalue { ptr, i64 } %21, 0
-  %24 = extractvalue { ptr, i64 } %21, 1
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %22, ptr %25, align 8
-  store ptr %23, ptr %0, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %24, ptr %26, align 8
+  %23 = sub i64 64, %14
+  %24 = extractvalue { ptr, i64 } %22, 0
+  %25 = extractvalue { ptr, i64 } %22, 1
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %23, ptr %26, align 8
+  store ptr %24, ptr %0, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %25, ptr %27, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret void
 
-27:                                               ; preds = %10
+28:                                               ; preds = %10
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.43da44c97f12b6aba74ab6c1fca3fc3e.200, i64 noundef 48, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.43da44c97f12b6aba74ab6c1fca3fc3e.201) #23
   unreachable
 }
@@ -8028,7 +8034,7 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
 10:                                               ; preds = %3
   %11 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %2)
   %12 = icmp eq i64 %11, 1
-  br i1 %12, label %13, label %27
+  br i1 %12, label %13, label %28
 
 13:                                               ; preds = %10
   %14 = tail call noundef i64 @_ZN7dashmap3ncb17h30bae42c71bbea1bE(i64 noundef %2)
@@ -8039,8 +8045,9 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
   %19 = and i64 %17, %18
   %.0 = select i1 %15, i64 0, i64 %19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %20 = udiv i64 %.0, %2
-  store i64 %20, ptr %7, align 8
+  %20 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2, i1 true)
+  %21 = lshr i64 %.0, %20
+  store i64 %21, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !2094
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !2097
   store ptr %7, ptr %5, align 8
@@ -8052,20 +8059,20 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
   store i64 %2, ptr %.sroa.6.0..sroa_idx, align 8
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hebe0cf3f9d3e5419E.llvm.17050508828239973313"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %5), !noalias !2104
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !2097
-  %21 = call { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17h5aa0cbfebdb388b2E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6), !noalias !2094
+  %22 = call { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17h5aa0cbfebdb388b2E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6), !noalias !2094
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !2094
-  %22 = sub i64 64, %14
-  %23 = extractvalue { ptr, i64 } %21, 0
-  %24 = extractvalue { ptr, i64 } %21, 1
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %22, ptr %25, align 8
-  store ptr %23, ptr %0, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %24, ptr %26, align 8
+  %23 = sub i64 64, %14
+  %24 = extractvalue { ptr, i64 } %22, 0
+  %25 = extractvalue { ptr, i64 } %22, 1
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %23, ptr %26, align 8
+  store ptr %24, ptr %0, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %25, ptr %27, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret void
 
-27:                                               ; preds = %10
+28:                                               ; preds = %10
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.43da44c97f12b6aba74ab6c1fca3fc3e.200, i64 noundef 48, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.43da44c97f12b6aba74ab6c1fca3fc3e.201) #23
   unreachable
 }
@@ -8086,7 +8093,7 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
 10:                                               ; preds = %3
   %11 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %2)
   %12 = icmp eq i64 %11, 1
-  br i1 %12, label %13, label %27
+  br i1 %12, label %13, label %28
 
 13:                                               ; preds = %10
   %14 = tail call noundef i64 @_ZN7dashmap3ncb17h30bae42c71bbea1bE(i64 noundef %2)
@@ -8097,8 +8104,9 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
   %19 = and i64 %17, %18
   %.0 = select i1 %15, i64 0, i64 %19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %20 = udiv i64 %.0, %2
-  store i64 %20, ptr %7, align 8
+  %20 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2, i1 true)
+  %21 = lshr i64 %.0, %20
+  store i64 %21, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !2105
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !2108
   store ptr %7, ptr %5, align 8
@@ -8110,20 +8118,20 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
   store i64 %2, ptr %.sroa.6.0..sroa_idx, align 8
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hfe9d977063e767c9E.llvm.17050508828239973313"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %5), !noalias !2115
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !2108
-  %21 = call { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17hcedf3b80a74f82c5E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6), !noalias !2105
+  %22 = call { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17hcedf3b80a74f82c5E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6), !noalias !2105
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !2105
-  %22 = sub i64 64, %14
-  %23 = extractvalue { ptr, i64 } %21, 0
-  %24 = extractvalue { ptr, i64 } %21, 1
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %22, ptr %25, align 8
-  store ptr %23, ptr %0, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %24, ptr %26, align 8
+  %23 = sub i64 64, %14
+  %24 = extractvalue { ptr, i64 } %22, 0
+  %25 = extractvalue { ptr, i64 } %22, 1
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %23, ptr %26, align 8
+  store ptr %24, ptr %0, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %25, ptr %27, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret void
 
-27:                                               ; preds = %10
+28:                                               ; preds = %10
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.43da44c97f12b6aba74ab6c1fca3fc3e.200, i64 noundef 48, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.43da44c97f12b6aba74ab6c1fca3fc3e.201) #23
   unreachable
 }
@@ -8144,7 +8152,7 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
 10:                                               ; preds = %3
   %11 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %2)
   %12 = icmp eq i64 %11, 1
-  br i1 %12, label %13, label %27
+  br i1 %12, label %13, label %28
 
 13:                                               ; preds = %10
   %14 = tail call noundef i64 @_ZN7dashmap3ncb17h30bae42c71bbea1bE(i64 noundef %2)
@@ -8155,8 +8163,9 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
   %19 = and i64 %17, %18
   %.0 = select i1 %15, i64 0, i64 %19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %20 = udiv i64 %.0, %2
-  store i64 %20, ptr %7, align 8
+  %20 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2, i1 true)
+  %21 = lshr i64 %.0, %20
+  store i64 %21, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !2116
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !2119
   store ptr %7, ptr %5, align 8
@@ -8168,20 +8177,20 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
   store i64 %2, ptr %.sroa.6.0..sroa_idx, align 8
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h0046b46ca94de554E.llvm.17050508828239973313"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %5), !noalias !2126
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !2119
-  %21 = call { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17hc53b861532fd720eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6), !noalias !2116
+  %22 = call { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17hc53b861532fd720eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6), !noalias !2116
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !2116
-  %22 = sub i64 64, %14
-  %23 = extractvalue { ptr, i64 } %21, 0
-  %24 = extractvalue { ptr, i64 } %21, 1
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %22, ptr %25, align 8
-  store ptr %23, ptr %0, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %24, ptr %26, align 8
+  %23 = sub i64 64, %14
+  %24 = extractvalue { ptr, i64 } %22, 0
+  %25 = extractvalue { ptr, i64 } %22, 1
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %23, ptr %26, align 8
+  store ptr %24, ptr %0, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %25, ptr %27, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret void
 
-27:                                               ; preds = %10
+28:                                               ; preds = %10
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.43da44c97f12b6aba74ab6c1fca3fc3e.200, i64 noundef 48, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.43da44c97f12b6aba74ab6c1fca3fc3e.201) #23
   unreachable
 }
@@ -8202,7 +8211,7 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
 10:                                               ; preds = %3
   %11 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %2)
   %12 = icmp eq i64 %11, 1
-  br i1 %12, label %13, label %27
+  br i1 %12, label %13, label %28
 
 13:                                               ; preds = %10
   %14 = tail call noundef i64 @_ZN7dashmap3ncb17h30bae42c71bbea1bE(i64 noundef %2)
@@ -8213,8 +8222,9 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
   %19 = and i64 %17, %18
   %.0 = select i1 %15, i64 0, i64 %19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %20 = udiv i64 %.0, %2
-  store i64 %20, ptr %7, align 8
+  %20 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2, i1 true)
+  %21 = lshr i64 %.0, %20
+  store i64 %21, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !2127
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !2130
   store ptr %7, ptr %5, align 8
@@ -8226,20 +8236,20 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
   store i64 %2, ptr %.sroa.6.0..sroa_idx, align 8
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hba39e550aad0e6d0E.llvm.17050508828239973313"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %5), !noalias !2137
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !2130
-  %21 = call { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17h3c4d0626e06cf356E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6), !noalias !2127
+  %22 = call { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17h3c4d0626e06cf356E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6), !noalias !2127
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !2127
-  %22 = sub i64 64, %14
-  %23 = extractvalue { ptr, i64 } %21, 0
-  %24 = extractvalue { ptr, i64 } %21, 1
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %22, ptr %25, align 8
-  store ptr %23, ptr %0, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %24, ptr %26, align 8
+  %23 = sub i64 64, %14
+  %24 = extractvalue { ptr, i64 } %22, 0
+  %25 = extractvalue { ptr, i64 } %22, 1
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %23, ptr %26, align 8
+  store ptr %24, ptr %0, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %25, ptr %27, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret void
 
-27:                                               ; preds = %10
+28:                                               ; preds = %10
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.43da44c97f12b6aba74ab6c1fca3fc3e.200, i64 noundef 48, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.43da44c97f12b6aba74ab6c1fca3fc3e.201) #23
   unreachable
 }
@@ -8260,7 +8270,7 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
 10:                                               ; preds = %3
   %11 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %2)
   %12 = icmp eq i64 %11, 1
-  br i1 %12, label %13, label %27
+  br i1 %12, label %13, label %28
 
 13:                                               ; preds = %10
   %14 = tail call noundef i64 @_ZN7dashmap3ncb17h30bae42c71bbea1bE(i64 noundef %2)
@@ -8271,8 +8281,9 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
   %19 = and i64 %17, %18
   %.0 = select i1 %15, i64 0, i64 %19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %20 = udiv i64 %.0, %2
-  store i64 %20, ptr %7, align 8
+  %20 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2, i1 true)
+  %21 = lshr i64 %.0, %20
+  store i64 %21, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !2138
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !2141
   store ptr %7, ptr %5, align 8
@@ -8284,20 +8295,20 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
   store i64 %2, ptr %.sroa.6.0..sroa_idx, align 8
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h43c335637cc8fe4fE.llvm.17050508828239973313"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %5), !noalias !2148
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !2141
-  %21 = call { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17hf1700d193cd26497E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6), !noalias !2138
+  %22 = call { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17hf1700d193cd26497E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6), !noalias !2138
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !2138
-  %22 = sub i64 64, %14
-  %23 = extractvalue { ptr, i64 } %21, 0
-  %24 = extractvalue { ptr, i64 } %21, 1
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %22, ptr %25, align 8
-  store ptr %23, ptr %0, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %24, ptr %26, align 8
+  %23 = sub i64 64, %14
+  %24 = extractvalue { ptr, i64 } %22, 0
+  %25 = extractvalue { ptr, i64 } %22, 1
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %23, ptr %26, align 8
+  store ptr %24, ptr %0, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %25, ptr %27, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret void
 
-27:                                               ; preds = %10
+28:                                               ; preds = %10
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.43da44c97f12b6aba74ab6c1fca3fc3e.200, i64 noundef 48, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.43da44c97f12b6aba74ab6c1fca3fc3e.201) #23
   unreachable
 }
@@ -8318,7 +8329,7 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
 10:                                               ; preds = %3
   %11 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %2)
   %12 = icmp eq i64 %11, 1
-  br i1 %12, label %13, label %27
+  br i1 %12, label %13, label %28
 
 13:                                               ; preds = %10
   %14 = tail call noundef i64 @_ZN7dashmap3ncb17h30bae42c71bbea1bE(i64 noundef %2)
@@ -8329,8 +8340,9 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
   %19 = and i64 %17, %18
   %.0 = select i1 %15, i64 0, i64 %19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %20 = udiv i64 %.0, %2
-  store i64 %20, ptr %7, align 8
+  %20 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2, i1 true)
+  %21 = lshr i64 %.0, %20
+  store i64 %21, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !2149
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !2152
   store ptr %7, ptr %5, align 8
@@ -8342,20 +8354,20 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
   store i64 %2, ptr %.sroa.6.0..sroa_idx, align 8
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h9a54a2be66ddae49E.llvm.17050508828239973313"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %5), !noalias !2159
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !2152
-  %21 = call { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17h135226a46778949bE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6), !noalias !2149
+  %22 = call { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17h135226a46778949bE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6), !noalias !2149
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !2149
-  %22 = sub i64 64, %14
-  %23 = extractvalue { ptr, i64 } %21, 0
-  %24 = extractvalue { ptr, i64 } %21, 1
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %22, ptr %25, align 8
-  store ptr %23, ptr %0, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %24, ptr %26, align 8
+  %23 = sub i64 64, %14
+  %24 = extractvalue { ptr, i64 } %22, 0
+  %25 = extractvalue { ptr, i64 } %22, 1
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %23, ptr %26, align 8
+  store ptr %24, ptr %0, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %25, ptr %27, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret void
 
-27:                                               ; preds = %10
+28:                                               ; preds = %10
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.43da44c97f12b6aba74ab6c1fca3fc3e.200, i64 noundef 48, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.43da44c97f12b6aba74ab6c1fca3fc3e.201) #23
   unreachable
 }
@@ -8376,7 +8388,7 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
 10:                                               ; preds = %3
   %11 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %2)
   %12 = icmp eq i64 %11, 1
-  br i1 %12, label %13, label %27
+  br i1 %12, label %13, label %28
 
 13:                                               ; preds = %10
   %14 = tail call noundef i64 @_ZN7dashmap3ncb17h30bae42c71bbea1bE(i64 noundef %2)
@@ -8387,8 +8399,9 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
   %19 = and i64 %17, %18
   %.0 = select i1 %15, i64 0, i64 %19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %20 = udiv i64 %.0, %2
-  store i64 %20, ptr %7, align 8
+  %20 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2, i1 true)
+  %21 = lshr i64 %.0, %20
+  store i64 %21, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !2160
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !2163
   store ptr %7, ptr %5, align 8
@@ -8400,20 +8413,20 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
   store i64 %2, ptr %.sroa.6.0..sroa_idx, align 8
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17ha179999dac360520E.llvm.17050508828239973313"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %5), !noalias !2170
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !2163
-  %21 = call { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17h8f4c39cd11c5967bE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6), !noalias !2160
+  %22 = call { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17h8f4c39cd11c5967bE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6), !noalias !2160
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !2160
-  %22 = sub i64 64, %14
-  %23 = extractvalue { ptr, i64 } %21, 0
-  %24 = extractvalue { ptr, i64 } %21, 1
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %22, ptr %25, align 8
-  store ptr %23, ptr %0, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %24, ptr %26, align 8
+  %23 = sub i64 64, %14
+  %24 = extractvalue { ptr, i64 } %22, 0
+  %25 = extractvalue { ptr, i64 } %22, 1
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %23, ptr %26, align 8
+  store ptr %24, ptr %0, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %25, ptr %27, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret void
 
-27:                                               ; preds = %10
+28:                                               ; preds = %10
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.43da44c97f12b6aba74ab6c1fca3fc3e.200, i64 noundef 48, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.43da44c97f12b6aba74ab6c1fca3fc3e.201) #23
   unreachable
 }
@@ -8434,7 +8447,7 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
 10:                                               ; preds = %3
   %11 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %2)
   %12 = icmp eq i64 %11, 1
-  br i1 %12, label %13, label %27
+  br i1 %12, label %13, label %28
 
 13:                                               ; preds = %10
   %14 = tail call noundef i64 @_ZN7dashmap3ncb17h30bae42c71bbea1bE(i64 noundef %2)
@@ -8445,8 +8458,9 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
   %19 = and i64 %17, %18
   %.0 = select i1 %15, i64 0, i64 %19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %20 = udiv i64 %.0, %2
-  store i64 %20, ptr %7, align 8
+  %20 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2, i1 true)
+  %21 = lshr i64 %.0, %20
+  store i64 %21, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !2171
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !2174
   store ptr %7, ptr %5, align 8
@@ -8458,20 +8472,20 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
   store i64 %2, ptr %.sroa.6.0..sroa_idx, align 8
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h774de7ecf1d548ddE.llvm.17050508828239973313"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %5), !noalias !2181
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !2174
-  %21 = call { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17h86fb6ee838858057E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6), !noalias !2171
+  %22 = call { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17h86fb6ee838858057E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6), !noalias !2171
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !2171
-  %22 = sub i64 64, %14
-  %23 = extractvalue { ptr, i64 } %21, 0
-  %24 = extractvalue { ptr, i64 } %21, 1
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %22, ptr %25, align 8
-  store ptr %23, ptr %0, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %24, ptr %26, align 8
+  %23 = sub i64 64, %14
+  %24 = extractvalue { ptr, i64 } %22, 0
+  %25 = extractvalue { ptr, i64 } %22, 1
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %23, ptr %26, align 8
+  store ptr %24, ptr %0, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %25, ptr %27, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret void
 
-27:                                               ; preds = %10
+28:                                               ; preds = %10
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.43da44c97f12b6aba74ab6c1fca3fc3e.200, i64 noundef 48, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.43da44c97f12b6aba74ab6c1fca3fc3e.201) #23
   unreachable
 }
@@ -11887,6 +11901,9 @@ declare hidden { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice1
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17hc00462d3bca2dc3aE(ptr noalias noundef align 8 dereferenceable(16), ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #0
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #20

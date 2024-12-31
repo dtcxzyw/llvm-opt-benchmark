@@ -226,7 +226,8 @@ if.end103:                                        ; preds = %if.else95
   %div109 = zext nneg i32 %14 to i64
   %add110 = add nsw i64 %div109, -1
   %sub111 = add i64 %add110, %13
-  %div115 = udiv i64 %sub111, %div109
+  %15 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %div109, i1 true)
+  %div115 = lshr i64 %sub111, %15
   %cmp116 = icmp ugt i64 %div115, %conv105
   br i1 %cmp116, label %if.then118, label %if.end119
 
@@ -240,8 +241,8 @@ if.end119:                                        ; preds = %if.end103
 
 fail:                                             ; preds = %if.end55, %if.then118, %if.then99, %if.then93, %if.then88
   %ret.0 = phi i32 [ %call62, %if.end55 ], [ -22, %if.then88 ], [ -22, %if.then99 ], [ -22, %if.then118 ], [ -22, %if.then93 ]
-  %15 = load ptr, ptr %catalog_bitmap, align 8
-  call void @g_free(ptr noundef %15) #10
+  %16 = load ptr, ptr %catalog_bitmap, align 8
+  call void @g_free(ptr noundef %16) #10
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %if.end7, %fail, %if.end119, %if.then54, %if.then44, %if.then27
@@ -624,6 +625,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #9
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

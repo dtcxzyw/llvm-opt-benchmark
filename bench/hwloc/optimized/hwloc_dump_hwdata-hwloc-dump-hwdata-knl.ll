@@ -78,7 +78,7 @@ define hidden range(i32 -1, 1) i32 @hwloc_dump_hwdata_knl_smbios(ptr noundef %0,
   %9 = alloca [16 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %7, i8 0, i64 288, i1 false)
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  %10 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 511, ptr noundef nonnull @.str.1, ptr noundef %0) #10
+  %10 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 511, ptr noundef nonnull @.str.1, ptr noundef %0) #11
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 511
   store i8 0, ptr %11, align 1
   %12 = call ptr @opendir(ptr noundef nonnull %8)
@@ -86,7 +86,7 @@ define hidden range(i32 -1, 1) i32 @hwloc_dump_hwdata_knl_smbios(ptr noundef %0,
   br i1 %.not, label %19, label %.preheader42
 
 .preheader42:                                     ; preds = %2
-  %13 = tail call ptr @readdir(ptr noundef nonnull %12) #10
+  %13 = tail call ptr @readdir(ptr noundef nonnull %12) #11
   %.not3043 = icmp eq ptr %13, null
   br i1 %.not3043, label %._crit_edge.thread, label %sub_0.lr.ph
 
@@ -100,7 +100,7 @@ sub_0.lr.ph:                                      ; preds = %.preheader42
 
 19:                                               ; preds = %2
   %20 = load ptr, ptr @stderr, align 8
-  %21 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.2, ptr noundef nonnull %8) #11
+  %21 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.2, ptr noundef nonnull %8) #12
   br label %print_result.exit
 
 sub_0:                                            ; preds = %sub_0.lr.ph, %87
@@ -136,7 +136,7 @@ sub_2:                                            ; preds = %sub_1
 38:                                               ; preds = %.tail
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %6)
-  %39 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 511, ptr noundef nonnull @.str.8, ptr noundef %0, ptr noundef nonnull %24) #10
+  %39 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 511, ptr noundef nonnull @.str.8, ptr noundef %0, ptr noundef nonnull %24) #11
   store i8 0, ptr %14, align 1
   %40 = call fastcc i32 @get_file_buffer(ptr noundef %5, ptr noundef %6)
   %.not.i = icmp eq i32 %40, 0
@@ -144,7 +144,7 @@ sub_2:                                            ; preds = %sub_1
 
 41:                                               ; preds = %38
   %42 = load ptr, ptr @stderr, align 8
-  %43 = call i64 @fwrite(ptr nonnull @.str.9, i64 30, i64 1, ptr %42) #12
+  %43 = call i64 @fwrite(ptr nonnull @.str.9, i64 30, i64 1, ptr %42) #13
   br label %85
 
 44:                                               ; preds = %38
@@ -156,7 +156,7 @@ sub_2:                                            ; preds = %sub_1
 
 48:                                               ; preds = %44
   %49 = load ptr, ptr @stderr, align 8
-  %50 = call i64 @fwrite(ptr nonnull @.str.21, i64 32, i64 1, ptr %49) #12
+  %50 = call i64 @fwrite(ptr nonnull @.str.21, i64 32, i64 1, ptr %49) #13
   br label %.loopexit.i
 
 .preheader.i.i:                                   ; preds = %44, %67
@@ -170,7 +170,7 @@ sub_2:                                            ; preds = %sub_1
 
 56:                                               ; preds = %64, %.preheader.i.i
   %.013.i.i.i = phi ptr [ %55, %.preheader.i.i ], [ %65, %64 ]
-  %57 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.013.i.i.i) #13
+  %57 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.013.i.i.i) #14
   %58 = and i64 %57, 4294967295
   %59 = icmp eq i64 %58, 0
   br i1 %59, label %67, label %60
@@ -179,7 +179,7 @@ sub_2:                                            ; preds = %sub_1
   %61 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22, ptr noundef %52, ptr noundef %.013.i.i.i)
   %sext.i.i.i = shl i64 %57, 32
   %62 = ashr exact i64 %sext.i.i.i, 32
-  %63 = call i32 @strncmp(ptr noundef %.013.i.i.i, ptr noundef %52, i64 noundef %62) #13
+  %63 = call i32 @strncmp(ptr noundef %.013.i.i.i, ptr noundef %52, i64 noundef %62) #14
   %.not.i.i.i = icmp eq i32 %63, 0
   br i1 %.not.i.i.i, label %is_phi_group.exit.i, label %64
 
@@ -196,7 +196,7 @@ sub_2:                                            ; preds = %sub_1
 .loopexit.i:                                      ; preds = %67, %48
   %puts.i = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   %68 = load ptr, ptr @stderr, align 8
-  %69 = call i64 @fwrite(ptr nonnull @.str.11, i64 47, i64 1, ptr %68) #12
+  %69 = call i64 @fwrite(ptr nonnull @.str.11, i64 47, i64 1, ptr %68) #13
   br label %85
 
 is_phi_group.exit.i:                              ; preds = %60
@@ -206,7 +206,7 @@ is_phi_group.exit.i:                              ; preds = %60
 
 70:                                               ; preds = %is_phi_group.exit.i
   %71 = load ptr, ptr @stderr, align 8
-  %72 = call i64 @fwrite(ptr nonnull @.str.13, i64 35, i64 1, ptr %71) #12
+  %72 = call i64 @fwrite(ptr nonnull @.str.13, i64 35, i64 1, ptr %71) #13
   br label %85
 
 73:                                               ; preds = %is_phi_group.exit.i
@@ -248,7 +248,7 @@ process_smbios_group.exit:                        ; preds = %73, %._crit_edge.lo
 
 87:                                               ; preds = %process_smbios_group.exit, %.tail
   %88 = phi i32 [ %.020.lcssa.i, %process_smbios_group.exit ], [ %22, %.tail ]
-  %89 = call ptr @readdir(ptr noundef nonnull %12) #10
+  %89 = call ptr @readdir(ptr noundef nonnull %12) #11
   %.not30 = icmp eq ptr %89, null
   br i1 %.not30, label %._crit_edge, label %sub_0, !llvm.loop !9
 
@@ -279,7 +279,7 @@ process_smbios_group.exit:                        ; preds = %73, %._crit_edge.lo
 
 ._crit_edge.thread:                               ; preds = %.preheader42, %._crit_edge
   %104 = load ptr, ptr @stderr, align 8
-  %105 = call i64 @fwrite(ptr nonnull @.str.4, i64 42, i64 1, ptr %104) #12
+  %105 = call i64 @fwrite(ptr nonnull @.str.4, i64 42, i64 1, ptr %104) #13
   %106 = call i32 @closedir(ptr noundef nonnull %12)
   br label %print_result.exit
 
@@ -288,11 +288,11 @@ process_smbios_group.exit:                        ; preds = %73, %._crit_edge.lo
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %108 = getelementptr inbounds nuw [64 x i32], ptr %91, i64 0, i64 %indvars.iv
   %109 = load i32, ptr %108, align 4
-  %110 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 15, ptr noundef nonnull @.str.5, i32 noundef %109) #10
+  %110 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 15, ptr noundef nonnull @.str.5, i32 noundef %109) #11
   %putchar = call i32 @putchar(i32 10)
   %111 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef nonnull %9, i32 noundef %110)
-  call void @rewinddir(ptr noundef nonnull %12) #10
-  %112 = call ptr @readdir(ptr noundef nonnull %12) #10
+  call void @rewinddir(ptr noundef nonnull %12) #11
+  %112 = call ptr @readdir(ptr noundef nonnull %12) #11
   %.not3245 = icmp eq ptr %112, null
   br i1 %.not3245, label %._crit_edge47, label %.lr.ph
 
@@ -303,14 +303,14 @@ process_smbios_group.exit:                        ; preds = %73, %._crit_edge.lo
 114:                                              ; preds = %.lr.ph, %194
   %115 = phi ptr [ %112, %.lr.ph ], [ %195, %194 ]
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 19
-  %117 = call i32 @strncmp(ptr noundef nonnull %116, ptr noundef nonnull %9, i64 noundef %113) #13
+  %117 = call i32 @strncmp(ptr noundef nonnull %116, ptr noundef nonnull %9, i64 noundef %113) #14
   %118 = icmp eq i32 %117, 0
   br i1 %118, label %119, label %194
 
 119:                                              ; preds = %114
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %4)
-  %120 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 511, ptr noundef nonnull @.str.8, ptr noundef %0, ptr noundef nonnull %116) #10
+  %120 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 511, ptr noundef nonnull @.str.8, ptr noundef %0, ptr noundef nonnull %116) #11
   store i8 0, ptr %92, align 1
   %121 = call fastcc i32 @get_file_buffer(ptr noundef %3, ptr noundef %4)
   %.not.i33 = icmp eq i32 %121, 0
@@ -318,7 +318,7 @@ process_smbios_group.exit:                        ; preds = %73, %._crit_edge.lo
 
 122:                                              ; preds = %119
   %123 = load ptr, ptr @stderr, align 8
-  %124 = call i64 @fwrite(ptr nonnull @.str.9, i64 30, i64 1, ptr %123) #12
+  %124 = call i64 @fwrite(ptr nonnull @.str.9, i64 30, i64 1, ptr %123) #13
   br label %192
 
 125:                                              ; preds = %119
@@ -392,7 +392,7 @@ process_smbios_group.exit:                        ; preds = %73, %._crit_edge.lo
 
 155:                                              ; preds = %153
   %156 = load ptr, ptr @stderr, align 8
-  %157 = call i64 @fwrite(ptr nonnull @.str.29, i64 35, i64 1, ptr %156) #12
+  %157 = call i64 @fwrite(ptr nonnull @.str.29, i64 35, i64 1, ptr %156) #13
   br label %192
 
 158:                                              ; preds = %153
@@ -439,7 +439,7 @@ process_smbios_group.exit:                        ; preds = %73, %._crit_edge.lo
 
 185:                                              ; preds = %._crit_edge.i35
   %186 = load ptr, ptr @stderr, align 8
-  %187 = call i64 @fwrite(ptr nonnull @.str.34, i64 61, i64 1, ptr %186) #12
+  %187 = call i64 @fwrite(ptr nonnull @.str.34, i64 61, i64 1, ptr %186) #13
   store i64 17179869184, ptr %7, align 8
   br label %process_knl_entry.exit.thread
 
@@ -449,7 +449,7 @@ process_smbios_group.exit:                        ; preds = %73, %._crit_edge.lo
 
 189:                                              ; preds = %138
   %190 = load ptr, ptr @stderr, align 8
-  %191 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %190, ptr noundef nonnull @.str.35, i32 noundef %129) #11
+  %191 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %190, ptr noundef nonnull @.str.35, i32 noundef %129) #12
   br label %process_knl_entry.exit.thread
 
 process_knl_entry.exit.thread:                    ; preds = %189, %._crit_edge.i35, %185, %188, %131
@@ -464,7 +464,7 @@ process_knl_entry.exit.thread:                    ; preds = %189, %._crit_edge.i
   br label %print_result.exit
 
 194:                                              ; preds = %process_knl_entry.exit.thread, %114
-  %195 = call ptr @readdir(ptr noundef nonnull %12) #10
+  %195 = call ptr @readdir(ptr noundef nonnull %12) #11
   %.not32 = icmp eq ptr %195, null
   br i1 %.not32, label %._crit_edge47, label %114, !llvm.loop !11
 
@@ -493,7 +493,7 @@ process_knl_entry.exit.thread:                    ; preds = %189, %._crit_edge.i
 
 201:                                              ; preds = %._crit_edge50
   %202 = load ptr, ptr @stderr, align 8
-  %203 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %202, ptr noundef nonnull @.str.36, i32 noundef %198) #11
+  %203 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %202, ptr noundef nonnull @.str.36, i32 noundef %198) #12
   br label %print_result.exit
 
 204:                                              ; preds = %200, %199, %._crit_edge50, %._crit_edge50, %._crit_edge50
@@ -535,7 +535,7 @@ process_knl_entry.exit.thread:                    ; preds = %189, %._crit_edge.i
 
 220:                                              ; preds = %209
   %221 = load ptr, ptr @stderr, align 8
-  %222 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %221, ptr noundef nonnull @.str.37, i32 noundef %211) #11
+  %222 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %221, ptr noundef nonnull @.str.37, i32 noundef %211) #12
   br label %print_result.exit
 
 223:                                              ; preds = %218, %215, %212
@@ -546,7 +546,7 @@ process_knl_entry.exit.thread:                    ; preds = %189, %._crit_edge.i
 
 226:                                              ; preds = %204
   %227 = load ptr, ptr @stderr, align 8
-  %228 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %227, ptr noundef nonnull @.str.38, i32 noundef %206) #11
+  %228 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %227, ptr noundef nonnull @.str.38, i32 noundef %206) #12
   br label %print_result.exit
 
 .sink.split:                                      ; preds = %207, %223
@@ -608,97 +608,98 @@ get_memory_mode_str.exit.i:                       ; preds = %240, %238, %237, %g
   %241 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.39, ptr noundef nonnull %.0.i.i, ptr noundef %.0.i56.i)
   %242 = load i64, ptr %7, align 8
   %243 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.40, i64 noundef %242, i64 noundef %230)
-  %244 = udiv i64 %242, %.052.i
-  %245 = udiv i64 %230, %.052.i
-  %246 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.41, i64 noundef %244, i64 noundef %245)
-  %247 = call i32 (ptr, i32, ...) @open(ptr noundef %1, i32 noundef 577, i32 noundef 420) #10
-  %248 = icmp slt i32 %247, 0
-  br i1 %248, label %249, label %255
+  %244 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.052.i, i1 true)
+  %245 = lshr i64 %242, %244
+  %246 = lshr i64 %230, %244
+  %247 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.41, i64 noundef %245, i64 noundef %246)
+  %248 = call i32 (ptr, i32, ...) @open(ptr noundef %1, i32 noundef 577, i32 noundef 420) #11
+  %249 = icmp slt i32 %248, 0
+  br i1 %249, label %250, label %256
 
-249:                                              ; preds = %get_memory_mode_str.exit.i
-  %250 = load ptr, ptr @stderr, align 8
-  %251 = tail call ptr @__errno_location() #14
-  %252 = load i32, ptr %251, align 4
-  %253 = call ptr @strerror(i32 noundef %252) #10
-  %254 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %250, ptr noundef nonnull @.str.42, ptr noundef %1, ptr noundef %253) #11
+250:                                              ; preds = %get_memory_mode_str.exit.i
+  %251 = load ptr, ptr @stderr, align 8
+  %252 = tail call ptr @__errno_location() #15
+  %253 = load i32, ptr %252, align 4
+  %254 = call ptr @strerror(i32 noundef %253) #11
+  %255 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %251, ptr noundef nonnull @.str.42, ptr noundef %1, ptr noundef %254) #12
   br label %print_result.exit
 
-255:                                              ; preds = %get_memory_mode_str.exit.i
-  %256 = call noalias ptr @fdopen(i32 noundef %247, ptr noundef nonnull @.str.43) #10
-  %.not.i37 = icmp eq ptr %256, null
-  br i1 %.not.i37, label %257, label %264
+256:                                              ; preds = %get_memory_mode_str.exit.i
+  %257 = call noalias ptr @fdopen(i32 noundef %248, ptr noundef nonnull @.str.43) #11
+  %.not.i37 = icmp eq ptr %257, null
+  br i1 %.not.i37, label %258, label %265
 
-257:                                              ; preds = %255
-  %258 = load ptr, ptr @stderr, align 8
-  %259 = tail call ptr @__errno_location() #14
-  %260 = load i32, ptr %259, align 4
-  %261 = call ptr @strerror(i32 noundef %260) #10
-  %262 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %258, ptr noundef nonnull @.str.44, ptr noundef %1, ptr noundef %261) #11
-  %263 = call i32 @close(i32 noundef %247) #10
+258:                                              ; preds = %256
+  %259 = load ptr, ptr @stderr, align 8
+  %260 = tail call ptr @__errno_location() #15
+  %261 = load i32, ptr %260, align 4
+  %262 = call ptr @strerror(i32 noundef %261) #11
+  %263 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %259, ptr noundef nonnull @.str.44, ptr noundef %1, ptr noundef %262) #12
+  %264 = call i32 @close(i32 noundef %248) #11
   br label %print_result.exit
 
-264:                                              ; preds = %255
-  %265 = call i64 @fwrite(ptr nonnull @.str.45, i64 11, i64 1, ptr nonnull %256)
-  %266 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %256, ptr noundef nonnull @.str.46, i64 noundef %245) #10
-  %267 = call i64 @fwrite(ptr nonnull @.str.47, i64 17, i64 1, ptr nonnull %256)
-  %268 = call i64 @fwrite(ptr nonnull @.str.48, i64 17, i64 1, ptr nonnull %256)
-  %269 = call i64 @fwrite(ptr nonnull @.str.49, i64 14, i64 1, ptr nonnull %256)
-  switch i32 %198, label %274 [
+265:                                              ; preds = %256
+  %266 = call i64 @fwrite(ptr nonnull @.str.45, i64 11, i64 1, ptr nonnull %257)
+  %267 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %257, ptr noundef nonnull @.str.46, i64 noundef %246) #11
+  %268 = call i64 @fwrite(ptr nonnull @.str.47, i64 17, i64 1, ptr nonnull %257)
+  %269 = call i64 @fwrite(ptr nonnull @.str.48, i64 17, i64 1, ptr nonnull %257)
+  %270 = call i64 @fwrite(ptr nonnull @.str.49, i64 14, i64 1, ptr nonnull %257)
+  switch i32 %198, label %275 [
     i32 1, label %get_cluster_mode_str.exit58.i
-    i32 2, label %270
-    i32 16, label %271
-    i32 8, label %272
-    i32 4, label %273
+    i32 2, label %271
+    i32 16, label %272
+    i32 8, label %273
+    i32 4, label %274
   ]
 
-270:                                              ; preds = %264
+271:                                              ; preds = %265
   br label %get_cluster_mode_str.exit58.i
 
-271:                                              ; preds = %264
+272:                                              ; preds = %265
   br label %get_cluster_mode_str.exit58.i
 
-272:                                              ; preds = %264
+273:                                              ; preds = %265
   br label %get_cluster_mode_str.exit58.i
 
-273:                                              ; preds = %264
+274:                                              ; preds = %265
   br label %get_cluster_mode_str.exit58.i
 
-274:                                              ; preds = %264
+275:                                              ; preds = %265
   br label %get_cluster_mode_str.exit58.i
 
-get_cluster_mode_str.exit58.i:                    ; preds = %274, %273, %272, %271, %270, %264
-  %.0.i57.i = phi ptr [ @.str.57, %274 ], [ @.str.56, %273 ], [ @.str.55, %272 ], [ @.str.54, %271 ], [ @.str.53, %270 ], [ @.str.52, %264 ]
-  %275 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %256, ptr noundef nonnull @.str.50, ptr noundef nonnull %.0.i57.i) #10
-  switch i32 %206, label %279 [
+get_cluster_mode_str.exit58.i:                    ; preds = %275, %274, %273, %272, %271, %265
+  %.0.i57.i = phi ptr [ @.str.57, %275 ], [ @.str.56, %274 ], [ @.str.55, %273 ], [ @.str.54, %272 ], [ @.str.53, %271 ], [ @.str.52, %265 ]
+  %276 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %257, ptr noundef nonnull @.str.50, ptr noundef nonnull %.0.i57.i) #11
+  switch i32 %206, label %280 [
     i32 1, label %get_memory_mode_str.exit64.i
-    i32 2, label %276
-    i32 4, label %277
+    i32 2, label %277
+    i32 4, label %278
   ]
-
-276:                                              ; preds = %get_cluster_mode_str.exit58.i
-  br label %get_memory_mode_str.exit64.i
 
 277:                                              ; preds = %get_cluster_mode_str.exit58.i
-  %278 = load i32, ptr %236, align 8
-  %switch.selectcmp.i59.i = icmp eq i32 %278, 2
+  br label %get_memory_mode_str.exit64.i
+
+278:                                              ; preds = %get_cluster_mode_str.exit58.i
+  %279 = load i32, ptr %236, align 8
+  %switch.selectcmp.i59.i = icmp eq i32 %279, 2
   %switch.select.i60.i = select i1 %switch.selectcmp.i59.i, ptr @.str.61, ptr @.str.57
-  %switch.selectcmp4.i61.i = icmp eq i32 %278, 1
+  %switch.selectcmp4.i61.i = icmp eq i32 %279, 1
   %switch.select5.i62.i = select i1 %switch.selectcmp4.i61.i, ptr @.str.60, ptr %switch.select.i60.i
   br label %get_memory_mode_str.exit64.i
 
-279:                                              ; preds = %get_cluster_mode_str.exit58.i
+280:                                              ; preds = %get_cluster_mode_str.exit58.i
   br label %get_memory_mode_str.exit64.i
 
-get_memory_mode_str.exit64.i:                     ; preds = %279, %277, %276, %get_cluster_mode_str.exit58.i
-  %.0.i63.i = phi ptr [ @.str.57, %279 ], [ @.str.59, %276 ], [ @.str.58, %get_cluster_mode_str.exit58.i ], [ %switch.select5.i62.i, %277 ]
-  %280 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %256, ptr noundef nonnull @.str.51, ptr noundef %.0.i63.i) #10
-  %281 = call i32 @fflush(ptr noundef nonnull %256)
-  %282 = call i32 @fclose(ptr noundef nonnull %256)
-  %283 = call i32 @close(i32 noundef %247) #10
+get_memory_mode_str.exit64.i:                     ; preds = %280, %278, %277, %get_cluster_mode_str.exit58.i
+  %.0.i63.i = phi ptr [ @.str.57, %280 ], [ @.str.59, %277 ], [ @.str.58, %get_cluster_mode_str.exit58.i ], [ %switch.select5.i62.i, %278 ]
+  %281 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %257, ptr noundef nonnull @.str.51, ptr noundef %.0.i63.i) #11
+  %282 = call i32 @fflush(ptr noundef nonnull %257)
+  %283 = call i32 @fclose(ptr noundef nonnull %257)
+  %284 = call i32 @close(i32 noundef %248) #11
   br label %print_result.exit
 
-print_result.exit:                                ; preds = %get_memory_mode_str.exit64.i, %257, %249, %226, %220, %201, %192, %._crit_edge.thread, %85, %19
-  %.0 = phi i32 [ -1, %85 ], [ -1, %192 ], [ -1, %._crit_edge.thread ], [ -1, %19 ], [ -1, %201 ], [ -1, %226 ], [ -1, %249 ], [ 0, %get_memory_mode_str.exit64.i ], [ -1, %257 ], [ -1, %220 ]
+print_result.exit:                                ; preds = %get_memory_mode_str.exit64.i, %258, %250, %226, %220, %201, %192, %._crit_edge.thread, %85, %19
+  %.0 = phi i32 [ -1, %85 ], [ -1, %192 ], [ -1, %._crit_edge.thread ], [ -1, %19 ], [ -1, %201 ], [ -1, %226 ], [ -1, %250 ], [ 0, %get_memory_mode_str.exit64.i ], [ -1, %258 ], [ -1, %220 ]
   ret i32 %.0
 }
 
@@ -737,10 +738,10 @@ define internal fastcc noundef i32 @get_file_buffer(ptr noundef nonnull %0, ptr 
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr @stderr, align 8
-  %7 = tail call ptr @__errno_location() #14
+  %7 = tail call ptr @__errno_location() #15
   %8 = load i32, ptr %7, align 4
-  %9 = tail call ptr @strerror(i32 noundef %8) #10
-  %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.18, ptr noundef nonnull %0, ptr noundef %9) #11
+  %9 = tail call ptr @strerror(i32 noundef %8) #11
+  %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.18, ptr noundef nonnull %0, ptr noundef %9) #12
   br label %22
 
 11:                                               ; preds = %2
@@ -751,7 +752,7 @@ define internal fastcc noundef i32 @get_file_buffer(ptr noundef nonnull %0, ptr 
 
 15:                                               ; preds = %11
   %16 = load ptr, ptr @stderr, align 8
-  %17 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 20, i64 1, ptr %16) #12
+  %17 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 20, i64 1, ptr %16) #13
   %18 = tail call i32 @fclose(ptr noundef nonnull %4)
   br label %22
 
@@ -803,11 +804,14 @@ declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #8
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
@@ -818,12 +822,13 @@ attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nofree nounwind }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nounwind }
-attributes #11 = { cold nounwind }
-attributes #12 = { cold }
-attributes #13 = { nounwind willreturn memory(read) }
-attributes #14 = { nounwind willreturn memory(none) }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { nounwind }
+attributes #12 = { cold nounwind }
+attributes #13 = { cold }
+attributes #14 = { nounwind willreturn memory(read) }
+attributes #15 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

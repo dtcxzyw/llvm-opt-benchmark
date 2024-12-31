@@ -778,7 +778,8 @@ for.end141:                                       ; preds = %if.end137, %for.bod
   %conv150 = sext i32 %dw.sroa.2.0.copyload to i64
   %sub151 = sub nsw i64 %conv147, %conv150
   %sub154 = add nsw i64 %sub151, %linePerChunk.0
-  %div155 = udiv i64 %sub154, %linePerChunk.0
+  %39 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %linePerChunk.0, i1 true)
+  %div155 = lshr i64 %sub154, %39
   br label %if.end157
 
 if.end157:                                        ; preds = %for.end141, %for.end87
@@ -4149,6 +4150,9 @@ declare i32 @exr_attr_opaquedata_init(ptr noundef, ptr noundef, i64 noundef) loc
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #7
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #8

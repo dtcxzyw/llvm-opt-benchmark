@@ -5405,8 +5405,8 @@ invoke.cont28:                                    ; preds = %if.then24
 invoke.cont33:                                    ; preds = %invoke.cont28
   %not.call29 = xor i1 %call29, true
   %23 = zext i1 %not.call29 to i32
-  %div5 = lshr i32 %call34, %23
-  %cmp35.not = icmp ult i32 %22, %div5
+  %div = lshr i32 %call34, %23
+  %cmp35.not = icmp ult i32 %22, %div
   br i1 %cmp35.not, label %if.end41, label %if.then36
 
 if.then36:                                        ; preds = %invoke.cont33
