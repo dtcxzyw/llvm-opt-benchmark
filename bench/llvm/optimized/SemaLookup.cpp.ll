@@ -4506,7 +4506,7 @@ declare noundef ptr @_ZNK5clang10ASTContext21getMakeIntegerSeqDeclEv(ptr noundef
 declare noundef ptr @_ZNK5clang10ASTContext22getTypePackElementDeclEv(ptr noundef nonnull align 8 dereferenceable(23096)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc range(i64 0, 1099511627776) i64 @_ZL15isOpenCLBuiltinN4llvm9StringRefE(ptr readonly %0, i64 %1) unnamed_addr #7 {
+define internal fastcc range(i64 0, 755914248192) i64 @_ZL15isOpenCLBuiltinN4llvm9StringRefE(ptr readonly %0, i64 %1) unnamed_addr #7 {
   switch i64 %1, label %2889 [
     i64 3, label %3
     i64 4, label %63

@@ -347,7 +347,7 @@ if.then.i:                                        ; preds = %sw.bb10.i
   %conv23.i = trunc i32 %div.i to i8
   store i8 %conv23.i, ptr %data, align 1
   %conv22.i = lshr i32 %div.i, 8
-  %6 = trunc i32 %conv22.i to i8
+  %6 = trunc nuw i32 %conv22.i to i8
   %conv27.i = xor i8 %6, -128
   %arrayidx28.i = getelementptr i8, ptr %data, i64 1
   store i8 %conv27.i, ptr %arrayidx28.i, align 1

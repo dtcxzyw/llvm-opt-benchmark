@@ -2216,7 +2216,7 @@ entry:
 declare ptr @strpbrk(ptr noundef, ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 -1, 268435456) i64 @commandFlagsFromString(ptr noundef %s) local_unnamed_addr #0 {
+define dso_local i64 @commandFlagsFromString(ptr noundef %s) local_unnamed_addr #0 {
 entry:
   %count = alloca i32, align 4
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #38

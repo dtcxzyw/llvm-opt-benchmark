@@ -9317,7 +9317,7 @@ _ZN5clang7CodeGen11CallArgListD2Ev.exit:          ; preds = %_ZN4llvm11SmallVect
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc range(i24 0, 131072) i24 @_ZL20getUsualDeleteParamsPKN5clang12FunctionDeclE(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i24 0, 66048) i24 @_ZL20getUsualDeleteParamsPKN5clang12FunctionDeclE(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.sroa.0.0.copyload.i = load i64, ptr %2, align 8
   %3 = and i64 %.sroa.0.0.copyload.i, -16

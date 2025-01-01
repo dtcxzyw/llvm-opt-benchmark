@@ -3304,7 +3304,7 @@ if.end94:                                         ; preds = %if.then, %if.end83,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i64 0, 4294967296) i64 @ati_i2c(ptr noundef %i2c, i64 noundef range(i64 0, 4294967296) %data, i32 noundef range(i32 0, 2) %base) unnamed_addr #0 {
+define internal fastcc range(i64 0, 4294965248) i64 @ati_i2c(ptr noundef %i2c, i64 noundef range(i64 0, 4294967296) %data, i32 noundef range(i32 0, 2) %base) unnamed_addr #0 {
 entry:
   %add = add nuw nsw i32 %base, 17
   %sh_prom = zext nneg i32 %add to i64

@@ -636,7 +636,7 @@ _ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4findB8ne190000E
 117:                                              ; preds = %112
   %118 = or i64 %109, 7
   %119 = icmp eq i64 %118, 23
-  %120 = add i64 %118, 1
+  %120 = add nuw i64 %118, 1
   %121 = select i1 %119, i64 25, i64 %120
   %122 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %121) #24
           to label %.noexc27 unwind label %.thread

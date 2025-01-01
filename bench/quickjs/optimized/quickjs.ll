@@ -151011,7 +151011,7 @@ emit_op.exit154:                                  ; preds = %431, %438
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 32) i32 @js_parse_property_name(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1, i32 noundef range(i32 0, 2) %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 24) i32 @js_parse_property_name(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1, i32 noundef range(i32 0, 2) %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = icmp ne i32 %2, 0
   br i1 %7, label %8, label %JS_FreeAtom.exit

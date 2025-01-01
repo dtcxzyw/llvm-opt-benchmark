@@ -8531,7 +8531,7 @@ define linkonce_odr hidden { ptr, i64 } @_ZNK5clang4ento14PathDiagnostic19getSho
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc range(i16 0, 512) i16 @"_ZZL7compareRKN5clang4ento14PathDiagnosticES3_ENK3$_0clEPKNS_4DeclES7_"(ptr nocapture readonly %.0.val, ptr noundef readonly %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc range(i16 0, 258) i16 @"_ZZL7compareRKN5clang4ento14PathDiagnosticES3_ENK3$_0clEPKNS_4DeclES7_"(ptr nocapture readonly %.0.val, ptr noundef readonly %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %14, label %4
 

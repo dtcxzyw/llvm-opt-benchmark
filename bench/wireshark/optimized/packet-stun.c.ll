@@ -743,7 +743,7 @@ define internal range(i32 0, 2) i32 @dissect_stun_heur_tcp(ptr noundef %0, ptr n
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 65556) i32 @get_stun_message_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 2, 65556) i32 @get_stun_message_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %1) #6
   %6 = icmp ugt i32 %5, 9
   br i1 %6, label %7, label %14

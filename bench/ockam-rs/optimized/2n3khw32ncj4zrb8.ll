@@ -25372,7 +25372,7 @@ define hidden { ptr, ptr } @_ZN5tokio4sync4mpsc7bounded7channel17hc9b181b64e6ca3
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden i24 @_ZN5tokio7runtime4coop12poll_proceed17ha85b55a62d82082bE.llvm.7889425039173770230(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #7 personality ptr @rust_eh_personality {
+define hidden range(i24 0, -252) i24 @_ZN5tokio7runtime4coop12poll_proceed17ha85b55a62d82082bE.llvm.7889425039173770230(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #7 personality ptr @rust_eh_personality {
   %2 = alloca { i8, [2 x i8] }, align 4
   %3 = alloca { i8, i8 }, align 1
   %4 = alloca { i8, [2 x i8] }, align 4

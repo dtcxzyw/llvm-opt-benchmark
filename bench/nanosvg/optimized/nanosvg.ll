@@ -10608,7 +10608,7 @@ nsvg__parseSkewY.exit:                            ; preds = %253, %.preheader37.
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i64 0, 68719476736) i64 @nsvg__parseCoordinateRaw(ptr noundef %0) unnamed_addr #14 {
+define internal fastcc range(i64 0, 42949672960) i64 @nsvg__parseCoordinateRaw(ptr noundef %0) unnamed_addr #14 {
   %2 = alloca [64 x i8], align 16
   %3 = call fastcc ptr @nsvg__parseNumber(ptr noundef %0, ptr noundef %2)
   %4 = load i8, ptr %3, align 1

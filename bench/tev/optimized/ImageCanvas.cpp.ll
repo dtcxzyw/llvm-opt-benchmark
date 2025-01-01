@@ -20427,7 +20427,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EPKc.
 178:                                              ; preds = %176
   %179 = or i64 %173, 7
   %180 = icmp eq i64 %179, 23
-  %181 = add i64 %179, 1
+  %181 = add nuw i64 %179, 1
   %182 = select i1 %180, i64 25, i64 %181
   %183 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %182) #37
           to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i.thread unwind label %257

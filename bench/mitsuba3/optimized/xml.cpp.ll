@@ -1580,7 +1580,7 @@ define linkonce_odr hidden void @_ZN7mitsuba3xml6detail9class_keyERKNSt3__112bas
 _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i.thread: ; preds = %15
   %17 = or i64 %12, 7
   %18 = icmp eq i64 %17, 23
-  %19 = add i64 %17, 1
+  %19 = add nuw i64 %17, 1
   %20 = select i1 %18, i64 25, i64 %19
   %21 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %20) #31, !noalias !4
   %22 = or i64 %20, 1
@@ -29770,7 +29770,7 @@ _ZN7mitsuba3refINS_6ObjectEEC2ERKS2_.exit87:      ; preds = %95, %97
 111:                                              ; preds = %109
   %112 = or i64 %106, 7
   %113 = icmp eq i64 %112, 23
-  %114 = add i64 %112, 1
+  %114 = add nuw i64 %112, 1
   %115 = select i1 %113, i64 25, i64 %114
   %116 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %115) #31
           to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i.thread unwind label %.loopexit148

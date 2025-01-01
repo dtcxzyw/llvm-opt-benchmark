@@ -1545,8 +1545,6 @@ define dso_local range(i64 4, 0) i64 @_ZN4llvm13LiveRangeEdit15rematerializeAtER
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %2, align 8
   %17 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, -8
   %18 = inttoptr i64 %17 to ptr
-  %.not.i.i.i.i = icmp ne i64 %17, 0
-  tail call void @llvm.assume(i1 %.not.i.i.i.i)
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %18, align 8
   %19 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i = icmp eq i64 %19, 0
@@ -1780,8 +1778,6 @@ _ZNK4llvm11SlotIndexes13getIndexAfterERKNS_12MachineInstrE.exit: ; preds = %.spl
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.08.0.i17, align 8
   %77 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %78 = inttoptr i64 %77 to ptr
-  %.not.i.i.i.i.i = icmp ne i64 %77, 0
-  tail call void @llvm.assume(i1 %.not.i.i.i.i.i)
   %.0.copyload.i.i.i.i.i.i.i.i.i.i18 = load i64, ptr %78, align 8
   %79 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i18, 4
   %.not.i.i.i.i19 = icmp eq i64 %79, 0

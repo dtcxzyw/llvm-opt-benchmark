@@ -1502,148 +1502,132 @@ define dso_local noundef zeroext i1 @_ZNK4llvm18VLIWPacketizerList5aliasERKNS_12
 
 8:                                                ; preds = %4
   %9 = and i64 %6, 7
-  %10 = icmp eq i64 %9, 0
-  br i1 %10, label %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit.thread39, label %12
+  switch i64 %9, label %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit.thread [
+    i64 0, label %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit.thread36
+    i64 3, label %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit
+  ]
 
-_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit.thread39: ; preds = %8
-  %11 = inttoptr i64 %6 to ptr
-  store ptr %11, ptr %5, align 8
-  br label %18
+_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit.thread36: ; preds = %8
+  %10 = inttoptr i64 %6 to ptr
+  store ptr %10, ptr %5, align 8
+  br label %15
 
-12:                                               ; preds = %8
-  %13 = icmp ne i64 %9, 3
-  %14 = and i64 %6, -8
-  %.not9.i.i = icmp eq i64 %14, 0
-  %.not.i.i = or i1 %13, %.not9.i.i
-  br i1 %.not.i.i, label %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit.thread, label %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit
+_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit: ; preds = %8
+  %11 = and i64 %6, -8
+  %12 = inttoptr i64 %11 to ptr
+  %13 = load i32, ptr %12, align 8
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit.thread, label %15
 
-_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit: ; preds = %12
-  %15 = inttoptr i64 %14 to ptr
-  %16 = load i32, ptr %15, align 8
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit.thread, label %18
+15:                                               ; preds = %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit.thread36, %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %17 = load i64, ptr %16, align 8
+  %18 = icmp ugt i64 %17, 7
+  br i1 %18, label %19, label %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit.thread
 
-18:                                               ; preds = %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit.thread39, %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit
-  %19 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %20 = load i64, ptr %19, align 8
-  %21 = icmp ugt i64 %20, 7
-  br i1 %21, label %22, label %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit.thread
+19:                                               ; preds = %15
+  %20 = and i64 %17, 7
+  switch i64 %20, label %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit.thread [
+    i64 0, label %25
+    i64 3, label %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit24
+  ]
 
-22:                                               ; preds = %18
-  %23 = and i64 %20, 7
-  %24 = icmp eq i64 %23, 0
-  br i1 %24, label %31, label %25
+_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit24: ; preds = %19
+  %21 = and i64 %17, -8
+  %22 = inttoptr i64 %21 to ptr
+  %23 = load i32, ptr %22, align 8
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit.thread, label %.thread
 
-25:                                               ; preds = %22
-  %26 = icmp ne i64 %23, 3
-  %27 = and i64 %20, -8
-  %.not9.i.i24 = icmp eq i64 %27, 0
-  %.not.i.i25 = or i1 %26, %.not9.i.i24
-  br i1 %.not.i.i25, label %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit.thread, label %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit26
-
-_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit26: ; preds = %25
-  %28 = inttoptr i64 %27 to ptr
-  %29 = load i32, ptr %28, align 8
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit.thread, label %.thread
-
-31:                                               ; preds = %22
-  %32 = inttoptr i64 %20 to ptr
-  store ptr %32, ptr %19, align 8
+25:                                               ; preds = %19
+  %26 = inttoptr i64 %17 to ptr
+  store ptr %26, ptr %16, align 8
   %.pre = load i64, ptr %5, align 8
-  %33 = icmp ugt i64 %.pre, 7
-  br i1 %33, label %.thread, label %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit.thread
+  %27 = icmp ugt i64 %.pre, 7
+  br i1 %27, label %.thread, label %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit.thread
 
-.thread:                                          ; preds = %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit26, %31
-  %34 = phi i64 [ %.pre, %31 ], [ %6, %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit26 ]
-  %35 = and i64 %34, 7
-  %36 = icmp eq i64 %35, 0
-  br i1 %36, label %_ZNK4llvm12MachineInstr11memoperandsEv.exit.thread54, label %39
+.thread:                                          ; preds = %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit24, %25
+  %28 = phi i64 [ %.pre, %25 ], [ %6, %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit24 ]
+  %29 = and i64 %28, 7
+  switch i64 %29, label %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit.thread [
+    i64 0, label %_ZNK4llvm12MachineInstr11memoperandsEv.exit.thread51
+    i64 3, label %_ZNK4llvm12MachineInstr11memoperandsEv.exit
+  ]
 
-_ZNK4llvm12MachineInstr11memoperandsEv.exit.thread54: ; preds = %.thread
-  %37 = inttoptr i64 %34 to ptr
-  store ptr %37, ptr %5, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  br label %.lr.ph49.preheader
+_ZNK4llvm12MachineInstr11memoperandsEv.exit.thread51: ; preds = %.thread
+  %30 = inttoptr i64 %28 to ptr
+  store ptr %30, ptr %5, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  br label %.lr.ph46.preheader
 
-39:                                               ; preds = %.thread
-  %40 = icmp ne i64 %35, 3
-  %41 = and i64 %34, -8
-  %.not9.i = icmp eq i64 %41, 0
-  %.not.i = or i1 %40, %.not9.i
-  br i1 %.not.i, label %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit.thread, label %_ZNK4llvm12MachineInstr11memoperandsEv.exit
+_ZNK4llvm12MachineInstr11memoperandsEv.exit:      ; preds = %.thread
+  %32 = and i64 %28, -8
+  %33 = inttoptr i64 %32 to ptr
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %35 = load i32, ptr %33, align 8
+  %36 = sext i32 %35 to i64
+  %37 = getelementptr inbounds ptr, ptr %34, i64 %36
+  %.not44 = icmp eq i32 %35, 0
+  br i1 %.not44, label %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit.thread, label %.lr.ph46.preheader
 
-_ZNK4llvm12MachineInstr11memoperandsEv.exit:      ; preds = %39
-  %42 = inttoptr i64 %41 to ptr
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %44 = load i32, ptr %42, align 8
-  %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds ptr, ptr %43, i64 %45
-  %.not47 = icmp eq i32 %44, 0
-  br i1 %.not47, label %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit.thread, label %.lr.ph49.preheader
+.lr.ph46.preheader:                               ; preds = %_ZNK4llvm12MachineInstr11memoperandsEv.exit.thread51, %_ZNK4llvm12MachineInstr11memoperandsEv.exit
+  %38 = phi ptr [ %31, %_ZNK4llvm12MachineInstr11memoperandsEv.exit.thread51 ], [ %37, %_ZNK4llvm12MachineInstr11memoperandsEv.exit ]
+  %.sroa.0.0.i55 = phi ptr [ %5, %_ZNK4llvm12MachineInstr11memoperandsEv.exit.thread51 ], [ %34, %_ZNK4llvm12MachineInstr11memoperandsEv.exit ]
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  br label %.lr.ph46
 
-.lr.ph49.preheader:                               ; preds = %_ZNK4llvm12MachineInstr11memoperandsEv.exit.thread54, %_ZNK4llvm12MachineInstr11memoperandsEv.exit
-  %47 = phi ptr [ %38, %_ZNK4llvm12MachineInstr11memoperandsEv.exit.thread54 ], [ %46, %_ZNK4llvm12MachineInstr11memoperandsEv.exit ]
-  %.sroa.0.0.i58 = phi ptr [ %5, %_ZNK4llvm12MachineInstr11memoperandsEv.exit.thread54 ], [ %43, %_ZNK4llvm12MachineInstr11memoperandsEv.exit ]
-  %48 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  br label %.lr.ph49
+.lr.ph46:                                         ; preds = %.lr.ph46.preheader, %._crit_edge
+  %.02045 = phi ptr [ %57, %._crit_edge ], [ %.sroa.0.0.i55, %.lr.ph46.preheader ]
+  %40 = load ptr, ptr %.02045, align 8
+  %41 = load i64, ptr %16, align 8
+  %42 = icmp ugt i64 %41, 7
+  br i1 %42, label %43, label %._crit_edge
 
-.lr.ph49:                                         ; preds = %.lr.ph49.preheader, %._crit_edge
-  %.02048 = phi ptr [ %69, %._crit_edge ], [ %.sroa.0.0.i58, %.lr.ph49.preheader ]
-  %49 = load ptr, ptr %.02048, align 8
-  %50 = load i64, ptr %19, align 8
-  %51 = icmp ugt i64 %50, 7
-  br i1 %51, label %52, label %._crit_edge
+43:                                               ; preds = %.lr.ph46
+  %44 = and i64 %41, 7
+  switch i64 %44, label %._crit_edge [
+    i64 0, label %_ZNK4llvm12MachineInstr11memoperandsEv.exit30.thread59
+    i64 3, label %_ZNK4llvm12MachineInstr11memoperandsEv.exit30
+  ]
 
-52:                                               ; preds = %.lr.ph49
-  %53 = and i64 %50, 7
-  %54 = icmp eq i64 %53, 0
-  br i1 %54, label %_ZNK4llvm12MachineInstr11memoperandsEv.exit33.thread62, label %56
-
-_ZNK4llvm12MachineInstr11memoperandsEv.exit33.thread62: ; preds = %52
-  %55 = inttoptr i64 %50 to ptr
-  store ptr %55, ptr %19, align 8
+_ZNK4llvm12MachineInstr11memoperandsEv.exit30.thread59: ; preds = %43
+  %45 = inttoptr i64 %41 to ptr
+  store ptr %45, ptr %16, align 8
   br label %.lr.ph.preheader
 
-56:                                               ; preds = %52
-  %57 = icmp ne i64 %53, 3
-  %58 = and i64 %50, -8
-  %.not9.i31 = icmp eq i64 %58, 0
-  %.not.i32 = or i1 %57, %.not9.i31
-  br i1 %.not.i32, label %._crit_edge, label %_ZNK4llvm12MachineInstr11memoperandsEv.exit33
+_ZNK4llvm12MachineInstr11memoperandsEv.exit30:    ; preds = %43
+  %46 = and i64 %41, -8
+  %47 = inttoptr i64 %46 to ptr
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  %49 = load i32, ptr %47, align 8
+  %50 = sext i32 %49 to i64
+  %51 = getelementptr inbounds ptr, ptr %48, i64 %50
+  %.not2242 = icmp eq i32 %49, 0
+  br i1 %.not2242, label %._crit_edge, label %.lr.ph.preheader
 
-_ZNK4llvm12MachineInstr11memoperandsEv.exit33:    ; preds = %56
-  %59 = inttoptr i64 %58 to ptr
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  %61 = load i32, ptr %59, align 8
-  %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds ptr, ptr %60, i64 %62
-  %.not2245 = icmp eq i32 %61, 0
-  br i1 %.not2245, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %_ZNK4llvm12MachineInstr11memoperandsEv.exit33.thread62, %_ZNK4llvm12MachineInstr11memoperandsEv.exit33
-  %64 = phi ptr [ %48, %_ZNK4llvm12MachineInstr11memoperandsEv.exit33.thread62 ], [ %63, %_ZNK4llvm12MachineInstr11memoperandsEv.exit33 ]
-  %.sroa.0.0.i2766 = phi ptr [ %19, %_ZNK4llvm12MachineInstr11memoperandsEv.exit33.thread62 ], [ %60, %_ZNK4llvm12MachineInstr11memoperandsEv.exit33 ]
+.lr.ph.preheader:                                 ; preds = %_ZNK4llvm12MachineInstr11memoperandsEv.exit30.thread59, %_ZNK4llvm12MachineInstr11memoperandsEv.exit30
+  %52 = phi ptr [ %39, %_ZNK4llvm12MachineInstr11memoperandsEv.exit30.thread59 ], [ %51, %_ZNK4llvm12MachineInstr11memoperandsEv.exit30 ]
+  %.sroa.0.0.i2563 = phi ptr [ %16, %_ZNK4llvm12MachineInstr11memoperandsEv.exit30.thread59 ], [ %48, %_ZNK4llvm12MachineInstr11memoperandsEv.exit30 ]
   br label %.lr.ph
 
-65:                                               ; preds = %.lr.ph
-  %66 = getelementptr inbounds nuw i8, ptr %.02146, i64 8
-  %.not22 = icmp eq ptr %66, %64
+53:                                               ; preds = %.lr.ph
+  %54 = getelementptr inbounds nuw i8, ptr %.02143, i64 8
+  %.not22 = icmp eq ptr %54, %52
   br i1 %.not22, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %65
-  %.02146 = phi ptr [ %66, %65 ], [ %.sroa.0.0.i2766, %.lr.ph.preheader ]
-  %67 = load ptr, ptr %.02146, align 8
-  %68 = tail call noundef zeroext i1 @_ZNK4llvm18VLIWPacketizerList5aliasERKNS_17MachineMemOperandES3_b(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(80) %49, ptr noundef nonnull align 8 dereferenceable(80) %67, i1 noundef zeroext %3)
-  br i1 %68, label %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit.thread, label %65
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %53
+  %.02143 = phi ptr [ %54, %53 ], [ %.sroa.0.0.i2563, %.lr.ph.preheader ]
+  %55 = load ptr, ptr %.02143, align 8
+  %56 = tail call noundef zeroext i1 @_ZNK4llvm18VLIWPacketizerList5aliasERKNS_17MachineMemOperandES3_b(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(80) %40, ptr noundef nonnull align 8 dereferenceable(80) %55, i1 noundef zeroext %3)
+  br i1 %56, label %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit.thread, label %53
 
-._crit_edge:                                      ; preds = %65, %56, %.lr.ph49, %_ZNK4llvm12MachineInstr11memoperandsEv.exit33
-  %69 = getelementptr inbounds nuw i8, ptr %.02048, i64 8
-  %.not = icmp eq ptr %69, %47
-  br i1 %.not, label %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit.thread, label %.lr.ph49
+._crit_edge:                                      ; preds = %53, %43, %.lr.ph46, %_ZNK4llvm12MachineInstr11memoperandsEv.exit30
+  %57 = getelementptr inbounds nuw i8, ptr %.02045, i64 8
+  %.not = icmp eq ptr %57, %38
+  br i1 %.not, label %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit.thread, label %.lr.ph46
 
-_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit.thread: ; preds = %._crit_edge, %.lr.ph, %39, %31, %_ZNK4llvm12MachineInstr11memoperandsEv.exit, %25, %18, %12, %4, %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit, %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit26
-  %.0 = phi i1 [ true, %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit26 ], [ true, %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit ], [ true, %4 ], [ true, %12 ], [ true, %18 ], [ true, %25 ], [ false, %_ZNK4llvm12MachineInstr11memoperandsEv.exit ], [ false, %31 ], [ false, %39 ], [ true, %.lr.ph ], [ false, %._crit_edge ]
+_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit.thread: ; preds = %._crit_edge, %.lr.ph, %.thread, %25, %_ZNK4llvm12MachineInstr11memoperandsEv.exit, %19, %15, %8, %4, %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit, %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit24
+  %.0 = phi i1 [ true, %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit24 ], [ true, %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit ], [ true, %4 ], [ true, %8 ], [ true, %15 ], [ true, %19 ], [ false, %_ZNK4llvm12MachineInstr11memoperandsEv.exit ], [ false, %25 ], [ false, %.thread ], [ true, %.lr.ph ], [ false, %._crit_edge ]
   ret i1 %.0
 }
 

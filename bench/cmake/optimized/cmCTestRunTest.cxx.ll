@@ -908,7 +908,7 @@ declare void @_ZN9cmProcess13ChangeTimeoutENSt6chrono8durationIdSt5ratioILl1ELl1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i16 0, 512) i16 @_ZN14cmCTestRunTest7EndTestEmmb(ptr noundef nonnull align 8 dereferenceable(640) %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local range(i16 0, 258) i16 @_ZN14cmCTestRunTest7EndTestEmmb(ptr noundef nonnull align 8 dereferenceable(640) %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca [3 x %"struct.std::pair.252"], align 8
   %6 = alloca %class.cmAlphaNum, align 8
   %7 = alloca [3 x %"struct.std::pair.252"], align 8

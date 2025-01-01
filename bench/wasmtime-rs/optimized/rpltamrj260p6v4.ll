@@ -3934,7 +3934,7 @@ default.unreachable:                              ; preds = %2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc i64 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$20imm8_reg_to_imm8_gpr17h51b07d3a8768d961E"(ptr noalias nocapture noundef nonnull readonly align 4 dereferenceable(8) %0) unnamed_addr #1 {
+define internal fastcc range(i64 0, -4294902014) i64 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$20imm8_reg_to_imm8_gpr17h51b07d3a8768d961E"(ptr noalias nocapture noundef nonnull readonly align 4 dereferenceable(8) %0) unnamed_addr #1 {
   %2 = load i8, ptr %0, align 4, !range !227, !noundef !4
   %trunc = trunc nuw i8 %2 to i1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -6795,7 +6795,7 @@ default.unreachable:                              ; preds = %"_ZN17cranelift_cod
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc i64 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code34constructor_put_masked_in_imm8_gpr17h614ed2ec9b6d76d0E(ptr %.0.val, i32 noundef %0, i16 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i64 0, -4294967294) i64 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code34constructor_put_masked_in_imm8_gpr17h614ed2ec9b6d76d0E(ptr %.0.val, i32 noundef %0, i16 noundef %1) unnamed_addr #0 {
   %3 = alloca { i32, [3 x i32] }, align 8
   %4 = alloca { { i8, [15 x i8] } }, align 4
   %5 = icmp ne ptr %.0.val, null
@@ -80504,10 +80504,10 @@ define internal fastcc noundef range(i8 1, 3) i8 @_ZN17cranelift_codegen3isa3x64
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef range(i8 21, 85) i8 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code40constructor_insert_i8x16_lane_pshufd_imm17hfb88956a22768162E(i8 noundef %0) unnamed_addr #0 {
+define internal fastcc noundef range(i8 21, 85) i8 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code40constructor_insert_i8x16_lane_pshufd_imm17hfb88956a22768162E(i8 noundef range(i8 0, -128) %0) unnamed_addr #0 {
   %2 = alloca [0 x { ptr, ptr }], align 8
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
-  %4 = icmp ult i8 %0, 4
+  %4 = icmp samesign ult i8 %0, 4
   br i1 %4, label %switch.lookup, label %5
 
 5:                                                ; preds = %1

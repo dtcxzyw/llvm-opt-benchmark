@@ -93317,7 +93317,7 @@ define i64 @_ZNK14QCPTextElement20minimumOuterSizeHintEv(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i64 16777215, 0) i64 @_ZNK14QCPTextElement20maximumOuterSizeHintEv(ptr noundef nonnull align 8 dereferenceable(282) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define range(i64 16777215, -4278190080) i64 @_ZNK14QCPTextElement20maximumOuterSizeHintEv(ptr noundef nonnull align 8 dereferenceable(282) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QRect, align 4
   %3 = alloca %class.QFontMetrics, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 200

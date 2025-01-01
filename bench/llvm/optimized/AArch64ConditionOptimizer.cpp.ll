@@ -1146,8 +1146,6 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_125AArch64ConditionOptimizer
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.026.0, align 8
   %22 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %23 = inttoptr i64 %22 to ptr
-  %.not.i.i.i.i.i.i.i.i = icmp ne i64 %22, 0
-  tail call void @llvm.assume(i1 %.not.i.i.i.i.i.i.i.i)
   %.0.copyload.i.i.i.i.i.i.i.i.i8.i.i.i.i = load i64, ptr %23, align 8
   %24 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i8.i.i.i.i, 4
   %.not.i.i.i9.i.i.i.i = icmp eq i64 %24, 0
@@ -1193,8 +1191,6 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEmmEv.exit.i.i.i.i: ;
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.03.08.i.i, align 8
   %35 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %36 = inttoptr i64 %35 to ptr
-  %.not.i.i.i.i.i.i = icmp ne i64 %35, 0
-  tail call void @llvm.assume(i1 %.not.i.i.i.i.i.i)
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %36, align 8
   %37 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i = icmp eq i64 %37, 0

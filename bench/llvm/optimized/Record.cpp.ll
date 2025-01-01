@@ -7061,7 +7061,7 @@ _ZL15ConcatListInitsPKN4llvm8ListInitES2_.exit:   ; preds = %11, %41
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i16 0, 512) i16 @_ZNK4llvm9BinOpInit11CompareInitEjPNS_4InitES2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define dso_local range(i16 0, 258) i16 @_ZNK4llvm9BinOpInit11CompareInitEjPNS_4InitES2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16

@@ -19760,7 +19760,7 @@ switch.lookup:                                    ; preds = %proto_item_set_hidd
 declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @netflow_add_transport_info(ptr nocapture noundef readonly %0, i64 noundef range(i64 0, 281474976710656) %1, i8 noundef zeroext %2, i16 noundef zeroext %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @netflow_add_transport_info(ptr nocapture noundef readonly %0, i64 noundef range(i64 0, 281474976677888) %1, i8 noundef zeroext %2, i16 noundef zeroext %3, ptr noundef %4) unnamed_addr #0 {
   %6 = icmp eq i8 %2, 17
   %7 = and i64 %1, 281474976710654
   %8 = icmp eq i64 %7, 180

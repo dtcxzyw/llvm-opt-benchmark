@@ -4919,14 +4919,14 @@ _ZN5clang19RecursiveASTVisitorIZL17isInCoroutineStmtPKNS_4StmtEPKNS_8CFGBlockEE7
   br i1 %.not3163, label %._crit_edge67, label %.lr.ph66
 
 .lr.ph66:                                         ; preds = %._crit_edge, %_ZN5clang19RecursiveASTVisitorIZL17isInCoroutineStmtPKNS_4StmtEPKNS_8CFGBlockEE7CheckerE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread
-  %.03064 = phi ptr [ %85, %_ZN5clang19RecursiveASTVisitorIZL17isInCoroutineStmtPKNS_4StmtEPKNS_8CFGBlockEE7CheckerE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread ], [ %24, %._crit_edge ]
+  %.03064 = phi ptr [ %84, %_ZN5clang19RecursiveASTVisitorIZL17isInCoroutineStmtPKNS_4StmtEPKNS_8CFGBlockEE7CheckerE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread ], [ %24, %._crit_edge ]
   %29 = load ptr, ptr %.03064, align 8
   %30 = load i32, ptr %29, align 4
-  switch i32 %30, label %81 [
+  switch i32 %30, label %80 [
     i32 0, label %31
     i32 1, label %42
     i32 2, label %42
-    i32 3, label %77
+    i32 3, label %76
   ]
 
 31:                                               ; preds = %.lr.ph66
@@ -4971,141 +4971,137 @@ _ZN5clang19RecursiveASTVisitorIZL17isInCoroutineStmtPKNS_4StmtEPKNS_8CFGBlockEE7
 
 56:                                               ; preds = %51
   %57 = and i64 %.0.copyload.i.i.i.i.i.i, -8
-  %.not.i39 = icmp eq i64 %57, 0
-  br i1 %.not.i39, label %_ZN5clang19RecursiveASTVisitorIZL17isInCoroutineStmtPKNS_4StmtEPKNS_8CFGBlockEE7CheckerE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, label %58
-
-58:                                               ; preds = %56
-  %59 = inttoptr i64 %57 to ptr
-  %.ptr75 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 12
-  %61 = load i32, ptr %60, align 4
-  %62 = and i32 %61, 536870911
-  %63 = shl i32 %61, 3
-  %.idx74 = zext i32 %63 to i64
-  %64 = getelementptr inbounds nuw i8, ptr %59, i64 %.idx74
-  %.ptr76 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  %.not17.i58 = icmp eq i32 %62, 0
+  %58 = inttoptr i64 %57 to ptr
+  %.ptr75 = getelementptr inbounds nuw i8, ptr %58, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 12
+  %60 = load i32, ptr %59, align 4
+  %61 = and i32 %60, 536870911
+  %62 = shl i32 %60, 3
+  %.idx74 = zext i32 %62 to i64
+  %63 = getelementptr inbounds nuw i8, ptr %58, i64 %.idx74
+  %.ptr76 = getelementptr inbounds nuw i8, ptr %63, i64 16
+  %.not17.i58 = icmp eq i32 %61, 0
   br i1 %.not17.i58, label %._crit_edge62, label %.lr.ph61
 
-65:                                               ; preds = %.lr.ph61
-  %66 = getelementptr inbounds nuw i8, ptr %.014.i59, i64 8
-  %.not17.i = icmp eq ptr %66, %.ptr76
+64:                                               ; preds = %.lr.ph61
+  %65 = getelementptr inbounds nuw i8, ptr %.014.i59, i64 8
+  %.not17.i = icmp eq ptr %65, %.ptr76
   br i1 %.not17.i, label %._crit_edge62.loopexit, label %.lr.ph61
 
-.lr.ph61:                                         ; preds = %58, %65
-  %.014.i59 = phi ptr [ %66, %65 ], [ %.ptr75, %58 ]
-  %67 = load ptr, ptr %.014.i59, align 8
-  %68 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIZL17isInCoroutineStmtPKNS_4StmtEPKNS_8CFGBlockEE7CheckerE12TraverseDeclEPNS_4DeclE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %67)
-  br i1 %68, label %65, label %_ZN5clang19RecursiveASTVisitorIZL17isInCoroutineStmtPKNS_4StmtEPKNS_8CFGBlockEE7CheckerE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread51
+.lr.ph61:                                         ; preds = %56, %64
+  %.014.i59 = phi ptr [ %65, %64 ], [ %.ptr75, %56 ]
+  %66 = load ptr, ptr %.014.i59, align 8
+  %67 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIZL17isInCoroutineStmtPKNS_4StmtEPKNS_8CFGBlockEE7CheckerE12TraverseDeclEPNS_4DeclE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %66)
+  br i1 %67, label %64, label %_ZN5clang19RecursiveASTVisitorIZL17isInCoroutineStmtPKNS_4StmtEPKNS_8CFGBlockEE7CheckerE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread51
 
-._crit_edge62.loopexit:                           ; preds = %65
-  %.pre80 = load i32, ptr %60, align 4
+._crit_edge62.loopexit:                           ; preds = %64
+  %.pre80 = load i32, ptr %59, align 4
   br label %._crit_edge62
 
-._crit_edge62:                                    ; preds = %._crit_edge62.loopexit, %58
-  %69 = phi i32 [ %.pre80, %._crit_edge62.loopexit ], [ %61, %58 ]
-  %70 = and i32 %69, 1073741824
-  %.not.i.i = icmp eq i32 %70, 0
+._crit_edge62:                                    ; preds = %._crit_edge62.loopexit, %56
+  %68 = phi i32 [ %.pre80, %._crit_edge62.loopexit ], [ %60, %56 ]
+  %69 = and i32 %68, 1073741824
+  %.not.i.i = icmp eq i32 %69, 0
   br i1 %.not.i.i, label %_ZN5clang19RecursiveASTVisitorIZL17isInCoroutineStmtPKNS_4StmtEPKNS_8CFGBlockEE7CheckerE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, label %_ZN5clang21TemplateParameterList17getRequiresClauseEv.exit.i
 
 _ZN5clang21TemplateParameterList17getRequiresClauseEv.exit.i: ; preds = %._crit_edge62
-  %71 = and i32 %69, 536870911
-  %72 = zext nneg i32 %71 to i64
-  %73 = getelementptr inbounds nuw ptr, ptr %.ptr75, i64 %72
-  %74 = load ptr, ptr %73, align 8
-  %.not18.i = icmp eq ptr %74, null
-  br i1 %.not18.i, label %_ZN5clang19RecursiveASTVisitorIZL17isInCoroutineStmtPKNS_4StmtEPKNS_8CFGBlockEE7CheckerE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, label %75
+  %70 = and i32 %68, 536870911
+  %71 = zext nneg i32 %70 to i64
+  %72 = getelementptr inbounds nuw ptr, ptr %.ptr75, i64 %71
+  %73 = load ptr, ptr %72, align 8
+  %.not18.i = icmp eq ptr %73, null
+  br i1 %.not18.i, label %_ZN5clang19RecursiveASTVisitorIZL17isInCoroutineStmtPKNS_4StmtEPKNS_8CFGBlockEE7CheckerE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, label %74
 
-75:                                               ; preds = %_ZN5clang21TemplateParameterList17getRequiresClauseEv.exit.i
-  %76 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIZL17isInCoroutineStmtPKNS_4StmtEPKNS_8CFGBlockEE7CheckerE12TraverseStmtEPS1_PN4llvm15SmallVectorImplINSA_14PointerIntPairIS9_Lj1EbNSA_21PointerLikeTypeTraitsIS9_EENSA_18PointerIntPairInfoIS9_Lj1ESE_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %74, ptr noundef null)
-  br i1 %76, label %_ZN5clang19RecursiveASTVisitorIZL17isInCoroutineStmtPKNS_4StmtEPKNS_8CFGBlockEE7CheckerE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, label %_ZN5clang19RecursiveASTVisitorIZL17isInCoroutineStmtPKNS_4StmtEPKNS_8CFGBlockEE7CheckerE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread51
+74:                                               ; preds = %_ZN5clang21TemplateParameterList17getRequiresClauseEv.exit.i
+  %75 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIZL17isInCoroutineStmtPKNS_4StmtEPKNS_8CFGBlockEE7CheckerE12TraverseStmtEPS1_PN4llvm15SmallVectorImplINSA_14PointerIntPairIS9_Lj1EbNSA_21PointerLikeTypeTraitsIS9_EENSA_18PointerIntPairInfoIS9_Lj1ESE_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %73, ptr noundef null)
+  br i1 %75, label %_ZN5clang19RecursiveASTVisitorIZL17isInCoroutineStmtPKNS_4StmtEPKNS_8CFGBlockEE7CheckerE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, label %_ZN5clang19RecursiveASTVisitorIZL17isInCoroutineStmtPKNS_4StmtEPKNS_8CFGBlockEE7CheckerE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread51
 
-77:                                               ; preds = %.lr.ph66
-  %78 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %79 = load i8, ptr %78, align 8
-  %80 = trunc i8 %79 to i1
-  br i1 %80, label %_ZN5clang19RecursiveASTVisitorIZL17isInCoroutineStmtPKNS_4StmtEPKNS_8CFGBlockEE7CheckerE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, label %_ZN5clang19RecursiveASTVisitorIZL17isInCoroutineStmtPKNS_4StmtEPKNS_8CFGBlockEE7CheckerE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit
+76:                                               ; preds = %.lr.ph66
+  %77 = getelementptr inbounds nuw i8, ptr %29, i64 24
+  %78 = load i8, ptr %77, align 8
+  %79 = trunc i8 %78 to i1
+  br i1 %79, label %_ZN5clang19RecursiveASTVisitorIZL17isInCoroutineStmtPKNS_4StmtEPKNS_8CFGBlockEE7CheckerE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, label %_ZN5clang19RecursiveASTVisitorIZL17isInCoroutineStmtPKNS_4StmtEPKNS_8CFGBlockEE7CheckerE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit
 
-81:                                               ; preds = %.lr.ph66
+80:                                               ; preds = %.lr.ph66
   unreachable
 
-_ZN5clang19RecursiveASTVisitorIZL17isInCoroutineStmtPKNS_4StmtEPKNS_8CFGBlockEE7CheckerE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit: ; preds = %77
-  %82 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %83 = load ptr, ptr %82, align 8
-  %84 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIZL17isInCoroutineStmtPKNS_4StmtEPKNS_8CFGBlockEE7CheckerE12TraverseStmtEPS1_PN4llvm15SmallVectorImplINSA_14PointerIntPairIS9_Lj1EbNSA_21PointerLikeTypeTraitsIS9_EENSA_18PointerIntPairInfoIS9_Lj1ESE_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %83, ptr noundef null)
-  br i1 %84, label %_ZN5clang19RecursiveASTVisitorIZL17isInCoroutineStmtPKNS_4StmtEPKNS_8CFGBlockEE7CheckerE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, label %_ZN5clang19RecursiveASTVisitorIZL17isInCoroutineStmtPKNS_4StmtEPKNS_8CFGBlockEE7CheckerE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread51
+_ZN5clang19RecursiveASTVisitorIZL17isInCoroutineStmtPKNS_4StmtEPKNS_8CFGBlockEE7CheckerE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit: ; preds = %76
+  %81 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %82 = load ptr, ptr %81, align 8
+  %83 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIZL17isInCoroutineStmtPKNS_4StmtEPKNS_8CFGBlockEE7CheckerE12TraverseStmtEPS1_PN4llvm15SmallVectorImplINSA_14PointerIntPairIS9_Lj1EbNSA_21PointerLikeTypeTraitsIS9_EENSA_18PointerIntPairInfoIS9_Lj1ESE_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %82, ptr noundef null)
+  br i1 %83, label %_ZN5clang19RecursiveASTVisitorIZL17isInCoroutineStmtPKNS_4StmtEPKNS_8CFGBlockEE7CheckerE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, label %_ZN5clang19RecursiveASTVisitorIZL17isInCoroutineStmtPKNS_4StmtEPKNS_8CFGBlockEE7CheckerE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread51
 
-_ZN5clang19RecursiveASTVisitorIZL17isInCoroutineStmtPKNS_4StmtEPKNS_8CFGBlockEE7CheckerE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread: ; preds = %._crit_edge62, %77, %51, %56, %_ZN5clang21TemplateParameterList17getRequiresClauseEv.exit.i, %75, %31, %35, %_ZN5clang19RecursiveASTVisitorIZL17isInCoroutineStmtPKNS_4StmtEPKNS_8CFGBlockEE7CheckerE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit
-  %85 = getelementptr inbounds nuw i8, ptr %.03064, i64 8
-  %.not31 = icmp eq ptr %85, %28
+_ZN5clang19RecursiveASTVisitorIZL17isInCoroutineStmtPKNS_4StmtEPKNS_8CFGBlockEE7CheckerE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread: ; preds = %._crit_edge62, %76, %51, %_ZN5clang21TemplateParameterList17getRequiresClauseEv.exit.i, %74, %31, %35, %_ZN5clang19RecursiveASTVisitorIZL17isInCoroutineStmtPKNS_4StmtEPKNS_8CFGBlockEE7CheckerE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit
+  %84 = getelementptr inbounds nuw i8, ptr %.03064, i64 8
+  %.not31 = icmp eq ptr %84, %28
   br i1 %.not31, label %._crit_edge67, label %.lr.ph66
 
 ._crit_edge67:                                    ; preds = %_ZN5clang19RecursiveASTVisitorIZL17isInCoroutineStmtPKNS_4StmtEPKNS_8CFGBlockEE7CheckerE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, %._crit_edge
   call void @_ZN5clang4Stmt8childrenEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::iterator_range.1030") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %1) #19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 24, i1 false)
-  %86 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.sroa.0.0.copyload = load ptr, ptr %86, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %.sroa.0.0.copyload = load ptr, ptr %85, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %88 = load ptr, ptr %5, align 8
-  %89 = icmp ne ptr %88, %.sroa.0.0.copyload
-  %90 = load i64, ptr %87, align 8
-  %91 = icmp ne i64 %90, %.sroa.2.0.copyload
-  %.not3.i68 = select i1 %89, i1 true, i1 %91
+  %86 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %87 = load ptr, ptr %5, align 8
+  %88 = icmp ne ptr %87, %.sroa.0.0.copyload
+  %89 = load i64, ptr %86, align 8
+  %90 = icmp ne i64 %89, %.sroa.2.0.copyload
+  %.not3.i68 = select i1 %88, i1 true, i1 %90
   br i1 %.not3.i68, label %.lr.ph70, label %_ZN5clang19RecursiveASTVisitorIZL17isInCoroutineStmtPKNS_4StmtEPKNS_8CFGBlockEE7CheckerE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread51
 
 .lr.ph70:                                         ; preds = %._crit_edge67, %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit
-  %92 = phi i64 [ %113, %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit ], [ %90, %._crit_edge67 ]
-  %93 = phi ptr [ %111, %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit ], [ %88, %._crit_edge67 ]
-  %94 = and i64 %92, 3
-  %95 = icmp eq i64 %94, 0
-  br i1 %95, label %_ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit, label %96
+  %91 = phi i64 [ %112, %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit ], [ %89, %._crit_edge67 ]
+  %92 = phi ptr [ %110, %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit ], [ %87, %._crit_edge67 ]
+  %93 = and i64 %91, 3
+  %94 = icmp eq i64 %93, 0
+  br i1 %94, label %_ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit, label %95
 
-96:                                               ; preds = %.lr.ph70
-  %97 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5clang16StmtIteratorBase11GetDeclExprEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #19
+95:                                               ; preds = %.lr.ph70
+  %96 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5clang16StmtIteratorBase11GetDeclExprEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #19
   br label %_ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit
 
-_ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit: ; preds = %.lr.ph70, %96
-  %98 = phi ptr [ %97, %96 ], [ %93, %.lr.ph70 ]
-  %99 = load ptr, ptr %98, align 8
-  %100 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIZL17isInCoroutineStmtPKNS_4StmtEPKNS_8CFGBlockEE7CheckerE12TraverseStmtEPS1_PN4llvm15SmallVectorImplINSA_14PointerIntPairIS9_Lj1EbNSA_21PointerLikeTypeTraitsIS9_EENSA_18PointerIntPairInfoIS9_Lj1ESE_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %99, ptr noundef %2)
-  br i1 %100, label %101, label %_ZN5clang19RecursiveASTVisitorIZL17isInCoroutineStmtPKNS_4StmtEPKNS_8CFGBlockEE7CheckerE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread51
+_ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit: ; preds = %.lr.ph70, %95
+  %97 = phi ptr [ %96, %95 ], [ %92, %.lr.ph70 ]
+  %98 = load ptr, ptr %97, align 8
+  %99 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIZL17isInCoroutineStmtPKNS_4StmtEPKNS_8CFGBlockEE7CheckerE12TraverseStmtEPS1_PN4llvm15SmallVectorImplINSA_14PointerIntPairIS9_Lj1EbNSA_21PointerLikeTypeTraitsIS9_EENSA_18PointerIntPairInfoIS9_Lj1ESE_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %98, ptr noundef %2)
+  br i1 %99, label %100, label %_ZN5clang19RecursiveASTVisitorIZL17isInCoroutineStmtPKNS_4StmtEPKNS_8CFGBlockEE7CheckerE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread51
 
-101:                                              ; preds = %_ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit
-  %102 = load i64, ptr %87, align 8
-  %103 = and i64 %102, 3
-  %104 = icmp eq i64 %103, 0
-  br i1 %104, label %105, label %108
+100:                                              ; preds = %_ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit
+  %101 = load i64, ptr %86, align 8
+  %102 = and i64 %101, 3
+  %103 = icmp eq i64 %102, 0
+  br i1 %103, label %104, label %107
 
-105:                                              ; preds = %101
-  %106 = load ptr, ptr %5, align 8
-  %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
-  store ptr %107, ptr %5, align 8
+104:                                              ; preds = %100
+  %105 = load ptr, ptr %5, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
+  store ptr %106, ptr %5, align 8
   br label %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit
 
-108:                                              ; preds = %101
-  %.not.i = icmp ult i64 %102, 4
-  br i1 %.not.i, label %110, label %109
+107:                                              ; preds = %100
+  %.not.i = icmp ult i64 %101, 4
+  br i1 %.not.i, label %109, label %108
 
-109:                                              ; preds = %108
+108:                                              ; preds = %107
   call void @_ZN5clang16StmtIteratorBase6NextVAEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #19
   br label %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit
 
-110:                                              ; preds = %108
+109:                                              ; preds = %107
   call void @_ZN5clang16StmtIteratorBase8NextDeclEb(ptr noundef nonnull align 8 dereferenceable(24) %5, i1 noundef zeroext true) #19
   br label %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit
 
-_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit: ; preds = %105, %109, %110
-  %111 = load ptr, ptr %5, align 8
-  %112 = icmp ne ptr %111, %.sroa.0.0.copyload
-  %113 = load i64, ptr %87, align 8
-  %114 = icmp ne i64 %113, %.sroa.2.0.copyload
-  %.not3.i = select i1 %112, i1 true, i1 %114
+_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit: ; preds = %104, %108, %109
+  %110 = load ptr, ptr %5, align 8
+  %111 = icmp ne ptr %110, %.sroa.0.0.copyload
+  %112 = load i64, ptr %86, align 8
+  %113 = icmp ne i64 %112, %.sroa.2.0.copyload
+  %.not3.i = select i1 %111, i1 true, i1 %113
   br i1 %.not3.i, label %.lr.ph70, label %_ZN5clang19RecursiveASTVisitorIZL17isInCoroutineStmtPKNS_4StmtEPKNS_8CFGBlockEE7CheckerE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread51
 
-_ZN5clang19RecursiveASTVisitorIZL17isInCoroutineStmtPKNS_4StmtEPKNS_8CFGBlockEE7CheckerE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread51: ; preds = %.lr.ph, %75, %46, %35, %_ZN5clang19RecursiveASTVisitorIZL17isInCoroutineStmtPKNS_4StmtEPKNS_8CFGBlockEE7CheckerE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit, %.lr.ph61, %_ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit, %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit, %._crit_edge67, %_ZN5clang19RecursiveASTVisitorIZL17isInCoroutineStmtPKNS_4StmtEPKNS_8CFGBlockEE7CheckerE22WalkUpFromRequiresExprEPNS_12RequiresExprE.exit
-  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorIZL17isInCoroutineStmtPKNS_4StmtEPKNS_8CFGBlockEE7CheckerE22WalkUpFromRequiresExprEPNS_12RequiresExprE.exit ], [ true, %._crit_edge67 ], [ %100, %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit ], [ %100, %_ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit ], [ false, %.lr.ph61 ], [ false, %_ZN5clang19RecursiveASTVisitorIZL17isInCoroutineStmtPKNS_4StmtEPKNS_8CFGBlockEE7CheckerE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit ], [ false, %35 ], [ false, %46 ], [ false, %75 ], [ false, %.lr.ph ]
+_ZN5clang19RecursiveASTVisitorIZL17isInCoroutineStmtPKNS_4StmtEPKNS_8CFGBlockEE7CheckerE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread51: ; preds = %.lr.ph, %74, %46, %35, %_ZN5clang19RecursiveASTVisitorIZL17isInCoroutineStmtPKNS_4StmtEPKNS_8CFGBlockEE7CheckerE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit, %.lr.ph61, %_ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit, %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit, %._crit_edge67, %_ZN5clang19RecursiveASTVisitorIZL17isInCoroutineStmtPKNS_4StmtEPKNS_8CFGBlockEE7CheckerE22WalkUpFromRequiresExprEPNS_12RequiresExprE.exit
+  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorIZL17isInCoroutineStmtPKNS_4StmtEPKNS_8CFGBlockEE7CheckerE22WalkUpFromRequiresExprEPNS_12RequiresExprE.exit ], [ true, %._crit_edge67 ], [ %99, %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit ], [ %99, %_ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit ], [ false, %.lr.ph61 ], [ false, %_ZN5clang19RecursiveASTVisitorIZL17isInCoroutineStmtPKNS_4StmtEPKNS_8CFGBlockEE7CheckerE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit ], [ false, %35 ], [ false, %46 ], [ false, %74 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 

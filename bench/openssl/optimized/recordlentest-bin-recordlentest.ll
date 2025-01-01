@@ -300,7 +300,7 @@ if.end71:                                         ; preds = %if.end62, %if.then6
   %arrayidx4.i52 = getelementptr inbounds nuw i8, ptr %header.i48, i64 2
   store i8 3, ptr %arrayidx4.i52, align 1
   %shr5.i = lshr i64 %len.2, 8
-  %conv7.i = trunc nuw nsw i64 %shr5.i to i8
+  %conv7.i = trunc i64 %shr5.i to i8
   %arrayidx8.i53 = getelementptr inbounds nuw i8, ptr %header.i48, i64 3
   store i8 %conv7.i, ptr %arrayidx8.i53, align 1
   %conv10.i = trunc i64 %len.2 to i8

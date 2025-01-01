@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK6icu_7521CollationRootElements23lastCEWithPrimaryBeforeEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, i32 noundef %p) local_unnamed_addr #0 align 2 {
+define noundef range(i64 0, -1095216660480) i64 @_ZNK6icu_7521CollationRootElements23lastCEWithPrimaryBeforeEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, i32 noundef %p) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp eq i32 %p, 0
   br i1 %cmp, label %return, label %if.end
@@ -257,7 +257,7 @@ while.end:                                        ; preds = %for.cond20.preheade
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i64 83887360, 1) i64 @_ZNK6icu_7521CollationRootElements25firstCEWithPrimaryAtLeastEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, i32 noundef %p) local_unnamed_addr #0 align 2 {
+define noundef range(i64 0, -553916563456) i64 @_ZNK6icu_7521CollationRootElements25firstCEWithPrimaryAtLeastEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, i32 noundef %p) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp eq i32 %p, 0
   br i1 %cmp, label %return, label %if.end

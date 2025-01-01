@@ -20903,7 +20903,7 @@ define dso_local void @_ZN5clang13SelectorTable19constructSetterNameEN4llvm9Stri
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i64 2, 0) i64 @_ZN5clang13SelectorTable23constructSetterSelectorERNS_15IdentifierTableERS0_PKNS_14IdentifierInfoE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #3 align 2 {
+define dso_local range(i64 2, -4) i64 @_ZN5clang13SelectorTable23constructSetterSelectorERNS_15IdentifierTableERS0_PKNS_14IdentifierInfoE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #3 align 2 {
   %4 = alloca %"class.llvm::SmallString.30", align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load ptr, ptr %5, align 8

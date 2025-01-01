@@ -61,7 +61,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden range(i16 0, 512) i16 @_ZN4cvc58internal6theory5arith8rewriter19tryEvaluateRelationENS0_4kind6Kind_tENS0_12NodeTemplateILb0EEES7_(i32 noundef %rel, ptr noundef nonnull %left, ptr noundef %right) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden range(i16 0, 258) i16 @_ZN4cvc58internal6theory5arith8rewriter19tryEvaluateRelationENS0_4kind6Kind_tENS0_12NodeTemplateILb0EEES7_(i32 noundef %rel, ptr noundef nonnull %left, ptr noundef %right) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.cvc5::internal::FatalStream", align 1
   %ref.tmp9 = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
@@ -549,7 +549,7 @@ return:                                           ; preds = %sw.bb9, %sw.bb7, %s
 declare void @_ZN4cvc58internal19RealAlgebraicNumberC1ERKNS0_8RationalE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i16 0, 512) i16 @_ZN4cvc58internal6theory5arith8rewriter28tryEvaluateRelationReflexiveENS0_4kind6Kind_tENS0_12NodeTemplateILb0EEES7_(i32 noundef %rel, ptr nocapture noundef readonly %left, ptr nocapture noundef readonly %right) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define hidden range(i16 0, 258) i16 @_ZN4cvc58internal6theory5arith8rewriter28tryEvaluateRelationReflexiveENS0_4kind6Kind_tENS0_12NodeTemplateILb0EEES7_(i32 noundef %rel, ptr nocapture noundef readonly %left, ptr nocapture noundef readonly %right) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %left, align 8
   %1 = load ptr, ptr %right, align 8

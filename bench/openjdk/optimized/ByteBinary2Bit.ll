@@ -2082,7 +2082,7 @@ define hidden void @IntArgbToByteBinary2BitAlphaMaskBlit(ptr noundef %0, ptr nou
   br i1 %spec.select, label %108, label %101
 
 101:                                              ; preds = %100
-  %102 = lshr i32 %.1164, %.1167
+  %102 = ashr i32 %.1164, %.1167
   %103 = and i32 %102, 3
   %104 = zext nneg i32 %103 to i64
   %105 = getelementptr inbounds nuw i32, ptr %51, i64 %104
@@ -2452,7 +2452,7 @@ define hidden void @ByteBinary2BitAlphaMaskFill(ptr noundef %0, ptr noundef %1, 
   br i1 %spec.select, label %111, label %104
 
 104:                                              ; preds = %103
-  %105 = lshr i32 %.1150, %.1153
+  %105 = ashr i32 %.1150, %.1153
   %106 = and i32 %105, 3
   %107 = zext nneg i32 %106 to i64
   %108 = getelementptr inbounds nuw i32, ptr %62, i64 %107

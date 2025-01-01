@@ -331,7 +331,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
 declare dso_local i32 @dmi_name_in_serial(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)
-define internal range(i64 0, 18446744073709552) i64 @vmware_get_tsc_khz() #5 align 16 {
+define internal range(i64 0, 18446744069414585) i64 @vmware_get_tsc_khz() #5 align 16 {
   %1 = load i64, ptr @vmware_tsc_khz, align 8
   ret i64 %1
 }

@@ -477,7 +477,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 1, 0) i32 @Gem_GroupsDerive(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #9 {
+define i32 @Gem_GroupsDerive(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #9 {
   %5 = add i32 %1, -1
   %6 = shl nuw i32 1, %5
   %7 = icmp sgt i32 %1, 1

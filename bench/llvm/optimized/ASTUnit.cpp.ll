@@ -15935,7 +15935,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang7ASTUnit12isModuleFileEv(ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 4, 512) i32 @_ZNK5clang7ASTUnit12getInputKindEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2056) %0) local_unnamed_addr #10 align 2 {
+define dso_local range(i32 4, 272) i32 @_ZNK5clang7ASTUnit12getInputKindEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2056) %0) local_unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %4 = load i64, ptr %3, align 8

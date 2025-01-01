@@ -324,7 +324,7 @@ _knl_mcdram_parse.exit:                           ; preds = %37, %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   store i16 %.010.i, ptr @allow_mcdram, align 2
-  %45 = and i16 %.010.i, 7936
+  %45 = and i16 %.010.i, -256
   %46 = zext nneg i16 %45 to i32
   br label %47
 
@@ -510,7 +510,7 @@ _knl_mcdram_parse.exit90:                         ; preds = %102, %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   store i16 %.010.i89, ptr @default_mcdram, align 2
-  %110 = and i16 %.010.i89, 7936
+  %110 = and i16 %.010.i89, -256
   %111 = zext nneg i16 %110 to i32
   br label %112
 
@@ -2491,7 +2491,7 @@ define range(i32 0, 8002) i32 @node_features_p_job_valid(ptr noundef %0, ptr noc
   br i1 %.not12.i, label %_knl_mcdram_parse.exit.loopexit, label %.lr.ph.i, !llvm.loop !6
 
 _knl_mcdram_parse.exit.loopexit:                  ; preds = %.lr.ph.i
-  %23 = and i16 %21, 7936
+  %23 = and i16 %21, -256
   %24 = zext nneg i16 %23 to i32
   br label %_knl_mcdram_parse.exit
 

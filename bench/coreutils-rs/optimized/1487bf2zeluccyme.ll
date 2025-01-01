@@ -2440,7 +2440,7 @@ switch.lookup:                                    ; preds = %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define range(i48 0, 8796093022208) i48 @"_ZN95_$LT$uu_sort..KeySettings$u20$as$u20$core..convert..From$LT$$RF$uu_sort..GlobalSettings$GT$$GT$4from17hb1f17a4c2dd6cd07E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(160) %0) unnamed_addr #10 {
+define range(i48 0, 6605659701248) i48 @"_ZN95_$LT$uu_sort..KeySettings$u20$as$u20$core..convert..From$LT$$RF$uu_sort..GlobalSettings$GT$$GT$4from17hb1f17a4c2dd6cd07E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(160) %0) unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load i8, ptr %2, align 8, !range !358, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 125

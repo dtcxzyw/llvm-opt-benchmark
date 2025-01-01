@@ -1589,7 +1589,7 @@ _ZNK7mitsuba10filesystem4pathcvNSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9
 129:                                              ; preds = %124
   %130 = or i64 %121, 7
   %131 = icmp eq i64 %130, 23
-  %132 = add i64 %130, 1
+  %132 = add nuw i64 %130, 1
   %133 = select i1 %131, i64 25, i64 %132
   %134 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %133) #25
           to label %.noexc27 unwind label %114

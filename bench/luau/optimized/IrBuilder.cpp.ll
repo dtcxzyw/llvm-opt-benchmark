@@ -193,15 +193,15 @@ _ZNSt6vectorIN4Luau7CodeGen15BytecodeMappingESaIS2_EE6resizeEmRKS2_.exit: ; pred
   %65 = shl i32 %64, 4
   %66 = and i32 %65, 4080
   %67 = or disjoint i32 %66, 6
-  %68 = call range(i32 4, 0) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 1, i32 %67, i32 0, i32 0, i32 0, i32 0, i32 0)
+  %68 = call range(i32 4, -8) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 1, i32 %67, i32 0, i32 0, i32 0, i32 0, i32 0)
   %.not137.i = icmp sgt i8 %60, -1
   br i1 %.not137.i, label %87, label %69
 
 69:                                               ; preds = %63
   %70 = call i32 @_ZN4Luau7CodeGen9IrBuilder5blockENS0_11IrBlockKindE(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 2)
   %71 = call i32 @_ZN4Luau7CodeGen9IrBuilder5blockENS0_11IrBlockKindE(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 2)
-  %72 = call range(i32 2, 0) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 3, i64 0, i64 noundef 0)
-  %73 = call range(i32 4, 0) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 46, i32 %68, i32 %72, i32 %70, i32 %71, i32 0, i32 0)
+  %72 = call range(i32 2, -12) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 3, i64 0, i64 noundef 0)
+  %73 = call range(i32 4, -8) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 46, i32 %68, i32 %72, i32 %70, i32 %71, i32 0, i32 0)
   %74 = lshr i32 %71, 4
   %75 = zext nneg i32 %74 to i64
   %76 = load ptr, ptr %4, align 8
@@ -237,43 +237,43 @@ _ZNSt6vectorIN4Luau7CodeGen15BytecodeMappingESaIS2_EE6resizeEmRKS2_.exit: ; pred
   ]
 
 88:                                               ; preds = %87
-  %89 = call range(i32 2, 0) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 3, i64 0, i64 noundef 0)
+  %89 = call range(i32 2, -12) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 3, i64 0, i64 noundef 0)
   br label %.sink.split.i
 
 90:                                               ; preds = %87
-  %91 = call range(i32 2, 0) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 3, i64 1, i64 noundef 1)
+  %91 = call range(i32 2, -12) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 3, i64 1, i64 noundef 1)
   br label %.sink.split.i
 
 92:                                               ; preds = %87
-  %93 = call range(i32 2, 0) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 3, i64 3, i64 noundef 3)
+  %93 = call range(i32 2, -12) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 3, i64 3, i64 noundef 3)
   br label %.sink.split.i
 
 94:                                               ; preds = %87
-  %95 = call range(i32 2, 0) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 3, i64 5, i64 noundef 5)
+  %95 = call range(i32 2, -12) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 3, i64 5, i64 noundef 5)
   br label %.sink.split.i
 
 96:                                               ; preds = %87
-  %97 = call range(i32 2, 0) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 3, i64 6, i64 noundef 6)
+  %97 = call range(i32 2, -12) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 3, i64 6, i64 noundef 6)
   br label %.sink.split.i
 
 98:                                               ; preds = %87
-  %99 = call range(i32 2, 0) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 3, i64 7, i64 noundef 7)
+  %99 = call range(i32 2, -12) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 3, i64 7, i64 noundef 7)
   br label %.sink.split.i
 
 100:                                              ; preds = %87
-  %101 = call range(i32 2, 0) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 3, i64 9, i64 noundef 9)
+  %101 = call range(i32 2, -12) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 3, i64 9, i64 noundef 9)
   br label %.sink.split.i
 
 102:                                              ; preds = %87
-  %103 = call range(i32 2, 0) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 3, i64 8, i64 noundef 8)
+  %103 = call range(i32 2, -12) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 3, i64 8, i64 noundef 8)
   br label %.sink.split.i
 
 104:                                              ; preds = %87
-  %105 = call range(i32 2, 0) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 3, i64 4, i64 noundef 4)
+  %105 = call range(i32 2, -12) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 3, i64 4, i64 noundef 4)
   br label %.sink.split.i
 
 106:                                              ; preds = %87
-  %107 = call range(i32 2, 0) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 3, i64 10, i64 noundef 10)
+  %107 = call range(i32 2, -12) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 3, i64 10, i64 noundef 10)
   br label %.sink.split.i
 
 108:                                              ; preds = %87
@@ -285,19 +285,19 @@ _ZNSt6vectorIN4Luau7CodeGen15BytecodeMappingESaIS2_EE6resizeEmRKS2_.exit: ; pred
   br i1 %or.cond138.i, label %112, label %115
 
 112:                                              ; preds = %108
-  %113 = call range(i32 2, 0) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 3, i64 8, i64 noundef 8)
+  %113 = call range(i32 2, -12) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 3, i64 8, i64 noundef 8)
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %112, %106, %104, %102, %100, %98, %96, %94, %92, %90, %88
   %.sink.i = phi i32 [ %113, %112 ], [ %107, %106 ], [ %105, %104 ], [ %103, %102 ], [ %101, %100 ], [ %99, %98 ], [ %97, %96 ], [ %95, %94 ], [ %93, %92 ], [ %91, %90 ], [ %89, %88 ]
-  %114 = call range(i32 4, 0) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 79, i32 %68, i32 %.sink.i, i32 -7, i32 0, i32 0, i32 0)
+  %114 = call range(i32 4, -8) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 79, i32 %68, i32 %.sink.i, i32 -7, i32 0, i32 0, i32 0)
   br label %115
 
 115:                                              ; preds = %.sink.split.i, %108
   br i1 %.not137.i, label %131, label %116
 
 116:                                              ; preds = %115
-  %117 = call range(i32 4, 0) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 43, i32 %.sroa.0.0.i, i32 0, i32 0, i32 0, i32 0, i32 0)
+  %117 = call range(i32 4, -8) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 43, i32 %.sroa.0.0.i, i32 0, i32 0, i32 0, i32 0, i32 0)
   %118 = lshr i32 %.sroa.0.0.i, 4
   %119 = zext nneg i32 %118 to i64
   %120 = load ptr, ptr %4, align 8
@@ -336,7 +336,7 @@ _ZNSt6vectorIN4Luau7CodeGen15BytecodeMappingESaIS2_EE6resizeEmRKS2_.exit: ; pred
 
 141:                                              ; preds = %._crit_edge.i
   %142 = call i32 @_ZN4Luau7CodeGen9IrBuilder5blockENS0_11IrBlockKindE(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 2)
-  %143 = call range(i32 4, 0) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 43, i32 %142, i32 0, i32 0, i32 0, i32 0, i32 0)
+  %143 = call range(i32 4, -8) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 43, i32 %142, i32 0, i32 0, i32 0, i32 0, i32 0)
   %144 = lshr i32 %142, 4
   %145 = zext nneg i32 %144 to i64
   %146 = load ptr, ptr %4, align 8
@@ -374,7 +374,7 @@ _ZN4Luau7CodeGenL23buildArgumentTypeChecksERNS0_9IrBuilderE.exit: ; preds = %._c
 
 _ZN4Luau7CodeGen9IrBuilder11blockAtInstEj.exit:   ; preds = %160, %163
   %.sroa.0.0.i46 = phi i32 [ %164, %163 ], [ %162, %160 ]
-  %165 = call range(i32 4, 0) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 43, i32 %.sroa.0.0.i46, i32 0, i32 0, i32 0, i32 0, i32 0)
+  %165 = call range(i32 4, -8) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 43, i32 %.sroa.0.0.i46, i32 0, i32 0, i32 0, i32 0, i32 0)
   br label %_ZN4Luau7CodeGen9IrBuilder11blockAtInstEj.exit49
 
 166:                                              ; preds = %_ZNSt6vectorIN4Luau7CodeGen15BytecodeMappingESaIS2_EE6resizeEmRKS2_.exit
@@ -497,8 +497,8 @@ _ZN4Luau7CodeGen9IrBuilder11blockAtInstEj.exit52: ; preds = %211, %213
 237:                                              ; preds = %234
   store i8 0, ptr %184, align 1
   %.sroa.3.8.insert.ext.i = zext i32 %.060 to i64
-  %238 = call range(i32 2, 0) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 1, i64 %.sroa.3.8.insert.ext.i, i64 noundef %.sroa.3.8.insert.ext.i)
-  %239 = call range(i32 4, 0) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 90, i32 %238, i32 0, i32 0, i32 0, i32 0, i32 0)
+  %238 = call range(i32 2, -12) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 1, i64 %.sroa.3.8.insert.ext.i, i64 noundef %.sroa.3.8.insert.ext.i)
+  %239 = call range(i32 4, -8) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 90, i32 %238, i32 0, i32 0, i32 0, i32 0, i32 0)
   br label %240
 
 240:                                              ; preds = %237, %234
@@ -564,7 +564,7 @@ _ZN4Luau7CodeGen9IrBuilder11blockAtInstEj.exit52: ; preds = %211, %213
 
 _ZN4Luau7CodeGen9IrBuilder11blockAtInstEj.exit55: ; preds = %269, %272
   %.sroa.0.0.i54 = phi i32 [ %273, %272 ], [ %271, %269 ]
-  %274 = call range(i32 4, 0) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 43, i32 %.sroa.0.0.i54, i32 0, i32 0, i32 0, i32 0, i32 0)
+  %274 = call range(i32 4, -8) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 43, i32 %.sroa.0.0.i54, i32 0, i32 0, i32 0, i32 0, i32 0)
   br label %275
 
 275:                                              ; preds = %259, %_ZN4Luau7CodeGen9IrBuilder11blockAtInstEj.exit55, %255, %246
@@ -580,7 +580,7 @@ _ZN4Luau7CodeGen9IrBuilder11blockAtInstEj.exit55: ; preds = %269, %272
 declare void @_ZN4Luau7CodeGen20loadBytecodeTypeInfoERNS0_10IrFunctionE(ptr noundef nonnull align 8 dereferenceable(616)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i32 5, 0) i32 @_ZN4Luau7CodeGen9IrBuilder5blockENS0_11IrBlockKindE(ptr nocapture noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext %1) local_unnamed_addr #1 align 2 {
+define dso_local range(i32 5, -8) i32 @_ZN4Luau7CodeGen9IrBuilder5blockENS0_11IrBlockKindE(ptr nocapture noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext %1) local_unnamed_addr #1 align 2 {
   %3 = icmp eq i8 %1, 2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %5 = load i8, ptr %4, align 2
@@ -963,13 +963,13 @@ define dso_local void @_ZN4Luau7CodeGen9IrBuilder10beginBlockENS0_4IrOpE(ptr noc
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i32 4, 0) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr nocapture noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext %1, i32 %2) local_unnamed_addr #1 align 2 {
+define dso_local range(i32 4, -8) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr nocapture noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext %1, i32 %2) local_unnamed_addr #1 align 2 {
   %4 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext %1, i32 %2, i32 0, i32 0, i32 0, i32 0, i32 0)
   ret i32 %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i32 5, 0) i32 @_ZN4Luau7CodeGen9IrBuilder11blockAtInstEj(ptr nocapture noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define dso_local range(i32 5, -8) i32 @_ZN4Luau7CodeGen9IrBuilder11blockAtInstEj(ptr nocapture noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %4 = zext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8
@@ -1031,7 +1031,7 @@ define linkonce_odr dso_local noundef i32 @_ZN4Luau11getOpLengthE10LuauOpcode(i3
 declare void @_ZN4Luau7CodeGen18beforeInstForNPrepERNS0_9IrBuilderEPKji(ptr noundef nonnull align 8 dereferenceable(744), ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i32 2, 0) i32 @_ZN4Luau7CodeGen9IrBuilder9constUintEj(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define dso_local range(i32 2, -12) i32 @_ZN4Luau7CodeGen9IrBuilder9constUintEj(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %.sroa.3.8.insert.ext = zext i32 %1 to i64
   %3 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 1, i64 %.sroa.3.8.insert.ext, i64 noundef %.sroa.3.8.insert.ext)
   ret i32 %3
@@ -1156,12 +1156,12 @@ define dso_local void @_ZN4Luau7CodeGen9IrBuilder13translateInstE10LuauOpcodePKj
 
 13:                                               ; preds = %4
   %.sroa.3.8.insert.ext.i = zext i32 %3 to i64
-  %14 = tail call range(i32 2, 0) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 1, i64 %.sroa.3.8.insert.ext.i, i64 noundef %.sroa.3.8.insert.ext.i)
-  %15 = tail call range(i32 4, 0) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 90, i32 %14, i32 0, i32 0, i32 0, i32 0, i32 0)
+  %14 = tail call range(i32 2, -12) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 1, i64 %.sroa.3.8.insert.ext.i, i64 noundef %.sroa.3.8.insert.ext.i)
+  %15 = tail call range(i32 4, -8) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 90, i32 %14, i32 0, i32 0, i32 0, i32 0, i32 0)
   %16 = add nsw i32 %3, 1
   %.sroa.3.8.insert.ext.i281 = zext i32 %16 to i64
-  %17 = tail call range(i32 2, 0) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 1, i64 %.sroa.3.8.insert.ext.i281, i64 noundef %.sroa.3.8.insert.ext.i281)
-  %18 = tail call range(i32 4, 0) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 95, i32 %17, i32 0, i32 0, i32 0, i32 0, i32 0)
+  %17 = tail call range(i32 2, -12) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 1, i64 %.sroa.3.8.insert.ext.i281, i64 noundef %.sroa.3.8.insert.ext.i281)
+  %18 = tail call range(i32 4, -8) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 95, i32 %17, i32 0, i32 0, i32 0, i32 0, i32 0)
   %19 = load i32, ptr %2, align 4
   %20 = lshr i32 %19, 4
   %21 = and i32 %20, 4080
@@ -1171,14 +1171,14 @@ define dso_local void @_ZN4Luau7CodeGen9IrBuilder13translateInstE10LuauOpcodePKj
   %25 = add nsw i32 %24, -1
   %.sroa.3.8.insert.ext.i282 = zext i32 %25 to i64
   %26 = sext i32 %25 to i64
-  %27 = tail call range(i32 2, 0) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 0, i64 %.sroa.3.8.insert.ext.i282, i64 noundef %26)
+  %27 = tail call range(i32 2, -12) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 0, i64 %.sroa.3.8.insert.ext.i282, i64 noundef %26)
   %28 = load i32, ptr %2, align 4
   %29 = lshr i32 %28, 24
   %30 = add nsw i32 %29, -1
   %.sroa.3.8.insert.ext.i283 = zext i32 %30 to i64
   %31 = sext i32 %30 to i64
-  %32 = tail call range(i32 2, 0) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 0, i64 %.sroa.3.8.insert.ext.i283, i64 noundef %31)
-  %33 = tail call range(i32 4, 0) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 99, i32 %22, i32 %27, i32 %32, i32 0, i32 0, i32 0)
+  %32 = tail call range(i32 2, -12) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 0, i64 %.sroa.3.8.insert.ext.i283, i64 noundef %31)
+  %33 = tail call range(i32 4, -8) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 99, i32 %22, i32 %27, i32 %32, i32 0, i32 0, i32 0)
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %35 = load i8, ptr %34, align 2
   %36 = trunc i8 %35 to i1
@@ -1187,7 +1187,7 @@ define dso_local void @_ZN4Luau7CodeGen9IrBuilder13translateInstE10LuauOpcodePKj
 37:                                               ; preds = %13
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %.sroa.079.0.copyload = load i32, ptr %38, align 4
-  %39 = tail call range(i32 4, 0) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 43, i32 %.sroa.079.0.copyload, i32 0, i32 0, i32 0, i32 0, i32 0)
+  %39 = tail call range(i32 4, -8) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 43, i32 %.sroa.079.0.copyload, i32 0, i32 0, i32 0, i32 0, i32 0)
   %.sroa.077.0.copyload = load i32, ptr %38, align 4
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %41 = lshr i32 %.sroa.077.0.copyload, 4
@@ -1216,8 +1216,8 @@ define dso_local void @_ZN4Luau7CodeGen9IrBuilder13translateInstE10LuauOpcodePKj
 
 58:                                               ; preds = %4
   %.sroa.3.8.insert.ext.i284 = zext i32 %3 to i64
-  %59 = tail call range(i32 2, 0) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 1, i64 %.sroa.3.8.insert.ext.i284, i64 noundef %.sroa.3.8.insert.ext.i284)
-  %60 = tail call range(i32 4, 0) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 90, i32 %59, i32 0, i32 0, i32 0, i32 0, i32 0)
+  %59 = tail call range(i32 2, -12) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 1, i64 %.sroa.3.8.insert.ext.i284, i64 noundef %.sroa.3.8.insert.ext.i284)
+  %60 = tail call range(i32 4, -8) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 90, i32 %59, i32 0, i32 0, i32 0, i32 0, i32 0)
   %61 = load i32, ptr %2, align 4
   %62 = lshr i32 %61, 4
   %63 = and i32 %62, 4080
@@ -1227,8 +1227,8 @@ define dso_local void @_ZN4Luau7CodeGen9IrBuilder13translateInstE10LuauOpcodePKj
   %67 = add nsw i32 %66, -1
   %.sroa.3.8.insert.ext.i285 = zext i32 %67 to i64
   %68 = sext i32 %67 to i64
-  %69 = tail call range(i32 2, 0) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 0, i64 %.sroa.3.8.insert.ext.i285, i64 noundef %68)
-  %70 = tail call range(i32 4, 0) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 100, i32 %64, i32 %69, i32 0, i32 0, i32 0, i32 0)
+  %69 = tail call range(i32 2, -12) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 0, i64 %.sroa.3.8.insert.ext.i285, i64 noundef %68)
+  %70 = tail call range(i32 4, -8) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 100, i32 %64, i32 %69, i32 0, i32 0, i32 0, i32 0)
   br label %321
 
 71:                                               ; preds = %4
@@ -1401,7 +1401,7 @@ define dso_local void @_ZN4Luau7CodeGen9IrBuilder13translateInstE10LuauOpcodePKj
 
 113:                                              ; preds = %4
   %.sroa.3.8.insert.ext.i286 = zext i32 %3 to i64
-  %114 = tail call range(i32 2, 0) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 1, i64 %.sroa.3.8.insert.ext.i286, i64 noundef %.sroa.3.8.insert.ext.i286)
+  %114 = tail call range(i32 2, -12) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 1, i64 %.sroa.3.8.insert.ext.i286, i64 noundef %.sroa.3.8.insert.ext.i286)
   %115 = load i32, ptr %2, align 4
   %116 = lshr i32 %115, 4
   %117 = and i32 %116, 4080
@@ -1413,11 +1413,11 @@ define dso_local void @_ZN4Luau7CodeGen9IrBuilder13translateInstE10LuauOpcodePKj
   %123 = add nsw i32 %122, -1
   %.sroa.3.8.insert.ext.i287 = zext i32 %123 to i64
   %124 = sext i32 %123 to i64
-  %125 = tail call range(i32 2, 0) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 0, i64 %.sroa.3.8.insert.ext.i287, i64 noundef %124)
+  %125 = tail call range(i32 2, -12) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 0, i64 %.sroa.3.8.insert.ext.i287, i64 noundef %124)
   %126 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %127 = load i32, ptr %126, align 4
   %.sroa.3.8.insert.ext.i288 = zext i32 %127 to i64
-  %128 = tail call range(i32 2, 0) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 1, i64 %.sroa.3.8.insert.ext.i288, i64 noundef %.sroa.3.8.insert.ext.i288)
+  %128 = tail call range(i32 2, -12) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 1, i64 %.sroa.3.8.insert.ext.i288, i64 noundef %.sroa.3.8.insert.ext.i288)
   %129 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 98, i32 %114, i32 %118, i32 %121, i32 %125, i32 %128, i32 1)
   br label %321
 
@@ -1539,15 +1539,15 @@ _ZN4Luau7CodeGen9IrBuilder11blockAtInstEj.exit291: ; preds = %187, %190
   %.sroa.0.0.i290 = phi i32 [ %191, %190 ], [ %189, %187 ]
   %192 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder5blockENS0_11IrBlockKindE(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 1)
   %.sroa.3.8.insert.ext.i292 = zext i32 %3 to i64
-  %193 = tail call range(i32 2, 0) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 1, i64 %.sroa.3.8.insert.ext.i292, i64 noundef %.sroa.3.8.insert.ext.i292)
-  %194 = tail call range(i32 4, 0) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 90, i32 %193, i32 0, i32 0, i32 0, i32 0, i32 0)
+  %193 = tail call range(i32 2, -12) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 1, i64 %.sroa.3.8.insert.ext.i292, i64 noundef %.sroa.3.8.insert.ext.i292)
+  %194 = tail call range(i32 4, -8) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 90, i32 %193, i32 0, i32 0, i32 0, i32 0, i32 0)
   %195 = lshr i32 %168, 4
   %196 = and i32 %195, 4080
   %197 = or disjoint i32 %196, 6
   tail call void @_ZN4Luau7CodeGen9IrBuilder15loadAndCheckTagENS0_4IrOpEhS2_(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 %197, i8 noundef zeroext 0, i32 %192)
   %.sroa.3.8.insert.ext.i293 = zext nneg i32 %164 to i64
-  %198 = tail call range(i32 2, 0) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 0, i64 %.sroa.3.8.insert.ext.i293, i64 noundef %.sroa.3.8.insert.ext.i293)
-  %199 = tail call range(i32 4, 0) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 101, i32 %197, i32 %198, i32 %.sroa.0.0.i, i32 %.sroa.0.0.i290, i32 0, i32 0)
+  %198 = tail call range(i32 2, -12) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 0, i64 %.sroa.3.8.insert.ext.i293, i64 noundef %.sroa.3.8.insert.ext.i293)
+  %199 = tail call range(i32 4, -8) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 101, i32 %197, i32 %198, i32 %.sroa.0.0.i, i32 %.sroa.0.0.i290, i32 0, i32 0)
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %201 = lshr i32 %192, 4
   %202 = zext nneg i32 %201 to i64
@@ -1571,10 +1571,10 @@ _ZN4Luau7CodeGen9IrBuilder11blockAtInstEj.exit291: ; preds = %187, %190
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %217, align 8
   %.sroa.3.8.insert.ext.i294 = zext i32 %169 to i64
-  %218 = tail call range(i32 2, 0) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 1, i64 %.sroa.3.8.insert.ext.i294, i64 noundef %.sroa.3.8.insert.ext.i294)
-  %219 = tail call range(i32 4, 0) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 95, i32 %218, i32 0, i32 0, i32 0, i32 0, i32 0)
-  %220 = tail call range(i32 2, 0) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 0, i64 %.sroa.3.8.insert.ext.i293, i64 noundef %.sroa.3.8.insert.ext.i293)
-  %221 = tail call range(i32 4, 0) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 102, i32 %197, i32 %220, i32 %.sroa.0.0.i, i32 %.sroa.0.0.i290, i32 0, i32 0)
+  %218 = tail call range(i32 2, -12) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 1, i64 %.sroa.3.8.insert.ext.i294, i64 noundef %.sroa.3.8.insert.ext.i294)
+  %219 = tail call range(i32 4, -8) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 95, i32 %218, i32 0, i32 0, i32 0, i32 0, i32 0)
+  %220 = tail call range(i32 2, -12) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 0, i64 %.sroa.3.8.insert.ext.i293, i64 noundef %.sroa.3.8.insert.ext.i293)
+  %221 = tail call range(i32 4, -8) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 102, i32 %197, i32 %220, i32 %.sroa.0.0.i, i32 %.sroa.0.0.i290, i32 0, i32 0)
   %222 = lshr i32 %.sroa.0.0.i290, 4
   %223 = zext nneg i32 %222 to i64
   %224 = load ptr, ptr %200, align 8
@@ -1636,8 +1636,8 @@ _ZN4Luau7CodeGen9IrBuilder11blockAtInstEj.exit291: ; preds = %187, %190
 
 257:                                              ; preds = %4
   %.sroa.3.8.insert.ext.i296 = zext i32 %3 to i64
-  %258 = tail call range(i32 2, 0) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 1, i64 %.sroa.3.8.insert.ext.i296, i64 noundef %.sroa.3.8.insert.ext.i296)
-  %259 = tail call range(i32 4, 0) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 104, i32 %258, i32 0, i32 0, i32 0, i32 0, i32 0)
+  %258 = tail call range(i32 2, -12) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 1, i64 %.sroa.3.8.insert.ext.i296, i64 noundef %.sroa.3.8.insert.ext.i296)
+  %259 = tail call range(i32 4, -8) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 104, i32 %258, i32 0, i32 0, i32 0, i32 0, i32 0)
   br label %321
 
 260:                                              ; preds = %4
@@ -1667,18 +1667,18 @@ _ZN4Luau7CodeGen9IrBuilder11blockAtInstEj.exit291: ; preds = %187, %190
 
 270:                                              ; preds = %4
   %.sroa.3.8.insert.ext.i297 = zext i32 %3 to i64
-  %271 = tail call range(i32 2, 0) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 1, i64 %.sroa.3.8.insert.ext.i297, i64 noundef %.sroa.3.8.insert.ext.i297)
+  %271 = tail call range(i32 2, -12) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 1, i64 %.sroa.3.8.insert.ext.i297, i64 noundef %.sroa.3.8.insert.ext.i297)
   %272 = load i32, ptr %2, align 4
   %273 = lshr i32 %272, 8
   %274 = and i32 %273, 255
   %.sroa.3.8.insert.ext.i298 = zext nneg i32 %274 to i64
-  %275 = tail call range(i32 2, 0) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 0, i64 %.sroa.3.8.insert.ext.i298, i64 noundef %.sroa.3.8.insert.ext.i298)
-  %276 = tail call range(i32 4, 0) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 110, i32 %271, i32 %275, i32 0, i32 0, i32 0, i32 0)
+  %275 = tail call range(i32 2, -12) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 0, i64 %.sroa.3.8.insert.ext.i298, i64 noundef %.sroa.3.8.insert.ext.i298)
+  %276 = tail call range(i32 4, -8) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 110, i32 %271, i32 %275, i32 0, i32 0, i32 0, i32 0)
   br label %321
 
 277:                                              ; preds = %4
   %.sroa.3.8.insert.ext.i299 = zext i32 %3 to i64
-  %278 = tail call range(i32 2, 0) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 1, i64 %.sroa.3.8.insert.ext.i299, i64 noundef %.sroa.3.8.insert.ext.i299)
+  %278 = tail call range(i32 2, -12) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 1, i64 %.sroa.3.8.insert.ext.i299, i64 noundef %.sroa.3.8.insert.ext.i299)
   %279 = load i32, ptr %2, align 4
   %280 = lshr i32 %279, 4
   %281 = and i32 %280, 4080
@@ -1688,8 +1688,8 @@ _ZN4Luau7CodeGen9IrBuilder11blockAtInstEj.exit291: ; preds = %187, %190
   %285 = add nsw i32 %284, -1
   %.sroa.3.8.insert.ext.i300 = zext i32 %285 to i64
   %286 = sext i32 %285 to i64
-  %287 = tail call range(i32 2, 0) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 0, i64 %.sroa.3.8.insert.ext.i300, i64 noundef %286)
-  %288 = tail call range(i32 4, 0) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 111, i32 %278, i32 %282, i32 %287, i32 0, i32 0, i32 0)
+  %287 = tail call range(i32 2, -12) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 0, i64 %.sroa.3.8.insert.ext.i300, i64 noundef %286)
+  %288 = tail call range(i32 4, -8) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 111, i32 %278, i32 %282, i32 %287, i32 0, i32 0, i32 0)
   br label %321
 
 289:                                              ; preds = %4
@@ -1698,7 +1698,7 @@ _ZN4Luau7CodeGen9IrBuilder11blockAtInstEj.exit291: ; preds = %187, %190
 
 290:                                              ; preds = %4
   %.sroa.3.8.insert.ext.i301 = zext i32 %3 to i64
-  %291 = tail call range(i32 2, 0) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 1, i64 %.sroa.3.8.insert.ext.i301, i64 noundef %.sroa.3.8.insert.ext.i301)
+  %291 = tail call range(i32 2, -12) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 1, i64 %.sroa.3.8.insert.ext.i301, i64 noundef %.sroa.3.8.insert.ext.i301)
   %292 = load i32, ptr %2, align 4
   %293 = lshr i32 %292, 4
   %294 = and i32 %293, 4080
@@ -1706,7 +1706,7 @@ _ZN4Luau7CodeGen9IrBuilder11blockAtInstEj.exit291: ; preds = %187, %190
   %296 = ashr i32 %292, 12
   %297 = and i32 %296, -16
   %298 = or disjoint i32 %297, 7
-  %299 = tail call range(i32 4, 0) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 113, i32 %291, i32 %295, i32 %298, i32 0, i32 0, i32 0)
+  %299 = tail call range(i32 4, -8) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 113, i32 %291, i32 %295, i32 %298, i32 0, i32 0, i32 0)
   br label %321
 
 300:                                              ; preds = %4
@@ -1734,12 +1734,12 @@ _ZN4Luau7CodeGen9IrBuilder11blockAtInstEj.exit291: ; preds = %187, %190
 _ZN4Luau7CodeGen9IrBuilder11blockAtInstEj.exit304: ; preds = %310, %313
   %.sroa.0.0.i303 = phi i32 [ %314, %313 ], [ %312, %310 ]
   %.sroa.3.8.insert.ext.i305 = zext i32 %3 to i64
-  %315 = tail call range(i32 2, 0) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 1, i64 %.sroa.3.8.insert.ext.i305, i64 noundef %.sroa.3.8.insert.ext.i305)
+  %315 = tail call range(i32 2, -12) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 1, i64 %.sroa.3.8.insert.ext.i305, i64 noundef %.sroa.3.8.insert.ext.i305)
   %316 = load i32, ptr %2, align 4
   %317 = lshr i32 %316, 4
   %318 = and i32 %317, 4080
   %319 = or disjoint i32 %318, 6
-  %320 = tail call range(i32 4, 0) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 114, i32 %315, i32 %319, i32 %.sroa.0.0.i303, i32 0, i32 0, i32 0)
+  %320 = tail call range(i32 4, -8) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 114, i32 %315, i32 %319, i32 %.sroa.0.0.i303, i32 0, i32 0, i32 0)
   br label %321
 
 321:                                              ; preds = %263, %4, %267, %166, %_ZN4Luau7CodeGen9IrBuilder11blockAtInstEj.exit291, %13, %37, %_ZN4Luau7CodeGen9IrBuilder11blockAtInstEj.exit304, %290, %289, %277, %270, %262, %261, %260, %257, %252, %247, %242, %237, %236, %235, %161, %160, %150, %144, %137, %135, %133, %132, %131, %130, %113, %112, %111, %110, %109, %108, %107, %106, %105, %104, %103, %102, %101, %100, %99, %98, %97, %96, %95, %94, %93, %92, %91, %90, %89, %88, %87, %86, %85, %84, %83, %82, %81, %80, %79, %78, %77, %76, %75, %74, %73, %72, %71, %58, %12, %11, %10, %9, %8, %7, %6, %5
@@ -1796,13 +1796,13 @@ declare void @_ZN4Luau7CodeGen22translateInstGetGlobalERNS0_9IrBuilderEPKji(ptr 
 declare void @_ZN4Luau7CodeGen22translateInstSetGlobalERNS0_9IrBuilderEPKji(ptr noundef nonnull align 8 dereferenceable(744), ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i32 4, 0) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_(ptr nocapture noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext %1, i32 %2, i32 %3, i32 %4) local_unnamed_addr #1 align 2 {
+define dso_local range(i32 4, -8) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_(ptr nocapture noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext %1, i32 %2, i32 %3, i32 %4) local_unnamed_addr #1 align 2 {
   %6 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext %1, i32 %2, i32 %3, i32 %4, i32 0, i32 0, i32 0)
   ret i32 %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local range(i32 6, 4096) i32 @_ZN4Luau7CodeGen9IrBuilder5vmRegEh(ptr nocapture noundef nonnull readnone align 8 dereferenceable(744) %0, i8 noundef zeroext %1) local_unnamed_addr #6 align 2 {
+define dso_local range(i32 6, 4088) i32 @_ZN4Luau7CodeGen9IrBuilder5vmRegEh(ptr nocapture noundef nonnull readnone align 8 dereferenceable(744) %0, i8 noundef zeroext %1) local_unnamed_addr #6 align 2 {
   %3 = zext i8 %1 to i32
   %4 = shl nuw nsw i32 %3, 4
   %5 = or disjoint i32 %4, 6
@@ -1810,7 +1810,7 @@ define dso_local range(i32 6, 4096) i32 @_ZN4Luau7CodeGen9IrBuilder5vmRegEh(ptr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i32 2, 0) i32 @_ZN4Luau7CodeGen9IrBuilder8constIntEi(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define dso_local range(i32 2, -12) i32 @_ZN4Luau7CodeGen9IrBuilder8constIntEi(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %.sroa.3.8.insert.ext = zext i32 %1 to i64
   %3 = sext i32 %1 to i64
   %4 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 0, i64 %.sroa.3.8.insert.ext, i64 noundef %3)
@@ -1818,7 +1818,7 @@ define dso_local range(i32 2, 0) i32 @_ZN4Luau7CodeGen9IrBuilder8constIntEi(ptr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i32 4, 0) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_(ptr nocapture noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext %1, i32 %2, i32 %3) local_unnamed_addr #1 align 2 {
+define dso_local range(i32 4, -8) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_(ptr nocapture noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext %1, i32 %2, i32 %3) local_unnamed_addr #1 align 2 {
   %5 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext %1, i32 %2, i32 %3, i32 0, i32 0, i32 0, i32 0)
   ret i32 %5
 }
@@ -1872,7 +1872,7 @@ declare void @_ZN4Luau7CodeGen21translateInstNewTableERNS0_9IrBuilderEPKji(ptr n
 declare void @_ZN4Luau7CodeGen21translateInstDupTableERNS0_9IrBuilderEPKji(ptr noundef nonnull align 8 dereferenceable(744), ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i32 4, 0) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr nocapture noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext %1, i32 %2, i32 %3, i32 %4, i32 %5, i32 %6, i32 %7) local_unnamed_addr #1 align 2 {
+define dso_local range(i32 4, -8) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr nocapture noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext %1, i32 %2, i32 %3, i32 %4, i32 %5, i32 %6, i32 %7) local_unnamed_addr #1 align 2 {
   %9 = load i8, ptr @_ZN5FFlag16LuauCodegenInstGE, align 8
   %10 = trunc i8 %9 to i1
   br i1 %10, label %11, label %13
@@ -2063,7 +2063,7 @@ define dso_local void @_ZN4Luau7CodeGen9IrBuilder22handleFastcallFallbackENS0_4I
 
 _ZN4Luau7CodeGen9IrBuilder11blockAtInstEj.exit:   ; preds = %16, %19
   %.sroa.0.0.i = phi i32 [ %20, %19 ], [ %18, %16 ]
-  %21 = tail call range(i32 4, 0) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 43, i32 %.sroa.0.0.i, i32 0, i32 0, i32 0, i32 0, i32 0)
+  %21 = tail call range(i32 4, -8) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 43, i32 %.sroa.0.0.i, i32 0, i32 0, i32 0, i32 0, i32 0)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = lshr i32 %1, 4
   %24 = zext nneg i32 %23 to i64
@@ -2104,7 +2104,7 @@ _ZN4Luau7CodeGen9IrBuilder11blockAtInstEj.exit:   ; preds = %16, %19
 declare i32 @_ZN4Luau7CodeGen18translateFastCallNERNS0_9IrBuilderEPKjibiNS0_4IrOpES5_(ptr noundef nonnull align 8 dereferenceable(744), ptr noundef, i32 noundef, i1 noundef zeroext, i32 noundef, i32, i32) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local range(i32 7, 0) i32 @_ZN4Luau7CodeGen9IrBuilder7vmConstEj(ptr nocapture noundef nonnull readnone align 8 dereferenceable(744) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define dso_local range(i32 7, -8) i32 @_ZN4Luau7CodeGen9IrBuilder7vmConstEj(ptr nocapture noundef nonnull readnone align 8 dereferenceable(744) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = shl i32 %1, 4
   %4 = or disjoint i32 %3, 7
   ret i32 %4
@@ -2118,15 +2118,15 @@ declare void @_ZN4Luau7CodeGen27translateInstForGLoopIpairsERNS0_9IrBuilderEPKji
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen9IrBuilder15loadAndCheckTagENS0_4IrOpEhS2_(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 %1, i8 noundef zeroext %2, i32 %3) local_unnamed_addr #1 align 2 {
-  %5 = tail call range(i32 4, 0) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 1, i32 %1, i32 0, i32 0, i32 0, i32 0, i32 0)
+  %5 = tail call range(i32 4, -8) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 1, i32 %1, i32 0, i32 0, i32 0, i32 0, i32 0)
   %.sroa.3.8.insert.ext.i = zext i8 %2 to i64
-  %6 = tail call range(i32 2, 0) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 3, i64 %.sroa.3.8.insert.ext.i, i64 noundef %.sroa.3.8.insert.ext.i)
-  %7 = tail call range(i32 4, 0) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 79, i32 %5, i32 %6, i32 %3, i32 0, i32 0, i32 0)
+  %6 = tail call range(i32 2, -12) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 3, i64 %.sroa.3.8.insert.ext.i, i64 noundef %.sroa.3.8.insert.ext.i)
+  %7 = tail call range(i32 4, -8) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 79, i32 %5, i32 %6, i32 %3, i32 0, i32 0, i32 0)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i32 4, 0) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_(ptr nocapture noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext %1, i32 %2, i32 %3, i32 %4, i32 %5) local_unnamed_addr #1 align 2 {
+define dso_local range(i32 4, -8) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_(ptr nocapture noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext %1, i32 %2, i32 %3, i32 %4, i32 %5) local_unnamed_addr #1 align 2 {
   %7 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext %1, i32 %2, i32 %3, i32 %4, i32 %5, i32 0, i32 0)
   ret i32 %7
 }
@@ -2162,7 +2162,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau7CodeGen9IrBuilder15isInternalBlock
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i32 2, 0) i32 @_ZN4Luau7CodeGen9IrBuilder8constTagEh(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext %1) local_unnamed_addr #1 align 2 {
+define dso_local range(i32 2, -12) i32 @_ZN4Luau7CodeGen9IrBuilder8constTagEh(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext %1) local_unnamed_addr #1 align 2 {
   %.sroa.3.8.insert.ext = zext i8 %1 to i64
   %3 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 3, i64 %.sroa.3.8.insert.ext, i64 noundef %.sroa.3.8.insert.ext)
   ret i32 %3
@@ -2813,7 +2813,7 @@ declare void @_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_6IrInstE(ptr noundef 
 declare void @_ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(616), i32) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i32 4, 0) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_S3_(ptr nocapture noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext %1, i32 %2, i32 %3, i32 %4, i32 %5, i32 %6, i32 %7, i32 %8) local_unnamed_addr #1 align 2 {
+define dso_local range(i32 4, -8) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_S3_(ptr nocapture noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext %1, i32 %2, i32 %3, i32 %4, i32 %5, i32 %6, i32 %7, i32 %8) local_unnamed_addr #1 align 2 {
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = load ptr, ptr %11, align 8
@@ -2951,7 +2951,7 @@ _ZNSt6vectorIN4Luau7CodeGen6IrInstESaIS2_EE9push_backEOS2_.exit: ; preds = %21, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i32 2, 0) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 %1, i64 %2, i64 noundef %3) local_unnamed_addr #1 align 2 {
+define dso_local range(i32 2, -12) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 %1, i64 %2, i64 noundef %3) local_unnamed_addr #1 align 2 {
   %5 = alloca %"struct.Luau::CodeGen::IrBuilder::ConstantKey", align 8
   store i8 %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -3111,7 +3111,7 @@ _ZNSt6vectorIN4Luau7CodeGen7IrConstESaIS2_EE9push_backERKS2_.exit: ; preds = %72
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i32 2, 0) i32 @_ZN4Luau7CodeGen9IrBuilder11constDoubleEd(ptr noundef nonnull align 8 dereferenceable(744) %0, double noundef %1) local_unnamed_addr #1 align 2 {
+define dso_local range(i32 2, -12) i32 @_ZN4Luau7CodeGen9IrBuilder11constDoubleEd(ptr noundef nonnull align 8 dereferenceable(744) %0, double noundef %1) local_unnamed_addr #1 align 2 {
   %3 = bitcast double %1 to i64
   %4 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_7IrConstEm(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 2, i64 %3, i64 noundef %3)
   ret i32 %4
@@ -3284,7 +3284,7 @@ _ZN4Luau6detail14DenseHashTableINS_7CodeGen9IrBuilder11ConstantKeyESt4pairIS4_jE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local range(i32 3, 4096) i32 @_ZN4Luau7CodeGen9IrBuilder4condENS0_11IrConditionE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(744) %0, i8 noundef zeroext %1) local_unnamed_addr #6 align 2 {
+define dso_local range(i32 3, 4084) i32 @_ZN4Luau7CodeGen9IrBuilder4condENS0_11IrConditionE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(744) %0, i8 noundef zeroext %1) local_unnamed_addr #6 align 2 {
   %3 = zext i8 %1 to i32
   %4 = shl nuw nsw i32 %3, 4
   %5 = or disjoint i32 %4, 3
@@ -3292,13 +3292,13 @@ define dso_local range(i32 3, 4096) i32 @_ZN4Luau7CodeGen9IrBuilder4condENS0_11I
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i32 4, 0) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdE(ptr nocapture noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext %1) local_unnamed_addr #1 align 2 {
+define dso_local range(i32 4, -8) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdE(ptr nocapture noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext %1) local_unnamed_addr #1 align 2 {
   %3 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext %1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0)
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i32 4, 0) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_(ptr nocapture noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext %1, i32 %2, i32 %3, i32 %4, i32 %5, i32 %6) local_unnamed_addr #1 align 2 {
+define dso_local range(i32 4, -8) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_(ptr nocapture noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext %1, i32 %2, i32 %3, i32 %4, i32 %5, i32 %6) local_unnamed_addr #1 align 2 {
   %8 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext %1, i32 %2, i32 %3, i32 %4, i32 %5, i32 %6, i32 0)
   ret i32 %8
 }

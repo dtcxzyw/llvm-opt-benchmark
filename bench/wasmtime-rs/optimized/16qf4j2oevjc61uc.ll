@@ -37040,7 +37040,7 @@ _ZN17cranelift_codegen8machinst4isle26shuffle_imm_as_le_lane_idx17hf5a8ab5e74d14
 }
 
 ; Function Attrs: nonlazybind uwtable
-define i40 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$18shuffle32_from_imm17h796bf781f860d0e1E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, i32 noundef %1) unnamed_addr #2 {
+define range(i40 0, -254) i40 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$18shuffle32_from_imm17h796bf781f860d0e1E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, i32 noundef %1) unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !155, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5121)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1816

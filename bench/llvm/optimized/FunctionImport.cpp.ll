@@ -1481,7 +1481,7 @@ _ZN4llvm6detail12DenseSetImplINS_9StringRefENS_8DenseMapIS2_NS0_13DenseSetEmptyE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i64 0, 8589934592) i64 @_ZNK4llvm16FunctionImporter11ImportMapTy13getImportTypeENS_9StringRefEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr %1, i64 %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
+define dso_local range(i64 0, 4294967298) i64 @_ZNK4llvm16FunctionImporter11ImportMapTy13getImportTypeENS_9StringRefEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr %1, i64 %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"struct.std::pair.510", align 8
   %6 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
@@ -7846,11 +7846,11 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfo
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load i32, ptr %41, align 8
   %43 = icmp eq i32 %42, 1
-  %.not17 = icmp ne ptr %40, null
-  %.not.not26 = and i1 %.not17, %43
+  %.not18 = icmp ne ptr %40, null
+  %.not.not26 = and i1 %.not18, %43
   %44 = load i8, ptr %0, align 8
-  %.not18 = icmp eq i8 %44, 0
-  %or.cond24 = select i1 %.not.not26, i1 %.not18, i1 false
+  %.not19 = icmp eq i8 %44, 0
+  %or.cond24 = select i1 %.not.not26, i1 %.not19, i1 false
   br i1 %or.cond24, label %45, label %.critedge6
 
 45:                                               ; preds = %38
@@ -7948,8 +7948,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfo
   %86 = or disjoint i32 %85, %84
   store i32 %86, ptr %69, align 8
   %87 = and i32 %.pre, 15
-  %.not19 = icmp eq i32 %87, 9
-  br i1 %.not19, label %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i
+  %.not20 = icmp eq i32 %87, 9
+  br i1 %.not20, label %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i
 
 _ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i: ; preds = %82
   %88 = or i32 %86, 16384
@@ -7996,13 +7996,13 @@ _ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit: ; preds = %82,
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 12
   %100 = load i16, ptr %99, align 4
   %101 = and i16 %100, 512
-  %.not20 = icmp eq i16 %101, 0
-  br i1 %.not20, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i83, label %102
+  %.not21 = icmp eq i16 %101, 0
+  br i1 %.not21, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i83, label %102
 
 102:                                              ; preds = %97
   %103 = and i32 %89, -49
-  %.not21 = icmp eq i32 %90, 9
-  %spec.select.v = select i1 %.not21, i32 16, i32 16400
+  %.not22 = icmp eq i32 %90, 9
+  %spec.select.v = select i1 %.not22, i32 16, i32 16400
   %spec.select = or i32 %103, %spec.select.v
   br label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i83
 
@@ -8043,8 +8043,8 @@ _ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit: ; preds = %_ZN4llvm16dyn_
 _ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_12GlobalObjectENS_11GlobalValueEEEDaPT0_.exit, %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %117 = load ptr, ptr %116, align 8
-  %.not22 = icmp eq ptr %117, null
-  br i1 %.not22, label %_ZN4llvm16dyn_cast_or_nullINS_12GlobalObjectENS_11GlobalValueEEEDaPT0_.exit.thread, label %118
+  %.not23 = icmp eq ptr %117, null
+  br i1 %.not23, label %_ZN4llvm16dyn_cast_or_nullINS_12GlobalObjectENS_11GlobalValueEEEDaPT0_.exit.thread, label %118
 
 118:                                              ; preds = %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread
   %119 = call { ptr, i64 } @_ZNK4llvm6Comdat7getNameEv(ptr noundef nonnull align 8 dereferenceable(64) %117) #26

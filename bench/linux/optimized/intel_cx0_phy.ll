@@ -3268,7 +3268,7 @@ define dso_local void @intel_cx0pll_readout_hw_state(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 0, 107478629) i32 @intel_cx0pll_calc_port_clock(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 0, 63028069) i32 @intel_cx0pll_calc_port_clock(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %5 = load i32, ptr %4, align 4

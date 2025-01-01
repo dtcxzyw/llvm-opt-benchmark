@@ -445,7 +445,7 @@ declare dso_local void @sk_stream_write_space(ptr noundef) #2
 declare dso_local i32 @tcp_sync_mss(ptr noundef, i32 noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 0, 16384) i32 @tcp_poll(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local range(i32 0, 8704) i32 @tcp_poll(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca i8, align 1
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8

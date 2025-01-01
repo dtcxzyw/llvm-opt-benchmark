@@ -1666,7 +1666,7 @@ declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
 declare i32 @_pcre2_was_newline_8(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, i64 noundef range(i64 0, 1048704) %3, ptr nocapture noundef nonnull %4, ptr noundef nonnull %5) unnamed_addr #0 {
+define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, i64 noundef range(i64 136, 1048704) %3, ptr nocapture noundef nonnull %4, ptr noundef nonnull %5) unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8

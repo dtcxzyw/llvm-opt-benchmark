@@ -2483,7 +2483,7 @@ declare noundef nonnull align 8 dereferenceable(40) ptr @_ZNR5folly7dynamicixENS
 declare noundef nonnull align 8 dereferenceable(40) ptr @_ZN5folly7dynamicaSEOS0_(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define range(i16 0, 512) i16 @_ZN8facebook5velox4core9SortOrder11deserializeERKN5folly7dynamicE(ptr noundef nonnull align 8 dereferenceable(40) %obj) local_unnamed_addr #0 align 2 {
+define range(i16 0, 258) i16 @_ZN8facebook5velox4core9SortOrder11deserializeERKN5folly7dynamicE(ptr noundef nonnull align 8 dereferenceable(40) %obj) local_unnamed_addr #0 align 2 {
 entry:
   %call.i = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZNKR5folly7dynamic2atENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr nonnull @.str, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 9))
   %0 = load i32, ptr %call.i, align 8

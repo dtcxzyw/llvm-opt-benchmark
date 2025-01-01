@@ -25823,7 +25823,7 @@ define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h437fa0bf2a296
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden range(i16 0, 1024) i16 @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h442d3bc2d56d1041E"(ptr noalias nocapture noundef readonly align 1 dereferenceable_or_null(2) %0) unnamed_addr #12 personality ptr @rust_eh_personality {
+define hidden range(i16 0, 776) i16 @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h442d3bc2d56d1041E"(ptr noalias nocapture noundef readonly align 1 dereferenceable_or_null(2) %0) unnamed_addr #12 personality ptr @rust_eh_personality {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %9, label %3
 
@@ -27013,7 +27013,7 @@ define hidden { i8, i8 } @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h7fd7840
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden i24 @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h81cde3fdb5a2803eE"(ptr noalias nocapture noundef readonly align 1 dereferenceable_or_null(3) %0) unnamed_addr #12 {
+define hidden range(i24 0, -252) i24 @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h81cde3fdb5a2803eE"(ptr noalias nocapture noundef readonly align 1 dereferenceable_or_null(3) %0) unnamed_addr #12 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -27907,7 +27907,7 @@ define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17ha2a2000c12a20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden i40 @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17ha4b2664b9db2a5dbE"(ptr noalias nocapture noundef readonly align 1 dereferenceable_or_null(4) %0) unnamed_addr #12 {
+define hidden range(i40 0, -254) i40 @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17ha4b2664b9db2a5dbE"(ptr noalias nocapture noundef readonly align 1 dereferenceable_or_null(4) %0) unnamed_addr #12 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %4, label %3
 
@@ -29256,7 +29256,7 @@ define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hd9838dc24e215
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden range(i16 0, 2048) i16 @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hdb80525489437503E"(ptr noalias nocapture noundef readonly align 1 dereferenceable_or_null(2) %0) unnamed_addr #12 personality ptr @rust_eh_personality {
+define hidden range(i16 0, 1028) i16 @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hdb80525489437503E"(ptr noalias nocapture noundef readonly align 1 dereferenceable_or_null(2) %0) unnamed_addr #12 personality ptr @rust_eh_personality {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %10, label %3
 
@@ -29296,7 +29296,7 @@ default.unreachable:                              ; preds = %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden i48 @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hdd0f7e3e7bf1bf91E"(ptr noalias nocapture noundef readonly align 1 dereferenceable_or_null(6) %0) unnamed_addr #12 {
+define hidden range(i48 0, -252) i48 @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hdd0f7e3e7bf1bf91E"(ptr noalias nocapture noundef readonly align 1 dereferenceable_or_null(6) %0) unnamed_addr #12 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -49910,7 +49910,7 @@ define hidden void @"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cl
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden i24 @"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha6f8083e3235724bE.llvm.13383457361836014260"(ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %0) unnamed_addr #8 {
+define hidden range(i24 0, -254) i24 @"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha6f8083e3235724bE.llvm.13383457361836014260"(ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %0) unnamed_addr #8 {
   %2 = load i8, ptr %0, align 1, !range !4, !noundef !5
   %trunc = trunc nuw i8 %2 to i1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -101568,7 +101568,7 @@ define hidden void @"_ZN5typst6layout5sides14Sides$LT$T$GT$3map17h374673249317dd
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 33554432) i32 @"_ZN5typst6layout5sides14Sides$LT$T$GT$3map17h4406992a74de2ac2E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #44 personality ptr @rust_eh_personality {
+define hidden range(i32 0, 16908288) i32 @"_ZN5typst6layout5sides14Sides$LT$T$GT$3map17h4406992a74de2ac2E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #44 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !7, !noundef !5
   %.val = load i64, ptr %2, align 8, !range !11, !noundef !5
   %3 = getelementptr i8, ptr %2, i64 8
@@ -104172,7 +104172,7 @@ define hidden void @"_ZN5typst6layout5sides14Sides$LT$T$GT$3map17hf5066836799393
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 33554432) i32 @"_ZN5typst6layout5sides14Sides$LT$T$GT$3map17hfca59927bb182b1fE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #44 personality ptr @rust_eh_personality {
+define hidden range(i32 0, 16908288) i32 @"_ZN5typst6layout5sides14Sides$LT$T$GT$3map17hfca59927bb182b1fE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #44 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !7, !noundef !5
   %.val = load i64, ptr %2, align 8, !range !11, !noundef !5
   %3 = getelementptr i8, ptr %2, i64 8
@@ -124483,7 +124483,7 @@ define hidden noundef range(i8 0, 5) i8 @"_ZN79_$LT$typst..foundations..auto..Sm
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden i48 @"_ZN79_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h91340153c65e45a4E.llvm.13383457361836014260"(ptr noalias nocapture noundef readonly align 1 dereferenceable(6) %0) unnamed_addr #8 {
+define hidden range(i48 0, -254) i48 @"_ZN79_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h91340153c65e45a4E.llvm.13383457361836014260"(ptr noalias nocapture noundef readonly align 1 dereferenceable(6) %0) unnamed_addr #8 {
   %2 = load i8, ptr %0, align 1, !range !4, !noundef !5
   %trunc = trunc nuw i8 %2 to i1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -127989,7 +127989,7 @@ define hidden noundef zeroext i1 @"_ZN76_$LT$typst..layout..align..OuterVAlignme
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden range(i16 0, 1024) i16 @"_ZN91_$LT$typst..layout..align..SpecificAlignment$LT$H$C$V$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h3a86ea810fd3c1baE.llvm.13383457361836014260"(ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %0) unnamed_addr #8 personality ptr @rust_eh_personality {
+define hidden range(i16 0, 776) i16 @"_ZN91_$LT$typst..layout..align..SpecificAlignment$LT$H$C$V$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h3a86ea810fd3c1baE.llvm.13383457361836014260"(ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %0) unnamed_addr #8 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 1, !range !474, !noundef !5
   %3 = add nsw i8 %2, -3
   %narrow = tail call i8 @llvm.umin.i8(i8 %3, i8 2)
@@ -128020,7 +128020,7 @@ default.unreachable:                              ; preds = %1
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden range(i16 0, 2048) i16 @"_ZN91_$LT$typst..layout..align..SpecificAlignment$LT$H$C$V$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h3f1c0d7004e503c5E.llvm.13383457361836014260"(ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %0) unnamed_addr #8 personality ptr @rust_eh_personality {
+define hidden range(i16 0, 1028) i16 @"_ZN91_$LT$typst..layout..align..SpecificAlignment$LT$H$C$V$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h3f1c0d7004e503c5E.llvm.13383457361836014260"(ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %0) unnamed_addr #8 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 1, !range !421, !noundef !5
   %3 = add nsw i8 %2, -2
   %narrow = tail call i8 @llvm.umin.i8(i8 %3, i8 2)

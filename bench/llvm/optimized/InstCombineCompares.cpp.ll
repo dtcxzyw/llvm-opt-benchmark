@@ -41690,7 +41690,7 @@ declare noundef zeroext i1 @_ZN4llvm18isKnownNonNegativeEPKNS_5ValueERKNS_13Simp
 declare noundef i32 @_ZN4llvm7CmpInst29getFlippedSignednessPredicateENS0_9PredicateE(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc range(i16 0, 512) i16 @"_ZZN4llvm16InstCombinerImpl18foldICmpWithMinMaxERNS_11InstructionEPNS_15MinMaxIntrinsicEPNS_5ValueENS_7CmpInst9PredicateEENK3$_0clES6_"(ptr noundef %0) unnamed_addr #0 align 2 {
+define internal fastcc range(i16 0, 258) i16 @"_ZZN4llvm16InstCombinerImpl18foldICmpWithMinMaxERNS_11InstructionEPNS_15MinMaxIntrinsicEPNS_5ValueENS_7CmpInst9PredicateEENK3$_0clES6_"(ptr noundef %0) unnamed_addr #0 align 2 {
   %2 = alloca %"struct.llvm::PatternMatch::cstval_pred_ty.151", align 8
   %3 = alloca %"struct.llvm::PatternMatch::cstval_pred_ty.97", align 8
   %.not = icmp eq ptr %0, null

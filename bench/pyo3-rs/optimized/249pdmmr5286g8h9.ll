@@ -1465,7 +1465,7 @@ _ZN17pyo3_build_config5impl_13cargo_env_var17hdb3cee141ccec1deE.exit: ; preds = 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden range(i24 768, 0) i24 @_ZN17pyo3_build_config5impl_16get_abi3_version17h32f787615e292af0E() unnamed_addr #0 {
+define hidden range(i24 768, -64512) i24 @_ZN17pyo3_build_config5impl_16get_abi3_version17h32f787615e292af0E() unnamed_addr #0 {
   %1 = alloca [3 x i8], align 1
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 7, ptr %2, align 1

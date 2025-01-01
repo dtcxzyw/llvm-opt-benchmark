@@ -5506,7 +5506,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN9Imath_3_14halfC2Ef.exit.i, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %if.then55.i.i.i, %lor.lhs.false.i.i.i, %if.end37.i.i.i, %if.end27.i.i.i, %if.then23.i.i.i, %if.end.i.i.i, %if.then4.i.i.i
@@ -5608,7 +5608,7 @@ lor.lhs.false.i.i146.i:                           ; preds = %if.end40.i.i134.i
   br i1 %or.cond.i.i150.i, label %_ZN9Imath_3_14halfC2Ef.exit177.i, label %if.then55.i.i151.i
 
 if.then55.i.i151.i:                               ; preds = %lor.lhs.false.i.i146.i, %if.end40.i.i134.i
-  %inc.i.i152.i = add i16 %conv49.i.i144.i, 1
+  %inc.i.i152.i = add nuw i16 %conv49.i.i144.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit177.i
 
 _ZN9Imath_3_14halfC2Ef.exit177.i:                 ; preds = %if.then55.i.i151.i, %lor.lhs.false.i.i146.i, %if.end37.i.i132.i, %if.end27.i.i158.i, %if.then23.i.i167.i, %if.end.i.i172.i, %if.then4.i.i169.i
@@ -5710,7 +5710,7 @@ lor.lhs.false.i.i202.i:                           ; preds = %if.end40.i.i190.i
   br i1 %or.cond.i.i206.i, label %_ZN9Imath_3_14halfC2Ef.exit233.i, label %if.then55.i.i207.i
 
 if.then55.i.i207.i:                               ; preds = %lor.lhs.false.i.i202.i, %if.end40.i.i190.i
-  %inc.i.i208.i = add i16 %conv49.i.i200.i, 1
+  %inc.i.i208.i = add nuw i16 %conv49.i.i200.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit233.i
 
 _ZN9Imath_3_14halfC2Ef.exit233.i:                 ; preds = %if.then55.i.i207.i, %lor.lhs.false.i.i202.i, %if.end37.i.i188.i, %if.end27.i.i214.i, %if.then23.i.i223.i, %if.end.i.i228.i, %if.then4.i.i225.i
@@ -12292,7 +12292,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN9Imath_3_14halfC2Ef.exit.i, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %if.then55.i.i.i, %lor.lhs.false.i.i.i, %if.end37.i.i.i, %if.end27.i.i.i, %if.then23.i.i.i, %if.end.i.i.i, %if.then4.i.i.i
@@ -12394,7 +12394,7 @@ lor.lhs.false.i.i146.i:                           ; preds = %if.end40.i.i134.i
   br i1 %or.cond.i.i150.i, label %_ZN9Imath_3_14halfC2Ef.exit177.i, label %if.then55.i.i151.i
 
 if.then55.i.i151.i:                               ; preds = %lor.lhs.false.i.i146.i, %if.end40.i.i134.i
-  %inc.i.i152.i = add i16 %conv49.i.i144.i, 1
+  %inc.i.i152.i = add nuw i16 %conv49.i.i144.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit177.i
 
 _ZN9Imath_3_14halfC2Ef.exit177.i:                 ; preds = %if.then55.i.i151.i, %lor.lhs.false.i.i146.i, %if.end37.i.i132.i, %if.end27.i.i158.i, %if.then23.i.i167.i, %if.end.i.i172.i, %if.then4.i.i169.i
@@ -12496,7 +12496,7 @@ lor.lhs.false.i.i202.i:                           ; preds = %if.end40.i.i190.i
   br i1 %or.cond.i.i206.i, label %_ZN9Imath_3_14halfC2Ef.exit233.i, label %if.then55.i.i207.i
 
 if.then55.i.i207.i:                               ; preds = %lor.lhs.false.i.i202.i, %if.end40.i.i190.i
-  %inc.i.i208.i = add i16 %conv49.i.i200.i, 1
+  %inc.i.i208.i = add nuw i16 %conv49.i.i200.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit233.i
 
 _ZN9Imath_3_14halfC2Ef.exit233.i:                 ; preds = %if.then55.i.i207.i, %lor.lhs.false.i.i202.i, %if.end37.i.i188.i, %if.end27.i.i214.i, %if.then23.i.i223.i, %if.end.i.i228.i, %if.then4.i.i225.i
@@ -18715,7 +18715,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN9Imath_3_14halfC2Ef.exit.i, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %if.then55.i.i.i, %lor.lhs.false.i.i.i, %if.end37.i.i.i, %if.end27.i.i.i, %if.then23.i.i.i, %if.end.i.i.i, %if.then4.i.i.i
@@ -18817,7 +18817,7 @@ lor.lhs.false.i.i146.i:                           ; preds = %if.end40.i.i134.i
   br i1 %or.cond.i.i150.i, label %_ZN9Imath_3_14halfC2Ef.exit177.i, label %if.then55.i.i151.i
 
 if.then55.i.i151.i:                               ; preds = %lor.lhs.false.i.i146.i, %if.end40.i.i134.i
-  %inc.i.i152.i = add i16 %conv49.i.i144.i, 1
+  %inc.i.i152.i = add nuw i16 %conv49.i.i144.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit177.i
 
 _ZN9Imath_3_14halfC2Ef.exit177.i:                 ; preds = %if.then55.i.i151.i, %lor.lhs.false.i.i146.i, %if.end37.i.i132.i, %if.end27.i.i158.i, %if.then23.i.i167.i, %if.end.i.i172.i, %if.then4.i.i169.i
@@ -18919,7 +18919,7 @@ lor.lhs.false.i.i202.i:                           ; preds = %if.end40.i.i190.i
   br i1 %or.cond.i.i206.i, label %_ZN9Imath_3_14halfC2Ef.exit233.i, label %if.then55.i.i207.i
 
 if.then55.i.i207.i:                               ; preds = %lor.lhs.false.i.i202.i, %if.end40.i.i190.i
-  %inc.i.i208.i = add i16 %conv49.i.i200.i, 1
+  %inc.i.i208.i = add nuw i16 %conv49.i.i200.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit233.i
 
 _ZN9Imath_3_14halfC2Ef.exit233.i:                 ; preds = %if.then55.i.i207.i, %lor.lhs.false.i.i202.i, %if.end37.i.i188.i, %if.end27.i.i214.i, %if.then23.i.i223.i, %if.end.i.i228.i, %if.then4.i.i225.i
@@ -25138,7 +25138,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN9Imath_3_14halfC2Ef.exit.i, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %if.then55.i.i.i, %lor.lhs.false.i.i.i, %if.end37.i.i.i, %if.end27.i.i.i, %if.then23.i.i.i, %if.end.i.i.i, %if.then4.i.i.i
@@ -25240,7 +25240,7 @@ lor.lhs.false.i.i146.i:                           ; preds = %if.end40.i.i134.i
   br i1 %or.cond.i.i150.i, label %_ZN9Imath_3_14halfC2Ef.exit177.i, label %if.then55.i.i151.i
 
 if.then55.i.i151.i:                               ; preds = %lor.lhs.false.i.i146.i, %if.end40.i.i134.i
-  %inc.i.i152.i = add i16 %conv49.i.i144.i, 1
+  %inc.i.i152.i = add nuw i16 %conv49.i.i144.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit177.i
 
 _ZN9Imath_3_14halfC2Ef.exit177.i:                 ; preds = %if.then55.i.i151.i, %lor.lhs.false.i.i146.i, %if.end37.i.i132.i, %if.end27.i.i158.i, %if.then23.i.i167.i, %if.end.i.i172.i, %if.then4.i.i169.i
@@ -25342,7 +25342,7 @@ lor.lhs.false.i.i202.i:                           ; preds = %if.end40.i.i190.i
   br i1 %or.cond.i.i206.i, label %_ZN9Imath_3_14halfC2Ef.exit233.i, label %if.then55.i.i207.i
 
 if.then55.i.i207.i:                               ; preds = %lor.lhs.false.i.i202.i, %if.end40.i.i190.i
-  %inc.i.i208.i = add i16 %conv49.i.i200.i, 1
+  %inc.i.i208.i = add nuw i16 %conv49.i.i200.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit233.i
 
 _ZN9Imath_3_14halfC2Ef.exit233.i:                 ; preds = %if.then55.i.i207.i, %lor.lhs.false.i.i202.i, %if.end37.i.i188.i, %if.end27.i.i214.i, %if.then23.i.i223.i, %if.end.i.i228.i, %if.then4.i.i225.i
@@ -30551,7 +30551,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end40.i.i
   br i1 %or.cond.i.i, label %_ZN9Imath_3_14halfC2Ef.exit, label %if.then55.i.i
 
 if.then55.i.i:                                    ; preds = %lor.lhs.false.i.i, %if.end40.i.i
-  %inc.i.i = add i16 %conv49.i.i, 1
+  %inc.i.i = add nuw i16 %conv49.i.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit
 
 _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %if.then4.i.i, %if.end.i.i, %if.then23.i.i, %if.end27.i.i, %if.end37.i.i, %lor.lhs.false.i.i, %if.then55.i.i
@@ -31638,7 +31638,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN9Imath_3_14halfC2Ef.exit.i, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %if.then55.i.i.i, %lor.lhs.false.i.i.i, %if.end37.i.i.i, %if.end27.i.i.i, %if.then23.i.i.i, %if.end.i.i.i, %if.then4.i.i.i
@@ -31740,7 +31740,7 @@ lor.lhs.false.i.i146.i:                           ; preds = %if.end40.i.i134.i
   br i1 %or.cond.i.i150.i, label %_ZN9Imath_3_14halfC2Ef.exit177.i, label %if.then55.i.i151.i
 
 if.then55.i.i151.i:                               ; preds = %lor.lhs.false.i.i146.i, %if.end40.i.i134.i
-  %inc.i.i152.i = add i16 %conv49.i.i144.i, 1
+  %inc.i.i152.i = add nuw i16 %conv49.i.i144.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit177.i
 
 _ZN9Imath_3_14halfC2Ef.exit177.i:                 ; preds = %if.then55.i.i151.i, %lor.lhs.false.i.i146.i, %if.end37.i.i132.i, %if.end27.i.i158.i, %if.then23.i.i167.i, %if.end.i.i172.i, %if.then4.i.i169.i
@@ -31842,7 +31842,7 @@ lor.lhs.false.i.i202.i:                           ; preds = %if.end40.i.i190.i
   br i1 %or.cond.i.i206.i, label %_ZN9Imath_3_14halfC2Ef.exit233.i, label %if.then55.i.i207.i
 
 if.then55.i.i207.i:                               ; preds = %lor.lhs.false.i.i202.i, %if.end40.i.i190.i
-  %inc.i.i208.i = add i16 %conv49.i.i200.i, 1
+  %inc.i.i208.i = add nuw i16 %conv49.i.i200.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit233.i
 
 _ZN9Imath_3_14halfC2Ef.exit233.i:                 ; preds = %if.then55.i.i207.i, %lor.lhs.false.i.i202.i, %if.end37.i.i188.i, %if.end27.i.i214.i, %if.then23.i.i223.i, %if.end.i.i228.i, %if.then4.i.i225.i
@@ -33526,7 +33526,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end40.i.i
   br i1 %or.cond.i.i, label %_ZN9Imath_3_14halfC2Ef.exit, label %if.then55.i.i
 
 if.then55.i.i:                                    ; preds = %lor.lhs.false.i.i, %if.end40.i.i
-  %inc.i.i = add i16 %conv49.i.i, 1
+  %inc.i.i = add nuw i16 %conv49.i.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit
 
 _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %if.then4.i.i, %if.end.i.i, %if.then23.i.i, %if.end27.i.i, %if.end37.i.i, %lor.lhs.false.i.i, %if.then55.i.i
@@ -33606,7 +33606,7 @@ lor.lhs.false.i.i37:                              ; preds = %if.end40.i.i25
   br i1 %or.cond.i.i41, label %_ZN9Imath_3_14halfC2Ef.exit68, label %if.then55.i.i42
 
 if.then55.i.i42:                                  ; preds = %lor.lhs.false.i.i37, %if.end40.i.i25
-  %inc.i.i43 = add i16 %conv49.i.i35, 1
+  %inc.i.i43 = add nuw i16 %conv49.i.i35, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit68
 
 _ZN9Imath_3_14halfC2Ef.exit68:                    ; preds = %if.then4.i.i60, %if.end.i.i63, %if.then23.i.i58, %if.end27.i.i49, %if.end37.i.i23, %lor.lhs.false.i.i37, %if.then55.i.i42
@@ -33687,7 +33687,7 @@ lor.lhs.false.i.i87:                              ; preds = %if.end40.i.i75
   br i1 %or.cond.i.i91, label %_ZN9Imath_3_14halfC2Ef.exit118, label %if.then55.i.i92
 
 if.then55.i.i92:                                  ; preds = %lor.lhs.false.i.i87, %if.end40.i.i75
-  %inc.i.i93 = add i16 %conv49.i.i85, 1
+  %inc.i.i93 = add nuw i16 %conv49.i.i85, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit118
 
 _ZN9Imath_3_14halfC2Ef.exit118:                   ; preds = %if.then4.i.i110, %if.end.i.i113, %if.then23.i.i108, %if.end27.i.i99, %if.end37.i.i73, %lor.lhs.false.i.i87, %if.then55.i.i92
@@ -33772,7 +33772,7 @@ lor.lhs.false.i.i137:                             ; preds = %if.end40.i.i125
   br i1 %or.cond.i.i141, label %_ZN9Imath_3_14halfC2Ef.exit168, label %if.then55.i.i142
 
 if.then55.i.i142:                                 ; preds = %lor.lhs.false.i.i137, %if.end40.i.i125
-  %inc.i.i143 = add i16 %conv49.i.i135, 1
+  %inc.i.i143 = add nuw i16 %conv49.i.i135, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit168
 
 _ZN9Imath_3_14halfC2Ef.exit168:                   ; preds = %if.then4.i.i160, %if.end.i.i163, %if.then23.i.i158, %if.end27.i.i149, %if.end37.i.i123, %lor.lhs.false.i.i137, %if.then55.i.i142
@@ -34065,7 +34065,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end40.i.i
   br i1 %or.cond.i.i, label %_ZN9Imath_3_14halfC2Ef.exit, label %if.then55.i.i
 
 if.then55.i.i:                                    ; preds = %lor.lhs.false.i.i, %if.end40.i.i
-  %inc.i.i = add i16 %conv49.i.i, 1
+  %inc.i.i = add nuw i16 %conv49.i.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit
 
 _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %if.then4.i.i, %if.end.i.i, %if.then23.i.i, %if.end27.i.i, %if.end37.i.i, %lor.lhs.false.i.i, %if.then55.i.i
@@ -34330,7 +34330,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end40.i.i
   br i1 %or.cond.i.i, label %_ZN9Imath_3_14halfC2Ef.exit, label %if.then55.i.i
 
 if.then55.i.i:                                    ; preds = %lor.lhs.false.i.i, %if.end40.i.i
-  %inc.i.i = add i16 %conv49.i.i, 1
+  %inc.i.i = add nuw i16 %conv49.i.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit
 
 _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %if.then4.i.i, %if.end.i.i, %if.then23.i.i, %if.end27.i.i, %if.end37.i.i, %lor.lhs.false.i.i, %if.then55.i.i
@@ -34410,7 +34410,7 @@ lor.lhs.false.i.i37:                              ; preds = %if.end40.i.i25
   br i1 %or.cond.i.i41, label %_ZN9Imath_3_14halfC2Ef.exit68, label %if.then55.i.i42
 
 if.then55.i.i42:                                  ; preds = %lor.lhs.false.i.i37, %if.end40.i.i25
-  %inc.i.i43 = add i16 %conv49.i.i35, 1
+  %inc.i.i43 = add nuw i16 %conv49.i.i35, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit68
 
 _ZN9Imath_3_14halfC2Ef.exit68:                    ; preds = %if.then4.i.i60, %if.end.i.i63, %if.then23.i.i58, %if.end27.i.i49, %if.end37.i.i23, %lor.lhs.false.i.i37, %if.then55.i.i42
@@ -34491,7 +34491,7 @@ lor.lhs.false.i.i87:                              ; preds = %if.end40.i.i75
   br i1 %or.cond.i.i91, label %_ZN9Imath_3_14halfC2Ef.exit118, label %if.then55.i.i92
 
 if.then55.i.i92:                                  ; preds = %lor.lhs.false.i.i87, %if.end40.i.i75
-  %inc.i.i93 = add i16 %conv49.i.i85, 1
+  %inc.i.i93 = add nuw i16 %conv49.i.i85, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit118
 
 _ZN9Imath_3_14halfC2Ef.exit118:                   ; preds = %if.then4.i.i110, %if.end.i.i113, %if.then23.i.i108, %if.end27.i.i99, %if.end37.i.i73, %lor.lhs.false.i.i87, %if.then55.i.i92
@@ -34576,7 +34576,7 @@ lor.lhs.false.i.i137:                             ; preds = %if.end40.i.i125
   br i1 %or.cond.i.i141, label %_ZN9Imath_3_14halfC2Ef.exit168, label %if.then55.i.i142
 
 if.then55.i.i142:                                 ; preds = %lor.lhs.false.i.i137, %if.end40.i.i125
-  %inc.i.i143 = add i16 %conv49.i.i135, 1
+  %inc.i.i143 = add nuw i16 %conv49.i.i135, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit168
 
 _ZN9Imath_3_14halfC2Ef.exit168:                   ; preds = %if.then4.i.i160, %if.end.i.i163, %if.then23.i.i158, %if.end27.i.i149, %if.end37.i.i123, %lor.lhs.false.i.i137, %if.then55.i.i142
@@ -35134,7 +35134,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %if.then4.i.i.i, %if.end.i.i.i, %if.then23.i.i.i, %if.end27.i.i.i, %if.end37.i.i.i, %lor.lhs.false.i.i.i, %if.then55.i.i.i
@@ -35213,7 +35213,7 @@ lor.lhs.false.i.i.i34:                            ; preds = %if.end40.i.i.i22
   br i1 %or.cond.i.i.i38, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit65, label %if.then55.i.i.i39
 
 if.then55.i.i.i39:                                ; preds = %lor.lhs.false.i.i.i34, %if.end40.i.i.i22
-  %inc.i.i.i40 = add i16 %conv49.i.i.i32, 1
+  %inc.i.i.i40 = add nuw i16 %conv49.i.i.i32, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit65
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit65: ; preds = %if.then4.i.i.i57, %if.end.i.i.i60, %if.then23.i.i.i55, %if.end27.i.i.i46, %if.end37.i.i.i20, %lor.lhs.false.i.i.i34, %if.then55.i.i.i39
@@ -35293,7 +35293,7 @@ lor.lhs.false.i.i.i84:                            ; preds = %if.end40.i.i.i72
   br i1 %or.cond.i.i.i88, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit115, label %if.then55.i.i.i89
 
 if.then55.i.i.i89:                                ; preds = %lor.lhs.false.i.i.i84, %if.end40.i.i.i72
-  %inc.i.i.i90 = add i16 %conv49.i.i.i82, 1
+  %inc.i.i.i90 = add nuw i16 %conv49.i.i.i82, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit115
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit115: ; preds = %if.then4.i.i.i107, %if.end.i.i.i110, %if.then23.i.i.i105, %if.end27.i.i.i96, %if.end37.i.i.i70, %lor.lhs.false.i.i.i84, %if.then55.i.i.i89
@@ -35378,7 +35378,7 @@ lor.lhs.false.i.i.i134:                           ; preds = %if.end40.i.i.i122
   br i1 %or.cond.i.i.i138, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit165, label %if.then55.i.i.i139
 
 if.then55.i.i.i139:                               ; preds = %lor.lhs.false.i.i.i134, %if.end40.i.i.i122
-  %inc.i.i.i140 = add i16 %conv49.i.i.i132, 1
+  %inc.i.i.i140 = add nuw i16 %conv49.i.i.i132, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit165
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit165: ; preds = %if.then4.i.i.i157, %if.end.i.i.i160, %if.then23.i.i.i155, %if.end27.i.i.i146, %if.end37.i.i.i120, %lor.lhs.false.i.i.i134, %if.then55.i.i.i139
@@ -36133,7 +36133,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %if.then4.i.i.i, %if.end.i.i.i, %if.then23.i.i.i, %if.end27.i.i.i, %if.end37.i.i.i, %lor.lhs.false.i.i.i, %if.then55.i.i.i
@@ -36271,7 +36271,7 @@ lor.lhs.false.i.i.i73:                            ; preds = %if.end40.i.i.i61
   br i1 %or.cond.i.i.i77, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104, label %if.then55.i.i.i78
 
 if.then55.i.i.i78:                                ; preds = %lor.lhs.false.i.i.i73, %if.end40.i.i.i61
-  %inc.i.i.i79 = add i16 %conv49.i.i.i71, 1
+  %inc.i.i.i79 = add nuw i16 %conv49.i.i.i71, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104: ; preds = %if.then4.i.i.i96, %if.end.i.i.i99, %if.then23.i.i.i94, %if.end27.i.i.i85, %if.end37.i.i.i59, %lor.lhs.false.i.i.i73, %if.then55.i.i.i78
@@ -36410,7 +36410,7 @@ lor.lhs.false.i.i.i166:                           ; preds = %if.end40.i.i.i154
   br i1 %or.cond.i.i.i170, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit197, label %if.then55.i.i.i171
 
 if.then55.i.i.i171:                               ; preds = %lor.lhs.false.i.i.i166, %if.end40.i.i.i154
-  %inc.i.i.i172 = add i16 %conv49.i.i.i164, 1
+  %inc.i.i.i172 = add nuw i16 %conv49.i.i.i164, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit197
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit197: ; preds = %if.then4.i.i.i189, %if.end.i.i.i192, %if.then23.i.i.i187, %if.end27.i.i.i178, %if.end37.i.i.i152, %lor.lhs.false.i.i.i166, %if.then55.i.i.i171
@@ -36495,7 +36495,7 @@ lor.lhs.false.i.i.i216:                           ; preds = %if.end40.i.i.i204
   br i1 %or.cond.i.i.i220, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit247, label %if.then55.i.i.i221
 
 if.then55.i.i.i221:                               ; preds = %lor.lhs.false.i.i.i216, %if.end40.i.i.i204
-  %inc.i.i.i222 = add i16 %conv49.i.i.i214, 1
+  %inc.i.i.i222 = add nuw i16 %conv49.i.i.i214, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit247
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit247: ; preds = %if.then4.i.i.i239, %if.end.i.i.i242, %if.then23.i.i.i237, %if.end27.i.i.i228, %if.end37.i.i.i202, %lor.lhs.false.i.i.i216, %if.then55.i.i.i221
@@ -37407,7 +37407,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %if.then4.i.i.i, %if.end.i.i.i, %if.then23.i.i.i, %if.end27.i.i.i, %if.end37.i.i.i, %lor.lhs.false.i.i.i, %if.then55.i.i.i
@@ -37487,7 +37487,7 @@ lor.lhs.false.i.i.i29:                            ; preds = %if.end40.i.i.i17
   br i1 %or.cond.i.i.i33, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit60, label %if.then55.i.i.i34
 
 if.then55.i.i.i34:                                ; preds = %lor.lhs.false.i.i.i29, %if.end40.i.i.i17
-  %inc.i.i.i35 = add i16 %conv49.i.i.i27, 1
+  %inc.i.i.i35 = add nuw i16 %conv49.i.i.i27, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit60
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit60: ; preds = %if.then4.i.i.i52, %if.end.i.i.i55, %if.then23.i.i.i50, %if.end27.i.i.i41, %if.end37.i.i.i15, %lor.lhs.false.i.i.i29, %if.then55.i.i.i34
@@ -37568,7 +37568,7 @@ lor.lhs.false.i.i.i79:                            ; preds = %if.end40.i.i.i67
   br i1 %or.cond.i.i.i83, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit110, label %if.then55.i.i.i84
 
 if.then55.i.i.i84:                                ; preds = %lor.lhs.false.i.i.i79, %if.end40.i.i.i67
-  %inc.i.i.i85 = add i16 %conv49.i.i.i77, 1
+  %inc.i.i.i85 = add nuw i16 %conv49.i.i.i77, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit110
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit110: ; preds = %if.then4.i.i.i102, %if.end.i.i.i105, %if.then23.i.i.i100, %if.end27.i.i.i91, %if.end37.i.i.i65, %lor.lhs.false.i.i.i79, %if.then55.i.i.i84
@@ -37653,7 +37653,7 @@ lor.lhs.false.i.i.i129:                           ; preds = %if.end40.i.i.i117
   br i1 %or.cond.i.i.i133, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit160, label %if.then55.i.i.i134
 
 if.then55.i.i.i134:                               ; preds = %lor.lhs.false.i.i.i129, %if.end40.i.i.i117
-  %inc.i.i.i135 = add i16 %conv49.i.i.i127, 1
+  %inc.i.i.i135 = add nuw i16 %conv49.i.i.i127, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit160
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit160: ; preds = %if.then4.i.i.i152, %if.end.i.i.i155, %if.then23.i.i.i150, %if.end27.i.i.i141, %if.end37.i.i.i115, %lor.lhs.false.i.i.i129, %if.then55.i.i.i134
@@ -38271,7 +38271,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %if.then4.i.i.i, %if.end.i.i.i, %if.then23.i.i.i, %if.end27.i.i.i, %if.end37.i.i.i, %lor.lhs.false.i.i.i, %if.then55.i.i.i
@@ -38351,7 +38351,7 @@ lor.lhs.false.i.i.i121:                           ; preds = %if.end40.i.i.i109
   br i1 %or.cond.i.i.i125, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit152, label %if.then55.i.i.i126
 
 if.then55.i.i.i126:                               ; preds = %lor.lhs.false.i.i.i121, %if.end40.i.i.i109
-  %inc.i.i.i127 = add i16 %conv49.i.i.i119, 1
+  %inc.i.i.i127 = add nuw i16 %conv49.i.i.i119, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit152
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit152: ; preds = %if.then4.i.i.i144, %if.end.i.i.i147, %if.then23.i.i.i142, %if.end27.i.i.i133, %if.end37.i.i.i107, %lor.lhs.false.i.i.i121, %if.then55.i.i.i126
@@ -38432,7 +38432,7 @@ lor.lhs.false.i.i.i171:                           ; preds = %if.end40.i.i.i159
   br i1 %or.cond.i.i.i175, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit202, label %if.then55.i.i.i176
 
 if.then55.i.i.i176:                               ; preds = %lor.lhs.false.i.i.i171, %if.end40.i.i.i159
-  %inc.i.i.i177 = add i16 %conv49.i.i.i169, 1
+  %inc.i.i.i177 = add nuw i16 %conv49.i.i.i169, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit202
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit202: ; preds = %if.then4.i.i.i194, %if.end.i.i.i197, %if.then23.i.i.i192, %if.end27.i.i.i183, %if.end37.i.i.i157, %lor.lhs.false.i.i.i171, %if.then55.i.i.i176
@@ -38517,7 +38517,7 @@ lor.lhs.false.i.i.i221:                           ; preds = %if.end40.i.i.i209
   br i1 %or.cond.i.i.i225, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit252, label %if.then55.i.i.i226
 
 if.then55.i.i.i226:                               ; preds = %lor.lhs.false.i.i.i221, %if.end40.i.i.i209
-  %inc.i.i.i227 = add i16 %conv49.i.i.i219, 1
+  %inc.i.i.i227 = add nuw i16 %conv49.i.i.i219, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit252
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit252: ; preds = %if.then4.i.i.i244, %if.end.i.i.i247, %if.then23.i.i.i242, %if.end27.i.i.i233, %if.end37.i.i.i207, %lor.lhs.false.i.i.i221, %if.then55.i.i.i226
@@ -39809,7 +39809,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN9Imath_3_14halfC2Ef.exit.i, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %if.then55.i.i.i, %lor.lhs.false.i.i.i, %if.end37.i.i.i, %if.end27.i.i.i, %if.then23.i.i.i, %if.end.i.i.i, %if.then4.i.i.i
@@ -39911,7 +39911,7 @@ lor.lhs.false.i.i146.i:                           ; preds = %if.end40.i.i134.i
   br i1 %or.cond.i.i150.i, label %_ZN9Imath_3_14halfC2Ef.exit177.i, label %if.then55.i.i151.i
 
 if.then55.i.i151.i:                               ; preds = %lor.lhs.false.i.i146.i, %if.end40.i.i134.i
-  %inc.i.i152.i = add i16 %conv49.i.i144.i, 1
+  %inc.i.i152.i = add nuw i16 %conv49.i.i144.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit177.i
 
 _ZN9Imath_3_14halfC2Ef.exit177.i:                 ; preds = %if.then55.i.i151.i, %lor.lhs.false.i.i146.i, %if.end37.i.i132.i, %if.end27.i.i158.i, %if.then23.i.i167.i, %if.end.i.i172.i, %if.then4.i.i169.i
@@ -40013,7 +40013,7 @@ lor.lhs.false.i.i202.i:                           ; preds = %if.end40.i.i190.i
   br i1 %or.cond.i.i206.i, label %_ZN9Imath_3_14halfC2Ef.exit233.i, label %if.then55.i.i207.i
 
 if.then55.i.i207.i:                               ; preds = %lor.lhs.false.i.i202.i, %if.end40.i.i190.i
-  %inc.i.i208.i = add i16 %conv49.i.i200.i, 1
+  %inc.i.i208.i = add nuw i16 %conv49.i.i200.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit233.i
 
 _ZN9Imath_3_14halfC2Ef.exit233.i:                 ; preds = %if.then55.i.i207.i, %lor.lhs.false.i.i202.i, %if.end37.i.i188.i, %if.end27.i.i214.i, %if.then23.i.i223.i, %if.end.i.i228.i, %if.then4.i.i225.i
@@ -47867,7 +47867,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN9Imath_3_14halfC2Ef.exit.i, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %if.then55.i.i.i, %lor.lhs.false.i.i.i, %if.end37.i.i.i, %if.end27.i.i.i, %if.then23.i.i.i, %if.end.i.i.i, %if.then4.i.i.i
@@ -47969,7 +47969,7 @@ lor.lhs.false.i.i146.i:                           ; preds = %if.end40.i.i134.i
   br i1 %or.cond.i.i150.i, label %_ZN9Imath_3_14halfC2Ef.exit177.i, label %if.then55.i.i151.i
 
 if.then55.i.i151.i:                               ; preds = %lor.lhs.false.i.i146.i, %if.end40.i.i134.i
-  %inc.i.i152.i = add i16 %conv49.i.i144.i, 1
+  %inc.i.i152.i = add nuw i16 %conv49.i.i144.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit177.i
 
 _ZN9Imath_3_14halfC2Ef.exit177.i:                 ; preds = %if.then55.i.i151.i, %lor.lhs.false.i.i146.i, %if.end37.i.i132.i, %if.end27.i.i158.i, %if.then23.i.i167.i, %if.end.i.i172.i, %if.then4.i.i169.i
@@ -48071,7 +48071,7 @@ lor.lhs.false.i.i202.i:                           ; preds = %if.end40.i.i190.i
   br i1 %or.cond.i.i206.i, label %_ZN9Imath_3_14halfC2Ef.exit233.i, label %if.then55.i.i207.i
 
 if.then55.i.i207.i:                               ; preds = %lor.lhs.false.i.i202.i, %if.end40.i.i190.i
-  %inc.i.i208.i = add i16 %conv49.i.i200.i, 1
+  %inc.i.i208.i = add nuw i16 %conv49.i.i200.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit233.i
 
 _ZN9Imath_3_14halfC2Ef.exit233.i:                 ; preds = %if.then55.i.i207.i, %lor.lhs.false.i.i202.i, %if.end37.i.i188.i, %if.end27.i.i214.i, %if.then23.i.i223.i, %if.end.i.i228.i, %if.then4.i.i225.i
@@ -54290,7 +54290,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN9Imath_3_14halfC2Ef.exit.i, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %if.then55.i.i.i, %lor.lhs.false.i.i.i, %if.end37.i.i.i, %if.end27.i.i.i, %if.then23.i.i.i, %if.end.i.i.i, %if.then4.i.i.i
@@ -54392,7 +54392,7 @@ lor.lhs.false.i.i146.i:                           ; preds = %if.end40.i.i134.i
   br i1 %or.cond.i.i150.i, label %_ZN9Imath_3_14halfC2Ef.exit177.i, label %if.then55.i.i151.i
 
 if.then55.i.i151.i:                               ; preds = %lor.lhs.false.i.i146.i, %if.end40.i.i134.i
-  %inc.i.i152.i = add i16 %conv49.i.i144.i, 1
+  %inc.i.i152.i = add nuw i16 %conv49.i.i144.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit177.i
 
 _ZN9Imath_3_14halfC2Ef.exit177.i:                 ; preds = %if.then55.i.i151.i, %lor.lhs.false.i.i146.i, %if.end37.i.i132.i, %if.end27.i.i158.i, %if.then23.i.i167.i, %if.end.i.i172.i, %if.then4.i.i169.i
@@ -54494,7 +54494,7 @@ lor.lhs.false.i.i202.i:                           ; preds = %if.end40.i.i190.i
   br i1 %or.cond.i.i206.i, label %_ZN9Imath_3_14halfC2Ef.exit233.i, label %if.then55.i.i207.i
 
 if.then55.i.i207.i:                               ; preds = %lor.lhs.false.i.i202.i, %if.end40.i.i190.i
-  %inc.i.i208.i = add i16 %conv49.i.i200.i, 1
+  %inc.i.i208.i = add nuw i16 %conv49.i.i200.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit233.i
 
 _ZN9Imath_3_14halfC2Ef.exit233.i:                 ; preds = %if.then55.i.i207.i, %lor.lhs.false.i.i202.i, %if.end37.i.i188.i, %if.end27.i.i214.i, %if.then23.i.i223.i, %if.end.i.i228.i, %if.then4.i.i225.i
@@ -60713,7 +60713,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN9Imath_3_14halfC2Ef.exit.i, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %if.then55.i.i.i, %lor.lhs.false.i.i.i, %if.end37.i.i.i, %if.end27.i.i.i, %if.then23.i.i.i, %if.end.i.i.i, %if.then4.i.i.i
@@ -60815,7 +60815,7 @@ lor.lhs.false.i.i146.i:                           ; preds = %if.end40.i.i134.i
   br i1 %or.cond.i.i150.i, label %_ZN9Imath_3_14halfC2Ef.exit177.i, label %if.then55.i.i151.i
 
 if.then55.i.i151.i:                               ; preds = %lor.lhs.false.i.i146.i, %if.end40.i.i134.i
-  %inc.i.i152.i = add i16 %conv49.i.i144.i, 1
+  %inc.i.i152.i = add nuw i16 %conv49.i.i144.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit177.i
 
 _ZN9Imath_3_14halfC2Ef.exit177.i:                 ; preds = %if.then55.i.i151.i, %lor.lhs.false.i.i146.i, %if.end37.i.i132.i, %if.end27.i.i158.i, %if.then23.i.i167.i, %if.end.i.i172.i, %if.then4.i.i169.i
@@ -60917,7 +60917,7 @@ lor.lhs.false.i.i202.i:                           ; preds = %if.end40.i.i190.i
   br i1 %or.cond.i.i206.i, label %_ZN9Imath_3_14halfC2Ef.exit233.i, label %if.then55.i.i207.i
 
 if.then55.i.i207.i:                               ; preds = %lor.lhs.false.i.i202.i, %if.end40.i.i190.i
-  %inc.i.i208.i = add i16 %conv49.i.i200.i, 1
+  %inc.i.i208.i = add nuw i16 %conv49.i.i200.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit233.i
 
 _ZN9Imath_3_14halfC2Ef.exit233.i:                 ; preds = %if.then55.i.i207.i, %lor.lhs.false.i.i202.i, %if.end37.i.i188.i, %if.end27.i.i214.i, %if.then23.i.i223.i, %if.end.i.i228.i, %if.then4.i.i225.i
@@ -67136,7 +67136,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN9Imath_3_14halfC2Ef.exit.i, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %if.then55.i.i.i, %lor.lhs.false.i.i.i, %if.end37.i.i.i, %if.end27.i.i.i, %if.then23.i.i.i, %if.end.i.i.i, %if.then4.i.i.i
@@ -67238,7 +67238,7 @@ lor.lhs.false.i.i146.i:                           ; preds = %if.end40.i.i134.i
   br i1 %or.cond.i.i150.i, label %_ZN9Imath_3_14halfC2Ef.exit177.i, label %if.then55.i.i151.i
 
 if.then55.i.i151.i:                               ; preds = %lor.lhs.false.i.i146.i, %if.end40.i.i134.i
-  %inc.i.i152.i = add i16 %conv49.i.i144.i, 1
+  %inc.i.i152.i = add nuw i16 %conv49.i.i144.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit177.i
 
 _ZN9Imath_3_14halfC2Ef.exit177.i:                 ; preds = %if.then55.i.i151.i, %lor.lhs.false.i.i146.i, %if.end37.i.i132.i, %if.end27.i.i158.i, %if.then23.i.i167.i, %if.end.i.i172.i, %if.then4.i.i169.i
@@ -67340,7 +67340,7 @@ lor.lhs.false.i.i202.i:                           ; preds = %if.end40.i.i190.i
   br i1 %or.cond.i.i206.i, label %_ZN9Imath_3_14halfC2Ef.exit233.i, label %if.then55.i.i207.i
 
 if.then55.i.i207.i:                               ; preds = %lor.lhs.false.i.i202.i, %if.end40.i.i190.i
-  %inc.i.i208.i = add i16 %conv49.i.i200.i, 1
+  %inc.i.i208.i = add nuw i16 %conv49.i.i200.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit233.i
 
 _ZN9Imath_3_14halfC2Ef.exit233.i:                 ; preds = %if.then55.i.i207.i, %lor.lhs.false.i.i202.i, %if.end37.i.i188.i, %if.end27.i.i214.i, %if.then23.i.i223.i, %if.end.i.i228.i, %if.then4.i.i225.i
@@ -72549,7 +72549,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end40.i.i
   br i1 %or.cond.i.i, label %_ZN9Imath_3_14halfC2Ef.exit, label %if.then55.i.i
 
 if.then55.i.i:                                    ; preds = %lor.lhs.false.i.i, %if.end40.i.i
-  %inc.i.i = add i16 %conv49.i.i, 1
+  %inc.i.i = add nuw i16 %conv49.i.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit
 
 _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %if.then4.i.i, %if.end.i.i, %if.then23.i.i, %if.end27.i.i, %if.end37.i.i, %lor.lhs.false.i.i, %if.then55.i.i
@@ -73636,7 +73636,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN9Imath_3_14halfC2Ef.exit.i, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %if.then55.i.i.i, %lor.lhs.false.i.i.i, %if.end37.i.i.i, %if.end27.i.i.i, %if.then23.i.i.i, %if.end.i.i.i, %if.then4.i.i.i
@@ -73738,7 +73738,7 @@ lor.lhs.false.i.i146.i:                           ; preds = %if.end40.i.i134.i
   br i1 %or.cond.i.i150.i, label %_ZN9Imath_3_14halfC2Ef.exit177.i, label %if.then55.i.i151.i
 
 if.then55.i.i151.i:                               ; preds = %lor.lhs.false.i.i146.i, %if.end40.i.i134.i
-  %inc.i.i152.i = add i16 %conv49.i.i144.i, 1
+  %inc.i.i152.i = add nuw i16 %conv49.i.i144.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit177.i
 
 _ZN9Imath_3_14halfC2Ef.exit177.i:                 ; preds = %if.then55.i.i151.i, %lor.lhs.false.i.i146.i, %if.end37.i.i132.i, %if.end27.i.i158.i, %if.then23.i.i167.i, %if.end.i.i172.i, %if.then4.i.i169.i
@@ -73840,7 +73840,7 @@ lor.lhs.false.i.i202.i:                           ; preds = %if.end40.i.i190.i
   br i1 %or.cond.i.i206.i, label %_ZN9Imath_3_14halfC2Ef.exit233.i, label %if.then55.i.i207.i
 
 if.then55.i.i207.i:                               ; preds = %lor.lhs.false.i.i202.i, %if.end40.i.i190.i
-  %inc.i.i208.i = add i16 %conv49.i.i200.i, 1
+  %inc.i.i208.i = add nuw i16 %conv49.i.i200.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit233.i
 
 _ZN9Imath_3_14halfC2Ef.exit233.i:                 ; preds = %if.then55.i.i207.i, %lor.lhs.false.i.i202.i, %if.end37.i.i188.i, %if.end27.i.i214.i, %if.then23.i.i223.i, %if.end.i.i228.i, %if.then4.i.i225.i
@@ -75524,7 +75524,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end40.i.i
   br i1 %or.cond.i.i, label %_ZN9Imath_3_14halfC2Ef.exit, label %if.then55.i.i
 
 if.then55.i.i:                                    ; preds = %lor.lhs.false.i.i, %if.end40.i.i
-  %inc.i.i = add i16 %conv49.i.i, 1
+  %inc.i.i = add nuw i16 %conv49.i.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit
 
 _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %if.then4.i.i, %if.end.i.i, %if.then23.i.i, %if.end27.i.i, %if.end37.i.i, %lor.lhs.false.i.i, %if.then55.i.i
@@ -75604,7 +75604,7 @@ lor.lhs.false.i.i37:                              ; preds = %if.end40.i.i25
   br i1 %or.cond.i.i41, label %_ZN9Imath_3_14halfC2Ef.exit68, label %if.then55.i.i42
 
 if.then55.i.i42:                                  ; preds = %lor.lhs.false.i.i37, %if.end40.i.i25
-  %inc.i.i43 = add i16 %conv49.i.i35, 1
+  %inc.i.i43 = add nuw i16 %conv49.i.i35, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit68
 
 _ZN9Imath_3_14halfC2Ef.exit68:                    ; preds = %if.then4.i.i60, %if.end.i.i63, %if.then23.i.i58, %if.end27.i.i49, %if.end37.i.i23, %lor.lhs.false.i.i37, %if.then55.i.i42
@@ -75685,7 +75685,7 @@ lor.lhs.false.i.i87:                              ; preds = %if.end40.i.i75
   br i1 %or.cond.i.i91, label %_ZN9Imath_3_14halfC2Ef.exit118, label %if.then55.i.i92
 
 if.then55.i.i92:                                  ; preds = %lor.lhs.false.i.i87, %if.end40.i.i75
-  %inc.i.i93 = add i16 %conv49.i.i85, 1
+  %inc.i.i93 = add nuw i16 %conv49.i.i85, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit118
 
 _ZN9Imath_3_14halfC2Ef.exit118:                   ; preds = %if.then4.i.i110, %if.end.i.i113, %if.then23.i.i108, %if.end27.i.i99, %if.end37.i.i73, %lor.lhs.false.i.i87, %if.then55.i.i92
@@ -75770,7 +75770,7 @@ lor.lhs.false.i.i137:                             ; preds = %if.end40.i.i125
   br i1 %or.cond.i.i141, label %_ZN9Imath_3_14halfC2Ef.exit168, label %if.then55.i.i142
 
 if.then55.i.i142:                                 ; preds = %lor.lhs.false.i.i137, %if.end40.i.i125
-  %inc.i.i143 = add i16 %conv49.i.i135, 1
+  %inc.i.i143 = add nuw i16 %conv49.i.i135, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit168
 
 _ZN9Imath_3_14halfC2Ef.exit168:                   ; preds = %if.then4.i.i160, %if.end.i.i163, %if.then23.i.i158, %if.end27.i.i149, %if.end37.i.i123, %lor.lhs.false.i.i137, %if.then55.i.i142
@@ -76063,7 +76063,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end40.i.i
   br i1 %or.cond.i.i, label %_ZN9Imath_3_14halfC2Ef.exit, label %if.then55.i.i
 
 if.then55.i.i:                                    ; preds = %lor.lhs.false.i.i, %if.end40.i.i
-  %inc.i.i = add i16 %conv49.i.i, 1
+  %inc.i.i = add nuw i16 %conv49.i.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit
 
 _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %if.then4.i.i, %if.end.i.i, %if.then23.i.i, %if.end27.i.i, %if.end37.i.i, %lor.lhs.false.i.i, %if.then55.i.i
@@ -76328,7 +76328,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end40.i.i
   br i1 %or.cond.i.i, label %_ZN9Imath_3_14halfC2Ef.exit, label %if.then55.i.i
 
 if.then55.i.i:                                    ; preds = %lor.lhs.false.i.i, %if.end40.i.i
-  %inc.i.i = add i16 %conv49.i.i, 1
+  %inc.i.i = add nuw i16 %conv49.i.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit
 
 _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %if.then4.i.i, %if.end.i.i, %if.then23.i.i, %if.end27.i.i, %if.end37.i.i, %lor.lhs.false.i.i, %if.then55.i.i
@@ -76408,7 +76408,7 @@ lor.lhs.false.i.i37:                              ; preds = %if.end40.i.i25
   br i1 %or.cond.i.i41, label %_ZN9Imath_3_14halfC2Ef.exit68, label %if.then55.i.i42
 
 if.then55.i.i42:                                  ; preds = %lor.lhs.false.i.i37, %if.end40.i.i25
-  %inc.i.i43 = add i16 %conv49.i.i35, 1
+  %inc.i.i43 = add nuw i16 %conv49.i.i35, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit68
 
 _ZN9Imath_3_14halfC2Ef.exit68:                    ; preds = %if.then4.i.i60, %if.end.i.i63, %if.then23.i.i58, %if.end27.i.i49, %if.end37.i.i23, %lor.lhs.false.i.i37, %if.then55.i.i42
@@ -76489,7 +76489,7 @@ lor.lhs.false.i.i87:                              ; preds = %if.end40.i.i75
   br i1 %or.cond.i.i91, label %_ZN9Imath_3_14halfC2Ef.exit118, label %if.then55.i.i92
 
 if.then55.i.i92:                                  ; preds = %lor.lhs.false.i.i87, %if.end40.i.i75
-  %inc.i.i93 = add i16 %conv49.i.i85, 1
+  %inc.i.i93 = add nuw i16 %conv49.i.i85, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit118
 
 _ZN9Imath_3_14halfC2Ef.exit118:                   ; preds = %if.then4.i.i110, %if.end.i.i113, %if.then23.i.i108, %if.end27.i.i99, %if.end37.i.i73, %lor.lhs.false.i.i87, %if.then55.i.i92
@@ -76574,7 +76574,7 @@ lor.lhs.false.i.i137:                             ; preds = %if.end40.i.i125
   br i1 %or.cond.i.i141, label %_ZN9Imath_3_14halfC2Ef.exit168, label %if.then55.i.i142
 
 if.then55.i.i142:                                 ; preds = %lor.lhs.false.i.i137, %if.end40.i.i125
-  %inc.i.i143 = add i16 %conv49.i.i135, 1
+  %inc.i.i143 = add nuw i16 %conv49.i.i135, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit168
 
 _ZN9Imath_3_14halfC2Ef.exit168:                   ; preds = %if.then4.i.i160, %if.end.i.i163, %if.then23.i.i158, %if.end27.i.i149, %if.end37.i.i123, %lor.lhs.false.i.i137, %if.then55.i.i142
@@ -77132,7 +77132,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %if.then4.i.i.i, %if.end.i.i.i, %if.then23.i.i.i, %if.end27.i.i.i, %if.end37.i.i.i, %lor.lhs.false.i.i.i, %if.then55.i.i.i
@@ -77211,7 +77211,7 @@ lor.lhs.false.i.i.i34:                            ; preds = %if.end40.i.i.i22
   br i1 %or.cond.i.i.i38, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit65, label %if.then55.i.i.i39
 
 if.then55.i.i.i39:                                ; preds = %lor.lhs.false.i.i.i34, %if.end40.i.i.i22
-  %inc.i.i.i40 = add i16 %conv49.i.i.i32, 1
+  %inc.i.i.i40 = add nuw i16 %conv49.i.i.i32, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit65
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit65: ; preds = %if.then4.i.i.i57, %if.end.i.i.i60, %if.then23.i.i.i55, %if.end27.i.i.i46, %if.end37.i.i.i20, %lor.lhs.false.i.i.i34, %if.then55.i.i.i39
@@ -77291,7 +77291,7 @@ lor.lhs.false.i.i.i84:                            ; preds = %if.end40.i.i.i72
   br i1 %or.cond.i.i.i88, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit115, label %if.then55.i.i.i89
 
 if.then55.i.i.i89:                                ; preds = %lor.lhs.false.i.i.i84, %if.end40.i.i.i72
-  %inc.i.i.i90 = add i16 %conv49.i.i.i82, 1
+  %inc.i.i.i90 = add nuw i16 %conv49.i.i.i82, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit115
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit115: ; preds = %if.then4.i.i.i107, %if.end.i.i.i110, %if.then23.i.i.i105, %if.end27.i.i.i96, %if.end37.i.i.i70, %lor.lhs.false.i.i.i84, %if.then55.i.i.i89
@@ -77376,7 +77376,7 @@ lor.lhs.false.i.i.i134:                           ; preds = %if.end40.i.i.i122
   br i1 %or.cond.i.i.i138, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit165, label %if.then55.i.i.i139
 
 if.then55.i.i.i139:                               ; preds = %lor.lhs.false.i.i.i134, %if.end40.i.i.i122
-  %inc.i.i.i140 = add i16 %conv49.i.i.i132, 1
+  %inc.i.i.i140 = add nuw i16 %conv49.i.i.i132, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit165
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit165: ; preds = %if.then4.i.i.i157, %if.end.i.i.i160, %if.then23.i.i.i155, %if.end27.i.i.i146, %if.end37.i.i.i120, %lor.lhs.false.i.i.i134, %if.then55.i.i.i139
@@ -78131,7 +78131,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %if.then4.i.i.i, %if.end.i.i.i, %if.then23.i.i.i, %if.end27.i.i.i, %if.end37.i.i.i, %lor.lhs.false.i.i.i, %if.then55.i.i.i
@@ -78269,7 +78269,7 @@ lor.lhs.false.i.i.i73:                            ; preds = %if.end40.i.i.i61
   br i1 %or.cond.i.i.i77, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104, label %if.then55.i.i.i78
 
 if.then55.i.i.i78:                                ; preds = %lor.lhs.false.i.i.i73, %if.end40.i.i.i61
-  %inc.i.i.i79 = add i16 %conv49.i.i.i71, 1
+  %inc.i.i.i79 = add nuw i16 %conv49.i.i.i71, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104: ; preds = %if.then4.i.i.i96, %if.end.i.i.i99, %if.then23.i.i.i94, %if.end27.i.i.i85, %if.end37.i.i.i59, %lor.lhs.false.i.i.i73, %if.then55.i.i.i78
@@ -78408,7 +78408,7 @@ lor.lhs.false.i.i.i166:                           ; preds = %if.end40.i.i.i154
   br i1 %or.cond.i.i.i170, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit197, label %if.then55.i.i.i171
 
 if.then55.i.i.i171:                               ; preds = %lor.lhs.false.i.i.i166, %if.end40.i.i.i154
-  %inc.i.i.i172 = add i16 %conv49.i.i.i164, 1
+  %inc.i.i.i172 = add nuw i16 %conv49.i.i.i164, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit197
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit197: ; preds = %if.then4.i.i.i189, %if.end.i.i.i192, %if.then23.i.i.i187, %if.end27.i.i.i178, %if.end37.i.i.i152, %lor.lhs.false.i.i.i166, %if.then55.i.i.i171
@@ -78493,7 +78493,7 @@ lor.lhs.false.i.i.i216:                           ; preds = %if.end40.i.i.i204
   br i1 %or.cond.i.i.i220, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit247, label %if.then55.i.i.i221
 
 if.then55.i.i.i221:                               ; preds = %lor.lhs.false.i.i.i216, %if.end40.i.i.i204
-  %inc.i.i.i222 = add i16 %conv49.i.i.i214, 1
+  %inc.i.i.i222 = add nuw i16 %conv49.i.i.i214, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit247
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit247: ; preds = %if.then4.i.i.i239, %if.end.i.i.i242, %if.then23.i.i.i237, %if.end27.i.i.i228, %if.end37.i.i.i202, %lor.lhs.false.i.i.i216, %if.then55.i.i.i221
@@ -79405,7 +79405,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %if.then4.i.i.i, %if.end.i.i.i, %if.then23.i.i.i, %if.end27.i.i.i, %if.end37.i.i.i, %lor.lhs.false.i.i.i, %if.then55.i.i.i
@@ -79485,7 +79485,7 @@ lor.lhs.false.i.i.i29:                            ; preds = %if.end40.i.i.i17
   br i1 %or.cond.i.i.i33, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit60, label %if.then55.i.i.i34
 
 if.then55.i.i.i34:                                ; preds = %lor.lhs.false.i.i.i29, %if.end40.i.i.i17
-  %inc.i.i.i35 = add i16 %conv49.i.i.i27, 1
+  %inc.i.i.i35 = add nuw i16 %conv49.i.i.i27, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit60
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit60: ; preds = %if.then4.i.i.i52, %if.end.i.i.i55, %if.then23.i.i.i50, %if.end27.i.i.i41, %if.end37.i.i.i15, %lor.lhs.false.i.i.i29, %if.then55.i.i.i34
@@ -79566,7 +79566,7 @@ lor.lhs.false.i.i.i79:                            ; preds = %if.end40.i.i.i67
   br i1 %or.cond.i.i.i83, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit110, label %if.then55.i.i.i84
 
 if.then55.i.i.i84:                                ; preds = %lor.lhs.false.i.i.i79, %if.end40.i.i.i67
-  %inc.i.i.i85 = add i16 %conv49.i.i.i77, 1
+  %inc.i.i.i85 = add nuw i16 %conv49.i.i.i77, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit110
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit110: ; preds = %if.then4.i.i.i102, %if.end.i.i.i105, %if.then23.i.i.i100, %if.end27.i.i.i91, %if.end37.i.i.i65, %lor.lhs.false.i.i.i79, %if.then55.i.i.i84
@@ -79651,7 +79651,7 @@ lor.lhs.false.i.i.i129:                           ; preds = %if.end40.i.i.i117
   br i1 %or.cond.i.i.i133, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit160, label %if.then55.i.i.i134
 
 if.then55.i.i.i134:                               ; preds = %lor.lhs.false.i.i.i129, %if.end40.i.i.i117
-  %inc.i.i.i135 = add i16 %conv49.i.i.i127, 1
+  %inc.i.i.i135 = add nuw i16 %conv49.i.i.i127, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit160
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit160: ; preds = %if.then4.i.i.i152, %if.end.i.i.i155, %if.then23.i.i.i150, %if.end27.i.i.i141, %if.end37.i.i.i115, %lor.lhs.false.i.i.i129, %if.then55.i.i.i134
@@ -80269,7 +80269,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %if.then4.i.i.i, %if.end.i.i.i, %if.then23.i.i.i, %if.end27.i.i.i, %if.end37.i.i.i, %lor.lhs.false.i.i.i, %if.then55.i.i.i
@@ -80349,7 +80349,7 @@ lor.lhs.false.i.i.i121:                           ; preds = %if.end40.i.i.i109
   br i1 %or.cond.i.i.i125, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit152, label %if.then55.i.i.i126
 
 if.then55.i.i.i126:                               ; preds = %lor.lhs.false.i.i.i121, %if.end40.i.i.i109
-  %inc.i.i.i127 = add i16 %conv49.i.i.i119, 1
+  %inc.i.i.i127 = add nuw i16 %conv49.i.i.i119, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit152
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit152: ; preds = %if.then4.i.i.i144, %if.end.i.i.i147, %if.then23.i.i.i142, %if.end27.i.i.i133, %if.end37.i.i.i107, %lor.lhs.false.i.i.i121, %if.then55.i.i.i126
@@ -80430,7 +80430,7 @@ lor.lhs.false.i.i.i171:                           ; preds = %if.end40.i.i.i159
   br i1 %or.cond.i.i.i175, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit202, label %if.then55.i.i.i176
 
 if.then55.i.i.i176:                               ; preds = %lor.lhs.false.i.i.i171, %if.end40.i.i.i159
-  %inc.i.i.i177 = add i16 %conv49.i.i.i169, 1
+  %inc.i.i.i177 = add nuw i16 %conv49.i.i.i169, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit202
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit202: ; preds = %if.then4.i.i.i194, %if.end.i.i.i197, %if.then23.i.i.i192, %if.end27.i.i.i183, %if.end37.i.i.i157, %lor.lhs.false.i.i.i171, %if.then55.i.i.i176
@@ -80515,7 +80515,7 @@ lor.lhs.false.i.i.i221:                           ; preds = %if.end40.i.i.i209
   br i1 %or.cond.i.i.i225, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit252, label %if.then55.i.i.i226
 
 if.then55.i.i.i226:                               ; preds = %lor.lhs.false.i.i.i221, %if.end40.i.i.i209
-  %inc.i.i.i227 = add i16 %conv49.i.i.i219, 1
+  %inc.i.i.i227 = add nuw i16 %conv49.i.i.i219, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit252
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit252: ; preds = %if.then4.i.i.i244, %if.end.i.i.i247, %if.then23.i.i.i242, %if.end27.i.i.i233, %if.end37.i.i.i207, %lor.lhs.false.i.i.i221, %if.then55.i.i.i226
@@ -81807,7 +81807,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN9Imath_3_14halfC2Ef.exit.i, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %if.then55.i.i.i, %lor.lhs.false.i.i.i, %if.end37.i.i.i, %if.end27.i.i.i, %if.then23.i.i.i, %if.end.i.i.i, %if.then4.i.i.i
@@ -81909,7 +81909,7 @@ lor.lhs.false.i.i146.i:                           ; preds = %if.end40.i.i134.i
   br i1 %or.cond.i.i150.i, label %_ZN9Imath_3_14halfC2Ef.exit177.i, label %if.then55.i.i151.i
 
 if.then55.i.i151.i:                               ; preds = %lor.lhs.false.i.i146.i, %if.end40.i.i134.i
-  %inc.i.i152.i = add i16 %conv49.i.i144.i, 1
+  %inc.i.i152.i = add nuw i16 %conv49.i.i144.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit177.i
 
 _ZN9Imath_3_14halfC2Ef.exit177.i:                 ; preds = %if.then55.i.i151.i, %lor.lhs.false.i.i146.i, %if.end37.i.i132.i, %if.end27.i.i158.i, %if.then23.i.i167.i, %if.end.i.i172.i, %if.then4.i.i169.i
@@ -82011,7 +82011,7 @@ lor.lhs.false.i.i202.i:                           ; preds = %if.end40.i.i190.i
   br i1 %or.cond.i.i206.i, label %_ZN9Imath_3_14halfC2Ef.exit233.i, label %if.then55.i.i207.i
 
 if.then55.i.i207.i:                               ; preds = %lor.lhs.false.i.i202.i, %if.end40.i.i190.i
-  %inc.i.i208.i = add i16 %conv49.i.i200.i, 1
+  %inc.i.i208.i = add nuw i16 %conv49.i.i200.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit233.i
 
 _ZN9Imath_3_14halfC2Ef.exit233.i:                 ; preds = %if.then55.i.i207.i, %lor.lhs.false.i.i202.i, %if.end37.i.i188.i, %if.end27.i.i214.i, %if.then23.i.i223.i, %if.end.i.i228.i, %if.then4.i.i225.i
@@ -89865,7 +89865,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN9Imath_3_14halfC2Ef.exit.i, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %if.then55.i.i.i, %lor.lhs.false.i.i.i, %if.end37.i.i.i, %if.end27.i.i.i, %if.then23.i.i.i, %if.end.i.i.i, %if.then4.i.i.i
@@ -89967,7 +89967,7 @@ lor.lhs.false.i.i146.i:                           ; preds = %if.end40.i.i134.i
   br i1 %or.cond.i.i150.i, label %_ZN9Imath_3_14halfC2Ef.exit177.i, label %if.then55.i.i151.i
 
 if.then55.i.i151.i:                               ; preds = %lor.lhs.false.i.i146.i, %if.end40.i.i134.i
-  %inc.i.i152.i = add i16 %conv49.i.i144.i, 1
+  %inc.i.i152.i = add nuw i16 %conv49.i.i144.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit177.i
 
 _ZN9Imath_3_14halfC2Ef.exit177.i:                 ; preds = %if.then55.i.i151.i, %lor.lhs.false.i.i146.i, %if.end37.i.i132.i, %if.end27.i.i158.i, %if.then23.i.i167.i, %if.end.i.i172.i, %if.then4.i.i169.i
@@ -90069,7 +90069,7 @@ lor.lhs.false.i.i202.i:                           ; preds = %if.end40.i.i190.i
   br i1 %or.cond.i.i206.i, label %_ZN9Imath_3_14halfC2Ef.exit233.i, label %if.then55.i.i207.i
 
 if.then55.i.i207.i:                               ; preds = %lor.lhs.false.i.i202.i, %if.end40.i.i190.i
-  %inc.i.i208.i = add i16 %conv49.i.i200.i, 1
+  %inc.i.i208.i = add nuw i16 %conv49.i.i200.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit233.i
 
 _ZN9Imath_3_14halfC2Ef.exit233.i:                 ; preds = %if.then55.i.i207.i, %lor.lhs.false.i.i202.i, %if.end37.i.i188.i, %if.end27.i.i214.i, %if.then23.i.i223.i, %if.end.i.i228.i, %if.then4.i.i225.i
@@ -96288,7 +96288,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN9Imath_3_14halfC2Ef.exit.i, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %if.then55.i.i.i, %lor.lhs.false.i.i.i, %if.end37.i.i.i, %if.end27.i.i.i, %if.then23.i.i.i, %if.end.i.i.i, %if.then4.i.i.i
@@ -96390,7 +96390,7 @@ lor.lhs.false.i.i146.i:                           ; preds = %if.end40.i.i134.i
   br i1 %or.cond.i.i150.i, label %_ZN9Imath_3_14halfC2Ef.exit177.i, label %if.then55.i.i151.i
 
 if.then55.i.i151.i:                               ; preds = %lor.lhs.false.i.i146.i, %if.end40.i.i134.i
-  %inc.i.i152.i = add i16 %conv49.i.i144.i, 1
+  %inc.i.i152.i = add nuw i16 %conv49.i.i144.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit177.i
 
 _ZN9Imath_3_14halfC2Ef.exit177.i:                 ; preds = %if.then55.i.i151.i, %lor.lhs.false.i.i146.i, %if.end37.i.i132.i, %if.end27.i.i158.i, %if.then23.i.i167.i, %if.end.i.i172.i, %if.then4.i.i169.i
@@ -96492,7 +96492,7 @@ lor.lhs.false.i.i202.i:                           ; preds = %if.end40.i.i190.i
   br i1 %or.cond.i.i206.i, label %_ZN9Imath_3_14halfC2Ef.exit233.i, label %if.then55.i.i207.i
 
 if.then55.i.i207.i:                               ; preds = %lor.lhs.false.i.i202.i, %if.end40.i.i190.i
-  %inc.i.i208.i = add i16 %conv49.i.i200.i, 1
+  %inc.i.i208.i = add nuw i16 %conv49.i.i200.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit233.i
 
 _ZN9Imath_3_14halfC2Ef.exit233.i:                 ; preds = %if.then55.i.i207.i, %lor.lhs.false.i.i202.i, %if.end37.i.i188.i, %if.end27.i.i214.i, %if.then23.i.i223.i, %if.end.i.i228.i, %if.then4.i.i225.i
@@ -102711,7 +102711,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN9Imath_3_14halfC2Ef.exit.i, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %if.then55.i.i.i, %lor.lhs.false.i.i.i, %if.end37.i.i.i, %if.end27.i.i.i, %if.then23.i.i.i, %if.end.i.i.i, %if.then4.i.i.i
@@ -102813,7 +102813,7 @@ lor.lhs.false.i.i146.i:                           ; preds = %if.end40.i.i134.i
   br i1 %or.cond.i.i150.i, label %_ZN9Imath_3_14halfC2Ef.exit177.i, label %if.then55.i.i151.i
 
 if.then55.i.i151.i:                               ; preds = %lor.lhs.false.i.i146.i, %if.end40.i.i134.i
-  %inc.i.i152.i = add i16 %conv49.i.i144.i, 1
+  %inc.i.i152.i = add nuw i16 %conv49.i.i144.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit177.i
 
 _ZN9Imath_3_14halfC2Ef.exit177.i:                 ; preds = %if.then55.i.i151.i, %lor.lhs.false.i.i146.i, %if.end37.i.i132.i, %if.end27.i.i158.i, %if.then23.i.i167.i, %if.end.i.i172.i, %if.then4.i.i169.i
@@ -102915,7 +102915,7 @@ lor.lhs.false.i.i202.i:                           ; preds = %if.end40.i.i190.i
   br i1 %or.cond.i.i206.i, label %_ZN9Imath_3_14halfC2Ef.exit233.i, label %if.then55.i.i207.i
 
 if.then55.i.i207.i:                               ; preds = %lor.lhs.false.i.i202.i, %if.end40.i.i190.i
-  %inc.i.i208.i = add i16 %conv49.i.i200.i, 1
+  %inc.i.i208.i = add nuw i16 %conv49.i.i200.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit233.i
 
 _ZN9Imath_3_14halfC2Ef.exit233.i:                 ; preds = %if.then55.i.i207.i, %lor.lhs.false.i.i202.i, %if.end37.i.i188.i, %if.end27.i.i214.i, %if.then23.i.i223.i, %if.end.i.i228.i, %if.then4.i.i225.i
@@ -109134,7 +109134,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN9Imath_3_14halfC2Ef.exit.i, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %if.then55.i.i.i, %lor.lhs.false.i.i.i, %if.end37.i.i.i, %if.end27.i.i.i, %if.then23.i.i.i, %if.end.i.i.i, %if.then4.i.i.i
@@ -109236,7 +109236,7 @@ lor.lhs.false.i.i146.i:                           ; preds = %if.end40.i.i134.i
   br i1 %or.cond.i.i150.i, label %_ZN9Imath_3_14halfC2Ef.exit177.i, label %if.then55.i.i151.i
 
 if.then55.i.i151.i:                               ; preds = %lor.lhs.false.i.i146.i, %if.end40.i.i134.i
-  %inc.i.i152.i = add i16 %conv49.i.i144.i, 1
+  %inc.i.i152.i = add nuw i16 %conv49.i.i144.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit177.i
 
 _ZN9Imath_3_14halfC2Ef.exit177.i:                 ; preds = %if.then55.i.i151.i, %lor.lhs.false.i.i146.i, %if.end37.i.i132.i, %if.end27.i.i158.i, %if.then23.i.i167.i, %if.end.i.i172.i, %if.then4.i.i169.i
@@ -109338,7 +109338,7 @@ lor.lhs.false.i.i202.i:                           ; preds = %if.end40.i.i190.i
   br i1 %or.cond.i.i206.i, label %_ZN9Imath_3_14halfC2Ef.exit233.i, label %if.then55.i.i207.i
 
 if.then55.i.i207.i:                               ; preds = %lor.lhs.false.i.i202.i, %if.end40.i.i190.i
-  %inc.i.i208.i = add i16 %conv49.i.i200.i, 1
+  %inc.i.i208.i = add nuw i16 %conv49.i.i200.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit233.i
 
 _ZN9Imath_3_14halfC2Ef.exit233.i:                 ; preds = %if.then55.i.i207.i, %lor.lhs.false.i.i202.i, %if.end37.i.i188.i, %if.end27.i.i214.i, %if.then23.i.i223.i, %if.end.i.i228.i, %if.then4.i.i225.i
@@ -114547,7 +114547,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end40.i.i
   br i1 %or.cond.i.i, label %_ZN9Imath_3_14halfC2Ef.exit, label %if.then55.i.i
 
 if.then55.i.i:                                    ; preds = %lor.lhs.false.i.i, %if.end40.i.i
-  %inc.i.i = add i16 %conv49.i.i, 1
+  %inc.i.i = add nuw i16 %conv49.i.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit
 
 _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %if.then4.i.i, %if.end.i.i, %if.then23.i.i, %if.end27.i.i, %if.end37.i.i, %lor.lhs.false.i.i, %if.then55.i.i
@@ -115634,7 +115634,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN9Imath_3_14halfC2Ef.exit.i, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %if.then55.i.i.i, %lor.lhs.false.i.i.i, %if.end37.i.i.i, %if.end27.i.i.i, %if.then23.i.i.i, %if.end.i.i.i, %if.then4.i.i.i
@@ -115736,7 +115736,7 @@ lor.lhs.false.i.i146.i:                           ; preds = %if.end40.i.i134.i
   br i1 %or.cond.i.i150.i, label %_ZN9Imath_3_14halfC2Ef.exit177.i, label %if.then55.i.i151.i
 
 if.then55.i.i151.i:                               ; preds = %lor.lhs.false.i.i146.i, %if.end40.i.i134.i
-  %inc.i.i152.i = add i16 %conv49.i.i144.i, 1
+  %inc.i.i152.i = add nuw i16 %conv49.i.i144.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit177.i
 
 _ZN9Imath_3_14halfC2Ef.exit177.i:                 ; preds = %if.then55.i.i151.i, %lor.lhs.false.i.i146.i, %if.end37.i.i132.i, %if.end27.i.i158.i, %if.then23.i.i167.i, %if.end.i.i172.i, %if.then4.i.i169.i
@@ -115838,7 +115838,7 @@ lor.lhs.false.i.i202.i:                           ; preds = %if.end40.i.i190.i
   br i1 %or.cond.i.i206.i, label %_ZN9Imath_3_14halfC2Ef.exit233.i, label %if.then55.i.i207.i
 
 if.then55.i.i207.i:                               ; preds = %lor.lhs.false.i.i202.i, %if.end40.i.i190.i
-  %inc.i.i208.i = add i16 %conv49.i.i200.i, 1
+  %inc.i.i208.i = add nuw i16 %conv49.i.i200.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit233.i
 
 _ZN9Imath_3_14halfC2Ef.exit233.i:                 ; preds = %if.then55.i.i207.i, %lor.lhs.false.i.i202.i, %if.end37.i.i188.i, %if.end27.i.i214.i, %if.then23.i.i223.i, %if.end.i.i228.i, %if.then4.i.i225.i
@@ -117522,7 +117522,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end40.i.i
   br i1 %or.cond.i.i, label %_ZN9Imath_3_14halfC2Ef.exit, label %if.then55.i.i
 
 if.then55.i.i:                                    ; preds = %lor.lhs.false.i.i, %if.end40.i.i
-  %inc.i.i = add i16 %conv49.i.i, 1
+  %inc.i.i = add nuw i16 %conv49.i.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit
 
 _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %if.then4.i.i, %if.end.i.i, %if.then23.i.i, %if.end27.i.i, %if.end37.i.i, %lor.lhs.false.i.i, %if.then55.i.i
@@ -117602,7 +117602,7 @@ lor.lhs.false.i.i37:                              ; preds = %if.end40.i.i25
   br i1 %or.cond.i.i41, label %_ZN9Imath_3_14halfC2Ef.exit68, label %if.then55.i.i42
 
 if.then55.i.i42:                                  ; preds = %lor.lhs.false.i.i37, %if.end40.i.i25
-  %inc.i.i43 = add i16 %conv49.i.i35, 1
+  %inc.i.i43 = add nuw i16 %conv49.i.i35, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit68
 
 _ZN9Imath_3_14halfC2Ef.exit68:                    ; preds = %if.then4.i.i60, %if.end.i.i63, %if.then23.i.i58, %if.end27.i.i49, %if.end37.i.i23, %lor.lhs.false.i.i37, %if.then55.i.i42
@@ -117683,7 +117683,7 @@ lor.lhs.false.i.i87:                              ; preds = %if.end40.i.i75
   br i1 %or.cond.i.i91, label %_ZN9Imath_3_14halfC2Ef.exit118, label %if.then55.i.i92
 
 if.then55.i.i92:                                  ; preds = %lor.lhs.false.i.i87, %if.end40.i.i75
-  %inc.i.i93 = add i16 %conv49.i.i85, 1
+  %inc.i.i93 = add nuw i16 %conv49.i.i85, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit118
 
 _ZN9Imath_3_14halfC2Ef.exit118:                   ; preds = %if.then4.i.i110, %if.end.i.i113, %if.then23.i.i108, %if.end27.i.i99, %if.end37.i.i73, %lor.lhs.false.i.i87, %if.then55.i.i92
@@ -117768,7 +117768,7 @@ lor.lhs.false.i.i137:                             ; preds = %if.end40.i.i125
   br i1 %or.cond.i.i141, label %_ZN9Imath_3_14halfC2Ef.exit168, label %if.then55.i.i142
 
 if.then55.i.i142:                                 ; preds = %lor.lhs.false.i.i137, %if.end40.i.i125
-  %inc.i.i143 = add i16 %conv49.i.i135, 1
+  %inc.i.i143 = add nuw i16 %conv49.i.i135, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit168
 
 _ZN9Imath_3_14halfC2Ef.exit168:                   ; preds = %if.then4.i.i160, %if.end.i.i163, %if.then23.i.i158, %if.end27.i.i149, %if.end37.i.i123, %lor.lhs.false.i.i137, %if.then55.i.i142
@@ -118061,7 +118061,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end40.i.i
   br i1 %or.cond.i.i, label %_ZN9Imath_3_14halfC2Ef.exit, label %if.then55.i.i
 
 if.then55.i.i:                                    ; preds = %lor.lhs.false.i.i, %if.end40.i.i
-  %inc.i.i = add i16 %conv49.i.i, 1
+  %inc.i.i = add nuw i16 %conv49.i.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit
 
 _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %if.then4.i.i, %if.end.i.i, %if.then23.i.i, %if.end27.i.i, %if.end37.i.i, %lor.lhs.false.i.i, %if.then55.i.i
@@ -118326,7 +118326,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end40.i.i
   br i1 %or.cond.i.i, label %_ZN9Imath_3_14halfC2Ef.exit, label %if.then55.i.i
 
 if.then55.i.i:                                    ; preds = %lor.lhs.false.i.i, %if.end40.i.i
-  %inc.i.i = add i16 %conv49.i.i, 1
+  %inc.i.i = add nuw i16 %conv49.i.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit
 
 _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %if.then4.i.i, %if.end.i.i, %if.then23.i.i, %if.end27.i.i, %if.end37.i.i, %lor.lhs.false.i.i, %if.then55.i.i
@@ -118406,7 +118406,7 @@ lor.lhs.false.i.i37:                              ; preds = %if.end40.i.i25
   br i1 %or.cond.i.i41, label %_ZN9Imath_3_14halfC2Ef.exit68, label %if.then55.i.i42
 
 if.then55.i.i42:                                  ; preds = %lor.lhs.false.i.i37, %if.end40.i.i25
-  %inc.i.i43 = add i16 %conv49.i.i35, 1
+  %inc.i.i43 = add nuw i16 %conv49.i.i35, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit68
 
 _ZN9Imath_3_14halfC2Ef.exit68:                    ; preds = %if.then4.i.i60, %if.end.i.i63, %if.then23.i.i58, %if.end27.i.i49, %if.end37.i.i23, %lor.lhs.false.i.i37, %if.then55.i.i42
@@ -118487,7 +118487,7 @@ lor.lhs.false.i.i87:                              ; preds = %if.end40.i.i75
   br i1 %or.cond.i.i91, label %_ZN9Imath_3_14halfC2Ef.exit118, label %if.then55.i.i92
 
 if.then55.i.i92:                                  ; preds = %lor.lhs.false.i.i87, %if.end40.i.i75
-  %inc.i.i93 = add i16 %conv49.i.i85, 1
+  %inc.i.i93 = add nuw i16 %conv49.i.i85, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit118
 
 _ZN9Imath_3_14halfC2Ef.exit118:                   ; preds = %if.then4.i.i110, %if.end.i.i113, %if.then23.i.i108, %if.end27.i.i99, %if.end37.i.i73, %lor.lhs.false.i.i87, %if.then55.i.i92
@@ -118572,7 +118572,7 @@ lor.lhs.false.i.i137:                             ; preds = %if.end40.i.i125
   br i1 %or.cond.i.i141, label %_ZN9Imath_3_14halfC2Ef.exit168, label %if.then55.i.i142
 
 if.then55.i.i142:                                 ; preds = %lor.lhs.false.i.i137, %if.end40.i.i125
-  %inc.i.i143 = add i16 %conv49.i.i135, 1
+  %inc.i.i143 = add nuw i16 %conv49.i.i135, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit168
 
 _ZN9Imath_3_14halfC2Ef.exit168:                   ; preds = %if.then4.i.i160, %if.end.i.i163, %if.then23.i.i158, %if.end27.i.i149, %if.end37.i.i123, %lor.lhs.false.i.i137, %if.then55.i.i142
@@ -119130,7 +119130,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %if.then4.i.i.i, %if.end.i.i.i, %if.then23.i.i.i, %if.end27.i.i.i, %if.end37.i.i.i, %lor.lhs.false.i.i.i, %if.then55.i.i.i
@@ -119209,7 +119209,7 @@ lor.lhs.false.i.i.i34:                            ; preds = %if.end40.i.i.i22
   br i1 %or.cond.i.i.i38, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit65, label %if.then55.i.i.i39
 
 if.then55.i.i.i39:                                ; preds = %lor.lhs.false.i.i.i34, %if.end40.i.i.i22
-  %inc.i.i.i40 = add i16 %conv49.i.i.i32, 1
+  %inc.i.i.i40 = add nuw i16 %conv49.i.i.i32, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit65
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit65: ; preds = %if.then4.i.i.i57, %if.end.i.i.i60, %if.then23.i.i.i55, %if.end27.i.i.i46, %if.end37.i.i.i20, %lor.lhs.false.i.i.i34, %if.then55.i.i.i39
@@ -119289,7 +119289,7 @@ lor.lhs.false.i.i.i84:                            ; preds = %if.end40.i.i.i72
   br i1 %or.cond.i.i.i88, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit115, label %if.then55.i.i.i89
 
 if.then55.i.i.i89:                                ; preds = %lor.lhs.false.i.i.i84, %if.end40.i.i.i72
-  %inc.i.i.i90 = add i16 %conv49.i.i.i82, 1
+  %inc.i.i.i90 = add nuw i16 %conv49.i.i.i82, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit115
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit115: ; preds = %if.then4.i.i.i107, %if.end.i.i.i110, %if.then23.i.i.i105, %if.end27.i.i.i96, %if.end37.i.i.i70, %lor.lhs.false.i.i.i84, %if.then55.i.i.i89
@@ -119374,7 +119374,7 @@ lor.lhs.false.i.i.i134:                           ; preds = %if.end40.i.i.i122
   br i1 %or.cond.i.i.i138, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit165, label %if.then55.i.i.i139
 
 if.then55.i.i.i139:                               ; preds = %lor.lhs.false.i.i.i134, %if.end40.i.i.i122
-  %inc.i.i.i140 = add i16 %conv49.i.i.i132, 1
+  %inc.i.i.i140 = add nuw i16 %conv49.i.i.i132, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit165
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit165: ; preds = %if.then4.i.i.i157, %if.end.i.i.i160, %if.then23.i.i.i155, %if.end27.i.i.i146, %if.end37.i.i.i120, %lor.lhs.false.i.i.i134, %if.then55.i.i.i139
@@ -120129,7 +120129,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %if.then4.i.i.i, %if.end.i.i.i, %if.then23.i.i.i, %if.end27.i.i.i, %if.end37.i.i.i, %lor.lhs.false.i.i.i, %if.then55.i.i.i
@@ -120267,7 +120267,7 @@ lor.lhs.false.i.i.i73:                            ; preds = %if.end40.i.i.i61
   br i1 %or.cond.i.i.i77, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104, label %if.then55.i.i.i78
 
 if.then55.i.i.i78:                                ; preds = %lor.lhs.false.i.i.i73, %if.end40.i.i.i61
-  %inc.i.i.i79 = add i16 %conv49.i.i.i71, 1
+  %inc.i.i.i79 = add nuw i16 %conv49.i.i.i71, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104: ; preds = %if.then4.i.i.i96, %if.end.i.i.i99, %if.then23.i.i.i94, %if.end27.i.i.i85, %if.end37.i.i.i59, %lor.lhs.false.i.i.i73, %if.then55.i.i.i78
@@ -120406,7 +120406,7 @@ lor.lhs.false.i.i.i166:                           ; preds = %if.end40.i.i.i154
   br i1 %or.cond.i.i.i170, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit197, label %if.then55.i.i.i171
 
 if.then55.i.i.i171:                               ; preds = %lor.lhs.false.i.i.i166, %if.end40.i.i.i154
-  %inc.i.i.i172 = add i16 %conv49.i.i.i164, 1
+  %inc.i.i.i172 = add nuw i16 %conv49.i.i.i164, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit197
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit197: ; preds = %if.then4.i.i.i189, %if.end.i.i.i192, %if.then23.i.i.i187, %if.end27.i.i.i178, %if.end37.i.i.i152, %lor.lhs.false.i.i.i166, %if.then55.i.i.i171
@@ -120491,7 +120491,7 @@ lor.lhs.false.i.i.i216:                           ; preds = %if.end40.i.i.i204
   br i1 %or.cond.i.i.i220, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit247, label %if.then55.i.i.i221
 
 if.then55.i.i.i221:                               ; preds = %lor.lhs.false.i.i.i216, %if.end40.i.i.i204
-  %inc.i.i.i222 = add i16 %conv49.i.i.i214, 1
+  %inc.i.i.i222 = add nuw i16 %conv49.i.i.i214, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit247
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit247: ; preds = %if.then4.i.i.i239, %if.end.i.i.i242, %if.then23.i.i.i237, %if.end27.i.i.i228, %if.end37.i.i.i202, %lor.lhs.false.i.i.i216, %if.then55.i.i.i221
@@ -121403,7 +121403,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %if.then4.i.i.i, %if.end.i.i.i, %if.then23.i.i.i, %if.end27.i.i.i, %if.end37.i.i.i, %lor.lhs.false.i.i.i, %if.then55.i.i.i
@@ -121483,7 +121483,7 @@ lor.lhs.false.i.i.i29:                            ; preds = %if.end40.i.i.i17
   br i1 %or.cond.i.i.i33, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit60, label %if.then55.i.i.i34
 
 if.then55.i.i.i34:                                ; preds = %lor.lhs.false.i.i.i29, %if.end40.i.i.i17
-  %inc.i.i.i35 = add i16 %conv49.i.i.i27, 1
+  %inc.i.i.i35 = add nuw i16 %conv49.i.i.i27, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit60
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit60: ; preds = %if.then4.i.i.i52, %if.end.i.i.i55, %if.then23.i.i.i50, %if.end27.i.i.i41, %if.end37.i.i.i15, %lor.lhs.false.i.i.i29, %if.then55.i.i.i34
@@ -121564,7 +121564,7 @@ lor.lhs.false.i.i.i79:                            ; preds = %if.end40.i.i.i67
   br i1 %or.cond.i.i.i83, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit110, label %if.then55.i.i.i84
 
 if.then55.i.i.i84:                                ; preds = %lor.lhs.false.i.i.i79, %if.end40.i.i.i67
-  %inc.i.i.i85 = add i16 %conv49.i.i.i77, 1
+  %inc.i.i.i85 = add nuw i16 %conv49.i.i.i77, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit110
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit110: ; preds = %if.then4.i.i.i102, %if.end.i.i.i105, %if.then23.i.i.i100, %if.end27.i.i.i91, %if.end37.i.i.i65, %lor.lhs.false.i.i.i79, %if.then55.i.i.i84
@@ -121649,7 +121649,7 @@ lor.lhs.false.i.i.i129:                           ; preds = %if.end40.i.i.i117
   br i1 %or.cond.i.i.i133, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit160, label %if.then55.i.i.i134
 
 if.then55.i.i.i134:                               ; preds = %lor.lhs.false.i.i.i129, %if.end40.i.i.i117
-  %inc.i.i.i135 = add i16 %conv49.i.i.i127, 1
+  %inc.i.i.i135 = add nuw i16 %conv49.i.i.i127, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit160
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit160: ; preds = %if.then4.i.i.i152, %if.end.i.i.i155, %if.then23.i.i.i150, %if.end27.i.i.i141, %if.end37.i.i.i115, %lor.lhs.false.i.i.i129, %if.then55.i.i.i134
@@ -122267,7 +122267,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %if.then4.i.i.i, %if.end.i.i.i, %if.then23.i.i.i, %if.end27.i.i.i, %if.end37.i.i.i, %lor.lhs.false.i.i.i, %if.then55.i.i.i
@@ -122347,7 +122347,7 @@ lor.lhs.false.i.i.i121:                           ; preds = %if.end40.i.i.i109
   br i1 %or.cond.i.i.i125, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit152, label %if.then55.i.i.i126
 
 if.then55.i.i.i126:                               ; preds = %lor.lhs.false.i.i.i121, %if.end40.i.i.i109
-  %inc.i.i.i127 = add i16 %conv49.i.i.i119, 1
+  %inc.i.i.i127 = add nuw i16 %conv49.i.i.i119, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit152
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit152: ; preds = %if.then4.i.i.i144, %if.end.i.i.i147, %if.then23.i.i.i142, %if.end27.i.i.i133, %if.end37.i.i.i107, %lor.lhs.false.i.i.i121, %if.then55.i.i.i126
@@ -122428,7 +122428,7 @@ lor.lhs.false.i.i.i171:                           ; preds = %if.end40.i.i.i159
   br i1 %or.cond.i.i.i175, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit202, label %if.then55.i.i.i176
 
 if.then55.i.i.i176:                               ; preds = %lor.lhs.false.i.i.i171, %if.end40.i.i.i159
-  %inc.i.i.i177 = add i16 %conv49.i.i.i169, 1
+  %inc.i.i.i177 = add nuw i16 %conv49.i.i.i169, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit202
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit202: ; preds = %if.then4.i.i.i194, %if.end.i.i.i197, %if.then23.i.i.i192, %if.end27.i.i.i183, %if.end37.i.i.i157, %lor.lhs.false.i.i.i171, %if.then55.i.i.i176
@@ -122513,7 +122513,7 @@ lor.lhs.false.i.i.i221:                           ; preds = %if.end40.i.i.i209
   br i1 %or.cond.i.i.i225, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit252, label %if.then55.i.i.i226
 
 if.then55.i.i.i226:                               ; preds = %lor.lhs.false.i.i.i221, %if.end40.i.i.i209
-  %inc.i.i.i227 = add i16 %conv49.i.i.i219, 1
+  %inc.i.i.i227 = add nuw i16 %conv49.i.i.i219, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit252
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit252: ; preds = %if.then4.i.i.i244, %if.end.i.i.i247, %if.then23.i.i.i242, %if.end27.i.i.i233, %if.end37.i.i.i207, %lor.lhs.false.i.i.i221, %if.then55.i.i.i226
@@ -123805,7 +123805,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN9Imath_3_14halfC2Ef.exit.i, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %if.then55.i.i.i, %lor.lhs.false.i.i.i, %if.end37.i.i.i, %if.end27.i.i.i, %if.then23.i.i.i, %if.end.i.i.i, %if.then4.i.i.i
@@ -123907,7 +123907,7 @@ lor.lhs.false.i.i146.i:                           ; preds = %if.end40.i.i134.i
   br i1 %or.cond.i.i150.i, label %_ZN9Imath_3_14halfC2Ef.exit177.i, label %if.then55.i.i151.i
 
 if.then55.i.i151.i:                               ; preds = %lor.lhs.false.i.i146.i, %if.end40.i.i134.i
-  %inc.i.i152.i = add i16 %conv49.i.i144.i, 1
+  %inc.i.i152.i = add nuw i16 %conv49.i.i144.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit177.i
 
 _ZN9Imath_3_14halfC2Ef.exit177.i:                 ; preds = %if.then55.i.i151.i, %lor.lhs.false.i.i146.i, %if.end37.i.i132.i, %if.end27.i.i158.i, %if.then23.i.i167.i, %if.end.i.i172.i, %if.then4.i.i169.i
@@ -124009,7 +124009,7 @@ lor.lhs.false.i.i202.i:                           ; preds = %if.end40.i.i190.i
   br i1 %or.cond.i.i206.i, label %_ZN9Imath_3_14halfC2Ef.exit233.i, label %if.then55.i.i207.i
 
 if.then55.i.i207.i:                               ; preds = %lor.lhs.false.i.i202.i, %if.end40.i.i190.i
-  %inc.i.i208.i = add i16 %conv49.i.i200.i, 1
+  %inc.i.i208.i = add nuw i16 %conv49.i.i200.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit233.i
 
 _ZN9Imath_3_14halfC2Ef.exit233.i:                 ; preds = %if.then55.i.i207.i, %lor.lhs.false.i.i202.i, %if.end37.i.i188.i, %if.end27.i.i214.i, %if.then23.i.i223.i, %if.end.i.i228.i, %if.then4.i.i225.i
@@ -131863,7 +131863,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN9Imath_3_14halfC2Ef.exit.i, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %if.then55.i.i.i, %lor.lhs.false.i.i.i, %if.end37.i.i.i, %if.end27.i.i.i, %if.then23.i.i.i, %if.end.i.i.i, %if.then4.i.i.i
@@ -131965,7 +131965,7 @@ lor.lhs.false.i.i146.i:                           ; preds = %if.end40.i.i134.i
   br i1 %or.cond.i.i150.i, label %_ZN9Imath_3_14halfC2Ef.exit177.i, label %if.then55.i.i151.i
 
 if.then55.i.i151.i:                               ; preds = %lor.lhs.false.i.i146.i, %if.end40.i.i134.i
-  %inc.i.i152.i = add i16 %conv49.i.i144.i, 1
+  %inc.i.i152.i = add nuw i16 %conv49.i.i144.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit177.i
 
 _ZN9Imath_3_14halfC2Ef.exit177.i:                 ; preds = %if.then55.i.i151.i, %lor.lhs.false.i.i146.i, %if.end37.i.i132.i, %if.end27.i.i158.i, %if.then23.i.i167.i, %if.end.i.i172.i, %if.then4.i.i169.i
@@ -132067,7 +132067,7 @@ lor.lhs.false.i.i202.i:                           ; preds = %if.end40.i.i190.i
   br i1 %or.cond.i.i206.i, label %_ZN9Imath_3_14halfC2Ef.exit233.i, label %if.then55.i.i207.i
 
 if.then55.i.i207.i:                               ; preds = %lor.lhs.false.i.i202.i, %if.end40.i.i190.i
-  %inc.i.i208.i = add i16 %conv49.i.i200.i, 1
+  %inc.i.i208.i = add nuw i16 %conv49.i.i200.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit233.i
 
 _ZN9Imath_3_14halfC2Ef.exit233.i:                 ; preds = %if.then55.i.i207.i, %lor.lhs.false.i.i202.i, %if.end37.i.i188.i, %if.end27.i.i214.i, %if.then23.i.i223.i, %if.end.i.i228.i, %if.then4.i.i225.i
@@ -138286,7 +138286,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN9Imath_3_14halfC2Ef.exit.i, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %if.then55.i.i.i, %lor.lhs.false.i.i.i, %if.end37.i.i.i, %if.end27.i.i.i, %if.then23.i.i.i, %if.end.i.i.i, %if.then4.i.i.i
@@ -138388,7 +138388,7 @@ lor.lhs.false.i.i146.i:                           ; preds = %if.end40.i.i134.i
   br i1 %or.cond.i.i150.i, label %_ZN9Imath_3_14halfC2Ef.exit177.i, label %if.then55.i.i151.i
 
 if.then55.i.i151.i:                               ; preds = %lor.lhs.false.i.i146.i, %if.end40.i.i134.i
-  %inc.i.i152.i = add i16 %conv49.i.i144.i, 1
+  %inc.i.i152.i = add nuw i16 %conv49.i.i144.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit177.i
 
 _ZN9Imath_3_14halfC2Ef.exit177.i:                 ; preds = %if.then55.i.i151.i, %lor.lhs.false.i.i146.i, %if.end37.i.i132.i, %if.end27.i.i158.i, %if.then23.i.i167.i, %if.end.i.i172.i, %if.then4.i.i169.i
@@ -138490,7 +138490,7 @@ lor.lhs.false.i.i202.i:                           ; preds = %if.end40.i.i190.i
   br i1 %or.cond.i.i206.i, label %_ZN9Imath_3_14halfC2Ef.exit233.i, label %if.then55.i.i207.i
 
 if.then55.i.i207.i:                               ; preds = %lor.lhs.false.i.i202.i, %if.end40.i.i190.i
-  %inc.i.i208.i = add i16 %conv49.i.i200.i, 1
+  %inc.i.i208.i = add nuw i16 %conv49.i.i200.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit233.i
 
 _ZN9Imath_3_14halfC2Ef.exit233.i:                 ; preds = %if.then55.i.i207.i, %lor.lhs.false.i.i202.i, %if.end37.i.i188.i, %if.end27.i.i214.i, %if.then23.i.i223.i, %if.end.i.i228.i, %if.then4.i.i225.i
@@ -144709,7 +144709,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN9Imath_3_14halfC2Ef.exit.i, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %if.then55.i.i.i, %lor.lhs.false.i.i.i, %if.end37.i.i.i, %if.end27.i.i.i, %if.then23.i.i.i, %if.end.i.i.i, %if.then4.i.i.i
@@ -144811,7 +144811,7 @@ lor.lhs.false.i.i146.i:                           ; preds = %if.end40.i.i134.i
   br i1 %or.cond.i.i150.i, label %_ZN9Imath_3_14halfC2Ef.exit177.i, label %if.then55.i.i151.i
 
 if.then55.i.i151.i:                               ; preds = %lor.lhs.false.i.i146.i, %if.end40.i.i134.i
-  %inc.i.i152.i = add i16 %conv49.i.i144.i, 1
+  %inc.i.i152.i = add nuw i16 %conv49.i.i144.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit177.i
 
 _ZN9Imath_3_14halfC2Ef.exit177.i:                 ; preds = %if.then55.i.i151.i, %lor.lhs.false.i.i146.i, %if.end37.i.i132.i, %if.end27.i.i158.i, %if.then23.i.i167.i, %if.end.i.i172.i, %if.then4.i.i169.i
@@ -144913,7 +144913,7 @@ lor.lhs.false.i.i202.i:                           ; preds = %if.end40.i.i190.i
   br i1 %or.cond.i.i206.i, label %_ZN9Imath_3_14halfC2Ef.exit233.i, label %if.then55.i.i207.i
 
 if.then55.i.i207.i:                               ; preds = %lor.lhs.false.i.i202.i, %if.end40.i.i190.i
-  %inc.i.i208.i = add i16 %conv49.i.i200.i, 1
+  %inc.i.i208.i = add nuw i16 %conv49.i.i200.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit233.i
 
 _ZN9Imath_3_14halfC2Ef.exit233.i:                 ; preds = %if.then55.i.i207.i, %lor.lhs.false.i.i202.i, %if.end37.i.i188.i, %if.end27.i.i214.i, %if.then23.i.i223.i, %if.end.i.i228.i, %if.then4.i.i225.i
@@ -151132,7 +151132,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN9Imath_3_14halfC2Ef.exit.i, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %if.then55.i.i.i, %lor.lhs.false.i.i.i, %if.end37.i.i.i, %if.end27.i.i.i, %if.then23.i.i.i, %if.end.i.i.i, %if.then4.i.i.i
@@ -151234,7 +151234,7 @@ lor.lhs.false.i.i146.i:                           ; preds = %if.end40.i.i134.i
   br i1 %or.cond.i.i150.i, label %_ZN9Imath_3_14halfC2Ef.exit177.i, label %if.then55.i.i151.i
 
 if.then55.i.i151.i:                               ; preds = %lor.lhs.false.i.i146.i, %if.end40.i.i134.i
-  %inc.i.i152.i = add i16 %conv49.i.i144.i, 1
+  %inc.i.i152.i = add nuw i16 %conv49.i.i144.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit177.i
 
 _ZN9Imath_3_14halfC2Ef.exit177.i:                 ; preds = %if.then55.i.i151.i, %lor.lhs.false.i.i146.i, %if.end37.i.i132.i, %if.end27.i.i158.i, %if.then23.i.i167.i, %if.end.i.i172.i, %if.then4.i.i169.i
@@ -151336,7 +151336,7 @@ lor.lhs.false.i.i202.i:                           ; preds = %if.end40.i.i190.i
   br i1 %or.cond.i.i206.i, label %_ZN9Imath_3_14halfC2Ef.exit233.i, label %if.then55.i.i207.i
 
 if.then55.i.i207.i:                               ; preds = %lor.lhs.false.i.i202.i, %if.end40.i.i190.i
-  %inc.i.i208.i = add i16 %conv49.i.i200.i, 1
+  %inc.i.i208.i = add nuw i16 %conv49.i.i200.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit233.i
 
 _ZN9Imath_3_14halfC2Ef.exit233.i:                 ; preds = %if.then55.i.i207.i, %lor.lhs.false.i.i202.i, %if.end37.i.i188.i, %if.end27.i.i214.i, %if.then23.i.i223.i, %if.end.i.i228.i, %if.then4.i.i225.i
@@ -156545,7 +156545,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end40.i.i
   br i1 %or.cond.i.i, label %_ZN9Imath_3_14halfC2Ef.exit, label %if.then55.i.i
 
 if.then55.i.i:                                    ; preds = %lor.lhs.false.i.i, %if.end40.i.i
-  %inc.i.i = add i16 %conv49.i.i, 1
+  %inc.i.i = add nuw i16 %conv49.i.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit
 
 _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %if.then4.i.i, %if.end.i.i, %if.then23.i.i, %if.end27.i.i, %if.end37.i.i, %lor.lhs.false.i.i, %if.then55.i.i
@@ -157632,7 +157632,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN9Imath_3_14halfC2Ef.exit.i, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %if.then55.i.i.i, %lor.lhs.false.i.i.i, %if.end37.i.i.i, %if.end27.i.i.i, %if.then23.i.i.i, %if.end.i.i.i, %if.then4.i.i.i
@@ -157734,7 +157734,7 @@ lor.lhs.false.i.i146.i:                           ; preds = %if.end40.i.i134.i
   br i1 %or.cond.i.i150.i, label %_ZN9Imath_3_14halfC2Ef.exit177.i, label %if.then55.i.i151.i
 
 if.then55.i.i151.i:                               ; preds = %lor.lhs.false.i.i146.i, %if.end40.i.i134.i
-  %inc.i.i152.i = add i16 %conv49.i.i144.i, 1
+  %inc.i.i152.i = add nuw i16 %conv49.i.i144.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit177.i
 
 _ZN9Imath_3_14halfC2Ef.exit177.i:                 ; preds = %if.then55.i.i151.i, %lor.lhs.false.i.i146.i, %if.end37.i.i132.i, %if.end27.i.i158.i, %if.then23.i.i167.i, %if.end.i.i172.i, %if.then4.i.i169.i
@@ -157836,7 +157836,7 @@ lor.lhs.false.i.i202.i:                           ; preds = %if.end40.i.i190.i
   br i1 %or.cond.i.i206.i, label %_ZN9Imath_3_14halfC2Ef.exit233.i, label %if.then55.i.i207.i
 
 if.then55.i.i207.i:                               ; preds = %lor.lhs.false.i.i202.i, %if.end40.i.i190.i
-  %inc.i.i208.i = add i16 %conv49.i.i200.i, 1
+  %inc.i.i208.i = add nuw i16 %conv49.i.i200.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit233.i
 
 _ZN9Imath_3_14halfC2Ef.exit233.i:                 ; preds = %if.then55.i.i207.i, %lor.lhs.false.i.i202.i, %if.end37.i.i188.i, %if.end27.i.i214.i, %if.then23.i.i223.i, %if.end.i.i228.i, %if.then4.i.i225.i
@@ -159520,7 +159520,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end40.i.i
   br i1 %or.cond.i.i, label %_ZN9Imath_3_14halfC2Ef.exit, label %if.then55.i.i
 
 if.then55.i.i:                                    ; preds = %lor.lhs.false.i.i, %if.end40.i.i
-  %inc.i.i = add i16 %conv49.i.i, 1
+  %inc.i.i = add nuw i16 %conv49.i.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit
 
 _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %if.then4.i.i, %if.end.i.i, %if.then23.i.i, %if.end27.i.i, %if.end37.i.i, %lor.lhs.false.i.i, %if.then55.i.i
@@ -159600,7 +159600,7 @@ lor.lhs.false.i.i37:                              ; preds = %if.end40.i.i25
   br i1 %or.cond.i.i41, label %_ZN9Imath_3_14halfC2Ef.exit68, label %if.then55.i.i42
 
 if.then55.i.i42:                                  ; preds = %lor.lhs.false.i.i37, %if.end40.i.i25
-  %inc.i.i43 = add i16 %conv49.i.i35, 1
+  %inc.i.i43 = add nuw i16 %conv49.i.i35, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit68
 
 _ZN9Imath_3_14halfC2Ef.exit68:                    ; preds = %if.then4.i.i60, %if.end.i.i63, %if.then23.i.i58, %if.end27.i.i49, %if.end37.i.i23, %lor.lhs.false.i.i37, %if.then55.i.i42
@@ -159681,7 +159681,7 @@ lor.lhs.false.i.i87:                              ; preds = %if.end40.i.i75
   br i1 %or.cond.i.i91, label %_ZN9Imath_3_14halfC2Ef.exit118, label %if.then55.i.i92
 
 if.then55.i.i92:                                  ; preds = %lor.lhs.false.i.i87, %if.end40.i.i75
-  %inc.i.i93 = add i16 %conv49.i.i85, 1
+  %inc.i.i93 = add nuw i16 %conv49.i.i85, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit118
 
 _ZN9Imath_3_14halfC2Ef.exit118:                   ; preds = %if.then4.i.i110, %if.end.i.i113, %if.then23.i.i108, %if.end27.i.i99, %if.end37.i.i73, %lor.lhs.false.i.i87, %if.then55.i.i92
@@ -159766,7 +159766,7 @@ lor.lhs.false.i.i137:                             ; preds = %if.end40.i.i125
   br i1 %or.cond.i.i141, label %_ZN9Imath_3_14halfC2Ef.exit168, label %if.then55.i.i142
 
 if.then55.i.i142:                                 ; preds = %lor.lhs.false.i.i137, %if.end40.i.i125
-  %inc.i.i143 = add i16 %conv49.i.i135, 1
+  %inc.i.i143 = add nuw i16 %conv49.i.i135, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit168
 
 _ZN9Imath_3_14halfC2Ef.exit168:                   ; preds = %if.then4.i.i160, %if.end.i.i163, %if.then23.i.i158, %if.end27.i.i149, %if.end37.i.i123, %lor.lhs.false.i.i137, %if.then55.i.i142
@@ -160059,7 +160059,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end40.i.i
   br i1 %or.cond.i.i, label %_ZN9Imath_3_14halfC2Ef.exit, label %if.then55.i.i
 
 if.then55.i.i:                                    ; preds = %lor.lhs.false.i.i, %if.end40.i.i
-  %inc.i.i = add i16 %conv49.i.i, 1
+  %inc.i.i = add nuw i16 %conv49.i.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit
 
 _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %if.then4.i.i, %if.end.i.i, %if.then23.i.i, %if.end27.i.i, %if.end37.i.i, %lor.lhs.false.i.i, %if.then55.i.i
@@ -160324,7 +160324,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end40.i.i
   br i1 %or.cond.i.i, label %_ZN9Imath_3_14halfC2Ef.exit, label %if.then55.i.i
 
 if.then55.i.i:                                    ; preds = %lor.lhs.false.i.i, %if.end40.i.i
-  %inc.i.i = add i16 %conv49.i.i, 1
+  %inc.i.i = add nuw i16 %conv49.i.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit
 
 _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %if.then4.i.i, %if.end.i.i, %if.then23.i.i, %if.end27.i.i, %if.end37.i.i, %lor.lhs.false.i.i, %if.then55.i.i
@@ -160404,7 +160404,7 @@ lor.lhs.false.i.i37:                              ; preds = %if.end40.i.i25
   br i1 %or.cond.i.i41, label %_ZN9Imath_3_14halfC2Ef.exit68, label %if.then55.i.i42
 
 if.then55.i.i42:                                  ; preds = %lor.lhs.false.i.i37, %if.end40.i.i25
-  %inc.i.i43 = add i16 %conv49.i.i35, 1
+  %inc.i.i43 = add nuw i16 %conv49.i.i35, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit68
 
 _ZN9Imath_3_14halfC2Ef.exit68:                    ; preds = %if.then4.i.i60, %if.end.i.i63, %if.then23.i.i58, %if.end27.i.i49, %if.end37.i.i23, %lor.lhs.false.i.i37, %if.then55.i.i42
@@ -160485,7 +160485,7 @@ lor.lhs.false.i.i87:                              ; preds = %if.end40.i.i75
   br i1 %or.cond.i.i91, label %_ZN9Imath_3_14halfC2Ef.exit118, label %if.then55.i.i92
 
 if.then55.i.i92:                                  ; preds = %lor.lhs.false.i.i87, %if.end40.i.i75
-  %inc.i.i93 = add i16 %conv49.i.i85, 1
+  %inc.i.i93 = add nuw i16 %conv49.i.i85, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit118
 
 _ZN9Imath_3_14halfC2Ef.exit118:                   ; preds = %if.then4.i.i110, %if.end.i.i113, %if.then23.i.i108, %if.end27.i.i99, %if.end37.i.i73, %lor.lhs.false.i.i87, %if.then55.i.i92
@@ -160570,7 +160570,7 @@ lor.lhs.false.i.i137:                             ; preds = %if.end40.i.i125
   br i1 %or.cond.i.i141, label %_ZN9Imath_3_14halfC2Ef.exit168, label %if.then55.i.i142
 
 if.then55.i.i142:                                 ; preds = %lor.lhs.false.i.i137, %if.end40.i.i125
-  %inc.i.i143 = add i16 %conv49.i.i135, 1
+  %inc.i.i143 = add nuw i16 %conv49.i.i135, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit168
 
 _ZN9Imath_3_14halfC2Ef.exit168:                   ; preds = %if.then4.i.i160, %if.end.i.i163, %if.then23.i.i158, %if.end27.i.i149, %if.end37.i.i123, %lor.lhs.false.i.i137, %if.then55.i.i142
@@ -161128,7 +161128,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %if.then4.i.i.i, %if.end.i.i.i, %if.then23.i.i.i, %if.end27.i.i.i, %if.end37.i.i.i, %lor.lhs.false.i.i.i, %if.then55.i.i.i
@@ -161207,7 +161207,7 @@ lor.lhs.false.i.i.i34:                            ; preds = %if.end40.i.i.i22
   br i1 %or.cond.i.i.i38, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit65, label %if.then55.i.i.i39
 
 if.then55.i.i.i39:                                ; preds = %lor.lhs.false.i.i.i34, %if.end40.i.i.i22
-  %inc.i.i.i40 = add i16 %conv49.i.i.i32, 1
+  %inc.i.i.i40 = add nuw i16 %conv49.i.i.i32, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit65
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit65: ; preds = %if.then4.i.i.i57, %if.end.i.i.i60, %if.then23.i.i.i55, %if.end27.i.i.i46, %if.end37.i.i.i20, %lor.lhs.false.i.i.i34, %if.then55.i.i.i39
@@ -161287,7 +161287,7 @@ lor.lhs.false.i.i.i84:                            ; preds = %if.end40.i.i.i72
   br i1 %or.cond.i.i.i88, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit115, label %if.then55.i.i.i89
 
 if.then55.i.i.i89:                                ; preds = %lor.lhs.false.i.i.i84, %if.end40.i.i.i72
-  %inc.i.i.i90 = add i16 %conv49.i.i.i82, 1
+  %inc.i.i.i90 = add nuw i16 %conv49.i.i.i82, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit115
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit115: ; preds = %if.then4.i.i.i107, %if.end.i.i.i110, %if.then23.i.i.i105, %if.end27.i.i.i96, %if.end37.i.i.i70, %lor.lhs.false.i.i.i84, %if.then55.i.i.i89
@@ -161372,7 +161372,7 @@ lor.lhs.false.i.i.i134:                           ; preds = %if.end40.i.i.i122
   br i1 %or.cond.i.i.i138, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit165, label %if.then55.i.i.i139
 
 if.then55.i.i.i139:                               ; preds = %lor.lhs.false.i.i.i134, %if.end40.i.i.i122
-  %inc.i.i.i140 = add i16 %conv49.i.i.i132, 1
+  %inc.i.i.i140 = add nuw i16 %conv49.i.i.i132, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit165
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit165: ; preds = %if.then4.i.i.i157, %if.end.i.i.i160, %if.then23.i.i.i155, %if.end27.i.i.i146, %if.end37.i.i.i120, %lor.lhs.false.i.i.i134, %if.then55.i.i.i139
@@ -162127,7 +162127,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %if.then4.i.i.i, %if.end.i.i.i, %if.then23.i.i.i, %if.end27.i.i.i, %if.end37.i.i.i, %lor.lhs.false.i.i.i, %if.then55.i.i.i
@@ -162265,7 +162265,7 @@ lor.lhs.false.i.i.i73:                            ; preds = %if.end40.i.i.i61
   br i1 %or.cond.i.i.i77, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104, label %if.then55.i.i.i78
 
 if.then55.i.i.i78:                                ; preds = %lor.lhs.false.i.i.i73, %if.end40.i.i.i61
-  %inc.i.i.i79 = add i16 %conv49.i.i.i71, 1
+  %inc.i.i.i79 = add nuw i16 %conv49.i.i.i71, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104: ; preds = %if.then4.i.i.i96, %if.end.i.i.i99, %if.then23.i.i.i94, %if.end27.i.i.i85, %if.end37.i.i.i59, %lor.lhs.false.i.i.i73, %if.then55.i.i.i78
@@ -162404,7 +162404,7 @@ lor.lhs.false.i.i.i166:                           ; preds = %if.end40.i.i.i154
   br i1 %or.cond.i.i.i170, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit197, label %if.then55.i.i.i171
 
 if.then55.i.i.i171:                               ; preds = %lor.lhs.false.i.i.i166, %if.end40.i.i.i154
-  %inc.i.i.i172 = add i16 %conv49.i.i.i164, 1
+  %inc.i.i.i172 = add nuw i16 %conv49.i.i.i164, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit197
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit197: ; preds = %if.then4.i.i.i189, %if.end.i.i.i192, %if.then23.i.i.i187, %if.end27.i.i.i178, %if.end37.i.i.i152, %lor.lhs.false.i.i.i166, %if.then55.i.i.i171
@@ -162489,7 +162489,7 @@ lor.lhs.false.i.i.i216:                           ; preds = %if.end40.i.i.i204
   br i1 %or.cond.i.i.i220, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit247, label %if.then55.i.i.i221
 
 if.then55.i.i.i221:                               ; preds = %lor.lhs.false.i.i.i216, %if.end40.i.i.i204
-  %inc.i.i.i222 = add i16 %conv49.i.i.i214, 1
+  %inc.i.i.i222 = add nuw i16 %conv49.i.i.i214, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit247
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit247: ; preds = %if.then4.i.i.i239, %if.end.i.i.i242, %if.then23.i.i.i237, %if.end27.i.i.i228, %if.end37.i.i.i202, %lor.lhs.false.i.i.i216, %if.then55.i.i.i221
@@ -163401,7 +163401,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %if.then4.i.i.i, %if.end.i.i.i, %if.then23.i.i.i, %if.end27.i.i.i, %if.end37.i.i.i, %lor.lhs.false.i.i.i, %if.then55.i.i.i
@@ -163481,7 +163481,7 @@ lor.lhs.false.i.i.i29:                            ; preds = %if.end40.i.i.i17
   br i1 %or.cond.i.i.i33, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit60, label %if.then55.i.i.i34
 
 if.then55.i.i.i34:                                ; preds = %lor.lhs.false.i.i.i29, %if.end40.i.i.i17
-  %inc.i.i.i35 = add i16 %conv49.i.i.i27, 1
+  %inc.i.i.i35 = add nuw i16 %conv49.i.i.i27, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit60
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit60: ; preds = %if.then4.i.i.i52, %if.end.i.i.i55, %if.then23.i.i.i50, %if.end27.i.i.i41, %if.end37.i.i.i15, %lor.lhs.false.i.i.i29, %if.then55.i.i.i34
@@ -163562,7 +163562,7 @@ lor.lhs.false.i.i.i79:                            ; preds = %if.end40.i.i.i67
   br i1 %or.cond.i.i.i83, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit110, label %if.then55.i.i.i84
 
 if.then55.i.i.i84:                                ; preds = %lor.lhs.false.i.i.i79, %if.end40.i.i.i67
-  %inc.i.i.i85 = add i16 %conv49.i.i.i77, 1
+  %inc.i.i.i85 = add nuw i16 %conv49.i.i.i77, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit110
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit110: ; preds = %if.then4.i.i.i102, %if.end.i.i.i105, %if.then23.i.i.i100, %if.end27.i.i.i91, %if.end37.i.i.i65, %lor.lhs.false.i.i.i79, %if.then55.i.i.i84
@@ -163647,7 +163647,7 @@ lor.lhs.false.i.i.i129:                           ; preds = %if.end40.i.i.i117
   br i1 %or.cond.i.i.i133, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit160, label %if.then55.i.i.i134
 
 if.then55.i.i.i134:                               ; preds = %lor.lhs.false.i.i.i129, %if.end40.i.i.i117
-  %inc.i.i.i135 = add i16 %conv49.i.i.i127, 1
+  %inc.i.i.i135 = add nuw i16 %conv49.i.i.i127, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit160
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit160: ; preds = %if.then4.i.i.i152, %if.end.i.i.i155, %if.then23.i.i.i150, %if.end27.i.i.i141, %if.end37.i.i.i115, %lor.lhs.false.i.i.i129, %if.then55.i.i.i134
@@ -164265,7 +164265,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %if.then4.i.i.i, %if.end.i.i.i, %if.then23.i.i.i, %if.end27.i.i.i, %if.end37.i.i.i, %lor.lhs.false.i.i.i, %if.then55.i.i.i
@@ -164345,7 +164345,7 @@ lor.lhs.false.i.i.i121:                           ; preds = %if.end40.i.i.i109
   br i1 %or.cond.i.i.i125, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit152, label %if.then55.i.i.i126
 
 if.then55.i.i.i126:                               ; preds = %lor.lhs.false.i.i.i121, %if.end40.i.i.i109
-  %inc.i.i.i127 = add i16 %conv49.i.i.i119, 1
+  %inc.i.i.i127 = add nuw i16 %conv49.i.i.i119, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit152
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit152: ; preds = %if.then4.i.i.i144, %if.end.i.i.i147, %if.then23.i.i.i142, %if.end27.i.i.i133, %if.end37.i.i.i107, %lor.lhs.false.i.i.i121, %if.then55.i.i.i126
@@ -164426,7 +164426,7 @@ lor.lhs.false.i.i.i171:                           ; preds = %if.end40.i.i.i159
   br i1 %or.cond.i.i.i175, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit202, label %if.then55.i.i.i176
 
 if.then55.i.i.i176:                               ; preds = %lor.lhs.false.i.i.i171, %if.end40.i.i.i159
-  %inc.i.i.i177 = add i16 %conv49.i.i.i169, 1
+  %inc.i.i.i177 = add nuw i16 %conv49.i.i.i169, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit202
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit202: ; preds = %if.then4.i.i.i194, %if.end.i.i.i197, %if.then23.i.i.i192, %if.end27.i.i.i183, %if.end37.i.i.i157, %lor.lhs.false.i.i.i171, %if.then55.i.i.i176
@@ -164511,7 +164511,7 @@ lor.lhs.false.i.i.i221:                           ; preds = %if.end40.i.i.i209
   br i1 %or.cond.i.i.i225, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit252, label %if.then55.i.i.i226
 
 if.then55.i.i.i226:                               ; preds = %lor.lhs.false.i.i.i221, %if.end40.i.i.i209
-  %inc.i.i.i227 = add i16 %conv49.i.i.i219, 1
+  %inc.i.i.i227 = add nuw i16 %conv49.i.i.i219, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit252
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit252: ; preds = %if.then4.i.i.i244, %if.end.i.i.i247, %if.then23.i.i.i242, %if.end27.i.i.i233, %if.end37.i.i.i207, %lor.lhs.false.i.i.i221, %if.then55.i.i.i226
@@ -165803,7 +165803,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN9Imath_3_14halfC2Ef.exit.i, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %if.then55.i.i.i, %lor.lhs.false.i.i.i, %if.end37.i.i.i, %if.end27.i.i.i, %if.then23.i.i.i, %if.end.i.i.i, %if.then4.i.i.i
@@ -165905,7 +165905,7 @@ lor.lhs.false.i.i146.i:                           ; preds = %if.end40.i.i134.i
   br i1 %or.cond.i.i150.i, label %_ZN9Imath_3_14halfC2Ef.exit177.i, label %if.then55.i.i151.i
 
 if.then55.i.i151.i:                               ; preds = %lor.lhs.false.i.i146.i, %if.end40.i.i134.i
-  %inc.i.i152.i = add i16 %conv49.i.i144.i, 1
+  %inc.i.i152.i = add nuw i16 %conv49.i.i144.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit177.i
 
 _ZN9Imath_3_14halfC2Ef.exit177.i:                 ; preds = %if.then55.i.i151.i, %lor.lhs.false.i.i146.i, %if.end37.i.i132.i, %if.end27.i.i158.i, %if.then23.i.i167.i, %if.end.i.i172.i, %if.then4.i.i169.i
@@ -166007,7 +166007,7 @@ lor.lhs.false.i.i202.i:                           ; preds = %if.end40.i.i190.i
   br i1 %or.cond.i.i206.i, label %_ZN9Imath_3_14halfC2Ef.exit233.i, label %if.then55.i.i207.i
 
 if.then55.i.i207.i:                               ; preds = %lor.lhs.false.i.i202.i, %if.end40.i.i190.i
-  %inc.i.i208.i = add i16 %conv49.i.i200.i, 1
+  %inc.i.i208.i = add nuw i16 %conv49.i.i200.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit233.i
 
 _ZN9Imath_3_14halfC2Ef.exit233.i:                 ; preds = %if.then55.i.i207.i, %lor.lhs.false.i.i202.i, %if.end37.i.i188.i, %if.end27.i.i214.i, %if.then23.i.i223.i, %if.end.i.i228.i, %if.then4.i.i225.i
@@ -173898,7 +173898,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN9Imath_3_14halfC2Ef.exit.i, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %if.then55.i.i.i, %lor.lhs.false.i.i.i, %if.end37.i.i.i, %if.end27.i.i.i, %if.then23.i.i.i, %if.end.i.i.i, %if.then4.i.i.i
@@ -174000,7 +174000,7 @@ lor.lhs.false.i.i146.i:                           ; preds = %if.end40.i.i134.i
   br i1 %or.cond.i.i150.i, label %_ZN9Imath_3_14halfC2Ef.exit177.i, label %if.then55.i.i151.i
 
 if.then55.i.i151.i:                               ; preds = %lor.lhs.false.i.i146.i, %if.end40.i.i134.i
-  %inc.i.i152.i = add i16 %conv49.i.i144.i, 1
+  %inc.i.i152.i = add nuw i16 %conv49.i.i144.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit177.i
 
 _ZN9Imath_3_14halfC2Ef.exit177.i:                 ; preds = %if.then55.i.i151.i, %lor.lhs.false.i.i146.i, %if.end37.i.i132.i, %if.end27.i.i158.i, %if.then23.i.i167.i, %if.end.i.i172.i, %if.then4.i.i169.i
@@ -174102,7 +174102,7 @@ lor.lhs.false.i.i202.i:                           ; preds = %if.end40.i.i190.i
   br i1 %or.cond.i.i206.i, label %_ZN9Imath_3_14halfC2Ef.exit233.i, label %if.then55.i.i207.i
 
 if.then55.i.i207.i:                               ; preds = %lor.lhs.false.i.i202.i, %if.end40.i.i190.i
-  %inc.i.i208.i = add i16 %conv49.i.i200.i, 1
+  %inc.i.i208.i = add nuw i16 %conv49.i.i200.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit233.i
 
 _ZN9Imath_3_14halfC2Ef.exit233.i:                 ; preds = %if.then55.i.i207.i, %lor.lhs.false.i.i202.i, %if.end37.i.i188.i, %if.end27.i.i214.i, %if.then23.i.i223.i, %if.end.i.i228.i, %if.then4.i.i225.i
@@ -181283,7 +181283,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN9Imath_3_14halfC2Ef.exit.i, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %if.then55.i.i.i, %lor.lhs.false.i.i.i, %if.end37.i.i.i, %if.end27.i.i.i, %if.then23.i.i.i, %if.end.i.i.i, %if.then4.i.i.i
@@ -181385,7 +181385,7 @@ lor.lhs.false.i.i146.i:                           ; preds = %if.end40.i.i134.i
   br i1 %or.cond.i.i150.i, label %_ZN9Imath_3_14halfC2Ef.exit177.i, label %if.then55.i.i151.i
 
 if.then55.i.i151.i:                               ; preds = %lor.lhs.false.i.i146.i, %if.end40.i.i134.i
-  %inc.i.i152.i = add i16 %conv49.i.i144.i, 1
+  %inc.i.i152.i = add nuw i16 %conv49.i.i144.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit177.i
 
 _ZN9Imath_3_14halfC2Ef.exit177.i:                 ; preds = %if.then55.i.i151.i, %lor.lhs.false.i.i146.i, %if.end37.i.i132.i, %if.end27.i.i158.i, %if.then23.i.i167.i, %if.end.i.i172.i, %if.then4.i.i169.i
@@ -181487,7 +181487,7 @@ lor.lhs.false.i.i202.i:                           ; preds = %if.end40.i.i190.i
   br i1 %or.cond.i.i206.i, label %_ZN9Imath_3_14halfC2Ef.exit233.i, label %if.then55.i.i207.i
 
 if.then55.i.i207.i:                               ; preds = %lor.lhs.false.i.i202.i, %if.end40.i.i190.i
-  %inc.i.i208.i = add i16 %conv49.i.i200.i, 1
+  %inc.i.i208.i = add nuw i16 %conv49.i.i200.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit233.i
 
 _ZN9Imath_3_14halfC2Ef.exit233.i:                 ; preds = %if.then55.i.i207.i, %lor.lhs.false.i.i202.i, %if.end37.i.i188.i, %if.end27.i.i214.i, %if.then23.i.i223.i, %if.end.i.i228.i, %if.then4.i.i225.i
@@ -188668,7 +188668,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN9Imath_3_14halfC2Ef.exit.i, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %if.then55.i.i.i, %lor.lhs.false.i.i.i, %if.end37.i.i.i, %if.end27.i.i.i, %if.then23.i.i.i, %if.end.i.i.i, %if.then4.i.i.i
@@ -188770,7 +188770,7 @@ lor.lhs.false.i.i146.i:                           ; preds = %if.end40.i.i134.i
   br i1 %or.cond.i.i150.i, label %_ZN9Imath_3_14halfC2Ef.exit177.i, label %if.then55.i.i151.i
 
 if.then55.i.i151.i:                               ; preds = %lor.lhs.false.i.i146.i, %if.end40.i.i134.i
-  %inc.i.i152.i = add i16 %conv49.i.i144.i, 1
+  %inc.i.i152.i = add nuw i16 %conv49.i.i144.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit177.i
 
 _ZN9Imath_3_14halfC2Ef.exit177.i:                 ; preds = %if.then55.i.i151.i, %lor.lhs.false.i.i146.i, %if.end37.i.i132.i, %if.end27.i.i158.i, %if.then23.i.i167.i, %if.end.i.i172.i, %if.then4.i.i169.i
@@ -188872,7 +188872,7 @@ lor.lhs.false.i.i202.i:                           ; preds = %if.end40.i.i190.i
   br i1 %or.cond.i.i206.i, label %_ZN9Imath_3_14halfC2Ef.exit233.i, label %if.then55.i.i207.i
 
 if.then55.i.i207.i:                               ; preds = %lor.lhs.false.i.i202.i, %if.end40.i.i190.i
-  %inc.i.i208.i = add i16 %conv49.i.i200.i, 1
+  %inc.i.i208.i = add nuw i16 %conv49.i.i200.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit233.i
 
 _ZN9Imath_3_14halfC2Ef.exit233.i:                 ; preds = %if.then55.i.i207.i, %lor.lhs.false.i.i202.i, %if.end37.i.i188.i, %if.end27.i.i214.i, %if.then23.i.i223.i, %if.end.i.i228.i, %if.then4.i.i225.i
@@ -196053,7 +196053,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN9Imath_3_14halfC2Ef.exit.i, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %if.then55.i.i.i, %lor.lhs.false.i.i.i, %if.end37.i.i.i, %if.end27.i.i.i, %if.then23.i.i.i, %if.end.i.i.i, %if.then4.i.i.i
@@ -196155,7 +196155,7 @@ lor.lhs.false.i.i146.i:                           ; preds = %if.end40.i.i134.i
   br i1 %or.cond.i.i150.i, label %_ZN9Imath_3_14halfC2Ef.exit177.i, label %if.then55.i.i151.i
 
 if.then55.i.i151.i:                               ; preds = %lor.lhs.false.i.i146.i, %if.end40.i.i134.i
-  %inc.i.i152.i = add i16 %conv49.i.i144.i, 1
+  %inc.i.i152.i = add nuw i16 %conv49.i.i144.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit177.i
 
 _ZN9Imath_3_14halfC2Ef.exit177.i:                 ; preds = %if.then55.i.i151.i, %lor.lhs.false.i.i146.i, %if.end37.i.i132.i, %if.end27.i.i158.i, %if.then23.i.i167.i, %if.end.i.i172.i, %if.then4.i.i169.i
@@ -196257,7 +196257,7 @@ lor.lhs.false.i.i202.i:                           ; preds = %if.end40.i.i190.i
   br i1 %or.cond.i.i206.i, label %_ZN9Imath_3_14halfC2Ef.exit233.i, label %if.then55.i.i207.i
 
 if.then55.i.i207.i:                               ; preds = %lor.lhs.false.i.i202.i, %if.end40.i.i190.i
-  %inc.i.i208.i = add i16 %conv49.i.i200.i, 1
+  %inc.i.i208.i = add nuw i16 %conv49.i.i200.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit233.i
 
 _ZN9Imath_3_14halfC2Ef.exit233.i:                 ; preds = %if.then55.i.i207.i, %lor.lhs.false.i.i202.i, %if.end37.i.i188.i, %if.end27.i.i214.i, %if.then23.i.i223.i, %if.end.i.i228.i, %if.then4.i.i225.i
@@ -202428,7 +202428,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end40.i.i
   br i1 %or.cond.i.i, label %_ZN9Imath_3_14halfC2Ef.exit, label %if.then55.i.i
 
 if.then55.i.i:                                    ; preds = %lor.lhs.false.i.i, %if.end40.i.i
-  %inc.i.i = add i16 %conv49.i.i, 1
+  %inc.i.i = add nuw i16 %conv49.i.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit
 
 _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %if.then4.i.i, %if.end.i.i, %if.then23.i.i, %if.end27.i.i, %if.end37.i.i, %lor.lhs.false.i.i, %if.then55.i.i
@@ -203515,7 +203515,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN9Imath_3_14halfC2Ef.exit.i, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %if.then55.i.i.i, %lor.lhs.false.i.i.i, %if.end37.i.i.i, %if.end27.i.i.i, %if.then23.i.i.i, %if.end.i.i.i, %if.then4.i.i.i
@@ -203617,7 +203617,7 @@ lor.lhs.false.i.i146.i:                           ; preds = %if.end40.i.i134.i
   br i1 %or.cond.i.i150.i, label %_ZN9Imath_3_14halfC2Ef.exit177.i, label %if.then55.i.i151.i
 
 if.then55.i.i151.i:                               ; preds = %lor.lhs.false.i.i146.i, %if.end40.i.i134.i
-  %inc.i.i152.i = add i16 %conv49.i.i144.i, 1
+  %inc.i.i152.i = add nuw i16 %conv49.i.i144.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit177.i
 
 _ZN9Imath_3_14halfC2Ef.exit177.i:                 ; preds = %if.then55.i.i151.i, %lor.lhs.false.i.i146.i, %if.end37.i.i132.i, %if.end27.i.i158.i, %if.then23.i.i167.i, %if.end.i.i172.i, %if.then4.i.i169.i
@@ -203719,7 +203719,7 @@ lor.lhs.false.i.i202.i:                           ; preds = %if.end40.i.i190.i
   br i1 %or.cond.i.i206.i, label %_ZN9Imath_3_14halfC2Ef.exit233.i, label %if.then55.i.i207.i
 
 if.then55.i.i207.i:                               ; preds = %lor.lhs.false.i.i202.i, %if.end40.i.i190.i
-  %inc.i.i208.i = add i16 %conv49.i.i200.i, 1
+  %inc.i.i208.i = add nuw i16 %conv49.i.i200.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit233.i
 
 _ZN9Imath_3_14halfC2Ef.exit233.i:                 ; preds = %if.then55.i.i207.i, %lor.lhs.false.i.i202.i, %if.end37.i.i188.i, %if.end27.i.i214.i, %if.then23.i.i223.i, %if.end.i.i228.i, %if.then4.i.i225.i
@@ -205514,7 +205514,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end40.i.i
   br i1 %or.cond.i.i, label %_ZN9Imath_3_14halfC2Ef.exit, label %if.then55.i.i
 
 if.then55.i.i:                                    ; preds = %lor.lhs.false.i.i, %if.end40.i.i
-  %inc.i.i = add i16 %conv49.i.i, 1
+  %inc.i.i = add nuw i16 %conv49.i.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit
 
 _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %if.then4.i.i, %if.end.i.i, %if.then23.i.i, %if.end27.i.i, %if.end37.i.i, %lor.lhs.false.i.i, %if.then55.i.i
@@ -205594,7 +205594,7 @@ lor.lhs.false.i.i88:                              ; preds = %if.end40.i.i76
   br i1 %or.cond.i.i92, label %_ZN9Imath_3_14halfC2Ef.exit119, label %if.then55.i.i93
 
 if.then55.i.i93:                                  ; preds = %lor.lhs.false.i.i88, %if.end40.i.i76
-  %inc.i.i94 = add i16 %conv49.i.i86, 1
+  %inc.i.i94 = add nuw i16 %conv49.i.i86, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit119
 
 _ZN9Imath_3_14halfC2Ef.exit119:                   ; preds = %if.then4.i.i111, %if.end.i.i114, %if.then23.i.i109, %if.end27.i.i100, %if.end37.i.i74, %lor.lhs.false.i.i88, %if.then55.i.i93
@@ -205675,7 +205675,7 @@ lor.lhs.false.i.i138:                             ; preds = %if.end40.i.i126
   br i1 %or.cond.i.i142, label %_ZN9Imath_3_14halfC2Ef.exit169, label %if.then55.i.i143
 
 if.then55.i.i143:                                 ; preds = %lor.lhs.false.i.i138, %if.end40.i.i126
-  %inc.i.i144 = add i16 %conv49.i.i136, 1
+  %inc.i.i144 = add nuw i16 %conv49.i.i136, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit169
 
 _ZN9Imath_3_14halfC2Ef.exit169:                   ; preds = %if.then4.i.i161, %if.end.i.i164, %if.then23.i.i159, %if.end27.i.i150, %if.end37.i.i124, %lor.lhs.false.i.i138, %if.then55.i.i143
@@ -205797,7 +205797,7 @@ lor.lhs.false.i.i211:                             ; preds = %if.end40.i.i199
   br i1 %or.cond.i.i215, label %_ZN9Imath_3_14halfC2Ef.exit242, label %if.then55.i.i216
 
 if.then55.i.i216:                                 ; preds = %lor.lhs.false.i.i211, %if.end40.i.i199
-  %inc.i.i217 = add i16 %conv49.i.i209, 1
+  %inc.i.i217 = add nuw i16 %conv49.i.i209, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit242
 
 _ZN9Imath_3_14halfC2Ef.exit242:                   ; preds = %if.then4.i.i234, %if.end.i.i237, %if.then23.i.i232, %if.end27.i.i223, %if.end37.i.i197, %lor.lhs.false.i.i211, %if.then55.i.i216
@@ -206127,7 +206127,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end40.i.i
   br i1 %or.cond.i.i, label %_ZN9Imath_3_14halfC2Ef.exit, label %if.then55.i.i
 
 if.then55.i.i:                                    ; preds = %lor.lhs.false.i.i, %if.end40.i.i
-  %inc.i.i = add i16 %conv49.i.i, 1
+  %inc.i.i = add nuw i16 %conv49.i.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit
 
 _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %if.then4.i.i, %if.end.i.i, %if.then23.i.i, %if.end27.i.i, %if.end37.i.i, %lor.lhs.false.i.i, %if.then55.i.i
@@ -206503,7 +206503,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end40.i.i
   br i1 %or.cond.i.i, label %_ZN9Imath_3_14halfC2Ef.exit, label %if.then55.i.i
 
 if.then55.i.i:                                    ; preds = %lor.lhs.false.i.i, %if.end40.i.i
-  %inc.i.i = add i16 %conv49.i.i, 1
+  %inc.i.i = add nuw i16 %conv49.i.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit
 
 _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %if.then4.i.i, %if.end.i.i, %if.then23.i.i, %if.end27.i.i, %if.end37.i.i, %lor.lhs.false.i.i, %if.then55.i.i
@@ -206583,7 +206583,7 @@ lor.lhs.false.i.i88:                              ; preds = %if.end40.i.i76
   br i1 %or.cond.i.i92, label %_ZN9Imath_3_14halfC2Ef.exit119, label %if.then55.i.i93
 
 if.then55.i.i93:                                  ; preds = %lor.lhs.false.i.i88, %if.end40.i.i76
-  %inc.i.i94 = add i16 %conv49.i.i86, 1
+  %inc.i.i94 = add nuw i16 %conv49.i.i86, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit119
 
 _ZN9Imath_3_14halfC2Ef.exit119:                   ; preds = %if.then4.i.i111, %if.end.i.i114, %if.then23.i.i109, %if.end27.i.i100, %if.end37.i.i74, %lor.lhs.false.i.i88, %if.then55.i.i93
@@ -206664,7 +206664,7 @@ lor.lhs.false.i.i138:                             ; preds = %if.end40.i.i126
   br i1 %or.cond.i.i142, label %_ZN9Imath_3_14halfC2Ef.exit169, label %if.then55.i.i143
 
 if.then55.i.i143:                                 ; preds = %lor.lhs.false.i.i138, %if.end40.i.i126
-  %inc.i.i144 = add i16 %conv49.i.i136, 1
+  %inc.i.i144 = add nuw i16 %conv49.i.i136, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit169
 
 _ZN9Imath_3_14halfC2Ef.exit169:                   ; preds = %if.then4.i.i161, %if.end.i.i164, %if.then23.i.i159, %if.end27.i.i150, %if.end37.i.i124, %lor.lhs.false.i.i138, %if.then55.i.i143
@@ -206786,7 +206786,7 @@ lor.lhs.false.i.i211:                             ; preds = %if.end40.i.i199
   br i1 %or.cond.i.i215, label %_ZN9Imath_3_14halfC2Ef.exit242, label %if.then55.i.i216
 
 if.then55.i.i216:                                 ; preds = %lor.lhs.false.i.i211, %if.end40.i.i199
-  %inc.i.i217 = add i16 %conv49.i.i209, 1
+  %inc.i.i217 = add nuw i16 %conv49.i.i209, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit242
 
 _ZN9Imath_3_14halfC2Ef.exit242:                   ; preds = %if.then4.i.i234, %if.end.i.i237, %if.then23.i.i232, %if.end27.i.i223, %if.end37.i.i197, %lor.lhs.false.i.i211, %if.then55.i.i216
@@ -207455,7 +207455,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %if.then4.i.i.i, %if.end.i.i.i, %if.then23.i.i.i, %if.end27.i.i.i, %if.end37.i.i.i, %lor.lhs.false.i.i.i, %if.then55.i.i.i
@@ -207534,7 +207534,7 @@ lor.lhs.false.i.i.i80:                            ; preds = %if.end40.i.i.i68
   br i1 %or.cond.i.i.i84, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit111, label %if.then55.i.i.i85
 
 if.then55.i.i.i85:                                ; preds = %lor.lhs.false.i.i.i80, %if.end40.i.i.i68
-  %inc.i.i.i86 = add i16 %conv49.i.i.i78, 1
+  %inc.i.i.i86 = add nuw i16 %conv49.i.i.i78, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit111
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit111: ; preds = %if.then4.i.i.i103, %if.end.i.i.i106, %if.then23.i.i.i101, %if.end27.i.i.i92, %if.end37.i.i.i66, %lor.lhs.false.i.i.i80, %if.then55.i.i.i85
@@ -207614,7 +207614,7 @@ lor.lhs.false.i.i.i130:                           ; preds = %if.end40.i.i.i118
   br i1 %or.cond.i.i.i134, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit161, label %if.then55.i.i.i135
 
 if.then55.i.i.i135:                               ; preds = %lor.lhs.false.i.i.i130, %if.end40.i.i.i118
-  %inc.i.i.i136 = add i16 %conv49.i.i.i128, 1
+  %inc.i.i.i136 = add nuw i16 %conv49.i.i.i128, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit161
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit161: ; preds = %if.then4.i.i.i153, %if.end.i.i.i156, %if.then23.i.i.i151, %if.end27.i.i.i142, %if.end37.i.i.i116, %lor.lhs.false.i.i.i130, %if.then55.i.i.i135
@@ -207736,7 +207736,7 @@ lor.lhs.false.i.i.i203:                           ; preds = %if.end40.i.i.i191
   br i1 %or.cond.i.i.i207, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit234, label %if.then55.i.i.i208
 
 if.then55.i.i.i208:                               ; preds = %lor.lhs.false.i.i.i203, %if.end40.i.i.i191
-  %inc.i.i.i209 = add i16 %conv49.i.i.i201, 1
+  %inc.i.i.i209 = add nuw i16 %conv49.i.i.i201, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit234
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit234: ; preds = %if.then4.i.i.i226, %if.end.i.i.i229, %if.then23.i.i.i224, %if.end27.i.i.i215, %if.end37.i.i.i189, %lor.lhs.false.i.i.i203, %if.then55.i.i.i208
@@ -208528,7 +208528,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %if.then4.i.i.i, %if.end.i.i.i, %if.then23.i.i.i, %if.end27.i.i.i, %if.end37.i.i.i, %lor.lhs.false.i.i.i, %if.then55.i.i.i
@@ -208703,7 +208703,7 @@ lor.lhs.false.i.i.i97:                            ; preds = %if.end40.i.i.i85
   br i1 %or.cond.i.i.i101, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit128, label %if.then55.i.i.i102
 
 if.then55.i.i.i102:                               ; preds = %lor.lhs.false.i.i.i97, %if.end40.i.i.i85
-  %inc.i.i.i103 = add i16 %conv49.i.i.i95, 1
+  %inc.i.i.i103 = add nuw i16 %conv49.i.i.i95, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit128
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit128: ; preds = %if.then4.i.i.i120, %if.end.i.i.i123, %if.then23.i.i.i118, %if.end27.i.i.i109, %if.end37.i.i.i83, %lor.lhs.false.i.i.i97, %if.then55.i.i.i102
@@ -208879,7 +208879,7 @@ lor.lhs.false.i.i.i213:                           ; preds = %if.end40.i.i.i201
   br i1 %or.cond.i.i.i217, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit244, label %if.then55.i.i.i218
 
 if.then55.i.i.i218:                               ; preds = %lor.lhs.false.i.i.i213, %if.end40.i.i.i201
-  %inc.i.i.i219 = add i16 %conv49.i.i.i211, 1
+  %inc.i.i.i219 = add nuw i16 %conv49.i.i.i211, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit244
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit244: ; preds = %if.then4.i.i.i236, %if.end.i.i.i239, %if.then23.i.i.i234, %if.end27.i.i.i225, %if.end37.i.i.i199, %lor.lhs.false.i.i.i213, %if.then55.i.i.i218
@@ -209001,7 +209001,7 @@ lor.lhs.false.i.i.i286:                           ; preds = %if.end40.i.i.i274
   br i1 %or.cond.i.i.i290, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit317, label %if.then55.i.i.i291
 
 if.then55.i.i.i291:                               ; preds = %lor.lhs.false.i.i.i286, %if.end40.i.i.i274
-  %inc.i.i.i292 = add i16 %conv49.i.i.i284, 1
+  %inc.i.i.i292 = add nuw i16 %conv49.i.i.i284, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit317
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit317: ; preds = %if.then4.i.i.i309, %if.end.i.i.i312, %if.then23.i.i.i307, %if.end27.i.i.i298, %if.end37.i.i.i272, %lor.lhs.false.i.i.i286, %if.then55.i.i.i291
@@ -210024,7 +210024,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %if.then4.i.i.i, %if.end.i.i.i, %if.then23.i.i.i, %if.end27.i.i.i, %if.end37.i.i.i, %lor.lhs.false.i.i.i, %if.then55.i.i.i
@@ -210104,7 +210104,7 @@ lor.lhs.false.i.i.i75:                            ; preds = %if.end40.i.i.i63
   br i1 %or.cond.i.i.i79, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit106, label %if.then55.i.i.i80
 
 if.then55.i.i.i80:                                ; preds = %lor.lhs.false.i.i.i75, %if.end40.i.i.i63
-  %inc.i.i.i81 = add i16 %conv49.i.i.i73, 1
+  %inc.i.i.i81 = add nuw i16 %conv49.i.i.i73, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit106
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit106: ; preds = %if.then4.i.i.i98, %if.end.i.i.i101, %if.then23.i.i.i96, %if.end27.i.i.i87, %if.end37.i.i.i61, %lor.lhs.false.i.i.i75, %if.then55.i.i.i80
@@ -210185,7 +210185,7 @@ lor.lhs.false.i.i.i125:                           ; preds = %if.end40.i.i.i113
   br i1 %or.cond.i.i.i129, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit156, label %if.then55.i.i.i130
 
 if.then55.i.i.i130:                               ; preds = %lor.lhs.false.i.i.i125, %if.end40.i.i.i113
-  %inc.i.i.i131 = add i16 %conv49.i.i.i123, 1
+  %inc.i.i.i131 = add nuw i16 %conv49.i.i.i123, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit156
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit156: ; preds = %if.then4.i.i.i148, %if.end.i.i.i151, %if.then23.i.i.i146, %if.end27.i.i.i137, %if.end37.i.i.i111, %lor.lhs.false.i.i.i125, %if.then55.i.i.i130
@@ -210307,7 +210307,7 @@ lor.lhs.false.i.i.i198:                           ; preds = %if.end40.i.i.i186
   br i1 %or.cond.i.i.i202, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit229, label %if.then55.i.i.i203
 
 if.then55.i.i.i203:                               ; preds = %lor.lhs.false.i.i.i198, %if.end40.i.i.i186
-  %inc.i.i.i204 = add i16 %conv49.i.i.i196, 1
+  %inc.i.i.i204 = add nuw i16 %conv49.i.i.i196, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit229
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit229: ; preds = %if.then4.i.i.i221, %if.end.i.i.i224, %if.then23.i.i.i219, %if.end27.i.i.i210, %if.end37.i.i.i184, %lor.lhs.false.i.i.i198, %if.then55.i.i.i203
@@ -211036,7 +211036,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %if.then4.i.i.i, %if.end.i.i.i, %if.then23.i.i.i, %if.end27.i.i.i, %if.end37.i.i.i, %lor.lhs.false.i.i.i, %if.then55.i.i.i
@@ -211116,7 +211116,7 @@ lor.lhs.false.i.i.i168:                           ; preds = %if.end40.i.i.i156
   br i1 %or.cond.i.i.i172, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit199, label %if.then55.i.i.i173
 
 if.then55.i.i.i173:                               ; preds = %lor.lhs.false.i.i.i168, %if.end40.i.i.i156
-  %inc.i.i.i174 = add i16 %conv49.i.i.i166, 1
+  %inc.i.i.i174 = add nuw i16 %conv49.i.i.i166, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit199
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit199: ; preds = %if.then4.i.i.i191, %if.end.i.i.i194, %if.then23.i.i.i189, %if.end27.i.i.i180, %if.end37.i.i.i154, %lor.lhs.false.i.i.i168, %if.then55.i.i.i173
@@ -211197,7 +211197,7 @@ lor.lhs.false.i.i.i218:                           ; preds = %if.end40.i.i.i206
   br i1 %or.cond.i.i.i222, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit249, label %if.then55.i.i.i223
 
 if.then55.i.i.i223:                               ; preds = %lor.lhs.false.i.i.i218, %if.end40.i.i.i206
-  %inc.i.i.i224 = add i16 %conv49.i.i.i216, 1
+  %inc.i.i.i224 = add nuw i16 %conv49.i.i.i216, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit249
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit249: ; preds = %if.then4.i.i.i241, %if.end.i.i.i244, %if.then23.i.i.i239, %if.end27.i.i.i230, %if.end37.i.i.i204, %lor.lhs.false.i.i.i218, %if.then55.i.i.i223
@@ -211319,7 +211319,7 @@ lor.lhs.false.i.i.i291:                           ; preds = %if.end40.i.i.i279
   br i1 %or.cond.i.i.i295, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit322, label %if.then55.i.i.i296
 
 if.then55.i.i.i296:                               ; preds = %lor.lhs.false.i.i.i291, %if.end40.i.i.i279
-  %inc.i.i.i297 = add i16 %conv49.i.i.i289, 1
+  %inc.i.i.i297 = add nuw i16 %conv49.i.i.i289, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit322
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit322: ; preds = %if.then4.i.i.i314, %if.end.i.i.i317, %if.then23.i.i.i312, %if.end27.i.i.i303, %if.end37.i.i.i277, %lor.lhs.false.i.i.i291, %if.then55.i.i.i296
@@ -212648,7 +212648,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN9Imath_3_14halfC2Ef.exit.i, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %if.then55.i.i.i, %lor.lhs.false.i.i.i, %if.end37.i.i.i, %if.end27.i.i.i, %if.then23.i.i.i, %if.end.i.i.i, %if.then4.i.i.i
@@ -212750,7 +212750,7 @@ lor.lhs.false.i.i146.i:                           ; preds = %if.end40.i.i134.i
   br i1 %or.cond.i.i150.i, label %_ZN9Imath_3_14halfC2Ef.exit177.i, label %if.then55.i.i151.i
 
 if.then55.i.i151.i:                               ; preds = %lor.lhs.false.i.i146.i, %if.end40.i.i134.i
-  %inc.i.i152.i = add i16 %conv49.i.i144.i, 1
+  %inc.i.i152.i = add nuw i16 %conv49.i.i144.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit177.i
 
 _ZN9Imath_3_14halfC2Ef.exit177.i:                 ; preds = %if.then55.i.i151.i, %lor.lhs.false.i.i146.i, %if.end37.i.i132.i, %if.end27.i.i158.i, %if.then23.i.i167.i, %if.end.i.i172.i, %if.then4.i.i169.i
@@ -212852,7 +212852,7 @@ lor.lhs.false.i.i202.i:                           ; preds = %if.end40.i.i190.i
   br i1 %or.cond.i.i206.i, label %_ZN9Imath_3_14halfC2Ef.exit233.i, label %if.then55.i.i207.i
 
 if.then55.i.i207.i:                               ; preds = %lor.lhs.false.i.i202.i, %if.end40.i.i190.i
-  %inc.i.i208.i = add i16 %conv49.i.i200.i, 1
+  %inc.i.i208.i = add nuw i16 %conv49.i.i200.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit233.i
 
 _ZN9Imath_3_14halfC2Ef.exit233.i:                 ; preds = %if.then55.i.i207.i, %lor.lhs.false.i.i202.i, %if.end37.i.i188.i, %if.end27.i.i214.i, %if.then23.i.i223.i, %if.end.i.i228.i, %if.then4.i.i225.i
@@ -221251,7 +221251,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end40.i.i
   br i1 %or.cond.i.i, label %_ZN9Imath_3_14halfC2Ef.exit, label %if.then55.i.i
 
 if.then55.i.i:                                    ; preds = %lor.lhs.false.i.i, %if.end40.i.i
-  %inc.i.i = add i16 %conv49.i.i, 1
+  %inc.i.i = add nuw i16 %conv49.i.i, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit
 
 _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %if.then4.i.i, %if.end.i.i, %if.then23.i.i, %if.end27.i.i, %if.end37.i.i, %lor.lhs.false.i.i, %if.then55.i.i
@@ -240885,7 +240885,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %if.then4.i.i.i, %if.end.i.i.i, %if.then23.i.i.i, %if.end27.i.i.i, %if.end37.i.i.i, %lor.lhs.false.i.i.i, %if.then55.i.i.i
@@ -240973,7 +240973,7 @@ lor.lhs.false.i.i.i32:                            ; preds = %if.end40.i.i.i20
   br i1 %or.cond.i.i.i36, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit63, label %if.then55.i.i.i37
 
 if.then55.i.i.i37:                                ; preds = %lor.lhs.false.i.i.i32, %if.end40.i.i.i20
-  %inc.i.i.i38 = add i16 %conv49.i.i.i30, 1
+  %inc.i.i.i38 = add nuw i16 %conv49.i.i.i30, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit63
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit63: ; preds = %if.then4.i.i.i55, %if.end.i.i.i58, %if.then23.i.i.i53, %if.end27.i.i.i44, %if.end37.i.i.i18, %lor.lhs.false.i.i.i32, %if.then55.i.i.i37
@@ -241062,7 +241062,7 @@ lor.lhs.false.i.i.i83:                            ; preds = %if.end40.i.i.i71
   br i1 %or.cond.i.i.i87, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit114, label %if.then55.i.i.i88
 
 if.then55.i.i.i88:                                ; preds = %lor.lhs.false.i.i.i83, %if.end40.i.i.i71
-  %inc.i.i.i89 = add i16 %conv49.i.i.i81, 1
+  %inc.i.i.i89 = add nuw i16 %conv49.i.i.i81, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit114
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit114: ; preds = %if.then4.i.i.i106, %if.end.i.i.i109, %if.then23.i.i.i104, %if.end27.i.i.i95, %if.end37.i.i.i69, %lor.lhs.false.i.i.i83, %if.then55.i.i.i88
@@ -241146,7 +241146,7 @@ lor.lhs.false.i.i.i133:                           ; preds = %if.end40.i.i.i121
   br i1 %or.cond.i.i.i137, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit164, label %if.then55.i.i.i138
 
 if.then55.i.i.i138:                               ; preds = %lor.lhs.false.i.i.i133, %if.end40.i.i.i121
-  %inc.i.i.i139 = add i16 %conv49.i.i.i131, 1
+  %inc.i.i.i139 = add nuw i16 %conv49.i.i.i131, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit164
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit164: ; preds = %if.then4.i.i.i156, %if.end.i.i.i159, %if.then23.i.i.i154, %if.end27.i.i.i145, %if.end37.i.i.i119, %lor.lhs.false.i.i.i133, %if.then55.i.i.i138
@@ -242098,7 +242098,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %if.then4.i.i.i, %if.end.i.i.i, %if.then23.i.i.i, %if.end27.i.i.i, %if.end37.i.i.i, %lor.lhs.false.i.i.i, %if.then55.i.i.i
@@ -242178,7 +242178,7 @@ lor.lhs.false.i.i.i35:                            ; preds = %if.end40.i.i.i23
   br i1 %or.cond.i.i.i39, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit66, label %if.then55.i.i.i40
 
 if.then55.i.i.i40:                                ; preds = %lor.lhs.false.i.i.i35, %if.end40.i.i.i23
-  %inc.i.i.i41 = add i16 %conv49.i.i.i33, 1
+  %inc.i.i.i41 = add nuw i16 %conv49.i.i.i33, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit66
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit66: ; preds = %if.then4.i.i.i58, %if.end.i.i.i61, %if.then23.i.i.i56, %if.end27.i.i.i47, %if.end37.i.i.i21, %lor.lhs.false.i.i.i35, %if.then55.i.i.i40
@@ -242259,7 +242259,7 @@ lor.lhs.false.i.i.i85:                            ; preds = %if.end40.i.i.i73
   br i1 %or.cond.i.i.i89, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit116, label %if.then55.i.i.i90
 
 if.then55.i.i.i90:                                ; preds = %lor.lhs.false.i.i.i85, %if.end40.i.i.i73
-  %inc.i.i.i91 = add i16 %conv49.i.i.i83, 1
+  %inc.i.i.i91 = add nuw i16 %conv49.i.i.i83, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit116
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit116: ; preds = %if.then4.i.i.i108, %if.end.i.i.i111, %if.then23.i.i.i106, %if.end27.i.i.i97, %if.end37.i.i.i71, %lor.lhs.false.i.i.i85, %if.then55.i.i.i90
@@ -242343,7 +242343,7 @@ lor.lhs.false.i.i.i135:                           ; preds = %if.end40.i.i.i123
   br i1 %or.cond.i.i.i139, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit166, label %if.then55.i.i.i140
 
 if.then55.i.i.i140:                               ; preds = %lor.lhs.false.i.i.i135, %if.end40.i.i.i123
-  %inc.i.i.i141 = add i16 %conv49.i.i.i133, 1
+  %inc.i.i.i141 = add nuw i16 %conv49.i.i.i133, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit166
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit166: ; preds = %if.then4.i.i.i158, %if.end.i.i.i161, %if.then23.i.i.i156, %if.end27.i.i.i147, %if.end37.i.i.i121, %lor.lhs.false.i.i.i135, %if.then55.i.i.i140
@@ -242763,7 +242763,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %if.then4.i.i.i, %if.end.i.i.i, %if.then23.i.i.i, %if.end27.i.i.i, %if.end37.i.i.i, %lor.lhs.false.i.i.i, %if.then55.i.i.i
@@ -242850,7 +242850,7 @@ lor.lhs.false.i.i.i48:                            ; preds = %if.end40.i.i.i36
   br i1 %or.cond.i.i.i52, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit79, label %if.then55.i.i.i53
 
 if.then55.i.i.i53:                                ; preds = %lor.lhs.false.i.i.i48, %if.end40.i.i.i36
-  %inc.i.i.i54 = add i16 %conv49.i.i.i46, 1
+  %inc.i.i.i54 = add nuw i16 %conv49.i.i.i46, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit79
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit79: ; preds = %if.then4.i.i.i71, %if.end.i.i.i74, %if.then23.i.i.i69, %if.end27.i.i.i60, %if.end37.i.i.i34, %lor.lhs.false.i.i.i48, %if.then55.i.i.i53
@@ -242938,7 +242938,7 @@ lor.lhs.false.i.i.i99:                            ; preds = %if.end40.i.i.i87
   br i1 %or.cond.i.i.i103, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit130, label %if.then55.i.i.i104
 
 if.then55.i.i.i104:                               ; preds = %lor.lhs.false.i.i.i99, %if.end40.i.i.i87
-  %inc.i.i.i105 = add i16 %conv49.i.i.i97, 1
+  %inc.i.i.i105 = add nuw i16 %conv49.i.i.i97, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit130
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit130: ; preds = %if.then4.i.i.i122, %if.end.i.i.i125, %if.then23.i.i.i120, %if.end27.i.i.i111, %if.end37.i.i.i85, %lor.lhs.false.i.i.i99, %if.then55.i.i.i104
@@ -243022,7 +243022,7 @@ lor.lhs.false.i.i.i149:                           ; preds = %if.end40.i.i.i137
   br i1 %or.cond.i.i.i153, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit180, label %if.then55.i.i.i154
 
 if.then55.i.i.i154:                               ; preds = %lor.lhs.false.i.i.i149, %if.end40.i.i.i137
-  %inc.i.i.i155 = add i16 %conv49.i.i.i147, 1
+  %inc.i.i.i155 = add nuw i16 %conv49.i.i.i147, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit180
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit180: ; preds = %if.then4.i.i.i172, %if.end.i.i.i175, %if.then23.i.i.i170, %if.end27.i.i.i161, %if.end37.i.i.i135, %lor.lhs.false.i.i.i149, %if.then55.i.i.i154
@@ -243426,7 +243426,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %if.then4.i.i.i, %if.end.i.i.i, %if.then23.i.i.i, %if.end27.i.i.i, %if.end37.i.i.i, %lor.lhs.false.i.i.i, %if.then55.i.i.i
@@ -243506,7 +243506,7 @@ lor.lhs.false.i.i.i49:                            ; preds = %if.end40.i.i.i37
   br i1 %or.cond.i.i.i53, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit80, label %if.then55.i.i.i54
 
 if.then55.i.i.i54:                                ; preds = %lor.lhs.false.i.i.i49, %if.end40.i.i.i37
-  %inc.i.i.i55 = add i16 %conv49.i.i.i47, 1
+  %inc.i.i.i55 = add nuw i16 %conv49.i.i.i47, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit80
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit80: ; preds = %if.then4.i.i.i72, %if.end.i.i.i75, %if.then23.i.i.i70, %if.end27.i.i.i61, %if.end37.i.i.i35, %lor.lhs.false.i.i.i49, %if.then55.i.i.i54
@@ -243587,7 +243587,7 @@ lor.lhs.false.i.i.i99:                            ; preds = %if.end40.i.i.i87
   br i1 %or.cond.i.i.i103, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit130, label %if.then55.i.i.i104
 
 if.then55.i.i.i104:                               ; preds = %lor.lhs.false.i.i.i99, %if.end40.i.i.i87
-  %inc.i.i.i105 = add i16 %conv49.i.i.i97, 1
+  %inc.i.i.i105 = add nuw i16 %conv49.i.i.i97, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit130
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit130: ; preds = %if.then4.i.i.i122, %if.end.i.i.i125, %if.then23.i.i.i120, %if.end27.i.i.i111, %if.end37.i.i.i85, %lor.lhs.false.i.i.i99, %if.then55.i.i.i104
@@ -243670,7 +243670,7 @@ lor.lhs.false.i.i.i149:                           ; preds = %if.end40.i.i.i137
   br i1 %or.cond.i.i.i153, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit180, label %if.then55.i.i.i154
 
 if.then55.i.i.i154:                               ; preds = %lor.lhs.false.i.i.i149, %if.end40.i.i.i137
-  %inc.i.i.i155 = add i16 %conv49.i.i.i147, 1
+  %inc.i.i.i155 = add nuw i16 %conv49.i.i.i147, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit180
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit180: ; preds = %if.then4.i.i.i172, %if.end.i.i.i175, %if.then23.i.i.i170, %if.end27.i.i.i161, %if.end37.i.i.i135, %lor.lhs.false.i.i.i149, %if.then55.i.i.i154
@@ -244225,7 +244225,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %if.then4.i.i.i, %if.end.i.i.i, %if.then23.i.i.i, %if.end27.i.i.i, %if.end37.i.i.i, %lor.lhs.false.i.i.i, %if.then55.i.i.i
@@ -244304,7 +244304,7 @@ lor.lhs.false.i.i.i34:                            ; preds = %if.end40.i.i.i22
   br i1 %or.cond.i.i.i38, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit65, label %if.then55.i.i.i39
 
 if.then55.i.i.i39:                                ; preds = %lor.lhs.false.i.i.i34, %if.end40.i.i.i22
-  %inc.i.i.i40 = add i16 %conv49.i.i.i32, 1
+  %inc.i.i.i40 = add nuw i16 %conv49.i.i.i32, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit65
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit65: ; preds = %if.then4.i.i.i57, %if.end.i.i.i60, %if.then23.i.i.i55, %if.end27.i.i.i46, %if.end37.i.i.i20, %lor.lhs.false.i.i.i34, %if.then55.i.i.i39
@@ -244384,7 +244384,7 @@ lor.lhs.false.i.i.i84:                            ; preds = %if.end40.i.i.i72
   br i1 %or.cond.i.i.i88, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit115, label %if.then55.i.i.i89
 
 if.then55.i.i.i89:                                ; preds = %lor.lhs.false.i.i.i84, %if.end40.i.i.i72
-  %inc.i.i.i90 = add i16 %conv49.i.i.i82, 1
+  %inc.i.i.i90 = add nuw i16 %conv49.i.i.i82, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit115
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit115: ; preds = %if.then4.i.i.i107, %if.end.i.i.i110, %if.then23.i.i.i105, %if.end27.i.i.i96, %if.end37.i.i.i70, %lor.lhs.false.i.i.i84, %if.then55.i.i.i89
@@ -244468,7 +244468,7 @@ lor.lhs.false.i.i.i134:                           ; preds = %if.end40.i.i.i122
   br i1 %or.cond.i.i.i138, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit165, label %if.then55.i.i.i139
 
 if.then55.i.i.i139:                               ; preds = %lor.lhs.false.i.i.i134, %if.end40.i.i.i122
-  %inc.i.i.i140 = add i16 %conv49.i.i.i132, 1
+  %inc.i.i.i140 = add nuw i16 %conv49.i.i.i132, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit165
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit165: ; preds = %if.then4.i.i.i157, %if.end.i.i.i160, %if.then23.i.i.i155, %if.end27.i.i.i146, %if.end37.i.i.i120, %lor.lhs.false.i.i.i134, %if.then55.i.i.i139
@@ -245222,7 +245222,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %if.then4.i.i.i, %if.end.i.i.i, %if.then23.i.i.i, %if.end27.i.i.i, %if.end37.i.i.i, %lor.lhs.false.i.i.i, %if.then55.i.i.i
@@ -245359,7 +245359,7 @@ lor.lhs.false.i.i.i73:                            ; preds = %if.end40.i.i.i61
   br i1 %or.cond.i.i.i77, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104, label %if.then55.i.i.i78
 
 if.then55.i.i.i78:                                ; preds = %lor.lhs.false.i.i.i73, %if.end40.i.i.i61
-  %inc.i.i.i79 = add i16 %conv49.i.i.i71, 1
+  %inc.i.i.i79 = add nuw i16 %conv49.i.i.i71, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104: ; preds = %if.then4.i.i.i96, %if.end.i.i.i99, %if.then23.i.i.i94, %if.end27.i.i.i85, %if.end37.i.i.i59, %lor.lhs.false.i.i.i73, %if.then55.i.i.i78
@@ -245497,7 +245497,7 @@ lor.lhs.false.i.i.i166:                           ; preds = %if.end40.i.i.i154
   br i1 %or.cond.i.i.i170, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit197, label %if.then55.i.i.i171
 
 if.then55.i.i.i171:                               ; preds = %lor.lhs.false.i.i.i166, %if.end40.i.i.i154
-  %inc.i.i.i172 = add i16 %conv49.i.i.i164, 1
+  %inc.i.i.i172 = add nuw i16 %conv49.i.i.i164, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit197
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit197: ; preds = %if.then4.i.i.i189, %if.end.i.i.i192, %if.then23.i.i.i187, %if.end27.i.i.i178, %if.end37.i.i.i152, %lor.lhs.false.i.i.i166, %if.then55.i.i.i171
@@ -245581,7 +245581,7 @@ lor.lhs.false.i.i.i216:                           ; preds = %if.end40.i.i.i204
   br i1 %or.cond.i.i.i220, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit247, label %if.then55.i.i.i221
 
 if.then55.i.i.i221:                               ; preds = %lor.lhs.false.i.i.i216, %if.end40.i.i.i204
-  %inc.i.i.i222 = add i16 %conv49.i.i.i214, 1
+  %inc.i.i.i222 = add nuw i16 %conv49.i.i.i214, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit247
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit247: ; preds = %if.then4.i.i.i239, %if.end.i.i.i242, %if.then23.i.i.i237, %if.end27.i.i.i228, %if.end37.i.i.i202, %lor.lhs.false.i.i.i216, %if.then55.i.i.i221
@@ -246490,7 +246490,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %if.then4.i.i.i, %if.end.i.i.i, %if.then23.i.i.i, %if.end27.i.i.i, %if.end37.i.i.i, %lor.lhs.false.i.i.i, %if.then55.i.i.i
@@ -246570,7 +246570,7 @@ lor.lhs.false.i.i.i29:                            ; preds = %if.end40.i.i.i17
   br i1 %or.cond.i.i.i33, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit60, label %if.then55.i.i.i34
 
 if.then55.i.i.i34:                                ; preds = %lor.lhs.false.i.i.i29, %if.end40.i.i.i17
-  %inc.i.i.i35 = add i16 %conv49.i.i.i27, 1
+  %inc.i.i.i35 = add nuw i16 %conv49.i.i.i27, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit60
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit60: ; preds = %if.then4.i.i.i52, %if.end.i.i.i55, %if.then23.i.i.i50, %if.end27.i.i.i41, %if.end37.i.i.i15, %lor.lhs.false.i.i.i29, %if.then55.i.i.i34
@@ -246651,7 +246651,7 @@ lor.lhs.false.i.i.i79:                            ; preds = %if.end40.i.i.i67
   br i1 %or.cond.i.i.i83, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit110, label %if.then55.i.i.i84
 
 if.then55.i.i.i84:                                ; preds = %lor.lhs.false.i.i.i79, %if.end40.i.i.i67
-  %inc.i.i.i85 = add i16 %conv49.i.i.i77, 1
+  %inc.i.i.i85 = add nuw i16 %conv49.i.i.i77, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit110
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit110: ; preds = %if.then4.i.i.i102, %if.end.i.i.i105, %if.then23.i.i.i100, %if.end27.i.i.i91, %if.end37.i.i.i65, %lor.lhs.false.i.i.i79, %if.then55.i.i.i84
@@ -246735,7 +246735,7 @@ lor.lhs.false.i.i.i129:                           ; preds = %if.end40.i.i.i117
   br i1 %or.cond.i.i.i133, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit160, label %if.then55.i.i.i134
 
 if.then55.i.i.i134:                               ; preds = %lor.lhs.false.i.i.i129, %if.end40.i.i.i117
-  %inc.i.i.i135 = add i16 %conv49.i.i.i127, 1
+  %inc.i.i.i135 = add nuw i16 %conv49.i.i.i127, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit160
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit160: ; preds = %if.then4.i.i.i152, %if.end.i.i.i155, %if.then23.i.i.i150, %if.end27.i.i.i141, %if.end37.i.i.i115, %lor.lhs.false.i.i.i129, %if.then55.i.i.i134
@@ -247350,7 +247350,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %if.then4.i.i.i, %if.end.i.i.i, %if.then23.i.i.i, %if.end27.i.i.i, %if.end37.i.i.i, %lor.lhs.false.i.i.i, %if.then55.i.i.i
@@ -247430,7 +247430,7 @@ lor.lhs.false.i.i.i121:                           ; preds = %if.end40.i.i.i109
   br i1 %or.cond.i.i.i125, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit152, label %if.then55.i.i.i126
 
 if.then55.i.i.i126:                               ; preds = %lor.lhs.false.i.i.i121, %if.end40.i.i.i109
-  %inc.i.i.i127 = add i16 %conv49.i.i.i119, 1
+  %inc.i.i.i127 = add nuw i16 %conv49.i.i.i119, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit152
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit152: ; preds = %if.then4.i.i.i144, %if.end.i.i.i147, %if.then23.i.i.i142, %if.end27.i.i.i133, %if.end37.i.i.i107, %lor.lhs.false.i.i.i121, %if.then55.i.i.i126
@@ -247511,7 +247511,7 @@ lor.lhs.false.i.i.i171:                           ; preds = %if.end40.i.i.i159
   br i1 %or.cond.i.i.i175, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit202, label %if.then55.i.i.i176
 
 if.then55.i.i.i176:                               ; preds = %lor.lhs.false.i.i.i171, %if.end40.i.i.i159
-  %inc.i.i.i177 = add i16 %conv49.i.i.i169, 1
+  %inc.i.i.i177 = add nuw i16 %conv49.i.i.i169, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit202
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit202: ; preds = %if.then4.i.i.i194, %if.end.i.i.i197, %if.then23.i.i.i192, %if.end27.i.i.i183, %if.end37.i.i.i157, %lor.lhs.false.i.i.i171, %if.then55.i.i.i176
@@ -247595,7 +247595,7 @@ lor.lhs.false.i.i.i221:                           ; preds = %if.end40.i.i.i209
   br i1 %or.cond.i.i.i225, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit252, label %if.then55.i.i.i226
 
 if.then55.i.i.i226:                               ; preds = %lor.lhs.false.i.i.i221, %if.end40.i.i.i209
-  %inc.i.i.i227 = add i16 %conv49.i.i.i219, 1
+  %inc.i.i.i227 = add nuw i16 %conv49.i.i.i219, 1
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit252
 
 _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit252: ; preds = %if.then4.i.i.i244, %if.end.i.i.i247, %if.then23.i.i.i242, %if.end27.i.i.i233, %if.end37.i.i.i207, %lor.lhs.false.i.i.i221, %if.then55.i.i.i226

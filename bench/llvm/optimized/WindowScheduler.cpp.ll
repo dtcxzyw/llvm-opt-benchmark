@@ -4112,8 +4112,6 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i: ; pre
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0.0.i.i.i101618.i.i, align 8
   %28 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %29 = inttoptr i64 %28 to ptr
-  %.not.i.i.i.i.i.i = icmp ne i64 %28, 0
-  tail call void @llvm.assume(i1 %.not.i.i.i.i.i.i)
   %.0.copyload.i.i.i.i.i.i.i.i.i8.i.i = load i64, ptr %29, align 8
   %30 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i8.i.i, 4
   %.not.i.i.i9.i.i = icmp eq i64 %30, 0

@@ -391,7 +391,7 @@ define internal range(i32 -1, 2) i32 @qsortCompareItemPointers(ptr nocapture nou
   %.val9.i = load i16, ptr %18, align 2
   %19 = zext i16 %.val9.i to i64
   %20 = or disjoint i64 %17, %19
-  %21 = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %11, i64 %20)
+  %21 = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 range(i64 0, -4294901760) %11, i64 range(i64 0, -4294901760) %20)
   ret i32 %21
 }
 

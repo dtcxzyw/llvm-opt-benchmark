@@ -78202,7 +78202,7 @@ _ZN4llvm15ScalarEvolution16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i16 0, 512) i16 @_ZN4llvm15ScalarEvolution17evaluatePredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_(ptr noundef nonnull align 8 dereferenceable(1392) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define dso_local range(i16 0, 258) i16 @_ZN4llvm15ScalarEvolution17evaluatePredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_(ptr noundef nonnull align 8 dereferenceable(1392) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -78631,7 +78631,7 @@ _ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_4UserEEEDcPT0_.exit.thread: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i16 0, 512) i16 @_ZN4llvm15ScalarEvolution19evaluatePredicateAtENS_7CmpInst9PredicateEPKNS_4SCEVES5_PKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(1392) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 align 2 {
+define dso_local range(i16 0, 258) i16 @_ZN4llvm15ScalarEvolution19evaluatePredicateAtENS_7CmpInst9PredicateEPKNS_4SCEVES5_PKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(1392) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 align 2 {
   %6 = tail call i16 @_ZN4llvm15ScalarEvolution17evaluatePredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_(ptr noundef nonnull align 8 dereferenceable(1392) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3)
   %.not = icmp samesign ult i16 %6, 256
   br i1 %.not, label %9, label %7
@@ -78779,13 +78779,13 @@ _ZN4llvm11SmallVectorIPKNS_4SCEVELj3EED2Ev.exit:  ; preds = %_ZN4llvm23SmallVect
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i64 0, 8589934592) i64 @_ZN4llvm15ScalarEvolution25getMonotonicPredicateTypeEPKNS_14SCEVAddRecExprENS_7CmpInst9PredicateE(ptr noundef nonnull align 8 dereferenceable(1392) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local range(i64 0, 4294967298) i64 @_ZN4llvm15ScalarEvolution25getMonotonicPredicateTypeEPKNS_14SCEVAddRecExprENS_7CmpInst9PredicateE(ptr noundef nonnull align 8 dereferenceable(1392) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = tail call i64 @_ZN4llvm15ScalarEvolution29getMonotonicPredicateTypeImplEPKNS_14SCEVAddRecExprENS_7CmpInst9PredicateE(ptr noundef nonnull align 8 dereferenceable(1392) %0, ptr noundef %1, i32 noundef %2)
   ret i64 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i64 0, 8589934592) i64 @_ZN4llvm15ScalarEvolution29getMonotonicPredicateTypeImplEPKNS_14SCEVAddRecExprENS_7CmpInst9PredicateE(ptr noundef nonnull align 8 dereferenceable(1392) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local range(i64 0, 4294967298) i64 @_ZN4llvm15ScalarEvolution29getMonotonicPredicateTypeImplEPKNS_14SCEVAddRecExprENS_7CmpInst9PredicateE(ptr noundef nonnull align 8 dereferenceable(1392) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::APInt", align 8
   %5 = alloca %"class.llvm::APInt", align 8
   %6 = and i32 %2, -2
@@ -78953,7 +78953,7 @@ define dso_local void @_ZN4llvm15ScalarEvolution25getLoopInvariantPredicateENS_7
   br i1 %.not29, label %22, label %53
 
 22:                                               ; preds = %19
-  %23 = tail call range(i64 0, 8589934592) i64 @_ZN4llvm15ScalarEvolution29getMonotonicPredicateTypeImplEPKNS_14SCEVAddRecExprENS_7CmpInst9PredicateE(ptr noundef nonnull align 8 dereferenceable(1392) %1, ptr noundef nonnull %.048, i32 noundef %.0)
+  %23 = tail call range(i64 0, 4294967298) i64 @_ZN4llvm15ScalarEvolution29getMonotonicPredicateTypeImplEPKNS_14SCEVAddRecExprENS_7CmpInst9PredicateE(ptr noundef nonnull align 8 dereferenceable(1392) %1, ptr noundef nonnull %.048, i32 noundef %.0)
   %.not51 = icmp samesign ult i64 %23, 4294967296
   br i1 %.not51, label %53, label %24
 

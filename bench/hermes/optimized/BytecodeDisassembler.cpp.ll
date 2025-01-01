@@ -333,7 +333,7 @@ $_ZTVN6hermes3hbc25ObjdumpDisassembleVisitorE = comdat any
 @_ZN6hermes3hbc21BytecodeSectionWalkerC1EPKhSt10shared_ptrINS0_20BCProviderFromBufferEERN4llvh11raw_ostreamE = hidden unnamed_addr alias void (ptr, ptr, ptr, ptr), ptr @_ZN6hermes3hbc21BytecodeSectionWalkerC2EPKhSt10shared_ptrINS0_20BCProviderFromBufferEERN4llvh11raw_ostreamE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i64 0, 549755813888) i64 @_ZN6hermes3hbc14checkBufferTagEPKh(ptr nocapture noundef readonly %buff) local_unnamed_addr #0 {
+define hidden range(i64 0, 481036341248) i64 @_ZN6hermes3hbc14checkBufferTagEPKh(ptr nocapture noundef readonly %buff) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %buff, align 1
   %conv = zext i8 %0 to i32

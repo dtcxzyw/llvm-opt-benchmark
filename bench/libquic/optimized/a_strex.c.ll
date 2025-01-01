@@ -928,7 +928,7 @@ declare i32 @UTF8_getc(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr
 declare i32 @UTF8_putc(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 11) i32 @do_esc_char(i64 noundef %c, i8 noundef zeroext range(i8 0, -128) %flags, ptr noundef writeonly %do_quotes, ptr nocapture noundef readonly %io_ch, ptr noundef %arg) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 11) i32 @do_esc_char(i64 noundef %c, i8 noundef zeroext range(i8 0, 80) %flags, ptr noundef writeonly %do_quotes, ptr nocapture noundef readonly %io_ch, ptr noundef %arg) unnamed_addr #0 {
 entry:
   %chtmp = alloca i8, align 1
   %tmphex = alloca [19 x i8], align 16

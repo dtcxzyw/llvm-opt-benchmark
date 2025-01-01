@@ -2702,7 +2702,7 @@ declare noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef 
 declare void @_ZN4llvm25OptimizationRemarkEmitterC1EPKNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc i64 @_ZL20findValueInfoForFuncRKN4llvm8FunctionERKNS_6ModuleEPKNS_18ModuleSummaryIndexE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(857) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i64 0, -6) i64 @_ZL20findValueInfoForFuncRKN4llvm8FunctionERKNS_6ModuleEPKNS_18ModuleSummaryIndexE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(857) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -47513,8 +47513,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i:               ; preds = %15, %13
   %.val.val.i = load ptr, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %.val.val8.i = load ptr, ptr %19, align 8
-  %.not56.i = icmp eq ptr %.val.val.i, %.val.val8.i
-  br i1 %.not56.i, label %_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE5printERNS2_11raw_ostreamE.exit, label %.lr.ph.i
+  %.not53.i = icmp eq ptr %.val.val.i, %.val.val8.i
+  br i1 %.not53.i, label %_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE5printERNS2_11raw_ostreamE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -47522,9 +47522,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i:               ; preds = %15, %13
   br label %22
 
 22:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit23.i, %.lr.ph.i
-  %.sroa.039.057.i = phi ptr [ %.val.val.i, %.lr.ph.i ], [ %432, %_ZN4llvm11raw_ostreamlsEPKc.exit23.i ]
-  %.val.i88.i = load ptr, ptr %.sroa.039.057.i, align 8
-  %23 = getelementptr i8, ptr %.val.i88.i, i64 56
+  %.sroa.036.054.i = phi ptr [ %.val.val.i, %.lr.ph.i ], [ %432, %_ZN4llvm11raw_ostreamlsEPKc.exit23.i ]
+  %.val.i85.i = load ptr, ptr %.sroa.036.054.i, align 8
+  %23 = getelementptr i8, ptr %.val.i85.i, i64 56
   %.val17.i = load i8, ptr %23, align 8
   %24 = icmp eq i8 %.val17.i, 0
   br i1 %24, label %_ZN4llvm11raw_ostreamlsEPKc.exit23.i, label %25
@@ -47553,7 +47553,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i:               ; preds = %15, %13
 
 _ZN4llvm11raw_ostreamlsEPKc.exit.i.i:             ; preds = %34, %32
   %.0.i.i.i.i = phi ptr [ %33, %32 ], [ %0, %34 ]
-  %37 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(144) %.val.i88.i) #26
+  %37 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(144) %.val.i85.i) #26
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 32
@@ -47590,7 +47590,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit67.i.i:           ; preds = %45, %43
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit70.i.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit70.i.i:           ; preds = %53, %51
-  %56 = getelementptr inbounds nuw i8, ptr %.val.i88.i, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %.val.i85.i, i64 8
   %.val.i27.i = load i64, ptr %56, align 8
   %.not.i.i.i.i28.i = icmp ugt i64 %.val.i27.i, 7
   br i1 %.not.i.i.i.i28.i, label %69, label %57
@@ -47606,34 +47606,31 @@ _ZN4llvm11raw_ostreamlsEPKc.exit70.i.i:           ; preds = %53, %51
 
 64:                                               ; preds = %57
   %65 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.117, i64 noundef 9) #26
-  br label %_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE8CallInfo5printERNS2_11raw_ostreamE.exit38.i
+  br label %_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE8CallInfo5printERNS2_11raw_ostreamE.exit35.i
 
 66:                                               ; preds = %57
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %59, ptr noundef nonnull align 1 dereferenceable(9) @.str.117, i64 9, i1 false)
   %67 = load ptr, ptr %7, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 9
   store ptr %68, ptr %7, align 8
-  br label %_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE8CallInfo5printERNS2_11raw_ostreamE.exit38.i
+  br label %_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE8CallInfo5printERNS2_11raw_ostreamE.exit35.i
 
 69:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit70.i.i
   %70 = and i64 %.val.i27.i, 4
   %.not.i.i.i.i.i30.i = icmp eq i64 %70, 0
   %71 = and i64 %.val.i27.i, -8
   %72 = inttoptr i64 %71 to ptr
-  %.not2.i.i31.i = icmp eq i64 %71, 0
-  %.not.i.i32.i = or i1 %.not.i.i.i.i.i30.i, %.not2.i.i31.i
-  br i1 %.not.i.i32.i, label %75, label %73
+  br i1 %.not.i.i.i.i.i30.i, label %75, label %73
 
 73:                                               ; preds = %69
   %74 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvmlsERNS_11raw_ostreamERKNS_9AllocInfoE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(112) %72)
-  br label %_ZNK12_GLOBAL__N_19IndexCall5printERN4llvm11raw_ostreamE.exit.i33.i
+  br label %_ZNK12_GLOBAL__N_19IndexCall5printERN4llvm11raw_ostreamE.exit.i31.i
 
 75:                                               ; preds = %69
-  %.0.i.i.i8.i.i37.i = select i1 %.not.i.i.i.i.i30.i, ptr %72, ptr null
-  %76 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvmlsERNS_11raw_ostreamERKNS_12CallsiteInfoE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(136) %.0.i.i.i8.i.i37.i)
-  br label %_ZNK12_GLOBAL__N_19IndexCall5printERN4llvm11raw_ostreamE.exit.i33.i
+  %76 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvmlsERNS_11raw_ostreamERKNS_12CallsiteInfoE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(136) %72)
+  br label %_ZNK12_GLOBAL__N_19IndexCall5printERN4llvm11raw_ostreamE.exit.i31.i
 
-_ZNK12_GLOBAL__N_19IndexCall5printERN4llvm11raw_ostreamE.exit.i33.i: ; preds = %75, %73
+_ZNK12_GLOBAL__N_19IndexCall5printERN4llvm11raw_ostreamE.exit.i31.i: ; preds = %75, %73
   %77 = load ptr, ptr %5, align 8
   %78 = load ptr, ptr %7, align 8
   %79 = ptrtoint ptr %77 to i64
@@ -47642,23 +47639,23 @@ _ZNK12_GLOBAL__N_19IndexCall5printERN4llvm11raw_ostreamE.exit.i33.i: ; preds = %
   %82 = icmp ult i64 %81, 8
   br i1 %82, label %83, label %85
 
-83:                                               ; preds = %_ZNK12_GLOBAL__N_19IndexCall5printERN4llvm11raw_ostreamE.exit.i33.i
+83:                                               ; preds = %_ZNK12_GLOBAL__N_19IndexCall5printERN4llvm11raw_ostreamE.exit.i31.i
   %84 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.118, i64 noundef 8) #26
-  br label %_ZN4llvm11raw_ostreamlsEPKc.exit9.i34.i
+  br label %_ZN4llvm11raw_ostreamlsEPKc.exit9.i32.i
 
-85:                                               ; preds = %_ZNK12_GLOBAL__N_19IndexCall5printERN4llvm11raw_ostreamE.exit.i33.i
+85:                                               ; preds = %_ZNK12_GLOBAL__N_19IndexCall5printERN4llvm11raw_ostreamE.exit.i31.i
   store i64 2334393406700333065, ptr %78, align 1
   %86 = load ptr, ptr %7, align 8
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   store ptr %87, ptr %7, align 8
-  br label %_ZN4llvm11raw_ostreamlsEPKc.exit9.i34.i
+  br label %_ZN4llvm11raw_ostreamlsEPKc.exit9.i32.i
 
-_ZN4llvm11raw_ostreamlsEPKc.exit9.i34.i:          ; preds = %85, %83
-  %.0.i.i8.i35.i = phi ptr [ %84, %83 ], [ %0, %85 ]
-  %88 = getelementptr inbounds nuw i8, ptr %.val.i88.i, i64 16
-  %.val6.i36.i = load i32, ptr %88, align 8
-  %89 = zext i32 %.val6.i36.i to i64
-  %90 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i8.i35.i, i64 noundef %89) #26
+_ZN4llvm11raw_ostreamlsEPKc.exit9.i32.i:          ; preds = %85, %83
+  %.0.i.i8.i33.i = phi ptr [ %84, %83 ], [ %0, %85 ]
+  %88 = getelementptr inbounds nuw i8, ptr %.val.i85.i, i64 16
+  %.val6.i34.i = load i32, ptr %88, align 8
+  %89 = zext i32 %.val6.i34.i to i64
+  %90 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i8.i33.i, i64 noundef %89) #26
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 24
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds nuw i8, ptr %90, i64 32
@@ -47666,25 +47663,25 @@ _ZN4llvm11raw_ostreamlsEPKc.exit9.i34.i:          ; preds = %85, %83
   %95 = icmp eq ptr %92, %94
   br i1 %95, label %96, label %98
 
-96:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit9.i34.i
+96:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit9.i32.i
   %97 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %90, ptr noundef nonnull @.str.119, i64 noundef 1) #26
-  br label %_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE8CallInfo5printERNS2_11raw_ostreamE.exit38.i
+  br label %_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE8CallInfo5printERNS2_11raw_ostreamE.exit35.i
 
-98:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit9.i34.i
+98:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit9.i32.i
   store i8 41, ptr %94, align 1
   %99 = load ptr, ptr %93, align 8
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 1
   store ptr %100, ptr %93, align 8
-  br label %_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE8CallInfo5printERNS2_11raw_ostreamE.exit38.i
+  br label %_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE8CallInfo5printERNS2_11raw_ostreamE.exit35.i
 
-_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE8CallInfo5printERNS2_11raw_ostreamE.exit38.i: ; preds = %98, %96, %66, %64
-  %101 = getelementptr inbounds nuw i8, ptr %.val.i88.i, i64 1
+_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE8CallInfo5printERNS2_11raw_ostreamE.exit35.i: ; preds = %98, %96, %66, %64
+  %101 = getelementptr inbounds nuw i8, ptr %.val.i85.i, i64 1
   %102 = load i8, ptr %101, align 1
   %103 = trunc i8 %102 to i1
   %.pre183.i.i = load ptr, ptr %7, align 8
   br i1 %103, label %104, label %_ZN4llvm11raw_ostreamlsEPKc.exit73.i.i
 
-104:                                              ; preds = %_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE8CallInfo5printERNS2_11raw_ostreamE.exit38.i
+104:                                              ; preds = %_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE8CallInfo5printERNS2_11raw_ostreamE.exit35.i
   %105 = load ptr, ptr %5, align 8
   %106 = ptrtoint ptr %105 to i64
   %107 = ptrtoint ptr %.pre183.i.i to i64
@@ -47704,8 +47701,8 @@ _ZNK12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15
   store ptr %114, ptr %7, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit73.i.i
 
-_ZN4llvm11raw_ostreamlsEPKc.exit73.i.i:           ; preds = %112, %110, %_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE8CallInfo5printERNS2_11raw_ostreamE.exit38.i
-  %115 = phi ptr [ %114, %112 ], [ %.pre.i.i, %110 ], [ %.pre183.i.i, %_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE8CallInfo5printERNS2_11raw_ostreamE.exit38.i ]
+_ZN4llvm11raw_ostreamlsEPKc.exit73.i.i:           ; preds = %112, %110, %_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE8CallInfo5printERNS2_11raw_ostreamE.exit35.i
+  %115 = phi ptr [ %114, %112 ], [ %.pre.i.i, %110 ], [ %.pre183.i.i, %_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE8CallInfo5printERNS2_11raw_ostreamE.exit35.i ]
   %116 = load ptr, ptr %5, align 8
   %117 = icmp eq ptr %116, %115
   br i1 %117, label %118, label %120
@@ -47722,9 +47719,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit73.i.i:           ; preds = %112, %110, %_ZNK12_
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit76.i.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit76.i.i:           ; preds = %120, %118
-  %123 = getelementptr inbounds nuw i8, ptr %.val.i88.i, i64 24
+  %123 = getelementptr inbounds nuw i8, ptr %.val.i85.i, i64 24
   %.val41.i.i = load ptr, ptr %123, align 8
-  %124 = getelementptr inbounds nuw i8, ptr %.val.i88.i, i64 32
+  %124 = getelementptr inbounds nuw i8, ptr %.val.i85.i, i64 32
   %.val42.i.i = load ptr, ptr %124, align 8
   %125 = icmp eq ptr %.val41.i.i, %.val42.i.i
   br i1 %125, label %.loopexit.i.i, label %126
@@ -47803,17 +47800,14 @@ _ZN4llvm11raw_ostreamlsEPKc.exit82.i.i:           ; preds = %143, %141
   %.not.i.i.i.i.i26.i = icmp eq i64 %159, 0
   %160 = and i64 %.val.i24.i, -8
   %161 = inttoptr i64 %160 to ptr
-  %.not2.i.i.i = icmp eq i64 %160, 0
-  %.not.i.i.i = or i1 %.not.i.i.i.i.i26.i, %.not2.i.i.i
-  br i1 %.not.i.i.i, label %164, label %162
+  br i1 %.not.i.i.i.i.i26.i, label %164, label %162
 
 162:                                              ; preds = %158
   %163 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvmlsERNS_11raw_ostreamERKNS_9AllocInfoE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(112) %161)
   br label %_ZNK12_GLOBAL__N_19IndexCall5printERN4llvm11raw_ostreamE.exit.i.i
 
 164:                                              ; preds = %158
-  %.0.i.i.i8.i.i.i = select i1 %.not.i.i.i.i.i26.i, ptr %161, ptr null
-  %165 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvmlsERNS_11raw_ostreamERKNS_12CallsiteInfoE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(136) %.0.i.i.i8.i.i.i)
+  %165 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvmlsERNS_11raw_ostreamERKNS_12CallsiteInfoE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(136) %161)
   br label %_ZNK12_GLOBAL__N_19IndexCall5printERN4llvm11raw_ostreamE.exit.i.i
 
 _ZNK12_GLOBAL__N_19IndexCall5printERN4llvm11raw_ostreamE.exit.i.i: ; preds = %164, %162
@@ -47949,7 +47943,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit91.i.i:           ; preds = %221, %219
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit94.i.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit94.i.i:           ; preds = %232, %230
-  call fastcc void @_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE11ContextNode13getContextIdsEv(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(144) %.val.i88.i)
+  call fastcc void @_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE11ContextNode13getContextIdsEv(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(144) %.val.i85.i)
   %235 = load i32, ptr %20, align 8
   %236 = icmp eq i32 %235, 0
   %237 = load ptr, ptr %4, align 8
@@ -48122,9 +48116,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit100.i.i:          ; preds = %278, %276
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit103.i.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit103.i.i:          ; preds = %289, %287
-  %292 = getelementptr inbounds nuw i8, ptr %.val.i88.i, i64 64
+  %292 = getelementptr inbounds nuw i8, ptr %.val.i85.i, i64 64
   %.val46.i.i = load ptr, ptr %292, align 8
-  %293 = getelementptr inbounds nuw i8, ptr %.val.i88.i, i64 72
+  %293 = getelementptr inbounds nuw i8, ptr %.val.i85.i, i64 72
   %.val48.i.i = load ptr, ptr %293, align 8
   %.not156167.i.i = icmp eq ptr %.val46.i.i, %.val48.i.i
   br i1 %.not156167.i.i, label %._crit_edge170.i.i, label %.lr.ph169.i.i
@@ -48198,9 +48192,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit109.i.i:          ; preds = %313, %311
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit112.i.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit112.i.i:          ; preds = %325, %323
-  %328 = getelementptr inbounds nuw i8, ptr %.val.i88.i, i64 88
+  %328 = getelementptr inbounds nuw i8, ptr %.val.i85.i, i64 88
   %.val47.i.i = load ptr, ptr %328, align 8
-  %329 = getelementptr inbounds nuw i8, ptr %.val.i88.i, i64 96
+  %329 = getelementptr inbounds nuw i8, ptr %.val.i85.i, i64 96
   %.val49.i.i = load ptr, ptr %329, align 8
   %.not157171.i.i = icmp eq ptr %.val47.i.i, %.val49.i.i
   br i1 %.not157171.i.i, label %._crit_edge174.i.i, label %.lr.ph173.i.i
@@ -48254,9 +48248,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit118.i.i:          ; preds = %349, %347
   br i1 %.not157.i.i, label %._crit_edge174.i.i, label %.lr.ph173.i.i
 
 ._crit_edge174.i.i:                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit118.i.i, %_ZN4llvm11raw_ostreamlsEPKc.exit112.i.i
-  %353 = getelementptr inbounds nuw i8, ptr %.val.i88.i, i64 112
+  %353 = getelementptr inbounds nuw i8, ptr %.val.i85.i, i64 112
   %.val60.i.i = load ptr, ptr %353, align 8
-  %354 = getelementptr inbounds nuw i8, ptr %.val.i88.i, i64 120
+  %354 = getelementptr inbounds nuw i8, ptr %.val.i85.i, i64 120
   %.val61.i.i = load ptr, ptr %354, align 8
   %355 = icmp eq ptr %.val60.i.i, %.val61.i.i
   br i1 %355, label %390, label %356
@@ -48338,7 +48332,7 @@ _ZN12_GLOBAL__N_1lsERN4llvm11raw_ostreamERNS_14FieldSeparatorE.exit.i.i: ; preds
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit124.i.i
 
 390:                                              ; preds = %._crit_edge174.i.i
-  %391 = getelementptr inbounds nuw i8, ptr %.val.i88.i, i64 136
+  %391 = getelementptr inbounds nuw i8, ptr %.val.i85.i, i64 136
   %392 = load ptr, ptr %391, align 8
   %.not.i.i = icmp eq ptr %392, null
   br i1 %.not.i.i, label %_ZN4llvm11raw_ostreamlsEPKc.exit124.i.i, label %393
@@ -48420,7 +48414,7 @@ _ZNK12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit23.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit23.i:             ; preds = %429, %427, %22
-  %432 = getelementptr inbounds nuw i8, ptr %.sroa.039.057.i, i64 8
+  %432 = getelementptr inbounds nuw i8, ptr %.sroa.036.054.i, i64 8
   %.not.i = icmp eq ptr %432, %.val.val8.i
   br i1 %.not.i, label %_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE5printERNS2_11raw_ostreamE.exit, label %22
 

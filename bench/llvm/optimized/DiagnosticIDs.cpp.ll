@@ -1213,7 +1213,7 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread:         ; preds = %20, %"_ZN4llvm15par
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i64 0, 8589934592) i64 @_ZN5clang13DiagnosticIDs15getGroupForDiagEj(i32 noundef %0) local_unnamed_addr #0 align 2 {
+define dso_local range(i64 0, 4295000064) i64 @_ZN5clang13DiagnosticIDs15getGroupForDiagEj(i32 noundef %0) local_unnamed_addr #0 align 2 {
   %2 = tail call fastcc noundef ptr @_ZL11GetDiagInfoj(i32 noundef %0)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %7, label %3

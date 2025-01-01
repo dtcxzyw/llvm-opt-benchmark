@@ -30500,7 +30500,7 @@ define range(i64 0, 281474976710656) i64 @"_ZN126_$LT$ide..syntax_highlighting..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define range(i64 51539607552, 281474976710656) i64 @"_ZN131_$LT$ide..syntax_highlighting..tags..Highlight$u20$as$u20$core..convert..From$LT$ide..syntax_highlighting..tags..HlOperator$GT$$GT$4from17hecf871bd5402fc70E"(i8 noundef %0) unnamed_addr #4 {
+define range(i64 51539607552, 280444184559616) i64 @"_ZN131_$LT$ide..syntax_highlighting..tags..Highlight$u20$as$u20$core..convert..From$LT$ide..syntax_highlighting..tags..HlOperator$GT$$GT$4from17hecf871bd5402fc70E"(i8 noundef %0) unnamed_addr #4 {
   %.sroa.3.0.insert.ext.i = zext i8 %0 to i64
   %.sroa.3.0.insert.shift.i = shl nuw nsw i64 %.sroa.3.0.insert.ext.i, 40
   %.sroa.2.0.insert.insert.i = or disjoint i64 %.sroa.3.0.insert.shift.i, 51539607552
@@ -30508,7 +30508,7 @@ define range(i64 51539607552, 281474976710656) i64 @"_ZN131_$LT$ide..syntax_high
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define range(i64 55834574848, 281474976710656) i64 @"_ZN128_$LT$ide..syntax_highlighting..tags..Highlight$u20$as$u20$core..convert..From$LT$ide..syntax_highlighting..tags..HlPunct$GT$$GT$4from17h9334625cab29cb04E"(i8 noundef %0) unnamed_addr #4 {
+define range(i64 55834574848, 280444184559616) i64 @"_ZN128_$LT$ide..syntax_highlighting..tags..Highlight$u20$as$u20$core..convert..From$LT$ide..syntax_highlighting..tags..HlPunct$GT$$GT$4from17h9334625cab29cb04E"(i8 noundef %0) unnamed_addr #4 {
   %.sroa.3.0.insert.ext.i = zext i8 %0 to i64
   %.sroa.3.0.insert.shift.i = shl nuw nsw i64 %.sroa.3.0.insert.ext.i, 40
   %.sroa.2.0.insert.insert.i = or disjoint i64 %.sroa.3.0.insert.shift.i, 55834574848

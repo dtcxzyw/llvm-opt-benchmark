@@ -5095,7 +5095,7 @@ terminate.lpad:                                   ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i24 1, 131072) i24 @_ZN5folly6detail11str_to_boolEPNS_5RangeIPKcEE(ptr nocapture noundef %src) local_unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define range(i24 1, 67584) i24 @_ZN5folly6detail11str_to_boolEPNS_5RangeIPKcEE(ptr nocapture noundef %src) local_unnamed_addr #16 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %src, align 8, !tbaa !17
   %e_.i = getelementptr inbounds nuw i8, ptr %src, i64 8

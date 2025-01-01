@@ -1148,7 +1148,7 @@ define hidden range(i32 0, 2) i32 @VP8DecodeMB(ptr noundef %0, ptr noundef %1) l
 146:                                              ; preds = %136
   %147 = trunc nuw i32 %142 to i8
   store i8 %147, ptr %10, align 1
-  %148 = trunc nuw i32 %145 to i8
+  %148 = trunc i32 %145 to i8
   store i8 %148, ptr %6, align 1
   %149 = getelementptr inbounds nuw i8, ptr %13, i64 788
   store i32 %89, ptr %149, align 4

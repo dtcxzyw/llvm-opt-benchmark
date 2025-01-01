@@ -535,7 +535,7 @@ _ZN12_GLOBAL__N_129AggressiveDeadCodeEliminationD2Ev.exit: ; preds = %_ZN4llvm11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc range(i24 0, 131072) i24 @_ZN12_GLOBAL__N_129AggressiveDeadCodeElimination26performDeadCodeEliminationEv(ptr noundef nonnull align 8 dereferenceable(1744) %0) unnamed_addr #0 align 2 {
+define internal fastcc range(i24 0, 66048) i24 @_ZN12_GLOBAL__N_129AggressiveDeadCodeElimination26performDeadCodeEliminationEv(ptr noundef nonnull align 8 dereferenceable(1744) %0) unnamed_addr #0 align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca ptr, align 8

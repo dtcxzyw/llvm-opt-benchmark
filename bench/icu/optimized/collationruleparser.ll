@@ -3212,7 +3212,7 @@ return:                                           ; preds = %if.then2.i, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7519CollationRuleParser21parseRelationOperatorER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(76) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
+define noundef range(i32 -1, -224) i32 @_ZN6icu_7519CollationRuleParser21parseRelationOperatorER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(76) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %0, 1

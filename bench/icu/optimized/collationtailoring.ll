@@ -376,7 +376,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 0, 4096) i32 @_ZNK6icu_7518CollationTailoring13getUCAVersionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(400) %this) local_unnamed_addr #7 align 2 {
+define noundef range(i32 0, 4084) i32 @_ZNK6icu_7518CollationTailoring13getUCAVersionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(400) %this) local_unnamed_addr #7 align 2 {
 entry:
   %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 329
   %0 = load i8, ptr %arrayidx, align 1

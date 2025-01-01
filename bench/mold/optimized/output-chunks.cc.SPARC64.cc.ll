@@ -4656,7 +4656,7 @@ for.end:                                          ; preds = %land.rhs
 if.end:                                           ; preds = %for.body9, %for.end
   %bits.0.lcssa50 = phi i64 [ %bits.027, %for.end ], [ %or, %for.body9 ]
   %i.2.lcssa49 = phi i64 [ %i.226, %for.end ], [ %pos.coerce1, %for.body9 ]
-  %shl13 = shl nuw i64 %bits.0.lcssa50, 1
+  %shl13 = shl i64 %bits.0.lcssa50, 1
   %or14 = or disjoint i64 %shl13, 1
   %cmp.not.i.i = icmp eq ptr %9, %10
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i

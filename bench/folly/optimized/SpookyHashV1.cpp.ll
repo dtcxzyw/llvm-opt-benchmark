@@ -206,7 +206,7 @@ sw.bb41:                                          ; preds = %sw.bb36, %if.end16
   %15 = load i8, ptr %arrayidx42, align 1, !tbaa !13
   %conv43 = zext i8 %15 to i64
   %shl44 = shl nuw nsw i64 %conv43, 8
-  %add45 = add i64 %shl44, %d.4
+  %add45 = add nuw i64 %shl44, %d.4
   br label %sw.bb46
 
 sw.bb46:                                          ; preds = %sw.bb41, %if.end16
@@ -214,7 +214,7 @@ sw.bb46:                                          ; preds = %sw.bb41, %if.end16
   %arrayidx47 = getelementptr inbounds nuw i8, ptr %u.sroa.0.2, i64 8
   %16 = load i8, ptr %arrayidx47, align 1, !tbaa !13
   %conv48 = zext i8 %16 to i64
-  %add49 = add i64 %d.5, %conv48
+  %add49 = add nuw i64 %d.5, %conv48
   br label %sw.bb50
 
 sw.bb50:                                          ; preds = %sw.bb46, %if.end16

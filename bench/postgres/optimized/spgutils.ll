@@ -1591,7 +1591,7 @@ define dso_local range(i32 0, 1073741831) i32 @SpGistGetInnerTypeSize(ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, -7) i64 @SpGistGetLeafTupleSize(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i64 16, -7) i64 @SpGistGetLeafTupleSize(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
 .loopexit:
   %3 = tail call i64 @heap_compute_data_size(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) #9
   %4 = add i64 %3, 23

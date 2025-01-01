@@ -1913,7 +1913,7 @@ define hidden { i32, i32 } @_ZN12regex_syntax3hir8interval8Interval9intersect17h
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden i48 @_ZN12regex_syntax3hir8interval8Interval10difference17h81c4ecb0b76a65afE(ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden range(i48 0, -254) i48 @_ZN12regex_syntax3hir8interval8Interval10difference17h81c4ecb0b76a65afE(ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %.val = load i8, ptr %0, align 1, !alias.scope !198, !noundef !4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %.val53 = load i8, ptr %3, align 1, !alias.scope !201, !noundef !4

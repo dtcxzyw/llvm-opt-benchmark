@@ -5577,7 +5577,7 @@ define { i64, i64 } @_ZN5tokio2io8interest8Interest6remove17hdcd748c54bfba542E(i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef range(i8 1, 32) i8 @_ZN5tokio2io8interest8Interest6to_mio17h8c1905d062bbcd12E(i64 noundef %0) unnamed_addr #9 {
+define noundef range(i8 1, 20) i8 @_ZN5tokio2io8interest8Interest6to_mio17h8c1905d062bbcd12E(i64 noundef %0) unnamed_addr #9 {
   %2 = trunc i64 %0 to i8
   %.2 = and i8 %2, 19
   %3 = lshr i8 %2, 5

@@ -103167,7 +103167,7 @@ define i16 @"_ZN114_$LT$typst..layout..align..HAlignment$u20$as$u20$core..ops..a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define range(i16 3, 0) i16 @"_ZN111_$LT$typst..layout..align..Alignment$u20$as$u20$core..convert..From$LT$typst..layout..align..HAlignment$GT$$GT$4from17h21863f711499fbd1E"(i8 noundef %0) unnamed_addr #9 {
+define range(i16 3, -252) i16 @"_ZN111_$LT$typst..layout..align..Alignment$u20$as$u20$core..convert..From$LT$typst..layout..align..HAlignment$GT$$GT$4from17h21863f711499fbd1E"(i8 noundef %0) unnamed_addr #9 {
   %.sroa.2.0.insert.ext = zext i8 %0 to i16
   %.sroa.2.0.insert.shift = shl nuw i16 %.sroa.2.0.insert.ext, 8
   %.sroa.0.0.insert.insert = or disjoint i16 %.sroa.2.0.insert.shift, 3
@@ -103692,7 +103692,7 @@ define noundef range(i8 0, 3) i8 @"_ZN88_$LT$typst..layout..align..VAlignment$u2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define range(i16 4, 0) i16 @"_ZN111_$LT$typst..layout..align..Alignment$u20$as$u20$core..convert..From$LT$typst..layout..align..VAlignment$GT$$GT$4from17h0105912dadf306c2E"(i8 noundef %0) unnamed_addr #9 {
+define range(i16 4, -248) i16 @"_ZN111_$LT$typst..layout..align..Alignment$u20$as$u20$core..convert..From$LT$typst..layout..align..VAlignment$GT$$GT$4from17h0105912dadf306c2E"(i8 noundef %0) unnamed_addr #9 {
   %.sroa.2.0.insert.ext = zext i8 %0 to i16
   %.sroa.2.0.insert.shift = shl nuw i16 %.sroa.2.0.insert.ext, 8
   %.sroa.0.0.insert.insert = or disjoint i16 %.sroa.2.0.insert.shift, 4
@@ -127548,7 +127548,7 @@ _ZN5typst11foundations6styles10StyleChain7get_ref17h3e74c454e7138776E.exit: ; pr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define range(i16 0, 1024) i16 @"_ZN5typst4math8equation1_53_$LT$impl$u20$typst..math..equation..EquationElem$GT$12number_align17h2411d1545ae411cdE"(ptr noalias noundef readonly align 8 dereferenceable(104) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define range(i16 0, 776) i16 @"_ZN5typst4math8equation1_53_$LT$impl$u20$typst..math..equation..EquationElem$GT$12number_align17h2411d1545ae411cdE"(ptr noalias noundef readonly align 8 dereferenceable(104) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load i8, ptr %4, align 8, !range !3024, !noundef !12
@@ -127826,7 +127826,7 @@ _ZN5typst11foundations6styles10StyleChain7get_ref17h8cc25e9887bfd934E.exit: ; pr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define range(i16 0, 1024) i16 @"_ZN5typst4math8equation1_53_$LT$impl$u20$typst..math..equation..EquationElem$GT$15number_align_in17h9afaac6752395470E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
+define range(i16 0, 776) i16 @"_ZN5typst4math8equation1_53_$LT$impl$u20$typst..math..equation..EquationElem$GT$15number_align_in17h9afaac6752395470E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %2), !noalias !31036
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31040)
@@ -163735,7 +163735,7 @@ define noundef nonnull align 8 ptr @_ZN5typst6layout5align9Alignment9axis_data17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define range(i16 0, 2048) i16 @_ZN5typst6layout5align9Alignment3inv17h9cd72ef88ca2e99aE(i16 %0) unnamed_addr #9 {
+define range(i16 0, 1032) i16 @_ZN5typst6layout5align9Alignment3inv17h9cd72ef88ca2e99aE(i16 %0) unnamed_addr #9 {
   %.sroa.04.0.extract.trunc = trunc i16 %0 to i8
   %.sroa.4.0.extract.shift = lshr i16 %0, 8
   %2 = add i8 %.sroa.04.0.extract.trunc, -3

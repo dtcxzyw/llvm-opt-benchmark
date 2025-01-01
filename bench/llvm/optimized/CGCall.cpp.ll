@@ -20441,9 +20441,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction12EmitCallArgsERNS0_11C
   %.not.i.i.i.i = icmp eq i64 %19, 0
   %20 = and i64 %2, -8
   %21 = inttoptr i64 %20 to ptr
-  %.not118 = icmp eq i64 %20, 0
-  %.not = or i1 %.not.i.i.i.i, %.not118
-  br i1 %.not, label %43, label %22
+  br i1 %.not.i.i.i.i, label %43, label %22
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 56

@@ -710,7 +710,7 @@ define hidden noundef zeroext i1 @_ZN18jfieldIDWorkaround13klass_hash_okEP5Klass
 declare noundef zeroext i1 @_ZN13InstanceKlass21contains_field_offsetEi(ptr noundef nonnull align 8 dereferenceable(464), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN18jfieldIDWorkaround17encode_klass_hashEP5Klassi(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i64 0, -510) i64 @_ZN18jfieldIDWorkaround17encode_klass_hashEP5Klassi(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = icmp slt i32 %1, 128
   br i1 %3, label %.preheader, label %12
 

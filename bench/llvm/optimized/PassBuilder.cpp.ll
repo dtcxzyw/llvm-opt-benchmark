@@ -241813,19 +241813,17 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4l
 5:                                                ; preds = %4
   %6 = and i64 %.0.copyload.i.i.i.i.i, 4
   %.not.i.i.i.i = icmp eq i64 %6, 0
-  %7 = and i64 %.0.copyload.i.i.i.i.i, -8
-  %.not5.i = icmp eq i64 %7, 0
-  %.not.i = or i1 %.not.i.i.i.i, %.not5.i
-  br i1 %.not.i, label %_ZNK4llvm13TinyPtrVectorIPNS_11AnalysisKeyEE5emptyEv.exit.thread20, label %_ZNK4llvm13TinyPtrVectorIPNS_11AnalysisKeyEE5emptyEv.exit
+  br i1 %.not.i.i.i.i, label %_ZNK4llvm13TinyPtrVectorIPNS_11AnalysisKeyEE5emptyEv.exit.thread19, label %_ZNK4llvm13TinyPtrVectorIPNS_11AnalysisKeyEE5emptyEv.exit
 
 _ZNK4llvm13TinyPtrVectorIPNS_11AnalysisKeyEE5emptyEv.exit: ; preds = %5
+  %7 = and i64 %.0.copyload.i.i.i.i.i, -8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #25
-  br i1 %9, label %_ZNK4llvm13TinyPtrVectorIPNS_11AnalysisKeyEE5emptyEv.exit.thread, label %_ZNK4llvm13TinyPtrVectorIPNS_11AnalysisKeyEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPNS_11AnalysisKeyEE5emptyEv.exit.thread20_crit_edge
+  br i1 %9, label %_ZNK4llvm13TinyPtrVectorIPNS_11AnalysisKeyEE5emptyEv.exit.thread, label %_ZNK4llvm13TinyPtrVectorIPNS_11AnalysisKeyEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPNS_11AnalysisKeyEE5emptyEv.exit.thread19_crit_edge
 
-_ZNK4llvm13TinyPtrVectorIPNS_11AnalysisKeyEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPNS_11AnalysisKeyEE5emptyEv.exit.thread20_crit_edge: ; preds = %_ZNK4llvm13TinyPtrVectorIPNS_11AnalysisKeyEE5emptyEv.exit
-  %.pre23.pre = load i64, ptr %1, align 8
-  br label %_ZNK4llvm13TinyPtrVectorIPNS_11AnalysisKeyEE5emptyEv.exit.thread20
+_ZNK4llvm13TinyPtrVectorIPNS_11AnalysisKeyEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPNS_11AnalysisKeyEE5emptyEv.exit.thread19_crit_edge: ; preds = %_ZNK4llvm13TinyPtrVectorIPNS_11AnalysisKeyEE5emptyEv.exit
+  %.pre22.pre = load i64, ptr %1, align 8
+  br label %_ZNK4llvm13TinyPtrVectorIPNS_11AnalysisKeyEE5emptyEv.exit.thread19
 
 _ZNK4llvm13TinyPtrVectorIPNS_11AnalysisKeyEE5emptyEv.exit.thread: ; preds = %4, %_ZNK4llvm13TinyPtrVectorIPNS_11AnalysisKeyEE5emptyEv.exit
   %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %0, align 8
@@ -241839,8 +241837,8 @@ _ZNK4llvm13TinyPtrVectorIPNS_11AnalysisKeyEE5emptyEv.exit.thread: ; preds = %4, 
 
 13:                                               ; preds = %_ZNK4llvm13TinyPtrVectorIPNS_11AnalysisKeyEE5emptyEv.exit.thread
   %14 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
-  %.not.i15 = icmp eq i64 %14, 0
-  br i1 %.not.i15, label %_ZN4llvm13TinyPtrVectorIPNS_11AnalysisKeyEE5clearEv.exit, label %15
+  %.not.i = icmp eq i64 %14, 0
+  br i1 %.not.i, label %_ZN4llvm13TinyPtrVectorIPNS_11AnalysisKeyEE5clearEv.exit, label %15
 
 15:                                               ; preds = %13
   %16 = inttoptr i64 %14 to ptr
@@ -241849,19 +241847,19 @@ _ZNK4llvm13TinyPtrVectorIPNS_11AnalysisKeyEE5emptyEv.exit.thread: ; preds = %4, 
   store i32 0, ptr %18, align 8
   br label %_ZN4llvm13TinyPtrVectorIPNS_11AnalysisKeyEE5clearEv.exit
 
-_ZNK4llvm13TinyPtrVectorIPNS_11AnalysisKeyEE5emptyEv.exit.thread20: ; preds = %_ZNK4llvm13TinyPtrVectorIPNS_11AnalysisKeyEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPNS_11AnalysisKeyEE5emptyEv.exit.thread20_crit_edge, %5
-  %.pre23 = phi i64 [ %.pre23.pre, %_ZNK4llvm13TinyPtrVectorIPNS_11AnalysisKeyEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPNS_11AnalysisKeyEE5emptyEv.exit.thread20_crit_edge ], [ %.0.copyload.i.i.i.i.i, %5 ]
+_ZNK4llvm13TinyPtrVectorIPNS_11AnalysisKeyEE5emptyEv.exit.thread19: ; preds = %_ZNK4llvm13TinyPtrVectorIPNS_11AnalysisKeyEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPNS_11AnalysisKeyEE5emptyEv.exit.thread19_crit_edge, %5
+  %.pre22 = phi i64 [ %.pre22.pre, %_ZNK4llvm13TinyPtrVectorIPNS_11AnalysisKeyEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPNS_11AnalysisKeyEE5emptyEv.exit.thread19_crit_edge ], [ %.0.copyload.i.i.i.i.i, %5 ]
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %0, align 8
   %19 = and i64 %.sroa.0.0.copyload.i.i.i, 4
-  %.not.i.i16 = icmp eq i64 %19, 0
+  %.not.i.i15 = icmp eq i64 %19, 0
   %20 = and i64 %.sroa.0.0.copyload.i.i.i, -8
   %21 = inttoptr i64 %20 to ptr
-  %.not22 = icmp eq i64 %20, 0
-  %.not = or i1 %.not.i.i16, %.not22
+  %.not21 = icmp eq i64 %20, 0
+  %.not = or i1 %.not.i.i15, %.not21
   br i1 %.not, label %51, label %22
 
-22:                                               ; preds = %_ZNK4llvm13TinyPtrVectorIPNS_11AnalysisKeyEE5emptyEv.exit.thread20
-  %23 = and i64 %.pre23, 4
+22:                                               ; preds = %_ZNK4llvm13TinyPtrVectorIPNS_11AnalysisKeyEE5emptyEv.exit.thread19
+  %23 = and i64 %.pre22, 4
   %24 = icmp eq i64 %23, 0
   %25 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #25
   br i1 %24, label %26, label %46
@@ -241869,10 +241867,10 @@ _ZNK4llvm13TinyPtrVectorIPNS_11AnalysisKeyEE5emptyEv.exit.thread20: ; preds = %_
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i32 0, ptr %27, align 8
-  %.0.copyload.i.i.i.i.i.i.i.i17 = load i64, ptr %1, align 8
-  %28 = and i64 %.0.copyload.i.i.i.i.i.i.i.i17, 4
+  %.0.copyload.i.i.i.i.i.i.i.i16 = load i64, ptr %1, align 8
+  %28 = and i64 %.0.copyload.i.i.i.i.i.i.i.i16, 4
   %29 = icmp eq i64 %28, 0
-  %30 = and i64 %.0.copyload.i.i.i.i.i.i.i.i17, -8
+  %30 = and i64 %.0.copyload.i.i.i.i.i.i.i.i16, -8
   br i1 %29, label %_ZNK4llvm13TinyPtrVectorIPNS_11AnalysisKeyEE5frontEv.exit, label %31
 
 31:                                               ; preds = %26
@@ -241883,7 +241881,7 @@ _ZNK4llvm13TinyPtrVectorIPNS_11AnalysisKeyEE5emptyEv.exit.thread20: ; preds = %_
   br label %_ZNK4llvm13TinyPtrVectorIPNS_11AnalysisKeyEE5frontEv.exit
 
 _ZNK4llvm13TinyPtrVectorIPNS_11AnalysisKeyEE5frontEv.exit: ; preds = %26, %31
-  %.0.i18 = phi i64 [ %35, %31 ], [ %30, %26 ]
+  %.0.i17 = phi i64 [ %35, %31 ], [ %30, %26 ]
   %36 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #25
   %37 = add i64 %36, 1
   %38 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #25
@@ -241899,7 +241897,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_11AnalysisKeyELb1EE9push_backES2_.exit: ; 
   %41 = load ptr, ptr %21, align 8
   %42 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #25
   %43 = getelementptr inbounds ptr, ptr %41, i64 %42
-  store i64 %.0.i18, ptr %43, align 1
+  store i64 %.0.i17, ptr %43, align 1
   %44 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #25
   %45 = add i64 %44, 1
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %21, i64 noundef %45) #25
@@ -241921,8 +241919,8 @@ _ZN4llvm11SmallVectorIPNS_11AnalysisKeyELj4EED2Ev.exit: ; preds = %46, %50
   %.pre = load i64, ptr %1, align 8
   br label %51
 
-51:                                               ; preds = %_ZN4llvm11SmallVectorIPNS_11AnalysisKeyELj4EED2Ev.exit, %_ZNK4llvm13TinyPtrVectorIPNS_11AnalysisKeyEE5emptyEv.exit.thread20
-  %52 = phi i64 [ %.pre, %_ZN4llvm11SmallVectorIPNS_11AnalysisKeyELj4EED2Ev.exit ], [ %.pre23, %_ZNK4llvm13TinyPtrVectorIPNS_11AnalysisKeyEE5emptyEv.exit.thread20 ]
+51:                                               ; preds = %_ZN4llvm11SmallVectorIPNS_11AnalysisKeyELj4EED2Ev.exit, %_ZNK4llvm13TinyPtrVectorIPNS_11AnalysisKeyEE5emptyEv.exit.thread19
+  %52 = phi i64 [ %.pre, %_ZN4llvm11SmallVectorIPNS_11AnalysisKeyELj4EED2Ev.exit ], [ %.pre22, %_ZNK4llvm13TinyPtrVectorIPNS_11AnalysisKeyEE5emptyEv.exit.thread19 ]
   store i64 %52, ptr %0, align 8
   store i64 0, ptr %1, align 8
   br label %_ZN4llvm13TinyPtrVectorIPNS_11AnalysisKeyEE5clearEv.exit

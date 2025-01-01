@@ -13407,9 +13407,9 @@ define void @Exa_ManExactSynthesis4_(ptr nocapture noundef readonly %0) local_un
   %22 = and i32 %.1, 63
   %23 = zext nneg i32 %22 to i64
   %24 = shl nuw i64 1, %23
-  %25 = lshr i32 %.1, 6
-  %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds nuw i64, ptr %21, i64 %26
+  %25 = ashr i32 %.1, 6
+  %26 = sext i32 %25 to i64
+  %27 = getelementptr inbounds i64, ptr %21, i64 %26
   %28 = load i64, ptr %27, align 8
   %29 = or i64 %28, %24
   store i64 %29, ptr %27, align 8

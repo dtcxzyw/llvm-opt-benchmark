@@ -41,104 +41,100 @@ define dso_local void @_ZN4llvm24MachineModuleSlotTracker30processMachineFunctio
 
 11:                                               ; preds = %.lr.ph50
   %12 = and i64 %9, 7
-  %13 = icmp eq i64 %12, 0
-  br i1 %13, label %_ZNK4llvm12MachineInstr11memoperandsEv.exit.thread61, label %16
+  switch i64 %12, label %._crit_edge [
+    i64 0, label %_ZNK4llvm12MachineInstr11memoperandsEv.exit.thread61
+    i64 3, label %_ZNK4llvm12MachineInstr11memoperandsEv.exit
+  ]
 
 _ZNK4llvm12MachineInstr11memoperandsEv.exit.thread61: ; preds = %11
-  %14 = inttoptr i64 %9 to ptr
-  store ptr %14, ptr %8, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.033.048, i64 56
+  %13 = inttoptr i64 %9 to ptr
+  store ptr %13, ptr %8, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.033.048, i64 56
   br label %.lr.ph.preheader
 
-16:                                               ; preds = %11
-  %17 = icmp ne i64 %12, 3
-  %18 = and i64 %9, -8
-  %.not9.i = icmp eq i64 %18, 0
-  %.not.i = or i1 %17, %.not9.i
-  br i1 %.not.i, label %._crit_edge, label %_ZNK4llvm12MachineInstr11memoperandsEv.exit
-
-_ZNK4llvm12MachineInstr11memoperandsEv.exit:      ; preds = %16
-  %19 = inttoptr i64 %18 to ptr
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %21 = load i32, ptr %19, align 8
-  %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds ptr, ptr %20, i64 %22
-  %.not44 = icmp eq i32 %21, 0
+_ZNK4llvm12MachineInstr11memoperandsEv.exit:      ; preds = %11
+  %15 = and i64 %9, -8
+  %16 = inttoptr i64 %15 to ptr
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %18 = load i32, ptr %16, align 8
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr inbounds ptr, ptr %17, i64 %19
+  %.not44 = icmp eq i32 %18, 0
   br i1 %.not44, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZNK4llvm12MachineInstr11memoperandsEv.exit.thread61, %_ZNK4llvm12MachineInstr11memoperandsEv.exit
-  %24 = phi ptr [ %15, %_ZNK4llvm12MachineInstr11memoperandsEv.exit.thread61 ], [ %23, %_ZNK4llvm12MachineInstr11memoperandsEv.exit ]
-  %.sroa.0.0.i65 = phi ptr [ %8, %_ZNK4llvm12MachineInstr11memoperandsEv.exit.thread61 ], [ %20, %_ZNK4llvm12MachineInstr11memoperandsEv.exit ]
+  %21 = phi ptr [ %14, %_ZNK4llvm12MachineInstr11memoperandsEv.exit.thread61 ], [ %20, %_ZNK4llvm12MachineInstr11memoperandsEv.exit ]
+  %.sroa.0.0.i65 = phi ptr [ %8, %_ZNK4llvm12MachineInstr11memoperandsEv.exit.thread61 ], [ %17, %_ZNK4llvm12MachineInstr11memoperandsEv.exit ]
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %46
-  %.045 = phi ptr [ %47, %46 ], [ %.sroa.0.0.i65, %.lr.ph.preheader ]
-  %25 = load ptr, ptr %.045, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
-  %.sroa.0.0.copyload = load ptr, ptr %26, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 48
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %43
+  %.045 = phi ptr [ %44, %43 ], [ %.sroa.0.0.i65, %.lr.ph.preheader ]
+  %22 = load ptr, ptr %.045, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 40
+  %.sroa.0.0.copyload = load ptr, ptr %23, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 48
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 56
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 56
   %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 64
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 64
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
   %.not22 = icmp eq ptr %.sroa.0.0.copyload, null
-  br i1 %.not22, label %31, label %27
+  br i1 %.not22, label %28, label %24
 
-27:                                               ; preds = %.lr.ph
-  %28 = load ptr, ptr %1, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  %30 = load ptr, ptr %29, align 8
-  tail call void %30(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %.sroa.0.0.copyload) #5
-  br label %31
+24:                                               ; preds = %.lr.ph
+  %25 = load ptr, ptr %1, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
+  %27 = load ptr, ptr %26, align 8
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %.sroa.0.0.copyload) #5
+  br label %28
 
-31:                                               ; preds = %27, %.lr.ph
+28:                                               ; preds = %24, %.lr.ph
   %.not23 = icmp eq ptr %.sroa.2.0.copyload, null
-  br i1 %.not23, label %36, label %32
+  br i1 %.not23, label %33, label %29
 
-32:                                               ; preds = %31
-  %33 = load ptr, ptr %1, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  %35 = load ptr, ptr %34, align 8
-  tail call void %35(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %.sroa.2.0.copyload) #5
-  br label %36
+29:                                               ; preds = %28
+  %30 = load ptr, ptr %1, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
+  %32 = load ptr, ptr %31, align 8
+  tail call void %32(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %.sroa.2.0.copyload) #5
+  br label %33
 
-36:                                               ; preds = %32, %31
+33:                                               ; preds = %29, %28
   %.not24 = icmp eq ptr %.sroa.3.0.copyload, null
-  br i1 %.not24, label %41, label %37
+  br i1 %.not24, label %38, label %34
 
-37:                                               ; preds = %36
-  %38 = load ptr, ptr %1, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  %40 = load ptr, ptr %39, align 8
-  tail call void %40(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %.sroa.3.0.copyload) #5
-  br label %41
+34:                                               ; preds = %33
+  %35 = load ptr, ptr %1, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
+  %37 = load ptr, ptr %36, align 8
+  tail call void %37(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %.sroa.3.0.copyload) #5
+  br label %38
 
-41:                                               ; preds = %37, %36
+38:                                               ; preds = %34, %33
   %.not25 = icmp eq ptr %.sroa.4.0.copyload, null
-  br i1 %.not25, label %46, label %42
+  br i1 %.not25, label %43, label %39
 
-42:                                               ; preds = %41
-  %43 = load ptr, ptr %1, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %.sroa.4.0.copyload) #5
-  br label %46
+39:                                               ; preds = %38
+  %40 = load ptr, ptr %1, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
+  %42 = load ptr, ptr %41, align 8
+  tail call void %42(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %.sroa.4.0.copyload) #5
+  br label %43
 
-46:                                               ; preds = %41, %42
-  %47 = getelementptr inbounds nuw i8, ptr %.045, i64 8
-  %.not = icmp eq ptr %47, %24
+43:                                               ; preds = %38, %39
+  %44 = getelementptr inbounds nuw i8, ptr %.045, i64 8
+  %.not = icmp eq ptr %44, %21
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %46, %16, %.lr.ph50, %_ZNK4llvm12MachineInstr11memoperandsEv.exit
-  %48 = getelementptr inbounds nuw i8, ptr %.sroa.033.048, i64 8
-  %.sroa.033.0 = load ptr, ptr %48, align 8
+._crit_edge:                                      ; preds = %43, %11, %.lr.ph50, %_ZNK4llvm12MachineInstr11memoperandsEv.exit
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.033.048, i64 8
+  %.sroa.033.0 = load ptr, ptr %45, align 8
   %.not43 = icmp eq ptr %.sroa.033.0, %7
   br i1 %.not43, label %._crit_edge51, label %.lr.ph50
 
 ._crit_edge51:                                    ; preds = %._crit_edge, %.lr.ph56
-  %49 = getelementptr inbounds nuw i8, ptr %.sroa.039.054, i64 8
-  %.sroa.039.0 = load ptr, ptr %49, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.039.054, i64 8
+  %.sroa.039.0 = load ptr, ptr %46, align 8
   %.not42 = icmp eq ptr %.sroa.039.0, %5
   br i1 %.not42, label %._crit_edge57, label %.lr.ph56
 

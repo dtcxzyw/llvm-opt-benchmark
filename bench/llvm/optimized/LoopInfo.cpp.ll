@@ -15108,7 +15108,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %21, %25
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i16 0, 512) i16 @_ZN4llvm28getOptionalBoolLoopAttributeEPKNS_4LoopENS_9StringRefE(ptr noundef nonnull %0, ptr nocapture readonly %1, i64 %2) local_unnamed_addr #0 {
+define dso_local range(i16 0, 258) i16 @_ZN4llvm28getOptionalBoolLoopAttributeEPKNS_4LoopENS_9StringRefE(ptr noundef nonnull %0, ptr nocapture readonly %1, i64 %2) local_unnamed_addr #0 {
   %4 = tail call noundef ptr @_ZNK4llvm4Loop9getLoopIDEv(ptr noundef nonnull align 8 dereferenceable(152) %0)
   %5 = tail call noundef ptr @_ZN4llvm21findOptionMDForLoopIDEPNS_6MDNodeENS_9StringRefE(ptr noundef %4, ptr readonly %1, i64 %2)
   %.not = icmp eq ptr %5, null

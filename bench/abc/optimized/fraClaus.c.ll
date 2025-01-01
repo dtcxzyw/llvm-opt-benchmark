@@ -538,12 +538,12 @@ define i32 @Fra_ClausProcessClausesCut2(ptr nocapture noundef readonly %0, ptr n
   br i1 %exitcond57.not, label %._crit_edge45.loopexit, label %27, !llvm.loop !17
 
 ._crit_edge45.loopexit:                           ; preds = %27
-  %36 = zext nneg i32 %.137 to i64
+  %36 = sext i32 %.137 to i64
   br label %._crit_edge45
 
 ._crit_edge45:                                    ; preds = %._crit_edge45.loopexit, %.preheader39
   %.036.lcssa = phi i64 [ 0, %.preheader39 ], [ %36, %._crit_edge45.loopexit ]
-  %37 = getelementptr inbounds nuw i32, ptr %3, i64 %.036.lcssa
+  %37 = getelementptr inbounds i32, ptr %3, i64 %.036.lcssa
   %38 = load i32, ptr %37, align 4
   %39 = add nsw i32 %38, 1
   store i32 %39, ptr %37, align 4

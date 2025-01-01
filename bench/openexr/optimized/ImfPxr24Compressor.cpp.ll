@@ -483,8 +483,8 @@ if.else8.i:                                       ; preds = %for.end118
   %22 = tail call float @llvm.fabs.f32(float %20)
   %or9.i = bitcast float %22 to i32
   %and10.i = and i32 %21, 128
-  %add.i = add nuw i32 %and10.i, %or9.i
-  %cmp12.i = icmp ugt i32 %add.i, 2139095039
+  %add.i = add nuw nsw i32 %and10.i, %or9.i
+  %cmp12.i = icmp samesign ugt i32 %add.i, 2139095039
   %spec.select.v.i = select i1 %cmp12.i, i32 %or9.i, i32 %add.i
   %spec.select.i = lshr i32 %spec.select.v.i, 8
   br label %_ZN7Imf_3_212_GLOBAL__N_114floatToFloat24Ef.exit

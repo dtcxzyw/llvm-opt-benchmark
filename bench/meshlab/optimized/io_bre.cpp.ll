@@ -11917,7 +11917,7 @@ define noundef zeroext i8 @_ZNK3vcg3tri2io10BreElement7QualityEv(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i64 0, 281474976710656) i64 @_ZNK3vcg3tri2io10BreElement5PixelEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #16 align 2 {
+define range(i64 0, 281470681808896) i64 @_ZNK3vcg3tri2io10BreElement5PixelEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #16 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i64, ptr %3, align 8

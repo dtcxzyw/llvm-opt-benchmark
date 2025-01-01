@@ -1151,7 +1151,7 @@ _ZN4llvm14DomTreeUpdaterD2Ev.exit:                ; preds = %_ZSt8_DestroyIPN4ll
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm8Function10getContextEv(ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc range(i16 0, 512) i16 @_ZN12_GLOBAL__N_14SROA7runSROAERN4llvm8FunctionE(ptr noundef nonnull align 8 dereferenceable(1304) %0, ptr noundef nonnull align 8 dereferenceable(136) %1) unnamed_addr #0 align 2 {
+define internal fastcc range(i16 0, 258) i16 @_ZN12_GLOBAL__N_14SROA7runSROAERN4llvm8FunctionE(ptr noundef nonnull align 8 dereferenceable(1304) %0, ptr noundef nonnull align 8 dereferenceable(136) %1) unnamed_addr #0 align 2 {
 .lr.ph.i.i.i:
   %2 = alloca i64, align 8
   %3 = alloca %"class.llvm::WeakVH", align 8
@@ -3305,7 +3305,7 @@ _ZN4llvm9SetVectorIPNS_10AllocaInstENS_11SmallVectorIS2_Lj16EEENS_8DenseSetIS2_N
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc range(i16 0, 512) i16 @_ZN12_GLOBAL__N_14SROA11runOnAllocaERN4llvm10AllocaInstE(ptr noundef nonnull align 8 dereferenceable(1304) %0, ptr noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #0 align 2 {
+define internal fastcc range(i16 0, 258) i16 @_ZN12_GLOBAL__N_14SROA11runOnAllocaERN4llvm10AllocaInstE(ptr noundef nonnull align 8 dereferenceable(1304) %0, ptr noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::InsertPosition", align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -29747,7 +29747,7 @@ _ZL29isSafeLoadOfSelectToSpeculateRN4llvm8LoadInstERNS_10SelectInstEb.exit.i: ; 
   br i1 %or.cond.not.i, label %_ZNK4llvm5Value9hasOneUseEv.exit.thread.thread.i, label %883
 
 883:                                              ; preds = %_ZL29isSafeLoadOfSelectToSpeculateRN4llvm8LoadInstERNS_10SelectInstEb.exit.i
-  %884 = zext nneg i8 %.us-phi.i.i to i64
+  %884 = zext i8 %.us-phi.i.i to i64
   %885 = and i64 %851, -7
   %886 = shl nuw nsw i64 %884, 1
   %887 = or i64 %886, %885

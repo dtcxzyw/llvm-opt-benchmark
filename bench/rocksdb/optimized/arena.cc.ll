@@ -48,7 +48,7 @@ $_ZNSt5dequeISt10unique_ptrIA_cSt14default_deleteIS1_EESaIS4_EE17_M_reallocate_m
 @_ZN7rocksdb5ArenaD1Ev = unnamed_addr alias void (ptr), ptr @_ZN7rocksdb5ArenaD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i64 16, 2147483665) i64 @_ZN7rocksdb5Arena17OptimizeBlockSizeEm(i64 noundef %block_size) local_unnamed_addr #0 align 2 {
+define noundef range(i64 4096, 2147483665) i64 @_ZN7rocksdb5Arena17OptimizeBlockSizeEm(i64 noundef %block_size) local_unnamed_addr #0 align 2 {
 entry:
   %.sroa.speculated7 = tail call i64 @llvm.umax.i64(i64 %block_size, i64 4096)
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %.sroa.speculated7, i64 2147483648)

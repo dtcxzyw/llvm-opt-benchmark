@@ -9136,7 +9136,7 @@ declare noundef i64 @_ZN7rocksdb12MemTableList37PrecomputeMinLogContainingPrepSe
 declare noundef i64 @_ZN7rocksdb8MemTable30GetMinLogContainingPrepSectionEv(ptr noundef nonnull align 16 dereferenceable(3528)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i64 0, 34359738368) i64 @_ZN7rocksdb16ColumnFamilyData30GetWriteStallConditionAndCauseEiimRKNS_16MutableCFOptionsERKNS_18ImmutableCFOptionsE(i32 noundef %num_unflushed_memtables, i32 noundef %num_l0_files, i64 noundef %num_compaction_needed_bytes, ptr nocapture noundef nonnull readonly align 8 dereferenceable(560) %mutable_cf_options, ptr nocapture noundef nonnull readonly align 8 dereferenceable(281) %immutable_cf_options) local_unnamed_addr #12 align 2 {
+define range(i64 0, 25769803780) i64 @_ZN7rocksdb16ColumnFamilyData30GetWriteStallConditionAndCauseEiimRKNS_16MutableCFOptionsERKNS_18ImmutableCFOptionsE(i32 noundef %num_unflushed_memtables, i32 noundef %num_l0_files, i64 noundef %num_compaction_needed_bytes, ptr nocapture noundef nonnull readonly align 8 dereferenceable(560) %mutable_cf_options, ptr nocapture noundef nonnull readonly align 8 dereferenceable(281) %immutable_cf_options) local_unnamed_addr #12 align 2 {
 entry:
   %max_write_buffer_number = getelementptr inbounds nuw i8, ptr %mutable_cf_options, i64 8
   %0 = load i32, ptr %max_write_buffer_number, align 8

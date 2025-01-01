@@ -5407,7 +5407,7 @@ _ZN4LIEF7logging6Logger4warnIJEEEvPKcDpRKT_.exit: ; preds = %.noexc82
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i64 1, 8589934592) i64 @_ZN4LIEF5MachO12BinaryParser17parse_export_trieERSt6vectorISt10unique_ptrINS0_10ExportInfoESt14default_deleteIS4_EESaIS7_EEmmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPb(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %2, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr nocapture noundef %5) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define range(i64 1, 4294967312) i64 @_ZN4LIEF5MachO12BinaryParser17parse_export_trieERSt6vectorISt10unique_ptrINS0_10ExportInfoESt14default_deleteIS4_EESaIS7_EEmmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPb(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %2, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr nocapture noundef %5) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8

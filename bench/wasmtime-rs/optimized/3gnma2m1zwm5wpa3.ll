@@ -312,7 +312,7 @@ define hidden noundef zeroext i1 @_ZN4core3net7ip_addr6IpAddr14is_unspecified17h
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden i40 @_ZN4core3net7ip_addr8Ipv6Addr14to_ipv4_mapped17hc035d26dd61c98a4E.llvm.11181120138937278269(ptr noalias nocapture noundef readonly align 1 dereferenceable(16) %0) unnamed_addr #2 {
+define hidden range(i40 0, -254) i40 @_ZN4core3net7ip_addr8Ipv6Addr14to_ipv4_mapped17hc035d26dd61c98a4E.llvm.11181120138937278269(ptr noalias nocapture noundef readonly align 1 dereferenceable(16) %0) unnamed_addr #2 {
   %2 = load <16 x i8>, ptr %0, align 1
   %.sroa.033.0.vec.extract = extractelement <16 x i8> %2, i64 0
   %3 = icmp eq i8 %.sroa.033.0.vec.extract, 0

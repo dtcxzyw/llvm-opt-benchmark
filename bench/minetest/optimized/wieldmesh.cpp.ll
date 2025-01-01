@@ -5079,7 +5079,7 @@ if.end:                                           ; preds = %_ZNSt6vectorI13Item
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull ptr @_ZL21createSpecialNodeMeshP6Client7MapNodePSt6vectorI13ItemPartColorSaIS3_EERK15ContentFeatures(ptr noundef nonnull %client, i32 %n.coerce, ptr nocapture noundef %colors, ptr nocapture noundef nonnull readonly align 8 dereferenceable(3706) %f) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @_ZL21createSpecialNodeMeshP6Client7MapNodePSt6vectorI13ItemPartColorSaIS3_EERK15ContentFeatures(ptr noundef nonnull %client, i32 range(i32 0, -16711680) %n.coerce, ptr nocapture noundef %colors, ptr nocapture noundef nonnull readonly align 8 dereferenceable(3706) %f) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %mesh_make_data = alloca %struct.MeshMakeData, align 8
   %collector = alloca %struct.MeshCollector, align 8

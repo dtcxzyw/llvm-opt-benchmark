@@ -30,7 +30,7 @@ define dso_local noundef i64 @_ZN16cmFileLockResult6MakeOkEv() local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i64 1, 0) i64 @_ZN16cmFileLockResult10MakeSystemEv() local_unnamed_addr #1 align 2 {
+define dso_local range(i64 1, -4294967294) i64 @_ZN16cmFileLockResult10MakeSystemEv() local_unnamed_addr #1 align 2 {
   %1 = tail call ptr @__errno_location() #13
   %2 = load i32, ptr %1, align 4
   %.sroa.2.0.insert.ext = zext i32 %2 to i64

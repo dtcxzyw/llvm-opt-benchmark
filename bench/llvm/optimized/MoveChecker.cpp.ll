@@ -5862,7 +5862,7 @@ declare noundef ptr @_ZN5clang4Decl19castFromDeclContextEPKNS_11DeclContextE(ptr
 declare noundef zeroext i1 @_ZNK5clang18CXXConstructorDecl17isMoveConstructorERj(ptr noundef nonnull align 8 dereferenceable(176), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc range(i64 0, 17179869184) i64 @_ZNK12_GLOBAL__N_111MoveChecker14classifyObjectEPKN5clang4ento9MemRegionEPKNS1_13CXXRecordDeclE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %1, ptr noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc range(i64 0, 12884901890) i64 @_ZNK12_GLOBAL__N_111MoveChecker14classifyObjectEPKN5clang4ento9MemRegionEPKNS1_13CXXRecordDeclE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %1, ptr noundef readonly %2) unnamed_addr #0 align 2 {
   %.not.i.i.i = icmp eq ptr %1, null
   br i1 %.not.i.i.i, label %_ZN4llvm15isa_and_nonnullIJN5clang4ento9VarRegionENS2_31CXXLifetimeExtendedObjectRegionEEPKNS2_9MemRegionEEEbRKT0_.exit.thread, label %4
 

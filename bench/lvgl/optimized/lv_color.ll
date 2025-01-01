@@ -227,7 +227,7 @@ define i24 @lv_color_make(i8 noundef zeroext %0, i8 noundef zeroext %1, i8 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i32 0, -2147483648) i32 @lv_color_rgb_to_hsv(i8 noundef zeroext %0, i8 noundef zeroext %1, i8 noundef zeroext %2) local_unnamed_addr #1 {
+define range(i32 0, 1694498816) i32 @lv_color_rgb_to_hsv(i8 noundef zeroext %0, i8 noundef zeroext %1, i8 noundef zeroext %2) local_unnamed_addr #1 {
   %4 = zext i8 %0 to i32
   %5 = shl nuw nsw i32 %4, 10
   %6 = udiv i32 %5, 255
@@ -310,7 +310,7 @@ define range(i32 0, -2147483648) i32 @lv_color_rgb_to_hsv(i8 noundef zeroext %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i32 0, -2147483648) i32 @lv_color_to_hsv(i24 %0) local_unnamed_addr #1 {
+define range(i32 0, 1694498816) i32 @lv_color_to_hsv(i24 %0) local_unnamed_addr #1 {
   %2 = lshr i24 %0, 6
   %3 = and i24 %2, 261120
   %4 = udiv i24 %3, 255

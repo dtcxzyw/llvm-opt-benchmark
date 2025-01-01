@@ -22470,13 +22470,13 @@ land.rhs.i.i.us:                                  ; preds = %while.end.i.us, %wh
   %__holeIndex.addr.033.i.i.us = phi i64 [ %__parent.034.i.i.us, %while.body.i.i.us ], [ %spec.select.i.us, %while.end.i.us ]
   %__parent.034.in.i.i.us = add nsw i64 %__holeIndex.addr.033.i.i.us, -1
   %__parent.034.i.i.us = sdiv i64 %__parent.034.in.i.i.us, 2
-  %add.ptr.i.i.i.us = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %__first.coerce, i64 %__parent.034.i.i.us
+  %add.ptr.i.i.i.us = getelementptr inbounds %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %__first.coerce, i64 %__parent.034.i.i.us
   %4 = load i32, ptr %add.ptr.i.i.i.us, align 4, !tbaa !882
   %cmp.i.i.i.i.us = icmp slt i32 %4, %__value.sroa.0.0.extract.trunc.i.i.us
   br i1 %cmp.i.i.i.i.us, label %while.body.i.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3irr13CIrrDeviceSDL7SKeyMapESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit.us
 
 while.body.i.i.us:                                ; preds = %land.rhs.i.i.us
-  %add.ptr.i24.i.i.us = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %__first.coerce, i64 %__holeIndex.addr.033.i.i.us
+  %add.ptr.i24.i.i.us = getelementptr inbounds %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %__first.coerce, i64 %__holeIndex.addr.033.i.i.us
   %5 = load i64, ptr %add.ptr.i.i.i.us, align 4, !tbaa.struct !27
   store i64 %5, ptr %add.ptr.i24.i.i.us, align 4, !tbaa.struct !27
   %cmp.i.i.us = icmp sgt i64 %__parent.034.i.i.us, %__parent.0.us
@@ -22484,7 +22484,7 @@ while.body.i.i.us:                                ; preds = %land.rhs.i.i.us
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3irr13CIrrDeviceSDL7SKeyMapESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit.us: ; preds = %while.body.i.i.us, %land.rhs.i.i.us, %while.cond.us
   %__holeIndex.addr.0.lcssa.i.i.us = phi i64 [ %__parent.0.us, %while.cond.us ], [ %__holeIndex.addr.033.i.i.us, %land.rhs.i.i.us ], [ %__parent.034.i.i.us, %while.body.i.i.us ]
-  %add.ptr.i25.i.i.us = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.us
+  %add.ptr.i25.i.i.us = getelementptr inbounds %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.us
   store i64 %__value.sroa.0.0.copyload.us, ptr %add.ptr.i25.i.i.us, align 4, !tbaa.struct !27
   %cmp9.not.us = icmp eq i64 %__parent.0.us, 0
   %dec.us = add nsw i64 %__parent.0.us, -1
@@ -22535,13 +22535,13 @@ land.rhs.i.i:                                     ; preds = %if.end33.i, %while.
   %__holeIndex.addr.033.i.i = phi i64 [ %__parent.034.i.i, %while.body.i.i ], [ %__holeIndex.addr.1.i, %if.end33.i ]
   %__parent.034.in.i.i = add nsw i64 %__holeIndex.addr.033.i.i, -1
   %__parent.034.i.i = sdiv i64 %__parent.034.in.i.i, 2
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %__first.coerce, i64 %__parent.034.i.i
+  %add.ptr.i.i.i = getelementptr inbounds %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %__first.coerce, i64 %__parent.034.i.i
   %10 = load i32, ptr %add.ptr.i.i.i, align 4, !tbaa !882
   %cmp.i.i.i.i = icmp slt i32 %10, %__value.sroa.0.0.extract.trunc.i.i
   br i1 %cmp.i.i.i.i, label %while.body.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3irr13CIrrDeviceSDL7SKeyMapESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit
 
 while.body.i.i:                                   ; preds = %land.rhs.i.i
-  %add.ptr.i24.i.i = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %__first.coerce, i64 %__holeIndex.addr.033.i.i
+  %add.ptr.i24.i.i = getelementptr inbounds %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %__first.coerce, i64 %__holeIndex.addr.033.i.i
   %11 = load i64, ptr %add.ptr.i.i.i, align 4, !tbaa.struct !27
   store i64 %11, ptr %add.ptr.i24.i.i, align 4, !tbaa.struct !27
   %cmp.i.i = icmp sgt i64 %__parent.034.i.i, %__parent.0
@@ -22549,7 +22549,7 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3irr13CIrrDeviceSDL7SKeyMapESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit: ; preds = %while.body.i.i, %land.rhs.i.i, %if.end33.i
   %__holeIndex.addr.0.lcssa.i.i = phi i64 [ %__holeIndex.addr.1.i, %if.end33.i ], [ %__holeIndex.addr.033.i.i, %land.rhs.i.i ], [ %__parent.034.i.i, %while.body.i.i ]
-  %add.ptr.i25.i.i = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i
+  %add.ptr.i25.i.i = getelementptr inbounds %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i
   store i64 %__value.sroa.0.0.copyload, ptr %add.ptr.i25.i.i, align 4, !tbaa.struct !27
   %cmp9.not = icmp eq i64 %__parent.0, 0
   %dec = add nsw i64 %__parent.0, -1

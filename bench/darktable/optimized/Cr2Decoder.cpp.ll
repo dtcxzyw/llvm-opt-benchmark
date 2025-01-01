@@ -1654,46 +1654,46 @@ define hidden void @_ZN8rawspeed10Cr2Decoder15sRawInterpolateEv(ptr noundef nonn
 
 111:                                              ; preds = %88
   %112 = ashr i32 %105, 1
-  %113 = icmp sgt i32 %112, -1
+  %113 = icmp ugt i32 %105, 1
   call void @llvm.assume(i1 %113)
-  %114 = icmp samesign uge i32 %112, %101
+  %114 = icmp sgt i32 %112, -1
   call void @llvm.assume(i1 %114)
+  %115 = icmp samesign uge i32 %112, %101
+  call void @llvm.assume(i1 %115)
   call void @llvm.assume(i1 %110)
-  %115 = shl nuw i32 %103, 1
-  %116 = mul i32 %112, %115
-  %117 = icmp sgt i32 %116, -1
-  call void @llvm.assume(i1 %117)
-  %118 = shl nuw nsw i32 %101, 1
-  %119 = and i32 %105, -2
-  %120 = icmp ne i32 %119, 0
-  call void @llvm.assume(i1 %120)
-  %121 = icmp uge i32 %119, %118
+  %116 = shl nuw i32 %103, 1
+  %117 = mul i32 %112, %116
+  %118 = icmp sgt i32 %117, -1
+  call void @llvm.assume(i1 %118)
+  %119 = shl nuw nsw i32 %101, 1
+  %120 = and i32 %105, -2
+  %121 = icmp uge i32 %120, %119
   br label %133
 
 122:                                              ; preds = %88
   %123 = ashr i32 %105, 2
-  %124 = icmp sgt i32 %123, -1
+  %124 = icmp ugt i32 %105, 3
   call void @llvm.assume(i1 %124)
-  %125 = icmp samesign uge i32 %123, %101
+  %125 = icmp sgt i32 %123, -1
   call void @llvm.assume(i1 %125)
+  %126 = icmp samesign uge i32 %123, %101
+  call void @llvm.assume(i1 %126)
   call void @llvm.assume(i1 %110)
-  %126 = shl i32 %103, 2
-  %127 = mul i32 %123, %126
-  %128 = icmp sgt i32 %127, -1
-  call void @llvm.assume(i1 %128)
-  %129 = shl nuw nsw i32 %101, 2
-  %130 = and i32 %105, -4
-  %131 = icmp ne i32 %130, 0
-  call void @llvm.assume(i1 %131)
-  %132 = icmp uge i32 %130, %129
+  %127 = shl i32 %103, 2
+  %128 = mul i32 %123, %127
+  %129 = icmp sgt i32 %128, -1
+  call void @llvm.assume(i1 %129)
+  %130 = shl nuw nsw i32 %101, 2
+  %131 = and i32 %105, -4
+  %132 = icmp uge i32 %131, %130
   call void @llvm.assume(i1 %132)
   br label %133
 
 133:                                              ; preds = %122, %111
   %134 = phi i1 [ true, %122 ], [ %121, %111 ]
-  %135 = phi i32 [ %130, %122 ], [ %119, %111 ]
-  %136 = phi i32 [ %127, %122 ], [ %116, %111 ]
-  %137 = phi i32 [ %129, %122 ], [ %118, %111 ]
+  %135 = phi i32 [ %131, %122 ], [ %120, %111 ]
+  %136 = phi i32 [ %128, %122 ], [ %117, %111 ]
+  %137 = phi i32 [ %130, %122 ], [ %119, %111 ]
   call void @llvm.assume(i1 %134)
   %138 = mul nuw nsw i32 %135, %103
   %139 = icmp eq i32 %138, %136

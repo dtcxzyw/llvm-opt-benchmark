@@ -42676,7 +42676,7 @@ define hidden noundef range(i32 0, 10) i32 @_ZN4core3ops8function5FnMut8call_mut
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden i40 @_ZN4core3ops8function5FnMut8call_mut17hdcadab2df0bc24d0E.llvm.14019313651612263248(ptr noalias nocapture noundef nonnull readnone align 1 %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #7 {
+define hidden range(i40 0, -254) i40 @_ZN4core3ops8function5FnMut8call_mut17hdcadab2df0bc24d0E.llvm.14019313651612263248(ptr noalias nocapture noundef nonnull readnone align 1 %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #7 {
   %4 = icmp eq i64 %2, 4
   br i1 %4, label %5, label %"_ZN53_$LT$T$u20$as$u20$core..convert..TryInto$LT$U$GT$$GT$8try_into17h5739f93ba993c347E.llvm.14019313651612263248.exit"
 
@@ -42955,7 +42955,7 @@ _ZN4core3ops8function5FnMut8call_mut17h4e870b2a127457a0E.llvm.140193136516122632
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden i40 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h49e84bbb8edf23ecE"(ptr noalias nocapture noundef nonnull readnone align 1 %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #17 {
+define hidden range(i40 0, -254) i40 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h49e84bbb8edf23ecE"(ptr noalias nocapture noundef nonnull readnone align 1 %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #17 {
   %4 = icmp eq i64 %2, 4
   br i1 %4, label %5, label %_ZN4core3ops8function5FnMut8call_mut17hdcadab2df0bc24d0E.llvm.14019313651612263248.exit
 
@@ -69248,7 +69248,7 @@ define hidden void @_ZN4core4sync6atomic12atomic_store17hff76cdbabfdb7b6aE.llvm.
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden i40 @"_ZN4core5array98_$LT$impl$u20$core..convert..TryFrom$LT$$RF$$u5b$T$u5d$$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$8try_from17h0d40cc22af042d37E.llvm.14019313651612263248"(ptr noalias nocapture noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #7 {
+define hidden range(i40 0, -254) i40 @"_ZN4core5array98_$LT$impl$u20$core..convert..TryFrom$LT$$RF$$u5b$T$u5d$$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$8try_from17h0d40cc22af042d37E.llvm.14019313651612263248"(ptr noalias nocapture noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #7 {
   %3 = icmp eq i64 %1, 4
   br i1 %3, label %4, label %5
 
@@ -92940,7 +92940,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden i40 @"_ZN53_$LT$T$u20$as$u20$core..convert..TryInto$LT$U$GT$$GT$8try_into17h5739f93ba993c347E.llvm.14019313651612263248"(ptr noalias nocapture noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #7 {
+define hidden range(i40 0, -254) i40 @"_ZN53_$LT$T$u20$as$u20$core..convert..TryInto$LT$U$GT$$GT$8try_into17h5739f93ba993c347E.llvm.14019313651612263248"(ptr noalias nocapture noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #7 {
   %3 = icmp eq i64 %1, 4
   br i1 %3, label %4, label %"_ZN4core5array98_$LT$impl$u20$core..convert..TryFrom$LT$$RF$$u5b$T$u5d$$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$8try_from17h0d40cc22af042d37E.llvm.14019313651612263248.exit"
 

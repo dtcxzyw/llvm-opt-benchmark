@@ -839,10 +839,10 @@ do.body11.i:                                      ; preds = %host_to_target_sign
   %si_uid.i = getelementptr inbounds nuw i8, ptr %info, i64 20
   %8 = load i32, ptr %si_uid.i, align 4
   store i32 %retval.0.i.i, ptr %tinfo, align 1
-  %si_errno.i138 = getelementptr inbounds nuw i8, ptr %tinfo, i64 4
-  store i32 0, ptr %si_errno.i138, align 1
-  %si_code9.i39 = getelementptr inbounds nuw i8, ptr %tinfo, i64 8
-  store i32 %2, ptr %si_code9.i39, align 1
+  %si_errno.i139 = getelementptr inbounds nuw i8, ptr %tinfo, i64 4
+  store i32 0, ptr %si_errno.i139, align 1
+  %si_code9.i40 = getelementptr inbounds nuw i8, ptr %tinfo, i64 8
+  store i32 %2, ptr %si_code9.i40, align 1
   %_sifields.i6 = getelementptr inbounds nuw i8, ptr %tinfo, i64 16
   store i32 %7, ptr %_sifields.i6, align 1
   %_uid.i7 = getelementptr inbounds nuw i8, ptr %tinfo, i64 20
@@ -854,13 +854,13 @@ do.body32.i:                                      ; preds = %sw.default.i
   %conv.i = trunc i64 %9 to i32
   %si_fd.i = getelementptr inbounds nuw i8, ptr %info, i64 24
   %10 = load i32, ptr %si_fd.i, align 8
-  %shl.i.i50 = shl i32 %2, 16
-  %shr.i36.i51 = ashr exact i32 %shl.i.i50, 16
+  %shl.i.i51 = shl i32 %2, 16
+  %shr.i36.i52 = ashr exact i32 %shl.i.i51, 16
   store i32 %retval.0.i.i, ptr %tinfo, align 1
-  %si_errno.i152 = getelementptr inbounds nuw i8, ptr %tinfo, i64 4
-  store i32 0, ptr %si_errno.i152, align 1
-  %si_code9.i53 = getelementptr inbounds nuw i8, ptr %tinfo, i64 8
-  store i32 %shr.i36.i51, ptr %si_code9.i53, align 1
+  %si_errno.i153 = getelementptr inbounds nuw i8, ptr %tinfo, i64 4
+  store i32 0, ptr %si_errno.i153, align 1
+  %si_code9.i54 = getelementptr inbounds nuw i8, ptr %tinfo, i64 8
+  store i32 %shr.i36.i52, ptr %si_code9.i54, align 1
   %_sifields33.i = getelementptr inbounds nuw i8, ptr %tinfo, i64 16
   store i32 %conv.i, ptr %_sifields33.i, align 1
   %_fd.i5 = getelementptr inbounds nuw i8, ptr %tinfo, i64 20
@@ -873,13 +873,13 @@ do.body49.i:                                      ; preds = %sw.bb9.i, %host_to_
   %11 = load i64, ptr %si_utime.i, align 8
   %si_stime.i = getelementptr inbounds nuw i8, ptr %info, i64 40
   %12 = load i64, ptr %si_stime.i, align 8
-  %shl.i.i64 = shl i32 %2, 16
-  %shr.i36.i65 = ashr exact i32 %shl.i.i64, 16
+  %shl.i.i65 = shl i32 %2, 16
+  %shr.i36.i66 = ashr exact i32 %shl.i.i65, 16
   store i32 %retval.0.i.i, ptr %tinfo, align 1
-  %si_errno.i166 = getelementptr inbounds nuw i8, ptr %tinfo, i64 4
-  store i32 0, ptr %si_errno.i166, align 1
-  %si_code9.i67 = getelementptr inbounds nuw i8, ptr %tinfo, i64 8
-  store i32 %shr.i36.i65, ptr %si_code9.i67, align 1
+  %si_errno.i167 = getelementptr inbounds nuw i8, ptr %tinfo, i64 4
+  store i32 0, ptr %si_errno.i167, align 1
+  %si_code9.i68 = getelementptr inbounds nuw i8, ptr %tinfo, i64 8
+  store i32 %shr.i36.i66, ptr %si_code9.i68, align 1
   %_sifields50.i = getelementptr inbounds nuw i8, ptr %tinfo, i64 16
   store i32 %3, ptr %_sifields50.i, align 1
   %_uid57.i = getelementptr inbounds nuw i8, ptr %tinfo, i64 20

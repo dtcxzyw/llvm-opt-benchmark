@@ -302,7 +302,7 @@ if.end14:                                         ; preds = %if.then8, %if.then,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_pixman_get_format(ptr nocapture noundef readonly %pf) local_unnamed_addr #0 {
+define dso_local range(i32 0, -15728640) i32 @qemu_pixman_get_format(ptr nocapture noundef readonly %pf) local_unnamed_addr #0 {
 entry:
   %rshift = getelementptr inbounds nuw i8, ptr %pf, i64 20
   %0 = load i8, ptr %rshift, align 4

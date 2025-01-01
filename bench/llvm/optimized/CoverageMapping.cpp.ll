@@ -582,7 +582,7 @@ $_ZSt19piecewise_construct = comdat any
 @_ZN4llvm8coverage17LineCoverageStatsC1ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_j = unnamed_addr alias void (ptr, ptr, i64, ptr, i32), ptr @_ZN4llvm8coverage17LineCoverageStatsC2ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_j
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i64 2, 0) i64 @_ZN4llvm8coverage24CounterExpressionBuilder3getERKNS0_17CounterExpressionE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(20) %1) local_unnamed_addr #0 align 2 {
+define dso_local range(i64 2, -4294967292) i64 @_ZN4llvm8coverage24CounterExpressionBuilder3getERKNS0_17CounterExpressionE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(20) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = tail call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8coverage17CounterExpressionEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E6doFindIS3_EEPS8_RKT_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 4 dereferenceable(20) %1)

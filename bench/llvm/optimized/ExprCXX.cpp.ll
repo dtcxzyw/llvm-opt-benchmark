@@ -5396,35 +5396,28 @@ _ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i:      ; preds = %1
   %15 = and i64 %.0.copyload.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i = icmp eq i64 %15, 0
   %16 = and i64 %.0.copyload.i.i.i.i.i.i, -8
-  %.not5.i.i = icmp eq i64 %16, 0
-  %.not.i4.i = or i1 %.not.i.i.i.i.i, %.not5.i.i
-  br i1 %.not.i4.i, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i
+  %17 = inttoptr i64 %16 to ptr
+  br i1 %.not.i.i.i.i.i, label %_ZNK5clang13CXXRecordDecl14captures_beginEv.exit, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i
 
 _ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i: ; preds = %14
-  %17 = inttoptr i64 %16 to ptr
   %18 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #16
-  br i1 %18, label %_ZNK5clang13CXXRecordDecl14captures_beginEv.exit, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i
+  br i1 %18, label %_ZNK5clang13CXXRecordDecl14captures_beginEv.exit, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i
 
-_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i: ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i
+_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i: ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i
   %.0.copyload.i.i.i.i.i.i.i.i.pre.i = load i64, ptr %13, align 8
   %.pre.i = and i64 %.0.copyload.i.i.i.i.i.i.i.i.pre.i, 4
-  %.pre10.i = and i64 %.0.copyload.i.i.i.i.i.i.i.i.pre.i, -8
-  br label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i
+  %19 = icmp eq i64 %.pre.i, 0
+  %20 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.pre.i, -8
+  %21 = inttoptr i64 %20 to ptr
+  br i1 %19, label %_ZNK5clang13CXXRecordDecl14captures_beginEv.exit, label %22
 
-_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i: ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i, %14
-  %.pre-phi11.i = phi i64 [ %.pre10.i, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i ], [ %16, %14 ]
-  %.pre-phi.i = phi i64 [ %.pre.i, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i ], [ %15, %14 ]
-  %19 = icmp eq i64 %.pre-phi.i, 0
-  %20 = inttoptr i64 %.pre-phi11.i to ptr
-  br i1 %19, label %_ZNK5clang13CXXRecordDecl14captures_beginEv.exit, label %21
-
-21:                                               ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i
-  %22 = load ptr, ptr %20, align 8
-  %23 = load ptr, ptr %22, align 8
+22:                                               ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i
+  %23 = load ptr, ptr %21, align 8
+  %24 = load ptr, ptr %23, align 8
   br label %_ZNK5clang13CXXRecordDecl14captures_beginEv.exit
 
-_ZNK5clang13CXXRecordDecl14captures_beginEv.exit: ; preds = %1, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i, %12, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i, %21
-  %.0.i = phi ptr [ null, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i ], [ null, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i ], [ %23, %21 ], [ %20, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i ], [ null, %1 ], [ null, %12 ]
+_ZNK5clang13CXXRecordDecl14captures_beginEv.exit: ; preds = %1, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i, %12, %14, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i, %22
+  %.0.i = phi ptr [ null, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i ], [ null, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i ], [ %24, %22 ], [ %21, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i ], [ null, %1 ], [ null, %12 ], [ %17, %14 ]
   ret ptr %.0.i
 }
 
@@ -5458,46 +5451,39 @@ _ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i:    ; preds = %_ZNK5clang13CXXReco
   %14 = and i64 %.0.copyload.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i = icmp eq i64 %14, 0
   %15 = and i64 %.0.copyload.i.i.i.i.i.i.i, -8
-  %.not5.i.i.i = icmp eq i64 %15, 0
-  %.not.i4.i.i = or i1 %.not.i.i.i.i.i.i, %.not5.i.i.i
-  br i1 %.not.i4.i.i, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i
+  %16 = inttoptr i64 %15 to ptr
+  br i1 %.not.i.i.i.i.i.i, label %_ZNK5clang13CXXRecordDecl14captures_beginEv.exit.i, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i
 
 _ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i: ; preds = %13
-  %16 = inttoptr i64 %15 to ptr
   %17 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #16
-  br i1 %17, label %_ZNK5clang13CXXRecordDecl14captures_beginEv.exit.i, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i.i
+  br i1 %17, label %_ZNK5clang13CXXRecordDecl14captures_beginEv.exit.i, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i.i
 
-_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i.i: ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i
+_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i.i: ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i
   %.0.copyload.i.i.i.i.i.i.i.i.pre.i.i = load i64, ptr %12, align 8
   %.pre.i.i = and i64 %.0.copyload.i.i.i.i.i.i.i.i.pre.i.i, 4
-  %.pre10.i.i = and i64 %.0.copyload.i.i.i.i.i.i.i.i.pre.i.i, -8
-  br label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i
+  %18 = icmp eq i64 %.pre.i.i, 0
+  %19 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.pre.i.i, -8
+  %20 = inttoptr i64 %19 to ptr
+  br i1 %18, label %_ZNK5clang13CXXRecordDecl14captures_beginEv.exit.i, label %21
 
-_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i: ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i.i, %13
-  %.pre-phi11.i.i = phi i64 [ %.pre10.i.i, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i.i ], [ %15, %13 ]
-  %.pre-phi.i.i = phi i64 [ %.pre.i.i, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i.i ], [ %14, %13 ]
-  %18 = icmp eq i64 %.pre-phi.i.i, 0
-  %19 = inttoptr i64 %.pre-phi11.i.i to ptr
-  br i1 %18, label %_ZNK5clang13CXXRecordDecl14captures_beginEv.exit.i, label %20
-
-20:                                               ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i
-  %21 = load ptr, ptr %19, align 8
-  %22 = load ptr, ptr %21, align 8
+21:                                               ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i.i
+  %22 = load ptr, ptr %20, align 8
+  %23 = load ptr, ptr %22, align 8
   br label %_ZNK5clang13CXXRecordDecl14captures_beginEv.exit.i
 
-_ZNK5clang13CXXRecordDecl14captures_beginEv.exit.i: ; preds = %20, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i
-  %.0.i.i = phi ptr [ null, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i ], [ %22, %20 ], [ %19, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i ], [ null, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i ]
-  %23 = load ptr, ptr %7, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 104
-  %25 = load i64, ptr %24, align 8
-  %26 = lshr i64 %25, 5
-  %27 = and i64 %26, 32767
-  %28 = getelementptr inbounds nuw %"class.clang::LambdaCapture", ptr %.0.i.i, i64 %27
+_ZNK5clang13CXXRecordDecl14captures_beginEv.exit.i: ; preds = %21, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i.i, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i, %13, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i
+  %.0.i.i = phi ptr [ null, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i ], [ %23, %21 ], [ %20, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i.i ], [ null, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i ], [ %16, %13 ]
+  %24 = load ptr, ptr %7, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 104
+  %26 = load i64, ptr %25, align 8
+  %27 = lshr i64 %26, 5
+  %28 = and i64 %27, 32767
+  %29 = getelementptr inbounds nuw %"class.clang::LambdaCapture", ptr %.0.i.i, i64 %28
   br label %_ZNK5clang13CXXRecordDecl12captures_endEv.exit
 
 _ZNK5clang13CXXRecordDecl12captures_endEv.exit:   ; preds = %1, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i, %_ZNK5clang13CXXRecordDecl14captures_beginEv.exit.i
-  %29 = phi ptr [ %28, %_ZNK5clang13CXXRecordDecl14captures_beginEv.exit.i ], [ null, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i ], [ null, %1 ]
-  ret ptr %29
+  %30 = phi ptr [ %29, %_ZNK5clang13CXXRecordDecl14captures_beginEv.exit.i ], [ null, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i ], [ null, %1 ]
+  ret ptr %30
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -5530,103 +5516,89 @@ _ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i:    ; preds = %1
   %15 = and i64 %.0.copyload.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i = icmp eq i64 %15, 0
   %16 = and i64 %.0.copyload.i.i.i.i.i.i.i, -8
-  %.not5.i.i.i = icmp eq i64 %16, 0
-  %.not.i4.i.i = or i1 %.not.i.i.i.i.i.i, %.not5.i.i.i
-  br i1 %.not.i4.i.i, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i
+  %17 = inttoptr i64 %16 to ptr
+  br i1 %.not.i.i.i.i.i.i, label %_ZNK5clang10LambdaExpr13capture_beginEv.exit, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i
 
 _ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i: ; preds = %14
-  %17 = inttoptr i64 %16 to ptr
   %18 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #16
-  br i1 %18, label %_ZNK5clang10LambdaExpr13capture_beginEv.exit, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i.i
+  br i1 %18, label %_ZNK5clang10LambdaExpr13capture_beginEv.exit, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i.i
 
-_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i.i: ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i
+_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i.i: ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i
   %.0.copyload.i.i.i.i.i.i.i.i.pre.i.i = load i64, ptr %13, align 8
   %.pre.i.i = and i64 %.0.copyload.i.i.i.i.i.i.i.i.pre.i.i, 4
-  %.pre10.i.i = and i64 %.0.copyload.i.i.i.i.i.i.i.i.pre.i.i, -8
-  br label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i
+  %19 = icmp eq i64 %.pre.i.i, 0
+  %20 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.pre.i.i, -8
+  %21 = inttoptr i64 %20 to ptr
+  br i1 %19, label %_ZNK5clang10LambdaExpr13capture_beginEv.exit, label %22
 
-_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i: ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i.i, %14
-  %.pre-phi11.i.i = phi i64 [ %.pre10.i.i, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i.i ], [ %16, %14 ]
-  %.pre-phi.i.i = phi i64 [ %.pre.i.i, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i.i ], [ %15, %14 ]
-  %19 = icmp eq i64 %.pre-phi.i.i, 0
-  %20 = inttoptr i64 %.pre-phi11.i.i to ptr
-  br i1 %19, label %_ZNK5clang10LambdaExpr13capture_beginEv.exit, label %21
-
-21:                                               ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i
-  %22 = load ptr, ptr %20, align 8
-  %23 = load ptr, ptr %22, align 8
+22:                                               ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i.i
+  %23 = load ptr, ptr %21, align 8
+  %24 = load ptr, ptr %23, align 8
   br label %_ZNK5clang10LambdaExpr13capture_beginEv.exit
 
-_ZNK5clang10LambdaExpr13capture_beginEv.exit:     ; preds = %1, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i, %12, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i, %21
-  %.0.i.i = phi ptr [ null, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i ], [ null, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i ], [ %23, %21 ], [ %20, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i ], [ null, %1 ], [ null, %12 ]
+_ZNK5clang10LambdaExpr13capture_beginEv.exit:     ; preds = %1, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i, %12, %14, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i.i, %22
+  %.0.i.i = phi ptr [ null, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i ], [ null, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i ], [ %24, %22 ], [ %21, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i.i ], [ null, %1 ], [ null, %12 ], [ %17, %14 ]
   %.sroa.0.0.copyload.i.i.i1 = load i64, ptr %2, align 8
-  %24 = and i64 %.sroa.0.0.copyload.i.i.i1, -16
-  %25 = inttoptr i64 %24 to ptr
-  %26 = load ptr, ptr %25, align 16
-  %27 = tail call noundef ptr @_ZNK5clang4Type18getAsCXXRecordDeclEv(ptr noundef nonnull align 16 dereferenceable(24) %26) #16
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 128
-  %29 = load ptr, ptr %28, align 8
-  %.not.i.i.i2 = icmp eq ptr %29, null
+  %25 = and i64 %.sroa.0.0.copyload.i.i.i1, -16
+  %26 = inttoptr i64 %25 to ptr
+  %27 = load ptr, ptr %26, align 16
+  %28 = tail call noundef ptr @_ZNK5clang4Type18getAsCXXRecordDeclEv(ptr noundef nonnull align 16 dereferenceable(24) %27) #16
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 128
+  %30 = load ptr, ptr %29, align 8
+  %.not.i.i.i2 = icmp eq ptr %30, null
   br i1 %.not.i.i.i2, label %_ZNK5clang10LambdaExpr11capture_endEv.exit, label %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i3
 
 _ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i3:   ; preds = %_ZNK5clang10LambdaExpr13capture_beginEv.exit
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %31 = load i32, ptr %30, align 8
-  %32 = and i32 %31, 1048576
-  %.not.i.i4 = icmp eq i32 %32, 0
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %32 = load i32, ptr %31, align 8
+  %33 = and i32 %32, 1048576
+  %.not.i.i4 = icmp eq i32 %33, 0
   br i1 %.not.i.i4, label %_ZNK5clang10LambdaExpr11capture_endEv.exit, label %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i
 
 _ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i:  ; preds = %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i3
-  %33 = getelementptr inbounds nuw i8, ptr %29, i64 128
-  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %33, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 128
+  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %34, align 8
   %.not.i.i.i.i.i = icmp ult i64 %.0.copyload.i.i.i.i.i.i.i.i, 8
-  br i1 %.not.i.i.i.i.i, label %_ZNK5clang13CXXRecordDecl14captures_beginEv.exit.i.i, label %34
+  br i1 %.not.i.i.i.i.i, label %_ZNK5clang13CXXRecordDecl14captures_beginEv.exit.i.i, label %35
 
-34:                                               ; preds = %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i
-  %35 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, 4
-  %.not.i.i.i.i.i.i.i = icmp eq i64 %35, 0
-  %36 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
-  %.not5.i.i.i.i = icmp eq i64 %36, 0
-  %.not.i4.i.i.i = or i1 %.not.i.i.i.i.i.i.i, %.not5.i.i.i.i
-  br i1 %.not.i4.i.i.i, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i.i, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i
+35:                                               ; preds = %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i
+  %36 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, 4
+  %.not.i.i.i.i.i.i.i = icmp eq i64 %36, 0
+  %37 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
+  %38 = inttoptr i64 %37 to ptr
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNK5clang13CXXRecordDecl14captures_beginEv.exit.i.i, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i
 
-_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i: ; preds = %34
-  %37 = inttoptr i64 %36 to ptr
-  %38 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %37) #16
-  br i1 %38, label %_ZNK5clang13CXXRecordDecl14captures_beginEv.exit.i.i, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i.i.i
+_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i: ; preds = %35
+  %39 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %38) #16
+  br i1 %39, label %_ZNK5clang13CXXRecordDecl14captures_beginEv.exit.i.i, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i.i.i
 
-_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i.i.i: ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i
-  %.0.copyload.i.i.i.i.i.i.i.i.pre.i.i.i = load i64, ptr %33, align 8
+_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i.i.i: ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i
+  %.0.copyload.i.i.i.i.i.i.i.i.pre.i.i.i = load i64, ptr %34, align 8
   %.pre.i.i.i = and i64 %.0.copyload.i.i.i.i.i.i.i.i.pre.i.i.i, 4
-  %.pre10.i.i.i = and i64 %.0.copyload.i.i.i.i.i.i.i.i.pre.i.i.i, -8
-  br label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i.i
+  %40 = icmp eq i64 %.pre.i.i.i, 0
+  %41 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.pre.i.i.i, -8
+  %42 = inttoptr i64 %41 to ptr
+  br i1 %40, label %_ZNK5clang13CXXRecordDecl14captures_beginEv.exit.i.i, label %43
 
-_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i.i: ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i.i.i, %34
-  %.pre-phi11.i.i.i = phi i64 [ %.pre10.i.i.i, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i.i.i ], [ %36, %34 ]
-  %.pre-phi.i.i.i = phi i64 [ %.pre.i.i.i, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i.i.i ], [ %35, %34 ]
-  %39 = icmp eq i64 %.pre-phi.i.i.i, 0
-  %40 = inttoptr i64 %.pre-phi11.i.i.i to ptr
-  br i1 %39, label %_ZNK5clang13CXXRecordDecl14captures_beginEv.exit.i.i, label %41
-
-41:                                               ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i.i
-  %42 = load ptr, ptr %40, align 8
-  %43 = load ptr, ptr %42, align 8
+43:                                               ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i.i.i
+  %44 = load ptr, ptr %42, align 8
+  %45 = load ptr, ptr %44, align 8
   br label %_ZNK5clang13CXXRecordDecl14captures_beginEv.exit.i.i
 
-_ZNK5clang13CXXRecordDecl14captures_beginEv.exit.i.i: ; preds = %41, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i.i, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i
-  %.0.i.i.i = phi ptr [ null, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i ], [ %43, %41 ], [ %40, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i.i ], [ null, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i ]
-  %44 = load ptr, ptr %28, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 104
-  %46 = load i64, ptr %45, align 8
-  %47 = lshr i64 %46, 5
-  %48 = and i64 %47, 32767
-  %49 = getelementptr inbounds nuw %"class.clang::LambdaCapture", ptr %.0.i.i.i, i64 %48
+_ZNK5clang13CXXRecordDecl14captures_beginEv.exit.i.i: ; preds = %43, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i.i.i, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i, %35, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i
+  %.0.i.i.i = phi ptr [ null, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i ], [ %45, %43 ], [ %42, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i.i.i ], [ null, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i ], [ %38, %35 ]
+  %46 = load ptr, ptr %29, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 104
+  %48 = load i64, ptr %47, align 8
+  %49 = lshr i64 %48, 5
+  %50 = and i64 %49, 32767
+  %51 = getelementptr inbounds nuw %"class.clang::LambdaCapture", ptr %.0.i.i.i, i64 %50
   br label %_ZNK5clang10LambdaExpr11capture_endEv.exit
 
 _ZNK5clang10LambdaExpr11capture_endEv.exit:       ; preds = %_ZNK5clang10LambdaExpr13capture_beginEv.exit, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i3, %_ZNK5clang13CXXRecordDecl14captures_beginEv.exit.i.i
-  %50 = phi ptr [ %49, %_ZNK5clang13CXXRecordDecl14captures_beginEv.exit.i.i ], [ null, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i3 ], [ null, %_ZNK5clang10LambdaExpr13capture_beginEv.exit ]
+  %52 = phi ptr [ %51, %_ZNK5clang13CXXRecordDecl14captures_beginEv.exit.i.i ], [ null, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i3 ], [ null, %_ZNK5clang10LambdaExpr13capture_beginEv.exit ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.0.i.i, 0
-  %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %50, 1
+  %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %52, 1
   ret { ptr, ptr } %.fca.1.insert
 }
 
@@ -5660,35 +5632,28 @@ _ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i:    ; preds = %1
   %15 = and i64 %.0.copyload.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i = icmp eq i64 %15, 0
   %16 = and i64 %.0.copyload.i.i.i.i.i.i.i, -8
-  %.not5.i.i.i = icmp eq i64 %16, 0
-  %.not.i4.i.i = or i1 %.not.i.i.i.i.i.i, %.not5.i.i.i
-  br i1 %.not.i4.i.i, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i
+  %17 = inttoptr i64 %16 to ptr
+  br i1 %.not.i.i.i.i.i.i, label %_ZNK5clang10LambdaExpr13capture_beginEv.exit, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i
 
 _ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i: ; preds = %14
-  %17 = inttoptr i64 %16 to ptr
   %18 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #16
-  br i1 %18, label %_ZNK5clang10LambdaExpr13capture_beginEv.exit, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i.i
+  br i1 %18, label %_ZNK5clang10LambdaExpr13capture_beginEv.exit, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i.i
 
-_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i.i: ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i
+_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i.i: ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i
   %.0.copyload.i.i.i.i.i.i.i.i.pre.i.i = load i64, ptr %13, align 8
   %.pre.i.i = and i64 %.0.copyload.i.i.i.i.i.i.i.i.pre.i.i, 4
-  %.pre10.i.i = and i64 %.0.copyload.i.i.i.i.i.i.i.i.pre.i.i, -8
-  br label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i
+  %19 = icmp eq i64 %.pre.i.i, 0
+  %20 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.pre.i.i, -8
+  %21 = inttoptr i64 %20 to ptr
+  br i1 %19, label %_ZNK5clang10LambdaExpr13capture_beginEv.exit, label %22
 
-_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i: ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i.i, %14
-  %.pre-phi11.i.i = phi i64 [ %.pre10.i.i, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i.i ], [ %16, %14 ]
-  %.pre-phi.i.i = phi i64 [ %.pre.i.i, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i.i ], [ %15, %14 ]
-  %19 = icmp eq i64 %.pre-phi.i.i, 0
-  %20 = inttoptr i64 %.pre-phi11.i.i to ptr
-  br i1 %19, label %_ZNK5clang10LambdaExpr13capture_beginEv.exit, label %21
-
-21:                                               ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i
-  %22 = load ptr, ptr %20, align 8
-  %23 = load ptr, ptr %22, align 8
+22:                                               ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i.i
+  %23 = load ptr, ptr %21, align 8
+  %24 = load ptr, ptr %23, align 8
   br label %_ZNK5clang10LambdaExpr13capture_beginEv.exit
 
-_ZNK5clang10LambdaExpr13capture_beginEv.exit:     ; preds = %1, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i, %12, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i, %21
-  %.0.i.i = phi ptr [ null, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i ], [ null, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i ], [ %23, %21 ], [ %20, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i ], [ null, %1 ], [ null, %12 ]
+_ZNK5clang10LambdaExpr13capture_beginEv.exit:     ; preds = %1, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i, %12, %14, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i.i, %22
+  %.0.i.i = phi ptr [ null, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i ], [ null, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i ], [ %24, %22 ], [ %21, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i.i ], [ null, %1 ], [ null, %12 ], [ %17, %14 ]
   ret ptr %.0.i.i
 }
 
@@ -5722,48 +5687,41 @@ _ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i:    ; preds = %1
   %15 = and i64 %.0.copyload.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i = icmp eq i64 %15, 0
   %16 = and i64 %.0.copyload.i.i.i.i.i.i.i, -8
-  %.not5.i.i.i = icmp eq i64 %16, 0
-  %.not.i4.i.i = or i1 %.not.i.i.i.i.i.i, %.not5.i.i.i
-  br i1 %.not.i4.i.i, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i
+  %17 = inttoptr i64 %16 to ptr
+  br i1 %.not.i.i.i.i.i.i, label %_ZNK5clang10LambdaExpr13capture_beginEv.exit, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i
 
 _ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i: ; preds = %14
-  %17 = inttoptr i64 %16 to ptr
   %18 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #16
-  br i1 %18, label %_ZNK5clang10LambdaExpr13capture_beginEv.exit, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i.i
+  br i1 %18, label %_ZNK5clang10LambdaExpr13capture_beginEv.exit, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i.i
 
-_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i.i: ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i
+_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i.i: ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i
   %.0.copyload.i.i.i.i.i.i.i.i.pre.i.i = load i64, ptr %13, align 8
   %.pre.i.i = and i64 %.0.copyload.i.i.i.i.i.i.i.i.pre.i.i, 4
-  %.pre10.i.i = and i64 %.0.copyload.i.i.i.i.i.i.i.i.pre.i.i, -8
-  br label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i
+  %19 = icmp eq i64 %.pre.i.i, 0
+  %20 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.pre.i.i, -8
+  %21 = inttoptr i64 %20 to ptr
+  br i1 %19, label %_ZNK5clang10LambdaExpr13capture_beginEv.exit, label %22
 
-_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i: ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i.i, %14
-  %.pre-phi11.i.i = phi i64 [ %.pre10.i.i, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i.i ], [ %16, %14 ]
-  %.pre-phi.i.i = phi i64 [ %.pre.i.i, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i.i ], [ %15, %14 ]
-  %19 = icmp eq i64 %.pre-phi.i.i, 0
-  %20 = inttoptr i64 %.pre-phi11.i.i to ptr
-  br i1 %19, label %_ZNK5clang10LambdaExpr13capture_beginEv.exit, label %21
-
-21:                                               ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i
-  %22 = load ptr, ptr %20, align 8
-  %23 = load ptr, ptr %22, align 8
+22:                                               ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i.i
+  %23 = load ptr, ptr %21, align 8
+  %24 = load ptr, ptr %23, align 8
   br label %_ZNK5clang10LambdaExpr13capture_beginEv.exit
 
-_ZNK5clang10LambdaExpr13capture_beginEv.exit:     ; preds = %1, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i, %12, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i, %21
-  %.0.i.i = phi ptr [ null, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i ], [ null, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i ], [ %23, %21 ], [ %20, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i ], [ null, %1 ], [ null, %12 ]
+_ZNK5clang10LambdaExpr13capture_beginEv.exit:     ; preds = %1, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i, %12, %14, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i.i, %22
+  %.0.i.i = phi ptr [ null, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i ], [ null, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i ], [ %24, %22 ], [ %21, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i.i ], [ null, %1 ], [ null, %12 ], [ %17, %14 ]
   %.sroa.0.0.copyload.i.i = load i64, ptr %2, align 8
-  %24 = and i64 %.sroa.0.0.copyload.i.i, -16
-  %25 = inttoptr i64 %24 to ptr
-  %26 = load ptr, ptr %25, align 16
-  %27 = tail call noundef ptr @_ZNK5clang4Type18getAsCXXRecordDeclEv(ptr noundef nonnull align 16 dereferenceable(24) %26) #16
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 128
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 104
-  %31 = load i64, ptr %30, align 8
-  %32 = lshr i64 %31, 20
-  %33 = and i64 %32, 4095
-  %34 = getelementptr inbounds nuw %"class.clang::LambdaCapture", ptr %.0.i.i, i64 %33
-  ret ptr %34
+  %25 = and i64 %.sroa.0.0.copyload.i.i, -16
+  %26 = inttoptr i64 %25 to ptr
+  %27 = load ptr, ptr %26, align 16
+  %28 = tail call noundef ptr @_ZNK5clang4Type18getAsCXXRecordDeclEv(ptr noundef nonnull align 16 dereferenceable(24) %27) #16
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 128
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 104
+  %32 = load i64, ptr %31, align 8
+  %33 = lshr i64 %32, 20
+  %34 = and i64 %33, 4095
+  %35 = getelementptr inbounds nuw %"class.clang::LambdaCapture", ptr %.0.i.i, i64 %34
+  ret ptr %35
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -5796,105 +5754,91 @@ _ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i:  ; preds = %1
   %15 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i = icmp eq i64 %15, 0
   %16 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
-  %.not5.i.i.i.i = icmp eq i64 %16, 0
-  %.not.i4.i.i.i = or i1 %.not.i.i.i.i.i.i.i, %.not5.i.i.i.i
-  br i1 %.not.i4.i.i.i, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i.i, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i
+  %17 = inttoptr i64 %16 to ptr
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNK5clang10LambdaExpr22explicit_capture_beginEv.exit, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i
 
 _ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i: ; preds = %14
-  %17 = inttoptr i64 %16 to ptr
   %18 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #16
-  br i1 %18, label %_ZNK5clang10LambdaExpr22explicit_capture_beginEv.exit, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i.i.i
+  br i1 %18, label %_ZNK5clang10LambdaExpr22explicit_capture_beginEv.exit, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i.i.i
 
-_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i.i.i: ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i
+_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i.i.i: ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i
   %.0.copyload.i.i.i.i.i.i.i.i.pre.i.i.i = load i64, ptr %13, align 8
   %.pre.i.i.i = and i64 %.0.copyload.i.i.i.i.i.i.i.i.pre.i.i.i, 4
-  %.pre10.i.i.i = and i64 %.0.copyload.i.i.i.i.i.i.i.i.pre.i.i.i, -8
-  br label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i.i
+  %19 = icmp eq i64 %.pre.i.i.i, 0
+  %20 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.pre.i.i.i, -8
+  %21 = inttoptr i64 %20 to ptr
+  br i1 %19, label %_ZNK5clang10LambdaExpr22explicit_capture_beginEv.exit, label %22
 
-_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i.i: ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i.i.i, %14
-  %.pre-phi11.i.i.i = phi i64 [ %.pre10.i.i.i, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i.i.i ], [ %16, %14 ]
-  %.pre-phi.i.i.i = phi i64 [ %.pre.i.i.i, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i.i.i ], [ %15, %14 ]
-  %19 = icmp eq i64 %.pre-phi.i.i.i, 0
-  %20 = inttoptr i64 %.pre-phi11.i.i.i to ptr
-  br i1 %19, label %_ZNK5clang10LambdaExpr22explicit_capture_beginEv.exit, label %21
-
-21:                                               ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i.i
-  %22 = load ptr, ptr %20, align 8
-  %23 = load ptr, ptr %22, align 8
+22:                                               ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i.i.i
+  %23 = load ptr, ptr %21, align 8
+  %24 = load ptr, ptr %23, align 8
   br label %_ZNK5clang10LambdaExpr22explicit_capture_beginEv.exit
 
-_ZNK5clang10LambdaExpr22explicit_capture_beginEv.exit: ; preds = %1, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i, %12, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i.i, %21
-  %.0.i.i.i = phi ptr [ null, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i ], [ null, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i ], [ %23, %21 ], [ %20, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i.i ], [ null, %1 ], [ null, %12 ]
+_ZNK5clang10LambdaExpr22explicit_capture_beginEv.exit: ; preds = %1, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i, %12, %14, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i.i.i, %22
+  %.0.i.i.i = phi ptr [ null, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i ], [ null, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i ], [ %24, %22 ], [ %21, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i.i.i ], [ null, %1 ], [ null, %12 ], [ %17, %14 ]
   %.sroa.0.0.copyload.i.i.i.i1 = load i64, ptr %2, align 8
-  %24 = and i64 %.sroa.0.0.copyload.i.i.i.i1, -16
-  %25 = inttoptr i64 %24 to ptr
-  %26 = load ptr, ptr %25, align 16
-  %27 = tail call noundef ptr @_ZNK5clang4Type18getAsCXXRecordDeclEv(ptr noundef nonnull align 16 dereferenceable(24) %26) #16
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 128
-  %29 = load ptr, ptr %28, align 8
-  %.not.i.i.i.i2 = icmp eq ptr %29, null
+  %25 = and i64 %.sroa.0.0.copyload.i.i.i.i1, -16
+  %26 = inttoptr i64 %25 to ptr
+  %27 = load ptr, ptr %26, align 16
+  %28 = tail call noundef ptr @_ZNK5clang4Type18getAsCXXRecordDeclEv(ptr noundef nonnull align 16 dereferenceable(24) %27) #16
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 128
+  %30 = load ptr, ptr %29, align 8
+  %.not.i.i.i.i2 = icmp eq ptr %30, null
   br i1 %.not.i.i.i.i2, label %_ZNK5clang10LambdaExpr20explicit_capture_endEv.exit, label %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i3
 
 _ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i3: ; preds = %_ZNK5clang10LambdaExpr22explicit_capture_beginEv.exit
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %31 = load i32, ptr %30, align 8
-  %32 = and i32 %31, 1048576
-  %.not.i.i.i4 = icmp eq i32 %32, 0
-  br i1 %.not.i.i.i4, label %_ZNK5clang10LambdaExpr20explicit_capture_endEv.exit, label %33
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %32 = load i32, ptr %31, align 8
+  %33 = and i32 %32, 1048576
+  %.not.i.i.i4 = icmp eq i32 %33, 0
+  br i1 %.not.i.i.i4, label %_ZNK5clang10LambdaExpr20explicit_capture_endEv.exit, label %34
 
-33:                                               ; preds = %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i3
-  %34 = getelementptr inbounds nuw i8, ptr %29, i64 128
-  %.0.copyload.i.i.i.i.i.i.i.i5 = load i64, ptr %34, align 8
+34:                                               ; preds = %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i3
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 128
+  %.0.copyload.i.i.i.i.i.i.i.i5 = load i64, ptr %35, align 8
   %.not.i.i.i.i.i6 = icmp ult i64 %.0.copyload.i.i.i.i.i.i.i.i5, 8
-  br i1 %.not.i.i.i.i.i6, label %_ZNK5clang10LambdaExpr20explicit_capture_endEv.exit, label %35
+  br i1 %.not.i.i.i.i.i6, label %_ZNK5clang10LambdaExpr20explicit_capture_endEv.exit, label %36
 
-35:                                               ; preds = %33
-  %36 = and i64 %.0.copyload.i.i.i.i.i.i.i.i5, 4
-  %.not.i.i.i.i.i.i.i7 = icmp eq i64 %36, 0
-  %37 = and i64 %.0.copyload.i.i.i.i.i.i.i.i5, -8
-  %.not5.i.i.i.i8 = icmp eq i64 %37, 0
-  %.not.i4.i.i.i9 = or i1 %.not.i.i.i.i.i.i.i7, %.not5.i.i.i.i8
-  br i1 %.not.i4.i.i.i9, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i.i15, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i10
+36:                                               ; preds = %34
+  %37 = and i64 %.0.copyload.i.i.i.i.i.i.i.i5, 4
+  %.not.i.i.i.i.i.i.i7 = icmp eq i64 %37, 0
+  %38 = and i64 %.0.copyload.i.i.i.i.i.i.i.i5, -8
+  %39 = inttoptr i64 %38 to ptr
+  br i1 %.not.i.i.i.i.i.i.i7, label %_ZNK5clang10LambdaExpr20explicit_capture_endEv.exit, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i8
 
-_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i10: ; preds = %35
-  %38 = inttoptr i64 %37 to ptr
-  %39 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %38) #16
-  br i1 %39, label %_ZNK5clang10LambdaExpr20explicit_capture_endEv.exit, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i.i.i11
+_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i8: ; preds = %36
+  %40 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %39) #16
+  br i1 %40, label %_ZNK5clang10LambdaExpr20explicit_capture_endEv.exit, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i.i.i9
 
-_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i.i.i11: ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i10
-  %.0.copyload.i.i.i.i.i.i.i.i.pre.i.i.i12 = load i64, ptr %34, align 8
-  %.pre.i.i.i13 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.pre.i.i.i12, 4
-  %.pre10.i.i.i14 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.pre.i.i.i12, -8
-  br label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i.i15
+_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i.i.i9: ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i8
+  %.0.copyload.i.i.i.i.i.i.i.i.pre.i.i.i10 = load i64, ptr %35, align 8
+  %.pre.i.i.i11 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.pre.i.i.i10, 4
+  %41 = icmp eq i64 %.pre.i.i.i11, 0
+  %42 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.pre.i.i.i10, -8
+  %43 = inttoptr i64 %42 to ptr
+  br i1 %41, label %_ZNK5clang10LambdaExpr20explicit_capture_endEv.exit, label %44
 
-_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i.i15: ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i.i.i11, %35
-  %.pre-phi11.i.i.i16 = phi i64 [ %.pre10.i.i.i14, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i.i.i11 ], [ %37, %35 ]
-  %.pre-phi.i.i.i17 = phi i64 [ %.pre.i.i.i13, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i.i.i11 ], [ %36, %35 ]
-  %40 = icmp eq i64 %.pre-phi.i.i.i17, 0
-  %41 = inttoptr i64 %.pre-phi11.i.i.i16 to ptr
-  br i1 %40, label %_ZNK5clang10LambdaExpr20explicit_capture_endEv.exit, label %42
-
-42:                                               ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i.i15
-  %43 = load ptr, ptr %41, align 8
-  %44 = load ptr, ptr %43, align 8
+44:                                               ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i.i.i9
+  %45 = load ptr, ptr %43, align 8
+  %46 = load ptr, ptr %45, align 8
   br label %_ZNK5clang10LambdaExpr20explicit_capture_endEv.exit
 
-_ZNK5clang10LambdaExpr20explicit_capture_endEv.exit: ; preds = %_ZNK5clang10LambdaExpr22explicit_capture_beginEv.exit, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i3, %33, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i10, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i.i15, %42
-  %.0.i.i.i18 = phi ptr [ null, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i3 ], [ null, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i10 ], [ %44, %42 ], [ %41, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i.i15 ], [ null, %_ZNK5clang10LambdaExpr22explicit_capture_beginEv.exit ], [ null, %33 ]
+_ZNK5clang10LambdaExpr20explicit_capture_endEv.exit: ; preds = %_ZNK5clang10LambdaExpr22explicit_capture_beginEv.exit, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i3, %34, %36, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i8, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i.i.i9, %44
+  %.0.i.i.i12 = phi ptr [ null, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i3 ], [ null, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i8 ], [ %46, %44 ], [ %43, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i.i.i9 ], [ null, %_ZNK5clang10LambdaExpr22explicit_capture_beginEv.exit ], [ null, %34 ], [ %39, %36 ]
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %2, align 8
-  %45 = and i64 %.sroa.0.0.copyload.i.i.i, -16
-  %46 = inttoptr i64 %45 to ptr
-  %47 = load ptr, ptr %46, align 16
-  %48 = tail call noundef ptr @_ZNK5clang4Type18getAsCXXRecordDeclEv(ptr noundef nonnull align 16 dereferenceable(24) %47) #16
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 128
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 104
-  %52 = load i64, ptr %51, align 8
-  %53 = lshr i64 %52, 20
-  %54 = and i64 %53, 4095
-  %55 = getelementptr inbounds nuw %"class.clang::LambdaCapture", ptr %.0.i.i.i18, i64 %54
+  %47 = and i64 %.sroa.0.0.copyload.i.i.i, -16
+  %48 = inttoptr i64 %47 to ptr
+  %49 = load ptr, ptr %48, align 16
+  %50 = tail call noundef ptr @_ZNK5clang4Type18getAsCXXRecordDeclEv(ptr noundef nonnull align 16 dereferenceable(24) %49) #16
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 128
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 104
+  %54 = load i64, ptr %53, align 8
+  %55 = lshr i64 %54, 20
+  %56 = and i64 %55, 4095
+  %57 = getelementptr inbounds nuw %"class.clang::LambdaCapture", ptr %.0.i.i.i12, i64 %56
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.0.i.i.i, 0
-  %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %55, 1
+  %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %57, 1
   ret { ptr, ptr } %.fca.1.insert
 }
 
@@ -5928,48 +5872,41 @@ _ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i:  ; preds = %1
   %15 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i = icmp eq i64 %15, 0
   %16 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
-  %.not5.i.i.i.i = icmp eq i64 %16, 0
-  %.not.i4.i.i.i = or i1 %.not.i.i.i.i.i.i.i, %.not5.i.i.i.i
-  br i1 %.not.i4.i.i.i, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i.i, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i
+  %17 = inttoptr i64 %16 to ptr
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNK5clang10LambdaExpr20explicit_capture_endEv.exit, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i
 
 _ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i: ; preds = %14
-  %17 = inttoptr i64 %16 to ptr
   %18 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #16
-  br i1 %18, label %_ZNK5clang10LambdaExpr20explicit_capture_endEv.exit, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i.i.i
+  br i1 %18, label %_ZNK5clang10LambdaExpr20explicit_capture_endEv.exit, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i.i.i
 
-_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i.i.i: ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i
+_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i.i.i: ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i
   %.0.copyload.i.i.i.i.i.i.i.i.pre.i.i.i = load i64, ptr %13, align 8
   %.pre.i.i.i = and i64 %.0.copyload.i.i.i.i.i.i.i.i.pre.i.i.i, 4
-  %.pre10.i.i.i = and i64 %.0.copyload.i.i.i.i.i.i.i.i.pre.i.i.i, -8
-  br label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i.i
+  %19 = icmp eq i64 %.pre.i.i.i, 0
+  %20 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.pre.i.i.i, -8
+  %21 = inttoptr i64 %20 to ptr
+  br i1 %19, label %_ZNK5clang10LambdaExpr20explicit_capture_endEv.exit, label %22
 
-_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i.i: ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i.i.i, %14
-  %.pre-phi11.i.i.i = phi i64 [ %.pre10.i.i.i, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i.i.i ], [ %16, %14 ]
-  %.pre-phi.i.i.i = phi i64 [ %.pre.i.i.i, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i.i.i ], [ %15, %14 ]
-  %19 = icmp eq i64 %.pre-phi.i.i.i, 0
-  %20 = inttoptr i64 %.pre-phi11.i.i.i to ptr
-  br i1 %19, label %_ZNK5clang10LambdaExpr20explicit_capture_endEv.exit, label %21
-
-21:                                               ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i.i
-  %22 = load ptr, ptr %20, align 8
-  %23 = load ptr, ptr %22, align 8
+22:                                               ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i.i.i
+  %23 = load ptr, ptr %21, align 8
+  %24 = load ptr, ptr %23, align 8
   br label %_ZNK5clang10LambdaExpr20explicit_capture_endEv.exit
 
-_ZNK5clang10LambdaExpr20explicit_capture_endEv.exit: ; preds = %1, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i, %12, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i.i, %21
-  %.0.i.i.i = phi ptr [ null, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i ], [ null, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i ], [ %23, %21 ], [ %20, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i.i ], [ null, %1 ], [ null, %12 ]
+_ZNK5clang10LambdaExpr20explicit_capture_endEv.exit: ; preds = %1, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i, %12, %14, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i.i.i, %22
+  %.0.i.i.i = phi ptr [ null, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i ], [ null, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i ], [ %24, %22 ], [ %21, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i.i.i ], [ null, %1 ], [ null, %12 ], [ %17, %14 ]
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %2, align 8
-  %24 = and i64 %.sroa.0.0.copyload.i.i.i, -16
-  %25 = inttoptr i64 %24 to ptr
-  %26 = load ptr, ptr %25, align 16
-  %27 = tail call noundef ptr @_ZNK5clang4Type18getAsCXXRecordDeclEv(ptr noundef nonnull align 16 dereferenceable(24) %26) #16
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 128
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 104
-  %31 = load i64, ptr %30, align 8
-  %32 = lshr i64 %31, 20
-  %33 = and i64 %32, 4095
-  %34 = getelementptr inbounds nuw %"class.clang::LambdaCapture", ptr %.0.i.i.i, i64 %33
-  ret ptr %34
+  %25 = and i64 %.sroa.0.0.copyload.i.i.i, -16
+  %26 = inttoptr i64 %25 to ptr
+  %27 = load ptr, ptr %26, align 16
+  %28 = tail call noundef ptr @_ZNK5clang4Type18getAsCXXRecordDeclEv(ptr noundef nonnull align 16 dereferenceable(24) %27) #16
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 128
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 104
+  %32 = load i64, ptr %31, align 8
+  %33 = lshr i64 %32, 20
+  %34 = and i64 %33, 4095
+  %35 = getelementptr inbounds nuw %"class.clang::LambdaCapture", ptr %.0.i.i.i, i64 %34
+  ret ptr %35
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -6002,46 +5939,39 @@ _ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i:  ; preds = %_ZNK5clang13CXXReco
   %14 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i = icmp eq i64 %14, 0
   %15 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
-  %.not5.i.i.i.i = icmp eq i64 %15, 0
-  %.not.i4.i.i.i = or i1 %.not.i.i.i.i.i.i.i, %.not5.i.i.i.i
-  br i1 %.not.i4.i.i.i, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i.i, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i
+  %16 = inttoptr i64 %15 to ptr
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNK5clang13CXXRecordDecl14captures_beginEv.exit.i.i, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i
 
 _ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i: ; preds = %13
-  %16 = inttoptr i64 %15 to ptr
   %17 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #16
-  br i1 %17, label %_ZNK5clang13CXXRecordDecl14captures_beginEv.exit.i.i, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i.i.i
+  br i1 %17, label %_ZNK5clang13CXXRecordDecl14captures_beginEv.exit.i.i, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i.i.i
 
-_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i.i.i: ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i
+_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i.i.i: ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i
   %.0.copyload.i.i.i.i.i.i.i.i.pre.i.i.i = load i64, ptr %12, align 8
   %.pre.i.i.i = and i64 %.0.copyload.i.i.i.i.i.i.i.i.pre.i.i.i, 4
-  %.pre10.i.i.i = and i64 %.0.copyload.i.i.i.i.i.i.i.i.pre.i.i.i, -8
-  br label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i.i
+  %18 = icmp eq i64 %.pre.i.i.i, 0
+  %19 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.pre.i.i.i, -8
+  %20 = inttoptr i64 %19 to ptr
+  br i1 %18, label %_ZNK5clang13CXXRecordDecl14captures_beginEv.exit.i.i, label %21
 
-_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i.i: ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i.i.i, %13
-  %.pre-phi11.i.i.i = phi i64 [ %.pre10.i.i.i, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i.i.i ], [ %15, %13 ]
-  %.pre-phi.i.i.i = phi i64 [ %.pre.i.i.i, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i.i.i ], [ %14, %13 ]
-  %18 = icmp eq i64 %.pre-phi.i.i.i, 0
-  %19 = inttoptr i64 %.pre-phi11.i.i.i to ptr
-  br i1 %18, label %_ZNK5clang13CXXRecordDecl14captures_beginEv.exit.i.i, label %20
-
-20:                                               ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i.i
-  %21 = load ptr, ptr %19, align 8
-  %22 = load ptr, ptr %21, align 8
+21:                                               ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i.i.i
+  %22 = load ptr, ptr %20, align 8
+  %23 = load ptr, ptr %22, align 8
   br label %_ZNK5clang13CXXRecordDecl14captures_beginEv.exit.i.i
 
-_ZNK5clang13CXXRecordDecl14captures_beginEv.exit.i.i: ; preds = %20, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i.i, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i
-  %.0.i.i.i = phi ptr [ null, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i ], [ %22, %20 ], [ %19, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i.i ], [ null, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i ]
-  %23 = load ptr, ptr %7, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 104
-  %25 = load i64, ptr %24, align 8
-  %26 = lshr i64 %25, 5
-  %27 = and i64 %26, 32767
-  %28 = getelementptr inbounds nuw %"class.clang::LambdaCapture", ptr %.0.i.i.i, i64 %27
+_ZNK5clang13CXXRecordDecl14captures_beginEv.exit.i.i: ; preds = %21, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i.i.i, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i, %13, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i
+  %.0.i.i.i = phi ptr [ null, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i ], [ %23, %21 ], [ %20, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i.i.i ], [ null, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i ], [ %16, %13 ]
+  %24 = load ptr, ptr %7, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 104
+  %26 = load i64, ptr %25, align 8
+  %27 = lshr i64 %26, 5
+  %28 = and i64 %27, 32767
+  %29 = getelementptr inbounds nuw %"class.clang::LambdaCapture", ptr %.0.i.i.i, i64 %28
   br label %_ZNK5clang10LambdaExpr11capture_endEv.exit
 
 _ZNK5clang10LambdaExpr11capture_endEv.exit:       ; preds = %1, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i, %_ZNK5clang13CXXRecordDecl14captures_beginEv.exit.i.i
-  %29 = phi ptr [ %28, %_ZNK5clang13CXXRecordDecl14captures_beginEv.exit.i.i ], [ null, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i ], [ null, %1 ]
-  ret ptr %29
+  %30 = phi ptr [ %29, %_ZNK5clang13CXXRecordDecl14captures_beginEv.exit.i.i ], [ null, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i ], [ null, %1 ]
+  ret ptr %30
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -6074,115 +6004,101 @@ _ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i.i: ; preds = %1
   %15 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %15, 0
   %16 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -8
-  %.not5.i.i.i.i.i = icmp eq i64 %16, 0
-  %.not.i4.i.i.i.i = or i1 %.not.i.i.i.i.i.i.i.i, %.not5.i.i.i.i.i
-  br i1 %.not.i4.i.i.i.i, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i.i.i, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i.i
+  %17 = inttoptr i64 %16 to ptr
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNK5clang10LambdaExpr22implicit_capture_beginEv.exit, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i.i
 
 _ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i.i: ; preds = %14
-  %17 = inttoptr i64 %16 to ptr
   %18 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #16
-  br i1 %18, label %_ZNK5clang10LambdaExpr22implicit_capture_beginEv.exit, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i.i.i.i
+  br i1 %18, label %_ZNK5clang10LambdaExpr22implicit_capture_beginEv.exit, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i.i.i.i
 
-_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i.i.i.i: ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i.i
+_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i.i.i.i: ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i.i
   %.0.copyload.i.i.i.i.i.i.i.i.pre.i.i.i.i = load i64, ptr %13, align 8
   %.pre.i.i.i.i = and i64 %.0.copyload.i.i.i.i.i.i.i.i.pre.i.i.i.i, 4
-  %.pre10.i.i.i.i = and i64 %.0.copyload.i.i.i.i.i.i.i.i.pre.i.i.i.i, -8
-  br label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i.i.i
+  %19 = icmp eq i64 %.pre.i.i.i.i, 0
+  %20 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.pre.i.i.i.i, -8
+  %21 = inttoptr i64 %20 to ptr
+  br i1 %19, label %_ZNK5clang10LambdaExpr22implicit_capture_beginEv.exit, label %22
 
-_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i.i.i: ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i.i.i.i, %14
-  %.pre-phi11.i.i.i.i = phi i64 [ %.pre10.i.i.i.i, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i.i.i.i ], [ %16, %14 ]
-  %.pre-phi.i.i.i.i = phi i64 [ %.pre.i.i.i.i, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i.i.i.i ], [ %15, %14 ]
-  %19 = icmp eq i64 %.pre-phi.i.i.i.i, 0
-  %20 = inttoptr i64 %.pre-phi11.i.i.i.i to ptr
-  br i1 %19, label %_ZNK5clang10LambdaExpr22implicit_capture_beginEv.exit, label %21
-
-21:                                               ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i.i.i
-  %22 = load ptr, ptr %20, align 8
-  %23 = load ptr, ptr %22, align 8
+22:                                               ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i.i.i.i
+  %23 = load ptr, ptr %21, align 8
+  %24 = load ptr, ptr %23, align 8
   br label %_ZNK5clang10LambdaExpr22implicit_capture_beginEv.exit
 
-_ZNK5clang10LambdaExpr22implicit_capture_beginEv.exit: ; preds = %1, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i.i, %12, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i.i, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i.i.i, %21
-  %.0.i.i.i.i = phi ptr [ null, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i.i ], [ null, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i.i ], [ %23, %21 ], [ %20, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i.i.i ], [ null, %1 ], [ null, %12 ]
+_ZNK5clang10LambdaExpr22implicit_capture_beginEv.exit: ; preds = %1, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i.i, %12, %14, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i.i, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i.i.i.i, %22
+  %.0.i.i.i.i = phi ptr [ null, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i.i ], [ null, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i.i ], [ %24, %22 ], [ %21, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i.i.i.i ], [ null, %1 ], [ null, %12 ], [ %17, %14 ]
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %2, align 8
-  %24 = and i64 %.sroa.0.0.copyload.i.i.i.i, -16
-  %25 = inttoptr i64 %24 to ptr
-  %26 = load ptr, ptr %25, align 16
-  %27 = tail call noundef ptr @_ZNK5clang4Type18getAsCXXRecordDeclEv(ptr noundef nonnull align 16 dereferenceable(24) %26) #16
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 128
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 104
-  %31 = load i64, ptr %30, align 8
+  %25 = and i64 %.sroa.0.0.copyload.i.i.i.i, -16
+  %26 = inttoptr i64 %25 to ptr
+  %27 = load ptr, ptr %26, align 16
+  %28 = tail call noundef ptr @_ZNK5clang4Type18getAsCXXRecordDeclEv(ptr noundef nonnull align 16 dereferenceable(24) %27) #16
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 128
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 104
+  %32 = load i64, ptr %31, align 8
   %.sroa.0.0.copyload.i.i.i.i1 = load i64, ptr %2, align 8
-  %32 = and i64 %.sroa.0.0.copyload.i.i.i.i1, -16
-  %33 = inttoptr i64 %32 to ptr
-  %34 = load ptr, ptr %33, align 16
-  %35 = tail call noundef ptr @_ZNK5clang4Type18getAsCXXRecordDeclEv(ptr noundef nonnull align 16 dereferenceable(24) %34) #16
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 128
-  %37 = load ptr, ptr %36, align 8
-  %.not.i.i.i.i2 = icmp eq ptr %37, null
+  %33 = and i64 %.sroa.0.0.copyload.i.i.i.i1, -16
+  %34 = inttoptr i64 %33 to ptr
+  %35 = load ptr, ptr %34, align 16
+  %36 = tail call noundef ptr @_ZNK5clang4Type18getAsCXXRecordDeclEv(ptr noundef nonnull align 16 dereferenceable(24) %35) #16
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 128
+  %38 = load ptr, ptr %37, align 8
+  %.not.i.i.i.i2 = icmp eq ptr %38, null
   br i1 %.not.i.i.i.i2, label %_ZNK5clang10LambdaExpr20implicit_capture_endEv.exit, label %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i
 
 _ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i:  ; preds = %_ZNK5clang10LambdaExpr22implicit_capture_beginEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %39 = load i32, ptr %38, align 8
-  %40 = and i32 %39, 1048576
-  %.not.i.i.i = icmp eq i32 %40, 0
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %40 = load i32, ptr %39, align 8
+  %41 = and i32 %40, 1048576
+  %.not.i.i.i = icmp eq i32 %41, 0
   br i1 %.not.i.i.i, label %_ZNK5clang10LambdaExpr20implicit_capture_endEv.exit, label %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i.i3
 
 _ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i.i3: ; preds = %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i
-  %41 = getelementptr inbounds nuw i8, ptr %37, i64 128
-  %.0.copyload.i.i.i.i.i.i.i.i.i4 = load i64, ptr %41, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 128
+  %.0.copyload.i.i.i.i.i.i.i.i.i4 = load i64, ptr %42, align 8
   %.not.i.i.i.i.i.i5 = icmp ult i64 %.0.copyload.i.i.i.i.i.i.i.i.i4, 8
-  br i1 %.not.i.i.i.i.i.i5, label %_ZNK5clang13CXXRecordDecl14captures_beginEv.exit.i.i.i, label %42
+  br i1 %.not.i.i.i.i.i.i5, label %_ZNK5clang13CXXRecordDecl14captures_beginEv.exit.i.i.i, label %43
 
-42:                                               ; preds = %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i.i3
-  %43 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i4, 4
-  %.not.i.i.i.i.i.i.i.i6 = icmp eq i64 %43, 0
-  %44 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i4, -8
-  %.not5.i.i.i.i.i7 = icmp eq i64 %44, 0
-  %.not.i4.i.i.i.i8 = or i1 %.not.i.i.i.i.i.i.i.i6, %.not5.i.i.i.i.i7
-  br i1 %.not.i4.i.i.i.i8, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i.i.i14, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i.i9
+43:                                               ; preds = %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i.i3
+  %44 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i4, 4
+  %.not.i.i.i.i.i.i.i.i6 = icmp eq i64 %44, 0
+  %45 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i4, -8
+  %46 = inttoptr i64 %45 to ptr
+  br i1 %.not.i.i.i.i.i.i.i.i6, label %_ZNK5clang13CXXRecordDecl14captures_beginEv.exit.i.i.i, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i.i7
 
-_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i.i9: ; preds = %42
-  %45 = inttoptr i64 %44 to ptr
-  %46 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %45) #16
-  br i1 %46, label %_ZNK5clang13CXXRecordDecl14captures_beginEv.exit.i.i.i, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i.i.i.i10
+_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i.i7: ; preds = %43
+  %47 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %46) #16
+  br i1 %47, label %_ZNK5clang13CXXRecordDecl14captures_beginEv.exit.i.i.i, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i.i.i.i8
 
-_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i.i.i.i10: ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i.i9
-  %.0.copyload.i.i.i.i.i.i.i.i.pre.i.i.i.i11 = load i64, ptr %41, align 8
-  %.pre.i.i.i.i12 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.pre.i.i.i.i11, 4
-  %.pre10.i.i.i.i13 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.pre.i.i.i.i11, -8
-  br label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i.i.i14
+_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i.i.i.i8: ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i.i7
+  %.0.copyload.i.i.i.i.i.i.i.i.pre.i.i.i.i9 = load i64, ptr %42, align 8
+  %.pre.i.i.i.i10 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.pre.i.i.i.i9, 4
+  %48 = icmp eq i64 %.pre.i.i.i.i10, 0
+  %49 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.pre.i.i.i.i9, -8
+  %50 = inttoptr i64 %49 to ptr
+  br i1 %48, label %_ZNK5clang13CXXRecordDecl14captures_beginEv.exit.i.i.i, label %51
 
-_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i.i.i14: ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i.i.i.i10, %42
-  %.pre-phi11.i.i.i.i15 = phi i64 [ %.pre10.i.i.i.i13, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i.i.i.i10 ], [ %44, %42 ]
-  %.pre-phi.i.i.i.i16 = phi i64 [ %.pre.i.i.i.i12, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7_crit_edge.i.i.i.i10 ], [ %43, %42 ]
-  %47 = icmp eq i64 %.pre-phi.i.i.i.i16, 0
-  %48 = inttoptr i64 %.pre-phi11.i.i.i.i15 to ptr
-  br i1 %47, label %_ZNK5clang13CXXRecordDecl14captures_beginEv.exit.i.i.i, label %49
-
-49:                                               ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i.i.i14
-  %50 = load ptr, ptr %48, align 8
-  %51 = load ptr, ptr %50, align 8
+51:                                               ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i.i.i.i8
+  %52 = load ptr, ptr %50, align 8
+  %53 = load ptr, ptr %52, align 8
   br label %_ZNK5clang13CXXRecordDecl14captures_beginEv.exit.i.i.i
 
-_ZNK5clang13CXXRecordDecl14captures_beginEv.exit.i.i.i: ; preds = %49, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i.i.i14, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i.i9, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i.i3
-  %.0.i.i.i.i17 = phi ptr [ null, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i.i9 ], [ %51, %49 ], [ %48, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread7.i.i.i.i14 ], [ null, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i.i3 ]
-  %52 = load ptr, ptr %36, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 104
-  %54 = load i64, ptr %53, align 8
-  %55 = lshr i64 %54, 5
-  %56 = and i64 %55, 32767
-  %57 = getelementptr inbounds nuw %"class.clang::LambdaCapture", ptr %.0.i.i.i.i17, i64 %56
+_ZNK5clang13CXXRecordDecl14captures_beginEv.exit.i.i.i: ; preds = %51, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i.i.i.i8, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i.i7, %43, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i.i3
+  %.0.i.i.i.i11 = phi ptr [ null, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i.i7 ], [ %53, %51 ], [ %50, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread6.i.i.i.i8 ], [ null, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i.i3 ], [ %46, %43 ]
+  %54 = load ptr, ptr %37, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 104
+  %56 = load i64, ptr %55, align 8
+  %57 = lshr i64 %56, 5
+  %58 = and i64 %57, 32767
+  %59 = getelementptr inbounds nuw %"class.clang::LambdaCapture", ptr %.0.i.i.i.i11, i64 %58
   br label %_ZNK5clang10LambdaExpr20implicit_capture_endEv.exit
 
 _ZNK5clang10LambdaExpr20implicit_capture_endEv.exit: ; preds = %_ZNK5clang10LambdaExpr22implicit_capture_beginEv.exit, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i, %_ZNK5clang13CXXRecordDecl14captures_beginEv.exit.i.i.i
-  %58 = phi ptr [ %57, %_ZNK5clang13CXXRecordDecl14captures_beginEv.exit.i.i.i ], [ null, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i ], [ null, %_ZNK5clang10LambdaExpr22implicit_capture_beginEv.exit ]
-  %59 = lshr i64 %31, 20
-  %60 = and i64 %59, 4095
-  %61 = getelementptr inbounds nuw %"class.clang::LambdaCapture", ptr %.0.i.i.i.i, i64 %60
-  %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %61, 0
-  %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %58, 1
+  %60 = phi ptr [ %59, %_ZNK5clang13CXXRecordDecl14captures_beginEv.exit.i.i.i ], [ null, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i ], [ null, %_ZNK5clang10LambdaExpr22implicit_capture_beginEv.exit ]
+  %61 = lshr i64 %32, 20
+  %62 = and i64 %61, 4095
+  %63 = getelementptr inbounds nuw %"class.clang::LambdaCapture", ptr %.0.i.i.i.i, i64 %62
+  %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %63, 0
+  %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %60, 1
   ret { ptr, ptr } %.fca.1.insert
 }
 

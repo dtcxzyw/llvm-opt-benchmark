@@ -2277,7 +2277,7 @@ define linkonce_odr hidden void @_ZN4LIEF10SpanStream11from_vectorERKSt6vectorIh
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden range(i64 11, 8589934592) i64 @_ZN4LIEF2PE15ResourcesParser24parse_version_info_childERNS0_15ResourceVersionERNS_12BinaryStreamE(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden range(i64 11, 4294967312) i64 @_ZN4LIEF2PE15ResourcesParser24parse_version_info_childERNS0_15ResourceVersionERNS_12BinaryStreamE(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"struct.spdlog::source_loc", align 8
@@ -6905,7 +6905,7 @@ define linkonce_odr hidden void @_ZN4LIEF7logging6Logger4infoIJEEEvPKcDpRKT_(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden range(i64 1, 8589934592) i64 @_ZN4LIEF2PE15ResourcesParser21parse_tail_ext_dialogERNS0_14ResourceDialogERNS_12BinaryStreamE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden range(i64 1, 4294967298) i64 @_ZN4LIEF2PE15ResourcesParser21parse_tail_ext_dialogERNS0_14ResourceDialogERNS_12BinaryStreamE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca ptr, align 8

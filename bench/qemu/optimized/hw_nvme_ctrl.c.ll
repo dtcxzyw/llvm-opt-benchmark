@@ -18727,7 +18727,7 @@ return:                                           ; preds = %entry, %nvme_parse_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i64 0, 1125899906842624) i64 @nvme_get_timestamp(ptr nocapture noundef readonly %n) unnamed_addr #0 {
+define internal fastcc range(i64 0, 844424930131968) i64 @nvme_get_timestamp(ptr nocapture noundef readonly %n) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #19
@@ -18767,11 +18767,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.226, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i64 noundef range(i64 0, 1125899906842624) %bf.set5) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.226, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i64 noundef range(i64 0, 844424930131968) %bf.set5) #19
   br label %trace_pci_nvme_getfeat_timestamp.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.227, i64 noundef range(i64 0, 1125899906842624) %bf.set5) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.227, i64 noundef range(i64 0, 844424930131968) %bf.set5) #19
   br label %trace_pci_nvme_getfeat_timestamp.exit
 
 trace_pci_nvme_getfeat_timestamp.exit:            ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i

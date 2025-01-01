@@ -5271,7 +5271,7 @@ return:                                           ; preds = %_ZNSt10shared_ptrIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal range(i16 0, 512) i16 @_ZN4node12_GLOBAL__N_113DataQueueImpl6appendESt10unique_ptrINS_9DataQueue5EntryESt14default_deleteIS4_EE(ptr nocapture noundef nonnull align 8 dereferenceable(152) %this, ptr nocapture noundef %entry1) unnamed_addr #3 align 2 {
+define internal range(i16 0, 258) i16 @_ZN4node12_GLOBAL__N_113DataQueueImpl6appendESt10unique_ptrINS_9DataQueue5EntryESt14default_deleteIS4_EE(ptr nocapture noundef nonnull align 8 dereferenceable(152) %this, ptr nocapture noundef %entry1) unnamed_addr #3 align 2 {
 entry:
   %idempotent_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load i8, ptr %idempotent_, align 8

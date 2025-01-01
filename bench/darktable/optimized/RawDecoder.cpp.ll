@@ -2595,46 +2595,46 @@ define hidden void @_ZN8rawspeed10RawDecoder9decodeRawEv(ptr dead_on_unwind noal
 
 26:                                               ; preds = %7
   %27 = ashr i32 %20, 1
-  %28 = icmp sgt i32 %27, -1
+  %28 = icmp ugt i32 %20, 1
   tail call void @llvm.assume(i1 %28)
-  %29 = icmp samesign uge i32 %27, %16
+  %29 = icmp sgt i32 %27, -1
   tail call void @llvm.assume(i1 %29)
+  %30 = icmp samesign uge i32 %27, %16
+  tail call void @llvm.assume(i1 %30)
   tail call void @llvm.assume(i1 %25)
-  %30 = shl nuw i32 %18, 1
-  %31 = mul i32 %27, %30
-  %32 = icmp sgt i32 %31, -1
-  tail call void @llvm.assume(i1 %32)
-  %33 = shl nuw nsw i32 %16, 1
-  %34 = and i32 %20, -2
-  %35 = icmp ne i32 %34, 0
-  tail call void @llvm.assume(i1 %35)
-  %36 = icmp uge i32 %34, %33
+  %31 = shl nuw i32 %18, 1
+  %32 = mul i32 %27, %31
+  %33 = icmp sgt i32 %32, -1
+  tail call void @llvm.assume(i1 %33)
+  %34 = shl nuw nsw i32 %16, 1
+  %35 = and i32 %20, -2
+  %36 = icmp uge i32 %35, %34
   br label %48
 
 37:                                               ; preds = %7
   %38 = ashr i32 %20, 2
-  %39 = icmp sgt i32 %38, -1
+  %39 = icmp ugt i32 %20, 3
   tail call void @llvm.assume(i1 %39)
-  %40 = icmp samesign uge i32 %38, %16
+  %40 = icmp sgt i32 %38, -1
   tail call void @llvm.assume(i1 %40)
+  %41 = icmp samesign uge i32 %38, %16
+  tail call void @llvm.assume(i1 %41)
   tail call void @llvm.assume(i1 %25)
-  %41 = shl i32 %18, 2
-  %42 = mul i32 %38, %41
-  %43 = icmp sgt i32 %42, -1
-  tail call void @llvm.assume(i1 %43)
-  %44 = shl nuw nsw i32 %16, 2
-  %45 = and i32 %20, -4
-  %46 = icmp ne i32 %45, 0
-  tail call void @llvm.assume(i1 %46)
-  %47 = icmp uge i32 %45, %44
+  %42 = shl i32 %18, 2
+  %43 = mul i32 %38, %42
+  %44 = icmp sgt i32 %43, -1
+  tail call void @llvm.assume(i1 %44)
+  %45 = shl nuw nsw i32 %16, 2
+  %46 = and i32 %20, -4
+  %47 = icmp uge i32 %46, %45
   tail call void @llvm.assume(i1 %47)
   br label %48
 
 48:                                               ; preds = %37, %26
   %49 = phi i1 [ true, %37 ], [ %36, %26 ]
-  %50 = phi i32 [ %45, %37 ], [ %34, %26 ]
-  %51 = phi i32 [ %42, %37 ], [ %31, %26 ]
-  %52 = phi i32 [ %44, %37 ], [ %33, %26 ]
+  %50 = phi i32 [ %46, %37 ], [ %35, %26 ]
+  %51 = phi i32 [ %43, %37 ], [ %32, %26 ]
+  %52 = phi i32 [ %45, %37 ], [ %34, %26 ]
   tail call void @llvm.assume(i1 %49)
   %53 = mul nuw nsw i32 %50, %18
   %54 = icmp eq i32 %53, %51
@@ -2729,46 +2729,46 @@ define hidden void @_ZN8rawspeed10RawDecoder9decodeRawEv(ptr dead_on_unwind noal
 
 106:                                              ; preds = %87
   %107 = ashr i32 %100, 1
-  %108 = icmp sgt i32 %107, -1
+  %108 = icmp ugt i32 %100, 1
   call void @llvm.assume(i1 %108)
-  %109 = icmp samesign uge i32 %107, %96
+  %109 = icmp sgt i32 %107, -1
   call void @llvm.assume(i1 %109)
+  %110 = icmp samesign uge i32 %107, %96
+  call void @llvm.assume(i1 %110)
   call void @llvm.assume(i1 %105)
-  %110 = shl nuw i32 %98, 1
-  %111 = mul i32 %107, %110
-  %112 = icmp sgt i32 %111, -1
-  call void @llvm.assume(i1 %112)
-  %113 = shl nuw nsw i32 %96, 1
-  %114 = and i32 %100, -2
-  %115 = icmp ne i32 %114, 0
-  call void @llvm.assume(i1 %115)
-  %116 = icmp uge i32 %114, %113
+  %111 = shl nuw i32 %98, 1
+  %112 = mul i32 %107, %111
+  %113 = icmp sgt i32 %112, -1
+  call void @llvm.assume(i1 %113)
+  %114 = shl nuw nsw i32 %96, 1
+  %115 = and i32 %100, -2
+  %116 = icmp uge i32 %115, %114
   br label %128
 
 117:                                              ; preds = %87
   %118 = ashr i32 %100, 2
-  %119 = icmp sgt i32 %118, -1
+  %119 = icmp ugt i32 %100, 3
   call void @llvm.assume(i1 %119)
-  %120 = icmp samesign uge i32 %118, %96
+  %120 = icmp sgt i32 %118, -1
   call void @llvm.assume(i1 %120)
+  %121 = icmp samesign uge i32 %118, %96
+  call void @llvm.assume(i1 %121)
   call void @llvm.assume(i1 %105)
-  %121 = shl i32 %98, 2
-  %122 = mul i32 %118, %121
-  %123 = icmp sgt i32 %122, -1
-  call void @llvm.assume(i1 %123)
-  %124 = shl nuw nsw i32 %96, 2
-  %125 = and i32 %100, -4
-  %126 = icmp ne i32 %125, 0
-  call void @llvm.assume(i1 %126)
-  %127 = icmp uge i32 %125, %124
+  %122 = shl i32 %98, 2
+  %123 = mul i32 %118, %122
+  %124 = icmp sgt i32 %123, -1
+  call void @llvm.assume(i1 %124)
+  %125 = shl nuw nsw i32 %96, 2
+  %126 = and i32 %100, -4
+  %127 = icmp uge i32 %126, %125
   call void @llvm.assume(i1 %127)
   br label %128
 
 128:                                              ; preds = %117, %106
   %129 = phi i1 [ true, %117 ], [ %116, %106 ]
-  %130 = phi i32 [ %125, %117 ], [ %114, %106 ]
-  %131 = phi i32 [ %122, %117 ], [ %111, %106 ]
-  %132 = phi i32 [ %124, %117 ], [ %113, %106 ]
+  %130 = phi i32 [ %126, %117 ], [ %115, %106 ]
+  %131 = phi i32 [ %123, %117 ], [ %112, %106 ]
+  %132 = phi i32 [ %125, %117 ], [ %114, %106 ]
   call void @llvm.assume(i1 %129)
   %133 = mul nuw nsw i32 %130, %98
   %134 = icmp eq i32 %133, %131

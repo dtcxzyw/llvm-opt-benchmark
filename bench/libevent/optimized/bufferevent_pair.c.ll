@@ -17,7 +17,7 @@ entry:
   br i1 %tobool.not.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call i32 @bufferevent_init_common_(ptr noundef nonnull %call.i, ptr noundef %base, ptr noundef nonnull @bufferevent_ops_pair, i32 noundef %or) #3
+  %call1.i = tail call i32 @bufferevent_init_common_(ptr noundef nonnull %call.i, ptr noundef %base, ptr noundef nonnull @bufferevent_ops_pair, i32 noundef range(i32 4, 0) %or) #3
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %if.end4.i, label %if.then3.i
 
@@ -44,7 +44,7 @@ if.end:                                           ; preds = %if.end4.i
 
 if.end.i21:                                       ; preds = %if.end
   %and = and i32 %or, -3
-  %call1.i22 = tail call i32 @bufferevent_init_common_(ptr noundef nonnull %call.i19, ptr noundef %base, ptr noundef nonnull @bufferevent_ops_pair, i32 noundef %and) #3
+  %call1.i22 = tail call i32 @bufferevent_init_common_(ptr noundef nonnull %call.i19, ptr noundef %base, ptr noundef nonnull @bufferevent_ops_pair, i32 noundef range(i32 4, 0) %and) #3
   %tobool2.not.i23 = icmp eq i32 %call1.i22, 0
   br i1 %tobool2.not.i23, label %if.end4.i26, label %if.then3.i24
 

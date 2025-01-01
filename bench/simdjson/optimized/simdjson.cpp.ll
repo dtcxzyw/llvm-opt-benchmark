@@ -4054,7 +4054,7 @@ entry:
   br label %while.body
 
 while.body:                                       ; preds = %if.end32, %entry
-  %dst.addr.0 = phi ptr [ %dst, %entry ], [ %add.ptr33.i49, %if.end32 ]
+  %dst.addr.0 = phi ptr [ %dst, %entry ], [ %add.ptr33.i54, %if.end32 ]
   %src.addr.0 = phi ptr [ %src, %entry ], [ %src.addr.1, %if.end32 ]
   %0 = load i8, ptr %src.addr.0, align 1
   store i8 %0, ptr %dst.addr.0, align 1
@@ -4144,17 +4144,17 @@ if.else.i:                                        ; preds = %if.then.i
   %or18.i33.i = or i32 %or17.i32.i, %20
   %sub.i = add i32 %or18.i33.i, -56320
   %tobool10.not.i = icmp ult i32 %sub.i, 1024
-  br i1 %tobool10.not.i, label %if.else.i.i.thread35, label %if.then11.i
+  br i1 %tobool10.not.i, label %if.else23.i.i.thread, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.else.i
   br i1 %allow_replacement, label %if.then9.i.i, label %return
 
-if.else.i.i.thread35:                             ; preds = %if.else.i
+if.else23.i.i.thread:                             ; preds = %if.else.i
   %sub16.i = shl nuw nsw i32 %or18.i.i, 10
   %or18.i = add nsw i32 %sub16.i, -56557568
   %add.i = or disjoint i32 %sub.i, %or18.i
   %add.ptr19.i = getelementptr inbounds nuw i8, ptr %src.addr.0, i64 12
-  br label %if.else23.i.i
+  br label %if.then25.i.i
 
 if.else22.i:                                      ; preds = %if.then6
   %or.cond1.i = icmp ne i32 %10, 56320
@@ -4210,30 +4210,30 @@ if.then9.i.i:                                     ; preds = %if.then6.i, %if.the
   store i8 %conv21.i.i, ptr %arrayidx22.i.i, align 1
   br label %if.end32
 
-if.else23.i.i:                                    ; preds = %if.else.i.i.thread35, %if.else.i.i
-  %code_point.03942.i40 = phi i32 [ %add.i, %if.else.i.i.thread35 ], [ %or18.i.i, %if.else.i.i ]
-  %src.addr.239 = phi ptr [ %add.ptr19.i, %if.else.i.i.thread35 ], [ %add.ptr1.i, %if.else.i.i ]
-  %cmp24.i.i = icmp ult i32 %code_point.03942.i40, 1114112
+if.else23.i.i:                                    ; preds = %if.else.i.i
+  %cmp24.i.i = icmp ult i32 %or18.i.i, 1114112
   br i1 %cmp24.i.i, label %if.then25.i.i, label %return
 
-if.then25.i.i:                                    ; preds = %if.else23.i.i
-  %shr26.i.i = lshr i32 %code_point.03942.i40, 18
+if.then25.i.i:                                    ; preds = %if.else23.i.i.thread, %if.else23.i.i
+  %src.addr.23945 = phi ptr [ %add.ptr19.i, %if.else23.i.i.thread ], [ %add.ptr1.i, %if.else23.i.i ]
+  %code_point.03942.i4044 = phi i32 [ %add.i, %if.else23.i.i.thread ], [ %or18.i.i, %if.else23.i.i ]
+  %shr26.i.i = lshr i32 %code_point.03942.i4044, 18
   %29 = trunc nuw i32 %shr26.i.i to i8
   %conv28.i.i = or disjoint i8 %29, -16
   store i8 %conv28.i.i, ptr %dst.addr.0, align 1
-  %shr30.i.i = lshr i32 %code_point.03942.i40, 12
+  %shr30.i.i = lshr i32 %code_point.03942.i4044, 12
   %30 = trunc i32 %shr30.i.i to i8
   %31 = and i8 %30, 63
   %conv33.i.i = or disjoint i8 %31, -128
   %arrayidx34.i.i = getelementptr inbounds nuw i8, ptr %dst.addr.0, i64 1
   store i8 %conv33.i.i, ptr %arrayidx34.i.i, align 1
-  %shr35.i.i = lshr i32 %code_point.03942.i40, 6
+  %shr35.i.i = lshr i32 %code_point.03942.i4044, 6
   %32 = trunc i32 %shr35.i.i to i8
   %33 = and i8 %32, 63
   %conv38.i.i = or disjoint i8 %33, -128
   %arrayidx39.i.i = getelementptr inbounds nuw i8, ptr %dst.addr.0, i64 2
   store i8 %conv38.i.i, ptr %arrayidx39.i.i, align 1
-  %34 = trunc i32 %code_point.03942.i40 to i8
+  %34 = trunc i32 %code_point.03942.i4044 to i8
   %35 = and i8 %34, 63
   %conv42.i.i = or disjoint i8 %35, -128
   %arrayidx43.i.i = getelementptr inbounds nuw i8, ptr %dst.addr.0, i64 3
@@ -4258,8 +4258,8 @@ if.else29:                                        ; preds = %while.body
 
 if.end32:                                         ; preds = %if.then25.i.i, %if.then9.i.i, %if.then2.i.i, %if.then.i.i, %if.end19, %if.else29
   %retval.0.i.i.ph.sink = phi i64 [ 1, %if.end19 ], [ 1, %if.else29 ], [ 2, %if.then2.i.i ], [ 1, %if.then.i.i ], [ 4, %if.then25.i.i ], [ 3, %if.then9.i.i ]
-  %src.addr.1 = phi ptr [ %add.ptr24, %if.end19 ], [ %add.ptr30, %if.else29 ], [ %add.ptr1.i, %if.then2.i.i ], [ %add.ptr1.i, %if.then.i.i ], [ %src.addr.239, %if.then25.i.i ], [ %add.ptr1.i, %if.then9.i.i ]
-  %add.ptr33.i49 = getelementptr inbounds nuw i8, ptr %dst.addr.0, i64 %retval.0.i.i.ph.sink
+  %src.addr.1 = phi ptr [ %add.ptr24, %if.end19 ], [ %add.ptr30, %if.else29 ], [ %add.ptr1.i, %if.then2.i.i ], [ %add.ptr1.i, %if.then.i.i ], [ %src.addr.23945, %if.then25.i.i ], [ %add.ptr1.i, %if.then9.i.i ]
+  %add.ptr33.i54 = getelementptr inbounds nuw i8, ptr %dst.addr.0, i64 %retval.0.i.i.ph.sink
   br label %while.body, !llvm.loop !36
 
 return:                                           ; preds = %if.else23.i.i, %while.body, %if.else22.i, %if.then11.i, %if.then6.i, %if.else
@@ -4273,7 +4273,7 @@ entry:
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end32.i, %entry
-  %dst.addr.0.i = phi ptr [ %dst, %entry ], [ %add.ptr18.i44.i, %if.end32.i ]
+  %dst.addr.0.i = phi ptr [ %dst, %entry ], [ %add.ptr18.i49.i, %if.end32.i ]
   %src.addr.0.i = phi ptr [ %src, %entry ], [ %src.addr.1.i, %if.end32.i ]
   %0 = load i8, ptr %src.addr.0.i, align 1
   store i8 %0, ptr %dst.addr.0.i, align 1
@@ -4360,14 +4360,14 @@ if.then6.i.i:                                     ; preds = %if.then.i.i
   %or18.i28.i.i = or i32 %or17.i27.i.i, %20
   %sub.i.i = add i32 %or18.i28.i.i, -56320
   %cmp9.i.i = icmp ult i32 %sub.i.i, 1024
-  br i1 %cmp9.i.i, label %if.else.i.i.thread35.i, label %if.then9.i.i.i
+  br i1 %cmp9.i.i, label %if.else23.i.i.thread.i, label %if.then9.i.i.i
 
-if.else.i.i.thread35.i:                           ; preds = %if.then6.i.i
+if.else23.i.i.thread.i:                           ; preds = %if.then6.i.i
   %sub11.i.i = shl nuw nsw i32 %or18.i.i.i, 10
   %or13.i.i = add nsw i32 %sub11.i.i, -56557568
   %add.i.i = or disjoint i32 %sub.i.i, %or13.i.i
   %add.ptr14.i.i = getelementptr inbounds nuw i8, ptr %src.addr.0.i, i64 12
-  br label %if.else23.i.i.i
+  br label %if.then25.i.i.i
 
 if.end16.i.i:                                     ; preds = %if.then6.i
   %cmp.i.i.i = icmp ult i32 %or18.i.i.i, 128
@@ -4416,30 +4416,30 @@ if.then9.i.i.i:                                   ; preds = %if.else.i.i.i, %if.
   store i8 %conv21.i.i.i, ptr %arrayidx22.i.i.i, align 1
   br label %if.end32.i
 
-if.else23.i.i.i:                                  ; preds = %if.else.i.i.i, %if.else.i.i.thread35.i
-  %code_point.03437.i40.i = phi i32 [ %add.i.i, %if.else.i.i.thread35.i ], [ %or18.i.i.i, %if.else.i.i.i ]
-  %src.addr.239.i = phi ptr [ %add.ptr14.i.i, %if.else.i.i.thread35.i ], [ %add.ptr1.i.i, %if.else.i.i.i ]
-  %cmp24.i.i.i = icmp ult i32 %code_point.03437.i40.i, 1114112
+if.else23.i.i.i:                                  ; preds = %if.else.i.i.i
+  %cmp24.i.i.i = icmp ult i32 %or18.i.i.i, 1114112
   br i1 %cmp24.i.i.i, label %if.then25.i.i.i, label %invoke.cont
 
-if.then25.i.i.i:                                  ; preds = %if.else23.i.i.i
-  %shr26.i.i.i = lshr i32 %code_point.03437.i40.i, 18
+if.then25.i.i.i:                                  ; preds = %if.else23.i.i.i, %if.else23.i.i.thread.i
+  %src.addr.23945.i = phi ptr [ %add.ptr14.i.i, %if.else23.i.i.thread.i ], [ %add.ptr1.i.i, %if.else23.i.i.i ]
+  %code_point.03437.i4044.i = phi i32 [ %add.i.i, %if.else23.i.i.thread.i ], [ %or18.i.i.i, %if.else23.i.i.i ]
+  %shr26.i.i.i = lshr i32 %code_point.03437.i4044.i, 18
   %29 = trunc nuw i32 %shr26.i.i.i to i8
   %conv28.i.i.i = or disjoint i8 %29, -16
   store i8 %conv28.i.i.i, ptr %dst.addr.0.i, align 1
-  %shr30.i.i.i = lshr i32 %code_point.03437.i40.i, 12
+  %shr30.i.i.i = lshr i32 %code_point.03437.i4044.i, 12
   %30 = trunc i32 %shr30.i.i.i to i8
   %31 = and i8 %30, 63
   %conv33.i.i.i = or disjoint i8 %31, -128
   %arrayidx34.i.i.i = getelementptr inbounds nuw i8, ptr %dst.addr.0.i, i64 1
   store i8 %conv33.i.i.i, ptr %arrayidx34.i.i.i, align 1
-  %shr35.i.i.i = lshr i32 %code_point.03437.i40.i, 6
+  %shr35.i.i.i = lshr i32 %code_point.03437.i4044.i, 6
   %32 = trunc i32 %shr35.i.i.i to i8
   %33 = and i8 %32, 63
   %conv38.i.i.i = or disjoint i8 %33, -128
   %arrayidx39.i.i.i = getelementptr inbounds nuw i8, ptr %dst.addr.0.i, i64 2
   store i8 %conv38.i.i.i, ptr %arrayidx39.i.i.i, align 1
-  %34 = trunc i32 %code_point.03437.i40.i to i8
+  %34 = trunc i32 %code_point.03437.i4044.i to i8
   %35 = and i8 %34, 63
   %conv42.i.i.i = or disjoint i8 %35, -128
   %arrayidx43.i.i.i = getelementptr inbounds nuw i8, ptr %dst.addr.0.i, i64 3
@@ -4464,8 +4464,8 @@ if.else29.i:                                      ; preds = %while.body.i
 
 if.end32.i:                                       ; preds = %if.else29.i, %if.end19.i, %if.then25.i.i.i, %if.then9.i.i.i, %if.then2.i.i.i, %if.then.i.i.i
   %retval.0.i.i.ph.sink.i = phi i64 [ 1, %if.end19.i ], [ 1, %if.else29.i ], [ 2, %if.then2.i.i.i ], [ 1, %if.then.i.i.i ], [ 4, %if.then25.i.i.i ], [ 3, %if.then9.i.i.i ]
-  %src.addr.1.i = phi ptr [ %add.ptr24.i, %if.end19.i ], [ %add.ptr30.i, %if.else29.i ], [ %add.ptr1.i.i, %if.then2.i.i.i ], [ %add.ptr1.i.i, %if.then.i.i.i ], [ %src.addr.239.i, %if.then25.i.i.i ], [ %add.ptr1.i.i, %if.then9.i.i.i ]
-  %add.ptr18.i44.i = getelementptr inbounds nuw i8, ptr %dst.addr.0.i, i64 %retval.0.i.i.ph.sink.i
+  %src.addr.1.i = phi ptr [ %add.ptr24.i, %if.end19.i ], [ %add.ptr30.i, %if.else29.i ], [ %add.ptr1.i.i, %if.then2.i.i.i ], [ %add.ptr1.i.i, %if.then.i.i.i ], [ %src.addr.23945.i, %if.then25.i.i.i ], [ %add.ptr1.i.i, %if.then9.i.i.i ]
+  %add.ptr18.i49.i = getelementptr inbounds nuw i8, ptr %dst.addr.0.i, i64 %retval.0.i.i.ph.sink.i
   br label %while.body.i, !llvm.loop !37
 
 invoke.cont:                                      ; preds = %if.else.i, %if.else23.i.i.i, %while.body.i
@@ -6047,17 +6047,17 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc noundef ptr @_ZN8simdjson7haswell12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb(ptr nocapture noundef readonly %src, ptr noundef writeonly initializes((0, 32)) %dst, i1 noundef zeroext %allow_replacement) unnamed_addr #19 {
 entry:
-  %.val52 = load <4 x i64>, ptr %src, align 1
-  store <4 x i64> %.val52, ptr %dst, align 1
-  %0 = bitcast <4 x i64> %.val52 to <32 x i8>
-  %cmp.i.i53 = icmp eq <32 x i8> %0, splat (i8 92)
-  %1 = bitcast <32 x i1> %cmp.i.i53 to i32
-  %cmp.i24.i54 = icmp eq <32 x i8> %0, splat (i8 34)
-  %2 = bitcast <32 x i1> %cmp.i24.i54 to i32
-  %sub.i55 = add i32 %1, -1
-  %and.i56 = and i32 %sub.i55, %2
-  %cmp.i.not57 = icmp eq i32 %and.i56, 0
-  br i1 %cmp.i.not57, label %if.end, label %if.then
+  %.val57 = load <4 x i64>, ptr %src, align 1
+  store <4 x i64> %.val57, ptr %dst, align 1
+  %0 = bitcast <4 x i64> %.val57 to <32 x i8>
+  %cmp.i.i58 = icmp eq <32 x i8> %0, splat (i8 92)
+  %1 = bitcast <32 x i1> %cmp.i.i58 to i32
+  %cmp.i24.i59 = icmp eq <32 x i8> %0, splat (i8 34)
+  %2 = bitcast <32 x i1> %cmp.i24.i59 to i32
+  %sub.i60 = add i32 %1, -1
+  %and.i61 = and i32 %sub.i60, %2
+  %cmp.i.not62 = icmp eq i32 %and.i61, 0
+  br i1 %cmp.i.not62, label %if.end, label %if.then
 
 if.then:                                          ; preds = %if.end32, %entry
   %dst.addr.0.lcssa = phi ptr [ %dst, %entry ], [ %dst.addr.1, %if.end32 ]
@@ -6070,8 +6070,8 @@ if.then:                                          ; preds = %if.end32, %entry
 if.end:                                           ; preds = %entry, %if.end32
   %4 = phi i32 [ %46, %if.end32 ], [ %2, %entry ]
   %5 = phi i32 [ %45, %if.end32 ], [ %1, %entry ]
-  %src.addr.059 = phi ptr [ %src.addr.1, %if.end32 ], [ %src, %entry ]
-  %dst.addr.058 = phi ptr [ %dst.addr.1, %if.end32 ], [ %dst, %entry ]
+  %src.addr.064 = phi ptr [ %src.addr.1, %if.end32 ], [ %src, %entry ]
+  %dst.addr.063 = phi ptr [ %dst.addr.1, %if.end32 ], [ %dst, %entry ]
   %sub.i13 = add i32 %4, -1
   %and.i14 = and i32 %sub.i13, %5
   %cmp.i15.not = icmp eq i32 %and.i14, 0
@@ -6081,15 +6081,15 @@ if.then4:                                         ; preds = %if.end
   %6 = tail call noundef range(i32 0, 32) i32 @llvm.cttz.i32(i32 %5, i1 true)
   %add = add nuw nsw i32 %6, 1
   %idxprom = zext nneg i32 %add to i64
-  %arrayidx = getelementptr inbounds nuw i8, ptr %src.addr.059, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i8, ptr %src.addr.064, i64 %idxprom
   %7 = load i8, ptr %arrayidx, align 1
   %cmp = icmp eq i8 %7, 117
   br i1 %cmp, label %if.then6, label %if.else
 
 if.then6:                                         ; preds = %if.then4
   %idx.ext7 = zext nneg i32 %6 to i64
-  %add.ptr8 = getelementptr inbounds nuw i8, ptr %src.addr.059, i64 %idx.ext7
-  %add.ptr10 = getelementptr inbounds nuw i8, ptr %dst.addr.058, i64 %idx.ext7
+  %add.ptr8 = getelementptr inbounds nuw i8, ptr %src.addr.064, i64 %idx.ext7
+  %add.ptr10 = getelementptr inbounds nuw i8, ptr %dst.addr.063, i64 %idx.ext7
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %add.ptr8, i64 2
   %8 = load i8, ptr %add.ptr.i, align 1
   %conv.i.i = zext i8 %8 to i64
@@ -6164,17 +6164,17 @@ if.else.i:                                        ; preds = %if.then.i
   %or18.i33.i = or i32 %or17.i32.i, %26
   %sub.i17 = add i32 %or18.i33.i, -56320
   %tobool10.not.i = icmp ult i32 %sub.i17, 1024
-  br i1 %tobool10.not.i, label %if.else.i.i.thread35, label %if.then11.i
+  br i1 %tobool10.not.i, label %if.else23.i.i.thread, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.else.i
   br i1 %allow_replacement, label %if.then9.i.i, label %return
 
-if.else.i.i.thread35:                             ; preds = %if.else.i
+if.else23.i.i.thread:                             ; preds = %if.else.i
   %sub16.i = shl nuw nsw i32 %or18.i.i, 10
   %or18.i = add nsw i32 %sub16.i, -56557568
   %add.i = or disjoint i32 %sub.i17, %or18.i
   %add.ptr19.i = getelementptr inbounds nuw i8, ptr %add.ptr8, i64 12
-  br label %if.else23.i.i
+  br label %if.then25.i.i
 
 if.else22.i:                                      ; preds = %if.then6
   %or.cond1.i = icmp ne i32 %16, 56320
@@ -6189,7 +6189,7 @@ if.end31.i:                                       ; preds = %if.else22.i
 if.then.i.i:                                      ; preds = %if.end31.i
   %conv.i36.i = trunc nuw nsw i32 %call.mux.i to i8
   store i8 %conv.i36.i, ptr %add.ptr10, align 1
-  br label %_ZN8simdjson7haswell12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread45
+  br label %_ZN8simdjson7haswell12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread50
 
 if.end.i.i:                                       ; preds = %if.end31.i
   %cmp1.i.i = icmp ult i32 %call.mux.i, 2048
@@ -6205,7 +6205,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   %conv6.i.i = or disjoint i8 %29, -128
   %arrayidx7.i35.i = getelementptr inbounds nuw i8, ptr %add.ptr10, i64 1
   store i8 %conv6.i.i, ptr %arrayidx7.i35.i, align 1
-  br label %_ZN8simdjson7haswell12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread45
+  br label %_ZN8simdjson7haswell12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread50
 
 if.else.i.i:                                      ; preds = %if.end.i.i
   %cmp8.i.i = icmp ult i32 %call.mux.i, 65536
@@ -6228,42 +6228,42 @@ if.then9.i.i:                                     ; preds = %if.then6.i, %if.the
   %conv21.i.i = or disjoint i8 %34, -128
   %arrayidx22.i.i = getelementptr inbounds nuw i8, ptr %add.ptr10, i64 2
   store i8 %conv21.i.i, ptr %arrayidx22.i.i, align 1
-  br label %_ZN8simdjson7haswell12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread45
+  br label %_ZN8simdjson7haswell12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread50
 
-if.else23.i.i:                                    ; preds = %if.else.i.i.thread35, %if.else.i.i
-  %code_point.03942.i40 = phi i32 [ %add.i, %if.else.i.i.thread35 ], [ %or18.i.i, %if.else.i.i ]
-  %src.addr.239 = phi ptr [ %add.ptr19.i, %if.else.i.i.thread35 ], [ %add.ptr1.i, %if.else.i.i ]
-  %cmp24.i.i = icmp ult i32 %code_point.03942.i40, 1114112
+if.else23.i.i:                                    ; preds = %if.else.i.i
+  %cmp24.i.i = icmp ult i32 %or18.i.i, 1114112
   br i1 %cmp24.i.i, label %if.then25.i.i, label %return
 
-if.then25.i.i:                                    ; preds = %if.else23.i.i
-  %shr26.i.i = lshr i32 %code_point.03942.i40, 18
+if.then25.i.i:                                    ; preds = %if.else23.i.i.thread, %if.else23.i.i
+  %src.addr.23945 = phi ptr [ %add.ptr19.i, %if.else23.i.i.thread ], [ %add.ptr1.i, %if.else23.i.i ]
+  %code_point.03942.i4044 = phi i32 [ %add.i, %if.else23.i.i.thread ], [ %or18.i.i, %if.else23.i.i ]
+  %shr26.i.i = lshr i32 %code_point.03942.i4044, 18
   %35 = trunc nuw i32 %shr26.i.i to i8
   %conv28.i.i = or disjoint i8 %35, -16
   store i8 %conv28.i.i, ptr %add.ptr10, align 1
-  %shr30.i.i = lshr i32 %code_point.03942.i40, 12
+  %shr30.i.i = lshr i32 %code_point.03942.i4044, 12
   %36 = trunc i32 %shr30.i.i to i8
   %37 = and i8 %36, 63
   %conv33.i.i = or disjoint i8 %37, -128
   %arrayidx34.i.i = getelementptr inbounds nuw i8, ptr %add.ptr10, i64 1
   store i8 %conv33.i.i, ptr %arrayidx34.i.i, align 1
-  %shr35.i.i = lshr i32 %code_point.03942.i40, 6
+  %shr35.i.i = lshr i32 %code_point.03942.i4044, 6
   %38 = trunc i32 %shr35.i.i to i8
   %39 = and i8 %38, 63
   %conv38.i.i = or disjoint i8 %39, -128
   %arrayidx39.i.i = getelementptr inbounds nuw i8, ptr %add.ptr10, i64 2
   store i8 %conv38.i.i, ptr %arrayidx39.i.i, align 1
-  %40 = trunc i32 %code_point.03942.i40 to i8
+  %40 = trunc i32 %code_point.03942.i4044 to i8
   %41 = and i8 %40, 63
   %conv42.i.i = or disjoint i8 %41, -128
   %arrayidx43.i.i = getelementptr inbounds nuw i8, ptr %add.ptr10, i64 3
   store i8 %conv42.i.i, ptr %arrayidx43.i.i, align 1
-  br label %_ZN8simdjson7haswell12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread45
+  br label %_ZN8simdjson7haswell12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread50
 
-_ZN8simdjson7haswell12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread45: ; preds = %if.then.i.i, %if.then2.i.i, %if.then9.i.i, %if.then25.i.i
-  %src.addr.3.ph = phi ptr [ %add.ptr1.i, %if.then2.i.i ], [ %add.ptr1.i, %if.then.i.i ], [ %src.addr.239, %if.then25.i.i ], [ %add.ptr1.i, %if.then9.i.i ]
+_ZN8simdjson7haswell12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread50: ; preds = %if.then.i.i, %if.then2.i.i, %if.then9.i.i, %if.then25.i.i
+  %src.addr.3.ph = phi ptr [ %add.ptr1.i, %if.then2.i.i ], [ %add.ptr1.i, %if.then.i.i ], [ %src.addr.23945, %if.then25.i.i ], [ %add.ptr1.i, %if.then9.i.i ]
   %retval.0.i.i.ph = phi i64 [ 2, %if.then2.i.i ], [ 1, %if.then.i.i ], [ 4, %if.then25.i.i ], [ 3, %if.then9.i.i ]
-  %add.ptr33.i49 = getelementptr inbounds nuw i8, ptr %add.ptr10, i64 %retval.0.i.i.ph
+  %add.ptr33.i54 = getelementptr inbounds nuw i8, ptr %add.ptr10, i64 %retval.0.i.i.ph
   br label %if.end32
 
 if.else:                                          ; preds = %if.then4
@@ -6275,21 +6275,21 @@ if.else:                                          ; preds = %if.then4
 
 if.end19:                                         ; preds = %if.else
   %idxprom20 = zext nneg i32 %6 to i64
-  %arrayidx21 = getelementptr inbounds nuw i8, ptr %dst.addr.058, i64 %idxprom20
+  %arrayidx21 = getelementptr inbounds nuw i8, ptr %dst.addr.063, i64 %idxprom20
   store i8 %42, ptr %arrayidx21, align 1
-  %43 = getelementptr inbounds nuw i8, ptr %src.addr.059, i64 %idxprom20
+  %43 = getelementptr inbounds nuw i8, ptr %src.addr.064, i64 %idxprom20
   %add.ptr24 = getelementptr inbounds nuw i8, ptr %43, i64 2
-  %add.ptr27 = getelementptr inbounds nuw i8, ptr %dst.addr.058, i64 %idxprom
+  %add.ptr27 = getelementptr inbounds nuw i8, ptr %dst.addr.063, i64 %idxprom
   br label %if.end32
 
 if.else29:                                        ; preds = %if.end
-  %add.ptr30 = getelementptr inbounds nuw i8, ptr %src.addr.059, i64 32
-  %add.ptr31 = getelementptr inbounds nuw i8, ptr %dst.addr.058, i64 32
+  %add.ptr30 = getelementptr inbounds nuw i8, ptr %src.addr.064, i64 32
+  %add.ptr31 = getelementptr inbounds nuw i8, ptr %dst.addr.063, i64 32
   br label %if.end32
 
-if.end32:                                         ; preds = %_ZN8simdjson7haswell12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread45, %if.end19, %if.else29
-  %dst.addr.1 = phi ptr [ %add.ptr27, %if.end19 ], [ %add.ptr31, %if.else29 ], [ %add.ptr33.i49, %_ZN8simdjson7haswell12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread45 ]
-  %src.addr.1 = phi ptr [ %add.ptr24, %if.end19 ], [ %add.ptr30, %if.else29 ], [ %src.addr.3.ph, %_ZN8simdjson7haswell12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread45 ]
+if.end32:                                         ; preds = %_ZN8simdjson7haswell12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread50, %if.end19, %if.else29
+  %dst.addr.1 = phi ptr [ %add.ptr27, %if.end19 ], [ %add.ptr31, %if.else29 ], [ %add.ptr33.i54, %_ZN8simdjson7haswell12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread50 ]
+  %src.addr.1 = phi ptr [ %add.ptr24, %if.end19 ], [ %add.ptr30, %if.else29 ], [ %src.addr.3.ph, %_ZN8simdjson7haswell12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread50 ]
   %.val = load <4 x i64>, ptr %src.addr.1, align 1
   store <4 x i64> %.val, ptr %dst.addr.1, align 1
   %44 = bitcast <4 x i64> %.val to <32 x i8>
@@ -6310,17 +6310,17 @@ return:                                           ; preds = %if.else23.i.i, %if.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef ptr @_ZNK8simdjson7haswell25dom_parser_implementation19parse_wobbly_stringEPKhPh(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %src, ptr noundef writeonly initializes((0, 32)) %dst) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %.val47.i = load <4 x i64>, ptr %src, align 1
-  store <4 x i64> %.val47.i, ptr %dst, align 1
-  %0 = bitcast <4 x i64> %.val47.i to <32 x i8>
-  %cmp.i.i48.i = icmp eq <32 x i8> %0, splat (i8 92)
-  %1 = bitcast <32 x i1> %cmp.i.i48.i to i32
-  %cmp.i24.i49.i = icmp eq <32 x i8> %0, splat (i8 34)
-  %2 = bitcast <32 x i1> %cmp.i24.i49.i to i32
-  %sub.i50.i = add i32 %1, -1
-  %and.i51.i = and i32 %sub.i50.i, %2
-  %cmp.i.not52.i = icmp eq i32 %and.i51.i, 0
-  br i1 %cmp.i.not52.i, label %if.end.i, label %if.then.i
+  %.val52.i = load <4 x i64>, ptr %src, align 1
+  store <4 x i64> %.val52.i, ptr %dst, align 1
+  %0 = bitcast <4 x i64> %.val52.i to <32 x i8>
+  %cmp.i.i53.i = icmp eq <32 x i8> %0, splat (i8 92)
+  %1 = bitcast <32 x i1> %cmp.i.i53.i to i32
+  %cmp.i24.i54.i = icmp eq <32 x i8> %0, splat (i8 34)
+  %2 = bitcast <32 x i1> %cmp.i24.i54.i to i32
+  %sub.i55.i = add i32 %1, -1
+  %and.i56.i = and i32 %sub.i55.i, %2
+  %cmp.i.not57.i = icmp eq i32 %and.i56.i, 0
+  br i1 %cmp.i.not57.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end32.i, %entry
   %dst.addr.0.lcssa.i = phi ptr [ %dst, %entry ], [ %dst.addr.1.i, %if.end32.i ]
@@ -6333,8 +6333,8 @@ if.then.i:                                        ; preds = %if.end32.i, %entry
 if.end.i:                                         ; preds = %entry, %if.end32.i
   %4 = phi i32 [ %46, %if.end32.i ], [ %2, %entry ]
   %5 = phi i32 [ %45, %if.end32.i ], [ %1, %entry ]
-  %src.addr.054.i = phi ptr [ %src.addr.1.i, %if.end32.i ], [ %src, %entry ]
-  %dst.addr.053.i = phi ptr [ %dst.addr.1.i, %if.end32.i ], [ %dst, %entry ]
+  %src.addr.059.i = phi ptr [ %src.addr.1.i, %if.end32.i ], [ %src, %entry ]
+  %dst.addr.058.i = phi ptr [ %dst.addr.1.i, %if.end32.i ], [ %dst, %entry ]
   %sub.i13.i = add i32 %4, -1
   %and.i14.i = and i32 %sub.i13.i, %5
   %cmp.i15.not.i = icmp eq i32 %and.i14.i, 0
@@ -6344,15 +6344,15 @@ if.then4.i:                                       ; preds = %if.end.i
   %6 = tail call noundef range(i32 0, 32) i32 @llvm.cttz.i32(i32 %5, i1 true)
   %add.i = add nuw nsw i32 %6, 1
   %idxprom.i = zext nneg i32 %add.i to i64
-  %arrayidx.i = getelementptr inbounds nuw i8, ptr %src.addr.054.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %src.addr.059.i, i64 %idxprom.i
   %7 = load i8, ptr %arrayidx.i, align 1
   %cmp.i = icmp eq i8 %7, 117
   br i1 %cmp.i, label %if.then6.i, label %if.else.i
 
 if.then6.i:                                       ; preds = %if.then4.i
   %idx.ext7.i = zext nneg i32 %6 to i64
-  %add.ptr8.i = getelementptr inbounds nuw i8, ptr %src.addr.054.i, i64 %idx.ext7.i
-  %add.ptr10.i = getelementptr inbounds nuw i8, ptr %dst.addr.053.i, i64 %idx.ext7.i
+  %add.ptr8.i = getelementptr inbounds nuw i8, ptr %src.addr.059.i, i64 %idx.ext7.i
+  %add.ptr10.i = getelementptr inbounds nuw i8, ptr %dst.addr.058.i, i64 %idx.ext7.i
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %add.ptr8.i, i64 2
   %8 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i.i = zext i8 %8 to i64
@@ -6424,14 +6424,14 @@ if.then6.i.i:                                     ; preds = %if.then.i.i
   %or18.i28.i.i = or i32 %or17.i27.i.i, %26
   %sub.i17.i = add i32 %or18.i28.i.i, -56320
   %cmp9.i.i = icmp ult i32 %sub.i17.i, 1024
-  br i1 %cmp9.i.i, label %if.else.i.i.thread35.i, label %if.then9.i.i.i
+  br i1 %cmp9.i.i, label %if.else23.i.i.thread.i, label %if.then9.i.i.i
 
-if.else.i.i.thread35.i:                           ; preds = %if.then6.i.i
+if.else23.i.i.thread.i:                           ; preds = %if.then6.i.i
   %sub11.i.i = shl nuw nsw i32 %or18.i.i.i, 10
   %or13.i.i = add nsw i32 %sub11.i.i, -56557568
   %add.i.i = or disjoint i32 %sub.i17.i, %or13.i.i
   %add.ptr14.i.i = getelementptr inbounds nuw i8, ptr %add.ptr8.i, i64 12
-  br label %if.else23.i.i.i
+  br label %if.then25.i.i.i
 
 if.end16.i.i:                                     ; preds = %if.then6.i
   %cmp.i.i16.i = icmp ult i32 %or18.i.i.i, 128
@@ -6480,30 +6480,30 @@ if.then9.i.i.i:                                   ; preds = %if.else.i.i.i, %if.
   store i8 %conv21.i.i.i, ptr %arrayidx22.i.i.i, align 1
   br label %_ZN8simdjson7haswell12_GLOBAL__N_113stringparsing31handle_unicode_codepoint_wobblyEPPKhPPh.exit.thread.i
 
-if.else23.i.i.i:                                  ; preds = %if.else.i.i.i, %if.else.i.i.thread35.i
-  %code_point.03437.i40.i = phi i32 [ %add.i.i, %if.else.i.i.thread35.i ], [ %or18.i.i.i, %if.else.i.i.i ]
-  %src.addr.239.i = phi ptr [ %add.ptr14.i.i, %if.else.i.i.thread35.i ], [ %add.ptr1.i.i, %if.else.i.i.i ]
-  %cmp24.i.i.i = icmp ult i32 %code_point.03437.i40.i, 1114112
+if.else23.i.i.i:                                  ; preds = %if.else.i.i.i
+  %cmp24.i.i.i = icmp ult i32 %or18.i.i.i, 1114112
   br i1 %cmp24.i.i.i, label %if.then25.i.i.i, label %invoke.cont
 
-if.then25.i.i.i:                                  ; preds = %if.else23.i.i.i
-  %shr26.i.i.i = lshr i32 %code_point.03437.i40.i, 18
+if.then25.i.i.i:                                  ; preds = %if.else23.i.i.i, %if.else23.i.i.thread.i
+  %src.addr.23945.i = phi ptr [ %add.ptr14.i.i, %if.else23.i.i.thread.i ], [ %add.ptr1.i.i, %if.else23.i.i.i ]
+  %code_point.03437.i4044.i = phi i32 [ %add.i.i, %if.else23.i.i.thread.i ], [ %or18.i.i.i, %if.else23.i.i.i ]
+  %shr26.i.i.i = lshr i32 %code_point.03437.i4044.i, 18
   %35 = trunc nuw i32 %shr26.i.i.i to i8
   %conv28.i.i.i = or disjoint i8 %35, -16
   store i8 %conv28.i.i.i, ptr %add.ptr10.i, align 1
-  %shr30.i.i.i = lshr i32 %code_point.03437.i40.i, 12
+  %shr30.i.i.i = lshr i32 %code_point.03437.i4044.i, 12
   %36 = trunc i32 %shr30.i.i.i to i8
   %37 = and i8 %36, 63
   %conv33.i.i.i = or disjoint i8 %37, -128
   %arrayidx34.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr10.i, i64 1
   store i8 %conv33.i.i.i, ptr %arrayidx34.i.i.i, align 1
-  %shr35.i.i.i = lshr i32 %code_point.03437.i40.i, 6
+  %shr35.i.i.i = lshr i32 %code_point.03437.i4044.i, 6
   %38 = trunc i32 %shr35.i.i.i to i8
   %39 = and i8 %38, 63
   %conv38.i.i.i = or disjoint i8 %39, -128
   %arrayidx39.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr10.i, i64 2
   store i8 %conv38.i.i.i, ptr %arrayidx39.i.i.i, align 1
-  %40 = trunc i32 %code_point.03437.i40.i to i8
+  %40 = trunc i32 %code_point.03437.i4044.i to i8
   %41 = and i8 %40, 63
   %conv42.i.i.i = or disjoint i8 %41, -128
   %arrayidx43.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr10.i, i64 3
@@ -6511,9 +6511,9 @@ if.then25.i.i.i:                                  ; preds = %if.else23.i.i.i
   br label %_ZN8simdjson7haswell12_GLOBAL__N_113stringparsing31handle_unicode_codepoint_wobblyEPPKhPPh.exit.thread.i
 
 _ZN8simdjson7haswell12_GLOBAL__N_113stringparsing31handle_unicode_codepoint_wobblyEPPKhPPh.exit.thread.i: ; preds = %if.then25.i.i.i, %if.then9.i.i.i, %if.then2.i.i.i, %if.then.i.i.i
-  %src.addr.4.ph.i = phi ptr [ %add.ptr1.i.i, %if.then2.i.i.i ], [ %add.ptr1.i.i, %if.then.i.i.i ], [ %src.addr.239.i, %if.then25.i.i.i ], [ %add.ptr1.i.i, %if.then9.i.i.i ]
+  %src.addr.4.ph.i = phi ptr [ %add.ptr1.i.i, %if.then2.i.i.i ], [ %add.ptr1.i.i, %if.then.i.i.i ], [ %src.addr.23945.i, %if.then25.i.i.i ], [ %add.ptr1.i.i, %if.then9.i.i.i ]
   %retval.0.i.i.ph.i = phi i64 [ 2, %if.then2.i.i.i ], [ 1, %if.then.i.i.i ], [ 4, %if.then25.i.i.i ], [ 3, %if.then9.i.i.i ]
-  %add.ptr18.i44.i = getelementptr inbounds nuw i8, ptr %add.ptr10.i, i64 %retval.0.i.i.ph.i
+  %add.ptr18.i49.i = getelementptr inbounds nuw i8, ptr %add.ptr10.i, i64 %retval.0.i.i.ph.i
   br label %if.end32.i
 
 if.else.i:                                        ; preds = %if.then4.i
@@ -6525,20 +6525,20 @@ if.else.i:                                        ; preds = %if.then4.i
 
 if.end19.i:                                       ; preds = %if.else.i
   %idxprom20.i = zext nneg i32 %6 to i64
-  %arrayidx21.i = getelementptr inbounds nuw i8, ptr %dst.addr.053.i, i64 %idxprom20.i
+  %arrayidx21.i = getelementptr inbounds nuw i8, ptr %dst.addr.058.i, i64 %idxprom20.i
   store i8 %42, ptr %arrayidx21.i, align 1
-  %43 = getelementptr inbounds nuw i8, ptr %src.addr.054.i, i64 %idxprom20.i
+  %43 = getelementptr inbounds nuw i8, ptr %src.addr.059.i, i64 %idxprom20.i
   %add.ptr24.i = getelementptr inbounds nuw i8, ptr %43, i64 2
-  %add.ptr27.i = getelementptr inbounds nuw i8, ptr %dst.addr.053.i, i64 %idxprom.i
+  %add.ptr27.i = getelementptr inbounds nuw i8, ptr %dst.addr.058.i, i64 %idxprom.i
   br label %if.end32.i
 
 if.else29.i:                                      ; preds = %if.end.i
-  %add.ptr30.i = getelementptr inbounds nuw i8, ptr %src.addr.054.i, i64 32
-  %add.ptr31.i = getelementptr inbounds nuw i8, ptr %dst.addr.053.i, i64 32
+  %add.ptr30.i = getelementptr inbounds nuw i8, ptr %src.addr.059.i, i64 32
+  %add.ptr31.i = getelementptr inbounds nuw i8, ptr %dst.addr.058.i, i64 32
   br label %if.end32.i
 
 if.end32.i:                                       ; preds = %if.else29.i, %if.end19.i, %_ZN8simdjson7haswell12_GLOBAL__N_113stringparsing31handle_unicode_codepoint_wobblyEPPKhPPh.exit.thread.i
-  %dst.addr.1.i = phi ptr [ %add.ptr27.i, %if.end19.i ], [ %add.ptr31.i, %if.else29.i ], [ %add.ptr18.i44.i, %_ZN8simdjson7haswell12_GLOBAL__N_113stringparsing31handle_unicode_codepoint_wobblyEPPKhPPh.exit.thread.i ]
+  %dst.addr.1.i = phi ptr [ %add.ptr27.i, %if.end19.i ], [ %add.ptr31.i, %if.else29.i ], [ %add.ptr18.i49.i, %_ZN8simdjson7haswell12_GLOBAL__N_113stringparsing31handle_unicode_codepoint_wobblyEPPKhPPh.exit.thread.i ]
   %src.addr.1.i = phi ptr [ %add.ptr24.i, %if.end19.i ], [ %add.ptr30.i, %if.else29.i ], [ %src.addr.4.ph.i, %_ZN8simdjson7haswell12_GLOBAL__N_113stringparsing31handle_unicode_codepoint_wobblyEPPKhPPh.exit.thread.i ]
   %.val.i = load <4 x i64>, ptr %src.addr.1.i, align 1
   store <4 x i64> %.val.i, ptr %dst.addr.1.i, align 1
@@ -8249,17 +8249,17 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc noundef ptr @_ZN8simdjson7icelake12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb(ptr nocapture noundef readonly %src, ptr noundef writeonly initializes((0, 64)) %dst, i1 noundef zeroext %allow_replacement) unnamed_addr #22 {
 entry:
-  %.val56 = load <8 x i64>, ptr %src, align 1
-  store <8 x i64> %.val56, ptr %dst, align 1
-  %0 = bitcast <8 x i64> %.val56 to <64 x i8>
+  %.val61 = load <8 x i64>, ptr %src, align 1
+  store <8 x i64> %.val61, ptr %dst, align 1
+  %0 = bitcast <8 x i64> %.val61 to <64 x i8>
   %1 = icmp eq <64 x i8> %0, splat (i8 92)
   %2 = bitcast <64 x i1> %1 to i64
   %3 = icmp eq <64 x i8> %0, splat (i8 34)
   %4 = bitcast <64 x i1> %3 to i64
-  %sub.i57 = add i64 %2, -1
-  %and.i58 = and i64 %sub.i57, %4
-  %cmp.i.not59 = icmp eq i64 %and.i58, 0
-  br i1 %cmp.i.not59, label %if.end, label %if.then
+  %sub.i62 = add i64 %2, -1
+  %and.i63 = and i64 %sub.i62, %4
+  %cmp.i.not64 = icmp eq i64 %and.i63, 0
+  br i1 %cmp.i.not64, label %if.end, label %if.then
 
 if.then:                                          ; preds = %if.end32, %entry
   %dst.addr.0.lcssa = phi ptr [ %dst, %entry ], [ %dst.addr.1, %if.end32 ]
@@ -8271,8 +8271,8 @@ if.then:                                          ; preds = %if.end32, %entry
 if.end:                                           ; preds = %entry, %if.end32
   %6 = phi i64 [ %50, %if.end32 ], [ %4, %entry ]
   %7 = phi i64 [ %48, %if.end32 ], [ %2, %entry ]
-  %src.addr.061 = phi ptr [ %src.addr.1, %if.end32 ], [ %src, %entry ]
-  %dst.addr.060 = phi ptr [ %dst.addr.1, %if.end32 ], [ %dst, %entry ]
+  %src.addr.066 = phi ptr [ %src.addr.1, %if.end32 ], [ %src, %entry ]
+  %dst.addr.065 = phi ptr [ %dst.addr.1, %if.end32 ], [ %dst, %entry ]
   %sub.i13 = add i64 %6, -1
   %and.i14 = and i64 %sub.i13, %7
   %cmp.i15.not = icmp eq i64 %and.i14, 0
@@ -8281,14 +8281,14 @@ if.end:                                           ; preds = %entry, %if.end32
 if.then4:                                         ; preds = %if.end
   %8 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %7, i1 true)
   %add = add nuw nsw i64 %8, 1
-  %arrayidx = getelementptr inbounds nuw i8, ptr %src.addr.061, i64 %add
+  %arrayidx = getelementptr inbounds nuw i8, ptr %src.addr.066, i64 %add
   %9 = load i8, ptr %arrayidx, align 1
   %cmp = icmp eq i8 %9, 117
   br i1 %cmp, label %if.then6, label %if.else
 
 if.then6:                                         ; preds = %if.then4
-  %add.ptr8 = getelementptr inbounds nuw i8, ptr %src.addr.061, i64 %8
-  %add.ptr10 = getelementptr inbounds nuw i8, ptr %dst.addr.060, i64 %8
+  %add.ptr8 = getelementptr inbounds nuw i8, ptr %src.addr.066, i64 %8
+  %add.ptr10 = getelementptr inbounds nuw i8, ptr %dst.addr.065, i64 %8
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %add.ptr8, i64 2
   %10 = load i8, ptr %add.ptr.i, align 1
   %conv.i.i = zext i8 %10 to i64
@@ -8363,17 +8363,17 @@ if.else.i:                                        ; preds = %if.then.i
   %or18.i33.i = or i32 %or17.i32.i, %28
   %sub.i17 = add i32 %or18.i33.i, -56320
   %tobool10.not.i = icmp ult i32 %sub.i17, 1024
-  br i1 %tobool10.not.i, label %if.else.i.i.thread39, label %if.then11.i
+  br i1 %tobool10.not.i, label %if.else23.i.i.thread, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.else.i
   br i1 %allow_replacement, label %if.then9.i.i, label %return
 
-if.else.i.i.thread39:                             ; preds = %if.else.i
+if.else23.i.i.thread:                             ; preds = %if.else.i
   %sub16.i = shl nuw nsw i32 %or18.i.i, 10
   %or18.i = add nsw i32 %sub16.i, -56557568
   %add.i = or disjoint i32 %sub.i17, %or18.i
   %add.ptr19.i = getelementptr inbounds nuw i8, ptr %add.ptr8, i64 12
-  br label %if.else23.i.i
+  br label %if.then25.i.i
 
 if.else22.i:                                      ; preds = %if.then6
   %or.cond1.i = icmp ne i32 %18, 56320
@@ -8388,7 +8388,7 @@ if.end31.i:                                       ; preds = %if.else22.i
 if.then.i.i:                                      ; preds = %if.end31.i
   %conv.i36.i = trunc nuw nsw i32 %call.mux.i to i8
   store i8 %conv.i36.i, ptr %add.ptr10, align 1
-  br label %_ZN8simdjson7icelake12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread49
+  br label %_ZN8simdjson7icelake12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread54
 
 if.end.i.i:                                       ; preds = %if.end31.i
   %cmp1.i.i = icmp ult i32 %call.mux.i, 2048
@@ -8404,7 +8404,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   %conv6.i.i = or disjoint i8 %31, -128
   %arrayidx7.i35.i = getelementptr inbounds nuw i8, ptr %add.ptr10, i64 1
   store i8 %conv6.i.i, ptr %arrayidx7.i35.i, align 1
-  br label %_ZN8simdjson7icelake12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread49
+  br label %_ZN8simdjson7icelake12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread54
 
 if.else.i.i:                                      ; preds = %if.end.i.i
   %cmp8.i.i = icmp ult i32 %call.mux.i, 65536
@@ -8427,42 +8427,42 @@ if.then9.i.i:                                     ; preds = %if.then6.i, %if.the
   %conv21.i.i = or disjoint i8 %36, -128
   %arrayidx22.i.i = getelementptr inbounds nuw i8, ptr %add.ptr10, i64 2
   store i8 %conv21.i.i, ptr %arrayidx22.i.i, align 1
-  br label %_ZN8simdjson7icelake12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread49
+  br label %_ZN8simdjson7icelake12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread54
 
-if.else23.i.i:                                    ; preds = %if.else.i.i.thread39, %if.else.i.i
-  %code_point.03942.i44 = phi i32 [ %add.i, %if.else.i.i.thread39 ], [ %or18.i.i, %if.else.i.i ]
-  %src.addr.243 = phi ptr [ %add.ptr19.i, %if.else.i.i.thread39 ], [ %add.ptr1.i, %if.else.i.i ]
-  %cmp24.i.i = icmp ult i32 %code_point.03942.i44, 1114112
+if.else23.i.i:                                    ; preds = %if.else.i.i
+  %cmp24.i.i = icmp ult i32 %or18.i.i, 1114112
   br i1 %cmp24.i.i, label %if.then25.i.i, label %return
 
-if.then25.i.i:                                    ; preds = %if.else23.i.i
-  %shr26.i.i = lshr i32 %code_point.03942.i44, 18
+if.then25.i.i:                                    ; preds = %if.else23.i.i.thread, %if.else23.i.i
+  %src.addr.24349 = phi ptr [ %add.ptr19.i, %if.else23.i.i.thread ], [ %add.ptr1.i, %if.else23.i.i ]
+  %code_point.03942.i4448 = phi i32 [ %add.i, %if.else23.i.i.thread ], [ %or18.i.i, %if.else23.i.i ]
+  %shr26.i.i = lshr i32 %code_point.03942.i4448, 18
   %37 = trunc nuw i32 %shr26.i.i to i8
   %conv28.i.i = or disjoint i8 %37, -16
   store i8 %conv28.i.i, ptr %add.ptr10, align 1
-  %shr30.i.i = lshr i32 %code_point.03942.i44, 12
+  %shr30.i.i = lshr i32 %code_point.03942.i4448, 12
   %38 = trunc i32 %shr30.i.i to i8
   %39 = and i8 %38, 63
   %conv33.i.i = or disjoint i8 %39, -128
   %arrayidx34.i.i = getelementptr inbounds nuw i8, ptr %add.ptr10, i64 1
   store i8 %conv33.i.i, ptr %arrayidx34.i.i, align 1
-  %shr35.i.i = lshr i32 %code_point.03942.i44, 6
+  %shr35.i.i = lshr i32 %code_point.03942.i4448, 6
   %40 = trunc i32 %shr35.i.i to i8
   %41 = and i8 %40, 63
   %conv38.i.i = or disjoint i8 %41, -128
   %arrayidx39.i.i = getelementptr inbounds nuw i8, ptr %add.ptr10, i64 2
   store i8 %conv38.i.i, ptr %arrayidx39.i.i, align 1
-  %42 = trunc i32 %code_point.03942.i44 to i8
+  %42 = trunc i32 %code_point.03942.i4448 to i8
   %43 = and i8 %42, 63
   %conv42.i.i = or disjoint i8 %43, -128
   %arrayidx43.i.i = getelementptr inbounds nuw i8, ptr %add.ptr10, i64 3
   store i8 %conv42.i.i, ptr %arrayidx43.i.i, align 1
-  br label %_ZN8simdjson7icelake12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread49
+  br label %_ZN8simdjson7icelake12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread54
 
-_ZN8simdjson7icelake12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread49: ; preds = %if.then.i.i, %if.then2.i.i, %if.then9.i.i, %if.then25.i.i
-  %src.addr.3.ph = phi ptr [ %add.ptr1.i, %if.then2.i.i ], [ %add.ptr1.i, %if.then.i.i ], [ %src.addr.243, %if.then25.i.i ], [ %add.ptr1.i, %if.then9.i.i ]
+_ZN8simdjson7icelake12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread54: ; preds = %if.then.i.i, %if.then2.i.i, %if.then9.i.i, %if.then25.i.i
+  %src.addr.3.ph = phi ptr [ %add.ptr1.i, %if.then2.i.i ], [ %add.ptr1.i, %if.then.i.i ], [ %src.addr.24349, %if.then25.i.i ], [ %add.ptr1.i, %if.then9.i.i ]
   %retval.0.i.i.ph = phi i64 [ 2, %if.then2.i.i ], [ 1, %if.then.i.i ], [ 4, %if.then25.i.i ], [ 3, %if.then9.i.i ]
-  %add.ptr33.i53 = getelementptr inbounds nuw i8, ptr %add.ptr10, i64 %retval.0.i.i.ph
+  %add.ptr33.i58 = getelementptr inbounds nuw i8, ptr %add.ptr10, i64 %retval.0.i.i.ph
   br label %if.end32
 
 if.else:                                          ; preds = %if.then4
@@ -8473,21 +8473,21 @@ if.else:                                          ; preds = %if.then4
   br i1 %cmp17, label %return, label %if.end19
 
 if.end19:                                         ; preds = %if.else
-  %arrayidx21 = getelementptr inbounds nuw i8, ptr %dst.addr.060, i64 %8
+  %arrayidx21 = getelementptr inbounds nuw i8, ptr %dst.addr.065, i64 %8
   store i8 %44, ptr %arrayidx21, align 1
-  %45 = getelementptr inbounds nuw i8, ptr %src.addr.061, i64 %8
+  %45 = getelementptr inbounds nuw i8, ptr %src.addr.066, i64 %8
   %add.ptr24 = getelementptr inbounds nuw i8, ptr %45, i64 2
-  %add.ptr27 = getelementptr inbounds nuw i8, ptr %dst.addr.060, i64 %add
+  %add.ptr27 = getelementptr inbounds nuw i8, ptr %dst.addr.065, i64 %add
   br label %if.end32
 
 if.else29:                                        ; preds = %if.end
-  %add.ptr30 = getelementptr inbounds nuw i8, ptr %src.addr.061, i64 64
-  %add.ptr31 = getelementptr inbounds nuw i8, ptr %dst.addr.060, i64 64
+  %add.ptr30 = getelementptr inbounds nuw i8, ptr %src.addr.066, i64 64
+  %add.ptr31 = getelementptr inbounds nuw i8, ptr %dst.addr.065, i64 64
   br label %if.end32
 
-if.end32:                                         ; preds = %_ZN8simdjson7icelake12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread49, %if.end19, %if.else29
-  %dst.addr.1 = phi ptr [ %add.ptr27, %if.end19 ], [ %add.ptr31, %if.else29 ], [ %add.ptr33.i53, %_ZN8simdjson7icelake12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread49 ]
-  %src.addr.1 = phi ptr [ %add.ptr24, %if.end19 ], [ %add.ptr30, %if.else29 ], [ %src.addr.3.ph, %_ZN8simdjson7icelake12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread49 ]
+if.end32:                                         ; preds = %_ZN8simdjson7icelake12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread54, %if.end19, %if.else29
+  %dst.addr.1 = phi ptr [ %add.ptr27, %if.end19 ], [ %add.ptr31, %if.else29 ], [ %add.ptr33.i58, %_ZN8simdjson7icelake12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread54 ]
+  %src.addr.1 = phi ptr [ %add.ptr24, %if.end19 ], [ %add.ptr30, %if.else29 ], [ %src.addr.3.ph, %_ZN8simdjson7icelake12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread54 ]
   %.val = load <8 x i64>, ptr %src.addr.1, align 1
   store <8 x i64> %.val, ptr %dst.addr.1, align 1
   %46 = bitcast <8 x i64> %.val to <64 x i8>
@@ -8508,17 +8508,17 @@ return:                                           ; preds = %if.else23.i.i, %if.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef ptr @_ZNK8simdjson7icelake25dom_parser_implementation19parse_wobbly_stringEPKhPh(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %src, ptr noundef writeonly initializes((0, 64)) %dst) unnamed_addr #22 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %.val51.i = load <8 x i64>, ptr %src, align 1
-  store <8 x i64> %.val51.i, ptr %dst, align 1
-  %0 = bitcast <8 x i64> %.val51.i to <64 x i8>
+  %.val56.i = load <8 x i64>, ptr %src, align 1
+  store <8 x i64> %.val56.i, ptr %dst, align 1
+  %0 = bitcast <8 x i64> %.val56.i to <64 x i8>
   %1 = icmp eq <64 x i8> %0, splat (i8 92)
   %2 = bitcast <64 x i1> %1 to i64
   %3 = icmp eq <64 x i8> %0, splat (i8 34)
   %4 = bitcast <64 x i1> %3 to i64
-  %sub.i52.i = add i64 %2, -1
-  %and.i53.i = and i64 %sub.i52.i, %4
-  %cmp.i.not54.i = icmp eq i64 %and.i53.i, 0
-  br i1 %cmp.i.not54.i, label %if.end.i, label %if.then.i
+  %sub.i57.i = add i64 %2, -1
+  %and.i58.i = and i64 %sub.i57.i, %4
+  %cmp.i.not59.i = icmp eq i64 %and.i58.i, 0
+  br i1 %cmp.i.not59.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end32.i, %entry
   %dst.addr.0.lcssa.i = phi ptr [ %dst, %entry ], [ %dst.addr.1.i, %if.end32.i ]
@@ -8530,8 +8530,8 @@ if.then.i:                                        ; preds = %if.end32.i, %entry
 if.end.i:                                         ; preds = %entry, %if.end32.i
   %6 = phi i64 [ %50, %if.end32.i ], [ %4, %entry ]
   %7 = phi i64 [ %48, %if.end32.i ], [ %2, %entry ]
-  %src.addr.056.i = phi ptr [ %src.addr.1.i, %if.end32.i ], [ %src, %entry ]
-  %dst.addr.055.i = phi ptr [ %dst.addr.1.i, %if.end32.i ], [ %dst, %entry ]
+  %src.addr.061.i = phi ptr [ %src.addr.1.i, %if.end32.i ], [ %src, %entry ]
+  %dst.addr.060.i = phi ptr [ %dst.addr.1.i, %if.end32.i ], [ %dst, %entry ]
   %sub.i13.i = add i64 %6, -1
   %and.i14.i = and i64 %sub.i13.i, %7
   %cmp.i15.not.i = icmp eq i64 %and.i14.i, 0
@@ -8540,14 +8540,14 @@ if.end.i:                                         ; preds = %entry, %if.end32.i
 if.then4.i:                                       ; preds = %if.end.i
   %8 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %7, i1 true)
   %add.i = add nuw nsw i64 %8, 1
-  %arrayidx.i = getelementptr inbounds nuw i8, ptr %src.addr.056.i, i64 %add.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %src.addr.061.i, i64 %add.i
   %9 = load i8, ptr %arrayidx.i, align 1
   %cmp.i = icmp eq i8 %9, 117
   br i1 %cmp.i, label %if.then6.i, label %if.else.i
 
 if.then6.i:                                       ; preds = %if.then4.i
-  %add.ptr8.i = getelementptr inbounds nuw i8, ptr %src.addr.056.i, i64 %8
-  %add.ptr10.i = getelementptr inbounds nuw i8, ptr %dst.addr.055.i, i64 %8
+  %add.ptr8.i = getelementptr inbounds nuw i8, ptr %src.addr.061.i, i64 %8
+  %add.ptr10.i = getelementptr inbounds nuw i8, ptr %dst.addr.060.i, i64 %8
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %add.ptr8.i, i64 2
   %10 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i.i = zext i8 %10 to i64
@@ -8619,14 +8619,14 @@ if.then6.i.i:                                     ; preds = %if.then.i.i
   %or18.i28.i.i = or i32 %or17.i27.i.i, %28
   %sub.i17.i = add i32 %or18.i28.i.i, -56320
   %cmp9.i.i = icmp ult i32 %sub.i17.i, 1024
-  br i1 %cmp9.i.i, label %if.else.i.i.thread39.i, label %if.then9.i.i.i
+  br i1 %cmp9.i.i, label %if.else23.i.i.thread.i, label %if.then9.i.i.i
 
-if.else.i.i.thread39.i:                           ; preds = %if.then6.i.i
+if.else23.i.i.thread.i:                           ; preds = %if.then6.i.i
   %sub11.i.i = shl nuw nsw i32 %or18.i.i.i, 10
   %or13.i.i = add nsw i32 %sub11.i.i, -56557568
   %add.i.i = or disjoint i32 %sub.i17.i, %or13.i.i
   %add.ptr14.i.i = getelementptr inbounds nuw i8, ptr %add.ptr8.i, i64 12
-  br label %if.else23.i.i.i
+  br label %if.then25.i.i.i
 
 if.end16.i.i:                                     ; preds = %if.then6.i
   %cmp.i.i.i = icmp ult i32 %or18.i.i.i, 128
@@ -8675,30 +8675,30 @@ if.then9.i.i.i:                                   ; preds = %if.else.i.i.i, %if.
   store i8 %conv21.i.i.i, ptr %arrayidx22.i.i.i, align 1
   br label %_ZN8simdjson7icelake12_GLOBAL__N_113stringparsing31handle_unicode_codepoint_wobblyEPPKhPPh.exit.thread.i
 
-if.else23.i.i.i:                                  ; preds = %if.else.i.i.i, %if.else.i.i.thread39.i
-  %code_point.03437.i44.i = phi i32 [ %add.i.i, %if.else.i.i.thread39.i ], [ %or18.i.i.i, %if.else.i.i.i ]
-  %src.addr.243.i = phi ptr [ %add.ptr14.i.i, %if.else.i.i.thread39.i ], [ %add.ptr1.i.i, %if.else.i.i.i ]
-  %cmp24.i.i.i = icmp ult i32 %code_point.03437.i44.i, 1114112
+if.else23.i.i.i:                                  ; preds = %if.else.i.i.i
+  %cmp24.i.i.i = icmp ult i32 %or18.i.i.i, 1114112
   br i1 %cmp24.i.i.i, label %if.then25.i.i.i, label %invoke.cont
 
-if.then25.i.i.i:                                  ; preds = %if.else23.i.i.i
-  %shr26.i.i.i = lshr i32 %code_point.03437.i44.i, 18
+if.then25.i.i.i:                                  ; preds = %if.else23.i.i.i, %if.else23.i.i.thread.i
+  %src.addr.24349.i = phi ptr [ %add.ptr14.i.i, %if.else23.i.i.thread.i ], [ %add.ptr1.i.i, %if.else23.i.i.i ]
+  %code_point.03437.i4448.i = phi i32 [ %add.i.i, %if.else23.i.i.thread.i ], [ %or18.i.i.i, %if.else23.i.i.i ]
+  %shr26.i.i.i = lshr i32 %code_point.03437.i4448.i, 18
   %37 = trunc nuw i32 %shr26.i.i.i to i8
   %conv28.i.i.i = or disjoint i8 %37, -16
   store i8 %conv28.i.i.i, ptr %add.ptr10.i, align 1
-  %shr30.i.i.i = lshr i32 %code_point.03437.i44.i, 12
+  %shr30.i.i.i = lshr i32 %code_point.03437.i4448.i, 12
   %38 = trunc i32 %shr30.i.i.i to i8
   %39 = and i8 %38, 63
   %conv33.i.i.i = or disjoint i8 %39, -128
   %arrayidx34.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr10.i, i64 1
   store i8 %conv33.i.i.i, ptr %arrayidx34.i.i.i, align 1
-  %shr35.i.i.i = lshr i32 %code_point.03437.i44.i, 6
+  %shr35.i.i.i = lshr i32 %code_point.03437.i4448.i, 6
   %40 = trunc i32 %shr35.i.i.i to i8
   %41 = and i8 %40, 63
   %conv38.i.i.i = or disjoint i8 %41, -128
   %arrayidx39.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr10.i, i64 2
   store i8 %conv38.i.i.i, ptr %arrayidx39.i.i.i, align 1
-  %42 = trunc i32 %code_point.03437.i44.i to i8
+  %42 = trunc i32 %code_point.03437.i4448.i to i8
   %43 = and i8 %42, 63
   %conv42.i.i.i = or disjoint i8 %43, -128
   %arrayidx43.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr10.i, i64 3
@@ -8706,9 +8706,9 @@ if.then25.i.i.i:                                  ; preds = %if.else23.i.i.i
   br label %_ZN8simdjson7icelake12_GLOBAL__N_113stringparsing31handle_unicode_codepoint_wobblyEPPKhPPh.exit.thread.i
 
 _ZN8simdjson7icelake12_GLOBAL__N_113stringparsing31handle_unicode_codepoint_wobblyEPPKhPPh.exit.thread.i: ; preds = %if.then25.i.i.i, %if.then9.i.i.i, %if.then2.i.i.i, %if.then.i.i.i
-  %src.addr.4.ph.i = phi ptr [ %add.ptr1.i.i, %if.then2.i.i.i ], [ %add.ptr1.i.i, %if.then.i.i.i ], [ %src.addr.243.i, %if.then25.i.i.i ], [ %add.ptr1.i.i, %if.then9.i.i.i ]
+  %src.addr.4.ph.i = phi ptr [ %add.ptr1.i.i, %if.then2.i.i.i ], [ %add.ptr1.i.i, %if.then.i.i.i ], [ %src.addr.24349.i, %if.then25.i.i.i ], [ %add.ptr1.i.i, %if.then9.i.i.i ]
   %retval.0.i.i.ph.i = phi i64 [ 2, %if.then2.i.i.i ], [ 1, %if.then.i.i.i ], [ 4, %if.then25.i.i.i ], [ 3, %if.then9.i.i.i ]
-  %add.ptr18.i48.i = getelementptr inbounds nuw i8, ptr %add.ptr10.i, i64 %retval.0.i.i.ph.i
+  %add.ptr18.i53.i = getelementptr inbounds nuw i8, ptr %add.ptr10.i, i64 %retval.0.i.i.ph.i
   br label %if.end32.i
 
 if.else.i:                                        ; preds = %if.then4.i
@@ -8719,20 +8719,20 @@ if.else.i:                                        ; preds = %if.then4.i
   br i1 %cmp17.i, label %invoke.cont, label %if.end19.i
 
 if.end19.i:                                       ; preds = %if.else.i
-  %arrayidx21.i = getelementptr inbounds nuw i8, ptr %dst.addr.055.i, i64 %8
+  %arrayidx21.i = getelementptr inbounds nuw i8, ptr %dst.addr.060.i, i64 %8
   store i8 %44, ptr %arrayidx21.i, align 1
-  %45 = getelementptr inbounds nuw i8, ptr %src.addr.056.i, i64 %8
+  %45 = getelementptr inbounds nuw i8, ptr %src.addr.061.i, i64 %8
   %add.ptr24.i = getelementptr inbounds nuw i8, ptr %45, i64 2
-  %add.ptr27.i = getelementptr inbounds nuw i8, ptr %dst.addr.055.i, i64 %add.i
+  %add.ptr27.i = getelementptr inbounds nuw i8, ptr %dst.addr.060.i, i64 %add.i
   br label %if.end32.i
 
 if.else29.i:                                      ; preds = %if.end.i
-  %add.ptr30.i = getelementptr inbounds nuw i8, ptr %src.addr.056.i, i64 64
-  %add.ptr31.i = getelementptr inbounds nuw i8, ptr %dst.addr.055.i, i64 64
+  %add.ptr30.i = getelementptr inbounds nuw i8, ptr %src.addr.061.i, i64 64
+  %add.ptr31.i = getelementptr inbounds nuw i8, ptr %dst.addr.060.i, i64 64
   br label %if.end32.i
 
 if.end32.i:                                       ; preds = %if.else29.i, %if.end19.i, %_ZN8simdjson7icelake12_GLOBAL__N_113stringparsing31handle_unicode_codepoint_wobblyEPPKhPPh.exit.thread.i
-  %dst.addr.1.i = phi ptr [ %add.ptr27.i, %if.end19.i ], [ %add.ptr31.i, %if.else29.i ], [ %add.ptr18.i48.i, %_ZN8simdjson7icelake12_GLOBAL__N_113stringparsing31handle_unicode_codepoint_wobblyEPPKhPPh.exit.thread.i ]
+  %dst.addr.1.i = phi ptr [ %add.ptr27.i, %if.end19.i ], [ %add.ptr31.i, %if.else29.i ], [ %add.ptr18.i53.i, %_ZN8simdjson7icelake12_GLOBAL__N_113stringparsing31handle_unicode_codepoint_wobblyEPPKhPPh.exit.thread.i ]
   %src.addr.1.i = phi ptr [ %add.ptr24.i, %if.end19.i ], [ %add.ptr30.i, %if.else29.i ], [ %src.addr.4.ph.i, %_ZN8simdjson7icelake12_GLOBAL__N_113stringparsing31handle_unicode_codepoint_wobblyEPPKhPPh.exit.thread.i ]
   %.val.i = load <8 x i64>, ptr %src.addr.1.i, align 1
   store <8 x i64> %.val.i, ptr %dst.addr.1.i, align 1
@@ -10901,17 +10901,17 @@ if.else.i:                                        ; preds = %if.then.i
   %or18.i33.i = or i32 %or17.i32.i, %28
   %sub.i18 = add i32 %or18.i33.i, -56320
   %tobool10.not.i = icmp ult i32 %sub.i18, 1024
-  br i1 %tobool10.not.i, label %if.else.i.i.thread36, label %if.then11.i
+  br i1 %tobool10.not.i, label %if.else23.i.i.thread, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.else.i
   br i1 %allow_replacement, label %if.then9.i.i, label %return
 
-if.else.i.i.thread36:                             ; preds = %if.else.i
+if.else23.i.i.thread:                             ; preds = %if.else.i
   %sub16.i = shl nuw nsw i32 %or18.i.i, 10
   %or18.i = add nsw i32 %sub16.i, -56557568
   %add.i = or disjoint i32 %sub.i18, %or18.i
   %add.ptr19.i = getelementptr inbounds nuw i8, ptr %add.ptr8, i64 12
-  br label %if.else23.i.i
+  br label %if.then25.i.i
 
 if.else22.i:                                      ; preds = %if.then6
   %or.cond1.i = icmp ne i32 %18, 56320
@@ -10926,7 +10926,7 @@ if.end31.i:                                       ; preds = %if.else22.i
 if.then.i.i:                                      ; preds = %if.end31.i
   %conv.i36.i = trunc nuw nsw i32 %call.mux.i to i8
   store i8 %conv.i36.i, ptr %add.ptr10, align 1
-  br label %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread46
+  br label %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread51
 
 if.end.i.i:                                       ; preds = %if.end31.i
   %cmp1.i.i = icmp ult i32 %call.mux.i, 2048
@@ -10942,7 +10942,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   %conv6.i.i = or disjoint i8 %31, -128
   %arrayidx7.i35.i = getelementptr inbounds nuw i8, ptr %add.ptr10, i64 1
   store i8 %conv6.i.i, ptr %arrayidx7.i35.i, align 1
-  br label %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread46
+  br label %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread51
 
 if.else.i.i:                                      ; preds = %if.end.i.i
   %cmp8.i.i = icmp ult i32 %call.mux.i, 65536
@@ -10965,47 +10965,47 @@ if.then9.i.i:                                     ; preds = %if.then6.i, %if.the
   %conv21.i.i = or disjoint i8 %36, -128
   %arrayidx22.i.i = getelementptr inbounds nuw i8, ptr %add.ptr10, i64 2
   store i8 %conv21.i.i, ptr %arrayidx22.i.i, align 1
-  br label %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread46
+  br label %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread51
 
-if.else23.i.i:                                    ; preds = %if.else.i.i.thread36, %if.else.i.i
-  %code_point.03942.i41 = phi i32 [ %add.i, %if.else.i.i.thread36 ], [ %or18.i.i, %if.else.i.i ]
-  %src.addr.240 = phi ptr [ %add.ptr19.i, %if.else.i.i.thread36 ], [ %add.ptr1.i17, %if.else.i.i ]
-  %cmp24.i.i = icmp ult i32 %code_point.03942.i41, 1114112
+if.else23.i.i:                                    ; preds = %if.else.i.i
+  %cmp24.i.i = icmp ult i32 %or18.i.i, 1114112
   br i1 %cmp24.i.i, label %if.then25.i.i, label %return
 
-if.then25.i.i:                                    ; preds = %if.else23.i.i
-  %shr26.i.i = lshr i32 %code_point.03942.i41, 18
+if.then25.i.i:                                    ; preds = %if.else23.i.i.thread, %if.else23.i.i
+  %src.addr.24046 = phi ptr [ %add.ptr19.i, %if.else23.i.i.thread ], [ %add.ptr1.i17, %if.else23.i.i ]
+  %code_point.03942.i4145 = phi i32 [ %add.i, %if.else23.i.i.thread ], [ %or18.i.i, %if.else23.i.i ]
+  %shr26.i.i = lshr i32 %code_point.03942.i4145, 18
   %37 = trunc nuw i32 %shr26.i.i to i8
   %conv28.i.i = or disjoint i8 %37, -16
   store i8 %conv28.i.i, ptr %add.ptr10, align 1
-  %shr30.i.i = lshr i32 %code_point.03942.i41, 12
+  %shr30.i.i = lshr i32 %code_point.03942.i4145, 12
   %38 = trunc i32 %shr30.i.i to i8
   %39 = and i8 %38, 63
   %conv33.i.i = or disjoint i8 %39, -128
   %arrayidx34.i.i = getelementptr inbounds nuw i8, ptr %add.ptr10, i64 1
   store i8 %conv33.i.i, ptr %arrayidx34.i.i, align 1
-  %shr35.i.i = lshr i32 %code_point.03942.i41, 6
+  %shr35.i.i = lshr i32 %code_point.03942.i4145, 6
   %40 = trunc i32 %shr35.i.i to i8
   %41 = and i8 %40, 63
   %conv38.i.i = or disjoint i8 %41, -128
   %arrayidx39.i.i = getelementptr inbounds nuw i8, ptr %add.ptr10, i64 2
   store i8 %conv38.i.i, ptr %arrayidx39.i.i, align 1
-  %42 = trunc i32 %code_point.03942.i41 to i8
+  %42 = trunc i32 %code_point.03942.i4145 to i8
   %43 = and i8 %42, 63
   %conv42.i.i = or disjoint i8 %43, -128
   %arrayidx43.i.i = getelementptr inbounds nuw i8, ptr %add.ptr10, i64 3
   store i8 %conv42.i.i, ptr %arrayidx43.i.i, align 1
-  br label %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread46
+  br label %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread51
 
-_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread46: ; preds = %if.then.i.i, %if.then2.i.i, %if.then9.i.i, %if.then25.i.i
-  %src.addr.3.ph = phi ptr [ %add.ptr1.i17, %if.then2.i.i ], [ %add.ptr1.i17, %if.then.i.i ], [ %src.addr.240, %if.then25.i.i ], [ %add.ptr1.i17, %if.then9.i.i ]
+_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread51: ; preds = %if.then.i.i, %if.then2.i.i, %if.then9.i.i, %if.then25.i.i
+  %src.addr.3.ph = phi ptr [ %add.ptr1.i17, %if.then2.i.i ], [ %add.ptr1.i17, %if.then.i.i ], [ %src.addr.24046, %if.then25.i.i ], [ %add.ptr1.i17, %if.then9.i.i ]
   %retval.0.i.i.ph = phi i64 [ 2, %if.then2.i.i ], [ 1, %if.then.i.i ], [ 4, %if.then25.i.i ], [ 3, %if.then9.i.i ]
-  %add.ptr33.i50 = getelementptr inbounds nuw i8, ptr %add.ptr10, i64 %retval.0.i.i.ph
+  %add.ptr33.i55 = getelementptr inbounds nuw i8, ptr %add.ptr10, i64 %retval.0.i.i.ph
   br label %while.body.backedge
 
-while.body.backedge:                              ; preds = %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread46, %if.end19, %if.else29
-  %dst.addr.0.be = phi ptr [ %add.ptr27, %if.end19 ], [ %add.ptr31, %if.else29 ], [ %add.ptr33.i50, %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread46 ]
-  %src.addr.0.be = phi ptr [ %add.ptr24, %if.end19 ], [ %add.ptr30, %if.else29 ], [ %src.addr.3.ph, %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread46 ]
+while.body.backedge:                              ; preds = %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread51, %if.end19, %if.else29
+  %dst.addr.0.be = phi ptr [ %add.ptr27, %if.end19 ], [ %add.ptr31, %if.else29 ], [ %add.ptr33.i55, %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread51 ]
+  %src.addr.0.be = phi ptr [ %add.ptr24, %if.end19 ], [ %add.ptr30, %if.else29 ], [ %src.addr.3.ph, %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread51 ]
   br label %while.body, !llvm.loop !54
 
 if.else:                                          ; preds = %if.then4
@@ -11155,14 +11155,14 @@ if.then6.i.i:                                     ; preds = %if.then.i.i
   %or18.i28.i.i = or i32 %or17.i27.i.i, %28
   %sub.i18.i = add i32 %or18.i28.i.i, -56320
   %cmp9.i.i = icmp ult i32 %sub.i18.i, 1024
-  br i1 %cmp9.i.i, label %if.else.i.i.thread36.i, label %if.then9.i.i.i
+  br i1 %cmp9.i.i, label %if.else23.i.i.thread.i, label %if.then9.i.i.i
 
-if.else.i.i.thread36.i:                           ; preds = %if.then6.i.i
+if.else23.i.i.thread.i:                           ; preds = %if.then6.i.i
   %sub11.i.i = shl nuw nsw i32 %or18.i.i.i, 10
   %or13.i.i = add nsw i32 %sub11.i.i, -56557568
   %add.i.i = or disjoint i32 %sub.i18.i, %or13.i.i
   %add.ptr14.i.i = getelementptr inbounds nuw i8, ptr %add.ptr8.i, i64 12
-  br label %if.else23.i.i.i
+  br label %if.then25.i.i.i
 
 if.end16.i.i:                                     ; preds = %if.then6.i
   %cmp.i.i.i = icmp ult i32 %or18.i.i.i, 128
@@ -11211,30 +11211,30 @@ if.then9.i.i.i:                                   ; preds = %if.else.i.i.i, %if.
   store i8 %conv21.i.i.i, ptr %arrayidx22.i.i.i, align 1
   br label %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing31handle_unicode_codepoint_wobblyEPPKhPPh.exit.thread.i
 
-if.else23.i.i.i:                                  ; preds = %if.else.i.i.i, %if.else.i.i.thread36.i
-  %code_point.03437.i41.i = phi i32 [ %add.i.i, %if.else.i.i.thread36.i ], [ %or18.i.i.i, %if.else.i.i.i ]
-  %src.addr.240.i = phi ptr [ %add.ptr14.i.i, %if.else.i.i.thread36.i ], [ %add.ptr1.i17.i, %if.else.i.i.i ]
-  %cmp24.i.i.i = icmp ult i32 %code_point.03437.i41.i, 1114112
+if.else23.i.i.i:                                  ; preds = %if.else.i.i.i
+  %cmp24.i.i.i = icmp ult i32 %or18.i.i.i, 1114112
   br i1 %cmp24.i.i.i, label %if.then25.i.i.i, label %invoke.cont
 
-if.then25.i.i.i:                                  ; preds = %if.else23.i.i.i
-  %shr26.i.i.i = lshr i32 %code_point.03437.i41.i, 18
+if.then25.i.i.i:                                  ; preds = %if.else23.i.i.i, %if.else23.i.i.thread.i
+  %src.addr.24046.i = phi ptr [ %add.ptr14.i.i, %if.else23.i.i.thread.i ], [ %add.ptr1.i17.i, %if.else23.i.i.i ]
+  %code_point.03437.i4145.i = phi i32 [ %add.i.i, %if.else23.i.i.thread.i ], [ %or18.i.i.i, %if.else23.i.i.i ]
+  %shr26.i.i.i = lshr i32 %code_point.03437.i4145.i, 18
   %37 = trunc nuw i32 %shr26.i.i.i to i8
   %conv28.i.i.i = or disjoint i8 %37, -16
   store i8 %conv28.i.i.i, ptr %add.ptr10.i, align 1
-  %shr30.i.i.i = lshr i32 %code_point.03437.i41.i, 12
+  %shr30.i.i.i = lshr i32 %code_point.03437.i4145.i, 12
   %38 = trunc i32 %shr30.i.i.i to i8
   %39 = and i8 %38, 63
   %conv33.i.i.i = or disjoint i8 %39, -128
   %arrayidx34.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr10.i, i64 1
   store i8 %conv33.i.i.i, ptr %arrayidx34.i.i.i, align 1
-  %shr35.i.i.i = lshr i32 %code_point.03437.i41.i, 6
+  %shr35.i.i.i = lshr i32 %code_point.03437.i4145.i, 6
   %40 = trunc i32 %shr35.i.i.i to i8
   %41 = and i8 %40, 63
   %conv38.i.i.i = or disjoint i8 %41, -128
   %arrayidx39.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr10.i, i64 2
   store i8 %conv38.i.i.i, ptr %arrayidx39.i.i.i, align 1
-  %42 = trunc i32 %code_point.03437.i41.i to i8
+  %42 = trunc i32 %code_point.03437.i4145.i to i8
   %43 = and i8 %42, 63
   %conv42.i.i.i = or disjoint i8 %43, -128
   %arrayidx43.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr10.i, i64 3
@@ -11242,9 +11242,9 @@ if.then25.i.i.i:                                  ; preds = %if.else23.i.i.i
   br label %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing31handle_unicode_codepoint_wobblyEPPKhPPh.exit.thread.i
 
 _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing31handle_unicode_codepoint_wobblyEPPKhPPh.exit.thread.i: ; preds = %if.then25.i.i.i, %if.then9.i.i.i, %if.then2.i.i.i, %if.then.i.i.i
-  %src.addr.4.ph.i = phi ptr [ %add.ptr1.i17.i, %if.then2.i.i.i ], [ %add.ptr1.i17.i, %if.then.i.i.i ], [ %src.addr.240.i, %if.then25.i.i.i ], [ %add.ptr1.i17.i, %if.then9.i.i.i ]
+  %src.addr.4.ph.i = phi ptr [ %add.ptr1.i17.i, %if.then2.i.i.i ], [ %add.ptr1.i17.i, %if.then.i.i.i ], [ %src.addr.24046.i, %if.then25.i.i.i ], [ %add.ptr1.i17.i, %if.then9.i.i.i ]
   %retval.0.i.i.ph.i = phi i64 [ 2, %if.then2.i.i.i ], [ 1, %if.then.i.i.i ], [ 4, %if.then25.i.i.i ], [ 3, %if.then9.i.i.i ]
-  %add.ptr18.i45.i = getelementptr inbounds nuw i8, ptr %add.ptr10.i, i64 %retval.0.i.i.ph.i
+  %add.ptr18.i50.i = getelementptr inbounds nuw i8, ptr %add.ptr10.i, i64 %retval.0.i.i.ph.i
   br label %while.body.i.backedge
 
 if.else.i:                                        ; preds = %if.then4.i
@@ -11269,7 +11269,7 @@ if.else29.i:                                      ; preds = %if.end.i
   br label %while.body.i.backedge
 
 while.body.i.backedge:                            ; preds = %if.else29.i, %if.end19.i, %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing31handle_unicode_codepoint_wobblyEPPKhPPh.exit.thread.i
-  %dst.addr.0.i.be = phi ptr [ %add.ptr27.i, %if.end19.i ], [ %add.ptr31.i, %if.else29.i ], [ %add.ptr18.i45.i, %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing31handle_unicode_codepoint_wobblyEPPKhPPh.exit.thread.i ]
+  %dst.addr.0.i.be = phi ptr [ %add.ptr27.i, %if.end19.i ], [ %add.ptr31.i, %if.else29.i ], [ %add.ptr18.i50.i, %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing31handle_unicode_codepoint_wobblyEPPKhPPh.exit.thread.i ]
   %src.addr.0.i.be = phi ptr [ %add.ptr24.i, %if.end19.i ], [ %add.ptr30.i, %if.else29.i ], [ %src.addr.4.ph.i, %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing31handle_unicode_codepoint_wobblyEPPKhPPh.exit.thread.i ]
   br label %while.body.i, !llvm.loop !55
 

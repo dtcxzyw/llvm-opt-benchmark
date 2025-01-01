@@ -17462,7 +17462,7 @@ _ZNK5clang4ento4SVal5getAsINS0_6nonloc9SymbolValEEESt8optionalIT_Ev.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal range(i16 0, 512) i16 @_ZN12_GLOBAL__N_122RangeConstraintManager9checkNullEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS4_7SymExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 align 2 {
+define internal range(i16 0, 258) i16 @_ZN12_GLOBAL__N_122RangeConstraintManager9checkNullEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS4_7SymExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::APSInt", align 8
   %5 = alloca %"class.llvm::IntrusiveRefCntPtr.106", align 8
   %6 = alloca %"class.llvm::APSInt", align 8

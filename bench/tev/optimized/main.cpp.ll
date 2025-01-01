@@ -19545,7 +19545,7 @@ _ZNK4args7Matcher13GetShortOrAnyEv.exit:          ; preds = %.invoke, %_ZNK4args
 91:                                               ; preds = %86
   %92 = or i64 %83, 7
   %93 = icmp eq i64 %92, 23
-  %94 = add i64 %92, 1
+  %94 = add nuw i64 %92, 1
   %95 = select i1 %93, i64 25, i64 %94
   %96 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %95) #32
           to label %.noexc46 unwind label %148
@@ -19708,7 +19708,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEpLB8ne190000ERKS5
 183:                                              ; preds = %178
   %184 = or i64 %175, 7
   %185 = icmp eq i64 %184, 23
-  %186 = add i64 %184, 1
+  %186 = add nuw i64 %184, 1
   %187 = select i1 %185, i64 25, i64 %186
   %188 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %187) #32
           to label %.noexc58 unwind label %297
@@ -19816,7 +19816,7 @@ _ZNSt3__111char_traitsIcE4copyB8ne190000EPcPKcm.exit.i55: ; preds = %198, %_ZNSt
 247:                                              ; preds = %242
   %248 = or i64 %239, 7
   %249 = icmp eq i64 %248, 23
-  %250 = add i64 %248, 1
+  %250 = add nuw i64 %248, 1
   %251 = select i1 %249, i64 25, i64 %250
   %252 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %251) #32
           to label %.noexc71 unwind label %.thread85
@@ -20225,7 +20225,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEpLB8ne190000ERKS5
 142:                                              ; preds = %137
   %143 = or i64 %134, 7
   %144 = icmp eq i64 %143, 23
-  %145 = add i64 %143, 1
+  %145 = add nuw i64 %143, 1
   %146 = select i1 %144, i64 25, i64 %145
   %147 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %146) #32
           to label %.noexc33 unwind label %.loopexit
@@ -20987,7 +20987,7 @@ define linkonce_odr dso_local void @_ZNK4args10EitherFlag3strERKNSt3__112basic_s
 .noexc6:                                          ; preds = %41
   %46 = or i64 %39, 7
   %47 = icmp eq i64 %46, 23
-  %48 = add i64 %46, 1
+  %48 = add nuw i64 %46, 1
   %49 = select i1 %47, i64 25, i64 %48
   %50 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %49) #32
   %51 = or i64 %49, 1
@@ -21097,7 +21097,7 @@ define linkonce_odr hidden void @_ZNSt3__1plB8ne190000IcNS_11char_traitsIcEENS_9
 26:                                               ; preds = %21
   %27 = or i64 %18, 7
   %28 = icmp eq i64 %27, 23
-  %29 = add i64 %27, 1
+  %29 = add nuw i64 %27, 1
   %30 = select i1 %28, i64 25, i64 %29
   %31 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %30) #32
   %32 = or i64 %30, 1
@@ -26223,7 +26223,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EPKc.
 178:                                              ; preds = %176
   %179 = or i64 %173, 7
   %180 = icmp eq i64 %179, 23
-  %181 = add i64 %179, 1
+  %181 = add nuw i64 %179, 1
   %182 = select i1 %180, i64 25, i64 %181
   %183 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %182) #32
           to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i.thread unwind label %257
@@ -68952,7 +68952,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4args14ArgumentParser10Pars
 78:                                               ; preds = %73
   %79 = or i64 %70, 7
   %80 = icmp eq i64 %79, 23
-  %81 = add i64 %79, 1
+  %81 = add nuw i64 %79, 1
   %82 = select i1 %80, i64 25, i64 %81
   %83 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %82) #32
           to label %.noexc38 unwind label %.loopexit55
@@ -70823,7 +70823,7 @@ define linkonce_odr hidden void @_ZNSt3__1plB8ne190000IcNS_11char_traitsIcEENS_9
 _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.thread: ; preds = %14
   %16 = or i64 %11, 7
   %17 = icmp eq i64 %16, 23
-  %18 = add i64 %16, 1
+  %18 = add nuw i64 %16, 1
   %19 = select i1 %17, i64 25, i64 %18
   %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #32
   %21 = or i64 %19, 1
@@ -72889,7 +72889,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4args14ArgumentParser10Pars
 78:                                               ; preds = %73
   %79 = or i64 %70, 7
   %80 = icmp eq i64 %79, 23
-  %81 = add i64 %79, 1
+  %81 = add nuw i64 %79, 1
   %82 = select i1 %80, i64 25, i64 %81
   %83 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %82) #32
           to label %.noexc38 unwind label %.loopexit55

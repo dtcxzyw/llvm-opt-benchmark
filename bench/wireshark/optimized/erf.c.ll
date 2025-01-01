@@ -131,7 +131,7 @@ define internal void @erf_anchor_mapping_destroy(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @erf_if_mapping_hash(ptr nocapture noundef readonly %0) #3 {
+define internal range(i32 0, -65280) i32 @erf_if_mapping_hash(ptr nocapture noundef readonly %0) #3 {
   %2 = load i64, ptr %0, align 8
   %3 = trunc i64 %2 to i32
   %4 = shl i32 %3, 16

@@ -697,7 +697,7 @@ define hidden noundef zeroext i1 @_ZN5uu_wc4utf810Incomplete8is_empty17h41452744
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden range(i40 0, 34359738368) i40 @_ZN5uu_wc4utf810Incomplete3new17h7d0aced35673f8aaE(ptr noalias nocapture noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #3 {
+define hidden range(i40 0, 21474836480) i40 @_ZN5uu_wc4utf810Incomplete3new17h7d0aced35673f8aaE(ptr noalias nocapture noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #3 {
   %.sroa.0 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0)
   %3 = icmp ugt i64 %1, 4

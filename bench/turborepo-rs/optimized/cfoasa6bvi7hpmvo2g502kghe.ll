@@ -5566,7 +5566,7 @@ define void @_RNvXs5_NtCseG2FYMysgNb_3wax5tokenINtB5_5TokenuEINtNtCs1LoaDTb72WA_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden range(i64 0, 9007199254740992) i64 @_RNvMsn_NtCseG2FYMysgNb_3wax5tokenNtB5_9Archetype15domain_variance.llvm.5393772610634076635(ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %0) unnamed_addr #16 {
+define hidden range(i64 0, 4785070309113858) i64 @_RNvMsn_NtCseG2FYMysgNb_3wax5tokenNtB5_9Archetype15domain_variance.llvm.5393772610634076635(ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %0) unnamed_addr #16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4, !range !87, !noundef !5
   %4 = icmp ne i32 %3, 1114112

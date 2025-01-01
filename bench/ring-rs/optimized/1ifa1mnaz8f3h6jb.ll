@@ -2127,7 +2127,7 @@ define void @_ZN4ring4aead4quic19HeaderProtectionKey3new17h1eddb546e65089f6E(ptr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define i48 @_ZN4ring4aead4quic19HeaderProtectionKey8new_mask17h10d331febab213ebE(ptr noalias noundef readonly align 8 dereferenceable(256) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #4 {
+define range(i48 0, -254) i48 @_ZN4ring4aead4quic19HeaderProtectionKey8new_mask17h10d331febab213ebE(ptr noalias noundef readonly align 8 dereferenceable(256) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #4 {
   %4 = alloca [16 x i8], align 16
   %.not = icmp eq i64 %2, 16
   br i1 %.not, label %5, label %12

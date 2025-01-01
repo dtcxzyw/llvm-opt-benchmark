@@ -882,7 +882,7 @@ _ZNK4llvm3EVTeqES0_.exit51:                       ; preds = %_ZNK4llvm3EVT8isVec
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc i64 @_ZL32handleMaskRegisterForCallingConvjjRKN4llvm12X86SubtargetE(i32 noundef %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(409248) %2) unnamed_addr #1 {
+define internal fastcc range(i64 0, -4294967168) i64 @_ZL32handleMaskRegisterForCallingConvjjRKN4llvm12X86SubtargetE(i32 noundef %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(409248) %2) unnamed_addr #1 {
   switch i32 %0, label %5 [
     i32 2, label %_ZNK4llvm12X86Subtarget13useAVX512RegsEv.exit.thread50
     i32 4, label %4

@@ -6862,10 +6862,9 @@ select.unfold:                                    ; preds = %228, %.thread241
   %.195.in.in = phi i64 [ %237, %.thread241 ], [ %232, %228 ]
   %.195.in = and i64 %.195.in.in, -2
   %.195 = inttoptr i64 %.195.in to ptr
-  %.not108 = icmp eq i64 %.195.in, 0
-  br i1 %.not108, label %.thread243, label %.thread246
+  br label %.thread246
 
-.thread243:                                       ; preds = %.thread241, %219, %select.unfold
+.thread243:                                       ; preds = %.thread241, %219
   %.not.i.i147 = icmp ult i64 %121, 16
   br i1 %.not.i.i147, label %.thread249, label %239
 
@@ -6919,7 +6918,7 @@ select.unfold:                                    ; preds = %228, %.thread241
   store i8 0, ptr %264, align 8
   br label %266
 
-.thread246:                                       ; preds = %220, %261, %.thread249, %select.unfold
+.thread246:                                       ; preds = %select.unfold, %220, %261, %.thread249
   %.296 = phi ptr [ %.195, %select.unfold ], [ %263, %261 ], [ null, %.thread249 ], [ %.094, %220 ]
   %265 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store i8 0, ptr %265, align 8

@@ -7551,7 +7551,7 @@ determine_charset.exit:                           ; preds = %46, %48, %62, %67
 declare ptr @_zend_new_array_0() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @write_s3row_data(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 131072) %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @write_s3row_data(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 122880) %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
   %5 = alloca [9 x i8], align 1
   %6 = alloca [33 x i8], align 16
   %7 = alloca i32, align 4

@@ -7552,7 +7552,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %188, %191
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc range(i64 0, -9223372036854775808) i64 @_ZN2cvL15normalizeAnchorENS_6Point_IiEENS_5Size_IiEE(i64 %0, i64 %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc range(i64 0, 9223372030412324864) i64 @_ZN2cvL15normalizeAnchorENS_6Point_IiEENS_5Size_IiEE(i64 %0, i64 %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.18", align 1
   %.sroa.06.0.extract.trunc = trunc i64 %0 to i32

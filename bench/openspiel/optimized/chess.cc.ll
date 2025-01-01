@@ -4256,7 +4256,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i64 0, -9223372036854775808) i64 @_ZN10open_spiel5chess19ActionToDestinationEiii(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i64 0, 9223372028264906752) i64 @_ZN10open_spiel5chess19ActionToDestinationEiii(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca %"class.std::__cxx11::basic_string", align 8

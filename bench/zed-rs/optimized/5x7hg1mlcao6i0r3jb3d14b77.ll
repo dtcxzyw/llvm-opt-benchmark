@@ -102766,7 +102766,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hed3c6b9d1d5ffc7fE
 }
 
 ; Function Attrs: nonlazybind uwtable
-define range(i64 0, 281474976710656) i64 @"_ZN107_$LT$gpui..platform..linux..text_system..CosmicTextSystem$u20$as$u20$gpui..platform..PlatformTextSystem$GT$14glyph_for_char17h295744425dfd9d6aE"(ptr noundef nonnull align 8 %0, i64 %1, i32 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define range(i64 0, 281470681743362) i64 @"_ZN107_$LT$gpui..platform..linux..text_system..CosmicTextSystem$u20$as$u20$gpui..platform..PlatformTextSystem$GT$14glyph_for_char17h295744425dfd9d6aE"(ptr noundef nonnull align 8 %0, i64 %1, i32 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [32 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = load atomic i64, ptr %0 monotonic, align 8

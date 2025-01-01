@@ -5195,7 +5195,7 @@ define noundef i32 @cli_bcapi_engine_dconf_level(ptr nocapture noundef readnone 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 1073741824, 536870912) i32 @cli_bcapi_engine_scan_options(ptr nocapture noundef readonly %0) local_unnamed_addr #20 {
+define range(i32 1073741824, 335544320) i32 @cli_bcapi_engine_scan_options(ptr nocapture noundef readonly %0) local_unnamed_addr #20 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64

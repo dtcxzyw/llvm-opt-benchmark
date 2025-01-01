@@ -5770,7 +5770,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local range(i64 0, 8589934592) i64 @_ZN4llvm5dwarf17OperationOperandsENS0_12LocationAtomE(i32 noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967300) i64 @_ZN4llvm5dwarf17OperationOperandsENS0_12LocationAtomE(i32 noundef %0) local_unnamed_addr #0 {
   %switch.tableidx = add i32 %0, -3
   %2 = icmp ult i32 %switch.tableidx, 250
   br i1 %2, label %switch.lookup, label %6
@@ -5791,7 +5791,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local range(i64 0, 8589934592) i64 @_ZN4llvm5dwarf14OperationArityENS0_12LocationAtomE(i32 noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967300) i64 @_ZN4llvm5dwarf14OperationArityENS0_12LocationAtomE(i32 noundef %0) local_unnamed_addr #0 {
   %switch.tableidx = add i32 %0, -3
   %2 = icmp ult i32 %switch.tableidx, 250
   br i1 %2, label %switch.lookup, label %6
@@ -6983,7 +6983,7 @@ define dso_local noundef range(i32 0, 7) i32 @_ZN4llvm5dwarf14LanguageVendorENS0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local range(i64 0, 8589934592) i64 @_ZN4llvm5dwarf18LanguageLowerBoundENS0_14SourceLanguageE(i32 noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967298) i64 @_ZN4llvm5dwarf18LanguageLowerBoundENS0_14SourceLanguageE(i32 noundef %0) local_unnamed_addr #0 {
   switch i32 %0, label %4 [
     i32 1, label %2
     i32 2, label %2

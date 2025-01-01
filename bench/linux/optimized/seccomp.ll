@@ -2965,7 +2965,7 @@ define internal fastcc void @seccomp_cache_prepare_bitmap(ptr %.152.val.64.val, 
 14:                                               ; preds = %.thread3.us, %.split.us
   %15 = add nuw nsw i64 %10, 1
   %16 = icmp eq i64 %15, 462
-  br i1 %16, label %.split7.us, label %.split.us, !llvm.loop !84
+  br i1 %16, label %.split8.us, label %.split.us, !llvm.loop !84
 
 .split:                                           ; preds = %7, %68
   %17 = phi i64 [ %69, %68 ], [ 0, %7 ]
@@ -3030,7 +3030,7 @@ define internal fastcc void @seccomp_cache_prepare_bitmap(ptr %.152.val.64.val, 
   %45 = zext nneg i16 %44 to i32
   %46 = add nsw i32 %45, -16
   %47 = lshr exact i32 %46, 4
-  switch i32 %47, label %.thread3 [
+  switch i32 %47, label %default.unreachable [
     i32 0, label %48
     i32 2, label %50
     i32 1, label %52
@@ -3077,16 +3077,19 @@ define internal fastcc void @seccomp_cache_prepare_bitmap(ptr %.152.val.64.val, 
   %67 = icmp eq i32 %38, 2147418112
   br i1 %67, label %68, label %.thread3
 
-.thread3:                                         ; preds = %31, %43, %39, %66, %.loopexit
+default.unreachable:                              ; preds = %43
+  unreachable
+
+.thread3:                                         ; preds = %31, %39, %66, %.loopexit
   tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, i64 %17) #14, !srcloc !83
   br label %68
 
 68:                                               ; preds = %.thread3, %66, %.split
   %69 = add nuw nsw i64 %17, 1
   %70 = icmp eq i64 %69, 462
-  br i1 %70, label %.split7.us, label %.split, !llvm.loop !84
+  br i1 %70, label %.split8.us, label %.split, !llvm.loop !84
 
-.split7.us:                                       ; preds = %68, %14
+.split8.us:                                       ; preds = %68, %14
   ret void
 }
 

@@ -2516,7 +2516,7 @@ _ZNK17base_status_csr_t26compute_sstatus_write_maskEv.exit: ; preds = %27, %34
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i64 0, 1048576) i64 @_ZNK17base_status_csr_t26compute_sstatus_write_maskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 0, 917504) i64 @_ZNK17base_status_csr_t26compute_sstatus_write_maskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 968
@@ -3105,7 +3105,7 @@ _ZNK13mstatus_csr_t29compute_mstatus_initial_valueEv.exit: ; preds = %67, %69, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef range(i64 0, 68719476736) i64 @_ZNK13mstatus_csr_t29compute_mstatus_initial_valueEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 0, 51539607552) i64 @_ZNK13mstatus_csr_t29compute_mstatus_initial_valueEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 968
@@ -8920,7 +8920,7 @@ define void @_ZNK10dcsr_csr_t18verify_permissionsE6insn_tb(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i64 1073741824, 1074003968) i64 @_ZNK10dcsr_csr_t4readEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(47) %0) unnamed_addr #17 align 2 {
+define noundef range(i64 1073741824, 1074002944) i64 @_ZNK10dcsr_csr_t4readEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(47) %0) unnamed_addr #17 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 39
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i64

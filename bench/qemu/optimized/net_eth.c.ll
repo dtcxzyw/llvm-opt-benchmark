@@ -48,7 +48,7 @@ entry:
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i8 @eth_get_gso_type(i16 noundef zeroext %l3_proto, ptr nocapture noundef readonly %l3_hdr, i8 noundef zeroext %l4proto) local_unnamed_addr #2 {
+define dso_local zeroext range(i8 0, -120) i8 @eth_get_gso_type(i16 noundef zeroext %l3_proto, ptr nocapture noundef readonly %l3_hdr, i8 noundef zeroext %l4proto) local_unnamed_addr #2 {
 entry:
   %conv = zext i16 %l3_proto to i32
   switch i16 %l3_proto, label %do.body [

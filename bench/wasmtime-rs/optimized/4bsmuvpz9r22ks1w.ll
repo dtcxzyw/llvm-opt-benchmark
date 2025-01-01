@@ -15397,7 +15397,7 @@ define range(i64 0, 65281) i64 @"_ZN98_$LT$cranelift_codegen..isa..x64..inst..ar
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define range(i64 1, 0) i64 @"_ZN133_$LT$cranelift_codegen..isa..x64..inst..args..Imm8Reg$u20$as$u20$core..convert..From$LT$cranelift_codegen..machinst..reg..Reg$GT$$GT$4from17h6d8ae5bfdc395ec4E"(i32 noundef %0) unnamed_addr #11 {
+define range(i64 1, -4294967294) i64 @"_ZN133_$LT$cranelift_codegen..isa..x64..inst..args..Imm8Reg$u20$as$u20$core..convert..From$LT$cranelift_codegen..machinst..reg..Reg$GT$$GT$4from17h6d8ae5bfdc395ec4E"(i32 noundef %0) unnamed_addr #11 {
   %.sroa.21.0.insert.ext = zext i32 %0 to i64
   %.sroa.21.0.insert.shift = shl nuw i64 %.sroa.21.0.insert.ext, 32
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.21.0.insert.shift, 1
@@ -55135,7 +55135,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define range(i64 1, 0) i64 @"_ZN140_$LT$cranelift_codegen..isa..x64..inst..args..Imm8Gpr$u20$as$u20$core..convert..From$LT$cranelift_codegen..isa..x64..inst..args..Gpr$GT$$GT$4from17hecef3eef103884baE"(i32 noundef %0) unnamed_addr #11 {
+define range(i64 1, -4294967294) i64 @"_ZN140_$LT$cranelift_codegen..isa..x64..inst..args..Imm8Gpr$u20$as$u20$core..convert..From$LT$cranelift_codegen..isa..x64..inst..args..Gpr$GT$$GT$4from17hecef3eef103884baE"(i32 noundef %0) unnamed_addr #11 {
   %.sroa.42.0.insert.ext = zext i32 %0 to i64
   %.sroa.42.0.insert.shift = shl nuw i64 %.sroa.42.0.insert.ext, 32
   %.sroa.01.0.insert.insert = or disjoint i64 %.sroa.42.0.insert.shift, 1
@@ -55746,7 +55746,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define range(i64 1, 0) i64 @"_ZN140_$LT$cranelift_codegen..isa..x64..inst..args..Imm8Xmm$u20$as$u20$core..convert..From$LT$cranelift_codegen..isa..x64..inst..args..Xmm$GT$$GT$4from17h1c94d34fe61b6a04E"(i32 noundef %0) unnamed_addr #11 {
+define range(i64 1, -4294967294) i64 @"_ZN140_$LT$cranelift_codegen..isa..x64..inst..args..Imm8Xmm$u20$as$u20$core..convert..From$LT$cranelift_codegen..isa..x64..inst..args..Xmm$GT$$GT$4from17h1c94d34fe61b6a04E"(i32 noundef %0) unnamed_addr #11 {
   %.sroa.42.0.insert.ext = zext i32 %0 to i64
   %.sroa.42.0.insert.shift = shl nuw i64 %.sroa.42.0.insert.ext, 32
   %.sroa.01.0.insert.insert = or disjoint i64 %.sroa.42.0.insert.shift, 1

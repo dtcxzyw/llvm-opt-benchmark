@@ -8017,7 +8017,7 @@ declare ptr @u_errorName_70(i32 noundef) local_unnamed_addr #2
 declare i32 @u_strToTitle_70(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_format(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef range(i32 1, 8) %5, ptr nocapture noundef %6) unnamed_addr #0 {
+define internal fastcc void @parse_format(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef range(i32 1, 6) %5, ptr nocapture noundef %6) unnamed_addr #0 {
   %invariant.gep = getelementptr i8, ptr %4, i64 -128
   %8 = load i8, ptr %1, align 1
   %.not198 = icmp eq i8 %8, 0

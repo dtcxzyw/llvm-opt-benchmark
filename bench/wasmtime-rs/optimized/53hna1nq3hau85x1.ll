@@ -8961,7 +8961,7 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i: ; preds = %88
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc i64 @"_ZN9regalloc23ion11requirement63_$LT$impl$u20$regalloc2..ion..data_structures..Env$LT$F$GT$$GT$19compute_requirement17hd22b66f1750fd01cE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(1448) %0, i32 noundef %1) unnamed_addr #1 {
+define internal fastcc range(i64 0, -4294967292) i64 @"_ZN9regalloc23ion11requirement63_$LT$impl$u20$regalloc2..ion..data_structures..Env$LT$F$GT$$GT$19compute_requirement17hd22b66f1750fd01cE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(1448) %0, i32 noundef %1) unnamed_addr #1 {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = alloca [1 x { ptr, ptr }], align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8

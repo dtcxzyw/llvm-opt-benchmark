@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define hidden i64 @_ZN4core4hash3sip9u8to64_le17h85cd46293a33b68bE(ptr nocapture readonly align 1 %0, i64 %1, i64 %2, i64 %3) unnamed_addr #0 {
+define hidden range(i64 0, -71776119061217280) i64 @_ZN4core4hash3sip9u8to64_le17h85cd46293a33b68bE(ptr nocapture readonly align 1 %0, i64 %1, i64 %2, i64 %3) unnamed_addr #0 {
   %5 = icmp ugt i64 %3, 3
   br i1 %5, label %6, label %9
 

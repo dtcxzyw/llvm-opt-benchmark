@@ -2441,7 +2441,7 @@ WriteLE32.exit.i:                                 ; preds = %1055
 1067:                                             ; preds = %.critedge.i
   %1068 = getelementptr inbounds nuw i8, ptr %.val, i64 20
   %1069 = load i8, ptr %1068, align 1
-  %1070 = trunc nsw i32 %.215.i to i8
+  %1070 = trunc nuw nsw i32 %.215.i to i8
   %1071 = or i8 %1069, %1070
   store i8 %1071, ptr %1068, align 1
   br i1 %1065, label %1072, label %1076

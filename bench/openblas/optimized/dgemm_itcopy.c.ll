@@ -234,7 +234,7 @@ define noundef i32 @dgemm_itcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
 .preheader46.us.preheader:                        ; preds = %161
   %163 = and i64 %1, 9223372036854775792
   %164 = add nsw i64 %163, -16
-  %165 = sub i64 %1, %164
+  %165 = sub nsw i64 %1, %164
   %166 = icmp sgt i64 %165, 23
   %167 = add nsw i64 %165, -24
   br label %.preheader46.us

@@ -10848,7 +10848,7 @@ common.resume:                                    ; preds = %164, %220, %175
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden range(i64 25, 0) i64 @_ZN16wasmtime_environ9component5types7TypeDef13ComponentFunc17hb992d256dab524adE.llvm.5246528701130514578(i32 noundef %0) unnamed_addr #7 {
+define hidden range(i64 25, -4294967264) i64 @_ZN16wasmtime_environ9component5types7TypeDef13ComponentFunc17hb992d256dab524adE.llvm.5246528701130514578(i32 noundef %0) unnamed_addr #7 {
   %.sroa.2.0.insert.ext = zext i32 %0 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, 25
@@ -10856,7 +10856,7 @@ define hidden range(i64 25, 0) i64 @_ZN16wasmtime_environ9component5types7TypeDe
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden range(i64 24, 0) i64 @_ZN16wasmtime_environ9component5types7TypeDef17ComponentInstance17h8e2c96e328884078E.llvm.5246528701130514578(i32 noundef %0) unnamed_addr #7 {
+define hidden range(i64 24, -4294967264) i64 @_ZN16wasmtime_environ9component5types7TypeDef17ComponentInstance17h8e2c96e328884078E.llvm.5246528701130514578(i32 noundef %0) unnamed_addr #7 {
   %.sroa.2.0.insert.ext = zext i32 %0 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, 24
@@ -10864,7 +10864,7 @@ define hidden range(i64 24, 0) i64 @_ZN16wasmtime_environ9component5types7TypeDe
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden range(i64 27, 0) i64 @_ZN16wasmtime_environ9component5types7TypeDef6Module17hb73b261e1fa18ba0E.llvm.5246528701130514578(i32 noundef %0) unnamed_addr #7 {
+define hidden range(i64 27, -4294967264) i64 @_ZN16wasmtime_environ9component5types7TypeDef6Module17hb73b261e1fa18ba0E.llvm.5246528701130514578(i32 noundef %0) unnamed_addr #7 {
   %.sroa.2.0.insert.ext = zext i32 %0 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, 27
@@ -10872,7 +10872,7 @@ define hidden range(i64 27, 0) i64 @_ZN16wasmtime_environ9component5types7TypeDe
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden range(i64 28, 0) i64 @_ZN16wasmtime_environ9component5types7TypeDef8CoreFunc17hfb7984299b75cfbfE.llvm.5246528701130514578(i32 noundef %0) unnamed_addr #7 {
+define hidden range(i64 28, -4294967264) i64 @_ZN16wasmtime_environ9component5types7TypeDef8CoreFunc17hfb7984299b75cfbfE.llvm.5246528701130514578(i32 noundef %0) unnamed_addr #7 {
   %.sroa.2.0.insert.ext = zext i32 %0 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, 28
@@ -10880,7 +10880,7 @@ define hidden range(i64 28, 0) i64 @_ZN16wasmtime_environ9component5types7TypeDe
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden range(i64 29, 0) i64 @_ZN16wasmtime_environ9component5types7TypeDef8Resource17hb03171e7298382d5E.llvm.5246528701130514578(i32 noundef %0) unnamed_addr #7 {
+define hidden range(i64 29, -4294967264) i64 @_ZN16wasmtime_environ9component5types7TypeDef8Resource17hb03171e7298382d5E.llvm.5246528701130514578(i32 noundef %0) unnamed_addr #7 {
   %.sroa.2.0.insert.ext = zext i32 %0 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, 29
@@ -10888,7 +10888,7 @@ define hidden range(i64 29, 0) i64 @_ZN16wasmtime_environ9component5types7TypeDe
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden range(i64 23, 0) i64 @_ZN16wasmtime_environ9component5types7TypeDef9Component17h6eb63988cb67bd0bE.llvm.5246528701130514578(i32 noundef %0) unnamed_addr #7 {
+define hidden range(i64 23, -4294967264) i64 @_ZN16wasmtime_environ9component5types7TypeDef9Component17h6eb63988cb67bd0bE.llvm.5246528701130514578(i32 noundef %0) unnamed_addr #7 {
   %.sroa.2.0.insert.ext = zext i32 %0 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, 23
@@ -17257,7 +17257,7 @@ define hidden void @_ZN4core3ops8function6FnOnce9call_once17h44de2a2724cdd751E.l
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden range(i64 27, 0) i64 @_ZN4core3ops8function6FnOnce9call_once17h45ef6b87704fdfc6E.llvm.5246528701130514578(i32 noundef %0) unnamed_addr #7 {
+define hidden range(i64 27, -4294967264) i64 @_ZN4core3ops8function6FnOnce9call_once17h45ef6b87704fdfc6E.llvm.5246528701130514578(i32 noundef %0) unnamed_addr #7 {
   %.sroa.2.0.insert.ext.i = zext i32 %0 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, 27
@@ -17273,7 +17273,7 @@ define hidden void @_ZN4core3ops8function6FnOnce9call_once17h5ed95b55c9337f8aE.l
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden range(i64 25, 0) i64 @_ZN4core3ops8function6FnOnce9call_once17h704818c05c5b8b96E.llvm.5246528701130514578(i32 noundef %0) unnamed_addr #7 {
+define hidden range(i64 25, -4294967264) i64 @_ZN4core3ops8function6FnOnce9call_once17h704818c05c5b8b96E.llvm.5246528701130514578(i32 noundef %0) unnamed_addr #7 {
   %.sroa.2.0.insert.ext.i = zext i32 %0 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, 25
@@ -17321,7 +17321,7 @@ define hidden void @_ZN4core3ops8function6FnOnce9call_once17h973c7e82c8d4164cE.l
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden range(i64 23, 0) i64 @_ZN4core3ops8function6FnOnce9call_once17h9810c3bc830f7a67E.llvm.5246528701130514578(i32 noundef %0) unnamed_addr #7 {
+define hidden range(i64 23, -4294967264) i64 @_ZN4core3ops8function6FnOnce9call_once17h9810c3bc830f7a67E.llvm.5246528701130514578(i32 noundef %0) unnamed_addr #7 {
   %.sroa.2.0.insert.ext.i = zext i32 %0 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, 23
@@ -17343,7 +17343,7 @@ define hidden void @_ZN4core3ops8function6FnOnce9call_once17hbe4470001bbda501E.l
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden range(i64 24, 0) i64 @_ZN4core3ops8function6FnOnce9call_once17hbfee7de67e3f01f7E.llvm.5246528701130514578(i32 noundef %0) unnamed_addr #7 {
+define hidden range(i64 24, -4294967264) i64 @_ZN4core3ops8function6FnOnce9call_once17hbfee7de67e3f01f7E.llvm.5246528701130514578(i32 noundef %0) unnamed_addr #7 {
   %.sroa.2.0.insert.ext.i = zext i32 %0 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, 24
@@ -17351,7 +17351,7 @@ define hidden range(i64 24, 0) i64 @_ZN4core3ops8function6FnOnce9call_once17hbfe
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden range(i64 28, 0) i64 @_ZN4core3ops8function6FnOnce9call_once17hd38adf802490332dE.llvm.5246528701130514578(i32 noundef %0) unnamed_addr #7 {
+define hidden range(i64 28, -4294967264) i64 @_ZN4core3ops8function6FnOnce9call_once17hd38adf802490332dE.llvm.5246528701130514578(i32 noundef %0) unnamed_addr #7 {
   %.sroa.2.0.insert.ext.i = zext i32 %0 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, 28
@@ -17369,7 +17369,7 @@ define hidden void @_ZN4core3ops8function6FnOnce9call_once17hd5a838958666f64cE.l
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden range(i64 29, 0) i64 @_ZN4core3ops8function6FnOnce9call_once17hdd58017cf115e01aE.llvm.5246528701130514578(i32 noundef %0) unnamed_addr #7 {
+define hidden range(i64 29, -4294967264) i64 @_ZN4core3ops8function6FnOnce9call_once17hdd58017cf115e01aE.llvm.5246528701130514578(i32 noundef %0) unnamed_addr #7 {
   %.sroa.2.0.insert.ext.i = zext i32 %0 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, 29

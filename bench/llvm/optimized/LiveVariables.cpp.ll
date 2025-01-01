@@ -6648,8 +6648,6 @@ _ZNK4llvm15SparseBitVectorILj128EE4testEj.exit93.thread: ; preds = %241, %_ZNK4l
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %262, align 8
   %263 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %264 = inttoptr i64 %263 to ptr
-  %.not.i.i.i.i.i.i.i.i.i = icmp ne i64 %263, 0
-  call void @llvm.assume(i1 %.not.i.i.i.i.i.i.i.i.i)
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %264, align 8
   %265 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %265, 0
@@ -6764,8 +6762,6 @@ _ZNSt6vectorIPN4llvm12MachineInstrESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_c
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0111.0152, align 8
   %307 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, -8
   %308 = inttoptr i64 %307 to ptr
-  %.not.i.i.i.i.i = icmp ne i64 %307, 0
-  call void @llvm.assume(i1 %.not.i.i.i.i.i)
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %308, align 8
   %309 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i108 = icmp eq i64 %309, 0

@@ -4266,7 +4266,7 @@ define internal fastcc void @ieee80211_sta_ps_deliver_response(ptr noundef %0, i
   br i1 %88, label %89, label %.preheader97
 
 89:                                               ; preds = %.thread18
-  %90 = trunc nuw nsw i64 %87 to i32
+  %90 = trunc i64 %87 to i32
   %91 = and i32 %90, 65535
   %92 = call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %91) #23, !srcloc !173
   %93 = icmp ugt i32 %92, 1
@@ -4312,7 +4312,7 @@ define internal fastcc void @ieee80211_sta_ps_deliver_response(ptr noundef %0, i
   br i1 %116, label %120, label %117
 
 117:                                              ; preds = %114
-  %118 = trunc nuw nsw i64 %87 to i32
+  %118 = trunc i64 %87 to i32
   %119 = call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %118, i32 -1) #22, !srcloc !175
   br label %.thread20
 
@@ -4322,7 +4322,7 @@ define internal fastcc void @ieee80211_sta_ps_deliver_response(ptr noundef %0, i
   br i1 %122, label %123, label %.thread20
 
 123:                                              ; preds = %120
-  %124 = trunc nuw nsw i64 %87 to i32
+  %124 = trunc i64 %87 to i32
   %125 = call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %124, i32 -1) #22, !srcloc !175
   br label %.thread20
 

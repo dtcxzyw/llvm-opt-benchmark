@@ -673,7 +673,7 @@ _ZN15ockam_multiaddr10ProtoValue4data17h7f1e32d2a52baa81E.exit: ; preds = %8, %"
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden i40 @_ZN15ockam_multiaddr10ProtoValue4cast17h6515c73fd767a392E(ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #1 {
+define hidden range(i40 0, -254) i40 @_ZN15ockam_multiaddr10ProtoValue4cast17h6515c73fd767a392E(ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8, !noundef !4
   %.not = icmp eq i32 %3, 4

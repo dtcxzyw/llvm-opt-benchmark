@@ -1022,7 +1022,7 @@ define hidden noundef ptr @_ZN3mio4poll8Registry10deregister17h8db01216e80c6d9cE
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden i24 @_ZN4core3ops8function5FnMut8call_mut17h22006a9b1fe966ccE.llvm.5777560861739151222(ptr noalias nocapture noundef nonnull readnone align 1 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #1 {
+define hidden range(i24 0, -252) i24 @_ZN4core3ops8function5FnMut8call_mut17h22006a9b1fe966ccE.llvm.5777560861739151222(ptr noalias nocapture noundef nonnull readnone align 1 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #1 {
   %3 = tail call i24 @_ZN5tokio7runtime4coop12poll_proceed17ha85b55a62d82082bE.llvm.5777560861739151222(ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
   ret i24 %3
 }
@@ -1697,7 +1697,7 @@ define hidden void @_ZN5tokio6future7poll_fn7poll_fn17h93c8ee078844de00E() unnam
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden i24 @_ZN5tokio7runtime4coop12poll_proceed17ha85b55a62d82082bE.llvm.5777560861739151222(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden range(i24 0, -252) i24 @_ZN5tokio7runtime4coop12poll_proceed17ha85b55a62d82082bE.llvm.5777560861739151222(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { i8, [2 x i8] }, align 4
   %3 = alloca { i8, i8 }, align 1
   %4 = alloca { i8, [2 x i8] }, align 4
@@ -1911,8 +1911,8 @@ define hidden void @"_ZN88_$LT$tokio..future..poll_fn..PollFn$LT$F$GT$$u20$as$u2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden i24 @"_ZN88_$LT$tokio..future..poll_fn..PollFn$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17he297375da9f0ff9cE"(ptr noalias nocapture noundef nonnull readnone align 1 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #2 {
-  %3 = tail call i24 @_ZN5tokio7runtime4coop12poll_proceed17ha85b55a62d82082bE.llvm.5777560861739151222(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1)
+define hidden range(i24 0, -252) i24 @"_ZN88_$LT$tokio..future..poll_fn..PollFn$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17he297375da9f0ff9cE"(ptr noalias nocapture noundef nonnull readnone align 1 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #2 {
+  %3 = tail call range(i24 0, -252) i24 @_ZN5tokio7runtime4coop12poll_proceed17ha85b55a62d82082bE.llvm.5777560861739151222(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1)
   ret i24 %3
 }
 

@@ -5387,7 +5387,7 @@ define internal noundef zeroext i1 @"_ZN57_$LT$object..write..Error$u20$as$u20$c
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc range(i64 3, 524288) i64 @_ZN5gimli5write4line10LineString5write17h7aea54dec1f4f944E(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i16 noundef %2, i32 %3, ptr readonly %.8.val, i64 %.16.val, ptr readonly %.8.val1, i64 %.16.val3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc range(i64 3, 327712) i64 @_ZN5gimli5write4line10LineString5write17h7aea54dec1f4f944E(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i16 noundef %2, i32 %3, ptr readonly %.8.val, i64 %.16.val, ptr readonly %.8.val1, i64 %.16.val3) unnamed_addr #4 personality ptr @rust_eh_personality {
 switch.lookup:
   %4 = load i64, ptr %0, align 8, !range !602, !noundef !4
   %5 = icmp slt i64 %4, -9223372036854775806
@@ -7561,7 +7561,7 @@ _ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit601: ; preds = %1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden range(i64 3, 65536) i64 @_ZN5gimli5write6writer6Writer11write_sdata17h7cb3037256cf9c0fE(ptr noalias noundef align 8 dereferenceable(32) %0, i64 noundef %1, i8 noundef %2) unnamed_addr #4 {
+define hidden range(i64 3, 65288) i64 @_ZN5gimli5write6writer6Writer11write_sdata17h7cb3037256cf9c0fE(ptr noalias noundef align 8 dereferenceable(32) %0, i64 noundef %1, i8 noundef %2) unnamed_addr #4 {
   switch i8 %2, label %4 [
     i8 1, label %5
     i8 2, label %7
@@ -7721,7 +7721,7 @@ _ZN5gimli5write6writer6Writer9write_u3217hd7638480a7c6ed16E.exit: ; preds = %69,
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden range(i64 3, 65536) i64 @_ZN5gimli5write6writer6Writer11write_sdata17hf8622d6f16dcc160E(ptr noalias noundef align 8 dereferenceable(56) %0, i64 noundef %1, i8 noundef %2) unnamed_addr #4 {
+define hidden range(i64 3, 65288) i64 @_ZN5gimli5write6writer6Writer11write_sdata17hf8622d6f16dcc160E(ptr noalias noundef align 8 dereferenceable(56) %0, i64 noundef %1, i8 noundef %2) unnamed_addr #4 {
   switch i8 %2, label %4 [
     i8 1, label %5
     i8 2, label %7
@@ -7906,7 +7906,7 @@ define hidden i64 @_ZN5gimli5write6writer6Writer11write_u8_at17h99d79abbf6f884df
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden range(i64 3, 65536) i64 @_ZN5gimli5write6writer6Writer11write_udata17h62d321d5f774c2caE(ptr noalias noundef align 8 dereferenceable(32) %0, i64 noundef %1, i8 noundef %2) unnamed_addr #4 {
+define hidden range(i64 3, 65288) i64 @_ZN5gimli5write6writer6Writer11write_udata17h62d321d5f774c2caE(ptr noalias noundef align 8 dereferenceable(32) %0, i64 noundef %1, i8 noundef %2) unnamed_addr #4 {
   switch i8 %2, label %4 [
     i8 1, label %5
     i8 2, label %6
@@ -8063,7 +8063,7 @@ _ZN5gimli5write6writer6Writer9write_u3217hd7638480a7c6ed16E.exit: ; preds = %66,
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden range(i64 3, 65536) i64 @_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE(ptr noalias noundef align 8 dereferenceable(56) %0, i64 noundef %1, i8 noundef %2) unnamed_addr #4 {
+define hidden range(i64 3, 65288) i64 @_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE(ptr noalias noundef align 8 dereferenceable(56) %0, i64 noundef %1, i8 noundef %2) unnamed_addr #4 {
   switch i8 %2, label %4 [
     i8 1, label %5
     i8 2, label %6
@@ -8224,7 +8224,7 @@ _ZN5gimli5write6writer6Writer9write_u3217h828145f091d49137E.exit: ; preds = %69,
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden range(i64 3, 65536) i64 @_ZN5gimli5write6writer6Writer12write_offset17h3e19c1ed06c6bfdcE(ptr noalias noundef align 8 dereferenceable(32) %0, i64 noundef %1, i8 noundef %2, i8 noundef %3) unnamed_addr #4 {
+define hidden range(i64 3, 65288) i64 @_ZN5gimli5write6writer6Writer12write_offset17h3e19c1ed06c6bfdcE(ptr noalias noundef align 8 dereferenceable(32) %0, i64 noundef %1, i8 noundef %2, i8 noundef %3) unnamed_addr #4 {
   %5 = tail call i64 @_ZN5gimli5write6writer6Writer11write_udata17h62d321d5f774c2caE(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i8 noundef %3)
   ret i64 %5
 }
@@ -8323,7 +8323,7 @@ define hidden i64 @_ZN5gimli5write6writer6Writer12write_u64_at17h950f2b259672d0b
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden range(i64 3, 65536) i64 @_ZN5gimli5write6writer6Writer13write_address17h40a9f0c52c3e9c74E(ptr noalias noundef align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, i8 noundef %2) unnamed_addr #4 {
+define hidden range(i64 3, 65288) i64 @_ZN5gimli5write6writer6Writer13write_address17h40a9f0c52c3e9c74E(ptr noalias noundef align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, i8 noundef %2) unnamed_addr #4 {
   %4 = load i64, ptr %1, align 8, !range !601, !noundef !4
   %trunc = trunc nuw i64 %4 to i1
   br i1 %trunc, label %9, label %5

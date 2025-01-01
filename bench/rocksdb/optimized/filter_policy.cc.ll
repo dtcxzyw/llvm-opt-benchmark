@@ -6655,7 +6655,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef range(i64 5, 2305843009213762) i64 @_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder14CalculateSpaceEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(292) %this, i64 noundef %num_entries) unnamed_addr #17 align 2 {
+define internal noundef range(i64 5, 2305843009213760) i64 @_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder14CalculateSpaceEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(292) %this, i64 noundef %num_entries) unnamed_addr #17 align 2 {
 entry:
   %millibits_per_key_ = getelementptr inbounds nuw i8, ptr %this, i64 288
   %0 = load i32, ptr %millibits_per_key_, align 8
@@ -6802,7 +6802,7 @@ _ZN7rocksdb18FastLocalBloomImpl15EstimatedFpRateEmmii.exit: ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef range(i64 5, 4294967296) i64 @_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder20RoundDownUsableSpaceEm(ptr nocapture nonnull readnone align 8 %this, i64 noundef %available_size) unnamed_addr #2 align 2 {
+define internal noundef range(i64 5, 4294967240) i64 @_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder20RoundDownUsableSpaceEm(ptr nocapture nonnull readnone align 8 %this, i64 noundef %available_size) unnamed_addr #2 align 2 {
 entry:
   %sub = add i64 %available_size, -5
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %sub, i64 4294967232)
@@ -8823,7 +8823,7 @@ for.end:                                          ; preds = %for.body, %for.inc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef range(i64 5, 536870912) i64 @_ZN7rocksdb12_GLOBAL__N_122LegacyBloomBitsBuilder14CalculateSpaceEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i64 noundef %num_entries) unnamed_addr #17 align 2 {
+define internal noundef range(i64 5, 536862848) i64 @_ZN7rocksdb12_GLOBAL__N_122LegacyBloomBitsBuilder14CalculateSpaceEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i64 noundef %num_entries) unnamed_addr #17 align 2 {
 entry:
   %cmp.not.i = icmp eq i64 %num_entries, 0
   br i1 %cmp.not.i, label %_ZN7rocksdb12_GLOBAL__N_122LegacyBloomBitsBuilder14CalculateSpaceEmPjS2_.exit, label %if.then.i

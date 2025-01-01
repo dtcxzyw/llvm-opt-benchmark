@@ -1174,7 +1174,7 @@ define dso_local void @ieee80211_sta_set_rx_nss(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 0, 16) i32 @__ieee80211_vht_handle_opmode(ptr nocapture noundef readonly %0, ptr noundef %1, i8 noundef zeroext %2, i32 %3) local_unnamed_addr #2 align 16 {
+define dso_local range(i32 0, 10) i32 @__ieee80211_vht_handle_opmode(ptr nocapture noundef readonly %0, ptr noundef %1, i8 noundef zeroext %2, i32 %3) local_unnamed_addr #2 align 16 {
   %5 = alloca %struct.sta_opmode_info, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, i8 0, i64 16, i1 false)

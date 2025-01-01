@@ -7153,7 +7153,7 @@ entry:
 declare i32 @_ZN6duckdb4Date8FromDateEiii(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define i64 @duckdb_from_time(i64 %time.coerce) local_unnamed_addr #0 {
+define range(i64 0, -4278190080) i64 @duckdb_from_time(i64 %time.coerce) local_unnamed_addr #0 {
 entry:
   %hour = alloca i32, align 4
   %minute = alloca i32, align 4

@@ -4929,7 +4929,7 @@ _ZN4llvm10successorsEPNS_11InstructionE.exit.i:   ; preds = %_ZN4llvm10successor
   br i1 %144, label %_ZSt9__find_ifIN4llvm12SuccIteratorINS0_11InstructionENS0_10BasicBlockEEEN9__gnu_cxx5__ops16_Iter_equals_valIKPS3_EEET_SB_SB_T0_St26random_access_iterator_tag.exit, label %145
 
 145:                                              ; preds = %._crit_edge._crit_edge.i
-  %146 = add nsw i32 %.sroa.15.1.i, 1
+  %146 = add nuw nsw i32 %.sroa.15.1.i, 1
   br label %._crit_edge._crit_edge98.i
 
 ._crit_edge._crit_edge98.i:                       ; preds = %._crit_edge.i, %145

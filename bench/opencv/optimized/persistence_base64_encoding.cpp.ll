@@ -398,7 +398,7 @@ define hidden noundef i32 @_ZN2cv6base6417icvCalcStructSizeEPKci(ptr noundef %0,
 declare noundef i32 @_ZN2cv2fs12calcElemSizeEPKci(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i64 @_ZN2cv6base6425base64_encode_buffer_sizeEmb(i64 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #5 {
+define hidden noundef range(i64 0, -2) i64 @_ZN2cv6base6425base64_encode_buffer_sizeEmb(i64 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #5 {
   %3 = zext i1 %1 to i64
   %4 = add i64 %0, 2
   %5 = udiv i64 %4, 3

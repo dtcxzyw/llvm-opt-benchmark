@@ -17821,7 +17821,7 @@ define void @"_ZN6syntax3ast8expr_ext56_$LT$impl$u20$syntax..ast..generated..nod
 }
 
 ; Function Attrs: nonlazybind uwtable
-define range(i16 0, 2048) i16 @"_ZN6syntax3ast8expr_ext56_$LT$impl$u20$syntax..ast..generated..nodes..BinExpr$GT$7op_kind17h2450c3baa4babd9fE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 {
+define range(i16 0, 1793) i16 @"_ZN6syntax3ast8expr_ext56_$LT$impl$u20$syntax..ast..generated..nodes..BinExpr$GT$7op_kind17h2450c3baa4babd9fE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 {
   %2 = alloca { [9 x i8], i8, [6 x i8] }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   call void @"_ZN6syntax3ast8expr_ext56_$LT$impl$u20$syntax..ast..generated..nodes..BinExpr$GT$10op_details17hf8d70f90c380f2d0E"(ptr noalias nocapture noundef nonnull sret({ [9 x i8], i8, [6 x i8] }) align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)

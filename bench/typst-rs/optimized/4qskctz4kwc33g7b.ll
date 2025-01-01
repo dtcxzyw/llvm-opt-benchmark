@@ -72422,7 +72422,7 @@ define hidden void @_ZN5typst4text8families17h9e4e4246e0e60b20E(ptr noalias noca
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden range(i48 100, 17179869184) i48 @_ZN5typst4text7variant17hf94498aa609f737bE(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden range(i48 100, 12884901888) i48 @_ZN5typst4text7variant17hf94498aa609f737bE(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca {}, align 1
   %3 = alloca { { { { i64, [1 x i64] }, { ptr, [8 x i64] } } }, ptr }, align 8
   %4 = alloca { { { i64, [1 x i64] }, { ptr, [8 x i64] } } }, align 8
@@ -143611,7 +143611,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h39fd366f57c55f21E.exit: ; preds 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define i24 @"_ZN5typst4text1_39_$LT$impl$u20$typst..text..TextElem$GT$9region_in17h754e68c010a58003E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define range(i24 0, -254) i24 @"_ZN5typst4text1_39_$LT$impl$u20$typst..text..TextElem$GT$9region_in17h754e68c010a58003E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %2), !noalias !33340
   tail call void @llvm.experimental.noalias.scope.decl(metadata !33344)
@@ -143671,7 +143671,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h290dab8a18054199E.exit: ; preds 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define i48 @"_ZN5typst4text1_39_$LT$impl$u20$typst..text..TextElem$GT$9script_in17h6bf6979e0077d55cE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define range(i48 0, -254) i48 @"_ZN5typst4text1_39_$LT$impl$u20$typst..text..TextElem$GT$9script_in17h6bf6979e0077d55cE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %2), !noalias !33374
   tail call void @llvm.experimental.noalias.scope.decl(metadata !33378)

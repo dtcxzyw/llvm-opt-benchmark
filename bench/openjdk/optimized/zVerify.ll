@@ -1608,7 +1608,7 @@ define linkonce_odr hidden void @_ZN25ZVerifyColoredRootClosure6do_oopEPP7oopDes
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
-  br i1 %8, label %9, label %66
+  br i1 %8, label %9, label %56
 
 9:                                                ; preds = %5
   %10 = load i64, ptr @ZPointerMarkedOld, align 8
@@ -1627,223 +1627,199 @@ define linkonce_odr hidden void @_ZN25ZVerifyColoredRootClosure6do_oopEPP7oopDes
   %16 = load i64, ptr @ZPointerLoadBadMask, align 8
   %17 = and i64 %16, %3
   %.not.i.i2.i = icmp eq i64 %17, 0
-  br i1 %.not.i.i2.i, label %18, label %25
+  %18 = lshr i64 %3, 12
+  %19 = and i64 %18, 15
+  %20 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %19
+  %21 = load i32, ptr %20, align 4
+  %22 = zext nneg i32 %21 to i64
+  %23 = lshr i64 %3, %22
+  br i1 %.not.i.i2.i, label %_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit, label %24
 
-18:                                               ; preds = %15
-  %19 = lshr i64 %3, 12
-  %20 = and i64 %19, 15
-  %21 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %20
-  %22 = load i32, ptr %21, align 4
-  %23 = zext nneg i32 %22 to i64
-  %24 = lshr i64 %3, %23
-  br label %_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit
+24:                                               ; preds = %15
+  %25 = and i64 %3, 61440
+  %26 = load i64, ptr @ZPointerRemappedOldMask, align 8
+  %27 = and i64 %26, %25
+  %.not7.i.i.i.i = icmp eq i64 %27, 0
+  br i1 %.not7.i.i.i.i, label %30, label %28
 
-25:                                               ; preds = %15
-  %26 = and i64 %3, -65521
-  %27 = icmp eq i64 %26, 0
-  br i1 %27, label %_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit, label %28
-
-28:                                               ; preds = %25
-  %29 = lshr i64 %3, 12
-  %30 = and i64 %29, 15
-  %31 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %30
-  %32 = load i32, ptr %31, align 4
-  %33 = zext nneg i32 %32 to i64
-  %34 = lshr i64 %3, %33
-  %35 = and i64 %3, 61440
-  %36 = load i64, ptr @ZPointerRemappedOldMask, align 8
-  %37 = and i64 %36, %35
-  %.not7.i.i.i.i = icmp eq i64 %37, 0
-  br i1 %.not7.i.i.i.i, label %40, label %38
-
-38:                                               ; preds = %28
-  %39 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
+28:                                               ; preds = %24
+  %29 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
   br label %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i
 
-40:                                               ; preds = %28
-  %41 = load i64, ptr @ZPointerRemappedYoungMask, align 8
-  %42 = and i64 %41, %35
-  %.not8.i.i.i.i = icmp eq i64 %42, 0
-  br i1 %.not8.i.i.i.i, label %45, label %43
+30:                                               ; preds = %24
+  %31 = load i64, ptr @ZPointerRemappedYoungMask, align 8
+  %32 = and i64 %31, %25
+  %.not8.i.i.i.i = icmp eq i64 %32, 0
+  br i1 %.not8.i.i.i.i, label %35, label %33
 
-43:                                               ; preds = %40
-  %44 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
+33:                                               ; preds = %30
+  %34 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
   br label %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i
 
-45:                                               ; preds = %40
-  %46 = and i64 %3, 48
-  %47 = icmp eq i64 %46, 48
-  br i1 %47, label %48, label %50
+35:                                               ; preds = %30
+  %36 = and i64 %3, 48
+  %37 = icmp eq i64 %36, 48
+  br i1 %37, label %38, label %40
 
-48:                                               ; preds = %45
+38:                                               ; preds = %35
+  %39 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
+  br label %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i
+
+40:                                               ; preds = %35
+  %41 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
+  %42 = load i64, ptr @ZAddressOffsetMask, align 8
+  %43 = and i64 %42, %23
+  %44 = lshr i64 %43, 21
+  %45 = getelementptr inbounds nuw i8, ptr %41, i64 40
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %44
+  %48 = load volatile ptr, ptr %47, align 8
+  %.not.i6.i.i.i = icmp eq ptr %48, null
   %49 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
+  %spec.select.i.i.i.i = select i1 %.not.i6.i.i.i, ptr %49, ptr %41
   br label %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i
 
-50:                                               ; preds = %45
-  %51 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
-  %52 = load i64, ptr @ZAddressOffsetMask, align 8
-  %53 = and i64 %52, %34
-  %54 = lshr i64 %53, 21
-  %55 = getelementptr inbounds nuw i8, ptr %51, i64 40
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %54
-  %58 = load volatile ptr, ptr %57, align 8
-  %.not.i6.i.i.i = icmp eq ptr %58, null
-  %59 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
-  %spec.select.i.i.i.i = select i1 %.not.i6.i.i.i, ptr %59, ptr %51
-  br label %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i
-
-_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i: ; preds = %50, %48, %43, %38
-  %.0.i.i.i.i = phi ptr [ %39, %38 ], [ %44, %43 ], [ %49, %48 ], [ %spec.select.i.i.i.i, %50 ]
-  %60 = tail call noundef i64 @_ZN8ZBarrier17relocate_or_remapE15zaddress_unsafeP11ZGeneration(i64 noundef %34, ptr noundef %.0.i.i.i.i) #10
+_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i: ; preds = %40, %38, %33, %28
+  %.0.i.i.i.i = phi ptr [ %29, %28 ], [ %34, %33 ], [ %39, %38 ], [ %spec.select.i.i.i.i, %40 ]
+  %50 = tail call noundef i64 @_ZN8ZBarrier17relocate_or_remapE15zaddress_unsafeP11ZGeneration(i64 noundef %23, ptr noundef %.0.i.i.i.i) #10
   br label %_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit
 
-_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit: ; preds = %25, %18, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i
-  %.0.i.i = phi i64 [ %24, %18 ], [ %60, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i ], [ 0, %25 ]
-  %61 = inttoptr i64 %.0.i.i to ptr
-  %62 = tail call noundef zeroext i1 @_ZN7oopDesc6is_oopEPS_b(ptr noundef %61, i1 noundef zeroext false) #10
-  br i1 %62, label %_ZL24z_verify_root_oop_object8zaddressPv.exit, label %63
+_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit: ; preds = %15, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i
+  %.0.i.i = phi i64 [ %50, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i ], [ %23, %15 ]
+  %51 = inttoptr i64 %.0.i.i to ptr
+  %52 = tail call noundef zeroext i1 @_ZN7oopDesc6is_oopEPS_b(ptr noundef %51, i1 noundef zeroext false) #10
+  br i1 %52, label %_ZL24z_verify_root_oop_object8zaddressPv.exit, label %53
 
-63:                                               ; preds = %_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit
-  %64 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %64, align 1
-  %65 = ptrtoint ptr %1 to i64
-  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 152, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.14, i64 noundef %.0.i.i, i64 noundef %65) #11
+53:                                               ; preds = %_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit
+  %54 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %54, align 1
+  %55 = ptrtoint ptr %1 to i64
+  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 152, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.14, i64 noundef %.0.i.i, i64 noundef %55) #11
   unreachable
 
-66:                                               ; preds = %5
-  %67 = and i64 %3, -65521
-  %.not.i = icmp eq i64 %67, 0
-  br i1 %.not.i, label %87, label %68
+56:                                               ; preds = %5
+  %57 = trunc i64 %3 to i32
+  %58 = lshr i32 %57, 12
+  %59 = and i32 %58, 15
+  %60 = tail call range(i32 0, 5) i32 @llvm.ctpop.i32(i32 %59)
+  %61 = icmp samesign ult i32 %60, 2
+  br i1 %61, label %62, label %_ZL24z_verify_root_oop_object8zaddressPv.exit
 
-68:                                               ; preds = %66
-  %69 = trunc i64 %3 to i32
-  %70 = lshr i32 %69, 12
-  %71 = and i32 %70, 15
-  %72 = tail call range(i32 0, 5) i32 @llvm.ctpop.i32(i32 %71)
-  %73 = icmp samesign ult i32 %72, 2
-  br i1 %73, label %74, label %_ZL24z_verify_root_oop_object8zaddressPv.exit
+62:                                               ; preds = %56
+  %63 = lshr i64 %3, 12
+  %64 = and i64 %63, 15
+  %65 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %64
+  %66 = load i32, ptr %65, align 4
+  %67 = load i64, ptr @ZAddressHeapBase, align 8
+  %68 = zext i32 %66 to i64
+  %69 = shl i64 %67, %68
+  %70 = and i64 %69, %3
+  %71 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %70)
+  %or.cond45.i = icmp eq i64 %71, 1
+  br i1 %or.cond45.i, label %72, label %_ZL24z_verify_root_oop_object8zaddressPv.exit
 
-74:                                               ; preds = %68
-  %75 = lshr i64 %3, 12
-  %76 = and i64 %75, 15
-  %77 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %76
-  %78 = load i32, ptr %77, align 4
-  %79 = load i64, ptr @ZAddressHeapBase, align 8
-  %80 = zext i32 %78 to i64
-  %81 = shl i64 %79, %80
-  %82 = and i64 %81, %3
-  %83 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %82)
-  %or.cond45.i = icmp eq i64 %83, 1
-  br i1 %or.cond45.i, label %84, label %_ZL24z_verify_root_oop_object8zaddressPv.exit
+72:                                               ; preds = %62
+  %73 = shl i64 7, %68
+  %74 = and i64 %73, %3
+  %.not30.i = icmp eq i64 %74, 0
+  br i1 %.not30.i, label %75, label %_ZL24z_verify_root_oop_object8zaddressPv.exit
 
-84:                                               ; preds = %74
-  %85 = shl i64 7, %80
-  %86 = and i64 %85, %3
-  %.not30.i = icmp eq i64 %86, 0
-  br i1 %.not30.i, label %87, label %_ZL24z_verify_root_oop_object8zaddressPv.exit
+75:                                               ; preds = %72
+  %76 = and i64 %3, 61440
+  %77 = tail call range(i64 0, 5) i64 @llvm.ctpop.i64(i64 %76)
+  %or.cond47.i = icmp eq i64 %77, 1
+  br i1 %or.cond47.i, label %78, label %_ZL24z_verify_root_oop_object8zaddressPv.exit
 
-87:                                               ; preds = %84, %66
-  %88 = and i64 %3, 61440
-  %89 = tail call range(i64 0, 5) i64 @llvm.ctpop.i64(i64 %88)
-  %or.cond47.i = icmp eq i64 %89, 1
-  br i1 %or.cond47.i, label %90, label %_ZL24z_verify_root_oop_object8zaddressPv.exit
+78:                                               ; preds = %75
+  %79 = and i64 %3, 768
+  %80 = and i64 %3, 48
+  %81 = tail call range(i64 0, 3) i64 @llvm.ctpop.i64(i64 %79)
+  %or.cond49.i = icmp eq i64 %81, 1
+  br i1 %or.cond49.i, label %82, label %_ZL24z_verify_root_oop_object8zaddressPv.exit
 
-90:                                               ; preds = %87
-  %91 = and i64 %3, 768
-  %92 = and i64 %3, 48
-  %93 = tail call range(i64 0, 3) i64 @llvm.ctpop.i64(i64 %91)
-  %or.cond49.i = icmp eq i64 %93, 1
-  br i1 %or.cond49.i, label %94, label %_ZL24z_verify_root_oop_object8zaddressPv.exit
-
-94:                                               ; preds = %90
-  %95 = and i64 %3, 3264
-  %.not.i38.i = icmp eq i64 %95, 0
+82:                                               ; preds = %78
+  %83 = and i64 %3, 3264
+  %.not.i38.i = icmp eq i64 %83, 0
   br i1 %.not.i38.i, label %_ZL24z_verify_root_oop_object8zaddressPv.exit, label %_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit39.i
 
-_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit39.i: ; preds = %94
-  %96 = tail call range(i64 1, 5) i64 @llvm.ctpop.i64(i64 %95)
-  %97 = icmp samesign ult i64 %96, 2
-  %98 = icmp ne i64 %92, 0
-  %or.cond.i.not26 = and i1 %98, %97
-  %99 = and i64 %3, 15
-  %.not32.i = icmp eq i64 %99, 0
+_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit39.i: ; preds = %82
+  %84 = tail call range(i64 1, 5) i64 @llvm.ctpop.i64(i64 %83)
+  %85 = icmp samesign ult i64 %84, 2
+  %86 = icmp ne i64 %80, 0
+  %or.cond.i.not26 = and i1 %86, %85
+  %87 = and i64 %3, 15
+  %.not32.i = icmp eq i64 %87, 0
   %or.cond = and i1 %.not32.i, %or.cond.i.not26
-  br i1 %or.cond, label %100, label %_ZL24z_verify_root_oop_object8zaddressPv.exit
+  br i1 %or.cond, label %88, label %_ZL24z_verify_root_oop_object8zaddressPv.exit
 
-100:                                              ; preds = %_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit39.i
-  %101 = load i64, ptr @ZPointerLoadBadMask, align 8
-  %102 = and i64 %101, %3
-  %.not.i.i2.i13 = icmp eq i64 %102, 0
-  %103 = lshr i64 %3, 12
-  %104 = and i64 %103, 15
-  %105 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %104
-  %106 = load i32, ptr %105, align 4
-  %107 = zext nneg i32 %106 to i64
-  %108 = lshr i64 %3, %107
-  br i1 %.not.i.i2.i13, label %_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit22, label %109
+88:                                               ; preds = %_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit39.i
+  %89 = load i64, ptr @ZPointerLoadBadMask, align 8
+  %90 = and i64 %89, %3
+  %.not.i.i2.i13 = icmp eq i64 %90, 0
+  %91 = lshr i64 %3, %68
+  br i1 %.not.i.i2.i13, label %_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit22, label %92
 
-109:                                              ; preds = %100
-  %110 = load i64, ptr @ZPointerRemappedOldMask, align 8
-  %111 = and i64 %110, %88
-  %.not7.i.i.i.i14 = icmp eq i64 %111, 0
-  br i1 %.not7.i.i.i.i14, label %114, label %112
+92:                                               ; preds = %88
+  %93 = load i64, ptr @ZPointerRemappedOldMask, align 8
+  %94 = and i64 %93, %76
+  %.not7.i.i.i.i14 = icmp eq i64 %94, 0
+  br i1 %.not7.i.i.i.i14, label %97, label %95
 
-112:                                              ; preds = %109
-  %113 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
+95:                                               ; preds = %92
+  %96 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
   br label %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i15
 
-114:                                              ; preds = %109
-  %115 = load i64, ptr @ZPointerRemappedYoungMask, align 8
-  %116 = and i64 %115, %88
-  %.not8.i.i.i.i18 = icmp eq i64 %116, 0
-  br i1 %.not8.i.i.i.i18, label %119, label %117
+97:                                               ; preds = %92
+  %98 = load i64, ptr @ZPointerRemappedYoungMask, align 8
+  %99 = and i64 %98, %76
+  %.not8.i.i.i.i18 = icmp eq i64 %99, 0
+  br i1 %.not8.i.i.i.i18, label %102, label %100
 
-117:                                              ; preds = %114
-  %118 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
+100:                                              ; preds = %97
+  %101 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
   br label %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i15
 
-119:                                              ; preds = %114
-  %120 = icmp eq i64 %92, 48
-  br i1 %120, label %121, label %123
+102:                                              ; preds = %97
+  %103 = icmp eq i64 %80, 48
+  br i1 %103, label %104, label %106
 
-121:                                              ; preds = %119
-  %122 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
+104:                                              ; preds = %102
+  %105 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
   br label %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i15
 
-123:                                              ; preds = %119
-  %124 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
-  %125 = load i64, ptr @ZAddressOffsetMask, align 8
-  %126 = and i64 %125, %108
-  %127 = lshr i64 %126, 21
-  %128 = getelementptr inbounds nuw i8, ptr %124, i64 40
-  %129 = load ptr, ptr %128, align 8
-  %130 = getelementptr inbounds nuw ptr, ptr %129, i64 %127
-  %131 = load volatile ptr, ptr %130, align 8
-  %.not.i6.i.i.i19 = icmp eq ptr %131, null
-  %132 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
-  %spec.select.i.i.i.i20 = select i1 %.not.i6.i.i.i19, ptr %132, ptr %124
+106:                                              ; preds = %102
+  %107 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
+  %108 = load i64, ptr @ZAddressOffsetMask, align 8
+  %109 = and i64 %108, %91
+  %110 = lshr i64 %109, 21
+  %111 = getelementptr inbounds nuw i8, ptr %107, i64 40
+  %112 = load ptr, ptr %111, align 8
+  %113 = getelementptr inbounds nuw ptr, ptr %112, i64 %110
+  %114 = load volatile ptr, ptr %113, align 8
+  %.not.i6.i.i.i19 = icmp eq ptr %114, null
+  %115 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
+  %spec.select.i.i.i.i20 = select i1 %.not.i6.i.i.i19, ptr %115, ptr %107
   br label %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i15
 
-_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i15: ; preds = %123, %121, %117, %112
-  %.0.i.i.i.i16 = phi ptr [ %113, %112 ], [ %118, %117 ], [ %122, %121 ], [ %spec.select.i.i.i.i20, %123 ]
-  %133 = tail call noundef i64 @_ZN8ZBarrier17relocate_or_remapE15zaddress_unsafeP11ZGeneration(i64 noundef %108, ptr noundef %.0.i.i.i.i16) #10
+_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i15: ; preds = %106, %104, %100, %95
+  %.0.i.i.i.i16 = phi ptr [ %96, %95 ], [ %101, %100 ], [ %105, %104 ], [ %spec.select.i.i.i.i20, %106 ]
+  %116 = tail call noundef i64 @_ZN8ZBarrier17relocate_or_remapE15zaddress_unsafeP11ZGeneration(i64 noundef %91, ptr noundef %.0.i.i.i.i16) #10
   br label %_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit22
 
-_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit22: ; preds = %100, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i15
-  %.0.i.i17 = phi i64 [ %133, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i15 ], [ %108, %100 ]
-  %134 = inttoptr i64 %.0.i.i17 to ptr
-  %135 = tail call noundef zeroext i1 @_ZN7oopDesc6is_oopEPS_b(ptr noundef %134, i1 noundef zeroext false) #10
-  br i1 %135, label %_ZL24z_verify_root_oop_object8zaddressPv.exit, label %136
+_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit22: ; preds = %88, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i15
+  %.0.i.i17 = phi i64 [ %116, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i15 ], [ %91, %88 ]
+  %117 = inttoptr i64 %.0.i.i17 to ptr
+  %118 = tail call noundef zeroext i1 @_ZN7oopDesc6is_oopEPS_b(ptr noundef %117, i1 noundef zeroext false) #10
+  br i1 %118, label %_ZL24z_verify_root_oop_object8zaddressPv.exit, label %119
 
-136:                                              ; preds = %_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit22
-  %137 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %137, align 1
-  %138 = ptrtoint ptr %1 to i64
-  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 152, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.14, i64 noundef %.0.i.i17, i64 noundef %138) #11
+119:                                              ; preds = %_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit22
+  %120 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %120, align 1
+  %121 = ptrtoint ptr %1 to i64
+  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 152, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.14, i64 noundef %.0.i.i17, i64 noundef %121) #11
   unreachable
 
-_ZL24z_verify_root_oop_object8zaddressPv.exit:    ; preds = %68, %94, %90, %87, %74, %_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit39.i, %84, %_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit22, %_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit, %2
+_ZL24z_verify_root_oop_object8zaddressPv.exit:    ; preds = %56, %82, %78, %75, %62, %_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit39.i, %72, %_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit22, %_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit, %2
   ret void
 }
 
@@ -2515,7 +2491,7 @@ define linkonce_odr hidden void @_ZN20ZVerifyOldOopClosure6do_oopEPP7oopDesc(ptr
   %5 = trunc i8 %4 to i1
   %6 = load i64, ptr %1, align 8
   %7 = icmp ult i64 %6, 65536
-  br i1 %5, label %8, label %137
+  br i1 %5, label %8, label %127
 
 8:                                                ; preds = %2
   br i1 %7, label %_ZL26z_verify_possibly_weak_oopP8zpointer.exit, label %9
@@ -2543,349 +2519,321 @@ define linkonce_odr hidden void @_ZN20ZVerifyOldOopClosure6do_oopEPP7oopDesc(ptr
   %19 = load i64, ptr @ZPointerLoadBadMask, align 8
   %20 = and i64 %19, %6
   %.not.i.i2.i.i = icmp eq i64 %20, 0
-  br i1 %.not.i.i2.i.i, label %21, label %28
+  %21 = lshr i64 %6, 12
+  %22 = and i64 %21, 15
+  %23 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %22
+  %24 = load i32, ptr %23, align 4
+  %25 = zext nneg i32 %24 to i64
+  %26 = lshr i64 %6, %25
+  br i1 %.not.i.i2.i.i, label %_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit.i, label %27
 
-21:                                               ; preds = %18
-  %22 = lshr i64 %6, 12
-  %23 = and i64 %22, 15
-  %24 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %23
-  %25 = load i32, ptr %24, align 4
-  %26 = zext nneg i32 %25 to i64
-  %27 = lshr i64 %6, %26
+27:                                               ; preds = %18
+  %28 = and i64 %6, 61440
+  %29 = load i64, ptr @ZPointerRemappedOldMask, align 8
+  %30 = and i64 %29, %28
+  %.not7.i.i.i.i.i = icmp eq i64 %30, 0
+  br i1 %.not7.i.i.i.i.i, label %33, label %31
+
+31:                                               ; preds = %27
+  %32 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
+  br label %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i.i
+
+33:                                               ; preds = %27
+  %34 = load i64, ptr @ZPointerRemappedYoungMask, align 8
+  %35 = and i64 %34, %28
+  %.not8.i.i.i.i.i = icmp eq i64 %35, 0
+  br i1 %.not8.i.i.i.i.i, label %38, label %36
+
+36:                                               ; preds = %33
+  %37 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
+  br label %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i.i
+
+38:                                               ; preds = %33
+  %39 = and i64 %6, 48
+  %40 = icmp eq i64 %39, 48
+  br i1 %40, label %41, label %43
+
+41:                                               ; preds = %38
+  %42 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
+  br label %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i.i
+
+43:                                               ; preds = %38
+  %44 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
+  %45 = load i64, ptr @ZAddressOffsetMask, align 8
+  %46 = and i64 %45, %26
+  %47 = lshr i64 %46, 21
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 40
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %47
+  %51 = load volatile ptr, ptr %50, align 8
+  %.not.i6.i.i.i.i = icmp eq ptr %51, null
+  %52 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
+  %spec.select.i.i.i.i.i = select i1 %.not.i6.i.i.i.i, ptr %52, ptr %44
+  br label %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i.i
+
+_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i.i: ; preds = %43, %41, %36, %31
+  %.0.i.i.i.i.i = phi ptr [ %32, %31 ], [ %37, %36 ], [ %42, %41 ], [ %spec.select.i.i.i.i.i, %43 ]
+  %53 = tail call noundef i64 @_ZN8ZBarrier17relocate_or_remapE15zaddress_unsafeP11ZGeneration(i64 noundef %26, ptr noundef %.0.i.i.i.i.i) #10
   br label %_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit.i
 
-28:                                               ; preds = %18
-  %29 = and i64 %6, -65521
-  %30 = icmp eq i64 %29, 0
-  br i1 %30, label %_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit.i, label %31
-
-31:                                               ; preds = %28
-  %32 = lshr i64 %6, 12
-  %33 = and i64 %32, 15
-  %34 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %33
-  %35 = load i32, ptr %34, align 4
-  %36 = zext nneg i32 %35 to i64
-  %37 = lshr i64 %6, %36
-  %38 = and i64 %6, 61440
-  %39 = load i64, ptr @ZPointerRemappedOldMask, align 8
-  %40 = and i64 %39, %38
-  %.not7.i.i.i.i.i = icmp eq i64 %40, 0
-  br i1 %.not7.i.i.i.i.i, label %43, label %41
-
-41:                                               ; preds = %31
-  %42 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
-  br label %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i.i
-
-43:                                               ; preds = %31
-  %44 = load i64, ptr @ZPointerRemappedYoungMask, align 8
-  %45 = and i64 %44, %38
-  %.not8.i.i.i.i.i = icmp eq i64 %45, 0
-  br i1 %.not8.i.i.i.i.i, label %48, label %46
-
-46:                                               ; preds = %43
-  %47 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
-  br label %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i.i
-
-48:                                               ; preds = %43
-  %49 = and i64 %6, 48
-  %50 = icmp eq i64 %49, 48
-  br i1 %50, label %51, label %53
-
-51:                                               ; preds = %48
-  %52 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
-  br label %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i.i
-
-53:                                               ; preds = %48
-  %54 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
+_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit.i: ; preds = %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i.i, %18
+  %.0.i.i.i = phi i64 [ %53, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i.i ], [ %26, %18 ]
+  %54 = load ptr, ptr @_ZN5ZHeap5_heapE, align 8
   %55 = load i64, ptr @ZAddressOffsetMask, align 8
-  %56 = and i64 %55, %37
+  %56 = and i64 %55, %.0.i.i.i
   %57 = lshr i64 %56, 21
-  %58 = getelementptr inbounds nuw i8, ptr %54, i64 40
+  %58 = getelementptr inbounds nuw i8, ptr %54, i64 624
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw ptr, ptr %59, i64 %57
   %61 = load volatile ptr, ptr %60, align 8
-  %.not.i6.i.i.i.i = icmp eq ptr %61, null
-  %62 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
-  %spec.select.i.i.i.i.i = select i1 %.not.i6.i.i.i.i, ptr %62, ptr %54
-  br label %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i.i
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 1
+  %63 = load i8, ptr %62, align 1
+  %.not29.i = icmp eq i8 %63, 0
+  br i1 %.not29.i, label %64, label %70
 
-_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i.i: ; preds = %53, %51, %46, %41
-  %.0.i.i.i.i.i = phi ptr [ %42, %41 ], [ %47, %46 ], [ %52, %51 ], [ %spec.select.i.i.i.i.i, %53 ]
-  %63 = tail call noundef i64 @_ZN8ZBarrier17relocate_or_remapE15zaddress_unsafeP11ZGeneration(i64 noundef %37, ptr noundef %.0.i.i.i.i.i) #10
-  br label %_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit.i
+64:                                               ; preds = %_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit.i
+  %65 = load i64, ptr @ZPointerMarkedYoung, align 8
+  %66 = and i64 %65, %6
+  %.not30.i = icmp eq i64 %66, 0
+  br i1 %.not30.i, label %67, label %70
 
-_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit.i: ; preds = %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i.i, %28, %21
-  %.0.i.i.i = phi i64 [ %27, %21 ], [ %63, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i.i ], [ 0, %28 ]
-  %64 = load ptr, ptr @_ZN5ZHeap5_heapE, align 8
-  %65 = load i64, ptr @ZAddressOffsetMask, align 8
-  %66 = and i64 %65, %.0.i.i.i
-  %67 = lshr i64 %66, 21
-  %68 = getelementptr inbounds nuw i8, ptr %64, i64 624
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %67
-  %71 = load volatile ptr, ptr %70, align 8
+67:                                               ; preds = %64
+  %68 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %68, align 1
+  %69 = ptrtoint ptr %1 to i64
+  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 169, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.14, i64 noundef %6, i64 noundef %69) #11
+  unreachable
+
+70:                                               ; preds = %64, %_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit.i
+  %71 = load volatile ptr, ptr %60, align 8
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 1
   %73 = load i8, ptr %72, align 1
-  %.not29.i = icmp eq i8 %73, 0
-  br i1 %.not29.i, label %74, label %80
+  %74 = icmp eq i8 %73, 0
+  br i1 %74, label %81, label %75
 
-74:                                               ; preds = %_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit.i
-  %75 = load i64, ptr @ZPointerMarkedYoung, align 8
-  %76 = and i64 %75, %6
-  %.not30.i = icmp eq i64 %76, 0
-  br i1 %.not30.i, label %77, label %80
+75:                                               ; preds = %70
+  %76 = load volatile ptr, ptr %60, align 8
+  %77 = tail call noundef zeroext i1 @_ZNK5ZPage14is_object_liveE8zaddress(ptr noundef nonnull align 8 dereferenceable(192) %76, i64 noundef %.0.i.i.i)
+  br i1 %77, label %81, label %78
 
-77:                                               ; preds = %74
-  %78 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %78, align 1
-  %79 = ptrtoint ptr %1 to i64
-  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 169, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.14, i64 noundef %6, i64 noundef %79) #11
+78:                                               ; preds = %75
+  %79 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %79, align 1
+  %80 = ptrtoint ptr %1 to i64
+  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 170, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.14, i64 noundef %6, i64 noundef %80) #11
   unreachable
 
-80:                                               ; preds = %74, %_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit.i
-  %81 = load volatile ptr, ptr %70, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 1
-  %83 = load i8, ptr %82, align 1
-  %84 = icmp eq i8 %83, 0
-  br i1 %84, label %91, label %85
+81:                                               ; preds = %75, %70
+  %82 = inttoptr i64 %.0.i.i.i to ptr
+  %83 = tail call noundef zeroext i1 @_ZN7oopDesc6is_oopEPS_b(ptr noundef %82, i1 noundef zeroext false) #10
+  br i1 %83, label %87, label %84
 
-85:                                               ; preds = %80
-  %86 = load volatile ptr, ptr %70, align 8
-  %87 = tail call noundef zeroext i1 @_ZNK5ZPage14is_object_liveE8zaddress(ptr noundef nonnull align 8 dereferenceable(192) %86, i64 noundef %.0.i.i.i)
-  br i1 %87, label %91, label %88
-
-88:                                               ; preds = %85
-  %89 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %89, align 1
-  %90 = ptrtoint ptr %1 to i64
-  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 170, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.14, i64 noundef %6, i64 noundef %90) #11
+84:                                               ; preds = %81
+  %85 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %85, align 1
+  %86 = ptrtoint ptr %1 to i64
+  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 171, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.14, i64 noundef %6, i64 noundef %86) #11
   unreachable
 
-91:                                               ; preds = %85, %80
-  %92 = inttoptr i64 %.0.i.i.i to ptr
-  %93 = tail call noundef zeroext i1 @_ZN7oopDesc6is_oopEPS_b(ptr noundef %92, i1 noundef zeroext false) #10
-  br i1 %93, label %97, label %94
+87:                                               ; preds = %81
+  %88 = and i64 %6, 48
+  %89 = load i64, ptr @ZPointerRemembered, align 8
+  %90 = xor i64 %89, %88
+  %.not.i = icmp eq i64 %90, 48
+  br i1 %.not.i, label %91, label %94
 
-94:                                               ; preds = %91
-  %95 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %95, align 1
-  %96 = ptrtoint ptr %1 to i64
-  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 171, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.14, i64 noundef %6, i64 noundef %96) #11
+91:                                               ; preds = %87
+  %92 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %92, align 1
+  %93 = ptrtoint ptr %1 to i64
+  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 178, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.14, i64 noundef %6, i64 noundef %93) #11
   unreachable
 
-97:                                               ; preds = %91
-  %98 = and i64 %6, 48
-  %99 = load i64, ptr @ZPointerRemembered, align 8
-  %100 = xor i64 %99, %98
-  %.not.i = icmp eq i64 %100, 48
-  br i1 %.not.i, label %101, label %104
+94:                                               ; preds = %87
+  %95 = icmp eq i64 %88, 48
+  br i1 %95, label %_ZL26z_verify_possibly_weak_oopP8zpointer.exit, label %96
 
-101:                                              ; preds = %97
-  %102 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %102, align 1
-  %103 = ptrtoint ptr %1 to i64
-  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 178, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.14, i64 noundef %6, i64 noundef %103) #11
-  unreachable
-
-104:                                              ; preds = %97
-  %105 = icmp eq i64 %98, 48
-  br i1 %105, label %_ZL26z_verify_possibly_weak_oopP8zpointer.exit, label %106
-
-106:                                              ; preds = %104
-  %107 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 6600
-  %109 = load ptr, ptr %108, align 8
-  %110 = ptrtoint ptr %1 to i64
-  %111 = load i64, ptr @ZAddressOffsetMask, align 8
-  %112 = and i64 %111, %110
-  %113 = lshr i64 %112, 21
-  %114 = getelementptr inbounds nuw i8, ptr %109, i64 8
-  %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds nuw ptr, ptr %115, i64 %113
-  %117 = load volatile ptr, ptr %116, align 8
-  %118 = getelementptr inbounds nuw i8, ptr %117, i64 16
+96:                                               ; preds = %94
+  %97 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 6600
+  %99 = load ptr, ptr %98, align 8
+  %100 = ptrtoint ptr %1 to i64
+  %101 = load i64, ptr @ZAddressOffsetMask, align 8
+  %102 = and i64 %101, %100
+  %103 = lshr i64 %102, 21
+  %104 = getelementptr inbounds nuw i8, ptr %99, i64 8
+  %105 = load ptr, ptr %104, align 8
+  %106 = getelementptr inbounds nuw ptr, ptr %105, i64 %103
+  %107 = load volatile ptr, ptr %106, align 8
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 16
+  %109 = load i64, ptr %108, align 8
+  %110 = sub i64 %102, %109
+  %111 = getelementptr inbounds nuw i8, ptr %107, i64 104
+  %112 = lshr i64 %110, 3
+  %113 = load i32, ptr @_ZN14ZRememberedSet8_currentE, align 4
+  %114 = sext i32 %113 to i64
+  %115 = getelementptr inbounds [2 x %class.ZMovableBitMap], ptr %111, i64 0, i64 %114
+  %116 = load ptr, ptr %115, align 8
+  %117 = lshr i64 %110, 9
+  %118 = getelementptr inbounds nuw i64, ptr %116, i64 %117
   %119 = load i64, ptr %118, align 8
-  %120 = sub i64 %112, %119
-  %121 = getelementptr inbounds nuw i8, ptr %117, i64 104
-  %122 = lshr i64 %120, 3
-  %123 = load i32, ptr @_ZN14ZRememberedSet8_currentE, align 4
-  %124 = sext i32 %123 to i64
-  %125 = getelementptr inbounds [2 x %class.ZMovableBitMap], ptr %121, i64 0, i64 %124
-  %126 = load ptr, ptr %125, align 8
-  %127 = lshr i64 %120, 9
-  %128 = getelementptr inbounds nuw i64, ptr %126, i64 %127
-  %129 = load i64, ptr %128, align 8
-  %130 = and i64 %122, 63
-  %131 = shl nuw i64 1, %130
-  %132 = and i64 %131, %129
-  %.not31.i = icmp eq i64 %132, 0
-  br i1 %.not31.i, label %133, label %_ZL26z_verify_possibly_weak_oopP8zpointer.exit
+  %120 = and i64 %112, 63
+  %121 = shl nuw i64 1, %120
+  %122 = and i64 %121, %119
+  %.not31.i = icmp eq i64 %122, 0
+  br i1 %.not31.i, label %123, label %_ZL26z_verify_possibly_weak_oopP8zpointer.exit
 
-133:                                              ; preds = %106
-  %134 = tail call noundef zeroext i1 @_ZN19ZStoreBarrierBuffer5is_inEPV8zpointer(ptr noundef nonnull %1) #10
-  br i1 %134, label %_ZL26z_verify_possibly_weak_oopP8zpointer.exit, label %135
+123:                                              ; preds = %96
+  %124 = tail call noundef zeroext i1 @_ZN19ZStoreBarrierBuffer5is_inEPV8zpointer(ptr noundef nonnull %1) #10
+  br i1 %124, label %_ZL26z_verify_possibly_weak_oopP8zpointer.exit, label %125
 
-135:                                              ; preds = %133
-  %136 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %136, align 1
-  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 181, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.14, i64 noundef %6, i64 noundef %110) #11
+125:                                              ; preds = %123
+  %126 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %126, align 1
+  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 181, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.14, i64 noundef %6, i64 noundef %100) #11
   unreachable
 
-137:                                              ; preds = %2
-  br i1 %7, label %_ZL26z_verify_possibly_weak_oopP8zpointer.exit, label %138
+127:                                              ; preds = %2
+  br i1 %7, label %_ZL26z_verify_possibly_weak_oopP8zpointer.exit, label %128
 
-138:                                              ; preds = %137
-  %139 = load i64, ptr @ZPointerMarkBadMask, align 8
-  %140 = and i64 %139, %6
-  %.not.i.i = icmp eq i64 %140, 0
-  br i1 %.not.i.i, label %141, label %153
+128:                                              ; preds = %127
+  %129 = load i64, ptr @ZPointerMarkBadMask, align 8
+  %130 = and i64 %129, %6
+  %.not.i.i = icmp eq i64 %130, 0
+  br i1 %.not.i.i, label %131, label %143
 
-141:                                              ; preds = %138
-  %142 = lshr i64 %6, 12
-  %143 = and i64 %142, 15
-  %144 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %143
-  %145 = load i32, ptr %144, align 4
-  %146 = zext nneg i32 %145 to i64
-  %147 = lshr i64 %6, %146
-  %148 = inttoptr i64 %147 to ptr
-  %149 = tail call noundef zeroext i1 @_ZN7oopDesc6is_oopEPS_b(ptr noundef %148, i1 noundef zeroext false) #10
-  br i1 %149, label %_ZL26z_verify_possibly_weak_oopP8zpointer.exit, label %150
+131:                                              ; preds = %128
+  %132 = lshr i64 %6, 12
+  %133 = and i64 %132, 15
+  %134 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %133
+  %135 = load i32, ptr %134, align 4
+  %136 = zext nneg i32 %135 to i64
+  %137 = lshr i64 %6, %136
+  %138 = inttoptr i64 %137 to ptr
+  %139 = tail call noundef zeroext i1 @_ZN7oopDesc6is_oopEPS_b(ptr noundef %138, i1 noundef zeroext false) #10
+  br i1 %139, label %_ZL26z_verify_possibly_weak_oopP8zpointer.exit, label %140
 
-150:                                              ; preds = %141
-  %151 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %151, align 1
-  %152 = ptrtoint ptr %1 to i64
-  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 124, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.14, i64 noundef %6, i64 noundef %152) #11
+140:                                              ; preds = %131
+  %141 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %141, align 1
+  %142 = ptrtoint ptr %1 to i64
+  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 124, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.14, i64 noundef %6, i64 noundef %142) #11
   unreachable
 
-153:                                              ; preds = %138
-  %154 = load i64, ptr @ZPointerLoadBadMask, align 8
-  %155 = and i64 %154, %6
-  %.not.i.i2.i.i4 = icmp eq i64 %155, 0
-  br i1 %.not.i.i2.i.i4, label %156, label %163
+143:                                              ; preds = %128
+  %144 = load i64, ptr @ZPointerLoadBadMask, align 8
+  %145 = and i64 %144, %6
+  %.not.i.i2.i.i4 = icmp eq i64 %145, 0
+  %146 = lshr i64 %6, 12
+  %147 = and i64 %146, 15
+  %148 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %147
+  %149 = load i32, ptr %148, align 4
+  %150 = zext nneg i32 %149 to i64
+  %151 = lshr i64 %6, %150
+  br i1 %.not.i.i2.i.i4, label %_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit.i8, label %152
 
-156:                                              ; preds = %153
-  %157 = lshr i64 %6, 12
-  %158 = and i64 %157, 15
-  %159 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %158
-  %160 = load i32, ptr %159, align 4
-  %161 = zext nneg i32 %160 to i64
-  %162 = lshr i64 %6, %161
-  br label %_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit.i8
+152:                                              ; preds = %143
+  %153 = and i64 %6, 61440
+  %154 = load i64, ptr @ZPointerRemappedOldMask, align 8
+  %155 = and i64 %154, %153
+  %.not7.i.i.i.i.i5 = icmp eq i64 %155, 0
+  br i1 %.not7.i.i.i.i.i5, label %158, label %156
 
-163:                                              ; preds = %153
-  %164 = and i64 %6, -65521
-  %165 = icmp eq i64 %164, 0
-  br i1 %165, label %_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit.i8, label %166
+156:                                              ; preds = %152
+  %157 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
+  br label %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i.i6
+
+158:                                              ; preds = %152
+  %159 = load i64, ptr @ZPointerRemappedYoungMask, align 8
+  %160 = and i64 %159, %153
+  %.not8.i.i.i.i.i11 = icmp eq i64 %160, 0
+  br i1 %.not8.i.i.i.i.i11, label %163, label %161
+
+161:                                              ; preds = %158
+  %162 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
+  br label %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i.i6
+
+163:                                              ; preds = %158
+  %164 = and i64 %6, 48
+  %165 = icmp eq i64 %164, 48
+  br i1 %165, label %166, label %168
 
 166:                                              ; preds = %163
-  %167 = lshr i64 %6, 12
-  %168 = and i64 %167, 15
-  %169 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %168
-  %170 = load i32, ptr %169, align 4
-  %171 = zext nneg i32 %170 to i64
-  %172 = lshr i64 %6, %171
-  %173 = and i64 %6, 61440
-  %174 = load i64, ptr @ZPointerRemappedOldMask, align 8
-  %175 = and i64 %174, %173
-  %.not7.i.i.i.i.i5 = icmp eq i64 %175, 0
-  br i1 %.not7.i.i.i.i.i5, label %178, label %176
-
-176:                                              ; preds = %166
-  %177 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
+  %167 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
   br label %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i.i6
 
-178:                                              ; preds = %166
-  %179 = load i64, ptr @ZPointerRemappedYoungMask, align 8
-  %180 = and i64 %179, %173
-  %.not8.i.i.i.i.i11 = icmp eq i64 %180, 0
-  br i1 %.not8.i.i.i.i.i11, label %183, label %181
-
-181:                                              ; preds = %178
-  %182 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
+168:                                              ; preds = %163
+  %169 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
+  %170 = load i64, ptr @ZAddressOffsetMask, align 8
+  %171 = and i64 %170, %151
+  %172 = lshr i64 %171, 21
+  %173 = getelementptr inbounds nuw i8, ptr %169, i64 40
+  %174 = load ptr, ptr %173, align 8
+  %175 = getelementptr inbounds nuw ptr, ptr %174, i64 %172
+  %176 = load volatile ptr, ptr %175, align 8
+  %.not.i6.i.i.i.i12 = icmp eq ptr %176, null
+  %177 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
+  %spec.select.i.i.i.i.i13 = select i1 %.not.i6.i.i.i.i12, ptr %177, ptr %169
   br label %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i.i6
 
-183:                                              ; preds = %178
-  %184 = and i64 %6, 48
-  %185 = icmp eq i64 %184, 48
-  br i1 %185, label %186, label %188
-
-186:                                              ; preds = %183
-  %187 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
-  br label %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i.i6
-
-188:                                              ; preds = %183
-  %189 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
-  %190 = load i64, ptr @ZAddressOffsetMask, align 8
-  %191 = and i64 %190, %172
-  %192 = lshr i64 %191, 21
-  %193 = getelementptr inbounds nuw i8, ptr %189, i64 40
-  %194 = load ptr, ptr %193, align 8
-  %195 = getelementptr inbounds nuw ptr, ptr %194, i64 %192
-  %196 = load volatile ptr, ptr %195, align 8
-  %.not.i6.i.i.i.i12 = icmp eq ptr %196, null
-  %197 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
-  %spec.select.i.i.i.i.i13 = select i1 %.not.i6.i.i.i.i12, ptr %197, ptr %189
-  br label %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i.i6
-
-_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i.i6: ; preds = %188, %186, %181, %176
-  %.0.i.i.i.i.i7 = phi ptr [ %177, %176 ], [ %182, %181 ], [ %187, %186 ], [ %spec.select.i.i.i.i.i13, %188 ]
-  %198 = tail call noundef i64 @_ZN8ZBarrier17relocate_or_remapE15zaddress_unsafeP11ZGeneration(i64 noundef %172, ptr noundef %.0.i.i.i.i.i7) #10
+_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i.i6: ; preds = %168, %166, %161, %156
+  %.0.i.i.i.i.i7 = phi ptr [ %157, %156 ], [ %162, %161 ], [ %167, %166 ], [ %spec.select.i.i.i.i.i13, %168 ]
+  %178 = tail call noundef i64 @_ZN8ZBarrier17relocate_or_remapE15zaddress_unsafeP11ZGeneration(i64 noundef %151, ptr noundef %.0.i.i.i.i.i7) #10
   br label %_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit.i8
 
-_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit.i8: ; preds = %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i.i6, %163, %156
-  %.0.i.i.i9 = phi i64 [ %162, %156 ], [ %198, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i.i6 ], [ 0, %163 ]
-  %199 = load ptr, ptr @_ZN5ZHeap5_heapE, align 8
-  %200 = load i64, ptr @ZAddressOffsetMask, align 8
-  %201 = and i64 %200, %.0.i.i.i9
-  %202 = lshr i64 %201, 21
-  %203 = getelementptr inbounds nuw i8, ptr %199, i64 624
-  %204 = load ptr, ptr %203, align 8
-  %205 = getelementptr inbounds nuw ptr, ptr %204, i64 %202
-  %206 = load volatile ptr, ptr %205, align 8
-  %207 = getelementptr inbounds nuw i8, ptr %206, i64 1
-  %208 = load i8, ptr %207, align 1
-  %.not.i10 = icmp eq i8 %208, 0
-  br i1 %.not.i10, label %209, label %214
+_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit.i8: ; preds = %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i.i6, %143
+  %.0.i.i.i9 = phi i64 [ %178, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i.i6 ], [ %151, %143 ]
+  %179 = load ptr, ptr @_ZN5ZHeap5_heapE, align 8
+  %180 = load i64, ptr @ZAddressOffsetMask, align 8
+  %181 = and i64 %180, %.0.i.i.i9
+  %182 = lshr i64 %181, 21
+  %183 = getelementptr inbounds nuw i8, ptr %179, i64 624
+  %184 = load ptr, ptr %183, align 8
+  %185 = getelementptr inbounds nuw ptr, ptr %184, i64 %182
+  %186 = load volatile ptr, ptr %185, align 8
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 1
+  %188 = load i8, ptr %187, align 1
+  %.not.i10 = icmp eq i8 %188, 0
+  br i1 %.not.i10, label %189, label %194
 
-209:                                              ; preds = %_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit.i8
-  %210 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
-  %211 = getelementptr inbounds nuw i8, ptr %210, i64 3216
-  %212 = load i32, ptr %211, align 16
-  %213 = icmp eq i32 %212, 0
-  br i1 %213, label %_ZL26z_verify_possibly_weak_oopP8zpointer.exit, label %214
+189:                                              ; preds = %_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit.i8
+  %190 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 3216
+  %192 = load i32, ptr %191, align 16
+  %193 = icmp eq i32 %192, 0
+  br i1 %193, label %_ZL26z_verify_possibly_weak_oopP8zpointer.exit, label %194
 
-214:                                              ; preds = %209, %_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit.i8
-  %215 = load i64, ptr @ZPointerMarkedOld, align 8
-  %216 = and i64 %215, %6
-  %.not14.i = icmp eq i64 %216, 0
-  br i1 %.not14.i, label %217, label %220
+194:                                              ; preds = %189, %_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit.i8
+  %195 = load i64, ptr @ZPointerMarkedOld, align 8
+  %196 = and i64 %195, %6
+  %.not14.i = icmp eq i64 %196, 0
+  br i1 %.not14.i, label %197, label %200
 
-217:                                              ; preds = %214
-  %218 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %218, align 1
-  %219 = ptrtoint ptr %1 to i64
-  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 132, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i64 noundef %6, i64 noundef %219) #11
+197:                                              ; preds = %194
+  %198 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %198, align 1
+  %199 = ptrtoint ptr %1 to i64
+  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 132, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i64 noundef %6, i64 noundef %199) #11
   unreachable
 
-220:                                              ; preds = %214
-  %221 = ptrtoint ptr %1 to i64
-  %222 = and i64 %200, %221
-  %223 = lshr i64 %222, 21
-  %224 = getelementptr inbounds nuw ptr, ptr %204, i64 %223
-  %225 = load volatile ptr, ptr %224, align 8
-  %226 = getelementptr inbounds nuw i8, ptr %225, i64 1
-  %227 = load i8, ptr %226, align 1
-  %.not15.i = icmp eq i8 %227, 0
-  br i1 %.not15.i, label %228, label %_ZL26z_verify_possibly_weak_oopP8zpointer.exit
+200:                                              ; preds = %194
+  %201 = ptrtoint ptr %1 to i64
+  %202 = and i64 %180, %201
+  %203 = lshr i64 %202, 21
+  %204 = getelementptr inbounds nuw ptr, ptr %184, i64 %203
+  %205 = load volatile ptr, ptr %204, align 8
+  %206 = getelementptr inbounds nuw i8, ptr %205, i64 1
+  %207 = load i8, ptr %206, align 1
+  %.not15.i = icmp eq i8 %207, 0
+  br i1 %.not15.i, label %208, label %_ZL26z_verify_possibly_weak_oopP8zpointer.exit
 
-228:                                              ; preds = %220
-  %229 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %229, align 1
-  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 133, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.14, i64 noundef %6, i64 noundef %221) #11
+208:                                              ; preds = %200
+  %209 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %209, align 1
+  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 133, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.14, i64 noundef %6, i64 noundef %201) #11
   unreachable
 
-_ZL26z_verify_possibly_weak_oopP8zpointer.exit:   ; preds = %220, %209, %141, %137, %133, %106, %104, %8
+_ZL26z_verify_possibly_weak_oopP8zpointer.exit:   ; preds = %200, %189, %131, %127, %123, %96, %94, %8
   ret void
 }
 

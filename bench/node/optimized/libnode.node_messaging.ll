@@ -12209,7 +12209,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal range(i16 1, 512) i16 @_ZN4node6worker12_GLOBAL__N_118SerializerDelegate12IsHostObjectEPN2v87IsolateENS3_5LocalINS3_6ObjectEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this, ptr nocapture readnone %isolate, ptr nonnull %object.coerce) unnamed_addr #6 align 2 {
+define internal range(i16 1, 258) i16 @_ZN4node6worker12_GLOBAL__N_118SerializerDelegate12IsHostObjectEPN2v87IsolateENS3_5LocalINS3_6ObjectEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this, ptr nocapture readnone %isolate, ptr nonnull %object.coerce) unnamed_addr #6 align 2 {
 entry:
   %env_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %env_, align 8
@@ -12607,7 +12607,7 @@ return:                                           ; preds = %if.then.i14, %_ZN4n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal range(i64 1, 0) i64 @_ZN4node6worker12_GLOBAL__N_118SerializerDelegate22GetSharedArrayBufferIdEPN2v87IsolateENS3_5LocalINS3_17SharedArrayBufferEEE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef %isolate, ptr %shared_array_buffer.coerce) unnamed_addr #6 align 2 {
+define internal range(i64 1, -4294967294) i64 @_ZN4node6worker12_GLOBAL__N_118SerializerDelegate22GetSharedArrayBufferIdEPN2v87IsolateENS3_5LocalINS3_17SharedArrayBufferEEE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef %isolate, ptr %shared_array_buffer.coerce) unnamed_addr #6 align 2 {
 entry:
   %ref.tmp14 = alloca %"class.v8::Global.500", align 8
   %agg.tmp19 = alloca %"class.std::shared_ptr.307", align 8
@@ -12831,7 +12831,7 @@ return:                                           ; preds = %if.end.i, %for.body
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal range(i64 -4294967295, -8589934590) i64 @_ZN4node6worker12_GLOBAL__N_118SerializerDelegate23GetWasmModuleTransferIdEPN2v87IsolateENS3_5LocalINS3_16WasmModuleObjectEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this, ptr nocapture readnone %isolate, ptr nonnull %module.coerce) unnamed_addr #6 align 2 {
+define internal range(i64 1, -4294967294) i64 @_ZN4node6worker12_GLOBAL__N_118SerializerDelegate23GetWasmModuleTransferIdEPN2v87IsolateENS3_5LocalINS3_16WasmModuleObjectEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this, ptr nocapture readnone %isolate, ptr nonnull %module.coerce) unnamed_addr #6 align 2 {
 entry:
   %ref.tmp4 = alloca %"class.v8::CompiledWasmModule", align 8
   %msg_ = getelementptr inbounds nuw i8, ptr %this, i64 32

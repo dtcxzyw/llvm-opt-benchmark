@@ -120662,7 +120662,7 @@ define void @_ZN6hir_ty6layout3adt21layout_of_adt_recover17h23d144d6aad47825E(pt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden range(i16 0, 1024) i16 @_ZN6hir_ty6layout3adt10repr_discr17hea56d90adc32b262E(ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1, i128 noundef %2, i128 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden range(i16 0, 528) i16 @_ZN6hir_ty6layout3adt10repr_discr17hea56d90adc32b262E(ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1, i128 noundef %2, i128 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [1 x { ptr, ptr }], align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = alloca i64, align 8

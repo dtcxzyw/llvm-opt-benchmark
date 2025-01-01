@@ -3714,7 +3714,7 @@ _ZN4llvm22VarStreamArrayIteratorINS_8codeview8CVRecordINS1_12TypeLeafKindEEENS_2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i40 4096, 8589934592) i40 @_ZN4llvm8codeview24LazyRandomTypeCollection8getFirstEv(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #0 align 2 {
+define dso_local range(i40 4096, 4294975488) i40 @_ZN4llvm8codeview24LazyRandomTypeCollection8getFirstEv(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.llvm::Error", align 8
   %3 = alloca %"class.llvm::Error", align 8
   %4 = alloca %class.anon.24, align 1

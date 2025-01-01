@@ -299,7 +299,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %retval.sroa.0.0.extract.trunc.i109 = add i64 %retval.sroa.0.0.extract.trunc.i91, -1
-  %a.sroa.0.0.insert.insert.i117 = add i128 %a.sroa.0.0.insert.insert.i103, %1
+  %a.sroa.0.0.insert.insert.i117 = add nuw i128 %a.sroa.0.0.insert.insert.i103, %1
   %retval.sroa.0.0.extract.trunc.i118 = trunc i128 %a.sroa.0.0.insert.insert.i117 to i64
   %3 = lshr i128 %a.sroa.0.0.insert.insert.i117, 64
   %.tr.i119 = trunc nuw i128 %3 to i64
@@ -356,7 +356,7 @@ if.then95:                                        ; preds = %if.end64
   %retval.sroa.0.0.extract.trunc.i221 = trunc i128 %a.sroa.0.0.insert.insert.i220 to i64
   %8 = lshr i128 %a.sroa.0.0.insert.insert.i220, 64
   %.tr.i222 = trunc nuw i128 %8 to i64
-  %a.sroa.0.0.insert.insert.i231 = add i128 %a.sroa.0.0.insert.insert.i210, %1
+  %a.sroa.0.0.insert.insert.i231 = add nuw i128 %a.sroa.0.0.insert.insert.i210, %1
   %retval.sroa.0.0.extract.trunc.i232 = trunc i128 %a.sroa.0.0.insert.insert.i231 to i64
   %9 = lshr i128 %a.sroa.0.0.insert.insert.i231, 64
   %.tr.i233 = trunc nuw i128 %9 to i64

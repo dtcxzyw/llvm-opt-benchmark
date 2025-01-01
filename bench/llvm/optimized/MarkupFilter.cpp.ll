@@ -5924,7 +5924,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %_ZNK4llvm9StringRef
 declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i64 0, 8589934592) i64 @_ZNK4llvm9symbolize12MarkupFilter11parsePCTypeENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr %1, i64 %2) local_unnamed_addr #0 align 2 {
+define dso_local range(i64 0, 4294967298) i64 @_ZNK4llvm9symbolize12MarkupFilter11parsePCTypeENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr %1, i64 %2) local_unnamed_addr #0 align 2 {
   %.not.i.i = icmp eq i64 %2, 2
   br i1 %.not.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, label %_ZN4llvm12StringSwitchISt8optionalINS_9symbolize12MarkupFilter6PCTypeEES5_E4CaseENS_13StringLiteralES5_.exit12.thread
 

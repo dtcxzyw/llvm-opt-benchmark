@@ -5956,7 +5956,7 @@ _ZN4llvm6MDNode9storeImplINS_11DIBasicTypeENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i64 0, 8589934592) i64 @_ZNK4llvm11DIBasicType13getSignednessEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0) local_unnamed_addr #2 align 2 {
+define dso_local range(i64 0, 4294967298) i64 @_ZNK4llvm11DIBasicType13getSignednessEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %switch.tableidx = add i32 %3, -5
@@ -14755,7 +14755,7 @@ _ZN4llvm12DIExpression16expr_op_iteratorppEv.exit: ; preds = %11, %13, %13, %13,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i64 0, 8589934592) i64 @_ZNK4llvm12DIExpression10isConstantEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #10 align 2 {
+define dso_local range(i64 0, 4294967298) i64 @_ZNK4llvm12DIExpression10isConstantEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8

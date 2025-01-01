@@ -845,7 +845,7 @@ define dso_local noundef i32 @pmd_free_pte_page(ptr noundef %0, i64 noundef %1) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local range(i64 2, 0) i64 @pte_mkwrite(i64 %0, ptr nocapture noundef readnone %1) local_unnamed_addr #7 align 16 {
+define dso_local range(i64 2, -288230376151711744) i64 @pte_mkwrite(i64 %0, ptr nocapture noundef readnone %1) local_unnamed_addr #7 align 16 {
   %3 = lshr i64 %0, 52
   %4 = and i64 %3, 64
   %5 = and i64 %0, -288230376151711747
@@ -855,7 +855,7 @@ define dso_local range(i64 2, 0) i64 @pte_mkwrite(i64 %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local range(i64 2, 0) i64 @pmd_mkwrite(i64 %0, ptr nocapture noundef readnone %1) local_unnamed_addr #7 align 16 {
+define dso_local range(i64 2, -288230376151711744) i64 @pmd_mkwrite(i64 %0, ptr nocapture noundef readnone %1) local_unnamed_addr #7 align 16 {
   %3 = lshr i64 %0, 52
   %4 = and i64 %3, 64
   %5 = and i64 %0, -288230376151711747

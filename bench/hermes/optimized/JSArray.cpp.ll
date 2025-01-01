@@ -150,7 +150,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 131072) i32 @_ZN6hermes2vm9ArrayImpl31_getOwnIndexedPropertyFlagsImplEPNS0_8JSObjectERNS0_7RuntimeEj(ptr nocapture noundef readonly %selfObj, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %index) #2 align 2 {
+define hidden range(i32 0, 65552) i32 @_ZN6hermes2vm9ArrayImpl31_getOwnIndexedPropertyFlagsImplEPNS0_8JSObjectERNS0_7RuntimeEj(ptr nocapture noundef readonly %selfObj, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %index) #2 align 2 {
 entry:
   %beginIndex_ = getelementptr inbounds nuw i8, ptr %selfObj, i64 20
   %0 = load i32, ptr %beginIndex_, align 4

@@ -469,7 +469,7 @@ lor.lhs.false.i.i.i.us.us:                        ; preds = %if.end47.i.i.i.us.u
   br i1 %or.cond.i.i.i.us.us, label %float_to_half_int.exit.us.us, label %if.then65.i.i.i.us.us
 
 if.then65.i.i.i.us.us:                            ; preds = %lor.lhs.false.i.i.i.us.us, %if.end47.i.i.i.us.us
-  %inc.i.i.i.us.us = add i16 %conv56.i.i.i.us.us, 1
+  %inc.i.i.i.us.us = add nuw i16 %conv56.i.i.i.us.us, 1
   br label %float_to_half_int.exit.us.us
 
 if.then.i.i.i106.us.us:                           ; preds = %for.body97.us.us
@@ -1046,7 +1046,7 @@ lor.lhs.false.i.i.i.us.us:                        ; preds = %if.end47.i.i.i.us.u
   br i1 %or.cond.i.i.i.us.us, label %float_to_half_int.exit.us.us, label %if.then65.i.i.i.us.us
 
 if.then65.i.i.i.us.us:                            ; preds = %lor.lhs.false.i.i.i.us.us, %if.end47.i.i.i.us.us
-  %inc.i.i.i.us.us = add i16 %conv56.i.i.i.us.us, 1
+  %inc.i.i.i.us.us = add nuw i16 %conv56.i.i.i.us.us, 1
   br label %float_to_half_int.exit.us.us
 
 if.then.i.i.i107.us.us:                           ; preds = %for.body101.us.us
@@ -2615,7 +2615,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end47.i.i.i
   br i1 %or.cond.i.i.i, label %float_to_half_int.exit, label %if.then65.i.i.i
 
 if.then65.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end47.i.i.i
-  %inc.i.i.i = add i16 %conv56.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv56.i.i.i, 1
   br label %float_to_half_int.exit
 
 float_to_half_int.exit:                           ; preds = %if.then6.i.i.i, %if.end.i.i.i, %if.then29.i.i.i, %if.end33.i.i.i, %if.end43.i.i.i, %lor.lhs.false.i.i.i, %if.then65.i.i.i

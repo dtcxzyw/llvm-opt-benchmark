@@ -12990,7 +12990,7 @@ ZSTD_cwksp_reserve_table.exit98:                  ; preds = %122, %143, %145
   %147 = getelementptr i8, ptr %1, i64 56
   %.val = load i8, ptr %147, align 8
   %.not76 = icmp eq i8 %.val, 0
-  br i1 %.not76, label %148, label %486
+  br i1 %.not76, label %148, label %482
 
 148:                                              ; preds = %ZSTD_cwksp_reserve_table.exit98
   %.not77.not = icmp eq i32 %4, 0
@@ -13028,17 +13028,21 @@ ZSTD_cwksp_clean_tables.exit:                     ; preds = %162, %158, %148
   %165 = icmp ult i32 %164, -3
   %166 = icmp ne i32 %3, 1
   %.not150 = or i1 %166, %165
-  br i1 %.not150, label %281, label %167
+  br i1 %.not150, label %277, label %167
 
 167:                                              ; preds = %ZSTD_cwksp_clean_tables.exit
   %168 = add nuw i64 %26, 63
   %169 = and i64 %168, -64
   %170 = load i32, ptr %65, align 8
-  br i1 %13, label %171, label %238
+  br i1 %13, label %171, label %236
 
 171:                                              ; preds = %167
   %172 = icmp eq i32 %170, 0
-  br i1 %172, label %173, label %ZSTD_cwksp_internal_advance_phase.exit.i.i
+  br i1 %172, label %173, label %.ZSTD_cwksp_internal_advance_phase.exit.i.i_crit_edge
+
+.ZSTD_cwksp_internal_advance_phase.exit.i.i_crit_edge: ; preds = %171
+  %.pre = load ptr, ptr %63, align 8
+  br label %ZSTD_cwksp_internal_advance_phase.exit.i.i
 
 173:                                              ; preds = %171
   %174 = load ptr, ptr %61, align 8
@@ -13072,615 +13076,607 @@ ZSTD_cwksp_clean_tables.exit:                     ; preds = %162, %158, %148
   store i32 1, ptr %65, align 8
   br label %ZSTD_cwksp_internal_advance_phase.exit.i.i
 
-ZSTD_cwksp_internal_advance_phase.exit.i.i:       ; preds = %188, %171
-  %189 = icmp eq i64 %169, 0
-  br i1 %189, label %ZSTD_cwksp_reserve_aligned_init_once.exit, label %190
+ZSTD_cwksp_internal_advance_phase.exit.i.i:       ; preds = %.ZSTD_cwksp_internal_advance_phase.exit.i.i_crit_edge, %188
+  %189 = phi ptr [ %.pre, %.ZSTD_cwksp_internal_advance_phase.exit.i.i_crit_edge ], [ %184, %188 ]
+  %190 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %191 = load ptr, ptr %190, align 8
+  %192 = sub i64 0, %169
+  %193 = getelementptr inbounds i8, ptr %191, i64 %192
+  %194 = icmp ult ptr %193, %189
+  br i1 %194, label %195, label %196
 
-190:                                              ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i
-  %191 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %192 = load ptr, ptr %191, align 8
-  %193 = sub i64 0, %169
-  %194 = getelementptr inbounds i8, ptr %192, i64 %193
-  %195 = load ptr, ptr %63, align 8
-  %196 = icmp ult ptr %194, %195
-  br i1 %196, label %197, label %198
-
-197:                                              ; preds = %190
+195:                                              ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i
   store i8 1, ptr %147, align 8
   br label %ZSTD_cwksp_reserve_aligned_init_once.exit
 
-198:                                              ; preds = %190
-  %199 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %200 = load ptr, ptr %199, align 8
-  %201 = icmp ult ptr %194, %200
-  br i1 %201, label %202, label %ZSTD_cwksp_reserve_internal.exit.i
+196:                                              ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i
+  %197 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %198 = load ptr, ptr %197, align 8
+  %199 = icmp ult ptr %193, %198
+  br i1 %199, label %200, label %ZSTD_cwksp_reserve_internal.exit.i
 
-202:                                              ; preds = %198
-  store ptr %194, ptr %199, align 8
+200:                                              ; preds = %196
+  store ptr %193, ptr %197, align 8
   br label %ZSTD_cwksp_reserve_internal.exit.i
 
-ZSTD_cwksp_reserve_internal.exit.i:               ; preds = %202, %198
-  store ptr %194, ptr %191, align 8
-  %203 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %204 = load ptr, ptr %203, align 8
-  %205 = icmp ult ptr %194, %204
-  br i1 %205, label %206, label %ZSTD_cwksp_reserve_aligned_init_once.exit
+ZSTD_cwksp_reserve_internal.exit.i:               ; preds = %200, %196
+  store ptr %193, ptr %190, align 8
+  %201 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %202 = load ptr, ptr %201, align 8
+  %203 = icmp ult ptr %193, %202
+  br i1 %203, label %204, label %ZSTD_cwksp_reserve_aligned_init_once.exit
 
-206:                                              ; preds = %ZSTD_cwksp_reserve_internal.exit.i
-  %207 = ptrtoint ptr %204 to i64
-  %208 = ptrtoint ptr %194 to i64
-  %209 = sub i64 %207, %208
-  %..i = tail call i64 @llvm.umin.i64(i64 %209, i64 %169)
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %194, i8 0, i64 %..i, i1 false)
-  store ptr %194, ptr %203, align 8
+204:                                              ; preds = %ZSTD_cwksp_reserve_internal.exit.i
+  %205 = ptrtoint ptr %202 to i64
+  %206 = ptrtoint ptr %193 to i64
+  %207 = sub i64 %205, %206
+  %..i = tail call i64 @llvm.umin.i64(i64 %207, i64 %169)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %193, i8 0, i64 %..i, i1 false)
+  store ptr %193, ptr %201, align 8
   br label %ZSTD_cwksp_reserve_aligned_init_once.exit
 
-ZSTD_cwksp_reserve_aligned_init_once.exit:        ; preds = %173, %ZSTD_cwksp_internal_advance_phase.exit.i.i, %197, %ZSTD_cwksp_reserve_internal.exit.i, %206
-  %.0.i20.i = phi ptr [ %194, %206 ], [ %194, %ZSTD_cwksp_reserve_internal.exit.i ], [ null, %ZSTD_cwksp_internal_advance_phase.exit.i.i ], [ null, %197 ], [ null, %173 ]
-  %210 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %.0.i20.i, ptr %210, align 8
-  %211 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %212 = load i64, ptr %211, align 8
-  %213 = tail call i64 @llvm.fshl.i64(i64 %212, i64 %212, i64 15)
-  %214 = tail call i64 @llvm.fshl.i64(i64 %212, i64 %212, i64 40)
-  %215 = xor i64 %214, %213
-  %216 = xor i64 %215, %212
-  %217 = mul i64 %216, -6939452855193903323
-  %218 = lshr i64 %217, 35
-  %219 = add nuw nsw i64 %218, 8
-  %220 = xor i64 %219, %217
-  %221 = mul i64 %220, -6939452855193903323
-  %222 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %223 = load i32, ptr %222, align 8
-  %224 = zext i32 %223 to i64
-  %225 = shl nuw nsw i64 %224, 15
-  %226 = tail call i64 @llvm.fshl.i64(i64 %224, i64 %224, i64 40)
-  %227 = xor i64 %226, %225
-  %228 = xor i64 %227, %224
-  %229 = mul i64 %228, -6939452855193903323
-  %230 = lshr i64 %229, 35
-  %231 = add nuw nsw i64 %230, 4
-  %232 = xor i64 %231, %229
-  %233 = mul i64 %232, -6939452855193903323
-  %234 = xor i64 %233, %221
-  %235 = lshr i64 %234, 28
-  %236 = xor i64 %221, %235
-  %237 = xor i64 %236, %233
-  store i64 %237, ptr %211, align 8
-  br label %275
+ZSTD_cwksp_reserve_aligned_init_once.exit:        ; preds = %173, %195, %ZSTD_cwksp_reserve_internal.exit.i, %204
+  %.0.i20.i = phi ptr [ %193, %204 ], [ %193, %ZSTD_cwksp_reserve_internal.exit.i ], [ null, %195 ], [ null, %173 ]
+  %208 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store ptr %.0.i20.i, ptr %208, align 8
+  %209 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %210 = load i64, ptr %209, align 8
+  %211 = tail call i64 @llvm.fshl.i64(i64 %210, i64 %210, i64 15)
+  %212 = tail call i64 @llvm.fshl.i64(i64 %210, i64 %210, i64 40)
+  %213 = xor i64 %212, %211
+  %214 = xor i64 %213, %210
+  %215 = mul i64 %214, -6939452855193903323
+  %216 = lshr i64 %215, 35
+  %217 = add nuw nsw i64 %216, 8
+  %218 = xor i64 %217, %215
+  %219 = mul i64 %218, -6939452855193903323
+  %220 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %221 = load i32, ptr %220, align 8
+  %222 = zext i32 %221 to i64
+  %223 = shl nuw nsw i64 %222, 15
+  %224 = tail call i64 @llvm.fshl.i64(i64 %222, i64 %222, i64 40)
+  %225 = xor i64 %224, %223
+  %226 = xor i64 %225, %222
+  %227 = mul i64 %226, -6939452855193903323
+  %228 = lshr i64 %227, 35
+  %229 = add nuw nsw i64 %228, 4
+  %230 = xor i64 %229, %227
+  %231 = mul i64 %230, -6939452855193903323
+  %232 = xor i64 %231, %219
+  %233 = lshr i64 %232, 28
+  %234 = xor i64 %219, %233
+  %235 = xor i64 %234, %231
+  store i64 %235, ptr %209, align 8
+  br label %271
 
-238:                                              ; preds = %167
-  %239 = icmp ult i32 %170, 2
-  br i1 %239, label %240, label %ZSTD_cwksp_internal_advance_phase.exit.i.i100
+236:                                              ; preds = %167
+  %237 = icmp ult i32 %170, 2
+  br i1 %237, label %238, label %ZSTD_cwksp_internal_advance_phase.exit.i.i100
+
+238:                                              ; preds = %236
+  %239 = icmp eq i32 %170, 0
+  br i1 %239, label %240, label %255
 
 240:                                              ; preds = %238
-  %241 = icmp eq i32 %170, 0
-  br i1 %241, label %242, label %257
+  %241 = load ptr, ptr %61, align 8
+  %242 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store ptr %241, ptr %242, align 8
+  %243 = getelementptr i8, ptr %1, i64 8
+  %.val.i.i.i102 = load ptr, ptr %243, align 8
+  %244 = ptrtoint ptr %.val.i.i.i102 to i64
+  %245 = and i64 %244, -64
+  %246 = inttoptr i64 %245 to ptr
+  %247 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  store ptr %246, ptr %247, align 8
+  %248 = ptrtoint ptr %241 to i64
+  %249 = sub i64 0, %248
+  %250 = and i64 %249, 63
+  %251 = getelementptr inbounds nuw i8, ptr %241, i64 %250
+  %252 = icmp ugt ptr %251, %.val.i.i.i102
+  br i1 %252, label %ZSTD_cwksp_reserve_aligned.exit, label %253
 
-242:                                              ; preds = %240
-  %243 = load ptr, ptr %61, align 8
-  %244 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr %243, ptr %244, align 8
-  %245 = getelementptr i8, ptr %1, i64 8
-  %.val.i.i.i102 = load ptr, ptr %245, align 8
-  %246 = ptrtoint ptr %.val.i.i.i102 to i64
-  %247 = and i64 %246, -64
-  %248 = inttoptr i64 %247 to ptr
-  %249 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store ptr %248, ptr %249, align 8
-  %250 = ptrtoint ptr %243 to i64
-  %251 = sub i64 0, %250
-  %252 = and i64 %251, 63
-  %253 = getelementptr inbounds nuw i8, ptr %243, i64 %252
-  %254 = icmp ugt ptr %253, %.val.i.i.i102
-  br i1 %254, label %ZSTD_cwksp_reserve_aligned.exit, label %255
+253:                                              ; preds = %240
+  store ptr %251, ptr %61, align 8
+  store ptr %251, ptr %63, align 8
+  %.not.i.i.i103 = icmp eq i64 %250, 0
+  br i1 %.not.i.i.i103, label %255, label %254
 
-255:                                              ; preds = %242
-  store ptr %253, ptr %61, align 8
-  store ptr %253, ptr %63, align 8
-  %.not.i.i.i103 = icmp eq i64 %252, 0
-  br i1 %.not.i.i.i103, label %257, label %256
+254:                                              ; preds = %253
+  store ptr %251, ptr %242, align 8
+  br label %255
 
-256:                                              ; preds = %255
-  store ptr %253, ptr %244, align 8
-  br label %257
-
-257:                                              ; preds = %256, %255, %240
+255:                                              ; preds = %254, %253, %238
   store i32 2, ptr %65, align 8
   br label %ZSTD_cwksp_internal_advance_phase.exit.i.i100
 
-ZSTD_cwksp_internal_advance_phase.exit.i.i100:    ; preds = %257, %238
-  %258 = icmp eq i64 %169, 0
-  br i1 %258, label %ZSTD_cwksp_reserve_aligned.exit, label %259
+ZSTD_cwksp_internal_advance_phase.exit.i.i100:    ; preds = %236, %255
+  %256 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %257 = load ptr, ptr %256, align 8
+  %258 = sub i64 0, %169
+  %259 = getelementptr inbounds i8, ptr %257, i64 %258
+  %260 = load ptr, ptr %63, align 8
+  %261 = icmp ult ptr %259, %260
+  br i1 %261, label %262, label %263
 
-259:                                              ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i100
-  %260 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %261 = load ptr, ptr %260, align 8
-  %262 = sub i64 0, %169
-  %263 = getelementptr inbounds i8, ptr %261, i64 %262
-  %264 = load ptr, ptr %63, align 8
-  %265 = icmp ult ptr %263, %264
-  br i1 %265, label %266, label %267
-
-266:                                              ; preds = %259
+262:                                              ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i100
   store i8 1, ptr %147, align 8
   br label %ZSTD_cwksp_reserve_aligned.exit
 
-267:                                              ; preds = %259
-  %268 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %269 = load ptr, ptr %268, align 8
-  %270 = icmp ult ptr %263, %269
-  br i1 %270, label %271, label %272
+263:                                              ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i100
+  %264 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %265 = load ptr, ptr %264, align 8
+  %266 = icmp ult ptr %259, %265
+  br i1 %266, label %267, label %268
 
-271:                                              ; preds = %267
-  store ptr %263, ptr %268, align 8
-  br label %272
+267:                                              ; preds = %263
+  store ptr %259, ptr %264, align 8
+  br label %268
 
-272:                                              ; preds = %271, %267
-  store ptr %263, ptr %260, align 8
+268:                                              ; preds = %267, %263
+  store ptr %259, ptr %256, align 8
   br label %ZSTD_cwksp_reserve_aligned.exit
 
-ZSTD_cwksp_reserve_aligned.exit:                  ; preds = %242, %ZSTD_cwksp_internal_advance_phase.exit.i.i100, %266, %272
-  %.0.i.i = phi ptr [ null, %ZSTD_cwksp_internal_advance_phase.exit.i.i100 ], [ null, %266 ], [ %263, %272 ], [ null, %242 ]
-  %273 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %.0.i.i, ptr %273, align 8
+ZSTD_cwksp_reserve_aligned.exit:                  ; preds = %240, %262, %268
+  %.0.i.i = phi ptr [ null, %262 ], [ %259, %268 ], [ null, %240 ]
+  %269 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store ptr %.0.i.i, ptr %269, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.0.i.i, i8 0, i64 %26, i1 false)
-  %274 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i64 0, ptr %274, align 8
-  br label %275
+  %270 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store i64 0, ptr %270, align 8
+  br label %271
 
-275:                                              ; preds = %ZSTD_cwksp_reserve_aligned.exit, %ZSTD_cwksp_reserve_aligned_init_once.exit
-  %276 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %277 = load i32, ptr %276, align 4
-  %spec.select81 = tail call i32 @llvm.umin.i32(i32 %277, i32 6)
+271:                                              ; preds = %ZSTD_cwksp_reserve_aligned.exit, %ZSTD_cwksp_reserve_aligned_init_once.exit
+  %272 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %273 = load i32, ptr %272, align 4
+  %spec.select81 = tail call i32 @llvm.umin.i32(i32 %273, i32 6)
   %spec.select143 = tail call i32 @llvm.umax.i32(i32 %spec.select81, i32 4)
-  %278 = load i32, ptr %23, align 4
-  %279 = sub i32 %278, %spec.select143
-  %280 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 %279, ptr %280, align 4
-  br label %281
+  %274 = load i32, ptr %23, align 4
+  %275 = sub i32 %274, %spec.select143
+  %276 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  store i32 %275, ptr %276, align 4
+  br label %277
 
-281:                                              ; preds = %275, %ZSTD_cwksp_clean_tables.exit
-  br i1 %13, label %282, label %484
+277:                                              ; preds = %271, %ZSTD_cwksp_clean_tables.exit
+  br i1 %13, label %278, label %480
 
-282:                                              ; preds = %281
-  %283 = load i32, ptr %8, align 4
-  %284 = icmp ugt i32 %283, 6
-  br i1 %284, label %285, label %484
+278:                                              ; preds = %277
+  %279 = load i32, ptr %8, align 4
+  %280 = icmp ugt i32 %279, 6
+  br i1 %280, label %281, label %480
 
-285:                                              ; preds = %282
-  %286 = load i32, ptr %65, align 8
-  %287 = icmp ult i32 %286, 2
-  br i1 %287, label %288, label %ZSTD_cwksp_internal_advance_phase.exit.i.i104
+281:                                              ; preds = %278
+  %282 = load i32, ptr %65, align 8
+  %283 = icmp ult i32 %282, 2
+  br i1 %283, label %284, label %ZSTD_cwksp_internal_advance_phase.exit.i.i104
 
-288:                                              ; preds = %285
-  %289 = icmp eq i32 %286, 0
-  br i1 %289, label %290, label %305
+284:                                              ; preds = %281
+  %285 = icmp eq i32 %282, 0
+  br i1 %285, label %286, label %301
 
-290:                                              ; preds = %288
-  %291 = load ptr, ptr %61, align 8
-  %292 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr %291, ptr %292, align 8
-  %293 = getelementptr i8, ptr %1, i64 8
-  %.val.i.i.i107 = load ptr, ptr %293, align 8
-  %294 = ptrtoint ptr %.val.i.i.i107 to i64
-  %295 = and i64 %294, -64
-  %296 = inttoptr i64 %295 to ptr
-  %297 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store ptr %296, ptr %297, align 8
-  %298 = ptrtoint ptr %291 to i64
-  %299 = sub i64 0, %298
-  %300 = and i64 %299, 63
-  %301 = getelementptr inbounds nuw i8, ptr %291, i64 %300
-  %302 = icmp ugt ptr %301, %.val.i.i.i107
-  br i1 %302, label %ZSTD_cwksp_reserve_aligned.exit109, label %303
+286:                                              ; preds = %284
+  %287 = load ptr, ptr %61, align 8
+  %288 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store ptr %287, ptr %288, align 8
+  %289 = getelementptr i8, ptr %1, i64 8
+  %.val.i.i.i107 = load ptr, ptr %289, align 8
+  %290 = ptrtoint ptr %.val.i.i.i107 to i64
+  %291 = and i64 %290, -64
+  %292 = inttoptr i64 %291 to ptr
+  %293 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  store ptr %292, ptr %293, align 8
+  %294 = ptrtoint ptr %287 to i64
+  %295 = sub i64 0, %294
+  %296 = and i64 %295, 63
+  %297 = getelementptr inbounds nuw i8, ptr %287, i64 %296
+  %298 = icmp ugt ptr %297, %.val.i.i.i107
+  br i1 %298, label %ZSTD_cwksp_reserve_aligned.exit109, label %299
 
-303:                                              ; preds = %290
-  store ptr %301, ptr %61, align 8
-  store ptr %301, ptr %63, align 8
-  %.not.i.i.i108 = icmp eq i64 %300, 0
-  br i1 %.not.i.i.i108, label %305, label %304
+299:                                              ; preds = %286
+  store ptr %297, ptr %61, align 8
+  store ptr %297, ptr %63, align 8
+  %.not.i.i.i108 = icmp eq i64 %296, 0
+  br i1 %.not.i.i.i108, label %301, label %300
 
-304:                                              ; preds = %303
-  store ptr %301, ptr %292, align 8
-  br label %305
+300:                                              ; preds = %299
+  store ptr %297, ptr %288, align 8
+  br label %301
 
-305:                                              ; preds = %304, %303, %288
+301:                                              ; preds = %300, %299, %284
   store i32 2, ptr %65, align 8
   br label %ZSTD_cwksp_internal_advance_phase.exit.i.i104
 
-ZSTD_cwksp_internal_advance_phase.exit.i.i104:    ; preds = %305, %285
-  %306 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %307 = load ptr, ptr %306, align 8
-  %308 = getelementptr inbounds i8, ptr %307, i64 -1024
-  %309 = load ptr, ptr %63, align 8
-  %310 = icmp ult ptr %308, %309
-  br i1 %310, label %311, label %312
+ZSTD_cwksp_internal_advance_phase.exit.i.i104:    ; preds = %301, %281
+  %302 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %303 = load ptr, ptr %302, align 8
+  %304 = getelementptr inbounds i8, ptr %303, i64 -1024
+  %305 = load ptr, ptr %63, align 8
+  %306 = icmp ult ptr %304, %305
+  br i1 %306, label %307, label %308
 
-311:                                              ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i104
+307:                                              ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i104
   store i8 1, ptr %147, align 8
   br label %ZSTD_cwksp_reserve_aligned.exit109
 
-312:                                              ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i104
-  %313 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %314 = load ptr, ptr %313, align 8
-  %315 = icmp ult ptr %308, %314
-  br i1 %315, label %316, label %317
+308:                                              ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i104
+  %309 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %310 = load ptr, ptr %309, align 8
+  %311 = icmp ult ptr %304, %310
+  br i1 %311, label %312, label %313
 
-316:                                              ; preds = %312
-  store ptr %308, ptr %313, align 8
-  br label %317
+312:                                              ; preds = %308
+  store ptr %304, ptr %309, align 8
+  br label %313
 
-317:                                              ; preds = %316, %312
-  store ptr %308, ptr %306, align 8
+313:                                              ; preds = %312, %308
+  store ptr %304, ptr %302, align 8
   br label %ZSTD_cwksp_reserve_aligned.exit109
 
-ZSTD_cwksp_reserve_aligned.exit109:               ; preds = %290, %311, %317
-  %.0.i.i106 = phi ptr [ null, %311 ], [ %308, %317 ], [ null, %290 ]
-  %318 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr %.0.i.i106, ptr %318, align 8
-  %319 = load i32, ptr %65, align 8
-  %320 = icmp ult i32 %319, 2
-  br i1 %320, label %321, label %ZSTD_cwksp_internal_advance_phase.exit.i.i110
+ZSTD_cwksp_reserve_aligned.exit109:               ; preds = %286, %307, %313
+  %.0.i.i106 = phi ptr [ null, %307 ], [ %304, %313 ], [ null, %286 ]
+  %314 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store ptr %.0.i.i106, ptr %314, align 8
+  %315 = load i32, ptr %65, align 8
+  %316 = icmp ult i32 %315, 2
+  br i1 %316, label %317, label %ZSTD_cwksp_internal_advance_phase.exit.i.i110
 
-321:                                              ; preds = %ZSTD_cwksp_reserve_aligned.exit109
-  %322 = icmp eq i32 %319, 0
-  br i1 %322, label %323, label %338
+317:                                              ; preds = %ZSTD_cwksp_reserve_aligned.exit109
+  %318 = icmp eq i32 %315, 0
+  br i1 %318, label %319, label %334
 
-323:                                              ; preds = %321
-  %324 = load ptr, ptr %61, align 8
-  %325 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr %324, ptr %325, align 8
-  %326 = getelementptr i8, ptr %1, i64 8
-  %.val.i.i.i113 = load ptr, ptr %326, align 8
-  %327 = ptrtoint ptr %.val.i.i.i113 to i64
-  %328 = and i64 %327, -64
-  %329 = inttoptr i64 %328 to ptr
-  %330 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store ptr %329, ptr %330, align 8
-  %331 = ptrtoint ptr %324 to i64
-  %332 = sub i64 0, %331
-  %333 = and i64 %332, 63
-  %334 = getelementptr inbounds nuw i8, ptr %324, i64 %333
-  %335 = icmp ugt ptr %334, %.val.i.i.i113
-  br i1 %335, label %ZSTD_cwksp_reserve_aligned.exit115, label %336
+319:                                              ; preds = %317
+  %320 = load ptr, ptr %61, align 8
+  %321 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store ptr %320, ptr %321, align 8
+  %322 = getelementptr i8, ptr %1, i64 8
+  %.val.i.i.i113 = load ptr, ptr %322, align 8
+  %323 = ptrtoint ptr %.val.i.i.i113 to i64
+  %324 = and i64 %323, -64
+  %325 = inttoptr i64 %324 to ptr
+  %326 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  store ptr %325, ptr %326, align 8
+  %327 = ptrtoint ptr %320 to i64
+  %328 = sub i64 0, %327
+  %329 = and i64 %328, 63
+  %330 = getelementptr inbounds nuw i8, ptr %320, i64 %329
+  %331 = icmp ugt ptr %330, %.val.i.i.i113
+  br i1 %331, label %ZSTD_cwksp_reserve_aligned.exit115, label %332
 
-336:                                              ; preds = %323
-  store ptr %334, ptr %61, align 8
-  store ptr %334, ptr %63, align 8
-  %.not.i.i.i114 = icmp eq i64 %333, 0
-  br i1 %.not.i.i.i114, label %338, label %337
+332:                                              ; preds = %319
+  store ptr %330, ptr %61, align 8
+  store ptr %330, ptr %63, align 8
+  %.not.i.i.i114 = icmp eq i64 %329, 0
+  br i1 %.not.i.i.i114, label %334, label %333
 
-337:                                              ; preds = %336
-  store ptr %334, ptr %325, align 8
-  br label %338
+333:                                              ; preds = %332
+  store ptr %330, ptr %321, align 8
+  br label %334
 
-338:                                              ; preds = %337, %336, %321
+334:                                              ; preds = %333, %332, %317
   store i32 2, ptr %65, align 8
   br label %ZSTD_cwksp_internal_advance_phase.exit.i.i110
 
-ZSTD_cwksp_internal_advance_phase.exit.i.i110:    ; preds = %338, %ZSTD_cwksp_reserve_aligned.exit109
-  %339 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %340 = load ptr, ptr %339, align 8
-  %341 = getelementptr inbounds i8, ptr %340, i64 -192
-  %342 = load ptr, ptr %63, align 8
-  %343 = icmp ult ptr %341, %342
-  br i1 %343, label %344, label %345
+ZSTD_cwksp_internal_advance_phase.exit.i.i110:    ; preds = %334, %ZSTD_cwksp_reserve_aligned.exit109
+  %335 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %336 = load ptr, ptr %335, align 8
+  %337 = getelementptr inbounds i8, ptr %336, i64 -192
+  %338 = load ptr, ptr %63, align 8
+  %339 = icmp ult ptr %337, %338
+  br i1 %339, label %340, label %341
 
-344:                                              ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i110
+340:                                              ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i110
   store i8 1, ptr %147, align 8
   br label %ZSTD_cwksp_reserve_aligned.exit115
 
-345:                                              ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i110
-  %346 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %347 = load ptr, ptr %346, align 8
-  %348 = icmp ult ptr %341, %347
-  br i1 %348, label %349, label %350
+341:                                              ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i110
+  %342 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %343 = load ptr, ptr %342, align 8
+  %344 = icmp ult ptr %337, %343
+  br i1 %344, label %345, label %346
 
-349:                                              ; preds = %345
-  store ptr %341, ptr %346, align 8
-  br label %350
+345:                                              ; preds = %341
+  store ptr %337, ptr %342, align 8
+  br label %346
 
-350:                                              ; preds = %349, %345
-  store ptr %341, ptr %339, align 8
+346:                                              ; preds = %345, %341
+  store ptr %337, ptr %335, align 8
   br label %ZSTD_cwksp_reserve_aligned.exit115
 
-ZSTD_cwksp_reserve_aligned.exit115:               ; preds = %323, %344, %350
-  %.0.i.i112 = phi ptr [ null, %344 ], [ %341, %350 ], [ null, %323 ]
-  %351 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store ptr %.0.i.i112, ptr %351, align 8
-  %352 = load i32, ptr %65, align 8
-  %353 = icmp ult i32 %352, 2
-  br i1 %353, label %354, label %ZSTD_cwksp_internal_advance_phase.exit.i.i116
+ZSTD_cwksp_reserve_aligned.exit115:               ; preds = %319, %340, %346
+  %.0.i.i112 = phi ptr [ null, %340 ], [ %337, %346 ], [ null, %319 ]
+  %347 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  store ptr %.0.i.i112, ptr %347, align 8
+  %348 = load i32, ptr %65, align 8
+  %349 = icmp ult i32 %348, 2
+  br i1 %349, label %350, label %ZSTD_cwksp_internal_advance_phase.exit.i.i116
 
-354:                                              ; preds = %ZSTD_cwksp_reserve_aligned.exit115
-  %355 = icmp eq i32 %352, 0
-  br i1 %355, label %356, label %371
+350:                                              ; preds = %ZSTD_cwksp_reserve_aligned.exit115
+  %351 = icmp eq i32 %348, 0
+  br i1 %351, label %352, label %367
 
-356:                                              ; preds = %354
-  %357 = load ptr, ptr %61, align 8
-  %358 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr %357, ptr %358, align 8
-  %359 = getelementptr i8, ptr %1, i64 8
-  %.val.i.i.i119 = load ptr, ptr %359, align 8
-  %360 = ptrtoint ptr %.val.i.i.i119 to i64
-  %361 = and i64 %360, -64
-  %362 = inttoptr i64 %361 to ptr
-  %363 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store ptr %362, ptr %363, align 8
-  %364 = ptrtoint ptr %357 to i64
-  %365 = sub i64 0, %364
-  %366 = and i64 %365, 63
-  %367 = getelementptr inbounds nuw i8, ptr %357, i64 %366
-  %368 = icmp ugt ptr %367, %.val.i.i.i119
-  br i1 %368, label %ZSTD_cwksp_reserve_aligned.exit121, label %369
+352:                                              ; preds = %350
+  %353 = load ptr, ptr %61, align 8
+  %354 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store ptr %353, ptr %354, align 8
+  %355 = getelementptr i8, ptr %1, i64 8
+  %.val.i.i.i119 = load ptr, ptr %355, align 8
+  %356 = ptrtoint ptr %.val.i.i.i119 to i64
+  %357 = and i64 %356, -64
+  %358 = inttoptr i64 %357 to ptr
+  %359 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  store ptr %358, ptr %359, align 8
+  %360 = ptrtoint ptr %353 to i64
+  %361 = sub i64 0, %360
+  %362 = and i64 %361, 63
+  %363 = getelementptr inbounds nuw i8, ptr %353, i64 %362
+  %364 = icmp ugt ptr %363, %.val.i.i.i119
+  br i1 %364, label %ZSTD_cwksp_reserve_aligned.exit121, label %365
 
-369:                                              ; preds = %356
-  store ptr %367, ptr %61, align 8
-  store ptr %367, ptr %63, align 8
-  %.not.i.i.i120 = icmp eq i64 %366, 0
-  br i1 %.not.i.i.i120, label %371, label %370
+365:                                              ; preds = %352
+  store ptr %363, ptr %61, align 8
+  store ptr %363, ptr %63, align 8
+  %.not.i.i.i120 = icmp eq i64 %362, 0
+  br i1 %.not.i.i.i120, label %367, label %366
 
-370:                                              ; preds = %369
-  store ptr %367, ptr %358, align 8
-  br label %371
+366:                                              ; preds = %365
+  store ptr %363, ptr %354, align 8
+  br label %367
 
-371:                                              ; preds = %370, %369, %354
+367:                                              ; preds = %366, %365, %350
   store i32 2, ptr %65, align 8
   br label %ZSTD_cwksp_internal_advance_phase.exit.i.i116
 
-ZSTD_cwksp_internal_advance_phase.exit.i.i116:    ; preds = %371, %ZSTD_cwksp_reserve_aligned.exit115
-  %372 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %373 = load ptr, ptr %372, align 8
-  %374 = getelementptr inbounds i8, ptr %373, i64 -256
-  %375 = load ptr, ptr %63, align 8
-  %376 = icmp ult ptr %374, %375
-  br i1 %376, label %377, label %378
+ZSTD_cwksp_internal_advance_phase.exit.i.i116:    ; preds = %367, %ZSTD_cwksp_reserve_aligned.exit115
+  %368 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %369 = load ptr, ptr %368, align 8
+  %370 = getelementptr inbounds i8, ptr %369, i64 -256
+  %371 = load ptr, ptr %63, align 8
+  %372 = icmp ult ptr %370, %371
+  br i1 %372, label %373, label %374
 
-377:                                              ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i116
+373:                                              ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i116
   store i8 1, ptr %147, align 8
   br label %ZSTD_cwksp_reserve_aligned.exit121
 
-378:                                              ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i116
-  %379 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %380 = load ptr, ptr %379, align 8
-  %381 = icmp ult ptr %374, %380
-  br i1 %381, label %382, label %383
+374:                                              ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i116
+  %375 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %376 = load ptr, ptr %375, align 8
+  %377 = icmp ult ptr %370, %376
+  br i1 %377, label %378, label %379
 
-382:                                              ; preds = %378
-  store ptr %374, ptr %379, align 8
-  br label %383
+378:                                              ; preds = %374
+  store ptr %370, ptr %375, align 8
+  br label %379
 
-383:                                              ; preds = %382, %378
-  store ptr %374, ptr %372, align 8
+379:                                              ; preds = %378, %374
+  store ptr %370, ptr %368, align 8
   br label %ZSTD_cwksp_reserve_aligned.exit121
 
-ZSTD_cwksp_reserve_aligned.exit121:               ; preds = %356, %377, %383
-  %.0.i.i118 = phi ptr [ null, %377 ], [ %374, %383 ], [ null, %356 ]
-  %384 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store ptr %.0.i.i118, ptr %384, align 8
-  %385 = load i32, ptr %65, align 8
-  %386 = icmp ult i32 %385, 2
-  br i1 %386, label %387, label %ZSTD_cwksp_internal_advance_phase.exit.i.i122
+ZSTD_cwksp_reserve_aligned.exit121:               ; preds = %352, %373, %379
+  %.0.i.i118 = phi ptr [ null, %373 ], [ %370, %379 ], [ null, %352 ]
+  %380 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  store ptr %.0.i.i118, ptr %380, align 8
+  %381 = load i32, ptr %65, align 8
+  %382 = icmp ult i32 %381, 2
+  br i1 %382, label %383, label %ZSTD_cwksp_internal_advance_phase.exit.i.i122
 
-387:                                              ; preds = %ZSTD_cwksp_reserve_aligned.exit121
-  %388 = icmp eq i32 %385, 0
-  br i1 %388, label %389, label %404
+383:                                              ; preds = %ZSTD_cwksp_reserve_aligned.exit121
+  %384 = icmp eq i32 %381, 0
+  br i1 %384, label %385, label %400
 
-389:                                              ; preds = %387
-  %390 = load ptr, ptr %61, align 8
-  %391 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr %390, ptr %391, align 8
-  %392 = getelementptr i8, ptr %1, i64 8
-  %.val.i.i.i125 = load ptr, ptr %392, align 8
-  %393 = ptrtoint ptr %.val.i.i.i125 to i64
-  %394 = and i64 %393, -64
-  %395 = inttoptr i64 %394 to ptr
-  %396 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store ptr %395, ptr %396, align 8
-  %397 = ptrtoint ptr %390 to i64
-  %398 = sub i64 0, %397
-  %399 = and i64 %398, 63
-  %400 = getelementptr inbounds nuw i8, ptr %390, i64 %399
-  %401 = icmp ugt ptr %400, %.val.i.i.i125
-  br i1 %401, label %ZSTD_cwksp_reserve_aligned.exit127, label %402
+385:                                              ; preds = %383
+  %386 = load ptr, ptr %61, align 8
+  %387 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store ptr %386, ptr %387, align 8
+  %388 = getelementptr i8, ptr %1, i64 8
+  %.val.i.i.i125 = load ptr, ptr %388, align 8
+  %389 = ptrtoint ptr %.val.i.i.i125 to i64
+  %390 = and i64 %389, -64
+  %391 = inttoptr i64 %390 to ptr
+  %392 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  store ptr %391, ptr %392, align 8
+  %393 = ptrtoint ptr %386 to i64
+  %394 = sub i64 0, %393
+  %395 = and i64 %394, 63
+  %396 = getelementptr inbounds nuw i8, ptr %386, i64 %395
+  %397 = icmp ugt ptr %396, %.val.i.i.i125
+  br i1 %397, label %ZSTD_cwksp_reserve_aligned.exit127, label %398
 
-402:                                              ; preds = %389
-  store ptr %400, ptr %61, align 8
-  store ptr %400, ptr %63, align 8
-  %.not.i.i.i126 = icmp eq i64 %399, 0
-  br i1 %.not.i.i.i126, label %404, label %403
+398:                                              ; preds = %385
+  store ptr %396, ptr %61, align 8
+  store ptr %396, ptr %63, align 8
+  %.not.i.i.i126 = icmp eq i64 %395, 0
+  br i1 %.not.i.i.i126, label %400, label %399
 
-403:                                              ; preds = %402
-  store ptr %400, ptr %391, align 8
-  br label %404
+399:                                              ; preds = %398
+  store ptr %396, ptr %387, align 8
+  br label %400
 
-404:                                              ; preds = %403, %402, %387
+400:                                              ; preds = %399, %398, %383
   store i32 2, ptr %65, align 8
   br label %ZSTD_cwksp_internal_advance_phase.exit.i.i122
 
-ZSTD_cwksp_internal_advance_phase.exit.i.i122:    ; preds = %404, %ZSTD_cwksp_reserve_aligned.exit121
-  %405 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %406 = load ptr, ptr %405, align 8
-  %407 = getelementptr inbounds i8, ptr %406, i64 -128
-  %408 = load ptr, ptr %63, align 8
-  %409 = icmp ult ptr %407, %408
-  br i1 %409, label %410, label %411
+ZSTD_cwksp_internal_advance_phase.exit.i.i122:    ; preds = %400, %ZSTD_cwksp_reserve_aligned.exit121
+  %401 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %402 = load ptr, ptr %401, align 8
+  %403 = getelementptr inbounds i8, ptr %402, i64 -128
+  %404 = load ptr, ptr %63, align 8
+  %405 = icmp ult ptr %403, %404
+  br i1 %405, label %406, label %407
 
-410:                                              ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i122
+406:                                              ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i122
   store i8 1, ptr %147, align 8
   br label %ZSTD_cwksp_reserve_aligned.exit127
 
-411:                                              ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i122
-  %412 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %413 = load ptr, ptr %412, align 8
-  %414 = icmp ult ptr %407, %413
-  br i1 %414, label %415, label %416
+407:                                              ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i122
+  %408 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %409 = load ptr, ptr %408, align 8
+  %410 = icmp ult ptr %403, %409
+  br i1 %410, label %411, label %412
 
-415:                                              ; preds = %411
-  store ptr %407, ptr %412, align 8
-  br label %416
+411:                                              ; preds = %407
+  store ptr %403, ptr %408, align 8
+  br label %412
 
-416:                                              ; preds = %415, %411
-  store ptr %407, ptr %405, align 8
+412:                                              ; preds = %411, %407
+  store ptr %403, ptr %401, align 8
   br label %ZSTD_cwksp_reserve_aligned.exit127
 
-ZSTD_cwksp_reserve_aligned.exit127:               ; preds = %389, %410, %416
-  %.0.i.i124 = phi ptr [ null, %410 ], [ %407, %416 ], [ null, %389 ]
-  %417 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store ptr %.0.i.i124, ptr %417, align 8
-  %418 = load i32, ptr %65, align 8
-  %419 = icmp ult i32 %418, 2
-  br i1 %419, label %420, label %ZSTD_cwksp_internal_advance_phase.exit.i.i128
+ZSTD_cwksp_reserve_aligned.exit127:               ; preds = %385, %406, %412
+  %.0.i.i124 = phi ptr [ null, %406 ], [ %403, %412 ], [ null, %385 ]
+  %413 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  store ptr %.0.i.i124, ptr %413, align 8
+  %414 = load i32, ptr %65, align 8
+  %415 = icmp ult i32 %414, 2
+  br i1 %415, label %416, label %ZSTD_cwksp_internal_advance_phase.exit.i.i128
 
-420:                                              ; preds = %ZSTD_cwksp_reserve_aligned.exit127
-  %421 = icmp eq i32 %418, 0
-  br i1 %421, label %422, label %437
+416:                                              ; preds = %ZSTD_cwksp_reserve_aligned.exit127
+  %417 = icmp eq i32 %414, 0
+  br i1 %417, label %418, label %433
 
-422:                                              ; preds = %420
-  %423 = load ptr, ptr %61, align 8
-  %424 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr %423, ptr %424, align 8
-  %425 = getelementptr i8, ptr %1, i64 8
-  %.val.i.i.i131 = load ptr, ptr %425, align 8
-  %426 = ptrtoint ptr %.val.i.i.i131 to i64
-  %427 = and i64 %426, -64
-  %428 = inttoptr i64 %427 to ptr
-  %429 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store ptr %428, ptr %429, align 8
-  %430 = ptrtoint ptr %423 to i64
-  %431 = sub i64 0, %430
-  %432 = and i64 %431, 63
-  %433 = getelementptr inbounds nuw i8, ptr %423, i64 %432
-  %434 = icmp ugt ptr %433, %.val.i.i.i131
-  br i1 %434, label %ZSTD_cwksp_reserve_aligned.exit133, label %435
+418:                                              ; preds = %416
+  %419 = load ptr, ptr %61, align 8
+  %420 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store ptr %419, ptr %420, align 8
+  %421 = getelementptr i8, ptr %1, i64 8
+  %.val.i.i.i131 = load ptr, ptr %421, align 8
+  %422 = ptrtoint ptr %.val.i.i.i131 to i64
+  %423 = and i64 %422, -64
+  %424 = inttoptr i64 %423 to ptr
+  %425 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  store ptr %424, ptr %425, align 8
+  %426 = ptrtoint ptr %419 to i64
+  %427 = sub i64 0, %426
+  %428 = and i64 %427, 63
+  %429 = getelementptr inbounds nuw i8, ptr %419, i64 %428
+  %430 = icmp ugt ptr %429, %.val.i.i.i131
+  br i1 %430, label %ZSTD_cwksp_reserve_aligned.exit133, label %431
 
-435:                                              ; preds = %422
-  store ptr %433, ptr %61, align 8
-  store ptr %433, ptr %63, align 8
-  %.not.i.i.i132 = icmp eq i64 %432, 0
-  br i1 %.not.i.i.i132, label %437, label %436
+431:                                              ; preds = %418
+  store ptr %429, ptr %61, align 8
+  store ptr %429, ptr %63, align 8
+  %.not.i.i.i132 = icmp eq i64 %428, 0
+  br i1 %.not.i.i.i132, label %433, label %432
 
-436:                                              ; preds = %435
-  store ptr %433, ptr %424, align 8
-  br label %437
+432:                                              ; preds = %431
+  store ptr %429, ptr %420, align 8
+  br label %433
 
-437:                                              ; preds = %436, %435, %420
+433:                                              ; preds = %432, %431, %416
   store i32 2, ptr %65, align 8
   br label %ZSTD_cwksp_internal_advance_phase.exit.i.i128
 
-ZSTD_cwksp_internal_advance_phase.exit.i.i128:    ; preds = %437, %ZSTD_cwksp_reserve_aligned.exit127
-  %438 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %439 = load ptr, ptr %438, align 8
-  %440 = getelementptr inbounds i8, ptr %439, i64 -32832
-  %441 = load ptr, ptr %63, align 8
-  %442 = icmp ult ptr %440, %441
-  br i1 %442, label %443, label %444
+ZSTD_cwksp_internal_advance_phase.exit.i.i128:    ; preds = %433, %ZSTD_cwksp_reserve_aligned.exit127
+  %434 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %435 = load ptr, ptr %434, align 8
+  %436 = getelementptr inbounds i8, ptr %435, i64 -32832
+  %437 = load ptr, ptr %63, align 8
+  %438 = icmp ult ptr %436, %437
+  br i1 %438, label %439, label %440
 
-443:                                              ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i128
+439:                                              ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i128
   store i8 1, ptr %147, align 8
   br label %ZSTD_cwksp_reserve_aligned.exit133
 
-444:                                              ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i128
-  %445 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %446 = load ptr, ptr %445, align 8
-  %447 = icmp ult ptr %440, %446
-  br i1 %447, label %448, label %449
+440:                                              ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i128
+  %441 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %442 = load ptr, ptr %441, align 8
+  %443 = icmp ult ptr %436, %442
+  br i1 %443, label %444, label %445
 
-448:                                              ; preds = %444
-  store ptr %440, ptr %445, align 8
-  br label %449
+444:                                              ; preds = %440
+  store ptr %436, ptr %441, align 8
+  br label %445
 
-449:                                              ; preds = %448, %444
-  store ptr %440, ptr %438, align 8
+445:                                              ; preds = %444, %440
+  store ptr %436, ptr %434, align 8
   br label %ZSTD_cwksp_reserve_aligned.exit133
 
-ZSTD_cwksp_reserve_aligned.exit133:               ; preds = %422, %443, %449
-  %.0.i.i130 = phi ptr [ null, %443 ], [ %440, %449 ], [ null, %422 ]
-  %450 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store ptr %.0.i.i130, ptr %450, align 8
-  %451 = load i32, ptr %65, align 8
-  %452 = icmp ult i32 %451, 2
-  br i1 %452, label %453, label %ZSTD_cwksp_internal_advance_phase.exit.i.i134
+ZSTD_cwksp_reserve_aligned.exit133:               ; preds = %418, %439, %445
+  %.0.i.i130 = phi ptr [ null, %439 ], [ %436, %445 ], [ null, %418 ]
+  %446 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  store ptr %.0.i.i130, ptr %446, align 8
+  %447 = load i32, ptr %65, align 8
+  %448 = icmp ult i32 %447, 2
+  br i1 %448, label %449, label %ZSTD_cwksp_internal_advance_phase.exit.i.i134
 
-453:                                              ; preds = %ZSTD_cwksp_reserve_aligned.exit133
-  %454 = icmp eq i32 %451, 0
-  br i1 %454, label %455, label %470
+449:                                              ; preds = %ZSTD_cwksp_reserve_aligned.exit133
+  %450 = icmp eq i32 %447, 0
+  br i1 %450, label %451, label %466
 
-455:                                              ; preds = %453
-  %456 = load ptr, ptr %61, align 8
-  %457 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr %456, ptr %457, align 8
-  %458 = getelementptr i8, ptr %1, i64 8
-  %.val.i.i.i137 = load ptr, ptr %458, align 8
-  %459 = ptrtoint ptr %.val.i.i.i137 to i64
-  %460 = and i64 %459, -64
-  %461 = inttoptr i64 %460 to ptr
-  %462 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store ptr %461, ptr %462, align 8
-  %463 = ptrtoint ptr %456 to i64
-  %464 = sub i64 0, %463
-  %465 = and i64 %464, 63
-  %466 = getelementptr inbounds nuw i8, ptr %456, i64 %465
-  %467 = icmp ugt ptr %466, %.val.i.i.i137
-  br i1 %467, label %ZSTD_cwksp_reserve_aligned.exit139, label %468
+451:                                              ; preds = %449
+  %452 = load ptr, ptr %61, align 8
+  %453 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store ptr %452, ptr %453, align 8
+  %454 = getelementptr i8, ptr %1, i64 8
+  %.val.i.i.i137 = load ptr, ptr %454, align 8
+  %455 = ptrtoint ptr %.val.i.i.i137 to i64
+  %456 = and i64 %455, -64
+  %457 = inttoptr i64 %456 to ptr
+  %458 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  store ptr %457, ptr %458, align 8
+  %459 = ptrtoint ptr %452 to i64
+  %460 = sub i64 0, %459
+  %461 = and i64 %460, 63
+  %462 = getelementptr inbounds nuw i8, ptr %452, i64 %461
+  %463 = icmp ugt ptr %462, %.val.i.i.i137
+  br i1 %463, label %ZSTD_cwksp_reserve_aligned.exit139, label %464
 
-468:                                              ; preds = %455
-  store ptr %466, ptr %61, align 8
-  store ptr %466, ptr %63, align 8
-  %.not.i.i.i138 = icmp eq i64 %465, 0
-  br i1 %.not.i.i.i138, label %470, label %469
+464:                                              ; preds = %451
+  store ptr %462, ptr %61, align 8
+  store ptr %462, ptr %63, align 8
+  %.not.i.i.i138 = icmp eq i64 %461, 0
+  br i1 %.not.i.i.i138, label %466, label %465
 
-469:                                              ; preds = %468
-  store ptr %466, ptr %457, align 8
-  br label %470
+465:                                              ; preds = %464
+  store ptr %462, ptr %453, align 8
+  br label %466
 
-470:                                              ; preds = %469, %468, %453
+466:                                              ; preds = %465, %464, %449
   store i32 2, ptr %65, align 8
   br label %ZSTD_cwksp_internal_advance_phase.exit.i.i134
 
-ZSTD_cwksp_internal_advance_phase.exit.i.i134:    ; preds = %470, %ZSTD_cwksp_reserve_aligned.exit133
-  %471 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %472 = load ptr, ptr %471, align 8
-  %473 = getelementptr inbounds i8, ptr %472, i64 -114752
-  %474 = load ptr, ptr %63, align 8
-  %475 = icmp ult ptr %473, %474
-  br i1 %475, label %476, label %477
+ZSTD_cwksp_internal_advance_phase.exit.i.i134:    ; preds = %466, %ZSTD_cwksp_reserve_aligned.exit133
+  %467 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %468 = load ptr, ptr %467, align 8
+  %469 = getelementptr inbounds i8, ptr %468, i64 -114752
+  %470 = load ptr, ptr %63, align 8
+  %471 = icmp ult ptr %469, %470
+  br i1 %471, label %472, label %473
 
-476:                                              ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i134
+472:                                              ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i134
   store i8 1, ptr %147, align 8
   br label %ZSTD_cwksp_reserve_aligned.exit139
 
-477:                                              ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i134
-  %478 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %479 = load ptr, ptr %478, align 8
-  %480 = icmp ult ptr %473, %479
-  br i1 %480, label %481, label %482
+473:                                              ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i134
+  %474 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %475 = load ptr, ptr %474, align 8
+  %476 = icmp ult ptr %469, %475
+  br i1 %476, label %477, label %478
 
-481:                                              ; preds = %477
-  store ptr %473, ptr %478, align 8
-  br label %482
+477:                                              ; preds = %473
+  store ptr %469, ptr %474, align 8
+  br label %478
 
-482:                                              ; preds = %481, %477
-  store ptr %473, ptr %471, align 8
+478:                                              ; preds = %477, %473
+  store ptr %469, ptr %467, align 8
   br label %ZSTD_cwksp_reserve_aligned.exit139
 
-ZSTD_cwksp_reserve_aligned.exit139:               ; preds = %455, %476, %482
-  %.0.i.i136 = phi ptr [ null, %476 ], [ %473, %482 ], [ null, %455 ]
-  %483 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store ptr %.0.i.i136, ptr %483, align 8
-  br label %484
+ZSTD_cwksp_reserve_aligned.exit139:               ; preds = %451, %472, %478
+  %.0.i.i136 = phi ptr [ null, %472 ], [ %469, %478 ], [ null, %451 ]
+  %479 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  store ptr %.0.i.i136, ptr %479, align 8
+  br label %480
 
-484:                                              ; preds = %ZSTD_cwksp_reserve_aligned.exit139, %282, %281
-  %485 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %485, ptr noundef nonnull align 4 dereferenceable(28) %2, i64 28, i1 false)
+480:                                              ; preds = %ZSTD_cwksp_reserve_aligned.exit139, %278, %277
+  %481 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %481, ptr noundef nonnull align 4 dereferenceable(28) %2, i64 28, i1 false)
   %.val82 = load i8, ptr %147, align 8
   %.not79 = icmp eq i8 %.val82, 0
   %. = select i1 %.not79, i64 0, i64 -64
-  br label %486
+  br label %482
 
-486:                                              ; preds = %484, %ZSTD_cwksp_reserve_table.exit98
-  %.0 = phi i64 [ -64, %ZSTD_cwksp_reserve_table.exit98 ], [ %., %484 ]
+482:                                              ; preds = %480, %ZSTD_cwksp_reserve_table.exit98
+  %.0 = phi i64 [ -64, %ZSTD_cwksp_reserve_table.exit98 ], [ %., %480 ]
   ret i64 %.0
 }
 

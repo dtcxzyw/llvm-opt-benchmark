@@ -350,7 +350,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 131072) i32 @_ZN6hermes2vm16JSTypedArrayBase31_getOwnIndexedPropertyFlagsImplEPNS0_8JSObjectERNS0_7RuntimeEj(ptr nocapture noundef readonly %selfObj, ptr nocapture nonnull readnone align 8 %runtime, i32 noundef %index) #0 align 2 {
+define hidden range(i32 0, 65552) i32 @_ZN6hermes2vm16JSTypedArrayBase31_getOwnIndexedPropertyFlagsImplEPNS0_8JSObjectERNS0_7RuntimeEj(ptr nocapture noundef readonly %selfObj, ptr nocapture nonnull readnone align 8 %runtime, i32 noundef %index) #0 align 2 {
 entry:
   %length_.i = getelementptr inbounds nuw i8, ptr %selfObj, i64 24
   %0 = load i32, ptr %length_.i, align 4

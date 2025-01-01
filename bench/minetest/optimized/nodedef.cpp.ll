@@ -30571,20 +30571,20 @@ land.rhs.i.i:                                     ; preds = %if.end33.i, %while.
   %__holeIndex.addr.033.i.i = phi i64 [ %__parent.034.i.i, %while.body.i.i ], [ %__holeIndex.addr.1.i, %if.end33.i ]
   %__parent.034.in.i.i = add nsw i64 %__holeIndex.addr.033.i.i, -1
   %__parent.034.i.i = sdiv i64 %__parent.034.in.i.i, 2
-  %add.ptr.i.i.i = getelementptr inbounds nuw i16, ptr %__first.coerce, i64 %__parent.034.i.i
+  %add.ptr.i.i.i = getelementptr inbounds i16, ptr %__first.coerce, i64 %__parent.034.i.i
   %11 = load i16, ptr %add.ptr.i.i.i, align 2, !tbaa !302
   %cmp.i.i.i = icmp ult i16 %11, %6
   br i1 %cmp.i.i.i, label %while.body.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEltNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit
 
 while.body.i.i:                                   ; preds = %land.rhs.i.i
-  %add.ptr.i24.i.i = getelementptr inbounds nuw i16, ptr %__first.coerce, i64 %__holeIndex.addr.033.i.i
+  %add.ptr.i24.i.i = getelementptr inbounds i16, ptr %__first.coerce, i64 %__holeIndex.addr.033.i.i
   store i16 %11, ptr %add.ptr.i24.i.i, align 2, !tbaa !302
   %cmp.i58.i = icmp sgt i64 %__parent.034.i.i, %__parent.0
   br i1 %cmp.i58.i, label %land.rhs.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEltNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit, !llvm.loop !550
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEltNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit: ; preds = %while.body.i.i, %land.rhs.i.i, %if.end33.i
   %__holeIndex.addr.0.lcssa.i.i = phi i64 [ %__holeIndex.addr.1.i, %if.end33.i ], [ %__holeIndex.addr.033.i.i, %land.rhs.i.i ], [ %__parent.034.i.i, %while.body.i.i ]
-  %add.ptr.i25.i.i = getelementptr inbounds nuw i16, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i
+  %add.ptr.i25.i.i = getelementptr inbounds i16, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i
   store i16 %6, ptr %add.ptr.i25.i.i, align 2, !tbaa !302
   %cmp8.not = icmp eq i64 %__parent.0, 0
   %dec = add nsw i64 %__parent.0, -1

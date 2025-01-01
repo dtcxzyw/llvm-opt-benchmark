@@ -42473,7 +42473,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE13growAndAssignEmi.exit: ; preds = %.lr.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define dso_local range(i64 0, 17179869184) i64 @_ZN4llvm13slpvectorizer7BoUpSLP14getOperandInfoENS_8ArrayRefIPNS_5ValueEEE(ptr nocapture nonnull readnone align 8 %0, ptr readonly %1, i64 %2) local_unnamed_addr #8 align 2 {
+define dso_local range(i64 0, 8589934596) i64 @_ZN4llvm13slpvectorizer7BoUpSLP14getOperandInfoENS_8ArrayRefIPNS_5ValueEEE(ptr nocapture nonnull readnone align 8 %0, ptr readonly %1, i64 %2) local_unnamed_addr #8 align 2 {
   %4 = load ptr, ptr %1, align 8
   %.idx1.i = shl nsw i64 %2, 3
   %5 = getelementptr inbounds i8, ptr %1, i64 %.idx1.i
@@ -58322,7 +58322,7 @@ define linkonce_odr hidden void @_ZN4llvm11SmallVectorIPNS_5ValueELj6EEC2EmRKS2_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc range(i64 0, 8589934592) i64 @_ZL20isFixedVectorShuffleN4llvm8ArrayRefIPNS_5ValueEEERNS_15SmallVectorImplIiEE(ptr %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #0 {
+define internal fastcc range(i64 0, 4294967304) i64 @_ZL20isFixedVectorShuffleN4llvm8ArrayRefIPNS_5ValueEEERNS_15SmallVectorImplIiEE(ptr %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::SmallBitVector", align 8
   %5 = alloca %"class.llvm::SmallBitVector", align 8
   %6 = alloca %"class.llvm::SmallBitVector", align 8
@@ -108774,7 +108774,7 @@ _ZN4llvm9SetVectorIPNS_5ValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12Den
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i16 0, 512) i16 @_ZN4llvm17SLPVectorizerPass19vectorizeStoreChainENS_8ArrayRefIPNS_5ValueEEERNS_13slpvectorizer7BoUpSLPEjjRj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %0, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(3008) %3, i32 %4, i32 noundef %5, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %6) local_unnamed_addr #0 align 2 {
+define dso_local range(i16 0, 258) i16 @_ZN4llvm17SLPVectorizerPass19vectorizeStoreChainENS_8ArrayRefIPNS_5ValueEEERNS_13slpvectorizer7BoUpSLPEjjRj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %0, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(3008) %3, i32 %4, i32 noundef %5, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %6) local_unnamed_addr #0 align 2 {
   %8 = alloca %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", align 8
   %9 = alloca %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", align 8
   %10 = alloca %"class.llvm::ArrayRef", align 8

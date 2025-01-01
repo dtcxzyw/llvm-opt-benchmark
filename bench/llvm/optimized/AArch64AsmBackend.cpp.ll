@@ -530,7 +530,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117AArch64AsmBackend16getNumFixupK
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 8589934592) i64 @_ZNK12_GLOBAL__N_117AArch64AsmBackend12getFixupKindEN4llvm9StringRefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr readonly %1, i64 %2) unnamed_addr #3 align 2 {
+define internal range(i64 0, 4295032832) i64 @_ZNK12_GLOBAL__N_117AArch64AsmBackend12getFixupKindEN4llvm9StringRefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr readonly %1, i64 %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 3

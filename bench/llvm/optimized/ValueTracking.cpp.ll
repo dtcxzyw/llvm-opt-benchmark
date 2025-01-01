@@ -39416,7 +39416,7 @@ _ZN4llvm5APInt10getAllOnesEj.exit:                ; preds = %5, %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i64 0, 8589934592) i64 @_ZN4llvm29canConvertToMinOrMaxIntrinsicENS_8ArrayRefIPNS_5ValueEEE(ptr %0, i64 %1) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967808) i64 @_ZN4llvm29canConvertToMinOrMaxIntrinsicENS_8ArrayRefIPNS_5ValueEEE(ptr %0, i64 %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8

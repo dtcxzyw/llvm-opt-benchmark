@@ -858,15 +858,11 @@ if.then:                                          ; preds = %entry
 if.end.i:                                         ; preds = %entry
   %add1.i = add nuw i64 %minCapacity, 39
   %and.i = and i64 %add1.i, -8
-  %cmp.i.i = icmp eq i64 %and.i, 0
-  br i1 %cmp.i.i, label %_ZN5folly5IOBuf17goodExtBufferSizeEm.exit, label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %if.end.i
   %0 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
   %guard.uninitialized.i.i.i.i.i = icmp eq i8 %0, 0
   br i1 %guard.uninitialized.i.i.i.i.i, label %init.check.i.i.i.i.i, label %_ZN5folly10canNallocxEv.exit.i.i, !prof !46
 
-init.check.i.i.i.i.i:                             ; preds = %if.end.i.i
+init.check.i.i.i.i.i:                             ; preds = %if.end.i
   %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #34
   %tobool.not.i.i.i.i.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i.i.i.i.i, label %_ZN5folly10canNallocxEv.exit.i.i, label %init.i.i.i.i.i
@@ -881,7 +877,7 @@ init.i.i.i.i.i:                                   ; preds = %init.check.i.i.i.i.
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #34
   br label %_ZN5folly10canNallocxEv.exit.i.i
 
-_ZN5folly10canNallocxEv.exit.i.i:                 ; preds = %init.i.i.i.i.i, %init.check.i.i.i.i.i, %if.end.i.i
+_ZN5folly10canNallocxEv.exit.i.i:                 ; preds = %init.i.i.i.i.i, %init.check.i.i.i.i.i, %if.end.i
   %3 = load i8, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !47, !range !29, !noundef !30
   %tobool1.i.i.i.not.i.i = icmp eq i8 %3, 0
   br i1 %tobool1.i.i.i.not.i.i, label %_ZN5folly5IOBuf17goodExtBufferSizeEm.exit, label %if.end2.i.i
@@ -892,8 +888,8 @@ if.end2.i.i:                                      ; preds = %_ZN5folly10canNallo
   %cond.i.i = select i1 %tobool.not.i.i, i64 %and.i, i64 %call3.i.i
   br label %_ZN5folly5IOBuf17goodExtBufferSizeEm.exit
 
-_ZN5folly5IOBuf17goodExtBufferSizeEm.exit:        ; preds = %if.end2.i.i, %_ZN5folly10canNallocxEv.exit.i.i, %if.end.i
-  %retval.0.i.i = phi i64 [ %cond.i.i, %if.end2.i.i ], [ 0, %if.end.i ], [ %and.i, %_ZN5folly10canNallocxEv.exit.i.i ]
+_ZN5folly5IOBuf17goodExtBufferSizeEm.exit:        ; preds = %if.end2.i.i, %_ZN5folly10canNallocxEv.exit.i.i
+  %retval.0.i.i = phi i64 [ %cond.i.i, %if.end2.i.i ], [ %and.i, %_ZN5folly10canNallocxEv.exit.i.i ]
   %call.i = call noalias ptr @malloc(i64 noundef %retval.0.i.i) #36
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %if.then.i12, label %_ZN5folly13checkedMallocEm.exit
@@ -3023,15 +3019,11 @@ if.then.i190:                                     ; preds = %if.then9
 if.end.i:                                         ; preds = %if.then9
   %add1.i = add nuw i64 %add10, 39
   %and.i = and i64 %add1.i, -8
-  %cmp.i.i = icmp eq i64 %and.i, 0
-  br i1 %cmp.i.i, label %_ZN5folly5IOBuf17goodExtBufferSizeEm.exit, label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %if.end.i
   %12 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
   %guard.uninitialized.i.i.i.i.i = icmp eq i8 %12, 0
   br i1 %guard.uninitialized.i.i.i.i.i, label %init.check.i.i.i.i.i, label %_ZN5folly10canNallocxEv.exit.i.i, !prof !46
 
-init.check.i.i.i.i.i:                             ; preds = %if.end.i.i
+init.check.i.i.i.i.i:                             ; preds = %if.end.i
   %13 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #34
   %tobool.not.i.i.i.i.i = icmp eq i32 %13, 0
   br i1 %tobool.not.i.i.i.i.i, label %_ZN5folly10canNallocxEv.exit.i.i, label %init.i.i.i.i.i
@@ -3046,7 +3038,7 @@ init.i.i.i.i.i:                                   ; preds = %init.check.i.i.i.i.
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #34
   br label %_ZN5folly10canNallocxEv.exit.i.i
 
-_ZN5folly10canNallocxEv.exit.i.i:                 ; preds = %init.i.i.i.i.i, %init.check.i.i.i.i.i, %if.end.i.i
+_ZN5folly10canNallocxEv.exit.i.i:                 ; preds = %init.i.i.i.i.i, %init.check.i.i.i.i.i, %if.end.i
   %15 = load i8, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !47, !range !29, !noundef !30
   %tobool1.i.i.i.not.i.i = icmp eq i8 %15, 0
   br i1 %tobool1.i.i.i.not.i.i, label %_ZN5folly5IOBuf17goodExtBufferSizeEm.exit, label %if.end2.i.i
@@ -3057,8 +3049,8 @@ if.end2.i.i:                                      ; preds = %_ZN5folly10canNallo
   %cond.i.i = select i1 %tobool.not.i.i, i64 %and.i, i64 %call3.i.i
   br label %_ZN5folly5IOBuf17goodExtBufferSizeEm.exit
 
-_ZN5folly5IOBuf17goodExtBufferSizeEm.exit:        ; preds = %if.end2.i.i, %_ZN5folly10canNallocxEv.exit.i.i, %if.end.i
-  %retval.0.i.i = phi i64 [ %cond.i.i, %if.end2.i.i ], [ 0, %if.end.i ], [ %and.i, %_ZN5folly10canNallocxEv.exit.i.i ]
+_ZN5folly5IOBuf17goodExtBufferSizeEm.exit:        ; preds = %if.end2.i.i, %_ZN5folly10canNallocxEv.exit.i.i
+  %retval.0.i.i = phi i64 [ %cond.i.i, %if.end2.i.i ], [ %and.i, %_ZN5folly10canNallocxEv.exit.i.i ]
   %16 = load ptr, ptr %buf_.i.i, align 8, !tbaa !58
   %17 = load i64, ptr %capacity_.i.i, align 8, !tbaa !76
   %add.ptr.i.i193 = getelementptr inbounds i8, ptr %16, i64 %17
@@ -3216,15 +3208,11 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %add1 = add nuw i64 %minCapacity, 39
   %and = and i64 %add1, -8
-  %cmp.i = icmp eq i64 %and, 0
-  br i1 %cmp.i, label %_ZN5folly14goodMallocSizeEm.exit, label %if.end.i
-
-if.end.i:                                         ; preds = %if.end
   %0 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
   %guard.uninitialized.i.i.i.i = icmp eq i8 %0, 0
   br i1 %guard.uninitialized.i.i.i.i, label %init.check.i.i.i.i, label %_ZN5folly10canNallocxEv.exit.i, !prof !46
 
-init.check.i.i.i.i:                               ; preds = %if.end.i
+init.check.i.i.i.i:                               ; preds = %if.end
   %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #34
   %tobool.not.i.i.i.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i.i.i.i, label %_ZN5folly10canNallocxEv.exit.i, label %init.i.i.i.i
@@ -3239,7 +3227,7 @@ init.i.i.i.i:                                     ; preds = %init.check.i.i.i.i
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #34
   br label %_ZN5folly10canNallocxEv.exit.i
 
-_ZN5folly10canNallocxEv.exit.i:                   ; preds = %init.i.i.i.i, %init.check.i.i.i.i, %if.end.i
+_ZN5folly10canNallocxEv.exit.i:                   ; preds = %init.i.i.i.i, %init.check.i.i.i.i, %if.end
   %3 = load i8, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !47, !range !29, !noundef !30
   %tobool1.i.i.i.not.i = icmp eq i8 %3, 0
   br i1 %tobool1.i.i.i.not.i, label %_ZN5folly14goodMallocSizeEm.exit, label %if.end2.i
@@ -3250,8 +3238,8 @@ if.end2.i:                                        ; preds = %_ZN5folly10canNallo
   %cond.i = select i1 %tobool.not.i, i64 %and, i64 %call3.i
   br label %_ZN5folly14goodMallocSizeEm.exit
 
-_ZN5folly14goodMallocSizeEm.exit:                 ; preds = %if.end2.i, %_ZN5folly10canNallocxEv.exit.i, %if.end
-  %retval.0.i = phi i64 [ %cond.i, %if.end2.i ], [ 0, %if.end ], [ %and, %_ZN5folly10canNallocxEv.exit.i ]
+_ZN5folly14goodMallocSizeEm.exit:                 ; preds = %if.end2.i, %_ZN5folly10canNallocxEv.exit.i
+  %retval.0.i = phi i64 [ %cond.i, %if.end2.i ], [ %and, %_ZN5folly10canNallocxEv.exit.i ]
   ret i64 %retval.0.i
 }
 
@@ -3935,15 +3923,11 @@ if.then.i:                                        ; preds = %if.then41
 if.end.i154:                                      ; preds = %if.then41
   %add1.i = add nuw i64 %add42, 39
   %and.i155 = and i64 %add1.i, -8
-  %cmp.i.i = icmp eq i64 %and.i155, 0
-  br i1 %cmp.i.i, label %_ZN5folly5IOBuf17goodExtBufferSizeEm.exit, label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %if.end.i154
   %14 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
   %guard.uninitialized.i.i.i.i.i = icmp eq i8 %14, 0
   br i1 %guard.uninitialized.i.i.i.i.i, label %init.check.i.i.i.i.i, label %_ZN5folly10canNallocxEv.exit.i.i, !prof !46
 
-init.check.i.i.i.i.i:                             ; preds = %if.end.i.i
+init.check.i.i.i.i.i:                             ; preds = %if.end.i154
   %15 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #34
   %tobool.not.i.i.i.i.i = icmp eq i32 %15, 0
   br i1 %tobool.not.i.i.i.i.i, label %_ZN5folly10canNallocxEv.exit.i.i, label %init.i.i.i.i.i
@@ -3958,7 +3942,7 @@ init.i.i.i.i.i:                                   ; preds = %init.check.i.i.i.i.
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #34
   br label %_ZN5folly10canNallocxEv.exit.i.i
 
-_ZN5folly10canNallocxEv.exit.i.i:                 ; preds = %init.i.i.i.i.i, %init.check.i.i.i.i.i, %if.end.i.i
+_ZN5folly10canNallocxEv.exit.i.i:                 ; preds = %init.i.i.i.i.i, %init.check.i.i.i.i.i, %if.end.i154
   %17 = load i8, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !47, !range !29, !noundef !30
   %tobool1.i.i.i.not.i.i = icmp eq i8 %17, 0
   br i1 %tobool1.i.i.i.not.i.i, label %_ZN5folly5IOBuf17goodExtBufferSizeEm.exit, label %if.end2.i.i
@@ -3969,8 +3953,8 @@ if.end2.i.i:                                      ; preds = %_ZN5folly10canNallo
   %cond.i.i = select i1 %tobool.not.i.i, i64 %and.i155, i64 %call3.i.i
   br label %_ZN5folly5IOBuf17goodExtBufferSizeEm.exit
 
-_ZN5folly5IOBuf17goodExtBufferSizeEm.exit:        ; preds = %if.end2.i.i, %_ZN5folly10canNallocxEv.exit.i.i, %if.end.i154
-  %retval.0.i.i = phi i64 [ %cond.i.i, %if.end2.i.i ], [ 0, %if.end.i154 ], [ %and.i155, %_ZN5folly10canNallocxEv.exit.i.i ]
+_ZN5folly5IOBuf17goodExtBufferSizeEm.exit:        ; preds = %if.end2.i.i, %_ZN5folly10canNallocxEv.exit.i.i
+  %retval.0.i.i = phi i64 [ %cond.i.i, %if.end2.i.i ], [ %and.i155, %_ZN5folly10canNallocxEv.exit.i.i ]
   %18 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS_13usingJEMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
   %guard.uninitialized.i.i = icmp eq i8 %18, 0
   br i1 %guard.uninitialized.i.i, label %init.check.i.i, label %_ZN5folly13usingJEMallocEv.exit, !prof !46
@@ -4060,15 +4044,11 @@ if.end.i160:                                      ; preds = %if.end81, %if.else,
   %31 = phi i1 [ %tobool33, %if.end81 ], [ %tobool33, %if.else ], [ %tobool33, %if.then47 ], [ %tobool33, %if.then51 ], [ %tobool33, %if.then45 ], [ %tobool33, %land.lhs.true ], [ false, %if.end28 ]
   %add1.i161 = add nuw i64 %6, 39
   %and.i162 = and i64 %add1.i161, -8
-  %cmp.i.i163 = icmp eq i64 %and.i162, 0
-  br i1 %cmp.i.i163, label %_ZN5folly5IOBuf17goodExtBufferSizeEm.exit179, label %if.end.i.i164
-
-if.end.i.i164:                                    ; preds = %if.end.i160
   %32 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
   %guard.uninitialized.i.i.i.i.i165 = icmp eq i8 %32, 0
   br i1 %guard.uninitialized.i.i.i.i.i165, label %init.check.i.i.i.i.i173, label %_ZN5folly10canNallocxEv.exit.i.i166, !prof !46
 
-init.check.i.i.i.i.i173:                          ; preds = %if.end.i.i164
+init.check.i.i.i.i.i173:                          ; preds = %if.end.i160
   %33 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #34
   %tobool.not.i.i.i.i.i174 = icmp eq i32 %33, 0
   br i1 %tobool.not.i.i.i.i.i174, label %_ZN5folly10canNallocxEv.exit.i.i166, label %init.i.i.i.i.i175
@@ -4083,7 +4063,7 @@ init.i.i.i.i.i175:                                ; preds = %init.check.i.i.i.i.
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #34
   br label %_ZN5folly10canNallocxEv.exit.i.i166
 
-_ZN5folly10canNallocxEv.exit.i.i166:              ; preds = %init.i.i.i.i.i175, %init.check.i.i.i.i.i173, %if.end.i.i164
+_ZN5folly10canNallocxEv.exit.i.i166:              ; preds = %init.i.i.i.i.i175, %init.check.i.i.i.i.i173, %if.end.i160
   %35 = load i8, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !47, !range !29, !noundef !30
   %tobool1.i.i.i.not.i.i167 = icmp eq i8 %35, 0
   br i1 %tobool1.i.i.i.not.i.i167, label %_ZN5folly5IOBuf17goodExtBufferSizeEm.exit179, label %if.end2.i.i168
@@ -4094,8 +4074,8 @@ if.end2.i.i168:                                   ; preds = %_ZN5folly10canNallo
   %cond.i.i171 = select i1 %tobool.not.i.i170, i64 %and.i162, i64 %call3.i.i169
   br label %_ZN5folly5IOBuf17goodExtBufferSizeEm.exit179
 
-_ZN5folly5IOBuf17goodExtBufferSizeEm.exit179:     ; preds = %if.end2.i.i168, %_ZN5folly10canNallocxEv.exit.i.i166, %if.end.i160
-  %retval.0.i.i172 = phi i64 [ %cond.i.i171, %if.end2.i.i168 ], [ 0, %if.end.i160 ], [ %and.i162, %_ZN5folly10canNallocxEv.exit.i.i166 ]
+_ZN5folly5IOBuf17goodExtBufferSizeEm.exit179:     ; preds = %if.end2.i.i168, %_ZN5folly10canNallocxEv.exit.i.i166
+  %retval.0.i.i172 = phi i64 [ %cond.i.i171, %if.end2.i.i168 ], [ %and.i162, %_ZN5folly10canNallocxEv.exit.i.i166 ]
   %call.i = call noalias ptr @malloc(i64 noundef %retval.0.i.i172) #36
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %if.then.i181, label %_ZN5folly13checkedMallocEm.exit

@@ -237,7 +237,7 @@ define hidden noundef ptr @"_ZN3gif7encoder16Encoder$LT$W$GT$13write_trailer17hd
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN3gif7encoder16Encoder$LT$W$GT$15write_extension17h2c813f65603824e4E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 1)) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, i48 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN3gif7encoder16Encoder$LT$W$GT$15write_extension17h2c813f65603824e4E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 1)) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, i48 range(i48 0, -4278190080) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { i8, [15 x i8] }, align 8
   %.sroa.4.0.extract.shift = lshr i48 %2, 8
   %.sroa.4.0.extract.trunc = trunc i48 %.sroa.4.0.extract.shift to i8

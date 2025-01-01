@@ -3775,7 +3775,7 @@ _ZNSt10_HashtableIN8facebook5velox8TypeKindESt4pairIKS2_NSt7__cxx1112basic_strin
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define range(i64 0, 1099511627776) i64 @_ZN8facebook5velox24getDecimalPrecisionScaleERKNS0_4TypeE(ptr noundef nonnull readonly align 8 dereferenceable(17) %type) local_unnamed_addr #0 {
+define range(i64 0, 1095216660736) i64 @_ZN8facebook5velox24getDecimalPrecisionScaleERKNS0_4TypeE(ptr noundef nonnull readonly align 8 dereferenceable(17) %type) local_unnamed_addr #0 {
 entry:
   %0 = tail call ptr @__dynamic_cast(ptr nonnull %type, ptr nonnull @_ZTIN8facebook5velox4TypeE, ptr nonnull @_ZTIN8facebook5velox16ShortDecimalTypeE, i64 0) #39
   %cmp.i.not = icmp eq ptr %0, null

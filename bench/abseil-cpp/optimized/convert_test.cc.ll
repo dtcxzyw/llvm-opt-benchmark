@@ -17481,7 +17481,7 @@ lpad:                                             ; preds = %entry
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc range(i32 0, 33554432) i32 @_ZN4absl19str_format_internal12_GLOBAL__N_130VerifyNativeImplementationImplEv() unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc range(i32 0, 16908288) i32 @_ZN4absl19str_format_internal12_GLOBAL__N_130VerifyNativeImplementationImplEv() unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp4 = alloca %"class.std::__cxx11::basic_string", align 8

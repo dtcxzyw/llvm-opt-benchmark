@@ -1953,7 +1953,7 @@ declare dso_local void @iov_iter_revert(ptr noundef, i64 noundef) local_unnamed_
 declare dso_local void @netdev_rx_csum_fault(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 0, 16384) i32 @datagram_poll(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local range(i32 0, 9216) i32 @datagram_poll(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %2, null

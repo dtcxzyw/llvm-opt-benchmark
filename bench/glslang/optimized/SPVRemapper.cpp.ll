@@ -254,7 +254,7 @@ define noundef i32 @_ZN3spv10spirvbin_t12asOpCodeHashEj(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i64 0, -9223372036854775808) i64 @_ZNK3spv10spirvbin_t12literalRangeENS_2OpE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(473) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define range(i64 0, 4611686018427387908) i64 @_ZNK3spv10spirvbin_t12literalRangeENS_2OpE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(473) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   switch i32 %1, label %7 [
     i32 22, label %8
     i32 32, label %8
@@ -289,7 +289,7 @@ define range(i64 0, -9223372036854775808) i64 @_ZNK3spv10spirvbin_t12literalRang
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define range(i64 0, -9223372036854775808) i64 @_ZNK3spv10spirvbin_t9typeRangeENS_2OpE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(473) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define range(i64 0, 4611686018427387908) i64 @_ZNK3spv10spirvbin_t9typeRangeENS_2OpE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(473) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef zeroext i1 @_ZNK3spv10spirvbin_t9isConstOpENS_2OpE(ptr noundef nonnull align 8 dereferenceable(473) %0, i32 noundef %1)
   br i1 %3, label %8, label %4
 
@@ -358,7 +358,7 @@ _ZNK3spv10spirvbin_t5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i64 0, -9223372036854775808) i64 @_ZNK3spv10spirvbin_t10constRangeENS_2OpE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(473) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define range(i64 0, 4611686018427387908) i64 @_ZNK3spv10spirvbin_t10constRangeENS_2OpE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(473) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   switch i32 %1, label %4 [
     i32 28, label %5
     i32 29, label %5

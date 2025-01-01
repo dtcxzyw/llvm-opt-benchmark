@@ -19576,7 +19576,7 @@ define hidden { double, double } @"_ZN4core3ops8function5impls72_$LT$impl$u20$co
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden range(i40 0, 8589934592) i40 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h0e80d6e90e06f3ccE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, i40 %1, ptr noalias noundef readonly align 8 dereferenceable(248) %2) unnamed_addr #7 personality ptr @rust_eh_personality {
+define hidden range(i40 0, 4328521474) i40 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h0e80d6e90e06f3ccE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, i40 %1, ptr noalias noundef readonly align 8 dereferenceable(248) %2) unnamed_addr #7 personality ptr @rust_eh_personality {
   %4 = load ptr, ptr %0, align 8, !nonnull !4, !align !36, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5185)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5188)
@@ -50071,7 +50071,7 @@ define hidden void @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closur
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden range(i40 0, 8589934592) i40 @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h2a8e76543f876398E.llvm.14728845296163125433"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, i40 %1, ptr noalias noundef readonly align 8 dereferenceable(248) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden range(i40 0, 4328521474) i40 @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h2a8e76543f876398E.llvm.14728845296163125433"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, i40 %1, ptr noalias noundef readonly align 8 dereferenceable(248) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13637)
   %4 = load ptr, ptr %0, align 8, !alias.scope !13637, !noalias !13640, !nonnull !4, !align !36, !noundef !4
   %5 = tail call i40 @"_ZN93_$LT$citationberg..LayoutRenderingElement$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$14will_have_info17h184a256c22d46976E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(248) %2, ptr noalias noundef nonnull align 8 dereferenceable(664) %4), !noalias !13637
@@ -69718,7 +69718,7 @@ _ZN9hayagriva3csl4elem10Formatting9write_end17h4f9ffb925b679fabE.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden range(i32 0, 33554432) i32 @_ZN9hayagriva3csl9UsageInfo11merge_child17hda9659b6b7556d04E.llvm.14728845296163125433(i32 %0, i32 %1) unnamed_addr #31 {
+define hidden range(i32 0, 16908288) i32 @_ZN9hayagriva3csl9UsageInfo11merge_child17hda9659b6b7556d04E.llvm.14728845296163125433(i32 %0, i32 %1) unnamed_addr #31 {
   %3 = trunc i32 %0 to i1
   %4 = and i32 %1, 1
   %.020 = select i1 %3, i32 1, i32 %4
@@ -69748,7 +69748,7 @@ define hidden i40 @"_ZN9hayagriva3csl9rendering5names86_$LT$impl$u20$hayagriva..
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden range(i40 0, 8589934592) i40 @"_ZN9hayagriva3csl9rendering5names86_$LT$impl$u20$hayagriva..csl..rendering..RenderCsl$u20$for$u20$citationberg..Names$GT$14will_have_info28_$u7b$$u7b$closure$u7d$$u7d$17he5e71c669254481cE.llvm.14728845296163125433"(ptr noalias nocapture noundef nonnull readnone align 1 %0, i40 %1, i40 %2) unnamed_addr #23 {
+define hidden range(i40 0, 4328521474) i40 @"_ZN9hayagriva3csl9rendering5names86_$LT$impl$u20$hayagriva..csl..rendering..RenderCsl$u20$for$u20$citationberg..Names$GT$14will_have_info28_$u7b$$u7b$closure$u7d$$u7d$17he5e71c669254481cE.llvm.14728845296163125433"(ptr noalias nocapture noundef nonnull readnone align 1 %0, i40 %1, i40 %2) unnamed_addr #23 {
   %4 = trunc i40 %1 to i1
   %.sroa.44.0.extract.shift = lshr i40 %2, 8
   %.sroa.44.0.extract.trunc = trunc nuw i40 %.sroa.44.0.extract.shift to i32

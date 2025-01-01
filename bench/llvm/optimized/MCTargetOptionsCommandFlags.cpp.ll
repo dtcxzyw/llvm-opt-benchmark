@@ -343,7 +343,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm2mc11getRelaxAllEv() local_unnamed_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i16 0, 512) i16 @_ZN4llvm2mc19getExplicitRelaxAllEv() local_unnamed_addr #0 {
+define dso_local range(i16 0, 258) i16 @_ZN4llvm2mc19getExplicitRelaxAllEv() local_unnamed_addr #0 {
   %1 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm2mc28RegisterMCTargetOptionsFlagsC1EvE8RelaxAll, i64 8), align 8
   %.not = icmp eq i16 %1, 0
   %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm2mc28RegisterMCTargetOptionsFlagsC1EvE8RelaxAll, i64 128), align 8

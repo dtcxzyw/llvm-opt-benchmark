@@ -72761,7 +72761,7 @@ declare i32 @dup2(i32 noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @toupper(i32 noundef) local_unnamed_addr #23
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing12_GLOBAL__N_126PrintByteSegmentInObjectToEPKhmmPSo(ptr nocapture noundef readonly %obj_bytes, i64 noundef range(i64 0, -63) %start, i64 noundef %count, ptr noundef nonnull %os) unnamed_addr #3 {
+define internal fastcc void @_ZN7testing12_GLOBAL__N_126PrintByteSegmentInObjectToEPKhmmPSo(ptr nocapture noundef readonly %obj_bytes, i64 noundef range(i64 68, 1) %start, i64 noundef %count, ptr noundef nonnull %os) unnamed_addr #3 {
 entry:
   %__c.addr.i15 = alloca i8, align 1
   %__c.addr.i = alloca i8, align 1

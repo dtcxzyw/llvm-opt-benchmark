@@ -424,7 +424,7 @@ _ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIc
 91:                                               ; preds = %89
   %92 = or i64 %86, 7
   %93 = icmp eq i64 %92, 23
-  %94 = add i64 %92, 1
+  %94 = add nuw i64 %92, 1
   %95 = select i1 %93, i64 25, i64 %94
   %96 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %95) #27
           to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i.thread unwind label %.loopexit108
@@ -676,7 +676,7 @@ _ZNSt3__14pairIN7mitsuba3refINS1_18SamplingIntegratorIfN5drjit6MatrixINS1_8Spect
 182:                                              ; preds = %180
   %183 = or i64 %178, 7
   %184 = icmp eq i64 %183, 23
-  %185 = add i64 %183, 1
+  %185 = add nuw i64 %183, 1
   %186 = select i1 %184, i64 25, i64 %185
   %187 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %186) #27
           to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i40.thread unwind label %.loopexit.split-lp104.loopexit
@@ -749,7 +749,7 @@ _ZNSt3__111char_traitsIcE4copyB8ne190000EPcPKcm.exit.i43: ; preds = %191, %_ZNSt
 218:                                              ; preds = %216
   %219 = or i64 %214, 7
   %220 = icmp eq i64 %219, 23
-  %221 = add i64 %219, 1
+  %221 = add nuw i64 %219, 1
   %222 = select i1 %220, i64 25, i64 %221
   %223 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %222) #27
           to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i52.thread unwind label %.loopexit.split-lp104.loopexit
@@ -830,7 +830,7 @@ _ZNSt3__111char_traitsIcE4copyB8ne190000EPcPKcm.exit.i55: ; preds = %227, %_ZNSt
 255:                                              ; preds = %253
   %256 = or i64 %250, 7
   %257 = icmp eq i64 %256, 23
-  %258 = add i64 %256, 1
+  %258 = add nuw i64 %256, 1
   %259 = select i1 %257, i64 25, i64 %258
   %260 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %259) #27
           to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i64.thread unwind label %.loopexit.split-lp104.loopexit

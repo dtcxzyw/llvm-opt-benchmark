@@ -92,7 +92,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define range(i64 0, 8589934592) i64 @_ZN9grpc_core25ParseCompressionAlgorithmESt17basic_string_viewIcSt11char_traitsIcEE(i64 %algorithm.coerce0, ptr nocapture readonly %algorithm.coerce1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i64 0, 4294967300) i64 @_ZN9grpc_core25ParseCompressionAlgorithmESt17basic_string_viewIcSt11char_traitsIcEE(i64 %algorithm.coerce0, ptr nocapture readonly %algorithm.coerce1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   switch i64 %algorithm.coerce0, label %if.else13 [
     i64 8, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i

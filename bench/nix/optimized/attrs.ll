@@ -3121,7 +3121,7 @@ define noundef i64 @_ZN3nix8fetchers10getIntAttrERKSt3mapINSt7__cxx1112basic_str
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i16 0, 512) i16 @_ZN3nix8fetchers16maybeGetBoolAttrERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS7_mNS_8ExplicitIbEEEESt4lessIS7_ESaISt4pairIKS7_SB_EEERSF_(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i16 0, 258) i16 @_ZN3nix8fetchers16maybeGetBoolAttrERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS7_mNS_8ExplicitIbEEEESt4lessIS7_ESaISt4pairIKS7_SB_EEERSF_(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.0", align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16

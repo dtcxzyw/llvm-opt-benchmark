@@ -1530,7 +1530,7 @@ return:                                           ; preds = %for.body54, %for.co
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -65535, 65572) i32 @ossltest_aes128_cbc_hmac_sha1_ctrl(ptr noundef %ctx, i32 noundef %type, i32 noundef %arg, ptr nocapture noundef %ptr) #1 {
+define internal range(i32 -65503, 65572) i32 @ossltest_aes128_cbc_hmac_sha1_ctrl(ptr noundef %ctx, i32 noundef %type, i32 noundef %arg, ptr nocapture noundef %ptr) #1 {
 entry:
   %call = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #8
   switch i32 %type, label %sw.default [

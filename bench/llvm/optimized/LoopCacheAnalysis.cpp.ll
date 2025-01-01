@@ -1033,7 +1033,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_4SCEVELb1EE9push_backES3_.exit35: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i16 0, 512) i16 @_ZNK4llvm16IndexedReference15hasSpacialReuseERKS0_jRNS_9AAResultsE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(112) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(56) %3) local_unnamed_addr #0 align 2 {
+define dso_local range(i16 0, 258) i16 @_ZNK4llvm16IndexedReference15hasSpacialReuseERKS0_jRNS_9AAResultsE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(112) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(56) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.std::optional.195", align 8
   %6 = alloca %"class.std::optional.195", align 8
   %7 = alloca %"class.llvm::MemoryLocation", align 8

@@ -4261,7 +4261,7 @@ if.end82:                                         ; preds = %if.then76, %if.end7
   %inc90 = zext i1 %or.cond1 to i32
   %count.4 = add nuw nsw i32 %count.3, %inc90
   %mask.4 = or i32 %mask.3, %inc90
-  %conv = trunc nuw i32 %list.3 to i8
+  %conv = trunc i32 %list.3 to i8
   store i8 %conv, ptr %SortDirectionsAvailList, align 2
   %conv93 = trunc nuw nsw i32 %mask.4 to i8
   %bf.value = shl nuw nsw i8 %conv93, 4

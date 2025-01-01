@@ -1049,7 +1049,7 @@ _ZNK5clang5NSAPI25isNSNumberLiteralSelectorENS0_25NSNumberLiteralMethodKindENS_8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i64 0, 8589934592) i64 @_ZNK5clang5NSAPI28getNSNumberFactoryMethodKindENS_8QualTypeE(ptr nocapture noundef nonnull align 8 dereferenceable(712) %0, i64 %1) local_unnamed_addr #2 align 2 {
+define dso_local range(i64 0, 4294967312) i64 @_ZNK5clang5NSAPI28getNSNumberFactoryMethodKindENS_8QualTypeE(ptr nocapture noundef nonnull align 8 dereferenceable(712) %0, i64 %1) local_unnamed_addr #2 align 2 {
   %3 = and i64 %1, -16
   %4 = inttoptr i64 %3 to ptr
   %5 = load ptr, ptr %4, align 16

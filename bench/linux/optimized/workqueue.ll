@@ -8997,7 +8997,7 @@ declare dso_local i32 @cpumask_any_distribute(ptr noundef) local_unnamed_addr #0
 declare dso_local i32 @wake_up_process(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @insert_work(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 2, 0) %3) unnamed_addr #1 align 16 {
+define internal fastcc void @insert_work(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 2, -12) %3) unnamed_addr #1 align 16 {
   %5 = zext i32 %3 to i64
   %6 = load volatile i64, ptr %1, align 8
   %7 = and i64 %6, 1

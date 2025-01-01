@@ -4318,7 +4318,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
 178:                                              ; preds = %176
   %179 = or i64 %173, 7
   %180 = icmp eq i64 %179, 23
-  %181 = add i64 %179, 1
+  %181 = add nuw i64 %179, 1
   %182 = select i1 %180, i64 25, i64 %181
   %183 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %182) #33
           to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i.thread unwind label %286
@@ -7619,7 +7619,7 @@ define weak_odr void @_ZN7mitsuba4MeshIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EE
 40:                                               ; preds = %38
   %41 = or i64 %35, 7
   %42 = icmp eq i64 %41, 23
-  %43 = add i64 %41, 1
+  %43 = add nuw i64 %41, 1
   %44 = select i1 %42, i64 25, i64 %43
   %45 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %44) #33
           to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i.thread unwind label %118

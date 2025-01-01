@@ -12799,7 +12799,7 @@ cleanup:                                          ; preds = %if.end17.i38, %if.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal i64 @_ZN6hermes2vm12_GLOBAL__N_117StandardSortModel7compareEjj(ptr noundef nonnull align 8 dereferenceable(328) %this, i32 noundef %a, i32 noundef %b) unnamed_addr #0 align 2 {
+define internal range(i64 0, -4294967294) i64 @_ZN6hermes2vm12_GLOBAL__N_117StandardSortModel7compareEjj(ptr noundef nonnull align 8 dereferenceable(328) %this, i32 noundef %a, i32 noundef %b) unnamed_addr #0 align 2 {
 entry:
   %aDesc = alloca %"struct.hermes::vm::ComputedPropertyDescriptor", align 8
   %bDesc = alloca %"struct.hermes::vm::ComputedPropertyDescriptor", align 8

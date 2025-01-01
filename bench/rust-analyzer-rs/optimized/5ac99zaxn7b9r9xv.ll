@@ -38,7 +38,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table._ZN17ra_ap_rustc_lexer8unescape23unescape_non_raw_common17hecb632ccb7a3f465E.llvm.11162169574061779932 = private unnamed_addr constant [8 x i64] [i64 0, i64 1, i64 0, i64 0, i64 1, i64 1, i64 0, i64 0], align 8
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc i64 @_ZN17ra_ap_rustc_lexer8unescape11scan_escape17h1c478bc3d527e719E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i8 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i64 0, -4294901760) i64 @_ZN17ra_ap_rustc_lexer8unescape11scan_escape17h1c478bc3d527e719E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i8 noundef %1) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !alias.scope !7, !nonnull !10, !noundef !10
@@ -277,7 +277,7 @@ define internal fastcc i64 @_ZN17ra_ap_rustc_lexer8unescape11scan_escape17h1c478
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc i64 @_ZN17ra_ap_rustc_lexer8unescape11scan_escape17h5a44938103c2f520E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i8 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i64 0, -4294901760) i64 @_ZN17ra_ap_rustc_lexer8unescape11scan_escape17h5a44938103c2f520E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i8 noundef %1) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !alias.scope !38, !nonnull !10, !noundef !10

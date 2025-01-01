@@ -5329,10 +5329,10 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   br label %13
 
-13:                                               ; preds = %283, %9
-  %14 = phi i64 [ %7, %9 ], [ %286, %283 ]
-  %15 = phi i64 [ %2, %9 ], [ %181, %283 ]
-  %16 = phi ptr [ %1, %9 ], [ %252, %283 ]
+13:                                               ; preds = %279, %9
+  %14 = phi i64 [ %7, %9 ], [ %282, %279 ]
+  %15 = phi i64 [ %2, %9 ], [ %181, %279 ]
+  %16 = phi ptr [ %1, %9 ], [ %248, %279 ]
   %17 = icmp eq i64 %15, 0
   br i1 %17, label %18, label %180
 
@@ -5610,194 +5610,191 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %186 = load i32, ptr %11, align 4, !tbaa !16
   %187 = getelementptr inbounds nuw i8, ptr %184, i64 4
   %188 = load i32, ptr %187, align 4, !tbaa !16
-  %189 = icmp ne i32 %186, %188
-  %190 = and i64 %14, 9223372036854775792
-  %191 = icmp eq i64 %190, 16
-  %192 = or i1 %191, %189
-  br i1 %192, label %194, label %193
+  %.not = icmp eq i32 %186, %188
+  br i1 %.not, label %189, label %190
 
-193:                                              ; preds = %180
+189:                                              ; preds = %180
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.15, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN8rawspeed10IiqDecoder13computeSripesENS_6BufferESt6vectorINS0_9IiqOffsetESaIS3_EEjENK3$_0clERKS3_S8_") #16
   unreachable
 
-194:                                              ; preds = %180
-  %195 = icmp ult i32 %186, %188
-  %196 = getelementptr inbounds i8, ptr %16, i64 -4
-  %197 = load i32, ptr %196, align 4, !tbaa !16
-  br i1 %195, label %198, label %220
+190:                                              ; preds = %180
+  %191 = icmp ult i32 %186, %188
+  %192 = getelementptr inbounds i8, ptr %16, i64 -4
+  %193 = load i32, ptr %192, align 4, !tbaa !16
+  br i1 %191, label %194, label %216
+
+194:                                              ; preds = %190
+  %195 = icmp ne i32 %188, %193
+  %196 = icmp eq ptr %184, %185
+  %197 = or i1 %196, %195
+  br i1 %197, label %199, label %198
 
 198:                                              ; preds = %194
-  %199 = icmp ne i32 %188, %197
-  %200 = icmp eq ptr %184, %185
-  %201 = or i1 %200, %199
-  br i1 %201, label %203, label %202
-
-202:                                              ; preds = %198
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.15, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN8rawspeed10IiqDecoder13computeSripesENS_6BufferESt6vectorINS0_9IiqOffsetESaIS3_EEjENK3$_0clERKS3_S8_") #16
   unreachable
 
-203:                                              ; preds = %198
-  %204 = icmp ult i32 %188, %197
-  br i1 %204, label %205, label %208
+199:                                              ; preds = %194
+  %200 = icmp ult i32 %188, %193
+  br i1 %200, label %201, label %204
 
-205:                                              ; preds = %203
-  %206 = load i64, ptr %0, align 4, !tbaa.struct !19
-  %207 = load i64, ptr %184, align 4, !tbaa.struct !19
-  store i64 %207, ptr %0, align 4, !tbaa.struct !19
-  store i64 %206, ptr %184, align 4, !tbaa.struct !19
-  br label %242
+201:                                              ; preds = %199
+  %202 = load i64, ptr %0, align 4, !tbaa.struct !19
+  %203 = load i64, ptr %184, align 4, !tbaa.struct !19
+  store i64 %203, ptr %0, align 4, !tbaa.struct !19
+  store i64 %202, ptr %184, align 4, !tbaa.struct !19
+  br label %238
 
-208:                                              ; preds = %203
-  %209 = icmp ne i32 %186, %197
-  %210 = icmp eq ptr %10, %185
-  %211 = or i1 %210, %209
-  br i1 %211, label %213, label %212
+204:                                              ; preds = %199
+  %205 = icmp ne i32 %186, %193
+  %206 = icmp eq ptr %10, %185
+  %207 = or i1 %206, %205
+  br i1 %207, label %209, label %208
 
-212:                                              ; preds = %208
+208:                                              ; preds = %204
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.15, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN8rawspeed10IiqDecoder13computeSripesENS_6BufferESt6vectorINS0_9IiqOffsetESaIS3_EEjENK3$_0clERKS3_S8_") #16
   unreachable
 
-213:                                              ; preds = %208
-  %214 = icmp ult i32 %186, %197
-  %215 = load i64, ptr %0, align 4
-  br i1 %214, label %216, label %218
+209:                                              ; preds = %204
+  %210 = icmp ult i32 %186, %193
+  %211 = load i64, ptr %0, align 4
+  br i1 %210, label %212, label %214
 
-216:                                              ; preds = %213
-  %217 = load i64, ptr %185, align 4, !tbaa.struct !19
-  store i64 %217, ptr %0, align 4, !tbaa.struct !19
-  store i64 %215, ptr %185, align 4, !tbaa.struct !19
-  br label %242
+212:                                              ; preds = %209
+  %213 = load i64, ptr %185, align 4, !tbaa.struct !19
+  store i64 %213, ptr %0, align 4, !tbaa.struct !19
+  store i64 %211, ptr %185, align 4, !tbaa.struct !19
+  br label %238
 
-218:                                              ; preds = %213
-  %219 = load i64, ptr %10, align 4, !tbaa.struct !19
-  store i64 %219, ptr %0, align 4, !tbaa.struct !19
-  store i64 %215, ptr %10, align 4, !tbaa.struct !19
-  br label %242
+214:                                              ; preds = %209
+  %215 = load i64, ptr %10, align 4, !tbaa.struct !19
+  store i64 %215, ptr %0, align 4, !tbaa.struct !19
+  store i64 %211, ptr %10, align 4, !tbaa.struct !19
+  br label %238
 
-220:                                              ; preds = %194
-  %221 = icmp ne i32 %186, %197
-  %222 = icmp eq ptr %10, %185
-  %223 = or i1 %222, %221
-  br i1 %223, label %225, label %224
+216:                                              ; preds = %190
+  %217 = icmp ne i32 %186, %193
+  %218 = icmp eq ptr %10, %185
+  %219 = or i1 %218, %217
+  br i1 %219, label %221, label %220
 
-224:                                              ; preds = %220
+220:                                              ; preds = %216
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.15, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN8rawspeed10IiqDecoder13computeSripesENS_6BufferESt6vectorINS0_9IiqOffsetESaIS3_EEjENK3$_0clERKS3_S8_") #16
   unreachable
 
-225:                                              ; preds = %220
-  %226 = icmp ult i32 %186, %197
-  br i1 %226, label %227, label %230
+221:                                              ; preds = %216
+  %222 = icmp ult i32 %186, %193
+  br i1 %222, label %223, label %226
 
-227:                                              ; preds = %225
-  %228 = load <2 x i64>, ptr %0, align 4
-  %229 = shufflevector <2 x i64> %228, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i64> %229, ptr %0, align 4
-  br label %242
+223:                                              ; preds = %221
+  %224 = load <2 x i64>, ptr %0, align 4
+  %225 = shufflevector <2 x i64> %224, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
+  store <2 x i64> %225, ptr %0, align 4
+  br label %238
 
-230:                                              ; preds = %225
-  %231 = icmp ne i32 %188, %197
-  %232 = icmp eq ptr %184, %185
-  %233 = or i1 %232, %231
-  br i1 %233, label %235, label %234
+226:                                              ; preds = %221
+  %227 = icmp ne i32 %188, %193
+  %228 = icmp eq ptr %184, %185
+  %229 = or i1 %228, %227
+  br i1 %229, label %231, label %230
 
-234:                                              ; preds = %230
+230:                                              ; preds = %226
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.15, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN8rawspeed10IiqDecoder13computeSripesENS_6BufferESt6vectorINS0_9IiqOffsetESaIS3_EEjENK3$_0clERKS3_S8_") #16
   unreachable
 
-235:                                              ; preds = %230
-  %236 = icmp ult i32 %188, %197
-  %237 = load i64, ptr %0, align 4
-  br i1 %236, label %238, label %240
+231:                                              ; preds = %226
+  %232 = icmp ult i32 %188, %193
+  %233 = load i64, ptr %0, align 4
+  br i1 %232, label %234, label %236
 
-238:                                              ; preds = %235
-  %239 = load i64, ptr %185, align 4, !tbaa.struct !19
-  store i64 %239, ptr %0, align 4, !tbaa.struct !19
-  store i64 %237, ptr %185, align 4, !tbaa.struct !19
-  br label %242
+234:                                              ; preds = %231
+  %235 = load i64, ptr %185, align 4, !tbaa.struct !19
+  store i64 %235, ptr %0, align 4, !tbaa.struct !19
+  store i64 %233, ptr %185, align 4, !tbaa.struct !19
+  br label %238
 
-240:                                              ; preds = %235
-  %241 = load i64, ptr %184, align 4, !tbaa.struct !19
-  store i64 %241, ptr %0, align 4, !tbaa.struct !19
-  store i64 %237, ptr %184, align 4, !tbaa.struct !19
-  br label %242
+236:                                              ; preds = %231
+  %237 = load i64, ptr %184, align 4, !tbaa.struct !19
+  store i64 %237, ptr %0, align 4, !tbaa.struct !19
+  store i64 %233, ptr %184, align 4, !tbaa.struct !19
+  br label %238
 
-242:                                              ; preds = %240, %238, %227, %218, %216, %205
-  %243 = load i32, ptr %12, align 4, !tbaa !16
-  %244 = load i32, ptr %11, align 4, !tbaa !16
-  %245 = icmp eq i32 %244, %243
-  br i1 %245, label %.loopexit66, label %.preheader67
+238:                                              ; preds = %236, %234, %223, %214, %212, %201
+  %239 = load i32, ptr %12, align 4, !tbaa !16
+  %240 = load i32, ptr %11, align 4, !tbaa !16
+  %241 = icmp eq i32 %240, %239
+  br i1 %241, label %.loopexit66, label %.preheader67
 
-.preheader67:                                     ; preds = %242, %273
-  %246 = phi i32 [ %279, %273 ], [ %244, %242 ]
-  %247 = phi i32 [ %277, %273 ], [ %243, %242 ]
-  %248 = phi ptr [ %262, %273 ], [ %16, %242 ]
-  %249 = phi ptr [ %276, %273 ], [ %10, %242 ]
-  br label %250
+.preheader67:                                     ; preds = %238, %269
+  %242 = phi i32 [ %275, %269 ], [ %240, %238 ]
+  %243 = phi i32 [ %273, %269 ], [ %239, %238 ]
+  %244 = phi ptr [ %258, %269 ], [ %16, %238 ]
+  %245 = phi ptr [ %272, %269 ], [ %10, %238 ]
+  br label %246
 
-.loopexit66:                                      ; preds = %242, %273, %254
+.loopexit66:                                      ; preds = %238, %269, %250
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.15, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN8rawspeed10IiqDecoder13computeSripesENS_6BufferESt6vectorINS0_9IiqOffsetESaIS3_EEjENK3$_0clERKS3_S8_") #16
   unreachable
 
-250:                                              ; preds = %254, %.preheader67
-  %251 = phi i32 [ %246, %.preheader67 ], [ %257, %254 ]
-  %252 = phi ptr [ %249, %.preheader67 ], [ %255, %254 ]
-  %253 = icmp ult i32 %251, %247
-  br i1 %253, label %254, label %.preheader65
+246:                                              ; preds = %250, %.preheader67
+  %247 = phi i32 [ %242, %.preheader67 ], [ %253, %250 ]
+  %248 = phi ptr [ %245, %.preheader67 ], [ %251, %250 ]
+  %249 = icmp ult i32 %247, %243
+  br i1 %249, label %250, label %.preheader65
 
-254:                                              ; preds = %250
-  %255 = getelementptr inbounds nuw i8, ptr %252, i64 8
-  %256 = getelementptr inbounds nuw i8, ptr %252, i64 12
-  %257 = load i32, ptr %256, align 4, !tbaa !16
-  %258 = icmp ne i32 %257, %247
-  %259 = icmp eq ptr %255, %0
-  %260 = or i1 %259, %258
-  br i1 %260, label %250, label %.loopexit66, !llvm.loop !332
+250:                                              ; preds = %246
+  %251 = getelementptr inbounds nuw i8, ptr %248, i64 8
+  %252 = getelementptr inbounds nuw i8, ptr %248, i64 12
+  %253 = load i32, ptr %252, align 4, !tbaa !16
+  %254 = icmp ne i32 %253, %243
+  %255 = icmp eq ptr %251, %0
+  %256 = or i1 %255, %254
+  br i1 %256, label %246, label %.loopexit66, !llvm.loop !332
 
-.preheader65:                                     ; preds = %250, %269
-  %261 = phi ptr [ %262, %269 ], [ %248, %250 ]
-  %262 = getelementptr inbounds i8, ptr %261, i64 -8
-  %263 = getelementptr inbounds i8, ptr %261, i64 -4
-  %264 = load i32, ptr %263, align 4, !tbaa !16
-  %265 = icmp ne i32 %247, %264
-  %266 = icmp eq ptr %262, %0
-  %267 = or i1 %266, %265
-  br i1 %267, label %269, label %268
+.preheader65:                                     ; preds = %246, %265
+  %257 = phi ptr [ %258, %265 ], [ %244, %246 ]
+  %258 = getelementptr inbounds i8, ptr %257, i64 -8
+  %259 = getelementptr inbounds i8, ptr %257, i64 -4
+  %260 = load i32, ptr %259, align 4, !tbaa !16
+  %261 = icmp ne i32 %243, %260
+  %262 = icmp eq ptr %258, %0
+  %263 = or i1 %262, %261
+  br i1 %263, label %265, label %264
 
-268:                                              ; preds = %.preheader65
+264:                                              ; preds = %.preheader65
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.15, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN8rawspeed10IiqDecoder13computeSripesENS_6BufferESt6vectorINS0_9IiqOffsetESaIS3_EEjENK3$_0clERKS3_S8_") #16
   unreachable
 
-269:                                              ; preds = %.preheader65
-  %270 = icmp ult i32 %247, %264
-  br i1 %270, label %.preheader65, label %271, !llvm.loop !333
+265:                                              ; preds = %.preheader65
+  %266 = icmp ult i32 %243, %260
+  br i1 %266, label %.preheader65, label %267, !llvm.loop !333
 
-271:                                              ; preds = %269
-  %272 = icmp ult ptr %252, %262
-  br i1 %272, label %273, label %283
+267:                                              ; preds = %265
+  %268 = icmp ult ptr %248, %258
+  br i1 %268, label %269, label %279
 
-273:                                              ; preds = %271
-  %274 = load i64, ptr %252, align 4, !tbaa.struct !19
-  %275 = load i64, ptr %262, align 4, !tbaa.struct !19
-  store i64 %275, ptr %252, align 4, !tbaa.struct !19
-  store i64 %274, ptr %262, align 4, !tbaa.struct !19
-  %276 = getelementptr inbounds nuw i8, ptr %252, i64 8
-  %277 = load i32, ptr %12, align 4, !tbaa !16
-  %278 = getelementptr inbounds nuw i8, ptr %252, i64 12
-  %279 = load i32, ptr %278, align 4, !tbaa !16
-  %280 = icmp ne i32 %279, %277
-  %281 = icmp eq ptr %276, %0
-  %282 = or i1 %281, %280
-  br i1 %282, label %.preheader67, label %.loopexit66, !llvm.loop !334
+269:                                              ; preds = %267
+  %270 = load i64, ptr %248, align 4, !tbaa.struct !19
+  %271 = load i64, ptr %258, align 4, !tbaa.struct !19
+  store i64 %271, ptr %248, align 4, !tbaa.struct !19
+  store i64 %270, ptr %258, align 4, !tbaa.struct !19
+  %272 = getelementptr inbounds nuw i8, ptr %248, i64 8
+  %273 = load i32, ptr %12, align 4, !tbaa !16
+  %274 = getelementptr inbounds nuw i8, ptr %248, i64 12
+  %275 = load i32, ptr %274, align 4, !tbaa !16
+  %276 = icmp ne i32 %275, %273
+  %277 = icmp eq ptr %272, %0
+  %278 = or i1 %277, %276
+  br i1 %278, label %.preheader67, label %.loopexit66, !llvm.loop !334
 
-283:                                              ; preds = %271
-  tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN8rawspeed10IiqDecoder9IiqOffsetESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIZNS3_13computeSripesENS2_6BufferES8_jE3$_0EEEvT_SF_T0_T1_"(ptr %252, ptr %16, i64 noundef %181)
-  %284 = ptrtoint ptr %252 to i64
-  %285 = sub i64 %284, %4
-  %286 = freeze i64 %285
-  %287 = icmp sgt i64 %286, 128
-  br i1 %287, label %13, label %.loopexit49, !llvm.loop !335
+279:                                              ; preds = %267
+  tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN8rawspeed10IiqDecoder9IiqOffsetESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIZNS3_13computeSripesENS2_6BufferES8_jE3$_0EEEvT_SF_T0_T1_"(ptr %248, ptr %16, i64 noundef %181)
+  %280 = ptrtoint ptr %248 to i64
+  %281 = sub i64 %280, %4
+  %282 = freeze i64 %281
+  %283 = icmp sgt i64 %282, 128
+  br i1 %283, label %13, label %.loopexit49, !llvm.loop !335
 
-.loopexit49:                                      ; preds = %283, %.loopexit, %3
+.loopexit49:                                      ; preds = %279, %.loopexit, %3
   ret void
 }
 

@@ -74,20 +74,11 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
 
 if.else.i24.i:                                    ; preds = %if.end16.i
   %and6.i.i = and i32 %keylen, 252
-  %cmp818.not.i.i = icmp eq i32 %and6.i.i, 0
-  br i1 %cmp818.not.i.i, label %if.else.i.i.thread.i, label %for.body9.preheader.i.i
-
-if.else.i.i.thread.i:                             ; preds = %if.else.i24.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %temp.i.i)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %aes, ptr readonly align 1 %userKey, i64 %conv.i, i1 false)
-  br label %ByteReverseWords.exit.i.i
-
-for.body9.preheader.i.i:                          ; preds = %if.else.i24.i
   %3 = zext nneg i32 %and6.i.i to i64
   br label %for.body9.i.i
 
-for.body9.i.i:                                    ; preds = %for.body9.i.i, %for.body9.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %for.body9.preheader.i.i ], [ %indvars.iv.next.i.i, %for.body9.i.i ]
+for.body9.i.i:                                    ; preds = %for.body9.i.i, %if.else.i24.i
+  %indvars.iv.i.i = phi i64 [ 0, %if.else.i24.i ], [ %indvars.iv.next.i.i, %for.body9.i.i ]
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %aes, i64 %indvars.iv.i.i
   %scratch.0.copyload.i.i = load i32, ptr %add.ptr.i.i, align 1
   %or.i16.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %scratch.0.copyload.i.i)
@@ -120,12 +111,12 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   br i1 %exitcond.not.i.i.i, label %ByteReverseWords.exit.i.i, label %for.body.i.i.i, !llvm.loop !4
 
 if.else.i.i.i:                                    ; preds = %ByteReverseWords.exit.i
-  %.pre.i = and i32 %keylen, 252
-  %cmp818.not.i.i.i = icmp eq i32 %.pre.i, 0
+  %and6.i.i.i = and i32 %keylen, 252
+  %cmp818.not.i.i.i = icmp eq i32 %and6.i.i.i, 0
   br i1 %cmp818.not.i.i.i, label %ByteReverseWords.exit.i.i, label %for.body9.preheader.i.i.i
 
 for.body9.preheader.i.i.i:                        ; preds = %if.else.i.i.i
-  %5 = zext nneg i32 %.pre.i to i64
+  %5 = zext nneg i32 %and6.i.i.i to i64
   br label %for.body9.i.i.i
 
 for.body9.i.i.i:                                  ; preds = %for.body9.i.i.i, %for.body9.preheader.i.i.i
@@ -138,7 +129,7 @@ for.body9.i.i.i:                                  ; preds = %for.body9.i.i.i, %f
   %cmp8.i.i.i = icmp samesign ult i64 %indvars.iv.next.i.i.i, %5
   br i1 %cmp8.i.i.i, label %for.body9.i.i.i, label %ByteReverseWords.exit.i.i, !llvm.loop !6
 
-ByteReverseWords.exit.i.i:                        ; preds = %for.body9.i.i.i, %for.body.i.i.i, %if.else.i.i.i, %if.then.i.i.i, %if.else.i.i.thread.i
+ByteReverseWords.exit.i.i:                        ; preds = %for.body9.i.i.i, %for.body.i.i.i, %if.else.i.i.i, %if.then.i.i.i
   switch i8 %trunc, label %sw.epilog.i.i [
     i8 16, label %while.body.preheader.i.i
     i8 24, label %while.body45.preheader.i.i

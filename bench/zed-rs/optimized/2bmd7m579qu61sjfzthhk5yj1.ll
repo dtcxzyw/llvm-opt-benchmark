@@ -15383,7 +15383,7 @@ define range(i24 65536, 131072) i24 @_ZN2ui10components7divider7Divider5inset17h
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define i24 @_ZN2ui10components7divider7Divider5color17hf6bb3ea8ddaca02aE(i24 %0, i1 noundef zeroext %1) unnamed_addr #2 {
+define range(i24 0, -65024) i24 @_ZN2ui10components7divider7Divider5color17hf6bb3ea8ddaca02aE(i24 %0, i1 noundef zeroext %1) unnamed_addr #2 {
   %.sroa.28.0.insert.shift = select i1 %1, i24 256, i24 0
   %3 = and i24 %0, -65281
   %.sroa.07.0.insert.insert = or disjoint i24 %.sroa.28.0.insert.shift, %3

@@ -79,7 +79,7 @@ $_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__9ArchRegexESaIS1_EE17_M_realloc
 @.str.67 = private unnamed_addr constant [16 x i8] c"vector::reserve\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define range(i64 0, 8589934592) i64 @_ZNK32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase9_EvalExprENS_13TfFunctionRefIFNS_26SdfPredicateFunctionResultEbEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr %1, ptr nocapture readonly %2) local_unnamed_addr #0 align 2 {
+define range(i64 0, 4294967298) i64 @_ZNK32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase9_EvalExprENS_13TfFunctionRefIFNS_26SdfPredicateFunctionResultEbEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr %1, ptr nocapture readonly %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8

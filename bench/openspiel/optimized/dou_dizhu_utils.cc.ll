@@ -1242,7 +1242,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i64 4294967296, 34359738368) i64 @_ZN10open_spiel9dou_dizhu23GetSingleRankHandParamsEi(i32 noundef %0) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i64 4294967296, 21474836480) i64 @_ZN10open_spiel9dou_dizhu23GetSingleRankHandParamsEi(i32 noundef %0) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 switch.lookup:
   %1 = alloca i32, align 4
   %2 = alloca i32, align 4

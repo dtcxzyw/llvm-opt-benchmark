@@ -4139,7 +4139,7 @@ _ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit.i: ; preds
   %32 = shl nuw i64 %31, 48
   %33 = or disjoint i64 %32, 4607182418800017408
   %34 = add i64 %33, %29
-  %35 = add i64 %34, %30
+  %35 = add nuw i64 %34, %30
   %36 = or disjoint i64 %35, %25
   %37 = bitcast i64 %36 to double
   br label %_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.exit
@@ -4665,7 +4665,7 @@ define noundef zeroext i1 @"_ZN72_$LT$softposit..p16e1..P16E1$u20$as$u20$num_tra
 }
 
 ; Function Attrs: nonlazybind uwtable
-define i32 @"_ZN59_$LT$softposit..p16e1..P16E1$u20$as$u20$num_traits..Num$GT$14from_str_radix17h4280cb1270eb223fE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i32 noundef %2) unnamed_addr #2 {
+define range(i32 0, -65534) i32 @"_ZN59_$LT$softposit..p16e1..P16E1$u20$as$u20$num_traits..Num$GT$14from_str_radix17h4280cb1270eb223fE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i32 noundef %2) unnamed_addr #2 {
   %4 = alloca { i8, [15 x i8] }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @"_ZN39_$LT$f64$u20$as$u20$num_traits..Num$GT$14from_str_radix17h0a4767a2e72cb71bE"(ptr noalias nocapture noundef nonnull sret([16 x i8]) align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i32 noundef %2)
@@ -4875,7 +4875,7 @@ _ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit.i: ; preds
   %28 = shl nuw i64 %27, 48
   %29 = or disjoint i64 %28, 4607182418800017408
   %30 = add i64 %29, %25
-  %31 = add i64 %30, %26
+  %31 = add nuw i64 %30, %26
   %32 = or disjoint i64 %31, %21
   %33 = bitcast i64 %32 to double
   br label %"_ZN9softposit5p16e17convert41_$LT$impl$u20$softposit..p16e1..P16E1$GT$6to_f6417h1c44b9fdef92826eE.exit"

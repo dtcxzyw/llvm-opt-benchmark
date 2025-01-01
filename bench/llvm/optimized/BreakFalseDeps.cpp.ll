@@ -769,8 +769,6 @@ define dso_local void @_ZN4llvm14BreakFalseDeps17processUndefReadsEPNS_17Machine
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %22, align 8
   %23 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %24 = inttoptr i64 %23 to ptr
-  %.not.i.i.i.i.i.i.i.i.i = icmp ne i64 %23, 0
-  tail call void @llvm.assume(i1 %.not.i.i.i.i.i.i.i.i.i)
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %24, align 8
   %25 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %25, 0
@@ -889,8 +887,6 @@ _ZNK4llvm12LivePhysRegs8containsEt.exit:          ; preds = %.lr.ph.i.i.i.i.i, %
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.015.023, align 8
   %83 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, -8
   %84 = inttoptr i64 %83 to ptr
-  %.not.i.i.i.i.i = icmp ne i64 %83, 0
-  tail call void @llvm.assume(i1 %.not.i.i.i.i.i)
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %84, align 8
   %85 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i = icmp eq i64 %85, 0

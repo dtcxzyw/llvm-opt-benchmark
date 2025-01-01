@@ -303,7 +303,7 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_13CXXMethodDeclEEppEv.exit: ; 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i16 0, 512) i16 @_ZN5clang14isRefCountableEPKNS_13CXXRecordDeclE(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i16 0, 258) i16 @_ZN5clang14isRefCountableEPKNS_13CXXRecordDeclE(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %"class.clang::CXXBasePaths", align 8
   %3 = alloca i8, align 1
   %4 = alloca %class.anon, align 8
@@ -784,7 +784,7 @@ declare noundef ptr @_ZNK5clang4Type5getAsINS_26TemplateSpecializationTypeEEEPKT
 declare noundef ptr @_ZNK5clang12TemplateName17getAsTemplateDeclEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i16 0, 512) i16 @_ZN5clang11isUncountedEPKNS_13CXXRecordDeclE(ptr noundef nonnull %0) local_unnamed_addr #0 {
+define dso_local range(i16 0, 258) i16 @_ZN5clang11isUncountedEPKNS_13CXXRecordDeclE(ptr noundef nonnull %0) local_unnamed_addr #0 {
   %2 = tail call noundef zeroext i1 @_ZN5clang12isRefCountedEPKNS_13CXXRecordDeclE(ptr noundef %0)
   br i1 %2, label %7, label %3
 

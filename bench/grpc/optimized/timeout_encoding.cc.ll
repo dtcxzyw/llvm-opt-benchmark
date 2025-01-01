@@ -25,14 +25,14 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i32 0, 1048576) i32 @_ZN9grpc_core7Timeout12FromDurationENS_8DurationE(i64 %duration.coerce) local_unnamed_addr #3 align 2 {
+define range(i32 0, 720896) i32 @_ZN9grpc_core7Timeout12FromDurationENS_8DurationE(i64 %duration.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %call1 = tail call i32 @_ZN9grpc_core7Timeout10FromMillisEl(i64 noundef %duration.coerce)
   ret i32 %call1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i32 0, 1048576) i32 @_ZN9grpc_core7Timeout10FromMillisEl(i64 noundef %millis) local_unnamed_addr #3 align 2 {
+define range(i32 0, 720896) i32 @_ZN9grpc_core7Timeout10FromMillisEl(i64 noundef %millis) local_unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp slt i64 %millis, 1
   br i1 %cmp, label %return, label %if.else
@@ -576,7 +576,7 @@ sw.epilog75:                                      ; preds = %sw.bb73, %sw.bb71, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i32 262144, 1048576) i32 @_ZN9grpc_core7Timeout11FromSecondsEl(i64 noundef %seconds) local_unnamed_addr #3 align 2 {
+define range(i32 262144, 720896) i32 @_ZN9grpc_core7Timeout11FromSecondsEl(i64 noundef %seconds) local_unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp slt i64 %seconds, 1000
   br i1 %cmp, label %if.then, label %if.else
@@ -693,7 +693,7 @@ return:                                           ; preds = %if.end23.i, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i32 458752, 1048576) i32 @_ZN9grpc_core7Timeout11FromMinutesEl(i64 noundef %minutes) local_unnamed_addr #3 align 2 {
+define range(i32 458752, 720896) i32 @_ZN9grpc_core7Timeout11FromMinutesEl(i64 noundef %minutes) local_unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp slt i64 %minutes, 1000
   br i1 %cmp, label %if.then, label %if.else

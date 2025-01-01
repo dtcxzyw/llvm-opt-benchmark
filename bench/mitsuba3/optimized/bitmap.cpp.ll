@@ -6044,7 +6044,7 @@ _ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
 291:                                              ; preds = %289
   %292 = or i64 %286, 7
   %293 = icmp eq i64 %292, 23
-  %294 = add i64 %292, 1
+  %294 = add nuw i64 %292, 1
   %295 = select i1 %293, i64 25, i64 %294
   %296 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %295) #36
           to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i.thread unwind label %.thread.loopexit
@@ -6094,7 +6094,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_2
 311:                                              ; preds = %304
   %312 = or i64 %286, 7
   %313 = icmp eq i64 %312, 23
-  %314 = add i64 %312, 1
+  %314 = add nuw i64 %312, 1
   %315 = select i1 %313, i64 25, i64 %314
   %316 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %315) #36
           to label %.noexc279 unwind label %.thread1043
@@ -6142,7 +6142,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_2
 332:                                              ; preds = %326
   %333 = or i64 %286, 7
   %334 = icmp eq i64 %333, 23
-  %335 = add i64 %333, 1
+  %335 = add nuw i64 %333, 1
   %336 = select i1 %334, i64 25, i64 %335
   %337 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %336) #36
           to label %.noexc288 unwind label %.loopexit695
@@ -6283,7 +6283,7 @@ _ZNSt3__16vectorINS_4pairIdNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorI
 381:                                              ; preds = %379
   %382 = or i64 %376, 7
   %383 = icmp eq i64 %382, 23
-  %384 = add i64 %382, 1
+  %384 = add nuw i64 %382, 1
   %385 = select i1 %383, i64 25, i64 %384
   %386 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %385) #36
           to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i292.thread unwind label %.loopexit602
@@ -6396,7 +6396,7 @@ _ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
 423:                                              ; preds = %421
   %424 = or i64 %418, 7
   %425 = icmp eq i64 %424, 23
-  %426 = add i64 %424, 1
+  %426 = add nuw i64 %424, 1
   %427 = select i1 %425, i64 25, i64 %426
   %428 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %427) #36
           to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i307.thread unwind label %.thread559.loopexit
@@ -6446,7 +6446,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_2
 443:                                              ; preds = %436
   %444 = or i64 %418, 7
   %445 = icmp eq i64 %444, 23
-  %446 = add i64 %444, 1
+  %446 = add nuw i64 %444, 1
   %447 = select i1 %445, i64 25, i64 %446
   %448 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %447) #36
           to label %.noexc322 unwind label %.thread1055
@@ -6494,7 +6494,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_2
 464:                                              ; preds = %458
   %465 = or i64 %418, 7
   %466 = icmp eq i64 %465, 23
-  %467 = add i64 %465, 1
+  %467 = add nuw i64 %465, 1
   %468 = select i1 %466, i64 25, i64 %467
   %469 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %468) #36
           to label %.noexc331 unwind label %.loopexit682
@@ -6627,7 +6627,7 @@ _ZNSt3__16vectorINS_4pairIdNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorI
 512:                                              ; preds = %510
   %513 = or i64 %508, 7
   %514 = icmp eq i64 %513, 23
-  %515 = add i64 %513, 1
+  %515 = add nuw i64 %513, 1
   %516 = select i1 %514, i64 25, i64 %515
   %517 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %516) #36
           to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i336.thread unwind label %.loopexit602
@@ -6740,7 +6740,7 @@ _ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
 554:                                              ; preds = %552
   %555 = or i64 %549, 7
   %556 = icmp eq i64 %555, 23
-  %557 = add i64 %555, 1
+  %557 = add nuw i64 %555, 1
   %558 = select i1 %556, i64 25, i64 %557
   %559 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %558) #36
           to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i351.thread unwind label %.thread565.loopexit
@@ -6790,7 +6790,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_2
 574:                                              ; preds = %567
   %575 = or i64 %549, 7
   %576 = icmp eq i64 %575, 23
-  %577 = add i64 %575, 1
+  %577 = add nuw i64 %575, 1
   %578 = select i1 %576, i64 25, i64 %577
   %579 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %578) #36
           to label %.noexc366 unwind label %.thread1067
@@ -6838,7 +6838,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_2
 595:                                              ; preds = %589
   %596 = or i64 %549, 7
   %597 = icmp eq i64 %596, 23
-  %598 = add i64 %596, 1
+  %598 = add nuw i64 %596, 1
   %599 = select i1 %597, i64 25, i64 %598
   %600 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %599) #36
           to label %.noexc375 unwind label %.loopexit669
@@ -6971,7 +6971,7 @@ _ZNSt3__16vectorINS_4pairIdNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorI
 643:                                              ; preds = %641
   %644 = or i64 %639, 7
   %645 = icmp eq i64 %644, 23
-  %646 = add i64 %644, 1
+  %646 = add nuw i64 %644, 1
   %647 = select i1 %645, i64 25, i64 %646
   %648 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %647) #36
           to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i380.thread unwind label %.loopexit602
@@ -7084,7 +7084,7 @@ _ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
 685:                                              ; preds = %683
   %686 = or i64 %680, 7
   %687 = icmp eq i64 %686, 23
-  %688 = add i64 %686, 1
+  %688 = add nuw i64 %686, 1
   %689 = select i1 %687, i64 25, i64 %688
   %690 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %689) #36
           to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i395.thread unwind label %.thread571.loopexit
@@ -7134,7 +7134,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_2
 705:                                              ; preds = %698
   %706 = or i64 %680, 7
   %707 = icmp eq i64 %706, 23
-  %708 = add i64 %706, 1
+  %708 = add nuw i64 %706, 1
   %709 = select i1 %707, i64 25, i64 %708
   %710 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %709) #36
           to label %.noexc410 unwind label %.thread1079
@@ -7182,7 +7182,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_2
 726:                                              ; preds = %720
   %727 = or i64 %680, 7
   %728 = icmp eq i64 %727, 23
-  %729 = add i64 %727, 1
+  %729 = add nuw i64 %727, 1
   %730 = select i1 %728, i64 25, i64 %729
   %731 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %730) #36
           to label %.noexc419 unwind label %.loopexit656
@@ -7322,7 +7322,7 @@ _ZNSt3__16vectorINS_4pairIdNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorI
 775:                                              ; preds = %773
   %776 = or i64 %770, 7
   %777 = icmp eq i64 %776, 23
-  %778 = add i64 %776, 1
+  %778 = add nuw i64 %776, 1
   %779 = select i1 %777, i64 25, i64 %778
   %780 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %779) #36
           to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i424.thread unwind label %.loopexit643
@@ -7446,7 +7446,7 @@ _ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
 815:                                              ; preds = %813
   %816 = or i64 %810, 7
   %817 = icmp eq i64 %816, 23
-  %818 = add i64 %816, 1
+  %818 = add nuw i64 %816, 1
   %819 = select i1 %817, i64 25, i64 %818
   %820 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %819) #36
           to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i439.thread unwind label %.thread577.loopexit
@@ -7496,7 +7496,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_2
 835:                                              ; preds = %828
   %836 = or i64 %810, 7
   %837 = icmp eq i64 %836, 23
-  %838 = add i64 %836, 1
+  %838 = add nuw i64 %836, 1
   %839 = select i1 %837, i64 25, i64 %838
   %840 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %839) #36
           to label %.noexc454 unwind label %.thread1091
@@ -7544,7 +7544,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_2
 856:                                              ; preds = %850
   %857 = or i64 %810, 7
   %858 = icmp eq i64 %857, 23
-  %859 = add i64 %857, 1
+  %859 = add nuw i64 %857, 1
   %860 = select i1 %858, i64 25, i64 %859
   %861 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %860) #36
           to label %.noexc463 unwind label %.loopexit638
@@ -7684,7 +7684,7 @@ _ZNSt3__16vectorINS_4pairIdNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorI
 905:                                              ; preds = %903
   %906 = or i64 %900, 7
   %907 = icmp eq i64 %906, 23
-  %908 = add i64 %906, 1
+  %908 = add nuw i64 %906, 1
   %909 = select i1 %907, i64 25, i64 %908
   %910 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %909) #36
           to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i468.thread unwind label %.loopexit625
@@ -7800,7 +7800,7 @@ _ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
 945:                                              ; preds = %943
   %946 = or i64 %940, 7
   %947 = icmp eq i64 %946, 23
-  %948 = add i64 %946, 1
+  %948 = add nuw i64 %946, 1
   %949 = select i1 %947, i64 25, i64 %948
   %950 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %949) #36
           to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i483.thread unwind label %.thread583.loopexit
@@ -7850,7 +7850,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_2
 965:                                              ; preds = %958
   %966 = or i64 %940, 7
   %967 = icmp eq i64 %966, 23
-  %968 = add i64 %966, 1
+  %968 = add nuw i64 %966, 1
   %969 = select i1 %967, i64 25, i64 %968
   %970 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %969) #36
           to label %.noexc498 unwind label %.thread1103
@@ -7898,7 +7898,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_2
 986:                                              ; preds = %980
   %987 = or i64 %940, 7
   %988 = icmp eq i64 %987, 23
-  %989 = add i64 %987, 1
+  %989 = add nuw i64 %987, 1
   %990 = select i1 %988, i64 25, i64 %989
   %991 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %990) #36
           to label %.noexc507 unwind label %.loopexit620
@@ -8038,7 +8038,7 @@ _ZNSt3__16vectorINS_4pairIdNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorI
 1035:                                             ; preds = %1033
   %1036 = or i64 %1030, 7
   %1037 = icmp eq i64 %1036, 23
-  %1038 = add i64 %1036, 1
+  %1038 = add nuw i64 %1036, 1
   %1039 = select i1 %1037, i64 25, i64 %1038
   %1040 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %1039) #36
           to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i512.thread unwind label %.loopexit607

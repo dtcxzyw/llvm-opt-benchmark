@@ -154,7 +154,7 @@ define internal fastcc void @reset_sigmask(i32 noundef %0) unnamed_addr #1 {
 declare i32 @raise(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i64 2, 4294967296) i64 @rb_f_kill(i32 noundef %0, ptr nocapture noundef nonnull readonly %1) local_unnamed_addr #1 {
+define dso_local range(i64 2, 4294967294) i64 @rb_f_kill(i32 noundef %0, ptr nocapture noundef nonnull readonly %1) local_unnamed_addr #1 {
   %3 = alloca %struct.sigaction, align 8
   %4 = alloca [6 x i64], align 16
   %5 = alloca i64, align 8

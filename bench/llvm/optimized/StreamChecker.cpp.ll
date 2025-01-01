@@ -18211,7 +18211,7 @@ _ZNK5clang4ento12ProgramState6assumeENS0_20DefinedOrUnknownSValEb.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc range(i24 0, 131072) i24 @_ZNK12_GLOBAL__N_116StreamErrorStateorERKS0_(ptr nocapture noundef nonnull readonly align 1 dereferenceable(3) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(3) %1) unnamed_addr #15 align 2 {
+define internal fastcc range(i24 0, 66048) i24 @_ZNK12_GLOBAL__N_116StreamErrorStateorERKS0_(ptr nocapture noundef nonnull readonly align 1 dereferenceable(3) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(3) %1) unnamed_addr #15 align 2 {
   %3 = load i8, ptr %0, align 1
   %4 = trunc i8 %3 to i1
   %5 = load i8, ptr %1, align 1

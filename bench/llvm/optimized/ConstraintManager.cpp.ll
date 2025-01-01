@@ -48,7 +48,7 @@ define dso_local void @_ZN5clang4ento17ConstraintManagerD0Ev(ptr nocapture nonnu
 declare void @llvm.trap() #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i16 0, 512) i16 @_ZN5clang4ento17ConstraintManager9checkNullEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_7SymExprE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define dso_local range(i16 0, 258) i16 @_ZN5clang4ento17ConstraintManager9checkNullEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_7SymExprE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::pair", align 8
   %5 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %6 = load ptr, ptr %2, align 8

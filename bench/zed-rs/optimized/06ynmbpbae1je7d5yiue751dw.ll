@@ -623,7 +623,7 @@ define hidden void @"_ZN10enumflags210impl_serde82_$LT$impl$u20$serde..de..Deser
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden i24 @"_ZN10enumflags217BitFlags$LT$T$GT$9from_bits17hfa469017297d7946E.llvm.4131538278782514096"(i8 noundef %0) unnamed_addr #3 {
+define hidden range(i24 0, -522240) i24 @"_ZN10enumflags217BitFlags$LT$T$GT$9from_bits17hfa469017297d7946E.llvm.4131538278782514096"(i8 noundef %0) unnamed_addr #3 {
   %2 = and i8 %0, 7
   %3 = icmp ugt i8 %0, 7
   %4 = and i8 %0, -8

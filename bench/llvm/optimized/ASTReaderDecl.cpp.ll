@@ -60348,77 +60348,72 @@ define linkonce_odr hidden void @_ZN5clang17DefaultArgStorageINS_20TemplateTypeP
   %11 = and i64 %10, -7
   %12 = or disjoint i64 %11, 2
   store i64 %12, ptr %0, align 8
-  br label %47
+  br label %44
 
 13:                                               ; preds = %3
   %14 = and i64 %.0.copyload.i.i.i.i.i, 6
-  %15 = icmp ne i64 %14, 2
-  %16 = and i64 %.0.copyload.i.i.i.i.i, -8
-  %.not18 = icmp eq i64 %16, 0
-  %.not = or i1 %15, %.not18
-  br i1 %.not, label %35, label %17
+  switch i64 %14, label %36 [
+    i64 2, label %15
+    i64 4, label %33
+  ]
 
-17:                                               ; preds = %13
-  %18 = tail call noundef ptr @_ZN5clang30allocateDefaultArgStorageChainERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(23096) %1) #26
-  store ptr %spec.select.i, ptr %18, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
+15:                                               ; preds = %13
+  %16 = tail call noundef ptr @_ZN5clang30allocateDefaultArgStorageChainERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(23096) %1) #26
+  store ptr %spec.select.i, ptr %16, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i12 = load i64, ptr %0, align 8
-  %20 = and i64 %.sroa.0.0.copyload.i.i.i.i.i12, 6
-  %21 = icmp eq i64 %20, 2
-  %22 = and i64 %.sroa.0.0.copyload.i.i.i.i.i12, -8
-  %23 = inttoptr i64 %22 to ptr
-  %.0.i.i.i.i.i13 = select i1 %21, ptr %23, ptr null
+  %18 = and i64 %.sroa.0.0.copyload.i.i.i.i.i12, 6
+  %19 = icmp eq i64 %18, 2
+  %20 = and i64 %.sroa.0.0.copyload.i.i.i.i.i12, -8
+  %21 = inttoptr i64 %20 to ptr
+  %.0.i.i.i.i.i13 = select i1 %19, ptr %21, ptr null
   %.not.i14 = icmp eq ptr %.0.i.i.i.i.i13, null
-  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i13, i64 72
-  %spec.select.i15 = select i1 %.not.i14, ptr %0, ptr %24
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i13, i64 72
+  %spec.select.i15 = select i1 %.not.i14, ptr %0, ptr %22
   %.sroa.0.0.copyload.i.i.i.i12.i = load i64, ptr %spec.select.i15, align 8
-  %25 = and i64 %.sroa.0.0.copyload.i.i.i.i12.i, 6
-  %26 = icmp ne i64 %25, 4
-  %27 = and i64 %.sroa.0.0.copyload.i.i.i.i12.i, -8
-  %28 = inttoptr i64 %27 to ptr
-  %.not1114.i = icmp eq i64 %27, 0
-  %.not11.i = or i1 %26, %.not1114.i
-  br i1 %.not11.i, label %_ZNK5clang17DefaultArgStorageINS_20TemplateTypeParmDeclEPNS_19TemplateArgumentLocEE3getEv.exit, label %29
+  %23 = and i64 %.sroa.0.0.copyload.i.i.i.i12.i, 6
+  %24 = icmp ne i64 %23, 4
+  %25 = and i64 %.sroa.0.0.copyload.i.i.i.i12.i, -8
+  %26 = inttoptr i64 %25 to ptr
+  %.not1114.i = icmp eq i64 %25, 0
+  %.not11.i = or i1 %24, %.not1114.i
+  br i1 %.not11.i, label %_ZNK5clang17DefaultArgStorageINS_20TemplateTypeParmDeclEPNS_19TemplateArgumentLocEE3getEv.exit, label %27
 
-29:                                               ; preds = %17
-  %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %31 = load ptr, ptr %30, align 8
+27:                                               ; preds = %15
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %29 = load ptr, ptr %28, align 8
   br label %_ZNK5clang17DefaultArgStorageINS_20TemplateTypeParmDeclEPNS_19TemplateArgumentLocEE3getEv.exit
 
-_ZNK5clang17DefaultArgStorageINS_20TemplateTypeParmDeclEPNS_19TemplateArgumentLocEE3getEv.exit: ; preds = %17, %29
-  %.0.i = phi ptr [ %31, %29 ], [ %28, %17 ]
-  store ptr %.0.i, ptr %19, align 8
-  %32 = ptrtoint ptr %18 to i64
-  %33 = and i64 %32, -7
-  %34 = or disjoint i64 %33, 4
-  store i64 %34, ptr %0, align 8
-  br label %47
+_ZNK5clang17DefaultArgStorageINS_20TemplateTypeParmDeclEPNS_19TemplateArgumentLocEE3getEv.exit: ; preds = %15, %27
+  %.0.i = phi ptr [ %29, %27 ], [ %26, %15 ]
+  store ptr %.0.i, ptr %17, align 8
+  %30 = ptrtoint ptr %16 to i64
+  %31 = and i64 %30, -7
+  %32 = or disjoint i64 %31, 4
+  store i64 %32, ptr %0, align 8
+  br label %44
 
-35:                                               ; preds = %13
-  %36 = icmp ne i64 %14, 4
-  %.not11 = or i1 %36, %.not18
-  br i1 %.not11, label %39, label %37
+33:                                               ; preds = %13
+  %34 = and i64 %.0.copyload.i.i.i.i.i, -8
+  %35 = inttoptr i64 %34 to ptr
+  store ptr %spec.select.i, ptr %35, align 8
+  br label %44
 
-37:                                               ; preds = %35
-  %38 = inttoptr i64 %16 to ptr
-  store ptr %spec.select.i, ptr %38, align 8
-  br label %47
-
-39:                                               ; preds = %35
-  %40 = tail call noundef ptr @_ZN5clang30allocateDefaultArgStorageChainERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(23096) %1) #26
-  store ptr %spec.select.i, ptr %40, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
+36:                                               ; preds = %13
+  %37 = tail call noundef ptr @_ZN5clang30allocateDefaultArgStorageChainERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(23096) %1) #26
+  store ptr %spec.select.i, ptr %37, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %0, align 8
-  %42 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
-  %43 = inttoptr i64 %42 to ptr
-  store ptr %43, ptr %41, align 8
-  %44 = ptrtoint ptr %40 to i64
-  %45 = and i64 %44, -7
-  %46 = or disjoint i64 %45, 4
-  store i64 %46, ptr %0, align 8
-  br label %47
+  %39 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
+  %40 = inttoptr i64 %39 to ptr
+  store ptr %40, ptr %38, align 8
+  %41 = ptrtoint ptr %37 to i64
+  %42 = and i64 %41, -7
+  %43 = or disjoint i64 %42, 4
+  store i64 %43, ptr %0, align 8
+  br label %44
 
-47:                                               ; preds = %_ZNK5clang17DefaultArgStorageINS_20TemplateTypeParmDeclEPNS_19TemplateArgumentLocEE3getEv.exit, %39, %37, %9
+44:                                               ; preds = %_ZNK5clang17DefaultArgStorageINS_20TemplateTypeParmDeclEPNS_19TemplateArgumentLocEE3getEv.exit, %36, %33, %9
   ret void
 }
 
@@ -60444,77 +60439,72 @@ define linkonce_odr hidden void @_ZN5clang17DefaultArgStorageINS_23NonTypeTempla
   %11 = and i64 %10, -7
   %12 = or disjoint i64 %11, 2
   store i64 %12, ptr %0, align 8
-  br label %47
+  br label %44
 
 13:                                               ; preds = %3
   %14 = and i64 %.0.copyload.i.i.i.i.i, 6
-  %15 = icmp ne i64 %14, 2
-  %16 = and i64 %.0.copyload.i.i.i.i.i, -8
-  %.not18 = icmp eq i64 %16, 0
-  %.not = or i1 %15, %.not18
-  br i1 %.not, label %35, label %17
+  switch i64 %14, label %36 [
+    i64 2, label %15
+    i64 4, label %33
+  ]
 
-17:                                               ; preds = %13
-  %18 = tail call noundef ptr @_ZN5clang30allocateDefaultArgStorageChainERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(23096) %1) #26
-  store ptr %spec.select.i, ptr %18, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
+15:                                               ; preds = %13
+  %16 = tail call noundef ptr @_ZN5clang30allocateDefaultArgStorageChainERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(23096) %1) #26
+  store ptr %spec.select.i, ptr %16, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i12 = load i64, ptr %0, align 8
-  %20 = and i64 %.sroa.0.0.copyload.i.i.i.i.i12, 6
-  %21 = icmp eq i64 %20, 2
-  %22 = and i64 %.sroa.0.0.copyload.i.i.i.i.i12, -8
-  %23 = inttoptr i64 %22 to ptr
-  %.0.i.i.i.i.i13 = select i1 %21, ptr %23, ptr null
+  %18 = and i64 %.sroa.0.0.copyload.i.i.i.i.i12, 6
+  %19 = icmp eq i64 %18, 2
+  %20 = and i64 %.sroa.0.0.copyload.i.i.i.i.i12, -8
+  %21 = inttoptr i64 %20 to ptr
+  %.0.i.i.i.i.i13 = select i1 %19, ptr %21, ptr null
   %.not.i14 = icmp eq ptr %.0.i.i.i.i.i13, null
-  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i13, i64 72
-  %spec.select.i15 = select i1 %.not.i14, ptr %0, ptr %24
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i13, i64 72
+  %spec.select.i15 = select i1 %.not.i14, ptr %0, ptr %22
   %.sroa.0.0.copyload.i.i.i.i12.i = load i64, ptr %spec.select.i15, align 8
-  %25 = and i64 %.sroa.0.0.copyload.i.i.i.i12.i, 6
-  %26 = icmp ne i64 %25, 4
-  %27 = and i64 %.sroa.0.0.copyload.i.i.i.i12.i, -8
-  %28 = inttoptr i64 %27 to ptr
-  %.not1114.i = icmp eq i64 %27, 0
-  %.not11.i = or i1 %26, %.not1114.i
-  br i1 %.not11.i, label %_ZNK5clang17DefaultArgStorageINS_23NonTypeTemplateParmDeclEPNS_19TemplateArgumentLocEE3getEv.exit, label %29
+  %23 = and i64 %.sroa.0.0.copyload.i.i.i.i12.i, 6
+  %24 = icmp ne i64 %23, 4
+  %25 = and i64 %.sroa.0.0.copyload.i.i.i.i12.i, -8
+  %26 = inttoptr i64 %25 to ptr
+  %.not1114.i = icmp eq i64 %25, 0
+  %.not11.i = or i1 %24, %.not1114.i
+  br i1 %.not11.i, label %_ZNK5clang17DefaultArgStorageINS_23NonTypeTemplateParmDeclEPNS_19TemplateArgumentLocEE3getEv.exit, label %27
 
-29:                                               ; preds = %17
-  %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %31 = load ptr, ptr %30, align 8
+27:                                               ; preds = %15
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %29 = load ptr, ptr %28, align 8
   br label %_ZNK5clang17DefaultArgStorageINS_23NonTypeTemplateParmDeclEPNS_19TemplateArgumentLocEE3getEv.exit
 
-_ZNK5clang17DefaultArgStorageINS_23NonTypeTemplateParmDeclEPNS_19TemplateArgumentLocEE3getEv.exit: ; preds = %17, %29
-  %.0.i = phi ptr [ %31, %29 ], [ %28, %17 ]
-  store ptr %.0.i, ptr %19, align 8
-  %32 = ptrtoint ptr %18 to i64
-  %33 = and i64 %32, -7
-  %34 = or disjoint i64 %33, 4
-  store i64 %34, ptr %0, align 8
-  br label %47
+_ZNK5clang17DefaultArgStorageINS_23NonTypeTemplateParmDeclEPNS_19TemplateArgumentLocEE3getEv.exit: ; preds = %15, %27
+  %.0.i = phi ptr [ %29, %27 ], [ %26, %15 ]
+  store ptr %.0.i, ptr %17, align 8
+  %30 = ptrtoint ptr %16 to i64
+  %31 = and i64 %30, -7
+  %32 = or disjoint i64 %31, 4
+  store i64 %32, ptr %0, align 8
+  br label %44
 
-35:                                               ; preds = %13
-  %36 = icmp ne i64 %14, 4
-  %.not11 = or i1 %36, %.not18
-  br i1 %.not11, label %39, label %37
+33:                                               ; preds = %13
+  %34 = and i64 %.0.copyload.i.i.i.i.i, -8
+  %35 = inttoptr i64 %34 to ptr
+  store ptr %spec.select.i, ptr %35, align 8
+  br label %44
 
-37:                                               ; preds = %35
-  %38 = inttoptr i64 %16 to ptr
-  store ptr %spec.select.i, ptr %38, align 8
-  br label %47
-
-39:                                               ; preds = %35
-  %40 = tail call noundef ptr @_ZN5clang30allocateDefaultArgStorageChainERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(23096) %1) #26
-  store ptr %spec.select.i, ptr %40, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
+36:                                               ; preds = %13
+  %37 = tail call noundef ptr @_ZN5clang30allocateDefaultArgStorageChainERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(23096) %1) #26
+  store ptr %spec.select.i, ptr %37, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %0, align 8
-  %42 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
-  %43 = inttoptr i64 %42 to ptr
-  store ptr %43, ptr %41, align 8
-  %44 = ptrtoint ptr %40 to i64
-  %45 = and i64 %44, -7
-  %46 = or disjoint i64 %45, 4
-  store i64 %46, ptr %0, align 8
-  br label %47
+  %39 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
+  %40 = inttoptr i64 %39 to ptr
+  store ptr %40, ptr %38, align 8
+  %41 = ptrtoint ptr %37 to i64
+  %42 = and i64 %41, -7
+  %43 = or disjoint i64 %42, 4
+  store i64 %43, ptr %0, align 8
+  br label %44
 
-47:                                               ; preds = %_ZNK5clang17DefaultArgStorageINS_23NonTypeTemplateParmDeclEPNS_19TemplateArgumentLocEE3getEv.exit, %39, %37, %9
+44:                                               ; preds = %_ZNK5clang17DefaultArgStorageINS_23NonTypeTemplateParmDeclEPNS_19TemplateArgumentLocEE3getEv.exit, %36, %33, %9
   ret void
 }
 
@@ -60538,77 +60528,72 @@ define linkonce_odr hidden void @_ZN5clang17DefaultArgStorageINS_24TemplateTempl
   %11 = and i64 %10, -7
   %12 = or disjoint i64 %11, 2
   store i64 %12, ptr %0, align 8
-  br label %47
+  br label %44
 
 13:                                               ; preds = %3
   %14 = and i64 %.0.copyload.i.i.i.i.i, 6
-  %15 = icmp ne i64 %14, 2
-  %16 = and i64 %.0.copyload.i.i.i.i.i, -8
-  %.not18 = icmp eq i64 %16, 0
-  %.not = or i1 %15, %.not18
-  br i1 %.not, label %35, label %17
+  switch i64 %14, label %36 [
+    i64 2, label %15
+    i64 4, label %33
+  ]
 
-17:                                               ; preds = %13
-  %18 = tail call noundef ptr @_ZN5clang30allocateDefaultArgStorageChainERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(23096) %1) #26
-  store ptr %spec.select.i, ptr %18, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
+15:                                               ; preds = %13
+  %16 = tail call noundef ptr @_ZN5clang30allocateDefaultArgStorageChainERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(23096) %1) #26
+  store ptr %spec.select.i, ptr %16, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i12 = load i64, ptr %0, align 8
-  %20 = and i64 %.sroa.0.0.copyload.i.i.i.i.i12, 6
-  %21 = icmp eq i64 %20, 2
-  %22 = and i64 %.sroa.0.0.copyload.i.i.i.i.i12, -8
-  %23 = inttoptr i64 %22 to ptr
-  %.0.i.i.i.i.i13 = select i1 %21, ptr %23, ptr null
+  %18 = and i64 %.sroa.0.0.copyload.i.i.i.i.i12, 6
+  %19 = icmp eq i64 %18, 2
+  %20 = and i64 %.sroa.0.0.copyload.i.i.i.i.i12, -8
+  %21 = inttoptr i64 %20 to ptr
+  %.0.i.i.i.i.i13 = select i1 %19, ptr %21, ptr null
   %.not.i14 = icmp eq ptr %.0.i.i.i.i.i13, null
-  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i13, i64 72
-  %spec.select.i15 = select i1 %.not.i14, ptr %0, ptr %24
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i13, i64 72
+  %spec.select.i15 = select i1 %.not.i14, ptr %0, ptr %22
   %.sroa.0.0.copyload.i.i.i.i12.i = load i64, ptr %spec.select.i15, align 8
-  %25 = and i64 %.sroa.0.0.copyload.i.i.i.i12.i, 6
-  %26 = icmp ne i64 %25, 4
-  %27 = and i64 %.sroa.0.0.copyload.i.i.i.i12.i, -8
-  %28 = inttoptr i64 %27 to ptr
-  %.not1114.i = icmp eq i64 %27, 0
-  %.not11.i = or i1 %26, %.not1114.i
-  br i1 %.not11.i, label %_ZNK5clang17DefaultArgStorageINS_24TemplateTemplateParmDeclEPNS_19TemplateArgumentLocEE3getEv.exit, label %29
+  %23 = and i64 %.sroa.0.0.copyload.i.i.i.i12.i, 6
+  %24 = icmp ne i64 %23, 4
+  %25 = and i64 %.sroa.0.0.copyload.i.i.i.i12.i, -8
+  %26 = inttoptr i64 %25 to ptr
+  %.not1114.i = icmp eq i64 %25, 0
+  %.not11.i = or i1 %24, %.not1114.i
+  br i1 %.not11.i, label %_ZNK5clang17DefaultArgStorageINS_24TemplateTemplateParmDeclEPNS_19TemplateArgumentLocEE3getEv.exit, label %27
 
-29:                                               ; preds = %17
-  %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %31 = load ptr, ptr %30, align 8
+27:                                               ; preds = %15
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %29 = load ptr, ptr %28, align 8
   br label %_ZNK5clang17DefaultArgStorageINS_24TemplateTemplateParmDeclEPNS_19TemplateArgumentLocEE3getEv.exit
 
-_ZNK5clang17DefaultArgStorageINS_24TemplateTemplateParmDeclEPNS_19TemplateArgumentLocEE3getEv.exit: ; preds = %17, %29
-  %.0.i = phi ptr [ %31, %29 ], [ %28, %17 ]
-  store ptr %.0.i, ptr %19, align 8
-  %32 = ptrtoint ptr %18 to i64
-  %33 = and i64 %32, -7
-  %34 = or disjoint i64 %33, 4
-  store i64 %34, ptr %0, align 8
-  br label %47
+_ZNK5clang17DefaultArgStorageINS_24TemplateTemplateParmDeclEPNS_19TemplateArgumentLocEE3getEv.exit: ; preds = %15, %27
+  %.0.i = phi ptr [ %29, %27 ], [ %26, %15 ]
+  store ptr %.0.i, ptr %17, align 8
+  %30 = ptrtoint ptr %16 to i64
+  %31 = and i64 %30, -7
+  %32 = or disjoint i64 %31, 4
+  store i64 %32, ptr %0, align 8
+  br label %44
 
-35:                                               ; preds = %13
-  %36 = icmp ne i64 %14, 4
-  %.not11 = or i1 %36, %.not18
-  br i1 %.not11, label %39, label %37
+33:                                               ; preds = %13
+  %34 = and i64 %.0.copyload.i.i.i.i.i, -8
+  %35 = inttoptr i64 %34 to ptr
+  store ptr %spec.select.i, ptr %35, align 8
+  br label %44
 
-37:                                               ; preds = %35
-  %38 = inttoptr i64 %16 to ptr
-  store ptr %spec.select.i, ptr %38, align 8
-  br label %47
-
-39:                                               ; preds = %35
-  %40 = tail call noundef ptr @_ZN5clang30allocateDefaultArgStorageChainERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(23096) %1) #26
-  store ptr %spec.select.i, ptr %40, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
+36:                                               ; preds = %13
+  %37 = tail call noundef ptr @_ZN5clang30allocateDefaultArgStorageChainERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(23096) %1) #26
+  store ptr %spec.select.i, ptr %37, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %0, align 8
-  %42 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
-  %43 = inttoptr i64 %42 to ptr
-  store ptr %43, ptr %41, align 8
-  %44 = ptrtoint ptr %40 to i64
-  %45 = and i64 %44, -7
-  %46 = or disjoint i64 %45, 4
-  store i64 %46, ptr %0, align 8
-  br label %47
+  %39 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
+  %40 = inttoptr i64 %39 to ptr
+  store ptr %40, ptr %38, align 8
+  %41 = ptrtoint ptr %37 to i64
+  %42 = and i64 %41, -7
+  %43 = or disjoint i64 %42, 4
+  store i64 %43, ptr %0, align 8
+  br label %44
 
-47:                                               ; preds = %_ZNK5clang17DefaultArgStorageINS_24TemplateTemplateParmDeclEPNS_19TemplateArgumentLocEE3getEv.exit, %39, %37, %9
+44:                                               ; preds = %_ZNK5clang17DefaultArgStorageINS_24TemplateTemplateParmDeclEPNS_19TemplateArgumentLocEE3getEv.exit, %36, %33, %9
   ret void
 }
 
@@ -74847,7 +74832,7 @@ _ZN4llvm13TinyPtrVectorIPvE5beginEv.exit.i.i:     ; preds = %1
 
 _ZN4llvm13TinyPtrVectorIPvE3endEv.exit.i:         ; preds = %6, %_ZN4llvm13TinyPtrVectorIPvE5beginEv.exit.i.i
   %.0.copyload.i.i.i.i.i.i.i = phi i64 [ %.0.copyload.i.i.i.i.i.i.i.i.i, %_ZN4llvm13TinyPtrVectorIPvE5beginEv.exit.i.i ], [ %.0.copyload.i.i.i.i.i.i.pre.i, %6 ]
-  %.0.i23.i = phi ptr [ %0, %_ZN4llvm13TinyPtrVectorIPvE5beginEv.exit.i.i ], [ %9, %6 ]
+  %.0.i22.i = phi ptr [ %0, %_ZN4llvm13TinyPtrVectorIPvE5beginEv.exit.i.i ], [ %9, %6 ]
   %.0.i18.i = phi ptr [ %5, %_ZN4llvm13TinyPtrVectorIPvE5beginEv.exit.i.i ], [ %11, %6 ]
   %.not.i.i.i.i = icmp ult i64 %.0.copyload.i.i.i.i.i.i.i, 4
   br i1 %.not.i.i.i.i, label %_ZN5clang13serialization20MultiOnDiskHashTableINS0_6reader29ASTDeclContextNameLookupTraitEE6tablesEv.exit, label %12
@@ -74855,37 +74840,30 @@ _ZN4llvm13TinyPtrVectorIPvE3endEv.exit.i:         ; preds = %6, %_ZN4llvm13TinyP
 12:                                               ; preds = %_ZN4llvm13TinyPtrVectorIPvE3endEv.exit.i
   %13 = and i64 %.0.copyload.i.i.i.i.i.i.i, 2
   %.not.i.i.i.i.i.i = icmp eq i64 %13, 0
-  %14 = and i64 %.0.copyload.i.i.i.i.i.i.i, -4
-  %.not5.i.i.i = icmp eq i64 %14, 0
-  %.not.i.i19.i = or i1 %.not.i.i.i.i.i.i, %.not5.i.i.i
-  br i1 %.not.i.i19.i, label %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread3.i.i, label %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.i.i
+  br i1 %.not.i.i.i.i.i.i, label %_ZNK4llvm13TinyPtrVectorIPvE5beginEv.exit.i.i, label %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.i.i
 
 _ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.i.i:    ; preds = %12
+  %14 = and i64 %.0.copyload.i.i.i.i.i.i.i, -4
   %15 = inttoptr i64 %14 to ptr
   %16 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %15) #26, !noalias !508
-  br i1 %16, label %_ZN5clang13serialization20MultiOnDiskHashTableINS0_6reader29ASTDeclContextNameLookupTraitEE6tablesEv.exit, label %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread3_crit_edge.i.i
+  br i1 %16, label %_ZN5clang13serialization20MultiOnDiskHashTableINS0_6reader29ASTDeclContextNameLookupTraitEE6tablesEv.exit, label %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread3.i.i
 
-_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread3_crit_edge.i.i: ; preds = %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.i.i
+_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread3.i.i: ; preds = %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.i.i
   %.0.copyload.i.i.i.i.i.i.i.i.i.pre.i.i = load i64, ptr %0, align 8, !noalias !508
   %.pre6.i.i = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.pre.i.i, 2
-  br label %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread3.i.i
-
-_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread3.i.i: ; preds = %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread3_crit_edge.i.i, %12
-  %.pre-phi.i.i = phi i64 [ %.pre6.i.i, %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread3_crit_edge.i.i ], [ %13, %12 ]
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %.0.copyload.i.i.i.i.i.i.i.i.i.pre.i.i, %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread3_crit_edge.i.i ], [ %.0.copyload.i.i.i.i.i.i.i, %12 ]
-  %17 = icmp eq i64 %.pre-phi.i.i, 0
+  %17 = icmp eq i64 %.pre6.i.i, 0
   br i1 %17, label %_ZNK4llvm13TinyPtrVectorIPvE5beginEv.exit.i.i, label %18
 
 18:                                               ; preds = %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread3.i.i
-  %19 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, -4
+  %19 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.pre.i.i, -4
   %20 = inttoptr i64 %19 to ptr
   %21 = load ptr, ptr %20, align 8, !noalias !508
   %.pre.i.i = load ptr, ptr %21, align 8, !noalias !508
   %22 = ptrtoint ptr %.pre.i.i to i64
   br label %_ZNK4llvm13TinyPtrVectorIPvE5beginEv.exit.i.i
 
-_ZNK4llvm13TinyPtrVectorIPvE5beginEv.exit.i.i:    ; preds = %18, %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread3.i.i
-  %23 = phi i64 [ %22, %18 ], [ %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread3.i.i ]
+_ZNK4llvm13TinyPtrVectorIPvE5beginEv.exit.i.i:    ; preds = %18, %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread3.i.i, %12
+  %23 = phi i64 [ %22, %18 ], [ %.0.copyload.i.i.i.i.i.i.i.i.i.pre.i.i, %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread3.i.i ], [ %.0.copyload.i.i.i.i.i.i.i, %12 ]
   %24 = and i64 %23, 4
   %.not.i.i.i.i1.i.i = icmp eq i64 %24, 0
   %25 = icmp ult i64 %23, 8
@@ -74895,7 +74873,7 @@ _ZNK4llvm13TinyPtrVectorIPvE5beginEv.exit.i.i:    ; preds = %18, %_ZNK4llvm13Tin
 
 _ZN5clang13serialization20MultiOnDiskHashTableINS0_6reader29ASTDeclContextNameLookupTraitEE6tablesEv.exit: ; preds = %_ZN4llvm13TinyPtrVectorIPvE3endEv.exit.i, %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.i.i, %_ZNK4llvm13TinyPtrVectorIPvE5beginEv.exit.i.i
   %.not.i = phi i64 [ %27, %_ZNK4llvm13TinyPtrVectorIPvE5beginEv.exit.i.i ], [ 0, %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.i.i ], [ 0, %_ZN4llvm13TinyPtrVectorIPvE3endEv.exit.i ]
-  %spec.select.i = getelementptr inbounds nuw i8, ptr %.0.i23.i, i64 %.not.i
+  %spec.select.i = getelementptr inbounds nuw i8, ptr %.0.i22.i, i64 %.not.i
   %.not2728 = icmp eq ptr %spec.select.i, %.0.i18.i
   br i1 %.not2728, label %._crit_edge, label %.lr.ph
 
@@ -74925,37 +74903,31 @@ _ZN5clang13serialization20MultiOnDiskHashTableINS0_6reader29ASTDeclContextNameLo
 36:                                               ; preds = %._crit_edge
   %37 = and i64 %.0.copyload.i.i.i.i.i.i, 2
   %.not.i.i.i.i.i = icmp eq i64 %37, 0
-  %38 = and i64 %.0.copyload.i.i.i.i.i.i, -4
-  %.not5.i.i = icmp eq i64 %38, 0
-  %.not.i.i = or i1 %.not.i.i.i.i.i, %.not5.i.i
-  br i1 %.not.i.i, label %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread3.i, label %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.i
+  br i1 %.not.i.i.i.i.i, label %_ZNK4llvm13TinyPtrVectorIPvE5beginEv.exit.i, label %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.i
 
 _ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.i:      ; preds = %36
+  %38 = and i64 %.0.copyload.i.i.i.i.i.i, -4
   %39 = inttoptr i64 %38 to ptr
   %40 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %39) #26
   %.0.copyload.i.i.i.i.i.i.i.i.pre30 = load i64, ptr %0, align 8
-  br i1 %40, label %_ZNK5clang13serialization20MultiOnDiskHashTableINS0_6reader29ASTDeclContextNameLookupTraitEE14getMergedTableEv.exit.thread, label %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread3_crit_edge.i
+  br i1 %40, label %_ZNK5clang13serialization20MultiOnDiskHashTableINS0_6reader29ASTDeclContextNameLookupTraitEE14getMergedTableEv.exit.thread, label %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread3.i
 
-_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread3_crit_edge.i: ; preds = %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.i
+_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread3.i: ; preds = %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.i
   %.pre6.i = and i64 %.0.copyload.i.i.i.i.i.i.i.i.pre30, 2
-  br label %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread3.i
-
-_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread3.i: ; preds = %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread3_crit_edge.i, %36
-  %.pre-phi.i = phi i64 [ %.pre6.i, %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread3_crit_edge.i ], [ %37, %36 ]
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i = phi i64 [ %.0.copyload.i.i.i.i.i.i.i.i.pre30, %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread3_crit_edge.i ], [ %.0.copyload.i.i.i.i.i.i, %36 ]
-  %41 = icmp eq i64 %.pre-phi.i, 0
+  %41 = icmp eq i64 %.pre6.i, 0
   br i1 %41, label %_ZNK4llvm13TinyPtrVectorIPvE5beginEv.exit.i, label %42
 
 42:                                               ; preds = %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread3.i
-  %43 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, -4
+  %43 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.pre30, -4
   %44 = inttoptr i64 %43 to ptr
   %45 = load ptr, ptr %44, align 8
   %.pre.i = load ptr, ptr %45, align 8
   %46 = ptrtoint ptr %.pre.i to i64
   br label %_ZNK4llvm13TinyPtrVectorIPvE5beginEv.exit.i
 
-_ZNK4llvm13TinyPtrVectorIPvE5beginEv.exit.i:      ; preds = %42, %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread3.i
-  %47 = phi i64 [ %46, %42 ], [ %.0.copyload.i.i.i.i.i.i.i.i.i.i, %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread3.i ]
+_ZNK4llvm13TinyPtrVectorIPvE5beginEv.exit.i:      ; preds = %42, %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread3.i, %36
+  %.0.copyload.i.i.i.i.i.i.i.i31 = phi i64 [ %.0.copyload.i.i.i.i.i.i.i.i.pre30, %42 ], [ %.0.copyload.i.i.i.i.i.i.i.i.pre30, %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread3.i ], [ %.0.copyload.i.i.i.i.i.i, %36 ]
+  %47 = phi i64 [ %46, %42 ], [ %.0.copyload.i.i.i.i.i.i.i.i.pre30, %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread3.i ], [ %.0.copyload.i.i.i.i.i.i, %36 ]
   %48 = and i64 %47, 4
   %.not.i.i.i.i1.i = icmp eq i64 %48, 0
   %49 = and i64 %47, -8
@@ -75035,7 +75007,7 @@ _ZN5clang13serialization20MultiOnDiskHashTableINS0_6reader29ASTDeclContextNameLo
   br label %_ZNK5clang13serialization20MultiOnDiskHashTableINS0_6reader29ASTDeclContextNameLookupTraitEE14getMergedTableEv.exit.thread
 
 _ZNK5clang13serialization20MultiOnDiskHashTableINS0_6reader29ASTDeclContextNameLookupTraitEE14getMergedTableEv.exit.thread: ; preds = %_ZNK4llvm13TinyPtrVectorIPvE5beginEv.exit.i, %._crit_edge, %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.i, %_ZN5clang13serialization20MultiOnDiskHashTableINS0_6reader29ASTDeclContextNameLookupTraitEE11MergedTableD2Ev.exit
-  %.0.copyload.i.i.i.i.i.i.i.i = phi i64 [ %.0.copyload.i.i.i.i.i.i.i.i.i.i, %_ZNK4llvm13TinyPtrVectorIPvE5beginEv.exit.i ], [ %.0.copyload.i.i.i.i.i.i, %._crit_edge ], [ %.0.copyload.i.i.i.i.i.i.i.i.pre30, %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.i ], [ %.0.copyload.i.i.i.i.i.i.i.i.pre, %_ZN5clang13serialization20MultiOnDiskHashTableINS0_6reader29ASTDeclContextNameLookupTraitEE11MergedTableD2Ev.exit ]
+  %.0.copyload.i.i.i.i.i.i.i.i = phi i64 [ %.0.copyload.i.i.i.i.i.i.i.i31, %_ZNK4llvm13TinyPtrVectorIPvE5beginEv.exit.i ], [ %.0.copyload.i.i.i.i.i.i, %._crit_edge ], [ %.0.copyload.i.i.i.i.i.i.i.i.pre30, %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.i ], [ %.0.copyload.i.i.i.i.i.i.i.i.pre, %_ZN5clang13serialization20MultiOnDiskHashTableINS0_6reader29ASTDeclContextNameLookupTraitEE11MergedTableD2Ev.exit ]
   %83 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, 2
   %84 = icmp eq i64 %83, 0
   br i1 %84, label %85, label %86

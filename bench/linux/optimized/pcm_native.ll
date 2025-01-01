@@ -4113,7 +4113,7 @@ define internal range(i64 -9223372036854775808, 1152921504606846976) i64 @snd_pc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 0, 512) i32 @snd_pcm_poll(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define internal range(i32 0, 272) i32 @snd_pcm_poll(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8

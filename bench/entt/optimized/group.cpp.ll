@@ -146233,7 +146233,7 @@ while.body.i.i.i.i.i.us:                          ; preds = %land.rhs.i.i.i.i.i.
 
 "_ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElS4_NS1_5__ops15_Iter_comp_iterIZN24NonOwningGroup_Sort_Test8TestBodyEvE3$_0EEEvT_T0_SH_T1_T2_.exit.i.i.i.us": ; preds = %land.rhs.i.i.i.i.i.us, %while.body.i.i.i.i.i.us, %while.cond.i.i.i.us, %while.end.i.i.i.i.us
   %__holeIndex.addr.0.lcssa.i.i.i.i.i.us = phi i64 [ %spec.select.i.i.i.i.us, %while.end.i.i.i.i.us ], [ %__parent.0.i.i.i.us, %while.cond.i.i.i.us ], [ %__parent.027.i.i.i.i.i.us, %while.body.i.i.i.i.i.us ], [ %__holeIndex.addr.026.i.i.i.i.i.us, %land.rhs.i.i.i.i.i.us ]
-  %idx.neg.i.i19.i.i.i.i.i.us = sub nsw i64 0, %__holeIndex.addr.0.lcssa.i.i.i.i.i.us
+  %idx.neg.i.i19.i.i.i.i.i.us = sub i64 0, %__holeIndex.addr.0.lcssa.i.i.i.i.i.us
   %gep27.i.i.i.us = getelementptr i32, ptr %invariant.gep.i.i.i, i64 %idx.neg.i.i19.i.i.i.i.i.us
   store i32 %5, ptr %gep27.i.i.i.us, align 4, !tbaa !66
   %cmp4.not.i.i.i.us = icmp eq i64 %__parent.0.i.i.i.us, 0
@@ -146304,7 +146304,7 @@ while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
 
 "_ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElS4_NS1_5__ops15_Iter_comp_iterIZN24NonOwningGroup_Sort_Test8TestBodyEvE3$_0EEEvT_T0_SH_T1_T2_.exit.i.i.i": ; preds = %while.body.i.i.i.i.i, %land.rhs.i.i.i.i.i, %if.end19.i.i.i.i
   %__holeIndex.addr.0.lcssa.i.i.i.i.i = phi i64 [ %__holeIndex.addr.1.i.i.i.i, %if.end19.i.i.i.i ], [ %__parent.027.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %__holeIndex.addr.026.i.i.i.i.i, %land.rhs.i.i.i.i.i ]
-  %idx.neg.i.i19.i.i.i.i.i = sub nsw i64 0, %__holeIndex.addr.0.lcssa.i.i.i.i.i
+  %idx.neg.i.i19.i.i.i.i.i = sub i64 0, %__holeIndex.addr.0.lcssa.i.i.i.i.i
   %gep27.i.i.i = getelementptr i32, ptr %invariant.gep.i.i.i, i64 %idx.neg.i.i19.i.i.i.i.i
   store i32 %10, ptr %gep27.i.i.i, align 4, !tbaa !66
   %cmp4.not.i.i.i = icmp eq i64 %__parent.0.i.i.i, 0
@@ -181634,7 +181634,7 @@ while.body.i.i.i.i.i.us:                          ; preds = %land.rhs.i.i.i.i.i.
 
 "_ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElS4_NS1_5__ops15_Iter_comp_iterIZN38OwningGroup_SortWithExclusionList_Test8TestBodyEvE3$_0EEEvT_T0_SH_T1_T2_.exit.i.i.i.us": ; preds = %land.rhs.i.i.i.i.i.us, %while.body.i.i.i.i.i.us, %while.cond.i.i.i.us, %while.end.i.i.i.i.us
   %__holeIndex.addr.0.lcssa.i.i.i.i.i.us = phi i64 [ %spec.select.i.i.i.i.us, %while.end.i.i.i.i.us ], [ %__parent.0.i.i.i.us, %while.cond.i.i.i.us ], [ %__parent.027.i.i.i.i.i.us, %while.body.i.i.i.i.i.us ], [ %__holeIndex.addr.026.i.i.i.i.i.us, %land.rhs.i.i.i.i.i.us ]
-  %idx.neg.i.i19.i.i.i.i.i.us = sub nsw i64 0, %__holeIndex.addr.0.lcssa.i.i.i.i.i.us
+  %idx.neg.i.i19.i.i.i.i.i.us = sub i64 0, %__holeIndex.addr.0.lcssa.i.i.i.i.i.us
   %gep27.i.i.i.us = getelementptr i32, ptr %invariant.gep.i.i.i, i64 %idx.neg.i.i19.i.i.i.i.i.us
   store i32 %5, ptr %gep27.i.i.i.us, align 4, !tbaa !66
   %cmp4.not.i.i.i.us = icmp eq i64 %__parent.0.i.i.i.us, 0
@@ -181705,7 +181705,7 @@ while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
 
 "_ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElS4_NS1_5__ops15_Iter_comp_iterIZN38OwningGroup_SortWithExclusionList_Test8TestBodyEvE3$_0EEEvT_T0_SH_T1_T2_.exit.i.i.i": ; preds = %while.body.i.i.i.i.i, %land.rhs.i.i.i.i.i, %if.end19.i.i.i.i
   %__holeIndex.addr.0.lcssa.i.i.i.i.i = phi i64 [ %__holeIndex.addr.1.i.i.i.i, %if.end19.i.i.i.i ], [ %__parent.027.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %__holeIndex.addr.026.i.i.i.i.i, %land.rhs.i.i.i.i.i ]
-  %idx.neg.i.i19.i.i.i.i.i = sub nsw i64 0, %__holeIndex.addr.0.lcssa.i.i.i.i.i
+  %idx.neg.i.i19.i.i.i.i.i = sub i64 0, %__holeIndex.addr.0.lcssa.i.i.i.i.i
   %gep27.i.i.i = getelementptr i32, ptr %invariant.gep.i.i.i, i64 %idx.neg.i.i19.i.i.i.i.i
   store i32 %10, ptr %gep27.i.i.i, align 4, !tbaa !66
   %cmp4.not.i.i.i = icmp eq i64 %__parent.0.i.i.i, 0

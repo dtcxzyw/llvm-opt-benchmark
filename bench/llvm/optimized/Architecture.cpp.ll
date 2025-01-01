@@ -238,7 +238,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local range(i64 0, 137438953472) i64 @_ZN4llvm5MachO26getCPUTypeFromArchitectureENS0_12ArchitectureE(i8 noundef zeroext %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 68786585600) i64 @_ZN4llvm5MachO26getCPUTypeFromArchitectureENS0_12ArchitectureE(i8 noundef zeroext %0) local_unnamed_addr #0 {
   %2 = icmp ult i8 %0, 15
   br i1 %2, label %switch.lookup, label %6
 

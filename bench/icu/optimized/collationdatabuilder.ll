@@ -3628,7 +3628,7 @@ return:                                           ; preds = %if.else10, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 2, 1) i32 @_ZN6icu_7520CollationDataBuilder11encodeOneCEElR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(640) %this, i64 noundef %ce, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #5 align 2 {
+define noundef i32 @_ZN6icu_7520CollationDataBuilder11encodeOneCEElR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(640) %this, i64 noundef %ce, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #5 align 2 {
 entry:
   %shr.i = lshr i64 %ce, 32
   %conv.i = trunc nuw i64 %shr.i to i32
@@ -3747,7 +3747,7 @@ return:                                           ; preds = %if.else10.i, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 2, 1) i32 @_ZN6icu_7520CollationDataBuilder9encodeCEsEPKliR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(640) %this, ptr nocapture noundef readonly %ces, i32 noundef %cesLength, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #5 align 2 {
+define noundef i32 @_ZN6icu_7520CollationDataBuilder9encodeCEsEPKliR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(640) %this, ptr nocapture noundef readonly %ces, i32 noundef %cesLength, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #5 align 2 {
 entry:
   %newCE32s = alloca [31 x i32], align 16
   %0 = load i32, ptr %errorCode, align 4

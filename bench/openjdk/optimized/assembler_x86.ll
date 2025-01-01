@@ -102971,7 +102971,7 @@ define hidden noundef range(i32 0, 35) i32 @_ZN9Assembler21get_index_prefix_bits
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef range(i32 0, 32) i32 @_ZN9Assembler20get_base_prefix_bitsE8Register(ptr nocapture noundef nonnull readnone align 8 dereferenceable(40) %0, i32 %1) local_unnamed_addr #5 align 2 {
+define hidden noundef range(i32 0, 18) i32 @_ZN9Assembler20get_base_prefix_bitsE8Register(ptr nocapture noundef nonnull readnone align 8 dereferenceable(40) %0, i32 %1) local_unnamed_addr #5 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
   %5 = ptrtoint ptr %4 to i64
@@ -102987,7 +102987,7 @@ define hidden noundef range(i32 0, 32) i32 @_ZN9Assembler20get_base_prefix_bitsE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef range(i32 0, 64) i32 @_ZN9Assembler21get_index_prefix_bitsE8Register(ptr nocapture noundef nonnull readnone align 8 dereferenceable(40) %0, i32 %1) local_unnamed_addr #5 align 2 {
+define hidden noundef range(i32 0, 36) i32 @_ZN9Assembler21get_index_prefix_bitsE8Register(ptr nocapture noundef nonnull readnone align 8 dereferenceable(40) %0, i32 %1) local_unnamed_addr #5 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
   %5 = ptrtoint ptr %4 to i64
@@ -103417,7 +103417,7 @@ define hidden noundef zeroext i1 @_ZN9Assembler14prefix_is_rex2Ei(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i32 54536, 54784) i32 @_ZN9Assembler16get_prefixq_rex2E7Addressb(ptr nocapture noundef nonnull readnone align 8 dereferenceable(40) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) local_unnamed_addr #12 align 2 {
+define hidden noundef range(i32 54536, 54720) i32 @_ZN9Assembler16get_prefixq_rex2E7Addressb(ptr nocapture noundef nonnull readnone align 8 dereferenceable(40) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) local_unnamed_addr #12 align 2 {
   %.sroa.0.0.copyload.i = load i32, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.0.0.copyload.i6 = load i32, ptr %4, align 4

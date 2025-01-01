@@ -674,7 +674,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_9ConstPool4No
 
 7:                                                ; preds = %3
   store ptr %1, ptr %0, align 8, !tbaa !13
-  br label %150
+  br label %149
 
 8:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #12
@@ -689,13 +689,13 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_9ConstPool4No
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %15
 
-15:                                               ; preds = %133, %8
-  %16 = phi ptr [ null, %8 ], [ %17, %133 ]
-  %17 = phi ptr [ null, %8 ], [ %55, %133 ]
-  %18 = phi ptr [ %4, %8 ], [ %140, %133 ]
-  %19 = phi ptr [ %5, %8 ], [ %144, %133 ]
-  %20 = phi i64 [ 0, %8 ], [ %138, %133 ]
-  %21 = phi i64 [ 0, %8 ], [ %20, %133 ]
+15:                                               ; preds = %132, %8
+  %16 = phi ptr [ null, %8 ], [ %17, %132 ]
+  %17 = phi ptr [ null, %8 ], [ %55, %132 ]
+  %18 = phi ptr [ %4, %8 ], [ %139, %132 ]
+  %19 = phi ptr [ %5, %8 ], [ %143, %132 ]
+  %20 = phi i64 [ 0, %8 ], [ %137, %132 ]
+  %21 = phi i64 [ 0, %8 ], [ %20, %132 ]
   %22 = icmp eq ptr %19, null
   br i1 %22, label %23, label %28
 
@@ -753,13 +753,13 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_9ConstPool4No
   %58 = icmp eq i64 %57, 0
   %59 = icmp eq ptr %17, null
   %60 = or i1 %59, %58
-  br i1 %60, label %131, label %61
+  br i1 %60, label %130, label %61
 
 61:                                               ; preds = %54
   %62 = load i64, ptr %17, align 8, !tbaa !14
   %63 = and i64 %62, 1
   %64 = icmp eq i64 %63, 0
-  br i1 %64, label %131, label %65
+  br i1 %64, label %130, label %65
 
 65:                                               ; preds = %61
   %66 = icmp ne ptr %16, null
@@ -782,101 +782,99 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_9ConstPool4No
   %82 = load i64, ptr %81, align 8, !tbaa !14
   %83 = and i64 %82, -2
   %84 = inttoptr i64 %83 to ptr
-  %85 = icmp ne i64 %83, 0
-  tail call void @llvm.assume(i1 %85)
-  %86 = getelementptr inbounds nuw [2 x i64], ptr %84, i64 0, i64 %78
-  %87 = load i64, ptr %86, align 8, !tbaa !14
-  %88 = and i64 %87, -2
-  br i1 %76, label %89, label %92
+  %85 = getelementptr inbounds nuw [2 x i64], ptr %84, i64 0, i64 %78
+  %86 = load i64, ptr %85, align 8, !tbaa !14
+  %87 = and i64 %86, -2
+  br i1 %76, label %88, label %91
 
-89:                                               ; preds = %65
-  %90 = and i64 %82, 1
-  %91 = or disjoint i64 %88, %90
-  br label %114
+88:                                               ; preds = %65
+  %89 = and i64 %82, 1
+  %90 = or disjoint i64 %87, %89
+  br label %113
 
-92:                                               ; preds = %65
-  %93 = inttoptr i64 %88 to ptr
-  %94 = icmp ne i64 %88, 0
-  tail call void @llvm.assume(i1 %94)
-  %95 = getelementptr inbounds nuw [2 x i64], ptr %93, i64 0, i64 %80
-  %96 = load i64, ptr %95, align 8, !tbaa !14
-  %97 = and i64 %96, -2
-  %98 = and i64 %87, 1
-  %99 = or disjoint i64 %97, %98
-  store i64 %99, ptr %86, align 8, !tbaa !14
-  %100 = load i64, ptr %95, align 8, !tbaa !14
-  %101 = and i64 %100, 1
-  %102 = or disjoint i64 %101, %83
-  store i64 %102, ptr %95, align 8, !tbaa !14
-  %103 = load i64, ptr %84, align 8, !tbaa !14
-  %104 = or i64 %103, 1
-  store i64 %104, ptr %84, align 8, !tbaa !14
-  %105 = load i64, ptr %93, align 8, !tbaa !14
-  %106 = and i64 %105, -2
-  store i64 %106, ptr %93, align 8, !tbaa !14
-  %107 = load i64, ptr %81, align 8, !tbaa !14
-  %108 = and i64 %107, 1
-  %109 = or disjoint i64 %108, %88
-  store i64 %109, ptr %81, align 8, !tbaa !14
-  %110 = getelementptr inbounds nuw [2 x i64], ptr %93, i64 0, i64 %78
-  %111 = load i64, ptr %110, align 8, !tbaa !14
-  %112 = and i64 %111, -2
-  %113 = or disjoint i64 %112, %108
-  br label %114
+91:                                               ; preds = %65
+  %92 = inttoptr i64 %87 to ptr
+  %93 = icmp ne i64 %87, 0
+  tail call void @llvm.assume(i1 %93)
+  %94 = getelementptr inbounds nuw [2 x i64], ptr %92, i64 0, i64 %80
+  %95 = load i64, ptr %94, align 8, !tbaa !14
+  %96 = and i64 %95, -2
+  %97 = and i64 %86, 1
+  %98 = or disjoint i64 %96, %97
+  store i64 %98, ptr %85, align 8, !tbaa !14
+  %99 = load i64, ptr %94, align 8, !tbaa !14
+  %100 = and i64 %99, 1
+  %101 = or disjoint i64 %100, %83
+  store i64 %101, ptr %94, align 8, !tbaa !14
+  %102 = load i64, ptr %84, align 8, !tbaa !14
+  %103 = or i64 %102, 1
+  store i64 %103, ptr %84, align 8, !tbaa !14
+  %104 = load i64, ptr %92, align 8, !tbaa !14
+  %105 = and i64 %104, -2
+  store i64 %105, ptr %92, align 8, !tbaa !14
+  %106 = load i64, ptr %81, align 8, !tbaa !14
+  %107 = and i64 %106, 1
+  %108 = or disjoint i64 %107, %87
+  store i64 %108, ptr %81, align 8, !tbaa !14
+  %109 = getelementptr inbounds nuw [2 x i64], ptr %92, i64 0, i64 %78
+  %110 = load i64, ptr %109, align 8, !tbaa !14
+  %111 = and i64 %110, -2
+  %112 = or disjoint i64 %111, %107
+  br label %113
 
-114:                                              ; preds = %92, %89
-  %115 = phi i64 [ %113, %92 ], [ %91, %89 ]
-  %116 = phi ptr [ %110, %92 ], [ %86, %89 ]
-  %117 = phi ptr [ %93, %92 ], [ %84, %89 ]
-  %118 = phi i64 [ %88, %92 ], [ %83, %89 ]
-  store i64 %115, ptr %81, align 8, !tbaa !14
-  %119 = load i64, ptr %116, align 8, !tbaa !14
-  %120 = and i64 %119, 1
-  %121 = ptrtoint ptr %16 to i64
-  %122 = or i64 %120, %121
-  store i64 %122, ptr %116, align 8, !tbaa !14
-  %123 = load i64, ptr %16, align 8, !tbaa !14
-  %124 = or i64 %123, 1
-  store i64 %124, ptr %16, align 8, !tbaa !14
-  %125 = load i64, ptr %117, align 8, !tbaa !14
-  %126 = and i64 %125, -2
-  store i64 %126, ptr %117, align 8, !tbaa !14
-  %127 = getelementptr inbounds nuw [2 x i64], ptr %18, i64 0, i64 %71
-  %128 = load i64, ptr %127, align 8, !tbaa !14
-  %129 = and i64 %128, 1
-  %130 = or disjoint i64 %129, %118
-  store i64 %130, ptr %127, align 8, !tbaa !14
-  br label %131
+113:                                              ; preds = %91, %88
+  %114 = phi i64 [ %112, %91 ], [ %90, %88 ]
+  %115 = phi ptr [ %109, %91 ], [ %85, %88 ]
+  %116 = phi ptr [ %92, %91 ], [ %84, %88 ]
+  %117 = phi i64 [ %87, %91 ], [ %83, %88 ]
+  store i64 %114, ptr %81, align 8, !tbaa !14
+  %118 = load i64, ptr %115, align 8, !tbaa !14
+  %119 = and i64 %118, 1
+  %120 = ptrtoint ptr %16 to i64
+  %121 = or i64 %119, %120
+  store i64 %121, ptr %115, align 8, !tbaa !14
+  %122 = load i64, ptr %16, align 8, !tbaa !14
+  %123 = or i64 %122, 1
+  store i64 %123, ptr %16, align 8, !tbaa !14
+  %124 = load i64, ptr %116, align 8, !tbaa !14
+  %125 = and i64 %124, -2
+  store i64 %125, ptr %116, align 8, !tbaa !14
+  %126 = getelementptr inbounds nuw [2 x i64], ptr %18, i64 0, i64 %71
+  %127 = load i64, ptr %126, align 8, !tbaa !14
+  %128 = and i64 %127, 1
+  %129 = or disjoint i64 %128, %117
+  store i64 %129, ptr %126, align 8, !tbaa !14
+  br label %130
 
-131:                                              ; preds = %114, %61, %54
-  %132 = icmp eq ptr %55, %1
-  br i1 %132, label %145, label %133
+130:                                              ; preds = %113, %61, %54
+  %131 = icmp eq ptr %55, %1
+  br i1 %131, label %144, label %132
 
-133:                                              ; preds = %131
-  %134 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %135 = load i64, ptr %2, align 8, !tbaa !33
-  %136 = tail call noundef i32 @memcmp(ptr noundef nonnull %134, ptr noundef nonnull %14, i64 noundef %135) #11
-  %137 = lshr i32 %136, 31
-  %138 = zext nneg i32 %137 to i64
-  %139 = icmp eq ptr %16, null
-  %140 = select i1 %139, ptr %18, ptr %16
-  %141 = getelementptr inbounds nuw [2 x i64], ptr %55, i64 0, i64 %138
-  %142 = load i64, ptr %141, align 8, !tbaa !14
-  %143 = and i64 %142, -2
-  %144 = inttoptr i64 %143 to ptr
+132:                                              ; preds = %130
+  %133 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  %134 = load i64, ptr %2, align 8, !tbaa !33
+  %135 = tail call noundef i32 @memcmp(ptr noundef nonnull %133, ptr noundef nonnull %14, i64 noundef %134) #11
+  %136 = lshr i32 %135, 31
+  %137 = zext nneg i32 %136 to i64
+  %138 = icmp eq ptr %16, null
+  %139 = select i1 %138, ptr %18, ptr %16
+  %140 = getelementptr inbounds nuw [2 x i64], ptr %55, i64 0, i64 %137
+  %141 = load i64, ptr %140, align 8, !tbaa !14
+  %142 = and i64 %141, -2
+  %143 = inttoptr i64 %142 to ptr
   br label %15, !llvm.loop !43
 
-145:                                              ; preds = %131
-  %146 = load i64, ptr %10, align 8, !tbaa !14
-  %147 = inttoptr i64 %146 to ptr
-  store ptr %147, ptr %0, align 8, !tbaa !13
-  %148 = load i64, ptr %147, align 8, !tbaa !14
-  %149 = and i64 %148, -2
-  store i64 %149, ptr %147, align 8, !tbaa !14
+144:                                              ; preds = %130
+  %145 = load i64, ptr %10, align 8, !tbaa !14
+  %146 = inttoptr i64 %145 to ptr
+  store ptr %146, ptr %0, align 8, !tbaa !13
+  %147 = load i64, ptr %146, align 8, !tbaa !14
+  %148 = and i64 %147, -2
+  store i64 %148, ptr %146, align 8, !tbaa !14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #12
-  br label %150
+  br label %149
 
-150:                                              ; preds = %145, %7
+149:                                              ; preds = %144, %7
   ret void
 }
 

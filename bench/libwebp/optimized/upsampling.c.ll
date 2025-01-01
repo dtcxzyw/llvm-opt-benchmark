@@ -670,488 +670,480 @@ define internal void @UpsampleRgbaLinePair_C(ptr nocapture noundef readonly %0, 
   %29 = lshr i32 %26, 18
   %30 = zext i8 %28 to i32
   %31 = and i32 %27, 255
-  %32 = and i32 %29, 255
-  %33 = mul nuw nsw i32 %30, 19077
-  %34 = lshr i32 %33, 8
-  %35 = mul nuw nsw i32 %32, 26149
-  %36 = lshr i32 %35, 8
-  %37 = add nuw nsw i32 %36, %34
-  %38 = add nsw i32 %37, -14234
-  %39 = icmp ult i32 %38, 16384
-  %40 = lshr i32 %38, 6
-  %41 = icmp samesign ult i32 %37, 14234
-  %42 = select i1 %41, i32 0, i32 255
-  %43 = select i1 %39, i32 %40, i32 %42
-  %44 = trunc i32 %43 to i8
-  store i8 %44, ptr %6, align 1
-  %45 = mul nuw nsw i32 %31, 6419
-  %46 = lshr i32 %45, 8
-  %47 = mul nuw nsw i32 %32, 13320
-  %48 = lshr i32 %47, 8
-  %49 = add nuw nsw i32 %48, %46
-  %50 = sub nsw i32 %34, %49
-  %51 = add nsw i32 %50, 8708
-  %52 = icmp ult i32 %51, 16384
-  %53 = lshr i32 %51, 6
-  %54 = icmp slt i32 %50, -8708
-  %55 = select i1 %54, i32 0, i32 255
-  %56 = select i1 %52, i32 %53, i32 %55
-  %57 = trunc i32 %56 to i8
-  %58 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  store i8 %57, ptr %58, align 1
-  %59 = mul nuw nsw i32 %31, 33050
-  %60 = lshr i32 %59, 8
-  %61 = add nuw nsw i32 %60, %34
-  %62 = add nsw i32 %61, -17685
-  %63 = icmp ult i32 %62, 16384
-  %64 = lshr i32 %62, 6
-  %65 = icmp samesign ult i32 %61, 17685
-  %66 = select i1 %65, i32 0, i32 255
-  %67 = select i1 %63, i32 %64, i32 %66
-  %68 = trunc i32 %67 to i8
-  %69 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  store i8 %68, ptr %69, align 1
-  %70 = getelementptr inbounds nuw i8, ptr %6, i64 3
-  store i8 -1, ptr %70, align 1
+  %32 = mul nuw nsw i32 %30, 19077
+  %33 = lshr i32 %32, 8
+  %34 = mul nuw nsw i32 %29, 26149
+  %35 = lshr i32 %34, 8
+  %36 = add nuw nsw i32 %35, %33
+  %37 = add nsw i32 %36, -14234
+  %38 = icmp ult i32 %37, 16384
+  %39 = lshr i32 %37, 6
+  %40 = icmp samesign ult i32 %36, 14234
+  %41 = select i1 %40, i32 0, i32 255
+  %42 = select i1 %38, i32 %39, i32 %41
+  %43 = trunc i32 %42 to i8
+  store i8 %43, ptr %6, align 1
+  %44 = mul nuw nsw i32 %31, 6419
+  %45 = lshr i32 %44, 8
+  %46 = mul nuw nsw i32 %29, 13320
+  %47 = lshr i32 %46, 8
+  %48 = add nuw nsw i32 %47, %45
+  %49 = sub nsw i32 %33, %48
+  %50 = add nsw i32 %49, 8708
+  %51 = icmp ult i32 %50, 16384
+  %52 = lshr i32 %50, 6
+  %53 = icmp slt i32 %49, -8708
+  %54 = select i1 %53, i32 0, i32 255
+  %55 = select i1 %51, i32 %52, i32 %54
+  %56 = trunc i32 %55 to i8
+  %57 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  store i8 %56, ptr %57, align 1
+  %58 = mul nuw nsw i32 %31, 33050
+  %59 = lshr i32 %58, 8
+  %60 = add nuw nsw i32 %59, %33
+  %61 = add nsw i32 %60, -17685
+  %62 = icmp ult i32 %61, 16384
+  %63 = lshr i32 %61, 6
+  %64 = icmp samesign ult i32 %60, 17685
+  %65 = select i1 %64, i32 0, i32 255
+  %66 = select i1 %62, i32 %63, i32 %65
+  %67 = trunc i32 %66 to i8
+  %68 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  store i8 %67, ptr %68, align 1
+  %69 = getelementptr inbounds nuw i8, ptr %6, i64 3
+  store i8 -1, ptr %69, align 1
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %119, label %71
+  br i1 %.not, label %117, label %70
 
-71:                                               ; preds = %9
-  %72 = mul nuw nsw i32 %23, 3
-  %73 = add nuw nsw i32 %17, 131074
-  %74 = add nuw nsw i32 %73, %72
-  %75 = lshr i32 %74, 2
-  %76 = load i8, ptr %1, align 1
-  %77 = lshr i32 %74, 18
-  %78 = zext i8 %76 to i32
-  %79 = and i32 %75, 255
-  %80 = and i32 %77, 255
-  %81 = mul nuw nsw i32 %78, 19077
+70:                                               ; preds = %9
+  %71 = mul nuw nsw i32 %23, 3
+  %72 = add nuw nsw i32 %17, 131074
+  %73 = add nuw nsw i32 %72, %71
+  %74 = lshr i32 %73, 2
+  %75 = load i8, ptr %1, align 1
+  %76 = lshr i32 %73, 18
+  %77 = zext i8 %75 to i32
+  %78 = and i32 %74, 255
+  %79 = mul nuw nsw i32 %77, 19077
+  %80 = lshr i32 %79, 8
+  %81 = mul nuw nsw i32 %76, 26149
   %82 = lshr i32 %81, 8
-  %83 = mul nuw nsw i32 %80, 26149
-  %84 = lshr i32 %83, 8
-  %85 = add nuw nsw i32 %82, %84
-  %86 = add nsw i32 %85, -14234
-  %87 = icmp ult i32 %86, 16384
-  %88 = lshr i32 %86, 6
-  %89 = icmp samesign ult i32 %85, 14234
-  %90 = select i1 %89, i32 0, i32 255
-  %91 = select i1 %87, i32 %88, i32 %90
-  %92 = trunc i32 %91 to i8
-  store i8 %92, ptr %7, align 1
-  %93 = mul nuw nsw i32 %79, 6419
+  %83 = add nuw nsw i32 %80, %82
+  %84 = add nsw i32 %83, -14234
+  %85 = icmp ult i32 %84, 16384
+  %86 = lshr i32 %84, 6
+  %87 = icmp samesign ult i32 %83, 14234
+  %88 = select i1 %87, i32 0, i32 255
+  %89 = select i1 %85, i32 %86, i32 %88
+  %90 = trunc i32 %89 to i8
+  store i8 %90, ptr %7, align 1
+  %91 = mul nuw nsw i32 %78, 6419
+  %92 = lshr i32 %91, 8
+  %93 = mul nuw nsw i32 %76, 13320
   %94 = lshr i32 %93, 8
-  %95 = mul nuw nsw i32 %80, 13320
-  %96 = lshr i32 %95, 8
-  %97 = add nuw nsw i32 %94, %96
-  %98 = sub nsw i32 %82, %97
-  %99 = add nsw i32 %98, 8708
-  %100 = icmp ult i32 %99, 16384
-  %101 = lshr i32 %99, 6
-  %102 = icmp slt i32 %98, -8708
-  %103 = select i1 %102, i32 0, i32 255
-  %104 = select i1 %100, i32 %101, i32 %103
-  %105 = trunc i32 %104 to i8
-  %106 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  store i8 %105, ptr %106, align 1
-  %107 = mul nuw nsw i32 %79, 33050
-  %108 = lshr i32 %107, 8
-  %109 = add nuw nsw i32 %82, %108
-  %110 = add nsw i32 %109, -17685
-  %111 = icmp ult i32 %110, 16384
-  %112 = lshr i32 %110, 6
-  %113 = icmp samesign ult i32 %109, 17685
-  %114 = select i1 %113, i32 0, i32 255
-  %115 = select i1 %111, i32 %112, i32 %114
-  %116 = trunc i32 %115 to i8
-  %117 = getelementptr inbounds nuw i8, ptr %7, i64 2
-  store i8 %116, ptr %117, align 1
-  %118 = getelementptr inbounds nuw i8, ptr %7, i64 3
-  store i8 -1, ptr %118, align 1
-  br label %119
+  %95 = add nuw nsw i32 %92, %94
+  %96 = sub nsw i32 %80, %95
+  %97 = add nsw i32 %96, 8708
+  %98 = icmp ult i32 %97, 16384
+  %99 = lshr i32 %97, 6
+  %100 = icmp slt i32 %96, -8708
+  %101 = select i1 %100, i32 0, i32 255
+  %102 = select i1 %98, i32 %99, i32 %101
+  %103 = trunc i32 %102 to i8
+  %104 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  store i8 %103, ptr %104, align 1
+  %105 = mul nuw nsw i32 %78, 33050
+  %106 = lshr i32 %105, 8
+  %107 = add nuw nsw i32 %80, %106
+  %108 = add nsw i32 %107, -17685
+  %109 = icmp ult i32 %108, 16384
+  %110 = lshr i32 %108, 6
+  %111 = icmp samesign ult i32 %107, 17685
+  %112 = select i1 %111, i32 0, i32 255
+  %113 = select i1 %109, i32 %110, i32 %112
+  %114 = trunc i32 %113 to i8
+  %115 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  store i8 %114, ptr %115, align 1
+  %116 = getelementptr inbounds nuw i8, ptr %7, i64 3
+  store i8 -1, ptr %116, align 1
+  br label %117
 
-119:                                              ; preds = %71, %9
+117:                                              ; preds = %70, %9
   %.not94119 = icmp slt i32 %11, 1
   br i1 %.not94119, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %119
-  %120 = add nuw nsw i32 %11, 1
-  %wide.trip.count = zext nneg i32 %120 to i64
+.lr.ph.preheader:                                 ; preds = %117
+  %118 = add nuw nsw i32 %11, 1
+  %wide.trip.count = zext nneg i32 %118 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %342
-  %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %342 ]
-  %.091121 = phi i32 [ %17, %.lr.ph.preheader ], [ %128, %342 ]
-  %.092120 = phi i32 [ %23, %.lr.ph.preheader ], [ %136, %342 ]
-  %121 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
-  %122 = load i8, ptr %121, align 1
-  %123 = zext i8 %122 to i32
-  %124 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
-  %125 = load i8, ptr %124, align 1
-  %126 = zext i8 %125 to i32
-  %127 = shl nuw nsw i32 %126, 16
-  %128 = or disjoint i32 %127, %123
-  %129 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
-  %130 = load i8, ptr %129, align 1
-  %131 = zext i8 %130 to i32
-  %132 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
-  %133 = load i8, ptr %132, align 1
-  %134 = zext i8 %133 to i32
-  %135 = shl nuw nsw i32 %134, 16
-  %136 = or disjoint i32 %135, %131
-  %137 = add nuw nsw i32 %.092120, 524296
-  %138 = add nuw nsw i32 %137, %.091121
-  %139 = add nuw nsw i32 %138, %128
-  %140 = add nuw nsw i32 %139, %136
-  %141 = add nuw nsw i32 %128, %.092120
-  %142 = shl nuw nsw i32 %141, 1
-  %143 = add nuw nsw i32 %140, %142
-  %144 = lshr i32 %143, 3
-  %145 = add nuw nsw i32 %136, %.091121
-  %146 = shl nuw nsw i32 %145, 1
-  %147 = add nuw nsw i32 %140, %146
-  %148 = lshr i32 %147, 3
-  %149 = add nuw nsw i32 %144, %.091121
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %336
+  %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %336 ]
+  %.091121 = phi i32 [ %17, %.lr.ph.preheader ], [ %126, %336 ]
+  %.092120 = phi i32 [ %23, %.lr.ph.preheader ], [ %134, %336 ]
+  %119 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
+  %120 = load i8, ptr %119, align 1
+  %121 = zext i8 %120 to i32
+  %122 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
+  %123 = load i8, ptr %122, align 1
+  %124 = zext i8 %123 to i32
+  %125 = shl nuw nsw i32 %124, 16
+  %126 = or disjoint i32 %125, %121
+  %127 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
+  %128 = load i8, ptr %127, align 1
+  %129 = zext i8 %128 to i32
+  %130 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
+  %131 = load i8, ptr %130, align 1
+  %132 = zext i8 %131 to i32
+  %133 = shl nuw nsw i32 %132, 16
+  %134 = or disjoint i32 %133, %129
+  %135 = add nuw nsw i32 %.092120, 524296
+  %136 = add nuw nsw i32 %135, %.091121
+  %137 = add nuw nsw i32 %136, %126
+  %138 = add nuw nsw i32 %137, %134
+  %139 = add nuw nsw i32 %126, %.092120
+  %140 = shl nuw nsw i32 %139, 1
+  %141 = add nuw nsw i32 %138, %140
+  %142 = lshr i32 %141, 3
+  %143 = add nuw nsw i32 %134, %.091121
+  %144 = shl nuw nsw i32 %143, 1
+  %145 = add nuw nsw i32 %138, %144
+  %146 = lshr i32 %145, 3
+  %147 = add nuw nsw i32 %142, %.091121
+  %148 = lshr i32 %147, 1
+  %149 = add nuw nsw i32 %146, %126
   %150 = lshr i32 %149, 1
-  %151 = add nuw nsw i32 %148, %128
-  %152 = lshr i32 %151, 1
-  %153 = shl nuw nsw i64 %indvars.iv, 1
-  %154 = add nsw i64 %153, -1
-  %155 = getelementptr inbounds i8, ptr %0, i64 %154
-  %156 = load i8, ptr %155, align 1
-  %157 = lshr i32 %149, 17
-  %158 = shl nsw i64 %154, 2
-  %159 = getelementptr inbounds i8, ptr %6, i64 %158
-  %160 = zext i8 %156 to i32
-  %161 = and i32 %150, 255
-  %162 = and i32 %157, 255
-  %163 = mul nuw nsw i32 %160, 19077
-  %164 = lshr i32 %163, 8
-  %165 = mul nuw nsw i32 %162, 26149
-  %166 = lshr i32 %165, 8
-  %167 = add nuw nsw i32 %166, %164
-  %168 = add nsw i32 %167, -14234
-  %169 = icmp ult i32 %168, 16384
-  %170 = lshr i32 %168, 6
-  %171 = icmp samesign ult i32 %167, 14234
-  %172 = select i1 %171, i32 0, i32 255
-  %173 = select i1 %169, i32 %170, i32 %172
-  %174 = trunc i32 %173 to i8
-  store i8 %174, ptr %159, align 1
-  %175 = mul nuw nsw i32 %161, 6419
-  %176 = lshr i32 %175, 8
-  %177 = mul nuw nsw i32 %162, 13320
-  %178 = lshr i32 %177, 8
-  %179 = add nuw nsw i32 %178, %176
-  %180 = sub nsw i32 %164, %179
-  %181 = add nsw i32 %180, 8708
-  %182 = icmp ult i32 %181, 16384
-  %183 = lshr i32 %181, 6
-  %184 = icmp slt i32 %180, -8708
-  %185 = select i1 %184, i32 0, i32 255
-  %186 = select i1 %182, i32 %183, i32 %185
-  %187 = trunc i32 %186 to i8
-  %188 = getelementptr inbounds nuw i8, ptr %159, i64 1
-  store i8 %187, ptr %188, align 1
-  %189 = mul nuw nsw i32 %161, 33050
-  %190 = lshr i32 %189, 8
-  %191 = add nuw nsw i32 %190, %164
-  %192 = add nsw i32 %191, -17685
-  %193 = icmp ult i32 %192, 16384
-  %194 = lshr i32 %192, 6
-  %195 = icmp samesign ult i32 %191, 17685
-  %196 = select i1 %195, i32 0, i32 255
-  %197 = select i1 %193, i32 %194, i32 %196
-  %198 = trunc i32 %197 to i8
-  %199 = getelementptr inbounds nuw i8, ptr %159, i64 2
-  store i8 %198, ptr %199, align 1
-  %200 = getelementptr inbounds nuw i8, ptr %159, i64 3
-  store i8 -1, ptr %200, align 1
-  %201 = getelementptr inbounds nuw i8, ptr %0, i64 %153
-  %202 = load i8, ptr %201, align 1
-  %203 = lshr i32 %151, 17
-  %204 = shl nsw i64 %indvars.iv, 3
-  %205 = getelementptr inbounds nuw i8, ptr %6, i64 %204
-  %206 = zext i8 %202 to i32
-  %207 = and i32 %152, 255
-  %208 = and i32 %203, 255
-  %209 = mul nuw nsw i32 %206, 19077
-  %210 = lshr i32 %209, 8
-  %211 = mul nuw nsw i32 %208, 26149
-  %212 = lshr i32 %211, 8
-  %213 = add nuw nsw i32 %212, %210
-  %214 = add nsw i32 %213, -14234
-  %215 = icmp ult i32 %214, 16384
-  %216 = lshr i32 %214, 6
-  %217 = icmp samesign ult i32 %213, 14234
-  %218 = select i1 %217, i32 0, i32 255
-  %219 = select i1 %215, i32 %216, i32 %218
-  %220 = trunc i32 %219 to i8
-  store i8 %220, ptr %205, align 1
-  %221 = mul nuw nsw i32 %207, 6419
-  %222 = lshr i32 %221, 8
-  %223 = mul nuw nsw i32 %208, 13320
-  %224 = lshr i32 %223, 8
-  %225 = add nuw nsw i32 %224, %222
-  %226 = sub nsw i32 %210, %225
-  %227 = add nsw i32 %226, 8708
-  %228 = icmp ult i32 %227, 16384
-  %229 = lshr i32 %227, 6
-  %230 = icmp slt i32 %226, -8708
-  %231 = select i1 %230, i32 0, i32 255
-  %232 = select i1 %228, i32 %229, i32 %231
-  %233 = trunc i32 %232 to i8
-  %234 = getelementptr inbounds nuw i8, ptr %205, i64 1
-  store i8 %233, ptr %234, align 1
-  %235 = mul nuw nsw i32 %207, 33050
-  %236 = lshr i32 %235, 8
-  %237 = add nuw nsw i32 %236, %210
-  %238 = add nsw i32 %237, -17685
-  %239 = icmp ult i32 %238, 16384
-  %240 = lshr i32 %238, 6
-  %241 = icmp samesign ult i32 %237, 17685
-  %242 = select i1 %241, i32 0, i32 255
-  %243 = select i1 %239, i32 %240, i32 %242
-  %244 = trunc i32 %243 to i8
-  %245 = getelementptr inbounds nuw i8, ptr %205, i64 2
-  store i8 %244, ptr %245, align 1
-  %246 = getelementptr inbounds nuw i8, ptr %205, i64 3
-  store i8 -1, ptr %246, align 1
-  br i1 %.not, label %342, label %247
+  %151 = shl nuw nsw i64 %indvars.iv, 1
+  %152 = add nsw i64 %151, -1
+  %153 = getelementptr inbounds i8, ptr %0, i64 %152
+  %154 = load i8, ptr %153, align 1
+  %155 = lshr i32 %147, 17
+  %156 = shl nsw i64 %152, 2
+  %157 = getelementptr inbounds i8, ptr %6, i64 %156
+  %158 = zext i8 %154 to i32
+  %159 = and i32 %148, 255
+  %160 = mul nuw nsw i32 %158, 19077
+  %161 = lshr i32 %160, 8
+  %162 = mul nuw nsw i32 %155, 26149
+  %163 = lshr i32 %162, 8
+  %164 = add nuw nsw i32 %163, %161
+  %165 = add nsw i32 %164, -14234
+  %166 = icmp ult i32 %165, 16384
+  %167 = lshr i32 %165, 6
+  %168 = icmp samesign ult i32 %164, 14234
+  %169 = select i1 %168, i32 0, i32 255
+  %170 = select i1 %166, i32 %167, i32 %169
+  %171 = trunc i32 %170 to i8
+  store i8 %171, ptr %157, align 1
+  %172 = mul nuw nsw i32 %159, 6419
+  %173 = lshr i32 %172, 8
+  %174 = mul nuw nsw i32 %155, 13320
+  %175 = lshr i32 %174, 8
+  %176 = add nuw nsw i32 %175, %173
+  %177 = sub nsw i32 %161, %176
+  %178 = add nsw i32 %177, 8708
+  %179 = icmp ult i32 %178, 16384
+  %180 = lshr i32 %178, 6
+  %181 = icmp slt i32 %177, -8708
+  %182 = select i1 %181, i32 0, i32 255
+  %183 = select i1 %179, i32 %180, i32 %182
+  %184 = trunc i32 %183 to i8
+  %185 = getelementptr inbounds nuw i8, ptr %157, i64 1
+  store i8 %184, ptr %185, align 1
+  %186 = mul nuw nsw i32 %159, 33050
+  %187 = lshr i32 %186, 8
+  %188 = add nuw nsw i32 %187, %161
+  %189 = add nsw i32 %188, -17685
+  %190 = icmp ult i32 %189, 16384
+  %191 = lshr i32 %189, 6
+  %192 = icmp samesign ult i32 %188, 17685
+  %193 = select i1 %192, i32 0, i32 255
+  %194 = select i1 %190, i32 %191, i32 %193
+  %195 = trunc i32 %194 to i8
+  %196 = getelementptr inbounds nuw i8, ptr %157, i64 2
+  store i8 %195, ptr %196, align 1
+  %197 = getelementptr inbounds nuw i8, ptr %157, i64 3
+  store i8 -1, ptr %197, align 1
+  %198 = getelementptr inbounds nuw i8, ptr %0, i64 %151
+  %199 = load i8, ptr %198, align 1
+  %200 = lshr i32 %149, 17
+  %201 = shl nsw i64 %indvars.iv, 3
+  %202 = getelementptr inbounds nuw i8, ptr %6, i64 %201
+  %203 = zext i8 %199 to i32
+  %204 = and i32 %150, 255
+  %205 = mul nuw nsw i32 %203, 19077
+  %206 = lshr i32 %205, 8
+  %207 = mul nuw nsw i32 %200, 26149
+  %208 = lshr i32 %207, 8
+  %209 = add nuw nsw i32 %208, %206
+  %210 = add nsw i32 %209, -14234
+  %211 = icmp ult i32 %210, 16384
+  %212 = lshr i32 %210, 6
+  %213 = icmp samesign ult i32 %209, 14234
+  %214 = select i1 %213, i32 0, i32 255
+  %215 = select i1 %211, i32 %212, i32 %214
+  %216 = trunc i32 %215 to i8
+  store i8 %216, ptr %202, align 1
+  %217 = mul nuw nsw i32 %204, 6419
+  %218 = lshr i32 %217, 8
+  %219 = mul nuw nsw i32 %200, 13320
+  %220 = lshr i32 %219, 8
+  %221 = add nuw nsw i32 %220, %218
+  %222 = sub nsw i32 %206, %221
+  %223 = add nsw i32 %222, 8708
+  %224 = icmp ult i32 %223, 16384
+  %225 = lshr i32 %223, 6
+  %226 = icmp slt i32 %222, -8708
+  %227 = select i1 %226, i32 0, i32 255
+  %228 = select i1 %224, i32 %225, i32 %227
+  %229 = trunc i32 %228 to i8
+  %230 = getelementptr inbounds nuw i8, ptr %202, i64 1
+  store i8 %229, ptr %230, align 1
+  %231 = mul nuw nsw i32 %204, 33050
+  %232 = lshr i32 %231, 8
+  %233 = add nuw nsw i32 %232, %206
+  %234 = add nsw i32 %233, -17685
+  %235 = icmp ult i32 %234, 16384
+  %236 = lshr i32 %234, 6
+  %237 = icmp samesign ult i32 %233, 17685
+  %238 = select i1 %237, i32 0, i32 255
+  %239 = select i1 %235, i32 %236, i32 %238
+  %240 = trunc i32 %239 to i8
+  %241 = getelementptr inbounds nuw i8, ptr %202, i64 2
+  store i8 %240, ptr %241, align 1
+  %242 = getelementptr inbounds nuw i8, ptr %202, i64 3
+  store i8 -1, ptr %242, align 1
+  br i1 %.not, label %336, label %243
 
-247:                                              ; preds = %.lr.ph
-  %248 = add nuw nsw i32 %148, %.092120
-  %249 = lshr i32 %248, 1
-  %250 = add nuw nsw i32 %144, %136
-  %251 = lshr i32 %250, 1
-  %252 = getelementptr inbounds i8, ptr %1, i64 %154
-  %253 = load i8, ptr %252, align 1
-  %254 = lshr i32 %248, 17
-  %255 = getelementptr inbounds i8, ptr %7, i64 %158
-  %256 = zext i8 %253 to i32
-  %257 = and i32 %249, 255
-  %258 = and i32 %254, 255
-  %259 = mul nuw nsw i32 %256, 19077
-  %260 = lshr i32 %259, 8
-  %261 = mul nuw nsw i32 %258, 26149
-  %262 = lshr i32 %261, 8
-  %263 = add nuw nsw i32 %260, %262
-  %264 = add nsw i32 %263, -14234
-  %265 = icmp ult i32 %264, 16384
-  %266 = lshr i32 %264, 6
-  %267 = icmp samesign ult i32 %263, 14234
-  %268 = select i1 %267, i32 0, i32 255
-  %269 = select i1 %265, i32 %266, i32 %268
-  %270 = trunc i32 %269 to i8
-  store i8 %270, ptr %255, align 1
-  %271 = mul nuw nsw i32 %257, 6419
-  %272 = lshr i32 %271, 8
-  %273 = mul nuw nsw i32 %258, 13320
-  %274 = lshr i32 %273, 8
-  %275 = add nuw nsw i32 %272, %274
-  %276 = sub nsw i32 %260, %275
-  %277 = add nsw i32 %276, 8708
-  %278 = icmp ult i32 %277, 16384
-  %279 = lshr i32 %277, 6
-  %280 = icmp slt i32 %276, -8708
-  %281 = select i1 %280, i32 0, i32 255
-  %282 = select i1 %278, i32 %279, i32 %281
-  %283 = trunc i32 %282 to i8
-  %284 = getelementptr inbounds nuw i8, ptr %255, i64 1
-  store i8 %283, ptr %284, align 1
-  %285 = mul nuw nsw i32 %257, 33050
-  %286 = lshr i32 %285, 8
-  %287 = add nuw nsw i32 %260, %286
-  %288 = add nsw i32 %287, -17685
-  %289 = icmp ult i32 %288, 16384
-  %290 = lshr i32 %288, 6
-  %291 = icmp samesign ult i32 %287, 17685
-  %292 = select i1 %291, i32 0, i32 255
-  %293 = select i1 %289, i32 %290, i32 %292
-  %294 = trunc i32 %293 to i8
-  %295 = getelementptr inbounds nuw i8, ptr %255, i64 2
-  store i8 %294, ptr %295, align 1
-  %296 = getelementptr inbounds nuw i8, ptr %255, i64 3
-  store i8 -1, ptr %296, align 1
-  %297 = getelementptr inbounds nuw i8, ptr %1, i64 %153
-  %298 = load i8, ptr %297, align 1
-  %299 = lshr i32 %250, 17
-  %300 = getelementptr inbounds nuw i8, ptr %7, i64 %204
-  %301 = zext i8 %298 to i32
-  %302 = and i32 %251, 255
-  %303 = and i32 %299, 255
-  %304 = mul nuw nsw i32 %301, 19077
-  %305 = lshr i32 %304, 8
-  %306 = mul nuw nsw i32 %303, 26149
-  %307 = lshr i32 %306, 8
-  %308 = add nuw nsw i32 %305, %307
-  %309 = add nsw i32 %308, -14234
-  %310 = icmp ult i32 %309, 16384
-  %311 = lshr i32 %309, 6
-  %312 = icmp samesign ult i32 %308, 14234
-  %313 = select i1 %312, i32 0, i32 255
-  %314 = select i1 %310, i32 %311, i32 %313
-  %315 = trunc i32 %314 to i8
-  store i8 %315, ptr %300, align 1
-  %316 = mul nuw nsw i32 %302, 6419
-  %317 = lshr i32 %316, 8
-  %318 = mul nuw nsw i32 %303, 13320
-  %319 = lshr i32 %318, 8
-  %320 = add nuw nsw i32 %317, %319
-  %321 = sub nsw i32 %305, %320
-  %322 = add nsw i32 %321, 8708
-  %323 = icmp ult i32 %322, 16384
-  %324 = lshr i32 %322, 6
-  %325 = icmp slt i32 %321, -8708
-  %326 = select i1 %325, i32 0, i32 255
-  %327 = select i1 %323, i32 %324, i32 %326
-  %328 = trunc i32 %327 to i8
-  %329 = getelementptr inbounds nuw i8, ptr %300, i64 1
-  store i8 %328, ptr %329, align 1
-  %330 = mul nuw nsw i32 %302, 33050
-  %331 = lshr i32 %330, 8
-  %332 = add nuw nsw i32 %305, %331
-  %333 = add nsw i32 %332, -17685
-  %334 = icmp ult i32 %333, 16384
-  %335 = lshr i32 %333, 6
-  %336 = icmp samesign ult i32 %332, 17685
-  %337 = select i1 %336, i32 0, i32 255
-  %338 = select i1 %334, i32 %335, i32 %337
-  %339 = trunc i32 %338 to i8
-  %340 = getelementptr inbounds nuw i8, ptr %300, i64 2
-  store i8 %339, ptr %340, align 1
-  %341 = getelementptr inbounds nuw i8, ptr %300, i64 3
-  store i8 -1, ptr %341, align 1
-  br label %342
+243:                                              ; preds = %.lr.ph
+  %244 = add nuw nsw i32 %146, %.092120
+  %245 = lshr i32 %244, 1
+  %246 = add nuw nsw i32 %142, %134
+  %247 = lshr i32 %246, 1
+  %248 = getelementptr inbounds i8, ptr %1, i64 %152
+  %249 = load i8, ptr %248, align 1
+  %250 = lshr i32 %244, 17
+  %251 = getelementptr inbounds i8, ptr %7, i64 %156
+  %252 = zext i8 %249 to i32
+  %253 = and i32 %245, 255
+  %254 = mul nuw nsw i32 %252, 19077
+  %255 = lshr i32 %254, 8
+  %256 = mul nuw nsw i32 %250, 26149
+  %257 = lshr i32 %256, 8
+  %258 = add nuw nsw i32 %255, %257
+  %259 = add nsw i32 %258, -14234
+  %260 = icmp ult i32 %259, 16384
+  %261 = lshr i32 %259, 6
+  %262 = icmp samesign ult i32 %258, 14234
+  %263 = select i1 %262, i32 0, i32 255
+  %264 = select i1 %260, i32 %261, i32 %263
+  %265 = trunc i32 %264 to i8
+  store i8 %265, ptr %251, align 1
+  %266 = mul nuw nsw i32 %253, 6419
+  %267 = lshr i32 %266, 8
+  %268 = mul nuw nsw i32 %250, 13320
+  %269 = lshr i32 %268, 8
+  %270 = add nuw nsw i32 %267, %269
+  %271 = sub nsw i32 %255, %270
+  %272 = add nsw i32 %271, 8708
+  %273 = icmp ult i32 %272, 16384
+  %274 = lshr i32 %272, 6
+  %275 = icmp slt i32 %271, -8708
+  %276 = select i1 %275, i32 0, i32 255
+  %277 = select i1 %273, i32 %274, i32 %276
+  %278 = trunc i32 %277 to i8
+  %279 = getelementptr inbounds nuw i8, ptr %251, i64 1
+  store i8 %278, ptr %279, align 1
+  %280 = mul nuw nsw i32 %253, 33050
+  %281 = lshr i32 %280, 8
+  %282 = add nuw nsw i32 %255, %281
+  %283 = add nsw i32 %282, -17685
+  %284 = icmp ult i32 %283, 16384
+  %285 = lshr i32 %283, 6
+  %286 = icmp samesign ult i32 %282, 17685
+  %287 = select i1 %286, i32 0, i32 255
+  %288 = select i1 %284, i32 %285, i32 %287
+  %289 = trunc i32 %288 to i8
+  %290 = getelementptr inbounds nuw i8, ptr %251, i64 2
+  store i8 %289, ptr %290, align 1
+  %291 = getelementptr inbounds nuw i8, ptr %251, i64 3
+  store i8 -1, ptr %291, align 1
+  %292 = getelementptr inbounds nuw i8, ptr %1, i64 %151
+  %293 = load i8, ptr %292, align 1
+  %294 = lshr i32 %246, 17
+  %295 = getelementptr inbounds nuw i8, ptr %7, i64 %201
+  %296 = zext i8 %293 to i32
+  %297 = and i32 %247, 255
+  %298 = mul nuw nsw i32 %296, 19077
+  %299 = lshr i32 %298, 8
+  %300 = mul nuw nsw i32 %294, 26149
+  %301 = lshr i32 %300, 8
+  %302 = add nuw nsw i32 %299, %301
+  %303 = add nsw i32 %302, -14234
+  %304 = icmp ult i32 %303, 16384
+  %305 = lshr i32 %303, 6
+  %306 = icmp samesign ult i32 %302, 14234
+  %307 = select i1 %306, i32 0, i32 255
+  %308 = select i1 %304, i32 %305, i32 %307
+  %309 = trunc i32 %308 to i8
+  store i8 %309, ptr %295, align 1
+  %310 = mul nuw nsw i32 %297, 6419
+  %311 = lshr i32 %310, 8
+  %312 = mul nuw nsw i32 %294, 13320
+  %313 = lshr i32 %312, 8
+  %314 = add nuw nsw i32 %311, %313
+  %315 = sub nsw i32 %299, %314
+  %316 = add nsw i32 %315, 8708
+  %317 = icmp ult i32 %316, 16384
+  %318 = lshr i32 %316, 6
+  %319 = icmp slt i32 %315, -8708
+  %320 = select i1 %319, i32 0, i32 255
+  %321 = select i1 %317, i32 %318, i32 %320
+  %322 = trunc i32 %321 to i8
+  %323 = getelementptr inbounds nuw i8, ptr %295, i64 1
+  store i8 %322, ptr %323, align 1
+  %324 = mul nuw nsw i32 %297, 33050
+  %325 = lshr i32 %324, 8
+  %326 = add nuw nsw i32 %299, %325
+  %327 = add nsw i32 %326, -17685
+  %328 = icmp ult i32 %327, 16384
+  %329 = lshr i32 %327, 6
+  %330 = icmp samesign ult i32 %326, 17685
+  %331 = select i1 %330, i32 0, i32 255
+  %332 = select i1 %328, i32 %329, i32 %331
+  %333 = trunc i32 %332 to i8
+  %334 = getelementptr inbounds nuw i8, ptr %295, i64 2
+  store i8 %333, ptr %334, align 1
+  %335 = getelementptr inbounds nuw i8, ptr %295, i64 3
+  store i8 -1, ptr %335, align 1
+  br label %336
 
-342:                                              ; preds = %247, %.lr.ph
+336:                                              ; preds = %243, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %342, %119
-  %.092.lcssa = phi i32 [ %23, %119 ], [ %136, %342 ]
-  %.091.lcssa = phi i32 [ %17, %119 ], [ %128, %342 ]
-  %343 = and i32 %8, 1
-  %.not95 = icmp eq i32 %343, 0
-  br i1 %.not95, label %344, label %447
+._crit_edge:                                      ; preds = %336, %117
+  %.092.lcssa = phi i32 [ %23, %117 ], [ %134, %336 ]
+  %.091.lcssa = phi i32 [ %17, %117 ], [ %126, %336 ]
+  %337 = and i32 %8, 1
+  %.not95 = icmp eq i32 %337, 0
+  br i1 %.not95, label %338, label %439
 
-344:                                              ; preds = %._crit_edge
-  %345 = mul nuw nsw i32 %.091.lcssa, 3
-  %346 = add nuw nsw i32 %.092.lcssa, 131074
-  %347 = add nuw nsw i32 %346, %345
-  %348 = lshr i32 %347, 2
-  %349 = sext i32 %10 to i64
-  %350 = getelementptr inbounds i8, ptr %0, i64 %349
-  %351 = load i8, ptr %350, align 1
-  %352 = lshr i32 %347, 18
-  %353 = shl nsw i32 %10, 2
-  %354 = sext i32 %353 to i64
-  %355 = getelementptr inbounds i8, ptr %6, i64 %354
-  %356 = zext i8 %351 to i32
-  %357 = and i32 %348, 255
-  %358 = and i32 %352, 255
-  %359 = mul nuw nsw i32 %356, 19077
-  %360 = lshr i32 %359, 8
-  %361 = mul nuw nsw i32 %358, 26149
-  %362 = lshr i32 %361, 8
-  %363 = add nuw nsw i32 %360, %362
-  %364 = add nsw i32 %363, -14234
-  %365 = icmp ult i32 %364, 16384
-  %366 = lshr i32 %364, 6
-  %367 = icmp samesign ult i32 %363, 14234
-  %368 = select i1 %367, i32 0, i32 255
-  %369 = select i1 %365, i32 %366, i32 %368
-  %370 = trunc i32 %369 to i8
-  store i8 %370, ptr %355, align 1
-  %371 = mul nuw nsw i32 %357, 6419
-  %372 = lshr i32 %371, 8
-  %373 = mul nuw nsw i32 %358, 13320
-  %374 = lshr i32 %373, 8
-  %375 = add nuw nsw i32 %372, %374
-  %376 = sub nsw i32 %360, %375
-  %377 = add nsw i32 %376, 8708
-  %378 = icmp ult i32 %377, 16384
-  %379 = lshr i32 %377, 6
-  %380 = icmp slt i32 %376, -8708
-  %381 = select i1 %380, i32 0, i32 255
-  %382 = select i1 %378, i32 %379, i32 %381
-  %383 = trunc i32 %382 to i8
-  %384 = getelementptr inbounds nuw i8, ptr %355, i64 1
-  store i8 %383, ptr %384, align 1
-  %385 = mul nuw nsw i32 %357, 33050
-  %386 = lshr i32 %385, 8
-  %387 = add nuw nsw i32 %360, %386
-  %388 = add nsw i32 %387, -17685
-  %389 = icmp ult i32 %388, 16384
-  %390 = lshr i32 %388, 6
-  %391 = icmp samesign ult i32 %387, 17685
-  %392 = select i1 %391, i32 0, i32 255
-  %393 = select i1 %389, i32 %390, i32 %392
-  %394 = trunc i32 %393 to i8
-  %395 = getelementptr inbounds nuw i8, ptr %355, i64 2
-  store i8 %394, ptr %395, align 1
-  %396 = getelementptr inbounds nuw i8, ptr %355, i64 3
-  store i8 -1, ptr %396, align 1
-  br i1 %.not, label %447, label %397
+338:                                              ; preds = %._crit_edge
+  %339 = mul nuw nsw i32 %.091.lcssa, 3
+  %340 = add nuw nsw i32 %.092.lcssa, 131074
+  %341 = add nuw nsw i32 %340, %339
+  %342 = lshr i32 %341, 2
+  %343 = sext i32 %10 to i64
+  %344 = getelementptr inbounds i8, ptr %0, i64 %343
+  %345 = load i8, ptr %344, align 1
+  %346 = lshr i32 %341, 18
+  %347 = shl nsw i32 %10, 2
+  %348 = sext i32 %347 to i64
+  %349 = getelementptr inbounds i8, ptr %6, i64 %348
+  %350 = zext i8 %345 to i32
+  %351 = and i32 %342, 255
+  %352 = mul nuw nsw i32 %350, 19077
+  %353 = lshr i32 %352, 8
+  %354 = mul nuw nsw i32 %346, 26149
+  %355 = lshr i32 %354, 8
+  %356 = add nuw nsw i32 %353, %355
+  %357 = add nsw i32 %356, -14234
+  %358 = icmp ult i32 %357, 16384
+  %359 = lshr i32 %357, 6
+  %360 = icmp samesign ult i32 %356, 14234
+  %361 = select i1 %360, i32 0, i32 255
+  %362 = select i1 %358, i32 %359, i32 %361
+  %363 = trunc i32 %362 to i8
+  store i8 %363, ptr %349, align 1
+  %364 = mul nuw nsw i32 %351, 6419
+  %365 = lshr i32 %364, 8
+  %366 = mul nuw nsw i32 %346, 13320
+  %367 = lshr i32 %366, 8
+  %368 = add nuw nsw i32 %365, %367
+  %369 = sub nsw i32 %353, %368
+  %370 = add nsw i32 %369, 8708
+  %371 = icmp ult i32 %370, 16384
+  %372 = lshr i32 %370, 6
+  %373 = icmp slt i32 %369, -8708
+  %374 = select i1 %373, i32 0, i32 255
+  %375 = select i1 %371, i32 %372, i32 %374
+  %376 = trunc i32 %375 to i8
+  %377 = getelementptr inbounds nuw i8, ptr %349, i64 1
+  store i8 %376, ptr %377, align 1
+  %378 = mul nuw nsw i32 %351, 33050
+  %379 = lshr i32 %378, 8
+  %380 = add nuw nsw i32 %353, %379
+  %381 = add nsw i32 %380, -17685
+  %382 = icmp ult i32 %381, 16384
+  %383 = lshr i32 %381, 6
+  %384 = icmp samesign ult i32 %380, 17685
+  %385 = select i1 %384, i32 0, i32 255
+  %386 = select i1 %382, i32 %383, i32 %385
+  %387 = trunc i32 %386 to i8
+  %388 = getelementptr inbounds nuw i8, ptr %349, i64 2
+  store i8 %387, ptr %388, align 1
+  %389 = getelementptr inbounds nuw i8, ptr %349, i64 3
+  store i8 -1, ptr %389, align 1
+  br i1 %.not, label %439, label %390
 
-397:                                              ; preds = %344
-  %398 = mul nuw nsw i32 %.092.lcssa, 3
-  %399 = add nuw nsw i32 %.091.lcssa, 131074
-  %400 = add nuw nsw i32 %399, %398
-  %401 = lshr i32 %400, 2
-  %402 = getelementptr inbounds i8, ptr %1, i64 %349
-  %403 = load i8, ptr %402, align 1
-  %404 = lshr i32 %400, 18
-  %405 = getelementptr inbounds i8, ptr %7, i64 %354
-  %406 = zext i8 %403 to i32
-  %407 = and i32 %401, 255
-  %408 = and i32 %404, 255
-  %409 = mul nuw nsw i32 %406, 19077
-  %410 = lshr i32 %409, 8
-  %411 = mul nuw nsw i32 %408, 26149
-  %412 = lshr i32 %411, 8
-  %413 = add nuw nsw i32 %410, %412
-  %414 = add nsw i32 %413, -14234
-  %415 = icmp ult i32 %414, 16384
-  %416 = lshr i32 %414, 6
-  %417 = icmp samesign ult i32 %413, 14234
-  %418 = select i1 %417, i32 0, i32 255
-  %419 = select i1 %415, i32 %416, i32 %418
-  %420 = trunc i32 %419 to i8
-  store i8 %420, ptr %405, align 1
-  %421 = mul nuw nsw i32 %407, 6419
-  %422 = lshr i32 %421, 8
-  %423 = mul nuw nsw i32 %408, 13320
-  %424 = lshr i32 %423, 8
-  %425 = add nuw nsw i32 %422, %424
-  %426 = sub nsw i32 %410, %425
-  %427 = add nsw i32 %426, 8708
-  %428 = icmp ult i32 %427, 16384
-  %429 = lshr i32 %427, 6
-  %430 = icmp slt i32 %426, -8708
-  %431 = select i1 %430, i32 0, i32 255
-  %432 = select i1 %428, i32 %429, i32 %431
-  %433 = trunc i32 %432 to i8
-  %434 = getelementptr inbounds nuw i8, ptr %405, i64 1
-  store i8 %433, ptr %434, align 1
-  %435 = mul nuw nsw i32 %407, 33050
-  %436 = lshr i32 %435, 8
-  %437 = add nuw nsw i32 %410, %436
-  %438 = add nsw i32 %437, -17685
-  %439 = icmp ult i32 %438, 16384
-  %440 = lshr i32 %438, 6
-  %441 = icmp samesign ult i32 %437, 17685
-  %442 = select i1 %441, i32 0, i32 255
-  %443 = select i1 %439, i32 %440, i32 %442
-  %444 = trunc i32 %443 to i8
-  %445 = getelementptr inbounds nuw i8, ptr %405, i64 2
-  store i8 %444, ptr %445, align 1
-  %446 = getelementptr inbounds nuw i8, ptr %405, i64 3
-  store i8 -1, ptr %446, align 1
-  br label %447
+390:                                              ; preds = %338
+  %391 = mul nuw nsw i32 %.092.lcssa, 3
+  %392 = add nuw nsw i32 %.091.lcssa, 131074
+  %393 = add nuw nsw i32 %392, %391
+  %394 = lshr i32 %393, 2
+  %395 = getelementptr inbounds i8, ptr %1, i64 %343
+  %396 = load i8, ptr %395, align 1
+  %397 = lshr i32 %393, 18
+  %398 = getelementptr inbounds i8, ptr %7, i64 %348
+  %399 = zext i8 %396 to i32
+  %400 = and i32 %394, 255
+  %401 = mul nuw nsw i32 %399, 19077
+  %402 = lshr i32 %401, 8
+  %403 = mul nuw nsw i32 %397, 26149
+  %404 = lshr i32 %403, 8
+  %405 = add nuw nsw i32 %402, %404
+  %406 = add nsw i32 %405, -14234
+  %407 = icmp ult i32 %406, 16384
+  %408 = lshr i32 %406, 6
+  %409 = icmp samesign ult i32 %405, 14234
+  %410 = select i1 %409, i32 0, i32 255
+  %411 = select i1 %407, i32 %408, i32 %410
+  %412 = trunc i32 %411 to i8
+  store i8 %412, ptr %398, align 1
+  %413 = mul nuw nsw i32 %400, 6419
+  %414 = lshr i32 %413, 8
+  %415 = mul nuw nsw i32 %397, 13320
+  %416 = lshr i32 %415, 8
+  %417 = add nuw nsw i32 %414, %416
+  %418 = sub nsw i32 %402, %417
+  %419 = add nsw i32 %418, 8708
+  %420 = icmp ult i32 %419, 16384
+  %421 = lshr i32 %419, 6
+  %422 = icmp slt i32 %418, -8708
+  %423 = select i1 %422, i32 0, i32 255
+  %424 = select i1 %420, i32 %421, i32 %423
+  %425 = trunc i32 %424 to i8
+  %426 = getelementptr inbounds nuw i8, ptr %398, i64 1
+  store i8 %425, ptr %426, align 1
+  %427 = mul nuw nsw i32 %400, 33050
+  %428 = lshr i32 %427, 8
+  %429 = add nuw nsw i32 %402, %428
+  %430 = add nsw i32 %429, -17685
+  %431 = icmp ult i32 %430, 16384
+  %432 = lshr i32 %430, 6
+  %433 = icmp samesign ult i32 %429, 17685
+  %434 = select i1 %433, i32 0, i32 255
+  %435 = select i1 %431, i32 %432, i32 %434
+  %436 = trunc i32 %435 to i8
+  %437 = getelementptr inbounds nuw i8, ptr %398, i64 2
+  store i8 %436, ptr %437, align 1
+  %438 = getelementptr inbounds nuw i8, ptr %398, i64 3
+  store i8 -1, ptr %438, align 1
+  br label %439
 
-447:                                              ; preds = %344, %397, %._crit_edge
+439:                                              ; preds = %338, %390, %._crit_edge
   ret void
 }
 
@@ -1179,488 +1171,480 @@ define internal void @UpsampleBgraLinePair_C(ptr nocapture noundef readonly %0, 
   %29 = lshr i32 %26, 18
   %30 = zext i8 %28 to i32
   %31 = and i32 %27, 255
-  %32 = and i32 %29, 255
-  %33 = mul nuw nsw i32 %30, 19077
-  %34 = lshr i32 %33, 8
-  %35 = mul nuw nsw i32 %31, 33050
-  %36 = lshr i32 %35, 8
-  %37 = add nuw nsw i32 %36, %34
-  %38 = add nsw i32 %37, -17685
-  %39 = icmp ult i32 %38, 16384
-  %40 = lshr i32 %38, 6
-  %41 = icmp samesign ult i32 %37, 17685
-  %42 = select i1 %41, i32 0, i32 255
-  %43 = select i1 %39, i32 %40, i32 %42
-  %44 = trunc i32 %43 to i8
-  store i8 %44, ptr %6, align 1
-  %45 = mul nuw nsw i32 %31, 6419
-  %46 = lshr i32 %45, 8
-  %47 = mul nuw nsw i32 %32, 13320
-  %48 = lshr i32 %47, 8
-  %49 = add nuw nsw i32 %48, %46
-  %50 = sub nsw i32 %34, %49
-  %51 = add nsw i32 %50, 8708
-  %52 = icmp ult i32 %51, 16384
-  %53 = lshr i32 %51, 6
-  %54 = icmp slt i32 %50, -8708
-  %55 = select i1 %54, i32 0, i32 255
-  %56 = select i1 %52, i32 %53, i32 %55
-  %57 = trunc i32 %56 to i8
-  %58 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  store i8 %57, ptr %58, align 1
-  %59 = mul nuw nsw i32 %32, 26149
-  %60 = lshr i32 %59, 8
-  %61 = add nuw nsw i32 %60, %34
-  %62 = add nsw i32 %61, -14234
-  %63 = icmp ult i32 %62, 16384
-  %64 = lshr i32 %62, 6
-  %65 = icmp samesign ult i32 %61, 14234
-  %66 = select i1 %65, i32 0, i32 255
-  %67 = select i1 %63, i32 %64, i32 %66
-  %68 = trunc i32 %67 to i8
-  %69 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  store i8 %68, ptr %69, align 1
-  %70 = getelementptr inbounds nuw i8, ptr %6, i64 3
-  store i8 -1, ptr %70, align 1
+  %32 = mul nuw nsw i32 %30, 19077
+  %33 = lshr i32 %32, 8
+  %34 = mul nuw nsw i32 %31, 33050
+  %35 = lshr i32 %34, 8
+  %36 = add nuw nsw i32 %35, %33
+  %37 = add nsw i32 %36, -17685
+  %38 = icmp ult i32 %37, 16384
+  %39 = lshr i32 %37, 6
+  %40 = icmp samesign ult i32 %36, 17685
+  %41 = select i1 %40, i32 0, i32 255
+  %42 = select i1 %38, i32 %39, i32 %41
+  %43 = trunc i32 %42 to i8
+  store i8 %43, ptr %6, align 1
+  %44 = mul nuw nsw i32 %31, 6419
+  %45 = lshr i32 %44, 8
+  %46 = mul nuw nsw i32 %29, 13320
+  %47 = lshr i32 %46, 8
+  %48 = add nuw nsw i32 %47, %45
+  %49 = sub nsw i32 %33, %48
+  %50 = add nsw i32 %49, 8708
+  %51 = icmp ult i32 %50, 16384
+  %52 = lshr i32 %50, 6
+  %53 = icmp slt i32 %49, -8708
+  %54 = select i1 %53, i32 0, i32 255
+  %55 = select i1 %51, i32 %52, i32 %54
+  %56 = trunc i32 %55 to i8
+  %57 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  store i8 %56, ptr %57, align 1
+  %58 = mul nuw nsw i32 %29, 26149
+  %59 = lshr i32 %58, 8
+  %60 = add nuw nsw i32 %59, %33
+  %61 = add nsw i32 %60, -14234
+  %62 = icmp ult i32 %61, 16384
+  %63 = lshr i32 %61, 6
+  %64 = icmp samesign ult i32 %60, 14234
+  %65 = select i1 %64, i32 0, i32 255
+  %66 = select i1 %62, i32 %63, i32 %65
+  %67 = trunc i32 %66 to i8
+  %68 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  store i8 %67, ptr %68, align 1
+  %69 = getelementptr inbounds nuw i8, ptr %6, i64 3
+  store i8 -1, ptr %69, align 1
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %119, label %71
+  br i1 %.not, label %117, label %70
 
-71:                                               ; preds = %9
-  %72 = mul nuw nsw i32 %23, 3
-  %73 = add nuw nsw i32 %17, 131074
-  %74 = add nuw nsw i32 %73, %72
-  %75 = lshr i32 %74, 2
-  %76 = load i8, ptr %1, align 1
-  %77 = lshr i32 %74, 18
-  %78 = zext i8 %76 to i32
-  %79 = and i32 %75, 255
-  %80 = and i32 %77, 255
-  %81 = mul nuw nsw i32 %78, 19077
+70:                                               ; preds = %9
+  %71 = mul nuw nsw i32 %23, 3
+  %72 = add nuw nsw i32 %17, 131074
+  %73 = add nuw nsw i32 %72, %71
+  %74 = lshr i32 %73, 2
+  %75 = load i8, ptr %1, align 1
+  %76 = lshr i32 %73, 18
+  %77 = zext i8 %75 to i32
+  %78 = and i32 %74, 255
+  %79 = mul nuw nsw i32 %77, 19077
+  %80 = lshr i32 %79, 8
+  %81 = mul nuw nsw i32 %78, 33050
   %82 = lshr i32 %81, 8
-  %83 = mul nuw nsw i32 %79, 33050
-  %84 = lshr i32 %83, 8
-  %85 = add nuw nsw i32 %82, %84
-  %86 = add nsw i32 %85, -17685
-  %87 = icmp ult i32 %86, 16384
-  %88 = lshr i32 %86, 6
-  %89 = icmp samesign ult i32 %85, 17685
-  %90 = select i1 %89, i32 0, i32 255
-  %91 = select i1 %87, i32 %88, i32 %90
-  %92 = trunc i32 %91 to i8
-  store i8 %92, ptr %7, align 1
-  %93 = mul nuw nsw i32 %79, 6419
+  %83 = add nuw nsw i32 %80, %82
+  %84 = add nsw i32 %83, -17685
+  %85 = icmp ult i32 %84, 16384
+  %86 = lshr i32 %84, 6
+  %87 = icmp samesign ult i32 %83, 17685
+  %88 = select i1 %87, i32 0, i32 255
+  %89 = select i1 %85, i32 %86, i32 %88
+  %90 = trunc i32 %89 to i8
+  store i8 %90, ptr %7, align 1
+  %91 = mul nuw nsw i32 %78, 6419
+  %92 = lshr i32 %91, 8
+  %93 = mul nuw nsw i32 %76, 13320
   %94 = lshr i32 %93, 8
-  %95 = mul nuw nsw i32 %80, 13320
-  %96 = lshr i32 %95, 8
-  %97 = add nuw nsw i32 %94, %96
-  %98 = sub nsw i32 %82, %97
-  %99 = add nsw i32 %98, 8708
-  %100 = icmp ult i32 %99, 16384
-  %101 = lshr i32 %99, 6
-  %102 = icmp slt i32 %98, -8708
-  %103 = select i1 %102, i32 0, i32 255
-  %104 = select i1 %100, i32 %101, i32 %103
-  %105 = trunc i32 %104 to i8
-  %106 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  store i8 %105, ptr %106, align 1
-  %107 = mul nuw nsw i32 %80, 26149
-  %108 = lshr i32 %107, 8
-  %109 = add nuw nsw i32 %82, %108
-  %110 = add nsw i32 %109, -14234
-  %111 = icmp ult i32 %110, 16384
-  %112 = lshr i32 %110, 6
-  %113 = icmp samesign ult i32 %109, 14234
-  %114 = select i1 %113, i32 0, i32 255
-  %115 = select i1 %111, i32 %112, i32 %114
-  %116 = trunc i32 %115 to i8
-  %117 = getelementptr inbounds nuw i8, ptr %7, i64 2
-  store i8 %116, ptr %117, align 1
-  %118 = getelementptr inbounds nuw i8, ptr %7, i64 3
-  store i8 -1, ptr %118, align 1
-  br label %119
+  %95 = add nuw nsw i32 %92, %94
+  %96 = sub nsw i32 %80, %95
+  %97 = add nsw i32 %96, 8708
+  %98 = icmp ult i32 %97, 16384
+  %99 = lshr i32 %97, 6
+  %100 = icmp slt i32 %96, -8708
+  %101 = select i1 %100, i32 0, i32 255
+  %102 = select i1 %98, i32 %99, i32 %101
+  %103 = trunc i32 %102 to i8
+  %104 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  store i8 %103, ptr %104, align 1
+  %105 = mul nuw nsw i32 %76, 26149
+  %106 = lshr i32 %105, 8
+  %107 = add nuw nsw i32 %80, %106
+  %108 = add nsw i32 %107, -14234
+  %109 = icmp ult i32 %108, 16384
+  %110 = lshr i32 %108, 6
+  %111 = icmp samesign ult i32 %107, 14234
+  %112 = select i1 %111, i32 0, i32 255
+  %113 = select i1 %109, i32 %110, i32 %112
+  %114 = trunc i32 %113 to i8
+  %115 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  store i8 %114, ptr %115, align 1
+  %116 = getelementptr inbounds nuw i8, ptr %7, i64 3
+  store i8 -1, ptr %116, align 1
+  br label %117
 
-119:                                              ; preds = %71, %9
+117:                                              ; preds = %70, %9
   %.not94119 = icmp slt i32 %11, 1
   br i1 %.not94119, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %119
-  %120 = add nuw nsw i32 %11, 1
-  %wide.trip.count = zext nneg i32 %120 to i64
+.lr.ph.preheader:                                 ; preds = %117
+  %118 = add nuw nsw i32 %11, 1
+  %wide.trip.count = zext nneg i32 %118 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %342
-  %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %342 ]
-  %.091121 = phi i32 [ %17, %.lr.ph.preheader ], [ %128, %342 ]
-  %.092120 = phi i32 [ %23, %.lr.ph.preheader ], [ %136, %342 ]
-  %121 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
-  %122 = load i8, ptr %121, align 1
-  %123 = zext i8 %122 to i32
-  %124 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
-  %125 = load i8, ptr %124, align 1
-  %126 = zext i8 %125 to i32
-  %127 = shl nuw nsw i32 %126, 16
-  %128 = or disjoint i32 %127, %123
-  %129 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
-  %130 = load i8, ptr %129, align 1
-  %131 = zext i8 %130 to i32
-  %132 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
-  %133 = load i8, ptr %132, align 1
-  %134 = zext i8 %133 to i32
-  %135 = shl nuw nsw i32 %134, 16
-  %136 = or disjoint i32 %135, %131
-  %137 = add nuw nsw i32 %.092120, 524296
-  %138 = add nuw nsw i32 %137, %.091121
-  %139 = add nuw nsw i32 %138, %128
-  %140 = add nuw nsw i32 %139, %136
-  %141 = add nuw nsw i32 %128, %.092120
-  %142 = shl nuw nsw i32 %141, 1
-  %143 = add nuw nsw i32 %140, %142
-  %144 = lshr i32 %143, 3
-  %145 = add nuw nsw i32 %136, %.091121
-  %146 = shl nuw nsw i32 %145, 1
-  %147 = add nuw nsw i32 %140, %146
-  %148 = lshr i32 %147, 3
-  %149 = add nuw nsw i32 %144, %.091121
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %336
+  %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %336 ]
+  %.091121 = phi i32 [ %17, %.lr.ph.preheader ], [ %126, %336 ]
+  %.092120 = phi i32 [ %23, %.lr.ph.preheader ], [ %134, %336 ]
+  %119 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
+  %120 = load i8, ptr %119, align 1
+  %121 = zext i8 %120 to i32
+  %122 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
+  %123 = load i8, ptr %122, align 1
+  %124 = zext i8 %123 to i32
+  %125 = shl nuw nsw i32 %124, 16
+  %126 = or disjoint i32 %125, %121
+  %127 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
+  %128 = load i8, ptr %127, align 1
+  %129 = zext i8 %128 to i32
+  %130 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
+  %131 = load i8, ptr %130, align 1
+  %132 = zext i8 %131 to i32
+  %133 = shl nuw nsw i32 %132, 16
+  %134 = or disjoint i32 %133, %129
+  %135 = add nuw nsw i32 %.092120, 524296
+  %136 = add nuw nsw i32 %135, %.091121
+  %137 = add nuw nsw i32 %136, %126
+  %138 = add nuw nsw i32 %137, %134
+  %139 = add nuw nsw i32 %126, %.092120
+  %140 = shl nuw nsw i32 %139, 1
+  %141 = add nuw nsw i32 %138, %140
+  %142 = lshr i32 %141, 3
+  %143 = add nuw nsw i32 %134, %.091121
+  %144 = shl nuw nsw i32 %143, 1
+  %145 = add nuw nsw i32 %138, %144
+  %146 = lshr i32 %145, 3
+  %147 = add nuw nsw i32 %142, %.091121
+  %148 = lshr i32 %147, 1
+  %149 = add nuw nsw i32 %146, %126
   %150 = lshr i32 %149, 1
-  %151 = add nuw nsw i32 %148, %128
-  %152 = lshr i32 %151, 1
-  %153 = shl nuw nsw i64 %indvars.iv, 1
-  %154 = add nsw i64 %153, -1
-  %155 = getelementptr inbounds i8, ptr %0, i64 %154
-  %156 = load i8, ptr %155, align 1
-  %157 = lshr i32 %149, 17
-  %158 = shl nsw i64 %154, 2
-  %159 = getelementptr inbounds i8, ptr %6, i64 %158
-  %160 = zext i8 %156 to i32
-  %161 = and i32 %150, 255
-  %162 = and i32 %157, 255
-  %163 = mul nuw nsw i32 %160, 19077
-  %164 = lshr i32 %163, 8
-  %165 = mul nuw nsw i32 %161, 33050
-  %166 = lshr i32 %165, 8
-  %167 = add nuw nsw i32 %166, %164
-  %168 = add nsw i32 %167, -17685
-  %169 = icmp ult i32 %168, 16384
-  %170 = lshr i32 %168, 6
-  %171 = icmp samesign ult i32 %167, 17685
-  %172 = select i1 %171, i32 0, i32 255
-  %173 = select i1 %169, i32 %170, i32 %172
-  %174 = trunc i32 %173 to i8
-  store i8 %174, ptr %159, align 1
-  %175 = mul nuw nsw i32 %161, 6419
-  %176 = lshr i32 %175, 8
-  %177 = mul nuw nsw i32 %162, 13320
-  %178 = lshr i32 %177, 8
-  %179 = add nuw nsw i32 %178, %176
-  %180 = sub nsw i32 %164, %179
-  %181 = add nsw i32 %180, 8708
-  %182 = icmp ult i32 %181, 16384
-  %183 = lshr i32 %181, 6
-  %184 = icmp slt i32 %180, -8708
-  %185 = select i1 %184, i32 0, i32 255
-  %186 = select i1 %182, i32 %183, i32 %185
-  %187 = trunc i32 %186 to i8
-  %188 = getelementptr inbounds nuw i8, ptr %159, i64 1
-  store i8 %187, ptr %188, align 1
-  %189 = mul nuw nsw i32 %162, 26149
-  %190 = lshr i32 %189, 8
-  %191 = add nuw nsw i32 %190, %164
-  %192 = add nsw i32 %191, -14234
-  %193 = icmp ult i32 %192, 16384
-  %194 = lshr i32 %192, 6
-  %195 = icmp samesign ult i32 %191, 14234
-  %196 = select i1 %195, i32 0, i32 255
-  %197 = select i1 %193, i32 %194, i32 %196
-  %198 = trunc i32 %197 to i8
-  %199 = getelementptr inbounds nuw i8, ptr %159, i64 2
-  store i8 %198, ptr %199, align 1
-  %200 = getelementptr inbounds nuw i8, ptr %159, i64 3
-  store i8 -1, ptr %200, align 1
-  %201 = getelementptr inbounds nuw i8, ptr %0, i64 %153
-  %202 = load i8, ptr %201, align 1
-  %203 = lshr i32 %151, 17
-  %204 = shl nsw i64 %indvars.iv, 3
-  %205 = getelementptr inbounds nuw i8, ptr %6, i64 %204
-  %206 = zext i8 %202 to i32
-  %207 = and i32 %152, 255
-  %208 = and i32 %203, 255
-  %209 = mul nuw nsw i32 %206, 19077
-  %210 = lshr i32 %209, 8
-  %211 = mul nuw nsw i32 %207, 33050
-  %212 = lshr i32 %211, 8
-  %213 = add nuw nsw i32 %212, %210
-  %214 = add nsw i32 %213, -17685
-  %215 = icmp ult i32 %214, 16384
-  %216 = lshr i32 %214, 6
-  %217 = icmp samesign ult i32 %213, 17685
-  %218 = select i1 %217, i32 0, i32 255
-  %219 = select i1 %215, i32 %216, i32 %218
-  %220 = trunc i32 %219 to i8
-  store i8 %220, ptr %205, align 1
-  %221 = mul nuw nsw i32 %207, 6419
-  %222 = lshr i32 %221, 8
-  %223 = mul nuw nsw i32 %208, 13320
-  %224 = lshr i32 %223, 8
-  %225 = add nuw nsw i32 %224, %222
-  %226 = sub nsw i32 %210, %225
-  %227 = add nsw i32 %226, 8708
-  %228 = icmp ult i32 %227, 16384
-  %229 = lshr i32 %227, 6
-  %230 = icmp slt i32 %226, -8708
-  %231 = select i1 %230, i32 0, i32 255
-  %232 = select i1 %228, i32 %229, i32 %231
-  %233 = trunc i32 %232 to i8
-  %234 = getelementptr inbounds nuw i8, ptr %205, i64 1
-  store i8 %233, ptr %234, align 1
-  %235 = mul nuw nsw i32 %208, 26149
-  %236 = lshr i32 %235, 8
-  %237 = add nuw nsw i32 %236, %210
-  %238 = add nsw i32 %237, -14234
-  %239 = icmp ult i32 %238, 16384
-  %240 = lshr i32 %238, 6
-  %241 = icmp samesign ult i32 %237, 14234
-  %242 = select i1 %241, i32 0, i32 255
-  %243 = select i1 %239, i32 %240, i32 %242
-  %244 = trunc i32 %243 to i8
-  %245 = getelementptr inbounds nuw i8, ptr %205, i64 2
-  store i8 %244, ptr %245, align 1
-  %246 = getelementptr inbounds nuw i8, ptr %205, i64 3
-  store i8 -1, ptr %246, align 1
-  br i1 %.not, label %342, label %247
+  %151 = shl nuw nsw i64 %indvars.iv, 1
+  %152 = add nsw i64 %151, -1
+  %153 = getelementptr inbounds i8, ptr %0, i64 %152
+  %154 = load i8, ptr %153, align 1
+  %155 = lshr i32 %147, 17
+  %156 = shl nsw i64 %152, 2
+  %157 = getelementptr inbounds i8, ptr %6, i64 %156
+  %158 = zext i8 %154 to i32
+  %159 = and i32 %148, 255
+  %160 = mul nuw nsw i32 %158, 19077
+  %161 = lshr i32 %160, 8
+  %162 = mul nuw nsw i32 %159, 33050
+  %163 = lshr i32 %162, 8
+  %164 = add nuw nsw i32 %163, %161
+  %165 = add nsw i32 %164, -17685
+  %166 = icmp ult i32 %165, 16384
+  %167 = lshr i32 %165, 6
+  %168 = icmp samesign ult i32 %164, 17685
+  %169 = select i1 %168, i32 0, i32 255
+  %170 = select i1 %166, i32 %167, i32 %169
+  %171 = trunc i32 %170 to i8
+  store i8 %171, ptr %157, align 1
+  %172 = mul nuw nsw i32 %159, 6419
+  %173 = lshr i32 %172, 8
+  %174 = mul nuw nsw i32 %155, 13320
+  %175 = lshr i32 %174, 8
+  %176 = add nuw nsw i32 %175, %173
+  %177 = sub nsw i32 %161, %176
+  %178 = add nsw i32 %177, 8708
+  %179 = icmp ult i32 %178, 16384
+  %180 = lshr i32 %178, 6
+  %181 = icmp slt i32 %177, -8708
+  %182 = select i1 %181, i32 0, i32 255
+  %183 = select i1 %179, i32 %180, i32 %182
+  %184 = trunc i32 %183 to i8
+  %185 = getelementptr inbounds nuw i8, ptr %157, i64 1
+  store i8 %184, ptr %185, align 1
+  %186 = mul nuw nsw i32 %155, 26149
+  %187 = lshr i32 %186, 8
+  %188 = add nuw nsw i32 %187, %161
+  %189 = add nsw i32 %188, -14234
+  %190 = icmp ult i32 %189, 16384
+  %191 = lshr i32 %189, 6
+  %192 = icmp samesign ult i32 %188, 14234
+  %193 = select i1 %192, i32 0, i32 255
+  %194 = select i1 %190, i32 %191, i32 %193
+  %195 = trunc i32 %194 to i8
+  %196 = getelementptr inbounds nuw i8, ptr %157, i64 2
+  store i8 %195, ptr %196, align 1
+  %197 = getelementptr inbounds nuw i8, ptr %157, i64 3
+  store i8 -1, ptr %197, align 1
+  %198 = getelementptr inbounds nuw i8, ptr %0, i64 %151
+  %199 = load i8, ptr %198, align 1
+  %200 = lshr i32 %149, 17
+  %201 = shl nsw i64 %indvars.iv, 3
+  %202 = getelementptr inbounds nuw i8, ptr %6, i64 %201
+  %203 = zext i8 %199 to i32
+  %204 = and i32 %150, 255
+  %205 = mul nuw nsw i32 %203, 19077
+  %206 = lshr i32 %205, 8
+  %207 = mul nuw nsw i32 %204, 33050
+  %208 = lshr i32 %207, 8
+  %209 = add nuw nsw i32 %208, %206
+  %210 = add nsw i32 %209, -17685
+  %211 = icmp ult i32 %210, 16384
+  %212 = lshr i32 %210, 6
+  %213 = icmp samesign ult i32 %209, 17685
+  %214 = select i1 %213, i32 0, i32 255
+  %215 = select i1 %211, i32 %212, i32 %214
+  %216 = trunc i32 %215 to i8
+  store i8 %216, ptr %202, align 1
+  %217 = mul nuw nsw i32 %204, 6419
+  %218 = lshr i32 %217, 8
+  %219 = mul nuw nsw i32 %200, 13320
+  %220 = lshr i32 %219, 8
+  %221 = add nuw nsw i32 %220, %218
+  %222 = sub nsw i32 %206, %221
+  %223 = add nsw i32 %222, 8708
+  %224 = icmp ult i32 %223, 16384
+  %225 = lshr i32 %223, 6
+  %226 = icmp slt i32 %222, -8708
+  %227 = select i1 %226, i32 0, i32 255
+  %228 = select i1 %224, i32 %225, i32 %227
+  %229 = trunc i32 %228 to i8
+  %230 = getelementptr inbounds nuw i8, ptr %202, i64 1
+  store i8 %229, ptr %230, align 1
+  %231 = mul nuw nsw i32 %200, 26149
+  %232 = lshr i32 %231, 8
+  %233 = add nuw nsw i32 %232, %206
+  %234 = add nsw i32 %233, -14234
+  %235 = icmp ult i32 %234, 16384
+  %236 = lshr i32 %234, 6
+  %237 = icmp samesign ult i32 %233, 14234
+  %238 = select i1 %237, i32 0, i32 255
+  %239 = select i1 %235, i32 %236, i32 %238
+  %240 = trunc i32 %239 to i8
+  %241 = getelementptr inbounds nuw i8, ptr %202, i64 2
+  store i8 %240, ptr %241, align 1
+  %242 = getelementptr inbounds nuw i8, ptr %202, i64 3
+  store i8 -1, ptr %242, align 1
+  br i1 %.not, label %336, label %243
 
-247:                                              ; preds = %.lr.ph
-  %248 = add nuw nsw i32 %148, %.092120
-  %249 = lshr i32 %248, 1
-  %250 = add nuw nsw i32 %144, %136
-  %251 = lshr i32 %250, 1
-  %252 = getelementptr inbounds i8, ptr %1, i64 %154
-  %253 = load i8, ptr %252, align 1
-  %254 = lshr i32 %248, 17
-  %255 = getelementptr inbounds i8, ptr %7, i64 %158
-  %256 = zext i8 %253 to i32
-  %257 = and i32 %249, 255
-  %258 = and i32 %254, 255
-  %259 = mul nuw nsw i32 %256, 19077
-  %260 = lshr i32 %259, 8
-  %261 = mul nuw nsw i32 %257, 33050
-  %262 = lshr i32 %261, 8
-  %263 = add nuw nsw i32 %260, %262
-  %264 = add nsw i32 %263, -17685
-  %265 = icmp ult i32 %264, 16384
-  %266 = lshr i32 %264, 6
-  %267 = icmp samesign ult i32 %263, 17685
-  %268 = select i1 %267, i32 0, i32 255
-  %269 = select i1 %265, i32 %266, i32 %268
-  %270 = trunc i32 %269 to i8
-  store i8 %270, ptr %255, align 1
-  %271 = mul nuw nsw i32 %257, 6419
-  %272 = lshr i32 %271, 8
-  %273 = mul nuw nsw i32 %258, 13320
-  %274 = lshr i32 %273, 8
-  %275 = add nuw nsw i32 %272, %274
-  %276 = sub nsw i32 %260, %275
-  %277 = add nsw i32 %276, 8708
-  %278 = icmp ult i32 %277, 16384
-  %279 = lshr i32 %277, 6
-  %280 = icmp slt i32 %276, -8708
-  %281 = select i1 %280, i32 0, i32 255
-  %282 = select i1 %278, i32 %279, i32 %281
-  %283 = trunc i32 %282 to i8
-  %284 = getelementptr inbounds nuw i8, ptr %255, i64 1
-  store i8 %283, ptr %284, align 1
-  %285 = mul nuw nsw i32 %258, 26149
-  %286 = lshr i32 %285, 8
-  %287 = add nuw nsw i32 %260, %286
-  %288 = add nsw i32 %287, -14234
-  %289 = icmp ult i32 %288, 16384
-  %290 = lshr i32 %288, 6
-  %291 = icmp samesign ult i32 %287, 14234
-  %292 = select i1 %291, i32 0, i32 255
-  %293 = select i1 %289, i32 %290, i32 %292
-  %294 = trunc i32 %293 to i8
-  %295 = getelementptr inbounds nuw i8, ptr %255, i64 2
-  store i8 %294, ptr %295, align 1
-  %296 = getelementptr inbounds nuw i8, ptr %255, i64 3
-  store i8 -1, ptr %296, align 1
-  %297 = getelementptr inbounds nuw i8, ptr %1, i64 %153
-  %298 = load i8, ptr %297, align 1
-  %299 = lshr i32 %250, 17
-  %300 = getelementptr inbounds nuw i8, ptr %7, i64 %204
-  %301 = zext i8 %298 to i32
-  %302 = and i32 %251, 255
-  %303 = and i32 %299, 255
-  %304 = mul nuw nsw i32 %301, 19077
-  %305 = lshr i32 %304, 8
-  %306 = mul nuw nsw i32 %302, 33050
-  %307 = lshr i32 %306, 8
-  %308 = add nuw nsw i32 %305, %307
-  %309 = add nsw i32 %308, -17685
-  %310 = icmp ult i32 %309, 16384
-  %311 = lshr i32 %309, 6
-  %312 = icmp samesign ult i32 %308, 17685
-  %313 = select i1 %312, i32 0, i32 255
-  %314 = select i1 %310, i32 %311, i32 %313
-  %315 = trunc i32 %314 to i8
-  store i8 %315, ptr %300, align 1
-  %316 = mul nuw nsw i32 %302, 6419
-  %317 = lshr i32 %316, 8
-  %318 = mul nuw nsw i32 %303, 13320
-  %319 = lshr i32 %318, 8
-  %320 = add nuw nsw i32 %317, %319
-  %321 = sub nsw i32 %305, %320
-  %322 = add nsw i32 %321, 8708
-  %323 = icmp ult i32 %322, 16384
-  %324 = lshr i32 %322, 6
-  %325 = icmp slt i32 %321, -8708
-  %326 = select i1 %325, i32 0, i32 255
-  %327 = select i1 %323, i32 %324, i32 %326
-  %328 = trunc i32 %327 to i8
-  %329 = getelementptr inbounds nuw i8, ptr %300, i64 1
-  store i8 %328, ptr %329, align 1
-  %330 = mul nuw nsw i32 %303, 26149
-  %331 = lshr i32 %330, 8
-  %332 = add nuw nsw i32 %305, %331
-  %333 = add nsw i32 %332, -14234
-  %334 = icmp ult i32 %333, 16384
-  %335 = lshr i32 %333, 6
-  %336 = icmp samesign ult i32 %332, 14234
-  %337 = select i1 %336, i32 0, i32 255
-  %338 = select i1 %334, i32 %335, i32 %337
-  %339 = trunc i32 %338 to i8
-  %340 = getelementptr inbounds nuw i8, ptr %300, i64 2
-  store i8 %339, ptr %340, align 1
-  %341 = getelementptr inbounds nuw i8, ptr %300, i64 3
-  store i8 -1, ptr %341, align 1
-  br label %342
+243:                                              ; preds = %.lr.ph
+  %244 = add nuw nsw i32 %146, %.092120
+  %245 = lshr i32 %244, 1
+  %246 = add nuw nsw i32 %142, %134
+  %247 = lshr i32 %246, 1
+  %248 = getelementptr inbounds i8, ptr %1, i64 %152
+  %249 = load i8, ptr %248, align 1
+  %250 = lshr i32 %244, 17
+  %251 = getelementptr inbounds i8, ptr %7, i64 %156
+  %252 = zext i8 %249 to i32
+  %253 = and i32 %245, 255
+  %254 = mul nuw nsw i32 %252, 19077
+  %255 = lshr i32 %254, 8
+  %256 = mul nuw nsw i32 %253, 33050
+  %257 = lshr i32 %256, 8
+  %258 = add nuw nsw i32 %255, %257
+  %259 = add nsw i32 %258, -17685
+  %260 = icmp ult i32 %259, 16384
+  %261 = lshr i32 %259, 6
+  %262 = icmp samesign ult i32 %258, 17685
+  %263 = select i1 %262, i32 0, i32 255
+  %264 = select i1 %260, i32 %261, i32 %263
+  %265 = trunc i32 %264 to i8
+  store i8 %265, ptr %251, align 1
+  %266 = mul nuw nsw i32 %253, 6419
+  %267 = lshr i32 %266, 8
+  %268 = mul nuw nsw i32 %250, 13320
+  %269 = lshr i32 %268, 8
+  %270 = add nuw nsw i32 %267, %269
+  %271 = sub nsw i32 %255, %270
+  %272 = add nsw i32 %271, 8708
+  %273 = icmp ult i32 %272, 16384
+  %274 = lshr i32 %272, 6
+  %275 = icmp slt i32 %271, -8708
+  %276 = select i1 %275, i32 0, i32 255
+  %277 = select i1 %273, i32 %274, i32 %276
+  %278 = trunc i32 %277 to i8
+  %279 = getelementptr inbounds nuw i8, ptr %251, i64 1
+  store i8 %278, ptr %279, align 1
+  %280 = mul nuw nsw i32 %250, 26149
+  %281 = lshr i32 %280, 8
+  %282 = add nuw nsw i32 %255, %281
+  %283 = add nsw i32 %282, -14234
+  %284 = icmp ult i32 %283, 16384
+  %285 = lshr i32 %283, 6
+  %286 = icmp samesign ult i32 %282, 14234
+  %287 = select i1 %286, i32 0, i32 255
+  %288 = select i1 %284, i32 %285, i32 %287
+  %289 = trunc i32 %288 to i8
+  %290 = getelementptr inbounds nuw i8, ptr %251, i64 2
+  store i8 %289, ptr %290, align 1
+  %291 = getelementptr inbounds nuw i8, ptr %251, i64 3
+  store i8 -1, ptr %291, align 1
+  %292 = getelementptr inbounds nuw i8, ptr %1, i64 %151
+  %293 = load i8, ptr %292, align 1
+  %294 = lshr i32 %246, 17
+  %295 = getelementptr inbounds nuw i8, ptr %7, i64 %201
+  %296 = zext i8 %293 to i32
+  %297 = and i32 %247, 255
+  %298 = mul nuw nsw i32 %296, 19077
+  %299 = lshr i32 %298, 8
+  %300 = mul nuw nsw i32 %297, 33050
+  %301 = lshr i32 %300, 8
+  %302 = add nuw nsw i32 %299, %301
+  %303 = add nsw i32 %302, -17685
+  %304 = icmp ult i32 %303, 16384
+  %305 = lshr i32 %303, 6
+  %306 = icmp samesign ult i32 %302, 17685
+  %307 = select i1 %306, i32 0, i32 255
+  %308 = select i1 %304, i32 %305, i32 %307
+  %309 = trunc i32 %308 to i8
+  store i8 %309, ptr %295, align 1
+  %310 = mul nuw nsw i32 %297, 6419
+  %311 = lshr i32 %310, 8
+  %312 = mul nuw nsw i32 %294, 13320
+  %313 = lshr i32 %312, 8
+  %314 = add nuw nsw i32 %311, %313
+  %315 = sub nsw i32 %299, %314
+  %316 = add nsw i32 %315, 8708
+  %317 = icmp ult i32 %316, 16384
+  %318 = lshr i32 %316, 6
+  %319 = icmp slt i32 %315, -8708
+  %320 = select i1 %319, i32 0, i32 255
+  %321 = select i1 %317, i32 %318, i32 %320
+  %322 = trunc i32 %321 to i8
+  %323 = getelementptr inbounds nuw i8, ptr %295, i64 1
+  store i8 %322, ptr %323, align 1
+  %324 = mul nuw nsw i32 %294, 26149
+  %325 = lshr i32 %324, 8
+  %326 = add nuw nsw i32 %299, %325
+  %327 = add nsw i32 %326, -14234
+  %328 = icmp ult i32 %327, 16384
+  %329 = lshr i32 %327, 6
+  %330 = icmp samesign ult i32 %326, 14234
+  %331 = select i1 %330, i32 0, i32 255
+  %332 = select i1 %328, i32 %329, i32 %331
+  %333 = trunc i32 %332 to i8
+  %334 = getelementptr inbounds nuw i8, ptr %295, i64 2
+  store i8 %333, ptr %334, align 1
+  %335 = getelementptr inbounds nuw i8, ptr %295, i64 3
+  store i8 -1, ptr %335, align 1
+  br label %336
 
-342:                                              ; preds = %247, %.lr.ph
+336:                                              ; preds = %243, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %342, %119
-  %.092.lcssa = phi i32 [ %23, %119 ], [ %136, %342 ]
-  %.091.lcssa = phi i32 [ %17, %119 ], [ %128, %342 ]
-  %343 = and i32 %8, 1
-  %.not95 = icmp eq i32 %343, 0
-  br i1 %.not95, label %344, label %447
+._crit_edge:                                      ; preds = %336, %117
+  %.092.lcssa = phi i32 [ %23, %117 ], [ %134, %336 ]
+  %.091.lcssa = phi i32 [ %17, %117 ], [ %126, %336 ]
+  %337 = and i32 %8, 1
+  %.not95 = icmp eq i32 %337, 0
+  br i1 %.not95, label %338, label %439
 
-344:                                              ; preds = %._crit_edge
-  %345 = mul nuw nsw i32 %.091.lcssa, 3
-  %346 = add nuw nsw i32 %.092.lcssa, 131074
-  %347 = add nuw nsw i32 %346, %345
-  %348 = lshr i32 %347, 2
-  %349 = sext i32 %10 to i64
-  %350 = getelementptr inbounds i8, ptr %0, i64 %349
-  %351 = load i8, ptr %350, align 1
-  %352 = lshr i32 %347, 18
-  %353 = shl nsw i32 %10, 2
-  %354 = sext i32 %353 to i64
-  %355 = getelementptr inbounds i8, ptr %6, i64 %354
-  %356 = zext i8 %351 to i32
-  %357 = and i32 %348, 255
-  %358 = and i32 %352, 255
-  %359 = mul nuw nsw i32 %356, 19077
-  %360 = lshr i32 %359, 8
-  %361 = mul nuw nsw i32 %357, 33050
-  %362 = lshr i32 %361, 8
-  %363 = add nuw nsw i32 %360, %362
-  %364 = add nsw i32 %363, -17685
-  %365 = icmp ult i32 %364, 16384
-  %366 = lshr i32 %364, 6
-  %367 = icmp samesign ult i32 %363, 17685
-  %368 = select i1 %367, i32 0, i32 255
-  %369 = select i1 %365, i32 %366, i32 %368
-  %370 = trunc i32 %369 to i8
-  store i8 %370, ptr %355, align 1
-  %371 = mul nuw nsw i32 %357, 6419
-  %372 = lshr i32 %371, 8
-  %373 = mul nuw nsw i32 %358, 13320
-  %374 = lshr i32 %373, 8
-  %375 = add nuw nsw i32 %372, %374
-  %376 = sub nsw i32 %360, %375
-  %377 = add nsw i32 %376, 8708
-  %378 = icmp ult i32 %377, 16384
-  %379 = lshr i32 %377, 6
-  %380 = icmp slt i32 %376, -8708
-  %381 = select i1 %380, i32 0, i32 255
-  %382 = select i1 %378, i32 %379, i32 %381
-  %383 = trunc i32 %382 to i8
-  %384 = getelementptr inbounds nuw i8, ptr %355, i64 1
-  store i8 %383, ptr %384, align 1
-  %385 = mul nuw nsw i32 %358, 26149
-  %386 = lshr i32 %385, 8
-  %387 = add nuw nsw i32 %360, %386
-  %388 = add nsw i32 %387, -14234
-  %389 = icmp ult i32 %388, 16384
-  %390 = lshr i32 %388, 6
-  %391 = icmp samesign ult i32 %387, 14234
-  %392 = select i1 %391, i32 0, i32 255
-  %393 = select i1 %389, i32 %390, i32 %392
-  %394 = trunc i32 %393 to i8
-  %395 = getelementptr inbounds nuw i8, ptr %355, i64 2
-  store i8 %394, ptr %395, align 1
-  %396 = getelementptr inbounds nuw i8, ptr %355, i64 3
-  store i8 -1, ptr %396, align 1
-  br i1 %.not, label %447, label %397
+338:                                              ; preds = %._crit_edge
+  %339 = mul nuw nsw i32 %.091.lcssa, 3
+  %340 = add nuw nsw i32 %.092.lcssa, 131074
+  %341 = add nuw nsw i32 %340, %339
+  %342 = lshr i32 %341, 2
+  %343 = sext i32 %10 to i64
+  %344 = getelementptr inbounds i8, ptr %0, i64 %343
+  %345 = load i8, ptr %344, align 1
+  %346 = lshr i32 %341, 18
+  %347 = shl nsw i32 %10, 2
+  %348 = sext i32 %347 to i64
+  %349 = getelementptr inbounds i8, ptr %6, i64 %348
+  %350 = zext i8 %345 to i32
+  %351 = and i32 %342, 255
+  %352 = mul nuw nsw i32 %350, 19077
+  %353 = lshr i32 %352, 8
+  %354 = mul nuw nsw i32 %351, 33050
+  %355 = lshr i32 %354, 8
+  %356 = add nuw nsw i32 %353, %355
+  %357 = add nsw i32 %356, -17685
+  %358 = icmp ult i32 %357, 16384
+  %359 = lshr i32 %357, 6
+  %360 = icmp samesign ult i32 %356, 17685
+  %361 = select i1 %360, i32 0, i32 255
+  %362 = select i1 %358, i32 %359, i32 %361
+  %363 = trunc i32 %362 to i8
+  store i8 %363, ptr %349, align 1
+  %364 = mul nuw nsw i32 %351, 6419
+  %365 = lshr i32 %364, 8
+  %366 = mul nuw nsw i32 %346, 13320
+  %367 = lshr i32 %366, 8
+  %368 = add nuw nsw i32 %365, %367
+  %369 = sub nsw i32 %353, %368
+  %370 = add nsw i32 %369, 8708
+  %371 = icmp ult i32 %370, 16384
+  %372 = lshr i32 %370, 6
+  %373 = icmp slt i32 %369, -8708
+  %374 = select i1 %373, i32 0, i32 255
+  %375 = select i1 %371, i32 %372, i32 %374
+  %376 = trunc i32 %375 to i8
+  %377 = getelementptr inbounds nuw i8, ptr %349, i64 1
+  store i8 %376, ptr %377, align 1
+  %378 = mul nuw nsw i32 %346, 26149
+  %379 = lshr i32 %378, 8
+  %380 = add nuw nsw i32 %353, %379
+  %381 = add nsw i32 %380, -14234
+  %382 = icmp ult i32 %381, 16384
+  %383 = lshr i32 %381, 6
+  %384 = icmp samesign ult i32 %380, 14234
+  %385 = select i1 %384, i32 0, i32 255
+  %386 = select i1 %382, i32 %383, i32 %385
+  %387 = trunc i32 %386 to i8
+  %388 = getelementptr inbounds nuw i8, ptr %349, i64 2
+  store i8 %387, ptr %388, align 1
+  %389 = getelementptr inbounds nuw i8, ptr %349, i64 3
+  store i8 -1, ptr %389, align 1
+  br i1 %.not, label %439, label %390
 
-397:                                              ; preds = %344
-  %398 = mul nuw nsw i32 %.092.lcssa, 3
-  %399 = add nuw nsw i32 %.091.lcssa, 131074
-  %400 = add nuw nsw i32 %399, %398
-  %401 = lshr i32 %400, 2
-  %402 = getelementptr inbounds i8, ptr %1, i64 %349
-  %403 = load i8, ptr %402, align 1
-  %404 = lshr i32 %400, 18
-  %405 = getelementptr inbounds i8, ptr %7, i64 %354
-  %406 = zext i8 %403 to i32
-  %407 = and i32 %401, 255
-  %408 = and i32 %404, 255
-  %409 = mul nuw nsw i32 %406, 19077
-  %410 = lshr i32 %409, 8
-  %411 = mul nuw nsw i32 %407, 33050
-  %412 = lshr i32 %411, 8
-  %413 = add nuw nsw i32 %410, %412
-  %414 = add nsw i32 %413, -17685
-  %415 = icmp ult i32 %414, 16384
-  %416 = lshr i32 %414, 6
-  %417 = icmp samesign ult i32 %413, 17685
-  %418 = select i1 %417, i32 0, i32 255
-  %419 = select i1 %415, i32 %416, i32 %418
-  %420 = trunc i32 %419 to i8
-  store i8 %420, ptr %405, align 1
-  %421 = mul nuw nsw i32 %407, 6419
-  %422 = lshr i32 %421, 8
-  %423 = mul nuw nsw i32 %408, 13320
-  %424 = lshr i32 %423, 8
-  %425 = add nuw nsw i32 %422, %424
-  %426 = sub nsw i32 %410, %425
-  %427 = add nsw i32 %426, 8708
-  %428 = icmp ult i32 %427, 16384
-  %429 = lshr i32 %427, 6
-  %430 = icmp slt i32 %426, -8708
-  %431 = select i1 %430, i32 0, i32 255
-  %432 = select i1 %428, i32 %429, i32 %431
-  %433 = trunc i32 %432 to i8
-  %434 = getelementptr inbounds nuw i8, ptr %405, i64 1
-  store i8 %433, ptr %434, align 1
-  %435 = mul nuw nsw i32 %408, 26149
-  %436 = lshr i32 %435, 8
-  %437 = add nuw nsw i32 %410, %436
-  %438 = add nsw i32 %437, -14234
-  %439 = icmp ult i32 %438, 16384
-  %440 = lshr i32 %438, 6
-  %441 = icmp samesign ult i32 %437, 14234
-  %442 = select i1 %441, i32 0, i32 255
-  %443 = select i1 %439, i32 %440, i32 %442
-  %444 = trunc i32 %443 to i8
-  %445 = getelementptr inbounds nuw i8, ptr %405, i64 2
-  store i8 %444, ptr %445, align 1
-  %446 = getelementptr inbounds nuw i8, ptr %405, i64 3
-  store i8 -1, ptr %446, align 1
-  br label %447
+390:                                              ; preds = %338
+  %391 = mul nuw nsw i32 %.092.lcssa, 3
+  %392 = add nuw nsw i32 %.091.lcssa, 131074
+  %393 = add nuw nsw i32 %392, %391
+  %394 = lshr i32 %393, 2
+  %395 = getelementptr inbounds i8, ptr %1, i64 %343
+  %396 = load i8, ptr %395, align 1
+  %397 = lshr i32 %393, 18
+  %398 = getelementptr inbounds i8, ptr %7, i64 %348
+  %399 = zext i8 %396 to i32
+  %400 = and i32 %394, 255
+  %401 = mul nuw nsw i32 %399, 19077
+  %402 = lshr i32 %401, 8
+  %403 = mul nuw nsw i32 %400, 33050
+  %404 = lshr i32 %403, 8
+  %405 = add nuw nsw i32 %402, %404
+  %406 = add nsw i32 %405, -17685
+  %407 = icmp ult i32 %406, 16384
+  %408 = lshr i32 %406, 6
+  %409 = icmp samesign ult i32 %405, 17685
+  %410 = select i1 %409, i32 0, i32 255
+  %411 = select i1 %407, i32 %408, i32 %410
+  %412 = trunc i32 %411 to i8
+  store i8 %412, ptr %398, align 1
+  %413 = mul nuw nsw i32 %400, 6419
+  %414 = lshr i32 %413, 8
+  %415 = mul nuw nsw i32 %397, 13320
+  %416 = lshr i32 %415, 8
+  %417 = add nuw nsw i32 %414, %416
+  %418 = sub nsw i32 %402, %417
+  %419 = add nsw i32 %418, 8708
+  %420 = icmp ult i32 %419, 16384
+  %421 = lshr i32 %419, 6
+  %422 = icmp slt i32 %418, -8708
+  %423 = select i1 %422, i32 0, i32 255
+  %424 = select i1 %420, i32 %421, i32 %423
+  %425 = trunc i32 %424 to i8
+  %426 = getelementptr inbounds nuw i8, ptr %398, i64 1
+  store i8 %425, ptr %426, align 1
+  %427 = mul nuw nsw i32 %397, 26149
+  %428 = lshr i32 %427, 8
+  %429 = add nuw nsw i32 %402, %428
+  %430 = add nsw i32 %429, -14234
+  %431 = icmp ult i32 %430, 16384
+  %432 = lshr i32 %430, 6
+  %433 = icmp samesign ult i32 %429, 14234
+  %434 = select i1 %433, i32 0, i32 255
+  %435 = select i1 %431, i32 %432, i32 %434
+  %436 = trunc i32 %435 to i8
+  %437 = getelementptr inbounds nuw i8, ptr %398, i64 2
+  store i8 %436, ptr %437, align 1
+  %438 = getelementptr inbounds nuw i8, ptr %398, i64 3
+  store i8 -1, ptr %438, align 1
+  br label %439
 
-447:                                              ; preds = %344, %397, %._crit_edge
+439:                                              ; preds = %338, %390, %._crit_edge
   ret void
 }
 
@@ -2659,487 +2643,479 @@ define internal void @UpsampleArgbLinePair_C(ptr nocapture noundef readonly %0, 
   store i8 -1, ptr %6, align 1
   %30 = zext i8 %28 to i32
   %31 = and i32 %27, 255
-  %32 = and i32 %29, 255
-  %33 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %34 = mul nuw nsw i32 %30, 19077
-  %35 = lshr i32 %34, 8
-  %36 = mul nuw nsw i32 %32, 26149
-  %37 = lshr i32 %36, 8
-  %38 = add nuw nsw i32 %37, %35
-  %39 = add nsw i32 %38, -14234
-  %40 = icmp ult i32 %39, 16384
-  %41 = lshr i32 %39, 6
-  %42 = icmp samesign ult i32 %38, 14234
-  %43 = select i1 %42, i32 0, i32 255
-  %44 = select i1 %40, i32 %41, i32 %43
-  %45 = trunc i32 %44 to i8
-  store i8 %45, ptr %33, align 1
-  %46 = mul nuw nsw i32 %31, 6419
-  %47 = lshr i32 %46, 8
-  %48 = mul nuw nsw i32 %32, 13320
-  %49 = lshr i32 %48, 8
-  %50 = add nuw nsw i32 %49, %47
-  %51 = sub nsw i32 %35, %50
-  %52 = add nsw i32 %51, 8708
-  %53 = icmp ult i32 %52, 16384
-  %54 = lshr i32 %52, 6
-  %55 = icmp slt i32 %51, -8708
-  %56 = select i1 %55, i32 0, i32 255
-  %57 = select i1 %53, i32 %54, i32 %56
-  %58 = trunc i32 %57 to i8
-  %59 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  store i8 %58, ptr %59, align 1
-  %60 = mul nuw nsw i32 %31, 33050
-  %61 = lshr i32 %60, 8
-  %62 = add nuw nsw i32 %61, %35
-  %63 = add nsw i32 %62, -17685
-  %64 = icmp ult i32 %63, 16384
-  %65 = lshr i32 %63, 6
-  %66 = icmp samesign ult i32 %62, 17685
-  %67 = select i1 %66, i32 0, i32 255
-  %68 = select i1 %64, i32 %65, i32 %67
-  %69 = trunc i32 %68 to i8
-  %70 = getelementptr inbounds nuw i8, ptr %6, i64 3
-  store i8 %69, ptr %70, align 1
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %33 = mul nuw nsw i32 %30, 19077
+  %34 = lshr i32 %33, 8
+  %35 = mul nuw nsw i32 %29, 26149
+  %36 = lshr i32 %35, 8
+  %37 = add nuw nsw i32 %36, %34
+  %38 = add nsw i32 %37, -14234
+  %39 = icmp ult i32 %38, 16384
+  %40 = lshr i32 %38, 6
+  %41 = icmp samesign ult i32 %37, 14234
+  %42 = select i1 %41, i32 0, i32 255
+  %43 = select i1 %39, i32 %40, i32 %42
+  %44 = trunc i32 %43 to i8
+  store i8 %44, ptr %32, align 1
+  %45 = mul nuw nsw i32 %31, 6419
+  %46 = lshr i32 %45, 8
+  %47 = mul nuw nsw i32 %29, 13320
+  %48 = lshr i32 %47, 8
+  %49 = add nuw nsw i32 %48, %46
+  %50 = sub nsw i32 %34, %49
+  %51 = add nsw i32 %50, 8708
+  %52 = icmp ult i32 %51, 16384
+  %53 = lshr i32 %51, 6
+  %54 = icmp slt i32 %50, -8708
+  %55 = select i1 %54, i32 0, i32 255
+  %56 = select i1 %52, i32 %53, i32 %55
+  %57 = trunc i32 %56 to i8
+  %58 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  store i8 %57, ptr %58, align 1
+  %59 = mul nuw nsw i32 %31, 33050
+  %60 = lshr i32 %59, 8
+  %61 = add nuw nsw i32 %60, %34
+  %62 = add nsw i32 %61, -17685
+  %63 = icmp ult i32 %62, 16384
+  %64 = lshr i32 %62, 6
+  %65 = icmp samesign ult i32 %61, 17685
+  %66 = select i1 %65, i32 0, i32 255
+  %67 = select i1 %63, i32 %64, i32 %66
+  %68 = trunc i32 %67 to i8
+  %69 = getelementptr inbounds nuw i8, ptr %6, i64 3
+  store i8 %68, ptr %69, align 1
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %119, label %71
+  br i1 %.not, label %117, label %70
 
-71:                                               ; preds = %9
-  %72 = mul nuw nsw i32 %23, 3
-  %73 = add nuw nsw i32 %17, 131074
-  %74 = add nuw nsw i32 %73, %72
-  %75 = lshr i32 %74, 2
-  %76 = load i8, ptr %1, align 1
-  %77 = lshr i32 %74, 18
+70:                                               ; preds = %9
+  %71 = mul nuw nsw i32 %23, 3
+  %72 = add nuw nsw i32 %17, 131074
+  %73 = add nuw nsw i32 %72, %71
+  %74 = lshr i32 %73, 2
+  %75 = load i8, ptr %1, align 1
+  %76 = lshr i32 %73, 18
   store i8 -1, ptr %7, align 1
-  %78 = zext i8 %76 to i32
-  %79 = and i32 %75, 255
-  %80 = and i32 %77, 255
-  %81 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  %82 = mul nuw nsw i32 %78, 19077
+  %77 = zext i8 %75 to i32
+  %78 = and i32 %74, 255
+  %79 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %80 = mul nuw nsw i32 %77, 19077
+  %81 = lshr i32 %80, 8
+  %82 = mul nuw nsw i32 %76, 26149
   %83 = lshr i32 %82, 8
-  %84 = mul nuw nsw i32 %80, 26149
-  %85 = lshr i32 %84, 8
-  %86 = add nuw nsw i32 %83, %85
-  %87 = add nsw i32 %86, -14234
-  %88 = icmp ult i32 %87, 16384
-  %89 = lshr i32 %87, 6
-  %90 = icmp samesign ult i32 %86, 14234
-  %91 = select i1 %90, i32 0, i32 255
-  %92 = select i1 %88, i32 %89, i32 %91
-  %93 = trunc i32 %92 to i8
-  store i8 %93, ptr %81, align 1
-  %94 = mul nuw nsw i32 %79, 6419
+  %84 = add nuw nsw i32 %81, %83
+  %85 = add nsw i32 %84, -14234
+  %86 = icmp ult i32 %85, 16384
+  %87 = lshr i32 %85, 6
+  %88 = icmp samesign ult i32 %84, 14234
+  %89 = select i1 %88, i32 0, i32 255
+  %90 = select i1 %86, i32 %87, i32 %89
+  %91 = trunc i32 %90 to i8
+  store i8 %91, ptr %79, align 1
+  %92 = mul nuw nsw i32 %78, 6419
+  %93 = lshr i32 %92, 8
+  %94 = mul nuw nsw i32 %76, 13320
   %95 = lshr i32 %94, 8
-  %96 = mul nuw nsw i32 %80, 13320
-  %97 = lshr i32 %96, 8
-  %98 = add nuw nsw i32 %95, %97
-  %99 = sub nsw i32 %83, %98
-  %100 = add nsw i32 %99, 8708
-  %101 = icmp ult i32 %100, 16384
-  %102 = lshr i32 %100, 6
-  %103 = icmp slt i32 %99, -8708
-  %104 = select i1 %103, i32 0, i32 255
-  %105 = select i1 %101, i32 %102, i32 %104
-  %106 = trunc i32 %105 to i8
-  %107 = getelementptr inbounds nuw i8, ptr %7, i64 2
-  store i8 %106, ptr %107, align 1
-  %108 = mul nuw nsw i32 %79, 33050
-  %109 = lshr i32 %108, 8
-  %110 = add nuw nsw i32 %83, %109
-  %111 = add nsw i32 %110, -17685
-  %112 = icmp ult i32 %111, 16384
-  %113 = lshr i32 %111, 6
-  %114 = icmp samesign ult i32 %110, 17685
-  %115 = select i1 %114, i32 0, i32 255
-  %116 = select i1 %112, i32 %113, i32 %115
-  %117 = trunc i32 %116 to i8
-  %118 = getelementptr inbounds nuw i8, ptr %7, i64 3
-  store i8 %117, ptr %118, align 1
-  br label %119
+  %96 = add nuw nsw i32 %93, %95
+  %97 = sub nsw i32 %81, %96
+  %98 = add nsw i32 %97, 8708
+  %99 = icmp ult i32 %98, 16384
+  %100 = lshr i32 %98, 6
+  %101 = icmp slt i32 %97, -8708
+  %102 = select i1 %101, i32 0, i32 255
+  %103 = select i1 %99, i32 %100, i32 %102
+  %104 = trunc i32 %103 to i8
+  %105 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  store i8 %104, ptr %105, align 1
+  %106 = mul nuw nsw i32 %78, 33050
+  %107 = lshr i32 %106, 8
+  %108 = add nuw nsw i32 %81, %107
+  %109 = add nsw i32 %108, -17685
+  %110 = icmp ult i32 %109, 16384
+  %111 = lshr i32 %109, 6
+  %112 = icmp samesign ult i32 %108, 17685
+  %113 = select i1 %112, i32 0, i32 255
+  %114 = select i1 %110, i32 %111, i32 %113
+  %115 = trunc i32 %114 to i8
+  %116 = getelementptr inbounds nuw i8, ptr %7, i64 3
+  store i8 %115, ptr %116, align 1
+  br label %117
 
-119:                                              ; preds = %71, %9
+117:                                              ; preds = %70, %9
   %.not94119 = icmp slt i32 %11, 1
   br i1 %.not94119, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %119
-  %120 = add nuw nsw i32 %11, 1
-  %wide.trip.count = zext nneg i32 %120 to i64
+.lr.ph.preheader:                                 ; preds = %117
+  %118 = add nuw nsw i32 %11, 1
+  %wide.trip.count = zext nneg i32 %118 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %342
-  %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %342 ]
-  %.091121 = phi i32 [ %17, %.lr.ph.preheader ], [ %128, %342 ]
-  %.092120 = phi i32 [ %23, %.lr.ph.preheader ], [ %136, %342 ]
-  %121 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
-  %122 = load i8, ptr %121, align 1
-  %123 = zext i8 %122 to i32
-  %124 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
-  %125 = load i8, ptr %124, align 1
-  %126 = zext i8 %125 to i32
-  %127 = shl nuw nsw i32 %126, 16
-  %128 = or disjoint i32 %127, %123
-  %129 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
-  %130 = load i8, ptr %129, align 1
-  %131 = zext i8 %130 to i32
-  %132 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
-  %133 = load i8, ptr %132, align 1
-  %134 = zext i8 %133 to i32
-  %135 = shl nuw nsw i32 %134, 16
-  %136 = or disjoint i32 %135, %131
-  %137 = add nuw nsw i32 %.092120, 524296
-  %138 = add nuw nsw i32 %137, %.091121
-  %139 = add nuw nsw i32 %138, %128
-  %140 = add nuw nsw i32 %139, %136
-  %141 = add nuw nsw i32 %128, %.092120
-  %142 = shl nuw nsw i32 %141, 1
-  %143 = add nuw nsw i32 %140, %142
-  %144 = lshr i32 %143, 3
-  %145 = add nuw nsw i32 %136, %.091121
-  %146 = shl nuw nsw i32 %145, 1
-  %147 = add nuw nsw i32 %140, %146
-  %148 = lshr i32 %147, 3
-  %149 = add nuw nsw i32 %144, %.091121
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %336
+  %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %336 ]
+  %.091121 = phi i32 [ %17, %.lr.ph.preheader ], [ %126, %336 ]
+  %.092120 = phi i32 [ %23, %.lr.ph.preheader ], [ %134, %336 ]
+  %119 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
+  %120 = load i8, ptr %119, align 1
+  %121 = zext i8 %120 to i32
+  %122 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
+  %123 = load i8, ptr %122, align 1
+  %124 = zext i8 %123 to i32
+  %125 = shl nuw nsw i32 %124, 16
+  %126 = or disjoint i32 %125, %121
+  %127 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
+  %128 = load i8, ptr %127, align 1
+  %129 = zext i8 %128 to i32
+  %130 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
+  %131 = load i8, ptr %130, align 1
+  %132 = zext i8 %131 to i32
+  %133 = shl nuw nsw i32 %132, 16
+  %134 = or disjoint i32 %133, %129
+  %135 = add nuw nsw i32 %.092120, 524296
+  %136 = add nuw nsw i32 %135, %.091121
+  %137 = add nuw nsw i32 %136, %126
+  %138 = add nuw nsw i32 %137, %134
+  %139 = add nuw nsw i32 %126, %.092120
+  %140 = shl nuw nsw i32 %139, 1
+  %141 = add nuw nsw i32 %138, %140
+  %142 = lshr i32 %141, 3
+  %143 = add nuw nsw i32 %134, %.091121
+  %144 = shl nuw nsw i32 %143, 1
+  %145 = add nuw nsw i32 %138, %144
+  %146 = lshr i32 %145, 3
+  %147 = add nuw nsw i32 %142, %.091121
+  %148 = lshr i32 %147, 1
+  %149 = add nuw nsw i32 %146, %126
   %150 = lshr i32 %149, 1
-  %151 = add nuw nsw i32 %148, %128
-  %152 = lshr i32 %151, 1
-  %153 = shl nuw nsw i64 %indvars.iv, 1
-  %154 = add nsw i64 %153, -1
-  %155 = getelementptr inbounds i8, ptr %0, i64 %154
-  %156 = load i8, ptr %155, align 1
-  %157 = lshr i32 %149, 17
-  %158 = shl nsw i64 %154, 2
-  %159 = getelementptr inbounds i8, ptr %6, i64 %158
-  store i8 -1, ptr %159, align 1
-  %160 = zext i8 %156 to i32
-  %161 = and i32 %150, 255
-  %162 = and i32 %157, 255
-  %163 = getelementptr inbounds nuw i8, ptr %159, i64 1
-  %164 = mul nuw nsw i32 %160, 19077
-  %165 = lshr i32 %164, 8
-  %166 = mul nuw nsw i32 %162, 26149
-  %167 = lshr i32 %166, 8
-  %168 = add nuw nsw i32 %167, %165
-  %169 = add nsw i32 %168, -14234
-  %170 = icmp ult i32 %169, 16384
-  %171 = lshr i32 %169, 6
-  %172 = icmp samesign ult i32 %168, 14234
-  %173 = select i1 %172, i32 0, i32 255
-  %174 = select i1 %170, i32 %171, i32 %173
-  %175 = trunc i32 %174 to i8
-  store i8 %175, ptr %163, align 1
-  %176 = mul nuw nsw i32 %161, 6419
-  %177 = lshr i32 %176, 8
-  %178 = mul nuw nsw i32 %162, 13320
-  %179 = lshr i32 %178, 8
-  %180 = add nuw nsw i32 %179, %177
-  %181 = sub nsw i32 %165, %180
-  %182 = add nsw i32 %181, 8708
-  %183 = icmp ult i32 %182, 16384
-  %184 = lshr i32 %182, 6
-  %185 = icmp slt i32 %181, -8708
-  %186 = select i1 %185, i32 0, i32 255
-  %187 = select i1 %183, i32 %184, i32 %186
-  %188 = trunc i32 %187 to i8
-  %189 = getelementptr inbounds nuw i8, ptr %159, i64 2
-  store i8 %188, ptr %189, align 1
-  %190 = mul nuw nsw i32 %161, 33050
-  %191 = lshr i32 %190, 8
-  %192 = add nuw nsw i32 %191, %165
-  %193 = add nsw i32 %192, -17685
-  %194 = icmp ult i32 %193, 16384
-  %195 = lshr i32 %193, 6
-  %196 = icmp samesign ult i32 %192, 17685
-  %197 = select i1 %196, i32 0, i32 255
-  %198 = select i1 %194, i32 %195, i32 %197
-  %199 = trunc i32 %198 to i8
-  %200 = getelementptr inbounds nuw i8, ptr %159, i64 3
-  store i8 %199, ptr %200, align 1
-  %201 = getelementptr inbounds nuw i8, ptr %0, i64 %153
-  %202 = load i8, ptr %201, align 1
-  %203 = lshr i32 %151, 17
-  %204 = shl nsw i64 %indvars.iv, 3
-  %205 = getelementptr inbounds nuw i8, ptr %6, i64 %204
-  store i8 -1, ptr %205, align 1
-  %206 = zext i8 %202 to i32
-  %207 = and i32 %152, 255
-  %208 = and i32 %203, 255
-  %209 = getelementptr inbounds nuw i8, ptr %205, i64 1
-  %210 = mul nuw nsw i32 %206, 19077
-  %211 = lshr i32 %210, 8
-  %212 = mul nuw nsw i32 %208, 26149
-  %213 = lshr i32 %212, 8
-  %214 = add nuw nsw i32 %213, %211
-  %215 = add nsw i32 %214, -14234
-  %216 = icmp ult i32 %215, 16384
-  %217 = lshr i32 %215, 6
-  %218 = icmp samesign ult i32 %214, 14234
-  %219 = select i1 %218, i32 0, i32 255
-  %220 = select i1 %216, i32 %217, i32 %219
-  %221 = trunc i32 %220 to i8
-  store i8 %221, ptr %209, align 1
-  %222 = mul nuw nsw i32 %207, 6419
-  %223 = lshr i32 %222, 8
-  %224 = mul nuw nsw i32 %208, 13320
-  %225 = lshr i32 %224, 8
-  %226 = add nuw nsw i32 %225, %223
-  %227 = sub nsw i32 %211, %226
-  %228 = add nsw i32 %227, 8708
-  %229 = icmp ult i32 %228, 16384
-  %230 = lshr i32 %228, 6
-  %231 = icmp slt i32 %227, -8708
-  %232 = select i1 %231, i32 0, i32 255
-  %233 = select i1 %229, i32 %230, i32 %232
-  %234 = trunc i32 %233 to i8
-  %235 = getelementptr inbounds nuw i8, ptr %205, i64 2
-  store i8 %234, ptr %235, align 1
-  %236 = mul nuw nsw i32 %207, 33050
-  %237 = lshr i32 %236, 8
-  %238 = add nuw nsw i32 %237, %211
-  %239 = add nsw i32 %238, -17685
-  %240 = icmp ult i32 %239, 16384
-  %241 = lshr i32 %239, 6
-  %242 = icmp samesign ult i32 %238, 17685
-  %243 = select i1 %242, i32 0, i32 255
-  %244 = select i1 %240, i32 %241, i32 %243
-  %245 = trunc i32 %244 to i8
-  %246 = getelementptr inbounds nuw i8, ptr %205, i64 3
-  store i8 %245, ptr %246, align 1
-  br i1 %.not, label %342, label %247
+  %151 = shl nuw nsw i64 %indvars.iv, 1
+  %152 = add nsw i64 %151, -1
+  %153 = getelementptr inbounds i8, ptr %0, i64 %152
+  %154 = load i8, ptr %153, align 1
+  %155 = lshr i32 %147, 17
+  %156 = shl nsw i64 %152, 2
+  %157 = getelementptr inbounds i8, ptr %6, i64 %156
+  store i8 -1, ptr %157, align 1
+  %158 = zext i8 %154 to i32
+  %159 = and i32 %148, 255
+  %160 = getelementptr inbounds nuw i8, ptr %157, i64 1
+  %161 = mul nuw nsw i32 %158, 19077
+  %162 = lshr i32 %161, 8
+  %163 = mul nuw nsw i32 %155, 26149
+  %164 = lshr i32 %163, 8
+  %165 = add nuw nsw i32 %164, %162
+  %166 = add nsw i32 %165, -14234
+  %167 = icmp ult i32 %166, 16384
+  %168 = lshr i32 %166, 6
+  %169 = icmp samesign ult i32 %165, 14234
+  %170 = select i1 %169, i32 0, i32 255
+  %171 = select i1 %167, i32 %168, i32 %170
+  %172 = trunc i32 %171 to i8
+  store i8 %172, ptr %160, align 1
+  %173 = mul nuw nsw i32 %159, 6419
+  %174 = lshr i32 %173, 8
+  %175 = mul nuw nsw i32 %155, 13320
+  %176 = lshr i32 %175, 8
+  %177 = add nuw nsw i32 %176, %174
+  %178 = sub nsw i32 %162, %177
+  %179 = add nsw i32 %178, 8708
+  %180 = icmp ult i32 %179, 16384
+  %181 = lshr i32 %179, 6
+  %182 = icmp slt i32 %178, -8708
+  %183 = select i1 %182, i32 0, i32 255
+  %184 = select i1 %180, i32 %181, i32 %183
+  %185 = trunc i32 %184 to i8
+  %186 = getelementptr inbounds nuw i8, ptr %157, i64 2
+  store i8 %185, ptr %186, align 1
+  %187 = mul nuw nsw i32 %159, 33050
+  %188 = lshr i32 %187, 8
+  %189 = add nuw nsw i32 %188, %162
+  %190 = add nsw i32 %189, -17685
+  %191 = icmp ult i32 %190, 16384
+  %192 = lshr i32 %190, 6
+  %193 = icmp samesign ult i32 %189, 17685
+  %194 = select i1 %193, i32 0, i32 255
+  %195 = select i1 %191, i32 %192, i32 %194
+  %196 = trunc i32 %195 to i8
+  %197 = getelementptr inbounds nuw i8, ptr %157, i64 3
+  store i8 %196, ptr %197, align 1
+  %198 = getelementptr inbounds nuw i8, ptr %0, i64 %151
+  %199 = load i8, ptr %198, align 1
+  %200 = lshr i32 %149, 17
+  %201 = shl nsw i64 %indvars.iv, 3
+  %202 = getelementptr inbounds nuw i8, ptr %6, i64 %201
+  store i8 -1, ptr %202, align 1
+  %203 = zext i8 %199 to i32
+  %204 = and i32 %150, 255
+  %205 = getelementptr inbounds nuw i8, ptr %202, i64 1
+  %206 = mul nuw nsw i32 %203, 19077
+  %207 = lshr i32 %206, 8
+  %208 = mul nuw nsw i32 %200, 26149
+  %209 = lshr i32 %208, 8
+  %210 = add nuw nsw i32 %209, %207
+  %211 = add nsw i32 %210, -14234
+  %212 = icmp ult i32 %211, 16384
+  %213 = lshr i32 %211, 6
+  %214 = icmp samesign ult i32 %210, 14234
+  %215 = select i1 %214, i32 0, i32 255
+  %216 = select i1 %212, i32 %213, i32 %215
+  %217 = trunc i32 %216 to i8
+  store i8 %217, ptr %205, align 1
+  %218 = mul nuw nsw i32 %204, 6419
+  %219 = lshr i32 %218, 8
+  %220 = mul nuw nsw i32 %200, 13320
+  %221 = lshr i32 %220, 8
+  %222 = add nuw nsw i32 %221, %219
+  %223 = sub nsw i32 %207, %222
+  %224 = add nsw i32 %223, 8708
+  %225 = icmp ult i32 %224, 16384
+  %226 = lshr i32 %224, 6
+  %227 = icmp slt i32 %223, -8708
+  %228 = select i1 %227, i32 0, i32 255
+  %229 = select i1 %225, i32 %226, i32 %228
+  %230 = trunc i32 %229 to i8
+  %231 = getelementptr inbounds nuw i8, ptr %202, i64 2
+  store i8 %230, ptr %231, align 1
+  %232 = mul nuw nsw i32 %204, 33050
+  %233 = lshr i32 %232, 8
+  %234 = add nuw nsw i32 %233, %207
+  %235 = add nsw i32 %234, -17685
+  %236 = icmp ult i32 %235, 16384
+  %237 = lshr i32 %235, 6
+  %238 = icmp samesign ult i32 %234, 17685
+  %239 = select i1 %238, i32 0, i32 255
+  %240 = select i1 %236, i32 %237, i32 %239
+  %241 = trunc i32 %240 to i8
+  %242 = getelementptr inbounds nuw i8, ptr %202, i64 3
+  store i8 %241, ptr %242, align 1
+  br i1 %.not, label %336, label %243
 
-247:                                              ; preds = %.lr.ph
-  %248 = add nuw nsw i32 %148, %.092120
-  %249 = lshr i32 %248, 1
-  %250 = add nuw nsw i32 %144, %136
-  %251 = lshr i32 %250, 1
-  %252 = getelementptr inbounds i8, ptr %1, i64 %154
-  %253 = load i8, ptr %252, align 1
-  %254 = lshr i32 %248, 17
-  %255 = getelementptr inbounds i8, ptr %7, i64 %158
-  store i8 -1, ptr %255, align 1
-  %256 = zext i8 %253 to i32
-  %257 = and i32 %249, 255
-  %258 = and i32 %254, 255
-  %259 = getelementptr inbounds nuw i8, ptr %255, i64 1
-  %260 = mul nuw nsw i32 %256, 19077
-  %261 = lshr i32 %260, 8
-  %262 = mul nuw nsw i32 %258, 26149
-  %263 = lshr i32 %262, 8
-  %264 = add nuw nsw i32 %261, %263
-  %265 = add nsw i32 %264, -14234
-  %266 = icmp ult i32 %265, 16384
-  %267 = lshr i32 %265, 6
-  %268 = icmp samesign ult i32 %264, 14234
-  %269 = select i1 %268, i32 0, i32 255
-  %270 = select i1 %266, i32 %267, i32 %269
-  %271 = trunc i32 %270 to i8
-  store i8 %271, ptr %259, align 1
-  %272 = mul nuw nsw i32 %257, 6419
-  %273 = lshr i32 %272, 8
-  %274 = mul nuw nsw i32 %258, 13320
-  %275 = lshr i32 %274, 8
-  %276 = add nuw nsw i32 %273, %275
-  %277 = sub nsw i32 %261, %276
-  %278 = add nsw i32 %277, 8708
-  %279 = icmp ult i32 %278, 16384
-  %280 = lshr i32 %278, 6
-  %281 = icmp slt i32 %277, -8708
-  %282 = select i1 %281, i32 0, i32 255
-  %283 = select i1 %279, i32 %280, i32 %282
-  %284 = trunc i32 %283 to i8
-  %285 = getelementptr inbounds nuw i8, ptr %255, i64 2
-  store i8 %284, ptr %285, align 1
-  %286 = mul nuw nsw i32 %257, 33050
-  %287 = lshr i32 %286, 8
-  %288 = add nuw nsw i32 %261, %287
-  %289 = add nsw i32 %288, -17685
-  %290 = icmp ult i32 %289, 16384
-  %291 = lshr i32 %289, 6
-  %292 = icmp samesign ult i32 %288, 17685
-  %293 = select i1 %292, i32 0, i32 255
-  %294 = select i1 %290, i32 %291, i32 %293
-  %295 = trunc i32 %294 to i8
-  %296 = getelementptr inbounds nuw i8, ptr %255, i64 3
-  store i8 %295, ptr %296, align 1
-  %297 = getelementptr inbounds nuw i8, ptr %1, i64 %153
-  %298 = load i8, ptr %297, align 1
-  %299 = lshr i32 %250, 17
-  %300 = getelementptr inbounds nuw i8, ptr %7, i64 %204
-  store i8 -1, ptr %300, align 1
-  %301 = zext i8 %298 to i32
-  %302 = and i32 %251, 255
-  %303 = and i32 %299, 255
-  %304 = getelementptr inbounds nuw i8, ptr %300, i64 1
-  %305 = mul nuw nsw i32 %301, 19077
-  %306 = lshr i32 %305, 8
-  %307 = mul nuw nsw i32 %303, 26149
-  %308 = lshr i32 %307, 8
-  %309 = add nuw nsw i32 %306, %308
-  %310 = add nsw i32 %309, -14234
-  %311 = icmp ult i32 %310, 16384
-  %312 = lshr i32 %310, 6
-  %313 = icmp samesign ult i32 %309, 14234
-  %314 = select i1 %313, i32 0, i32 255
-  %315 = select i1 %311, i32 %312, i32 %314
-  %316 = trunc i32 %315 to i8
-  store i8 %316, ptr %304, align 1
-  %317 = mul nuw nsw i32 %302, 6419
-  %318 = lshr i32 %317, 8
-  %319 = mul nuw nsw i32 %303, 13320
-  %320 = lshr i32 %319, 8
-  %321 = add nuw nsw i32 %318, %320
-  %322 = sub nsw i32 %306, %321
-  %323 = add nsw i32 %322, 8708
-  %324 = icmp ult i32 %323, 16384
-  %325 = lshr i32 %323, 6
-  %326 = icmp slt i32 %322, -8708
-  %327 = select i1 %326, i32 0, i32 255
-  %328 = select i1 %324, i32 %325, i32 %327
-  %329 = trunc i32 %328 to i8
-  %330 = getelementptr inbounds nuw i8, ptr %300, i64 2
-  store i8 %329, ptr %330, align 1
-  %331 = mul nuw nsw i32 %302, 33050
-  %332 = lshr i32 %331, 8
-  %333 = add nuw nsw i32 %306, %332
-  %334 = add nsw i32 %333, -17685
-  %335 = icmp ult i32 %334, 16384
-  %336 = lshr i32 %334, 6
-  %337 = icmp samesign ult i32 %333, 17685
-  %338 = select i1 %337, i32 0, i32 255
-  %339 = select i1 %335, i32 %336, i32 %338
-  %340 = trunc i32 %339 to i8
-  %341 = getelementptr inbounds nuw i8, ptr %300, i64 3
-  store i8 %340, ptr %341, align 1
-  br label %342
+243:                                              ; preds = %.lr.ph
+  %244 = add nuw nsw i32 %146, %.092120
+  %245 = lshr i32 %244, 1
+  %246 = add nuw nsw i32 %142, %134
+  %247 = lshr i32 %246, 1
+  %248 = getelementptr inbounds i8, ptr %1, i64 %152
+  %249 = load i8, ptr %248, align 1
+  %250 = lshr i32 %244, 17
+  %251 = getelementptr inbounds i8, ptr %7, i64 %156
+  store i8 -1, ptr %251, align 1
+  %252 = zext i8 %249 to i32
+  %253 = and i32 %245, 255
+  %254 = getelementptr inbounds nuw i8, ptr %251, i64 1
+  %255 = mul nuw nsw i32 %252, 19077
+  %256 = lshr i32 %255, 8
+  %257 = mul nuw nsw i32 %250, 26149
+  %258 = lshr i32 %257, 8
+  %259 = add nuw nsw i32 %256, %258
+  %260 = add nsw i32 %259, -14234
+  %261 = icmp ult i32 %260, 16384
+  %262 = lshr i32 %260, 6
+  %263 = icmp samesign ult i32 %259, 14234
+  %264 = select i1 %263, i32 0, i32 255
+  %265 = select i1 %261, i32 %262, i32 %264
+  %266 = trunc i32 %265 to i8
+  store i8 %266, ptr %254, align 1
+  %267 = mul nuw nsw i32 %253, 6419
+  %268 = lshr i32 %267, 8
+  %269 = mul nuw nsw i32 %250, 13320
+  %270 = lshr i32 %269, 8
+  %271 = add nuw nsw i32 %268, %270
+  %272 = sub nsw i32 %256, %271
+  %273 = add nsw i32 %272, 8708
+  %274 = icmp ult i32 %273, 16384
+  %275 = lshr i32 %273, 6
+  %276 = icmp slt i32 %272, -8708
+  %277 = select i1 %276, i32 0, i32 255
+  %278 = select i1 %274, i32 %275, i32 %277
+  %279 = trunc i32 %278 to i8
+  %280 = getelementptr inbounds nuw i8, ptr %251, i64 2
+  store i8 %279, ptr %280, align 1
+  %281 = mul nuw nsw i32 %253, 33050
+  %282 = lshr i32 %281, 8
+  %283 = add nuw nsw i32 %256, %282
+  %284 = add nsw i32 %283, -17685
+  %285 = icmp ult i32 %284, 16384
+  %286 = lshr i32 %284, 6
+  %287 = icmp samesign ult i32 %283, 17685
+  %288 = select i1 %287, i32 0, i32 255
+  %289 = select i1 %285, i32 %286, i32 %288
+  %290 = trunc i32 %289 to i8
+  %291 = getelementptr inbounds nuw i8, ptr %251, i64 3
+  store i8 %290, ptr %291, align 1
+  %292 = getelementptr inbounds nuw i8, ptr %1, i64 %151
+  %293 = load i8, ptr %292, align 1
+  %294 = lshr i32 %246, 17
+  %295 = getelementptr inbounds nuw i8, ptr %7, i64 %201
+  store i8 -1, ptr %295, align 1
+  %296 = zext i8 %293 to i32
+  %297 = and i32 %247, 255
+  %298 = getelementptr inbounds nuw i8, ptr %295, i64 1
+  %299 = mul nuw nsw i32 %296, 19077
+  %300 = lshr i32 %299, 8
+  %301 = mul nuw nsw i32 %294, 26149
+  %302 = lshr i32 %301, 8
+  %303 = add nuw nsw i32 %300, %302
+  %304 = add nsw i32 %303, -14234
+  %305 = icmp ult i32 %304, 16384
+  %306 = lshr i32 %304, 6
+  %307 = icmp samesign ult i32 %303, 14234
+  %308 = select i1 %307, i32 0, i32 255
+  %309 = select i1 %305, i32 %306, i32 %308
+  %310 = trunc i32 %309 to i8
+  store i8 %310, ptr %298, align 1
+  %311 = mul nuw nsw i32 %297, 6419
+  %312 = lshr i32 %311, 8
+  %313 = mul nuw nsw i32 %294, 13320
+  %314 = lshr i32 %313, 8
+  %315 = add nuw nsw i32 %312, %314
+  %316 = sub nsw i32 %300, %315
+  %317 = add nsw i32 %316, 8708
+  %318 = icmp ult i32 %317, 16384
+  %319 = lshr i32 %317, 6
+  %320 = icmp slt i32 %316, -8708
+  %321 = select i1 %320, i32 0, i32 255
+  %322 = select i1 %318, i32 %319, i32 %321
+  %323 = trunc i32 %322 to i8
+  %324 = getelementptr inbounds nuw i8, ptr %295, i64 2
+  store i8 %323, ptr %324, align 1
+  %325 = mul nuw nsw i32 %297, 33050
+  %326 = lshr i32 %325, 8
+  %327 = add nuw nsw i32 %300, %326
+  %328 = add nsw i32 %327, -17685
+  %329 = icmp ult i32 %328, 16384
+  %330 = lshr i32 %328, 6
+  %331 = icmp samesign ult i32 %327, 17685
+  %332 = select i1 %331, i32 0, i32 255
+  %333 = select i1 %329, i32 %330, i32 %332
+  %334 = trunc i32 %333 to i8
+  %335 = getelementptr inbounds nuw i8, ptr %295, i64 3
+  store i8 %334, ptr %335, align 1
+  br label %336
 
-342:                                              ; preds = %247, %.lr.ph
+336:                                              ; preds = %243, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %342, %119
-  %.092.lcssa = phi i32 [ %23, %119 ], [ %136, %342 ]
-  %.091.lcssa = phi i32 [ %17, %119 ], [ %128, %342 ]
-  %343 = and i32 %8, 1
-  %.not95 = icmp eq i32 %343, 0
-  br i1 %.not95, label %344, label %447
+._crit_edge:                                      ; preds = %336, %117
+  %.092.lcssa = phi i32 [ %23, %117 ], [ %134, %336 ]
+  %.091.lcssa = phi i32 [ %17, %117 ], [ %126, %336 ]
+  %337 = and i32 %8, 1
+  %.not95 = icmp eq i32 %337, 0
+  br i1 %.not95, label %338, label %439
 
-344:                                              ; preds = %._crit_edge
-  %345 = mul nuw nsw i32 %.091.lcssa, 3
-  %346 = add nuw nsw i32 %.092.lcssa, 131074
-  %347 = add nuw nsw i32 %346, %345
-  %348 = lshr i32 %347, 2
-  %349 = sext i32 %10 to i64
-  %350 = getelementptr inbounds i8, ptr %0, i64 %349
-  %351 = load i8, ptr %350, align 1
-  %352 = lshr i32 %347, 18
-  %353 = shl nsw i32 %10, 2
-  %354 = sext i32 %353 to i64
-  %355 = getelementptr inbounds i8, ptr %6, i64 %354
-  store i8 -1, ptr %355, align 1
-  %356 = zext i8 %351 to i32
-  %357 = and i32 %348, 255
-  %358 = and i32 %352, 255
-  %359 = getelementptr inbounds nuw i8, ptr %355, i64 1
-  %360 = mul nuw nsw i32 %356, 19077
-  %361 = lshr i32 %360, 8
-  %362 = mul nuw nsw i32 %358, 26149
-  %363 = lshr i32 %362, 8
-  %364 = add nuw nsw i32 %361, %363
-  %365 = add nsw i32 %364, -14234
-  %366 = icmp ult i32 %365, 16384
-  %367 = lshr i32 %365, 6
-  %368 = icmp samesign ult i32 %364, 14234
-  %369 = select i1 %368, i32 0, i32 255
-  %370 = select i1 %366, i32 %367, i32 %369
-  %371 = trunc i32 %370 to i8
-  store i8 %371, ptr %359, align 1
-  %372 = mul nuw nsw i32 %357, 6419
-  %373 = lshr i32 %372, 8
-  %374 = mul nuw nsw i32 %358, 13320
-  %375 = lshr i32 %374, 8
-  %376 = add nuw nsw i32 %373, %375
-  %377 = sub nsw i32 %361, %376
-  %378 = add nsw i32 %377, 8708
-  %379 = icmp ult i32 %378, 16384
-  %380 = lshr i32 %378, 6
-  %381 = icmp slt i32 %377, -8708
-  %382 = select i1 %381, i32 0, i32 255
-  %383 = select i1 %379, i32 %380, i32 %382
-  %384 = trunc i32 %383 to i8
-  %385 = getelementptr inbounds nuw i8, ptr %355, i64 2
-  store i8 %384, ptr %385, align 1
-  %386 = mul nuw nsw i32 %357, 33050
-  %387 = lshr i32 %386, 8
-  %388 = add nuw nsw i32 %361, %387
-  %389 = add nsw i32 %388, -17685
-  %390 = icmp ult i32 %389, 16384
-  %391 = lshr i32 %389, 6
-  %392 = icmp samesign ult i32 %388, 17685
-  %393 = select i1 %392, i32 0, i32 255
-  %394 = select i1 %390, i32 %391, i32 %393
-  %395 = trunc i32 %394 to i8
-  %396 = getelementptr inbounds nuw i8, ptr %355, i64 3
-  store i8 %395, ptr %396, align 1
-  br i1 %.not, label %447, label %397
+338:                                              ; preds = %._crit_edge
+  %339 = mul nuw nsw i32 %.091.lcssa, 3
+  %340 = add nuw nsw i32 %.092.lcssa, 131074
+  %341 = add nuw nsw i32 %340, %339
+  %342 = lshr i32 %341, 2
+  %343 = sext i32 %10 to i64
+  %344 = getelementptr inbounds i8, ptr %0, i64 %343
+  %345 = load i8, ptr %344, align 1
+  %346 = lshr i32 %341, 18
+  %347 = shl nsw i32 %10, 2
+  %348 = sext i32 %347 to i64
+  %349 = getelementptr inbounds i8, ptr %6, i64 %348
+  store i8 -1, ptr %349, align 1
+  %350 = zext i8 %345 to i32
+  %351 = and i32 %342, 255
+  %352 = getelementptr inbounds nuw i8, ptr %349, i64 1
+  %353 = mul nuw nsw i32 %350, 19077
+  %354 = lshr i32 %353, 8
+  %355 = mul nuw nsw i32 %346, 26149
+  %356 = lshr i32 %355, 8
+  %357 = add nuw nsw i32 %354, %356
+  %358 = add nsw i32 %357, -14234
+  %359 = icmp ult i32 %358, 16384
+  %360 = lshr i32 %358, 6
+  %361 = icmp samesign ult i32 %357, 14234
+  %362 = select i1 %361, i32 0, i32 255
+  %363 = select i1 %359, i32 %360, i32 %362
+  %364 = trunc i32 %363 to i8
+  store i8 %364, ptr %352, align 1
+  %365 = mul nuw nsw i32 %351, 6419
+  %366 = lshr i32 %365, 8
+  %367 = mul nuw nsw i32 %346, 13320
+  %368 = lshr i32 %367, 8
+  %369 = add nuw nsw i32 %366, %368
+  %370 = sub nsw i32 %354, %369
+  %371 = add nsw i32 %370, 8708
+  %372 = icmp ult i32 %371, 16384
+  %373 = lshr i32 %371, 6
+  %374 = icmp slt i32 %370, -8708
+  %375 = select i1 %374, i32 0, i32 255
+  %376 = select i1 %372, i32 %373, i32 %375
+  %377 = trunc i32 %376 to i8
+  %378 = getelementptr inbounds nuw i8, ptr %349, i64 2
+  store i8 %377, ptr %378, align 1
+  %379 = mul nuw nsw i32 %351, 33050
+  %380 = lshr i32 %379, 8
+  %381 = add nuw nsw i32 %354, %380
+  %382 = add nsw i32 %381, -17685
+  %383 = icmp ult i32 %382, 16384
+  %384 = lshr i32 %382, 6
+  %385 = icmp samesign ult i32 %381, 17685
+  %386 = select i1 %385, i32 0, i32 255
+  %387 = select i1 %383, i32 %384, i32 %386
+  %388 = trunc i32 %387 to i8
+  %389 = getelementptr inbounds nuw i8, ptr %349, i64 3
+  store i8 %388, ptr %389, align 1
+  br i1 %.not, label %439, label %390
 
-397:                                              ; preds = %344
-  %398 = mul nuw nsw i32 %.092.lcssa, 3
-  %399 = add nuw nsw i32 %.091.lcssa, 131074
-  %400 = add nuw nsw i32 %399, %398
-  %401 = lshr i32 %400, 2
-  %402 = getelementptr inbounds i8, ptr %1, i64 %349
-  %403 = load i8, ptr %402, align 1
-  %404 = lshr i32 %400, 18
-  %405 = getelementptr inbounds i8, ptr %7, i64 %354
-  store i8 -1, ptr %405, align 1
-  %406 = zext i8 %403 to i32
-  %407 = and i32 %401, 255
-  %408 = and i32 %404, 255
-  %409 = getelementptr inbounds nuw i8, ptr %405, i64 1
-  %410 = mul nuw nsw i32 %406, 19077
-  %411 = lshr i32 %410, 8
-  %412 = mul nuw nsw i32 %408, 26149
-  %413 = lshr i32 %412, 8
-  %414 = add nuw nsw i32 %411, %413
-  %415 = add nsw i32 %414, -14234
-  %416 = icmp ult i32 %415, 16384
-  %417 = lshr i32 %415, 6
-  %418 = icmp samesign ult i32 %414, 14234
-  %419 = select i1 %418, i32 0, i32 255
-  %420 = select i1 %416, i32 %417, i32 %419
-  %421 = trunc i32 %420 to i8
-  store i8 %421, ptr %409, align 1
-  %422 = mul nuw nsw i32 %407, 6419
-  %423 = lshr i32 %422, 8
-  %424 = mul nuw nsw i32 %408, 13320
-  %425 = lshr i32 %424, 8
-  %426 = add nuw nsw i32 %423, %425
-  %427 = sub nsw i32 %411, %426
-  %428 = add nsw i32 %427, 8708
-  %429 = icmp ult i32 %428, 16384
-  %430 = lshr i32 %428, 6
-  %431 = icmp slt i32 %427, -8708
-  %432 = select i1 %431, i32 0, i32 255
-  %433 = select i1 %429, i32 %430, i32 %432
-  %434 = trunc i32 %433 to i8
-  %435 = getelementptr inbounds nuw i8, ptr %405, i64 2
-  store i8 %434, ptr %435, align 1
-  %436 = mul nuw nsw i32 %407, 33050
-  %437 = lshr i32 %436, 8
-  %438 = add nuw nsw i32 %411, %437
-  %439 = add nsw i32 %438, -17685
-  %440 = icmp ult i32 %439, 16384
-  %441 = lshr i32 %439, 6
-  %442 = icmp samesign ult i32 %438, 17685
-  %443 = select i1 %442, i32 0, i32 255
-  %444 = select i1 %440, i32 %441, i32 %443
-  %445 = trunc i32 %444 to i8
-  %446 = getelementptr inbounds nuw i8, ptr %405, i64 3
-  store i8 %445, ptr %446, align 1
-  br label %447
+390:                                              ; preds = %338
+  %391 = mul nuw nsw i32 %.092.lcssa, 3
+  %392 = add nuw nsw i32 %.091.lcssa, 131074
+  %393 = add nuw nsw i32 %392, %391
+  %394 = lshr i32 %393, 2
+  %395 = getelementptr inbounds i8, ptr %1, i64 %343
+  %396 = load i8, ptr %395, align 1
+  %397 = lshr i32 %393, 18
+  %398 = getelementptr inbounds i8, ptr %7, i64 %348
+  store i8 -1, ptr %398, align 1
+  %399 = zext i8 %396 to i32
+  %400 = and i32 %394, 255
+  %401 = getelementptr inbounds nuw i8, ptr %398, i64 1
+  %402 = mul nuw nsw i32 %399, 19077
+  %403 = lshr i32 %402, 8
+  %404 = mul nuw nsw i32 %397, 26149
+  %405 = lshr i32 %404, 8
+  %406 = add nuw nsw i32 %403, %405
+  %407 = add nsw i32 %406, -14234
+  %408 = icmp ult i32 %407, 16384
+  %409 = lshr i32 %407, 6
+  %410 = icmp samesign ult i32 %406, 14234
+  %411 = select i1 %410, i32 0, i32 255
+  %412 = select i1 %408, i32 %409, i32 %411
+  %413 = trunc i32 %412 to i8
+  store i8 %413, ptr %401, align 1
+  %414 = mul nuw nsw i32 %400, 6419
+  %415 = lshr i32 %414, 8
+  %416 = mul nuw nsw i32 %397, 13320
+  %417 = lshr i32 %416, 8
+  %418 = add nuw nsw i32 %415, %417
+  %419 = sub nsw i32 %403, %418
+  %420 = add nsw i32 %419, 8708
+  %421 = icmp ult i32 %420, 16384
+  %422 = lshr i32 %420, 6
+  %423 = icmp slt i32 %419, -8708
+  %424 = select i1 %423, i32 0, i32 255
+  %425 = select i1 %421, i32 %422, i32 %424
+  %426 = trunc i32 %425 to i8
+  %427 = getelementptr inbounds nuw i8, ptr %398, i64 2
+  store i8 %426, ptr %427, align 1
+  %428 = mul nuw nsw i32 %400, 33050
+  %429 = lshr i32 %428, 8
+  %430 = add nuw nsw i32 %403, %429
+  %431 = add nsw i32 %430, -17685
+  %432 = icmp ult i32 %431, 16384
+  %433 = lshr i32 %431, 6
+  %434 = icmp samesign ult i32 %430, 17685
+  %435 = select i1 %434, i32 0, i32 255
+  %436 = select i1 %432, i32 %433, i32 %435
+  %437 = trunc i32 %436 to i8
+  %438 = getelementptr inbounds nuw i8, ptr %398, i64 3
+  store i8 %437, ptr %438, align 1
+  br label %439
 
-447:                                              ; preds = %344, %397, %._crit_edge
+439:                                              ; preds = %338, %390, %._crit_edge
   ret void
 }
 

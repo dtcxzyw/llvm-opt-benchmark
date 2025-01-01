@@ -216,7 +216,7 @@ select.unfold:                                    ; preds = %19, %6, %22, %38
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @i915_l3_write(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i64 noundef %4, i64 noundef %5) #1 align 16 {
+define internal noundef range(i64 4, 0) i64 @i915_l3_write(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i64 noundef %4, i64 noundef %5) #1 align 16 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16

@@ -2510,7 +2510,7 @@ define dso_local noundef ptr @_ZNK4llvm11VPIntrinsic12getMaskParamEv(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local range(i64 0, 8589934592) i64 @_ZN4llvm11VPIntrinsic15getMaskParamPosEj(i32 noundef %0) local_unnamed_addr #0 align 2 {
+define dso_local range(i64 0, 4294967300) i64 @_ZN4llvm11VPIntrinsic15getMaskParamPosEj(i32 noundef %0) local_unnamed_addr #0 align 2 {
   switch i32 %0, label %5 [
     i32 390, label %2
     i32 391, label %2
@@ -2730,7 +2730,7 @@ define dso_local noundef ptr @_ZNK4llvm11VPIntrinsic20getVectorLengthParamEv(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local range(i64 0, 8589934592) i64 @_ZN4llvm11VPIntrinsic23getVectorLengthParamPosEj(i32 noundef %0) local_unnamed_addr #0 align 2 {
+define dso_local range(i64 0, 4294967304) i64 @_ZN4llvm11VPIntrinsic23getVectorLengthParamPosEj(i32 noundef %0) local_unnamed_addr #0 align 2 {
   switch i32 %0, label %6 [
     i32 390, label %2
     i32 391, label %2
@@ -2950,7 +2950,7 @@ _ZN4llvm11VPIntrinsic24getMemoryPointerParamPosEj.exit: ; preds = %1, %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local range(i64 0, 8589934592) i64 @_ZN4llvm11VPIntrinsic24getMemoryPointerParamPosEj(i32 noundef %0) local_unnamed_addr #0 align 2 {
+define dso_local range(i64 0, 4294967298) i64 @_ZN4llvm11VPIntrinsic24getMemoryPointerParamPosEj(i32 noundef %0) local_unnamed_addr #0 align 2 {
   switch i32 %0, label %4 [
     i32 466, label %2
     i32 455, label %2
@@ -3183,7 +3183,7 @@ define linkonce_odr hidden noundef zeroext i1 @_Z13isVPIntrinsicj(i32 noundef %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local range(i64 0, 8589934592) i64 @_ZN4llvm11VPIntrinsic24getFunctionalOpcodeForVPEj(i32 noundef %0) local_unnamed_addr #0 align 2 {
+define dso_local range(i64 0, 4294967360) i64 @_ZN4llvm11VPIntrinsic24getFunctionalOpcodeForVPEj(i32 noundef %0) local_unnamed_addr #0 align 2 {
   switch i32 %0, label %36 [
     i32 390, label %_ZL24getFunctionalOpcodeForVPj.exit
     i32 391, label %2
@@ -3335,7 +3335,7 @@ _ZL24getFunctionalOpcodeForVPj.exit:              ; preds = %1, %2, %3, %4, %5, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local range(i64 0, 8589934592) i64 @_ZN4llvm11VPIntrinsic29getFunctionalIntrinsicIDForVPEj(i32 noundef %0) local_unnamed_addr #0 align 2 {
+define dso_local range(i64 0, 4294967808) i64 @_ZN4llvm11VPIntrinsic29getFunctionalIntrinsicIDForVPEj(i32 noundef %0) local_unnamed_addr #0 align 2 {
   %switch.tableidx = add i32 %0, -389
   %2 = icmp ult i32 %switch.tableidx, 87
   br i1 %2, label %switch.lookup, label %_ZL29getFunctionalIntrinsicIDForVPj.exit
@@ -3356,7 +3356,7 @@ _ZL29getFunctionalIntrinsicIDForVPj.exit:         ; preds = %1, %switch.lookup
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local range(i64 0, 8589934592) i64 @_ZN4llvm11VPIntrinsic30getConstrainedIntrinsicIDForVPEj(i32 noundef %0) local_unnamed_addr #0 align 2 {
+define dso_local range(i64 0, 4294967552) i64 @_ZN4llvm11VPIntrinsic30getConstrainedIntrinsicIDForVPEj(i32 noundef %0) local_unnamed_addr #0 align 2 {
   switch i32 %0, label %15 [
     i32 403, label %14
     i32 410, label %13

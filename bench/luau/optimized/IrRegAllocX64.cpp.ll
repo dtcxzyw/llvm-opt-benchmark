@@ -1684,7 +1684,7 @@ _ZN4Luau7CodeGen3X6413IrRegAllocX6417getRestoreAddressERKNS0_6IrInstENS0_4IrOpE.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i64 268435456, 0) i64 @_ZN4Luau7CodeGen3X6413IrRegAllocX6417getRestoreAddressERKNS0_6IrInstENS0_4IrOpE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(256) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(43) %1, i32 %2) local_unnamed_addr #1 align 2 {
+define dso_local range(i64 268435456, -3758096384) i64 @_ZN4Luau7CodeGen3X6413IrRegAllocX6417getRestoreAddressERKNS0_6IrInstENS0_4IrOpE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(256) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(43) %1, i32 %2) local_unnamed_addr #1 align 2 {
   %4 = load i8, ptr %1, align 4
   %5 = tail call noundef zeroext i8 @_ZN4Luau7CodeGen15getCmdValueKindENS0_5IrCmdE(i8 noundef zeroext %4)
   switch i8 %5, label %25 [

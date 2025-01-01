@@ -254,7 +254,7 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.llvm.1728913642
   %28 = shl nuw i64 %27, 32
   %29 = or disjoint i64 %28, 4607182418800017408
   %30 = add i64 %29, %25
-  %31 = add i64 %30, %26
+  %31 = add nuw i64 %30, %26
   %32 = or disjoint i64 %31, %21
   %33 = bitcast i64 %32 to double
   br label %2
@@ -1888,7 +1888,7 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.llvm.1728913642
   %32 = shl nuw i64 %31, 32
   %33 = or disjoint i64 %32, 4607182418800017408
   %34 = add i64 %33, %29
-  %35 = add i64 %34, %30
+  %35 = add nuw i64 %34, %30
   %36 = or disjoint i64 %35, %25
   %37 = bitcast i64 %36 to double
   br label %_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.exit
@@ -2275,7 +2275,7 @@ define noundef zeroext i1 @"_ZN72_$LT$softposit..p32e2..P32E2$u20$as$u20$num_tra
 }
 
 ; Function Attrs: nonlazybind uwtable
-define i64 @"_ZN59_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..Num$GT$14from_str_radix17h975f6fa421da1abfE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i32 noundef %2) unnamed_addr #3 {
+define range(i64 0, -4294967294) i64 @"_ZN59_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..Num$GT$14from_str_radix17h975f6fa421da1abfE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i32 noundef %2) unnamed_addr #3 {
   %4 = alloca { i8, [15 x i8] }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @"_ZN39_$LT$f64$u20$as$u20$num_traits..Num$GT$14from_str_radix17h0a4767a2e72cb71bE"(ptr noalias nocapture noundef nonnull sret([16 x i8]) align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i32 noundef %2)
@@ -2665,7 +2665,7 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.llvm.1728913642
   %28 = shl nuw i64 %27, 32
   %29 = or disjoint i64 %28, 4607182418800017408
   %30 = add i64 %29, %25
-  %31 = add i64 %30, %26
+  %31 = add nuw i64 %30, %26
   %32 = or disjoint i64 %31, %21
   %33 = bitcast i64 %32 to double
   br label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_f6417hacbd68b084ff72e2E.exit"

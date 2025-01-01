@@ -38,7 +38,7 @@ $_ZNK4LIEF6ObjectneERKS0_ = comdat any
 @_ZN4LIEF5MachO12DylibCommandC1ERKNS0_7details13dylib_commandE = unnamed_addr alias void (ptr, ptr), ptr @_ZN4LIEF5MachO12DylibCommandC2ERKNS0_7details13dylib_commandE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i48 0, 1099511627776) i48 @_ZN4LIEF5MachO12DylibCommand11int2versionEj(i32 noundef %0) local_unnamed_addr #0 align 2 {
+define range(i48 0, 1095233437696) i48 @_ZN4LIEF5MachO12DylibCommand11int2versionEj(i32 noundef %0) local_unnamed_addr #0 align 2 {
   %2 = lshr i32 %0, 16
   %3 = trunc i32 %0 to i16
   %4 = lshr i16 %3, 8
@@ -229,7 +229,7 @@ define noundef i32 @_ZNK4LIEF5MachO12DylibCommand9timestampEv(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i48 0, 1099511627776) i48 @_ZNK4LIEF5MachO12DylibCommand15current_versionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0) local_unnamed_addr #8 align 2 {
+define range(i48 0, 1095233437696) i48 @_ZNK4LIEF5MachO12DylibCommand15current_versionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %3 = load i32, ptr %2, align 4
   %4 = lshr i32 %3, 16
@@ -247,7 +247,7 @@ define range(i48 0, 1099511627776) i48 @_ZNK4LIEF5MachO12DylibCommand15current_v
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i48 0, 1099511627776) i48 @_ZNK4LIEF5MachO12DylibCommand21compatibility_versionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0) local_unnamed_addr #8 align 2 {
+define range(i48 0, 1095233437696) i48 @_ZNK4LIEF5MachO12DylibCommand21compatibility_versionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load i32, ptr %2, align 8
   %4 = lshr i32 %3, 16

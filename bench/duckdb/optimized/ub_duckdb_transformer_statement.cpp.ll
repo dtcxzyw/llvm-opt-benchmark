@@ -51440,7 +51440,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit12: ; preds = %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i16 0, 512) i16 @_ZN6duckdb12ParseOptionsEi(i32 noundef %options) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define range(i16 0, 258) i16 @_ZN6duckdb12ParseOptionsEi(i32 noundef %options) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp8 = alloca %"class.std::allocator", align 1

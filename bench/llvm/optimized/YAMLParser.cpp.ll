@@ -1523,7 +1523,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc range(i64 0, 34359738368) i64 @_ZL10decodeUTF8N4llvm9StringRefE(ptr nocapture readonly %0, i64 %1) unnamed_addr #5 {
+define internal fastcc range(i64 0, 17181966336) i64 @_ZL10decodeUTF8N4llvm9StringRefE(ptr nocapture readonly %0, i64 %1) unnamed_addr #5 {
   %3 = icmp sgt i64 %1, 0
   br i1 %3, label %4, label %.thread73
 
@@ -1913,7 +1913,7 @@ declare noundef zeroext i1 @_ZN4llvm3sys7unicode11isPrintableEi(i32 noundef) loc
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32), i8 noundef signext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i16 0, 512) i16 @_ZN4llvm4yaml9parseBoolENS_9StringRefE(ptr nocapture readonly %0, i64 %1) local_unnamed_addr #6 {
+define dso_local range(i16 0, 258) i16 @_ZN4llvm4yaml9parseBoolENS_9StringRefE(ptr nocapture readonly %0, i64 %1) local_unnamed_addr #6 {
   switch i64 %1, label %.thread137 [
     i64 1, label %3
     i64 2, label %6

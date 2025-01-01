@@ -1429,7 +1429,7 @@ do.body6:                                         ; preds = %do.body6, %do.body
   %or15 = or disjoint i64 %shl13, %and
   %div16 = udiv i64 %or15, 1000000000
   %rem17 = urem i64 %or15, 1000000000
-  %shl19 = shl i64 %div, 32
+  %shl19 = shl nuw i64 %div, 32
   %or20 = or i64 %div16, %shl19
   store i64 %or20, ptr %elem.0, align 8
   %incdec.ptr = getelementptr inbounds i8, ptr %elem.0, i64 -8
@@ -2959,7 +2959,7 @@ do.body6:                                         ; preds = %do.body6, %do.body
   %or15 = or disjoint i64 %shl13, %and
   %div16 = udiv i64 %or15, 1000000000
   %rem17 = urem i64 %or15, 1000000000
-  %shl19 = shl i64 %div, 32
+  %shl19 = shl nuw i64 %div, 32
   %or20 = or i64 %div16, %shl19
   store i64 %or20, ptr %elem.0, align 8
   %incdec.ptr = getelementptr inbounds i8, ptr %elem.0, i64 -8

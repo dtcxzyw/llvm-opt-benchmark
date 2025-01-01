@@ -1416,7 +1416,7 @@ define hidden noundef ptr @php_sha256_crypt(ptr noundef %0, ptr noundef %1) loca
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @sha256_process_block(ptr nocapture noundef readonly %0, i64 noundef range(i64 0, -63) %1, ptr nocapture noundef nonnull %2) unnamed_addr #7 {
+define internal fastcc void @sha256_process_block(ptr nocapture noundef readonly %0, i64 noundef range(i64 8, -63) %1, ptr nocapture noundef nonnull %2) unnamed_addr #7 {
   %4 = alloca [64 x i32], align 16
   %5 = lshr i64 %1, 2
   %6 = load i32, ptr %2, align 4
@@ -1441,152 +1441,143 @@ define internal fastcc void @sha256_process_block(ptr nocapture noundef readonly
   store i32 %24, ptr %22, align 4
   %25 = zext i32 %24 to i64
   %26 = icmp ugt i64 %1, %25
-  br i1 %26, label %27, label %31
+  br i1 %26, label %27, label %.preheader136.preheader
 
 27:                                               ; preds = %3
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %29 = load i32, ptr %28, align 4
   %30 = add i32 %29, 1
   store i32 %30, ptr %28, align 4
+  br label %.preheader136.preheader
+
+.preheader136.preheader:                          ; preds = %3, %27
+  br label %.preheader136
+
+.preheader136:                                    ; preds = %.preheader136.preheader, %90
+  %.0159 = phi ptr [ %35, %90 ], [ %0, %.preheader136.preheader ]
+  %.0116158 = phi i64 [ %99, %90 ], [ %5, %.preheader136.preheader ]
+  %.0119157 = phi i32 [ %91, %90 ], [ %6, %.preheader136.preheader ]
+  %.0121156 = phi i32 [ %92, %90 ], [ %8, %.preheader136.preheader ]
+  %.0123155 = phi i32 [ %93, %90 ], [ %10, %.preheader136.preheader ]
+  %.0125154 = phi i32 [ %94, %90 ], [ %12, %.preheader136.preheader ]
+  %.0127153 = phi i32 [ %95, %90 ], [ %14, %.preheader136.preheader ]
+  %.0129152 = phi i32 [ %96, %90 ], [ %16, %.preheader136.preheader ]
+  %.0131151 = phi i32 [ %97, %90 ], [ %18, %.preheader136.preheader ]
+  %.0133150 = phi i32 [ %98, %90 ], [ %20, %.preheader136.preheader ]
   br label %31
 
-31:                                               ; preds = %27, %3
-  %.not149 = icmp ult i64 %1, 4
-  br i1 %.not149, label %._crit_edge, label %.preheader136
-
-.preheader136:                                    ; preds = %31, %91
-  %.0159 = phi ptr [ %36, %91 ], [ %0, %31 ]
-  %.0116158 = phi i64 [ %100, %91 ], [ %5, %31 ]
-  %.0119157 = phi i32 [ %92, %91 ], [ %6, %31 ]
-  %.0121156 = phi i32 [ %93, %91 ], [ %8, %31 ]
-  %.0123155 = phi i32 [ %94, %91 ], [ %10, %31 ]
-  %.0125154 = phi i32 [ %95, %91 ], [ %12, %31 ]
-  %.0127153 = phi i32 [ %96, %91 ], [ %14, %31 ]
-  %.0129152 = phi i32 [ %97, %91 ], [ %16, %31 ]
-  %.0131151 = phi i32 [ %98, %91 ], [ %18, %31 ]
-  %.0133150 = phi i32 [ %99, %91 ], [ %20, %31 ]
-  br label %32
-
-.preheader135:                                    ; preds = %32
+.preheader135:                                    ; preds = %31
   %.pre = load i32, ptr %4, align 16
-  br label %37
+  br label %36
 
-32:                                               ; preds = %.preheader136, %32
-  %indvars.iv = phi i64 [ 0, %.preheader136 ], [ %indvars.iv.next, %32 ]
-  %.1138 = phi ptr [ %.0159, %.preheader136 ], [ %36, %32 ]
-  %33 = load i32, ptr %.1138, align 4
-  %34 = tail call i32 @llvm.bswap.i32(i32 %33)
-  %35 = getelementptr inbounds nuw [64 x i32], ptr %4, i64 0, i64 %indvars.iv
-  store i32 %34, ptr %35, align 4
-  %36 = getelementptr inbounds nuw i8, ptr %.1138, i64 4
+31:                                               ; preds = %.preheader136, %31
+  %indvars.iv = phi i64 [ 0, %.preheader136 ], [ %indvars.iv.next, %31 ]
+  %.1138 = phi ptr [ %.0159, %.preheader136 ], [ %35, %31 ]
+  %32 = load i32, ptr %.1138, align 4
+  %33 = tail call i32 @llvm.bswap.i32(i32 %32)
+  %34 = getelementptr inbounds nuw [64 x i32], ptr %4, i64 0, i64 %indvars.iv
+  store i32 %33, ptr %34, align 4
+  %35 = getelementptr inbounds nuw i8, ptr %.1138, i64 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.preheader135, label %32
+  br i1 %exitcond.not, label %.preheader135, label %31
 
-37:                                               ; preds = %.preheader135, %37
-  %38 = phi i32 [ %.pre, %.preheader135 ], [ %53, %37 ]
-  %indvars.iv178 = phi i64 [ 16, %.preheader135 ], [ %indvars.iv.next179, %37 ]
-  %39 = add nsw i64 %indvars.iv178, -2
-  %40 = getelementptr inbounds nuw [64 x i32], ptr %4, i64 0, i64 %39
-  %41 = load i32, ptr %40, align 4
-  %42 = tail call i32 @llvm.fshl.i32(i32 %41, i32 %41, i32 15)
-  %43 = tail call i32 @llvm.fshl.i32(i32 %41, i32 %41, i32 13)
-  %44 = xor i32 %42, %43
-  %45 = lshr i32 %41, 10
-  %46 = xor i32 %44, %45
-  %47 = add nsw i64 %indvars.iv178, -7
-  %48 = getelementptr inbounds nuw [64 x i32], ptr %4, i64 0, i64 %47
-  %49 = load i32, ptr %48, align 4
-  %50 = add i32 %46, %49
-  %51 = add nsw i64 %indvars.iv178, -15
-  %52 = getelementptr inbounds nuw [64 x i32], ptr %4, i64 0, i64 %51
-  %53 = load i32, ptr %52, align 4
-  %54 = tail call i32 @llvm.fshl.i32(i32 %53, i32 %53, i32 25)
-  %55 = tail call i32 @llvm.fshl.i32(i32 %53, i32 %53, i32 14)
-  %56 = xor i32 %54, %55
-  %57 = lshr i32 %53, 3
-  %58 = xor i32 %56, %57
-  %59 = add i32 %50, %38
-  %60 = add i32 %59, %58
-  %61 = getelementptr inbounds nuw [64 x i32], ptr %4, i64 0, i64 %indvars.iv178
-  store i32 %60, ptr %61, align 4
+36:                                               ; preds = %.preheader135, %36
+  %37 = phi i32 [ %.pre, %.preheader135 ], [ %52, %36 ]
+  %indvars.iv178 = phi i64 [ 16, %.preheader135 ], [ %indvars.iv.next179, %36 ]
+  %38 = add nsw i64 %indvars.iv178, -2
+  %39 = getelementptr inbounds nuw [64 x i32], ptr %4, i64 0, i64 %38
+  %40 = load i32, ptr %39, align 4
+  %41 = tail call i32 @llvm.fshl.i32(i32 %40, i32 %40, i32 15)
+  %42 = tail call i32 @llvm.fshl.i32(i32 %40, i32 %40, i32 13)
+  %43 = xor i32 %41, %42
+  %44 = lshr i32 %40, 10
+  %45 = xor i32 %43, %44
+  %46 = add nsw i64 %indvars.iv178, -7
+  %47 = getelementptr inbounds nuw [64 x i32], ptr %4, i64 0, i64 %46
+  %48 = load i32, ptr %47, align 4
+  %49 = add i32 %45, %48
+  %50 = add nsw i64 %indvars.iv178, -15
+  %51 = getelementptr inbounds nuw [64 x i32], ptr %4, i64 0, i64 %50
+  %52 = load i32, ptr %51, align 4
+  %53 = tail call i32 @llvm.fshl.i32(i32 %52, i32 %52, i32 25)
+  %54 = tail call i32 @llvm.fshl.i32(i32 %52, i32 %52, i32 14)
+  %55 = xor i32 %53, %54
+  %56 = lshr i32 %52, 3
+  %57 = xor i32 %55, %56
+  %58 = add i32 %49, %37
+  %59 = add i32 %58, %57
+  %60 = getelementptr inbounds nuw [64 x i32], ptr %4, i64 0, i64 %indvars.iv178
+  store i32 %59, ptr %60, align 4
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
   %exitcond181.not = icmp eq i64 %indvars.iv.next179, 64
-  br i1 %exitcond181.not, label %.preheader, label %37
+  br i1 %exitcond181.not, label %.preheader, label %36
 
-.preheader:                                       ; preds = %37, %.preheader
-  %indvars.iv182 = phi i64 [ %indvars.iv.next183, %.preheader ], [ 0, %37 ]
-  %.1120147 = phi i32 [ %90, %.preheader ], [ %.0119157, %37 ]
-  %.1122146 = phi i32 [ %.1120147, %.preheader ], [ %.0121156, %37 ]
-  %.1124145 = phi i32 [ %.1122146, %.preheader ], [ %.0123155, %37 ]
-  %.1126144 = phi i32 [ %.1124145, %.preheader ], [ %.0125154, %37 ]
-  %.1128143 = phi i32 [ %89, %.preheader ], [ %.0127153, %37 ]
-  %.1130142 = phi i32 [ %.1128143, %.preheader ], [ %.0129152, %37 ]
-  %.1132141 = phi i32 [ %.1130142, %.preheader ], [ %.0131151, %37 ]
-  %.1134140 = phi i32 [ %.1132141, %.preheader ], [ %.0133150, %37 ]
-  %62 = tail call i32 @llvm.fshl.i32(i32 %.1128143, i32 %.1128143, i32 26)
-  %63 = tail call i32 @llvm.fshl.i32(i32 %.1128143, i32 %.1128143, i32 21)
-  %64 = xor i32 %62, %63
-  %65 = tail call i32 @llvm.fshl.i32(i32 %.1128143, i32 %.1128143, i32 7)
-  %66 = xor i32 %64, %65
-  %67 = and i32 %.1128143, %.1130142
-  %68 = xor i32 %.1128143, -1
-  %69 = and i32 %.1132141, %68
-  %70 = or i32 %67, %69
-  %71 = getelementptr inbounds nuw [64 x i32], ptr @K, i64 0, i64 %indvars.iv182
-  %72 = load i32, ptr %71, align 4
-  %73 = getelementptr inbounds nuw [64 x i32], ptr %4, i64 0, i64 %indvars.iv182
-  %74 = load i32, ptr %73, align 4
-  %75 = add i32 %70, %.1134140
-  %76 = add i32 %75, %66
-  %77 = add i32 %76, %72
-  %78 = add i32 %77, %74
-  %79 = tail call i32 @llvm.fshl.i32(i32 %.1120147, i32 %.1120147, i32 30)
-  %80 = tail call i32 @llvm.fshl.i32(i32 %.1120147, i32 %.1120147, i32 19)
-  %81 = xor i32 %79, %80
-  %82 = tail call i32 @llvm.fshl.i32(i32 %.1120147, i32 %.1120147, i32 10)
-  %83 = xor i32 %81, %82
-  %84 = xor i32 %.1122146, %.1124145
-  %85 = and i32 %.1120147, %84
-  %86 = and i32 %.1122146, %.1124145
-  %87 = xor i32 %85, %86
-  %88 = add i32 %83, %87
-  %89 = add i32 %78, %.1126144
-  %90 = add i32 %88, %78
+.preheader:                                       ; preds = %36, %.preheader
+  %indvars.iv182 = phi i64 [ %indvars.iv.next183, %.preheader ], [ 0, %36 ]
+  %.1120147 = phi i32 [ %89, %.preheader ], [ %.0119157, %36 ]
+  %.1122146 = phi i32 [ %.1120147, %.preheader ], [ %.0121156, %36 ]
+  %.1124145 = phi i32 [ %.1122146, %.preheader ], [ %.0123155, %36 ]
+  %.1126144 = phi i32 [ %.1124145, %.preheader ], [ %.0125154, %36 ]
+  %.1128143 = phi i32 [ %88, %.preheader ], [ %.0127153, %36 ]
+  %.1130142 = phi i32 [ %.1128143, %.preheader ], [ %.0129152, %36 ]
+  %.1132141 = phi i32 [ %.1130142, %.preheader ], [ %.0131151, %36 ]
+  %.1134140 = phi i32 [ %.1132141, %.preheader ], [ %.0133150, %36 ]
+  %61 = tail call i32 @llvm.fshl.i32(i32 %.1128143, i32 %.1128143, i32 26)
+  %62 = tail call i32 @llvm.fshl.i32(i32 %.1128143, i32 %.1128143, i32 21)
+  %63 = xor i32 %61, %62
+  %64 = tail call i32 @llvm.fshl.i32(i32 %.1128143, i32 %.1128143, i32 7)
+  %65 = xor i32 %63, %64
+  %66 = and i32 %.1128143, %.1130142
+  %67 = xor i32 %.1128143, -1
+  %68 = and i32 %.1132141, %67
+  %69 = or i32 %66, %68
+  %70 = getelementptr inbounds nuw [64 x i32], ptr @K, i64 0, i64 %indvars.iv182
+  %71 = load i32, ptr %70, align 4
+  %72 = getelementptr inbounds nuw [64 x i32], ptr %4, i64 0, i64 %indvars.iv182
+  %73 = load i32, ptr %72, align 4
+  %74 = add i32 %69, %.1134140
+  %75 = add i32 %74, %65
+  %76 = add i32 %75, %71
+  %77 = add i32 %76, %73
+  %78 = tail call i32 @llvm.fshl.i32(i32 %.1120147, i32 %.1120147, i32 30)
+  %79 = tail call i32 @llvm.fshl.i32(i32 %.1120147, i32 %.1120147, i32 19)
+  %80 = xor i32 %78, %79
+  %81 = tail call i32 @llvm.fshl.i32(i32 %.1120147, i32 %.1120147, i32 10)
+  %82 = xor i32 %80, %81
+  %83 = xor i32 %.1122146, %.1124145
+  %84 = and i32 %.1120147, %83
+  %85 = and i32 %.1122146, %.1124145
+  %86 = xor i32 %84, %85
+  %87 = add i32 %82, %86
+  %88 = add i32 %77, %.1126144
+  %89 = add i32 %87, %77
   %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
   %exitcond185.not = icmp eq i64 %indvars.iv.next183, 64
-  br i1 %exitcond185.not, label %91, label %.preheader
+  br i1 %exitcond185.not, label %90, label %.preheader
 
-91:                                               ; preds = %.preheader
-  %92 = add i32 %90, %.0119157
-  %93 = add i32 %.1120147, %.0121156
-  %94 = add i32 %.1122146, %.0123155
-  %95 = add i32 %.1124145, %.0125154
-  %96 = add i32 %89, %.0127153
-  %97 = add i32 %.1128143, %.0129152
-  %98 = add i32 %.1130142, %.0131151
-  %99 = add i32 %.1132141, %.0133150
-  %100 = add i64 %.0116158, -16
-  %.not = icmp eq i64 %100, 0
+90:                                               ; preds = %.preheader
+  %91 = add i32 %89, %.0119157
+  %92 = add i32 %.1120147, %.0121156
+  %93 = add i32 %.1122146, %.0123155
+  %94 = add i32 %.1124145, %.0125154
+  %95 = add i32 %88, %.0127153
+  %96 = add i32 %.1128143, %.0129152
+  %97 = add i32 %.1130142, %.0131151
+  %98 = add i32 %.1132141, %.0133150
+  %99 = add i64 %.0116158, -16
+  %.not = icmp eq i64 %99, 0
   br i1 %.not, label %._crit_edge, label %.preheader136
 
-._crit_edge:                                      ; preds = %91, %31
-  %.0133.lcssa = phi i32 [ %20, %31 ], [ %99, %91 ]
-  %.0131.lcssa = phi i32 [ %18, %31 ], [ %98, %91 ]
-  %.0129.lcssa = phi i32 [ %16, %31 ], [ %97, %91 ]
-  %.0127.lcssa = phi i32 [ %14, %31 ], [ %96, %91 ]
-  %.0125.lcssa = phi i32 [ %12, %31 ], [ %95, %91 ]
-  %.0123.lcssa = phi i32 [ %10, %31 ], [ %94, %91 ]
-  %.0121.lcssa = phi i32 [ %8, %31 ], [ %93, %91 ]
-  %.0119.lcssa = phi i32 [ %6, %31 ], [ %92, %91 ]
-  store i32 %.0119.lcssa, ptr %2, align 4
-  store i32 %.0121.lcssa, ptr %7, align 4
-  store i32 %.0123.lcssa, ptr %9, align 4
-  store i32 %.0125.lcssa, ptr %11, align 4
-  store i32 %.0127.lcssa, ptr %13, align 4
-  store i32 %.0129.lcssa, ptr %15, align 4
-  store i32 %.0131.lcssa, ptr %17, align 4
-  store i32 %.0133.lcssa, ptr %19, align 4
+._crit_edge:                                      ; preds = %90
+  store i32 %91, ptr %2, align 4
+  store i32 %92, ptr %7, align 4
+  store i32 %93, ptr %9, align 4
+  store i32 %94, ptr %11, align 4
+  store i32 %95, ptr %13, align 4
+  store i32 %96, ptr %15, align 4
+  store i32 %97, ptr %17, align 4
+  store i32 %98, ptr %19, align 4
   ret void
 }
 

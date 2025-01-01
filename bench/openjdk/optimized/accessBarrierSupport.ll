@@ -38,7 +38,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 @llvm.used = appending global [4 x ptr] [ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE], section "llvm.metadata"
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i64 16384, 0) i64 @_ZN20AccessBarrierSupport32resolve_unknown_oop_ref_strengthEmP7oopDescl(i64 noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i64 16384, -131072) i64 @_ZN20AccessBarrierSupport32resolve_unknown_oop_ref_strengthEmP7oopDescl(i64 noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = tail call noundef zeroext i1 @_ZN23java_lang_ref_Reference17is_referent_fieldEP7oopDescl(ptr noundef %1, i64 noundef %2) #3
   br i1 %4, label %5, label %27
 

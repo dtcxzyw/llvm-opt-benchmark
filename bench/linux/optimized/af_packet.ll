@@ -8034,7 +8034,7 @@ define internal fastcc noundef range(i32 0, -2147483647) i32 @tpacket_get_timest
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__packet_set_status(i32 %.1248.val, ptr noundef %0, i32 noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc void @__packet_set_status(i32 %.1248.val, ptr noundef %0, i32 noundef range(i32 0, -2147483136) %1) unnamed_addr #2 align 16 {
   switch i32 %.1248.val, label %11 [
     i32 0, label %3
     i32 1, label %6

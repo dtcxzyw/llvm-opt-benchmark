@@ -238,7 +238,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end47.i.i
   br i1 %or.cond.i.i, label %float_to_half.exit, label %if.then65.i.i
 
 if.then65.i.i:                                    ; preds = %lor.lhs.false.i.i, %if.end47.i.i
-  %inc.i.i = add i16 %conv56.i.i, 1
+  %inc.i.i = add nuw i16 %conv56.i.i, 1
   br label %float_to_half.exit
 
 float_to_half.exit:                               ; preds = %if.then6.i.i, %if.end.i.i, %if.then29.i.i, %if.end33.i.i, %if.end43.i.i, %lor.lhs.false.i.i, %if.then65.i.i

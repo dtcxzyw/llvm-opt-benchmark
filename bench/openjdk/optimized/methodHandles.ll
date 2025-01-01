@@ -578,7 +578,7 @@ define hidden void @_ZN13MethodHandles11set_enabledEb(i1 noundef zeroext %0) loc
 declare void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef range(i32 65536, 0) i32 @_ZN13MethodHandles17ref_kind_to_flagsEi(i32 noundef %0) local_unnamed_addr #4 align 2 {
+define hidden noundef range(i32 65536, -16252928) i32 @_ZN13MethodHandles17ref_kind_to_flagsEi(i32 noundef %0) local_unnamed_addr #4 align 2 {
   %2 = shl i32 %0, 24
   %3 = icmp slt i32 %0, 5
   %4 = or disjoint i32 %2, 262144

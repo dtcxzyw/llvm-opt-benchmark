@@ -7788,7 +7788,7 @@ _ZN4Luau10TempVectorIPNS_7AstExprEED2Ev.exit58:   ; preds = %_ZN4Luau10TempVecto
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i64 0, 8589934592) i64 @_ZN4Luau6Parser15parseCompoundOpERKNS_6LexemeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local range(i64 0, 4294967304) i64 @_ZN4Luau6Parser15parseCompoundOpERKNS_6LexemeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i32, ptr %0, align 8
   %switch.tableidx = add i32 %2, -270
   %3 = icmp ult i32 %switch.tableidx, 8
@@ -11126,7 +11126,7 @@ define dso_local void @_ZN4Luau6Parser9parseNameEPKc(ptr dead_on_unwind noalias 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i64 @_ZN4Luau6Parser17validateAttributeEPKcRKNS_10TempVectorIPNS_7AstAttrEEE(ptr noundef nonnull align 8 dereferenceable(840) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #1 align 2 {
+define dso_local range(i64 0, -4294967294) i64 @_ZN4Luau6Parser17validateAttributeEPKcRKNS_10TempVectorIPNS_7AstAttrEEE(ptr noundef nonnull align 8 dereferenceable(840) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #1 align 2 {
   %4 = load ptr, ptr @_ZN4Luau17kAttributeEntriesE, align 16
   %.not1536 = icmp eq ptr %4, null
   br i1 %.not1536, label %.loopexit34, label %.lr.ph.preheader
@@ -19344,7 +19344,7 @@ define dso_local noundef ptr @_ZN4Luau6Parser22reportMissingTypeErrorERKNS_8Loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i64 0, 8589934592) i64 @_ZN4Luau6Parser12parseUnaryOpERKNS_6LexemeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local range(i64 0, 4294967300) i64 @_ZN4Luau6Parser12parseUnaryOpERKNS_6LexemeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i32, ptr %0, align 8
   switch i32 %2, label %5 [
     i32 303, label %6
@@ -19369,7 +19369,7 @@ define dso_local range(i64 0, 8589934592) i64 @_ZN4Luau6Parser12parseUnaryOpERKN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i64 0, 8589934592) i64 @_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local range(i64 0, 4294967312) i64 @_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i32, ptr %0, align 8
   switch i32 %2, label %18 [
     i32 43, label %19
@@ -19465,7 +19465,7 @@ define dso_local range(i64 0, 4294967297) i64 @_ZN4Luau6Parser21checkUnaryConfus
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i64 0, 8589934592) i64 @_ZN4Luau6Parser22checkBinaryConfusablesEPKNS0_16BinaryOpPriorityEj(ptr noundef nonnull align 8 dereferenceable(840) %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local range(i64 0, 4294967312) i64 @_ZN4Luau6Parser22checkBinaryConfusablesEPKNS0_16BinaryOpPriorityEj(ptr noundef nonnull align 8 dereferenceable(840) %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Luau::Lexeme", align 8
   %5 = alloca %"struct.Luau::Location", align 8
   %6 = alloca %"struct.Luau::Location", align 8

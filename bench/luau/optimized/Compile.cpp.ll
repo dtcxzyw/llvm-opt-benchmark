@@ -3528,7 +3528,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_Z12setLuauFlagsPKc(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc range(i64 0, 8589934592) i64 @_ZL16getCompileFormatPKc(ptr nocapture noundef readonly %0) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define internal fastcc range(i64 0, 4294967312) i64 @_ZL16getCompileFormatPKc(ptr nocapture noundef readonly %0) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
   %2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.152) #28
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %29, label %4

@@ -1701,7 +1701,7 @@ define hidden i32 @zend_adler32(i32 noundef %0, ptr noundef readonly %1, i32 nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @zend_accel_script_checksum(ptr noundef %0) local_unnamed_addr #6 {
+define hidden range(i32 0, -983040) i32 @zend_accel_script_checksum(ptr noundef %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 424

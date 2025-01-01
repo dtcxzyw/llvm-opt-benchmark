@@ -16881,7 +16881,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN7openvdb5v11_06points13TruncateCodec6encodeINS0_4math8internal4halfEfEEvRKT0_RT_.exit, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN7openvdb5v11_06points13TruncateCodec6encodeINS0_4math8internal4halfEfEEvRKT0_RT_.exit
 
 _ZN7openvdb5v11_06points13TruncateCodec6encodeINS0_4math8internal4halfEfEEvRKT0_RT_.exit: ; preds = %if.then4.i.i.i, %if.end.i.i.i, %if.then23.i.i.i, %if.end27.i.i.i, %if.end37.i.i.i, %lor.lhs.false.i.i.i, %if.then55.i.i.i
@@ -20219,7 +20219,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN7openvdb5v11_06points13TruncateCodec6encodeINS0_4math8internal4halfEfEEvRKT0_RT_.exit, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN7openvdb5v11_06points13TruncateCodec6encodeINS0_4math8internal4halfEfEEvRKT0_RT_.exit
 
 _ZN7openvdb5v11_06points13TruncateCodec6encodeINS0_4math8internal4halfEfEEvRKT0_RT_.exit: ; preds = %if.then4.i.i.i, %if.end.i.i.i, %if.then23.i.i.i, %if.end27.i.i.i, %if.end37.i.i.i, %lor.lhs.false.i.i.i, %if.then55.i.i.i
@@ -20676,7 +20676,7 @@ lor.lhs.false.i.i.i.i:                            ; preds = %if.end40.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %_ZN7openvdb5v11_06points19TypedAttributeArrayIfNS1_13TruncateCodecEE9setUnsafeEjRKf.exit, label %if.then55.i.i.i.i
 
 if.then55.i.i.i.i:                                ; preds = %lor.lhs.false.i.i.i.i, %if.end40.i.i.i.i
-  %inc.i.i.i.i = add i16 %conv49.i.i.i.i, 1
+  %inc.i.i.i.i = add nuw i16 %conv49.i.i.i.i, 1
   br label %_ZN7openvdb5v11_06points19TypedAttributeArrayIfNS1_13TruncateCodecEE9setUnsafeEjRKf.exit
 
 _ZN7openvdb5v11_06points19TypedAttributeArrayIfNS1_13TruncateCodecEE9setUnsafeEjRKf.exit: ; preds = %if.then4.i.i.i.i, %if.end.i.i.i.i, %if.then23.i.i.i.i, %if.end27.i.i.i.i, %if.end37.i.i.i.i, %lor.lhs.false.i.i.i.i, %if.then55.i.i.i.i
@@ -20910,7 +20910,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN7openvdb5v11_06points13TruncateCodec6encodeINS0_4math8internal4halfEfEEvRKT0_RT_.exit, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN7openvdb5v11_06points13TruncateCodec6encodeINS0_4math8internal4halfEfEEvRKT0_RT_.exit
 
 _ZN7openvdb5v11_06points13TruncateCodec6encodeINS0_4math8internal4halfEfEEvRKT0_RT_.exit: ; preds = %if.then4.i.i.i, %if.end.i.i.i, %if.then23.i.i.i, %if.end27.i.i.i, %if.end37.i.i.i, %lor.lhs.false.i.i.i, %if.then55.i.i.i
@@ -61536,7 +61536,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end40.i.i
   br i1 %or.cond.i.i, label %_ZN7openvdb5v11_04math8internal4halfC2Ef.exit, label %if.then55.i.i
 
 if.then55.i.i:                                    ; preds = %lor.lhs.false.i.i, %if.end40.i.i
-  %inc.i.i = add i16 %conv49.i.i, 1
+  %inc.i.i = add nuw i16 %conv49.i.i, 1
   br label %_ZN7openvdb5v11_04math8internal4halfC2Ef.exit
 
 _ZN7openvdb5v11_04math8internal4halfC2Ef.exit:    ; preds = %if.then4.i.i, %if.end.i.i, %if.then23.i.i, %if.end27.i.i, %if.end37.i.i, %lor.lhs.false.i.i, %if.then55.i.i
@@ -61617,7 +61617,7 @@ lor.lhs.false.i.i21:                              ; preds = %if.end40.i.i9
   br i1 %or.cond.i.i25, label %_ZN7openvdb5v11_04math8internal4halfC2Ef.exit52, label %if.then55.i.i26
 
 if.then55.i.i26:                                  ; preds = %lor.lhs.false.i.i21, %if.end40.i.i9
-  %inc.i.i27 = add i16 %conv49.i.i19, 1
+  %inc.i.i27 = add nuw i16 %conv49.i.i19, 1
   br label %_ZN7openvdb5v11_04math8internal4halfC2Ef.exit52
 
 _ZN7openvdb5v11_04math8internal4halfC2Ef.exit52:  ; preds = %if.then4.i.i44, %if.end.i.i47, %if.then23.i.i42, %if.end27.i.i33, %if.end37.i.i7, %lor.lhs.false.i.i21, %if.then55.i.i26
@@ -61699,7 +61699,7 @@ lor.lhs.false.i.i72:                              ; preds = %if.end40.i.i60
   br i1 %or.cond.i.i76, label %_ZN7openvdb5v11_04math8internal4halfC2Ef.exit103, label %if.then55.i.i77
 
 if.then55.i.i77:                                  ; preds = %lor.lhs.false.i.i72, %if.end40.i.i60
-  %inc.i.i78 = add i16 %conv49.i.i70, 1
+  %inc.i.i78 = add nuw i16 %conv49.i.i70, 1
   br label %_ZN7openvdb5v11_04math8internal4halfC2Ef.exit103
 
 _ZN7openvdb5v11_04math8internal4halfC2Ef.exit103: ; preds = %if.then4.i.i95, %if.end.i.i98, %if.then23.i.i93, %if.end27.i.i84, %if.end37.i.i58, %lor.lhs.false.i.i72, %if.then55.i.i77

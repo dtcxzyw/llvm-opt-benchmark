@@ -5374,46 +5374,46 @@ define hidden void @_ZN8rawspeed10ArwDecoder16PostProcessLJpegEv(ptr nocapture n
 
 23:                                               ; preds = %1
   %24 = ashr i32 %17, 1
-  %25 = icmp sgt i32 %24, -1
+  %25 = icmp ugt i32 %17, 1
   tail call void @llvm.assume(i1 %25)
-  %26 = icmp samesign uge i32 %24, %13
+  %26 = icmp sgt i32 %24, -1
   tail call void @llvm.assume(i1 %26)
+  %27 = icmp samesign uge i32 %24, %13
+  tail call void @llvm.assume(i1 %27)
   tail call void @llvm.assume(i1 %22)
-  %27 = shl nuw i32 %15, 1
-  %28 = mul i32 %24, %27
-  %29 = icmp sgt i32 %28, -1
-  tail call void @llvm.assume(i1 %29)
-  %30 = shl nuw nsw i32 %13, 1
-  %31 = and i32 %17, -2
-  %32 = icmp ne i32 %31, 0
-  tail call void @llvm.assume(i1 %32)
-  %33 = icmp uge i32 %31, %30
+  %28 = shl nuw i32 %15, 1
+  %29 = mul i32 %24, %28
+  %30 = icmp sgt i32 %29, -1
+  tail call void @llvm.assume(i1 %30)
+  %31 = shl nuw nsw i32 %13, 1
+  %32 = and i32 %17, -2
+  %33 = icmp uge i32 %32, %31
   br label %45
 
 34:                                               ; preds = %1
   %35 = ashr i32 %17, 2
-  %36 = icmp sgt i32 %35, -1
+  %36 = icmp ugt i32 %17, 3
   tail call void @llvm.assume(i1 %36)
-  %37 = icmp samesign uge i32 %35, %13
+  %37 = icmp sgt i32 %35, -1
   tail call void @llvm.assume(i1 %37)
+  %38 = icmp samesign uge i32 %35, %13
+  tail call void @llvm.assume(i1 %38)
   tail call void @llvm.assume(i1 %22)
-  %38 = shl i32 %15, 2
-  %39 = mul i32 %35, %38
-  %40 = icmp sgt i32 %39, -1
-  tail call void @llvm.assume(i1 %40)
-  %41 = shl nuw nsw i32 %13, 2
-  %42 = and i32 %17, -4
-  %43 = icmp ne i32 %42, 0
-  tail call void @llvm.assume(i1 %43)
-  %44 = icmp uge i32 %42, %41
+  %39 = shl i32 %15, 2
+  %40 = mul i32 %35, %39
+  %41 = icmp sgt i32 %40, -1
+  tail call void @llvm.assume(i1 %41)
+  %42 = shl nuw nsw i32 %13, 2
+  %43 = and i32 %17, -4
+  %44 = icmp uge i32 %43, %42
   tail call void @llvm.assume(i1 %44)
   br label %45
 
 45:                                               ; preds = %34, %23
   %46 = phi i1 [ true, %34 ], [ %33, %23 ]
-  %47 = phi i32 [ %42, %34 ], [ %31, %23 ]
-  %48 = phi i32 [ %39, %34 ], [ %28, %23 ]
-  %49 = phi i32 [ %41, %34 ], [ %30, %23 ]
+  %47 = phi i32 [ %43, %34 ], [ %32, %23 ]
+  %48 = phi i32 [ %40, %34 ], [ %29, %23 ]
+  %49 = phi i32 [ %42, %34 ], [ %31, %23 ]
   tail call void @llvm.assume(i1 %46)
   %50 = mul nuw nsw i32 %47, %15
   %51 = icmp eq i32 %50, %48

@@ -7858,8 +7858,6 @@ define dso_local noundef nonnull align 8 dereferenceable(90) ptr @_ZN4llvm9AANon
 
 5:                                                ; preds = %2
   %6 = and i64 %.0.copyload.i.i.i.i.i, -4
-  %.not.i = icmp ne i64 %6, 0
-  tail call void @llvm.assume(i1 %.not.i)
   %7 = inttoptr i64 %6 to ptr
   %8 = load i8, ptr %7, align 8
   switch i8 %8, label %24 [
@@ -8169,8 +8167,6 @@ define dso_local noundef nonnull align 8 dereferenceable(90) ptr @_ZN4llvm9AANoA
 
 5:                                                ; preds = %2
   %6 = and i64 %.0.copyload.i.i.i.i.i, -4
-  %.not.i = icmp ne i64 %6, 0
-  tail call void @llvm.assume(i1 %.not.i)
   %7 = inttoptr i64 %6 to ptr
   %8 = load i8, ptr %7, align 8
   switch i8 %8, label %24 [
@@ -8480,8 +8476,6 @@ define dso_local noundef nonnull align 8 dereferenceable(90) ptr @_ZN4llvm17AAPr
 
 5:                                                ; preds = %2
   %6 = and i64 %.0.copyload.i.i.i.i.i, -4
-  %.not.i = icmp ne i64 %6, 0
-  tail call void @llvm.assume(i1 %.not.i)
   %7 = inttoptr i64 %6 to ptr
   %8 = load i8, ptr %7, align 8
   switch i8 %8, label %24 [
@@ -8801,8 +8795,6 @@ define dso_local noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm17AAD
 
 5:                                                ; preds = %2
   %6 = and i64 %.0.copyload.i.i.i.i.i, -4
-  %.not.i = icmp ne i64 %6, 0
-  tail call void @llvm.assume(i1 %.not.i)
   %7 = inttoptr i64 %6 to ptr
   %8 = load i8, ptr %7, align 8
   switch i8 %8, label %24 [
@@ -9187,8 +9179,6 @@ define dso_local noundef nonnull align 8 dereferenceable(104) ptr @_ZN4llvm7AAAl
 
 5:                                                ; preds = %2
   %6 = and i64 %.0.copyload.i.i.i.i.i, -4
-  %.not.i = icmp ne i64 %6, 0
-  tail call void @llvm.assume(i1 %.not.i)
   %7 = inttoptr i64 %6 to ptr
   %8 = load i8, ptr %7, align 8
   switch i8 %8, label %24 [
@@ -9508,8 +9498,6 @@ define dso_local noundef nonnull align 8 dereferenceable(90) ptr @_ZN4llvm14AAIn
 
 5:                                                ; preds = %2
   %6 = and i64 %.0.copyload.i.i.i.i.i, -4
-  %.not.i = icmp ne i64 %6, 0
-  tail call void @llvm.assume(i1 %.not.i)
   %7 = inttoptr i64 %6 to ptr
   %8 = load i8, ptr %7, align 8
   switch i8 %8, label %24 [
@@ -9807,8 +9795,6 @@ define dso_local noundef nonnull align 8 dereferenceable(92) ptr @_ZN4llvm11AANo
 
 5:                                                ; preds = %2
   %6 = and i64 %.0.copyload.i.i.i.i.i, -4
-  %.not.i = icmp ne i64 %6, 0
-  tail call void @llvm.assume(i1 %.not.i)
   %7 = inttoptr i64 %6 to ptr
   %8 = load i8, ptr %7, align 8
   switch i8 %8, label %24 [
@@ -10106,8 +10092,6 @@ define dso_local noundef nonnull align 8 dereferenceable(160) ptr @_ZN4llvm20AAV
 
 5:                                                ; preds = %2
   %6 = and i64 %.0.copyload.i.i.i.i.i, -4
-  %.not.i = icmp ne i64 %6, 0
-  tail call void @llvm.assume(i1 %.not.i)
   %7 = inttoptr i64 %6 to ptr
   %8 = load i8, ptr %7, align 8
   switch i8 %8, label %24 [
@@ -10471,8 +10455,6 @@ define dso_local noundef nonnull align 8 dereferenceable(273) ptr @_ZN4llvm25AAP
 
 5:                                                ; preds = %2
   %6 = and i64 %.0.copyload.i.i.i.i.i, -4
-  %.not.i = icmp ne i64 %6, 0
-  tail call void @llvm.assume(i1 %.not.i)
   %7 = inttoptr i64 %6 to ptr
   %8 = load i8, ptr %7, align 8
   switch i8 %8, label %24 [
@@ -10847,8 +10829,6 @@ define dso_local noundef nonnull align 8 dereferenceable(337) ptr @_ZN4llvm17AAP
 
 5:                                                ; preds = %2
   %6 = and i64 %.0.copyload.i.i.i.i.i, -4
-  %.not.i = icmp ne i64 %6, 0
-  tail call void @llvm.assume(i1 %.not.i)
   %7 = inttoptr i64 %6 to ptr
   %8 = load i8, ptr %7, align 8
   switch i8 %8, label %24 [
@@ -11225,8 +11205,6 @@ define dso_local noundef nonnull align 8 dereferenceable(90) ptr @_ZN4llvm9AANoU
 
 5:                                                ; preds = %2
   %6 = and i64 %.0.copyload.i.i.i.i.i, -4
-  %.not.i = icmp ne i64 %6, 0
-  tail call void @llvm.assume(i1 %.not.i)
   %7 = inttoptr i64 %6 to ptr
   %8 = load i8, ptr %7, align 8
   switch i8 %8, label %24 [
@@ -11536,8 +11514,6 @@ define dso_local noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm11AANo
 
 5:                                                ; preds = %2
   %6 = and i64 %.0.copyload.i.i.i.i.i, -4
-  %.not.i = icmp ne i64 %6, 0
-  tail call void @llvm.assume(i1 %.not.i)
   %7 = inttoptr i64 %6 to ptr
   %8 = load i8, ptr %7, align 8
   switch i8 %8, label %24 [
@@ -11847,8 +11823,6 @@ define dso_local noundef nonnull align 8 dereferenceable(80) ptr @_ZN4llvm13AAPo
 
 5:                                                ; preds = %2
   %6 = and i64 %.0.copyload.i.i.i.i.i, -4
-  %.not.i = icmp ne i64 %6, 0
-  tail call void @llvm.assume(i1 %.not.i)
   %7 = inttoptr i64 %6 to ptr
   %8 = load i8, ptr %7, align 8
   switch i8 %8, label %24 [
@@ -12228,8 +12202,6 @@ define dso_local noundef nonnull align 8 dereferenceable(90) ptr @_ZN4llvm14AAAd
 
 5:                                                ; preds = %2
   %6 = and i64 %.0.copyload.i.i.i.i.i, -4
-  %.not.i = icmp ne i64 %6, 0
-  tail call void @llvm.assume(i1 %.not.i)
   %7 = inttoptr i64 %6 to ptr
   %8 = load i8, ptr %7, align 8
   switch i8 %8, label %24 [
@@ -12549,8 +12521,6 @@ define dso_local noundef nonnull align 8 dereferenceable(90) ptr @_ZN4llvm16AAAl
 
 5:                                                ; preds = %2
   %6 = and i64 %.0.copyload.i.i.i.i.i, -4
-  %.not.i = icmp ne i64 %6, 0
-  tail call void @llvm.assume(i1 %.not.i)
   %7 = inttoptr i64 %6 to ptr
   %8 = load i8, ptr %7, align 8
   switch i8 %8, label %24 [
@@ -12870,8 +12840,6 @@ define dso_local noundef nonnull align 8 dereferenceable(128) ptr @_ZN4llvm15AAV
 
 5:                                                ; preds = %2
   %6 = and i64 %.0.copyload.i.i.i.i.i, -4
-  %.not.i = icmp ne i64 %6, 0
-  tail call void @llvm.assume(i1 %.not.i)
   %7 = inttoptr i64 %6 to ptr
   %8 = load i8, ptr %7, align 8
   switch i8 %8, label %24 [
@@ -13322,8 +13290,6 @@ define dso_local noundef nonnull align 8 dereferenceable(90) ptr @_ZN4llvm8AAIsD
 
 5:                                                ; preds = %2
   %6 = and i64 %.0.copyload.i.i.i.i.i, -4
-  %.not.i = icmp ne i64 %6, 0
-  tail call void @llvm.assume(i1 %.not.i)
   %7 = inttoptr i64 %6 to ptr
   %8 = load i8, ptr %7, align 8
   switch i8 %8, label %16 [
@@ -13786,8 +13752,6 @@ define dso_local noundef nonnull align 8 dereferenceable(90) ptr @_ZN4llvm8AANoF
 
 5:                                                ; preds = %2
   %6 = and i64 %.0.copyload.i.i.i.i.i, -4
-  %.not.i = icmp ne i64 %6, 0
-  tail call void @llvm.assume(i1 %.not.i)
   %7 = inttoptr i64 %6 to ptr
   %8 = load i8, ptr %7, align 8
   switch i8 %8, label %24 [
@@ -14181,8 +14145,6 @@ define dso_local noundef nonnull align 8 dereferenceable(80) ptr @_ZN4llvm19AAUn
 
 5:                                                ; preds = %2
   %6 = and i64 %.0.copyload.i.i.i.i.i, -4
-  %.not.i = icmp ne i64 %6, 0
-  tail call void @llvm.assume(i1 %.not.i)
   %7 = inttoptr i64 %6 to ptr
   %8 = load i8, ptr %7, align 8
   switch i8 %8, label %24 [
@@ -14791,8 +14753,6 @@ _ZNK4llvm10IRPosition15getPositionKindEv.exit:
   %switch.not = icmp eq i8 %4, 0
   tail call void @llvm.assume(i1 %switch.not)
   %5 = and i64 %.0.copyload.i.i.i.i.i, -4
-  %.not.i = icmp ne i64 %5, 0
-  tail call void @llvm.assume(i1 %.not.i)
   %6 = inttoptr i64 %5 to ptr
   %7 = load i8, ptr %6, align 8
   %cond = icmp eq i8 %7, 0
@@ -14872,8 +14832,6 @@ _ZNK4llvm10IRPosition15getPositionKindEv.exit:
   %switch.not = icmp eq i8 %4, 0
   tail call void @llvm.assume(i1 %switch.not)
   %5 = and i64 %.0.copyload.i.i.i.i.i, -4
-  %.not.i = icmp ne i64 %5, 0
-  tail call void @llvm.assume(i1 %.not.i)
   %6 = inttoptr i64 %5 to ptr
   %7 = load i8, ptr %6, align 8
   %cond = icmp eq i8 %7, 0
@@ -14966,8 +14924,6 @@ _ZNK4llvm10IRPosition15getPositionKindEv.exit:
   %switch.not = icmp eq i8 %4, 0
   tail call void @llvm.assume(i1 %switch.not)
   %5 = and i64 %.0.copyload.i.i.i.i.i, -4
-  %.not.i = icmp ne i64 %5, 0
-  tail call void @llvm.assume(i1 %.not.i)
   %6 = inttoptr i64 %5 to ptr
   %7 = load i8, ptr %6, align 8
   %cond = icmp eq i8 %7, 0
@@ -15038,8 +14994,6 @@ _ZNK4llvm10IRPosition15getPositionKindEv.exit:
   %switch.not = icmp eq i8 %4, 0
   tail call void @llvm.assume(i1 %switch.not)
   %5 = and i64 %.0.copyload.i.i.i.i.i, -4
-  %.not.i = icmp ne i64 %5, 0
-  tail call void @llvm.assume(i1 %.not.i)
   %6 = inttoptr i64 %5 to ptr
   %7 = load i8, ptr %6, align 8
   %cond = icmp eq i8 %7, 0
@@ -15231,8 +15185,6 @@ _ZNK4llvm10IRPosition15getPositionKindEv.exit:
   %switch.not = icmp eq i8 %4, 0
   tail call void @llvm.assume(i1 %switch.not)
   %5 = and i64 %.0.copyload.i.i.i.i.i, -4
-  %.not.i = icmp ne i64 %5, 0
-  tail call void @llvm.assume(i1 %.not.i)
   %6 = inttoptr i64 %5 to ptr
   %7 = load i8, ptr %6, align 8
   %cond = icmp eq i8 %7, 0
@@ -15310,8 +15262,6 @@ _ZNK4llvm10IRPosition15getPositionKindEv.exit:
   %switch.not = icmp eq i8 %4, 0
   tail call void @llvm.assume(i1 %switch.not)
   %5 = and i64 %.0.copyload.i.i.i.i.i, -4
-  %.not.i = icmp ne i64 %5, 0
-  tail call void @llvm.assume(i1 %.not.i)
   %6 = inttoptr i64 %5 to ptr
   %7 = load i8, ptr %6, align 8
   %cond = icmp eq i8 %7, 0
@@ -15388,8 +15338,6 @@ define dso_local noundef nonnull align 8 dereferenceable(90) ptr @_ZN4llvm16AAMe
 
 5:                                                ; preds = %2
   %6 = and i64 %.0.copyload.i.i.i.i.i, -4
-  %.not.i = icmp ne i64 %6, 0
-  tail call void @llvm.assume(i1 %.not.i)
   %7 = inttoptr i64 %6 to ptr
   %8 = load i8, ptr %7, align 8
   switch i8 %8, label %24 [
@@ -24625,8 +24573,6 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor16getOrCreateAAForIN
   %switch.not.i = icmp eq i8 %27, 0
   call void @llvm.assume(i1 %switch.not.i)
   %28 = and i64 %.0.copyload.i.i.i.i.i.i, -4
-  %.not.i.i = icmp ne i64 %28, 0
-  call void @llvm.assume(i1 %.not.i.i)
   %29 = inttoptr i64 %28 to ptr
   %30 = load i8, ptr %29, align 8
   %cond.i = icmp eq i8 %30, 0
@@ -154437,8 +154383,6 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor16getOrCreateAAForIN
   %switch.not.i = icmp eq i8 %27, 0
   call void @llvm.assume(i1 %switch.not.i)
   %28 = and i64 %.0.copyload.i.i.i.i.i.i, -4
-  %.not.i.i = icmp ne i64 %28, 0
-  call void @llvm.assume(i1 %.not.i.i)
   %29 = inttoptr i64 %28 to ptr
   %30 = load i8, ptr %29, align 8
   %cond.i = icmp eq i8 %30, 0
@@ -164014,8 +163958,6 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor16getOrCreateAAForIN
   %switch.not.i = icmp eq i8 %27, 0
   call void @llvm.assume(i1 %switch.not.i)
   %28 = and i64 %.0.copyload.i.i.i.i.i.i, -4
-  %.not.i.i = icmp ne i64 %28, 0
-  call void @llvm.assume(i1 %.not.i.i)
   %29 = inttoptr i64 %28 to ptr
   %30 = load i8, ptr %29, align 8
   %cond.i = icmp eq i8 %30, 0

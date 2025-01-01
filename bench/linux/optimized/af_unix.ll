@@ -2898,7 +2898,7 @@ define internal i32 @unix_getname(ptr nocapture noundef readonly %0, ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 0, 16384) i32 @unix_poll(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define internal range(i32 0, 9216) i32 @unix_poll(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %2, null
@@ -5966,7 +5966,7 @@ define internal i32 @unix_dgram_connect(ptr noundef %0, ptr noundef %1, i32 noun
 declare dso_local i32 @sock_no_accept(ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 0, 16384) i32 @unix_dgram_poll(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define internal range(i32 0, 9216) i32 @unix_dgram_poll(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %2, null

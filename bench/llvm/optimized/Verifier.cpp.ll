@@ -10284,7 +10284,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeESt4pairIbjENS_12DenseMapInfoIS4
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i64 @_ZN4llvm12TBAAVerifier22verifyTBAABaseNodeImplERNS_11InstructionEPKNS_6MDNodeEb(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define dso_local range(i64 0, -4294967294) i64 @_ZN4llvm12TBAAVerifier22verifyTBAABaseNodeImplERNS_11InstructionEPKNS_6MDNodeEb(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
@@ -13585,7 +13585,7 @@ _ZN12_GLOBAL__N_118VerifierLegacyPassC2Eb.exit:   ; preds = %1
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i16 0, 512) i16 @_ZN4llvm16VerifierAnalysis3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEE(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(857) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(72) %2) local_unnamed_addr #0 align 2 {
+define dso_local range(i16 0, 258) i16 @_ZN4llvm16VerifierAnalysis3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEE(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(857) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(72) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.(anonymous namespace)::Verifier", align 8
   %5 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm4dbgsEv() #23
   call void @llvm.lifetime.start.p0(i64 2296, ptr nonnull %4)

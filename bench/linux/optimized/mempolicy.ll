@@ -4788,7 +4788,7 @@ define dso_local void @numa_policy_init() local_unnamed_addr #10 section ".init.
 declare dso_local ptr @kmem_cache_create(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i64 -2147483648, 2147483648) i64 @do_set_mempolicy(i16 noundef zeroext %0, i16 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @do_set_mempolicy(i16 noundef zeroext %0, i16 noundef zeroext range(i16 0, -8191) %1, ptr noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.nodemask_t, align 8
   %5 = alloca %struct.nodemask_scratch, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #19

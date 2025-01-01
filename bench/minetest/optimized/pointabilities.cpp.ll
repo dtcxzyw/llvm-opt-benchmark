@@ -287,7 +287,7 @@ cond.end:                                         ; preds = %cond.false, %_ZN14P
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i16 0, 512) i16 @_ZN14Pointabilities11matchGroupsERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_iEEERKS0_IS6_16PointabilityTypeS8_SA_SaISB_ISC_SI_EEE(ptr noundef nonnull align 8 dereferenceable(56) %groups, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %pointable_groups) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local range(i16 0, 260) i16 @_ZN14Pointabilities11matchGroupsERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_iEEERKS0_IS6_16PointabilityTypeS8_SA_SaISB_ISC_SI_EEE(ptr noundef nonnull align 8 dereferenceable(56) %groups, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %pointable_groups) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_before_begin.i.i.i = getelementptr inbounds nuw i8, ptr %pointable_groups, i64 16
   %__begin1.sroa.0.053 = load ptr, ptr %_M_before_begin.i.i.i, align 8, !tbaa !15
@@ -427,7 +427,7 @@ cond.end:                                         ; preds = %cond.false, %_ZN14P
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i16 0, 512) i16 @_ZNK14Pointabilities11matchPlayerERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_iEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, ptr noundef nonnull align 8 dereferenceable(56) %groups) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local range(i16 0, 260) i16 @_ZNK14Pointabilities11matchPlayerERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_iEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, ptr noundef nonnull align 8 dereferenceable(56) %groups) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_before_begin.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 184
   %__begin1.sroa.0.053.i = load ptr, ptr %_M_before_begin.i.i.i.i, align 8, !tbaa !15

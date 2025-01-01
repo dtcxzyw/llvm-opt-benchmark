@@ -3511,14 +3511,14 @@ _ZN5clang7ODRHash10AddBooleanEb.exit26:           ; preds = %21, %28
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %44, align 8
   %45 = and i64 %.sroa.0.0.copyload.i.i.i, 15
   %.not.i.i = icmp eq i64 %45, 0
-  br i1 %.not.i.i, label %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit.i, label %46
+  br i1 %.not.i.i, label %_ZNK5clang8EnumDecl14getIntegerTypeEv.exit, label %46
 
 46:                                               ; preds = %39
   %47 = tail call { ptr, i64 } @_ZN5clang8QualType27getSplitUnqualifiedTypeImplES0_(i64 %.sroa.0.0.copyload.i.i) #14
   %48 = extractvalue { ptr, i64 } %47, 0
-  br label %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit.i
+  br label %_ZNK5clang8EnumDecl14getIntegerTypeEv.exit
 
-_ZNK5clang8QualType18getUnqualifiedTypeEv.exit.i: ; preds = %46, %39
+_ZNK5clang8EnumDecl14getIntegerTypeEv.exit:       ; preds = %39, %46
   %.sroa.03.0.in.in.i.i = phi ptr [ %48, %46 ], [ %43, %39 ]
   %.sroa.03.0.in.i.i = ptrtoint ptr %.sroa.03.0.in.in.i.i to i64
   %.sroa.03.0.i.i = and i64 %.sroa.03.0.in.i.i, -16
@@ -3528,7 +3528,7 @@ _ZNK5clang8QualType18getUnqualifiedTypeEv.exit.i: ; preds = %46, %39
   tail call void @_ZN5clang7ODRHash11AddQualTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(320) %0, i64 %51)
   br label %52
 
-52:                                               ; preds = %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit.i, %35
+52:                                               ; preds = %_ZNK5clang8EnumDecl14getIntegerTypeEv.exit, %35
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull %53, i64 noundef 16) #14
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 64

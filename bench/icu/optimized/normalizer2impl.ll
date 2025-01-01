@@ -4834,7 +4834,7 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %cmp2 = icmp samesign ult i32 %c, 65536
-  br i1 %cmp2, label %land.lhs.true, label %lor.rhs.thread
+  br i1 %cmp2, label %land.lhs.true, label %cond.false6.i
 
 land.lhs.true:                                    ; preds = %lor.lhs.false
   %smallFCD.i = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -4858,11 +4858,6 @@ lor.rhs:                                          ; preds = %land.lhs.true
   %cmp.i5 = icmp eq i32 %and.i4, 55296
   br i1 %cmp.i5, label %_ZNK6icu_7515Normalizer2Impl9getNorm16Ei.exit, label %cond.true3.i
 
-lor.rhs.thread:                                   ; preds = %lor.lhs.false
-  %and.i414 = and i32 %c, -1024
-  %cmp.i515 = icmp eq i32 %and.i414, 55296
-  br i1 %cmp.i515, label %_ZNK6icu_7515Normalizer2Impl9getNorm16Ei.exit, label %cond.false6.i
-
 cond.true3.i:                                     ; preds = %lor.rhs
   %normTrie.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %5 = load ptr, ptr %normTrie.i, align 8
@@ -4878,7 +4873,7 @@ cond.true3.i:                                     ; preds = %lor.rhs
   %add.i = add nuw nsw i32 %and5.i, %conv.i9
   br label %cond.end21.i
 
-cond.false6.i:                                    ; preds = %lor.rhs.thread
+cond.false6.i:                                    ; preds = %lor.lhs.false
   %normTrie.i16 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %9 = load ptr, ptr %normTrie.i16, align 8
   %data.i17 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -4916,8 +4911,8 @@ cond.end21.i:                                     ; preds = %cond.false15.i, %co
   %15 = load i16, ptr %arrayidx24.i, align 2
   br label %_ZNK6icu_7515Normalizer2Impl9getNorm16Ei.exit
 
-_ZNK6icu_7515Normalizer2Impl9getNorm16Ei.exit:    ; preds = %lor.rhs.thread, %lor.rhs, %cond.end21.i
-  %cond26.i = phi i16 [ %15, %cond.end21.i ], [ 1, %lor.rhs ], [ 1, %lor.rhs.thread ]
+_ZNK6icu_7515Normalizer2Impl9getNorm16Ei.exit:    ; preds = %lor.rhs, %cond.end21.i
+  %cond26.i = phi i16 [ %15, %cond.end21.i ], [ 1, %lor.rhs ]
   %minNoNoCompNoMaybeCC.i = getelementptr inbounds nuw i8, ptr %this, i64 22
   %16 = load i16, ptr %minNoNoCompNoMaybeCC.i, align 2
   %cmp.i10 = icmp ult i16 %cond26.i, %16
@@ -4973,7 +4968,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %cmp2 = icmp samesign ult i32 %c, 65536
-  br i1 %cmp2, label %land.lhs.true, label %if.end4.thread
+  br i1 %cmp2, label %land.lhs.true, label %cond.false6.i
 
 land.lhs.true:                                    ; preds = %if.end
   %smallFCD.i = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -4997,11 +4992,6 @@ if.end4:                                          ; preds = %land.lhs.true
   %cmp.i5 = icmp eq i32 %and.i4, 55296
   br i1 %cmp.i5, label %_ZNK6icu_7515Normalizer2Impl9getNorm16Ei.exit, label %cond.true3.i
 
-if.end4.thread:                                   ; preds = %if.end
-  %and.i413 = and i32 %c, -1024
-  %cmp.i514 = icmp eq i32 %and.i413, 55296
-  br i1 %cmp.i514, label %_ZNK6icu_7515Normalizer2Impl9getNorm16Ei.exit, label %cond.false6.i
-
 cond.true3.i:                                     ; preds = %if.end4
   %normTrie.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %5 = load ptr, ptr %normTrie.i, align 8
@@ -5017,7 +5007,7 @@ cond.true3.i:                                     ; preds = %if.end4
   %add.i = add nuw nsw i32 %and5.i, %conv.i9
   br label %cond.end21.i
 
-cond.false6.i:                                    ; preds = %if.end4.thread
+cond.false6.i:                                    ; preds = %if.end
   %normTrie.i15 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %9 = load ptr, ptr %normTrie.i15, align 8
   %data.i16 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -5055,8 +5045,8 @@ cond.end21.i:                                     ; preds = %cond.false15.i, %co
   %15 = load i16, ptr %arrayidx24.i, align 2
   br label %_ZNK6icu_7515Normalizer2Impl9getNorm16Ei.exit
 
-_ZNK6icu_7515Normalizer2Impl9getNorm16Ei.exit:    ; preds = %if.end4.thread, %if.end4, %cond.end21.i
-  %cond26.i = phi i16 [ %15, %cond.end21.i ], [ 1, %if.end4 ], [ 1, %if.end4.thread ]
+_ZNK6icu_7515Normalizer2Impl9getNorm16Ei.exit:    ; preds = %if.end4, %cond.end21.i
+  %cond26.i = phi i16 [ %15, %cond.end21.i ], [ 1, %if.end4 ]
   %minYesNo.i = getelementptr inbounds nuw i8, ptr %this, i64 14
   %16 = load i16, ptr %minYesNo.i, align 2
   %cmp.not.i = icmp ugt i16 %cond26.i, %16

@@ -2162,10 +2162,6 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.thread.i: ; preds = %3
 
 47:                                               ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.thread.i
   %48 = and i64 %.0.copyload.i.i.i.i.i.i, -8
-  %or.cond.not.i = icmp eq i64 %48, 0
-  br i1 %or.cond.not.i, label %_ZNK4llvm23GISelInstProfileBuilder12addNodeIDRegENS_8RegisterE.exit, label %.sink.split.i
-
-.sink.split.i:                                    ; preds = %47
   %49 = load ptr, ptr %0, align 8
   tail call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %49, i64 noundef %48)
   br label %_ZNK4llvm23GISelInstProfileBuilder12addNodeIDRegENS_8RegisterE.exit
@@ -2221,7 +2217,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit:    ; preds = %64, %73
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(144) %67, i64 noundef %79) #17
   br label %_ZNK4llvm23GISelInstProfileBuilder12addNodeIDRegENS_8RegisterE.exit
 
-_ZNK4llvm23GISelInstProfileBuilder12addNodeIDRegENS_8RegisterE.exit: ; preds = %.sink.split.i, %47, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.thread.i, %50, %59, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit, %54
+_ZNK4llvm23GISelInstProfileBuilder12addNodeIDRegENS_8RegisterE.exit: ; preds = %47, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.thread.i, %50, %59, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit, %54
   ret ptr %0
 }
 
@@ -2380,19 +2376,15 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.thread: ; preds = %._Z
   %28 = getelementptr inbounds nuw %"struct.std::pair", ptr %27, i64 %.pre-phi22
   %.0.copyload.i.i.i.i.i = load i64, ptr %28, align 8
   %.not.i.i = icmp ugt i64 %.0.copyload.i.i.i.i.i, 7
-  br i1 %.not.i.i, label %29, label %32
+  br i1 %.not.i.i, label %.sink.split, label %31
 
-29:                                               ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.thread
-  %30 = and i64 %.0.copyload.i.i.i.i.i, -8
-  %or.cond.not = icmp eq i64 %30, 0
-  br i1 %or.cond.not, label %32, label %.sink.split
+.sink.split:                                      ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.thread
+  %29 = and i64 %.0.copyload.i.i.i.i.i, -8
+  %30 = load ptr, ptr %0, align 8
+  tail call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %30, i64 noundef %29)
+  br label %31
 
-.sink.split:                                      ; preds = %29
-  %31 = load ptr, ptr %0, align 8
-  tail call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %31, i64 noundef %30)
-  br label %32
-
-32:                                               ; preds = %29, %.sink.split, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.thread
+31:                                               ; preds = %.sink.split, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.thread
   ret ptr %0
 }
 

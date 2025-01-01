@@ -49596,7 +49596,7 @@ define noundef zeroext i1 @_ZN13rust_analyzer6config6Config23expand_proc_attr_ma
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define range(i40 0, 8589934592) i40 @_ZN13rust_analyzer6config6Config17highlight_related17h547e1d9c472e548aE(ptr noalias nocapture noundef readonly align 8 dereferenceable(4560) %0, i32 noundef %1, i32 %2) unnamed_addr #25 {
+define range(i40 0, 4328521728) i40 @_ZN13rust_analyzer6config6Config17highlight_related17h547e1d9c472e548aE(ptr noalias nocapture noundef readonly align 8 dereferenceable(4560) %0, i32 noundef %1, i32 %2) unnamed_addr #25 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2193
   %5 = load i8, ptr %4, align 1, !range !1844, !alias.scope !8818, !noundef !4
   %6 = icmp eq i8 %5, 2
@@ -49664,7 +49664,7 @@ define range(i40 0, 8589934592) i40 @_ZN13rust_analyzer6config6Config17highlight
 }
 
 ; Function Attrs: nonlazybind uwtable
-define range(i40 0, 8589934592) i40 @_ZN13rust_analyzer6config6Config13hover_actions17h44224b3693ec32daE(ptr noalias noundef readonly align 8 dereferenceable(4560) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
+define range(i40 0, 4328521728) i40 @_ZN13rust_analyzer6config6Config13hover_actions17h44224b3693ec32daE(ptr noalias noundef readonly align 8 dereferenceable(4560) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4408
   %3 = load i64, ptr %2, align 8, !range !131, !alias.scope !8833, !noalias !8836, !noundef !4
   %4 = icmp eq i64 %3, -9223372036854775803
@@ -50492,7 +50492,7 @@ switch.lookup:                                    ; preds = %.noexc6.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden range(i40 0, 34359738368) i40 @_ZN13rust_analyzer6config6Config17insert_use_config17h39d8d8eaeb53eb23E.llvm.3663151438746104753(ptr noalias nocapture noundef readonly align 8 dereferenceable(4560) %0, i32 %1, i32 %2) unnamed_addr #25 {
+define hidden range(i40 0, 17246978048) i40 @_ZN13rust_analyzer6config6Config17insert_use_config17h39d8d8eaeb53eb23E.llvm.3663151438746104753(ptr noalias nocapture noundef readonly align 8 dereferenceable(4560) %0, i32 %1, i32 %2) unnamed_addr #25 {
 switch.lookup:
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2234
   %4 = load i8, ptr %3, align 2, !range !5638, !alias.scope !9106, !noundef !4
@@ -50568,7 +50568,7 @@ switch.lookup:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define range(i32 0, 33554432) i32 @_ZN13rust_analyzer6config6Config10join_lines17hd17f461b119becc1E(ptr noalias nocapture noundef readonly align 8 dereferenceable(4560) %0, i32 noundef %1, i32 %2) unnamed_addr #25 {
+define range(i32 0, 16908288) i32 @_ZN13rust_analyzer6config6Config10join_lines17hd17f461b119becc1E(ptr noalias nocapture noundef readonly align 8 dereferenceable(4560) %0, i32 noundef %1, i32 %2) unnamed_addr #25 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2214
   %5 = load i8, ptr %4, align 2, !range !1844, !alias.scope !9121, !noundef !4
   %6 = icmp eq i8 %5, 2
@@ -50639,7 +50639,7 @@ define noundef zeroext i1 @_ZN13rust_analyzer6config6Config32highlighting_non_st
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define range(i64 0, 562949953421312) i64 @_ZN13rust_analyzer6config6Config19highlighting_config17h9d842c800b14092cE(ptr noalias nocapture noundef readonly align 8 dereferenceable(4560) %0, i32 noundef %1, i32 %2) unnamed_addr #25 {
+define range(i64 0, 283673999966208) i64 @_ZN13rust_analyzer6config6Config19highlighting_config17h9d842c800b14092cE(ptr noalias nocapture noundef readonly align 8 dereferenceable(4560) %0, i32 noundef %1, i32 %2) unnamed_addr #25 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %5 = load i8, ptr %4, align 8, !range !1844, !alias.scope !9136, !noundef !4
   %6 = icmp eq i8 %5, 2
@@ -54724,7 +54724,7 @@ define noundef zeroext i1 @_ZN13rust_analyzer6config6Config22insert_replace_supp
 }
 
 ; Function Attrs: nonlazybind uwtable
-define range(i40 0, 8589934592) i40 @_ZN13rust_analyzer6config6Config15client_commands17h032d2608fbb9d671E(ptr noalias noundef readonly align 8 dereferenceable(4560) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
+define range(i40 0, 4328521728) i40 @_ZN13rust_analyzer6config6Config15client_commands17h032d2608fbb9d671E(ptr noalias noundef readonly align 8 dereferenceable(4560) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = alloca { i8, [15 x i8] }, align 8
   %3 = alloca { { { i64, ptr, {} }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, align 8
   %4 = alloca { { i64, ptr, {} }, i64 }, align 8
@@ -96760,7 +96760,7 @@ define noundef zeroext i1 @"_ZN182_$LT$rust_analyzer..config.._..$LT$impl$u20$se
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 67108864) i32 @"_ZN13rust_analyzer6config6Config43did_save_text_document_dynamic_registration28_$u7b$$u7b$closure$u7d$$u7d$17hef4fe0bc29a1209bE.llvm.3663151438746104753"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #2 {
+define hidden range(i32 0, 33816576) i32 @"_ZN13rust_analyzer6config6Config43did_save_text_document_dynamic_registration28_$u7b$$u7b$closure$u7d$$u7d$17hef4fe0bc29a1209bE.llvm.3663151438746104753"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !135, !noundef !4
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 3512
   %4 = load i64, ptr %3, align 8, !range !313, !noundef !4

@@ -566,7 +566,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i64 @_ZN6icu_7513UCollationPCE9processCEEj(ptr nocapture noundef nonnull align 8 dereferenceable(292) %this, i32 noundef %ce) local_unnamed_addr #9 align 2 {
+define noundef range(i64 0, -280375465082880) i64 @_ZN6icu_7513UCollationPCE9processCEEj(ptr nocapture noundef nonnull align 8 dereferenceable(292) %this, i32 noundef %ce) local_unnamed_addr #9 align 2 {
 entry:
   %strength = getelementptr inbounds nuw i8, ptr %this, i64 280
   %0 = load i32, ptr %strength, align 8
@@ -799,7 +799,7 @@ return:                                           ; preds = %entry, %if.end
 declare noundef i32 @_ZN6icu_7524CollationElementIterator4nextER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(104), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i64 1, 0) i64 @_ZN6icu_7513UCollationPCE13nextProcessedEPiS1_P10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(292) %this, ptr noundef writeonly %ixLow, ptr noundef writeonly %ixHigh, ptr noundef %status) local_unnamed_addr #6 align 2 {
+define noundef range(i64 1, -280375465082880) i64 @_ZN6icu_7513UCollationPCE13nextProcessedEPiS1_P10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(292) %this, ptr noundef writeonly %ixLow, ptr noundef writeonly %ixHigh, ptr noundef %status) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1

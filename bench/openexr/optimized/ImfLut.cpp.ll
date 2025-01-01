@@ -462,7 +462,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end40.i.i
   br i1 %or.cond.i.i, label %return, label %if.then55.i.i
 
 if.then55.i.i:                                    ; preds = %lor.lhs.false.i.i, %if.end40.i.i
-  %inc.i.i = add i16 %conv49.i.i, 1
+  %inc.i.i = add nuw i16 %conv49.i.i, 1
   br label %return
 
 return:                                           ; preds = %if.then55.i.i, %lor.lhs.false.i.i, %if.end37.i.i, %if.end27.i.i, %if.then23.i.i, %if.end.i.i, %if.then4.i.i, %entry

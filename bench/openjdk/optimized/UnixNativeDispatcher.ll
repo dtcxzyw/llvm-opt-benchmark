@@ -96,7 +96,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.47 = private unnamed_addr constant [5 x i8] c"(I)V\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 131072) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define range(i32 0, 65600) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8

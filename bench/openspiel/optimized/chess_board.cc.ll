@@ -953,7 +953,7 @@ declare void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11
 declare void @_ZN4absl7debian26StrCatB5cxx11ERKNS0_8AlphaNumES3_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define range(i16 0, 2048) i16 @_ZN10open_spiel5chess17PieceTypeFromCharEc(i8 noundef signext %0) local_unnamed_addr #4 {
+define range(i16 0, 1538) i16 @_ZN10open_spiel5chess17PieceTypeFromCharEc(i8 noundef signext %0) local_unnamed_addr #4 {
   %2 = sext i8 %0 to i32
   %3 = tail call i32 @toupper(i32 noundef %2) #36
   switch i32 %3, label %9 [
@@ -1847,7 +1847,7 @@ _ZN4absl7debian215AsciiStrToUpperB5cxx11ENS0_11string_viewE.exit: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define i24 @_ZN10open_spiel5chess16SquareFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #7 {
+define range(i24 0, -254) i24 @_ZN10open_spiel5chess16SquareFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #7 {
   %2 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #34
   %.not = icmp eq i64 %2, 2
   br i1 %.not, label %3, label %_ZNR4absl7debian28optionalIaEdeEv.exit8

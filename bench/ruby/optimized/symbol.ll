@@ -1793,7 +1793,7 @@ declare i64 @rb_enc_associate(i64 noundef, ptr noundef) local_unnamed_addr #1
 declare i64 @rb_fstring(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i64 @dsymbol_alloc(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef range(i64 -1, 16) %3) unnamed_addr #0 {
+define internal fastcc noundef i64 @dsymbol_alloc(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef range(i64 -1, 15) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %7 = load ptr, ptr %6, align 8

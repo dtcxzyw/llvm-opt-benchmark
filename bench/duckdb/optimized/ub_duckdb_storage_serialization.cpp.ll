@@ -52239,7 +52239,7 @@ _ZN6duckdb10Serializer24WritePropertyWithDefaultIbEEvtPKcRKT_.exit16: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i16 0, 512) i16 @_ZN6duckdb13VacuumOptions11DeserializeERNS_12DeserializerE(ptr noundef nonnull align 8 dereferenceable(416) %deserializer) local_unnamed_addr #3 align 2 {
+define range(i16 0, 258) i16 @_ZN6duckdb13VacuumOptions11DeserializeERNS_12DeserializerE(ptr noundef nonnull align 8 dereferenceable(416) %deserializer) local_unnamed_addr #3 align 2 {
 entry:
   %vtable.i = load ptr, ptr %deserializer, align 8, !tbaa !3
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 32

@@ -385,7 +385,7 @@ _ZN4llvm8CallInstC2EPNS_12FunctionTypeEPNS_5ValueENS_8ArrayRefIS4_EENS5_INS_17Op
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i16 0, 512) i16 @_ZN4llvm7objcarc21BundledRetainClaimRVs18insertAfterInvokesERNS_8FunctionEPNS_13DominatorTreeE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly align 8 dereferenceable(136) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local range(i16 0, 258) i16 @_ZN4llvm7objcarc21BundledRetainClaimRVs18insertAfterInvokesERNS_8FunctionEPNS_13DominatorTreeE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly align 8 dereferenceable(136) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::DenseMap", align 8
   %5 = alloca %"struct.llvm::CriticalEdgeSplittingOptions", align 8
   %6 = alloca %"class.llvm::Twine", align 8

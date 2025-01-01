@@ -2103,7 +2103,7 @@ define noundef i32 @_ZNK10open_spiel10liars_dice14LiarsDiceState10dice_sidesEv(p
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i64 4294967296, -9223372036854775808) i64 @_ZNK10open_spiel10liars_dice14LiarsDiceState9UnrankBidEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define range(i64 4294967296, 9223372034707292160) i64 @_ZNK10open_spiel10liars_dice14LiarsDiceState9UnrankBidEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca %"class.std::__cxx11::basic_string", align 8

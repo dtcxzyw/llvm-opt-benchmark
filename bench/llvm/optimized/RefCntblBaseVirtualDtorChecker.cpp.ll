@@ -43795,7 +43795,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit:            ; preds = %14, %15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc range(i16 0, 512) i16 @_ZN12_GLOBAL__N_126DerefFuncDeleteExprVisitor20HasSpecializedDeleteEPN5clang13CXXMethodDeclE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc range(i16 0, 258) i16 @_ZN12_GLOBAL__N_126DerefFuncDeleteExprVisitor20HasSpecializedDeleteEPN5clang13CXXMethodDeclE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 64

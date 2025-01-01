@@ -65683,7 +65683,7 @@ define { i32, i32 } @"_ZN80_$LT$hir..DefWithBody$u20$as$u20$core..convert..From$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define range(i64 3, 0) i64 @"_ZN76_$LT$hir..GenericDef$u20$as$u20$core..convert..From$LT$hir..Function$GT$$GT$4from17h7f8373dfadf8053bE"(i32 noundef %0) unnamed_addr #11 {
+define range(i64 3, -4294967292) i64 @"_ZN76_$LT$hir..GenericDef$u20$as$u20$core..convert..From$LT$hir..Function$GT$$GT$4from17h7f8373dfadf8053bE"(i32 noundef %0) unnamed_addr #11 {
   %.sroa.2.0.insert.ext = zext i32 %0 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, 3
@@ -65707,7 +65707,7 @@ define range(i64 0, -4294967295) i64 @"_ZN74_$LT$hir..GenericDef$u20$as$u20$core
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define range(i64 2, 0) i64 @"_ZN72_$LT$hir..GenericDef$u20$as$u20$core..convert..From$LT$hir..Enum$GT$$GT$4from17h1cca2d821352a96cE"(i32 noundef %0) unnamed_addr #11 {
+define range(i64 2, -4294967292) i64 @"_ZN72_$LT$hir..GenericDef$u20$as$u20$core..convert..From$LT$hir..Enum$GT$$GT$4from17h1cca2d821352a96cE"(i32 noundef %0) unnamed_addr #11 {
   %.sroa.2.0.insert.ext = zext i32 %0 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, 2
@@ -65715,7 +65715,7 @@ define range(i64 2, 0) i64 @"_ZN72_$LT$hir..GenericDef$u20$as$u20$core..convert.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define range(i64 1, 0) i64 @"_ZN73_$LT$hir..GenericDef$u20$as$u20$core..convert..From$LT$hir..Union$GT$$GT$4from17heefd79e8a5c79401E"(i32 noundef %0) unnamed_addr #11 {
+define range(i64 1, -4294967294) i64 @"_ZN73_$LT$hir..GenericDef$u20$as$u20$core..convert..From$LT$hir..Union$GT$$GT$4from17heefd79e8a5c79401E"(i32 noundef %0) unnamed_addr #11 {
   %.sroa.2.0.insert.ext = zext i32 %0 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, 1
@@ -65723,7 +65723,7 @@ define range(i64 1, 0) i64 @"_ZN73_$LT$hir..GenericDef$u20$as$u20$core..convert.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define range(i64 5, 0) i64 @"_ZN73_$LT$hir..GenericDef$u20$as$u20$core..convert..From$LT$hir..Trait$GT$$GT$4from17hb49468833f77e9baE"(i32 noundef %0) unnamed_addr #11 {
+define range(i64 5, -4294967288) i64 @"_ZN73_$LT$hir..GenericDef$u20$as$u20$core..convert..From$LT$hir..Trait$GT$$GT$4from17hb49468833f77e9baE"(i32 noundef %0) unnamed_addr #11 {
   %.sroa.2.0.insert.ext = zext i32 %0 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, 5
@@ -65731,7 +65731,7 @@ define range(i64 5, 0) i64 @"_ZN73_$LT$hir..GenericDef$u20$as$u20$core..convert.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define range(i64 6, 0) i64 @"_ZN78_$LT$hir..GenericDef$u20$as$u20$core..convert..From$LT$hir..TraitAlias$GT$$GT$4from17h1a9afdb7e387b388E"(i32 noundef %0) unnamed_addr #11 {
+define range(i64 6, -4294967288) i64 @"_ZN78_$LT$hir..GenericDef$u20$as$u20$core..convert..From$LT$hir..TraitAlias$GT$$GT$4from17h1a9afdb7e387b388E"(i32 noundef %0) unnamed_addr #11 {
   %.sroa.2.0.insert.ext = zext i32 %0 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, 6
@@ -65739,7 +65739,7 @@ define range(i64 6, 0) i64 @"_ZN78_$LT$hir..GenericDef$u20$as$u20$core..convert.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define range(i64 7, 0) i64 @"_ZN77_$LT$hir..GenericDef$u20$as$u20$core..convert..From$LT$hir..TypeAlias$GT$$GT$4from17hd7ef3d3a3ad08cbeE"(i32 noundef %0) unnamed_addr #11 {
+define range(i64 7, -4294967288) i64 @"_ZN77_$LT$hir..GenericDef$u20$as$u20$core..convert..From$LT$hir..TypeAlias$GT$$GT$4from17hd7ef3d3a3ad08cbeE"(i32 noundef %0) unnamed_addr #11 {
   %.sroa.2.0.insert.ext = zext i32 %0 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, 7
@@ -65747,7 +65747,7 @@ define range(i64 7, 0) i64 @"_ZN77_$LT$hir..GenericDef$u20$as$u20$core..convert.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define range(i64 8, 0) i64 @"_ZN72_$LT$hir..GenericDef$u20$as$u20$core..convert..From$LT$hir..Impl$GT$$GT$4from17h9667d92e80da4aebE"(i32 noundef %0) unnamed_addr #11 {
+define range(i64 8, -4294967280) i64 @"_ZN72_$LT$hir..GenericDef$u20$as$u20$core..convert..From$LT$hir..Impl$GT$$GT$4from17h9667d92e80da4aebE"(i32 noundef %0) unnamed_addr #11 {
   %.sroa.2.0.insert.ext = zext i32 %0 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, 8
@@ -65755,7 +65755,7 @@ define range(i64 8, 0) i64 @"_ZN72_$LT$hir..GenericDef$u20$as$u20$core..convert.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define range(i64 9, 0) i64 @"_ZN75_$LT$hir..GenericDef$u20$as$u20$core..convert..From$LT$hir..Variant$GT$$GT$4from17h7b24ec7310d86488E"(i32 noundef %0) unnamed_addr #11 {
+define range(i64 9, -4294967280) i64 @"_ZN75_$LT$hir..GenericDef$u20$as$u20$core..convert..From$LT$hir..Variant$GT$$GT$4from17h7b24ec7310d86488E"(i32 noundef %0) unnamed_addr #11 {
   %.sroa.2.0.insert.ext = zext i32 %0 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, 9
@@ -65763,7 +65763,7 @@ define range(i64 9, 0) i64 @"_ZN75_$LT$hir..GenericDef$u20$as$u20$core..convert.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define range(i64 10, 0) i64 @"_ZN73_$LT$hir..GenericDef$u20$as$u20$core..convert..From$LT$hir..Const$GT$$GT$4from17hbe71deb4459863c8E"(i32 noundef %0) unnamed_addr #11 {
+define range(i64 10, -4294967280) i64 @"_ZN73_$LT$hir..GenericDef$u20$as$u20$core..convert..From$LT$hir..Const$GT$$GT$4from17hbe71deb4459863c8E"(i32 noundef %0) unnamed_addr #11 {
   %.sroa.2.0.insert.ext = zext i32 %0 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, 10

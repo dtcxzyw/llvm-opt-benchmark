@@ -91079,7 +91079,7 @@ define range(i64 0, -4294967295) i64 @"_ZN100_$LT$gpui..geometry..DefiniteLength
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define range(i64 1, 0) i64 @"_ZN98_$LT$gpui..geometry..DefiniteLength$u20$as$u20$core..convert..From$LT$gpui..geometry..Rems$GT$$GT$4from17h63733905753236fbE"(float noundef %0) unnamed_addr #8 {
+define range(i64 1, -4294967294) i64 @"_ZN98_$LT$gpui..geometry..DefiniteLength$u20$as$u20$core..convert..From$LT$gpui..geometry..Rems$GT$$GT$4from17h63733905753236fbE"(float noundef %0) unnamed_addr #8 {
   %2 = bitcast float %0 to i32
   %.sroa.2.0.insert.ext = zext i32 %2 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
@@ -91098,7 +91098,7 @@ define i64 @"_ZN108_$LT$gpui..geometry..DefiniteLength$u20$as$u20$core..convert.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i64 @"_ZN73_$LT$gpui..geometry..DefiniteLength$u20$as$u20$core..default..Default$GT$7default17h0c84162eae1daa7bE"() unnamed_addr #8 {
+define noundef range(i64 0, -4294967295) i64 @"_ZN73_$LT$gpui..geometry..DefiniteLength$u20$as$u20$core..default..Default$GT$7default17h0c84162eae1daa7bE"() unnamed_addr #8 {
   ret i64 0
 }
 
@@ -91156,7 +91156,7 @@ _ZN4core3fmt9Formatter9write_fmt17h9d0d9fd40ea148b1E.llvm.12018052726552770354.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define range(i64 2, 0) i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef %0) unnamed_addr #8 {
+define range(i64 2, -4294967292) i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef %0) unnamed_addr #8 {
   %2 = bitcast float %0 to i32
   %.sroa.2.0.insert.ext = zext i32 %2 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
@@ -91165,7 +91165,7 @@ define range(i64 2, 0) i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef range(i64 2, 0) i64 @_ZN4gpui8geometry3phi17ha659a4e3e3899b05E() unnamed_addr #8 {
+define noundef range(i64 2, -4294967292) i64 @_ZN4gpui8geometry3phi17ha659a4e3e3899b05E() unnamed_addr #8 {
   ret i64 4597924243131334658
 }
 
@@ -91193,7 +91193,7 @@ define range(i64 0, -4294967295) i64 @"_ZN92_$LT$gpui..geometry..Length$u20$as$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define range(i64 1, 0) i64 @"_ZN90_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..Rems$GT$$GT$4from17h69a7178600b41812E"(float noundef %0) unnamed_addr #8 {
+define range(i64 1, -4294967294) i64 @"_ZN90_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..Rems$GT$$GT$4from17h69a7178600b41812E"(float noundef %0) unnamed_addr #8 {
   %2 = bitcast float %0 to i32
   %.sroa.2.0.insert.ext.i = zext i32 %2 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
@@ -91217,12 +91217,12 @@ define i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i64 @"_ZN65_$LT$gpui..geometry..Length$u20$as$u20$core..default..Default$GT$7default17h800ff35ee6e59b1bE"() unnamed_addr #8 {
+define noundef range(i64 0, -4294967295) i64 @"_ZN65_$LT$gpui..geometry..Length$u20$as$u20$core..default..Default$GT$7default17h800ff35ee6e59b1bE"() unnamed_addr #8 {
   ret i64 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i64 @"_ZN78_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$$LP$$RP$$GT$$GT$4from17hf8cc8510a0279143E"() unnamed_addr #8 {
+define noundef range(i64 0, -4294967295) i64 @"_ZN78_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$$LP$$RP$$GT$$GT$4from17hf8cc8510a0279143E"() unnamed_addr #8 {
   ret i64 0
 }
 
@@ -100548,7 +100548,7 @@ switch.lookup:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define range(i32 0, 33554432) i32 @"_ZN96_$LT$gpui..platform..linux..x11..window..X11Window$u20$as$u20$gpui..platform..PlatformWindow$GT$18window_decorations17h80b761d4da7becb6E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define range(i32 0, 16908034) i32 @"_ZN96_$LT$gpui..platform..linux..x11..window..X11Window$u20$as$u20$gpui..platform..PlatformWindow$GT$18window_decorations17h80b761d4da7becb6E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !nonnull !9, !noundef !9
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !9

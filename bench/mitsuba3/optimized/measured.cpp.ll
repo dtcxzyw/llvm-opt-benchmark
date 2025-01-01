@@ -1838,7 +1838,7 @@ _ZN7mitsuba10Marginal2DIfLm3ELb1EED2Ev.exit:      ; preds = %_ZN5drjit12DynamicA
 778:                                              ; preds = %776
   %779 = or i64 %772, 7
   %780 = icmp eq i64 %779, 23
-  %781 = add i64 %779, 1
+  %781 = add nuw i64 %779, 1
   %782 = select i1 %780, i64 25, i64 %781
   %783 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %782) #27
           to label %.thread unwind label %251

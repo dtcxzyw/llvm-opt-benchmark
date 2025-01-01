@@ -3260,7 +3260,7 @@ if.end:                                           ; preds = %lor.rhs, %if.then, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i64 0, 8589934592) i64 @_ZNK4cvc58internal6theory5arith6linear14ArithVariables7VarInfo13atBoundCountsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %this) local_unnamed_addr #6 align 2 {
+define hidden range(i64 0, 4294967298) i64 @_ZNK4cvc58internal6theory5arith6linear14ArithVariables7VarInfo13atBoundCountsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_cmpAssignmentLB = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load i32, ptr %d_cmpAssignmentLB, align 8
@@ -3275,7 +3275,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i64 0, 8589934592) i64 @_ZNK4cvc58internal6theory5arith6linear14ArithVariables7VarInfo14hasBoundCountsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %this) local_unnamed_addr #6 align 2 {
+define hidden range(i64 0, 4294967298) i64 @_ZNK4cvc58internal6theory5arith6linear14ArithVariables7VarInfo14hasBoundCountsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_lb = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %d_lb, align 8

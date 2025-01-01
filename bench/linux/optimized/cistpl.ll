@@ -238,7 +238,7 @@ define dso_local noundef range(i32 -1, 1) i32 @pcmcia_read_cis_mem(ptr noundef %
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @set_cis_map(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 64) %2) unnamed_addr #0 align 16 {
+define internal fastcc ptr @set_cis_map(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 36) %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 316
   %6 = load i32, ptr %5, align 4

@@ -474,7 +474,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6Str
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define i32 @_RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1008tui_termNtB5_5ColorINtNtCs1LoaDTb72WA_4core7convert4FromNtNtB7_5attrs5ColorE4from(i32 %0) unnamed_addr #9 {
+define range(i32 0, -224) i32 @_RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1008tui_termNtB5_5ColorINtNtCs1LoaDTb72WA_4core7convert4FromNtNtB7_5attrs5ColorE4from(i32 %0) unnamed_addr #9 {
 switch.lookup:
   %trunc = zext i32 %0 to i64
   %sext = shl i64 %trunc, 56

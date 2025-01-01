@@ -325,7 +325,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeE
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i64 0, 68719476736) i64 @_Z21verletbufGetListSetupN5Nbnxm10KernelTypeE(i32 noundef %0) local_unnamed_addr #9 {
+define range(i64 0, 34359738384) i64 @_Z21verletbufGetListSetupN5Nbnxm10KernelTypeE(i32 noundef %0) local_unnamed_addr #9 {
   %switch.tableidx = add i32 %0, -1
   %2 = icmp ult i32 %switch.tableidx, 5
   br i1 %2, label %switch.lookup, label %_ZN5NbnxmL15sc_iClusterSizeENS_10KernelTypeE.exit

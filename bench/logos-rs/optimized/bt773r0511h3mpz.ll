@@ -27,7 +27,7 @@ define { ptr, i64 } @_ZN13logos_codegen5graph4fork4Fork8branches17h4bd8d98ad8ac2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define i64 @"_ZN95_$LT$logos_codegen..graph..fork..ForkIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h31bda62dc7938527E"(ptr nocapture align 8 %0) unnamed_addr #0 {
+define range(i64 0, -4294901760) i64 @"_ZN95_$LT$logos_codegen..graph..fork..ForkIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h31bda62dc7938527E"(ptr nocapture align 8 %0) unnamed_addr #0 {
   %2 = alloca [32 x i8], align 8
   %3 = alloca [4 x i8], align 4
   %4 = alloca [24 x i8], align 8

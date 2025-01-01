@@ -1731,7 +1731,7 @@ declare noundef i32 @_ZNK8proxygen11HeaderTable4nextEj(ptr noundef nonnull align
 declare noundef zeroext i1 @_ZNK8proxygen11HeaderTable7isValidEj(ptr noundef nonnull align 8 dereferenceable(80), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define i64 @_ZN8proxygen16QPACKHeaderTable14maybeDuplicateEjb(ptr noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %relativeIndex, i1 noundef zeroext %allowVulnerable) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define range(i64 0, -4294967294) i64 @_ZN8proxygen16QPACKHeaderTable14maybeDuplicateEjb(ptr noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %relativeIndex, i1 noundef zeroext %allowVulnerable) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp41 = alloca %"class.proxygen::HPACKHeader", align 8
   %ref.tmp50 = alloca %"class.google::LogMessageFatal", align 8

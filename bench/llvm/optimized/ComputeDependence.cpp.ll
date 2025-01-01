@@ -2080,7 +2080,7 @@ declare noundef ptr @_ZN5clang15OMPIteratorExpr15getIteratorDeclEj(ptr noundef n
 declare void @_ZN5clang15OMPIteratorExpr16getIteratorRangeEj(ptr dead_on_unwind writable sret(%"struct.clang::OMPIteratorExpr::IteratorRange") align 8, ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenceEPNS_11DeclRefExprERKNS_10ASTContextE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(23096) %1) local_unnamed_addr #1 {
+define dso_local noundef zeroext i8 @_ZN5clang17computeDependenceEPNS_11DeclRefExprERKNS_10ASTContextE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(23096) %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = load i32, ptr %0, align 8
   %5 = and i32 %4, 262144

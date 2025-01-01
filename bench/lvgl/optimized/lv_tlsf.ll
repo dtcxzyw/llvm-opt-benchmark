@@ -367,21 +367,21 @@ define noundef ptr @lv_tlsf_add_pool(ptr noundef %0, ptr noundef %1, i64 noundef
   %18 = and i64 %12, -8
   %19 = trunc nuw i64 %18 to i32
   %20 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %19, i1 true)
-  %21 = sub nsw i32 26, %20
+  %21 = sub nuw nsw i32 26, %20
   %22 = zext nneg i32 %21 to i64
   %23 = lshr i64 %18, %22
   %24 = trunc i64 %23 to i32
   %25 = xor i32 %24, 32
-  %26 = sub nsw i32 24, %20
+  %26 = sub nuw nsw i32 24, %20
   br label %mapping_insert.exit.i
 
 mapping_insert.exit.i:                            ; preds = %17, %14
   %.09.i.i = phi i32 [ 0, %14 ], [ %26, %17 ]
   %.0.i.i = phi i32 [ %16, %14 ], [ %25, %17 ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %28 = sext i32 %.09.i.i to i64
+  %28 = zext nneg i32 %.09.i.i to i64
   %29 = zext nneg i32 %.0.i.i to i64
-  %30 = getelementptr inbounds [9 x [32 x ptr]], ptr %27, i64 0, i64 %28, i64 %29
+  %30 = getelementptr inbounds nuw [9 x [32 x ptr]], ptr %27, i64 0, i64 %28, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !12
   %.not.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i, label %.preheader.i.i, label %block_link_next.exit
@@ -396,22 +396,22 @@ block_link_next.exit:                             ; preds = %mapping_insert.exit
   store ptr %0, ptr %33, align 8, !tbaa !20
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 24
   store ptr %10, ptr %34, align 8, !tbaa !20
+  %35 = ptrtoint ptr %32 to i64
   store ptr %10, ptr %30, align 8, !tbaa !12
-  %35 = shl nuw nsw i32 1, %.09.i.i
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %37 = load i32, ptr %36, align 8, !tbaa !3
-  %38 = or i32 %37, %35
-  store i32 %38, ptr %36, align 8, !tbaa !3
-  %39 = shl nuw i32 1, %.0.i.i
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %41 = getelementptr inbounds [9 x i32], ptr %40, i64 0, i64 %28
-  %42 = load i32, ptr %41, align 4, !tbaa !11
-  %43 = or i32 %42, %39
-  store i32 %43, ptr %41, align 4, !tbaa !11
-  %44 = ptrtoint ptr %32 to i64
+  %36 = shl nuw nsw i32 1, %.09.i.i
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %38 = load i32, ptr %37, align 8, !tbaa !3
+  %39 = or i32 %38, %36
+  store i32 %39, ptr %37, align 8, !tbaa !3
+  %40 = shl nuw i32 1, %.0.i.i
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %42 = getelementptr inbounds nuw [9 x i32], ptr %41, i64 0, i64 %28
+  %43 = load i32, ptr %42, align 4, !tbaa !11
+  %44 = or i32 %43, %40
+  store i32 %44, ptr %42, align 4, !tbaa !11
   %45 = and i64 %12, -8
   %46 = add nsw i64 %45, -8
-  %47 = add i64 %46, %44
+  %47 = add i64 %46, %35
   %48 = inttoptr i64 %47 to ptr
   store ptr %10, ptr %48, align 8, !tbaa !21
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
@@ -656,21 +656,21 @@ lv_tlsf_create.exit:                              ; preds = %13, %2
   %29 = and i64 %23, -8
   %30 = trunc nuw i64 %29 to i32
   %31 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %30, i1 true)
-  %32 = sub nsw i32 26, %31
+  %32 = sub nuw nsw i32 26, %31
   %33 = zext nneg i32 %32 to i64
   %34 = lshr i64 %29, %33
   %35 = trunc i64 %34 to i32
   %36 = xor i32 %35, 32
-  %37 = sub nsw i32 24, %31
+  %37 = sub nuw nsw i32 24, %31
   br label %mapping_insert.exit.i.i
 
 mapping_insert.exit.i.i:                          ; preds = %28, %25
   %.09.i.i.i = phi i32 [ 0, %25 ], [ %37, %28 ]
   %.0.i.i.i = phi i32 [ %27, %25 ], [ %36, %28 ]
   %38 = getelementptr inbounds nuw i8, ptr %.0.i, i64 72
-  %39 = sext i32 %.09.i.i.i to i64
+  %39 = zext nneg i32 %.09.i.i.i to i64
   %40 = zext nneg i32 %.0.i.i.i to i64
-  %41 = getelementptr inbounds [9 x [32 x ptr]], ptr %38, i64 0, i64 %39, i64 %40
+  %41 = getelementptr inbounds nuw [9 x [32 x ptr]], ptr %38, i64 0, i64 %39, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !12
   %.not.i.i.i = icmp eq ptr %42, null
   br i1 %.not.i.i.i, label %.preheader.i.i.i, label %block_link_next.exit.i
@@ -685,22 +685,22 @@ block_link_next.exit.i:                           ; preds = %mapping_insert.exit
   store ptr %.0.i, ptr %44, align 8, !tbaa !20
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 24
   store ptr %21, ptr %45, align 8, !tbaa !20
+  %46 = ptrtoint ptr %43 to i64
   store ptr %21, ptr %41, align 8, !tbaa !12
-  %46 = shl nuw nsw i32 1, %.09.i.i.i
-  %47 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
-  %48 = load i32, ptr %47, align 8, !tbaa !3
-  %49 = or i32 %48, %46
-  store i32 %49, ptr %47, align 8, !tbaa !3
-  %50 = shl nuw i32 1, %.0.i.i.i
-  %51 = getelementptr inbounds nuw i8, ptr %.0.i, i64 36
-  %52 = getelementptr inbounds [9 x i32], ptr %51, i64 0, i64 %39
-  %53 = load i32, ptr %52, align 4, !tbaa !11
-  %54 = or i32 %53, %50
-  store i32 %54, ptr %52, align 4, !tbaa !11
-  %55 = ptrtoint ptr %43 to i64
+  %47 = shl nuw nsw i32 1, %.09.i.i.i
+  %48 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
+  %49 = load i32, ptr %48, align 8, !tbaa !3
+  %50 = or i32 %49, %47
+  store i32 %50, ptr %48, align 8, !tbaa !3
+  %51 = shl nuw i32 1, %.0.i.i.i
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i, i64 36
+  %53 = getelementptr inbounds nuw [9 x i32], ptr %52, i64 0, i64 %39
+  %54 = load i32, ptr %53, align 4, !tbaa !11
+  %55 = or i32 %54, %51
+  store i32 %55, ptr %53, align 4, !tbaa !11
   %56 = and i64 %23, -8
   %57 = add nsw i64 %56, -8
-  %58 = add i64 %57, %55
+  %58 = add i64 %57, %46
   %59 = inttoptr i64 %58 to ptr
   store ptr %21, ptr %59, align 8, !tbaa !21
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8

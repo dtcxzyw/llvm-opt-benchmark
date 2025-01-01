@@ -327,7 +327,7 @@ define dso_local i64 @cm_zlib_adler32(i64 noundef %0, ptr noundef readonly %1, i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local range(i64 0, 8589934592) i64 @cm_zlib_adler32_combine(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 {
+define dso_local i64 @cm_zlib_adler32_combine(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = icmp slt i64 %2, 0
   br i1 %4, label %adler32_combine_.exit, label %5
 
@@ -371,7 +371,7 @@ adler32_combine_.exit:                            ; preds = %3, %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local range(i64 0, 8589934592) i64 @cm_zlib_adler32_combine64(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 {
+define dso_local i64 @cm_zlib_adler32_combine64(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = icmp slt i64 %2, 0
   br i1 %4, label %adler32_combine_.exit, label %5
 

@@ -1572,7 +1572,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define range(i16 0, 512) i16 @_ZNK3gmx20SelectionTreeElement26requiredTopologyPropertiesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define range(i16 0, 258) i16 @_ZNK3gmx20SelectionTreeElement26requiredTopologyPropertiesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::shared_ptr", align 8
   %3 = load i32, ptr %0, align 8
   switch i32 %3, label %27 [

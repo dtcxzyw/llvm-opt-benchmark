@@ -3776,7 +3776,7 @@ cleanup:                                          ; preds = %if.end9, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local i48 @_Z14rand_ortho_dirR12PseudoRandomb(ptr nocapture noundef nonnull align 4 dereferenceable(4) %random, i1 noundef zeroext %diagonal_dirs) local_unnamed_addr #11 {
+define dso_local range(i48 0, -4294901760) i48 @_Z14rand_ortho_dirR12PseudoRandomb(ptr nocapture noundef nonnull align 4 dereferenceable(4) %random, i1 noundef zeroext %diagonal_dirs) local_unnamed_addr #11 {
 entry:
   %.pre = load i32, ptr %random, align 4, !tbaa !53
   br i1 %diagonal_dirs, label %land.lhs.true, label %if.end

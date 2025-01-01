@@ -4574,7 +4574,7 @@ define void @_ZN8nanobind6detail17nb_inst_set_stateEP7_objectbb(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i16 0, 512) i16 @_ZN8nanobind6detail13nb_inst_stateEP7_object(ptr nocapture noundef readonly %0) local_unnamed_addr #14 personality ptr @__gxx_personality_v0 {
+define range(i16 0, 258) i16 @_ZN8nanobind6detail13nb_inst_stateEP7_object(ptr nocapture noundef readonly %0) local_unnamed_addr #14 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   %4 = trunc i32 %3 to i8

@@ -109572,7 +109572,7 @@ define void @_ZN6hir_ty10lang_items21lang_items_for_bin_op17ha33816498edc719bE(p
 }
 
 ; Function Attrs: nonlazybind uwtable
-define i64 @_ZN6hir_ty17method_resolution13TyFingerprint17for_inherent_impl17hd1eb5f7d184a419eE(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #2 {
+define range(i64 0, -4294967280) i64 @_ZN6hir_ty17method_resolution13TyFingerprint17for_inherent_impl17hd1eb5f7d184a419eE(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !alias.scope !22055, !nonnull !26, !noundef !26
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i8, ptr %3, align 8, !range !1095, !noundef !26

@@ -28745,7 +28745,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit13:               ; preds = %76, %74, %_ZN5clang
   %80 = load i8, ptr %79, align 1
   %81 = and i8 %80, 2
   %.not19 = icmp eq i8 %81, 0
-  br i1 %.not19, label %110, label %82
+  br i1 %.not19, label %109, label %82
 
 82:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit13
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 128
@@ -28755,65 +28755,63 @@ _ZN4llvm11raw_ostreamlsEPKc.exit13:               ; preds = %76, %74, %_ZN5clang
 
 84:                                               ; preds = %82
   %85 = and i64 %.0.copyload.i.i.i.i.i.i, 4
-  %86 = icmp ne i64 %85, 0
-  %87 = and i64 %.0.copyload.i.i.i.i.i.i, -8
-  %.not5.i = icmp eq i64 %87, 0
-  %.not.i14 = or i1 %86, %.not5.i
-  br i1 %.not.i14, label %90, label %88
+  %.not.i14 = icmp eq i64 %85, 0
+  br i1 %.not.i14, label %86, label %88
 
-88:                                               ; preds = %84
-  %89 = and i64 %.0.copyload.i.i.i.i.i.i, -16
+86:                                               ; preds = %84
+  %87 = and i64 %.0.copyload.i.i.i.i.i.i, -16
   br label %_ZNK5clang8EnumDecl14getIntegerTypeEv.exit
 
-90:                                               ; preds = %84
-  %91 = inttoptr i64 %87 to ptr
-  %.sroa.0.0.copyload.i.i15 = load i64, ptr %91, align 8
-  %92 = and i64 %.sroa.0.0.copyload.i.i15, -16
-  %93 = inttoptr i64 %92 to ptr
-  %94 = load ptr, ptr %93, align 16
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
-  %.sroa.0.0.copyload.i.i.i = load i64, ptr %95, align 8
-  %96 = and i64 %.sroa.0.0.copyload.i.i.i, 15
-  %.not.i.i16 = icmp eq i64 %96, 0
-  br i1 %.not.i.i16, label %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit.i, label %97
+88:                                               ; preds = %84
+  %89 = and i64 %.0.copyload.i.i.i.i.i.i, -8
+  %90 = inttoptr i64 %89 to ptr
+  %.sroa.0.0.copyload.i.i15 = load i64, ptr %90, align 8
+  %91 = and i64 %.sroa.0.0.copyload.i.i15, -16
+  %92 = inttoptr i64 %91 to ptr
+  %93 = load ptr, ptr %92, align 16
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
+  %.sroa.0.0.copyload.i.i.i = load i64, ptr %94, align 8
+  %95 = and i64 %.sroa.0.0.copyload.i.i.i, 15
+  %.not.i.i16 = icmp eq i64 %95, 0
+  br i1 %.not.i.i16, label %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit.i, label %96
 
-97:                                               ; preds = %90
-  %98 = tail call { ptr, i64 } @_ZN5clang8QualType27getSplitUnqualifiedTypeImplES0_(i64 %.sroa.0.0.copyload.i.i15) #18
-  %99 = extractvalue { ptr, i64 } %98, 0
+96:                                               ; preds = %88
+  %97 = tail call { ptr, i64 } @_ZN5clang8QualType27getSplitUnqualifiedTypeImplES0_(i64 %.sroa.0.0.copyload.i.i15) #18
+  %98 = extractvalue { ptr, i64 } %97, 0
   br label %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit.i
 
-_ZNK5clang8QualType18getUnqualifiedTypeEv.exit.i: ; preds = %97, %90
-  %.sroa.03.0.in.in.i.i = phi ptr [ %99, %97 ], [ %94, %90 ]
+_ZNK5clang8QualType18getUnqualifiedTypeEv.exit.i: ; preds = %96, %88
+  %.sroa.03.0.in.in.i.i = phi ptr [ %98, %96 ], [ %93, %88 ]
   %.sroa.03.0.in.i.i = ptrtoint ptr %.sroa.03.0.in.in.i.i to i64
   %.sroa.03.0.i.i = and i64 %.sroa.03.0.in.i.i, -16
   br label %_ZNK5clang8EnumDecl14getIntegerTypeEv.exit
 
-_ZNK5clang8EnumDecl14getIntegerTypeEv.exit:       ; preds = %82, %88, %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit.i
-  %.sroa.04.0.i = phi i64 [ %.sroa.03.0.i.i, %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit.i ], [ %89, %88 ], [ 0, %82 ]
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 1096
-  %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 32
-  %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %101, i64 24
-  %105 = load ptr, ptr %104, align 8
-  %.not.i.i17 = icmp ult ptr %103, %105
-  br i1 %.not.i.i17, label %108, label %106
+_ZNK5clang8EnumDecl14getIntegerTypeEv.exit:       ; preds = %82, %86, %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit.i
+  %.sroa.04.0.i = phi i64 [ %.sroa.03.0.i.i, %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit.i ], [ %87, %86 ], [ 0, %82 ]
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 1096
+  %100 = load ptr, ptr %99, align 8
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 32
+  %102 = load ptr, ptr %101, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %100, i64 24
+  %104 = load ptr, ptr %103, align 8
+  %.not.i.i17 = icmp ult ptr %102, %104
+  br i1 %.not.i.i17, label %107, label %105
 
-106:                                              ; preds = %_ZNK5clang8EnumDecl14getIntegerTypeEv.exit
-  %107 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %101, i8 noundef zeroext 32) #18
+105:                                              ; preds = %_ZNK5clang8EnumDecl14getIntegerTypeEv.exit
+  %106 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %100, i8 noundef zeroext 32) #18
   br label %_ZN5clang14TextNodeDumper8dumpTypeENS_8QualTypeE.exit
 
-108:                                              ; preds = %_ZNK5clang8EnumDecl14getIntegerTypeEv.exit
-  %109 = getelementptr inbounds nuw i8, ptr %103, i64 1
-  store ptr %109, ptr %102, align 8
-  store i8 32, ptr %103, align 1
+107:                                              ; preds = %_ZNK5clang8EnumDecl14getIntegerTypeEv.exit
+  %108 = getelementptr inbounds nuw i8, ptr %102, i64 1
+  store ptr %108, ptr %101, align 8
+  store i8 32, ptr %102, align 1
   br label %_ZN5clang14TextNodeDumper8dumpTypeENS_8QualTypeE.exit
 
-_ZN5clang14TextNodeDumper8dumpTypeENS_8QualTypeE.exit: ; preds = %106, %108
+_ZN5clang14TextNodeDumper8dumpTypeENS_8QualTypeE.exit: ; preds = %105, %107
   tail call void @_ZN5clang14TextNodeDumper12dumpBareTypeENS_8QualTypeEb(ptr noundef nonnull align 8 dereferenceable(1168) %0, i64 %.sroa.04.0.i, i1 noundef zeroext true)
-  br label %110
+  br label %109
 
-110:                                              ; preds = %_ZN5clang14TextNodeDumper8dumpTypeENS_8QualTypeE.exit, %_ZN4llvm11raw_ostreamlsEPKc.exit13
+109:                                              ; preds = %_ZN5clang14TextNodeDumper8dumpTypeENS_8QualTypeE.exit, %_ZN4llvm11raw_ostreamlsEPKc.exit13
   ret void
 }
 

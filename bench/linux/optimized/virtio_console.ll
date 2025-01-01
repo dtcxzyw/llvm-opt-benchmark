@@ -3396,7 +3396,7 @@ reclaim_dma_bufs.exit:                            ; preds = %.preheader.i, %19, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 0, 128) i32 @port_fops_poll(ptr noundef %0, ptr noundef %1) #4 align 16 {
+define internal range(i32 0, 96) i32 @port_fops_poll(ptr noundef %0, ptr noundef %1) #4 align 16 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %5 = load ptr, ptr %4, align 8

@@ -1523,7 +1523,7 @@ define internal fastcc ptr @crypto_alg_lookup(ptr nocapture noundef nonnull read
 declare dso_local void @down_read(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @__crypto_alg_lookup(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc ptr @__crypto_alg_lookup(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 0, -48) %1, i32 noundef %2) unnamed_addr #0 align 16 {
   br label %.thread.outer.outer
 
 .thread.outer.outer:                              ; preds = %.thread.outer.outer.backedge, %3

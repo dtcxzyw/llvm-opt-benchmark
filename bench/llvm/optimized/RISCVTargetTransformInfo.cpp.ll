@@ -667,7 +667,7 @@ declare { i64, i32 } @_ZNK4llvm19RISCVTargetLowering15getVSlideVICostENS_3MVTE(p
 declare { i64, i32 } @_ZNK4llvm19RISCVTargetLowering15getVSlideVXCostENS_3MVTE(ptr noundef nonnull align 8 dereferenceable(408136), i16) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i64 0, 8589934592) i64 @_ZNK4llvm12RISCVTTIImpl18getVScaleForTuningEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #0 align 2 {
+define dso_local range(i64 0, 4362076160) i64 @_ZNK4llvm12RISCVTTIImpl18getVScaleForTuningEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 421
@@ -1757,7 +1757,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm12RISCVTTIImpl21shouldExpandReduct
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i64 0, 8589934592) i64 @_ZNK4llvm12RISCVTTIImpl12getMaxVScaleEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #0 align 2 {
+define dso_local range(i64 0, 4362076160) i64 @_ZNK4llvm12RISCVTTIImpl12getMaxVScaleEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 421

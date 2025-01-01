@@ -12130,7 +12130,7 @@ define hidden void @"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$wasm
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden range(i24 0, 131072) i24 @_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17h96a8a672618284d3E.llvm.14223331465801898566(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden range(i24 0, 66048) i24 @_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17h96a8a672618284d3E.llvm.14223331465801898566(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #5 personality ptr @rust_eh_personality {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %0, align 8, !alias.scope !1800, !nonnull !4, !noundef !4
   %.promoted = load ptr, ptr %5, align 8, !alias.scope !1800
@@ -28856,7 +28856,7 @@ define hidden noundef range(i64 0, 4294967296) i64 @"_ZN97_$LT$wasmtime_environ.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden range(i24 0, 131072) i24 @"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hcb5bf8ad21fdbe5aE"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden range(i24 0, 66048) i24 @"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hcb5bf8ad21fdbe5aE"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5238)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5241)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8

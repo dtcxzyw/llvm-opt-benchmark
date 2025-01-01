@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local range(i64 0, 8589934592) i64 @_ZN5clang24diagGroupFromCLWarningIDEj(i32 noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294968320) i64 @_ZN5clang24diagGroupFromCLWarningIDEj(i32 noundef %0) local_unnamed_addr #0 {
   switch i32 %0, label %6 [
     i32 4005, label %7
     i32 4018, label %2

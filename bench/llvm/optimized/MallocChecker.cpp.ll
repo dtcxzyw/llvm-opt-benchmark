@@ -20248,7 +20248,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_11ImutAVLTreeINS_16ImutKeyValueInfoIPKN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc range(i64 0, 8589934592) i64 @_ZNK12_GLOBAL__N_113MallocChecker17getCheckIfTrackedERN5clang4ento14CheckerContextEPKNS2_7SymExprEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(620) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %1, ptr noundef readnone %2) unnamed_addr #2 align 2 {
+define internal fastcc range(i64 0, 4294967304) i64 @_ZNK12_GLOBAL__N_113MallocChecker17getCheckIfTrackedERN5clang4ento14CheckerContextEPKNS2_7SymExprEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(620) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %1, ptr noundef readnone %2) unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
@@ -36037,7 +36037,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit15:              ; preds = %_ZN4llvmeqENS_9Stri
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc range(i16 0, 512) i16 @_ZL18getFreeWhenDoneArgRKN5clang4ento14ObjCMethodCallE(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #2 {
+define internal fastcc range(i16 0, 258) i16 @_ZL18getFreeWhenDoneArgRKN5clang4ento14ObjCMethodCallE(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #2 {
   %2 = alloca %"class.clang::Selector", align 8
   %3 = alloca %"class.clang::ento::SVal", align 8
   %4 = load ptr, ptr %0, align 8

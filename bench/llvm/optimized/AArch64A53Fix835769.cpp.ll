@@ -1033,8 +1033,6 @@ _ZL18getBBFallenThroughPN4llvm17MachineBasicBlockEPKNS_15TargetInstrInfoE.exit: 
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %40, align 8
   %41 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %42 = inttoptr i64 %41 to ptr
-  %.not.i.i.i.i.i.i.i.i.i = icmp ne i64 %41, 0
-  call void @llvm.assume(i1 %.not.i.i.i.i.i.i.i.i.i)
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %42, align 8
   %43 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %43, 0
@@ -1077,8 +1075,6 @@ _ZN4llvm7reverseIRNS_17MachineBasicBlockEEEDaOT_.exit: ; preds = %_ZNK4llvm14ili
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.012.024, align 8
   %58 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, -8
   %59 = inttoptr i64 %58 to ptr
-  %.not.i.i.i.i.i = icmp ne i64 %58, 0
-  call void @llvm.assume(i1 %.not.i.i.i.i.i)
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %59, align 8
   %60 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i = icmp eq i64 %60, 0

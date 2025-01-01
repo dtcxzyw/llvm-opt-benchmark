@@ -1407,7 +1407,7 @@ define dso_local i64 @aclitemin(ptr nocapture noundef %0) local_unnamed_addr #0 
 
 ._crit_edge.loopexit.i:                           ; preds = %71
   %79 = and i64 %72, 4294967295
-  %80 = shl nuw nsw i64 %.155.i, 32
+  %80 = shl i64 %.155.i, 32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader.i

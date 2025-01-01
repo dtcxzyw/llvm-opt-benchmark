@@ -16323,7 +16323,7 @@ _ZNSt5dequeIPN5folly11AsyncReader12ReadCallback16ZeroCopyMemStore5EntryESaIS5_EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i32 16448, 134217728) i32 @_ZN5folly11AsyncSocket21SendMsgParamsCallback15getDefaultFlagsENS_10WriteFlagsEb(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %this, i32 noundef %flags, i1 noundef zeroext %zeroCopyEnabled) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 16448, 67174400) i32 @_ZN5folly11AsyncSocket21SendMsgParamsCallback15getDefaultFlagsENS_10WriteFlagsEb(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %this, i32 noundef %flags, i1 noundef zeroext %zeroCopyEnabled) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
   %and.i.i = and i32 %flags, 1
   %cmp.i.not = icmp eq i32 %and.i.i, 0

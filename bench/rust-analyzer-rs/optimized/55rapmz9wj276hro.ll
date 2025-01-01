@@ -42610,7 +42610,7 @@ _ZN4core3ops8function6FnOnce9call_once17hf90c940d10eb7b82E.exit: ; preds = %._ZN
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden range(i64 0, 35184372088832) i64 @_ZN3ide19syntax_highlighting9highlight13highlight_def17hb3df72e100768562E(ptr nocapture noundef nonnull readonly align 8 %0, i32 noundef %1, ptr noalias nocapture noundef align 4 dereferenceable(20) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden range(i64 0, 30786329772032) i64 @_ZN3ide19syntax_highlighting9highlight13highlight_def17hb3df72e100768562E(ptr nocapture noundef nonnull readonly align 8 %0, i32 noundef %1, ptr noalias nocapture noundef align 4 dereferenceable(20) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { i32, [1 x i32] }, i32 }, align 4
   %5 = alloca { { i32, [1 x i32] }, i32 }, align 4
   %6 = alloca { { i32, [1 x i32] }, i32 }, align 4

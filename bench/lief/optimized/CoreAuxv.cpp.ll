@@ -2721,9 +2721,7 @@ _ZNK6frozen3mapIN4LIEF3ELF8CoreAuxv4TYPEEPKcLm30ESt4lessIS4_EE4findIS4_EEPKSt4pa
   %38 = phi i32 [ %.pre.i.i.i, %_ZNK6frozen3mapIN4LIEF3ELF8CoreAuxv4TYPEEPKcLm30ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit._crit_edge.i.i.i ], [ 32, %28 ]
   %.0.i.i.i.i14.i.i.i.idx = phi i64 [ %.0.i.i.i.i.idx38.i.i.i, %_ZNK6frozen3mapIN4LIEF3ELF8CoreAuxv4TYPEEPKcLm30ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit._crit_edge.i.i.i ], [ 456, %28 ]
   %.not34.i.i.i = icmp slt i32 %25, %38
-  %.not.i46 = icmp eq i64 %.0.i.i.i.i14.i.i.i.idx, 488
-  %.not.i = or i1 %.not34.i.i.i, %.not.i46
-  br i1 %.not.i, label %41, label %39
+  br i1 %.not34.i.i.i, label %41, label %39
 
 39:                                               ; preds = %_ZNK6frozen3mapIN4LIEF3ELF8CoreAuxv4TYPEEPKcLm30ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i
   %gep47 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @__const._ZN4LIEF3ELF9to_stringENS0_8CoreAuxv4TYPEE.enums2str, i64 8), i64 %.0.i.i.i.i14.i.i.i.idx

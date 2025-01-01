@@ -1693,7 +1693,7 @@ define dso_local void @_ZN3tev8toStringERKNSt3__14__fs10filesystem4pathE(ptr dea
 .thread.i:                                        ; preds = %18
   %20 = or i64 %14, 7
   %21 = icmp eq i64 %20, 23
-  %22 = add i64 %20, 1
+  %22 = add nuw i64 %20, 1
   %23 = select i1 %21, i64 25, i64 %22
   %24 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %23) #32, !noalias !12
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -3579,7 +3579,7 @@ define linkonce_odr dso_local ptr @_ZN4utf815replace_invalidINSt3__111__wrap_ite
   %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %31, i64 %32)
   %33 = or i64 %.sroa.speculated.i.i.i, 7
   %34 = icmp eq i64 %33, 23
-  %35 = add i64 %33, 1
+  %35 = add nuw i64 %33, 1
   %36 = select i1 %34, i64 25, i64 %35
   %.inv.i.inv.i.i.i = icmp ult i64 %.sroa.speculated.i.i.i, 23
   %37 = select i1 %.inv.i.inv.i.i.i, i64 23, i64 %36
@@ -3981,7 +3981,7 @@ define linkonce_odr dso_local void @_ZNSt3__112basic_stringIDuNS_11char_traitsID
   %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %25, i64 %26)
   %27 = or i64 %.sroa.speculated.i.i, 7
   %28 = icmp eq i64 %27, 23
-  %29 = add i64 %27, 1
+  %29 = add nuw i64 %27, 1
   %30 = select i1 %28, i64 25, i64 %29
   %.inv.i.inv.i.i = icmp ult i64 %.sroa.speculated.i.i, 23
   %31 = select i1 %.inv.i.inv.i.i, i64 23, i64 %30
@@ -11630,7 +11630,7 @@ define linkonce_odr dso_local void @_ZNKSt3__112regex_traitsIcE9transformIPcEENS
 17:                                               ; preds = %11
   %18 = or i64 %8, 7
   %19 = icmp eq i64 %18, 23
-  %20 = add i64 %18, 1
+  %20 = add nuw i64 %18, 1
   %21 = select i1 %19, i64 25, i64 %20
   %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #32
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -11715,7 +11715,7 @@ define linkonce_odr dso_local void @_ZNKSt3__112regex_traitsIcE20__lookup_collat
 20:                                               ; preds = %14
   %21 = or i64 %11, 7
   %22 = icmp eq i64 %21, 23
-  %23 = add i64 %21, 1
+  %23 = add nuw i64 %21, 1
   %24 = select i1 %22, i64 25, i64 %23
   %25 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %24) #32
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -13528,7 +13528,7 @@ define linkonce_odr dso_local void @_ZNKSt3__112regex_traitsIcE20__lookup_collat
 20:                                               ; preds = %14
   %21 = or i64 %11, 7
   %22 = icmp eq i64 %21, 23
-  %23 = add i64 %21, 1
+  %23 = add nuw i64 %21, 1
   %24 = select i1 %22, i64 25, i64 %23
   %25 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %24) #32
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -13701,7 +13701,7 @@ define linkonce_odr dso_local void @_ZNKSt3__112regex_traitsIcE19__transform_pri
 18:                                               ; preds = %12
   %19 = or i64 %9, 7
   %20 = icmp eq i64 %19, 23
-  %21 = add i64 %19, 1
+  %21 = add nuw i64 %19, 1
   %22 = select i1 %20, i64 25, i64 %21
   %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #32
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -13936,7 +13936,7 @@ define linkonce_odr dso_local noundef zeroext i16 @_ZNKSt3__112regex_traitsIcE18
 18:                                               ; preds = %12
   %19 = or i64 %9, 7
   %20 = icmp eq i64 %19, 23
-  %21 = add i64 %19, 1
+  %21 = add nuw i64 %19, 1
   %22 = select i1 %20, i64 25, i64 %21
   %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #32
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -14236,7 +14236,7 @@ define linkonce_odr dso_local void @_ZNKSt3__112regex_traitsIcE9transformINS_11_
 17:                                               ; preds = %11
   %18 = or i64 %8, 7
   %19 = icmp eq i64 %18, 23
-  %20 = add i64 %18, 1
+  %20 = add nuw i64 %18, 1
   %21 = select i1 %19, i64 25, i64 %20
   %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #32
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -53316,7 +53316,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_
 61:                                               ; preds = %55
   %62 = or i64 %18, 7
   %63 = icmp eq i64 %62, 23
-  %64 = add i64 %62, 1
+  %64 = add nuw i64 %62, 1
   %65 = select i1 %63, i64 25, i64 %64
   %66 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %65) #32
   %67 = getelementptr inbounds nuw i8, ptr %4, i64 16

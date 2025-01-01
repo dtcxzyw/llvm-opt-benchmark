@@ -336,7 +336,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i64 @_ZN4node23EmitProcessExitInternalEPNS_11EnvironmentE(ptr noundef %env) local_unnamed_addr #3 {
+define dso_local range(i64 0, -4294967294) i64 @_ZN4node23EmitProcessExitInternalEPNS_11EnvironmentE(ptr noundef %env) local_unnamed_addr #3 {
 entry:
   %handle_scope = alloca %"class.v8::HandleScope", align 8
   %isolate_.i = getelementptr inbounds nuw i8, ptr %env, i64 88
@@ -405,7 +405,7 @@ cleanup:                                          ; preds = %cond.false.i14, %if
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i64 @_ZN4node15EmitProcessExitEPNS_11EnvironmentE(ptr noundef %env) local_unnamed_addr #3 {
+define dso_local range(i64 0, -4294967294) i64 @_ZN4node15EmitProcessExitEPNS_11EnvironmentE(ptr noundef %env) local_unnamed_addr #3 {
 entry:
   %call = tail call i64 @_ZN4node23EmitProcessExitInternalEPNS_11EnvironmentE(ptr noundef %env)
   %result.sroa.32.0.extract.shift = and i64 %call, -4294967296

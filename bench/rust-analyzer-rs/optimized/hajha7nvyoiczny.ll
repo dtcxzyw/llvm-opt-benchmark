@@ -131742,7 +131742,7 @@ define range(i64 0, -4294967295) i64 @"_ZN87_$LT$hir_ty..lower..TyDefId$u20$as$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define range(i64 2, 0) i64 @"_ZN85_$LT$hir_ty..lower..TyDefId$u20$as$u20$core..convert..From$LT$hir_def..EnumId$GT$$GT$4from17h9ad3cf5f1e555afcE"(i32 noundef %0) unnamed_addr #4 {
+define range(i64 2, -4294967292) i64 @"_ZN85_$LT$hir_ty..lower..TyDefId$u20$as$u20$core..convert..From$LT$hir_def..EnumId$GT$$GT$4from17h9ad3cf5f1e555afcE"(i32 noundef %0) unnamed_addr #4 {
   %.sroa.2.0.insert.ext = zext i32 %0 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, 2
@@ -131750,7 +131750,7 @@ define range(i64 2, 0) i64 @"_ZN85_$LT$hir_ty..lower..TyDefId$u20$as$u20$core..c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define range(i64 1, 0) i64 @"_ZN86_$LT$hir_ty..lower..TyDefId$u20$as$u20$core..convert..From$LT$hir_def..UnionId$GT$$GT$4from17haae2da2d64016816E"(i32 noundef %0) unnamed_addr #4 {
+define range(i64 1, -4294967294) i64 @"_ZN86_$LT$hir_ty..lower..TyDefId$u20$as$u20$core..convert..From$LT$hir_def..UnionId$GT$$GT$4from17haae2da2d64016816E"(i32 noundef %0) unnamed_addr #4 {
   %.sroa.2.0.insert.ext = zext i32 %0 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, 1
@@ -131758,7 +131758,7 @@ define range(i64 1, 0) i64 @"_ZN86_$LT$hir_ty..lower..TyDefId$u20$as$u20$core..c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define range(i64 5, 0) i64 @"_ZN90_$LT$hir_ty..lower..TyDefId$u20$as$u20$core..convert..From$LT$hir_def..TypeAliasId$GT$$GT$4from17h699dc6eb9ae4cb2fE"(i32 noundef %0) unnamed_addr #4 {
+define range(i64 5, -4294967288) i64 @"_ZN90_$LT$hir_ty..lower..TyDefId$u20$as$u20$core..convert..From$LT$hir_def..TypeAliasId$GT$$GT$4from17h699dc6eb9ae4cb2fE"(i32 noundef %0) unnamed_addr #4 {
   %.sroa.2.0.insert.ext = zext i32 %0 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, 5

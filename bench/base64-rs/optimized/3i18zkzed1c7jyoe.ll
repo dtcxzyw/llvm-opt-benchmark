@@ -1280,7 +1280,7 @@ define noundef i24 @_ZN6base646engine15general_purpose20GeneralPurposeConfig3new
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define i24 @_ZN6base646engine15general_purpose20GeneralPurposeConfig19with_encode_padding17h7fbcf9bb40e669f2E(i24 %0, i1 noundef zeroext %1) unnamed_addr #2 {
+define range(i24 0, -65278) i24 @_ZN6base646engine15general_purpose20GeneralPurposeConfig19with_encode_padding17h7fbcf9bb40e669f2E(i24 %0, i1 noundef zeroext %1) unnamed_addr #2 {
   %.sroa.23.0.insert.insert = and i24 %0, -65280
   %.sroa.02.0.insert.ext = zext i1 %1 to i24
   %.sroa.02.0.insert.insert = or disjoint i24 %.sroa.23.0.insert.insert, %.sroa.02.0.insert.ext
@@ -1288,7 +1288,7 @@ define i24 @_ZN6base646engine15general_purpose20GeneralPurposeConfig19with_encod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define i24 @_ZN6base646engine15general_purpose20GeneralPurposeConfig31with_decode_allow_trailing_bits17h27e47288d598f1feE(i24 %0, i1 noundef zeroext %1) unnamed_addr #2 {
+define range(i24 0, -65024) i24 @_ZN6base646engine15general_purpose20GeneralPurposeConfig31with_decode_allow_trailing_bits17h27e47288d598f1feE(i24 %0, i1 noundef zeroext %1) unnamed_addr #2 {
   %.sroa.24.0.insert.shift = select i1 %1, i24 256, i24 0
   %3 = and i24 %0, -65535
   %.sroa.03.0.insert.insert = or disjoint i24 %.sroa.24.0.insert.shift, %3
@@ -1296,7 +1296,7 @@ define i24 @_ZN6base646engine15general_purpose20GeneralPurposeConfig31with_decod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define i24 @_ZN6base646engine15general_purpose20GeneralPurposeConfig24with_decode_padding_mode17h4ece7f156cfd6b88E(i24 %0, i8 noundef %1) unnamed_addr #2 {
+define range(i24 0, -65024) i24 @_ZN6base646engine15general_purpose20GeneralPurposeConfig24with_decode_padding_mode17h4ece7f156cfd6b88E(i24 %0, i8 noundef %1) unnamed_addr #2 {
   %.sroa.34.0.insert.ext = zext i8 %1 to i24
   %.sroa.34.0.insert.shift = shl nuw i24 %.sroa.34.0.insert.ext, 16
   %3 = and i24 %0, 257

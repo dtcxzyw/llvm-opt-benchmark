@@ -15581,7 +15581,7 @@ define hidden void @"_ZN96_$LT$object..read..elf..file..ElfFile$LT$Elf$C$R$GT$$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden range(i64 1, 0) i64 @"_ZN96_$LT$object..read..elf..file..ElfFile$LT$Elf$C$R$GT$$u20$as$u20$object..read..traits..Object$GT$5flags17hb7848e1143217f3bE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(296) %0) unnamed_addr #4 {
+define hidden range(i64 1, -4278190080) i64 @"_ZN96_$LT$object..read..elf..file..ElfFile$LT$Elf$C$R$GT$$u20$as$u20$object..read..traits..Object$GT$5flags17hb7848e1143217f3bE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(296) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !nonnull !4, !align !16, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 7
@@ -15608,7 +15608,7 @@ define hidden range(i64 1, 0) i64 @"_ZN96_$LT$object..read..elf..file..ElfFile$L
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden range(i64 1, 0) i64 @"_ZN96_$LT$object..read..elf..file..ElfFile$LT$Elf$C$R$GT$$u20$as$u20$object..read..traits..Object$GT$5flags17hf23b289f3116cf20E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(296) %0) unnamed_addr #4 {
+define hidden range(i64 1, -4278190080) i64 @"_ZN96_$LT$object..read..elf..file..ElfFile$LT$Elf$C$R$GT$$u20$as$u20$object..read..traits..Object$GT$5flags17hf23b289f3116cf20E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(296) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !nonnull !4, !align !18, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 7
@@ -15691,7 +15691,7 @@ define hidden noundef ptr @"_ZN98_$LT$hashbrown..raw..inner..RawIter$LT$T$GT$$u2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden range(i64 0, 9007199254740992) i64 @"_ZN99_$LT$core..char..decode..DecodeUtf16$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0e7979cf8cf4c522E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden range(i64 0, 4785074604015620) i64 @"_ZN99_$LT$core..char..decode..DecodeUtf16$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0e7979cf8cf4c522E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { {} }, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i16, ptr %3, align 8, !range !3278, !noundef !4

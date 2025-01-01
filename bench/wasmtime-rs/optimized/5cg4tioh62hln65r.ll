@@ -4747,7 +4747,7 @@ define void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$12remove_entry17ha8a20724d
 }
 
 ; Function Attrs: nonlazybind uwtable
-define i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$12remove_entry17hb0855ee7890d0873E"(ptr align 8 %0, i64 %1, ptr align 2 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define range(i64 0, -65534) i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$12remove_entry17hb0855ee7890d0873E"(ptr align 8 %0, i64 %1, ptr align 2 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = tail call ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h0f7185ff8000ea1eE"(ptr align 8 %0, i64 %1, ptr align 2 %2)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %16, label %6

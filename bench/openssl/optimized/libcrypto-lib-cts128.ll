@@ -130,7 +130,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @CRYPTO_nistcts128_encrypt(ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef %key, ptr noundef %ivec, ptr nocapture noundef readonly %cbc) local_unnamed_addr #0 {
+define range(i64 16, 1) i64 @CRYPTO_nistcts128_encrypt(ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef %key, ptr noundef %ivec, ptr nocapture noundef readonly %cbc) local_unnamed_addr #0 {
 entry:
   %tmp = alloca %union.anon.0, align 8
   %cmp = icmp ult i64 %len, 16

@@ -10048,7 +10048,7 @@ switch.lookup:                                    ; preds = %57
 "_ZN4core3ptr65drop_in_place$LT$aws_lc_rs..digest..digest_ctx..DigestContext$GT$17h0a738b5146d7f9ceE.exit.i": ; preds = %29
   resume { ptr, i32 } %.pn.i
 
-"_ZN95_$LT$rustls..crypto..aws_lc_rs..sign..EcdsaSigner$u20$as$u20$rustls..crypto..signer..Signer$GT$4sign28_$u7b$$u7b$closure$u7d$$u7d$17h4f77fbb19e37dca2E.exit.i": ; preds = %.noexc37.i, %142
+"_ZN95_$LT$rustls..crypto..aws_lc_rs..sign..EcdsaSigner$u20$as$u20$rustls..crypto..signer..Signer$GT$4sign28_$u7b$$u7b$closure$u7d$$u7d$17h4f77fbb19e37dca2E.exit.i": ; preds = %142, %.noexc37.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !3097
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18), !noalias !3027
   call void @"_ZN86_$LT$aws_lc_rs..digest..digest_ctx..DigestContext$u20$as$u20$core..ops..drop..Drop$GT$4drop17hedb7f522e6d0f7ffE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %19), !noalias !3031

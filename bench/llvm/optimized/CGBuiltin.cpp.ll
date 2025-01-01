@@ -47217,7 +47217,7 @@ _ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit55:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc range(i64 0, 8589934592) i64 @_ZL24translateArmToMsvcIntrinj(i32 noundef range(i32 5753, 5752) %0) unnamed_addr #9 {
+define internal fastcc range(i64 0, 4294967360) i64 @_ZL24translateArmToMsvcIntrinj(i32 noundef range(i32 5753, 5752) %0) unnamed_addr #9 {
   %switch.tableidx = add i32 %0, -5766
   %2 = icmp ult i32 %switch.tableidx, 102
   br i1 %2, label %switch.lookup, label %5
@@ -113226,7 +113226,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm13IRBuilderBase10CreateLShrEPNS_
 declare noundef ptr @_ZN4llvm8Constant15getAllOnesValueEPNS_4TypeE(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc range(i64 0, 8589934592) i64 @_ZL28translateAarch64ToMsvcIntrinj(i32 noundef range(i32 207, 206) %0) unnamed_addr #9 {
+define internal fastcc range(i64 0, 4294967360) i64 @_ZL28translateAarch64ToMsvcIntrinj(i32 noundef range(i32 207, 206) %0) unnamed_addr #9 {
   %switch.tableidx = add i32 %0, -11195
   %2 = icmp ult i32 %switch.tableidx, 108
   br i1 %2, label %switch.lookup, label %6

@@ -922,94 +922,90 @@ define linkonce_odr hidden void @_ZN4llvm16MachineIRBuilder8setInstrERNS_12Machi
 
 11:                                               ; preds = %2
   %12 = and i64 %9, 7
-  %13 = icmp ne i64 %12, 3
-  %14 = and i64 %9, -8
-  %15 = inttoptr i64 %14 to ptr
-  %.not5.i = icmp eq i64 %14, 0
-  %.not.i = or i1 %13, %.not5.i
-  br i1 %.not.i, label %_ZNK4llvm12MachineInstr13getPCSectionsEv.exit, label %16
+  %.not.i = icmp eq i64 %12, 3
+  %13 = and i64 %9, -8
+  %14 = inttoptr i64 %13 to ptr
+  br i1 %.not.i, label %15, label %_ZNK4llvm12MachineInstr13getPCSectionsEv.exit
 
-16:                                               ; preds = %11
-  %17 = getelementptr inbounds nuw i8, ptr %15, i64 7
-  %18 = load i8, ptr %17, align 1
-  %19 = trunc i8 %18 to i1
-  br i1 %19, label %20, label %_ZNK4llvm12MachineInstr13getPCSectionsEv.exit
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 7
+  %17 = load i8, ptr %16, align 1
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %19, label %_ZNK4llvm12MachineInstr13getPCSectionsEv.exit
 
-20:                                               ; preds = %16
-  %21 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %22 = load i32, ptr %15, align 8
-  %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds ptr, ptr %21, i64 %23
-  %25 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  %26 = load i8, ptr %25, align 4
-  %27 = and i8 %26, 1
-  %28 = getelementptr inbounds nuw i8, ptr %15, i64 5
-  %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %narrow.i.i.i.i.i.i = add nuw nsw i8 %30, %27
-  %31 = zext nneg i8 %narrow.i.i.i.i.i.i to i64
-  %32 = getelementptr inbounds nuw ptr, ptr %24, i64 %31
-  %33 = getelementptr inbounds nuw i8, ptr %15, i64 6
-  %34 = load i8, ptr %33, align 2
-  %35 = and i8 %34, 1
-  %36 = zext nneg i8 %35 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %32, i64 %36
-  %38 = load ptr, ptr %37, align 8
+19:                                               ; preds = %15
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %21 = load i32, ptr %14, align 8
+  %22 = sext i32 %21 to i64
+  %23 = getelementptr inbounds ptr, ptr %20, i64 %22
+  %24 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %25 = load i8, ptr %24, align 4
+  %26 = and i8 %25, 1
+  %27 = getelementptr inbounds nuw i8, ptr %14, i64 5
+  %28 = load i8, ptr %27, align 1
+  %29 = and i8 %28, 1
+  %narrow.i.i.i.i.i.i = add nuw nsw i8 %29, %26
+  %30 = zext nneg i8 %narrow.i.i.i.i.i.i to i64
+  %31 = getelementptr inbounds nuw ptr, ptr %23, i64 %30
+  %32 = getelementptr inbounds nuw i8, ptr %14, i64 6
+  %33 = load i8, ptr %32, align 2
+  %34 = and i8 %33, 1
+  %35 = zext nneg i8 %34 to i64
+  %36 = getelementptr inbounds nuw ptr, ptr %31, i64 %35
+  %37 = load ptr, ptr %36, align 8
   br label %_ZNK4llvm12MachineInstr13getPCSectionsEv.exit
 
-_ZNK4llvm12MachineInstr13getPCSectionsEv.exit:    ; preds = %2, %11, %16, %20
-  %.0.i = phi ptr [ null, %2 ], [ null, %11 ], [ %38, %20 ], [ null, %16 ]
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %.0.i, ptr %39, align 8
-  %40 = load i64, ptr %8, align 8
-  %41 = icmp ugt i64 %40, 7
-  br i1 %41, label %42, label %_ZNK4llvm12MachineInstr15getMMRAMetadataEv.exit
+_ZNK4llvm12MachineInstr13getPCSectionsEv.exit:    ; preds = %2, %11, %15, %19
+  %.0.i = phi ptr [ null, %2 ], [ null, %11 ], [ %37, %19 ], [ null, %15 ]
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %.0.i, ptr %38, align 8
+  %39 = load i64, ptr %8, align 8
+  %40 = icmp ugt i64 %39, 7
+  br i1 %40, label %41, label %_ZNK4llvm12MachineInstr15getMMRAMetadataEv.exit
 
-42:                                               ; preds = %_ZNK4llvm12MachineInstr13getPCSectionsEv.exit
-  %43 = and i64 %40, 7
-  %44 = icmp ne i64 %43, 3
-  %45 = and i64 %40, -8
-  %46 = inttoptr i64 %45 to ptr
-  %.not5.i6 = icmp eq i64 %45, 0
-  %.not.i7 = or i1 %44, %.not5.i6
-  br i1 %.not.i7, label %_ZNK4llvm12MachineInstr15getMMRAMetadataEv.exit, label %47
+41:                                               ; preds = %_ZNK4llvm12MachineInstr13getPCSectionsEv.exit
+  %42 = and i64 %39, 7
+  %.not.i6 = icmp eq i64 %42, 3
+  %43 = and i64 %39, -8
+  %44 = inttoptr i64 %43 to ptr
+  br i1 %.not.i6, label %45, label %_ZNK4llvm12MachineInstr15getMMRAMetadataEv.exit
 
-47:                                               ; preds = %42
-  %48 = getelementptr inbounds nuw i8, ptr %46, i64 9
-  %49 = load i8, ptr %48, align 1
-  %50 = trunc i8 %49 to i1
-  br i1 %50, label %51, label %_ZNK4llvm12MachineInstr15getMMRAMetadataEv.exit
+45:                                               ; preds = %41
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 9
+  %47 = load i8, ptr %46, align 1
+  %48 = trunc i8 %47 to i1
+  br i1 %48, label %49, label %_ZNK4llvm12MachineInstr15getMMRAMetadataEv.exit
 
-51:                                               ; preds = %47
-  %52 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %53 = load i32, ptr %46, align 8
-  %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds ptr, ptr %52, i64 %54
-  %56 = getelementptr inbounds nuw i8, ptr %46, i64 4
-  %57 = load i8, ptr %56, align 4
-  %58 = and i8 %57, 1
-  %59 = getelementptr inbounds nuw i8, ptr %46, i64 5
-  %60 = load i8, ptr %59, align 1
-  %61 = and i8 %60, 1
-  %narrow.i.i.i.i.i.i8 = add nuw nsw i8 %61, %58
-  %62 = zext nneg i8 %narrow.i.i.i.i.i.i8 to i64
-  %63 = getelementptr inbounds nuw ptr, ptr %55, i64 %62
-  %64 = getelementptr inbounds nuw i8, ptr %46, i64 6
-  %65 = load i8, ptr %64, align 2
-  %66 = and i8 %65, 1
-  %67 = getelementptr inbounds nuw i8, ptr %46, i64 7
-  %68 = load i8, ptr %67, align 1
-  %69 = and i8 %68, 1
-  %narrow.i.i = add nuw nsw i8 %69, %66
-  %70 = zext nneg i8 %narrow.i.i to i64
-  %71 = getelementptr inbounds nuw ptr, ptr %63, i64 %70
-  %72 = load ptr, ptr %71, align 8
+49:                                               ; preds = %45
+  %50 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  %51 = load i32, ptr %44, align 8
+  %52 = sext i32 %51 to i64
+  %53 = getelementptr inbounds ptr, ptr %50, i64 %52
+  %54 = getelementptr inbounds nuw i8, ptr %44, i64 4
+  %55 = load i8, ptr %54, align 4
+  %56 = and i8 %55, 1
+  %57 = getelementptr inbounds nuw i8, ptr %44, i64 5
+  %58 = load i8, ptr %57, align 1
+  %59 = and i8 %58, 1
+  %narrow.i.i.i.i.i.i7 = add nuw nsw i8 %59, %56
+  %60 = zext nneg i8 %narrow.i.i.i.i.i.i7 to i64
+  %61 = getelementptr inbounds nuw ptr, ptr %53, i64 %60
+  %62 = getelementptr inbounds nuw i8, ptr %44, i64 6
+  %63 = load i8, ptr %62, align 2
+  %64 = and i8 %63, 1
+  %65 = getelementptr inbounds nuw i8, ptr %44, i64 7
+  %66 = load i8, ptr %65, align 1
+  %67 = and i8 %66, 1
+  %narrow.i.i = add nuw nsw i8 %67, %64
+  %68 = zext nneg i8 %narrow.i.i to i64
+  %69 = getelementptr inbounds nuw ptr, ptr %61, i64 %68
+  %70 = load ptr, ptr %69, align 8
   br label %_ZNK4llvm12MachineInstr15getMMRAMetadataEv.exit
 
-_ZNK4llvm12MachineInstr15getMMRAMetadataEv.exit:  ; preds = %_ZNK4llvm12MachineInstr13getPCSectionsEv.exit, %42, %47, %51
-  %.0.i5 = phi ptr [ null, %_ZNK4llvm12MachineInstr13getPCSectionsEv.exit ], [ null, %42 ], [ %72, %51 ], [ null, %47 ]
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %.0.i5, ptr %73, align 8
+_ZNK4llvm12MachineInstr15getMMRAMetadataEv.exit:  ; preds = %_ZNK4llvm12MachineInstr13getPCSectionsEv.exit, %41, %45, %49
+  %.0.i5 = phi ptr [ null, %_ZNK4llvm12MachineInstr13getPCSectionsEv.exit ], [ null, %41 ], [ %70, %49 ], [ null, %45 ]
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr %.0.i5, ptr %71, align 8
   ret void
 }
 

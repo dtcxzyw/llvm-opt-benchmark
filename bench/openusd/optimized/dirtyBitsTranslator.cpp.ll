@@ -1944,7 +1944,7 @@ declare noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__29HdLegacyPrimT
 declare noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__19HdVolumeFieldSchema17GetDefaultLocatorEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -3, 8388608) i32 @_ZN32pxrInternal_v0_24__pxrReserved__21HdDirtyBitsTranslator26RprimLocatorSetToDirtyBitsERKNS_7TfTokenERKNS_22HdDataSourceLocatorSetE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(456) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__21HdDirtyBitsTranslator26RprimLocatorSetToDirtyBitsERKNS_7TfTokenERKNS_22HdDataSourceLocatorSetE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(456) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet5beginEv(ptr noundef nonnull align 8 dereferenceable(456) %1)
   %4 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet3endEv(ptr noundef nonnull align 8 dereferenceable(456) %1)
   %5 = icmp eq ptr %3, %4

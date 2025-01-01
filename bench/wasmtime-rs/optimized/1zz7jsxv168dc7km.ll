@@ -4043,7 +4043,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.14031171042790067460.exit
 }
 
 ; Function Attrs: nonlazybind uwtable
-define i64 @_ZN16wasmtime_runtime7threads13shared_memory12SharedMemory13atomic_notify17h0c4ac33da2261278E(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, i64 noundef %1, i32 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define range(i64 0, -4294967294) i64 @_ZN16wasmtime_runtime7threads13shared_memory12SharedMemory13atomic_notify17h0c4ac33da2261278E(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, i64 noundef %1, i32 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, [3 x i64] }, align 8
   %5 = alloca { { ptr, i8, [7 x i8] } }, align 8
   %6 = alloca i64, align 8

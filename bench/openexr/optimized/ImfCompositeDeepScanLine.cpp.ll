@@ -3988,7 +3988,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN9Imath_3_24halfC2Ef.exit.i, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN9Imath_3_24halfC2Ef.exit.i
 
 _ZN9Imath_3_24halfC2Ef.exit.i:                    ; preds = %if.then55.i.i.i, %lor.lhs.false.i.i.i, %if.end37.i.i.i, %if.end27.i.i.i, %if.then23.i.i.i, %if.end.i.i.i, %if.then4.i.i.i

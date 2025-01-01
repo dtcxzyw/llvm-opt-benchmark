@@ -502,7 +502,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i1 @pageflags_set_clear(i64 noundef %start, i64 noundef %last, i32 noundef %set_flags, i32 noundef range(i32 -2177, 3) %clear_flags) unnamed_addr #2 {
+define internal fastcc zeroext i1 @pageflags_set_clear(i64 noundef %start, i64 noundef %last, i32 noundef range(i32 0, -64) %set_flags, i32 noundef range(i32 -2177, 3) %clear_flags) unnamed_addr #2 {
 entry:
   %call.i203214 = tail call ptr @interval_tree_iter_first(ptr noundef nonnull @pageflags_root, i64 noundef %start, i64 noundef %last) #16
   %tobool.not.i204215 = icmp eq ptr %call.i203214, null

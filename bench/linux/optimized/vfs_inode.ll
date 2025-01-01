@@ -50,7 +50,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.7 = private unnamed_addr constant [18 x i8] c"fs/9p/vfs_inode.c\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local range(i32 0, 8192) i32 @v9fs_uflags2omode(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 4352) i32 @v9fs_uflags2omode(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = and i32 %0, 3
   %4 = icmp eq i32 %3, 1
   %5 = zext i1 %4 to i32
@@ -2155,7 +2155,7 @@ define internal i32 @v9fs_vfs_mknod(ptr nocapture readnone %0, ptr nocapture nou
   br i1 %56, label %v9fs_vfs_mkspecial.exit, label %57
 
 57:                                               ; preds = %49
-  %58 = call fastcc ptr @v9fs_create(ptr noundef %53, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6, i32 noundef %50, i8 noundef zeroext 0)
+  %58 = call fastcc ptr @v9fs_create(ptr noundef %53, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6, i32 noundef range(i32 0, -2130706432) %50, i8 noundef zeroext 0)
   %59 = icmp ugt ptr %58, inttoptr (i64 -4096 to ptr)
   br i1 %59, label %60, label %63
 
@@ -2813,7 +2813,7 @@ define internal i32 @v9fs_vfs_atomic_open(ptr nocapture noundef %0, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @v9fs_create(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i8 noundef zeroext %5) unnamed_addr #4 align 16 {
+define internal fastcc ptr @v9fs_create(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, -2130706432) %4, i8 noundef zeroext range(i8 0, -124) %5) unnamed_addr #4 align 16 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14

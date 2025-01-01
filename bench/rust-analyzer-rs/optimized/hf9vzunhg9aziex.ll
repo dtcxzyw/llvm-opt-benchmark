@@ -916,7 +916,7 @@ define internal noundef i128 @_ZN12tracing_core8callsite8Callsite15private_type_
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc i64 @_ZN17ra_ap_rustc_lexer8unescape11scan_escape17headf187b680caa5eE(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i8 noundef %1) unnamed_addr #5 {
+define internal fastcc range(i64 0, -4294901760) i64 @_ZN17ra_ap_rustc_lexer8unescape11scan_escape17headf187b680caa5eE(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i8 noundef %1) unnamed_addr #5 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !227)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !alias.scope !230, !nonnull !11, !noundef !11
@@ -38111,7 +38111,7 @@ define void @_ZN3ide8Analysis6status17h92b7da3c87d72cccE(ptr noalias nocapture n
 }
 
 ; Function Attrs: nonlazybind uwtable
-define i64 @_ZN3ide8Analysis11source_root17hbbf8d799713e5cb8E(ptr noundef nonnull align 8 %0, i32 noundef %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define range(i64 0, -4294967294) i64 @_ZN3ide8Analysis11source_root17hbbf8d799713e5cb8E(ptr noundef nonnull align 8 %0, i32 noundef %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = alloca { [2 x i64] }, align 8
   %4 = alloca { ptr, [1 x i64] }, align 8
   %5 = alloca i32, align 4
@@ -38880,7 +38880,7 @@ _ZN5salsa9Cancelled5catch17h0c69ba15709757d6E.exit: ; preds = %7, %18
 }
 
 ; Function Attrs: nonlazybind uwtable
-define i64 @_ZN3ide8Analysis10crate_root17h35da21741c33268aE(ptr noundef nonnull align 8 %0, i32 noundef %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define range(i64 0, -4294967294) i64 @_ZN3ide8Analysis10crate_root17h35da21741c33268aE(ptr noundef nonnull align 8 %0, i32 noundef %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = alloca { [2 x i64] }, align 8
   %4 = alloca { ptr, [1 x i64] }, align 8
   %5 = alloca i32, align 4

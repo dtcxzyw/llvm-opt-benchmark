@@ -18127,7 +18127,7 @@ cf2_hint_init.exit136:                            ; preds = %161, %165
 cf2_blues_capture.exit:                           ; preds = %.thread, %249, %cf2_hint_init.exit136
   call fastcc void @cf2_hintmap_insertHint(ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef nonnull %11)
   %254 = load i8, ptr %.0212, align 1
-  %255 = trunc nuw i32 %.097211 to i8
+  %255 = trunc i32 %.097211 to i8
   %256 = xor i8 %255, -1
   %257 = and i8 %254, %256
   store i8 %257, ptr %.0212, align 1

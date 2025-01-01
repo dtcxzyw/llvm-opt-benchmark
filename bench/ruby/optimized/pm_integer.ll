@@ -615,7 +615,7 @@ define internal fastcc range(i32 0, 10) i32 @pm_integer_divide_word(ptr nocaptur
   %20 = zext i32 %19 to i64
   %21 = or disjoint i64 %17, %20
   %22 = udiv i64 %21, 10
-  %23 = trunc i64 %22 to i32
+  %23 = trunc nuw i64 %22 to i32
   store i32 %23, ptr %18, align 8
   %24 = urem i64 %21, 10
   %25 = trunc nuw nsw i64 %24 to i32

@@ -4080,7 +4080,7 @@ _ZN4Luau6detail14DenseHashTableIPNS_7AstExprESt4pairIS3_PKNS_7AstTypeEES4_IKS3_S
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 512) i32 @_ZN4LuauL7getTypeEPKNS_7AstTypeERKNS_8AstArrayINS_14AstGenericTypeEEERKNS_12DenseHashMapINS_7AstNameEPNS_16AstStatTypeAliasESt4hashIS9_ESt8equal_toIS9_EEEbPKcRKNS8_IS9_hSD_SF_EERNS_15BytecodeBuilderE(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %2, i1 noundef zeroext %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(840) %6) unnamed_addr #1 {
+define internal fastcc noundef i32 @_ZN4LuauL7getTypeEPKNS_7AstTypeERKNS_8AstArrayINS_14AstGenericTypeEEERKNS_12DenseHashMapINS_7AstNameEPNS_16AstStatTypeAliasESt4hashIS9_ESt8equal_toIS9_EEEbPKcRKNS8_IS9_hSD_SF_EERNS_15BytecodeBuilderE(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %2, i1 noundef zeroext %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(840) %6) unnamed_addr #1 {
   %8 = load i32, ptr @_ZN4Luau7AstRttiINS_16AstTypeReferenceEE5valueE, align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8

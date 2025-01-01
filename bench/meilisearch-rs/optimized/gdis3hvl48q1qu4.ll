@@ -55993,7 +55993,7 @@ _ZN9byte_unit4byte9get_bytes17ha084cc4b40d34a4cE.exit: ; preds = %77, %79, %83, 
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef range(i32 0, 2097152) i32 @_ZN9byte_unit9byte_unit19get_char_from_bytes17h87d5bed56fd1bbc0E(i8 noundef %0, ptr noundef nonnull readonly %1, ptr noundef readnone %2) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc noundef range(i32 0, 1114113) i32 @_ZN9byte_unit9byte_unit19get_char_from_bytes17h87d5bed56fd1bbc0E(i8 noundef %0, ptr noundef nonnull readonly %1, ptr noundef readnone %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = alloca [1 x i8], align 1
   %5 = alloca [4 x i8], align 1
   %6 = icmp slt i8 %0, 0

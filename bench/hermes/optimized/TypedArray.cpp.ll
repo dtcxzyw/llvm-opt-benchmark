@@ -13434,7 +13434,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal range(i64 1, 0) i64 @_ZN6hermes2vm12_GLOBAL__N_119TypedArraySortModelILb0EE7compareEjj(ptr nocapture noundef nonnull align 8 dereferenceable(280) initializes((208, 228)) %this, i32 noundef %a, i32 noundef %b) unnamed_addr #0 align 2 {
+define internal range(i64 1, -4294967294) i64 @_ZN6hermes2vm12_GLOBAL__N_119TypedArraySortModelILb0EE7compareEjj(ptr nocapture noundef nonnull align 8 dereferenceable(280) initializes((208, 228)) %this, i32 noundef %a, i32 noundef %b) unnamed_addr #0 align 2 {
 entry:
   %gcMarker_ = getelementptr inbounds nuw i8, ptr %this, i64 264
   %gcMarker.sroa.2.8.copyload = load ptr, ptr %gcMarker_, align 8

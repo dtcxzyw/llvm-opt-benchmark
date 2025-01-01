@@ -12476,7 +12476,7 @@ define internal fastcc void @pm_token_buffer_flush(ptr noundef %0, ptr noundef n
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @escape_read(ptr noundef %0, ptr noundef nonnull %1, i8 noundef zeroext range(i8 0, 16) %2) unnamed_addr #1 {
+define internal fastcc void @escape_read(ptr noundef %0, ptr noundef nonnull %1, i8 noundef zeroext range(i8 0, 12) %2) unnamed_addr #1 {
   %4 = getelementptr i8, ptr %0, i64 272
   %.val283 = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %0, i64 320
@@ -14419,7 +14419,7 @@ define internal fastcc void @escape_write_byte_encoded(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @escape_write_unicode(ptr noundef %0, ptr noundef nonnull %1, i8 noundef zeroext range(i8 0, 16) %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #1 {
+define internal fastcc void @escape_write_unicode(ptr noundef %0, ptr noundef nonnull %1, i8 noundef zeroext range(i8 0, 12) %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #1 {
   %7 = icmp ult i32 %5, 128
   %8 = and i8 %2, 4
   %.not = icmp eq i8 %8, 0
@@ -14524,7 +14524,7 @@ declare i64 @pm_strspn_whitespace(ptr noundef, i64 noundef) local_unnamed_addr #
 declare i64 @pm_strspn_hexadecimal_digit(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @escape_write_byte(ptr noundef %0, ptr noundef nonnull %1, i8 noundef zeroext range(i8 0, 16) %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc void @escape_write_byte(ptr noundef %0, ptr noundef nonnull %1, i8 noundef zeroext range(i8 0, 12) %2, i8 noundef zeroext %3) unnamed_addr #1 {
   %.not = icmp samesign ult i8 %2, 8
   br i1 %.not, label %14, label %5
 
@@ -34948,22 +34948,22 @@ pm_alloc_node.exit:                               ; preds = %4
   br label %38
 
 26:                                               ; preds = %.lr.ph.i
-  %27 = and i16 %.116.i, -241
+  %27 = and i16 %.116.i, 32527
   %28 = or disjoint i16 %27, 16
   br label %38
 
 29:                                               ; preds = %.lr.ph.i
-  %30 = and i16 %.116.i, -241
+  %30 = and i16 %.116.i, 32527
   %31 = or disjoint i16 %30, 32
   br label %38
 
 32:                                               ; preds = %.lr.ph.i
-  %33 = and i16 %.116.i, -241
+  %33 = and i16 %.116.i, 32527
   %34 = or disjoint i16 %33, 64
   br label %38
 
 35:                                               ; preds = %.lr.ph.i
-  %36 = and i16 %.116.i, -241
+  %36 = and i16 %.116.i, 32527
   %37 = or disjoint i16 %36, 128
   br label %38
 
@@ -35128,22 +35128,22 @@ define internal fastcc void @pm_interpolated_regular_expression_node_closing_set
   br label %36
 
 24:                                               ; preds = %.lr.ph.i
-  %25 = and i16 %.116.i, -241
+  %25 = and i16 %.116.i, 32527
   %26 = or disjoint i16 %25, 16
   br label %36
 
 27:                                               ; preds = %.lr.ph.i
-  %28 = and i16 %.116.i, -241
+  %28 = and i16 %.116.i, 32527
   %29 = or disjoint i16 %28, 32
   br label %36
 
 30:                                               ; preds = %.lr.ph.i
-  %31 = and i16 %.116.i, -241
+  %31 = and i16 %.116.i, 32527
   %32 = or disjoint i16 %31, 64
   br label %36
 
 33:                                               ; preds = %.lr.ph.i
-  %34 = and i16 %.116.i, -241
+  %34 = and i16 %.116.i, 32527
   %35 = or disjoint i16 %34, 128
   br label %36
 

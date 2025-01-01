@@ -5460,7 +5460,7 @@ sw.epilog:                                        ; preds = %if.then34.i, %if.en
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @ohci_get_frame_remaining(ptr nocapture noundef readonly %ohci) unnamed_addr #0 {
+define internal fastcc range(i32 0, -2147418112) i32 @ohci_get_frame_remaining(ptr nocapture noundef readonly %ohci) unnamed_addr #0 {
 entry:
   %ctl = getelementptr inbounds nuw i8, ptr %ohci, i64 520
   %0 = load i32, ptr %ctl, align 8

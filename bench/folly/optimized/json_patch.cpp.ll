@@ -4026,7 +4026,7 @@ return:                                           ; preds = %for.end, %cleanup33
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc range(i24 1, 1024) i24 @_ZN5folly12_GLOBAL__N_19do_removeERNS_8ExpectedINS_7dynamic27json_pointer_resolved_valueIS2_EENS2_29json_pointer_resolution_errorIS2_EEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %ptr) unnamed_addr #8 {
+define internal fastcc range(i24 1, 516) i24 @_ZN5folly12_GLOBAL__N_19do_removeERNS_8ExpectedINS_7dynamic27json_pointer_resolved_valueIS2_EENS2_29json_pointer_resolution_errorIS2_EEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %ptr) unnamed_addr #8 {
 entry:
   %ref.tmp.i.i.i.i = alloca %class.anon.81, align 8
   %ref.tmp.i.i = alloca %class.anon.80, align 1

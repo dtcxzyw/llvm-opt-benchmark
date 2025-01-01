@@ -9506,7 +9506,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %125, %127
   %165 = and i64 %164, 4294967295
   br label %_ZNK5clang9NamedDecl7getNameEv.exit72
 
-_ZNK5clang9NamedDecl7getNameEv.exit72:            ; preds = %159, %153
+_ZNK5clang9NamedDecl7getNameEv.exit72:            ; preds = %153, %159
   %.sroa.3.0.i68 = phi i64 [ %165, %159 ], [ 0, %153 ]
   %.sroa.0.0.i69 = phi ptr [ %163, %159 ], [ @.str.460, %153 ]
   %166 = inttoptr i64 %76 to ptr

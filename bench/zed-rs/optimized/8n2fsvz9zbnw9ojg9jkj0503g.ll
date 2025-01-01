@@ -46438,7 +46438,7 @@ define hidden void @_ZN5x11rb6cursor12parse_cursor8TocEntry4read17h4db150979a423
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden i64 @_ZN5x11rb6cursor12parse_cursor8read_u3217h5a1e56158128ba0aE(ptr noalias noundef align 8 dereferenceable(48) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden range(i64 0, -4294967294) i64 @_ZN5x11rb6cursor12parse_cursor8read_u3217h5a1e56158128ba0aE(ptr noalias noundef align 8 dereferenceable(48) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca [4 x i8], align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   store i32 0, ptr %2, align 4

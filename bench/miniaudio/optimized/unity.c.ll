@@ -3057,14 +3057,7 @@ if.end6:                                          ; preds = %if.end.i
   %add15.i = add nuw nsw i64 %and13.i, %and.i
   %_pHeap = getelementptr inbounds nuw i8, ptr %pAllocator, i64 32
   store ptr %pHeap, ptr %_pHeap, align 8
-  %cmp1.i.not = icmp eq i64 %add15.i, 0
-  br i1 %cmp1.i.not, label %ma_zero_memory_default.exit, label %if.then2.i
-
-if.then2.i:                                       ; preds = %if.end6
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %pHeap, i8 0, i64 %add15.i, i1 false)
-  br label %ma_zero_memory_default.exit
-
-ma_zero_memory_default.exit:                      ; preds = %if.end6, %if.then2.i
   store ptr %pHeap, ptr %pAllocator, align 8
   %add.ptr7 = getelementptr inbounds nuw i8, ptr %pHeap, i64 %and.i
   %pSlots = getelementptr inbounds nuw i8, ptr %pAllocator, i64 8
@@ -3074,8 +3067,8 @@ ma_zero_memory_default.exit:                      ; preds = %if.end6, %if.then2.
   store i32 %3, ptr %capacity8, align 4
   br label %return
 
-return:                                           ; preds = %if.end.i, %if.then2.i14, %entry, %ma_zero_memory_default.exit
-  %retval.0 = phi i32 [ 0, %ma_zero_memory_default.exit ], [ -2, %entry ], [ -2, %if.then2.i14 ], [ -2, %if.end.i ]
+return:                                           ; preds = %if.end.i, %if.then2.i14, %entry, %if.end6
+  %retval.0 = phi i32 [ 0, %if.end6 ], [ -2, %entry ], [ -2, %if.then2.i14 ], [ -2, %if.end.i ]
   ret i32 %retval.0
 }
 
@@ -3105,14 +3098,10 @@ if.end:                                           ; preds = %if.end.i.i
   %add12.i.i = add nuw nsw i64 %mul11.i.i, 7
   %and13.i.i = and i64 %add12.i.i, 34359738360
   %add15.i.i = add nuw nsw i64 %and13.i.i, %and.i.i
-  %cmp1.not = icmp eq i64 %add15.i.i, 0
-  br i1 %cmp1.not, label %if.end7.thread, label %if.then2
-
-if.then2:                                         ; preds = %if.end
   %cmp.not.i = icmp eq ptr %pAllocationCallbacks, null
   br i1 %cmp.not.i, label %if.else4.i, label %if.then.i
 
-if.then.i:                                        ; preds = %if.then2
+if.then.i:                                        ; preds = %if.end
   %onMalloc.i = getelementptr inbounds nuw i8, ptr %pAllocationCallbacks, i64 8
   %3 = load ptr, ptr %onMalloc.i, align 8
   %cmp1.not.i = icmp eq ptr %3, null
@@ -3123,7 +3112,7 @@ if.then2.i:                                       ; preds = %if.then.i
   %call.i = tail call ptr %3(i64 noundef %add15.i.i, ptr noundef %4) #64
   br label %ma_malloc.exit
 
-if.else4.i:                                       ; preds = %if.then2
+if.else4.i:                                       ; preds = %if.end
   %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %add15.i.i) #78
   br label %ma_malloc.exit
 
@@ -3134,32 +3123,42 @@ ma_malloc.exit:                                   ; preds = %if.then2.i, %if.els
 
 if.end7:                                          ; preds = %ma_malloc.exit
   %cmp.i = icmp eq ptr %pAllocator, null
-  br i1 %cmp.i, label %if.end.i, label %if.end.i.i11
+  br i1 %cmp.i, label %if.end.i, label %if.then2.i14.i
 
-if.end7.thread:                                   ; preds = %if.end
-  %cmp.i39 = icmp eq ptr %pAllocator, null
-  br i1 %cmp.i39, label %return, label %if.then2.i14.i.thread
-
-if.then2.i14.i.thread:                            ; preds = %if.end7.thread
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %pAllocator, i8 0, i64 40, i1 false)
-  br label %return
-
-if.end.i.i11:                                     ; preds = %if.end7
+if.then2.i14.i:                                   ; preds = %if.end7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %pAllocator, i8 0, i64 40, i1 false)
   %5 = load i32, ptr %pConfig, align 4
   %cmp1.i.i12 = icmp eq i32 %5, 0
-  br i1 %cmp1.i.i12, label %if.end.i, label %if.end6.i
+  br i1 %cmp1.i.i12, label %if.end.i, label %if.end11
 
-if.end6.i:                                        ; preds = %if.end.i.i11
+if.end.i:                                         ; preds = %if.end7, %if.then2.i14.i
+  br i1 %cmp.not.i, label %if.else7.i, label %if.then2.i28
+
+if.then2.i28:                                     ; preds = %if.end.i
+  %onFree.i = getelementptr inbounds nuw i8, ptr %pAllocationCallbacks, i64 24
+  %6 = load ptr, ptr %onFree.i, align 8
+  %cmp3.not.i = icmp eq ptr %6, null
+  br i1 %cmp3.not.i, label %return, label %if.then4.i
+
+if.then4.i:                                       ; preds = %if.then2.i28
+  %7 = load ptr, ptr %pAllocationCallbacks, align 8
+  tail call void %6(ptr noundef nonnull %retval.0.i9, ptr noundef %7) #64
+  br label %return
+
+if.else7.i:                                       ; preds = %if.end.i
+  tail call void @free(ptr noundef nonnull %retval.0.i9) #64
+  br label %return
+
+if.end11:                                         ; preds = %if.then2.i14.i
   %div.i15.i.i13 = lshr i32 %5, 5
   %rem.i.i.i14 = and i32 %5, 31
   %cmp.i16.not.i.i15 = icmp ne i32 %rem.i.i.i14, 0
   %add.i.i.i16 = zext i1 %cmp.i16.not.i.i15 to i32
   %spec.select.i.i17 = add nuw nsw i32 %div.i15.i.i13, %add.i.i.i16
-  %6 = shl nuw nsw i32 %spec.select.i.i17, 2
-  %narrow.i.i18 = add nuw nsw i32 %6, 7
-  %7 = and i32 %narrow.i.i18, 2147483640
-  %and.i.i19 = zext nneg i32 %7 to i64
+  %8 = shl nuw nsw i32 %spec.select.i.i17, 2
+  %narrow.i.i18 = add nuw nsw i32 %8, 7
+  %9 = and i32 %narrow.i.i18, 2147483640
+  %and.i.i19 = zext nneg i32 %9 to i64
   %conv10.i.i20 = zext i32 %5 to i64
   %mul11.i.i21 = shl nuw nsw i64 %conv10.i.i20, 2
   %add12.i.i22 = add nuw nsw i64 %mul11.i.i21, 7
@@ -3167,33 +3166,7 @@ if.end6.i:                                        ; preds = %if.end.i.i11
   %add15.i.i24 = add nuw nsw i64 %and13.i.i23, %and.i.i19
   %_pHeap.i = getelementptr inbounds nuw i8, ptr %pAllocator, i64 32
   store ptr %retval.0.i9, ptr %_pHeap.i, align 8
-  %cmp1.i.not.i = icmp eq i64 %add15.i.i24, 0
-  br i1 %cmp1.i.not.i, label %if.end11, label %if.then2.i.i
-
-if.then2.i.i:                                     ; preds = %if.end6.i
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %retval.0.i9, i8 0, i64 %add15.i.i24, i1 false)
-  br label %if.end11
-
-if.end.i:                                         ; preds = %if.end7, %if.end.i.i11
-  %cmp1.not.i27 = icmp eq ptr %pAllocationCallbacks, null
-  br i1 %cmp1.not.i27, label %if.else7.i, label %if.then2.i28
-
-if.then2.i28:                                     ; preds = %if.end.i
-  %onFree.i = getelementptr inbounds nuw i8, ptr %pAllocationCallbacks, i64 24
-  %8 = load ptr, ptr %onFree.i, align 8
-  %cmp3.not.i = icmp eq ptr %8, null
-  br i1 %cmp3.not.i, label %return, label %if.then4.i
-
-if.then4.i:                                       ; preds = %if.then2.i28
-  %9 = load ptr, ptr %pAllocationCallbacks, align 8
-  tail call void %8(ptr noundef nonnull %retval.0.i9, ptr noundef %9) #64
-  br label %return
-
-if.else7.i:                                       ; preds = %if.end.i
-  tail call void @free(ptr noundef nonnull %retval.0.i9) #64
-  br label %return
-
-if.end11:                                         ; preds = %if.then2.i.i, %if.end6.i
   store ptr %retval.0.i9, ptr %pAllocator, align 8
   %add.ptr7.i = getelementptr inbounds nuw i8, ptr %retval.0.i9, i64 %and.i.i19
   %pSlots.i = getelementptr inbounds nuw i8, ptr %pAllocator, i64 8
@@ -3205,8 +3178,8 @@ if.end11:                                         ; preds = %if.then2.i.i, %if.e
   store i32 1, ptr %_ownsHeap, align 8
   br label %return
 
-return:                                           ; preds = %if.end7.thread, %if.then2.i14.i.thread, %if.then.i, %if.end.i.i, %entry, %if.else7.i, %if.then4.i, %if.then2.i28, %ma_malloc.exit, %if.end11
-  %retval.0 = phi i32 [ 0, %if.end11 ], [ -4, %ma_malloc.exit ], [ -2, %if.then2.i28 ], [ -2, %if.then4.i ], [ -2, %if.else7.i ], [ -2, %entry ], [ -2, %if.end.i.i ], [ -4, %if.then.i ], [ -2, %if.then2.i14.i.thread ], [ -2, %if.end7.thread ]
+return:                                           ; preds = %if.then.i, %if.end.i.i, %entry, %if.else7.i, %if.then4.i, %if.then2.i28, %ma_malloc.exit, %if.end11
+  %retval.0 = phi i32 [ 0, %if.end11 ], [ -4, %ma_malloc.exit ], [ -2, %if.then2.i28 ], [ -2, %if.then4.i ], [ -2, %if.else7.i ], [ -2, %entry ], [ -2, %if.end.i.i ], [ -4, %if.then.i ]
   ret i32 %retval.0
 }
 
@@ -3564,9 +3537,9 @@ ma_zero_memory_default.exit:                      ; preds = %if.end3, %if.then2.
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %allocator, i8 0, i64 40, i1 false)
   %cmp1.i.i = icmp eq i32 %5, 0
   %or.cond = select i1 %cmp.i.not, i1 true, i1 %cmp1.i.i
-  br i1 %or.cond, label %return, label %if.end6.i
+  br i1 %or.cond, label %return, label %if.end12
 
-if.end6.i:                                        ; preds = %ma_zero_memory_default.exit
+if.end12:                                         ; preds = %ma_zero_memory_default.exit
   %div.i15.i.i = lshr i32 %5, 5
   %rem.i.i.i = and i32 %5, 31
   %cmp.i16.not.i.i = icmp ne i32 %rem.i.i.i, 0
@@ -3583,22 +3556,14 @@ if.end6.i:                                        ; preds = %ma_zero_memory_defa
   %add15.i.i = add nuw nsw i64 %and13.i.i, %and.i.i
   %_pHeap.i = getelementptr inbounds nuw i8, ptr %pQueue, i64 152
   store ptr %pHeap, ptr %_pHeap.i, align 8
-  %cmp1.i.not.i = icmp eq i64 %add15.i.i, 0
-  br i1 %cmp1.i.not.i, label %if.end12, label %if.then2.i.i
-
-if.then2.i.i:                                     ; preds = %if.end6.i
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %pHeap, i8 0, i64 %add15.i.i, i1 false)
-  %.pre = load i32, ptr %pQueue, align 8
-  br label %if.end12
-
-if.end12:                                         ; preds = %if.then2.i.i, %if.end6.i
-  %8 = phi i32 [ %.pre, %if.then2.i.i ], [ %3, %if.end6.i ]
   store ptr %pHeap, ptr %allocator, align 8
   %add.ptr7.i = getelementptr inbounds nuw i8, ptr %pHeap, i64 %and.i.i
   %pSlots.i = getelementptr inbounds nuw i8, ptr %pQueue, i64 128
   store ptr %add.ptr7.i, ptr %pSlots.i, align 8
   %capacity8.i = getelementptr inbounds nuw i8, ptr %pQueue, i64 140
   store i32 %5, ptr %capacity8.i, align 4
+  %8 = load i32, ptr %pQueue, align 8
   %and = and i32 %8, 1
   %cmp14 = icmp eq i32 %and, 0
   br i1 %cmp14, label %if.then15, label %if.end17
@@ -19943,18 +19908,16 @@ if.end.i:                                         ; preds = %if.then2.i10
   br i1 %cmp1.i15, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end.i
+  %_pHeap = getelementptr inbounds nuw i8, ptr %pLPF, i64 24
+  store ptr %pHeap, ptr %_pHeap, align 8
+  %cmp.i.not = icmp eq ptr %pHeap, null
+  br i1 %cmp.i.not, label %if.end.i18, label %if.then2.i
+
+if.then2.i:                                       ; preds = %if.end3
   %conv.i = zext i32 %0 to i64
   %mul.i = shl nuw nsw i64 %conv.i, 2
   %add8.i = add nuw nsw i64 %mul.i, 7
   %and.i = and i64 %add8.i, 34359738360
-  %_pHeap = getelementptr inbounds nuw i8, ptr %pLPF, i64 24
-  store ptr %pHeap, ptr %_pHeap, align 8
-  %cmp.i = icmp ne ptr %pHeap, null
-  %cmp1.i = icmp ne i64 %and.i, 0
-  %or.cond1 = select i1 %cmp.i, i1 %cmp1.i, i1 false
-  br i1 %or.cond1, label %if.then2.i, label %if.end.i18
-
-if.then2.i:                                       ; preds = %if.end3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %pHeap, i8 0, i64 %and.i, i1 false)
   br label %if.end.i18
 
@@ -20105,14 +20068,10 @@ if.end:                                           ; preds = %if.end.i.i
   %mul.i.i = shl nuw nsw i64 %conv.i.i, 2
   %add8.i.i = add nuw nsw i64 %mul.i.i, 7
   %and.i.i = and i64 %add8.i.i, 34359738360
-  %cmp1.not = icmp eq i64 %and.i.i, 0
-  br i1 %cmp1.not, label %if.end7, label %if.then2
-
-if.then2:                                         ; preds = %if.end
   %cmp.not.i = icmp eq ptr %pAllocationCallbacks, null
   br i1 %cmp.not.i, label %if.else4.i, label %if.then.i
 
-if.then.i:                                        ; preds = %if.then2
+if.then.i:                                        ; preds = %if.end
   %onMalloc.i = getelementptr inbounds nuw i8, ptr %pAllocationCallbacks, i64 8
   %1 = load ptr, ptr %onMalloc.i, align 8
   %cmp1.not.i = icmp eq ptr %1, null
@@ -20123,7 +20082,7 @@ if.then2.i:                                       ; preds = %if.then.i
   %call.i = tail call ptr %1(i64 noundef %and.i.i, ptr noundef %2) #64
   br label %ma_malloc.exit
 
-if.else4.i:                                       ; preds = %if.then2
+if.else4.i:                                       ; preds = %if.end
   %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %and.i.i) #78
   br label %ma_malloc.exit
 
@@ -20132,48 +20091,38 @@ ma_malloc.exit:                                   ; preds = %if.then2.i, %if.els
   %cmp4 = icmp eq ptr %retval.0.i9, null
   br i1 %cmp4, label %return, label %if.end7
 
-if.end7:                                          ; preds = %if.end, %ma_malloc.exit
-  %pHeap.0 = phi ptr [ %retval.0.i9, %ma_malloc.exit ], [ null, %if.end ]
+if.end7:                                          ; preds = %ma_malloc.exit
   %cmp.i = icmp eq ptr %pLPF, null
-  br i1 %cmp.i, label %if.then10, label %if.end.i.i10
+  br i1 %cmp.i, label %if.end.i, label %if.end.i.i10
 
 if.end.i.i10:                                     ; preds = %if.end7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %pLPF, i8 0, i64 40, i1 false)
   %3 = load i32, ptr %channels.i.i, align 4
   %cmp1.i15.i = icmp eq i32 %3, 0
-  br i1 %cmp1.i15.i, label %if.then10, label %if.end3.i12
+  br i1 %cmp1.i15.i, label %if.end.i, label %if.end3.i12
 
 if.end3.i12:                                      ; preds = %if.end.i.i10
+  %_pHeap.i = getelementptr inbounds nuw i8, ptr %pLPF, i64 24
+  store ptr %retval.0.i9, ptr %_pHeap.i, align 8
   %conv.i.i13 = zext i32 %3 to i64
   %mul.i.i14 = shl nuw nsw i64 %conv.i.i13, 2
   %add8.i.i15 = add nuw nsw i64 %mul.i.i14, 7
   %and.i.i16 = and i64 %add8.i.i15, 34359738360
-  %_pHeap.i = getelementptr inbounds nuw i8, ptr %pLPF, i64 24
-  store ptr %pHeap.0, ptr %_pHeap.i, align 8
-  %cmp.i.i17 = icmp ne ptr %pHeap.0, null
-  %cmp1.i.i18 = icmp ne i64 %and.i.i16, 0
-  %or.cond1.i = select i1 %cmp.i.i17, i1 %cmp1.i.i18, i1 false
-  br i1 %or.cond1.i, label %if.then2.i.i, label %if.end.i18.i
-
-if.then2.i.i:                                     ; preds = %if.end3.i12
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %pHeap.0, i8 0, i64 %and.i.i16, i1 false)
-  br label %if.end.i18.i
-
-if.end.i18.i:                                     ; preds = %if.then2.i.i, %if.end3.i12
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %retval.0.i9, i8 0, i64 %and.i.i16, i1 false)
   %pR1.i = getelementptr inbounds nuw i8, ptr %pLPF, i64 16
-  store ptr %pHeap.0, ptr %pR1.i, align 8
+  store ptr %retval.0.i9, ptr %pR1.i, align 8
   %4 = load i32, ptr %pConfig, align 8
-  switch i32 %4, label %if.then10 [
+  switch i32 %4, label %if.end.i [
     i32 5, label %if.end6.i.i
     i32 2, label %if.end6.i.i
   ]
 
-if.end6.i.i:                                      ; preds = %if.end.i18.i, %if.end.i18.i
+if.end6.i.i:                                      ; preds = %if.end3.i12, %if.end3.i12
   %5 = load i32, ptr %pLPF, align 8
   %cmp8.not.i.i = icmp eq i32 %5, 0
   %cmp12.not.i.i = icmp eq i32 %5, %4
   %or.cond21.i.i = or i1 %cmp8.not.i.i, %cmp12.not.i.i
-  br i1 %or.cond21.i.i, label %if.end14.i.i, label %if.then10
+  br i1 %or.cond21.i.i, label %if.end14.i.i, label %if.end.i
 
 if.end14.i.i:                                     ; preds = %if.end6.i.i
   %channels.i20.i = getelementptr inbounds nuw i8, ptr %pLPF, i64 4
@@ -20184,7 +20133,7 @@ if.end14.i.i:                                     ; preds = %if.end6.i.i
 land.lhs.true16.i.i:                              ; preds = %if.end14.i.i
   %7 = load i32, ptr %channels.i.i, align 4
   %cmp19.not.i.i = icmp eq i32 %6, %7
-  br i1 %cmp19.not.i.i, label %if.end21.i.i, label %if.then10
+  br i1 %cmp19.not.i.i, label %if.end21.i.i, label %if.end.i
 
 if.end21.i.i:                                     ; preds = %land.lhs.true16.i.i, %if.end14.i.i
   store i32 %4, ptr %pLPF, align 8
@@ -20211,32 +20160,27 @@ if.end21.i.i:                                     ; preds = %land.lhs.true16.i.i
   store i32 1, ptr %_ownsHeap, align 8
   br label %return
 
-if.then10:                                        ; preds = %if.end7, %if.end.i18.i, %land.lhs.true16.i.i, %if.end6.i.i, %if.end.i.i10
-  %retval.0.i19.ph = phi i32 [ -2, %if.end.i.i10 ], [ -3, %if.end6.i.i ], [ -3, %land.lhs.true16.i.i ], [ -2, %if.end.i18.i ], [ -2, %if.end7 ]
-  %cmp.i20 = icmp eq ptr %pHeap.0, null
-  br i1 %cmp.i20, label %return, label %if.end.i
+if.end.i:                                         ; preds = %if.end.i.i10, %if.end6.i.i, %land.lhs.true16.i.i, %if.end3.i12, %if.end7
+  %retval.0.i17.ph = phi i32 [ -2, %if.end.i.i10 ], [ -3, %if.end6.i.i ], [ -3, %land.lhs.true16.i.i ], [ -2, %if.end3.i12 ], [ -2, %if.end7 ]
+  br i1 %cmp.not.i, label %if.else7.i, label %if.then2.i20
 
-if.end.i:                                         ; preds = %if.then10
-  %cmp1.not.i21 = icmp eq ptr %pAllocationCallbacks, null
-  br i1 %cmp1.not.i21, label %if.else7.i, label %if.then2.i22
-
-if.then2.i22:                                     ; preds = %if.end.i
+if.then2.i20:                                     ; preds = %if.end.i
   %onFree.i = getelementptr inbounds nuw i8, ptr %pAllocationCallbacks, i64 24
   %14 = load ptr, ptr %onFree.i, align 8
   %cmp3.not.i = icmp eq ptr %14, null
   br i1 %cmp3.not.i, label %return, label %if.then4.i
 
-if.then4.i:                                       ; preds = %if.then2.i22
+if.then4.i:                                       ; preds = %if.then2.i20
   %15 = load ptr, ptr %pAllocationCallbacks, align 8
-  tail call void %14(ptr noundef nonnull %pHeap.0, ptr noundef %15) #64
+  tail call void %14(ptr noundef nonnull %retval.0.i9, ptr noundef %15) #64
   br label %return
 
 if.else7.i:                                       ; preds = %if.end.i
-  tail call void @free(ptr noundef nonnull %pHeap.0) #64
+  tail call void @free(ptr noundef nonnull %retval.0.i9) #64
   br label %return
 
-return:                                           ; preds = %if.then.i, %if.end.i.i, %entry, %if.else7.i, %if.then4.i, %if.then2.i22, %if.then10, %ma_malloc.exit, %if.end21.i.i
-  %retval.0 = phi i32 [ 0, %if.end21.i.i ], [ -4, %ma_malloc.exit ], [ %retval.0.i19.ph, %if.then10 ], [ %retval.0.i19.ph, %if.then2.i22 ], [ %retval.0.i19.ph, %if.then4.i ], [ %retval.0.i19.ph, %if.else7.i ], [ -2, %entry ], [ -2, %if.end.i.i ], [ -4, %if.then.i ]
+return:                                           ; preds = %if.then.i, %if.end.i.i, %entry, %if.else7.i, %if.then4.i, %if.then2.i20, %ma_malloc.exit, %if.end21.i.i
+  %retval.0 = phi i32 [ 0, %if.end21.i.i ], [ -4, %ma_malloc.exit ], [ %retval.0.i17.ph, %if.then2.i20 ], [ %retval.0.i17.ph, %if.then4.i ], [ %retval.0.i17.ph, %if.else7.i ], [ -2, %entry ], [ -2, %if.end.i.i ], [ -4, %if.then.i ]
   ret i32 %retval.0
 }
 
@@ -21082,8 +21026,8 @@ if.end6:                                          ; preds = %if.end, %if.end
   %1 = load i32, ptr %pLPF, align 8
   %cmp8.not = icmp eq i32 %1, 0
   %cmp12.not = icmp eq i32 %1, %0
-  %or.cond185 = or i1 %cmp8.not, %cmp12.not
-  br i1 %or.cond185, label %if.end14, label %return
+  %or.cond184 = or i1 %cmp8.not, %cmp12.not
+  br i1 %or.cond184, label %if.end14, label %return
 
 if.end14:                                         ; preds = %if.end6
   %channels = getelementptr inbounds nuw i8, ptr %pLPF, i64 4
@@ -21164,13 +21108,13 @@ cdce.end.i.i:                                     ; preds = %cdce.call, %for.bod
   %sub.i3.i.i = fsub double 0x3FF921FB54442D18, %div.i.i.i
   %14 = tail call double @llvm.fabs.f64(double %sub.i3.i.i)
   %15 = fcmp oeq double %14, 0x7FF0000000000000
-  br i1 %15, label %cdce.call188, label %cdce.end11.i.i, !prof !145
+  br i1 %15, label %cdce.call187, label %cdce.end11.i.i, !prof !145
 
-cdce.call188:                                     ; preds = %cdce.end.i.i
+cdce.call187:                                     ; preds = %cdce.end.i.i
   %call.i.i.i.i = tail call double @sin(double noundef %sub.i3.i.i) #64, !noalias !159
   br label %cdce.end11.i.i
 
-cdce.end11.i.i:                                   ; preds = %cdce.call188, %cdce.end.i.i
+cdce.end11.i.i:                                   ; preds = %cdce.call187, %cdce.end.i.i
   %cmp1.i.i.i.i = icmp eq i32 %9, 0
   br i1 %cmp1.i.i.i.i, label %return, label %if.end28.i
 
@@ -21204,12 +21148,12 @@ if.end41:                                         ; preds = %if.then2.i176, %if.
   %add.ptr40 = getelementptr inbounds nuw i8, ptr %pHeap, i64 %8
   %pLPF2 = getelementptr inbounds nuw i8, ptr %pLPF, i64 32
   store ptr %add.ptr40, ptr %pLPF2, align 8
-  %cmp42198.not = icmp eq i32 %rem.i, 0
-  br i1 %cmp42198.not, label %for.cond79.preheader, label %for.body.lr.ph
+  %cmp42197.not = icmp eq i32 %rem.i, 0
+  br i1 %cmp42197.not, label %for.cond79.preheader, label %for.body.lr.ph
 
 if.end41.thread:                                  ; preds = %lor.lhs.false29
-  %cmp42198.not243 = icmp eq i32 %rem.i, 0
-  br i1 %cmp42198.not243, label %for.cond79.preheader, label %for.body.us.preheader
+  %cmp42197.not242 = icmp eq i32 %rem.i, 0
+  br i1 %cmp42197.not242, label %for.cond79.preheader, label %for.body.us.preheader
 
 for.body.lr.ph:                                   ; preds = %if.end41
   %narrow = mul nuw nsw i32 %rem.i, 40
@@ -21226,69 +21170,69 @@ for.body.lr.ph:                                   ; preds = %if.end41
   br i1 %cmp1.i.i, label %return, label %if.then49
 
 for.body.us.preheader:                            ; preds = %if.end41.thread
-  %pLPF155255 = getelementptr inbounds nuw i8, ptr %pLPF, i64 24
-  %cutoffFrequency252 = getelementptr inbounds nuw i8, ptr %pConfig, i64 16
-  %sampleRate251 = getelementptr inbounds nuw i8, ptr %pConfig, i64 8
-  %channels44250 = getelementptr inbounds nuw i8, ptr %pConfig, i64 4
+  %pLPF155254 = getelementptr inbounds nuw i8, ptr %pLPF, i64 24
+  %cutoffFrequency251 = getelementptr inbounds nuw i8, ptr %pConfig, i64 16
+  %sampleRate250 = getelementptr inbounds nuw i8, ptr %pConfig, i64 8
+  %channels44249 = getelementptr inbounds nuw i8, ptr %pConfig, i64 4
   %22 = load i32, ptr %pConfig, align 8
-  %23 = load i32, ptr %channels44250, align 4
-  %24 = load i32, ptr %sampleRate251, align 8
-  %25 = load double, ptr %cutoffFrequency252, align 8
-  %26 = load ptr, ptr %pLPF155255, align 8
-  %cmp.i99.us = icmp eq ptr %26, null
-  br i1 %cmp.i99.us, label %return, label %if.end.i101.us
+  %23 = load i32, ptr %channels44249, align 4
+  %24 = load i32, ptr %sampleRate250, align 8
+  %25 = load double, ptr %cutoffFrequency251, align 8
+  %26 = load ptr, ptr %pLPF155254, align 8
+  %cmp.i98.us = icmp eq ptr %26, null
+  br i1 %cmp.i98.us, label %return, label %if.end.i100.us
 
-if.end.i101.us:                                   ; preds = %for.body.us.preheader
+if.end.i100.us:                                   ; preds = %for.body.us.preheader
   switch i32 %22, label %return [
-    i32 5, label %if.end6.i102.us
-    i32 2, label %if.end6.i102.us
+    i32 5, label %if.end6.i101.us
+    i32 2, label %if.end6.i101.us
   ]
 
-if.end6.i102.us:                                  ; preds = %if.end.i101.us, %if.end.i101.us
+if.end6.i101.us:                                  ; preds = %if.end.i100.us, %if.end.i100.us
   %27 = load i32, ptr %26, align 8
   %cmp8.not.i.us = icmp eq i32 %27, 0
   %cmp12.not.i.us = icmp eq i32 %27, %22
   %or.cond21.i.us = or i1 %cmp8.not.i.us, %cmp12.not.i.us
   br i1 %or.cond21.i.us, label %if.end14.i.us, label %return
 
-if.end14.i.us:                                    ; preds = %if.end6.i102.us
-  %channels.i104.us = getelementptr inbounds nuw i8, ptr %26, i64 4
-  %28 = load i32, ptr %channels.i104.us, align 4
+if.end14.i.us:                                    ; preds = %if.end6.i101.us
+  %channels.i103.us = getelementptr inbounds nuw i8, ptr %26, i64 4
+  %28 = load i32, ptr %channels.i103.us, align 4
   %cmp15.not.i.us = icmp eq i32 %28, 0
   %cmp19.not.i.us = icmp eq i32 %28, %23
-  %or.cond187.us = select i1 %cmp15.not.i.us, i1 true, i1 %cmp19.not.i.us
-  br i1 %or.cond187.us, label %if.end21.i.us, label %return
+  %or.cond186.us = select i1 %cmp15.not.i.us, i1 true, i1 %cmp19.not.i.us
+  br i1 %or.cond186.us, label %if.end21.i.us, label %return
 
 if.end21.i.us:                                    ; preds = %if.end14.i.us
   store i32 %22, ptr %26, align 8
-  store i32 %23, ptr %channels.i104.us, align 4
+  store i32 %23, ptr %channels.i103.us, align 4
   br label %for.cond79.preheader.sink.split
 
 for.cond79.preheader.sink.split:                  ; preds = %if.end21.i.us, %if.end21.i.i
-  %.sink272 = phi double [ %25, %if.end21.i.us ], [ %21, %if.end21.i.i ]
-  %.sink271 = phi i32 [ %24, %if.end21.i.us ], [ %20, %if.end21.i.i ]
+  %.sink271 = phi double [ %25, %if.end21.i.us ], [ %21, %if.end21.i.i ]
+  %.sink270 = phi i32 [ %24, %if.end21.i.us ], [ %20, %if.end21.i.i ]
   %.sink = phi i32 [ %22, %if.end21.i.us ], [ %18, %if.end21.i.i ]
-  %.sink268 = phi ptr [ %26, %if.end21.i.us ], [ %34, %if.end21.i.i ]
-  %heapLayout.sroa.10.0245.ph = phi i64 [ 0, %if.end21.i.us ], [ %8, %if.end21.i.i ]
-  %mul.i.us = fmul double %.sink272, 0xC01921FB54442D18
-  %conv.i.us = uitofp i32 %.sink271 to double
+  %.sink267 = phi ptr [ %26, %if.end21.i.us ], [ %34, %if.end21.i.i ]
+  %heapLayout.sroa.10.0244.ph = phi i64 [ 0, %if.end21.i.us ], [ %8, %if.end21.i.i ]
+  %mul.i.us = fmul double %.sink271, 0xC01921FB54442D18
+  %conv.i.us = uitofp i32 %.sink270 to double
   %div.i.us = fdiv double %mul.i.us, %conv.i.us
-  %call.i.i105.us = tail call double @exp(double noundef %div.i.us) #64
+  %call.i.i104.us = tail call double @exp(double noundef %div.i.us) #64
   %cmp27.i.us = icmp eq i32 %.sink, 5
-  %conv30.i.us = fptrunc double %call.i.i105.us to float
+  %conv30.i.us = fptrunc double %call.i.i104.us to float
   %29 = bitcast float %conv30.i.us to i32
-  %mul.i.i106.us = fmul double %call.i.i105.us, 1.638400e+04
-  %conv.i.i107.us = fptosi double %mul.i.i106.us to i32
-  %conv.i.i107.us.sink = select i1 %cmp27.i.us, i32 %29, i32 %conv.i.i107.us
-  %30 = getelementptr inbounds nuw i8, ptr %.sink268, i64 8
-  store i32 %conv.i.i107.us.sink, ptr %30, align 8
+  %mul.i.i105.us = fmul double %call.i.i104.us, 1.638400e+04
+  %conv.i.i106.us = fptosi double %mul.i.i105.us to i32
+  %conv.i.i106.us.sink = select i1 %cmp27.i.us, i32 %29, i32 %conv.i.i106.us
+  %30 = getelementptr inbounds nuw i8, ptr %.sink267, i64 8
+  store i32 %conv.i.i106.us.sink, ptr %30, align 8
   br label %for.cond79.preheader
 
 for.cond79.preheader:                             ; preds = %for.cond79.preheader.sink.split, %if.end41.thread, %if.end41
-  %cmp42198.not247 = phi i1 [ true, %if.end41.thread ], [ true, %if.end41 ], [ false, %for.cond79.preheader.sink.split ]
-  %heapLayout.sroa.10.0245 = phi i64 [ 0, %if.end41.thread ], [ %8, %if.end41 ], [ %heapLayout.sroa.10.0245.ph, %for.cond79.preheader.sink.split ]
-  %cmp80202.not = icmp ult i32 %4, 2
-  br i1 %cmp80202.not, label %for.end162, label %for.body82.lr.ph
+  %cmp42197.not246 = phi i1 [ true, %if.end41.thread ], [ true, %if.end41 ], [ false, %for.cond79.preheader.sink.split ]
+  %heapLayout.sroa.10.0244 = phi i64 [ 0, %if.end41.thread ], [ %8, %if.end41 ], [ %heapLayout.sroa.10.0244.ph, %for.cond79.preheader.sink.split ]
+  %cmp80201.not = icmp ult i32 %4, 2
+  br i1 %cmp80201.not, label %for.end162, label %for.body82.lr.ph
 
 for.body82.lr.ph:                                 ; preds = %for.cond79.preheader
   %channels107 = getelementptr inbounds nuw i8, ptr %pConfig, i64 4
@@ -21300,7 +21244,7 @@ for.body82.lr.ph:                                 ; preds = %for.cond79.preheade
   %tmp.sroa.6.0.lpf2Config.sroa_idx = getelementptr inbounds nuw i8, ptr %lpf2Config, i64 24
   %31 = shl nuw nsw i32 %div2.i, 6
   %mul118 = zext nneg i32 %31 to i64
-  %32 = getelementptr i8, ptr %pHeap, i64 %heapLayout.sroa.10.0245
+  %32 = getelementptr i8, ptr %pHeap, i64 %heapLayout.sroa.10.0244
   %33 = getelementptr i8, ptr %32, i64 %mul118
   %pLPF2124 = getelementptr inbounds nuw i8, ptr %pLPF, i64 32
   %wide.trip.count = zext nneg i32 %div2.i to i64
@@ -21314,18 +21258,16 @@ if.then49:                                        ; preds = %for.body.lr.ph
 
 if.end3.i90:                                      ; preds = %if.then49
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %34, i8 0, i64 40, i1 false)
+  %_pHeap.i = getelementptr inbounds nuw i8, ptr %34, i64 24
+  store ptr %17, ptr %_pHeap.i, align 8
+  %cmp.i.not.i = icmp eq ptr %17, null
+  br i1 %cmp.i.not.i, label %if.end.i18.i, label %if.then2.i.i
+
+if.then2.i.i:                                     ; preds = %if.end3.i90
   %conv.i.i91 = zext i32 %19 to i64
   %mul.i.i92 = shl nuw nsw i64 %conv.i.i91, 2
   %add8.i.i93 = add nuw nsw i64 %mul.i.i92, 7
   %and.i.i94 = and i64 %add8.i.i93, 34359738360
-  %_pHeap.i = getelementptr inbounds nuw i8, ptr %34, i64 24
-  store ptr %17, ptr %_pHeap.i, align 8
-  %cmp.i.i = icmp ne ptr %17, null
-  %cmp1.i.i95 = icmp ne i64 %and.i.i94, 0
-  %or.cond1.i = select i1 %cmp.i.i, i1 %cmp1.i.i95, i1 false
-  br i1 %or.cond1.i, label %if.then2.i.i, label %if.end.i18.i
-
-if.then2.i.i:                                     ; preds = %if.end3.i90
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %17, i8 0, i64 %and.i.i94, i1 false)
   br label %if.end.i18.i
 
@@ -21349,8 +21291,8 @@ if.end14.i.i:                                     ; preds = %if.end6.i.i
   %36 = load i32, ptr %channels.i20.i, align 4
   %cmp15.not.i.i = icmp eq i32 %36, 0
   %cmp19.not.i.i = icmp eq i32 %36, %19
-  %or.cond186 = or i1 %cmp15.not.i.i, %cmp19.not.i.i
-  br i1 %or.cond186, label %if.end21.i.i, label %return
+  %or.cond185 = or i1 %cmp15.not.i.i, %cmp19.not.i.i
+  br i1 %or.cond185, label %if.end21.i.i, label %return
 
 if.end21.i.i:                                     ; preds = %if.end14.i.i
   store i32 %18, ptr %34, align 8
@@ -21358,18 +21300,18 @@ if.end21.i.i:                                     ; preds = %if.end14.i.i
   br label %for.cond79.preheader.sink.split
 
 for.body82:                                       ; preds = %for.body82.lr.ph, %for.inc160
-  %indvars.iv237 = phi i32 [ 0, %for.body82.lr.ph ], [ %indvars.iv.next238, %for.inc160 ]
-  %indvars.iv225 = phi i64 [ 0, %for.body82.lr.ph ], [ %indvars.iv.next226, %for.inc160 ]
-  %indvars.iv225.tr = trunc i64 %indvars.iv225 to i32
-  br i1 %cmp42198.not247, label %if.else93, label %if.then85
+  %indvars.iv236 = phi i32 [ 0, %for.body82.lr.ph ], [ %indvars.iv.next237, %for.inc160 ]
+  %indvars.iv224 = phi i64 [ 0, %for.body82.lr.ph ], [ %indvars.iv.next225, %for.inc160 ]
+  %indvars.iv224.tr = trunc i64 %indvars.iv224 to i32
+  br i1 %cmp42197.not246, label %if.else93, label %if.then85
 
 if.then85:                                        ; preds = %for.body82
-  %37 = add i32 %indvars.iv225.tr, 1
+  %37 = add i32 %indvars.iv224.tr, 1
   %38 = load i32, ptr %order, align 8
   br label %if.end102
 
 if.else93:                                        ; preds = %for.body82
-  %39 = shl i32 %indvars.iv225.tr, 1
+  %39 = shl i32 %indvars.iv224.tr, 1
   %40 = or disjoint i32 %39, 1
   %41 = load i32, ptr %order, align 8
   %mul98 = shl i32 %41, 1
@@ -21390,8 +21332,8 @@ if.end102:                                        ; preds = %if.else93, %if.then
   %43 = load i32, ptr %channels107, align 4
   %44 = load i32, ptr %sampleRate108, align 8
   %45 = load double, ptr %cutoffFrequency109, align 8
-  %cmp.i116 = fcmp oeq double %div105, 0.000000e+00
-  %storemerge.i = select i1 %cmp.i116, double 7.071070e-01, double %div105
+  %cmp.i115 = fcmp oeq double %div105, 0.000000e+00
+  %storemerge.i = select i1 %cmp.i115, double 7.071070e-01, double %div105
   store i32 %42, ptr %lpf2Config, align 8
   store i32 %43, ptr %tmp.sroa.2.0.lpf2Config.sroa_idx, align 4
   %tmp.sroa.3.sroa.0.0.insert.ext = zext i32 %44 to i64
@@ -21401,45 +21343,45 @@ if.end102:                                        ; preds = %if.else93, %if.then
   br i1 %tobool.not, label %if.else129, label %if.then111
 
 if.then111:                                       ; preds = %if.end102
-  %mul.i.i118 = fmul double %45, 0x401921FB54442D18
-  %conv.i.i120 = uitofp i32 %44 to double
-  %div.i.i121 = fdiv double %mul.i.i118, %conv.i.i120
-  %46 = call double @llvm.fabs.f64(double %div.i.i121)
+  %mul.i.i117 = fmul double %45, 0x401921FB54442D18
+  %conv.i.i119 = uitofp i32 %44 to double
+  %div.i.i120 = fdiv double %mul.i.i117, %conv.i.i119
+  %46 = call double @llvm.fabs.f64(double %div.i.i120)
   %47 = fcmp oeq double %46, 0x7FF0000000000000
-  br i1 %47, label %cdce.call190, label %cdce.end.i, !prof !145
+  br i1 %47, label %cdce.call189, label %cdce.end.i, !prof !145
 
-cdce.call190:                                     ; preds = %if.then111
-  %call.i1.i = call double @sin(double noundef %div.i.i121) #64, !noalias !162
+cdce.call189:                                     ; preds = %if.then111
+  %call.i1.i = call double @sin(double noundef %div.i.i120) #64, !noalias !162
   br label %cdce.end.i
 
-cdce.end.i:                                       ; preds = %cdce.call190, %if.then111
-  %sub.i3.i = fsub double 0x3FF921FB54442D18, %div.i.i121
+cdce.end.i:                                       ; preds = %cdce.call189, %if.then111
+  %sub.i3.i = fsub double 0x3FF921FB54442D18, %div.i.i120
   %48 = call double @llvm.fabs.f64(double %sub.i3.i)
   %49 = fcmp oeq double %48, 0x7FF0000000000000
-  br i1 %49, label %cdce.call192, label %cdce.end11.i, !prof !145
+  br i1 %49, label %cdce.call191, label %cdce.end11.i, !prof !145
 
-cdce.call192:                                     ; preds = %cdce.end.i
-  %call.i.i.i127 = call double @sin(double noundef %sub.i3.i) #64, !noalias !162
+cdce.call191:                                     ; preds = %cdce.end.i
+  %call.i.i.i126 = call double @sin(double noundef %sub.i3.i) #64, !noalias !162
   br label %cdce.end11.i
 
-cdce.end11.i:                                     ; preds = %cdce.call192, %cdce.end.i
+cdce.end11.i:                                     ; preds = %cdce.call191, %cdce.end.i
   %50 = load i32, ptr %tmp.sroa.2.0.lpf2Config.sroa_idx, align 4, !noalias !162
-  %cmp1.i.i.i125 = icmp eq i32 %50, 0
-  br i1 %cmp1.i.i.i125, label %for.cond139.preheader, label %if.then115
+  %cmp1.i.i.i124 = icmp eq i32 %50, 0
+  br i1 %cmp1.i.i.i124, label %for.cond139.preheader, label %if.then115
 
 if.then115:                                       ; preds = %cdce.end11.i
-  %conv.i.i.i126 = zext i32 %50 to i64
-  %mul15.i.i.i = shl nuw nsw i64 %indvars.iv225, 3
-  %mul121 = mul i64 %mul15.i.i.i, %conv.i.i.i126
+  %conv.i.i.i125 = zext i32 %50 to i64
+  %mul15.i.i.i = shl nuw nsw i64 %indvars.iv224, 3
+  %mul121 = mul i64 %mul15.i.i.i, %conv.i.i.i125
   %add.ptr123 = getelementptr i8, ptr %33, i64 %mul121
   %51 = load ptr, ptr %pLPF2124, align 8
-  %arrayidx126 = getelementptr inbounds nuw %struct.ma_lpf2, ptr %51, i64 %indvars.iv225
+  %arrayidx126 = getelementptr inbounds nuw %struct.ma_lpf2, ptr %51, i64 %indvars.iv224
   %call127 = call i32 @ma_lpf2_init_preallocated(ptr noundef nonnull %lpf2Config, ptr noundef %add.ptr123, ptr noundef %arrayidx126)
   br label %if.end134
 
 if.else129:                                       ; preds = %if.end102
   %52 = load ptr, ptr %pLPF2124, align 8
-  %arrayidx132 = getelementptr inbounds nuw %struct.ma_lpf2, ptr %52, i64 %indvars.iv225
+  %arrayidx132 = getelementptr inbounds nuw %struct.ma_lpf2, ptr %52, i64 %indvars.iv224
   %call133 = call i32 @ma_lpf2_reinit(ptr noundef nonnull %lpf2Config, ptr noundef %arrayidx132)
   br label %if.end134
 
@@ -21449,18 +21391,18 @@ if.end134:                                        ; preds = %if.then115, %if.els
   br i1 %cmp135.not, label %for.inc160, label %for.cond139.preheader
 
 for.cond139.preheader:                            ; preds = %cdce.end11.i, %if.end134
-  %result.1264 = phi i32 [ %result.1, %if.end134 ], [ -2, %cdce.end11.i ]
-  br i1 %cmp42198.not247, label %for.cond149.preheader, label %for.body142.lr.ph
+  %result.1263 = phi i32 [ %result.1, %if.end134 ], [ -2, %cdce.end11.i ]
+  br i1 %cmp42197.not246, label %for.cond149.preheader, label %for.body142.lr.ph
 
 for.body142.lr.ph:                                ; preds = %for.cond139.preheader
   %pLPF1143 = getelementptr inbounds nuw i8, ptr %pLPF, i64 24
   %53 = load ptr, ptr %pLPF1143, align 8
   %54 = icmp eq ptr %53, null
-  br i1 %54, label %for.cond149.preheader, label %if.end.i130
+  br i1 %54, label %for.cond149.preheader, label %if.end.i129
 
-for.cond149.preheader:                            ; preds = %if.end.i.i136, %if.then1.i133, %if.end.i130, %for.body142.lr.ph, %for.cond139.preheader
-  %cmp150206.not = icmp eq i64 %indvars.iv225, 0
-  br i1 %cmp150206.not, label %return, label %for.body152.lr.ph
+for.cond149.preheader:                            ; preds = %if.end.i.i135, %if.then1.i132, %if.end.i129, %for.body142.lr.ph, %for.cond139.preheader
+  %cmp150205.not = icmp eq i64 %indvars.iv224, 0
+  br i1 %cmp150205.not, label %return, label %for.body152.lr.ph
 
 for.body152.lr.ph:                                ; preds = %for.cond149.preheader
   %55 = load ptr, ptr %pLPF2124, align 8
@@ -21468,22 +21410,22 @@ for.body152.lr.ph:                                ; preds = %for.cond149.prehead
   br i1 %56, label %return, label %for.body152.preheader
 
 for.body152.preheader:                            ; preds = %for.body152.lr.ph
-  %wide.trip.count240 = zext nneg i32 %indvars.iv237 to i64
+  %wide.trip.count239 = zext nneg i32 %indvars.iv236 to i64
   br label %for.body152
 
-if.end.i130:                                      ; preds = %for.body142.lr.ph
-  %_ownsHeap.i131 = getelementptr inbounds nuw i8, ptr %53, i64 32
-  %57 = load i32, ptr %_ownsHeap.i131, align 8
-  %tobool.not.i132 = icmp eq i32 %57, 0
-  br i1 %tobool.not.i132, label %for.cond149.preheader, label %if.then1.i133
+if.end.i129:                                      ; preds = %for.body142.lr.ph
+  %_ownsHeap.i130 = getelementptr inbounds nuw i8, ptr %53, i64 32
+  %57 = load i32, ptr %_ownsHeap.i130, align 8
+  %tobool.not.i131 = icmp eq i32 %57, 0
+  br i1 %tobool.not.i131, label %for.cond149.preheader, label %if.then1.i132
 
-if.then1.i133:                                    ; preds = %if.end.i130
-  %_pHeap.i134 = getelementptr inbounds nuw i8, ptr %53, i64 24
-  %58 = load ptr, ptr %_pHeap.i134, align 8
-  %cmp.i.i135 = icmp eq ptr %58, null
-  br i1 %cmp.i.i135, label %for.cond149.preheader, label %if.end.i.i136
+if.then1.i132:                                    ; preds = %if.end.i129
+  %_pHeap.i133 = getelementptr inbounds nuw i8, ptr %53, i64 24
+  %58 = load ptr, ptr %_pHeap.i133, align 8
+  %cmp.i.i134 = icmp eq ptr %58, null
+  br i1 %cmp.i.i134, label %for.cond149.preheader, label %if.end.i.i135
 
-if.end.i.i136:                                    ; preds = %if.then1.i133
+if.end.i.i135:                                    ; preds = %if.then1.i132
   call void @free(ptr noundef nonnull %58) #64
   br label %for.cond149.preheader
 
@@ -21493,18 +21435,18 @@ for.body152thread-pre-split:                      ; preds = %ma_lpf2_uninit.exit
 
 for.body152:                                      ; preds = %for.body152thread-pre-split, %for.body152.preheader
   %59 = phi ptr [ %.pr, %for.body152thread-pre-split ], [ %55, %for.body152.preheader ]
-  %indvars.iv234 = phi i64 [ %indvars.iv.next235, %for.body152thread-pre-split ], [ 0, %for.body152.preheader ]
-  %arrayidx155 = getelementptr inbounds nuw %struct.ma_lpf2, ptr %59, i64 %indvars.iv234
-  %cmp.i138 = icmp eq ptr %59, null
-  br i1 %cmp.i138, label %ma_lpf2_uninit.exit, label %if.end.i.i139
+  %indvars.iv233 = phi i64 [ %indvars.iv.next234, %for.body152thread-pre-split ], [ 0, %for.body152.preheader ]
+  %arrayidx155 = getelementptr inbounds nuw %struct.ma_lpf2, ptr %59, i64 %indvars.iv233
+  %cmp.i137 = icmp eq ptr %59, null
+  br i1 %cmp.i137, label %ma_lpf2_uninit.exit, label %if.end.i.i138
 
-if.end.i.i139:                                    ; preds = %for.body152
+if.end.i.i138:                                    ; preds = %for.body152
   %_ownsHeap.i.i = getelementptr inbounds nuw i8, ptr %arrayidx155, i64 56
   %60 = load i32, ptr %_ownsHeap.i.i, align 8
   %tobool.not.i.i = icmp eq i32 %60, 0
   br i1 %tobool.not.i.i, label %ma_lpf2_uninit.exit, label %if.then1.i.i
 
-if.then1.i.i:                                     ; preds = %if.end.i.i139
+if.then1.i.i:                                     ; preds = %if.end.i.i138
   %_pHeap.i.i = getelementptr inbounds nuw i8, ptr %arrayidx155, i64 48
   %61 = load ptr, ptr %_pHeap.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %61, null
@@ -21514,15 +21456,15 @@ if.end.i.i.i:                                     ; preds = %if.then1.i.i
   call void @free(ptr noundef nonnull %61) #64
   br label %ma_lpf2_uninit.exit
 
-ma_lpf2_uninit.exit:                              ; preds = %for.body152, %if.end.i.i139, %if.then1.i.i, %if.end.i.i.i
-  %indvars.iv.next235 = add nuw nsw i64 %indvars.iv234, 1
-  %exitcond241.not = icmp eq i64 %indvars.iv.next235, %wide.trip.count240
-  br i1 %exitcond241.not, label %return, label %for.body152thread-pre-split, !llvm.loop !165
+ma_lpf2_uninit.exit:                              ; preds = %for.body152, %if.end.i.i138, %if.then1.i.i, %if.end.i.i.i
+  %indvars.iv.next234 = add nuw nsw i64 %indvars.iv233, 1
+  %exitcond240.not = icmp eq i64 %indvars.iv.next234, %wide.trip.count239
+  br i1 %exitcond240.not, label %return, label %for.body152thread-pre-split, !llvm.loop !165
 
 for.inc160:                                       ; preds = %if.end134
-  %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next226, %wide.trip.count
-  %indvars.iv.next238 = add nuw nsw i32 %indvars.iv237, 1
+  %indvars.iv.next225 = add nuw nsw i64 %indvars.iv224, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next225, %wide.trip.count
+  %indvars.iv.next237 = add nuw nsw i32 %indvars.iv236, 1
   br i1 %exitcond.not, label %for.end162, label %for.body82, !llvm.loop !167
 
 for.end162:                                       ; preds = %for.inc160, %for.cond79.preheader
@@ -21541,8 +21483,8 @@ for.end162:                                       ; preds = %for.inc160, %for.co
   store i32 %64, ptr %sampleRate170, align 8
   br label %return
 
-return:                                           ; preds = %cdce.end11.i.i, %ma_lpf2_uninit.exit, %for.body152.lr.ph, %if.end14.i.us, %if.end6.i102.us, %if.end.i101.us, %for.body.us.preheader, %if.end14.i.i, %if.end6.i.i, %if.end.i18.i, %if.then49, %for.body.lr.ph, %for.cond149.preheader, %if.end6, %if.end.i, %if.then26, %lor.lhs.false29, %if.end21, %land.lhs.true16, %if.end, %entry, %for.end162
-  %retval.0 = phi i32 [ 0, %for.end162 ], [ -2, %entry ], [ -2, %if.end ], [ -3, %land.lhs.true16 ], [ -2, %if.end21 ], [ -3, %lor.lhs.false29 ], [ -3, %if.then26 ], [ -2, %if.end.i ], [ -3, %if.end6 ], [ %result.1264, %for.cond149.preheader ], [ -2, %for.body.us.preheader ], [ -2, %if.end.i101.us ], [ -3, %if.end6.i102.us ], [ -3, %if.end14.i.us ], [ -2, %for.body.lr.ph ], [ -2, %if.then49 ], [ -2, %if.end.i18.i ], [ -3, %if.end6.i.i ], [ -3, %if.end14.i.i ], [ %result.1264, %for.body152.lr.ph ], [ %result.1264, %ma_lpf2_uninit.exit ], [ -2, %cdce.end11.i.i ]
+return:                                           ; preds = %cdce.end11.i.i, %ma_lpf2_uninit.exit, %for.body152.lr.ph, %if.end14.i.us, %if.end6.i101.us, %if.end.i100.us, %for.body.us.preheader, %if.end14.i.i, %if.end6.i.i, %if.end.i18.i, %if.then49, %for.body.lr.ph, %for.cond149.preheader, %if.end6, %if.end.i, %if.then26, %lor.lhs.false29, %if.end21, %land.lhs.true16, %if.end, %entry, %for.end162
+  %retval.0 = phi i32 [ 0, %for.end162 ], [ -2, %entry ], [ -2, %if.end ], [ -3, %land.lhs.true16 ], [ -2, %if.end21 ], [ -3, %lor.lhs.false29 ], [ -3, %if.then26 ], [ -2, %if.end.i ], [ -3, %if.end6 ], [ %result.1263, %for.cond149.preheader ], [ -2, %for.body.us.preheader ], [ -2, %if.end.i100.us ], [ -3, %if.end6.i101.us ], [ -3, %if.end14.i.us ], [ -2, %for.body.lr.ph ], [ -2, %if.then49 ], [ -2, %if.end.i18.i ], [ -3, %if.end6.i.i ], [ -3, %if.end14.i.i ], [ %result.1263, %for.body152.lr.ph ], [ %result.1263, %ma_lpf2_uninit.exit ], [ -2, %cdce.end11.i.i ]
   ret i32 %retval.0
 }
 
@@ -22564,18 +22506,16 @@ if.end.i:                                         ; preds = %if.then2.i10
   br i1 %cmp1.i15, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end.i
+  %_pHeap = getelementptr inbounds nuw i8, ptr %pLPF, i64 24
+  store ptr %pHeap, ptr %_pHeap, align 8
+  %cmp.i.not = icmp eq ptr %pHeap, null
+  br i1 %cmp.i.not, label %if.end.i18, label %if.then2.i
+
+if.then2.i:                                       ; preds = %if.end3
   %conv.i = zext i32 %0 to i64
   %mul.i = shl nuw nsw i64 %conv.i, 2
   %add8.i = add nuw nsw i64 %mul.i, 7
   %and.i = and i64 %add8.i, 34359738360
-  %_pHeap = getelementptr inbounds nuw i8, ptr %pLPF, i64 24
-  store ptr %pHeap, ptr %_pHeap, align 8
-  %cmp.i = icmp ne ptr %pHeap, null
-  %cmp1.i = icmp ne i64 %and.i, 0
-  %or.cond1 = select i1 %cmp.i, i1 %cmp1.i, i1 false
-  br i1 %or.cond1, label %if.then2.i, label %if.end.i18
-
-if.then2.i:                                       ; preds = %if.end3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %pHeap, i8 0, i64 %and.i, i1 false)
   br label %if.end.i18
 
@@ -22726,14 +22666,10 @@ if.end:                                           ; preds = %if.end.i.i
   %mul.i.i = shl nuw nsw i64 %conv.i.i, 2
   %add8.i.i = add nuw nsw i64 %mul.i.i, 7
   %and.i.i = and i64 %add8.i.i, 34359738360
-  %cmp1.not = icmp eq i64 %and.i.i, 0
-  br i1 %cmp1.not, label %if.end7, label %if.then2
-
-if.then2:                                         ; preds = %if.end
   %cmp.not.i = icmp eq ptr %pAllocationCallbacks, null
   br i1 %cmp.not.i, label %if.else4.i, label %if.then.i
 
-if.then.i:                                        ; preds = %if.then2
+if.then.i:                                        ; preds = %if.end
   %onMalloc.i = getelementptr inbounds nuw i8, ptr %pAllocationCallbacks, i64 8
   %1 = load ptr, ptr %onMalloc.i, align 8
   %cmp1.not.i = icmp eq ptr %1, null
@@ -22744,7 +22680,7 @@ if.then2.i:                                       ; preds = %if.then.i
   %call.i = tail call ptr %1(i64 noundef %and.i.i, ptr noundef %2) #64
   br label %ma_malloc.exit
 
-if.else4.i:                                       ; preds = %if.then2
+if.else4.i:                                       ; preds = %if.end
   %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %and.i.i) #78
   br label %ma_malloc.exit
 
@@ -22753,48 +22689,38 @@ ma_malloc.exit:                                   ; preds = %if.then2.i, %if.els
   %cmp4 = icmp eq ptr %retval.0.i9, null
   br i1 %cmp4, label %return, label %if.end7
 
-if.end7:                                          ; preds = %if.end, %ma_malloc.exit
-  %pHeap.0 = phi ptr [ %retval.0.i9, %ma_malloc.exit ], [ null, %if.end ]
+if.end7:                                          ; preds = %ma_malloc.exit
   %cmp.i = icmp eq ptr %pLPF, null
-  br i1 %cmp.i, label %if.then10, label %if.end.i.i10
+  br i1 %cmp.i, label %if.end.i, label %if.end.i.i10
 
 if.end.i.i10:                                     ; preds = %if.end7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %pLPF, i8 0, i64 40, i1 false)
   %3 = load i32, ptr %channels.i.i, align 4
   %cmp1.i15.i = icmp eq i32 %3, 0
-  br i1 %cmp1.i15.i, label %if.then10, label %if.end3.i12
+  br i1 %cmp1.i15.i, label %if.end.i, label %if.end3.i12
 
 if.end3.i12:                                      ; preds = %if.end.i.i10
+  %_pHeap.i = getelementptr inbounds nuw i8, ptr %pLPF, i64 24
+  store ptr %retval.0.i9, ptr %_pHeap.i, align 8
   %conv.i.i13 = zext i32 %3 to i64
   %mul.i.i14 = shl nuw nsw i64 %conv.i.i13, 2
   %add8.i.i15 = add nuw nsw i64 %mul.i.i14, 7
   %and.i.i16 = and i64 %add8.i.i15, 34359738360
-  %_pHeap.i = getelementptr inbounds nuw i8, ptr %pLPF, i64 24
-  store ptr %pHeap.0, ptr %_pHeap.i, align 8
-  %cmp.i.i17 = icmp ne ptr %pHeap.0, null
-  %cmp1.i.i18 = icmp ne i64 %and.i.i16, 0
-  %or.cond1.i = select i1 %cmp.i.i17, i1 %cmp1.i.i18, i1 false
-  br i1 %or.cond1.i, label %if.then2.i.i, label %if.end.i18.i
-
-if.then2.i.i:                                     ; preds = %if.end3.i12
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %pHeap.0, i8 0, i64 %and.i.i16, i1 false)
-  br label %if.end.i18.i
-
-if.end.i18.i:                                     ; preds = %if.then2.i.i, %if.end3.i12
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %retval.0.i9, i8 0, i64 %and.i.i16, i1 false)
   %pR1.i = getelementptr inbounds nuw i8, ptr %pLPF, i64 16
-  store ptr %pHeap.0, ptr %pR1.i, align 8
+  store ptr %retval.0.i9, ptr %pR1.i, align 8
   %4 = load i32, ptr %pConfig, align 8
-  switch i32 %4, label %if.then10 [
+  switch i32 %4, label %if.end.i [
     i32 5, label %if.end6.i.i
     i32 2, label %if.end6.i.i
   ]
 
-if.end6.i.i:                                      ; preds = %if.end.i18.i, %if.end.i18.i
+if.end6.i.i:                                      ; preds = %if.end3.i12, %if.end3.i12
   %5 = load i32, ptr %pLPF, align 8
   %cmp8.not.i.i = icmp eq i32 %5, 0
   %cmp12.not.i.i = icmp eq i32 %5, %4
   %or.cond21.i.i = or i1 %cmp8.not.i.i, %cmp12.not.i.i
-  br i1 %or.cond21.i.i, label %if.end14.i.i, label %if.then10
+  br i1 %or.cond21.i.i, label %if.end14.i.i, label %if.end.i
 
 if.end14.i.i:                                     ; preds = %if.end6.i.i
   %channels.i20.i = getelementptr inbounds nuw i8, ptr %pLPF, i64 4
@@ -22805,7 +22731,7 @@ if.end14.i.i:                                     ; preds = %if.end6.i.i
 land.lhs.true16.i.i:                              ; preds = %if.end14.i.i
   %7 = load i32, ptr %channels.i.i, align 4
   %cmp19.not.i.i = icmp eq i32 %6, %7
-  br i1 %cmp19.not.i.i, label %if.end21.i.i, label %if.then10
+  br i1 %cmp19.not.i.i, label %if.end21.i.i, label %if.end.i
 
 if.end21.i.i:                                     ; preds = %land.lhs.true16.i.i, %if.end14.i.i
   store i32 %4, ptr %pLPF, align 8
@@ -22832,32 +22758,27 @@ if.end21.i.i:                                     ; preds = %land.lhs.true16.i.i
   store i32 1, ptr %_ownsHeap, align 8
   br label %return
 
-if.then10:                                        ; preds = %if.end7, %if.end.i18.i, %land.lhs.true16.i.i, %if.end6.i.i, %if.end.i.i10
-  %retval.0.i19.ph = phi i32 [ -2, %if.end.i.i10 ], [ -3, %if.end6.i.i ], [ -3, %land.lhs.true16.i.i ], [ -2, %if.end.i18.i ], [ -2, %if.end7 ]
-  %cmp.i20 = icmp eq ptr %pHeap.0, null
-  br i1 %cmp.i20, label %return, label %if.end.i
+if.end.i:                                         ; preds = %if.end.i.i10, %if.end6.i.i, %land.lhs.true16.i.i, %if.end3.i12, %if.end7
+  %retval.0.i17.ph = phi i32 [ -2, %if.end.i.i10 ], [ -3, %if.end6.i.i ], [ -3, %land.lhs.true16.i.i ], [ -2, %if.end3.i12 ], [ -2, %if.end7 ]
+  br i1 %cmp.not.i, label %if.else7.i, label %if.then2.i20
 
-if.end.i:                                         ; preds = %if.then10
-  %cmp1.not.i21 = icmp eq ptr %pAllocationCallbacks, null
-  br i1 %cmp1.not.i21, label %if.else7.i, label %if.then2.i22
-
-if.then2.i22:                                     ; preds = %if.end.i
+if.then2.i20:                                     ; preds = %if.end.i
   %onFree.i = getelementptr inbounds nuw i8, ptr %pAllocationCallbacks, i64 24
   %14 = load ptr, ptr %onFree.i, align 8
   %cmp3.not.i = icmp eq ptr %14, null
   br i1 %cmp3.not.i, label %return, label %if.then4.i
 
-if.then4.i:                                       ; preds = %if.then2.i22
+if.then4.i:                                       ; preds = %if.then2.i20
   %15 = load ptr, ptr %pAllocationCallbacks, align 8
-  tail call void %14(ptr noundef nonnull %pHeap.0, ptr noundef %15) #64
+  tail call void %14(ptr noundef nonnull %retval.0.i9, ptr noundef %15) #64
   br label %return
 
 if.else7.i:                                       ; preds = %if.end.i
-  tail call void @free(ptr noundef nonnull %pHeap.0) #64
+  tail call void @free(ptr noundef nonnull %retval.0.i9) #64
   br label %return
 
-return:                                           ; preds = %if.then.i, %if.end.i.i, %entry, %if.else7.i, %if.then4.i, %if.then2.i22, %if.then10, %ma_malloc.exit, %if.end21.i.i
-  %retval.0 = phi i32 [ 0, %if.end21.i.i ], [ -4, %ma_malloc.exit ], [ %retval.0.i19.ph, %if.then10 ], [ %retval.0.i19.ph, %if.then2.i22 ], [ %retval.0.i19.ph, %if.then4.i ], [ %retval.0.i19.ph, %if.else7.i ], [ -2, %entry ], [ -2, %if.end.i.i ], [ -4, %if.then.i ]
+return:                                           ; preds = %if.then.i, %if.end.i.i, %entry, %if.else7.i, %if.then4.i, %if.then2.i20, %ma_malloc.exit, %if.end21.i.i
+  %retval.0 = phi i32 [ 0, %if.end21.i.i ], [ -4, %ma_malloc.exit ], [ %retval.0.i17.ph, %if.then2.i20 ], [ %retval.0.i17.ph, %if.then4.i ], [ %retval.0.i17.ph, %if.else7.i ], [ -2, %entry ], [ -2, %if.end.i.i ], [ -4, %if.then.i ]
   ret i32 %retval.0
 }
 
@@ -23651,8 +23572,8 @@ if.end6:                                          ; preds = %if.end, %if.end
   %1 = load i32, ptr %pHPF, align 8
   %cmp8.not = icmp eq i32 %1, 0
   %cmp12.not = icmp eq i32 %1, %0
-  %or.cond186 = or i1 %cmp8.not, %cmp12.not
-  br i1 %or.cond186, label %if.end14, label %return
+  %or.cond185 = or i1 %cmp8.not, %cmp12.not
+  br i1 %or.cond185, label %if.end14, label %return
 
 if.end14:                                         ; preds = %if.end6
   %channels = getelementptr inbounds nuw i8, ptr %pHPF, i64 4
@@ -23733,13 +23654,13 @@ cdce.end.i.i:                                     ; preds = %cdce.call, %for.bod
   %sub.i3.i.i = fsub double 0x3FF921FB54442D18, %div.i.i.i
   %14 = tail call double @llvm.fabs.f64(double %sub.i3.i.i)
   %15 = fcmp oeq double %14, 0x7FF0000000000000
-  br i1 %15, label %cdce.call189, label %cdce.end11.i.i, !prof !145
+  br i1 %15, label %cdce.call188, label %cdce.end11.i.i, !prof !145
 
-cdce.call189:                                     ; preds = %cdce.end.i.i
+cdce.call188:                                     ; preds = %cdce.end.i.i
   %call.i.i.i.i = tail call double @sin(double noundef %sub.i3.i.i) #64, !noalias !203
   br label %cdce.end11.i.i
 
-cdce.end11.i.i:                                   ; preds = %cdce.call189, %cdce.end.i.i
+cdce.end11.i.i:                                   ; preds = %cdce.call188, %cdce.end.i.i
   %cmp1.i.i.i.i = icmp eq i32 %9, 0
   br i1 %cmp1.i.i.i.i, label %return, label %if.end28.i
 
@@ -23773,12 +23694,12 @@ if.end41:                                         ; preds = %if.then2.i176, %if.
   %add.ptr40 = getelementptr inbounds nuw i8, ptr %pHeap, i64 %8
   %pHPF2 = getelementptr inbounds nuw i8, ptr %pHPF, i64 32
   store ptr %add.ptr40, ptr %pHPF2, align 8
-  %cmp42199.not = icmp eq i32 %rem.i, 0
-  br i1 %cmp42199.not, label %for.cond79.preheader, label %for.body.lr.ph
+  %cmp42198.not = icmp eq i32 %rem.i, 0
+  br i1 %cmp42198.not, label %for.cond79.preheader, label %for.body.lr.ph
 
 if.end41.thread:                                  ; preds = %lor.lhs.false29
-  %cmp42199.not244 = icmp eq i32 %rem.i, 0
-  br i1 %cmp42199.not244, label %for.cond79.preheader, label %for.body.us.preheader
+  %cmp42198.not243 = icmp eq i32 %rem.i, 0
+  br i1 %cmp42198.not243, label %for.cond79.preheader, label %for.body.us.preheader
 
 for.body.lr.ph:                                   ; preds = %if.end41
   %narrow = mul nuw nsw i32 %rem.i, 40
@@ -23795,69 +23716,69 @@ for.body.lr.ph:                                   ; preds = %if.end41
   br i1 %cmp1.i.i, label %return, label %if.then49
 
 for.body.us.preheader:                            ; preds = %if.end41.thread
-  %pHPF155256 = getelementptr inbounds nuw i8, ptr %pHPF, i64 24
-  %cutoffFrequency253 = getelementptr inbounds nuw i8, ptr %pConfig, i64 16
-  %sampleRate252 = getelementptr inbounds nuw i8, ptr %pConfig, i64 8
-  %channels44251 = getelementptr inbounds nuw i8, ptr %pConfig, i64 4
+  %pHPF155255 = getelementptr inbounds nuw i8, ptr %pHPF, i64 24
+  %cutoffFrequency252 = getelementptr inbounds nuw i8, ptr %pConfig, i64 16
+  %sampleRate251 = getelementptr inbounds nuw i8, ptr %pConfig, i64 8
+  %channels44250 = getelementptr inbounds nuw i8, ptr %pConfig, i64 4
   %22 = load i32, ptr %pConfig, align 8
-  %23 = load i32, ptr %channels44251, align 4
-  %24 = load i32, ptr %sampleRate252, align 8
-  %25 = load double, ptr %cutoffFrequency253, align 8
-  %26 = load ptr, ptr %pHPF155256, align 8
-  %cmp.i99.us = icmp eq ptr %26, null
-  br i1 %cmp.i99.us, label %return, label %if.end.i101.us
+  %23 = load i32, ptr %channels44250, align 4
+  %24 = load i32, ptr %sampleRate251, align 8
+  %25 = load double, ptr %cutoffFrequency252, align 8
+  %26 = load ptr, ptr %pHPF155255, align 8
+  %cmp.i98.us = icmp eq ptr %26, null
+  br i1 %cmp.i98.us, label %return, label %if.end.i100.us
 
-if.end.i101.us:                                   ; preds = %for.body.us.preheader
+if.end.i100.us:                                   ; preds = %for.body.us.preheader
   switch i32 %22, label %return [
-    i32 5, label %if.end6.i102.us
-    i32 2, label %if.end6.i102.us
+    i32 5, label %if.end6.i101.us
+    i32 2, label %if.end6.i101.us
   ]
 
-if.end6.i102.us:                                  ; preds = %if.end.i101.us, %if.end.i101.us
+if.end6.i101.us:                                  ; preds = %if.end.i100.us, %if.end.i100.us
   %27 = load i32, ptr %26, align 8
   %cmp8.not.i.us = icmp eq i32 %27, 0
   %cmp12.not.i.us = icmp eq i32 %27, %22
   %or.cond21.i.us = or i1 %cmp8.not.i.us, %cmp12.not.i.us
   br i1 %or.cond21.i.us, label %if.end14.i.us, label %return
 
-if.end14.i.us:                                    ; preds = %if.end6.i102.us
-  %channels.i104.us = getelementptr inbounds nuw i8, ptr %26, i64 4
-  %28 = load i32, ptr %channels.i104.us, align 4
+if.end14.i.us:                                    ; preds = %if.end6.i101.us
+  %channels.i103.us = getelementptr inbounds nuw i8, ptr %26, i64 4
+  %28 = load i32, ptr %channels.i103.us, align 4
   %cmp15.not.i.us = icmp eq i32 %28, 0
   %cmp19.not.i.us = icmp eq i32 %28, %23
-  %or.cond188.us = select i1 %cmp15.not.i.us, i1 true, i1 %cmp19.not.i.us
-  br i1 %or.cond188.us, label %if.end21.i.us, label %return
+  %or.cond187.us = select i1 %cmp15.not.i.us, i1 true, i1 %cmp19.not.i.us
+  br i1 %or.cond187.us, label %if.end21.i.us, label %return
 
 if.end21.i.us:                                    ; preds = %if.end14.i.us
   store i32 %22, ptr %26, align 8
-  store i32 %23, ptr %channels.i104.us, align 4
+  store i32 %23, ptr %channels.i103.us, align 4
   br label %for.cond79.preheader.sink.split
 
 for.cond79.preheader.sink.split:                  ; preds = %if.end21.i.us, %if.end21.i.i
-  %.sink273 = phi double [ %25, %if.end21.i.us ], [ %21, %if.end21.i.i ]
-  %.sink272 = phi i32 [ %24, %if.end21.i.us ], [ %20, %if.end21.i.i ]
+  %.sink272 = phi double [ %25, %if.end21.i.us ], [ %21, %if.end21.i.i ]
+  %.sink271 = phi i32 [ %24, %if.end21.i.us ], [ %20, %if.end21.i.i ]
   %.sink = phi i32 [ %22, %if.end21.i.us ], [ %18, %if.end21.i.i ]
-  %.sink269 = phi ptr [ %26, %if.end21.i.us ], [ %34, %if.end21.i.i ]
-  %heapLayout.sroa.10.0246.ph = phi i64 [ 0, %if.end21.i.us ], [ %8, %if.end21.i.i ]
-  %mul.i.us = fmul double %.sink273, 0xC01921FB54442D18
-  %conv.i.us = uitofp i32 %.sink272 to double
+  %.sink268 = phi ptr [ %26, %if.end21.i.us ], [ %34, %if.end21.i.i ]
+  %heapLayout.sroa.10.0245.ph = phi i64 [ 0, %if.end21.i.us ], [ %8, %if.end21.i.i ]
+  %mul.i.us = fmul double %.sink272, 0xC01921FB54442D18
+  %conv.i.us = uitofp i32 %.sink271 to double
   %div.i.us = fdiv double %mul.i.us, %conv.i.us
-  %call.i.i105.us = tail call double @exp(double noundef %div.i.us) #64
+  %call.i.i104.us = tail call double @exp(double noundef %div.i.us) #64
   %cmp27.i.us = icmp eq i32 %.sink, 5
-  %conv30.i.us = fptrunc double %call.i.i105.us to float
+  %conv30.i.us = fptrunc double %call.i.i104.us to float
   %29 = bitcast float %conv30.i.us to i32
-  %mul.i.i106.us = fmul double %call.i.i105.us, 1.638400e+04
-  %conv.i.i107.us = fptosi double %mul.i.i106.us to i32
-  %conv.i.i107.us.sink = select i1 %cmp27.i.us, i32 %29, i32 %conv.i.i107.us
-  %30 = getelementptr inbounds nuw i8, ptr %.sink269, i64 8
-  store i32 %conv.i.i107.us.sink, ptr %30, align 8
+  %mul.i.i105.us = fmul double %call.i.i104.us, 1.638400e+04
+  %conv.i.i106.us = fptosi double %mul.i.i105.us to i32
+  %conv.i.i106.us.sink = select i1 %cmp27.i.us, i32 %29, i32 %conv.i.i106.us
+  %30 = getelementptr inbounds nuw i8, ptr %.sink268, i64 8
+  store i32 %conv.i.i106.us.sink, ptr %30, align 8
   br label %for.cond79.preheader
 
 for.cond79.preheader:                             ; preds = %for.cond79.preheader.sink.split, %if.end41.thread, %if.end41
-  %cmp42199.not248 = phi i1 [ true, %if.end41.thread ], [ true, %if.end41 ], [ false, %for.cond79.preheader.sink.split ]
-  %heapLayout.sroa.10.0246 = phi i64 [ 0, %if.end41.thread ], [ %8, %if.end41 ], [ %heapLayout.sroa.10.0246.ph, %for.cond79.preheader.sink.split ]
-  %cmp80203.not = icmp ult i32 %4, 2
-  br i1 %cmp80203.not, label %for.end162, label %for.body82.lr.ph
+  %cmp42198.not247 = phi i1 [ true, %if.end41.thread ], [ true, %if.end41 ], [ false, %for.cond79.preheader.sink.split ]
+  %heapLayout.sroa.10.0245 = phi i64 [ 0, %if.end41.thread ], [ %8, %if.end41 ], [ %heapLayout.sroa.10.0245.ph, %for.cond79.preheader.sink.split ]
+  %cmp80202.not = icmp ult i32 %4, 2
+  br i1 %cmp80202.not, label %for.end162, label %for.body82.lr.ph
 
 for.body82.lr.ph:                                 ; preds = %for.cond79.preheader
   %channels107 = getelementptr inbounds nuw i8, ptr %pConfig, i64 4
@@ -23869,7 +23790,7 @@ for.body82.lr.ph:                                 ; preds = %for.cond79.preheade
   %tmp.sroa.6.0.hpf2Config.sroa_idx = getelementptr inbounds nuw i8, ptr %hpf2Config, i64 24
   %31 = shl nuw nsw i32 %div2.i, 6
   %mul118 = zext nneg i32 %31 to i64
-  %32 = getelementptr i8, ptr %pHeap, i64 %heapLayout.sroa.10.0246
+  %32 = getelementptr i8, ptr %pHeap, i64 %heapLayout.sroa.10.0245
   %33 = getelementptr i8, ptr %32, i64 %mul118
   %pHPF2124 = getelementptr inbounds nuw i8, ptr %pHPF, i64 32
   %wide.trip.count = zext nneg i32 %div2.i to i64
@@ -23883,18 +23804,16 @@ if.then49:                                        ; preds = %for.body.lr.ph
 
 if.end3.i90:                                      ; preds = %if.then49
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %34, i8 0, i64 40, i1 false)
+  %_pHeap.i = getelementptr inbounds nuw i8, ptr %34, i64 24
+  store ptr %17, ptr %_pHeap.i, align 8
+  %cmp.i.not.i = icmp eq ptr %17, null
+  br i1 %cmp.i.not.i, label %if.end.i18.i, label %if.then2.i.i
+
+if.then2.i.i:                                     ; preds = %if.end3.i90
   %conv.i.i91 = zext i32 %19 to i64
   %mul.i.i92 = shl nuw nsw i64 %conv.i.i91, 2
   %add8.i.i93 = add nuw nsw i64 %mul.i.i92, 7
   %and.i.i94 = and i64 %add8.i.i93, 34359738360
-  %_pHeap.i = getelementptr inbounds nuw i8, ptr %34, i64 24
-  store ptr %17, ptr %_pHeap.i, align 8
-  %cmp.i.i = icmp ne ptr %17, null
-  %cmp1.i.i95 = icmp ne i64 %and.i.i94, 0
-  %or.cond1.i = select i1 %cmp.i.i, i1 %cmp1.i.i95, i1 false
-  br i1 %or.cond1.i, label %if.then2.i.i, label %if.end.i18.i
-
-if.then2.i.i:                                     ; preds = %if.end3.i90
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %17, i8 0, i64 %and.i.i94, i1 false)
   br label %if.end.i18.i
 
@@ -23918,8 +23837,8 @@ if.end14.i.i:                                     ; preds = %if.end6.i.i
   %36 = load i32, ptr %channels.i20.i, align 4
   %cmp15.not.i.i = icmp eq i32 %36, 0
   %cmp19.not.i.i = icmp eq i32 %36, %19
-  %or.cond187 = or i1 %cmp15.not.i.i, %cmp19.not.i.i
-  br i1 %or.cond187, label %if.end21.i.i, label %return
+  %or.cond186 = or i1 %cmp15.not.i.i, %cmp19.not.i.i
+  br i1 %or.cond186, label %if.end21.i.i, label %return
 
 if.end21.i.i:                                     ; preds = %if.end14.i.i
   store i32 %18, ptr %34, align 8
@@ -23927,18 +23846,18 @@ if.end21.i.i:                                     ; preds = %if.end14.i.i
   br label %for.cond79.preheader.sink.split
 
 for.body82:                                       ; preds = %for.body82.lr.ph, %for.inc160
-  %indvars.iv238 = phi i32 [ 0, %for.body82.lr.ph ], [ %indvars.iv.next239, %for.inc160 ]
-  %indvars.iv226 = phi i64 [ 0, %for.body82.lr.ph ], [ %indvars.iv.next227, %for.inc160 ]
-  %indvars.iv226.tr = trunc i64 %indvars.iv226 to i32
-  br i1 %cmp42199.not248, label %if.else93, label %if.then85
+  %indvars.iv237 = phi i32 [ 0, %for.body82.lr.ph ], [ %indvars.iv.next238, %for.inc160 ]
+  %indvars.iv225 = phi i64 [ 0, %for.body82.lr.ph ], [ %indvars.iv.next226, %for.inc160 ]
+  %indvars.iv225.tr = trunc i64 %indvars.iv225 to i32
+  br i1 %cmp42198.not247, label %if.else93, label %if.then85
 
 if.then85:                                        ; preds = %for.body82
-  %37 = add i32 %indvars.iv226.tr, 1
+  %37 = add i32 %indvars.iv225.tr, 1
   %38 = load i32, ptr %order, align 8
   br label %if.end102
 
 if.else93:                                        ; preds = %for.body82
-  %39 = shl i32 %indvars.iv226.tr, 1
+  %39 = shl i32 %indvars.iv225.tr, 1
   %40 = or disjoint i32 %39, 1
   %41 = load i32, ptr %order, align 8
   %mul98 = shl i32 %41, 1
@@ -23959,8 +23878,8 @@ if.end102:                                        ; preds = %if.else93, %if.then
   %43 = load i32, ptr %channels107, align 4
   %44 = load i32, ptr %sampleRate108, align 8
   %45 = load double, ptr %cutoffFrequency109, align 8
-  %cmp.i116 = fcmp oeq double %div105, 0.000000e+00
-  %storemerge.i = select i1 %cmp.i116, double 7.071070e-01, double %div105
+  %cmp.i115 = fcmp oeq double %div105, 0.000000e+00
+  %storemerge.i = select i1 %cmp.i115, double 7.071070e-01, double %div105
   store i32 %42, ptr %hpf2Config, align 8
   store i32 %43, ptr %tmp.sroa.2.0.hpf2Config.sroa_idx, align 4
   %tmp.sroa.3.sroa.0.0.insert.ext = zext i32 %44 to i64
@@ -23970,45 +23889,45 @@ if.end102:                                        ; preds = %if.else93, %if.then
   br i1 %tobool.not, label %if.else129, label %if.then111
 
 if.then111:                                       ; preds = %if.end102
-  %mul.i.i118 = fmul double %45, 0x401921FB54442D18
-  %conv.i.i120 = uitofp i32 %44 to double
-  %div.i.i121 = fdiv double %mul.i.i118, %conv.i.i120
-  %46 = call double @llvm.fabs.f64(double %div.i.i121)
+  %mul.i.i117 = fmul double %45, 0x401921FB54442D18
+  %conv.i.i119 = uitofp i32 %44 to double
+  %div.i.i120 = fdiv double %mul.i.i117, %conv.i.i119
+  %46 = call double @llvm.fabs.f64(double %div.i.i120)
   %47 = fcmp oeq double %46, 0x7FF0000000000000
-  br i1 %47, label %cdce.call191, label %cdce.end.i, !prof !145
+  br i1 %47, label %cdce.call190, label %cdce.end.i, !prof !145
 
-cdce.call191:                                     ; preds = %if.then111
-  %call.i1.i = call double @sin(double noundef %div.i.i121) #64, !noalias !206
+cdce.call190:                                     ; preds = %if.then111
+  %call.i1.i = call double @sin(double noundef %div.i.i120) #64, !noalias !206
   br label %cdce.end.i
 
-cdce.end.i:                                       ; preds = %cdce.call191, %if.then111
-  %sub.i3.i = fsub double 0x3FF921FB54442D18, %div.i.i121
+cdce.end.i:                                       ; preds = %cdce.call190, %if.then111
+  %sub.i3.i = fsub double 0x3FF921FB54442D18, %div.i.i120
   %48 = call double @llvm.fabs.f64(double %sub.i3.i)
   %49 = fcmp oeq double %48, 0x7FF0000000000000
-  br i1 %49, label %cdce.call193, label %cdce.end11.i, !prof !145
+  br i1 %49, label %cdce.call192, label %cdce.end11.i, !prof !145
 
-cdce.call193:                                     ; preds = %cdce.end.i
-  %call.i.i.i127 = call double @sin(double noundef %sub.i3.i) #64, !noalias !206
+cdce.call192:                                     ; preds = %cdce.end.i
+  %call.i.i.i126 = call double @sin(double noundef %sub.i3.i) #64, !noalias !206
   br label %cdce.end11.i
 
-cdce.end11.i:                                     ; preds = %cdce.call193, %cdce.end.i
+cdce.end11.i:                                     ; preds = %cdce.call192, %cdce.end.i
   %50 = load i32, ptr %tmp.sroa.2.0.hpf2Config.sroa_idx, align 4, !noalias !206
-  %cmp1.i.i.i125 = icmp eq i32 %50, 0
-  br i1 %cmp1.i.i.i125, label %for.cond139.preheader, label %if.then115
+  %cmp1.i.i.i124 = icmp eq i32 %50, 0
+  br i1 %cmp1.i.i.i124, label %for.cond139.preheader, label %if.then115
 
 if.then115:                                       ; preds = %cdce.end11.i
-  %conv.i.i.i126 = zext i32 %50 to i64
-  %mul15.i.i.i = shl nuw nsw i64 %indvars.iv226, 3
-  %mul121 = mul i64 %mul15.i.i.i, %conv.i.i.i126
+  %conv.i.i.i125 = zext i32 %50 to i64
+  %mul15.i.i.i = shl nuw nsw i64 %indvars.iv225, 3
+  %mul121 = mul i64 %mul15.i.i.i, %conv.i.i.i125
   %add.ptr123 = getelementptr i8, ptr %33, i64 %mul121
   %51 = load ptr, ptr %pHPF2124, align 8
-  %arrayidx126 = getelementptr inbounds nuw %struct.ma_hpf2, ptr %51, i64 %indvars.iv226
+  %arrayidx126 = getelementptr inbounds nuw %struct.ma_hpf2, ptr %51, i64 %indvars.iv225
   %call127 = call i32 @ma_hpf2_init_preallocated(ptr noundef nonnull %hpf2Config, ptr noundef %add.ptr123, ptr noundef %arrayidx126)
   br label %if.end134
 
 if.else129:                                       ; preds = %if.end102
   %52 = load ptr, ptr %pHPF2124, align 8
-  %arrayidx132 = getelementptr inbounds nuw %struct.ma_hpf2, ptr %52, i64 %indvars.iv226
+  %arrayidx132 = getelementptr inbounds nuw %struct.ma_hpf2, ptr %52, i64 %indvars.iv225
   %call133 = call i32 @ma_hpf2_reinit(ptr noundef nonnull %hpf2Config, ptr noundef %arrayidx132)
   br label %if.end134
 
@@ -24018,18 +23937,18 @@ if.end134:                                        ; preds = %if.then115, %if.els
   br i1 %cmp135.not, label %for.inc160, label %for.cond139.preheader
 
 for.cond139.preheader:                            ; preds = %cdce.end11.i, %if.end134
-  %result.1265 = phi i32 [ %result.1, %if.end134 ], [ -2, %cdce.end11.i ]
-  br i1 %cmp42199.not248, label %for.cond149.preheader, label %for.body142.lr.ph
+  %result.1264 = phi i32 [ %result.1, %if.end134 ], [ -2, %cdce.end11.i ]
+  br i1 %cmp42198.not247, label %for.cond149.preheader, label %for.body142.lr.ph
 
 for.body142.lr.ph:                                ; preds = %for.cond139.preheader
   %pHPF1143 = getelementptr inbounds nuw i8, ptr %pHPF, i64 24
   %53 = load ptr, ptr %pHPF1143, align 8
   %54 = icmp eq ptr %53, null
-  br i1 %54, label %for.cond149.preheader, label %if.end.i130
+  br i1 %54, label %for.cond149.preheader, label %if.end.i129
 
-for.cond149.preheader:                            ; preds = %if.end.i.i136, %if.then1.i133, %if.end.i130, %for.body142.lr.ph, %for.cond139.preheader
-  %cmp150207.not = icmp eq i64 %indvars.iv226, 0
-  br i1 %cmp150207.not, label %return, label %for.body152.lr.ph
+for.cond149.preheader:                            ; preds = %if.end.i.i135, %if.then1.i132, %if.end.i129, %for.body142.lr.ph, %for.cond139.preheader
+  %cmp150206.not = icmp eq i64 %indvars.iv225, 0
+  br i1 %cmp150206.not, label %return, label %for.body152.lr.ph
 
 for.body152.lr.ph:                                ; preds = %for.cond149.preheader
   %55 = load ptr, ptr %pHPF2124, align 8
@@ -24037,22 +23956,22 @@ for.body152.lr.ph:                                ; preds = %for.cond149.prehead
   br i1 %56, label %return, label %for.body152.preheader
 
 for.body152.preheader:                            ; preds = %for.body152.lr.ph
-  %wide.trip.count241 = zext nneg i32 %indvars.iv238 to i64
+  %wide.trip.count240 = zext nneg i32 %indvars.iv237 to i64
   br label %for.body152
 
-if.end.i130:                                      ; preds = %for.body142.lr.ph
-  %_ownsHeap.i131 = getelementptr inbounds nuw i8, ptr %53, i64 32
-  %57 = load i32, ptr %_ownsHeap.i131, align 8
-  %tobool.not.i132 = icmp eq i32 %57, 0
-  br i1 %tobool.not.i132, label %for.cond149.preheader, label %if.then1.i133
+if.end.i129:                                      ; preds = %for.body142.lr.ph
+  %_ownsHeap.i130 = getelementptr inbounds nuw i8, ptr %53, i64 32
+  %57 = load i32, ptr %_ownsHeap.i130, align 8
+  %tobool.not.i131 = icmp eq i32 %57, 0
+  br i1 %tobool.not.i131, label %for.cond149.preheader, label %if.then1.i132
 
-if.then1.i133:                                    ; preds = %if.end.i130
-  %_pHeap.i134 = getelementptr inbounds nuw i8, ptr %53, i64 24
-  %58 = load ptr, ptr %_pHeap.i134, align 8
-  %cmp.i.i135 = icmp eq ptr %58, null
-  br i1 %cmp.i.i135, label %for.cond149.preheader, label %if.end.i.i136
+if.then1.i132:                                    ; preds = %if.end.i129
+  %_pHeap.i133 = getelementptr inbounds nuw i8, ptr %53, i64 24
+  %58 = load ptr, ptr %_pHeap.i133, align 8
+  %cmp.i.i134 = icmp eq ptr %58, null
+  br i1 %cmp.i.i134, label %for.cond149.preheader, label %if.end.i.i135
 
-if.end.i.i136:                                    ; preds = %if.then1.i133
+if.end.i.i135:                                    ; preds = %if.then1.i132
   call void @free(ptr noundef nonnull %58) #64
   br label %for.cond149.preheader
 
@@ -24062,18 +23981,18 @@ for.body152thread-pre-split:                      ; preds = %ma_hpf2_uninit.exit
 
 for.body152:                                      ; preds = %for.body152thread-pre-split, %for.body152.preheader
   %59 = phi ptr [ %.pr, %for.body152thread-pre-split ], [ %55, %for.body152.preheader ]
-  %indvars.iv235 = phi i64 [ %indvars.iv.next236, %for.body152thread-pre-split ], [ 0, %for.body152.preheader ]
-  %arrayidx155 = getelementptr inbounds nuw %struct.ma_hpf2, ptr %59, i64 %indvars.iv235
-  %cmp.i138 = icmp eq ptr %59, null
-  br i1 %cmp.i138, label %ma_hpf2_uninit.exit, label %if.end.i.i139
+  %indvars.iv234 = phi i64 [ %indvars.iv.next235, %for.body152thread-pre-split ], [ 0, %for.body152.preheader ]
+  %arrayidx155 = getelementptr inbounds nuw %struct.ma_hpf2, ptr %59, i64 %indvars.iv234
+  %cmp.i137 = icmp eq ptr %59, null
+  br i1 %cmp.i137, label %ma_hpf2_uninit.exit, label %if.end.i.i138
 
-if.end.i.i139:                                    ; preds = %for.body152
+if.end.i.i138:                                    ; preds = %for.body152
   %_ownsHeap.i.i = getelementptr inbounds nuw i8, ptr %arrayidx155, i64 56
   %60 = load i32, ptr %_ownsHeap.i.i, align 8
   %tobool.not.i.i = icmp eq i32 %60, 0
   br i1 %tobool.not.i.i, label %ma_hpf2_uninit.exit, label %if.then1.i.i
 
-if.then1.i.i:                                     ; preds = %if.end.i.i139
+if.then1.i.i:                                     ; preds = %if.end.i.i138
   %_pHeap.i.i = getelementptr inbounds nuw i8, ptr %arrayidx155, i64 48
   %61 = load ptr, ptr %_pHeap.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %61, null
@@ -24083,15 +24002,15 @@ if.end.i.i.i:                                     ; preds = %if.then1.i.i
   call void @free(ptr noundef nonnull %61) #64
   br label %ma_hpf2_uninit.exit
 
-ma_hpf2_uninit.exit:                              ; preds = %for.body152, %if.end.i.i139, %if.then1.i.i, %if.end.i.i.i
-  %indvars.iv.next236 = add nuw nsw i64 %indvars.iv235, 1
-  %exitcond242.not = icmp eq i64 %indvars.iv.next236, %wide.trip.count241
-  br i1 %exitcond242.not, label %return, label %for.body152thread-pre-split, !llvm.loop !209
+ma_hpf2_uninit.exit:                              ; preds = %for.body152, %if.end.i.i138, %if.then1.i.i, %if.end.i.i.i
+  %indvars.iv.next235 = add nuw nsw i64 %indvars.iv234, 1
+  %exitcond241.not = icmp eq i64 %indvars.iv.next235, %wide.trip.count240
+  br i1 %exitcond241.not, label %return, label %for.body152thread-pre-split, !llvm.loop !209
 
 for.inc160:                                       ; preds = %if.end134
-  %indvars.iv.next227 = add nuw nsw i64 %indvars.iv226, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next227, %wide.trip.count
-  %indvars.iv.next239 = add nuw nsw i32 %indvars.iv238, 1
+  %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next226, %wide.trip.count
+  %indvars.iv.next238 = add nuw nsw i32 %indvars.iv237, 1
   br i1 %exitcond.not, label %for.end162, label %for.body82, !llvm.loop !210
 
 for.end162:                                       ; preds = %for.inc160, %for.cond79.preheader
@@ -24110,8 +24029,8 @@ for.end162:                                       ; preds = %for.inc160, %for.co
   store i32 %64, ptr %sampleRate170, align 8
   br label %return
 
-return:                                           ; preds = %cdce.end11.i.i, %ma_hpf2_uninit.exit, %for.body152.lr.ph, %if.end14.i.us, %if.end6.i102.us, %if.end.i101.us, %for.body.us.preheader, %if.end14.i.i, %if.end6.i.i, %if.end.i18.i, %if.then49, %for.body.lr.ph, %for.cond149.preheader, %if.end6, %if.end.i, %if.then26, %lor.lhs.false29, %if.end21, %land.lhs.true16, %if.end, %entry, %for.end162
-  %retval.0 = phi i32 [ 0, %for.end162 ], [ -2, %entry ], [ -2, %if.end ], [ -3, %land.lhs.true16 ], [ -2, %if.end21 ], [ -3, %lor.lhs.false29 ], [ -3, %if.then26 ], [ -2, %if.end.i ], [ -3, %if.end6 ], [ %result.1265, %for.cond149.preheader ], [ -2, %for.body.us.preheader ], [ -2, %if.end.i101.us ], [ -3, %if.end6.i102.us ], [ -3, %if.end14.i.us ], [ -2, %for.body.lr.ph ], [ -2, %if.then49 ], [ -2, %if.end.i18.i ], [ -3, %if.end6.i.i ], [ -3, %if.end14.i.i ], [ %result.1265, %for.body152.lr.ph ], [ %result.1265, %ma_hpf2_uninit.exit ], [ -2, %cdce.end11.i.i ]
+return:                                           ; preds = %cdce.end11.i.i, %ma_hpf2_uninit.exit, %for.body152.lr.ph, %if.end14.i.us, %if.end6.i101.us, %if.end.i100.us, %for.body.us.preheader, %if.end14.i.i, %if.end6.i.i, %if.end.i18.i, %if.then49, %for.body.lr.ph, %for.cond149.preheader, %if.end6, %if.end.i, %if.then26, %lor.lhs.false29, %if.end21, %land.lhs.true16, %if.end, %entry, %for.end162
+  %retval.0 = phi i32 [ 0, %for.end162 ], [ -2, %entry ], [ -2, %if.end ], [ -3, %land.lhs.true16 ], [ -2, %if.end21 ], [ -3, %lor.lhs.false29 ], [ -3, %if.then26 ], [ -2, %if.end.i ], [ -3, %if.end6 ], [ %result.1264, %for.cond149.preheader ], [ -2, %for.body.us.preheader ], [ -2, %if.end.i100.us ], [ -3, %if.end6.i101.us ], [ -3, %if.end14.i.us ], [ -2, %for.body.lr.ph ], [ -2, %if.then49 ], [ -2, %if.end.i18.i ], [ -3, %if.end6.i.i ], [ -3, %if.end14.i.i ], [ %result.1264, %for.body152.lr.ph ], [ %result.1264, %ma_hpf2_uninit.exit ], [ -2, %cdce.end11.i.i ]
   ret i32 %retval.0
 }
 
@@ -28933,9 +28852,9 @@ if.end.i:                                         ; preds = %if.then2.i19
 if.end7:                                          ; preds = %if.end.i
   %conv.i = zext i32 %0 to i64
   %mul.i = shl nuw nsw i64 %conv.i, 2
+  %mul15.i = shl nuw nsw i64 %conv.i, 3
   %_pHeap = getelementptr inbounds nuw i8, ptr %pGainer, i64 32
   store ptr %pHeap, ptr %_pHeap, align 8
-  %mul15.i = shl nuw nsw i64 %conv.i, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %pHeap, i8 0, i64 %mul15.i, i1 false)
   %pOldGains = getelementptr inbounds nuw i8, ptr %pGainer, i64 16
   store ptr %pHeap, ptr %pOldGains, align 8
@@ -29021,9 +28940,9 @@ if.then2.i19.i:                                   ; preds = %if.end7
 if.end7.i:                                        ; preds = %if.then2.i19.i
   %conv.i.i12 = zext i32 %3 to i64
   %mul.i.i = shl nuw nsw i64 %conv.i.i12, 2
+  %mul15.i.i13 = shl nuw nsw i64 %conv.i.i12, 3
   %_pHeap.i = getelementptr inbounds nuw i8, ptr %pGainer, i64 32
   store ptr %retval.0.i9, ptr %_pHeap.i, align 8
-  %mul15.i.i13 = shl nuw nsw i64 %conv.i.i12, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %retval.0.i9, i8 0, i64 %mul15.i.i13, i1 false)
   %pOldGains.i = getelementptr inbounds nuw i8, ptr %pGainer, i64 16
   store ptr %retval.0.i9, ptr %pOldGains.i, align 8
@@ -30970,17 +30889,15 @@ if.end.i:                                         ; preds = %if.then2.i39
   br i1 %cmp1.i31, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end.i
+  %_pHeap = getelementptr inbounds nuw i8, ptr %pListener, i64 104
+  store ptr %pHeap, ptr %_pHeap, align 8
+  %cmp.i.not = icmp eq ptr %pHeap, null
+  br i1 %cmp.i.not, label %ma_zero_memory_default.exit, label %if.then2.i
+
+if.then2.i:                                       ; preds = %if.end3
   %conv.i = zext i32 %0 to i64
   %add.i = add nuw nsw i64 %conv.i, 7
   %and.i = and i64 %add.i, 8589934584
-  %_pHeap = getelementptr inbounds nuw i8, ptr %pListener, i64 104
-  store ptr %pHeap, ptr %_pHeap, align 8
-  %cmp.i = icmp ne ptr %pHeap, null
-  %cmp1.i = icmp ne i64 %and.i, 0
-  %or.cond1 = select i1 %cmp.i, i1 %cmp1.i, i1 false
-  br i1 %or.cond1, label %if.then2.i, label %ma_zero_memory_default.exit
-
-if.then2.i:                                       ; preds = %if.end3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %pHeap, i8 0, i64 %and.i, i1 false)
   br label %ma_zero_memory_default.exit
 
@@ -31076,9 +30993,8 @@ if.then.i:                                        ; preds = %if.then23
   br label %return
 
 if.else.i:                                        ; preds = %if.then23
-  %cmp.i.i = icmp eq ptr %pHeap, null
   %cmp1.i.i = icmp eq i32 %12, 0
-  %or.cond.i.i = or i1 %cmp.i.i, %cmp1.i.i
+  %or.cond.i.i = or i1 %cmp.i.not, %cmp1.i.i
   br i1 %or.cond.i.i, label %return, label %if.end7.i.i.preheader
 
 if.end7.i.i.preheader:                            ; preds = %if.else.i
@@ -31100,9 +31016,8 @@ if.end7.i.i:                                      ; preds = %if.end7.i.i.prehead
   br i1 %or.cond2.i.i, label %return, label %if.end7.i.i, !llvm.loop !28
 
 if.else:                                          ; preds = %if.end19
-  %cmp.i55 = icmp eq ptr %pHeap, null
   %cmp1.i56 = icmp eq i32 %12, 0
-  %or.cond.i = or i1 %cmp.i55, %cmp1.i56
+  %or.cond.i = or i1 %cmp.i.not, %cmp1.i56
   br i1 %or.cond.i, label %return, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.else
@@ -31215,14 +31130,10 @@ if.end:                                           ; preds = %if.end.i.i
   %conv.i.i = zext i32 %0 to i64
   %add.i.i = add nuw nsw i64 %conv.i.i, 7
   %and.i.i = and i64 %add.i.i, 8589934584
-  %cmp1.not = icmp eq i64 %and.i.i, 0
-  br i1 %cmp1.not, label %if.end7.thread, label %if.then2
-
-if.then2:                                         ; preds = %if.end
   %cmp.not.i = icmp eq ptr %pAllocationCallbacks, null
   br i1 %cmp.not.i, label %if.else4.i, label %if.then.i
 
-if.then.i:                                        ; preds = %if.then2
+if.then.i:                                        ; preds = %if.end
   %onMalloc.i = getelementptr inbounds nuw i8, ptr %pAllocationCallbacks, i64 8
   %1 = load ptr, ptr %onMalloc.i, align 8
   %cmp1.not.i = icmp eq ptr %1, null
@@ -31233,7 +31144,7 @@ if.then2.i:                                       ; preds = %if.then.i
   %call.i = tail call ptr %1(i64 noundef %and.i.i, ptr noundef %2) #64
   br label %ma_malloc.exit
 
-if.else4.i:                                       ; preds = %if.then2
+if.else4.i:                                       ; preds = %if.end
   %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %and.i.i) #78
   br label %ma_malloc.exit
 
@@ -31246,11 +31157,6 @@ if.end7:                                          ; preds = %ma_malloc.exit
   %call8 = tail call i32 @ma_spatializer_listener_init_preallocated(ptr noundef nonnull %pConfig, ptr noundef nonnull %retval.0.i9, ptr noundef %pListener)
   %cmp9.not = icmp eq i32 %call8, 0
   br i1 %cmp9.not, label %if.end11, label %if.end.i
-
-if.end7.thread:                                   ; preds = %if.end
-  %call818 = tail call i32 @ma_spatializer_listener_init_preallocated(ptr noundef nonnull %pConfig, ptr noundef null, ptr noundef %pListener)
-  %cmp9.not19 = icmp eq i32 %call818, 0
-  br i1 %cmp9.not19, label %if.end11, label %return
 
 if.end.i:                                         ; preds = %if.end7
   br i1 %cmp.not.i, label %if.else7.i, label %if.then2.i11
@@ -31270,13 +31176,13 @@ if.else7.i:                                       ; preds = %if.end.i
   tail call void @free(ptr noundef nonnull %retval.0.i9) #64
   br label %return
 
-if.end11:                                         ; preds = %if.end7.thread, %if.end7
+if.end11:                                         ; preds = %if.end7
   %_ownsHeap = getelementptr inbounds nuw i8, ptr %pListener, i64 100
   store i32 1, ptr %_ownsHeap, align 4
   br label %return
 
-return:                                           ; preds = %if.end7.thread, %if.then.i, %if.end.i.i, %entry, %if.else7.i, %if.then4.i, %if.then2.i11, %ma_malloc.exit, %if.end11
-  %retval.0 = phi i32 [ 0, %if.end11 ], [ -4, %ma_malloc.exit ], [ %call8, %if.then2.i11 ], [ %call8, %if.then4.i ], [ %call8, %if.else7.i ], [ -2, %entry ], [ -2, %if.end.i.i ], [ -4, %if.then.i ], [ %call818, %if.end7.thread ]
+return:                                           ; preds = %if.then.i, %if.end.i.i, %entry, %if.else7.i, %if.then4.i, %if.then2.i11, %ma_malloc.exit, %if.end11
+  %retval.0 = phi i32 [ 0, %if.end11 ], [ -4, %ma_malloc.exit ], [ %call8, %if.then2.i11 ], [ %call8, %if.then4.i ], [ %call8, %if.else7.i ], [ -2, %entry ], [ -2, %if.end.i.i ], [ -4, %if.then.i ]
   ret i32 %retval.0
 }
 
@@ -31992,9 +31898,9 @@ if.end7.i:                                        ; preds = %if.end48
   %retval.sroa.3.0.insert.shift.i.i = shl nuw i64 %retval.sroa.3.0.insert.ext.i.i, 32
   %conv.i.i95 = zext i32 %pConfig.val106 to i64
   %mul.i.i = shl nuw nsw i64 %conv.i.i95, 2
+  %mul15.i.i = shl nuw nsw i64 %conv.i.i95, 3
   %_pHeap.i = getelementptr inbounds nuw i8, ptr %pSpatializer, i64 160
   store ptr %add.ptr51, ptr %_pHeap.i, align 8
-  %mul15.i.i = shl nuw nsw i64 %conv.i.i95, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr51, i8 0, i64 %mul15.i.i, i1 false)
   %pOldGains.i = getelementptr inbounds nuw i8, ptr %pSpatializer, i64 144
   store ptr %add.ptr51, ptr %pOldGains.i, align 8
@@ -70792,16 +70698,14 @@ if.end3:                                          ; preds = %if.end29.i.thread, 
   %heapLayout.sroa.12.056 = phi i64 [ 0, %if.then33.i ], [ %add21.i, %if.end29.i.thread ]
   %heapLayout.sroa.10.055 = phi i64 [ 0, %if.then33.i ], [ %add14.i, %if.end29.i.thread ]
   %2 = phi i64 [ %mul38.i, %if.then33.i ], [ %add28.i, %if.end29.i.thread ]
-  %add43.i = add nuw nsw i64 %2, 7
-  %and.i = and i64 %add43.i, 9223372036854775800
   %_pHeap = getelementptr inbounds nuw i8, ptr %pNoise, i64 136
   store ptr %pHeap, ptr %_pHeap, align 8
-  %cmp.i = icmp ne ptr %pHeap, null
-  %cmp1.i = icmp ne i64 %and.i, 0
-  %or.cond1 = select i1 %cmp.i, i1 %cmp1.i, i1 false
-  br i1 %or.cond1, label %if.then2.i, label %if.end9
+  %cmp.i.not = icmp eq ptr %pHeap, null
+  br i1 %cmp.i.not, label %if.end9, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end3
+  %add43.i = add nuw nsw i64 %2, 7
+  %and.i = and i64 %add43.i, 9223372036854775800
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %pHeap, i8 0, i64 %and.i, i1 false)
   br label %if.end9
 
@@ -70917,7 +70821,7 @@ if.end.i.i:                                       ; preds = %entry
 if.end3.i.i:                                      ; preds = %if.end.i.i
   %type.i.i = getelementptr inbounds nuw i8, ptr %pConfig, i64 8
   %1 = load i32, ptr %type.i.i, align 8
-  switch i32 %1, label %if.end7 [
+  switch i32 %1, label %if.end7.thread [
     i32 1, label %if.end29.i.thread.i
     i32 2, label %if.then33.i.i
   ]
@@ -70936,14 +70840,10 @@ if.end:                                           ; preds = %if.then33.i.i, %if.
   %2 = phi i64 [ %mul38.i.i, %if.then33.i.i ], [ %add28.i.i, %if.end29.i.thread.i ]
   %add43.i.i = add nuw nsw i64 %2, 7
   %and.i.i = and i64 %add43.i.i, 9223372036854775800
-  %cmp1.not = icmp eq i64 %and.i.i, 0
-  br i1 %cmp1.not, label %if.end7, label %if.then2
-
-if.then2:                                         ; preds = %if.end
   %cmp.not.i = icmp eq ptr %pAllocationCallbacks, null
   br i1 %cmp.not.i, label %if.else4.i, label %if.then.i
 
-if.then.i:                                        ; preds = %if.then2
+if.then.i:                                        ; preds = %if.end
   %onMalloc.i = getelementptr inbounds nuw i8, ptr %pAllocationCallbacks, i64 8
   %3 = load ptr, ptr %onMalloc.i, align 8
   %cmp1.not.i = icmp eq ptr %3, null
@@ -70954,7 +70854,7 @@ if.then2.i:                                       ; preds = %if.then.i
   %call.i = tail call ptr %3(i64 noundef %and.i.i, ptr noundef %4) #64
   br label %ma_malloc.exit
 
-if.else4.i:                                       ; preds = %if.then2
+if.else4.i:                                       ; preds = %if.end
   %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %and.i.i) #78
   br label %ma_malloc.exit
 
@@ -70963,17 +70863,17 @@ ma_malloc.exit:                                   ; preds = %if.then2.i, %if.els
   %cmp4 = icmp eq ptr %retval.0.i9, null
   br i1 %cmp4, label %return, label %if.end7
 
-if.end7:                                          ; preds = %if.end3.i.i, %if.end, %ma_malloc.exit
-  %pHeap.0 = phi ptr [ %retval.0.i9, %ma_malloc.exit ], [ null, %if.end ], [ null, %if.end3.i.i ]
-  %call8 = tail call i32 @ma_noise_init_preallocated(ptr noundef nonnull %pConfig, ptr noundef %pHeap.0, ptr noundef %pNoise)
+if.end7:                                          ; preds = %ma_malloc.exit
+  %call8 = tail call i32 @ma_noise_init_preallocated(ptr noundef nonnull %pConfig, ptr noundef nonnull %retval.0.i9, ptr noundef %pNoise)
   %cmp9.not = icmp eq i32 %call8, 0
-  br i1 %cmp9.not, label %if.end11, label %if.then10
+  br i1 %cmp9.not, label %if.end11, label %if.end.i
 
-if.then10:                                        ; preds = %if.end7
-  %cmp.i = icmp eq ptr %pHeap.0, null
-  br i1 %cmp.i, label %return, label %if.end.i
+if.end7.thread:                                   ; preds = %if.end3.i.i
+  %call821 = tail call i32 @ma_noise_init_preallocated(ptr noundef nonnull %pConfig, ptr noundef null, ptr noundef %pNoise)
+  %cmp9.not22 = icmp eq i32 %call821, 0
+  br i1 %cmp9.not22, label %if.end11, label %return
 
-if.end.i:                                         ; preds = %if.then10
+if.end.i:                                         ; preds = %if.end7
   %cmp1.not.i10 = icmp eq ptr %pAllocationCallbacks, null
   br i1 %cmp1.not.i10, label %if.else7.i, label %if.then2.i11
 
@@ -70985,20 +70885,20 @@ if.then2.i11:                                     ; preds = %if.end.i
 
 if.then4.i:                                       ; preds = %if.then2.i11
   %6 = load ptr, ptr %pAllocationCallbacks, align 8
-  tail call void %5(ptr noundef nonnull %pHeap.0, ptr noundef %6) #64
+  tail call void %5(ptr noundef nonnull %retval.0.i9, ptr noundef %6) #64
   br label %return
 
 if.else7.i:                                       ; preds = %if.end.i
-  tail call void @free(ptr noundef nonnull %pHeap.0) #64
+  tail call void @free(ptr noundef nonnull %retval.0.i9) #64
   br label %return
 
-if.end11:                                         ; preds = %if.end7
+if.end11:                                         ; preds = %if.end7.thread, %if.end7
   %_ownsHeap = getelementptr inbounds nuw i8, ptr %pNoise, i64 144
   store i32 1, ptr %_ownsHeap, align 8
   br label %return
 
-return:                                           ; preds = %if.then.i, %if.end.i.i, %entry, %if.else7.i, %if.then4.i, %if.then2.i11, %if.then10, %ma_malloc.exit, %if.end11
-  %retval.0 = phi i32 [ 0, %if.end11 ], [ -4, %ma_malloc.exit ], [ %call8, %if.then10 ], [ %call8, %if.then2.i11 ], [ %call8, %if.then4.i ], [ %call8, %if.else7.i ], [ -2, %entry ], [ -2, %if.end.i.i ], [ -4, %if.then.i ]
+return:                                           ; preds = %if.end7.thread, %if.then.i, %if.end.i.i, %entry, %if.else7.i, %if.then4.i, %if.then2.i11, %ma_malloc.exit, %if.end11
+  %retval.0 = phi i32 [ 0, %if.end11 ], [ -4, %ma_malloc.exit ], [ %call8, %if.then2.i11 ], [ %call8, %if.then4.i ], [ %call8, %if.else7.i ], [ -2, %entry ], [ -2, %if.end.i.i ], [ -4, %if.then.i ], [ %call821, %if.end7.thread ]
   ret i32 %retval.0
 }
 
@@ -83857,7 +83757,7 @@ ma_zero_memory_default.exit:                      ; preds = %entry, %if.then2.i
 ; Function Attrs: nounwind uwtable
 define i32 @ma_engine_init(ptr noundef readonly %pConfig, ptr noundef %pEngine) local_unnamed_addr #38 {
 entry:
-  %heapLayout.i.i182 = alloca %struct.ma_node_heap_layout, align 8
+  %heapLayout.i.i179 = alloca %struct.ma_node_heap_layout, align 8
   %heapLayout.i.i = alloca %struct.ma_node_heap_layout, align 8
   %baseConfig.i = alloca %struct.ma_node_config, align 8
   %endpointConfig.i = alloca %struct.ma_node_config, align 8
@@ -83876,9 +83776,9 @@ if.then2.i:                                       ; preds = %entry
   br i1 %cmp1.not, label %land.lhs.true7.i.thread, label %if.end3
 
 land.lhs.true7.i.thread:                          ; preds = %if.then2.i
-  %defaultVolumeSmoothTimeInPCMFrames5253 = getelementptr inbounds nuw i8, ptr %pEngine, i64 1264
-  %allocationCallbacks256 = getelementptr inbounds nuw i8, ptr %pEngine, i64 1208
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %defaultVolumeSmoothTimeInPCMFrames5253, i8 0, i64 24, i1 false)
+  %defaultVolumeSmoothTimeInPCMFrames5250 = getelementptr inbounds nuw i8, ptr %pEngine, i64 1264
+  %allocationCallbacks253 = getelementptr inbounds nuw i8, ptr %pEngine, i64 1208
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %defaultVolumeSmoothTimeInPCMFrames5250, i8 0, i64 24, i1 false)
   br label %if.then9.i
 
 if.end3:                                          ; preds = %if.then2.i
@@ -83954,25 +83854,25 @@ land.lhs.true5.i:                                 ; preds = %land.lhs.true.i
   br i1 %or.cond, label %if.then9.i, label %ma_allocation_callbacks_init_copy.exit
 
 if.then9.i:                                       ; preds = %land.lhs.true5.i, %land.lhs.true7.i.thread
-  %engineConfig.sroa.28.0261368390446 = phi i32 [ 0, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.28.0.copyload, %land.lhs.true5.i ]
-  %engineConfig.sroa.27.0264367391445 = phi i32 [ 0, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.27.0.copyload, %land.lhs.true5.i ]
-  %engineConfig.sroa.26.0267366392444 = phi i32 [ 0, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.26.0.copyload, %land.lhs.true5.i ]
-  %engineConfig.sroa.24.0270365393443 = phi i32 [ 0, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.24.0.copyload, %land.lhs.true5.i ]
-  %engineConfig.sroa.21.0273364394442 = phi i32 [ 0, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.21.0.copyload, %land.lhs.true5.i ]
-  %engineConfig.sroa.16.0276363395441 = phi i32 [ 0, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.16.0.copyload, %land.lhs.true5.i ]
-  %engineConfig.sroa.11.0279362396440 = phi i32 [ 1, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.11.0.copyload, %land.lhs.true5.i ]
-  %engineConfig.sroa.9.0282361397439 = phi ptr [ null, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.9.0.copyload, %land.lhs.true5.i ]
-  %engineConfig.sroa.8.0286360398438 = phi ptr [ null, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.8.0.copyload, %land.lhs.true5.i ]
-  %engineConfig.sroa.7.0289359399437 = phi ptr [ null, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.7.0.copyload, %land.lhs.true5.i ]
-  %engineConfig.sroa.6.0292358400436 = phi ptr [ null, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.6.0.copyload, %land.lhs.true5.i ]
-  %engineConfig.sroa.5.0295357401435 = phi ptr [ null, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.5.0.copyload, %land.lhs.true5.i ]
-  %engineConfig.sroa.4.0298356402434 = phi ptr [ null, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.4.0.copyload, %land.lhs.true5.i ]
-  %engineConfig.sroa.0.0301355403433 = phi ptr [ null, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.0.0.copyload, %land.lhs.true5.i ]
-  %engineConfig.sroa.37.0312352405432 = phi i32 [ 0, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.37.0.copyload, %land.lhs.true5.i ]
-  %engineConfig.sroa.38.0315351406431 = phi i32 [ 0, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.38.0.copyload, %land.lhs.true5.i ]
-  %engineConfig.sroa.42.0318350407430 = phi ptr [ null, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.42.0.copyload, %land.lhs.true5.i ]
-  %allocationCallbacks321349408429 = phi ptr [ %allocationCallbacks256, %land.lhs.true7.i.thread ], [ %allocationCallbacks, %land.lhs.true5.i ]
-  store ptr null, ptr %allocationCallbacks321349408429, align 8
+  %engineConfig.sroa.28.0258365387443 = phi i32 [ 0, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.28.0.copyload, %land.lhs.true5.i ]
+  %engineConfig.sroa.27.0261364388442 = phi i32 [ 0, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.27.0.copyload, %land.lhs.true5.i ]
+  %engineConfig.sroa.26.0264363389441 = phi i32 [ 0, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.26.0.copyload, %land.lhs.true5.i ]
+  %engineConfig.sroa.24.0267362390440 = phi i32 [ 0, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.24.0.copyload, %land.lhs.true5.i ]
+  %engineConfig.sroa.21.0270361391439 = phi i32 [ 0, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.21.0.copyload, %land.lhs.true5.i ]
+  %engineConfig.sroa.16.0273360392438 = phi i32 [ 0, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.16.0.copyload, %land.lhs.true5.i ]
+  %engineConfig.sroa.11.0276359393437 = phi i32 [ 1, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.11.0.copyload, %land.lhs.true5.i ]
+  %engineConfig.sroa.9.0279358394436 = phi ptr [ null, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.9.0.copyload, %land.lhs.true5.i ]
+  %engineConfig.sroa.8.0283357395435 = phi ptr [ null, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.8.0.copyload, %land.lhs.true5.i ]
+  %engineConfig.sroa.7.0286356396434 = phi ptr [ null, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.7.0.copyload, %land.lhs.true5.i ]
+  %engineConfig.sroa.6.0289355397433 = phi ptr [ null, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.6.0.copyload, %land.lhs.true5.i ]
+  %engineConfig.sroa.5.0292354398432 = phi ptr [ null, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.5.0.copyload, %land.lhs.true5.i ]
+  %engineConfig.sroa.4.0295353399431 = phi ptr [ null, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.4.0.copyload, %land.lhs.true5.i ]
+  %engineConfig.sroa.0.0298352400430 = phi ptr [ null, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.0.0.copyload, %land.lhs.true5.i ]
+  %engineConfig.sroa.37.0309349402429 = phi i32 [ 0, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.37.0.copyload, %land.lhs.true5.i ]
+  %engineConfig.sroa.38.0312348403428 = phi i32 [ 0, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.38.0.copyload, %land.lhs.true5.i ]
+  %engineConfig.sroa.42.0315347404427 = phi ptr [ null, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.42.0.copyload, %land.lhs.true5.i ]
+  %allocationCallbacks318346405426 = phi ptr [ %allocationCallbacks253, %land.lhs.true7.i.thread ], [ %allocationCallbacks, %land.lhs.true5.i ]
+  store ptr null, ptr %allocationCallbacks318346405426, align 8
   br label %ma_allocation_callbacks_init_copy.exit.sink.split
 
 if.else11.i:                                      ; preds = %if.end3
@@ -83981,8 +83881,8 @@ if.else11.i:                                      ; preds = %if.end3
 lor.lhs.false.i:                                  ; preds = %if.else11.i, %land.lhs.true.i
   %cmp15.i = icmp eq ptr %engineConfig.sroa.32.0.copyload, null
   %cmp18.i = icmp eq ptr %engineConfig.sroa.34.0.copyload, null
-  %or.cond460 = select i1 %cmp15.i, i1 %cmp18.i, i1 false
-  br i1 %or.cond460, label %ma_allocation_callbacks_init_copy.exit, label %if.else20.i
+  %or.cond457 = select i1 %cmp15.i, i1 %cmp18.i, i1 false
+  br i1 %or.cond457, label %ma_allocation_callbacks_init_copy.exit, label %if.else20.i
 
 if.else20.i:                                      ; preds = %lor.lhs.false.i
   store ptr %engineConfig.sroa.30.0.copyload, ptr %allocationCallbacks, align 8
@@ -83992,24 +83892,24 @@ ma_allocation_callbacks_init_copy.exit.sink.split: ; preds = %if.else20.i, %if.t
   %ma__malloc_default.sink = phi ptr [ @ma__malloc_default, %if.then9.i ], [ %engineConfig.sroa.32.0.copyload, %if.else20.i ]
   %ma__realloc_default.sink = phi ptr [ @ma__realloc_default, %if.then9.i ], [ %engineConfig.sroa.34.0.copyload, %if.else20.i ]
   %ma__free_default.sink = phi ptr [ @ma__free_default, %if.then9.i ], [ %engineConfig.sroa.36.0.copyload, %if.else20.i ]
-  %allocationCallbacks319.ph = phi ptr [ %allocationCallbacks321349408429, %if.then9.i ], [ %allocationCallbacks, %if.else20.i ]
-  %engineConfig.sroa.42.0316.ph = phi ptr [ %engineConfig.sroa.42.0318350407430, %if.then9.i ], [ %engineConfig.sroa.42.0.copyload, %if.else20.i ]
-  %engineConfig.sroa.38.0313.ph = phi i32 [ %engineConfig.sroa.38.0315351406431, %if.then9.i ], [ %engineConfig.sroa.38.0.copyload, %if.else20.i ]
-  %engineConfig.sroa.37.0310.ph = phi i32 [ %engineConfig.sroa.37.0312352405432, %if.then9.i ], [ %engineConfig.sroa.37.0.copyload, %if.else20.i ]
-  %engineConfig.sroa.0.0299.ph = phi ptr [ %engineConfig.sroa.0.0301355403433, %if.then9.i ], [ %engineConfig.sroa.0.0.copyload, %if.else20.i ]
-  %engineConfig.sroa.4.0296.ph = phi ptr [ %engineConfig.sroa.4.0298356402434, %if.then9.i ], [ %engineConfig.sroa.4.0.copyload, %if.else20.i ]
-  %engineConfig.sroa.5.0293.ph = phi ptr [ %engineConfig.sroa.5.0295357401435, %if.then9.i ], [ %engineConfig.sroa.5.0.copyload, %if.else20.i ]
-  %engineConfig.sroa.6.0290.ph = phi ptr [ %engineConfig.sroa.6.0292358400436, %if.then9.i ], [ %engineConfig.sroa.6.0.copyload, %if.else20.i ]
-  %engineConfig.sroa.7.0287.ph = phi ptr [ %engineConfig.sroa.7.0289359399437, %if.then9.i ], [ %engineConfig.sroa.7.0.copyload, %if.else20.i ]
-  %engineConfig.sroa.8.0284.ph = phi ptr [ %engineConfig.sroa.8.0286360398438, %if.then9.i ], [ %engineConfig.sroa.8.0.copyload, %if.else20.i ]
-  %engineConfig.sroa.9.0280.ph = phi ptr [ %engineConfig.sroa.9.0282361397439, %if.then9.i ], [ %engineConfig.sroa.9.0.copyload, %if.else20.i ]
-  %engineConfig.sroa.11.0277.ph = phi i32 [ %engineConfig.sroa.11.0279362396440, %if.then9.i ], [ %engineConfig.sroa.11.0.copyload, %if.else20.i ]
-  %engineConfig.sroa.16.0274.ph = phi i32 [ %engineConfig.sroa.16.0276363395441, %if.then9.i ], [ %engineConfig.sroa.16.0.copyload, %if.else20.i ]
-  %engineConfig.sroa.21.0271.ph = phi i32 [ %engineConfig.sroa.21.0273364394442, %if.then9.i ], [ %engineConfig.sroa.21.0.copyload, %if.else20.i ]
-  %engineConfig.sroa.24.0268.ph = phi i32 [ %engineConfig.sroa.24.0270365393443, %if.then9.i ], [ %engineConfig.sroa.24.0.copyload, %if.else20.i ]
-  %engineConfig.sroa.26.0265.ph = phi i32 [ %engineConfig.sroa.26.0267366392444, %if.then9.i ], [ %engineConfig.sroa.26.0.copyload, %if.else20.i ]
-  %engineConfig.sroa.27.0262.ph = phi i32 [ %engineConfig.sroa.27.0264367391445, %if.then9.i ], [ %engineConfig.sroa.27.0.copyload, %if.else20.i ]
-  %engineConfig.sroa.28.0259.ph = phi i32 [ %engineConfig.sroa.28.0261368390446, %if.then9.i ], [ %engineConfig.sroa.28.0.copyload, %if.else20.i ]
+  %allocationCallbacks316.ph = phi ptr [ %allocationCallbacks318346405426, %if.then9.i ], [ %allocationCallbacks, %if.else20.i ]
+  %engineConfig.sroa.42.0313.ph = phi ptr [ %engineConfig.sroa.42.0315347404427, %if.then9.i ], [ %engineConfig.sroa.42.0.copyload, %if.else20.i ]
+  %engineConfig.sroa.38.0310.ph = phi i32 [ %engineConfig.sroa.38.0312348403428, %if.then9.i ], [ %engineConfig.sroa.38.0.copyload, %if.else20.i ]
+  %engineConfig.sroa.37.0307.ph = phi i32 [ %engineConfig.sroa.37.0309349402429, %if.then9.i ], [ %engineConfig.sroa.37.0.copyload, %if.else20.i ]
+  %engineConfig.sroa.0.0296.ph = phi ptr [ %engineConfig.sroa.0.0298352400430, %if.then9.i ], [ %engineConfig.sroa.0.0.copyload, %if.else20.i ]
+  %engineConfig.sroa.4.0293.ph = phi ptr [ %engineConfig.sroa.4.0295353399431, %if.then9.i ], [ %engineConfig.sroa.4.0.copyload, %if.else20.i ]
+  %engineConfig.sroa.5.0290.ph = phi ptr [ %engineConfig.sroa.5.0292354398432, %if.then9.i ], [ %engineConfig.sroa.5.0.copyload, %if.else20.i ]
+  %engineConfig.sroa.6.0287.ph = phi ptr [ %engineConfig.sroa.6.0289355397433, %if.then9.i ], [ %engineConfig.sroa.6.0.copyload, %if.else20.i ]
+  %engineConfig.sroa.7.0284.ph = phi ptr [ %engineConfig.sroa.7.0286356396434, %if.then9.i ], [ %engineConfig.sroa.7.0.copyload, %if.else20.i ]
+  %engineConfig.sroa.8.0281.ph = phi ptr [ %engineConfig.sroa.8.0283357395435, %if.then9.i ], [ %engineConfig.sroa.8.0.copyload, %if.else20.i ]
+  %engineConfig.sroa.9.0277.ph = phi ptr [ %engineConfig.sroa.9.0279358394436, %if.then9.i ], [ %engineConfig.sroa.9.0.copyload, %if.else20.i ]
+  %engineConfig.sroa.11.0274.ph = phi i32 [ %engineConfig.sroa.11.0276359393437, %if.then9.i ], [ %engineConfig.sroa.11.0.copyload, %if.else20.i ]
+  %engineConfig.sroa.16.0271.ph = phi i32 [ %engineConfig.sroa.16.0273360392438, %if.then9.i ], [ %engineConfig.sroa.16.0.copyload, %if.else20.i ]
+  %engineConfig.sroa.21.0268.ph = phi i32 [ %engineConfig.sroa.21.0270361391439, %if.then9.i ], [ %engineConfig.sroa.21.0.copyload, %if.else20.i ]
+  %engineConfig.sroa.24.0265.ph = phi i32 [ %engineConfig.sroa.24.0267362390440, %if.then9.i ], [ %engineConfig.sroa.24.0.copyload, %if.else20.i ]
+  %engineConfig.sroa.26.0262.ph = phi i32 [ %engineConfig.sroa.26.0264363389441, %if.then9.i ], [ %engineConfig.sroa.26.0.copyload, %if.else20.i ]
+  %engineConfig.sroa.27.0259.ph = phi i32 [ %engineConfig.sroa.27.0261364388442, %if.then9.i ], [ %engineConfig.sroa.27.0.copyload, %if.else20.i ]
+  %engineConfig.sroa.28.0256.ph = phi i32 [ %engineConfig.sroa.28.0258365387443, %if.then9.i ], [ %engineConfig.sroa.28.0.copyload, %if.else20.i ]
   %tmp10.sroa.2.0.pDst.sroa_idx.i = getelementptr inbounds nuw i8, ptr %pEngine, i64 1216
   store ptr %ma__malloc_default.sink, ptr %tmp10.sroa.2.0.pDst.sroa_idx.i, align 8
   %tmp10.sroa.3.0.pDst.sroa_idx.i = getelementptr inbounds nuw i8, ptr %pEngine, i64 1224
@@ -84019,35 +83919,35 @@ ma_allocation_callbacks_init_copy.exit.sink.split: ; preds = %if.else20.i, %if.t
   br label %ma_allocation_callbacks_init_copy.exit
 
 ma_allocation_callbacks_init_copy.exit:           ; preds = %ma_allocation_callbacks_init_copy.exit.sink.split, %lor.lhs.false.i, %land.lhs.true5.i, %if.else11.i
-  %allocationCallbacks319 = phi ptr [ %allocationCallbacks, %land.lhs.true5.i ], [ %allocationCallbacks, %if.else11.i ], [ %allocationCallbacks, %lor.lhs.false.i ], [ %allocationCallbacks319.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
-  %engineConfig.sroa.42.0316 = phi ptr [ %engineConfig.sroa.42.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.42.0.copyload, %if.else11.i ], [ %engineConfig.sroa.42.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.42.0316.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
-  %engineConfig.sroa.38.0313 = phi i32 [ %engineConfig.sroa.38.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.38.0.copyload, %if.else11.i ], [ %engineConfig.sroa.38.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.38.0313.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
-  %engineConfig.sroa.37.0310 = phi i32 [ %engineConfig.sroa.37.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.37.0.copyload, %if.else11.i ], [ %engineConfig.sroa.37.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.37.0310.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
-  %engineConfig.sroa.0.0299 = phi ptr [ %engineConfig.sroa.0.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.0.0.copyload, %if.else11.i ], [ %engineConfig.sroa.0.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.0.0299.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
-  %engineConfig.sroa.4.0296 = phi ptr [ %engineConfig.sroa.4.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.4.0.copyload, %if.else11.i ], [ %engineConfig.sroa.4.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.4.0296.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
-  %engineConfig.sroa.5.0293 = phi ptr [ %engineConfig.sroa.5.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.5.0.copyload, %if.else11.i ], [ %engineConfig.sroa.5.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.5.0293.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
-  %engineConfig.sroa.6.0290 = phi ptr [ %engineConfig.sroa.6.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.6.0.copyload, %if.else11.i ], [ %engineConfig.sroa.6.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.6.0290.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
-  %engineConfig.sroa.7.0287 = phi ptr [ %engineConfig.sroa.7.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.7.0.copyload, %if.else11.i ], [ %engineConfig.sroa.7.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.7.0287.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
-  %engineConfig.sroa.8.0284 = phi ptr [ %engineConfig.sroa.8.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.8.0.copyload, %if.else11.i ], [ %engineConfig.sroa.8.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.8.0284.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
-  %engineConfig.sroa.9.0280 = phi ptr [ %engineConfig.sroa.9.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.9.0.copyload, %if.else11.i ], [ %engineConfig.sroa.9.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.9.0280.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
-  %engineConfig.sroa.11.0277 = phi i32 [ %engineConfig.sroa.11.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.11.0.copyload, %if.else11.i ], [ %engineConfig.sroa.11.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.11.0277.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
-  %engineConfig.sroa.16.0274 = phi i32 [ %engineConfig.sroa.16.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.16.0.copyload, %if.else11.i ], [ %engineConfig.sroa.16.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.16.0274.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
-  %engineConfig.sroa.21.0271 = phi i32 [ %engineConfig.sroa.21.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.21.0.copyload, %if.else11.i ], [ %engineConfig.sroa.21.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.21.0271.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
-  %engineConfig.sroa.24.0268 = phi i32 [ %engineConfig.sroa.24.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.24.0.copyload, %if.else11.i ], [ %engineConfig.sroa.24.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.24.0268.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
-  %engineConfig.sroa.26.0265 = phi i32 [ %engineConfig.sroa.26.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.26.0.copyload, %if.else11.i ], [ %engineConfig.sroa.26.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.26.0265.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
-  %engineConfig.sroa.27.0262 = phi i32 [ %engineConfig.sroa.27.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.27.0.copyload, %if.else11.i ], [ %engineConfig.sroa.27.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.27.0262.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
-  %engineConfig.sroa.28.0259 = phi i32 [ %engineConfig.sroa.28.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.28.0.copyload, %if.else11.i ], [ %engineConfig.sroa.28.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.28.0259.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
+  %allocationCallbacks316 = phi ptr [ %allocationCallbacks, %land.lhs.true5.i ], [ %allocationCallbacks, %if.else11.i ], [ %allocationCallbacks, %lor.lhs.false.i ], [ %allocationCallbacks316.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
+  %engineConfig.sroa.42.0313 = phi ptr [ %engineConfig.sroa.42.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.42.0.copyload, %if.else11.i ], [ %engineConfig.sroa.42.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.42.0313.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
+  %engineConfig.sroa.38.0310 = phi i32 [ %engineConfig.sroa.38.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.38.0.copyload, %if.else11.i ], [ %engineConfig.sroa.38.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.38.0310.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
+  %engineConfig.sroa.37.0307 = phi i32 [ %engineConfig.sroa.37.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.37.0.copyload, %if.else11.i ], [ %engineConfig.sroa.37.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.37.0307.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
+  %engineConfig.sroa.0.0296 = phi ptr [ %engineConfig.sroa.0.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.0.0.copyload, %if.else11.i ], [ %engineConfig.sroa.0.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.0.0296.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
+  %engineConfig.sroa.4.0293 = phi ptr [ %engineConfig.sroa.4.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.4.0.copyload, %if.else11.i ], [ %engineConfig.sroa.4.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.4.0293.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
+  %engineConfig.sroa.5.0290 = phi ptr [ %engineConfig.sroa.5.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.5.0.copyload, %if.else11.i ], [ %engineConfig.sroa.5.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.5.0290.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
+  %engineConfig.sroa.6.0287 = phi ptr [ %engineConfig.sroa.6.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.6.0.copyload, %if.else11.i ], [ %engineConfig.sroa.6.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.6.0287.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
+  %engineConfig.sroa.7.0284 = phi ptr [ %engineConfig.sroa.7.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.7.0.copyload, %if.else11.i ], [ %engineConfig.sroa.7.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.7.0284.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
+  %engineConfig.sroa.8.0281 = phi ptr [ %engineConfig.sroa.8.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.8.0.copyload, %if.else11.i ], [ %engineConfig.sroa.8.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.8.0281.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
+  %engineConfig.sroa.9.0277 = phi ptr [ %engineConfig.sroa.9.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.9.0.copyload, %if.else11.i ], [ %engineConfig.sroa.9.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.9.0277.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
+  %engineConfig.sroa.11.0274 = phi i32 [ %engineConfig.sroa.11.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.11.0.copyload, %if.else11.i ], [ %engineConfig.sroa.11.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.11.0274.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
+  %engineConfig.sroa.16.0271 = phi i32 [ %engineConfig.sroa.16.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.16.0.copyload, %if.else11.i ], [ %engineConfig.sroa.16.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.16.0271.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
+  %engineConfig.sroa.21.0268 = phi i32 [ %engineConfig.sroa.21.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.21.0.copyload, %if.else11.i ], [ %engineConfig.sroa.21.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.21.0268.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
+  %engineConfig.sroa.24.0265 = phi i32 [ %engineConfig.sroa.24.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.24.0.copyload, %if.else11.i ], [ %engineConfig.sroa.24.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.24.0265.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
+  %engineConfig.sroa.26.0262 = phi i32 [ %engineConfig.sroa.26.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.26.0.copyload, %if.else11.i ], [ %engineConfig.sroa.26.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.26.0262.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
+  %engineConfig.sroa.27.0259 = phi i32 [ %engineConfig.sroa.27.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.27.0.copyload, %if.else11.i ], [ %engineConfig.sroa.27.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.27.0259.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
+  %engineConfig.sroa.28.0256 = phi i32 [ %engineConfig.sroa.28.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.28.0.copyload, %if.else11.i ], [ %engineConfig.sroa.28.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.28.0256.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
   %pResourceManager9 = getelementptr inbounds nuw i8, ptr %pEngine, i64 728
-  store ptr %engineConfig.sroa.0.0299, ptr %pResourceManager9, align 8
+  store ptr %engineConfig.sroa.0.0296, ptr %pResourceManager9, align 8
   %pDevice10 = getelementptr inbounds nuw i8, ptr %pEngine, i64 736
-  store ptr %engineConfig.sroa.5.0293, ptr %pDevice10, align 8
-  %cmp12 = icmp eq ptr %engineConfig.sroa.5.0293, null
-  %cmp13 = icmp eq i32 %engineConfig.sroa.38.0313, 0
+  store ptr %engineConfig.sroa.5.0290, ptr %pDevice10, align 8
+  %cmp12 = icmp eq ptr %engineConfig.sroa.5.0290, null
+  %cmp13 = icmp eq i32 %engineConfig.sroa.38.0310, 0
   %or.cond1 = select i1 %cmp12, i1 %cmp13, i1 false
   br i1 %or.cond1, label %if.then14, label %if.end61
 
 if.then14:                                        ; preds = %ma_allocation_callbacks_init_copy.exit
-  %onMalloc.i87 = getelementptr inbounds nuw i8, ptr %allocationCallbacks319, i64 8
+  %onMalloc.i87 = getelementptr inbounds nuw i8, ptr %allocationCallbacks316, i64 8
   %0 = load ptr, ptr %onMalloc.i87, align 8
   %cmp1.not.i = icmp eq ptr %0, null
   br i1 %cmp1.not.i, label %ma_malloc.exit.thread, label %ma_malloc.exit
@@ -84057,7 +83957,7 @@ ma_malloc.exit.thread:                            ; preds = %if.then14
   br label %return
 
 ma_malloc.exit:                                   ; preds = %if.then14
-  %1 = load ptr, ptr %allocationCallbacks319, align 8
+  %1 = load ptr, ptr %allocationCallbacks316, align 8
   %call.i = tail call ptr %0(i64 noundef 3776, ptr noundef %1) #64
   store ptr %call.i, ptr %pDevice10, align 8
   %cmp19 = icmp eq ptr %call.i, null
@@ -84077,43 +83977,43 @@ if.end21:                                         ; preds = %ma_malloc.exit
   store i32 4, ptr %tmp22.sroa.4.0.deviceConfig.sroa_idx, align 8
   %tmp22.sroa.5.0.deviceConfig.sroa_idx = getelementptr inbounds nuw i8, ptr %deviceConfig, i64 108
   store i32 0, ptr %tmp22.sroa.5.0.deviceConfig.sroa_idx, align 4
-  store ptr %engineConfig.sroa.6.0290, ptr %tmp22.sroa.6.0.deviceConfig.sroa_idx, align 8
+  store ptr %engineConfig.sroa.6.0287, ptr %tmp22.sroa.6.0.deviceConfig.sroa_idx, align 8
   %format = getelementptr inbounds nuw i8, ptr %deviceConfig, i64 120
   store i32 5, ptr %format, align 8
   %channels25 = getelementptr inbounds nuw i8, ptr %deviceConfig, i64 124
-  store i32 %engineConfig.sroa.16.0274, ptr %channels25, align 4
-  store i32 %engineConfig.sroa.21.0271, ptr %tmp22.sroa.3.0.deviceConfig.sroa_idx, align 4
-  %cmp27.not = icmp eq ptr %engineConfig.sroa.7.0287, null
-  %cond = select i1 %cmp27.not, ptr @ma_engine_data_callback_internal, ptr %engineConfig.sroa.7.0287
+  store i32 %engineConfig.sroa.16.0271, ptr %channels25, align 4
+  store i32 %engineConfig.sroa.21.0268, ptr %tmp22.sroa.3.0.deviceConfig.sroa_idx, align 4
+  %cmp27.not = icmp eq ptr %engineConfig.sroa.7.0284, null
+  %cond = select i1 %cmp27.not, ptr @ma_engine_data_callback_internal, ptr %engineConfig.sroa.7.0284
   %dataCallback29 = getelementptr inbounds nuw i8, ptr %deviceConfig, i64 32
   store ptr %cond, ptr %dataCallback29, align 8
   %pUserData = getelementptr inbounds nuw i8, ptr %deviceConfig, i64 56
   store ptr %pEngine, ptr %pUserData, align 8
   %notificationCallback30 = getelementptr inbounds nuw i8, ptr %deviceConfig, i64 40
-  store ptr %engineConfig.sroa.8.0284, ptr %notificationCallback30, align 8
+  store ptr %engineConfig.sroa.8.0281, ptr %notificationCallback30, align 8
   %periodSizeInFrames31 = getelementptr inbounds nuw i8, ptr %deviceConfig, i64 8
-  store i32 %engineConfig.sroa.24.0268, ptr %periodSizeInFrames31, align 8
+  store i32 %engineConfig.sroa.24.0265, ptr %periodSizeInFrames31, align 8
   %periodSizeInMilliseconds32 = getelementptr inbounds nuw i8, ptr %deviceConfig, i64 12
-  store i32 %engineConfig.sroa.26.0265, ptr %periodSizeInMilliseconds32, align 4
+  store i32 %engineConfig.sroa.26.0262, ptr %periodSizeInMilliseconds32, align 4
   %noPreSilencedOutputBuffer = getelementptr inbounds nuw i8, ptr %deviceConfig, i64 24
   store i8 1, ptr %noPreSilencedOutputBuffer, align 8
   %noClip = getelementptr inbounds nuw i8, ptr %deviceConfig, i64 25
   store i8 1, ptr %noClip, align 1
-  %cmp33 = icmp eq ptr %engineConfig.sroa.4.0296, null
+  %cmp33 = icmp eq ptr %engineConfig.sroa.4.0293, null
   br i1 %cmp33, label %if.then34, label %if.else50
 
 if.then34:                                        ; preds = %if.end21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %contextConfig, i8 0, i64 232, i1 false), !alias.scope !763
   %allocationCallbacks35 = getelementptr inbounds nuw i8, ptr %contextConfig, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks35, ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks319, i64 32, i1 false)
-  store ptr %engineConfig.sroa.9.0280, ptr %contextConfig, align 8
-  %cmp39 = icmp eq ptr %engineConfig.sroa.9.0280, null
-  %cmp42 = icmp ne ptr %engineConfig.sroa.0.0299, null
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks35, ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks316, i64 32, i1 false)
+  store ptr %engineConfig.sroa.9.0277, ptr %contextConfig, align 8
+  %cmp39 = icmp eq ptr %engineConfig.sroa.9.0277, null
+  %cmp42 = icmp ne ptr %engineConfig.sroa.0.0296, null
   %or.cond2 = select i1 %cmp39, i1 %cmp42, i1 false
   br i1 %or.cond2, label %ma_resource_manager_get_log.exit, label %if.end47
 
 ma_resource_manager_get_log.exit:                 ; preds = %if.then34
-  %pLog.i = getelementptr inbounds nuw i8, ptr %engineConfig.sroa.0.0299, i64 32
+  %pLog.i = getelementptr inbounds nuw i8, ptr %engineConfig.sroa.0.0296, i64 32
   %3 = load ptr, ptr %pLog.i, align 8
   store ptr %3, ptr %contextConfig, align 8
   br label %if.end47
@@ -84123,7 +84023,7 @@ if.end47:                                         ; preds = %ma_resource_manager
   br label %if.end54
 
 if.else50:                                        ; preds = %if.end21
-  %call53 = call i32 @ma_device_init(ptr noundef nonnull %engineConfig.sroa.4.0296, ptr noundef nonnull %deviceConfig, ptr noundef nonnull %call.i)
+  %call53 = call i32 @ma_device_init(ptr noundef nonnull %engineConfig.sroa.4.0293, ptr noundef nonnull %deviceConfig, ptr noundef nonnull %call.i)
   br label %if.end54
 
 if.end54:                                         ; preds = %if.else50, %if.end47
@@ -84137,13 +84037,13 @@ if.then56:                                        ; preds = %if.end54
   br i1 %cmp.i91, label %ma_free.exit, label %if.end.i92
 
 if.end.i92:                                       ; preds = %if.then56
-  %onFree.i95 = getelementptr inbounds nuw i8, ptr %allocationCallbacks319, i64 24
+  %onFree.i95 = getelementptr inbounds nuw i8, ptr %allocationCallbacks316, i64 24
   %5 = load ptr, ptr %onFree.i95, align 8
   %cmp3.not.i = icmp eq ptr %5, null
   br i1 %cmp3.not.i, label %ma_free.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i92
-  %6 = load ptr, ptr %allocationCallbacks319, align 8
+  %6 = load ptr, ptr %allocationCallbacks316, align 8
   call void %5(ptr noundef nonnull %4, ptr noundef %6) #64
   br label %ma_free.exit
 
@@ -84158,7 +84058,7 @@ if.end60:                                         ; preds = %if.end54
   br label %if.end61
 
 if.end61:                                         ; preds = %if.end60, %ma_allocation_callbacks_init_copy.exit
-  %7 = phi ptr [ %.pr, %if.end60 ], [ %engineConfig.sroa.5.0293, %ma_allocation_callbacks_init_copy.exit ]
+  %7 = phi ptr [ %.pr, %if.end60 ], [ %engineConfig.sroa.5.0290, %ma_allocation_callbacks_init_copy.exit ]
   %cmp63.not = icmp eq ptr %7, null
   br i1 %cmp63.not, label %if.end72, label %if.then64
 
@@ -84170,8 +84070,8 @@ if.then64:                                        ; preds = %if.end61
   br label %if.end72
 
 if.end72:                                         ; preds = %if.then64, %if.end61
-  %engineConfig.sroa.21.1 = phi i32 [ %engineConfig.sroa.21.0271, %if.end61 ], [ %9, %if.then64 ]
-  %engineConfig.sroa.16.1 = phi i32 [ %engineConfig.sroa.16.0274, %if.end61 ], [ %8, %if.then64 ]
+  %engineConfig.sroa.21.1 = phi i32 [ %engineConfig.sroa.21.0268, %if.end61 ], [ %9, %if.then64 ]
+  %engineConfig.sroa.16.1 = phi i32 [ %engineConfig.sroa.16.0271, %if.end61 ], [ %8, %if.then64 ]
   %cmp74 = icmp eq i32 %engineConfig.sroa.16.1, 0
   %cmp76 = icmp eq i32 %engineConfig.sroa.21.1, 0
   %or.cond3 = select i1 %cmp74, i1 true, i1 %cmp76
@@ -84180,7 +84080,7 @@ if.end72:                                         ; preds = %if.then64, %if.end6
 if.end78:                                         ; preds = %if.end72
   %sampleRate80 = getelementptr inbounds nuw i8, ptr %pEngine, i64 752
   store i32 %engineConfig.sroa.21.1, ptr %sampleRate80, align 8
-  %cmp82.not = icmp ne ptr %engineConfig.sroa.9.0280, null
+  %cmp82.not = icmp ne ptr %engineConfig.sroa.9.0277, null
   %brmerge = or i1 %cmp82.not, %cmp63.not
   br i1 %brmerge, label %if.then2.i.i, label %ma_device_get_context.exit.i
 
@@ -84195,13 +84095,13 @@ if.end.i2.i:                                      ; preds = %ma_device_get_conte
   br label %if.then2.i.i
 
 if.then2.i.i:                                     ; preds = %if.end78, %if.end.i2.i, %ma_device_get_context.exit.i
-  %engineConfig.sroa.9.0280.sink = phi ptr [ %engineConfig.sroa.9.0280, %if.end78 ], [ %11, %if.end.i2.i ], [ null, %ma_device_get_context.exit.i ]
+  %engineConfig.sroa.9.0277.sink = phi ptr [ %engineConfig.sroa.9.0277, %if.end78 ], [ %11, %if.end.i2.i ], [ null, %ma_device_get_context.exit.i ]
   %pLog85 = getelementptr inbounds nuw i8, ptr %pEngine, i64 744
-  store ptr %engineConfig.sroa.9.0280.sink, ptr %pLog85, align 8
+  store ptr %engineConfig.sroa.9.0277.sink, ptr %pLog85, align 8
   %retval.sroa.0.0.insert.ext.i = zext i32 %engineConfig.sroa.16.1 to i64
   %retval.sroa.0.0.insert.insert.i = or disjoint i64 %retval.sroa.0.0.insert.ext.i, 2061584302080
   store i64 %retval.sroa.0.0.insert.insert.i, ptr %nodeGraphConfig, align 8
-  %12 = call i32 @llvm.umin.i32(i32 %engineConfig.sroa.24.0268, i32 65535)
+  %12 = call i32 @llvm.umin.i32(i32 %engineConfig.sroa.24.0265, i32 65535)
   %conv102 = trunc nuw i32 %12 to i16
   %nodeCacheCapInFrames = getelementptr inbounds nuw i8, ptr %nodeGraphConfig, i64 4
   store i16 %conv102, ptr %nodeCacheCapInFrames, align 4
@@ -84209,7 +84109,7 @@ if.then2.i.i:                                     ; preds = %if.end78, %if.end.i
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %endpointConfig.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(728) %pEngine, i8 0, i64 728, i1 false)
   %nodeCacheCapInFrames1.i = getelementptr inbounds nuw i8, ptr %pEngine, i64 720
-  %cmp3.i97 = icmp eq i32 %engineConfig.sroa.24.0268, 0
+  %cmp3.i97 = icmp eq i32 %engineConfig.sroa.24.0265, 0
   %storemerge.i = select i1 %cmp3.i97, i16 480, i16 %conv102
   store i16 %storemerge.i, ptr %nodeCacheCapInFrames1.i, align 8
   %tmp.sroa.5.0.baseConfig.sroa_idx.i = getelementptr inbounds nuw i8, ptr %baseConfig.i, i64 20
@@ -84223,57 +84123,57 @@ if.then2.i.i:                                     ; preds = %if.end78, %if.end.i
   store ptr @g_node_graph_node_vtable, ptr %baseConfig.i, align 8
   %pOutputChannels.i = getelementptr inbounds nuw i8, ptr %baseConfig.i, i64 32
   store ptr %nodeGraphConfig, ptr %pOutputChannels.i, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %heapLayout.i.i182)
-  %call.i.i183 = call fastcc i32 @ma_node_get_heap_layout(ptr noundef nonnull readonly %pEngine, ptr noundef nonnull %baseConfig.i, ptr noundef %heapLayout.i.i182)
-  %cmp1.not.i.i184 = icmp eq i32 %call.i.i183, 0
-  br i1 %cmp1.not.i.i184, label %if.end.i187, label %ma_node_get_heap_size.exit.i185
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %heapLayout.i.i179)
+  %call.i.i180 = call fastcc i32 @ma_node_get_heap_layout(ptr noundef nonnull readonly %pEngine, ptr noundef nonnull %baseConfig.i, ptr noundef %heapLayout.i.i179)
+  %cmp1.not.i.i181 = icmp eq i32 %call.i.i180, 0
+  br i1 %cmp1.not.i.i181, label %if.end.i184, label %ma_node_get_heap_size.exit.i182
 
-ma_node_get_heap_size.exit.i185:                  ; preds = %if.then2.i.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %heapLayout.i.i182)
+ma_node_get_heap_size.exit.i182:                  ; preds = %if.then2.i.i
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %heapLayout.i.i179)
   br label %ma_node_graph_init.exit.thread
 
-if.end.i187:                                      ; preds = %if.then2.i.i
-  %13 = load i64, ptr %heapLayout.i.i182, align 8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %heapLayout.i.i182)
-  %cmp1.not.i188 = icmp eq i64 %13, 0
-  br i1 %cmp1.not.i188, label %if.end7.thread.i204, label %if.then2.i189
+if.end.i184:                                      ; preds = %if.then2.i.i
+  %13 = load i64, ptr %heapLayout.i.i179, align 8
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %heapLayout.i.i179)
+  %cmp1.not.i185 = icmp eq i64 %13, 0
+  br i1 %cmp1.not.i185, label %if.end7.thread.i201, label %if.then2.i186
 
-if.then2.i189:                                    ; preds = %if.end.i187
-  %onMalloc.i.i190 = getelementptr inbounds nuw i8, ptr %allocationCallbacks319, i64 8
-  %14 = load ptr, ptr %onMalloc.i.i190, align 8
-  %cmp1.not.i10.i191 = icmp eq ptr %14, null
-  br i1 %cmp1.not.i10.i191, label %ma_node_graph_init.exit.thread, label %if.then2.i.i192
+if.then2.i186:                                    ; preds = %if.end.i184
+  %onMalloc.i.i187 = getelementptr inbounds nuw i8, ptr %allocationCallbacks316, i64 8
+  %14 = load ptr, ptr %onMalloc.i.i187, align 8
+  %cmp1.not.i10.i188 = icmp eq ptr %14, null
+  br i1 %cmp1.not.i10.i188, label %ma_node_graph_init.exit.thread, label %if.then2.i.i189
 
-if.then2.i.i192:                                  ; preds = %if.then2.i189
-  %15 = load ptr, ptr %allocationCallbacks319, align 8
-  %call.i11.i193 = call ptr %14(i64 noundef %13, ptr noundef %15) #64
-  %cmp4.i194 = icmp eq ptr %call.i11.i193, null
-  br i1 %cmp4.i194, label %ma_node_graph_init.exit.thread, label %if.end7.i195
+if.then2.i.i189:                                  ; preds = %if.then2.i186
+  %15 = load ptr, ptr %allocationCallbacks316, align 8
+  %call.i11.i190 = call ptr %14(i64 noundef %13, ptr noundef %15) #64
+  %cmp4.i191 = icmp eq ptr %call.i11.i190, null
+  br i1 %cmp4.i191, label %ma_node_graph_init.exit.thread, label %if.end7.i192
 
-if.end7.i195:                                     ; preds = %if.then2.i.i192
-  %call8.i196 = call i32 @ma_node_init_preallocated(ptr noundef nonnull %pEngine, ptr noundef nonnull %baseConfig.i, ptr noundef nonnull %call.i11.i193, ptr noundef nonnull %pEngine)
-  %cmp9.not.i197 = icmp eq i32 %call8.i196, 0
-  br i1 %cmp9.not.i197, label %if.end11.i, label %if.end.i.i198
+if.end7.i192:                                     ; preds = %if.then2.i.i189
+  %call8.i193 = call i32 @ma_node_init_preallocated(ptr noundef nonnull %pEngine, ptr noundef nonnull %baseConfig.i, ptr noundef nonnull %call.i11.i190, ptr noundef nonnull %pEngine)
+  %cmp9.not.i194 = icmp eq i32 %call8.i193, 0
+  br i1 %cmp9.not.i194, label %if.end11.i, label %if.end.i.i195
 
-if.end7.thread.i204:                              ; preds = %if.end.i187
-  %call822.i205 = call i32 @ma_node_init_preallocated(ptr noundef nonnull %pEngine, ptr noundef nonnull %baseConfig.i, ptr noundef null, ptr noundef nonnull %pEngine)
-  %cmp9.not23.i206 = icmp eq i32 %call822.i205, 0
-  br i1 %cmp9.not23.i206, label %if.end11.i, label %ma_node_graph_init.exit.thread
+if.end7.thread.i201:                              ; preds = %if.end.i184
+  %call822.i202 = call i32 @ma_node_init_preallocated(ptr noundef nonnull %pEngine, ptr noundef nonnull %baseConfig.i, ptr noundef null, ptr noundef nonnull %pEngine)
+  %cmp9.not23.i203 = icmp eq i32 %call822.i202, 0
+  br i1 %cmp9.not23.i203, label %if.end11.i, label %ma_node_graph_init.exit.thread
 
-if.end.i.i198:                                    ; preds = %if.end7.i195
-  %onFree.i.i199 = getelementptr inbounds nuw i8, ptr %allocationCallbacks319, i64 24
-  %16 = load ptr, ptr %onFree.i.i199, align 8
-  %cmp3.not.i.i200 = icmp eq ptr %16, null
-  br i1 %cmp3.not.i.i200, label %ma_node_graph_init.exit.thread, label %if.then4.i.i201
+if.end.i.i195:                                    ; preds = %if.end7.i192
+  %onFree.i.i196 = getelementptr inbounds nuw i8, ptr %allocationCallbacks316, i64 24
+  %16 = load ptr, ptr %onFree.i.i196, align 8
+  %cmp3.not.i.i197 = icmp eq ptr %16, null
+  br i1 %cmp3.not.i.i197, label %ma_node_graph_init.exit.thread, label %if.then4.i.i198
 
-if.then4.i.i201:                                  ; preds = %if.end.i.i198
-  %17 = load ptr, ptr %allocationCallbacks319, align 8
-  call void %16(ptr noundef nonnull %call.i11.i193, ptr noundef %17) #64
+if.then4.i.i198:                                  ; preds = %if.end.i.i195
+  %17 = load ptr, ptr %allocationCallbacks316, align 8
+  call void %16(ptr noundef nonnull %call.i11.i190, ptr noundef %17) #64
   br label %ma_node_graph_init.exit.thread
 
-if.end11.i:                                       ; preds = %if.end7.thread.i204, %if.end7.i195
-  %_ownsHeap.i203 = getelementptr inbounds nuw i8, ptr %pEngine, i64 352
-  store i32 1, ptr %_ownsHeap.i203, align 8
+if.end11.i:                                       ; preds = %if.end7.thread.i201, %if.end7.i192
+  %_ownsHeap.i200 = getelementptr inbounds nuw i8, ptr %pEngine, i64 352
+  store i32 1, ptr %_ownsHeap.i200, align 8
   %tmp12.sroa.5.0.endpointConfig.sroa_idx.i = getelementptr inbounds nuw i8, ptr %endpointConfig.i, i64 20
   store i32 0, ptr %tmp12.sroa.5.0.endpointConfig.sroa_idx.i, align 4
   %tmp12.sroa.2.0.endpointConfig.sroa_idx.i = getelementptr inbounds nuw i8, ptr %endpointConfig.i, i64 8
@@ -84289,70 +84189,70 @@ if.end11.i:                                       ; preds = %if.end7.thread.i204
   store ptr %nodeGraphConfig, ptr %pOutputChannels16.i, align 8
   %endpoint.i = getelementptr inbounds nuw i8, ptr %pEngine, i64 360
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %heapLayout.i.i)
-  %call.i.i163 = call fastcc i32 @ma_node_get_heap_layout(ptr noundef nonnull readonly %pEngine, ptr noundef nonnull %endpointConfig.i, ptr noundef %heapLayout.i.i)
-  %cmp1.not.i.i164 = icmp eq i32 %call.i.i163, 0
-  br i1 %cmp1.not.i.i164, label %if.end.i166, label %ma_node_get_heap_size.exit.i
+  %call.i.i161 = call fastcc i32 @ma_node_get_heap_layout(ptr noundef nonnull readonly %pEngine, ptr noundef nonnull %endpointConfig.i, ptr noundef %heapLayout.i.i)
+  %cmp1.not.i.i162 = icmp eq i32 %call.i.i161, 0
+  br i1 %cmp1.not.i.i162, label %if.end.i164, label %ma_node_get_heap_size.exit.i
 
 ma_node_get_heap_size.exit.i:                     ; preds = %if.end11.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %heapLayout.i.i)
   br label %if.then20.i
 
-if.end.i166:                                      ; preds = %if.end11.i
+if.end.i164:                                      ; preds = %if.end11.i
   %18 = load i64, ptr %heapLayout.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %heapLayout.i.i)
-  %cmp1.not.i167 = icmp eq i64 %18, 0
-  br i1 %cmp1.not.i167, label %if.end7.thread.i181, label %if.then2.i168
+  %cmp1.not.i165 = icmp eq i64 %18, 0
+  br i1 %cmp1.not.i165, label %if.end7.thread.i, label %if.then2.i166
 
-if.then2.i168:                                    ; preds = %if.end.i166
-  %onMalloc.i.i169 = getelementptr inbounds nuw i8, ptr %allocationCallbacks319, i64 8
-  %19 = load ptr, ptr %onMalloc.i.i169, align 8
+if.then2.i166:                                    ; preds = %if.end.i164
+  %onMalloc.i.i167 = getelementptr inbounds nuw i8, ptr %allocationCallbacks316, i64 8
+  %19 = load ptr, ptr %onMalloc.i.i167, align 8
   %cmp1.not.i10.i = icmp eq ptr %19, null
-  br i1 %cmp1.not.i10.i, label %if.then20.i, label %if.then2.i.i170
+  br i1 %cmp1.not.i10.i, label %if.then20.i, label %if.then2.i.i168
 
-if.then2.i.i170:                                  ; preds = %if.then2.i168
-  %20 = load ptr, ptr %allocationCallbacks319, align 8
+if.then2.i.i168:                                  ; preds = %if.then2.i166
+  %20 = load ptr, ptr %allocationCallbacks316, align 8
   %call.i11.i = call ptr %19(i64 noundef %18, ptr noundef %20) #64
-  %cmp4.i171 = icmp eq ptr %call.i11.i, null
-  br i1 %cmp4.i171, label %if.then20.i, label %if.end7.i172
+  %cmp4.i169 = icmp eq ptr %call.i11.i, null
+  br i1 %cmp4.i169, label %if.then20.i, label %if.end7.i170
 
-if.end7.i172:                                     ; preds = %if.then2.i.i170
-  %call8.i173 = call i32 @ma_node_init_preallocated(ptr noundef nonnull %pEngine, ptr noundef nonnull %endpointConfig.i, ptr noundef nonnull %call.i11.i, ptr noundef nonnull %endpoint.i)
-  %cmp9.not.i174 = icmp eq i32 %call8.i173, 0
-  br i1 %cmp9.not.i174, label %if.end108, label %if.end.i.i175
+if.end7.i170:                                     ; preds = %if.then2.i.i168
+  %call8.i171 = call i32 @ma_node_init_preallocated(ptr noundef nonnull %pEngine, ptr noundef nonnull %endpointConfig.i, ptr noundef nonnull %call.i11.i, ptr noundef nonnull %endpoint.i)
+  %cmp9.not.i172 = icmp eq i32 %call8.i171, 0
+  br i1 %cmp9.not.i172, label %if.end108, label %if.end.i.i173
 
-if.end7.thread.i181:                              ; preds = %if.end.i166
+if.end7.thread.i:                                 ; preds = %if.end.i164
   %call822.i = call i32 @ma_node_init_preallocated(ptr noundef nonnull %pEngine, ptr noundef nonnull %endpointConfig.i, ptr noundef null, ptr noundef nonnull %endpoint.i)
   %cmp9.not23.i = icmp eq i32 %call822.i, 0
   br i1 %cmp9.not23.i, label %if.end108, label %if.then20.i
 
-if.end.i.i175:                                    ; preds = %if.end7.i172
-  %onFree.i.i176 = getelementptr inbounds nuw i8, ptr %allocationCallbacks319, i64 24
-  %21 = load ptr, ptr %onFree.i.i176, align 8
-  %cmp3.not.i.i177 = icmp eq ptr %21, null
-  br i1 %cmp3.not.i.i177, label %if.then20.i, label %if.then4.i.i178
+if.end.i.i173:                                    ; preds = %if.end7.i170
+  %onFree.i.i174 = getelementptr inbounds nuw i8, ptr %allocationCallbacks316, i64 24
+  %21 = load ptr, ptr %onFree.i.i174, align 8
+  %cmp3.not.i.i175 = icmp eq ptr %21, null
+  br i1 %cmp3.not.i.i175, label %if.then20.i, label %if.then4.i.i176
 
-if.then4.i.i178:                                  ; preds = %if.end.i.i175
-  %22 = load ptr, ptr %allocationCallbacks319, align 8
+if.then4.i.i176:                                  ; preds = %if.end.i.i173
+  %22 = load ptr, ptr %allocationCallbacks316, align 8
   call void %21(ptr noundef nonnull %call.i11.i, ptr noundef %22) #64
   br label %if.then20.i
 
-if.then20.i:                                      ; preds = %ma_node_get_heap_size.exit.i, %if.then2.i.i170, %if.end.i.i175, %if.then4.i.i178, %if.then2.i168, %if.end7.thread.i181
-  %retval.0.i165.ph = phi i32 [ %call822.i, %if.end7.thread.i181 ], [ -4, %if.then2.i168 ], [ %call8.i173, %if.then4.i.i178 ], [ %call8.i173, %if.end.i.i175 ], [ -4, %if.then2.i.i170 ], [ %call.i.i163, %ma_node_get_heap_size.exit.i ]
-  call void @ma_node_uninit(ptr noundef nonnull %pEngine, ptr noundef nonnull %allocationCallbacks319)
+if.then20.i:                                      ; preds = %ma_node_get_heap_size.exit.i, %if.then2.i.i168, %if.end.i.i173, %if.then4.i.i176, %if.then2.i166, %if.end7.thread.i
+  %retval.0.i163.ph = phi i32 [ %call822.i, %if.end7.thread.i ], [ -4, %if.then2.i166 ], [ %call8.i171, %if.then4.i.i176 ], [ %call8.i171, %if.end.i.i173 ], [ -4, %if.then2.i.i168 ], [ %call.i.i161, %ma_node_get_heap_size.exit.i ]
+  call void @ma_node_uninit(ptr noundef nonnull %pEngine, ptr noundef nonnull %allocationCallbacks316)
   br label %ma_node_graph_init.exit.thread
 
-ma_node_graph_init.exit.thread:                   ; preds = %if.then20.i, %ma_node_get_heap_size.exit.i185, %if.then2.i.i192, %if.end.i.i198, %if.then4.i.i201, %if.then2.i189, %if.end7.thread.i204
-  %retval.0.i99.ph = phi i32 [ %retval.0.i165.ph, %if.then20.i ], [ %call822.i205, %if.end7.thread.i204 ], [ -4, %if.then2.i189 ], [ %call8.i196, %if.then4.i.i201 ], [ %call8.i196, %if.end.i.i198 ], [ -4, %if.then2.i.i192 ], [ %call.i.i183, %ma_node_get_heap_size.exit.i185 ]
+ma_node_graph_init.exit.thread:                   ; preds = %if.then20.i, %ma_node_get_heap_size.exit.i182, %if.then2.i.i189, %if.end.i.i195, %if.then4.i.i198, %if.then2.i186, %if.end7.thread.i201
+  %retval.0.i99.ph = phi i32 [ %retval.0.i163.ph, %if.then20.i ], [ %call822.i202, %if.end7.thread.i201 ], [ -4, %if.then2.i186 ], [ %call8.i193, %if.then4.i.i198 ], [ %call8.i193, %if.end.i.i195 ], [ -4, %if.then2.i.i189 ], [ %call.i.i180, %ma_node_get_heap_size.exit.i182 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %baseConfig.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %endpointConfig.i)
   br label %on_error_1
 
-if.end108:                                        ; preds = %if.end7.i172, %if.end7.thread.i181
-  %_ownsHeap.i180 = getelementptr inbounds nuw i8, ptr %pEngine, i64 712
-  store i32 1, ptr %_ownsHeap.i180, align 8
+if.end108:                                        ; preds = %if.end7.i170, %if.end7.thread.i
+  %_ownsHeap.i178 = getelementptr inbounds nuw i8, ptr %pEngine, i64 712
+  store i32 1, ptr %_ownsHeap.i178, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %baseConfig.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %endpointConfig.i)
-  %cmp115 = icmp ugt i32 %engineConfig.sroa.11.0277, 4
+  %cmp115 = icmp ugt i32 %engineConfig.sroa.11.0274, 4
   br i1 %cmp115, label %on_error_1, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end108
@@ -84367,9 +84267,9 @@ for.cond.preheader:                               ; preds = %if.end108
   %tmp122.sroa.10.0.listenerConfig.sroa_idx = getelementptr inbounds nuw i8, ptr %listenerConfig, i64 44
   %listeners = getelementptr inbounds nuw i8, ptr %pEngine, i64 760
   %pOutputBuses.i.i = getelementptr inbounds nuw i8, ptr %pEngine, i64 440
-  %onMalloc.i.i = getelementptr inbounds nuw i8, ptr %allocationCallbacks319, i64 8
+  %onMalloc.i.i = getelementptr inbounds nuw i8, ptr %allocationCallbacks316, i64 8
   %listenerCount136 = getelementptr inbounds nuw i8, ptr %pEngine, i64 756
-  %umax = call i32 @llvm.umax.i32(i32 %engineConfig.sroa.11.0277, i32 1)
+  %umax = call i32 @llvm.umax.i32(i32 %engineConfig.sroa.11.0274, i32 1)
   %wide.trip.count = zext nneg i32 %umax to i64
   br label %if.end.i101
 
@@ -84402,44 +84302,35 @@ ma_node_graph_get_channels.exit:                  ; preds = %if.end.i101, %if.en
   br i1 %cmp1.i.i.i, label %on_error_2, label %if.end.i104
 
 if.end.i104:                                      ; preds = %ma_node_graph_get_channels.exit
-  %add.i.i.i = add nuw nsw i64 %retval.0.i102, 7
-  %and.i.i.i = and i64 %add.i.i.i, 504
-  %cmp1.not.i106 = icmp eq i64 %and.i.i.i, 0
-  br i1 %cmp1.not.i106, label %if.end7.thread.i, label %if.then2.i107
-
-if.then2.i107:                                    ; preds = %if.end.i104
   %27 = load ptr, ptr %onMalloc.i.i, align 8
   %cmp1.not.i.i = icmp eq ptr %27, null
-  br i1 %cmp1.not.i.i, label %on_error_2, label %if.then2.i.i108
+  br i1 %cmp1.not.i.i, label %on_error_2, label %if.then2.i.i106
 
-if.then2.i.i108:                                  ; preds = %if.then2.i107
-  %28 = load ptr, ptr %allocationCallbacks319, align 8
+if.then2.i.i106:                                  ; preds = %if.end.i104
+  %add.i.i.i = add nuw nsw i64 %retval.0.i102, 7
+  %and.i.i.i = and i64 %add.i.i.i, 504
+  %28 = load ptr, ptr %allocationCallbacks316, align 8
   %call.i.i = call ptr %27(i64 noundef %and.i.i.i, ptr noundef %28) #64
-  %cmp4.i109 = icmp eq ptr %call.i.i, null
-  br i1 %cmp4.i109, label %on_error_2, label %if.end7.i
+  %cmp4.i107 = icmp eq ptr %call.i.i, null
+  br i1 %cmp4.i107, label %on_error_2, label %if.end7.i
 
-if.end7.i:                                        ; preds = %if.then2.i.i108
+if.end7.i:                                        ; preds = %if.then2.i.i106
   %call8.i = call i32 @ma_spatializer_listener_init_preallocated(ptr noundef nonnull %listenerConfig, ptr noundef nonnull %call.i.i, ptr noundef nonnull %arrayidx)
   %cmp9.not.i = icmp eq i32 %call8.i, 0
   br i1 %cmp9.not.i, label %if.end135, label %if.end.i.i
 
-if.end7.thread.i:                                 ; preds = %if.end.i104
-  %call818.i = call i32 @ma_spatializer_listener_init_preallocated(ptr noundef nonnull %listenerConfig, ptr noundef null, ptr noundef nonnull %arrayidx)
-  %cmp9.not19.i = icmp eq i32 %call818.i, 0
-  br i1 %cmp9.not19.i, label %if.end135, label %on_error_2
-
 if.end.i.i:                                       ; preds = %if.end7.i
-  %onFree.i.i = getelementptr inbounds nuw i8, ptr %allocationCallbacks319, i64 24
+  %onFree.i.i = getelementptr inbounds nuw i8, ptr %allocationCallbacks316, i64 24
   %29 = load ptr, ptr %onFree.i.i, align 8
   %cmp3.not.i.i = icmp eq ptr %29, null
   br i1 %cmp3.not.i.i, label %on_error_2, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
-  %30 = load ptr, ptr %allocationCallbacks319, align 8
+  %30 = load ptr, ptr %allocationCallbacks316, align 8
   call void %29(ptr noundef nonnull %call.i.i, ptr noundef %30) #64
   br label %on_error_2
 
-if.end135:                                        ; preds = %if.end7.thread.i, %if.end7.i
+if.end135:                                        ; preds = %if.end7.i
   %_ownsHeap.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 100
   store i32 1, ptr %_ownsHeap.i, align 4
   %31 = load i32, ptr %listenerCount136, align 4
@@ -84451,13 +84342,13 @@ if.end135:                                        ; preds = %if.end7.thread.i, %
 
 for.end:                                          ; preds = %if.end135
   %gainSmoothTimeInFrames138 = getelementptr inbounds nuw i8, ptr %pEngine, i64 1260
-  store i32 %engineConfig.sroa.27.0262, ptr %gainSmoothTimeInFrames138, align 4
-  %cmp140 = icmp eq i32 %engineConfig.sroa.27.0262, 0
+  store i32 %engineConfig.sroa.27.0259, ptr %gainSmoothTimeInFrames138, align 4
+  %cmp140 = icmp eq i32 %engineConfig.sroa.27.0259, 0
   br i1 %cmp140, label %ma_engine_get_sample_rate.exit, label %if.end150
 
 ma_engine_get_sample_rate.exit:                   ; preds = %for.end
-  %cmp144 = icmp eq i32 %engineConfig.sroa.28.0259, 0
-  %spec.store.select = select i1 %cmp144, i32 8, i32 %engineConfig.sroa.28.0259
+  %cmp144 = icmp eq i32 %engineConfig.sroa.28.0256, 0
+  %spec.store.select = select i1 %cmp144, i32 8, i32 %engineConfig.sroa.28.0256
   %32 = load i32, ptr %sampleRate80, align 8
   %mul = mul i32 %32, %spec.store.select
   %div = udiv i32 %mul, 1000
@@ -84471,21 +84362,21 @@ if.end150:                                        ; preds = %ma_engine_get_sampl
 
 if.then154:                                       ; preds = %if.end150
   %34 = load ptr, ptr %onMalloc.i.i, align 8
-  %cmp1.not.i116 = icmp eq ptr %34, null
-  br i1 %cmp1.not.i116, label %ma_malloc.exit121.thread, label %ma_malloc.exit121
+  %cmp1.not.i114 = icmp eq ptr %34, null
+  br i1 %cmp1.not.i114, label %ma_malloc.exit119.thread, label %ma_malloc.exit119
 
-ma_malloc.exit121.thread:                         ; preds = %if.then154
+ma_malloc.exit119.thread:                         ; preds = %if.then154
   store ptr null, ptr %pResourceManager9, align 8
   br label %on_error_2
 
-ma_malloc.exit121:                                ; preds = %if.then154
-  %35 = load ptr, ptr %allocationCallbacks319, align 8
-  %call.i118 = call ptr %34(i64 noundef 1096, ptr noundef %35) #64
-  store ptr %call.i118, ptr %pResourceManager9, align 8
-  %cmp159 = icmp eq ptr %call.i118, null
-  br i1 %cmp159, label %on_error_2, label %ma_engine_get_sample_rate.exit127
+ma_malloc.exit119:                                ; preds = %if.then154
+  %35 = load ptr, ptr %allocationCallbacks316, align 8
+  %call.i116 = call ptr %34(i64 noundef 1096, ptr noundef %35) #64
+  store ptr %call.i116, ptr %pResourceManager9, align 8
+  %cmp159 = icmp eq ptr %call.i116, null
+  br i1 %cmp159, label %on_error_2, label %ma_engine_get_sample_rate.exit125
 
-ma_engine_get_sample_rate.exit127:                ; preds = %ma_malloc.exit121
+ma_engine_get_sample_rate.exit125:                ; preds = %ma_malloc.exit119
   %tmp163.sroa.8.0.resourceManagerConfig.sroa_idx = getelementptr inbounds nuw i8, ptr %resourceManagerConfig, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %tmp163.sroa.8.0.resourceManagerConfig.sroa_idx, i8 0, i64 32, i1 false)
   %tmp163.sroa.2.0.resourceManagerConfig.sroa_idx = getelementptr inbounds nuw i8, ptr %resourceManagerConfig, i64 40
@@ -84496,8 +84387,8 @@ ma_engine_get_sample_rate.exit127:                ; preds = %ma_malloc.exit121
   store i32 1, ptr %tmp163.sroa.5.0.resourceManagerConfig.sroa_idx, align 4
   %tmp163.sroa.6.0.resourceManagerConfig.sroa_idx = getelementptr inbounds nuw i8, ptr %resourceManagerConfig, i64 56
   store i64 0, ptr %tmp163.sroa.6.0.resourceManagerConfig.sroa_idx, align 8
-  %tmp163.sroa.6208.0.resourceManagerConfig.sroa_idx = getelementptr inbounds nuw i8, ptr %resourceManagerConfig, i64 64
-  store i32 1024, ptr %tmp163.sroa.6208.0.resourceManagerConfig.sroa_idx, align 8
+  %tmp163.sroa.6205.0.resourceManagerConfig.sroa_idx = getelementptr inbounds nuw i8, ptr %resourceManagerConfig, i64 64
+  store i32 1024, ptr %tmp163.sroa.6205.0.resourceManagerConfig.sroa_idx, align 8
   %tmp163.sroa.7.0.resourceManagerConfig.sroa_idx = getelementptr inbounds nuw i8, ptr %resourceManagerConfig, i64 68
   store i32 0, ptr %tmp163.sroa.7.0.resourceManagerConfig.sroa_idx, align 4
   %pLog164 = getelementptr inbounds nuw i8, ptr %pEngine, i64 744
@@ -84508,13 +84399,13 @@ ma_engine_get_sample_rate.exit127:                ; preds = %ma_malloc.exit121
   store i32 0, ptr %tmp163.sroa.3.0.resourceManagerConfig.sroa_idx, align 4
   %37 = load i32, ptr %sampleRate80, align 8
   store i32 %37, ptr %tmp163.sroa.4.0.resourceManagerConfig.sroa_idx, align 8
-  call fastcc void @ma_allocation_callbacks_init_copy(ptr noundef nonnull %resourceManagerConfig, ptr noundef nonnull %allocationCallbacks319)
-  store ptr %engineConfig.sroa.42.0316, ptr %tmp163.sroa.8.0.resourceManagerConfig.sroa_idx, align 8
-  %call171 = call i32 @ma_resource_manager_init(ptr noundef nonnull %resourceManagerConfig, ptr noundef nonnull %call.i118)
+  call fastcc void @ma_allocation_callbacks_init_copy(ptr noundef nonnull %resourceManagerConfig, ptr noundef nonnull %allocationCallbacks316)
+  store ptr %engineConfig.sroa.42.0313, ptr %tmp163.sroa.8.0.resourceManagerConfig.sroa_idx, align 8
+  %call171 = call i32 @ma_resource_manager_init(ptr noundef nonnull %resourceManagerConfig, ptr noundef nonnull %call.i116)
   %cmp172.not = icmp eq i32 %call171, 0
   br i1 %cmp172.not, label %if.end175, label %on_error_3
 
-if.end175:                                        ; preds = %ma_engine_get_sample_rate.exit127
+if.end175:                                        ; preds = %ma_engine_get_sample_rate.exit125
   %ownsResourceManager = getelementptr inbounds nuw i8, ptr %pEngine, i64 1240
   store i8 1, ptr %ownsResourceManager, align 8
   br label %if.end176
@@ -84524,7 +84415,7 @@ if.end176:                                        ; preds = %if.end175, %if.end1
   store i32 0, ptr %inlinedSoundLock, align 4
   %pInlinedSoundHead = getelementptr inbounds nuw i8, ptr %pEngine, i64 1248
   store ptr null, ptr %pInlinedSoundHead, align 8
-  %cmp177 = icmp eq i32 %engineConfig.sroa.37.0310, 0
+  %cmp177 = icmp eq i32 %engineConfig.sroa.37.0307, 0
   br i1 %cmp177, label %land.lhs.true179, label %return
 
 land.lhs.true179:                                 ; preds = %if.end176
@@ -84533,12 +84424,12 @@ land.lhs.true179:                                 ; preds = %if.end176
   br i1 %cmp181.not, label %return, label %ma_engine_start.exit
 
 ma_engine_start.exit:                             ; preds = %land.lhs.true179
-  %call.i132 = call i32 @ma_device_start(ptr noundef nonnull %38)
-  %cmp185.not = icmp eq i32 %call.i132, 0
+  %call.i130 = call i32 @ma_device_start(ptr noundef nonnull %38)
+  %cmp185.not = icmp eq i32 %call.i130, 0
   br i1 %cmp185.not, label %return, label %on_error_3
 
-on_error_3:                                       ; preds = %ma_engine_start.exit, %ma_engine_get_sample_rate.exit127
-  %result.3 = phi i32 [ %call171, %ma_engine_get_sample_rate.exit127 ], [ %call.i132, %ma_engine_start.exit ]
+on_error_3:                                       ; preds = %ma_engine_start.exit, %ma_engine_get_sample_rate.exit125
+  %result.3 = phi i32 [ %call171, %ma_engine_get_sample_rate.exit125 ], [ %call.i130, %ma_engine_start.exit ]
   %ownsResourceManager190 = getelementptr inbounds nuw i8, ptr %pEngine, i64 1240
   %39 = load i8, ptr %ownsResourceManager190, align 8
   %tobool.not = icmp eq i8 %39, 0
@@ -84546,65 +84437,65 @@ on_error_3:                                       ; preds = %ma_engine_start.exi
 
 if.then191:                                       ; preds = %on_error_3
   %40 = load ptr, ptr %pResourceManager9, align 8
-  %cmp.i134 = icmp eq ptr %40, null
-  br i1 %cmp.i134, label %on_error_2, label %if.end.i135
+  %cmp.i132 = icmp eq ptr %40, null
+  br i1 %cmp.i132, label %on_error_2, label %if.end.i133
 
-if.end.i135:                                      ; preds = %if.then191
-  %onFree.i138 = getelementptr inbounds nuw i8, ptr %allocationCallbacks319, i64 24
-  %41 = load ptr, ptr %onFree.i138, align 8
-  %cmp3.not.i139 = icmp eq ptr %41, null
-  br i1 %cmp3.not.i139, label %on_error_2, label %if.then4.i140
+if.end.i133:                                      ; preds = %if.then191
+  %onFree.i136 = getelementptr inbounds nuw i8, ptr %allocationCallbacks316, i64 24
+  %41 = load ptr, ptr %onFree.i136, align 8
+  %cmp3.not.i137 = icmp eq ptr %41, null
+  br i1 %cmp3.not.i137, label %on_error_2, label %if.then4.i138
 
-if.then4.i140:                                    ; preds = %if.end.i135
-  %42 = load ptr, ptr %allocationCallbacks319, align 8
+if.then4.i138:                                    ; preds = %if.end.i133
+  %42 = load ptr, ptr %allocationCallbacks316, align 8
   call void %41(ptr noundef nonnull %40, ptr noundef %42) #64
   br label %on_error_2
 
-on_error_2:                                       ; preds = %if.end7.thread.i, %if.then2.i107, %ma_node_graph_get_channels.exit, %if.then2.i.i108, %if.then4.i.i, %if.end.i.i, %if.then4.i140, %if.end.i135, %if.then191, %ma_malloc.exit121.thread, %ma_malloc.exit121, %on_error_3
-  %result.2 = phi i32 [ %result.3, %on_error_3 ], [ -4, %ma_malloc.exit121 ], [ -4, %ma_malloc.exit121.thread ], [ %result.3, %if.then191 ], [ %result.3, %if.end.i135 ], [ %result.3, %if.then4.i140 ], [ %call8.i, %if.then4.i.i ], [ %call8.i, %if.end.i.i ], [ -4, %if.then2.i.i108 ], [ -2, %ma_node_graph_get_channels.exit ], [ -4, %if.then2.i107 ], [ %call818.i, %if.end7.thread.i ]
+on_error_2:                                       ; preds = %if.end.i104, %ma_node_graph_get_channels.exit, %if.then2.i.i106, %if.then4.i.i, %if.end.i.i, %if.then4.i138, %if.end.i133, %if.then191, %ma_malloc.exit119.thread, %ma_malloc.exit119, %on_error_3
+  %result.2 = phi i32 [ %result.3, %on_error_3 ], [ -4, %ma_malloc.exit119 ], [ -4, %ma_malloc.exit119.thread ], [ %result.3, %if.then191 ], [ %result.3, %if.end.i133 ], [ %result.3, %if.then4.i138 ], [ %call8.i, %if.then4.i.i ], [ %call8.i, %if.end.i.i ], [ -4, %if.then2.i.i106 ], [ -2, %ma_node_graph_get_channels.exit ], [ -4, %if.end.i104 ]
   %43 = load i32, ptr %listenerCount136, align 4
-  %cmp197462.not = icmp eq i32 %43, 0
-  br i1 %cmp197462.not, label %ma_node_graph_uninit.exit, label %for.body199.lr.ph
+  %cmp197459.not = icmp eq i32 %43, 0
+  br i1 %cmp197459.not, label %ma_node_graph_uninit.exit, label %for.body199.lr.ph
 
 for.body199.lr.ph:                                ; preds = %on_error_2
-  %onFree.i.i149 = getelementptr inbounds nuw i8, ptr %allocationCallbacks319, i64 24
+  %onFree.i.i147 = getelementptr inbounds nuw i8, ptr %allocationCallbacks316, i64 24
   br label %for.body199
 
 for.body199:                                      ; preds = %for.body199.lr.ph, %ma_spatializer_listener_uninit.exit
   %44 = phi i32 [ %43, %for.body199.lr.ph ], [ %49, %ma_spatializer_listener_uninit.exit ]
-  %indvars.iv465 = phi i64 [ 0, %for.body199.lr.ph ], [ %indvars.iv.next466, %ma_spatializer_listener_uninit.exit ]
-  %arrayidx202 = getelementptr inbounds nuw [4 x %struct.ma_spatializer_listener], ptr %listeners, i64 0, i64 %indvars.iv465
-  %_ownsHeap.i144 = getelementptr inbounds nuw i8, ptr %arrayidx202, i64 100
-  %45 = load i32, ptr %_ownsHeap.i144, align 4
+  %indvars.iv464 = phi i64 [ 0, %for.body199.lr.ph ], [ %indvars.iv.next465, %ma_spatializer_listener_uninit.exit ]
+  %arrayidx202 = getelementptr inbounds nuw [4 x %struct.ma_spatializer_listener], ptr %listeners, i64 0, i64 %indvars.iv464
+  %_ownsHeap.i142 = getelementptr inbounds nuw i8, ptr %arrayidx202, i64 100
+  %45 = load i32, ptr %_ownsHeap.i142, align 4
   %tobool.not.i = icmp eq i32 %45, 0
   br i1 %tobool.not.i, label %ma_spatializer_listener_uninit.exit, label %if.then1.i
 
 if.then1.i:                                       ; preds = %for.body199
   %_pHeap.i = getelementptr inbounds nuw i8, ptr %arrayidx202, i64 104
   %46 = load ptr, ptr %_pHeap.i, align 8
-  %cmp.i.i145 = icmp eq ptr %46, null
-  br i1 %cmp.i.i145, label %ma_spatializer_listener_uninit.exit, label %if.end.i.i146
+  %cmp.i.i143 = icmp eq ptr %46, null
+  br i1 %cmp.i.i143, label %ma_spatializer_listener_uninit.exit, label %if.end.i.i144
 
-if.end.i.i146:                                    ; preds = %if.then1.i
-  %47 = load ptr, ptr %onFree.i.i149, align 8
-  %cmp3.not.i.i150 = icmp eq ptr %47, null
-  br i1 %cmp3.not.i.i150, label %ma_spatializer_listener_uninit.exit, label %if.then4.i.i151
+if.end.i.i144:                                    ; preds = %if.then1.i
+  %47 = load ptr, ptr %onFree.i.i147, align 8
+  %cmp3.not.i.i148 = icmp eq ptr %47, null
+  br i1 %cmp3.not.i.i148, label %ma_spatializer_listener_uninit.exit, label %if.then4.i.i149
 
-if.then4.i.i151:                                  ; preds = %if.end.i.i146
-  %48 = load ptr, ptr %allocationCallbacks319, align 8
+if.then4.i.i149:                                  ; preds = %if.end.i.i144
+  %48 = load ptr, ptr %allocationCallbacks316, align 8
   call void %47(ptr noundef nonnull %46, ptr noundef %48) #64
   %.pre = load i32, ptr %listenerCount136, align 4
   br label %ma_spatializer_listener_uninit.exit
 
-ma_spatializer_listener_uninit.exit:              ; preds = %for.body199, %if.then1.i, %if.end.i.i146, %if.then4.i.i151
-  %49 = phi i32 [ %44, %for.body199 ], [ %44, %if.then1.i ], [ %44, %if.end.i.i146 ], [ %.pre, %if.then4.i.i151 ]
-  %indvars.iv.next466 = add nuw nsw i64 %indvars.iv465, 1
+ma_spatializer_listener_uninit.exit:              ; preds = %for.body199, %if.then1.i, %if.end.i.i144, %if.then4.i.i149
+  %49 = phi i32 [ %44, %for.body199 ], [ %44, %if.then1.i ], [ %44, %if.end.i.i144 ], [ %.pre, %if.then4.i.i149 ]
+  %indvars.iv.next465 = add nuw nsw i64 %indvars.iv464, 1
   %50 = zext i32 %49 to i64
-  %cmp197 = icmp samesign ult i64 %indvars.iv.next466, %50
+  %cmp197 = icmp samesign ult i64 %indvars.iv.next465, %50
   br i1 %cmp197, label %for.body199, label %ma_node_graph_uninit.exit, !llvm.loop !767
 
 ma_node_graph_uninit.exit:                        ; preds = %ma_spatializer_listener_uninit.exit, %on_error_2
-  call void @ma_node_uninit(ptr noundef nonnull %endpoint.i, ptr noundef nonnull %allocationCallbacks319)
+  call void @ma_node_uninit(ptr noundef nonnull %endpoint.i, ptr noundef nonnull %allocationCallbacks316)
   br label %on_error_1
 
 on_error_1:                                       ; preds = %ma_node_graph_init.exit.thread, %if.end108, %ma_node_graph_uninit.exit
@@ -84618,22 +84509,22 @@ if.then211:                                       ; preds = %on_error_1
   %52 = load ptr, ptr %pDevice10, align 8
   call void @ma_device_uninit(ptr noundef %52)
   %53 = load ptr, ptr %pDevice10, align 8
-  %cmp.i155 = icmp eq ptr %53, null
-  br i1 %cmp.i155, label %return, label %if.end.i156
+  %cmp.i153 = icmp eq ptr %53, null
+  br i1 %cmp.i153, label %return, label %if.end.i154
 
-if.end.i156:                                      ; preds = %if.then211
-  %onFree.i159 = getelementptr inbounds nuw i8, ptr %allocationCallbacks319, i64 24
-  %54 = load ptr, ptr %onFree.i159, align 8
-  %cmp3.not.i160 = icmp eq ptr %54, null
-  br i1 %cmp3.not.i160, label %return, label %if.then4.i161
+if.end.i154:                                      ; preds = %if.then211
+  %onFree.i157 = getelementptr inbounds nuw i8, ptr %allocationCallbacks316, i64 24
+  %54 = load ptr, ptr %onFree.i157, align 8
+  %cmp3.not.i158 = icmp eq ptr %54, null
+  br i1 %cmp3.not.i158, label %return, label %if.then4.i159
 
-if.then4.i161:                                    ; preds = %if.end.i156
-  %55 = load ptr, ptr %allocationCallbacks319, align 8
+if.then4.i159:                                    ; preds = %if.end.i154
+  %55 = load ptr, ptr %allocationCallbacks316, align 8
   call void %54(ptr noundef nonnull %53, ptr noundef %55) #64
   br label %return
 
-return:                                           ; preds = %if.then4.i161, %if.end.i156, %if.then211, %ma_malloc.exit.thread, %on_error_1, %if.end176, %land.lhs.true179, %ma_engine_start.exit, %if.end72, %ma_malloc.exit, %entry, %ma_free.exit
-  %retval.0 = phi i32 [ %result.0, %ma_free.exit ], [ -2, %entry ], [ -4, %ma_malloc.exit ], [ -2, %if.end72 ], [ 0, %ma_engine_start.exit ], [ 0, %land.lhs.true179 ], [ 0, %if.end176 ], [ %result.1, %on_error_1 ], [ -4, %ma_malloc.exit.thread ], [ %result.1, %if.then211 ], [ %result.1, %if.end.i156 ], [ %result.1, %if.then4.i161 ]
+return:                                           ; preds = %if.then4.i159, %if.end.i154, %if.then211, %ma_malloc.exit.thread, %on_error_1, %if.end176, %land.lhs.true179, %ma_engine_start.exit, %if.end72, %ma_malloc.exit, %entry, %ma_free.exit
+  %retval.0 = phi i32 [ %result.0, %ma_free.exit ], [ -2, %entry ], [ -4, %ma_malloc.exit ], [ -2, %if.end72 ], [ 0, %ma_engine_start.exit ], [ 0, %land.lhs.true179 ], [ 0, %if.end176 ], [ %result.1, %on_error_1 ], [ -4, %ma_malloc.exit.thread ], [ %result.1, %if.then211 ], [ %result.1, %if.end.i154 ], [ %result.1, %if.then4.i159 ]
   ret i32 %retval.0
 }
 

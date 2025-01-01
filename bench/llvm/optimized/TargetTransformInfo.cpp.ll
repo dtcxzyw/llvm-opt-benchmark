@@ -3117,7 +3117,7 @@ define dso_local noundef i32 @_ZNK4llvm19TargetTransformInfo22getMaxInterleaveFa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i64 0, 17179869184) i64 @_ZN4llvm19TargetTransformInfo14getOperandInfoEPKNS_5ValueE(ptr noundef %0) local_unnamed_addr #0 align 2 {
+define dso_local range(i64 0, 8589934596) i64 @_ZN4llvm19TargetTransformInfo14getOperandInfoEPKNS_5ValueE(ptr noundef %0) local_unnamed_addr #0 align 2 {
   %2 = load i8, ptr %0, align 8
   %.off = add i8 %2, -17
   %switch = icmp ult i8 %.off, 2

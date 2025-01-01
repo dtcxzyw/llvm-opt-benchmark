@@ -154,7 +154,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @cts128_cs1_encrypt(ptr noundef %ctx, ptr noundef %in, ptr noundef nonnull %out, i64 noundef range(i64 16, 0) %len) unnamed_addr #1 {
+define internal fastcc range(i64 16, 1) i64 @cts128_cs1_encrypt(ptr noundef %ctx, ptr noundef %in, ptr noundef nonnull %out, i64 noundef range(i64 16, 0) %len) unnamed_addr #1 {
 entry:
   %tmp_in = alloca %union.aligned_16bytes, align 8
   %rem = and i64 %len, 15

@@ -9923,7 +9923,7 @@ define linkonce_odr dso_local void @_ZN4Luau7CodeGen3X6411jumpIfFalsyERNS1_18Ass
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i64 268435456, 0) i64 @_ZN4Luau7CodeGen3X6413IrLoweringX6411memRegTagOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1440) %0, i32 %1) local_unnamed_addr #0 align 2 {
+define dso_local range(i64 268435456, -3758096384) i64 @_ZN4Luau7CodeGen3X6413IrLoweringX6411memRegTagOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1440) %0, i32 %1) local_unnamed_addr #0 align 2 {
   %3 = and i32 %1, 15
   switch i32 %3, label %31 [
     i32 4, label %4
@@ -10307,7 +10307,7 @@ _ZN4Luau7CodeGen19getReverseConditionENS0_12ConditionX64E.exit: ; preds = %_ZN4L
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i64 268435456, 0) i64 @_ZN4Luau7CodeGen3X6413IrLoweringX6412memRegUintOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1440) %0, i32 %1) local_unnamed_addr #0 align 2 {
+define dso_local range(i64 268435456, -3758096384) i64 @_ZN4Luau7CodeGen3X6413IrLoweringX6412memRegUintOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1440) %0, i32 %1) local_unnamed_addr #0 align 2 {
   %3 = and i32 %1, 15
   switch i32 %3, label %36 [
     i32 4, label %4
@@ -10525,7 +10525,7 @@ declare noundef i32 @_ZN4Luau7CodeGen22getNativeContextOffsetEi(i32 noundef) loc
 declare void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX645movsxENS1_11RegisterX64ENS1_10OperandX64E(ptr noundef nonnull align 8 dereferenceable(252), i8, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i64 268435456, 0) i64 @_ZN4Luau7CodeGen3X6413IrLoweringX6412bufferAddrOpENS0_4IrOpES3_h(ptr noundef nonnull align 8 dereferenceable(1440) %0, i32 %1, i32 %2, i8 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define dso_local range(i64 268435456, -3758096384) i64 @_ZN4Luau7CodeGen3X6413IrLoweringX6412bufferAddrOpENS0_4IrOpES3_h(ptr noundef nonnull align 8 dereferenceable(1440) %0, i32 %1, i32 %2, i8 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = load i8, ptr @_ZN5FFlag22LuauCodegenUserdataOpsE, align 8
   %6 = trunc i8 %5 to i1
   br i1 %6, label %7, label %71

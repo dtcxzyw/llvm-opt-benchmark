@@ -26,7 +26,7 @@ $_ZNK5clang18DesignatedInitExpr7getInitEv = comdat any
 @switch.table._ZL12ClassifyDeclRN5clang10ASTContextEPKNS_4DeclE = private unnamed_addr constant [6 x i32] [i32 0, i32 0, i32 11, i32 11, i32 11, i32 0], align 4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 1048576) i32 @_ZNK5clang4Expr12ClassifyImplERNS_10ASTContextEPNS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr noundef writeonly %2) local_unnamed_addr #0 align 2 {
+define dso_local range(i32 0, 720896) i32 @_ZNK5clang4Expr12ClassifyImplERNS_10ASTContextEPNS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr noundef writeonly %2) local_unnamed_addr #0 align 2 {
   %4 = tail call fastcc noundef i32 @_ZL16ClassifyInternalRN5clang10ASTContextEPKNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr noundef nonnull %0)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 2112
   %6 = load ptr, ptr %5, align 8

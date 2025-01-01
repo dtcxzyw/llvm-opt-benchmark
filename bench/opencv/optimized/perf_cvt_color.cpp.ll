@@ -2682,7 +2682,7 @@ define internal fastcc noundef nonnull align 4 dereferenceable(12) ptr @_ZNK7tes
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc range(i64 0, 34359738368) i64 @_ZN11opencv_testL17getConversionInfoEi(i32 noundef %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc range(i64 0, 17179869192) i64 @_ZN11opencv_testL17getConversionInfoEi(i32 noundef %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.testing::Message", align 8
   %3 = alloca %"class.testing::internal::AssertHelper", align 8
   switch i32 %0, label %20 [

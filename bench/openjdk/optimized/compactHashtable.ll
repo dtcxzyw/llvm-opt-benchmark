@@ -213,7 +213,7 @@ declare void @_ZN6AnyObjdlEPv(ptr noundef) local_unnamed_addr #2
 declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef range(i64 40, 17179869239) i64 @_ZN22CompactHashtableWriter13estimate_sizeEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
+define hidden noundef range(i64 64, 17179869239) i64 @_ZN22CompactHashtableWriter13estimate_sizeEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
   %2 = load i32, ptr @SharedSymbolTableBucketSize, align 4
   %3 = udiv i32 %0, %2
   %4 = tail call noundef i32 @llvm.smax.i32(i32 %3, i32 1)

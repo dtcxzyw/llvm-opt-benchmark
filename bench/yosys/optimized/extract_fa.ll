@@ -4990,8 +4990,8 @@ _ZNK5Yosys7hashlib4dictIiN12_GLOBAL__N_115ExtractFaWorker16func3_maj_info_tENS0_
   %1266 = phi ptr [ %.val6.i.i, %1148 ], [ %.val13.i.i.i, %.noexc215.i ], [ %.val13.i.i.i, %1258 ]
   %.011.i.i = phi i32 [ %1154, %1148 ], [ 0, %.noexc215.i ], [ %1264, %1258 ]
   %1267 = phi ptr [ %.val.i.i, %1148 ], [ %.val.i.i.i, %.noexc215.i ], [ %.val.i.i.i, %1258 ]
-  %1268 = zext nneg i32 %.011.i.i to i64
-  %1269 = getelementptr inbounds nuw i32, ptr %1267, i64 %1268
+  %1268 = sext i32 %.011.i.i to i64
+  %1269 = getelementptr inbounds i32, ptr %1267, i64 %1268
   %1270 = load i32, ptr %1269, align 4
   %1271 = icmp sgt i32 %1270, -1
   br i1 %1271, label %.lr.ph.i.i.i, label %_ZNK5Yosys7hashlib4dictIiN12_GLOBAL__N_115ExtractFaWorker16func3_maj_info_tENS0_8hash_opsIiEEE7do_hashERKi.exit.thread.i.i
@@ -5016,7 +5016,7 @@ _ZNK5Yosys7hashlib4dictIiN12_GLOBAL__N_115ExtractFaWorker16func3_maj_info_tENS0_
 
 _ZNK5Yosys7hashlib4dictIiN12_GLOBAL__N_115ExtractFaWorker16func3_maj_info_tENS0_8hash_opsIiEEE7do_hashERKi.exit.thread.thread.i.i: ; preds = %_ZNK5Yosys7hashlib4dictIiN12_GLOBAL__N_115ExtractFaWorker16func3_maj_info_tENS0_8hash_opsIiEEE7do_hashERKi.exit.thread.i.i, %1146
   %1281 = phi ptr [ %1265, %_ZNK5Yosys7hashlib4dictIiN12_GLOBAL__N_115ExtractFaWorker16func3_maj_info_tENS0_8hash_opsIiEEE7do_hashERKi.exit.thread.i.i ], [ %.pre414.i, %1146 ]
-  %.sroa.01.0.insert.ext2.i.i = zext nneg i32 %.1.i to i64
+  %.sroa.01.0.insert.ext2.i.i = zext i32 %.1.i to i64
   %1282 = load ptr, ptr %151, align 8
   %.not.i.i.i214.i = icmp eq ptr %1281, %1282
   br i1 %.not.i.i.i214.i, label %1287, label %1283
@@ -5307,7 +5307,7 @@ _ZNK5Yosys7hashlib4dictIiN12_GLOBAL__N_115ExtractFaWorker16func3_maj_info_tENS0_
   br i1 %1402, label %.lr.ph.i.i, label %_ZN5Yosys7hashlib4dictIiN12_GLOBAL__N_115ExtractFaWorker16func3_maj_info_tENS0_8hash_opsIiEEE9do_insertEOSt4pairIiS4_ERi.exit.i.i, !llvm.loop !68
 
 1403:                                             ; preds = %_ZNK5Yosys7hashlib4dictIiN12_GLOBAL__N_115ExtractFaWorker16func3_maj_info_tENS0_8hash_opsIiEEE7do_hashERKi.exit.thread.i.i
-  %.sroa.01.0.insert.ext.i.i = zext nneg i32 %.1.i to i64
+  %.sroa.01.0.insert.ext.i.i = zext i32 %.1.i to i64
   %1404 = load ptr, ptr %151, align 8
   %.not.i17.i.i.i = icmp eq ptr %1265, %1404
   br i1 %.not.i17.i.i.i, label %1409, label %1405
@@ -5386,7 +5386,7 @@ _ZNSt6vectorIN5Yosys7hashlib4dictIiN12_GLOBAL__N_115ExtractFaWorker16func3_maj_i
   %1433 = trunc i64 %1432 to i32
   %1434 = add i32 %1433, -1
   %1435 = load ptr, ptr %140, align 8
-  %1436 = getelementptr inbounds nuw i32, ptr %1435, i64 %1268
+  %1436 = getelementptr inbounds i32, ptr %1435, i64 %1268
   store i32 %1434, ptr %1436, align 4
   %.val11.i.i.pre.i = load ptr, ptr %149, align 8
   %.val12.i.i.pre.i = load ptr, ptr %150, align 8

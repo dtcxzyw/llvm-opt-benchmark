@@ -136,7 +136,7 @@ define dso_local void @_ZN4llvm16FinalizeISelPass3runERNS_15MachineFunctionERNS_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc range(i16 0, 512) i16 @_ZL7runImplRN4llvm15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(1041) %0) unnamed_addr #0 {
+define internal fastcc range(i16 0, 258) i16 @_ZL7runImplRN4llvm15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(1041) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8

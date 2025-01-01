@@ -28227,7 +28227,7 @@ _ZN7rocksdb21InstrumentedMutexLockD2Ev.exit:      ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i64 1, 0) i64 @_ZNK7rocksdb6DBImpl14GetBGJobLimitsEv(ptr noundef nonnull align 64 dereferenceable(6660) %this) local_unnamed_addr #3 align 2 {
+define range(i64 1, -2147483648) i64 @_ZNK7rocksdb6DBImpl14GetBGJobLimitsEv(ptr noundef nonnull align 64 dereferenceable(6660) %this) local_unnamed_addr #3 align 2 {
 entry:
   %max_background_compactions.addr.i = alloca i32, align 4
   %ref.tmp3.i = alloca i32, align 4
@@ -28386,7 +28386,7 @@ return:                                           ; preds = %while.body, %_ZNSt1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i64 1, 0) i64 @_ZN7rocksdb6DBImpl14GetBGJobLimitsEiiib(i32 noundef %max_background_flushes, i32 noundef %max_background_compactions, i32 noundef %max_background_jobs, i1 noundef zeroext %parallelize_compactions) local_unnamed_addr #10 align 2 {
+define range(i64 1, -2147483648) i64 @_ZN7rocksdb6DBImpl14GetBGJobLimitsEiiib(i32 noundef %max_background_flushes, i32 noundef %max_background_compactions, i32 noundef %max_background_jobs, i1 noundef zeroext %parallelize_compactions) local_unnamed_addr #10 align 2 {
 entry:
   %max_background_compactions.addr = alloca i32, align 4
   %ref.tmp3 = alloca i32, align 4

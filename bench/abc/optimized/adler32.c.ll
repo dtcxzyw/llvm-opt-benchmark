@@ -320,7 +320,7 @@ define i64 @adler32(i64 noundef %0, ptr noundef readonly %1, i32 noundef %2) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i64 0, 8589934592) i64 @adler32_combine(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 {
+define range(i64 0, 4295884800) i64 @adler32_combine(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = urem i64 %2, 65521
   %5 = and i64 %0, 65535
   %6 = mul nuw nsw i64 %4, %5
@@ -356,7 +356,7 @@ define range(i64 0, 8589934592) i64 @adler32_combine(i64 noundef %0, i64 noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i64 0, 8589934592) i64 @adler32_combine64(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 {
+define range(i64 0, 4295884800) i64 @adler32_combine64(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = urem i64 %2, 65521
   %5 = and i64 %0, 65535
   %6 = mul nuw nsw i64 %4, %5

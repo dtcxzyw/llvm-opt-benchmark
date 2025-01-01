@@ -28,7 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN10OpenSubdiv6v3_6_03Bfr19RegularPatchBuilderC1ERKNS1_11FaceSurfaceE = unnamed_addr alias void (ptr, ptr), ptr @_ZN10OpenSubdiv6v3_6_03Bfr19RegularPatchBuilderC2ERKNS1_11FaceSurfaceE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 0, 32) i32 @_ZN10OpenSubdiv6v3_6_03Bfr19RegularPatchBuilder15GetBoundaryMaskEiPKi(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define noundef range(i32 0, 24) i32 @_ZN10OpenSubdiv6v3_6_03Bfr19RegularPatchBuilder15GetBoundaryMaskEiPKi(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = icmp eq i32 %0, 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4

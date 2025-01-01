@@ -652,17 +652,15 @@ define internal noundef i128 @_ZN12tracing_core8callsite8Callsite15private_type_
 define hidden void @"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$6resize28_$u7b$$u7b$closure$u7d$$u7d$17h7dd5755c1864d061E.llvm.17814153394679541470"(i64 noundef %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = and i64 %0, -8
   %3 = inttoptr i64 %2 to ptr
-  %4 = icmp ne i64 %2, 0
-  tail call void @llvm.assume(i1 %4)
-  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %6 = load i64, ptr %5, align 8, !noundef !4
-  %7 = icmp eq i64 %6, 0
-  br i1 %7, label %"_ZN15crossbeam_deque5deque15Buffer$LT$T$GT$7dealloc17ha1a9546ceeab91f3E.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.2856947585988979465.exit.i.i.i"
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load i64, ptr %4, align 8, !noundef !4
+  %6 = icmp eq i64 %5, 0
+  br i1 %6, label %"_ZN15crossbeam_deque5deque15Buffer$LT$T$GT$7dealloc17ha1a9546ceeab91f3E.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.2856947585988979465.exit.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.2856947585988979465.exit.i.i.i": ; preds = %1
-  %8 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
-  %9 = shl nsw i64 %6, 4
-  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef %9, i64 noundef 8) #49, !noalias !257
+  %7 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
+  %8 = shl nsw i64 %5, 4
+  tail call void @__rust_dealloc(ptr noundef nonnull %7, i64 noundef %8, i64 noundef 8) #49, !noalias !257
   br label %"_ZN15crossbeam_deque5deque15Buffer$LT$T$GT$7dealloc17ha1a9546ceeab91f3E.exit"
 
 "_ZN15crossbeam_deque5deque15Buffer$LT$T$GT$7dealloc17ha1a9546ceeab91f3E.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.2856947585988979465.exit.i.i.i", %1
@@ -684,29 +682,27 @@ define hidden void @_ZN15crossbeam_epoch5guard5Guard15defer_unchecked17h7f8a5177
   store i64 %1, ptr %7, align 8, !alias.scope !267
   call void @_ZN15crossbeam_epoch8internal5Local5defer17h26a56f11bf01211dE(ptr noundef nonnull align 128 %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  br label %17
+  br label %16
 
 8:                                                ; preds = %2
   %9 = and i64 %1, -8
   %10 = inttoptr i64 %9 to ptr
-  %11 = icmp ne i64 %9, 0
-  tail call void @llvm.assume(i1 %11)
-  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %13 = load i64, ptr %12, align 8, !noundef !4
-  %14 = icmp eq i64 %13, 0
-  br i1 %14, label %"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$6resize28_$u7b$$u7b$closure$u7d$$u7d$17h7dd5755c1864d061E.llvm.17814153394679541470.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.2856947585988979465.exit.i.i.i.i"
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %12 = load i64, ptr %11, align 8, !noundef !4
+  %13 = icmp eq i64 %12, 0
+  br i1 %13, label %"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$6resize28_$u7b$$u7b$closure$u7d$$u7d$17h7dd5755c1864d061E.llvm.17814153394679541470.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.2856947585988979465.exit.i.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.2856947585988979465.exit.i.i.i.i": ; preds = %8
-  %15 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
-  %16 = shl nsw i64 %13, 4
-  tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %16, i64 noundef 8) #49, !noalias !270
+  %14 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
+  %15 = shl nsw i64 %12, 4
+  tail call void @__rust_dealloc(ptr noundef nonnull %14, i64 noundef %15, i64 noundef 8) #49, !noalias !270
   br label %"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$6resize28_$u7b$$u7b$closure$u7d$$u7d$17h7dd5755c1864d061E.llvm.17814153394679541470.exit"
 
 "_ZN15crossbeam_deque5deque15Worker$LT$T$GT$6resize28_$u7b$$u7b$closure$u7d$$u7d$17h7dd5755c1864d061E.llvm.17814153394679541470.exit": ; preds = %8, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.2856947585988979465.exit.i.i.i.i"
   tail call void @__rust_dealloc(ptr noundef nonnull %10, i64 noundef 16, i64 noundef 8) #49, !noalias !275
-  br label %17
+  br label %16
 
-17:                                               ; preds = %"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$6resize28_$u7b$$u7b$closure$u7d$$u7d$17h7dd5755c1864d061E.llvm.17814153394679541470.exit", %6
+16:                                               ; preds = %"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$6resize28_$u7b$$u7b$closure$u7d$$u7d$17h7dd5755c1864d061E.llvm.17814153394679541470.exit", %6
   ret void
 }
 
@@ -724,20 +720,18 @@ define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new4call17h781fba6924
   %3 = load i64, ptr %2, align 8, !noundef !4
   %4 = and i64 %3, -8
   %5 = inttoptr i64 %4 to ptr
-  %6 = icmp ne i64 %4, 0
-  tail call void @llvm.assume(i1 %6)
-  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %8 = load i64, ptr %7, align 8, !noundef !4
-  %9 = icmp eq i64 %8, 0
-  br i1 %9, label %12, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.2856947585988979465.exit.i.i.i.i.i"
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %7 = load i64, ptr %6, align 8, !noundef !4
+  %8 = icmp eq i64 %7, 0
+  br i1 %8, label %11, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.2856947585988979465.exit.i.i.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.2856947585988979465.exit.i.i.i.i.i": ; preds = %1
-  %10 = load ptr, ptr %5, align 8, !nonnull !4, !noundef !4
-  %11 = shl nsw i64 %8, 4
-  tail call void @__rust_dealloc(ptr noundef nonnull %10, i64 noundef %11, i64 noundef 8) #49, !noalias !281
-  br label %12
+  %9 = load ptr, ptr %5, align 8, !nonnull !4, !noundef !4
+  %10 = shl nsw i64 %7, 4
+  tail call void @__rust_dealloc(ptr noundef nonnull %9, i64 noundef %10, i64 noundef 8) #49, !noalias !281
+  br label %11
 
-12:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.2856947585988979465.exit.i.i.i.i.i", %1
+11:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.2856947585988979465.exit.i.i.i.i.i", %1
   tail call void @__rust_dealloc(ptr noundef nonnull %5, i64 noundef 16, i64 noundef 8) #49, !noalias !286
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef 8, i64 noundef 8) #49
   ret void
@@ -748,17 +742,15 @@ define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new4call17h94b2f3e193
   %2 = load i64, ptr %0, align 8, !noundef !4
   %3 = and i64 %2, -8
   %4 = inttoptr i64 %3 to ptr
-  %5 = icmp ne i64 %3, 0
-  tail call void @llvm.assume(i1 %5)
-  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %7 = load i64, ptr %6, align 8, !noundef !4
-  %8 = icmp eq i64 %7, 0
-  br i1 %8, label %"_ZN15crossbeam_epoch5guard5Guard15defer_unchecked28_$u7b$$u7b$closure$u7d$$u7d$17h760d8ef0c05ea376E.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.2856947585988979465.exit.i.i.i.i.i"
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %6 = load i64, ptr %5, align 8, !noundef !4
+  %7 = icmp eq i64 %6, 0
+  br i1 %7, label %"_ZN15crossbeam_epoch5guard5Guard15defer_unchecked28_$u7b$$u7b$closure$u7d$$u7d$17h760d8ef0c05ea376E.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.2856947585988979465.exit.i.i.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.2856947585988979465.exit.i.i.i.i.i": ; preds = %1
-  %9 = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
-  %10 = shl nsw i64 %7, 4
-  tail call void @__rust_dealloc(ptr noundef nonnull %9, i64 noundef %10, i64 noundef 8) #49, !noalias !291
+  %8 = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
+  %9 = shl nsw i64 %6, 4
+  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef %9, i64 noundef 8) #49, !noalias !291
   br label %"_ZN15crossbeam_epoch5guard5Guard15defer_unchecked28_$u7b$$u7b$closure$u7d$$u7d$17h760d8ef0c05ea376E.exit"
 
 "_ZN15crossbeam_epoch5guard5Guard15defer_unchecked28_$u7b$$u7b$closure$u7d$$u7d$17h760d8ef0c05ea376E.exit": ; preds = %1, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.2856947585988979465.exit.i.i.i.i.i"

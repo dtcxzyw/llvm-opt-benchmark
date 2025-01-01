@@ -4209,8 +4209,6 @@ define internal fastcc noundef zeroext i1 @_ZL11isInMIGCallRN5clang4ento14Checke
   %.sroa.1.0.copyload.i.i = load i64, ptr %.sroa.1.0..sroa_idx.i.i, align 8
   %5 = and i64 %.sroa.1.0.copyload.i.i, -8
   %6 = inttoptr i64 %5 to ptr
-  %.not58 = icmp ne i64 %5, 0
-  tail call void @llvm.assume(i1 %.not58)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph

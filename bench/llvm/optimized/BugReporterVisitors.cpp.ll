@@ -3254,7 +3254,7 @@ define dso_local void @_ZN5clang4ento11bugreporter7TrackerC2ERNS0_22PathSensitiv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i16 0, 512) i16 @_ZN5clang4ento11bugreporter7Tracker5trackEPKNS_4ExprEPKNS0_12ExplodedNodeENS1_15TrackingOptionsE(ptr noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noundef %1, ptr noundef %2, i64 %3) unnamed_addr #0 align 2 {
+define dso_local range(i16 0, 258) i16 @_ZN5clang4ento11bugreporter7Tracker5trackEPKNS_4ExprEPKNS0_12ExplodedNodeENS1_15TrackingOptionsE(ptr noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noundef %1, ptr noundef %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = icmp ne ptr %1, null
   %6 = icmp ne ptr %2, null
   %or.cond = and i1 %5, %6
@@ -22395,7 +22395,7 @@ define internal void @_ZN12_GLOBAL__N_124InterestingLValueHandlerD0Ev(ptr nounde
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal range(i16 0, 512) i16 @_ZN12_GLOBAL__N_124InterestingLValueHandler6handleEPKN5clang4ExprEPKNS1_4ento12ExplodedNodeES8_NS5_11bugreporter15TrackingOptionsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i64 %4) unnamed_addr #0 align 2 {
+define internal range(i16 0, 258) i16 @_ZN12_GLOBAL__N_124InterestingLValueHandler6handleEPKN5clang4ExprEPKNS1_4ento12ExplodedNodeES8_NS5_11bugreporter15TrackingOptionsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i64 %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.std::unique_ptr.1496", align 8
   %7 = alloca %"class.std::unique_ptr.1496", align 8
   %8 = alloca %"class.std::unique_ptr.1496", align 8
@@ -28554,7 +28554,7 @@ define internal void @_ZN12_GLOBAL__N_124DefaultExpressionHandlerD0Ev(ptr nounde
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal range(i16 0, 512) i16 @_ZN12_GLOBAL__N_124DefaultExpressionHandler6handleEPKN5clang4ExprEPKNS1_4ento12ExplodedNodeES8_NS5_11bugreporter15TrackingOptionsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i64 %4) unnamed_addr #0 align 2 {
+define internal range(i16 0, 258) i16 @_ZN12_GLOBAL__N_124DefaultExpressionHandler6handleEPKN5clang4ExprEPKNS1_4ento12ExplodedNodeES8_NS5_11bugreporter15TrackingOptionsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i64 %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.std::unique_ptr.1496", align 8
   %7 = alloca %"class.std::unique_ptr.1496", align 8
   %8 = alloca %"class.clang::ento::SVal", align 8
@@ -28886,7 +28886,7 @@ define internal void @_ZN12_GLOBAL__N_114PRValueHandlerD0Ev(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal range(i16 0, 512) i16 @_ZN12_GLOBAL__N_114PRValueHandler6handleEPKN5clang4ExprEPKNS1_4ento12ExplodedNodeES8_NS5_11bugreporter15TrackingOptionsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i64 %4) unnamed_addr #0 align 2 {
+define internal range(i16 0, 258) i16 @_ZN12_GLOBAL__N_114PRValueHandler6handleEPKN5clang4ExprEPKNS1_4ento12ExplodedNodeES8_NS5_11bugreporter15TrackingOptionsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i64 %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.clang::ento::SVal", align 8
   %7 = alloca %"class.clang::ento::SVal", align 8
   %8 = alloca %"class.clang::ento::SVal", align 8

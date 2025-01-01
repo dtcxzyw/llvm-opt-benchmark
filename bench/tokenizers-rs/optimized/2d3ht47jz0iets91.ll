@@ -18951,7 +18951,7 @@ define noundef i32 @"_ZN88_$LT$tokenizers..normalizers..bert..BertNormalizer$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define i32 @_ZN10tokenizers11normalizers4bert14BertNormalizer3new17h0cde03ec67951e49E(i1 noundef zeroext %0, i1 noundef zeroext %1, i8 noundef %2, i1 noundef zeroext %3) unnamed_addr #5 {
+define range(i32 0, -16646144) i32 @_ZN10tokenizers11normalizers4bert14BertNormalizer3new17h0cde03ec67951e49E(i1 noundef zeroext %0, i1 noundef zeroext %1, i8 noundef %2, i1 noundef zeroext %3) unnamed_addr #5 {
   %.sroa.4.0.insert.ext = zext i8 %2 to i32
   %.sroa.4.0.insert.shift = shl nuw i32 %.sroa.4.0.insert.ext, 24
   %.sroa.3.0.insert.shift = select i1 %3, i32 65536, i32 0

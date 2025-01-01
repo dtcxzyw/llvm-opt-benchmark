@@ -851,7 +851,7 @@ define noundef ptr @_ZN7mitsuba13PluginManager16get_plugin_classERKNSt3__112basi
 _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i.thread: ; preds = %21
   %23 = or i64 %18, 7
   %24 = icmp eq i64 %23, 23
-  %25 = add i64 %23, 1
+  %25 = add nuw i64 %23, 1
   %26 = select i1 %24, i64 25, i64 %25
   %27 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %26) #24, !noalias !4
   %28 = or i64 %26, 1
@@ -1160,7 +1160,7 @@ define void @_ZN7mitsuba13PluginManager22register_python_pluginERKNSt3__112basic
 _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i.thread: ; preds = %18
   %20 = or i64 %15, 7
   %21 = icmp eq i64 %20, 23
-  %22 = add i64 %20, 1
+  %22 = add nuw i64 %20, 1
   %23 = select i1 %21, i64 25, i64 %22
   %24 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %23) #24, !noalias !13
   %25 = or i64 %23, 1

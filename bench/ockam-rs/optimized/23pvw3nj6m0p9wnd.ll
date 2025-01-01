@@ -40298,7 +40298,7 @@ define hidden void @_ZN15ockam_multiaddr10ProtoValue4cast17ha909fd6242d60bdeE(pt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden i40 @_ZN15ockam_multiaddr10ProtoValue4cast17hba274355b3f85a3fE(ptr noalias noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #0 {
+define hidden range(i40 0, -254) i40 @_ZN15ockam_multiaddr10ProtoValue4cast17hba274355b3f85a3fE(ptr noalias noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #0 {
   %2 = alloca { i8, [31 x i8] }, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8, !noundef !4
@@ -96078,7 +96078,7 @@ define hidden void @_ZN5tokio7runtime4coop11with_budget17hdf7be13679295174E.llvm
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden i24 @_ZN5tokio7runtime4coop12poll_proceed17ha85b55a62d82082bE.llvm.14504113750506346165(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden range(i24 0, -252) i24 @_ZN5tokio7runtime4coop12poll_proceed17ha85b55a62d82082bE.llvm.14504113750506346165(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { i8, [2 x i8] }, align 4
   %3 = alloca { i8, i8 }, align 1
   %4 = alloca { i8, [2 x i8] }, align 4

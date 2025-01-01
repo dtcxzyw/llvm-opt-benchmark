@@ -531,7 +531,7 @@ _ZN4Luau7CodeGenL17builtinLoadDoubleERNS0_9IrBuilderENS0_4IrOpE.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc i64 @_ZN4Luau7CodeGenL23translateBuiltinMathLogERNS0_9IrBuilderEiiiNS0_4IrOpEii(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef range(i32 0, -1) %1, i32 noundef %2, i32 noundef %3, i32 %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc range(i64 0, -4294967292) i64 @_ZN4Luau7CodeGenL23translateBuiltinMathLogERNS0_9IrBuilderEiiiNS0_4IrOpEii(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef range(i32 0, -1) %1, i32 noundef %2, i32 noundef %3, i32 %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %8 = icmp slt i32 %1, 1
   %9 = icmp sgt i32 %5, 1
   %or.cond = or i1 %8, %9
@@ -1510,7 +1510,7 @@ _ZN4Luau7CodeGenL17builtinLoadDoubleERNS0_9IrBuilderENS0_4IrOpE.exit51: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc i64 @_ZN4Luau7CodeGenL28translateBuiltinBit32ExtractERNS0_9IrBuilderEiiiNS0_4IrOpES3_iS3_i(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef range(i32 0, -1) %1, i32 noundef %2, i32 noundef %3, i32 %4, i32 %5, i32 noundef %6, i32 %7, i32 noundef %8) unnamed_addr #0 {
+define internal fastcc range(i64 0, -4294967294) i64 @_ZN4Luau7CodeGenL28translateBuiltinBit32ExtractERNS0_9IrBuilderEiiiNS0_4IrOpES3_iS3_i(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef range(i32 0, -1) %1, i32 noundef %2, i32 noundef %3, i32 %4, i32 %5, i32 noundef %6, i32 %7, i32 noundef %8) unnamed_addr #0 {
   %10 = icmp slt i32 %1, 2
   %11 = icmp sgt i32 %6, 1
   %or.cond = or i1 %10, %11

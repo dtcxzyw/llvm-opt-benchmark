@@ -6159,7 +6159,7 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit:           ; preds = %_ZNSt6vectorIjSaIjE
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i64 318799873, 0) i64 @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643i32Ei(ptr noundef nonnull align 8 dereferenceable(252) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local range(i64 318799873, -3758096384) i64 @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643i32Ei(ptr noundef nonnull align 8 dereferenceable(252) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %.not = icmp eq i32 %1, -1
   br i1 %.not, label %_ZN4Luau12DenseHashMapIjiSt4hashIjESt8equal_toIjEE4findERKj.exit.thread, label %3
 
@@ -6392,7 +6392,7 @@ define dso_local noundef i64 @_ZN4Luau7CodeGen3X6418AssemblyBuilderX6412allocate
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i64 335577089, 0) i64 @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643i64El(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local range(i64 335577089, -3758096384) i64 @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643i64El(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %.not = icmp eq i64 %1, -1
   br i1 %.not, label %_ZN4Luau12DenseHashMapImiSt4hashImESt8equal_toImEE4findERKm.exit.thread, label %3
 
@@ -6588,7 +6588,7 @@ _ZN4Luau12DenseHashMapImiSt4hashImESt8equal_toImEEixERKm.exit: ; preds = %.lr.ph
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i64 318799873, 0) i64 @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643f32Ef(ptr noundef nonnull align 8 dereferenceable(252) %0, float noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local range(i64 318799873, -3758096384) i64 @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643f32Ef(ptr noundef nonnull align 8 dereferenceable(252) %0, float noundef %1) local_unnamed_addr #0 align 2 {
   %3 = bitcast float %1 to i32
   %.not = icmp eq i32 %3, -1
   br i1 %.not, label %_ZN4Luau12DenseHashMapIjiSt4hashIjESt8equal_toIjEE4findERKj.exit.thread, label %4
@@ -6788,7 +6788,7 @@ _ZN4Luau12DenseHashMapIjiSt4hashIjESt8equal_toIjEEixERKj.exit: ; preds = %.lr.ph
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i64 335577089, 0) i64 @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643f64Ed(ptr noundef nonnull align 8 dereferenceable(252) %0, double noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local range(i64 335577089, -3758096384) i64 @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643f64Ed(ptr noundef nonnull align 8 dereferenceable(252) %0, double noundef %1) local_unnamed_addr #0 align 2 {
   %3 = bitcast double %1 to i64
   %.not = icmp eq i64 %3, -1
   br i1 %.not, label %_ZN4Luau12DenseHashMapImiSt4hashImESt8equal_toImEE4findERKm.exit.thread, label %4
@@ -6985,7 +6985,7 @@ _ZN4Luau12DenseHashMapImiSt4hashImESt8equal_toImEEixERKm.exit: ; preds = %.lr.ph
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i64 352354305, 0) i64 @_ZN4Luau7CodeGen3X6418AssemblyBuilderX645u32x4Ejjjj(ptr noundef nonnull align 8 dereferenceable(252) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
+define dso_local range(i64 352354305, -3758096384) i64 @_ZN4Luau7CodeGen3X6418AssemblyBuilderX645u32x4Ejjjj(ptr noundef nonnull align 8 dereferenceable(252) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %7 = load i64, ptr %6, align 8
   %8 = icmp ult i64 %7, 16
@@ -7042,7 +7042,7 @@ _ZN4Luau7CodeGen3X6418AssemblyBuilderX6412allocateDataEmm.exit: ; preds = %5, %9
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i64 352354305, 0) i64 @_ZN4Luau7CodeGen3X6418AssemblyBuilderX645f32x4Effff(ptr noundef nonnull align 8 dereferenceable(252) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #0 align 2 {
+define dso_local range(i64 352354305, -3758096384) i64 @_ZN4Luau7CodeGen3X6418AssemblyBuilderX645f32x4Effff(ptr noundef nonnull align 8 dereferenceable(252) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %7 = load i64, ptr %6, align 8
   %8 = icmp ult i64 %7, 16
@@ -7099,7 +7099,7 @@ _ZN4Luau7CodeGen3X6418AssemblyBuilderX6412allocateDataEmm.exit: ; preds = %5, %9
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i64 352354305, 0) i64 @_ZN4Luau7CodeGen3X6418AssemblyBuilderX645f64x2Edd(ptr noundef nonnull align 8 dereferenceable(252) %0, double noundef %1, double noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local range(i64 352354305, -3758096384) i64 @_ZN4Luau7CodeGen3X6418AssemblyBuilderX645f64x2Edd(ptr noundef nonnull align 8 dereferenceable(252) %0, double noundef %1, double noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %5 = load i64, ptr %4, align 8
   %6 = icmp ult i64 %5, 16
@@ -7148,7 +7148,7 @@ _ZN4Luau7CodeGen3X6418AssemblyBuilderX6412allocateDataEmm.exit: ; preds = %3, %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i64 268468225, 0) i64 @_ZN4Luau7CodeGen3X6418AssemblyBuilderX645bytesEPKvmm(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
+define dso_local range(i64 268468225, -3758096384) i64 @_ZN4Luau7CodeGen3X6418AssemblyBuilderX645bytesEPKvmm(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %6 = load i64, ptr %5, align 8
   %7 = icmp ult i64 %6, %2

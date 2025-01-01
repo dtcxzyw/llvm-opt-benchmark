@@ -2679,7 +2679,7 @@ _ZN4llvm14finalizeBundleERNS_17MachineBasicBlockENS_14ilist_iteratorINS_12ilist_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i24 0, 131072) i24 @_ZN4llvm22AnalyzeVirtRegInBundleERNS_12MachineInstrENS_8RegisterEPNS_15SmallVectorImplISt4pairIPS0_jEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i24 0, 66048) i24 @_ZN4llvm22AnalyzeVirtRegInBundleERNS_12MachineInstrENS_8RegisterEPNS_15SmallVectorImplISt4pairIPS0_jEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 4
@@ -3159,7 +3159,7 @@ _ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOp
 declare i64 @_ZNK4llvm19MachineRegisterInfo21getMaxLaneMaskForVRegENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(512), i32) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i64 0, 144115188075855872) i64 @_ZN4llvm22AnalyzePhysRegInBundleERKNS_12MachineInstrENS_8RegisterEPKNS_18TargetRegisterInfoE(ptr noundef nonnull readonly align 8 dereferenceable(70) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i64 0, 72620543991349248) i64 @_ZN4llvm22AnalyzePhysRegInBundleERKNS_12MachineInstrENS_8RegisterEPKNS_18TargetRegisterInfoE(ptr noundef nonnull readonly align 8 dereferenceable(70) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4, !noalias !48
   %6 = and i32 %5, 4

@@ -666,7 +666,7 @@ Cudd_ApaCopy.exit.thread:                         ; preds = %16
   %27 = zext i32 %26 to i64
   %28 = or disjoint i64 %24, %27
   %29 = udiv i64 %28, 10
-  %30 = trunc i64 %29 to i32
+  %30 = trunc nuw i64 %29 to i32
   store i32 %30, ptr %25, align 4
   %31 = urem i64 %28, 10
   %indvars.iv.next.i47.us = add nuw nsw i64 %indvars.iv.i46.us, 1

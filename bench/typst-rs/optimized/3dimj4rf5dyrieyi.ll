@@ -107851,7 +107851,7 @@ default.unreachable:                              ; preds = %"_ZN92_$LT$typst..l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden range(i16 0, -32768) i16 @"_ZN131_$LT$typst..layout..align..Alignment$u20$as$u20$core..convert..From$LT$typst..layout..align..SpecificAlignment$LT$H$C$V$GT$$GT$$GT$4from17h3a8d35096c1aac8aE"(i16 %0) unnamed_addr #6 personality ptr @rust_eh_personality {
+define hidden range(i16 0, 32520) i16 @"_ZN131_$LT$typst..layout..align..Alignment$u20$as$u20$core..convert..From$LT$typst..layout..align..SpecificAlignment$LT$H$C$V$GT$$GT$$GT$4from17h3a8d35096c1aac8aE"(i16 %0) unnamed_addr #6 personality ptr @rust_eh_personality {
   %.sroa.04.0.extract.trunc = trunc i16 %0 to i8
   %.sroa.4.0.extract.shift = lshr i16 %0, 8
   %2 = add i8 %.sroa.04.0.extract.trunc, -2

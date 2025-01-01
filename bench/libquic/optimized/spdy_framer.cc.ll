@@ -252,7 +252,7 @@ $_ZTIN3net16SpdyFrameVisitorE = comdat any
 @_ZN3net10SpdyFramer19SpdySettingsScratchC1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net10SpdyFramer19SpdySettingsScratchC2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i64 0, 72057594037927936) i64 @_ZN3net18SettingsFlagsAndId14FromWireFormatENS_16SpdyMajorVersionEj(i32 noundef %version, i32 noundef %wire) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local range(i64 0, 72057589742960896) i64 @_ZN3net18SettingsFlagsAndId14FromWireFormatENS_16SpdyMajorVersionEj(i32 noundef %version, i32 noundef %wire) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = tail call noundef i32 @llvm.bswap.i32(i32 %wire)
   %shr = lshr i32 %0, 24

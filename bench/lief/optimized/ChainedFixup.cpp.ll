@@ -631,7 +631,7 @@ define hidden noundef range(i64 -262144, 524288) i64 @_ZNK4LIEF5MachO7details23d
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK4LIEF5MachO7details23dyld_chained_ptr_arm64e13unpack_targetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef range(i64 0, -72048797944905728) i64 @_ZNK4LIEF5MachO7details23dyld_chained_ptr_arm64e13unpack_targetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
   %2 = load i64, ptr %0, align 8
   %3 = shl i64 %2, 13
   %4 = and i64 %3, -72057594037927936
@@ -662,7 +662,7 @@ define hidden noundef range(i64 0, 256) i64 @_ZNK4LIEF5MachO7details26dyld_chain
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK4LIEF5MachO7details26dyld_chained_ptr_generic6413unpack_targetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef range(i64 0, -72057525318451200) i64 @_ZNK4LIEF5MachO7details26dyld_chained_ptr_generic6413unpack_targetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
   %2 = load i64, ptr %0, align 8
   %3 = shl i64 %2, 20
   %4 = and i64 %3, -72057594037927936

@@ -1178,45 +1178,43 @@ define linkonce_odr hidden i64 @_ZNK5clang8EnumDecl14getIntegerTypeEv(ptr nounde
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %.0.copyload.i.i.i.i.i = load i64, ptr %2, align 8
   %.not.i.i = icmp ugt i64 %.0.copyload.i.i.i.i.i, 7
-  br i1 %.not.i.i, label %3, label %19
+  br i1 %.not.i.i, label %3, label %18
 
 3:                                                ; preds = %1
   %4 = and i64 %.0.copyload.i.i.i.i.i, 4
-  %5 = icmp ne i64 %4, 0
-  %6 = and i64 %.0.copyload.i.i.i.i.i, -8
-  %.not5 = icmp eq i64 %6, 0
-  %.not = or i1 %5, %.not5
-  br i1 %.not, label %9, label %7
+  %.not = icmp eq i64 %4, 0
+  br i1 %.not, label %5, label %7
+
+5:                                                ; preds = %3
+  %6 = and i64 %.0.copyload.i.i.i.i.i, -16
+  br label %18
 
 7:                                                ; preds = %3
-  %8 = and i64 %.0.copyload.i.i.i.i.i, -16
-  br label %19
+  %8 = and i64 %.0.copyload.i.i.i.i.i, -8
+  %9 = inttoptr i64 %8 to ptr
+  %.sroa.0.0.copyload.i = load i64, ptr %9, align 8
+  %10 = and i64 %.sroa.0.0.copyload.i, -16
+  %11 = inttoptr i64 %10 to ptr
+  %12 = load ptr, ptr %11, align 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %.sroa.0.0.copyload.i.i = load i64, ptr %13, align 8
+  %14 = and i64 %.sroa.0.0.copyload.i.i, 15
+  %.not.i = icmp eq i64 %14, 0
+  br i1 %.not.i, label %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit, label %15
 
-9:                                                ; preds = %3
-  %10 = inttoptr i64 %6 to ptr
-  %.sroa.0.0.copyload.i = load i64, ptr %10, align 8
-  %11 = and i64 %.sroa.0.0.copyload.i, -16
-  %12 = inttoptr i64 %11 to ptr
-  %13 = load ptr, ptr %12, align 16
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %.sroa.0.0.copyload.i.i = load i64, ptr %14, align 8
-  %15 = and i64 %.sroa.0.0.copyload.i.i, 15
-  %.not.i = icmp eq i64 %15, 0
-  br i1 %.not.i, label %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit, label %16
-
-16:                                               ; preds = %9
-  %17 = tail call { ptr, i64 } @_ZN5clang8QualType27getSplitUnqualifiedTypeImplES0_(i64 %.sroa.0.0.copyload.i) #13
-  %18 = extractvalue { ptr, i64 } %17, 0
+15:                                               ; preds = %7
+  %16 = tail call { ptr, i64 } @_ZN5clang8QualType27getSplitUnqualifiedTypeImplES0_(i64 %.sroa.0.0.copyload.i) #13
+  %17 = extractvalue { ptr, i64 } %16, 0
   br label %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit
 
-_ZNK5clang8QualType18getUnqualifiedTypeEv.exit:   ; preds = %9, %16
-  %.sroa.03.0.in.in.i = phi ptr [ %18, %16 ], [ %13, %9 ]
+_ZNK5clang8QualType18getUnqualifiedTypeEv.exit:   ; preds = %7, %15
+  %.sroa.03.0.in.in.i = phi ptr [ %17, %15 ], [ %12, %7 ]
   %.sroa.03.0.in.i = ptrtoint ptr %.sroa.03.0.in.in.i to i64
   %.sroa.03.0.i = and i64 %.sroa.03.0.in.i, -16
-  br label %19
+  br label %18
 
-19:                                               ; preds = %1, %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit, %7
-  %.sroa.04.0 = phi i64 [ %.sroa.03.0.i, %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit ], [ %8, %7 ], [ 0, %1 ]
+18:                                               ; preds = %1, %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit, %5
+  %.sroa.04.0 = phi i64 [ %.sroa.03.0.i, %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit ], [ %6, %5 ], [ 0, %1 ]
   ret i64 %.sroa.04.0
 }
 

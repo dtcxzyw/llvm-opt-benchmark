@@ -42305,7 +42305,7 @@ define noundef i32 @_ZN17cranelift_codegen3isa3x644inst4regs10pinned_reg17hec940
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef range(i32 256, 1024) i32 @_ZN17cranelift_codegen3isa3x644inst4regs3fpr17h0df1ebdee80b47ecE.llvm.6092180546091225645(i8 noundef %0) unnamed_addr #15 {
+define hidden noundef range(i32 256, 1022) i32 @_ZN17cranelift_codegen3isa3x644inst4regs3fpr17h0df1ebdee80b47ecE.llvm.6092180546091225645(i8 noundef %0) unnamed_addr #15 {
   %2 = or i8 %0, 64
   %3 = zext i8 %2 to i32
   %4 = shl nuw nsw i32 %3, 2
@@ -46836,7 +46836,7 @@ define noundef i32 @_ZN17cranelift_codegen6egraph4cost4Cost4zero17hcb372afab0ca7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN17cranelift_codegen6egraph4cost4Cost3new17hcaba91577c44a0e0E(i32 noundef %0, i8 noundef %1) unnamed_addr #15 {
+define hidden noundef range(i32 -1, -256) i32 @_ZN17cranelift_codegen6egraph4cost4Cost3new17hcaba91577c44a0e0E(i32 noundef %0, i8 noundef %1) unnamed_addr #15 {
   %3 = icmp ugt i32 %0, 16777214
   %4 = shl nuw i32 %0, 8
   %5 = zext i8 %1 to i32
@@ -46865,7 +46865,7 @@ define noundef i32 @"_ZN80_$LT$cranelift_codegen..egraph..cost..Cost$u20$as$u20$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @"_ZN79_$LT$cranelift_codegen..egraph..cost..Cost$u20$as$u20$core..ops..arith..Add$GT$3add17h106e7860aec651cbE"(i32 noundef %0, i32 noundef %1) unnamed_addr #15 personality ptr @rust_eh_personality {
+define noundef range(i32 -1, -256) i32 @"_ZN79_$LT$cranelift_codegen..egraph..cost..Cost$u20$as$u20$core..ops..arith..Add$GT$3add17h106e7860aec651cbE"(i32 noundef %0, i32 noundef %1) unnamed_addr #15 personality ptr @rust_eh_personality {
   %3 = lshr i32 %0, 8
   %4 = lshr i32 %1, 8
   %5 = add nuw nsw i32 %4, %3

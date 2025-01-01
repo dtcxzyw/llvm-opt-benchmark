@@ -13505,7 +13505,7 @@ default.unreachable1:                             ; preds = %69
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @audit_inode_permission(ptr noundef %0, i32 noundef range(i32 0, 536870912) %1, i32 noundef range(i32 1, 536870912) %2, i32 noundef range(i32 0, 536870912) %3, i32 noundef %4) unnamed_addr #1 align 16 {
+define internal fastcc i32 @audit_inode_permission(ptr noundef %0, i32 noundef range(i32 0, 268435464) %1, i32 noundef range(i32 1, 268435464) %2, i32 noundef range(i32 0, 268435464) %3, i32 noundef %4) unnamed_addr #1 align 16 {
   %6 = alloca %struct.common_audit_data, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false), !annotation !5

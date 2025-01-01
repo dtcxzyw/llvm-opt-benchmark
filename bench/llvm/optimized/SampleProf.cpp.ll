@@ -1805,7 +1805,7 @@ _ZNK4llvm10DILocation8getScopeEv.exit:            ; preds = %7, %11
 declare noundef ptr @_ZNK4llvm12DILocalScope13getSubprogramEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i64 @_ZN4llvm10sampleprof15FunctionSamples21getCallSiteIdentifierEPKNS_10DILocationEb(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define dso_local range(i64 0, -4294901760) i64 @_ZN4llvm10sampleprof15FunctionSamples21getCallSiteIdentifierEPKNS_10DILocationEb(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = load i8, ptr @_ZN4llvm10sampleprof15FunctionSamples19ProfileIsProbeBasedE, align 1
   %4 = trunc i8 %3 to i1
   %5 = getelementptr inbounds i8, ptr %0, i64 -16

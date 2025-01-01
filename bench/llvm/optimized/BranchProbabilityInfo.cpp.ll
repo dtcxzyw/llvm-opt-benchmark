@@ -4492,7 +4492,7 @@ declare noundef zeroext i1 @_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb1EE9d
 declare noundef ptr @_ZNK4llvm15DomTreeNodeBaseINS_10BasicBlockEE7getIDomEv(ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i64 0, 8589934592) i64 @_ZN4llvm21BranchProbabilityInfo30getInitialEstimatedBlockWeightEPKNS_10BasicBlockE(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local range(i64 0, 4295032832) i64 @_ZN4llvm21BranchProbabilityInfo30getInitialEstimatedBlockWeightEPKNS_10BasicBlockE(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
 _ZNK4llvm10BasicBlock13getTerminatorEv.exit:
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %3 = load ptr, ptr %2, align 8

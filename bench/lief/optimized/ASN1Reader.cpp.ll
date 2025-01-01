@@ -704,7 +704,7 @@ declare i32 @__gxx_personality_v0(...)
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden range(i64 0, 8589934592) i64 @_ZN4LIEF10ASN1Reader6is_tagEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden range(i64 0, 4294967304) i64 @_ZN4LIEF10ASN1Reader6is_tagEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   store i64 0, ptr %3, align 8
@@ -1142,7 +1142,7 @@ _ZNR2tl8expectedIm11lief_errorsE5valueImTnPNSt9enable_ifIXntsr3std7is_voidIT_EE5
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden range(i64 0, 8589934592) i64 @_ZN4LIEF10ASN1Reader9read_boolEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden range(i64 0, 4294967304) i64 @_ZN4LIEF10ASN1Reader9read_boolEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.spdlog::source_loc", align 8
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8

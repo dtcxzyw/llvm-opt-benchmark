@@ -173251,7 +173251,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden range(i40 0, 33554432) i40 @_ZN4gpui8platform5linux3x115event20modifiers_from_state17he5287a31e4d660b6E(i16 noundef %0) unnamed_addr #14 {
+define hidden range(i40 0, 16908288) i40 @_ZN4gpui8platform5linux3x115event20modifiers_from_state17he5287a31e4d660b6E(i16 noundef %0) unnamed_addr #14 {
   %2 = trunc i16 %0 to i8
   %3 = lshr i8 %2, 2
   %4 = and i8 %3, 1
@@ -173274,7 +173274,7 @@ define hidden range(i40 0, 33554432) i40 @_ZN4gpui8platform5linux3x115event20mod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden range(i40 0, 33554432) i40 @_ZN4gpui8platform5linux3x115event26modifiers_from_xinput_info17ha37f355ea229bfb1E(ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %0) unnamed_addr #6 {
+define hidden range(i40 0, 16908288) i40 @_ZN4gpui8platform5linux3x115event26modifiers_from_xinput_info17ha37f355ea229bfb1E(ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %0) unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4, !noundef !5
   %4 = trunc i32 %3 to i8

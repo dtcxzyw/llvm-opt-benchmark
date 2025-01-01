@@ -4914,7 +4914,7 @@ define internal fastcc range(i32 0, 14) i32 @dissect_Brush(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 4, 0) i32 @dissect_RectList(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 4, -8) i32 @dissect_RectList(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %2) #4
   %.not = icmp eq ptr %1, null
   %.pre = shl i32 %4, 4

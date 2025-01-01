@@ -1252,7 +1252,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @_ZNK6hermes11Instruction10getVarietyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(132) %this) local_unnamed_addr #6 align 2 {
+define hidden range(i64 0, -4294967040) i64 @_ZNK6hermes11Instruction10getVarietyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(132) %this) local_unnamed_addr #6 align 2 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i8, ptr %add.ptr, align 8

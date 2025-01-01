@@ -113748,7 +113748,7 @@ define internal fastcc void @zend_jit_load_this(ptr noundef nonnull %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_zval_try_addref(ptr noundef nonnull %0, i64 noundef range(i64 56, 1099511627776) %1) unnamed_addr #0 {
+define internal fastcc void @zend_jit_zval_try_addref(ptr noundef nonnull %0, i64 noundef range(i64 56, 1099511627584) %1) unnamed_addr #0 {
   %3 = tail call fastcc i32 @jit_if_REFCOUNTED(ptr noundef nonnull %0, i64 noundef %1)
   tail call void @_ir_IF_FALSE(ptr noundef nonnull %0, i32 noundef %3) #33
   %4 = tail call i32 @_ir_END(ptr noundef nonnull %0) #33
@@ -118634,7 +118634,7 @@ jit_set_Z_TYPE_INFO.exit:                         ; preds = %36, %27, %19, %15, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_spill_store_inv(ptr noundef %0, i64 noundef %1, i64 noundef range(i64 56, 1099511627776) %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @zend_jit_spill_store_inv(ptr noundef %0, i64 noundef %1, i64 noundef range(i64 56, 1099511627584) %2, i32 noundef %3) unnamed_addr #0 {
   %5 = and i64 %1, 3
   %6 = icmp eq i64 %5, 2
   tail call void @llvm.assume(i1 %6)

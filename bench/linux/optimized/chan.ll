@@ -565,7 +565,7 @@ define internal fastcc void @ieee80211_chan_bw_change(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @drv_change_chanctx(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, 32) %2) unnamed_addr #3 align 16 {
+define internal fastcc void @drv_change_chanctx(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, 18) %2) unnamed_addr #3 align 16 {
   %4 = tail call i32 @__SCT__might_resched() #13
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_drv_change_chanctx, i64 8), i32 2) #13
           to label %25 [label %5], !srcloc !25

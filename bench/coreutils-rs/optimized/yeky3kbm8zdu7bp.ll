@@ -3033,7 +3033,7 @@ define hidden void @"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define i64 @_ZN6uucore8features6format6escape17parse_escape_code17haa841ba326ebe990E(ptr noalias nocapture noundef align 8 dereferenceable(16) %0) unnamed_addr #16 {
+define range(i64 0, -4294901760) i64 @_ZN6uucore8features6format6escape17parse_escape_code17haa841ba326ebe990E(ptr noalias nocapture noundef align 8 dereferenceable(16) %0) unnamed_addr #16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !noundef !4
   %.not = icmp eq i64 %3, 0

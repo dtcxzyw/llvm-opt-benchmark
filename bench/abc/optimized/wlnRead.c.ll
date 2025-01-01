@@ -5979,7 +5979,7 @@ define void @Rtl_LibPrint(ptr noundef %0, ptr nocapture noundef initializes((72,
 declare ptr @Extra_TimeStamp(...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 1, 0) i32 @Rtl_NtkReadConst(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #2 {
+define range(i32 1, -2) i32 @Rtl_NtkReadConst(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24

@@ -23135,7 +23135,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden range(i48 8257536, 68719476736) i48 @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3new17h00dde6d2f0fb7a62E(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #4 {
+define hidden range(i48 8257536, 34368126976) i48 @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3new17h00dde6d2f0fb7a62E(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #4 {
   %3 = tail call noundef i16 @"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_type17h4cf69479d3e9c55cE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
   %4 = tail call noundef i16 @"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_type17h4cf69479d3e9c55cE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
   switch i16 %4, label %5 [

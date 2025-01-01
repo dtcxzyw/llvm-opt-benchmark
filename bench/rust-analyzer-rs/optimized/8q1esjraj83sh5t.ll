@@ -21923,7 +21923,7 @@ define hidden noundef nonnull ptr @_ZN6hir_ty6layout8field_ty17h1efee6aec39e3fd2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN6hir_ty6layout11scalar_unit17ha3b647a2b6d0aa83E(ptr noalias nocapture noundef nonnull writeonly align 16 dereferenceable(48) %0, i64 %.24.val, i64 %1) unnamed_addr #7 {
+define internal fastcc void @_ZN6hir_ty6layout11scalar_unit17ha3b647a2b6d0aa83E(ptr noalias nocapture noundef nonnull writeonly align 16 dereferenceable(48) %0, i64 %.24.val, i64 range(i64 0, -4294967288) %1) unnamed_addr #7 {
   %trunc.i = trunc i64 %1 to i8
   switch i8 %trunc.i, label %3 [
     i8 0, label %switch.lookup

@@ -5073,7 +5073,7 @@ _ZL15hasRCAnnotationPKN5clang4DeclEN4llvm9StringRefE.exit: ; preds = %24, %_ZN5c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i64 0, 8589934592) i64 @_ZN5clang4ento20RetainSummaryManager7canEvalEPKNS_8CallExprEPKNS_12FunctionDeclERb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(304) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %3) local_unnamed_addr #2 align 2 {
+define dso_local range(i64 0, 4294967300) i64 @_ZN5clang4ento20RetainSummaryManager7canEvalEPKNS_8CallExprEPKNS_12FunctionDeclERb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(304) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %3) local_unnamed_addr #2 align 2 {
   %5 = alloca ptr, align 8
   %6 = alloca %"class.llvm::StringRef", align 8
   %7 = alloca %"class.llvm::StringRef", align 8

@@ -323,7 +323,7 @@ _ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit.i: ; preds
   %32 = shl nuw i64 %31, 48
   %33 = or disjoint i64 %32, 4607182418800017408
   %34 = add i64 %33, %29
-  %35 = add i64 %34, %30
+  %35 = add nuw i64 %34, %30
   %36 = or disjoint i64 %35, %25
   %37 = bitcast i64 %36 to double
   br label %_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.exit

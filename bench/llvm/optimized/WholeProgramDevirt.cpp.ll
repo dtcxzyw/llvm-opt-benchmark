@@ -1935,7 +1935,7 @@ _ZNSt6vectorIN4llvm8ArrayRefIhEESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt6v
   br i1 %.not22.i.i, label %_ZN4llvm11countr_zeroIhEEiT_.exit.loopexit, label %.preheader.i.i, !llvm.loop !14
 
 _ZN4llvm11countr_zeroIhEEiT_.exit.loopexit:       ; preds = %.preheader.i.i
-  %124 = zext nneg i32 %.1.i.i to i64
+  %124 = sext i32 %.1.i.i to i64
   br label %_ZN4llvm11countr_zeroIhEEiT_.exit
 
 _ZN4llvm11countr_zeroIhEEiT_.exit:                ; preds = %.preheader, %_ZN4llvm11countr_zeroIhEEiT_.exit.loopexit, %.split

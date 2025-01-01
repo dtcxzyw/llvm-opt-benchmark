@@ -329,7 +329,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i64 0, 8589934592) i64 @adler32_combine(i64 noundef %adler1, i64 noundef %adler2, i64 noundef %len2) local_unnamed_addr #1 {
+define i64 @adler32_combine(i64 noundef %adler1, i64 noundef %adler2, i64 noundef %len2) local_unnamed_addr #1 {
 entry:
   %cmp.i = icmp slt i64 %len2, 0
   br i1 %cmp.i, label %adler32_combine_.exit, label %if.end.i
@@ -374,7 +374,7 @@ adler32_combine_.exit:                            ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i64 0, 8589934592) i64 @adler32_combine64(i64 noundef %adler1, i64 noundef %adler2, i64 noundef %len2) local_unnamed_addr #1 {
+define i64 @adler32_combine64(i64 noundef %adler1, i64 noundef %adler2, i64 noundef %len2) local_unnamed_addr #1 {
 entry:
   %cmp.i = icmp slt i64 %len2, 0
   br i1 %cmp.i, label %adler32_combine_.exit, label %if.end.i

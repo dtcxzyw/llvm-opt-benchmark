@@ -223,7 +223,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN9Imath_3_24halfaSEf.exit, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN9Imath_3_24halfaSEf.exit
 
 _ZN9Imath_3_24halfaSEf.exit:                      ; preds = %if.then4.i.i.i, %if.end.i.i.i, %if.then23.i.i.i, %if.end27.i.i.i, %if.end37.i.i.i, %lor.lhs.false.i.i.i, %if.then55.i.i.i
@@ -318,7 +318,7 @@ lor.lhs.false.i.i.i67:                            ; preds = %if.end40.i.i.i55
   br i1 %or.cond.i.i.i71, label %if.end68, label %if.then55.i.i.i72
 
 if.then55.i.i.i72:                                ; preds = %lor.lhs.false.i.i.i67, %if.end40.i.i.i55
-  %inc.i.i.i73 = add i16 %conv49.i.i.i65, 1
+  %inc.i.i.i73 = add nuw i16 %conv49.i.i.i65, 1
   br label %if.end68
 
 if.end68:                                         ; preds = %_ZN9Imath_3_24halfaSEf.exit, %if.then55.i.i.i72, %lor.lhs.false.i.i.i67, %if.end37.i.i.i53, %if.end27.i.i.i79, %if.then23.i.i.i88, %if.end.i.i.i93, %if.then4.i.i.i90
@@ -409,7 +409,7 @@ lor.lhs.false.i.i.i123:                           ; preds = %if.end40.i.i.i111
   br i1 %or.cond.i.i.i127, label %_ZN9Imath_3_24halfaSEf.exit154, label %if.then55.i.i.i128
 
 if.then55.i.i.i128:                               ; preds = %lor.lhs.false.i.i.i123, %if.end40.i.i.i111
-  %inc.i.i.i129 = add i16 %conv49.i.i.i121, 1
+  %inc.i.i.i129 = add nuw i16 %conv49.i.i.i121, 1
   br label %_ZN9Imath_3_24halfaSEf.exit154
 
 _ZN9Imath_3_24halfaSEf.exit154:                   ; preds = %if.then4.i.i.i146, %if.end.i.i.i149, %if.then23.i.i.i144, %if.end27.i.i.i135, %if.end37.i.i.i109, %lor.lhs.false.i.i.i123, %if.then55.i.i.i128
@@ -623,7 +623,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN9Imath_3_24halfaSEf.exit, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN9Imath_3_24halfaSEf.exit
 
 _ZN9Imath_3_24halfaSEf.exit:                      ; preds = %if.then4.i.i.i, %if.end.i.i.i, %if.then23.i.i.i, %if.end27.i.i.i, %if.end37.i.i.i, %lor.lhs.false.i.i.i, %if.then55.i.i.i
@@ -794,7 +794,7 @@ lor.lhs.false.i.i.i150:                           ; preds = %if.end40.i.i.i138
   br i1 %or.cond.i.i.i154, label %_ZN9Imath_3_24halfaSEf.exit181, label %if.then55.i.i.i155
 
 if.then55.i.i.i155:                               ; preds = %lor.lhs.false.i.i.i150, %if.end40.i.i.i138
-  %inc.i.i.i156 = add i16 %conv49.i.i.i148, 1
+  %inc.i.i.i156 = add nuw i16 %conv49.i.i.i148, 1
   br label %_ZN9Imath_3_24halfaSEf.exit181
 
 _ZN9Imath_3_24halfaSEf.exit181:                   ; preds = %if.then4.i.i.i173, %if.end.i.i.i176, %if.then23.i.i.i171, %if.end27.i.i.i162, %if.end37.i.i.i136, %lor.lhs.false.i.i.i150, %if.then55.i.i.i155
@@ -1033,7 +1033,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN9Imath_3_24halfaSEf.exit, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN9Imath_3_24halfaSEf.exit
 
 _ZN9Imath_3_24halfaSEf.exit:                      ; preds = %if.then4.i.i.i, %if.end.i.i.i, %if.then23.i.i.i, %if.end27.i.i.i, %if.end37.i.i.i, %lor.lhs.false.i.i.i, %if.then55.i.i.i
@@ -1219,7 +1219,7 @@ lor.lhs.false.i.i.i149:                           ; preds = %if.end40.i.i.i137
   br i1 %or.cond.i.i.i153, label %_ZN9Imath_3_24halfaSEf.exit180, label %if.then55.i.i.i154
 
 if.then55.i.i.i154:                               ; preds = %lor.lhs.false.i.i.i149, %if.end40.i.i.i137
-  %inc.i.i.i155 = add i16 %conv49.i.i.i147, 1
+  %inc.i.i.i155 = add nuw i16 %conv49.i.i.i147, 1
   br label %_ZN9Imath_3_24halfaSEf.exit180
 
 _ZN9Imath_3_24halfaSEf.exit180:                   ; preds = %if.then4.i.i.i172, %if.end.i.i.i175, %if.then23.i.i.i170, %if.end27.i.i.i161, %if.end37.i.i.i135, %lor.lhs.false.i.i.i149, %if.then55.i.i.i154
@@ -1656,7 +1656,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN9Imath_3_24halfaSEf.exit, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN9Imath_3_24halfaSEf.exit
 
 _ZN9Imath_3_24halfaSEf.exit:                      ; preds = %if.then4.i.i.i, %if.end.i.i.i, %if.then23.i.i.i, %if.end27.i.i.i, %if.end37.i.i.i, %lor.lhs.false.i.i.i, %if.then55.i.i.i
@@ -1821,7 +1821,7 @@ lor.lhs.false.i.i.i150:                           ; preds = %if.end40.i.i.i138
   br i1 %or.cond.i.i.i154, label %_ZN9Imath_3_24halfaSEf.exit181, label %if.then55.i.i.i155
 
 if.then55.i.i.i155:                               ; preds = %lor.lhs.false.i.i.i150, %if.end40.i.i.i138
-  %inc.i.i.i156 = add i16 %conv49.i.i.i148, 1
+  %inc.i.i.i156 = add nuw i16 %conv49.i.i.i148, 1
   br label %_ZN9Imath_3_24halfaSEf.exit181
 
 _ZN9Imath_3_24halfaSEf.exit181:                   ; preds = %if.then4.i.i.i173, %if.end.i.i.i176, %if.then23.i.i.i171, %if.end27.i.i.i162, %if.end37.i.i.i136, %lor.lhs.false.i.i.i150, %if.then55.i.i.i155
@@ -2058,7 +2058,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN9Imath_3_24halfaSEf.exit, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN9Imath_3_24halfaSEf.exit
 
 _ZN9Imath_3_24halfaSEf.exit:                      ; preds = %if.then4.i.i.i, %if.end.i.i.i, %if.then23.i.i.i, %if.end27.i.i.i, %if.end37.i.i.i, %lor.lhs.false.i.i.i, %if.then55.i.i.i
@@ -2237,7 +2237,7 @@ lor.lhs.false.i.i.i140:                           ; preds = %if.end40.i.i.i128
   br i1 %or.cond.i.i.i144, label %_ZN9Imath_3_24halfaSEf.exit171, label %if.then55.i.i.i145
 
 if.then55.i.i.i145:                               ; preds = %lor.lhs.false.i.i.i140, %if.end40.i.i.i128
-  %inc.i.i.i146 = add i16 %conv49.i.i.i138, 1
+  %inc.i.i.i146 = add nuw i16 %conv49.i.i.i138, 1
   br label %_ZN9Imath_3_24halfaSEf.exit171
 
 _ZN9Imath_3_24halfaSEf.exit171:                   ; preds = %if.then4.i.i.i163, %if.end.i.i.i166, %if.then23.i.i.i161, %if.end27.i.i.i152, %if.end37.i.i.i126, %lor.lhs.false.i.i.i140, %if.then55.i.i.i145
@@ -2392,7 +2392,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN9Imath_3_24halfaSEf.exit, label %if.then55.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
-  %inc.i.i.i = add i16 %conv49.i.i.i, 1
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
   br label %_ZN9Imath_3_24halfaSEf.exit
 
 _ZN9Imath_3_24halfaSEf.exit:                      ; preds = %if.then4.i.i.i, %if.end.i.i.i, %if.then23.i.i.i, %if.end27.i.i.i, %if.end37.i.i.i, %lor.lhs.false.i.i.i, %if.then55.i.i.i
@@ -2472,7 +2472,7 @@ lor.lhs.false.i.i.i52:                            ; preds = %if.end40.i.i.i40
   br i1 %or.cond.i.i.i56, label %_ZN9Imath_3_24halfaSEf.exit83, label %if.then55.i.i.i57
 
 if.then55.i.i.i57:                                ; preds = %lor.lhs.false.i.i.i52, %if.end40.i.i.i40
-  %inc.i.i.i58 = add i16 %conv49.i.i.i50, 1
+  %inc.i.i.i58 = add nuw i16 %conv49.i.i.i50, 1
   br label %_ZN9Imath_3_24halfaSEf.exit83
 
 _ZN9Imath_3_24halfaSEf.exit83:                    ; preds = %if.then4.i.i.i75, %if.end.i.i.i78, %if.then23.i.i.i73, %if.end27.i.i.i64, %if.end37.i.i.i38, %lor.lhs.false.i.i.i52, %if.then55.i.i.i57
@@ -2552,7 +2552,7 @@ lor.lhs.false.i.i.i102:                           ; preds = %if.end40.i.i.i90
   br i1 %or.cond.i.i.i106, label %_ZN9Imath_3_24halfaSEf.exit133, label %if.then55.i.i.i107
 
 if.then55.i.i.i107:                               ; preds = %lor.lhs.false.i.i.i102, %if.end40.i.i.i90
-  %inc.i.i.i108 = add i16 %conv49.i.i.i100, 1
+  %inc.i.i.i108 = add nuw i16 %conv49.i.i.i100, 1
   br label %_ZN9Imath_3_24halfaSEf.exit133
 
 _ZN9Imath_3_24halfaSEf.exit133:                   ; preds = %if.then4.i.i.i125, %if.end.i.i.i128, %if.then23.i.i.i123, %if.end27.i.i.i114, %if.end37.i.i.i88, %lor.lhs.false.i.i.i102, %if.then55.i.i.i107
@@ -2905,7 +2905,7 @@ lor.lhs.false.i.i.i.i:                            ; preds = %if.end40.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %_ZN9Imath_3_24halfaSEf.exit.i, label %if.then55.i.i.i.i
 
 if.then55.i.i.i.i:                                ; preds = %lor.lhs.false.i.i.i.i, %if.end40.i.i.i.i
-  %inc.i.i.i.i = add i16 %conv49.i.i.i.i, 1
+  %inc.i.i.i.i = add nuw i16 %conv49.i.i.i.i, 1
   br label %_ZN9Imath_3_24halfaSEf.exit.i
 
 _ZN9Imath_3_24halfaSEf.exit.i:                    ; preds = %if.then55.i.i.i.i, %lor.lhs.false.i.i.i.i, %if.end37.i.i.i.i, %if.end27.i.i.i.i, %if.then23.i.i.i.i, %if.end.i.i.i.i, %if.then4.i.i.i.i
@@ -2996,7 +2996,7 @@ lor.lhs.false.i.i.i68.i:                          ; preds = %if.end40.i.i.i56.i
   br i1 %or.cond.i.i.i72.i, label %_ZN9Imath_3_24halfaSEf.exit99.i, label %if.then55.i.i.i73.i
 
 if.then55.i.i.i73.i:                              ; preds = %lor.lhs.false.i.i.i68.i, %if.end40.i.i.i56.i
-  %inc.i.i.i74.i = add i16 %conv49.i.i.i66.i, 1
+  %inc.i.i.i74.i = add nuw i16 %conv49.i.i.i66.i, 1
   br label %_ZN9Imath_3_24halfaSEf.exit99.i
 
 _ZN9Imath_3_24halfaSEf.exit99.i:                  ; preds = %if.then55.i.i.i73.i, %lor.lhs.false.i.i.i68.i, %if.end37.i.i.i54.i, %if.end27.i.i.i80.i, %if.then23.i.i.i89.i, %if.end.i.i.i94.i, %if.then4.i.i.i91.i
@@ -3087,7 +3087,7 @@ lor.lhs.false.i.i.i122.i:                         ; preds = %if.end40.i.i.i110.i
   br i1 %or.cond.i.i.i126.i, label %_ZN9Imath_3_24halfaSEf.exit153.i, label %if.then55.i.i.i127.i
 
 if.then55.i.i.i127.i:                             ; preds = %lor.lhs.false.i.i.i122.i, %if.end40.i.i.i110.i
-  %inc.i.i.i128.i = add i16 %conv49.i.i.i120.i, 1
+  %inc.i.i.i128.i = add nuw i16 %conv49.i.i.i120.i, 1
   br label %_ZN9Imath_3_24halfaSEf.exit153.i
 
 _ZN9Imath_3_24halfaSEf.exit153.i:                 ; preds = %if.then55.i.i.i127.i, %lor.lhs.false.i.i.i122.i, %if.end37.i.i.i108.i, %if.end27.i.i.i134.i, %if.then23.i.i.i143.i, %if.end.i.i.i148.i, %if.then4.i.i.i145.i
@@ -3207,7 +3207,7 @@ lor.lhs.false.i.i.i186.i:                         ; preds = %if.end40.i.i.i174.i
   br i1 %or.cond.i.i.i190.i, label %_ZN9Imath_3_24halfmLEf.exit.i, label %if.then55.i.i.i191.i
 
 if.then55.i.i.i191.i:                             ; preds = %lor.lhs.false.i.i.i186.i, %if.end40.i.i.i174.i
-  %inc.i.i.i192.i = add i16 %conv49.i.i.i184.i, 1
+  %inc.i.i.i192.i = add nuw i16 %conv49.i.i.i184.i, 1
   br label %_ZN9Imath_3_24halfmLEf.exit.i
 
 _ZN9Imath_3_24halfmLEf.exit.i:                    ; preds = %if.then55.i.i.i191.i, %lor.lhs.false.i.i.i186.i, %if.end37.i.i.i172.i, %if.end27.i.i.i198.i, %if.then23.i.i.i207.i, %if.end.i.i.i212.i, %if.then4.i.i.i209.i
@@ -3290,7 +3290,7 @@ lor.lhs.false.i.i.i238.i:                         ; preds = %if.end40.i.i.i226.i
   br i1 %or.cond.i.i.i242.i, label %_ZN9Imath_3_24halfmLEf.exit269.i, label %if.then55.i.i.i243.i
 
 if.then55.i.i.i243.i:                             ; preds = %lor.lhs.false.i.i.i238.i, %if.end40.i.i.i226.i
-  %inc.i.i.i244.i = add i16 %conv49.i.i.i236.i, 1
+  %inc.i.i.i244.i = add nuw i16 %conv49.i.i.i236.i, 1
   br label %_ZN9Imath_3_24halfmLEf.exit269.i
 
 _ZN9Imath_3_24halfmLEf.exit269.i:                 ; preds = %if.then55.i.i.i243.i, %lor.lhs.false.i.i.i238.i, %if.end37.i.i.i224.i, %if.end27.i.i.i250.i, %if.then23.i.i.i259.i, %if.end.i.i.i264.i, %if.then4.i.i.i261.i
@@ -3373,7 +3373,7 @@ lor.lhs.false.i.i.i291.i:                         ; preds = %if.end40.i.i.i279.i
   br i1 %or.cond.i.i.i295.i, label %_ZN9Imath_3_24halfmLEf.exit322.i, label %if.then55.i.i.i296.i
 
 if.then55.i.i.i296.i:                             ; preds = %lor.lhs.false.i.i.i291.i, %if.end40.i.i.i279.i
-  %inc.i.i.i297.i = add i16 %conv49.i.i.i289.i, 1
+  %inc.i.i.i297.i = add nuw i16 %conv49.i.i.i289.i, 1
   br label %_ZN9Imath_3_24halfmLEf.exit322.i
 
 _ZN9Imath_3_24halfmLEf.exit322.i:                 ; preds = %if.then55.i.i.i296.i, %lor.lhs.false.i.i.i291.i, %if.end37.i.i.i277.i, %if.end27.i.i.i303.i, %if.then23.i.i.i312.i, %if.end.i.i.i317.i, %if.then4.i.i.i314.i

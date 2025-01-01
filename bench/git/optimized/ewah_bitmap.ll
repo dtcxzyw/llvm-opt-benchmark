@@ -702,7 +702,7 @@ buffer_push.exit:                                 ; preds = %buffer_push_rlw.exi
 if.end:                                           ; preds = %entry
   %or.i11 = or i64 %.val, -8589934592
   %17 = or i64 %.val, 8589934591
-  %or1.i = add i64 %17, 8589934592
+  %or1.i = add nuw i64 %17, 8589934592
   %and.i12 = and i64 %or1.i, %or.i11
   store i64 %and.i12, ptr %0, align 8
   %buffer_size.i13 = getelementptr inbounds nuw i8, ptr %self, i64 8

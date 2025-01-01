@@ -440,7 +440,7 @@ define hidden void @_ZN8rawspeed11TableLookUp8setTableEiRKSt6vectorItSaItEE(ptr 
 
 219:                                              ; preds = %216, %157, %74, %64, %61
   %220 = phi i64 [ 1, %61 ], [ 1, %74 ], [ 1, %64 ], [ %158, %157 ], [ %217, %216 ]
-  %221 = add i64 %220, 1
+  %221 = add nuw i64 %220, 1
   %222 = and i64 %11, 2
   %223 = icmp eq i64 %222, 0
   br i1 %223, label %224, label %253

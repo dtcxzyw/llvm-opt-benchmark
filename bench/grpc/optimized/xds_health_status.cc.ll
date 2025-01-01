@@ -25,7 +25,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i64 0, 8589934592) i64 @_ZN9grpc_core15XdsHealthStatus7FromUpbEj(i32 noundef %status) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define range(i64 0, 4294967300) i64 @_ZN9grpc_core15XdsHealthStatus7FromUpbEj(i32 noundef %status) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = icmp ult i32 %status, 4
   br i1 %0, label %switch.lookup, label %return
@@ -46,7 +46,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define range(i64 0, 8589934592) i64 @_ZN9grpc_core15XdsHealthStatus10FromStringESt17basic_string_viewIcSt11char_traitsIcEE(i64 %status.coerce0, ptr nocapture readonly %status.coerce1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define range(i64 0, 4294967300) i64 @_ZN9grpc_core15XdsHealthStatus10FromStringESt17basic_string_viewIcSt11char_traitsIcEE(i64 %status.coerce0, ptr nocapture readonly %status.coerce1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i64 %status.coerce0, label %if.end13 [
     i64 7, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i

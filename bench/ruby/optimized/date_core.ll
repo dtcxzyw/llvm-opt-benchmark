@@ -4386,7 +4386,7 @@ m_cwday.exit:                                     ; preds = %5, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 1, 16) i64 @d_lite_wday(i64 noundef %0) #0 {
+define internal range(i64 1, 14) i64 @d_lite_wday(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @d_lite_type) #20
   %3 = tail call fastcc i32 @m_local_jd(ptr noundef %2)
   %4 = icmp slt i32 %3, -1

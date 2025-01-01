@@ -56239,7 +56239,7 @@ while.body.i.i.us:                                ; preds = %land.rhs.i.i.us
 
 _ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElS4_NS1_5__ops15_Iter_comp_iterISt4lessIvEEEEvT_T0_SH_T1_T2_.exit.us: ; preds = %land.rhs.i.i.us, %while.body.i.i.us, %while.cond.us, %while.end.i.us
   %__holeIndex.addr.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %while.end.i.us ], [ %__parent.0.us, %while.cond.us ], [ %__holeIndex.addr.026.i.i.us, %land.rhs.i.i.us ], [ %__parent.027.i.i.us, %while.body.i.i.us ]
-  %idx.neg.i.i19.i.i.us = sub nsw i64 0, %__holeIndex.addr.0.lcssa.i.i.us
+  %idx.neg.i.i19.i.i.us = sub i64 0, %__holeIndex.addr.0.lcssa.i.i.us
   %gep27.us = getelementptr i32, ptr %invariant.gep, i64 %idx.neg.i.i19.i.i.us
   store i32 %1, ptr %gep27.us, align 4, !tbaa !72
   %cmp4.not.us = icmp eq i64 %__parent.0.us, 0
@@ -56310,7 +56310,7 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i
 
 _ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElS4_NS1_5__ops15_Iter_comp_iterISt4lessIvEEEEvT_T0_SH_T1_T2_.exit: ; preds = %while.body.i.i, %land.rhs.i.i, %if.end19.i
   %__holeIndex.addr.0.lcssa.i.i = phi i64 [ %__holeIndex.addr.1.i, %if.end19.i ], [ %__holeIndex.addr.026.i.i, %land.rhs.i.i ], [ %__parent.027.i.i, %while.body.i.i ]
-  %idx.neg.i.i19.i.i = sub nsw i64 0, %__holeIndex.addr.0.lcssa.i.i
+  %idx.neg.i.i19.i.i = sub i64 0, %__holeIndex.addr.0.lcssa.i.i
   %gep27 = getelementptr i32, ptr %invariant.gep, i64 %idx.neg.i.i19.i.i
   store i32 %6, ptr %gep27, align 4, !tbaa !72
   %cmp4.not = icmp eq i64 %__parent.0, 0

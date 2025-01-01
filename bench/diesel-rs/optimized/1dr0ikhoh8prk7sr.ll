@@ -917,7 +917,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h08dbce76e7e
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden i40 @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h0affc19acc20b539E.llvm.15310856661090120578"(ptr noalias nocapture noundef readonly align 1 dereferenceable_or_null(4) %0) unnamed_addr #8 {
+define hidden range(i40 0, -254) i40 @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h0affc19acc20b539E.llvm.15310856661090120578"(ptr noalias nocapture noundef readonly align 1 dereferenceable_or_null(4) %0) unnamed_addr #8 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %4, label %3
 

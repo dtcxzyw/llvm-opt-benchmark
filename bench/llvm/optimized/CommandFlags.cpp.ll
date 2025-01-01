@@ -1819,7 +1819,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm7codegen15getDataSectionsEv() local
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i16 0, 512) i16 @_ZN4llvm7codegen23getExplicitDataSectionsEv() local_unnamed_addr #2 {
+define dso_local range(i16 0, 258) i16 @_ZN4llvm7codegen23getExplicitDataSectionsEv() local_unnamed_addr #2 {
   %1 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE12DataSections, i64 8), align 8
   %.not = icmp eq i16 %1, 0
   %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE12DataSections, i64 128), align 8
@@ -1838,7 +1838,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm7codegen19getFunctionSectionsEv() l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i16 0, 512) i16 @_ZN4llvm7codegen27getExplicitFunctionSectionsEv() local_unnamed_addr #2 {
+define dso_local range(i16 0, 258) i16 @_ZN4llvm7codegen27getExplicitFunctionSectionsEv() local_unnamed_addr #2 {
   %1 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE16FunctionSections, i64 8), align 8
   %.not = icmp eq i16 %1, 0
   %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE16FunctionSections, i64 128), align 8
@@ -1892,7 +1892,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm7codegen14getEmulatedTLSEv() local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i16 0, 512) i16 @_ZN4llvm7codegen22getExplicitEmulatedTLSEv() local_unnamed_addr #2 {
+define dso_local range(i16 0, 258) i16 @_ZN4llvm7codegen22getExplicitEmulatedTLSEv() local_unnamed_addr #2 {
   %1 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE11EmulatedTLS, i64 8), align 8
   %.not = icmp eq i16 %1, 0
   %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE11EmulatedTLS, i64 128), align 8
@@ -1911,7 +1911,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm7codegen16getEnableTLSDESCEv() loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i16 0, 512) i16 @_ZN4llvm7codegen24getExplicitEnableTLSDESCEv() local_unnamed_addr #2 {
+define dso_local range(i16 0, 258) i16 @_ZN4llvm7codegen24getExplicitEnableTLSDESCEv() local_unnamed_addr #2 {
   %1 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE13EnableTLSDESC, i64 8), align 8
   %.not = icmp eq i16 %1, 0
   %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE13EnableTLSDESC, i64 128), align 8

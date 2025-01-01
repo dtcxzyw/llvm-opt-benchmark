@@ -1458,7 +1458,7 @@ define hidden void @_ZN5KlassC2ENS_9KlassKindE(ptr noundef nonnull align 8 deref
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef range(i32 -2146435072, 0) i32 @_ZN5Klass19array_layout_helperE9BasicType(i8 noundef zeroext %0) local_unnamed_addr #9 align 2 {
+define hidden noundef range(i32 -2146435072, -1071644672) i32 @_ZN5Klass19array_layout_helperE9BasicType(i8 noundef zeroext %0) local_unnamed_addr #9 align 2 {
   %2 = load i8, ptr @UseCompressedClassPointers, align 1
   %3 = trunc i8 %2 to i1
   %4 = select i1 %3, i32 16, i32 20

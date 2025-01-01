@@ -100300,7 +100300,7 @@ define hidden { i16, i16 } @_ZN6rustix3net7sockopt27set_socket_send_buffer_size1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden i64 @_ZN6rustix7backend3net7sockopt10getsockopt17h2eb8f7d53478e804E.llvm.7826144646137628382(i32 noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden range(i64 0, -4294967294) i64 @_ZN6rustix7backend3net7sockopt10getsockopt17h2eb8f7d53478e804E.llvm.7826144646137628382(i32 noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [48 x i8], align 8
   %5 = alloca [8 x i8], align 8
   %6 = alloca [4 x i8], align 4

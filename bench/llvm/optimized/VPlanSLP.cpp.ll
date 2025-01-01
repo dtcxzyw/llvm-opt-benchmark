@@ -3400,7 +3400,7 @@ _ZN4llvm11SmallVectorIPNS_7VPValueELj4EED2Ev.exit107: ; preds = %248, %244, %36,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i64 0, 8589934592) i64 @_ZL9getOpcodeN4llvm8ArrayRefIPNS_7VPValueEEE(ptr readonly %0, i64 %1) unnamed_addr #7 {
+define internal fastcc range(i64 0, 4294967552) i64 @_ZL9getOpcodeN4llvm8ArrayRefIPNS_7VPValueEEE(ptr readonly %0, i64 %1) unnamed_addr #7 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   %5 = getelementptr inbounds i8, ptr %3, i64 -104

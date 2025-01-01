@@ -9728,7 +9728,7 @@ _ZL27findLastNonVersionCharacterN4llvm9StringRefE.exit: ; preds = %12, %.lr.ph.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i64 -1, 1099511627776) i64 @_ZN4llvm12RISCVISAInfo24getRISCVFeaturesBitsInfoENS_9StringRefE(ptr %0, i64 %1) local_unnamed_addr #0 align 2 {
+define dso_local range(i64 -1, 1095216660736) i64 @_ZN4llvm12RISCVISAInfo24getRISCVFeaturesBitsInfoENS_9StringRefE(ptr %0, i64 %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %struct.RISCVExtBit, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %5

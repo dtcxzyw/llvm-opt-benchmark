@@ -257,7 +257,7 @@ _ZN4llvm2cl6OptionD2Ev.exit:                      ; preds = %_ZN4llvm11SmallPtrS
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i64 0, 8589934592) i64 @_ZNK4llvm15RISCVAsmBackend12getFixupKindENS_9StringRefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr nocapture readonly %1, i64 %2) unnamed_addr #2 align 2 {
+define dso_local range(i64 0, 4294967808) i64 @_ZNK4llvm15RISCVAsmBackend12getFixupKindENS_9StringRefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr nocapture readonly %1, i64 %2) unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 60

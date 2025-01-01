@@ -9554,7 +9554,7 @@ _ZNSt6vectorIdSaIdEEC2ERKS1_.exit:                ; preds = %.thread, %23
 }
 
 ; Function Attrs: mustprogress nounwind memory(read, inaccessiblemem: write) uwtable
-define i64 @_ZNK10open_spiel6hearts11HeartsState6PlayedEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1600) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
+define range(i64 0, -4294967294) i64 @_ZNK10open_spiel6hearts11HeartsState6PlayedEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1600) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 3

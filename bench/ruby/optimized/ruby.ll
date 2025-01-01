@@ -8240,7 +8240,7 @@ name_match_p.exit:                                ; preds = %40, %.lr.ph.i, %77,
 declare zeroext i1 @rb_yjit_parse_option(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 4, 4096) i32 @dump_additional_option(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 4, 2049) %2, ptr noundef %3) unnamed_addr #2 {
+define internal fastcc range(i32 4, 2052) i32 @dump_additional_option(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 4, 2049) %2, ptr noundef %3) unnamed_addr #2 {
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %.lr.ph, label %.critedge
 

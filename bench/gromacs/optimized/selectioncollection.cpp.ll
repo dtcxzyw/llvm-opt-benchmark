@@ -1384,7 +1384,7 @@ define noundef zeroext i1 @_ZNK3gmx19SelectionCollection4Impl18areForcesRequeste
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i16 0, 512) i16 @_ZN3gmx19SelectionCollection4Impl41requiredTopologyPropertiesForPositionTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(32) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define range(i16 0, 258) i16 @_ZN3gmx19SelectionCollection4Impl41requiredTopologyPropertiesForPositionTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(32) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #25
   br i1 %3, label %9, label %4
 
@@ -3991,7 +3991,7 @@ define internal fastcc void @_ZN3gmx12_GLOBAL__N_123checkTopologyPropertiesEPK10
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i16 0, 512) i16 @_ZNK3gmx19SelectionCollection26requiredTopologyPropertiesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define range(i16 0, 258) i16 @_ZNK3gmx19SelectionCollection26requiredTopologyPropertiesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::shared_ptr", align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 120

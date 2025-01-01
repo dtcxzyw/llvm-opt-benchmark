@@ -13201,7 +13201,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EPKc.
 178:                                              ; preds = %176
   %179 = or i64 %173, 7
   %180 = icmp eq i64 %179, 23
-  %181 = add i64 %179, 1
+  %181 = add nuw i64 %179, 1
   %182 = select i1 %180, i64 25, i64 %181
   %183 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %182) #30
           to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i.thread unwind label %257
@@ -51513,7 +51513,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_
 61:                                               ; preds = %55
   %62 = or i64 %18, 7
   %63 = icmp eq i64 %62, 23
-  %64 = add i64 %62, 1
+  %64 = add nuw i64 %62, 1
   %65 = select i1 %63, i64 25, i64 %64
   %66 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %65) #30
   %67 = getelementptr inbounds nuw i8, ptr %4, i64 16

@@ -9764,7 +9764,7 @@ declare dso_local ptr @ext4_get_first_inline_block(ptr noundef, ptr noundef, ptr
 declare dso_local i32 @ext4_alloc_da_blocks(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @ext4_whiteout_for_rename(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 38, 78) %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 align 16 {
+define internal fastcc ptr @ext4_whiteout_for_rename(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 38, 70) %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 align 16 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #13
   store i32 0, ptr %5, align 4

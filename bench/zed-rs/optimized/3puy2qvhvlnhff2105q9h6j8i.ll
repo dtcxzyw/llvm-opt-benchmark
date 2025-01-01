@@ -3952,7 +3952,7 @@ define hidden void @_ZN14wayland_client8protocol11wl_registry10WlRegistry4bind17
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden i64 @_ZN14x11rb_protocol16resource_manager8Database9get_value17h37164361bdccf7beE(ptr noalias noundef readonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4) unnamed_addr #2 {
+define hidden range(i64 0, -4294967292) i64 @_ZN14x11rb_protocol16resource_manager8Database9get_value17h37164361bdccf7beE(ptr noalias noundef readonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4) unnamed_addr #2 {
   %6 = tail call { ptr, i64 } @_ZN14x11rb_protocol16resource_manager8Database10get_string17hf87703e30a25b3dbE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4)
   %7 = extractvalue { ptr, i64 } %6, 0
   %8 = icmp eq ptr %7, null
@@ -3985,7 +3985,7 @@ define hidden i64 @_ZN14x11rb_protocol16resource_manager8Database9get_value17h37
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden i64 @_ZN14x11rb_protocol16resource_manager8Database9get_value17hed8e54081424f508E(ptr noalias noundef readonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4) unnamed_addr #2 {
+define hidden range(i64 0, -4294967292) i64 @_ZN14x11rb_protocol16resource_manager8Database9get_value17hed8e54081424f508E(ptr noalias noundef readonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4) unnamed_addr #2 {
   %6 = tail call { ptr, i64 } @_ZN14x11rb_protocol16resource_manager8Database10get_string17hf87703e30a25b3dbE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4)
   %7 = extractvalue { ptr, i64 } %6, 0
   %8 = icmp eq ptr %7, null

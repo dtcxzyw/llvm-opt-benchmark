@@ -4483,7 +4483,7 @@ define ptr @slurmdb_qos_flags_str(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -805306369, 1073743872) i32 @str_2_qos_flags(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define i32 @str_2_qos_flags(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr null, ptr %4, align 8

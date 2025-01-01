@@ -28236,7 +28236,7 @@ define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h5b02eebfef7a4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden i32 @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h9f4d2dc57418524fE"(ptr noalias nocapture noundef readonly align 1 dereferenceable_or_null(3) %0) unnamed_addr #15 {
+define hidden range(i32 0, -254) i32 @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h9f4d2dc57418524fE"(ptr noalias nocapture noundef readonly align 1 dereferenceable_or_null(3) %0) unnamed_addr #15 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %3
 

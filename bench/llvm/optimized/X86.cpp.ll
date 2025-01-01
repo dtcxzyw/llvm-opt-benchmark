@@ -13543,7 +13543,7 @@ _ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit216: ; preds = %_ZN4llv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i64 0, 8589934592) i64 @_ZNK5clang7targets13X86TargetInfo19getCPUCacheLineSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(616) %0) unnamed_addr #7 align 2 {
+define hidden range(i64 0, 4294967424) i64 @_ZNK5clang7targets13X86TargetInfo19getCPUCacheLineSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(616) %0) unnamed_addr #7 align 2 {
 switch.lookup:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %2 = load i32, ptr %1, align 8

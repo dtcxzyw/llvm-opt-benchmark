@@ -136,7 +136,7 @@ _ZN5eastl11lower_boundIPKjjEET_S3_S3_RKT0_.exit:  ; preds = %while.body.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local i64 @_ZNK5eastl19prime_rehash_policy17GetRehashRequiredEjjj(ptr nocapture noundef nonnull align 4 dereferenceable(12) %this, i32 noundef %nBucketCount, i32 noundef %nElementCount, i32 noundef %nElementAdd) local_unnamed_addr #1 align 2 {
+define dso_local range(i64 0, -4294967294) i64 @_ZNK5eastl19prime_rehash_policy17GetRehashRequiredEjjj(ptr nocapture noundef nonnull align 4 dereferenceable(12) %this, i32 noundef %nBucketCount, i32 noundef %nElementCount, i32 noundef %nElementAdd) local_unnamed_addr #1 align 2 {
 entry:
   %add = add i32 %nElementAdd, %nElementCount
   %mnNextResize = getelementptr inbounds nuw i8, ptr %this, i64 8

@@ -16114,7 +16114,7 @@ define internal fastcc range(i32 0, -245) i32 @_ZN15tree_sitter_cli9highlight11p
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden i32 @_ZN15tree_sitter_cli9highlight17hex_string_to_rgb17hda21eb28881ea65bE(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #1 {
+define hidden range(i32 0, -254) i32 @_ZN15tree_sitter_cli9highlight17hex_string_to_rgb17hda21eb28881ea65bE(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #1 {
   %.not.i = icmp eq i64 %1, 0
   br i1 %.not.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h63a23cb5116f5886E.exit.thread", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h63a23cb5116f5886E.exit"
 

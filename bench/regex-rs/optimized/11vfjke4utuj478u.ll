@@ -8400,7 +8400,7 @@ define noundef zeroext i1 @"_ZN80_$LT$regex_automata..hybrid..error..BuildError$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define range(i64 4, 1099511627776) i64 @_ZN14regex_automata6hybrid5error10StartError4quit17h4bfc34e464a77a82E(i8 noundef %0) unnamed_addr #5 {
+define range(i64 4, 1095216660488) i64 @_ZN14regex_automata6hybrid5error10StartError4quit17h4bfc34e464a77a82E(i8 noundef %0) unnamed_addr #5 {
   %.sroa.2.0.insert.ext = zext i8 %0 to i64
   %.sroa.2.0.insert.shift = shl nuw nsw i64 %.sroa.2.0.insert.ext, 32
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, 4

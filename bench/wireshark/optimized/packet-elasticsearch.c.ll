@@ -835,7 +835,7 @@ declare ptr @proto_tree_add_bits_item(ptr noundef, i32 noundef, ptr noundef, i32
 declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 1, 0) i64 @read_vint(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i64 1, -4294967288) i64 @read_vint(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #7
   %4 = and i8 %3, 127
   %5 = zext nneg i8 %4 to i32

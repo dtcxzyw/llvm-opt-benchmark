@@ -13061,7 +13061,7 @@ define hidden void @_ZN5tokio7runtime4coop11with_budget17heb37bfc11284a589E.llvm
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc i24 @_ZN5tokio7runtime4coop12poll_proceed17ha85b55a62d82082bE(ptr readonly %.0.val) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc range(i24 0, -252) i24 @_ZN5tokio7runtime4coop12poll_proceed17ha85b55a62d82082bE(ptr readonly %.0.val) unnamed_addr #1 personality ptr @rust_eh_personality {
   %1 = alloca { i8, [2 x i8] }, align 4
   %2 = alloca { i8, i8 }, align 1
   %3 = alloca { i8, [2 x i8] }, align 4

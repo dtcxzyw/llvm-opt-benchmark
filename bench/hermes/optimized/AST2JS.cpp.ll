@@ -3754,7 +3754,7 @@ return:                                           ; preds = %if.then49.i, %if.th
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i64 0, 8589934592) i64 @_ZN6hermes12_GLOBAL__N_15GenJS13getPrecedenceEPNS_6ESTree4NodeE(i8 %this.8.val, ptr noundef readonly %node) unnamed_addr #7 align 2 {
+define internal fastcc range(i64 0, 4294967360) i64 @_ZN6hermes12_GLOBAL__N_15GenJS13getPrecedenceEPNS_6ESTree4NodeE(i8 %this.8.val, ptr noundef readonly %node) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %node, i64 16
   %0 = load i32, ptr %kind_.i.i.i.i.i.i.i, align 8

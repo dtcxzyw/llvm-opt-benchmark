@@ -32107,7 +32107,7 @@ _ZN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5R
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_16Parser7add_capINS_7SrstDefEEEvRSt6vectorINS_10CapabilityIT_EESaIS6_EES5_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1425) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1, i64 range(i64 0, 17179869184) %2, i8 range(i8 0, 2) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_16Parser7add_capINS_7SrstDefEEEvRSt6vectorINS_10CapabilityIT_EESaIS6_EES5_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1425) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1, i64 range(i64 0, 12884901896) %2, i8 range(i8 0, 2) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.(anonymous namespace)::Capability.176", align 8
   %6 = alloca %"class.Yosys::hashlib::dict.135", align 8
   %7 = alloca %"class.Yosys::hashlib::dict.135", align 8

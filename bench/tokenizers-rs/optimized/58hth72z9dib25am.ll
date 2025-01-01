@@ -28883,7 +28883,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h2e060df0334ea3a6E.llvm.14160
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define i24 @_ZN10tokenizers14pre_tokenizers10byte_level9ByteLevel16add_prefix_space17h7146c4253b7de139E(i24 %0, i1 noundef zeroext %1) unnamed_addr #14 {
+define range(i24 0, -254) i24 @_ZN10tokenizers14pre_tokenizers10byte_level9ByteLevel16add_prefix_space17h7146c4253b7de139E(i24 %0, i1 noundef zeroext %1) unnamed_addr #14 {
   %.sroa.4.0.extract.shift = and i24 %0, -256
   %.sroa.04.0.insert.ext = zext i1 %1 to i24
   %.sroa.04.0.insert.insert = or disjoint i24 %.sroa.4.0.extract.shift, %.sroa.04.0.insert.ext
@@ -28891,7 +28891,7 @@ define i24 @_ZN10tokenizers14pre_tokenizers10byte_level9ByteLevel16add_prefix_sp
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define i24 @_ZN10tokenizers14pre_tokenizers10byte_level9ByteLevel12trim_offsets17hd940446d83f4d4b7E(i24 %0, i1 noundef zeroext %1) unnamed_addr #14 {
+define range(i24 0, -65024) i24 @_ZN10tokenizers14pre_tokenizers10byte_level9ByteLevel12trim_offsets17hd940446d83f4d4b7E(i24 %0, i1 noundef zeroext %1) unnamed_addr #14 {
   %.sroa.28.0.insert.shift = select i1 %1, i24 256, i24 0
   %3 = and i24 %0, -65281
   %.sroa.07.0.insert.insert = or disjoint i24 %.sroa.28.0.insert.shift, %3

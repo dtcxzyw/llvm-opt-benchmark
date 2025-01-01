@@ -73,7 +73,7 @@ _asn1_check_infinite_end.exit:                    ; preds = %entry, %if.else.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 256) i32 @ASN1_get_object(ptr nocapture noundef %pp, ptr nocapture noundef writeonly %plength, ptr nocapture noundef writeonly %ptag, ptr nocapture noundef writeonly %pclass, i64 noundef %omax) local_unnamed_addr #1 {
+define range(i32 0, 192) i32 @ASN1_get_object(ptr nocapture noundef %pp, ptr nocapture noundef writeonly %plength, ptr nocapture noundef writeonly %ptag, ptr nocapture noundef writeonly %pclass, i64 noundef %omax) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %pp, align 8
   %cmp = icmp slt i64 %omax, 1

@@ -76,7 +76,7 @@ return:                                           ; preds = %entry, %init_bins.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @mmap_probe(ptr noundef %rs, i64 noundef range(i64 1, -4095) %size) unnamed_addr #0 {
+define internal fastcc ptr @mmap_probe(ptr noundef %rs, i64 noundef range(i64 17, -4095) %size) unnamed_addr #0 {
 entry:
   %call = tail call ptr @__errno_location() #9
   %0 = load i32, ptr %call, align 4

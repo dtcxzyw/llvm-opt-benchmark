@@ -18724,7 +18724,7 @@ _ZN3std9panicking3try17h6b878fa82e8e1ea1E.exit:   ; preds = %3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden i64 @_ZN5salsa9Cancelled5catch17h30d5b0eea5099c9dE(ptr noalias noundef readonly align 4 dereferenceable(4) %0, ptr noundef nonnull align 8 %1) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden range(i64 0, -4294967294) i64 @_ZN5salsa9Cancelled5catch17h30d5b0eea5099c9dE(ptr noalias noundef readonly align 4 dereferenceable(4) %0, ptr noundef nonnull align 8 %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = alloca { [2 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !2526
   store ptr %0, ptr %3, align 8, !noalias !2526
@@ -18967,7 +18967,7 @@ _ZN3std9panicking3try17hcb9355030a02052bE.exit:   ; preds = %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden i64 @_ZN5salsa9Cancelled5catch17h3257161def55f6deE(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden range(i64 0, -4294967292) i64 @_ZN5salsa9Cancelled5catch17h3257161def55f6deE(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = alloca { [3 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !2576
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false), !noalias !2580
@@ -20457,7 +20457,7 @@ _ZN3std9panicking3try17h4dabf00e3fffcaf5E.exit:   ; preds = %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden i64 @_ZN5salsa9Cancelled5catch17h99da69599f066314E(ptr noalias noundef readonly align 4 dereferenceable(4) %0, ptr noundef nonnull align 8 %1) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden range(i64 0, -4294967294) i64 @_ZN5salsa9Cancelled5catch17h99da69599f066314E(ptr noalias noundef readonly align 4 dereferenceable(4) %0, ptr noundef nonnull align 8 %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = alloca { [2 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !2873
   store ptr %0, ptr %3, align 8, !noalias !2873

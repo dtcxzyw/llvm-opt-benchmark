@@ -3189,112 +3189,110 @@ define dso_local noundef zeroext i1 @_ZN5clang14analyze_printf15PrintfSpecifier7
 
 58:                                               ; preds = %55
   %59 = and i64 %.0.copyload.i.i.i.i.i.i, 4
-  %60 = icmp ne i64 %59, 0
-  %61 = and i64 %.0.copyload.i.i.i.i.i.i, -8
-  %.not5.i = icmp eq i64 %61, 0
-  %.not.i = or i1 %60, %.not5.i
-  br i1 %.not.i, label %64, label %62
+  %.not.i = icmp eq i64 %59, 0
+  br i1 %.not.i, label %60, label %62
 
-62:                                               ; preds = %58
-  %63 = and i64 %.0.copyload.i.i.i.i.i.i, -16
+60:                                               ; preds = %58
+  %61 = and i64 %.0.copyload.i.i.i.i.i.i, -16
   br label %_ZNK5clang8EnumDecl14getIntegerTypeEv.exit
 
-64:                                               ; preds = %58
-  %65 = inttoptr i64 %61 to ptr
-  %.sroa.0.0.copyload.i.i = load i64, ptr %65, align 8
-  %66 = and i64 %.sroa.0.0.copyload.i.i, -16
-  %67 = inttoptr i64 %66 to ptr
-  %68 = load ptr, ptr %67, align 16
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %.sroa.0.0.copyload.i.i.i = load i64, ptr %69, align 8
-  %70 = and i64 %.sroa.0.0.copyload.i.i.i, 15
-  %.not.i.i = icmp eq i64 %70, 0
-  br i1 %.not.i.i, label %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit.i, label %71
+62:                                               ; preds = %58
+  %63 = and i64 %.0.copyload.i.i.i.i.i.i, -8
+  %64 = inttoptr i64 %63 to ptr
+  %.sroa.0.0.copyload.i.i = load i64, ptr %64, align 8
+  %65 = and i64 %.sroa.0.0.copyload.i.i, -16
+  %66 = inttoptr i64 %65 to ptr
+  %67 = load ptr, ptr %66, align 16
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
+  %.sroa.0.0.copyload.i.i.i = load i64, ptr %68, align 8
+  %69 = and i64 %.sroa.0.0.copyload.i.i.i, 15
+  %.not.i.i = icmp eq i64 %69, 0
+  br i1 %.not.i.i, label %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit.i, label %70
 
-71:                                               ; preds = %64
-  %72 = tail call { ptr, i64 } @_ZN5clang8QualType27getSplitUnqualifiedTypeImplES0_(i64 %.sroa.0.0.copyload.i.i) #12
-  %73 = extractvalue { ptr, i64 } %72, 0
+70:                                               ; preds = %62
+  %71 = tail call { ptr, i64 } @_ZN5clang8QualType27getSplitUnqualifiedTypeImplES0_(i64 %.sroa.0.0.copyload.i.i) #12
+  %72 = extractvalue { ptr, i64 } %71, 0
   br label %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit.i
 
-_ZNK5clang8QualType18getUnqualifiedTypeEv.exit.i: ; preds = %71, %64
-  %.sroa.03.0.in.in.i.i = phi ptr [ %73, %71 ], [ %68, %64 ]
+_ZNK5clang8QualType18getUnqualifiedTypeEv.exit.i: ; preds = %70, %62
+  %.sroa.03.0.in.in.i.i = phi ptr [ %72, %70 ], [ %67, %62 ]
   %.sroa.03.0.in.i.i = ptrtoint ptr %.sroa.03.0.in.in.i.i to i64
   %.sroa.03.0.i.i = and i64 %.sroa.03.0.in.i.i, -16
   br label %_ZNK5clang8EnumDecl14getIntegerTypeEv.exit
 
-_ZNK5clang8EnumDecl14getIntegerTypeEv.exit:       ; preds = %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit.i, %62, %55, %.critedge
-  %.sroa.070.0 = phi i64 [ %1, %.critedge ], [ %.sroa.03.0.i.i, %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit.i ], [ %63, %62 ], [ 0, %55 ]
-  %74 = and i64 %.sroa.070.0, -16
-  %75 = inttoptr i64 %74 to ptr
-  %76 = load ptr, ptr %75, align 16
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  %.sroa.0.0.copyload.i.i.i.i41 = load i64, ptr %77, align 8
-  %78 = and i64 %.sroa.0.0.copyload.i.i.i.i41, -16
-  %79 = inttoptr i64 %78 to ptr
-  %80 = load ptr, ptr %79, align 16
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
-  %82 = load i8, ptr %81, align 16
-  %83 = icmp ne i8 %82, 13
-  %.not2697 = icmp eq ptr %80, null
-  %.not26 = or i1 %.not2697, %83
-  br i1 %.not26, label %84, label %select.unfold
+_ZNK5clang8EnumDecl14getIntegerTypeEv.exit:       ; preds = %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit.i, %60, %55, %.critedge
+  %.sroa.070.0 = phi i64 [ %1, %.critedge ], [ %.sroa.03.0.i.i, %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit.i ], [ %61, %60 ], [ 0, %55 ]
+  %73 = and i64 %.sroa.070.0, -16
+  %74 = inttoptr i64 %73 to ptr
+  %75 = load ptr, ptr %74, align 16
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  %.sroa.0.0.copyload.i.i.i.i41 = load i64, ptr %76, align 8
+  %77 = and i64 %.sroa.0.0.copyload.i.i.i.i41, -16
+  %78 = inttoptr i64 %77 to ptr
+  %79 = load ptr, ptr %78, align 16
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
+  %81 = load i8, ptr %80, align 16
+  %82 = icmp ne i8 %81, 13
+  %.not2697 = icmp eq ptr %79, null
+  %.not26 = or i1 %.not2697, %82
+  br i1 %.not26, label %83, label %select.unfold
 
-84:                                               ; preds = %_ZNK5clang8EnumDecl14getIntegerTypeEv.exit
-  %85 = getelementptr inbounds nuw i8, ptr %76, i64 16
-  %86 = load i8, ptr %85, align 16
-  %87 = and i8 %86, -2
-  %spec.select.i.i.i.i.i.i.i.i.not.i = icmp eq i8 %87, 56
-  br i1 %spec.select.i.i.i.i.i.i.i.i.not.i, label %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit.thread89, label %88
+83:                                               ; preds = %_ZNK5clang8EnumDecl14getIntegerTypeEv.exit
+  %84 = getelementptr inbounds nuw i8, ptr %75, i64 16
+  %85 = load i8, ptr %84, align 16
+  %86 = and i8 %85, -2
+  %spec.select.i.i.i.i.i.i.i.i.not.i = icmp eq i8 %86, 56
+  br i1 %spec.select.i.i.i.i.i.i.i.i.not.i, label %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit.thread89, label %87
 
-88:                                               ; preds = %84
-  %89 = and i8 %82, -2
-  %spec.select.i.i.i.i.i.i.i.i5.i = icmp eq i8 %89, 56
+87:                                               ; preds = %83
+  %88 = and i8 %81, -2
+  %spec.select.i.i.i.i.i.i.i.i5.i = icmp eq i8 %88, 56
   br i1 %spec.select.i.i.i.i.i.i.i.i5.i, label %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit, label %.thread
 
-_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit: ; preds = %88
-  %90 = tail call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %76) #12
-  %.not27 = icmp eq ptr %90, null
+_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit: ; preds = %87
+  %89 = tail call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %75) #12
+  %.not27 = icmp eq ptr %89, null
   br i1 %.not27, label %.thread, label %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit.thread89
 
-_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit.thread89: ; preds = %84, %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit
-  %.0.i92 = phi ptr [ %90, %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit ], [ %76, %84 ]
-  %91 = getelementptr inbounds nuw i8, ptr %.0.i92, i64 32
-  %.sroa.0.0.copyload.i = load i64, ptr %91, align 16
-  %92 = and i64 %.sroa.0.0.copyload.i, -16
-  %93 = inttoptr i64 %92 to ptr
-  %94 = load ptr, ptr %93, align 16
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
-  %.sroa.0.0.copyload.i.i.i.i46 = load i64, ptr %95, align 8
-  %96 = and i64 %.sroa.0.0.copyload.i.i.i.i46, -16
-  %97 = inttoptr i64 %96 to ptr
-  %98 = load ptr, ptr %97, align 16
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 16
-  %100 = load i8, ptr %99, align 16
-  %101 = icmp eq i8 %100, 13
-  %102 = getelementptr inbounds nuw i8, ptr %.0.i92, i64 20
-  %103 = load i32, ptr %102, align 4
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr null, ptr %104, align 8
+_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit.thread89: ; preds = %83, %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit
+  %.0.i92 = phi ptr [ %89, %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit ], [ %75, %83 ]
+  %90 = getelementptr inbounds nuw i8, ptr %.0.i92, i64 32
+  %.sroa.0.0.copyload.i = load i64, ptr %90, align 16
+  %91 = and i64 %.sroa.0.0.copyload.i, -16
+  %92 = inttoptr i64 %91 to ptr
+  %93 = load ptr, ptr %92, align 16
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
+  %.sroa.0.0.copyload.i.i.i.i46 = load i64, ptr %94, align 8
+  %95 = and i64 %.sroa.0.0.copyload.i.i.i.i46, -16
+  %96 = inttoptr i64 %95 to ptr
+  %97 = load ptr, ptr %96, align 16
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 16
+  %99 = load i8, ptr %98, align 16
+  %100 = icmp eq i8 %99, 13
+  %101 = getelementptr inbounds nuw i8, ptr %.0.i92, i64 20
+  %102 = load i32, ptr %101, align 4
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store ptr null, ptr %103, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 0, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 1, ptr %.sroa.3.0..sroa_idx, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %103, ptr %.sroa.4.0..sroa_idx, align 8
+  store i32 %102, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i8 0, ptr %.sroa.5.0..sroa_idx, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 93
   store i8 0, ptr %.sroa.7.0..sroa_idx, align 1
-  br i1 %101, label %select.unfold, label %.thread
+  br i1 %100, label %select.unfold, label %.thread
 
 select.unfold:                                    ; preds = %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit.thread89, %_ZNK5clang8EnumDecl14getIntegerTypeEv.exit
   %.sroa.070.1 = phi i64 [ %.sroa.070.0, %_ZNK5clang8EnumDecl14getIntegerTypeEv.exit ], [ %.sroa.0.0.copyload.i, %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit.thread89 ]
-  %.022 = phi ptr [ %80, %_ZNK5clang8EnumDecl14getIntegerTypeEv.exit ], [ %98, %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit.thread89 ]
-  %105 = getelementptr inbounds nuw i8, ptr %.022, i64 16
-  %106 = load i32, ptr %105, align 16
-  %107 = lshr i32 %106, 19
-  %108 = and i32 %107, 511
-  switch i32 %108, label %124 [
+  %.022 = phi ptr [ %79, %_ZNK5clang8EnumDecl14getIntegerTypeEv.exit ], [ %97, %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit.thread89 ]
+  %104 = getelementptr inbounds nuw i8, ptr %.022, i64 16
+  %105 = load i32, ptr %104, align 16
+  %106 = lshr i32 %105, 19
+  %107 = and i32 %106, 511
+  switch i32 %107, label %123 [
     i32 429, label %.thread
     i32 432, label %.thread
     i32 443, label %.thread
@@ -3782,35 +3780,38 @@ select.unfold:                                    ; preds = %_ZNK5clang4Type5get
     i32 499, label %.thread
     i32 500, label %.thread
     i32 501, label %.thread
-    i32 437, label %109
-    i32 445, label %109
-    i32 474, label %109
-    i32 475, label %114
+    i32 437, label %108
+    i32 445, label %108
+    i32 474, label %108
+    i32 475, label %113
     i32 430, label %.sink.split
     i32 431, label %.sink.split
     i32 441, label %.sink.split
     i32 442, label %.sink.split
-    i32 444, label %119
-    i32 436, label %119
-    i32 446, label %120
-    i32 438, label %120
-    i32 447, label %121
-    i32 439, label %121
-    i32 476, label %122
+    i32 444, label %118
+    i32 436, label %118
+    i32 446, label %119
+    i32 438, label %119
+    i32 447, label %120
+    i32 439, label %120
+    i32 476, label %121
   ]
 
-109:                                              ; preds = %select.unfold, %select.unfold, %select.unfold
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  %111 = load i32, ptr %110, align 4
-  %112 = icmp eq i32 %111, 3
-  %113 = select i1 %112, i32 0, i32 3
+108:                                              ; preds = %select.unfold, %select.unfold, %select.unfold
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  %110 = load i32, ptr %109, align 4
+  %111 = icmp eq i32 %110, 3
+  %112 = select i1 %111, i32 0, i32 3
   br label %.sink.split
 
-114:                                              ; preds = %select.unfold
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  %116 = load i32, ptr %115, align 4
-  %117 = icmp eq i32 %116, 3
-  %118 = select i1 %117, i32 0, i32 4
+113:                                              ; preds = %select.unfold
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  %115 = load i32, ptr %114, align 4
+  %116 = icmp eq i32 %115, 3
+  %117 = select i1 %116, i32 0, i32 4
+  br label %.sink.split
+
+118:                                              ; preds = %select.unfold, %select.unfold
   br label %.sink.split
 
 119:                                              ; preds = %select.unfold, %select.unfold
@@ -3819,140 +3820,137 @@ select.unfold:                                    ; preds = %_ZNK5clang4Type5get
 120:                                              ; preds = %select.unfold, %select.unfold
   br label %.sink.split
 
-121:                                              ; preds = %select.unfold, %select.unfold
+121:                                              ; preds = %select.unfold
   br label %.sink.split
 
-122:                                              ; preds = %select.unfold
-  br label %.sink.split
+.sink.split:                                      ; preds = %select.unfold, %select.unfold, %select.unfold, %select.unfold, %108, %113, %118, %119, %120, %121
+  %.sink = phi i32 [ 13, %121 ], [ 5, %120 ], [ 4, %119 ], [ 2, %118 ], [ %117, %113 ], [ %112, %108 ], [ 1, %select.unfold ], [ 1, %select.unfold ], [ 1, %select.unfold ], [ 1, %select.unfold ]
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %.sink, ptr %122, align 8
+  br label %123
 
-.sink.split:                                      ; preds = %select.unfold, %select.unfold, %select.unfold, %select.unfold, %109, %114, %119, %120, %121, %122
-  %.sink = phi i32 [ 13, %122 ], [ 5, %121 ], [ 4, %120 ], [ 2, %119 ], [ %118, %114 ], [ %113, %109 ], [ 1, %select.unfold ], [ 1, %select.unfold ], [ 1, %select.unfold ], [ 1, %select.unfold ]
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sink, ptr %123, align 8
-  br label %124
+123:                                              ; preds = %.sink.split, %select.unfold
+  %124 = load i64, ptr %2, align 8
+  %125 = and i64 %124, 4097
+  %or.cond = icmp eq i64 %125, 0
+  br i1 %or.cond, label %128, label %126
 
-124:                                              ; preds = %.sink.split, %select.unfold
-  %125 = load i64, ptr %2, align 8
-  %126 = and i64 %125, 4097
-  %or.cond = icmp eq i64 %126, 0
-  br i1 %or.cond, label %129, label %127
+126:                                              ; preds = %123
+  %127 = tail call noundef zeroext i1 @_ZN5clang21analyze_format_string15FormatSpecifier25namedTypeToLengthModifierENS_8QualTypeERNS0_14LengthModifierE(i64 %.sroa.070.1, ptr noundef nonnull align 8 dereferenceable(12) %0) #12
+  br label %128
 
-127:                                              ; preds = %124
-  %128 = tail call noundef zeroext i1 @_ZN5clang21analyze_format_string15FormatSpecifier25namedTypeToLengthModifierENS_8QualTypeERNS0_14LengthModifierE(i64 %.sroa.070.1, ptr noundef nonnull align 8 dereferenceable(12) %0) #12
-  br label %129
+128:                                              ; preds = %123, %126
+  %129 = getelementptr inbounds nuw i8, ptr %3, i64 17240
+  %130 = load ptr, ptr %129, align 8
+  %131 = tail call noundef zeroext i1 @_ZNK5clang21analyze_format_string15FormatSpecifier22hasValidLengthModifierERKNS_10TargetInfoERKNS_11LangOptionsE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(489) %130, ptr noundef nonnull align 8 dereferenceable(841) %2) #12
+  br i1 %131, label %132, label %152
 
-129:                                              ; preds = %124, %127
-  %130 = getelementptr inbounds nuw i8, ptr %3, i64 17240
-  %131 = load ptr, ptr %130, align 8
-  %132 = tail call noundef zeroext i1 @_ZNK5clang21analyze_format_string15FormatSpecifier22hasValidLengthModifierERKNS_10TargetInfoERKNS_11LangOptionsE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(489) %131, ptr noundef nonnull align 8 dereferenceable(841) %2) #12
-  br i1 %132, label %133, label %153
-
-133:                                              ; preds = %129
-  %134 = load i32, ptr %7, align 8
-  switch i32 %134, label %149 [
-    i32 9, label %135
-    i32 10, label %135
-    i32 2, label %140
-    i32 3, label %140
-    i32 4, label %140
+132:                                              ; preds = %128
+  %133 = load i32, ptr %7, align 8
+  switch i32 %133, label %148 [
+    i32 9, label %134
+    i32 10, label %134
+    i32 2, label %139
+    i32 3, label %139
+    i32 4, label %139
   ]
 
-135:                                              ; preds = %133, %133
-  %136 = and i64 %.sroa.070.1, -16
-  %137 = inttoptr i64 %136 to ptr
-  %138 = load ptr, ptr %137, align 16
-  %139 = tail call noundef zeroext i1 @_ZNK5clang4Type19isSignedIntegerTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %138) #12
-  br i1 %139, label %.sink.split104, label %149
+134:                                              ; preds = %132, %132
+  %135 = and i64 %.sroa.070.1, -16
+  %136 = inttoptr i64 %135 to ptr
+  %137 = load ptr, ptr %136, align 16
+  %138 = tail call noundef zeroext i1 @_ZNK5clang4Type19isSignedIntegerTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %137) #12
+  br i1 %138, label %.sink.split104, label %148
 
-140:                                              ; preds = %133, %133, %133
-  %141 = and i64 %.sroa.070.1, -16
-  %142 = inttoptr i64 %141 to ptr
-  %143 = load ptr, ptr %142, align 16
-  %144 = tail call noundef zeroext i1 @_ZNK5clang4Type21isUnsignedIntegerTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %143) #12
-  br i1 %144, label %145, label %149
+139:                                              ; preds = %132, %132, %132
+  %140 = and i64 %.sroa.070.1, -16
+  %141 = inttoptr i64 %140 to ptr
+  %142 = load ptr, ptr %141, align 16
+  %143 = tail call noundef zeroext i1 @_ZNK5clang4Type21isUnsignedIntegerTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %142) #12
+  br i1 %143, label %144, label %148
 
-145:                                              ; preds = %140
-  %146 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %147 = load i8, ptr %146, align 8
-  %148 = trunc i8 %147 to i1
-  br i1 %148, label %149, label %.sink.split104
+144:                                              ; preds = %139
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %146 = load i8, ptr %145, align 8
+  %147 = trunc i8 %146 to i1
+  br i1 %147, label %148, label %.sink.split104
 
-.sink.split104:                                   ; preds = %145, %135
-  %.sink105 = phi i32 [ 2, %135 ], [ 9, %145 ]
+.sink.split104:                                   ; preds = %144, %134
+  %.sink105 = phi i32 [ 2, %134 ], [ 9, %144 ]
   store i32 %.sink105, ptr %7, align 8
-  br label %149
+  br label %148
 
-149:                                              ; preds = %.sink.split104, %133, %140, %145, %135
+148:                                              ; preds = %.sink.split104, %132, %139, %144, %134
   call void @_ZNK5clang14analyze_printf15PrintfSpecifier10getArgTypeERNS_10ASTContextEb(ptr dead_on_unwind nonnull writable sret(%"class.clang::analyze_format_string::ArgType") align 8 %6, ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef nonnull align 8 dereferenceable(23096) %3, i1 noundef zeroext %4)
-  %150 = load i32, ptr %6, align 8
-  %.not98 = icmp eq i32 %150, 1
-  br i1 %.not98, label %153, label %151
+  %149 = load i32, ptr %6, align 8
+  %.not98 = icmp eq i32 %149, 1
+  br i1 %.not98, label %152, label %150
 
-151:                                              ; preds = %149
-  %152 = call noundef i32 @_ZNK5clang21analyze_format_string7ArgType11matchesTypeERNS_10ASTContextENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(23096) %3, i64 %.sroa.070.1) #12
-  %.not31 = icmp eq i32 %152, 0
-  br i1 %.not31, label %153, label %.thread
+150:                                              ; preds = %148
+  %151 = call noundef i32 @_ZNK5clang21analyze_format_string7ArgType11matchesTypeERNS_10ASTContextENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(23096) %3, i64 %.sroa.070.1) #12
+  %.not31 = icmp eq i32 %151, 0
+  br i1 %.not31, label %152, label %.thread
 
-153:                                              ; preds = %149, %151, %129
-  %154 = and i64 %.sroa.070.1, -16
-  %155 = inttoptr i64 %154 to ptr
-  %156 = load ptr, ptr %155, align 16
-  %157 = call noundef ptr @_ZNK5clang4Type5getAsINS_11TypedefTypeEEEPKT_v(ptr noundef nonnull align 16 dereferenceable(24) %156) #12
-  %.not32 = icmp eq ptr %157, null
-  br i1 %.not32, label %158, label %167
+152:                                              ; preds = %148, %150, %128
+  %153 = and i64 %.sroa.070.1, -16
+  %154 = inttoptr i64 %153 to ptr
+  %155 = load ptr, ptr %154, align 16
+  %156 = call noundef ptr @_ZNK5clang4Type5getAsINS_11TypedefTypeEEEPKT_v(ptr noundef nonnull align 16 dereferenceable(24) %155) #12
+  %.not32 = icmp eq ptr %156, null
+  br i1 %.not32, label %157, label %166
 
-158:                                              ; preds = %153
-  %159 = load ptr, ptr %155, align 16
-  %160 = call noundef zeroext i1 @_ZNK5clang4Type10isCharTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %159) #12
-  br i1 %160, label %161, label %167
+157:                                              ; preds = %152
+  %158 = load ptr, ptr %154, align 16
+  %159 = call noundef zeroext i1 @_ZNK5clang4Type10isCharTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %158) #12
+  br i1 %159, label %160, label %166
 
-161:                                              ; preds = %158
+160:                                              ; preds = %157
   store i32 1, ptr %7, align 8
-  %162 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %162, align 8
-  %163 = getelementptr inbounds nuw i8, ptr %0, i64 356
-  store i32 0, ptr %163, align 4
-  %164 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 0, ptr %161, align 8
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 356
+  store i32 0, ptr %162, align 4
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  store i8 0, ptr %163, align 8
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store i8 0, ptr %164, align 8
-  %165 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i8 0, ptr %165, align 8
-  %166 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store i8 0, ptr %166, align 8
   br label %.thread
 
-167:                                              ; preds = %158, %153
-  %168 = load ptr, ptr %155, align 16
-  %169 = call noundef zeroext i1 @_ZNK5clang4Type18isRealFloatingTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %168) #12
-  br i1 %169, label %170, label %171
+166:                                              ; preds = %157, %152
+  %167 = load ptr, ptr %154, align 16
+  %168 = call noundef zeroext i1 @_ZNK5clang4Type18isRealFloatingTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %167) #12
+  br i1 %168, label %169, label %170
 
-170:                                              ; preds = %167
+169:                                              ; preds = %166
   store i32 13, ptr %7, align 8
   br label %.thread
 
-171:                                              ; preds = %167
-  %172 = load ptr, ptr %155, align 16
-  %173 = call noundef zeroext i1 @_ZNK5clang4Type19isSignedIntegerTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %172) #12
-  br i1 %173, label %174, label %176
+170:                                              ; preds = %166
+  %171 = load ptr, ptr %154, align 16
+  %172 = call noundef zeroext i1 @_ZNK5clang4Type19isSignedIntegerTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %171) #12
+  br i1 %172, label %173, label %175
 
-174:                                              ; preds = %171
+173:                                              ; preds = %170
   store i32 2, ptr %7, align 8
-  %175 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  store i8 0, ptr %175, align 8
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  store i8 0, ptr %174, align 8
   br label %.thread
 
-176:                                              ; preds = %171
-  %177 = load ptr, ptr %155, align 16
-  %178 = call noundef zeroext i1 @_ZNK5clang4Type21isUnsignedIntegerTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %177) #12
-  call void @llvm.assume(i1 %178)
+175:                                              ; preds = %170
+  %176 = load ptr, ptr %154, align 16
+  %177 = call noundef zeroext i1 @_ZNK5clang4Type21isUnsignedIntegerTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %176) #12
+  call void @llvm.assume(i1 %177)
   store i32 9, ptr %7, align 8
-  %179 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %178 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  store i8 0, ptr %178, align 8
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i8 0, ptr %179, align 8
-  %180 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store i8 0, ptr %180, align 8
   br label %.thread
 
-.thread:                                          ; preds = %88, %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit, %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit.thread89, %161, %174, %176, %170, %151, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %49, %50, %15, %5, %16
-  %.0 = phi i1 [ true, %16 ], [ false, %5 ], [ false, %15 ], [ true, %50 ], [ true, %49 ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ true, %151 ], [ true, %170 ], [ true, %176 ], [ true, %174 ], [ true, %161 ], [ false, %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit.thread89 ], [ false, %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit ], [ false, %88 ]
+.thread:                                          ; preds = %87, %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit, %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit.thread89, %160, %173, %175, %169, %150, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %49, %50, %15, %5, %16
+  %.0 = phi i1 [ true, %16 ], [ false, %5 ], [ false, %15 ], [ true, %50 ], [ true, %49 ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ false, %select.unfold ], [ true, %150 ], [ true, %169 ], [ true, %175 ], [ true, %173 ], [ true, %160 ], [ false, %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit.thread89 ], [ false, %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit ], [ false, %87 ]
   ret i1 %.0
 }
 
