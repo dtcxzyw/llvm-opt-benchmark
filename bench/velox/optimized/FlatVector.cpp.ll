@@ -1559,16 +1559,12 @@ if.end.i.i:                                       ; preds = %while.end
 
 land.rhs.i.i:                                     ; preds = %if.end.i.i
   %6 = load ptr, ptr %rows, align 8
-  %cmp.not.i.i.i = icmp sgt i32 %1, 0
-  br i1 %cmp.not.i.i.i, label %if.end.i.i.i.i, label %land.end.i.i
-
-if.end.i.i.i.i:                                   ; preds = %land.rhs.i.i
   %7 = and i32 %1, 2147483584
   %8 = zext nneg i32 %7 to i64
   br label %for.cond.i.i.i.i
 
-for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.end.i.i.i.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i.i.i ], [ 0, %if.end.i.i.i.i ]
+for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %land.rhs.i.i
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i.i.i ], [ 0, %land.rhs.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 64
   %cmp19.not.i.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i, %8
   br i1 %cmp19.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i
@@ -1598,8 +1594,8 @@ if.then26.i.i.i.i:                                ; preds = %for.end.i.i.i.i
   %13 = or disjoint i16 %12, 256
   br label %land.end.i.i
 
-land.end.i.i:                                     ; preds = %for.body.i.i.i.i, %if.then26.i.i.i.i, %for.end.i.i.i.i, %land.rhs.i.i, %if.end.i.i
-  %frombool.i.i = phi i16 [ 256, %if.end.i.i ], [ 257, %land.rhs.i.i ], [ %13, %if.then26.i.i.i.i ], [ 257, %for.end.i.i.i.i ], [ 256, %for.body.i.i.i.i ]
+land.end.i.i:                                     ; preds = %for.body.i.i.i.i, %if.then26.i.i.i.i, %for.end.i.i.i.i, %if.end.i.i
+  %frombool.i.i = phi i16 [ 256, %if.end.i.i ], [ %13, %if.then26.i.i.i.i ], [ 257, %for.end.i.i.i.i ], [ 256, %for.body.i.i.i.i ]
   store i16 %frombool.i.i, ptr %allSelected_.i.i, align 4
   %14 = trunc i16 %frombool.i.i to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i
@@ -1961,16 +1957,12 @@ if.end.i.i19:                                     ; preds = %if.else
 
 land.rhs.i.i222:                                  ; preds = %if.end.i.i19
   %64 = load ptr, ptr %rows, align 8
-  %cmp.not.i.i.i223 = icmp sgt i32 %1, 0
-  br i1 %cmp.not.i.i.i223, label %if.end.i.i.i.i224, label %land.end.i.i22
-
-if.end.i.i.i.i224:                                ; preds = %land.rhs.i.i222
   %65 = and i32 %1, 2147483584
   %66 = zext nneg i32 %65 to i64
   br label %for.cond.i.i.i.i225
 
-for.cond.i.i.i.i225:                              ; preds = %for.body.i.i.i.i229, %if.end.i.i.i.i224
-  %indvars.iv.i.i226 = phi i64 [ %indvars.iv.next.i.i227, %for.body.i.i.i.i229 ], [ 0, %if.end.i.i.i.i224 ]
+for.cond.i.i.i.i225:                              ; preds = %for.body.i.i.i.i229, %land.rhs.i.i222
+  %indvars.iv.i.i226 = phi i64 [ %indvars.iv.next.i.i227, %for.body.i.i.i.i229 ], [ 0, %land.rhs.i.i222 ]
   %indvars.iv.next.i.i227 = add nuw nsw i64 %indvars.iv.i.i226, 64
   %cmp19.not.i.i.i.i228 = icmp samesign ugt i64 %indvars.iv.next.i.i227, %66
   br i1 %cmp19.not.i.i.i.i228, label %for.end.i.i.i.i232, label %for.body.i.i.i.i229
@@ -2000,8 +1992,8 @@ if.then26.i.i.i.i234:                             ; preds = %for.end.i.i.i.i232
   %71 = or disjoint i16 %70, 256
   br label %land.end.i.i22
 
-land.end.i.i22:                                   ; preds = %for.body.i.i.i.i229, %if.then26.i.i.i.i234, %for.end.i.i.i.i232, %land.rhs.i.i222, %if.end.i.i19
-  %frombool.i.i23 = phi i16 [ 256, %if.end.i.i19 ], [ 257, %land.rhs.i.i222 ], [ %71, %if.then26.i.i.i.i234 ], [ 257, %for.end.i.i.i.i232 ], [ 256, %for.body.i.i.i.i229 ]
+land.end.i.i22:                                   ; preds = %for.body.i.i.i.i229, %if.then26.i.i.i.i234, %for.end.i.i.i.i232, %if.end.i.i19
+  %frombool.i.i23 = phi i16 [ 256, %if.end.i.i19 ], [ %71, %if.then26.i.i.i.i234 ], [ 257, %for.end.i.i.i.i232 ], [ 256, %for.body.i.i.i.i229 ]
   store i16 %frombool.i.i23, ptr %allSelected_.i.i, align 4
   %72 = trunc i16 %frombool.i.i23 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i24

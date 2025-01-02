@@ -1506,7 +1506,7 @@ define void @Abc_NtkFixNonDrivenNets(ptr noundef %0) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %.val42, i64 4
   %.val42.val = load i32, ptr %6, align 4
   %7 = icmp eq i32 %.val42.val, 0
-  br i1 %7, label %85, label %8
+  br i1 %7, label %83, label %8
 
 8:                                                ; preds = %4, %1
   %9 = tail call ptr @Abc_NtkFindNet(ptr noundef nonnull %0, ptr noundef nonnull @.str.28) #17
@@ -1662,32 +1662,28 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %78, label %79, label %71
 
 79:                                               ; preds = %72
-  %80 = icmp sgt i32 %.pre55, 3
-  br i1 %80, label %81, label %.thread
-
-81:                                               ; preds = %79
-  %82 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.32)
+  %80 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.32)
   br label %.thread
 
-.thread:                                          ; preds = %71, %81, %79
+.thread:                                          ; preds = %71, %79
   %putchar = tail call i32 @putchar(i32 10)
-  br label %83
+  br label %81
 
 .critedge.thread:                                 ; preds = %12, %.critedge
   %.pre56 = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %.pre56, null
-  br i1 %.not.i, label %Vec_PtrFree.exit, label %83
+  br i1 %.not.i, label %Vec_PtrFree.exit, label %81
 
-83:                                               ; preds = %.thread, %.critedge.thread
-  %84 = phi ptr [ %.val41, %.thread ], [ %.pre56, %.critedge.thread ]
-  tail call void @free(ptr noundef nonnull %84) #17
+81:                                               ; preds = %.thread, %.critedge.thread
+  %82 = phi ptr [ %.val41, %.thread ], [ %.pre56, %.critedge.thread ]
+  tail call void @free(ptr noundef nonnull %82) #17
   br label %Vec_PtrFree.exit
 
-Vec_PtrFree.exit:                                 ; preds = %.critedge.thread, %83
+Vec_PtrFree.exit:                                 ; preds = %.critedge.thread, %81
   tail call void @free(ptr noundef nonnull %13) #17
-  br label %85
+  br label %83
 
-85:                                               ; preds = %4, %Vec_PtrFree.exit
+83:                                               ; preds = %4, %Vec_PtrFree.exit
   ret void
 }
 

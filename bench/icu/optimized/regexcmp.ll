@@ -3034,15 +3034,11 @@ sw.bb246:                                         ; preds = %entry
   %122 = load i32, ptr %count.i126, align 8
   %sub251 = add nsw i32 %122, -1
   %cmp252 = icmp eq i32 %call247, %sub251
-  br i1 %cmp252, label %if.then253, label %if.end283
-
-if.then253:                                       ; preds = %sw.bb246
   %cmp.i127 = icmp sgt i32 %call247, -1
-  %cmp2.i129 = icmp slt i32 %call247, %122
-  %or.cond.i130 = and i1 %cmp.i127, %cmp2.i129
-  br i1 %or.cond.i130, label %_ZNK6icu_759UVector6410elementAtiEi.exit136, label %if.end283
+  %or.cond284 = and i1 %cmp252, %cmp.i127
+  br i1 %or.cond284, label %_ZNK6icu_759UVector6410elementAtiEi.exit136, label %if.end283
 
-_ZNK6icu_759UVector6410elementAtiEi.exit136:      ; preds = %if.then253
+_ZNK6icu_759UVector6410elementAtiEi.exit136:      ; preds = %sw.bb246
   %elements.i133 = getelementptr inbounds nuw i8, ptr %121, i64 24
   %123 = load ptr, ptr %elements.i133, align 8
   %idxprom.i134 = zext nneg i32 %call247 to i64
@@ -3084,7 +3080,7 @@ if.then269:                                       ; preds = %_ZNK6icu_759UVector
   tail call void @_ZN6icu_7512RegexCompile8appendOpEii(ptr noundef nonnull align 8 dereferenceable(512) %this, i32 noundef 51, i32 noundef %call281)
   br label %sw.epilog1134
 
-if.end283:                                        ; preds = %if.then253, %_ZNK6icu_759UVector6410elementAtiEi.exit136, %sw.bb246
+if.end283:                                        ; preds = %_ZNK6icu_759UVector6410elementAtiEi.exit136, %sw.bb246
   %call288 = tail call noundef i32 @_ZN6icu_7512RegexCompile14minMatchLengthEii(ptr noundef nonnull align 8 dereferenceable(512) %this, i32 noundef %call247, i32 noundef %sub251)
   %cmp289 = icmp eq i32 %call288, 0
   br i1 %cmp289, label %if.then290, label %if.else
@@ -3158,15 +3154,11 @@ sw.bb323:                                         ; preds = %entry
   %143 = load i32, ptr %count.i140, align 8
   %sub330 = add nsw i32 %143, -1
   %cmp331 = icmp eq i32 %call325, %sub330
-  br i1 %cmp331, label %if.then332, label %if.end376
-
-if.then332:                                       ; preds = %sw.bb323
   %cmp.i141 = icmp sgt i32 %call325, -1
-  %cmp2.i143 = icmp slt i32 %call325, %143
-  %or.cond.i144 = and i1 %cmp.i141, %cmp2.i143
-  br i1 %or.cond.i144, label %_ZNK6icu_759UVector6410elementAtiEi.exit150, label %if.end376
+  %or.cond285 = and i1 %cmp331, %cmp.i141
+  br i1 %or.cond285, label %_ZNK6icu_759UVector6410elementAtiEi.exit150, label %if.end376
 
-_ZNK6icu_759UVector6410elementAtiEi.exit150:      ; preds = %if.then332
+_ZNK6icu_759UVector6410elementAtiEi.exit150:      ; preds = %sw.bb323
   %elements.i147 = getelementptr inbounds nuw i8, ptr %142, i64 24
   %144 = load ptr, ptr %elements.i147, align 8
   %idxprom.i148 = zext nneg i32 %call325 to i64
@@ -3214,7 +3206,7 @@ if.then357:                                       ; preds = %_ZNK6icu_759UVector
   tail call void @_ZN6icu_7512RegexCompile8appendOpEii(ptr noundef nonnull align 8 dereferenceable(512) %this, i32 noundef 51, i32 noundef %call374)
   br label %sw.epilog1134
 
-if.end376:                                        ; preds = %if.then332, %_ZNK6icu_759UVector6410elementAtiEi.exit150, %sw.bb323
+if.end376:                                        ; preds = %_ZNK6icu_759UVector6410elementAtiEi.exit150, %sw.bb323
   %call378 = tail call noundef i32 @_ZN6icu_7512RegexCompile11blockTopLocEa(ptr noundef nonnull align 8 dereferenceable(512) %this, i8 noundef signext 1)
   %add379 = add nsw i32 %call378, 1
   %call380 = tail call noundef i32 @_ZN6icu_7512RegexCompile7buildOpEii(ptr noundef nonnull align 8 dereferenceable(512) %this, i32 noundef 15, i32 noundef %add379)
@@ -3385,11 +3377,11 @@ if.then.i163:                                     ; preds = %sw.bb464
   %182 = ashr exact i64 %181, 32
   %.pre = load ptr, ptr %fRXPat471, align 8
   %fCompiledPat479.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 32
-  %.pre284 = load ptr, ptr %fCompiledPat479.phi.trans.insert, align 8
+  %.pre286 = load ptr, ptr %fCompiledPat479.phi.trans.insert, align 8
   br label %_ZN6icu_759UVector644popiEv.exit
 
 _ZN6icu_759UVector644popiEv.exit:                 ; preds = %sw.bb464, %if.then.i163
-  %183 = phi ptr [ %.pre284, %if.then.i163 ], [ %176, %sw.bb464 ]
+  %183 = phi ptr [ %.pre286, %if.then.i163 ], [ %176, %sw.bb464 ]
   %result.0.i162 = phi i64 [ %182, %if.then.i163 ], [ 1, %sw.bb464 ]
   %fStatus481 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %184 = load ptr, ptr %fStatus481, align 8

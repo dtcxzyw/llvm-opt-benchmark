@@ -1323,7 +1323,6 @@ sw.bb377:                                         ; preds = %if.end141
   br i1 %or.cond576, label %if.end387, label %cleanup423
 
 if.end387:                                        ; preds = %sw.bb377
-  %dec388 = add nsw i32 %b.0, -1
   %cmp389 = icmp eq i32 %b.0, 0
   br i1 %cmp389, label %if.then391, label %if.end400
 
@@ -1340,12 +1339,10 @@ if.then391:                                       ; preds = %if.end387
 
 luaG_checkopenop.exit612:                         ; preds = %if.then391, %if.then391, %if.then391, %if.then391
   %cmp.i609 = icmp ugt i32 %41, 8388607
-  %add401 = add nsw i32 %dec388, %and2
-  %cmp405.not = icmp sgt i32 %add401, %conv.i
-  %or.cond632 = select i1 %cmp.i609, i1 true, i1 %cmp405.not
-  br i1 %or.cond632, label %cleanup423, label %for.inc417
+  br i1 %cmp.i609, label %cleanup423, label %for.inc417
 
 if.end400:                                        ; preds = %if.end387
+  %dec388 = add nsw i32 %b.0, -1
   %add401.old = add nsw i32 %dec388, %and2
   %cmp405.not.old = icmp sgt i32 %add401.old, %conv.i
   br i1 %cmp405.not.old, label %cleanup423, label %for.inc417

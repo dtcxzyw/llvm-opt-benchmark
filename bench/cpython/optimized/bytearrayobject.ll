@@ -10611,7 +10611,7 @@ if.then4:                                         ; preds = %if.end
 
 if.end7:                                          ; preds = %if.then4
   %0 = load i8, ptr %p, align 1
-  switch i32 %mode, label %if.else14 [
+  switch i32 %mode, label %for.body.i [
     i32 1, label %if.then9
     i32 2, label %if.then11
   ]
@@ -10691,13 +10691,9 @@ if.then11.i56:                                    ; preds = %while.body.i53
   %sub.ptr.sub14.i59 = sub i64 %sub.ptr.lhs.cast12.i57, %sub.ptr.rhs.cast13.i58
   br label %return
 
-if.else14:                                        ; preds = %if.end7
-  %cmp6.i = icmp sgt i64 %n, 0
-  br i1 %cmp6.i, label %for.body.i, label %return
-
-for.body.i:                                       ; preds = %if.else14, %for.inc.i
-  %count.08.i = phi i64 [ %count.1.i, %for.inc.i ], [ 0, %if.else14 ]
-  %i.07.i = phi i64 [ %inc8.i, %for.inc.i ], [ 0, %if.else14 ]
+for.body.i:                                       ; preds = %if.end7, %for.inc.i
+  %count.08.i = phi i64 [ %count.1.i, %for.inc.i ], [ 0, %if.end7 ]
+  %i.07.i = phi i64 [ %inc8.i, %for.inc.i ], [ 0, %if.end7 ]
   %arrayidx.i = getelementptr i8, ptr %s, i64 %i.07.i
   %3 = load i8, ptr %arrayidx.i, align 1
   %cmp2.i = icmp eq i8 %3, %0
@@ -10939,8 +10935,8 @@ for.body.i79:                                     ; preds = %for.body.i79, %if.e
   %cmp.i80 = icmp samesign ugt i64 %i.041.i, 1
   br i1 %cmp.i80, label %for.body.i79, label %for.cond17.preheader.i, !llvm.loop !62
 
-return:                                           ; preds = %if.end48.us.i, %if.then44.us.i, %for.inc76.us.i, %if.else60.us.i, %for.inc40.us.i, %while.cond.i, %if.end15.i, %for.inc.i, %if.then.i70, %for.cond17.preheader.i, %for.end82.i, %if.else14, %if.then11.i56, %if.then3.i64, %if.then.i60, %if.then11.i, %if.then3.i, %if.then.i, %while.cond.preheader.i, %if.then4, %entry, %lor.lhs.false, %if.else38, %if.else36, %if.then34
-  %retval.0 = phi i64 [ %call35, %if.then34 ], [ %call37, %if.else36 ], [ %call39, %if.else38 ], [ -1, %lor.lhs.false ], [ -1, %entry ], [ -1, %if.then4 ], [ %sub.ptr.sub.i, %if.then3.i ], [ %sub.ptr.sub14.i, %if.then11.i ], [ -1, %if.then.i ], [ -1, %while.cond.preheader.i ], [ %sub.ptr.sub.i67, %if.then3.i64 ], [ %sub.ptr.sub14.i59, %if.then11.i56 ], [ -1, %if.then.i60 ], [ 0, %if.else14 ], [ %cond.i, %for.end82.i ], [ -1, %for.cond17.preheader.i ], [ %maxcount, %if.then.i70 ], [ %count.1.i, %for.inc.i ], [ -1, %if.end15.i ], [ -1, %while.cond.i ], [ %i.149.us.i, %for.inc40.us.i ], [ -1, %if.else60.us.i ], [ -1, %for.inc76.us.i ], [ %i16.056.us.i, %if.then44.us.i ], [ %maxcount, %if.end48.us.i ]
+return:                                           ; preds = %if.end48.us.i, %if.then44.us.i, %for.inc76.us.i, %if.else60.us.i, %for.inc40.us.i, %while.cond.i, %if.end15.i, %for.inc.i, %if.then.i70, %for.cond17.preheader.i, %for.end82.i, %if.then11.i56, %if.then3.i64, %if.then.i60, %if.then11.i, %if.then3.i, %if.then.i, %while.cond.preheader.i, %if.then4, %entry, %lor.lhs.false, %if.else38, %if.else36, %if.then34
+  %retval.0 = phi i64 [ %call35, %if.then34 ], [ %call37, %if.else36 ], [ %call39, %if.else38 ], [ -1, %lor.lhs.false ], [ -1, %entry ], [ -1, %if.then4 ], [ %sub.ptr.sub.i, %if.then3.i ], [ %sub.ptr.sub14.i, %if.then11.i ], [ -1, %if.then.i ], [ -1, %while.cond.preheader.i ], [ %sub.ptr.sub.i67, %if.then3.i64 ], [ %sub.ptr.sub14.i59, %if.then11.i56 ], [ -1, %if.then.i60 ], [ %cond.i, %for.end82.i ], [ -1, %for.cond17.preheader.i ], [ %maxcount, %if.then.i70 ], [ %count.1.i, %for.inc.i ], [ -1, %if.end15.i ], [ -1, %while.cond.i ], [ %i.149.us.i, %for.inc40.us.i ], [ -1, %if.else60.us.i ], [ -1, %for.inc76.us.i ], [ %i16.056.us.i, %if.then44.us.i ], [ %maxcount, %if.end48.us.i ]
   ret i64 %retval.0
 }
 
