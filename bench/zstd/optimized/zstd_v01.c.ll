@@ -799,7 +799,7 @@ if.end10.i276.i.i.i.i.i.i:                        ; preds = %if.end.i263.i.i.i.i
   br i1 %cmp.i2381069.i.i.i.i.i.i, label %FSE_reloadDStream.exit299.i.i.i.i.i.i, label %if.end22.i278.i.i.i.i.i.i
 
 if.end22.i278.i.i.i.i.i.i:                        ; preds = %if.end10.i276.i.i.i.i.i.i
-  %43 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 %bitD.i13.sroa.60.9.ph.idx1067.i.i.i.i.i.i
+  %43 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 %bitD.i13.sroa.60.9.ph.idx1067.i.i.i.i.i.i
   %shr24.i279.i.i.i.i.i.i = lshr i32 %add.i.i.i258.i.i.i.i.i.i, 3
   %idx.ext26.i280.i.i.i.i.i.i = zext nneg i32 %shr24.i279.i.i.i.i.i.i to i64
   %idx.neg27.i281.i.i.i.i.i.i = sub nsw i64 0, %idx.ext26.i280.i.i.i.i.i.i
@@ -1324,7 +1324,7 @@ if.end10.i697.i.i.i.i.i.i:                        ; preds = %if.end.i684.i.i.i.i
   br i1 %cmp.i6541105.i.i.i.i.i.i, label %FSE_reloadDStream.exit720.i.i.i.i.i.i, label %if.end22.i699.i.i.i.i.i.i
 
 if.end22.i699.i.i.i.i.i.i:                        ; preds = %if.end10.i697.i.i.i.i.i.i
-  %75 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 %bitD.i.sroa.60.9.ph.idx1101.i.i.i.i.i.i
+  %75 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 %bitD.i.sroa.60.9.ph.idx1101.i.i.i.i.i.i
   %shr24.i700.i.i.i.i.i.i = lshr i32 %add.i.i.i679.i.i.i.i.i.i, 3
   %idx.ext26.i701.i.i.i.i.i.i = zext nneg i32 %shr24.i700.i.i.i.i.i.i to i64
   %idx.neg27.i702.i.i.i.i.i.i = sub nsw i64 0, %idx.ext26.i701.i.i.i.i.i.i

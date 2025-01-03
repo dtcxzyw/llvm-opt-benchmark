@@ -8706,7 +8706,7 @@ _ZN4Luau16DiffPathNodeLeafD2Ev.exit44:            ; preds = %.thread82, %98, %96
 
 _ZN4Luau12DenseHashMapIPKNS_4TypeES3_NS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit: ; preds = %.lr.ph, %104
   %120 = phi i64 [ %.01620.i.i4878, %104 ], [ %.01620.i.i48, %.lr.ph ]
-  %121 = getelementptr inbounds nuw %"struct.std::pair", ptr %51, i64 %120, i32 1
+  %121 = getelementptr inbounds %"struct.std::pair", ptr %51, i64 %120, i32 1
   %122 = load ptr, ptr %121, align 8
   %123 = icmp eq ptr %122, %3
   br i1 %123, label %124, label %126
@@ -11160,7 +11160,7 @@ _ZN4Luau16DiffPathNodeLeafD2Ev.exit44.i:          ; preds = %389, %387, %.thread
 
 _ZN4Luau12DenseHashMapIPKNS_11TypePackVarES3_NS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit.i: ; preds = %.lr.ph.i, %395
   %411 = phi i64 [ %.01620.i.i4878.i, %395 ], [ %.01620.i.i48.i, %.lr.ph.i ]
-  %412 = getelementptr inbounds nuw %"struct.std::pair.140", ptr %342, i64 %411, i32 1
+  %412 = getelementptr inbounds %"struct.std::pair.140", ptr %342, i64 %411, i32 1
   %413 = load ptr, ptr %412, align 8, !noalias !296
   %414 = icmp eq ptr %413, %213
   br i1 %414, label %415, label %417

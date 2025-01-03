@@ -57981,7 +57981,7 @@ sqlite3Strlen30.exit228.i:                        ; preds = %166
   br i1 %195, label %196, label %205
 
 196:                                              ; preds = %._crit_edge.i
-  %197 = getelementptr inbounds nuw i8, ptr %194, i64 2
+  %197 = getelementptr i8, ptr %194, i64 2
   %198 = ptrtoint ptr %197 to i64
   %199 = ptrtoint ptr %185 to i64
   %200 = sub i64 %198, %199

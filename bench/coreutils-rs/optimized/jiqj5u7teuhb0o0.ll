@@ -3794,7 +3794,7 @@ _ZN6uucore8features4mode12parse_change17h6d6d6cffe623ab87E.exit: ; preds = %185,
   br i1 %223, label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit61", label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit61.thread"
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i60": ; preds = %221
-  %224 = getelementptr inbounds nuw i8, ptr %79, i64 %86
+  %224 = getelementptr inbounds i8, ptr %79, i64 %86
   %225 = getelementptr inbounds i8, ptr %224, i64 %.173.i88
   %226 = load i8, ptr %225, align 1, !alias.scope !584, !noundef !4
   %227 = icmp sgt i8 %226, -65

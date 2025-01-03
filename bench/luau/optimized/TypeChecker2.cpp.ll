@@ -33721,7 +33721,7 @@ _ZNK4Luau7AstNameeqEPKc.exit.thread:              ; preds = %13, %8, %_ZNK4Luau7
 
 _ZN4Luau12DenseHashMapIPKNS_7AstTypeEPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit: ; preds = %.lr.ph, %_ZNK4Luau7AstNameeqEPKc.exit.thread
   %89 = phi i64 [ %.01620.i.i24, %_ZNK4Luau7AstNameeqEPKc.exit.thread ], [ %.01620.i.i, %.lr.ph ]
-  %90 = getelementptr inbounds nuw %"struct.std::pair.908", ptr %78, i64 %89, i32 1
+  %90 = getelementptr inbounds %"struct.std::pair.908", ptr %78, i64 %89, i32 1
   %91 = load ptr, ptr %90, align 8
   %92 = tail call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %91)
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 12

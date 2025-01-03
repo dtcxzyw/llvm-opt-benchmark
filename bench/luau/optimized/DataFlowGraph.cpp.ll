@@ -1553,7 +1553,7 @@ define dso_local ptr @_ZNK4Luau13DataFlowGraph6getDefEPKNS_7AstExprE(ptr nocaptu
 
 _ZNK4Luau12DenseHashMapIPKNS_7AstExprEPKNS_3DefENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit: ; preds = %.lr.ph, %2
   %28 = phi i64 [ %.01620.i.i2, %2 ], [ %.01620.i.i, %.lr.ph ]
-  %29 = getelementptr inbounds nuw %"struct.std::pair.124", ptr %17, i64 %28, i32 1
+  %29 = getelementptr inbounds %"struct.std::pair.124", ptr %17, i64 %28, i32 1
   %30 = load ptr, ptr %29, align 8
   ret ptr %30
 }
@@ -1658,7 +1658,7 @@ define dso_local ptr @_ZNK4Luau13DataFlowGraph6getDefEPKNS_8AstLocalE(ptr nocapt
 
 _ZNK4Luau12DenseHashMapIPKNS_8AstLocalEPKNS_3DefENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit: ; preds = %.lr.ph, %2
   %28 = phi i64 [ %.01620.i.i2, %2 ], [ %.01620.i.i, %.lr.ph ]
-  %29 = getelementptr inbounds nuw %"struct.std::pair.126", ptr %17, i64 %28, i32 1
+  %29 = getelementptr inbounds %"struct.std::pair.126", ptr %17, i64 %28, i32 1
   %30 = load ptr, ptr %29, align 8
   ret ptr %30
 }
@@ -1706,7 +1706,7 @@ define dso_local ptr @_ZNK4Luau13DataFlowGraph6getDefEPKNS_20AstStatDeclareGloba
 
 _ZNK4Luau12DenseHashMapIPKNS_7AstStatEPKNS_3DefENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit: ; preds = %.lr.ph, %2
   %28 = phi i64 [ %.01620.i.i3, %2 ], [ %.01620.i.i, %.lr.ph ]
-  %29 = getelementptr inbounds nuw %"struct.std::pair.128", ptr %17, i64 %28, i32 1
+  %29 = getelementptr inbounds %"struct.std::pair.128", ptr %17, i64 %28, i32 1
   %30 = load ptr, ptr %29, align 8
   ret ptr %30
 }
@@ -1754,7 +1754,7 @@ define dso_local ptr @_ZNK4Luau13DataFlowGraph6getDefEPKNS_22AstStatDeclareFunct
 
 _ZNK4Luau12DenseHashMapIPKNS_7AstStatEPKNS_3DefENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit: ; preds = %.lr.ph, %2
   %28 = phi i64 [ %.01620.i.i3, %2 ], [ %.01620.i.i, %.lr.ph ]
-  %29 = getelementptr inbounds nuw %"struct.std::pair.128", ptr %17, i64 %28, i32 1
+  %29 = getelementptr inbounds %"struct.std::pair.128", ptr %17, i64 %28, i32 1
   %30 = load ptr, ptr %29, align 8
   ret ptr %30
 }

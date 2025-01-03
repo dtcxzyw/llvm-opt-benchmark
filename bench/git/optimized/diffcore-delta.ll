@@ -377,9 +377,9 @@ if.end6.i:                                        ; preds = %if.end11.i
 if.then9.i:                                       ; preds = %if.end6.i, %if.end6.i.preheader
   %.lcssa33 = phi i32 [ %6, %if.end6.i.preheader ], [ %19, %if.end6.i ]
   %18 = phi i64 [ %idxprom24.i, %if.end6.i.preheader ], [ %idxprom.i, %if.end6.i ]
-  %cnt1.le.i.idx = shl nuw nsw i64 %18, 3
+  %cnt1.le.i.idx = shl nsw i64 %18, 3
   %cnt1.le.i.offs = or disjoint i64 %cnt1.le.i.idx, 4
-  %cnt1.le.i = getelementptr inbounds nuw i8, ptr %data.i, i64 %cnt1.le.i.offs
+  %cnt1.le.i = getelementptr inbounds i8, ptr %data.i, i64 %cnt1.le.i.offs
   %add.i = add i32 %.lcssa33, %.us-phi50
   store i32 %add.i, ptr %cnt1.le.i, align 4
   br label %while.cond.outer.backedge

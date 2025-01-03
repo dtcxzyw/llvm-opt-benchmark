@@ -5791,7 +5791,7 @@ if.end10.i276.i.i:                                ; preds = %if.end.i263.i.i
   br i1 %cmp.i2381094.i.i, label %BIT_reloadDStream.exit299.i.i, label %if.end22.i278.i.i
 
 if.end22.i278.i.i:                                ; preds = %if.end10.i276.i.i
-  %35 = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 %bitD.i13.sroa.61839.9.ph.idx1090.i.i
+  %35 = getelementptr inbounds i8, ptr %add.ptr.i, i64 %bitD.i13.sroa.61839.9.ph.idx1090.i.i
   %shr24.i279.i.i = lshr i32 %add.i.i.i258.i.i, 3
   %idx.ext26.i280.i.i = zext nneg i32 %shr24.i279.i.i to i64
   %idx.neg27.i281.i.i = sub nsw i64 0, %idx.ext26.i280.i.i
@@ -6327,7 +6327,7 @@ if.end10.i700.i.i:                                ; preds = %if.end.i687.i.i
   br i1 %cmp.i6571130.i.i, label %BIT_reloadDStream.exit723.i.i, label %if.end22.i702.i.i
 
 if.end22.i702.i.i:                                ; preds = %if.end10.i700.i.i
-  %66 = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 %bitD.i.sroa.61785.9.ph.idx1128.i.i
+  %66 = getelementptr inbounds i8, ptr %add.ptr.i, i64 %bitD.i.sroa.61785.9.ph.idx1128.i.i
   %shr24.i703.i.i = lshr i32 %add.i.i.i682.i.i, 3
   %idx.ext26.i704.i.i = zext nneg i32 %shr24.i703.i.i to i64
   %idx.neg27.i705.i.i = sub nsw i64 0, %idx.ext26.i704.i.i
