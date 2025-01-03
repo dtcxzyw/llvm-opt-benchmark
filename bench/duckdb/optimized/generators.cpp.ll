@@ -148,28 +148,28 @@ vector.ph:                                        ; preds = %for.body.i.preheade
   %.splat107 = shufflevector <2 x i64> %.splatinsert106, <2 x i64> poison, <2 x i32> zeroinitializer
   %9 = mul nuw nsw <2 x i64> %.splat107, <i64 0, i64 1>
   %induction = add <2 x i64> %9, %.splat
-  %.scalar11 = mul i64 %increment, 3
-  %10 = insertelement <2 x i64> poison, i64 %.scalar11, i64 0
-  %invariant.op = shufflevector <2 x i64> %10, <2 x i64> poison, <2 x i32> zeroinitializer
-  %.scalar = shl i64 %increment, 2
-  %11 = insertelement <2 x i64> poison, i64 %.scalar, i64 0
-  %invariant.op4 = shufflevector <2 x i64> %11, <2 x i64> poison, <2 x i32> zeroinitializer
+  %10 = shl i64 %increment, 2
+  %.scalar7 = mul i64 %increment, 3
+  %11 = insertelement <2 x i64> poison, i64 %.scalar7, i64 0
+  %invariant.op = shufflevector <2 x i64> %11, <2 x i64> poison, <2 x i32> zeroinitializer
+  %12 = insertelement <2 x i64> poison, i64 %10, i64 0
+  %invariant.op4 = shufflevector <2 x i64> %12, <2 x i64> poison, <2 x i32> zeroinitializer
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
   %index = phi i64 [ 0, %vector.ph ], [ %index.next, %vector.body ]
   %vec.ind = phi <2 x i64> [ %induction, %vector.ph ], [ %vec.ind.next.reass, %vector.body ]
   %offset.idx = or disjoint i64 %index, 1
-  %12 = add nsw <2 x i64> %vec.ind, %.splat107
+  %13 = add nsw <2 x i64> %vec.ind, %.splat107
   %.reass = add <2 x i64> %vec.ind, %invariant.op
-  %13 = getelementptr inbounds i64, ptr %6, i64 %offset.idx
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store <2 x i64> %12, ptr %13, align 8, !tbaa !27
-  store <2 x i64> %.reass, ptr %14, align 8, !tbaa !27
+  %14 = getelementptr inbounds i64, ptr %6, i64 %offset.idx
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  store <2 x i64> %13, ptr %14, align 8, !tbaa !27
+  store <2 x i64> %.reass, ptr %15, align 8, !tbaa !27
   %index.next = add nuw i64 %index, 4
   %vec.ind.next.reass = add <2 x i64> %vec.ind, %invariant.op4
-  %15 = icmp eq i64 %index.next, %n.vec
-  br i1 %15, label %middle.block, label %vector.body, !llvm.loop !28
+  %16 = icmp eq i64 %index.next, %n.vec
+  br i1 %16, label %middle.block, label %vector.body, !llvm.loop !28
 
 middle.block:                                     ; preds = %vector.body
   %ind.end = or disjoint i64 %n.vec, 1
@@ -196,28 +196,28 @@ sw.bb16:                                          ; preds = %if.end
   %conv1.i = sitofp i64 %increment to float
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %result, i8 noundef zeroext 0)
   %data.i.i.i.i64 = getelementptr inbounds nuw i8, ptr %result, i64 32
-  %16 = load ptr, ptr %data.i.i.i.i64, align 8, !tbaa !18
+  %17 = load ptr, ptr %data.i.i.i.i64, align 8, !tbaa !18
   %cmp1230.not.i = icmp eq i64 %count, 0
   br i1 %cmp1230.not.i, label %sw.epilog, label %for.body.preheader.i65
 
 for.body.preheader.i65:                           ; preds = %sw.bb16
   %conv.i = sitofp i64 %start to float
-  store float %conv.i, ptr %16, align 4, !tbaa !34
+  store float %conv.i, ptr %17, align 4, !tbaa !34
   %exitcond.peel.not.i66 = icmp eq i64 %count, 1
   br i1 %exitcond.peel.not.i66, label %sw.epilog, label %for.body.i67.preheader
 
 for.body.i67.preheader:                           ; preds = %for.body.preheader.i65
-  %17 = add i64 %count, -1
-  %18 = add i64 %count, -2
-  %xtraiter114 = and i64 %17, 3
-  %19 = icmp ult i64 %18, 3
-  br i1 %19, label %sw.epilog.loopexit112.unr-lcssa, label %for.body.i67.preheader.new
+  %18 = add i64 %count, -1
+  %19 = add i64 %count, -2
+  %xtraiter114 = and i64 %18, 3
+  %20 = icmp ult i64 %19, 3
+  br i1 %20, label %sw.epilog.loopexit112.unr-lcssa, label %for.body.i67.preheader.new
 
 for.body.i67.preheader.new:                       ; preds = %for.body.i67.preheader
-  %unroll_iter117 = and i64 %17, -4
-  %invariant.gep123 = getelementptr i8, ptr %16, i64 4
-  %invariant.gep125 = getelementptr i8, ptr %16, i64 8
-  %invariant.gep127 = getelementptr i8, ptr %16, i64 12
+  %unroll_iter117 = and i64 %18, -4
+  %invariant.gep123 = getelementptr i8, ptr %17, i64 4
+  %invariant.gep125 = getelementptr i8, ptr %17, i64 8
+  %invariant.gep127 = getelementptr i8, ptr %17, i64 12
   br label %for.body.i67
 
 for.body.i67:                                     ; preds = %for.body.i67, %for.body.i67.preheader.new
@@ -225,7 +225,7 @@ for.body.i67:                                     ; preds = %for.body.i67, %for.
   %value.031.i = phi float [ %conv.i, %for.body.i67.preheader.new ], [ %add.i.3, %for.body.i67 ]
   %niter118 = phi i64 [ 0, %for.body.i67.preheader.new ], [ %niter118.next.3, %for.body.i67 ]
   %add.i = fadd float %value.031.i, %conv1.i
-  %arrayidx.i68 = getelementptr inbounds float, ptr %16, i64 %i.032.i
+  %arrayidx.i68 = getelementptr inbounds float, ptr %17, i64 %i.032.i
   store float %add.i, ptr %arrayidx.i68, align 4, !tbaa !34
   %add.i.1 = fadd float %add.i, %conv1.i
   %gep124 = getelementptr float, ptr %invariant.gep123, i64 %i.032.i
@@ -245,28 +245,28 @@ sw.bb17:                                          ; preds = %if.end
   %conv1.i71 = sitofp i64 %increment to double
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %result, i8 noundef zeroext 0)
   %data.i.i.i.i72 = getelementptr inbounds nuw i8, ptr %result, i64 32
-  %20 = load ptr, ptr %data.i.i.i.i72, align 8, !tbaa !18
+  %21 = load ptr, ptr %data.i.i.i.i72, align 8, !tbaa !18
   %cmp1230.not.i73 = icmp eq i64 %count, 0
   br i1 %cmp1230.not.i73, label %sw.epilog, label %for.body.preheader.i74
 
 for.body.preheader.i74:                           ; preds = %sw.bb17
   %conv.i75 = sitofp i64 %start to double
-  store double %conv.i75, ptr %20, align 8, !tbaa !37
+  store double %conv.i75, ptr %21, align 8, !tbaa !37
   %exitcond.peel.not.i76 = icmp eq i64 %count, 1
   br i1 %exitcond.peel.not.i76, label %sw.epilog, label %for.body.i77.preheader
 
 for.body.i77.preheader:                           ; preds = %for.body.preheader.i74
-  %21 = add i64 %count, -1
-  %22 = add i64 %count, -2
-  %xtraiter = and i64 %21, 3
-  %23 = icmp ult i64 %22, 3
-  br i1 %23, label %sw.epilog.loopexit113.unr-lcssa, label %for.body.i77.preheader.new
+  %22 = add i64 %count, -1
+  %23 = add i64 %count, -2
+  %xtraiter = and i64 %22, 3
+  %24 = icmp ult i64 %23, 3
+  br i1 %24, label %sw.epilog.loopexit113.unr-lcssa, label %for.body.i77.preheader.new
 
 for.body.i77.preheader.new:                       ; preds = %for.body.i77.preheader
-  %unroll_iter = and i64 %21, -4
-  %invariant.gep = getelementptr i8, ptr %20, i64 8
-  %invariant.gep119 = getelementptr i8, ptr %20, i64 16
-  %invariant.gep121 = getelementptr i8, ptr %20, i64 24
+  %unroll_iter = and i64 %22, -4
+  %invariant.gep = getelementptr i8, ptr %21, i64 8
+  %invariant.gep119 = getelementptr i8, ptr %21, i64 16
+  %invariant.gep121 = getelementptr i8, ptr %21, i64 24
   br label %for.body.i77
 
 for.body.i77:                                     ; preds = %for.body.i77, %for.body.i77.preheader.new
@@ -274,7 +274,7 @@ for.body.i77:                                     ; preds = %for.body.i77, %for.
   %value.031.i79 = phi double [ %conv.i75, %for.body.i77.preheader.new ], [ %add.i80.3, %for.body.i77 ]
   %niter = phi i64 [ 0, %for.body.i77.preheader.new ], [ %niter.next.3, %for.body.i77 ]
   %add.i80 = fadd double %value.031.i79, %conv1.i71
-  %arrayidx.i81 = getelementptr inbounds double, ptr %20, i64 %i.032.i78
+  %arrayidx.i81 = getelementptr inbounds double, ptr %21, i64 %i.032.i78
   store double %add.i80, ptr %arrayidx.i81, align 8, !tbaa !37
   %add.i80.1 = fadd double %add.i80, %conv1.i71
   %gep = getelementptr double, ptr %invariant.gep, i64 %i.032.i78
@@ -306,7 +306,7 @@ invoke.cont24:                                    ; preds = %invoke.cont22
           to label %unreachable unwind label %lpad23
 
 ehcleanup27.thread:                               ; preds = %sw.default
-  %24 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp20) #8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp19) #8
@@ -314,24 +314,24 @@ ehcleanup27.thread:                               ; preds = %sw.default
 
 lpad23:                                           ; preds = %invoke.cont24, %invoke.cont22
   %cleanup.isactive25.0 = phi i1 [ false, %invoke.cont24 ], [ true, %invoke.cont22 ]
-  %25 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %26 = load ptr, ptr %ref.tmp19, align 8, !tbaa !3
-  %27 = getelementptr inbounds nuw i8, ptr %ref.tmp19, i64 16
-  %cmp.i.i.i84 = icmp eq ptr %26, %27
+  %27 = load ptr, ptr %ref.tmp19, align 8, !tbaa !3
+  %28 = getelementptr inbounds nuw i8, ptr %ref.tmp19, i64 16
+  %cmp.i.i.i84 = icmp eq ptr %27, %28
   br i1 %cmp.i.i.i84, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i86, label %ehcleanup27
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i86: ; preds = %lpad23
   %_M_string_length.i.i.i87 = getelementptr inbounds nuw i8, ptr %ref.tmp19, i64 8
-  %28 = load i64, ptr %_M_string_length.i.i.i87, align 8, !tbaa !10
-  %cmp3.i.i.i88 = icmp ult i64 %28, 16
+  %29 = load i64, ptr %_M_string_length.i.i.i87, align 8, !tbaa !10
+  %cmp3.i.i.i88 = icmp ult i64 %29, 16
   call void @llvm.assume(i1 %cmp3.i.i.i88)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp20) #8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp19) #8
   br i1 %cleanup.isactive25.0, label %eh.resume.sink.split, label %eh.resume
 
 ehcleanup27:                                      ; preds = %lpad23
-  call void @_ZdlPv(ptr noundef %26) #10
+  call void @_ZdlPv(ptr noundef %27) #10
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp20) #8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp19) #8
   br i1 %cleanup.isactive25.0, label %eh.resume.sink.split, label %eh.resume
@@ -347,7 +347,7 @@ for.body.i67.epil:                                ; preds = %sw.epilog.loopexit1
   %value.031.i.epil = phi float [ %add.i.epil, %for.body.i67.epil ], [ %value.031.i.unr, %sw.epilog.loopexit112.unr-lcssa ]
   %epil.iter115 = phi i64 [ %epil.iter115.next, %for.body.i67.epil ], [ 0, %sw.epilog.loopexit112.unr-lcssa ]
   %add.i.epil = fadd float %value.031.i.epil, %conv1.i
-  %arrayidx.i68.epil = getelementptr inbounds float, ptr %16, i64 %i.032.i.epil
+  %arrayidx.i68.epil = getelementptr inbounds float, ptr %17, i64 %i.032.i.epil
   store float %add.i.epil, ptr %arrayidx.i68.epil, align 4, !tbaa !34
   %inc.i69.epil = add nuw i64 %i.032.i.epil, 1
   %epil.iter115.next = add nuw nsw i64 %epil.iter115, 1
@@ -365,7 +365,7 @@ for.body.i77.epil:                                ; preds = %sw.epilog.loopexit1
   %value.031.i79.epil = phi double [ %add.i80.epil, %for.body.i77.epil ], [ %value.031.i79.unr, %sw.epilog.loopexit113.unr-lcssa ]
   %epil.iter = phi i64 [ %epil.iter.next, %for.body.i77.epil ], [ 0, %sw.epilog.loopexit113.unr-lcssa ]
   %add.i80.epil = fadd double %value.031.i79.epil, %conv1.i71
-  %arrayidx.i81.epil = getelementptr inbounds double, ptr %20, i64 %i.032.i78.epil
+  %arrayidx.i81.epil = getelementptr inbounds double, ptr %21, i64 %i.032.i78.epil
   store double %add.i80.epil, ptr %arrayidx.i81.epil, align 8, !tbaa !37
   %inc.i82.epil = add nuw i64 %i.032.i78.epil, 1
   %epil.iter.next = add nuw nsw i64 %epil.iter, 1
@@ -377,12 +377,12 @@ sw.epilog:                                        ; preds = %for.body.i77.epil, 
 
 eh.resume.sink.split:                             ; preds = %ehcleanup27, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i86, %ehcleanup27.thread, %ehcleanup, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %ehcleanup.thread
   %exception18.sink = phi ptr [ %exception, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %exception, %ehcleanup.thread ], [ %exception, %ehcleanup ], [ %exception18, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i86 ], [ %exception18, %ehcleanup27.thread ], [ %exception18, %ehcleanup27 ]
-  %.pn59.pn.ph = phi { ptr, i32 } [ %1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %0, %ehcleanup.thread ], [ %1, %ehcleanup ], [ %25, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i86 ], [ %24, %ehcleanup27.thread ], [ %25, %ehcleanup27 ]
+  %.pn59.pn.ph = phi { ptr, i32 } [ %1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %0, %ehcleanup.thread ], [ %1, %ehcleanup ], [ %26, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i86 ], [ %25, %ehcleanup27.thread ], [ %26, %ehcleanup27 ]
   call void @__cxa_free_exception(ptr %exception18.sink) #8
   br label %eh.resume
 
 eh.resume:                                        ; preds = %eh.resume.sink.split, %ehcleanup27, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i86, %ehcleanup, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  %.pn59.pn = phi { ptr, i32 } [ %25, %ehcleanup27 ], [ %1, %ehcleanup ], [ %1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %25, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i86 ], [ %.pn59.pn.ph, %eh.resume.sink.split ]
+  %.pn59.pn = phi { ptr, i32 } [ %26, %ehcleanup27 ], [ %1, %ehcleanup ], [ %1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %26, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i86 ], [ %.pn59.pn.ph, %eh.resume.sink.split ]
   resume { ptr, i32 } %.pn59.pn
 
 unreachable:                                      ; preds = %invoke.cont24, %invoke.cont7
@@ -695,28 +695,28 @@ vector.ph:                                        ; preds = %for.body.preheader
   %.splat38 = shufflevector <8 x i16> %.splatinsert37, <8 x i16> poison, <8 x i32> zeroinitializer
   %9 = mul <8 x i16> %.splat38, <i16 0, i16 1, i16 2, i16 3, i16 4, i16 5, i16 6, i16 7>
   %induction = add <8 x i16> %9, %.splat
+  %10 = shl i16 %6, 4
   %.scalar2 = mul i16 %6, 9
-  %10 = insertelement <8 x i16> poison, i16 %.scalar2, i64 0
-  %invariant.op = shufflevector <8 x i16> %10, <8 x i16> poison, <8 x i32> zeroinitializer
-  %.scalar = shl i16 %6, 4
-  %11 = insertelement <8 x i16> poison, i16 %.scalar, i64 0
-  %invariant.op1 = shufflevector <8 x i16> %11, <8 x i16> poison, <8 x i32> zeroinitializer
+  %11 = insertelement <8 x i16> poison, i16 %.scalar2, i64 0
+  %invariant.op = shufflevector <8 x i16> %11, <8 x i16> poison, <8 x i32> zeroinitializer
+  %12 = insertelement <8 x i16> poison, i16 %10, i64 0
+  %invariant.op1 = shufflevector <8 x i16> %12, <8 x i16> poison, <8 x i32> zeroinitializer
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
   %index = phi i64 [ 0, %vector.ph ], [ %index.next, %vector.body ]
   %vec.ind = phi <8 x i16> [ %induction, %vector.ph ], [ %vec.ind.next.reass, %vector.body ]
   %offset.idx = or disjoint i64 %index, 1
-  %12 = add <8 x i16> %vec.ind, %.splat38
+  %13 = add <8 x i16> %vec.ind, %.splat38
   %.reass = add <8 x i16> %vec.ind, %invariant.op
-  %13 = getelementptr inbounds i16, ptr %5, i64 %offset.idx
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store <8 x i16> %12, ptr %13, align 2, !tbaa !47
-  store <8 x i16> %.reass, ptr %14, align 2, !tbaa !47
+  %14 = getelementptr inbounds i16, ptr %5, i64 %offset.idx
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  store <8 x i16> %13, ptr %14, align 2, !tbaa !47
+  store <8 x i16> %.reass, ptr %15, align 2, !tbaa !47
   %index.next = add nuw i64 %index, 16
   %vec.ind.next.reass = add <8 x i16> %vec.ind, %invariant.op1
-  %15 = icmp eq i64 %index.next, %n.vec
-  br i1 %15, label %middle.block, label %vector.body, !llvm.loop !49
+  %16 = icmp eq i64 %index.next, %n.vec
+  br i1 %16, label %middle.block, label %vector.body, !llvm.loop !49
 
 middle.block:                                     ; preds = %vector.body
   %ind.end = or disjoint i64 %n.vec, 1
@@ -840,28 +840,28 @@ vector.ph:                                        ; preds = %for.body.preheader
   %.splat38 = shufflevector <4 x i32> %.splatinsert37, <4 x i32> poison, <4 x i32> zeroinitializer
   %9 = mul <4 x i32> %.splat38, <i32 0, i32 1, i32 2, i32 3>
   %induction = add <4 x i32> %9, %.splat
+  %10 = shl i32 %6, 3
   %.scalar2 = mul i32 %6, 5
-  %10 = insertelement <4 x i32> poison, i32 %.scalar2, i64 0
-  %invariant.op = shufflevector <4 x i32> %10, <4 x i32> poison, <4 x i32> zeroinitializer
-  %.scalar = shl i32 %6, 3
-  %11 = insertelement <4 x i32> poison, i32 %.scalar, i64 0
-  %invariant.op1 = shufflevector <4 x i32> %11, <4 x i32> poison, <4 x i32> zeroinitializer
+  %11 = insertelement <4 x i32> poison, i32 %.scalar2, i64 0
+  %invariant.op = shufflevector <4 x i32> %11, <4 x i32> poison, <4 x i32> zeroinitializer
+  %12 = insertelement <4 x i32> poison, i32 %10, i64 0
+  %invariant.op1 = shufflevector <4 x i32> %12, <4 x i32> poison, <4 x i32> zeroinitializer
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
   %index = phi i64 [ 0, %vector.ph ], [ %index.next, %vector.body ]
   %vec.ind = phi <4 x i32> [ %induction, %vector.ph ], [ %vec.ind.next.reass, %vector.body ]
   %offset.idx = or disjoint i64 %index, 1
-  %12 = add <4 x i32> %vec.ind, %.splat38
+  %13 = add <4 x i32> %vec.ind, %.splat38
   %.reass = add <4 x i32> %vec.ind, %invariant.op
-  %13 = getelementptr inbounds i32, ptr %5, i64 %offset.idx
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store <4 x i32> %12, ptr %13, align 4, !tbaa !51
-  store <4 x i32> %.reass, ptr %14, align 4, !tbaa !51
+  %14 = getelementptr inbounds i32, ptr %5, i64 %offset.idx
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  store <4 x i32> %13, ptr %14, align 4, !tbaa !51
+  store <4 x i32> %.reass, ptr %15, align 4, !tbaa !51
   %index.next = add nuw i64 %index, 8
   %vec.ind.next.reass = add <4 x i32> %vec.ind, %invariant.op1
-  %15 = icmp eq i64 %index.next, %n.vec
-  br i1 %15, label %middle.block, label %vector.body, !llvm.loop !53
+  %16 = icmp eq i64 %index.next, %n.vec
+  br i1 %16, label %middle.block, label %vector.body, !llvm.loop !53
 
 middle.block:                                     ; preds = %vector.body
   %ind.end = or disjoint i64 %n.vec, 1

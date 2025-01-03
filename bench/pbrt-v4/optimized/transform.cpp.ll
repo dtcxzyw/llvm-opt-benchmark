@@ -4340,29 +4340,28 @@ _ZN4pbrt9TransformC2ERKNS_12SquareMatrixILi4EEE.exit3376: ; preds = %for.inc15.i
   br i1 %cmp, label %if.then78, label %if.end85
 
 if.then78:                                        ; preds = %_ZN4pbrt9TransformC2ERKNS_12SquareMatrixILi4EEE.exit3376
-  %q1.sroa.2.12.vec.extract.i = extractelement <2 x float> %agg.tmp.sroa.2.0.copyload, i64 1
   %v.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload, i64 1
-  %16 = extractelement <2 x float> %8, i64 1
-  %17 = extractelement <2 x float> %8, i64 0
-  %18 = extractelement <2 x float> %7, i64 1
-  %19 = extractelement <2 x float> %7, i64 0
-  %fneg.i.i = fneg float %19
-  %fneg2.i.i = fneg float %18
-  %fneg3.i.i = fneg float %17
+  %16 = extractelement <2 x float> %8, i64 0
+  %17 = extractelement <2 x float> %7, i64 1
+  %18 = extractelement <2 x float> %7, i64 0
+  %fneg.i.i = fneg float %18
+  %fneg2.i.i = fneg float %17
+  %fneg3.i.i = fneg float %16
   %retval.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %fneg.i.i, i64 0
   %retval.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i, float %fneg2.i.i, i64 1
-  %20 = fneg <2 x float> %8
-  %retval.sroa.2.12.vec.insert.i = insertelement <2 x float> %20, float %fneg3.i.i, i64 0
+  %19 = fneg <2 x float> %8
+  %retval.sroa.2.12.vec.insert.i = insertelement <2 x float> %19, float %fneg3.i.i, i64 0
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i, ptr %arrayidx71, align 4
   store <2 x float> %retval.sroa.2.12.vec.insert.i, ptr %ref.tmp67.sroa.2.0.arrayidx71.sroa_idx, align 4
   %.pre3491 = fmul float %v.sroa.0.4.vec.extract.i.i, %fneg2.i.i
-  %21 = fmul <2 x float> %7, %agg.tmp.sroa.0.0.copyload
-  %22 = extractelement <2 x float> %21, i64 0
-  %.pre3492 = fsub float %.pre3491, %22
-  %23 = fmul <2 x float> %8, %agg.tmp.sroa.2.0.copyload
-  %24 = extractelement <2 x float> %23, i64 0
-  %.pre3494 = fsub float %.pre3492, %24
-  %25 = fmul float %16, %q1.sroa.2.12.vec.extract.i
+  %20 = fmul <2 x float> %7, %agg.tmp.sroa.0.0.copyload
+  %21 = extractelement <2 x float> %20, i64 0
+  %.pre3492 = fsub float %.pre3491, %21
+  %22 = fmul <2 x float> %8, %agg.tmp.sroa.2.0.copyload
+  %23 = extractelement <2 x float> %22, i64 0
+  %.pre3494 = fsub float %.pre3492, %23
+  %24 = fmul <2 x float> %8, %agg.tmp.sroa.2.0.copyload
+  %25 = extractelement <2 x float> %24, i64 1
   %.pre3497 = fsub float %.pre3494, %25
   br label %if.end85
 

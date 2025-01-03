@@ -32052,38 +32052,38 @@ ma_gainer_set_gains.exit:                         ; preds = %.loopexit396, %ma_g
   %352 = fsub <2 x float> %.sroa.03.0.copyload.i.i346, %.sroa.03.0.copyload.i.i356
   %353 = extractelement <2 x float> %352, i64 0
   %354 = fsub <2 x float> %.sroa.03.0.copyload.i.i346, %.sroa.03.0.copyload.i.i356
-  %355 = extractelement <2 x float> %354, i64 1
-  %356 = fsub float %.sroa.24.0.copyload.i.i348, %.sroa.24.0.copyload.i.i358
-  %357 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %358 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %359 = atomicrmw volatile xchg ptr %358, i32 1 acquire, align 4
-  %360 = icmp eq i32 %359, 0
-  br i1 %360, label %ma_spatializer_get_velocity.exit, label %.preheader.i.i.i370
+  %355 = fsub float %.sroa.24.0.copyload.i.i348, %.sroa.24.0.copyload.i.i358
+  %356 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %357 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  %358 = atomicrmw volatile xchg ptr %357, i32 1 acquire, align 4
+  %359 = icmp eq i32 %358, 0
+  br i1 %359, label %ma_spatializer_get_velocity.exit, label %.preheader.i.i.i370
 
 .loopexit.i.i.i371:                               ; preds = %.lr.ph.i.i.i379, %.preheader.i.i.i370
-  %361 = atomicrmw volatile xchg ptr %358, i32 1 acquire, align 4
-  %362 = icmp eq i32 %361, 0
-  br i1 %362, label %ma_spatializer_get_velocity.exit, label %.preheader.i.i.i370
+  %360 = atomicrmw volatile xchg ptr %357, i32 1 acquire, align 4
+  %361 = icmp eq i32 %360, 0
+  br i1 %361, label %ma_spatializer_get_velocity.exit, label %.preheader.i.i.i370
 
 .preheader.i.i.i370:                              ; preds = %.loopexit, %.loopexit.i.i.i371
-  %363 = load atomic volatile i32, ptr %358 monotonic, align 4
-  %364 = icmp eq i32 %363, 1
-  br i1 %364, label %.lr.ph.i.i.i379, label %.loopexit.i.i.i371
+  %362 = load atomic volatile i32, ptr %357 monotonic, align 4
+  %363 = icmp eq i32 %362, 1
+  br i1 %363, label %.lr.ph.i.i.i379, label %.loopexit.i.i.i371
 
 .lr.ph.i.i.i379:                                  ; preds = %.preheader.i.i.i370, %.lr.ph.i.i.i379
   call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #67, !srcloc !4
-  %365 = load atomic volatile i32, ptr %358 monotonic, align 4
-  %366 = icmp eq i32 %365, 1
-  br i1 %366, label %.lr.ph.i.i.i379, label %.loopexit.i.i.i371
+  %364 = load atomic volatile i32, ptr %357 monotonic, align 4
+  %365 = icmp eq i32 %364, 1
+  br i1 %365, label %.lr.ph.i.i.i379, label %.loopexit.i.i.i371
 
 ma_spatializer_get_velocity.exit:                 ; preds = %.loopexit.i.i.i371, %.loopexit
-  %.sroa.03.0.copyload.i.i373 = load <2 x float>, ptr %357, align 4
+  %.sroa.03.0.copyload.i.i373 = load <2 x float>, ptr %356, align 4
   %.sroa.24.0..sroa_idx.i.i374 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %.sroa.24.0.copyload.i.i375 = load float, ptr %.sroa.24.0..sroa_idx.i.i374, align 4
-  store atomic volatile i32 0, ptr %358 release, align 4
-  %367 = fmul float %355, %355
+  store atomic volatile i32 0, ptr %357 release, align 4
+  %366 = fmul <2 x float> %354, %354
+  %367 = extractelement <2 x float> %366, i64 1
   %368 = call float @llvm.fmuladd.f32(float %353, float %353, float %367)
-  %369 = call float @llvm.fmuladd.f32(float %356, float %356, float %368)
+  %369 = call float @llvm.fmuladd.f32(float %355, float %355, float %368)
   %370 = fcmp oeq float %369, 0.000000e+00
   br i1 %370, label %ma_copy_pcm_frames.exit, label %371
 
@@ -32093,13 +32093,13 @@ ma_spatializer_get_velocity.exit:                 ; preds = %.loopexit.i.i.i371,
   %372 = fmul <2 x float> %.sroa.03.0.copyload.i.i, %354
   %373 = extractelement <2 x float> %372, i64 1
   %374 = call float @llvm.fmuladd.f32(float %353, float %.sroa.01.0.vec.extract.i.i380, float %373)
-  %375 = call float @llvm.fmuladd.f32(float %356, float %.sroa.24.0.copyload.i.i, float %374)
+  %375 = call float @llvm.fmuladd.f32(float %355, float %.sroa.24.0.copyload.i.i, float %374)
   %376 = fdiv float %375, %sqrt.i.i
   %.sroa.01.0.vec.extract.i45.i = extractelement <2 x float> %.sroa.03.0.copyload.i.i373, i64 0
   %377 = fmul <2 x float> %354, %.sroa.03.0.copyload.i.i373
   %378 = extractelement <2 x float> %377, i64 1
   %379 = call float @llvm.fmuladd.f32(float %353, float %.sroa.01.0.vec.extract.i45.i, float %378)
-  %380 = call float @llvm.fmuladd.f32(float %356, float %.sroa.24.0.copyload.i.i375, float %379)
+  %380 = call float @llvm.fmuladd.f32(float %355, float %.sroa.24.0.copyload.i.i375, float %379)
   %381 = fdiv float %380, %sqrt.i.i
   %382 = fdiv float %69, %57
   %383 = fcmp olt float %376, %382

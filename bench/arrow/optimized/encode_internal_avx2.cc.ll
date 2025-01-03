@@ -201,9 +201,7 @@ for.end:                                          ; preds = %for.body17
   %9 = bitcast <32 x i8> %8 to <4 x i64>
   %10 = shufflevector <32 x i8> %7, <32 x i8> poison, <32 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14, i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15, i32 16, i32 18, i32 20, i32 22, i32 24, i32 26, i32 28, i32 30, i32 17, i32 19, i32 21, i32 23, i32 25, i32 27, i32 29, i32 31>
   %11 = bitcast <32 x i8> %10 to <4 x i64>
-  %perm = shufflevector <4 x i64> %9, <4 x i64> poison, <4 x i32> <i32 0, i32 2, i32 poison, i32 poison>
-  %perm30 = shufflevector <4 x i64> %11, <4 x i64> poison, <4 x i32> <i32 0, i32 2, i32 poison, i32 poison>
-  %vperm = shufflevector <4 x i64> %perm, <4 x i64> %perm30, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %vperm = shufflevector <4 x i64> %9, <4 x i64> %11, <4 x i32> <i32 0, i32 2, i32 4, i32 6>
   %vperm31 = shufflevector <4 x i64> %9, <4 x i64> %11, <4 x i32> <i32 1, i32 3, i32 5, i32 7>
   %add.ptr33 = getelementptr inbounds nuw <4 x i64>, ptr %0, i64 %indvars.iv26
   store <4 x i64> %vperm, ptr %add.ptr33, align 1
@@ -269,9 +267,7 @@ for.end:                                          ; preds = %for.body17
   %9 = bitcast <32 x i8> %8 to <4 x i64>
   %10 = shufflevector <32 x i8> %7, <32 x i8> poison, <32 x i32> <i32 0, i32 1, i32 4, i32 5, i32 8, i32 9, i32 12, i32 13, i32 2, i32 3, i32 6, i32 7, i32 10, i32 11, i32 14, i32 15, i32 16, i32 17, i32 20, i32 21, i32 24, i32 25, i32 28, i32 29, i32 18, i32 19, i32 22, i32 23, i32 26, i32 27, i32 30, i32 31>
   %11 = bitcast <32 x i8> %10 to <4 x i64>
-  %perm = shufflevector <4 x i64> %9, <4 x i64> poison, <4 x i32> <i32 0, i32 2, i32 poison, i32 poison>
-  %perm30 = shufflevector <4 x i64> %11, <4 x i64> poison, <4 x i32> <i32 0, i32 2, i32 poison, i32 poison>
-  %vperm = shufflevector <4 x i64> %perm, <4 x i64> %perm30, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %vperm = shufflevector <4 x i64> %9, <4 x i64> %11, <4 x i32> <i32 0, i32 2, i32 4, i32 6>
   %vperm31 = shufflevector <4 x i64> %9, <4 x i64> %11, <4 x i32> <i32 1, i32 3, i32 5, i32 7>
   %add.ptr33 = getelementptr inbounds nuw <4 x i64>, ptr %0, i64 %indvars.iv26
   store <4 x i64> %vperm, ptr %add.ptr33, align 1
@@ -466,9 +462,7 @@ for.end:                                          ; preds = %for.body18
   %10 = bitcast <32 x i8> %9 to <4 x i64>
   %11 = shufflevector <32 x i8> %8, <32 x i8> poison, <32 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14, i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15, i32 16, i32 18, i32 20, i32 22, i32 24, i32 26, i32 28, i32 30, i32 17, i32 19, i32 21, i32 23, i32 25, i32 27, i32 29, i32 31>
   %12 = bitcast <32 x i8> %11 to <4 x i64>
-  %perm = shufflevector <4 x i64> %10, <4 x i64> poison, <4 x i32> <i32 0, i32 2, i32 poison, i32 poison>
-  %perm30 = shufflevector <4 x i64> %12, <4 x i64> poison, <4 x i32> <i32 0, i32 2, i32 poison, i32 poison>
-  %vperm = shufflevector <4 x i64> %perm, <4 x i64> %perm30, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %vperm = shufflevector <4 x i64> %10, <4 x i64> %12, <4 x i32> <i32 0, i32 2, i32 4, i32 6>
   %vperm31 = shufflevector <4 x i64> %10, <4 x i64> %12, <4 x i32> <i32 1, i32 3, i32 5, i32 7>
   %add.ptr33 = getelementptr inbounds nuw <4 x i64>, ptr %0, i64 %indvars.iv27
   store <4 x i64> %vperm, ptr %add.ptr33, align 1
@@ -538,9 +532,7 @@ for.end:                                          ; preds = %for.body18
   %10 = bitcast <32 x i8> %9 to <4 x i64>
   %11 = shufflevector <32 x i8> %8, <32 x i8> poison, <32 x i32> <i32 0, i32 1, i32 4, i32 5, i32 8, i32 9, i32 12, i32 13, i32 2, i32 3, i32 6, i32 7, i32 10, i32 11, i32 14, i32 15, i32 16, i32 17, i32 20, i32 21, i32 24, i32 25, i32 28, i32 29, i32 18, i32 19, i32 22, i32 23, i32 26, i32 27, i32 30, i32 31>
   %12 = bitcast <32 x i8> %11 to <4 x i64>
-  %perm = shufflevector <4 x i64> %10, <4 x i64> poison, <4 x i32> <i32 0, i32 2, i32 poison, i32 poison>
-  %perm30 = shufflevector <4 x i64> %12, <4 x i64> poison, <4 x i32> <i32 0, i32 2, i32 poison, i32 poison>
-  %vperm = shufflevector <4 x i64> %perm, <4 x i64> %perm30, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %vperm = shufflevector <4 x i64> %10, <4 x i64> %12, <4 x i32> <i32 0, i32 2, i32 4, i32 6>
   %vperm31 = shufflevector <4 x i64> %10, <4 x i64> %12, <4 x i32> <i32 1, i32 3, i32 5, i32 7>
   %add.ptr33 = getelementptr inbounds nuw <4 x i64>, ptr %0, i64 %indvars.iv27
   store <4 x i64> %vperm, ptr %add.ptr33, align 1

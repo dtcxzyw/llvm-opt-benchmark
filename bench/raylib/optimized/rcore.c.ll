@@ -27327,128 +27327,128 @@ define { <2 x float>, <2 x float> } @QuaternionSlerp(<2 x float> %0, <2 x float>
   %.sroa.054.0.vec.extract = extractelement <2 x float> %0, i64 0
   %.sroa.023.0.vec.extract = extractelement <2 x float> %2, i64 0
   %.sroa.054.4.vec.extract = extractelement <2 x float> %0, i64 1
-  %.sroa.023.4.vec.extract = extractelement <2 x float> %2, i64 1
-  %6 = fmul float %.sroa.054.4.vec.extract, %.sroa.023.4.vec.extract
-  %7 = tail call float @llvm.fmuladd.f32(float %.sroa.054.0.vec.extract, float %.sroa.023.0.vec.extract, float %6)
+  %6 = fmul <2 x float> %0, %2
+  %7 = extractelement <2 x float> %6, i64 1
+  %8 = tail call float @llvm.fmuladd.f32(float %.sroa.054.0.vec.extract, float %.sroa.023.0.vec.extract, float %7)
   %.sroa.9.8.vec.extract = extractelement <2 x float> %1, i64 0
   %.sroa.12.8.vec.extract = extractelement <2 x float> %3, i64 0
-  %8 = tail call float @llvm.fmuladd.f32(float %.sroa.9.8.vec.extract, float %.sroa.12.8.vec.extract, float %7)
+  %9 = tail call float @llvm.fmuladd.f32(float %.sroa.9.8.vec.extract, float %.sroa.12.8.vec.extract, float %8)
   %.sroa.9.12.vec.extract = extractelement <2 x float> %1, i64 1
   %.sroa.12.12.vec.extract = extractelement <2 x float> %3, i64 1
-  %9 = tail call float @llvm.fmuladd.f32(float %.sroa.9.12.vec.extract, float %.sroa.12.12.vec.extract, float %8)
-  %10 = fcmp olt float %9, 0.000000e+00
-  br i1 %10, label %11, label %17
+  %10 = tail call float @llvm.fmuladd.f32(float %.sroa.9.12.vec.extract, float %.sroa.12.12.vec.extract, float %9)
+  %11 = fcmp olt float %10, 0.000000e+00
+  br i1 %11, label %12, label %18
 
-11:                                               ; preds = %5
-  %12 = fneg float %.sroa.023.0.vec.extract
-  %13 = fneg <2 x float> %2
-  %.sroa.023.4.vec.insert = insertelement <2 x float> %13, float %12, i64 0
-  %14 = fneg float %.sroa.12.8.vec.extract
-  %15 = fneg <2 x float> %3
-  %.sroa.12.12.vec.insert = insertelement <2 x float> %15, float %14, i64 0
-  %16 = fneg float %9
-  br label %17
+12:                                               ; preds = %5
+  %13 = fneg float %.sroa.023.0.vec.extract
+  %14 = fneg <2 x float> %2
+  %.sroa.023.4.vec.insert = insertelement <2 x float> %14, float %13, i64 0
+  %15 = fneg float %.sroa.12.8.vec.extract
+  %16 = fneg <2 x float> %3
+  %.sroa.12.12.vec.insert = insertelement <2 x float> %16, float %15, i64 0
+  %17 = fneg float %10
+  br label %18
 
-17:                                               ; preds = %11, %5
-  %.0 = phi float [ %16, %11 ], [ %9, %5 ]
-  %.sroa.023.0 = phi <2 x float> [ %.sroa.023.4.vec.insert, %11 ], [ %2, %5 ]
-  %.sroa.12.0 = phi <2 x float> [ %.sroa.12.12.vec.insert, %11 ], [ %3, %5 ]
-  %18 = tail call float @llvm.fabs.f32(float %.0)
-  %19 = fcmp ult float %18, 1.000000e+00
-  br i1 %19, label %20, label %80
+18:                                               ; preds = %12, %5
+  %.0 = phi float [ %17, %12 ], [ %10, %5 ]
+  %.sroa.023.0 = phi <2 x float> [ %.sroa.023.4.vec.insert, %12 ], [ %2, %5 ]
+  %.sroa.12.0 = phi <2 x float> [ %.sroa.12.12.vec.insert, %12 ], [ %3, %5 ]
+  %19 = tail call float @llvm.fabs.f32(float %.0)
+  %20 = fcmp ult float %19, 1.000000e+00
+  br i1 %20, label %21, label %81
 
-20:                                               ; preds = %17
-  %21 = fcmp ogt float %.0, 0x3FEE666660000000
-  br i1 %21, label %22, label %48
+21:                                               ; preds = %18
+  %22 = fcmp ogt float %.0, 0x3FEE666660000000
+  br i1 %22, label %23, label %49
 
-22:                                               ; preds = %20
-  %23 = fsub <2 x float> %.sroa.023.0, %0
-  %24 = extractelement <2 x float> %23, i64 0
-  %25 = tail call float @llvm.fmuladd.f32(float %4, float %24, float %.sroa.054.0.vec.extract)
-  %26 = fsub <2 x float> %.sroa.023.0, %0
-  %27 = extractelement <2 x float> %26, i64 1
-  %28 = tail call float @llvm.fmuladd.f32(float %4, float %27, float %.sroa.054.4.vec.extract)
-  %29 = fsub <2 x float> %.sroa.12.0, %1
-  %30 = extractelement <2 x float> %29, i64 0
-  %31 = tail call float @llvm.fmuladd.f32(float %4, float %30, float %.sroa.9.8.vec.extract)
-  %32 = fsub <2 x float> %.sroa.12.0, %1
-  %33 = extractelement <2 x float> %32, i64 1
-  %34 = tail call float @llvm.fmuladd.f32(float %4, float %33, float %.sroa.9.12.vec.extract)
-  %35 = fmul float %28, %28
-  %36 = tail call float @llvm.fmuladd.f32(float %25, float %25, float %35)
-  %37 = tail call float @llvm.fmuladd.f32(float %31, float %31, float %36)
-  %38 = tail call float @llvm.fmuladd.f32(float %34, float %34, float %37)
-  %sqrt.i = tail call float @llvm.sqrt.f32(float %38)
-  %39 = fcmp oeq float %38, 0.000000e+00
-  %40 = fdiv float 1.000000e+00, %sqrt.i
-  %41 = select i1 %39, float 1.000000e+00, float %40
-  %42 = fmul float %25, %41
-  %43 = insertelement <2 x float> poison, float %42, i64 0
-  %44 = fmul float %28, %41
-  %.sroa.028.4.vec.insert34.i = insertelement <2 x float> %43, float %44, i64 1
-  %45 = fmul float %31, %41
-  %46 = insertelement <2 x float> poison, float %45, i64 0
-  %47 = fmul float %34, %41
-  %.sroa.8.12.vec.insert41.i = insertelement <2 x float> %46, float %47, i64 1
-  br label %80
+23:                                               ; preds = %21
+  %24 = fsub <2 x float> %.sroa.023.0, %0
+  %25 = extractelement <2 x float> %24, i64 0
+  %26 = tail call float @llvm.fmuladd.f32(float %4, float %25, float %.sroa.054.0.vec.extract)
+  %27 = fsub <2 x float> %.sroa.023.0, %0
+  %28 = extractelement <2 x float> %27, i64 1
+  %29 = tail call float @llvm.fmuladd.f32(float %4, float %28, float %.sroa.054.4.vec.extract)
+  %30 = fsub <2 x float> %.sroa.12.0, %1
+  %31 = extractelement <2 x float> %30, i64 0
+  %32 = tail call float @llvm.fmuladd.f32(float %4, float %31, float %.sroa.9.8.vec.extract)
+  %33 = fsub <2 x float> %.sroa.12.0, %1
+  %34 = extractelement <2 x float> %33, i64 1
+  %35 = tail call float @llvm.fmuladd.f32(float %4, float %34, float %.sroa.9.12.vec.extract)
+  %36 = fmul float %29, %29
+  %37 = tail call float @llvm.fmuladd.f32(float %26, float %26, float %36)
+  %38 = tail call float @llvm.fmuladd.f32(float %32, float %32, float %37)
+  %39 = tail call float @llvm.fmuladd.f32(float %35, float %35, float %38)
+  %sqrt.i = tail call float @llvm.sqrt.f32(float %39)
+  %40 = fcmp oeq float %39, 0.000000e+00
+  %41 = fdiv float 1.000000e+00, %sqrt.i
+  %42 = select i1 %40, float 1.000000e+00, float %41
+  %43 = fmul float %26, %42
+  %44 = insertelement <2 x float> poison, float %43, i64 0
+  %45 = fmul float %29, %42
+  %.sroa.028.4.vec.insert34.i = insertelement <2 x float> %44, float %45, i64 1
+  %46 = fmul float %32, %42
+  %47 = insertelement <2 x float> poison, float %46, i64 0
+  %48 = fmul float %35, %42
+  %.sroa.8.12.vec.insert41.i = insertelement <2 x float> %47, float %48, i64 1
+  br label %81
 
-48:                                               ; preds = %20
-  %49 = tail call float @acosf(float noundef %.0) #54
-  %50 = fneg float %.0
-  %51 = tail call float @llvm.fmuladd.f32(float %50, float %.0, float 1.000000e+00)
-  %52 = tail call float @sqrtf(float noundef %51) #54
-  %53 = tail call float @llvm.fabs.f32(float %52)
-  %54 = fcmp olt float %53, 0x3EB0C6F7A0000000
-  br i1 %54, label %55, label %64
+49:                                               ; preds = %21
+  %50 = tail call float @acosf(float noundef %.0) #54
+  %51 = fneg float %.0
+  %52 = tail call float @llvm.fmuladd.f32(float %51, float %.0, float 1.000000e+00)
+  %53 = tail call float @sqrtf(float noundef %52) #54
+  %54 = tail call float @llvm.fabs.f32(float %53)
+  %55 = fcmp olt float %54, 0x3EB0C6F7A0000000
+  br i1 %55, label %56, label %65
 
-55:                                               ; preds = %48
+56:                                               ; preds = %49
   %.sroa.023.0.vec.extract29 = extractelement <2 x float> %.sroa.023.0, i64 0
-  %56 = fmul float %.sroa.023.0.vec.extract29, 5.000000e-01
-  %57 = tail call float @llvm.fmuladd.f32(float %.sroa.054.0.vec.extract, float 5.000000e-01, float %56)
-  %.sroa.073.0.vec.insert = insertelement <2 x float> poison, float %57, i64 0
+  %57 = fmul float %.sroa.023.0.vec.extract29, 5.000000e-01
+  %58 = tail call float @llvm.fmuladd.f32(float %.sroa.054.0.vec.extract, float 5.000000e-01, float %57)
+  %.sroa.073.0.vec.insert = insertelement <2 x float> poison, float %58, i64 0
   %.sroa.023.4.vec.extract36 = extractelement <2 x float> %.sroa.023.0, i64 1
-  %58 = fmul float %.sroa.023.4.vec.extract36, 5.000000e-01
-  %59 = tail call float @llvm.fmuladd.f32(float %.sroa.054.4.vec.extract, float 5.000000e-01, float %58)
-  %.sroa.073.4.vec.insert = insertelement <2 x float> %.sroa.073.0.vec.insert, float %59, i64 1
+  %59 = fmul float %.sroa.023.4.vec.extract36, 5.000000e-01
+  %60 = tail call float @llvm.fmuladd.f32(float %.sroa.054.4.vec.extract, float 5.000000e-01, float %59)
+  %.sroa.073.4.vec.insert = insertelement <2 x float> %.sroa.073.0.vec.insert, float %60, i64 1
   %.sroa.12.8.vec.extract44 = extractelement <2 x float> %.sroa.12.0, i64 0
-  %60 = fmul float %.sroa.12.8.vec.extract44, 5.000000e-01
-  %61 = tail call float @llvm.fmuladd.f32(float %.sroa.9.8.vec.extract, float 5.000000e-01, float %60)
-  %.sroa.8.8.vec.insert = insertelement <2 x float> poison, float %61, i64 0
+  %61 = fmul float %.sroa.12.8.vec.extract44, 5.000000e-01
+  %62 = tail call float @llvm.fmuladd.f32(float %.sroa.9.8.vec.extract, float 5.000000e-01, float %61)
+  %.sroa.8.8.vec.insert = insertelement <2 x float> poison, float %62, i64 0
   %.sroa.12.12.vec.extract51 = extractelement <2 x float> %.sroa.12.0, i64 1
-  %62 = fmul float %.sroa.12.12.vec.extract51, 5.000000e-01
-  %63 = tail call float @llvm.fmuladd.f32(float %.sroa.9.12.vec.extract, float 5.000000e-01, float %62)
-  %.sroa.8.12.vec.insert = insertelement <2 x float> %.sroa.8.8.vec.insert, float %63, i64 1
-  br label %80
+  %63 = fmul float %.sroa.12.12.vec.extract51, 5.000000e-01
+  %64 = tail call float @llvm.fmuladd.f32(float %.sroa.9.12.vec.extract, float 5.000000e-01, float %63)
+  %.sroa.8.12.vec.insert = insertelement <2 x float> %.sroa.8.8.vec.insert, float %64, i64 1
+  br label %81
 
-64:                                               ; preds = %48
-  %65 = fsub float 1.000000e+00, %4
-  %66 = fmul float %65, %49
-  %67 = tail call float @sinf(float noundef %66) #54
-  %68 = fdiv float %67, %52
-  %69 = fmul float %4, %49
-  %70 = tail call float @sinf(float noundef %69) #54
-  %71 = fdiv float %70, %52
+65:                                               ; preds = %49
+  %66 = fsub float 1.000000e+00, %4
+  %67 = fmul float %66, %50
+  %68 = tail call float @sinf(float noundef %67) #54
+  %69 = fdiv float %68, %53
+  %70 = fmul float %4, %50
+  %71 = tail call float @sinf(float noundef %70) #54
+  %72 = fdiv float %71, %53
   %.sroa.023.0.vec.extract31 = extractelement <2 x float> %.sroa.023.0, i64 0
-  %72 = fmul float %.sroa.023.0.vec.extract31, %71
-  %73 = tail call float @llvm.fmuladd.f32(float %.sroa.054.0.vec.extract, float %68, float %72)
-  %.sroa.073.0.vec.insert76 = insertelement <2 x float> poison, float %73, i64 0
+  %73 = fmul float %.sroa.023.0.vec.extract31, %72
+  %74 = tail call float @llvm.fmuladd.f32(float %.sroa.054.0.vec.extract, float %69, float %73)
+  %.sroa.073.0.vec.insert76 = insertelement <2 x float> poison, float %74, i64 0
   %.sroa.023.4.vec.extract38 = extractelement <2 x float> %.sroa.023.0, i64 1
-  %74 = fmul float %.sroa.023.4.vec.extract38, %71
-  %75 = tail call float @llvm.fmuladd.f32(float %.sroa.054.4.vec.extract, float %68, float %74)
-  %.sroa.073.4.vec.insert78 = insertelement <2 x float> %.sroa.073.0.vec.insert76, float %75, i64 1
+  %75 = fmul float %.sroa.023.4.vec.extract38, %72
+  %76 = tail call float @llvm.fmuladd.f32(float %.sroa.054.4.vec.extract, float %69, float %75)
+  %.sroa.073.4.vec.insert78 = insertelement <2 x float> %.sroa.073.0.vec.insert76, float %76, i64 1
   %.sroa.12.8.vec.extract46 = extractelement <2 x float> %.sroa.12.0, i64 0
-  %76 = fmul float %.sroa.12.8.vec.extract46, %71
-  %77 = tail call float @llvm.fmuladd.f32(float %.sroa.9.8.vec.extract, float %68, float %76)
-  %.sroa.8.8.vec.insert81 = insertelement <2 x float> poison, float %77, i64 0
+  %77 = fmul float %.sroa.12.8.vec.extract46, %72
+  %78 = tail call float @llvm.fmuladd.f32(float %.sroa.9.8.vec.extract, float %69, float %77)
+  %.sroa.8.8.vec.insert81 = insertelement <2 x float> poison, float %78, i64 0
   %.sroa.12.12.vec.extract53 = extractelement <2 x float> %.sroa.12.0, i64 1
-  %78 = fmul float %.sroa.12.12.vec.extract53, %71
-  %79 = tail call float @llvm.fmuladd.f32(float %.sroa.9.12.vec.extract, float %68, float %78)
-  %.sroa.8.12.vec.insert83 = insertelement <2 x float> %.sroa.8.8.vec.insert81, float %79, i64 1
-  br label %80
+  %79 = fmul float %.sroa.12.12.vec.extract53, %72
+  %80 = tail call float @llvm.fmuladd.f32(float %.sroa.9.12.vec.extract, float %69, float %79)
+  %.sroa.8.12.vec.insert83 = insertelement <2 x float> %.sroa.8.8.vec.insert81, float %80, i64 1
+  br label %81
 
-80:                                               ; preds = %17, %22, %64, %55
-  %.pn87 = phi <2 x float> [ %.sroa.028.4.vec.insert34.i, %22 ], [ %.sroa.073.4.vec.insert, %55 ], [ %.sroa.073.4.vec.insert78, %64 ], [ %0, %17 ]
-  %.pn85 = phi <2 x float> [ %.sroa.8.12.vec.insert41.i, %22 ], [ %.sroa.8.12.vec.insert, %55 ], [ %.sroa.8.12.vec.insert83, %64 ], [ %1, %17 ]
+81:                                               ; preds = %18, %23, %65, %56
+  %.pn87 = phi <2 x float> [ %.sroa.028.4.vec.insert34.i, %23 ], [ %.sroa.073.4.vec.insert, %56 ], [ %.sroa.073.4.vec.insert78, %65 ], [ %0, %18 ]
+  %.pn85 = phi <2 x float> [ %.sroa.8.12.vec.insert41.i, %23 ], [ %.sroa.8.12.vec.insert, %56 ], [ %.sroa.8.12.vec.insert83, %65 ], [ %1, %18 ]
   %.pn = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.pn87, 0
   %.fca.1.insert.merged = insertvalue { <2 x float>, <2 x float> } %.pn, <2 x float> %.pn85, 1
   ret { <2 x float>, <2 x float> } %.fca.1.insert.merged

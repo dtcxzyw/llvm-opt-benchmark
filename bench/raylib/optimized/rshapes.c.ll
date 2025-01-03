@@ -4300,13 +4300,12 @@ define zeroext i1 @CheckCollisionRecs(<2 x float> %0, <2 x float> %1, <2 x float
   br i1 %or.cond, label %11, label %18
 
 11:                                               ; preds = %4
-  %.sroa.0.4.vec.extract = extractelement <2 x float> %2, i64 1
   %12 = fadd <2 x float> %2, %3
   %13 = fcmp olt <2 x float> %0, %12
   %14 = extractelement <2 x i1> %13, i64 1
   %15 = fadd <2 x float> %0, %1
-  %16 = extractelement <2 x float> %15, i64 1
-  %17 = fcmp ogt float %16, %.sroa.0.4.vec.extract
+  %16 = fcmp ogt <2 x float> %15, %2
+  %17 = extractelement <2 x i1> %16, i64 1
   %or.cond13 = select i1 %14, i1 %17, i1 false
   br label %18
 
