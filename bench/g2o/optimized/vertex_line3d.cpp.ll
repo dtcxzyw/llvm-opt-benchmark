@@ -1605,10 +1605,9 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEaSINS_7ProductIS1_S1_Li0EEEEERS1_RKNS_9De
   %.sroa.013.8.vec.insert.i = shufflevector <2 x double> %170, <2 x double> %171, <2 x i32> <i32 0, i32 2>
   %172 = fmul <2 x double> %169, %160
   %173 = extractelement <2 x double> %172, i64 0
-  %174 = fmul <2 x double> %160, %169
-  %shift102 = shufflevector <2 x double> %169, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %175 = fmul <2 x double> %shift102, %162
-  %.sroa.0.8.vec.insert.i22 = shufflevector <2 x double> %174, <2 x double> %175, <2 x i32> <i32 1, i32 2>
+  %174 = shufflevector <2 x double> %160, <2 x double> %169, <2 x i32> <i32 1, i32 3>
+  %175 = shufflevector <2 x double> %169, <2 x double> %162, <2 x i32> <i32 1, i32 2>
+  %.sroa.0.8.vec.insert.i22 = fmul <2 x double> %174, %175
   %176 = fmul <2 x double> %169, %162
   %177 = extractelement <2 x double> %176, i64 1
   store double %173, ptr %.sroa.2, align 16, !alias.scope !30

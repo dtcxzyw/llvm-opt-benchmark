@@ -210,7 +210,7 @@
   "licm.NumBOAssociationsHoisted": 5284,
   "licm.NumFPAssociationsHoisted": 179,
   "licm.NumGEPsHoisted": 29009,
-  "licm.NumHoisted": 4030611,
+  "licm.NumHoisted": 4030615,
   "licm.NumIntAssociationsHoisted": 2657,
   "licm.NumLoadPromoted": 64849,
   "licm.NumLoadStorePromoted": 55763,
