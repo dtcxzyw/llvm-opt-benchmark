@@ -4599,7 +4599,7 @@ define internal fastcc range(i32 0, 2) i32 @Gia_ManSifCutOne(ptr nocapture nound
   %82 = load i32, ptr %.24664.i, align 4
   %83 = getelementptr inbounds nuw i8, ptr %.265.i, i64 4
   store i32 %82, ptr %.265.i, align 4
-  %84 = icmp ult ptr %.24664.i, %44
+  %84 = icmp ult ptr %81, %.ptr72.i
   br i1 %84, label %78, label %.preheader.i, !llvm.loop !59
 
 85:                                               ; preds = %87, %.lr.ph70.i
@@ -4613,7 +4613,7 @@ define internal fastcc range(i32 0, 2) i32 @Gia_ManSifCutOne(ptr nocapture nound
   %89 = load i32, ptr %.24968.i, align 4
   %90 = getelementptr inbounds nuw i8, ptr %.369.i, i64 4
   store i32 %89, ptr %.369.i, align 4
-  %91 = icmp ult ptr %.24968.i, %47
+  %91 = icmp ult ptr %88, %.ptr75.i
   br i1 %91, label %85, label %._crit_edge.i, !llvm.loop !60
 
 ._crit_edge.i:                                    ; preds = %87, %.preheader.i
@@ -4721,7 +4721,7 @@ define internal fastcc range(i32 0, 2) i32 @Gia_ManSifCutOne(ptr nocapture nound
   %134 = load i32, ptr %.24664.i103, align 4
   %135 = getelementptr inbounds nuw i8, ptr %.265.i102, i64 4
   store i32 %134, ptr %.265.i102, align 4
-  %136 = icmp ult ptr %.24664.i103, %103
+  %136 = icmp ult ptr %133, %.ptr72.i86
   br i1 %136, label %130, label %.preheader.i93, !llvm.loop !59
 
 137:                                              ; preds = %139, %.lr.ph70.i98
@@ -4839,7 +4839,7 @@ define internal fastcc range(i32 0, 2) i32 @Gia_ManSifCutOne(ptr nocapture nound
   %182 = load i32, ptr %.24664.i132, align 4
   %183 = getelementptr inbounds nuw i8, ptr %.265.i131, i64 4
   store i32 %182, ptr %.265.i131, align 4
-  %184 = icmp ult ptr %.24664.i132, %151
+  %184 = icmp ult ptr %181, %.ptr72.i115
   br i1 %184, label %178, label %.preheader.i122, !llvm.loop !59
 
 185:                                              ; preds = %187, %.lr.ph70.i127

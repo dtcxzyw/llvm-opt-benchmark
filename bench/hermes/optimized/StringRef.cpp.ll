@@ -767,7 +767,7 @@ if.then23:                                        ; preds = %do.body
 
 if.end28:                                         ; preds = %do.body
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %Start.0, i64 1
-  %cmp29 = icmp ult ptr %Start.0, %3
+  %cmp29 = icmp ult ptr %incdec.ptr, %add.ptr17
   br i1 %cmp29, label %do.body, label %return, !llvm.loop !14
 
 for.body.preheader:                               ; preds = %if.end15

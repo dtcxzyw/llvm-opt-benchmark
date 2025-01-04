@@ -2668,6 +2668,7 @@ if.then15:                                        ; preds = %if.end6
 
 if.end.i65:                                       ; preds = %if.then15
   %16 = getelementptr i8, ptr %ptr.addr.0, i64 %len.1
+  %add.ptr.i122.ptr = getelementptr i8, ptr %16, i64 1
   %17 = add i64 %len.1, -20
   %18 = icmp ult i64 %17, -19
   br i1 %18, label %do.body22, label %if.end.i130
@@ -2702,7 +2703,7 @@ for.body.i137:                                    ; preds = %land.rhs.i139
   %mul.i = mul i64 %num.i121.0142, 10
   %add39.i = add i64 %sub.i140, %mul.i
   %incdec.ptr.i138 = getelementptr inbounds nuw i8, ptr %cur.addr.i.0143, i64 1
-  %cmp33.i = icmp ult ptr %cur.addr.i.0143, %16
+  %cmp33.i = icmp ult ptr %incdec.ptr.i138, %add.ptr.i122.ptr
   br i1 %cmp33.i, label %land.rhs.i139, label %for.end.i136, !llvm.loop !31
 
 for.end.i136:                                     ; preds = %land.rhs.i139, %for.body.i137
@@ -2992,6 +2993,7 @@ if.then17.i:                                      ; preds = %land.lhs.true10.i, 
 
 if.end19.i:                                       ; preds = %if.then15
   %20 = getelementptr i8, ptr %ptr.addr.0, i64 %len.1
+  %add.ptr.i123.ptr = getelementptr i8, ptr %20, i64 1
   %21 = add i64 %len.1, -20
   %22 = icmp ult i64 %21, -19
   br i1 %22, label %if.end19, label %if.end.i131
@@ -3024,7 +3026,7 @@ for.body.i139:                                    ; preds = %land.rhs.i141
   %mul.i = mul i64 %num.i122.0187, 10
   %add39.i = add i64 %sub.i142, %mul.i
   %incdec.ptr.i140 = getelementptr inbounds nuw i8, ptr %cur.addr.i.0188, i64 1
-  %cmp33.i136 = icmp ult ptr %cur.addr.i.0188, %20
+  %cmp33.i136 = icmp ult ptr %incdec.ptr.i140, %add.ptr.i123.ptr
   br i1 %cmp33.i136, label %land.rhs.i141, label %ptr_token_to_idx.exit, !llvm.loop !31
 
 ptr_token_to_idx.exit:                            ; preds = %for.body.i139
@@ -3336,6 +3338,7 @@ land.lhs.true10.i:                                ; preds = %if.then6.i
 
 if.end19.i:                                       ; preds = %if.then16
   %19 = getelementptr i8, ptr %ptr.addr.0, i64 %token_len.1
+  %add.ptr.i1025.ptr = getelementptr i8, ptr %19, i64 1
   %20 = add i64 %token_len.1, -20
   %21 = icmp ult i64 %20, -19
   br i1 %21, label %if.end31.thread, label %if.end.i1033
@@ -3370,7 +3373,7 @@ for.body.i1042:                                   ; preds = %land.rhs.i1044
   %mul.i = mul i64 %num.i1023.0929, 10
   %add39.i = add i64 %sub.i1045, %mul.i
   %incdec.ptr.i1043 = getelementptr inbounds nuw i8, ptr %cur.addr.i.0930, i64 1
-  %cmp33.i1039 = icmp ult ptr %cur.addr.i.0930, %19
+  %cmp33.i1039 = icmp ult ptr %incdec.ptr.i1043, %add.ptr.i1025.ptr
   br i1 %cmp33.i1039, label %land.rhs.i1044, label %ptr_token_to_idx.exit, !llvm.loop !31
 
 ptr_token_to_idx.exit:                            ; preds = %for.body.i1042

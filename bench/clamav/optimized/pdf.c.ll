@@ -3145,7 +3145,7 @@ define internal fastcc ptr @pdf_readstring(ptr noundef %0, i32 noundef %1, ptr n
   %.299 = phi ptr [ %54, %53 ], [ %90, %89 ], [ %88, %79 ], [ %.198132, %76 ], [ %.198132, %70 ], [ %.198132, %55 ], [ %69, %68 ], [ %67, %66 ], [ %65, %64 ], [ %63, %62 ], [ %61, %60 ], [ %59, %58 ], [ %.198132, %73 ]
   %.3 = phi ptr [ %.2133, %53 ], [ %.2133, %89 ], [ %77, %79 ], [ %56, %76 ], [ %56, %70 ], [ %56, %55 ], [ %56, %68 ], [ %56, %66 ], [ %56, %64 ], [ %56, %62 ], [ %56, %60 ], [ %56, %58 ], [ %spec.select, %73 ]
   %92 = getelementptr inbounds nuw i8, ptr %.3, i64 1
-  %93 = icmp ult ptr %.3, %48
+  %93 = icmp ult ptr %92, %.ptr136
   br i1 %93, label %.lr.ph134, label %.loopexit
 
 .loopexit:                                        ; preds = %91, %.preheader, %50

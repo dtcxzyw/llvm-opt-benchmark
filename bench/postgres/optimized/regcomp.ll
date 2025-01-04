@@ -2399,7 +2399,7 @@ newarc.exit:                                      ; preds = %139, %152, %colorch
 freecolor.exit:                                   ; preds = %newarc.exit, %104, %115, %106, %91, %._crit_edge.i, %._crit_edge, %17
   %254 = getelementptr i8, ptr %.062, i64 32
   %255 = add i16 %.04060, 1
-  %256 = icmp ult ptr %.062, %7
+  %256 = icmp ult ptr %254, %8
   br i1 %256, label %17, label %._crit_edge65, !llvm.loop !20
 
 ._crit_edge65:                                    ; preds = %freecolor.exit, %2
@@ -12286,13 +12286,13 @@ define internal fastcc void @rainbow(ptr nocapture noundef %0, ptr nocapture nou
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load i64, ptr %8, align 8
   %10 = getelementptr %struct.colordesc, ptr %7, i64 %9
-  %11 = icmp eq i16 %2, -1
-  br i1 %11, label %18, label %.preheader
+  %11 = getelementptr i8, ptr %10, i64 32
+  %12 = icmp eq i16 %2, -1
+  br i1 %12, label %18, label %.preheader
 
 .preheader:                                       ; preds = %5
-  %12 = getelementptr i8, ptr %10, i64 32
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %14 = icmp ult ptr %7, %12
+  %14 = icmp ult ptr %7, %11
   br i1 %14, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader
@@ -12490,7 +12490,7 @@ define internal fastcc void @rainbow(ptr nocapture noundef %0, ptr nocapture nou
 newarc.exit49:                                    ; preds = %76, %88, %.loopexit.i42, %55, %59
   %93 = getelementptr i8, ptr %.02356, i64 32
   %94 = add i16 %.057, 1
-  %95 = icmp ult ptr %.02356, %10
+  %95 = icmp ult ptr %93, %11
   br i1 %95, label %51, label %.critedge, !llvm.loop !86
 
 .critedge:                                        ; preds = %51, %newarc.exit49, %33, %46, %.preheader, %.loopexit.i
@@ -20079,7 +20079,7 @@ element.exit:                                     ; preds = %299
 363:                                              ; preds = %361, %359
   %.1.i = phi i1 [ %.036.i, %359 ], [ %spec.select.i29, %361 ]
   %364 = getelementptr i8, ptr %.02335.i, i64 32
-  %365 = icmp ult ptr %.02335.i, %341
+  %365 = icmp ult ptr %364, %342
   br i1 %365, label %.lr.ph38.i, label %._crit_edge39.i, !llvm.loop !104
 
 ._crit_edge39.i:                                  ; preds = %363
@@ -25453,7 +25453,7 @@ define internal fastcc void @colorcomplement(ptr nocapture noundef %0, ptr nocap
 newarc.exit:                                      ; preds = %62, %74, %.loopexit.i, %45, %47
   %79 = getelementptr i8, ptr %.02544, i64 32
   %80 = add i16 %.02445, 1
-  %81 = icmp ult ptr %.02544, %11
+  %81 = icmp ult ptr %79, %12
   br i1 %81, label %37, label %.critedge, !llvm.loop !128
 
 .critedge:                                        ; preds = %15, %37, %newarc.exit, %._crit_edge

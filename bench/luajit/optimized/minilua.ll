@@ -37124,7 +37124,7 @@ lua_rawgeti.exit415:                              ; preds = %land.lhs.true.i.i40
   store ptr %incdec.ptr.i405, ptr %top.i.i, align 8
   %128 = load ptr, ptr %base.i.i, align 8
   %add.ptr.i.i.i = getelementptr i8, ptr %128, i64 16
-  %cmp1.not.i.i.i = icmp uge ptr %128, %127
+  %cmp1.not.i.i.i = icmp uge ptr %add.ptr.i.i.i, %incdec.ptr.i405
   %cmp.i.i = icmp eq ptr %add.ptr.i.i.i, @luaO_nilobject_
   %or.cond.i = or i1 %cmp1.not.i.i.i, %cmp.i.i
   br i1 %or.cond.i, label %lua_pushvalue.exit66.i, label %lua_type.exit.i
@@ -37316,7 +37316,7 @@ lua_rawgeti.exit467:                              ; preds = %land.lhs.true.i.i45
   store ptr %incdec.ptr.i457, ptr %top.i.i, align 8
   %163 = load ptr, ptr %base.i.i, align 8
   %add.ptr.i.i.i469 = getelementptr i8, ptr %163, i64 16
-  %cmp1.not.i.i.i471 = icmp uge ptr %163, %162
+  %cmp1.not.i.i.i471 = icmp uge ptr %add.ptr.i.i.i469, %incdec.ptr.i457
   %cmp.i.i472 = icmp eq ptr %add.ptr.i.i.i469, @luaO_nilobject_
   %or.cond.i473 = or i1 %cmp1.not.i.i.i471, %cmp.i.i472
   br i1 %or.cond.i473, label %lua_pushvalue.exit66.i477, label %lua_type.exit.i474

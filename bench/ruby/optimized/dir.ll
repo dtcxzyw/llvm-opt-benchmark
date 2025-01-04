@@ -4011,13 +4011,13 @@ glob_alloc_n.exit406:                             ; preds = %ruby_nonempty_memcp
   %509 = load ptr, ptr %508, align 8
   %510 = getelementptr i8, ptr %505, i64 8
   store ptr %509, ptr %505, align 8
-  %511 = icmp ult ptr %.3511, %.0270501
+  %.0269504 = getelementptr i8, ptr %.3511, i64 8
+  %511 = icmp ult ptr %.0269504, %468
   br i1 %511, label %.lr.ph508, label %._crit_edge509
 
 .lr.ph508:                                        ; preds = %506, %522
-  %.0269506.pn = phi ptr [ %.0269506, %522 ], [ %.3511, %506 ]
+  %.0269506 = phi ptr [ %.0269, %522 ], [ %.0269504, %506 ]
   %.4505 = phi ptr [ %.5, %522 ], [ %510, %506 ]
-  %.0269506 = getelementptr i8, ptr %.0269506.pn, i64 8
   %512 = load ptr, ptr %.0269506, align 8
   %.not329 = icmp eq ptr %512, null
   br i1 %.not329, label %522, label %513
@@ -4039,7 +4039,8 @@ glob_alloc_n.exit406:                             ; preds = %ruby_nonempty_memcp
 
 522:                                              ; preds = %.lr.ph508, %513, %517
   %.5 = phi ptr [ %521, %517 ], [ %.4505, %513 ], [ %.4505, %.lr.ph508 ]
-  %523 = icmp ult ptr %.0269506, %.0270501
+  %.0269 = getelementptr i8, ptr %.0269506, i64 8
+  %523 = icmp ult ptr %.0269, %468
   br i1 %523, label %.lr.ph508, label %._crit_edge509, !llvm.loop !61
 
 ._crit_edge509:                                   ; preds = %522, %506
@@ -4101,7 +4102,7 @@ ruby_nonempty_memcpy.exit.i411:                   ; preds = %528, %527
 
 541:                                              ; preds = %471, %535
   %542 = getelementptr i8, ptr %.3511, i64 8
-  %543 = icmp ult ptr %.3511, %.0270501
+  %543 = icmp ult ptr %542, %468
   br i1 %543, label %471, label %.loopexit, !llvm.loop !62
 
 .loopexit.sink.split:                             ; preds = %glob_alloc_n.exit406, %534

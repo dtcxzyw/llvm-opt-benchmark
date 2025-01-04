@@ -2573,25 +2573,25 @@ define internal fastcc noundef zeroext i1 @TransferPredicateLocksToNewTarget(i64
   br label %35
 
 35:                                               ; preds = %28, %5
-  %36 = icmp ult ptr %22, %26
+  %36 = icmp ult ptr %23, %27
   br i1 %36, label %37, label %41
 
 37:                                               ; preds = %35
   %not.70 = xor i1 %4, true
   %38 = zext i1 %not.70 to i32
   %39 = call zeroext i1 @LWLockAcquire(ptr noundef %23, i32 noundef %38) #12
-  %40 = call zeroext i1 @LWLockAcquire(ptr noundef %27, i32 noundef 0) #12
+  %40 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %27, i32 noundef 0) #12
   br label %47
 
 41:                                               ; preds = %35
-  %42 = icmp ugt ptr %22, %26
+  %42 = icmp ugt ptr %23, %27
   %43 = call zeroext i1 @LWLockAcquire(ptr noundef %27, i32 noundef 0) #12
   br i1 %42, label %44, label %47
 
 44:                                               ; preds = %41
   %not. = xor i1 %4, true
   %45 = zext i1 %not. to i32
-  %46 = call zeroext i1 @LWLockAcquire(ptr noundef %23, i32 noundef %45) #12
+  %46 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %23, i32 noundef %45) #12
   br label %47
 
 47:                                               ; preds = %41, %44, %37
@@ -2834,13 +2834,13 @@ RemoveTargetIfNoLongerUsed.exit:                  ; preds = %169, %165, %50, %47
   br i1 %36, label %.sink.split, label %173
 
 173:                                              ; preds = %RemoveTargetIfNoLongerUsed.exit
-  %174 = icmp ugt ptr %22, %26
+  %174 = icmp ugt ptr %23, %27
   br i1 %174, label %.sink.split, label %175
 
 .sink.split:                                      ; preds = %173, %RemoveTargetIfNoLongerUsed.exit
   %.sink83 = phi ptr [ %27, %RemoveTargetIfNoLongerUsed.exit ], [ %23, %173 ]
   %.sink.ph = phi ptr [ %23, %RemoveTargetIfNoLongerUsed.exit ], [ %27, %173 ]
-  call void @LWLockRelease(ptr noundef %.sink83) #12
+  call void @LWLockRelease(ptr noundef nonnull %.sink83) #12
   br label %175
 
 175:                                              ; preds = %.sink.split, %173

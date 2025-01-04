@@ -2737,6 +2737,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv10BRISK_Impl17smoothedIntensityER
   %.ptr = getelementptr inbounds nuw i8, ptr %253, i64 1
   %257 = sext i32 %122 to i64
   %258 = getelementptr i8, ptr %253, i64 %257
+  %.ptr293 = getelementptr i8, ptr %258, i64 1
   %259 = icmp sgt i32 %121, 1
   br i1 %259, label %.lr.ph, label %._crit_edge
 
@@ -2748,7 +2749,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv10BRISK_Impl17smoothedIntensityER
   %262 = mul nsw i32 %261, %140
   %263 = add nsw i32 %262, %.0246270
   %264 = getelementptr inbounds nuw i8, ptr %.0249269, i64 1
-  %265 = icmp ult ptr %.0249269, %258
+  %265 = icmp ult ptr %264, %.ptr293
   br i1 %265, label %.lr.ph, label %._crit_edge, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %.lr.ph, %245
@@ -2776,6 +2777,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv10BRISK_Impl17smoothedIntensityER
   %280 = add nsw i32 %279, %.1280
   %.ptr294 = getelementptr inbounds nuw i8, ptr %.1250279, i64 1
   %281 = getelementptr i8, ptr %.1250279, i64 %257
+  %.ptr295 = getelementptr i8, ptr %281, i64 1
   br i1 %259, label %.lr.ph275, label %._crit_edge276
 
 .lr.ph275:                                        ; preds = %.lr.ph282, %.lr.ph275
@@ -2786,7 +2788,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv10BRISK_Impl17smoothedIntensityER
   %284 = mul nsw i32 %283, %78
   %285 = add nsw i32 %284, %.2273
   %286 = getelementptr inbounds nuw i8, ptr %.2251272, i64 1
-  %287 = icmp ult ptr %.2251272, %281
+  %287 = icmp ult ptr %286, %.ptr295
   br i1 %287, label %.lr.ph275, label %._crit_edge276, !llvm.loop !40
 
 ._crit_edge276:                                   ; preds = %.lr.ph275, %.lr.ph282
@@ -2809,6 +2811,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv10BRISK_Impl17smoothedIntensityER
   %297 = add nsw i32 %296, %.1.lcssa
   %.ptr296 = getelementptr inbounds nuw i8, ptr %.1250.lcssa, i64 1
   %298 = getelementptr i8, ptr %.1250.lcssa, i64 %257
+  %.ptr297 = getelementptr i8, ptr %298, i64 1
   br i1 %259, label %.lr.ph289, label %._crit_edge290
 
 .lr.ph289:                                        ; preds = %._crit_edge283, %.lr.ph289
@@ -2819,7 +2822,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv10BRISK_Impl17smoothedIntensityER
   %301 = mul nsw i32 %300, %144
   %302 = add nsw i32 %301, %.3287
   %303 = getelementptr inbounds nuw i8, ptr %.3252286, i64 1
-  %304 = icmp ult ptr %.3252286, %298
+  %304 = icmp ult ptr %303, %.ptr297
   br i1 %304, label %.lr.ph289, label %._crit_edge290, !llvm.loop !42
 
 ._crit_edge290:                                   ; preds = %.lr.ph289, %._crit_edge283
@@ -10650,6 +10653,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv10BriskLayer5valueERKNS_3MatEfff(
   %.ptr = getelementptr inbounds nuw i8, ptr %140, i64 1
   %144 = sext i32 %110 to i64
   %145 = getelementptr i8, ptr %140, i64 %144
+  %.ptr193 = getelementptr i8, ptr %145, i64 1
   %146 = icmp sgt i32 %110, 0
   br i1 %146, label %.lr.ph, label %._crit_edge
 
@@ -10661,7 +10665,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv10BriskLayer5valueERKNS_3MatEfff(
   %149 = mul nsw i32 %148, %128
   %150 = add nsw i32 %149, %.0155170
   %151 = getelementptr inbounds nuw i8, ptr %.0158169, i64 1
-  %152 = icmp ult ptr %.0158169, %145
+  %152 = icmp ult ptr %151, %.ptr193
   br i1 %152, label %.lr.ph, label %._crit_edge, !llvm.loop !98
 
 ._crit_edge:                                      ; preds = %.lr.ph, %80
@@ -10690,6 +10694,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv10BriskLayer5valueERKNS_3MatEfff(
   %168 = add nsw i32 %167, %.1156180
   %.ptr194 = getelementptr inbounds nuw i8, ptr %.1159179, i64 1
   %169 = getelementptr i8, ptr %.1159179, i64 %144
+  %.ptr195 = getelementptr i8, ptr %169, i64 1
   br i1 %146, label %.lr.ph175, label %._crit_edge176
 
 .lr.ph175:                                        ; preds = %.lr.ph182, %.lr.ph175
@@ -10700,7 +10705,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv10BriskLayer5valueERKNS_3MatEfff(
   %172 = mul nsw i32 %171, %68
   %173 = add nsw i32 %172, %.2157173
   %174 = getelementptr inbounds nuw i8, ptr %.2160172, i64 1
-  %175 = icmp ult ptr %.2160172, %169
+  %175 = icmp ult ptr %174, %.ptr195
   br i1 %175, label %.lr.ph175, label %._crit_edge176, !llvm.loop !99
 
 ._crit_edge176:                                   ; preds = %.lr.ph175, %.lr.ph182
@@ -10723,6 +10728,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv10BriskLayer5valueERKNS_3MatEfff(
   %185 = add nsw i32 %184, %.1156.lcssa
   %.ptr196 = getelementptr inbounds nuw i8, ptr %.1159.lcssa, i64 1
   %186 = getelementptr i8, ptr %.1159.lcssa, i64 %144
+  %.ptr197 = getelementptr i8, ptr %186, i64 1
   br i1 %146, label %.lr.ph189, label %._crit_edge190
 
 .lr.ph189:                                        ; preds = %._crit_edge183, %.lr.ph189
@@ -10733,7 +10739,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv10BriskLayer5valueERKNS_3MatEfff(
   %189 = mul nsw i32 %188, %132
   %190 = add nsw i32 %189, %.3187
   %191 = getelementptr inbounds nuw i8, ptr %.3161186, i64 1
-  %192 = icmp ult ptr %.3161186, %186
+  %192 = icmp ult ptr %191, %.ptr197
   br i1 %192, label %.lr.ph189, label %._crit_edge190, !llvm.loop !101
 
 ._crit_edge190:                                   ; preds = %.lr.ph189, %._crit_edge183

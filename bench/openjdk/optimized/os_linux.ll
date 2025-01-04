@@ -2576,7 +2576,7 @@ define hidden noundef zeroext i1 @_ZN2os22create_attached_threadEP10JavaThread(p
   %4 = alloca i8, align 1
   %5 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 200, i8 noundef zeroext 2, i32 noundef 1) #26
   %6 = icmp ne ptr %5, null
-  br i1 %6, label %7, label %74
+  br i1 %6, label %7, label %77
 
 7:                                                ; preds = %1
   tail call void @_ZN8OSThreadC1Ev(ptr noundef nonnull align 8 dereferenceable(196) %5) #26
@@ -2648,7 +2648,7 @@ _ZN2os17numa_get_group_idEv.exit:                 ; preds = %_ZN2os5Linux15get_n
 
 _ZN2os20is_primordial_threadEv.exit.thread:       ; preds = %32, %35
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  br label %60
+  br label %63
 
 _ZN2os20is_primordial_threadEv.exit:              ; preds = %35
   %.not.i26 = icmp uge ptr %4, %36
@@ -2657,7 +2657,7 @@ _ZN2os20is_primordial_threadEv.exit:              ; preds = %35
   %40 = icmp ult ptr %4, %39
   %or.cond.i = select i1 %.not.i26, i1 %40, i1 false
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  br i1 %or.cond.i, label %41, label %60
+  br i1 %or.cond.i, label %41, label %63
 
 41:                                               ; preds = %_ZN2os20is_primordial_threadEv.exit
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 1272
@@ -2673,49 +2673,52 @@ _ZN2os20is_primordial_threadEv.exit:              ; preds = %35
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3)
   %51 = load ptr, ptr %42, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 824
-  %53 = load ptr, ptr %52, align 8
-  %54 = icmp ugt ptr %53, %49
-  %55 = icmp uge ptr %43, %51
-  %spec.select.i.i.i = and i1 %55, %54
-  br i1 %spec.select.i.i.i, label %56, label %_ZN2os5Linux21manually_expand_stackEP10JavaThreadPh.exit
+  %52 = getelementptr i8, ptr %51, i64 %44
+  %53 = getelementptr i8, ptr %52, i64 %45
+  %54 = getelementptr i8, ptr %53, i64 %46
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 824
+  %56 = load ptr, ptr %55, align 8
+  %57 = icmp ugt ptr %56, %49
+  %58 = icmp uge ptr %49, %54
+  %spec.select.i.i.i = and i1 %57, %58
+  br i1 %spec.select.i.i.i, label %59, label %_ZN2os5Linux21manually_expand_stackEP10JavaThreadPh.exit
 
-56:                                               ; preds = %41
-  %57 = call i32 @sigfillset(ptr noundef nonnull %2) #26
-  %58 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %2, ptr noundef nonnull %3) #26
+59:                                               ; preds = %41
+  %60 = call i32 @sigfillset(ptr noundef nonnull %2) #26
+  %61 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %2, ptr noundef nonnull %3) #26
   call fastcc void @_ZL16_expand_stack_toPh(ptr noundef %49)
-  %59 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %3, ptr noundef null) #26
+  %62 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %3, ptr noundef null) #26
   br label %_ZN2os5Linux21manually_expand_stackEP10JavaThreadPh.exit
 
-_ZN2os5Linux21manually_expand_stackEP10JavaThreadPh.exit: ; preds = %41, %56
+_ZN2os5Linux21manually_expand_stackEP10JavaThreadPh.exit: ; preds = %41, %59
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3)
   store i32 0, ptr %50, align 8
-  br label %60
+  br label %63
 
-60:                                               ; preds = %_ZN2os20is_primordial_threadEv.exit.thread, %_ZN2os5Linux21manually_expand_stackEP10JavaThreadPh.exit, %_ZN2os20is_primordial_threadEv.exit
+63:                                               ; preds = %_ZN2os20is_primordial_threadEv.exit.thread, %_ZN2os5Linux21manually_expand_stackEP10JavaThreadPh.exit, %_ZN2os20is_primordial_threadEv.exit
   call void @_ZN12PosixSignals15hotspot_sigmaskEP6Thread(ptr noundef nonnull %0) #26
-  %61 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_159ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not = icmp eq ptr %61, null
-  br i1 %.not, label %74, label %62
+  %64 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_159ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not = icmp eq ptr %64, null
+  br i1 %.not, label %77, label %65
 
-62:                                               ; preds = %60
-  %63 = call i64 (i64, ...) @syscall(i64 noundef 186) #26
-  %sext.i = shl i64 %63, 32
-  %64 = ashr exact i64 %sext.i, 32
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 824
-  %66 = load ptr, ptr %65, align 8
-  %67 = ptrtoint ptr %66 to i64
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 832
-  %69 = load i64, ptr %68, align 8
-  %70 = sub i64 0, %69
-  %71 = getelementptr inbounds i8, ptr %66, i64 %70
-  %72 = ptrtoint ptr %71 to i64
-  %73 = lshr i64 %69, 10
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE105ELS1_159ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.34, i64 noundef %64, i64 noundef %11, i64 noundef %67, i64 noundef %72, i64 noundef %73)
-  br label %74
+65:                                               ; preds = %63
+  %66 = call i64 (i64, ...) @syscall(i64 noundef 186) #26
+  %sext.i = shl i64 %66, 32
+  %67 = ashr exact i64 %sext.i, 32
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 824
+  %69 = load ptr, ptr %68, align 8
+  %70 = ptrtoint ptr %69 to i64
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 832
+  %72 = load i64, ptr %71, align 8
+  %73 = sub i64 0, %72
+  %74 = getelementptr inbounds i8, ptr %69, i64 %73
+  %75 = ptrtoint ptr %74 to i64
+  %76 = lshr i64 %72, 10
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE105ELS1_159ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.34, i64 noundef %67, i64 noundef %11, i64 noundef %70, i64 noundef %75, i64 noundef %76)
+  br label %77
 
-74:                                               ; preds = %1, %62, %60
+77:                                               ; preds = %1, %65, %63
   ret i1 %6
 }
 

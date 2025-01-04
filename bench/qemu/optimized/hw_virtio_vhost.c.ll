@@ -5662,7 +5662,7 @@ while.body31:                                     ; preds = %while.end, %while.b
 for.inc:                                          ; preds = %while.body31, %while.end, %for.body
   %addr.1 = add i64 %addr.028, 262144
   %incdec.ptr = getelementptr i8, ptr %from.030, i64 8
-  %cmp23 = icmp ult ptr %from.030, %add.ptr9
+  %cmp23 = icmp ult ptr %incdec.ptr, %add.ptr10
   br i1 %cmp23, label %for.body, label %for.end, !llvm.loop !40
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader, %entry

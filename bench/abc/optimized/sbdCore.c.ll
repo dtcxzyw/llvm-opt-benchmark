@@ -10195,7 +10195,7 @@ define i32 @Sbd_CutMergeSimple(ptr nocapture noundef readnone %0, ptr noundef re
   %33 = load i32, ptr %.23549, align 4
   %34 = getelementptr inbounds nuw i8, ptr %.250, i64 4
   store i32 %33, ptr %.250, align 4
-  %35 = icmp ult ptr %.23549, %7
+  %35 = icmp ult ptr %32, %.ptr57
   br i1 %35, label %.lr.ph51, label %.preheader, !llvm.loop !138
 
 .lr.ph55:                                         ; preds = %.preheader, %.lr.ph55
@@ -10205,7 +10205,7 @@ define i32 @Sbd_CutMergeSimple(ptr nocapture noundef readnone %0, ptr noundef re
   %37 = load i32, ptr %.23853, align 4
   %38 = getelementptr inbounds nuw i8, ptr %.354, i64 4
   store i32 %37, ptr %.354, align 4
-  %39 = icmp ult ptr %.23853, %10
+  %39 = icmp ult ptr %36, %.ptr60
   br i1 %39, label %.lr.ph55, label %._crit_edge, !llvm.loop !139
 
 ._crit_edge:                                      ; preds = %.lr.ph55, %.preheader
@@ -10348,7 +10348,7 @@ define range(i32 0, 2) i32 @Sbd_ManMergeCuts(ptr nocapture noundef readonly %0, 
   %70 = load i32, ptr %.23549.i, align 4
   %71 = getelementptr inbounds nuw i8, ptr %.250.i, i64 4
   store i32 %70, ptr %.250.i, align 4
-  %72 = icmp ult ptr %.23549.i, %44
+  %72 = icmp ult ptr %69, %.ptr57.i
   br i1 %72, label %.lr.ph51.i, label %.preheader.i, !llvm.loop !138
 
 .lr.ph55.i:                                       ; preds = %.preheader.i, %.lr.ph55.i
@@ -10358,7 +10358,7 @@ define range(i32 0, 2) i32 @Sbd_ManMergeCuts(ptr nocapture noundef readonly %0, 
   %74 = load i32, ptr %.23853.i, align 4
   %75 = getelementptr inbounds nuw i8, ptr %.354.i, i64 4
   store i32 %74, ptr %.354.i, align 4
-  %76 = icmp ult ptr %.23853.i, %47
+  %76 = icmp ult ptr %73, %.ptr60.i
   br i1 %76, label %.lr.ph55.i, label %Sbd_CutMergeSimple.exit.loopexit, !llvm.loop !139
 
 Sbd_CutMergeSimple.exit.loopexit:                 ; preds = %.lr.ph55.i
@@ -10448,7 +10448,7 @@ Sbd_CutMergeSimple.exit:                          ; preds = %Sbd_CutMergeSimple.
   %110 = load i32, ptr %.23549.i115, align 4
   %111 = getelementptr inbounds nuw i8, ptr %.250.i114, i64 4
   store i32 %110, ptr %.250.i114, align 4
-  %112 = icmp ult ptr %.23549.i115, %86
+  %112 = icmp ult ptr %109, %.ptr57.i99
   br i1 %112, label %.lr.ph51.i113, label %.preheader.i107, !llvm.loop !138
 
 .lr.ph55.i110:                                    ; preds = %.preheader.i107, %.lr.ph55.i110
@@ -10458,7 +10458,7 @@ Sbd_CutMergeSimple.exit:                          ; preds = %Sbd_CutMergeSimple.
   %114 = load i32, ptr %.23853.i112, align 4
   %115 = getelementptr inbounds nuw i8, ptr %.354.i111, i64 4
   store i32 %114, ptr %.354.i111, align 4
-  %116 = icmp ult ptr %.23853.i112, %87
+  %116 = icmp ult ptr %113, %.ptr60.i101
   br i1 %116, label %.lr.ph55.i110, label %Sbd_CutMergeSimple.exit123, !llvm.loop !139
 
 Sbd_CutMergeSimple.exit123:                       ; preds = %.lr.ph55.i110, %.preheader.i107
@@ -10543,7 +10543,7 @@ Sbd_CutMergeSimple.exit123:                       ; preds = %.lr.ph55.i110, %.pr
   %151 = load i32, ptr %.23549.i143, align 4
   %152 = getelementptr inbounds nuw i8, ptr %.250.i142, i64 4
   store i32 %151, ptr %.250.i142, align 4
-  %153 = icmp ult ptr %.23549.i143, %125
+  %153 = icmp ult ptr %150, %.ptr57.i127
   br i1 %153, label %.lr.ph51.i141, label %.preheader.i135, !llvm.loop !138
 
 .lr.ph55.i138:                                    ; preds = %.preheader.i135, %.lr.ph55.i138
@@ -10553,7 +10553,7 @@ Sbd_CutMergeSimple.exit123:                       ; preds = %.lr.ph55.i110, %.pr
   %155 = load i32, ptr %.23853.i140, align 4
   %156 = getelementptr inbounds nuw i8, ptr %.354.i139, i64 4
   store i32 %155, ptr %.354.i139, align 4
-  %157 = icmp ult ptr %.23853.i140, %128
+  %157 = icmp ult ptr %154, %.ptr60.i129
   br i1 %157, label %.lr.ph55.i138, label %Sbd_CutMergeSimple.exit151, !llvm.loop !139
 
 Sbd_CutMergeSimple.exit151:                       ; preds = %.lr.ph55.i138, %.preheader.i135
@@ -10638,7 +10638,7 @@ Sbd_CutMergeSimple.exit151:                       ; preds = %.lr.ph55.i138, %.pr
   %192 = load i32, ptr %.23549.i171, align 4
   %193 = getelementptr inbounds nuw i8, ptr %.250.i170, i64 4
   store i32 %192, ptr %.250.i170, align 4
-  %194 = icmp ult ptr %.23549.i171, %166
+  %194 = icmp ult ptr %191, %.ptr57.i155
   br i1 %194, label %.lr.ph51.i169, label %.preheader.i163, !llvm.loop !138
 
 .lr.ph55.i166:                                    ; preds = %.preheader.i163, %.lr.ph55.i166
@@ -10648,7 +10648,7 @@ Sbd_CutMergeSimple.exit151:                       ; preds = %.lr.ph55.i138, %.pr
   %196 = load i32, ptr %.23853.i168, align 4
   %197 = getelementptr inbounds nuw i8, ptr %.354.i167, i64 4
   store i32 %196, ptr %.354.i167, align 4
-  %198 = icmp ult ptr %.23853.i168, %169
+  %198 = icmp ult ptr %195, %.ptr60.i157
   br i1 %198, label %.lr.ph55.i166, label %Sbd_CutMergeSimple.exit179, !llvm.loop !139
 
 Sbd_CutMergeSimple.exit179:                       ; preds = %.lr.ph55.i166, %.preheader.i163

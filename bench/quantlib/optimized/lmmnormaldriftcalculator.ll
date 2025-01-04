@@ -2602,12 +2602,14 @@ for.body75.us:                                    ; preds = %for.body75.us.prehe
 
 for.body82.us134.lver.check:                      ; preds = %for.body75.us
   %56 = shl i64 %indvar, 3
+  %scevgep166 = getelementptr i8, ptr %44, i64 %56
   %scevgep165 = getelementptr i8, ptr %45, i64 %56
   %57 = add i64 %42, %indvar
   %58 = shl i64 %57, 3
   %59 = getelementptr i8, ptr %51, i64 %41
+  %scevgep163 = getelementptr i8, ptr %59, i64 %56
   %scevgep164 = getelementptr i8, ptr %51, i64 %58
-  %bound0 = icmp ult ptr %59, %44
+  %bound0 = icmp ult ptr %scevgep163, %scevgep166
   %bound1 = icmp ult ptr %scevgep165, %scevgep164
   %found.conflict = and i1 %bound0, %bound1
   %ident.check = icmp ne i64 %52, 1

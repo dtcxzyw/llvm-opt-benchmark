@@ -4672,15 +4672,12 @@ define hidden void @zif_strtok(ptr noundef %0, ptr nocapture noundef writeonly %
 
 128:                                              ; preds = %127, %.loopexit258
   %129 = load ptr, ptr %4, align 8
-  %130 = icmp ult ptr %129, %71
-  br i1 %130, label %.lr.ph273.preheader, label %.loopexit
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 24
+  %131 = icmp ult ptr %130, %.ptr274
+  br i1 %131, label %.lr.ph273, label %.loopexit
 
-.lr.ph273.preheader:                              ; preds = %128
-  %131 = getelementptr inbounds nuw i8, ptr %129, i64 24
-  br label %.lr.ph273
-
-.lr.ph273:                                        ; preds = %.lr.ph273.preheader, %.lr.ph273
-  %.1272 = phi ptr [ %132, %.lr.ph273 ], [ %131, %.lr.ph273.preheader ]
+.lr.ph273:                                        ; preds = %128, %.lr.ph273
+  %.1272 = phi ptr [ %132, %.lr.ph273 ], [ %130, %128 ]
   %132 = getelementptr inbounds nuw i8, ptr %.1272, i64 1
   %133 = load i8, ptr %.1272, align 1
   %134 = zext i8 %133 to i64
@@ -17129,16 +17126,13 @@ define hidden void @zif_nl2br(ptr noundef %0, ptr nocapture noundef writeonly %1
   store i64 %60, ptr %61, align 8
   %62 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %63 = load ptr, ptr %3, align 8
-  %64 = icmp ult ptr %63, %29
-  br i1 %64, label %.lr.ph216.preheader, label %._crit_edge217
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 24
+  %65 = icmp ult ptr %64, %.ptr219
+  br i1 %65, label %.lr.ph216, label %._crit_edge217
 
-.lr.ph216.preheader:                              ; preds = %50
-  %65 = getelementptr inbounds nuw i8, ptr %63, i64 24
-  br label %.lr.ph216
-
-.lr.ph216:                                        ; preds = %.lr.ph216.preheader, %.thread209
-  %.4214 = phi ptr [ %92, %.thread209 ], [ %65, %.lr.ph216.preheader ]
-  %.0158213 = phi ptr [ %91, %.thread209 ], [ %62, %.lr.ph216.preheader ]
+.lr.ph216:                                        ; preds = %50, %.thread209
+  %.4214 = phi ptr [ %92, %.thread209 ], [ %64, %50 ]
+  %.0158213 = phi ptr [ %91, %.thread209 ], [ %62, %50 ]
   %66 = load i8, ptr %.4214, align 1
   switch i8 %66, label %.thread209 [
     i8 13, label %67

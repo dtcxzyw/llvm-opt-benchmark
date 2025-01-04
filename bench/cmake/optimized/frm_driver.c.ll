@@ -6647,7 +6647,7 @@ After_End_Of_Data.exit:                           ; preds = %17, %19
 
 62:                                               ; preds = %.lr.ph.i
   %63 = getelementptr inbounds nuw i8, ptr %.010.i, i64 1
-  %64 = icmp ult ptr %.010.i, %57
+  %64 = icmp ult ptr %63, %58
   br i1 %64, label %.lr.ph.i, label %Get_Start_Of_Data.exit, !llvm.loop !11
 
 Get_Start_Of_Data.exit:                           ; preds = %.lr.ph.i, %62, %51

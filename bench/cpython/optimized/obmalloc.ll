@@ -11418,7 +11418,7 @@ do.cond.i:                                        ; preds = %do.body.i
 while.cond27.i:                                   ; preds = %do.cond.i, %while.body30.i
   %field.2.i = phi ptr [ %incdec.ptr28.i, %while.body30.i ], [ %arrayidx.i17, %do.cond.i ]
   %incdec.ptr28.i = getelementptr i8, ptr %field.2.i, i64 8
-  %cmp29.i = icmp ult ptr %field.2.i, %field.097.i
+  %cmp29.i = icmp ult ptr %incdec.ptr28.i, %incdec.ptr.i
   br i1 %cmp29.i, label %while.body30.i, label %while.end39.i
 
 while.body30.i:                                   ; preds = %while.cond27.i

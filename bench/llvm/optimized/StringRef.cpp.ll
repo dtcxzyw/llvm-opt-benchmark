@@ -838,7 +838,7 @@ define dso_local noundef i64 @_ZNK4llvm9StringRef4findES0_m(ptr nocapture nounde
 
 37:                                               ; preds = %.preheader
   %38 = getelementptr inbounds nuw i8, ptr %.055, i64 1
-  %39 = icmp ult ptr %.055, %29
+  %39 = icmp ult ptr %38, %30
   br i1 %39, label %.preheader, label %.loopexit, !llvm.loop !12
 
 40:                                               ; preds = %27
@@ -861,7 +861,7 @@ define dso_local noundef i64 @_ZNK4llvm9StringRef4findES0_m(ptr nocapture nounde
 
 48:                                               ; preds = %.preheader69
   %49 = getelementptr inbounds nuw i8, ptr %.1, i64 1
-  %50 = icmp ult ptr %.1, %29
+  %50 = icmp ult ptr %49, %30
   br i1 %50, label %.preheader69, label %.loopexit, !llvm.loop !13
 
 .lr.ph.preheader:                                 ; preds = %40
