@@ -1779,13 +1779,13 @@ define internal fastcc void @"_ZN18alacritty_terminal4term13Term$LT$T$GT$20scrol
   call void @llvm.experimental.noalias.scope.decl(metadata !200)
   %48 = sub i32 %.val21, %.val
   %switch.i = icmp sgt i32 %48, %44
-  br i1 %switch.i, label %61, label %.preheader78.i
+  br i1 %switch.i, label %61, label %.preheader76.i
 
-.preheader78.i:                                   ; preds = %._crit_edge
+.preheader76.i:                                   ; preds = %._crit_edge
   %49 = icmp slt i32 %.val, %.val21
   br i1 %49, label %.lr.ph.i, label %"_ZN18alacritty_terminal4grid13Grid$LT$T$GT$11scroll_down17h65c43715b1817b52E.exit"
 
-.lr.ph.i:                                         ; preds = %.preheader78.i
+.lr.ph.i:                                         ; preds = %.preheader76.i
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %51 = load i64, ptr %50, align 8, !alias.scope !203, !noalias !206, !noundef !4
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1810,8 +1810,8 @@ define internal fastcc void @"_ZN18alacritty_terminal4term13Term$LT$T$GT$20scrol
   %indvars.iv.i = phi i64 [ %60, %.lr.ph.i ], [ %indvars.iv.next.i, %"_ZN137_$LT$alacritty_terminal..grid..storage..Storage$LT$T$GT$$u20$as$u20$core..ops..index..IndexMut$LT$alacritty_terminal..index..Line$GT$$GT$9index_mut17hebda495027f478d8E.exit.i" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !208)
   %.neg.i.i = sub i64 %51, %indvars.iv.i
-  %sext117.i = shl i64 %.neg.i.i, 32
-  %66 = ashr exact i64 %sext117.i, 32
+  %sext115.i = shl i64 %.neg.i.i, 32
+  %66 = ashr exact i64 %sext115.i, 32
   %67 = add i64 %54, %66
   %.not.i.i = icmp ult i64 %67, %56
   %68 = select i1 %.not.i.i, i64 0, i64 %56
@@ -1835,14 +1835,14 @@ define internal fastcc void @"_ZN18alacritty_terminal4term13Term$LT$T$GT$20scrol
   %74 = load i64, ptr %73, align 8, !alias.scope !200, !noundef !4
   %75 = trunc i64 %74 to i32
   %76 = icmp slt i32 %.val21, %75
-  br i1 %76, label %.lr.ph87.i, label %"._ZN18alacritty_terminal4grid7storage16Storage$LT$T$GT$4swap17h686b70b9cfa3888eE.exit._crit_edge_crit_edge.i"
+  br i1 %76, label %.lr.ph85.i, label %"._ZN18alacritty_terminal4grid7storage16Storage$LT$T$GT$4swap17h686b70b9cfa3888eE.exit._crit_edge_crit_edge.i"
 
 "._ZN18alacritty_terminal4grid7storage16Storage$LT$T$GT$4swap17h686b70b9cfa3888eE.exit._crit_edge_crit_edge.i": ; preds = %72
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8, !alias.scope !200
   br label %"_ZN18alacritty_terminal4grid7storage16Storage$LT$T$GT$4swap17h686b70b9cfa3888eE.exit._crit_edge.i"
 
-.lr.ph87.i:                                       ; preds = %72
+.lr.ph85.i:                                       ; preds = %72
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %78 = load i64, ptr %77, align 8, !alias.scope !209, !noundef !4
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1850,20 +1850,20 @@ define internal fastcc void @"_ZN18alacritty_terminal4term13Term$LT$T$GT$20scrol
   %81 = add i64 %80, -1
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %83 = load i64, ptr %82, align 8, !alias.scope !209, !noundef !4
-  %invariant.op88.i = add i64 %78, %.pre36
+  %invariant.op86.i = add i64 %78, %.pre36
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %85 = load ptr, ptr %84, align 8, !alias.scope !209, !nonnull !4, !noundef !4
   %86 = sext i32 %.val21 to i64
-  %sext121.i = shl i64 %74, 32
-  %wide.trip.count109.i = ashr exact i64 %sext121.i, 32
+  %sext119.i = shl i64 %74, 32
+  %wide.trip.count107.i = ashr exact i64 %sext119.i, 32
   br label %103
 
 87:                                               ; preds = %61
   %88 = add i32 %.val, %44
   %89 = icmp slt i32 %88, %.val21
-  br i1 %89, label %.lr.ph83.i, label %.preheader.i
+  br i1 %89, label %.lr.ph81.i, label %.preheader.i
 
-.lr.ph83.i:                                       ; preds = %87
+.lr.ph81.i:                                       ; preds = %87
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %91 = load i64, ptr %90, align 8, !alias.scope !212, !noundef !4
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1879,28 +1879,28 @@ define internal fastcc void @"_ZN18alacritty_terminal4term13Term$LT$T$GT$20scrol
   br label %174
 
 "_ZN18alacritty_terminal4grid7storage16Storage$LT$T$GT$4swap17h686b70b9cfa3888eE.exit.loopexit.i": ; preds = %112
-  %indvars.iv.next107.i = add nsw i64 %indvars.iv106.i, 1
-  %exitcond110.not.i = icmp eq i64 %indvars.iv.next107.i, %wide.trip.count109.i
-  br i1 %exitcond110.not.i, label %"_ZN18alacritty_terminal4grid7storage16Storage$LT$T$GT$4swap17h686b70b9cfa3888eE.exit._crit_edge.i", label %103
+  %indvars.iv.next105.i = add nsw i64 %indvars.iv104.i, 1
+  %exitcond108.not.i = icmp eq i64 %indvars.iv.next105.i, %wide.trip.count107.i
+  br i1 %exitcond108.not.i, label %"_ZN18alacritty_terminal4grid7storage16Storage$LT$T$GT$4swap17h686b70b9cfa3888eE.exit._crit_edge.i", label %103
 
 "_ZN18alacritty_terminal4grid7storage16Storage$LT$T$GT$4swap17h686b70b9cfa3888eE.exit._crit_edge.i": ; preds = %"_ZN18alacritty_terminal4grid7storage16Storage$LT$T$GT$4swap17h686b70b9cfa3888eE.exit.loopexit.i", %"._ZN18alacritty_terminal4grid7storage16Storage$LT$T$GT$4swap17h686b70b9cfa3888eE.exit._crit_edge_crit_edge.i"
   %101 = phi i64 [ %.pre.i, %"._ZN18alacritty_terminal4grid7storage16Storage$LT$T$GT$4swap17h686b70b9cfa3888eE.exit._crit_edge_crit_edge.i" ], [ %83, %"_ZN18alacritty_terminal4grid7storage16Storage$LT$T$GT$4swap17h686b70b9cfa3888eE.exit.loopexit.i" ]
   %102 = icmp eq i64 %101, 0
   br i1 %102, label %129, label %118
 
-103:                                              ; preds = %"_ZN18alacritty_terminal4grid7storage16Storage$LT$T$GT$4swap17h686b70b9cfa3888eE.exit.loopexit.i", %.lr.ph87.i
-  %indvars.iv106.i = phi i64 [ %86, %.lr.ph87.i ], [ %indvars.iv.next107.i, %"_ZN18alacritty_terminal4grid7storage16Storage$LT$T$GT$4swap17h686b70b9cfa3888eE.exit.loopexit.i" ]
+103:                                              ; preds = %"_ZN18alacritty_terminal4grid7storage16Storage$LT$T$GT$4swap17h686b70b9cfa3888eE.exit.loopexit.i", %.lr.ph85.i
+  %indvars.iv104.i = phi i64 [ %86, %.lr.ph85.i ], [ %indvars.iv.next105.i, %"_ZN18alacritty_terminal4grid7storage16Storage$LT$T$GT$4swap17h686b70b9cfa3888eE.exit.loopexit.i" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !215)
-  %.neg.i53.i = sub i64 %78, %indvars.iv106.i
-  %sext122.i = shl i64 %.neg.i53.i, 32
-  %104 = ashr exact i64 %sext122.i, 32
+  %.neg.i53.i = sub i64 %78, %indvars.iv104.i
+  %sext120.i = shl i64 %.neg.i53.i, 32
+  %104 = ashr exact i64 %sext120.i, 32
   %105 = add i64 %104, %81
   %.not.i54.i = icmp ult i64 %105, %83
   %106 = select i1 %.not.i54.i, i64 0, i64 %83
   %.sroa.0.0.i55.i = sub nuw i64 %105, %106
-  %.neg9.i.reass.i = sub i64 %invariant.op88.i, %indvars.iv106.i
-  %sext123.i = shl i64 %.neg9.i.reass.i, 32
-  %107 = ashr exact i64 %sext123.i, 32
+  %.neg9.i.reass.i = sub i64 %invariant.op86.i, %indvars.iv104.i
+  %sext121.i = shl i64 %.neg9.i.reass.i, 32
+  %107 = ashr exact i64 %sext121.i, 32
   %108 = add i64 %107, %81
   %.not10.i.i = icmp ult i64 %108, %83
   %109 = select i1 %.not10.i.i, i64 0, i64 %83
@@ -1928,9 +1928,9 @@ define internal fastcc void @"_ZN18alacritty_terminal4term13Term$LT$T$GT$20scrol
   %122 = urem i64 %121, %101
   store i64 %122, ptr %119, align 8, !alias.scope !200
   %.not.i = icmp eq i64 %.pre36, 0
-  br i1 %.not.i, label %"_ZN18alacritty_terminal4grid7storage16Storage$LT$T$GT$4swap17h686b70b9cfa3888eE.exit68.preheader.i", label %.lr.ph90.i
+  br i1 %.not.i, label %"_ZN18alacritty_terminal4grid7storage16Storage$LT$T$GT$4swap17h686b70b9cfa3888eE.exit68.preheader.i", label %.lr.ph88.i
 
-.lr.ph90.i:                                       ; preds = %118
+.lr.ph88.i:                                       ; preds = %118
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %124 = load i64, ptr %123, align 8, !alias.scope !216, !noalias !219, !noundef !4
   %125 = add i64 %122, -1
@@ -1945,21 +1945,21 @@ define internal fastcc void @"_ZN18alacritty_terminal4term13Term$LT$T$GT$20scrol
 
 "_ZN18alacritty_terminal4grid7storage16Storage$LT$T$GT$4swap17h686b70b9cfa3888eE.exit68.preheader.i": ; preds = %"_ZN137_$LT$alacritty_terminal..grid..storage..Storage$LT$T$GT$$u20$as$u20$core..ops..index..IndexMut$LT$alacritty_terminal..index..Line$GT$$GT$9index_mut17hebda495027f478d8E.exit59.i", %118
   %130 = icmp sgt i32 %.val, 0
-  br i1 %130, label %.lr.ph92.i, label %"_ZN18alacritty_terminal4grid13Grid$LT$T$GT$11scroll_down17h65c43715b1817b52E.exit"
+  br i1 %130, label %.lr.ph90.i, label %"_ZN18alacritty_terminal4grid13Grid$LT$T$GT$11scroll_down17h65c43715b1817b52E.exit"
 
-.lr.ph92.i:                                       ; preds = %"_ZN18alacritty_terminal4grid7storage16Storage$LT$T$GT$4swap17h686b70b9cfa3888eE.exit68.preheader.i"
+.lr.ph90.i:                                       ; preds = %"_ZN18alacritty_terminal4grid7storage16Storage$LT$T$GT$4swap17h686b70b9cfa3888eE.exit68.preheader.i"
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %132 = load i64, ptr %131, align 8, !alias.scope !221, !noundef !4
   %133 = add i64 %122, -1
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %135 = load ptr, ptr %134, align 8, !alias.scope !221, !nonnull !4, !noundef !4
-  %wide.trip.count115.i = zext nneg i32 %.val to i64
+  %wide.trip.count113.i = zext nneg i32 %.val to i64
   br label %144
 
-136:                                              ; preds = %"_ZN137_$LT$alacritty_terminal..grid..storage..Storage$LT$T$GT$$u20$as$u20$core..ops..index..IndexMut$LT$alacritty_terminal..index..Line$GT$$GT$9index_mut17hebda495027f478d8E.exit59.i", %.lr.ph90.i
-  %.sroa.03.089.i = phi i64 [ 0, %.lr.ph90.i ], [ %142, %"_ZN137_$LT$alacritty_terminal..grid..storage..Storage$LT$T$GT$$u20$as$u20$core..ops..index..IndexMut$LT$alacritty_terminal..index..Line$GT$$GT$9index_mut17hebda495027f478d8E.exit59.i" ]
+136:                                              ; preds = %"_ZN137_$LT$alacritty_terminal..grid..storage..Storage$LT$T$GT$$u20$as$u20$core..ops..index..IndexMut$LT$alacritty_terminal..index..Line$GT$$GT$9index_mut17hebda495027f478d8E.exit59.i", %.lr.ph88.i
+  %.sroa.03.087.i = phi i64 [ 0, %.lr.ph88.i ], [ %142, %"_ZN137_$LT$alacritty_terminal..grid..storage..Storage$LT$T$GT$$u20$as$u20$core..ops..index..IndexMut$LT$alacritty_terminal..index..Line$GT$$GT$9index_mut17hebda495027f478d8E.exit59.i" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !224)
-  %.neg.i56.i = sub i64 %124, %.sroa.03.089.i
+  %.neg.i56.i = sub i64 %124, %.sroa.03.087.i
   %sext.i = shl i64 %.neg.i56.i, 32
   %137 = ashr exact i64 %sext.i, 32
   %138 = add i64 %125, %137
@@ -1974,31 +1974,31 @@ define internal fastcc void @"_ZN18alacritty_terminal4term13Term$LT$T$GT$20scrol
   unreachable
 
 "_ZN137_$LT$alacritty_terminal..grid..storage..Storage$LT$T$GT$$u20$as$u20$core..ops..index..IndexMut$LT$alacritty_terminal..index..Line$GT$$GT$9index_mut17hebda495027f478d8E.exit59.i": ; preds = %136
-  %142 = add nuw i64 %.sroa.03.089.i, 1
+  %142 = add nuw i64 %.sroa.03.087.i, 1
   %143 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 }, i64 }], ptr %127, i64 0, i64 %.sroa.0.0.i58.i
   call fastcc void @"_ZN18alacritty_terminal4grid3row12Row$LT$T$GT$5reset17ha8a5c8d3594fcd2bE"(ptr noalias noundef align 8 dereferenceable(32) %143, ptr noalias noundef readonly align 8 dereferenceable(24) %128)
-  %exitcond111.not.i = icmp eq i64 %142, %.pre36
-  br i1 %exitcond111.not.i, label %"_ZN18alacritty_terminal4grid7storage16Storage$LT$T$GT$4swap17h686b70b9cfa3888eE.exit68.preheader.i", label %136
+  %exitcond109.not.i = icmp eq i64 %142, %.pre36
+  br i1 %exitcond109.not.i, label %"_ZN18alacritty_terminal4grid7storage16Storage$LT$T$GT$4swap17h686b70b9cfa3888eE.exit68.preheader.i", label %136
 
 "_ZN18alacritty_terminal4grid7storage16Storage$LT$T$GT$4swap17h686b70b9cfa3888eE.exit68.loopexit.i": ; preds = %154
-  %indvars.iv.next113.i = add nuw nsw i64 %indvars.iv112.i, 1
-  %exitcond116.not.i = icmp eq i64 %indvars.iv.next113.i, %wide.trip.count115.i
-  br i1 %exitcond116.not.i, label %"_ZN18alacritty_terminal4grid13Grid$LT$T$GT$11scroll_down17h65c43715b1817b52E.exit", label %144
+  %indvars.iv.next111.i = add nuw nsw i64 %indvars.iv110.i, 1
+  %exitcond114.not.i = icmp eq i64 %indvars.iv.next111.i, %wide.trip.count113.i
+  br i1 %exitcond114.not.i, label %"_ZN18alacritty_terminal4grid13Grid$LT$T$GT$11scroll_down17h65c43715b1817b52E.exit", label %144
 
-144:                                              ; preds = %"_ZN18alacritty_terminal4grid7storage16Storage$LT$T$GT$4swap17h686b70b9cfa3888eE.exit68.loopexit.i", %.lr.ph92.i
-  %indvars.iv112.i = phi i64 [ 0, %.lr.ph92.i ], [ %indvars.iv.next113.i, %"_ZN18alacritty_terminal4grid7storage16Storage$LT$T$GT$4swap17h686b70b9cfa3888eE.exit68.loopexit.i" ]
+144:                                              ; preds = %"_ZN18alacritty_terminal4grid7storage16Storage$LT$T$GT$4swap17h686b70b9cfa3888eE.exit68.loopexit.i", %.lr.ph90.i
+  %indvars.iv110.i = phi i64 [ 0, %.lr.ph90.i ], [ %indvars.iv.next111.i, %"_ZN18alacritty_terminal4grid7storage16Storage$LT$T$GT$4swap17h686b70b9cfa3888eE.exit68.loopexit.i" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !225)
-  %.neg.i60.i = sub i64 %132, %indvars.iv112.i
-  %sext124.i = shl i64 %.neg.i60.i, 32
-  %145 = ashr exact i64 %sext124.i, 32
+  %.neg.i60.i = sub i64 %132, %indvars.iv110.i
+  %sext122.i = shl i64 %.neg.i60.i, 32
+  %145 = ashr exact i64 %sext122.i, 32
   %146 = add i64 %145, %133
   %.not.i61.i = icmp ult i64 %146, %101
   %147 = select i1 %.not.i61.i, i64 0, i64 %101
   %.sroa.0.0.i62.i = sub nuw i64 %146, %147
-  %148 = add i64 %.pre36, %indvars.iv112.i
+  %148 = add i64 %.pre36, %indvars.iv110.i
   %.neg9.i63.reass.i = sub i64 %132, %148
-  %sext125.i = shl i64 %.neg9.i63.reass.i, 32
-  %149 = ashr exact i64 %sext125.i, 32
+  %sext123.i = shl i64 %.neg9.i63.reass.i, 32
+  %149 = ashr exact i64 %sext123.i, 32
   %150 = add i64 %149, %133
   %.not10.i64.i = icmp ult i64 %150, %101
   %151 = select i1 %.not10.i64.i, i64 0, i64 %101
@@ -2020,14 +2020,14 @@ define internal fastcc void @"_ZN18alacritty_terminal4term13Term$LT$T$GT$20scrol
   br i1 %exitcond.not.i67.i, label %"_ZN18alacritty_terminal4grid7storage16Storage$LT$T$GT$4swap17h686b70b9cfa3888eE.exit68.loopexit.i", label %154
 
 "_ZN18alacritty_terminal4grid7storage16Storage$LT$T$GT$4swap17h686b70b9cfa3888eE.exit77.loopexit.i": ; preds = %183
-  %160 = icmp sgt i64 %indvars.iv.next101.i, %100
+  %160 = icmp sgt i64 %indvars.iv.next99.i, %100
   br i1 %160, label %174, label %.preheader.i
 
 .preheader.i:                                     ; preds = %"_ZN18alacritty_terminal4grid7storage16Storage$LT$T$GT$4swap17h686b70b9cfa3888eE.exit77.loopexit.i", %87
   %161 = icmp slt i32 %.val, %88
-  br i1 %161, label %.lr.ph85.i, label %"_ZN18alacritty_terminal4grid13Grid$LT$T$GT$11scroll_down17h65c43715b1817b52E.exit"
+  br i1 %161, label %.lr.ph83.i, label %"_ZN18alacritty_terminal4grid13Grid$LT$T$GT$11scroll_down17h65c43715b1817b52E.exit"
 
-.lr.ph85.i:                                       ; preds = %.preheader.i
+.lr.ph83.i:                                       ; preds = %.preheader.i
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %163 = load i64, ptr %162, align 8, !alias.scope !226, !noalias !229, !noundef !4
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2042,21 +2042,21 @@ define internal fastcc void @"_ZN18alacritty_terminal4term13Term$LT$T$GT$20scrol
   %173 = sext i32 %.val to i64
   br label %189
 
-174:                                              ; preds = %"_ZN18alacritty_terminal4grid7storage16Storage$LT$T$GT$4swap17h686b70b9cfa3888eE.exit77.loopexit.i", %.lr.ph83.i
-  %indvars.iv100.i = phi i64 [ %99, %.lr.ph83.i ], [ %indvars.iv.next101.i, %"_ZN18alacritty_terminal4grid7storage16Storage$LT$T$GT$4swap17h686b70b9cfa3888eE.exit77.loopexit.i" ]
-  %indvars.iv.next101.i = add nsw i64 %indvars.iv100.i, -1
+174:                                              ; preds = %"_ZN18alacritty_terminal4grid7storage16Storage$LT$T$GT$4swap17h686b70b9cfa3888eE.exit77.loopexit.i", %.lr.ph81.i
+  %indvars.iv98.i = phi i64 [ %99, %.lr.ph81.i ], [ %indvars.iv.next99.i, %"_ZN18alacritty_terminal4grid7storage16Storage$LT$T$GT$4swap17h686b70b9cfa3888eE.exit77.loopexit.i" ]
+  %indvars.iv.next99.i = add nsw i64 %indvars.iv98.i, -1
   call void @llvm.experimental.noalias.scope.decl(metadata !231)
-  %.neg.i69.i = sub i64 %91, %indvars.iv.next101.i
-  %sext118.i = shl i64 %.neg.i69.i, 32
-  %175 = ashr exact i64 %sext118.i, 32
+  %.neg.i69.i = sub i64 %91, %indvars.iv.next99.i
+  %sext116.i = shl i64 %.neg.i69.i, 32
+  %175 = ashr exact i64 %sext116.i, 32
   %176 = add i64 %175, %94
   %.not.i70.i = icmp ult i64 %176, %96
   %177 = select i1 %.not.i70.i, i64 0, i64 %96
   %.sroa.0.0.i71.i = sub nuw i64 %176, %177
-  %reass.sub.i = sub i64 %invariant.op.i, %indvars.iv100.i
+  %reass.sub.i = sub i64 %invariant.op.i, %indvars.iv98.i
   %.neg9.i72.reass.i = shl i64 %reass.sub.i, 32
-  %sext119.i = add i64 %.neg9.i72.reass.i, 4294967296
-  %178 = ashr exact i64 %sext119.i, 32
+  %sext117.i = add i64 %.neg9.i72.reass.i, 4294967296
+  %178 = ashr exact i64 %sext117.i, 32
   %179 = add i64 %178, %94
   %.not10.i73.i = icmp ult i64 %179, %96
   %180 = select i1 %.not10.i73.i, i64 0, i64 %96
@@ -2077,13 +2077,13 @@ define internal fastcc void @"_ZN18alacritty_terminal4term13Term$LT$T$GT$20scrol
   %exitcond.not.i76.i = icmp eq i64 %184, 4
   br i1 %exitcond.not.i76.i, label %"_ZN18alacritty_terminal4grid7storage16Storage$LT$T$GT$4swap17h686b70b9cfa3888eE.exit77.loopexit.i", label %183
 
-189:                                              ; preds = %"_ZN137_$LT$alacritty_terminal..grid..storage..Storage$LT$T$GT$$u20$as$u20$core..ops..index..IndexMut$LT$alacritty_terminal..index..Line$GT$$GT$9index_mut17hebda495027f478d8E.exit81.i", %.lr.ph85.i
-  %indvars.iv103.i = phi i64 [ %172, %.lr.ph85.i ], [ %indvars.iv.next104.i, %"_ZN137_$LT$alacritty_terminal..grid..storage..Storage$LT$T$GT$$u20$as$u20$core..ops..index..IndexMut$LT$alacritty_terminal..index..Line$GT$$GT$9index_mut17hebda495027f478d8E.exit81.i" ]
-  %indvars.iv.next104.i = add nsw i64 %indvars.iv103.i, -1
+189:                                              ; preds = %"_ZN137_$LT$alacritty_terminal..grid..storage..Storage$LT$T$GT$$u20$as$u20$core..ops..index..IndexMut$LT$alacritty_terminal..index..Line$GT$$GT$9index_mut17hebda495027f478d8E.exit81.i", %.lr.ph83.i
+  %indvars.iv101.i = phi i64 [ %172, %.lr.ph83.i ], [ %indvars.iv.next102.i, %"_ZN137_$LT$alacritty_terminal..grid..storage..Storage$LT$T$GT$$u20$as$u20$core..ops..index..IndexMut$LT$alacritty_terminal..index..Line$GT$$GT$9index_mut17hebda495027f478d8E.exit81.i" ]
+  %indvars.iv.next102.i = add nsw i64 %indvars.iv101.i, -1
   call void @llvm.experimental.noalias.scope.decl(metadata !232)
-  %.neg.i78.i = sub i64 %163, %indvars.iv.next104.i
-  %sext120.i = shl i64 %.neg.i78.i, 32
-  %190 = ashr exact i64 %sext120.i, 32
+  %.neg.i78.i = sub i64 %163, %indvars.iv.next102.i
+  %sext118.i = shl i64 %.neg.i78.i, 32
+  %190 = ashr exact i64 %sext118.i, 32
   %191 = add i64 %166, %190
   %.not.i79.i = icmp ult i64 %191, %168
   %192 = select i1 %.not.i79.i, i64 0, i64 %168
@@ -2098,10 +2098,10 @@ define internal fastcc void @"_ZN18alacritty_terminal4term13Term$LT$T$GT$20scrol
 "_ZN137_$LT$alacritty_terminal..grid..storage..Storage$LT$T$GT$$u20$as$u20$core..ops..index..IndexMut$LT$alacritty_terminal..index..Line$GT$$GT$9index_mut17hebda495027f478d8E.exit81.i": ; preds = %189
   %195 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 }, i64 }], ptr %170, i64 0, i64 %.sroa.0.0.i80.i
   call fastcc void @"_ZN18alacritty_terminal4grid3row12Row$LT$T$GT$5reset17ha8a5c8d3594fcd2bE"(ptr noalias noundef align 8 dereferenceable(32) %195, ptr noalias noundef readonly align 8 dereferenceable(24) %171)
-  %196 = icmp sgt i64 %indvars.iv.next104.i, %173
+  %196 = icmp sgt i64 %indvars.iv.next102.i, %173
   br i1 %196, label %189, label %"_ZN18alacritty_terminal4grid13Grid$LT$T$GT$11scroll_down17h65c43715b1817b52E.exit"
 
-"_ZN18alacritty_terminal4grid13Grid$LT$T$GT$11scroll_down17h65c43715b1817b52E.exit": ; preds = %"_ZN137_$LT$alacritty_terminal..grid..storage..Storage$LT$T$GT$$u20$as$u20$core..ops..index..IndexMut$LT$alacritty_terminal..index..Line$GT$$GT$9index_mut17hebda495027f478d8E.exit.i", %"_ZN137_$LT$alacritty_terminal..grid..storage..Storage$LT$T$GT$$u20$as$u20$core..ops..index..IndexMut$LT$alacritty_terminal..index..Line$GT$$GT$9index_mut17hebda495027f478d8E.exit81.i", %"_ZN18alacritty_terminal4grid7storage16Storage$LT$T$GT$4swap17h686b70b9cfa3888eE.exit68.loopexit.i", %.preheader78.i, %"_ZN18alacritty_terminal4grid7storage16Storage$LT$T$GT$4swap17h686b70b9cfa3888eE.exit68.preheader.i", %.preheader.i
+"_ZN18alacritty_terminal4grid13Grid$LT$T$GT$11scroll_down17h65c43715b1817b52E.exit": ; preds = %"_ZN137_$LT$alacritty_terminal..grid..storage..Storage$LT$T$GT$$u20$as$u20$core..ops..index..IndexMut$LT$alacritty_terminal..index..Line$GT$$GT$9index_mut17hebda495027f478d8E.exit.i", %"_ZN137_$LT$alacritty_terminal..grid..storage..Storage$LT$T$GT$$u20$as$u20$core..ops..index..IndexMut$LT$alacritty_terminal..index..Line$GT$$GT$9index_mut17hebda495027f478d8E.exit81.i", %"_ZN18alacritty_terminal4grid7storage16Storage$LT$T$GT$4swap17h686b70b9cfa3888eE.exit68.loopexit.i", %.preheader76.i, %"_ZN18alacritty_terminal4grid7storage16Storage$LT$T$GT$4swap17h686b70b9cfa3888eE.exit68.preheader.i", %.preheader.i
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 488
   store i8 1, ptr %197, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)

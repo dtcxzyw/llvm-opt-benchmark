@@ -2703,10 +2703,10 @@ define hidden void @"_ZN18alacritty_terminal4grid13Grid$LT$T$GT$9scroll_up17h425
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.pre = load i64, ptr %11, align 8, !alias.scope !371, !noalias !374
-  %.pre163 = load i64, ptr %12, align 8, !alias.scope !371, !noalias !374
-  %.pre164 = load i64, ptr %13, align 8, !alias.scope !371, !noalias !374
+  %.pre161 = load i64, ptr %12, align 8, !alias.scope !371, !noalias !374
+  %.pre162 = load i64, ptr %13, align 8, !alias.scope !371, !noalias !374
   %16 = trunc i64 %.pre to i32
-  %17 = add i64 %.pre163, -1
+  %17 = add i64 %.pre161, -1
   br label %22
 
 18:                                               ; preds = %3
@@ -2716,30 +2716,30 @@ define hidden void @"_ZN18alacritty_terminal4grid13Grid$LT$T$GT$9scroll_up17h425
   br i1 %21, label %35, label %31
 
 22:                                               ; preds = %.lr.ph, %"_ZN137_$LT$alacritty_terminal..grid..storage..Storage$LT$T$GT$$u20$as$u20$core..ops..index..IndexMut$LT$alacritty_terminal..index..Line$GT$$GT$9index_mut17hebda495027f478d8E.exit"
-  %.sroa.0.0140 = phi i32 [ %7, %.lr.ph ], [ %28, %"_ZN137_$LT$alacritty_terminal..grid..storage..Storage$LT$T$GT$$u20$as$u20$core..ops..index..IndexMut$LT$alacritty_terminal..index..Line$GT$$GT$9index_mut17hebda495027f478d8E.exit" ]
+  %.sroa.0.0138 = phi i32 [ %7, %.lr.ph ], [ %28, %"_ZN137_$LT$alacritty_terminal..grid..storage..Storage$LT$T$GT$$u20$as$u20$core..ops..index..IndexMut$LT$alacritty_terminal..index..Line$GT$$GT$9index_mut17hebda495027f478d8E.exit" ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !371)
-  %.neg.i = sub i32 %16, %.sroa.0.0140
+  %.neg.i = sub i32 %16, %.sroa.0.0138
   %23 = sext i32 %.neg.i to i64
   %24 = add i64 %17, %23
-  %.not.i = icmp ult i64 %24, %.pre164
-  %25 = select i1 %.not.i, i64 0, i64 %.pre164
+  %.not.i = icmp ult i64 %24, %.pre162
+  %25 = select i1 %.not.i, i64 0, i64 %.pre162
   %.sroa.0.0.i = sub nuw i64 %24, %25
-  %26 = icmp ult i64 %.sroa.0.0.i, %.pre164
+  %26 = icmp ult i64 %.sroa.0.0.i, %.pre162
   br i1 %26, label %"_ZN137_$LT$alacritty_terminal..grid..storage..Storage$LT$T$GT$$u20$as$u20$core..ops..index..IndexMut$LT$alacritty_terminal..index..Line$GT$$GT$9index_mut17hebda495027f478d8E.exit", label %27
 
 27:                                               ; preds = %22
-  tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %.sroa.0.0.i, i64 noundef %.pre164, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.788d78969419f0a915b073f60569600f.15) #43, !noalias !371
+  tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %.sroa.0.0.i, i64 noundef %.pre162, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.788d78969419f0a915b073f60569600f.15) #43, !noalias !371
   unreachable
 
 "_ZN137_$LT$alacritty_terminal..grid..storage..Storage$LT$T$GT$$u20$as$u20$core..ops..index..IndexMut$LT$alacritty_terminal..index..Line$GT$$GT$9index_mut17hebda495027f478d8E.exit": ; preds = %22
-  %28 = add nsw i32 %.sroa.0.0140, 1
+  %28 = add nsw i32 %.sroa.0.0138, 1
   %29 = load ptr, ptr %14, align 8, !alias.scope !371, !noalias !374, !nonnull !16, !noundef !16
   %30 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 }, i64 }], ptr %29, i64 0, i64 %.sroa.0.0.i
   tail call fastcc void @"_ZN18alacritty_terminal4grid3row12Row$LT$T$GT$5reset17ha8a5c8d3594fcd2bE"(ptr noalias noundef align 8 dereferenceable(32) %30, ptr noalias noundef readonly align 8 dereferenceable(24) %15)
   %exitcond.not = icmp eq i32 %28, %6
   br i1 %exitcond.not, label %.loopexit, label %22
 
-.loopexit:                                        ; preds = %"_ZN137_$LT$alacritty_terminal..grid..storage..Storage$LT$T$GT$$u20$as$u20$core..ops..index..IndexMut$LT$alacritty_terminal..index..Line$GT$$GT$9index_mut17hebda495027f478d8E.exit", %"_ZN137_$LT$alacritty_terminal..grid..storage..Storage$LT$T$GT$$u20$as$u20$core..ops..index..IndexMut$LT$alacritty_terminal..index..Line$GT$$GT$9index_mut17hebda495027f478d8E.exit70", %.preheader, %.loopexit136
+.loopexit:                                        ; preds = %"_ZN137_$LT$alacritty_terminal..grid..storage..Storage$LT$T$GT$$u20$as$u20$core..ops..index..IndexMut$LT$alacritty_terminal..index..Line$GT$$GT$9index_mut17hebda495027f478d8E.exit", %"_ZN137_$LT$alacritty_terminal..grid..storage..Storage$LT$T$GT$$u20$as$u20$core..ops..index..IndexMut$LT$alacritty_terminal..index..Line$GT$$GT$9index_mut17hebda495027f478d8E.exit70", %.preheader, %.loopexit134
   ret void
 
 31:                                               ; preds = %18
@@ -2834,9 +2834,9 @@ define hidden void @"_ZN18alacritty_terminal4grid13Grid$LT$T$GT$9scroll_up17h425
 71:                                               ; preds = %35
   %72 = sub i32 %6, %9
   %73 = icmp slt i32 %7, %72
-  br i1 %73, label %.lr.ph142, label %.loopexit136
+  br i1 %73, label %.lr.ph140, label %.loopexit134
 
-.lr.ph142:                                        ; preds = %71
+.lr.ph140:                                        ; preds = %71
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %75 = load i64, ptr %74, align 8, !alias.scope !399, !noundef !16
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2866,17 +2866,17 @@ define hidden void @"_ZN18alacritty_terminal4grid13Grid$LT$T$GT$9scroll_up17h425
   %94 = load i64, ptr %41, align 8, !noundef !16
   %95 = trunc i64 %94 to i32
   %96 = icmp slt i32 %6, %95
-  br i1 %96, label %.lr.ph147, label %.loopexit136
+  br i1 %96, label %.lr.ph145, label %.loopexit134
 
-.lr.ph147:                                        ; preds = %88
+.lr.ph145:                                        ; preds = %88
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %98 = load i64, ptr %97, align 8, !alias.scope !402, !noundef !16
   %99 = add i64 %93, -1
-  %invariant.op148 = add i64 %2, %98
+  %invariant.op146 = add i64 %2, %98
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %101 = load ptr, ptr %100, align 8, !alias.scope !402, !nonnull !16, !noundef !16
-  %sext166 = shl i64 %94, 32
-  %102 = ashr exact i64 %sext166, 32
+  %sext164 = shl i64 %94, 32
+  %102 = ashr exact i64 %sext164, 32
   %103 = sext i32 %6 to i64
   br label %106
 
@@ -2885,24 +2885,24 @@ define hidden void @"_ZN18alacritty_terminal4grid13Grid$LT$T$GT$9scroll_up17h425
   unreachable
 
 "_ZN18alacritty_terminal4grid7storage16Storage$LT$T$GT$4swap17h686b70b9cfa3888eE.exit57.loopexit": ; preds = %115
-  %105 = icmp sgt i64 %indvars.iv.next160, %103
-  br i1 %105, label %106, label %.loopexit136
+  %105 = icmp sgt i64 %indvars.iv.next158, %103
+  br i1 %105, label %106, label %.loopexit134
 
-106:                                              ; preds = %.lr.ph147, %"_ZN18alacritty_terminal4grid7storage16Storage$LT$T$GT$4swap17h686b70b9cfa3888eE.exit57.loopexit"
-  %indvars.iv159 = phi i64 [ %102, %.lr.ph147 ], [ %indvars.iv.next160, %"_ZN18alacritty_terminal4grid7storage16Storage$LT$T$GT$4swap17h686b70b9cfa3888eE.exit57.loopexit" ]
-  %indvars.iv.next160 = add nsw i64 %indvars.iv159, -1
+106:                                              ; preds = %.lr.ph145, %"_ZN18alacritty_terminal4grid7storage16Storage$LT$T$GT$4swap17h686b70b9cfa3888eE.exit57.loopexit"
+  %indvars.iv157 = phi i64 [ %102, %.lr.ph145 ], [ %indvars.iv.next158, %"_ZN18alacritty_terminal4grid7storage16Storage$LT$T$GT$4swap17h686b70b9cfa3888eE.exit57.loopexit" ]
+  %indvars.iv.next158 = add nsw i64 %indvars.iv157, -1
   call void @llvm.experimental.noalias.scope.decl(metadata !402)
-  %.neg.i49 = sub i64 %98, %indvars.iv.next160
-  %sext167 = shl i64 %.neg.i49, 32
-  %107 = ashr exact i64 %sext167, 32
+  %.neg.i49 = sub i64 %98, %indvars.iv.next158
+  %sext165 = shl i64 %.neg.i49, 32
+  %107 = ashr exact i64 %sext165, 32
   %108 = add i64 %99, %107
   %.not.i50 = icmp ult i64 %108, %86
   %109 = select i1 %.not.i50, i64 0, i64 %86
   %.sroa.0.0.i51 = sub nuw i64 %108, %109
-  %reass.sub = sub i64 %invariant.op148, %indvars.iv159
+  %reass.sub = sub i64 %invariant.op146, %indvars.iv157
   %.neg9.i52.reass = shl i64 %reass.sub, 32
-  %sext168 = add i64 %.neg9.i52.reass, 4294967296
-  %110 = ashr exact i64 %sext168, 32
+  %sext166 = add i64 %.neg9.i52.reass, 4294967296
+  %110 = ashr exact i64 %sext166, 32
   %111 = add i64 %99, %110
   %.not10.i53 = icmp ult i64 %111, %86
   %112 = select i1 %.not10.i53, i64 0, i64 %86
@@ -2923,12 +2923,12 @@ define hidden void @"_ZN18alacritty_terminal4grid13Grid$LT$T$GT$9scroll_up17h425
   %exitcond.not.i56 = icmp eq i64 %116, 4
   br i1 %exitcond.not.i56, label %"_ZN18alacritty_terminal4grid7storage16Storage$LT$T$GT$4swap17h686b70b9cfa3888eE.exit57.loopexit", label %115
 
-.loopexit136:                                     ; preds = %"_ZN18alacritty_terminal4grid7storage16Storage$LT$T$GT$4swap17h686b70b9cfa3888eE.exit66.loopexit", %"_ZN18alacritty_terminal4grid7storage16Storage$LT$T$GT$4swap17h686b70b9cfa3888eE.exit57.loopexit", %71, %88
+.loopexit134:                                     ; preds = %"_ZN18alacritty_terminal4grid7storage16Storage$LT$T$GT$4swap17h686b70b9cfa3888eE.exit66.loopexit", %"_ZN18alacritty_terminal4grid7storage16Storage$LT$T$GT$4swap17h686b70b9cfa3888eE.exit57.loopexit", %71, %88
   %121 = sub i32 %6, %9
   %122 = icmp slt i32 %121, %6
-  br i1 %122, label %.lr.ph150, label %.loopexit
+  br i1 %122, label %.lr.ph148, label %.loopexit
 
-.lr.ph150:                                        ; preds = %.loopexit136
+.lr.ph148:                                        ; preds = %.loopexit134
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2939,10 +2939,10 @@ define hidden void @"_ZN18alacritty_terminal4grid13Grid$LT$T$GT$9scroll_up17h425
 "_ZN18alacritty_terminal4grid7storage16Storage$LT$T$GT$4swap17h686b70b9cfa3888eE.exit66.loopexit": ; preds = %139
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %128 = icmp slt i64 %indvars.iv.next, %84
-  br i1 %128, label %129, label %.loopexit136
+  br i1 %128, label %129, label %.loopexit134
 
-129:                                              ; preds = %.lr.ph142, %"_ZN18alacritty_terminal4grid7storage16Storage$LT$T$GT$4swap17h686b70b9cfa3888eE.exit66.loopexit"
-  %indvars.iv = phi i64 [ %83, %.lr.ph142 ], [ %indvars.iv.next, %"_ZN18alacritty_terminal4grid7storage16Storage$LT$T$GT$4swap17h686b70b9cfa3888eE.exit66.loopexit" ]
+129:                                              ; preds = %.lr.ph140, %"_ZN18alacritty_terminal4grid7storage16Storage$LT$T$GT$4swap17h686b70b9cfa3888eE.exit66.loopexit"
+  %indvars.iv = phi i64 [ %83, %.lr.ph140 ], [ %indvars.iv.next, %"_ZN18alacritty_terminal4grid7storage16Storage$LT$T$GT$4swap17h686b70b9cfa3888eE.exit66.loopexit" ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !399)
   %.neg.i58 = sub i64 %75, %indvars.iv
   %sext = shl i64 %.neg.i58, 32
@@ -2953,8 +2953,8 @@ define hidden void @"_ZN18alacritty_terminal4grid13Grid$LT$T$GT$9scroll_up17h425
   %.sroa.0.0.i60 = sub nuw i64 %131, %132
   %133 = add i64 %indvars.iv, %2
   %.neg9.i61.reass = sub i64 %75, %133
-  %sext165 = shl i64 %.neg9.i61.reass, 32
-  %134 = ashr exact i64 %sext165, 32
+  %sext163 = shl i64 %.neg9.i61.reass, 32
+  %134 = ashr exact i64 %sext163, 32
   %135 = add i64 %78, %134
   %.not10.i62 = icmp ult i64 %135, %80
   %136 = select i1 %.not10.i62, i64 0, i64 %80
@@ -2975,12 +2975,12 @@ define hidden void @"_ZN18alacritty_terminal4grid13Grid$LT$T$GT$9scroll_up17h425
   %exitcond.not.i65 = icmp eq i64 %140, 4
   br i1 %exitcond.not.i65, label %"_ZN18alacritty_terminal4grid7storage16Storage$LT$T$GT$4swap17h686b70b9cfa3888eE.exit66.loopexit", label %139
 
-145:                                              ; preds = %.lr.ph150, %"_ZN137_$LT$alacritty_terminal..grid..storage..Storage$LT$T$GT$$u20$as$u20$core..ops..index..IndexMut$LT$alacritty_terminal..index..Line$GT$$GT$9index_mut17hebda495027f478d8E.exit70"
-  %.sroa.076.0149 = phi i32 [ %121, %.lr.ph150 ], [ %156, %"_ZN137_$LT$alacritty_terminal..grid..storage..Storage$LT$T$GT$$u20$as$u20$core..ops..index..IndexMut$LT$alacritty_terminal..index..Line$GT$$GT$9index_mut17hebda495027f478d8E.exit70" ]
+145:                                              ; preds = %.lr.ph148, %"_ZN137_$LT$alacritty_terminal..grid..storage..Storage$LT$T$GT$$u20$as$u20$core..ops..index..IndexMut$LT$alacritty_terminal..index..Line$GT$$GT$9index_mut17hebda495027f478d8E.exit70"
+  %.sroa.076.0147 = phi i32 [ %121, %.lr.ph148 ], [ %156, %"_ZN137_$LT$alacritty_terminal..grid..storage..Storage$LT$T$GT$$u20$as$u20$core..ops..index..IndexMut$LT$alacritty_terminal..index..Line$GT$$GT$9index_mut17hebda495027f478d8E.exit70" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !405)
   %146 = load i64, ptr %123, align 8, !alias.scope !405, !noalias !408, !noundef !16
   %147 = trunc i64 %146 to i32
-  %.neg.i67 = sub i32 %147, %.sroa.076.0149
+  %.neg.i67 = sub i32 %147, %.sroa.076.0147
   %148 = sext i32 %.neg.i67 to i64
   %149 = load i64, ptr %124, align 8, !alias.scope !405, !noalias !408, !noundef !16
   %150 = add i64 %149, -1
@@ -2997,12 +2997,12 @@ define hidden void @"_ZN18alacritty_terminal4grid13Grid$LT$T$GT$9scroll_up17h425
   unreachable
 
 "_ZN137_$LT$alacritty_terminal..grid..storage..Storage$LT$T$GT$$u20$as$u20$core..ops..index..IndexMut$LT$alacritty_terminal..index..Line$GT$$GT$9index_mut17hebda495027f478d8E.exit70": ; preds = %145
-  %156 = add nsw i32 %.sroa.076.0149, 1
+  %156 = add nsw i32 %.sroa.076.0147, 1
   %157 = load ptr, ptr %126, align 8, !alias.scope !405, !noalias !408, !nonnull !16, !noundef !16
   %158 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 }, i64 }], ptr %157, i64 0, i64 %.sroa.0.0.i69
   call fastcc void @"_ZN18alacritty_terminal4grid3row12Row$LT$T$GT$5reset17ha8a5c8d3594fcd2bE"(ptr noalias noundef align 8 dereferenceable(32) %158, ptr noalias noundef readonly align 8 dereferenceable(24) %127)
-  %exitcond162.not = icmp eq i32 %156, %6
-  br i1 %exitcond162.not, label %.loopexit, label %145
+  %exitcond160.not = icmp eq i32 %156, %6
+  br i1 %exitcond160.not, label %.loopexit, label %145
 }
 
 ; Function Attrs: nonlazybind uwtable
