@@ -574,19 +574,15 @@ define void @_ZN3g2o14CacheSE2Offset10updateImplEv(ptr noundef nonnull align 16 
   %.sroa.3.24.vec.insert = insertelement <2 x double> %.sroa.3.16.vec.insert, double %108, i64 1
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %111 = fmul <2 x double> %.sroa.0.8.vec.insert, %.sroa.095.8.vec.insert
-  %shift = shufflevector <2 x double> %111, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %112 = fadd <2 x double> %111, %shift
-  %113 = fmul <2 x double> %.sroa.095.8.vec.insert, %.sroa.3.24.vec.insert
-  %shift99 = shufflevector <2 x double> %113, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %114 = fadd <2 x double> %113, %shift99
-  %.sroa.0.8.vec.insert.i.i.i.i35 = shufflevector <2 x double> %112, <2 x double> %114, <2 x i32> <i32 0, i32 2>
+  %112 = fmul <2 x double> %.sroa.095.8.vec.insert, %.sroa.3.24.vec.insert
+  %113 = shufflevector <2 x double> %111, <2 x double> %112, <2 x i32> <i32 0, i32 2>
+  %114 = shufflevector <2 x double> %111, <2 x double> %112, <2 x i32> <i32 1, i32 3>
+  %.sroa.0.8.vec.insert.i.i.i.i35 = fadd <2 x double> %113, %114
   %115 = fmul <2 x double> %.sroa.0.8.vec.insert, %.sroa.397.24.vec.insert
-  %shift100 = shufflevector <2 x double> %115, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %116 = fadd <2 x double> %115, %shift100
-  %117 = fmul <2 x double> %.sroa.3.24.vec.insert, %.sroa.397.24.vec.insert
-  %shift101 = shufflevector <2 x double> %117, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %118 = fadd <2 x double> %117, %shift101
-  %.sroa.3.24.vec.insert.i.i.i.i37 = shufflevector <2 x double> %116, <2 x double> %118, <2 x i32> <i32 0, i32 2>
+  %116 = fmul <2 x double> %.sroa.3.24.vec.insert, %.sroa.397.24.vec.insert
+  %117 = shufflevector <2 x double> %115, <2 x double> %116, <2 x i32> <i32 0, i32 2>
+  %118 = shufflevector <2 x double> %115, <2 x double> %116, <2 x i32> <i32 1, i32 3>
+  %.sroa.3.24.vec.insert.i.i.i.i37 = fadd <2 x double> %117, %118
   store <2 x double> %.sroa.0.8.vec.insert.i.i.i.i35, ptr %110, align 16
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store <2 x double> %.sroa.3.24.vec.insert.i.i.i.i37, ptr %119, align 16

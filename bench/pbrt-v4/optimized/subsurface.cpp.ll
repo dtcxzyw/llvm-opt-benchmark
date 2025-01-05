@@ -5732,10 +5732,8 @@ entry:
   %call18 = tail call { <2 x float>, float } @_ZN4pbrt15OffsetRayOriginENS_8Point3fiENS_7Normal3IfEENS_7Vector3IfEE(ptr noundef nonnull byval(%"class.pbrt::Point3fi") align 8 %pTo, <2 x float> %nTo.coerce0, float %nTo.coerce1, <2 x float> %retval.sroa.0.4.vec.insert.i40, float %sub6.i38)
   %call18.fca.0.extract = extractvalue { <2 x float>, float } %call18, 0
   %call18.fca.1.extract = extractvalue { <2 x float>, float } %call18, 1
-  %0 = fsub <2 x float> %call18.fca.0.extract, %call7.fca.0.extract
-  %1 = fsub <2 x float> %call18.fca.0.extract, %call7.fca.0.extract
   %sub6.i49 = fsub float %call18.fca.1.extract, %call7.fca.1.extract
-  %retval.sroa.0.4.vec.insert.i51 = shufflevector <2 x float> %0, <2 x float> %1, <2 x i32> <i32 0, i32 3>
+  %retval.sroa.0.4.vec.insert.i51 = fsub <2 x float> %call18.fca.0.extract, %call7.fca.0.extract
   store <2 x float> %call7.fca.0.extract, ptr %agg.result, align 8
   %o.sroa.2.0.o3.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store float %call7.fca.1.extract, ptr %o.sroa.2.0.o3.sroa_idx.i, align 8

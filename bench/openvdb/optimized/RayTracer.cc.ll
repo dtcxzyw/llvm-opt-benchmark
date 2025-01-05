@@ -45097,16 +45097,12 @@ cond.false35:                                     ; preds = %_ZN7openvdb5v11_05t
 cond.end36:                                       ; preds = %cond.false35, %cond.true30
   %ref.tmp27.sroa.4.0 = phi <2 x float> [ %4441, %cond.true30 ], [ %ref.tmp27.sroa.4.0.copyload, %cond.false35 ]
   %ref.tmp27.sroa.0.0 = phi <2 x float> [ %4440, %cond.true30 ], [ %ref.tmp27.sroa.0.0.copyload, %cond.false35 ]
-  %4442 = fadd <2 x float> %c.sroa.0.124222, %ref.tmp27.sroa.0.0
-  %4443 = fadd <2 x float> %c.sroa.0.124222, %ref.tmp27.sroa.0.0
-  %c.sroa.0.4.vec.insert = shufflevector <2 x float> %4442, <2 x float> %4443, <2 x i32> <i32 0, i32 3>
-  %4444 = fadd <2 x float> %c.sroa.8.124221, %ref.tmp27.sroa.4.0
-  %4445 = fadd <2 x float> %c.sroa.8.124221, %ref.tmp27.sroa.4.0
-  %c.sroa.8.12.vec.insert = shufflevector <2 x float> %4444, <2 x float> %4445, <2 x i32> <i32 0, i32 3>
+  %c.sroa.0.4.vec.insert = fadd <2 x float> %c.sroa.0.124222, %ref.tmp27.sroa.0.0
+  %c.sroa.8.12.vec.insert = fadd <2 x float> %c.sroa.8.124221, %ref.tmp27.sroa.4.0
   %inc = add nuw i64 %k.024223, 1
   %add38 = add i64 %n.224224, 2
-  %4446 = load i64, ptr %mSubPixels, align 8
-  %cmp18 = icmp ult i64 %inc, %4446
+  %4442 = load i64, ptr %mSubPixels, align 8
+  %cmp18 = icmp ult i64 %inc, %4442
   br i1 %cmp18, label %for.body19, label %for.end, !llvm.loop !379
 
 for.end:                                          ; preds = %cond.end36, %cond.end
@@ -84373,16 +84369,12 @@ cond.false35:                                     ; preds = %_ZN7openvdb5v11_05t
 cond.end36:                                       ; preds = %cond.false35, %cond.true30
   %ref.tmp27.sroa.4.0 = phi <2 x float> [ %4441, %cond.true30 ], [ %ref.tmp27.sroa.4.0.copyload, %cond.false35 ]
   %ref.tmp27.sroa.0.0 = phi <2 x float> [ %4440, %cond.true30 ], [ %ref.tmp27.sroa.0.0.copyload, %cond.false35 ]
-  %4442 = fadd <2 x float> %c.sroa.0.124188, %ref.tmp27.sroa.0.0
-  %4443 = fadd <2 x float> %c.sroa.0.124188, %ref.tmp27.sroa.0.0
-  %c.sroa.0.4.vec.insert = shufflevector <2 x float> %4442, <2 x float> %4443, <2 x i32> <i32 0, i32 3>
-  %4444 = fadd <2 x float> %c.sroa.8.124187, %ref.tmp27.sroa.4.0
-  %4445 = fadd <2 x float> %c.sroa.8.124187, %ref.tmp27.sroa.4.0
-  %c.sroa.8.12.vec.insert = shufflevector <2 x float> %4444, <2 x float> %4445, <2 x i32> <i32 0, i32 3>
+  %c.sroa.0.4.vec.insert = fadd <2 x float> %c.sroa.0.124188, %ref.tmp27.sroa.0.0
+  %c.sroa.8.12.vec.insert = fadd <2 x float> %c.sroa.8.124187, %ref.tmp27.sroa.4.0
   %inc = add nuw i64 %k.024189, 1
   %add38 = add i64 %n.224190, 2
-  %4446 = load i64, ptr %mSubPixels, align 8
-  %cmp18 = icmp ult i64 %inc, %4446
+  %4442 = load i64, ptr %mSubPixels, align 8
+  %cmp18 = icmp ult i64 %inc, %4442
   br i1 %cmp18, label %for.body19, label %for.end, !llvm.loop !564
 
 for.end:                                          ; preds = %cond.end36, %cond.end

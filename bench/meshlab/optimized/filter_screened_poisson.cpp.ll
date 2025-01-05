@@ -41083,9 +41083,9 @@ _Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit:  ; preds = %7
   %indvars.iv.ph = phi i64 [ %indvars.iv.next41, %.thread ], [ 0, %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit ]
   %.01734.ph = phi i1 [ true, %.thread ], [ false, %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit ]
   %.sroa.0.033.ph = phi <2 x float> [ %.sroa.0.4.vec.insert, %.thread ], [ zeroinitializer, %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit ]
-  %.sroa.6.032.ph = phi float [ %23, %.thread ], [ 0.000000e+00, %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit ]
-  %.sroa.12.031.ph = phi float [ %29, %.thread ], [ 0.000000e+00, %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit ]
-  %.sroa.9.030.ph = phi float [ %26, %.thread ], [ 0.000000e+00, %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit ]
+  %.sroa.6.032.ph = phi float [ %21, %.thread ], [ 0.000000e+00, %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit ]
+  %.sroa.12.031.ph = phi float [ %27, %.thread ], [ 0.000000e+00, %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit ]
+  %.sroa.9.030.ph = phi float [ %24, %.thread ], [ 0.000000e+00, %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.outer, %17
@@ -41098,7 +41098,7 @@ _Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit:  ; preds = %7
 17:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %30, label %.preheader, !llvm.loop !672
+  br i1 %exitcond.not, label %28, label %.preheader, !llvm.loop !672
 
 .thread:                                          ; preds = %.preheader
   %18 = load ptr, ptr %4, align 8
@@ -41107,97 +41107,95 @@ _Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit:  ; preds = %7
   %.sroa.01.0.copyload.i = load <2 x float>, ptr %20, align 4
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %20, i64 8
   %.sroa.22.0.copyload.i = load float, ptr %.sroa.22.0..sroa_idx.i, align 4
-  %21 = fadd <2 x float> %.sroa.0.033.ph, %.sroa.01.0.copyload.i
-  %22 = fadd <2 x float> %.sroa.0.033.ph, %.sroa.01.0.copyload.i
-  %.sroa.0.4.vec.insert = shufflevector <2 x float> %21, <2 x float> %22, <2 x i32> <i32 0, i32 3>
-  %23 = fadd float %.sroa.6.032.ph, %.sroa.22.0.copyload.i
-  %24 = getelementptr inbounds nuw i8, ptr %20, i64 12
-  %25 = load float, ptr %24, align 4
-  %26 = fadd float %.sroa.9.030.ph, %25
-  %27 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %28 = load float, ptr %27, align 4
-  %29 = fadd float %.sroa.12.031.ph, %28
+  %.sroa.0.4.vec.insert = fadd <2 x float> %.sroa.0.033.ph, %.sroa.01.0.copyload.i
+  %21 = fadd float %.sroa.6.032.ph, %.sroa.22.0.copyload.i
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 12
+  %23 = load float, ptr %22, align 4
+  %24 = fadd float %.sroa.9.030.ph, %23
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %26 = load float, ptr %25, align 4
+  %27 = fadd float %.sroa.12.031.ph, %26
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not42 = icmp eq i64 %indvars.iv.next41, 8
   br i1 %exitcond.not42, label %.thread48, label %.preheader.outer, !llvm.loop !672
 
-30:                                               ; preds = %17
+28:                                               ; preds = %17
   br i1 %.01734.ph, label %.thread48, label %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit19.thread
 
-.thread48:                                        ; preds = %.thread, %30
-  %.sroa.9.14357 = phi float [ %.sroa.9.030.ph, %30 ], [ %26, %.thread ]
-  %.sroa.12.14456 = phi float [ %.sroa.12.031.ph, %30 ], [ %29, %.thread ]
-  %.sroa.6.14555 = phi float [ %.sroa.6.032.ph, %30 ], [ %23, %.thread ]
-  %.sroa.0.14654 = phi <2 x float> [ %.sroa.0.033.ph, %30 ], [ %.sroa.0.4.vec.insert, %.thread ]
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %32 = load ptr, ptr %31, align 8
-  %33 = icmp eq ptr %32, null
-  br i1 %33, label %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit19.thread, label %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit19
+.thread48:                                        ; preds = %.thread, %28
+  %.sroa.9.14357 = phi float [ %.sroa.9.030.ph, %28 ], [ %24, %.thread ]
+  %.sroa.12.14456 = phi float [ %.sroa.12.031.ph, %28 ], [ %27, %.thread ]
+  %.sroa.6.14555 = phi float [ %.sroa.6.032.ph, %28 ], [ %21, %.thread ]
+  %.sroa.0.14654 = phi <2 x float> [ %.sroa.0.033.ph, %28 ], [ %.sroa.0.4.vec.insert, %.thread ]
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %30 = load ptr, ptr %29, align 8
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit19.thread, label %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit19
 
 _Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit19: ; preds = %.thread48
-  %34 = getelementptr inbounds nuw i8, ptr %32, i64 28
-  %35 = load i8, ptr %34, align 4
-  %36 = icmp sgt i8 %35, -1
-  br i1 %36, label %37, label %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit19.thread
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 28
+  %33 = load i8, ptr %32, align 4
+  %34 = icmp sgt i8 %33, -1
+  br i1 %34, label %35, label %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit19.thread
 
-37:                                               ; preds = %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit19
-  %38 = tail call noundef nonnull align 4 dereferenceable(24) ptr @_ZN14SparseNodeDataI15SinglePointDataIfLb0EELi0EEixEPK7OctNodeI12TreeNodeDataE(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull %1)
+35:                                               ; preds = %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit19
+  %36 = tail call noundef nonnull align 4 dereferenceable(24) ptr @_ZN14SparseNodeDataI15SinglePointDataIfLb0EELi0EEixEPK7OctNodeI12TreeNodeDataE(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull %1)
   %.sroa.01.0.vec.extract.i.i23 = extractelement <2 x float> %.sroa.0.14654, i64 0
-  %39 = load float, ptr %38, align 4
-  %40 = fadd float %.sroa.01.0.vec.extract.i.i23, %39
-  store float %40, ptr %38, align 4
+  %37 = load float, ptr %36, align 4
+  %38 = fadd float %.sroa.01.0.vec.extract.i.i23, %37
+  store float %38, ptr %36, align 4
   %.sroa.01.4.vec.extract.i.i24 = extractelement <2 x float> %.sroa.0.14654, i64 1
-  %41 = getelementptr inbounds nuw i8, ptr %38, i64 4
-  %42 = load float, ptr %41, align 4
-  %43 = fadd float %.sroa.01.4.vec.extract.i.i24, %42
-  store float %43, ptr %41, align 4
-  %44 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %45 = load float, ptr %44, align 4
-  %46 = fadd float %.sroa.6.14555, %45
-  store float %46, ptr %44, align 4
-  %47 = getelementptr inbounds nuw i8, ptr %38, i64 12
-  %48 = load float, ptr %47, align 4
-  %49 = fadd float %.sroa.9.14357, %48
-  store float %49, ptr %47, align 4
-  %50 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %51 = load float, ptr %50, align 4
-  %52 = fadd float %.sroa.12.14456, %51
-  store float %52, ptr %50, align 4
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 4
+  %40 = load float, ptr %39, align 4
+  %41 = fadd float %.sroa.01.4.vec.extract.i.i24, %40
+  store float %41, ptr %39, align 4
+  %42 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %43 = load float, ptr %42, align 4
+  %44 = fadd float %.sroa.6.14555, %43
+  store float %44, ptr %42, align 4
+  %45 = getelementptr inbounds nuw i8, ptr %36, i64 12
+  %46 = load float, ptr %45, align 4
+  %47 = fadd float %.sroa.9.14357, %46
+  store float %47, ptr %45, align 4
+  %48 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %49 = load float, ptr %48, align 4
+  %50 = fadd float %.sroa.12.14456, %49
+  store float %50, ptr %48, align 4
   br label %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit19.thread
 
 _Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit.thread: ; preds = %3, %7, %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %54 = load i32, ptr %53, align 8
-  %55 = icmp slt i32 %54, 0
-  br i1 %55, label %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit19.thread, label %56
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %52 = load i32, ptr %51, align 8
+  %53 = icmp slt i32 %52, 0
+  br i1 %53, label %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit19.thread, label %54
 
-56:                                               ; preds = %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit.thread
-  %57 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %58 = load ptr, ptr %57, align 8
-  %59 = load ptr, ptr %2, align 8
-  %60 = ptrtoint ptr %58 to i64
-  %61 = ptrtoint ptr %59 to i64
-  %62 = sub i64 %60, %61
-  %63 = lshr exact i64 %62, 2
-  %64 = trunc i64 %63 to i32
-  %.not.i = icmp slt i32 %54, %64
-  br i1 %.not.i, label %65, label %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit19.thread
+54:                                               ; preds = %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit.thread
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %56 = load ptr, ptr %55, align 8
+  %57 = load ptr, ptr %2, align 8
+  %58 = ptrtoint ptr %56 to i64
+  %59 = ptrtoint ptr %57 to i64
+  %60 = sub i64 %58, %59
+  %61 = lshr exact i64 %60, 2
+  %62 = trunc i64 %61 to i32
+  %.not.i = icmp slt i32 %52, %62
+  br i1 %.not.i, label %63, label %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit19.thread
 
-65:                                               ; preds = %56
-  %66 = zext nneg i32 %54 to i64
-  %67 = getelementptr inbounds nuw i32, ptr %59, i64 %66
-  %68 = load i32, ptr %67, align 4
-  %69 = icmp slt i32 %68, 0
-  br i1 %69, label %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit19.thread, label %70
+63:                                               ; preds = %54
+  %64 = zext nneg i32 %52 to i64
+  %65 = getelementptr inbounds nuw i32, ptr %57, i64 %64
+  %66 = load i32, ptr %65, align 4
+  %67 = icmp slt i32 %66, 0
+  br i1 %67, label %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit19.thread, label %68
 
-70:                                               ; preds = %65
-  %71 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %72 = load ptr, ptr %71, align 8
-  %73 = icmp ne ptr %72, null
+68:                                               ; preds = %63
+  %69 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %70 = load ptr, ptr %69, align 8
+  %71 = icmp ne ptr %70, null
   br label %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit19.thread
 
-_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit19.thread: ; preds = %70, %65, %56, %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit.thread, %.thread48, %30, %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit19, %37
-  %.018 = phi i1 [ true, %37 ], [ true, %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit19 ], [ false, %30 ], [ true, %.thread48 ], [ %73, %70 ], [ false, %65 ], [ false, %56 ], [ false, %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit.thread ]
+_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit19.thread: ; preds = %68, %63, %54, %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit.thread, %.thread48, %28, %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit19, %35
+  %.018 = phi i1 [ true, %35 ], [ true, %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit19 ], [ false, %28 ], [ true, %.thread48 ], [ %71, %68 ], [ false, %63 ], [ false, %54 ], [ false, %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit.thread ]
   ret i1 %.018
 }
 

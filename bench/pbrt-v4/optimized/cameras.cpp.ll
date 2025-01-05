@@ -22561,10 +22561,8 @@ entry:
   %call9 = call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_6Point3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %cameraFromRaster, <2 x float> zeroinitializer, float 0.000000e+00)
   %call9.fca.0.extract = extractvalue { <2 x float>, float } %call9, 0
   %call9.fca.1.extract = extractvalue { <2 x float>, float } %call9, 1
-  %2 = fsub <2 x float> %call.fca.0.extract, %call9.fca.0.extract
-  %3 = fsub <2 x float> %call.fca.0.extract, %call9.fca.0.extract
   %sub6.i = fsub float %call.fca.1.extract, %call9.fca.1.extract
-  %retval.sroa.0.4.vec.insert.i = shufflevector <2 x float> %2, <2 x float> %3, <2 x i32> <i32 0, i32 3>
+  %retval.sroa.0.4.vec.insert.i = fsub <2 x float> %call.fca.0.extract, %call9.fca.0.extract
   store <2 x float> %retval.sroa.0.4.vec.insert.i, ptr %dxCamera, align 8
   store float %sub6.i, ptr %z.i.i, align 8
   %call20 = call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_6Point3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %cameraFromRaster, <2 x float> <float 0.000000e+00, float 1.000000e+00>, float 0.000000e+00)
@@ -22573,43 +22571,41 @@ entry:
   %call26 = call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_6Point3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %cameraFromRaster, <2 x float> zeroinitializer, float 0.000000e+00)
   %call26.fca.0.extract = extractvalue { <2 x float>, float } %call26, 0
   %call26.fca.1.extract = extractvalue { <2 x float>, float } %call26, 1
-  %4 = fsub <2 x float> %call20.fca.0.extract, %call26.fca.0.extract
-  %5 = fsub <2 x float> %call20.fca.0.extract, %call26.fca.0.extract
   %sub6.i15 = fsub float %call20.fca.1.extract, %call26.fca.1.extract
-  %retval.sroa.0.4.vec.insert.i17 = shufflevector <2 x float> %4, <2 x float> %5, <2 x i32> <i32 0, i32 3>
+  %retval.sroa.0.4.vec.insert.i17 = fsub <2 x float> %call20.fca.0.extract, %call26.fca.0.extract
   store <2 x float> %retval.sroa.0.4.vec.insert.i17, ptr %dyCamera, align 4
   store float %sub6.i15, ptr %z.i.i2, align 4
   %film = getelementptr inbounds nuw i8, ptr %this, i64 832
-  %6 = load i64, ptr %film, align 8, !noalias !220
-  %and.i.i.i = and i64 %6, 144115188075855871
-  %7 = inttoptr i64 %and.i.i.i to ptr
-  %filter.i.i6.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %8 = load i64, ptr %filter.i.i6.i.i.i, align 8, !noalias !225
-  %and.i.i.i20 = and i64 %8, 144115188075855871
-  %9 = inttoptr i64 %and.i.i.i20 to ptr
-  %retval.sroa.0.0.i.i.i = load <2 x float>, ptr %9, align 4
+  %2 = load i64, ptr %film, align 8, !noalias !220
+  %and.i.i.i = and i64 %2, 144115188075855871
+  %3 = inttoptr i64 %and.i.i.i to ptr
+  %filter.i.i6.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %4 = load i64, ptr %filter.i.i6.i.i.i, align 8, !noalias !225
+  %and.i.i.i20 = and i64 %4, 144115188075855871
+  %5 = inttoptr i64 %and.i.i.i20 to ptr
+  %retval.sroa.0.0.i.i.i = load <2 x float>, ptr %5, align 4
   %v.sroa.0.0.vec.extract.i = extractelement <2 x float> %retval.sroa.0.0.i.i.i, i64 0
   %fneg = fneg float %v.sroa.0.0.vec.extract.i
-  %10 = fneg <2 x float> %retval.sroa.0.0.i.i.i
-  %pCorner.sroa.0.4.vec.insert = insertelement <2 x float> %10, float %fneg, i64 0
+  %6 = fneg <2 x float> %retval.sroa.0.0.i.i.i
+  %pCorner.sroa.0.4.vec.insert = insertelement <2 x float> %6, float %fneg, i64 0
   %call43 = call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_6Point3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %cameraFromRaster, <2 x float> %pCorner.sroa.0.4.vec.insert, float 0.000000e+00)
   %call43.fca.0.extract = extractvalue { <2 x float>, float } %call43, 0
   %call43.fca.1.extract = extractvalue { <2 x float>, float } %call43, 1
-  %11 = fmul <2 x float> %call43.fca.0.extract, %call43.fca.0.extract
-  %12 = fmul <2 x float> %call43.fca.0.extract, %call43.fca.0.extract
-  %shift = shufflevector <2 x float> %12, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %13 = fadd <2 x float> %11, %shift
-  %add.i.i.i = extractelement <2 x float> %13, i64 0
+  %7 = fmul <2 x float> %call43.fca.0.extract, %call43.fca.0.extract
+  %8 = fmul <2 x float> %call43.fca.0.extract, %call43.fca.0.extract
+  %shift = shufflevector <2 x float> %8, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %9 = fadd <2 x float> %7, %shift
+  %add.i.i.i = extractelement <2 x float> %9, i64 0
   %mul.i2.i.i.i = fmul float %call43.fca.1.extract, %call43.fca.1.extract
   %add3.i.i.i = fadd float %mul.i2.i.i.i, %add.i.i.i
   %sqrt.i.i = call noundef float @llvm.sqrt.f32(float %add3.i.i.i)
   %div3.i.i = fdiv float %call43.fca.1.extract, %sqrt.i.i
   %cosTotalWidth = getelementptr inbounds nuw i8, ptr %this, i64 1440
   store float %div3.i.i, ptr %cosTotalWidth, align 8
-  %14 = load i64, ptr %film, align 8
-  %and.i.i.i28 = and i64 %14, 144115188075855871
-  %15 = inttoptr i64 %and.i.i.i28 to ptr
-  %retval.sroa.0.0.copyload.i.i6.i.i.i = load i64, ptr %15, align 8
+  %10 = load i64, ptr %film, align 8
+  %and.i.i.i28 = and i64 %10, 144115188075855871
+  %11 = inttoptr i64 %and.i.i.i28 to ptr
+  %retval.sroa.0.0.copyload.i.i6.i.i.i = load i64, ptr %11, align 8
   %res.sroa.0.0.extract.trunc = trunc i64 %retval.sroa.0.0.copyload.i.i6.i.i.i to i32
   %res.sroa.2.0.extract.shift = lshr i64 %retval.sroa.0.0.copyload.i.i6.i.i.i, 32
   %res.sroa.2.0.extract.trunc = trunc nuw i64 %res.sroa.2.0.extract.shift to i32
@@ -22634,11 +22630,11 @@ entry:
   %sub = fsub float %div.i35, %div.i
   %sub73 = fsub float %div2.i37, %div2.i
   %mul = fmul float %sub, %sub73
-  %16 = call noundef float @llvm.fabs.f32(float %mul)
+  %12 = call noundef float @llvm.fabs.f32(float %mul)
   %A = getelementptr inbounds nuw i8, ptr %this, i64 1444
-  store float %16, ptr %A, align 4
-  %17 = ptrtoint ptr %this to i64
-  %or.i.i = or i64 %17, 144115188075855872
+  store float %12, ptr %A, align 4
+  %13 = ptrtoint ptr %this to i64
+  %or.i.i = or i64 %13, 144115188075855872
   store i64 %or.i.i, ptr %agg.tmp75, align 8
   call void @_ZN4pbrt10CameraBase24FindMinimumDifferentialsENS_6CameraE(ptr noundef nonnull align 8 dereferenceable(896) %this, ptr noundef nonnull %agg.tmp75)
   ret void

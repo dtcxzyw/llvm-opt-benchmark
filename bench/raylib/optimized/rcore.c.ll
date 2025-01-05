@@ -23547,9 +23547,7 @@ define noundef <2 x float> @Vector2One() local_unnamed_addr #16 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define <2 x float> @Vector2Add(<2 x float> %0, <2 x float> %1) local_unnamed_addr #16 {
-  %3 = fadd <2 x float> %0, %1
-  %4 = fadd <2 x float> %0, %1
-  %.sroa.02.4.vec.insert = shufflevector <2 x float> %3, <2 x float> %4, <2 x i32> <i32 0, i32 3>
+  %.sroa.02.4.vec.insert = fadd <2 x float> %0, %1
   ret <2 x float> %.sroa.02.4.vec.insert
 }
 
@@ -23566,9 +23564,7 @@ define <2 x float> @Vector2AddValue(<2 x float> %0, float noundef %1) local_unna
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define <2 x float> @Vector2Subtract(<2 x float> %0, <2 x float> %1) local_unnamed_addr #16 {
-  %3 = fsub <2 x float> %0, %1
-  %4 = fsub <2 x float> %0, %1
-  %.sroa.02.4.vec.insert = shufflevector <2 x float> %3, <2 x float> %4, <2 x i32> <i32 0, i32 3>
+  %.sroa.02.4.vec.insert = fsub <2 x float> %0, %1
   ret <2 x float> %.sroa.02.4.vec.insert
 }
 
@@ -23677,9 +23673,7 @@ define <2 x float> @Vector2Scale(<2 x float> %0, float noundef %1) local_unnamed
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define <2 x float> @Vector2Multiply(<2 x float> %0, <2 x float> %1) local_unnamed_addr #16 {
-  %3 = fmul <2 x float> %0, %1
-  %4 = fmul <2 x float> %0, %1
-  %.sroa.02.4.vec.insert = shufflevector <2 x float> %3, <2 x float> %4, <2 x i32> <i32 0, i32 3>
+  %.sroa.02.4.vec.insert = fmul <2 x float> %0, %1
   ret <2 x float> %.sroa.02.4.vec.insert
 }
 
@@ -24019,12 +24013,10 @@ define { <2 x float>, float } @Vector3One() local_unnamed_addr #12 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define { <2 x float>, float } @Vector3Add(<2 x float> %0, float %1, <2 x float> %2, float %3) local_unnamed_addr #16 {
-  %5 = fadd <2 x float> %0, %2
-  %6 = fadd <2 x float> %0, %2
-  %.sroa.08.4.vec.insert = shufflevector <2 x float> %5, <2 x float> %6, <2 x i32> <i32 0, i32 3>
-  %7 = fadd float %1, %3
+  %.sroa.08.4.vec.insert = fadd <2 x float> %0, %2
+  %5 = fadd float %1, %3
   %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %.sroa.08.4.vec.insert, 0
-  %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %7, 1
+  %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %5, 1
   ret { <2 x float>, float } %.fca.1.insert
 }
 
@@ -24044,12 +24036,10 @@ define { <2 x float>, float } @Vector3AddValue(<2 x float> %0, float %1, float n
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define { <2 x float>, float } @Vector3Subtract(<2 x float> %0, float %1, <2 x float> %2, float %3) local_unnamed_addr #16 {
-  %5 = fsub <2 x float> %0, %2
-  %6 = fsub <2 x float> %0, %2
-  %.sroa.08.4.vec.insert = shufflevector <2 x float> %5, <2 x float> %6, <2 x i32> <i32 0, i32 3>
-  %7 = fsub float %1, %3
+  %.sroa.08.4.vec.insert = fsub <2 x float> %0, %2
+  %5 = fsub float %1, %3
   %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %.sroa.08.4.vec.insert, 0
-  %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %7, 1
+  %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %5, 1
   ret { <2 x float>, float } %.fca.1.insert
 }
 
@@ -24083,12 +24073,10 @@ define { <2 x float>, float } @Vector3Scale(<2 x float> %0, float %1, float noun
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define { <2 x float>, float } @Vector3Multiply(<2 x float> %0, float %1, <2 x float> %2, float %3) local_unnamed_addr #16 {
-  %5 = fmul <2 x float> %0, %2
-  %6 = fmul <2 x float> %0, %2
-  %.sroa.08.4.vec.insert = shufflevector <2 x float> %5, <2 x float> %6, <2 x i32> <i32 0, i32 3>
-  %7 = fmul float %1, %3
+  %.sroa.08.4.vec.insert = fmul <2 x float> %0, %2
+  %5 = fmul float %1, %3
   %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %.sroa.08.4.vec.insert, 0
-  %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %7, 1
+  %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %5, 1
   ret { <2 x float>, float } %.fca.1.insert
 }
 
@@ -25174,12 +25162,8 @@ define { <2 x float>, <2 x float> } @Vector4One() local_unnamed_addr #12 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define { <2 x float>, <2 x float> } @Vector4Add(<2 x float> %0, <2 x float> %1, <2 x float> %2, <2 x float> %3) local_unnamed_addr #16 {
-  %5 = fadd <2 x float> %0, %2
-  %6 = fadd <2 x float> %0, %2
-  %.sroa.03.4.vec.insert = shufflevector <2 x float> %5, <2 x float> %6, <2 x i32> <i32 0, i32 3>
-  %7 = fadd <2 x float> %1, %3
-  %8 = fadd <2 x float> %1, %3
-  %.sroa.35.12.vec.insert = shufflevector <2 x float> %7, <2 x float> %8, <2 x i32> <i32 0, i32 3>
+  %.sroa.03.4.vec.insert = fadd <2 x float> %0, %2
+  %.sroa.35.12.vec.insert = fadd <2 x float> %1, %3
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.sroa.03.4.vec.insert, 0
   %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %.sroa.35.12.vec.insert, 1
   ret { <2 x float>, <2 x float> } %.fca.1.insert
@@ -25206,12 +25190,8 @@ define { <2 x float>, <2 x float> } @Vector4AddValue(<2 x float> %0, <2 x float>
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define { <2 x float>, <2 x float> } @Vector4Subtract(<2 x float> %0, <2 x float> %1, <2 x float> %2, <2 x float> %3) local_unnamed_addr #16 {
-  %5 = fsub <2 x float> %0, %2
-  %6 = fsub <2 x float> %0, %2
-  %.sroa.03.4.vec.insert = shufflevector <2 x float> %5, <2 x float> %6, <2 x i32> <i32 0, i32 3>
-  %7 = fsub <2 x float> %1, %3
-  %8 = fsub <2 x float> %1, %3
-  %.sroa.35.12.vec.insert = shufflevector <2 x float> %7, <2 x float> %8, <2 x i32> <i32 0, i32 3>
+  %.sroa.03.4.vec.insert = fsub <2 x float> %0, %2
+  %.sroa.35.12.vec.insert = fsub <2 x float> %1, %3
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.sroa.03.4.vec.insert, 0
   %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %.sroa.35.12.vec.insert, 1
   ret { <2 x float>, <2 x float> } %.fca.1.insert
@@ -25335,12 +25315,8 @@ define { <2 x float>, <2 x float> } @Vector4Scale(<2 x float> %0, <2 x float> %1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define { <2 x float>, <2 x float> } @Vector4Multiply(<2 x float> %0, <2 x float> %1, <2 x float> %2, <2 x float> %3) local_unnamed_addr #16 {
-  %5 = fmul <2 x float> %0, %2
-  %6 = fmul <2 x float> %0, %2
-  %.sroa.03.4.vec.insert = shufflevector <2 x float> %5, <2 x float> %6, <2 x i32> <i32 0, i32 3>
-  %7 = fmul <2 x float> %1, %3
-  %8 = fmul <2 x float> %1, %3
-  %.sroa.35.12.vec.insert = shufflevector <2 x float> %7, <2 x float> %8, <2 x i32> <i32 0, i32 3>
+  %.sroa.03.4.vec.insert = fmul <2 x float> %0, %2
+  %.sroa.35.12.vec.insert = fmul <2 x float> %1, %3
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.sroa.03.4.vec.insert, 0
   %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %.sroa.35.12.vec.insert, 1
   ret { <2 x float>, <2 x float> } %.fca.1.insert
@@ -27033,12 +27009,8 @@ define void @MatrixToFloatV(ptr dead_on_unwind noalias nocapture writable writeo
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define { <2 x float>, <2 x float> } @QuaternionAdd(<2 x float> %0, <2 x float> %1, <2 x float> %2, <2 x float> %3) local_unnamed_addr #16 {
-  %5 = fadd <2 x float> %0, %2
-  %6 = fadd <2 x float> %0, %2
-  %.sroa.03.4.vec.insert = shufflevector <2 x float> %5, <2 x float> %6, <2 x i32> <i32 0, i32 3>
-  %7 = fadd <2 x float> %1, %3
-  %8 = fadd <2 x float> %1, %3
-  %.sroa.35.12.vec.insert = shufflevector <2 x float> %7, <2 x float> %8, <2 x i32> <i32 0, i32 3>
+  %.sroa.03.4.vec.insert = fadd <2 x float> %0, %2
+  %.sroa.35.12.vec.insert = fadd <2 x float> %1, %3
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.sroa.03.4.vec.insert, 0
   %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %.sroa.35.12.vec.insert, 1
   ret { <2 x float>, <2 x float> } %.fca.1.insert
@@ -27065,12 +27037,8 @@ define { <2 x float>, <2 x float> } @QuaternionAddValue(<2 x float> %0, <2 x flo
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define { <2 x float>, <2 x float> } @QuaternionSubtract(<2 x float> %0, <2 x float> %1, <2 x float> %2, <2 x float> %3) local_unnamed_addr #16 {
-  %5 = fsub <2 x float> %0, %2
-  %6 = fsub <2 x float> %0, %2
-  %.sroa.03.4.vec.insert = shufflevector <2 x float> %5, <2 x float> %6, <2 x i32> <i32 0, i32 3>
-  %7 = fsub <2 x float> %1, %3
-  %8 = fsub <2 x float> %1, %3
-  %.sroa.35.12.vec.insert = shufflevector <2 x float> %7, <2 x float> %8, <2 x i32> <i32 0, i32 3>
+  %.sroa.03.4.vec.insert = fsub <2 x float> %0, %2
+  %.sroa.35.12.vec.insert = fsub <2 x float> %1, %3
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.sroa.03.4.vec.insert, 0
   %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %.sroa.35.12.vec.insert, 1
   ret { <2 x float>, <2 x float> } %.fca.1.insert

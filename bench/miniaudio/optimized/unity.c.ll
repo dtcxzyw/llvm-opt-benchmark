@@ -30614,10 +30614,8 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define { <2 x float>, float } @ma_vec3f_sub(<2 x float> %a.coerce0, float %a.coerce1, <2 x float> %b.coerce0, float %b.coerce1) local_unnamed_addr #37 {
 entry:
-  %0 = fsub <2 x float> %a.coerce0, %b.coerce0
-  %1 = fsub <2 x float> %a.coerce0, %b.coerce0
   %sub6 = fsub float %a.coerce1, %b.coerce1
-  %retval.sroa.0.4.vec.insert.i = shufflevector <2 x float> %0, <2 x float> %1, <2 x i32> <i32 0, i32 3>
+  %retval.sroa.0.4.vec.insert.i = fsub <2 x float> %a.coerce0, %b.coerce0
   %.fca.0.insert.i = insertvalue { <2 x float>, float } poison, <2 x float> %retval.sroa.0.4.vec.insert.i, 0
   %.fca.1.insert.i = insertvalue { <2 x float>, float } %.fca.0.insert.i, float %sub6, 1
   ret { <2 x float>, float } %.fca.1.insert.i

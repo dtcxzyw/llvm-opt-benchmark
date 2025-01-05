@@ -27108,14 +27108,12 @@ _ZN5ceres8internal10FixedArrayIdLm8ESaIdEED2Ev.exit46: ; preds = %157, %193
   %200 = load <2 x double>, ptr %5, align 16
   %201 = load <2 x double>, ptr %32, align 1
   %202 = fmul <2 x double> %200, %201
-  %shift = shufflevector <2 x double> %202, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %203 = fadd <2 x double> %202, %shift
-  %204 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %205 = load <2 x double>, ptr %204, align 16
-  %206 = fmul <2 x double> %201, %205
-  %shift79 = shufflevector <2 x double> %206, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %207 = fadd <2 x double> %206, %shift79
-  %.sroa.0.8.vec.insert.i.i.i.i = shufflevector <2 x double> %203, <2 x double> %207, <2 x i32> <i32 0, i32 2>
+  %203 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %204 = load <2 x double>, ptr %203, align 16
+  %205 = fmul <2 x double> %201, %204
+  %206 = shufflevector <2 x double> %202, <2 x double> %205, <2 x i32> <i32 0, i32 2>
+  %207 = shufflevector <2 x double> %202, <2 x double> %205, <2 x i32> <i32 1, i32 3>
+  %.sroa.0.8.vec.insert.i.i.i.i = fadd <2 x double> %206, %207
   store <2 x double> %.sroa.0.8.vec.insert.i.i.i.i, ptr %32, align 1
   ret void
 }

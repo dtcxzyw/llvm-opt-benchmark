@@ -598,20 +598,18 @@ _ZN3vcg10trackutils21HitNearestPointOnAxisEPNS_9TrackballENS_5Line3IfLb0EEENS_6P
   %135 = and i64 %133, 4294967296
   %.not81 = icmp eq i64 %135, 0
   %or.cond = select i1 %.not, i1 true, i1 %.not81
-  br i1 %or.cond, label %142, label %136
+  br i1 %or.cond, label %140, label %136
 
 136:                                              ; preds = %_ZN3vcg10trackutils21HitNearestPointOnAxisEPNS_9TrackballENS_5Line3IfLb0EEENS_6Point3IfEE.exit66
   %.sroa.368.8.extract.trunc = trunc i64 %133 to i32
   %137 = bitcast i32 %.sroa.368.8.extract.trunc to float
   %138 = extractvalue { <2 x float>, i64 } %.pn.i50, 0
-  %139 = fsub <2 x float> %138, %77
-  %140 = fsub <2 x float> %138, %77
-  %141 = fsub float %137, %79
-  %.sroa.0.4.vec.insert.i = shufflevector <2 x float> %139, <2 x float> %140, <2 x i32> <i32 0, i32 3>
-  call void @_ZN3vcg9Trackball9TranslateENS_6Point3IfEE(ptr noundef nonnull align 8 dereferenceable(597) %1, <2 x float> %.sroa.0.4.vec.insert.i, float %141)
-  br label %142
+  %139 = fsub float %137, %79
+  %.sroa.0.4.vec.insert.i = fsub <2 x float> %138, %77
+  call void @_ZN3vcg9Trackball9TranslateENS_6Point3IfEE(ptr noundef nonnull align 8 dereferenceable(597) %1, <2 x float> %.sroa.0.4.vec.insert.i, float %139)
+  br label %140
 
-142:                                              ; preds = %136, %_ZN3vcg10trackutils21HitNearestPointOnAxisEPNS_9TrackballENS_5Line3IfLb0EEENS_6Point3IfEE.exit66
+140:                                              ; preds = %136, %_ZN3vcg10trackutils21HitNearestPointOnAxisEPNS_9TrackballENS_5Line3IfLb0EEENS_6Point3IfEE.exit66
   ret void
 }
 
@@ -2658,11 +2656,9 @@ define void @_ZN3vcg7PanMode5ApplyEPNS_9TrackballENS_6Point3IfEE(ptr nocapture n
   %8 = call { <2 x float>, float } @_ZN3vcg10trackutils12HitViewPlaneEPNS_9TrackballERKNS_6Point3IfEE(ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(12) %5)
   %.fca.0.extract5 = extractvalue { <2 x float>, float } %8, 0
   %.fca.1.extract6 = extractvalue { <2 x float>, float } %8, 1
-  %9 = fsub <2 x float> %.fca.0.extract5, %.fca.0.extract9
-  %10 = fsub <2 x float> %.fca.0.extract5, %.fca.0.extract9
-  %11 = fsub float %.fca.1.extract6, %.fca.1.extract10
-  %.sroa.0.4.vec.insert.i = shufflevector <2 x float> %9, <2 x float> %10, <2 x i32> <i32 0, i32 3>
-  tail call void @_ZN3vcg9Trackball9TranslateENS_6Point3IfEE(ptr noundef nonnull align 8 dereferenceable(597) %1, <2 x float> %.sroa.0.4.vec.insert.i, float %11)
+  %9 = fsub float %.fca.1.extract6, %.fca.1.extract10
+  %.sroa.0.4.vec.insert.i = fsub <2 x float> %.fca.0.extract5, %.fca.0.extract9
+  tail call void @_ZN3vcg9Trackball9TranslateENS_6Point3IfEE(ptr noundef nonnull align 8 dereferenceable(597) %1, <2 x float> %.sroa.0.4.vec.insert.i, float %9)
   ret void
 }
 
@@ -10771,12 +10767,10 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17
   br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE9push_backERKS2_.exit105
 
 _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE9push_backERKS2_.exit105: ; preds = %271, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i104
-  %294 = fsub <2 x float> %.sroa.0132.1.ph, %1
-  %295 = fsub <2 x float> %.sroa.0132.1.ph, %1
-  %296 = fsub float %.sroa.24.1.ph, %2
-  %.sroa.0.4.vec.insert.i107 = shufflevector <2 x float> %294, <2 x float> %295, <2 x i32> <i32 0, i32 3>
+  %294 = fsub float %.sroa.24.1.ph, %2
+  %.sroa.0.4.vec.insert.i107 = fsub <2 x float> %.sroa.0132.1.ph, %1
   %.fca.0.insert.i108 = insertvalue { <2 x float>, float } poison, <2 x float> %.sroa.0.4.vec.insert.i107, 0
-  %.fca.1.insert.i109 = insertvalue { <2 x float>, float } %.fca.0.insert.i108, float %296, 1
+  %.fca.1.insert.i109 = insertvalue { <2 x float>, float } %.fca.0.insert.i108, float %294, 1
   ret { <2 x float>, float } %.fca.1.insert.i109
 }
 

@@ -971,36 +971,29 @@ define void @_ZN3g2o24EdgeSE3PointXYZDisparity12computeErrorEv(ptr nocapture nou
   %36 = load <2 x double>, ptr %35, align 16, !noalias !19
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 576
   %38 = load <2 x double>, ptr %37, align 16, !noalias !19
-  %39 = extractelement <2 x double> %.sroa.0.i.i.16..sroa.0.i.i.16..sroa.0.i.i.16..sroa.0.i.16..sroa.0.i.16..sroa.0.16..sroa.0.16..i.i, i64 1
-  %40 = extractelement <2 x double> %38, i64 0
-  %41 = fmul double %39, %40
-  %42 = extractelement <2 x double> %10, i64 0
-  %43 = extractelement <2 x double> %32, i64 0
-  %44 = fmul double %42, %43
-  %45 = extractelement <2 x double> %.sroa.0.i.i.8..sroa.0.i.i.8..sroa.0.i.i.8..sroa.0.i.8..sroa.0.i.8..sroa.0.8..sroa.0.8..i.i, i64 0
-  %46 = extractelement <2 x double> %34, i64 0
-  %47 = fmul double %45, %46
-  %48 = fadd double %44, %47
-  %49 = extractelement <2 x double> %.sroa.0.i.i.16..sroa.0.i.i.16..sroa.0.i.i.16..sroa.0.i.16..sroa.0.i.16..sroa.0.16..sroa.0.16..i.i, i64 0
-  %50 = extractelement <2 x double> %36, i64 0
-  %51 = fmul double %49, %50
-  %52 = fadd double %48, %51
-  %.sroa.2.16.vec.extract.i.i = fadd double %41, %52
+  %shift = shufflevector <2 x double> %.sroa.0.i.i.16..sroa.0.i.i.16..sroa.0.i.i.16..sroa.0.i.16..sroa.0.i.16..sroa.0.16..sroa.0.16..i.i, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %39 = fmul <2 x double> %shift, %38
+  %40 = fmul <2 x double> %10, %32
+  %41 = fmul <2 x double> %.sroa.0.i.i.8..sroa.0.i.i.8..sroa.0.i.i.8..sroa.0.i.8..sroa.0.i.8..sroa.0.8..sroa.0.8..i.i, %34
+  %42 = fadd <2 x double> %40, %41
+  %43 = fmul <2 x double> %.sroa.0.i.i.16..sroa.0.i.i.16..sroa.0.i.i.16..sroa.0.i.16..sroa.0.i.16..sroa.0.16..sroa.0.16..i.i, %36
+  %44 = fadd <2 x double> %42, %43
+  %45 = fadd <2 x double> %39, %44
+  %.sroa.2.16.vec.extract.i.i = extractelement <2 x double> %45, i64 0
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i)
-  %.sroa.2.24.vec.insert.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %.sroa.2.16.vec.extract.i.i, i64 0
-  %53 = shufflevector <2 x double> %.sroa.2.24.vec.insert.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
-  %54 = fdiv <2 x double> %30, %53
-  %55 = fdiv double 1.000000e+00, %.sroa.2.16.vec.extract.i.i
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %58 = load <2 x double>, ptr %56, align 8
-  %59 = fsub <2 x double> %54, %58
-  store <2 x double> %59, ptr %57, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %62 = load double, ptr %61, align 8
-  %63 = fsub double %55, %62
-  store double %63, ptr %60, align 8
+  %46 = shufflevector <2 x double> %45, <2 x double> poison, <2 x i32> zeroinitializer
+  %47 = fdiv <2 x double> %30, %46
+  %48 = fdiv double 1.000000e+00, %.sroa.2.16.vec.extract.i.i
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %51 = load <2 x double>, ptr %49, align 8
+  %52 = fsub <2 x double> %47, %51
+  store <2 x double> %52, ptr %50, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %55 = load double, ptr %54, align 8
+  %56 = fsub double %48, %55
+  store double %56, ptr %53, align 8
   ret void
 }
 
@@ -1385,30 +1378,23 @@ define noundef zeroext i1 @_ZN3g2o24EdgeSE3PointXYZDisparity23setMeasurementFrom
   %36 = load <2 x double>, ptr %35, align 16, !noalias !39
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 576
   %38 = load <2 x double>, ptr %37, align 16, !noalias !39
-  %39 = extractelement <2 x double> %.sroa.0.i.i.16..sroa.0.i.i.16..sroa.0.i.i.16..sroa.0.i.16..sroa.0.i.16..sroa.0.16..sroa.0.16..i.i, i64 1
-  %40 = extractelement <2 x double> %38, i64 0
-  %41 = fmul double %39, %40
-  %42 = extractelement <2 x double> %10, i64 0
-  %43 = extractelement <2 x double> %32, i64 0
-  %44 = fmul double %42, %43
-  %45 = extractelement <2 x double> %.sroa.0.i.i.8..sroa.0.i.i.8..sroa.0.i.i.8..sroa.0.i.8..sroa.0.i.8..sroa.0.8..sroa.0.8..i.i, i64 0
-  %46 = extractelement <2 x double> %34, i64 0
-  %47 = fmul double %45, %46
-  %48 = fadd double %44, %47
-  %49 = extractelement <2 x double> %.sroa.0.i.i.16..sroa.0.i.i.16..sroa.0.i.i.16..sroa.0.i.16..sroa.0.i.16..sroa.0.16..sroa.0.16..i.i, i64 0
-  %50 = extractelement <2 x double> %36, i64 0
-  %51 = fmul double %49, %50
-  %52 = fadd double %48, %51
-  %.sroa.2.16.vec.extract.i.i = fadd double %41, %52
+  %shift = shufflevector <2 x double> %.sroa.0.i.i.16..sroa.0.i.i.16..sroa.0.i.i.16..sroa.0.i.16..sroa.0.i.16..sroa.0.16..sroa.0.16..i.i, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %39 = fmul <2 x double> %shift, %38
+  %40 = fmul <2 x double> %10, %32
+  %41 = fmul <2 x double> %.sroa.0.i.i.8..sroa.0.i.i.8..sroa.0.i.i.8..sroa.0.i.8..sroa.0.i.8..sroa.0.8..sroa.0.8..i.i, %34
+  %42 = fadd <2 x double> %40, %41
+  %43 = fmul <2 x double> %.sroa.0.i.i.16..sroa.0.i.i.16..sroa.0.i.i.16..sroa.0.i.16..sroa.0.i.16..sroa.0.16..sroa.0.16..i.i, %36
+  %44 = fadd <2 x double> %42, %43
+  %45 = fadd <2 x double> %39, %44
+  %.sroa.2.16.vec.extract.i.i = extractelement <2 x double> %45, i64 0
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i)
-  %.sroa.2.24.vec.insert.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %.sroa.2.16.vec.extract.i.i, i64 0
-  %53 = shufflevector <2 x double> %.sroa.2.24.vec.insert.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
-  %54 = fdiv <2 x double> %30, %53
-  %55 = fdiv double 1.000000e+00, %.sroa.2.16.vec.extract.i.i
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store <2 x double> %54, ptr %56, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store double %55, ptr %57, align 8
+  %46 = shufflevector <2 x double> %45, <2 x double> poison, <2 x i32> zeroinitializer
+  %47 = fdiv <2 x double> %30, %46
+  %48 = fdiv double 1.000000e+00, %.sroa.2.16.vec.extract.i.i
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  store <2 x double> %47, ptr %49, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  store double %48, ptr %50, align 8
   ret i1 true
 }
 

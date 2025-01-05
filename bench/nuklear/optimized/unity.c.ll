@@ -13691,16 +13691,12 @@ if.then2:                                         ; preds = %if.end
   %conv30 = uitofp nneg i32 %add29 to float
   %div33 = fdiv float %conv30, %conv8
   %uv.sroa.3.12.vec.insert = insertelement <2 x float> %uv.sroa.3.8.vec.insert, float %div33, i64 1
-  %7 = fadd <2 x float> %rect.coerce0, %rect.coerce1
-  %8 = fadd <2 x float> %rect.coerce0, %rect.coerce1
-  %retval.sroa.0.4.vec.insert.i24 = shufflevector <2 x float> %7, <2 x float> %8, <2 x i32> <i32 0, i32 3>
+  %retval.sroa.0.4.vec.insert.i24 = fadd <2 x float> %rect.coerce0, %rect.coerce1
   tail call fastcc void @nk_draw_list_push_rect_uv(ptr noundef %list, <2 x float> %rect.coerce0, <2 x float> %retval.sroa.0.4.vec.insert.i24, <2 x float> %uv.sroa.0.4.vec.insert, <2 x float> %uv.sroa.3.12.vec.insert, i32 %color.coerce)
   br label %if.end65
 
 if.else:                                          ; preds = %if.end
-  %9 = fadd <2 x float> %rect.coerce0, %rect.coerce1
-  %10 = fadd <2 x float> %rect.coerce0, %rect.coerce1
-  %retval.sroa.0.4.vec.insert.i28 = shufflevector <2 x float> %9, <2 x float> %10, <2 x i32> <i32 0, i32 3>
+  %retval.sroa.0.4.vec.insert.i28 = fadd <2 x float> %rect.coerce0, %rect.coerce1
   tail call fastcc void @nk_draw_list_push_rect_uv(ptr noundef %list, <2 x float> %rect.coerce0, <2 x float> %retval.sroa.0.4.vec.insert.i28, <2 x float> zeroinitializer, <2 x float> splat (float 1.000000e+00), i32 %color.coerce)
   br label %if.end65
 

@@ -538,12 +538,8 @@ define noundef nonnull align 4 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__
   %.sroa.2.0..sroa_idx.i10 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sroa.2.0.copyload.i11 = load <2 x float>, ptr %.sroa.2.0..sroa_idx.i10, align 4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %11 = fadd <2 x float> %.sroa.2.0.copyload.i6, %.sroa.2.0.copyload.i11
-  %12 = fadd <2 x float> %.sroa.0.0.copyload.i4, %.sroa.0.0.copyload.i9
-  %13 = fadd <2 x float> %.sroa.0.0.copyload.i4, %.sroa.0.0.copyload.i9
-  %.sroa.0.4.vec.insert.i = shufflevector <2 x float> %12, <2 x float> %13, <2 x i32> <i32 0, i32 3>
-  %14 = fadd <2 x float> %.sroa.2.0.copyload.i6, %.sroa.2.0.copyload.i11
-  %.sroa.6.8.vec.insert.i = shufflevector <2 x float> %14, <2 x float> %11, <2 x i32> <i32 0, i32 3>
+  %.sroa.0.4.vec.insert.i = fadd <2 x float> %.sroa.0.0.copyload.i4, %.sroa.0.0.copyload.i9
+  %.sroa.6.8.vec.insert.i = fadd <2 x float> %.sroa.2.0.copyload.i6, %.sroa.2.0.copyload.i11
   store <2 x float> %.sroa.0.0.copyload.i, ptr %0, align 4
   %.sroa.220.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store <2 x float> %.sroa.2.0.copyload.i, ptr %.sroa.220.0..sroa_idx, align 4

@@ -2426,11 +2426,9 @@ _ZNK13gjkepa2_impl25b3GJK10getsupportERK9b3Vector3RNS0_3sSVE.exit: ; preds = %if
   %call8.i.i = call { <2 x float>, <2 x float> } @_ZNK13gjkepa2_impl215b3MinkowskiDiff8Support1ERK9b3Vector3RK20b3AlignedObjectArrayIS1_E(ptr noundef nonnull align 16 dereferenceable(484) %this, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp4.i.i, ptr noundef nonnull align 8 dereferenceable(25) %12)
   %37 = extractvalue { <2 x float>, <2 x float> } %call8.i.i, 0
   %38 = extractvalue { <2 x float>, <2 x float> } %call8.i.i, 1
-  %39 = fsub <2 x float> %34, %37
-  %40 = fsub <2 x float> %34, %37
-  %41 = fsub <2 x float> %35, %38
-  %retval.sroa.0.4.vec.insert.i.i4.i.i = shufflevector <2 x float> %39, <2 x float> %40, <2 x i32> <i32 0, i32 3>
-  %retval.sroa.3.12.vec.insert.i.i5.i.i10 = insertelement <2 x float> %41, float 0.000000e+00, i64 1
+  %39 = fsub <2 x float> %35, %38
+  %retval.sroa.0.4.vec.insert.i.i4.i.i = fsub <2 x float> %34, %37
+  %retval.sroa.3.12.vec.insert.i.i5.i.i10 = insertelement <2 x float> %39, float 0.000000e+00, i64 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp4.i.i)
   %w.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i4.i.i, ptr %w.i, align 16

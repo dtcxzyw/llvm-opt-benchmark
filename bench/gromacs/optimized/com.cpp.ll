@@ -46,18 +46,16 @@ define void @_ZN3gmx10shiftAtomsERKNS_11BasicVectorIfEENS_8ArrayRefIS1_EE(ptr no
   br label %4
 
 4:                                                ; preds = %4, %.lr.ph.i
-  %.sroa.015.019.i = phi ptr [ %1, %.lr.ph.i ], [ %8, %4 ]
+  %.sroa.015.019.i = phi ptr [ %1, %.lr.ph.i ], [ %6, %4 ]
   %.sroa.03.0.copyload.i = load <2 x float>, ptr %.sroa.015.019.i, align 4
   %.sroa.24.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.015.019.i, i64 8
   %.sroa.24.0.copyload.i = load float, ptr %.sroa.24.0..sroa_idx.i, align 4
-  %5 = fadd <2 x float> %.sroa.02.0.copyload, %.sroa.03.0.copyload.i
-  %6 = fadd <2 x float> %.sroa.02.0.copyload, %.sroa.03.0.copyload.i
-  %7 = fadd float %.sroa.23.0.copyload, %.sroa.24.0.copyload.i
-  %.sroa.0.4.vec.insert.i.i.i = shufflevector <2 x float> %5, <2 x float> %6, <2 x i32> <i32 0, i32 3>
+  %5 = fadd float %.sroa.23.0.copyload, %.sroa.24.0.copyload.i
+  %.sroa.0.4.vec.insert.i.i.i = fadd <2 x float> %.sroa.02.0.copyload, %.sroa.03.0.copyload.i
   store <2 x float> %.sroa.0.4.vec.insert.i.i.i, ptr %.sroa.015.019.i, align 4
-  store float %7, ptr %.sroa.24.0..sroa_idx.i, align 4
-  %8 = getelementptr i8, ptr %.sroa.015.019.i, i64 12
-  %.not.i = icmp eq ptr %8, %2
+  store float %5, ptr %.sroa.24.0..sroa_idx.i, align 4
+  %6 = getelementptr i8, ptr %.sroa.015.019.i, i64 12
+  %.not.i = icmp eq ptr %6, %2
   br i1 %.not.i, label %"_ZSt9transformIN3gmx12ArrayRefIterINS0_11BasicVectorIfEEEES4_ZNS0_10shiftAtomsERKS3_NS0_8ArrayRefIS3_EEE3$_0ET0_T_SB_SA_T1_.exit", label %4, !llvm.loop !5
 
 "_ZSt9transformIN3gmx12ArrayRefIterINS0_11BasicVectorIfEEEES4_ZNS0_10shiftAtomsERKS3_NS0_8ArrayRefIS3_EEE3$_0ET0_T_SB_SA_T1_.exit": ; preds = %4, %3

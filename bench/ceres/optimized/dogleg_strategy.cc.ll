@@ -4052,12 +4052,10 @@ define hidden noundef zeroext i1 @_ZNK5ceres8internal14DoglegStrategy32FindMinim
   %48 = tail call double @llvm.fmuladd.f64(double %32, double %46, double %47)
   store double %48, ptr %44, align 8
   %49 = fmul <2 x double> %.sroa.0.8.vec.insert.i, %40
-  %shift33 = shufflevector <2 x double> %49, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %50 = fadd <2 x double> %49, %shift33
-  %51 = fmul <2 x double> %.sroa.3.24.vec.insert.i, %40
-  %shift34 = shufflevector <2 x double> %51, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %52 = fadd <2 x double> %51, %shift34
-  %.sroa.2.40.vec.insert.i.i.i.i = shufflevector <2 x double> %50, <2 x double> %52, <2 x i32> <i32 0, i32 2>
+  %50 = fmul <2 x double> %.sroa.3.24.vec.insert.i, %40
+  %51 = shufflevector <2 x double> %49, <2 x double> %50, <2 x i32> <i32 0, i32 2>
+  %52 = shufflevector <2 x double> %49, <2 x double> %50, <2 x i32> <i32 1, i32 3>
+  %.sroa.2.40.vec.insert.i.i.i.i = fadd <2 x double> %51, %52
   %53 = fmul <2 x double> %40, %.sroa.2.40.vec.insert.i.i.i.i
   %shift35 = shufflevector <2 x double> %53, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %54 = fadd <2 x double> %53, %shift35
@@ -4239,12 +4237,10 @@ define hidden void @_ZNK5ceres8internal14DoglegStrategy43MakePolynomialForBounda
   store double %38, ptr %34, align 8
   %39 = load <2 x double>, ptr %28, align 8
   %40 = fmul <2 x double> %39, %.sroa.0.8.vec.insert
-  %shift52 = shufflevector <2 x double> %40, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %41 = fadd <2 x double> %40, %shift52
-  %42 = fmul <2 x double> %39, %.sroa.3.24.vec.insert
-  %shift53 = shufflevector <2 x double> %42, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %43 = fadd <2 x double> %42, %shift53
-  %.sroa.2.40.vec.insert.i.i.i = shufflevector <2 x double> %41, <2 x double> %43, <2 x i32> <i32 0, i32 2>
+  %41 = fmul <2 x double> %39, %.sroa.3.24.vec.insert
+  %42 = shufflevector <2 x double> %40, <2 x double> %41, <2 x i32> <i32 0, i32 2>
+  %43 = shufflevector <2 x double> %40, <2 x double> %41, <2 x i32> <i32 1, i32 3>
+  %.sroa.2.40.vec.insert.i.i.i = fadd <2 x double> %42, %43
   %44 = fmul <2 x double> %39, %.sroa.2.40.vec.insert.i.i.i
   %shift54 = shufflevector <2 x double> %44, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %45 = fadd <2 x double> %44, %shift54

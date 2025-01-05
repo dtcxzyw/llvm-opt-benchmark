@@ -29825,12 +29825,10 @@ define hidden { <2 x float>, float } @ma_vec3f_init_3f(float noundef %0, float n
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden { <2 x float>, float } @ma_vec3f_sub(<2 x float> %0, float %1, <2 x float> %2, float %3) local_unnamed_addr #37 {
-  %5 = fsub <2 x float> %0, %2
-  %6 = fsub <2 x float> %0, %2
-  %7 = fsub float %1, %3
-  %.sroa.03.4.vec.insert.i = shufflevector <2 x float> %5, <2 x float> %6, <2 x i32> <i32 0, i32 3>
+  %5 = fsub float %1, %3
+  %.sroa.03.4.vec.insert.i = fsub <2 x float> %0, %2
   %.fca.0.insert.i = insertvalue { <2 x float>, float } poison, <2 x float> %.sroa.03.4.vec.insert.i, 0
-  %.fca.1.insert.i = insertvalue { <2 x float>, float } %.fca.0.insert.i, float %7, 1
+  %.fca.1.insert.i = insertvalue { <2 x float>, float } %.fca.0.insert.i, float %5, 1
   ret { <2 x float>, float } %.fca.1.insert.i
 }
 
