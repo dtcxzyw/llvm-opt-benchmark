@@ -6355,10 +6355,10 @@ if.end39:                                         ; preds = %if.end13
   %call.i.i.i88 = call noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull %b.i85, i32 noundef 8)
   %29 = load i64, ptr %b.i85, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %b.i85)
-  %cmp44 = icmp ugt i64 %26, 2147483647
-  %30 = or i64 %29, %19
+  %cmp45 = icmp ugt i64 %29, 2147483647
+  %30 = or i64 %26, %19
   %31 = icmp ugt i64 %30, 2147483647
-  %or.cond72 = select i1 %cmp44, i1 true, i1 %31
+  %or.cond72 = select i1 %31, i1 true, i1 %cmp45
   br i1 %or.cond72, label %do.body49, label %if.end79
 
 do.body49:                                        ; preds = %if.end39

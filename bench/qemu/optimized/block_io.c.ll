@@ -8019,7 +8019,7 @@ if.end54:                                         ; preds = %if.end50
 emulate_flags:                                    ; preds = %if.else, %if.end54, %if.then19, %if.then11
   %qiov.addr.0 = phi ptr [ %qiov, %if.then11 ], [ %qiov.addr.1, %if.then19 ], [ %qiov.addr.1, %if.else ], [ %qiov.addr.1, %if.end54 ]
   %ret.0 = phi i32 [ %call13, %if.then11 ], [ %call21, %if.then19 ], [ %13, %if.else ], [ %call56, %if.end54 ]
-  %18 = or i32 %not, %ret.0
+  %18 = or i32 %ret.0, %not
   %19 = icmp ne i32 %18, 0
   %brmerge = select i1 %tobool2.not, i1 true, i1 %19
   br i1 %brmerge, label %if.end64, label %if.then62

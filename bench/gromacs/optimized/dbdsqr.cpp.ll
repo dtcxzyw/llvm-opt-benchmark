@@ -152,7 +152,7 @@ define void @dbdsqr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 90:                                               ; preds = %89
   %.not1311 = icmp eq i32 %51, 0
-  %91 = or i32 %59, %66
+  %91 = or i32 %66, %59
   %92 = icmp eq i32 %91, 0
   %or.cond1417 = select i1 %92, i1 %.not1311, i1 false
   br i1 %or.cond1417, label %93, label %.critedge

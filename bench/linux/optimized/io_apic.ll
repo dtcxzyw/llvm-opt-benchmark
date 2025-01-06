@@ -2211,7 +2211,7 @@ define dso_local void @enable_IO_APIC() local_unnamed_addr #8 section ".init.tex
 
 41:                                               ; preds = %39
   %42 = icmp ne i32 %34, %32
-  %43 = or i32 %32, %34
+  %43 = or i32 %34, %32
   %44 = icmp sgt i32 %43, -1
   %or.cond18 = and i1 %44, %42
   br i1 %or.cond18, label %47, label %49

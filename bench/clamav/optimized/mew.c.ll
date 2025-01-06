@@ -2410,7 +2410,7 @@ define range(i32 -1, 2) i32 @unmew11(ptr noundef %0, i32 noundef %1, i32 noundef
 
 80:                                               ; preds = %77
   %81 = icmp ule i64 %30, %76
-  %82 = icmp uge i32 %.pn.in.us.us, %12
+  %82 = icmp ule i32 %12, %.pn.in.us.us
   %or.cond292.us.us = or i1 %81, %82
   br i1 %or.cond292.us.us, label %.split.us, label %83
 
@@ -2494,7 +2494,7 @@ define range(i32 -1, 2) i32 @unmew11(ptr noundef %0, i32 noundef %1, i32 noundef
 
 119:                                              ; preds = %116
   %120 = icmp ule i64 %30, %115
-  %121 = icmp uge i32 %.pn.in, %12
+  %121 = icmp ule i32 %12, %.pn.in
   %or.cond292 = or i1 %120, %121
   br i1 %or.cond292, label %.split.us.thread, label %122
 

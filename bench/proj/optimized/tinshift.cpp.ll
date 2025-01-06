@@ -8524,7 +8524,7 @@ _ZNK5osgeo4proj8QuadTree7RectObjneERKS2_.exit44.thread: ; preds = %_ZNK5osgeo4pr
   %84 = fcmp une double %.sroa.0126.0.copyload, %.sroa.066.0
   %85 = fcmp une double %.sroa.5127.0.copyload, %.sroa.669.0
   %or.cond138 = select i1 %84, i1 true, i1 %85
-  %86 = fcmp uno double %.sroa.8.0.copyload, %.sroa.13.0.copyload
+  %86 = fcmp uno double %.sroa.13.0.copyload, %.sroa.8.0.copyload
   %or.cond140 = or i1 %86, %or.cond138
   br i1 %or.cond140, label %_ZNK5osgeo4proj8QuadTree7RectObjneERKS2_.exit45.thread, label %_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit48.thread
 

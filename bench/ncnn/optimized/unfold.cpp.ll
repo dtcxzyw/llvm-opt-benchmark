@@ -189,7 +189,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn6Unfold7forwardERKNS_3Mat
 .lr.ph161.split.preheader:                        ; preds = %.lr.ph161
   %84 = sext i32 %57 to i64
   %wide.trip.count = zext nneg i32 %23 to i64
-  %85 = or i32 %54, %49
+  %85 = or i32 %49, %54
   %86 = icmp slt i32 %85, 0
   br label %.lr.ph161.split
 

@@ -757,7 +757,7 @@ define void @_ZN5osgeo4proj8metadata21GeographicBoundingBox6createEdddd(ptr dead
   store double %3, ptr %8, align 8
   store double %4, ptr %9, align 8
   %or.cond = fcmp uno double %1, %2
-  %10 = fcmp uno double %3, %4
+  %10 = fcmp uno double %4, %3
   %or.cond2 = or i1 %or.cond, %10
   br i1 %or.cond2, label %11, label %16
 
@@ -1261,7 +1261,7 @@ define hidden void @_ZNK5osgeo4proj8metadata21GeographicBoundingBox12intersectio
   store double %25, ptr %6, align 8, !noalias !28
   store double %27, ptr %7, align 8, !noalias !28
   %or.cond.i = fcmp uno double %21, %23
-  %28 = fcmp uno double %25, %27
+  %28 = fcmp uno double %27, %25
   %or.cond2.i = or i1 %or.cond.i, %28
   br i1 %or.cond2.i, label %29, label %34
 
@@ -3986,7 +3986,7 @@ define void @_ZN5osgeo4proj8metadata6Extent14createFromBBOXEddddRKNS0_4util8opti
   store double %3, ptr %9, align 8, !noalias !74
   store double %4, ptr %10, align 8, !noalias !74
   %or.cond.i = fcmp uno double %1, %2
-  %16 = fcmp uno double %3, %4
+  %16 = fcmp uno double %4, %3
   %or.cond2.i = or i1 %or.cond.i, %16
   br i1 %or.cond2.i, label %17, label %_ZN5osgeo4proj8metadata21GeographicBoundingBox6createEdddd.exit
 

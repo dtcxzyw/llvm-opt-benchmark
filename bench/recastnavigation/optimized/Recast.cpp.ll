@@ -1171,18 +1171,14 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %69, %73
   %128 = getelementptr inbounds nuw [4 x i32], ptr @_ZZ15rcGetDirOffsetYiE6offset, i64 0, i64 %indvars.iv234
   %129 = load i32, ptr %128, align 4
   %130 = add nsw i32 %129, %98
-  %131 = icmp sgt i32 %127, -1
-  %132 = icmp sgt i32 %130, -1
-  %or.cond.not200.us = select i1 %131, i1 %132, i1 false
-  %.not186.us = icmp slt i32 %127, %18
-  %or.cond193.us = and i1 %.not186.us, %or.cond.not200.us
-  %.not187.us = icmp slt i32 %130, %20
-  %or.cond194.us = select i1 %or.cond193.us, i1 %.not187.us, i1 false
+  %131 = icmp ult i32 %127, %18
+  %132 = icmp ult i32 %130, %20
+  %or.cond194.us = select i1 %131, i1 %132, i1 false
   br i1 %or.cond194.us, label %133, label %.loopexit.us
 
 133:                                              ; preds = %116
   %134 = load ptr, ptr %68, align 8
-  %135 = mul nuw nsw i32 %130, %18
+  %135 = mul nsw i32 %130, %18
   %136 = add nuw nsw i32 %135, %127
   %137 = zext nneg i32 %136 to i64
   %138 = getelementptr inbounds nuw %struct.rcCompactCell, ptr %134, i64 %137

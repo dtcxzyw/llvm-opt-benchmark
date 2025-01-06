@@ -14269,7 +14269,7 @@ _ZN12_GLOBAL__N_17Formula7unscaleEv.exit297.thread: ; preds = %700, %705
 
 744:                                              ; preds = %743
   %or.cond.i.i288 = icmp eq i64 %723, -1
-  %745 = or i64 %730, %735
+  %745 = or i64 %735, %730
   %746 = icmp eq i64 %745, 0
   %spec.select26.i = and i1 %746, %or.cond.i.i288
   br i1 %spec.select26.i, label %_ZL10isLegalUseRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_19ImmediateES4_NS3_6LSRUse8KindTypeENS3_11MemAccessTyERKNS3_7FormulaE.exit.thread.i, label %_ZL20isAMCompletelyFoldedRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_19ImmediateES4_NS3_6LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueES4_bl.exit293.thread
@@ -14308,7 +14308,7 @@ _ZL20isAMCompletelyFoldedRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8Ki
   %759 = add i64 %723, 1
   %or.cond5.i.i = icmp ult i64 %759, 2
   %or.cond32.i.i = and i1 %.not.i.i281, %or.cond5.i.i
-  %760 = or i64 %730, %735
+  %760 = or i64 %735, %730
   %761 = icmp eq i64 %760, 0
   %spec.select25.i282 = and i1 %761, %or.cond32.i.i
   br i1 %spec.select25.i282, label %_ZL10isLegalUseRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_19ImmediateES4_NS3_6LSRUse8KindTypeENS3_11MemAccessTyERKNS3_7FormulaE.exit.thread.i, label %_ZL20isAMCompletelyFoldedRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_19ImmediateES4_NS3_6LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueES4_bl.exit293.thread
@@ -14400,7 +14400,7 @@ _ZL10isLegalUseRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_19ImmediateES4_NS3_6L
 
 787:                                              ; preds = %777
   %788 = icmp eq ptr %722, null
-  %789 = or i64 %.pre-phi, %774
+  %789 = or i64 %774, %.pre-phi
   %790 = icmp eq i64 %789, 0
   %spec.select.i = and i1 %788, %790
   br i1 %spec.select.i, label %_ZL10isLegalUseRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_19ImmediateES4_NS3_6LSRUse8KindTypeENS3_11MemAccessTyERKNS3_7FormulaE.exit.thread.i, label %_ZL10isLegalUseRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_19ImmediateES4_NS3_6LSRUse8KindTypeENS3_11MemAccessTyERKNS3_7FormulaE.exit.thread87.i
@@ -14410,7 +14410,7 @@ _ZL10isLegalUseRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_19ImmediateES4_NS3_6L
 
 _ZL20isAMCompletelyFoldedRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEblPNS_11InstructionE.exit.i: ; preds = %777
   %.not.i.i273 = icmp eq ptr %722, null
-  %792 = or i64 %.pre-phi, %774
+  %792 = or i64 %774, %.pre-phi
   %793 = icmp eq i64 %792, 0
   %spec.select25.i = and i1 %.not.i.i273, %793
   br i1 %spec.select25.i, label %_ZL10isLegalUseRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_19ImmediateES4_NS3_6LSRUse8KindTypeENS3_11MemAccessTyERKNS3_7FormulaE.exit.thread.i, label %_ZL10isLegalUseRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_19ImmediateES4_NS3_6LSRUse8KindTypeENS3_11MemAccessTyERKNS3_7FormulaE.exit.thread87.i
@@ -14478,7 +14478,7 @@ _ZL20isAMCompletelyFoldedRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_19Immediate
   %818 = add i64 %804, 1
   %or.cond5.i.i.i = icmp ult i64 %818, 2
   %or.cond32.i.i.i = and i1 %.not.i.i74.i, %or.cond5.i.i.i
-  %819 = or i64 %811, %815
+  %819 = or i64 %815, %811
   %820 = icmp eq i64 %819, 0
   %spec.select25.i75.i = and i1 %820, %or.cond32.i.i.i
   br i1 %spec.select25.i75.i, label %_ZL10isLegalUseRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_19ImmediateES4_NS3_6LSRUse8KindTypeENS3_11MemAccessTyERKNS3_7FormulaE.exit66.thread89.i, label %_ZL20isAMCompletelyFoldedRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_19ImmediateES4_NS3_6LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueES4_bl.exit76.thread.i
@@ -14515,7 +14515,7 @@ _ZL20isAMCompletelyFoldedRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_19Immediate
 
 _ZL10isLegalUseRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_19ImmediateES4_NS3_6LSRUse8KindTypeENS3_11MemAccessTyERKNS3_7FormulaE.exit66.i: ; preds = %824
   %.not.i.i.i = icmp eq ptr %803, null
-  %828 = or i64 %811, %825
+  %828 = or i64 %825, %811
   %829 = icmp eq i64 %828, 0
   %spec.select25.i.i = and i1 %.not.i.i.i, %829
   br i1 %spec.select25.i.i, label %_ZL10isLegalUseRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_19ImmediateES4_NS3_6LSRUse8KindTypeENS3_11MemAccessTyERKNS3_7FormulaE.exit66.thread89.i, label %_ZL10isLegalUseRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_19ImmediateES4_NS3_6LSRUse8KindTypeENS3_11MemAccessTyERKNS3_7FormulaE.exit66.thread.i
@@ -18470,7 +18470,7 @@ _ZN12_GLOBAL__N_16LSRUse9pushFixupERNS_8LSRFixupE.exit.i: ; preds = %412, %_ZN4l
 
 448:                                              ; preds = %447
   %or.cond.i.i.i = icmp eq i64 %427, -1
-  %449 = or i64 %434, %439
+  %449 = or i64 %439, %434
   %450 = icmp eq i64 %449, 0
   %spec.select26.i.i = and i1 %450, %or.cond.i.i.i
   br i1 %spec.select26.i.i, label %_ZL10isLegalUseRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_19ImmediateES4_NS3_6LSRUse8KindTypeENS3_11MemAccessTyERKNS3_7FormulaE.exit.thread.i, label %_ZL20isAMCompletelyFoldedRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_19ImmediateES4_NS3_6LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueES4_bl.exit.thread.i
@@ -18509,7 +18509,7 @@ _ZL20isAMCompletelyFoldedRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8Ki
   %463 = add i64 %427, 1
   %or.cond5.i.i.i = icmp ult i64 %463, 2
   %or.cond32.i.i.i = and i1 %.not.i.i103.i22, %or.cond5.i.i.i
-  %464 = or i64 %434, %439
+  %464 = or i64 %439, %434
   %465 = icmp eq i64 %464, 0
   %spec.select25.i.i = and i1 %465, %or.cond32.i.i.i
   br i1 %spec.select25.i.i, label %_ZL10isLegalUseRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_19ImmediateES4_NS3_6LSRUse8KindTypeENS3_11MemAccessTyERKNS3_7FormulaE.exit.thread.i, label %_ZL20isAMCompletelyFoldedRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_19ImmediateES4_NS3_6LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueES4_bl.exit.thread.i
@@ -35437,7 +35437,7 @@ define internal fastcc noundef zeroext i1 @_ZL20isAMCompletelyFoldedRKN4llvm19Ta
 
 30:                                               ; preds = %29
   %or.cond.i = icmp eq i64 %8, -1
-  %31 = or i64 %16, %21
+  %31 = or i64 %21, %16
   %32 = icmp eq i64 %31, 0
   %spec.select26 = and i1 %32, %or.cond.i
   br label %_ZL20isAMCompletelyFoldedRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEblPNS_11InstructionE.exit69
@@ -35463,7 +35463,7 @@ define internal fastcc noundef zeroext i1 @_ZL20isAMCompletelyFoldedRKN4llvm19Ta
 39:                                               ; preds = %24
   %40 = icmp eq ptr %6, null
   %41 = or i64 %8, %16
-  %42 = or i64 %41, %21
+  %42 = or i64 %21, %41
   %43 = icmp eq i64 %42, 0
   %spec.select = and i1 %40, %43
   br label %_ZL20isAMCompletelyFoldedRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEblPNS_11InstructionE.exit69
@@ -35476,7 +35476,7 @@ _ZL20isAMCompletelyFoldedRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8Ki
   %45 = add i64 %8, 1
   %or.cond5.i = icmp ult i64 %45, 2
   %or.cond32.i = and i1 %.not.i, %or.cond5.i
-  %46 = or i64 %16, %21
+  %46 = or i64 %21, %16
   %47 = icmp eq i64 %46, 0
   %spec.select25 = and i1 %47, %or.cond32.i
   br label %_ZL20isAMCompletelyFoldedRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEblPNS_11InstructionE.exit69

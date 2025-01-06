@@ -1348,7 +1348,7 @@ define dso_local noalias noundef ptr @qoi_encode(ptr noundef readonly %0, ptr no
   %139 = add i8 %117, 32
   %140 = icmp ult i8 %139, 64
   %141 = add i8 %136, 8
-  %142 = or i8 %138, %141
+  %142 = or i8 %141, %138
   %143 = icmp ult i8 %142, 16
   %or.cond33 = and i1 %140, %143
   br i1 %or.cond33, label %144, label %152

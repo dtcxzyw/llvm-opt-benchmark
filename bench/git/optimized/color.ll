@@ -490,7 +490,7 @@ while.end62:                                      ; preds = %if.then48, %while.c
   %or.cond = select i1 %tobool63, i1 true, i1 %tobool64
   %cmp.i76 = icmp ugt i32 %fg.sroa.0.0.ph.lcssa288, 1
   %cmp.i78 = icmp ugt i32 %bg.sroa.0.0.ph185.lcssa269, 1
-  %35 = or i32 %fg.sroa.0.0.ph.lcssa288, %bg.sroa.0.0.ph185.lcssa269
+  %35 = or i32 %bg.sroa.0.0.ph185.lcssa269, %fg.sroa.0.0.ph.lcssa288
   %36 = icmp ugt i32 %35, 1
   %or.cond178 = or i1 %or.cond, %36
   br i1 %or.cond178, label %if.end75, label %if.end162

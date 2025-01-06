@@ -1899,9 +1899,9 @@ lor.lhs.false9:                                   ; preds = %if.end
   %or.cond5 = or i1 %3, %cmp10
   %4 = icmp ugt i32 %millis, 86399999
   %or.cond7 = or i1 %4, %or.cond5
-  %5 = sub i32 31, %monthLength
-  %6 = sub i32 31, %prevMonthLength
-  %7 = or i32 %6, %5
+  %5 = sub i32 31, %prevMonthLength
+  %6 = sub i32 31, %monthLength
+  %7 = or i32 %5, %6
   %8 = icmp ugt i32 %7, 3
   %or.cond11 = or i1 %or.cond7, %8
   br i1 %or.cond11, label %if.then29, label %if.end30

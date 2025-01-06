@@ -2186,7 +2186,7 @@ define hidden void @_ZN12clap_builder7builder3arg3Arg6_build17hd59c45a2d102cd87E
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load i64, ptr %14, align 8
   %.fr = freeze i64 %15
-  %16 = or i64 %13, %.fr
+  %16 = or i64 %.fr, %13
   %17 = icmp eq i64 %16, 0
   %or.cond49 = select i1 %trunc, i1 %17, i1 false
   br i1 %or.cond49, label %.thread, label %.critedge

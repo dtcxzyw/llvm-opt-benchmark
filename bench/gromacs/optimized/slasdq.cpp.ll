@@ -107,7 +107,7 @@ define void @slasdq_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 74:                                               ; preds = %72
   %.not328 = icmp ne i32 %40, 0
-  %75 = or i32 %48, %.fr297
+  %75 = or i32 %.fr297, %48
   %76 = icmp ne i32 %75, 0
   %spec.select339 = select i1 %76, i1 true, i1 %.not328
   %77 = add nuw nsw i32 %39, 1

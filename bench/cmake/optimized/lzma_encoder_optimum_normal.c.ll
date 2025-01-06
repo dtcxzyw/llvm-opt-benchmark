@@ -441,11 +441,10 @@ fill_align_prices.exit:                           ; preds = %rc_bittree_reverse_
   %231 = getelementptr inbounds i8, ptr %170, i64 %230
   %232 = getelementptr inbounds i8, ptr %231, i64 -1
   %233 = load i8, ptr %232, align 1, !noalias !33
-  %234 = icmp ult i32 %.0184.i, 2
   %.not207.i = icmp ne i8 %233, %201
-  %or.cond.not227.i = select i1 %234, i1 %.not207.i, i1 false
-  %235 = icmp ult i32 %204, 2
-  %or.cond212.i = and i1 %235, %or.cond.not227.i
+  %234 = or i32 %204, %.0184.i
+  %235 = icmp ult i32 %234, 2
+  %or.cond212.i = select i1 %235, i1 %.not207.i, i1 false
   br i1 %or.cond212.i, label %236, label %237
 
 236:                                              ; preds = %227

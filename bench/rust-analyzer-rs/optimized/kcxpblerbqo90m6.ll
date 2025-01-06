@@ -36394,7 +36394,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 
 684:                                              ; preds = %"_ZN5rowan5green7element138_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$$RF$rowan..green..node..GreenNodeData$C$$RF$rowan..green..token..GreenTokenData$GT$$GT$8text_len17h99fb7657d751ae4dE.llvm.2274688034147933536.exit.i.i.i.i"
   %685 = icmp uge i32 %2, %682
-  %686 = icmp ule i32 %2, %.0.i.i.i.i
+  %686 = icmp uge i32 %.0.i.i.i.i, %2
   %or.cond.i.i = or i1 %686, %685
   br i1 %or.cond.i.i, label %687, label %800
 
@@ -37165,7 +37165,7 @@ _ZN3ide6typing11on_eq_typed8let_stmt17h8eee6b17f58d8d9fE.exit.i: ; preds = %798,
 
 951:                                              ; preds = %"_ZN5rowan5green7element138_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$$RF$rowan..green..node..GreenNodeData$C$$RF$rowan..green..token..GreenTokenData$GT$$GT$8text_len17h99fb7657d751ae4dE.llvm.2274688034147933536.exit.i.i.i49.i"
   %952 = icmp uge i32 %2, %949
-  %953 = icmp ule i32 %2, %.0.i.i.i43.i
+  %953 = icmp uge i32 %.0.i.i.i43.i, %2
   %or.cond.i52.i = or i1 %953, %952
   br i1 %or.cond.i52.i, label %954, label %1024
 

@@ -935,8 +935,8 @@ define void @secs2time_str(i64 noundef %0, ptr nocapture noundef writeonly %1, i
   %13 = srem i64 %12, 24
   %14 = sdiv i64 %0, 86400
   %15 = icmp slt i64 %0, -86399
-  %16 = or i64 %11, %9
-  %17 = or i64 %16, %13
+  %16 = or i64 %13, %9
+  %17 = or i64 %16, %11
   %18 = icmp slt i64 %17, 0
   %or.cond5 = or i1 %15, %18
   br i1 %or.cond5, label %19, label %22
